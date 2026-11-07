@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
-extern char data_021015a0;
+extern char gLocalWirelessLink_021015a0;
 extern "C" void func_0202c848(int);
 
 // USA: func_0202cd28
 extern "C" ARM void func_0202cd28(unsigned short* arg0) {
     if (arg0[1] == 0) {
-        *(int*)(&data_021015a0 + 0x10) = 1;
+        *(int*)(&gLocalWirelessLink_021015a0 + 0x10) = 1;
         return;
     }
     func_0202c848(arg0[1]);

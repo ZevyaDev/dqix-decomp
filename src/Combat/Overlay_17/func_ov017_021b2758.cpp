@@ -13,7 +13,7 @@ enum { Enum_ov017_021b2758_261 = 0x105, Enum_ov017_021b2758_268 = 0x10c };
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
-extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
+extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a27ac(void* arg0);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
@@ -88,7 +88,7 @@ extern "C" ARM int func_ov017_021b2758(Struct_ov017_021b2758_3* arg0) {
     int var3 = GetFollowCamera_020100f8((char*)var0);
     unsigned char* var4 = (unsigned char*)GetZone3D_02012fe4();
     if (var3 != 0) {
-        func_020a28b0((unsigned char*)var3, 2);
+        ClearCameraFlags_020a28b0((unsigned char*)var3, 2);
         if (arg0->unknown_3e_ != 0) {
             func_020a28a0((unsigned char*)var3, 2);
         }

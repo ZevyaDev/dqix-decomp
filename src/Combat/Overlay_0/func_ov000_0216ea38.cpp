@@ -3,11 +3,11 @@
 #include <Graphics/Vector.h>
 
 extern "C" int func_ov000_0216f728(unsigned short*);
-extern "C" void func_0202e694(void*, int*);
+extern "C" void SetCameraOrbitFromArray_0202e694(void*, int*);
 extern "C" int func_0202e88c(void*);
 extern "C" void func_0202e874(unsigned char*, int);
 extern "C" {
-void func_0202e5d8(void*,int,int,int);
+void SetCameraOrbit_0202e5d8(void*,int,int,int);
 extern int data_ov000_02183fc8;
 struct Struct_ov000_02184270_2 { unsigned short unknown_0_,unknown_2_; int unknown_4_,unknown_8_,unknown_c_,unknown_10_,unknown_14_; };
 extern Struct_ov000_02184270_2 data_ov000_02184270;
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov000_0216ea38(Struct_ov000_0216ea38* arg0) {
     int var31 = data_ov000_0218325c[(arg0->unknown_262_ + arg0->unknown_263_) % 5];
     if (data_ov000_02183fc8) {
         arg0->unknown_10_ = var9;
-        func_0202e5d8(arg0,var20,var26,var27);
+        SetCameraOrbit_0202e5d8(arg0,var20,var26,var27);
         func_0202e874((unsigned char*)arg0,var31);
         data_ov000_02183fc8 = 0;
     } else {
@@ -120,7 +120,7 @@ extern "C" ARM void func_ov000_0216ea38(Struct_ov000_0216ea38* arg0) {
         var32.x = fix32ReduceAngle0To2Pi(var19.x+var33);
         var32.y = (int)((float)var19.y + 0.02f*(float)(var26-var19.y));
         var32.z = (int)((float)var19.z + 0.02f*(float)(var27-var19.z));
-        func_0202e694(arg0,&var32.x);
+        SetCameraOrbitFromArray_0202e694(arg0,&var32.x);
         int var35, var36;
         int var37 = func_0202e88c(arg0);
         float var38 = (float)fix32SignedAngleDistance(var37,var31);

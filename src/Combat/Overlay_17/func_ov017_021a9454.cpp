@@ -9,7 +9,7 @@ enum { Enum_ov017_021a9454_92 = 0x5c, Enum_ov017_021a9454_2456 = 0x998, Enum_ov0
 
 struct Struct_0200ffc0;
 struct Struct_0214e34c;
-struct Struct_020d7aa0_2;
+struct TimedMessageQueue_020d7aa0_2;
 
 struct Struct_ov017_021a9454 {
     char unknown_0_[Enum_ov017_021a9454_92];
@@ -61,7 +61,7 @@ extern "C" Struct_ov017_021a9454* GetMessageWindow_020421a0(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" struct Struct_0214e34c* func_020d7a50(void);
-extern "C" void func_020d7aa0(struct Struct_020d7aa0_2* arg0);
+extern "C" void ClearTimedMessageQueue_020d7aa0(struct TimedMessageQueue_020d7aa0_2* queue);
 extern "C" void* func_0200ffc0(struct Struct_0200ffc0* arg0);
 extern "C" void func_020a7f40(unsigned char* arg0);
 extern "C" int GetStandardString_020e51cc(int stringId);
@@ -74,7 +74,7 @@ extern char data_ov017_021d7c49;
 extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 #endif
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
-extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
+extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" int GetMessageChoice_020457e0(void* window);
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void VectorizedMemset(void*, int, int);
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov017_021a9454(Struct_ov017_021a9454_2* arg0) {
 
     if (var3 == 0) {
         struct Struct_0214e34c* var4 = func_020d7a50();
-        func_020d7aa0((struct Struct_020d7aa0_2*)var4);
+        ClearTimedMessageQueue_020d7aa0((struct TimedMessageQueue_020d7aa0_2*)var4);
         void* var5 = func_0200ffc0((struct Struct_0200ffc0*)var0);
         func_020a7f40((unsigned char*)var5);
 
@@ -125,7 +125,7 @@ extern "C" ARM void func_ov017_021a9454(Struct_ov017_021a9454_2* arg0) {
 
     if (var3 != 1 || var1->unknown_9a0_ != 0) return;
 
-    func_020a28b0((unsigned char*)var2, 2);
+    ClearCameraFlags_020a28b0((unsigned char*)var2, 2);
     if (GetMessageChoice_020457e0(var1) == 0) {
         func_0200ffc0((struct Struct_0200ffc0*)var0);
         Struct_ov017_021a9454_3* var8 = (Struct_ov017_021a9454_3*)GetZoneEntry_0200fd0c(var0);

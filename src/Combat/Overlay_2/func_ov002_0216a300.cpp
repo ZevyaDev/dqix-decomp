@@ -13,7 +13,7 @@
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct SoundEffectManager_02108760;
-struct Struct_0205def8;
+struct TextWindowManager_0205def8;
 struct TextWindowManager_0205d81c;
 struct Struct_0205dee8;
 struct Struct_020e280c;
@@ -28,7 +28,7 @@ extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205d
 extern "C" void func_ov002_02161cf0(char *arg0);
 extern "C" void func_ov002_02160fb4(char *arg0);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
-extern "C" void func_0205def8(struct Struct_0205def8 *arg0, int arg1, int arg2);
+extern "C" void func_0205def8(struct TextWindowManager_0205def8 *arg0, int arg1, int arg2);
 extern "C" char *func_020e1b24(void *arg0);
 extern "C" void func_020e280c(struct Struct_020e280c *arg0, void *arg1);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
         func_ov002_02161cf0(arg0);
         func_ov002_02160fb4(arg0);
         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 5, 0);
-        func_0205def8((struct Struct_0205def8 *) LST(arg0), 0, K(0x25, 0x28));
+        func_0205def8((struct TextWindowManager_0205def8 *) LST(arg0), 0, K(0x25, 0x28));
         char *var2 = func_020e1b24(*(void **) (*(char **) arg0 + 0x10));
         if (((struct Struct_ov002_0216a300 *) var2)->unknown_3f_0_) {
             func_020e280c(*(struct Struct_020e280c **) (arg0 + 4), *(void **) (var2 + 0x30));
@@ -133,7 +133,7 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
         }
         *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) += 1;
     } else if (var1 == 1) {
-        func_0205def8((struct Struct_0205def8 *) LST(arg0), 0, K(0x25, 0x28));
+        func_0205def8((struct TextWindowManager_0205def8 *) LST(arg0), 0, K(0x25, 0x28));
         *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) |= 4;
         *(short *) (arg0 + RG(0x1c00 + 0x12, 0x1a00 + 0xda)) =
             GetCursorIndex_0205d794((struct Struct_0205c570 *) LST(arg0));

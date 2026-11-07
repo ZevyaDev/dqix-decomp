@@ -26,7 +26,7 @@ struct PacEntry_02020cb8_4;
 struct BGLayer_0204b8d0;
 struct BGLayer_02020cb8_2;
 struct BGLayer_02020cb8_6;
-struct Struct_0204af14;
+struct BGLayer_0204af14;
 struct Struct_02000c9c_8;
 
 extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
@@ -45,7 +45,7 @@ extern "C" void FillBGScreenRect_0204bc74(Struct_ov003_021594c4* layer, int scre
 extern "C" int CompareBytes_02001aec(const void* left, const void* right, unsigned int count);
 extern "C" void FlushBGBlock_0204b2e0(void* layer, char* block);
 extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6* layer, char* block);
-extern "C" void* func_0204af14(Struct_0204af14* arg0, unsigned int arg1);
+extern "C" void* GetBGScreenBlock_0204af14(BGLayer_0204af14* layer, unsigned int screenBlockIndex);
 extern "C" void func_0204b620(Struct_ov003_021594c4* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8,
                               int arg9);
 extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
@@ -440,10 +440,10 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_021842a0_2* arg0)
         var59 = 1;
     if (var33 == 8 && arg0->unknown_d95_ == 1)
     {
-        void* var60 = func_0204af14((Struct_0204af14*)&arg0->unknown_138_[3], 4);
+        void* var60 = GetBGScreenBlock_0204af14((BGLayer_0204af14*)&arg0->unknown_138_[3], 4);
         for (int var61 = 0; var61 < 4; var61++)
         {
-            Struct_ov009_02184e58* var62 = (Struct_ov009_02184e58*)func_0204af14((Struct_0204af14*)&arg0->unknown_138_[3], (unsigned char)var61);
+            Struct_ov009_02184e58* var62 = (Struct_ov009_02184e58*)GetBGScreenBlock_0204af14((BGLayer_0204af14*)&arg0->unknown_138_[3], (unsigned char)var61);
             Struct_ov003_021594c4 var63;
             InitBGLayer_0204af64((BGLayer_02020cb8*)&var63);
             func_0204b620(&var63, var62->unknown_c_, var60, 0, 0, 0x13, 0x11, 4, 2, 1);

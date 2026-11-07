@@ -26,7 +26,7 @@ struct Struct_ov000_0215b5a0_2 {
 struct Struct_ov000_0215b5a0_3 { unsigned short unknown_0_; char unknown_2_[0xb - 2]; unsigned char unknown_b_; };
 struct Struct_ov000_0215b5a0_4 { char unknown_0_[0x1c]; short unknown_1c_; short unknown_1e_; unsigned short unknown_20_, unknown_22_, unknown_24_; char unknown_26_[0x30 - 0x26]; int unknown_30_; };
 struct Struct_ov000_0215b5a0_5 { char unknown_0_[0xe]; short unknown_e_[4]; char unknown_16_; unsigned char unknown_17_; };
-struct Struct_ov000_021584e8 { char unknown_0_[0x20]; int unknown_20_; };
+struct ActionResult_ov000_021584e8 { char unknown_0_[0x20]; int unknown_20_; };
 struct BattleAction_ov000_0215440c { unsigned short unknown_0_; char unknown_2_[9 - 2]; unsigned char unknown_9_; };
 
 struct Struct_02010088;
@@ -49,8 +49,8 @@ extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
 struct Struct_ov000_0215767c_7; struct Struct_ov000_0215767c_6; struct Struct_ov000_0215767c_5; struct Struct_ov000_0215767c_4;
 extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*, Struct_ov000_0215767c_6*);
 extern "C" void func_ov000_021600cc(Struct_ov000_0215767c_5*, Struct_ov000_0215767c_4*);
-extern "C" void func_ov000_0215ccbc(int, Struct_ov000_021584e8*, GameObject*, short, short, short, unsigned long long, unsigned char);
-extern "C" Struct_ov000_021584e8* GetNextActionResult_ov000_0215e958(void*);
+extern "C" void SetActionResult_ov000_0215ccbc(int, ActionResult_ov000_021584e8*, GameObject*, short, short, short, unsigned long long, unsigned char);
+extern "C" ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e958(void*);
 extern "C" int func_ov000_02159f18(void*, unsigned long long, int);
 
 static inline Struct_ov000_0215b5a0* inline_ov000_0215b5a0(GameObject* arg0) { return (Struct_ov000_0215b5a0*)arg0->currentStats_; }
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov000_0215b5a0(Struct_ov000_0215b5a0_2* arg0, BattleAct
         if (!var5) var0[var1++] = var4;
     }
     for (int var7 = 0; var7 < var1; var7++) {
-        Struct_ov000_0215b5a0_3* var8; Struct_ov000_0215b5a0_4* var9; Struct_ov000_0215b5a0_5* var10; Struct_ov000_021584e8* var11;
+        Struct_ov000_0215b5a0_3* var8; Struct_ov000_0215b5a0_4* var9; Struct_ov000_0215b5a0_5* var10; ActionResult_ov000_021584e8* var11;
         GameState* var12 = GameState::GetInstance();
         short var13 = var0[var7];
         GameObject* var14 = var12->GetCombatantByIndex(var13);
@@ -125,7 +125,7 @@ extern "C" ARM void func_ov000_0215b5a0(Struct_ov000_0215b5a0_2* arg0, BattleAct
         {
             short var18 = inline_ov000_021584e8_2(var14);
             short var19 = inline_ov000_021584e8(var14);
-            func_ov000_0215ccbc((int)arg0, var11, var14, var15 + 1, var19, var18, var16, 0);
+            SetActionResult_ov000_0215ccbc((int)arg0, var11, var14, var15 + 1, var19, var18, var16, 0);
         }
         AddActionResultMessage_ov000_0215a88c(arg0, var11, var17);
         var10->unknown_e_[0] = var0[var7];
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov000_0215b5a0(Struct_ov000_0215b5a0_2* arg0, BattleAct
         {
             short var21 = inline_ov000_021584e8_2(var14);
             short var22 = inline_ov000_021584e8(var14);
-            func_ov000_0215ccbc((int)arg0, var11, var14, 0, var22, var21, 0, 0);
+            SetActionResult_ov000_0215ccbc((int)arg0, var11, var14, 0, var22, var21, 0, 0);
         }
         AddActionResultMessage_ov000_0215a88c(arg0, var11, 0x35);
         var10->unknown_e_[0] = var0[var7];

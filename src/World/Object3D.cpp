@@ -507,7 +507,7 @@ void Object3D::PopulateRenderConfigWorld()
     if (pPrevChild_ ? 1 : 0)
     {
         Matrix3x3 worldRotation;
-        func_020ca528(&data_0210a010.objectRotationPosition, &worldRotation);
+        func_020ca528(&gRenderConfig_0210a010.objectRotationPosition, &worldRotation);
         Matrix3x3 axisRotation;
         fix32_t rotationComponents[3];
         rotationComponents[0] = rotation_.z;
@@ -538,11 +538,11 @@ void Object3D::PopulateRenderConfigWorld()
         ownScale.x = scale_[0];
         ownScale.y = scale_[1];
         ownScale.z = scale_[2];
-        Vector3fixMultiply(&data_0210a010.objectScale, &ownScale, &multipliedScale);
+        Vector3fixMultiply(&gRenderConfig_0210a010.objectScale, &ownScale, &multipliedScale);
         RenderConfig::SetObjectScale(&multipliedScale);
         Vector3fix multipliedPosition;
         Vector3fixMultiply(&position_, &multipliedScale, &multipliedPosition);
-        Vector3fix_Add(&data_0210a010.objectRotationPosition.translation, &multipliedPosition, &multipliedPosition);
+        Vector3fix_Add(&gRenderConfig_0210a010.objectRotationPosition.translation, &multipliedPosition, &multipliedPosition);
         RenderConfig::SetObjectPosition(&multipliedPosition);
     }
     else
@@ -551,8 +551,8 @@ void Object3D::PopulateRenderConfigWorld()
         if (flags_ & (1 << OBJECT3D_FLAG_19))
         {
             const Matrix3x3* rotation = func_0202ed74(GetCamera_020100bc(GameState::GetInstance()));
-            func_020ca528(rotation, &data_0210a010.objectRotationPosition.rotation);
-            data_0210a010.flags &= ~((1 << RENDER_CONFIG_FLAG_WORLDVIEW_CACHE_VALID) | (1 << RENDER_CONFIG_FLAG_5) | (1 << RENDER_CONFIG_FLAG_2));
+            func_020ca528(rotation, &gRenderConfig_0210a010.objectRotationPosition.rotation);
+            gRenderConfig_0210a010.flags &= ~((1 << RENDER_CONFIG_FLAG_WORLDVIEW_CACHE_VALID) | (1 << RENDER_CONFIG_FLAG_5) | (1 << RENDER_CONFIG_FLAG_2));
         }
         else
         {

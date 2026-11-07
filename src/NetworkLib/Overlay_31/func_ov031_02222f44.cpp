@@ -3,7 +3,7 @@
 struct Struct_ov031_02222f44_2;
 extern "C" void func_ov031_0223bd28(Struct_ov031_02222f44_2*, int, unsigned int*, unsigned int*);
 extern "C" void func_ov031_02222eb0(void*);
-extern "C" void func_ov031_0223e2b8(void*, void*);
+extern "C" void SetTaskCallback_ov031_0223e2b8(void*, void*);
 extern "C" void func_ov031_02222fb0(void);
 
 struct Struct_ov031_02222f44 {
@@ -22,5 +22,5 @@ extern "C" ARM void func_ov031_02222f44(void* arg0) {
 	func_ov031_02222eb0((void*)var1);
 	if ((int)var1 > 0xa8) return;
 	func_ov031_02222eb0((void*)0xa8);
-	func_ov031_0223e2b8(arg0, (void*)func_ov031_02222fb0);
+	SetTaskCallback_ov031_0223e2b8(arg0, (void*)func_ov031_02222fb0);
 }

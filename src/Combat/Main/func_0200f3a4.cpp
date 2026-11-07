@@ -10,8 +10,8 @@ extern "C" void func_0208660c(char* arg0);
 struct Struct_0200f3a4_7;
 extern "C" void func_02082828(Struct_0200f3a4_7* arg0);
 extern "C" void func_0200fb40(void* arg0);
-struct Struct_0200f3a4_8;
-extern "C" void func_0209a338(Struct_0200f3a4_8* arg0);
+struct SkillTable_0200f3a4_8;
+extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8* table);
 struct Struct_0200f3a4_9;
 extern "C" void func_02010124(Struct_0200f3a4_9* arg0);
 extern "C" void func_020118fc(void* arg0);
@@ -194,7 +194,7 @@ extern "C" ARM void func_0200f3a4(void* arg0) {
     ((Struct_0200f3a4*)(var1 + J(0x56a0)))->unknown_2_3_ = 706;
     *(unsigned char*)(var1 + J(0x56a4)) = 0;
 
-    func_0209a338((Struct_0200f3a4_8*)(var1 + J(0x572c)));
+    ClearSkillTable_0209a338((SkillTable_0200f3a4_8*)(var1 + J(0x572c)));
     memset(var1 + J(0x5734), 0, 0x570);
 
     *(short*)(var1 + J(0x5e6c)) = 0;

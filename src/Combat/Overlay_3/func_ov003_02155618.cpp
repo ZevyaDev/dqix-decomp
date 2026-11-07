@@ -19,8 +19,8 @@ extern "C" int func_ov003_02155208(void* arg0);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
-struct Struct_0207fdcc_2;
-extern "C" void func_0207fdcc(struct Struct_0207fdcc_2* arg0, int arg1);
+struct MenuLayout_0207fdcc_2;
+extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 
 struct Struct_02081f20_2;
 extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov003_02155618(char* arg0) {
     }
 
     if (var0 != 0) {
-        func_0207fdcc(*(struct Struct_0207fdcc_2**)(arg0 + 0x18), *(short*)(arg0 + Enum_ov003_02155618_486));
+        CloseMenuLayoutWindow_0207fdcc(*(struct MenuLayout_0207fdcc_2**)(arg0 + 0x18), *(short*)(arg0 + Enum_ov003_02155618_486));
         func_0208203c((struct Struct_02081f20_2*)(arg0 + 0x80));
         *(void**)(arg0 + 8) = 0;
     }

@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca390 func_020cbe5c
-#endif
 
 struct Struct_ov027_021e33ec_4 {
 	void *unknown_0_;
@@ -13,13 +10,13 @@ extern struct Struct_ov027_021e33ec_4 data_ov027_021e33ec;
 extern "C" int func_ov027_021d96c4(unsigned char arg0, int arg1);
 extern "C" int func_ov027_021d9704(void);
 extern "C" int func_ov027_021d9940(void);
-extern "C" void func_020ca390(int val, void *dst, unsigned int nBytes);
+extern "C" void Memset16Bit_020ca390(int val, void *dst, unsigned int nBytes);
 
 // USA: func_ov027_021d9bdc
 #pragma optimize_for_size off
 extern "C" ARM int func_ov027_021d9bdc(void) {
 	unsigned short var0[5];
-	func_020ca390(0, var0, 0xa);
+	Memset16Bit_020ca390(0, var0, 0xa);
 
 	unsigned short var1 = 1;
 	char *var2 = (char*)data_ov027_021e33ec.unknown_0_;

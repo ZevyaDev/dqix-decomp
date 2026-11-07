@@ -8,7 +8,7 @@
 #define REGION_VALUE(jpnValue, usaValue) jpnValue
 extern "C" int func_020e0484(void* arg0, void* arg1, const char* arg2, void* arg3, unsigned short arg4, bool arg5);
 extern "C" int func_ov017_021b2718(void* arg0);
-extern const char* data_020f2a38;
+extern const char* gItemDataPath_020f2a38;
 static inline char* inline_0205faf4(void* arg0) {
     return (char*)arg0 + 0x5c0c;
 }
@@ -60,7 +60,7 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" void* func_02094d6c(void);
 extern "C" int func_02096088(void* arg0, int arg1);
 extern "C" void* func_0203cf4c(void);
-extern "C" void* func_0203df78(void* arg0, int arg1);
+extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
 struct Struct_0203e0a0;
 extern "C" void* func_02040538(struct Struct_0203e0a0* arg0);
 extern "C" int func_02010804(char* arg0);
@@ -108,7 +108,7 @@ extern "C" int func_0206e2dc(struct Struct_0205faf4_13* arg0, int arg1);
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 
 extern AllocatorUnion gMainHeap_02114e20;
-extern const char* data_020f2a38;
+extern const char* gItemDataPath_020f2a38;
 extern const char* data_020f2a30;
 
 struct Struct_0205faf4_14 {
@@ -351,7 +351,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return !IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x776);
     case 41: {
         struct Struct_0205faf4_2 { int unknown_0_; int unknown_4_; int unknown_8_; };
-        void* var33 = func_0203df78(func_0203cf4c(), EW(0));
+        void* var33 = FindNPCById_0203df78(func_0203cf4c(), EW(0));
         if (!var33) return 0;
         void* var34 = func_02040538((struct Struct_0203e0a0*)var33);
         if (!var34) return 0;
@@ -734,11 +734,11 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         InitItemTable_020de824(&var112);
         ClearItemTable_020de848(&var112);
 #if defined(jpn)
-        func_020e0484(&var112, &var111, data_020f2a38, var115, var116, true);
+        func_020e0484(&var112, &var111, gItemDataPath_020f2a38, var115, var116, true);
 #else
         BackgroundLoader::AddLockGlobal();
         var113 = 0;
-        void* var117 = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &var113);
+        void* var117 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var113);
         if (var117 != NULL) {
             func_020de9a4(&var112, &var111, var117, var113, var115, var116);
         }

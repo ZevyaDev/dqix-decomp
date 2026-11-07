@@ -3,7 +3,7 @@
 struct Struct_ov031_02222f44_2;
 extern "C" void func_ov031_0223bd28(Struct_ov031_02222f44_2*, int, unsigned int*, unsigned int*);
 extern "C" void func_ov031_022381c8(int);
-extern "C" ARM void* func_ov031_0223e218(void* arg0, void* arg1, void* arg2, int arg3);
+extern "C" ARM void* AddTask_ov031_0223e218(void* listIndex, void* callback, void* callbackData, int priority);
 extern "C" void func_ov031_0223815c(void);
 extern "C" void func_ov031_02238000(void);
 extern "C" void func_ov031_0223e2c0(int, void*);
@@ -31,9 +31,9 @@ extern "C" ARM void func_ov031_02237f2c(void* arg0) {
     }
     func_ov031_022381c8(var2);
     if (data_ov031_02290d10->unknown_1c_ == 5) {
-        data_ov031_02290d10->unknown_14_ = func_ov031_0223e218(0, (void*)func_ov031_0223815c, 0, 0x78);
+        data_ov031_02290d10->unknown_14_ = AddTask_ov031_0223e218(0, (void*)func_ov031_0223815c, 0, 0x78);
     } else {
-        data_ov031_02290d10->unknown_14_ = func_ov031_0223e218(0, (void*)func_ov031_02238000, 0, 0x78);
+        data_ov031_02290d10->unknown_14_ = AddTask_ov031_0223e218(0, (void*)func_ov031_02238000, 0, 0x78);
     }
     func_ov031_0223e2c0(1, arg0);
 }

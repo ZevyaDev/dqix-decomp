@@ -25,7 +25,7 @@ extern "C" void func_ov023_021e24b0(void* arg0, int arg1, int arg2, unsigned cha
 extern "C" void func_ov023_021e257c(void* arg0);
 extern "C" void* func_ov023_021db544(void* arg0, void* arg1, int arg2, int arg3);
 extern "C" int func_020dd718(int arg0, int arg1);
-extern "C" int func_020dd4c4(int arg0, void* arg1);
+extern "C" int GetEquipRestrictions_020dd4c4(int memberIndex, void* item);
 extern "C" int func_ov023_021ddc98(void* arg0, int arg1, unsigned short arg2, int arg3);
 extern "C" long labs(long);
 
@@ -350,7 +350,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
         FlushList(arg0, var0);
         func_ov023_021db544(arg0->unknown_cc_, (void*)0xb, var33, var32);
         SetEntryOff(arg0, 0xb);
-    } else if (!func_020dd4c4(arg0->unknown_77a_, arg0->unknown_4c_)) {
+    } else if (!GetEquipRestrictions_020dd4c4(arg0->unknown_77a_, arg0->unknown_4c_)) {
         short var39;
         unsigned char var40;
         short var41;

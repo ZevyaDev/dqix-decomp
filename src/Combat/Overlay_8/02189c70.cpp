@@ -247,7 +247,7 @@ extern "C" void StartMessage_0204500c(Struct_ov008_02189c70_12*, char*, int);
 #endif
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" int GetLocalWireless_0202ae18();
-extern "C" void LoadStringList_020728ac(void* stringList, SafeAllocator* allocator, void* arg2, unsigned int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
+extern "C" void LoadStringList_020728ac(void* stringList, SafeAllocator* allocator, void* scriptData, unsigned int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 extern "C" void* GetGlobalFlags_020d6c00();
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);

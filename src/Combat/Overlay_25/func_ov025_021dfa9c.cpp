@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov000_02160f20(void* arg0);
+extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" int func_ov000_02160f9c(void* arg0);
 struct BattleAction_ov000_0215440c_2;
 struct ActionActor_ov000_02160094;
@@ -16,7 +16,7 @@ extern "C" int func_02048ae0(void* arg0, int arg1, void* arg2, int arg3);
 // USA: func_ov025_021dfa9c
 extern "C" ARM int func_ov025_021dfa9c(void* arg0, void* arg1) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_ov000_02160f20(arg0);
+    void* var1 = GetCurrentBattleAction_ov000_02160f20(arg0);
     int var2 = func_ov000_02160f9c(arg0);
     struct ActionActor_ov000_02160094* var3 = GetActionActor_ov000_02160094((struct BattleAction_ov000_0215440c_2*)var1, 0);
     int var4;

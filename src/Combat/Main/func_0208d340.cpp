@@ -5,8 +5,8 @@
 extern "C" int GetResources_0200fb8c(int* gameState);
 int IsSubBrightnessTransitionActive(GameResources*);
 
-struct Struct_02074bf4;
-extern "C" void func_02074bf4(struct Struct_02074bf4*);
+struct BGControlSave_02074bf4;
+extern "C" void RestoreSubBGControl_02074bf4(struct BGControlSave_02074bf4*);
 
 struct Struct_0208ba54;
 extern "C" void func_0208ba54(struct Struct_0208ba54*);
@@ -43,7 +43,7 @@ extern "C" ARM void func_0208d340(struct Struct_0208d340* arg0) {
     }
     if (arg0->unknown_d5_ == 2) {
         arg0->unknown_da_ = arg0->unknown_da_ & ~4;
-        func_02074bf4((struct Struct_02074bf4*)((char*)arg0 + 0x2c));
+        RestoreSubBGControl_02074bf4((struct BGControlSave_02074bf4*)((char*)arg0 + 0x2c));
         func_020dc2d0(0);
         arg0->unknown_d5_ = arg0->unknown_d5_ + 1;
         return;

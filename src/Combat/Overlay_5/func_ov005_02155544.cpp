@@ -42,7 +42,7 @@ struct Struct_ov005_02153954 {
     Struct_ov005_02153ba4 unknown_2d90_[24];
 };
 
-extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
+extern "C" Struct_ov005_02153ba4_2* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
 extern "C" short* func_02052e14(Struct_02052e14* arg0);
 
 extern "C" unsigned char data_ov005_0215cbd4[8];
@@ -50,7 +50,7 @@ extern "C" unsigned char data_ov005_0215cbd4[8];
 // USA: func_ov005_02155544
 extern "C" ARM void func_ov005_02155544(Struct_ov005_02153954* arg0) {
     GameState* var0 = GameState::GetInstance();
-    Struct_ov005_02153ba4_2* var1 = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+    Struct_ov005_02153ba4_2* var1 = GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
     GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, var1->unknown_4fc_);
     short* var3 = func_02052e14((Struct_02052e14*)var2);
     for (int var4 = 0; var4 < 8; var4++) {

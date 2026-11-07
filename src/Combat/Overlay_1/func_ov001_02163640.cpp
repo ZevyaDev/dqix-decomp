@@ -4,7 +4,7 @@ extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 struct Struct_0209c3b4_2;
 extern "C" void PlayMusic_0209c3b4(struct Struct_0209c3b4_2* manager, int musicIndex);
 struct MusicManager_02109bf4_4;
-extern "C" void func_0209c678(struct MusicManager_02109bf4_4* arg0, int arg1);
+extern "C" void StopMusic_0209c678(struct MusicManager_02109bf4_4* manager, int fadeDuration);
 extern int gMusicManager_02109bf4;
 
 // USA: func_ov001_02163640
@@ -20,6 +20,6 @@ extern "C" ARM int func_ov001_02163640(void* arg0, int arg1) {
 		return 0;
 	}
 	PlayMusic_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var0);
-	func_0209c678((struct MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
+	StopMusic_0209c678((struct MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
 	return 1;
 }

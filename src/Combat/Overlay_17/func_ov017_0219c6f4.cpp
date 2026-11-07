@@ -2,14 +2,14 @@
 #include "GameState/GameState.h"
 
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
-extern "C" void func_02070378(char* arg0);
+extern "C" void InitZoneEntry_02070378(char* zoneEntry);
 struct Vector3i;
 
 // USA: func_ov017_0219c6f4
 extern "C" ARM void* func_ov017_0219c6f4(char* arg0) {
     GameState* var0 = GameState::GetInstance();
     char* var1 = (char*)GetZoneEntry_0200fd0c(var0);
-    func_02070378(var1);
+    InitZoneEntry_02070378(var1);
 
     *(short*)(var1 + 0x0) = *(int*)(arg0 + 0x1c);
     *(Vector3i*)((int*)(var1 + 0x10)) = *(Vector3i const*)((int*)(arg0 + 0x20));

@@ -2,12 +2,12 @@
 #include "GameState/GameState.h"
 #include "Input/Input.h"
 
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 struct Struct_0207fdf0_2;
 struct SoundEffectManager_02108760;
 struct Struct_02081f20_2;
 struct ItemTable_0201099c_10;
-struct Struct_ov003_02178910;
+struct ItemInfoPanel_ov003_02178910;
 struct Struct_ov003_02179e18;
 
 struct Struct_ov003_02179e18 {
@@ -32,7 +32,7 @@ struct Struct_ov003_0217ab34_2 {
 #endif
     char unknown_874_[0x88c - 0x874];
     char unknown_88c_[0x89c - 0x88c];
-    struct Struct_0207fdcc_2* unknown_89c_;
+    struct MenuLayout_0207fdcc_2* unknown_89c_;
     char unknown_8a0_[0xff8 - 0x8a0];
     short* unknown_ff8_;
     short unknown_ffc_;
@@ -59,13 +59,13 @@ struct Struct_ov003_0217ab34_2 {
 
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" short func_02080468(void* arg0, int arg1);
-extern "C" void func_02081ea4(struct Struct_0207fdcc_2* arg0, int arg1, int arg2);
+extern "C" void func_02081ea4(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
 extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
 extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" struct Struct_ov003_02179e18* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void func_0207fdf0(struct Struct_0207fdf0_2* arg0, int arg1);
-extern "C" void func_0207fdcc(struct Struct_0207fdcc_2* arg0, int arg1);
+extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" unsigned short func_ov003_0217b200(void** arg0);
 extern "C" int func_02086bf4(char* arg0, int arg1);
 extern "C" int func_ov003_02179e18(struct Struct_ov003_02179e18* arg0);
@@ -75,7 +75,7 @@ extern "C" int func_ov003_02179f34(void* arg0);
 extern "C" void func_ov003_02177dd4(void* arg0);
 extern "C" void func_ov003_021748c4(void* arg0);
 extern "C" void func_ov003_0217a14c(void* arg0);
-extern "C" void func_ov023_021dcae0(struct Struct_ov003_02178910* arg0, int arg1);
+extern "C" void SetItemInfoPanelItem_ov023_021dcae0(struct ItemInfoPanel_ov003_02178910* panel, int itemId);
 extern "C" int func_ov003_021765b4(void* arg0);
 extern "C" int func_ov003_02179da8(void* arg0, int arg1);
 extern "C" int func_ov003_021766e8(void* arg0);
@@ -93,7 +93,7 @@ extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 // USA: func_ov003_0217ab34
 extern "C" ARM void func_ov003_0217ab34(struct Struct_ov003_0217ab34_2* arg0) {
     char* var0 = (char*)GetParty_02010828(GameState::GetInstance());
-    struct Struct_0207fdcc_2* var1 = arg0->unknown_89c_;
+    struct MenuLayout_0207fdcc_2* var1 = arg0->unknown_89c_;
 
     if (arg0->unknown_103f_ == 0) {
         int var2 = func_ov003_02179f34(arg0);
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov003_0217ab34(struct Struct_ov003_0217ab34_2* arg0) {
         short var6 = arg0->unknown_103a_;
         arg0->unknown_ff8_ = &arg0->unknown_100e_;
         func_ov003_0217a14c(arg0);
-        func_ov023_021dcae0((struct Struct_ov003_02178910*)arg0->unknown_3c_, arg0->unknown_103a_);
+        SetItemInfoPanelItem_ov023_021dcae0((struct ItemInfoPanel_ov003_02178910*)arg0->unknown_3c_, arg0->unknown_103a_);
         if (func_ov003_021765b4(arg0) && var6 == arg0->unknown_103a_) {
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
             func_0208203c((struct Struct_02081f20_2*)arg0->unknown_88c_);
@@ -246,8 +246,8 @@ extern "C" ARM void func_ov003_0217ab34(struct Struct_ov003_0217ab34_2* arg0) {
                 arg0->unknown_103f_ = 4;
             }
         } else if (g_keyManager.TestKeysPressed(2) != 0 || var13 == -1) {
-            func_0207fdcc(var1, 9);
-            func_0207fdcc(var1, 10);
+            CloseMenuLayoutWindow_0207fdcc(var1, 9);
+            CloseMenuLayoutWindow_0207fdcc(var1, 10);
             func_0208203c((struct Struct_02081f20_2*)arg0->unknown_88c_);
             arg0->unknown_103f_ = 0;
         }

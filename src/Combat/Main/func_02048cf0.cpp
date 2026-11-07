@@ -22,7 +22,7 @@ struct Struct_02048cf0_3 {
 
 extern "C" int func_020493ec(unsigned char*);
 extern "C" int func_020493c8(unsigned char*);
-extern "C" int func_020493a4(unsigned char*);
+extern "C" int GetCombatantCell_020493a4(unsigned char*);
 extern "C" void func_02049390(unsigned char*, unsigned char);
 extern "C" void func_020493b8(unsigned char*, unsigned char);
 extern "C" void func_020493dc(unsigned char*, unsigned char);
@@ -43,10 +43,10 @@ extern "C" ARM void func_02048cf0(struct Struct_02048cf0_3* arg0, int arg1) {
         var0 = func_020493c8((unsigned char*)arg0);
     }
     if (var0 == 0xff) {
-        var0 = func_020493a4((unsigned char*)arg0);
+        var0 = GetCombatantCell_020493a4((unsigned char*)arg0);
     }
     if (arg1 != 0) {
-        var0 = func_020493a4((unsigned char*)arg0);
+        var0 = GetCombatantCell_020493a4((unsigned char*)arg0);
     }
     if (var0 != 0xff) {
         struct Struct_02048cf0 var1 = func_ov000_0216f74c(&var0);

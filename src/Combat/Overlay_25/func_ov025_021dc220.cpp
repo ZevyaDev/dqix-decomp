@@ -7,7 +7,7 @@ enum { Enum_ov025_021dc220_3704 = 0xe78 };
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov000_02160f20(void* arg0);
+extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" int func_ov000_021627fc(void* arg0);
 struct BattleAction_ov000_0215440c;
 extern "C" void* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index);
@@ -42,7 +42,7 @@ struct Struct_ov025_021dc220_3 {
 extern "C" ARM void func_ov025_021dc220(void* arg0) {
     struct Struct_ov025_021dc220* var0 = (struct Struct_ov025_021dc220*)arg0;
     GameState* var1 = GameState::GetInstance();
-    void* var2 = func_ov000_02160f20(arg0);
+    void* var2 = GetCurrentBattleAction_ov000_02160f20(arg0);
     short var3 = -1;
 
     if (func_ov000_021627fc(arg0)) {

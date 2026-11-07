@@ -3,10 +3,10 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct Struct_0202b2f0;
+struct LocalWireless_0202b2f0;
 struct LocalWireless_0202c1a4;
 
-struct Struct_0202b2f0 {
+struct LocalWireless_0202b2f0 {
     char unknown_0_[0xfc0];
     int unknown_fc0_;
 };
@@ -36,9 +36,9 @@ extern "C" void func_ov017_021d1118(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_021d1014(int arg0, int arg1, int arg2);
 extern "C" void func_ov017_021d0b30(int arg0, int arg1, int arg2);
 extern "C" void func_ov017_021d1810(int, int, signed char);
-extern "C" int func_0202c660(Struct_0202b2f0* arg0, int arg1);
-extern "C" int func_0202c1c0(Struct_0202b2f0* arg0, int arg1);
-extern "C" int func_0202bd34(Struct_0202b2f0* arg0, int arg1);
+extern "C" int func_0202c660(LocalWireless_0202b2f0* arg0, int arg1);
+extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
+extern "C" int func_0202bd34(LocalWireless_0202b2f0* arg0, int arg1);
 extern "C" int func_0202c648(int* arg0);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
@@ -49,14 +49,14 @@ extern "C" ARM void func_ov017_021b11d8(void* arg0, void* arg1) {
     Struct_ov017_021b11d8_2* var0 = (Struct_ov017_021b11d8_2*)arg0;
     GameState* var1 = GameState::GetInstance();
     GameResources* var2 = GetGameResources();
-    Struct_0202b2f0* var3 = (Struct_0202b2f0*)GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* var3 = (LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
     unsigned char var4 = var0->unknown_8_;
     if (var4 == 0) {
         var0->unknown_9_ = (unsigned char)GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var3);
         var0->unknown_a_ = 0;
         for (int var5 = 0; var5 < 4; var5++) {
             if (var5 != var0->unknown_9_) {
-                if (func_0202c1c0(var3, var5) != 0) {
+                if (IsLocalWirelessPlayerJoined_0202c1c0(var3, var5) != 0) {
                     var0->unknown_a_ |= (1 << var5);
                 }
             }

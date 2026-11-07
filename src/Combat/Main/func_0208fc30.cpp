@@ -20,7 +20,7 @@ extern "C" Struct_0208fa8c* GetZone3D_02012fe4();
 extern "C" int* GetLocalWireless_0202ae18();
 extern "C" unsigned char* GetFlagManager_0205ec34();
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
-extern "C" void func_ov017_021baedc(void* arg0, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(void* node, int arg1);
 extern "C" struct Struct_0205faf4_7* func_02094d6c();
 extern "C" struct Struct_0205faf4_8* func_02096134(struct Struct_0205faf4_7*, int);
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2*, struct QueueNode_0201bdac*);
@@ -75,7 +75,7 @@ extern "C" ARM void func_0208fc30(ActiveGrottoClass* arg0) {
 #endif
         if (IsNotLocalWirelessGuest_0202c508(var1)) {
             var10 = var3->unknown_ptr_array_371c[6];
-            func_ov017_021baedc(var10, 1);
+            ResetEventTask_ov017_021baedc(var10, 1);
             struct Struct_0205faf4_7* var12 = func_02094d6c();
 #if defined(jpn)
             var0 = "\x96\xb2";

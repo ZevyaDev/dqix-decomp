@@ -34,7 +34,7 @@ extern "C" ARM int func_02076bec(GameObject* arg0, void* arg1) {
     if (var3 != 0) {
         void* var5 = func_0202ed74(var3);
         func_020ca528(var5, &data_0210a0cc);
-        data_0210a010.flags &= ~0xa4;
+        gRenderConfig_0210a010.flags &= ~0xa4;
     }
 
     Vector3i var6 = data_020e8920;

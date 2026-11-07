@@ -2,7 +2,7 @@
 
 #if defined(jpn)
 #define REGION_VALUE(jpnValue, usaValue) jpnValue
-extern char* data_020f2a38;
+extern char* gItemDataPath_020f2a38;
 extern "C" int func_020e04f8(void*, void*, const char*, short, bool);
 #else
 #define REGION_VALUE(jpnValue, usaValue) usaValue
@@ -24,7 +24,7 @@ struct Struct_0203d028_2 {
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_020703c8(int arg0, int arg1, int arg2, int arg3);
-extern "C" void* func_ov017_021baedc(void* arg0, int arg1);
+extern "C" void* ResetEventTask_ov017_021baedc(void* node, int arg1);
 
 struct QueueNode_0201bdac;
 struct Queue_0201bdac_2;
@@ -35,10 +35,10 @@ extern "C" void func_020213fc(struct Struct_020213fc* arg0, int arg1);
 extern "C" void func_020e1154(void* arg0);
 
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
-extern "C" void func_02070378(char* arg0);
+extern "C" void InitZoneEntry_02070378(char* zoneEntry);
 
 extern "C" void* func_0203cf4c(void);
-extern "C" void* func_0203df78(void* arg0, int arg1);
+extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
 extern "C" int func_02040528(int* arg0);
 
 extern "C" void func_ov017_021b8d80(void*);
@@ -57,7 +57,7 @@ extern "C" void func_ov017_021b7104(void* arg0, void* arg1);
 struct GameState;
 extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void ClearItemTable_020de848(void* itemTable);
-extern char* data_020f2a38;
+extern char* gItemDataPath_020f2a38;
 extern char* data_020f2a30;
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 extern "C" int func_020de980(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
@@ -65,14 +65,14 @@ extern "C" void func_0207cbe8(char* arg0);
 extern "C" void func_0207d300(void* arg0, short arg1, int arg2, int arg3);
 
 extern "C" int func_02086d88(unsigned char* arg0, int arg1);
-extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* arg1);
+extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* outOwnPartyOrder);
 struct Struct_0203d028_3;
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 struct Struct_0206f81c;
 extern "C" void* func_02083554(struct Struct_0206f81c* arg0, int arg1);
 extern "C" void func_02083738(void* arg0, int arg1);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
-extern "C" void func_ov017_021c3fb4(int arg0, int arg1);
+extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int memberIndex, int requestModelLoad);
 extern "C" void func_ov017_021c4418(int arg0, signed char arg1);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 
@@ -210,7 +210,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
 
             case 0x77: case 0x80: case 0x9b: {
                 struct QueueNode_0201bdac* var18 = *(struct QueueNode_0201bdac**)((char*)var12 + 0x3000 + REGION_VALUE(0x524, 0x734));
-                func_ov017_021baedc(var18, 1);
+                ResetEventTask_ov017_021baedc(var18, 1);
                 *(unsigned short*)((char*)var18 + 8) = *(unsigned short*)(var14 + 2);
                 AppendToQueue_020469b4(var9, var18);
                 func_020213fc(*(struct Struct_020213fc**)((char*)var12 + 0x3000 + REGION_VALUE(0x4c0, 0x6d0)), 1);
@@ -220,7 +220,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
 
             case 0x85: case 0x8a: case 0xe2: {
                 unsigned char* var19 = (unsigned char*)GetZoneEntry_0200fd0c((GameState*)var11);
-                func_02070378((char*)var19);
+                InitZoneEntry_02070378((char*)var19);
                 var19[2] = 1;
                 *(unsigned short*)(var19 + 0) = *(unsigned short*)(var14 + 2);
                 *(unsigned int*)(var19 + 0x20) = *(unsigned short*)(var14 + 4);
@@ -233,7 +233,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
             }
 
             case 0x76: {
-                void* var20 = func_0203df78(func_0203cf4c(), *(unsigned short*)(var14 + 2));
+                void* var20 = FindNPCById_0203df78(func_0203cf4c(), *(unsigned short*)(var14 + 2));
                 int var21 = 0;
                 if (var20 != NULL) {
                     var21 = func_02040528((int*)var20);
@@ -262,7 +262,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
 
             case 0x79: case 0x89: case 0xe1: {
                 unsigned char* var26 = (unsigned char*)GetZoneEntry_0200fd0c((GameState*)var11);
-                func_02070378((char*)var26);
+                InitZoneEntry_02070378((char*)var26);
                 var26[2] = 1;
                 *(unsigned short*)(var26 + 0) = *(unsigned short*)(var14 + 2);
                 var26[0xc] = 1;
@@ -323,7 +323,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
             }
 
             case 0x7c: {
-                void* var31 = func_0203df78(func_0203cf4c(), *(unsigned short*)(var14 + 2));
+                void* var31 = FindNPCById_0203df78(func_0203cf4c(), *(unsigned short*)(var14 + 2));
                 if (var31 != NULL) {
                     *(int*)var31 |= 0x8000;
                 }
@@ -341,11 +341,11 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                     InitItemTable_020de824(var32);
                     ClearItemTable_020de848(var32);
 #if defined(jpn)
-                    func_020e04f8(var32, (void*)var33, data_020f2a38, *(short*)(var14 + 2), true);
+                    func_020e04f8(var32, (void*)var33, gItemDataPath_020f2a38, *(short*)(var14 + 2), true);
 #else
                     BackgroundLoader::AddLockGlobal();
                     unsigned int var35 = 0;
-                    void* var36 = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &var35);
+                    void* var36 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var35);
                     if (var36 != NULL) {
                         func_020de980(var32, var34, var36, var35, (int)(*(short*)(var14 + 2)));
                     }
@@ -395,7 +395,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                         for (int var50 = 0; var50 < var43; var50++) {
                             if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18())) {
                                 int var51 = var42[var50];
-                                func_ov017_021c3fb4(var51, 1);
+                                SendPartyMemberEquippedItems_ov017_021c3fb4(var51, 1);
                                 func_ov017_021c4418(var51, var49);
                             }
                             void* var52 = GetGameResources();
@@ -435,7 +435,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                                     if (var63 != NULL) {
                                         func_02083738((void*)var62, var63->unknown_8_0_);
                                         if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18())) {
-                                            func_ov017_021c3fb4(var60, 1);
+                                            SendPartyMemberEquippedItems_ov017_021c3fb4(var60, 1);
                                             func_ov017_021c4418(var60, -1);
                                         }
                                         void* var64 = GetGameResources();
@@ -467,11 +467,11 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                     InitItemTable_020de824(var68);
                     ClearItemTable_020de848(var68);
 #if defined(jpn)
-                    func_020e04f8(var68, (void*)var69, data_020f2a38, *(short*)(var14 + 6), true);
+                    func_020e04f8(var68, (void*)var69, gItemDataPath_020f2a38, *(short*)(var14 + 6), true);
 #else
                     BackgroundLoader::AddLockGlobal();
                     unsigned int var71 = 0;
-                    void* var72 = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &var71);
+                    void* var72 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var71);
                     if (var72 != NULL) {
                         func_020de980(var68, var70, var72, var71, (int)(*(short*)(var14 + 6)));
                     }

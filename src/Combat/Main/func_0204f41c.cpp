@@ -13,7 +13,7 @@ struct Struct_0204f41c {
 
 extern "C" int func_0204fc40(Struct_0204f41c_2* arg0, const char** arg1, const char* arg2, short* arg3, int arg4);
 extern "C" void func_0204df9c(Struct_0204f41c_2* arg0, Struct_0204f41c* arg1, short arg2, short arg3, unsigned char arg4, int arg5);
-extern "C" Struct_0204f41c* func_0204254c(int arg0, int arg1);
+extern "C" Struct_0204f41c* FindFontGlyph_0204254c(int text, int font);
 extern "C" Struct_0204f41c* func_020425b4(int arg0, int arg1);
 
 extern const unsigned char data_020e7bd8[];
@@ -94,7 +94,7 @@ extern "C" ARM void func_0204f41c(Struct_0204f41c_2* arg0, short arg1, short arg
             var4--;
         }
         unsigned char var8 = data_020e7bd8[arg8] + 1;
-        Struct_0204f41c* var9 = func_0204254c((int)var4, arg8);
+        Struct_0204f41c* var9 = FindFontGlyph_0204254c((int)var4, arg8);
         if (var9 != NULL) {
             func_0204df9c(arg0, var9, arg1, arg2, var5, arg8);
             var8 = var9->unknown_4_ + 1;

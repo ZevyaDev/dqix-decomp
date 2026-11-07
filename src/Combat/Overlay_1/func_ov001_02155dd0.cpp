@@ -9,7 +9,7 @@
 
 
 struct Struct_02000c9c_36;
-struct Struct_0203dce4_2;
+struct NPCManager_0203dce4_2;
 struct Struct_0204039c;
 struct Struct_0203dd10;
 
@@ -24,7 +24,7 @@ extern "C" void* GetZone3D_02012fe4();
 extern "C" char* GetMessageWindow_020421a0();
 extern "C" void* func_0203cf4c(void);
 extern "C" void* func_0203d004(void* arg0);
-extern "C" void* func_0203dce4(Struct_0203dce4_2*, int);
+extern "C" void* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
 extern "C" int* func_02040528(int* arg0);
 struct Struct_0204027c_2;
 extern "C" int func_02040404(Struct_0204027c_2*, char const*);
@@ -42,9 +42,9 @@ struct Struct_020708c8;
 extern "C" void func_020708c8(Struct_020708c8*, unsigned int);
 extern "C" void func_0209c278(void* arg0);
 extern "C" void func_0209c290(void* arg0);
-extern "C" void func_0205ea20(void* arg0, int arg1);
+extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
 extern "C" void func_ov028_021d9714();
-extern "C" void func_020a1f4c(int arg0);
+extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
 extern "C" void* GetFlagManager_0205ec34();
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 struct Struct_02010604;
@@ -121,7 +121,7 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
     var16 = var14;
     var15 = data_ov001_02164c4a;
     for (; var8 < 0x20; var8++) {
-        int* var17 = (int*)func_0203dce4((Struct_0203dce4_2*)var13, var8);
+        int* var17 = (int*)GetNPCByIndex_0203dce4((NPCManager_0203dce4_2*)var13, var8);
         if (var17 != 0) {
             unsigned char* var18 = (unsigned char*)func_02040528(var17);
             if (var18[2] == 3) {
@@ -156,11 +156,11 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
 #if !defined(jpn)
         func_0209c278(gMusicManager_02109bf4);
         func_0209c290(gMusicManager_02109bf4);
-        func_0205ea20(gSoundEffectManager_02108760, 0x64);
+        LoadSoundEffectSet_0205ea20(gSoundEffectManager_02108760, 0x64);
 #endif
         ClearFlags00((GameResources*)var6, 0x1000);
         func_ov028_021d9714();
-        func_020a1f4c(1);
+        PopSubOverlay_020a1f4c(1);
     }
 
     DISPCNT = (DISPCNT & ~0x1f00) | 0x100;

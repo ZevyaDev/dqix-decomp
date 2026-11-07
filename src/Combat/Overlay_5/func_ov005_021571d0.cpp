@@ -5,7 +5,7 @@
 #endif
 #include <globaldefs.h>
 
-struct Struct_0205bef8;
+struct KeyMenuCursor_0205bef8;
 struct MenuCursor_0205ba68;
 struct MenuCursor_0205bacc;
 
@@ -27,7 +27,7 @@ struct Struct_ov005_02153954 {
     unsigned char unknown_3dbc_;
 };
 
-extern "C" void func_0205bef8(Struct_0205bef8* arg0);
+extern "C" void InitKeyMenuCursor_0205bef8(KeyMenuCursor_0205bef8* cursor);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc* cursor, int itemCount);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov005_021571d0(Struct_ov005_02153954* arg0) {
         var7 = 0;
         break;
     }
-    func_0205bef8((Struct_0205bef8*)&arg0->unknown_19f4_);
+    InitKeyMenuCursor_0205bef8((KeyMenuCursor_0205bef8*)&arg0->unknown_19f4_);
     SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&arg0->unknown_19f4_, var0, var1, var2);
     SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&arg0->unknown_19f4_, var3);
     arg0->unknown_19f4_.unknown_4_ = var4;

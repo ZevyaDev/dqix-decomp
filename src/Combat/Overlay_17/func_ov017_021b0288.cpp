@@ -30,7 +30,7 @@ extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int in
 extern "C" void func_020546a0(void* arg0, int arg1);
 extern "C" void func_ov017_021c32b0(Struct_ov017_021b0288* arg0, int arg1);
 extern "C" void func_020100a0(GameState* arg0, int arg1);
-extern "C" void func_ov017_02191108(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(void* gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 extern "C" void func_ov017_021b0a7c(Struct_ov017_021b0288_2* arg0);
 extern "C" void func_ov017_021d0b30(int arg0, int arg1, int arg2);
 extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
@@ -79,7 +79,7 @@ extern "C" ARM int func_ov017_021b0288(Struct_ov017_021b0288_2* arg0) {
             func_020100a0(var6, GetOwnProtagonistObjectIndex_0202c1a4(var5));
             int var10 = 1;
             if (arg0->unknown_4_ != 0 && *arg0->unknown_4_ == 10) var10 = 0;
-            func_ov017_02191108(var4, 1, var10, 1, 1);
+            RebuildFieldPartyOrder_ov017_02191108(var4, 1, var10, 1, 1);
         }
         func_ov017_021b0a7c(arg0);
         func_ov017_021d0b30(2, 0, 0);

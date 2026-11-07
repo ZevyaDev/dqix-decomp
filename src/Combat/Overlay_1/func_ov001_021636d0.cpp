@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
-extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
+extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
 extern int gMusicManager_02109bf4;
 
 // USA: func_ov001_021636d0
@@ -16,6 +16,6 @@ extern "C" ARM int func_ov001_021636d0(void* arg0, int arg1) {
 	if (arg1 >= 2) {
 		var1 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 8);
 	}
-	func_0209c2e0(&gMusicManager_02109bf4, var0, var1);
+	SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, var0, var1);
 	return 1;
 }

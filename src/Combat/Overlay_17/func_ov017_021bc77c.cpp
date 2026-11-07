@@ -56,7 +56,7 @@ struct Struct_020e385c;
 extern "C" void func_020e3a50(Struct_020e385c*, int, int, int);
 extern "C" void func_020e3994(Struct_020e385c*, int, int);
 struct Struct_02040774_2;
-extern "C" void func_020407b4(Struct_02040774_2*, int, int, int);
+extern "C" void SetObject3DPosition_020407b4(Struct_02040774_2*, int, int, int);
 struct Struct_02033834;
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void func_02039d48(unsigned char*);
@@ -74,7 +74,7 @@ extern "C" int func_ov017_0219bddc(unsigned char* arg0);
 extern "C" void func_ov017_0219bf04(int arg0, int arg1);
 extern "C" void func_ov017_021c178c(unsigned char* arg0);
 extern "C" void func_ov017_021b8bb0(unsigned short arg0);
-extern "C" void func_02070378(char*);
+extern "C" void InitZoneEntry_02070378(char*);
 extern "C" void func_02017d68(void* arg0);
 extern "C" int func_020a1eb0();
 #if defined(jpn)
@@ -83,7 +83,7 @@ extern "C" void func_ov001_02156b20(void*);
 extern "C" void func_ov000_02156b20(GameObject*);
 #endif
 extern "C" void func_ov017_021a01bc(unsigned char*);
-extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
+extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
 extern "C" void func_ov017_0219bcac(unsigned char arg0);
 
 extern AllocatorUnion gMainHeap_02114e20;
@@ -342,12 +342,12 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
         func_020e3994((Struct_020e385c*)var28, 1, *(unsigned short*)((unsigned char*)arg0 + 0x18));
     }
     if (arg0->unknown_cc_ && arg0->unknown_cf_ == 3) {
-        func_020407b4((Struct_02040774_2*)var3, 0x48cc, 0x199, -0x733);
+        SetObject3DPosition_020407b4((Struct_02040774_2*)var3, 0x48cc, 0x199, -0x733);
         SetFacingInstantly_02033874((Struct_02033834*)var3, 0);
         for (int var29 = 1; var29 < 4; var29++) {
             GameObject* var30 = var0->GetPartyMemberByIndex(var29);
             if (var30) {
-                func_020407b4((Struct_02040774_2*)var30, 0x48cc, 0x199, -0x733);
+                SetObject3DPosition_020407b4((Struct_02040774_2*)var30, 0x48cc, 0x199, -0x733);
                 SetFacingInstantly_02033874((Struct_02033834*)var30, 0x3244);
                 func_02039d48((unsigned char*)var30);
             }
@@ -448,7 +448,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
                arg0->unknown_13c_ == 0 && (short)arg0->unknown_146_ >= 0) {
         func_ov017_021b8bb0((short)arg0->unknown_146_);
     } else if (arg0->unknown_9c_ && arg0->unknown_a2_ != *var12) {
-        func_02070378((char*)var27);
+        InitZoneEntry_02070378((char*)var27);
         var27[2] = 1;
         *(unsigned short*)var27 = arg0->unknown_a2_;
         var27[7] = 1;
@@ -456,7 +456,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
         *(short*)(var27 + 0x1c) = arg0->unknown_c8_;
         SetBrightness(var1, -16, 0);
     } else if (*(int*)((unsigned char*)var0 + Enum_ov017_021bc77c_29172) > 0) {
-        func_02070378((char*)var27);
+        InitZoneEntry_02070378((char*)var27);
         var27[2] = 1;
         *(unsigned short*)var27 = *(int*)((unsigned char*)var0 + Enum_ov017_021bc77c_29172);
         var27[7] = 1;
@@ -483,7 +483,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
         }
         EnablePlayerControl_020397c0(var3);
         func_02039830(var3);
-        func_0209c2e0(gMusicManager_02109bf4, 0x7f, 0);
+        SetMusicVolume_0209c2e0(gMusicManager_02109bf4, 0x7f, 0);
         if (arg0->unknown_114_) {
             *(unsigned short*)((unsigned char*)var1 + Enum_ov017_021bc77c_17580) = arg0->unknown_114_;
             arg0->unknown_114_ = 0;

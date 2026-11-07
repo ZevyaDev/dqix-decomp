@@ -5,7 +5,7 @@
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void* GetZone3D_02012fe4(void);
 struct Vector3i;
-extern "C" void func_02070378(char*);
+extern "C" void InitZoneEntry_02070378(char*);
 
 #if defined(jpn)
 enum { Enum_ov001_021620bc_9147 = 0x23db, Enum_ov001_021620bc_9152 = 0x23e0, Enum_ov001_021620bc_9164 = 0x23ec };
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov001_021620bc(void) {
     char* var3 = (char*)GetZone3D_02012fe4();
     *(Vector3i*)var0 = *(Vector3i const*)((int*)(var3 + Enum_ov001_021620bc_9152));
     short var4 = *(short*)(var3 + Enum_ov001_021620bc_9164);
-    func_02070378((char*)var2);
+    InitZoneEntry_02070378((char*)var2);
     var2->unknown_2_ = 1;
     var2->unknown_7_ = 1;
     var2->unknown_0_ = (short)(*(signed char*)(var3 + Enum_ov001_021620bc_9147) + 0x1c40 + 0x8000);

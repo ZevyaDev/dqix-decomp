@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void func_ov000_0216d370(char* arg0, int arg1, int arg2, int arg3);
+extern "C" void ResetBattleCamera_ov000_0216d370(char* camera, int resetRoll, int resetFieldOfView, int resetTurns);
 extern "C" void func_ov000_0216d530(void*, int);
-extern "C" void func_0202e694(void* arg0, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
 
 extern Vector3i data_ov000_02183280;
 
 // USA: func_ov000_0216dbf0
 extern "C" ARM void func_ov000_0216dbf0(char* arg0, int* arg1, int arg2, short arg3) {
-    func_ov000_0216d370(arg0, 1, 1, 1);
+    ResetBattleCamera_ov000_0216d370(arg0, 1, 1, 1);
     *(unsigned char*)(arg0 + 0x220) = 3;
 
     Vector3i var0 = data_ov000_02183280;
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov000_0216dbf0(char* arg0, int* arg1, int arg2, short a
     }
 
     *(Vector3i*)(arg0 + 0x10) = var0;
-    func_0202e694(arg0, (int*)&var1);
+    SetCameraOrbitFromArray_0202e694(arg0, (int*)&var1);
     *(int*)(arg0 + 0x238) = 0x1c;
     *(int*)(arg0 + 0x23c) = 0x14;
 }

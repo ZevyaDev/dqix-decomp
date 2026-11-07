@@ -2,7 +2,7 @@
 #include "NitroSDK/TouchScreen.h"
 
 
-extern "C" void* func_ov031_0223cf4c(unsigned int arg0, int arg1);
+extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int size, int alignAndDir);
 extern "C" void HaltForever_020c9be0(void);
 extern "C" void func_ov031_0223d0a4();
 
@@ -11,7 +11,7 @@ extern struct Struct_ov031_02290d40 data_ov031_02290d40;
 
 // USA: func_ov031_0223cff0
 extern "C" ARM void func_ov031_0223cff0(void) {
-	data_ov031_02290d40.unknown_4_ = func_ov031_0223cf4c(0x3a, 4);
+	data_ov031_02290d40.unknown_4_ = AllocateZeroedMemory_ov031_0223cf4c(0x3a, 4);
 
 	TouchScreenCalibration var0;
 	if (GetTouchScreenCalibration(&var0) == 0) {

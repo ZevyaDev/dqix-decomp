@@ -12,8 +12,8 @@ struct Struct_ov023_021dd59c;
 extern "C" int func_ov023_021ddbf8(struct Struct_ov023_021dd59c* arg0);
 extern "C" void func_020dc2bc(void);
 
-struct Struct_02074b64;
-extern "C" void func_02074b64(struct Struct_02074b64* arg0);
+struct BGControlSave_02074b64;
+extern "C" void SaveSubBGControl_02074b64(struct BGControlSave_02074b64* save);
 extern "C" void SaveMainBGControl_02074af4(void* save);
 
 struct Struct_020534ac;
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov023_021dd59c(void* arg0) {
 
     if (*(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) == 4) {
         if (*(signed char*)(var0 + Enum_ov023_021dd59c_1916) == 1) {
-            func_02074b64((struct Struct_02074b64*)(var0 + Enum_ov023_021dd59c_280));
+            SaveSubBGControl_02074b64((struct BGControlSave_02074b64*)(var0 + Enum_ov023_021dd59c_280));
         } else {
             SaveMainBGControl_02074af4(var0 + Enum_ov023_021dd59c_280);
         }

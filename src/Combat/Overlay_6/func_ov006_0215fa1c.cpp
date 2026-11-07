@@ -6,11 +6,11 @@ enum { Enum_ov006_0215fa1c_20 = 0xc, Enum_ov006_0215fa1c_116 = 0x6c, Enum_ov006_
 enum { Enum_ov006_0215fa1c_20 = 0x14, Enum_ov006_0215fa1c_116 = 0x74, Enum_ov006_0215fa1c_4 = 4 };
 #endif
 
-struct Struct_02080fa8;
+struct MenuLayout_02080fa8;
 struct Struct_02081164;
 struct Struct_ov006_0215fa1c {
     char unknown_0_[Enum_ov006_0215fa1c_20];
-    Struct_02080fa8* unknown_14_;
+    MenuLayout_02080fa8* unknown_14_;
     char unknown_18_[Enum_ov006_0215fa1c_116-Enum_ov006_0215fa1c_20-4];
     int unknown_74_;
     char unknown_78_[0x366-Enum_ov006_0215fa1c_116-4];
@@ -21,7 +21,7 @@ struct Struct_ov006_0215fa1c {
 extern "C" void func_02080b54(void*, int);
 extern "C" void func_02080b40(void*, int);
 extern "C" void func_0208103c(void*, int, int);
-extern "C" void func_02080fa8(Struct_02080fa8*, int, int);
+extern "C" void SetMenuLayoutTextValue_02080fa8(MenuLayout_02080fa8*, int, int);
 extern "C" void func_02081164(Struct_02081164*, int, int);
 extern "C" void func_020806d8(void*, int, int, int, int);
 extern "C" int func_ov006_02154138(int*);
@@ -29,7 +29,7 @@ extern "C" void func_020813ec(void*, int);
 
 // USA: func_ov006_0215fa1c
 extern "C" ARM void func_ov006_0215fa1c(Struct_ov006_0215fa1c* arg0, int arg1) {
-    Struct_02080fa8* var0 = arg0->unknown_14_;
+    MenuLayout_02080fa8* var0 = arg0->unknown_14_;
     func_02080b54(var0, 0xd);
     func_02080b40(var0, 0x56);
     func_0208103c(arg0->unknown_14_, 0x56, 0x2b);
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov006_0215fa1c(Struct_ov006_0215fa1c* arg0, int arg1) {
             int var5 = (var4 - var4 % 100) / 100;
             if (var2 && var5 <= 0) var5 = 1;
             if (var5 > 100) var5 = 100;
-            func_02080fa8(var0, 0x58, var5);
+            SetMenuLayoutTextValue_02080fa8(var0, 0x58, var5);
             func_02080b40(var0, 0x58);
             func_0208103c(arg0->unknown_14_, 0x56, 0x2e);
         }

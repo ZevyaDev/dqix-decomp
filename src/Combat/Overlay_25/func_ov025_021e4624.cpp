@@ -52,7 +52,7 @@ extern "C" Struct_ov000_0215440c_4* GetActionActor_ov000_02160094(BattleAction_o
 extern "C" Struct_ov000_0215440c_5* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 extern "C" void func_ov025_021e3158(struct Struct_ov025_021ef9a8* arg0);
 extern "C" void func_02078484(struct Struct_02078398_2* arg0);
-extern "C" int func_02057fb4(void*, int, void*);
+extern "C" int PlayEffect_02057fb4(void*, int, void*);
 extern "C" void func_02057db8(void*, int);
 extern "C" void* GetEffectManager_02057924(void);
 
@@ -91,7 +91,7 @@ extern "C" ARM int func_ov025_021e4624(struct Struct_ov025_021e4624* arg0, void*
         if (arg0->unknown_8_ != NULL) {
             strcpy(var8.unknown_0_, arg0->unknown_8_);
         }
-        data_ov025_021ef988.unknown_24_ = func_02057fb4(var1, arg0->unknown_c_, &var8);
+        data_ov025_021ef988.unknown_24_ = PlayEffect_02057fb4(var1, arg0->unknown_c_, &var8);
         data_ov025_021ef988.unknown_20_++;
         return 0;
     }

@@ -104,7 +104,7 @@ extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* 
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 struct Struct_02040774_2;
-extern "C" void func_020407b4(struct Struct_02040774_2* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetObject3DPosition_020407b4(struct Struct_02040774_2* object, int x, int y, int z);
 struct Struct_02059cfc_2;
 struct Struct_02059cfc_3;
 extern "C" void func_02059f38(struct Struct_02059cfc_2* arg0, struct Struct_02059cfc_3* arg1);
@@ -365,7 +365,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
             arg0->unknown_238_[0].LoadFromCHRArchive(&var43);
             arg0->unknown_238_[0].MaybeSetBCFGAnimation(0, 0);
             SaveTextureVRAMState_0207dfac(var41->unknown_2cc_);
-            func_020407b4((struct Struct_02040774_2*)&arg0->unknown_238_[0], -0x3800, -0xb3b, 0x60a3);
+            SetObject3DPosition_020407b4((struct Struct_02040774_2*)&arg0->unknown_238_[0], -0x3800, -0xb3b, 0x60a3);
         }
         var0->RemoveTask(arg0->unknown_ad4_);
         arg0->unknown_ad4_ = -1;
@@ -391,7 +391,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
             arg0->unknown_238_[1].MaybeSetBCFGAnimation(0, 0);
             SaveTextureVRAMState_0207dfac(var46->unknown_2cc_);
             arg0->unknown_238_[1].SetScale(0x10a, 0x10a, 0x10a);
-            func_020407b4((struct Struct_02040774_2*)&arg0->unknown_238_[1], -0x41, -0xaac, 0x61f3);
+            SetObject3DPosition_020407b4((struct Struct_02040774_2*)&arg0->unknown_238_[1], -0x41, -0xaac, 0x61f3);
         }
         var0->RemoveTask(arg0->unknown_ad4_);
         arg0->unknown_ad4_ = -1;

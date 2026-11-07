@@ -7,7 +7,6 @@ unsigned short ComputeCurrentKeys();
 
 #if defined(jpn)
 #define func_0200b454 func_0200b318
-#define func_020c39c8 func_020c5494
 
 #define data_020fb3cc data_020fb0f8
 #endif
@@ -22,7 +21,7 @@ extern "C"
     // set flag in some big flag mask
     void SetFlag_0206df6c(void*, void*, int, bool);
     // get signed brightness
-    int func_020c39c8(volatile unsigned short*);
+    int ReadBrightnessRegister_020c39c8(volatile unsigned short*);
 
     // abort() or similar
     void HaltForever_020c9be0();
@@ -57,8 +56,8 @@ void KeyManager::RefreshKeys()
     if (!receivingInput_ || IsLidDown())
         goto do_ignore;
 
-    subBrightness = func_020c39c8(&REG_MASTER_BRIGHT_SUB);
-    mainBrightness = func_020c39c8(&REG_MASTER_BRIGHT);
+    subBrightness = ReadBrightnessRegister_020c39c8(&REG_MASTER_BRIGHT_SUB);
+    mainBrightness = ReadBrightnessRegister_020c39c8(&REG_MASTER_BRIGHT);
     if (abs(mainBrightness) + abs(subBrightness) < 0x20)
         goto dont_ignore;
 
@@ -212,8 +211,8 @@ bool TouchInput::RefreshState()
         return false;
     }
 
-    int subBrightness = func_020c39c8(&REG_MASTER_BRIGHT_SUB);
-    int mainBrightness = func_020c39c8(&REG_MASTER_BRIGHT);
+    int subBrightness = ReadBrightnessRegister_020c39c8(&REG_MASTER_BRIGHT_SUB);
+    int mainBrightness = ReadBrightnessRegister_020c39c8(&REG_MASTER_BRIGHT);
 
     if (abs(mainBrightness) + abs(subBrightness) >= 0x20)
         Pause();

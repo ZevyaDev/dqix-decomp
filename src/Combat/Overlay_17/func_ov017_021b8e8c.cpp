@@ -25,7 +25,7 @@ enum {
 
 struct Struct_02018300_3;
 struct SoundEffectManager_02108760;
-struct Struct_020d7aa0_2;
+struct TimedMessageQueue_020d7aa0_2;
 struct Struct_0203de84;
 struct Struct_0203de84_2;
 struct Struct_02033834_2;
@@ -97,14 +97,14 @@ extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void func_020a27ac(void* arg0);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" void* func_0203df78(void* arg0, int arg1);
+extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
 extern "C" void EnablePlayerControl_020397c0(void* object);
-extern "C" Struct_020d7aa0_2* func_020d7a50(void);
-extern "C" void func_020d7aa0(struct Struct_020d7aa0_2* arg0);
+extern "C" TimedMessageQueue_020d7aa0_2* func_020d7a50(void);
+extern "C" void ClearTimedMessageQueue_020d7aa0(struct TimedMessageQueue_020d7aa0_2* queue);
 extern "C" int func_020981e4(int arg0, int arg1);
 extern "C" int func_02098268(int arg0, int arg1);
 extern "C" Struct_ov017_021b8e8c func_020406f8(struct Struct_0203de84_2* arg0);
-extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
+extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 extern "C" int func_0203dfdc(void* arg0, int arg1);
 extern "C" int func_02040a90(struct Struct_02040a90* arg0);
 extern "C" int func_02040528(int* arg0);
@@ -188,7 +188,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_020
         }
         *(short*)((char*)var6 + 0xb2) = 0;
         Struct_ov017_021b8e8c var11 = *(Struct_ov017_021b8e8c*)((char*)var6 + 0x44);
-        Struct_ov017_021b8e8c_3* var12 = (Struct_ov017_021b8e8c_3*)func_0203df78(var5, arg0->unknown_114_->unknown_0_);
+        Struct_ov017_021b8e8c_3* var12 = (Struct_ov017_021b8e8c_3*)FindNPCById_0203df78(var5, arg0->unknown_114_->unknown_0_);
         if (var12 == NULL) {
             EnablePlayerControl_020397c0(var6);
             if (var8 != NULL) {
@@ -197,14 +197,14 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_020
             arg0->unknown_1_ = 1;
             break;
         }
-        func_020d7aa0(func_020d7a50());
+        ClearTimedMessageQueue_020d7aa0(func_020d7a50());
         arg0->unknown_12c_ = arg0->unknown_114_->unknown_0_;
         if (func_020981e4((int)((char*)var3 + Enum_ov017_021b8e8c_2112), var9) &&
             func_02098268((int)((char*)var3 + Enum_ov017_021b8e8c_2112), arg0->unknown_114_->unknown_0_)) {
             arg0->unknown_128_ = 1;
         }
         Struct_ov017_021b8e8c var13 = func_020406f8((Struct_0203de84_2*)var12);
-        func_02033834((Struct_02033834_2*)var6, fix32ReduceAngle0To2Pi(fix32_Atan2(var13.unknown_0_ - var11.unknown_0_, var13.unknown_8_ - var11.unknown_8_)));
+        SetFacing_02033834((Struct_02033834_2*)var6, fix32ReduceAngle0To2Pi(fix32_Atan2(var13.unknown_0_ - var11.unknown_0_, var13.unknown_8_ - var11.unknown_8_)));
         *(int*)(var4 + Enum_ov017_021b8e8c_6200) = func_0203dfdc(var5, arg0->unknown_114_->unknown_0_);
         *(int*)(var4 + Enum_ov017_021b8e8c_6200 + 4) = func_02040a90((Struct_02040a90*)var12);
         char* var14 = (char*)func_02040528((int*)var12);
@@ -389,7 +389,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_020
         }
         arg0->unknown_1_ = 1;
         func_ov017_021b8d80(arg0);
-        if (func_0203df78(var5, arg0->unknown_114_->unknown_0_) == NULL) {
+        if (FindNPCById_0203df78(var5, arg0->unknown_114_->unknown_0_) == NULL) {
             break;
         }
         Struct_ov017_021b8e8c_4 var37;
@@ -426,7 +426,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_020
             }
             arg0->unknown_129_ = 0;
         }
-        Struct_ov017_021b8e8c_3* var38 = (Struct_ov017_021b8e8c_3*)func_0203df78(var5, arg0->unknown_114_->unknown_0_);
+        Struct_ov017_021b8e8c_3* var38 = (Struct_ov017_021b8e8c_3*)FindNPCById_0203df78(var5, arg0->unknown_114_->unknown_0_);
         if (var38 == NULL) {
             break;
         }

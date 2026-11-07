@@ -6,14 +6,14 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void func_0200fb94(char* arg0, unsigned char arg1);
+extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
 extern "C" void func_02012028(void* arg0, unsigned char arg1);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
 // USA: func_ov004_0216d6dc
 extern "C" ARM int func_ov004_0216d6dc(void* arg0) {
     GameState* var0 = GameState::GetInstance();
-    func_0200fb94((char*)var0, 9);
+    SetGameMode_0200fb94((char*)var0, 9);
     func_02012028(var0, 0);
     QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3e7);
     return 0;

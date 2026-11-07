@@ -6,8 +6,8 @@
 
 struct BGControlSave_02074bd0;
 extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
-struct Struct_02074bf4;
-extern "C" void func_02074bf4(struct Struct_02074bf4* arg0);
+struct BGControlSave_02074bf4;
+extern "C" void RestoreSubBGControl_02074bf4(struct BGControlSave_02074bf4* save);
 
 struct BGLayer_0204b010;
 extern "C" void ClearBGScreenData_0204b010(struct BGLayer_0204b010* layer, void* screenData);
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov023_021eb26c(void* arg0) {
     *var3 = (*var3 & ~0x1f00) | (*(int*)(var0 + 0x40) << 8);
 
     RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)(var0 + 0x2a));
-    func_02074bf4((struct Struct_02074bf4*)(var0 + 0x2a));
+    RestoreSubBGControl_02074bf4((struct BGControlSave_02074bf4*)(var0 + 0x2a));
 
     unsigned char var4 = *(unsigned char*)(var0 + 0x430);
     if (var4 == 2 || (var4 == 7 && (*(unsigned short*)(var0 + 0x438) & 8) != 0)) {

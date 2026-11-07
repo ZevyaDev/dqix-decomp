@@ -3,7 +3,7 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
 extern "C" void func_ov003_0216d77c(void* arg0);
-extern "C" void func_020a1e54(int arg0);
+extern "C" void PopOverlay_020a1e54(int isPreviousReloaded);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 struct BGControlSave_02074bd0;
 extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
@@ -17,7 +17,7 @@ extern "C" ARM void func_ov003_0217f118(char* arg0) {
     if (*(void**)(arg0 + 0xc) != 0) {
         func_ov003_0216d77c(*(void**)(arg0 + 0xc));
         *(void**)(arg0 + 0xc) = 0;
-        func_020a1e54(1);
+        PopOverlay_020a1e54(1);
     }
     SafeAllocator* var0 = (SafeAllocator*)(arg0 + 0x14);
     void* var1 = var0->GetSignedAllocator();

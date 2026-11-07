@@ -8,7 +8,7 @@ int func_ov003_021550dc(void *);
 void PlaySoundEffect_0205eaa0(void *, int, int);
 int GetProtagonistObjectIndex_020100a8(void *);
 int func_ov003_02155f88(void *, int);
-void func_0207fe44(void *);
+void CloseMenuLayoutWindows_0207fe44(void *);
 void *GetParty_02010828(void *);
 int func_ov003_02155208(void *);
 void func_ov003_02155580(void *, int);
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov003_02156d40(struct Struct_ov003_02156d40_3 *arg0) {
                     if (func_ov003_02155f88(arg0, arg0->unknown_1f7_)) {
                         arg0->unknown_1ec_  = 8;
                         arg0->unknown_1f8_ = 7;
-                        func_0207fe44(var2);
+                        CloseMenuLayoutWindows_0207fe44(var2);
                         return;
                     }
                     arg0->unknown_1fc_ = arg0->unknown_1fc_ | 2;
@@ -131,20 +131,20 @@ extern "C" ARM void func_ov003_02156d40(struct Struct_ov003_02156d40_3 *arg0) {
         if (func_ov003_02155fc0(arg0, arg0->unknown_1f7_) != 0) {
             arg0->unknown_1ec_  = 0x31;
             arg0->unknown_1f8_ = 7;
-            func_0207fe44(var2);
+            CloseMenuLayoutWindows_0207fe44(var2);
             return;
         }
         if (func_ov003_02155f88(arg0, arg0->unknown_1f7_)) {
             arg0->unknown_1ec_  = 8;
             arg0->unknown_1f8_ = 7;
-            func_0207fe44(var2);
+            CloseMenuLayoutWindows_0207fe44(var2);
             return;
         }
         arg0->unknown_1fc_ = arg0->unknown_1fc_ | 2;
         arg0->unknown_1ec_   = 9;
         arg0->unknown_1f8_  = 3;
         arg0->unknown_1f9_ = 0;
-        func_0207fe44(var2);
+        CloseMenuLayoutWindows_0207fe44(var2);
         return;
     }
     if (func_ov003_02155208(arg0) == 0) {
@@ -153,5 +153,5 @@ extern "C" ARM void func_ov003_02156d40(struct Struct_ov003_02156d40_3 *arg0) {
     arg0->unknown_8_  = 0;
     arg0->unknown_1ec_  = 7;
     arg0->unknown_1f8_ = 7;
-    func_0207fe44(var2);
+    CloseMenuLayoutWindows_0207fe44(var2);
 }

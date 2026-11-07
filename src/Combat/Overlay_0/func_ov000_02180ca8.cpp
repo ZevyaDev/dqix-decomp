@@ -72,7 +72,7 @@ struct Struct_ov000_02180ca8_2  {
     char unknown_0_[0x138];
     Struct_ov000_02180ca8* unknown_138_;
 };
-struct Struct_0204af14;
+struct BGLayer_0204af14;
 struct Struct_0204b878;
 struct Struct_ov000_02180ca8_3  {
     char unknown_0_[0x11c];
@@ -114,7 +114,7 @@ extern "C" void func_0203c1c8(Struct_0203c1c8*, int);
 #else
 extern "C" void func_0203c1c8(Struct_0203c1c8*);
 #endif
-extern "C" void* func_0204af14(Struct_0204af14*, unsigned int);
+extern "C" void* GetBGScreenBlock_0204af14(BGLayer_0204af14*, unsigned int);
 extern "C" void func_0204b878(Struct_0204b878*, int, int, int, short, short, short, short, unsigned short);
 extern const int data_ov000_02183674[11];
 static inline int inline_ov000_02180ca8(int arg0)  { return arg0 >= 0 && arg0 <= 3; }
@@ -257,7 +257,7 @@ extern "C" ARM void func_ov000_02180ca8(Struct_ov000_02180ca8_3* arg0, Struct_ov
             var13->unknown_10_ = 1;
         }
         var13->unknown_8_ = 0;
-        void* var29 = func_0204af14((Struct_0204af14*)arg0->unknown_8c4_, 3);
+        void* var29 = GetBGScreenBlock_0204af14((BGLayer_0204af14*)arg0->unknown_8c4_, 3);
         func_0204b878(arg2, (int)var29, 0, 0,
 #if defined(jpn)
             var4 + 16,

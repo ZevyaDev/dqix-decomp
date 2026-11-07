@@ -18,7 +18,7 @@ extern "C" void func_ov002_02156e90(char *arg0);
 extern "C" void func_ov023_021dc9e8(char *arg0, SafeAllocator *arg1, int arg2, char *arg3, int arg4);
 extern "C" void func_ov023_021dc134(char *arg0, int arg1, int arg2);
 extern "C" void func_ov023_021dbfd0(char *arg0, SafeAllocator *arg1);
-extern "C" void func_ov023_021dcae0(char *arg0, int arg1);
+extern "C" void SetItemInfoPanelItem_ov023_021dcae0(char *panel, int itemId);
 extern "C" void func_ov023_021dca88(char *arg0);
 
 // USA: func_ov002_021642e4
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov002_021642e4(char *arg0) {
         *(short *) (arg0 + 0x1ab0) =
             GetCursorIndex_0205d794((struct Struct_0205c570 *) (arg0 + 0xe20));
         *(short *) (arg0 + 0x1aea) = GetInventoryItemByID(arg0, *(short *) (arg0 + 0x1ab0), *(signed char *) (arg0 + 0x1ae8));
-        func_ov023_021dcae0(var1, *(short *) (arg0 + 0x1aea));
+        SetItemInfoPanelItem_ov023_021dcae0(var1, *(short *) (arg0 + 0x1aea));
         if (func_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + 0x1aea) = -1;
             *(short *) (arg0 + 0x1ab0) = -1;
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov002_021642e4(char *arg0) {
         *(short *) (arg0 + 0x1be8) =
             GetCursorIndex_0205d794((struct Struct_0205c570 *) (arg0 + 0xec8));
         *(short *) (arg0 + 0x1c22) = GetInventoryItemByID(arg0, *(short *) (arg0 + 0x1be8), *(signed char *) (arg0 + 0x1c20));
-        func_ov023_021dcae0(arg0 + 0x50, *(short *) (arg0 + 0x1c22));
+        SetItemInfoPanelItem_ov023_021dcae0(arg0 + 0x50, *(short *) (arg0 + 0x1c22));
         if (func_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + 0x1c22) = -1;
             *(short *) (arg0 + 0x1be8) = -1;

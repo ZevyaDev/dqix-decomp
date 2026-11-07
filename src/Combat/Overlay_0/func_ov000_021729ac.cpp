@@ -35,7 +35,7 @@ extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*)
 extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, void* allocator);
 extern "C" void func_0205aed0(void*, char*, unsigned int, int);
 extern "C" void func_0205af38(int, char*, int, int);
-extern "C" int* func_0203b628();
+extern "C" int* GetBGVRAMManager_0203b628();
 extern "C" void func_0203b678(int* arg0, int arg1, int arg2);
 extern "C" void func_0203b66c(char*);
 extern "C" void func_0203b634(char*);
@@ -73,7 +73,7 @@ struct Struct_ov000_021833ba {
 
 extern char data_ov000_02183ff5[];
 extern char data_ov000_0218400f[];
-extern const char* data_020f2a38;
+extern const char* gItemDataPath_020f2a38;
 extern const char* data_020f2a30;
 extern char data_ov000_02183302[];
 extern const short data_ov000_02183418[];
@@ -257,9 +257,9 @@ extern "C" ARM int func_ov000_021729ac(Struct_ov000_021729ac_8* arg0) {
             arg0->unknown_90c_ = -1;
 
 #if defined(jpn)
-            arg0->unknown_90c_ = var18->QueueLoadGP1(data_020f2a38, 0);
+            arg0->unknown_90c_ = var18->QueueLoadGP1(gItemDataPath_020f2a38, 0);
 #else
-            arg0->unknown_90c_ = var18->QueueLoadFileInGP2(data_020f2a38, data_020f2a30, 0);
+            arg0->unknown_90c_ = var18->QueueLoadFileInGP2(gItemDataPath_020f2a38, data_020f2a30, 0);
 #endif
 
             arg0->unknown_908_++;
@@ -377,7 +377,7 @@ extern "C" ARM int func_ov000_021729ac(Struct_ov000_021729ac_8* arg0) {
             arg0->unknown_908_++;
         }
     } else if (arg0->unknown_908_ == 5) {
-        int* var31 = func_0203b628();
+        int* var31 = GetBGVRAMManager_0203b628();
         func_0203b678(var31, 1, 0);
         func_0203b678(var31, 1, 1);
         func_0203b66c((char*)var31);

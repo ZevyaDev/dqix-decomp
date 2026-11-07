@@ -11,11 +11,11 @@ enum { Enum_ov003_0216052c_808 = 0x328 };
 enum { Enum_ov003_0216052c_1124 = 0x464 };
 #endif
 
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
-extern "C" int func_020811d0(struct Struct_0207fdcc_2* arg0, int arg1);
+extern "C" int func_020811d0(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" void func_02080a6c(void* arg0, int arg1, short arg2, short* arg3, short* arg4, short* arg5, short* arg6);
 extern "C" void func_ov003_021604f4(char* arg0, int arg1, int arg2, short arg3, unsigned char arg4);
 
@@ -33,7 +33,7 @@ extern short data_ov003_0217f448[3][2];
 
 struct Struct_ov003_0216052c_2 {
     char unknown_0_[Enum_ov003_0216052c_804];
-    struct Struct_0207fdcc_2* unknown_324_;
+    struct MenuLayout_0207fdcc_2* unknown_324_;
     char unknown_328_[Enum_ov003_0216052c_1124 - Enum_ov003_0216052c_808];
     unsigned int unknown_464_;
 };
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov003_0216052c(struct Struct_ov003_0216052c_2* arg0) {
     if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18()) != 0) {
         return;
     }
-    struct Struct_0207fdcc_2* var0 = arg0->unknown_324_;
+    struct MenuLayout_0207fdcc_2* var0 = arg0->unknown_324_;
     if (!(arg0->unknown_464_ & 0x10000)) {
         return;
     }

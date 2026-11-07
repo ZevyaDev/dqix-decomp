@@ -23,12 +23,12 @@ extern "C" unsigned int func_02012dd0(struct Struct_02114e20* arg0);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern AllocatorUnion gMainHeap_02114e20;
 
-extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
+extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a27b8(unsigned char* arg0);
 extern "C" void func_020a27ac(void* arg0);
 extern "C" void EnablePlayerControl_020397c0(void* object);
-extern "C" void func_020a1df8(int arg0);
+extern "C" void PushOverlay_020a1df8(int overlayEntry);
 extern "C" void func_020daeb0(void* arg0);
 
 struct Struct_02018300_3;
@@ -69,7 +69,7 @@ extern "C" ARM void func_020dac94(void* arg0, void*) {
             var0->unknown_1_ = 1;
             return;
         }
-        func_020a1df8(3);
+        PushOverlay_020a1df8(3);
         func_ov003_0217daf0(var0->unknown_c_);
         func_ov003_0217cd24(var0->unknown_c_, &var0->unknown_14_);
         GameObject* var6 = var1->GetUnknownGameObject();
@@ -98,7 +98,7 @@ extern "C" ARM void func_020dac94(void* arg0, void*) {
     EnablePlayerControl_020397c0(var9);
     int var10 = GetFollowCamera_020100f8((char*)var1);
     func_020a27ac((void*)var10);
-    func_020a28b0((unsigned char*)var10, 2);
+    ClearCameraFlags_020a28b0((unsigned char*)var10, 2);
     ClearFlags04(GetGameResources(), 0xc0);
     var0->unknown_10_ = -1;
 }

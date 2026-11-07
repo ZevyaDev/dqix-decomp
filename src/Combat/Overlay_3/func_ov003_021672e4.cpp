@@ -10,8 +10,8 @@ enum { Enum_ov003_021672e4_96 = 0x60 };
 extern "C" unsigned short GetSubBGVRAMBanks(void);
 extern "C" unsigned short GetSubObjVRAMBanks(void);
 
-struct Struct_02074b64;
-extern "C" void func_02074b64(struct Struct_02074b64* arg0);
+struct BGControlSave_02074b64;
+extern "C" void SaveSubBGControl_02074b64(struct BGControlSave_02074b64* save);
 
 struct Struct_ov003_021672e4 {
     int unknown_0_;
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov003_021672e4(struct Struct_ov003_021672e4* arg0, int 
     arg0->unknown_18_ = GetSubObjVRAMBanks();
     *((unsigned char*)arg0 + 0x2c) = 0;
     *((unsigned char*)arg0 + 0x2d) = 0;
-    func_02074b64((struct Struct_02074b64*)((char*)arg0 + 0x1c));
+    SaveSubBGControl_02074b64((struct BGControlSave_02074b64*)((char*)arg0 + 0x1c));
     arg0->unknown_60_ = (*(volatile unsigned int*)0x4001000 & 0x1f00) >> 8;
     arg0->unknown_64_ = -1;
     arg0->unknown_68_ = arg0->unknown_6c_ = 0;

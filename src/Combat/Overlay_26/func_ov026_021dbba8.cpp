@@ -42,13 +42,13 @@ extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" int SetMotion_02033b88(Struct_02010604* object, int motion);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
-extern "C" void func_0202e694(void* arg0, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
 
 extern "C" {
 void* GetEffectManager_02057924();
 void RemoveEffectResource_02057f00(void*, int);
 Struct_020a212c_2* func_ov000_02160f14(Struct_ov000_02160da0*);
-void func_ov000_0216d370(Struct_020a212c_2*, int, int, int);
+void ResetBattleCamera_ov000_0216d370(Struct_020a212c_2*, int, int, int);
 }
 
 // USA: func_ov026_021dbba8
@@ -73,9 +73,9 @@ extern "C" ARM void func_ov026_021dbba8(Struct_ov000_02160da0* arg0) {
     Struct_020a212c_2* var4 = (Struct_020a212c_2*)GetCamera_020100bc(var0);
     Struct_020a212c_2* var5 = func_ov000_02160f14(arg0);
     Vector3i var6 = var4->unknown_70_;
-    func_ov000_0216d370(var5, 1, 1, 1);
+    ResetBattleCamera_ov000_0216d370(var5, 1, 1, 1);
     var5->unknown_10_ = var4->unknown_10_;
-    func_0202e694(var5, &var6.x);
+    SetCameraOrbitFromArray_0202e694(var5, &var6.x);
     var5->unknown_4_ = var4->unknown_4_;
     SetCamera_020100c4(var0, (int)func_ov000_02160f14(arg0));
     ClearGameObjectByIndex_0200fd48(var0, 0xcf);

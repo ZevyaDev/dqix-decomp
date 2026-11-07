@@ -18,8 +18,8 @@ extern "C" int func_02042648(int);
 extern "C" bool func_02044494(void*, void*);
 extern "C" int func_02044420(void*, void*);
 extern "C" int func_020425e4(int, int, int);
-extern "C" FontGlyph_0204254c* func_0204254c(int, int);
-extern "C" int func_020424e4(int, int);
+extern "C" FontGlyph_0204254c* FindFontGlyph_0204254c(int, int);
+extern "C" int FindFontGlyphIndex_020424e4(int, int);
 extern "C" int func_02067ad8(int, void*);
 
 // USA: func_0206b37c
@@ -57,9 +57,9 @@ extern "C" ARM int func_0206b37c(Struct_0206b37c* arg0, char* arg1) {
         } else {
             var4 = 1;
             int var8 = var0;
-            FontGlyph_0204254c* var9 = func_0204254c((int)arg1, arg0->unknown_19dc_);
+            FontGlyph_0204254c* var9 = FindFontGlyph_0204254c((int)arg1, arg0->unknown_19dc_);
             if (var9) {
-                var1 = (unsigned char)func_020424e4((int)arg1, arg0->unknown_19dc_);
+                var1 = (unsigned char)FindFontGlyphIndex_020424e4((int)arg1, arg0->unknown_19dc_);
                 var5 += func_020425e4(var2, var1, arg0->unknown_19dc_);
                 var2 = var1;
                 var1 = 0xff;

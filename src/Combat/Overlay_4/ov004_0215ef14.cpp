@@ -274,7 +274,7 @@ extern "C" struct Struct_ov004_0215f0c0_10* func_ov004_0215e47c(void* arg0, int 
 extern "C" void* func_ov023_021fad18(void* arg0);
 extern "C" struct Struct_ov004_0215f0c0_8* func_ov004_0215e438(void* arg0, int arg1);
 extern "C" int func_ov017_021bdbcc(void* arg0);
-extern "C" void* func_020421b0(int arg0);
+extern "C" void* GetWindowTile_020421b0(int tileIndex);
 extern "C" unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8* gameState);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" Struct_ov004_0215f0c0_5* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
@@ -291,7 +291,7 @@ extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
 extern "C" void* func_ov004_0215e4c0(void* arg0, int arg1);
-extern "C" void func_ov023_021f809c(void* arg0, void* arg1);
+extern "C" void RedrawMenuWindow_ov023_021f809c(void* window, void* menu);
 
 extern int data_ov004_0216fe04[];
 extern unsigned short data_ov004_0216fdd0[];
@@ -334,7 +334,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
                         unsigned char var16 = var7 * 4 + 0x28;
                         var15 = (unsigned short)(var12->unknown_4_ & 0x3ff) << 5;
                         for (var14 = 0; var14 < 4; var14++, var16++) {
-                            void* var17 = func_020421b0(var16);
+                            void* var17 = GetWindowTile_020421b0(var16);
                             DC_FlushRange(var17, 0x20);
                             LoadToMainObjVRAM(var17, var15, 0x20);
                             CleanCacheRange(var17, 0x20);
@@ -558,7 +558,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
         }
     }
 
-    func_ov023_021f809c(func_ov004_0215e4c0(arg0, 5), arg0);
+    RedrawMenuWindow_ov023_021f809c(func_ov004_0215e4c0(arg0, 5), arg0);
 }
 
 struct Struct_ov004_0215f6f4;
@@ -586,13 +586,13 @@ extern "C" ARM int func_ov004_0215f74c(int arg0, int arg1) {
 }
 
 extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
-extern "C" int func_02052df8(struct Struct_ov004_0215f770_3* arg0, int arg1);
+extern "C" int GetEquippedItem_02052df8(struct Struct_ov004_0215f770_3* gameObject, int slot);
 extern "C" struct Struct_ov004_0215f770_2* FindItemData_020dedd0(struct Struct_0200fb08* itemTable, int itemId);
 extern "C" int GetCamera_020100bc(GameState* gameState);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
-extern "C" void func_020a2010(void* arg0);
+extern "C" void InitFollowCamera_020a2010(void* arg0);
 extern "C" void func_0202e5c0(struct Struct_ov004_0215f770_4* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0202e5c8(unsigned char* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void func_ov023_021f6bec(void* arg0, int arg1, unsigned int arg2, unsigned int arg3);
 extern "C" void func_ov004_0215ee90(void* arg0);
@@ -727,7 +727,7 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
             continue;
         }
         for (var16 = 0; var16 < 8; var16++) {
-            var19 = func_02052df8((struct Struct_ov004_0215f770_3*)var22, data_ov004_0216fdf4[var16]);
+            var19 = GetEquippedItem_02052df8((struct Struct_ov004_0215f770_3*)var22, data_ov004_0216fdf4[var16]);
             var17 = 0;
             var24 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x81);
             if (var24 != 0 && func_ov023_021f6f10(var24) != 0x11) {
@@ -784,9 +784,9 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
     LoadPartyMemberColors_020dc7e8(2, (signed char)data_ov004_02170804);
     LoadPartyMemberColors_020dc7e8(5, (signed char)data_ov004_02170804);
     data_ov004_021707f8 = GetCamera_020100bc(var3);
-    func_020a2010(data_ov004_021708c8);
+    InitFollowCamera_020a2010(data_ov004_021708c8);
     func_0202e5c0((struct Struct_ov004_0215f770_4*)data_ov004_021708c8, 0xb666, 0xa800, 0x42ccc);
-    func_0202e5c8((unsigned char*)data_ov004_021708c8, 0xb666, 0xa800, 0);
+    SetCameraTarget_0202e5c8((unsigned char*)data_ov004_021708c8, 0xb666, 0xa800, 0);
     DisableCameraFollow_020a27a0(data_ov004_021708c8);
     SetCamera_020100c4(var3, (int)data_ov004_021708c8);
     func_ov004_0215e47c(arg0, 9)->unknown_c_ |= 0x80;

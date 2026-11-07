@@ -93,7 +93,7 @@ int func_ov000_021761ec(char* arg0, int arg1);
 Struct_ov000_0215ab88* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 void* GetCamera_020100bc(GameState* gameState);
 int _ZNK8Object3D9GetHeightEv(Struct_ov000_0215ab88* arg0);
-int func_0202ec84(void* arg0, Struct_ov026_021dddcc* arg1, int* arg2, int* arg3);
+int ConvertWorldToScreen_0202ec84(void* camera, Struct_ov026_021dddcc* worldPosition, int* outX, int* outY);
 void func_020473c8(Struct_ov026_021dddcc_2* arg0, int arg1);
 void Vector3fix_Add(const Struct_ov026_021dddcc* arg0, const Struct_ov026_021dddcc* arg1, Struct_ov026_021dddcc* arg2);
 void Vector3fix_Normalize(const Struct_ov026_021dddcc* arg0, Struct_ov026_021dddcc* arg1);
@@ -321,7 +321,7 @@ extern "C" ARM void func_ov026_021dddcc(Struct_ov000_02160da0* arg0) {
                 var43 = var39->unknown_44_;
                 var43.unknown_0_[1] += _ZNK8Object3D9GetHeightEv(var39);
                 Vector3fix_Add(&var43, &var42, &var43);
-                func_0202ec84(var47, &var43, &var44, &var45);
+                ConvertWorldToScreen_0202ec84(var47, &var43, &var44, &var45);
                 var46 = 0x18;
                 if (var29 != 0) {
                     if (var33 == var38.unknown_0_[var37]) {
@@ -351,7 +351,7 @@ extern "C" ARM void func_ov026_021dddcc(Struct_ov000_02160da0* arg0) {
                 var51 = var39->unknown_44_;
                 var51.unknown_0_[1] += _ZNK8Object3D9GetHeightEv(var39);
                 Vector3fix_Add(&var51, &var50, &var51);
-                func_0202ec84(var54, &var51, &var52, &var53);
+                ConvertWorldToScreen_0202ec84(var54, &var51, &var52, &var53);
                 var55 = &arg0->unknown_5600_[1];
                 var55->unknown_80_ = var3[var30];
                 inline_ov026_021dddcc();

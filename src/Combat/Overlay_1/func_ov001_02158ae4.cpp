@@ -33,7 +33,7 @@ extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" void func_ov001_021588e4(Struct_ov001_02158ae4_3*);
 extern "C" void func_0202e7d4(unsigned char*, int*, int*, int*);
 extern "C" Struct_ov001_02158ae4* func_ov001_02158e8c(Struct_ov001_02158ae4_3*, Struct_ov001_02158ae4*, int);
-extern "C" void func_0202e5d8(Struct_ov000_0216df00*, int, int, int);
+extern "C" void SetCameraOrbit_0202e5d8(Struct_ov000_0216df00*, int, int, int);
 extern "C" void func_0202eab8(Struct_ov000_0216df00*);
 typedef int (*Type_01ff8b48_10)(Struct_ov001_02158ae4*, Struct_ov001_02158ae4_3*);
 extern Type_01ff8b48_10 data_ov001_02164c54[20];
@@ -90,13 +90,13 @@ extern "C" ARM void func_ov001_02158ae4(Struct_ov001_02158ae4_3* arg0) {
         if (!var0) *var10 = 0;
     }
     if (var4.x != arg0->unknown_58_.x || var4.y != arg0->unknown_58_.y || var4.z != arg0->unknown_58_.z) var2->unknown_10_ = arg0->unknown_58_;
-    if (var5 != arg0->unknown_64_ || var6 != arg0->unknown_68_ || var7 != arg0->unknown_6c_) func_0202e5d8(var2, arg0->unknown_64_, arg0->unknown_68_, arg0->unknown_6c_);
+    if (var5 != arg0->unknown_64_ || var6 != arg0->unknown_68_ || var7 != arg0->unknown_6c_) SetCameraOrbit_0202e5d8(var2, arg0->unknown_64_, arg0->unknown_68_, arg0->unknown_6c_);
     if (var3.x != arg0->unknown_4c_.x || var3.y != arg0->unknown_4c_.y || var3.z != arg0->unknown_4c_.z) {
         var2->unknown_4_ = arg0->unknown_4c_;
         func_0202eab8(var2);
     }
     if (arg0->unknown_a24_) {
-        func_0202e5d8(var2, arg0->unknown_64_, arg0->unknown_68_, arg0->unknown_6c_);
+        SetCameraOrbit_0202e5d8(var2, arg0->unknown_64_, arg0->unknown_68_, arg0->unknown_6c_);
         arg0->unknown_a24_ = 0;
     }
 }

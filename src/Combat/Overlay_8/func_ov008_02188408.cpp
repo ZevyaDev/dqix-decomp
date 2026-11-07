@@ -10,7 +10,7 @@ struct MessageWindow_020465c0;
 
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
-extern "C" const char* func_020e046c(char* arg0, void* arg1, unsigned int arg2, short arg3);
+extern "C" const char* CopyStringFromTableFile_020e046c(char* buffer, void* fileData, unsigned int fileSize, short stringId);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" char* GetFlagManager_0205ec34();
 extern "C" void ClearMessageParams_02046380(MessageWindow_02021b84* window);
@@ -138,7 +138,7 @@ extern "C" ARM void func_ov008_02188408(Struct_ov008_021842a0_2* arg0, char* arg
         sprintf(var10, data_ov008_0218b47c, var1->unknown_150_->unknown_49c_.unknown_0_0_);
         void* var11 = ExtractFileFromGP2(var9, var10, &var8);
         if (var11 != NULL)
-            func_020e046c(var7, var11, var8, (short)arg3->unknown_12_7_);
+            CopyStringFromTableFile_020e046c(var7, var11, var8, (short)arg3->unknown_12_7_);
         BackgroundLoader::RemoveLockGlobal();
         int var12 = (0xa0 - func_020420e8(var7, 1)) / 2;
         if (var12 < 0)

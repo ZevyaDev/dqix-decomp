@@ -116,7 +116,7 @@ struct Struct_ov008_021895a8
     unsigned char unknown_0_[2];
 };
 
-extern "C" void LoadStringList_020728ac(void* stringList, SafeAllocator* allocator, void* arg2, unsigned int scriptSize, int, int, int);
+extern "C" void LoadStringList_020728ac(void* stringList, SafeAllocator* allocator, void* scriptData, unsigned int scriptSize, int, int, int);
 extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 extern "C" void SetBGPriority_0204b5b4(Struct_ov003_021594c4* layer, int);
 extern "C" void LoadBGBlock_0204b174(Struct_ov003_021594c4* layer, void* block, SafeAllocator* allocator, unsigned int arg3);

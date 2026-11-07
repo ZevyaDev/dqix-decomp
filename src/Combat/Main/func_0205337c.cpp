@@ -6,7 +6,7 @@ extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 
 struct Struct_02015ef4 { int unknown_0_; int unknown_4_; int unknown_8_; };
-extern "C" ARM int func_0202ec84(void* arg0, struct Struct_02015ef4* arg1, int* arg2, int* arg3);
+extern "C" ARM int ConvertWorldToScreen_0202ec84(void* camera, struct Struct_02015ef4* worldPosition, int* outX, int* outY);
 
 struct Struct_02015ef4_2;
 extern "C" ARM void func_020473c8(struct Struct_02015ef4_2* arg0, int arg1);
@@ -52,7 +52,7 @@ extern "C" ARM void func_0205337c(struct Struct_0205337c_2* arg0) {
     var1.unknown_4_ += 0x1b33;
 
     int var2, var3;
-    func_0202ec84(var0, &var1, &var2, &var3);
+    ConvertWorldToScreen_0202ec84(var0, &var1, &var2, &var3);
     var2 -= 0xc;
     var3 -= 0xc;
 

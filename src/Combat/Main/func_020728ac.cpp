@@ -22,7 +22,7 @@ struct Struct_02108db0 {
 extern struct Struct_02108db0 data_02108db0;
 
 // USA: LoadStringList_020728ac
-extern "C" ARM void LoadStringList_020728ac(int stringList, int allocator, struct Struct_02013fb4* arg2, int scriptSize, int idFilter, unsigned short idFilterCount, unsigned char skippedStringCount) {
+extern "C" ARM void LoadStringList_020728ac(int stringList, int allocator, struct Struct_02013fb4* scriptData, int scriptSize, int idFilter, unsigned short idFilterCount, unsigned char skippedStringCount) {
     char script[0x430];
     data_02108db0.unknown_10_ = stringList;
     data_02108db0.unknown_c_ = allocator;
@@ -32,6 +32,6 @@ extern "C" ARM void LoadStringList_020728ac(int stringList, int allocator, struc
     data_02108db0.unknown_0_ = skippedStringCount;
     ((Script*)((struct Struct_0201f040*)script))->Initialize();
     ((Script*)((struct Struct_0201f040*)script))->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f0cc8);
-    ((Script*)((struct Struct_0201f040_2*)script))->Load(arg2, scriptSize);
+    ((Script*)((struct Struct_0201f040_2*)script))->Load(scriptData, scriptSize);
     ((Script*)((struct Struct_0201f040_3*)script))->Execute();
 }

@@ -20,8 +20,8 @@ enum { Enum_ov003_021767ec_13 = 0xd };
 enum { Enum_ov003_021767ec_4118 = 0x1016 };
 #endif
 
-struct Struct_0207fdcc_2;
-extern "C" void func_02080c20(struct Struct_0207fdcc_2* arg0, int arg1);
+struct MenuLayout_0207fdcc_2;
+extern "C" void func_02080c20(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
 extern "C" void func_02080b54(void* arg0, int arg1);
 extern "C" void func_02080608(void* arg0, int arg1);
@@ -46,15 +46,15 @@ extern "C" void func_020805f4(void* arg0, int arg1);
 
 struct Struct_02080f8c;
 extern "C" void func_02080f8c(struct Struct_02080f8c* arg0, int arg1, int arg2);
-struct Struct_02080fa8;
-extern "C" void func_02080fa8(struct Struct_02080fa8* arg0, int arg1, int arg2);
+struct MenuLayout_02080fa8;
+extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8* menuLayout, int textId, int value);
 
 extern "C" void func_020806c4(void* arg0, int arg1);
 extern "C" int func_020813ec(void* arg0, int arg1);
 
 // USA: func_ov003_021767ec
 extern "C" ARM int func_ov003_021767ec(char* arg0) {
-    struct Struct_0207fdcc_2* var0 = *(struct Struct_0207fdcc_2**)(arg0 + Enum_ov003_021767ec_2204);
+    struct MenuLayout_0207fdcc_2* var0 = *(struct MenuLayout_0207fdcc_2**)(arg0 + Enum_ov003_021767ec_2204);
     short var1 = 7;
     short var2 = 13;
     short var3 = 19;
@@ -94,7 +94,7 @@ extern "C" ARM int func_ov003_021767ec(char* arg0) {
             func_020805f4(var0, var1);
 #endif
             func_02080f8c((struct Struct_02080f8c*)var0, var1, var8);
-            func_02080fa8((struct Struct_02080fa8*)var0, var2, var9);
+            SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, var2, var9);
             func_020806c4(var0, var1);
         }
         var1 = var1 + 1;
@@ -106,7 +106,7 @@ extern "C" ARM int func_ov003_021767ec(char* arg0) {
     func_02080b40(var0, 0x19);
     func_02080b40(var0, 0x1a);
     func_02080b40(var0, 0x1b);
-    func_02080fa8((struct Struct_02080fa8*)var0, 0x19, *(short*)(arg0 + Enum_ov003_021767ec_4116) + 1);
-    func_02080fa8((struct Struct_02080fa8*)var0, 0x1a, *(short*)(arg0 + Enum_ov003_021767ec_4118));
+    SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, 0x19, *(short*)(arg0 + Enum_ov003_021767ec_4116) + 1);
+    SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, 0x1a, *(short*)(arg0 + Enum_ov003_021767ec_4118));
     return func_020813ec(var0, 3);
 }

@@ -85,14 +85,14 @@ extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigned int arg4, TextureVRAMArea_0203d028* arg5);
 extern "C" void func_02010834(Struct_02010834* arg0, int arg1, int* arg2, int* arg3);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
-extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
+extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
 extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 void SetBrightness(GameResources* resources, int brightness, int duration);
 int IsBrightnessTransitionActive(GameResources* resources);
 extern "C" void func_ov017_02197528(void);
 extern "C" void EnablePlayerControl_020397c0(void* object);
-extern "C" void func_0205ebec(void* arg0);
+extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" int func_02011b50(void* arg0, int arg1);
@@ -213,7 +213,7 @@ extern "C" ARM void func_ov017_021abba8(Struct_ov017_021abba8* arg0, Queue_02038
                 var13[var16].unknown_11_7_ = 0;
                 var13[var16].unknown_2c_ = var17->obj3D_.position_;
                 var13[var16].unknown_44_ = var17->obj3D_.GetScale();
-                func_02057fb4(var4, 5, &var13[var16]);
+                PlayEffect_02057fb4(var4, 5, &var13[var16]);
             }
         }
         arg0->unknown_8_++;
@@ -259,7 +259,7 @@ extern "C" ARM void func_ov017_021abba8(Struct_ov017_021abba8* arg0, Queue_02038
             arg0->unknown_1_ = 1;
             EnablePlayerControl_020397c0(var3);
             func_ov017_021ac2a8(arg0);
-            func_0205ebec(&gSoundEffectManager_02108760);
+            UnloadExtraSoundSet_0205ebec(&gSoundEffectManager_02108760);
             if (IsNotLocalWirelessGuest_0202c508(var1)) {
                 unsigned char* var22 = (unsigned char*)GetFlagManager_0205ec34();
                 SetFlag_0206df6c(var22, var22 + 0x8c, 0x113d, 1);

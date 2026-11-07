@@ -11,7 +11,7 @@ extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov024_021f6f10(void* arg0);
 extern "C" int func_ov023_021fa598(void*);
 extern "C" int func_ov023_021f9bc8(void*);
-extern "C" void func_ov023_021f809c(void* arg0, void* arg1);
+extern "C" void RedrawMenuWindow_ov023_021f809c(void* window, void* menu);
 
 extern "C" int GetMessageWindow_020421a0(void);
 
@@ -112,7 +112,7 @@ extern "C" ARM int func_ov004_021564f0(void* arg0) {
     }
     *(short*)((char*)var16 + 0x104) = var2;
     *(short*)((char*)var16 + 0x106) = var3;
-    func_ov023_021f809c(var16, arg0);
+    RedrawMenuWindow_ov023_021f809c(var16, arg0);
 
     void* var17 = FindMenuObjectById_ov023_021f6880(var0, 0x83);
     if (!var17) {
@@ -137,7 +137,7 @@ extern "C" ARM int func_ov004_021564f0(void* arg0) {
     func_ov023_021f8960((char*)var18, 0, 8);
     *(short*)((char*)var18 + 0x104) = var2;
     *(short*)((char*)var18 + 0x106) = var3;
-    func_ov023_021f809c(var18, arg0);
+    RedrawMenuWindow_ov023_021f809c(var18, arg0);
 
     }
 #else
@@ -183,7 +183,7 @@ extern "C" ARM int func_ov004_021564f0(void* arg0) {
     }
     *(short*)((char*)var28 + 0x104) = var2;
     *(short*)((char*)var28 + 0x106) = var3;
-    func_ov023_021f809c(var28, arg0);
+    RedrawMenuWindow_ov023_021f809c(var28, arg0);
 
     void* var29 = FindMenuObjectById_ov023_021f6880(var0, 0x83);
     if (!var29) {
@@ -209,7 +209,7 @@ extern "C" ARM int func_ov004_021564f0(void* arg0) {
     }
     *(short*)((char*)var30 + 0x104) = var2;
     *(short*)((char*)var30 + 0x106) = var3;
-    func_ov023_021f809c(var30, arg0);
+    RedrawMenuWindow_ov023_021f809c(var30, arg0);
 
     }
 #endif

@@ -10,7 +10,7 @@ extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" int GetFontLoader_02094a00(void);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
-extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
+extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void LoadFileTables_020a0c0c(void);
 
@@ -41,5 +41,5 @@ extern "C" ARM void func_ov017_021ac32c(struct Struct_ov017_021ac32c* arg0) {
     arg0->unknown_c_ = 0;
     int var3 = GetFollowCamera_020100f8((char*)var1);
     if (var3 == 0) return;
-    func_020a28b0((unsigned char*)var3, 3);
+    ClearCameraFlags_020a28b0((unsigned char*)var3, 3);
 }

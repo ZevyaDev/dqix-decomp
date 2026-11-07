@@ -10,7 +10,7 @@ struct Struct_0205c570;
 struct SoundEffectManager_02108760;
 struct TextWindowManager_0205d6a0;
 struct TextWindowManager_0205d81c;
-struct Struct_0205def8;
+struct TextWindowManager_0205def8;
 struct Struct_ov000_021735d0_2;
 struct Struct_ov000_021735d0_3;
 
@@ -66,7 +66,7 @@ extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 extern "C" struct Struct_ov000_021735d0_2* func_ov000_0217f8c0(Struct_ov000_021735d0_3*);
 extern "C" int func_ov000_0217c5f4(void*);
 extern "C" void func_ov000_0217a9d0(int, int, int, TextWindowManager_0205d81c*);
-extern "C" void func_0205def8(Struct_0205def8*, int, int);
+extern "C" void func_0205def8(TextWindowManager_0205def8*, int, int);
 extern "C" int func_ov000_021719f8(int*);
 extern "C" int func_ov000_0218158c(void* arg0, int arg1);
 extern "C" void ClearItemTable_020de848(void* itemTable);
@@ -156,8 +156,8 @@ extern "C" ARM void func_ov000_0217d87c(Struct_ov000_02178d28_2* arg0, int arg1,
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 0;
         arg0->unknown_1d68_ = arg0->unknown_1d68_ - 1;
         func_ov000_0217c638(arg0, arg1, arg2);
-        func_0205def8((Struct_0205def8*)arg0->unknown_188_, 1, 1);
-        func_0205def8((Struct_0205def8*)arg0->unknown_188_, 1, 2);
-        func_0205def8((Struct_0205def8*)arg0->unknown_188_, 1, 5);
+        func_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 1, 1);
+        func_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 1, 2);
+        func_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 1, 5);
     }
 }

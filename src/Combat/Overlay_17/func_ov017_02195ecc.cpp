@@ -33,18 +33,18 @@ extern "C" ARM void func_ov017_02195ecc(Struct_ov017_02195ecc* arg0, unsigned in
         return;
     }
 
-    Vector3fix var0 = data_0210a010.eyeVector;
-    Vector3fix var1 = data_0210a010.upVector;
-    Vector3fix var2 = data_0210a010.targetVector;
-    Matrix4x4 var3 = data_0210a010.projectionMatrix;
+    Vector3fix var0 = gRenderConfig_0210a010.eyeVector;
+    Vector3fix var1 = gRenderConfig_0210a010.upVector;
+    Vector3fix var2 = gRenderConfig_0210a010.targetVector;
+    Matrix4x4 var3 = gRenderConfig_0210a010.projectionMatrix;
     Vector3fix var4 = data_ov017_021d6420;
     Vector3fix var5;
     __clear(&var5, sizeof(var5));
     Vector3fix var6 = data_ov017_021d642c;
 
     Mat4x4_WriteProjectionUnknown(0xe000, -0x22000, -0x20000, 0x20000, 0x1000, 0x190000, 0x1000,
-                                  &data_0210a010.projectionMatrix);
-    data_0210a010.flags &= ~((1 << RENDER_CONFIG_FLAG_4) | (1 << RENDER_CONFIG_FLAG_6));
+                                  &gRenderConfig_0210a010.projectionMatrix);
+    gRenderConfig_0210a010.flags &= ~((1 << RENDER_CONFIG_FLAG_4) | (1 << RENDER_CONFIG_FLAG_6));
     func_ov017_02196048((int*)&var4, (int*)&var6, (int*)&var5);
     RenderConfig::SubmitToFifo();
     SendQueuedDataToGeometryFifo();
@@ -60,8 +60,8 @@ extern "C" ARM void func_ov017_02195ecc(Struct_ov017_02195ecc* arg0, unsigned in
     }
 
     func_ov017_02196048((int*)&var0, (int*)&var1, (int*)&var2);
-    func_020ca4b4(&var3, &data_0210a010.projectionMatrix, sizeof(Matrix4x4));
-    data_0210a010.flags &= ~((1 << RENDER_CONFIG_FLAG_4) | (1 << RENDER_CONFIG_FLAG_6));
+    func_020ca4b4(&var3, &gRenderConfig_0210a010.projectionMatrix, sizeof(Matrix4x4));
+    gRenderConfig_0210a010.flags &= ~((1 << RENDER_CONFIG_FLAG_4) | (1 << RENDER_CONFIG_FLAG_6));
     RenderConfig::SubmitToFifo();
     SendQueuedDataToGeometryFifo();
 }

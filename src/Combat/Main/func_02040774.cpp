@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Struct_02040774_2;
-extern "C" void func_020407b4(struct Struct_02040774_2* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetObject3DPosition_020407b4(struct Struct_02040774_2* object, int x, int y, int z);
 
 struct Struct_02040774 {
     char unknown_0_[4];
@@ -26,10 +26,10 @@ extern "C" ARM void func_02040774(struct Struct_0203d028_15* arg0, int arg1, int
         return;
     }
     if (arg0->unknown_18_ != NULL) {
-        func_020407b4((struct Struct_02040774_2*)arg0->unknown_18_, arg1, arg2, arg3);
+        SetObject3DPosition_020407b4((struct Struct_02040774_2*)arg0->unknown_18_, arg1, arg2, arg3);
         return;
     }
     if (arg0->unknown_1c_ != NULL) {
-        func_020407b4((struct Struct_02040774_2*)arg0->unknown_1c_, arg1, arg2, arg3);
+        SetObject3DPosition_020407b4((struct Struct_02040774_2*)arg0->unknown_1c_, arg1, arg2, arg3);
     }
 }

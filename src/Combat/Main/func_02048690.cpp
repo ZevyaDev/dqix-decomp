@@ -5,7 +5,7 @@ extern "C" void func_020489e8(void* arg0);
 struct Struct_02010604;
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void* GetEffectManager_02057924(void);
-extern "C" void func_02057fb4(void*, int, void*);
+extern "C" void PlayEffect_02057fb4(void*, int, void*);
 
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -105,7 +105,7 @@ extern "C" ARM void func_02048690(void* arg0) {
     var4.unknown_48_ = var3;
     var4.unknown_4c_ = var3;
 
-    func_02057fb4(var1, 2, &var4);
+    PlayEffect_02057fb4(var1, 2, &var4);
     PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0x32, 0);
 
     var0->unknown_e0_3_ = 0;

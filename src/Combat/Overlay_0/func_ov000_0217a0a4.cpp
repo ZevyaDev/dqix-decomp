@@ -22,7 +22,7 @@
 #include "std_library_functions.h"
 
 struct TextWindowManager_0205d5d0;
-struct Struct_0205def8;
+struct TextWindowManager_0205def8;
 struct TextWindowManager_0205d81c;
 
 struct TextWindow_0205d0e0 {
@@ -43,7 +43,7 @@ struct Struct_ov000_0217a0a4 {
 };
 
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_0205def8(struct Struct_0205def8*, int, int);
+extern "C" void func_0205def8(struct TextWindowManager_0205def8*, int, int);
 extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c*, int);
 extern "C" void func_ov000_0217a2dc(struct Struct_ov000_0217a0a4*, int, void*);
 extern "C" void func_ov000_0217a19c(struct Struct_ov000_0217a0a4*, int);
@@ -59,8 +59,8 @@ extern "C" ARM void func_ov000_0217a0a4(struct Struct_ov000_0217a0a4* arg0) {
     SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)arg0->unknown_188_, 0x17, (int)var0, 1, 0);
 #endif
     if (arg0->unknown_1d81_) {
-        func_0205def8((struct Struct_0205def8*)arg0->unknown_188_, 0, 0x18);
-        func_0205def8((struct Struct_0205def8*)arg0->unknown_188_, 0, 0x19);
+        func_0205def8((struct TextWindowManager_0205def8*)arg0->unknown_188_, 0, 0x18);
+        func_0205def8((struct TextWindowManager_0205def8*)arg0->unknown_188_, 0, 0x19);
         struct TextWindow_0205d0e0* var1 = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)arg0->unknown_188_, 0x17);
         if (var1) {
             var1->unknown_c5_ &= ~0x40;

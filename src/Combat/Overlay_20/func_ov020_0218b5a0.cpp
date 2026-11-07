@@ -8,7 +8,7 @@ extern "C" void MapVRAMBanksToMainBG(int v);
 extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, int isBG03D);
 extern "C" void SetSubBGMode_020c3984(unsigned int bgMode);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
-extern "C" unsigned char func_0200fb9c(char* arg0);
+extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
 extern "C" void func_020c5770(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, void* arg8);
 
 struct Struct_ov020_0218b5a0 {
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov020_0218b5a0(struct Struct_ov020_0218b5a0* arg0) {
     var2[1] = (var2[1] & ~0x3) | 0x1;
     Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0x3f, 0);
 
-    if (func_0200fb9c(var0) == 6) {
+    if (GetGameMode_0200fb9c(var0) == 6) {
         Set3DClearColorAndDepth_020c5588(0, 0x1f, 0x7fff, 0, 0);
     }
 

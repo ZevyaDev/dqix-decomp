@@ -11,9 +11,9 @@ enum { Enum_ov003_021769ec_4096 = 0x1000 };
 #include "GameState/GameState.h"
 
 extern "C" void* GetParty_02010828(GameState* gameState);
-struct Struct_0207fdcc_2;
-extern "C" void func_02080c20(Struct_0207fdcc_2*, int);
-extern "C" void func_02080c04(struct Struct_0207fdcc_2* arg0, short arg1);
+struct MenuLayout_0207fdcc_2;
+extern "C" void func_02080c20(MenuLayout_0207fdcc_2*, int);
+extern "C" void func_02080c04(struct MenuLayout_0207fdcc_2* arg0, short arg1);
 extern "C" void func_02080c68(void*, int, int);
 extern "C" void func_02080b54(void*, int);
 struct ItemTable_0201099c_10 {
@@ -28,12 +28,12 @@ extern "C" void func_02080cc0(struct Struct_02080cc0* arg0, int arg1, int arg2);
 extern "C" int func_02080b40(void* arg0, int arg1);
 extern "C" void func_0208103c(void* arg0, int arg1, int arg2);
 struct Struct_02052df8;
-extern "C" short func_02052df8(Struct_02052df8* arg0, int arg1);
-struct Struct_02080fa8;
-extern "C" void func_02080fa8(struct Struct_02080fa8* arg0, int arg1, int arg2);
+extern "C" short GetEquippedItem_02052df8(Struct_02052df8* gameObject, int slot);
+struct MenuLayout_02080fa8;
+extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8* menuLayout, int textId, int value);
 struct Struct_02080fc4;
 extern "C" void func_02080fc4(struct Struct_02080fc4* arg0, int arg1, int arg2);
-extern "C" int func_020dd4c4(int arg0, void* arg1);
+extern "C" int GetEquipRestrictions_020dd4c4(int memberIndex, void* item);
 extern "C" int func_020dcc98(int arg0);
 extern "C" int func_ov003_021753a0(void* arg0, int arg1, void* arg2, void* arg3);
 extern "C" int func_020813ec(void* arg0, short arg1);
@@ -63,7 +63,7 @@ struct Struct_ov003_021769ec_3 {
     char unknown_0_[Enum_ov003_021769ec_2164];
     struct ItemTable_0201099c_10 unknown_874_;
     char unknown_875_[Enum_ov003_021769ec_2204 - Enum_ov003_021769ec_2164 - 1];
-    struct Struct_0207fdcc_2* unknown_89c_;
+    struct MenuLayout_0207fdcc_2* unknown_89c_;
     char unknown_8a0_[Enum_ov003_021769ec_4096 - Enum_ov003_021769ec_2204 - 4];
     Struct_ov003_021769ec_2 unknown_1000_;
 };
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov003_021769ec(Struct_ov003_021769ec_3* arg0) {
     short var6 = 0x21;
     short var7 = 0x145;
     short var8 = 0x146;
-    struct Struct_0207fdcc_2* var9 = arg0->unknown_89c_;
+    struct MenuLayout_0207fdcc_2* var9 = arg0->unknown_89c_;
     GameState* var10 = GameState::GetInstance();
     GetParty_02010828(var10);
     unsigned char var11 = arg0->unknown_1000_.unknown_30_;
@@ -134,7 +134,7 @@ extern "C" ARM void func_ov003_021769ec(Struct_ov003_021769ec_3* arg0) {
     }
     if (var13) {
         for (unsigned char var14 = 0; var14 < var11; var14++) {
-            int var15 = func_020dd4c4((signed char)arg0->unknown_1000_.unknown_1c_[var14], var12);
+            int var15 = GetEquipRestrictions_020dd4c4((signed char)arg0->unknown_1000_.unknown_1c_[var14], var12);
             int var16 = (signed char)arg0->unknown_1000_.unknown_1c_[var14];
             int var17 = 0;
             GameObject* var18 = var10->GetPartyMemberByIndex(var16);
@@ -155,7 +155,7 @@ extern "C" ARM void func_ov003_021769ec(Struct_ov003_021769ec_3* arg0) {
                 if (var19 < 0) {
                     return;
                 }
-                short var20 = func_02052df8((Struct_02052df8*)var18, var19);
+                short var20 = GetEquippedItem_02052df8((Struct_02052df8*)var18, var19);
                 if (var20 == var12->unknown_18_) {
                     func_0208103c(var9, var5, 0x22);
                     func_02080b40(var9, var5);
@@ -171,8 +171,8 @@ extern "C" ARM void func_ov003_021769ec(Struct_ov003_021769ec_3* arg0) {
                             var23 = 9;
                         }
                         func_02080cc0((struct Struct_02080cc0*)var9, var3, var23);
-                        func_02080fa8((struct Struct_02080fa8*)var9, var2, var21);
-                        func_02080fa8((struct Struct_02080fa8*)var9, var3, var22);
+                        SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var9, var2, var21);
+                        SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var9, var3, var22);
                         func_02080b40(var9, var2);
                         func_02080b40(var9, var3);
                         func_02080b40(var9, var4);

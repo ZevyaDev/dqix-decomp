@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" unsigned char func_0200fb9c(char* arg0);
+extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
 extern "C" void MapVRAMBanksToTextureImage(int a);
-extern "C" void func_020bb48c(unsigned int arg0, int arg1);
+extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install);
 extern "C" void func_020bb780(void* arg0, int arg1);
 
 // USA: func_ov017_0218d274
 extern "C" ARM void func_ov017_0218d274(void* arg0) {
-	if (func_0200fb9c((char*)GameState::GetInstance()) == 6) {
+	if (GetGameMode_0200fb9c((char*)GameState::GetInstance()) == 6) {
 		MapVRAMBanksToTextureImage(3);
-		func_020bb48c(2, 1);
+		InitTextureImageVRAMAllocator_020bb48c(2, 1);
 	} else {
 		MapVRAMBanksToTextureImage(0xf);
-		func_020bb48c(4, 1);
+		InitTextureImageVRAMAllocator_020bb48c(4, 1);
 	}
 	func_020bb780((void*)0x4000, 1);
 }

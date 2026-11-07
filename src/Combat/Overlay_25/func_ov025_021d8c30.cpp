@@ -199,13 +199,13 @@ extern "C" int func_ov025_021ed444(char* arg0, int arg1, int arg2, int arg3, int
 extern "C" int func_ov025_021ed380(char* arg0, int arg1, int arg2, int arg3, int arg4, short arg5, unsigned short arg6);
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void func_02078484(struct Struct_02078398_2* arg0);
-extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
+extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 extern "C" int func_02085078(unsigned char* arg0);
 extern "C" int func_020850a4(unsigned char* arg0);
 extern "C" int func_ov000_0215fd90(void* arg0, int arg1);
 extern "C" void func_02032fd0(Struct_02032fd0* arg0, short arg1, unsigned short arg2);
 extern "C" void* GetBattleScene_ov000_02160130(void);
-extern "C" void* func_ov000_02160f08(void* arg0);
+extern "C" void* GetBattleUI_ov000_02160f08(void* battleScene);
 extern "C" void* func_ov025_021dafd0(char* arg0, int arg1);
 extern "C" void func_ov000_0217616c(void* arg0);
 extern "C" void func_0204a00c(unsigned char* arg0, int arg1);
@@ -537,7 +537,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
                 var66.z = var25->obj3D_.GetRadius() >> 1;
                 var65.unknown_2c_ = var66;
                 var65.unknown_14_ = var25->obj3D_.unknown_4_;
-                func_02057fb4(var64, var16, &var65);
+                PlayEffect_02057fb4(var64, var16, &var65);
                 int var68;
                 if (var26) {
                     var68 = inline_ov000_02169850(var60) ? 0x28 : 0x29;
@@ -615,7 +615,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
             }
             if (var16 == 0x21 || var16 == 0x23) var75.z = 0xb33;
             var74.unknown_2c_ = var75;
-            func_02057fb4(var73, var16, &var74);
+            PlayEffect_02057fb4(var73, var16, &var74);
         }
         if (arg1->unknown_22_) {
             func_ov025_021ed444((char*)(arg0 + Enum_ov025_021d8c30_2192), arg1->unknown_22_, -1, 0, 0, -1, 0);
@@ -738,7 +738,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
     var28 = GetBattleScene_ov000_02160130();
     void* var87 = 0;
     void* var88 = 0;
-    if (var28) var87 = func_ov000_02160f08(var28);
+    if (var28) var87 = GetBattleUI_ov000_02160f08(var28);
     if (var87) var88 = func_ov025_021dafd0((char*)var87, var48);
     if (func_ov000_0215fd90(var49, 0x2d) && var88) {
         *(unsigned int*)((unsigned char*)var88 + 0x28) &= ~0x100;
@@ -1082,7 +1082,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
             var110.x = 0;
         }
         var108.unknown_2c_ = var110;
-        func_02057fb4(var36, var16, &var108);
+        PlayEffect_02057fb4(var36, var16, &var108);
     }
 
     if (inline_ov000_02169850(var48)) {

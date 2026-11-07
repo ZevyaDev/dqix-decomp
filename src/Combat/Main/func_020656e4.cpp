@@ -5,16 +5,16 @@
 
 extern "C" void* func_0203cf4c(void);
 
-struct Struct_0203dce4_2;
-struct Struct_0203dce4;
-extern "C" struct Struct_0203dce4* func_0203dce4(struct Struct_0203dce4_2* arg0, int arg1);
+struct NPCManager_0203dce4_2;
+struct NPC_0203dce4;
+extern "C" struct NPC_0203dce4* GetNPCByIndex_0203dce4(struct NPCManager_0203dce4_2* npcManager, int index);
 
 // USA: func_020656e4
 ARM int MessageWindow_02021b84::func_020656e4(int arg0) {
     if (!unknown_19b6_) return 0;
 
-    struct Struct_0203dce4* var0 = func_0203dce4(
-        (struct Struct_0203dce4_2*)func_0203cf4c(),
+    struct NPC_0203dce4* var0 = GetNPCByIndex_0203dce4(
+        (struct NPCManager_0203dce4_2*)func_0203cf4c(),
         unknown_1838_);
     if (var0 == NULL) return 0;
 

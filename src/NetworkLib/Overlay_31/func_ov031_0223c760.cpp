@@ -1,13 +1,10 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca390 func_020cbe5c
-#endif
 
-extern "C" void func_020ca390(int, void*, unsigned int);
+extern "C" void Memset16Bit_020ca390(int, void*, unsigned int);
 extern "C" ARM int func_ov031_0223e2e0(int arg0, void* arg1);
 extern "C" ARM unsigned int GetMainBG0CharacterBase(void);
-extern "C" ARM unsigned int func_ov031_0223cf70(void** arg0);
+extern "C" ARM unsigned int FreeAndClearPointer_ov031_0223cf70(void** pointer);
 
 extern void* data_ov031_02290d38;
 
@@ -15,9 +12,9 @@ extern void* data_ov031_02290d38;
 extern "C" ARM void func_ov031_0223c760(void* arg0) {
     func_ov031_0223e2e0(1, *(void**)((char*)arg0 + 0x2c));
     if (arg0 == (char*)data_ov031_02290d38 + 0x610) {
-        func_020ca390(0, (void*)GetMainBG0CharacterBase(), 0x6000);
+        Memset16Bit_020ca390(0, (void*)GetMainBG0CharacterBase(), 0x6000);
     } else {
-        func_020ca390(0, (void*)GetMainBG0CharacterBase(), 0x3000);
+        Memset16Bit_020ca390(0, (void*)GetMainBG0CharacterBase(), 0x3000);
     }
-    func_ov031_0223cf70((void**)((char*)arg0 + 0x28));
+    FreeAndClearPointer_ov031_0223cf70((void**)((char*)arg0 + 0x28));
 }

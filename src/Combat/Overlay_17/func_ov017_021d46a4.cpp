@@ -63,7 +63,7 @@ extern "C" Struct_0209be84_2* func_0209be84(Struct_02073ec4_2*, unsigned int, in
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void func_02076cc4(Struct_02076cc4*, int);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
-extern "C" void func_02076ccc(void*, int);
+extern "C" void SetFieldMonsterState_02076ccc(void*, int);
 extern "C" void func_0207964c(GameObject*);
 extern "C" Struct_020795e8_2* func_0206ef18(void*, int);
 extern "C" void func_020795e8(Struct_020795e8*, Struct_020795e8_2*);
@@ -119,7 +119,7 @@ extern "C" ARM void func_ov017_021d46a4(void*, Struct_ov017_021d46a4_4* arg1) {
     var13->unknown_b8_ = arg1->unknown_e_;
     var13->unknown_164_ = arg1->unknown_10_;
     var13->unknown_166_ = arg1->unknown_d_;
-    func_02076ccc(var6, arg1->unknown_1c_);
+    SetFieldMonsterState_02076ccc(var6, arg1->unknown_1c_);
     func_0207964c(var6);
     Struct_020795e8_2* var14 = func_0206ef18(var4->unknown_304_, (short)arg1->unknown_a_);
     if (var14) func_020795e8((Struct_020795e8*)var6, var14);

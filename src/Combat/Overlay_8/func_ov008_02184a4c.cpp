@@ -240,10 +240,10 @@ extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 int LoadFileIntoMemory(const char* path, void* dst, unsigned int* outSize);
 struct ObjectArchiveLoadInfo;
 struct Vector3i;
-extern "C" void func_020a2010(void* arg0);
+extern "C" void InitFollowCamera_020a2010(void* arg0);
 struct Struct_0202e5c0;
 extern "C" void func_0202e5c0(Struct_0202e5c0*, int, int, int);
-extern "C" void func_0202e5c8(unsigned char*, int, int, int);
+extern "C" void SetCameraTarget_0202e5c8(unsigned char*, int, int, int);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void SetCamera_020100c4(GameState*, int);
 struct Struct_020a13c4;
@@ -252,7 +252,7 @@ extern "C" void func_020a13e4(void* arg0, void* arg1, int arg2, unsigned short a
 extern "C" int func_ov023_021ed724(void* arg0, short* arg1, int arg2);
 struct Struct_020a15bc;
 extern "C" Struct_ov008_02184a4c_6* func_020a15bc(Struct_020a15bc*, int);
-extern "C" void func_020e046c(char* arg0, void* arg1, unsigned int arg2, int arg3);
+extern "C" void CopyStringFromTableFile_020e046c(char* buffer, void* fileData, unsigned int fileSize, int stringId);
 extern "C" int func_0201081c(char*);
 extern "C" int func_020d3018(const char* arg0, const char* arg1);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
@@ -264,7 +264,7 @@ extern "C" void func_ov008_02187f6c(Struct_ov008_02184a4c_12* arg0, int arg1);
 struct TextWindowManager_0205d81c;
 extern "C" Struct_ov008_02184a4c_10* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 extern "C" char* GetMessageWindow_020421a0(void);
-extern "C" void func_020432c4(char* arg0);
+extern "C" void InitMessageGlyphs_020432c4(char* window);
 struct Struct_0209c3b4_2;
 extern "C" void PlayMusic_0209c3b4(Struct_0209c3b4_2*, int);
 extern "C" void func_ov008_02186964(Struct_ov008_02184a4c_12* arg0);
@@ -513,9 +513,9 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
         }
         BackgroundLoader::RemoveLockGlobal();
         SaveTextureVRAMState_0207dfac(var36 + 0x230);
-        func_020a2010(arg0->unknown_83c_);
+        InitFollowCamera_020a2010(arg0->unknown_83c_);
         func_0202e5c0((Struct_0202e5c0*)arg0->unknown_83c_, 0, 0x8000, 0x40000);
-        func_0202e5c8((unsigned char*)arg0->unknown_83c_, 0, 0, 0);
+        SetCameraTarget_0202e5c8((unsigned char*)arg0->unknown_83c_, 0, 0, 0);
         DisableCameraFollow_020a27a0(arg0->unknown_83c_);
         SetCamera_020100c4(var0, (int)arg0->unknown_83c_);
         arg0->unknown_b11_++;
@@ -585,7 +585,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
                 sprintf(var52, data_ov008_0218b47c, var48->inline_ov008_02184a4c_7());
                 void* var54 = ExtractFileFromGP2(var51, var52, &var50);
                 if (var54 != NULL) {
-                    func_020e046c(arg0->unknown_b0c_->unknown_c_, var54, var50, var42[0]);
+                    CopyStringFromTableFile_020e046c(arg0->unknown_b0c_->unknown_c_, var54, var50, var42[0]);
                 }
                 BackgroundLoader::RemoveLockGlobal();
 #endif
@@ -683,7 +683,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
             char* var65 = GetMessageWindow_020421a0();
             ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)(var64 + 0x5b0));
             RestoreTextureVRAMState_0207df90(var64 + 0x5b0);
-            func_020432c4(var65);
+            InitMessageGlyphs_020432c4(var65);
             SaveTextureVRAMState_0207dfac(var64 + 0x5b0);
             PlayMusic_0209c3b4((Struct_0209c3b4_2*)&gMusicManager_02109bf4, 0x29);
             arg0->unknown_b10_ = 3;

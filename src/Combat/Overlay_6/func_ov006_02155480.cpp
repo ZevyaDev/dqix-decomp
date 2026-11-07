@@ -8,7 +8,7 @@
 
 extern "C" void func_ov023_021dcd90(void* arg0, int arg1);
 extern "C" void func_ov006_02155508(void* arg0);
-extern int data_0210a010[];
+extern int gRenderConfig_0210a010[];
 
 struct Struct_ov006_02155480 {
 	char unknown_0_[0xe2];
@@ -26,7 +26,7 @@ struct Struct_ov006_02155480_2 {
 // USA: func_ov006_02155480
 extern "C" ARM void func_ov006_02155480(Struct_ov006_02155480_2* arg0) {
 	arg0->unknown_12bd_ = 1;
-	*(unsigned int*)((char*)data_0210a010 + 0xa0) = 0xbfff0000;
+	*(unsigned int*)((char*)gRenderConfig_0210a010 + 0xa0) = 0xbfff0000;
 
 	volatile unsigned short* var0 = (volatile unsigned short*)0x4000008;
 	var0[0] = (var0[0] & ~3) | 2;

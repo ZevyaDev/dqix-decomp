@@ -31,7 +31,7 @@ extern "C" int func_ov003_02169674(void* arg0, int arg1, int arg2, void* arg3);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 extern "C" int func_0205bf58(void* arg0, int arg1);
 
-extern "C" void func_0205cef8(void* arg0);
+extern "C" void EnableTouchMenuCursor_0205cef8(void* windowManager);
 extern "C" void func_0205cf04(void* arg0);
 extern "C" void func_0205bbcc(Struct_0205bbcc* arg0);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
@@ -136,7 +136,7 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
 
     if (arg0->unknown_4e9_ == 0) {
         func_ov003_02169594(arg0);
-        func_0205cef8(arg0->unknown_e4_);
+        EnableTouchMenuCursor_0205cef8(arg0->unknown_e4_);
         func_0205cf04(arg0->unknown_e4_);
         func_ov003_021696f4(arg0, arg0->unknown_4ee_);
         func_0205bbcc((Struct_0205bbcc*)arg0->unknown_53c_);

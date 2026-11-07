@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca408 func_020cbed4
-#endif
 
 struct Struct_02112180 {
     unsigned long unknown_0_;
@@ -63,7 +60,7 @@ extern "C" unsigned int func_020d1540(int arg0, Struct_020d135c_3* arg1);
 extern "C" {
     void func_020d14e4(unsigned short arg0, Struct_020d135c_3* arg1);
     int func_020d135c();
-    void func_020ca408(const void* src, void* dst, unsigned int length);
+    void Memcpy32Bit_020ca408(const void* src, void* dst, unsigned int length);
     void WaitByLoop(int arg0);
 }
 
@@ -117,7 +114,7 @@ extern "C" ARM void func_020d16b0() {
         *(unsigned char*)0x027fff9a = true;
     }
 
-    func_020ca408((const void*)0xffff0020, data_02112184, sizeof(data_02112184));
+    Memcpy32Bit_020ca408((const void*)0xffff0020, data_02112184, sizeof(data_02112184));
     CleanInvalidateDataCache();
     func_020d1564(1 | ((((unsigned long)&data_02112180 - 0x02000000) >> 5) << 6));
 

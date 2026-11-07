@@ -10,7 +10,7 @@ enum { Enum_ov017_021bba08_156 = 0x9c };
 
 extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" int func_020107d0(char* arg0);
-extern "C" void func_ov017_021baedc(void* arg0, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(void* node, int arg1);
 
 extern char data_ov017_021d7d7e[0xc];
 
@@ -44,7 +44,7 @@ struct Struct_ov017_021bba08 {
 
 // USA: func_ov017_021bba08
 extern "C" ARM void func_ov017_021bba08(struct Struct_ov017_021bba08* arg0, unsigned char* arg1) {
-    func_ov017_021baedc(arg0, 1);
+    ResetEventTask_ov017_021baedc(arg0, 1);
     arg0->unknown_9c_ = 1;
 
     GameState* var0 = GameState::GetInstance();

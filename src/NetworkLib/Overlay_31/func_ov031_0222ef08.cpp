@@ -32,7 +32,7 @@ extern "C" void func_ov031_0223060c(void);
 extern "C" void func_ov031_0222f68c(void);
 extern "C" void func_ov031_022309b4(int arg0);
 extern "C" ARM void SetWifiSetupFrameHandler_ov031_022274c0(int handler);
-extern "C" ARM void* func_ov031_0223e218(void* arg0, void* arg1, void* arg2, int arg3);
+extern "C" ARM void* AddTask_ov031_0223e218(void* listIndex, void* callback, void* callbackData, int priority);
 
 // USA: func_ov031_0222ef08
 extern "C" ARM void func_ov031_0222ef08(void) {
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov031_0222ef08(void) {
 			return;
 		}
 		PlayWifiSetupSoundEffect_ov031_02236878(0x13);
-		data_ov031_02290ca0.unknown_8_->unknown_38_ = (int)func_ov031_0223e218(0, (void*)func_ov031_022306d4, 0, 0x78);
+		data_ov031_02290ca0.unknown_8_->unknown_38_ = (int)AddTask_ov031_0223e218(0, (void*)func_ov031_022306d4, 0, 0x78);
 		return;
 	}
 	if (func_ov031_0223d3d4(0x200) != 0) {
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov031_0222ef08(void) {
 			return;
 		}
 		PlayWifiSetupSoundEffect_ov031_02236878(0x13);
-		data_ov031_02290ca0.unknown_8_->unknown_38_ = (int)func_ov031_0223e218(0, (void*)func_ov031_0223060c, 0, 0x78);
+		data_ov031_02290ca0.unknown_8_->unknown_38_ = (int)AddTask_ov031_0223e218(0, (void*)func_ov031_0223060c, 0, 0x78);
 		return;
 	}
 	if (func_ov031_0223d3d4(0x100) != 0) {

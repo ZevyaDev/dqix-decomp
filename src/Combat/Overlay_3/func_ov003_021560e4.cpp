@@ -44,10 +44,10 @@ void func_02080854(void*, short, int, int);
 void func_020808a4(void*, int, int, int);
 void func_0207fd44(void*);
 void func_0207fd88(void*);
-void func_0207fe44(void*);
+void CloseMenuLayoutWindows_0207fe44(void*);
 int func_ov003_0215570c(void*);
 int func_02081010(void*, int);
-void func_020d7aa0(void*);
+void ClearTimedMessageQueue_020d7aa0(void*);
 void AllocateBGScreenData_0204b12c(void*, void*);
 void InitPartyMemberNoun_020e4bf4(void*, int);
 void func_020807c4(void*, int, short*, short*);
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
 
     if (var1 == 0) {
         if (arg0->unknown_1fc_ & 1) {
-            func_020d7aa0(func_020d7a50());
+            ClearTimedMessageQueue_020d7aa0(func_020d7a50());
         }
         func_ov003_02156054(arg0);
         FontLoader_0208cb08* var3 = GetFontLoader_02094a00();
@@ -390,7 +390,7 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
                     if (func_ov003_02155f88(arg0, arg0->unknown_1f7_)) {
                         arg0->unknown_1ec_ = 8;
                         arg0->unknown_1f8_ = 7;
-                        func_0207fe44(var59);
+                        CloseMenuLayoutWindows_0207fe44(var59);
                     } else {
                         arg0->unknown_1fc_ = arg0->unknown_1fc_ | 2;
                         arg0->unknown_1ec_ = 9;

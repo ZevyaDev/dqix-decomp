@@ -9,13 +9,13 @@ enum { Enum_ov006_0215c680_54 = 0x36, Enum_ov006_0215c680_76 = 0x4c, Enum_ov006_
 
 struct Struct_02081f20_2 { int unknown_0_[3]; };
 struct SoundEffectManager_02108760;
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 struct Struct_02071ffc_4;
 struct Struct_ov006_02158c28;
 struct Struct_ov006_02154614;
 struct Struct_ov006_021537d0;
 
-struct Struct_0207fdcc_2 {
+struct MenuLayout_0207fdcc_2 {
     char unknown_0_[Enum_ov006_0215c680_54];
     short unknown_36_;
 };
@@ -33,7 +33,7 @@ struct Struct_ov006_02157a60 {
     void* unknown_8_;
     void* unknown_c_;
     Struct_ov006_02154614* unknown_10_;
-    Struct_0207fdcc_2* unknown_14_;
+    MenuLayout_0207fdcc_2* unknown_14_;
     void* unknown_18_;
     void* unknown_1c_;
     void* unknown_20_;
@@ -123,9 +123,9 @@ struct Struct_ov006_02157a60 {
 struct Struct_ov006_0215951c;
 struct Struct_ov006_02159094;
 struct Struct_ov006_021596f0;
-extern "C" void func_0207fdcc(Struct_0207fdcc_2*, int);
+extern "C" void CloseMenuLayoutWindow_0207fdcc(MenuLayout_0207fdcc_2*, int);
 extern "C" short func_02080468(void*, int);
-extern "C" void func_02081ea4(Struct_0207fdcc_2*, int, int);
+extern "C" void func_02081ea4(MenuLayout_0207fdcc_2*, int, int);
 extern "C" void func_020813ec(void*, int);
 extern "C" void func_02080c68(void*, int, int);
 extern "C" void func_ov006_0215951c(Struct_ov006_0215951c*);
@@ -160,10 +160,10 @@ extern "C" signed char func_ov006_02159e50(Struct_ov006_02157a60*);
 
 // USA: func_ov006_0215c680
 extern "C" ARM void func_ov006_0215c680(Struct_ov006_02157a60* arg0) {
-    Struct_0207fdcc_2* var0 = arg0->unknown_14_;
+    MenuLayout_0207fdcc_2* var0 = arg0->unknown_14_;
     if (arg0->unknown_390_ == 0) {
-        func_0207fdcc(var0, 0);
-        func_0207fdcc(var0, 1);
+        CloseMenuLayoutWindow_0207fdcc(var0, 0);
+        CloseMenuLayoutWindow_0207fdcc(var0, 1);
         arg0->unknown_36e_ = 0x10;
         if (arg0->unknown_362_ < 0)
             arg0->unknown_362_ = func_02080468(var0, arg0->unknown_36e_);
@@ -266,7 +266,7 @@ extern "C" ARM void func_ov006_0215c680(Struct_ov006_02157a60* arg0) {
             func_0208203c(&arg0->unknown_9c_);
             arg0->unknown_44_ = 0;
             arg0->unknown_394_ &= ~8;
-            func_0207fdcc(var0, 6);
+            CloseMenuLayoutWindow_0207fdcc(var0, 6);
             func_ov006_02159108(arg0, arg0->unknown_38a_, arg0->unknown_370_, arg0->unknown_38b_);
             func_ov006_021553bc(arg0->unknown_10_, arg0->unknown_378_, arg0->unknown_38c_);
             arg0->unknown_390_++;
@@ -277,7 +277,7 @@ extern "C" ARM void func_ov006_0215c680(Struct_ov006_02157a60* arg0) {
             func_0208203c(&arg0->unknown_9c_);
             arg0->unknown_44_ = 0;
             arg0->unknown_394_ &= ~8;
-            func_0207fdcc(var0, 6);
+            CloseMenuLayoutWindow_0207fdcc(var0, 6);
             arg0->unknown_390_ = 0;
             arg0->unknown_37e_ = 0x24;
             arg0->unknown_392_ = 0;

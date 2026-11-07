@@ -72,7 +72,7 @@ extern "C" unsigned char* GetFlagManager_0205ec34(void);
 extern "C" int func_ov023_021f9b30(struct Struct_ov004_02153e20* arg0, unsigned short arg1, unsigned int arg2, unsigned int arg3);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void func_ov023_021f9d14(void* arg0, void* arg1);
-extern "C" void func_ov023_021f809c(void* arg0, void* arg1);
+extern "C" void RedrawMenuWindow_ov023_021f809c(void* window, void* menu);
 extern "C" int func_ov004_02153d8c(void* arg0);
 
 // USA: func_ov004_02153e20
@@ -132,7 +132,7 @@ extern "C" ARM int func_ov004_02153e20(void* arg0) {
     if (func_ov023_021f6f10(var15) != 6) return 0;
     var15->unknown_104_ = var1;
     var15->unknown_106_ = var2;
-    func_ov023_021f809c(var15, arg0);
+    RedrawMenuWindow_ov023_021f809c(var15, arg0);
     func_ov004_02153d8c(arg0);
     return 0;
 }

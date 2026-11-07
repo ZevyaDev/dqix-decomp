@@ -14,7 +14,7 @@ struct ItemTable_0201099c_10;
 struct ItemData_0201099c_9;
 
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-extern "C" int func_02052df8(struct Struct_02052df8* arg0, int arg1);
+extern "C" int GetEquippedItem_02052df8(struct Struct_02052df8* gameObject, int slot);
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 
 struct Struct_ov003_0217fb68 { unsigned int unknown_0_[9]; };
@@ -33,7 +33,7 @@ extern "C" ARM void* func_ov003_02179cfc(char* arg0, int arg1, struct Struct_ov0
 
     struct Struct_ov003_0217fb68 var1 = data_ov003_0217fb68;
 
-    int var2 = func_02052df8((struct Struct_02052df8*)var0, var1.unknown_0_[arg2->unknown_8_0_]);
+    int var2 = GetEquippedItem_02052df8((struct Struct_02052df8*)var0, var1.unknown_0_[arg2->unknown_8_0_]);
     if (var2 == -1) return arg2;
 
     struct ItemData_0201099c_9* var3 = FindItemData_020dedd0((struct ItemTable_0201099c_10*)(arg0 + Enum_ov003_02179cfc_2164), var2);

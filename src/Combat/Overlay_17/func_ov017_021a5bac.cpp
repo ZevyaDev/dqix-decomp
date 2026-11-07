@@ -19,7 +19,7 @@ extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(struct TextWindowMan
 struct TextWindowManager_0205d274;
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(struct TextWindowManager_0205d274* windowManager);
 struct TextWindowManager_0205d2bc;
-extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc* arg0);
+extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(struct TextWindowManager_0205d2bc* windowManager);
 struct TextWindowManager_0205d048;
 extern "C" void ResetTextWindowManager_0205d048(struct TextWindowManager_0205d048* windowManager);
 
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov017_021a5bac(unsigned char* arg0) {
             void* var3 = *(void**)(arg0 + Enum_ov017_021a5bac_16528);
             ClearTextWindowManagerBGScreenData_0205d1e0((struct TextWindowManager_0205d1e0*)var3);
             FlushTextWindowManagerBGScreenData_0205d274((struct TextWindowManager_0205d274*)var3);
-            func_0205d2bc((struct TextWindowManager_0205d2bc*)var3);
+            CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((struct TextWindowManager_0205d2bc*)var3);
 
             func_ov017_021a5b08((struct Struct_ov017_021a5ad0*)(arg0 + Enum_ov017_021a5bac_16532), 2);
 

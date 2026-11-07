@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov031_02222e0c(void);
+extern "C" int GetButtonBarChoice_ov031_02222e0c(void);
 extern "C" void func_ov031_02222e40(int arg0);
 extern "C" void func_ov031_0221ae00(void* arg0);
 extern "C" int PlayWifiSetupSoundEffect_ov031_02236878(int soundEffectIndex);
@@ -15,7 +15,7 @@ extern Struct_ov031_02290c5c_3 data_ov031_02290c5c;
 
 // USA: func_ov031_02229484
 extern "C" ARM void func_ov031_02229484(void) {
-	int var0 = func_ov031_02222e0c();
+	int var0 = GetButtonBarChoice_ov031_02222e0c();
 	switch (var0) {
 	case 0:
 		PlayWifiSetupSoundEffect_ov031_02236878(7);

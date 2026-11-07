@@ -6,7 +6,7 @@
 #include "Resource/GameResources.h"
 
 struct Struct_ov023_021edc08_5 { unsigned int unknown_0_, unknown_4_, unknown_8_; };
-struct Struct_0200f3a4_8 { int unknown_0_, unknown_4_; };
+struct SkillTable_0200f3a4_8 { int unknown_0_, unknown_4_; };
 struct MusicManager_02109bf4_4;
 struct Struct_020d6f0c;
 struct Struct_020d6d18_2;
@@ -34,7 +34,7 @@ struct Struct_ov023_021edc08 {
     unsigned char unknown_12_[4]; char unknown_16_[2]; int unknown_18_; char unknown_1c_[0x20];
     char unknown_3c_[0x6c - 0x3c]; int unknown_6c_; int unknown_70_; char unknown_74_[0xe2 - 0x74];
     unsigned char unknown_e2_; char unknown_e3_; signed char unknown_e4_; signed char unknown_e5_;
-    char unknown_e6_[2]; Struct_0200f3a4_8 unknown_e8_; int unknown_f0_; int unknown_f4_[6];
+    char unknown_e6_[2]; SkillTable_0200f3a4_8 unknown_e8_; int unknown_f0_; int unknown_f4_[6];
 #if defined(jpn)
     Struct_ov023_021edc08_5 unknown_10c_; char unknown_118_[0x2380]; unsigned char unknown_2788_; char unknown_2499_[7];
 #else
@@ -72,8 +72,8 @@ extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void func_ov017_021c9ad4(unsigned short);
 extern "C" void func_ov017_021a23b0(GameResources*, int);
-extern "C" void func_0209c678(MusicManager_02109bf4_4*, int);
-extern "C" void func_ov000_0216d370(void*, int, int, int);
+extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4*, int);
+extern "C" void ResetBattleCamera_ov000_0216d370(void*, int, int, int);
 extern "C" void* GetEffectManager_02057924();
 extern "C" void RemoveEffectResource_02057f00(void*, int);
 extern "C" void func_020d6f0c(Struct_020d6f0c*);
@@ -81,11 +81,11 @@ extern "C" void func_020d6d18(Struct_020d6d18_2*);
 extern "C" void func_ov000_021823a4(char*);
 extern "C" Struct_0203a54c* func_02039e70();
 extern "C" void func_0203a54c(Struct_0203a54c*);
-extern "C" void func_0209a338(Struct_0200f3a4_8*);
+extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8*);
 extern "C" void func_0209a804(int*);
 extern "C" void func_ov023_021f52a0(void*);
 extern "C" void func_0206efc4(void*);
-extern "C" void func_020a1ef0(int);
+extern "C" void PushSubOverlay_020a1ef0(int);
 extern "C" void func_ov023_021f52f8(void*, void*);
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void ClearMessageParams_02046380(Struct_02081870*);
@@ -98,7 +98,7 @@ extern "C" const char* GetStandardString_020e51cc(int);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_02081870*, const char*, int, int);
 #endif
-extern "C" void func_0209c6d8(void*, int);
+extern "C" void PlayJingle_0209c6d8(void*, int);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
 extern "C" Struct_020e385c* func_020e3808();
 extern "C" void func_020e3994(Struct_020e385c*, int, int);
@@ -123,8 +123,8 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
     SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 0x20000);
     func_ov017_021c9ad4(arg0->unknown_2a0_->unknown_8_);
     func_ov017_021a23b0(var1, arg0->unknown_2a0_->unknown_8_);
-    func_0209c678(&gMusicManager_02109bf4, 0);
-    func_ov000_0216d370(arg0->unknown_c18_, 0, 0, 1);
+    StopMusic_0209c678(&gMusicManager_02109bf4, 0);
+    ResetBattleCamera_ov000_0216d370(arg0->unknown_c18_, 0, 0, 1);
     void* var4 = GetEffectManager_02057924();
     Struct_ov023_021fd870 var5 = data_ov023_021fd870;
     for (int* var6 = var5.unknown_0_; *var6 >= 0; ++var6) RemoveEffectResource_02057f00(var4, *var6);
@@ -155,11 +155,11 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
     memset(&var8->unknown_6c_, 0, 4);
     memset(var8->unknown_118_, 0, sizeof(var8->unknown_118_));
     var8->unknown_2788_ = 0;
-    func_0209a338(&var8->unknown_e8_);
+    ClearSkillTable_0209a338(&var8->unknown_e8_);
     func_0209a804(&var8->unknown_f0_);
     func_ov023_021f52a0(var8->unknown_f4_);
     func_0206efc4(&var8->unknown_10c_);
-    func_020a1ef0(1);
+    PushSubOverlay_020a1ef0(1);
     func_ov023_021f52f8(_ZZ21inline_ov023_021f4c04vE1s.unknown_0_->unknown_f4_, var7);
     if (IsLocalWirelessGuest_0202c540(var2) && arg0->unknown_2a0_->unknown_25_) {
 #if defined(jpn)
@@ -189,7 +189,7 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
 
 #endif
         var3->unknown_998_ = 1;
-        func_0209c6d8(&gMusicManager_02109bf4, 0x36);
+        PlayJingle_0209c6d8(&gMusicManager_02109bf4, 0x36);
     }
     if (IsNotLocalWirelessGuest_0202c508(var2) && arg0->unknown_2a0_->unknown_c_ == 19) {
         Struct_020e385c* var20 = func_020e3808();

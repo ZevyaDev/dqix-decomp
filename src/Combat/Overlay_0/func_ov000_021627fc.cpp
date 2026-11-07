@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 #include "Resource/ActionDataTables.h"
 
-extern "C" void* func_ov000_02160f20(void* arg0);
+extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" int func_ov000_02163690(int arg0);
 
 extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 
 // USA: func_ov000_021627fc
 extern "C" ARM int func_ov000_021627fc(void* arg0) {
-    void* var0 = func_ov000_02160f20(arg0);
+    void* var0 = GetCurrentBattleAction_ov000_02160f20(arg0);
     if (var0 == 0) {
         return 0;
     }

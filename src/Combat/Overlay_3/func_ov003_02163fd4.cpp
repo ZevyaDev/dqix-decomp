@@ -52,8 +52,8 @@ extern "C" int func_02080468(void *, int);
 extern "C" char * GetResources_0200fb8c(int*);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *, int, int);
-struct Struct_0207fe44;
-extern "C" void func_0207fe44(Struct_0207fe44*);
+struct MenuLayout_0207fe44;
+extern "C" void CloseMenuLayoutWindows_0207fe44(MenuLayout_0207fe44*);
 extern "C" int func_ov003_02160b84(void *);
 extern "C" int func_ov003_02160b50(void *);
 extern "C" int func_ov003_02160a68(Struct_ov003_02154af4_3 *);
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov003_02163fd4(Struct_ov003_02154af4_3 *arg0) {
     Struct_ov003_0216201c *var1    = arg0->unknown_324_;
 
     if (var0 == 0) {
-        func_0207fe44((Struct_0207fe44*)var1);
+        CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var1);
         int var2    = -1;
         arg0->unknown_49e_ = func_ov003_02160b50(arg0);
         switch (arg0->unknown_49e_) {
@@ -106,7 +106,7 @@ extern "C" ARM void func_ov003_02163fd4(Struct_ov003_02154af4_3 *arg0) {
                         arg0->unknown_4a3_  = 0xb;
                         arg0->unknown_4a4_ = 0;
                     } else {
-                        func_0207fe44((Struct_0207fe44*)var1);
+                        CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var1);
                         var3[0]        = 3;
                         arg0->unknown_4a3_  = 0xb;
                         arg0->unknown_4a4_ = 2;
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov003_02163fd4(Struct_ov003_02154af4_3 *arg0) {
                         var3[0] = 0x14;
                         var3[1] = 1;
                     } else {
-                        func_0207fe44((Struct_0207fe44*)var1);
+                        CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var1);
                         arg0->unknown_4a3_  = 0xd;
                         arg0->unknown_4a4_ = 0xb;
                     }
@@ -168,13 +168,13 @@ extern "C" ARM void func_ov003_02163fd4(Struct_ov003_02154af4_3 *arg0) {
                 case 0xbb:
                 case 0xbc:
                 case 0xbd:
-                    func_0207fe44((Struct_0207fe44*)var1);
+                    CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var1);
                     var3[0] = 0x2d;
                     break;
             }
             func_02080c68(var1, arg0->unknown_488_, 1);
         } else if (func_ov003_02160a68(arg0) != 0) {
-            func_0207fe44((Struct_0207fe44*)var1);
+            CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var1);
             var3[0] = 0x2d;
         }
     } else if (var0 == 2) {

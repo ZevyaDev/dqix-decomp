@@ -7,7 +7,7 @@ struct Struct_0204b878;
 struct TextWindowManager_0205d1e0;
 struct TextWindowManager_0205d228;
 struct TextWindowManager_0205d274;
-struct Struct_0204af14;
+struct BGLayer_0204af14;
 struct Struct_ov000_02173954;
 
 extern "C" void ClearBGScreenData_0204b010(struct BGLayer_0204b010*, void*);
@@ -15,7 +15,7 @@ extern "C" void CopyBGScreenBlockRect_0204b8d0(struct BGLayer_0204b8d0*, unsigne
 extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(struct TextWindowManager_0205d1e0*);
 extern "C" void DrawTextWindows_0205d228(struct TextWindowManager_0205d228*);
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(struct TextWindowManager_0205d274*);
-extern "C" void* func_0204af14(struct Struct_0204af14*, unsigned int);
+extern "C" void* GetBGScreenBlock_0204af14(struct BGLayer_0204af14*, unsigned int);
 extern "C" void func_0204b878(struct Struct_0204b878*, int, int, int, short, short, short, short, unsigned short);
 extern "C" void func_ov000_0217f5e4(struct Struct_ov000_02173954*, int);
 
@@ -265,7 +265,7 @@ extern "C" ARM void func_ov000_02173954(char* arg0) {
             }
             char* var47 = arg0 + 0x8c4;
             if (var12->unknown_24_ & 8) var47 = arg0 + 0x8a4;
-            void* var48 = func_0204af14((struct Struct_0204af14*)(arg0 + 0x8c4), 2);
+            void* var48 = GetBGScreenBlock_0204af14((struct BGLayer_0204af14*)(arg0 + 0x8c4), 2);
 #if defined(jpn)
             func_0204b878((struct Struct_0204b878*)var47, (int)var48, 0, 0, var1 + 2, var2, 0x20, 0x19, var14 + 2);
 #else

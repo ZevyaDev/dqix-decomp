@@ -2,7 +2,7 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-struct Struct_ov000_021584e8;
+struct ActionResult_ov000_021584e8;
 struct Struct_ov024_021e3f14_3 { int unknown_0_; int unknown_4_; };
 
 struct Struct_ov024_021e04e0;
@@ -16,9 +16,9 @@ extern "C" void func_02088e64(unsigned char* arg0);
 extern "C" void func_02087704(void* arg0);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void func_ov000_0215ffc4(void* arg0, void* arg1, int arg2);
-extern "C" struct Struct_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
+extern "C" struct ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, struct Struct_ov024_021e3f14_3* flags, int flagIndex);
-extern "C" void func_ov000_0215cd44(void* arg0, struct Struct_ov000_021584e8* arg1, GameObject* arg2, int arg3,
+extern "C" void func_ov000_0215cd44(void* arg0, struct ActionResult_ov000_021584e8* arg1, GameObject* arg2, int arg3,
     struct Struct_ov024_021e3f14_3 arg4, int arg5);
 
 struct Struct_ov024_021e3f14 { char unknown_0_[0x24]; unsigned char unknown_24_; };
@@ -37,7 +37,7 @@ extern "C" ARM unsigned long long func_ov024_021e3f14(struct Struct_ov024_021e3f
     if (arg4 <= 0) return 0;
     GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
     if (!var0) return 0;
-    struct Struct_ov000_021584e8* var1 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
+    struct ActionResult_ov000_021584e8* var1 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var1) return 0;
     int var2 = 0;
     if (func_ov024_021e05e4((struct Struct_ov024_021e04e0*)var0)) {

@@ -5,9 +5,9 @@
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct TextWindowManager_0205d81c;
-struct Struct_0205def8;
+struct TextWindowManager_0205def8;
 struct SoundEffectManager_02108760;
-struct Struct_020d7aa0_2;
+struct TimedMessageQueue_020d7aa0_2;
 
 extern "C" int GetResources_0200fb8c(int *gameState);
 extern "C" void GetZone3D_02012fe4(void);
@@ -15,7 +15,7 @@ extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205d
                                                                         unsigned char bgIndex);
 extern "C" void func_ov002_02161cf0(char *arg0);
 extern "C" void func_ov002_0215f3a0(void *arg0);
-extern "C" void func_0205def8(struct Struct_0205def8 *arg0, int arg1, int arg2);
+extern "C" void func_0205def8(struct TextWindowManager_0205def8 *arg0, int arg1, int arg2);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" char *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
@@ -23,8 +23,8 @@ extern "C" int func_ov002_0216197c(int arg0, struct TextWindowManager_0205d81c *
 extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
 struct TextWindowManager_0205da38;
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
-extern "C" Struct_020d7aa0_2 *func_020d7a50();
-extern "C" void func_020d7aa0(Struct_020d7aa0_2 *arg0);
+extern "C" TimedMessageQueue_020d7aa0_2 *func_020d7a50();
+extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2 *queue);
 extern "C" void func_ov002_02156080(void *arg0, short *arg1, short *arg2);
 extern "C" int func_ov002_02161920(void *arg0);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
         *(int *) (arg0 + 0x1a88) += 1;
     } else if (var2 == 1) {
         *(unsigned int *) (arg0 + 0x22ac) |= 4;
-        func_0205def8((struct Struct_0205def8 *) OBJ, 1, 0x2c);
+        func_0205def8((struct TextWindowManager_0205def8 *) OBJ, 1, 0x2c);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x16, 0);
         short var3                  = *(short *) (arg0 + 0x1ac6);
         *(short *) (arg0 + 0x1ac6) = GetCursorIndex_0205d794((struct Struct_0205c570 *) OBJ);
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
             if (var8 & 2) {
                 return;
             }
-            func_020d7aa0(func_020d7a50());
+            ClearTimedMessageQueue_020d7aa0(func_020d7a50());
             short var9 = 0;
             short var10[9];
             func_ov002_02156080(arg0, var10, &var9);
@@ -159,8 +159,8 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
         *(int *) (arg0 + 0x1bc0) += 1;
     } else if (var16 == 1) {
         *(unsigned int *) (arg0 + 0x247c) |= 4;
-        func_0205def8((struct Struct_0205def8 *) OBJ, 1, 0x29);
-        func_0205def8((struct Struct_0205def8 *) OBJ, 1, 1);
+        func_0205def8((struct TextWindowManager_0205def8 *) OBJ, 1, 0x29);
+        func_0205def8((struct TextWindowManager_0205def8 *) OBJ, 1, 1);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x15, 0);
         short var17                  = *(short *) (arg0 + 0x1bfe);
         *(short *) (arg0 + 0x1bfe) = GetCursorIndex_0205d794((struct Struct_0205c570 *) OBJ);
@@ -187,7 +187,7 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
             if (!(var22 & 0x20)) {
                 return;
             }
-            func_020d7aa0(func_020d7a50());
+            ClearTimedMessageQueue_020d7aa0(func_020d7a50());
             short var23 = 0;
             short var24[9];
             func_ov002_02156080(arg0, var24, &var23);

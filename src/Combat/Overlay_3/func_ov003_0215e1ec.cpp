@@ -8,7 +8,7 @@ enum { Enum_ov003_0215e1ec_963 = 0x3c3 };
 #endif
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* arg1);
+extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* outOwnPartyOrder);
 
 struct Struct_ov003_0215e1ec {
     unsigned int unknown_0_;

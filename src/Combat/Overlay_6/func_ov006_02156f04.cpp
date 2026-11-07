@@ -9,7 +9,7 @@ enum { Enum_ov006_02156f04_2196 = 0x894, Enum_ov006_02156f04_4795 = 0x12bb };
 #include <std_library_functions.h>
 #include "Filesystem/BackgroundLoader.h"
 
-struct Struct_02015ef4_4 {
+struct ItemData_02015ef4_4 {
     void* unknown_0_;
     int unknown_4_;
     int unknown_8_;
@@ -18,16 +18,16 @@ struct Struct_02015ef4_4 {
     unsigned int unknown_12_4_ : 8;
     unsigned int unknown_13_4_ : 4;
     int unknown_14_;
-    short unknown_18_;
+    short itemId_18_;
     char unknown_1a_[0x20 - 0x1a];
 };
 
-extern "C" unsigned short func_020de234(Struct_02015ef4_4* arg0, int arg1);
+extern "C" unsigned short GetItemGraphicNumber_020de234(ItemData_02015ef4_4* item, int gender);
 
 extern const char data_ov006_021601e5[];
 
 struct Struct_ov006_02156f04 {
-    Struct_02015ef4_4 unknown_0_;
+    ItemData_02015ef4_4 unknown_0_;
     char unknown_20_[0x20];
     char unknown_40_[0x30];
     short unknown_70_;
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov006_02156f04(Struct_ov006_02154614* arg0, Struct_ov00
         var0->unknown_74_ = var3;
         if (var3 > 0) {
             var0->unknown_7a_ = 1;
-            int var4 = func_020de234(&arg1->unknown_0_, 0);
+            int var4 = GetItemGraphicNumber_020de234(&arg1->unknown_0_, 0);
             char var5[0x40] = {0};
             sprintf(var5, data_ov006_021601e5, arg1->unknown_0_.unknown_12_4_, var4);
             var0->unknown_70_ = var1->QueueLoadFile(var5, 0);

@@ -40,11 +40,11 @@ extern "C" void func_ov031_022238cc();
 extern "C" void func_ov031_02223440();
 extern "C" void func_ov031_02234f08();
 extern "C" void func_ov031_0223b710(void*);
-extern "C" void func_ov031_0223cbbc(int, int);
+extern "C" void HideScreenLayers_ov031_0223cbbc(int, int);
 extern "C" void func_ov031_022357b4();
 extern "C" void* func_ov031_02235c70();
 extern "C" void func_ov031_02236094(int);
-extern "C" void func_ov031_022274d0(int, int);
+extern "C" void SetStepIndicatorAndButtonBarModes_ov031_022274d0(int, int);
 extern "C" void func_ov031_0222750c(int, int);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_02235cac(void*);
@@ -52,7 +52,7 @@ extern "C" void func_ov031_02233248();
 extern "C" void func_ov031_02232024();
 extern "C" void func_ov031_0222cbe0();
 extern "C" void func_ov031_022340c0();
-extern "C" void func_ov031_0223cf70(void*);
+extern "C" void FreeAndClearPointer_ov031_0223cf70(void*);
 #define REG_SCROLL (*(volatile unsigned int*)0x04000010)
 #define REG_SCROLL_SUB (*(volatile unsigned int*)0x04000018)
 
@@ -74,31 +74,31 @@ extern "C" ARM void func_ov031_0222c1b8() {
     func_ov031_02234f08();
     func_ov031_0223b710(data_ov031_02290c8c.unknown_4_->unknown_4_);
     func_ov031_0223b710(data_ov031_02290c8c.unknown_4_->unknown_8_);
-    func_ov031_0223cbbc(1, 1);
-    func_ov031_0223cbbc(0, 0x1d);
+    HideScreenLayers_ov031_0223cbbc(1, 1);
+    HideScreenLayers_ov031_0223cbbc(0, 0x1d);
     REG_SCROLL = 0;
     REG_SCROLL_SUB = 0;
     if (data_ov031_02290c8c.unknown_4_->unknown_54_ == 0) {
         func_ov031_022357b4();
         func_ov031_02236094(((Struct_ov031_0222c1b8_3*)func_ov031_02235c70())->unknown_f4_);
-        func_ov031_022274d0(2, 0);
+        SetStepIndicatorAndButtonBarModes_ov031_022274d0(2, 0);
         SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02233248);
     } else if (data_ov031_02290c8c.unknown_0_ == 4) {
         func_ov031_022357b4();
-        func_ov031_022274d0(0, 1);
+        SetStepIndicatorAndButtonBarModes_ov031_022274d0(0, 1);
         SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02232024);
     } else {
         func_ov031_02235cac(&data_ov031_02290c8c.unknown_4_->unknown_0_[data_ov031_02290c8c.unknown_4_->unknown_52_]);
-        func_ov031_022274d0(0, 0);
+        SetStepIndicatorAndButtonBarModes_ov031_022274d0(0, 0);
         if (data_ov031_02290c8c.unknown_4_->unknown_0_[data_ov031_02290c8c.unknown_4_->unknown_52_].unknown_28_ != 0) {
-            func_ov031_022274d0(0, 1);
+            SetStepIndicatorAndButtonBarModes_ov031_022274d0(0, 1);
             func_ov031_0222750c(1, 1);
             SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222cbe0);
         } else {
-            func_ov031_022274d0(0, 1);
+            SetStepIndicatorAndButtonBarModes_ov031_022274d0(0, 1);
             func_ov031_0222750c(0, 1);
             SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_022340c0);
         }
     }
-    func_ov031_0223cf70(&data_ov031_02290c90);
+    FreeAndClearPointer_ov031_0223cf70(&data_ov031_02290c90);
 }

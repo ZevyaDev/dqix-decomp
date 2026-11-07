@@ -21,8 +21,8 @@ struct Struct_ov017_021c48f0_2 { char unknown_0_[0x36d0]; unsigned char* unknown
 #endif
 extern "C" int func_02039888(void*); extern "C" void func_02039d58(unsigned char*);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*,int); extern "C" int GetLeaderObjectIndex_020546a8(void*);
-extern "C" unsigned short* GetZone3D_02012fe4(); extern "C" void func_02039d24(unsigned char*);
-extern "C" void func_020407b4(Struct_02040774_2*,int,int,int); extern "C" void SetFacingInstantly_02033874(Struct_02033834*,int); extern "C" void SetMotion_02033b88(Struct_02010604*,int);
+extern "C" unsigned short* GetZone3D_02012fe4(); extern "C" void ResetFollowTrail_02039d24(unsigned char*);
+extern "C" void SetObject3DPosition_020407b4(Struct_02040774_2*,int,int,int); extern "C" void SetFacingInstantly_02033874(Struct_02033834*,int); extern "C" void SetMotion_02033b88(Struct_02010604*,int);
 extern "C" void func_ov017_02193428(void*,void*); extern "C" void func_02026bc8(unsigned char*,int);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" void func_ov017_0219dc90(GameResources*,int,int,int,int);
@@ -57,8 +57,8 @@ extern "C" ARM void func_ov017_021c48f0(int arg0,Struct_ov017_021c48f0_5* arg1,G
             if(var13==NULL) continue;
             if(!var13->obj3D_.IsVisible() && var11) {
                 if(arg1->unknown_7_==0 || var3!=*GetZone3D_02012fe4()) var13->obj3D_.MakeVisible();
-                func_02039d24((unsigned char*)var13);
-                if(arg1->unknown_4_==10000 && func_02039888(var13)!=-1) func_020407b4((Struct_02040774_2*)var13,0xff000,0,0xff000);
+                ResetFollowTrail_02039d24((unsigned char*)var13);
+                if(arg1->unknown_4_==10000 && func_02039888(var13)!=-1) SetObject3DPosition_020407b4((Struct_02040774_2*)var13,0xff000,0,0xff000);
                 else var13->obj3D_.position_=var4;
                 SetFacingInstantly_02033874((Struct_02033834*)var13,arg1->unknown_10_);
                 if(var12!=0) SetMotion_02033b88((Struct_02010604*)var13,0);
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov017_021c48f0(int arg0,Struct_ov017_021c48f0_5* arg1,G
                 ((Struct_ov017_021c48f0_6*)var6[var12])->unknown_e0_|=0x20;
             }
             if(arg1->unknown_4_==10000 && var0==var13->obj3D_.unknown_4_ && var11) {
-                func_020407b4((Struct_02040774_2*)var6[var12],0x5f0a,0x3614,0x570);
+                SetObject3DPosition_020407b4((Struct_02040774_2*)var6[var12],0x5f0a,0x3614,0x570);
                 SetFacingInstantly_02033874((Struct_02033834*)var6[var12],0x4b66);
             }
             var13->obj3D_.EnableFlag(0x4000000);

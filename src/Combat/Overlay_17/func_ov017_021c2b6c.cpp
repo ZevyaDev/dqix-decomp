@@ -12,15 +12,15 @@ enum { Enum_ov017_021c2b6c_434 = 0x1b2 };
 #include "Resource/GameResources.h"
 
 struct Struct_02114e20;
-struct Struct_02015ef4_5;
+struct TextureVRAMArea_02015ef4_5;
 
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
-extern "C" int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, int arg3, int arg4, Struct_02015ef4_5* arg5);
+extern "C" int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, int arg3, int arg4, TextureVRAMArea_02015ef4_5* arg5);
 extern "C" unsigned int func_02012dd0(Struct_02114e20*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void func_0207dfc8(Struct_02015ef4_5*, Struct_02015ef4_5*);
-extern "C" void func_02057fb4(void*, int, void*);
+extern "C" void InitTextureVRAMAreaFromSaved_0207dfc8(TextureVRAMArea_02015ef4_5*, TextureVRAMArea_02015ef4_5*);
+extern "C" void PlayEffect_02057fb4(void*, int, void*);
 extern "C" void func_ov017_021d24a8(int);
 
 extern AllocatorUnion gMainHeap_02114e20;
@@ -76,14 +76,14 @@ extern "C" ARM void func_ov017_021c2b6c(Struct_ov017_021c2b6c* arg0) {
         arg0->unknown_8_.CreateTypeA(var5, 0x8000);
         arg0->unknown_8_.Reset();
         char* var6 = var1->unknown_2cc_;
-        func_0207dfc8((Struct_02015ef4_5*)(var6 + 0xc40), (Struct_02015ef4_5*)arg0->unknown_1c_);
+        InitTextureVRAMAreaFromSaved_0207dfc8((TextureVRAMArea_02015ef4_5*)(var6 + 0xc40), (TextureVRAMArea_02015ef4_5*)arg0->unknown_1c_);
         var4 = 0;
         void* var7 = LoadFileIntoNewAllocation(data_ov017_021d7f6c, arg0->unknown_8_, &var4);
         if (var7 == 0) {
             arg0->unknown_8c_ = 3;
             return;
         }
-        func_02057e6c(var2, 0x11, &arg0->unknown_8_, (int)var7, var4, (Struct_02015ef4_5*)arg0->unknown_1c_);
+        func_02057e6c(var2, 0x11, &arg0->unknown_8_, (int)var7, var4, (TextureVRAMArea_02015ef4_5*)arg0->unknown_1c_);
         arg0->unknown_8d_++;
     } else if (arg0->unknown_8d_ == 1) {
         GameObject* var8 = var0->GetPartyMemberByIndex(arg0->unknown_95_);
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov017_021c2b6c(Struct_ov017_021c2b6c* arg0) {
             var11->unknown_11_7_ = 0;
             var11->unknown_2c_ = var10->obj3D_.position_;
             var11->unknown_44_ = var10->obj3D_.GetScale();
-            func_02057fb4(var2, 0x11, var11);
+            PlayEffect_02057fb4(var2, 0x11, var11);
         }
         arg0->unknown_90_ = 1;
         func_ov017_021d24a8(arg0->unknown_95_);

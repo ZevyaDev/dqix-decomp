@@ -6,9 +6,9 @@ extern "C" int func_ov031_02222e54(void);
 extern "C" void func_ov031_02222bdc(void);
 extern "C" void* func_ov031_0223c7c4(int);
 extern "C" void func_ov031_02223440(void);
-extern "C" void func_ov031_0223cbbc(int, int);
+extern "C" void HideScreenLayers_ov031_0223cbbc(int, int);
 extern "C" int func_ov031_02227ba4(void);
-extern "C" void func_ov031_022274d0(int, int);
+extern "C" void SetStepIndicatorAndButtonBarModes_ov031_022274d0(int, int);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_02233248(void);
 extern "C" void func_ov031_02231558(void);
@@ -26,16 +26,16 @@ extern "C" ARM void func_ov031_022313a0(void) {
 
 	if (data_ov031_02290cac == 0) {
 		func_ov031_02223440();
-		func_ov031_0223cbbc(1, 1);
+		HideScreenLayers_ov031_0223cbbc(1, 1);
 	}
-	func_ov031_0223cbbc(0, 0x15);
+	HideScreenLayers_ov031_0223cbbc(0, 0x15);
 
 	if (data_ov031_02290cac == 0) {
 		func_ov031_02227ba4();
-		func_ov031_022274d0(2, 1);
+		SetStepIndicatorAndButtonBarModes_ov031_022274d0(2, 1);
 		SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02233248);
 	} else {
-		func_ov031_022274d0(0, 0);
+		SetStepIndicatorAndButtonBarModes_ov031_022274d0(0, 0);
 		SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02231558);
 	}
 }

@@ -8,8 +8,8 @@ extern "C" void SaveMainBGControl_02074af4(void* save);
 struct Struct_ov011_0218438c;
 extern "C" void func_ov023_021f672c(struct Struct_ov011_0218438c* arg0);
 
-struct Struct_02074b64;
-extern "C" void func_02074b64(struct Struct_02074b64* arg0);
+struct BGControlSave_02074b64;
+extern "C" void SaveSubBGControl_02074b64(struct BGControlSave_02074b64* save);
 
 struct Struct_ov011_0218438c_2 {
     char unknown_0_[0x9c];
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov011_0218438c(struct Struct_ov011_0218438c_2* arg0) {
     arg0->unknown_1a4_ = 0;
     arg0->unknown_1a5_ = 0;
     SaveMainBGControl_02074af4((char*)arg0 + 0x194);
-    func_02074b64((struct Struct_02074b64*)((char*)arg0 + 0x194));
+    SaveSubBGControl_02074b64((struct BGControlSave_02074b64*)((char*)arg0 + 0x194));
     arg0->unknown_1a8_ = (*(unsigned int*)0x4000000 & 0x1f00) >> 8;
     arg0->unknown_1ac_ = (*(unsigned int*)0x4001000 & 0x1f00) >> 8;
     arg0->unknown_1b0_ = 0;

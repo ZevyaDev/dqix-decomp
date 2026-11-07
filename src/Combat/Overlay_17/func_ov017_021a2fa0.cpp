@@ -3,7 +3,7 @@
 #include "Grotto/Main/GrottoStruct.h"
 #include "Memory/SafeAllocator.h"
 
-struct Struct_02015ef4_5;
+struct TextureVRAMArea_02015ef4_5;
 
 struct Struct_ov017_021a2fa0 {
     unsigned char unknown_0_[0xb6];
@@ -32,7 +32,7 @@ extern "C" void func_ov017_021a316c(unsigned char* arg0);
 extern "C" void func_ov017_021a2c14(unsigned char* arg0, int arg1, void* arg2);
 extern "C" void func_020a6728(unsigned char* arg0, unsigned short arg1);
 extern "C" void func_020aca88(unsigned char* arg0, unsigned short arg1);
-extern "C" void func_0207dfc8(struct Struct_02015ef4_5* arg0, struct Struct_02015ef4_5* arg1);
+extern "C" void InitTextureVRAMAreaFromSaved_0207dfc8(struct TextureVRAMArea_02015ef4_5* sourceArea, struct TextureVRAMArea_02015ef4_5* area);
 extern "C" int func_0208f588(Struct_ov017_021a2fa0* arg0, void* arg1, char* arg2);
 extern "C" int func_0208f748(Struct_ov017_021a2fa0* arg0, int arg1);
 extern "C" void func_ov017_021a28a8(unsigned char* arg0);
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov017_021a2fa0(unsigned char* arg0) {
     unsigned int var2 = ((SafeAllocator*)(arg0 + 0xc4))->GetMaxPossibleAllocation();
     void* var3 = ((SafeAllocator*)(arg0 + 0xc4))->Allocate(var2);
     ((SafeAllocator*)(arg0 + Enum_ov017_021a2fa0_4676))->CreateTypeA(var3, var2);
-    func_0207dfc8((struct Struct_02015ef4_5*)(arg0 + Enum_ov017_021a2fa0_1500), (struct Struct_02015ef4_5*)(arg0 + Enum_ov017_021a2fa0_4696));
+    InitTextureVRAMAreaFromSaved_0207dfc8((struct TextureVRAMArea_02015ef4_5*)(arg0 + Enum_ov017_021a2fa0_1500), (struct TextureVRAMArea_02015ef4_5*)(arg0 + Enum_ov017_021a2fa0_4696));
 
     Struct_ov017_021a2fa0* var4 = &var1->unknown_2664_;
     func_0208f588(var4, arg0 + Enum_ov017_021a2fa0_4676, (char*)(arg0 + Enum_ov017_021a2fa0_4696));
@@ -75,13 +75,13 @@ extern "C" ARM void func_ov017_021a2fa0(unsigned char* arg0) {
     var2 = ((SafeAllocator*)(arg0 + Enum_ov017_021a2fa0_4676))->GetMaxPossibleAllocation();
     var3 = ((SafeAllocator*)(arg0 + Enum_ov017_021a2fa0_4676))->Allocate(var2);
     ((SafeAllocator*)(arg0 + Enum_ov017_021a2fa0_4412))->CreateTypeA(var3, var2);
-    func_0207dfc8((struct Struct_02015ef4_5*)(arg0 + Enum_ov017_021a2fa0_4696), (struct Struct_02015ef4_5*)(arg0 + Enum_ov017_021a2fa0_4432));
+    InitTextureVRAMAreaFromSaved_0207dfc8((struct TextureVRAMArea_02015ef4_5*)(arg0 + Enum_ov017_021a2fa0_4696), (struct TextureVRAMArea_02015ef4_5*)(arg0 + Enum_ov017_021a2fa0_4432));
     func_ov017_021a28a8(arg0);
 
     var2 = ((SafeAllocator*)(arg0 + Enum_ov017_021a2fa0_4412))->GetMaxPossibleAllocation();
     var3 = ((SafeAllocator*)(arg0 + Enum_ov017_021a2fa0_4412))->Allocate(var2);
     ((SafeAllocator*)(arg0 + Enum_ov017_021a2fa0_4544))->CreateTypeA(var3, var2);
-    func_0207dfc8((struct Struct_02015ef4_5*)(arg0 + Enum_ov017_021a2fa0_4432), (struct Struct_02015ef4_5*)(arg0 + Enum_ov017_021a2fa0_4564));
+    InitTextureVRAMAreaFromSaved_0207dfc8((struct TextureVRAMArea_02015ef4_5*)(arg0 + Enum_ov017_021a2fa0_4432), (struct TextureVRAMArea_02015ef4_5*)(arg0 + Enum_ov017_021a2fa0_4564));
 
     Struct_ov017_021a2fa0_3* var6 = (Struct_ov017_021a2fa0_3*)GetParty_02010828(var0);
     if (var6->unknown_f7d_ != 0) {

@@ -9,14 +9,14 @@
 
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
-struct Struct_0205def8;
+struct TextWindowManager_0205def8;
 struct TextWindowManager_0205da38;
 struct SoundEffectManager_02108760;
 struct Struct_0205faf4_11;
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
-extern "C" void func_0205def8(struct Struct_0205def8 *arg0, int arg1, int arg2);
+extern "C" void func_0205def8(struct TextWindowManager_0205def8 *arg0, int arg1, int arg2);
 extern "C" void func_020dc4d0(signed char *arg0, signed char *arg1);
 extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *gameState, int index);
 extern "C" int func_02061bd8(struct Struct_0205faf4_11 *arg0);
@@ -74,9 +74,9 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
     } else if (var0 == 1) {
         GameState *var1 = GameState::GetInstance();
         if (*(short *) (arg0 + OFF_SEL_02164d14) != 0) {
-            func_0205def8((struct Struct_0205def8 *) (arg0 + OFF_LIST_02164d14), 1, 1);
-            func_0205def8((struct Struct_0205def8 *) (arg0 + OFF_LIST_02164d14), 1, K_0E_02164d14);
-            func_0205def8((struct Struct_0205def8 *) (arg0 + OFF_LIST_02164d14), 1,
+            func_0205def8((struct TextWindowManager_0205def8 *) (arg0 + OFF_LIST_02164d14), 1, 1);
+            func_0205def8((struct TextWindowManager_0205def8 *) (arg0 + OFF_LIST_02164d14), 1, K_0E_02164d14);
+            func_0205def8((struct TextWindowManager_0205def8 *) (arg0 + OFF_LIST_02164d14), 1,
                                                                     K_29_02164d14);
         }
         *(unsigned int *) (arg0 + OFF_FLAGS_02164d14) |= 4;

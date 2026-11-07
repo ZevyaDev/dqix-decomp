@@ -6,7 +6,7 @@
 struct Struct_ov031_02229124 { unsigned char unknown_0_[16][0x20]; };
 struct Struct_ov031_02290c5c_2 { void* unknown_0_; Struct_ov031_02229124* unknown_4_; int unknown_8_; };
 typedef void (*Type_01ff8b48_7)(const void*, unsigned int, unsigned int);
-extern "C" void func_ov031_022234d8(const char*, Type_01ff8b48_7);
+extern "C" void LoadFileToVRAM_ov031_022234d8(const char*, Type_01ff8b48_7);
 extern "C" int func_ov031_02223478(const char*);
 extern "C" Struct_ov031_02229124* func_ov031_0223b61c(int, int, int);
 extern "C" void func_ov031_0221ae00(unsigned int*);
@@ -27,8 +27,8 @@ extern "C" ARM void func_ov031_02229124() {
     Struct_ov031_02248dcc var4 = data_ov031_02248dcc;
     Struct_ov031_02248de2 var5 = data_ov031_02248de2;
     unsigned int var6[5];
-    func_ov031_022234d8(data_ov031_0224b8f4, LoadToMainBG2CharacterData);
-    func_ov031_022234d8(data_ov031_0224b90c, LoadToMainBG2ScreenData);
+    LoadFileToVRAM_ov031_022234d8(data_ov031_0224b8f4, LoadToMainBG2CharacterData);
+    LoadFileToVRAM_ov031_022234d8(data_ov031_0224b90c, LoadToMainBG2ScreenData);
     data_ov031_02290c5c.unknown_4_ = func_ov031_0223b61c(func_ov031_02223478(var5.unknown_0_), 0, 4);
     var3 = func_ov031_0223b61c(func_ov031_02223478(var4.unknown_0_), 0, 4);
     func_ov031_0221ae00(var6);

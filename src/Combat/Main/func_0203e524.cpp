@@ -2,12 +2,12 @@
 
 #include "Combat/EntryGetterTypes.h"
 
-struct Struct_0203dce4_2 {
+struct NPCManager_0203dce4_2 {
     char unknown_0_[0xc];
-    struct Struct_0203dce4* unknown_c_[0x20];
+    struct NPC_0203dce4* npcs_c_[0x20];
 };
 
-extern "C" struct Struct_0203dce4* func_0203dce4(struct Struct_0203dce4_2* arg0, int arg1);
+extern "C" struct NPC_0203dce4* GetNPCByIndex_0203dce4(struct NPCManager_0203dce4_2* npcManager, int index);
 
 extern "C" void* func_02040538(struct Struct_0203e0a0* arg0);
 
@@ -45,14 +45,14 @@ struct Struct_0203e524 {
 };
 
 // USA: func_0203e524
-extern "C" ARM int func_0203e524(struct Struct_0203dce4_2* arg0, struct Struct_02028460_3* arg1, struct Struct_0203e524* arg2) {
+extern "C" ARM int func_0203e524(struct NPCManager_0203dce4_2* arg0, struct Struct_02028460_3* arg1, struct Struct_0203e524* arg2) {
     int var0 = 0x400000;
     int var1 = -1;
     int var2;
     for (var2 = 0; var2 < 0x20; var2++) {
-        struct Struct_0203dce4* var3 = func_0203dce4(arg0, var2);
+        struct NPC_0203dce4* var3 = GetNPCByIndex_0203dce4(arg0, var2);
         if (var3 == 0) continue;
-        if (var3->unknown_0_ & 0x8000) continue;
+        if (var3->flags_0_ & 0x8000) continue;
         void* var4 = func_02040538((struct Struct_0203e0a0*)var3);
         if (var4 == 0) continue;
         int var5 = Vector3fix_Distance(arg1, (struct Struct_02028460_3*)((char*)var4 + 0x10));

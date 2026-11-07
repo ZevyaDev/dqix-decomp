@@ -15,7 +15,7 @@ extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8*, unsigned int);
 extern "C" unsigned char* func_0200ffc0(Struct_0200ffc0*);
-extern "C" int func_020535c8(signed char*);
+extern "C" int IsPerformingGesture_020535c8(signed char*);
 extern "C" int func_0203402c(Struct_0203402c*);
 extern "C" unsigned char func_02039d7c(char*);
 extern "C" void __clear(void*, int);
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov017_0219a6b8(GameResources* arg0) {
     GameObject* var4 = var0->GetUnknownGameObject();
     if (!var4) return;
     var1 = func_0200ffc0((Struct_0200ffc0*)var0);
-    if (func_020535c8((signed char*)var4)) return;
+    if (IsPerformingGesture_020535c8((signed char*)var4)) return;
     if (g_keyManager.TestKeysHeld(2) && !arg0->unknown_3658_[0]) return;
     if (func_0203402c((Struct_0203402c*)var4)) return;
     if (func_02039d7c((char*)var4)) return;

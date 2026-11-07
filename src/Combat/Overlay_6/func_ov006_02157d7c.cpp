@@ -7,7 +7,7 @@ enum { Enum_ov006_02157d7c_16 = 0x10, Enum_ov006_02157d7c_2786 = 0xae2, Enum_ov0
 #endif
 
 struct Struct_0207fc6c;
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 struct Struct_020e28dc;
 struct Struct_020e263c_2;
 
@@ -19,7 +19,7 @@ extern "C" void func_ov006_021549ac(void* arg0, int arg1);
 extern "C" void func_0207fc6c(struct Struct_0207fc6c* arg0, int arg1);
 extern "C" void func_ov006_0215a00c(void* arg0, int arg1);
 extern "C" int func_ov006_02158c70();
-extern "C" void func_0207fdcc(struct Struct_0207fdcc_2* arg0, int arg1);
+extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" unsigned short func_02081f20(void* arg0, int arg1);
 extern "C" int func_020800fc(void* arg0, short* arg1, short arg2, unsigned short arg3, unsigned char arg4, int arg5);
 extern "C" int func_020804fc(void* arg0, int arg1);
@@ -111,8 +111,8 @@ extern "C" ARM int func_ov006_02157d7c(struct Struct_ov006_02157d7c* arg0, int a
     {
         if (((Type_ov006_02157d7c)func_ov006_02158c70)(arg0) != 0)
         {
-            func_0207fdcc((Struct_0207fdcc_2*)var1, 0);
-            func_0207fdcc((Struct_0207fdcc_2*)var1, 1);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)var1, 0);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)var1, 1);
             *(unsigned short*)((char*)arg0 + 0x300 + 0x94) &= ~0x100;
         }
         return 0;

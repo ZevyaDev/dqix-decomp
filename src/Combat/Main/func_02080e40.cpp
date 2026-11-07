@@ -32,19 +32,19 @@ struct Struct_0207f6ac {
 
 struct Struct_0207f0ac { Struct_0207f0ac_2* unknown_0_; short unknown_4_; };
 struct Struct_0207f524 { Struct_0207f6ac* unknown_0_; short unknown_4_; };
-struct Struct_0207fdcc_2 {
+struct MenuLayout_0207fdcc_2 {
     void* unknown_0_;
     Struct_0207f524 unknown_4_;
     Struct_0207f0ac unknown_c_;
 };
 
-extern "C" int func_02080d54(Struct_0207fdcc_2*, int, int, int);
+extern "C" int func_02080d54(MenuLayout_0207fdcc_2*, int, int, int);
 extern "C" Struct_0207f0ac_2* func_0207f0ac(Struct_0207f0ac*, int);
 extern "C" Struct_0207f6ac* func_0207f6ac(Struct_0207f524*, int);
 
 // USA: func_02080e40
 
-extern "C" ARM int func_02080e40(Struct_0207fdcc_2* arg0, int arg1, int arg2, int arg3) {
+extern "C" ARM int func_02080e40(MenuLayout_0207fdcc_2* arg0, int arg1, int arg2, int arg3) {
     if (!func_02080d54(arg0, arg1, arg2, arg3)) return -1;
     Struct_0207f0ac_2* var0 = func_0207f0ac(&arg0->unknown_c_, arg1);
     if (!var0) return -1;

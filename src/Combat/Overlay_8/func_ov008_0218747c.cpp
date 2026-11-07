@@ -25,7 +25,7 @@ struct Struct_020103f0;
 struct Struct_020104cc;
 extern "C" void func_020103f0(Struct_020103f0*, unsigned short*, unsigned char*, unsigned char*);
 extern "C" Struct_ov008_0218747c_3* GetLocalWireless_0202ae18();
-extern "C" int func_0202ba00(int*);
+extern "C" int GetLocalWirelessState_0202ba00(int*);
 extern "C" void func_020104cc(Struct_020104cc*, unsigned short*, unsigned char*, unsigned char*);
 extern "C" void func_020ac614(Struct_020ac4f8*, int);
 extern "C" void func_020ac644(Struct_020ac4f8*, int);
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov008_0218747c(Struct_ov008_0218747c_2* arg0, int arg1)
         var1 = &arg0->unknown_b40_[1];
         var3 = var8;
         Struct_ov008_0218747c_3* var9 = GetLocalWireless_0202ae18();
-        int var10 = func_0202ba00((int*)var9);
+        int var10 = GetLocalWirelessState_0202ba00((int*)var9);
         int var11 = var9->unknown_100d_;
         if ((var10 == 5 && var11 > 1) || var10 == 6) {
             func_020104cc((Struct_020104cc*)var0, &var4, &var5, &var6);

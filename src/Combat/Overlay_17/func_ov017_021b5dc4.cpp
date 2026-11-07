@@ -23,8 +23,8 @@ extern AllocatorUnion gMainHeap_02114e20;
 struct Struct_02012fa4;
 extern "C" void func_02047230(struct Struct_02012fa4* arg0);
 
-struct Struct_02015ef4_5;
-extern "C" void func_0207dfc8(struct Struct_02015ef4_5* arg0, struct Struct_02015ef4_5* arg1);
+struct TextureVRAMArea_02015ef4_5;
+extern "C" void InitTextureVRAMAreaFromSaved_0207dfc8(struct TextureVRAMArea_02015ef4_5* sourceArea, struct TextureVRAMArea_02015ef4_5* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_02047b30(void* arg0, int arg1, int arg2, int arg3);
@@ -53,7 +53,7 @@ extern "C" ARM int func_ov017_021b5dc4(char* arg0) {
                     func_0204719c((struct Struct_02012fa4*)*(int*)(arg0 + 0x20));
                     unsigned char var8[0x70];
                     short* var9 = (short*)(((char*)GetGameResources()) + Enum_ov017_021b5dc4_716);
-                    func_0207dfc8((struct Struct_02015ef4_5*)((char*)var9 + 0x230), (struct Struct_02015ef4_5*)var8);
+                    InitTextureVRAMAreaFromSaved_0207dfc8((struct TextureVRAMArea_02015ef4_5*)((char*)var9 + 0x230), (struct TextureVRAMArea_02015ef4_5*)var8);
                     RestoreTextureVRAMState_0207df90((char*)var8);
                     func_02047b30((void*)*(int*)(arg0 + 0x20), (int)var1, (int)var2, (int)(arg0 + 0x40));
                     SaveTextureVRAMState_0207dfac((char*)var8);

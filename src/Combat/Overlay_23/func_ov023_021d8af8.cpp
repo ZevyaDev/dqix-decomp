@@ -6,8 +6,8 @@ extern "C" int func_0205d67c(struct Struct_0205d67c*);
 struct TextWindowManager_0205d6a0;
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0*, int);
 
-struct Struct_02074bf4;
-extern "C" void func_02074bf4(struct Struct_02074bf4*);
+struct BGControlSave_02074bf4;
+extern "C" void RestoreSubBGControl_02074bf4(struct BGControlSave_02074bf4*);
 
 struct TextWindowManager_0205cfd4;
 extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4*);
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov023_021d8af8(void* arg0) {
     *(int*)arg0 = 0;
     int* var1 = (int*)0x4001000;
     *var1 = (*var1 & ~0x1f00) | (*(int*)((char*)arg0 + 0x1c) << 8);
-    func_02074bf4((struct Struct_02074bf4*)((char*)arg0 + 8));
+    RestoreSubBGControl_02074bf4((struct BGControlSave_02074bf4*)((char*)arg0 + 8));
     InitTextWindowManager_0205cfd4((struct TextWindowManager_0205cfd4*)var0);
     *(unsigned char*)((char*)arg0 + 0x11a) = 0;
     *(unsigned char*)((char*)arg0 + 0x11b) = 0;

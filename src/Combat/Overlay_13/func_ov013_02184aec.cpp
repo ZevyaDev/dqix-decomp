@@ -11,10 +11,10 @@
 #include "GameState/GameState.h"
 
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void func_0204359c(void*, int);
+extern "C" void DrawMessageGlyphs_0204359c(void*, int);
 extern "C" void func_020439b0(void*, int);
 struct TextWindowManager_0205d2bc;
-extern "C" void func_0205d2bc(TextWindowManager_0205d2bc*);
+extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(TextWindowManager_0205d2bc*);
 extern "C" void func_0205cb60(void*);
 
 // USA: func_ov013_02184aec
@@ -28,8 +28,8 @@ extern "C" ARM void func_ov013_02184aec(void* arg0) {
     void* var2 = GameState::GetInstance();
     void* var3 = GetMessageWindow_020421a0();
     int var4 = ((GameState*)var2)->GetTickCount();
-    func_0204359c(var3, var4);
+    DrawMessageGlyphs_0204359c(var3, var4);
     func_020439b0(var3, 0);
-    func_0205d2bc((TextWindowManager_0205d2bc*)(var0 + R(0x34,0x38)));
+    CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((TextWindowManager_0205d2bc*)(var0 + R(0x34,0x38)));
     func_0205cb60(var0 + R(0x3d0,0x3d4));
 }

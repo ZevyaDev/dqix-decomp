@@ -124,7 +124,7 @@ extern "C" void* func_020e3580(void);
 extern "C" void* func_020e3808(void);
 extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
-extern "C" int func_0202ba00(int* arg0);
+extern "C" int GetLocalWirelessState_0202ba00(int* wireless);
 extern "C" void func_020ac4f8(int arg0);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02012084(unsigned char* arg0);
@@ -145,10 +145,10 @@ extern "C" void func_020100a0(GameState* arg0, int arg1);
 extern "C" void func_020dcd40(void);
 extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
 extern "C" void func_ov017_02191234(void* arg0);
-extern "C" void func_ov017_02191108(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(void* gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 extern "C" void func_020546a0(void* arg0, int arg1);
 extern "C" void func_02039858(unsigned char* arg0, int arg1);
-extern "C" void func_02039d24(unsigned char* arg0);
+extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 extern "C" void* GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a2770(void* arg0, short arg1);
 extern "C" void* GetFlagManager_0205ec34(void);
@@ -173,11 +173,11 @@ extern "C" void func_020e3004(Struct_020e3004* arg0);
 extern "C" void func_020e358c(Struct_020e358c* arg0);
 extern "C" void func_020e3814(Struct_020e3814* arg0);
 extern "C" int func_0209c3ac(char* arg0);
-extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
-extern "C" void func_0209c678(MusicManager_02109bf4_4* arg0, int arg1);
+extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
+extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4* manager, int fadeDuration);
 extern "C" void UpdateSound_020bbd9c(void);
 extern "C" int func_0209c6bc(void* arg0);
-extern "C" void func_0209c20c(Struct_02109bf4_3* arg0);
+extern "C" void ResetMusic_0209c20c(Struct_02109bf4_3* manager);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" Struct_ov017_021c37a4_5* GetMessageWindow_020421a0(void);
 
@@ -195,7 +195,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     void* var7 = func_020e3808();
     void* var8 = GetGlobalFlags_020d6c00();
     int var9 = IsLocalWirelessGuest_0202c540(var2);
-    int var10 = func_0202ba00((int*)var2);
+    int var10 = GetLocalWirelessState_0202ba00((int*)var2);
     int var11 = var2->unknown_100d_;
 #if defined(jpn)
     char var12[0xb];
@@ -283,7 +283,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
         LoadPartyMemberColors_020dc7e8(6, -1);
         LoadPartyMemberColors_020dc7e8(7, -1);
         func_ov017_02191234(var3);
-        func_ov017_02191108(var3, 1, 1, 1, 1);
+        RebuildFieldPartyOrder_ov017_02191108(var3, 1, 1, 1, 1);
     }
 
     for (int var25 = 0; var25 < 4; var25++) {
@@ -291,7 +291,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
         if (var26) {
             func_020546a0(var26, GetProtagonistObjectIndex_020100a8(var0));
             func_02039858((unsigned char*)var26, GetProtagonistObjectIndex_020100a8(var0));
-            func_02039d24((unsigned char*)var26);
+            ResetFollowTrail_02039d24((unsigned char*)var26);
         }
     }
 
@@ -299,7 +299,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     if (var27) {
         func_020a2770(var27, 0);
     }
-    func_ov017_02191108(var3, 1, 0, 1, 1);
+    RebuildFieldPartyOrder_ov017_02191108(var3, 1, 0, 1, 1);
     func_ov017_02191234(var3);
     var1->unknown_5ccc_ |= 2;
 
@@ -391,13 +391,13 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     var43->unknown_2820_ = 1;
 
     if (func_0209c3ac((char*)&gMusicManager_02109bf4) != 0x7f) {
-        func_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
-        func_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
+        SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
+        StopMusic_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
         UpdateSound_020bbd9c();
     }
     gMusicManager_02109bf4.unknown_c8_ &= ~4;
     if (!func_0209c6bc(&gMusicManager_02109bf4)) {
-        func_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
+        ResetMusic_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
     }
     ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var8, 0x800);
     GetMessageWindow_020421a0()->unknown_1962_ = 0;

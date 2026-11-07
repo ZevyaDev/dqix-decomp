@@ -65,9 +65,9 @@ void SetMainBrightness(void* obj, int a, int b);
 void SetSubBrightness(void* obj, int a, int b);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
-struct Struct_020a9ea4;
-extern "C" void func_020a9ea4(Struct_020a9ea4*);
-extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
+struct SaveProgress_020a9ea4;
+extern "C" void ResetSaveProgress_020a9ea4(SaveProgress_020a9ea4*);
+extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
 struct Struct_0209c3b4_2;
 extern "C" void PlayMusic_0209c3b4(struct Struct_0209c3b4_2* manager, int musicIndex);
 struct Struct_02059cfc_2;
@@ -303,7 +303,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         }
         *(int*)(arg0 + 0x1000 + 0x298) = 0;
         ResetMessageWindow_02043204(var2);
-        func_0209c2e0(&gMusicManager_02109bf4, 0, 0x12);
+        SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, 0, 0x12);
         func_ov003_02170d88(arg0 + 0x368 + 0x400);
         struct TreasureMapMetadata var14;
         func_020119f8((char*)var0, &var14);
@@ -428,7 +428,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         void* var31 = *(void**)((char*)var3 + 8);
         int var32 = ((struct Struct_ov003_0216c00c_8*)var31)->unknown_d_0_;
         PlayMusic_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var32);
-        func_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
+        SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
         if (*(unsigned char*)(arg0 + 0x1000 + 0x279) != 0) {
             *(int*)(var2 + 0x868) = 1;
             func_ov003_0216d8d4(arg0, 0x4b);
@@ -460,7 +460,7 @@ phase2:;
             func_ov003_0216d8d4(arg0, 0x32);
             *(short*)(arg0 + 6) = 0x63;
         } else {
-            func_020a9ea4((Struct_020a9ea4*)(arg0 + 0x29c + 0x1000));
+            ResetSaveProgress_020a9ea4((SaveProgress_020a9ea4*)(arg0 + 0x29c + 0x1000));
             func_ov003_0216d8d4(arg0, 0xc8);
             *(short*)(arg0 + 6) = 0x12e;
             SetGlobalFlags_020466e4((unsigned int*)var6, 0x80);
@@ -578,7 +578,7 @@ phase2:;
         void* var49 = GetZone3D_02012fe4();
         int var50 = (*(struct Struct_ov003_0216c00c_8**)((char*)var49 + 8))->unknown_d_0_;
         PlayMusic_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var50);
-        func_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
+        SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
         if ((unsigned int)func_02011804((GameState*)var0) >= 0x63) {
             *(short*)(arg0 + 6) = 0x13;
             char* var51 = (char*)GetMessageWindow_020421a0();
@@ -814,7 +814,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         }
         *(int*)(arg0 + 0x1000 + 0x408) = 0;
         ResetMessageWindow_02043204(var70);
-        func_0209c2e0(&gMusicManager_02109bf4, 0, 0x12);
+        SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, 0, 0x12);
         func_ov003_02170d88(arg0 + 0x7e0);
         struct TreasureMapMetadata var82;
         func_020119f8((char*)var68, &var82);
@@ -941,7 +941,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         void* var100 = *(void**)((char*)var71 + 8);
         int var101 = ((struct Struct_ov003_0216c00c_8*)var100)->unknown_d_0_;
         PlayMusic_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var101);
-        func_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
+        SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
         if (*(unsigned char*)(arg0 + 0x1000 + 0x3e9) != 0) {
             *(int*)(var70 + 0x998) = 1;
             func_ov003_0216d8d4(arg0, 0x4b, -1, -1, -1);
@@ -973,7 +973,7 @@ phase2:;
             func_ov003_0216d8d4(arg0, 0x32, -1, -1, -1);
             *(short*)(arg0 + 6) = 0x63;
         } else {
-            func_020a9ea4((Struct_020a9ea4*)(arg0 + 0xc + 0x1400));
+            ResetSaveProgress_020a9ea4((SaveProgress_020a9ea4*)(arg0 + 0xc + 0x1400));
             func_ov003_0216d8d4(arg0, 0xc8, -1, -1, -1);
             *(short*)(arg0 + 6) = 0x12e;
             SetGlobalFlags_020466e4((unsigned int*)var73, 0x80);
@@ -1090,7 +1090,7 @@ phase2:;
         void* var119 = GetZone3D_02012fe4();
         int var120 = (*(struct Struct_ov003_0216c00c_8**)((char*)var119 + 8))->unknown_d_0_;
         PlayMusic_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var120);
-        func_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
+        SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
         if ((unsigned int)func_02011804((GameState*)var68) >= 0x63) {
             *(short*)(arg0 + 6) = 0x13;
             char* var121 = (char*)GetMessageWindow_020421a0();

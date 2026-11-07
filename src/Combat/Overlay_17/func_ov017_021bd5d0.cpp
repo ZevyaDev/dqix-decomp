@@ -12,7 +12,7 @@ extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireles
 extern "C" int func_02048418(unsigned char* arg0, unsigned short arg1);
 extern "C" void func_02033b58(struct Struct_02033b58* arg0, unsigned char arg1);
 extern "C" void func_ov017_021c9d2c(int arg0, unsigned short arg1, unsigned short arg2, unsigned short arg3, int arg4, unsigned int arg5, unsigned char arg6, int arg7, int arg8);
-extern "C" void func_ov017_02191108(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(void* gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 
 static inline unsigned short inline_ov017_021bd5d0_4(const BaseCombatStats* arg0) {
     return arg0->primaryStats.maxMP;
@@ -51,6 +51,6 @@ extern "C" ARM void func_ov017_021bd5d0(void) {
             func_02033b58((struct Struct_02033b58*)var2, 0);
             var2->unknown_ac_.unknown_b2_ = 0;
         }
-        func_ov017_02191108(var3, 1, 1, 1, 0);
+        RebuildFieldPartyOrder_ov017_02191108(var3, 1, 1, 1, 0);
     }
 }

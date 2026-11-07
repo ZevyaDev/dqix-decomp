@@ -54,7 +54,7 @@ extern "C" void func_0204f160(unsigned char*, int, int);
 extern "C" void func_0204f174(Struct_ov023_021f7eb8_2* arg0, short arg1, short arg2, short arg3, short arg4,
                               unsigned char arg5, unsigned char arg6, unsigned char arg7, int);
 extern "C" void func_0204fae8(Struct_ov023_021f7eb8_2* arg0);
-extern "C" Struct_ov023_021f7eb8_4* func_0204254c(int, int);
+extern "C" Struct_ov023_021f7eb8_4* FindFontGlyph_0204254c(int, int);
 extern "C" void func_0204f7e8(Struct_ov023_021f7eb8_2* arg0, short arg1, short arg2, int arg3, unsigned char arg4,
                               unsigned char arg5, unsigned short* arg6, unsigned short* arg7, int, int, int, int);
 extern "C" void func_0204f41c(Struct_ov023_021f7eb8_2* arg0, short arg1, short arg2, const char* arg3, unsigned char arg4,
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov023_021f7eb8(Struct_ov023_021f7eb8_3* arg0, void* arg
         unsigned char var3;
         int var4 = 0;
         var3 = arg0->unknown_10a_;
-        Struct_ov023_021f7eb8_4* var5 = func_0204254c((int)data_ov023_021fd91c, 0);
+        Struct_ov023_021f7eb8_4* var5 = FindFontGlyph_0204254c((int)data_ov023_021fd91c, 0);
         if (var5 != NULL)
             var4 = var5->unknown_4_;
         unsigned short var6;

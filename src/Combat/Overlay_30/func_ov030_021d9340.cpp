@@ -22,7 +22,7 @@ extern "C" void func_ov017_0218b664(char* arg0);
 struct Struct_02046958;
 extern "C" void func_02046958(Struct_02046958*);
 extern "C" void func_ov017_021a124c(void* arg0);
-extern "C" void func_ov017_0219e310(unsigned char*, int);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char*, int);
 extern "C" void func_ov017_021b8d1c(void* arg0);
 extern "C" void func_ov017_021b6f18(void* arg0);
 extern "C" void func_ov017_021a5568(void* arg0);
@@ -34,7 +34,7 @@ struct Struct_ov017_0219bfb4;
 extern "C" void func_ov017_021ba90c(Struct_ov017_0219bfb4*);
 struct QueueNode_0204693c;
 extern "C" void ResetQueueNode_0204693c(QueueNode_0204693c*);
-extern "C" void func_ov017_021baedc(void* arg0, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(void* node, int arg1);
 extern "C" void func_ov017_021b2c4c(void* arg0);
 extern "C" void func_ov017_021b2f64(unsigned char*);
 struct Struct_ov017_0219dc90_3;
@@ -204,7 +204,7 @@ extern "C" ARM void func_ov030_021d9340(GameResources* arg0) {
     func_02046958((Struct_02046958*)(*(void**)(var0 + R(0x34f0, (0x3000 + 0x700)))));
     func_02046958((Struct_02046958*)(*(void**)(var0 + R(0x34f4, (0x3000 + 0x704)))));
     func_ov017_021a124c(*(void**)(var0 + R(0x34f8, (0x3000 + 0x708))));
-    func_ov017_0219e310((unsigned char*)(*(void**)(var0 + R(0x34fc, (0x3000 + 0x70c)))), 1);
+    ResetZoneLoadTask_ov017_0219e310((unsigned char*)(*(void**)(var0 + R(0x34fc, (0x3000 + 0x70c)))), 1);
     func_ov017_021b8d1c(*(void**)(var0 + R(0x3500, (0x3000 + 0x710))));
     func_ov017_021b6f18(*(void**)(var0 + R(0x3508, (0x3000 + 0x718))));
     func_ov017_021a5568(*(void**)(var0 + R(0x350c, (0x3000 + 0x71c))));
@@ -220,7 +220,7 @@ extern "C" ARM void func_ov030_021d9340(GameResources* arg0) {
     *(int*)(*(unsigned char**)(var0 + R(0x3520, (0x3000 + 0x730))) + 0x20) = 0;
     *(*(unsigned char**)(var0 + R(0x3520, (0x3000 + 0x730))) + 0x24) = 0xff;
 
-    func_ov017_021baedc(*(void**)(var0 + R(0x3524, (0x3000 + 0x734))), 0);
+    ResetEventTask_ov017_021baedc(*(void**)(var0 + R(0x3524, (0x3000 + 0x734))), 0);
     func_ov017_021b2c4c(*(void**)(var0 + R(0x3528, (0x3000 + 0x738))));
 
     for (int var14 = 0; var14 < 0xc; var14++) {

@@ -13,7 +13,7 @@ extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
-extern "C" void func_ov023_021f809c(void* arg0, void* arg1);
+extern "C" void RedrawMenuWindow_ov023_021f809c(void* window, void* menu);
 extern "C" int func_020c7170(char* arg0, unsigned long arg1, const char* arg2, ...);
 
 extern const char data_ov004_021707b0[];
@@ -53,6 +53,6 @@ extern "C" ARM int func_ov004_0216f4fc(void* arg0) {
 
     var6 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x14);
     if (var6 == NULL || func_ov023_021f6f10(var6) != 6) var6 = NULL;
-    if (var6 != NULL) func_ov023_021f809c(var6, arg0);
+    if (var6 != NULL) RedrawMenuWindow_ov023_021f809c(var6, arg0);
     return 0;
 }

@@ -97,7 +97,7 @@ struct Struct_ov006_02154614 {
 extern "C" void* GetResources_0200fb8c(int* gameState);
 extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
 extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
-extern "C" void func_0205ebec(void* arg0);
+extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
 
 extern char gSoundEffectManager_02108760[];
 extern char data_ov006_02160080[];
@@ -166,7 +166,7 @@ extern "C" ARM void func_ov006_02155068(Struct_ov006_02154614* arg0) {
             return;
         }
         ClearFlags04((GameResources*)var0, 0x2000);
-        func_0205ebec(gSoundEffectManager_02108760);
+        UnloadExtraSoundSet_0205ebec(gSoundEffectManager_02108760);
         arg0->unknown_ae1_ = 0;
         arg0->unknown_2e4_.MaybeSetRegularAnimation(data_ov006_021600a0, 1);
         arg0->unknown_43c_.StopCurrentAnimation();

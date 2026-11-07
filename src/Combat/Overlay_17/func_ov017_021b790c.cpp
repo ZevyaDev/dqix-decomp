@@ -149,7 +149,7 @@ extern char gMusicManager_02109bf4[];
 extern "C" Struct_ov017_021b790c_3* GetLocalWireless_0202ae18(void);
 extern "C" Struct_ov017_021b790c_2* GetMessageWindow_020421a0(void);
 extern "C" unsigned int* GetGlobalFlags_020d6c00(void);
-extern "C" void func_020a1df8(int arg0);
+extern "C" void PushOverlay_020a1df8(int overlayEntry);
 extern "C" void func_020a1edc();
 extern "C" void func_ov017_021b71d8(Struct_ov017_021b790c_4* arg0);
 extern "C" void func_ov017_021b7284(Struct_ov017_021b790c_4* arg0);
@@ -180,15 +180,15 @@ extern "C" int func_020a3694(int* arg0);
 extern "C" void func_02010604(GameState* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0209c530(void* arg0);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
-extern "C" void func_0209c20c(Struct_02109bf4_3* arg0);
-extern "C" void func_0209c678(MusicManager_02109bf4_4* arg0, int arg1);
+extern "C" void ResetMusic_0209c20c(Struct_02109bf4_3* manager);
+extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4* manager, int fadeDuration);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void func_02048150(GameObject* arg0, int arg1, int arg2);
 extern "C" int SetMotion_02033b88(Struct_02010604* object, int motion);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov017_021cedf4(int arg0, int arg1, int arg2);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
-extern "C" void func_ov017_02191108(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(void* gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_02015438(void* arg0);
 extern "C" Struct_0205859c* GetEffectManager_02057924(void);
@@ -244,7 +244,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
     unsigned int* var5 = GetGlobalFlags_020d6c00();
 
     if (!(arg0->unknown_6b6_ & 0x100)) {
-        func_020a1df8(0);
+        PushOverlay_020a1df8(0);
         func_020a1edc();
         arg0->unknown_6b6_ |= 0x800;
         func_ov017_021b71d8(arg0);
@@ -340,12 +340,12 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
         }
         func_0209c530(gMusicManager_02109bf4);
         if (arg0->unknown_6b0_->unknown_8e14_ == 2 || IsTypeInQueue_02046b60(arg1, 4) != 0) {
-            func_0209c20c((Struct_02109bf4_3*)gMusicManager_02109bf4);
+            ResetMusic_0209c20c((Struct_02109bf4_3*)gMusicManager_02109bf4);
         }
         if (IsTypeInQueue_02046b60(arg1, 4) != 0) {
             arg0->unknown_6b6_ &= ~0x1000;
             inline_ov017_021b790c_2((GameResources*)var1)->inline_ov017_021b790c(1);
-            func_0209c678((MusicManager_02109bf4_4*)gMusicManager_02109bf4, 0);
+            StopMusic_0209c678((MusicManager_02109bf4_4*)gMusicManager_02109bf4, 0);
             if (var15 && arg0->unknown_28_ >= 0 && IsLocalWirelessGuest_0202c540(var9) != 0) {
                 GameObject* var25 = var0->GetProtagonist();
                 if (var25 != NULL && (**(int**)((char*)var25 + 0x130) & 1)) {
@@ -359,7 +359,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
                 func_ov017_021c9e00(var26, 0, 0, 1);
             }
         }
-        func_ov017_02191108(var1, 1, 1, 1, 1);
+        RebuildFieldPartyOrder_ov017_02191108(var1, 1, 1, 1, 1);
         if (var2 != NULL) {
             EnablePlayerControl_020397c0(var2);
         }

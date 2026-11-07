@@ -117,7 +117,7 @@ extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" struct Struct_ov003_0215582c* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov003_02155e14(int arg0, int arg1);
 extern "C" short* func_02052e14(struct Struct_02052e14* arg0);
-extern "C" int func_0207c378(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int AddEquipmentToBag_0207c378(void* bag, int itemId, int count, int category);
 extern "C" int func_ov003_02156034(void* arg0);
 extern "C" void func_02083ca0(unsigned char* arg0, int arg1);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
@@ -127,7 +127,7 @@ extern "C" void func_020a0258(struct Struct_020a0258* arg0, unsigned int arg1);
 extern "C" int SetBattleRecords_020ac494(void* records);
 extern "C" int func_0207c7a0(void* arg0, int arg1, int arg2);
 extern "C" struct Struct_ov003_0215582c_10* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
-extern "C" void func_02052d7c(void* arg0, int arg1, int arg2);
+extern "C" void SetEquippedItem_02052d7c(void* gameObject, int slot, int itemId);
 extern "C" int func_0207c484(struct Struct_0207c484* arg0, int arg1, int arg2, int arg3);
 extern "C" short* func_02052e2c(struct Struct_02052e2c* arg0);
 extern "C" void func_02083738(void* arg0, int arg1);
@@ -184,7 +184,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
     for (unsigned short var10 = 0; data_ov003_0217f2c4[var10] != 0xff; var10++) {
         struct Struct_ov003_0215582c_8* var11 = &var2->unknown_150_->unknown_194_[data_ov003_0217f2c4[var10]];
         if (var11 != NULL && inline_ov003_0215582c(var11->unknown_8_0_)) {
-            func_0207c378(var1->unknown_1d4_, var11->unknown_18_, 1, var11->unknown_8_0_);
+            AddEquipmentToBag_0207c378(var1->unknown_1d4_, var11->unknown_18_, 1, var11->unknown_8_0_);
         }
     }
 
@@ -251,7 +251,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
         int var27 = data_ov003_0217f2b4[var24];
         if (var26 > 0 && func_0207c7a0(var1->unknown_1d4_, var26, var27) >= 1) {
             if (data_ov003_0217f2bc[var24] != 0xff) {
-                func_02052d7c(var2, data_ov003_0217f2bc[var24], var26);
+                SetEquippedItem_02052d7c(var2, data_ov003_0217f2bc[var24], var26);
             }
             func_0207c484((struct Struct_0207c484*)var1->unknown_1d4_, var26, 1, var27);
             var25 = 1;
@@ -290,7 +290,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
                     var30->unknown_2f4_[var24].unknown_0_[9] = 0;
                     var30->unknown_2f4_[var24].unknown_28_ = -1;
                 }
-                func_02052d7c(var2, data_ov003_0217f2bc[var24], -1);
+                SetEquippedItem_02052d7c(var2, data_ov003_0217f2bc[var24], -1);
             }
         }
     }

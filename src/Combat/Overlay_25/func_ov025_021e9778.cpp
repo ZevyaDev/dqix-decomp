@@ -59,13 +59,13 @@ typedef int (*Type_02000c9c_17)(struct Struct_ov025_021e9778_7*, struct Struct_o
 
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_02160f00(void* arg0);
-extern "C" void* func_ov000_02160f20(void* arg0);
+extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 extern "C" void func_02078484(Struct_02078398_2* arg0);
 extern "C" void* func_ov000_02160f14(void* arg0);
 extern "C" void func_0202ea10(unsigned char* arg0, int arg1, int arg2);
 extern "C" short func_ov000_0216352c(int arg0, float arg1, float arg2);
-extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
+extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" void func_ov025_021eb6fc(Struct_ov025_021e9778_9* arg0, int arg1);
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov025_021e9778(void* arg0) {
     GameState* var1 = GameState::GetInstance();
     void* var2 = GetBattleScene_ov000_02160130();
     void* var3 = func_ov000_02160f00(var2);
-    struct Struct_ov025_021e9778_8* var4 = (struct Struct_ov025_021e9778_8*)func_ov000_02160f20(var2);
+    struct Struct_ov025_021e9778_8* var4 = (struct Struct_ov025_021e9778_8*)GetCurrentBattleAction_ov000_02160f20(var2);
     data_ov025_021ef994 = arg0;
     if ((*(unsigned short*)(var0 + 0x5ce)) != 0) {
         unsigned int var5 = var1->GetEffectiveDeltaTime();
@@ -173,7 +173,7 @@ extern "C" ARM void func_ov025_021e9778(void* arg0) {
                 var14.unknown_48_ = var17;
                 var14.unknown_4c_ = var17;
             }
-            func_02057fb4(var13, 4, &var14);
+            PlayEffect_02057fb4(var13, 4, &var14);
             data_ov025_021ef9a4 |= 0x400;
         }
     }

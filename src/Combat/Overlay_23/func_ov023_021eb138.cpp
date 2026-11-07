@@ -2,8 +2,8 @@
 
 extern "C" void SaveMainBGControl_02074af4(void*);
 
-struct Struct_02074b64;
-extern "C" void func_02074b64(struct Struct_02074b64* arg0);
+struct BGControlSave_02074b64;
+extern "C" void SaveSubBGControl_02074b64(struct BGControlSave_02074b64* save);
 
 struct StringTable_0201099c_14;
 extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
@@ -22,7 +22,7 @@ extern "C" ARM void func_ov023_021eb138(void* arg0, unsigned char arg1) {
     *(unsigned char*)((char*)arg0 + 0x3a) = 0;
     *(unsigned char*)((char*)arg0 + 0x3b) = 0;
     SaveMainBGControl_02074af4((char*)arg0 + 0x2a);
-    func_02074b64((struct Struct_02074b64*)((char*)arg0 + 0x2a));
+    SaveSubBGControl_02074b64((struct BGControlSave_02074b64*)((char*)arg0 + 0x2a));
 
     unsigned int* var0 = (unsigned int*)0x4000000;
     *(int*)((char*)arg0 + 0x3c) = (*var0 & 0x1f00) >> 8;

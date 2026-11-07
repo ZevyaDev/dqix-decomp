@@ -5,7 +5,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" int func_ov017_021bdbcc(void* arg0);
-extern "C" ARM void* func_020421b0(int arg0);
+extern "C" ARM void* GetWindowTile_020421b0(int tileIndex);
 extern "C" int LoadToMainObjVRAM(int, int, unsigned int);
 
 // USA: func_ov002_021619b4
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov002_021619b4(int arg0, void* arg1, void* arg2) {
     if (var9 != 0) var7 = 0;
 
     int var10 = (var7 * 4 + 0x28) & 0xff;
-    void* var11 = func_020421b0(var10);
+    void* var11 = GetWindowTile_020421b0(var10);
     memcpy(arg2, var11, 0x80);
 
     unsigned short var12 = *(unsigned short*)((char*)var5 + 4);

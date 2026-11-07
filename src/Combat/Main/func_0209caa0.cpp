@@ -9,7 +9,7 @@ struct Struct_0209caa0 {
     unsigned char unknown_cd_;
 };
 
-extern "C" void func_0209c2e0(struct Struct_0209caa0* arg0, int arg1, int arg2);
+extern "C" void SetMusicVolume_0209c2e0(struct Struct_0209caa0* manager, int volume, int fadeDuration);
 
 // USA: func_0209caa0
 extern "C" ARM void func_0209caa0(struct Struct_0209caa0* arg0, int arg1) {
@@ -17,5 +17,5 @@ extern "C" ARM void func_0209caa0(struct Struct_0209caa0* arg0, int arg1) {
         return;
     }
     arg0->unknown_c8_1_ = (arg1 != 0);
-    func_0209c2e0(arg0, arg0->unknown_cd_, 0x1e);
+    SetMusicVolume_0209c2e0(arg0, arg0->unknown_cd_, 0x1e);
 }

@@ -79,12 +79,12 @@ struct Struct_ov014_02186bc8 {
     short unknown_182_[8];
 };
 
-struct Struct_02080fa8;
+struct MenuLayout_02080fa8;
 struct Struct_02081164;
 
 extern "C" void func_02080bac(void* arg0, int arg1);
 extern "C" void func_0208103c(void* arg0, int arg1, int arg2);
-extern "C" void func_02080fa8(Struct_02080fa8* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutTextValue_02080fa8(MenuLayout_02080fa8* menuLayout, int textId, int value);
 extern "C" int func_02080b2c(void* arg0, int arg1);
 extern "C" void func_02081164(Struct_02081164* arg0, int arg1, int arg2);
 
@@ -133,8 +133,8 @@ extern "C" ARM void func_ov014_02188330(Struct_ov014_02186bc8* arg0)
         short var6 = var5;
         var4 = var6 / 100;
     }
-    func_02080fa8((Struct_02080fa8*)arg0->unknown_c0_, 4, var4);
-    func_02080fa8((Struct_02080fa8*)arg0->unknown_c0_, 5, var1);
+    SetMenuLayoutTextValue_02080fa8((MenuLayout_02080fa8*)arg0->unknown_c0_, 4, var4);
+    SetMenuLayoutTextValue_02080fa8((MenuLayout_02080fa8*)arg0->unknown_c0_, 5, var1);
     for (unsigned char var7 = 0;; var7++)
     {
         short var8 = data_ov014_021894cc[var0][var7];

@@ -59,7 +59,7 @@ extern const unsigned char data_ov031_02248d74[11];
 
 extern Struct_ov031_022493b8 data_ov031_022493b8;
 
-extern "C" void* func_ov031_0223cf4c(unsigned int, int);
+extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int, int);
 extern "C" Struct_020b0a1c_2* func_ov031_0223be44(int, int);
 extern "C" Struct_ov031_02222ce4* func_ov031_0223be70(int, int, int);
 extern "C" void func_ov031_0223bab4(void*, int, int, int);
@@ -67,9 +67,9 @@ extern "C" void func_ov031_0223bcc8(Struct_ov031_02222ce4*, int, int);
 extern "C" void* func_ov031_0223c458(int, int, int, int, int*, int);
 extern "C" void func_ov031_0223c980(void*, int, int, int, int, int, unsigned long, const unsigned short*);
 extern "C" Struct_ov031_02222ce4* func_ov031_0223b8c4(int, int, int);
-extern "C" void* func_ov031_0223e218(void*, void*, void*, int);
+extern "C" void* AddTask_ov031_0223e218(void*, void*, void*, int);
 extern "C" void func_ov031_0223ba20(void*);
-extern "C" void func_ov031_0223e2b8(void* arg0, int arg1);
+extern "C" void SetTaskCallback_ov031_0223e2b8(void* task, int callback);
 extern "C" void func_ov031_0223e2c0(int, void*);
 extern "C" void func_ov031_0223bd28(Struct_ov031_02222f44_2*, int, unsigned int*, unsigned int*);
 extern "C" void func_ov031_0223cb34(const Struct_ov031_022489c4*, const Struct_ov031_022489c4*, Struct_ov031_022493b8*);
@@ -87,7 +87,7 @@ extern "C" Struct_020b0a1c_2* func_ov031_0223baa0(Struct_ov031_022269d8* arg0, i
 extern "C" int func_ov031_0223bdb0(int arg0, int arg1, int arg2);
 extern "C" void func_ov031_0223c534(Struct_ov031_02226d48*);
 extern "C" void func_ov031_0223da58(void*);
-extern "C" void func_ov031_0223cf70(void*);
+extern "C" void FreeAndClearPointer_ov031_0223cf70(void*);
 
 extern "C" void func_ov031_02225c90(void* arg0);
 extern "C" void func_ov031_02225d14(void* arg0);
@@ -156,7 +156,7 @@ extern "C" ARM void func_ov031_022258b4() {
     unsigned short var5[2];
     var0.unknown_4_ = 28;
     var0.unknown_6_ = 20;
-    data_ov031_02250c00 = (Struct_ov031_022258b4*)func_ov031_0223cf4c(sizeof(Struct_ov031_022258b4), 4);
+    data_ov031_02250c00 = (Struct_ov031_022258b4*)AllocateZeroedMemory_ov031_0223cf4c(sizeof(Struct_ov031_022258b4), 4);
     data_ov031_02250c00->unknown_60_ = 0x1f;
     data_ov031_02250c00->unknown_63_ = 0;
     data_ov031_02250c00->unknown_66_ = 1;
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov031_022258b4() {
     data_ov031_02250c00->unknown_58_ = func_ov031_0223be70(0, 0x44, 1);
     func_ov031_0223bab4(data_ov031_02250c00->unknown_58_, -1, 0x200, 0);
     func_ov031_0223bcc8((Struct_ov031_02222ce4*)data_ov031_02250c00->unknown_58_, -1, 2);
-    data_ov031_02250c00->unknown_5c_ = func_ov031_0223e218(0, (void*)func_ov031_02225c90, 0, 0x78);
+    data_ov031_02250c00->unknown_5c_ = AddTask_ov031_0223e218(0, (void*)func_ov031_02225c90, 0, 0x78);
     func_ov031_022266b0(0, 0xc0);
 }
 
@@ -224,7 +224,7 @@ extern const signed char data_ov031_02248d3a[56] = {
 // USA: func_ov031_02225bf0
 extern "C" ARM void func_ov031_02225bf0(void) {
 	func_ov031_0223ba20(data_ov031_02250c00->unknown_58_);
-	func_ov031_0223e2b8(data_ov031_02250c00->unknown_5c_, (int)func_ov031_02226b10);
+	SetTaskCallback_ov031_0223e2b8(data_ov031_02250c00->unknown_5c_, (int)func_ov031_02226b10);
 }
 
 // USA: func_ov031_02225c24
@@ -264,7 +264,7 @@ extern "C" ARM void func_ov031_02225c90(void* arg0) {
     }
     func_ov031_022266b0(0, 0x4c);
     func_ov031_022266b0(1, 0xc0);
-    func_ov031_0223e2b8(arg0, (int)func_ov031_02225d14);
+    SetTaskCallback_ov031_0223e2b8(arg0, (int)func_ov031_02225d14);
 }
 
 struct Struct_ov031_02225d14 { int unknown_0_; volatile int unknown_4_; };
@@ -282,7 +282,7 @@ extern "C" ARM void func_ov031_02225d14(void* arg0) {
     }
     func_ov031_022266b0(1, 0x63);
     func_ov031_022266b0(2, 0xc0);
-    func_ov031_0223e2b8(arg0, (int)func_ov031_02225d98);
+    SetTaskCallback_ov031_0223e2b8(arg0, (int)func_ov031_02225d98);
 }
 
 struct Struct_ov031_02225d98 { int unknown_0_; volatile int unknown_4_; };
@@ -300,7 +300,7 @@ extern "C" ARM void func_ov031_02225d98(void* arg0) {
     }
     func_ov031_022266b0(2, 0x7a);
     func_ov031_022266b0(3, 0xc0);
-    func_ov031_0223e2b8(arg0, (int)func_ov031_02225e1c);
+    SetTaskCallback_ov031_0223e2b8(arg0, (int)func_ov031_02225e1c);
 }
 
 struct Struct_ov031_02225e1c { int unknown_0_; volatile int unknown_4_; };
@@ -318,7 +318,7 @@ extern "C" ARM void func_ov031_02225e1c(void* arg0) {
     }
     func_ov031_022266b0(3, 0x91);
     func_ov031_022266b0(4, 0xc0);
-    func_ov031_0223e2b8(arg0, (int)func_ov031_02225ea0);
+    SetTaskCallback_ov031_0223e2b8(arg0, (int)func_ov031_02225ea0);
 }
 
 // USA: func_ov031_02225ea0
@@ -333,7 +333,7 @@ extern "C" ARM void func_ov031_02225ea0(void* arg0) {
     }
     func_ov031_022266b0(4, 0xaa);
     func_ov031_022269d8();
-    func_ov031_0223e2b8(arg0, (int)func_ov031_02225f14);
+    SetTaskCallback_ov031_0223e2b8(arg0, (int)func_ov031_02225f14);
 }
 
 // USA: func_ov031_02225f14
@@ -689,7 +689,7 @@ extern "C" ARM void func_ov031_02226b10(void* arg0) {
 	var1 += 0xc;
 	func_ov031_022266b0(4, var1);
 	if (var1 < 0xc0) return;
-	func_ov031_0223e2b8(arg0, (int)func_ov031_02226b88);
+	SetTaskCallback_ov031_0223e2b8(arg0, (int)func_ov031_02226b88);
 }
 
 // USA: func_ov031_02226b88
@@ -699,7 +699,7 @@ extern "C" ARM void func_ov031_02226b88(void* arg0) {
     var1 += 0xc;
     func_ov031_022266b0(3, var1);
     if (var1 < 0xc0) return;
-    func_ov031_0223e2b8(arg0, (int)func_ov031_02226bf8);
+    SetTaskCallback_ov031_0223e2b8(arg0, (int)func_ov031_02226bf8);
 }
 
 // USA: func_ov031_02226bf8
@@ -709,7 +709,7 @@ extern "C" ARM void func_ov031_02226bf8(void* arg0) {
     var1 += 0xc;
     func_ov031_022266b0(2, var1);
     if (var1 < 0xc0) return;
-    func_ov031_0223e2b8(arg0, (int)func_ov031_02226c68);
+    SetTaskCallback_ov031_0223e2b8(arg0, (int)func_ov031_02226c68);
 }
 
 // USA: func_ov031_02226c68
@@ -719,7 +719,7 @@ extern "C" ARM void func_ov031_02226c68(void* arg0) {
     var1 += 0xc;
     func_ov031_022266b0(1, var1);
     if (var1 < 0xc0) return;
-    func_ov031_0223e2b8(arg0, (int)func_ov031_02226cd8);
+    SetTaskCallback_ov031_0223e2b8(arg0, (int)func_ov031_02226cd8);
 }
 
 // USA: func_ov031_02226cd8
@@ -729,7 +729,7 @@ extern "C" ARM void func_ov031_02226cd8(void* arg0) {
     var1 += 0xc;
     func_ov031_022266b0(0, var1);
     if (var1 < 0xc0) return;
-    func_ov031_0223e2b8(arg0, (int)func_ov031_02226d48);
+    SetTaskCallback_ov031_0223e2b8(arg0, (int)func_ov031_02226d48);
 }
 
 // USA: func_ov031_02226d48
@@ -754,5 +754,5 @@ extern "C" ARM void func_ov031_02226d48(void* arg0) {
         int var3 = 0;
         do { func_ov031_0223da58(data_ov031_02250c00->unknown_10_[var3]); } while (++var3 < 10);
     }
-    func_ov031_0223cf70(&data_ov031_02250c00);
+    FreeAndClearPointer_ov031_0223cf70(&data_ov031_02250c00);
 }

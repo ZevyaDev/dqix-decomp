@@ -24,7 +24,7 @@ extern unsigned short data_ov004_02170660[3];
 #else
 extern unsigned short data_ov004_0216fef8[3];
 #endif
-extern "C" void func_ov023_021f809c(void*, void*);
+extern "C" void RedrawMenuWindow_ov023_021f809c(void*, void*);
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" int PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov004_02163478(Struct_ov004_02163c40*);
@@ -133,7 +133,7 @@ extern "C" ARM int func_ov004_02163c40(void* arg0) {
     Struct_ov004_02163c40_2* var24 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x16);
     if (!var24) return 0;
     if (func_ov023_021f6f10(var24) != 6) return 0;
-    func_ov023_021f809c(var24, arg0);
+    RedrawMenuWindow_ov023_021f809c(var24, arg0);
     var24->unknown_c_ &= ~8;
 #else
     func_ov023_021f6680(arg0, 0x16);

@@ -13,11 +13,11 @@ extern "C" void func_020d7a5c(struct Struct_0214e34c* arg0);
 
 struct Struct_020d7aa0 {
     unsigned char unknown_0_0_ : 6;
-    unsigned char unknown_0_6_ : 1;
-    unsigned char unknown_0_7_ : 1;
+    unsigned char isShowing_0_6_ : 1;
+    unsigned char isFontRequested_0_7_ : 1;
 };
 
-struct Struct_020d7aa0_2 {
+struct TimedMessageQueue_020d7aa0_2 {
     #if defined(jpn)
     unsigned char unknown_0_[0xf0];
 #else
@@ -26,17 +26,17 @@ struct Struct_020d7aa0_2 {
     struct Struct_020d7aa0 unknown_150_;
 };
 
-// USA: func_020d7aa0
-extern "C" ARM void func_020d7aa0(struct Struct_020d7aa0_2* arg0) {
-    int var0 = GetFontLoader_02094a00();
-    if (arg0->unknown_150_.unknown_0_7_) {
-        CancelFontLoad_02094ab0(var0);
+// USA: ClearTimedMessageQueue_020d7aa0
+extern "C" ARM void ClearTimedMessageQueue_020d7aa0(struct TimedMessageQueue_020d7aa0_2* queue) {
+    int loader = GetFontLoader_02094a00();
+    if (queue->unknown_150_.isFontRequested_0_7_) {
+        CancelFontLoad_02094ab0(loader);
     }
-    if (arg0->unknown_150_.unknown_0_6_) {
+    if (queue->unknown_150_.isShowing_0_6_) {
         ResetMessageWindow_02043204((char*)GetMessageWindow_020421a0());
-        arg0->unknown_150_.unknown_0_6_ = 0;
+        queue->unknown_150_.isShowing_0_6_ = 0;
     }
     func_ov017_0218b5c0(1, -1);
     func_ov017_0218b5f8(-1);
-    func_020d7a5c((struct Struct_0214e34c*)arg0);
+    func_020d7a5c((struct Struct_0214e34c*)queue);
 }

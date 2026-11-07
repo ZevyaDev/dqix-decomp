@@ -10,7 +10,7 @@ enum { Enum_ov017_021983e0_14076 = 0x36fc, Enum_ov017_021983e0_108 = 0x6c };
 
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" int func_020535c8(signed char* arg0);
+extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
 extern "C" int func_02094b9c(void* arg0, void* arg1);
 int fix32ReduceAngle0To2Pi(int angle);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov017_021983e0(unsigned char* arg0) {
         void* var1 = GetZone3D_02012fe4();
         GetCamera_020100bc(var0);
         GameObject* var2 = var0->GetUnknownGameObject();
-        if (func_020535c8((signed char*)var2) == 0) {
+        if (IsPerformingGesture_020535c8((signed char*)var2) == 0) {
             struct Struct_ov017_021983e0_2 var3 = *(struct Struct_ov017_021983e0_2*)((char*)var2 + 0x44);
             struct Struct_ov017_021983e0_3* var4 = (struct Struct_ov017_021983e0_3*)func_0201e838((unsigned char*)var1 + Enum_ov017_021983e0_108, 5);
             while (var4 != NULL) {

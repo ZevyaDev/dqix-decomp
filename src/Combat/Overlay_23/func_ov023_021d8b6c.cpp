@@ -16,7 +16,7 @@ struct TextWindowManager_0205d274;
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274*);
 
 struct TextWindowManager_0205d2bc;
-extern "C" void func_0205d2bc(TextWindowManager_0205d2bc*);
+extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(TextWindowManager_0205d2bc*);
 
 // USA: func_ov023_021d8b6c
 extern "C" ARM void func_ov023_021d8b6c(void* arg0) {
@@ -27,5 +27,5 @@ extern "C" ARM void func_ov023_021d8b6c(void* arg0) {
     ClearTextWindowManagerBGScreenData_0205d1e0((TextWindowManager_0205d1e0*)var0);
     DrawTextWindows_0205d228((TextWindowManager_0205d228*)var0);
     FlushTextWindowManagerBGScreenData_0205d274((TextWindowManager_0205d274*)var0);
-    func_0205d2bc((TextWindowManager_0205d2bc*)var0);
+    CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((TextWindowManager_0205d2bc*)var0);
 }

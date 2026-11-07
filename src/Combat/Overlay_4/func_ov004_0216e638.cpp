@@ -9,8 +9,8 @@ enum { Enum_ov004_0216e638_2506 = 0x9ca, Enum_ov004_0216e638_16 = 0x10, Enum_ov0
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_02012028(void* arg0, unsigned char arg1);
 
-struct Struct_020a9ea4;
-extern "C" void func_020a9ea4(struct Struct_020a9ea4* arg0);
+struct SaveProgress_020a9ea4;
+extern "C" void ResetSaveProgress_020a9ea4(struct SaveProgress_020a9ea4* progress);
 extern unsigned char data_ov004_02171034;
 
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
@@ -59,7 +59,7 @@ extern "C" ARM int func_ov004_0216e638(void* arg0) {
     *(unsigned char*)((char*)GetMessageWindow_020421a0() + 0x1000 + Enum_ov004_0216e638_2506) = 0;
     func_02012028(GameState::GetInstance(), 0);
 
-    func_020a9ea4(*(struct Struct_020a9ea4**)((char*)&data_ov004_02171034 + Enum_ov004_0216e638_16));
+    ResetSaveProgress_020a9ea4(*(struct SaveProgress_020a9ea4**)((char*)&data_ov004_02171034 + Enum_ov004_0216e638_16));
     (&data_ov004_02171034)[Enum_ov004_0216e638_2] = 1;
 
     func_ov004_0216afb0(var0, 0x4b0, 2, 0x3e8, 0x23, 0xc, 5, 0xa, 1);

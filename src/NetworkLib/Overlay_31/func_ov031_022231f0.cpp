@@ -9,7 +9,7 @@ struct Struct_ov031_022231f0 {
 
 extern "C" ARM void func_ov031_0223e2c0(int arg0, int arg1);
 extern "C" ARM void func_ov031_0223ba20(void* arg0);
-extern "C" ARM void func_ov031_0223cf70(Struct_ov031_022231f0** arg0);
+extern "C" ARM void FreeAndClearPointer_ov031_0223cf70(Struct_ov031_022231f0** pointer);
 
 #if defined(jpn)
 extern "C" Struct_ov031_022231f0* data_ov031_02250ba8;
@@ -39,8 +39,8 @@ extern "C" ARM void func_ov031_022231f0(int arg0) {
 	func_ov031_0223ba20(data_ov031_02250ba8->unknown_8_);
 
 #if defined(jpn)
-	func_ov031_0223cf70(&DuplicatePool::data_ov031_02250ba8);
+	FreeAndClearPointer_ov031_0223cf70(&DuplicatePool::data_ov031_02250ba8);
 #else
-	func_ov031_0223cf70((Struct_ov031_022231f0**)0x02250BA8);
+	FreeAndClearPointer_ov031_0223cf70((Struct_ov031_022231f0**)0x02250BA8);
 #endif
 }

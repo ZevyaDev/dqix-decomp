@@ -30,7 +30,7 @@ struct Struct_ov005_0215840c_2 {
 
 struct Struct_02052df8 {
     char unknown_0_[LOW_REGION(0x144, 0x150)];
-    Struct_ov005_0215840c_2* unknown_150_;
+    Struct_ov005_0215840c_2* pPartyMemberData_150_;
 };
 
 struct ItemTable_0201099c_10;
@@ -42,13 +42,13 @@ struct Struct_ov005_02153954 {
 
 extern "C" const unsigned char data_ov005_0215cc0c[];
 
-extern "C" int func_02052df8(Struct_02052df8* arg0, int arg1);
+extern "C" int GetEquippedItem_02052df8(Struct_02052df8* gameObject, int slot);
 extern "C" Struct_ov005_021556e4* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" Struct_ov005_0215840c_2* GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" void func_02052d7c(Struct_02052df8* arg0, int arg1, short arg2);
+extern "C" void SetEquippedItem_02052d7c(Struct_02052df8* gameObject, int slot, short itemId);
 extern "C" void func_0208358c(Struct_ov005_0215840c_2* arg0, Struct_ov005_021556e4* arg1, int arg2);
 extern "C" void func_02083738(Struct_ov005_0215840c_2* arg0, int arg1);
-extern "C" int func_0207c378(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int AddEquipmentToBag_0207c378(void* bag, int itemId, int count, int category);
 
 // USA: func_ov005_0215840c
 extern "C" ARM int func_ov005_0215840c(Struct_ov005_02153954* arg0, int arg1) {
@@ -57,10 +57,10 @@ extern "C" ARM int func_ov005_0215840c(Struct_ov005_02153954* arg0, int arg1) {
     if (var1 == NULL)
         return 0;
     int var2 = 0;
-    unsigned int var3 = var1->unknown_150_->unknown_49c_0_;
+    unsigned int var3 = var1->pPartyMemberData_150_->unknown_49c_0_;
     for (int var4 = 0; var4 < 7; var4++) {
         unsigned char var5 = data_ov005_0215cc0c[var4];
-        int var6 = func_02052df8(var1, var5);
+        int var6 = GetEquippedItem_02052df8(var1, var5);
         Struct_ov005_021556e4* var7 = FindItemData_020dedd0(arg0->unknown_df4_, var6);
         if (var7 == NULL)
             continue;
@@ -75,14 +75,14 @@ extern "C" ARM int func_ov005_0215840c(Struct_ov005_02153954* arg0, int arg1) {
             var10 = 0;
             var9 = 1000;
         }
-        func_02052d7c(var1, var5, -1);
+        SetEquippedItem_02052d7c(var1, var5, -1);
         Struct_ov005_0215840c_2* var11 = GetPartyMemberData_02053c6c((unsigned char*)var1);
         Struct_ov005_021556e4* var12 = FindItemData_020dedd0(arg0->unknown_df4_, var9);
         if (var12 != NULL)
             func_0208358c(var11, var12, var10);
         else
             func_02083738(var11, var7->unknown_8_0_);
-        func_0207c378((char*)GetParty_02010828(var0) + 0x1d4, var6, 1, var7->unknown_8_0_);
+        AddEquipmentToBag_0207c378((char*)GetParty_02010828(var0) + 0x1d4, var6, 1, var7->unknown_8_0_);
         var2 = 1;
     }
     return var2;

@@ -21,14 +21,14 @@ struct Struct_ov025_021eaf48_2 {
 };
 
 extern "C" void* GetBattleScene_ov000_02160130(void);
-extern "C" void* func_ov000_02160f20(void* arg0);
+extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" struct ActionActor_ov000_02160094* GetActionActor_ov000_02160094(struct BattleAction_ov000_0215440c_2* action, int index);
 extern "C" int func_ov025_021ed380(char* arg0, int arg1, int arg2, int arg3, int arg4, short arg5, unsigned short arg6);
 extern "C" void func_ov025_021ed5f0(char* arg0, int arg1, int arg2, int arg3);
 
 // USA: func_ov025_021eaf48
 extern "C" ARM void func_ov025_021eaf48(char* arg0, int arg1, int arg2, struct Struct_ov025_021eaf48_2* arg3) {
-    struct ActionActor_ov000_02160094* var0 = GetActionActor_ov000_02160094((struct BattleAction_ov000_0215440c_2*)func_ov000_02160f20(GetBattleScene_ov000_02160130()), arg1);
+    struct ActionActor_ov000_02160094* var0 = GetActionActor_ov000_02160094((struct BattleAction_ov000_0215440c_2*)GetCurrentBattleAction_ov000_02160f20(GetBattleScene_ov000_02160130()), arg1);
     if (var0 == 0) {
         return;
     }

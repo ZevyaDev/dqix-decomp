@@ -19,16 +19,16 @@ extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" void* GetZone3D_02012fe4();
-extern "C" int func_020535c8(signed char*);
+extern "C" int IsPerformingGesture_020535c8(signed char*);
 extern "C" int func_0203402c(Struct_0203402c*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void func_ov017_0219a674(unsigned char*);
 extern "C" void func_ov017_0219b33c(void*, Struct_ov017_02198aa0_3*);
-extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
+extern "C" int ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
-extern "C" void func_02070378(char*);
-extern "C" void func_ov017_0219e310(unsigned char*, int);
+extern "C" void InitZoneEntry_02070378(char*);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char*, int);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" void func_ov017_021be0a0(unsigned char*);
 
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov017_02198aa0(GameResources* arg0) {
     unsigned char var8 = var7->activeMapData.GetDiscoveryState();
     unsigned char var9 = var7->activeMapData.GetMapType();
     unsigned char var10 = var7->activeEnviron;
-    if (func_020535c8((signed char*)var1) || !var7->unknown_0[0]) return;
+    if (IsPerformingGesture_020535c8((signed char*)var1) || !var7->unknown_0[0]) return;
     if (((Struct_ov017_02198aa0_2*)var7)->unknown_c_ != var1->obj3D_.GetField06() || var4->unknown_9a0_) return;
     if (IsBrightnessTransitionActive(var3)) return;
     if (func_0203402c((Struct_0203402c*)var1)) return;
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov017_02198aa0(GameResources* arg0) {
     if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 10) { var15 = g_touchInput.prevX_; var16 = g_touchInput.prevY_; }
     {
         int var17, var18;
-        func_0202ec84(var2, (Struct_02015ef4*)&var1->obj3D_.position_, &var17, &var18);
+        ConvertWorldToScreen_0202ec84(var2, (Struct_02015ef4*)&var1->obj3D_.position_, &var17, &var18);
         if (var15 > 0x70 && var15 < 0x90 && var16 > 0x28 && var16 < 0x60) var14 = 1;
         else if (var17 - 12 < var15 && var15 < var17 + 12 && var18 - 12 < var16 && var16 < var18 + 12) var14 = 0;
     }
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov017_02198aa0(GameResources* arg0) {
     if ((unsigned char)(var8 + 254) <= 1) {
         func_0201bfd4(static_cast<Zone3D*>(var6));
         Struct_ov017_02198aa0_4* var19 = (Struct_ov017_02198aa0_4*)GetZoneEntry_0200fd0c(var0);
-        func_02070378((char*)var19);
+        InitZoneEntry_02070378((char*)var19);
         var19->unknown_7_ = 1;
         var19->unknown_c_ = 1;
         if (var9 == 2) {
@@ -96,7 +96,7 @@ extern "C" ARM void func_ov017_02198aa0(GameResources* arg0) {
         func_0200fcfc(var0, var19);
         Queue_0201bdac_2* var21 = (Queue_0201bdac_2*)var3->unknown_ptr_array_36fc[0];
         unsigned char* var22 = (unsigned char*)var3->unknown_ptr_array_36fc[4];
-        func_ov017_0219e310(var22, 0);
+        ResetZoneLoadTask_ov017_0219e310(var22, 0);
         AppendToQueue_020469b4(var21, (QueueNode_0201bdac*)var22);
     } else {
         Queue_0201bdac_2* var23 = (Queue_0201bdac_2*)arg0->unknown_ptr_array_36fc[0];

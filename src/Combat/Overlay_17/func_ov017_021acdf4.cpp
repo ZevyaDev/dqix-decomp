@@ -101,21 +101,21 @@ extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void func_ov017_021adb50(char* arg0);
 extern "C" unsigned char* GetZoneEntry_0200fd0c(GameState* gameState);
-extern "C" void func_02070378(char* arg0);
+extern "C" void InitZoneEntry_02070378(char* zoneEntry);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void func_0205ce94(unsigned char* arg0);
 extern "C" int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigned int arg4, TextureVRAMArea_0203d028* arg5);
 extern "C" void func_02010834(Struct_02010834* arg0, int arg1, int* arg2, int* arg3);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
-extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
+extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_ov017_021ce014(int arg0, unsigned short arg1, unsigned short arg2, unsigned short arg3);
 extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
 extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 void SetBrightness(GameResources* resources, int brightness, int duration);
 extern "C" void func_ov017_021a65c4(void* arg0, unsigned char arg1, int arg2);
-extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int arg1);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void func_0200fb40(void* arg0);
 extern "C" int func_02011b50(void* arg0, int arg1);
@@ -130,7 +130,7 @@ extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 int IsBrightnessTransitionActive(GameResources* resources);
 extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId);
-extern "C" void func_0205ebec(void* arg0);
+extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
 extern "C" void func_ov017_02197528(void);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_02039d58(unsigned char* arg0);
@@ -148,7 +148,7 @@ extern "C" void func_0202ea10(unsigned char* arg0, int arg1, int arg2);
 extern "C" int func_020a277c(void* arg0);
 extern "C" void func_020a2770(void* arg0, short arg1);
 extern "C" void func_0205ec20(void* arg0, void* arg1, int arg2);
-extern "C" void func_ov017_02191108(GameResources* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(GameResources* gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_ov017_021adb1c(Struct_ov017_021acdf4* arg0);
 
@@ -195,7 +195,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
         }
         if (arg0->unknown_281_) {
             unsigned char* var6 = GetZoneEntry_0200fd0c(var0);
-            func_02070378((char*)var6);
+            InitZoneEntry_02070378((char*)var6);
             var6[2] = 1;
             *(unsigned short*)var6 = 0xc3b5;
             var6[7] = 1;
@@ -295,7 +295,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
                     var12[var18].unknown_11_7_ = 0;
                     var12[var18].unknown_2c_ = ((Object3D*)var19)->position_;
                     var12[var18].unknown_44_ = ((Object3D*)var19)->GetScale();
-                    func_02057fb4(var3, 8, &var12[var18]);
+                    PlayEffect_02057fb4(var3, 8, &var12[var18]);
                 }
             }
         }
@@ -371,7 +371,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
                 var27 = GetZoneEntry_0200fd0c(var29);
                 var28 = GetGameResources();
                 var30 = (Struct_ov017_021acdf4*)var28->unknown_ptr_array_3afc[9];
-                func_02070378((char*)var27);
+                InitZoneEntry_02070378((char*)var27);
                 var27[4] = 0;
                 var27[5] = 1;
                 *(unsigned short*)var27 = *(unsigned short*)((char*)var29 + Enum_ov017_021acdf4_32648);
@@ -388,7 +388,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
                         var27[0x64] = 1;
                     }
                 }
-                func_ov017_0219e310((unsigned char*)var28->unknown_ptr_array_36fc[4], 0);
+                ResetZoneLoadTask_ov017_0219e310((unsigned char*)var28->unknown_ptr_array_36fc[4], 0);
                 AppendToQueue_020469b4((Queue_0201bdac_2*)var28->unknown_ptr_array_36fc[0], (QueueNode_0201bdac*)var28->unknown_ptr_array_36fc[4]);
                 func_0200fb40(var29);
                 func_ov017_021a65c4(var1, 0, arg0->unknown_27d_);
@@ -419,7 +419,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
             return;
         }
         RemoveEffectResource_02057f00(var3, 8);
-        func_0205ebec(&gSoundEffectManager_02108760);
+        UnloadExtraSoundSet_0205ebec(&gSoundEffectManager_02108760);
         func_ov017_02197528();
         arg0->unknown_1_ = 1;
         EnablePlayerControl_020397c0(var2);
@@ -501,7 +501,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
         char* var43 = (char*)GetMessageWindow_020421a0();
         func_020a2770((void*)GetFollowCamera_020100f8((char*)var0), arg0->unknown_1f_);
         RemoveEffectResource_02057f00(var3, 8);
-        func_0205ebec(&gSoundEffectManager_02108760);
+        UnloadExtraSoundSet_0205ebec(&gSoundEffectManager_02108760);
         for (int var44 = 0; var44 < 5; var44++) {
             if (arg0->unknown_1e_ & (1 << var44)) {
                 GameObject* var45 = var0->GetGameObjectByIndex(var44 != 4 ? var44 : 0xce);
@@ -511,7 +511,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
             }
         }
         arg0->unknown_1_ = 1;
-        func_ov017_02191108(var1, 1, 1, 1, 1);
+        RebuildFieldPartyOrder_ov017_02191108(var1, 1, 1, 1, 1);
         EnablePlayerControl_020397c0(var2);
         ResetMessageWindow_02043204(var43);
         func_ov017_021adb1c(arg0);

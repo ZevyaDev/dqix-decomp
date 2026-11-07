@@ -68,7 +68,7 @@ extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78* windowMa
 extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, SafeAllocator* allocator);
 extern "C" int func_020d3018(const char* arg0, const char* arg1);
 extern "C" void func_ov003_0215917c(Struct_ov003_0215917c* arg0, int arg1);
-extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* arg1);
+extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* outOwnPartyOrder);
 
 #if defined(jpn)
 #include "Filesystem/FileIO.h"

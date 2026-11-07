@@ -46,11 +46,11 @@ extern "C" int func_0209ca2c(void*);
 extern "C" void func_02048150(void*, int, int);
 extern "C" void func_02048418(unsigned char*, unsigned short);
 extern "C" void* GetParty_02010828(GameState*);
-extern "C" void func_0207c378(void*, short, int, int);
-extern "C" void func_02052d7c(void*, signed char, int);
+extern "C" void AddEquipmentToBag_0207c378(void*, short, int, int);
+extern "C" void SetEquippedItem_02052d7c(void*, signed char, int);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
-extern "C" void func_ov017_021c3fb4(int, int);
+extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int, int);
 extern "C" void func_ov017_021c4418(int, int);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void*, int, int, int, int);
 struct Struct_0203d028_4;
@@ -249,13 +249,13 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
                 if (var22->unknown_8_.unknown_2_2_ == 0) continue;
                 short var23 = var22->unknown_18_;
                 int var24 = var22->unknown_8_.unknown_0_0_;
-                func_0207c378(var17 + 0x1d4, var23, 1, var24);
-                func_02052d7c(var15, data_ov003_0217f39c[var19], -1);
+                AddEquipmentToBag_0207c378(var17 + 0x1d4, var23, 1, var24);
+                SetEquippedItem_02052d7c(var15, data_ov003_0217f39c[var19], -1);
                 var18 = 1;
             }
             if (var18 != 0) {
                 if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18()) != 0) {
-                    func_ov017_021c3fb4(var14, 1);
+                    SendPartyMemberEquippedItems_ov017_021c3fb4(var14, 1);
                     func_ov017_021c4418(var14, -1);
                 }
                 void* var25 = (void*)GetGameResources();

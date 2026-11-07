@@ -6,7 +6,7 @@ extern "C" int GetZone3D_02012fe4(void);
 extern "C" int func_02018fbc(int arg0, Vector3i* arg1);
 struct Struct_02033834;
 extern "C" void SetFacingInstantly_02033874(Struct_02033834* object, int angle);
-extern "C" void func_02076ccc(void*, int);
+extern "C" void SetFieldMonsterState_02076ccc(void*, int);
 
 struct Struct_ov017_021c949c {
     unsigned char unknown_0_[4];
@@ -43,6 +43,6 @@ extern "C" ARM void func_ov017_021c949c(int arg0, Struct_ov017_021c949c* arg1) {
     SetFacingInstantly_02033874((Struct_02033834*)var0[2], var2);
 
     if (*(int*)((char*)var0[2] + 0x130) != 9) {
-        func_02076ccc((void*)var0[2], 1);
+        SetFieldMonsterState_02076ccc((void*)var0[2], 1);
     }
 }

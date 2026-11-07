@@ -29,7 +29,7 @@ extern "C" int func_0205df38(void *arg0, int arg1);
 extern "C" void func_ov023_021dc9e8(char *arg0, SafeAllocator *arg1, int arg2, char *arg3, int arg4);
 extern "C" void func_ov023_021dc134(char *arg0, int arg1, int arg2);
 extern "C" void func_ov023_021dbfd0(char *arg0, SafeAllocator *arg1);
-extern "C" void func_ov023_021dcae0(char *arg0, int arg1);
+extern "C" void SetItemInfoPanelItem_ov023_021dcae0(char *panel, int itemId);
 extern "C" void func_ov023_021dca88(char *arg0);
 extern "C" char gSoundEffectManager_02108760[];
 
@@ -81,13 +81,13 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
                 func_ov002_0215b458(arg0, 1);
                 *(short *) (arg0 + 0x1aea) =
                     GetInventoryItemByID(arg0, *(short *) (arg0 + 0x1ab0), *(signed char *) (arg0 + 0x1ae8));
-                func_ov023_021dcae0(var1, *(short *) (arg0 + 0x1aea));
+                SetItemInfoPanelItem_ov023_021dcae0(var1, *(short *) (arg0 + 0x1aea));
                 return;
             }
         }
         *(short *) (arg0 + 0x1aea) =
             GetInventoryItemByID(arg0, *(short *) (arg0 + 0x1ab0), *(signed char *) (arg0 + 0x1ae8));
-        func_ov023_021dcae0(var1, *(short *) (arg0 + 0x1aea));
+        SetItemInfoPanelItem_ov023_021dcae0(var1, *(short *) (arg0 + 0x1aea));
         if (var3 != *(short *) (arg0 + 0x1ab0)) return;
         int var4 = g_keyManager.TestKeysPressed(0x601);
         int var5 = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)(arg0 + 0xe20), 0x14);
@@ -159,13 +159,13 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
                 func_ov002_0215b458(arg0, 1);
                 *(short *) (arg0 + 0x1c00 + 0x22) =
                     GetInventoryItemByID(arg0, *(short *) (arg0 + 0x1b00 + 0xe8), *(signed char *) (arg0 + 0x1c00 + 0x20));
-                func_ov023_021dcae0(arg0 + 0x50, *(short *) (arg0 + 0x1c00 + 0x22));
+                SetItemInfoPanelItem_ov023_021dcae0(arg0 + 0x50, *(short *) (arg0 + 0x1c00 + 0x22));
                 return;
             }
         }
         *(short *) (arg0 + 0x1c00 + 0x22) =
             GetInventoryItemByID(arg0, *(short *) (arg0 + 0x1b00 + 0xe8), *(signed char *) (arg0 + 0x1c00 + 0x20));
-        func_ov023_021dcae0(arg0 + 0x50, *(short *) (arg0 + 0x1c00 + 0x22));
+        SetItemInfoPanelItem_ov023_021dcae0(arg0 + 0x50, *(short *) (arg0 + 0x1c00 + 0x22));
         if (var11 != *(short *) (arg0 + 0x1b00 + 0xe8)) return;
         int var12 = g_keyManager.TestKeysPressed(0x601);
         int var13 = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)(arg0 + 0x2c8 + 0xc00), 0x14);

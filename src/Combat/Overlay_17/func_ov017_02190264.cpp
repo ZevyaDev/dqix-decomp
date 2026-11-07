@@ -29,13 +29,13 @@ extern "C" void func_02046a8c(void*, Struct_ov000_02161e30_4*);
 extern "C" void func_ov017_021b33d8(void*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void* func_020120a0(char*, unsigned int);
-extern "C" int func_020535c8(signed char*);
+extern "C" int IsPerformingGesture_020535c8(signed char*);
 extern "C" void func_020531f0(GameObject*);
 extern "C" void func_020545ac(short*);
 extern "C" int func_020115a8(Struct_02000c9c_12*);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState*, int);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
-extern "C" void func_ov017_02191108(GameResources*, int, int, int, int);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(GameResources*, int, int, int, int);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" void func_ov017_02190884(int, Struct_ov017_02190264_2*, int*, int, int, int);
 extern "C" void func_ov017_02191234(GameResources*);
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov017_02190264(GameResources* arg0, int arg1) {
             short* var9 = (short*)func_020120a0((char*)var1, arg1);
             if (var9) *var9 = 0;
         }
-        if (func_020535c8((signed char*)var8)) func_020531f0(var8);
+        if (IsPerformingGesture_020535c8((signed char*)var8)) func_020531f0(var8);
         strcpy(arg0->unknown_435c_[arg1], (char*)var8->baseStats_);
         short* var10 = ((Struct_ov017_02190264*)var8)->unknown_154_;
         if (var10) func_020545ac(var10);
@@ -111,11 +111,11 @@ extern "C" ARM void func_ov017_02190264(GameResources* arg0, int arg1) {
     int var20 = 1;
     for (var18 = 0; var18 < 4; var18++) { Struct_ov017_02190264* var21 = *var19; if (var21) var21->unknown_2d2_ = var20++; var19++; }
     if (!IsLocalWirelessOn_0202b7d8(var2)) {
-        func_ov017_02191108(arg0, 1, 1, 1, 1);
+        RebuildFieldPartyOrder_ov017_02191108(arg0, 1, 1, 1, 1);
         return;
     }
     for (int var22 = 0; var22 < 4; var22++) {
-        if (var22 == GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var2)) func_ov017_02191108(arg0, 1, 1, 1, 1);
+        if (var22 == GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var2)) RebuildFieldPartyOrder_ov017_02191108(arg0, 1, 1, 1, 1);
         else {
             Struct_ov017_02190264_2 var23;
             int var24 = 0;

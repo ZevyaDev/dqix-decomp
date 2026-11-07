@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-extern "C" void* func_0204af14(void* arg0, unsigned int arg1);
+extern "C" void* GetBGScreenBlock_0204af14(void* layer, unsigned int screenBlockIndex);
 extern "C" void func_0204b938(void* arg0, void* arg1, int arg2, int arg3, unsigned short arg4);
 
 // JPN: func_ov000_021811f4
 extern "C" ARM void func_ov000_021811f4(char* arg0, int arg1, void* arg2, int arg3, short arg4, int arg5) {
     do {
-        void* var1 = func_0204af14(arg0 + 0xc4 + 0x800, (unsigned char)(arg3 % 10 + 5));
+        void* var1 = GetBGScreenBlock_0204af14(arg0 + 0xc4 + 0x800, (unsigned char)(arg3 % 10 + 5));
         func_0204b938(arg2, var1, arg4, arg5, (unsigned short)(arg1 + 2));
         arg4 = arg4 - 1;
         arg3 = arg3 / 10;

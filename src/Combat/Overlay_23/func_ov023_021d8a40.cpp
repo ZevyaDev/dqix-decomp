@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Struct_02074b64;
-extern "C" void func_02074b64(struct Struct_02074b64* arg0);
+struct BGControlSave_02074b64;
+extern "C" void SaveSubBGControl_02074b64(struct BGControlSave_02074b64* save);
 
 struct TextWindowManager_0205cfd4;
 extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
@@ -11,7 +11,7 @@ extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4
 extern "C" ARM void func_ov023_021d8a40(void* arg0) {
     *(unsigned char*)((char*)arg0 + 0x18) = 0;
     *(unsigned char*)((char*)arg0 + 0x19) = 0;
-    func_02074b64((struct Struct_02074b64*)((char*)arg0 + 8));
+    SaveSubBGControl_02074b64((struct BGControlSave_02074b64*)((char*)arg0 + 8));
     unsigned int* var0 = (unsigned int*)0x4001000;
     *(int*)((char*)arg0 + 0x1c) = (*var0 & 0x1f00) >> 8;
     *(int*)arg0 = 0;

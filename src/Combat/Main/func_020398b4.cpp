@@ -25,7 +25,7 @@ extern "C" ARM void func_020398b4(GameObject* arg0, Struct_02037d10* arg1) {
     ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_48_ = arg1->unknown_48_;
     ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_4c_ = arg1->unknown_4c_;
     ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_50_ = arg1->unknown_50_;
-    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_52_ = arg1->unknown_52_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->isPartyOrderRebuildPending_52_ = arg1->isPartyOrderRebuildPending_52_;
     ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_53_ = arg1->unknown_53_;
     ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_54_ = arg1->unknown_54_;
     ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_58_ = arg1->unknown_58_;

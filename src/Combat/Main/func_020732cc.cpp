@@ -10,8 +10,8 @@ struct Struct_02052e2c;
 extern "C" short* func_02052e2c(struct Struct_02052e2c* arg0);
 extern "C" void func_02048418(unsigned char*, unsigned short);
 
-struct Struct_020732cc;
-extern "C" int func_0207c378(struct Struct_020732cc* arg0, int arg1, int arg2, int arg3);
+struct EquipmentBag_020732cc;
+extern "C" int AddEquipmentToBag_0207c378(struct EquipmentBag_020732cc* bag, int itemId, int count, int category);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 
 struct Struct_020732cc_2 {
@@ -48,7 +48,7 @@ extern "C" ARM void func_020732cc(int arg0) {
             if (var5 != NULL && var6 != NULL) {
                 if (var5[var7] > 0) {
                     func_02048418((unsigned char*)var3, 4);
-                    func_0207c378((struct Struct_020732cc*)((char*)var2 + 0x1d4),
+                    AddEquipmentToBag_0207c378((struct EquipmentBag_020732cc*)((char*)var2 + 0x1d4),
                                   var5[var7], 1, var6->unknown_8_0_);
                 }
                 var5[var7] = -1;

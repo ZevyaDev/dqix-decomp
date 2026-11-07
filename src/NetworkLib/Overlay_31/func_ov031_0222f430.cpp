@@ -19,7 +19,7 @@ struct Struct_ov031_02290ca0_7 {
 extern Struct_ov031_02290ca0_7 data_ov031_02290ca0;
 extern "C" unsigned char func_ov031_022351e4();
 extern "C" unsigned char func_ov031_022351d0();
-extern "C" void func_ov031_02222e98();
+extern "C" void DisableButtonBarInput_ov031_02222e98();
 extern "C" void func_ov031_02222e80();
 extern "C" void func_ov031_022238cc();
 extern "C" void func_ov031_0222f9ec();
@@ -27,7 +27,7 @@ extern "C" void func_ov031_022308d4();
 extern "C" int PlayWifiSetupSoundEffect_ov031_02236878(int);
 extern "C" void func_ov031_0223060c(int);
 extern "C" void func_ov031_022306d4();
-extern "C" void* func_ov031_0223e218(void*, void*, void*, int);
+extern "C" void* AddTask_ov031_0223e218(void*, void*, void*, int);
 
 // USA: func_ov031_0222f430
 extern "C" ARM void func_ov031_0222f430() {
@@ -55,10 +55,10 @@ extern "C" ARM void func_ov031_0222f430() {
             return;
         }
         if (var0 < 0x10) {
-            data_ov031_02290ca0.unknown_8_->unknown_38_ = func_ov031_0223e218(0, (void*)func_ov031_0223060c, 0, 0x78);
+            data_ov031_02290ca0.unknown_8_->unknown_38_ = AddTask_ov031_0223e218(0, (void*)func_ov031_0223060c, 0, 0x78);
             return;
         } else {
-            data_ov031_02290ca0.unknown_8_->unknown_38_ = func_ov031_0223e218(0, (void*)func_ov031_022306d4, 0, 0x78);
+            data_ov031_02290ca0.unknown_8_->unknown_38_ = AddTask_ov031_0223e218(0, (void*)func_ov031_022306d4, 0, 0x78);
         }
         return;
     }
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov031_0222f430() {
             data_ov031_02290ca0.unknown_8_->unknown_46_ = 1;
         } else {
             PlayWifiSetupSoundEffect_ov031_02236878(0x13);
-            data_ov031_02290ca0.unknown_8_->unknown_38_ = func_ov031_0223e218(0, (void*)func_ov031_0223060c, 0, 0x78);
+            data_ov031_02290ca0.unknown_8_->unknown_38_ = AddTask_ov031_0223e218(0, (void*)func_ov031_0223060c, 0, 0x78);
         }
         return;
     case 6:
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov031_0222f430() {
             data_ov031_02290ca0.unknown_8_->unknown_46_ = 1;
         } else {
             PlayWifiSetupSoundEffect_ov031_02236878(0x13);
-            data_ov031_02290ca0.unknown_8_->unknown_38_ = func_ov031_0223e218(0, (void*)func_ov031_022306d4, 0, 0x78);
+            data_ov031_02290ca0.unknown_8_->unknown_38_ = AddTask_ov031_0223e218(0, (void*)func_ov031_022306d4, 0, 0x78);
         }
         return;
     case 5:

@@ -84,7 +84,7 @@ extern "C" Struct_ov017_021bec00_5* GetMessageWindow_020421a0();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" Struct_ov017_021bec00* GetZoneEntry_0200fd0c(GameState*);
-extern "C" void func_ov017_0219e310(unsigned char*, int);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char*, int);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void EnablePlayerControl_020397c0(void*);
@@ -156,7 +156,7 @@ extern "C" ARM void func_ov017_021bec00(Struct_ov017_021bec00_2* arg0) {
                 Queue_0201bdac_2* var11;
                 unsigned char* var12 = (unsigned char*)var1->unknown_ptr_array_36fc[4];
                 var11 = (Queue_0201bdac_2*)var1->unknown_ptr_array_36fc[0];
-                func_ov017_0219e310(var12, 0);
+                ResetZoneLoadTask_ov017_0219e310(var12, 0);
                 AppendToQueue_020469b4(var11, (QueueNode_0201bdac*)var12);
                 var4->unknown_260_[2] = 0;
                 func_ov017_021bef84(arg0);

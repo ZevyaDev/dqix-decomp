@@ -13,7 +13,7 @@ struct Queue_02038598_5;
 
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
-extern "C" int func_020535c8(signed char* arg0);
+extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int func_0203402c(Struct_0203402c* arg0);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov017_021975e4(GameResources* arg0) {
     Queue_02038598_5* var7 = (Queue_02038598_5*)var6->unknown_ptr_array_36fc[0];
 
     if (g_keyManager.TestKeysHeld(0x402)) return;
-    if (func_020535c8((signed char*)var3) || var5->unknown_0_) return;
+    if (IsPerformingGesture_020535c8((signed char*)var3) || var5->unknown_0_) return;
     if (func_0203402c((Struct_0203402c*)var3)) return;
     if (IsTypeInQueue_02046b60(var7, 0xc)) return;
     if (IsTypeInQueue_02046b60(var7, 0x2d)) return;

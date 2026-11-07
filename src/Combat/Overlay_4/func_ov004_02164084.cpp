@@ -106,7 +106,7 @@ extern "C" Struct_ov004_02164084* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
 extern "C" void func_ov023_021f65d4(void*, int, int);
 extern "C" void func_ov023_021f9d14(void*, void*);
-extern "C" void func_ov023_021f809c(void*, void*);
+extern "C" void RedrawMenuWindow_ov023_021f809c(void*, void*);
 extern "C" Struct_ov004_02162dd8* func_ov011_021845f8(void*, int);
 extern "C" void func_ov004_021634b8(void*, int, int);
 extern "C" void func_ov023_021f9b30(Struct_ov004_02153e20*, unsigned short, unsigned short, unsigned int);
@@ -302,7 +302,7 @@ extern "C" ARM int func_ov004_02164084(void* arg0) {
     short var19 = data_ov004_02171010.unknown_0_->unknown_18f8_;
     var17->unknown_104_ = var18;
     var17->unknown_106_ = var19;
-    func_ov023_021f809c(var17, arg0);
+    RedrawMenuWindow_ov023_021f809c(var17, arg0);
     var1->unknown_61_ = 1;
     return 0;
 }

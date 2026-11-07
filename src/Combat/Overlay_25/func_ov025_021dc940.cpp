@@ -73,7 +73,7 @@ extern "C" int func_0209ca2c(void* arg0);
 struct Struct_02010604;
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" Struct_ov025_021dc940_4* func_ov000_02160f20(void* arg0);
+extern "C" Struct_ov025_021dc940_4* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" void func_ov000_021754e0(int, int);
 extern "C" void func_ov000_0218142c(void* arg0, int arg1);
 extern "C" void func_ov000_0216f1e4(void* arg0, int* arg1, int arg2, int arg3);
@@ -174,7 +174,7 @@ extern "C" ARM int func_ov025_021dc940(Struct_ov025_021dc940_5* arg0) {
     arg0->unknown_6ff8_ = 0;
     arg0->unknown_6fd4_ = 0;
 
-    Struct_ov025_021dc940_4* var13 = func_ov000_02160f20(arg0);
+    Struct_ov025_021dc940_4* var13 = GetCurrentBattleAction_ov000_02160f20(arg0);
     Struct_ov025_021dc940_3* var14;
     if (var13 != NULL && (var14 = var13->unknown_10_) != NULL && !var13->unknown_b_2_) {
         int var15 = var14->unknown_20_;

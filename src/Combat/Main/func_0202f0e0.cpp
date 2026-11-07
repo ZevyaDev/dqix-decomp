@@ -1,6 +1,6 @@
 #include "GameState/GameState.h"
 struct Struct_0202df68 { unsigned char unknown_0_[0x58]; int unknown_58_; unsigned char unknown_5c_[0x194]; int unknown_1f0_; unsigned unknown_1f4_; };
-extern "C" void func_0202e9a4(Struct_0202df68*,int);
+extern "C" void SetCameraFieldOfView_0202e9a4(Struct_0202df68*,int);
 extern "C" {
 #if defined(jpn)
 extern unsigned data_02104040;
@@ -24,6 +24,6 @@ void func_0202f0e0(Struct_0202df68* arg0) {
   arg0->unknown_1f4_-=var0;
   ++InterpolationCounter;
  }
- func_0202e9a4(arg0,var2);
+ SetCameraFieldOfView_0202e9a4(arg0,var2);
 }
 }

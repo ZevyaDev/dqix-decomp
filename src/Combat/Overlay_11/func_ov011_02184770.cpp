@@ -8,8 +8,8 @@ extern "C" void func_ov011_02184604(void* arg0, unsigned char* arg1);
 
 struct BGControlSave_02074bd0;
 extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
-struct Struct_02074bf4;
-extern "C" void func_02074bf4(struct Struct_02074bf4* arg0);
+struct BGControlSave_02074bf4;
+extern "C" void RestoreSubBGControl_02074bf4(struct BGControlSave_02074bf4* save);
 
 extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov011_02184770(char* arg0) {
     *var0 = (*var0 & ~0x1f00) | 0x100;
 
     RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)(arg0 + 0x194));
-    func_02074bf4((struct Struct_02074bf4*)(arg0 + 0x194));
+    RestoreSubBGControl_02074bf4((struct BGControlSave_02074bf4*)(arg0 + 0x194));
 
     volatile unsigned short* var1 = (volatile unsigned short*)0x4000304;
     int var2 = *(int*)(arg0 + 0x190);

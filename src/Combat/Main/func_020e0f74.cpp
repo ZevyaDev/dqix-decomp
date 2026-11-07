@@ -9,7 +9,7 @@
 
 struct GlobalFlags_02012de8;
 
-extern "C" void *func_0203b628();
+extern "C" void *GetBGVRAMManager_0203b628();
 extern "C" void *GetZone3D_02012fe4();
 extern "C" void *GetGlobalFlags_020d6c00();
 extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8 *globalFlags, unsigned int mask);
@@ -39,7 +39,7 @@ enum { Enum_020e0f74_38 = 0x26, Enum_020e0f74_51 = 0x33, Enum_020e0f74_65 = 0x41
 extern "C" ARM void func_020e0f74(void *arg0) {
     Struct_020e0f74 *var0 = static_cast<Struct_020e0f74 *>(arg0);
     GameState::GetInstance();
-    func_0203b628();
+    GetBGVRAMManager_0203b628();
     GetZone3D_02012fe4();
     if (TestGlobalFlags_02046708(static_cast<GlobalFlags_02012de8 *>(GetGlobalFlags_020d6c00()), 0x41)) {
         return;

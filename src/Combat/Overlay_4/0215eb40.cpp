@@ -18,7 +18,7 @@ struct Struct_ov004_02170b90 {
 };
 
 struct Struct_0209a348 { void* unknown_0_; void* unknown_4_; };
-struct Struct_0200f3a4_8 { int unknown_0_; int unknown_4_; };
+struct SkillTable_0200f3a4_8 { int unknown_0_; int unknown_4_; };
 struct Struct_0209a670 { char unknown_0_[4]; int unknown_4_; };
 
 struct Struct_ov004_0215eb40_4 {
@@ -78,7 +78,7 @@ extern unsigned char data_ov004_021707e8;
 extern unsigned char data_ov004_0216fdd0[];
 extern char data_0212633c[];
 
-extern "C" void func_0209a338(struct Struct_0200f3a4_8*);
+extern "C" void ClearSkillTable_0209a338(struct SkillTable_0200f3a4_8*);
 extern "C" void func_0209a348(struct Struct_0209a348*, void*);
 extern "C" int func_0209a670(struct Struct_0209a670*);
 extern "C" struct Struct_ov004_0215eb40_4* func_0209a654(struct Struct_0209a654_2*, unsigned int);
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov004_0215eb40(void* arg0) {
     var4 = BackgroundLoader::GetInstance();
     var4->MaybeWaitIdle();
     char* var14 = data_0212633c;
-    func_0209a338((struct Struct_0200f3a4_8*)&var0);
+    ClearSkillTable_0209a338((struct SkillTable_0200f3a4_8*)&var0);
     func_0209a348(&var0, var14);
     GetParty_02010828(var1);
 

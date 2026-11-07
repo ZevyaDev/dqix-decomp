@@ -8,7 +8,7 @@
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a27ac(void* arg0);
-extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
+extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 
 extern "C" void func_ov003_0217dc40(int arg0);
 extern "C" void func_020dae08(void* arg0);
@@ -25,7 +25,7 @@ extern "C" ARM void func_020daeb0(void* arg0) {
     EnablePlayerControl_020397c0(var0->GetUnknownGameObject());
     int var3 = GetFollowCamera_020100f8((char*)var0);
     func_020a27ac((void*)var3);
-    func_020a28b0((unsigned char*)var3, 2);
+    ClearCameraFlags_020a28b0((unsigned char*)var3, 2);
     ClearFlags04(var1, 0xc0);
     *((unsigned char*)arg0 + 1) = 1;
 }

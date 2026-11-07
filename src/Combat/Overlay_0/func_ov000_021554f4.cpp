@@ -131,7 +131,7 @@ extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void func_ov000_0215a8d4(unsigned char*, int);
 extern "C" float func_ov000_02155a04(char*);
 extern "C" Struct_ov000_021554f4_8* func_02054000(Struct_02054000*);
-extern "C" unsigned short func_02052df8(Struct_02052df8*, int);
+extern "C" unsigned short GetEquippedItem_02052df8(Struct_02052df8*, int);
 struct Struct_020a0840;
 struct Struct_020a02d0;
 struct Struct_020a0644;
@@ -212,7 +212,7 @@ extern "C" ARM void func_ov000_021554f4(Struct_ov000_021554f4_6* arg0, int arg1,
         Struct_ov000_021554f4_8* var10 = func_02054000((Struct_02054000*)var9);
         if (var10) var5->unknown_24_ = var10->unknown_8_4_;
         for (int var11 = 0; data_ov000_02182a7c[var11] != -1; var11++)
-            var5->unknown_30_[var11] = func_02052df8((Struct_02052df8*)var9, data_ov000_02182a7c[var11]);
+            var5->unknown_30_[var11] = GetEquippedItem_02052df8((Struct_02052df8*)var9, data_ov000_02182a7c[var11]);
     }
     if (!IsInParty_02086ef0(var1, arg2)) return;
     if (arg5 & 1) return;

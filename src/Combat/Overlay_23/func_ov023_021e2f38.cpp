@@ -15,7 +15,7 @@ extern "C" void func_ov005_02154198(void*);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_02017d68(void* arg0);
 extern "C" void func_ov023_021e4f18(void* arg0);
-extern "C" void func_0205a494(void* arg0);
+extern "C" void DestroySpriteSet_0205a494(void* spriteSet);
 extern "C" int GetMessageWindow_020421a0(void);
 struct Struct_02045cac;
 extern "C" void func_02045cac(struct Struct_02045cac*);
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov023_021e2f38(void* arg0) {
         func_ov023_021e4f18(*(void**)(var0 + Enum_ov023_021e2f38_288));
     }
     if (*(void**)(var0 + 0xc8) != 0) {
-        func_0205a494(*(void**)(var0 + 0xc8));
+        DestroySpriteSet_0205a494(*(void**)(var0 + 0xc8));
     }
 
     ((SafeAllocator*)(var0 + 0x90))->Destroy();

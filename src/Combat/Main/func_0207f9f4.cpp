@@ -7,7 +7,7 @@ struct StringList_020727d8;
 struct PacEntry_02020cb8_4;
 
 extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
-extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, void* arg2, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
+extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, void* scriptData, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);

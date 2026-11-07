@@ -1,7 +1,7 @@
 // USA: func_ov006_02159db0
 #include <globaldefs.h>
 
-struct Struct_0207fdcc_2 {
+struct MenuLayout_0207fdcc_2 {
 #if defined(jpn)
     unsigned char unknown_0_[0x2a];
 #else
@@ -40,14 +40,14 @@ extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" int func_020813ec(void*, int);
 extern "C" void func_0208203c(Struct_02081f20_2*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
-extern "C" void func_02080c04(Struct_0207fdcc_2*, int);
+extern "C" void func_02080c04(MenuLayout_0207fdcc_2*, int);
 extern "C" void func_020e280c(Struct_020e280c*, void*);
 extern "C" void func_020e2d24(int*, int, int);
 
 struct Struct_ov006_02159db0 {
 #if defined(jpn)
     unsigned char unknown_0_[0xc];
-    Struct_0207fdcc_2* unknown1_14_;
+    MenuLayout_0207fdcc_2* unknown1_14_;
     Struct_020e280c* unknown_18_;
     unsigned char unknown_14_[0x3c - 0x14];
     short* unknown_44_;
@@ -56,7 +56,7 @@ struct Struct_ov006_02159db0 {
     unsigned char unknown_a0_[0x35e - 0xa0];
 #else
     unsigned char unknown1_0_[0x14];
-    Struct_0207fdcc_2* unknown1_14_;
+    MenuLayout_0207fdcc_2* unknown1_14_;
     Struct_020e280c* unknown_18_;
     unsigned char unknown_1c_[0x44 - 0x1c];
     short* unknown_44_;

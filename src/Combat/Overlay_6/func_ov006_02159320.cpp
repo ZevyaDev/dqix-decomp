@@ -6,10 +6,10 @@
 #endif
 #include <globaldefs.h>
 
-struct Struct_02080fa8;
+struct MenuLayout_02080fa8;
 extern "C" void func_ov006_02159274(void* arg0, unsigned char* arg1, unsigned char* arg2, unsigned char* arg3);
 extern "C" void func_ov006_0215f4dc(void* arg0);
-extern "C" void func_02080fa8(struct Struct_02080fa8* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8* menuLayout, int textId, int value);
 extern "C" void func_020813ec(void* arg0, int arg1);
 
 struct Struct_ov006_02159320 {
@@ -33,6 +33,6 @@ extern "C" ARM void func_ov006_02159320(struct Struct_ov006_02159320* arg0) {
 		if (var1 != arg0->unknown_38b_) arg0->unknown_430_ = 1;
 	}
 	func_ov006_0215f4dc(arg0);
-	func_02080fa8((struct Struct_02080fa8*)arg0->unknown_14_, 0x1f, arg0->unknown_38b_);
+	SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)arg0->unknown_14_, 0x1f, arg0->unknown_38b_);
 	func_020813ec(arg0->unknown_14_, 6);
 }

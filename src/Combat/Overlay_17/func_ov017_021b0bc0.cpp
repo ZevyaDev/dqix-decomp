@@ -17,9 +17,9 @@ extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_0202c288(void*);
 extern "C" void func_02039880(unsigned char*, int);
-extern "C" int func_0202c1c0(Struct_0202b2f0* arg0, int arg1);
+extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
-extern "C" void func_ov017_02191108(GameResources*, int, int, int, int);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(GameResources*, int, int, int, int);
 extern "C" void func_ov017_021907dc(int, int, int, int, int);
 extern "C" signed char func_02039888(void*);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
 
     GameState* var5 = GameState::GetInstance();
     GameResources* var6 = GetGameResources();
-    Struct_0202b2f0* var7 = (Struct_0202b2f0*)GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* var7 = (LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
     Struct_ov017_021b0bc0_2* var8 = (Struct_ov017_021b0bc0_2*)GetZone3D_02012fe4();
 #if defined(jpn)
     Struct_ov017_021b0bc0* var9 = inline_ov017_021b0bc0(var8);
@@ -172,14 +172,14 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
     }
 
     for (int var15 = 0; var15 < 4; var15++) {
-        if (func_0202c1c0(var7, var15) == 0) {
+        if (IsLocalWirelessPlayerJoined_0202c1c0(var7, var15) == 0) {
             continue;
         }
         if (var15 == GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var7)) {
             if (arg0->unknown_284_ == 0) {
                 var10 = 0;
             }
-            func_ov017_02191108(var6, 1, var10, 1, 1);
+            RebuildFieldPartyOrder_ov017_02191108(var6, 1, var10, 1, 1);
         } else {
             func_ov017_021907dc((int)var6, var15, 1, var10, 1);
         }

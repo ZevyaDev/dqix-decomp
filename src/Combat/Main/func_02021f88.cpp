@@ -10,12 +10,12 @@
 
 extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" void* GetOAMManager_0203bd08(void);
-extern "C" void* func_0203b628(void);
+extern "C" void* GetBGVRAMManager_0203b628(void);
 extern "C" void func_02021428(void* arg0, int arg1);
 
 extern "C" void func_0203b66c(char* arg0);
 extern "C" void func_0203bd78(char* arg0);
-extern "C" void func_0203bd24(char* arg0);
+extern "C" void ResetOAMManager_0203bd24(char* oamManager);
 extern "C" void func_0203b718(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0203ba74(void* arg0);
 struct Sprite_02043368_2;
@@ -23,7 +23,7 @@ extern "C" void InitSprite_0205a198(struct Sprite_02043368_2* sprite);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 
 extern "C" void* func_0203bd14();
-extern "C" void* func_0203be4c(void);
+extern "C" void* GetSubOAMBuffer_0203be4c(void);
 struct PacEntry_02020aec;
 extern "C" int func_0205a498(void* arg0, struct PacEntry_02020aec* arg1, int arg2, void* arg3);
 extern "C" void func_0205af38(int arg0, char* arg1, int arg2, int arg3);
@@ -134,7 +134,7 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
     var12 = GetZone3D_02012fe4();
     var13 = GetGameResources();
     var14 = (char*)GetOAMManager_0203bd08();
-    var15 = (char*)func_0203b628();
+    var15 = (char*)GetBGVRAMManager_0203b628();
     var16 = arg0->unknown_9c2_;
     var17 = inline_02021f88(var13, 12);
 
@@ -177,7 +177,7 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
         func_0203b66c(var15);
         var17->Reset();
         func_0203bd78(var14);
-        func_0203bd24(var14);
+        ResetOAMManager_0203bd24(var14);
         func_0203b718(var15, 1, 0, 0);
         func_0203b718(var15, 1, 1, 0);
         func_0203ba74(var15);
@@ -191,7 +191,7 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
         char* var20 = (char*)func_0203bd14();
         *(int*)(var20 + Enum_02021f88_1288) = 0x2000;
         GetOAMManager_0203bd08();
-        char* var21 = (char*)func_0203be4c() + 0x2c0;
+        char* var21 = (char*)GetSubOAMBuffer_0203be4c() + 0x2c0;
         var20 = (char*)func_0203bd14();
         *(char**)var20 = var21;
         if (func_0201b5d8(*var12)) {

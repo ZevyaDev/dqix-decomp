@@ -95,7 +95,7 @@ typedef void (*Type_ov004_021561b0)(Struct_ov004_02153e20*, unsigned short, unsi
 typedef void (*Type_ov004_021561b0_2)(char*, unsigned short, unsigned short);
 extern "C" void func_ov023_021f9d14(Struct_ov004_02153e20*, void*);
 extern "C" void func_ov023_021f8960(char*, short, unsigned short);
-extern "C" void func_ov023_021f809c(void*, void*);
+extern "C" void RedrawMenuWindow_ov023_021f809c(void*, void*);
 extern "C" int func_ov004_021560e8(void*);
 
 // USA: func_ov004_021561b0
@@ -159,7 +159,7 @@ extern "C" ARM int func_ov004_021561b0(void* arg0) {
     ((Type_ov004_021561b0_2)func_ov023_021f8960)((char*)var20, 0, 0xffff);
     var20->unknown_104_ = var1;
     var20->unknown_106_ = var3;
-    func_ov023_021f809c(var20, arg0);
+    RedrawMenuWindow_ov023_021f809c(var20, arg0);
     func_ov004_021560e8(arg0);
     return 0;
 }

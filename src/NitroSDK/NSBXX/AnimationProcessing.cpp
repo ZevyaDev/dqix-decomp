@@ -1,12 +1,9 @@
 #include "NitroSDK/NSBXX/Animation.h"
 
-#if defined(jpn)
-#define func_020ca408 func_020cbed4
-#endif
 
 extern "C"
 {
-    void func_020ca408(const void* src, void* dst, unsigned len);
+    void Memcpy32Bit_020ca408(const void* src, void* dst, unsigned len);
     void Memset32Bit_020ca458(int value, void* data, unsigned len);
 }
 
@@ -121,8 +118,8 @@ bool ProcessJointAnimationsOnBoneMatrix(BoneMatrixRenderData* bone, AnimationDat
             anim->callback_(&tempData, anim, anim->entries_[boneIdx] & 0xff);
             if (numAnimsProcessed == 0)
             {
-                func_020ca408(&tempData.rotationMatrix_.rows[0], &rootRotationTopRow, sizeof(Vector3fix));
-                func_020ca408(&tempData.rotationMatrix_.rows[2], &rootRotationBottomRow, sizeof(Vector3fix));
+                Memcpy32Bit_020ca408(&tempData.rotationMatrix_.rows[0], &rootRotationTopRow, sizeof(Vector3fix));
+                Memcpy32Bit_020ca408(&tempData.rotationMatrix_.rows[2], &rootRotationBottomRow, sizeof(Vector3fix));
             }
 
             fix32_t thisIntensity = (totalWeight == 0x1000) ? anim->weight_ : fix32_Divide(anim->weight_, totalWeight);
@@ -166,7 +163,7 @@ bool ProcessJointAnimationsOnBoneMatrix(BoneMatrixRenderData* bone, AnimationDat
 
     if (bone->rotationMatrix_.rows[0].x == 0 && bone->rotationMatrix_.rows[0].y == 0 && bone->rotationMatrix_.rows[0].z == 0)
     {
-        func_020ca408(&rootRotationTopRow, &bone->rotationMatrix_.rows[0], sizeof(Vector3fix));
+        Memcpy32Bit_020ca408(&rootRotationTopRow, &bone->rotationMatrix_.rows[0], sizeof(Vector3fix));
     }
     else
     {
@@ -175,7 +172,7 @@ bool ProcessJointAnimationsOnBoneMatrix(BoneMatrixRenderData* bone, AnimationDat
 
     if (bone->rotationMatrix_.rows[2].x == 0 && bone->rotationMatrix_.rows[2].y == 0 && bone->rotationMatrix_.rows[2].z == 0)
     {
-        func_020ca408(&rootRotationBottomRow, &bone->rotationMatrix_.rows[2], sizeof(Vector3fix));
+        Memcpy32Bit_020ca408(&rootRotationBottomRow, &bone->rotationMatrix_.rows[2], sizeof(Vector3fix));
     }
     else
     {

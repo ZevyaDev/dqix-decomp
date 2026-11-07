@@ -201,7 +201,7 @@ extern char data_020ef08c[];
 extern char data_020ef0a5[];
 extern const Struct_020e6d64 data_020e6d64;
 extern const Struct_020e6d98 data_020e6d98[];
-extern const char* data_020f2a38;
+extern const char* gItemDataPath_020f2a38;
 extern const char* data_020f2a30;
 extern const char data_020e6d6c[];
 extern const char data_020ef0b5[];
@@ -424,11 +424,11 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
         InitItemTable_020de824(&var40);
         ClearItemTable_020de848(&var40);
 #if defined(jpn)
-        func_020e052c(&var40, &var39, data_020f2a38, data_020e7610, 8, 1);
+        func_020e052c(&var40, &var39, gItemDataPath_020f2a38, data_020e7610, 8, 1);
 #else
         BackgroundLoader::AddLockGlobal();
         unsigned int var41 = 0;
-        void* var42 = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &var41);
+        void* var42 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var41);
         if (var42 != NULL) {
             func_020dea64(&var40, &var39, var42, var41, data_020e6d6c, 8);
         }

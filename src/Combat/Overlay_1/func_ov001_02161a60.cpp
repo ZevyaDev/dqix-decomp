@@ -2,7 +2,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" void func_ov028_021d8c20(int);
-extern "C" void func_020a1f4c(int arg0);
+extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
 
 // USA: func_ov001_02161a60
 extern "C" ARM int func_ov001_02161a60(void) {
@@ -15,6 +15,6 @@ extern "C" ARM int func_ov001_02161a60(void) {
     int var1 = *(int*)(var0 + Enum_ov001_02161a60_352);
     func_ov028_021d8c20(var1);
     *(int*)(var0 + Enum_ov001_02161a60_352) = 0;
-    func_020a1f4c(1);
+    PopSubOverlay_020a1f4c(1);
     return 1;
 }

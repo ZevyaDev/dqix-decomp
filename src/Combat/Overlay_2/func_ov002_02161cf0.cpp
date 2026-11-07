@@ -13,7 +13,7 @@ struct MenuCursor_0205ba68;
 struct MenuCursor_0205bacc;
 struct MenuCursor_0205bcdc;
 struct Struct_0205cf1c;
-extern "C" void func_0205cef8(void *arg0);
+extern "C" void EnableTouchMenuCursor_0205cef8(void *windowManager);
 extern "C" void func_0205cf04(void *arg0);
 extern "C" void func_0205cf10(void *arg0);
 extern "C" void func_0205cf1c(struct Struct_0205cf1c *arg0);
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov002_02161cf0(char *arg0) {
     int var6;
     GameState::GetInstance();
     var6 = 0;
-    func_0205cef8(arg0 + RG(0x2c8 + 0xc00, 0xe20));
+    EnableTouchMenuCursor_0205cef8(arg0 + RG(0x2c8 + 0xc00, 0xe20));
     func_0205cf04(arg0 + RG(0x2c8 + 0xc00, 0xe20));
     switch (*(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80))) {
         case 1:

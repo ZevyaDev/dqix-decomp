@@ -56,7 +56,7 @@ extern "C" int func_020e0484(void*, SafeAllocator*, const char*, unsigned short*
 
 extern const unsigned char data_020e6e44[15];
 extern const Struct_020e6df0 data_020e6df0;
-extern const char* data_020f2a38;
+extern const char* gItemDataPath_020f2a38;
 extern const char* data_020f2a30;
 
 static inline GrottoTilePoint inline_0201afd0(const FloorMap* arg0, unsigned char arg1) {
@@ -244,11 +244,11 @@ extern "C" ARM int func_0201afd0(Zone3D* arg0, const void* arg1, unsigned int ar
         ClearItemTable_020de848(arg0->unknown_struct_2754_);
         if (var27 > 0) {
 #if defined(jpn)
-            func_020e0484(arg0->unknown_struct_2754_, arg0->pAllocator_68_, data_020f2a38, var25, var27, true);
+            func_020e0484(arg0->unknown_struct_2754_, arg0->pAllocator_68_, gItemDataPath_020f2a38, var25, var27, true);
 #else
             BackgroundLoader::AddLockGlobal();
             unsigned int var34 = 0;
-            void* var35 = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &var34);
+            void* var35 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var34);
 
             if (var35 != NULL) {
                 func_020de9a4(arg0->unknown_struct_2754_, arg0->pAllocator_68_, var35, var34, var25, var27);

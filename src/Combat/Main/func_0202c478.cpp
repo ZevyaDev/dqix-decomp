@@ -8,7 +8,7 @@ struct Struct_0202ba08_2;
 extern "C" ARM struct Struct_0202ba08_2* func_0202ba08(struct Struct_0202ba08_2* arg0, struct Struct_0202ba08_2* arg1);
 
 // USA: func_0202c478
-extern "C" ARM void func_0202c478(Struct_0202b2f0* arg0) {
+extern "C" ARM void func_0202c478(LocalWireless_0202b2f0* arg0) {
     func_020d8654();
     char* var0 = (char*)arg0;
     int var1;

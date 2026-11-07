@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
-struct Struct_0202b2f0;
+struct LocalWireless_0202b2f0;
 struct Struct_ov017_0218e674 { unsigned char unknown_0_[2]; unsigned char unknown_2_; unsigned char unknown_3_; unsigned char unknown_4_[0x96]; unsigned char unknown_9a_; };
 
 struct Struct_ov017_021925e0 {
@@ -9,8 +9,8 @@ struct Struct_ov017_021925e0 {
     unsigned int unknown_3_3_ : 5;
 };
 
-extern "C" struct Struct_0202b2f0* GetLocalWireless_0202ae18(void);
-extern "C" int IsLocalWirelessGuest_0202c540(struct Struct_0202b2f0* wireless);
+extern "C" struct LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessGuest_0202c540(struct LocalWireless_0202b2f0* wireless);
 extern "C" int func_ov017_021bd3a4(struct Struct_ov017_0218e674* arg0);
 
 // USA: func_ov017_021925e0

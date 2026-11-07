@@ -116,7 +116,7 @@ struct Struct_ov003_021760cc_2 {
 };
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2 *, int, char *);
-extern "C" char *func_020e046c(char *arg0, void *arg1, unsigned int arg2, int arg3);
+extern "C" char *CopyStringFromTableFile_020e046c(char *buffer, void *fileData, unsigned int fileSize, int stringId);
 extern const char data_ov003_0217eddd[];
 extern const unsigned char data_ov003_0217e326[];
 extern const unsigned char data_ov003_0217e320[];
@@ -141,9 +141,9 @@ extern "C" ARM void func_ov003_021760cc(Struct_ov003_021760cc_2 *arg0) {
             var0->GetLoadedFileByID(arg0->unknown_f68_, &var3, &var4);
             if (var3) {
                 if (arg0->unknown_fb2_ == 0x1e && arg0->unknown_fc4_ != -1) {
-                    func_020e046c(var2, var3, var4, arg0->unknown_fc4_);
+                    CopyStringFromTableFile_020e046c(var2, var3, var4, arg0->unknown_fc4_);
                 } else {
-                    func_020e046c(var2, var3, var4, arg0->unknown_fb6_);
+                    CopyStringFromTableFile_020e046c(var2, var3, var4, arg0->unknown_fb6_);
                 }
             }
             var0->RemoveTask(arg0->unknown_f68_);

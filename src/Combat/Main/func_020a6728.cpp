@@ -30,7 +30,7 @@ struct Struct_0200ffc0;
 struct Struct_02033834;
 struct Struct_02033fdc;
 struct Struct_ov017_021d82fc { SafeAllocator* unknown_0_; char* unknown_4_; };
-extern "C" Struct_02095924_2* func_02011584(void*);
+extern "C" Struct_02095924_2* GetZoneList_02011584(void*);
 extern "C" Struct_020a6728_2* func_02099950(Struct_02095924_2*, int);
 extern "C" void* func_0200ffc0(Struct_0200ffc0*);
 void* LoadFileIntoNewAllocation(const char*, SafeAllocator&, unsigned int*);
@@ -52,7 +52,7 @@ extern Struct_ov017_021d82fc data_ov017_021d82fc;
 // KEEP-NAME
 extern "C" ARM void func_020a6728(GameResources* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    Struct_020a6728_2* var1 = func_02099950(func_02011584(var0), arg1);
+    Struct_020a6728_2* var1 = func_02099950(GetZoneList_02011584(var0), arg1);
     const char* var2 = 0;
     if (var1 != 0) var2 = (const char*)var1 + 5;
     if (arg1 != 10000 && arg1 != 10100) {

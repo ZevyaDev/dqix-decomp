@@ -20,7 +20,7 @@ extern "C" void func_ov017_021ccc34(int arg0);
 extern "C" void func_ov017_021cd0d8(int arg0, unsigned short *arg1, int arg2);
 extern "C" const char *FindStringInTable_020e0434(Struct_0201099c_3 *stringTable, int stringId);
 extern "C" void ResetStringList_020727d8(StringList_020727d8 *stringList);
-extern "C" void LoadStringList_020728ac(void *stringList, void *allocator, void *arg2, unsigned int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
+extern "C" void LoadStringList_020728ac(void *stringList, void *allocator, void *scriptData, unsigned int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 extern "C" void func_020e526c(void *arg0);
 extern "C" void func_020e5604(void *arg0, void *arg1, void *arg2, unsigned int arg3);
 extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);

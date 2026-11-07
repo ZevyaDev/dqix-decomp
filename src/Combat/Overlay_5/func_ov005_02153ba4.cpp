@@ -17,7 +17,7 @@ struct StringTable_0201099c_14;
 struct BGLayer_02020cb8;
 struct TextWindowManager_0205cfd4;
 struct Struct_ov002_0215505c_2;
-struct Struct_0205bef8;
+struct KeyMenuCursor_0205bef8;
 struct Struct_02052df8;
 
 struct Struct_ov005_02155d6c_2 {
@@ -166,10 +166,10 @@ extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" unsigned char func_ov005_0215a948(void* arg0, int arg1);
 extern "C" unsigned char func_ov005_0215a918(void* arg0, int arg1);
 extern "C" short func_0207c620(unsigned char* arg0, unsigned int arg1);
-extern "C" void func_0205bef8(Struct_0205bef8* arg0);
-extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
+extern "C" void InitKeyMenuCursor_0205bef8(KeyMenuCursor_0205bef8* cursor);
+extern "C" Struct_ov005_02153ba4_2* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
 extern "C" int func_0207c638(void* arg0, unsigned int arg1);
-extern "C" short func_02052df8(Struct_02052df8* arg0, int arg1);
+extern "C" short GetEquippedItem_02052df8(Struct_02052df8* gameObject, int slot);
 extern "C" int func_0207c7a0(void* arg0, int arg1, int arg2);
 extern "C" short* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
 
@@ -260,7 +260,7 @@ extern "C" ARM void func_ov005_02153ba4(Struct_ov005_02153954* arg0) {
     arg0->unknown_3dc8_ = 0;
     memset(&arg0->unknown_3dcc_, 0, sizeof(arg0->unknown_3dcc_));
     arg0->unknown_3dc0_ = -1;
-    func_0205bef8((Struct_0205bef8*)arg0->unknown_19f4_);
+    InitKeyMenuCursor_0205bef8((KeyMenuCursor_0205bef8*)arg0->unknown_19f4_);
     arg0->unknown_19f4_[0x3d] = 0;
     arg0->unknown_3dd0_ = 0;
     arg0->unknown_3dd1_ = 0;
@@ -289,7 +289,7 @@ extern "C" ARM void func_ov005_02153ba4(Struct_ov005_02153954* arg0) {
     arg0->unknown_3df1_ = 30;
     arg0->unknown_3df2_ = 30;
     arg0->unknown_3df3_ = 0;
-    Struct_ov005_02153ba4_2* var12 = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+    Struct_ov005_02153ba4_2* var12 = GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
     int* var13 = var12->unknown_4ec_;
     int var14 = var12->unknown_4e8_;
     for (int var15 = 0; var15 < 8; var15++) {
@@ -302,7 +302,7 @@ extern "C" ARM void func_ov005_02153ba4(Struct_ov005_02153954* arg0) {
             void* var21 = GetPartyMemberBaseByIndex_0200ff1c(var6, var13[var20]);
             if (var21 == NULL)
                 continue;
-            var19[var20] = func_02052df8((Struct_02052df8*)var21, var17);
+            var19[var20] = GetEquippedItem_02052df8((Struct_02052df8*)var21, var17);
             if (var19[var20] <= 0)
                 continue;
             int var22;

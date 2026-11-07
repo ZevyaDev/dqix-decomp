@@ -5,7 +5,7 @@
 
 extern "C" void* __clear(void*, int);
 struct Struct_02015ef4 { unsigned int unknown_0_[3]; };
-extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
+extern "C" int ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
 
 struct Struct_02039fec {
     unsigned char unknown_0_[5];
@@ -58,7 +58,7 @@ extern "C" ARM void func_0203a5e8(Struct_02039fec_2* arg0, int arg1) {
         for (int var10 = 0; var10 < 16; var10++) {
             if (var1->unknown_550_[var10].unknown_5_ > 0) {
                 int var11, var12 = 0;
-                func_0202ec84(var4, &var1->unknown_550_[var10].unknown_c_, &var11, &var12);
+                ConvertWorldToScreen_0202ec84(var4, &var1->unknown_550_[var10].unknown_c_, &var11, &var12);
                 var11 += var1->unknown_550_[var10].unknown_4_;
                 var12 += var1->unknown_550_[var10].unknown_2_;
                 var9[var10] = var12;

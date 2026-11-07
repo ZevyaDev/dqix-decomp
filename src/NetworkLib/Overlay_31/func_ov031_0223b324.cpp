@@ -19,7 +19,7 @@ extern "C" int func_ov031_0223b560(NitroVM* arg0, int arg1);
 extern "C" int func_ov031_0223b614(NitroHandle*, const void*, unsigned int, unsigned int);
 extern "C" ARM int func_ov031_0223b5c4(NitroHandle* arg0, void* arg1, unsigned int arg2, unsigned int arg3);
 
-extern "C" ARM void* func_ov031_0223cf4c(unsigned int arg0, int arg1);
+extern "C" ARM void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int size, int alignAndDir);
 extern "C" void HaltForever_020c9be0(void);
 extern "C" ARM void* func_ov031_0223beec(int arg0, int arg1, int arg2);
 extern "C" int func_020c7130(char*, const char*, ...);
@@ -32,7 +32,7 @@ struct Struct_ov031_0223b324 { unsigned int unknown_0_; unsigned int unknown_4_;
 
 // USA: func_ov031_0223b324
 extern "C" ARM void func_ov031_0223b324(void) {
-	data_ov031_02290d24.unknown_0_ = (Struct_ov031_0223b324_2*)func_ov031_0223cf4c(0xe8, 4);
+	data_ov031_02290d24.unknown_0_ = (Struct_ov031_0223b324_2*)AllocateZeroedMemory_ov031_0223cf4c(0xe8, 4);
 
 	NitroVM var0;
 	NitroVM_Initialize(&var0);
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov031_0223b324(void) {
 		HaltForever_020c9be0();
 
 	unsigned int var4 = NitroHandle_LoadFileTables(&data_ov031_02290d24.unknown_0_->unknown_88_, NULL, 0);
-	data_ov031_02290d24.unknown_0_->unknown_0_ = func_ov031_0223cf4c(var4, 4);
+	data_ov031_02290d24.unknown_0_->unknown_0_ = AllocateZeroedMemory_ov031_0223cf4c(var4, 4);
 	NitroHandle_LoadFileTables(&data_ov031_02290d24.unknown_0_->unknown_88_, data_ov031_02290d24.unknown_0_->unknown_0_, var4);
 
 	data_ov031_02290d24.unknown_0_->unknown_84_ = func_ov031_0223beec(0x20, (int)data_ov031_02290d24.unknown_0_ + 4, 4);

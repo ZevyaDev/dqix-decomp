@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Struct_0207fdcc_2;
-struct Struct_0207fdcc;
-extern "C" struct Struct_0207fdcc* func_02081da8(struct Struct_0207fdcc_2* arg0, int arg1);
+struct MenuLayout_0207fdcc_2;
+struct TextWindow_0207fdcc;
+extern "C" struct TextWindow_0207fdcc* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 extern "C" void func_ov003_02173f08(char* arg0, char* arg1, char* arg2, char* arg3);
 
 // USA: func_ov003_021782a0
-extern "C" ARM int func_ov003_021782a0(struct Struct_0207fdcc_2* arg0) {
+extern "C" ARM int func_ov003_021782a0(struct MenuLayout_0207fdcc_2* arg0) {
     if (g_touchInput.isRepeatValid_ == 0 || g_touchInput.currentReading_.isHeld == 0)
         return 0;
 
@@ -24,8 +24,8 @@ extern "C" ARM int func_ov003_021782a0(struct Struct_0207fdcc_2* arg0) {
         return -1;
     return 0;
 #else
-    struct Struct_0207fdcc_2* var2 = *(struct Struct_0207fdcc_2**)((char*)arg0 + 0x89c);
-    struct Struct_0207fdcc* var3 = func_02081da8(var2, 10);
+    struct MenuLayout_0207fdcc_2* var2 = *(struct MenuLayout_0207fdcc_2**)((char*)arg0 + 0x89c);
+    struct TextWindow_0207fdcc* var3 = func_02081da8(var2, 10);
     if (!var3)
         return 0;
     if (!IsTextWindowReady_0204c7cc((unsigned char*)var3))

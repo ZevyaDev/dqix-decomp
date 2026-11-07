@@ -88,15 +88,15 @@ extern unsigned char data_ov005_0215cd58[8];
 extern unsigned char data_ov005_0215cd50[8];
 extern int gSoundEffectManager_02108760;
 
-extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
+extern "C" Struct_ov005_02153ba4_2* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
 extern "C" int func_ov005_02157ae8(Struct_ov005_02153954* arg0, int arg1);
 struct Struct_ov005_0215690c;
 extern "C" Struct_ov005_0215690c_2* func_ov023_021e4e20(Struct_ov005_0215690c*);
 extern "C" int func_ov005_02155670(Struct_ov005_02153954* arg0, int arg1, int arg2);
-extern "C" int func_0202ec84(void* arg0, Struct_02015ef4* arg1, int* arg2, int* arg3);
+extern "C" int ConvertWorldToScreen_0202ec84(void* camera, Struct_02015ef4* worldPosition, int* outX, int* outY);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" double func_0200b454(double x);
-extern "C" short func_02052df8(Struct_02052df8* arg0, int arg1);
+extern "C" short GetEquippedItem_02052df8(Struct_02052df8* gameObject, int slot);
 extern "C" int func_ov005_02158560(Struct_ov005_02153954* arg0, unsigned char arg1, int arg2);
 extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char arg1);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
@@ -112,7 +112,7 @@ extern "C" ARM void func_ov005_0215690c(Struct_ov005_02153954* arg0, int arg1, i
     Struct_ov005_0215690c_2* var1;
     var0 = GameState::GetInstance();
     unsigned char var2;
-    Struct_ov005_02153ba4_2* var3 = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+    Struct_ov005_02153ba4_2* var3 = GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
     unsigned int var4 = var3->unknown_4fc_;
     if (!func_ov005_02157ae8(arg0, var4))
         return;
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov005_0215690c(Struct_ov005_02153954* arg0, int arg1, i
         var12 = RotationMatrixY(var1->unknown_50_.y);
         for (int var14 = 0; var14 < 8; var14++) {
             Mat4x3_ApplyToVector(&data_ov005_0215cc84[var14], &var12, &var13[var14]);
-            func_0202ec84(var8, (Struct_02015ef4*)&var13[var14], &var7[var14], &var10[var14]);
+            ConvertWorldToScreen_0202ec84(var8, (Struct_02015ef4*)&var13[var14], &var7[var14], &var10[var14]);
         }
         GameObject* var15 = GetPartyMemberBaseByIndex_0200ff1c(var0, var4);
         var11 = 0;
@@ -151,7 +151,7 @@ extern "C" ARM void func_ov005_0215690c(Struct_ov005_02153954* arg0, int arg1, i
             int var23[8];
             for (int var24 = 0; var24 < var11; var24++) {
                 int var25 = var17[var24];
-                if (func_02052df8((Struct_02052df8*)var15, data_ov005_0215cc14[var25]) > 0) {
+                if (GetEquippedItem_02052df8((Struct_02052df8*)var15, data_ov005_0215cc14[var25]) > 0) {
                     var23[var21] = var25;
                     var22 = 1;
                     var21++;
@@ -168,7 +168,7 @@ extern "C" ARM void func_ov005_0215690c(Struct_ov005_02153954* arg0, int arg1, i
                     }
                 }
                 var6 = data_ov005_0215cd58[var26];
-                var5 = func_02052df8((Struct_02052df8*)var15, data_ov005_0215cc14[var26]);
+                var5 = GetEquippedItem_02052df8((Struct_02052df8*)var15, data_ov005_0215cc14[var26]);
             } else {
                 int var30 = var17[0];
                 int var31 = var13[var30].z;

@@ -83,8 +83,8 @@ struct Queue_02038598_5;
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void func_ov017_021a5ab0(void* arg0);
 extern "C" void* func_0203cf4c();
-struct Struct_0203dce4_2;
-extern "C" void* func_0203dce4(Struct_0203dce4_2*, int);
+struct NPCManager_0203dce4_2;
+extern "C" void* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
 struct Struct_0203de84_2;
 extern "C" void func_020406f8(Struct_0203de84*, Struct_0203de84_2*);
 extern "C" int fix32_Atan2(int arg0, int arg1);
@@ -402,7 +402,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                 return;
             } else if (var1 == REGION_VALUE(0xff2f, 0xff2d)) {
                 unsigned char* var23 = (unsigned char*)GameState::GetInstance()->GetUnknownGameObject();
-                void* var24 = func_0203dce4((Struct_0203dce4_2*)func_0203cf4c(), arg0->unknown_1838_);
+                void* var24 = GetNPCByIndex_0203dce4((NPCManager_0203dce4_2*)func_0203cf4c(), arg0->unknown_1838_);
                 if (var23 != 0 && var24 != 0) {
                     var4 = *(struct Struct_0203de84*)(var23 + 0x44);
                     func_020406f8(&var8, (Struct_0203de84_2*)var24);

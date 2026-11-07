@@ -12,7 +12,7 @@ struct Struct_020695f4 {
 
 extern "C" char* func_020424ac(char* arg0);
 extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
-extern "C" struct Struct_020695f4* func_0204254c(int arg0, int arg1);
+extern "C" struct Struct_020695f4* FindFontGlyph_0204254c(int text, int font);
 extern "C" void func_02067f5c(signed char* arg0, int arg1);
 
 extern char data_020f0916[];
@@ -28,7 +28,7 @@ extern "C" ARM void func_020695f4(void* arg0, char* arg1, char* arg2, int arg3) 
             char* var1 = func_020424ac(arg1);
             if (var1 != 0 && CompareBytes_02001aec(arg1 + 1, data_020f0916, 4) == 0) {
                 arg1 = var1 + 1;
-                struct Struct_020695f4* var2 = func_0204254c((int)arg1, arg3);
+                struct Struct_020695f4* var2 = FindFontGlyph_0204254c((int)arg1, arg3);
                 if (var2 != 0 && var2->unknown_5_7_) {
                     int var3 = var2->unknown_5_0_;
                     memcpy(arg2, arg1, var3);

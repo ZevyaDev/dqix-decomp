@@ -48,11 +48,11 @@ struct Struct_ov000_02164280 {
 extern "C" char* GetOAMManager_0203bd08(void);
 extern "C" int* func_0203bd14();
 extern "C" void MapVRAMBanksToTextureImage(int handle);
-extern "C" void func_020bb48c(unsigned int arg0, int arg1);
+extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install);
 extern "C" void MapVRAMBanksToSubObj(int value);
 extern "C" void MapVRAMBanksToSubBG(int value);
 extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
-extern "C" void func_0203bd24(char* arg0);
+extern "C" void ResetOAMManager_0203bd24(char* oamManager);
 extern "C" void func_0203c35c(int* arg0);
 extern "C" void func_ov017_02195540(unsigned char* arg0);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov000_02164280(Struct_ov000_02164280* arg0) {
     int* var2 = func_0203bd14();
     LockStagedTextureVRAMCopying();
     MapVRAMBanksToTextureImage(7);
-    func_020bb48c(3, 1);
+    InitTextureImageVRAMAllocator_020bb48c(3, 1);
     MapVRAMBanksToSubObj(8);
     *(volatile unsigned int*)0x4001000 = (*(volatile unsigned int*)0x4001000 & 0xffcfffef) | 0x10 | 0x200000;
     MapVRAMBanksToSubBG(0x180);
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov000_02164280(Struct_ov000_02164280* arg0) {
     arg0->unknown_14c_.unknown_6c_ = var0->unknown_2cc_[27].unknown_6c_;
     ResetTextureVRAMState_0207df50(&arg0->unknown_14c_);
 
-    func_0203bd24(var1);
+    ResetOAMManager_0203bd24(var1);
     func_0203c35c(var2);
     func_ov017_02195540((unsigned char*)var0);
     ResetTextureVRAMState_0207df50(var0->unknown_2cc_);

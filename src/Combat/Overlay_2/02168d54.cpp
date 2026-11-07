@@ -33,7 +33,7 @@ void SetSubBrightness(GameResources* resources, int brightness, int duration);
 extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_020dc2bc(void);
-extern "C" void func_0209a338(Struct_ov002_02168d54_2* arg0);
+extern "C" void ClearSkillTable_0209a338(Struct_ov002_02168d54_2* table);
 extern "C" void func_0209a470(Struct_ov002_02168d54_3* arg0, SafeAllocator* arg1, Struct_ov002_02168d54_4* arg2, int arg3);
 int IsSubBrightnessTransitionActive(GameResources* resources);
 extern "C" int func_ov013_021870f0(char* arg0);
@@ -50,7 +50,7 @@ extern "C" void func_ov002_0216885c(char* arg0);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(void* window);
-extern "C" void func_020a1ef0(int arg0);
+extern "C" void PushSubOverlay_020a1ef0(int subOverlayEntry);
 extern "C" void func_0209fe9c(char* arg0);
 extern "C" void func_0209fee4(Struct_ov002_02168d54_7* arg0, SafeAllocator* arg1, int arg2, int arg3);
 extern "C" void func_0209ff64(Struct_ov002_02168d54_5* arg0, int arg1);
@@ -66,7 +66,7 @@ extern "C" void func_ov023_021eb564(char* arg0, int arg1, int arg2);
 extern "C" void func_ov023_021eb26c(void* arg0);
 extern "C" void ColorEffect_ConfigureAlphaBlend(int control, unsigned int pixel1Source, unsigned int pixel2Source, unsigned int pixel1Alpha, unsigned int pixel2Alpha);
 extern "C" void ClearGlobalFlags_020466f4(Struct_ov002_02168d54_9* globalFlags, unsigned int mask);
-extern "C" void func_020a1f4c(int arg0);
+extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
 extern "C" void func_020dc2d0(int arg0);
 extern "C" void func_ov002_0215a938(char* arg0);
 extern "C" void func_ov002_02161cf0(char* arg0);
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
                 void* var3;
                 unsigned int var4;
                 var2->GetLoadedFileByID(*(int*)(arg0 + REGION_VALUE(0x228c, 0x2458)), &var3, &var4);
-                func_0209a338((Struct_ov002_02168d54_2*)(arg0 + REGION_VALUE(0x2274, 0x243c)));
+                ClearSkillTable_0209a338((Struct_ov002_02168d54_2*)(arg0 + REGION_VALUE(0x2274, 0x243c)));
                 func_0209a470((Struct_ov002_02168d54_3*)(arg0 + REGION_VALUE(0x2274, 0x243c)), (SafeAllocator*)(arg0 + REGION_VALUE(0x7b4, 0x850)), (Struct_ov002_02168d54_4*)var3, var4);
                 var2->RemoveTask(*(int*)(arg0 + REGION_VALUE(0x228c, 0x2458)));
                 *(int*)(arg0 + REGION_VALUE(0x228c, 0x2458)) = -1;
@@ -176,7 +176,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
         (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)))++;
         SetSubBrightness(var1, -0x10, 0xf);
         arg0[REGION_VALUE(0x228a, 0x2456)] = 0;
-        func_020a1ef0(1);
+        PushSubOverlay_020a1ef0(1);
         arg0[REGION_VALUE(0x22a2, 0x2472)] = 1;
         arg0[REGION_VALUE(0x1afb, 0x1c33)] = 1;
         arg0[REGION_VALUE(0x22bf, 0x248f)] = 1;
@@ -261,7 +261,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
         }
     } else if (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)) == 100) {
         ClearGlobalFlags_020466f4((Struct_ov002_02168d54_9*)GetGlobalFlags_020d6c00(), 1);
-        func_020a1f4c(1);
+        PopSubOverlay_020a1f4c(1);
         arg0[REGION_VALUE(0x1afb, 0x1c33)] = 0;
         arg0[REGION_VALUE(0x22bf, 0x248f)] = 0;
         func_020dc2d0(0);

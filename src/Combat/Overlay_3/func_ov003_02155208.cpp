@@ -8,15 +8,15 @@ enum { Enum_ov003_02155208_486 = 0x1e6 };
 #endif
 
 struct Struct_020e28dc;
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
 extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
-extern "C" int func_02080d54(struct Struct_0207fdcc_2* arg0, int arg1, int arg2, int arg3);
+extern "C" int func_02080d54(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2, int arg3);
 
 struct Struct_ov003_02155208 {
     char unknown_0_[0x18];
-    struct Struct_0207fdcc_2* unknown_18_;
+    struct MenuLayout_0207fdcc_2* unknown_18_;
     struct Struct_020e28dc* unknown_1c_;
     char unknown_20_[Enum_ov003_02155208_486 - 0x20];
     short unknown_1e6_;

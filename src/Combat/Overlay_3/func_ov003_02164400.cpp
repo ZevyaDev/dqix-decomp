@@ -13,12 +13,12 @@
 #define LO(x) REGIONAL_OFFSET((x) - 0x118, x)
 enum { Enum_ov003_02164400_55 = REGIONAL_OFFSET(0x1b, 0x37) };
 
-struct Struct_0207fdcc_2 { char unknown_0_[REGIONAL_OFFSET(0x2a, 0x36)]; unsigned short unknown_36_; };
+struct MenuLayout_0207fdcc_2 { char unknown_0_[REGIONAL_OFFSET(0x2a, 0x36)]; unsigned short unknown_36_; };
 
-struct Struct_0207fe44;
+struct MenuLayout_0207fe44;
 struct GlobalFlags_02038598_4;
 struct Struct_02081f20_2;
-struct Struct_020a9ea4;
+struct SaveProgress_020a9ea4;
 struct Struct_02081198;
 struct Struct_02081164;
 struct Struct_ov003_02164400;
@@ -47,13 +47,13 @@ extern "C" void func_ov017_021c36a0(void);
 extern "C" void func_ov017_021aeedc(struct Struct_ov003_02164400* arg0);
 extern "C" void func_020469f8(struct Struct_020469f8* arg0, struct Struct_020469f8_2* arg1);
 
-extern "C" void func_0207fe44(struct Struct_0207fe44* arg0);
+extern "C" void CloseMenuLayoutWindows_0207fe44(struct MenuLayout_0207fe44* menuLayout);
 extern "C" void func_020939fc(unsigned char* arg0);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
-extern "C" void func_020a9ea4(struct Struct_020a9ea4* arg0);
+extern "C" void ResetSaveProgress_020a9ea4(struct SaveProgress_020a9ea4* progress);
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
-extern "C" int func_020811e8(struct Struct_0207fdcc_2* arg0, int arg1);
-extern "C" void func_0207fdcc(struct Struct_0207fdcc_2* arg0, int arg1);
+extern "C" int func_020811e8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
+extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void func_02080cec(void* arg0, int arg1, int arg2);
 extern "C" void func_0208108c(void* arg0, int arg1);
 extern "C" void func_020813ec(void* arg0, int arg1);
@@ -73,7 +73,7 @@ struct Random* GetBTRandom(void);
 int NextRandomMax(struct Random* random, int maximum);
 extern "C" void func_02080b54(void* arg0, int arg1);
 extern "C" int func_02080b40(void* arg0, int arg1);
-extern "C" struct Struct_0207fdcc* func_02081da8(struct Struct_0207fdcc_2*, int);
+extern "C" struct TextWindow_0207fdcc* func_02081da8(struct MenuLayout_0207fdcc_2*, int);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 
 extern int gFileScratchSpace_0211e33c;
@@ -106,7 +106,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
     void* var1;
     int* var2;
     void* var3;
-    struct Struct_0207fdcc_2* var4;
+    struct MenuLayout_0207fdcc_2* var4;
     short* var5;
     unsigned char var6;
     int var7;
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
     var2 = func_020936f8();
     var3 = GetLocalWireless_0202ae18();
     var6 = arg0[HI(0x4a4)];
-    var4 = *(struct Struct_0207fdcc_2**)(arg0 + LO(0x324));
+    var4 = *(struct MenuLayout_0207fdcc_2**)(arg0 + LO(0x324));
     var5 = (short*)(arg0 + HI(0x484));
 
     if (var6 == 0) {
@@ -127,7 +127,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         if (var8 != -1) {
             if (var8 == 1) {
                 arg0[HI(0x4a4)] = 2;
-                func_0207fe44((struct Struct_0207fe44*)var4);
+                CloseMenuLayoutWindows_0207fe44((struct MenuLayout_0207fe44*)var4);
                 func_020939fc((unsigned char*)var2);
             }
         } else {
@@ -172,7 +172,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
     if (var6 == 0xb) {
         if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() != 0) return;
         SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x80);
-        func_020a9ea4((struct Struct_020a9ea4*)(arg0 + HI(0x4b4)));
+        ResetSaveProgress_020a9ea4((struct SaveProgress_020a9ea4*)(arg0 + HI(0x4b4)));
         arg0[HI(0x4a4)] = 0xc;
         return;
     }
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
     if (var6 == 5) {
         if (func_020811e8(var4, 0x10) != 0) {
             *(int*)(arg0 + HI(0x45c)) = 0;
-            func_0207fdcc(var4, 0x10);
+            CloseMenuLayoutWindow_0207fdcc(var4, 0x10);
             *(unsigned int*)(arg0 + HI(0x464)) |= 0x180000;
         } else {
             memset(arg0, 0, LO(0x226));
@@ -226,7 +226,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
             *(short*)(arg0 + HI(0x478)) = 0;
             if (*(unsigned short*)(arg0 + HI(0x476)) > 0x3c) {
                 var5[0] = 0xa;
-                func_0207fdcc(var4, 0xf);
+                CloseMenuLayoutWindow_0207fdcc(var4, 0xf);
                 arg0[HI(0x4a4)] = 7;
                 return;
             }
@@ -236,7 +236,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
             if (*(unsigned short*)(arg0 + HI(0x478)) > 0x12c) {
                 func_02080cec(var4, 0xf, 2);
                 func_020813ec(var4, 0xf);
-                func_0207fe44((struct Struct_0207fe44*)var4);
+                CloseMenuLayoutWindows_0207fe44((struct MenuLayout_0207fe44*)var4);
                 *(unsigned int*)(arg0 + HI(0x464)) |= 0x80000;
                 var5[0] = 7;
                 var5[1] = 1;
@@ -251,7 +251,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         {
             ((struct Struct_ov003_02164400_3*)((char*)GetMessageWindow_020421a0() + 0x1000))->unknown_9ca_ = 1;
         }
-        func_0207fe44((struct Struct_0207fe44*)var4);
+        CloseMenuLayoutWindows_0207fe44((struct MenuLayout_0207fe44*)var4);
         *(unsigned int*)(arg0 + HI(0x464)) |= 0x80000;
         var5[0] = 9;
         var5[1] = 1;
@@ -367,7 +367,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
             }
         }
         if (func_ov003_02160a68(arg0) == 0) return;
-        func_0207fe44((struct Struct_0207fe44*)var4);
+        CloseMenuLayoutWindows_0207fe44((struct MenuLayout_0207fe44*)var4);
         var5[0] = 1;
         arg0[HI(0x4a3)] = 0xa;
         arg0[HI(0x4a4)] = 0;
@@ -389,8 +389,8 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
                 arg0[HI(0x4a4)] = 0xd;
                 var5[0] = 0x38;
                 *(unsigned int*)(arg0 + HI(0x464)) |= 4;
-                func_0207fdcc(var4, 0x10);
-                func_0207fdcc(var4, 0xe);
+                CloseMenuLayoutWindow_0207fdcc(var4, 0x10);
+                CloseMenuLayoutWindow_0207fdcc(var4, 0xe);
                 *(unsigned int*)(arg0 + HI(0x464)) |= 0x80000;
             }
         } else {
@@ -446,7 +446,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         {
         if (var31 < 0 || ((struct Struct_ov003_02164400_4*)(arg0 + (*(short*)(arg0 + HI(0x498))) * Enum_ov003_02164400_55))->unknown_0_0_ == 0) {
             if (var29 != 0) {
-                func_0207fdcc(var4, 0x11);
+                CloseMenuLayoutWindow_0207fdcc(var4, 0x11);
                 ((struct Struct_ov003_02164400_3*)((char*)GetMessageWindow_020421a0() + 0x1000))->unknown_9ca_ = 1;
                 var5[0] = 0x37;
                 *(unsigned int*)(arg0 + HI(0x464)) |= 4;
@@ -483,15 +483,15 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         void* var39 = *(void**)(var38 + REGIONAL_OFFSET(0x90c, 0xb2c));
         signed char var40 = *((signed char*)var39 + 0xf);
         if (var40 == 1) {
-            func_0207fdcc(var4, 0x11);
+            CloseMenuLayoutWindow_0207fdcc(var4, 0x11);
             arg0[HI(0x4a4)] = 0x11;
         } else if (var40 == -1) {
-            func_0207fe44((struct Struct_0207fe44*)var4);
+            CloseMenuLayoutWindows_0207fe44((struct MenuLayout_0207fe44*)var4);
             *(short*)(arg0 + HI(0x47a)) = 0;
             arg0[HI(0x4a4)] = 5;
             func_ov003_02160344(arg0);
         } else if (var40 == 0) {
-            func_0207fe44((struct Struct_0207fe44*)var4);
+            CloseMenuLayoutWindows_0207fe44((struct MenuLayout_0207fe44*)var4);
             var5[0] = 0x37;
             *(short*)(arg0 + HI(0x47a)) = 0;
             arg0[HI(0x4a4)] = 5;

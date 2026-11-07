@@ -3,7 +3,7 @@
 
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void* func_0203cf4c(void);
-extern "C" void* func_0203df78(void* arg0, int arg1);
+extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
 
 struct Struct_0203de84;
 struct Struct_0203de84_2;
@@ -17,7 +17,7 @@ extern "C" int func_02040a90(struct Struct_02040a90* arg0);
 
 extern "C" int fix32_Atan2(int, int);
 struct Struct_02033834_2;
-extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
+extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 
 extern "C" int GetLocalWireless_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void);
@@ -33,7 +33,7 @@ extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" ARM int func_ov004_021688d4(void) {
     char* var0 = (char*)(int)GetMessageWindow_020421a0();
     void* var1 = func_0203cf4c();
-    void* var2 = func_0203df78(var1, 6);
+    void* var2 = FindNPCById_0203df78(var1, 6);
     if (var2) {
         GameObject* var3 = GameState::GetInstance()->GetUnknownGameObject();
         struct Struct_ov004_021688d4 var4;
@@ -61,7 +61,7 @@ extern "C" ARM int func_ov004_021688d4(void) {
         int var10 = (int)var4.unknown_0_[2] - (int)var5.unknown_0_[2];
         int var11 = fix32_Atan2(var9, var10);
         int var12 = fix32ReduceAngle0To2Pi(var11);
-        func_02033834((struct Struct_02033834_2*)var3, var12);
+        SetFacing_02033834((struct Struct_02033834_2*)var3, var12);
     }
 
     GetLocalWireless_0202ae18();

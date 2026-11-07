@@ -9,7 +9,7 @@ extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
 struct Queue_02038598_5;
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
-extern "C" int func_020535c8(signed char* arg0);
+extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int func_02039820(void* arg0);
 extern "C" int func_02039d7c(char* arg0);
 extern "C" void func_ov017_021cf4b0(int arg0, int arg1);
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov017_021bff8c(Struct_ov017_021bff8c* arg0, unsigned ch
         }
         if (IsQueueEmpty_02046b08((void**)arg0->unknown_36fc_) == 0) {
             var1 = 1;
-        } else if (func_020535c8((signed char*)var4) != 0) {
+        } else if (IsPerformingGesture_020535c8((signed char*)var4) != 0) {
             var1 = 1;
         } else if (func_02039820(var4) == 0) {
             var1 = 1;

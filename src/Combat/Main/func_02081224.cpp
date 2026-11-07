@@ -17,7 +17,7 @@ struct Struct_0207f6ac {
 };
 struct Struct_0207f0ac { Struct_0207f0ac_2* unknown_0_; short unknown_4_; };
 struct Struct_0207f524 { Struct_0207f6ac* unknown_0_; short unknown_4_; };
-struct Struct_0207fdcc_2 {
+struct MenuLayout_0207fdcc_2 {
     void* unknown_0_;
     Struct_0207f524 unknown_4_;
     Struct_0207f0ac unknown_c_;
@@ -25,10 +25,10 @@ struct Struct_0207fdcc_2 {
 extern "C" Struct_0207f0ac_2* func_0207f0ac(Struct_0207f0ac*, int);
 extern "C" Struct_0207f6ac* func_0207f6ac(Struct_0207f524*, int);
 extern "C" int func_020813ec(void*, int);
-extern "C" void func_0207fdcc(Struct_0207fdcc_2*, int);
+extern "C" void CloseMenuLayoutWindow_0207fdcc(MenuLayout_0207fdcc_2*, int);
 
 // USA: func_02081224
-extern "C" ARM void func_02081224(Struct_0207fdcc_2* arg0, int arg1) {
+extern "C" ARM void func_02081224(MenuLayout_0207fdcc_2* arg0, int arg1) {
     int var0[8];
     int var1[8];
     int var2[8];
@@ -83,5 +83,5 @@ extern "C" ARM void func_02081224(Struct_0207fdcc_2* arg0, int arg1) {
             var20 += var18 + var22->unknown_c_;
         }
     }
-    func_0207fdcc(arg0, arg1);
+    CloseMenuLayoutWindow_0207fdcc(arg0, arg1);
 }

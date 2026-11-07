@@ -4,7 +4,7 @@
 struct Struct_02040a20 { unsigned int unknown_0_[3]; };
 
 // USA: func_02040a20
-extern "C" ARM int func_02040a20(Struct_0203dce4* arg0) {
+extern "C" ARM int func_02040a20(NPC_0203dce4* arg0) {
     void* var0;
 
     var0 = arg0->unknown_14_;

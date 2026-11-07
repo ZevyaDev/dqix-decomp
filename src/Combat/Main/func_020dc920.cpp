@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_0202b2f0;
+struct LocalWireless_0202b2f0;
 
 struct Struct_020dc920 {
     unsigned char unknown_0_0_ : 5;
@@ -12,9 +12,9 @@ struct Struct_020dc920 {
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" int func_0202be08(struct Struct_0202b2f0* arg0, int arg1);
-extern "C" int func_0202be70(struct Struct_0202b2f0* arg0, int arg1);
-extern "C" int func_0202bed8(struct Struct_0202b2f0* arg0, int arg1);
+extern "C" int func_0202be08(struct LocalWireless_0202b2f0* arg0, int arg1);
+extern "C" int func_0202be70(struct LocalWireless_0202b2f0* arg0, int arg1);
+extern "C" int func_0202bed8(struct LocalWireless_0202b2f0* arg0, int arg1);
 extern "C" char* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 
@@ -22,7 +22,7 @@ extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" ARM int func_020dc920(int arg0, int arg1, int arg2, int arg3) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = var0->GetProtagonist();
-    struct Struct_0202b2f0* var2 = (struct Struct_0202b2f0*)GetLocalWireless_0202ae18();
+    struct LocalWireless_0202b2f0* var2 = (struct LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
     if (var1 != NULL) {
         GameObject* var3 = var0->GetPartyMemberByIndex(arg0);
         if (var3 != NULL) {

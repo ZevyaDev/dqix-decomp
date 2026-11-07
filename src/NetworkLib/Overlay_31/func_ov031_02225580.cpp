@@ -10,7 +10,7 @@ extern Struct_ov031_02225580* data_ov031_02250bfc;
 struct Struct_ov031_02225580_3 { int unknown_0_; };
 struct Struct_ov031_02225580_4 { int unknown_0_; };
 extern "C" void func_ov031_02224ca4(int arg0, int arg1, struct Struct_ov031_02225580_3 arg2, struct Struct_ov031_02225580_4 arg3);
-extern "C" void func_ov031_0223e2b8(void* arg0, int arg1);
+extern "C" void SetTaskCallback_ov031_0223e2b8(void* task, int callback);
 extern "C" void func_ov031_02225604(void* arg0);
 
 // USA: func_ov031_02225580
@@ -25,5 +25,5 @@ extern "C" ARM void func_ov031_02225580(void* arg0) {
     var5.unknown_0_ = (var1 & 0xff) + 0xc;
     func_ov031_02224ca4(var3, 4, var5, var4);
     if (var5.unknown_0_ < 0xc0) return;
-    func_ov031_0223e2b8(arg0, (int)func_ov031_02225604);
+    SetTaskCallback_ov031_0223e2b8(arg0, (int)func_ov031_02225604);
 }

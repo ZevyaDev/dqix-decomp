@@ -147,7 +147,7 @@ void ResetTextureVRAMState_0207df50(struct Struct_ov001_021539d8_7* area);
 void RestoreTextureVRAMState_0207df90(struct Struct_ov001_021539d8_7* area);
 void SaveTextureVRAMState_0207dfac(struct Struct_ov001_021539d8_7* area);
 void func_ov001_0215ab54(int arg0, int arg1, int arg2);
-struct Struct_ov001_021539d8* func_0203df78(void* arg0, int arg1);
+struct Struct_ov001_021539d8* FindNPCById_0203df78(void* npcManager, int id);
 int func_0203dfdc(void* arg0, int arg1);
 void SetGameObjectByIndex_0200fd38(GameState* gameState, int index, struct Struct_ov001_021539d8_11* object);
 SafeAllocator* func_ov001_0215aab8(void);
@@ -301,7 +301,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             func_ov001_0215ab54(1, var5->unknown_2_, var5->unknown_1_);
             break;
         case 4: {
-            struct Struct_ov001_021539d8* var27 = func_0203df78(var2, var5->unknown_8_);
+            struct Struct_ov001_021539d8* var27 = FindNPCById_0203df78(var2, var5->unknown_8_);
             if (var27 != 0 && var27->unknown_18_ != 0) {
                 var27->unknown_18_->unknown_d4_0_ = 1;
                 SetGameObjectByIndex_0200fd38(var0, var5->unknown_2_, var27->unknown_18_);
@@ -411,7 +411,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             break;
         }
         case 5: {
-            struct Struct_ov001_021539d8* var42 = func_0203df78(var2, var5->unknown_8_);
+            struct Struct_ov001_021539d8* var42 = FindNPCById_0203df78(var2, var5->unknown_8_);
             if (var42 != 0 && var42->unknown_14_ != 0) {
                 var42->unknown_0_ |= 0x10000;
                 func_ov001_0215ab54(2, func_0203dfdc(var2, var5->unknown_8_), var5->unknown_1_);

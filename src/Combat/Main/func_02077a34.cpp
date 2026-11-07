@@ -10,7 +10,7 @@ extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
 struct Struct_02033834_2;
-extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
+extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 
 struct Struct_02033b68;
 extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
@@ -36,7 +36,7 @@ extern "C" ARM int func_02077a34(Struct_02076a8c* arg0) {
         Vector3fix_Subtract(&var4, &arg0->unknown_0_.unknown_0_.unknown_0_.position_, &var5);
         Vector3fix_Normalize(&var5, &var5);
         var2 = fix32_Atan2(var5.x, var5.z);
-        func_02033834((struct Struct_02033834_2*)arg0, var2);
+        SetFacing_02033834((struct Struct_02033834_2*)arg0, var2);
         Vector3fixMultiplyScalar(&var5, 0xa000, &var5);
         Vector3fix_Add(&arg0->unknown_0_.unknown_0_.unknown_0_.position_, &var5, &arg0->unknown_158_);
     }

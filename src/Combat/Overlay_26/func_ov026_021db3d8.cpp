@@ -81,7 +81,7 @@ struct Struct_ov000_02160da0 {
 extern "C" Struct_ov023_021f4c04* GetMessageWindow_020421a0();
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void func_02078484(Struct_02078398_2* arg0);
-extern "C" int func_02057fb4(void* arg0, int arg1, void* arg2);
+extern "C" int PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 
 extern "C" {
 void* GetEffectManager_02057924();
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov026_021db3d8(Struct_ov000_02160da0* arg0) {
             var4.unknown_44_.x = 0x10a;
             var4.unknown_44_.y = 0x10a;
             var4.unknown_44_.z = 0x10a;
-            arg0->unknown_772c_ = func_02057fb4(var1, 0x13, &var4);
+            arg0->unknown_772c_ = PlayEffect_02057fb4(var1, 0x13, &var4);
             arg0->unknown_772e_ = -1;
             arg0->unknown_7728_ = -1;
         }

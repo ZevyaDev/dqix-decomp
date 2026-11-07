@@ -40,7 +40,7 @@ struct Struct_02078398_2 {
 };
 extern "C" void func_02078484(struct Struct_02078398_2* arg0);
 
-extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
+extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 
 struct Struct_02078398 : Object3D {
     char unknown_ac_[0x6];
@@ -72,7 +72,7 @@ extern "C" ARM void func_02078398(struct Struct_02078398* arg0) {
                 func_02078484(&var3);
                 var3.unknown_2c_ = arg0->position_;
                 var3.unknown_44_ = arg0->GetScale();
-                func_02057fb4(var2, (int)arg0->unknown_178_, &var3);
+                PlayEffect_02057fb4(var2, (int)arg0->unknown_178_, &var3);
             }
         }
     }

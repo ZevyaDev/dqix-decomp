@@ -26,7 +26,7 @@ extern unsigned int data_ov017_021d845c;
 extern Type_02000c9c_19 gNullMemberFunctionPointer_020e6d5c;
 
 extern "C" void func_0208bb78(void* arg0, unsigned int arg1);
-extern "C" int func_020a1e54(int arg0);
+extern "C" int PopOverlay_020a1e54(int isPreviousReloaded);
 extern "C" void LoadFileTables_020a0c0c(void);
 
 // USA: func_ov017_021bb1a4
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov017_021bb1a4(Struct_ov017_021bb1a4* arg0, int arg1) {
 
     if (arg0->unknown_ff_ != 0) {
         if (TestFlags00(GetGameResources(), 0x1000) == 0) {
-            func_020a1e54(1);
+            PopOverlay_020a1e54(1);
             LoadFileTables_020a0c0c();
         }
     }

@@ -1,13 +1,10 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca390 func_020cbe5c
-#endif
 
 
 extern "C" int func_020d6884(void*, int, int, int);
 extern "C" int Memcpy16Bit_020ca3b8(int, int, int);
-extern "C" void func_020ca390(int, void*, unsigned int);
+extern "C" void Memset16Bit_020ca390(int, void*, unsigned int);
 unsigned int DisableIRQInterrupts();
 unsigned int SetIRQInterruptState(int mask);
 
@@ -47,7 +44,7 @@ extern "C" ARM void func_020d6610(struct Struct_020d5fd0* arg0, int arg1, int ar
     if (arg2 != 0) {
         Memcpy16Bit_020ca3b8(arg2, var3, arg0->unknown_800_.unknown_10_);
     } else {
-        func_020ca390(0, (void*)var3, arg0->unknown_800_.unknown_10_);
+        Memset16Bit_020ca390(0, (void*)var3, arg0->unknown_800_.unknown_10_);
     }
     unsigned int var4 = DisableIRQInterrupts();
     arg0->unknown_0_[var2].unknown_0_ &= ~var0;

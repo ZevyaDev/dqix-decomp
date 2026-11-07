@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 #include "Combat/SearchEntry.h"
 
-struct Struct_0202b2f0;
-extern "C" int func_0202c1c0(struct Struct_0202b2f0* arg0, int arg1);
+struct LocalWireless_0202b2f0;
+extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" unsigned short func_0202df58(void);
 
 // USA: func_0202be70
-extern "C" ARM int func_0202be70(struct Struct_0202b2f0* arg0, int arg1) {
+extern "C" ARM int func_0202be70(struct LocalWireless_0202b2f0* arg0, int arg1) {
     void* var0;
-    if (!func_0202c1c0(arg0, arg1)) {
+    if (!IsLocalWirelessPlayerJoined_0202c1c0(arg0, arg1)) {
         return 0;
     }
     if (arg1 == *(signed char*)((char*)arg0 + func_0202df58() + 0x1000 + 0x38)) {

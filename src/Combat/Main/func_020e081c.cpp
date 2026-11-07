@@ -36,17 +36,17 @@ struct Struct_020e081c {
 
 extern "C" void* GetZone3D_02012fe4();
 extern "C" char* GetOAMManager_0203bd08();
-extern "C" char* func_0203b628();
+extern "C" char* GetBGVRAMManager_0203b628();
 extern "C" void func_020213fc(Struct_020213fc*, int);
 extern "C" void func_02021428(void*, int);
 extern "C" void func_020209d0(void* arg0);
 extern "C" void func_0203b66c(char*);
-extern "C" void func_0203bd24(char*);
+extern "C" void ResetOAMManager_0203bd24(char*);
 extern "C" void InitSprite_0205a198(Sprite_02043368_2*);
 extern "C" void InitSpriteSet_0205a444(char*);
 extern "C" int func_0205a498(void*, PacEntry_02020aec*, int, void*);
 extern "C" void* func_0203bd14();
-extern "C" void* func_0203be4c(char*);
+extern "C" void* GetSubOAMBuffer_0203be4c(char*);
 extern "C" void HaltForever_020c9be0();
 extern "C" void WaitForVBlank_020c9820();
 #if defined(jpn)
@@ -70,7 +70,7 @@ extern "C" ARM void func_020e081c(char* arg0) {
     GetZone3D_02012fe4();
     GameResources* var1 = GetGameResources();
     char* var2 = GetOAMManager_0203bd08();
-    char* var3 = func_0203b628();
+    char* var3 = GetBGVRAMManager_0203b628();
     SafeAllocator* var4 = inline_02021578(var1, 12);
     if (*(signed char*)(arg0 + Enum_020e081c_2498) == 0) {
         func_020213fc((Struct_020213fc*)arg0, 0);
@@ -78,7 +78,7 @@ extern "C" ARM void func_020e081c(char* arg0) {
         func_020209d0(arg0);
         var4->Reset();
         func_0203b66c(var3);
-        func_0203bd24(var2);
+        ResetOAMManager_0203bd24(var2);
         for (int var5 = 0; var5 < 28; ++var5)
             InitSprite_0205a198(&((Sprite_02043368_2*)(arg0 + 0xe8))[var5]);
         InitSpriteSet_0205a444(arg0 + 0x94);
@@ -104,7 +104,7 @@ extern "C" ARM void func_020e081c(char* arg0) {
         var0->GetLoadedFileByID(*(int*)(arg0 + Enum_020e081c_2568), &var7, &var8);
         func_0205a498(arg0 + 0x94, (PacEntry_02020aec*)var7, var8, var4);
         *(int*)((char*)func_0203bd14() + Enum_020e081c_1288) = 0x2800;
-        void* var9 = (char*)func_0203be4c(GetOAMManager_0203bd08()) + Enum_020e081c_600;
+        void* var9 = (char*)GetSubOAMBuffer_0203be4c(GetOAMManager_0203bd08()) + Enum_020e081c_600;
         *(void**)func_0203bd14() = var9;
         if (!*(SafeAllocator**)(arg0 + Enum_020e081c_1900)) HaltForever_020c9be0();
         if (*(SafeAllocator**)(arg0 + Enum_020e081c_1900) && *(void**)(arg0 + Enum_020e081c_1904))

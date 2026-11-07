@@ -17,7 +17,7 @@ extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* 
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 struct Struct_02040774_2;
-extern "C" void func_020407b4(struct Struct_02040774_2* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetObject3DPosition_020407b4(struct Struct_02040774_2* object, int x, int y, int z);
 
 // USA: func_02046cc8
 extern "C" ARM int func_02046cc8(void* arg0) {
@@ -61,7 +61,7 @@ extern "C" ARM int func_02046cc8(void* arg0) {
                 var7->LoadFromCHRArchive(&var6);
                 void* var8 = *(void**)((char*)arg0 + 0x44);
                 NSBXX_Model_SetPolygonID(*(void**)((char*)var8 + 0x54), 0x3d);
-                func_020407b4((struct Struct_02040774_2*)var7, 0, -0xa000, 0x1000);
+                SetObject3DPosition_020407b4((struct Struct_02040774_2*)var7, 0, -0xa000, 0x1000);
                 var7->MaybeSetBCFGAnimation(0, 0);
             }
             SaveTextureVRAMState_0207dfac(var0 + 0xc40);

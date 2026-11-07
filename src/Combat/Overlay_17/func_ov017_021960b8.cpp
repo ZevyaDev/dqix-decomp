@@ -39,8 +39,8 @@ struct Struct_ov017_021960b8 {
 
 extern "C" void* func_020704fc(void);
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" void func_020c52e8();
-extern "C" void func_020c5414();
+extern "C" void ResetGeometryEngine_020c52e8();
+extern "C" void ResetMatrixStacks_020c5414();
 extern "C" void func_020c57d4(int, int, int, int, void*);
 extern "C" void func_020c5770(int, int, int, int, int, int, int, int, void*);
 extern "C" void func_ov017_021a3b30(int);
@@ -80,8 +80,8 @@ extern "C" ARM void func_ov017_021960b8(Struct_ov017_021960b8* arg0) {
     __clear(&var5, sizeof(var5));
     Vector3fix var6 = data_ov017_021d6414;
 
-    func_020c52e8();
-    func_020c5414();
+    ResetGeometryEngine_020c52e8();
+    ResetMatrixStacks_020c5414();
     *(volatile unsigned int*)0x04000440 = 0;
     func_020c57d4((int)&var5, (int)&var6, (int)&var4, 1, NULL);
     func_020c5770(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, 1, NULL);

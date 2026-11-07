@@ -49,8 +49,8 @@ extern "C" void func_ov017_021cedf4(int arg0, int arg1, int arg2);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
-extern "C" void func_02070378(char* arg0);
-extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
+extern "C" void InitZoneEntry_02070378(char* zoneEntry);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int arg1);
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
 // USA: func_ov017_0219ff58
@@ -99,7 +99,7 @@ extern "C" ARM int func_ov017_0219ff58(unsigned char* arg0, int arg1, int arg2, 
         if (arg3 != 0) func_02011b3c(var0, 8);
 
         Struct_ov017_0219ff58 var5;
-        func_02070378((char*)&var5);
+        InitZoneEntry_02070378((char*)&var5);
         var5.unknown_0_ = 0x10d0;
         var5.unknown_2_ = arg3 == 0;
         var5.unknown_7_ = 1;
@@ -110,7 +110,7 @@ extern "C" ARM int func_ov017_0219ff58(unsigned char* arg0, int arg1, int arg2, 
         func_0200fba4(var0, &var5);
 
         if (arg2 != 0) {
-            func_ov017_0219e310(*(unsigned char**)(arg0 + 0x3000 + Enum_ov017_0219ff58_1804), 0);
+            ResetZoneLoadTask_ov017_0219e310(*(unsigned char**)(arg0 + 0x3000 + Enum_ov017_0219ff58_1804), 0);
             AppendToQueue_020469b4(*(struct Queue_0201bdac_2**)(arg0 + 0x3000 + Enum_ov017_0219ff58_1788),
                              *(struct QueueNode_0201bdac**)(arg0 + 0x3000 + Enum_ov017_0219ff58_1804));
         }

@@ -19,7 +19,7 @@ extern "C" void AddActionResultMessage_ov000_0215a88c(void*,void*,int);
 struct Struct_ov000_0215767c_7; struct Struct_ov000_0215767c_6; struct Struct_ov000_0215767c_5; struct Struct_ov000_0215767c_4;
 extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*,Struct_ov000_0215767c_6*);
 extern "C" void func_ov000_021600cc(Struct_ov000_0215767c_5*,Struct_ov000_0215767c_4*);
-extern "C" { Struct_ov000_0215b278_3* GetNextActionResult_ov000_0215e958(void*); void func_ov000_0215ccbc(void*,Struct_ov000_0215b278_3*,GameObject*,short,short,short,unsigned long long,unsigned char); }
+extern "C" { Struct_ov000_0215b278_3* GetNextActionResult_ov000_0215e958(void*); void SetActionResult_ov000_0215ccbc(void*,Struct_ov000_0215b278_3*,GameObject*,short,short,short,unsigned long long,unsigned char); }
 inline int inline_ov000_021537b8(unsigned short arg0) { int var0=0; if(arg0<=3) var0=1; return var0; }
 // USA: func_ov000_0215bbbc
 extern "C" ARM void func_ov000_0215bbbc(unsigned char* arg0,BattleAction_ov000_0215440c_2* arg1) {
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov000_0215bbbc(unsigned char* arg0,BattleAction_ov000_0
         var1->unknown_1c_=-1; var1->unknown_1e_=0; var1->unknown_2d_=0;
         var3->unknown_0_[1]=0; var3->unknown_26_[1]=0;
         { int var12=var8->inline_ov000_0215b278_2(); int var13=var8->inline_ov000_0215b278();
-        func_ov000_0215ccbc(arg0,var5,var8,0,var13,var12,0,0); }
+        SetActionResult_ov000_0215ccbc(arg0,var5,var8,0,var13,var12,0,0); }
         var4->unknown_e_=var1->unknown_20_; var4->unknown_17_=1;
         func_ov000_0215ffc4(var4,var5,0);
         var2->unknown_b_|=4;
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov000_0215bbbc(unsigned char* arg0,BattleAction_ov000_0
             var3->unknown_22_=var8->unknown_138_->unknown_0_; var3->unknown_24_=var8->unknown_138_->unknown_2_;
             var2->unknown_b_|=4;
             { int var15=var8->inline_ov000_0215b278_2(); int var16=var8->inline_ov000_0215b278();
-        func_ov000_0215ccbc(arg0,var5,var8,0,var16,var15,0,0); }
+        SetActionResult_ov000_0215ccbc(arg0,var5,var8,0,var16,var15,0,0); }
             AddActionResultMessage_ov000_0215a88c(arg0,var5,0x35);
             var4->unknown_e_=var1->unknown_20_; var4->unknown_17_=1;
             func_ov000_0215ffc4(var4,var5,0);

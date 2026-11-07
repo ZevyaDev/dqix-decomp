@@ -12,9 +12,9 @@ extern "C" int func_ov031_02227570(unsigned int);
 extern "C" void* func_ov031_02227630(const char*);
 extern "C" int func_ov031_02223478(const char*);
 extern "C" void func_ov031_0223bd58(int, int);
-extern "C" void func_ov031_022234d8(const char*, Type_020200c0_2);
+extern "C" void LoadFileToVRAM_ov031_022234d8(const char*, Type_020200c0_2);
 extern "C" int func_ov031_02227558();
-extern "C" void func_ov031_0223cb68(int, int);
+extern "C" void ShowScreenLayers_ov031_0223cb68(int, int);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_02227f74();
 extern void* data_ov031_02290c4c;
@@ -44,22 +44,22 @@ extern "C" ARM void func_ov031_02227d94() {
     else data_ov031_02290c4c = func_ov031_02227630(data_ov031_0224b6f8[func_ov031_02227548()]);
     func_ov031_0223bd58(1, func_ov031_02223478(data_ov031_0224b724));
     func_ov031_0223bd58(0, func_ov031_02223478(data_ov031_0224b738));
-    func_ov031_022234d8(data_ov031_0224b74c, LoadToSubBG1CharacterData);
-    func_ov031_022234d8(data_ov031_0224b760, LoadToSubBGStandardPalette);
-    func_ov031_022234d8(data_ov031_0224b774, LoadToSubObjVRAM);
-    func_ov031_022234d8(data_ov031_0224b78c, LoadToSubObjStandardPalette);
-    func_ov031_022234d8(data_ov031_0224b7a4, LoadToMainBG2CharacterData);
-    func_ov031_022234d8(data_ov031_0224b7bc, LoadToMainBGStandardPalette);
-    func_ov031_022234d8(data_ov031_0224b7d4, LoadToMainObjVRAM);
-    func_ov031_022234d8(data_ov031_0224b7ec, LoadToMainObjStandardPalette);
+    LoadFileToVRAM_ov031_022234d8(data_ov031_0224b74c, LoadToSubBG1CharacterData);
+    LoadFileToVRAM_ov031_022234d8(data_ov031_0224b760, LoadToSubBGStandardPalette);
+    LoadFileToVRAM_ov031_022234d8(data_ov031_0224b774, LoadToSubObjVRAM);
+    LoadFileToVRAM_ov031_022234d8(data_ov031_0224b78c, LoadToSubObjStandardPalette);
+    LoadFileToVRAM_ov031_022234d8(data_ov031_0224b7a4, LoadToMainBG2CharacterData);
+    LoadFileToVRAM_ov031_022234d8(data_ov031_0224b7bc, LoadToMainBGStandardPalette);
+    LoadFileToVRAM_ov031_022234d8(data_ov031_0224b7d4, LoadToMainObjVRAM);
+    LoadFileToVRAM_ov031_022234d8(data_ov031_0224b7ec, LoadToMainObjStandardPalette);
     switch (func_ov031_02227558()) {
-    case 0: func_ov031_022234d8(data_ov031_0224b804, LoadToSubBG1ScreenData); break;
-    case 1: func_ov031_022234d8(data_ov031_0224b818, LoadToSubBG1ScreenData); break;
+    case 0: LoadFileToVRAM_ov031_022234d8(data_ov031_0224b804, LoadToSubBG1ScreenData); break;
+    case 1: LoadFileToVRAM_ov031_022234d8(data_ov031_0224b818, LoadToSubBG1ScreenData); break;
     }
     BG1CNTSUB = (BG1CNTSUB & ~3) | 3;
     BG1CNT = (BG1CNT & ~3) | 3;
     BG1CNT = (BG1CNT & ~3) | 3;
-    func_ov031_0223cb68(1, 2);
-    func_ov031_0223cb68(0, 2);
+    ShowScreenLayers_ov031_0223cb68(1, 2);
+    ShowScreenLayers_ov031_0223cb68(0, 2);
     SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02227f74);
 }

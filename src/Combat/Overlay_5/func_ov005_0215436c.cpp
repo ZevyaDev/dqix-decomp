@@ -19,7 +19,7 @@ extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned
 extern "C" void LoadStringTable_020dfec0(void* stringTable, void* allocator, void* fileData, unsigned int fileSize);
 extern "C" char* GetMessageWindow_020421a0();
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
-extern "C" int* func_0203b628();
+extern "C" int* GetBGVRAMManager_0203b628();
 extern "C" void func_0203b678(int* arg0, int arg1, int arg2);
 extern "C" void func_0203b66c(char*);
 extern "C" void func_0203b634(char*);
@@ -62,7 +62,7 @@ extern "C" void func_ov005_02154d18(void* arg0, int arg1, int arg2);
 extern "C" void func_ov005_02154d34(void* arg0, int arg1, int arg2);
 extern "C" void func_ov005_02154d50(void* arg0, int arg1, int arg2);
 extern "C" void func_ov005_02154d7c(void* arg0, int arg1, int arg2);
-extern "C" char* func_ov017_021a193c(int*);
+extern "C" char* GetEquipMenu_ov017_021a193c(int*);
 extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
 extern "C" void func_ov023_021dc134(void* arg0, int arg1, int arg2);
 extern "C" void func_ov023_021dbfd0(void* arg0, void* arg1);
@@ -204,7 +204,7 @@ extern "C" ARM int func_ov005_0215436c(Struct_ov005_0215436c_3* arg0) {
 #endif
         Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
         SetFlags04((GameResources*)var12, 0x800);
-        int* var16 = func_0203b628();
+        int* var16 = GetBGVRAMManager_0203b628();
         func_0203b678(var16, 0, 1);
         func_0203b66c((char*)var16);
         func_0203b634((char*)var16);
@@ -376,7 +376,7 @@ extern "C" ARM int func_ov005_0215436c(Struct_ov005_0215436c_3* arg0) {
 
         GameState::GetInstance();
         char* var36 = (char*)GetGameResources();
-        int var37 = *(int*)(func_ov017_021a193c((int*)(*(int*)(var36 + REGION_LAYOUT(0x34f8, 0x3708)))) + REGION_LAYOUT(0x4f8, 0x4fc));
+        int var37 = *(int*)(GetEquipMenu_ov017_021a193c((int*)(*(int*)(var36 + REGION_LAYOUT(0x34f8, 0x3708)))) + REGION_LAYOUT(0x4f8, 0x4fc));
         LoadPartyMemberColors_020dc7e8(5, (signed char)var37);
         arg0->unknown_244_.Reset();
         func_ov023_021dc134(arg0->unknown_1244_, arg0->unknown_2d90_, 0);

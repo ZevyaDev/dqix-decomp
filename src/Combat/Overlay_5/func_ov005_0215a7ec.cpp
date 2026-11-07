@@ -49,7 +49,7 @@ extern "C" int func_020e28dc(Struct_020e28dc* arg0);
 extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
-extern "C" void* func_ov017_021a193c(int* arg0);
+extern "C" void* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
 extern "C" void func_ov023_021e3304(void* arg0, short arg1, short arg2);
 
 // USA: func_ov005_0215a7ec
@@ -70,12 +70,12 @@ extern "C" ARM void func_ov005_0215a7ec(Struct_ov005_02153954* arg0) {
                 else if (var4 == 1)
                     var3 = 0x65;
             }
-            func_ov023_021e3304(func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]), var2 - 8, var3 - 2);
+            func_ov023_021e3304(GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]), var2 - 8, var3 - 2);
         }
     }
     if (arg0->unknown_3db8_ == 0) {
         short var5 = arg0->unknown_3dbc_ * 0x18 + 4;
-        void* var6 = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+        void* var6 = GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
         func_ov023_021e3304(var6, 0x74, var5);
     }
 }

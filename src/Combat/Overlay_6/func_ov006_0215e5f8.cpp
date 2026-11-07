@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 
-extern "C" void func_02080c20(struct Struct_0207fdcc_2* arg0, int arg1);
-extern "C" void func_02080c04(struct Struct_0207fdcc_2* arg0, int arg1);
+extern "C" void func_02080c20(struct MenuLayout_0207fdcc_2* arg0, int arg1);
+extern "C" void func_02080c04(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 
 struct Struct_ov006_0215e5f8 {
     char unknown_0_[0x394];
@@ -11,7 +11,7 @@ struct Struct_ov006_0215e5f8 {
 };
 
 // USA: func_ov006_0215e5f8
-extern "C" ARM void func_ov006_0215e5f8(struct Struct_ov006_0215e5f8* arg0, struct Struct_0207fdcc_2* arg1, int arg2, unsigned char* arg3) {
+extern "C" ARM void func_ov006_0215e5f8(struct Struct_ov006_0215e5f8* arg0, struct MenuLayout_0207fdcc_2* arg1, int arg2, unsigned char* arg3) {
     if (arg1 == NULL) {
         return;
     }

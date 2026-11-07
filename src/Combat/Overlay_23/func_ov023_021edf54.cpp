@@ -251,7 +251,7 @@ extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags)
 extern "C" int func_ov000_02160fd4(void* arg0, int arg1);
 extern "C" void func_ov023_021ed7e0(Struct_ov023_021ed7e0* arg0);
 extern "C" int func_020ac020(void* arg0, short* arg1, int* arg2, int arg3);
-extern "C" unsigned short func_0202053c(void* arg0);
+extern "C" unsigned short GetLevel_0202053c(void* gameObject);
 extern "C" int IsDead_02010088(Struct_02010088* object);
 extern "C" int func_ov023_021eea98(Struct_ov023_021edf54* arg0);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
@@ -446,7 +446,7 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
             if (var46 != 0) {
                 var44->unknown_0_ = var45;
                 var44->unknown_1_ = var46->unknown_150_->unknown_950_;
-                var44->unknown_2_ = func_0202053c(var46);
+                var44->unknown_2_ = GetLevel_0202053c(var46);
                 var44->unknown_3_ = IsDead_02010088((Struct_02010088*)var46);
                 var44->unknown_4_ = arg0->unknown_5758_[var45] + func_ov023_021eea98((Struct_ov023_021edf54*)var46);
                 Struct_ov023_021edf54_7* var47 = (Struct_ov023_021edf54_7*)GetPartyMemberData_02053c6c((unsigned char*)var46);

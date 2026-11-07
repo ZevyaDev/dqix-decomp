@@ -6,7 +6,7 @@
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
-extern "C" unsigned short func_0202053c(void* arg0);
+extern "C" unsigned short GetLevel_0202053c(void* gameObject);
 extern "C" void func_ov000_021620f0(void* arg0, int arg1, int arg2);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
@@ -48,7 +48,7 @@ extern "C" ARM void* func_ov024_021e20c0(struct Struct_ov024_021e20c0_3* arg0, i
     for (int var6 = 0; var6 < var3; var6++) {
         GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var4, var2.unknown_0_[var6]);
         if (var7) {
-            var5 += func_0202053c(var7);
+            var5 += GetLevel_0202053c(var7);
         }
     }
     int var8 = 0;

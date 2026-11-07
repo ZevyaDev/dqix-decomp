@@ -50,13 +50,13 @@ extern "C" void WaitForVBlank_020c9820();
 extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
 extern "C" int func_0201201c(void* arg0);
 extern "C" void func_02012010(void* arg0, int arg1);
-extern "C" unsigned char func_0200fb9c(char* arg0);
-extern "C" void func_0200fb94(char* arg0, unsigned char arg1);
+extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
+extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
 extern "C" void func_02012028(void* arg0, unsigned char arg1);
-extern "C" void func_020c38d4();
+extern "C" void TurnOnMainDisplay_020c38d4();
 extern "C" void func_ov020_0218d7ac(Struct_ov020_0218b710* arg0, int arg1, int arg2);
 extern "C" void func_ov020_0218d800(Struct_ov020_0218b710_2* arg0, int arg1, int arg2);
-extern "C" void func_020d86d0(int arg0, int arg1);
+extern "C" void Swap3DBuffers_020d86d0(int keepTranslucentOrder, int useWDepth);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
@@ -75,11 +75,11 @@ extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_02042084(char* arg0, char* arg1, int arg2, int arg3);
 extern "C" void DrawTextWindows_0205d228(TextWindowManager_0205d228* windowManager);
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274* windowManager);
-extern "C" void func_0205d2bc(TextWindowManager_0205d2bc* arg0);
+extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(TextWindowManager_0205d2bc* windowManager);
 extern "C" void func_020bbcb4();
 extern "C" void func_02012efc();
 void LockStagedTextureVRAMCopying();
-extern "C" void func_020bb48c(unsigned int arg0, int arg1);
+extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install);
 extern "C" void func_020bb780(void* arg0, int arg1);
 void UpdateVRAMStagingVRAMBanks();
 void UnlockStagedTextureVRAMCopying();
@@ -92,12 +92,12 @@ extern "C" void func_02045cac(Struct_02045cac* arg0);
 extern "C" void func_0205c790(char* arg0);
 extern "C" int func_020ab9c0(int arg0);
 extern "C" void func_0205cb74(char* arg0, int arg1);
-extern "C" void func_0204359c(void* arg0, int arg1);
+extern "C" void DrawMessageGlyphs_0204359c(void* window, int glyphCount);
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc* cursor, int index);
-extern "C" void func_0203bd24(char* arg0);
+extern "C" void ResetOAMManager_0203bd24(char* oamManager);
 extern "C" void func_0205e8ec(Struct_0205e8ec* arg0);
 extern "C" void PlayMusic_0209c3b4(Struct_0209c3b4_2* manager, int musicIndex);
-extern "C" void func_020c52e8();
+extern "C" void ResetGeometryEngine_020c52e8();
 extern "C" void func_0203bd88(void* arg0);
 extern "C" void func_0203bdb0(Struct_0203bdb0* arg0);
 extern "C" void func_ov020_0218d8d8(Struct_ov020_0218b710_3* arg0);
@@ -125,7 +125,7 @@ extern "C" void UpdateTextWindowManager_0205d0e0(void* windowManager, int ticks)
 extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 extern "C" void func_02042c68(char* arg0);
 extern "C" void CloseMessageWindow_02043124(char* window);
-extern "C" void func_020432c4(char* arg0);
+extern "C" void InitMessageGlyphs_020432c4(char* window);
 extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
 #if defined(jpn)
 extern "C" void func_0205dfa8(void* arg0);
@@ -134,7 +134,7 @@ extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 extern "C" void func_02043368(char* arg0);
 extern "C" void func_020439b0(char* arg0, int arg1);
 extern "C" char* GetOAMManager_0203bd08(void);
-extern "C" void func_020c5414(void);
+extern "C" void ResetMatrixStacks_020c5414(void);
 extern "C" void UpdateSound_020bbd9c(void);
 extern "C" void MapVRAMBanksToMainBG(int);
 extern "C" void MapVRAMBanksToMainObj(int);
@@ -241,7 +241,7 @@ static inline int inline_ov020_0218b710_2(Struct_ov020_0218b710_5* arg0) { retur
         func_ov020_0218d644(self);               \
         WaitForVBlank_020c9820();                     \
         func_02012efc();          \
-        func_020d86d0(0, 1);     \
+        Swap3DBuffers_020d86d0(0, 1);     \
     }
 
 #define WAIT_TIMER(self)                         \
@@ -250,7 +250,7 @@ static inline int inline_ov020_0218b710_2(Struct_ov020_0218b710_5* arg0) { retur
         func_ov020_0218d854(self);               \
         WaitForVBlank_020c9820();                     \
         func_02012efc();          \
-        func_020d86d0(0, 1);     \
+        Swap3DBuffers_020d86d0(0, 1);     \
     }
 
 // USA: func_ov020_0218b710
@@ -263,7 +263,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         WriteBrightnessRegister_020c39a0((short*)0x400006c, 16);
         WriteBrightnessRegister_020c39a0((short*)0x400106c, 16);
     }
-    func_020c38d4();
+    TurnOnMainDisplay_020c38d4();
     *(volatile unsigned int*)0x4001000 |= 0x10000;
 
     if (func_0201201c(var0) == 1) {
@@ -272,7 +272,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
             if (!func_ov020_0218d898(arg0)) break;
             func_ov020_0218d644(arg0);
             WaitForVBlank_020c9820();
-            func_020d86d0(0, 1);
+            Swap3DBuffers_020d86d0(0, 1);
         }
     }
 
@@ -282,12 +282,12 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
     var1[0] = var1[0] & ~0x3;
     var1[1] = (var1[1] & ~0x3) | 0x1;
     WaitForVBlank_020c9820();
-    func_020c38d4();
+    TurnOnMainDisplay_020c38d4();
     *(volatile unsigned int*)0x4001000 |= 0x10000;
     WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
     WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
 
-    if (func_0200fb9c((char*)var0) != 6) {
+    if (GetGameMode_0200fb9c((char*)var0) != 6) {
         arg0->unknown_470_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x10000), 0x10000);
         arg0->unknown_470_.Reset();
         InitTextWindowManager_0205cfd4((TextWindowManager_0205cfd4*)arg0->unknown_2b4_);
@@ -400,14 +400,14 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         UpdateTextWindowManager_0205d0e0(arg0->unknown_2b4_, 1);
         DrawTextWindows_0205d228((TextWindowManager_0205d228*)arg0->unknown_2b4_);
         FlushTextWindowManagerBGScreenData_0205d274((TextWindowManager_0205d274*)arg0->unknown_2b4_);
-        func_0205d2bc((TextWindowManager_0205d2bc*)arg0->unknown_2b4_);
-        func_020d86d0(0, 1);
+        CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((TextWindowManager_0205d2bc*)arg0->unknown_2b4_);
+        Swap3DBuffers_020d86d0(0, 1);
         WaitForVBlank_020c9820();
-        func_020c38d4();
+        TurnOnMainDisplay_020c38d4();
         volatile unsigned int* var13 = (volatile unsigned int*)0x4000000;
         *var13 = (*var13 & ~0x1f00) | 0x200;
         func_020bbcb4();
-        func_020d86d0(0, 1);
+        Swap3DBuffers_020d86d0(0, 1);
 
         while (arg0->unknown_0_ != -1) {
             func_02012efc();
@@ -418,7 +418,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
             }
             WaitForVBlank_020c9820();
             WriteBrightnessRegister_020c39a0((short*)0x400006c, 0);
-            func_020d86d0(0, 1);
+            Swap3DBuffers_020d86d0(0, 1);
         }
 
         void* var14 = arg0->unknown_470_.GetSignedAllocator();
@@ -442,7 +442,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
 
     LockStagedTextureVRAMCopying();
     MapVRAMBanksToTextureImage(1);
-    func_020bb48c(1, 1);
+    InitTextureImageVRAMAllocator_020bb48c(1, 1);
     MapVRAMBanksToTexturePalette(0x60);
     func_020bb780((void*)0x8000, 1);
     UpdateVRAMStagingVRAMBanks();
@@ -461,23 +461,23 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
 #endif
     ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)arg0->unknown_244_);
     RestoreTextureVRAMState_0207df90(arg0->unknown_244_);
-    func_020432c4(var17);
+    InitMessageGlyphs_020432c4(var17);
     SaveTextureVRAMState_0207dfac(arg0->unknown_244_);
     arg0->unknown_0_ = 100;
     arg0->unknown_4_ = -1;
 
-    if (func_0200fb9c((char*)var0) == 6) {
+    if (GetGameMode_0200fb9c((char*)var0) == 6) {
         if (func_0201201c(var0) == 0) {
 #if defined(jpn)
             func_ov020_0218cf8c(arg0);
-            func_020c38d4();
+            TurnOnMainDisplay_020c38d4();
             *(volatile unsigned int*)0x4001000 |= 0x10000;
             arg0->unknown_4e4_ = 2000;
             for (;;) {
                 if (!inline_ov020_0218b710(arg0)) break;
                 func_ov020_0218d854(arg0);
                 WaitForVBlank_020c9820();
-                func_020d86d0(0, 1);
+                Swap3DBuffers_020d86d0(0, 1);
             }
             START_FADE(arg0, 0, 1500);
             arg0->unknown_4e4_ = 7000;
@@ -492,7 +492,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                 }
                 func_ov020_0218d644(arg0);
                 WaitForVBlank_020c9820();
-                func_020d86d0(0, 1);
+                Swap3DBuffers_020d86d0(0, 1);
             }
             START_FADE(arg0, -16, 1000);
             WAIT_FADE(arg0)
@@ -500,7 +500,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
             WAIT_TIMER(arg0)
 
             func_ov020_0218d32c(arg0, 0);
-            func_020c38d4();
+            TurnOnMainDisplay_020c38d4();
             *(volatile unsigned int*)0x4001000 |= 0x10000;
             func_ov020_0218d800((Struct_ov020_0218b710_2*)(arg0), 0, 1500);
             arg0->unknown_4e4_ = 6000;
@@ -513,7 +513,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                 }
                 func_ov020_0218d644(arg0);
                 WaitForVBlank_020c9820();
-                func_020d86d0(0, 1);
+                Swap3DBuffers_020d86d0(0, 1);
             }
             func_ov020_0218d800((Struct_ov020_0218b710_2*)(arg0), -16, 1000);
             WAIT_FADE(arg0)
@@ -522,7 +522,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
 #else
             Set3DClearColorAndDepth_020c5588(0x7fff, 0x1f, 0x7fff, 0, 0);
             func_ov020_0218cd98(arg0);
-            func_020c38d4();
+            TurnOnMainDisplay_020c38d4();
             *(volatile unsigned int*)0x4001000 |= 0x10000;
             arg0->unknown_4e4_ = 2000;
             WAIT_TIMER(arg0)
@@ -537,7 +537,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                 }
                 func_ov020_0218d644(arg0);
                 WaitForVBlank_020c9820();
-                func_020d86d0(0, 1);
+                Swap3DBuffers_020d86d0(0, 1);
             }
             START_FADE(arg0, -16, 500);
             WAIT_FADE(arg0)
@@ -545,7 +545,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
             WAIT_TIMER(arg0)
 
             func_ov020_0218cf8c(arg0);
-            func_020c38d4();
+            TurnOnMainDisplay_020c38d4();
             *(volatile unsigned int*)0x4001000 |= 0x10000;
             START_FADE(arg0, 0, 1500);
             arg0->unknown_4e4_ = 7000;
@@ -560,7 +560,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                 }
                 func_ov020_0218d644(arg0);
                 WaitForVBlank_020c9820();
-                func_020d86d0(0, 1);
+                Swap3DBuffers_020d86d0(0, 1);
             }
             START_FADE(arg0, -16, 1000);
             WAIT_FADE(arg0)
@@ -568,7 +568,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
             WAIT_TIMER(arg0)
 
             func_ov020_0218d32c(arg0, 0);
-            func_020c38d4();
+            TurnOnMainDisplay_020c38d4();
             *(volatile unsigned int*)0x4001000 |= 0x10000;
             START_FADE(arg0, 0, 1500);
             arg0->unknown_4e4_ = 6000;
@@ -581,7 +581,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                 }
                 func_ov020_0218d644(arg0);
                 WaitForVBlank_020c9820();
-                func_020d86d0(0, 1);
+                Swap3DBuffers_020d86d0(0, 1);
             }
             START_FADE(arg0, -16, 1000);
             WAIT_FADE(arg0)
@@ -591,12 +591,12 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
 #endif
         }
         func_02012010(var0, 5);
-        func_0200fb94((char*)var0, 0);
+        SetGameMode_0200fb94((char*)var0, 0);
         func_02012028(var0, 1);
     } else {
         func_02012010(var0, 0);
         func_ov020_0218c98c(arg0);
-        func_020c38d4();
+        TurnOnMainDisplay_020c38d4();
         *(volatile unsigned int*)0x4001000 |= 0x10000;
         func_02045cac((Struct_02045cac*)var17);
         func_0205c790(arg0->unknown_c_);
@@ -607,7 +607,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
             Struct_ov020_0218b710_6 var18 = *(Struct_ov020_0218b710_6*)data_ov020_0218da90;
             for (int var19 = 0; var19 < 8; var19++) {
                 func_0205cb74(arg0->unknown_c_, (int)(var18.unknown_0_ + var19 * 0x20));
-                func_0204359c(var17, 0x80);
+                DrawMessageGlyphs_0204359c(var17, 0x80);
                 func_020439b0(var17, 0);
             }
             func_ov020_0218c7f0(arg0->unknown_c_, 1, 8);
@@ -615,7 +615,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
             Struct_ov020_0218b710_7 var20 = *(Struct_ov020_0218b710_7*)data_ov020_0218d9b0;
             for (int var21 = 0; var21 < 7; var21++) {
                 func_0205cb74(arg0->unknown_c_, (int)(var20.unknown_0_ + var21 * 0x20));
-                func_0204359c(var17, 0x80);
+                DrawMessageGlyphs_0204359c(var17, 0x80);
                 func_020439b0(var17, 0);
             }
             func_ov020_0218c7f0(arg0->unknown_c_, 1, 7);
@@ -627,14 +627,14 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         if (func_020ab9c0(1) == 4) {
             for (int var22 = 0; var22 < 8; var22++) {
                 func_0205cb74(arg0->unknown_c_, (int)(data_ov020_0218da90 + var22 * 0x20));
-                func_0204359c(var17, 0x10);
+                DrawMessageGlyphs_0204359c(var17, 0x10);
                 func_020439b0(var17, 0);
             }
             func_ov020_0218c7f0(arg0->unknown_c_, 1, 8);
         } else {
             for (int var23 = 0; var23 < 7; var23++) {
                 func_0205cb74(arg0->unknown_c_, (int)(data_ov020_0218d9b0 + var23 * 0x20));
-                func_0204359c(var17, 0x10);
+                DrawMessageGlyphs_0204359c(var17, 0x10);
                 func_020439b0(var17, 0);
             }
             func_ov020_0218c7f0(arg0->unknown_c_, 1, 7);
@@ -663,7 +663,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         }
 
         char* var28 = GetOAMManager_0203bd08();
-        func_0203bd24(var28);
+        ResetOAMManager_0203bd24(var28);
         func_0205e8ec((Struct_0205e8ec*)gSoundEffectManager_02108760);
         PlayMusic_0209c3b4((Struct_0209c3b4_2*)gMusicManager_02109bf4, 2);
         while (arg0->unknown_0_ != -1) {
@@ -671,8 +671,8 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
             if (++arg0->unknown_4_ >= 0xffffff) {
                 arg0->unknown_4_ = 1;
             }
-            func_020c52e8();
-            func_020c5414();
+            ResetGeometryEngine_020c52e8();
+            ResetMatrixStacks_020c5414();
             *(volatile unsigned short*)0x4000060 &= 0xcfdf;
             switch (arg0->unknown_0_) {
             case 100:
@@ -682,7 +682,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                 arg0->unknown_0_ = -1;
                 break;
             }
-            func_020d86d0(0, 1);
+            Swap3DBuffers_020d86d0(0, 1);
             func_0203bd88(var28);
             WaitForVBlank_020c9820();
             func_0203bdb0((Struct_0203bdb0*)var28);
@@ -692,9 +692,9 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
             WriteBrightnessRegister_020c39a0((short*)0x400106c, 0);
         }
 
-        if (func_0200fb9c((char*)var0) == 0) {
+        if (GetGameMode_0200fb9c((char*)var0) == 0) {
             func_02012010(var0, 6);
-        } else if (func_0200fb9c((char*)var0) == 5) {
+        } else if (GetGameMode_0200fb9c((char*)var0) == 5) {
             func_02012010(var0, 6);
         }
     }

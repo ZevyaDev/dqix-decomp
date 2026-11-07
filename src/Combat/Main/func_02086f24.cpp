@@ -150,7 +150,7 @@ extern "C" void func_0209a8b4(Struct_02086f24_6* arg0, SafeAllocator* arg1, Stru
 extern "C" int func_0209ab20(Struct_02086f24_7* arg0, int arg1, int arg2, unsigned char* arg3);
 extern "C" int func_02086778(Struct_02086f24_4* arg0, Struct_0201099c_20* arg1, unsigned char arg2, unsigned char arg3);
 
-extern const char* data_020f2a38;
+extern const char* gItemDataPath_020f2a38;
 extern const char* data_020f2a30;
 extern const signed char data_020e8a94[10];
 extern const char data_020f102e[];
@@ -243,9 +243,9 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
         InitItemTable_020de824(&var6);
         ClearItemTable_020de848(&var6);
 #if defined(jpn)
-        func_020e0968(data_020f2a38, &var8);
+        func_020e0968(gItemDataPath_020f2a38, &var8);
 #else
-        void* var15 = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &var8);
+        void* var15 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var8);
 #endif
         for (int var16 = 0; var16 < 10; var16++) {
             short var17 = inline_02086f24_4(var11, var16);

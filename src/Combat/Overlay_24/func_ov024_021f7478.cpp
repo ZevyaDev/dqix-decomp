@@ -183,7 +183,7 @@ extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_ov000_02159cb4(int arg0, int arg1);
 extern "C" void* GetBattleScene_ov000_02160130(void);
-extern "C" void* func_ov000_02160f08(void* arg0);
+extern "C" void* GetBattleUI_ov000_02160f08(void* battleScene);
 extern "C" void* func_ov024_021f69b4(char* arg0, int arg1);
 extern "C" int func_ov000_021719c0(struct Struct_ov000_02171968* arg0);
 extern "C" void func_ov000_0217c32c(void* arg0);
@@ -362,7 +362,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
         }
     }
 
-    void* var35 = func_ov024_021f69b4((char*)func_ov000_02160f08(GetBattleScene_ov000_02160130()), arg0->unknown_4_);
+    void* var35 = func_ov024_021f69b4((char*)GetBattleUI_ov000_02160f08(GetBattleScene_ov000_02160130()), arg0->unknown_4_);
     int var36 = func_ov000_021719c0((struct Struct_ov000_02171968*)var35);
     if (var36 > 0) {
         if (data_ov024_02200154[arg0->unknown_4_] == 0) {

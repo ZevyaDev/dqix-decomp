@@ -10,23 +10,23 @@ enum { Enum_ov003_0217577c_4172 = 0x104c };
 enum { Enum_ov003_0217577c_2204 = 0x89c };
 #endif
 
-struct Struct_0207fdcc_2;
-struct Struct_0207fdcc;
-extern "C" struct Struct_0207fdcc* func_02081da8(struct Struct_0207fdcc_2* arg0, int arg1);
+struct MenuLayout_0207fdcc_2;
+struct TextWindow_0207fdcc;
+extern "C" struct TextWindow_0207fdcc* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 extern "C" void func_020809c4(void* arg0, int arg1, int arg2, short* arg3, short* arg4);
 extern "C" void func_ov003_0217585c(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
 
 struct Struct_ov003_0217577c {
     char unknown_0_[Enum_ov003_0217577c_2204];
-    struct Struct_0207fdcc_2* unknown_89c_;
+    struct MenuLayout_0207fdcc_2* unknown_89c_;
 };
 
 // USA: func_ov003_0217577c
 extern "C" ARM void func_ov003_0217577c(void* arg0) {
     Struct_ov003_0217577c* var0 = (Struct_ov003_0217577c*)arg0;
-    struct Struct_0207fdcc_2* var1 = var0->unknown_89c_;
-    struct Struct_0207fdcc* var2 = func_02081da8(var1, 9);
+    struct MenuLayout_0207fdcc_2* var1 = var0->unknown_89c_;
+    struct TextWindow_0207fdcc* var2 = func_02081da8(var1, 9);
     if (var2 == 0) return;
     if (!IsTextWindowReady_0204c7cc((unsigned char*)var2)) return;
 

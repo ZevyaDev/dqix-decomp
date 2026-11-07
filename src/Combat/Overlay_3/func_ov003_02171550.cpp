@@ -14,7 +14,7 @@ enum { Enum_ov003_02171550_1828 = 0x724 };
 enum { Enum_ov003_02171550_1820 = 0x71c };
 #endif
 
-struct Struct_0202b2f0;
+struct LocalWireless_0202b2f0;
 struct Struct_ov003_02171550 {
     unsigned char unknown_0_;
     char unknown_1_[Enum_ov003_02171550_1840 - 1];
@@ -29,8 +29,8 @@ extern "C" void func_0202c360(void* arg0, int arg1);
 extern "C" void func_0202b2f0(void* arg0);
 extern "C" void func_0202c410(void* arg0);
 extern "C" void func_0202b828(unsigned char* arg0);
-extern "C" void func_0202c21c(struct Struct_0202b2f0* arg0, int arg1);
-extern "C" void func_0202c1e8(struct Struct_0202b2f0* arg0, int arg1);
+extern "C" void func_0202c21c(struct LocalWireless_0202b2f0* arg0, int arg1);
+extern "C" void func_0202c1e8(struct LocalWireless_0202b2f0* arg0, int arg1);
 extern "C" void func_0202c288(void* arg0);
 
 // USA: func_ov003_02171550
@@ -57,8 +57,8 @@ extern "C" ARM void func_ov003_02171550(struct Struct_ov003_02171550* arg0) {
     func_0202b2f0(var1);
     func_0202c410(var1);
     func_0202b828((unsigned char*)var1);
-    func_0202c21c((struct Struct_0202b2f0*)var1, 0xf);
-    func_0202c1e8((struct Struct_0202b2f0*)var1, 0);
+    func_0202c21c((struct LocalWireless_0202b2f0*)var1, 0xf);
+    func_0202c1e8((struct LocalWireless_0202b2f0*)var1, 0);
     func_0202c288(var1);
 
     *(int*)((char*)arg0 + 4) = (rand() % 4 + 2) * 500;

@@ -2,7 +2,7 @@
 
 struct Struct_ov006_02154614;
 struct Struct_02081164;
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 
 struct Struct_ov006_02157a60 {
     int unknown_0_;
@@ -99,7 +99,7 @@ extern "C" void func_0208108c(void* arg0, int arg1);
 extern "C" void func_02081164(Struct_02081164* arg0, int arg1, int arg2);
 extern "C" void func_020813ec(void* arg0, int arg1);
 extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
-extern "C" void func_02080c20(Struct_0207fdcc_2* arg0, int arg1);
+extern "C" void func_02080c20(MenuLayout_0207fdcc_2* arg0, int arg1);
 
 // USA: func_ov006_0215fb7c
 extern "C" ARM void func_ov006_0215fb7c(Struct_ov006_02157a60* arg0) {
@@ -180,5 +180,5 @@ extern "C" ARM void func_ov006_0215fb7c(Struct_ov006_02157a60* arg0) {
     func_02081164((Struct_02081164*)var0, 0xe, 1);
     func_020813ec(var0, 0xe);
     func_02080c68(var0, 0xe, 2);
-    func_02080c20((Struct_0207fdcc_2*)var0, 0xe);
+    func_02080c20((MenuLayout_0207fdcc_2*)var0, 0xe);
 }

@@ -38,8 +38,8 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" int func_ov017_0219ff58(GameResources*, int, int, int);
 extern "C" Struct_ov017_021c1af0_2* GetZoneEntry_0200fd0c(GameState*);
-extern "C" void func_02070378(char*);
-extern "C" void func_ov017_021baedc(QueueNode_0201bdac*, int);
+extern "C" void InitZoneEntry_02070378(char*);
+extern "C" void ResetEventTask_ov017_021baedc(QueueNode_0201bdac*, int);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" void func_ov017_021d1c2c(unsigned char, unsigned short);
 extern "C" void func_ov017_021d1dc0(unsigned short, int, int*, int, int);
@@ -78,14 +78,14 @@ extern "C" ARM void func_ov017_021c1af0(Struct_ov017_021c1af0* arg0) {
             var0->GetProtagonist();
             Struct_ov017_021c1af0_2* var8 = GetZoneEntry_0200fd0c(var0);
             if (arg0->unknown_c_ == 0) {
-                func_02070378((char*)var8);
+                InitZoneEntry_02070378((char*)var8);
                 var8->unknown_2_ = 1;
                 var8->unknown_7_ = 1;
                 var8->unknown_0_ = 0x2710;
                 var8->unknown_10_ = (*reinterpret_cast<Vector3i*>(var1->unk_276c + 0x8));
                 var8->unknown_1c_ = (*reinterpret_cast<int*>(var1->unk_276c + 0x14));
             } else if ((*reinterpret_cast<unsigned short*>(var1->unk_276c + 0x48)) == 3) {
-                func_ov017_021baedc(var7, 1);
+                ResetEventTask_ov017_021baedc(var7, 1);
                 var7->unknown_8_ = 0x7345;
                 (*reinterpret_cast<unsigned char*>(var1->unk_276c + 0xb3)) = 1;
                 AppendToQueue_020469b4(var6, var7);
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov017_021c1af0(Struct_ov017_021c1af0* arg0) {
                 int var9[3];
                 func_ov017_021d1dc0(0, 0, var9, 0x7345, 0);
             } else {
-                func_02070378((char*)var8);
+                InitZoneEntry_02070378((char*)var8);
                 var8->unknown_2_ = 1;
                 var8->unknown_7_ = 1;
                 var8->unknown_0_ = 0x2774;

@@ -16,7 +16,7 @@ extern "C" void func_0203bb1c(struct Struct_02020fc4* arg0);
 extern "C" void func_0203bb3c(struct Struct_02020fc4_2* arg0, char* arg1, SafeAllocator* arg2, int arg3, unsigned short arg4);
 extern "C" void func_0203bcb8(struct Struct_02020fc4_3* arg0, int arg1, int arg2);
 extern "C" int func_0203b784(int* arg0, int arg1, int arg2, int arg3, unsigned int arg4, unsigned int arg5);
-extern "C" void* func_0203b628(void);
+extern "C" void* GetBGVRAMManager_0203b628(void);
 
 struct Struct_02020fc4_4 {
     char unknown_0_[0x14];
@@ -37,7 +37,7 @@ typedef int* Type_02020fc4;
 // USA: func_02020fc4
 extern "C" ARM void func_02020fc4(struct Struct_02020fc4_4* arg0, Type_02020fc4 arg1, SafeAllocator* arg2) {
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
-    int* var1 = (int*)func_0203b628();
+    int* var1 = (int*)GetBGVRAMManager_0203b628();
 
     if (arg0->unknown_14_ == 3) {
         arg0->unknown_74_ = 0;

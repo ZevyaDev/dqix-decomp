@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov031_0223cf4c(unsigned int arg0, int arg1);
+extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int size, int alignAndDir);
 extern int data_ov031_02290cc0;
 extern "C" void func_ov031_02232568(void);
 extern "C" void func_ov031_02223998(int arg0);
@@ -13,7 +13,7 @@ extern "C" void func_ov031_02232780(void);
 
 // USA: func_ov031_02232508
 extern "C" ARM void func_ov031_02232508(void) {
-	void* var0 = func_ov031_0223cf4c(0x20, 4);
+	void* var0 = AllocateZeroedMemory_ov031_0223cf4c(0x20, 4);
 	*(int*)((char*)&data_ov031_02290cc0 + 0x4) = (int)var0;
 	((unsigned char*)var0)[0x1d] = 0;
 	func_ov031_02232568();

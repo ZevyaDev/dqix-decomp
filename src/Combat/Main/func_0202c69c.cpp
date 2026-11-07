@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-struct Struct_0202b2f0 {
+struct LocalWireless_0202b2f0 {
     char unknown_0_[0x1038];
     signed char unknown_1038_[16];
 };
 
-extern "C" int IsLocalWirelessGuest_0202c540(struct Struct_0202b2f0* wireless, int arg1);
-extern "C" signed char func_0202bcbc(struct Struct_0202b2f0* arg0, int arg1);
+extern "C" int IsLocalWirelessGuest_0202c540(struct LocalWireless_0202b2f0* wireless, int arg1);
+extern "C" signed char func_0202bcbc(struct LocalWireless_0202b2f0* arg0, int arg1);
 
 // USA: func_0202c69c
-extern "C" ARM void func_0202c69c(struct Struct_0202b2f0* arg0, int arg1) {
+extern "C" ARM void func_0202c69c(struct LocalWireless_0202b2f0* arg0, int arg1) {
     if (IsLocalWirelessGuest_0202c540(arg0, arg1)) return;
     {
         int var0 = func_0202bcbc(arg0, arg1);

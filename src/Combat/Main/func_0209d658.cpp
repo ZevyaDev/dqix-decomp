@@ -2,11 +2,11 @@
 
 extern "C" void* func_0209fd00();
 extern "C" void SetScriptRefInt_ov017_021d6134(void*, void*);
-extern "C" void* func_0209dccc();
+extern "C" void* GetQuestBattleScript_0209dccc();
 
 // USA: func_0209d658
 extern "C" ARM int func_0209d658(void* arg0) {
-    if (func_0209dccc() == NULL) return 0;
+    if (GetQuestBattleScript_0209dccc() == NULL) return 0;
     SetScriptRefInt_ov017_021d6134(arg0, func_0209fd00());
     return 1;
 }

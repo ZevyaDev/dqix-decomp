@@ -9,7 +9,7 @@ enum { Enum_ov006_0215b57c_4696 = 0x1258, Enum_ov006_0215b57c_54 = 0x36 };
 struct Struct_02081f20_2;
 struct Struct_ov006_02157184;
 struct SoundEffectManager_02108760;
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 struct Struct_ov006_02158c28;
 
 struct Struct_ov006_021537d0 {
@@ -147,7 +147,7 @@ extern "C" void func_ov006_021570fc(Struct_ov006_02154614* arg0, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int, int);
 extern "C" unsigned char func_ov006_02158a28(Struct_ov006_02157a60* arg0);
 extern "C" unsigned char func_ov006_02158b78(Struct_ov006_02157a60* arg0);
-extern "C" void func_0207fdcc(Struct_0207fdcc_2* arg0, int arg1);
+extern "C" void CloseMenuLayoutWindow_0207fdcc(MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void func_ov006_02158c28(Struct_ov006_02158c28* arg0);
 
 extern "C" char gSoundEffectManager_02108760[];
@@ -224,9 +224,9 @@ extern "C" ARM void func_ov006_0215b57c(Struct_ov006_02157a60* arg0) {
         if (!func_ov006_02158a28(arg0) && func_ov006_02158b78(arg0))
         {
             arg0->unknown_394_ &= ~0x80;
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, arg0->unknown_36e_);
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, 0xe);
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, 0xf);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, arg0->unknown_36e_);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0xe);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0xf);
             arg0->unknown_38f_ = 2;
             arg0->unknown_390_ = 0;
             arg0->unknown_397_ = 2;

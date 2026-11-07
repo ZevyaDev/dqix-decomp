@@ -71,7 +71,7 @@ extern "C" void func_02059f38(Struct_02059cfc_2*, Struct_02059cfc_3*);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void func_ov017_02191508(int, Struct_ov017_021c1e6c_7*);
 extern "C" void func_02039830(void*);
-extern "C" void func_ov017_02191108(GameResources*, int, int, int, int);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(GameResources*, int, int, int, int);
 extern "C" void func_ov017_02191234(GameResources*);
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void func_ov017_021907dc(int, int, int, int, int);
@@ -176,7 +176,7 @@ configureCombatant:
             if (var4->unknown_10_3_) func_ov017_02191508(var8, var4);
             GameObject* var18 = var0->GetUnknownGameObject();
             if (var18) func_02039830(var18);
-            func_ov017_02191108(var2, 1, 1, 1, 1);
+            RebuildFieldPartyOrder_ov017_02191108(var2, 1, 1, 1, 1);
             func_ov017_02191234(var2);
             if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18())) func_ov017_021907dc((int)var2, 0, 1, 1, 1);
         } else arg0->unknown_1_ = 1;

@@ -79,7 +79,7 @@ struct Struct_ov025_021db8d8_6 {
 #endif
 };
 
-extern "C" struct Struct_ov025_021db8d8_3* func_ov000_02160f20(void*);
+extern "C" struct Struct_ov025_021db8d8_3* GetCurrentBattleAction_ov000_02160f20(void*);
 extern "C" void* func_ov000_02160f60(void*);
 extern "C" unsigned int func_02049444(unsigned char*);
 extern "C" int func_020493ec(unsigned char*);
@@ -126,7 +126,7 @@ extern "C" ARM void func_ov025_021db8d8(struct Struct_ov025_021db8d8_6* arg0) {
     var2 = GameState::GetInstance();
     var3 = arg0->unknown_29c_;
     struct Struct_ov025_021db8d8_5* var14 = (struct Struct_ov025_021db8d8_5*)((char*)arg0 + SUB_021db8d8);
-    struct Struct_ov025_021db8d8_3* var15 = func_ov000_02160f20(arg0);
+    struct Struct_ov025_021db8d8_3* var15 = GetCurrentBattleAction_ov000_02160f20(arg0);
     var4 = -1;
     if (var15->unknown_10_) {
         var4 = var15->unknown_10_->unknown_20_;

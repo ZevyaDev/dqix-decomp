@@ -10,7 +10,7 @@ struct Struct_021015a0_6 {
     int unknown_34_;
     int unknown_38_;
 };
-extern struct Struct_021015a0_6 data_021015a0;
+extern struct Struct_021015a0_6 gLocalWirelessLink_021015a0;
 extern char data_021016e0;
 
 extern "C" int func_0202d224(void);
@@ -18,13 +18,13 @@ extern "C" int func_0202d180(void);
 
 // USA: func_0202dc40
 extern "C" ARM int func_0202dc40(int arg0, void* arg1) {
-    data_021015a0.unknown_2c_ = 0x440;
-    data_021015a0.unknown_38_ = 0x80;
-    data_021015a0.unknown_34_ = arg0;
-    data_021015a0.unknown_10_ = 3;
+    gLocalWirelessLink_021015a0.unknown_2c_ = 0x440;
+    gLocalWirelessLink_021015a0.unknown_38_ = 0x80;
+    gLocalWirelessLink_021015a0.unknown_34_ = arg0;
+    gLocalWirelessLink_021015a0.unknown_10_ = 3;
     if (arg0 == 1 || arg0 == 3 || arg0 == 5) {
         VectorizedInvertedMemcpy(arg1, &data_021016e0, 0xc0);
-        if (data_021015a0.unknown_30_ != 0) {
+        if (gLocalWirelessLink_021015a0.unknown_30_ != 0) {
             return func_0202d180();
         }
         return func_0202d224();

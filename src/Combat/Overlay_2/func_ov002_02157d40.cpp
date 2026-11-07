@@ -63,7 +63,7 @@ extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_020e2ff8(void);
 extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" int func_0202053c(void* arg0);
+extern "C" int GetLevel_0202053c(void* gameObject);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 extern "C" void func_ov017_021c2b28(void* arg0, unsigned char arg1, unsigned char arg2);
 extern "C" void func_020e3428(void* arg0, int arg1);
@@ -111,8 +111,8 @@ extern "C" int func_02026780(void* arg0, void* arg1, unsigned int arg2);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5, int arg6);
-extern "C" void func_02052d7c(void* arg0, signed char arg1, int arg2);
-extern "C" void func_0207c378(void* arg0, short arg1, int arg2, unsigned int arg3);
+extern "C" void SetEquippedItem_02052d7c(void* gameObject, signed char slot, int itemId);
+extern "C" void AddEquipmentToBag_0207c378(void* bag, short itemId, int count, unsigned int category);
 
 extern "C" void func_020a818c(void* arg0, void* arg1);
 extern "C" void func_020a8304(void* arg0);
@@ -128,7 +128,7 @@ static inline short* inline_ov002_02157d40(char* arg0) {
     int* var0 = *(int**)(arg0 + 0x3000 + RG(0x71c, 0x50c));
     return (short*)((char*)var0 + 0x22);
 }
-extern "C" void func_ov017_021c3fb4(signed char arg0, int arg1);
+extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(signed char memberIndex, int requestModelLoad);
 extern "C" void func_ov017_021c4418(signed char arg0, int arg1);
 extern "C" void func_ov017_021c9e00(signed char arg0, int arg1, int arg2, int arg3);
 
@@ -559,7 +559,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 *(void**)var35 = arg0->unknown_8_;
 #endif
                 int var43;
-                if (func_0202053c((void*)var40) == 0x63) {
+                if (GetLevel_0202053c((void*)var40) == 0x63) {
                     var43 = 0x7539;
                 } else {
                     BackgroundLoader::AddLockGlobal();
@@ -568,7 +568,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     void* var44 = LoadFileIntoMemory(var0.unknown_a0_, &gFileScratchSpace_0211e33c, &var0.unknown_c_);
                     func_0208247c(var0.unknown_104_);
                     if (var44 != 0) {
-                        func_02082490(var0.unknown_104_, var44, var0.unknown_c_, func_0202053c((void*)var40) + 1, 0);
+                        func_02082490(var0.unknown_104_, var44, var0.unknown_c_, GetLevel_0202053c((void*)var40) + 1, 0);
                     }
                     BackgroundLoader::RemoveLockGlobal();
                     int var45 = *var38 - inline_ov002_02157d40_3(var40->unknown_150_);
@@ -849,13 +849,13 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     if (var73->unknown_a_2_ == 0) {
                         continue;
                     }
-                    func_0207c378(var70 + 0x1d4, var73->unknown_18_, 1, var73->unknown_8_0_);
-                    func_02052d7c((void*)var68, var0.unknown_1c_.unknown_0_[var72], -1);
+                    AddEquipmentToBag_0207c378(var70 + 0x1d4, var73->unknown_18_, 1, var73->unknown_8_0_);
+                    SetEquippedItem_02052d7c((void*)var68, var0.unknown_1c_.unknown_0_[var72], -1);
                     var71 = 1;
                 }
                 if (var71) {
                     if (IsLocalWirelessOn_0202b7d8(var69) != 0) {
-                        func_ov017_021c3fb4(arg0->unknown_1c21_, 1);
+                        SendPartyMemberEquippedItems_ov017_021c3fb4(arg0->unknown_1c21_, 1);
                         func_ov017_021c4418(arg0->unknown_1c21_, -1);
                     }
                     void* var74 = GetGameResources();

@@ -16,9 +16,9 @@ struct Struct_ov031_02236570 {
 };
 extern Struct_ov031_02236570* data_ov031_02290cfc;
 extern "C" unsigned short func_020d1cc8(const unsigned short* arg0, const unsigned char* arg1, unsigned int arg2);
-extern "C" void* func_ov031_0223cf4c(int, int);
+extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(int, int);
 extern "C" int func_ov031_0221b024(Struct_ov031_02236570*, int*, void*);
-extern "C" void func_ov031_0223cf70(void**);
+extern "C" void FreeAndClearPointer_ov031_0223cf70(void**);
 
 // USA: func_ov031_02236570
 extern "C" ARM void func_ov031_02236570(int arg0) {
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov031_02236570(int arg0) {
         var5++;
         var6 += 256;
     } while (var5 < 4);
-    void* var7 = func_ov031_0223cf4c(256, 32);
+    void* var7 = AllocateZeroedMemory_ov031_0223cf4c(256, 32);
     func_ov031_0221b024(data_ov031_02290cfc, var4, var7);
-    func_ov031_0223cf70(&var7);
+    FreeAndClearPointer_ov031_0223cf70(&var7);
 }

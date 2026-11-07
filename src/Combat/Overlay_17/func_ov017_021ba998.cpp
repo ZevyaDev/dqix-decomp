@@ -16,11 +16,11 @@ extern "C" unsigned int* GetResources_0200fb8c(int*);
 extern "C" unsigned char* GetFollowCamera_020100f8(char*);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020a28a0(unsigned char*, unsigned char);
-extern "C" void func_020a28b0(unsigned char*, int);
+extern "C" void ClearCameraFlags_020a28b0(unsigned char*, int);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void LoadFileTables_020a0c0c();
-extern "C" void func_020a1df8(int);
+extern "C" void PushOverlay_020a1df8(int);
 extern "C" Struct_0206f7f4* func_0206f504();
 extern "C" short func_0206f7f4(Struct_0206f7f4*, int);
 extern "C" void func_ov003_02158bb8(Struct_ov017_021ba998*);
@@ -29,7 +29,7 @@ extern "C" void func_ov003_02158a84(Struct_ov017_021ba998*, SafeAllocator*);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_ov003_02159240(void*);
 extern "C" int func_ov003_02158e94(Struct_ov017_021ba998*, int);
-extern "C" void func_ov017_02191108(void*, int, int, int, int);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(void*, int, int, int, int);
 extern "C" void func_ov003_02158d4c(Struct_ov017_021ba998*);
 extern "C" int func_ov003_0215916c(void*);
 extern "C" void EnablePlayerControl_020397c0(void*);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov017_021ba998(Struct_ov017_021ba998_2* arg0) {
             LoadFileTables_020a0c0c(); arg0->unknown_1_ = 1;
             return;
         }
-        func_020a1df8(3);
+        PushOverlay_020a1df8(3);
         short var6;
         if (arg0->unknown_20_) var6 = arg0->unknown_21_ - 1;
         else var6 = func_0206f7f4(func_0206f504(), 0) - 1;
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov017_021ba998(Struct_ov017_021ba998_2* arg0) {
         if (func_ov017_021959b4()) func_ov003_02159240(arg0->unknown_1c_);
         if (func_ov003_02158e94(arg0->unknown_1c_, var4)) ++arg0->unknown_22_;
     } else if (arg0->unknown_22_ == 2) {
-        func_ov017_02191108(GetGameResources(), 1, 1, 1, 1);
+        RebuildFieldPartyOrder_ov017_02191108(GetGameResources(), 1, 1, 1, 1);
         func_ov003_02158d4c(arg0->unknown_1c_);
         ++arg0->unknown_22_;
     } else if (arg0->unknown_22_ == 3) {
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov017_021ba998(Struct_ov017_021ba998_2* arg0) {
         REG_DISPCNT = (REG_DISPCNT & ~0x1f00) | var7 << 8;
         ClearFlags04((GameResources*)var1, 0xc0);
         EnablePlayerControl_020397c0(var2);
-        func_020a28b0(var3, 3);
+        ClearCameraFlags_020a28b0(var3, 3);
         func_ov017_021ba94c(arg0);
         LoadFileTables_020a0c0c();
         arg0->unknown_1_ = 1;

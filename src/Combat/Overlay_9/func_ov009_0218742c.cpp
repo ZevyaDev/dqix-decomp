@@ -94,7 +94,7 @@ extern "C" void CopyBGScreenDataToVRAM_0204b088(void*, int);
 extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(TextWindowManager_0205d1e0*);
 extern "C" void DrawTextWindows_0205d228(TextWindowManager_0205d228*);
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274*);
-extern "C" void func_0205d2bc(TextWindowManager_0205d2bc*);
+extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(TextWindowManager_0205d2bc*);
 extern "C" void func_ov009_021855dc(unsigned char*, int);
 extern "C" void func_02086404(Struct_ov009_0218742c*);
 extern "C" void func_02083ca0(unsigned char*, int);
@@ -182,7 +182,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             ClearTextWindowManagerBGScreenData_0205d1e0((TextWindowManager_0205d1e0*)arg0->unknown_2b4_);
             DrawTextWindows_0205d228((TextWindowManager_0205d228*)arg0->unknown_2b4_);
             FlushTextWindowManagerBGScreenData_0205d274((TextWindowManager_0205d274*)arg0->unknown_2b4_);
-            func_0205d2bc((TextWindowManager_0205d2bc*)arg0->unknown_2b4_);
+            CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((TextWindowManager_0205d2bc*)arg0->unknown_2b4_);
             func_ov009_021855dc((unsigned char*)arg0, 10);
 #if defined(jpn)
         } else if (arg0->unknown_d95_ == 1) {

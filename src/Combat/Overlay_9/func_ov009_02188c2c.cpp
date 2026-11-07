@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Resource/CharacterCreationUI.h"
 
-struct Struct_0205bef8;
-extern "C" void func_0205bef8(struct Struct_0205bef8* arg0);
+struct KeyMenuCursor_0205bef8;
+extern "C" void InitKeyMenuCursor_0205bef8(struct KeyMenuCursor_0205bef8* cursor);
 struct MenuCursor_0205ba68;
 extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
 struct MenuCursor_0205bacc;
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov009_02188c2c(Struct_ov009_021842a0* arg0) {
     }
 
     Struct_ov009_02188c2c* var12 = &arg0->unknown_bec_;
-    func_0205bef8((struct Struct_0205bef8*)var12);
+    InitKeyMenuCursor_0205bef8((struct KeyMenuCursor_0205bef8*)var12);
     SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)var12, var0, var1, 1);
     SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)var12, var2);
     var12->unknown_4_ = var3;

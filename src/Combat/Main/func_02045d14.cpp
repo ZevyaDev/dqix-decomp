@@ -33,8 +33,8 @@ extern "C" void func_0204483c(Struct_02045c00_2*, const char*, char*);
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" int func_02044420(void*, void*);
-extern "C" Struct_02045d14_3* func_0204254c(int, int);
-extern "C" int func_020424e4(int, int);
+extern "C" Struct_02045d14_3* FindFontGlyph_0204254c(int, int);
+extern "C" int FindFontGlyphIndex_020424e4(int, int);
 extern "C" int func_02045c00(Struct_02045c00_2*, int);
 extern "C" unsigned short func_020459b8(Struct_02045c00_2*, int, Struct_02045d14_3*, int);
 
@@ -70,8 +70,8 @@ extern "C" ARM unsigned short func_02045d14(Struct_02045c00_2* arg0, const char*
             var1 += var3 * 2;
             var2 += var3;
         } else {
-            var4 = func_0204254c((int)(var6.unknown_4_ + var1), arg3);
-            int var8 = func_020424e4((int)(var6.unknown_4_ + var1), arg3);
+            var4 = FindFontGlyph_0204254c((int)(var6.unknown_4_ + var1), arg3);
+            int var8 = FindFontGlyphIndex_020424e4((int)(var6.unknown_4_ + var1), arg3);
             if (var4 != 0 && var8 >= 0) {
                 int var9 = func_02045c00(arg0, (int)var4);
                 if (var9 == -1) {

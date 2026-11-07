@@ -74,7 +74,7 @@ struct BGLayer_0204af38;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 struct BGLayer_02020cb8_2;
-struct Struct_0204af14;
+struct BGLayer_0204af14;
 struct TextWindow_0204c7a8;
 struct TextWindowManager_0205cf78;
 struct TextWindow_0205cf78_2;
@@ -87,7 +87,7 @@ extern "C" void AllocateBGScreenBlocks_0204af38(BGLayer_0204af38* layer, int cap
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
-extern "C" Struct_ov023_021e76c4* func_0204af14(Struct_0204af14* arg0, unsigned int arg1);
+extern "C" Struct_ov023_021e76c4* GetBGScreenBlock_0204af14(BGLayer_0204af14* layer, unsigned int screenBlockIndex);
 extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
 extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78* windowManager, TextWindow_0205cf78_2* textWindows, unsigned char textWindowCapacity);
 
@@ -199,7 +199,7 @@ extern "C" ARM int func_ov023_021e76c4(Struct_ov023_021e76c4_3* arg0)
             arg0->unknown_5e4_ = -1;
             FillBGScreenRect_0204bc74(&arg0->unknown_134_[0], 0, 0, 0, 0x20, 0x19, 0);
             LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&arg0->unknown_134_[0], 0);
-            Struct_ov023_021e76c4* var16 = func_0204af14((Struct_0204af14*)&arg0->unknown_134_[1], 0);
+            Struct_ov023_021e76c4* var16 = GetBGScreenBlock_0204af14((BGLayer_0204af14*)&arg0->unknown_134_[1], 0);
             if (var16 != NULL)
             {
                 void* var17;

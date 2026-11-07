@@ -20,31 +20,31 @@ struct TextureVRAMArea_0207de48_3 {
 
 // USA: InitTextureVRAMArea_0207de48
 extern "C" ARM void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize) {
-    struct TextureVRAMArea_0207de48_3* var0 = (struct TextureVRAMArea_0207de48_3*)area;
-    func_020bb700((int*)&var0->baseImageState_0_);
-    var0->savedImageState_28_ = var0->baseImageState_0_;
-    func_020bb910(var0->basePaletteState_58_.unknown_0_);
+    struct TextureVRAMArea_0207de48_3* textureVRAMArea = (struct TextureVRAMArea_0207de48_3*)area;
+    func_020bb700((int*)&textureVRAMArea->baseImageState_0_);
+    textureVRAMArea->savedImageState_28_ = textureVRAMArea->baseImageState_0_;
+    func_020bb910(textureVRAMArea->basePaletteState_58_.unknown_0_);
     int remainingImageSize = imageSize;
-    var0->savedPaletteState_60_ = var0->basePaletteState_58_;
-    var0->imageAllocation_50_ = 0;
+    textureVRAMArea->savedPaletteState_60_ = textureVRAMArea->basePaletteState_58_;
+    textureVRAMArea->imageAllocation_50_ = 0;
 
     while (remainingImageSize > 0) {
         if (remainingImageSize > 0x20000) {
-            var0->imageAllocation_50_ = func_020bb588(0x20000, 0, 0);
+            textureVRAMArea->imageAllocation_50_ = func_020bb588(0x20000, 0, 0);
             remainingImageSize -= 0x20000;
         } else {
-            var0->imageAllocation_50_ = func_020bb588(remainingImageSize, 0, 0);
+            textureVRAMArea->imageAllocation_50_ = func_020bb588(remainingImageSize, 0, 0);
             remainingImageSize = 0;
         }
     }
-    if (imageSize != 0 && var0->imageAllocation_50_ == 0) imageSize = 0;
+    if (imageSize != 0 && textureVRAMArea->imageAllocation_50_ == 0) imageSize = 0;
 
-    var0->paletteAllocation_68_ = 0;
+    textureVRAMArea->paletteAllocation_68_ = 0;
     if (paletteSize != 0) {
-        var0->paletteAllocation_68_ = func_020bb7cc(paletteSize, 0, 0);
+        textureVRAMArea->paletteAllocation_68_ = func_020bb7cc(paletteSize, 0, 0);
     }
-    if (paletteSize != 0 && var0->paletteAllocation_68_ == 0) paletteSize = 0;
+    if (paletteSize != 0 && textureVRAMArea->paletteAllocation_68_ == 0) paletteSize = 0;
 
-    var0->imageSize_54_ = imageSize;
-    var0->paletteSize_6c_ = paletteSize;
+    textureVRAMArea->imageSize_54_ = imageSize;
+    textureVRAMArea->paletteSize_6c_ = paletteSize;
 }

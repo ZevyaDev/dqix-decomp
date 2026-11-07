@@ -4,7 +4,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" int func_ov017_021bdbcc(void* arg0);
-extern "C" ARM void* func_020421b0(int arg0);
+extern "C" ARM void* GetWindowTile_020421b0(int tileIndex);
 extern "C" int LoadToMainObjVRAM(int, int, unsigned int);
 
 // USA: func_ov023_021e2ce8
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov023_021e2ce8(int arg0, void* arg1) {
 
                 int var14;
                 for (var14 = 0; var14 < 4; var14++) {
-                    void* var15 = func_020421b0(var11);
+                    void* var15 = GetWindowTile_020421b0(var11);
                     DC_FlushRange(var15, 0x20);
                     LoadToMainObjVRAM((int)var15, var13, 0x20);
                     CleanCacheRange(var15, 0x20);

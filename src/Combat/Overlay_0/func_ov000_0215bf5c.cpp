@@ -30,7 +30,7 @@ extern "C" {
 GameObject* _ZN9GameState19GetCombatantByIndexEi(GameState*,int);
 int func_ov000_0215fd90(Struct_ov000_0215bf5c_3*,int);
 Struct_ov000_0215bf5c_6* GetNextActionResult_ov000_0215e958(void*);
-void func_ov000_0215ccbc(void*,Struct_ov000_0215bf5c_6*,GameObject*,short,short,short,unsigned long long,unsigned char);
+void SetActionResult_ov000_0215ccbc(void*,Struct_ov000_0215bf5c_6*,GameObject*,short,short,short,unsigned long long,unsigned char);
 }
 
 struct Struct_ov000_0215bf5c { char unknown_0_[0x8e00]; unsigned char unknown_8e00_,unknown_8e01_,unknown_8e02_; char unknown_8e03_[0x21]; int unknown_8e24_; };
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov000_0215bf5c(Struct_ov000_0215bf5c* arg0,BattleAction
         var12->unknown_20_=var1->unknown_20_;var12->unknown_24_=var1->unknown_24_;
         int var14=var10->inline_ov000_0215bf5c_2();
         int var15=var10->inline_ov000_0215bf5c();
-        func_ov000_0215ccbc(arg0,var7,var10,0,var15,var14,0,0);
+        SetActionResult_ov000_0215ccbc(arg0,var7,var10,0,var15,var14,0,0);
         var6->unknown_e_=var1->unknown_20_;var6->unknown_17_=1;
         func_ov000_0215ffc4(var6,var7,0);
         var5->unknown_b_|=4;

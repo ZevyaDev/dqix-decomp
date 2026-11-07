@@ -4,9 +4,6 @@
 #include "NitroSDK/OverlayId.h"
 #include "Input/Input.h"
 
-#if defined(jpn)
-#define func_020c39c8 func_020c5494
-#endif
 
 #if defined(jpn)
 enum { Enum_ov017_021a51a4_14032 = 0x34c0, Enum_ov017_021a51a4_14036 = 0x34c4, Enum_ov017_021a51a4_14076 = 0x34ec, Enum_ov017_021a51a4_14080 = 0x34f0, Enum_ov017_021a51a4_14108 = 0x350c, Enum_ov017_021a51a4_14112 = 0x3510, Enum_ov017_021a51a4_15180 = 0x392c, Enum_ov017_021a51a4_15184 = 0x3930, Enum_ov017_021a51a4_15216 = 0x3950, Enum_ov017_021a51a4_15220 = 0x3954, Enum_ov017_021a51a4_16832 = 0x3fa0, Enum_ov017_021a51a4_16836 = 0x3fa4, Enum_ov017_021a51a4_17124 = 0x40c4, Enum_ov017_021a51a4_396 = 0x180 };
@@ -14,7 +11,7 @@ enum { Enum_ov017_021a51a4_14032 = 0x34c0, Enum_ov017_021a51a4_14036 = 0x34c4, E
 enum { Enum_ov017_021a51a4_14032 = 0x36d0, Enum_ov017_021a51a4_14036 = 0x36d4, Enum_ov017_021a51a4_14076 = 0x36fc, Enum_ov017_021a51a4_14080 = 0x3700, Enum_ov017_021a51a4_14108 = 0x371c, Enum_ov017_021a51a4_14112 = 0x3720, Enum_ov017_021a51a4_15180 = 0x3b4c, Enum_ov017_021a51a4_15184 = 0x3b50, Enum_ov017_021a51a4_15216 = 0x3b70, Enum_ov017_021a51a4_15220 = 0x3b74, Enum_ov017_021a51a4_16832 = 0x41c0, Enum_ov017_021a51a4_16836 = 0x41c4, Enum_ov017_021a51a4_17124 = 0x42e4, Enum_ov017_021a51a4_396 = 0x18c };
 #endif
 
-struct Struct_0202b2f0;
+struct LocalWireless_0202b2f0;
 struct GlobalFlags_02012de8;
 struct Struct_0203402c;
 struct Struct_02000c9c_8;
@@ -29,19 +26,19 @@ struct Struct_02027bac;
 struct SafeAllocator;
 
 extern "C" int GetMessageWindow_020421a0();
-extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18(void);
+extern "C" LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00();
 extern "C" unsigned char* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_02039820(void* arg0);
-extern "C" int func_020535c8(signed char* arg0);
+extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8* globalFlags, unsigned int mask);
 extern "C" int func_0203402c(Struct_0203402c* arg0);
-extern "C" int func_020c39c8(volatile unsigned short* arg0);
+extern "C" int ReadBrightnessRegister_020c39c8(volatile unsigned short* reg);
 extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
-extern "C" int IsNotLocalWirelessGuest_0202c508(Struct_0202b2f0* wireless);
-extern "C" int IsLocalWirelessGuest_0202c540(Struct_0202b2f0* wireless);
+extern "C" int IsNotLocalWirelessGuest_0202c508(LocalWireless_0202b2f0* wireless);
+extern "C" int IsLocalWirelessGuest_0202c540(LocalWireless_0202b2f0* wireless);
 extern "C" void func_ov017_021befe4(Struct_ov017_021befe4* arg0);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
@@ -108,7 +105,7 @@ extern "C" ARM void func_ov017_021a51a4(Struct_ov017_021a51a4_4* arg0) {
     GameState* var0;
     Struct_ov017_021a51a4* var1;
     unsigned char* var2;
-    Struct_0202b2f0* var3;
+    LocalWireless_0202b2f0* var3;
     GlobalFlags_02012de8* var4;
     unsigned char* var5;
     int var6;
@@ -130,7 +127,7 @@ extern "C" ARM void func_ov017_021a51a4(Struct_ov017_021a51a4_4* arg0) {
     if (!func_02039820(var1)) {
         return;
     }
-    if (func_020535c8((signed char*)var1)) {
+    if (IsPerformingGesture_020535c8((signed char*)var1)) {
         return;
     }
     if (var1->unknown_18c_ & 1) {
@@ -154,7 +151,7 @@ extern "C" ARM void func_ov017_021a51a4(Struct_ov017_021a51a4_4* arg0) {
     }
     var7 = g_touchInput.pressX_;
     var8 = g_touchInput.pressY_;
-    if (func_020c39c8((volatile unsigned short*)0x400006c) != 0) {
+    if (ReadBrightnessRegister_020c39c8((volatile unsigned short*)0x400006c) != 0) {
         return;
     }
     var9 = (unsigned char*)var0->GetGrottoStruct();

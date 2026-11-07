@@ -50,7 +50,7 @@ extern "C" void func_02049f28(unsigned char*);
 extern "C" void func_0202ea4c(Struct_0202ea4c*);
 extern "C" void func_ov000_0216d50c(void*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
-extern "C" void func_0209c6d8(void*, int);
+extern "C" void PlayJingle_0209c6d8(void*, int);
 extern "C" void func_020117cc(char*, DetailedTreasureMapData*);
 extern "C" void func_ov023_021ed988(char*, int);
 extern "C" Struct_ov023_021ef6f4_2* FindActionData_02079e2c(char*, int);
@@ -62,7 +62,7 @@ void __clear(void*, unsigned int);
 void func_020e4ce8(void*, Struct_ov000_0217964c_2*, int);
 void StartMessage_0204500c(MessageWindow_020465c0*, const char*, int, int);
 int func_ov023_021f4fc8();
-void func_ov000_0216d370(void*, int, int, int);
+void ResetBattleCamera_ov000_0216d370(void*, int, int, int);
 void func_ov000_02163b90(Struct_ov023_021ef6f4_3*, int);
 int GetMessageChoice_020457e0(MessageWindow_020465c0*);
 void func_02011744(GameState*);
@@ -109,7 +109,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
     } else if (var1->unknown_0_ == 2) {
         if (!func_0209ca2c(gMusicManager_02109bf4) && func_ov023_021f4fc8()) var1->unknown_0_ = 3;
     } else if (var1->unknown_0_ == 3) {
-        func_ov000_0216d370(&arg0->unknown_c18_, 1, 1, 1);
+        ResetBattleCamera_ov000_0216d370(&arg0->unknown_c18_, 1, 1, 1);
         int var11 = 0x3000;
         if (var4->legacy_.bossID_ == 9) var11 = 0x2333;
         int var12 = 0;
@@ -207,7 +207,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
             StartMessage_0204500c(var2, var5, 1, 0xe3);
             var2->unknown_19b2_ = 0;
             var2->unknown_998_ = 1;
-            func_0209c6d8(gMusicManager_02109bf4, 0x35);
+            PlayJingle_0209c6d8(gMusicManager_02109bf4, 0x35);
             var4->UpdateFollowingCompletion(true, 0);
             func_020117cc((char*)var0, var4);
             func_02011744(var0);

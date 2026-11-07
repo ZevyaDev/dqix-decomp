@@ -14,7 +14,7 @@ extern "C" ARM void func_02038508(struct Struct_02037d10* arg0) {
     arg0->unknown_48_ = 0;
     arg0->unknown_4c_ = 0;
     arg0->unknown_50_ = 0;
-    arg0->unknown_52_ = 0;
+    arg0->isPartyOrderRebuildPending_52_ = 0;
     arg0->unknown_53_ = 1;
     arg0->unknown_54_ = 0x64;
     arg0->unknown_58_ = 0;

@@ -5,8 +5,8 @@
 #define IS_JPN 0
 #endif
 
-struct Struct_0207fdcc_2;
-extern "C" int func_02081da8(Struct_0207fdcc_2*, int);
+struct MenuLayout_0207fdcc_2;
+extern "C" int func_02081da8(MenuLayout_0207fdcc_2*, int);
 struct Struct_0207f0ac;
 extern "C" int func_0207f0ac(Struct_0207f0ac*, int);
 struct Struct_020813ec;
@@ -27,7 +27,7 @@ extern "C" ARM int func_020813ec(void *arg0, int arg1) {
         return 1;
     }
 
-    int var0 = func_02081da8((Struct_0207fdcc_2*)arg0, arg1);
+    int var0 = func_02081da8((MenuLayout_0207fdcc_2*)arg0, arg1);
     int var1 = func_0207f0ac((Struct_0207f0ac*)((char *)arg0 + 0xc), arg1);
     if (var1 == 0) {
         return 1;

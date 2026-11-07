@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int func_020493ec(unsigned char* arg0);
-extern "C" int func_020493a4(unsigned char* arg0);
+extern "C" int GetCombatantCell_020493a4(unsigned char* combatant);
 extern "C" void func_020493dc(unsigned char* arg0, unsigned char arg1);
 
 struct Struct_ov025_021e1ff4 {
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov025_021e1ff4(unsigned char* arg0, int arg1, unsigned 
             }
             int var4 = func_020493ec(var2);
             if (var4 >= 0x51) {
-                var4 = func_020493a4(var2);
+                var4 = GetCombatantCell_020493a4(var2);
             }
             if (var4 == arg0[var0]) {
                 arg5[var1].unknown_4_ = 1;

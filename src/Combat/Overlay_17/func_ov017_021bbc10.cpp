@@ -20,7 +20,7 @@
 
 struct Queue_02038598_5;
 struct Struct_02018300_3;
-struct Struct_020d7aa0_2;
+struct TimedMessageQueue_020d7aa0_2;
 struct Struct_02010834;
 struct Struct_02033fcc;
 
@@ -54,19 +54,19 @@ extern "C" int func_0202e7f0(void* arg0);
 extern "C" void* GetFollowCamera_020100f8(char*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int func_020a1eb0(void);
-extern "C" void func_020a1df8(int);
+extern "C" void PushOverlay_020a1df8(int);
 extern "C" unsigned int* GetGlobalFlags_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_020a27b8(unsigned char* arg0);
 extern "C" void* func_020d7a50(void);
-extern "C" void func_020d7aa0(Struct_020d7aa0_2* arg0);
+extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2* queue);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void func_02053ec8(void*, int);
 extern "C" void func_02053ed8(void* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_02010834(Struct_02010834* arg0, int arg1, int* arg2, int* arg3);
 extern "C" void func_02033fcc(Struct_02033fcc*);
-extern "C" void func_02039d24(unsigned char* arg0);
+extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 struct Struct_ov017_021baedc;
 extern "C" void func_ov017_021bb088(Struct_ov017_021baedc*);
 extern "C" int* func_02010768(void* arg0);
@@ -116,12 +116,12 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
     }
     SetFlags00(var4, 0x10);
     if (TestFlags00(var4, 0x1000) == 0 && func_020a1eb0() != 1) {
-        func_020a1df8(1);
+        PushOverlay_020a1df8(1);
     }
     func_ov001_0215aa14((SafeAllocator*)NULL);
     DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
     func_020a27b8(var3);
-    func_020d7aa0((Struct_020d7aa0_2*)func_020d7a50());
+    ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)func_020d7a50());
     *(unsigned short*)(var3 + 0x21e) = func_0202e7f0(var3);
 
     if (IsLocalWirelessOn_0202b7d8((int*)var5)) {
@@ -145,12 +145,12 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
             if (func_02039d7c((char*)var13) == 0 || func_020399a8(var13)->unknown_1_ != 2) {
                 var13->obj3D_.MaybeSetRegularAnimation(data_ov017_021d7d6c, 0x10);
             }
-            func_02039d24((unsigned char*)var13);
+            ResetFollowTrail_02039d24((unsigned char*)var13);
         }
     }
     GameObject* var14 = var0->GetPartyMemberByIndex(0xce);
     if (var14 != NULL) {
-        func_02039d24((unsigned char*)var14);
+        ResetFollowTrail_02039d24((unsigned char*)var14);
     }
     func_ov017_021bb088((Struct_ov017_021baedc*)arg0->unknown_d0_);
     int* var15 = func_02010768(var0);

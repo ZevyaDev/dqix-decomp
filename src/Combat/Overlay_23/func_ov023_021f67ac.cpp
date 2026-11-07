@@ -1,31 +1,31 @@
 #include <globaldefs.h>
 
-struct Struct_ov004_0215c30c {
-    void* unknown_0_;
+struct MenuObjectList_ov004_0215c30c {
+    void* pHead_0_;
 };
 
-struct Struct_ov004_0215c30c_2 {
+struct MenuObject_ov004_0215c30c_2 {
     char unknown_0_[0x6];
-    unsigned short unknown_6_;
+    unsigned short id_6_;
     char unknown_8_[0xc];
-    struct Struct_ov004_0215c30c_2* unknown_14_;
-    struct Struct_ov004_0215c30c_2* unknown_18_;
+    struct MenuObject_ov004_0215c30c_2* pPrevious_14_;
+    struct MenuObject_ov004_0215c30c_2* pNext_18_;
 };
 
-// USA: func_ov023_021f67ac
-extern "C" ARM void func_ov023_021f67ac(struct Struct_ov004_0215c30c* arg0, struct Struct_ov004_0215c30c_2* arg1) {
-    struct Struct_ov004_0215c30c_2* var0;
-    if (arg1->unknown_6_ == 0) {
+// USA: AppendMenuObject_ov023_021f67ac
+extern "C" ARM void AppendMenuObject_ov023_021f67ac(struct MenuObjectList_ov004_0215c30c* objectList, struct MenuObject_ov004_0215c30c_2* object) {
+    struct MenuObject_ov004_0215c30c_2* last;
+    if (object->id_6_ == 0) {
         return;
     }
-    var0 = (struct Struct_ov004_0215c30c_2*)arg0->unknown_0_;
-    if (var0 != NULL) {
-        while (var0->unknown_18_ != NULL) {
-            var0 = var0->unknown_18_;
+    last = (struct MenuObject_ov004_0215c30c_2*)objectList->pHead_0_;
+    if (last != NULL) {
+        while (last->pNext_18_ != NULL) {
+            last = last->pNext_18_;
         }
-        var0->unknown_18_ = arg1;
-        arg1->unknown_14_ = var0;
+        last->pNext_18_ = object;
+        object->pPrevious_14_ = last;
         return;
     }
-    arg0->unknown_0_ = arg1;
+    objectList->pHead_0_ = object;
 }

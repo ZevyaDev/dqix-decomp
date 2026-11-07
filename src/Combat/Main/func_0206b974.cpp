@@ -28,7 +28,7 @@ public:
 };
 
 extern "C" int CompareBytes_02001aec(const void* left, const void* right, unsigned int count);
-extern "C" int func_020424e4(int, int);
+extern "C" int FindFontGlyphIndex_020424e4(int, int);
 
 extern "C" char* func_020424ac(char*);
 extern "C" Struct_0206b974_2::Struct_0206b974_3* func_020425b4(int arg0, int arg1);
@@ -174,7 +174,7 @@ extern "C" ARM void func_0206b974(Struct_0206b974* arg0, bool arg1, char *arg2, 
             }
         }
 
-        int var16 = func_020424e4((int)arg2, arg7);
+        int var16 = FindFontGlyphIndex_020424e4((int)arg2, arg7);
         if (var12 == Enum_0206b974_65305)
             var16 = -1;
         if (var11 == '<' && var16 < 0)

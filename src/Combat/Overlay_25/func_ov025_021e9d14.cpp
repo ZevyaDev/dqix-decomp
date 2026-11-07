@@ -65,9 +65,9 @@ struct Struct_ov025_021e9d14_3 {
 };
 
 extern "C" void* GetBattleScene_ov000_02160130(void);
-extern "C" void* func_ov000_02160f20(void* arg0);
+extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" int func_ov025_021def24(void* arg0);
-extern "C" void* func_ov000_02160f08(void* arg0);
+extern "C" void* GetBattleUI_ov000_02160f08(void* battleScene);
 extern "C" void* func_ov000_0215feb4(char* arg0, int arg1, int arg2);
 extern "C" struct Struct_ov025_021e9d14_3* func_ov025_021dafd0(char* arg0, int arg1);
 extern "C" struct Struct_0203a588_2* func_02039e70(void);
@@ -75,7 +75,7 @@ struct Struct_0203a48c_2;
 extern "C" void func_0203a48c(Struct_0203a48c_3*, int, Struct_0203a48c_2*, int, int, int);
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void func_02078484(struct Struct_02078398_2* arg0);
-extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
+extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_ov000_02176150(struct Struct_ov000_021537b8_6* arg0, unsigned short arg1);
 
@@ -84,12 +84,12 @@ extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 // USA: func_ov025_021e9d14
 extern "C" ARM void func_ov025_021e9d14(void) {
     void* var0 = GetBattleScene_ov000_02160130();
-    struct Struct_ov025_021e9d14_6* var1 = (struct Struct_ov025_021e9d14_6*)func_ov000_02160f20(var0);
+    struct Struct_ov025_021e9d14_6* var1 = (struct Struct_ov025_021e9d14_6*)GetCurrentBattleAction_ov000_02160f20(var0);
     if (func_ov025_021def24(var0) != 0) {
         return;
     }
     GameState* var2 = GameState::GetInstance();
-    char* var3 = (char*)func_ov000_02160f08(GetBattleScene_ov000_02160130());
+    char* var3 = (char*)GetBattleUI_ov000_02160f08(GetBattleScene_ov000_02160130());
     struct Struct_ov025_021e9d14_5* var4 = var1->unknown_10_;
     if (func_ov000_0215feb4((char*)var4, 0, 5) != NULL) {
         return;
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov025_021e9d14(void) {
                 func_02078484(&var13);
                 var13.unknown_2c_.y += var8->obj3D_.GetHeight() / 2;
                 var13.unknown_14_ = var5;
-                func_02057fb4(var12, 0x10, &var13);
+                PlayEffect_02057fb4(var12, 0x10, &var13);
                 PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x65, 0);
             }
         }

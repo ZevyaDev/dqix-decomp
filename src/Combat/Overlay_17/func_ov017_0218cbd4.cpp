@@ -24,7 +24,7 @@ extern "C" int GetMessageWindow_020421a0();
 extern "C" Struct_0214e34c* func_020d7a50();
 extern "C" void* func_020e2ff8();
 extern "C" void func_ov017_0218d8cc(GameResources*);
-extern "C" unsigned char func_0200fb9c(char*);
+extern "C" unsigned char GetGameMode_0200fb9c(char*);
 extern "C" int func_0201201c(void*);
 void Stub(GameResources*);
 extern "C" void func_ov017_021941fc(GameResources*);
@@ -96,7 +96,7 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
     void* var10 = func_020e2ff8();
     func_ov017_0218d8cc(arg0);
     int var11 = 0;
-    if (func_0200fb9c((char*)var0) == 6 || func_0201201c(var0) == 5) var11 = 1;
+    if (GetGameMode_0200fb9c((char*)var0) == 6 || func_0201201c(var0) == 5) var11 = 1;
     int var12 = 0;
     if (TestFlags00(arg0, 0x4000)) var12 = 1;
     Stub(arg0);

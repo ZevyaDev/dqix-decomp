@@ -10,7 +10,7 @@ extern "C" int func_020deef4(int arg0, int arg1, int arg2, short* arg3, short ar
 
 extern "C" {
     void func_02072afc(int arg0, int* arg1, short* arg2);
-    void func_02052d7c(void* arg0, int arg1, int arg2);
+    void SetEquippedItem_02052d7c(void* gameObject, int slot, int itemId);
 }
 
 struct Struct_ov017_021d6b74 { int unknown_0_; int unknown_4_; };
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov017_021b3560(struct Struct_ov017_021b3560* arg0) {
         int var9 = data_ov017_021d6b78[var8].unknown_0_;
         short var10 = *(short*)((char*)var3 + var9 * 0x20 + 0x1ac);
         if (var10 != var5[var9]) {
-            func_02052d7c(var2, data_ov017_021d6b74[var8].unknown_0_, -1);
+            SetEquippedItem_02052d7c(var2, data_ov017_021d6b74[var8].unknown_0_, -1);
         }
     }
     return 1;

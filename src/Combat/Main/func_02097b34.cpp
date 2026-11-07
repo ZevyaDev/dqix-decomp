@@ -5,7 +5,7 @@ extern "C" void MapVRAMBanksToTextureImage(int handle);
 extern "C" void MapVRAMBanksToTexturePalette(int value);
 extern "C" void MapVRAMBanksToMainBG(int v);
 extern "C" void MapVRAMBanksToMainObj(int mode);
-extern "C" ARM void func_020bb48c(unsigned int arg0, int arg1);
+extern "C" ARM void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install);
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void MapVRAMBanksToSubObj(int value);
 void UpdateVRAMStagingVRAMBanks(void);
@@ -40,7 +40,7 @@ extern "C" ARM void func_02097b34(struct Struct_02097b34* arg0) {
             var1 = var1 + 1;
             var0 &= var0 - 1;
         }
-        func_020bb48c(var1, 1);
+        InitTextureImageVRAMAllocator_020bb48c(var1, 1);
     }
     if (arg0->unknown_1e_ & 2) {
         MapVRAMBanksToSubBG(arg0->unknown_10_);

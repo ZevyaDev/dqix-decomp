@@ -34,7 +34,7 @@ extern "C" void func_02078484(struct Struct_02078398_2* arg0);
 
 struct Vector3i;
 
-extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
+extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
@@ -72,7 +72,7 @@ extern "C" ARM int func_0207853c(struct Struct_0207853c_2* arg0) {
         *(Vector3i*)&var2.unknown_2c_ = *(Vector3i const*)&arg0->unknown_44_;
         const Vector3fix& var3 = ((Object3D*)arg0)->GetScale();
         *(Vector3i*)&var2.unknown_44_ = *(Vector3i const*)((int*)&var3);
-        func_02057fb4(var1, arg0->unknown_178_, &var2);
+        PlayEffect_02057fb4(var1, arg0->unknown_178_, &var2);
     }
 
     if (IsLocalWirelessOn_0202b7d8((int*)var0) && GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var0) == 0) {

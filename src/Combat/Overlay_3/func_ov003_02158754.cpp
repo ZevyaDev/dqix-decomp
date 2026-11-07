@@ -5,13 +5,13 @@
 #include "Resource/Brightness.h"
 
 extern "C" {
-void func_0207dfc8(void *, void *);
+void InitTextureVRAMAreaFromSaved_0207dfc8(void *, void *);
 void _ZN13SafeAllocator5ResetEv(void *);
 void ResetTextureVRAMState_0207df50(void *);
 void RestoreTextureVRAMState_0207df90(void *);
 void SaveTextureVRAMState_0207dfac(void *);
 void func_02059f38(void *, void *);
-void func_020407b4(void *, int, int, int);
+void SetObject3DPosition_020407b4(void *, int, int, int);
 int func_02098210(int, int);
 unsigned short *GetZone3D_02012fe4(void);
 }
@@ -71,7 +71,7 @@ extern "C" ARM int func_ov003_02158754(struct Struct_ov003_02158754_3 *arg0) {
         unsigned int var2 = 0;
         var0->GetLoadedFileByID(arg0->unknown_20c_, &var1, &var2);
         char *var3 = (char *) GetGameResources();
-        func_0207dfc8(var3 + Enum_ov003_02158754_716, arg0->unknown_210_);
+        InitTextureVRAMAreaFromSaved_0207dfc8(var3 + Enum_ov003_02158754_716, arg0->unknown_210_);
         _ZN13SafeAllocator5ResetEv((char *) arg0->unknown_0_ + 0x8c);
         ResetTextureVRAMState_0207df50(arg0->unknown_210_);
         RestoreTextureVRAMState_0207df90(arg0->unknown_210_);
@@ -99,11 +99,11 @@ extern "C" ARM int func_ov003_02158754(struct Struct_ov003_02158754_3 *arg0) {
                 if (var8 != 0 && func_02098210((int) ((char *) var9 + Enum_ov003_02158754_2112), var10) != 0) {
                     if (var8->unknown_2_ == 0x2347 || var8->unknown_2_ == 0x2348 || var8->unknown_2_ == 0x2349) {
                         if (var8->unknown_2_ == 0x2347) {
-                            func_020407b4(var4, 0x2347 - 0x2200, 0x266, -13230);
+                            SetObject3DPosition_020407b4(var4, 0x2347 - 0x2200, 0x266, -13230);
                         } else if (var8->unknown_2_ == 0x2348) {
-                            func_020407b4(var4, -7823, 0x266, -13230);
+                            SetObject3DPosition_020407b4(var4, -7823, 0x266, -13230);
                         } else if (var8->unknown_2_ == 0x2349) {
-                            func_020407b4(var4, 0x2d70, 0x266, -13230);
+                            SetObject3DPosition_020407b4(var4, 0x2d70, 0x266, -13230);
                         }
                         const Vector3fix &var12 = var7->GetScale();
                         var4->SetScale(&var12);

@@ -3,7 +3,6 @@
 #include "NitroSDK/NSBXX/RenderCommands_Common.h"
 
 #if defined(jpn)
-#define func_020ca390 func_020cbe5c
 
 #define data_020f1c74 data_020f1de0
 #endif
@@ -11,7 +10,7 @@
 extern "C"
 {
     // memset 
-    void func_020ca390(int value, void* dst, unsigned len);
+    void Memset16Bit_020ca390(int value, void* dst, unsigned len);
 }
 
 void CalculateBoneMatrixRenderDataFromJAC(NSBXXAnimationJAC* jac, int arg,
@@ -56,7 +55,7 @@ void InitializeModelAnimationFromJAC(AnimationData* anim, void* pvJAC, NSBXXInte
     anim->pRawData_ = jac;
     anim->callback_ = data_020f1c74;
     anim->numEntries_ = model->numBoneMatrices_;
-    func_020ca390(0, anim->entries_, 2 * anim->numEntries_);
+    Memset16Bit_020ca390(0, anim->entries_, 2 * anim->numEntries_);
 
     unsigned int trackIdx;
     uint16_t* trackOffsets = jac->trackOffsets_;

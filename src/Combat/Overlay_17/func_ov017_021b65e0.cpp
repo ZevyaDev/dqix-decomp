@@ -10,8 +10,8 @@ enum { Enum_ov017_021b65e0_2816 = 0xb00, Enum_ov017_021b65e0_1788 = 0x6fc };
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
-struct Struct_0202b2f0;
-extern "C" int func_0202bd34(struct Struct_0202b2f0* arg0, int arg1);
+struct LocalWireless_0202b2f0;
+extern "C" int func_0202bd34(struct LocalWireless_0202b2f0* arg0, int arg1);
 
 struct Struct_ov017_021b65e0;
 extern "C" void func_ov017_021b6790(Struct_ov017_021b65e0* arg0);
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov017_021b65e0(unsigned char* arg0, int arg1) {
 	bool var2 = true;
 	if (arg1 == 0 && IsLocalWirelessOn_0202b7d8((int*)var1) && IsNotLocalWirelessGuest_0202c508(var1) != 0) {
 		for (int var3 = 0; var3 < 4; var3++) {
-			if (func_0202bd34((struct Struct_0202b2f0*)var1, var3)) {
+			if (func_0202bd34((struct LocalWireless_0202b2f0*)var1, var3)) {
 				if (var0->GetGameObjectByIndex(var3) == NULL) {
 					var2 = false;
 				}

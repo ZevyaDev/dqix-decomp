@@ -16,7 +16,7 @@ struct Struct_ov023_021e5974_2
     unsigned int unknown_6_4_ : 12;
 };
 
-struct Struct_02015ef4_4
+struct ItemData_02015ef4_4
 {
     Struct_ov023_021e5974_2* unknown_0_;
     int unknown_4_;
@@ -27,7 +27,7 @@ struct Struct_02015ef4_4
     unsigned int unknown_13_4_ : 4;
     short unknown_14_;
     short unknown_16_;
-    short unknown_18_;
+    short itemId_18_;
 };
 
 struct Struct_ov023_021e5974_3
@@ -85,8 +85,8 @@ struct Struct_ov023_021fd678
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov023_021e5fdc(void* arg0, short* arg1, short* arg2);
-extern "C" Struct_02015ef4_4* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
-extern "C" unsigned short func_020de234(Struct_02015ef4_4* arg0, int arg1);
+extern "C" ItemData_02015ef4_4* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
+extern "C" unsigned short GetItemGraphicNumber_020de234(ItemData_02015ef4_4* item, int gender);
 extern "C" void func_ov023_021e61a0(Struct_ov023_021e5974* arg0);
 
 extern const int data_ov023_021fd698[5];
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov023_021e5974(Struct_ov023_021e5974* arg0, Struct_ov02
     arg0->unknown_0_[3].unknown_2_ = -1;
     arg0->unknown_0_[4].unknown_2_ = -1;
     FindItemData_020dedd0(arg0->unknown_c0c_, var2[7]);
-    Struct_02015ef4_4* var7[10] = {0};
+    ItemData_02015ef4_4* var7[10] = {0};
     var7[0] = FindItemData_020dedd0(arg0->unknown_c0c_, var2[0]);
     var7[7] = FindItemData_020dedd0(arg0->unknown_c0c_, var2[7]);
     arg0->unknown_c1c_ = arg0->unknown_0_[0].rotation_.y;
@@ -154,7 +154,7 @@ extern "C" ARM void func_ov023_021e5974(Struct_ov023_021e5974* arg0, Struct_ov02
                 var2[5] = -1;
             continue;
         }
-        Struct_02015ef4_4* var11 = FindItemData_020dedd0(arg0->unknown_c0c_, var2[var10]);
+        ItemData_02015ef4_4* var11 = FindItemData_020dedd0(arg0->unknown_c0c_, var2[var10]);
         if (var11 == NULL)
         {
             arg0->unknown_0_[var10].Initialize();
@@ -171,10 +171,10 @@ extern "C" ARM void func_ov023_021e5974(Struct_ov023_021e5974* arg0, Struct_ov02
         else
         {
             int var13;
-            Struct_02015ef4_4* var14 = var7[0];
-            Struct_02015ef4_4* var15 = var7[7];
+            ItemData_02015ef4_4* var14 = var7[0];
+            ItemData_02015ef4_4* var15 = var7[7];
             int var16 = arg1->unknown_488_.unknown_14_0_;
-            var13 = func_020de234(var11, var16);
+            var13 = GetItemGraphicNumber_020de234(var11, var16);
             Struct_ov023_021fd678 var17 = data_ov023_021fd678;
             char var18[2] = {0};
 
@@ -189,9 +189,9 @@ extern "C" ARM void func_ov023_021e5974(Struct_ov023_021e5974* arg0, Struct_ov02
             {
                 var18[0] = 'a';
                 var18[1] = 0;
-                if (var15 != NULL && var15->unknown_18_ > -1)
+                if (var15 != NULL && var15->itemId_18_ > -1)
                 {
-                    unsigned int var19 = (unsigned int)func_020de234(var15, var16) / 100;
+                    unsigned int var19 = (unsigned int)GetItemGraphicNumber_020de234(var15, var16) / 100;
                     if (var19 < 10)
                     {
                         char var20 = data_ov023_021fd680[var19];
@@ -215,9 +215,9 @@ extern "C" ARM void func_ov023_021e5974(Struct_ov023_021e5974* arg0, Struct_ov02
             {
                 var3 = var6->unknown_0_[4];
                 if (var3 == 0x1f4a || var3 < 0)
-                    var13 = func_020de234(var14, var16);
+                    var13 = GetItemGraphicNumber_020de234(var14, var16);
             }
-            if (var11->unknown_18_ == 1000)
+            if (var11->itemId_18_ == 1000)
                 var13 += arg1->unknown_56a_;
             sprintf(var0, data_ov023_021fdd1c, (char)var11->unknown_12_4_, var13, var18, var17.unknown_0_);
             var12 = true;
@@ -233,8 +233,8 @@ extern "C" ARM void func_ov023_021e5974(Struct_ov023_021e5974* arg0, Struct_ov02
     arg0->unknown_c13_ = 1;
     if (arg0->unknown_c13_)
     {
-        Struct_02015ef4_4* var21 = FindItemData_020dedd0(arg0->unknown_c0c_, var2[0]);
-        Struct_02015ef4_4* var22 = FindItemData_020dedd0(arg0->unknown_c0c_, var2[8]);
+        ItemData_02015ef4_4* var21 = FindItemData_020dedd0(arg0->unknown_c0c_, var2[0]);
+        ItemData_02015ef4_4* var22 = FindItemData_020dedd0(arg0->unknown_c0c_, var2[8]);
         unsigned char var23 = 0;
         if (var22 != NULL)
             var23 = var22->unknown_0_->unknown_5_4_;

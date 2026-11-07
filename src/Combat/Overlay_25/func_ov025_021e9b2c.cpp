@@ -31,7 +31,7 @@ struct Struct_ov025_021e9778_3 {
 extern unsigned int data_ov025_021ef9a4;
 
 extern "C" void* GetBattleScene_ov000_02160130(void);
-extern "C" BattleAction_ov000_0215440c* func_ov000_02160f20(void* arg0);
+extern "C" BattleAction_ov000_0215440c* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" void func_ov025_021df9b0(void* arg0);
 struct Struct_ov000_02163a7c;
 extern "C" void func_ov000_02163a7c(Struct_ov000_02163a7c*);
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov025_021e9b2c(Struct_ov025_021e9778_3* arg0) {
 #endif
     GameState::GetInstance();
     void* var0 = GetBattleScene_ov000_02160130();
-    BattleAction_ov000_0215440c* var1 = func_ov000_02160f20(var0);
+    BattleAction_ov000_0215440c* var1 = GetCurrentBattleAction_ov000_02160f20(var0);
     if (data_ov025_021ef9a4 & 8) {
         func_ov025_021eb6fc(arg0, 0);
         func_ov025_021ea474(arg0);

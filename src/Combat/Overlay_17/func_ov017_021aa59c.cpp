@@ -35,12 +35,12 @@ struct Struct_0207fd44_2;
 struct Struct_0207fd88;
 struct Struct_02081f20_2;
 struct Struct_ov017_021aa59c_4;
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 struct Struct_0207fc6c;
 struct Struct_ov017_021aa59c_5;
 struct Struct_ov017_021aa59c_6;
 struct SoundEffectManager_02108760;
-struct Struct_0207fe44;
+struct MenuLayout_0207fe44;
 struct GlobalFlags_02038598_4;
 struct Queue_02038598_5;
 
@@ -54,7 +54,7 @@ extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int func_02086b98(struct Struct_0201bdac_4* arg0);
 extern "C" void func_ov017_021ab010(void* arg0, int arg1);
 extern "C" int func_02046c78(struct Struct_02046c78* arg0);
-extern "C" void func_0209c678(struct MusicManager_02109bf4_4* arg0, int arg1);
+extern "C" void StopMusic_0209c678(struct MusicManager_02109bf4_4* manager, int fadeDuration);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void LoadFileTables_020a0c0c(void);
@@ -82,14 +82,14 @@ extern "C" void func_0207fd88(struct Struct_0207fd88* arg0);
 extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 extern "C" void func_020813ec(void* arg0, int arg1);
 extern "C" void func_ov017_021ab060(struct Struct_ov017_021aa59c_4* arg0);
-extern "C" void* func_02081da8(struct Struct_0207fdcc_2* arg0, int arg1);
+extern "C" void* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" void func_0207fc6c(struct Struct_0207fc6c* arg0, int arg1);
 extern "C" void func_02081f20(void* arg0, int arg1);
 extern "C" int func_020800fc(void* arg0, short* arg1, short arg2, unsigned short arg3, unsigned char arg4, bool arg5);
 extern "C" void func_020804fc(void* arg0, int arg1);
 extern "C" int func_ov017_021ab0c0(struct Struct_ov017_021aa59c_5* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" void func_0207fe44(struct Struct_0207fe44* arg0);
+extern "C" void CloseMenuLayoutWindows_0207fe44(struct MenuLayout_0207fe44* menuLayout);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" int func_ov017_021ab1a4(struct Struct_ov017_021aa59c_6* arg0);
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
@@ -99,7 +99,7 @@ extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
 extern "C" void func_02046a8c(struct Queue_02038598_5* arg0, void* arg1);
 extern "C" void func_02010604(GameState* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0201075c(char* arg0, unsigned char arg1);
-extern "C" void func_0209c20c(struct Struct_02109bf4_3* arg0);
+extern "C" void ResetMusic_0209c20c(struct Struct_02109bf4_3* manager);
 
 extern AllocatorUnion gMainHeap_02114e20;
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
@@ -186,7 +186,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
         return;
     }
 
-    func_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
+    StopMusic_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
     BackgroundLoader* var5 = BackgroundLoader::GetInstance();
     int var6 = arg0->unknown_14_;
     if (var6 == 0) {
@@ -301,7 +301,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
         bool var23 = false;
         void* var24;
         Struct_0207f7f0* var25 = arg0->unknown_18_;
-        var24 = func_02081da8((Struct_0207fdcc_2*)var25, arg0->unknown_48_);
+        var24 = func_02081da8((MenuLayout_0207fdcc_2*)var25, arg0->unknown_48_);
         if (var25 != NULL) {
             if (var24 != NULL) {
                 int var26 = var2->GetTickCount();
@@ -328,7 +328,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
                     func_0208203c((Struct_02081f20_2*)arg0->unknown_3c_);
                     arg0->unknown_44_ = NULL;
                     if (arg0->unknown_4c_ == 0) {
-                        func_0207fe44((Struct_0207fe44*)arg0->unknown_18_);
+                        CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)arg0->unknown_18_);
                         SetGlobalFlags_020466e4(var4, 0x200);
                     } else if (arg0->unknown_4c_ == 1) {
                         var22 = true;
@@ -348,7 +348,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
             arg0->unknown_64_ = true;
         }
         if (var23 && var25 != NULL && var24 != NULL) {
-            func_0207fe44((Struct_0207fe44*)arg0->unknown_18_);
+            CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)arg0->unknown_18_);
             SetGlobalFlags_020466e4(var4, 0x200);
         }
     } else if (var6 == 6) {
@@ -371,7 +371,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
             func_0201075c((char*)var2, 0);
             DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_c_ << 8);
             LoadFileTables_020a0c0c();
-            func_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
+            ResetMusic_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
             func_ov017_021aaf08(arg0);
             arg0->unknown_1_ = 1;
         }

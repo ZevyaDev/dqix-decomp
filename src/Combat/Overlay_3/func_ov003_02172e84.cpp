@@ -195,7 +195,7 @@ extern "C" Struct_ov003_02172e84_6 *GetZone3D_02012fe4(void);
 extern "C" void __clear(void *arg0, int arg1);
 extern "C" void func_02042764(Struct_ov003_02172e84_9 *arg0, char *arg1, int arg2);
 extern "C" void *ExtractFileFromGP2(const char *arg0, const char *arg1, unsigned int *arg2);
-extern "C" char *func_020e046c(char *arg0, void *arg1, unsigned int arg2, int arg3);
+extern "C" char *CopyStringFromTableFile_020e046c(char *buffer, void *fileData, unsigned int fileSize, int stringId);
 extern "C" void func_ov003_0217bd38(void *arg0, int arg1);
 extern "C" unsigned char func_ov017_021b1fa8(void *arg0);
 extern "C" void *GetLocalWireless_0202ae18(void);
@@ -377,7 +377,7 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
                 sprintf(var28, data_ov003_02180a63, var24->unknown_6c_.unknown_3_1_);
                 void *var29 = ExtractFileFromGP2(var27, var28, &var26);
                 if (var29 != 0) {
-                    func_020e046c(arg0->unknown_44_, var29, var26, (short) var24->unknown_6c_.unknown_6_3_);
+                    CopyStringFromTableFile_020e046c(arg0->unknown_44_, var29, var26, (short) var24->unknown_6c_.unknown_6_3_);
                 }
                 BackgroundLoader::RemoveLockGlobal();
             } else {

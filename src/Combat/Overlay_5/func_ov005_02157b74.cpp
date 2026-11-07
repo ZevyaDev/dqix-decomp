@@ -85,14 +85,14 @@ struct Struct_ov005_02157b74_2 {
 };
 
 extern "C" GameState* _ZN9GameState11GetInstanceEv();
-extern "C" Struct_ov005_02157b74_9* func_ov017_021a193c(int*);
+extern "C" Struct_ov005_02157b74_9* GetEquipMenu_ov017_021a193c(int*);
 extern "C" Struct_ov005_02157b74_8* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" char* GetParty_02010828(GameState* gameState);
 struct Struct_02052df8;
-extern "C" short func_02052df8(Struct_02052df8*, int);
+extern "C" short GetEquippedItem_02052df8(Struct_02052df8*, int);
 struct ItemTable_0201099c_10;
 extern "C" Struct_ov005_02157b74_5* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
-extern "C" void func_02052d7c(Struct_ov005_02157b74_8* arg0, int arg1, short arg2);
+extern "C" void SetEquippedItem_02052d7c(Struct_ov005_02157b74_8* gameObject, int slot, short itemId);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" void func_0208358c(void* arg0, Struct_ov005_02157b74_5* arg1, int arg2);
 extern "C" void func_02083738(void* arg0, int arg1);
@@ -103,13 +103,13 @@ extern "C" Struct_ov005_02157b74_7* func_02052e2c(Struct_02052e2c*);
 extern "C" int func_ov005_0215840c(Struct_ov005_02157b74_2* arg0, int arg1);
 extern "C" void func_02083e28(void* arg0, int arg1);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0207c378(char* arg0, short arg1, int arg2, int arg3);
+extern "C" void AddEquipmentToBag_0207c378(char* bag, short itemId, int count, int category);
 extern "C" void func_ov005_021551fc(char*, int, int);
 extern "C" void func_ov005_02155544(Struct_ov005_02157b74_2* arg0);
 extern "C" void func_ov005_021555c0(Struct_ov005_02157b74_2* arg0);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
-extern "C" int func_020dd4c4(signed char arg0, Struct_ov005_02157b74_5* arg1);
+extern "C" int GetEquipRestrictions_020dd4c4(signed char memberIndex, Struct_ov005_02157b74_5* item);
 struct Struct_020deda4;
 extern "C" Struct_ov005_02157b74_6* func_020deda4(int, int, Struct_020deda4*);
 extern "C" void func_020483f0(unsigned char*, unsigned short);
@@ -131,7 +131,7 @@ extern unsigned char data_ov005_0215cd30[];
 extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1, int arg2) {
     char* var0;
     GameState* var1 = _ZN9GameState11GetInstanceEv();
-    Struct_ov005_02157b74_9* var2 = func_ov017_021a193c((int*)(*(int*)((char*)GetGameResources() + LOW_REGION(0x34f8, 0x3708))));
+    Struct_ov005_02157b74_9* var2 = GetEquipMenu_ov017_021a193c((int*)(*(int*)((char*)GetGameResources() + LOW_REGION(0x34f8, 0x3708))));
     int var3;
     int var4 = var2->unknown_4fc_;
     Struct_ov005_02157b74_8* var5 = GetPartyMemberBaseByIndex_0200ff1c(var1, var4);
@@ -141,7 +141,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
 
     if (arg1 == 0xffff) {
         int var6 = data_ov005_0215cd40[arg0->unknown_3dbc_];
-        short var7 = func_02052df8((Struct_02052df8*)var5, var6);
+        short var7 = GetEquippedItem_02052df8((Struct_02052df8*)var5, var6);
         Struct_ov005_02157b74_5* var8 = FindItemData_020dedd0((ItemTable_0201099c_10*)arg0->unknown_df4_, (short)var7);
         if (var8 == 0) return;
 
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
             var3 = 0;
             var9 = 0x3e8;
         }
-        func_02052d7c(var5, var6, -1);
+        SetEquippedItem_02052d7c(var5, var6, -1);
         void* var10 = GetPartyMemberData_02053c6c((unsigned char*)var5);
         Struct_ov005_02157b74_5* var11 = FindItemData_020dedd0((ItemTable_0201099c_10*)arg0->unknown_df4_, (short)var9);
         if (var11 != 0) {
@@ -184,10 +184,10 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
         func_ov017_021c9e00(var5->unknown_4_, 0, 0, 1);
         var2->unknown_634_ |= 4;
         if (arg2 == 0) {
-            func_0207c378(var0 + 0x1d4, var7, 1, data_ov005_0215cd38[arg0->unknown_3dbc_]);
+            AddEquipmentToBag_0207c378(var0 + 0x1d4, var7, 1, data_ov005_0215cd38[arg0->unknown_3dbc_]);
         }
         arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_ = -1;
-        func_ov005_021551fc((char*)arg0, func_ov017_021a193c((int*)(*(int*)((char*)GetGameResources() + LOW_REGION(0x34f8, 0x3708))))->unknown_4fc_, 1);
+        func_ov005_021551fc((char*)arg0, GetEquipMenu_ov017_021a193c((int*)(*(int*)((char*)GetGameResources() + LOW_REGION(0x34f8, 0x3708))))->unknown_4fc_, 1);
         func_ov005_02155544(arg0);
         arg0->unknown_3dcc_ |= 0x10;
         arg0->unknown_3da8_ = 0;
@@ -225,7 +225,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
     case 0x63: var15 = 9; break;
     }
 
-    int var16 = func_020dd4c4(var5->unknown_4_, var13);
+    int var16 = GetEquipRestrictions_020dd4c4(var5->unknown_4_, var13);
     if (var16 != 0) {
         if (var16 & 0x100) {
             arg0->unknown_3dd1_ = 5;
@@ -233,7 +233,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
         }
         if (var16 & 0x80) {
             arg0->unknown_3dd1_ = 2;
-            if (func_02052df8((Struct_02052df8*)var5, 9) == 0x4680) {
+            if (GetEquippedItem_02052df8((Struct_02052df8*)var5, 9) == 0x4680) {
                 arg0->unknown_3dd1_ = 7;
             }
             return;
@@ -256,7 +256,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
         return;
     }
 
-    short var17 = func_02052df8((Struct_02052df8*)var5, var15);
+    short var17 = GetEquippedItem_02052df8((Struct_02052df8*)var5, var15);
     if (var17 == (short)arg1) return;
 
     Struct_ov005_02157b74_5* var18 = FindItemData_020dedd0((ItemTable_0201099c_10*)arg0->unknown_df4_, (short)var17);
@@ -272,7 +272,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
                 arg0->unknown_3dd1_ = 0xe;
             }
         }
-        func_02052d7c(var5, var15, (unsigned short)arg1);
+        SetEquippedItem_02052d7c(var5, var15, (unsigned short)arg1);
         void* var19 = GetPartyMemberData_02053c6c((unsigned char*)var5);
         func_0208358c(var19, var13, -1);
         func_02083e28(var19, 0);
@@ -280,7 +280,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
         if (var13->unknown_8_0_ == 7) {
             func_ov005_021583fc((Struct_ov005_02157b74_3*)var5, 1);
         }
-        func_ov005_021551fc((char*)arg0, func_ov017_021a193c((int*)(*(int*)((char*)GetGameResources() + LOW_REGION(0x34f8, 0x3708))))->unknown_4fc_, 1);
+        func_ov005_021551fc((char*)arg0, GetEquipMenu_ov017_021a193c((int*)(*(int*)((char*)GetGameResources() + LOW_REGION(0x34f8, 0x3708))))->unknown_4fc_, 1);
     }
 
     if (var14 == 0x62) {
@@ -317,11 +317,11 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
         if (var24 >= 0) {
             func_0207cb38((Struct_0207cb38*)(var0 + 0x1d4), var24, var21, var17, 1);
         } else {
-            func_0207c378(var0 + 0x1d4, var17, 1, var21);
+            AddEquipmentToBag_0207c378(var0 + 0x1d4, var17, 1, var21);
         }
     } else {
         func_0207c484(var0 + 0x1d4, arg1, 1, var21);
-        func_0207c378(var0 + 0x1d4, var17, 1, var21);
+        AddEquipmentToBag_0207c378(var0 + 0x1d4, var17, 1, var21);
     }
 
     func_ov023_021e4e1c(var2, var4, arg1, data_ov005_0215cd30[arg0->unknown_3dbc_]);

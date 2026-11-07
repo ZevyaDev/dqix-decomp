@@ -28,7 +28,7 @@ struct Struct_0201d638_3 { unsigned short unknown_0_0_ : 4; unsigned short unkno
 extern "C" ARM int func_0201d638(Script::Parameter* arg0, int arg1) {
     if (data_020fdc20.unknown_0_ == 0) return 0;
 
-    void* var0 = func_02011584((void*)GameState::GetInstance());
+    void* var0 = GetZoneList_02011584((void*)GameState::GetInstance());
 
     switch (W(4)) {
     case 0:

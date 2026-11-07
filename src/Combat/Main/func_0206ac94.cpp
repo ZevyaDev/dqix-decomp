@@ -32,7 +32,7 @@ extern "C" bool func_02044494(void* arg0, void* arg1);
 extern "C" bool func_0206ac6c(void* arg0, void* arg1);
 extern "C" int CompareBytes_02001aec(unsigned char* left, unsigned char* right, int count);
 extern "C" int func_0206abf8(void* arg0, void* arg1);
-extern "C" struct FontGlyph_0204254c* func_0204254c(int arg0, int arg1);
+extern "C" struct FontGlyph_0204254c* FindFontGlyph_0204254c(int text, int font);
 
 // USA: func_0206ac94
 extern "C" ARM int func_0206ac94(void* arg0, unsigned short arg1, unsigned char* arg2) {
@@ -60,7 +60,7 @@ extern "C" ARM int func_0206ac94(void* arg0, unsigned short arg1, unsigned char*
         } else {
             struct FontGlyph_0204254c* var3;
             int var4 = 1;
-            var3 = func_0204254c((int)var1, *(unsigned char*)((char*)arg0 + 0x19dc));
+            var3 = FindFontGlyph_0204254c((int)var1, *(unsigned char*)((char*)arg0 + 0x19dc));
             if (var3) {
                 var4 = var3->codeLength_5_0_;
             }

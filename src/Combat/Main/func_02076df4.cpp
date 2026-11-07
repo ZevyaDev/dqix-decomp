@@ -17,7 +17,7 @@ extern "C" unsigned short func_02079040(struct Struct_02076df4* arg0, unsigned c
 
 extern "C" unsigned short func_02078e60(void* arg0, char* arg1);
 
-extern "C" int func_02076ccc(void*, int);
+extern "C" int SetFieldMonsterState_02076ccc(void*, int);
 
 struct Struct_02076df4_2 {
     char unknown_0_[0x134];
@@ -85,22 +85,22 @@ extern "C" ARM void func_02076df4(struct Struct_02076df4_2* arg0) {
             arg0->unknown_164_ = func_02078e60((void*)arg0, (char*)&var10);
         }
         if (var11 == 0 && var10 == 0) {
-            func_02076ccc(arg0, 2);
+            SetFieldMonsterState_02076ccc(arg0, 2);
             return;
         }
         if ((var9 == arg0->unknown_164_ && var11 == 0) || var10 != 0) {
-            func_02076ccc(arg0, 1);
+            SetFieldMonsterState_02076ccc(arg0, 1);
         } else {
-            func_02076ccc(arg0, 2);
+            SetFieldMonsterState_02076ccc(arg0, 2);
         }
         return;
     case 2:
         arg0->unknown_17d_ |= 0x40;
         arg0->unknown_164_ = func_02078e60((void*)arg0, (char*)&var10);
         if (var9 == arg0->unknown_164_ && var11 == 0) {
-            func_02076ccc(arg0, 1);
+            SetFieldMonsterState_02076ccc(arg0, 1);
         } else {
-            func_02076ccc(arg0, 3);
+            SetFieldMonsterState_02076ccc(arg0, 3);
         }
         return;
     }

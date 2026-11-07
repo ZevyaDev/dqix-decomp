@@ -2,9 +2,6 @@
 #include "NitroSDK/Interrupts.h"
 #include "NitroSDK/IPC.h"
 
-#if defined(jpn)
-#define func_020ca390 func_020cbe5c
-#endif
 
 struct Struct_ov027_021dca40 {
 	unsigned char unknown_0_[0x32];
@@ -55,7 +52,7 @@ extern "C" void func_ov027_021d8a40(void* arg0);
 extern "C" void func_ov027_021dd5a4(int arg0);
 extern "C" void func_ov027_021dd5d4(void* arg0);
 extern "C" void func_ov027_021dadf0(void);
-extern "C" void func_020ca390(int val, void* dst, unsigned int size);
+extern "C" void Memset16Bit_020ca390(int val, void* dst, unsigned int size);
 extern "C" int func_ov027_021dc96c(void);
 extern "C" void func_ov027_021d8c94(void);
 extern "C" void func_ov027_021db524(void);
@@ -73,7 +70,7 @@ extern "C" ARM int func_ov027_021dca40(int arg0) {
 		(unsigned char*)(((unsigned int)data_ov027_021e33e0.unknown_c_ + sizeof(Struct_ov027_021dca40_2) + 31) & ~31);
 	var2 = data_ov027_021e33e0.unknown_c_->unknown_14e4_;
 
-	func_020ca390(0, (void*)((unsigned int)data_ov027_021e33e0.unknown_c_ + 0x1340), sizeof(Struct_ov027_021dca40_2) - 0x1340);
+	Memset16Bit_020ca390(0, (void*)((unsigned int)data_ov027_021e33e0.unknown_c_ + 0x1340), sizeof(Struct_ov027_021dca40_2) - 0x1340);
 	func_ov027_021d8a40(var2);
 
 	data_ov027_021e33e0.unknown_c_->unknown_1318_ = data_ov027_021e33e0.unknown_8_->unknown_500_ - 6;
@@ -88,7 +85,7 @@ extern "C" ARM int func_ov027_021dca40(int arg0) {
 
 	data_ov027_021e33e0.unknown_c_->unknown_1524_ = 0;
 
-	func_020ca390(0, data_ov027_021e33e0.unknown_c_->unknown_1788_, sizeof(data_ov027_021e33e0.unknown_c_->unknown_1788_));
+	Memset16Bit_020ca390(0, data_ov027_021e33e0.unknown_c_->unknown_1788_, sizeof(data_ov027_021e33e0.unknown_c_->unknown_1788_));
 	VectorizedMemset(data_ov027_021e33e0.unknown_c_->unknown_1754_, 0, sizeof(data_ov027_021e33e0.unknown_c_->unknown_1754_));
 
 	data_ov027_021e33e0.unknown_8_->unknown_524_ = 1;

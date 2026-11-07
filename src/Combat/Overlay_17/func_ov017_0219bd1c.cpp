@@ -12,7 +12,7 @@ struct Struct_02000c9c_54;
 extern "C" Struct_02000c9c_54* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void func_02046a8c(void* arg0, void* arg1);
 extern "C" unsigned char func_ov017_0219bcac(unsigned char arg0);
-extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int arg1);
 struct Struct_020469f8;
 struct Struct_020469f8_2;
 extern "C" void func_020469f8(struct Struct_020469f8* arg0, struct Struct_020469f8_2* arg1);
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov017_0219bd1c(int arg0, unsigned char arg1, int arg2, 
     func_ov017_0219bcac(arg3);
     var3->unknown_2_ = 0;
     var3->unknown_6e_ = arg1;
-    func_ov017_0219e310((unsigned char*)var5, 0);
+    ResetZoneLoadTask_ov017_0219e310((unsigned char*)var5, 0);
     if (arg0) {
         func_020469f8((struct Struct_020469f8*)var4, (struct Struct_020469f8_2*)var5);
     } else if (arg2) {

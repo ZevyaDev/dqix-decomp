@@ -27,7 +27,7 @@ extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(TextWindowManager_02
 struct TextWindowManager_0205d274;
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274*);
 struct TextWindowManager_0205d2bc;
-extern "C" void func_0205d2bc(TextWindowManager_0205d2bc*);
+extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(TextWindowManager_0205d2bc*);
 extern "C" void ResetTextWindowManager_0205d048(void* windowManager);
 extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov003_02168324(char* arg0) {
 
     ClearTextWindowManagerBGScreenData_0205d1e0((TextWindowManager_0205d1e0*)(arg0 + Enum_ov003_02168324_228));
     FlushTextWindowManagerBGScreenData_0205d274((TextWindowManager_0205d274*)(arg0 + Enum_ov003_02168324_228));
-    func_0205d2bc((TextWindowManager_0205d2bc*)(arg0 + Enum_ov003_02168324_228));
+    CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((TextWindowManager_0205d2bc*)(arg0 + Enum_ov003_02168324_228));
     ResetTextWindowManager_0205d048(arg0 + Enum_ov003_02168324_228);
 
     memset(*(void**)(arg0 + 0x7c), 0, 0x20);

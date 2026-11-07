@@ -16,7 +16,7 @@ extern "C" int func_ov000_0217c594(void* arg0, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void* func_ov000_021815e4(char* arg0);
 extern "C" int func_ov000_021815c8(void* arg0);
-extern "C" int func_020dd4c4(int arg0, void* arg1);
+extern "C" int GetEquipRestrictions_020dd4c4(int memberIndex, void* item);
 extern "C" struct Struct_ov000_021735d0_2* func_ov000_0217f8c0(struct Struct_ov000_021735d0_3* arg0);
 extern "C" void func_ov000_02176634(void* arg0, struct Struct_ov000_021735d0_2* arg1, int arg2, int arg3, int arg4);
 extern "C" int func_ov000_0217c5f4(void* arg0);
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov000_0217db4c(struct Struct_ov000_0217db4c* arg0, int 
         arg0->unknown_240_ = 7;
         void* var2 = func_ov000_021815e4((char*)arg0);
 #if defined(jpn)
-        int var3 = func_020dd4c4(func_ov000_021815c8(arg0), var2);
+        int var3 = GetEquipRestrictions_020dd4c4(func_ov000_021815c8(arg0), var2);
         if (var3 != 0) {
             for (unsigned char var4 = 0; data_ov000_02184704[var4] != 0; var4++) {
                 if (var3 & data_ov000_02184704[var4]) {
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov000_0217db4c(struct Struct_ov000_0217db4c* arg0, int 
             return;
         }
 #else
-        func_020dd4c4(func_ov000_021815c8(arg0), var2);
+        GetEquipRestrictions_020dd4c4(func_ov000_021815c8(arg0), var2);
 #endif
         arg0->unknown_1d68_++;
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 0x20;

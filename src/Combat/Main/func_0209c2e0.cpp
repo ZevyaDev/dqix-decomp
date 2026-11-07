@@ -9,26 +9,26 @@ extern float data_020e8ec4[];
 struct Struct_0209c2e0 {
     char unknown_0_[0xc8];
     unsigned char unknown_c8_0_ : 1;
-    unsigned char unknown_c8_1_ : 1;
+    unsigned char isVolumeHalved_c8_1_ : 1;
     unsigned char unknown_c8_2_ : 6;
     char unknown_c9_[3];
-    unsigned char unknown_cc_;
-    unsigned char unknown_cd_;
+    unsigned char volumeLevel_cc_;
+    unsigned char volume_cd_;
 };
 
-// USA: func_0209c2e0
-extern "C" ARM void func_0209c2e0(Struct_0209c2e0* arg0, int arg1, int arg2) {
-    arg0->unknown_cd_ = (unsigned char)arg1;
-    int var0 = arg0->unknown_cc_;
-    float var1 = ((float)var0 - 1.0f) / 4.0f;
-    int var2 = (int)((float)arg0->unknown_cd_ * var1);
-    if (arg0->unknown_c8_1_) {
-        var2 = var2 / 2;
+// USA: SetMusicVolume_0209c2e0
+extern "C" ARM void SetMusicVolume_0209c2e0(Struct_0209c2e0* manager, int volume, int fadeDuration) {
+    manager->volume_cd_ = (unsigned char)volume;
+    int volumeLevel = manager->volumeLevel_cc_;
+    float levelScale = ((float)volumeLevel - 1.0f) / 4.0f;
+    int trackVolume = (int)((float)manager->volume_cd_ * levelScale);
+    if (manager->isVolumeHalved_c8_1_) {
+        trackVolume = trackVolume / 2;
     }
-    func_020bc180((Struct_0209c2e0_2*)((char*)arg0 + 0xbc), var2, arg2);
-    func_020bc180((Struct_0209c2e0_2*)((char*)arg0 + 0xc0), var2, arg2);
-    int var3 = (int)((float)arg0->unknown_cd_ * data_020e8ec4[arg0->unknown_cc_ - 1]);
-    func_020bbf34(5, var3);
-    func_020bbf34(7, var3);
-    func_020bbf34(6, var3);
+    func_020bc180((Struct_0209c2e0_2*)((char*)manager + 0xbc), trackVolume, fadeDuration);
+    func_020bc180((Struct_0209c2e0_2*)((char*)manager + 0xc0), trackVolume, fadeDuration);
+    int groupVolume = (int)((float)manager->volume_cd_ * data_020e8ec4[manager->volumeLevel_cc_ - 1]);
+    func_020bbf34(5, groupVolume);
+    func_020bbf34(7, groupVolume);
+    func_020bbf34(6, groupVolume);
 }

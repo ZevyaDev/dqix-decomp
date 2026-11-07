@@ -90,7 +90,7 @@ extern "C" int func_ov024_021eb08c(struct Struct_ov024_021da9e0_2* arg0, int arg
 extern "C" void func_ov000_0215a908(void* arg0, int arg1);
 extern "C" unsigned short func_ov024_021e9b24(struct Struct_ov024_021da9e0_2* arg0, int arg1, struct Struct_ov024_021da9e0_8* arg2, int arg3);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
-extern "C" void func_ov000_0215ccbc(void* arg0, void* arg1, GameObject* arg2, short arg3, short arg4, short arg5, unsigned long long arg6, unsigned char arg7);
+extern "C" void SetActionResult_ov000_0215ccbc(void* battle, void* result, GameObject* combatant, short arg3, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
 
 static inline int inline_ov024_021da9e0(int arg0) {
     return arg0 >= 0 && arg0 <= 3;
@@ -262,6 +262,6 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var16, 0xc8);
         arg0->unknown_6e_ = 1;
     }
-    func_ov000_0215ccbc(arg0->unknown_10_, var16, var0, arg4, var17, inline_ov024_021da9e0_3(var0), var14.unknown1_0_, arg0->unknown_c_->unknown_1c_.unknown_0_7_ != 0);
+    SetActionResult_ov000_0215ccbc(arg0->unknown_10_, var16, var0, arg4, var17, inline_ov024_021da9e0_3(var0), var14.unknown1_0_, arg0->unknown_c_->unknown_1c_.unknown_0_7_ != 0);
     return var16;
 }

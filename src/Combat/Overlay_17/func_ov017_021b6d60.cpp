@@ -22,7 +22,7 @@ extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" void func_02082828(void* arg0);
 extern "C" void func_020545ac(short* arg0);
 extern "C" void func_ov017_02190264(int arg0, int arg1);
-extern "C" void func_ov017_02191108(int, int, int, int, int);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(int, int, int, int, int);
 extern "C" void func_ov017_02191234(int arg0);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
@@ -53,7 +53,7 @@ extern "C" ARM int func_ov017_021b6d60(int arg0, void* arg1) {
         func_020545ac(var5);
     }
     func_ov017_02190264(var4, arg0);
-    func_ov017_02191108(var4, 1, 1, 1, 1);
+    RebuildFieldPartyOrder_ov017_02191108(var4, 1, 1, 1, 1);
     func_ov017_02191234(var4);
     struct Struct_ov017_021b6d60* var6 = (struct Struct_ov017_021b6d60*)(((char*)var4 + Enum_ov017_021b6d60_860) + 0x4000);
     var6 += arg0;

@@ -9,7 +9,7 @@ enum { Enum_ov006_0215b1a0_54 = 0x36, Enum_ov006_0215b1a0_76 = 0x4c, Enum_ov006_
 
 struct Struct_02081f20_2;
 struct SoundEffectManager_02108760;
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 struct Struct_02071ffc_4;
 struct Struct_ov006_02158c28;
 struct Struct_ov006_02154614;
@@ -129,7 +129,7 @@ extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, i
 extern "C" void func_ov006_0215729c(void* arg0);
 extern "C" void func_02071ffc(Struct_02071ffc_4* arg0, int arg1, int arg2, int arg3, short arg4, short* arg5);
 extern "C" void func_ov006_02158cac(void* arg0);
-extern "C" void func_0207fdcc(Struct_0207fdcc_2* arg0, int arg1);
+extern "C" void CloseMenuLayoutWindow_0207fdcc(MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void func_ov006_0215745c(short arg0, signed char* arg1, signed char* arg2);
 extern "C" void func_ov006_02158c28(Struct_ov006_02158c28* arg0);
 
@@ -197,7 +197,7 @@ extern "C" ARM void func_ov006_0215b1a0(Struct_ov006_02157a60* arg0) {
             arg0->unknown_2c_ = var2;
             arg0->unknown_30_ = var2;
             func_ov006_02158cac(arg0);
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, 8);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 8);
             return;
         }
         if (func_ov006_02158b78(arg0) || g_keyManager.TestKeysPressed(0x800))
@@ -248,7 +248,7 @@ extern "C" ARM void func_ov006_0215b1a0(Struct_ov006_02157a60* arg0) {
             arg0->unknown_2c_ = var5;
             arg0->unknown_30_ = var5;
             func_ov006_02158cac(arg0);
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, arg0->unknown_36e_);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, arg0->unknown_36e_);
             arg0->unknown_38f_ = 3;
             arg0->unknown_390_ = 0;
             func_ov006_0215729c(arg0->unknown_100_);
@@ -258,7 +258,7 @@ extern "C" ARM void func_ov006_0215b1a0(Struct_ov006_02157a60* arg0) {
         if (func_ov006_02158b78(arg0))
         {
             arg0->unknown_368_ = -1;
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, arg0->unknown_36e_);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, arg0->unknown_36e_);
             arg0->unknown_390_ = 0;
         }
         func_ov006_02158c28((Struct_ov006_02158c28*)arg0);

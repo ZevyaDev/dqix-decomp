@@ -78,7 +78,7 @@ struct Struct_ov001_021552a8_2 {
 
 extern "C" char* GetFollowCamera_020100f8(char* gameState);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
-extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
+extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
 extern "C" void func_ov017_021bb27c(void* arg0);
 extern "C" void func_0208b9a0(void* arg0, unsigned char arg1);
 extern "C" char* GetMessageWindow_020421a0(void);
@@ -160,7 +160,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
         var3->RemoveTask(arg0->unknown_78_);
 #endif
         var3->RemoveTask(arg0->unknown_110_);
-        func_0209c2e0(&gMusicManager_02109bf4, arg0->unknown_94_, 0);
+        SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, arg0->unknown_94_, 0);
         func_ov017_021bb27c(arg0);
         arg0->unknown_1_ = 1;
         return arg0->unknown_a_;

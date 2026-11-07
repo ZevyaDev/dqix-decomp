@@ -3,23 +3,23 @@
 
 extern "C" void AppendBACTCommand_ov000_02169b78(void* command);
 
-struct Struct_ov000_02184264_2 {
+struct BACTParseState_ov000_02184264_2 {
     unsigned char unknown_0_[8];
-    SafeAllocator* unknown_8_;
+    SafeAllocator* pAllocator_8_;
 };
-extern struct Struct_ov000_02184264_2 gBACTParseState_ov000_02184264;
+extern struct BACTParseState_ov000_02184264_2 gBACTParseState_ov000_02184264;
 
-struct Struct_ov000_02169bb4 {
-    int unknown_0_;
+struct BACTCommand_ov000_02169bb4 {
+    int opcode_0_;
     int unknown_4_;
 };
 
-// USA: func_ov000_02169bb4
-extern "C" ARM void func_ov000_02169bb4(int arg0) {
-    struct Struct_ov000_02169bb4* var0 = (struct Struct_ov000_02169bb4*)gBACTParseState_ov000_02184264.unknown_8_->Allocate(8);
-    if (var0 == NULL) return;
-    var0->unknown_0_ = 0;
-    var0->unknown_4_ = 0;
-    var0->unknown_0_ = arg0;
-    AppendBACTCommand_ov000_02169b78(var0);
+// USA: AppendNewBACTCommand_ov000_02169bb4
+extern "C" ARM void AppendNewBACTCommand_ov000_02169bb4(int opcode) {
+    struct BACTCommand_ov000_02169bb4* command = (struct BACTCommand_ov000_02169bb4*)gBACTParseState_ov000_02184264.pAllocator_8_->Allocate(8);
+    if (command == NULL) return;
+    command->opcode_0_ = 0;
+    command->unknown_4_ = 0;
+    command->opcode_0_ = opcode;
+    AppendBACTCommand_ov000_02169b78(command);
 }

@@ -12,7 +12,7 @@ struct Struct_0203a46c {
 };
 
 extern "C" int GetCamera_020100bc(GameState*);
-extern "C" void func_0202ec84(void*, struct Struct_02015ef4*, int*, int*);
+extern "C" void ConvertWorldToScreen_0202ec84(void*, struct Struct_02015ef4*, int*, int*);
 extern "C" void func_0203a46c(struct Struct_0203a46c*, int, int, int);
 extern "C" void func_0203a47c(unsigned int*, unsigned int, unsigned int, unsigned int);
 extern "C" void func_02047554(void* arg0, int arg1, int arg2);
@@ -67,7 +67,7 @@ extern "C" ARM void func_0203a0b4(struct Struct_0203a0b4* arg0) {
             int var9 = var3->unknown_0_;
             var5 = 1;
             int var10, var11;
-            func_0202ec84(var7, &var3->unknown_c_, &var10, &var11);
+            ConvertWorldToScreen_0202ec84(var7, &var3->unknown_c_, &var10, &var11);
             var10 += var3->unknown_4_;
             var11 = var11 + var3->unknown_2_ - 20;
             if (var10 < 16) var10 = 16;

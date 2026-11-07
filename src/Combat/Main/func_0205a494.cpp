@@ -1,5 +1,5 @@
 #include <globaldefs.h>
 
-// USA: func_0205a494
-extern "C" ARM void func_0205a494(void* arg0) {
+// USA: DestroySpriteSet_0205a494
+extern "C" ARM void DestroySpriteSet_0205a494(void* spriteSet) {
 }

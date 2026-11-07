@@ -22,8 +22,8 @@ struct Struct_0202e6c0;
 extern "C" void func_0202e6c0(struct Struct_0202e6c0* arg0, int arg1);
 struct Struct_0202e71c;
 extern "C" void func_0202e71c(struct Struct_0202e71c* arg0, int arg1);
-struct Struct_0207fe44;
-extern "C" void func_0207fe44(struct Struct_0207fe44* arg0);
+struct MenuLayout_0207fe44;
+extern "C" void CloseMenuLayoutWindows_0207fe44(struct MenuLayout_0207fe44* menuLayout);
 extern "C" void func_020939fc(unsigned char* arg0);
 
 struct Struct_ov003_0216552c_3 {
@@ -106,7 +106,7 @@ extern "C" ARM void func_ov003_0216552c(Struct_ov003_0216552c_2* arg0) {
                     func_0202e71c((struct Struct_0202e71c*)var9, var4);
                     var9->unknown_220_ = var6;
                 }
-                func_0207fe44((struct Struct_0207fe44*)var1);
+                CloseMenuLayoutWindows_0207fe44((struct MenuLayout_0207fe44*)var1);
                 var2[0] = 0x21;
                 var2[1] = 1;
                 arg0->unknown_4a3_ = 10;

@@ -22,7 +22,7 @@ extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" short func_ov023_021f9bc8(void* arg0);
 extern "C" void* func_ov023_021fa598(void* arg0);
-extern "C" void func_ov023_021f809c(void* arg0, void* arg1);
+extern "C" void RedrawMenuWindow_ov023_021f809c(void* window, void* menu);
 extern "C" void func_ov004_021561b0(void* arg0);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" ARM int func_020ac460(void* arg0);
@@ -122,7 +122,7 @@ extern "C" ARM int func_ov004_02156a00(void* arg0) {
     }
     ((struct Struct_ov004_02156a00_7*)var16)->unknown_104_ = 0;
     ((struct Struct_ov004_02156a00_7*)var16)->unknown_106_ = 1;
-    func_ov023_021f809c(var16, arg0);
+    RedrawMenuWindow_ov023_021f809c(var16, arg0);
     func_ov004_021561b0(arg0);
     return 0;
 }

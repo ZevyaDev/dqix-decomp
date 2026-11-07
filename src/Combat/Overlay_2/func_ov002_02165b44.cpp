@@ -43,7 +43,7 @@ extern "C" void *GetZoneEntry_0200fd0c(GameState *gameState);
 extern "C" void VectorizedMemset(void *dst, int value, unsigned int length);
 extern "C" void *func_0200fcfc(void *arg0, const void *arg1);
 extern "C" void func_ov017_021acd30(char *arg0, unsigned char arg1, unsigned char arg2, unsigned char arg3);
-extern "C" void func_ov017_0219e310(unsigned char *arg0, int arg1);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char *task, int arg1);
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2 *queue, struct QueueNode_0201bdac *node);
 extern "C" void func_ov002_02161cf0(char *arg0);
 extern "C" void func_ov002_0215f170(char *arg0);
@@ -160,7 +160,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                     struct Queue_0201bdac_2 *var17;
                     unsigned char *var18 = *(unsigned char **) (var16 + 0x34fc);
                     var17                  = *(struct Queue_0201bdac_2 **) (var16 + 0x34ec);
-                    func_ov017_0219e310(var18, 0);
+                    ResetZoneLoadTask_ov017_0219e310(var18, 0);
                     AppendToQueue_020469b4(var17, (struct QueueNode_0201bdac *) var18);
                     return;
                 }
@@ -314,7 +314,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                     struct Queue_0201bdac_2 *var36;
                     unsigned char *var37 = *(unsigned char **) (var35 + 0x3000 + 0x70c);
                     var36                  = *(struct Queue_0201bdac_2 **) (var35 + 0x3000 + 0x6fc);
-                    func_ov017_0219e310(var37, 0);
+                    ResetZoneLoadTask_ov017_0219e310(var37, 0);
                     AppendToQueue_020469b4(var36, (struct QueueNode_0201bdac *) var37);
                     return;
                 }

@@ -9,7 +9,7 @@ struct TextWindowManager_0205d6a0;
 struct Struct_ov003_0215e6d8;
 struct Struct_ov003_0215efb8;
 struct TextWindowManager_0205de24_2;
-struct Struct_0205def8;
+struct TextWindowManager_0205def8;
 struct SoundEffectManager_02108760;
 
 struct Struct_ov012_02188cd0_2
@@ -101,7 +101,7 @@ extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, i
 extern "C" void func_ov023_021e8270(void* arg0);
 extern "C" void func_ov012_021845f8(void* arg0);
 extern "C" int func_ov012_02184d80(void* arg0, char* arg1);
-extern "C" void func_0205def8(Struct_0205def8* arg0, int arg1, int arg2);
+extern "C" void func_0205def8(TextWindowManager_0205def8* arg0, int arg1, int arg2);
 extern "C" void ConvertTextToGlyphIndices_020426bc(const char* text, char* outGlyphIndices, int font);
 extern "C" void func_ov012_0218943c(Struct_ov012_02188cd0* arg0);
 extern "C" Struct_ov012_02188cd0_4* GetMessageWindow_020421a0();
@@ -236,7 +236,7 @@ extern "C" ARM void func_ov012_02188cd0(Struct_ov012_02188cd0* arg0)
                     BackgroundLoader::RemoveLockGlobal();
                     if (var7)
                     {
-                        func_0205def8((Struct_0205def8*)arg0->unknown_ac_, 0, 14);
+                        func_0205def8((TextWindowManager_0205def8*)arg0->unknown_ac_, 0, 14);
                         arg0->unknown_1370_ = 10;
                         return;
                     }
@@ -280,7 +280,7 @@ extern "C" ARM void func_ov012_02188cd0(Struct_ov012_02188cd0* arg0)
     {
         if (GetMessageWindow_020421a0()->unknown_998_ == 0)
         {
-            func_0205def8((Struct_0205def8*)arg0->unknown_ac_, 1, 14);
+            func_0205def8((TextWindowManager_0205def8*)arg0->unknown_ac_, 1, 14);
             arg0->unknown_1370_ = 4;
             ((Struct_ov012_02188cd0_2*)arg0->unknown_0_)->unknown_18_ = 0;
             ((Struct_ov012_02188cd0_2*)arg0->unknown_0_)->unknown_1c_ = 0;

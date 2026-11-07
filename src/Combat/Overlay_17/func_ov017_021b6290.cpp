@@ -28,12 +28,12 @@ extern "C" int func_02046cc8(Struct_02046f84*);
 extern "C" int func_0204700c(Struct_02046f84*);
 extern "C" void* GetBattleSetup_ov017_021b8478(void*);
 extern "C" void func_0209c480(MusicManager_02109bf4_4*, int);
-extern "C" void func_0209c2e0(MusicManager_02109bf4_4*, int, int);
+extern "C" void SetMusicVolume_0209c2e0(MusicManager_02109bf4_4*, int, int);
 extern "C" void func_0205e944(void*, int);
 extern "C" void CloseMessageWindow_02043124(void*);
 extern "C" int abs(int);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
-extern "C" void func_0209c678(MusicManager_02109bf4_4*, int);
+extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4*, int);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" Struct_0203e5d8* func_0203cf4c();
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
         var2->unknown_b2_ = 0;
         if (arg0->unknown_fe_ >= 0) {
             arg0->unknown_100_ = var4->QueueLoadFile(data_ov017_021d7c10, 0);
-            func_0209c678(&gMusicManager_02109bf4, 10);
+            StopMusic_0209c678(&gMusicManager_02109bf4, 10);
         }
         if (arg0->unknown_fe_ <= 0) arg0->unknown_fd_ = 0;
         if (arg0->unknown_8_) func_02017c58(GetZone3D_02012fe4());
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
                 arg0->unknown_100_ = BackgroundLoader::TaskStatus_Invalid;
             }
             func_0209c480(&gMusicManager_02109bf4, var6);
-            func_0209c2e0(&gMusicManager_02109bf4, 127, 0);
+            SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, 127, 0);
             func_0205e944(gSoundEffectManager_02108760, 127);
             SetFlags04(var1, 0x40);
             CloseMessageWindow_02043124(GetMessageWindow_020421a0());

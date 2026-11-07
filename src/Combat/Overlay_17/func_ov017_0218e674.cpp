@@ -4,7 +4,7 @@
 #include "Input/Input.h"
 #include "Resource/Brightness.h"
 
-struct Struct_0202b2f0;
+struct LocalWireless_0202b2f0;
 struct Struct_ov017_0218e674;
 struct Struct_02037d88_11;
 
@@ -14,8 +14,8 @@ struct Struct_ov017_0218e674_2 {
     unsigned char unknown_f7c_;
 };
 
-extern "C" struct Struct_0202b2f0* GetLocalWireless_0202ae18(void);
-extern "C" int IsLocalWirelessGuest_0202c540(struct Struct_0202b2f0* wireless);
+extern "C" struct LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessGuest_0202c540(struct LocalWireless_0202b2f0* wireless);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02037d88(GameObject* arg0);
 extern "C" void func_ov017_0218e210(int arg0, int arg1);

@@ -1,12 +1,9 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca390 func_020cbe5c
-#endif
 
 
 extern "C" unsigned short func_ov027_021dab38(unsigned short* arg0, int arg1);
-extern "C" void func_020ca390(int val, void* dst, unsigned int size);
+extern "C" void Memset16Bit_020ca390(int val, void* dst, unsigned int size);
 extern "C" void Memcpy16Bit_020ca3b8(int src, void* dst, int size);
 extern "C" void func_ov027_021db124(void);
 extern "C" int func_020d69cc(int arg0, int arg1, int arg2, int arg3, unsigned short arg4, unsigned char arg5);
@@ -89,7 +86,7 @@ extern "C" ARM void func_ov027_021db154(int arg0, unsigned short arg1, unsigned 
         data_ov027_021dd9e8[var2] = data_ov027_021dd940.unknown_1c_->unknown_4a8_[var2];
     }
 
-    func_020ca390(0, data_ov027_021dd990, 0x58);
+    Memset16Bit_020ca390(0, data_ov027_021dd990, 0x58);
 
     var0 = data_ov027_021dd940.unknown_1c_;
     unsigned int var3 = 0;

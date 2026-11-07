@@ -12,7 +12,7 @@
 
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" int* func_ov017_021a193c(int* arg0);
+extern "C" int* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void InitNoun_020e46c4(void* noun);
@@ -93,9 +93,9 @@ extern "C" ARM int func_ov005_02158b3c(void* arg0, void* arg1) {
     ClearMessageParams_02046380(var0);
     GameState* var1 = GameState::GetInstance();
 #if defined(jpn)
-    int var3 = ((Struct_ov005_02158b3c_6*)func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]))->unknown_4fc_;
+    int var3 = ((Struct_ov005_02158b3c_6*)GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]))->unknown_4fc_;
 #else
-    Struct_ov005_02158b3c_6* var2 = (Struct_ov005_02158b3c_6*)func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+    Struct_ov005_02158b3c_6* var2 = (Struct_ov005_02158b3c_6*)GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
     int var3 = var2->unknown_4fc_;
 #endif
     Struct_ov005_02158b3c_7* var4 = (Struct_ov005_02158b3c_7*)GetPartyMemberBaseByIndex_0200ff1c(var1, var3);

@@ -65,7 +65,7 @@ extern "C" void func_0205b220(void* arg0, int arg1);
 extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
 extern "C" void func_0205b234(struct Struct_020200c0_4* arg0, short arg1, short arg2, const char* arg3, int arg4, int arg5);
 extern "C" int func_ov017_021bdbcc(GameResources* arg0);
-extern "C" unsigned short func_0202053c(void* arg0);
+extern "C" unsigned short GetLevel_0202053c(void* gameObject);
 extern "C" void WaitForVBlank_020c9820(void);
 extern "C" void DC_FlushRange(const void* arg0, unsigned int arg1);
 extern "C" void LoadToSubObjVRAM(const void* src, unsigned int offset, unsigned int size);
@@ -137,12 +137,12 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
             var17[1] += var14 - 1;
             func_0205b234(&var7, 5, 0x2b, data_020e795c[var11], 10, 0xf);
             func_0205b234(&var7, 0x22, 0x2b, data_020ef475, 10, 0xf);
-            func_0205c9ac(&var7, 0x2c, 0x2d, func_0202053c(var8), 8, 0xf, 2, 1);
+            func_0205c9ac(&var7, 0x2c, 0x2d, GetLevel_0202053c(var8), 8, 0xf, 2, 1);
             func_0205b234(&var7, 0x1a, var13 + 0x2e, var17, 8, var12);
         } else {
             func_0205b234(&var7, 8, 0x2b, data_020e795c[var11], 10, 0xf);
             func_0205b234(&var7, 0x1e, 0x2b, data_020ef475, 10, 0xf);
-            func_0205c9ac(&var7, 0x28, 0x2d, func_0202053c(var8), 8, 0xf, 2, 1);
+            func_0205c9ac(&var7, 0x28, 0x2d, GetLevel_0202053c(var8), 8, 0xf, 2, 1);
         }
     }
     WaitForVBlank_020c9820();
@@ -155,7 +155,7 @@ struct Struct_020200c0_2;
 extern "C" void func_0205b734(struct Struct_020200c0_4* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" const char* GetStandardString_020e51cc(int stringId);
 extern "C" int func_020420e8(const char* arg0, int arg1);
-extern "C" void* func_020421b0(int arg0);
+extern "C" void* GetWindowTile_020421b0(int tileIndex);
 extern "C" void func_0205b530(struct Struct_020200c0_4* arg0, void* arg1, short arg2, short arg3, int arg4, int arg5);
 extern "C" void func_0205b674(struct Struct_020200c0_2* arg0, short arg1, int arg2, int arg3,
                                          unsigned char arg4, unsigned char arg5, unsigned char arg6, unsigned char arg7);
@@ -227,7 +227,7 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
         const char* var19 = GetStandardString_020e51cc(0x3f3);
         int var20 = func_020420e8(var19, 0);
         if (var12 >= 0) {
-            char* var21 = (char*)func_020421b0((unsigned char)(var12 * 4 + 0x28));
+            char* var21 = (char*)GetWindowTile_020421b0((unsigned char)(var12 * 4 + 0x28));
             for (var14 = 0; var14 < 2; var14++) {
                 for (var13 = 0; var13 < 2; var13++) {
                     func_0205b530(&var7, var21, var13 * 8 + 6, var14 * 8 + 0x29, 8, 0xf);
@@ -236,7 +236,7 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
             }
         }
         func_0205b234(&var7, 0x20, 0x2b, var19, 0xf, 0);
-        func_0205b674((Struct_020200c0_2*)&var7, var20 + 0x1b, 0x2b, func_0202053c(var8), 0xf, 2, 1, 0);
+        func_0205b674((Struct_020200c0_2*)&var7, var20 + 0x1b, 0x2b, GetLevel_0202053c(var8), 0xf, 2, 1, 0);
         if (var15 != 0) {
             char var22[7];
             __clear(var22, 7);

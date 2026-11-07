@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern char data_021015a0;
+extern char gLocalWirelessLink_021015a0;
 extern "C" void func_0202c848(int arg0);
 extern "C" void func_0202dd98(void);
 extern "C" int func_020d559c(int arg0, unsigned int arg1);
@@ -17,7 +17,7 @@ extern "C" ARM void func_0202d584(unsigned short* arg0) {
     }
 
     int var1;
-    *(int*)(&data_021015a0 + 0x10) = 3;
+    *(int*)(&gLocalWirelessLink_021015a0 + 0x10) = 3;
     var1 = func_020d559c((int)func_0202d5ec, 0);
     if (var1 == 2) {
         var1 = 1;
@@ -27,6 +27,6 @@ extern "C" ARM void func_0202d584(unsigned short* arg0) {
         var1 = 0;
     }
     if (var1 == 0) {
-        *(int*)(&data_021015a0 + 0x10) = 9;
+        *(int*)(&gLocalWirelessLink_021015a0 + 0x10) = 9;
     }
 }

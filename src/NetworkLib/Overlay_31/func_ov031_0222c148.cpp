@@ -2,7 +2,7 @@
 
 extern "C" int IsBrightnessFadeActive_ov031_0223c054(int);
 extern "C" ARM int func_ov031_02222ddc(void);
-extern "C" ARM void func_ov031_02222e98(void);
+extern "C" ARM void DisableButtonBarInput_ov031_02222e98(void);
 extern "C" void StartBrightnessFade_ov031_0223c078(int, int, int, int);
 extern "C" ARM void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_0222c1b8(void);
@@ -16,7 +16,7 @@ extern "C" ARM void func_ov031_0222c148(void) {
     if (*(unsigned char*)(data_ov031_02290c8c.unknown_4_ + 0x54) != 0) {
         func_ov031_02222ddc();
     } else {
-        func_ov031_02222e98();
+        DisableButtonBarInput_ov031_02222e98();
     }
     StartBrightnessFade_ov031_0223c078(3, 1, 1, 8);
     StartBrightnessFade_ov031_0223c078(3, 0, 0x1d, 8);

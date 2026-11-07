@@ -10,8 +10,8 @@ enum { Enum_ov003_02160678_1128 = 0x468 };
 enum { Enum_ov003_02160678_808 = 0x328 };
 #endif
 
-struct Struct_0207fdcc_2;
-extern "C" int func_020811d0(struct Struct_0207fdcc_2* arg0, int arg1);
+struct MenuLayout_0207fdcc_2;
+extern "C" int func_020811d0(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" void func_020809c4(void* arg0, int arg1, int arg2, short* arg3, short* arg4);
 extern "C" void func_ov003_021604f4(char* arg0, int arg1, int arg2, short arg3, unsigned char arg4);
 
@@ -20,14 +20,14 @@ extern const short data_ov003_0217f41a[];
 
 struct Struct_ov003_02160678 {
     char unknown_0_[Enum_ov003_02160678_804];
-    struct Struct_0207fdcc_2* unknown_324_;
+    struct MenuLayout_0207fdcc_2* unknown_324_;
     char unknown_328_[Enum_ov003_02160678_1128 - Enum_ov003_02160678_808];
     unsigned char unknown_468_[4];
 };
 
 // USA: func_ov003_02160678
 extern "C" ARM void func_ov003_02160678(struct Struct_ov003_02160678* arg0) {
-    struct Struct_0207fdcc_2* var0 = arg0->unknown_324_;
+    struct MenuLayout_0207fdcc_2* var0 = arg0->unknown_324_;
     if (var0 == NULL) {
         return;
     }

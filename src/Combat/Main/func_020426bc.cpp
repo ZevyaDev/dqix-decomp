@@ -8,8 +8,8 @@ struct FontGlyph_020426bc {
     char unknown_6_[2];
 };
 
-extern "C" struct FontGlyph_020426bc* func_0204254c(int arg0, int arg1);
-extern "C" int func_020424e4(int arg0, int arg1);
+extern "C" struct FontGlyph_020426bc* FindFontGlyph_0204254c(int text, int font);
+extern "C" int FindFontGlyphIndex_020424e4(int text, int font);
 
 // USA: ConvertTextToGlyphIndices_020426bc
 extern "C" ARM int ConvertTextToGlyphIndices_020426bc(char* text, unsigned char* outGlyphIndices, int font) {
@@ -27,12 +27,12 @@ extern "C" ARM int ConvertTextToGlyphIndices_020426bc(char* text, unsigned char*
         }
         int codeLength = 1;
         int glyphByte = 0;
-        struct FontGlyph_020426bc* glyph = func_0204254c((int)text, font);
+        struct FontGlyph_020426bc* glyph = FindFontGlyph_0204254c((int)text, font);
         if (glyph != 0) {
             codeLength = glyph->codeLength_5_0_;
         }
         if (character == 0x20) glyphByte = 0xff;
-        int glyphIndex = func_020424e4((int)text, font);
+        int glyphIndex = FindFontGlyphIndex_020424e4((int)text, font);
         if (glyphIndex > 0) glyphByte = glyphIndex & 0xff;
         *outGlyphIndices++ = (unsigned char)glyphByte;
         text += codeLength;

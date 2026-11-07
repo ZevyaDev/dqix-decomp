@@ -5,9 +5,9 @@
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct TextWindowManager_0205d81c;
-struct Struct_0205def8;
+struct TextWindowManager_0205def8;
 struct SoundEffectManager_02108760;
-struct Struct_020d7aa0_2;
+struct TimedMessageQueue_020d7aa0_2;
 struct Struct_020a095c;
 
 extern "C" void func_ov002_0215b2c8(char *arg0);
@@ -17,15 +17,15 @@ extern "C" void func_ov002_02161cf0(char *arg0);
 extern "C" void func_ov002_0215c614(char *arg0);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
-extern "C" void func_0205def8(struct Struct_0205def8 *arg0, int arg1, int arg2);
+extern "C" void func_0205def8(struct TextWindowManager_0205def8 *arg0, int arg1, int arg2);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" int func_0205df38(void *arg0, int arg1);
 extern "C" void func_ov002_0215b458(char *arg0, int arg1);
 struct TextWindowManager_0205da38;
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
-extern "C" Struct_020d7aa0_2 *func_020d7a50();
-extern "C" void func_020d7aa0(Struct_020d7aa0_2 *arg0);
+extern "C" TimedMessageQueue_020d7aa0_2 *func_020d7a50();
+extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2 *queue);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_021573f8(void *arg0, int arg1);
 extern "C" int func_ov002_02157108(void *arg0, int arg1);
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov002_02162964(char *arg0) {
         }
         if (var3 != SEL) {
             func_ov002_0215b9a4(arg0, 5, 0);
-            func_0205def8((struct Struct_0205def8 *) OBJ, SEL >= 0 ? 1 : 0, 5);
+            func_0205def8((struct TextWindowManager_0205def8 *) OBJ, SEL >= 0 ? 1 : 0, 5);
         }
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 5, 1);
         if (g_keyManager.TestKeysHeld(0x40)) {
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov002_02162964(char *arg0) {
         int var7 = (var5 | var6) ? 1 : 0;
         if (var7 || var4) {
             *(unsigned char *) (arg0 + RG(0x1c21, 0x1ae9)) = GetProtagonistObjectIndex_020100a8(GameState::GetInstance());
-            func_020d7aa0(func_020d7a50());
+            ClearTimedMessageQueue_020d7aa0(func_020d7a50());
             *(unsigned char *) (arg0 + RG(0xf80, 0xed8)) = *(int *) (arg0 + RG(0x1bb8, 0x1a80));
             *(unsigned int *) (arg0 + RG(0x247c, 0x22ac)) &= ~4;
             PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);

@@ -2,7 +2,7 @@
 #include "Resource/ActionDataTables.h"
 #include "GameState/GameState.h"
 
-struct Struct_ov000_021584e8;
+struct ActionResult_ov000_021584e8;
 
 struct Struct_ov000_0215767c {
     char unknown_0_[0x20];
@@ -56,8 +56,8 @@ extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*, Struct_ov000_02157
 struct Struct_ov000_0215767c_4;
 struct Struct_ov000_0215767c_5;
 extern "C" void func_ov000_021600cc(Struct_ov000_0215767c_5*, Struct_ov000_0215767c_4*);
-extern "C" Struct_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
-extern "C" void func_ov000_0215ccbc(int, Struct_ov000_021584e8*, GameObject*, short, short, short, unsigned long long, unsigned char);
+extern "C" ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
+extern "C" void SetActionResult_ov000_0215ccbc(int, ActionResult_ov000_021584e8*, GameObject*, short, short, short, unsigned long long, unsigned char);
 extern "C" void func_ov000_0215ffc4(void* arg0, void* arg1, int arg2);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 
@@ -101,11 +101,11 @@ extern "C" ARM void func_ov000_0215cac8(Struct_ov000_0215767c_2* arg0, short* ar
         }
         func_ov000_02157cdc(var5);
         GameObject* var6 = inline_ov000_02153aa4(arg1[var4]);
-        Struct_ov000_021584e8* var7 = GetNextActionResult_ov000_0215e958(arg0);
+        ActionResult_ov000_021584e8* var7 = GetNextActionResult_ov000_0215e958(arg0);
         if (var7 == 0) {
             continue;
         }
-        func_ov000_0215ccbc((int)arg0, var7, var6, 0, inline_ov000_021584e8(var6), inline_ov000_021584e8_2(var6), 0, 0);
+        SetActionResult_ov000_0215ccbc((int)arg0, var7, var6, 0, inline_ov000_021584e8(var6), inline_ov000_021584e8_2(var6), 0, 0);
         var5->unknown_e_ = arg1[var4];
         var5->unknown_17_ = 1;
         func_ov000_0215ffc4(var5, var7, 0);

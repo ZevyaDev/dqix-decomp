@@ -13,8 +13,8 @@ extern "C" void func_ov004_02161514(void*);
 extern "C" void func_ov004_02161c18(void*);
 extern "C" void func_ov004_02162108(void*);
 
-struct Struct_ov004_0215fdfc;
-extern "C" void func_ov023_021f809c(struct Struct_ov004_0215fdfc*, void*);
+struct MenuWindow_ov004_0215fdfc;
+extern "C" void RedrawMenuWindow_ov023_021f809c(struct MenuWindow_ov004_0215fdfc*, void*);
 extern "C" void* func_ov004_0215e4c0(void* arg0, int arg1);
 
 extern unsigned char data_ov004_021707e8;
@@ -53,6 +53,6 @@ extern "C" ARM int func_ov004_021612ec(void* arg0) {
         break;
     }
 
-    func_ov023_021f809c((struct Struct_ov004_0215fdfc*)func_ov004_0215e4c0(arg0, 3), arg0);
+    RedrawMenuWindow_ov023_021f809c((struct MenuWindow_ov004_0215fdfc*)func_ov004_0215e4c0(arg0, 3), arg0);
     return 0;
 }

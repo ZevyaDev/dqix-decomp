@@ -32,8 +32,8 @@ struct Struct_ov031_02237448_2 {
 Struct_ov031_02237448* data_ov031_02290d0c __attribute__((aligned(4)));
 extern const Struct_ov031_02249294 data_ov031_02249294;
 extern const unsigned char data_ov031_02249288[];
-extern "C" void* func_ov031_0223cf4c(unsigned int, int);
-extern "C" unsigned int func_ov031_0223cf70(void**);
+extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int, int);
+extern "C" unsigned int FreeAndClearPointer_ov031_0223cf70(void**);
 extern "C" void func_ov031_022376fc(void);
 extern "C" void func_ov031_022379f0(void);
 extern "C" int func_ov031_022375cc(void);
@@ -43,12 +43,12 @@ unsigned long long GetCurrentTimestamp(void);
 extern "C" int func_020d4f7c(int, int, int);
 extern "C" int func_020d4848(void*);
 extern "C" unsigned short func_020d4be8(void);
-extern "C" void* func_ov031_0223e218(void*, void*, void*, int);
+extern "C" void* AddTask_ov031_0223e218(void*, void*, void*, int);
 
 // USA: func_ov031_02237448
 extern "C" ARM int func_ov031_02237448(int arg0) {
     Struct_ov031_02237448_2 var0;
-    data_ov031_02290d0c = (Struct_ov031_02237448*)func_ov031_0223cf4c(0x1ba0, 0x20);
+    data_ov031_02290d0c = (Struct_ov031_02237448*)AllocateZeroedMemory_ov031_0223cf4c(0x1ba0, 0x20);
     data_ov031_02290d0c->unknown_1370_ = arg0;
     unsigned long long var1 = GetCurrentTimestamp();
     data_ov031_02290d0c->unknown_1b88_ = var1;
@@ -65,10 +65,10 @@ extern "C" ARM int func_ov031_02237448(int arg0) {
         data_ov031_02290d0c->unknown_1374_.unknown_1d_ = 1;
         VectorizedInvertedMemcpy(var0.unknown_4_, data_ov031_02290d0c->unknown_1374_.unknown_20_, var0.unknown_1a_ << 1);
         if (func_ov031_022375cc()) {
-            data_ov031_02290d0c->unknown_1b90_ = func_ov031_0223e218(0, (void*)func_ov031_022379f0, 0, 0x78);
+            data_ov031_02290d0c->unknown_1b90_ = AddTask_ov031_0223e218(0, (void*)func_ov031_022379f0, 0, 0x78);
             return 1;
         }
     }
-    func_ov031_0223cf70((void**)&data_ov031_02290d0c);
+    FreeAndClearPointer_ov031_0223cf70((void**)&data_ov031_02290d0c);
     return 0;
 }

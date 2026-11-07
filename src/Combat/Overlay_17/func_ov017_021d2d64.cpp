@@ -77,7 +77,7 @@ extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" void* func_020d7a50(void);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
-extern "C" int func_020535c8(signed char* arg0);
+extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int func_020d805c(Struct_020d805c* arg0);
 extern "C" int func_ov017_0218b628(signed char);
@@ -172,7 +172,7 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
             if (IsQueueEmpty_02046b08((void**)var5) == 0) var19 = 0;
             if (IsTypeInQueue_02046b60(var5, 0x1a)) var19 = 1;
             GameObject* var20 = arg2->GetUnknownGameObject();
-            if (var20 != 0 && func_020535c8((signed char*)var20)) var19 = 0;
+            if (var20 != 0 && IsPerformingGesture_020535c8((signed char*)var20)) var19 = 0;
 #if defined(jpn)
             if (*(int*)(GetMessageWindow_020421a0() + 0x868) != 0 && func_020d805c((Struct_020d805c*)var3) == 0) var19 = 0;
 #else

@@ -11,9 +11,6 @@
 #define func_020c51dc func_020c6ca8
 #endif
 
-#if defined(jpn)
-#define func_020c39c8 func_020c5494
-#endif
 
 
 struct Struct_ov015_0218b810;
@@ -65,7 +62,7 @@ struct Struct_ov015_021934f8_3 {
 extern "C" void func_0200fb84(int*, int);
 extern "C" void WriteBrightnessRegister_020c39a0(short*, int);
 extern "C" void* GetOAMManager_0203bd08();
-extern "C" void func_0203bd24(char*);
+extern "C" void ResetOAMManager_0203bd24(char*);
 void LockStagedTextureVRAMCopying();
 extern "C" void Memset32Bit_020ca458(unsigned int, unsigned int, unsigned int);
 extern "C" void SetMainDisplayAndBGMode_020c391c(int, int, int);
@@ -79,7 +76,7 @@ extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_02028ddc(void*);
 extern "C" void func_02028d68(int);
 extern "C" void func_02028dec(int);
-extern "C" void func_020bb48c(unsigned int, int);
+extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int, int);
 extern "C" void func_020bb780(void*, int);
 extern "C" void func_ov015_02192600(struct Struct_ov015_02192600_3*);
 extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
@@ -95,13 +92,13 @@ extern "C" void func_020709d8(void*);
 extern "C" void func_020709ec(void*, void*);
 extern "C" void func_0202df68(void*);
 extern "C" void func_020a2cf0(struct Struct_0204a120_2*);
-extern "C" void func_020a2010(void*);
+extern "C" void InitFollowCamera_020a2010(void*);
 extern "C" void DisableCameraFollow_020a27a0(void*);
 extern "C" void SetCamera_020100c4(GameState*, int);
 extern "C" void func_ov015_02192544(void*);
-extern "C" void func_0205ea20(void*, int);
+extern "C" void LoadSoundEffectSet_0205ea20(void*, int);
 extern "C" void WaitForVBlank_020c9820();
-extern "C" void func_020c38d4();
+extern "C" void TurnOnMainDisplay_020c38d4();
 extern "C" void func_02010124(Struct_0200f3a4_9*);
 extern "C" void func_020c3a0c(int);
 unsigned long long GetCurrentTimestamp();
@@ -109,14 +106,14 @@ extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02042b30(void*, void*);
 extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028*);
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
-extern "C" void func_020432c4(void*);
+extern "C" void InitMessageGlyphs_020432c4(void*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void*, const void*, int);
 #else
 extern "C" void StartMessage_0204500c(void*, const void*, int, int);
 #endif
-extern "C" void func_0204359c(void*, int);
+extern "C" void DrawMessageGlyphs_0204359c(void*, int);
 extern "C" void func_020439b0(void*, int);
 extern "C" void func_ov015_02192700(void*);
 extern "C" void func_02012de4(AllocatorUnion*);
@@ -132,12 +129,12 @@ extern "C" void func_0203aa08(void*);
 extern "C" void UpdateSound_020bbd9c();
 extern "C" unsigned long long _ll_udiv(unsigned long long, unsigned long long);
 extern "C" float func_0200c76c(unsigned long long);
-extern "C" int func_020c39c8(unsigned short volatile*);
+extern "C" int ReadBrightnessRegister_020c39c8(unsigned short volatile*);
 extern "C" void func_0203bdb0(Struct_0203bdb0*);
 extern "C" void func_020290ac(int);
 
 extern AllocatorUnion gMainHeap_02114e20;
-extern const char* data_020f2a38;
+extern const char* gItemDataPath_020f2a38;
 extern const char* data_020f2a30;
 extern int data_ov015_02193cdc[];
 extern char gSoundEffectManager_02108760;
@@ -174,7 +171,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     WriteBrightnessRegister_020c39a0(MASTER_BRIGHT, -16);
     WriteBrightnessRegister_020c39a0(MASTER_BRIGHT_SUB, -16);
     char* var3 = (char*)GetOAMManager_0203bd08();
-    func_0203bd24(var3);
+    ResetOAMManager_0203bd24(var3);
     LockStagedTextureVRAMCopying();
     MapVRAMBanksToLCDC(0x1ff);
     Memset32Bit_020ca458(0, 0x6800000, 0xa4000);
@@ -210,7 +207,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     func_02028ddc(arg0->unknown_84_);
     func_02028d68(4);
     func_02028dec(1);
-    func_020bb48c(3, 1);
+    InitTextureImageVRAMAllocator_020bb48c(3, 1);
     func_020bb780((void*)0x8000, 1);
     func_ov015_02192600((struct Struct_ov015_02192600_3*)arg0);
     Set3DClearColorAndDepth_020c5588(0x594a, 0x10, 0x7fff, 0, 0);
@@ -227,13 +224,13 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     arg0->unknown_88_.Reset();
     ClearItemTable_020de848(arg0->unknown_4c_);
 #if defined(jpn)
-    func_020e052c(arg0->unknown_4c_, &arg0->unknown_88_, data_020f2a38, data_ov015_0219480c, 9, 1);
+    func_020e052c(arg0->unknown_4c_, &arg0->unknown_88_, gItemDataPath_020f2a38, data_ov015_0219480c, 9, 1);
 #else
     BackgroundLoader::AddLockGlobal();
     unsigned int var4;
     void* var5;
     var4 = 0;
-    var5 = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &var4);
+    var5 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var4);
     if (var5 != NULL)
         func_020dea64(arg0->unknown_4c_, &arg0->unknown_88_, var5, var4, data_ov015_02193cdc, 9);
     BackgroundLoader::RemoveLockGlobal();
@@ -254,13 +251,13 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     Struct_ov015_021934f8 var6;
     func_0202df68(&var6);
     func_020a2cf0((struct Struct_0204a120_2*)&var6);
-    func_020a2010(&var6);
+    InitFollowCamera_020a2010(&var6);
     DisableCameraFollow_020a27a0(&var6);
     SetCamera_020100c4(var0, (int)&var6);
     func_ov015_02192544(arg0);
-    func_0205ea20(&gSoundEffectManager_02108760, 0x65);
+    LoadSoundEffectSet_0205ea20(&gSoundEffectManager_02108760, 0x65);
     WaitForVBlank_020c9820();
-    func_020c38d4();
+    TurnOnMainDisplay_020c38d4();
     DISPCNTSUB |= 0x10000;
     func_02010124((Struct_0200f3a4_9*)var0);
     func_020c3a0c(0);
@@ -269,7 +266,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     func_02042b30(var7, arg0->unknown_124_);
     ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)arg0->unknown_124_);
     RestoreTextureVRAMState_0207df90(arg0->unknown_124_);
-    func_020432c4(var7);
+    InitMessageGlyphs_020432c4(var7);
     SaveTextureVRAMState_0207dfac(arg0->unknown_124_);
 #if defined(jpn)
     StartMessage_0204500c(var7, data_ov015_0219511b, 0);
@@ -279,7 +276,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     var7->unknown_195a_ = 8;
     for (unsigned int var8 = 0; var8 < 0x10; var8++)
     {
-        func_0204359c(var7, 0x10);
+        DrawMessageGlyphs_0204359c(var7, 0x10);
         func_020439b0(var7, 0);
     }
     arg0->unknown_194_ = 0;
@@ -342,7 +339,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
         }
         var1->RemoveAllLocks();
         arg0->unknown_238_ = _ll_udiv(GetCurrentTimestamp() * 64000, 33514);
-        if (func_020c39c8((unsigned short volatile*)MASTER_BRIGHT) > -16)
+        if (ReadBrightnessRegister_020c39c8((unsigned short volatile*)MASTER_BRIGHT) > -16)
             WaitForVBlank_020c9820();
         GetCurrentTimestamp();
         func_0203bdb0((Struct_0203bdb0*)var3);
@@ -353,8 +350,8 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
 
     func_02094b38(var2, 0x69);
     CancelFontLoad_02094ab0(var2);
-    func_0205ea20(&gSoundEffectManager_02108760, 0x64);
-    func_020a2010(&var6);
+    LoadSoundEffectSet_0205ea20(&gSoundEffectManager_02108760, 0x64);
+    InitFollowCamera_020a2010(&var6);
     func_020a2cf0((struct Struct_0204a120_2*)&var6);
     func_0202df68(&var6);
 }

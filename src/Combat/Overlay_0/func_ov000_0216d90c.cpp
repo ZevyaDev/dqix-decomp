@@ -2,9 +2,9 @@
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
-extern "C" void func_ov000_0216d370(void* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0202e5c8(unsigned char* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0202e694(void* arg0, int* arg1);
+extern "C" void ResetBattleCamera_ov000_0216d370(void* camera, int resetRoll, int resetFieldOfView, int resetTurns);
+extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
 extern "C" void func_ov000_0216d530(void* arg0, int arg1);
 
 extern int data_ov000_021832a4[8];
@@ -28,8 +28,8 @@ extern "C" ARM void func_ov000_0216d90c(unsigned char* arg0, int arg1) {
     } else {
         var5 = 0;
     }
-    func_ov000_0216d370(arg0, 1, 1, 1);
-    func_0202e5c8(arg0, 0, 0x1000, 0x1000);
+    ResetBattleCamera_ov000_0216d370(arg0, 1, 1, 1);
+    SetCameraTarget_0202e5c8(arg0, 0, 0x1000, 0x1000);
     int var6 = NextRandomMax(*(struct Random**)(arg0 + 0x21c), 8);
     if (var5) {
         if (var6 == 2) {
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov000_0216d90c(unsigned char* arg0, int arg1) {
     var7[0] = data_ov000_021832a4[var6];
     var7[1] = 0x3000;
     var7[2] = 0x8000;
-    func_0202e694(arg0, var7);
+    SetCameraOrbitFromArray_0202e694(arg0, var7);
     func_ov000_0216d530(arg0, arg1);
     *(int*)(arg0 + 0x23c) = -20;
 }

@@ -10,13 +10,13 @@ enum { Enum_ov020_0218d8d8_1136 = 0x470 };
 #include "GameState/GameState.h"
 
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
-extern "C" unsigned char func_0200fb9c(char* arg0);
+extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
 
 struct MusicManager_02109bf4_4;
-extern "C" void func_0209c678(struct MusicManager_02109bf4_4* arg0, int arg1);
+extern "C" void StopMusic_0209c678(struct MusicManager_02109bf4_4* manager, int fadeDuration);
 
 struct Struct_02109bf4_3;
-extern "C" void func_0209c20c(struct Struct_02109bf4_3* arg0);
+extern "C" void ResetMusic_0209c20c(struct Struct_02109bf4_3* manager);
 
 struct Struct_0205e8ec;
 extern "C" void func_0205e8ec(struct Struct_0205e8ec* arg0);
@@ -36,10 +36,10 @@ extern "C" ARM void func_ov020_0218d8d8(struct Struct_ov020_0218b710_3* arg0) {
     SignedAllocatorHeader* var1 = arg0->unknown_470_.GetSignedAllocator();
     arg0->unknown_470_.Destroy();
     FreeMemory_02012da4(&gMainHeap_02114e20, var1);
-    if (func_0200fb9c((char*)var0) == 2) {
+    if (GetGameMode_0200fb9c((char*)var0) == 2) {
         return;
     }
-    func_0209c678((struct MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
-    func_0209c20c((struct Struct_02109bf4_3*)&gMusicManager_02109bf4);
+    StopMusic_0209c678((struct MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
+    ResetMusic_0209c20c((struct Struct_02109bf4_3*)&gMusicManager_02109bf4);
     func_0205e8ec((struct Struct_0205e8ec*)&gSoundEffectManager_02108760);
 }

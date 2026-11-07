@@ -17,7 +17,7 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
-extern "C" unsigned char* func_ov017_021a193c(int*);
+extern "C" unsigned char* GetEquipMenu_ov017_021a193c(int*);
 struct TextWindowManager_0205d6a0;
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 extern "C" void func_ov005_0215792c(unsigned char*, int);
@@ -32,5 +32,5 @@ extern "C" ARM void func_ov005_02159208(unsigned char* arg0) {
     arg0[R(0x3d54, 0x3ddc)] = 0;
     arg0[R(0x3d56, 0x3dde)] = 0;
     arg0[R(0x3d57, 0x3ddf)] = 0;
-    *(unsigned short*)(func_ov017_021a193c((int*)(*(int*)((unsigned char*)GetGameResources() + R(0x34f8, 0x3708)))) + R(0x56c, 0x634)) |= 0x81;
+    *(unsigned short*)(GetEquipMenu_ov017_021a193c((int*)(*(int*)((unsigned char*)GetGameResources() + R(0x34f8, 0x3708)))) + R(0x56c, 0x634)) |= 0x81;
 }

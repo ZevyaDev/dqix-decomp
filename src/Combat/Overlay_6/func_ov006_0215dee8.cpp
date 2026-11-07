@@ -10,7 +10,7 @@ enum { Enum_ov006_0215dee8_54 = 0x36, Enum_ov006_0215dee8_76 = 0x4c, Enum_ov006_
 
 struct Struct_02081f20_2;
 struct SoundEffectManager_02108760;
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 struct Struct_ov006_02157184;
 struct Struct_ov006_02158c28;
 
@@ -133,7 +133,7 @@ struct Struct_ov006_02157a60 {
     unsigned char unknown_434_;
 };
 
-extern "C" void func_0207fdcc(Struct_0207fdcc_2* arg0, int arg1);
+extern "C" void CloseMenuLayoutWindow_0207fdcc(MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void func_ov006_0215fa1c(Struct_ov006_02157a60* arg0, int arg1);
 extern "C" void func_ov006_0215fb7c(Struct_ov006_02157a60* arg0);
 extern "C" void func_ov006_0215fcf0(Struct_ov006_02157a60* arg0);
@@ -150,7 +150,7 @@ extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, i
 extern "C" unsigned char func_ov006_02158a28(Struct_ov006_02157a60* arg0);
 extern "C" unsigned char func_ov006_02158b78(Struct_ov006_02157a60* arg0);
 extern "C" int func_ov006_021537d0(void* arg0, short arg1);
-extern "C" void func_02081ea4(Struct_0207fdcc_2* arg0, int arg1, int arg2);
+extern "C" void func_02081ea4(MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
 extern "C" void func_ov006_02157184(Struct_ov006_02157184* arg0);
 extern "C" void func_ov006_02158c28(Struct_ov006_02158c28* arg0);
 extern "C" void func_ov006_02159db0(Struct_ov006_02157a60* arg0);
@@ -161,7 +161,7 @@ extern "C" unsigned char func_ov006_0215a384(Struct_ov006_02157a60* arg0, int ar
 extern "C" void func_ov006_0215fe34(Struct_ov006_02157a60* arg0, void* arg1);
 extern "C" unsigned char func_ov006_0215fecc(Struct_ov006_02157a60* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" int func_020dd4c4(signed char arg0, void* arg1);
+extern "C" int GetEquipRestrictions_020dd4c4(signed char memberIndex, void* item);
 extern "C" int func_ov006_02153a78(void* arg0, int arg1);
 extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
 extern "C" void func_ov006_0215f9e8(Struct_ov006_02157a60* arg0);
@@ -176,8 +176,8 @@ extern "C" ARM void func_ov006_0215dee8(Struct_ov006_02157a60* arg0) {
     if (arg0->unknown_390_ == 0)
     {
         arg0->unknown_397_ = 1;
-        func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, 0);
-        func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, 1);
+        CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
+        CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 1);
         func_ov006_0215fa1c(arg0, 0);
         func_ov006_0215fb7c(arg0);
         func_ov006_0215fcf0(arg0);
@@ -253,7 +253,7 @@ extern "C" ARM void func_ov006_0215dee8(Struct_ov006_02157a60* arg0) {
                 arg0->unknown_44_ = 0;
                 if (func_ov006_021537d0(arg0->unknown_74_, var2->unknown_0_))
                 {
-                    func_02081ea4((Struct_0207fdcc_2*)arg0->unknown_14_, 9, 1);
+                    func_02081ea4((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 9, 1);
                     arg0->unknown_37e_ = 3;
                     arg0->unknown_392_ = 0;
                     arg0->unknown_394_ |= 0x20;
@@ -262,7 +262,7 @@ extern "C" ARM void func_ov006_0215dee8(Struct_ov006_02157a60* arg0) {
                     arg0->unknown_390_++;
                     return;
                 }
-                func_02081ea4((Struct_0207fdcc_2*)arg0->unknown_14_, 9, 1);
+                func_02081ea4((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 9, 1);
                 arg0->unknown_37e_ = 2;
                 arg0->unknown_392_ = 0;
                 arg0->unknown_394_ |= 0x20;
@@ -274,9 +274,9 @@ extern "C" ARM void func_ov006_0215dee8(Struct_ov006_02157a60* arg0) {
         {
             if (var4 == 3)
                 PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, arg0->unknown_36e_);
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, 0xe);
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, 0xf);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, arg0->unknown_36e_);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0xe);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0xf);
             arg0->unknown_38f_ = 9;
             arg0->unknown_390_ = 0;
             func_0208203c((Struct_02081f20_2*)arg0->unknown_9c_);
@@ -324,7 +324,7 @@ extern "C" ARM void func_ov006_0215dee8(Struct_ov006_02157a60* arg0) {
             if (var9 == 0)
                 return;
             arg0->unknown_3b4_ = 0;
-            if (!(func_020dd4c4(GetProtagonistObjectIndex_020100a8(GameState::GetInstance()), arg0->unknown_17c_) & 4))
+            if (!(GetEquipRestrictions_020dd4c4(GetProtagonistObjectIndex_020100a8(GameState::GetInstance()), arg0->unknown_17c_) & 4))
             {
                 arg0->unknown_390_ = 7;
                 return;
@@ -385,7 +385,7 @@ extern "C" ARM void func_ov006_0215dee8(Struct_ov006_02157a60* arg0) {
             func_0208203c((Struct_02081f20_2*)arg0->unknown_9c_);
             arg0->unknown_44_ = 0;
             arg0->unknown_387_ = arg0->unknown_38b_;
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, 0xa);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0xa);
             arg0->unknown_38f_ = 0xb;
             func_ov006_02157184((Struct_ov006_02157184*)arg0->unknown_10_);
             arg0->unknown_390_ = 0;
@@ -397,7 +397,7 @@ extern "C" ARM void func_ov006_0215dee8(Struct_ov006_02157a60* arg0) {
         unsigned char var12 = func_ov006_02158b78(arg0);
         if (var12 == 0 && var11 != 3)
             return;
-        func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, 0xa);
+        CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0xa);
         arg0->unknown_390_ = 0;
         arg0->unknown_394_ &= ~8;
         arg0->unknown_38b_ = 1;

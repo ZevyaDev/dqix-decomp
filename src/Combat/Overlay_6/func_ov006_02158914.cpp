@@ -12,7 +12,7 @@
 #endif
 #include <globaldefs.h>
 
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 
 struct Struct_ov006_021580b8 {
     char unknown_0_[0x14];
@@ -45,7 +45,7 @@ int func_ov023_021e2c38(void*, short);
 void DrawSprite_0205ac40(void*, Struct_ov006_021580b8*);
 }
 
-extern "C" Struct_ov006_02158478* func_02081da8(Struct_0207fdcc_2*, int);
+extern "C" Struct_ov006_02158478* func_02081da8(MenuLayout_0207fdcc_2*, int);
 extern "C" void func_ov023_021e2bdc(void*, int, short*, short*);
 
 struct Struct_ov006_02157a60 {
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov006_02158914(Struct_ov006_02157a60* arg0)
 {
     if (!(arg0->unknown_394_ & 0x80))
         return;
-    if (func_02081da8((Struct_0207fdcc_2*)arg0->unknown_14_, 1) != 0)
+    if (func_02081da8((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 1) != 0)
         return;
     for (unsigned char var0 = 0; data_ov006_0215ffca[var0] >= 0; var0++)
     {

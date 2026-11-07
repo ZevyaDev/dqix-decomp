@@ -78,7 +78,7 @@ extern "C" void func_ov023_021f6600(void* arg0, int arg1, int arg2);
 extern "C" void func_ov023_021f9ba8(void* arg0, int arg1);
 #if defined(jpn)
 extern "C" void* func_ov004_02168fa4(void*, int);
-extern "C" void func_ov023_021f809c(void*, void*);
+extern "C" void RedrawMenuWindow_ov023_021f809c(void*, void*);
 #else
 extern "C" int func_ov023_021f6680(void* arg0, int arg1);
 #endif
@@ -116,7 +116,7 @@ extern "C" ARM int func_ov004_02169658(struct Struct_ov004_02169658_2* arg0) {
     func_ov023_021f6600(arg0, 0x14, 4);
 #if defined(jpn)
     void* var7 = func_ov004_02168fa4(arg0, 0x14);
-    if (var7) func_ov023_021f809c(var7, arg0);
+    if (var7) RedrawMenuWindow_ov023_021f809c(var7, arg0);
 #else
     func_ov023_021f6680(arg0, 0x14);
 #endif

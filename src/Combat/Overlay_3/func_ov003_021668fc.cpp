@@ -10,8 +10,8 @@ enum { Enum_ov003_021668fc_1152 = 0x480 };
 
 extern "C" void* func_ov003_02160bf8(void* arg0, int arg1);
 
-struct Struct_020732cc;
-extern "C" int func_0207c378(struct Struct_020732cc* arg0, int arg1, int arg2, int arg3);
+struct EquipmentBag_020732cc;
+extern "C" int AddEquipmentToBag_0207c378(struct EquipmentBag_020732cc* bag, int itemId, int count, int category);
 
 struct Struct_02086a04;
 extern "C" int func_02086a04(struct Struct_02086a04* arg0, int arg1);
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov003_021668fc(char* arg0) {
     while ((var13 = var4[var12]) >= 0) {
         short var14 = *(short*)(var3 + var13 * 2);
         if (var14 >= 0) {
-            func_0207c378((struct Struct_020732cc*)((char*)var1 + 0x1d4), var14, 1, var5[var12]);
+            AddEquipmentToBag_0207c378((struct EquipmentBag_020732cc*)((char*)var1 + 0x1d4), var14, 1, var5[var12]);
         }
         var12 = (unsigned char)(var12 + 1);
     }

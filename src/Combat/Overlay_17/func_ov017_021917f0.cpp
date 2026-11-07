@@ -25,7 +25,7 @@ extern "C" Struct_ov017_021917f0_2* GetPartyMemberData_02053c6c(unsigned char* g
 extern "C" Struct_ov017_021917f0* func_02099f60(void);
 extern "C" int func_02053eb4(void*, int);
 extern "C" void func_02053ec0(unsigned char*, int);
-extern "C" void func_020407b4(Struct_02040774_2* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetObject3DPosition_020407b4(Struct_02040774_2* object, int x, int y, int z);
 extern "C" void func_0203db34(unsigned char* arg0, int arg1, int arg2, int arg3);
 
 // USA: func_ov017_021917f0
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov017_021917f0(int arg0, int arg1) {
     if (arg1 == 1) {
         int var5 = func_02053eb4(var2, var4->unknown_e_);
         func_02053ec0((unsigned char*)var2, var5);
-        func_020407b4((Struct_02040774_2*)var3, var4->unknown_10_[0], var4->unknown_10_[1], var4->unknown_10_[2]);
+        SetObject3DPosition_020407b4((Struct_02040774_2*)var3, var4->unknown_10_[0], var4->unknown_10_[1], var4->unknown_10_[2]);
         func_0203db34((unsigned char*)var3, var4->unknown_16_[0], var4->unknown_16_[1], var4->unknown_16_[2]);
         var3->obj3D_.Detach();
         var3->obj3D_.Attach(&var2->obj3D_, var5);
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov017_021917f0(int arg0, int arg1) {
     } else if (arg1 == 0) {
         int var6 = func_02053eb4(var2, var4->unknown_1_);
         func_02053ec0((unsigned char*)var2, var6);
-        func_020407b4((Struct_02040774_2*)var3, var4->unknown_2_[0], var4->unknown_2_[1], var4->unknown_2_[2]);
+        SetObject3DPosition_020407b4((Struct_02040774_2*)var3, var4->unknown_2_[0], var4->unknown_2_[1], var4->unknown_2_[2]);
         func_0203db34((unsigned char*)var3, var4->unknown_8_[0], var4->unknown_8_[1], var4->unknown_8_[2]);
         var3->obj3D_.Detach();
         var3->obj3D_.Attach(&var2->obj3D_, var6);

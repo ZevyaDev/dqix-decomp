@@ -35,7 +35,7 @@ extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" unsigned char func_020938cc();
 extern "C" ARM void InitSpriteSet_0205a444(char* spriteSet);
-extern "C" ARM void func_0205a494(void* arg0);
+extern "C" ARM void DestroySpriteSet_0205a494(void* spriteSet);
 extern "C" ARM int LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, int allocator);
 extern "C" int func_020937f0(int arg0);
 extern const char data_020f1394[];
@@ -79,7 +79,7 @@ extern "C" ARM int func_020941f8(struct Struct_020941f8_2* arg0) {
                     var10 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var3, var9, &var2, &var5);
                     LoadSpriteSetFile_0205a528(&var8, var10, var5, 0);
                 }
-                func_0205a494(&var8);
+                DestroySpriteSet_0205a494(&var8);
             }
             var0->RemoveTask(arg0->unknown_340_);
             arg0->unknown_340_ = -1;

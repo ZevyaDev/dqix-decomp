@@ -1,10 +1,7 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca408 func_020cbed4
-#endif
 
-extern "C" void func_020ca408(void* dst, void* src, int size);
+extern "C" void Memcpy32Bit_020ca408(void* dst, void* src, int size);
 extern void* data_02110370;
 
 struct Struct_020bd368 {
@@ -38,7 +35,7 @@ struct Struct_020bd368_3 {
 
 // USA: func_020bd368
 extern "C" ARM void func_020bd368(struct Struct_020bd368_3* arg0, char* arg1) {
-    func_020ca408(arg1, arg0, 0x30);
+    Memcpy32Bit_020ca408(arg1, arg0, 0x30);
     arg0->unknown_8c_ = arg0->unknown_18_ == 0 ? 0 : arg1 + arg0->unknown_18_;
     arg0->unknown_84_ = (struct Struct_020bd368_2*)(arg0->unknown_20_ == 0 ? 0 : arg1 + arg0->unknown_20_);
     arg0->unknown_88_ = arg0->unknown_10_ == 0 ? 0 : arg1 + arg0->unknown_10_;

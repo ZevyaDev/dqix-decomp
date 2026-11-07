@@ -7,27 +7,27 @@
 #endif
 #define J(o) RG(o, (o) - 0x84)
 
-struct Struct_0207fdcc_2;
-struct Struct_0207fe44;
+struct MenuLayout_0207fdcc_2;
+struct MenuLayout_0207fe44;
 struct Struct_02081f20_2;
 struct SoundEffectManager_02108760;
 
 extern "C" short func_02080468(void* arg0, int arg1);
 extern "C" void func_020813ec(void* arg0, int arg1, int arg2);
 extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
-extern "C" void func_02081ea4(struct Struct_0207fdcc_2* arg0, int arg1, int arg2);
+extern "C" void func_02081ea4(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
 extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 extern "C" int func_ov003_021765b4(void* arg0);
 extern "C" int func_ov003_021766e8(void* arg0);
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int _s32_div_f(int a, int b);
-extern "C" void func_0207fe44(struct Struct_0207fe44* arg0);
+extern "C" void CloseMenuLayoutWindows_0207fe44(struct MenuLayout_0207fe44* menuLayout);
 
 // USA: func_ov003_021786bc
 extern "C" ARM void func_ov003_021786bc(unsigned char* arg0) {
     unsigned char var0 = *(unsigned char*)(arg0 + J(0x1000 + 0x3f));
-    struct Struct_0207fdcc_2* var1 = *(struct Struct_0207fdcc_2**)(arg0 + J(0x89c));
+    struct MenuLayout_0207fdcc_2* var1 = *(struct MenuLayout_0207fdcc_2**)(arg0 + J(0x89c));
 
     if (var0 == 0) {
         *(unsigned short*)(arg0 + J(0x1000 + 0x46)) &= ~0x400;
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov003_021786bc(unsigned char* arg0) {
         case 6:
             var4 = 9;
             var5 = 6;
-            func_0207fe44((struct Struct_0207fe44*)var1);
+            CloseMenuLayoutWindows_0207fe44((struct MenuLayout_0207fe44*)var1);
             break;
         }
 
@@ -96,5 +96,5 @@ extern "C" ARM void func_ov003_021786bc(unsigned char* arg0) {
     *(void**)(arg0 + J(0xff8)) = 0;
     *(unsigned char*)(arg0 + J(0x1000 + 0x3e)) = 9;
     *(short*)(arg0 + J(0x1000 + 0x36)) = 6;
-    func_0207fe44((struct Struct_0207fe44*)var1);
+    CloseMenuLayoutWindows_0207fe44((struct MenuLayout_0207fe44*)var1);
 }

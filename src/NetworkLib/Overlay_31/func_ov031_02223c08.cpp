@@ -78,7 +78,7 @@ extern Struct_ov031_02223c08_2* data_ov031_02250bfc;
 extern const unsigned char data_ov031_022489bc[4];
 extern const unsigned char data_ov031_022489b4[2];
 extern unsigned short* data_ov031_0224b430[3];
-extern "C" void* func_ov031_0223cf4c(unsigned int, int);
+extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int, int);
 extern "C" Struct_ov031_02222b0c_4* func_ov031_0223be44(int, int);
 extern "C" Struct_ov031_02222ce4* func_ov031_0223be70(int, int, int);
 extern "C" void func_ov031_0223bab4(Struct_ov031_02222ce4*, int, int, int);
@@ -86,7 +86,7 @@ extern "C" void func_ov031_0223bcc8(Struct_ov031_02222ce4*, int, int);
 extern "C" Struct_ov031_02222b0c_3* func_ov031_0223c458(int, int, int, int, int*, int);
 extern "C" void func_ov031_0223c980(Struct_ov031_02222b0c_3*, int, int, int, int, int, unsigned long, const unsigned short*);
 extern "C" Struct_ov031_02222ce4* func_ov031_0223b8c4(int, int, int);
-extern "C" void* func_ov031_0223e218(void*, void*, void*, int);
+extern "C" void* AddTask_ov031_0223e218(void*, void*, void*, int);
 extern "C" void func_ov031_02224ca4(int, int, int);
 extern "C" void func_ov031_02223ff8(void*);
 
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov031_02223c08() {
     unsigned short var6[2];
     var0.unknown_4_ = 17;
     var0.unknown_6_ = 18;
-    data_ov031_02250bfc = (Struct_ov031_02223c08_2*)func_ov031_0223cf4c(sizeof(Struct_ov031_02223c08_2), 4);
+    data_ov031_02250bfc = (Struct_ov031_02223c08_2*)AllocateZeroedMemory_ov031_0223cf4c(sizeof(Struct_ov031_02223c08_2), 4);
     data_ov031_02250bfc->unknown_11c_ = 0xff;
     data_ov031_02250bfc->unknown_121_ = 0;
     data_ov031_02250bfc->unknown_123_ = 1;
@@ -140,6 +140,6 @@ extern "C" ARM void func_ov031_02223c08() {
     data_ov031_02250bfc->unknown_114_ = func_ov031_0223be70(0, 0x40, 1);
     func_ov031_0223bab4(data_ov031_02250bfc->unknown_114_, -1, 0x200, 0);
     func_ov031_0223bcc8(data_ov031_02250bfc->unknown_114_, -1, 2);
-    data_ov031_02250bfc->unknown_118_ = func_ov031_0223e218(0, (void*)func_ov031_02223ff8, 0, 0x78);
+    data_ov031_02250bfc->unknown_118_ = AddTask_ov031_0223e218(0, (void*)func_ov031_02223ff8, 0, 0x78);
     func_ov031_02224ca4(data_ov031_02250bfc->unknown_11d_, 0, 0xc0);
 }

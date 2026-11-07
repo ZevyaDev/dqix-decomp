@@ -6,7 +6,7 @@
 struct StringTable_0201099c_14;
 struct TextWindowManager_0205cfd4;
 struct BGLayer_02020cb8;
-struct Struct_020a9ea4;
+struct SaveProgress_020a9ea4;
 
 struct Struct_ov002_0215505c {
     unsigned char unknown_0_0_ : 1;
@@ -22,12 +22,12 @@ extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4
 extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8 *layer);
 extern "C" void InitTextWindow_0204c684(void *textWindow);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
-extern "C" int GetOwnPartyOrder_02011494(char *gameState, void *arg1);
+extern "C" int GetOwnPartyOrder_02011494(char *gameState, void *outOwnPartyOrder);
 extern "C" char *GetFlagManager_0205ec34(void);
 extern "C" unsigned short func_0206e384(unsigned char *arg0);
 extern "C" short func_0206e3d4(int arg0, int arg1);
 extern "C" void func_ov002_0215b234(char *arg0);
-extern "C" void func_020a9ea4(struct Struct_020a9ea4 *arg0);
+extern "C" void ResetSaveProgress_020a9ea4(struct SaveProgress_020a9ea4 *progress);
 extern "C" void func_ov016_0218b5c0(int arg0, int arg1);
 extern "C" void func_ov002_0215b814(char *arg0);
 
@@ -225,7 +225,7 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
     RESET(0x7c8);
     RESET(0x7dc);
     RESET(0x7f0);
-    func_020a9ea4((struct Struct_020a9ea4 *) (arg0 + 0x22c8));
+    ResetSaveProgress_020a9ea4((struct SaveProgress_020a9ea4 *) (arg0 + 0x22c8));
     for (unsigned char var17 = 0; var17 < 0x20; var17++) {
         *(int *) (arg0 + var17 * 4 + 0x22d0) = 0;
     }
@@ -428,7 +428,7 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
     RESET(0x864);
     RESET(0x878);
     RESET(0x88c);
-    func_020a9ea4((struct Struct_020a9ea4 *) (arg0 + 0x98 + 0x2400));
+    ResetSaveProgress_020a9ea4((struct SaveProgress_020a9ea4 *) (arg0 + 0x98 + 0x2400));
     for (unsigned char var35 = 0; var35 < 0x20; var35++) {
         *(int *) (arg0 + var35 * 4 + 0x24a0) = 0;
     }

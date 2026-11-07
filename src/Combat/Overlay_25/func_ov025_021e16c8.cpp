@@ -13,7 +13,7 @@ struct Struct_ov025_021e16c8_7 { unsigned char unknown_0_[6]; };
 struct Struct_01ff8b48_16 { int unknown_0_[3]; int unknown_c_; };
 inline int* inline_ov025_021dcf14() { static Struct_01ff8b48_16 s __attribute__((aligned(4))); return &s.unknown_c_; }
 extern "C" void func_ov025_021e169c(unsigned char*, int);
-extern "C" unsigned char func_020493a4(unsigned char*);
+extern "C" unsigned char GetCombatantCell_020493a4(unsigned char*);
 extern "C" unsigned int func_020493c8(unsigned char*);
 extern "C" unsigned int func_020493ec(unsigned char*);
 extern "C" void func_020493b8(unsigned char*, unsigned char);
@@ -52,11 +52,11 @@ extern "C" ARM void func_ov025_021e16c8(Struct_ov025_021e16c8_3* arg0, Struct_ov
     for (Struct_ov025_021e16c8_4* var8 = arg3->unknown_10_; var8; var8 = var8->unknown_30_) {
         if (var8->unknown_20_ == inline_ov025_021e16c8(arg0)) { var7 = 1; break; }
     }
-    unsigned int var9 = func_020493a4((unsigned char*)arg1->unknown_8_);
+    unsigned int var9 = GetCombatantCell_020493a4((unsigned char*)arg1->unknown_8_);
     if (!var7) {
         var9 = func_020493ec((unsigned char*)arg1->unknown_8_);
         if (var9 == 255) var9 = func_020493c8((unsigned char*)arg1->unknown_8_);
-        if (var9 == 255) var9 = func_020493a4((unsigned char*)arg1->unknown_8_);
+        if (var9 == 255) var9 = GetCombatantCell_020493a4((unsigned char*)arg1->unknown_8_);
     } else {
         int var10 = func_ov025_021e1540(arg1->unknown_0_);
         func_ov000_0216f82c(&var6, &var10);
@@ -88,27 +88,27 @@ extern "C" ARM void func_ov025_021e16c8(Struct_ov025_021e16c8_3* arg0, Struct_ov
     }
     int var18 = 0;
     if (var7) {
-        int var19 = var0[func_020493a4((unsigned char*)arg0->unknown_8_)];
+        int var19 = var0[GetCombatantCell_020493a4((unsigned char*)arg0->unknown_8_)];
         if ((arg4->unknown_18_ << 16) >> 28 == 2) {
             if (var12 == var19) var18 = 1;
         } else if (var19 > 0 && var19 <= var12) {
             var18 = 1;
-            if (var12 - 1 == var0[func_020493a4((unsigned char*)arg0->unknown_8_)]) {
+            if (var12 - 1 == var0[GetCombatantCell_020493a4((unsigned char*)arg0->unknown_8_)]) {
                 int var20 = 1;
                 int* var21 = inline_ov025_021dcf14();
                 *var21 = var20;
             }
         }
-    } else if (var12 == var0[func_020493a4((unsigned char*)arg0->unknown_8_)]) var18 = 1;
+    } else if (var12 == var0[GetCombatantCell_020493a4((unsigned char*)arg0->unknown_8_)]) var18 = 1;
     if (var18) {
         func_ov025_021e13e0(arg2, arg0);
         if (var7) {
-            unsigned int var22 = func_ov025_021e161c(func_020493a4((unsigned char*)arg0->unknown_8_), var9, var0, var12);
+            unsigned int var22 = func_ov025_021e161c(GetCombatantCell_020493a4((unsigned char*)arg0->unknown_8_), var9, var0, var12);
             if (var22 != 255) {
                 func_020493dc((unsigned char*)arg0->unknown_8_, var22);
                 inline_ov025_021e120c_2(arg2, (unsigned char)var22, arg0->unknown_1_);
             }
-            func_ov025_021e1c20(func_020493a4((unsigned char*)arg0->unknown_8_), arg2, var1, var12, arg5, arg6, arg0);
+            func_ov025_021e1c20(GetCombatantCell_020493a4((unsigned char*)arg0->unknown_8_), arg2, var1, var12, arg5, arg6, arg0);
         }
         return;
     }
@@ -120,19 +120,19 @@ extern "C" ARM void func_ov025_021e16c8(Struct_ov025_021e16c8_3* arg0, Struct_ov
     }
     unsigned char var26 = 255;
     if (var24 == 1) var26 = var3[0];
-    else if (var24 > 1) var26 = func_ov025_021e1480(func_020493a4((unsigned char*)arg0->unknown_8_), var3, var24);
+    else if (var24 > 1) var26 = func_ov025_021e1480(GetCombatantCell_020493a4((unsigned char*)arg0->unknown_8_), var3, var24);
     else if (var23 == 1) var26 = var5[0];
-    else if (var23 > 1) var26 = func_ov025_021e1480(func_020493a4((unsigned char*)arg0->unknown_8_), var5, var23);
+    else if (var23 > 1) var26 = func_ov025_021e1480(GetCombatantCell_020493a4((unsigned char*)arg0->unknown_8_), var5, var23);
     if (var7) {
         Struct_ov025_021e16c8_6* var27 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), arg3->unknown_0_);
         if (var27 && (var27->unknown_18_ << 16) >> 28 != 2) {
             memset(var2, 0, 81);
             func_ov025_021e120c(var2, var9, 1, var13, 0);
-            int var28 = func_020493a4((unsigned char*)arg0->unknown_8_);
+            int var28 = GetCombatantCell_020493a4((unsigned char*)arg0->unknown_8_);
             if ((var28 < 81 && var2[var28] == 1) || var9 == var28) var26 = (unsigned char)var28;
         }
     }
-    if (var26 >= 81) var26 = func_020493a4((unsigned char*)arg0->unknown_8_);
+    if (var26 >= 81) var26 = GetCombatantCell_020493a4((unsigned char*)arg0->unknown_8_);
     func_020493b8((unsigned char*)arg0->unknown_8_, var26);
     if (var26 < 81) inline_ov025_021e120c_2(arg2, var26, arg0->unknown_1_);
     if (var7) {

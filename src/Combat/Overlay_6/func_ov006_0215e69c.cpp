@@ -94,23 +94,23 @@ extern "C" int func_ov006_02159e50(Struct_ov006_0215e69c_3* arg0);
 void* GetBTRandom(void);
 struct Random;
 unsigned int NextRandomMax(Random*, int);
-struct Struct_0207fdcc_2;
-extern "C" void func_02080c04(Struct_0207fdcc_2*, int);
-extern "C" void func_02080c20(Struct_0207fdcc_2*, int);
+struct MenuLayout_0207fdcc_2;
+extern "C" void func_02080c04(MenuLayout_0207fdcc_2*, int);
+extern "C" void func_02080c20(MenuLayout_0207fdcc_2*, int);
 extern "C" int func_ov006_02158c70(Struct_ov006_0215e69c_3* arg0);
 extern "C" void func_ov006_02153cbc(void* arg0, int arg1, int arg2, void* arg3);
 extern "C" void func_ov006_0215759c(void* arg0, Struct_ov006_0215e69c_4* arg1, int arg2);
 extern "C" void func_ov006_02158de0(Struct_ov006_0215e69c_3* arg0);
 extern "C" unsigned int* GetGlobalFlags_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
-struct Struct_020a9ea4;
-extern "C" void func_020a9ea4(Struct_020a9ea4*);
+struct SaveProgress_020a9ea4;
+extern "C" void ResetSaveProgress_020a9ea4(SaveProgress_020a9ea4*);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_020aad1c(void* arg0, void* arg1, int arg2, int arg3);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
-extern "C" void** func_020e5294(void* arg0, int arg1);
+extern "C" void** FindNounInTable_020e5294(void* nounTable, int nounId);
 #if defined(jpn)
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
@@ -124,11 +124,11 @@ extern "C" void func_020813ec(void* arg0, int arg1);
 extern "C" void func_ov006_021571fc(char*);
 struct Struct_02109bf4_2;
 extern "C" void func_0209c830(Struct_02109bf4_2*, int);
-extern "C" void func_0207fdcc(Struct_0207fdcc_2*, int);
+extern "C" void CloseMenuLayoutWindow_0207fdcc(MenuLayout_0207fdcc_2*, int);
 extern "C" void func_ov006_0215728c(void*);
 extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
 struct Struct_ov006_0215e5f8;
-extern "C" void func_ov006_0215e5f8(Struct_ov006_0215e5f8*, Struct_0207fdcc_2*, int, unsigned char*);
+extern "C" void func_ov006_0215e5f8(Struct_ov006_0215e5f8*, MenuLayout_0207fdcc_2*, int, unsigned char*);
 
 static inline short* inline_ov006_0215cc70_2(Struct_ov006_0215e69c_3* arg0) { return (short*)((char*)arg0 + 0x382); }
 static inline short* inline_ov006_0215cc70_3(Struct_ov006_0215e69c_3* arg0) { return (short*)arg0; }
@@ -146,8 +146,8 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
     if (arg0->unknown_390_ == 0) {
         arg0->unknown_3b4_ = 0;
         if (func_ov006_02158c70(arg0)) {
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, 0);
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, 1);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 1);
             func_02080c68(arg0->unknown_14_, 9, 0);
             arg0->unknown_394_ &= ~0x40;
             if (arg0->unknown_34_->unknown_14_ >= 0) {
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
                 arg0->unknown_42d_ = 0;
                 arg0->unknown_42e_ = 100;
                 arg0->unknown_390_ = 0x96;
-                func_ov006_0215e5f8((Struct_ov006_0215e5f8*)arg0, (Struct_0207fdcc_2*)arg0->unknown_14_, 0, &arg0->unknown_397_);
+                func_ov006_0215e5f8((Struct_ov006_0215e5f8*)arg0, (MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0, &arg0->unknown_397_);
             }
         }
     } else if (arg0->unknown_390_ == 1) {
@@ -247,7 +247,7 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
         }
     } else if (arg0->unknown_390_ == 0x5a) {
         if (func_ov006_02158c70(arg0)) {
-            func_02080c20((Struct_0207fdcc_2*)arg0->unknown_14_, 0);
+            func_02080c20((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
             arg0->unknown_37e_ = 1;
             arg0->unknown_392_ = 0;
             arg0->unknown_394_ |= 0x20;
@@ -260,13 +260,13 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
     } else if (arg0->unknown_390_ == 9) {
         arg0->unknown_37e_ = 0x36;
         arg0->unknown_392_ = 0;
-        func_02080c04((Struct_0207fdcc_2*)arg0->unknown_14_, 0);
+        func_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
         arg0->unknown_390_++;
     } else if (arg0->unknown_390_ == 0xa) {
         arg0->unknown_394_ |= 0x200;
         if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() <= 0) {
             SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 0x80);
-            func_020a9ea4((Struct_020a9ea4*)arg0->unknown_3c_);
+            ResetSaveProgress_020a9ea4((SaveProgress_020a9ea4*)arg0->unknown_3c_);
             arg0->unknown_390_++;
         }
     } else if (arg0->unknown_390_ == 0xb) {
@@ -297,7 +297,7 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
     } else if (arg0->unknown_390_ == 0xe) {
         arg0->unknown_42c_ = 0;
         if (func_ov006_02158c70(arg0)) {
-            func_ov006_0215e5f8((Struct_ov006_0215e5f8*)arg0, (Struct_0207fdcc_2*)arg0->unknown_14_, 0, &arg0->unknown_397_);
+            func_ov006_0215e5f8((Struct_ov006_0215e5f8*)arg0, (MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0, &arg0->unknown_397_);
             var0->unknown_ae2_ &= ~0x40;
             arg0->unknown_42d_ = 0;
             arg0->unknown_42e_ = 0xf;
@@ -317,7 +317,7 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
         func_02080f8c((Struct_02080f8c*)arg0->unknown_14_, 0x7f,
             FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_164_, arg0->unknown_1ec_));
 #else
-        var7 = func_020e5294(arg0->unknown_170_, arg0->unknown_1ec_);
+        var7 = FindNounInTable_020e5294(arg0->unknown_170_, arg0->unknown_1ec_);
         if (var7 != 0) {
             memset(*arg0->unknown_4_, 0, 0x80);
             ExpandInflectionTags_020e4864(*var7, *arg0->unknown_4_, 1, 0, 0, 0);
@@ -334,7 +334,7 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
             func_ov006_021571fc((char*)arg0->unknown1_10_);
         }
         func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, var8);
-        func_02080c04((Struct_0207fdcc_2*)arg0->unknown_14_, 0);
+        func_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
         arg0->unknown_37e_ = 0xc;
         arg0->unknown_392_ = 0;
         arg0->unknown_390_++;
@@ -350,7 +350,7 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
     } else if (arg0->unknown_390_ == 0x13) {
         if (func_ov006_02158c70(arg0)) {
             short var9;
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, 0x12);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0x12);
             arg0->unknown_3b4_ = 0;
             var0->unknown_ae2_ &= ~0x800;
             var9 = 0x1f;
@@ -394,7 +394,7 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
         func_02080f8c((Struct_02080f8c*)arg0->unknown_14_, 0x7f,
             FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_164_, arg0->unknown_1ec_));
 #else
-        var11 = func_020e5294(arg0->unknown_170_, arg0->unknown_1ec_);
+        var11 = FindNounInTable_020e5294(arg0->unknown_170_, arg0->unknown_1ec_);
         if (var11 != 0) {
             memset(*arg0->unknown_4_, 0, 0x80);
             ExpandInflectionTags_020e4864(*var11, *arg0->unknown_4_, 1, 0, 0, 0);
@@ -421,7 +421,7 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
         } else {
             Struct_ov006_0215e69c* var14 = var0->inline_ov006_0215e69c_2();
             if (!(var14 != 0 && var14->unknown_14_ != 0) && func_ov006_02158c70(arg0)) {
-                func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, 0x12);
+                CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0x12);
                 arg0->unknown_3b4_ = 0;
                 var0->unknown_ae2_ &= ~0x800;
                 arg0->unknown_37e_ = 1;
@@ -432,9 +432,9 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
         }
     } else if (arg0->unknown_390_ == 0x79) {
         if (func_ov006_02158c70(arg0)) {
-            func_ov006_0215e5f8((Struct_ov006_0215e5f8*)arg0, (Struct_0207fdcc_2*)arg0->unknown_14_, 1, &arg0->unknown_397_);
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, 0);
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, 1);
+            func_ov006_0215e5f8((Struct_ov006_0215e5f8*)arg0, (MenuLayout_0207fdcc_2*)arg0->unknown_14_, 1, &arg0->unknown_397_);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 1);
             arg0->unknown_38f_ = 0xa;
             arg0->unknown_390_ = 0;
         }

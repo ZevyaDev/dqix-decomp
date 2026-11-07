@@ -3,7 +3,7 @@
 #include "NitroSDK/Cache.h"
 #include "std_library_functions.h"
 
-extern "C" void func_0205a494(void* arg0);
+extern "C" void DestroySpriteSet_0205a494(void* spriteSet);
 
 struct BGControlSave_02074bd0;
 extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
@@ -18,7 +18,7 @@ struct TextWindowManager_0205d274;
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(struct TextWindowManager_0205d274* windowManager);
 
 struct TextWindowManager_0205d2bc;
-extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc* arg0);
+extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(struct TextWindowManager_0205d2bc* windowManager);
 
 extern "C" void ResetTextWindowManager_0205d048(void* windowManager);
 
@@ -26,7 +26,7 @@ extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2)
 
 // USA: func_ov003_021700dc
 extern "C" ARM void func_ov003_021700dc(void* arg0) {
-    func_0205a494((char*)arg0 + 0x68);
+    DestroySpriteSet_0205a494((char*)arg0 + 0x68);
     if (((SafeAllocator*)((char*)arg0 + 0xbc))->GetSignedAllocator() != 0) {
         ((SafeAllocator*)((char*)arg0 + 0xbc))->Destroy();
     }
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov003_021700dc(void* arg0) {
         var1 = *(void**)((char*)arg0 + 0x3c);
         FlushTextWindowManagerBGScreenData_0205d274((struct TextWindowManager_0205d274*)var1);
         var1 = *(void**)((char*)arg0 + 0x3c);
-        func_0205d2bc((struct TextWindowManager_0205d2bc*)var1);
+        CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((struct TextWindowManager_0205d2bc*)var1);
         var1 = *(void**)((char*)arg0 + 0x3c);
         ResetTextWindowManager_0205d048(var1);
     }

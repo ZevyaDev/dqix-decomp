@@ -13,9 +13,9 @@ enum { Enum_ov003_02176ed4_2204 = 0x89c };
 
 extern "C" void* GetParty_02010828(GameState*);
 
-struct Struct_0207fdcc_2;
-extern "C" void func_02080c20(struct Struct_0207fdcc_2* arg0, int arg1);
-extern "C" void func_02080c04(struct Struct_0207fdcc_2* arg0, int arg1);
+struct MenuLayout_0207fdcc_2;
+extern "C" void func_02080c20(struct MenuLayout_0207fdcc_2* arg0, int arg1);
+extern "C" void func_02080c04(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
 
 struct ItemTable_0201099c_10;
@@ -28,14 +28,14 @@ extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_02
 struct Struct_02053f7c;
 extern "C" short func_02086aec(struct Struct_02053f7c* arg0, int arg1);
 
-struct Struct_02080fa8;
-extern "C" void func_02080fa8(struct Struct_02080fa8* arg0, int arg1, int arg2);
+struct MenuLayout_02080fa8;
+extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8* menuLayout, int textId, int value);
 
 extern "C" void func_020813ec(void* arg0, int arg1);
 
 // USA: func_ov003_02176ed4
 extern "C" ARM void func_ov003_02176ed4(char* arg0) {
-    struct Struct_0207fdcc_2* var0 = *(struct Struct_0207fdcc_2**)(arg0 + Enum_ov003_02176ed4_2204);
+    struct MenuLayout_0207fdcc_2* var0 = *(struct MenuLayout_0207fdcc_2**)(arg0 + Enum_ov003_02176ed4_2204);
     struct Struct_02053f7c* var1 = (struct Struct_02053f7c*)GetParty_02010828(GameState::GetInstance());
     func_02080c20(var0, 8);
     func_02080c68(var0, 8, 0);
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov003_02176ed4(char* arg0) {
     if (var2 != 0) {
         short var5 = *(short*)(arg0 + Enum_ov003_02176ed4_4154);
         int var6 = func_02086aec(var1, var5);
-        func_02080fa8((struct Struct_02080fa8*)var0, 0x54, var6);
+        SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, 0x54, var6);
     } else {
         func_02080c04(var0, 8);
     }

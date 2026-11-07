@@ -3,7 +3,7 @@
 #include "std_library_functions.h"
 
 struct Struct_02010088;
-struct Struct_ov000_021584e8;
+struct ActionResult_ov000_021584e8;
 
 struct Struct_ov000_0215af54 {
     unsigned short unknown_0_;
@@ -54,8 +54,8 @@ extern "C" int func_ov000_02153c0c(GameObject* arg0);
 extern "C" void func_ov000_02160030(void* arg0);
 extern "C" void func_ov000_02157cdc(void* arg0);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
-extern "C" void func_ov000_0215ccbc(int arg0, struct Struct_ov000_021584e8* arg1, GameObject* arg2,
-                            short arg3, short arg4, short arg5, unsigned long long arg6, unsigned char arg7);
+extern "C" void SetActionResult_ov000_0215ccbc(int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant,
+                            short arg3, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
 extern "C" void func_ov000_0215ffc4(void* arg0, void* arg1, int arg2);
 struct Struct_ov000_0215767c_7;
 struct Struct_ov000_0215767c_6;
@@ -119,7 +119,7 @@ extern "C" ARM void func_ov000_0215af54(struct Struct_ov000_0215af54_5* arg0, in
     var1->unknown_20_ = arg1;
     var1->unknown_22_ = var4->currentStats_->primaryStats.currHP;
     var1->unknown_24_ = var4->currentStats_->primaryStats.currMP;
-    func_ov000_0215ccbc((int)arg0, (struct Struct_ov000_021584e8*)var3, var4, 0, inline_ov000_021584e8(var4), inline_ov000_021584e8_2(var4), 0, 0);
+    SetActionResult_ov000_0215ccbc((int)arg0, (struct ActionResult_ov000_021584e8*)var3, var4, 0, inline_ov000_021584e8(var4), inline_ov000_021584e8_2(var4), 0, 0);
     var2->unknown_e_ = arg1;
     var2->unknown_17_ = 1;
     func_ov000_0215ffc4(var2, var3, 0);

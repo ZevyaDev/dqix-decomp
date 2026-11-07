@@ -133,11 +133,11 @@ extern "C" Struct_ov014_021850cc* func_02097238(Struct_02097238* arg0);
 extern "C" Struct_ov014_021850cc_3* func_02097224(Struct_02097054_5* arg0, int arg1);
 extern "C" void func_020e526c(void* arg0);
 extern "C" void func_020e56fc(void* arg0, int arg1, int arg2);
-extern "C" const char** func_020e5294(void* arg0, int arg1);
+extern "C" const char** FindNounInTable_020e5294(void* nounTable, int nounId);
 extern "C" void ExpandInflectionTags_020e4864(const char* text, char* buffer, int, int, int, int);
 extern "C" void* func_020dfc2c(void* arg0);
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
-extern "C" void func_020e046c(char* arg0, void* arg1, unsigned int arg2, short arg3);
+extern "C" void CopyStringFromTableFile_020e046c(char* buffer, void* fileData, unsigned int fileSize, short stringId);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
@@ -242,12 +242,12 @@ extern "C" ARM void func_ov014_021850cc(Struct_ov014_02184dcc* arg0) {
                 char var14[0xc];
                 func_020e526c(var14);
                 func_020e56fc(var14, (int)var10, var11);
-                const char** var15 = func_020e5294(var14, var12->unknown_8_[0]);
+                const char** var15 = FindNounInTable_020e5294(var14, var12->unknown_8_[0]);
                 if (var15 != NULL) {
                     memset(arg0->unknown_60_[0], 0, 0x48);
                     ExpandInflectionTags_020e4864(*var15, arg0->unknown_60_[0], 1, 0, 0, 0);
                 }
-                var15 = func_020e5294(var14, var12->unknown_8_[1]);
+                var15 = FindNounInTable_020e5294(var14, var12->unknown_8_[1]);
                 if (var15 != NULL) {
                     memset(arg0->unknown_60_[1], 0, 0x48);
                     ExpandInflectionTags_020e4864(*var15, arg0->unknown_60_[1], 1, 0, 0, 0);
@@ -268,7 +268,7 @@ extern "C" ARM void func_ov014_021850cc(Struct_ov014_02184dcc* arg0) {
             char var18[0x18];
             func_020dfc2c(var18);
             InitStringTable_020dfc40((StringTable_0201099c_14*)var18);
-            func_020e046c(arg0->unknown_68_, var16, var17, arg0->unknown_48_->unknown_1a_);
+            CopyStringFromTableFile_020e046c(arg0->unknown_68_, var16, var17, arg0->unknown_48_->unknown_1a_);
         }
         var0->RemoveTask(arg0->unknown_86_[2]);
         arg0->unknown_86_[2] = -1;

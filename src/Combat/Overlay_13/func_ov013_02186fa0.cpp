@@ -13,8 +13,8 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
-struct Struct_0204af14;
-extern "C" void* func_0204af14(struct Struct_0204af14* arg0, unsigned int arg1);
+struct BGLayer_0204af14;
+extern "C" void* GetBGScreenBlock_0204af14(struct BGLayer_0204af14* layer, unsigned int screenBlockIndex);
 
 extern "C" void DC_FlushRange(const void* where, unsigned int len);
 extern "C" void LoadToMainBG1CharacterData(int, int, unsigned int);
@@ -25,8 +25,8 @@ extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2* layer, void
 struct BGControlSave_02074bd0;
 extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
 
-struct Struct_02074bf4;
-extern "C" void func_02074bf4(struct Struct_02074bf4* arg0);
+struct BGControlSave_02074bf4;
+extern "C" void RestoreSubBGControl_02074bf4(struct BGControlSave_02074bf4* save);
 
 // USA: func_ov013_02186fa0
 extern "C" ARM void func_ov013_02186fa0(unsigned char* arg0) {
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov013_02186fa0(unsigned char* arg0) {
     CancelFontLoad_02094ab0(var0);
 
     if (arg0[R(0x50,0x64)] == 0) {
-        void* var1 = func_0204af14((struct Struct_0204af14*)(arg0 + 0x28), 0);
+        void* var1 = GetBGScreenBlock_0204af14((struct BGLayer_0204af14*)(arg0 + 0x28), 0);
         void* var2;
         if (var1 != 0 && (var2 = *(void**)((char*)var1 + 0xc)) != 0) {
             memset(var2, 0, 0x600);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov013_02186fa0(unsigned char* arg0) {
             *var3 = (*var3 & ~0x1f00) | (*(unsigned int*)(arg0 + R(0x4c,0x60)) << 8);
         }
     } else {
-        func_02074bf4((struct Struct_02074bf4*)(arg0 + 0x14));
+        RestoreSubBGControl_02074bf4((struct BGControlSave_02074bf4*)(arg0 + 0x14));
         {
             volatile unsigned int* var4 = (unsigned int*)0x4001000;
             *var4 = (*var4 & ~0x1f00) | (*(unsigned int*)(arg0 + R(0x4c,0x60)) << 8);

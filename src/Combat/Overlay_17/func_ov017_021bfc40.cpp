@@ -13,7 +13,7 @@ extern "C" void func_020a27ac(void* arg0);
 extern "C" int GetMessageWindow_020421a0(void);
 
 struct Struct_02015ef4 { unsigned int unknown_0_[3]; };
-extern "C" int func_0202ec84(void* arg0, struct Struct_02015ef4* arg1, int* arg2, int* arg3);
+extern "C" int ConvertWorldToScreen_0202ec84(void* camera, struct Struct_02015ef4* worldPosition, int* outX, int* outY);
 
 struct Struct_02015ef4_2;
 extern "C" void func_020473c8(struct Struct_02015ef4_2* arg0, int arg1);
@@ -72,7 +72,7 @@ extern "C" ARM int func_ov017_021bfc40(struct Struct_ov017_021bfc40* arg0) {
     int var9;
     int var10;
     if (var7 != NULL) {
-        func_0202ec84(var7, &var8, &var10, &var9);
+        ConvertWorldToScreen_0202ec84(var7, &var8, &var10, &var9);
     }
 
     int var11 = (var10 - 0xc) << 0xc;

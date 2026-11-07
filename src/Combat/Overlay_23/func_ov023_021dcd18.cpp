@@ -11,16 +11,16 @@
 
 
 struct BGControlSave_02074bd0;
-struct Struct_02074bf4;
+struct BGControlSave_02074bf4;
 extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
-extern "C" void func_02074bf4(struct Struct_02074bf4* arg0);
+extern "C" void RestoreSubBGControl_02074bf4(struct BGControlSave_02074bf4* save);
 
 // USA: func_ov023_021dcd18
 #pragma optimize_for_size off
 extern "C" ARM void func_ov023_021dcd18(void* arg0) {
     signed char var0 = *(signed char*)((char*)arg0 + REGION_FIELD_0);
     if (var0 == 1) {
-        func_02074bf4((struct Struct_02074bf4*)((char*)arg0 + REGION_FIELD_1));
+        RestoreSubBGControl_02074bf4((struct BGControlSave_02074bf4*)((char*)arg0 + REGION_FIELD_1));
         unsigned int* var1 = (unsigned int*)0x4001000;
         *var1 = (*var1 & ~0x1f00) | (*(unsigned int*)((char*)arg0 + REGION_FIELD_2) << 8);
     } else {

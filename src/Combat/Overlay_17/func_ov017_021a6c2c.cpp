@@ -59,9 +59,9 @@ extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" void DC_FlushRange(const void*, unsigned int);
 extern "C" void func_02057e6c(void*, int, SafeAllocator*, void*, unsigned int, TextureVRAMArea_0203d028*);
-extern "C" void func_0205ebec(void*);
+extern "C" void UnloadExtraSoundSet_0205ebec(void*);
 extern "C" void func_02010834(Struct_02010834*, int, int*, int*);
-extern "C" void func_02057fb4(void*, int, void*);
+extern "C" void PlayEffect_02057fb4(void*, int, void*);
 extern "C" void LoadExtraSoundSet_0205ebc0(void*, int, int);
 extern "C" void PlayExtraSoundEffect_0205ebfc(void*, int, int);
 extern "C" int func_02039d7c(char*);
@@ -127,7 +127,7 @@ extern "C" ARM void func_ov017_021a6c2c(Struct_ov017_021a6c2c_2* arg0) {
     } else if (arg0->unknown_8_ == 3) {
         arg0->unknown_c_ += var0->GetTickCount();
         if (arg0->unknown_c_ <= 50) return;
-        func_0205ebec(&gSoundEffectManager_02108760);
+        UnloadExtraSoundSet_0205ebec(&gSoundEffectManager_02108760);
         int var12[4], var13;
         func_02010834((Struct_02010834*)var0, var1->obj3D_.unknown_4_, var12, &var13);
         Struct_ov017_021a6c2c var14[4];
@@ -147,7 +147,7 @@ extern "C" ARM void func_ov017_021a6c2c(Struct_ov017_021a6c2c_2* arg0) {
             var17->unknown_11_4_ = 0; var17->unknown_11_5_ = 0; var17->unknown_11_6_ = 0; var17->unknown_11_7_ = 0;
             var17->unknown_2c_ = *var18;
             var17->unknown_44_ = var16->obj3D_.GetScale();
-            func_02057fb4(var4, 13, var17);
+            PlayEffect_02057fb4(var4, 13, var17);
         }
         LoadExtraSoundSet_0205ebc0(&gSoundEffectManager_02108760, 0xa2, 0xa2);
         PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, 2, 0);

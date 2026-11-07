@@ -7,8 +7,8 @@ enum { Enum_ov003_02167a5c_112 = 0x70 };
 #endif
 
 
-struct Struct_0207fe44;
-extern "C" void func_0207fe44(struct Struct_0207fe44* arg0);
+struct MenuLayout_0207fe44;
+extern "C" void CloseMenuLayoutWindows_0207fe44(struct MenuLayout_0207fe44* menuLayout);
 
 struct Struct_020e6d5c_15 { unsigned int unknown_0_; unsigned int unknown_4_; };
 extern struct Struct_020e6d5c_15 gNullMemberFunctionPointer_020e6d5c;
@@ -20,7 +20,7 @@ extern struct Struct_ov003_0217f4f0 data_ov003_0217f4f0;
 
 struct Struct_ov003_02167a5c_3 {
     char unknown_0_[0x10];
-    struct Struct_0207fe44* unknown_10_;
+    struct MenuLayout_0207fe44* unknown_10_;
     char unknown_14_[Enum_ov003_02167a5c_112 - 0x14];
     int unknown_70_;
     unsigned char unknown_74_;
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov003_02167a5c(struct Struct_ov003_02167a5c_3* arg0, in
     if (arg0->unknown_70_ == arg1 && arg0->unknown_76_ == arg2) return;
 
     if (arg0->unknown_70_ != arg1 || arg2 < 0) {
-        func_0207fe44(arg0->unknown_10_);
+        CloseMenuLayoutWindows_0207fe44(arg0->unknown_10_);
     }
     arg0->unknown_70_ = arg1;
     arg0->unknown_76_ = (signed char)arg2;

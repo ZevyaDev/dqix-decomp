@@ -66,8 +66,8 @@ struct Struct_ov017_021a1284_5 {
 };
 struct Struct_ov017_021a1284_6 { char unknown_0_[0x56b]; unsigned char unknown_56b_0_ : 4; unsigned char unknown_56b_4_ : 4; };
 
-struct Struct_0203dce4_2;
-extern "C" Struct_0203dce4_2* func_0203cf4c();
+struct NPCManager_0203dce4_2;
+extern "C" NPCManager_0203dce4_2* func_0203cf4c();
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" Struct_02058564_2* GetEffectManager_02057924();
 extern "C" int* GetLocalWireless_0202ae18();
@@ -82,7 +82,7 @@ extern "C" void func_ov017_021a1178(GameResources*, int);
 extern "C" void func_0203983c(unsigned char*, int);
 extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_0203d008(unsigned char*);
-extern "C" void func_0203e0a0(Struct_0203dce4_2*, unsigned short);
+extern "C" void func_0203e0a0(NPCManager_0203dce4_2*, unsigned short);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void LoadFileTables_020a0c0c();
@@ -91,8 +91,8 @@ extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" void func_ov017_0219b938(GameResources*);
 extern "C" int func_020981e4(int, int);
 extern "C" void func_ov017_021a316c(GameResources*);
-extern "C" void func_020a1df8(int);
-extern "C" void func_020a1ef0(int);
+extern "C" void PushOverlay_020a1df8(int);
+extern "C" void PushSubOverlay_020a1ef0(int);
 extern "C" void func_ov023_021e2dd8(Struct_ov017_021a1284_8*);
 extern "C" void __clear(void*, unsigned int);
 extern "C" int GetOwnPartyOrder_02011494(char*, void*);
@@ -110,19 +110,19 @@ extern "C" void func_ov017_021a2840(GameResources*);
 extern "C" void func_02058564(Struct_02058564_2*);
 extern "C" void func_02042b30(void*, void*);
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
-extern "C" void func_020432c4(void*);
+extern "C" void InitMessageGlyphs_020432c4(void*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" int QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources*, int, int, int, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int IsInParty_02086ef0(Party_02048150*, int);
-extern "C" void func_ov017_021c3fb4(int, int);
+extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int, int);
 extern "C" void func_ov017_021c4418(int, int);
 extern "C" void func_ov017_0219ba0c(GameResources*, int);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_020732a8();
 extern "C" void func_ov017_0219bd1c(int, int, int, int);
 extern "C" unsigned char* GetFollowCamera_020100f8(char*);
-extern "C" void func_020a28b0(unsigned char*, int);
+extern "C" void ClearCameraFlags_020a28b0(unsigned char*, int);
 extern "C" void EnablePlayerControl_020397c0(void*);
 extern AllocatorUnion gMainHeap_02114e20;
 
@@ -131,7 +131,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     Zone3D* var2 = GetZone3D_02012fe4();
-    Struct_0203dce4_2* var3 = func_0203cf4c();
+    NPCManager_0203dce4_2* var3 = func_0203cf4c();
     Struct_02058564_2* var4 = GetEffectManager_02057924();
     int* var5 = GetLocalWireless_0202ae18();
     GameObject* var6 = var0->GetUnknownGameObject();
@@ -189,8 +189,8 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
             var11 = &var7->allocator_array_38[7];
             var11->Reset();
         }
-        func_020a1df8(5);
-        func_020a1ef0(1);
+        PushOverlay_020a1df8(5);
+        PushSubOverlay_020a1ef0(1);
         arg0->unknown_1c_ = (Struct_ov017_021a1284_8*)var11->Allocate(Enum_ov017_021a1284_1608);
         arg0->unknown_1c_->unknown_4e5_ = arg0->unknown_20_;
         arg0->unknown_1c_->unknown_4fc_ = arg0->unknown_21_;
@@ -237,12 +237,12 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         func_02042b30(var8, ((Struct_ov017_021a1284_3*)var7)->unknown_87c_);
         ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)((Struct_ov017_021a1284_3*)var7)->unknown_87c_);
         RestoreTextureVRAMState_0207df90(((Struct_ov017_021a1284_3*)var7)->unknown_87c_);
-        func_020432c4(var8);
+        InitMessageGlyphs_020432c4(var8);
         SaveTextureVRAMState_0207dfac(((Struct_ov017_021a1284_3*)var7)->unknown_87c_);
         Party_02048150* var24 = (Party_02048150*)GetParty_02010828(var0);
         for (int var25 = 0; var25 < 4; ++var25) {
             if (QueuePartyMemberModelLoad_ov017_0218f5a4(var7, var25, 0, 0, 0) && IsLocalWirelessOn_0202b7d8(var5) && IsInParty_02086ef0(var24, var25)) {
-                func_ov017_021c3fb4(var25, 1);
+                SendPartyMemberEquippedItems_ov017_021c3fb4(var25, 1);
                 func_ov017_021c4418(var25, -1);
             }
         }
@@ -260,7 +260,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         arg0->unknown_22_ = 6;
     } else if (arg0->unknown_22_ == 6) {
         if (((Struct_ov017_021a1284_4*)GetZone3D_02012fe4())->unknown_424_) return;
-        func_020a28b0(GetFollowCamera_020100f8((char*)var0), 3);
+        ClearCameraFlags_020a28b0(GetFollowCamera_020100f8((char*)var0), 3);
         arg0->unknown_22_ = 7;
     } else if (arg0->unknown_22_ == 7) {
         if (arg0->unknown_20_ == 3) EnablePlayerControl_020397c0(var6);

@@ -36,7 +36,7 @@ extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void VectorizedMemset(void* dst, int val, unsigned int len);
-extern "C" void func_020a1df8(int arg0);
+extern "C" void PushOverlay_020a1df8(int overlayEntry);
 extern "C" void func_ov003_0216d63c(Struct_ov003_0217ef58* arg0);
 extern "C" void func_ov003_0216ae0c(Struct_ov003_0217ef58* arg0, SafeAllocator* arg1);
 extern "C" int func_ov003_0216af14(Struct_ov003_0217ef58* arg0);
@@ -48,7 +48,7 @@ extern "C" void func_ov003_0217f194(Struct_ov003_0217ef58_2* arg0);
 extern "C" void func_ov003_0217f118(Struct_ov003_0217ef58_2* arg0);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_020a27ac(void* arg0);
-extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
+extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" void func_ov003_0217f1b8(unsigned char* arg0);
 extern AllocatorUnion gMainHeap_02114e20;
 
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov003_0217ef58(Struct_ov003_0217ef58_2* arg0) {
             arg0->unknown_1_ = 1;
             return;
         }
-        func_020a1df8(3);
+        PushOverlay_020a1df8(3);
         func_ov003_0216d63c(arg0->unknown_c_);
         func_ov003_0216ae0c(arg0->unknown_c_, &arg0->unknown_14_);
         arg0->unknown_c_->unknown_a_ = arg0->unknown_8_;
@@ -96,7 +96,7 @@ extern "C" ARM void func_ov003_0217ef58(Struct_ov003_0217ef58_2* arg0) {
         EnablePlayerControl_020397c0(var0->GetUnknownGameObject());
         int var2 = GetFollowCamera_020100f8((char*)var0);
         func_020a27ac((void*)var2);
-        func_020a28b0((unsigned char*)var2, 2);
+        ClearCameraFlags_020a28b0((unsigned char*)var2, 2);
         ClearFlags04(GetGameResources(), 0xc0);
         arg0->unknown_10_ = -1;
     } else if (arg0->unknown_10_ == 3) {

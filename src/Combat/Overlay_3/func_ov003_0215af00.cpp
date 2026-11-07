@@ -14,7 +14,7 @@ struct Struct_0201099c_3;
 extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_ov003_02159250(void*, void*);
 extern "C" void func_ov017_021d243c(int);
-extern "C" void func_ov017_02191108(int, int, int, int, int);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(int, int, int, int, int);
 
 // USA: func_ov003_0215af00
 extern "C" ARM void func_ov003_0215af00(void* arg0) {
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov003_0215af00(void* arg0) {
 
     func_ov017_021d243c(0);
     int var4 = (int)GetGameResources();
-    func_ov017_02191108(var4, 1, 1, 1, 1);
+    RebuildFieldPartyOrder_ov017_02191108(var4, 1, 1, 1, 1);
 
     *(unsigned char*)(var0 + 0x588) = 0xb;
     *(unsigned char*)(var0 + 0x580) = 0;

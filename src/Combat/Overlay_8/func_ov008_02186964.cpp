@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-struct Struct_0205bef8;
+struct KeyMenuCursor_0205bef8;
 struct MenuCursor_0205ba68;
 struct MenuCursor_0205bacc;
 
-extern "C" void func_0205bef8(Struct_0205bef8* arg0);
+extern "C" void InitKeyMenuCursor_0205bef8(KeyMenuCursor_0205bef8* cursor);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc* cursor, int itemCount);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov008_02186964(Struct_ov008_02186964_2* arg0) {
             }
         }
     }
-    func_0205bef8((Struct_0205bef8*)&arg0->unknown_750_);
+    InitKeyMenuCursor_0205bef8((KeyMenuCursor_0205bef8*)&arg0->unknown_750_);
     SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&arg0->unknown_750_, var1, var3, 0);
     SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&arg0->unknown_750_, var0);
     arg0->unknown_750_.unknown_4_ = var1;

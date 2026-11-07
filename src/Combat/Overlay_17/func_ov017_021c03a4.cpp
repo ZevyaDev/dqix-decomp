@@ -11,8 +11,8 @@ extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020979c0(Struct_020979c0* arg0, unsigned char arg1);
 extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
-extern "C" void func_020a1ef0(int arg0);
-extern "C" void func_020a1f4c(int arg0);
+extern "C" void PushSubOverlay_020a1ef0(int subOverlayEntry);
+extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
 extern "C" void func_ov014_02186a70(void* arg0);
 extern "C" void func_ov014_021868b8(void* arg0, SafeAllocator* arg1);
 extern "C" int func_ov014_02186bc8(void* arg0, unsigned int arg1);
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov017_021c03a4(Struct_ov017_021c03a4* arg0) {
         }
         func_020979c0((Struct_020979c0*)arg0->unknown_1c_, 1);
         LoadOverlay_020a1940(OVERLAY_ID(14));
-        func_020a1ef0(1);
+        PushSubOverlay_020a1ef0(1);
         func_ov014_02186a70(arg0->unknown_20_);
         func_ov014_021868b8(arg0->unknown_20_, &arg0->unknown_8_);
         arg0->unknown_24_++;
@@ -80,6 +80,6 @@ extern "C" ARM void func_ov017_021c03a4(Struct_ov017_021c03a4* arg0) {
     func_02097b34(arg0->unknown_1c_);
     func_ov017_021c0364(arg0);
     LoadFileTables_020a0c0c();
-    func_020a1f4c(1);
+    PopSubOverlay_020a1f4c(1);
     arg0->unknown_1_ = 1;
 }

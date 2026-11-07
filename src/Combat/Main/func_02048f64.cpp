@@ -45,7 +45,7 @@ extern "C" void func_02049390(unsigned char*, unsigned char);
 struct Struct_02010604;
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 struct Struct_02033834_2;
-extern "C" void func_02033834(Struct_02033834_2*, int);
+extern "C" void SetFacing_02033834(Struct_02033834_2*, int);
 extern "C" Vector3i func_ov025_021ee488(Vector3i* arg0, int arg1, int arg2);
 
 static inline Struct_02048cf0 inline_02048e2c_2(const int& arg0) {
@@ -163,6 +163,6 @@ extern "C" ARM void func_02048f64(Struct_02048e2c* arg0) {
     fix32_t var28   = fix32ReduceAngle0To2Pi(fix32_Atan2(var27.x, var27.z));
     arg0->unknown_44_ = var25;
     if (var22) {
-        func_02033834((Struct_02033834_2*)arg0, var28);
+        SetFacing_02033834((Struct_02033834_2*)arg0, var28);
     }
 }

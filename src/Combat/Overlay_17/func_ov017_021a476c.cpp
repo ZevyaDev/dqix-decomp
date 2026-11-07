@@ -5,7 +5,7 @@
 #include "World/ZoneFeatures.h"
 #include "Resource/Brightness.h"
 
-struct Struct_0203dce4_2;
+struct NPCManager_0203dce4_2;
 struct Struct_0203e0a0;
 struct Struct_0203de84;
 struct Struct_0203de84_2;
@@ -112,11 +112,11 @@ extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_ov017_021a4e88(int arg0, unsigned short* arg1);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
-extern "C" Struct_ov017_021a476c_3* func_0203dce4(Struct_0203dce4_2* arg0, int arg1);
+extern "C" Struct_ov017_021a476c_3* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2* npcManager, int index);
 extern "C" Struct_ov017_021a476c_4* func_02040528(int* arg0);
 extern "C" Struct_ov017_021a476c_5* func_02040538(Struct_0203e0a0* arg0);
 extern "C" unsigned char func_02039d7c(char* arg0);
-extern "C" int func_020535c8(signed char* arg0);
+extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int func_0203402c(Struct_0203402c* arg0);
 extern "C" void func_ov017_0219a674(unsigned char* arg0);
 extern "C" void func_020406f8(Struct_0203de84* arg0, Struct_0203de84_2* arg1);
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov017_021a476c(Struct_ov017_021a476c_9* arg0) {
     }
     data_ov017_021d76da = func_ov017_021a4e88(1, &data_ov017_021d83a8);
     if (data_ov017_021d76da >= 0) {
-        Struct_ov017_021a476c_3* var9 = func_0203dce4((Struct_0203dce4_2*)var4, data_ov017_021d76da);
+        Struct_ov017_021a476c_3* var9 = GetNPCByIndex_0203dce4((NPCManager_0203dce4_2*)var4, data_ov017_021d76da);
         if (var9 != NULL) {
             Struct_ov017_021a476c_4* var10 = func_02040528((int*)var9);
             Struct_ov017_021a476c_5* var11 = func_02040538((Struct_0203e0a0*)var9);
@@ -171,7 +171,7 @@ extern "C" ARM void func_ov017_021a476c(Struct_ov017_021a476c_9* arg0) {
             if (IsBrightnessOutsideValidRange(var6, false)) {
                 return;
             }
-            if (func_020535c8((signed char*)var5)) {
+            if (IsPerformingGesture_020535c8((signed char*)var5)) {
                 return;
             }
             if (func_0203402c((Struct_0203402c*)var5)) {

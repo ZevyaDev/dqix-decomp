@@ -42,7 +42,7 @@ extern Struct_020fdcb0_3 data_020fdcb0[4];
 extern Struct_020fdc60_3 data_020fdc60[4];
 extern "C" void func_0201f9b8(Struct_020fdcb0_3*);
 extern "C" void func_0201f9e8(Struct_020fdc60_3*);
-extern "C" unsigned short func_0202053c(void*);
+extern "C" unsigned short GetLevel_0202053c(void*);
 extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00(void);
 extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8*, unsigned int);
 #if defined(jpn)
@@ -76,7 +76,7 @@ extern "C" ARM void func_02022dc8(Struct_02020554* arg0) {
         int var11 = var8->unknown_ac_.unknown_84_->unknown_6_;
         int var12 = var8->baseStats_->primaryStats.maxMP;
         int var13 = var8->unknown_150_->unknown_950_;
-        unsigned char var14 = func_0202053c(var8);
+        unsigned char var14 = GetLevel_0202053c(var8);
         int var15 = var8->unknown_ac_.unknown_84_->unknown_0_;
         var7->unknown_1d_ |= var7->unknown_10_ != var13;
         var7->unknown_1d_ |= var7->unknown_14_ != var14;

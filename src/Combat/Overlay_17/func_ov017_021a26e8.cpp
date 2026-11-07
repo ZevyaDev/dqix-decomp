@@ -6,7 +6,7 @@ extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, 
 extern "C" void* func_02033fa0(void* arg0);
 struct Struct_0204bd7c;
 extern "C" unsigned short func_0204bd7c(struct Struct_0204bd7c* arg0);
-extern "C" void* func_02011584(void* arg0);
+extern "C" void* GetZoneList_02011584(void* gameState);
 struct Struct_02099a68;
 extern "C" int func_02099a68(struct Struct_02099a68* arg0, unsigned short arg1);
 
@@ -22,6 +22,6 @@ extern "C" ARM int func_ov017_021a26e8(GameResources* arg0, int arg1) {
 		return 0;
 	}
 	unsigned short var3 = func_0204bd7c((struct Struct_0204bd7c*)var2);
-	void* var4 = func_02011584(var0);
+	void* var4 = GetZoneList_02011584(var0);
 	return func_02099a68((struct Struct_02099a68*)var4, var3);
 }

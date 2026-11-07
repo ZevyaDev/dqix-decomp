@@ -11,11 +11,11 @@ enum { Enum_ov003_0216d53c_3868 = 0xf1c };
 
 
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_0204359c(void* arg0, int arg1);
+extern "C" void DrawMessageGlyphs_0204359c(void* window, int glyphCount);
 extern "C" void func_020439b0(void* arg0, int arg1);
 
 struct TextWindowManager_0205d2bc;
-extern "C" void func_0205d2bc(TextWindowManager_0205d2bc* arg0);
+extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(TextWindowManager_0205d2bc* windowManager);
 
 extern "C" void func_ov003_02170280(void* arg0);
 extern "C" void func_ov003_0215ca68(void* arg0);
@@ -32,13 +32,13 @@ struct Struct_ov003_0216d53c {
 // USA: func_ov003_0216d53c
 extern "C" ARM void func_ov003_0216d53c(Struct_ov003_0216d53c* arg0) {
     int var0 = GetMessageWindow_020421a0();
-    func_0204359c((void*)var0, 2);
+    DrawMessageGlyphs_0204359c((void*)var0, 2);
     func_020439b0((void*)var0, 0);
 
     void* var1 = arg0->unknown_12c0_;
     if (var1) {
         if (arg0->unknown_6_ == 0 || arg0->unknown_6_ == 1 || arg0->unknown_4_ == 2) {
-            func_0205d2bc((TextWindowManager_0205d2bc*)var1);
+            CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((TextWindowManager_0205d2bc*)var1);
         }
     }
 

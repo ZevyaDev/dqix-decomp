@@ -60,7 +60,7 @@ struct Struct_ov000_021707f0 {
 };
 
 extern "C" int GetResources_0200fb8c(int*);
-extern "C" void* func_ov000_02160f08(void*);
+extern "C" void* GetBattleUI_ov000_02160f08(void*);
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char*);
 extern "C" void func_0204c610(Struct_0204c610*, int, short*, short*, short*, short*);
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov000_021707f0(Struct_ov000_021707f0* arg0) {
     if (!var3) {
         return;
     }
-    Struct_ov000_021707f0_5* var4 = (Struct_ov000_021707f0_5*)func_ov000_02160f08(var3);
+    Struct_ov000_021707f0_5* var4 = (Struct_ov000_021707f0_5*)GetBattleUI_ov000_02160f08(var3);
     if (!var4) {
         return;
     }

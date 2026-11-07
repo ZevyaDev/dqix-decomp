@@ -132,4 +132,4 @@ struct RenderConfig
 #if defined(jpn)
 #endif
 
-extern RenderConfig data_0210a010;
+extern RenderConfig gRenderConfig_0210a010;

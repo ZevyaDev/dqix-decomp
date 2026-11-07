@@ -11,18 +11,18 @@ struct FontGlyph_0204254c {
     char unknown_6_[2];
 };
 
-// USA: func_0204254c
-extern "C" ARM struct FontGlyph_0204254c* func_0204254c(int arg0, int arg1) {
-    char* var0;
-    unsigned int var1;
-    if (arg0 == 0) {
+// USA: FindFontGlyph_0204254c
+extern "C" ARM struct FontGlyph_0204254c* FindFontGlyph_0204254c(int text, int font) {
+    char* fontInfo;
+    unsigned int i;
+    if (text == 0) {
         return NULL;
     }
-    var0 = (char*)data_0210782c[arg1];
-    for (var1 = 0; var1 < *(unsigned int*)(var0 + 4); var1++) {
-        struct FontGlyph_0204254c* var2 = *(struct FontGlyph_0204254c**)(var0 + 0x10) + var1;
-        if (CompareBytes_02001aec(var2->unknown_0_, arg0, var2->codeLength_5_0_) == 0) {
-            return var2;
+    fontInfo = (char*)data_0210782c[font];
+    for (i = 0; i < *(unsigned int*)(fontInfo + 4); i++) {
+        struct FontGlyph_0204254c* glyph = *(struct FontGlyph_0204254c**)(fontInfo + 0x10) + i;
+        if (CompareBytes_02001aec(glyph->unknown_0_, text, glyph->codeLength_5_0_) == 0) {
+            return glyph;
         }
     }
     return NULL;

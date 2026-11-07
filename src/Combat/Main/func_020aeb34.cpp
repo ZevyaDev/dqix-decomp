@@ -3,7 +3,7 @@
 #include "Combat/EntryGetterTypes.h"
 
 struct Struct_02017a94 { char unknown_0_[6]; short unknown_6_; };
-struct Struct_0203dce4_2;
+struct NPCManager_0203dce4_2;
 
 struct QueueNode_02015438;
 struct GameResources;
@@ -23,10 +23,10 @@ extern "C" long long func_020c3260(int arg0);
 extern "C" long long func_020c32f8(int arg0);
 extern "C" float func_0200c700(long long);
 extern "C" void Vector3fix_Add(struct Struct_ov009_0218aa28* arg0, struct Struct_ov009_0218aa28* arg1, struct Struct_ov009_0218aa28* arg2);
-extern "C" struct Struct_0203dce4_2* func_0203cf4c();
+extern "C" struct NPCManager_0203dce4_2* func_0203cf4c();
 extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438**);
 extern "C" struct Struct_02017a94* func_0201b600(Struct_02017a94*, int, unsigned short);
-extern "C" struct Struct_0203dce4* func_0203dce4(struct Struct_0203dce4_2*, int);
+extern "C" struct NPC_0203dce4* GetNPCByIndex_0203dce4(struct NPCManager_0203dce4_2*, int);
 extern "C" void func_02040648(unsigned int*);
 extern "C" int IsQueueEmpty_02046b08(void**);
 int IsMainBrightnessTransitionActive(struct GameResources*);
@@ -40,8 +40,8 @@ extern "C" void func_020409b0(struct Struct_020409b0*, int);
 
 // USA: func_020aeb34
 extern "C" ARM void func_020aeb34(void) {
-    struct Struct_0203dce4_2* var0;
-    struct Struct_0203dce4* var1[4];
+    struct NPCManager_0203dce4_2* var0;
+    struct NPC_0203dce4* var1[4];
     GameResources* var2;
     struct Struct_02017a94* var3;
     int var4;
@@ -57,7 +57,7 @@ extern "C" ARM void func_020aeb34(void) {
     if (var3 == NULL) return;
 
     for (var4 = 0; var4 < 4; var4++) {
-        var1[var4] = func_0203dce4(var0, var2->unknown_444a_[var4]);
+        var1[var4] = GetNPCByIndex_0203dce4(var0, var2->unknown_444a_[var4]);
         if (var1[var4] == NULL) return;
         func_02040648((unsigned int*)var1[var4]);
     }
@@ -103,7 +103,7 @@ extern "C" ARM void func_020aeb34(void) {
         var12.unknown_8_ = (int)(4096.0f * (func_0200c700(func_020c32f8(var11)) / 4294967296.0f)) * 2;
 
         var13.unknown_0_ = var8;
-        struct Struct_0203dce4* var16 = var1[var10];
+        struct NPC_0203dce4* var16 = var1[var10];
         func_020406f8(&var15, (struct Struct_0203de84_2*)var16);
         var13.unknown_8_ = -0x970;
         var13.unknown_4_ = var15.unknown_4_;

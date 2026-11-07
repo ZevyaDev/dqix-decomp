@@ -5,9 +5,9 @@ extern "C" void func_0202e7d4(unsigned char*,int*,int*,int*);
 int fix32abs(int);
 int Vector3fixSquaredDistance(const Vector3i*,const Vector3i*);
 extern "C" void func_ov000_0216d530(void*,int);
-extern "C" void func_0202e5c8(unsigned char*,int,int,int);
+extern "C" void SetCameraTarget_0202e5c8(unsigned char*,int,int,int);
 extern "C" void* GetBattleScene_ov000_02160130();
-extern "C" { void func_ov000_0216d370(void*,int,int,int); void func_0202e5d8(void*,int,int,int); void func_ov000_02167f10(void*); }
+extern "C" { void ResetBattleCamera_ov000_0216d370(void*,int,int,int); void SetCameraOrbit_0202e5d8(void*,int,int,int); void func_ov000_02167f10(void*); }
 struct Struct_ov000_0216df00 { char unknown_0_[0x10]; Vector3i unknown_10_; char unknown_1c_[0x5c-0x1c]; int unknown_5c_,unknown_60_; char unknown_64_[0x220-0x64]; unsigned char unknown_220_; char unknown_221_[3]; int unknown_224_; char unknown_228_[0x23c-0x228]; int unknown_23c_; };
 inline int inline_ov000_021537b8(int arg0) { return arg0>=0 && arg0<=3; }
 inline int inline_ov000_0216df00(int arg0) { return arg0>=0xc0 && arg0<=0xc7; }
@@ -41,14 +41,14 @@ extern "C" ARM void func_ov000_0216df00(Struct_ov000_0216df00* arg0,int arg1,int
             }
         }
     }
-    func_ov000_0216d370(arg0,1,1,1);
+    ResetBattleCamera_ov000_0216d370(arg0,1,1,1);
     arg0->unknown_220_=1;
     func_ov000_0216d530(arg0,arg1);
-    if(var2) { int var13=inline_ov000_0216df00_2(var4,arg3); func_0202e5c8((unsigned char*)arg0,0,var13,0); }
-    else func_0202e5c8((unsigned char*)arg0,0,var4,0);
+    if(var2) { int var13=inline_ov000_0216df00_2(var4,arg3); SetCameraTarget_0202e5c8((unsigned char*)arg0,0,var13,0); }
+    else SetCameraTarget_0202e5c8((unsigned char*)arg0,0,var4,0);
     int var14=var4-0x1800;
     if(var14<0) var14=0;
-    func_0202e5d8(arg0,0,var14,var6);
+    SetCameraOrbit_0202e5d8(arg0,0,var14,var6);
     arg0->unknown_23c_=-20;
     Vector3i var15(var0->obj3D_.position_);
     int var16[2]={var15.x,var15.z};

@@ -2,12 +2,12 @@
 #include "std_library_functions.h"
 
 extern "C" void func_0202eab8(void* arg0);
-extern "C" void func_0202e5d8(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetCameraOrbit_0202e5d8(void* camera, int angle, int height, int distance);
 extern "C" void Mat3x3_WriteIdentity(void* obj);
 extern "C" void func_020a0d58(void* arg0);
 
 struct Struct_0202df68;
-extern "C" void func_0202e9a4(struct Struct_0202df68* arg0, int arg1);
+extern "C" void SetCameraFieldOfView_0202e9a4(struct Struct_0202df68* camera, int halfAngle);
 
 // USA: func_0202df68
 extern "C" ARM void func_0202df68(void* arg0) {
@@ -15,7 +15,7 @@ extern "C" ARM void func_0202df68(void* arg0) {
     *(int*)((char*)arg0 + 0x64) = 0x1555;
     *(int*)((char*)arg0 + 0x68) = 0x1000;
     *(int*)((char*)arg0 + 0x6c) = 0x190000;
-    func_0202e9a4((struct Struct_0202df68*)arg0, 0xf000);
+    SetCameraFieldOfView_0202e9a4((struct Struct_0202df68*)arg0, 0xf000);
 
     *(int*)((char*)arg0 + 0x4) = 0;
     *(int*)((char*)arg0 + 0x8) = 0x4000;
@@ -28,7 +28,7 @@ extern "C" ARM void func_0202df68(void* arg0) {
     *(int*)((char*)arg0 + 0x24) = 0;
     func_0202eab8(arg0);
 
-    func_0202e5d8(arg0, 0, 0x6000, 0xb000);
+    SetCameraOrbit_0202e5d8(arg0, 0, 0x6000, 0xb000);
 
     memset((char*)arg0 + 0xf0, 0, 0x30);
 

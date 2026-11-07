@@ -29,7 +29,7 @@ void* GetPacEntryData_020467f0(void*,int,void**,int*);
 void LoadBGBlock_0204b174(void*,void*,SafeAllocator*,int);
 void FillBGScreenRect_0204bc74(void*,int,int,int,int,int,int);
 void LoadBGScreenData_0204b0e8(void*,void*);
-Struct_ov003_0216759c_2* func_0204af14(void*,unsigned int);
+Struct_ov003_0216759c_2* GetBGScreenBlock_0204af14(void*,unsigned int);
 extern "C" void DC_FlushRange(const void*,unsigned int);
 void LoadToSubBG1ScreenData(void*,int,unsigned int);
 void InitTextWindow_0204c684(void*);
@@ -42,7 +42,7 @@ void func_0207f914(void*,SafeAllocator*,const char*,const char*);
 int func_0207f9f4(void*);
 void LoadToSubBGStandardPalette(const void*,unsigned int,unsigned int);
 void _Z15CleanCacheRangePKvj(const void*,unsigned int);
-void func_0207fe44(void*);
+void CloseMenuLayoutWindows_0207fe44(void*);
 void func_ov003_02167a5c(void*,int,int);
 }
 extern char data_ov003_021800a4[];
@@ -106,7 +106,7 @@ extern "C" ARM int func_ov003_0216759c(Struct_ov003_0216759c* arg0) {
             var12=arg0->unknown_8_;
             FillBGScreenRect_0204bc74(var12,0,0,0,0x20,0x19,0);
             LoadBGScreenData_0204b0e8(var12,0);
-            Struct_ov003_0216759c_2* var15=func_0204af14(arg0->unknown_8_+1,0);
+            Struct_ov003_0216759c_2* var15=GetBGScreenBlock_0204af14(arg0->unknown_8_+1,0);
             if (var15) {
                 void* var16; unsigned int var17=var15->unknown_8_; var16=var15->unknown_c_;
                 DC_FlushRange(var16,var17);
@@ -165,7 +165,7 @@ extern "C" ARM int func_ov003_0216759c(Struct_ov003_0216759c* arg0) {
         arg0->unknown_74_=1;
         arg0->unknown_75_=0;
         if (arg0->unknown_70_ != 0 && arg0->unknown_76_>=0) {
-            func_0207fe44(arg0->unknown_10_);
+            CloseMenuLayoutWindows_0207fe44(arg0->unknown_10_);
             signed char var22=arg0->unknown_76_;
             arg0->unknown_76_=-1;
             func_ov003_02167a5c(arg0,arg0->unknown_70_,var22);

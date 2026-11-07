@@ -35,7 +35,7 @@ struct Struct_ov005_02153954 {
 extern int gSoundEffectManager_02108760;
 
 extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char arg1);
-extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
+extern "C" Struct_ov005_02153ba4_2* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int func_0205bf58(void* arg0, int arg1);
 extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84* cursor);
@@ -47,7 +47,7 @@ extern "C" void func_ov005_0215771c(Struct_ov005_02153954* arg0);
 extern "C" ARM void func_ov005_0215730c(Struct_ov005_02153954* arg0) {
     if (g_keyManager.TestKeysPressed(2)) {
         func_ov005_0215792c(arg0, 1);
-        Struct_ov005_02153ba4_2* var0 = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+        Struct_ov005_02153ba4_2* var0 = GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
         var0->unknown_634_ |= 0x800;
         PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0x1b, 0);
         return;

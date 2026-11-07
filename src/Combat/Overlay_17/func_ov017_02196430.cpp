@@ -128,9 +128,9 @@ extern "C" int func_ov017_0219735c(unsigned char* arg0, unsigned short arg1);
 extern "C" int func_020795cc(unsigned char* arg0);
 extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 extern "C" int func_ov017_02196fc8(GameObject* arg0, GameObject* arg1, int arg2);
-extern "C" int func_020535c8(signed char* arg0);
+extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" void func_02076ccc(void* arg0, int arg1);
+extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
 extern "C" unsigned short func_ov017_021971c4(Struct_ov017_02196430_8* arg0);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
@@ -286,7 +286,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
                 if (g_keyManager.TestKeysPressed(1) == 0 && var0->unknown_42e6_ == 0) {
                     continue;
                 }
-                if (func_020535c8((signed char*)var4)) {
+                if (IsPerformingGesture_020535c8((signed char*)var4)) {
                     continue;
                 }
                 var25 = 1;
@@ -313,7 +313,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
             }
             if (var27->unknown_130_ != 8 && var27->unknown_130_ != 9 && var27->unknown_130_ != 0) {
                 var27->unknown_166_ = GetProtagonistObjectIndex_020100a8(var1);
-                func_02076ccc(var27, 8);
+                SetFieldMonsterState_02076ccc(var27, 8);
             }
             var26 = var27->unknown_16a_;
             var23 = 1;
@@ -334,7 +334,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
         var17.unknown_0_ = 0xe;
         func_ov017_0219b33c(var0, &var17);
     }
-    if (!func_020535c8((signed char*)var4) &&
+    if (!IsPerformingGesture_020535c8((signed char*)var4) &&
         (g_keyManager.TestKeysPressed(1) != 0 || var0->unknown_42e6_ != 0) && var33 != 0) {
         var23 = 1;
         var25 = 1;

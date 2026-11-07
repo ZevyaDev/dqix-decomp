@@ -4,8 +4,8 @@ extern "C" int IsBrightnessFadeActive_ov031_0223c054(int useSubScreen);
 extern "C" ARM int func_ov031_02237388(void);
 extern "C" void* func_ov031_0223c7c4(int);
 extern "C" void func_ov031_02223440(void);
-extern "C" void func_ov031_0223cbbc(int, int);
-extern "C" void func_ov031_022274d0(int, int);
+extern "C" void HideScreenLayers_ov031_0223cbbc(int, int);
+extern "C" void SetStepIndicatorAndButtonBarModes_ov031_022274d0(int, int);
 extern "C" void func_ov031_02227520(int*, int*);
 extern "C" void func_ov031_0222750c(int, int);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int handler);
@@ -19,9 +19,9 @@ extern "C" ARM void func_ov031_02233fac(void) {
     if (func_ov031_02237388() == 0) return;
     func_ov031_0223c7c4(0);
     func_ov031_02223440();
-    func_ov031_0223cbbc(1, 1);
-    func_ov031_0223cbbc(0, 0x15);
-    func_ov031_022274d0(2, 1);
+    HideScreenLayers_ov031_0223cbbc(1, 1);
+    HideScreenLayers_ov031_0223cbbc(0, 0x15);
+    SetStepIndicatorAndButtonBarModes_ov031_022274d0(2, 1);
     int var0;
     func_ov031_02227520(0, &var0);
     if (var0 == 0) {

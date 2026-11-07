@@ -2,16 +2,16 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-struct Struct_ov000_021584e8;
+struct ActionResult_ov000_021584e8;
 struct Struct_ov024_021e56c0 { int unknown_0_; int unknown_4_; };
 
 extern "C" short func_ov000_0215a1d4(void* arg0, int arg1, int arg2, short* arg3);
-extern "C" struct Struct_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
+extern "C" struct ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, struct Struct_ov024_021e56c0* flags, int flagIndex);
-extern "C" void func_ov000_0215ccbc(
-    int arg0, struct Struct_ov000_021584e8* arg1, GameObject* arg2, short arg3, short arg4, short arg5,
-    struct Struct_ov024_021e56c0 arg6, unsigned char arg7);
+extern "C" void SetActionResult_ov000_0215ccbc(
+    int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant, short arg3, short currHP, short currMP,
+    struct Struct_ov024_021e56c0 flags, unsigned char isCriticalHit);
 extern "C" void func_ov000_0215fe84(void* arg0, void* arg1, int arg2);
 
 struct Struct_ov024_021e56c0_2 { char unknown_0_[0x24]; short unknown_24_; };
@@ -31,14 +31,14 @@ extern "C" ARM void func_ov024_021e56c0(struct Struct_ov024_021e56c0_3* arg0, in
     short var2 = 0;
     short var3 = func_ov000_0215a1d4(arg0->unknown_10_, arg1, var1, &var2);
     arg0->unknown_8_->unknown_24_ = var3;
-    struct Struct_ov000_021584e8* var4 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
+    struct ActionResult_ov000_021584e8* var4 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var4) return;
     AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var4, 0x214);
     struct Struct_ov024_021e56c0 var5;
     var5.unknown_0_ = 0;
     var5.unknown_4_ = 0;
     SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var5, 0x22);
-    func_ov000_0215ccbc((int)arg0->unknown_10_, var4, var0, -var1,
+    SetActionResult_ov000_0215ccbc((int)arg0->unknown_10_, var4, var0, -var1,
         var0->currentStats_->primaryStats.currHP, var3, var5, 0);
     func_ov000_0215fe84(arg0->unknown_8_, var4, 2);
     ((unsigned char*)arg0->unknown_10_)[0x8e02]++;

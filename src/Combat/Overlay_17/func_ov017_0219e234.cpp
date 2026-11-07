@@ -8,7 +8,7 @@ extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020a289c(void);
 typedef void (*Type_ov017_0219e234)(void*, int);
-extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
+extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 
 struct Struct_ov017_0219e234 {
 	unsigned char unknown_0_0_ : 4;
@@ -27,5 +27,5 @@ extern "C" ARM void func_ov017_0219e234(Struct_ov017_0219d250_5* arg0, Struct_ov
 		((Type_ov017_0219e234)&func_020a289c)((void*)var1, 2);
 		return;
 	}
-	func_020a28b0((unsigned char*)var1, 0x10);
+	ClearCameraFlags_020a28b0((unsigned char*)var1, 0x10);
 }

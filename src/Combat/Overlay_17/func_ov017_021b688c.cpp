@@ -47,7 +47,7 @@ extern "C" void ReleaseFileTablesForSpace_020a0cc4(int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern AllocatorUnion gMainHeap_02114e20;
 extern "C" void LoadFileTables_020a0c0c();
-extern "C" void func_020a1df8(int);
+extern "C" void PushOverlay_020a1df8(int);
 extern "C" void func_ov003_0215f9c0(Struct_ov017_021b688c*, int);
 extern "C" void func_ov003_0215f8cc(Struct_ov017_021b688c*, SafeAllocator*);
 extern "C" void func_020a27b8(unsigned char*);
@@ -58,7 +58,7 @@ extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_020a27ac(void*);
-extern "C" void func_020a28b0(unsigned char*, int);
+extern "C" void ClearCameraFlags_020a28b0(unsigned char*, int);
 extern "C" void* GetFlagManager_0205ec34();
 extern "C" void* GetParty_02010828(GameState*);
 extern "C" void func_0206e424(void*, int);
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov017_021b688c(Struct_ov017_021b688c_2* arg0) {
             arg0->unknown_1_ = 1;
             return;
         }
-        func_020a1df8(3);
+        PushOverlay_020a1df8(3);
         func_ov003_0215f9c0(arg0->unknown_24_, arg0->unknown_1c_);
         arg0->unknown_24_->unknown_4a1_ = arg0->unknown_1f_;
         arg0->unknown_24_->unknown_480_ = arg0->unknown_20_;
@@ -119,7 +119,7 @@ extern "C" ARM void func_ov017_021b688c(Struct_ov017_021b688c_2* arg0) {
         EnablePlayerControl_020397c0(var1);
         unsigned char* var6 = (unsigned char*)GetFollowCamera_020100f8((char*)var0);
         if (!func_ov017_021959b4()) func_020a27ac(var6);
-        func_020a28b0(var6, 2);
+        ClearCameraFlags_020a28b0(var6, 2);
         void* var7 = GetFlagManager_0205ec34();
         GetParty_02010828(var0);
         Struct_ov000_02175808_4* var8 = (Struct_ov000_02175808_4*)GetParty_02010828(var0);

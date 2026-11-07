@@ -23,7 +23,7 @@ extern "C" ARM void func_0205b234(Struct_0205b234_2* arg0, short arg1, short arg
 }
 #else
 extern "C" int func_02042648(int);
-extern "C" int func_020424e4(int, int);
+extern "C" int FindFontGlyphIndex_020424e4(int, int);
 extern "C" int func_020425e4(int, int, int);
 extern "C" FontGlyph_020420e8* func_020425b4(int arg0, int arg1);
 extern "C" void func_0205b36c(Struct_0205b234_2* arg0, FontGlyph_020420e8* arg1, short arg2, short arg3, unsigned char arg4, unsigned char arg5);
@@ -40,7 +40,7 @@ extern "C" ARM int func_0205b234(Struct_0205b234_2* arg0, short arg1, short arg2
     while (*arg3 != 0) {
         int var6;
         signed char var7 = var3 + 1;
-        var6 = func_020424e4((int)arg3, arg5) & 0xff;
+        var6 = FindFontGlyphIndex_020424e4((int)arg3, arg5) & 0xff;
         var5 += func_020425e4(var4, var6, arg5);
         int var8 = 1;
         if (var6 != 0xff) {

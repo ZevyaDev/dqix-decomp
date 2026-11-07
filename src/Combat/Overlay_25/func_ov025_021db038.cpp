@@ -75,7 +75,7 @@ struct Struct_ov000_0216fdf8;
 struct Struct_ov000_0216fd0c;
 struct Struct_ov000_0216fd38;
 struct Struct_ov000_0216fd80;
-extern "C" void* func_ov000_02160f20(void*);
+extern "C" void* GetCurrentBattleAction_ov000_02160f20(void*);
 extern "C" void* GetEffectManager_02057924();
 extern "C" unsigned char* func_ov000_02163524(void*);
 extern "C" unsigned char _ZZ21inline_ov025_021dcf14vE1s __attribute__((aligned(4)));
@@ -126,7 +126,7 @@ extern "C" void StartMessage_0204500c(MessageWindow_02021b84*,char*,int);
 extern "C" ARM void func_ov025_021db038(Struct_ov000_021537b8* arg0) {
     Struct_ov025_021db038* var0;
     Struct_ov000_02161e30* var1 = arg0->unknown_29c_;
-    void* var2 = func_ov000_02160f20(arg0);
+    void* var2 = GetCurrentBattleAction_ov000_02160f20(arg0);
     GameState* var3 = GameState::GetInstance();
     GameResources* var4 = GetGameResources();
     GetEffectManager_02057924();

@@ -4,7 +4,7 @@
 #include "std_library_functions.h"
 extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(void*);
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(void*);
-extern "C" void func_0205d2bc(void*);
+extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(void*);
 #define KINDS_OFFSET 0x1f98
 #else
 #define KINDS_OFFSET 0x1d60
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov000_0217c908(struct Struct_ov000_0217c908* arg0, int 
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 1;
         ClearTextWindowManagerBGScreenData_0205d1e0(arg0->unknown_188_);
         FlushTextWindowManagerBGScreenData_0205d274(arg0->unknown_188_);
-        func_0205d2bc(arg0->unknown_188_);
+        CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(arg0->unknown_188_);
         CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_188_, 1);
         arg0->unknown_1faa_ |= 2;
     }

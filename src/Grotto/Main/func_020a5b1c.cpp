@@ -19,8 +19,8 @@
 
 extern "C"
 {
-    void func_020a1df8(unsigned int);
-    void func_020a1e54(unsigned int);
+    void PushOverlay_020a1df8(unsigned int);
+    void PopOverlay_020a1e54(unsigned int);
 
     void ConvertTextToGlyphIndices_020426bc(void*, char* outGlyphIndices, int);
 

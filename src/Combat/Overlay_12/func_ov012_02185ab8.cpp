@@ -18,7 +18,7 @@ struct Struct_ov012_02185ab8
 };
 
 struct TextWindowManager_0205d2bc;
-extern "C" void func_0205d2bc(TextWindowManager_0205d2bc*);
+extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(TextWindowManager_0205d2bc*);
 struct Struct_ov002_02155f4c;
 extern "C" void func_ov023_021e76a8(Struct_ov002_02155f4c*);
 extern "C" unsigned int func_ov023_021e6b8c(Struct_ov012_02185ab8* arg0);
@@ -32,7 +32,7 @@ extern "C" ARM unsigned int func_ov012_02185ab8(Struct_ov012_02185ab8* arg0)
 {
     func_ov023_021e76a8((Struct_ov002_02155f4c*)arg0->unknown_d28_);
     if (arg0->unknown_1371_ != 0)
-        func_0205d2bc((TextWindowManager_0205d2bc*)arg0->unknown_ac_);
+        CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((TextWindowManager_0205d2bc*)arg0->unknown_ac_);
 #if !defined(jpn)
     return func_ov023_021e6b8c(arg0);
 #endif

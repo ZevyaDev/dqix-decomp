@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_ov031_022234d8(void* arg0, void* arg1);
+extern "C" void LoadFileToVRAM_ov031_022234d8(void* path, void* loadToVRAM);
 extern "C" int func_ov031_02223478(void* arg0);
 extern "C" int func_ov031_0223b61c(int arg0, int arg1, int arg2);
 
@@ -22,9 +22,9 @@ extern unsigned char data_ov031_02290c50[8];
 extern "C" ARM void func_ov031_022280a0(void) {
 	Struct_ov031_02248dae var0 = data_ov031_02248dae;
 
-	func_ov031_022234d8(data_ov031_0224b82c, (void*)LoadToMainBG2CharacterData);
-	func_ov031_022234d8(data_ov031_0224b844, (void*)LoadToMainBGStandardPalette);
-	func_ov031_022234d8(data_ov031_0224b85c, (void*)LoadToMainBG2ScreenData);
+	LoadFileToVRAM_ov031_022234d8(data_ov031_0224b82c, (void*)LoadToMainBG2CharacterData);
+	LoadFileToVRAM_ov031_022234d8(data_ov031_0224b844, (void*)LoadToMainBGStandardPalette);
+	LoadFileToVRAM_ov031_022234d8(data_ov031_0224b85c, (void*)LoadToMainBG2ScreenData);
 
 	int var1 = func_ov031_02223478(var0.unknown_0_);
 	int var2 = func_ov031_0223b61c(var1, 0, 4);

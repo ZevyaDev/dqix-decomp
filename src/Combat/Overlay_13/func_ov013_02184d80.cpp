@@ -12,7 +12,7 @@ extern char data_ov013_02188d20[];
 
 extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 extern "C" void* GetMessageWindow_020421a0(void);
-extern "C" void func_0205cef8(void* arg0);
+extern "C" void EnableTouchMenuCursor_0205cef8(void* windowManager);
 extern "C" void func_0205cf04(void* arg0);
 extern "C" void func_ov013_02185310(unsigned char* arg0);
 extern "C" void func_ov013_02185cc0(void* arg0);
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov013_02184d80(Struct_ov013_02184d80_4* arg0) {
             BG0CNTSUB = (BG0CNTSUB & ~3) | 2;
             BG1CNTSUB = (BG1CNTSUB & ~3) | 3;
             DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | 0x1700;
-            func_0205cef8(&arg0->unknown_38_);
+            EnableTouchMenuCursor_0205cef8(&arg0->unknown_38_);
             func_0205cf04(&arg0->unknown_38_);
             func_ov013_02185310((unsigned char*)arg0);
             func_ov013_02185cc0(arg0);
@@ -263,7 +263,7 @@ extern "C" ARM void func_ov013_02184d80(Struct_ov013_02184d80_4* arg0) {
             BG1CNT = (BG1CNT & ~3) | 1;
             BG2CNT = BG2CNT & ~3;
             DISPCNT = (DISPCNT & ~0x1f00) | 0x1700;
-            func_0205cef8(&arg0->unknown_38_);
+            EnableTouchMenuCursor_0205cef8(&arg0->unknown_38_);
             func_0205cf04(&arg0->unknown_38_);
             func_ov013_02185310((unsigned char*)arg0);
             func_ov013_02185cc0(arg0);

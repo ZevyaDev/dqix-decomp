@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-extern "C" ARM void func_ov031_022234d8(int arg0, void* arg1);
+extern "C" ARM void LoadFileToVRAM_ov031_022234d8(int path, void* loadToVRAM);
 extern "C" extern int LoadToMainBG2ScreenData(int arg0, int arg1, unsigned int arg2);
 
 extern int data_ov031_0224b960;
 
 // USA: func_ov031_0222a398
 extern "C" ARM void func_ov031_0222a398(void) {
-    func_ov031_022234d8((int)&data_ov031_0224b960, (void*)LoadToMainBG2ScreenData);
+    LoadFileToVRAM_ov031_022234d8((int)&data_ov031_0224b960, (void*)LoadToMainBG2ScreenData);
 
     volatile unsigned short* var0 = (volatile unsigned short*)0x4001008;
     volatile unsigned short* var1 = (volatile unsigned short*)0x4000008;

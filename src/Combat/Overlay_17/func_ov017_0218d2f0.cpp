@@ -10,7 +10,7 @@ extern "C" unsigned char func_02039820(void*);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" void func_02048418(unsigned char*, unsigned short);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
-extern "C" void func_ov017_02191108(void*, int, int, int, int);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(void*, int, int, int, int);
 extern "C" void EnablePlayerControl_020397c0(void*);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov017_0218d2f0(unsigned char arg0, unsigned char arg1, 
             var7->unknown_ac_.unknown_84_->unknown_6_ = var8;
         }
         func_ov017_021c9e00(var6, 1, 0, 1);
-        func_ov017_02191108(data_ov017_021d82e0.unknown_4_, 1, 1, 1, 1);
+        RebuildFieldPartyOrder_ov017_02191108(data_ov017_021d82e0.unknown_4_, 1, 1, 1, 1);
     }
     var4 = var0->GetUnknownGameObject();
     if (var4) {

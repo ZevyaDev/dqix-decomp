@@ -12,8 +12,8 @@
 
 #if defined(jpn)
 
-struct Struct_0203dce4_2;
-struct Struct_0203dce4;
+struct NPCManager_0203dce4_2;
+struct NPC_0203dce4;
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimationList_0205a330;
 struct Struct_02065758;
@@ -507,8 +507,8 @@ extern "C" unsigned char* GetMessageWindow_020421a0();
 extern "C" void __clear(void* arg0, unsigned int arg1);
 extern "C" void func_02046458(int arg0, int arg1, unsigned char arg2, char* arg3, unsigned char arg4, unsigned char arg5, void* arg6, int arg7, int arg8);
 extern "C" void func_02050678(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, short* arg6, short* arg7);
-extern "C" Struct_0203dce4_2* func_0203cf4c();
-extern "C" Struct_0203dce4* func_0203dce4(Struct_0203dce4_2* arg0, int arg1);
+extern "C" NPCManager_0203dce4_2* func_0203cf4c();
+extern "C" NPC_0203dce4* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2* npcManager, int index);
 extern "C" void func_0206b104(struct Struct_0206b104* arg0);
 extern "C" void func_0206cba0(struct Struct_0206b224* arg0);
 extern "C" void func_020665bc(char*, int, const char*, const char*);
@@ -573,7 +573,7 @@ extern "C" int func_02067ea0(Struct_02067ea0* arg0, int arg1, int arg2, unsigned
 extern "C" void func_0204459c(void* arg0, int arg1);
 extern "C" void func_020653e4(int arg0, int arg1);
 extern "C" void* GetCamera_020100bc(GameState*);
-extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
+extern "C" int ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" void func_020473c8(Struct_02015ef4_2*, int);
 extern "C" void func_0205c904(unsigned char*, int);
 extern "C" int func_0205cde8(unsigned char*);
@@ -797,8 +797,8 @@ ARM unsigned short MessageWindow_02021b84::func_020656d0() {
 ARM int MessageWindow_02021b84::func_020656e4(int arg0) {
     if (!unknown_19b6_) return 0;
 
-    struct Struct_0203dce4* var0 = func_0203dce4(
-        (struct Struct_0203dce4_2*)func_0203cf4c(),
+    struct NPC_0203dce4* var0 = GetNPCByIndex_0203dce4(
+        (struct NPCManager_0203dce4_2*)func_0203cf4c(),
         unknown_1838_);
     if (var0 == NULL) return 0;
 
@@ -815,11 +815,11 @@ ARM int MessageWindow_02021b84::func_020656e4(int arg0) {
 }
 
 extern "C" ARM int func_02065758(Struct_02065758* arg0, int arg1) {
-    Struct_0203dce4* var0;
+    NPC_0203dce4* var0;
     int var1;
     unsigned char var2;
 
-    var0 = func_0203dce4((Struct_0203dce4_2*)func_0203cf4c(), arg0->unknown_1838_);
+    var0 = GetNPCByIndex_0203dce4((NPCManager_0203dce4_2*)func_0203cf4c(), arg0->unknown_1838_);
     if (var0 == NULL) {
         return 0;
     }
@@ -1193,7 +1193,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                 return;
             } else if (var1 == 0xff2f) {
                 unsigned char* var23 = (unsigned char*)GameState::GetInstance()->GetUnknownGameObject();
-                void* var24 = func_0203dce4((Struct_0203dce4_2*)func_0203cf4c(), arg0->unknown_1838_);
+                void* var24 = GetNPCByIndex_0203dce4((NPCManager_0203dce4_2*)func_0203cf4c(), arg0->unknown_1838_);
                 if (var23 != 0 && var24 != 0) {
                     var4 = *(struct Struct_0203de84*)(var23 + 0x44);
                     func_020406f8(&var8, (Struct_0203de84_2*)var24);
@@ -1743,7 +1743,7 @@ extern "C" ARM void func_02066cf0(Struct_02066cf0_3* arg0, int arg1) {
 extern "C" ARM void func_020675fc(Struct_020675fc_2* arg0) {
     static const unsigned char data_020e7e08[2] = {0xd, 0xe};
     if (!arg0->unknown_998_) return;
-    Struct_0203dce4* var0 = func_0203dce4(func_0203cf4c(), arg0->unknown_1838_);
+    NPC_0203dce4* var0 = GetNPCByIndex_0203dce4(func_0203cf4c(), arg0->unknown_1838_);
     if (var0 && arg0->unknown_19b7_) {
         GameResources* var1 = GetGameResources();
         void* var2 = GetCamera_020100bc(GameState::GetInstance());
@@ -1753,7 +1753,7 @@ extern "C" ARM void func_020675fc(Struct_020675fc_2* arg0) {
         Struct_020675fc var6;
         func_020406f8(&var6.unknown_0_, (Struct_0203de84_2*)var0);
         var5 = var6.unknown1_0_;
-        func_0202ec84(var2, &var5, &var3, &var4);
+        ConvertWorldToScreen_0202ec84(var2, &var5, &var3, &var4);
         var3 -= 12;
         var4 -= 62;
         int var7 = var3 << 12;
@@ -3029,7 +3029,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
     unsigned char var0 = 1;
     arg0->unknown_1000_.unknown_9b6_ = (unsigned char)var0;
     GameObject* var1 = GameState::GetInstance()->GetUnknownGameObject();
-    Struct_0203dce4* var2 = func_0203dce4(func_0203cf4c(), arg0->unknown_1000_.unknown_838_);
+    NPC_0203dce4* var2 = GetNPCByIndex_0203dce4(func_0203cf4c(), arg0->unknown_1000_.unknown_838_);
     if (var1 != NULL && var2 != NULL)
     {
         Struct_0203de84 var3;

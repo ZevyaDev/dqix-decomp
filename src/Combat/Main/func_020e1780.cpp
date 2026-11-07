@@ -2,7 +2,7 @@
 
 extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" void* func_0203be40(void* arg0);
-extern "C" void* func_0203be4c(void* arg0);
+extern "C" void* GetSubOAMBuffer_0203be4c(void* arg0);
 extern "C" unsigned int func_020937f0(int arg0);
 extern "C" int func_0209378c(int arg0);
 
@@ -77,7 +77,7 @@ extern "C" ARM void func_020e1780(struct Struct_020e1780* arg0) {
     var6 = func_0209378c(var1);
     var3 = (struct Struct_020e1780_2*)func_0203be40(var14);
     if (var1 != 0) {
-        var3 = (struct Struct_020e1780_2*)func_0203be4c(var14);
+        var3 = (struct Struct_020e1780_2*)GetSubOAMBuffer_0203be4c(var14);
     }
 
     var3 += arg0->unknown_4_->unknown_3d_;

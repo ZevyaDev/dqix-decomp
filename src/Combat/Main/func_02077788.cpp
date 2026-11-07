@@ -32,9 +32,9 @@ struct Struct_02033b68;
 struct Struct_02077788_2;
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" int func_02033f44(struct Struct_02033f44* arg0);
-extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
+extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
-extern "C" void func_02076ccc(void* arg0, int arg1);
+extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
 extern "C" int func_02077a20(struct Struct_02077788_2* arg0);
 extern "C" int func_02039760(void* arg0);
 
@@ -52,7 +52,7 @@ extern "C" ARM void func_02077788(struct Struct_02077788* arg0) {
     Vector3fix_Subtract(&var3, &arg0->unknown_0_.position_, &var4);
     Vector3fix_Normalize(&var4, &var4);
     int var5 = fix32_Atan2(var4.x, var4.z);
-    func_02033834((struct Struct_02033834_2*)arg0, var5);
+    SetFacing_02033834((struct Struct_02033834_2*)arg0, var5);
 
     arg0->unknown_b4_ = 0x1c2;
     arg0->unknown_b2_ = 0x1c2;
@@ -67,7 +67,7 @@ extern "C" ARM void func_02077788(struct Struct_02077788* arg0) {
         }
     }
     if (var7) {
-        func_02076ccc(arg0, 1);
+        SetFieldMonsterState_02076ccc(arg0, 1);
         arg0->unknown_154_ = 0;
         if (IsLocalWirelessOn_0202b7d8((int*)var1)) {
             func_020794f8(arg0, 0, 0);
@@ -88,7 +88,7 @@ extern "C" ARM void func_02077788(struct Struct_02077788* arg0) {
         int var15 = (var11 >> 1) + (int)((var14 + 0x800) >> 12);
         int var16 = Vector3fix_Distance(&var10, &arg0->unknown_0_.position_);
         if ((var16 != 0 && var15 > var16) || var16 > 0x7800) {
-            func_02076ccc(arg0, 1);
+            SetFieldMonsterState_02076ccc(arg0, 1);
             arg0->unknown_154_ = 0;
             arg0->unknown_17b_ = 1;
             if (IsLocalWirelessOn_0202b7d8((int*)var1)) {
@@ -103,7 +103,7 @@ extern "C" ARM void func_02077788(struct Struct_02077788* arg0) {
     }
     if (static_cast<unsigned char>(var2->unk_ac[0xc0 - 0xac]) == 6 ||
         func_02039760(var0->GetProtagonist()) == 2) {
-        func_02076ccc(arg0, 1);
+        SetFieldMonsterState_02076ccc(arg0, 1);
         arg0->unknown_154_ = 0;
         if (IsLocalWirelessOn_0202b7d8((int*)var1) && GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var1) == 0) {
             func_020794f8(arg0, 0, 0);

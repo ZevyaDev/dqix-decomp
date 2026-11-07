@@ -45,13 +45,13 @@ extern "C" int func_0203402c(Struct_0203402c*);
 extern "C" void func_0203a46c(Struct_0203a46c*, int, int, int);
 extern "C" void func_020478bc(Struct_02017098_3*, int);
 extern "C" void func_02047554(Struct_02012fa4*, int, int);
-extern "C" int func_020535c8(signed char*);
+extern "C" int IsPerformingGesture_020535c8(signed char*);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
-extern "C" void func_0202ec84(void*, Struct_02015ef4*, int*, int*);
+extern "C" void ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" int func_ov017_0218d4ec(void*, int);
 
 static inline Struct_02012fa4* inline_ov017_0219ad84(GameResources* arg0) {
@@ -120,7 +120,7 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
         GXFIFO_MATRIX_POP = 1;
     }
 
-    if (arg0->unknown_36b4_[1] != 0x12 && !func_020535c8((signed char*)var5) &&
+    if (arg0->unknown_36b4_[1] != 0x12 && !IsPerformingGesture_020535c8((signed char*)var5) &&
         IsQueueEmpty_02046b08((void**)arg0->unknown_ptr_array_36fc[0])) {
         int var9 = 1;
         if (TestFlags04(arg0, 8) && arg0->unknown_36b4_[0] == 0) var9 = 0;
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
 
     LocalWireless_0202c1a4* var12 = GetLocalWireless_0202ae18();
     if (!IsLocalWirelessOn_0202b7d8((int*)var12) || !var2) return;
-    if (func_020535c8((signed char*)var5)) return;
+    if (IsPerformingGesture_020535c8((signed char*)var5)) return;
     int var13 = GetOwnProtagonistObjectIndex_0202c1a4(var12);
     int var14 = 0;
     for (int var15 = 0; var15 < 4; var15++) {
@@ -154,7 +154,7 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
         Vector3fix var20 = var16->unknown_0_.position_;
         var20.y += var16->unknown_0_.GetHeight();
         int var21, var22;
-        func_0202ec84(var2, (Struct_02015ef4*)&var20, &var21, &var22);
+        ConvertWorldToScreen_0202ec84(var2, (Struct_02015ef4*)&var20, &var21, &var22);
         var21 -= 12;
         var22 -= 24;
         if (var16->unknown_0_.GetFlag(0x400)) {

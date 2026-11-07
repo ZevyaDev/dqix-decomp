@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020c39c8 func_020c5494
-#endif
 
 
 #if defined(jpn)
@@ -12,7 +9,7 @@ enum { Enum_ov020_0218d7ac_1256 = 0x4e8 };
 #endif
 
 extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
-extern "C" int func_020c39c8(volatile unsigned short* arg0);
+extern "C" int ReadBrightnessRegister_020c39c8(volatile unsigned short* reg);
 
 struct Struct_ov020_0218d7ac {
     float unknown_0_;
@@ -33,7 +30,7 @@ extern "C" ARM void func_ov020_0218d7ac(struct Struct_ov020_0218b710* arg0, int 
         arg0->unknown_4e8_.unknown_4_ = arg1;
         arg0->unknown_4e8_.unknown_8_ = 0;
     } else {
-        int var0 = func_020c39c8((volatile unsigned short*)0x400006c);
+        int var0 = ReadBrightnessRegister_020c39c8((volatile unsigned short*)0x400006c);
         arg0->unknown_4e8_.unknown_0_ = (float)var0;
         arg0->unknown_4e8_.unknown_4_ = arg1;
         arg0->unknown_4e8_.unknown_8_ = arg2;

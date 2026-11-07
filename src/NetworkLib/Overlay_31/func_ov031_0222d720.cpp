@@ -18,7 +18,7 @@ extern Struct_ov031_02248ee0 data_ov031_02248ee0;
 extern Struct_ov031_0222d720_2* data_ov031_02290c98;
 extern unsigned char data_ov031_0224ba7c[];
 
-extern "C" void* func_ov031_0223cf4c(unsigned int arg0, int arg1);
+extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int size, int alignAndDir);
 extern "C" void func_ov031_02227520(int*, int*);
 extern "C" int CompareBytes_02001aec(const void*, const void*, unsigned int);
 extern "C" void func_ov031_0222d894(void);
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov031_0222d720(void) {
     var1[2] = data_ov031_02248ee0.unknown_8_[2];
     var1[3] = data_ov031_02248ee0.unknown_8_[3];
     var1[4] = data_ov031_02248ee0.unknown_8_[4];
-    data_ov031_02290c98 = (Struct_ov031_0222d720_2*)func_ov031_0223cf4c(0x18, 4);
+    data_ov031_02290c98 = (Struct_ov031_0222d720_2*)AllocateZeroedMemory_ov031_0223cf4c(0x18, 4);
 
     int var2;
     func_ov031_02227520(&var2, 0);

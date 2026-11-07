@@ -32,11 +32,11 @@ extern "C" void func_ov017_021917f0(int arg0, int arg1);
 extern "C" void func_02026bc8(unsigned char* arg0, int arg1);
 struct Struct_02010604;
 extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
-struct Struct_0202b2f0;
-extern "C" struct Struct_0202b2f0* GetLocalWireless_0202ae18(void);
+struct LocalWireless_0202b2f0;
+extern "C" struct LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
-extern "C" int func_0202be08(struct Struct_0202b2f0* arg0, int arg1);
+extern "C" int func_0202be08(struct LocalWireless_0202b2f0* arg0, int arg1);
 struct Struct_02054000;
 extern "C" void* func_02054000(struct Struct_02054000* arg0);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
@@ -45,8 +45,8 @@ extern "C" void func_02083e28(void* arg0, int arg1);
 void ApplyCombatantBuffs(int world, int id);
 extern "C" void func_ov017_021c6bc8(void);
 extern "C" void func_ov017_021cf078(int arg0, int arg1, int arg2);
-struct Struct_02015ef4_4;
-extern "C" unsigned short func_020de234(struct Struct_02015ef4_4* arg0, int arg1);
+struct ItemData_02015ef4_4;
+extern "C" unsigned short GetItemGraphicNumber_020de234(struct ItemData_02015ef4_4* item, int gender);
 
 struct Struct_ov017_021d6b34 {
     int unknown_0_[8];
@@ -290,7 +290,7 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
         var10->unknown_0_.EnableFlag(4);
 
         if (var3 == 0) {
-            struct Struct_0202b2f0* var37 = GetLocalWireless_0202ae18();
+            struct LocalWireless_0202b2f0* var37 = GetLocalWireless_0202ae18();
             int var38 = var10->unknown_0_.unknown_4_;
             GameObject* var39 = GetCompanionByIndex_0200ff58(var8, var38);
             if (var39 != NULL) {
@@ -385,9 +385,9 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
         if (var58 != NULL) {
             var58->obj3D_.MakeVisible();
             struct Struct_ov017_021b3e14_2* var59 = var10->unknown_150_;
-            struct Struct_02015ef4_4* var60 = (struct Struct_02015ef4_4*)var59->unknown_274_;
+            struct ItemData_02015ef4_4* var60 = (struct ItemData_02015ef4_4*)var59->unknown_274_;
             if (var60 != NULL) {
-                if (func_020de234(var60, var59->unknown_49c_0_) / 100 == 5) {
+                if (GetItemGraphicNumber_020de234(var60, var59->unknown_49c_0_) / 100 == 5) {
                     var58->obj3D_.MakeHidden();
                 }
             }

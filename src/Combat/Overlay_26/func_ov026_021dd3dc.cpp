@@ -4,7 +4,7 @@
 struct Struct_ov000_02161e30;
 struct Struct_ov000_0217e870_2;
 struct Struct_ov026_021d8ba0_4;
-struct Struct_0202b2f0;
+struct LocalWireless_0202b2f0;
 struct Struct_02010088;
 struct Struct_ov026_021dc8fc_4;
 
@@ -39,13 +39,13 @@ struct Struct_ov000_021643d4_3 {
 extern "C" const Struct_ov026_021de6cc data_ov026_021de6cc;
 extern "C" const Struct_ov026_021de6cc data_ov026_021de6d4;
 
-extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18();
+extern "C" LocalWireless_0202b2f0* GetLocalWireless_0202ae18();
 extern "C" int func_ov000_0215fc60(char*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" Struct_ov026_021d8ba0_6* func_ov026_021dae60(Struct_ov026_021d8ba0_4*, int);
-extern "C" int func_0202c1c0(Struct_0202b2f0*, int);
+extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0*, int);
 extern "C" int GetLeaderObjectIndex_020546a8(void*);
 extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" int func_ov026_021dce1c(Struct_ov026_021dc8fc_4*);
@@ -67,7 +67,7 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
     int var3[4];
     Struct_ov000_021643d4_3 var4;
     GameState* var5 = GameState::GetInstance();
-    Struct_0202b2f0* var6 = GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* var6 = GetLocalWireless_0202ae18();
     int var7;
     int var8;
     int var9 = 0;
@@ -136,7 +136,7 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
             int var20;
             for (var20 = 0; var20 < 4; var20++) {
                 if (!IsPartyMemberInBattle_020a35e0((unsigned char*)arg1, var20)) continue;
-                if (func_0202c1c0(var6, var20)) {
+                if (IsLocalWirelessPlayerJoined_0202c1c0(var6, var20)) {
                     var0.unknown_0_[var19] = var20;
                     var19++;
                 }
@@ -145,7 +145,7 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
                 if (!IsPartyMemberInBattle_020a35e0((unsigned char*)arg1, var20)) continue;
                 GameObject* var21 = GetCompanionByIndex_0200ff58(var5, var20);
                 if (!var21) continue;
-                if (func_0202c1c0(var6, GetLeaderObjectIndex_020546a8(var21))) {
+                if (IsLocalWirelessPlayerJoined_0202c1c0(var6, GetLeaderObjectIndex_020546a8(var21))) {
                     var0.unknown_0_[var19] = var20;
                     var19++;
                 }

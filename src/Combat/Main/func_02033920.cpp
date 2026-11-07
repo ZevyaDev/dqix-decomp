@@ -4,7 +4,7 @@
 struct Struct_ov009_0218aa28 { int unknown_0_; int unknown_4_; int unknown_8_; };
 extern "C" int func_02032424(struct Struct_ov009_0218aa28*, struct Struct_ov009_0218aa28*);
 struct Struct_02033834_2;
-extern "C" void func_02033834(struct Struct_02033834_2*, int);
+extern "C" void SetFacing_02033834(struct Struct_02033834_2*, int);
 int fix32SignedAngleDistance(int a, int b);
 int fix32abs(int x);
 extern char data_020efa3c;
@@ -32,7 +32,7 @@ extern "C" ARM void func_02033920(struct Struct_02033920* arg0, int arg1, int ar
     GameObject* var1 = var0->GetGameObjectByIndex(arg1);
     if (var1 == 0) return;
     int var2 = func_02032424((struct Struct_ov009_0218aa28*)((char*)var1 + 0x44), &arg0->unknown_44_);
-    func_02033834((struct Struct_02033834_2*)arg0, var2);
+    SetFacing_02033834((struct Struct_02033834_2*)arg0, var2);
     if (arg2 == 0) return;
     if (arg0->unknown_be_ != 0) return;
     int var3 = fix32SignedAngleDistance(arg0->unknown_54_, arg0->unknown_ae_);

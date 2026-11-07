@@ -18,7 +18,7 @@ extern "C" int func_ov031_02211608(void* arg0);
 extern "C" void func_0209c174(Struct_02000c9c_16* arg0);
 extern "C" void func_0209c290(void* arg0);
 extern "C" void func_0205e88c(Struct_02000c9c_17* arg0);
-extern "C" void func_0205ea20(void* arg0, int arg1);
+extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
 extern char gSoundEffectManager_02108760;
 extern char gMusicManager_02109bf4;
 
@@ -69,7 +69,7 @@ extern "C" ARM int func_ov004_0216f634(void* arg0) {
         func_0209c174((Struct_02000c9c_16*)&gMusicManager_02109bf4);
         func_0209c290(&gMusicManager_02109bf4);
         func_0205e88c((Struct_02000c9c_17*)&gSoundEffectManager_02108760);
-        func_0205ea20(&gSoundEffectManager_02108760, 100);
+        LoadSoundEffectSet_0205ea20(&gSoundEffectManager_02108760, 100);
         if (data_ov004_02171048.unknown_4_->unknown_34_ == 3) {
             QueueMenuScriptEntry_ov011_021848a0(arg0, 0xd4);
             return 0;

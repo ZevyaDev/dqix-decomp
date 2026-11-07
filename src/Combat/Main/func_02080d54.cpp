@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 
 struct Struct_02080d54 {
     char unknown_0_[0xa8];
@@ -10,10 +10,10 @@ struct Struct_02080d54 {
     short unknown_ae_;
 };
 
-extern "C" struct Struct_02080d54* func_02081da8(struct Struct_0207fdcc_2* arg0, int arg1);
+extern "C" struct Struct_02080d54* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 
 // USA: func_02080d54
-extern "C" ARM int func_02080d54(struct Struct_0207fdcc_2* arg0, int arg1, int arg2, int arg3) {
+extern "C" ARM int func_02080d54(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2, int arg3) {
     struct Struct_02080d54* var0 = func_02081da8(arg0, arg1);
     short var1, var2;
     if (var0 == NULL) {

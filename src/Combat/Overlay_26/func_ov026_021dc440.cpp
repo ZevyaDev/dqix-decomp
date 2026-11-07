@@ -34,7 +34,7 @@ extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" int func_020a35f8(unsigned char*);
 extern "C" void func_02072c9c(int, char*);
 struct Struct_02040774_2;
-extern "C" void func_020407b4(struct Struct_02040774_2*, int, int, int);
+extern "C" void SetObject3DPosition_020407b4(struct Struct_02040774_2*, int, int, int);
 struct GameResources;
 void SetBrightness(struct GameResources*, int, int);
 void SetMainBrightness(struct GameResources*, int, int);
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* arg0, Struct_ov000_02160d
                     var9->SetScale(var16, var14, var16);
                     int var17 = FIX32_MULTIPLY(var15, var15);
                     int var18 = FIX32_MULTIPLY(var17, var15);
-                    func_020407b4((Struct_02040774_2*)var9, 0, 0xcc, -var18);
+                    SetObject3DPosition_020407b4((Struct_02040774_2*)var9, 0, 0xcc, -var18);
                 }
             }
         }
@@ -155,7 +155,7 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* arg0, Struct_ov000_02160d
                 var20.allocator = arg0;
                 var20.fileData = var7;
                 var19->LoadFromCHRArchive(&var20);
-                func_020407b4((Struct_02040774_2*)var19, 0, 0xcc, 0);
+                SetObject3DPosition_020407b4((Struct_02040774_2*)var19, 0, 0xcc, 0);
                 var19->SetScale(0x10a, 0x10a, 0x10a);
                 Model3D* var21 = var19->pModel_;
                 Object3D::TrackedBoneMatrix* var22 = (Object3D::TrackedBoneMatrix*)arg0->Allocate(0x1c0);

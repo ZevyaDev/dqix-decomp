@@ -3,7 +3,7 @@
 
 
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" void* func_0203b628(void);
+extern "C" void* GetBGVRAMManager_0203b628(void);
 extern "C" void* GetZone3D_02012fe4(void);
 
 struct Struct_02020fc4_3;
@@ -48,7 +48,7 @@ extern "C" ARM void func_02025f28(unsigned char* arg0) {
 #endif
     GameState* var0 = GameState::GetInstance();
     unsigned char* var1 = (unsigned char*)GetFlagManager_0205ec34();
-    func_0203b628();
+    GetBGVRAMManager_0203b628();
     void* var2 = GetZone3D_02012fe4();
     unsigned short var3 = *(unsigned short*)var2;
     GameObject* var4;

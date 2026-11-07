@@ -10,16 +10,16 @@ struct Struct_020e39d4 {
     unsigned char unknown_5_;
     unsigned char unknown_6_;
 };
-struct Struct_0202b2f0;
+struct LocalWireless_0202b2f0;
 
 extern "C" struct Struct_020e385c* func_020e385c(struct Struct_020e385c* arg0, int arg1, int arg2);
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" int IsLocalWirelessGuest_0202c540(struct Struct_0202b2f0* wireless);
+extern "C" int IsLocalWirelessGuest_0202c540(struct LocalWireless_0202b2f0* wireless);
 extern "C" void func_ov017_021cebcc(int, int, int);
 
 // USA: func_020e39d4
 extern "C" ARM void func_020e39d4(struct Struct_020e385c* arg0, int arg1, int arg2, int arg3) {
-    if (IsLocalWirelessGuest_0202c540((struct Struct_0202b2f0*)GetLocalWireless_0202ae18())) {
+    if (IsLocalWirelessGuest_0202c540((struct LocalWireless_0202b2f0*)GetLocalWireless_0202ae18())) {
         func_ov017_021cebcc(0, arg2 & 0xff, arg3);
         return;
     }

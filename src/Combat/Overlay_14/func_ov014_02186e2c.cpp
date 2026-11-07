@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-struct Struct_0207fdcc_2;
-struct Struct_0207fdcc;
-extern "C" struct Struct_0207fdcc* func_02081da8(struct Struct_0207fdcc_2*, int);
+struct MenuLayout_0207fdcc_2;
+struct TextWindow_0207fdcc;
+extern "C" struct TextWindow_0207fdcc* func_02081da8(struct MenuLayout_0207fdcc_2*, int);
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char*);
 extern "C" void func_020809c4(void*, int, int, short*, short*);
 
@@ -38,14 +38,14 @@ struct Struct_ov014_02186e2c_2 {
 
 // USA: func_ov014_02186e2c
 extern "C" ARM void func_ov014_02186e2c(struct Struct_ov014_02186e2c_2* arg0) {
-    struct Struct_0207fdcc* var0;
+    struct TextWindow_0207fdcc* var0;
     struct Struct_ov014_02186e2c* var1;
     short var2, var3;
     short var4, var5;
 
     if (arg0->unknown_d0_ == NULL) return;
     if (arg0->unknown_170_ < 0) return;
-    var0 = func_02081da8((struct Struct_0207fdcc_2*)arg0->unknown_c0_, arg0->unknown_170_);
+    var0 = func_02081da8((struct MenuLayout_0207fdcc_2*)arg0->unknown_c0_, arg0->unknown_170_);
     if (var0 == NULL) return;
     if (IsTextWindowOpen_0204c7e0((unsigned char*)var0) == 0) return;
 

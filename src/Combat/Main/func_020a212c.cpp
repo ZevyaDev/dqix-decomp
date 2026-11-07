@@ -53,7 +53,7 @@ extern "C" void Vector3fix_Subtract(const Vector3i* arg0, const Vector3i* arg1, 
 extern "C" int Vector3fix_Length(const Vector3i* arg0);
 extern "C" int func_020a299c(struct Struct_020a212c_2* arg0, const Vector3i* arg1, const Object3D* arg2);
 extern "C" void func_0202eab8(void* arg0);
-extern "C" void func_0202e5d8(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetCameraOrbit_0202e5d8(void* camera, int angle, int height, int distance);
 
 static inline int inline_02061c04_5(int arg0, int arg1) {
     return (int)(((long long)arg0 * arg1 + 0x800) >> 12);
@@ -202,5 +202,5 @@ extern "C" ARM void func_020a212c(Struct_020a212c_2* arg0, int arg1) {
         func_0202ec5c((char*)arg0, (int*)&var17);
     }
     int var20 = 0x1000 - arg0->unknown_2c6_;
-    func_0202e5d8(arg0, var14.x, inline_02061c04_5(var14.y - 0x34cc, var20) + 0x34cc, inline_02061c04_5(var14.z - 0x6000, var20) + 0x6000);
+    SetCameraOrbit_0202e5d8(arg0, var14.x, inline_02061c04_5(var14.y - 0x34cc, var20) + 0x34cc, inline_02061c04_5(var14.z - 0x6000, var20) + 0x6000);
 }

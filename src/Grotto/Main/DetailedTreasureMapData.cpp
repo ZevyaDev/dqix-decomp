@@ -19,8 +19,8 @@
 
 extern "C"
 {
-    void func_020a1df8(unsigned int);
-    void func_020a1e54(unsigned int);
+    void PushOverlay_020a1df8(unsigned int);
+    void PopOverlay_020a1e54(unsigned int);
 
     void ConvertTextToGlyphIndices_020426bc(void*, char* buffer, int);
 
@@ -191,7 +191,7 @@ void DetailedTreasureMapData::RegularMapData::Populate(unsigned short newseed, u
     seed_ = newseed;
     srand(seed_);
     quality_ = newquality;
-    func_020a1df8(4);
+    PushOverlay_020a1df8(4);
 
     GenerateUnknownData();
     GenerateEnviron();
@@ -215,7 +215,7 @@ void DetailedTreasureMapData::RegularMapData::Populate(unsigned short newseed, u
     GenerateNameBuffers();
     GeneratePopupName();
 
-    func_020a1e54(1);
+    PopOverlay_020a1e54(1);
 }
 
 unsigned short DetailedTreasureMapData::LegacyBossMapData::MaybeGetCurrentAlternateID() const

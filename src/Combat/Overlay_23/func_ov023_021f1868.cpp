@@ -7,7 +7,7 @@
 struct GameResources;
 struct Party_02048150;
 struct StringList_02072a68_2 { char unknown_0_[4]; };
-struct Struct_0200f3a4_8;
+struct SkillTable_0200f3a4_8;
 struct Struct_0209a470;
 struct Struct_02013fb4;
 struct StringList_020727d8;
@@ -187,7 +187,7 @@ extern "C" Struct_ov023_021f1868_3* GetMessageWindow_020421a0();
 extern "C" Party_02048150* GetParty_02010828(GameState* gameState);
 extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
-extern "C" void func_0209a338(Struct_0200f3a4_8* arg0);
+extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8* table);
 extern "C" void func_0209a470(Struct_0209a470* arg0, SafeAllocator* arg1, Struct_02013fb4* arg2, int arg3);
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
@@ -201,7 +201,7 @@ extern "C" Struct_ov023_021f1868* GetPartyMemberBaseByIndex_0200ff1c(GameState* 
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" void SetMessageString_02046574(Struct_02046574_2* window, int index, char* text);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
-extern "C" void** func_020e5294(void* arg0, int arg1);
+extern "C" void** FindNounInTable_020e5294(void* nounTable, int nounId);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_020a13c4(Struct_020a13c4* arg0);
@@ -221,7 +221,7 @@ extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2* arg0);
 extern "C" {
 void __clear(void* arg0, unsigned long arg1);
 void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
-void LoadStringList_020728ac(void* stringList, void* allocator, void* arg2, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
+void LoadStringList_020728ac(void* stringList, void* allocator, void* scriptData, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 void func_020e5604(void* arg0, SafeAllocator* arg1, void* arg2, int arg3);
 Struct_ov023_021f1868_2* func_0209a594(void* arg0, int arg1);
 void ClearMessageParams_02046380(Struct_ov023_021f1868_3* window);
@@ -401,7 +401,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
         arg0->unknown_30_.Reset();
         unsigned int var25;
         void* var26 = LoadFileIntoMemory(data_ov023_021fe200, gFileScratchSpace_0211e33c, &var25);
-        func_0209a338((Struct_0200f3a4_8*)arg0->unknown_e98_);
+        ClearSkillTable_0209a338((SkillTable_0200f3a4_8*)arg0->unknown_e98_);
         if (var26 != NULL)
             func_0209a470((Struct_0209a470*)arg0->unknown_e98_, &arg0->unknown_30_, (Struct_02013fb4*)var26, var25);
         var26 = ExtractFileFromGP2(FindStringInList_02072a68(&arg0->unknown_5904_, 0x2b), FindStringInList_02072a68(&arg0->unknown_5904_, 0x21), &var25);
@@ -464,7 +464,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
                     var21->unknown1_0_ = var33;
                     if (var29->unknown_6_4_ == 1)
                     {
-                        void** var35 = func_020e5294(arg0->unknown_5580_, var29->unknown_2_);
+                        void** var35 = FindNounInTable_020e5294(arg0->unknown_5580_, var29->unknown_2_);
                         var21->unknown_8_ = var35;
                         __clear(var34, sizeof(var34));
                         ExpandInflectionTags_020e4864(*var35, var34, 1, 0, 0, 0);

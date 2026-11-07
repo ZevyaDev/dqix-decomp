@@ -70,7 +70,7 @@ extern "C" int IsLocalWirelessGuest_0202c540(LocalWireless_0202c1a4*);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" int IsQueueEmpty_02046b08(void**);
-extern "C" void func_ov017_021baedc(void*, int);
+extern "C" void ResetEventTask_ov017_021baedc(void*, int);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" Struct_0206ea7c_2* func_0206ea7c(Struct_0206ea7c*, int);
 extern "C" int func_ov017_021bd3a4(Struct_ov017_0218e674*);
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov017_021cd748(int arg0, Struct_ov017_021cd748_6* arg1,
                     var8 = 1;
                 } else {
                     if (var7 == var5->unknown_27d6_) return;
-                    func_ov017_021baedc(var2, 1);
+                    ResetEventTask_ov017_021baedc(var2, 1);
                     var2->unknown_8_ = var7;
                     if (arg1->unknown_e_) var2->unknown_116_ = arg0;
                     AppendToQueue_020469b4(var4, (QueueNode_0201bdac*)var2);

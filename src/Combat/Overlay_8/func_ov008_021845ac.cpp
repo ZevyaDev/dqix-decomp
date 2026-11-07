@@ -110,7 +110,7 @@ struct BGLayer_0204b010;
 struct BGLayer_02020cb8_3;
 struct GlobalFlags_02038598_4;
 
-extern "C" void func_0205a494(void* arg0);
+extern "C" void DestroySpriteSet_0205a494(void* spriteSet);
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_02045cac(Struct_02045cac* arg0);
 extern "C" void ResetMessageWindow_02043204(char* window);
@@ -141,9 +141,9 @@ extern "C" ARM void func_ov008_021845ac(Struct_ov008_021842a0_2* arg0)
         arg0->unknown_b20_ = -1;
     }
     if (arg0->unknown_730_ != NULL)
-        func_0205a494(arg0->unknown_730_);
+        DestroySpriteSet_0205a494(arg0->unknown_730_);
     if (arg0->unknown_73c_ != NULL)
-        func_0205a494(arg0->unknown_73c_);
+        DestroySpriteSet_0205a494(arg0->unknown_73c_);
     if (arg0->unknown_b08_ != NULL)
         func_ov023_021eb26c(arg0->unknown_b08_);
     MessageWindow_02021b84* var1 = GetMessageWindow_020421a0();

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-struct Struct_02074b64 {
+struct BGControlSave_02074b64 {
     char unknown_0_[2];
     volatile unsigned short unknown_2_;
     char unknown_4_[2];
@@ -13,35 +13,35 @@ struct Struct_02074b64 {
     unsigned char unknown_11_;
 };
 
-// USA: func_02074b64
-extern "C" ARM void func_02074b64(struct Struct_02074b64* arg0) {
-    if (arg0->unknown_11_ != 0) return;
-    unsigned short* const var0 = (unsigned short*)0x4001008;
-    volatile short var1, var2, var3, var4;
+// USA: SaveSubBGControl_02074b64
+extern "C" ARM void SaveSubBGControl_02074b64(struct BGControlSave_02074b64* save) {
+    if (save->unknown_11_ != 0) return;
+    unsigned short* const subBGControl = (unsigned short*)0x4001008;
+    volatile short subBG0ControlCopy, subBG1ControlCopy, subBG2ControlCopy, subBG3ControlCopy;
     {
-        unsigned short var5 = *(volatile unsigned short*)&var0[0];
-        var1 = var5;
-        arg0->unknown_2_ = var5;
-        var1;
+        unsigned short subBG0Control = *(volatile unsigned short*)&subBGControl[0];
+        subBG0ControlCopy = subBG0Control;
+        save->unknown_2_ = subBG0Control;
+        subBG0ControlCopy;
     }
     {
-        unsigned short var6 = *(volatile unsigned short*)&var0[1];
-        arg0->unknown_6_ = var6;
-        var2 = var6;
-        var2;
+        unsigned short subBG1Control = *(volatile unsigned short*)&subBGControl[1];
+        save->unknown_6_ = subBG1Control;
+        subBG1ControlCopy = subBG1Control;
+        subBG1ControlCopy;
     }
     {
-        unsigned short var7 = *(volatile unsigned short*)&var0[2];
-        var3 = var7;
-        var3;
-        arg0->unknown_a_ = var7;
-        var3;
+        unsigned short subBG2Control = *(volatile unsigned short*)&subBGControl[2];
+        subBG2ControlCopy = subBG2Control;
+        subBG2ControlCopy;
+        save->unknown_a_ = subBG2Control;
+        subBG2ControlCopy;
     }
     {
-        unsigned short var8 = *(volatile unsigned short*)&var0[3];
-        arg0->unknown_e_ = var8;
-        var4 = var8;
-        var4;
+        unsigned short subBG3Control = *(volatile unsigned short*)&subBGControl[3];
+        save->unknown_e_ = subBG3Control;
+        subBG3ControlCopy = subBG3Control;
+        subBG3ControlCopy;
     }
-    arg0->unknown_11_ = 1;
+    save->unknown_11_ = 1;
 }

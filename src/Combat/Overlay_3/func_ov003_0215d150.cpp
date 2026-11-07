@@ -79,7 +79,7 @@ extern "C" void func_ov003_0215df1c(void *arg0);
 extern "C" void func_ov003_0215dd3c(char *arg0);
 struct TextWindowManager_0205d81c;
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
-extern "C" void func_0205cef8(void *arg0);
+extern "C" void EnableTouchMenuCursor_0205cef8(void *windowManager);
 extern "C" void func_0205cf04(void *arg0);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570 *);
 struct TextWindowManager_0205d6a0;
@@ -182,7 +182,7 @@ extern "C" ARM void func_ov003_0215d150(Struct_ov003_02154af4_3 *arg0) {
     if (var4 == 3) {
         arg0->unknown_3c1_ = 0;
         func_ov003_0215dd3c((char *) arg0);
-        func_0205cef8(arg0->unknown_98_);
+        EnableTouchMenuCursor_0205cef8(arg0->unknown_98_);
         func_0205cf04(arg0->unknown_98_);
         arg0->unknown_3b8_ = arg0->unknown_3b8_ + 1;
     }

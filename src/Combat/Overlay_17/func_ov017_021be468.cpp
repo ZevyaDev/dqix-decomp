@@ -50,11 +50,11 @@ extern "C" void* GetFontLoader_02094a00(); extern "C" void CancelFontLoad_02094a
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*,unsigned int); extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" void func_02057e6c(void*,int,SafeAllocator*,void*,unsigned int,TextureVRAMArea_0203d028*);
 int IsMainBrightnessTransitionActive(GameResources*); extern "C" void func_02010834(Struct_02010834*,int,int*,int*);
-extern "C" void func_02057fb4(void*,int,void*); extern "C" void LoadExtraSoundSet_0205ebc0(void*,int,int); extern "C" void PlayExtraSoundEffect_0205ebfc(void*,int,int);
+extern "C" void PlayEffect_02057fb4(void*,int,void*); extern "C" void LoadExtraSoundSet_0205ebc0(void*,int,int); extern "C" void PlayExtraSoundEffect_0205ebfc(void*,int,int);
 void SetBrightness(GameResources*,int,int);  extern "C" void func_ov017_02197528();
 extern "C" Struct_ov017_021be468_3* GetZoneEntry_0200fd0c(GameState*); extern "C" void VectorizedMemset(void*,int,int);
-extern "C" void func_ov017_0219e310(unsigned char*,int); extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*,QueueNode_0201bdac*);
-extern "C" void EnablePlayerControl_020397c0(void*); extern "C" void func_ov017_021beb48(Struct_ov017_021be468_5*); extern "C" void func_0205ebec(void*);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char*,int); extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*,QueueNode_0201bdac*);
+extern "C" void EnablePlayerControl_020397c0(void*); extern "C" void func_ov017_021beb48(Struct_ov017_021be468_5*); extern "C" void UnloadExtraSoundSet_0205ebec(void*);
 
 // USA: func_ov017_021be468
 extern "C" ARM void func_ov017_021be468(Struct_ov017_021be468_5* arg0,Queue_02038598_5* arg1) {
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov017_021be468(Struct_ov017_021be468_5* arg0,Queue_0203
                 var13[var14].unknown_44_.x=0x1000; var13[var14].unknown_44_.y=0x1000; var13[var14].unknown_44_.z=0x1000;
                 Struct_ov017_021be468_2* var16=&var13[var14]; var16->unknown_11_.unknown_0_0_=0; var16->unknown_11_.unknown_0_1_=0; var16->unknown_11_.unknown_0_2_=1; var16->unknown_11_.unknown_0_3_=0; var16->unknown_11_.unknown_0_4_=0; var16->unknown_11_.unknown_0_5_=0; var16->unknown_11_.unknown_0_6_=0; var16->unknown_11_.unknown_0_7_=0;
                 var16->unknown_2c_=var15->obj3D_.position_; var16->unknown_44_=var15->obj3D_.GetScale();
-                func_02057fb4(var3,5,var16);
+                PlayEffect_02057fb4(var3,5,var16);
             }
             arg0->unknown_8_++;
         }
@@ -123,7 +123,7 @@ extern "C" ARM void func_ov017_021be468(Struct_ov017_021be468_5* arg0,Queue_0203
             var21->unknown_20_=-1; var21->unknown_24_=-1; var21->unknown_28_=-1; var21->unknown_2c_=-1; var21->unknown_1e_=-1; var21->unknown_c_=0; var21->unknown_6c_=-1;
             var21->unknown_0_=arg0->unknown_1c_; var21->unknown_7_=1; var21->unknown_1c_=0x3244; var21->unknown_10_=arg0->unknown_10_;
             Queue_0201bdac_2* var22=(Queue_0201bdac_2*)var1->unknown_ptr_array_36fc[0]; unsigned char* var23=(unsigned char*)var1->unknown_ptr_array_36fc[4];
-            func_ov017_0219e310(var23,0); AppendToQueue_020469b4(var22,(QueueNode_0201bdac*)var23);
+            ResetZoneLoadTask_ov017_0219e310(var23,0); AppendToQueue_020469b4(var22,(QueueNode_0201bdac*)var23);
             if(arg0->unknown_39_) {
                 Struct_ov017_021be468_4* var24=(Struct_ov017_021be468_4*)var0->GetGrottoStruct();
                 var24->unknown_c_=arg0->unknown_3a_; var24->unknown_6c_=arg0->unknown_3c_;
@@ -133,7 +133,7 @@ extern "C" ARM void func_ov017_021be468(Struct_ov017_021be468_5* arg0,Queue_0203
                 var24->unknown_6_=arg0->unknown_49_0_; var24->unknown_5_=arg0->unknown_49_4_; var24->unknown_8_=arg0->unknown_48_; var24->unknown_1_=0; arg0->unknown_39_=0;
             }
             arg0->unknown_1_=1; EnablePlayerControl_020397c0(var2); func_ov017_021beb48(arg0);
-            func_0205ebec(gSoundEffectManager_02108760);
+            UnloadExtraSoundSet_0205ebec(gSoundEffectManager_02108760);
         }
     }
 }

@@ -31,7 +31,7 @@ extern "C" int _ffix(float value);
 extern "C" float _d2f(double value);
 extern "C" double func_02009598(double arg0, double arg1);
 extern "C" float func_0200c9b4(float value);
-extern "C" void func_0202e5d8(struct Struct_0202eab8_2* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetCameraOrbit_0202e5d8(struct Struct_0202eab8_2* camera, int angle, int height, int distance);
 
 // USA: func_0202eab8
 extern "C" ARM void func_0202eab8(struct Struct_0202eab8_2* arg0) {
@@ -52,5 +52,5 @@ extern "C" ARM void func_0202eab8(struct Struct_0202eab8_2* arg0) {
                                     _fadd(_fmul(var0.unknown_0_, var0.unknown_0_), _fmul(var0.unknown_4_, var0.unknown_4_))));
     arg0->unknown_78_ = _ffix(_fmul(4096.0f, var3));
 
-    func_0202e5d8(arg0, arg0->unknown_70_, arg0->unknown_74_, arg0->unknown_78_);
+    SetCameraOrbit_0202e5d8(arg0, arg0->unknown_70_, arg0->unknown_74_, arg0->unknown_78_);
 }

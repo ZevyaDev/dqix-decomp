@@ -56,7 +56,7 @@ struct StringTable_0201099c_14;
 struct Struct_020a13c4;
 struct BGLayer_02020cb8;
 struct TextWindowManager_0205cfd4;
-struct Struct_0205bef8;
+struct KeyMenuCursor_0205bef8;
 
 extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
@@ -64,8 +64,8 @@ extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 extern "C" void func_020a13c4(Struct_020a13c4* arg0);
 extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
-extern "C" void func_0205bef8(Struct_0205bef8* arg0);
-extern "C" void func_020a2010(void* arg0);
+extern "C" void InitKeyMenuCursor_0205bef8(KeyMenuCursor_0205bef8* cursor);
+extern "C" void InitFollowCamera_020a2010(void* arg0);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 
 struct Struct_ov008_021842a0_2 {
@@ -150,9 +150,9 @@ extern "C" ARM void func_ov008_021843f8(Struct_ov008_021842a0_2* arg0)
     arg0->unknown_738_ = NULL;
     arg0->unknown_73c_ = NULL;
     arg0->unknown_734_ = NULL;
-    func_0205bef8((Struct_0205bef8*)arg0->unknown_750_);
+    InitKeyMenuCursor_0205bef8((KeyMenuCursor_0205bef8*)arg0->unknown_750_);
     arg0->unknown_790_.Initialize();
-    func_020a2010(arg0->unknown_83c_);
+    InitFollowCamera_020a2010(arg0->unknown_83c_);
     arg0->unknown_b04_ = NULL;
     arg0->unknown_b08_ = NULL;
     arg0->unknown_b0c_ = NULL;

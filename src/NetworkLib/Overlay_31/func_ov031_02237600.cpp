@@ -4,7 +4,7 @@ extern "C" ARM int func_020d4848(void* arg0);
 extern "C" ARM int func_020d5004(int arg0);
 extern "C" ARM int func_020d503c(int arg0);
 extern "C" ARM int func_ov031_0223e2e0(int arg0, void* arg1);
-extern "C" ARM unsigned int func_ov031_0223cf70(void** arg0);
+extern "C" ARM unsigned int FreeAndClearPointer_ov031_0223cf70(void** pointer);
 extern "C" void func_ov031_022376fc(void);
 
 struct Struct_ov031_02237600 {
@@ -46,6 +46,6 @@ extern "C" ARM int func_ov031_02237600(void) {
 	while (var0->unknown_1b94_ != 2) {
 	}
 
-	func_ov031_0223cf70((void**)&DuplicatePool::data_ov031_02290d0c);
+	FreeAndClearPointer_ov031_0223cf70((void**)&DuplicatePool::data_ov031_02290d0c);
 	return 1;
 }

@@ -14,7 +14,7 @@ struct Struct_ov003_0216fc58 {
 };
 
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
-extern "C" void func_0205cef8(void* arg0);
+extern "C" void EnableTouchMenuCursor_0205cef8(void* windowManager);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" short func_ov003_0216df38(char* arg0, struct Struct_0201099c_3* arg1, int arg2);
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov003_0216fc58(char* arg0, int arg1, int arg2) {
 
     (*(char**)(arg0 + 0x3c))[0xb5] = 1;
 
-    func_0205cef8(*(char**)(arg0 + 0x3c));
+    EnableTouchMenuCursor_0205cef8(*(char**)(arg0 + 0x3c));
 
     char var1[0x200];
     char var2[0x80];
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov003_0216fc58(char* arg0, int arg1, int arg2) {
 
     (*(char**)(arg0 + 0x3c))[0xb5] = 1;
 
-    func_0205cef8(*(char**)(arg0 + 0x3c));
+    EnableTouchMenuCursor_0205cef8(*(char**)(arg0 + 0x3c));
 
     char var4[0x200];
     __clear(var4, 0x200);

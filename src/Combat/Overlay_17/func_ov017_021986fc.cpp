@@ -39,12 +39,12 @@ struct LocalWireless_0202c1a4;
 extern "C" Zone3D* GetZone3D_02012fe4(void);
 extern "C" Struct_0208e7d0* func_0208e0a8(void);
 extern "C" int func_0208e824(void*, char*);
-extern "C" int func_020535c8(signed char*);
+extern "C" int IsPerformingGesture_020535c8(signed char*);
 extern "C" Struct_0208f3b4* func_0208e9e8(void);
 extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" void func_ov017_0219a674(unsigned char*);
 extern "C" void func_ov017_0219b33c(void*, Struct_ov017_021986fc_3*);
-extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
+extern "C" int ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18(void);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" void* GetFlagManager_0205ec34(void);
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov017_021986fc(GameResources* arg0) {
     if (!func_0208e824(var2, var1->mapShortName_)) return;
     GameState* var3 = GameState::GetInstance();
     GameObject* var4 = var3->GetUnknownGameObject();
-    if (func_020535c8((signed char*)var4)) return;
+    if (IsPerformingGesture_020535c8((signed char*)var4)) return;
     func_0208e9e8();
     Struct_ov017_021986fc_2* var5 = var2->unknown_4_;
     void* var6 = GetCamera_020100bc(var3);
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov017_021986fc(GameResources* arg0) {
     int var16 = -1;
     if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 10) { var15 = g_touchInput.prevX_; var16 = g_touchInput.prevY_; }
     int var17, var18;
-    func_0202ec84(var6, (Struct_02015ef4*)&var4->obj3D_.position_, &var17, &var18);
+    ConvertWorldToScreen_0202ec84(var6, (Struct_02015ef4*)&var4->obj3D_.position_, &var17, &var18);
     if (var15 > 0x70 && var15 < 0x90 && var16 > 0x28 && var16 < 0x60) var14 = 1;
     else if (var17 - 12 < var15 && var15 < var17 + 12 && var18 - 12 < var16 && var16 < var18 + 12) var14 = 1;
     if (!var14) return;

@@ -168,7 +168,7 @@ extern char data_ov008_0218b4c3[];
 #endif
 
 extern "C" unsigned char* GetMessageWindow_020421a0();
-extern "C" void func_020ac0b4(void* arg0);
+extern "C" void GetAlchemyCount_020ac0b4(void* count);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char* window, int index, unsigned char alignment);
@@ -223,7 +223,7 @@ extern "C" ARM void func_ov008_02187b20(Struct_ov008_021842a0_2* arg0, char* arg
     else
     {
         var3 = var0->unknown_3c_.unknown_8_0_;
-        func_020ac0b4(&var4);
+        GetAlchemyCount_020ac0b4(&var4);
         var6 = var0->unknown_3c_.unknown_10_0_;
         var8 = var0->unknown_3c_.unknown_b_0_;
         var9 = var0->unknown_3c_.unknown_d_6_;

@@ -139,7 +139,7 @@ void SetMainBrightness(GameResources* resources, int brightness, int duration);
 int IsMainBrightnessTransitionActive(GameResources* resources);
 extern "C" void func_020de868(void* arg0);
 extern "C" void func_ov013_02186e74(Struct_ov002_021682c0* arg0, SafeAllocator* arg1);
-extern "C" void func_0205ea20(void* arg0, int arg1);
+extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
 extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2* arg0);
 
@@ -282,7 +282,7 @@ extern "C" ARM int func_ov023_021f1234(Struct_ov023_021f1234_3* arg0)
         {
             if (!IsMainBrightnessTransitionActive(var2))
             {
-                func_0205ea20(gSoundEffectManager_02108760, 100);
+                LoadSoundEffectSet_0205ea20(gSoundEffectManager_02108760, 100);
                 var1->unknown_0_++;
             }
         }
@@ -325,7 +325,7 @@ extern "C" ARM int func_ov023_021f1234(Struct_ov023_021f1234_3* arg0)
         {
             if (!IsMainBrightnessTransitionActive(var2))
             {
-                func_0205ea20(gSoundEffectManager_02108760, 0x65);
+                LoadSoundEffectSet_0205ea20(gSoundEffectManager_02108760, 0x65);
                 GetPartyMemberBaseByIndex_0200ff1c(var0, var6);
                 GameObject* var13 = GetPartyMemberBaseByIndex_0200ff1c(var0, var6);
                 if (var13 != NULL)

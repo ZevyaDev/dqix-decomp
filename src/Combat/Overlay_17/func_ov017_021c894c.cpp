@@ -7,7 +7,7 @@ extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(void* battle, short* indices, int maxCount, int filterFlags);
-extern "C" int func_020493a4(unsigned char* arg0);
+extern "C" int GetCombatantCell_020493a4(unsigned char* combatant);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021c894c {
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov017_021c894c(unsigned short arg0) {
     for (var10 = 0; var10 < var9; var10++) {
         GameObject* var11 = var0->GetCombatantByIndex(var5[var10]);
         if (var11 != NULL) {
-            var6->unknown_0_[var5[var10]] = func_020493a4((unsigned char*)var11);
+            var6->unknown_0_[var5[var10]] = GetCombatantCell_020493a4((unsigned char*)var11);
         }
     }
 
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov017_021c894c(unsigned short arg0) {
         GameObject* var13 = var0->GetCombatantByIndex(var5[var12]);
         if (var13 != NULL) {
             int var14 = var5[var12] - 0xc0;
-            var6->unknown_4_[var14] = func_020493a4((unsigned char*)var13);
+            var6->unknown_4_[var14] = GetCombatantCell_020493a4((unsigned char*)var13);
         }
     }
 

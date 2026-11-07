@@ -16,7 +16,7 @@ struct TextWindowManager_0205da38;
 struct SoundEffectManager_02108760;
 struct TextWindowManager_0205d81c;
 struct Struct_0205dee8;
-struct Struct_0205def8;
+struct TextWindowManager_0205def8;
 struct Party_02048150;
 struct Struct_0207cf30_3;
 struct Struct_02061c04_23;
@@ -31,7 +31,7 @@ extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" int func_020dcc20(int arg0, int arg1);
 extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" int IsInParty_02086ef0(struct Party_02048150 *party, int objectIndex);
-extern "C" void func_0205def8(struct Struct_0205def8 *arg0, int arg1, int arg2);
+extern "C" void func_0205def8(struct TextWindowManager_0205def8 *arg0, int arg1, int arg2);
 extern "C" int func_0205df38(void *arg0, int arg1);
 extern "C" int func_020dcbbc(unsigned char *arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
@@ -119,9 +119,9 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                                *(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe9, 0x1c00 + 0x21))) &&
             *(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe9, 0x1c00 + 0x21)) != 4)
         {
-            func_0205def8((struct Struct_0205def8 *) L(arg0), var8, Enum_ov002_02163bd0_13);
+            func_0205def8((struct TextWindowManager_0205def8 *) L(arg0), var8, Enum_ov002_02163bd0_13);
         } else {
-            func_0205def8((struct Struct_0205def8 *) L(arg0), 1, Enum_ov002_02163bd0_13);
+            func_0205def8((struct TextWindowManager_0205def8 *) L(arg0), 1, Enum_ov002_02163bd0_13);
             if (func_0205df38(L(arg0), Enum_ov002_02163bd0_13)) var8 = 1;
         }
         if (*(unsigned char *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xb88, 0xcc4)) != 0 ||

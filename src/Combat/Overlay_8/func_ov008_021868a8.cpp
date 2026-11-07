@@ -14,7 +14,7 @@ struct Struct_0209cae8;
 extern "C" short func_0209cae8(struct Struct_0209cae8* arg0);
 
 struct MusicManager_02109bf4_4;
-extern "C" void func_0209c678(struct MusicManager_02109bf4_4* arg0, int arg1);
+extern "C" void StopMusic_0209c678(struct MusicManager_02109bf4_4* manager, int fadeDuration);
 
 extern int gMusicManager_02109bf4;
 
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov008_021868a8(struct Struct_ov008_021868a8* arg0) {
             SetBrightness((GameResources*)var0, -16, 15);
             if (arg0->unknown_b13_ == 0) {
                 if (func_0209cae8((struct Struct_0209cae8*)&gMusicManager_02109bf4) != 0x29) {
-                    func_0209c678((struct MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 15);
+                    StopMusic_0209c678((struct MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 15);
                 }
             }
         } else {

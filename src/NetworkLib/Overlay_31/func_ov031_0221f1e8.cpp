@@ -2,9 +2,6 @@
 #include "NitroSDK/Interrupts.h"
 #include "NitroSDK/Memory.h"
 
-#if defined(jpn)
-#define func_020ca408 func_020cbed4
-#endif
 
 struct Struct_ov031_0224f620_6 {
     char unknown_0_[0xc];
@@ -16,7 +13,7 @@ struct Struct_ov031_0224f620_6 {
     void* unknown_24_;
 };
 extern Struct_ov031_0224f620_6 data_ov031_0224f620;
-extern "C" void func_020ca408(const void*, void*, unsigned int);
+extern "C" void Memcpy32Bit_020ca408(const void*, void*, unsigned int);
 extern "C" int func_ov031_0221ef80();
 extern "C" int func_ov031_0220d010(void*, void*, int);
 
@@ -28,7 +25,7 @@ extern "C" THUMB int func_ov031_0221f1e8(const void* arg0, const void* arg1, int
         VectorizedInvertedMemcpy(arg1, data_ov031_0224f620.unknown_24_, 0x50);
     else
         VectorizedMemset(data_ov031_0224f620.unknown_24_, 0, 0x50);
-    func_020ca408(arg0, data_ov031_0224f620.unknown_20_, 0xc0);
+    Memcpy32Bit_020ca408(arg0, data_ov031_0224f620.unknown_20_, 0xc0);
     if (func_ov031_0221ef80() == 1) {
         data_ov031_0224f620.unknown_18_ = 8;
         SetIRQInterruptState(var0);

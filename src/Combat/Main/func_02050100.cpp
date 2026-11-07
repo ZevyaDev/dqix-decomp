@@ -28,7 +28,7 @@ struct Struct_02050100_2 {
     unsigned char unknown_da_;
 };
 struct Struct_02050100_3 { int unknown_0_; signed char unknown_4_; };
-extern "C" Struct_02050100_3* func_0204254c(int, int);
+extern "C" Struct_02050100_3* FindFontGlyph_0204254c(int, int);
 extern char data_020e7bda[];
 extern "C" char* func_02050064(Struct_02050100_2*);
 extern "C" void func_0204f41c(Struct_02050100_2*, short, short, char*, int, int, short*, short*, int);
@@ -92,7 +92,7 @@ extern "C" ARM void func_02050100(Struct_02050100_2* arg0, int arg1) {
     var18 = 1;
     if (arg0->unknown_c5_ & 4) var18 = 0;
     var19 = 0;
-    Struct_02050100_3* var22 = func_0204254c((int)data_020e7bda, var19);
+    Struct_02050100_3* var22 = FindFontGlyph_0204254c((int)data_020e7bda, var19);
     if (var22) var19 = var22->unknown_4_;
     short var23 = var14 - (var19 >> 1);
     func_0204f41c(arg0, var23, var13, data_020e7bda, 8, 15, &var15, &var16, 0);

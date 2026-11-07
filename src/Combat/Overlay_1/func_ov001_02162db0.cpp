@@ -47,8 +47,8 @@ extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 struct Struct_02052e2c;
 extern "C" short* func_02052e2c(Struct_02052e2c*);
 struct Struct_02052df8;
-extern "C" int func_02052df8(Struct_02052df8*, int);
-extern "C" void func_02052d7c(Struct_ov001_02162db0_2* arg0, int arg1, short arg2);
+extern "C" int GetEquippedItem_02052df8(Struct_02052df8*, int);
+extern "C" void SetEquippedItem_02052d7c(Struct_ov001_02162db0_2* gameObject, int slot, short itemId);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 
@@ -111,14 +111,14 @@ extern "C" ARM int func_ov001_02162db0(void* arg0, int arg1) {
         var4->unknown_182_ = -1;
         var4->unknown_180_ = -1;
         var4->unknown_182_ = var7[var6];
-        func_02052d7c(var1, var6, -1);
+        SetEquippedItem_02052d7c(var1, var6, -1);
     } else {
         int var9 = var4->unknown_182_;
         signed char var10 = var4->unknown_180_;
         var4->unknown_182_ = -1;
         var4->unknown_180_ = -1;
-        if (func_02052df8((Struct_02052df8*)var1, var6) < 0 && var10 != 6) {
-            func_02052d7c(var1, var6, var9);
+        if (GetEquippedItem_02052df8((Struct_02052df8*)var1, var6) < 0 && var10 != 6) {
+            SetEquippedItem_02052d7c(var1, var6, var9);
         }
     }
 

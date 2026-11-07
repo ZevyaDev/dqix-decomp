@@ -27,7 +27,7 @@ extern "C" struct ActiveZone_020fdd44* FindActiveZone_02028bd0(struct ActiveZone
 extern "C" struct Struct_02076fdc* func_020283c0(struct Struct_0201a300_11* arg0, int arg1);
 
 extern "C" int fix32_Atan2(int arg0, int arg1);
-extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
+extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
@@ -61,7 +61,7 @@ extern "C" ARM int func_02076fdc(Struct_02076a8c* arg0) {
         return 0;
     }
     Vector3fix_Normalize(&var4, &var4);
-    func_02033834((struct Struct_02033834_2*)arg0, fix32_Atan2(var4.x, var4.z));
+    SetFacing_02033834((struct Struct_02033834_2*)arg0, fix32_Atan2(var4.x, var4.z));
     arg0->unknown_17d_ |= 0x40;
     switch (arg0->unknown_0_.unknown_139_) {
     case 0:

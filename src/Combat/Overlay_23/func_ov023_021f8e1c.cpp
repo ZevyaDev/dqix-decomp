@@ -3,9 +3,6 @@
 #include "GameState/GameState.h"
 #include "Input/Input.h"
 
-#if defined(jpn)
-#define func_020c39c8 func_020c5494
-#endif
 
 struct Struct_ov023_021f8e1c {
     int unknown_0_;
@@ -93,7 +90,7 @@ struct Struct_02047a3c;
 struct SoundEffectManager_02108760;
 
 extern "C" unsigned short func_ov011_02184a00(struct Struct_ov011_02184a00* arg0);
-extern "C" int func_020c39c8(volatile unsigned short* arg0);
+extern "C" int ReadBrightnessRegister_020c39c8(volatile unsigned short* reg);
 extern "C" void* func_ov023_021f7318(void* arg0);
 extern "C" unsigned char func_02047a5c(struct Struct_02047a5c* arg0, int arg1);
 extern "C" int func_02047a3c(struct Struct_02047a3c* arg0, int arg1);
@@ -121,8 +118,8 @@ extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern unsigned int data_ov023_021fff24;
 extern const unsigned short data_ov023_021fd922[];
 
-static inline int inline_ov023_021f8e1c_41() { return func_020c39c8((volatile unsigned short*)0x400006c); }
-static inline int inline_ov023_021f8e1c_42() { return func_020c39c8((volatile unsigned short*)0x400106c); }
+static inline int inline_ov023_021f8e1c_41() { return ReadBrightnessRegister_020c39c8((volatile unsigned short*)0x400006c); }
+static inline int inline_ov023_021f8e1c_42() { return ReadBrightnessRegister_020c39c8((volatile unsigned short*)0x400106c); }
 
 // USA: func_ov023_021f8e1c
 extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg1) {

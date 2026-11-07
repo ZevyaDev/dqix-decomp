@@ -18,13 +18,13 @@ enum { Enum_ov003_0217d53c_14092 = 0x370c };
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" char* GetZone3D_02012fe4(void);
 extern "C" int GetMessageChoice_020457e0(char* window);
-extern "C" void func_ov017_021baedc(void* arg0, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(void* node, int arg1);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
-extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int arg1);
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
-extern "C" void func_02070378(char* arg0);
+extern "C" void InitZoneEntry_02070378(char* zoneEntry);
 
 struct Struct_ov003_0217d53c_4 {
 #if defined(jpn)
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov003_0217d53c(Struct_ov003_0217d53c_3* arg0) {
     if (arg0->unknown_5_ != 0 || *(int*)(var1 + Enum_ov003_0217d53c_2464) != 0) return;
     if (GetMessageChoice_020457e0(var1) == 0) {
         Struct_ov003_0217d53c* var6 = *(Struct_ov003_0217d53c**)(var2 + Enum_ov003_0217d53c_14132);
-        func_ov017_021baedc(var6, 1);
+        ResetEventTask_ov017_021baedc(var6, 1);
         var6->unknown_10b_ = 1;
         switch (
 #if defined(jpn)
@@ -106,9 +106,9 @@ extern "C" ARM void func_ov003_0217d53c(Struct_ov003_0217d53c_3* arg0) {
         }
         AppendToQueue_020469b4(var3, (struct QueueNode_0201bdac*)var6);
         unsigned char* var7 = *(unsigned char**)(var2 + Enum_ov003_0217d53c_14092);
-        func_ov017_0219e310(var7, 0);
+        ResetZoneLoadTask_ov017_0219e310(var7, 0);
         Struct_ov003_0217d53c_2* var8 = (Struct_ov003_0217d53c_2*)GetZoneEntry_0200fd0c(var0);
-        func_02070378((char*)var8);
+        InitZoneEntry_02070378((char*)var8);
         var8->unknown_0_ = 0xc3bc;
         var8->unknown_7_ = 1;
         var8->unknown_14_ = 0x266;

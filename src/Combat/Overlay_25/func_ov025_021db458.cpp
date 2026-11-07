@@ -28,7 +28,7 @@ struct Struct_ov025_021db458_4 {
     unsigned char unknown_5951_2_ : 6;
 };
 
-extern "C" void* func_ov000_02160f20(void*);
+extern "C" void* GetCurrentBattleAction_ov000_02160f20(void*);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov000_0215ec1c(void* arg0, short* arg1, int arg2, int arg3);
 extern "C" int func_02049afc(unsigned char* arg0);
@@ -40,7 +40,7 @@ extern "C" Struct_ov025_021db458_2* GetActionTarget_ov000_021600f8(BattleAction_
 extern "C" ARM void func_ov025_021db458(Struct_ov025_021db458_4* arg0) {
     int var0;
     int var1;
-    func_ov000_02160f20(arg0);
+    GetCurrentBattleAction_ov000_02160f20(arg0);
     GameState* var2 = GameState::GetInstance();
     if (arg0->unknown_5951_0_ != 2) return;
     void* var3;

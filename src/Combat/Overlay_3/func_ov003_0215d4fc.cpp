@@ -64,18 +64,18 @@ extern "C" void ResetMessageWindow_02043204(char*);
 struct Struct_0201099c_3;
 extern "C" void * FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_ov003_0215cab0(Struct_ov003_02154af4_3 *, void *);
-extern "C" void *func_0203df78(void *, int);
+extern "C" void *FindNPCById_0203df78(void *, int);
 struct TextWindowManager_0205d6a0;
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 struct MusicManager_02109bf4_4;
-extern "C" void func_0209c678(MusicManager_02109bf4_4*, int);
+extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4*, int);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 extern "C" void func_0205e944(void *, int);
 int IsBrightnessTransitionActive(GameResources*);
 struct Struct_02109bf4_3;
-extern "C" void func_0209c20c(Struct_02109bf4_3*);
-extern "C" void func_0209c6d8(void*, int);
+extern "C" void ResetMusic_0209c20c(Struct_02109bf4_3*);
+extern "C" void PlayJingle_0209c6d8(void*, int);
 extern "C" void func_020e3368(unsigned char *, unsigned char);
 struct Struct_0208ab34;
 extern "C" int func_020e34bc(Struct_0208ab34*, int);
@@ -141,9 +141,9 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
         }
         func_ov003_0215cab0(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, var10));
         arg0->unknown_3bb_ = 2;
-        void *var11 = func_0203df78(var4, (*(Struct_ov003_0215d4fc **) ((char *) GetGameResources() + 0x3000 + Enum_ov003_0215d4fc_1808))->unknown_12c_);
+        void *var11 = FindNPCById_0203df78(var4, (*(Struct_ov003_0215d4fc **) ((char *) GetGameResources() + 0x3000 + Enum_ov003_0215d4fc_1808))->unknown_12c_);
         if (var11 != 0) {
-            arg0->unknown_3f8_ = func_02040a20((Struct_0203dce4*)var11);
+            arg0->unknown_3f8_ = func_02040a20((NPC_0203dce4*)var11);
         }
         arg0->unknown_3b8_ = arg0->unknown_3b8_ + 1;
     }
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
             return;
         }
         CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_98_, 0);
-        func_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0x10);
+        StopMusic_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0x10);
         SetBrightness((GameResources*)var1, -16, 0x3c);
         func_0205e944(&gSoundEffectManager_02108760, 0);
         arg0->unknown_3f5_  = 1;
@@ -162,8 +162,8 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
         if (IsBrightnessTransitionActive((GameResources*)var1) != 0) {
             return;
         }
-        func_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
-        func_0209c6d8(&gMusicManager_02109bf4, 0x37);
+        ResetMusic_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
+        PlayJingle_0209c6d8(&gMusicManager_02109bf4, 0x37);
         arg0->unknown_3e8_  = 0xb4;
         arg0->unknown_3b8_ = arg0->unknown_3b8_ + 1;
     }
@@ -215,7 +215,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
         func_0205e944(&gSoundEffectManager_02108760, 0x7f);
         arg0->unknown_3ec_ = 1;
         arg0->unknown_3ed_ = 0;
-        void *var15 = func_0203df78(var4, (*(Struct_ov003_0215d4fc **) ((char *) GetGameResources() + 0x3000 + Enum_ov003_0215d4fc_1808))->unknown_12c_);
+        void *var15 = FindNPCById_0203df78(var4, (*(Struct_ov003_0215d4fc **) ((char *) GetGameResources() + 0x3000 + Enum_ov003_0215d4fc_1808))->unknown_12c_);
         if (var15 != 0) {
             func_02040b2c((Struct_0203e2c4_2*)var15, arg0->unknown_3f8_);
         }

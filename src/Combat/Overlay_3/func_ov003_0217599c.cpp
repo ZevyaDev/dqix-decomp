@@ -82,16 +82,16 @@ extern "C" void *InitItemTable_020de824(void *);
 extern "C" void func_0207cbe8(char *);
 extern "C" void func_0207cc18(void *, Struct_ov003_0217599c_4 *);
 extern "C" void func_0207cc0c(char *);
-extern "C" int func_020dd4c4(int, void *);
-extern "C" int func_02052df8(Struct_02052df8 *, int);
-extern "C" void func_02052d7c(Struct_ov003_0217599c *, int, short);
+extern "C" int GetEquipRestrictions_020dd4c4(int, void *);
+extern "C" int GetEquippedItem_02052df8(Struct_02052df8 *, int);
+extern "C" void SetEquippedItem_02052d7c(Struct_ov003_0217599c *, int, short);
 extern "C" void *GetPartyMemberData_02053c6c(unsigned char *);
 extern "C" void func_0208358c(void *, Struct_ov003_0217599c_4 *, int);
-extern "C" void func_0207c378(char *, int, int, int);
+extern "C" void AddEquipmentToBag_0207c378(char *, int, int, int);
 static inline int inline_ov003_0217599c(unsigned int arg0) {
     return arg0 <= 7;
 }
-extern "C" void func_ov017_021c3fb4(int, int);
+extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int, int);
 extern "C" void func_ov017_021c4418(int, int);
 GameResources *GetGameResources();
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources *, int, int, int, int);
@@ -125,7 +125,7 @@ extern "C" ARM int func_ov003_0217599c(Struct_ov003_0217599c_2 *arg0) {
     func_0207cc18(&var5, var3);
     func_0207cc0c((char *) &var5);
     if (!inline_ov003_0217599c(var4)) return 0;
-    if (func_020dd4c4(arg0->unknown_1043_, var3)) return 0;
+    if (GetEquipRestrictions_020dd4c4(arg0->unknown_1043_, var3)) return 0;
 #if defined(jpn)
     int var6 = data_ov003_0217e388[var4];
 #else
@@ -133,14 +133,14 @@ extern "C" ARM int func_ov003_0217599c(Struct_ov003_0217599c_2 *arg0) {
 #endif
     if (var6 < 0) return 1;
     char *var7      = (char *) GetParty_02010828(var0);
-    int var8 = func_02052df8((Struct_02052df8 *) var2, var6);
+    int var8 = GetEquippedItem_02052df8((Struct_02052df8 *) var2, var6);
     int var9       = arg0->unknown_103a_ == var8;
     if (!var9) {
-        func_02052d7c(var2, var6, arg0->unknown_103a_);
+        SetEquippedItem_02052d7c(var2, var6, arg0->unknown_103a_);
         func_0208358c(GetPartyMemberData_02053c6c((unsigned char *) var2), var3, -1);
     }
     if (FindItemData_020dedd0(&arg0->unknown_874_, var8)) {
-        func_0207c378(var7 + 0x1d4, var8, 1, var4);
+        AddEquipmentToBag_0207c378(var7 + 0x1d4, var8, 1, var4);
     }
     arg0->unknown_103c_--;
     if (var9) return 1;
@@ -162,16 +162,16 @@ extern "C" ARM int func_ov003_0217599c(Struct_ov003_0217599c_2 *arg0) {
             var11[1] = var15->unknown_7_4_ ? 1 : 0;
             if (var11[var13->unknown_49c_0_]) continue;
 #if defined(jpn)
-            func_02052d7c(var2, data_ov003_0217e388[var12], -1);
+            SetEquippedItem_02052d7c(var2, data_ov003_0217e388[var12], -1);
 #else
-            func_02052d7c(var2, data_ov003_0217faf4[var12], -1);
+            SetEquippedItem_02052d7c(var2, data_ov003_0217faf4[var12], -1);
 #endif
             if (!var14) continue;
-            func_0207c378(var7 + 0x1d4, var14->unknown_18_, 1, var14->unknown_8_0_);
+            AddEquipmentToBag_0207c378(var7 + 0x1d4, var14->unknown_18_, 1, var14->unknown_8_0_);
         }
     }
     if (IsLocalWirelessOn_0202b7d8(var1)) {
-        func_ov017_021c3fb4(arg0->unknown_1043_, 1);
+        SendPartyMemberEquippedItems_ov017_021c3fb4(arg0->unknown_1043_, 1);
         func_ov017_021c4418(arg0->unknown_1043_, -1);
     }
     GameResources *var16 = GetGameResources();

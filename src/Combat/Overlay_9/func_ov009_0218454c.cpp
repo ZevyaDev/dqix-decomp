@@ -16,7 +16,7 @@ struct Struct_ov006_02158478 {
     char unknown_0_[0xe0];
 };
 
-struct Struct_0205bef8 {
+struct KeyMenuCursor_0205bef8 {
     int unknown_0_[0x10];
 };
 
@@ -42,9 +42,9 @@ extern "C" void func_ov009_021847ec(void* arg0);
 extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
 extern "C" void InitTextWindow_0204c684(Struct_ov006_02158478* textWindow);
-extern "C" void func_0205bef8(Struct_0205bef8* arg0);
+extern "C" void InitKeyMenuCursor_0205bef8(KeyMenuCursor_0205bef8* cursor);
 extern "C" void func_ov009_021847c4(Struct_ov009_021847c4* arg0);
-extern "C" int func_020424e4(int arg0, int arg1);
+extern "C" int FindFontGlyphIndex_020424e4(int text, int font);
 
 extern char data_ov009_0218aca4[];
 
@@ -89,7 +89,7 @@ struct Struct_ov009_021842a0_2 {
     char unknown_808_[0x70];
     Object3D unknown_878_;
     char unknown_924_[0x2c8];
-    Struct_0205bef8 unknown_bec_;
+    KeyMenuCursor_0205bef8 unknown_bec_;
     Struct_ov009_021847c4 unknown_c2c_;
     short unknown_c4c_;
     short unknown_c4e_;
@@ -195,7 +195,7 @@ extern "C" ARM void func_ov009_0218454c(Struct_ov009_021842a0_2* arg0, int arg1,
     arg0->unknown_804_ = 0;
     arg0->unknown_878_.Initialize();
     arg0->unknown_cd8_.Initialize();
-    func_0205bef8(&arg0->unknown_bec_);
+    InitKeyMenuCursor_0205bef8(&arg0->unknown_bec_);
     func_ov009_021847c4(&arg0->unknown_c2c_);
     arg0->unknown_c4c_ = -1;
     arg0->unknown_c4e_ = -1;
@@ -236,7 +236,7 @@ extern "C" ARM void func_ov009_0218454c(Struct_ov009_021842a0_2* arg0, int arg1,
     arg0->unknown_d8d_ = 0;
 #else
     arg0->unknown_db0_ = NULL;
-    arg0->unknown_db4_ = func_020424e4((int)data_ov009_0218aca4, 0);
+    arg0->unknown_db4_ = FindFontGlyphIndex_020424e4((int)data_ov009_0218aca4, 0);
 #endif
     arg0->unknown_db6_ = 0;
 #if defined(jpn)

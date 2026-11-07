@@ -22,7 +22,7 @@ struct Struct_0204e3e0 {
 
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" int func_020420e8(char* arg0, int arg1);
-extern "C" int func_020424e4(int arg0, int arg1);
+extern "C" int FindFontGlyphIndex_020424e4(int text, int font);
 extern "C" char* func_020424ac(char* arg0);
 extern "C" Struct_0204e3e0* func_020425b4(int arg0, int arg1);
 extern "C" int func_020425e4(int arg0, int arg1, int arg2);
@@ -92,7 +92,7 @@ extern "C" ARM short func_0204e3e0(Struct_0204e3e0_2* arg0, char* arg1, int arg2
             var5 = 0xff;
             continue;
         }
-        int var20 = func_020424e4((int)var12, arg5);
+        int var20 = FindFontGlyphIndex_020424e4((int)var12, arg5);
         if (*var12 == '<' && var20 < 0) {
             var13 = var12 + 1;
             var11 = func_020424ac(var12);

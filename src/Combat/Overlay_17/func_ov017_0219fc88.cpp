@@ -22,7 +22,7 @@ extern "C" struct Struct_02071488* func_02071574(unsigned int arg0, struct Struc
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 
-extern "C" void func_ov017_021baedc(void* arg0, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(void* node, int arg1);
 
 struct Struct_020213fc;
 extern "C" void func_020213fc(struct Struct_020213fc* arg0, int arg1);
@@ -73,7 +73,7 @@ extern "C" ARM int func_ov017_0219fc88(void* arg0, int arg1) {
             if (var8->unknown_2_ != 0) {
                 var8->unknown_8_ = arg1;
             } else if (var8->unknown_3_ == 0) {
-                func_ov017_021baedc(var8, 1);
+                ResetEventTask_ov017_021baedc(var8, 1);
                 var8->unknown_8_ = arg1;
                 func_020213fc(*(struct Struct_020213fc**)((char*)var4 + 0x3000 + Enum_ov017_0219fc88_1744), 1);
                 AppendToQueue_020469b4(var5, (struct QueueNode_0201bdac*)var8);

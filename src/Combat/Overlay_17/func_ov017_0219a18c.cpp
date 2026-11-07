@@ -19,9 +19,9 @@ struct TextWindowManager_0205d274;
 extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(TextWindowManager_0205d1e0*);
 extern "C" void DrawTextWindows_0205d228(TextWindowManager_0205d228*);
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274*);
-extern "C" void func_0205da88(void*, int, int, int);
+extern "C" void FillBGUnderTextWindows_0205da88(void*, int, int, int);
 struct TextWindowManager_0205d2bc;
-extern "C" void func_0205d2bc(TextWindowManager_0205d2bc*);
+extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(TextWindowManager_0205d2bc*);
 
 struct TextWindow_0205d0e0 {
     char unknown_0_[0xA8];
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov017_0219a18c(unsigned char* arg0) {
     func_ov017_02199684((Struct_ov017_02199684*)(arg0 + Enum_ov017_0219a18c_180 + Enum_ov017_0219a18c_15360), 2, 0x800);
     ClearTextWindowManagerBGScreenData_0205d1e0(*(TextWindowManager_0205d1e0**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
     DrawTextWindows_0205d228(*(TextWindowManager_0205d228**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
-    func_0205da88(*(void**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248), 1, 2, 1);
+    FillBGUnderTextWindows_0205da88(*(void**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248), 1, 2, 1);
 
     GameObject* var3 = var2->GetProtagonist();
     GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var2, GetProtagonistObjectIndex_020100a8(var2));
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov017_0219a18c(unsigned char* arg0) {
 
     FlushTextWindowManagerBGScreenData_0205d274(*(TextWindowManager_0205d274**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
     if (TestFlags04((GameResources*)arg0, 0x10000) == 0) {
-        func_0205d2bc(*(TextWindowManager_0205d2bc**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
+        CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(*(TextWindowManager_0205d2bc**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248));
     }
     func_ov017_021996bc((Struct_ov017_02199684*)(arg0 + Enum_ov017_0219a18c_180 + Enum_ov017_0219a18c_15360), 2);
 }

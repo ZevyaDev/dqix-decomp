@@ -58,7 +58,7 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_0205b20c(struct Struct_ov000_02174738_6* arg0);
 extern "C" void func_0205b220(void* arg0, int arg1);
 extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
-extern "C" void* func_020421b0(int arg0);
+extern "C" void* GetWindowTile_020421b0(int tileIndex);
 extern "C" void func_ov000_02174a38(void* arg0, int arg1);
 
 extern "C" void func_ov000_021710ac(struct Struct_ov000_02174738_3* arg0, int arg1, int arg2);
@@ -161,7 +161,7 @@ checkvalid:
             if (func_ov017_021bdbcc() != 0) {
                 var19 = 0x28;
             }
-            memcpy(var13, func_020421b0(var19), 0x80);
+            memcpy(var13, GetWindowTile_020421b0(var19), 0x80);
 
             unsigned short var20 = *(unsigned short*)(var14 + 4) & 0x3ff;
             unsigned int var21 = var20 << 7;

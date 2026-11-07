@@ -6,7 +6,7 @@ extern "C" void func_0203aa44(void* arg0);
 extern "C" int func_0203aaf8(void* arg0, void* arg1, int* arg2);
 struct Struct_0203aba8;
 extern "C" int func_0203aba8(struct Struct_0203aba8* arg0, void* arg1, void* arg2);
-extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
+extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
 
 struct Struct_0209c3b4 {
     unsigned char unknown_0_0_ : 1;
@@ -46,7 +46,7 @@ extern "C" ARM void PlayMusic_0209c3b4(struct Struct_0209c3b4_2* manager, int mu
     if (musicIndex > 0) {
         func_0203aaf8(manager, (void*)musicIndex, &manager->unknown_b4_);
         func_0203aba8((struct Struct_0203aba8*)manager, (void*)musicIndex, &manager->unknown_bc_);
-        func_0209c2e0(manager, manager->unknown_cd_, 0);
+        SetMusicVolume_0209c2e0(manager, manager->unknown_cd_, 0);
     }
     manager->musicIndex_b8_ = (short)musicIndex;
     manager->unknown_ce_ = -1;

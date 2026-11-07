@@ -39,7 +39,7 @@ extern "C" void func_ov005_0215792c(void* arg0, unsigned char arg1);
 extern "C" void func_ov005_021579ec(void* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" void func_ov005_02154d34(void* arg0, int arg1, int arg2);
 extern "C" void func_ov005_02154d7c(void* arg0, int arg1, int arg2);
-extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
+extern "C" Struct_ov005_02153ba4_2* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
 struct GameState;
 struct Struct_02052e14;
 extern "C" short* func_02052e14(Struct_02052e14*);
@@ -58,15 +58,15 @@ struct Struct_ov005_0215b520 {
 
 struct ItemTable_0201099c_10;
 struct ItemData_0201099c_9;
-struct Struct_ov003_02178910 {
+struct ItemInfoPanel_ov003_02178910 {
     char unknown_0_[0x48];
-    ItemTable_0201099c_10* unknown_48_;
-    ItemData_0201099c_9* unknown_4c_;
+    ItemTable_0201099c_10* pItemTable_48_;
+    ItemData_0201099c_9* pItemData_4c_;
     char unknown_50_[REGION(0x680,0x704)];
     int unknown_754_;
     char unknown_758_[0x18];
-    short unknown_770_;
-    unsigned short unknown_772_;
+    short shownItemId_770_;
+    unsigned short requestedItemId_772_;
     unsigned short unknown_774_;
     unsigned char unknown_776_;
 };
@@ -85,8 +85,8 @@ struct Struct_ov005_0215b520_2 {
     char unknown_0_[REGION(0xea0,0xea4)];
     BGLayer_0204b8d0 unknown_ea4_;
     char unknown_ec4_[0x1244 - 0xec4];
-    Struct_ov003_02178910 unknown_1244_;
-    char unknown_19bc_[REGION(0x19ac - 0x1240,0x1a34 - 0x1244) - sizeof(Struct_ov003_02178910)];
+    ItemInfoPanel_ov003_02178910 unknown_1244_;
+    char unknown_19bc_[REGION(0x19ac - 0x1240,0x1a34 - 0x1244) - sizeof(ItemInfoPanel_ov003_02178910)];
     char unknown_1a34_[0x3c];
     Struct_ov005_0215b520 unknown_1a70_[36];
     Struct_ov005_02153ba4 unknown_2d90_[24];
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
         arg0->unknown_3dcc_ |= 0x100;
         void* var1 = (void*)GameState::GetInstance();
         GameResources* var2 = GetGameResources();
-        Struct_ov005_02153ba4_2* var3 = func_ov017_021a193c((int*)var2->unknown_ptr_array_36fc[3]);
+        Struct_ov005_02153ba4_2* var3 = GetEquipMenu_ov017_021a193c((int*)var2->unknown_ptr_array_36fc[3]);
         short* var4 = func_02052e14((Struct_02052e14*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var1, var3->unknown_4fc_));
         arg0->unknown_3de8_ += arg0->unknown_3de4_;
         if (arg0->unknown_3de8_ >= 3) {
@@ -231,7 +231,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
     } else if (var0 == 1 && arg0->unknown_3dec_ == 2) {
         void* var15 = (void*)GameState::GetInstance();
         GameResources* var16 = GetGameResources();
-        Struct_ov005_02153ba4_2* var17 = func_ov017_021a193c((int*)var16->unknown_ptr_array_36fc[3]);
+        Struct_ov005_02153ba4_2* var17 = GetEquipMenu_ov017_021a193c((int*)var16->unknown_ptr_array_36fc[3]);
         short* var18 = func_02052e14((Struct_02052e14*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var15, var17->unknown_4fc_));
         arg0->unknown_3de8_ += arg0->unknown_3de4_;
         if (arg0->unknown_3de8_ >= 3) {
@@ -294,7 +294,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
         }
     }
 #if defined(jpn)
-    func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+    GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
     short var25 = arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_;
     arg0->unknown_1244_.unknown_774_ |= 0x80;
     func_ov023_021dcba4(&arg0->unknown_1244_, var25);

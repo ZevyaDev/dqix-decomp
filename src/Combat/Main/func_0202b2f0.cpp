@@ -3,7 +3,7 @@
 #include "std_library_functions.h"
 #include "Combat/SearchEntry.h"
 #include "Resource/GameResources.h"
-struct Struct_0202b2f0 {
+struct LocalWireless_0202b2f0 {
     int unknown_0_;
     unsigned short unknown_4_;
     unsigned char unknown_6_[0x7ba];
@@ -34,23 +34,23 @@ extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8*, unsigned int);
 extern "C" int func_0202d6a8();
 extern "C" int func_0202d8e8();
 extern "C" void func_0202db64(int, int, int);
-extern "C" void func_0202bc00(Struct_0202b2f0*, int);
-extern "C" void func_0202bf40(Struct_0202b2f0*);
-extern "C" void func_0202c04c(Struct_0202b2f0*);
-extern "C" int IsNotLocalWirelessGuest_0202c508(Struct_0202b2f0*);
-extern "C" unsigned short func_0202bc8c(Struct_0202b2f0*);
-extern "C" signed char func_0202bcbc(Struct_0202b2f0*, int);
-extern "C" int func_0202bd34(Struct_0202b2f0*, int);
-extern "C" void func_0202c21c(Struct_0202b2f0*, int);
-extern "C" int func_0202c1c0(Struct_0202b2f0*, int);
-extern "C" void func_0202c5bc(Struct_0202b2f0*, int);
-extern "C" void func_0202c1e8(Struct_0202b2f0*, int);
-extern "C" void func_0202c660(Struct_0202b2f0*, int);
+extern "C" void func_0202bc00(LocalWireless_0202b2f0*, int);
+extern "C" void func_0202bf40(LocalWireless_0202b2f0*);
+extern "C" void func_0202c04c(LocalWireless_0202b2f0*);
+extern "C" int IsNotLocalWirelessGuest_0202c508(LocalWireless_0202b2f0*);
+extern "C" unsigned short func_0202bc8c(LocalWireless_0202b2f0*);
+extern "C" signed char func_0202bcbc(LocalWireless_0202b2f0*, int);
+extern "C" int func_0202bd34(LocalWireless_0202b2f0*, int);
+extern "C" void func_0202c21c(LocalWireless_0202b2f0*, int);
+extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0*, int);
+extern "C" void func_0202c5bc(LocalWireless_0202b2f0*, int);
+extern "C" void func_0202c1e8(LocalWireless_0202b2f0*, int);
+extern "C" void func_0202c660(LocalWireless_0202b2f0*, int);
 extern "C" int func_0202d6b8();
 
 // USA: func_0202b2f0
-extern "C" ARM void func_0202b2f0(Struct_0202b2f0* arg0) {
-    Struct_0202b2f0::Struct_0202b2f0_3* var0;
+extern "C" ARM void func_0202b2f0(LocalWireless_0202b2f0* arg0) {
+    LocalWireless_0202b2f0::Struct_0202b2f0_3* var0;
     unsigned short var1[4];
     unsigned short var2[4];
     for (int var3 = 0; var3 < 4; var3++) {
@@ -152,7 +152,7 @@ selectorFound:
                     if (!func_0202bd34(arg0, var17)) {
                         func_0202c21c(arg0, var17);
                     }
-                } else if (func_0202c1c0(arg0, var17)) {
+                } else if (IsLocalWirelessPlayerJoined_0202c1c0(arg0, var17)) {
                     if (!func_0202bd34(arg0, var17)) {
                         func_0202c5bc(arg0, var17);
                     }
@@ -167,7 +167,7 @@ selectorFound:
             }
         } else {
             for (int var20 = 1; var20 < 4; var20++) {
-                if (func_0202c1c0(arg0, var20) && !func_0202bd34(arg0, var20)) {
+                if (IsLocalWirelessPlayerJoined_0202c1c0(arg0, var20) && !func_0202bd34(arg0, var20)) {
                     func_0202c21c(arg0, var20);
                 }
             }

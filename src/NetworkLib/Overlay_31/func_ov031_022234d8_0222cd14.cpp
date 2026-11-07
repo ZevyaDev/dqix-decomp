@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-typedef void (*Type_ov031_022234d8)(void*, int, int);
-extern "C" ARM void func_ov031_022234d8(int arg0, Type_ov031_022234d8 arg1);
+typedef void (*VRAMLoader_ov031_022234d8)(void*, int, int);
+extern "C" ARM void LoadFileToVRAM_ov031_022234d8(int path, VRAMLoader_ov031_022234d8 loadToVRAM);
 
 extern "C" int LoadToMainObjStandardPalette(int arg0, int arg1, unsigned int arg2);
 extern "C" int LoadToMainBG2CharacterData(int arg0, int arg1, unsigned int arg2);
@@ -15,10 +15,10 @@ extern int data_ov031_0224ba50;
 
 // USA: func_ov031_0222cd14
 extern "C" ARM void func_ov031_0222cd14(void) {
-    func_ov031_022234d8((int)&data_ov031_0224ba0c, (Type_ov031_022234d8)LoadToMainObjStandardPalette);
-    func_ov031_022234d8((int)&data_ov031_0224ba20, (Type_ov031_022234d8)LoadToMainBG2CharacterData);
-    func_ov031_022234d8((int)&data_ov031_0224ba38, (Type_ov031_022234d8)LoadToMainBGStandardPalette);
-    func_ov031_022234d8((int)&data_ov031_0224ba50, (Type_ov031_022234d8)LoadToMainBG2ScreenData);
+    LoadFileToVRAM_ov031_022234d8((int)&data_ov031_0224ba0c, (VRAMLoader_ov031_022234d8)LoadToMainObjStandardPalette);
+    LoadFileToVRAM_ov031_022234d8((int)&data_ov031_0224ba20, (VRAMLoader_ov031_022234d8)LoadToMainBG2CharacterData);
+    LoadFileToVRAM_ov031_022234d8((int)&data_ov031_0224ba38, (VRAMLoader_ov031_022234d8)LoadToMainBGStandardPalette);
+    LoadFileToVRAM_ov031_022234d8((int)&data_ov031_0224ba50, (VRAMLoader_ov031_022234d8)LoadToMainBG2ScreenData);
 
     volatile unsigned short* var0 = (volatile unsigned short*)0x4001008;
     volatile unsigned short* var1 = (volatile unsigned short*)0x400100a;

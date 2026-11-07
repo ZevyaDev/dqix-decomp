@@ -27,14 +27,14 @@ enum { Enum_ov003_0216512c_136 = 0x88 };
 #include "GameState/GameState.h"
 #include "Grotto/Main/GrottoStruct.h"
 
-struct Struct_0207fe44 {
+struct MenuLayout_0207fe44 {
     char unknown_0_[Enum_ov003_0216512c_54];
     short unknown_36_;
 };
 
 struct Struct_ov003_0216512c {
     char unknown_0_[Enum_ov003_0216512c_804];
-    struct Struct_0207fe44* unknown_324_;
+    struct MenuLayout_0207fe44* unknown_324_;
     char unknown_328_[Enum_ov003_0216512c_1124 - Enum_ov003_0216512c_808];
     unsigned int unknown_464_;
     char unknown_468_[Enum_ov003_0216512c_1140 - Enum_ov003_0216512c_1128];
@@ -52,7 +52,7 @@ struct Struct_ov003_0216512c {
 extern "C" unsigned char* func_020936f8(void);
 extern "C" void func_ov003_021612c0(struct Struct_ov003_0216512c* arg0);
 extern "C" int func_ov003_02161344(struct Struct_ov003_0216512c* arg0);
-extern "C" void func_0207fe44(struct Struct_0207fe44* arg0);
+extern "C" void CloseMenuLayoutWindows_0207fe44(struct MenuLayout_0207fe44* menuLayout);
 extern "C" void func_ov017_021cea8c(void);
 extern "C" void VectorizedMemset(void* dst, int val, int size);
 extern "C" void func_020939fc(unsigned char* arg0);
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov003_0216512c(struct Struct_ov003_0216512c* arg0) {
             if (var1 != 1) {
                 return;
             }
-            func_0207fe44(arg0->unknown_324_);
+            CloseMenuLayoutWindows_0207fe44(arg0->unknown_324_);
             arg0->unknown_484_ = 0x13;
             arg0->unknown_4a4_++;
             arg0->unknown_464_ |= 0xc000000;

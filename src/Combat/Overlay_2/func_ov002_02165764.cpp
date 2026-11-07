@@ -5,7 +5,7 @@
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct TextWindowManager_0205d81c;
-struct Struct_0205def8;
+struct TextWindowManager_0205def8;
 struct SoundEffectManager_02108760;
 struct Struct_0205dee8;
 struct Struct_ov002_02165764 {
@@ -14,7 +14,7 @@ struct Struct_ov002_02165764 {
     unsigned int unknown_5_4_ : 20;
 };
 
-extern "C" void func_0205def8(struct Struct_0205def8 *arg0, int arg1, int arg2);
+extern "C" void func_0205def8(struct TextWindowManager_0205def8 *arg0, int arg1, int arg2);
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" void func_ov002_02161cf0(char *arg0);
@@ -138,7 +138,7 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
 extern "C" ARM void func_ov002_02165764(char *arg0) {
     int var8 = *(int *) (arg0 + 0x1bc0);
     if (var8 == 0) {
-        func_0205def8((struct Struct_0205def8 *) OBJ, 0, 0x29);
+        func_0205def8((struct TextWindowManager_0205def8 *) OBJ, 0, 0x29);
         *(short *) (arg0 + 0x1bfa) = 0;
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) OBJ, 0, 2);
         func_ov002_02161cf0(arg0);
@@ -207,7 +207,7 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
             *(int *) (arg0 + 0x1bb8) = 0x10;
             func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8) & 0xff, 0);
             func_ov002_02161cf0(arg0);
-            func_0205def8((struct Struct_0205def8 *) OBJ, 1, 0x29);
+            func_0205def8((struct TextWindowManager_0205def8 *) OBJ, 1, 0x29);
         }
         return;
     }

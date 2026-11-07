@@ -51,11 +51,11 @@ extern "C" ARM int func_ov023_021fbd00(void* arg0, void* arg1, int arg2, int arg
 extern "C" void* func_020dfc2c(void* arg0);
 extern "C" void* func_020df80c(void* arg0);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
-extern "C" void func_0205a494(void* arg0);
+extern "C" void DestroySpriteSet_0205a494(void* spriteSet);
 
-struct Struct_ov004_0215c30c;
-struct Struct_ov004_0215c30c_2;
-extern "C" void func_ov023_021f67ac(struct Struct_ov004_0215c30c* arg0, struct Struct_ov004_0215c30c_2* arg1);
+struct MenuObjectList_ov004_0215c30c;
+struct MenuObject_ov004_0215c30c_2;
+extern "C" void AppendMenuObject_ov023_021f67ac(struct MenuObjectList_ov004_0215c30c* objectList, struct MenuObject_ov004_0215c30c_2* object);
 
 extern int data_ov024_021ff17c;
 
@@ -129,10 +129,10 @@ extern "C" ARM int func_ov011_021869b8(struct Struct_ov011_021869b8_5* arg0, int
     memcpy(var4, &var0, sizeof(Struct_ov011_021869b8_4));
 
     if (func_ov023_021fbd00(var4, var2, var10, var8, var9, var5, var1) == 0) {
-        func_0205a494(var0.unknown_20_.unknown_12c_);
+        DestroySpriteSet_0205a494(var0.unknown_20_.unknown_12c_);
         return 0;
     }
-    func_ov023_021f67ac((struct Struct_ov004_0215c30c*)var12, (struct Struct_ov004_0215c30c_2*)var4);
-    func_0205a494(var0.unknown_20_.unknown_12c_);
+    AppendMenuObject_ov023_021f67ac((struct MenuObjectList_ov004_0215c30c*)var12, (struct MenuObject_ov004_0215c30c_2*)var4);
+    DestroySpriteSet_0205a494(var0.unknown_20_.unknown_12c_);
     return 1;
 }

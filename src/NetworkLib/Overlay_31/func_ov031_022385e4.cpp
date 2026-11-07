@@ -18,7 +18,7 @@ extern unsigned char data_ov031_02249394[];
 extern "C" void func_ov031_0223ba20(void*);
 extern "C" void func_ov031_0223c534(Struct_ov031_02226d48*);
 extern "C" void func_ov031_0223e2c0(int, int);
-extern "C" void func_ov031_0223cf70(Struct_ov031_022385e4**);
+extern "C" void FreeAndClearPointer_ov031_0223cf70(Struct_ov031_022385e4**);
 #define REG_DISPLAY_CONTROL (*(volatile unsigned int*)0x04000000)
 
 // USA: func_ov031_022385e4
@@ -34,5 +34,5 @@ extern "C" ARM void func_ov031_022385e4(int arg0) {
     } while (var0 < data_ov031_02249394[data_ov031_02290d10->unknown_1c_]);
     func_ov031_0223c534(data_ov031_02290d10->unknown_10_);
     func_ov031_0223e2c0(1, arg0);
-    func_ov031_0223cf70(&DuplicatePool::data_ov031_02290d10);
+    FreeAndClearPointer_ov031_0223cf70(&DuplicatePool::data_ov031_02290d10);
 }

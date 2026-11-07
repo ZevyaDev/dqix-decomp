@@ -39,7 +39,7 @@ extern char data_ov006_02160359[];
 extern "C" int GetResources_0200fb8c(int* gameState);
 struct Struct_0209c3b4_2;
 extern "C" int PlayMusic_0209c3b4(Struct_0209c3b4_2*, int);
-extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
+extern "C" void Set3DFog_020c54a4(int, unsigned int, unsigned int, unsigned short);
 extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
 struct StringTable_0201099c_14;
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14*);
@@ -97,8 +97,8 @@ extern "C" void func_ov006_0215373c(void*, void*);
 struct Struct_02081164;
 extern "C" void func_02081164(Struct_02081164*, int, int);
 extern "C" void func_020813ec(void*, int);
-struct Struct_0207fdcc_2;
-extern "C" void* func_02081da8(Struct_0207fdcc_2*, int);
+struct MenuLayout_0207fdcc_2;
+extern "C" void* func_02081da8(MenuLayout_0207fdcc_2*, int);
 extern "C" void __clear(void*, int);
 extern "C" void* GetMessageWindow_020421a0();
 struct Struct_0201099c_3;
@@ -203,7 +203,7 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
         if ((arg0->unknown_394_ & 2) == 0) {
             PlayMusic_0209c3b4((Struct_0209c3b4_2*)&gMusicManager_02109bf4, 8);
         }
-        func_020c54a4(0, 0, 0, 0);
+        Set3DFog_020c54a4(0, 0, 0, 0);
         Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
         FontLoader_0208cb08* var3 = GetFontLoader_02094a00();
         ClearLoadedFontSets_02094b40(var3);
@@ -458,7 +458,7 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
             func_02081164((Struct_02081164*)arg0->unknown_14_, 1, 1);
             func_020813ec(arg0->unknown_14_, 0);
             func_020813ec(arg0->unknown_14_, 1);
-            Struct_ov006_02158478* var29 = (Struct_ov006_02158478*)func_02081da8((Struct_0207fdcc_2*)arg0->unknown_14_, 1);
+            Struct_ov006_02158478* var29 = (Struct_ov006_02158478*)func_02081da8((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 1);
             if (var29 != 0) {
                 var29->unknown_b8_ = 0xc;
                 var29->unknown_ba_ = 0x10;

@@ -35,7 +35,7 @@ extern "C" void func_020a78dc(Struct_020a75ec*);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void* GetParty_02010828(GameState*);
 extern "C" void* GetCamera_020100bc(GameState*);
-extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
+extern "C" int ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" void* GetFlagManager_0205ec34();
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
@@ -103,7 +103,7 @@ extern "C" ARM void func_020a75ec(Struct_020a75ec* arg0) {
     int var11;
     void* var12 = GetCamera_020100bc(var0);
     int var13 = 0;
-    if (func_0202ec84(var12, (Struct_02015ef4*)&arg0->unknown_0_.position_, &var10, &var11) == 0) {
+    if (ConvertWorldToScreen_0202ec84(var12, (Struct_02015ef4*)&arg0->unknown_0_.position_, &var10, &var11) == 0) {
         int var14;
         int var15;
         if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 10) {

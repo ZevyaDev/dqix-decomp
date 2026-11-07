@@ -63,7 +63,7 @@ extern "C" int func_02018fbc(void*, Vector3fix*);
 extern "C" int func_020283fc(Struct_020283fc*, int);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void func_020795e8(Struct_020795e8*, Struct_020795e8_2*);
-extern "C" void func_02076ccc(void*, int);
+extern "C" void SetFieldMonsterState_02076ccc(void*, int);
 extern "C" void func_02076cc4(Struct_02076cc4*, int);
 extern "C" int func_ov017_021a1944();
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
@@ -108,7 +108,7 @@ extern "C" ARM int func_ov017_021a2128(Struct_ov017_021a2128* arg0, unsigned sho
     if (var12) func_020795e8((Struct_020795e8*)var7, var12);
     int var13 = (int)(((long long)var9 * 0x10a + 0x800) >> 12);
     var7->unknown_0_.SetScale(var13, var13, var13);
-    func_02076ccc(var7, 0);
+    SetFieldMonsterState_02076ccc(var7, 0);
     func_02076cc4((Struct_02076cc4*)var7, (int)&arg0->unknown_31f0_);
     var7->unknown_16a_ = func_ov017_021a1944();
     var7->unknown_17d_ |= arg7;

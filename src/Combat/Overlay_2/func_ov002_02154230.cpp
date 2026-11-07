@@ -14,7 +14,7 @@ extern "C" int func_ov002_02154a6c(char *arg0, int arg1, int arg2);
 extern "C" int func_ov002_02153be0(char *arg0, int arg1, int arg2);
 extern "C" void func_02048150(GameObject *arg0, int arg1, int arg2);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
-extern "C" void func_ov017_02191108(GameResources *arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(GameResources *gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 
 struct Struct_ov002_02154230 {
     short unknown_0_;
@@ -91,7 +91,7 @@ extern "C" ARM int func_ov002_02154230(char *arg0, struct Struct_ov002_02154230 
             func_ov017_021c9e00(var9, 1, 0, 1);
         }
         if (IsInParty_02086ef0(var2, var9)) {
-            func_ov017_02191108(var1, 1, 1, 1, 1);
+            RebuildFieldPartyOrder_ov017_02191108(var1, 1, 1, 1, 1);
         }
         var5 = 1;
     }

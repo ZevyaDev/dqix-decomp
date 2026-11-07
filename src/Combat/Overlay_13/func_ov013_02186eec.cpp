@@ -8,8 +8,8 @@ struct BGLayer_02020cb8;
 extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 struct BGControlSave_02074af4;
 extern "C" void SaveMainBGControl_02074af4(struct BGControlSave_02074af4* save);
-struct Struct_02074b64;
-extern "C" void func_02074b64(struct Struct_02074b64* arg0);
+struct BGControlSave_02074b64;
+extern "C" void SaveSubBGControl_02074b64(struct BGControlSave_02074b64* save);
 
 // USA: func_ov013_02186eec
 extern "C" ARM void func_ov013_02186eec(void* arg0, unsigned char arg1) {
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov013_02186eec(void* arg0, unsigned char arg1) {
         SaveMainBGControl_02074af4((struct BGControlSave_02074af4*)(var0 + 0x14));
         var1 = *(volatile unsigned int*)0x4000000;
     } else {
-        func_02074b64((struct Struct_02074b64*)(var0 + 0x14));
+        SaveSubBGControl_02074b64((struct BGControlSave_02074b64*)(var0 + 0x14));
         var1 = *(volatile unsigned int*)0x4001000;
     }
     *(int*)(var0 + Enum_ov013_02186eec_96) = (var1 & 0x1f00) >> 8;

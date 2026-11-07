@@ -11,11 +11,11 @@ namespace DuplicatePool {
 }
 extern "C" int func_ov031_0223e2e0(int, void*);
 extern "C" int func_ov031_0223da58(Struct_ov031_0223da58*);
-extern "C" unsigned int func_ov031_0223cf70(void**);
+extern "C" unsigned int FreeAndClearPointer_ov031_0223cf70(void**);
 
 // USA: func_ov031_02222bdc
 extern "C" ARM void func_ov031_02222bdc(void) {
     func_ov031_0223e2e0(1, data_ov031_02250ba4->unknown_0_);
     func_ov031_0223da58(data_ov031_02250ba4->unknown_4_);
-    func_ov031_0223cf70((void**)&DuplicatePool::data_ov031_02250ba4);
+    FreeAndClearPointer_ov031_0223cf70((void**)&DuplicatePool::data_ov031_02250ba4);
 }

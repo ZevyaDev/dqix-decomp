@@ -2,7 +2,7 @@
 #if defined(jpn)
 #define func_ov023_021f6524 func_ov004_02168f08
 extern "C" void* func_ov004_02168fa4(void*, int);
-extern "C" void func_ov023_021f809c(void*, void*);
+extern "C" void RedrawMenuWindow_ov023_021f809c(void*, void*);
 #endif
 
 struct Struct_ov004_02153e20 {
@@ -116,7 +116,7 @@ extern "C" ARM int func_ov004_0216a610(void* arg0) {
     if(var11) {
         *(short*)((char*)var11+0x104)=var2;
         *(short*)((char*)var11+0x106)=var3;
-        func_ov023_021f809c(var11,arg0);
+        RedrawMenuWindow_ov023_021f809c(var11,arg0);
     }
 #else
     func_ov023_021f6630((int)arg0, 0x14, var2, var3);

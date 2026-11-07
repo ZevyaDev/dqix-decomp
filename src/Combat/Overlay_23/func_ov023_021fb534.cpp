@@ -9,7 +9,7 @@ struct Struct_02075cdc;
 extern "C" void func_02075cdc(struct Struct_02075cdc* arg0);
 extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" void* func_0203be40(void);
-extern "C" void* func_0203be4c(void);
+extern "C" void* GetSubOAMBuffer_0203be4c(void);
 extern "C" int func_ov023_021f6e5c(void* arg0, int arg1);
 extern "C" void func_ov023_021f6e10(void* arg0, int arg1, unsigned int arg2);
 struct Struct_ov023_021fb534;
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov023_021fb534(void* arg0, void* arg1, unsigned short ar
         var2 = func_0203be40();
     } else {
         GetOAMManager_0203bd08();
-        var2 = func_0203be4c();
+        var2 = GetSubOAMBuffer_0203be4c();
     }
     *(void**)((char*)arg0 + 0x34) = (char*)var2 + var1 * 8;
     *(unsigned int*)((char*)arg0 + 0x58) = 0;

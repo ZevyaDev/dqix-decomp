@@ -8,7 +8,7 @@ struct Struct_02033fdc;
 extern "C" void func_02033fdc(struct Struct_02033fdc* arg0);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 extern "C" void* GetBattleScene_ov000_02160130(void);
-extern "C" void func_0205ebec(void* arg0);
+extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId);
 
@@ -44,7 +44,7 @@ struct Struct_ov025_021e9558_4 {
     int unknown_880_;
 };
 
-extern "C" Struct_ov025_021e9558_2* func_ov000_02160f20(void* arg0);
+extern "C" Struct_ov025_021e9558_2* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" void func_ov025_021e8bc4(struct Struct_ov025_021e9558_4* arg0, int arg1);
 
 extern unsigned int data_ov025_021ef990;
@@ -55,7 +55,7 @@ extern char gSoundEffectManager_02108760[];
 extern "C" ARM void func_ov025_021e9558(struct Struct_ov025_021e9558_4* arg0) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov025_021e9558_3* var1 = (Struct_ov025_021e9558_3*)GetBattleScene_ov000_02160130();
-    Struct_ov025_021e9558_2* var2 = func_ov000_02160f20(var1);
+    Struct_ov025_021e9558_2* var2 = GetCurrentBattleAction_ov000_02160f20(var1);
     void* var3 = GetEffectManager_02057924();
     BackgroundLoader* var4 = BackgroundLoader::GetInstance();
 
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov025_021e9558(struct Struct_ov025_021e9558_4* arg0) {
 #else
     var1->unknown_5954_[1].MaybeSetRegularAnimation(data_ov025_021ef8dc, 1);
 #endif
-    func_0205ebec(gSoundEffectManager_02108760);
+    UnloadExtraSoundSet_0205ebec(gSoundEffectManager_02108760);
     LightingManager::GetInstance()->BeginFade(0x1000, 1000);
     arg0->unknown_1c4_ = 0;
 }

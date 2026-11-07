@@ -1,7 +1,7 @@
 // USA: func_ov003_02175504
 #include <globaldefs.h>
 
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 struct ItemTable_0201099c_10 {
     unsigned short unknown_0_;
     unsigned char unknown_2_[10];
@@ -11,7 +11,7 @@ struct ItemTable_0201099c_10 {
 };
 struct Struct_020dee58;
 
-extern "C" unsigned char *func_02081da8(Struct_0207fdcc_2 *, int);
+extern "C" unsigned char *func_02081da8(MenuLayout_0207fdcc_2 *, int);
 extern "C" bool IsTextWindowReady_0204c7cc(unsigned char *);
 extern "C" Struct_020dee58 *FindItemData_020dedd0(ItemTable_0201099c_10 *, int);
 extern "C" void func_020809c4(void *, int, int, short *, short *);
@@ -43,7 +43,7 @@ struct Struct_ov003_02175504_2 {
     unsigned char unknown_860_[0x14];
     ItemTable_0201099c_10 unknown_874_;
     unsigned char unknown_88c_[0x10];
-    Struct_0207fdcc_2* unknown_89c_;
+    MenuLayout_0207fdcc_2* unknown_89c_;
     unsigned char unknown_8a0_[0xff8 - 0x8a0];
     int unknown_ff8_;
     unsigned char unknown_ffc_[2];
@@ -58,7 +58,7 @@ struct Struct_ov003_02175504_2 {
 
 // USA: func_ov003_02175504
 extern "C" ARM void func_ov003_02175504(Struct_ov003_02175504_2 *arg0) {
-    Struct_0207fdcc_2 *var0     = arg0->unknown_89c_;
+    MenuLayout_0207fdcc_2 *var0     = arg0->unknown_89c_;
     unsigned char var1  = 6;
     unsigned char *var2 = func_02081da8(var0, 3);
     if (var2) {

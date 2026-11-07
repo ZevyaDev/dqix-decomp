@@ -1,12 +1,9 @@
 #include <globaldefs.h>
 #include "NitroSDK/Filesystem/NitroVM.h"
 
-#if defined(jpn)
-#define func_020ca390 func_020cbe5c
-#endif
 
 
-extern "C" void func_020ca390(int val, void* dst, unsigned int size);
+extern "C" void Memset16Bit_020ca390(int val, void* dst, unsigned int size);
 extern "C" void Memset32Bit_020ca458(unsigned int value, void* dest, int count);
 extern "C" int Memcpy16Bit_020ca3b8(int src, int dst, int size);
 extern "C" CBool func_ov027_021dac74(const char* arg0, void* arg1, int arg2);
@@ -24,7 +21,7 @@ struct Struct_ov027_021dab84 {
 
 // USA: func_ov027_021dab84
 extern "C" ARM void func_ov027_021dab84(void* arg0, Struct_ov027_021dab84* arg1, int arg2) {
-    func_020ca390(0, arg0, 0x4c0);
+    Memset16Bit_020ca390(0, arg0, 0x4c0);
     *((unsigned char*)arg0 + 0x4b2) = 0;
 
     unsigned int var0 = func_ov027_021dac74(arg1->unknown_c_, arg0, 1) == 0;

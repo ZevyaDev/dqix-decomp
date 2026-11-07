@@ -25,7 +25,7 @@ struct TextWindowManager_0205d6a0;
 extern "C" char gSoundEffectManager_02108760[];
 
 extern "C" void func_ov005_02159904(Struct_ov005_02153954* arg0);
-extern "C" void func_0205cef8(void* arg0);
+extern "C" void EnableTouchMenuCursor_0205cef8(void* windowManager);
 extern "C" void func_0205cf04(void* arg0);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
 extern "C" int func_ov005_02157190(void* arg0);
@@ -40,7 +40,7 @@ extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowMana
 extern "C" ARM void func_ov005_02158f80(Struct_ov005_02153954* arg0) {
     if (arg0->unknown_3ddc_ == 0) {
         func_ov005_02159904(arg0);
-        func_0205cef8(arg0->unknown_ee4_);
+        EnableTouchMenuCursor_0205cef8(arg0->unknown_ee4_);
         func_0205cf04(arg0->unknown_ee4_);
         arg0->unknown_3ddc_++;
     } else if (arg0->unknown_3ddc_ == 1) {

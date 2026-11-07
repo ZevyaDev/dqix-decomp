@@ -4,7 +4,7 @@
 #include "Resource/Brightness.h"
 
 struct Struct_020708c8;
-struct Struct_020d7aa0_2;
+struct TimedMessageQueue_020d7aa0_2;
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" Struct_020708c8* func_020704fc();
 extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
@@ -18,13 +18,13 @@ extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" void func_ov017_021c8b78(unsigned short);
 extern "C" void func_020a367c(unsigned char*, int);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
-extern "C" int func_020535c8(signed char*);
+extern "C" int IsPerformingGesture_020535c8(signed char*);
 #if defined(jpn)
 #define func_ov000_02165490 func_ov000_02166bdc
 #endif
 extern "C" int func_020535e0(int*);
-extern "C" Struct_020d7aa0_2* func_020d7a50();
-extern "C" void func_020d7aa0(Struct_020d7aa0_2*);
+extern "C" TimedMessageQueue_020d7aa0_2* func_020d7a50();
+extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2*);
 extern "C" void func_ov017_021bd5d0(int);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_ov017_02191234(GameResources*);
@@ -38,7 +38,7 @@ extern "C" void func_ov000_02164fac(void*);
 extern "C" void func_ov000_02165490(void*);
 extern "C" void func_ov000_02166880(unsigned char*);
 extern "C" void func_ov000_02166978(void*);
-extern "C" void func_0205ea20(void*, int);
+extern "C" void LoadSoundEffectSet_0205ea20(void*, int);
 extern "C" void func_ov017_021c812c(int, int);
 extern "C" void func_ov017_021c8398(int, int);
 extern "C" void func_ov017_021c839c(int, int);
@@ -95,12 +95,12 @@ extern "C" ARM void func_ov000_02163db4(Struct_ov000_02163db4_2* arg0) {
         GameObject* var9 = GetPartyMemberBaseByIndex_0200ff1c(var0, var8);
         if (!var9) continue;
         if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var8 & 0xff)) {
-            if (func_020535c8((signed char*)var9)) func_020531f0(var9);
+            if (IsPerformingGesture_020535c8((signed char*)var9)) func_020531f0(var9);
         } else {
             if (func_020535e0((int*)var9)) func_020531f0(var9);
         }
     }
-    func_020d7aa0(func_020d7a50());
+    ClearTimedMessageQueue_020d7aa0(func_020d7a50());
     if (arg0->unknown_2a0_->unknown_c_ >= 0) func_ov017_021bd5d0(arg0->unknown_2a0_->unknown_c_);
     if (var2->GetNumQueuedTasks() > 0) return;
     if (!IsQueueEmpty_02046b08((void**)var1->unknown_ptr_array_36fc[1])) return;
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov000_02163db4(Struct_ov000_02163db4_2* arg0) {
     func_02012de8();
     func_ov000_02166978(arg0);
     func_02012de8();
-    func_0205ea20(&gSoundEffectManager_02108760, 0x65);
+    LoadSoundEffectSet_0205ea20(&gSoundEffectManager_02108760, 0x65);
     REG_DISPLAY_CONTROL = (REG_DISPLAY_CONTROL & ~0x1f00) | 0x1100;
     REG_BLEND_CONTROL = 0;
     if (arg0->unknown_2a0_->unknown_2c_) {

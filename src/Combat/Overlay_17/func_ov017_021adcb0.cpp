@@ -22,7 +22,7 @@ struct Struct_02018300_3;
 struct Struct_02033834_2;
 struct Struct_02033b68;
 struct Struct_02053f7c;
-struct Struct_020d7aa0_2;
+struct TimedMessageQueue_020d7aa0_2;
 struct Struct_020d805c;
 struct Struct_ov017_0218d618_2;
 struct SoundEffectManager_02108760;
@@ -86,7 +86,7 @@ extern "C" void func_ov017_0218d5ac(void* arg0);
 extern "C" void* GetFollowCamera_020100f8(char* gameState);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void func_020a2794(void* arg0);
-extern "C" void func_02033834(Struct_02033834_2* arg0, int arg1);
+extern "C" void SetFacing_02033834(Struct_02033834_2* object, int angle);
 extern "C" int* GetLocalWireless_0202ae18(void);
 extern "C" unsigned char* func_020177a8(unsigned char* arg0, int arg1);
 extern "C" Container* func_02094d5c(Struct_02015ef4_3* arg0, int arg1);
@@ -98,7 +98,7 @@ extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5, int arg6);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" int func_020d805c(Struct_020d805c* arg0);
-extern "C" void func_020d7aa0(Struct_020d7aa0_2* arg0);
+extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2* queue);
 extern "C" short func_02086aec(Struct_02053f7c* arg0, int arg1);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void func_020113a8(void* arg0, int arg1, int arg2);
@@ -168,7 +168,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
             SetFlags04(var7, 0x80);
         }
         *(unsigned short*)((char*)var6 + 0xb2) = 0;
-        func_02033834((Struct_02033834_2*)var6, arg0->unknown_10_);
+        SetFacing_02033834((Struct_02033834_2*)var6, arg0->unknown_10_);
         int* var11 = GetLocalWireless_0202ae18();
         Struct_ov017_021adcb0_2* var12 = (Struct_ov017_021adcb0_2*)func_020177a8(var2, arg0->unknown_a_);
         Container* var13 = NULL;
@@ -199,7 +199,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
             DisablePlayerControl_020397cc((Struct_02018300_3*)var6, 1);
             void* var17 = func_020d7a50();
             if (func_020d805c((Struct_020d805c*)var17)) {
-                func_020d7aa0((Struct_020d7aa0_2*)var17);
+                ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)var17);
             }
             int var18 = 0;
             int var19 = func_02086aec(var14, 0x561c);

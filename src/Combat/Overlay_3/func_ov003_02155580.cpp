@@ -8,11 +8,11 @@ enum { Enum_ov003_02155580_48 = 0x30 };
 enum { Enum_ov003_02155580_486 = 0x1e6 };
 #endif
 
-struct Struct_0207fdcc;
+struct TextWindow_0207fdcc;
 
-struct Struct_0207fdcc_2 {
+struct MenuLayout_0207fdcc_2 {
     char unknown_0_[Enum_ov003_02155580_48];
-    struct Struct_0207fdcc* unknown_30_;
+    struct TextWindow_0207fdcc* unknown_30_;
     short unknown_34_;
     short unknown_36_;
 };
@@ -22,10 +22,10 @@ struct SoundEffectManager_02108760;
 struct Struct_020e29a8;
 struct Struct_020e280c;
 
-extern "C" void func_020813ec(struct Struct_0207fdcc_2* arg0, int arg1);
+extern "C" void func_020813ec(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" void func_02080c04(struct Struct_0207fdcc_2* arg0, int arg1);
+extern "C" void func_02080c04(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" void func_020e29a8(struct Struct_020e29a8* arg0, int arg1);
 extern "C" void func_020e280c(struct Struct_020e280c* arg0, void* arg1);
 
@@ -35,7 +35,7 @@ struct Struct_ov003_02155580 {
     char unknown_0_[0x8];
     void* unknown_8_;
     char unknown_c_[0x18 - 0xc];
-    struct Struct_0207fdcc_2* unknown_18_;
+    struct MenuLayout_0207fdcc_2* unknown_18_;
     void* unknown_1c_;
     char unknown_20_[0x80 - 0x20];
     char unknown_80_[Enum_ov003_02155580_486 - 0x80];

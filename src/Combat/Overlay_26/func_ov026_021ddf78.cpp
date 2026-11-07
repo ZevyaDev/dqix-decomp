@@ -89,7 +89,7 @@ extern "C" int func_ov026_021dd3c4(Struct_ov026_021d8ba0_10*);
 extern "C" void SetMessageString_02046574(Struct_ov026_021ddf78_7*, int, char*);
 extern "C" Struct_ov026_021ddf78_9* GetBattleSetup_ov017_021b8478(void*);
 extern "C" void* GetBattleScene_ov017_021b8468(void*);
-extern "C" void* func_ov000_02160f08(void*);
+extern "C" void* GetBattleUI_ov000_02160f08(void*);
 extern "C" int func_02070094();
 extern "C" const char** func_0206f4f0(int, int);
 extern "C" int func_ov000_0215ec1c(Struct_ov026_021ddf78_5*, short*, int, int);
@@ -224,7 +224,7 @@ extern "C" ARM void func_ov026_021ddf78(Struct_ov026_021ddf78_5* arg0, Struct_ov
     if (arg0->unknown_8e49_ == 1) {
         strcat(var0, data_ov026_021df61b);
         strcat(var0, var1);
-        Struct_ov026_021ddf78_11* var29 = (Struct_ov026_021ddf78_11*)func_ov000_02160f08(GetBattleScene_ov017_021b8468(var15));
+        Struct_ov026_021ddf78_11* var29 = (Struct_ov026_021ddf78_11*)GetBattleUI_ov000_02160f08(GetBattleScene_ov017_021b8468(var15));
         unsigned char var30 = arg1->unknown_8_ % 2;
         if (var29 != 0) {
             var29->unknown_955_ = var30;

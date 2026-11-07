@@ -10,9 +10,9 @@ struct Struct_02015ef4_2;
 struct Struct_02015ef4_3;
 struct Struct_020159c0_2;
 struct ItemTable_0201099c_10;
-struct Struct_02015ef4_4;
+struct ItemData_02015ef4_4;
 struct QueueNode_02015438;
-struct Struct_02015ef4_5;
+struct TextureVRAMArea_02015ef4_5;
 struct Struct_02015ef4;
 
 #if defined(jpn)
@@ -62,16 +62,16 @@ extern "C" int func_02015cd0(Struct_02015ef4_8*);
 extern "C" void* func_02094d5c(Struct_02015ef4_3*, int);
 extern "C" void func_020159c0(Struct_020159c0_2*, int);
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
-extern "C" int func_020de234(Struct_02015ef4_4*, int);
+extern "C" int GetItemGraphicNumber_020de234(ItemData_02015ef4_4*, int);
 extern "C" int sprintf(char*, const char*, ...);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void func_0204719c(void*);
-extern "C" void func_0207dfc8(Struct_02015ef4_5*, Struct_02015ef4_5*);
+extern "C" void InitTextureVRAMAreaFromSaved_0207dfc8(TextureVRAMArea_02015ef4_5*, TextureVRAMArea_02015ef4_5*);
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void func_02047b30(void*, int, int, int);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void* GetCamera_020100bc(GameState*);
-extern "C" void func_0202ec84(void*, Struct_02015ef4*, int*, int*);
+extern "C" void ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" void func_020473c8(Struct_02015ef4_2*, int);
 
 struct Struct_020e6e88 {
@@ -122,7 +122,7 @@ extern "C" ARM int func_02015ef4(Zone3D* arg0, int arg1) {
             } else if (var9->unknown_4_2_ == 2) {
                 Struct_02015ef4_7* var11 = (Struct_02015ef4_7*)FindItemData_020dedd0((ItemTable_0201099c_10*)arg0->unknown_struct_2754_, var9->unknown_2_);
                 if (var11 && var11->unknown_18_ != 0x5617) {
-                    int var12 = func_020de234((Struct_02015ef4_4*)var11, 0);
+                    int var12 = GetItemGraphicNumber_020de234((ItemData_02015ef4_4*)var11, 0);
                     char var13[0x50];
                     sprintf(var13, data_020ef20b, (signed char)var11->unknown_12_4_, var12);
                     var1->unknown_12_ = var3->QueueLoadFile(var13, 0);
@@ -148,7 +148,7 @@ extern "C" ARM int func_02015ef4(Zone3D* arg0, int arg1) {
             func_0204719c(var18);
             var1->unknown_20_->unknown_84_2_ = 1;
             char var19[0x70];
-            func_0207dfc8((Struct_02015ef4_5*)arg0->unknown_ptr_50_, (Struct_02015ef4_5*)var19);
+            InitTextureVRAMAreaFromSaved_0207dfc8((TextureVRAMArea_02015ef4_5*)arg0->unknown_ptr_50_, (TextureVRAMArea_02015ef4_5*)var19);
             RestoreTextureVRAMState_0207df90(var19);
             func_02047b30(var1->unknown_20_, (int)var14, var15, (int)arg0->pAllocator_68_);
             SaveTextureVRAMState_0207dfac(var19);
@@ -202,7 +202,7 @@ extern "C" ARM int func_02015ef4(Zone3D* arg0, int arg1) {
         int var20 = 0;
         int var21 = 0;
         void* var22 = GetCamera_020100bc(var0);
-        if (var22) func_0202ec84(var22, (Struct_02015ef4*)var1, &var20, &var21);
+        if (var22) ConvertWorldToScreen_0202ec84(var22, (Struct_02015ef4*)var1, &var20, &var21);
         var20 -= 12;
         var21 -= 0x28;
         if (var1->unknown_19_ < 10) var1->unknown_19_++;

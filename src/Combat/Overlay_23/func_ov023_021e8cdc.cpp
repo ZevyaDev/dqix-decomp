@@ -6,7 +6,7 @@ extern int data_ov023_021fdd6c;
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" int ConvertTextToGlyphIndices_020426bc(void* text, void* outGlyphIndices, int font);
 extern "C" int GetStringLength_020d2ff0(const char* string);
-extern "C" int func_020424e4(int arg0, int arg1);
+extern "C" int FindFontGlyphIndex_020424e4(int text, int font);
 extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
 
 struct FontGlyph_0204254c {
@@ -16,7 +16,7 @@ struct FontGlyph_0204254c {
     signed char unknown_5_6_ : 2;
     char unknown_6_[2];
 };
-extern "C" struct FontGlyph_0204254c* func_0204254c(int arg0, int arg1);
+extern "C" struct FontGlyph_0204254c* FindFontGlyph_0204254c(int text, int font);
 extern "C" int AppendXPositionTag_02041a28(char* buffer, int x);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_02041a5c(char* arg0, int arg1);
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov023_021e8cdc(char* arg0) {
         memcpy(var6, var5 + 8, var0);
     }
 
-    signed char var8 = (signed char)func_020424e4((int)&data_ov023_021fdd6c, 1);
+    signed char var8 = (signed char)FindFontGlyphIndex_020424e4((int)&data_ov023_021fdd6c, 1);
     for (; var0 < 0x39; var0++) var6[var0] = var8;
 
     func_02042764(var6, var6 + 0x3a, 1);
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov023_021e8cdc(char* arg0) {
     for (;;) {
         if (*var9 == 0) return;
         int var14 = 1;
-        struct FontGlyph_0204254c* var15 = func_0204254c((int)var9, var14);
+        struct FontGlyph_0204254c* var15 = FindFontGlyph_0204254c((int)var9, var14);
         if (var15 != 0) {
             AppendXPositionTag_02041a28(var1, var10);
             AppendText_02042058(var1, (const char*)var15->unknown_0_);

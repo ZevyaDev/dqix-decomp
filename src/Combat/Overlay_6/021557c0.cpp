@@ -141,9 +141,9 @@ extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" int func_020de980(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void func_ov023_021dcd90(Struct_ov006_02154614_2* arg0, unsigned char arg1);
-extern "C" void func_ov023_021dcae0(Struct_ov006_02154614_2* arg0, int arg1);
+extern "C" void SetItemInfoPanelItem_ov023_021dcae0(Struct_ov006_02154614_2* panel, int itemId);
 extern "C" void func_ov023_021dced4(Struct_ov006_02154614_2* arg0, unsigned char arg1);
-extern "C" const char** func_020e5294(void* arg0, int arg1);
+extern "C" const char** FindNounInTable_020e5294(void* nounTable, int nounId);
 extern "C" void ExpandInflectionTags_020e4864(const char* text, char* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void* GetParty_02010828(GameState* gameState);
@@ -190,7 +190,7 @@ extern "C" ARM void func_ov006_021557c0(Struct_ov006_02154614* arg0) {
             arg0->unknown_1dc_ = FindItemData_020dedd0((ItemTable_0201099c_10*)arg0->unknown_1288_, var10);
             arg0->unknown_ae2_ &= ~2;
             arg0->unknown_ae2_ |= 0x40;
-            func_ov023_021dcae0(&arg0->unknown_ae4_, arg0->unknown_12b8_);
+            SetItemInfoPanelItem_ov023_021dcae0(&arg0->unknown_ae4_, arg0->unknown_12b8_);
             return;
         }
     } else if (var1 == -1) {
@@ -198,7 +198,7 @@ extern "C" ARM void func_ov006_021557c0(Struct_ov006_02154614* arg0) {
         arg0->unknown_ae2_ |= 0x40;
         arg0->unknown_ae4_.unknown_774_ &= ~0x1000;
         func_ov023_021dcd90(&arg0->unknown_ae4_, 1);
-        func_ov023_021dcae0(&arg0->unknown_ae4_, arg0->unknown_12b8_);
+        SetItemInfoPanelItem_ov023_021dcae0(&arg0->unknown_ae4_, arg0->unknown_12b8_);
         return;
     }
 
@@ -250,17 +250,17 @@ extern "C" ARM void func_ov006_021557c0(Struct_ov006_02154614* arg0) {
             var21[2] = (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_1ac_, arg0->unknown_1b8_->unknown_4_[2]);
 #else
             memset(arg0->unknown_0_, 0, sizeof(arg0->unknown_0_));
-            const char** var22 = func_020e5294(arg0->unknown_1ac_, arg0->unknown_1b8_->unknown_4_[0]);
+            const char** var22 = FindNounInTable_020e5294(arg0->unknown_1ac_, arg0->unknown_1b8_->unknown_4_[0]);
             if (var22 != 0) {
                 ExpandInflectionTags_020e4864(*var22, arg0->unknown_0_[0], 1, 0, 0, 0);
                 var21[0] = arg0->unknown_0_[0];
             }
-            var22 = func_020e5294(arg0->unknown_1ac_, arg0->unknown_1b8_->unknown_4_[1]);
+            var22 = FindNounInTable_020e5294(arg0->unknown_1ac_, arg0->unknown_1b8_->unknown_4_[1]);
             if (var22 != 0) {
                 ExpandInflectionTags_020e4864(*var22, arg0->unknown_0_[1], 1, 0, 0, 0);
                 var21[1] = arg0->unknown_0_[1];
             }
-            var22 = func_020e5294(arg0->unknown_1ac_, arg0->unknown_1b8_->unknown_4_[2]);
+            var22 = FindNounInTable_020e5294(arg0->unknown_1ac_, arg0->unknown_1b8_->unknown_4_[2]);
             if (var22 != 0) {
                 ExpandInflectionTags_020e4864(*var22, arg0->unknown_0_[2], 1, 0, 0, 0);
                 var21[2] = arg0->unknown_0_[2];
@@ -307,7 +307,7 @@ extern "C" ARM void func_ov006_021557c0(Struct_ov006_02154614* arg0) {
             arg0->unknown_ae4_.unknown_774_ &= ~0x1000;
         else
             arg0->unknown_ae4_.unknown_774_ |= 0x1000;
-        func_ov023_021dcae0(&arg0->unknown_ae4_, arg0->unknown_1b8_->unknown_2_);
+        SetItemInfoPanelItem_ov023_021dcae0(&arg0->unknown_ae4_, arg0->unknown_1b8_->unknown_2_);
         arg0->unknown_1d8_ = arg0->unknown_1dc_;
         arg0->unknown_1dc_ = 0;
         arg0->unknown_ade_ = 0;

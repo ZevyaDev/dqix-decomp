@@ -1,11 +1,8 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-#if defined(jpn)
-#define func_020ca390 func_020cbe5c
-#endif
 
-extern "C" void func_020ca390(int, void*, unsigned int);
+extern "C" void Memset16Bit_020ca390(int, void*, unsigned int);
 extern "C" void func_ov031_0221bfe8(void*);
 extern "C" void* func_ov031_0221b8e4(void*);
 extern "C" void func_ov031_02236570(int);
@@ -16,7 +13,7 @@ extern Struct_ov031_022364c0_2* data_ov031_02290cfc;
 
 // USA: func_ov031_022364c0
 extern "C" ARM void func_ov031_022364c0() {
-    func_020ca390(0, data_ov031_02290cfc, 0x400);
+    Memset16Bit_020ca390(0, data_ov031_02290cfc, 0x400);
     int var0 = 0;
     do {
         data_ov031_02290cfc->unknown_0_[var0].unknown_e7_ = 0xff;

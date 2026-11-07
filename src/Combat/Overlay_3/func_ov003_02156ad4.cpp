@@ -9,10 +9,10 @@ int func_ov003_021550dc(void*);
 void PlaySoundEffect_0205eaa0(void*, int, int);
 int GetProtagonistObjectIndex_020100a8(void*);
 int func_ov003_02155f88(void*, int);
-void func_0207fe44(void*);
+void CloseMenuLayoutWindows_0207fe44(void*);
 void* GetParty_02010828(void*);
 void* _ZN9GameState21GetPartyMemberByIndexEi(void*, int);
-int func_0202053c(void*);
+int GetLevel_0202053c(void*);
 int func_ov003_02155208(void*);
 }
 
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov003_02156ad4(struct Struct_ov003_02156ad4_4* arg0) {
                 if (func_ov003_02155f88(arg0, arg0->unknown_1f7_)) {
                     var1->unknown_0_ = 8;
                     arg0->unknown_1f8_ = 7;
-                    func_0207fe44(var0);
+                    CloseMenuLayoutWindows_0207fe44(var0);
                     return;
                 }
                 arg0->unknown_1fc_ = arg0->unknown_1fc_ | 2;
@@ -136,7 +136,7 @@ extern "C" ARM void func_ov003_02156ad4(struct Struct_ov003_02156ad4_4* arg0) {
             int var8;
             for (var2 = 0; var2 < var5; var2++) {
                 void* var9 = _ZN9GameState21GetPartyMemberByIndexEi(var7, var6->unknown_f78_[var2]);
-                if (var9 != 0 && func_0202053c(var9) == 0x63) {
+                if (var9 != 0 && GetLevel_0202053c(var9) == 0x63) {
                     var8 = 1;
                     goto found_done;
                 }
@@ -152,11 +152,11 @@ extern "C" ARM void func_ov003_02156ad4(struct Struct_ov003_02156ad4_4* arg0) {
         default:
             break;
         }
-        func_0207fe44(var0);
+        CloseMenuLayoutWindows_0207fe44(var0);
     } else {
         if (func_ov003_02155208(arg0) != 0) {
             arg0->unknown_8_ = 0;
-            func_0207fe44(var0);
+            CloseMenuLayoutWindows_0207fe44(var0);
             var1->unknown_0_ = 5;
             arg0->unknown_1f8_ = 7;
         }

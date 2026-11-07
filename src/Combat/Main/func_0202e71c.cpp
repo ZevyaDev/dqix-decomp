@@ -7,7 +7,7 @@ struct Struct_0202e71c {
     int unknown_78_;
 };
 
-extern "C" void func_0202e5d8(struct Struct_0202e71c* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetCameraOrbit_0202e5d8(struct Struct_0202e71c* camera, int angle, int height, int distance);
 
 // USA: func_0202e71c
 extern "C" ARM void func_0202e71c(struct Struct_0202e71c* arg0, int arg1) {
@@ -22,5 +22,5 @@ extern "C" ARM void func_0202e71c(struct Struct_0202e71c* arg0, int arg1) {
     }
     if (arg0->unknown_78_ < 0x1000)
         arg0->unknown_78_ = 0x1000;
-    func_0202e5d8(arg0, arg0->unknown_70_, arg0->unknown_74_, arg0->unknown_78_);
+    SetCameraOrbit_0202e5d8(arg0, arg0->unknown_70_, arg0->unknown_74_, arg0->unknown_78_);
 }

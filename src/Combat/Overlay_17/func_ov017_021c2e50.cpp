@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_0205ebec(void* arg0);
+extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
 extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
 extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 unsigned long long GetCurrentTimestamp(void);
@@ -13,7 +13,7 @@ extern int gSoundEffectManager_02108760;
 
 // USA: func_ov017_021c2e50
 extern "C" ARM void func_ov017_021c2e50(char* arg0) {
-    func_0205ebec((void*)&gSoundEffectManager_02108760);
+    UnloadExtraSoundSet_0205ebec((void*)&gSoundEffectManager_02108760);
     LoadExtraSoundSet_0205ebc0((void*)&gSoundEffectManager_02108760, 0xb3, 0xb3);
     PlayExtraSoundEffect_0205ebfc((void*)&gSoundEffectManager_02108760, 0, 0);
     *(unsigned long long*)(arg0 + 0x98) = GetCurrentTimestamp();

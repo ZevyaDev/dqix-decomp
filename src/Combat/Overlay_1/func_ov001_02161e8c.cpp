@@ -2,7 +2,7 @@
 #include "Graphics/LightingManager.h"
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
-extern "C" void func_020c54a4(int arg0, unsigned int arg1, unsigned int arg2, unsigned short arg3);
+extern "C" void Set3DFog_020c54a4(int isEnabled, unsigned int type, unsigned int depthShift, unsigned short offset);
 typedef void (*Type_ov001_02161e8c)(int, unsigned int, unsigned int, unsigned int);
 
 struct Struct_ov001_02161e8c { unsigned int unknown_0_[14]; };
@@ -15,7 +15,7 @@ extern "C" ARM int func_ov001_02161e8c(void* arg0) {
     Struct_ov001_02161e8c_3* var0 = (Struct_ov001_02161e8c_3*)LightingManager::GetInstance();
     if (GetScriptValueAsInt_ov017_021d60f4(arg0) == 0) {
         var0->unknown_85_ = 0;
-        func_020c54a4(0, 0, 0, 0);
+        Set3DFog_020c54a4(0, 0, 0, 0);
     } else {
         Struct_ov001_02161e8c_2 var1;
         Struct_ov001_02161e8c_2 var2;
@@ -23,7 +23,7 @@ extern "C" ARM int func_ov001_02161e8c(void* arg0) {
         var3->unknown_0_ = ((Struct_ov001_02161e8c_2*)((char*)LightingManager::GetInstance() + 0x4c))->unknown_0_;
         var1.unknown_0_ = var3->unknown_0_;
         var0->unknown_85_ = 1;
-        ((Type_ov001_02161e8c)func_020c54a4)(1, var1.unknown_0_.unknown_0_[1], var1.unknown_0_.unknown_0_[2], var1.unknown_0_.unknown_0_[3]);
+        ((Type_ov001_02161e8c)Set3DFog_020c54a4)(1, var1.unknown_0_.unknown_0_[1], var1.unknown_0_.unknown_0_[2], var1.unknown_0_.unknown_0_[3]);
     }
     return 1;
 }

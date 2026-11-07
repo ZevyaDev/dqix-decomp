@@ -5,8 +5,8 @@
 
 struct Struct_020979c0;
 extern "C" void func_020979f4(struct Struct_020979c0* arg0);
-extern "C" void func_020a1e54(int arg0);
-extern "C" void func_020a1f4c(int arg0);
+extern "C" void PopOverlay_020a1e54(int isPreviousReloaded);
+extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a27ac(void* arg0);
@@ -31,8 +31,8 @@ extern "C" ARM void func_ov017_021b14ec(struct Struct_ov017_021b14ec* arg0) {
         FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var0);
     }
 
-    func_020a1e54(1);
-    func_020a1f4c(1);
+    PopOverlay_020a1e54(1);
+    PopSubOverlay_020a1f4c(1);
     int var1 = GetFollowCamera_020100f8((char*)GameState::GetInstance());
     if (var1 != 0) func_020a27ac((void*)var1);
 }

@@ -20,8 +20,8 @@ struct Struct_ov002_0215c028 {
 extern "C" void func_ov002_0215be00(void*, int, short, short);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void UpdateTextWindowManager_0205d0e0(void*, int);
-struct Struct_0205def8;
-extern "C" void func_0205def8(Struct_0205def8*, int, int);
+struct TextWindowManager_0205def8;
+extern "C" void func_0205def8(TextWindowManager_0205def8*, int, int);
 #if defined(jpn)
 extern const char data_ov002_0216d91f[];
 extern "C" void func_020474a8(void*, unsigned char, const char*, char*);
@@ -57,5 +57,5 @@ extern "C" ARM void func_ov002_0215c028(char* arg0) {
 #endif
     );
     UpdateTextWindowManager_0205d0e0(&var0->unknown_ec8_, 4);
-    func_0205def8(((Struct_0205def8*)(&var0->unknown_ec8_)), 0, Enum_ov002_0215c028_40);
+    func_0205def8(((TextWindowManager_0205def8*)(&var0->unknown_ec8_)), 0, Enum_ov002_0215c028_40);
 }

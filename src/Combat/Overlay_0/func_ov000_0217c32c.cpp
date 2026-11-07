@@ -37,8 +37,8 @@ struct Struct_02052e14;
 extern "C" short* func_02052e14(struct Struct_02052e14* arg0);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
-struct Struct_0200f3a4_8;
-extern "C" void func_0209a338(struct Struct_0200f3a4_8* arg0);
+struct SkillTable_0200f3a4_8;
+extern "C" void ClearSkillTable_0209a338(struct SkillTable_0200f3a4_8* table);
 struct Struct_0209a348;
 extern "C" void func_0209a348(struct Struct_0209a348* arg0, void* arg1);
 
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov000_0217c32c(struct Struct_ov000_0217c32c_3* arg0) {
     memset(arg0->unknown_88_, 0, sizeof(arg0->unknown_88_));
     struct Struct_0209a614 var4;
     struct Struct_0209a614_2 var5[287];
-    func_0209a338((struct Struct_0200f3a4_8*)&var4);
+    ClearSkillTable_0209a338((struct SkillTable_0200f3a4_8*)&var4);
     func_0209a348((struct Struct_0209a348*)&var4, var5);
     for (unsigned short var6 = 0; var6 < 0x93; var6++) {
         struct Struct_ov000_0217c32c_2* var7 = arg0->unknown_1a4_[var6];

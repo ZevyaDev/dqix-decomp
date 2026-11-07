@@ -48,7 +48,7 @@ struct FontGlyph_0204254c {
     char unknown_6_[2];
 };
 
-extern "C" struct FontGlyph_0204254c* func_0204254c(int arg0, int arg1);
+extern "C" struct FontGlyph_0204254c* FindFontGlyph_0204254c(int text, int font);
 
 // USA: func_0206b528
 extern "C" ARM int func_0206b528(unsigned char* arg0, int* arg1, int* arg2) {
@@ -79,7 +79,7 @@ extern "C" ARM int func_0206b528(unsigned char* arg0, int* arg1, int* arg2) {
             }
         } else {
             int var7 = 1;
-            struct FontGlyph_0204254c* var8 = func_0204254c((int)var4, (arg0 + 0x1000)[0x9dc]);
+            struct FontGlyph_0204254c* var8 = FindFontGlyph_0204254c((int)var4, (arg0 + 0x1000)[0x9dc]);
             if (var8) var7 = var8->codeLength_5_0_;
             var4 += var7;
         }

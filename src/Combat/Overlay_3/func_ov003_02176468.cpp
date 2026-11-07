@@ -17,8 +17,8 @@ enum { Enum_ov003_02176468_2204 = 0x89c };
 enum { Enum_ov003_02176468_54 = 0x36 };
 #endif
 
-struct Struct_0207fdcc_2;
-extern "C" void func_02080c04(struct Struct_0207fdcc_2* arg0, int arg1);
+struct MenuLayout_0207fdcc_2;
+extern "C" void func_02080c04(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" void func_020813ec(void* arg0, int arg1);
 
 struct Struct_02081f20_2;
@@ -35,14 +35,14 @@ extern "C" void func_020e280c(struct Struct_020e280c* arg0, void* arg1);
 extern "C" ARM void func_ov003_02176468(unsigned char* arg0) {
     *(short*)(arg0 + Enum_ov003_02176468_4094) = 1;
     *(short*)(arg0 + Enum_ov003_02176468_4096) = *(short*)(arg0 + Enum_ov003_02176468_4098) = 2;
-    *(short*)((char*)(*(struct Struct_0207fdcc_2**)(arg0 + Enum_ov003_02176468_2204)) + Enum_ov003_02176468_54) = *(short*)(arg0 + Enum_ov003_02176468_4098);
-    func_020813ec(*(struct Struct_0207fdcc_2**)(arg0 + Enum_ov003_02176468_2204), *(short*)(arg0 + Enum_ov003_02176468_4094));
+    *(short*)((char*)(*(struct MenuLayout_0207fdcc_2**)(arg0 + Enum_ov003_02176468_2204)) + Enum_ov003_02176468_54) = *(short*)(arg0 + Enum_ov003_02176468_4098);
+    func_020813ec(*(struct MenuLayout_0207fdcc_2**)(arg0 + Enum_ov003_02176468_2204), *(short*)(arg0 + Enum_ov003_02176468_4094));
     func_0208203c((struct Struct_02081f20_2*)(arg0 + Enum_ov003_02176468_2188));
     *(void**)(arg0 + Enum_ov003_02176468_4088) = 0;
     PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 5, 0);
     if (*(void**)arg0 == 0) {
         return;
     }
-    func_02080c04(*(struct Struct_0207fdcc_2**)(arg0 + Enum_ov003_02176468_2204), *(short*)(arg0 + Enum_ov003_02176468_4094));
+    func_02080c04(*(struct MenuLayout_0207fdcc_2**)(arg0 + Enum_ov003_02176468_2204), *(short*)(arg0 + Enum_ov003_02176468_4094));
     func_020e280c((struct Struct_020e280c*)(*(void**)arg0), (void*)-1);
 }

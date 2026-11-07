@@ -10,7 +10,7 @@ struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 struct Struct_02033834_2;
-extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
+extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 
 struct Struct_02033b68;
 extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
@@ -64,7 +64,7 @@ extern "C" ARM int func_02078898(struct Struct_02078898* arg0) {
     Vector3fix_Subtract((const Vector3fix*)&var9, (const Vector3fix*)&arg0->unknown_44_, (Vector3fix*)&var10);
     Vector3fix_Normalize((const Vector3fix*)&var10, (Vector3fix*)&var10);
     int var11 = fix32_Atan2(var10.unknown_0_, var10.unknown_8_);
-    func_02033834((struct Struct_02033834_2*)arg0, var11);
+    SetFacing_02033834((struct Struct_02033834_2*)arg0, var11);
 
     arg0->unknown_b2_ = 0;
     func_02033b68((struct Struct_02033b68*)arg0, 0);

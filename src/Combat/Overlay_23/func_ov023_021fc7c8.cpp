@@ -37,12 +37,12 @@ public:
 
 struct Struct_ov009_02188454;
 
-extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
+extern "C" void Set3DFog_020c54a4(int, unsigned int, unsigned int, unsigned short);
 extern "C" void func_ov023_021e5020(Struct_ov023_021fc7c8* arg0);
 extern "C" Vector3i func_ov023_021e613c(Struct_ov023_021fc7c8* arg0);
 extern "C" char* GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
-extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
+extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" void func_0202ee38(char*, int, int);
 extern "C" void func_0202ee58(char*, int, int);
 extern "C" void func_ov023_021e6088(void* arg0, Struct_ov009_02188454* arg1);
@@ -55,7 +55,7 @@ extern const Vector3i data_ov023_021fd9e4;
 // USA: func_ov023_021fc7c8
 extern "C" ARM void func_ov023_021fc7c8(Struct_ov023_021fc7c8_2* arg0, void* arg1)
 {
-    func_020c54a4(0, 0, 0, 0);
+    Set3DFog_020c54a4(0, 0, 0, 0);
     GameState* var0 = GameState::GetInstance();
     unsigned int var1 = var0->GetTickCount();
     if (var1 == 0)
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov023_021fc7c8(Struct_ov023_021fc7c8_2* arg0, void* arg
         const Vector3i var10 = data_ov023_021fd9f0;
         const Vector3i var11 = data_ov023_021fd9e4;
         char* var12 = GetFollowCamera_020100f8((char*)var0);
-        func_020a28b0((unsigned char*)var12, 2);
+        ClearCameraFlags_020a28b0((unsigned char*)var12, 2);
         func_0202ee38(var12, (int)&var10, 0xa000);
         func_0202ee58(var12, (int)&var11, 0xa000);
     }

@@ -18,7 +18,7 @@ extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, unsigned int size, SafeAllocator* allocator);
-extern "C" void LoadStringList_020728ac(void* stringList, SafeAllocator* allocator, void* arg2, unsigned int scriptSize, int, int, int);
+extern "C" void LoadStringList_020728ac(void* stringList, SafeAllocator* allocator, void* scriptData, unsigned int scriptSize, int, int, int);
 struct Struct_0208df10;
 extern "C" void func_0208df10(Struct_0208df10* arg0);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
@@ -38,8 +38,8 @@ extern "C" void AllocateBGScreenBlocks_0204af38(BGLayer_0204af38* layer, int cap
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" void func_ov013_02187a58(void* arg0, void* arg1);
 extern "C" void LoadBGBlock_0204b174(void* layer, void* block, SafeAllocator* allocator, unsigned int arg3);
-struct Struct_0204af14;
-extern "C" void* func_0204af14(Struct_0204af14* arg0, unsigned int arg1);
+struct BGLayer_0204af14;
+extern "C" void* GetBGScreenBlock_0204af14(BGLayer_0204af14* layer, unsigned int screenBlockIndex);
 struct Struct_0204ae44;
 extern "C" void func_0204ae44(Struct_0204ae44* arg0, int arg1);
 struct Struct_0204b988;
@@ -336,7 +336,7 @@ extern "C" ARM bool func_ov013_021870f0(Struct_ov013_021870f0_6* arg0) {
             }
             var2->RemoveTask(arg0->unknown_5c_);
             arg0->unknown_5c_ = -1;
-            void* var37 = func_0204af14((Struct_0204af14*)&arg0->unknown_28_, 0);
+            void* var37 = GetBGScreenBlock_0204af14((BGLayer_0204af14*)&arg0->unknown_28_, 0);
             if (var37 != NULL)
                 func_0204ae44((Struct_0204ae44*)var37, arg0->unknown_67_);
             func_0204b988((Struct_0204b988*)&arg0->unknown_28_, 0, 0, 0, 0xffff);

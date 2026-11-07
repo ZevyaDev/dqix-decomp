@@ -4,7 +4,7 @@ struct Struct_0205af18;
 extern "C" int func_0205af18(int arg0, struct Struct_0205af18* arg1);
 extern "C" void* func_ov023_021fa854(char* arg0, unsigned int arg1);
 extern "C" void func_ov023_021f6e34(void* arg0, int arg1, unsigned int arg2);
-extern "C" void func_0205a494(void* arg0);
+extern "C" void DestroySpriteSet_0205a494(void* spriteSet);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov023_021f6d9c(void* arg0, void* arg1);
 
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov023_021fa7d4(void* arg0, void* arg1) {
             func_ov023_021f6e34(arg1, var3, var2);
         }
     }
-    func_0205a494((char*)arg0 + RG(0x24, 0x20));
+    DestroySpriteSet_0205a494((char*)arg0 + RG(0x24, 0x20));
     char* var4 = (char*)GetMessageWindow_020421a0();
     *(int*)(var4 + RG(0x2d8, 0x228)) = 0;
     *(unsigned char*)(var4 + RG(0x2e6, 0x236)) = 1;

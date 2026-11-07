@@ -24,8 +24,8 @@ extern "C" void func_0202c360(void* arg0, int arg1);
 extern "C" void func_0202b2f0(void* arg0);
 extern "C" void func_0202c410(void* arg0);
 
-struct Struct_0202b2f0;
-extern "C" void func_0202c21c(struct Struct_0202b2f0* arg0, int arg1);
+struct LocalWireless_0202b2f0;
+extern "C" void func_0202c21c(struct LocalWireless_0202b2f0* arg0, int arg1);
 extern "C" void func_0202c288(void* arg0);
 extern "C" unsigned int _u32_div_f(unsigned int arg0, unsigned int arg1);
 
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov003_02171854(char* arg0) {
     func_0202c360(var1, *(int*)((char*)var2 + 0x134));
     func_0202b2f0(var1);
     func_0202c410(var1);
-    func_0202c21c((struct Struct_0202b2f0*)var1, 0xf);
+    func_0202c21c((struct LocalWireless_0202b2f0*)var1, 0xf);
     func_0202c288(var1);
 
     int var4 = (rand() % 4 + 2) * 500;

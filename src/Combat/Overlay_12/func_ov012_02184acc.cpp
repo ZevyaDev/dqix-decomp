@@ -105,7 +105,7 @@ struct Struct_ov012_0218b188
     Type_01ff91ac_5 unknown_0_[17];
 };
 
-struct Struct_0205def8;
+struct TextWindowManager_0205def8;
 struct TextWindowManager_0205d6a0;
 
 extern "C" void func_ov023_021e7404(void* arg0, int arg1);
@@ -117,11 +117,11 @@ extern "C" int func_ov017_021959b4();
 extern "C" void func_ov012_021845f8(void* arg0);
 extern "C" int func_ov012_02184d80(void* arg0, char* arg1);
 #if defined(jpn)
-struct Struct_0202b2f0;
-extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18();
-extern "C" int func_0202c578(Struct_0202b2f0*, int);
+struct LocalWireless_0202b2f0;
+extern "C" LocalWireless_0202b2f0* GetLocalWireless_0202ae18();
+extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(LocalWireless_0202b2f0*, int);
 #endif
-extern "C" void func_0205def8(Struct_0205def8* arg0, int arg1, int arg2);
+extern "C" void func_0205def8(TextWindowManager_0205def8* arg0, int arg1, int arg2);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void ResetMessageWindow_02043204(char* window);
 
@@ -165,7 +165,7 @@ extern "C" ARM int func_ov012_02184acc(Struct_ov012_02184acc* arg0, int arg1)
 #endif
 #if defined(jpn)
         if ((var1->unknown_998_ == 0 && g_keyManager.TestKeysPressed(0x800)) ||
-            func_0202c578(GetLocalWireless_0202ae18(), 0))
+            IsLocalWirelessPlayerDisconnected_0202c578(GetLocalWireless_0202ae18(), 0))
 #else
         if (func_ov017_021959b4())
 #endif
@@ -188,7 +188,7 @@ extern "C" ARM int func_ov012_02184acc(Struct_ov012_02184acc* arg0, int arg1)
 #endif
                 if (var3)
                 {
-                    func_0205def8((Struct_0205def8*)arg0->unknown_ac_, 0, 14);
+                    func_0205def8((TextWindowManager_0205def8*)arg0->unknown_ac_, 0, 14);
                     arg0->unknown1_1370_ = 10;
                     return 0;
                 }

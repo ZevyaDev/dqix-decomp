@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-struct Struct_0207fdcc_2 {
+struct MenuLayout_0207fdcc_2 {
 #if defined(jpn)
     char unknown1_0_[0x2a];
 #else
@@ -8,11 +8,11 @@ struct Struct_0207fdcc_2 {
 #endif
     short unknown_36_;
 };
-extern "C" int func_020811d0(struct Struct_0207fdcc_2* arg0, int arg1);
+extern "C" int func_020811d0(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" short func_02080468(void* arg0, int arg1);
 extern "C" void func_020813ec(void* arg0, int arg1);
 extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
-extern "C" void func_0207fdcc(struct Struct_0207fdcc_2* arg0, int arg1);
+extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 
 struct Struct_02081f20_2;
 extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
@@ -31,7 +31,7 @@ struct Struct_ov003_0217a280 {
     char unknown1_0_[0x88c];
 #endif
     char unknown_88c_[0x89c - 0x88c];
-    struct Struct_0207fdcc_2* unknown_89c_;
+    struct MenuLayout_0207fdcc_2* unknown_89c_;
     char unknown_8a0_[0xff8 - 0x8a0];
     short* unknown_ff8_;
     short unknown_ffc_;
@@ -53,7 +53,7 @@ struct Struct_ov003_0217a280 {
 
 // USA: func_ov003_0217a280
 extern "C" ARM void func_ov003_0217a280(struct Struct_ov003_0217a280* arg0) {
-    struct Struct_0207fdcc_2* var0 = arg0->unknown_89c_;
+    struct MenuLayout_0207fdcc_2* var0 = arg0->unknown_89c_;
     if (arg0->unknown_103f_ == 0) {
         arg0->unknown_ffe_ = 2;
         if (func_020811d0(var0, arg0->unknown_ffe_) == 0) {
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov003_0217a280(struct Struct_ov003_0217a280* arg0) {
             arg0->unknown_1036_ = 0xa;
             arg0->unknown_103e_ = 1;
             arg0->unknown_103f_ = 0;
-            func_0207fdcc(var0, arg0->unknown_ffe_);
+            CloseMenuLayoutWindow_0207fdcc(var0, arg0->unknown_ffe_);
         }
     }
 }

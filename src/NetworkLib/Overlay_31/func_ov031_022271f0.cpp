@@ -20,7 +20,7 @@ extern "C" void func_020c3864(int);
 extern "C" void SetMainDisplayAndBGMode_020c391c(int, int, int);
 extern "C" void WriteBrightnessRegister_020c39a0(short*, int);
 extern "C" void SetSubBGMode_020c3984(unsigned int);
-extern "C" void func_020c38d4();
+extern "C" void TurnOnMainDisplay_020c38d4();
 extern "C" void func_ov031_0223c308();
 extern "C" void func_ov031_0223d928();
 extern "C" void func_ov031_0223dabc();
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov031_022271f0() {
     func_ov031_0223d928();
     func_ov031_0223dabc();
     func_ov031_0223b79c();
-    func_020c38d4();
+    TurnOnMainDisplay_020c38d4();
     DISPCNTSUB |= 0x10000;
     func_020c3864(1);
 }

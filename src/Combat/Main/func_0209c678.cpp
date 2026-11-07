@@ -14,12 +14,12 @@ struct MusicManager_02109bf4_4 {
     unsigned char unknown_c8_2_ : 1;    // bit2
 };
 
-// USA: func_0209c678
-extern "C" ARM void func_0209c678(struct MusicManager_02109bf4_4* arg0, int arg1) {
-    if (arg0->unknown_c8_2_) return;
-    if (arg0->musicState_b0_ == 1) {
-        func_0203ac10(arg0, &arg0->unknown_bc_, arg1);
-    } else if (arg0->musicState_b0_ == 2) {
-        func_0203ac10(arg0, &arg0->unknown_c0_, arg1);
+// USA: StopMusic_0209c678
+extern "C" ARM void StopMusic_0209c678(struct MusicManager_02109bf4_4* manager, int fadeDuration) {
+    if (manager->unknown_c8_2_) return;
+    if (manager->musicState_b0_ == 1) {
+        func_0203ac10(manager, &manager->unknown_bc_, fadeDuration);
+    } else if (manager->musicState_b0_ == 2) {
+        func_0203ac10(manager, &manager->unknown_c0_, fadeDuration);
     }
 }

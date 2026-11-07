@@ -9,7 +9,7 @@ extern "C" void func_ov031_0223c534(Struct_ov031_02226d48* arg0);
 struct Struct_ov031_0223da58;
 extern "C" int func_ov031_0223da58(Struct_ov031_0223da58* arg0);
 
-extern "C" unsigned int func_ov031_0223cf70(void** arg0);
+extern "C" unsigned int FreeAndClearPointer_ov031_0223cf70(void** pointer);
 
 struct Struct_ov031_022257d4 {
 	Struct_ov031_02226d48* unknown_0_[3][4];
@@ -52,5 +52,5 @@ extern "C" ARM void func_ov031_022257d4(void* arg0) {
 		func_ov031_0223da58(data_ov031_02250bfc->unknown_30_[var0]);
 	}
 
-	func_ov031_0223cf70((void**)&DuplicatePool::data_ov031_02250bfc);
+	FreeAndClearPointer_ov031_0223cf70((void**)&DuplicatePool::data_ov031_02250bfc);
 }

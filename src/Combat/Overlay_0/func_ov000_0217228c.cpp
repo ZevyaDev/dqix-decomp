@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
-extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* arg1);
+extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* outOwnPartyOrder);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 extern "C" int func_ov000_0217f5dc(void* arg0);

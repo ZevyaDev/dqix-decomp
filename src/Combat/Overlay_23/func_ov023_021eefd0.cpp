@@ -157,7 +157,7 @@ extern "C" void func_020a0330(Struct_020a0330* arg0, unsigned int arg1);
 extern "C" void func_020a0110(Struct_020a0110* arg0, unsigned int arg1);
 extern "C" void func_020a0388(Struct_020a0388* arg0, unsigned int arg1);
 extern "C" void SetBattleRecords_020ac494(void* records);
-extern "C" void func_0209c6d8(void* arg0, int arg1);
+extern "C" void PlayJingle_0209c6d8(void* manager, int jingleIndex);
 extern "C" void func_ov017_021cfc74(unsigned char arg0);
 extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2* arg0);
 extern "C" int func_0201b588(int arg0);
@@ -389,7 +389,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
             SetBattleRecords_020ac494(&var21);
         }
         if (!IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) || arg0->unknown_2a0_->unknown_25_ == 0)
-            func_0209c6d8(gMusicManager_02109bf4, 0x36);
+            PlayJingle_0209c6d8(gMusicManager_02109bf4, 0x36);
         var0->unknown_0_++;
         if (arg0->unknown_2a0_->unknown_24_ != 0 || arg0->unknown_2a0_->unknown_25_ != 0)
         {

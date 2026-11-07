@@ -66,10 +66,10 @@ struct Struct_ov005_0215c530_2
 
 struct ItemTable_0201099c_10;
 struct ItemData_0201099c_9;
-struct Struct_ov003_02178910 {
+struct ItemInfoPanel_ov003_02178910 {
     char unknown_0_[0x48];
-    ItemTable_0201099c_10* unknown_48_;
-    ItemData_0201099c_9* unknown_4c_;
+    ItemTable_0201099c_10* pItemTable_48_;
+    ItemData_0201099c_9* pItemData_4c_;
 #if defined(jpn)
     char unknown_50_[0x680];
 #else
@@ -77,8 +77,8 @@ struct Struct_ov003_02178910 {
 #endif
     int unknown_754_;
     char unknown_758_[0x18];
-    short unknown_770_;
-    unsigned short unknown_772_;
+    short shownItemId_770_;
+    unsigned short requestedItemId_772_;
     unsigned short unknown_774_;
     unsigned char unknown_776_;
 };
@@ -96,11 +96,11 @@ struct Struct_ov005_0215c530_3
 #else
     char unknown1_0_[0x1244];
 #endif
-    Struct_ov003_02178910 unknown_1244_;
+    ItemInfoPanel_ov003_02178910 unknown_1244_;
 #if defined(jpn)
-    char unknown_1934_[0x1958 - 0x1240 - sizeof(Struct_ov003_02178910)];
+    char unknown_1934_[0x1958 - 0x1240 - sizeof(ItemInfoPanel_ov003_02178910)];
 #else
-    char unknown_19bc_[0x19e0 - 0x1244 - sizeof(Struct_ov003_02178910)];
+    char unknown_19bc_[0x19e0 - 0x1244 - sizeof(ItemInfoPanel_ov003_02178910)];
 #endif
     Struct_ov005_0215c530* unknown_19e0_;
     char unknown_19e4_[8];
@@ -144,17 +144,17 @@ extern "C" void func_0207c51c(unsigned char*, int);
 extern "C" void func_ov023_021e1518(void*);
 extern "C" void func_ov023_021e1b5c(void*, int, int, int);
 extern "C" void func_ov023_021e1b0c(void*, int, int, int);
-extern "C" Struct_ov005_0215c530_5* func_ov017_021a193c(int*);
+extern "C" Struct_ov005_0215c530_5* GetEquipMenu_ov017_021a193c(int*);
 extern "C" void func_020de1d4(Struct_02083508_2*);
 extern "C" void* memset(void*, int, unsigned int);
 extern "C" void* memcpy(void*, const void*, unsigned int);
 extern "C" Struct_ov005_0215c530_7* func_ov023_021db08c(void*, int);
-extern "C" int func_020dd4c4(int, Struct_ov005_0215c530_6*);
+extern "C" int GetEquipRestrictions_020dd4c4(int, Struct_ov005_0215c530_6*);
 extern "C" void func_ov005_021579ec(Struct_ov005_0215c530_3*, unsigned int, unsigned char);
 extern "C" void SetMenuCursorIndex_0205bb04(void*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov005_021555c0(Struct_ov005_0215c530_3*);
-extern "C" void func_ov023_021dcae0(Struct_ov003_02178910*, int);
+extern "C" void SetItemInfoPanelItem_ov023_021dcae0(ItemInfoPanel_ov003_02178910*, int);
 extern "C" void func_ov005_0215792c(Struct_ov005_0215c530_3*, unsigned char);
 
 #if defined(jpn)
@@ -227,7 +227,7 @@ extern "C" ARM void func_ov005_0215c530(Struct_ov005_0215c530_3* arg0)
         }
         else
         {
-            signed char var13 = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->unknown_4fc_;
+            signed char var13 = GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->unknown_4fc_;
             Struct_ov005_0215c530_6 var14;
             Struct_ov005_0215c530_4 var15;
             func_020de1d4((Struct_02083508_2*)&var14);
@@ -258,7 +258,7 @@ extern "C" ARM void func_ov005_0215c530(Struct_ov005_0215c530_3* arg0)
                         var15.unknown_7_4_ = var20->unknown_7_3_;
                         var15.unknown_7_5_ = var20->unknown_7_4_;
                     }
-                    if (func_020dd4c4(var13, &var14))
+                    if (GetEquipRestrictions_020dd4c4(var13, &var14))
                     {
                         var17++;
                     }
@@ -324,7 +324,7 @@ extern "C" ARM void func_ov005_0215c530(Struct_ov005_0215c530_3* arg0)
     }
     func_ov005_021555c0(arg0);
     Enum_ov005_0215c530 var25 = (Enum_ov005_0215c530)arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_;
-    func_ov023_021dcae0(&arg0->unknown_1244_, var25);
+    SetItemInfoPanelItem_ov023_021dcae0(&arg0->unknown_1244_, var25);
     arg0->unknown_3dcc_ |= 0x40;
     arg0->unknown_3daa_ = 0;
     func_ov005_0215792c(arg0, arg0->unknown_3db9_);

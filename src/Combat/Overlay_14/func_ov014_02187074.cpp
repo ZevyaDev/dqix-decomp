@@ -83,10 +83,10 @@ struct Struct_ov014_02186bc8 {
     short unknown_182_[8];
 };
 
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 struct SoundEffectManager_02108760;
 
-extern "C" Struct_ov006_02158478* func_02081da8(Struct_0207fdcc_2*, int);
+extern "C" Struct_ov006_02158478* func_02081da8(MenuLayout_0207fdcc_2*, int);
 extern "C" bool IsTextWindowOpen_0204c7e0(unsigned char*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_020804fc(void*, int);
@@ -110,7 +110,7 @@ inline short inline_ov014_02187074(short arg0)
 extern "C" ARM bool func_ov014_02187074(Struct_ov014_02186bc8* arg0)
 {
     bool var0 = false;
-    Struct_ov006_02158478* var1 = func_02081da8((Struct_0207fdcc_2*)arg0->unknown_c0_, 4);
+    Struct_ov006_02158478* var1 = func_02081da8((MenuLayout_0207fdcc_2*)arg0->unknown_c0_, 4);
     if (var1 != NULL && IsTextWindowOpen_0204c7e0((unsigned char*)var1))
     {
         short var2 = var1->unknown_ae_;

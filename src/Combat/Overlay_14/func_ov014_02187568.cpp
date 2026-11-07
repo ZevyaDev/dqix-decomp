@@ -102,7 +102,7 @@ struct Struct_0207f7f0;
 struct Struct_0207f7f0_2;
 
 extern "C" int* GetResources_0200fb8c(int*);
-extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
+extern "C" void Set3DFog_020c54a4(int, unsigned int, unsigned int, unsigned short);
 extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
 extern "C" int func_02097420(Struct_02097420*);
 extern "C" Struct_ov014_02184f78* func_02097418(Struct_02097418*);
@@ -153,7 +153,7 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
     if (arg0->unknown_17b_ == 0)
     {
         SetFlags04(GetGameResources(), 0x609fe);
-        func_020c54a4(0, 0, 0, 0);
+        Set3DFog_020c54a4(0, 0, 0, 0);
         Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
         FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
         CancelFontLoad_02094ab0(var2);

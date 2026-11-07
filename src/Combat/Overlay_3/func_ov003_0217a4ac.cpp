@@ -7,7 +7,7 @@
 #define RG(u, j) (u)
 #endif
 
-struct Struct_0207fdcc_2 {
+struct MenuLayout_0207fdcc_2 {
     char unknown_0_[RG(0x36, 0x2a)];
     short unknown_36_;
 };
@@ -22,7 +22,7 @@ extern "C" void func_ov003_021749c0(char* arg0);
 extern "C" short func_02080468(void* arg0, int arg1);
 extern "C" void func_ov003_02177820(void* arg0);
 extern "C" void func_ov003_02177938(void* arg0);
-extern "C" void func_02081ea4(struct Struct_0207fdcc_2* arg0, int arg1, int arg2);
+extern "C" void func_02081ea4(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
 extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
 extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 extern "C" int func_ov003_021765b4(void* arg0);
@@ -34,7 +34,7 @@ extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 struct Struct_ov003_0217a4ac {
     char unknown_0_[RG(0x88c, 0x808)];
     char unknown_88c_[0x89c - 0x88c];
-    struct Struct_0207fdcc_2* unknown_89c_;
+    struct MenuLayout_0207fdcc_2* unknown_89c_;
     char unknown_8a0_[0xff8 - 0x8a0];
     short* unknown_ff8_;
     short unknown_ffc_;
@@ -66,7 +66,7 @@ struct Struct_ov003_0217a4ac {
 // USA: func_ov003_0217a4ac
 extern "C" ARM void func_ov003_0217a4ac(struct Struct_ov003_0217a4ac* arg0) {
     GetParty_02010828(GameState::GetInstance());
-    struct Struct_0207fdcc_2* var0 = arg0->unknown_89c_;
+    struct MenuLayout_0207fdcc_2* var0 = arg0->unknown_89c_;
     if (arg0->unknown_103f_ == 0) {
         arg0->unknown_1014_ = 0;
         arg0->unknown_1016_ = 0;

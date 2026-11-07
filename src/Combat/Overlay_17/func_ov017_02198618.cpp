@@ -13,7 +13,7 @@ struct Struct_0203402c {
     unsigned short unknown_c5_7_ : 1;
 };
 
-extern "C" int func_020535c8(signed char* arg0);
+extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int func_0203402c(struct Struct_0203402c* arg0);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov017_02198618(void* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = var0->GetUnknownGameObject();
     if (var1 == NULL) return;
-    if (func_020535c8((signed char*)var1) != 0) return;
+    if (IsPerformingGesture_020535c8((signed char*)var1) != 0) return;
     if (func_0203402c((struct Struct_0203402c*)var1) != 0) return;
 
     unsigned char* var2 = (unsigned char*)GetZone3D_02012fe4();

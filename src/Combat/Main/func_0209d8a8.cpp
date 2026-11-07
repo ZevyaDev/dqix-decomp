@@ -11,10 +11,10 @@ enum { Enum_0209d8a8_1816 = 0x718 };
 #include "Resource/GameResources.h"
 
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" void* func_0209dccc();
+extern "C" void* GetQuestBattleScript_0209dccc();
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" void* GetBattleScene_ov017_021b8468(int battleManager);
-extern "C" void* func_ov000_02160f08(void* arg0);
+extern "C" void* GetBattleUI_ov000_02160f08(void* battleScene);
 extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void func_0207cbe8(char* arg0);
 
@@ -43,7 +43,7 @@ extern "C" ARM int func_0209d8a8(void* arg0) {
     int var1;
     int var2;
     GetParty_02010828(GameState::GetInstance());
-    Struct_0209d8a8_2* var3 = (Struct_0209d8a8_2*)func_0209dccc();
+    Struct_0209d8a8_2* var3 = (Struct_0209d8a8_2*)GetQuestBattleScript_0209dccc();
     if (var3 == NULL) {
         return 0;
     }
@@ -55,7 +55,7 @@ extern "C" ARM int func_0209d8a8(void* arg0) {
     if (var6 == NULL) {
         return 1;
     }
-    void* var7 = func_ov000_02160f08(var6);
+    void* var7 = GetBattleUI_ov000_02160f08(var6);
     if (var7 == NULL) {
         return 1;
     }

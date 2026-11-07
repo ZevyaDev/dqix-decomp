@@ -5,8 +5,8 @@
 extern "C" unsigned short GetSubBGVRAMBanks(void);
 extern "C" unsigned short GetSubObjVRAMBanks(void);
 
-struct Struct_02074b64;
-extern "C" void func_02074b64(struct Struct_02074b64* arg0);
+struct BGControlSave_02074b64;
+extern "C" void SaveSubBGControl_02074b64(struct BGControlSave_02074b64* save);
 
 struct TextWindowManager_0205cfd4;
 extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov023_021e7220(void* arg0, int arg1) {
     *(int*)((char*)arg0 + 0x48) = (*(unsigned int*)0x4001000 & 0x1f00) >> 8;
     *(unsigned char*)((char*)arg0 + 0x74) = 0;
     *(unsigned char*)((char*)arg0 + 0x75) = 0;
-    func_02074b64((struct Struct_02074b64*)((char*)arg0 + 0x64));
+    SaveSubBGControl_02074b64((struct BGControlSave_02074b64*)((char*)arg0 + 0x64));
     InitTextWindowManager_0205cfd4((struct TextWindowManager_0205cfd4*)((char*)arg0 + 0x78));
     InitStringTable_020dfc40((StringTable_0201099c_14*)((char*)arg0 + 0x4c));
     for (int var1 = 0; var1 < 2; var1++) {

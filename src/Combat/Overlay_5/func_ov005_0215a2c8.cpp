@@ -25,7 +25,7 @@ struct Struct_ov005_02159850 {
     int* unknown_3708_;
 };
 
-extern "C" void* func_ov017_021a193c(int* arg0);
+extern "C" void* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
 extern "C" void func_ov023_021e31e4(void* arg0, int arg1, int arg2, int arg3, short arg4);
 
 // USA: func_ov005_0215a2c8
@@ -46,5 +46,5 @@ extern "C" ARM void func_ov005_0215a2c8(Struct_ov005_02153954* arg0) {
         var3++;
         arg0->unknown_3dcc_ &= ~0x40000;
     }
-    func_ov023_021e31e4(func_ov017_021a193c(((Struct_ov005_02159850*)GetGameResources())->unknown_3708_), var0, var1, var2, var3);
+    func_ov023_021e31e4(GetEquipMenu_ov017_021a193c(((Struct_ov005_02159850*)GetGameResources())->unknown_3708_), var0, var1, var2, var3);
 }

@@ -2,7 +2,7 @@
 
 extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int);
 extern "C" void func_ov031_0222c7d8(void);
-extern "C" void* func_ov031_0223e218(void*, void*, void*, int);
+extern "C" void* AddTask_ov031_0223e218(void*, void*, void*, int);
 
 struct Struct_ov031_0222cad8 {
     unsigned char unknown_0_[0x38];
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov031_0222cad8(void) {
         data_ov031_02290c8c.unknown_4_->unknown_59_ = 1;
     } else {
         PlayWifiSetupSoundEffect_ov031_02236878(0x13);
-        void* var1 = func_ov031_0223e218((void*)0, (void*)func_ov031_0222c7d8, (void*)0, 0x78);
+        void* var1 = AddTask_ov031_0223e218((void*)0, (void*)func_ov031_0222c7d8, (void*)0, 0x78);
         data_ov031_02290c8c.unknown_4_->unknown_38_ = (int)var1;
     }
 }

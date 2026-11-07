@@ -14,7 +14,7 @@ void *GetResources_0200fb8c(void *);
 int _Z31IsSubBrightnessTransitionActiveP13GameResources(void *);
 int func_ov003_021550dc(void *);
 void PlaySoundEffect_0205eaa0(void *, int, int);
-void func_0207fe44(void *);
+void CloseMenuLayoutWindows_0207fe44(void *);
 int func_ov003_02155f40(void *, int);
 int func_ov003_02155208(void *);
 void func_ov003_02153874(void *);
@@ -34,7 +34,7 @@ int GetQueueHeadType_02046b24(void *);
 int _ZNK8Object3D19HasAnimationStoppedEv(void *);
 int GetLocalWireless_0202ae18(void);
 int IsLocalWirelessOn_0202b7d8(int);
-void func_ov017_021c3fb4(int, int);
+void SendPartyMemberEquippedItems_ov017_021c3fb4(int, int);
 void func_ov017_021c4418(int, int);
 void func_ov017_021cf078(int, int, int);
 void func_ov017_021ccc34(int);
@@ -53,7 +53,7 @@ int func_ov003_02158754(void *);
 
 extern char gSoundEffectManager_02108760[];
 extern char gMusicManager_02109bf4[];
-extern const char *data_020f2a38;
+extern const char *gItemDataPath_020f2a38;
 extern const char *data_020f2a30;
 
 struct Struct_ov003_0215704c {
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
             arg0->unknown_8_   = 0;
             arg0->unknown_1ec_   = 0xa;
             arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
-            func_0207fe44(var2);
+            CloseMenuLayoutWindows_0207fe44(var2);
             if (func_ov003_02155f40(arg0, arg0->unknown_1f7_)) {
                 arg0->unknown_1fc_ = arg0->unknown_1fc_ | 2;
                 arg0->unknown_1ec_   = 0x30;
@@ -177,7 +177,7 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
             arg0->unknown_8_  = 0;
             arg0->unknown_1ec_  = 7;
             arg0->unknown_1f8_ = 7;
-            func_0207fe44(var2);
+            CloseMenuLayoutWindows_0207fe44(var2);
             var3->unknown_59_ = -1;
             func_ov003_02153874(var3);
         }
@@ -202,9 +202,9 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
         }
     } else if (var1 == 4) {
 #if defined(jpn)
-        arg0->unknown_1d0_  = BackgroundLoader::GetInstance()->QueueLoadGP1(data_020f2a38, 0);
+        arg0->unknown_1d0_  = BackgroundLoader::GetInstance()->QueueLoadGP1(gItemDataPath_020f2a38, 0);
 #else
-        arg0->unknown_1d0_  = BackgroundLoader::GetInstance()->QueueLoadFileInGP2(data_020f2a38, data_020f2a30, 0);
+        arg0->unknown_1d0_  = BackgroundLoader::GetInstance()->QueueLoadFileInGP2(gItemDataPath_020f2a38, data_020f2a30, 0);
 #endif
         arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
     } else if (var1 == 5) {
@@ -253,7 +253,7 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
         }
         arg0->unknown_32c_ = 0;
         if (IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18()) != 0) {
-            func_ov017_021c3fb4(arg0->unknown_1f7_, 0);
+            SendPartyMemberEquippedItems_ov017_021c3fb4(arg0->unknown_1f7_, 0);
             func_ov017_021c4418(arg0->unknown_1f7_, -1);
             func_ov017_021cf078(arg0->unknown_1f7_, (unsigned char) func_ov003_02156034(arg0), 0);
             func_ov017_021ccc34(arg0->unknown_1f7_);

@@ -5,7 +5,7 @@
 
 struct Struct_02080cc0;
 struct Struct_02080f8c;
-struct Struct_02080fa8;
+struct MenuLayout_02080fa8;
 struct Struct_02081198;
 struct Struct_02081164;
 
@@ -17,7 +17,7 @@ extern "C" int func_020dcc98(int arg0);
 extern "C" int* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_02080f8c(Struct_02080f8c*, int, int);
 extern "C" void func_02080fe0(void*, int, int);
-extern "C" void func_02080fa8(struct Struct_02080fa8*, int, int);
+extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8*, int, int);
 extern "C" void func_0208103c(void*, int, int);
 extern "C" void func_02080828(void*, int, short*, short*);
 extern "C" void func_020808c8(void*, short, short*, short*);
@@ -115,8 +115,8 @@ extern "C" ARM void func_ov003_02165888(Struct_ov003_02165888* arg0) {
                 var4 = (short)(var17->unknown_8b8_ + 0x11);
             }
             func_02080fe0(var0, (short)(var1 + 4), var4);
-            func_02080fa8(
-                (struct Struct_02080fa8*)var0, (short)(var1 + 8),
+            SetMenuLayoutTextValue_02080fa8(
+                (struct MenuLayout_02080fa8*)var0, (short)(var1 + 8),
                 *(unsigned short*)((char*)var17 + var17->unknown_8b8_ * 2 + 0x16c));
 
             {
@@ -250,8 +250,8 @@ extern "C" ARM void func_ov003_02165888(Struct_ov003_02165888* arg0) {
                 var25 = (short)(var39->unknown_950_ + 0x11);
             }
             func_02080fe0(var21, (short)(var22 + 4), var25);
-            func_02080fa8(
-                (struct Struct_02080fa8*)var21, (short)(var22 + 8),
+            SetMenuLayoutTextValue_02080fa8(
+                (struct MenuLayout_02080fa8*)var21, (short)(var22 + 8),
                 *(unsigned short*)((char*)var39 + var39->unknown_950_ * 2 + 0x16c));
 
             {

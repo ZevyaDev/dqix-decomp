@@ -13,7 +13,7 @@ extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(TextWindowManager_02
 extern "C" void DrawTextWindows_0205d228(TextWindowManager_0205d228*);
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274*);
 extern "C" void func_0205c96c(void*, int);
-extern "C" void func_0205da88(void*, int, int, int);
+extern "C" void FillBGUnderTextWindows_0205da88(void*, int, int, int);
 
 extern "C" void func_ov013_02186cac(void*);
 extern "C" void func_ov013_02186db4(void*);
@@ -36,9 +36,9 @@ extern "C" ARM void func_ov013_02184a58(void* arg0) {
     DrawTextWindows_0205d228((TextWindowManager_0205d228*)(var0 + R(0x34, 0x38)));
 
     if (var0[R(0x5cc, 0x640)]) {
-        func_0205da88((void*)(var0 + R(0x34, 0x38)), 0, 2, 0);
+        FillBGUnderTextWindows_0205da88((void*)(var0 + R(0x34, 0x38)), 0, 2, 0);
     } else {
-        func_0205da88((void*)(var0 + R(0x34, 0x38)), 1, 2, 1);
+        FillBGUnderTextWindows_0205da88((void*)(var0 + R(0x34, 0x38)), 1, 2, 1);
     }
 
     FlushTextWindowManagerBGScreenData_0205d274((TextWindowManager_0205d274*)(var0 + R(0x34, 0x38)));

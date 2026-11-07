@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern char data_021015a0;
+extern char gLocalWirelessLink_021015a0;
 extern char data_021017a0;
 extern char data_02101f80;
 
@@ -15,48 +15,48 @@ extern "C" ARM void func_0202c9ac(unsigned short* arg0) {
     unsigned short var1 = arg0[1];
     if (var1 != 0) {
         func_0202c848(var1);
-        *(int*)(&data_021015a0 + 0x10) = 9;
+        *(int*)(&gLocalWirelessLink_021015a0 + 0x10) = 9;
         return;
     }
     switch (arg0[4]) {
     case 7: {
-        int (*var2)(void*) = *(int (**)(void*))((char*)&data_021015a0 + 0x24);
+        int (*var2)(void*) = *(int (**)(void*))((char*)&gLocalWirelessLink_021015a0 + 0x24);
         if (var2 != 0 && var2(arg0) == 0) {
             int var3 = func_020d559c(0, arg0[8]);
             if (var3 == 2) return;
             func_0202c848(var3);
-            *(int*)(&data_021015a0 + 0x10) = 9;
+            *(int*)(&gLocalWirelessLink_021015a0 + 0x10) = 9;
             return;
         }
-        *(unsigned short*)((char*)&data_021015a0 + 0xa) = *(unsigned short*)((char*)&data_021015a0 + 0xa) | var0;
+        *(unsigned short*)((char*)&gLocalWirelessLink_021015a0 + 0xa) = *(unsigned short*)((char*)&gLocalWirelessLink_021015a0 + 0xa) | var0;
         void (*var4)(unsigned short*) =
-            *(void (**)(unsigned short*))((char*)&data_021015a0 + 0x18);
+            *(void (**)(unsigned short*))((char*)&gLocalWirelessLink_021015a0 + 0x18);
         if (var4 != 0) var4(arg0);
         return;
         }
     case 9: {
-        *(unsigned short*)((char*)&data_021015a0 + 0xa) = *(unsigned short*)((char*)&data_021015a0 + 0xa) & ~var0;
+        *(unsigned short*)((char*)&gLocalWirelessLink_021015a0 + 0xa) = *(unsigned short*)((char*)&gLocalWirelessLink_021015a0 + 0xa) & ~var0;
         void (*var5)(unsigned short*) =
-            *(void (**)(unsigned short*))((char*)&data_021015a0 + 0x18);
+            *(void (**)(unsigned short*))((char*)&gLocalWirelessLink_021015a0 + 0x18);
         if (var5 != 0) var5(arg0);
         return;
         }
     case 0: {
-        int var6 = *(int*)(&data_021015a0 + 0x10);
+        int var6 = *(int*)(&gLocalWirelessLink_021015a0 + 0x10);
         int var7;
         int var8;
         if (!(var6 != 4 && var6 != 6 && var6 != 5)) { var7 = 1; goto done0; }
-        *(int*)(&data_021015a0 + 0x10) = 4;
+        *(int*)(&gLocalWirelessLink_021015a0 + 0x10) = 4;
         var8 = func_020d5898((int)func_0202cb50, (int)&data_02101f80,
-                                     (unsigned short)*(int*)((char*)&data_021015a0 + 0x2c),
+                                     (unsigned short)*(int*)((char*)&gLocalWirelessLink_021015a0 + 0x2c),
                                      (int)&data_021017a0,
-                                     (unsigned short)*(int*)((char*)&data_021015a0 + 0x38),
+                                     (unsigned short)*(int*)((char*)&gLocalWirelessLink_021015a0 + 0x38),
                                      1);
         if (var8 == 2) { var7 = 1; goto done0; }
         func_0202c848(var8);
         var7 = 0;
     done0:
-        if (var7 == 0) { *(int*)(&data_021015a0 + 0x10) = 9; }
+        if (var7 == 0) { *(int*)(&gLocalWirelessLink_021015a0 + 0x10) = 9; }
         return;
         }
     case 2:

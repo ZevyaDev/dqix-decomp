@@ -4,7 +4,7 @@
 
 extern "C" void func_02087628(char* arg0);
 
-extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* arg1);
+extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* outOwnPartyOrder);
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 

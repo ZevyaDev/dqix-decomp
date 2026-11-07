@@ -28,14 +28,14 @@ struct LocalWireless_0202c1a4;
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" Struct_ov017_021d1e50_2* GetZone3D_02012fe4();
-extern "C" void func_ov017_021baedc(Struct_ov017_021d1e50_3*, int);
+extern "C" void ResetEventTask_ov017_021baedc(Struct_ov017_021d1e50_3*, int);
 extern "C" void func_ov017_021bbbf8(void*, unsigned short);
 extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
-extern "C" void func_02070378(char*);
+extern "C" void InitZoneEntry_02070378(char*);
 extern "C" void func_0200fcfc(void*, const void*);
-extern "C" void func_ov017_0219e310(unsigned char*, int);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char*, int);
 extern "C" void func_ov017_021a65c4(void*, unsigned char, int);
 
 // USA: func_ov017_021d1e50
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov017_021d1e50(int arg0, Struct_ov017_021cd748_6* arg1,
     if (var2 != 0x1901 && var2 != 0x1902 && var2 != 0x1903 && var2 != 0x1904) return;
     if (arg1->unknown_8_ || arg1->unknown_a_) {
         var5 = (Struct_ov017_021d1e50_3*)arg3->unknown_ptr_array_371c[6];
-        func_ov017_021baedc(var5, 1);
+        ResetEventTask_ov017_021baedc(var5, 1);
         var3 = arg1->unknown_8_;
         int var7 = arg1->unknown_a_;
         if (!var3) { var3 = var7; var7 = 0; }
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov017_021d1e50(int arg0, Struct_ov017_021cd748_6* arg1,
         AppendToQueue_020469b4(var4, var5);
     } else {
         var0 = (Struct_ov017_021d1e50*)GetZoneEntry_0200fd0c(arg2);
-        func_02070378((char*)var0);
+        InitZoneEntry_02070378((char*)var0);
         var1 = 1;
         var0->unknown_7_ = 1;
         if (arg1->unknown_4_) {
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov017_021d1e50(int arg0, Struct_ov017_021cd748_6* arg1,
             }
             func_0200fcfc(arg2, var0);
             unsigned char* var8 = (unsigned char*)arg3->unknown_ptr_array_36fc[4];
-            func_ov017_0219e310(var8, 0);
+            ResetZoneLoadTask_ov017_0219e310(var8, 0);
             AppendToQueue_020469b4(var4, (QueueNode_0201bdac*)var8);
             if (var1) func_ov017_021a65c4(arg3, 1, 0);
         } else if (arg1->unknown_6_) {
@@ -127,7 +127,7 @@ extern "C" ARM void func_ov017_021d1e50(int arg0, Struct_ov017_021cd748_6* arg1,
             var6->unknown_27b8_ = var9;
             func_0200fcfc(arg2, var0);
             unsigned char* var10 = (unsigned char*)arg3->unknown_ptr_array_36fc[4];
-            func_ov017_0219e310(var10, 0);
+            ResetZoneLoadTask_ov017_0219e310(var10, 0);
             AppendToQueue_020469b4(var4, (QueueNode_0201bdac*)var10);
             func_ov017_021a65c4(arg3, var1, 0);
         }

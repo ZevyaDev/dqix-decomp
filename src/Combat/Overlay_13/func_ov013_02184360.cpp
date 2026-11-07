@@ -6,8 +6,8 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct Struct_02074b64;
-extern "C" ARM void func_02074b64(struct Struct_02074b64* arg0);
+struct BGControlSave_02074b64;
+extern "C" ARM void SaveSubBGControl_02074b64(struct BGControlSave_02074b64* save);
 struct BGControlSave_02074af4;
 extern "C" ARM void SaveMainBGControl_02074af4(struct BGControlSave_02074af4* save);
 struct TextWindowManager_0205cfd4;
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov013_02184360(void* arg0, void* arg1) {
 
     void* var1 = var0 + R(0x1e, 0x20);
     if (*(volatile unsigned char*)(var0 + R(0x5cc, 0x640)) != 0) {
-        func_02074b64((Struct_02074b64*)var1);
+        SaveSubBGControl_02074b64((BGControlSave_02074b64*)var1);
         unsigned int var2 = *(volatile unsigned int*)0x4001000;
         *(int*)(var0 + R(0x30, 0x34)) = (var2 & 0x1f00u) >> 8;
     } else {

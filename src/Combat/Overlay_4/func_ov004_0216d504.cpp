@@ -14,7 +14,7 @@ extern "C" void func_0209ca70(void* arg0, int arg1);
 struct Struct_02108760_2;
 extern "C" void func_0205e9f4(struct Struct_02108760_2* arg0, int arg1);
 extern "C" void func_02012028(void* arg0, unsigned char arg1);
-extern "C" void func_0200fb94(char* arg0, unsigned char arg1);
+extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
 extern "C" void func_02012010(void* arg0, int arg1);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov004_0216d504(void* arg0) {
     GameState* var0 = GameState::GetInstance();
     func_02012028(var0, 0);
     ((unsigned char*)var0 + 0x7000)[Enum_ov004_0216d504_3953] = 0;
-    func_0200fb94((char*)var0, 0);
+    SetGameMode_0200fb94((char*)var0, 0);
     func_02012010(var0, 5);
 
     QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3e7);

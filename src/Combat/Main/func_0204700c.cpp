@@ -14,7 +14,7 @@ extern "C" int _ffix(float v);
 extern "C" void func_0202e874(unsigned char* arg0, short arg1);
 
 struct Struct_0202df68;
-extern "C" void func_0202e9a4(struct Struct_0202df68* arg0, int arg1);
+extern "C" void SetCameraFieldOfView_0202e9a4(struct Struct_0202df68* camera, int halfAngle);
 
 // USA: func_0204700c
 extern "C" ARM int func_0204700c(char* arg0) {
@@ -37,7 +37,7 @@ extern "C" ARM int func_0204700c(char* arg0) {
     void* var4 = GetCamera_020100bc(var0);
     short var5 = fix32ReduceAngle0To2Pi(_ffix(_fmul(4096.0f, var3)));
     func_0202e874((unsigned char*)var4, var5);
-    func_0202e9a4((struct Struct_0202df68*)var4,
+    SetCameraFieldOfView_0202e9a4((struct Struct_0202df68*)var4,
                                  _ffix(_fmul(4096.0f, *(float*)(arg0 + 0xc))));
 
     Object3D* var6 = *(Object3D**)(arg0 + 0xe8);

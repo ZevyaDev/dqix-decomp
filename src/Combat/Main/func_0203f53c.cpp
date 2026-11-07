@@ -93,7 +93,7 @@ extern "C" ARM int func_0203f53c(Struct_0203f53c* arg0, void* arg1, int arg2) {
     RenderConfig::SetObjectPosition(&var8);
     Matrix3x3 var9 = data_020e79e8;
     func_020ca528(&var9, &data_0210a0cc);
-    data_0210a010.flags &= ~0xa4;
+    gRenderConfig_0210a010.flags &= ~0xa4;
     Vector3i var10 = data_020e79c0;
     RenderConfig::SetObjectScale(&var10);
     RenderConfig::SubmitToFifo();

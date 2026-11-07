@@ -9,13 +9,13 @@ float NextRandomFloat01(Random*);
 int fix32ReduceAngle0To2Pi(int);
 void Vector3fixMultiplyScalar(const Vector3i*, int, Vector3i*);
 extern "C" int func_ov000_0216f728(unsigned short*);
-extern "C" void func_0202e694(void*, int*);
+extern "C" void SetCameraOrbitFromArray_0202e694(void*, int*);
 extern "C" {
 void Vector3fix_Subtract(const Vector3i*, const Vector3i*, Vector3i*);
 int Vector3fix_Length(const Vector3i*);
 int fix32_Divide(int,int);
 void Vector3fix_Add(const Vector3i*, const Vector3i*, Vector3i*);
-void func_ov000_0216d370(void*,int,int,int);
+void ResetBattleCamera_ov000_0216d370(void*,int,int,int);
 int func_ov000_0216f210(void*,int*);
 extern int data_ov000_02183fc8;
 struct Struct_ov000_02184270 { unsigned short unknown_0_,unknown_2_; int unknown_4_,unknown_8_,unknown_c_,unknown_10_,unknown_14_; };
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov000_0216e678(Struct_ov000_0216e678* arg0, int arg1, i
     if (!arg0->unknown_260_) data_ov000_02183fc8 = 1;
     else data_ov000_02183fc8 = 0;
     if (arg3) data_ov000_02183fc8 = 0;
-    func_ov000_0216d370(arg0, 0, 1, 1);
+    ResetBattleCamera_ov000_0216d370(arg0, 0, 1, 1);
     arg0->unknown_260_ = 1;
     arg0->unknown_261_ = 0;
     arg0->unknown_262_ = arg1;
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov000_0216e678(Struct_ov000_0216e678* arg0, int arg1, i
             if (!var13) data_ov000_02184270.unknown_c_ = (int)(4096.0f * (1.0995574f - 0.7f * (3.1415927f * NextRandomFloat01(var14))));
             if (var16.z < 0x8000) var16.z = 0x8000;
         }
-        func_0202e694(arg0, &var16.x);
+        SetCameraOrbitFromArray_0202e694(arg0, &var16.x);
         arg0->unknown_25c_ = 0;
         data_ov000_02184270.unknown_2_ = 5;
         int var17;

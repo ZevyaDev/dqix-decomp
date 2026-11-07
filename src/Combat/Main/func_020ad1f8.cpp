@@ -8,7 +8,7 @@ extern "C" void func_0201bd04(void* arg0, int arg1, int arg2);
 extern "C" void func_0201bd3c(void* arg0, int arg1, int arg2);
 extern "C" int GetStoryChapter_0201079c(char* gameState);
 struct Struct_02040774_2;
-extern "C" void func_020407b4(struct Struct_02040774_2* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetObject3DPosition_020407b4(struct Struct_02040774_2* object, int x, int y, int z);
 
 struct Struct_020ad1f8 {
 #if defined(jpn)
@@ -47,7 +47,7 @@ extern "C" ARM void func_020ad1f8(struct Struct_020ad1f8_2* arg0) {
         func_0201bd3c(arg0, 6, 0);
         func_0201bd04(arg0, 5, 0);
         if (var2.x < -0xc400 && var2.z < -0xf4cc) {
-            func_020407b4((struct Struct_02040774_2*)var1, -0xc4cc, 0x42b8, -0xe385);
+            SetObject3DPosition_020407b4((struct Struct_02040774_2*)var1, -0xc4cc, 0x42b8, -0xe385);
         }
         return;
     } else if (arg0->unknown_0_ == 0x10cd) {
@@ -61,7 +61,7 @@ extern "C" ARM void func_020ad1f8(struct Struct_020ad1f8_2* arg0) {
         func_0201bd3c(arg0, 1, 0);
         func_0201bd04(arg0, 0xa, 0);
         if (var2.x > -0xa66 && var2.x < 0x999 && var2.z > 0x2999) {
-            func_020407b4((struct Struct_02040774_2*)var1, 0, -0x5ccc, 0x2000);
+            SetObject3DPosition_020407b4((struct Struct_02040774_2*)var1, 0, -0x5ccc, 0x2000);
         }
         return;
     } else if (arg0->unknown_0_ == 0x1130) {
@@ -76,7 +76,7 @@ extern "C" ARM void func_020ad1f8(struct Struct_020ad1f8_2* arg0) {
         func_0201bd3c(arg0, 1, 0);
         func_0201bd04(arg0, 0x19, 0);
         if (var2.x > -0x2800 && var2.x < -0x1333 && var2.z > 0x2800) {
-            func_020407b4((struct Struct_02040774_2*)var1, -0x1e66, -0x5ccc, 0x1ccc);
+            SetObject3DPosition_020407b4((struct Struct_02040774_2*)var1, -0x1e66, -0x5ccc, 0x1ccc);
         }
     }
 }

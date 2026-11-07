@@ -11,7 +11,7 @@ unsigned char* unknown_150_;};
 class GameState {public:static GameState* GetInstance();GameObject* GetCombatantByIndex(int);};
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*,int);extern "C" int func_ov000_02153a8c(GameObject*);extern "C" int func_ov000_0215fc60(char*);
 struct Struct_ov000_021537b8_4 {char unknown_0_[8];unsigned int unknown_8_0_:8,unknown_9_0_:24;unsigned int unknown_c_,unknown_10_;char unknown_14_[4];unsigned int unknown_18_0_:12,unknown_19_4_:4,unknown_1a_0_:16;};
-extern "C" Struct_ov000_021537b8_4* FindActionData_02079e2c(char*,int);extern "C" int HasLearnedSkillEntry_02083b00(unsigned char*,int);extern "C" unsigned int func_020dd290(void*,unsigned int);extern "C" void func_ov000_0215a124(void*,int,int);extern "C" void* GetBattleScene_ov000_02160130();extern "C" void* func_ov000_02160f08(void*);
+extern "C" Struct_ov000_021537b8_4* FindActionData_02079e2c(char*,int);extern "C" int HasLearnedSkillEntry_02083b00(unsigned char*,int);extern "C" unsigned int func_020dd290(void*,unsigned int);extern "C" void func_ov000_0215a124(void*,int,int);extern "C" void* GetBattleScene_ov000_02160130();extern "C" void* GetBattleUI_ov000_02160f08(void*);
 struct Struct_ov000_021537b8_6;extern "C" void func_ov000_02176150(Struct_ov000_021537b8_6*,unsigned short);extern "C" void func_02088db8(unsigned char*);struct Struct_02010604;extern "C" void SetMotion_02033b88(Struct_02010604*,int);
 struct Struct_ov000_021537b8 {unsigned short unknown_0_,unknown_2_;char unknown_4_[5];unsigned char unknown_9_;};
 struct Struct_ov000_021537b8_2 {char unknown_0_[0xe];short unknown_e_;char unknown_10_[0x3c];int unknown_4c_;
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov000_021537b8(void* arg0,int arg1,Struct_ov000_021537b
   int var4=var2->unknown_8_0_;if(inline_ov000_021537b8(arg1)){GameObject* var5=GetPartyMemberBaseByIndex_0200ff1c(var0,arg1);if(var5&&HasLearnedSkillEntry_02083b00(var5->unknown_150_,0x106))var4=func_020dd290(var5,var4);}
   int var6=0;if(var2->unknown_8_0_<255){if(var1->unknown_138_->unknown_2_<var4)var6=1;}else if(var1->unknown_138_->unknown_2_==0)var6=1;
   if(!var6){
-   func_ov000_0215a124(arg0,arg1,var4);Struct_ov000_021537b8_3* var7=(Struct_ov000_021537b8_3*)func_ov000_02160f08(GetBattleScene_ov000_02160130());Struct_ov000_021537b8_2* var8;
+   func_ov000_0215a124(arg0,arg1,var4);Struct_ov000_021537b8_3* var7=(Struct_ov000_021537b8_3*)GetBattleUI_ov000_02160f08(GetBattleScene_ov000_02160130());Struct_ov000_021537b8_2* var8;
    if(inline_ov000_021537b8(arg1)){for(int var9=0;var9<4;var9++){if(var7->unknown_958_[var9].unknown_4c_==arg1){var8=&var7->unknown_958_[var9];goto found;}}}
    var8=0;
 found:

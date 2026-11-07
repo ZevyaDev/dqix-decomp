@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" int func_020535c8(signed char* arg0);
+extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" void func_020531f0(void* arg0);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov017_021cc26c(int arg0, Struct_ov017_021cc26c* arg1, G
     if (var2 == NULL) return;
 
     if (arg1->unknown_a_ != 0) {
-        if (func_020535c8((signed char*)var2) == 0) return;
+        if (IsPerformingGesture_020535c8((signed char*)var2) == 0) return;
         func_020531f0(var2);
         return;
     }

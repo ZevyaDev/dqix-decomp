@@ -2,7 +2,7 @@
 
 extern int data_02105254;
 
-// USA: func_0203b628
-extern "C" ARM void* func_0203b628(void) {
+// USA: GetBGVRAMManager_0203b628
+extern "C" ARM void* GetBGVRAMManager_0203b628(void) {
     return &data_02105254;
 }

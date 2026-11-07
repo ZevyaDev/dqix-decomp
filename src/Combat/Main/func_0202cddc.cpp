@@ -16,7 +16,7 @@ struct Struct_02101680 {
 };
 extern "C" int func_020d5340(int arg0, struct Struct_02101680* arg1);
 
-extern unsigned char data_021015a0[0xc];
+extern unsigned char gLocalWirelessLink_021015a0[0xc];
 extern struct Struct_02101680 data_02101680;
 extern int data_02101b80;
 extern unsigned char data_02101694[0x20];
@@ -34,7 +34,7 @@ extern "C" ARM int func_0202cddc(void) {
         return 0;
     }
 
-    unsigned short var1 = *(unsigned short*)(data_021015a0 + 8);
+    unsigned short var1 = *(unsigned short*)(gLocalWirelessLink_021015a0 + 8);
     if (var1 == 0) {
         unsigned int var2 = data_02101680.unknown_6_;
         unsigned int var3 = (~var2) & (var2 - 1);

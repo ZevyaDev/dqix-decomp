@@ -21,7 +21,7 @@ struct ActionTarget_ov000_021600f8 {
 };
 struct Struct_ov025_021e9fc4;
 extern "C" void* GetBattleScene_ov000_02160130();
-extern "C" void* func_ov000_02160f20(void*);
+extern "C" void* GetCurrentBattleAction_ov000_02160f20(void*);
 extern "C" int func_ov000_0216fd38(Struct_ov000_0216fd38*);
 extern "C" void func_ov000_0216fdf8(Struct_ov000_0216fdf8*, int);
 extern "C" void func_ov000_0216fd80(Struct_ov000_0216fd80*, int);
@@ -31,7 +31,7 @@ extern "C" Struct_ov000_0215feb4* func_ov000_0215feb4(char*, int, int);
 extern "C" void* func_ov000_0215fe2c(void*, int);
 extern "C" void* func_ov000_0215fff4(void*, int, int);
 extern "C" void func_ov025_021ed324(void*, const char*);
-extern "C" char* func_020e046c(char*, void*, void*, int);
+extern "C" char* CopyStringFromTableFile_020e046c(char*, void*, void*, int);
 extern "C" void func_ov025_021ed634(Struct_ov025_021e9fc4*);
 
 static inline unsigned char* inline_ov025_021e9fc4(ActionTarget_ov000_021600f8* arg0) { return arg0->unknown_14_; }
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov025_021e9fc4(char* arg0) {
                 unsigned int var2 = 0;
                 var0->GetLoadedFileByID((*(int*)(arg0 + 0x880)), &var1, &var2);
                 if (var1 != 0) {
-                    func_020e046c((arg0 + 0x83c), var1, (void*)var2, (short)(*(int*)(arg0 + 0x884)));
+                    CopyStringFromTableFile_020e046c((arg0 + 0x83c), var1, (void*)var2, (short)(*(int*)(arg0 + 0x884)));
                 }
                 func_ov025_021ed324((arg0 + 0x5e8), (arg0 + 0x83c));
 #if !defined(jpn)
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov025_021e9fc4(char* arg0) {
         if ((*(unsigned char*)(arg0 + 0x87c)) != 0) func_ov025_021ed634((Struct_ov025_021e9fc4*)(arg0 + 0x5e8));
     } else if (((int*)(arg0 + 0x10))[(unsigned char)arg0[0x30]] != 0 &&
                func_ov000_0216fd38((Struct_ov000_0216fd38*)(arg0 + 0x798)) != 0) {
-        unsigned char* var3 = (unsigned char*)func_ov000_02160f20(GetBattleScene_ov000_02160130());
+        unsigned char* var3 = (unsigned char*)GetCurrentBattleAction_ov000_02160f20(GetBattleScene_ov000_02160130());
         func_ov000_0216fdf8((Struct_ov000_0216fdf8*)(arg0 + 0x798), ((short*)(var3 + 0x18))[0]);
         func_ov000_0216fdf8((Struct_ov000_0216fdf8*)(arg0 + 0x798), ((short*)(var3 + 0x18))[1]);
         func_ov000_0216fdf8((Struct_ov000_0216fdf8*)(arg0 + 0x798), ((short*)(var3 + 0x18))[2]);

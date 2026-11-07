@@ -16,7 +16,7 @@
 #include <globaldefs.h>
 
 struct TextWindowManager_0205d2bc;
-extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc* arg0);
+extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(struct TextWindowManager_0205d2bc* windowManager);
 extern "C" void func_ov005_0215a620(void* arg0);
 extern "C" void CopyBGScreenDataToVRAM_0204b088(void* layer, int screenData);
 struct Struct_020439b0;
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov005_02155108(void* arg0) {
 
     if (*(unsigned char*)(var0 + 0x3000 + R(0xd3c, 0xdc4)) != 0xff) return;
 
-    func_0205d2bc((struct TextWindowManager_0205d2bc*)(var0 + R(0xee0, 0x2e4 + 0xc00)));
+    CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((struct TextWindowManager_0205d2bc*)(var0 + R(0xee0, 0x2e4 + 0xc00)));
     func_ov005_0215a620(arg0);
 
     if (*(int*)(var0 + 0x3000 + R(0xd44, 0xdcc)) & 0x100) {

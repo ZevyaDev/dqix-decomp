@@ -108,12 +108,12 @@ struct Struct_0210a010_3 {
     char unknown_0_[0xa0];
     int unknown_a0_;
 };
-extern Struct_0210a010_3 data_0210a010;
+extern Struct_0210a010_3 gRenderConfig_0210a010;
 
-extern "C" void func_020a2010(void* arg0);
-extern "C" void func_0202e5c8(unsigned char* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0202e5d8(void* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0202e0a4(void* arg0);
+extern "C" void InitFollowCamera_020a2010(void* arg0);
+extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
+extern "C" void SetCameraOrbit_0202e5d8(void* camera, int angle, int height, int distance);
+extern "C" void UpdateCamera_0202e0a4(void* camera);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void func_ov006_021542f4(void* arg0);
 
@@ -129,16 +129,16 @@ extern "C" ARM void func_ov006_02154e58(Struct_ov006_02154614* arg0) {
             return;
     }
     if (arg0->unknown_ae4_.unknown_77d_ == 2 && arg0->unknown_ae4_.unknown_79b_1_ && (arg0->unknown_ae4_.unknown_774_ & 4)) {
-        data_0210a010.unknown_a0_ = 0x46501313;
+        gRenderConfig_0210a010.unknown_a0_ = 0x46501313;
         void* var0 = arg0->unknown_5cc_;
         BG0CNT = BG0CNT & ~3;
         BG1CNT = (BG1CNT & ~3) | 1;
         BG2CNT = (BG2CNT & ~3) | 2;
         if (var0 != 0) {
-            func_020a2010(var0);
-            func_0202e5c8((unsigned char*)arg0->unknown_5cc_, 0, -0x1e8f, 0);
-            func_0202e5d8(arg0->unknown_5cc_, 0, 0x2bae, 0x9199);
-            func_0202e0a4(arg0->unknown_5cc_);
+            InitFollowCamera_020a2010(var0);
+            SetCameraTarget_0202e5c8((unsigned char*)arg0->unknown_5cc_, 0, -0x1e8f, 0);
+            SetCameraOrbit_0202e5d8(arg0->unknown_5cc_, 0, 0x2bae, 0x9199);
+            UpdateCamera_0202e0a4(arg0->unknown_5cc_);
             DisableCameraFollow_020a27a0(arg0->unknown_5cc_);
         }
         arg0->unknown_12bd_ = 0;

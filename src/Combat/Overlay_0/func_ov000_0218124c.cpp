@@ -3,10 +3,10 @@
 #include "Resource/GameResources.h"
 
 struct Struct_02000c9c_8;
-struct Struct_0204af14;
+struct BGLayer_0204af14;
 
 extern "C" unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8* gameState);
-extern "C" void* func_0204af14(struct Struct_0204af14* arg0, unsigned int arg1);
+extern "C" void* GetBGScreenBlock_0204af14(struct BGLayer_0204af14* layer, unsigned int screenBlockIndex);
 extern "C" void func_0204b938(void* arg0, void* arg1, int arg2, int arg3, unsigned short arg4);
 extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
@@ -16,13 +16,13 @@ extern "C" int func_ov017_021bdbcc(void*);
 extern "C" ARM void func_ov000_0218124c(unsigned char* arg0, int arg1, void* arg2, int arg3, short arg4, short arg5) {
     GameObject* var0 = GameState::GetInstance()->GetPartyMemberByIndex(arg1);
     if (var0 != 0 && *(int*)((char*)var0 + 0x1b8) != 0) {
-        void* var1 = func_0204af14((Struct_0204af14*)(arg0 + 0x8c4), 28);
+        void* var1 = GetBGScreenBlock_0204af14((BGLayer_0204af14*)(arg0 + 0x8c4), 28);
         func_0204b938(arg2, var1, arg4, arg5, (unsigned short)(arg1 + 2));
         return;
     }
     unsigned char var2 = arg3 + 15;
     if (func_ov017_021bdbcc(GetGameResources()) != 0) var2 = 15;
-    void* var3 = func_0204af14((Struct_0204af14*)(arg0 + 0x8c4), var2);
+    void* var3 = GetBGScreenBlock_0204af14((BGLayer_0204af14*)(arg0 + 0x8c4), var2);
     func_0204b938(arg2, var3, arg4, arg5, (unsigned short)(arg1 + 2));
 }
 #else
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov000_0218124c(unsigned char* arg0, int arg1, void* arg
         var5 = 9;
         break;
     }
-    void* var6 = func_0204af14((struct Struct_0204af14*)(arg0 + 0x8c4), var5);
+    void* var6 = GetBGScreenBlock_0204af14((struct BGLayer_0204af14*)(arg0 + 0x8c4), var5);
     func_0204b938(arg2, var6, (short)(arg4 + 2), (short)(arg5 + 1), arg1 + 2);
     GameObject* var7 = var4->GetPartyMemberByIndex(arg1);
     if (var7 != 0 && *(int*)((char*)var7 + 0x1c4) == 0) {

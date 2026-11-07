@@ -4,9 +4,9 @@ extern "C" unsigned short GetScriptValueAsInt_ov017_021d60f4(int value);
 
 struct Struct_02109bf4_2 {
 	char unknown_0_[0xc9];
-	unsigned char unknown_c9_;
+	unsigned char jingleState_c9_;
 	char unknown_ca_[4];
-	unsigned short unknown_ce_;
+	unsigned short jingleIndex_ce_;
 };
 extern "C" void func_0209c830(Struct_02109bf4_2* arg0, int arg1);
 

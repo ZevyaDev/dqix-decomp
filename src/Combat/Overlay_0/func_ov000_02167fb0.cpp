@@ -9,7 +9,7 @@
 #endif
 extern "C" int func_ov000_02153e40(void* arg0, short* arg1, int arg2, int arg3);
 extern "C" void func_ov000_02167b54(int* arg0, int arg1, int arg2, int arg3);
-extern "C" int func_020493a4(unsigned char* arg0);
+extern "C" int GetCombatantCell_020493a4(unsigned char* combatant);
 extern "C" void func_02049390(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_02049bd4(unsigned char* arg0, int* arg1);
 extern "C" void func_02049c60(unsigned char* arg0, int* arg1);
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov000_02167fb0(struct Struct_ov000_02167fb0* arg0, Game
         int var9 = 0;
         for (int var10 = 0; var10 < var2; var10++) {
             GameObject* var11 = var0->GetCombatantByIndex(var1[var10]);
-            if (var11 != NULL && var8 == func_020493a4((unsigned char*)var11)) {
+            if (var11 != NULL && var8 == GetCombatantCell_020493a4((unsigned char*)var11)) {
                 var9 = 1;
                 break;
             }

@@ -26,7 +26,7 @@ struct Struct_02037d10 {
     int unknown_48_;
     int unknown_4c_;
     short unknown_50_;
-    unsigned char unknown_52_;
+    unsigned char isPartyOrderRebuildPending_52_;
     unsigned char unknown_53_;
     unsigned char unknown_54_;
     Struct_020134e0::Struct_02018300* unknown_58_;

@@ -6,8 +6,8 @@ struct Struct_ov023_021e7b34_2 {
     int unknown_5dc_;
 };
 
-struct Struct_0204af14;
-extern "C" void* func_0204af14(Struct_0204af14*, unsigned int);
+struct BGLayer_0204af14;
+extern "C" void* GetBGScreenBlock_0204af14(BGLayer_0204af14*, unsigned int);
 
 struct Struct_0204ae44;
 extern "C" void func_0204ae44(Struct_0204ae44*, int);
@@ -25,8 +25,8 @@ extern "C" ARM int func_ov023_021e7b34(Struct_ov023_021e7b34_2* arg0, int arg1) 
     if (arg0->unknown_5dc_ == 0) return 1;
     int var0 = (arg1 >= 0 && arg1 <= 3) ? 1 : 0;
     if (!var0) return 1;
-    Struct_0204af14* var1 = (Struct_0204af14*)((char*)arg0 + 0x154);
-    void* var2 = func_0204af14(var1, 0);
+    BGLayer_0204af14* var1 = (BGLayer_0204af14*)((char*)arg0 + 0x154);
+    void* var2 = GetBGScreenBlock_0204af14(var1, 0);
     if (var2 == NULL) return 1;
     func_0204ae44((Struct_0204ae44*)var2, (unsigned short)(arg1 + 0xc));
     Struct_ov023_021e7b34* var3 = (Struct_ov023_021e7b34*)var2;

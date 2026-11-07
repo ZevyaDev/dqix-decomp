@@ -29,7 +29,7 @@ extern "C" void func_ov013_021846a0(char *);
 extern "C" void *GetGlobalFlags_020d6c00();
 extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8 *, unsigned int);
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4 *, unsigned int);
-extern "C" void func_020a1f4c(int);
+extern "C" void PopSubOverlay_020a1f4c(int);
 
 #define S32(o) (*(int *) (arg0 + (o)))
 
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov002_0216c654(char *arg0) {
             func_020dc2d0(0);
         }
         if (*(unsigned char *) (arg0 + 0x1c33 + Enum_ov002_0216c654_0) != 0) {
-            func_020a1f4c(1);
+            PopSubOverlay_020a1f4c(1);
             *(unsigned char *) (arg0 + 0x1c33 + Enum_ov002_0216c654_0) = 0;
         }
         S32(0x1bb8 + Enum_ov002_0216c654_0) = Enum_ov002_0216c654_43;

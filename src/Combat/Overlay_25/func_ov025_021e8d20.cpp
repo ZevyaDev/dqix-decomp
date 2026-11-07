@@ -5,7 +5,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void* GetBattleScene_ov000_02160130();
-extern "C" void* func_ov000_02160f20(void* arg0);
+extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 struct BattleAction_ov000_0215440c_2;
 extern "C" void* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
 struct BattleAction_ov000_0215440c;
@@ -34,7 +34,7 @@ struct SafeAllocator;
 extern int data_ov025_021efb88;
 #else
 #endif
-extern "C" void* func_ov000_02160f08(void* arg0);
+extern "C" void* GetBattleUI_ov000_02160f08(void* battleScene);
 extern "C" short* func_ov025_021dafd0(char*, int);
 extern "C" void func_ov025_021ded50(void* arg0, void* arg1);
 
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
     void* var3 = GameState::GetInstance();
     ActionTables_02108e10* var4 = GetActionTables_020797dc();
     void* var5 = GetBattleScene_ov000_02160130();
-    Struct_ov000_021700dc* var6 = (Struct_ov000_021700dc*)func_ov000_02160f20(var5);
+    Struct_ov000_021700dc* var6 = (Struct_ov000_021700dc*)GetCurrentBattleAction_ov000_02160f20(var5);
     *(char**)arg0 = arg1;
     *(int*)(arg0 + 4) = *(int*)(arg1 + 8);
     int var7 = 0;
@@ -288,7 +288,7 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
     void* var34 = BackgroundLoader::GetInstance();
     int var35 = 0;
     Struct_ov000_0215b278* var36 = (Struct_ov000_0215b278*)GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var6, 0);
-    void* var37 = func_ov000_02160f08(var5);
+    void* var37 = GetBattleUI_ov000_02160f08(var5);
     short* var38 = 0;
     if (var36 != 0) var38 = func_ov025_021dafd0((char*)var37, var36->unknown_20_);
     if (var38 != 0) var35 = var38[0x2c / 2];

@@ -61,7 +61,7 @@ extern "C" void func_ov023_021dac40(void* arg0, unsigned int arg1);
 extern "C" int func_ov009_0218a930(void* arg0, unsigned int arg1);
 extern "C" void func_0202ee38(char* arg0, int arg1, int arg2);
 extern "C" void func_0202ee58(char* arg0, int arg1, int arg2);
-extern "C" void func_0209c678(MusicManager_02109bf4_4* arg0, int arg1);
+extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4* manager, int fadeDuration);
 extern "C" int func_0202eeb4(char* arg0);
 extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
@@ -72,7 +72,7 @@ extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectInde
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
-extern "C" void func_0205ebec(void* arg0);
+extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
 #if defined(jpn)
 #define func_ov009_021855dc func_ov009_021867bc
 extern "C" void func_ov009_021855dc(unsigned char* arg0, int arg1);
@@ -159,7 +159,7 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
         func_0202ee58(arg0->unknown_924_, (int)&var7, 0x1e000);
         arg0->unknown_d98_ = 90;
         arg0->unknown_d9c_ |= 0x10000;
-        func_0209c678((MusicManager_02109bf4_4*)gMusicManager_02109bf4, 120);
+        StopMusic_0209c678((MusicManager_02109bf4_4*)gMusicManager_02109bf4, 120);
         arg0->unknown_c59_ = 1;
         int* var8 = arg0->unknown_c5c_;
         for (unsigned char var9 = 0; var9 < 3; var9++)
@@ -345,7 +345,7 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
         ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var3, 0x100);
         ColorEffect_ConfigureBrightnessAdjust(REG_BLDCNT, 0x1f, 0);
         ColorEffect_ConfigureBrightnessAdjust(REG_BLDCNT_SUB, 0x1f, 0);
-        func_0205ebec(gSoundEffectManager_02108760);
+        UnloadExtraSoundSet_0205ebec(gSoundEffectManager_02108760);
         arg0->unknown_c59_ = 11;
         break;
     case 11:

@@ -13,13 +13,13 @@ struct Struct_0209cf44 {
 #define func_0209e8cc func_020a0644
 #endif
 
-extern "C" void* func_0209dccc();
+extern "C" void* GetQuestBattleScript_0209dccc();
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" void func_0209e8cc(void*, int, int);
 
 // USA: func_0209cf44
 extern "C" ARM int func_0209cf44(void* arg0) {
-    void* var0 = func_0209dccc();
+    void* var0 = GetQuestBattleScript_0209dccc();
     if (var0 == NULL) return 0;
     Struct_0209cf44* var1 = (Struct_0209cf44*)arg0;
     int var2 = GetScriptValueAsInt_ov017_021d60f4(&var1[0]);

@@ -286,14 +286,14 @@ void MaterialBindProc(RenderCommandHandler* handler, int modifier, NSBXXMaterial
                 targetData->flags_ |= 0x20;
             
             int difambMask = data_020e9240[(material->flags_ >> 6) & 7];
-            targetData->paramDIF_AMB_ = (data_0210a010.diffuseAmbientArg & ~difambMask) |
+            targetData->paramDIF_AMB_ = (gRenderConfig_0210a010.diffuseAmbientArg & ~difambMask) |
                 (material->paramDIF_AMB_ & difambMask);
 
             int speemiMask = data_020e9240[(material->flags_ >> 9) & 7];
-            targetData->paramSPE_EMI_ = (data_0210a010.specularArg & ~speemiMask) |
+            targetData->paramSPE_EMI_ = (gRenderConfig_0210a010.specularArg & ~speemiMask) |
                 (material->paramSPE_EMI_ & speemiMask);
 
-            targetData->paramPOLYGON_ATTR_ = (data_0210a010.polygonAttrArg & ~material->maskPOLYGON_ATTR_) |
+            targetData->paramPOLYGON_ATTR_ = (gRenderConfig_0210a010.polygonAttrArg & ~material->maskPOLYGON_ATTR_) |
                 (material->paramPOLYGON_ATTR_ & material->maskPOLYGON_ATTR_);
             targetData->paramTEXIMAGE_PARAMS_ = material->paramTEXIMAGE_PARAMS_;
             targetData->texturePaletteBase_ = material->texturePaletteVRAMOffset_;
@@ -718,17 +718,17 @@ void RenderCommand_7(RenderCommandHandler* handler, int modifier)
         // get the current world * view matrix (we set projection matrix to identity, so
         // it doesn't contribute here)
         while (func_020c54fc(&clipMatrix) != 0) {}
-        if (data_0210a010.flags & (1 << RENDER_CONFIG_FLAG_0))
+        if (gRenderConfig_0210a010.flags & (1 << RENDER_CONFIG_FLAG_0))
         {
             const Matrix4x3* worldView4x3 = RenderConfig::GetCombinedWorldViewMatrix();
             Matrix4x4 worldView;
             Mat4x3_ConvertTo4x4(worldView4x3, &worldView);
             Mat4x4_Multiply(&clipMatrix, &worldView, &clipMatrix);
         }
-        else if (data_0210a010.flags & (1 << RENDER_CONFIG_FLAG_1))
+        else if (gRenderConfig_0210a010.flags & (1 << RENDER_CONFIG_FLAG_1))
         {
             Matrix4x4 view4x4;
-            Mat4x3_ConvertTo4x4(&data_0210a010.viewMatrix, &view4x4);
+            Mat4x3_ConvertTo4x4(&gRenderConfig_0210a010.viewMatrix, &view4x4);
             Mat4x4_Multiply(&clipMatrix, &view4x4, &clipMatrix);
         }
 
@@ -745,7 +745,7 @@ void RenderCommand_7(RenderCommandHandler* handler, int modifier)
         // note: if clipMatrix has a representation as (scaling) * (rotation) * (translation)
         // then the above is extracting the scaling and translation components
 
-        if (data_0210a010.flags & (1 << RENDER_CONFIG_FLAG_0))
+        if (gRenderConfig_0210a010.flags & (1 << RENDER_CONFIG_FLAG_0))
         {
             GXFIFO = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_PopMatrix, GXFifoCommand_SetMatrixMode, GXFifoCommand_LoadMat4x3);
             func_020ca430(&data_020f1d78.popMatrixParameter, &GXFIFO, 8); // pass pop / matrix mode commands
@@ -757,7 +757,7 @@ void RenderCommand_7(RenderCommandHandler* handler, int modifier)
             GXFIFO = COMBINE_GXFIFO_COMMANDS2(GXFifoCommand_MultiplyMat4x3, GXFifoCommand_ScaleMatrix);
             func_020ca430(&data_020f1d78.rotationTranslation, &GXFIFO, (4*3 + 3) * sizeof(fix32_t));
         }
-        else if (data_0210a010.flags & (1 << RENDER_CONFIG_FLAG_1))
+        else if (gRenderConfig_0210a010.flags & (1 << RENDER_CONFIG_FLAG_1))
         {
             GXFIFO = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_PopMatrix, GXFifoCommand_SetMatrixMode, GXFifoCommand_LoadMat4x3);
             func_020ca430(&data_020f1d78.popMatrixParameter, &GXFIFO, 8);
@@ -849,17 +849,17 @@ void RenderCommand_8(RenderCommandHandler* handler, int modifier)
         GXFIFO = 0; // why is this here?
         Matrix4x4 clipMatrix;
         while (func_020c54fc(&clipMatrix) != 0) {}
-        if (data_0210a010.flags & (1 << RENDER_CONFIG_FLAG_0))
+        if (gRenderConfig_0210a010.flags & (1 << RENDER_CONFIG_FLAG_0))
         {
             const Matrix4x3* worldView4x3 = RenderConfig::GetCombinedWorldViewMatrix();
             Matrix4x4 worldView;
             Mat4x3_ConvertTo4x4(worldView4x3, &worldView);
             Mat4x4_Multiply(&clipMatrix, &worldView, &clipMatrix);
         }
-        else if (data_0210a010.flags & (1 << RENDER_CONFIG_FLAG_1))
+        else if (gRenderConfig_0210a010.flags & (1 << RENDER_CONFIG_FLAG_1))
         {
             Matrix4x4 view4x4;
-            Mat4x3_ConvertTo4x4(&data_0210a010.viewMatrix, &view4x4);
+            Mat4x3_ConvertTo4x4(&gRenderConfig_0210a010.viewMatrix, &view4x4);
             Mat4x4_Multiply(&clipMatrix, &view4x4, &clipMatrix);
         }
 
@@ -892,7 +892,7 @@ void RenderCommand_8(RenderCommandHandler* handler, int modifier)
         // then the above extracts the components, and reduces the rotation part to
         // only be a rotation in the x-axis
 
-        if (data_0210a010.flags & (1 << RENDER_CONFIG_FLAG_0))
+        if (gRenderConfig_0210a010.flags & (1 << RENDER_CONFIG_FLAG_0))
         {
             GXFIFO = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_PopMatrix, GXFifoCommand_SetMatrixMode, GXFifoCommand_LoadMat4x3);
             func_020ca430(&data_020f1dc0.popMatrixParameter, &GXFIFO, 8); // pass pop / matrix mode commands
@@ -903,7 +903,7 @@ void RenderCommand_8(RenderCommandHandler* handler, int modifier)
             GXFIFO = COMBINE_GXFIFO_COMMANDS2(GXFifoCommand_MultiplyMat4x3, GXFifoCommand_ScaleMatrix);
             func_020ca430(&data_020f1dc0.rotationTranslation, &GXFIFO, (4*3 + 3) * sizeof(fix32_t));
         }
-        else if (data_0210a010.flags & (1 << RENDER_CONFIG_FLAG_1))
+        else if (gRenderConfig_0210a010.flags & (1 << RENDER_CONFIG_FLAG_1))
         {
             GXFIFO = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_PopMatrix, GXFifoCommand_SetMatrixMode, GXFifoCommand_LoadMat4x3);
             func_020ca430(&data_020f1dc0.popMatrixParameter, &GXFIFO, 8);
@@ -1190,15 +1190,15 @@ void RenderCommand_12(RenderCommandHandler* handler, int modifier)
             GetCurrentPositionAndDirectionMatrices(NULL, &directionMat3x3);
             uint32_t textureMode = 3;
             SubmitCommandToGeometryFifo(GXFifoCommand_SetMatrixMode, &textureMode, 1);
-            if (data_0210a010.flags & (1 << RENDER_CONFIG_FLAG_0))
+            if (gRenderConfig_0210a010.flags & (1 << RENDER_CONFIG_FLAG_0))
             {
-                SubmitCommandToGeometryFifo(GXFifoCommand_MultiplyMat3x3, (uint32_t*)&data_0210a010.viewMatrix.entries, 9);
-                SubmitCommandToGeometryFifo(GXFifoCommand_MultiplyMat3x3, (uint32_t*)&data_0210a010.objectRotationPosition.rotation.entries, 9);
+                SubmitCommandToGeometryFifo(GXFifoCommand_MultiplyMat3x3, (uint32_t*)&gRenderConfig_0210a010.viewMatrix.entries, 9);
+                SubmitCommandToGeometryFifo(GXFifoCommand_MultiplyMat3x3, (uint32_t*)&gRenderConfig_0210a010.objectRotationPosition.rotation.entries, 9);
                 SubmitCommandToGeometryFifo(GXFifoCommand_MultiplyMat3x3, (uint32_t*)&directionMat3x3.entries, 9);
             }
-            else if (data_0210a010.flags & (1 << RENDER_CONFIG_FLAG_1))
+            else if (gRenderConfig_0210a010.flags & (1 << RENDER_CONFIG_FLAG_1))
             {
-                SubmitCommandToGeometryFifo(GXFifoCommand_MultiplyMat3x3, (uint32_t*)&data_0210a010.viewMatrix.entries, 9);
+                SubmitCommandToGeometryFifo(GXFifoCommand_MultiplyMat3x3, (uint32_t*)&gRenderConfig_0210a010.viewMatrix.entries, 9);
                 SubmitCommandToGeometryFifo(GXFifoCommand_MultiplyMat3x3, (uint32_t*)&directionMat3x3.entries, 9);
             }
             else
@@ -1303,13 +1303,13 @@ void RenderCommand_13(RenderCommandHandler* handler, int modifier)
 
         if (flagbit6 == 0)
         {
-            if (data_0210a010.flags & (1 << RENDER_CONFIG_FLAG_0))
+            if (gRenderConfig_0210a010.flags & (1 << RENDER_CONFIG_FLAG_0))
             {
-                SubmitCommandToGeometryFifo(GXFifoCommand_TranslateMatrix, (uint32_t*)&data_0210a010.objectRotationPosition.translation, 3);
-                SubmitCommandToGeometryFifo(GXFifoCommand_MultiplyMat3x3, (uint32_t*)&data_0210a010.objectRotationPosition.rotation.entries, 9);
+                SubmitCommandToGeometryFifo(GXFifoCommand_TranslateMatrix, (uint32_t*)&gRenderConfig_0210a010.objectRotationPosition.translation, 3);
+                SubmitCommandToGeometryFifo(GXFifoCommand_MultiplyMat3x3, (uint32_t*)&gRenderConfig_0210a010.objectRotationPosition.rotation.entries, 9);
                 SubmitCommandToGeometryFifo(GXFifoCommand_MultiplyMat4x3, (uint32_t*)&worldView.entries, 12);
             }
-            else if (data_0210a010.flags & (1 << RENDER_CONFIG_FLAG_1))
+            else if (gRenderConfig_0210a010.flags & (1 << RENDER_CONFIG_FLAG_1))
             {
                 SubmitCommandToGeometryFifo(GXFifoCommand_MultiplyMat4x3, (uint32_t*)&worldView.entries, 12);
             }

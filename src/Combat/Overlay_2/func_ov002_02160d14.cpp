@@ -35,7 +35,7 @@ extern "C" void SetMessageNumber_020465c0(void *window, int index, int number);
 extern "C" void SetMessageNumberWidth_020465f0(void *window, int index, unsigned char width);
 extern "C" void SetMessageNumberAlignment_020465d8(void *window, int index, unsigned char alignment);
 extern "C" void ClearMessageParams_02046380(void *window);
-extern "C" unsigned short func_0202053c(GameObject *arg0);
+extern "C" unsigned short GetLevel_0202053c(GameObject *gameObject);
 extern "C" int func_ov017_021bdbcc(GameResources *arg0);
 extern "C" unsigned char func_ov002_02160fd8(GameObject *arg0);
 extern "C" int sprintf(char *arg0, const char *arg1, ...);
@@ -66,16 +66,16 @@ extern "C" ARM void func_ov002_02160d14(Struct_ov002_02160d14 *arg0, char *arg1)
     }
     int var5 = strlen(var2->baseStats_->unk) + 6;
     if (func_ov002_02160fd8(var2)) var5++;
-    if (func_0202053c(var2) >= 10) var5++;
+    if (GetLevel_0202053c(var2) >= 10) var5++;
     int var15 = 50 - (int) (10.0f * ((float) var5 / 4.0f));
     if (func_ov002_02160fd8(var2)) {
         short var16 = func_ov002_02160fd8(var2) + 0x8fc;
         const char *var6 = FindStringInTable_020e0434(arg0->unknown_8_, var16);
         char *var14 = var2->baseStats_->unk;
-        sprintf(arg1, data_ov002_0216d94c, var15, var14, var3, var6, func_0202053c(var2));
+        sprintf(arg1, data_ov002_0216d94c, var15, var14, var3, var6, GetLevel_0202053c(var2));
     } else {
         char *var14 = var2->baseStats_->unk;
-        sprintf(arg1, data_ov002_0216d9be, var15, var14, var3, func_0202053c(var2));
+        sprintf(arg1, data_ov002_0216d9be, var15, var14, var3, GetLevel_0202053c(var2));
     }
     func_02042638(arg1, data_ov002_0216da1c, 0x10);
     void *var7 = GetMessageWindow_020421a0();

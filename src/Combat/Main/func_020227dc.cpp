@@ -9,13 +9,13 @@
 
 extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" char* GetOAMManager_0203bd08(void);
-extern "C" ARM void* func_0203b628(void);
+extern "C" ARM void* GetBGVRAMManager_0203b628(void);
 
 extern "C" void func_02021428(void* arg0, int arg1);
 extern "C" void func_020209d0(void* arg0);
 extern "C" void func_0203b66c(char* arg0);
 extern "C" void func_0203bd78(char* arg0);
-extern "C" void func_0203bd24(char* arg0);
+extern "C" void ResetOAMManager_0203bd24(char* oamManager);
 
 extern "C" int func_0203b784(int* arg0, int arg1, int arg2, int arg3, unsigned int arg4, unsigned int arg5);
 extern "C" void func_0203b718(void* arg0, int arg1, int arg2, int arg3);
@@ -91,7 +91,7 @@ extern "C" ARM void func_020227dc(Struct_02020554* arg0) {
     unsigned short* var1 = GetZone3D_02012fe4();
     char* var2 = ((char*)GetGameResources());
     char* var3 = GetOAMManager_0203bd08();
-    void* var4 = func_0203b628();
+    void* var4 = GetBGVRAMManager_0203b628();
     int var5;
     SafeAllocator* var6 = (SafeAllocator*)(var2 + 0x128);
 
@@ -119,7 +119,7 @@ extern "C" ARM void func_020227dc(Struct_02020554* arg0) {
     func_0203b66c((char*)var4);
     var6->Reset();
     func_0203bd78(var3);
-    func_0203bd24(var3);
+    ResetOAMManager_0203bd24(var3);
 
     char var7[0x20];
     memset(var7, 0, 0x20);

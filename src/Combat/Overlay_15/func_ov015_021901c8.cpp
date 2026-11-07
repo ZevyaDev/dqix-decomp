@@ -23,14 +23,14 @@ struct Struct_ov015_02193d38
     unsigned short unknown_0_[8];
 };
 
-extern "C" void func_020c52e8();
-extern "C" void func_020c5414();
+extern "C" void ResetGeometryEngine_020c52e8();
+extern "C" void ResetMatrixStacks_020c5414();
 extern "C" int func_020c555c(int arg0);
 extern "C" void* GetCamera_020100bc(GameState* gameState);
-extern "C" void func_0202e0a4(void* arg0);
+extern "C" void UpdateCamera_0202e0a4(void* camera);
 extern "C" void func_020c57d4(int arg0, int arg1, int arg2, int arg3, void* arg4);
 extern "C" void func_020c5770(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, void* arg8);
-extern "C" void func_020d86d0(int arg0, int arg1);
+extern "C" void Swap3DBuffers_020d86d0(int keepTranslucentOrder, int useWDepth);
 extern "C" void func_ov015_02190348(void* arg0);
 extern "C" void func_ov015_02190428(void* arg0);
 extern "C" void func_ov015_0219050c(void* arg0);
@@ -45,8 +45,8 @@ extern "C" ARM void func_ov015_021901c8(void* arg0)
     GameState* var0 = GameState::GetInstance();
     if (var0 == NULL)
         return;
-    func_020c52e8();
-    func_020c5414();
+    ResetGeometryEngine_020c52e8();
+    ResetMatrixStacks_020c5414();
     RenderConfig::Reset();
     DISP3DCNT = (DISP3DCNT & ~0x3000) | 8;
     DISP3DCNT = (DISP3DCNT & ~0x3000) | 0x10;
@@ -57,12 +57,12 @@ extern "C" ARM void func_ov015_021901c8(void* arg0)
     }
     void* var2 = GetCamera_020100bc(var0);
     if (var2 != NULL)
-        func_0202e0a4(var2);
+        UpdateCamera_0202e0a4(var2);
     RenderConfig::SubmitToFifo();
     SendQueuedDataToGeometryFifo();
     func_ov015_02190348(arg0);
-    func_020c52e8();
-    func_020c5414();
+    ResetGeometryEngine_020c52e8();
+    ResetMatrixStacks_020c5414();
     GXFIFO_MATRIX_MODE = 0;
     {
         Vector3fix var3 = data_ov015_02193d14;
@@ -74,6 +74,6 @@ extern "C" ARM void func_ov015_021901c8(void* arg0)
     GXFIFO_MATRIX_MODE = 2;
     func_ov015_02190428(arg0);
     func_ov015_0219050c(arg0);
-    func_020d86d0(1, 0);
+    Swap3DBuffers_020d86d0(1, 0);
     UpdateAndApplyBrightness((GameResources*)arg0);
 }

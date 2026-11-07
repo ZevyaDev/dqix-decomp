@@ -6,7 +6,7 @@ extern char* data_ov004_021707c0; // pointer to struct with fields at 0x78 (shor
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" void func_ov004_021536e0(void*, int, int);
-extern "C" int func_ov023_021f809c(void*, void*);
+extern "C" int RedrawMenuWindow_ov023_021f809c(void*, void*);
 #if defined(jpn)
 extern "C" unsigned int func_ov023_021f6f10(void* arg0);
 #define NODE_KIND_CALL func_ov023_021f6f10
@@ -45,6 +45,6 @@ extern "C" ARM int func_ov004_02154250(void* arg0) {
     void* var6 = FindMenuObjectById_ov023_021f6880(var3, 0x10);
     if (!var6) return 0;
     if (NODE_KIND_CALL(var6) != 6) return 0;
-    func_ov023_021f809c(var6, arg0);
+    RedrawMenuWindow_ov023_021f809c(var6, arg0);
     return 0;
 }

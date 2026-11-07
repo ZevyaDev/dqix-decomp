@@ -94,7 +94,7 @@ struct Struct_ov014_02186bc8 {
     short unknown_182_[8];
 };
 
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 struct Struct_02081f20_2;
 struct Struct_ov014_02187450;
 struct Struct_ov014_02187450_2;
@@ -102,7 +102,7 @@ struct Struct_ov014_02184f10;
 
 extern "C" short func_02080468(void* arg0, int arg1);
 extern "C" void func_0208203c(Struct_02081f20_2*);
-extern "C" void func_0207fdcc(Struct_0207fdcc_2*, int);
+extern "C" void CloseMenuLayoutWindow_0207fdcc(MenuLayout_0207fdcc_2*, int);
 extern "C" int func_ov014_02186ff0(char*);
 extern "C" Struct_020a95a4_5* func_ov014_02187450(Struct_ov014_02187450*, Struct_ov014_02187450_2*);
 extern "C" void func_ov014_02184f10(Struct_ov014_02184f10*, int, int);
@@ -201,11 +201,11 @@ extern "C" ARM void func_ov014_02188010(Struct_ov014_02186bc8* arg0)
             arg0->unknown_48_ = NULL;
             arg0->unknown_4c_ = NULL;
             arg0->unknown_17e_ |= 0x10;
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_c0_, arg0->unknown_170_);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_c0_, arg0->unknown_170_);
             arg0->unknown_17b_ = 0;
             arg0->unknown_d0_ = NULL;
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_c0_, 4);
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_c0_, 3);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_c0_, 4);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_c0_, 3);
             func_ov014_02184d08(arg0);
         }
     }

@@ -7,7 +7,7 @@ struct Struct_0204ecb4 {
 };
 
 extern "C" int func_0204fd00(Struct_0204ecb4* arg0, int arg1);
-extern "C" void* func_020421b0(int arg0);
+extern "C" void* GetWindowTile_020421b0(int tileIndex);
 extern "C" void func_0204e1c8(Struct_0204ecb4* arg0, void* arg1, short arg2, short arg3, int arg4, int arg5, int arg6, int arg7);
 
 static inline short inline_0204ecb4(short arg0) {
@@ -38,12 +38,12 @@ extern "C" ARM void func_0204ecb4(Struct_0204ecb4* arg0, int arg1, int arg2, sho
     } else if (var5 == 2) {
         var6 = 12;
     }
-    void* var7 = func_020421b0(var6);
+    void* var7 = GetWindowTile_020421b0(var6);
     if (var7) {
         func_0204e1c8(arg0, var7, var3, var1, 8, 8, 0xf0, 0xf);
     }
 
-    void* var8 = func_020421b0(1);
+    void* var8 = GetWindowTile_020421b0(1);
     if (var8) {
         for (short var9 = 1; var9 < arg0->unknown_a8_ - 1; var9++) {
             func_0204e1c8(arg0, var8, inline_0204ecb4(var9), var1, 8, 8, 0xf0, 0xf);
@@ -58,19 +58,19 @@ extern "C" ARM void func_0204ecb4(Struct_0204ecb4* arg0, int arg1, int arg2, sho
     } else if (var5 == 2) {
         var6 = 13;
     }
-    var7 = func_020421b0(var6);
+    var7 = GetWindowTile_020421b0(var6);
     if (var7) {
         func_0204e1c8(arg0, var7, inline_0204ecb4(var10 - 1) - var4, var1, 8, 8, 0xf0, 0xf);
     }
 
-    var7 = func_020421b0(3);
+    var7 = GetWindowTile_020421b0(3);
     if (var7) {
         for (short var11 = 1; var11 < arg0->unknown_aa_ - 1; var11++) {
             func_0204e1c8(arg0, var7, var3, inline_0204ecb4(var11), 8, 8, 0xf0, 0xf);
         }
     }
 
-    var7 = func_020421b0(4);
+    var7 = GetWindowTile_020421b0(4);
     var0 = inline_0204ecb4(arg0->unknown_a8_ - 1);
     if (var7) {
         for (short var12 = 1; var12 < arg0->unknown_aa_ - 1; var12++) {
@@ -86,12 +86,12 @@ extern "C" ARM void func_0204ecb4(Struct_0204ecb4* arg0, int arg1, int arg2, sho
     } else if (var5 == 4) {
         var6 = 14;
     }
-    var7 = func_020421b0(var6);
+    var7 = GetWindowTile_020421b0(var6);
     if (var7) {
         func_0204e1c8(arg0, var7, var3, inline_0204ecb4(var13 - 1) - var2, 8, 8, 0xf0, 0xf);
     }
 
-    void* var14 = func_020421b0(6);
+    void* var14 = GetWindowTile_020421b0(6);
     var0 = inline_0204ecb4(arg0->unknown_aa_ - 1);
     if (var14) {
         for (short var15 = 1; var15 < arg0->unknown_a8_ - 1; var15++) {
@@ -108,7 +108,7 @@ extern "C" ARM void func_0204ecb4(Struct_0204ecb4* arg0, int arg1, int arg2, sho
     } else if (var5 == 4) {
         var6 = 15;
     }
-    var7 = func_020421b0(var6);
+    var7 = GetWindowTile_020421b0(var6);
     if (var7) {
         func_0204e1c8(arg0, var7, inline_0204ecb4(var10 - 1) - var4, inline_0204ecb4(var13 - 1) - var2, 8, 8, 0xf0, 0xf);
     }

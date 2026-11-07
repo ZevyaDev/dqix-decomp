@@ -49,13 +49,13 @@ struct Struct_ov006_02154a60_2 {
 extern "C" {
 void func_0207fcb8(void*);
 void func_0207fd44(void*);
-void func_020c5414();
+void ResetMatrixStacks_020c5414();
 extern Matrix4x3* data_ov006_0216038c[3];
 struct Struct_ov006_0215ff6c { unsigned char unknown_0_[4][4]; };
 extern Struct_ov006_0215ff6c data_ov006_0215ff6c;
 extern int data_0210a00c;
 void* GetCamera_020100bc(GameState*);
-void func_0202ec84(void*, const Vector3fix*, int*, int*);
+void ConvertWorldToScreen_0202ec84(void*, const Vector3fix*, int*, int*);
 void GetOAMManager_0203bd08();
 void* func_0203be40();
 void func_02076988(Struct_ov006_02154a60*, int, int);
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov006_02154a60(Struct_ov006_02154a60_2* arg0)
     if (arg0->unknown_ae2_ & 8) return;
     Matrix4x3 var1[3];
     for (int var2 = 0; var2 < 3; var2++) data_ov006_0216038c[var2] = &var1[var2];
-    func_020c5414();
+    ResetMatrixStacks_020c5414();
     RenderConfig::SubmitToFifo();
     ((Object3D*)((char*)arg0 + R(0x368, 0x4e8)))->MaybeUpdateBonePositions();
     for (int var3 = 0; var3 < 3; var3++) data_ov006_0216038c[var3] = NULL;
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov006_02154a60(Struct_ov006_02154a60_2* arg0)
             Vector3fix var15 = arg0->unknown_328_;
             Vector3fix_Add(&var13, &var15, &var14);
             int var16, var17;
-            func_0202ec84(var10, &var14, &var16, &var17);
+            ConvertWorldToScreen_0202ec84(var10, &var14, &var16, &var17);
             var11->unknown_76_ = var16 - 18;
             var11->unknown_78_ = var17 - 12;
         }

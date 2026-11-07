@@ -2,7 +2,7 @@
 
 extern "C" void func_0203a914(void* arg0);
 extern "C" void func_020bc078(int* arg0);
-extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
+extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
 extern "C" void func_0209ca70(void* arg0, int arg1);
 
 struct Struct_02000c9c_16 {
@@ -33,7 +33,7 @@ extern "C" ARM void func_0209c174(struct Struct_02000c9c_16* arg0) {
     func_020bc078((int*)&arg0->unknown_c0_);
     func_020bc078((int*)&arg0->unknown_c4_);
     arg0->unknown_c8_ &= ~1;
-    func_0209c2e0(arg0, 0x7f, 0);
+    SetMusicVolume_0209c2e0(arg0, 0x7f, 0);
     func_0209ca70(arg0, 3);
     arg0->unknown_ce_ = -1;
     arg0->unknown_c9_ = 0;

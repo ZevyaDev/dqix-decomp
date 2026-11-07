@@ -17,8 +17,8 @@ enum { Enum_ov003_02173508_292 = 0x124 };
 #endif
 
 extern "C" void func_020dc2bc(void);
-struct Struct_02074b64;
-extern "C" void func_02074b64(struct Struct_02074b64* arg0);
+struct BGControlSave_02074b64;
+extern "C" void SaveSubBGControl_02074b64(struct BGControlSave_02074b64* save);
 
 struct Struct_ov003_02173508 {
     char unknown_0_[Enum_ov003_02173508_237];
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov003_02173508(Struct_ov003_02173508* arg0) {
     if (arg0->unknown_ef_ != 0) return;
 
     func_020dc2bc();
-    func_02074b64((struct Struct_02074b64*)((char*)arg0 + Enum_ov003_02173508_268));
+    SaveSubBGControl_02074b64((struct BGControlSave_02074b64*)((char*)arg0 + Enum_ov003_02173508_268));
 
     volatile unsigned int* var0 = (volatile unsigned int*)0x4001000;
     arg0->unknown_124_ = (*var0 & 0x1f00) >> 8;

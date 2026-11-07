@@ -96,8 +96,8 @@ extern "C" void func_02048150(void* arg0, int arg1, int arg2);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void func_ov017_021917f0(int arg0, int arg1);
 extern "C" void func_ov017_02191234(int arg0);
-extern "C" void func_ov017_021baedc(void* arg0, int arg1);
-extern "C" void func_ov017_02191108(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void ResetEventTask_ov017_021baedc(void* node, int arg1);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(int gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 extern "C" void func_ov017_02191aac(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_0219bd1c(int arg0, int arg1, int arg2, int arg3);
@@ -151,13 +151,13 @@ extern "C" void func_020398a4(unsigned char* arg0);
 struct Struct_02033834;
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 extern "C" int func_ov017_0218fcf8(int arg0, int arg1, int arg2);
-extern "C" void func_02039d24(unsigned char* arg0);
+extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 extern "C" void func_02039758(void* arg0, int arg1);
 
-struct Struct_0202b2f0;
+struct LocalWireless_0202b2f0;
 struct LocalWireless_0202c1a4;
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
-extern "C" int func_0202c1c0(struct Struct_0202b2f0* arg0, int arg1);
+extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" void func_ov017_021cc4b8(int arg0, int arg1, int arg2);
 extern "C" void func_02053ec8(void* arg0, int arg1);
 
@@ -176,7 +176,7 @@ extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 struct ObjectArchiveLoadInfo_0203d028_11;
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo);
 
-extern "C" void func_0205ea20(void* arg0, int arg1);
+extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
 
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
@@ -195,7 +195,7 @@ extern "C" void* func_020e3580(void);
 extern "C" int func_020e37e8(unsigned char* arg0);
 extern "C" void func_020e3798(unsigned char* arg0);
 
-extern "C" void func_020bb48c(unsigned int arg0, int arg1);
+extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install);
 extern "C" void func_ov017_021c8c04(int, int, int);
 extern "C" void _ZN8Object3D10SetField06Et(void* arg0, int arg1);
 
@@ -239,7 +239,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
 
     GameState* var9 = GameState::GetInstance();
     int var10 = (int)GetGameResources();
-    struct Struct_0202b2f0* var11 = (struct Struct_0202b2f0*)GetLocalWireless_0202ae18();
+    struct LocalWireless_0202b2f0* var11 = (struct LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
     unsigned short* var12 = GetZone3D_02012fe4();
     GetOAMManager_0203bd08();
 
@@ -257,7 +257,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
         GameObject* var21 = var9->GetPartyMemberByIndex(GetProtagonistObjectIndex_020100a8(var9));
         if (var21 != NULL && IsDead_02010088((struct Struct_02010088*)var21)) {
             func_0208902c(*(unsigned char**)((char*)var21 + 0x138), 1);
-            func_ov017_02191108(var10, 1, 1, 1, 1);
+            RebuildFieldPartyOrder_ov017_02191108(var10, 1, 1, 1, 1);
         }
     }
 
@@ -367,7 +367,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
                 var36->obj3D_.unknown_9c_ = 0;
                 var36->obj3D_.SetField9e(0);
                 func_ov017_0218fcf8(var10, var35, 0);
-                func_02039d24((unsigned char*)var36);
+                ResetFollowTrail_02039d24((unsigned char*)var36);
                 func_020398a4((unsigned char*)var36);
                 func_02039758(var36, 0);
 
@@ -376,7 +376,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
                     if (var37 == var35) {
                         continue;
                     }
-                    if (!func_0202c1c0(var11, var35)) {
+                    if (!IsLocalWirelessPlayerJoined_0202c1c0(var11, var35)) {
                         func_ov017_021cc4b8(var35, 0, 8);
                         continue;
                     }
@@ -431,7 +431,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
     *(volatile unsigned short*)0x04000304 &= ~0x8000;
     LockStagedTextureVRAMCopying();
     MapVRAMBanksToTextureImage(0xf);
-    func_020bb48c(4, 1);
+    InitTextureImageVRAMAllocator_020bb48c(4, 1);
     DisableSubBGVRAMBanks();
     MapVRAMBanksToSubBG(0x80);
     MapVRAMBanksToSubObj(0x100);
@@ -573,7 +573,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
 
     var9->SetGameSpeed(0x1000);
     SetBattleSceneFlags_ov000_02160fa8(arg0, 0x400);
-    func_0205ea20(&gSoundEffectManager_02108760, 0x64);
+    LoadSoundEffectSet_0205ea20(&gSoundEffectManager_02108760, 0x64);
 
     unsigned char var59;
     *(int*)((char*)var9 + Enum_ov000_021688dc_29172) = 0;
@@ -581,7 +581,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
         if (var20[3] != 0 || var20[2] != 0) {
             break;
         }
-        func_ov017_021baedc(var20, 1);
+        ResetEventTask_ov017_021baedc(var20, 1);
         *(unsigned short*)(var20 + 8) = *(int*)(arg0 + var59 * 4 + Enum_ov000_021688dc_21912);
         unsigned short* var60 = GetZone3D_02012fe4();
         GameObject* var61 = var9->GetProtagonist();

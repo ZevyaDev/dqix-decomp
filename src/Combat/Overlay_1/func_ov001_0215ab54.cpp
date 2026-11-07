@@ -8,10 +8,10 @@ extern Struct_ov001_02165880_7 data_ov001_02165880;
 
 struct Struct_ov001_0215ab54 { char unknown_0_[0x90]; fix32_t unknown_90_; };
 
-struct Struct_0203dce4;
-struct Struct_0203dce4_2;
-extern "C" Struct_0203dce4_2* func_0203cf4c(void);
-extern "C" Struct_0203dce4* func_0203dce4(Struct_0203dce4_2* arg0, int arg1);
+struct NPC_0203dce4;
+struct NPCManager_0203dce4_2;
+extern "C" NPCManager_0203dce4_2* func_0203cf4c(void);
+extern "C" NPC_0203dce4* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2* npcManager, int index);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov001_02164214(void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov001_02164248(void* arg0, int arg1, int arg2, int arg3, int arg4);
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov001_0215ab54(int arg0, int arg1, int arg2) {
         func_ov001_02164214(data_ov001_02165880.unknown_4_, arg2, arg0, arg1, (int)var2);
         var1 = var2->obj3D_.GetRadius();
     } else if (arg0 == 2 || arg0 == 6) {
-        Struct_0203dce4* var3 = func_0203dce4(func_0203cf4c(), arg1);
+        NPC_0203dce4* var3 = GetNPCByIndex_0203dce4(func_0203cf4c(), arg1);
         if (var3 == NULL) return;
         func_ov001_02164248(data_ov001_02165880.unknown_4_, arg2, arg0, arg1, (int)var3);
     }

@@ -1,13 +1,10 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca408 func_020cbed4
-#endif
 
-// USA: func_020ca408
+// USA: Memcpy32Bit_020ca408
 // PROVENANCE: pokeheartgold/lib/NitroSDK/asm/mi_memory.s — MIi_CpuCopy32. Word-granularity memcpy
 // loop (raw NitroSDK .s routine, ported as mwcc inline asm).
-extern "C" ARM asm void func_020ca408(const unsigned int* src, unsigned int* dst, unsigned int size) {
+extern "C" ARM asm void Memcpy32Bit_020ca408(const unsigned int* src, unsigned int* dst, unsigned int size) {
     add ip, r1, r2
 top:
     cmp r1, ip

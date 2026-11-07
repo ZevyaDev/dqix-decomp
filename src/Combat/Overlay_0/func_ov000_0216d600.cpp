@@ -23,8 +23,8 @@ struct Struct_ov000_0216d600 {
     int unknown_77f0_;
     Vector3i unknown_77f4_, unknown_7800_;
 };
-extern "C" void func_ov000_0216d370(Struct_0202df68*, int, int, int);
-extern "C" void func_0202e9a4(Struct_0202df68*, int);
+extern "C" void ResetBattleCamera_ov000_0216d370(Struct_0202df68*, int, int, int);
+extern "C" void SetCameraFieldOfView_0202e9a4(Struct_0202df68*, int);
 extern "C" void func_ov000_0216d368(Struct_ov000_0216d368*, int, int, int);
 extern "C" Struct_ov000_0216d600* GetBattleScene_ov000_02160130();
 extern "C" void func_0202eab8(Struct_0202df68*);
@@ -34,7 +34,7 @@ static inline int inline_ov000_0216d600(int arg0, int arg1) { return (int)(((lon
 
 // USA: func_ov000_0216d600
 extern "C" ARM void func_ov000_0216d600(Struct_0202df68* arg0, int arg1, int arg2, int arg3, float arg4, float arg5, float arg6, unsigned char arg7) {
-    func_ov000_0216d370(arg0, 1, 1, 1);
+    ResetBattleCamera_ov000_0216d370(arg0, 1, 1, 1);
     arg0->unknown_220_ = 2;
     int var0, var1;
     if (arg1 == 0) { var0 = arg0->unknown_228_; var1 = arg0->unknown_22c_; }
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov000_0216d600(Struct_0202df68* arg0, int arg1, int arg
     int var2, var3;
     if (arg2 == 0) { var2 = 0x424; var3 = var2 + 0xb50; }
     else {
-        func_0202e9a4(arg0, 0x16000);
+        SetCameraFieldOfView_0202e9a4(arg0, 0x16000);
         var2 = 0x5fe;
         var3 = 0xed6;
     }

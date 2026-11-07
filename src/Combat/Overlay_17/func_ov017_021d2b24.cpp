@@ -14,9 +14,9 @@ struct Struct_ov017_021c3e18 {
 };
 extern "C" void func_ov017_021c3f68(struct Struct_ov017_021c3e18* arg0, int arg1, int arg2, int arg3);
 extern "C" unsigned short func_ov017_021b8480(void* arg0);
-extern "C" void func_02039d24(unsigned char* arg0);
+extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 struct Struct_02040774_2;
-extern "C" void func_020407b4(struct Struct_02040774_2* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetObject3DPosition_020407b4(struct Struct_02040774_2* object, int x, int y, int z);
 struct Vector3i;
 
 struct Struct_ov017_021d2b24 {
@@ -60,8 +60,8 @@ extern "C" ARM void func_ov017_021d2b24(void* arg0, struct Struct_ov017_021d2b24
         return;
     }
 
-    func_02039d24((unsigned char*)var2);
-    func_020407b4((struct Struct_02040774_2*)var2, arg1->unknown_8_, arg1->unknown_c_, arg1->unknown_10_);
+    ResetFollowTrail_02039d24((unsigned char*)var2);
+    SetObject3DPosition_020407b4((struct Struct_02040774_2*)var2, arg1->unknown_8_, arg1->unknown_c_, arg1->unknown_10_);
 
     if (arg1->unknown_5_ != 0) {
         struct Struct_ov017_021c3e18 var5;
@@ -73,6 +73,6 @@ extern "C" ARM void func_ov017_021d2b24(void* arg0, struct Struct_ov017_021d2b24
     *(unsigned short*)((char*)var2 + 0xac) = 0;
 
     if (arg1->unknown_4_ == 0xce) {
-        func_020407b4((struct Struct_02040774_2*)var2, arg1->unknown_8_, arg1->unknown_c_, arg1->unknown_10_);
+        SetObject3DPosition_020407b4((struct Struct_02040774_2*)var2, arg1->unknown_8_, arg1->unknown_c_, arg1->unknown_10_);
     }
 }

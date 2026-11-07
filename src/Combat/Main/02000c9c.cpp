@@ -41,12 +41,12 @@ extern "C" void func_020db228(void* arg0);
 extern "C" void func_0209c174(Struct_02000c9c_16* arg0);
 extern "C" void func_0209c290(void* arg0);
 extern "C" void func_0205e88c(Struct_02000c9c_17* arg0);
-extern "C" void func_0205ea20(void* arg0, int arg1);
+extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
 extern "C" void func_020421c4(SafeAllocator* arg0);
 extern "C" void func_02071688();
 extern "C" char* func_02099cac();
-extern "C" void func_0200fb94(char* arg0, unsigned char arg1);
-extern "C" char func_0200fb9c(char* arg0);
+extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
+extern "C" char GetGameMode_0200fb9c(char* gameState);
 extern "C" void func_02012010(void* arg0, int arg1);
 extern "C" int func_0201201c(void* arg0);
 extern "C" void func_020ac910();
@@ -205,7 +205,7 @@ inline bool inline_02000c9c_3() {
 #endif
 
 inline void inline_02000c9c_4(GameState* arg0) {
-    func_0200fb94((char*)arg0, 6);
+    SetGameMode_0200fb94((char*)arg0, 6);
     if (func_0201201c(arg0) != 2) {
         func_02012010(arg0, 0);
     }
@@ -249,7 +249,7 @@ extern "C" ARM void main() {
     func_0209c174((Struct_02000c9c_16*)gMusicManager_02109bf4);
     func_0209c290(gMusicManager_02109bf4);
     func_0205e88c((Struct_02000c9c_17*)gSoundEffectManager_02108760);
-    func_0205ea20(gSoundEffectManager_02108760, 100);
+    LoadSoundEffectSet_0205ea20(gSoundEffectManager_02108760, 100);
     SafeAllocator var3;
     var3.ResetAllocatorPointer();
     var3.CreateTypeA(data_02114ec4, STARTUP_ALLOCATOR_SIZE);
@@ -258,7 +258,7 @@ extern "C" ARM void main() {
     func_02071688();
     char* var4 = func_02099cac();
     if (*(int*)0x027ffc20 != 0) {
-        func_0200fb94((char*)var0, 6);
+        SetGameMode_0200fb94((char*)var0, 6);
         func_02012010(var0, 0);
     }
     func_020ac910();
@@ -277,9 +277,9 @@ extern "C" ARM void main() {
         if (func_0201201c(var0) != 5) {
             inline_02000c9c_4(var0);
             inline_02000c9c_4(var0);
-            if (func_0200fb9c((char*)var0) != 6) {
+            if (GetGameMode_0200fb9c((char*)var0) != 6) {
                 RUNOV20();
-            } else if (func_0200fb9c((char*)var0) == 6) {
+            } else if (GetGameMode_0200fb9c((char*)var0) == 6) {
                 RUNOV20();
                 if (*(unsigned char*)&var0->unk_6fc0[SCENE_SKIP_MEMBER_INDEX] == 0) {
                     func_020115b4((Struct_02000c9c_13*)var0, 1);
@@ -297,7 +297,7 @@ extern "C" ARM void main() {
             var5 = true;
         }
 
-        switch (func_0200fb9c((char*)var0)) {
+        switch (GetGameMode_0200fb9c((char*)var0)) {
         case 2:
             func_02012010(var0, 0);
             break;
@@ -307,7 +307,7 @@ extern "C" ARM void main() {
             }
             break;
         case 7:
-            func_0200fb94((char*)var0, 0);
+            SetGameMode_0200fb94((char*)var0, 0);
             break;
         case 5:
             if (func_0201201c(var0) != 6) {
@@ -319,14 +319,14 @@ extern "C" ARM void main() {
         bool var7 = true;
         while (var7) {
             var7 = false;
-            switch (func_0200fb9c((char*)var0)) {
+            switch (GetGameMode_0200fb9c((char*)var0)) {
             case 0:
             case 4:
             case 5:
             case 9:
                 RUNOV17();
                 if (func_020115a8((Struct_02000c9c_12*)var0)) {
-                    func_0200fb94((char*)var0, 3);
+                    SetGameMode_0200fb94((char*)var0, 3);
                     var7 = true;
                 }
                 break;
@@ -335,7 +335,7 @@ extern "C" ARM void main() {
                 if (((unsigned char*)var0)[MOVIE_RETURN_FLAG_OFFSET] != 0) {
                     RUNOV17();
                     if (func_020115a8((Struct_02000c9c_12*)var0)) {
-                        func_0200fb94((char*)var0, 3);
+                        SetGameMode_0200fb94((char*)var0, 3);
                         var7 = true;
                     }
                 }
@@ -351,7 +351,7 @@ extern "C" ARM void main() {
                 }
                 func_020a1bb4(&OVERLAY_16_ID);
                 if (func_020115a8((Struct_02000c9c_12*)var0)) {
-                    func_0200fb94((char*)var0, 0);
+                    SetGameMode_0200fb94((char*)var0, 0);
                     var7 = true;
                 }
                 break;
@@ -409,7 +409,7 @@ extern "C" ARM void main() {
                 BG0CNT &= ~0x40;
                 REG_POWCNT1 &= ~0x8000;
                 WaitForVBlank_020c9820();
-                func_0200fb94((char*)var0, 6);
+                SetGameMode_0200fb94((char*)var0, 6);
                 func_02012010(var0, 1);
                 var7 = false;
                 break;

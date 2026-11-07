@@ -4,14 +4,14 @@ extern "C" int GetStringLength_020d2ff0(const char*);
 #endif
 
 struct Struct_02080f8c;
-struct Struct_02080fa8;
+struct MenuLayout_02080fa8;
 struct Struct_02080cc0;
 
 extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void func_02080f8c(struct Struct_02080f8c* arg0, int arg1, int arg2);
 extern "C" void func_02080798(void* arg0, int arg1, int arg2);
 extern "C" void func_0208103c(void* arg0, int arg1, int arg2);
-extern "C" void func_02080fa8(struct Struct_02080fa8* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8* menuLayout, int textId, int value);
 extern "C" char* func_02081010(void* arg0, int arg1);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" void func_02080828(void* arg0, int arg1, short* arg2, short* arg3);
@@ -38,8 +38,8 @@ extern "C" ARM void func_ov003_02167e28(struct Struct_ov003_02167e28* arg0, char
     func_02080798(var0, 0, 1);
 #endif
     func_0208103c(var0, 1, (short)arg2);
-    func_02080fa8((struct Struct_02080fa8*)var0, 5, arg5);
-    func_02080fa8((struct Struct_02080fa8*)var0, 6, arg6);
+    SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, 5, arg5);
+    SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, 6, arg6);
     func_0208103c(var0, 2, (short)(arg3 + 2));
 #if defined(jpn)
     int var1 = (GetStringLength_020d2ff0(func_02081010(var0, 2)) >> 1) * 10;

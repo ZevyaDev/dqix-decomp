@@ -33,7 +33,7 @@ extern "C" int IsTextWindowReady_0204c7cc(unsigned char *textWindow);
 extern "C" void func_0205bc24(void *arg0, int arg1);
 extern "C" int UpdateTextWindowManager_0205d0e0(void *windowManager, int ticks);
 extern "C" int GetCursorIndex_0205d794(struct Struct_ov002_0215624c_15 *windowManager);
-extern "C" void func_020a1ef0(int arg0);
+extern "C" void PushSubOverlay_020a1ef0(int subOverlayEntry);
 extern "C" int GetResources_0200fb8c(int *gameState);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void SetBGScreenSize_0204b11c(unsigned char *layer, int screenSize);
@@ -52,7 +52,7 @@ extern "C" void SetTextWindowArray_0205cf78(struct Struct_ov002_0215624c_21 *win
                                                                                      unsigned char textWindowCapacity);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" void *memcpy(void *arg0, const void *arg1, unsigned int arg2);
-extern "C" void *func_020421b0(int arg0);
+extern "C" void *GetWindowTile_020421b0(int tileIndex);
 extern "C" void DC_FlushRange(const void *where, unsigned int len);
 extern "C" void LoadToMainBG1CharacterData(const void *data, unsigned int offset, unsigned int length);
 extern "C" void LoadToMainBG3CharacterData(const void *data, unsigned int offset, unsigned int length);
@@ -159,7 +159,7 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
     }
 
     if (S32(REGIONAL_OFFSET(0x1a88, 0x1bc0)) == 0) {
-        func_020a1ef0(1);
+        PushSubOverlay_020a1ef0(1);
         char *var5     = (char *) GetResources_0200fb8c((int *) GameState::GetInstance());
         S32(REGIONAL_OFFSET(0x1a98, 0x1bd0)) = *(int *) ((char *) GetMessageWindow_020421a0() + REGIONAL_OFFSET(0x28, 0x5c));
         ((SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x78c, 0x828)))->Reset();
@@ -214,7 +214,7 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
 
         memset((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0, 0x60);
         memset((char *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)) + 0x20, 0x11111111, 0x20);
-        memcpy((char *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)) + 0x40, func_020421b0(REGIONAL_OFFSET(0x1f, 0x15)), 0x20);
+        memcpy((char *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)) + 0x40, GetWindowTile_020421b0(REGIONAL_OFFSET(0x1f, 0x15)), 0x20);
         DC_FlushRange((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0x60);
         LoadToMainBG1CharacterData((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0, 0x60);
         LoadToMainBG3CharacterData((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0, 0x60);

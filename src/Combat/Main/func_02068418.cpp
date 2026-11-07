@@ -9,7 +9,7 @@ struct Struct_02068418 {
     char unknown_6_[2];
 };
 
-extern "C" struct Struct_02068418* func_0204254c(int arg0, int arg1);
+extern "C" struct Struct_02068418* FindFontGlyph_0204254c(int text, int font);
 extern "C" char* func_020424ac(char* arg0);
 extern "C" void func_02067f5c(signed char* arg0, int arg1);
 extern char data_020f08f4[];
@@ -30,7 +30,7 @@ extern "C" ARM void func_02068418(void* arg0, char* arg1, char* arg2, int arg3) 
             arg2 += 2;
             continue;
         }
-        struct Struct_02068418* var1 = func_0204254c((int)arg1, arg3);
+        struct Struct_02068418* var1 = FindFontGlyph_0204254c((int)arg1, arg3);
         if (var1 != 0) {
             int var2 = var1->unknown_5_0_;
             memcpy(arg2, arg1, var2);

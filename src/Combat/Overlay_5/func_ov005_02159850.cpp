@@ -31,7 +31,7 @@ struct Struct_ov005_02159850 {
 
 struct TextWindowManager_0205d6a0;
 
-extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
+extern "C" Struct_ov005_02153ba4_2* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char arg1);
 
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov005_02159850(Struct_ov005_02153954* arg0) {
     arg0->unknown_3ddc_ = 0;
     arg0->unknown_3dde_ = 0;
     arg0->unknown_3ddf_ = 0;
-    Struct_ov005_02153ba4_2* var0 = func_ov017_021a193c(((Struct_ov005_02159850*)GetGameResources())->unknown_3708_);
+    Struct_ov005_02153ba4_2* var0 = GetEquipMenu_ov017_021a193c(((Struct_ov005_02159850*)GetGameResources())->unknown_3708_);
     var0->unknown_634_ |= 0x81;
     arg0->unknown_3dcc_ |= 0xc;
 }

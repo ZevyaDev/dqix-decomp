@@ -60,8 +60,8 @@ struct Struct_ov000_0215767c_4;
 struct Struct_ov000_0215767c_5;
 extern "C" void func_ov000_021600cc(Struct_ov000_0215767c_5*, Struct_ov000_0215767c_4*);
 extern "C" Struct_ov000_0215c2d0* GetNextActionResult_ov000_0215e958(void* battle);
-struct Struct_ov000_021584e8;
-extern "C" void func_ov000_0215ccbc(int, Struct_ov000_021584e8*, GameObject*, short, short, short, unsigned long long, unsigned char);
+struct ActionResult_ov000_021584e8;
+extern "C" void SetActionResult_ov000_0215ccbc(int, ActionResult_ov000_021584e8*, GameObject*, short, short, short, unsigned long long, unsigned char);
 extern "C" void func_ov000_0215ffc4(void* arg0, void* arg1, int arg2);
 
 static inline GameObject* inline_ov000_02153aa4(int arg0) {
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov000_0215c2d0(Struct_ov000_0215767c_2* arg0, Struct_ov
         var1->unknown_27_ = 0;
         var1->unknown_1c_ = -1;
         var1->unknown_1e_ = 0;
-        func_ov000_0215ccbc((int)arg0, (Struct_ov000_021584e8*)var7, var2, 0, inline_ov000_021584e8(var2), inline_ov000_021584e8_2(var2), 0, 0);
+        SetActionResult_ov000_0215ccbc((int)arg0, (ActionResult_ov000_021584e8*)var7, var2, 0, inline_ov000_021584e8(var2), inline_ov000_021584e8_2(var2), 0, 0);
         var6->unknown_e_ = var1->unknown_20_;
         var6->unknown_17_ = 1;
         func_ov000_0215ffc4(var6, var7, 0);

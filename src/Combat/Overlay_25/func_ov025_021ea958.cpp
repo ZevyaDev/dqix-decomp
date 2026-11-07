@@ -31,7 +31,7 @@ struct Struct_ov025_021ea604_3 {
     unsigned char unknown_5e8_[1];
 };
 extern "C" void* GetBattleScene_ov000_02160130();
-extern "C" BattleAction_ov000_0215440c* func_ov000_02160f20(void*);
+extern "C" BattleAction_ov000_0215440c* GetCurrentBattleAction_ov000_02160f20(void*);
 extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" short func_ov000_0215ffa0(ActionTarget_ov000_021600f8*);
 extern "C" void func_ov025_021ed380(void*, unsigned short, short, int, int, int, int);
@@ -44,7 +44,7 @@ inline int inline_ov025_021dfce0_2(int arg0) { return arg0 >= 0 && arg0 <= 3; }
 extern "C" ARM void func_ov025_021ea958(Struct_ov025_021ea604_3* arg0, int arg1, int arg2, int arg3) {
     if (arg1 && (data_ov025_021ef9a4 & 0x800)) return;
     if (!arg1 && (data_ov025_021ef9a4 & 0x4000)) return;
-    BattleAction_ov000_0215440c* var0 = func_ov000_02160f20(GetBattleScene_ov000_02160130());
+    BattleAction_ov000_0215440c* var0 = GetCurrentBattleAction_ov000_02160f20(GetBattleScene_ov000_02160130());
     if (arg0->unknown_5d0_ && !arg0->unknown_5d1_) return;
     if (arg1 && (var0->unknown_c_0_ || var0->unknown_c_1_)) arg3 = -2;
     else if (!arg1 && (var0->unknown_c_3_ || var0->unknown_c_4_)) arg3 = -2;

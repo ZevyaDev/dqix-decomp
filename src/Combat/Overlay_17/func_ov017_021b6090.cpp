@@ -4,7 +4,7 @@
 #include "Graphics/Vector.h"
 
 struct Struct_02015ef4 { unsigned int unknown_0_[3]; };
-extern "C" int func_0202ec84(void* arg0, struct Struct_02015ef4* arg1, int* arg2, int* arg3);
+extern "C" int ConvertWorldToScreen_0202ec84(void* camera, struct Struct_02015ef4* worldPosition, int* outX, int* outY);
 
 struct Struct_02015ef4_2;
 extern "C" void func_020473c8(struct Struct_02015ef4_2* arg0, int arg1);
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov017_021b6090(struct Struct_ov017_021b6090* arg0) {
 
     int var3, var4;
     if (var1 != NULL) {
-        func_0202ec84(var1, &var2, &var3, &var4);
+        ConvertWorldToScreen_0202ec84(var1, &var2, &var3, &var4);
     }
 
     unsigned char* var5 = (unsigned char*)arg0->unknown_20_;

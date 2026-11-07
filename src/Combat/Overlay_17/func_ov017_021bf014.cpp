@@ -19,7 +19,7 @@ enum { Enum_ov017_021bf014_92 = 0x5c, Enum_ov017_021bf014_712 = 0x2c8, Enum_ov01
        Enum_ov017_021bf014_2464 = 0x9a0, Enum_ov017_021bf014_6578 = 0x19b2, Enum_ov017_021bf014_800 = 0x320 };
 #endif
 
-struct Struct_020d7aa0_2;
+struct TimedMessageQueue_020d7aa0_2;
 struct Struct_02018300_3;
 extern AllocatorUnion gMainHeap_02114e20;
 extern char data_ov017_021d7ec0[];
@@ -28,8 +28,8 @@ extern "C" void GetLocalWireless_0202ae18();
 extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void* GetZone3D_02012fe4();
 extern "C" unsigned char* GetFollowCamera_020100f8(char*);
-extern "C" Struct_020d7aa0_2* func_020d7a50();
-extern "C" void func_020d7aa0(Struct_020d7aa0_2*);
+extern "C" TimedMessageQueue_020d7aa0_2* func_020d7a50();
+extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2*);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020a27b8(unsigned char*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
     GameObject* var3 = var0->GetUnknownGameObject();
     unsigned char* var4 = GetFollowCamera_020100f8((char*)var0);
     if (arg0->unknown_8_ == 0) {
-        func_020d7aa0(func_020d7a50());
+        ClearTimedMessageQueue_020d7aa0(func_020d7a50());
         DisablePlayerControl_020397cc((Struct_02018300_3*)var3, 1);
         func_020a27b8(var4);
         void* var5 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021bf014_800);

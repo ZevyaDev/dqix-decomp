@@ -2,9 +2,6 @@
 #include <NitroSDK/NSBXX/RenderCommands_Common.h>
 
 
-#if defined(jpn)
-#define func_020ca408 func_020cbed4
-#endif
 
 
 struct Struct_ov031_0223bdb0 {
@@ -33,7 +30,7 @@ extern "C" ARM void func_ov031_0223bdb0(int arg0, int arg1, void* arg2) {
     }
     do {
         Memcpy16Bit_020ca3b8(var1, &var3, 6);
-        func_020ca408(&var3, var4, sizeof(var3));
+        Memcpy32Bit_020ca408(&var3, var4, sizeof(var3));
         var5++;
         var1 += 6;
         var4++;

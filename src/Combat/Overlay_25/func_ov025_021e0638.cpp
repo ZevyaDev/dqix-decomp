@@ -109,7 +109,7 @@ extern "C" void __clear(void* arg0, int arg1);
 
 extern "C" void func_ov025_021e20d8(void* arg0);
 extern "C" void func_02048c90(Struct_02048c90*);
-extern "C" int func_020493a4(unsigned char*);
+extern "C" int GetCombatantCell_020493a4(unsigned char*);
 extern "C" int func_020493c8(unsigned char*);
 extern "C" int func_02049444(unsigned char*);
 extern "C" int func_02049ee8(unsigned char*);
@@ -177,7 +177,7 @@ extern "C" ARM void func_ov025_021e0638(unsigned char* arg0) {
     }
     for (int var25 = 0; var25 < var0; var25++) {
         func_02048c90((Struct_02048c90*)var5[var25].unknown_8_);
-        var8.unknown_0_[var25] = func_020493a4(var5[var25].unknown_8_);
+        var8.unknown_0_[var25] = GetCombatantCell_020493a4(var5[var25].unknown_8_);
         var24[var25].unknown_20_ = 0;
         memset(var24[var25].unknown_10_, 0, 0x10);
     }
@@ -231,7 +231,7 @@ found:
             if (var41 != 0) {
                 var42 = var40[var41 - 1];
             } else {
-                var42 = func_020493a4(var37);
+                var42 = GetCombatantCell_020493a4(var37);
             }
             var38 = func_020493c8(var37);
             if (var42 == var38) {
@@ -418,7 +418,7 @@ found:
                         var81 += var82;
                     }
                 }
-                func_ov025_021e120c(var7, func_020493a4(var79), 1, var81 & 0xff, 0);
+                func_ov025_021e120c(var7, GetCombatantCell_020493a4(var79), 1, var81 & 0xff, 0);
                 for (int var83 = 0; var83 < var0; var83++) {
                     int var84 = func_020493c8(var5[var83].unknown_8_);
                     if (var84 < 0x51 && var7[var84] == 1) {
@@ -438,7 +438,7 @@ found:
         if (var87 != 0 && var88 != 0) {
             unsigned int var89 = func_020493c8(var87);
             if (var89 >= 0x51) {
-                var89 = func_020493a4(var87);
+                var89 = GetCombatantCell_020493a4(var87);
             }
             if (var89 < 0x51) {
                 var16 = var89;

@@ -9,7 +9,7 @@ enum { Enum_020409e0_724 = 0x2d4 };
 extern "C" int func_0203cdf8(struct Struct_0203cdf8*);
 
 // USA: func_020409e0
-extern "C" ARM int func_020409e0(Struct_0203dce4* arg0) {
+extern "C" ARM int func_020409e0(NPC_0203dce4* arg0) {
     if (arg0->unknown_14_) {
         return func_0203cdf8((struct Struct_0203cdf8*)(arg0->unknown_14_));
     }

@@ -7,34 +7,34 @@ struct Struct_020e8994 {
 
 extern "C" struct Struct_020e8994 data_020e8994[];
 
-struct Struct_02076ccc {
+struct FieldMonster_02076ccc {
     char unknown_0_[0x130];
-    int unknown_130_;
-    int unknown_134_;
+    int state_130_;
+    int previousState_134_;
     char unknown_138_[0x14];
-    unsigned int unknown_14c_;
+    unsigned int stateTime_14c_;
 };
 
-// USA: func_02076ccc
-extern "C" ARM bool func_02076ccc(void* arg0, int arg1) {
-    struct Struct_02076ccc* var0 = (struct Struct_02076ccc*)arg0;
-    if (var0->unknown_130_ == arg1) {
+// USA: SetFieldMonsterState_02076ccc
+extern "C" ARM bool SetFieldMonsterState_02076ccc(void* monster, int state) {
+    struct FieldMonster_02076ccc* fieldMonster = (struct FieldMonster_02076ccc*)monster;
+    if (fieldMonster->state_130_ == state) {
         return true;
     }
-    struct Struct_020e8994* var1 = &data_020e8994[arg1];
-    void* var2 = (char*)var0 + (var1->unknown_4_ >> 1);
-    void* var3;
-    if (var1->unknown_4_ & 1) {
-        void** var4 = (void**)*(void**)var2;
-        var3 = *(void**)((char*)var4 + var1->unknown_0_);
+    struct Struct_020e8994* enterMethod = &data_020e8994[state];
+    void* adjustedThis = (char*)fieldMonster + (enterMethod->unknown_4_ >> 1);
+    void* enterFunction;
+    if (enterMethod->unknown_4_ & 1) {
+        void** vtable = (void**)*(void**)adjustedThis;
+        enterFunction = *(void**)((char*)vtable + enterMethod->unknown_0_);
     } else {
-        var3 = (void*)var1->unknown_0_;
+        enterFunction = (void*)enterMethod->unknown_0_;
     }
-    if (((int (*)(void*))var3)(var2) == 0) {
+    if (((int (*)(void*))enterFunction)(adjustedThis) == 0) {
         return false;
     }
-    var0->unknown_134_ = var0->unknown_130_;
-    var0->unknown_130_ = arg1;
-    var0->unknown_14c_ = 0;
+    fieldMonster->previousState_134_ = fieldMonster->state_130_;
+    fieldMonster->state_130_ = state;
+    fieldMonster->stateTime_14c_ = 0;
     return true;
 }

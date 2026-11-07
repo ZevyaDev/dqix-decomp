@@ -73,7 +73,7 @@ struct Struct_ov003_0216da90
 
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
-extern "C" void func_0205cef8(void* arg0);
+extern "C" void EnableTouchMenuCursor_0205cef8(void* windowManager);
 extern "C" unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
 extern "C" void AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov003_0216da90(Struct_ov003_0216da90* arg0)
     arg0->unknown_12c0_->unknown_a8_.inline_ov003_0216da90(0xd, 5);
     arg0->unknown_12c0_->unknown_a8_.inline_ov003_0216da90_2(0xa, 0xc);
     arg0->unknown_12c0_->unknown_b5_ = 1;
-    func_0205cef8(arg0->unknown_12c0_);
+    EnableTouchMenuCursor_0205cef8(arg0->unknown_12c0_);
 
 #if !defined(jpn)
     short var0 = data_ov003_0217f560[GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance())];

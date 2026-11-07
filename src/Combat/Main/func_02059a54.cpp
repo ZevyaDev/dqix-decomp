@@ -60,7 +60,7 @@ extern "C" ARM void func_02059a54(Struct_02059a54_2* arg0) {
             void* var10 = GetCamera_020100bc(GameState::GetInstance());
             if (var10) {
                 func_020ca528(func_0202ed74(var10), &data_0210a0cc);
-                data_0210a010.flags &= ~0xa4;
+                gRenderConfig_0210a010.flags &= ~0xa4;
             }
             Vector3fix var11 = data_020e7da4;
             var11.x = (int)((float)(int)(4096.0f * arg0->unknown_13c_) * arg0->unknown_50_);

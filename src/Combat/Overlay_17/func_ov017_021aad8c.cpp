@@ -14,8 +14,8 @@ extern "C" void func_0207fd00(struct Struct_0207fd00* arg0);
 extern "C" void func_0207fe80(void* arg0, int arg1, int arg2, int arg3);
 struct Struct_0207fd44_2;
 extern "C" void func_0207fd44(struct Struct_0207fd44_2* arg0);
-struct Struct_0207fdcc_2;
-extern "C" void* func_02081da8(struct Struct_0207fdcc_2* arg0, int arg1);
+struct MenuLayout_0207fdcc_2;
+extern "C" void* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" void func_020809c4(void* arg0, int arg1, int arg2, short* arg3, short* arg4);
 extern "C" int GetMessageWindow_020421a0(void);
 struct SpriteAnimationList_0205a330;
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov017_021aad8c(struct Struct_ov017_021aad8c_2* arg0) {
 
     if (arg0->unknown_44_ == NULL) return;
     if (arg0->unknown_48_ < 0) return;
-    if (func_02081da8((struct Struct_0207fdcc_2*)arg0->unknown_18_, arg0->unknown_48_) == NULL) return;
+    if (func_02081da8((struct MenuLayout_0207fdcc_2*)arg0->unknown_18_, arg0->unknown_48_) == NULL) return;
 
     short var1, var2;
     func_020809c4(arg0->unknown_18_, arg0->unknown_48_, *arg0->unknown_44_, &var1, &var2);

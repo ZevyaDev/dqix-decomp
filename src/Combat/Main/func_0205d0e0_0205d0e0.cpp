@@ -38,19 +38,19 @@ extern "C" void func_0204ffc0(struct Struct_0204ffc0_2* arg0, int arg1);
 
 // USA: UpdateTextWindowManager_0205d0e0
 extern "C" ARM int UpdateTextWindowManager_0205d0e0(void* windowManager, int ticks) {
-    struct TextWindowManager_0205d81c* var0 = (struct TextWindowManager_0205d81c*)windowManager;
+    struct TextWindowManager_0205d81c* textWindowManager = (struct TextWindowManager_0205d81c*)windowManager;
     int cursorChange;
     struct TextWindow_0205d0e0* textWindow;
     unsigned char i;
 
-    if (var0->unknown_98_ == 0) return 0;
-    if (var0->pTextWindows_9c_ == 0) return 0;
+    if (textWindowManager->unknown_98_ == 0) return 0;
+    if (textWindowManager->pTextWindows_9c_ == 0) return 0;
 
     cursorChange = 0;
     textWindow = (struct TextWindow_0205d0e0*)func_0205d888((struct Struct_0205d0e0_2*)windowManager);
     if (textWindow != 0) {
         cursorChange = func_0205c5b0(windowManager, ticks);
-        if (var0->cursorWindowId_b0_ == textWindow->unknown_c4_) {
+        if (textWindowManager->cursorWindowId_b0_ == textWindow->unknown_c4_) {
             if (textWindow->unknown_d8_0_) {
                 func_0205042c((unsigned char*)textWindow, func_0205c710((unsigned char*)windowManager));
                 func_02050440((unsigned char*)textWindow, (unsigned char)func_0205c6e4((unsigned char*)windowManager));
@@ -58,16 +58,16 @@ extern "C" ARM int UpdateTextWindowManager_0205d0e0(void* windowManager, int tic
         }
     }
 
-    for (i = 0; i < var0->textWindowCapacity_b3_; i++) {
-        func_0204c87c((void*)&var0->pTextWindows_9c_[i], ticks);
+    for (i = 0; i < textWindowManager->textWindowCapacity_b3_; i++) {
+        func_0204c87c((void*)&textWindowManager->pTextWindows_9c_[i], ticks);
     }
 
-    if (var0->unknown_b8_ != 0xff) {
-        textWindow = FindTextWindow_0205d81c(var0, var0->unknown_b8_);
+    if (textWindowManager->unknown_b8_ != 0xff) {
+        textWindow = FindTextWindow_0205d81c(textWindowManager, textWindowManager->unknown_b8_);
         if (textWindow != 0) {
             func_0204ffc0((struct Struct_0204ffc0_2*)textWindow, -1);
         }
-        var0->unknown_b8_ = 0xff;
+        textWindowManager->unknown_b8_ = 0xff;
     }
 
     return cursorChange;

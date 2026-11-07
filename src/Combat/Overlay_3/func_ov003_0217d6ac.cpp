@@ -21,13 +21,13 @@ extern "C" void ResetMessageWindow_02043204(char *window);
 struct SoundEffectManager_02108760;
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
-extern "C" void func_ov017_021baedc(void *arg0, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(void *node, int arg1);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2 *queue, struct QueueNode_0201bdac *node);
-extern "C" void func_ov017_0219e310(unsigned char *arg0, int arg1);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char *task, int arg1);
 extern "C" void *GetZoneEntry_0200fd0c(GameState *gameState);
-extern "C" void func_02070378(char *arg0);
+extern "C" void InitZoneEntry_02070378(char *zoneEntry);
 
 struct Struct_ov003_0217d6ac_2;
 extern "C" void func_ov003_0217dd60(Struct_ov003_0217d6ac_2 *arg0);
@@ -150,7 +150,7 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
     CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0 *) arg0->unknown_90_, 0);
     ResetMessageWindow_02043204(var2);
     Struct_ov003_0217d6ac_3 *var9 = *(Struct_ov003_0217d6ac_3 **) (var1 + RG(0x3734, 0x3524));
-    func_ov017_021baedc(var9, 1);
+    ResetEventTask_ov017_021baedc(var9, 1);
     var9->unknown_10b_ = 1;
 #if defined(jpn)
     switch (inline_ov003_0217d6ac(var6)) {
@@ -168,9 +168,9 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
     AppendToQueue_020469b4(var5, (struct QueueNode_0201bdac *) var9);
     if (var4 != 0) {
         unsigned char *var10 = *(unsigned char **) (var1 + RG(0x370c, 0x34fc));
-        func_ov017_0219e310(var10, 0);
+        ResetZoneLoadTask_ov017_0219e310(var10, 0);
         Struct_ov003_0217d6ac_4 *var11 = (Struct_ov003_0217d6ac_4 *) GetZoneEntry_0200fd0c(var0);
-        func_02070378((char *) var11);
+        InitZoneEntry_02070378((char *) var11);
         var11->unknown_0_         = arg0->unknown_18_[var4] + 0xc544;
         var11->unknown_7_  = 1;
         var11->unknown_14_ = 0x2b8;
@@ -179,9 +179,9 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
         AppendToQueue_020469b4(var5, (struct QueueNode_0201bdac *) var10);
     } else {
         unsigned char *var12 = *(unsigned char **) (var1 + RG(0x370c, 0x34fc));
-        func_ov017_0219e310(var12, 0);
+        ResetZoneLoadTask_ov017_0219e310(var12, 0);
         Struct_ov003_0217d6ac_4 *var13 = (Struct_ov003_0217d6ac_4 *) GetZoneEntry_0200fd0c(var0);
-        func_02070378((char *) var13);
+        InitZoneEntry_02070378((char *) var13);
         var13->unknown_0_         = 0xc3bc;
         var13->unknown_7_  = 1;
         var13->unknown_14_ = 0x266;

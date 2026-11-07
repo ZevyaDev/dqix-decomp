@@ -85,9 +85,9 @@ struct Queue_02038598_5;
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" Zone3D* GetZone3D_02012fe4();
-extern "C" void func_ov017_02191108(void*, int, int, int, int);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(void*, int, int, int, int);
 extern "C" void* GetGlobalFlags_020d6c00();
-extern "C" void func_02033834(Struct_02033834_2*, int);
+extern "C" void SetFacing_02033834(Struct_02033834_2*, int);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" int SetMotion_02033b88(Struct_02010604*, int);
@@ -100,7 +100,7 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
-extern "C" void func_ov017_0219e310(unsigned char*, int);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char*, int);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern const char data_020efb44[];
 extern const char data_020efb4e[];
@@ -133,7 +133,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
         Vector3fix_Subtract(&var8->unknown_8_.unknown1_0_, &arg0->unknown_0_.obj3D_.position_, &var9);
         Vector3fix_Normalize(&var9, &var9);
         int var10 = fix32ReduceAngle0To2Pi(fix32_Atan2(var9.x, var9.z));
-        func_02033834((struct Struct_02033834_2*)arg0, var10);
+        SetFacing_02033834((struct Struct_02033834_2*)arg0, var10);
         DisablePlayerControl_020397cc((struct Struct_02018300_3*)arg0, 1);
         var2->unknown_34_.unknown_0_0_ = 1;
         arg0->unknown_0_.obj3D_.EnableFlag(0x180);
@@ -154,7 +154,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
     }
 
     if (var7 == 1) {
-        func_02033834((struct Struct_02033834_2*)arg0, var3->unknown_6_);
+        SetFacing_02033834((struct Struct_02033834_2*)arg0, var3->unknown_6_);
         DisablePlayerControl_020397cc((struct Struct_02018300_3*)arg0, 1);
         int var11 = arg0->unknown_0_.obj3D_.normalizedAnimationTime_;
 
@@ -329,7 +329,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
             var3->unknown_24_.unknown1_0_ = var3->unknown_30_.unknown1_0_;
             func_02033e18(arg0, var3->unknown_30_.unknown_0_, var2->unknown_8_);
             SetMotion_02033b88((struct Struct_02010604*)arg0, 1);
-            func_02033834((struct Struct_02033834_2*)arg0, var3->unknown_8_);
+            SetFacing_02033834((struct Struct_02033834_2*)arg0, var3->unknown_8_);
             func_ov017_021d3f00(var3, 0, 0);
             goto Exit;
         }
@@ -373,7 +373,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
             var3->unknown_24_.unknown1_0_ = var3->unknown_3c_.unknown1_0_;
             func_02033e18(arg0, var3->unknown_3c_.unknown_0_, var2->unknown_8_);
             SetMotion_02033b88((struct Struct_02010604*)arg0, 1);
-            func_02033834((struct Struct_02033834_2*)arg0, var3->unknown_a_);
+            SetFacing_02033834((struct Struct_02033834_2*)arg0, var3->unknown_a_);
             func_ov017_021d3f00(var3, 0, 0);
             ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var4, 0x400);
         }
@@ -385,7 +385,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
         arg0->unknown_0_.obj3D_.EnableFlag(0x80);
         func_02033b58((struct Struct_02033b58*)arg0, 1);
         if (!func_02033ec8((struct Struct_02033ec8*)arg0)) goto Exit;
-        unsigned char var42 = var3->unknown_52_;
+        unsigned char var42 = var3->isPartyOrderRebuildPending_52_;
 
         func_02038508(var3);
         arg0->unknown_253_ = 1;
@@ -396,7 +396,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
         if (var42 == 0) goto Exit;
 
         arg0->unknown_252_ = 1;
-        func_ov017_02191108(var0, 1, 1, 1, 1);
+        RebuildFieldPartyOrder_ov017_02191108(var0, 1, 1, 1, 1);
         GameObject* var43 = GameState::GetInstance()->GetUnknownGameObject();
         if (var43 == 0) goto Exit;
         var43->obj3D_.TransitionInheritedAlpha(0x1f, 0x64);
@@ -441,7 +441,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
         var45->unknown_7_ = 1;
         func_0200fcfc(var44, var45);
 
-        func_ov017_0219e310((unsigned char*)var46->unknown_ptr_array_36fc[4], 0);
+        ResetZoneLoadTask_ov017_0219e310((unsigned char*)var46->unknown_ptr_array_36fc[4], 0);
         AppendToQueue_020469b4((struct Queue_0201bdac_2*)var46->unknown_ptr_array_36fc[0],
             (struct QueueNode_0201bdac*)var46->unknown_ptr_array_36fc[4]);
         ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var4, 0x400);

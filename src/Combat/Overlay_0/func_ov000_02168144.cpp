@@ -3,7 +3,7 @@
 #include "Combat/FormationPosition.h"
 
 extern "C" int func_ov000_02153e40(void* arg0, short* arg1, int arg2, int arg3);
-extern "C" int func_020493a4(unsigned char* arg0);
+extern "C" int GetCombatantCell_020493a4(unsigned char* combatant);
 extern "C" void func_02049bd4(unsigned char* arg0, int* arg1);
 
 struct Struct_ov000_021830f0 { unsigned int unknown_0_[3]; };
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov000_02168144(unsigned char* arg0) {
     for (var3 = 0; var3 < var2; var3++) {
         GameObject* var4 = var0->GetCombatantByIndex(var1[var3]);
         if (var4 != 0) {
-            Struct_02048cf0 var5 = inline_02048e2c_2(func_020493a4((unsigned char*)var4));
+            Struct_02048cf0 var5 = inline_02048e2c_2(GetCombatantCell_020493a4((unsigned char*)var4));
             struct Struct_ov000_021830f0 var6 = data_ov000_021830f0;
             var6.unknown_0_[0] = var5.unknown_0_;
             var6.unknown_0_[2] = var5.unknown_4_;

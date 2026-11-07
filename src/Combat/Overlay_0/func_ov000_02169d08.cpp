@@ -4,11 +4,11 @@
 
 extern "C" void AppendBACTCommand_ov000_02169b78(void* command);
 
-struct Struct_ov000_02184264_2 {
+struct BACTParseState_ov000_02184264_2 {
     unsigned char unknown_0_[8];
-    SafeAllocator* unknown_8_;
+    SafeAllocator* pAllocator_8_;
 };
-extern struct Struct_ov000_02184264_2 gBACTParseState_ov000_02184264;
+extern struct BACTParseState_ov000_02184264_2 gBACTParseState_ov000_02184264;
 
 struct Struct_ov000_02169d08 {
     int unknown_0_;
@@ -21,7 +21,7 @@ struct Struct_ov000_02169d08 {
 
 // USA: func_ov000_02169d08
 extern "C" ARM int func_ov000_02169d08(Script::Parameter* arg0, int arg1) {
-    struct Struct_ov000_02169d08* var0 = (struct Struct_ov000_02169d08*)gBACTParseState_ov000_02184264.unknown_8_->Allocate(sizeof(struct Struct_ov000_02169d08));
+    struct Struct_ov000_02169d08* var0 = (struct Struct_ov000_02169d08*)gBACTParseState_ov000_02184264.pAllocator_8_->Allocate(sizeof(struct Struct_ov000_02169d08));
     var0->unknown_0_ = 3;
     if (arg0->type == 0) {
         const char* var1 = (arg0++)->ToString();
@@ -29,7 +29,7 @@ extern "C" ARM int func_ov000_02169d08(Script::Parameter* arg0, int arg1) {
         if (arg1 >= 2) {
             var2 = (arg0++)->ToInt();
         }
-        var0->unknown_8_ = (char*)gBACTParseState_ov000_02184264.unknown_8_->Allocate(strlen(var1) + 1);
+        var0->unknown_8_ = (char*)gBACTParseState_ov000_02184264.pAllocator_8_->Allocate(strlen(var1) + 1);
         strcpy(var0->unknown_8_, var1);
         var0->unknown_c_ = var2;
         var0->unknown_e_ = 7;
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov000_02169d08(Script::Parameter* arg0, int arg1) {
         if (arg1 >= 3) {
             var5 = (arg0++)->ToInt();
         }
-        var0->unknown_8_ = (char*)gBACTParseState_ov000_02184264.unknown_8_->Allocate(strlen(var4) + 1);
+        var0->unknown_8_ = (char*)gBACTParseState_ov000_02184264.pAllocator_8_->Allocate(strlen(var4) + 1);
         strcpy(var0->unknown_8_, var4);
         var0->unknown_c_ = var5;
         int var6 = 0;

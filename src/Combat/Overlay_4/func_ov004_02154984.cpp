@@ -2,7 +2,7 @@
 
 extern "C" void func_ov004_0215482c(void*);
 extern "C" void* func_ov004_02153944(void*, int);
-extern "C" int func_ov023_021f809c(void*, void*);
+extern "C" int RedrawMenuWindow_ov023_021f809c(void*, void*);
 struct Struct_ov004_02154984 { int unknown_0_[3]; };
 struct Struct_ov004_0216fa80 { Struct_ov004_02154984 unknown_0_; };
 extern Struct_ov004_0216fa80 data_ov004_0216fa80;
@@ -17,7 +17,7 @@ extern "C" ARM int func_ov004_02154984(void* arg0) {
     while (var1[var2] >= 0) {
         void* var3 = func_ov004_02153944(arg0, var1[var2]);
         if (var3) {
-            func_ov023_021f809c(var3, arg0);
+            RedrawMenuWindow_ov023_021f809c(var3, arg0);
             var2++;
         }
     }

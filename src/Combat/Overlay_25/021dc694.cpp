@@ -10,7 +10,7 @@ enum { Enum_ov025_021dc694_680 = 0x224, Enum_ov025_021dc694_332 = 0x138, Enum_ov
 enum { Enum_ov025_021dc694_680 = 0x2a8, Enum_ov025_021dc694_332 = 0x14c, Enum_ov025_021dc694_668 = 0x29c, Enum_ov025_021dc694_3756 = 0xeac, Enum_ov025_021dc694_22308 = 0x5724 };
 #endif
 
-extern "C" void* func_ov000_02160f20(void* arg0);
+extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" void func_ov025_021e88d8(void* arg0);
 extern "C" void func_ov025_021e8a40(char* arg0, int arg1, int arg2);
@@ -37,7 +37,7 @@ struct Struct_ov025_021dc694 {
 // USA: func_ov025_021dc694
 extern "C" ARM void func_ov025_021dc694(void* arg0) {
     char* var0 = (char*)arg0;
-    void* var1 = func_ov000_02160f20(var0);
+    void* var1 = GetCurrentBattleAction_ov000_02160f20(var0);
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
 
     if (var2->GetTaskStatus(data_ov025_021ef404) == 0) {

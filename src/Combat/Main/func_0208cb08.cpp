@@ -12,7 +12,7 @@ struct Struct_0208cb08_2 {
     unsigned short unknown_8_[4];
 };
 struct QueueNode_02015438;
-struct Struct_02074b64 { unsigned char unknown_0_[0x14]; };
+struct BGControlSave_02074b64 { unsigned char unknown_0_[0x14]; };
 struct BGLayer_0204b12c;
 struct BGLayer_0204af38;
 struct BGLayer_02020cb8_5;
@@ -32,7 +32,7 @@ struct Struct_0208cb08_4 {
 struct Struct_0208cb08_5 {
     Struct_0208cb08_4* unknown_0_;
     unsigned char unknown_4_[0x28];
-    Struct_02074b64 unknown_2c_;
+    BGControlSave_02074b64 unknown_2c_;
     Struct_0208cb08_3 unknown_40_;
     unsigned char unknown_60_[0x40];
     void* unknown_a0_;
@@ -54,7 +54,7 @@ extern "C" int GetResources_0200fb8c(int*);
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
-extern "C" void func_02074b64(Struct_02074b64*);
+extern "C" void SaveSubBGControl_02074b64(BGControlSave_02074b64*);
 extern "C" void func_020dc2bc();
 void SetSubBrightness(GameResources*, int, int);
 int IsSubBrightnessTransitionActive(GameResources*);
@@ -99,7 +99,7 @@ extern "C" ARM void func_0208cb08(Struct_0208cb08_5* arg0) {
     } else if (arg0->unknown_d5_ == 1) {
         if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00())) ++arg0->unknown_d5_;
     } else if (arg0->unknown_d5_ == 2) {
-        func_02074b64(&arg0->unknown_2c_);
+        SaveSubBGControl_02074b64(&arg0->unknown_2c_);
         func_020dc2bc();
         if (!(arg0->unknown_da_ & 0x10)) SetSubBrightness(var1, -16, 8);
         ++arg0->unknown_d5_;

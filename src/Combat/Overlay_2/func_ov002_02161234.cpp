@@ -35,7 +35,7 @@ extern "C" void func_020e4e38(void *arg0, struct Struct_020e4e38 *arg1);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState *gameState);
 extern "C" void func_020e526c(void *arg0);
 extern "C" void func_020e56fc(void *arg0, int arg1, int arg2);
-extern "C" void *func_020e5294(void *arg0, int arg1);
+extern "C" void *FindNounInTable_020e5294(void *nounTable, int nounId);
 extern "C" void func_020e4f18(void *arg0, void *arg1, int arg2);
 extern "C" void func_02046608(void *arg0, int arg1, const char *arg2, char *arg3, int arg4, int arg5, int arg6);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
@@ -141,8 +141,8 @@ extern "C" ARM void func_ov002_02161234(char *arg0, char *arg1) {
         void *var23 = ExtractFileFromGP2(data_ov002_0216d2bc, data_ov002_0216d2d2, &var10);
         func_020e526c(&var9);
         func_020e56fc(&var9, (int) var23, var10);
-        void *var24 = func_020e5294(&var9, *(short *) (arg0 + 0x1c22));
-        void *var25 = func_020e5294(&var9, *(short *) (arg0 + 0x1c24));
+        void *var24 = FindNounInTable_020e5294(&var9, *(short *) (arg0 + 0x1c22));
+        void *var25 = FindNounInTable_020e5294(&var9, *(short *) (arg0 + 0x1c24));
         if (var24 != 0) {
             func_020e4f18(var24, &var6, 3);
             *(void **) (var12 + 0x18) = &var6;

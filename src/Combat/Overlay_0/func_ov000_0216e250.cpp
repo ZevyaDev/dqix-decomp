@@ -4,7 +4,7 @@
 #include "Util/Random.h"
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" void func_ov000_0216d370(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void ResetBattleCamera_ov000_0216d370(void* camera, int resetRoll, int resetFieldOfView, int resetTurns);
 extern "C" void Vector3fix_Add(const Vector3fix* arg0, const Vector3fix* arg1, Vector3fix* arg2);
 
 struct Struct_ov000_0216e250 {
@@ -12,7 +12,7 @@ struct Struct_ov000_0216e250 {
 };
 struct Struct_02049b54_2;
 extern "C" struct Struct_ov000_0216e250 func_02049b54(struct Struct_02049b54_2* arg0);
-extern "C" void func_0202e694(void* arg0, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
 
 extern int data_ov000_0218323c[];
 extern int data_ov000_02183244[];
@@ -32,7 +32,7 @@ struct Struct_ov000_0216e250_2 {
 extern "C" ARM void func_ov000_0216e250(struct Struct_ov000_0216e250_2* arg0, int* arg1, int arg2) {
     if (arg2 <= 0) return;
 
-    func_ov000_0216d370(arg0, 1, 1, 1);
+    ResetBattleCamera_ov000_0216d370(arg0, 1, 1, 1);
     GameState* var0 = GameState::GetInstance();
     Vector3i var1;
     __clear(&var1, sizeof(var1));
@@ -64,6 +64,6 @@ extern "C" ARM void func_ov000_0216e250(struct Struct_ov000_0216e250_2* arg0, in
     var10[1] = 0;
     var10[2] = 0x9000;
     arg0->unknown_10_ = var1;
-    func_0202e694(arg0, var10);
+    SetCameraOrbitFromArray_0202e694(arg0, var10);
     arg0->unknown_238_ = var7;
 }

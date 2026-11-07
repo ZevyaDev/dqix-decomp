@@ -16,8 +16,8 @@ enum { Enum_ov003_02171764_686 = 0x2ae };
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 
-struct Struct_0202b2f0;
-extern "C" int func_0202c578(struct Struct_0202b2f0* arg0, int arg1);
+struct LocalWireless_0202b2f0;
+extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 
 struct LocalWireless_0202c508;
 extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202c508* wireless);
@@ -25,7 +25,7 @@ extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202c508* w
 extern "C" void func_ov017_021d1810(int, int, signed char);
 extern "C" int* func_020936f8(void);
 extern "C" void func_02094030(int* arg0, unsigned short arg1, short arg2, unsigned char arg3);
-extern "C" void func_0202c21c(struct Struct_0202b2f0* arg0, int arg1);
+extern "C" void func_0202c21c(struct LocalWireless_0202b2f0* arg0, int arg1);
 
 extern "C" void func_0202b0f4(void* arg0);
 extern "C" void func_ov003_02171e1c(void*, void*);
@@ -34,10 +34,10 @@ extern "C" int func_0205e488(void* arg0);
 // USA: func_ov003_02171764
 extern "C" ARM void func_ov003_02171764(char* arg0) {
     GameState* var0 = GameState::GetInstance();
-    struct Struct_0202b2f0* var1 = (struct Struct_0202b2f0*)GetLocalWireless_0202ae18();
+    struct LocalWireless_0202b2f0* var1 = (struct LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
     void* var2 = GetLocalWirelessPacketQueue_0202ae24();
 
-    if (func_0202c578(var1, *(unsigned char*)(arg0 + 0x199)) != 0) {
+    if (IsLocalWirelessPlayerDisconnected_0202c578(var1, *(unsigned char*)(arg0 + 0x199)) != 0) {
         if (IsNotLocalWirelessGuest_0202c508((struct LocalWireless_0202c508*)var1) != 0) {
             func_ov017_021d1810(4, -1, 0);
             int* var3 = func_020936f8();

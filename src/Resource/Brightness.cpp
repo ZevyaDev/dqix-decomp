@@ -4,7 +4,6 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-    #define func_020c39c8 func_020c5494
     #define func_020daf90 func_020dc998
     #define func_020db9cc func_020dd3d4
 #endif
@@ -15,7 +14,7 @@ extern "C"
 // write brightness to master register
 void WriteBrightnessRegister_020c39a0(volatile unsigned short* reg, int brightness);
 // get brightness from master register
-int func_020c39c8(volatile unsigned short* reg);
+int ReadBrightnessRegister_020c39c8(volatile unsigned short* reg);
 
 void* func_020daf90();
 int func_020db9cc(void* unk, int screen, int brightness, unsigned int duration);
@@ -48,8 +47,8 @@ void InitializeBrightnessState(GameResources* resources)
 
     resources->allowBrightnessApply = true;
 
-    resources->mainBrightness = (float)func_020c39c8(&REG_MASTER_BRIGHT);
-    resources->subBrightness  = (float)func_020c39c8(&REG_MASTER_BRIGHT_SUB);
+    resources->mainBrightness = (float)ReadBrightnessRegister_020c39c8(&REG_MASTER_BRIGHT);
+    resources->subBrightness  = (float)ReadBrightnessRegister_020c39c8(&REG_MASTER_BRIGHT_SUB);
 }
 
 // usa: func_0203af44

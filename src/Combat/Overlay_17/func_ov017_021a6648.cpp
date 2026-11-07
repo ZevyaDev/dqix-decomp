@@ -11,7 +11,7 @@ struct Struct_ov017_021a6648 {
     TextureVRAMArea_0203d028 unknown_c40_;
 };
 struct GlobalFlags_02038598_4;
-struct Struct_020d7aa0_2;
+struct TimedMessageQueue_020d7aa0_2;
 struct Queue_02038598_5;
 struct Struct_ov017_021a6648_2 {
     char unknown_0_; unsigned char unknown_1_; char unknown_2_[6];
@@ -37,16 +37,16 @@ extern "C" void func_020bb700(int*);
 extern "C" void func_020bb910(int*);
 extern "C" void DC_FlushRange(const void*, unsigned int);
 extern "C" int func_02057e6c(void*, int, SafeAllocator*, void*, unsigned int, TextureVRAMArea_0203d028*);
-extern "C" void func_02057fb4(void*, int, void*);
+extern "C" void PlayEffect_02057fb4(void*, int, void*);
 extern "C" void LoadExtraSoundSet_0205ebc0(void*, int, int);
 extern "C" void PlayExtraSoundEffect_0205ebfc(void*, int, int);
 extern "C" void EnablePlayerControl_020397c0(void*);
-extern "C" void func_0205ebec(void*);
+extern "C" void UnloadExtraSoundSet_0205ebec(void*);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" void func_020dc2d0(int);
 extern "C" void func_ov017_0219593c();
-extern "C" Struct_020d7aa0_2* func_020d7a50();
-extern "C" void func_020d7aa0(Struct_020d7aa0_2*);
+extern "C" TimedMessageQueue_020d7aa0_2* func_020d7a50();
+extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2*);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void func_02046a8c(Queue_02038598_5*, void*);
 extern "C" void func_ov017_021a6b30(Struct_ov017_021a6648_2*);
@@ -119,7 +119,7 @@ extern "C" ARM void func_ov017_021a6648(Struct_ov017_021a6648_2* arg0, Queue_020
         var12.unknown_2c_ = var1->obj3D_.position_;
         var12.unknown_44_ = var11;
         var12.unknown_10_ = 1;
-        func_02057fb4(var4, 0xc, &var12);
+        PlayEffect_02057fb4(var4, 0xc, &var12);
         if (arg0->unknown_c_ == 2) {
             LoadExtraSoundSet_0205ebc0(&gSoundEffectManager_02108760, 0xa3, 0xa3);
             PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, 5, 0);
@@ -138,13 +138,13 @@ extern "C" ARM void func_ov017_021a6648(Struct_ov017_021a6648_2* arg0, Queue_020
         arg0->unknown_9_ += var0->GetTickCount();
         if (arg0->unknown_9_ < data_ov017_021d6aaa[arg0->unknown_c_ * 3]) return;
         EnablePlayerControl_020397c0(var1);
-        func_0205ebec(&gSoundEffectManager_02108760);
+        UnloadExtraSoundSet_0205ebec(&gSoundEffectManager_02108760);
         ClearFlags00(var2, 0x10);
         ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var5, 1);
         func_020dc2d0(0);
         if (arg0->unknown_a_) {
             func_ov017_0219593c();
-            func_020d7aa0(func_020d7a50());
+            ClearTimedMessageQueue_020d7aa0(func_020d7a50());
         }
         if (!arg0->unknown_b_ && IsTypeInQueue_02046b60(arg1, 0xa)) {
             func_02046a8c(arg1, var2->unknown_ptr_3718);

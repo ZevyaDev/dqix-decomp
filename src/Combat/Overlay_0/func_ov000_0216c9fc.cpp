@@ -5,11 +5,11 @@
 
 extern "C" void AppendBACTCommand_ov000_02169b78(void*);
 
-struct Struct_ov000_02184264_2 {
+struct BACTParseState_ov000_02184264_2 {
     unsigned char unknown_0_[8];
-    SafeAllocator* unknown_8_;
+    SafeAllocator* pAllocator_8_;
 };
-extern struct Struct_ov000_02184264_2 gBACTParseState_ov000_02184264;
+extern struct BACTParseState_ov000_02184264_2 gBACTParseState_ov000_02184264;
 
 struct Struct_0201c1c8 { int unknown_0_; int unknown_4_; };
 
@@ -25,7 +25,7 @@ struct Struct_ov000_0216c9fc {
 
 // USA: func_ov000_0216c9fc
 extern "C" ARM int func_ov000_0216c9fc(struct Struct_0201c1c8* arg0) {
-    struct Struct_ov000_0216c9fc* var0 = (struct Struct_ov000_0216c9fc*)gBACTParseState_ov000_02184264.unknown_8_->Allocate(sizeof(struct Struct_ov000_0216c9fc));
+    struct Struct_ov000_0216c9fc* var0 = (struct Struct_ov000_0216c9fc*)gBACTParseState_ov000_02184264.pAllocator_8_->Allocate(sizeof(struct Struct_ov000_0216c9fc));
     if (var0 == 0) {
         return 0;
     }

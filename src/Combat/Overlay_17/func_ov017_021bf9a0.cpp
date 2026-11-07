@@ -9,7 +9,7 @@
 
 
 
-struct Struct_02015ef4_5 { unsigned int unknown_0_[28]; };
+struct TextureVRAMArea_02015ef4_5 { unsigned int unknown_0_[28]; };
 struct MessageWindow_020465c0;
 struct Struct_ov017_0218d618_2;
 struct SoundEffectManager_02108760;
@@ -36,7 +36,7 @@ extern "C" unsigned char* GetFlagManager_0205ec34();
 extern "C" int func_ov017_0218d618(Struct_ov017_0218d618_2*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_02047230(Struct_02012fa4*);
-extern "C" void func_0207dfc8(Struct_02015ef4_5*, Struct_02015ef4_5*);
+extern "C" void InitTextureVRAMAreaFromSaved_0207dfc8(TextureVRAMArea_02015ef4_5*, TextureVRAMArea_02015ef4_5*);
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void func_02047b30(void*, int, int, int);
@@ -81,8 +81,8 @@ extern "C" ARM int func_ov017_021bf9a0(Struct_ov017_021bf9a0_2* arg0) {
                 arg0->unknown_34_.CreateTypeA(var7, 256);
                 func_02047230(arg0->unknown_10_);
                 func_0204719c(arg0->unknown_10_);
-                Struct_02015ef4_5 var8;
-                func_0207dfc8((Struct_02015ef4_5*)&inline_ov017_021bf9a0(GetGameResources(), 0x230), &var8);
+                TextureVRAMArea_02015ef4_5 var8;
+                InitTextureVRAMAreaFromSaved_0207dfc8((TextureVRAMArea_02015ef4_5*)&inline_ov017_021bf9a0(GetGameResources(), 0x230), &var8);
                 RestoreTextureVRAMState_0207df90((char*)&var8);
                 func_02047b30(arg0->unknown_10_, (int)var5, var6, (int)&arg0->unknown_34_);
                 SaveTextureVRAMState_0207dfac((char*)&var8);

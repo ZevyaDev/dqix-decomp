@@ -69,7 +69,7 @@ void SetMainBrightness(GameResources*, int, int);
 extern "C" Struct_02070900_2* func_020704fc();
 extern "C" void func_02070900(Struct_02070900_2*, Struct_02070900*, unsigned int);
 extern "C" void func_020707c8(Struct_020707c8*);
-extern "C" void func_0209c2e0(void*, int, int);
+extern "C" void SetMusicVolume_0209c2e0(void*, int, int);
 extern "C" void func_02046a8c(void*, void*);
 extern "C" void func_ov017_021bb0c4(unsigned char*);
 void SetBrightness(GameResources*, int, int);
@@ -126,7 +126,7 @@ extern "C" ARM int func_ov001_0215657c(Struct_ov001_0215657c_2* arg0, void* arg1
     }
     if (var4) {
         arg0->unknown_8_ = arg0->unknown_152_;
-        func_0209c2e0(&gMusicManager_02109bf4, arg0->unknown_94_, 0);
+        SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, arg0->unknown_94_, 0);
         func_02046a8c(arg1, var5);
         func_ov017_021bb0c4((unsigned char*)arg0);
         return 0;
@@ -134,7 +134,7 @@ extern "C" ARM int func_ov001_0215657c(Struct_ov001_0215657c_2* arg0, void* arg1
     SetBrightness(var1, 0, 30);
     func_020a2794(var2);
     func_020a2718(var2);
-    func_0209c2e0(&gMusicManager_02109bf4, arg0->unknown_94_, 0);
+    SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, arg0->unknown_94_, 0);
     func_ov017_021bb27c(arg0);
     arg0->unknown_1_ = 1;
     func_02046a8c(arg1, var5);

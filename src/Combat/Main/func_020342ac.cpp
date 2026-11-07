@@ -5,7 +5,7 @@
 extern "C" void* GetLocalWireless_0202ae18(void* arg0);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
-struct Struct_0202b2f0;
+struct LocalWireless_0202b2f0;
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 
@@ -24,7 +24,7 @@ extern "C" ARM int func_020342ac(void* arg0) {
         goto fallback;
     }
     short var1 = *(short*)((char*)arg0 + 4);
-    if (!func_0202c178((struct Struct_0202b2f0*)var0, var1)) {
+    if (!func_0202c178((struct LocalWireless_0202b2f0*)var0, var1)) {
         goto fallback;
     }
     var1 = *(short*)((char*)arg0 + 4);
@@ -37,7 +37,7 @@ extern "C" ARM int func_020342ac(void* arg0) {
         goto fallback;
     }
     var1 = *(short*)((char*)arg0 + 4);
-    Struct_0202b2f0_2* var4 = func_0202c178((struct Struct_0202b2f0*)var0, var1);
+    Struct_0202b2f0_2* var4 = func_0202c178((struct LocalWireless_0202b2f0*)var0, var1);
     return var4->unknown_0_.unknown_1_0_;
 fallback:
     return *(unsigned char*)((char*)arg0 + 0xbe);

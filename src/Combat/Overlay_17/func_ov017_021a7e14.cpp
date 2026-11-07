@@ -12,7 +12,7 @@ struct Struct_02018300_3 {
     short unknown_b2_;
 };
 
-struct Struct_0202b2f0;
+struct LocalWireless_0202b2f0;
 struct ItemTable_0201099c_10;
 struct Struct_0201099c_3;
 struct StringTable_0201099c_14;
@@ -97,7 +97,7 @@ struct Struct_ov017_021a7e14_5 {
 };
 
 extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0();
-extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18();
+extern "C" LocalWireless_0202b2f0* GetLocalWireless_0202ae18();
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
@@ -127,7 +127,7 @@ extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int 
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_02086bf4(char* arg0, int arg1);
 extern "C" int GetMessageChoice_020457e0(MessageWindow_020465c0* window);
-extern "C" int func_0202c578(Struct_0202b2f0* arg0, int arg1);
+extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" int func_ov017_021a85e8(unsigned char* arg0, int arg1);
 extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void func_0207cbe8(char* arg0);
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
     MessageWindow_020465c0* var2 = GetMessageWindow_020421a0();
     FontLoader_0208cb08* var3 = GetFontLoader_02094a00();
     GetGameResources();
-    Struct_0202b2f0* var4 = GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* var4 = GetLocalWireless_0202ae18();
     Struct_02018300_3* var5 = (Struct_02018300_3*)var0->GetUnknownGameObject();
     int var6 = GetProtagonistObjectIndex_020100a8(var0);
     DisablePlayerControl_020397cc(var5, 1);
@@ -313,7 +313,7 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
         }
     } else if (arg0->unknown_24_ == 4) {
         var2->unknown_19ae_ = 0;
-        if (func_0202c578(var4, 0) || func_0202c578(var4, arg0->unknown_34_)) {
+        if (IsLocalWirelessPlayerDisconnected_0202c578(var4, 0) || IsLocalWirelessPlayerDisconnected_0202c578(var4, arg0->unknown_34_)) {
             var7 = 1;
         }
         int var18 = var0->GetTickCount();
@@ -338,7 +338,7 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
             var19 = 1;
         }
         if (func_ov017_021a85e8((unsigned char*)arg0, var19) == 0 && var2->unknown_9a0_ == 3) {
-            if (func_0202c578(var4, 0) || func_0202c578(var4, arg0->unknown_34_)) {
+            if (IsLocalWirelessPlayerDisconnected_0202c578(var4, 0) || IsLocalWirelessPlayerDisconnected_0202c578(var4, arg0->unknown_34_)) {
 #if defined(jpn)
                 StartMessage_0204500c((MessageWindow_02021b84*)var2, (char*)FindStringInTable_020e0434(arg0->unknown_1c_, 0x71), 0);
 #else

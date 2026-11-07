@@ -14,7 +14,7 @@ extern "C" void* GetLocalWireless_0202ae18(void* arg0);
 struct Struct_02033f44;
 extern "C" int* func_02033f44(struct Struct_02033f44* arg0);
 
-extern "C" void func_02076ccc(void* arg0, int arg1);
+extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
 
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 
@@ -24,7 +24,7 @@ struct Struct_02033b68;
 extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
 
 struct Struct_02033834_2;
-extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
+extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 
@@ -61,7 +61,7 @@ extern "C" ARM void func_02078050(struct Struct_02078050* arg0) {
     void* var0 = GetLocalWireless_0202ae18(arg0);
 
     if (func_02033f44((struct Struct_02033f44*)arg0) != 0) {
-        func_02076ccc(arg0, 1);
+        SetFieldMonsterState_02076ccc(arg0, 1);
         arg0->unknown_154_ = 0;
         if (IsLocalWirelessOn_0202b7d8((int*)var0) == 0) {
             return;
@@ -84,7 +84,7 @@ extern "C" ARM void func_02078050(struct Struct_02078050* arg0) {
     var4 = Vector3fix_Distance((const Vector3fix*)&var1, (const Vector3fix*)&var2);
     Vector3fix_Subtract((const Vector3fix*)&var2, (const Vector3fix*)&var1, (Vector3fix*)&var3);
     Vector3fix_Normalize((const Vector3fix*)&var3, (Vector3fix*)&var3);
-    func_02033834((struct Struct_02033834_2*)arg0, fix32_Atan2(var3.unknown_0_, var3.unknown_8_));
+    SetFacing_02033834((struct Struct_02033834_2*)arg0, fix32_Atan2(var3.unknown_0_, var3.unknown_8_));
 
     if (IsLocalWirelessGuest_0202c540(var0) != 0) {
         return;
@@ -103,7 +103,7 @@ extern "C" ARM void func_02078050(struct Struct_02078050* arg0) {
         *(Vector3i*)((int*)&arg0->unknown_44_) = *(Vector3i const*)((int*)&var6);
     }
 
-    func_02076ccc(arg0, 1);
+    SetFieldMonsterState_02076ccc(arg0, 1);
     arg0->unknown_154_ = 0;
     if (IsLocalWirelessOn_0202b7d8((int*)var0) == 0) {
         return;

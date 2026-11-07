@@ -2,13 +2,13 @@
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" int SetScriptRefInt_ov017_021d6134(void*, int);
-extern "C" void* func_0209dccc();
+extern "C" void* GetQuestBattleScript_0209dccc();
 struct Struct_0209d44c;
 extern "C" int func_0209fccc(struct Struct_0209d44c*, int);
 
 // USA: func_0209d44c
 extern "C" ARM int func_0209d44c(void* arg0) {
-    void* var0 = func_0209dccc();
+    void* var0 = GetQuestBattleScript_0209dccc();
     if (var0 == NULL) return 0;
     int var1 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     int var2 = func_0209fccc((struct Struct_0209d44c*)var0, var1);

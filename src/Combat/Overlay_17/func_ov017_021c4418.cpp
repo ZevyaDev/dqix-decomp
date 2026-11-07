@@ -18,7 +18,7 @@ extern "C" ARM void func_ov017_021c4418(int arg0, signed char arg1);
 extern "C" ARM void func_ov017_021c45b4(int arg0);
 extern "C" void func_ov017_021ce704(int arg0);
 extern "C" ARM void func_ov017_021cf078(int arg0, unsigned short arg1, unsigned char arg2);
-extern "C" void func_ov017_021c3fb4(int arg0, int arg1);
+extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int memberIndex, int requestModelLoad);
 extern "C" void func_ov017_021cc730(int arg0, int arg1, int arg2, int arg3);
 extern "C" ARM void func_ov017_021ccc34(int arg0);
 extern "C" void func_ov017_021ce524(short arg0);
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov017_021cc4f8(signed char arg0, struct Struct_ov017_02
         var2 = 1;
     }
     if (var3 & 0x1) {
-        func_ov017_021c3fb4(var0, 1);
+        SendPartyMemberEquippedItems_ov017_021c3fb4(var0, 1);
         var2 = 1;
     }
     if (var3 & 0x10) {

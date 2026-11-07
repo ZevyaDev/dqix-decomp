@@ -54,8 +54,8 @@ extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_02018fbc(Struct_ov017_021c96c0_2* arg0, Vector3i* arg1);
 extern "C" int* func_02033f44(Struct_02033f44* arg0);
 struct Struct_02033834_2;
-extern "C" void func_02033834(Struct_02033834_2* arg0, int arg1);
-extern "C" void func_02076ccc(void*, int);
+extern "C" void SetFacing_02033834(Struct_02033834_2* object, int angle);
+extern "C" void SetFieldMonsterState_02076ccc(void*, int);
 
 // USA: func_ov017_021c96c0
 extern "C" ARM void func_ov017_021c96c0(int arg0, Struct_ov017_021c96c0_4* arg1, int arg2, int arg3, void* arg4) {
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov017_021c96c0(int arg0, Struct_ov017_021c96c0_4* arg1,
         }
 
         if (var3 != 0) {
-            func_02033834((Struct_02033834_2*)var1.unknown_8_, var3);
+            SetFacing_02033834((Struct_02033834_2*)var1.unknown_8_, var3);
         }
         if (var4) {
             var1.unknown_8_->unknown_17b_ = 1;
@@ -112,5 +112,5 @@ extern "C" ARM void func_ov017_021c96c0(int arg0, Struct_ov017_021c96c0_4* arg1,
         }
     }
 
-    func_02076ccc(var1.unknown_8_, arg1->unknown_6_0_);
+    SetFieldMonsterState_02076ccc(var1.unknown_8_, arg1->unknown_6_0_);
 }

@@ -9,7 +9,7 @@ extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int func_02039750(void* arg0);
 extern "C" int func_0203402c(struct Struct_0203402c* arg0);
 extern "C" unsigned char func_02039820(void* arg0);
-extern "C" int func_020535c8(signed char* arg0);
+extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* arg0) {
             if (g_keyManager.TestKeysPressed(2) &&
                 func_02039820(var1) &&
                 (*(int*)((char*)var1 + Enum_ov017_02199f08_396) & 1) == 0 &&
-                func_020535c8((signed char*)var1) == 0 &&
+                IsPerformingGesture_020535c8((signed char*)var1) == 0 &&
                 *(short*)((char*)var1 + 0xac) == 0) {
                 DisablePlayerControl_020397cc((Struct_02018300_3*)var1, 1);
                 *(unsigned short*)((char*)var1 + 0xb2) = 0;

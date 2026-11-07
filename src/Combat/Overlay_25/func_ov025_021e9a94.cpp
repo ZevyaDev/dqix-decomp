@@ -4,7 +4,7 @@
 
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" void* GetBattleScene_ov000_02160130(void);
-extern "C" void func_ov000_0216d370(int arg0, int arg1, int arg2, int arg3);
+extern "C" void ResetBattleCamera_ov000_0216d370(int camera, int resetRoll, int resetFieldOfView, int resetTurns);
 
 extern unsigned int data_ov025_021ef9a4;
 extern unsigned int data_ov025_021ef9c0;
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov025_021e9a94(struct Struct_ov025_021e9778_5* arg0) {
         return;
     }
     if (arg0->unknown_1c0_ == 0) {
-        func_ov000_0216d370((int)var1, 1, 1, 1);
+        ResetBattleCamera_ov000_0216d370((int)var1, 1, 1, 1);
     }
     data_ov025_021ef9c0 += 1;
     data_ov025_021ef9a4 &= ~2;

@@ -12,7 +12,7 @@ struct Struct_ov025_021e1d54_2 {
     unsigned char* unknown_8_;
 };
 
-extern "C" int func_020493a4(unsigned char* arg0);
+extern "C" int GetCombatantCell_020493a4(unsigned char* combatant);
 extern "C" void func_020493b8(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_ov025_021e169c(unsigned char* arg0, int arg1);
 extern "C" void func_ov000_0216f82c(Struct_ov025_021e1d54* arg0, const int* arg1);
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov025_021e1d54(Struct_ov025_021e1d54_2* arg0, unsigned 
     int var4;
     Struct_ov025_021e1d54 var5;
     int var6;
-    var4 = func_020493a4(arg0->unknown_8_);
+    var4 = GetCombatantCell_020493a4(arg0->unknown_8_);
     func_ov000_0216f82c(&var3, &var4);
     var0 = var3;
     unsigned char var7 = 0;

@@ -19,7 +19,7 @@ struct Vector3i;
 
 struct Struct_02033834_2;
 struct Struct_02033834;
-extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
+extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 
 extern "C" void __clear(void* arg0, int arg1);
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov017_021ceee0(void* arg0, struct Struct_ov017_021ceee0
     }
     *(Vector3i*)(&var0->obj3D_.position_.x) = *(Vector3i const*)arg1->unknown_4_;
     if (arg1->unknown_13_ == 0) {
-        func_02033834((struct Struct_02033834_2*)var0, arg1->unknown_10_);
+        SetFacing_02033834((struct Struct_02033834_2*)var0, arg1->unknown_10_);
     } else {
         SetFacingInstantly_02033874((struct Struct_02033834*)var0, arg1->unknown_10_);
     }

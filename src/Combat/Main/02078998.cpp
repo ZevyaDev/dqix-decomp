@@ -5,12 +5,12 @@
 struct LocalWireless_0202c1a4;
 extern "C" int rand();
 extern "C" void* __clear(void*, int);
-struct Struct_02076ccc;
+struct FieldMonster_02076ccc;
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
-extern "C" bool func_02076ccc(void*, int);
+extern "C" bool SetFieldMonsterState_02076ccc(void*, int);
 struct Struct_ov017_021c95ec { int unknown_0_, unknown_4_, unknown_8_; };
 extern "C" void func_ov017_021c95ec(int, int, int, int, int, Struct_ov017_021c95ec, int, unsigned char, unsigned char);
 
@@ -77,23 +77,23 @@ extern "C" ARM void func_02078998(Struct_02078998_2* arg0) {
     if ((var7 + var8 > (var5 + var6) * 3 || arg0->unknown_140_ == -99) && arg0->unknown_140_ != 99) {
         switch (arg0->unknown_13b_) {
         case 0:
-            func_02076ccc((Struct_02076ccc*)arg0, 12);
+            SetFieldMonsterState_02076ccc((FieldMonster_02076ccc*)arg0, 12);
             var9 = 12;
             break;
         case 1:
-            func_02076ccc((Struct_02076ccc*)arg0, 6);
+            SetFieldMonsterState_02076ccc((FieldMonster_02076ccc*)arg0, 6);
             var9 = 6;
             break;
         case 2:
-            func_02076ccc((Struct_02076ccc*)arg0, 7);
+            SetFieldMonsterState_02076ccc((FieldMonster_02076ccc*)arg0, 7);
             var9 = 7;
             break;
         case 3:
             if (rand() % 2) {
-                func_02076ccc((Struct_02076ccc*)arg0, 7);
+                SetFieldMonsterState_02076ccc((FieldMonster_02076ccc*)arg0, 7);
                 var9 = 7;
             } else {
-                func_02076ccc((Struct_02076ccc*)arg0, 6);
+                SetFieldMonsterState_02076ccc((FieldMonster_02076ccc*)arg0, 6);
                 var9 = 6;
             }
             break;
@@ -101,19 +101,19 @@ extern "C" ARM void func_02078998(Struct_02078998_2* arg0) {
     } else {
         switch (arg0->unknown_13c_) {
         case 0:
-            func_02076ccc((Struct_02076ccc*)arg0, 5);
+            SetFieldMonsterState_02076ccc((FieldMonster_02076ccc*)arg0, 5);
             var9 = 5;
             break;
         case 1:
-            func_02076ccc((Struct_02076ccc*)arg0, 4);
+            SetFieldMonsterState_02076ccc((FieldMonster_02076ccc*)arg0, 4);
             var9 = 4;
             break;
         case 2:
             if (rand() % 2) {
-                func_02076ccc((Struct_02076ccc*)arg0, 7);
+                SetFieldMonsterState_02076ccc((FieldMonster_02076ccc*)arg0, 7);
                 var9 = 7;
             } else {
-                func_02076ccc((Struct_02076ccc*)arg0, 6);
+                SetFieldMonsterState_02076ccc((FieldMonster_02076ccc*)arg0, 6);
                 var9 = 6;
             }
             break;

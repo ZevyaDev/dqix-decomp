@@ -14,7 +14,7 @@ struct Struct_ov024_021de124;
 extern "C" int func_ov024_021de25c(struct Struct_ov024_021de124* arg0);
 
 extern "C" int func_020882f8(unsigned char* arg0);
-extern "C" unsigned short func_0202053c(void* arg0);
+extern "C" unsigned short GetLevel_0202053c(void* gameObject);
 
 struct Struct_ov024_021eb1ec {
     char unknown_0_[0x3a];
@@ -35,7 +35,7 @@ extern "C" ARM int func_ov024_021eb1ec(void* arg0, int arg1) {
         ((struct Struct_ov024_021eb1ec*)var1->currentStats_)->unknown_3a_ = 0;
         return 0;
     }
-    if (func_0202053c(var1) < 10) {
+    if (GetLevel_0202053c(var1) < 10) {
         return 0;
     }
     if (func_ov024_021da9c8((struct Struct_ov024_021da670_8*)var1)) {

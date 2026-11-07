@@ -8,13 +8,13 @@
 #include "Resource/GameResources.h"
 
 
-struct Struct_02015ef4_4 {
+struct ItemData_02015ef4_4 {
     int unknown_0_, unknown_4_, unknown_8_, unknown_c_;
     unsigned int unknown_10_0_ : 10;
     unsigned int unknown_11_2_ : 10;
     unsigned int unknown_12_4_ : 8;
     unsigned int unknown_13_4_ : 4;
-    short unknown_14_, unknown_16_, unknown_18_, unknown_1a_, unknown_1c_;
+    short unknown_14_, unknown_16_, itemId_18_, unknown_1a_, unknown_1c_;
 };
 
 struct Struct_02019508_3;
@@ -28,10 +28,10 @@ extern "C" unsigned char* GetFlagManager_0205ec34(void);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_02047230(struct Struct_02012fa4* arg0);
-extern "C" Struct_02015ef4_4* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
+extern "C" ItemData_02015ef4_4* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_ov017_0218d510(int arg0, void* arg1);
-extern "C" unsigned short func_020de234(struct Struct_02015ef4_4* arg0, int arg1);
+extern "C" unsigned short GetItemGraphicNumber_020de234(struct ItemData_02015ef4_4* item, int gender);
 
 struct Struct_ov017_021d6ca4 {
     char unknown_0_[0x20];
@@ -95,9 +95,9 @@ extern "C" ARM int func_ov017_021bf7ac(struct Struct_ov017_021bf7ac_2* arg0) {
             Struct_ov017_021d6ca4 var12 = data_ov017_021d6ca4;
             arg0->unknown_14_ = var3->QueueLoadFile(var12.unknown_0_, 0);
         } else {
-            Struct_02015ef4_4* var13 = FindItemData_020dedd0((struct ItemTable_0201099c_10*)(var11 + 0x2400), (short)var9->itemIDOrRank);
+            ItemData_02015ef4_4* var13 = FindItemData_020dedd0((struct ItemTable_0201099c_10*)(var11 + 0x2400), (short)var9->itemIDOrRank);
             if (var13 != 0) {
-                if (var13->unknown_18_ == 0x5617) {
+                if (var13->itemId_18_ == 0x5617) {
                     arg0->unknown_48_ = 1;
                     arg0->unknown_4c_.ResetAllocatorPointer();
                     arg0->unknown_4c_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x4000), 0x4000);
@@ -105,7 +105,7 @@ extern "C" ARM int func_ov017_021bf7ac(struct Struct_ov017_021bf7ac_2* arg0) {
                     func_ov017_0218d510((int)GetGameResources(), &arg0->unknown_4c_);
                 } else {
                     char var14[0x80];
-                    sprintf(var14, data_ov017_021d7ee8, (signed char)var13->unknown_12_4_, func_020de234(var13, 0));
+                    sprintf(var14, data_ov017_021d7ee8, (signed char)var13->unknown_12_4_, GetItemGraphicNumber_020de234(var13, 0));
                     arg0->unknown_14_ = var3->QueueLoadFile(var14, 0);
                 }
             }

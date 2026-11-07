@@ -51,8 +51,8 @@ extern "C" void func_020a8304(void* arg0);
 extern "C" Struct_020a83fc_2* func_020a83fc(Struct_020a83fc* arg0, int arg1);
 extern "C" void func_ov017_021d1a18(short arg0, short arg1, int arg2, int arg3);
 extern "C" void func_ov017_021d1c2c(unsigned char arg0, unsigned short arg1);
-extern "C" void func_02070378(char* arg0);
-extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
+extern "C" void InitZoneEntry_02070378(char* zoneEntry);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int arg1);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void func_02017d7c(void* arg0);
 extern "C" void func_02039d58(unsigned char* arg0);
@@ -143,13 +143,13 @@ extern "C" ARM void func_ov017_0219bfb4(int arg0, unsigned short arg1) {
     }
 
     if (var9[2] == 0) {
-        func_02070378(var3);
+        InitZoneEntry_02070378(var3);
         *(unsigned short*)var3 = var11;
         var3[0xc] = 0;
-        func_ov017_0219e310(var9, 0);
+        ResetZoneLoadTask_ov017_0219e310(var9, 0);
         AppendToQueue_020469b4(var8, (QueueNode_0201bdac*)var9);
     } else if (var9[3] == 0) {
-        func_02070378(var3);
+        InitZoneEntry_02070378(var3);
         *(unsigned short*)var3 = var11;
         var3[0xc] = 0;
     }

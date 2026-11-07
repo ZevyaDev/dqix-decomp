@@ -5,7 +5,7 @@
 
 struct Struct_021015a0_7 { char unknown_0_[0x10]; int unknown_10_; char unknown_14_[0x34 - 0x14]; int unknown_34_; };
 struct Struct_021023c0 { char unknown_0_[0x820]; };
-extern Struct_021015a0_7 data_021015a0;
+extern Struct_021015a0_7 gLocalWirelessLink_021015a0;
 extern Struct_021023c0 data_021023c0, data_02102be0;
 extern "C" int func_0202d0b4();
 extern "C" void func_0202dd28();
@@ -15,28 +15,28 @@ extern "C" int func_0202d54c();
 extern "C" int func_020d5f88(void*);
 extern "C" int func_0202cca4();
 
-static inline int inline_0202dd98() { return data_021015a0.unknown_10_; }
+static inline int inline_0202dd98() { return gLocalWirelessLink_021015a0.unknown_10_; }
 
 // USA: func_0202dd98
 extern "C" ARM void func_0202dd98() {
-    if (data_021015a0.unknown_10_ == 1) return;
-    if (data_021015a0.unknown_10_ == 2) {
+    if (gLocalWirelessLink_021015a0.unknown_10_ == 1) return;
+    if (gLocalWirelessLink_021015a0.unknown_10_ == 2) {
         if (!func_0202d0b4()) func_0202dd28();
         return;
     }
-    if (data_021015a0.unknown_10_ != 6 && data_021015a0.unknown_10_ != 5 && data_021015a0.unknown_10_ != 4) {
-        data_021015a0.unknown_10_ = 3;
+    if (gLocalWirelessLink_021015a0.unknown_10_ != 6 && gLocalWirelessLink_021015a0.unknown_10_ != 5 && gLocalWirelessLink_021015a0.unknown_10_ != 4) {
+        gLocalWirelessLink_021015a0.unknown_10_ = 3;
         func_0202dd28();
         return;
     }
-    data_021015a0.unknown_10_ = 3;
-    switch (data_021015a0.unknown_34_) {
+    gLocalWirelessLink_021015a0.unknown_10_ = 3;
+    switch (gLocalWirelessLink_021015a0.unknown_34_) {
     case 3: {
         int var0;
         int var1 = inline_0202dd98();
         if (var1 != 6) var0 = 0;
         else {
-            data_021015a0.unknown_10_ = var1;
+            gLocalWirelessLink_021015a0.unknown_10_ = var1;
             int var2 = func_020d68d0(&data_021023c0);
             if (var2) { func_0202c848(var2); var0 = 0; }
             else if (!func_0202d54c()) var0 = 0;

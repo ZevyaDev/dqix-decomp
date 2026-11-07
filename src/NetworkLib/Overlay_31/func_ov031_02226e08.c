@@ -1,12 +1,9 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca390 func_020cbe5c
-#endif
 
 
-void* func_ov031_0223cf4c(unsigned int arg0, int arg1);
-void func_020ca390(int val, void* dst, unsigned int size);
+void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int size, int alignAndDir);
+void Memset16Bit_020ca390(int val, void* dst, unsigned int size);
 void VectorizedInvertedMemcpy(const void* src, void* dst, unsigned int length);
 void func_020c99ac(void* arg0);
 int func_ov031_0221e7d0(int (*arg0)(int), int (*arg1)(void*));
@@ -45,9 +42,9 @@ extern const unsigned char data_ov031_02248d80[0xc];
 ARM void func_ov031_02226e08(void) {
     Struct_ov031_02226e08 var0;
 
-    data_ov031_02250c04.unknown_4_ = (Struct_ov031_02226e08_2*)func_ov031_0223cf4c(0x26c, 4);
+    data_ov031_02250c04.unknown_4_ = (Struct_ov031_02226e08_2*)AllocateZeroedMemory_ov031_0223cf4c(0x26c, 4);
     data_ov031_02250c04.unknown_0_ = 0;
-    func_020ca390(0, &var0, sizeof(var0));
+    Memset16Bit_020ca390(0, &var0, sizeof(var0));
     var0.unknown_0_ = 0x50;
     var0.unknown_2_ = 0xc;
     VectorizedInvertedMemcpy(data_ov031_02248d80, var0.unknown_4_, 0xc);

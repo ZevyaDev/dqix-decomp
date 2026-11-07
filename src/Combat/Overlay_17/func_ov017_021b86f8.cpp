@@ -30,7 +30,7 @@ extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_020d7a50(void);
 extern "C" int GetStandardString_020e51cc(int stringId);
-extern "C" void* func_ov000_02160f08(void* arg0);
+extern "C" void* GetBattleUI_ov000_02160f08(void* battleScene);
 extern "C" void func_ov000_02172850(void* arg0);
 extern "C" float func_020709ac(unsigned char* arg0);
 extern "C" void func_020708c8(Struct_020708c8* arg0, unsigned int arg1);
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov017_021b86f8(Struct_ov017_021b86f8* arg0, int arg1, i
 #endif
 
         }
-        func_ov000_02172850(func_ov000_02160f08(arg0->unknown_6ac_));
+        func_ov000_02172850(GetBattleUI_ov000_02160f08(arg0->unknown_6ac_));
     }
     if ((int)func_020709ac((unsigned char*)var3) > 0x1e) {
         func_020708c8(var3, 0x1e);

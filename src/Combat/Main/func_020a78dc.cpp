@@ -57,7 +57,7 @@ int fix32ReduceAngle0To2Pi(int);
 extern "C" struct Struct_02038138_2* func_0201e8fc(struct Struct_0201e8fc_2*, struct Struct_ov009_0218aa28*);
 int fix32SignedAngleDistance(int, int);
 int fix32abs(int);
-extern "C" void func_02033834(struct Struct_02033834_2*, int);
+extern "C" void SetFacing_02033834(struct Struct_02033834_2*, int);
 extern "C" short func_020968c4(struct Struct_02038138*);
 
 #if defined(jpn)
@@ -174,7 +174,7 @@ extern "C" ARM void func_020a78dc(struct Struct_020a78dc* arg0) {
                 arg0->unknown_15d_ = -1;
             }
         }
-        func_02033834((struct Struct_02033834_2*)arg0, var14);
+        SetFacing_02033834((struct Struct_02033834_2*)arg0, var14);
     } else if (arg0->unknown_134_ == 2) {
         if (arg0->unknown_c0_ == 0) {
             func_02033b68((struct Struct_02033b68*)arg0, 1);
@@ -183,7 +183,7 @@ extern "C" ARM void func_020a78dc(struct Struct_020a78dc* arg0) {
         }
         struct Struct_02038138_3* var18 = func_ov017_0218d268(var2);
         if (var18->unknown_224_ != 0) {
-            func_02033834((struct Struct_02033834_2*)arg0, func_020968c4((struct Struct_02038138*)var18));
+            SetFacing_02033834((struct Struct_02033834_2*)arg0, func_020968c4((struct Struct_02038138*)var18));
         }
         arg0->unknown_15d_ = -1;
     }

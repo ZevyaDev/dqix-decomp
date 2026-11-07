@@ -5,12 +5,12 @@
 #include "GameState/GameState.h"
 #include "Resource/CharacterCreationUI.h"
 
-struct Struct_0205bef8;
+struct KeyMenuCursor_0205bef8;
 struct MenuCursor_0205ba68;
 struct MenuCursor_0205bb84;
 struct MenuCursor_0205bacc;
 struct SoundEffectManager_02108760;
-extern "C" void func_0205bef8(Struct_0205bef8*);
+extern "C" void InitKeyMenuCursor_0205bef8(KeyMenuCursor_0205bef8*);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
 extern "C" int func_0205bafc(void*);
@@ -44,7 +44,7 @@ extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 #define RESET_NAVIGATION(columns, rows, total, selected) \
     Struct_ov009_02188c2c* navigation = &arg0->unknown_bec_; \
-    func_0205bef8((Struct_0205bef8*)navigation); \
+    InitKeyMenuCursor_0205bef8((KeyMenuCursor_0205bef8*)navigation); \
     SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)navigation, columns, rows, 1); \
     SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)navigation, total); \
     navigation->unknown_4_ = 1; \
@@ -241,12 +241,12 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0* arg0)
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 
-struct Struct_0205bef8;
+struct KeyMenuCursor_0205bef8;
 struct MenuCursor_0205ba68;
 struct MenuCursor_0205bb84;
 struct MenuCursor_0205bacc;
 struct SoundEffectManager_02108760;
-extern "C" void func_0205bef8(Struct_0205bef8*);
+extern "C" void InitKeyMenuCursor_0205bef8(KeyMenuCursor_0205bef8*);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
 extern "C" int func_0205bafc(void*);
@@ -313,7 +313,7 @@ extern "C" int func_ov009_02188b14(Struct_ov009_021842a0_2*, int, int);
 
 #define RESET_NAVIGATION(columns, rows, total, selected) \
     Struct_ov009_02188ee8_3* controls = &arg0->unknown_3ec_; \
-    func_0205bef8((Struct_0205bef8*)&controls->unknown_800_); \
+    InitKeyMenuCursor_0205bef8((KeyMenuCursor_0205bef8*)&controls->unknown_800_); \
     SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&controls->unknown_800_, columns, rows, 1); \
     SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&controls->unknown_800_, total); \
     controls->unknown_800_.unknown_4_ = 1; \

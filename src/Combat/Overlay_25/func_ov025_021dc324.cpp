@@ -48,7 +48,7 @@ struct Struct_ov025_021ef404 { int unknown_0_; int unknown_4_; };
 struct Struct_ov025_021dc324_2 { unsigned char unknown_0_; char unknown_1_; unsigned short unknown_2_; };
 extern Struct_ov025_021ef404 data_ov025_021ef404;
 extern "C" Struct_ov025_021dc324_2 _ZZ21inline_ov025_021dcf14vE1s;
-extern "C" Struct_ov025_021dc324_4* func_ov000_02160f20(void*);
+extern "C" Struct_ov025_021dc324_4* GetCurrentBattleAction_ov000_02160f20(void*);
 extern "C" int func_ov025_021ea46c(void*);
 extern "C" int func_ov000_0216f0bc(void*);
 extern "C" Struct_ov025_021dc324_5* FindActionData_02079e2c(char*, int);
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov025_021dc324(Struct_ov025_021dc324_9* arg0) {
     GameState* var0 = GameState::GetInstance();
     char* var1 = arg0->unknown_29c_;
     Struct_ov025_021dc324_6* var2;
-    Struct_ov025_021dc324_4* var3 = func_ov000_02160f20(arg0);
+    Struct_ov025_021dc324_4* var3 = GetCurrentBattleAction_ov000_02160f20(arg0);
     var2 = &arg0->unknown_18_;
     if (!func_ov025_021ea46c(&arg0->unknown_2a8_)) return;
     ActionTables_02108e10* var4 = GetActionTables_020797dc();

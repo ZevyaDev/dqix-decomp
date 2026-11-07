@@ -60,7 +60,7 @@ extern short data_020e7076[][2];
 extern signed char data_020e7056[][2];
 extern signed char data_020e7057[][2];
 
-extern "C" void *func_0203b628();
+extern "C" void *GetBGVRAMManager_0203b628();
 extern "C" Zone3D *GetZone3D_02012fe4();
 extern "C" int func_0201b5b0(int arg0);
 extern "C" void func_02027974(void *arg0, const unsigned char* arg1, int arg2);
@@ -82,7 +82,7 @@ extern "C" ARM void func_02024518(Struct_02024518_4 *arg0) {
     int var1;
     GameState *var2  = GameState::GetInstance();
     GameObject *var3    = var2->GetUnknownGameObject();
-    void *var4    = func_0203b628();
+    void *var4    = GetBGVRAMManager_0203b628();
     Zone3D *var5          = GetZone3D_02012fe4();
     int var6;
     int var7            = var5->currentZoneID_;
@@ -163,7 +163,7 @@ extern "C" ARM void func_02024518(Struct_02024518_4 *arg0) {
         func_0203b718(var4, 1, 0, arg0->unknown_74_);
         int var27        = arg0->unknown_18_ - var16;
         int var28        = arg0->unknown_1c_ - var17 + 16;
-        void *var29  = func_0203b628();
+        void *var29  = GetBGVRAMManager_0203b628();
         func_0203b8bc(var29, 1, 0, var27 + 32, var28, arg0->unknown_6c_, 32, 32, arg0->unknown_70_);
     } else {
         arg0->unknown_55c_ = 0;

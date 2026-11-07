@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_0205c570 { unsigned char unknown_0_[0x7cc]; };
-struct Struct_0205def8 { unsigned char unknown_0_[0x7cc]; };
+struct TextWindowManager_0205def8 { unsigned char unknown_0_[0x7cc]; };
 struct TextWindowManager_0205d81c { unsigned char unknown_0_[0x7cc]; };
 struct Struct_ov000_021735d0_3;
 struct SoundEffectManager_02108760 { unsigned char unknown_0_[0xd0]; };
@@ -36,7 +36,7 @@ struct Struct_ov000_0217e558 {
         struct { unsigned char unknown1_10_[0xc]; unsigned char unknown_1c_; };
     };
     unsigned char unknown_20_[0x188 - 0x20];
-    union { Struct_0205c570 unknown_0_; Struct_0205def8 unknown1_0_; TextWindowManager_0205d81c unknown2_0_; } unknown_188_;
+    union { Struct_0205c570 unknown_0_; TextWindowManager_0205def8 unknown1_0_; TextWindowManager_0205d81c unknown2_0_; } unknown_188_;
     unsigned char unknown_954_[2];
     unsigned char unknown_956_;
 #if defined(jpn)
@@ -54,7 +54,7 @@ struct Struct_ov000_0217e558 {
     unsigned char unknown_1d79_;
 };
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
-extern "C" void func_0205def8(Struct_0205def8*, int, int);
+extern "C" void func_0205def8(TextWindowManager_0205def8*, int, int);
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
 extern "C" GameResources* GetResources_0200fb8c(int*);
 extern "C" Struct_ov000_0217e558_2* GetBattleScene_ov017_021b8468(void*);

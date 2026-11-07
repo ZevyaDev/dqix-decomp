@@ -17,7 +17,7 @@ char unknown1_0_[0x3718];
 #endif
 void* unknown_3718_;};
 struct Struct_ov000_021700dc_3 {char unknown_0_[0x17c];int unknown_17c_;};
-extern "C" int func_ov000_021719f8(int*);extern "C" int GetResources_0200fb8c(int*);extern "C" void* func_ov000_02160f08(void*);extern "C" void func_ov000_02170078(char*);
+extern "C" int func_ov000_021719f8(int*);extern "C" int GetResources_0200fb8c(int*);extern "C" void* GetBattleUI_ov000_02160f08(void*);extern "C" void func_ov000_02170078(char*);
 struct Struct_ov000_02184288_2 {int unknown_0_,unknown_4_,unknown_8_;};extern int data_ov000_02183ff0;extern Struct_ov000_02184288_2 data_ov000_02184288;
 extern "C" {void* GetBattleScene_ov017_021b8468(void*);int func_ov000_0217ae90(void*);int func_ov000_0217b380(void*,int,int);int func_ov000_0217b518(void*,int,int);int func_ov000_0217b6d0(void*,int,int);int func_ov000_0217b8a4(void*,int,int);int func_ov000_0217bb2c(void*,int,int);int func_ov000_0217bdf4(void*,int,int);int func_ov000_0217bfbc(void*,int,int);int func_ov000_0217c094(void*);}
 // USA: func_ov000_021700dc
@@ -25,7 +25,7 @@ extern "C" ARM int func_ov000_021700dc(Struct_ov000_021700dc* arg0){
  if(arg0->unknown_4c_<0)return -1;if(!(arg0->unknown_24_&1))return -1;if(arg0->unknown_c_==0)return -1;
  if(func_ov000_021719f8((int*)arg0)){arg0->unknown_10_[arg0->unknown_18_]=100;return 100;}
  GameState* var0=GameState::GetInstance();Struct_ov000_021700dc_2* var1=(Struct_ov000_021700dc_2*)GetResources_0200fb8c((int*)var0);if(!var1)return -1;
- void* var2=var1->unknown_3718_;if(!var2)return -1;var2=GetBattleScene_ov017_021b8468(var2);if(!var2)return -1;Struct_ov000_021700dc_3* var3=(Struct_ov000_021700dc_3*)func_ov000_02160f08(var2);if(!var3)return -1;
+ void* var2=var1->unknown_3718_;if(!var2)return -1;var2=GetBattleScene_ov017_021b8468(var2);if(!var2)return -1;Struct_ov000_021700dc_3* var3=(Struct_ov000_021700dc_3*)GetBattleUI_ov000_02160f08(var2);if(!var3)return -1;
  GameObject* var4=var0->GetCombatantByIndex(var3->unknown_17c_);
  if(var4&&var4->unknown_138_->unknown_3b_3_){if(var4->unknown_138_->unknown_3b_4_==1)arg0->unknown_434_+=0.2f;else arg0->unknown_434_+=0.05f;if(arg0->unknown_434_>=3.141592f)arg0->unknown_434_=0.0f;}
  func_ov000_02170078((char*)arg0);

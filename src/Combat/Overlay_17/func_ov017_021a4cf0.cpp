@@ -10,8 +10,8 @@ enum { Enum_ov017_021a4cf0_1808 = 0x710, Enum_ov017_021a4cf0_1828 = 0x724, Enum_
 
 
 extern "C" void* func_0203cf4c(void);
-struct Struct_0203dce4_2;
-extern "C" struct Struct_0203dce4* func_0203dce4(struct Struct_0203dce4_2* arg0, int arg1);
+struct NPCManager_0203dce4_2;
+extern "C" struct NPC_0203dce4* GetNPCByIndex_0203dce4(struct NPCManager_0203dce4_2* npcManager, int index);
 extern "C" int func_02040528(int* arg0);
 extern "C" int* func_02094d6c(void);
 extern "C" void func_02095924(int* arg0, int arg1);
@@ -38,11 +38,11 @@ struct Struct_ov017_021a4cf0 {
 extern "C" ARM void func_ov017_021a4cf0(char* arg0) {
     void* var0 = func_0203cf4c();
     short var1 = *(short*)((char*)&data_ov017_021d76d8 + 0x2);
-    struct Struct_0203dce4* var2 = func_0203dce4((struct Struct_0203dce4_2*)var0, var1);
+    struct NPC_0203dce4* var2 = GetNPCByIndex_0203dce4((struct NPCManager_0203dce4_2*)var0, var1);
     if (var2 == NULL) {
         return;
     }
-    int* var3 = (int*)func_02040528(&var2->unknown_0_);
+    int* var3 = (int*)func_02040528(&var2->flags_0_);
     if (var3 == NULL) {
         return;
     }

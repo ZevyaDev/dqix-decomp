@@ -2,8 +2,8 @@
 
 struct BGLayer_02020cb8;
 extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
-struct Struct_02074b64;
-extern "C" void func_02074b64(struct Struct_02074b64* arg0);
+struct BGControlSave_02074b64;
+extern "C" void SaveSubBGControl_02074b64(struct BGControlSave_02074b64* save);
 
 // USA: func_ov003_0215376c
 extern "C" ARM void func_ov003_0215376c(char* arg0) {
@@ -26,5 +26,5 @@ extern "C" ARM void func_ov003_0215376c(char* arg0) {
     *(unsigned char*)(arg0 + 0x5b) = 0;
     *(unsigned char*)(arg0 + 0x5d) = 0;
     *(unsigned char*)(arg0 + 0x58) = 0;
-    func_02074b64((struct Struct_02074b64*)(arg0 + 0x38));
+    SaveSubBGControl_02074b64((struct BGControlSave_02074b64*)(arg0 + 0x38));
 }

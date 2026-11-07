@@ -3,14 +3,14 @@
 #include "Graphics/Vector.h"
 #include "Util/Random.h"
 
-extern "C" void func_ov000_0216d370(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void ResetBattleCamera_ov000_0216d370(void* camera, int resetRoll, int resetFieldOfView, int resetTurns);
 extern "C" void func_ov000_0216d234(void* arg0, void* arg1, void* arg2);
 
 struct Struct_0202ecc8 { unsigned int unknown_0_[12]; };
 struct Struct_0202ecc8_2;
 extern "C" void func_0202ecc8(struct Struct_0202ecc8_2* arg0, struct Struct_0202ecc8* arg1);
 extern "C" void func_0202ecec(unsigned char* arg0);
-extern "C" void func_0202e694(void* arg0, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
 
 extern Vector3i data_ov000_02183274;
 
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov000_0216da34(struct Struct_ov000_0216da34* arg0, int 
     if (var1 == NULL || var2 == NULL) {
         return;
     }
-    func_ov000_0216d370(arg0, 1, 1, 1);
+    ResetBattleCamera_ov000_0216d370(arg0, 1, 1, 1);
     Vector3fix var3 = var1->obj3D_.position_;
     Vector3fix var4 = var2->obj3D_.position_;
     Vector3fix var5;
@@ -71,6 +71,6 @@ extern "C" ARM void func_ov000_0216da34(struct Struct_ov000_0216da34* arg0, int 
     var14[1] = 0x1000;
     var14[2] = 0x8000;
     arg0->unknown_10_ = var10;
-    func_0202e694(arg0, var14);
+    SetCameraOrbitFromArray_0202e694(arg0, var14);
     arg0->unknown_23c_ = -20;
 }

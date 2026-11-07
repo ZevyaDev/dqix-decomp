@@ -11,7 +11,7 @@
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct SoundEffectManager_02108760;
-struct Struct_020d7aa0_2;
+struct TimedMessageQueue_020d7aa0_2;
 
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
@@ -23,8 +23,8 @@ extern "C" int GetResources_0200fb8c(int *gameState);
 extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02157108(void *arg0, int arg1);
-extern "C" Struct_020d7aa0_2 *func_020d7a50();
-extern "C" void func_020d7aa0(Struct_020d7aa0_2 *arg0);
+extern "C" TimedMessageQueue_020d7aa0_2 *func_020d7a50();
+extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2 *queue);
 extern "C" void func_020d7978(char *arg0);
 extern "C" void func_ov002_02161cf0(char *arg0);
 extern "C" void func_ov002_0215c474(char *arg0);
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov002_02162714(char *arg0) {
                     if (func_ov002_02157108(arg0, *(signed char *) (arg0 + RG(0x1c20, 0x1ae8))) != 0) {
                         return;
                     }
-                    func_020d7aa0(func_020d7a50());
+                    ClearTimedMessageQueue_020d7aa0(func_020d7a50());
                     *(short *) (arg0 + RG(0x1c28, 0x1af0)) = 0x2395;
                     *(short *) (arg0 + RG(0x1c2a, 0x1af2)) = -1;
                     *(int *) (arg0 + RG(0x1bb8, 0x1a80))   = RG(0x26, 0x29);

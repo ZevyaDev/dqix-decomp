@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov031_02222e0c(void);
+extern "C" int GetButtonBarChoice_ov031_02222e0c(void);
 extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int soundEffectIndex);
 extern "C" void func_ov031_0222cb5c(void);
 extern "C" int FastIntDivide(int arg0, unsigned int arg1);
 extern "C" void func_ov031_0223521c(void);
-extern "C" void func_ov031_02222e98(void);
+extern "C" void DisableButtonBarInput_ov031_02222e98(void);
 extern "C" void func_ov031_02237b2c(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int handler);
 extern "C" void func_ov031_0222cb8c(void);
@@ -36,7 +36,7 @@ extern Struct_ov031_02290c8c_7 data_ov031_02290c8c;
 extern "C" ARM void func_ov031_0222c01c(void) {
 	if (data_ov031_02290c8c.unknown_4_->unknown_38_ != 0 || data_ov031_02290c8c.unknown_4_->unknown_57_ != 0) return;
 
-	int var0 = func_ov031_02222e0c();
+	int var0 = GetButtonBarChoice_ov031_02222e0c();
 	switch (var0) {
 	case 0:
 		PlayWifiSetupSoundEffect_ov031_02236878(7);
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov031_0222c01c(void) {
 			if (var4[0x28] == 2) {
 				PlayWifiSetupSoundEffect_ov031_02236878(9);
 				func_ov031_0223521c();
-				func_ov031_02222e98();
+				DisableButtonBarInput_ov031_02222e98();
 				func_ov031_02237b2c(0xe, 1, 1, -1, 0);
 				SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222cb8c);
 				return;

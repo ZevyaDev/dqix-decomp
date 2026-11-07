@@ -19,7 +19,7 @@ struct Struct_ov000_021676a8_2 {
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov000_0215fc60(char* arg0);
-extern "C" int func_020493a4(unsigned char* arg0);
+extern "C" int GetCombatantCell_020493a4(unsigned char* combatant);
 extern "C" void func_02049390(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_02049bd4(unsigned char* arg0, int* arg1);
 extern "C" void func_02049c60(unsigned char* arg0, int* arg1);
@@ -48,8 +48,8 @@ extern "C" ARM void func_ov000_021676a8(Struct_ov000_021676a8_2* arg0) {
         GameObject* var5 = var0->GetCombatantByIndex(var2[var4]);
         if (var5 != 0) {
             int var6 = data_ov000_02183108[var3 - 1][var4];
-            if (func_020493a4((unsigned char*)var5) != 0xff && arg0->unknown_29c_->unknown_8e20_ != 0) {
-                var6 = func_020493a4((unsigned char*)var5);
+            if (GetCombatantCell_020493a4((unsigned char*)var5) != 0xff && arg0->unknown_29c_->unknown_8e20_ != 0) {
+                var6 = GetCombatantCell_020493a4((unsigned char*)var5);
             }
             Struct_02048cf0 var7 = inline_02048e2c_2(var6);
             struct Struct_ov000_021830c0 var8 = data_ov000_021830fc;

@@ -7,12 +7,12 @@ enum { Enum_ov003_0217a764_0 = 0x84, Enum_ov003_0217a764_54 = 0x2a };
 enum { Enum_ov003_0217a764_0 = 0, Enum_ov003_0217a764_54 = 0x36 };
 #endif
 
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 struct Struct_0207fdf0_2;
 struct SoundEffectManager_02108760;
 struct Struct_02081f20_2;
 struct ItemTable_0201099c_10;
-struct Struct_ov003_02178910;
+struct ItemInfoPanel_ov003_02178910;
 struct ItemData_0201099c_9;
 
 struct Struct_ov003_0217a764 {
@@ -42,7 +42,7 @@ extern "C" int func_ov003_021764f4(unsigned char* arg0);
 extern "C" void func_ov003_02176468(unsigned char* arg0);
 extern "C" int func_ov003_02175df4(void* arg0);
 extern "C" int func_ov003_02179da8(void* arg0, int arg1);
-extern "C" void func_ov023_021dcae0(struct Struct_ov003_02178910* arg0, int arg1);
+extern "C" void SetItemInfoPanelItem_ov023_021dcae0(struct ItemInfoPanel_ov003_02178910* panel, int itemId);
 
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
@@ -50,7 +50,7 @@ extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" ARM void func_ov003_0217a764(unsigned char* arg0) {
     void* var0 = GameState::GetInstance();
     GetParty_02010828((GameState*)var0);
-    struct Struct_0207fdcc_2* var1 = *(struct Struct_0207fdcc_2**)(arg0 + (0x89c - Enum_ov003_0217a764_0));
+    struct MenuLayout_0207fdcc_2* var1 = *(struct MenuLayout_0207fdcc_2**)(arg0 + (0x89c - Enum_ov003_0217a764_0));
     int var2 = *(unsigned char*)(arg0 + (0x1000 + 0x3f - Enum_ov003_0217a764_0));
 
     if (var2 == 0) {
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov003_0217a764(unsigned char* arg0) {
     if (var2 == 1) {
         *(void**)(arg0 + (0xff8 - Enum_ov003_0217a764_0)) = arg0 + (0x1000 + 0xe - Enum_ov003_0217a764_0);
         func_ov003_0217a220(arg0);
-        func_ov023_021dcae0((struct Struct_ov003_02178910*)(arg0 + 0x3c), *(short*)(arg0 + (0x1000 + 0x3a - Enum_ov003_0217a764_0)));
+        SetItemInfoPanelItem_ov023_021dcae0((struct ItemInfoPanel_ov003_02178910*)(arg0 + 0x3c), *(short*)(arg0 + (0x1000 + 0x3a - Enum_ov003_0217a764_0)));
         if (func_ov003_021765b4(arg0) != 0) {
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
             func_0208203c((struct Struct_02081f20_2*)(arg0 + (0x88c - Enum_ov003_0217a764_0)));

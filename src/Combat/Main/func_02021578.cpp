@@ -20,14 +20,14 @@ extern "C" void func_02022da0(void*);
 
 extern "C" Zone3D* GetZone3D_02012fe4(void);
 extern "C" void* GetOAMManager_0203bd08(void);
-extern "C" void* func_0203b628(void);
+extern "C" void* GetBGVRAMManager_0203b628(void);
 extern "C" void func_02021428(void* arg0, int arg1);
 
 extern "C" int func_020420e8(void* arg0, int arg1);
 
 extern "C" void func_0203b66c(char* arg0);
 extern "C" void func_0203bd78(char* arg0);
-extern "C" void func_0203bd24(char* arg0);
+extern "C" void ResetOAMManager_0203bd24(char* oamManager);
 extern "C" void func_0203b718(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0203ba74(void* arg0);
 struct Sprite_02043368_2;
@@ -92,7 +92,7 @@ extern "C" ARM void func_02021578(Struct_02020554* arg0) {
     var9 = GetZone3D_02012fe4()->pUnknownStruct_8_;
     var5 = GetGameResources();
     var10 = (char*)GetOAMManager_0203bd08();
-    var11 = (char*)func_0203b628();
+    var11 = (char*)GetBGVRAMManager_0203b628();
     var13 = arg0->unknown_9c2_;
     var12 = inline_02021578(var5, 12);
 
@@ -143,7 +143,7 @@ extern "C" ARM void func_02021578(Struct_02020554* arg0) {
         func_0203b66c(var11);
         var12->Reset();
         func_0203bd78(var10);
-        func_0203bd24(var10);
+        ResetOAMManager_0203bd24(var10);
         func_0203b718(var11, 1, 0, 0);
         func_0203b718(var11, 1, 1, 0);
         func_0203ba74(var11);

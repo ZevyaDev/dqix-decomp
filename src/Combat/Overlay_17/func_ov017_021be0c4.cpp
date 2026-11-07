@@ -46,7 +46,7 @@ extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void LoadExtraSoundSet_0205ebc0(void*, int, int);
 extern "C" void PlayExtraSoundEffect_0205ebfc(void*, int, int);
-extern "C" void func_0205ebec(void*);
+extern "C" void UnloadExtraSoundSet_0205ebec(void*);
 extern char gSoundEffectManager_02108760[];
 extern "C" int func_0208f748(void*, int*);
 extern "C" void __clear(void*, unsigned int);
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov017_021be0c4(Struct_ov017_021be0c4* arg0) {
             FontLoader_0208cb08* var8 = GetFontLoader_02094a00();
             func_02094b38(var8, 0x203);
             CancelFontLoad_02094ab0(var8);
-            func_0205ebec(gSoundEffectManager_02108760);
+            UnloadExtraSoundSet_0205ebec(gSoundEffectManager_02108760);
             arg0->unknown_1_ = 1;
         }
     }

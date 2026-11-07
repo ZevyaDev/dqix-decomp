@@ -41,7 +41,7 @@ extern "C" int func_02046b38(Struct_02046b38*, Struct_02046b38_2*);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_ov017_0219bed0(void*);
-extern "C" unsigned char func_0200fb9c(char*);
+extern "C" unsigned char GetGameMode_0200fb9c(char*);
 extern "C" int func_0201201c(void*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_020321e0(const Vector3fix*, Struct_02000c9c_56*, int, const Vector3fix*, int);
@@ -50,7 +50,7 @@ extern "C" unsigned char func_02039820(void*);
 extern "C" void func_ov017_0219a674(unsigned char*);
 extern "C" short func_ov017_021a4754(Vector3fix*, int, Vector3fix*);
 extern "C" void func_ov017_0219b33c(GameResources*, Struct_ov017_0219ca88_3*);
-extern "C" void func_ov017_0219e310(unsigned char*, int);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char*, int);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" int RunTrigger_020649b0(void*, int, void*);
 extern "C" void func_0206f81c(void*);
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov017_0219ca88(GameResources* arg0) {
         arg0->unknown_42e3_[6] = 0;
     }
     int var7 = 1;
-    if (func_0200fb9c((char*)var0) != 6 && func_0201201c(var0) != 5) {
+    if (GetGameMode_0200fb9c((char*)var0) != 6 && func_0201201c(var0) != 5) {
         if (*reinterpret_cast<unsigned int*>(reinterpret_cast<char*>(var1) + Enum_ov017_0219ca88_396) & 1) var7 = 0;
         else if (var3[2]) var7 = 0;
         if (var7) {
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov017_0219ca88(GameResources* arg0) {
     }
     if (!var5) return;
     func_0200fcfc(var0, var3);
-    func_ov017_0219e310((unsigned char*)arg0->unknown_ptr_array_36fc[4], 0);
+    ResetZoneLoadTask_ov017_0219e310((unsigned char*)arg0->unknown_ptr_array_36fc[4], 0);
     AppendToQueue_020469b4((Queue_0201bdac_2*)arg0->unknown_ptr_array_36fc[0], (QueueNode_0201bdac*)arg0->unknown_ptr_array_36fc[4]);
     if (!var3[0xa]) {
         Struct_ov017_0219ca88 var12;

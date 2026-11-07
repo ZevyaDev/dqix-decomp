@@ -91,7 +91,7 @@ extern "C" int func_0208dc00(Struct_02013fb4*, int, int);
 void SetBrightness(GameResources*, int, int);
 extern "C" Struct_ov017_021bbfc4_2* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void func_020213fc(Struct_020213fc*, int);
-extern "C" void func_02070378(char*);
+extern "C" void InitZoneEntry_02070378(char*);
 extern "C" int func_02071488(Struct_02013fb4*, int, int, Struct_02071488*);
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
@@ -113,7 +113,7 @@ extern "C" int IsNotLocalWirelessGuest_0202c508(int*);
 extern "C" void func_ov017_021d0924(int, int, int, unsigned short);
 extern "C" void func_ov017_021bc6e0(Struct_ov017_021bbfc4_5*, int, int);
 extern "C" int func_0209c3ac(char*);
-extern "C" void func_0209c2e0(void*, int, int);
+extern "C" void SetMusicVolume_0209c2e0(void*, int, int);
 void SetMainBrightness(GameResources*, int, int);
 extern char gMusicManager_02109bf4[];
 
@@ -164,7 +164,7 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
             var1->RemoveTask(arg0->unknown_74_);
             Struct_ov017_021bbfc4_2* var14 = GetZoneEntry_0200fd0c(var0);
             func_020213fc((Struct_020213fc*)var2->unknown_ptr_36d0, 1);
-            func_02070378((char*)var14);
+            InitZoneEntry_02070378((char*)var14);
             var14->unknown_0_ = arg0->unknown_a0_.unknown_2a_;
             var14->unknown_2_ = 1;
             func_ov017_021bb27c(arg0);
@@ -240,7 +240,7 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
     if (arg0->unknown_fd_ || ((Struct_ov017_021bbfc4_3*)var0)->unknown_5cac_) var16 = 1;
     if (var15) {
         Struct_ov017_021bbfc4_2* var30 = GetZoneEntry_0200fd0c(var0);
-        func_02070378((char*)var30);
+        InitZoneEntry_02070378((char*)var30);
         var30->unknown_0_ = arg0->unknown_c_.unknown_e_;
         var30->unknown_20_ = arg0->unknown_8_;
         var30->unknown_2_ = 1;
@@ -259,7 +259,7 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
     }
     if (IsLocalWirelessOn_0202b7d8(var3) && arg0->unknown_c_.unknown_6_ && arg0->unknown_116_ < 0 && IsNotLocalWirelessGuest_0202c508(var3)) func_ov017_021bc6e0(arg0, -1, arg0->unknown_50_);
     arg0->unknown_94_ = func_0209c3ac(gMusicManager_02109bf4);
-    if (arg0->unknown_c_.unknown_4_ == 3) func_0209c2e0(gMusicManager_02109bf4, 0, 0);
+    if (arg0->unknown_c_.unknown_4_ == 3) SetMusicVolume_0209c2e0(gMusicManager_02109bf4, 0, 0);
     if (((arg0->unknown_50_ & 1) || (arg0->unknown_50_ & 4)) && !arg0->unknown_fd_) {
         int var32 = GetBrightness((GameResources*)var2, false);
         if (var32 > 0) SetMainBrightness(var2, 16, 30);

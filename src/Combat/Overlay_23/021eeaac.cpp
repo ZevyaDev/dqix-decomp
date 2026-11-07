@@ -6,8 +6,8 @@
 #include "NitroSDK/OverlayId.h"
 
 struct StringList_020727d8;
-struct Struct_0202b2f0;
-struct Struct_0200f3a4_8;
+struct LocalWireless_0202b2f0;
+struct SkillTable_0200f3a4_8;
 struct Struct_0209a470;
 struct Struct_02086f24_6;
 struct Struct_02013fb4;
@@ -15,7 +15,7 @@ struct Struct_ov023_021eeaac_2;
 
 extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
-extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, int arg2, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
+extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, int scriptData, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 extern "C" void func_ov000_0215fa84(void* arg0, short* arg1, short* arg2, short* arg3);
 extern "C" int func_ov023_021ed92c();
 extern "C" void ClearItemTable_020de848(void* itemTable);
@@ -26,16 +26,16 @@ extern "C" int func_0207d300(void* arg0, int arg1, int arg2, int arg3);
 extern "C" int func_0207ccf0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18(void);
-extern "C" int func_0202c1c0(Struct_0202b2f0* arg0, int arg1);
-extern "C" void func_0209a338(Struct_0200f3a4_8* arg0);
+extern "C" LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
+extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
+extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8* table);
 extern "C" void func_0209a470(Struct_0209a470* arg0, SafeAllocator* arg1, Struct_02013fb4* arg2, int arg3);
 extern "C" void func_0209a804(int* arg0);
 extern "C" void func_0209a8b4(Struct_02086f24_6* arg0, SafeAllocator* arg1, Struct_02013fb4* arg2, int arg3);
 extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2* arg0);
 
 extern "C" int* _ZZ21inline_ov023_021f4c04vE1s;
-extern const char* data_020f2a38;
+extern const char* gItemDataPath_020f2a38;
 extern const char* data_020f2a30;
 extern char data_ov023_021fe1d8;
 extern char data_ov023_021fe1ee;
@@ -87,9 +87,9 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
         LoadStringList_020728ac(arg0 + Enum_ov023_021eeaac_22788, var3, (int)var5, var4, 0, 0, 0);
         var1->RemoveTask(var2[1]);
 #if defined(jpn)
-        var2[1] = var1->QueueLoadGP1(data_020f2a38, NULL);
+        var2[1] = var1->QueueLoadGP1(gItemDataPath_020f2a38, NULL);
 #else
-        var2[1] = var1->QueueLoadFileInGP2(data_020f2a38, data_020f2a30, NULL);
+        var2[1] = var1->QueueLoadFileInGP2(gItemDataPath_020f2a38, data_020f2a30, NULL);
 #endif
 
         var2[0]++;
@@ -177,7 +177,7 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
                 if (var6 < 0) {
                     var26 = func_0207d300(var25, var20->unknown_0_, 1, 1);
                 } else {
-                    if (var28 != var6 && (func_0202c1c0(GetLocalWireless_0202ae18(), var6) != 0 || var28 != 0)) {
+                    if (var28 != var6 && (IsLocalWirelessPlayerJoined_0202c1c0(GetLocalWireless_0202ae18(), var6) != 0 || var28 != 0)) {
                         if (var21 & (1 << var28)) {
                             var6 = var28;
                         }
@@ -199,7 +199,7 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
         unsigned int var29;
         void* var30;
         var1->GetLoadedFileByID(var2[1], &var30, &var29);
-        func_0209a338((Struct_0200f3a4_8*)(var2 + 0xe8 / 4));
+        ClearSkillTable_0209a338((SkillTable_0200f3a4_8*)(var2 + 0xe8 / 4));
         func_0209a470((Struct_0209a470*)(var2 + 0xe8 / 4), var3, (Struct_02013fb4*)var30, var29);
         var1->RemoveTask(var2[1]);
         var2[1] = var1->QueueLoadFile(&data_ov023_021fe218, NULL);

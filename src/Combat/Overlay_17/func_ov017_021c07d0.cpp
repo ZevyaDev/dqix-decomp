@@ -2,7 +2,7 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-extern "C" void func_020a1f4c(int arg0);
+extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 
 extern int gMainHeap_02114e20;
@@ -11,7 +11,7 @@ extern int gMainHeap_02114e20;
 extern "C" ARM void func_ov017_021c07d0(char* arg0) {
     int* var0 = (int*)(arg0 + 0x1c);
     if (*var0 != 0) {
-        func_020a1f4c(1);
+        PopSubOverlay_020a1f4c(1);
         *var0 = 0;
     }
     SafeAllocator* var1 = (SafeAllocator*)(arg0 + 0x8);

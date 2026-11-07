@@ -12,7 +12,7 @@
 #endif
 #include <globaldefs.h>
 
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 struct Struct_020e28dc;
 struct Struct_020e263c_2;
 struct Struct_020e28f0;
@@ -28,7 +28,7 @@ struct Struct_ov006_02156e54_2 {
 
 struct Struct_ov006_02158478;
 
-extern "C" Struct_ov006_02158478* func_02081da8(Struct_0207fdcc_2*, int);
+extern "C" Struct_ov006_02158478* func_02081da8(MenuLayout_0207fdcc_2*, int);
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char*);
 extern "C" int func_020e28dc(Struct_020e28dc*);
 extern "C" void func_020809c4(void*, int, int, short*, short*);
@@ -138,7 +138,7 @@ extern "C" ARM void func_ov006_021585c4(Struct_ov006_02157a60* arg0)
         return;
     if (arg0->unknown_36e_ < 0)
         return;
-    Struct_ov006_02158478* var0 = func_02081da8((Struct_0207fdcc_2*)arg0->unknown_14_, arg0->unknown_36e_);
+    Struct_ov006_02158478* var0 = func_02081da8((MenuLayout_0207fdcc_2*)arg0->unknown_14_, arg0->unknown_36e_);
     if (var0 == 0)
         return;
     if (!IsTextWindowOpen_0204c7e0((unsigned char*)var0) || arg0->unknown_18_ == 0)

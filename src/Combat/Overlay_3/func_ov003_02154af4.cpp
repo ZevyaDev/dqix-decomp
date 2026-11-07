@@ -44,9 +44,9 @@ extern "C" void func_ov003_021537d4(void*,unsigned int);
 extern "C" void func_ov003_021552b8(Struct_ov003_02154af4_3*);
 struct Struct_0207fc6c;
 extern "C" void func_0207fc6c(Struct_0207fc6c*, int);
-extern "C" unsigned int func_0202053c(void*);
-struct Struct_0207fdcc_2;
-extern "C" int func_020811d0(Struct_0207fdcc_2*, int);
+extern "C" unsigned int GetLevel_0202053c(void*);
+struct MenuLayout_0207fdcc_2;
+extern "C" int func_020811d0(MenuLayout_0207fdcc_2*, int);
 extern "C" void func_ov003_02158334(Struct_ov003_02154af4_3*);
 extern "C" void func_02081f20(void*,unsigned int);
 extern "C" int func_020800fc(Struct_ov003_02154af4_2*,short*,int,unsigned short,unsigned char,int);
@@ -84,13 +84,13 @@ extern "C" ARM int func_ov003_02154af4(Struct_ov003_02154af4_3* arg0,unsigned in
     var2=&arg0->unknown_190_[var5];
     unsigned int var9=var3->inline_ov003_02154af4();
     unsigned int var10,var11,var12,var13,var14;
-    if(!(var2->unknown_4_==var9 && ((var10=var3->inline_ov003_02154af4_2()), var2->unknown_6_==var10) && ((var11=var3->inline_ov003_02154af4_3()), var2->unknown_8_==var11) && ((var12=var3->inline_ov003_02154af4_4()), var2->unknown_a_==var12) && ((var13=var3->inline_ov003_02154af4_5()), var2->unknown_d_==var13) && var2->unknown_c_==func_0202053c(var3) && ((var14=var3->inline_ov003_02154af4_6()), var2->unknown_0_==var14))) {
+    if(!(var2->unknown_4_==var9 && ((var10=var3->inline_ov003_02154af4_2()), var2->unknown_6_==var10) && ((var11=var3->inline_ov003_02154af4_3()), var2->unknown_8_==var11) && ((var12=var3->inline_ov003_02154af4_4()), var2->unknown_a_==var12) && ((var13=var3->inline_ov003_02154af4_5()), var2->unknown_d_==var13) && var2->unknown_c_==GetLevel_0202053c(var3) && ((var14=var3->inline_ov003_02154af4_6()), var2->unknown_0_==var14))) {
      var2->unknown_4_=var3->unknown_130_->unknown_4_; var2->unknown_6_=var3->unknown_134_->unknown_30_; var2->unknown_8_=var3->unknown_130_->unknown_6_; var2->unknown_a_=var3->unknown_134_->unknown_32_;
-     var2->unknown_d_=var3->unknown_150_->unknown_950_; var2->unknown_c_=func_0202053c(var3); var4=true; var2->unknown_0_=var3->unknown_130_->unknown_0_;
+     var2->unknown_d_=var3->unknown_150_->unknown_950_; var2->unknown_c_=GetLevel_0202053c(var3); var4=true; var2->unknown_0_=var3->unknown_130_->unknown_0_;
     }
    }
   }
-  if(var4) for(int var15=0;var15<3;var15++) if(func_020811d0((Struct_0207fdcc_2*)var0, data_ov003_0217f2a8[var15])) { func_ov003_02158334(arg0);break; }
+  if(var4) for(int var15=0;var15<3;var15++) if(func_020811d0((MenuLayout_0207fdcc_2*)var0, data_ov003_0217f2a8[var15])) { func_ov003_02158334(arg0);break; }
  }
  if(arg0->unknown_8_) {
   func_02081f20(arg0->unknown_80_,arg1);

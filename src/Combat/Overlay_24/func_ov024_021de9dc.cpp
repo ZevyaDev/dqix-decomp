@@ -14,7 +14,7 @@ extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int,int,int);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" void func_ov024_021e8bf0(Struct_ov024_021de9dc_2*,void*,unsigned short*);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*,void*,int);
-extern "C" void func_ov000_0215ccbc(void*,void*,GameObject*,short,short,short,unsigned long long,unsigned char);
+extern "C" void SetActionResult_ov000_0215ccbc(void*,void*,GameObject*,short,short,short,unsigned long long,unsigned char);
 struct Struct_ov024_021de9dc_4 {char unknown_0_[0x1c];unsigned char unknown_1c_0_:7;unsigned char unknown_1c_7_:1;};
 struct Struct_ov024_021de9dc_2 {char unknown_0_[0xc];Struct_ov024_021de9dc_4* unknown_c_;void* unknown_10_;};
 struct Struct_ov024_021de9dc {unsigned int unknown_0_0_:10;unsigned int unknown_1_2_:10;unsigned int unknown_2_4_:10;unsigned int unknown_3_6_:2;};
@@ -58,6 +58,6 @@ extern "C" ARM void* func_ov024_021de9dc(Struct_ov024_021de9dc_2* arg0,int arg1,
     unsigned short var6=var0->currentStats_->primaryStats.currMP;
     unsigned char var7;
     if(arg0->unknown_c_->unknown_1c_7_)var7=1;else var7=0;
-    func_ov000_0215ccbc(arg0->unknown_10_,var5,var0,arg4,var1,var6,var4.unknown1_0_,var7);
+    SetActionResult_ov000_0215ccbc(arg0->unknown_10_,var5,var0,arg4,var1,var6,var4.unknown1_0_,var7);
     return var5;
 }

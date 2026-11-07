@@ -35,7 +35,7 @@ struct Struct_020adaac {
 };
 extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" void GetZone3D_02012fe4();
-extern "C" void func_020407b4(Struct_02040774_2*, int, int, int);
+extern "C" void SetObject3DPosition_020407b4(Struct_02040774_2*, int, int, int);
 extern "C" void* func_ov017_0218d268(void*);
 extern "C" int func_0202e7f0(void*);
 extern "C" int func_020968c4(Struct_02038138*);
@@ -51,7 +51,7 @@ extern "C" ARM void func_020adaac(Struct_020adaac* arg0) {
     void* var1 = GetGameResources();
     int var2;
     GetZone3D_02012fe4();
-    func_020407b4((Struct_02040774_2*)arg0, arg0->unknown_44_.x, 0xa000, arg0->unknown_44_.z);
+    SetObject3DPosition_020407b4((Struct_02040774_2*)arg0, arg0->unknown_44_.x, 0xa000, arg0->unknown_44_.z);
     Vector3i var3 = arg0->unknown_164_;
     var3.y = 0xa000;
     arg0->unknown_164_ = var3;

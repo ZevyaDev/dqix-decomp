@@ -9,7 +9,7 @@ enum { Enum_0209cd50_10120 = 0x2788, Enum_0209cd50_10118 = 0x2786 };
 #include "GameState/GameState.h"
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_02011584(void* arg0);
+extern "C" void* GetZoneList_02011584(void* gameState);
 extern "C" int _s32_div_f(int a, int b);
 struct Struct_02095924_2;
 struct Struct_02099950;
@@ -29,7 +29,7 @@ struct Struct_0209cd50 {
 extern "C" ARM int func_0209cd50(int arg0) {
     int var0 = 0;
     GameState* var1 = GameState::GetInstance();
-    struct Struct_02095924_2* var2 = (struct Struct_02095924_2*)func_02011584(var1);
+    struct Struct_02095924_2* var2 = (struct Struct_02095924_2*)GetZoneList_02011584(var1);
     void* var3 = GetZone3D_02012fe4();
     if ((_s32_div_f(arg0, 100) * 100) == 0x170c) {
         if (*(unsigned char*)((char*)var3 + Enum_0209cd50_10120) == 0) {

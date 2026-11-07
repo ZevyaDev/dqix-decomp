@@ -8,8 +8,8 @@ extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int func_ov017_02195760(int arg0);
 extern "C" void func_020e3778(unsigned char* arg0);
 extern "C" void func_ov017_021ced48(int arg0, unsigned char arg1);
-struct Struct_0202b2f0;
-extern "C" int func_0202c578(struct Struct_0202b2f0* arg0, int arg1);
+struct LocalWireless_0202b2f0;
+extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 
 // USA: func_020e35a0
 extern "C" ARM void func_020e35a0(unsigned char* arg0) {
@@ -34,13 +34,13 @@ extern "C" ARM void func_020e35a0(unsigned char* arg0) {
             arg0[0] = 0;
         }
         for (var3 = 1; var3 < 4; var3++) {
-            if (!var0->GetGameObjectByIndex(var3) || func_0202c578((struct Struct_0202b2f0*)var2, var3)) {
+            if (!var0->GetGameObjectByIndex(var3) || IsLocalWirelessPlayerDisconnected_0202c578((struct LocalWireless_0202b2f0*)var2, var3)) {
                 arg0[0] &= ~(1 << var3);
                 arg0[1] &= ~(1 << var3);
             }
         }
     } else {
-        if (func_0202c578((struct Struct_0202b2f0*)var2, 0)) {
+        if (IsLocalWirelessPlayerDisconnected_0202c578((struct LocalWireless_0202b2f0*)var2, 0)) {
             arg0[2] = 1;
         }
     }

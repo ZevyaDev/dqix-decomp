@@ -20,8 +20,8 @@ struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4*, unsigned int);
 extern "C" void func_ov000_02160d80(void* arg0, int arg1);
 struct MusicManager_02109bf4_4;
-extern "C" void func_0209c678(struct MusicManager_02109bf4_4*, int);
-extern "C" void func_020a1f4c(int);
+extern "C" void StopMusic_0209c678(struct MusicManager_02109bf4_4*, int);
+extern "C" void PopSubOverlay_020a1f4c(int);
 
 extern char gMusicManager_02109bf4;
 
@@ -50,7 +50,7 @@ extern "C" ARM int func_ov023_021f3fbc(char* arg0) {
     CloseMessageWindow_02043124((char*)var4);
     ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x20000);
     func_ov000_02160d80(arg0, 4);
-    func_0209c678((struct MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
-    func_020a1f4c(1);
+    StopMusic_0209c678((struct MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
+    PopSubOverlay_020a1f4c(1);
     return *(int*)(arg0 + Enum_ov023_021f3fbc_3756);
 }

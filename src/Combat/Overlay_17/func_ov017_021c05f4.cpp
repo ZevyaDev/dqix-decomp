@@ -9,9 +9,6 @@ enum { Enum_ov017_021c05f4_1788 = 0x6fc, Enum_ov017_021c05f4_396 = 0x18c, Enum_o
 #include "Input/Input.h"
 
 
-#if defined(jpn)
-#define func_020c39c8 func_020c5494
-#endif
 
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void* GetGlobalFlags_020d6c00(void);
@@ -19,19 +16,19 @@ extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_02039820(void* arg0);
-extern "C" int func_020535c8(signed char* arg0);
+extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 struct Struct_0203402c;
 extern "C" int func_0203402c(Struct_0203402c* arg0);
 struct GlobalFlags_02012de8;
 extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8* globalFlags, unsigned int mask);
 extern "C" int func_02039d7c(char* arg0);
-extern "C" int func_020c39c8(volatile unsigned short* arg0);
+extern "C" int ReadBrightnessRegister_020c39c8(volatile unsigned short* reg);
 struct SoundEffectManager_02108760;
 extern "C" int PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void* func_020d7a50(void);
-struct Struct_020d7aa0_2;
-extern "C" void func_020d7aa0(Struct_020d7aa0_2* arg0);
+struct TimedMessageQueue_020d7aa0_2;
+extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2* queue);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_02017c58(void* arg0);
 extern "C" void func_ov017_021c0760(unsigned char* arg0, unsigned char arg1);
@@ -51,14 +48,14 @@ extern "C" ARM void func_ov017_021c05f4(void* arg0, unsigned char arg1, unsigned
         if (IsFlagSet_0206dfb0((int)var3, (unsigned char*)var3 + 0x8c, 0x119a) == 0) return;
         if (IsQueueEmpty_02046b08((void**)*(void**)((char*)arg0 + 0x3000 + Enum_ov017_021c05f4_1788)) == 0) return;
         if (func_02039820(var1) == 0) return;
-        if (func_020535c8((signed char*)var1) != 0) return;
+        if (IsPerformingGesture_020535c8((signed char*)var1) != 0) return;
         if (*(int*)((char*)var1 + Enum_ov017_021c05f4_396) & 1) return;
         if (func_0203402c((Struct_0203402c*)var1) != 0 ||
             *(short*)((char*)var1 + 0xac) != 0 ||
             *(int*)((char*)var0 + Enum_ov017_021c05f4_2456) != 0) return;
         if (TestGlobalFlags_02046708((GlobalFlags_02012de8*)var2, 0x800) != 0) return;
         if (func_02039d7c((char*)var1) != 0) return;
-        if (func_020c39c8((volatile unsigned short*)0x400006c) != 0) return;
+        if (ReadBrightnessRegister_020c39c8((volatile unsigned short*)0x400006c) != 0) return;
         if (g_keyManager.TestKeysPressed(4) == 0) return;
         *(unsigned short*)((char*)var1 + 0xb2) = 0;
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
@@ -67,7 +64,7 @@ extern "C" ARM void func_ov017_021c05f4(void* arg0, unsigned char arg1, unsigned
     }
 
     void* var4 = func_020d7a50();
-    func_020d7aa0((Struct_020d7aa0_2*)var4);
+    ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)var4);
     func_02017c58(GetZone3D_02012fe4());
 
     func_ov017_021c0760((unsigned char*)*(void**)((char*)arg0 + 0x3000 + Enum_ov017_021c05f4_2876), arg1);

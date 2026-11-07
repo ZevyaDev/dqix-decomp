@@ -20,7 +20,7 @@ extern "C" int func_ov003_0216950c(void* arg0);
 extern "C" void func_ov003_0216a974(void* arg0, int arg1, int arg2);
 extern "C" void func_ov003_0216aa28(void* arg0);
 
-extern "C" void func_0205cef8(void* arg0);
+extern "C" void EnableTouchMenuCursor_0205cef8(void* windowManager);
 extern "C" void func_0205cf04(void* arg0);
 extern "C" void func_0205cf10(void* arg0);
 
@@ -43,7 +43,7 @@ extern "C" ARM int func_ov003_02169b30(void* arg0) {
     unsigned char var1 = *(unsigned char*)(var0 + Enum_ov003_02169b30_1257);
     if (var1 == 0) {
         func_ov003_02169594(var0);
-        func_0205cef8(var0 + Enum_ov003_02169b30_228);
+        EnableTouchMenuCursor_0205cef8(var0 + Enum_ov003_02169b30_228);
         func_0205cf04(var0 + Enum_ov003_02169b30_228);
         *(unsigned char*)(var0 + Enum_ov003_02169b30_1257) = *(unsigned char*)(var0 + Enum_ov003_02169b30_1257) + 1;
     } else if (var1 == 1) {

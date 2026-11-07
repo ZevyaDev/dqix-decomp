@@ -5,7 +5,7 @@ struct Struct_0203cdd8;
 extern "C" void func_0203cdd8(Struct_0203cdd8*, int);
 
 // USA: func_02040af0
-extern "C" ARM void func_02040af0(Struct_0203dce4* arg0, int arg1) {
+extern "C" ARM void func_02040af0(NPC_0203dce4* arg0, int arg1) {
     if (arg0->unknown_14_) {
         func_0203cdd8((Struct_0203cdd8*)arg0->unknown_14_, arg1);
         return;

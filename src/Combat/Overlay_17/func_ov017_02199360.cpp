@@ -14,7 +14,7 @@ extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 struct Struct_0200ffc0;
 extern "C" void* func_0200ffc0(struct Struct_0200ffc0* arg0);
 struct Vector3i;
-extern "C" void func_02070378(char* arg0);
+extern "C" void InitZoneEntry_02070378(char* zoneEntry);
 extern "C" void func_ov017_021d1a18(int arg0, int arg1, int arg2, int arg3);
 
 // USA: func_ov017_02199360
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov017_02199360(void* arg0) {
     if (IsNotLocalWirelessGuest_0202c508(var1)) {
         *(Vector3i*)((int*)((char*)var2 + Enum_ov017_02199360_10100)) = *(Vector3i const*)((int*)((char*)var3 + 0x40));
         *(int*)((char*)var2 + Enum_ov017_02199360_10112) = *(short*)((char*)var3 + 0x4c);
-        func_02070378((char*)var4);
+        InitZoneEntry_02070378((char*)var4);
         *(short*)((char*)var4 + 0x0) = 0x2710;
         ((char*)var4)[0x2] = 1;
         ((char*)var4)[0x7] = 1;
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov017_02199360(void* arg0) {
         ((char*)var2)[Enum_ov017_02199360_10120] = 1;
         func_ov017_021d1a18(1, -1, 1, 0);
     } else {
-        func_02070378((char*)var4);
+        InitZoneEntry_02070378((char*)var4);
         *(short*)((char*)var4 + 0x0) = 0x170c;
         ((char*)var4)[0x2] = 1;
         ((char*)var4)[0x7] = 1;

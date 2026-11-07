@@ -2,9 +2,6 @@
 #include "NitroSDK/Interrupts.h"
 #include "NitroSDK/Memory.h"
 
-#if defined(jpn)
-#define func_020ca390 func_020cbe5c
-#endif
 
 struct Struct_ov027_021dc680_2 {
 	unsigned char unknown_0_;
@@ -88,7 +85,7 @@ int data_ov027_021dd8f8 = 1;
 
 extern "C" unsigned short func_020d4dd4(void);
 extern "C" void func_020ca3ec(int arg0, void* arg1, unsigned int arg2);
-extern "C" void func_020ca390(int arg0, void* arg1, unsigned int arg2);
+extern "C" void Memset16Bit_020ca390(int arg0, void* arg1, unsigned int arg2);
 extern "C" unsigned int func_ov027_021dc618(void);
 
 // USA: func_ov027_021dc680
@@ -115,7 +112,7 @@ extern "C" ARM int func_ov027_021dc680(void* arg0, const Struct_ov027_021dc680_2
 	data_ov027_021e33e0.unknown_8_ = var0;
 	data_ov027_021e33e0.unknown_c_ = var1;
 	func_020ca3ec(0, var0, sizeof(Struct_ov027_021dc680_3));
-	func_020ca390(0, var1, sizeof(Struct_ov027_021dc680));
+	Memset16Bit_020ca390(0, var1, sizeof(Struct_ov027_021dc680));
 	inline_ov027_021dc680(var0, arg1);
 	VectorizedInvertedMemcpy(arg1, &var1->unknown_1300_, sizeof(Struct_ov027_021dc680_2));
 	if (arg1->unknown_1_ < 10) {

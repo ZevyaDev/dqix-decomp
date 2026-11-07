@@ -2,7 +2,7 @@
 #include "Resource/GameResources.h"
 
 
-extern "C" void func_ov017_021baedc(void* arg0, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(void* node, int arg1);
 extern "C" void* GetFlagManager_0205ec34(void);
 
 struct Queue_0201bdac_2;
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov004_02167fd4(void) {
 	char* var0 = (char*)GetGameResources() + 0x3000;
 	struct Queue_0201bdac_2* var1 = *(struct Queue_0201bdac_2**)(var0 + Enum_ov004_02167fd4_1788);
 	struct QueueNode_0201bdac* var2 = *(struct QueueNode_0201bdac**)(var0 + Enum_ov004_02167fd4_1844);
-	func_ov017_021baedc(var2, 1);
+	ResetEventTask_ov017_021baedc(var2, 1);
 	*(short*)((char*)var2 + 0x8) = 0x6fae;
 	AppendToQueue_020469b4(var1, var2);
 	unsigned char* var3 = (unsigned char*)GetFlagManager_0205ec34();

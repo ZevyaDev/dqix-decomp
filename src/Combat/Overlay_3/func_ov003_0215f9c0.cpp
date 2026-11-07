@@ -24,7 +24,7 @@ struct Struct_02081ee4 {
 struct Struct_02081ee4_2 {
     char unknown_0_[4];
 };
-struct Struct_020a9ea4 {
+struct SaveProgress_020a9ea4 {
     char unknown_0_[8];
 };
 
@@ -32,7 +32,7 @@ extern "C" void SaveMainBGControl_02074af4(struct BGControlSave_02074af4* save);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void func_02081ee4(struct Struct_02081ee4* arg0, struct Struct_02081ee4_2* arg1);
 extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
-extern "C" void func_020a9ea4(struct Struct_020a9ea4* arg0);
+extern "C" void ResetSaveProgress_020a9ea4(struct SaveProgress_020a9ea4* progress);
 
 struct Struct_ov003_0215f9c0 {
     char unknown_0_[Enum_ov003_0215f9c0_550];
@@ -106,7 +106,7 @@ struct Struct_ov003_0215f9c0 {
     unsigned char unknown_4a8_;
     char unknown_4a9_[0x4b0 - 0x4a9];
     int unknown_4b0_;
-    struct Struct_020a9ea4 unknown_4b4_;
+    struct SaveProgress_020a9ea4 unknown_4b4_;
     unsigned char unknown_4bc_;
     unsigned char unknown_4bd_;
     unsigned char unknown_4be_;
@@ -179,7 +179,7 @@ extern "C" ARM void func_ov003_0215f9c0(struct Struct_ov003_0215f9c0* arg0, int 
     arg0->unknown_4a7_ = 0;
     arg0->unknown_4a8_ = 0;
     arg0->unknown_4b0_ = 0;
-    func_020a9ea4(&arg0->unknown_4b4_);
+    ResetSaveProgress_020a9ea4(&arg0->unknown_4b4_);
     arg0->unknown_4bc_ = 0;
     if (arg1) {
         arg0->unknown_464_ |= 0x30000;

@@ -23,7 +23,7 @@ struct Struct_0203e0a0_2 {
 
 struct Struct_0203e0a0_3 {
     unsigned char unknown_0_[0xc];
-    Struct_0203dce4 *unknown_c_[32];
+    NPC_0203dce4 *unknown_c_[32];
     unsigned int unknown_8c_;
     unsigned char unknown_90_[0xe];
     Struct_0203e0a0_2 unknown_9e_[32];
@@ -59,7 +59,7 @@ struct Struct_02033834;
 struct Struct_0203e2c4_2;
 struct Struct_0203d028_15;
 
-extern "C" void *func_0203df78(void *arg0, int arg1);
+extern "C" void *FindNPCById_0203df78(void *npcManager, int id);
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834 *object, int angle);
 extern "C" void func_02040b2c(struct Struct_0203e2c4_2 *arg0, int arg1);
 extern "C" void func_02040774(struct Struct_0203d028_15 *arg0, int arg1, int arg2, int arg3);
@@ -70,10 +70,10 @@ extern "C" ARM void func_0203e2c4(void *arg0, unsigned short arg1) {
     if (var0->unknown_1de_ == arg1) {
         Struct_0203e0a0_2 *var1 = var0->unknown_9e_;
         for (int var2 = 0; var2 < var0->unknown_1e0_; ++var1, ++var2) {
-            Struct_0203dce4 **var3 = var0->unknown_c_;
+            NPC_0203dce4 **var3 = var0->unknown_c_;
             for (unsigned int var4 = 0; var4 < var0->unknown_8c_; ++var3, ++var4) {
-                Struct_0203dce4 *var5 = *var3;
-                unsigned short *var6 = (unsigned short *) func_02040528(&var5->unknown_0_);
+                NPC_0203dce4 *var5 = *var3;
+                unsigned short *var6 = (unsigned short *) func_02040528(&var5->flags_0_);
                 void *var7 = func_02040538((Struct_0203e0a0 *) var5);
                 if (var6 == NULL || var7 == NULL) {
                     continue;
@@ -97,7 +97,7 @@ extern "C" ARM void func_0203e2c4(void *arg0, unsigned short arg1) {
                 func_02040b2c((struct Struct_0203e2c4_2 *) var5, var9);
                 func_02040af0(var5, var9);
                 if (var1->unknown_9_1_) {
-                    var5->unknown_0_ |= 0x8000;
+                    var5->flags_0_ |= 0x8000;
                 }
                 Struct_0203e0a0_5 *var10 = (Struct_0203e0a0_5 *) func_02040538((Struct_0203e0a0 *) var5);
                 if (var10 != NULL) {
@@ -119,7 +119,7 @@ extern "C" ARM void func_0203e2c4(void *arg0, unsigned short arg1) {
                     var10->unknown_a_3_ = 3;
                 }
                 if (var0->unknown_1e4_ & (1U << var4)) {
-                    var5->unknown_0_ |= 0x40000;
+                    var5->flags_0_ |= 0x40000;
                 }
                 break;
             }
@@ -130,7 +130,7 @@ extern "C" ARM void func_0203e2c4(void *arg0, unsigned short arg1) {
     GameState *var12 = GameState::GetInstance();
     Struct_0203e2c4 *var13 = (Struct_0203e2c4 *) ((char *) var12 + Enum_0203e2c4_32376);
     if (var13->unknown_6_ != 0xff) {
-        struct Struct_0203d028_15 *var14 = (struct Struct_0203d028_15 *) func_0203df78(var0, var13->unknown_6_);
+        struct Struct_0203d028_15 *var14 = (struct Struct_0203d028_15 *) FindNPCById_0203df78(var0, var13->unknown_6_);
         if (var14 != NULL) {
             func_02040774(var14, var13->unknown_0_ << 4, var13->unknown_2_ << 4, var13->unknown_4_ << 4);
         }

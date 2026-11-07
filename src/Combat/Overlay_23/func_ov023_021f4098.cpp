@@ -15,12 +15,12 @@ extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsign
 struct Struct_02053dfc;
 extern "C" int func_02053dfc(struct Struct_02053dfc* arg0);
 
-extern "C" unsigned short func_0202053c(void* arg0);
+extern "C" unsigned short GetLevel_0202053c(void* gameObject);
 
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
-struct Struct_0202b2f0;
-extern "C" int func_0202c1c0(struct Struct_0202b2f0* arg0, int arg1);
+struct LocalWireless_0202b2f0;
+extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 
 extern "C" int func_ov023_021f5578(void* arg0, void* arg1, int arg2);
 
@@ -37,7 +37,7 @@ extern "C" ARM int func_ov023_021f4098(void* arg0, int arg1, int arg2) {
  enum {Enum_ov023_021f4098_2240=0x8c0, Enum_ov023_021f4098_22528=0x5800, Enum_ov023_021f4098_204=0xcc, Enum_ov023_021f4098_672=0x2a0, Enum_ov023_021f4098_336=0x150};
 #endif
     GameState* var0 = GameState::GetInstance();
-    struct Struct_0202b2f0* var1 = (struct Struct_0202b2f0*)GetLocalWireless_0202ae18();
+    struct LocalWireless_0202b2f0* var1 = (struct LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
     GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
     if (var2 == 0 || func_02061bd8((struct Struct_0205faf4_11*)var2) != 0) {
         return 0;
@@ -59,7 +59,7 @@ extern "C" ARM int func_ov023_021f4098(void* arg0, int arg1, int arg2) {
             GameObject* var8 = GetPartyMemberBaseByIndex_0200ff1c(var0, var7);
             if (var8 != 0 && func_02061bd8((struct Struct_0205faf4_11*)var8) == 0) {
                 var6[var7] = (float)(unsigned int)func_02053dfc((struct Struct_02053dfc*)var8);
-                var5[var7] = (float)(unsigned int)func_0202053c(var8);
+                var5[var7] = (float)(unsigned int)GetLevel_0202053c(var8);
             }
         }
     }
@@ -68,7 +68,7 @@ extern "C" ARM int func_ov023_021f4098(void* arg0, int arg1, int arg2) {
     if (IsLocalWirelessOn_0202b7d8((int*)var1)) {
         var9 = 0.0f;
         for (var7 = 0; var7 < 4; var7++) {
-            if (IsPartyMemberInBattle_020a35e0(*(unsigned char**)((char*)arg0 + Enum_ov023_021f4098_672), var7) && func_0202c1c0(var1, var7)) {
+            if (IsPartyMemberInBattle_020a35e0(*(unsigned char**)((char*)arg0 + Enum_ov023_021f4098_672), var7) && IsLocalWirelessPlayerJoined_0202c1c0(var1, var7)) {
                 var9 += 1.0f;
             }
         }

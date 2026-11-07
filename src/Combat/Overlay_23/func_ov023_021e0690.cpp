@@ -5,7 +5,7 @@
 struct Struct_020534ac;
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3*, int);
-extern "C" char* func_020e046c(char* arg0, void* arg1, void* arg2, int arg3);
+extern "C" char* CopyStringFromTableFile_020e046c(char* buffer, void* fileData, void* fileSize, int stringId);
 extern "C" void func_020df83c(void* arg0);
 struct StringTable_0201099c_14;
 extern "C" void func_020dfc6c(struct StringTable_0201099c_14* arg0);
@@ -66,7 +66,7 @@ extern "C" ARM int func_ov023_021e0690(void* arg0) {
 #endif
 
                 int var6 = *(short*)(var0 + Enum_ov023_021e0690_1904);
-                func_020e046c(var0 + Enum_ov023_021e0690_1584, (void*)var4, (void*)var5, var6);
+                CopyStringFromTableFile_020e046c(var0 + Enum_ov023_021e0690_1584, (void*)var4, (void*)var5, var6);
             }
             ((BackgroundLoader*)(var1))->RemoveTask((int)(*(int*)(var0 + Enum_ov023_021e0690_1856)));
             *(int*)(var0 + Enum_ov023_021e0690_1856) = -1;

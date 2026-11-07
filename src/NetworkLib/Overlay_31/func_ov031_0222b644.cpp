@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov031_0223cf4c(int arg0, int arg1);
+extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(int size, int alignAndDir);
 extern "C" void func_ov031_02227520(int* arg0, int* arg1);
 extern "C" int func_ov031_02235984(void* arg0);
 extern "C" void func_ov031_0222b71c(void);
@@ -10,7 +10,7 @@ extern "C" void func_ov031_02223518(int arg0);
 extern "C" void func_ov031_0222b870(void);
 extern "C" void func_ov031_0222b918(void);
 extern "C" void* func_ov031_0223c560(int arg0, int arg1);
-extern "C" void* func_ov031_0223e218(void* arg0, void* arg1, void* arg2, int arg3);
+extern "C" void* AddTask_ov031_0223e218(void* listIndex, void* callback, void* callbackData, int priority);
 extern "C" void func_ov031_0222c870(void);
 extern "C" void func_ov031_0222c3b4(void);
 extern "C" void func_ov031_0222c8cc(void);
@@ -36,7 +36,7 @@ extern Struct_ov031_02290c8c data_ov031_02290c8c;
 // USA: func_ov031_0222b644
 extern "C" ARM void func_ov031_0222b644(void) {
 	int var0;
-	data_ov031_02290c8c.unknown_4_ = (Struct_ov031_0222b644*)func_ov031_0223cf4c(0x5c, 4);
+	data_ov031_02290c8c.unknown_4_ = (Struct_ov031_0222b644*)AllocateZeroedMemory_ov031_0223cf4c(0x5c, 4);
 	func_ov031_02227520(&var0, NULL);
 	if (var0 == 0) {
 		data_ov031_02290c8c.unknown_0_ = 0;
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov031_0222b644(void) {
 	func_ov031_0222b918();
 
 	data_ov031_02290c8c.unknown_4_->unknown_c_ = func_ov031_0223c560(0, 0);
-	data_ov031_02290c8c.unknown_4_->unknown_3c_ = (int)func_ov031_0223e218((void*)1, (void*)func_ov031_0222c870, NULL, 0x6e);
+	data_ov031_02290c8c.unknown_4_->unknown_3c_ = (int)AddTask_ov031_0223e218((void*)1, (void*)func_ov031_0222c870, NULL, 0x6e);
 
 	func_ov031_0222c3b4();
 	func_ov031_0222c8cc();

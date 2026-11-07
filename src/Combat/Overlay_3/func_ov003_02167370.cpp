@@ -11,8 +11,8 @@ enum { Enum_ov003_02167370_100 = 0x64 };
 enum { Enum_ov003_02167370_96 = 0x60 };
 #endif
 
-struct Struct_02074bf4;
-extern "C" void func_02074bf4(struct Struct_02074bf4* arg0);
+struct BGControlSave_02074bf4;
+extern "C" void RestoreSubBGControl_02074bf4(struct BGControlSave_02074bf4* save);
 extern "C" int DisableSubBGVRAMBanks(void);
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void MapVRAMBanksToSubObj(int value);
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov003_02167370(char* arg0) {
     if (*(void**)(arg0 + 0x10) != 0) {
         func_0207f8bc(*(Struct_0207f7f0**)(arg0 + 0x10));
     }
-    func_02074bf4((struct Struct_02074bf4*)(arg0 + 0x1c));
+    RestoreSubBGControl_02074bf4((struct BGControlSave_02074bf4*)(arg0 + 0x1c));
 
     volatile unsigned int* var2 = (volatile unsigned int*)0x4001000;
     *var2 = (*var2 & ~0x1f00) | (*(int*)(arg0 + Enum_ov003_02167370_96) << 8);

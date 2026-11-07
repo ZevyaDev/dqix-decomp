@@ -21,7 +21,7 @@ struct SpriteAnimationList_02043368 {
 struct TextureVRAMArea_0203d028;
 struct StringTable_0201099c_14;
 struct Struct_0201099c_3;
-struct Struct_020a9ea4;
+struct SaveProgress_020a9ea4;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 struct GlobalFlags_02038598_4;
@@ -35,10 +35,10 @@ extern "C" void InitSprite_0205a198(Sprite_02043368_2* sprite);
 extern "C" void InitSpriteAnimationList_0205a234(SpriteAnimationList_02043368* animationList);
 extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
 extern "C" void func_0200fb84(int* arg0, int arg1);
-extern "C" char* func_0203b628();
+extern "C" char* GetBGVRAMManager_0203b628();
 extern "C" void func_0203b634(char* arg0);
 extern "C" void* GetOAMManager_0203bd08(void);
-extern "C" void func_0203bd24(char* arg0);
+extern "C" void ResetOAMManager_0203bd24(char* oamManager);
 void LockStagedTextureVRAMCopying();
 extern "C" unsigned int DisableTextureImageVRAMBanks();
 extern "C" unsigned int DisableTexturePaletteVRAMBanks();
@@ -47,7 +47,7 @@ extern "C" unsigned int DisableSubBGVRAMBanks();
 extern "C" unsigned int DisableMainObjVRAMBanks();
 extern "C" unsigned int DisableSubObjVRAMBanks();
 extern "C" void MapVRAMBanksToTextureImage(int banks);
-extern "C" void func_020bb48c(unsigned int arg0, int arg1);
+extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install);
 extern "C" void MapVRAMBanksToTexturePalette(int banks);
 extern "C" void MapVRAMBanksToMainBG(int banks);
 extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, int isBG03D);
@@ -67,7 +67,7 @@ extern "C" void CloseMessageWindow_02043124(MessageWindow_02021b84* window);
 extern "C" void func_02042b30(void* arg0, void* arg1);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void func_020432c4(MessageWindow_02021b84* arg0);
+extern "C" void InitMessageGlyphs_020432c4(MessageWindow_02021b84* window);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020440b8(char* arg0, void* arg1, void* arg2);
@@ -76,40 +76,40 @@ extern "C" void func_0202adf0();
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
-extern "C" void func_020d86d0(int arg0, int arg1);
+extern "C" void Swap3DBuffers_020d86d0(int keepTranslucentOrder, int useWDepth);
 extern "C" void WaitForVBlank_020c9820();
 extern "C" void func_020bbcb4();
 void UnlockAndSetMainBrightness(GameResources* res, int target, int frames);
 void UnlockAndSetSubBrightness(GameResources* res, int target, int frames);
 void UpdateAndApplyBrightness(GameResources* res);
-extern "C" void func_020c38d4();
+extern "C" void TurnOnMainDisplay_020c38d4();
 extern "C" void __clear(void* arg0, int arg1);
 unsigned long long GetCurrentTimestamp();
 extern "C" void func_02012efc();
 extern "C" int GetMessageChoice_020457e0(MessageWindow_02021b84* window);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
-extern "C" void func_020a9ea4(Struct_020a9ea4* arg0);
+extern "C" void ResetSaveProgress_020a9ea4(SaveProgress_020a9ea4* progress);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, SafeAllocator* allocator);
 extern "C" int func_020ab7a8(void* arg0, int arg1);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
-extern "C" void func_0209c6d8(void* arg0, int arg1);
+extern "C" void PlayJingle_0209c6d8(void* manager, int jingleIndex);
 extern "C" int func_ov019_0218c240(void* arg0);
 extern "C" int func_020aba5c(int arg0);
 extern "C" void func_02043368(MessageWindow_02021b84* arg0);
 extern "C" void UpdateSound_020bbd9c();
-extern "C" void func_020c52e8();
-extern "C" void func_020c5414();
+extern "C" void ResetGeometryEngine_020c52e8();
+extern "C" void ResetMatrixStacks_020c5414();
 extern "C" void func_020c57d4(int, int, int, int, void*);
 extern "C" void func_020444e0(Struct_020444e0* arg0);
 extern "C" void func_ov019_0218c178(void* arg0);
 extern "C" void func_0203bd88(void* arg0);
-extern "C" void func_0204359c(void* arg0, int arg1);
+extern "C" void DrawMessageGlyphs_0204359c(void* window, int glyphCount);
 extern "C" void func_0203bdb0(Struct_0203bdb0* arg0);
 extern "C" void func_020439b0(MessageWindow_02021b84* arg0, int arg1);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
-extern "C" void func_0200fb94(char* arg0, unsigned char arg1);
+extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
 extern "C" void func_02012010(void* arg0, int arg1);
 
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
@@ -139,7 +139,7 @@ struct StringList_020727d8;
 struct Struct_02013fb4;
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern "C" void ResetStringList_020727d8(struct StringList_020727d8* stringList);
-extern "C" void LoadStringList_020728ac(int stringList, int allocator, struct Struct_02013fb4* arg2, int scriptSize, int idFilter, unsigned short idFilterCount, unsigned char skippedStringCount);
+extern "C" void LoadStringList_020728ac(int stringList, int allocator, struct Struct_02013fb4* scriptData, int scriptSize, int idFilter, unsigned short idFilterCount, unsigned char skippedStringCount);
 extern char data_ov019_0218ceb8[];
 enum { Enum_ov019_0218b5a8_24 = 0x8, Enum_ov019_0218b5a8_728 = 0x228 };
 #else
@@ -243,9 +243,9 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
     func_0200fb84((int*)var0, (int)arg0);
     var1->MaybeReset();
-    func_0203b634(func_0203b628());
+    func_0203b634(GetBGVRAMManager_0203b628());
     void* var4 = GetOAMManager_0203bd08();
-    func_0203bd24((char*)var4);
+    ResetOAMManager_0203bd24((char*)var4);
     LockStagedTextureVRAMCopying();
     DisableTextureImageVRAMBanks();
     DisableTexturePaletteVRAMBanks();
@@ -254,7 +254,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     DisableMainObjVRAMBanks();
     DisableSubObjVRAMBanks();
     MapVRAMBanksToTextureImage(0xf);
-    func_020bb48c(4, 1);
+    InitTextureImageVRAMAllocator_020bb48c(4, 1);
     MapVRAMBanksToTexturePalette(0x40);
     MapVRAMBanksToMainBG(0x10);
     inline_ov016_0218b5c4(0);
@@ -275,7 +275,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     inline_ov019_0218b5a8_4(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, NULL);
     inline_ov019_0218b5a8_5(0);
     inline_ov019_0218b5a8_6(0, 0, 255, 191);
-    func_020bb48c(4, 1);
+    InitTextureImageVRAMAllocator_020bb48c(4, 1);
     func_020bb780((void*)0x4000, 1);
 
     char var5[0x70];
@@ -288,7 +288,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     func_02042b30(var7, var5);
     ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)var5);
     RestoreTextureVRAMState_0207df90(var5);
-    func_020432c4(var7);
+    InitMessageGlyphs_020432c4(var7);
     SaveTextureVRAMState_0207dfac(var5);
 
     unsigned int var8;
@@ -345,13 +345,13 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
         var13 = 8;
     }
     var7->unknown_998_ = 1;
-    func_020d86d0(0, 1);
+    Swap3DBuffers_020d86d0(0, 1);
     WaitForVBlank_020c9820();
     func_020bbcb4();
     UnlockAndSetMainBrightness((GameResources*)arg0, 0, 5);
     UnlockAndSetSubBrightness((GameResources*)arg0, -16, 1);
     UpdateAndApplyBrightness((GameResources*)arg0);
-    func_020c38d4();
+    TurnOnMainDisplay_020c38d4();
     inline_ov019_0218b5a8_7();
 
     Vector3fix var15 = data_ov019_0218c294;
@@ -369,7 +369,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
                 if (GetMessageChoice_020457e0(var7) == 0) {
                     SetGlobalFlags_020466e4(var2, 0x80);
                     inline_ov019_0218b5a8(var7, arg0, 5);
-                    func_020a9ea4((Struct_020a9ea4*)arg0->unknown_2c_);
+                    ResetSaveProgress_020a9ea4((SaveProgress_020a9ea4*)arg0->unknown_2c_);
                     var13 = 3;
                 } else if (GetMessageChoice_020457e0(var7) == 1) {
                     inline_ov019_0218b5a8(var7, arg0, 3);
@@ -448,7 +448,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
             if (var7->unknown_998_ == 0) {
                 inline_ov019_0218b5a8(var7, arg0, 7);
                 var7->unknown_998_ = 1;
-                func_0209c6d8(gMusicManager_02109bf4, 0x35);
+                PlayJingle_0209c6d8(gMusicManager_02109bf4, 0x35);
                 var13 = 5;
             }
             break;
@@ -465,7 +465,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
                     var13 = 0;
                 } else {
                     inline_ov019_0218b5a8(var7, arg0, 6);
-                    func_0209c6d8(gMusicManager_02109bf4, 0x3d);
+                    PlayJingle_0209c6d8(gMusicManager_02109bf4, 0x3d);
                     var13 = 7;
                 }
                 var7->unknown_998_ = 1;
@@ -509,8 +509,8 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
             var7->func_020444d4(1);
         }
         UpdateSound_020bbd9c();
-        func_020c52e8();
-        func_020c5414();
+        ResetGeometryEngine_020c52e8();
+        ResetMatrixStacks_020c5414();
         RenderConfig::Reset();
         DISP3DCNT = (DISP3DCNT & ~0x3000) | 8;
         DISP3DCNT = (DISP3DCNT & ~0x3000) | 0x10;
@@ -521,8 +521,8 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
         func_020444e0((Struct_020444e0*)var7);
         func_ov019_0218c178(arg0);
         func_0203bd88(var4);
-        func_0204359c(var7, 0x10);
-        func_020d86d0(0, 1);
+        DrawMessageGlyphs_0204359c(var7, 0x10);
+        Swap3DBuffers_020d86d0(0, 1);
         arg0->unknown_28_ = 1;
         WaitForVBlank_020c9820();
         func_0203bdb0((Struct_0203bdb0*)var4);
@@ -533,6 +533,6 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
 
     var10.Destroy();
     FreeMemory_02012da4(&gMainHeap_02114e20, var9);
-    func_0200fb94((char*)var0, 6);
+    SetGameMode_0200fb94((char*)var0, 6);
     func_02012010(var0, 0);
 }

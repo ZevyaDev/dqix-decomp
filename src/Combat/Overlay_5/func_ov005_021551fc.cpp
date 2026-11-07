@@ -15,7 +15,7 @@
 #include <globaldefs.h>
 
 extern "C" void func_ov023_021dcba4(void* arg0, int arg1);
-extern "C" void func_ov023_021dcae0(void* arg0, int arg1);
+extern "C" void SetItemInfoPanelItem_ov023_021dcae0(void* panel, int itemId);
 
 // USA: func_ov005_021551fc
 extern "C" ARM void func_ov005_021551fc(char* arg0, int arg1, int arg2) {
@@ -27,6 +27,6 @@ extern "C" ARM void func_ov005_021551fc(char* arg0, int arg1, int arg2) {
 	if (arg2 != 0) {
 		func_ov023_021dcba4(arg0 + R(0x1240,0x1244), var1);
 	} else {
-		func_ov023_021dcae0(arg0 + R(0x1240,0x1244), var1);
+		SetItemInfoPanelItem_ov023_021dcae0(arg0 + R(0x1240,0x1244), var1);
 	}
 }

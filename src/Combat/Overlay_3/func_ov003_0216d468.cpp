@@ -14,7 +14,7 @@ struct TextWindowManager_0205d228;
 struct TextWindowManager_0205d274;
 extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(TextWindowManager_0205d1e0*);
 extern "C" void DrawTextWindows_0205d228(TextWindowManager_0205d228*);
-extern "C" void func_0205da88(void*, int, int, int);
+extern "C" void FillBGUnderTextWindows_0205da88(void*, int, int, int);
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274*);
 extern "C" void func_ov003_0216d990(void* arg0);
 #if defined(jpn)
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov003_0216d468(void* arg0) {
         if (var1 == 0 || var1 == 1 || *(short*)(var0 + 4) == 2) {
             ClearTextWindowManagerBGScreenData_0205d1e0((TextWindowManager_0205d1e0*)*(void**)(var0 + 0x1000 + Enum_ov003_0216d468_704));
             DrawTextWindows_0205d228((TextWindowManager_0205d228*)*(void**)(var0 + 0x1000 + Enum_ov003_0216d468_704));
-            func_0205da88(*(void**)(var0 + 0x1000 + Enum_ov003_0216d468_704), 2, 1, 1);
+            FillBGUnderTextWindows_0205da88(*(void**)(var0 + 0x1000 + Enum_ov003_0216d468_704), 2, 1, 1);
             FlushTextWindowManagerBGScreenData_0205d274((TextWindowManager_0205d274*)*(void**)(var0 + 0x1000 + Enum_ov003_0216d468_704));
         }
     }

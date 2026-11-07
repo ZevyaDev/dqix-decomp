@@ -7,7 +7,7 @@
 extern "C" void NSBXX_Model_SetPolygonID(void* obj, unsigned int value);
 
 struct Struct_02040774_2;
-extern "C" void func_020407b4(struct Struct_02040774_2* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetObject3DPosition_020407b4(struct Struct_02040774_2* object, int x, int y, int z);
 
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern AllocatorUnion gMainHeap_02114e20;
@@ -32,7 +32,7 @@ extern "C" ARM void func_02046e70(void* arg0, void* arg1, Object3D* arg2) {
         Object3D* var0 = *(Object3D**)((char*)arg0 + 0xe8);
         var0->SetScale(0x1000, 0x1000, 0x1000);
         Object3D* var1 = *(Object3D**)((char*)arg0 + 0xe8);
-        func_020407b4((struct Struct_02040774_2*)var1, 0, -0xa000, 0x1000);
+        SetObject3DPosition_020407b4((struct Struct_02040774_2*)var1, 0, -0xa000, 0x1000);
         Object3D* var2 = *(Object3D**)((char*)arg0 + 0xe8);
         var2->MaybeSetBCFGAnimation(0, 0);
     }

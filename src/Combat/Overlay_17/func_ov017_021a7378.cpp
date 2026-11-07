@@ -78,7 +78,7 @@ struct Struct_ov017_021a7378_2 {
 
 struct Struct_0201099c_3;
 struct Struct_0200ffd0;
-struct Struct_020d7aa0_2;
+struct TimedMessageQueue_020d7aa0_2;
 struct Struct_0204bef4;
 struct Struct_0205faf4_7;
 
@@ -108,7 +108,7 @@ extern "C" Struct_ov017_021a7378_4* GetZone3D_02012fe4(void);
 extern "C" Struct_ov001_02158ae4_3* func_0200ffd0(Struct_0200ffd0* arg0);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
 extern "C" void* func_020d7a50(void);
-extern "C" void func_020d7aa0(Struct_020d7aa0_2* arg0);
+extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2* queue);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void func_020ae38c(unsigned char* arg0);
 extern "C" void func_020ae380(unsigned char* arg0);
@@ -116,17 +116,17 @@ extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigne
 extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
-extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
+extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" int GetMessageChoice_020457e0(Struct_ov000_0217964c_3* window);
 extern "C" Struct_ov017_021a7378* GetZoneEntry_0200fd0c(GameState* gameState);
-extern "C" void func_02070378(char* arg0);
+extern "C" void InitZoneEntry_02070378(char* zoneEntry);
 extern "C" void* func_02033fa0(void* arg0);
 extern "C" int func_0204bedc(unsigned short* arg0);
 extern "C" int func_0204bef4(Struct_0204bef4* arg0);
-extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int arg1);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void func_ov017_021a65c4(void* arg0, unsigned char arg1, int arg2);
-extern "C" void func_ov017_021baedc(QueueNode_0201bdac* arg0, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(QueueNode_0201bdac* node, int arg1);
 extern "C" void func_ov017_021d1c2c(unsigned char arg0, unsigned short arg1);
 extern "C" void func_ov017_021d1dc0(unsigned short, int, int*, int, int);
 extern "C" void* func_02094d6c(void);
@@ -154,7 +154,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
     func_0205c904(arg0->unknown_24_, var0->GetTickCount());
 
     if (arg0->unknown_8_ == 0) {
-        func_020d7aa0((Struct_020d7aa0_2*)func_020d7a50());
+        ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)func_020d7a50());
         arg0->unknown_1c_ = (DISPCNT & 0x1f00) >> 8;
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1100;
         ReleaseFileTablesForSpace_020a0cc4(Enum_ov017_021a7378_5120);
@@ -201,10 +201,10 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
         }
     } else if (arg0->unknown_8_ == 0xc8) {
         if (var2->unknown_9a0_ == 0) {
-            func_020a28b0(var1, 2);
+            ClearCameraFlags_020a28b0(var1, 2);
             if (GetMessageChoice_020457e0(var2) == 0) {
                 Struct_ov017_021a7378* var9 = GetZoneEntry_0200fd0c(var0);
-                func_02070378((char*)var9);
+                InitZoneEntry_02070378((char*)var9);
                 var9->unknown_2_ = 1;
                 var9->unknown_7_ = 1;
                 var9->unknown_5_ = 1;
@@ -222,7 +222,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
         }
     } else if (arg0->unknown_8_ == 0x12c) {
         if (var2->unknown_9a0_ == 0) {
-            func_020a28b0(var1, 2);
+            ClearCameraFlags_020a28b0(var1, 2);
             if (GetMessageChoice_020457e0(var2) == 0) {
                 void* var10 = func_02033fa0(var4);
                 if (var10 != NULL && func_0204bedc((unsigned short*)var10)) {
@@ -253,7 +253,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
         }
     } else if (arg0->unknown_8_ == 0x12d) {
         if (var2->unknown_9a0_ == 0) {
-            func_020a28b0(var1, 2);
+            ClearCameraFlags_020a28b0(var1, 2);
             if (GetMessageChoice_020457e0(var2) == 0) {
                 arg0->unknown_18_ = 3;
                 var4->unknown_13c_ = 2;
@@ -273,7 +273,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
         Queue_0201bdac_2* var13 = (Queue_0201bdac_2*)var11->unknown_ptr_array_36fc[0];
         QueueNode_0201bdac* var14 = (QueueNode_0201bdac*)var11->unknown_ptr_array_371c[6];
         var12 = GetZoneEntry_0200fd0c(var0);
-        func_02070378((char*)var12);
+        InitZoneEntry_02070378((char*)var12);
         var12->unknown_7_ = 1;
         void* var15 = func_02033fa0(var4);
         switch (arg0->unknown_18_) {
@@ -287,14 +287,14 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
             var3->unknown_27b8_ = var4->unknown_44_;
             func_0200fcfc(var0, var12);
             QueueNode_0201bdac* var16 = (QueueNode_0201bdac*)var11->unknown_ptr_array_36fc[4];
-            func_ov017_0219e310((unsigned char*)var16, 0);
+            ResetZoneLoadTask_ov017_0219e310((unsigned char*)var16, 0);
             AppendToQueue_020469b4(var13, var16);
             func_ov017_021a65c4(var11, 1, 0);
             break;
         }
         case 3:
             var4->unknown_13c_ = 2;
-            func_ov017_021baedc(var14, 1);
+            ResetEventTask_ov017_021baedc(var14, 1);
             *(unsigned short*)((char*)var14 + 8) = 0x7346;
             AppendToQueue_020469b4(var13, var14);
             break;

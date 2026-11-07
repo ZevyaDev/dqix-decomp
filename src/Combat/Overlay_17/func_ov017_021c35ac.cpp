@@ -21,7 +21,7 @@ extern "C" void func_0202c360(void* arg0, int arg1);
 extern "C" void func_0202b2f0(void* arg0);
 extern "C" void func_0202b828(unsigned char* arg0);
 extern "C" void func_020d84dc(void);
-extern "C" void func_ov017_02191108(int, int, int, int, int);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(int, int, int, int, int);
 extern "C" void func_ov017_02191234(int arg0);
 extern "C" void func_0202c288(void* arg0);
 extern "C" ARM void func_ov017_021972cc(char* arg0);
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov017_021c35ac(void) {
     func_0202b828((unsigned char*)var2);
     ClearFlags00((GameResources*)var1, 2);
     func_020d84dc();
-    func_ov017_02191108(var1, 1, 1, 1, 1);
+    RebuildFieldPartyOrder_ov017_02191108(var1, 1, 1, 1, 1);
     func_ov017_02191234(var1);
     func_0202c288(var2);
     func_ov017_021972cc((char*)var1);

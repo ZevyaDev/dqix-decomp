@@ -4,8 +4,8 @@
 
 
 
-struct Struct_020a9ea4;
-extern "C" void func_020a9ea4(struct Struct_020a9ea4* arg0);
+struct SaveProgress_020a9ea4;
+extern "C" void ResetSaveProgress_020a9ea4(struct SaveProgress_020a9ea4* progress);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov001_02163008(void) {
 	SafeAllocator* var0 = data_ov001_021658b8.unknown_0_;
 	void* var1 = var0->Allocate(8);
 	data_ov001_021658b8.unknown_4b4_ = var1;
-	func_020a9ea4((struct Struct_020a9ea4*)var1);
+	ResetSaveProgress_020a9ea4((struct SaveProgress_020a9ea4*)var1);
 	void* var2 = var0->Allocate(0x8000);
 	data_ov001_021658b8.unknown_4b8_ = var2;
 	memset(var2, 0, 0x8000);

@@ -37,7 +37,7 @@ extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index,
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char* window, int index, unsigned char alignment);
 #if defined(jpn)
 extern "C" void* func_ov004_02168fa4(void*, int);
-extern "C" void func_ov023_021f809c(void*, void*);
+extern "C" void RedrawMenuWindow_ov023_021f809c(void*, void*);
 #else
 extern "C" int func_ov023_021f6680(void* arg0, int arg1);
 #endif
@@ -372,27 +372,27 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
 #if defined(jpn)
     {
         void* var32 = func_ov004_02168fa4(arg0, 0x18);
-        if (var32 != 0) func_ov023_021f809c(var32, arg0);
+        if (var32 != 0) RedrawMenuWindow_ov023_021f809c(var32, arg0);
     }
     {
         void* var33 = func_ov004_02168fa4(arg0, 0x19);
-        if (var33 != 0) func_ov023_021f809c(var33, arg0);
+        if (var33 != 0) RedrawMenuWindow_ov023_021f809c(var33, arg0);
     }
     {
         void* var34 = func_ov004_02168fa4(arg0, 0x1c);
-        if (var34 != 0) func_ov023_021f809c(var34, arg0);
+        if (var34 != 0) RedrawMenuWindow_ov023_021f809c(var34, arg0);
     }
     {
         void* var35 = func_ov004_02168fa4(arg0, 0x1a);
-        if (var35 != 0) func_ov023_021f809c(var35, arg0);
+        if (var35 != 0) RedrawMenuWindow_ov023_021f809c(var35, arg0);
     }
     {
         void* var36 = func_ov004_02168fa4(arg0, 0x1d);
-        if (var36 != 0) func_ov023_021f809c(var36, arg0);
+        if (var36 != 0) RedrawMenuWindow_ov023_021f809c(var36, arg0);
     }
     {
         void* var37 = func_ov004_02168fa4(arg0, 0x1b);
-        if (var37 != 0) func_ov023_021f809c(var37, arg0);
+        if (var37 != 0) RedrawMenuWindow_ov023_021f809c(var37, arg0);
     }
 #else
     func_ov023_021f6680(arg0, 0x18);

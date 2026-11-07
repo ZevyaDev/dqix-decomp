@@ -14,7 +14,7 @@ extern "C" void func_ov017_0219344c(GameObject*, int, const Vector3fix*, int, in
 extern "C" Struct_ov017_0218e210* func_02033f44(Struct_02033f44*);
 extern "C" int func_02039dcc(unsigned char*);
 extern "C" void func_02039dbc(unsigned char*);
-extern "C" void func_02033834(Struct_02033834_2*, int);
+extern "C" void SetFacing_02033834(Struct_02033834_2*, int);
 
 // USA: func_ov017_0218e210
 extern "C" ARM void func_ov017_0218e210(int arg0, int arg1) {
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov017_0218e210(int arg0, int arg1) {
                         if (var21 > 0) var20 = fix32ReduceAngle0To2Pi((int)(6772.632f + (float)var19));
                         else var20 = fix32ReduceAngle0To2Pi((int)((float)var19 - 6772.632f));
                     }
-                    if ((float)fix32abs(fix32SignedAngleDistance(var20, var16)) < 643.4f) func_02033834((Struct_02033834_2*)var1, var20);
+                    if ((float)fix32abs(fix32SignedAngleDistance(var20, var16)) < 643.4f) SetFacing_02033834((Struct_02033834_2*)var1, var20);
                 }
             }
         }

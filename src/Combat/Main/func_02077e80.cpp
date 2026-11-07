@@ -12,7 +12,7 @@ extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireles
 
 extern "C" Vector3fix func_02034104(void* arg0);
 struct Struct_02033834_2;
-extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
+extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 struct Struct_02033b68;
 extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
 extern "C" int _s32_div_f(int a, int b);
@@ -38,7 +38,7 @@ extern "C" ARM int func_02077e80(Struct_02076a8c* arg0) {
         var5.y = -var5.y;
         var5.z = -var5.z;
         var2 = fix32_Atan2(var5.x, var5.z);
-        func_02033834((struct Struct_02033834_2*)arg0, var2);
+        SetFacing_02033834((struct Struct_02033834_2*)arg0, var2);
         var5.y = 0;
         Vector3fixMultiplyScalar(&var5, 0xa000, &var5);
         Vector3fix_Add(&arg0->unknown_0_.unknown_0_.unknown_0_.position_, &var5, &arg0->unknown_158_);

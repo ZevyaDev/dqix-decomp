@@ -9,11 +9,11 @@ struct Struct_ov031_02223f6c {
 extern Struct_ov031_02223f6c* data_ov031_02250bfc;
 
 extern "C" void func_ov031_0223ba20(int arg0);
-extern "C" void func_ov031_0223e2b8(void* arg0, int arg1);
+extern "C" void SetTaskCallback_ov031_0223e2b8(void* task, int callback);
 extern "C" void func_ov031_02225580(void);
 
 // USA: func_ov031_02223f6c
 extern "C" ARM void func_ov031_02223f6c(void) {
 	func_ov031_0223ba20(data_ov031_02250bfc->unknown_114_);
-	func_ov031_0223e2b8((void*)data_ov031_02250bfc->unknown_118_, (int)func_ov031_02225580);
+	SetTaskCallback_ov031_0223e2b8((void*)data_ov031_02250bfc->unknown_118_, (int)func_ov031_02225580);
 }

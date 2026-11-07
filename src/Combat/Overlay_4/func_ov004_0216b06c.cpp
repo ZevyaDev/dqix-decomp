@@ -7,9 +7,9 @@ extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void func_ov023_021fbb64(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10);
 
-struct Struct_ov004_0215c30c;
-struct Struct_ov004_0215c30c_2;
-extern "C" void func_ov023_021f67ac(struct Struct_ov004_0215c30c* arg0, struct Struct_ov004_0215c30c_2* arg1);
+struct MenuObjectList_ov004_0215c30c;
+struct MenuObject_ov004_0215c30c_2;
+extern "C" void AppendMenuObject_ov023_021f67ac(struct MenuObjectList_ov004_0215c30c* objectList, struct MenuObject_ov004_0215c30c_2* object);
 
 extern char data_ov023_021ff078;
 
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov004_0216b06c(void* arg0, int arg1, int arg2, int arg3
 
     func_ov023_021fbb64(var1, arg0, arg1, arg2, arg3, arg4, arg5, arg6, 1, arg7, 0xf);
 
-    func_ov023_021f67ac((struct Struct_ov004_0215c30c*)GetMenuObjectList_ov011_021849c8(arg0), (struct Struct_ov004_0215c30c_2*)var1);
+    AppendMenuObject_ov023_021f67ac((struct MenuObjectList_ov004_0215c30c*)GetMenuObjectList_ov011_021849c8(arg0), (struct MenuObject_ov004_0215c30c_2*)var1);
 #if !defined(jpn)
     *((unsigned char*)var1 + 0x3d) = arg8;
 #endif

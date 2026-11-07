@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* arg1);
+extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* outOwnPartyOrder);
 extern "C" void SetScriptRefInt_ov017_021d6134(void*, int);
 
 #if defined(jpn)

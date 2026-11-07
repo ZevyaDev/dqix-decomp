@@ -35,7 +35,7 @@ struct Struct_02101640 {
     unsigned char unknown_0_[8];
     unsigned int unknown_8_;
 };
-extern Struct_021015a0_2 data_021015a0;
+extern Struct_021015a0_2 gLocalWirelessLink_021015a0;
 extern unsigned char data_02101b80[0x400];
 extern Struct_02101640 data_02101640;
 extern Struct_021016e0 data_021016e0;
@@ -50,12 +50,12 @@ static inline int inline_0202cefc(Struct_021016e0* arg0) { return arg0->unknown_
 extern "C" ARM void func_0202cefc(Struct_0202cefc* arg0) {
     if (arg0->unknown_2_ != 0) {
         func_0202c848(arg0->unknown_2_);
-        data_021015a0.unknown_10_ = 9;
+        gLocalWirelessLink_021015a0.unknown_10_ = 9;
         return;
     }
-    if (data_021015a0.unknown_10_ != 2) {
-        data_021015a0.unknown_4_ = 0;
-        if (!func_0202d0e0()) data_021015a0.unknown_10_ = 9;
+    if (gLocalWirelessLink_021015a0.unknown_10_ != 2) {
+        gLocalWirelessLink_021015a0.unknown_4_ = 0;
+        if (!func_0202d0e0()) gLocalWirelessLink_021015a0.unknown_10_ = 9;
         return;
     }
     if (arg0->unknown_8_ != 4 && arg0->unknown_8_ == 5) {
@@ -65,8 +65,8 @@ extern "C" ARM void func_0202cefc(Struct_0202cefc* arg0) {
         var0 = 0;
         for (; var0 < arg0->unknown_e_; var0++) {
             Struct_021016e0* var2 = arg0->unknown_10_[var0];
-            if (data_021015a0.unknown_1c_ != 0 && func_020c0290(var2)) {
-                if (data_021015a0.unknown_44_) data_021015a0.unknown_44_(var2);
+            if (gLocalWirelessLink_021015a0.unknown_1c_ != 0 && func_020c0290(var2)) {
+                if (gLocalWirelessLink_021015a0.unknown_44_) gLocalWirelessLink_021015a0.unknown_44_(var2);
             } else {
                 int var3 = 0;
                 if (var2->unknown_3c_ >= 0x10) var3 = inline_0202cefc(var2);
@@ -82,12 +82,12 @@ extern "C" ARM void func_0202cefc(Struct_0202cefc* arg0) {
         }
 finished:
         if (var1) {
-            if (data_021015a0.unknown_44_) data_021015a0.unknown_44_(&data_021016e0);
-            if (data_021015a0.unknown_4_ != 0) {
-                if (!func_0202d0e0()) data_021015a0.unknown_10_ = 9;
+            if (gLocalWirelessLink_021015a0.unknown_44_) gLocalWirelessLink_021015a0.unknown_44_(&data_021016e0);
+            if (gLocalWirelessLink_021015a0.unknown_4_ != 0) {
+                if (!func_0202d0e0()) gLocalWirelessLink_021015a0.unknown_10_ = 9;
                 return;
             }
         }
     }
-    if (!func_0202cddc()) data_021015a0.unknown_10_ = 9;
+    if (!func_0202cddc()) gLocalWirelessLink_021015a0.unknown_10_ = 9;
 }

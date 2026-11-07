@@ -10,8 +10,8 @@ enum { Enum_ov003_021696f4_1276 = 0x4fc };
 enum { Enum_ov003_021696f4_1271 = 0x4f7 };
 #endif
 
-struct Struct_0205bef8;
-extern "C" void func_0205bef8(struct Struct_0205bef8* arg0);
+struct KeyMenuCursor_0205bef8;
+extern "C" void InitKeyMenuCursor_0205bef8(struct KeyMenuCursor_0205bef8* cursor);
 
 struct MenuCursor_0205ba68;
 extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov003_021696f4(struct Struct_ov003_021696f4_2* arg0, in
     }
     if (arg1 <= var3) var1 = 0;
 
-    func_0205bef8((struct Struct_0205bef8*)&arg0->unknown_4fc_);
+    InitKeyMenuCursor_0205bef8((struct KeyMenuCursor_0205bef8*)&arg0->unknown_4fc_);
     if (var1) {
         int var5 = arg0->unknown_4f3_[arg1];
         SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)&arg0->unknown_4fc_, 1, var5 + 1, 0);

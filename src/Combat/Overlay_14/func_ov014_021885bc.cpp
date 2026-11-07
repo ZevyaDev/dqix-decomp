@@ -14,8 +14,8 @@ extern "C" void func_02080bac(void* arg0, int arg1);
 extern "C" void func_0208065c(void* arg0, int arg1);
 struct Struct_02080f8c;
 extern "C" void func_02080f8c(struct Struct_02080f8c* arg0, int arg1, int arg2);
-struct Struct_02080fa8;
-extern "C" void func_02080fa8(struct Struct_02080fa8* arg0, int arg1, int arg2);
+struct MenuLayout_02080fa8;
+extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8* menuLayout, int textId, int value);
 extern "C" void func_020806b0(void* arg0, int arg1);
 extern "C" void func_02080b2c(void* arg0, int arg1);
 extern "C" void func_02081130(void* arg0, int arg1, int arg2);
@@ -63,9 +63,9 @@ extern "C" ARM void func_ov014_021885bc(void* arg0) {
 
     short var6 = func_ov014_021874f8((struct Struct_ov014_02186bc8_3*)arg0);
     short var7 = (short)(func_ov014_02187520((struct Struct_ov014_021872dc*)arg0) + 1);
-    func_02080fa8((struct Struct_02080fa8*)var0, 0x2b, var7);
+    SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, 0x2b, var7);
     short var8 = (short)((var6 + 0xf) / 0x10);
-    func_02080fa8((struct Struct_02080fa8*)var0, 0x2d, var8);
+    SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, 0x2d, var8);
     int var9 = (var6 > 0x10) ? 1 : 0;
     func_02081130(var0, 5, var9);
     func_020813ec(var0, 5);

@@ -181,7 +181,7 @@ extern "C" void func_02053ec8(void*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 struct LocalWireless_0202c1a4;
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
-extern "C" void func_02076ccc(void*, int);
+extern "C" void SetFieldMonsterState_02076ccc(void*, int);
 extern "C" void func_02076a8c(Struct_ov000_0215f7a8* arg0);
 extern "C" void func_ov017_0219bf74();
 extern "C" void func_ov017_0219bd1c(int arg0, int arg1, int arg2, int arg3);
@@ -199,7 +199,7 @@ extern "C" void func_ov000_02163524(void*);
 extern "C" void func_ov000_0216d2d0(void* arg0);
 extern "C" void func_ov000_0216f700(void* arg0, int arg1);
 struct Struct_0202df68;
-extern "C" void func_0202e9a4(Struct_0202df68*, int);
+extern "C" void SetCameraFieldOfView_0202e9a4(Struct_0202df68*, int);
 extern "C" void SetCamera_020100c4(GameState*, int);
 extern "C" void func_020134e0(void* arg0);
 extern "C" void func_ov017_021a050c(GameResources* arg0);
@@ -310,7 +310,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     func_02053ec8(var7, 1);
     if (var8) {
         if (!IsLocalWirelessOn_0202b7d8((int*)var1) || !GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var1)) {
-            func_02076ccc(var8, 9);
+            SetFieldMonsterState_02076ccc(var8, 9);
         } else {
             func_02076a8c(var8);
             ((Object3D*)var8)->MakeHidden();
@@ -362,7 +362,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     arg0->unknown_e24_ = 1;
     arg0->unknown_2a4_ = GetCamera_020100bc(var0);
     if (arg0->unknown_2a4_) {
-        func_0202e9a4((Struct_0202df68*)((int)arg0->unknown_2a4_), 0xf);
+        SetCameraFieldOfView_0202e9a4((Struct_0202df68*)((int)arg0->unknown_2a4_), 0xf);
     }
     SetCamera_020100c4(var0, (int)arg0->unknown_c18_);
 #if defined(jpn)

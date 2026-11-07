@@ -19,7 +19,7 @@ extern "C" void AddActionResultMessage_ov000_0215a88c(void*,void*,int);
 struct Struct_ov000_0215767c_7; struct Struct_ov000_0215767c_6; struct Struct_ov000_0215767c_5; struct Struct_ov000_0215767c_4;
 extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*,Struct_ov000_0215767c_6*);
 extern "C" void func_ov000_021600cc(Struct_ov000_0215767c_5*,Struct_ov000_0215767c_4*);
-extern "C" { Struct_ov000_0215b278_3* GetNextActionResult_ov000_0215e958(void*); void func_ov000_0215ccbc(void*,Struct_ov000_0215b278_3*,GameObject*,short,short,short,unsigned long long,unsigned char); }
+extern "C" { Struct_ov000_0215b278_3* GetNextActionResult_ov000_0215e958(void*); void SetActionResult_ov000_0215ccbc(void*,Struct_ov000_0215b278_3*,GameObject*,short,short,short,unsigned long long,unsigned char); }
 inline int inline_ov000_021537b8(unsigned short arg0) { int var0=0; if(arg0<=3) var0=1; return var0; }
 struct BattleAction_ov000_0215440c { unsigned short unknown_0_; char unknown_2_[7]; unsigned char unknown_9_; };
 struct Entry { char unknown_0_[0xe]; short unknown_e_; char unknown_10_[0xd]; unsigned char unknown_1d_0_:1, unknown_1d_1_:1, unknown_1d_2_:6; };
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov000_0215b278(unsigned char* arg0,BattleAction_ov000_0
    var6->unknown_20_=var1->unknown_e_;var6->unknown_22_=var4->unknown_138_->unknown_0_;var6->unknown_24_=var4->unknown_138_->unknown_2_;
    var8->unknown_b_|=4;
    {int var11=var4->inline_ov000_0215b278_2();int var12=var4->inline_ov000_0215b278();
-   func_ov000_0215ccbc(arg0,var10,var4,0,var12,var11,0,0);}
+   SetActionResult_ov000_0215ccbc(arg0,var10,var4,0,var12,var11,0,0);}
    AddActionResultMessage_ov000_0215a88c(arg0,var10,0x35);
    var9->unknown_e_=var1->unknown_e_;var9->unknown_17_=1;
    func_ov000_0215ffc4(var9,var10,0);

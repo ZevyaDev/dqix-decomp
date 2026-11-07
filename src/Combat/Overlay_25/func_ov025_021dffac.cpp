@@ -21,7 +21,7 @@ extern "C" int func_ov000_02163690(int);
 extern "C" void* FindActionData_02079e2c(char*, int);
 extern "C" int func_ov000_021627fc(void*);
 extern "C" int func_ov025_021e1048(Struct_ov025_021dffac_4*, Struct_ov025_021dffac_7*);
-extern "C" unsigned char func_020493a4(unsigned char*);
+extern "C" unsigned char GetCombatantCell_020493a4(unsigned char*);
 extern "C" unsigned char func_020493c8(unsigned char*);
 extern "C" unsigned char func_020493ec(unsigned char*);
 extern "C" void func_02049390(unsigned char*, unsigned char);
@@ -69,12 +69,12 @@ extern "C" ARM int func_ov025_021dffac(Struct_ov025_021dffac_5* arg0) {
     int var9 = var1->unknown_8e24_;
     int var10 = arg0->unknown_55d8_;
     for (int var11 = 0; var11 < var7; ++var11) {
-        func_020493b8((unsigned char*)var6[var11].unknown_8_, func_020493a4((unsigned char*)var6[var11].unknown_8_));
+        func_020493b8((unsigned char*)var6[var11].unknown_8_, GetCombatantCell_020493a4((unsigned char*)var6[var11].unknown_8_));
         func_02049400((unsigned char*)var6[var11].unknown_8_, 0xff);
     }
     for (int var12 = 0; var12 < var7; ++var12) {
         GameObject* var13 = var6[var12].unknown_8_;
-        int var14 = func_020493a4((unsigned char*)var13);
+        int var14 = GetCombatantCell_020493a4((unsigned char*)var13);
         if (var14 == func_020493ec((unsigned char*)var13))
             func_02049390((unsigned char*)var13, (unsigned char)func_ov025_021e1540(var13->obj3D_.unknown_4_));
     }
@@ -142,7 +142,7 @@ extern "C" ARM int func_ov025_021dffac(Struct_ov025_021dffac_5* arg0) {
         } else {
             Struct_ov025_021dffac_7* var40 = func_ov025_021e1010((unsigned char*)var6, var7, var30->unknown_20_);
             if (var40 && var40->unknown_4_) func_ov025_021e1d54(var40, var18);
-            else if (var40 && func_020493a4((unsigned char*)var40->unknown_8_) != 0xff) {
+            else if (var40 && GetCombatantCell_020493a4((unsigned char*)var40->unknown_8_) != 0xff) {
                 int var41 = func_ov025_021e1f08((unsigned char*)var40->unknown_8_, (unsigned char*)var26);
                 Struct_ov025_021dffac_7* var42 = func_ov025_021e1010((unsigned char*)var6, var7, var41);
                 if (!var42) continue;

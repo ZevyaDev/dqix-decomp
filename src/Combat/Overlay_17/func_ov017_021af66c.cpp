@@ -67,7 +67,7 @@ struct Struct_ov017_021af66c_3 {
     int unknown_8_;
 };
 
-struct Struct_0202b2f0;
+struct LocalWireless_0202b2f0;
 struct Struct_02018300_3;
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
@@ -78,7 +78,7 @@ struct AllocatorUnion;
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" void func_ov017_021c37a4();
 extern "C" Struct_ov017_021af66c_3* GetZone3D_02012fe4();
-extern "C" void func_ov017_021baedc(Struct_ov017_021af66c* arg0, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(Struct_ov017_021af66c* node, int arg1);
 extern "C" void func_ov017_021bbae4(Struct_ov017_021af66c* arg0, int arg1, int arg2);
 extern "C" void func_ov017_0219577c(int arg0, int arg1, int arg2);
 extern "C" int func_ov017_02195658(GameResources* arg0);
@@ -90,7 +90,7 @@ extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void* func_020936f8();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
-extern "C" int func_0202bd34(Struct_0202b2f0* arg0, int arg1);
+extern "C" int func_0202bd34(LocalWireless_0202b2f0* arg0, int arg1);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void func_02093a14(char* arg0);
@@ -125,7 +125,7 @@ struct Struct_ov017_021af66c_5 {
 extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg1) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
-    Struct_0202b2f0* var2 = (Struct_0202b2f0*)GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* var2 = (LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
     Struct_ov017_021af66c_5* var3 = (Struct_ov017_021af66c_5*)var0->GetUnknownGameObject();
     GlobalFlags_02038598_4* var4 = (GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00();
     char* var5 = (char*)func_020936f8();
@@ -160,7 +160,7 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
             }
             Struct_ov017_021af66c* var10 = static_cast<Struct_ov017_021af66c*>(var1->unknown_ptr_array_371c[6]);
             if (var10->unknown_2_ == 0) {
-                func_ov017_021baedc(var10, 1);
+                ResetEventTask_ov017_021baedc(var10, 1);
                 func_ov017_021bbae4(var10, var9->unknown_8_, 2);
                 var10->unknown_cd_ = GetOwnPartyLeaderObjectIndex_020100b0(var0);
                 var10->unknown_ce_ = var3->unknown_150_->unknown_49c_0_;

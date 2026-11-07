@@ -8,13 +8,13 @@
 #define RG(u, j) (u)
 #endif
 
-struct Struct_0207fe44;
+struct MenuLayout_0207fe44;
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimation_0205a254_2 {
     char unknown_0_[0x15];
     unsigned char unknown_15_;
 };
-struct Struct_020a9ea4;
+struct SaveProgress_020a9ea4;
 struct Struct_02018300_3;
 struct GlobalFlags_02038598_4;
 
@@ -25,7 +25,7 @@ struct Struct_ov003_02165278 {
 
 struct Struct_ov003_02165278_2 {
     char unknown_0_[RG(0x324, 0x20c)];
-    struct Struct_0207fe44* unknown_324_;
+    struct MenuLayout_0207fe44* unknown_324_;
     char unknown_328_[RG(0x38c - 0x328, 0x274 - 0x210)];
     struct SpriteAnimationList_0205a254* unknown_38c_;
     char unknown_390_[RG(0x464 - 0x390, 0x28c - 0x278)];
@@ -43,9 +43,9 @@ extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" Struct_ov003_02165278* func_020936f8(void);
 extern "C" void func_ov003_021612c0(struct Struct_ov003_02165278_2* arg0);
 extern "C" int func_ov003_02161344(struct Struct_ov003_02165278_2* arg0);
-extern "C" void func_0207fe44(struct Struct_0207fe44* arg0);
+extern "C" void CloseMenuLayoutWindows_0207fe44(struct MenuLayout_0207fe44* menuLayout);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
-extern "C" void func_020a9ea4(struct Struct_020a9ea4* arg0);
+extern "C" void ResetSaveProgress_020a9ea4(struct SaveProgress_020a9ea4* progress);
 extern "C" int func_020aad1c(void* arg0, void* arg1, int arg2, int arg3);
 extern int gFileScratchSpace_0211e33c;
 extern "C" struct SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index);
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov003_02165278(struct Struct_ov003_02165278_2* arg0) {
     void* var0 = GetGlobalFlags_020d6c00();
     Struct_ov003_02165278* var1 = func_020936f8();
     unsigned char var2 = arg0->unknown_4a4_;
-    struct Struct_0207fe44* var3 = arg0->unknown_324_;
+    struct MenuLayout_0207fe44* var3 = arg0->unknown_324_;
 
     if (var2 == 0xb) {
         arg0->unknown_484_ = 0x19;
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov003_02165278(struct Struct_ov003_02165278_2* arg0) {
             if (var4 != 1) {
                 return;
             }
-            func_0207fe44(var3);
+            CloseMenuLayoutWindows_0207fe44(var3);
             arg0->unknown_484_ = 0x1a;
             arg0->unknown_4a4_++;
             var1->unknown_3c9_0_ = 0;
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov003_02165278(struct Struct_ov003_02165278_2* arg0) {
             arg0->unknown_488_ = -1;
             arg0->unknown_484_ = 0x3b;
             arg0->unknown_486_ = 1;
-            func_0207fe44(var3);
+            CloseMenuLayoutWindows_0207fe44(var3);
             arg0->unknown_4a3_ = 10;
             arg0->unknown_4a4_ = 0;
         }
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov003_02165278(struct Struct_ov003_02165278_2* arg0) {
             return;
         }
         SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x80);
-        func_020a9ea4((struct Struct_020a9ea4*)((char*)arg0 + RG(0x4b4, 0x2dc)));
+        ResetSaveProgress_020a9ea4((struct SaveProgress_020a9ea4*)((char*)arg0 + RG(0x4b4, 0x2dc)));
         arg0->unknown_4a4_++;
     } else if (var2 == 0xf) {
         arg0->unknown_464_ |= 0x2000000;

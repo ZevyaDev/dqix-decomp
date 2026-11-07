@@ -16,7 +16,7 @@ struct Struct_02045cac;
 extern "C" void func_02045cac(struct Struct_02045cac* arg0);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
-extern "C" void func_0205a494(void* arg0);
+extern "C" void DestroySpriteSet_0205a494(void* spriteSet);
 extern "C" void* func_0203bd14();
 extern "C" void func_0203c4c4(char* arg0);
 struct BGLayer_0204b010;
@@ -45,10 +45,10 @@ extern "C" ARM void func_ov009_02184848(Struct_ov009_021842a0* arg0) {
     CloseMessageWindow_02043124((char*)var1);
 
     if (*(void**)(var0 + R(0x79c,0x7d8)) != 0) {
-        func_0205a494(*(void**)(var0 + R(0x79c,0x7d8)));
+        DestroySpriteSet_0205a494(*(void**)(var0 + R(0x79c,0x7d8)));
     }
     if (*(void**)(var0 + R(0x7a8,0x7e4)) != 0) {
-        func_0205a494(*(void**)(var0 + R(0x7a8,0x7e4)));
+        DestroySpriteSet_0205a494(*(void**)(var0 + R(0x7a8,0x7e4)));
     }
     func_0203c4c4((char*)func_0203bd14());
 

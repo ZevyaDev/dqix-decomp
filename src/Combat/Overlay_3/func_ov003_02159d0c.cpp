@@ -39,8 +39,8 @@ extern "C" void func_ov017_021d1014(int, int, int);
 struct Struct_02109bf4_2;
 extern "C" void func_0209c830(Struct_02109bf4_2*, int);
 extern "C" int func_020bc0a4(int);
-struct Struct_020a9ea4;
-extern "C" void func_020a9ea4(Struct_020a9ea4*);
+struct SaveProgress_020a9ea4;
+extern "C" void ResetSaveProgress_020a9ea4(SaveProgress_020a9ea4*);
 extern "C" int func_020aad1c(void*, void*, int, int);
 extern "C" void func_0209c7fc(void*);
 extern "C" void ClearMessageParams_02046380(void*);
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
         if (*(unsigned char*)(var0 + 0x59c) == 0) {
             *(unsigned char*)(var0 + 0x59c) = 1;
         }
-        func_020a9ea4((Struct_020a9ea4*)(var0 + 0x1b8 + 0x400));
+        ResetSaveProgress_020a9ea4((SaveProgress_020a9ea4*)(var0 + 0x1b8 + 0x400));
         *(unsigned char*)(var0 + 0x580) = 0x66;
     }
 

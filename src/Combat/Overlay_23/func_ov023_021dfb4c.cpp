@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-extern "C" void func_ov023_021dcae0(void* arg0, int arg1);
+extern "C" void SetItemInfoPanelItem_ov023_021dcae0(void* panel, int itemId);
 extern "C" void func_ov023_021db2e4(volatile int* arg0);
 struct Struct_ov023_021fdaa8 { int unknown_0_; int unknown_4_; };
 extern Struct_ov023_021fdaa8 data_ov023_021fdaa8[];
@@ -15,7 +15,7 @@ extern "C" ARM void func_ov023_021dfb4c(void* arg0) {
     short var0 = *(short*)((char*)arg0 + Enum_ov023_021dfb4c_1906);
     short var1 = *(short*)((char*)arg0 + Enum_ov023_021dfb4c_1904);
     if (var1 != var0) {
-        func_ov023_021dcae0(arg0, var0);
+        SetItemInfoPanelItem_ov023_021dcae0(arg0, var0);
     }
 
     if ((*(unsigned short*)((char*)arg0 + Enum_ov023_021dfb4c_1908) & 1) == 0) {

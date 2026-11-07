@@ -39,7 +39,7 @@ struct PacEntry_02020cb8_4;
 struct BGLayer_0204b8d0;
 struct BGLayer_02020cb8_2;
 struct BGLayer_02020cb8_6;
-struct Struct_0204af14;
+struct BGLayer_0204af14;
 struct Struct_02000c9c_8;
 struct TextWindow_0204c7a8;
 struct TextWindowManager_0205cf78;
@@ -58,7 +58,7 @@ struct ItemTable_0201099c_10;
 struct Struct_0201099c_18;
 struct MusicManager_02109bf4_4;
 struct Struct_ov009_02188454;
-struct Struct_0205bef8;
+struct KeyMenuCursor_0205bef8;
 struct MenuCursor_0205ba68;
 struct MenuCursor_0205bacc;
 struct MenuCursor_0205bb04;
@@ -76,7 +76,7 @@ struct Struct_ov006_02158478 {
     char unknown_0_[0xe0];
 };
 
-struct Struct_0205bef8 {
+struct KeyMenuCursor_0205bef8 {
     int unknown_0_[0x10];
 };
 
@@ -119,7 +119,7 @@ struct Struct_ov009_021842a0_2 {
     char unknown_808_[0x70];
     Object3D unknown_878_;
     char unknown_924_[0x2c8];
-    Struct_0205bef8 unknown_bec_;
+    KeyMenuCursor_0205bef8 unknown_bec_;
     Struct_ov009_021847c4 unknown_c2c_;
     short unknown_c4c_;
     short unknown_c4e_;
@@ -680,9 +680,9 @@ extern "C" void func_ov009_02185850(struct Struct_ov009_021847ec* arg0);
 extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
 extern "C" void InitTextWindow_0204c684(Struct_ov006_02158478* textWindow);
-extern "C" void func_0205bef8(Struct_0205bef8*);
+extern "C" void InitKeyMenuCursor_0205bef8(KeyMenuCursor_0205bef8*);
 extern "C" void func_ov009_021847c4(struct Struct_ov009_021847c4_2 *arg0);
-extern "C" int func_020424e4(int arg0, int arg1);
+extern "C" int FindFontGlyphIndex_020424e4(int text, int font);
 extern "C" int func_ov009_02185888(Struct_ov009_02185888* arg0);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" void func_ov023_021e4f18(void* arg0);
@@ -690,7 +690,7 @@ extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_02045cac(struct Struct_02045cac* arg0);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
-extern "C" void func_0205a494(void* arg0);
+extern "C" void DestroySpriteSet_0205a494(void* spriteSet);
 extern "C" void* func_0203bd14();
 extern "C" void func_0203c4c4(char* arg0);
 extern "C" void ClearBGScreenData_0204b010(BGLayer_0204b010*, void*);
@@ -718,7 +718,7 @@ extern "C" void func_ov023_021da274(void*);
 extern "C" void func_ov023_021da770(Struct_ov009_021842a0* arg0);
 extern "C" void func_ov023_021da9b4(Struct_ov009_021842a0* arg0);
 extern "C" void func_ov023_021e5628(void*, void*);
-extern "C" void func_0205d2bc(TextWindowManager_0205d2bc*);
+extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(TextWindowManager_0205d2bc*);
 extern "C" void func_ov009_02184e58(Struct_ov009_02184e58_2* arg0);
 extern "C" void func_ov023_021d9a6c(char*);
 extern "C" void func_ov023_021d9d34(char*);
@@ -739,7 +739,7 @@ extern "C" void FillBGScreenRect_0204bc74(void*, int, int, int, int, int, int);
 extern "C" int CompareBytes_02001aec(const void*, const void*, unsigned int);
 extern "C" void FlushBGBlock_0204b2e0(void* layer, char* block);
 extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6* layer, char* block);
-extern "C" void* func_0204af14(Struct_0204af14* arg0, unsigned int arg1);
+extern "C" void* GetBGScreenBlock_0204af14(BGLayer_0204af14* layer, unsigned int screenBlockIndex);
 extern "C" void func_0204b620(Struct_ov003_021594c4* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9);
 extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
 extern "C" GameResources* GetResources_0200fb8c(int*);
@@ -753,10 +753,10 @@ extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int pale
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
-extern "C" void func_020a2010(void* arg0);
+extern "C" void InitFollowCamera_020a2010(void* arg0);
 extern "C" void func_0202e5c0(Struct_0202e5c0* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0202e5c8(unsigned char* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0202e0a4(void* arg0);
+extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
+extern "C" void UpdateCamera_0202e0a4(void* camera);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" void func_ov009_02188bf8(unsigned char* arg0, int arg1, short* arg2, short* arg3);
@@ -814,12 +814,12 @@ extern "C" void func_02086778(void*, Struct_ov009_0218742c*, unsigned char, unsi
 extern "C" Object3D* func_ov023_021e6194(void*);
 extern "C" void func_ov023_021db4b4(void* arg0, unsigned int arg1);
 extern "C" int func_ov009_0218b908(char* arg0, int arg1);
-extern "C" void func_0209c678(MusicManager_02109bf4_4* arg0, int arg1);
+extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4* manager, int fadeDuration);
 extern "C" int func_0202eeb4(char* arg0);
 extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
 extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 extern "C" void WriteBrightnessRegister_020c39a0(short* arg0, int arg1);
-extern "C" void func_0205ebec(void* arg0);
+extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
 extern "C" Vector3i func_ov023_021e613c(void* arg0);
 extern "C" void func_ov023_021e6088(void*, Struct_ov009_02188454*);
 extern "C" int GetStringLength_020d2ff0(const char*);
@@ -849,7 +849,7 @@ extern char data_ov009_0218acab[];
 extern char data_ov009_0218bc20[];
 extern const char data_ov009_0218bc25[];
 extern const char data_ov009_0218acc9[];
-extern const char* data_020f2a38;
+extern const char* gItemDataPath_020f2a38;
 extern const char* data_020f2a30;
 extern const char data_ov009_0218bc3e[];
 extern const char data_ov009_0218acf4[];
@@ -995,7 +995,7 @@ extern "C" ARM void func_ov009_0218454c(Struct_ov009_021842a0_2* arg0, int arg1,
     arg0->unknown_804_ = 0;
     arg0->unknown_878_.Initialize();
     arg0->unknown_cd8_.Initialize();
-    func_0205bef8(&arg0->unknown_bec_);
+    InitKeyMenuCursor_0205bef8(&arg0->unknown_bec_);
     func_ov009_021847c4((Struct_ov009_021847c4_2*)(&arg0->unknown_c2c_));
     arg0->unknown_c4c_ = -1;
     arg0->unknown_c4e_ = -1;
@@ -1084,10 +1084,10 @@ extern "C" ARM void func_ov009_02184848(Struct_ov009_021842a0* arg0) {
     CloseMessageWindow_02043124((char*)var1);
 
     if (*(void**)(var0 + (0x79c)) != 0) {
-        func_0205a494(*(void**)(var0 + (0x79c)));
+        DestroySpriteSet_0205a494(*(void**)(var0 + (0x79c)));
     }
     if (*(void**)(var0 + (0x7a8)) != 0) {
-        func_0205a494(*(void**)(var0 + (0x7a8)));
+        DestroySpriteSet_0205a494(*(void**)(var0 + (0x7a8)));
     }
     func_0203c4c4((char*)func_0203bd14());
 
@@ -1299,8 +1299,8 @@ extern "C" ARM void func_ov009_02184ca4(unsigned char* arg0) {
         return;
     if (var0->unknown_d9c_ & 0x80)
         return;
-    func_0205d2bc((TextWindowManager_0205d2bc*)&var0->unknown_1f8_[0]);
-    func_0205d2bc((TextWindowManager_0205d2bc*)&var0->unknown_1f8_[1]);
+    CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((TextWindowManager_0205d2bc*)&var0->unknown_1f8_[0]);
+    CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((TextWindowManager_0205d2bc*)&var0->unknown_1f8_[1]);
     if (var0->unknown_d9c_ & 0x1000) {
         CopyBGScreenDataToVRAM_0204b088(&var0->unknown_158_[0], (int)0);
         var0->unknown_d9c_ &= ~0x1000;
@@ -1547,7 +1547,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_6* arg0)
         arg0->unknown_d8_ = *(int*)(GetMessageWindow_020421a0() + 0x28);
         ClearItemTable_020de848(arg0->unknown_c8_);
         const int var99 = 0x29;
-        func_020e0484(arg0->unknown_c8_, &arg0->unknown_0_[4], data_020f2a38, data_ov009_0218bab0, var99, 1);
+        func_020e0484(arg0->unknown_c8_, &arg0->unknown_0_[4], gItemDataPath_020f2a38, data_ov009_0218bab0, var99, 1);
 
         arg0->unknown_7f0_[0] = arg0->unknown_0_[3].Allocate(0xc20);
         func_ov023_021e4e8c(arg0->unknown_7f0_[0]);
@@ -1596,10 +1596,10 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_6* arg0)
         }
 
         Struct_ov009_021842a0_6* var19 = arg0;
-        func_020a2010(var19->unknown_800_);
+        InitFollowCamera_020a2010(var19->unknown_800_);
         func_0202e5c0((Struct_0202e5c0*)var19->unknown_800_, 0xd000, 0xf800, 0x42ccc);
-        func_0202e5c8((unsigned char*)var19->unknown_800_, 0xd000, 0xf800, 0);
-        func_0202e0a4(var19->unknown_800_);
+        SetCameraTarget_0202e5c8((unsigned char*)var19->unknown_800_, 0xd000, 0xf800, 0);
+        UpdateCamera_0202e0a4(var19->unknown_800_);
         DisableCameraFollow_020a27a0(var19->unknown_800_);
         SetCamera_020100c4(var1, (int)var19->unknown_800_);
 
@@ -2379,7 +2379,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             ClearTextWindowManagerBGScreenData_0205d1e0((TextWindowManager_0205d1e0*)arg0->unknown_2b4_);
             DrawTextWindows_0205d228((TextWindowManager_0205d228*)arg0->unknown_2b4_);
             FlushTextWindowManagerBGScreenData_0205d274((TextWindowManager_0205d274*)arg0->unknown_2b4_);
-            func_0205d2bc((TextWindowManager_0205d2bc*)arg0->unknown_2b4_);
+            CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((TextWindowManager_0205d2bc*)arg0->unknown_2b4_);
             func_ov009_021867bc((unsigned char*)arg0, 10);
         } else if (arg0->unknown_d95_ == 1) {
             void* var7 = GetParty_02010828(var0);
@@ -2480,7 +2480,7 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_7* arg0)
         func_0202ee58(arg0->unknown_924_, (int)&var7, 0x1e000);
         arg0->unknown_d98_ = 90;
         arg0->unknown_d9c_ |= 0x10000;
-        func_0209c678((MusicManager_02109bf4_4*)gMusicManager_02109bf4, 120);
+        StopMusic_0209c678((MusicManager_02109bf4_4*)gMusicManager_02109bf4, 120);
         arg0->unknown_c59_ = 1;
         int* var8 = arg0->unknown_c5c_;
         for (unsigned char var9 = 0; var9 < 3; var9++)
@@ -2651,7 +2651,7 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_7* arg0)
         ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var3, 0x100);
         ColorEffect_ConfigureBrightnessAdjust(0x04000050, 0x1f, 0);
         ColorEffect_ConfigureBrightnessAdjust(0x04001050, 0x1f, 0);
-        func_0205ebec(&gSoundEffectManager_02108760);
+        UnloadExtraSoundSet_0205ebec(&gSoundEffectManager_02108760);
         arg0->unknown_c59_ = 11;
         break;
     case 11:
@@ -2992,7 +2992,7 @@ extern "C" ARM void func_ov009_02188c2c(Struct_ov009_021842a0* arg0) {
     }
 
     Struct_ov009_02188c2c* var12 = &arg0->unknown_bec_;
-    func_0205bef8((struct Struct_0205bef8*)var12);
+    InitKeyMenuCursor_0205bef8((struct KeyMenuCursor_0205bef8*)var12);
     SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)var12, var0, var1, 1);
     SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)var12, var2);
     var12->unknown_4_ = var3;
@@ -3071,7 +3071,7 @@ static inline unsigned char inline_ov009_02188ee8_3(Struct_ov009_021842a0* arg0)
 
 #define RESET_NAVIGATION(columns, rows, total, selected) \
     Struct_ov009_02188c2c* navigation = &arg0->unknown_bec_; \
-    func_0205bef8((Struct_0205bef8*)navigation); \
+    InitKeyMenuCursor_0205bef8((KeyMenuCursor_0205bef8*)navigation); \
     SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)navigation, columns, rows, 1); \
     SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)navigation, total); \
     navigation->unknown_4_ = 1; \

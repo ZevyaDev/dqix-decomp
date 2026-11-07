@@ -119,7 +119,7 @@ extern "C" void func_0205eb54(void* arg0, int arg1, int arg2);
 extern "C" void func_0205eb90(void* arg0, int arg1, int arg2);
 extern "C" void func_0205eb80(void* arg0);
 extern "C" void func_02078484(Struct_02078398_2* arg0);
-extern "C" int func_02057fb4(void* arg0, int arg1, void* arg2);
+extern "C" int PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 extern "C" void func_02049f50(Struct_02049f50* arg0, int arg1, int arg2);
 extern "C" void func_ov000_021637c8(void* arg0);
 extern "C" void func_ov000_021636ac(void* arg0);
@@ -205,8 +205,8 @@ extern "C" ARM void func_ov026_021db5a4(Struct_ov000_02160da0* arg0) {
         var9.unknown_2c_.x = 0;
         var9.unknown_2c_.z = 0;
         var9.unknown_2c_.y = -0xa000;
-        arg0->unknown_7722_ = func_02057fb4(GetEffectManager_02057924(), 0x1d, &var9);
-        arg0->unknown_7724_ = func_02057fb4(GetEffectManager_02057924(), 0x1e, &var9);
+        arg0->unknown_7722_ = PlayEffect_02057fb4(GetEffectManager_02057924(), 0x1d, &var9);
+        arg0->unknown_7724_ = PlayEffect_02057fb4(GetEffectManager_02057924(), 0x1e, &var9);
         arg0->unknown_7726_ = 0;
         SetMainBrightness(var0, 0, 0xf);
         arg0->unknown_7712_ = 3;
@@ -252,7 +252,7 @@ extern "C" ARM void func_ov026_021db5a4(Struct_ov000_02160da0* arg0) {
             }
             var15.unknown_14_ = var17;
             var15.unknown_10_ = 0;
-            arg0->unknown_7716_[var17] = func_02057fb4(GetEffectManager_02057924(), 0x12, &var15);
+            arg0->unknown_7716_[var17] = PlayEffect_02057fb4(GetEffectManager_02057924(), 0x12, &var15);
         }
         func_ov000_02175808(arg0->unknown_3760_);
         arg0->unknown_54d2_ |= 0x200;

@@ -99,7 +99,7 @@ extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int fla
 extern "C" int func_0209ca2c(void* arg0);
 extern "C" int func_ov023_021ed014(struct Struct_ov023_021ec480* arg0);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
-extern "C" void func_0205ebec(void* arg0);
+extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void ResetMessageWindow_02043204(char* window);
@@ -216,7 +216,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
     if (var2 == 6)
     {
         CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_c4_, 0);
-        func_0205ebec(gSoundEffectManager_02108760);
+        UnloadExtraSoundSet_0205ebec(gSoundEffectManager_02108760);
         if (!(arg0->unknown_438_ & GUIDE_WINDOW_NO_DIMMING))
         {
             if (arg0->unknown_84_[1].unknown_1c_0_ == 0)

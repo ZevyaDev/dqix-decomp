@@ -136,12 +136,12 @@ struct Struct_ov005_0215840c_2 {
 };
 
 struct SoundEffectManager_02108760;
-struct Struct_0205bef8;
+struct KeyMenuCursor_0205bef8;
 struct MenuCursor_0205ba68;
 struct MenuCursor_0205bacc;
 
 extern "C" void func_ov003_0215f41c(Struct_ov003_0215f4e4* arg0, const char* arg1);
-extern "C" Struct_ov009_02186e00* func_0204254c(int arg0, int arg1);
+extern "C" Struct_ov009_02186e00* FindFontGlyph_0204254c(int text, int font);
 extern "C" int func_ov003_0215f000(Struct_ov003_0215f4e4* arg0, int arg1);
 extern "C" int func_ov009_02188ee8(void* arg0);
 extern "C" void func_ov009_02189a4c(void* arg0);
@@ -150,7 +150,7 @@ extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, i
 extern "C" void func_ov023_021d9e60(char* arg0);
 extern "C" Struct_ov003_0215f4e4_2* func_ov003_0215f4a4(Struct_ov003_0215f4e4* arg0, int arg1);
 extern "C" void func_ov009_0218a8b8(void* arg0);
-extern "C" void func_0205bef8(Struct_0205bef8* arg0);
+extern "C" void InitKeyMenuCursor_0205bef8(KeyMenuCursor_0205bef8* cursor);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc* cursor, int itemCount);
 extern "C" void SetMenuCursorIndex_0205bb04(Struct_ov009_02186e00_2* cursor, int index);
@@ -205,7 +205,7 @@ extern "C" ARM void func_ov009_02186e00(Struct_ov009_021842a0_2* arg0)
         if (arg0->unknown_bc_ != NULL)
             arg0->unknown_c0_->unknown_0_ = arg0->unknown_bc_;
         arg0->unknown_bc_ = NULL;
-        Struct_ov009_02186e00* var4 = func_0204254c((int)data_ov009_0218ad2a, 0);
+        Struct_ov009_02186e00* var4 = FindFontGlyph_0204254c((int)data_ov009_0218ad2a, 0);
         if (var4 != NULL)
             arg0->unknown_c0_->unknown_c_ = var4->unknown_4_ * 8 + 7;
         arg0->unknown_c59_++;
@@ -322,7 +322,7 @@ extern "C" ARM void func_ov009_02186e00(Struct_ov009_021842a0_2* arg0)
         if (arg0->unknown_db5_ != 0 && arg0->unknown_db5_ != 8)
         {
             Struct_ov009_02186e00_2* var8 = &arg0->unknown_bec_;
-            func_0205bef8((Struct_0205bef8*)var8);
+            InitKeyMenuCursor_0205bef8((KeyMenuCursor_0205bef8*)var8);
             SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)var8, 11, 6, 1);
             SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)var8, 0x42);
             var8->unknown_4_ = 1;
@@ -339,7 +339,7 @@ extern "C" ARM void func_ov009_02186e00(Struct_ov009_021842a0_2* arg0)
         if (arg0->unknown_d9c_ & 0x800)
         {
             Struct_ov009_02186e00_2* var9 = &arg0->unknown_bec_;
-            func_0205bef8((Struct_0205bef8*)var9);
+            InitKeyMenuCursor_0205bef8((KeyMenuCursor_0205bef8*)var9);
             SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)var9, 11, 6, 1);
             SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)var9, 0x42);
             var9->unknown_4_ = 1;

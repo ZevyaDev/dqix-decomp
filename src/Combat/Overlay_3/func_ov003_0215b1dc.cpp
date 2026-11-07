@@ -33,7 +33,7 @@ struct Struct_ov003_0215af9c {
 extern "C" Struct_ov003_0215af9c* GetMessageWindow_020421a0(void);
 extern "C" GameResources* GetResources_0200fb8c(int*);
 struct MusicManager_02109bf4_4;
-extern "C" void func_0209c678(MusicManager_02109bf4_4*, int);
+extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4*, int);
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 int IsMainBrightnessTransitionActive(GameResources*);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov003_0215b1dc(Struct_ov003_021594c4_2* arg0) {
 
     if (var2 == 0) {
         if (var0->unknown_9a0_ != 3) return;
-        func_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0xb4);
+        StopMusic_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0xb4);
         SetBrightness(var1, -16, 0xb4);
         arg0->unknown_580_++;
     }

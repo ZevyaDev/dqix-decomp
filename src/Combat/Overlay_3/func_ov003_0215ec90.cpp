@@ -27,11 +27,11 @@ struct Struct_ov003_0215ec90 {
 };
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" int func_020424e4(int arg0, int arg1);
+extern "C" int FindFontGlyphIndex_020424e4(int text, int font);
 extern "C" int ConvertTextToGlyphIndices_020426bc(void* text, void* outGlyphIndices, int font);
 extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
 extern "C" int func_020420e8(void* arg0, int arg1);
-extern "C" struct FontGlyph_0204254c* func_0204254c(int arg0, int arg1);
+extern "C" struct FontGlyph_0204254c* FindFontGlyph_0204254c(int text, int font);
 
 extern unsigned char data_ov003_0217f3b0[];
 
@@ -66,7 +66,7 @@ extern "C" ARM int func_ov003_0215ec90(struct Struct_ov003_0215ec90* arg0) {
         var12 = arg0->unknown_14_;
 
         __clear(var0, 0x100);
-        var4 = func_020424e4(var3, var11);
+        var4 = FindFontGlyphIndex_020424e4(var3, var11);
         var8 = ConvertTextToGlyphIndices_020426bc(var9, var0, var11);
         var2 = var0;
         for (var7 = 0; var7 < var12; var7++, var2++) {
@@ -88,7 +88,7 @@ extern "C" ARM int func_ov003_0215ec90(struct Struct_ov003_0215ec90* arg0) {
             if (*var2 == 0) {
                 if (var10 != 0) {
                     var6 = func_020420e8(var9, 0);
-                    var5 = func_0204254c(var3, 0);
+                    var5 = FindFontGlyph_0204254c(var3, 0);
                     if (var5 != 0) {
                         var6 += var5->unknown_4_ + 1;
                     }

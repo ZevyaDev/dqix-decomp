@@ -17,7 +17,7 @@
 struct StringTable_0201099c_14;
 struct BGLayer_02020cb8;
 struct TextWindowManager_0205cfd4;
-struct Struct_020a9ea4;
+struct SaveProgress_020a9ea4;
 
 struct Struct_ov003_02158bb8_2 {
     char unknown_0_[0x10];
@@ -32,7 +32,7 @@ extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
 extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
-extern "C" void func_020a9ea4(Struct_020a9ea4* arg0);
+extern "C" void ResetSaveProgress_020a9ea4(SaveProgress_020a9ea4* progress);
 
 struct Struct_ov003_02158bb8 {
     SafeAllocator unknown_0_;
@@ -140,6 +140,6 @@ extern "C" ARM void func_ov003_02158bb8(Struct_ov003_02158bb8* arg0)
     arg0->unknown_5b2_ = 1;
     arg0->unknown_5b3_ = 0;
     arg0->unknown_5b4_ = 0;
-    func_020a9ea4((Struct_020a9ea4*)arg0->unknown_5b8_);
+    ResetSaveProgress_020a9ea4((SaveProgress_020a9ea4*)arg0->unknown_5b8_);
     arg0->unknown_598_ = 0;
 }

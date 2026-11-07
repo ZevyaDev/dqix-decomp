@@ -55,7 +55,7 @@ extern "C" Struct_ov023_021f2e6c_7 func_ov023_021ed804(Struct_ov023_021f2e6c_7 a
 extern "C" void func_ov023_021edf38(Struct_ov023_021f2e6c_7* arg0, const Struct_ov023_021f2e6c_7& arg1);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_020dcf7c(int arg0, void* arg1);
-extern "C" void func_0209c6d8(void* arg0, int arg1);
+extern "C" void PlayJingle_0209c6d8(void* manager, int jingleIndex);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, char* text, int arg2, int arg3);
 #endif
@@ -101,10 +101,10 @@ struct Struct_02010604;
 extern "C" int SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_02049f28(unsigned char* arg0);
 extern "C" void* func_ov000_02160f14(void* arg0);
-extern "C" void func_ov000_0216d370(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void ResetBattleCamera_ov000_0216d370(void* camera, int resetRoll, int resetFieldOfView, int resetTurns);
 extern "C" void func_ov000_0216d530(void* arg0, int arg1);
-extern "C" void func_0202e5c8(unsigned char*, int, int, int);
-extern "C" void func_0202e5d8(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetCameraTarget_0202e5c8(unsigned char*, int, int, int);
+extern "C" void SetCameraOrbit_0202e5d8(void* camera, int angle, int height, int distance);
 extern "C" void func_ov000_02163b90(void* arg0, int arg1);
 extern "C" void func_02049f3c(unsigned char* arg0);
 extern "C" Struct_ov023_021f2e6c_9* func_0202ed64(void* arg0);
@@ -117,7 +117,7 @@ extern "C" int* _ZZ21inline_ov023_021f4c04vE1s;
 extern char gMusicManager_02109bf4;
 extern char data_ov023_021fe2ca;
 extern char data_ov023_021fe2e5;
-extern const char* data_020f2a38;
+extern const char* gItemDataPath_020f2a38;
 extern const char* data_020f2a30;
 extern char data_ov023_021fd862;
 extern char data_ov023_021fe2f7;
@@ -208,7 +208,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                 *(Struct_ov023_021f2e6c_8**)(var0 + 0x18) = &var22;
 
 #endif
-                func_0209c6d8(&gMusicManager_02109bf4, 0x3e);
+                PlayJingle_0209c6d8(&gMusicManager_02109bf4, 0x3e);
 #if defined(jpn)
                 StartMessage_0204500c(var0, var10, 1);
 #else
@@ -309,11 +309,11 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                 var35 = arg0 + Enum_ov023_021f2e6c_552;
                 ((SafeAllocator*)(var35 + 0x5000))->Reset();
 #if defined(jpn)
-                func_020e052c(var36 + 0x3400, var35 + 0x5000, data_020f2a38, &data_ov023_021fd862, 3, 1);
+                func_020e052c(var36 + 0x3400, var35 + 0x5000, gItemDataPath_020f2a38, &data_ov023_021fd862, 3, 1);
 #else
                 BackgroundLoader::AddLockGlobal();
                 unsigned int var38;
-                void* var39 = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &var38);
+                void* var39 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var38);
                 if (var39 != 0) {
                     func_020dea64(var37 + 0x3000, var35 + 0x5000, var39, var38, &data_ov023_021fd862, 3);
 
@@ -437,20 +437,20 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                             ((Object3D*)var57)->MakeVisible();
                             func_02049f28(var57);
                             void* var61 = func_ov000_02160f14(arg0);
-                            func_ov000_0216d370(var61, 1, 1, 1);
+                            ResetBattleCamera_ov000_0216d370(var61, 1, 1, 1);
                             func_ov000_0216d530(var61, var54);
                             int var62 = ((Object3D*)var57)->GetHeight();
                             int var63 = (int)(((long long)var62 * 0x4cc + 0x800) >> 12);
                             if (var63 < 0) {
                                 var63 = 0;
                             }
-                            func_0202e5c8((unsigned char*)var61, 0, var63, 0);
+                            SetCameraTarget_0202e5c8((unsigned char*)var61, 0, var63, 0);
                             int var64 = (int)(((long long)var62 * 0x2333 + 0x800) >> 12);
                             int var65 = var63 + 0x800;
                             if (var65 < 0) {
                                 var65 = 0;
                             }
-                            func_0202e5d8(var61, 0, var65, var64 + 0x4000);
+                            SetCameraOrbit_0202e5d8(var61, 0, var65, var64 + 0x4000);
                             func_ov000_02163b90(arg0, 0);
                             *(short*)(arg0 + Enum_ov023_021f2e6c_21946) = var54;
                         }

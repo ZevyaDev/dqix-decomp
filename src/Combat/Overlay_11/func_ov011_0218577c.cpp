@@ -24,9 +24,9 @@ struct Struct_ov011_0218577c {
 };
 extern char data_ov024_021fe80c;
 
-struct Struct_ov004_0215c30c;
-struct Struct_ov004_0215c30c_2;
-extern "C" void func_ov023_021f67ac(struct Struct_ov004_0215c30c*, struct Struct_ov004_0215c30c_2*);
+struct MenuObjectList_ov004_0215c30c;
+struct MenuObject_ov004_0215c30c_2;
+extern "C" void AppendMenuObject_ov023_021f67ac(struct MenuObjectList_ov004_0215c30c*, struct MenuObject_ov004_0215c30c_2*);
 
 // USA: func_ov011_0218577c
 extern "C" ARM int func_ov011_0218577c(struct ScriptValue_ov011_02184c30* arg0) {
@@ -50,6 +50,6 @@ extern "C" ARM int func_ov011_0218577c(struct ScriptValue_ov011_02184c30* arg0) 
     if (!func_ov023_021f8cf4(var6, var4, var0, var1, var3, var2)) return 0;
 
     void* var8 = GetMenuObjectList_ov011_021849c8(var4);
-    func_ov023_021f67ac((struct Struct_ov004_0215c30c*)var8, (struct Struct_ov004_0215c30c_2*)var6);
+    AppendMenuObject_ov023_021f67ac((struct MenuObjectList_ov004_0215c30c*)var8, (struct MenuObject_ov004_0215c30c_2*)var6);
     return 1;
 }

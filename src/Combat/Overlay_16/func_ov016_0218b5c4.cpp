@@ -87,15 +87,15 @@ extern "C" void func_0202a944(Struct_0202a944_2*, Struct_0202a944*);
 extern "C" void func_0202a6c4(Struct_ov016_0218b5c4_8* arg0);
 extern "C" void func_0202a8cc(char*, int);
 extern "C" void WaitForVBlank_020c9820();
-extern "C" void func_020c38d4();
+extern "C" void TurnOnMainDisplay_020c38d4();
 extern "C" int func_020115a8(Struct_02000c9c_12* arg0);
 extern "C" void func_02012efc();
-extern "C" void func_020c52e8();
-extern "C" void func_020c5414();
+extern "C" void ResetGeometryEngine_020c52e8();
+extern "C" void ResetMatrixStacks_020c5414();
 extern "C" void func_02029060();
 extern "C" void func_02029988(void* arg0, int arg1);
 extern "C" void func_02029088();
-extern "C" void func_020d86d0(int arg0, int arg1);
+extern "C" void Swap3DBuffers_020d86d0(int keepTranslucentOrder, int useWDepth);
 extern "C" void func_020bbcb4();
 extern "C" void func_020290ac(int arg0);
 extern "C" void func_020e57e0(Struct_020e57e0* arg0);
@@ -104,7 +104,7 @@ extern "C" void func_020e57f4(int, int, Struct_02013fb4*, int);
 extern "C" int func_0201201c(void* arg0);
 struct Struct_ov016_0218b5c4_6;
 extern "C" Struct_ov016_0218b5c4_2* func_ov016_0218e124(Struct_ov016_0218b5c4_6**, int);
-extern "C" void func_0209c678(MusicManager_02109bf4_4* arg0, int arg1);
+extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4* manager, int fadeDuration);
 extern "C" void func_0203ad88(void* arg0, void* arg1, int arg2);
 extern "C" void UpdateSound_020bbd9c();
 extern "C" void func_0205e8d4(void* arg0);
@@ -112,7 +112,7 @@ extern "C" void func_0203a950(void* arg0);
 extern "C" void func_0205e88c(Struct_02000c9c_17* arg0);
 extern "C" void func_0209c174(Struct_02000c9c_16* arg0);
 extern "C" void func_0209c2b8(void* arg0);
-extern "C" void func_0205ea20(void* arg0, int arg1);
+extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
 extern "C" void func_0209c290(void* arg0);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void LoadFileTables_020a0c0c();
@@ -204,7 +204,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
     arg0->unknown_14_.unknown_4c_ = 8;
     func_0202a8cc((char*)&arg0->unknown_14_, 1);
     WaitForVBlank_020c9820();
-    func_020c38d4();
+    TurnOnMainDisplay_020c38d4();
     DISPCNTSUB |= 0x10000;
     DISPCNT = (DISPCNT & ~0x1f00) | 0x300;
     WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
@@ -218,8 +218,8 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
     func_02012efc();
     while (var15 < 0) {
         func_02012efc();
-        func_020c52e8();
-        func_020c5414();
+        ResetGeometryEngine_020c52e8();
+        ResetMatrixStacks_020c5414();
         DISP3DCNT &= (unsigned short)~0x3020;
         if (g_keyManager.TestKeysPressed(1)) {
             Struct_ov016_0218b5c4_2* var16 = func_ov016_0218e14c((Struct_ov016_0218b5c4_5**)&var2, arg0->unknown_14_.unknown_60_);
@@ -233,7 +233,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
         func_02029060();
         func_02029988(&arg0->unknown_14_, 1);
         func_02029088();
-        func_020d86d0(0, 1);
+        Swap3DBuffers_020d86d0(0, 1);
         WaitForVBlank_020c9820();
         func_020bbcb4();
         func_020290ac(0);
@@ -264,7 +264,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
 #endif
     func_02029060();
     func_02029088();
-    func_020d86d0(0, 1);
+    Swap3DBuffers_020d86d0(0, 1);
 
     int var18 = 2;
     if (func_0201201c(var8) == 5) {
@@ -280,7 +280,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
         if (var19 != 0) {
 #if !defined(jpn)
             if (var19->unknown_11_ != 0) {
-                func_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
+                StopMusic_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
                 func_0203ad88(&gMusicManager_02109bf4, 0, 0);
                 UpdateSound_020bbd9c();
                 func_0205e8d4(&gSoundEffectManager_02108760);
@@ -310,7 +310,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
                 func_0203a950(&gMusicManager_02109bf4);
                 func_0205e88c((Struct_02000c9c_17*)&gSoundEffectManager_02108760);
                 func_0209c174((Struct_02000c9c_16*)&gMusicManager_02109bf4);
-                func_0205ea20(&gSoundEffectManager_02108760, 100);
+                LoadSoundEffectSet_0205ea20(&gSoundEffectManager_02108760, 100);
                 func_0209c290(&gMusicManager_02109bf4);
             }
 #endif

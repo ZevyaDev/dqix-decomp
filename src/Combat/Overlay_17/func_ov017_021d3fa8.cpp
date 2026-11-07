@@ -24,7 +24,7 @@ extern const Struct_ov017_021d6cfc data_ov017_021d6cfc, data_ov017_021d6d08;
 extern const char data_ov017_021d82b1[], data_ov017_021d82bb[], data_ov017_021d82c6[];
 extern "C" void func_020dc548(signed char, Struct_ov017_021d6cfc*, signed char*);
 extern "C" void func_02039d48(unsigned char*);
-extern "C" void func_02039d24(unsigned char*);
+extern "C" void ResetFollowTrail_02039d24(unsigned char*);
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void func_ov017_021907dc(int, int, int, int, int);
 extern "C" void func_02033b68(Struct_02033b68*, int);
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov017_021d3fa8(int arg0, Struct_ov017_021d3fa8* arg1, G
                 var10->obj3D_.SetInheritedAlpha(31);
                 func_02039d48((unsigned char*)var10);
             }
-            func_02039d24((unsigned char*)var10);
+            ResetFollowTrail_02039d24((unsigned char*)var10);
         }
         if (IsLocalWirelessGuest_0202c540(arg4)) func_ov017_021907dc((int)arg3, 0, 1, 1, 1);
     }
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov017_021d3fa8(int arg0, Struct_ov017_021d3fa8* arg1, G
                     func_02033b68((Struct_02033b68*)var16, 0);
                     func_02039d48((unsigned char*)var16);
                 }
-                func_02039d24((unsigned char*)var16);
+                ResetFollowTrail_02039d24((unsigned char*)var16);
             }
             if (IsLocalWirelessGuest_0202c540(arg4)) func_ov017_021907dc((int)arg3, 0, 1, 1, 1);
         }

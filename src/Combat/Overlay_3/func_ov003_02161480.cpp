@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" void func_02039d24(unsigned char* arg0);
+extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 
 struct Struct_ov003_02161480 {
     char unknown_0_[0xf78];
@@ -19,7 +19,7 @@ extern "C" ARM void func_ov003_02161480(void) {
         if (var2 != var1->unknown_f78_[var3]) {
             GameObject* var4 = var0->GetPartyMemberByIndex(var1->unknown_f78_[var3]);
             if (var4 != NULL) {
-                func_02039d24((unsigned char*)var4);
+                ResetFollowTrail_02039d24((unsigned char*)var4);
             }
         }
     }

@@ -4,7 +4,7 @@
 extern "C" int func_ov017_021d446c(void* arg0, void* arg1, int arg2);
 struct Struct_02033834;
 extern "C" void SetFacingInstantly_02033874(Struct_02033834* object, int angle);
-extern "C" void func_02076ccc(void*, int);
+extern "C" void SetFieldMonsterState_02076ccc(void*, int);
 
 struct Struct_ov017_021c91f4 {
     unsigned char unknown_0_[8];
@@ -28,5 +28,5 @@ extern "C" ARM void func_ov017_021c91f4(int arg0, Struct_ov017_021c91f4* arg1) {
     *(Vector3i*)((char*)var0[2] + 0x44) = var1;
     SetFacingInstantly_02033874((Struct_02033834*)var0[2], var2);
     *(unsigned short*)((char*)var0[2] + 0x100 + 0x64) = var3;
-    func_02076ccc((void*)var0[2], 2);
+    SetFieldMonsterState_02076ccc((void*)var0[2], 2);
 }

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void* GetBattleScene_ov000_02160130();
-extern "C" void* func_ov000_02160f20(void* arg0);
+extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 struct BattleAction_ov000_0215440c;
 extern "C" void* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" short func_ov000_0215ffa0(void* arg0);
@@ -29,7 +29,7 @@ static inline int inline_ov000_02156cc4_2(short arg0) {
 
 // USA: func_ov025_021eabd0
 extern "C" ARM void func_ov025_021eabd0(char* arg0, int arg1) {
-    Struct_ov025_021eabd0* var0 = (Struct_ov025_021eabd0*)func_ov000_02160f20(GetBattleScene_ov000_02160130());
+    Struct_ov025_021eabd0* var0 = (Struct_ov025_021eabd0*)GetCurrentBattleAction_ov000_02160f20(GetBattleScene_ov000_02160130());
     int var1 = -1;
     for (int var2 = 0; var2 < var0->unknown_9_; var2++) {
         void* var3 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var0, var2);

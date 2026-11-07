@@ -32,7 +32,7 @@ struct Struct_ov025_021ea604_3 {
 };
 struct Struct_ov023_021f2a48 { char unknown_0_[0x28]; short unknown_28_; };
 extern "C" void* GetBattleScene_ov000_02160130();
-extern "C" BattleAction_ov000_0215440c* func_ov000_02160f20(void*);
+extern "C" BattleAction_ov000_0215440c* GetCurrentBattleAction_ov000_02160f20(void*);
 extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" short func_ov000_0215ffa0(ActionTarget_ov000_021600f8*);
 extern "C" int func_ov000_0215fd90(Struct_ov025_021ea604_2*, unsigned int);
@@ -45,7 +45,7 @@ inline int inline_ov025_021dfce0_2(int arg0) { return arg0 >= 0 && arg0 <= 3; }
 // USA: func_ov025_021ea604
 extern "C" ARM void func_ov025_021ea604(Struct_ov025_021ea604_3* arg0, int arg1, int, Struct_ov025_021ea604_2* arg3) {
     GameState* var0 = GameState::GetInstance();
-    BattleAction_ov000_0215440c* var1 = func_ov000_02160f20(GetBattleScene_ov000_02160130());
+    BattleAction_ov000_0215440c* var1 = GetCurrentBattleAction_ov000_02160f20(GetBattleScene_ov000_02160130());
     ActionTarget_ov000_021600f8* var2 = GetActionTarget_ov000_021600f8(var1, arg1);
     int var3 = 0;
     if (arg0->unknown_5d0_) {

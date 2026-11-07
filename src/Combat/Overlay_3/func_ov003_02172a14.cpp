@@ -46,7 +46,7 @@ extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6 *layer, char *bloc
 #endif
 extern "C" void ColorEffect_ConfigureAlphaBlend(int control, int a, int b, int c, int d);
 void SetMainBrightness(GameResources *resources, int a, int b);
-extern "C" void LoadStringList_020728ac(void *stringList, void *allocator, void *arg2, unsigned int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
+extern "C" void LoadStringList_020728ac(void *stringList, void *allocator, void *scriptData, unsigned int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 
 #if defined(jpn)
 #define data_ov003_021809f4 data_ov003_0217eb62

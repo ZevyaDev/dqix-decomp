@@ -144,9 +144,9 @@ extern "C" Struct_ov000_02176634_8* GetPartyMemberData_02053c6c(unsigned char*);
 struct Struct_02054000;
 extern "C" Struct_ov000_02176634_3* func_02054000(Struct_02054000*);
 extern "C" void func_020dcf7c(int, void*);
-extern "C" void func_0209c6d8(void*, int);
-extern "C" void func_0207c378(char*, short, int, int);
-extern "C" void func_02052d7c(Struct_ov000_02176634_7*, int, short);
+extern "C" void PlayJingle_0209c6d8(void*, int);
+extern "C" void AddEquipmentToBag_0207c378(char*, short, int, int);
+extern "C" void SetEquippedItem_02052d7c(Struct_ov000_02176634_7*, int, short);
 struct Struct_0207c484;
 extern "C" void func_0207c484(Struct_0207c484*, int, int, int);
 extern "C" void func_020483f0(unsigned char*, unsigned short);
@@ -156,7 +156,7 @@ extern "C" void func_ov000_0217ab8c(Struct_ov000_02176634*, int, int);
 #if defined(jpn)
 extern "C" void OpenTextWindow_0205d304(Struct_ov000_02176634_10*, char*, int, int, int, int, int);
 extern "C" void func_0203bdf4(void*, char*);
-extern "C" int func_020dd4c4(int, Struct_ov000_02176634_3*);
+extern "C" int GetEquipRestrictions_020dd4c4(int, Struct_ov000_02176634_3*);
 extern "C" void func_020474a8(Struct_ov000_02176634_9*, int, char*, char*);
 extern "C" int AppendText_02042058(char*, const char*);
 extern unsigned int data_ov000_02184550[];
@@ -333,7 +333,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
     }
     case 0x1f: {
         Struct_ov000_02176634_3* var21 = func_ov000_021815e4((char*)arg0);
-        int var22 = func_020dd4c4(func_ov000_021815c8(arg0), var21);
+        int var22 = GetEquipRestrictions_020dd4c4(func_ov000_021815c8(arg0), var21);
         short var23 = 0x1a;
         for (unsigned char var24 = 0; data_ov000_02184550[var24] != 0; var24++) {
             if (var22 & data_ov000_02184550[var24]) {
@@ -369,14 +369,14 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
             var10 = 1;
             var25 = 0x25;
             SetMessageString_02046574((Struct_02046574_2*)var13, 1, (char*)var27->unknown_4_);
-            func_0209c6d8(gMusicManager_02109bf4, 0x3d);
+            PlayJingle_0209c6d8(gMusicManager_02109bf4, 0x3d);
             arg0->unknown_1d7a_ = 1;
         }
         if (var10 == 0) {
             if (var27 != NULL) {
-                func_0207c378(var6 + 0x1d4, var27->unknown_18_, 1, var27->unknown_8_0_);
+                AddEquipmentToBag_0207c378(var6 + 0x1d4, var27->unknown_18_, 1, var27->unknown_8_0_);
             }
-            func_02052d7c(var7, 7, var9);
+            SetEquippedItem_02052d7c(var7, 7, var9);
             func_0207c484((Struct_0207c484*)(var6 + 0x1d4), var9, 1, 0);
             if (var7->unknown_138_->unknown_14_ & 1) var25++;
             if (var5->unknown_a_2_) {
@@ -384,7 +384,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
                 func_020483f0((unsigned char*)var7, 4);
                 var8->unknown_a8_ |= 4;
                 func_ov017_021c9e00(var12, 0, 0, 1);
-                func_0209c6d8(gMusicManager_02109bf4, 0x3d);
+                PlayJingle_0209c6d8(gMusicManager_02109bf4, 0x3d);
                 arg0->unknown_1d7a_ = 1;
             }
         }
@@ -522,12 +522,12 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
             var33 = 0x25;
             func_020dcf7c(var39->unknown_18_, &var31);
             var13->unknown_18_ = &var31;
-            func_0209c6d8(gMusicManager_02109bf4, 0x3d);
+            PlayJingle_0209c6d8(gMusicManager_02109bf4, 0x3d);
             arg0->unknown_1d7a_ = 1;
         }
         if (var10 == 0) {
             if (var39 != NULL) {
-                func_0207c378(var6 + 0x1d4, var39->unknown_18_, 1, var39->unknown_8_0_);
+                AddEquipmentToBag_0207c378(var6 + 0x1d4, var39->unknown_18_, 1, var39->unknown_8_0_);
             }
             if (var9 < 0) {
                 func_020dcf7c(var39->unknown_18_, &var31);
@@ -535,7 +535,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
                 func_020dcf7c(var9, &var31);
             }
             var13->unknown_18_ = &var31;
-            func_02052d7c(var7, 7, var9);
+            SetEquippedItem_02052d7c(var7, 7, var9);
             func_0207c484((Struct_0207c484*)(var6 + 0x1d4), var9, 1, 0);
             if (var7->unknown_138_->unknown_14_ & 1) {
                 var33++;
@@ -545,7 +545,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
                 func_020483f0((unsigned char*)var7, 4);
                 var8->unknown_a8_ |= 4;
                 func_ov017_021c9e00(var12, 0, 0, 1);
-                func_0209c6d8(gMusicManager_02109bf4, 0x3d);
+                PlayJingle_0209c6d8(gMusicManager_02109bf4, 0x3d);
                 arg0->unknown_1d7a_ = 1;
             }
         }

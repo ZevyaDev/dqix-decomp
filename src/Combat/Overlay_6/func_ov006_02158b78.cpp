@@ -8,7 +8,7 @@
 #include "Input/Input.h"
 
 struct Struct_020e28dc;
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 
 struct Struct_ov006_021580b8 {
     char unknown_0_[0x28];
@@ -22,7 +22,7 @@ struct Struct_ov006_02154614;
 
 extern "C" int func_020e28dc(Struct_020e28dc*);
 extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
-extern "C" int func_02080d54(Struct_0207fdcc_2*, int, int, int);
+extern "C" int func_02080d54(MenuLayout_0207fdcc_2*, int, int, int);
 
 struct Struct_ov006_02157a60 {
 #if !defined(jpn)
@@ -135,7 +135,7 @@ extern "C" ARM unsigned char func_ov006_02158b78(Struct_ov006_02157a60* arg0)
         int var1;
         int var2;
         g_touchInput.GetTouchPoint(&var1, &var2);
-        if (!func_02080d54((Struct_0207fdcc_2*)arg0->unknown_14_, arg0->unknown_36e_, (short)var1, (short)var2))
+        if (!func_02080d54((MenuLayout_0207fdcc_2*)arg0->unknown_14_, arg0->unknown_36e_, (short)var1, (short)var2))
             var0 = 1;
     }
     return var0;

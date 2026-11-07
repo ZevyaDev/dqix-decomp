@@ -63,7 +63,7 @@ extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4 *pac);
 extern "C" void *GetPacEntryData_020467f0(PacEntry_02020aec *pac, int index, void **outEntry, int *outSize);
 extern "C" void *AllocateRoundedSize_02012d88(AllocatorUnion *allocator, unsigned int size);
 extern "C" void FreeMemory_02012da4(AllocatorUnion *allocator, void *block);
-extern "C" void func_0205a494(void *arg0);
+extern "C" void DestroySpriteSet_0205a494(void *spriteSet);
 extern "C" void func_ov003_021700bc(Struct_ov003_0216bcfc *arg0);
 extern "C" void *GetLocalWireless_0202ae18();
 extern "C" void func_0202c288();
@@ -133,9 +133,9 @@ extern "C" ARM void func_ov003_0216bcfc(Struct_ov003_0216bcfc_3 *arg0) {
             FreeMemory_02012da4((AllocatorUnion *) &gMainHeap_02114e20, var6);
         }
 #if defined(jpn)
-        func_0205a494((char *) arg0 + 0x10fc);
+        DestroySpriteSet_0205a494((char *) arg0 + 0x10fc);
 #else
-        func_0205a494((char *) arg0 + 0x126c);
+        DestroySpriteSet_0205a494((char *) arg0 + 0x126c);
 #endif
         arg0->unknown_12bc_ = 0;
         arg0->unknown_12ac_ = arg0->unknown_1264_;

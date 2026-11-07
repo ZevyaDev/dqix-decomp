@@ -7,7 +7,7 @@
 // USA: func_0201cb60
 extern "C" ARM bool func_0201cb60(Script::Parameter *arg0, int arg1, Struct_020134e0::Struct_0201cb60_3 &arg2) {
     Script::Parameter *var0 = arg0;
-    Struct_0201cb60_2 *var1       = static_cast<Struct_0201cb60_2 *>(func_02011584(GameState::GetInstance()));
+    Struct_0201cb60_2 *var1       = static_cast<Struct_0201cb60_2 *>(GetZoneList_02011584(GameState::GetInstance()));
 
     arg2.unknown_0_ = (arg0++)->ToInt();
     if (var0[1].type == 0) {

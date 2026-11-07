@@ -18,13 +18,13 @@ extern char data_020ef4b1[], data_020ef4c9[], data_020ef4d0[];
 
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* GetOAMManager_0203bd08(void);
-extern "C" void* func_0203b628(void);
+extern "C" void* GetBGVRAMManager_0203b628(void);
 extern "C" void func_02021428(void* arg0, int arg1);
 
 extern "C" void func_020209d0(void* arg0);
 extern "C" void func_0203b66c(char* arg0);
 extern "C" void func_0203bd78(char* arg0);
-extern "C" void func_0203bd24(char* arg0);
+extern "C" void ResetOAMManager_0203bd24(char* oamManager);
 extern "C" void func_0203b718(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0203ba74(void* arg0);
 extern "C" void WaitForVBlank_020c9820(void);
@@ -45,7 +45,7 @@ extern "C" int func_0205a498(void* arg0, struct PacEntry_02020aec* arg1, int arg
 extern "C" void func_0205af38(int arg0, char* arg1, int arg2, int arg3);
 extern "C" void* func_0203bd14();
 extern "C" int func_020233b8(void* arg0, int arg1);
-extern "C" void* func_0203be4c(void);
+extern "C" void* GetSubOAMBuffer_0203be4c(void);
 extern "C" void func_02020aa0(void* arg0);
 #if defined(jpn)
 extern "C" void func_02026898(void* arg0);
@@ -87,7 +87,7 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
     GetZone3D_02012fe4();
     var5 = GetGameResources();
     var6 = (char*)GetOAMManager_0203bd08();
-    var7 = (char*)func_0203b628();
+    var7 = (char*)GetBGVRAMManager_0203b628();
     var8 = inline_02021b84(var5, 12);
     var9 = var3->GetGrottoStruct();
     var10 = arg0->unknown_9c2_;
@@ -137,7 +137,7 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
         var8->Reset();
         func_0203b66c(var7);
         func_0203bd78(var6);
-        func_0203bd24(var6);
+        ResetOAMManager_0203bd24(var6);
         func_0203b718(var7, 1, 0, 0);
         func_0203b718(var7, 1, 1, 0);
         func_0203ba74(var7);
@@ -217,7 +217,7 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
         func_020233b8(arg0, 1);
 #endif
         GetOAMManager_0203bd08();
-        char* var17 = (char*)func_0203be4c() + 0x2e8;
+        char* var17 = (char*)GetSubOAMBuffer_0203be4c() + 0x2e8;
         *(char**)func_0203bd14() = var17;
         BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_a04_);
         arg0->unknown_a04_ = -1;

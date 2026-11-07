@@ -6,7 +6,7 @@ extern "C" void func_ov003_0217f118(void* arg0);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a27ac(void* arg0);
-extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
+extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 
 // USA: func_ov003_0217f1b8
 extern "C" ARM void func_ov003_0217f1b8(unsigned char* arg0) {
@@ -16,7 +16,7 @@ extern "C" ARM void func_ov003_0217f1b8(unsigned char* arg0) {
     EnablePlayerControl_020397c0(var0->GetUnknownGameObject());
     int var2 = GetFollowCamera_020100f8((char*)var0);
     func_020a27ac((void*)var2);
-    func_020a28b0((unsigned char*)var2, 2);
+    ClearCameraFlags_020a28b0((unsigned char*)var2, 2);
     ClearFlags04((GameResources*)var1, 0xc0);
     arg0[1] = 1;
 }

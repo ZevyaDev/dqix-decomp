@@ -16,7 +16,7 @@ extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(struct TextWindowMan
 struct TextWindowManager_0205d274;
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(struct TextWindowManager_0205d274* windowManager);
 struct TextWindowManager_0205d2bc;
-extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc* arg0);
+extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(struct TextWindowManager_0205d2bc* windowManager);
 extern "C" void ResetTextWindowManager_0205d048(void* windowManager);
 extern "C" int LoadToMainBG1CharacterData(int src, int offset, unsigned int size);
 extern "C" int LoadToMainBG1ScreenData(int src, int offset, unsigned int size);
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov003_02158d4c(Struct_ov003_02158d4c* arg0) {
 
     ClearTextWindowManagerBGScreenData_0205d1e0((struct TextWindowManager_0205d1e0*)arg0->unknown_f4_);
     FlushTextWindowManagerBGScreenData_0205d274((struct TextWindowManager_0205d274*)arg0->unknown_f4_);
-    func_0205d2bc((struct TextWindowManager_0205d2bc*)arg0->unknown_f4_);
+    CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((struct TextWindowManager_0205d2bc*)arg0->unknown_f4_);
     ResetTextWindowManager_0205d048(arg0->unknown_f4_);
 
     arg0->unknown_28_.Reset();

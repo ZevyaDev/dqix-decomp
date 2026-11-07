@@ -20,7 +20,7 @@ extern "C" ARM void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" ARM void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" ARM void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" ARM void* func_ov011_02185ce0(void* arg0);
-extern "C" ARM void func_0205a494(void* arg0);
+extern "C" ARM void DestroySpriteSet_0205a494(void* spriteSet);
 #if defined(jpn)
 // JPN: func_ov011_02185ce0 is inlined, the object is 0x84 bytes and func_ov023_021fa760 takes 6 arguments.
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
@@ -30,9 +30,9 @@ extern "C" ARM int func_ov023_021fa760(void* arg0, void* arg1, int arg2, int arg
 extern "C" ARM int func_ov023_021fa760(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 #endif
 
-struct Struct_ov004_0215c30c;
-struct Struct_ov004_0215c30c_2;
-extern "C" void func_ov023_021f67ac(struct Struct_ov004_0215c30c* arg0, struct Struct_ov004_0215c30c_2* arg1);
+struct MenuObjectList_ov004_0215c30c;
+struct MenuObject_ov004_0215c30c_2;
+extern "C" void AppendMenuObject_ov023_021f67ac(struct MenuObjectList_ov004_0215c30c* objectList, struct MenuObject_ov004_0215c30c_2* object);
 
 #if defined(jpn)
 struct Struct_ov011_02185be8 {
@@ -82,12 +82,12 @@ extern "C" ARM int func_ov011_02185be8(struct Struct_ov011_02185be8_2* arg0) {
 #else
     if (func_ov023_021fa760(var6, var4, var0, var1, 0, var2, var3) == 0) {
 #endif
-        func_0205a494(var7.unknown_24_);
+        DestroySpriteSet_0205a494(var7.unknown_24_);
         return 0;
     }
 
     void* var8 = GetMenuObjectList_ov011_021849c8(var4);
-    func_ov023_021f67ac((struct Struct_ov004_0215c30c*)var8, (struct Struct_ov004_0215c30c_2*)var6);
-    func_0205a494(var7.unknown_24_);
+    AppendMenuObject_ov023_021f67ac((struct MenuObjectList_ov004_0215c30c*)var8, (struct MenuObject_ov004_0215c30c_2*)var6);
+    DestroySpriteSet_0205a494(var7.unknown_24_);
     return 1;
 }

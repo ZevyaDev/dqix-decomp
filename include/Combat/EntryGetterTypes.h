@@ -10,17 +10,17 @@ struct Struct_0203e0a0 {
     void *unknown_c_;
 };
 
-struct Struct_0203dce4 {
-    int unknown_0_;
+struct NPC_0203dce4 {
+    int flags_0_;
     unsigned char unknown_4_[0x10];
     void* unknown_14_;
     void* unknown_18_;
     void* unknown_1c_;
 };
 
-extern "C" void func_02040af0(Struct_0203dce4* arg0, int arg1);
-extern "C" int func_020409e0(Struct_0203dce4* arg0);
-extern "C" int func_02040a20(Struct_0203dce4* arg0);
+extern "C" void func_02040af0(NPC_0203dce4* arg0, int arg1);
+extern "C" int func_020409e0(NPC_0203dce4* arg0);
+extern "C" int func_02040a20(NPC_0203dce4* arg0);
 
 extern "C" int func_0203cdd0(Struct_0203cdd0 *arg0);
 extern "C" int func_02040528(int *arg0);

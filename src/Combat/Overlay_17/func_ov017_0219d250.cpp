@@ -116,7 +116,7 @@ extern "C" char* GetZone3D_02012fe4(void);
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void* GetActiveZones_02027ca4(void);
 extern "C" void* GetEffectManager_02057924(void);
-extern "C" void* func_02011584(void*);
+extern "C" void* GetZoneList_02011584(void*);
 extern "C" Struct_ov017_0219d250_7* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* func_0203cf4c(void);
@@ -128,8 +128,8 @@ extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void func_02010774(char*, int);
 extern "C" void func_020107a8(char*, int);
 extern "C" void func_020107dc(char*, int);
-struct Struct_0202b2f0;
-extern "C" int func_0202c1c0(Struct_0202b2f0*, int);
+struct LocalWireless_0202b2f0;
+extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0*, int);
 struct LocalWireless_0202c1a4;
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" int func_0206e558(void* arg0);
@@ -141,13 +141,13 @@ extern "C" int func_0209cd50(int arg0);
 struct Struct_0209cae8;
 extern "C" int func_0209cae8(Struct_0209cae8*);
 struct MusicManager_02109bf4_4;
-extern "C" void func_0209c678(MusicManager_02109bf4_4*, int);
+extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4*, int);
 extern "C" Struct_ov017_0219d250_6* func_020999d8(unsigned char*, unsigned int);
 extern "C" void func_ov017_0219cdc0(unsigned short arg0, int arg1, signed char arg2);
 extern "C" void _ZN8Object3D10SetField06Et(Object3D* arg0, int arg1);
-extern "C" void func_02039d24(unsigned char*);
+extern "C" void ResetFollowTrail_02039d24(unsigned char*);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
-extern "C" int func_020535c8(signed char* arg0);
+extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" void func_020531f0(void* arg0);
 extern "C" void func_0203409c(unsigned char* arg0);
 extern "C" void ResetMessageWindow_02043204(char* window);
@@ -176,7 +176,7 @@ extern "C" void func_ov017_0219fda0(Struct_ov017_0219d250_5* arg0);
 extern "C" void func_ov017_0219fec0(void* arg0);
 extern "C" int func_020981e4(int, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
-extern "C" void func_ov017_02191108(Struct_ov017_0219d250_5* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(Struct_ov017_0219d250_5* gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov017_021907dc(int, int, int, int, int);
 
@@ -225,7 +225,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
     var8 = GetEffectManager_02057924();
     var9 = var5->GetProtagonist();
     var10 = var5->GetUnknownGameObject();
-    var11 = func_02011584(var5);
+    var11 = GetZoneList_02011584(var5);
     var1 = GetZoneEntry_0200fd0c(var5);
     var12 = GetLocalWireless_0202ae18();
     var13 = func_0203cf4c();
@@ -265,7 +265,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
                 var26 = var3->unknown_0_;
                 var24 = 0;
                 for (var18 = 1; var18 < 4; var18++) {
-                    if (func_0202c1c0((Struct_0202b2f0*)var21, var18) &&
+                    if (IsLocalWirelessPlayerJoined_0202c1c0((LocalWireless_0202b2f0*)var21, var18) &&
                         var18 != GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var21)) {
                         Struct_ov017_0219d250* var30 = (Struct_ov017_0219d250*)GetPartyMemberBaseByIndex_0200ff1c(var22, var18);
                         if (var30 != NULL && (var26 == var30->unknown_0_.GetField06() || var26 == var30->unknown_15c_)) {
@@ -295,7 +295,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
                 }
                 if (func_0209cd50(var2) != func_0209cae8((Struct_0209cae8*)&gMusicManager_02109bf4) &&
                     var1->unknown_20_ <= 0) {
-                    func_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
+                    StopMusic_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
                     var23[0xa] = 1;
                 }
             }
@@ -331,7 +331,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
             _ZN8Object3D10SetField06Et(&var17->unknown_0_, var2);
             var17->unknown_0_.SetInheritedAlpha(0x1f);
             var17->unknown_b8_ = 0;
-            func_02039d24((unsigned char*)var17);
+            ResetFollowTrail_02039d24((unsigned char*)var17);
             if (var2 != var15) {
                 var17->unknown_130_[8] = 0;
                 func_ov017_021c9e00(var14->unknown_f78_[var35], 1, 0, 1);
@@ -339,7 +339,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
         }
     }
 
-    if (func_020535c8((signed char*)var10)) {
+    if (IsPerformingGesture_020535c8((signed char*)var10)) {
         func_020531f0(var10);
     }
     func_0203409c((unsigned char*)var9);
@@ -404,11 +404,11 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
     ((Zone3D*)var27)->SwitchZone(var1->unknown_0_, var1->unknown_4_);
     if (func_020981e4((int)(((Zone3D*)var27)->unk_840), var2) || func_020981e4((int)(((Zone3D*)var27)->unk_840), var15)) {
         if (IsLocalWirelessOn_0202b7d8((int*)var12) == 0) {
-            func_ov017_02191108(arg0, 1, 1, 1, 1);
+            RebuildFieldPartyOrder_ov017_02191108(arg0, 1, 1, 1, 1);
         } else {
             for (int var37 = 0; var37 < 4; var37++) {
                 if (IsNotLocalWirelessGuest_0202c508(var12)) {
-                    func_ov017_02191108(arg0, 1, 1, 1, 1);
+                    RebuildFieldPartyOrder_ov017_02191108(arg0, 1, 1, 1, 1);
                 } else {
                     func_ov017_021907dc((int)arg0, 0, 1, 1, 1);
                 }

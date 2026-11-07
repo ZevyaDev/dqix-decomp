@@ -8,7 +8,7 @@
 #define RG(usa, jpn) (usa)
 #endif
 
-struct Struct_0202b2f0;
+struct LocalWireless_0202b2f0;
 struct Struct_02039fec_2;
 struct GlobalFlags_02038598_4;
 struct Struct_ov000_02160620_2 {
@@ -44,7 +44,7 @@ struct Struct_ov000_02160620 {
     int unknown_998_;
 };
 
-extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18();
+extern "C" LocalWireless_0202b2f0* GetLocalWireless_0202ae18();
 extern "C" void func_02015438(void*);
 extern "C" void func_ov023_021eb43c(void*);
 extern "C" int GetMessageWindow_020421a0();
@@ -54,8 +54,8 @@ extern "C" void func_02039fec(Struct_02039fec_2*);
 extern "C" void func_ov000_021824d8(void*);
 extern "C" int func_020a1fa8();
 extern "C" void func_ov025_021df794(void*);
-extern "C" int IsLocalWirelessGuest_0202c540(Struct_0202b2f0*);
-extern "C" int func_0202c578(Struct_0202b2f0*, int);
+extern "C" int IsLocalWirelessGuest_0202c540(LocalWireless_0202b2f0*);
+extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(LocalWireless_0202b2f0*, int);
 extern "C" GlobalFlags_02038598_4* GetGlobalFlags_020d6c00();
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" void* func_020936f8();
@@ -80,7 +80,7 @@ extern "C" void func_ov000_02160e94(void*);
 extern "C" void func_ov000_02160fe4(void*);
 extern "C" void func_ov025_021e9558(void*);
 extern "C" void func_020a1edc();
-extern "C" void func_020a1ef0(int);
+extern "C" void PushSubOverlay_020a1ef0(int);
 extern "C" void func_0205eb80(void*);
 extern int data_ov000_02184220;
 extern unsigned char gSoundEffectManager_02108760[0xd0];
@@ -88,7 +88,7 @@ extern unsigned char gSoundEffectManager_02108760[0xd0];
 // USA: func_ov000_02160620
 extern "C" ARM void func_ov000_02160620(Struct_ov000_02160620_2* arg0) {
     GameState* var0 = GameState::GetInstance();
-    Struct_0202b2f0* var1 = GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* var1 = GetLocalWireless_0202ae18();
     unsigned char* var2 = (unsigned char*)GetGameResources();
     if (arg0->unknown_55f4_ & 0x200) {
         func_02015438(arg0->unknown_ec8_);
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov000_02160620(Struct_ov000_02160620_2* arg0) {
         GameObject* var3 = var0->GetGameObjectByIndex(0xc8);
         if (var3)
             var3->obj3D_.AdvanceEffects();
-        if (IsLocalWirelessGuest_0202c540(var1) && func_0202c578(var1, 0) && arg0->unknown_77d0_ == 0) {
+        if (IsLocalWirelessGuest_0202c540(var1) && IsLocalWirelessPlayerDisconnected_0202c578(var1, 0) && arg0->unknown_77d0_ == 0) {
             ClearGlobalFlags_020466f4(GetGlobalFlags_020d6c00(), 0x8020);
             void* var4 = func_020936f8();
             func_020939dc(var4);
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov000_02160620(Struct_ov000_02160620_2* arg0) {
         }
     }
     for (int var5 = 1; var5 < 4; ++var5) {
-        if (func_0202c578(var1, var5))
+        if (IsLocalWirelessPlayerDisconnected_0202c578(var1, var5))
             func_ov000_0215fb04(arg0->unknown_29c_, var5);
     }
     if (func_ov017_02195550(var2) == 0)
@@ -161,10 +161,10 @@ extern "C" ARM void func_ov000_02160620(Struct_ov000_02160620_2* arg0) {
     if (data_ov000_02184220) {
         if (arg0->unknown_ea8_ == 7 || arg0->unknown_ea8_ == 11) {
             func_020a1edc();
-            func_020a1ef0(3);
+            PushSubOverlay_020a1ef0(3);
         } else if (arg0->unknown_ea8_ == 9 || arg0->unknown_ea8_ == 10) {
             func_020a1edc();
-            func_020a1ef0(1);
+            PushSubOverlay_020a1ef0(1);
         }
         data_ov000_02184220 = 0;
     }

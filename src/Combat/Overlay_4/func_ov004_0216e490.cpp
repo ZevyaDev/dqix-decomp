@@ -17,7 +17,7 @@ extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void* func_ov004_0216ae9c(void* arg0, int arg1);
 extern "C" void func_ov023_021f8960(char* arg0, short arg1, unsigned short arg2);
-extern "C" void func_0200fb94(char* arg0, unsigned char arg1);
+extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
 
 extern unsigned char data_ov004_02171034[];
 extern int gMusicManager_02109bf4;
@@ -86,7 +86,7 @@ extern "C" ARM int func_ov004_0216e490(void* arg0) {
             QueueMenuScriptEntry_ov011_021848a0(arg0, 0x1f5);
             return 0;
         } else {
-            func_0200fb94((char*)var0, 5);
+            SetGameMode_0200fb94((char*)var0, 5);
 #if defined(jpn)
             data_ov004_02171034[0] = 0;
 #else

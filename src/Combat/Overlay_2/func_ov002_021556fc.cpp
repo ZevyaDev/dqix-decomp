@@ -58,13 +58,13 @@ extern "C" void RestoreMainBGControl_02074bd0(BGControlSave_02074bd0 *save);
 extern "C" void ResetMessageWindow_02043204(char *window);
 extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(TextWindowManager_0205d1e0 *windowManager);
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274 *windowManager);
-extern "C" void func_0205d2bc(TextWindowManager_0205d2bc *arg0);
+extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(TextWindowManager_0205d2bc *windowManager);
 extern "C" void ResetTextWindowManager_0205d048(struct TextWindowManager_0205d048 *windowManager);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" void DC_FlushRange(const void *p, unsigned int len);
 extern "C" void LoadToMainBG1CharacterData(const void *data, unsigned int offset, unsigned int length);
 extern "C" void func_ov002_0215b428(unsigned char *arg0);
-extern "C" void func_020a1f4c(int arg0);
+extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
 extern "C" void func_ov023_021eb26c(void *arg0);
 
 // USA: func_ov002_021556fc
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov002_021556fc(char *arg0) {
     *(void **) (arg0 + FIELD_1bd0) = 0;
     ClearTextWindowManagerBGScreenData_0205d1e0((TextWindowManager_0205d1e0 *) (arg0 + FIELD_ec8));
     FlushTextWindowManagerBGScreenData_0205d274((TextWindowManager_0205d274 *) (arg0 + FIELD_ec8));
-    func_0205d2bc((TextWindowManager_0205d2bc *) (arg0 + FIELD_ec8));
+    CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((TextWindowManager_0205d2bc *) (arg0 + FIELD_ec8));
     ResetTextWindowManager_0205d048((struct TextWindowManager_0205d048 *) (arg0 + FIELD_ec8));
     if (*(void **) (arg0 + FIELD_1bd8) != 0) {
         memset(*(void **) (arg0 + FIELD_1bd8), 0, 0x20);
@@ -109,7 +109,7 @@ extern "C" ARM void func_ov002_021556fc(char *arg0) {
 #if !defined(jpn)
     func_ov002_0215b428((unsigned char *) arg0);
 #endif
-    func_020a1f4c(1);
+    PopSubOverlay_020a1f4c(1);
     if (*(void **) (arg0 + FIELD_2468) != 0) {
         func_ov023_021eb26c(*(void **) (arg0 + FIELD_2468));
     }

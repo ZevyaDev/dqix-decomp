@@ -118,7 +118,7 @@ extern "C" int func_ov024_021da998(Struct_ov024_021da670_6*);
 struct Struct_ov024_021dd028_5;
 extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
 extern "C" float func_02074738(int arg0, int arg1);
-extern "C" int func_0202053c(void*);
+extern "C" int GetLevel_0202053c(void*);
 float CalculateTensionBonus(int tension, int level);
 extern "C" float func_ov024_021f875c(struct Struct_ov024_021fa7ec_3* arg0, struct Struct_ov024_021fa7ec_11* arg1, struct Struct_ov024_021fa7ec* arg2, int arg3);
 extern "C" int func_ov000_02156068(struct Struct_ov024_021fa7ec_2* arg0, int arg1, int arg2, int arg3);
@@ -220,7 +220,7 @@ extern "C" ARM void func_ov024_021fa7ec(struct Struct_ov024_021fa7ec_3* arg0, fl
         var4 = var4 * var13;
         var5 = var5 * var13;
         if (arg8->unknown_144_ == 0 || !arg8->unknown_144_->unknown_b_4_) {
-            signed char var14 = func_0202053c(var9);
+            signed char var14 = GetLevel_0202053c(var9);
             CalculateTensionBonus(var9->unknown_138_->unknown_24_, var14);
             var4 = var4 + var14;
             var5 = var5 + var14;

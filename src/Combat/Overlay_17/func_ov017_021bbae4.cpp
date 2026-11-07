@@ -10,7 +10,7 @@ enum { Enum_ov017_021bbae4_204 = 0xcc };
 
 extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" int func_020107d0(char* arg0);
-extern "C" void func_ov017_021baedc(void* arg0, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(void* node, int arg1);
 
 extern char data_ov017_021d7d8a[0xc];
 extern char data_ov017_021d7d96[7];
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov017_021bbae4(struct Struct_ov017_021bbae4* arg0, unsi
     if (arg0->unknown_2_ != 0) {
         return;
     }
-    func_ov017_021baedc(arg0, 1);
+    ResetEventTask_ov017_021baedc(arg0, 1);
     arg0->unknown_cc_ = arg2;
 
     GameState* var0 = GameState::GetInstance();

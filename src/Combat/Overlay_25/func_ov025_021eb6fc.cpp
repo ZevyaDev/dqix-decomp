@@ -22,7 +22,7 @@ struct Struct_ov025_021e9778_9 {
 };
 
 extern "C" void* GetBattleScene_ov000_02160130(void);
-extern "C" void* func_ov000_02160f20(void* arg0);
+extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" Struct_ov025_021eb6fc* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" int func_ov000_02163690(int arg0);
 extern "C" unsigned char* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov025_021eb6fc(Struct_ov025_021e9778_9* arg0, int arg1)
     if ((arg0->unknown_1c4_ & 8) && arg1 == 0) {
         return;
     }
-    short* var0 = (short*)func_ov000_02160f20(GetBattleScene_ov000_02160130());
+    short* var0 = (short*)GetCurrentBattleAction_ov000_02160f20(GetBattleScene_ov000_02160130());
     Struct_ov025_021eb6fc* var1 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), *var0);
     if (func_ov000_02163690(*(unsigned short*)var0)) {
         arg1 = 1;

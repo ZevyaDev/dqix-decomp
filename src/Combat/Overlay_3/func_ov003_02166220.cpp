@@ -5,7 +5,7 @@
 
 struct Struct_02080cc0;
 struct Struct_02080f8c;
-struct Struct_02080fa8;
+struct MenuLayout_02080fa8;
 struct Struct_02081198;
 struct Struct_02081164;
 struct Struct_0201099c_16;
@@ -27,7 +27,7 @@ extern "C" void func_02080cc0(struct Struct_02080cc0* arg0, int arg1, int arg2);
 extern "C" int func_02080b40(void*, int);
 extern "C" void func_02080f8c(Struct_02080f8c*, int, int);
 extern "C" void func_02080fe0(void*, int, int);
-extern "C" void func_02080fa8(struct Struct_02080fa8*, int, int);
+extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8*, int, int);
 extern "C" void func_0208103c(void*, int, int);
 extern "C" void func_02080828(void*, int, short*, short*);
 extern "C" void func_020808c8(void*, short, short*, short*);
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov003_02166220(Struct_ov003_02166220_4* arg0) {
             var5 = (short)(func_020865b0((Struct_0201099c_16*)var3) + 0x11);
         }
         func_02080fe0(var0, (short)(var8 + 4), var5);
-        func_02080fa8((struct Struct_02080fa8*)var0, (short)(var8 + 8),
+        SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, (short)(var8 + 8),
                                                              var3->unknown_2_[func_020865b0((Struct_0201099c_16*)var3)]);
         var9 = func_ov003_0215f56c((Struct_ov003_0215f56c_3*)var3);
         if (var8 == ((struct Struct_ov003_02166220_5*)var0)->unknown_36_ && var9 == 0xf) {
@@ -217,8 +217,8 @@ extern "C" ARM void func_ov003_02166220(Struct_ov003_02166220_4* arg0) {
     func_ov003_02160c58(arg0, &var20, &var21);
     var1 = (Struct_ov003_02166220_2*)GetParty_02010828(GameState::GetInstance());
     var21 = var21 - (var1->unknown_f7c_ - 1);
-    func_02080fa8((struct Struct_02080fa8*)var0, 0x23, var21);
-    func_02080fa8((struct Struct_02080fa8*)var0, 0x24, var20);
+    SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, 0x23, var21);
+    SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, 0x24, var20);
 
     var22 = data_ov003_0217f3ec.unknown_20_;
     for (int var23 = 0; var23 < 2; var23++) {

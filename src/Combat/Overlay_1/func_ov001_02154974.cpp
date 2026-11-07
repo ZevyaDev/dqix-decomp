@@ -50,8 +50,8 @@ struct Struct_ov001_02154974_6 {
 extern "C" {
 struct Struct_ov001_02154974_4* func_0203cf4c(void);
 void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
-struct Struct_ov001_02154974_5* func_0203df78(void* arg0, int arg1);
-int* func_0203dce4(void* arg0, int arg1);
+struct Struct_ov001_02154974_5* FindNPCById_0203df78(void* npcManager, int id);
+int* GetNPCByIndex_0203dce4(void* npcManager, int index);
 int func_02040404(void* arg0, const char* arg1);
 void func_0204039c(void* arg0, int arg1);
 void func_02040504(int* arg0);
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov001_02154974(struct Struct_ov001_02154974_3* arg0) {
     for (var4 = arg0->unknown_d0_; var4 != 0; var4 = var4->unknown_34_) {
         switch (var4->unknown_0_0_) {
         case 5: {
-            struct Struct_ov001_02154974_5* var11 = func_0203df78(var1, var4->unknown_8_);
+            struct Struct_ov001_02154974_5* var11 = FindNPCById_0203df78(var1, var4->unknown_8_);
             if (var11 != 0) {
                 var11->unknown_0_ &= ~0x10000;
             }
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov001_02154974(struct Struct_ov001_02154974_3* arg0) {
         }
         case 4: {
             ClearGameObjectByIndex_0200fd48(var0, var4->unknown_2_);
-            struct Struct_ov001_02154974_5* var12 = func_0203df78(var1, var4->unknown_8_);
+            struct Struct_ov001_02154974_5* var12 = FindNPCById_0203df78(var1, var4->unknown_8_);
             if (var12 != 0 && var12->unknown_18_ != 0) {
                 ((struct Struct_ov001_02154974_6*)var12->unknown_18_)->unknown_d4_0_ = 0;
                 var12->unknown_0_ &= ~0x10000;
@@ -126,7 +126,7 @@ extern "C" ARM void func_ov001_02154974(struct Struct_ov001_02154974_3* arg0) {
             }
             break;
         case 3: {
-            int* var13 = func_0203dce4(var1, var4->unknown_2_);
+            int* var13 = GetNPCByIndex_0203dce4(var1, var4->unknown_2_);
             if (var13 != 0) {
                 void* var14 = func_0203d004(var1);
                 func_0204039c(

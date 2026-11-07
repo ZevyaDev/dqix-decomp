@@ -19,7 +19,7 @@ extern "C" void func_020ad1f0(struct Struct_020acecc_7* arg0, int arg1, int arg2
 struct Struct_02033834;
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 extern "C" void func_020da244(void* arg0);
-extern "C" void func_0205ebec(void* arg0);
+extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
 extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_02018fbc(void* arg0, Vector3i* arg1);
 extern "C" void func_ov017_0219c598(int* arg0, short* arg1, int arg2);
@@ -150,7 +150,7 @@ extern "C" ARM void func_020acecc(unsigned int* arg0, int arg1, int arg2)
         if (data_ov017_021d82fc.unknown_e_ == 3) {
             func_020da244(&data_ov017_021d82fc);
         }
-        func_0205ebec(&gSoundEffectManager_02108760);
+        UnloadExtraSoundSet_0205ebec(&gSoundEffectManager_02108760);
         func_ov017_021d1c2c(var1->unknown_27b4_.unknown_0_, (unsigned char)var1->unknown_27b4_.unknown_2_);
         func_020a2770(var2, GetProtagonistObjectIndex_020100a8(var0));
         ClearFlags04((GameResources*)arg0, 0x10044);

@@ -4,7 +4,7 @@
 #include "Resource/Brightness.h"
 #include "NitroSDK/Graphics.h"
 
-struct Struct_0202b2f0;
+struct LocalWireless_0202b2f0;
 struct LocalWireless_0202c1a4;
 struct Struct_0201e830;
 struct AllocatorUnion;
@@ -77,12 +77,12 @@ extern "C" void func_020531f0(void* arg0);
 extern "C" void func_ov017_021cff8c(int arg0, int arg1);
 extern "C" void func_ov017_021d0b30(int arg0, int arg1, int arg2);
 
-extern "C" int func_0202c1c0(Struct_0202b2f0* arg0, int arg1);
+extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" unsigned short func_0201e830(Struct_0201e830* arg0);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
-extern "C" int func_020535c8(signed char* arg0);
-extern "C" int func_ov017_021a193c(int* arg0);
+extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
+extern "C" int GetEquipMenu_ov017_021a193c(int* equipMenuTask);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void* func_020120a0(char* arg0, unsigned int arg1);
@@ -95,9 +95,9 @@ extern AllocatorUnion gMainHeap_02114e20;
 // USA: func_ov017_021afe00
 extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
     GameState* var0 = GameState::GetInstance();
-    Struct_0202b2f0* var1 = (Struct_0202b2f0*)GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* var1 = (LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
     for (int var2 = 0; var2 < 4; var2++) {
-        if (func_0202c1c0(var1, var2) == 0) {
+        if (IsLocalWirelessPlayerJoined_0202c1c0(var1, var2) == 0) {
             continue;
         }
         if (var2 == GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var1)) {
@@ -152,7 +152,7 @@ extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
         for (int var10 = 0; var10 < 4; var10++) {
             GameObject* var11 = var0->GetPartyMemberByIndex(var10);
             if (var11 != 0) {
-                if (func_020535c8((signed char*)var11) != 0) {
+                if (IsPerformingGesture_020535c8((signed char*)var11) != 0) {
                     func_020531f0(var11);
                 }
             }
@@ -160,9 +160,9 @@ extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
         if (arg0->unknown_4_ != 0) {
             if (*arg0->unknown_4_ == 2) {
 #if defined(jpn)
-                if (func_ov017_021a193c(*(int**)((char*)GetGameResources() + 0x34f8)) != 0) {
+                if (GetEquipMenu_ov017_021a193c(*(int**)((char*)GetGameResources() + 0x34f8)) != 0) {
 #else
-                if (func_ov017_021a193c(*(int**)((char*)GetGameResources() + 0x3708)) != 0) {
+                if (GetEquipMenu_ov017_021a193c(*(int**)((char*)GetGameResources() + 0x3708)) != 0) {
 #endif
                     DISPCNT = (DISPCNT & ~0x1f00) | 0x700;
                 }

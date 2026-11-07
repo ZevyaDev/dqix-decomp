@@ -2,7 +2,7 @@
 #include "Memory/SafeAllocator.h"
 
 extern "C" void func_ov003_0217db88(void);
-extern "C" int func_020a1e54(int arg0);
+extern "C" int PopOverlay_020a1e54(int isPreviousReloaded);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern int gMainHeap_02114e20;
 extern "C" void LoadFileTables_020a0c0c(void);
@@ -21,7 +21,7 @@ extern "C" ARM void func_020dae08(struct Struct_020dae08* arg0) {
     if (arg0->unknown_c_ != 0) {
         func_ov003_0217db88();
         arg0->unknown_c_ = 0;
-        func_020a1e54(1);
+        PopOverlay_020a1e54(1);
     }
     void* var0 = arg0->unknown_14_.GetSignedAllocator();
     if (var0 != NULL) {

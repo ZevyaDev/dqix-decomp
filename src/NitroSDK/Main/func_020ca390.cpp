@@ -1,13 +1,10 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca390 func_020cbe5c
-#endif
 
-// USA: func_020ca390
+// USA: Memset16Bit_020ca390
 // PROVENANCE: pokeheartgold/lib/NitroSDK/asm/mi_memory.s — MIi_CpuClear16. Halfword-granularity
 // memset loop (raw NitroSDK .s routine, ported as mwcc inline asm).
-extern "C" ARM asm void func_020ca390(unsigned short value, unsigned short* dst, unsigned int size) {
+extern "C" ARM asm void Memset16Bit_020ca390(unsigned short value, unsigned short* dst, unsigned int size) {
     mov r3, #0
 top:
     cmp r3, r2

@@ -12,8 +12,8 @@ enum { Enum_ov017_021b6f9c_17408 = 0x4400, Enum_ov017_021b6f9c_174 = 0xae, Enum_
 
 extern "C" void func_ov000_021604f0(void);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
-extern "C" void func_020a1e54(int arg0);
-extern "C" void func_020a1f4c(int arg0);
+extern "C" void PopOverlay_020a1e54(int isPreviousReloaded);
+extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 struct Struct_02053f7c_3;
 extern "C" void func_02053f7c(Struct_02053f7c_3* arg0, unsigned short arg1, int arg2);
@@ -57,8 +57,8 @@ extern "C" ARM void func_ov017_021b6f9c(char* arg0) {
     }
 
     if (*(unsigned short*)(arg0 + 0x600 + 0xb6) & 0x800) {
-        func_020a1e54(1);
-        func_020a1f4c(1);
+        PopOverlay_020a1e54(1);
+        PopSubOverlay_020a1f4c(1);
     }
 
     GameObject* var8 = GameState::GetInstance()->GetUnknownGameObject();

@@ -143,7 +143,7 @@ extern "C" void func_ov017_021b8b34(Struct_ov017_021b7284_2* arg0);
 extern "C" void func_0209b448(Struct_0209afd4_5* arg0, int arg1, Struct_ov017_021b7284_2* arg2, Struct_ov017_021b7284_6* arg3);
 extern "C" Struct_0204bd7c* func_02033fa0(void* arg0);
 extern "C" unsigned short func_0204bd7c(Struct_0204bd7c* arg0);
-extern "C" Struct_02099a68* func_02011584(void* arg0);
+extern "C" Struct_02099a68* GetZoneList_02011584(void* gameState);
 extern "C" int func_02099a68(Struct_02099a68* arg0, unsigned short arg1);
 extern "C" Struct_ov017_021b7284_5* func_0209bdc8(Struct_0209bdc8* arg0, int arg1, unsigned int arg2);
 extern "C" void func_0209afd4(Struct_0209afd4_5* arg0, short arg1, short arg2, short arg3, Struct_ov017_021b7284_2* arg4, Struct_ov017_021b7284_6* arg5);
@@ -249,7 +249,7 @@ extern "C" ARM void func_ov017_021b7284(Struct_ov017_021b7284_9* arg0) {
             }
             int var26 = var22->unknown_2_;
             unsigned short var27 = func_0204bd7c(func_02033fa0(var25));
-            int var28 = func_02099a68(func_02011584(var16), var27);
+            int var28 = func_02099a68(GetZoneList_02011584(var16), var27);
             Struct_ov017_021b7284_5* var29 = func_0209bdc8((Struct_0209bdc8*)var24->unknown_60_, var23->timeOfDayIndex_, var28);
             unsigned short var30;
             if (var29 != NULL) {

@@ -13,7 +13,7 @@ struct Struct_ov031_0223e120 {
 	unsigned char unknown_c_[0x34];
 };
 
-extern "C" void func_ov031_0223cf70(void** arg0);
+extern "C" void FreeAndClearPointer_ov031_0223cf70(void** pointer);
 extern "C" Struct_ov031_0223e120* data_ov031_02290d9c;
 namespace DuplicatePool {
     extern "C" Struct_ov031_0223e120* data_ov031_02290d9c;
@@ -25,5 +25,5 @@ extern "C" ARM void func_ov031_0223e120(void) {
 		((Type_ov031_0223e120)func_ov031_0223d884)(data_ov031_02290d9c[var0].unknown_8_);
 		((Type_ov031_0223e120)func_ov031_0223bf2c)(data_ov031_02290d9c[var0].unknown_0_);
 	}
-	func_ov031_0223cf70((void**)&DuplicatePool::data_ov031_02290d9c);
+	FreeAndClearPointer_ov031_0223cf70((void**)&DuplicatePool::data_ov031_02290d9c);
 }

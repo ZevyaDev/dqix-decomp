@@ -4,12 +4,12 @@
 
 struct Struct_02040774_2 {
     char unknown_0_[0x44];
-    int unknown_44_;
-    int unknown_48_;
-    int unknown_4c_;
+    int positionX_44_;
+    int positionY_48_;
+    int positionZ_4c_;
 };
 
-extern "C" void func_020407b4(struct Struct_02040774_2* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetObject3DPosition_020407b4(struct Struct_02040774_2* object, int x, int y, int z);
 extern "C" void func_0203db34(unsigned char* arg0, int arg1, int arg2, int arg3);
 extern "C" void* func_02033fa0(void* arg0);
 extern "C" int func_0204bedc(unsigned short* arg0);
@@ -18,7 +18,7 @@ extern "C" int func_0204bedc(unsigned short* arg0);
 extern "C" ARM void func_020ae20c(void* arg0, struct Struct_02040774_2* arg1, int* arg2, int arg3) {
     if (arg1 == NULL) return;
 
-    func_020407b4(arg1, arg2[0], 0xffffd009, arg2[2]);
+    SetObject3DPosition_020407b4(arg1, arg2[0], 0xffffd009, arg2[2]);
     func_0203db34((unsigned char*)arg1, 0, arg3, 0);
 
     int var0 = 0xc;

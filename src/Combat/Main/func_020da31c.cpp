@@ -30,7 +30,7 @@ struct Struct_0205a180 {
 };
 extern "C" void* GetEffectManager_02057924();
 extern "C" void func_02078484(Struct_02078398_2*);
-extern "C" void func_02057fb4(void*, int, void*);
+extern "C" void PlayEffect_02057fb4(void*, int, void*);
 extern "C" void* func_02058658(void*, int);
 extern "C" void func_0205a180(Struct_0205a180*);
 extern "C" void PlayExtraSoundEffect_0205ebfc(void*, int, int);
@@ -59,7 +59,7 @@ extern "C" ARM void func_020da31c(Struct_020da31c_3* arg0) {
             var3.unknown_44_.x = 0x1000;
             var3.unknown_44_.y = 0x1000;
             var3.unknown_44_.z = 0x1000;
-            func_02057fb4(var0, 0x14, &var3);
+            PlayEffect_02057fb4(var0, 0x14, &var3);
         }
         int var5 = ((Struct_020da31c*)var2)->unknown_b2_;
         int var6 = fix32SignedAngleDistance(var2->obj3D_.rotation_.y, ((Struct_020da31c*)var2)->unknown_ae_);
@@ -75,7 +75,7 @@ extern "C" ARM void func_020da31c(Struct_020da31c_3* arg0) {
         var7.unknown_44_.z = 200;
         sprintf(var7.unknown_0_, data_020f2884, data_020f2887);
         var7.unknown_11_ |= 0x40;
-        func_02057fb4(var0, 0x15, &var7);
+        PlayEffect_02057fb4(var0, 0x15, &var7);
         break;
     }
     case 2: {
@@ -95,7 +95,7 @@ extern "C" ARM void func_020da31c(Struct_020da31c_3* arg0) {
             var9.unknown_44_.x = 0x3000;
             var9.unknown_44_.y = 0x1000;
             var9.unknown_44_.z = 0x3000;
-            func_02057fb4(var0, 0x14, &var9);
+            PlayEffect_02057fb4(var0, 0x14, &var9);
         }
         if (++arg0->unknown_f_ < 7) return;
         arg0->unknown_f_ = 0;
@@ -107,7 +107,7 @@ extern "C" ARM void func_020da31c(Struct_020da31c_3* arg0) {
         var11.unknown_44_.y = 225;
         var11.unknown_44_.z = 225;
         sprintf(var11.unknown_0_, data_020f2884, data_020f2887);
-        func_02057fb4(var0, 0x15, &var11);
+        PlayEffect_02057fb4(var0, 0x15, &var11);
         break;
     }
     case 3: {
@@ -146,7 +146,7 @@ extern "C" ARM void func_020da31c(Struct_020da31c_3* arg0) {
                 var13.unknown_44_.z = 0x199;
                 sprintf(var13.unknown_0_, data_020f2884, data_020f2887);
                 var13.unknown_11_ |= 0xb8;
-                func_02057fb4(var0, 0x16, &var13);
+                PlayEffect_02057fb4(var0, 0x16, &var13);
                 arg0->unknown_11_ = 1;
                 PlayExtraSoundEffect_0205ebfc(gSoundEffectManager_02108760, 1, 0);
             } else {

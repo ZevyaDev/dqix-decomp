@@ -26,7 +26,7 @@ struct Struct_ov005_0215acc0 { char unknown_0_[0xdf4]; ItemTable_0201099c_10* un
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" short* func_02052e14(Struct_02052e14*);
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
-extern "C" Struct_ov005_0215acc0_2* func_ov017_021a193c(int*);
+extern "C" Struct_ov005_0215acc0_2* GetEquipMenu_ov017_021a193c(int*);
 #if defined(jpn)
 extern "C" void func_02045f3c(void*, unsigned short*, int, int, int, int, int, int);
 #else
@@ -40,7 +40,7 @@ extern unsigned char data_ov005_0215cbfc[];
 extern "C" ARM void func_ov005_0215b0a0(Struct_ov005_0215acc0* arg0) {
     void* var0 = GetMessageWindow_020421a0();
     GameState* var1 = GameState::GetInstance();
-    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var1, func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->unknown_4fc_);
+    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var1, GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->unknown_4fc_);
     if (!var2) return;
     short* var3 = func_02052e14((Struct_02052e14*)var2);
     int var4 = LOW_REGION(29, 28);

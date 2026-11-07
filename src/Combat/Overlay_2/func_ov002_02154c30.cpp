@@ -41,7 +41,7 @@ struct Struct_ov002_02154c30_4 {
     unsigned char unknown_e_[2];
 };
 
-extern "C" int func_0202053c(void *arg0);
+extern "C" int GetLevel_0202053c(void *gameObject);
 
 static inline int inline_ov002_02154c30_2(unsigned short *arg0) { return *arg0; }
 static inline int inline_ov002_02154c30_3(unsigned int *arg0) { return *arg0; }
@@ -59,14 +59,14 @@ extern "C" ARM int func_ov002_02154c30(Struct_ov002_02154c30_4 *arg0) {
         if (var2 == 0) continue;
         var3 = &arg0[var4];
         if (!(var3->unknown_4_ != inline_ov002_02154c30_2(&var2->unknown_130_->unknown_4_) || var3->unknown_6_ != inline_ov002_02154c30_2(&var2->unknown_134_->unknown_30_) || var3->unknown_8_ != inline_ov002_02154c30_2(&var2->unknown_130_->unknown_6_) || var3->unknown_a_ != inline_ov002_02154c30_2(&var2->unknown_134_->unknown_32_) ||
-              var3->unknown_d_ != inline_ov002_02154c30(&var2->unknown_150_->unknown_950_) || var3->unknown_c_ != func_0202053c(var2) || var3->unknown_0_ != inline_ov002_02154c30_3(&var2->unknown_130_->unknown_0_)))
+              var3->unknown_d_ != inline_ov002_02154c30(&var2->unknown_150_->unknown_950_) || var3->unknown_c_ != GetLevel_0202053c(var2) || var3->unknown_0_ != inline_ov002_02154c30_3(&var2->unknown_130_->unknown_0_)))
             continue;
         var3->unknown_4_   = var2->unknown_130_->unknown_4_;
         var3->unknown_6_   = var2->unknown_134_->unknown_30_;
         var3->unknown_8_   = var2->unknown_130_->unknown_6_;
         var3->unknown_a_   = var2->unknown_134_->unknown_32_;
         var3->unknown_d_   = var2->unknown_150_->unknown_950_;
-        var3->unknown_c_   = func_0202053c(var2);
+        var3->unknown_c_   = GetLevel_0202053c(var2);
         var3->unknown_0_   = var2->unknown_130_->unknown_0_;
         var0 = 1;
     }

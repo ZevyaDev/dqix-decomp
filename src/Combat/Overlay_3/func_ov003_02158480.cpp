@@ -27,8 +27,8 @@ extern "C" int func_ov003_0215570c(Struct_ov003_0215570c*);
 extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" void func_020806c4(void*, int);
 extern "C" void func_0208103c(void*, int, int);
-struct Struct_02080fa8;
-extern "C" void func_02080fa8(Struct_02080fa8*, int, int);
+struct MenuLayout_02080fa8;
+extern "C" void SetMenuLayoutTextValue_02080fa8(MenuLayout_02080fa8*, int, int);
 extern "C" void func_02080828(void*, int, short*, short*);
 extern "C" void func_020808c8(void*, int, short*, short*);
 extern "C" void func_02080854(void*, int, int, int);
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov003_02158480(Struct_ov003_02158334_3* arg0) {
                 func_02080b40(var0, var2);
                 func_02080b40(var0, var3);
                 func_0208103c(var0, var1, (short)(var11 - 1));
-                func_02080fa8((Struct_02080fa8*)var0, var3, *(unsigned short*)(var9 + 0x16c + var11 * 2));
+                SetMenuLayoutTextValue_02080fa8((MenuLayout_02080fa8*)var0, var3, *(unsigned short*)(var9 + 0x16c + var11 * 2));
 
                 unsigned char* var12 = var9 + var11;
                 unsigned char var13 = var12[0x186];

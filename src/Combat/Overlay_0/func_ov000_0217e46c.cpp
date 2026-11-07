@@ -27,7 +27,7 @@ struct TextWindowManager_0205d2bc;
 struct TextWindowManager_0205d6a0;
 extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(struct TextWindowManager_0205d1e0*);
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(struct TextWindowManager_0205d274*);
-extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc*);
+extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(struct TextWindowManager_0205d2bc*);
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0*, int);
 
 // USA: func_ov000_0217e46c
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov000_0217e46c(char* arg0) {
 
     ClearTextWindowManagerBGScreenData_0205d1e0((struct TextWindowManager_0205d1e0*)(arg0 + 0x188));
     FlushTextWindowManagerBGScreenData_0205d274((struct TextWindowManager_0205d274*)(arg0 + 0x188));
-    func_0205d2bc((struct TextWindowManager_0205d2bc*)(arg0 + 0x188));
+    CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((struct TextWindowManager_0205d2bc*)(arg0 + 0x188));
     CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(arg0 + 0x188), 1);
 
     *(unsigned short*)(arg0 + REGION_OFFSET_0 + REGION_OFFSET_1) |= 0x2;

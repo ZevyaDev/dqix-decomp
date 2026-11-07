@@ -2,8 +2,8 @@
 
 extern "C" int IsBrightnessFadeActive_ov031_0223c054(int);
 extern "C" int func_ov031_02223440(void);
-extern "C" void func_ov031_0223cbbc(int, int);
-extern "C" void func_ov031_022274d0(int, int);
+extern "C" void HideScreenLayers_ov031_0223cbbc(int, int);
+extern "C" void SetStepIndicatorAndButtonBarModes_ov031_022274d0(int, int);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_02232508(void);
 
@@ -13,8 +13,8 @@ extern "C" ARM void func_ov031_022310c4(void) {
     if (IsBrightnessFadeActive_ov031_0223c054(0) != 0) return;
     func_ov031_02223440();
     int var0 = 1;
-    func_ov031_0223cbbc(var0, var0);
-    func_ov031_0223cbbc(0, 0x14);
-    func_ov031_022274d0(2, 1);
+    HideScreenLayers_ov031_0223cbbc(var0, var0);
+    HideScreenLayers_ov031_0223cbbc(0, 0x14);
+    SetStepIndicatorAndButtonBarModes_ov031_022274d0(2, 1);
     SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02232508);
 }

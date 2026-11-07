@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "World/ZoneResourceTree.h"
 
-struct Struct_0202b2f0;
+struct LocalWireless_0202b2f0;
 struct LocalWireless_0202c1a4;
 struct Struct_0207da94;
 struct Struct_020e3544;
@@ -10,7 +10,7 @@ struct Struct_020e3b08;
 struct Struct_0207959c;
 struct Struct_0207958c;
 
-extern "C" Struct_0202b2f0* GetLocalWireless_0202ae18(void);
+extern "C" LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
 extern "C" void func_0207dba8(void* arg0);
 extern "C" void func_ov017_02190264(void* arg0, int arg1);
 extern "C" void func_ov000_0215fb04(void* arg0, int arg1);
@@ -21,9 +21,9 @@ extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" void func_0202c600(Struct_0202b2f0* arg0, int arg1);
-extern "C" void func_0202c718(Struct_0202b2f0* arg0, int arg1);
-extern "C" void func_0202c21c(Struct_0202b2f0* arg0, int arg1);
+extern "C" void func_0202c600(LocalWireless_0202b2f0* arg0, int arg1);
+extern "C" void func_0202c718(LocalWireless_0202b2f0* arg0, int arg1);
+extern "C" void func_0202c21c(LocalWireless_0202b2f0* arg0, int arg1);
 extern "C" Struct_0207da94* func_0207d78c(void);
 extern "C" void func_ov017_0218d500(void* arg0);
 extern "C" void func_0207da94(Struct_0207da94* arg0, int arg1);
@@ -71,7 +71,7 @@ struct Struct_ov017_021905b8_5 {
 // USA: func_ov017_021905b8
 extern "C" ARM void func_ov017_021905b8(GameResources* arg0, int arg1, int arg2) {
     GameState* var0 = GameState::GetInstance();
-    Struct_0202b2f0* var1 = GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* var1 = GetLocalWireless_0202ae18();
     if (arg1 <= 0) {
         return;
     }

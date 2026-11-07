@@ -72,8 +72,8 @@ extern "C" ARM void func_02016874(Zone3D* arg0) {
                 if (var13 == 0 || var13->rawInternalModel_ == 0) continue;
                 LightingManager* var14 = LightingManager::GetInstance();
                 var14->ApplyAmbientColorToModel(var13->rawInternalModel_);
-                func_020ca528(&var3->unknown_14_, &data_0210a010.objectRotationPosition);
-                data_0210a010.flags &= ~0xa4;
+                func_020ca528(&var3->unknown_14_, &gRenderConfig_0210a010.objectRotationPosition);
+                gRenderConfig_0210a010.flags &= ~0xa4;
                 RenderConfig::SetObjectPosition(&var3->unknown_3c_);
                 RenderConfig::SubmitToFifo();
                 var13->Draw(true);

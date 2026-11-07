@@ -37,7 +37,7 @@ struct FontGlyph_0204254c {
 extern "C" int func_0206ac6c(void*, void*);
 extern "C" int func_0206abf8(void*, void*);
 extern "C" bool func_02067a9c(void*, void*);
-extern "C" FontGlyph_0204254c* func_0204254c(int, int);
+extern "C" FontGlyph_0204254c* FindFontGlyph_0204254c(int, int);
 extern "C" char* func_0206ac94(void*, unsigned short, char*);
 extern "C" void func_0206ad74(void*);
 #endif
@@ -137,7 +137,7 @@ extern "C" ARM void func_0206aa28(char* arg0) {
         } else {
             var2 = 1;
             int var10 = 1;
-            FontGlyph_0204254c* var11 = func_0204254c((int)(var0), (unsigned char)(arg0[0x19dc]));
+            FontGlyph_0204254c* var11 = FindFontGlyph_0204254c((int)(var0), (unsigned char)(arg0[0x19dc]));
             if (var11) var10 = var11->codeLength_5_0_;
             memcpy(var1, var0, var10);
             var1 += var10;

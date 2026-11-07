@@ -29,13 +29,13 @@ enum { Enum_ov003_0216d63c_5119 = 0x13ff };
 struct StringTable_0201099c_14 {
 	char unknown_0_[0x18];
 };
-struct Struct_020a9ea4 {
+struct SaveProgress_020a9ea4 {
 	char unknown_0_[8];
 };
 
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
-extern "C" void func_020a9ea4(struct Struct_020a9ea4* arg0);
+extern "C" void ResetSaveProgress_020a9ea4(struct SaveProgress_020a9ea4* progress);
 extern "C" void func_ov003_0215c650(void* arg0);
 extern "C" void func_ov003_0216ffbc(void* arg0);
 extern "C" void func_ov003_02170b74(void* arg0);
@@ -78,7 +78,7 @@ struct Struct_ov003_0216d63c {
 	signed char unknown_13fc_[3];
 	char unknown_13ff_[Enum_ov003_0216d63c_5128 - Enum_ov003_0216d63c_5119];
 	int unknown_1408_;
-	struct Struct_020a9ea4 unknown_140c_;
+	struct SaveProgress_020a9ea4 unknown_140c_;
 };
 
 // USA: func_ov003_0216d63c
@@ -120,5 +120,5 @@ extern "C" ARM void func_ov003_0216d63c(struct Struct_ov003_0216d63c* arg0) {
 	memset(arg0->unknown_13fc_, -1, 3);
 	arg0->unknown_1408_ = 0;
 	arg0->unknown_13ed_ = 0;
-	func_020a9ea4(&arg0->unknown_140c_);
+	ResetSaveProgress_020a9ea4(&arg0->unknown_140c_);
 }

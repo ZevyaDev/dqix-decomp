@@ -7,7 +7,7 @@ extern "C" void func_0205e92c(void* arg0);
 extern "C" void func_0209c278(void* arg0);
 extern "C" int func_0209c2b8(void* arg0);
 extern "C" int func_0209c290(void* arg0);
-extern "C" void func_0205ea20(void* arg0, int arg1);
+extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
 
 // USA: func_ov001_02163a5c
 extern "C" ARM int func_ov001_02163a5c(void* arg0) {
@@ -19,7 +19,7 @@ extern "C" ARM int func_ov001_02163a5c(void* arg0) {
     } else {
         func_0209c278(&gMusicManager_02109bf4);
         func_0209c290(&gMusicManager_02109bf4);
-        func_0205ea20(&gSoundEffectManager_02108760, 0x64);
+        LoadSoundEffectSet_0205ea20(&gSoundEffectManager_02108760, 0x64);
     }
     return 1;
 }

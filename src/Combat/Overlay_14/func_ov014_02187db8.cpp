@@ -71,14 +71,14 @@ struct Struct_ov014_02186bc8 {
     short unknown_182_[8];
 };
 
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 struct SoundEffectManager_02108760;
 struct Struct_02081f20_2;
 struct Struct_ov014_02186bc8_3;
 
 extern "C" short func_02080468(void* arg0, int arg1);
 extern "C" void func_0208203c(Struct_02081f20_2*);
-extern "C" void func_0207fdcc(Struct_0207fdcc_2*, int);
+extern "C" void CloseMenuLayoutWindow_0207fdcc(MenuLayout_0207fdcc_2*, int);
 extern "C" int func_ov014_02186ff0(char*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" short func_ov014_021874f8(Struct_ov014_02186bc8_3*);
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov014_02187db8(Struct_ov014_02186bc8* arg0)
             func_0208203c((Struct_02081f20_2*)arg0->unknown_14c_);
             if (func_ov014_021874f8((Struct_ov014_02186bc8_3*)arg0) != 0)
             {
-                func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_c0_, arg0->unknown_170_);
+                CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_c0_, arg0->unknown_170_);
                 arg0->unknown_d0_ = NULL;
                 arg0->unknown_17a_ = 4;
                 arg0->unknown_17b_ = 0;
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov014_02187db8(Struct_ov014_02186bc8* arg0)
         }
         else if (func_ov014_02186ff0((char*)arg0))
         {
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_c0_, arg0->unknown_170_);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_c0_, arg0->unknown_170_);
             arg0->unknown_174_ = -1;
             arg0->unknown_17d_ = -1;
             arg0->unknown_17a_ = 2;
@@ -145,7 +145,7 @@ extern "C" ARM void func_ov014_02187db8(Struct_ov014_02186bc8* arg0)
         }
         else if (g_keyManager.TestKeysPressed(0x800))
         {
-            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_c0_, arg0->unknown_170_);
+            CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_c0_, arg0->unknown_170_);
             arg0->unknown_174_ = -1;
             arg0->unknown_17d_ = -1;
             arg0->unknown_17a_ = 5;

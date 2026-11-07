@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-extern "C" void func_02052d7c(void* arg0, int arg1, int arg2);
+extern "C" void SetEquippedItem_02052d7c(void* gameObject, int slot, int itemId);
 extern "C" void func_02072afc(int arg0, void* arg1, void* arg2);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern char data_020f0cf4[];
@@ -32,7 +32,7 @@ extern "C" ARM void func_02072c9c(int arg0, char* arg1) {
     struct Struct_02072c9c* var5 = (struct Struct_02072c9c*)(var2 + 0x294);
     struct Struct_02072c9c* var6 = (struct Struct_02072c9c*)(var2 + 0x194);
     if (var6 == NULL) {
-        func_02052d7c(var0, 0, -1);
+        SetEquippedItem_02052d7c(var0, 0, -1);
         func_02072afc(arg0, var3, var4);
         var6 = (struct Struct_02072c9c*)(var2 + 0x194);
     }

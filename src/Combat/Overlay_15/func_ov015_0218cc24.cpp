@@ -49,7 +49,7 @@ extern "C" void func_ov015_0218c538(void* arg0, int arg1);
 extern "C" void func_ov015_0218c3a4(void* arg0, int arg1);
 extern "C" void func_02099e18(void* arg0, int arg1, int arg2, int arg3);
 struct Struct_02040774_2;
-extern "C" void func_020407b4(Struct_02040774_2*, int, int, int);
+extern "C" void SetObject3DPosition_020407b4(Struct_02040774_2*, int, int, int);
 extern "C" int fix32_Divide(int, int);
 
 extern int gFileScratchSpace_0211e33c __attribute__((aligned(4)));
@@ -144,12 +144,12 @@ extern "C" ARM int func_ov015_0218cc24(Struct_ov015_0218cc24_2* arg0) {
                     void* var20 = arg0->inline_ov015_0218cc24(0)->pModel_;
                     arg0->unknown_54_ = 0;
                     if (var13->unknown_8_4_ == 4) {
-                        func_020407b4((Struct_02040774_2*)&arg0->unknown_24_[var11], 0, 0, 0);
+                        SetObject3DPosition_020407b4((Struct_02040774_2*)&arg0->unknown_24_[var11], 0, 0, 0);
                         if (var20) {
                             arg0->unknown_50_ = ((Model3D*)var20)->GetBoneIndex(&data_ov015_021940db);
                         }
                     } else if (var13->unknown_8_4_ == 6) {
-                        func_020407b4((Struct_02040774_2*)&arg0->unknown_24_[var11], 0, 0, 0);
+                        SetObject3DPosition_020407b4((Struct_02040774_2*)&arg0->unknown_24_[var11], 0, 0, 0);
                         if (var20) {
                             arg0->unknown_50_ = ((Model3D*)var20)->GetBoneIndex(&data_ov015_021940e1);
                         }
@@ -159,7 +159,7 @@ extern "C" ARM int func_ov015_0218cc24(Struct_ov015_0218cc24_2* arg0) {
                             short var21 = arg0->unknown_40_;
                             int var22 = (int)(((long long)var21 * 9830LL + 0x800) >> 12);
                             int var23 = (int)(((long long)var21 * -1638LL + 0x800) >> 12);
-                            func_020407b4((Struct_02040774_2*)&arg0->unknown_24_[var11], var22, var23, 0);
+                            SetObject3DPosition_020407b4((Struct_02040774_2*)&arg0->unknown_24_[var11], var22, var23, 0);
                             if (var20) {
                                 arg0->unknown_50_ = ((Model3D*)var20)->GetBoneIndex(&data_ov015_021940e7);
                             }
@@ -167,7 +167,7 @@ extern "C" ARM int func_ov015_0218cc24(Struct_ov015_0218cc24_2* arg0) {
                             short var24 = arg0->unknown_40_;
                             int var25 = (int)(((long long)var24 * -9830LL + 0x800) >> 12);
                             int var26 = (int)(((long long)var24 * -1638LL + 0x800) >> 12);
-                            func_020407b4((Struct_02040774_2*)&arg0->unknown_24_[var11], var25, var26, 0);
+                            SetObject3DPosition_020407b4((Struct_02040774_2*)&arg0->unknown_24_[var11], var25, var26, 0);
                             if (var20) {
                                 arg0->unknown_50_ = ((Model3D*)var20)->GetBoneIndex(&data_ov015_021940e1);
                             }
@@ -176,7 +176,7 @@ extern "C" ARM int func_ov015_0218cc24(Struct_ov015_0218cc24_2* arg0) {
                 }
                 if (var11 == 9) {
                     short var27 = arg0->unknown_40_;
-                    func_020407b4((Struct_02040774_2*)&arg0->unknown_24_[var11], (int)(((long long)var27 * 0x2000LL + 0x800) >> 12), 0, 0);
+                    SetObject3DPosition_020407b4((Struct_02040774_2*)&arg0->unknown_24_[var11], (int)(((long long)var27 * 0x2000LL + 0x800) >> 12), 0, 0);
                 }
             }
             RestoreTextureVRAMState_0207df90(var1 + var0);

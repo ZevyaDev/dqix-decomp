@@ -18,34 +18,34 @@ static inline int inline_0202e5d8(int arg0, int arg1) {
 }
 
 struct Struct_0202e5d8_4 {
-    int unknown_0_;
-    int unknown_4_;
-    int unknown_8_;
+    int x_0_;
+    int y_4_;
+    int z_8_;
 };
 
-// USA: func_0202e5d8
-extern "C" ARM void func_0202e5d8(void* arg0, int arg1, int arg2, int arg3) {
-    int var0;
-    int var1, var2, var3;
-    struct Struct_0202e5d8_4 var4;
-    struct Struct_0202e5d8 var5;
+// USA: SetCameraOrbit_0202e5d8
+extern "C" ARM void SetCameraOrbit_0202e5d8(void* camera, int angle, int height, int distance) {
+    int yaw;
+    int heightSquared, distanceSquared, groundDistanceSquared;
+    struct Struct_0202e5d8_4 offset;
+    struct Struct_0202e5d8 rotation;
 
-    var0 = fix32ReduceAngle0To2Pi(arg1);
-    *(int*)((char*)arg0 + 0x70) = var0;
-    *(int*)((char*)arg0 + 0x74) = arg2;
-    *(int*)((char*)arg0 + 0x78) = arg3;
+    yaw = fix32ReduceAngle0To2Pi(angle);
+    *(int*)((char*)camera + 0x70) = yaw;
+    *(int*)((char*)camera + 0x74) = height;
+    *(int*)((char*)camera + 0x78) = distance;
 
-    var1 = inline_0202e5d8(arg2, arg2);
-    var2 = inline_0202e5d8(arg3, arg3);
-    var3 = var2 - var1;
+    heightSquared = inline_0202e5d8(height, height);
+    distanceSquared = inline_0202e5d8(distance, distance);
+    groundDistanceSquared = distanceSquared - heightSquared;
 
-    var4.unknown_0_ = 0;
-    var4.unknown_4_ = arg2;
-    var4.unknown_8_ = fix32_Sqrt(var3);
+    offset.x_0_ = 0;
+    offset.y_4_ = height;
+    offset.z_8_ = fix32_Sqrt(groundDistanceSquared);
 
-    var5 = RotationMatrixY(var0);
+    rotation = RotationMatrixY(yaw);
 
-    Mat4x3_ApplyToVector((struct Struct_0202e5d8_2*)&var4, (struct Struct_0202e5d8_3*)&var5, (struct Struct_0202e5d8_2*)&var4);
+    Mat4x3_ApplyToVector((struct Struct_0202e5d8_2*)&offset, (struct Struct_0202e5d8_3*)&rotation, (struct Struct_0202e5d8_2*)&offset);
 
-    Vector3fix_Add((struct Struct_ov009_0218aa28*)((char*)arg0 + 0x10), (struct Struct_ov009_0218aa28*)&var4, (struct Struct_ov009_0218aa28*)((char*)arg0 + 4));
+    Vector3fix_Add((struct Struct_ov009_0218aa28*)((char*)camera + 0x10), (struct Struct_ov009_0218aa28*)&offset, (struct Struct_ov009_0218aa28*)((char*)camera + 4));
 }

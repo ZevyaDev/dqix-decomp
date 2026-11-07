@@ -16,7 +16,7 @@ extern "C" int GetMessageWindow_020421a0();
 extern "C" int func_020abb64(void);
 struct StringList_02072a68_2;
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
-extern "C" void func_0200fb94(char* arg0, unsigned char arg1);
+extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
 extern "C" void func_02012028(void* arg0, unsigned char arg1);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
@@ -49,7 +49,7 @@ extern "C" ARM int func_ov004_0216d5b0(void* arg0) {
 #else
     StartMessage_0204500c(var3, (const char*)var5, 0, 0xe3);
 #endif
-    func_0200fb94((char*)var2, 7);
+    SetGameMode_0200fb94((char*)var2, 7);
     func_02012028(var2, 0);
     QueueMenuScriptEntry_ov011_021848a0(arg0, 0x97);
     return 0;

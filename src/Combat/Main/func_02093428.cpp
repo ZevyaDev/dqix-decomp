@@ -20,7 +20,7 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int* func_020936f8(void);
 extern "C" char* GetMessageWindow_020421a0(void);
-extern "C" int func_020535c8(signed char* arg0);
+extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 
 struct Struct_02093428_6 {
     char unknown_0_[0x30];
@@ -81,7 +81,7 @@ extern "C" ARM void func_02093428(struct Struct_02093428_6* arg0) {
         unsigned char var5 = var4->unknown_f7c_;
         for (unsigned char var6 = 0; var6 < var5; var6++) {
             GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var0, var4->unknown_f78_[var6]);
-            if (var7 != 0 && func_020535c8((signed char*)var7) != 0) {
+            if (var7 != 0 && IsPerformingGesture_020535c8((signed char*)var7) != 0) {
                 func_020531f0(var7);
             }
         }

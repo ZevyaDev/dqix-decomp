@@ -13,14 +13,14 @@ struct Struct_ov005_02153954
     char unknown_1244_[4];
 };
 
-extern "C" void func_ov023_021dcae0(void* arg0, int arg1);
+extern "C" void SetItemInfoPanelItem_ov023_021dcae0(void* panel, int itemId);
 extern "C" void func_ov005_021562b8(Struct_ov005_02153954* arg0);
 extern "C" void func_ov005_0215730c(Struct_ov005_02153954* arg0);
 
 // USA: func_ov005_0215be60
 extern "C" ARM void func_ov005_0215be60(Struct_ov005_02153954* arg0)
 {
-    func_ov023_021dcae0(arg0->unknown_1244_, -1);
+    SetItemInfoPanelItem_ov023_021dcae0(arg0->unknown_1244_, -1);
     int var0 = 0;
     if (g_touchInput.pressed_ || (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) ||
         g_touchInput.released_ != 0)

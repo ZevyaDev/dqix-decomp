@@ -100,7 +100,7 @@ struct Struct_020338d4;
 struct Struct_0202e6a8;
 struct Struct_0202e5c0;
 struct Struct_0202ea4c;
-struct Struct_020d7aa0_2;
+struct TimedMessageQueue_020d7aa0_2;
 struct Struct_02046574_2;
 struct Struct_0201099c_3;
 
@@ -120,15 +120,15 @@ extern "C" void func_020531f0(GameObject* arg0);
 extern "C" void func_020a27b8(unsigned char* arg0);
 extern "C" int func_02039874(void* arg0);
 extern "C" void func_020338d4(struct Struct_020338d4* arg0, struct Struct_ov009_0218aa28* arg1);
-extern "C" void func_02039d24(unsigned char* arg0);
+extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 extern "C" void func_020338b0(unsigned char* arg0, int arg1);
 extern "C" void func_0202e6a8(struct Struct_0202e6a8* arg0, int arg1);
 extern "C" int func_0202e800(void* arg0);
 extern "C" void func_0202e5c0(struct Struct_0202e5c0* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0202ea4c(struct Struct_0202ea4c* arg0);
-extern "C" void func_0202e0a4(struct Struct_020e3f1c_2* arg0);
-extern "C" struct Struct_020d7aa0_2* func_020d7a50();
-extern "C" void func_020d7aa0(struct Struct_020d7aa0_2* arg0);
+extern "C" void UpdateCamera_0202e0a4(struct Struct_020e3f1c_2* camera);
+extern "C" struct TimedMessageQueue_020d7aa0_2* func_020d7a50();
+extern "C" void ClearTimedMessageQueue_020d7aa0(struct TimedMessageQueue_020d7aa0_2* queue);
 extern "C" void func_ov017_021c3e18(int arg0);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
@@ -155,7 +155,7 @@ struct StringList_02072a68_2;
 #include "Filesystem/FileIO.h"
 extern "C" int func_020d3018(const char* arg0, const char* arg1);
 extern "C" void ResetStringList_020727d8(struct StringList_020727d8* stringList);
-extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, void* arg2, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
+extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, void* scriptData, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern const char data_020f2e30[];
 extern const char data_020f2e3b[];
@@ -260,7 +260,7 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
                 var18->unknown_44_.unknown_4_ = var15.unknown_4_;
                 var18->unknown_44_.unknown_8_ = var15.unknown_8_ + 0x3000;
                 func_020338d4((struct Struct_020338d4*)var18, &var10->unknown_44_);
-                func_02039d24((unsigned char*)var18);
+                ResetFollowTrail_02039d24((unsigned char*)var18);
             }
         }
         func_020338b0((unsigned char*)var10, (int)&var6->unknown_44_);
@@ -276,8 +276,8 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
             func_0202e5c0((struct Struct_0202e5c0*)var5, var20.unknown_0_, var20.unknown_4_ + 0x2000, var20.unknown_8_ + 0xd800);
             func_0202ea4c((struct Struct_0202ea4c*)var5);
         }
-        func_0202e0a4(var5);
-        func_020d7aa0(func_020d7a50());
+        UpdateCamera_0202e0a4(var5);
+        ClearTimedMessageQueue_020d7aa0(func_020d7a50());
         RequestFontLoad_02094b34(var3, 0x74, 0x20e, 0, 0);
         func_ov017_021c3e18(0);
         arg0->unknown_a_ = 2;

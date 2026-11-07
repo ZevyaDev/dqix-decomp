@@ -68,7 +68,7 @@ struct Struct_ov005_02153954 {
 
 extern unsigned char data_ov005_0215cd48[8];
 
-extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
+extern "C" Struct_ov005_02153ba4_2* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
 extern "C" void func_ov005_02157174(Struct_ov005_02156ecc* arg0, Struct_ov005_02156ecc_2* arg1);
 extern "C" void func_ov005_02157b74(Struct_ov005_02153954* arg0, int arg1, int arg2);
 extern "C" int func_ov005_02155670(Struct_ov005_02153954* arg0, int arg1, int arg2);
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov005_02156ecc(Struct_ov005_02153954* arg0, int arg1, i
     if (arg0->unknown_3d78_ < 0)
         return;
     GameState::GetInstance();
-    Struct_ov005_02153ba4_2* var0 = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+    Struct_ov005_02153ba4_2* var0 = GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
     Vector3fix var1 = arg0->unknown_3cf0_.unknown_1c_;
     Struct_ov005_02155d6c_2* var2 = arg0->unknown_2d90_[arg0->unknown_3d78_].unknown_8_;
     var1.z = 0;

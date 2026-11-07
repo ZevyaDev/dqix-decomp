@@ -20,7 +20,7 @@ extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void* func_ov004_0215e47c(void*, int);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" short func_ov023_021f6f10(void*);
-extern "C" void func_ov023_021f809c(void*, void*);
+extern "C" void RedrawMenuWindow_ov023_021f809c(void*, void*);
 extern "C" void* func_ov004_0215e4c0(void*, int);
 extern "C" void func_ov023_021f8960(char*, short, unsigned short);
 extern "C" struct Struct_ov004_0215e5fc_5* FindItemData_020dedd0(struct Struct_ov002_02157634_5*, int);
@@ -213,7 +213,7 @@ extern "C" ARM void func_ov004_0215e5fc(void* arg0, int arg1) {
             var17->inline_ov004_0215e5fc_55(0xf);
         }
     }
-    func_ov023_021f809c(func_ov004_0215e4c0(arg0, 4), arg0);
+    RedrawMenuWindow_ov023_021f809c(func_ov004_0215e4c0(arg0, 4), arg0);
 }
 #else
 // USA: func_ov004_0215e5fc
@@ -319,6 +319,6 @@ extern "C" ARM void func_ov004_0215e5fc(void* arg0, int arg1) {
     }
     Struct_ov004_0215e5fc_2* var44 = (Struct_ov004_0215e5fc_2*)func_ov004_0215e4c0(arg0, 4);
     func_ov023_021f8960((char*)var44, 0, 0xffff);
-    func_ov023_021f809c(var44, arg0);
+    RedrawMenuWindow_ov023_021f809c(var44, arg0);
 }
 #endif

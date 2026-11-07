@@ -6,15 +6,15 @@
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 struct Struct_02052e2c;
 extern "C" short* func_02052e2c(Struct_02052e2c* arg0);
-struct Struct_02015ef4_4 {
+struct ItemData_02015ef4_4 {
     int unknown_0_, unknown_4_, unknown_8_, unknown_c_;
     unsigned int unknown_10_0_ : 10;
     unsigned int unknown_11_2_ : 10;
     unsigned int unknown_12_4_ : 8;
     unsigned int unknown_13_4_ : 4;
-    short unknown_14_, unknown_16_, unknown_18_, unknown_1a_, unknown_1c_;
+    short unknown_14_, unknown_16_, itemId_18_, unknown_1a_, unknown_1c_;
 };
-extern "C" unsigned short func_020de234(Struct_02015ef4_4* arg0, int arg1);
+extern "C" unsigned short GetItemGraphicNumber_020de234(ItemData_02015ef4_4* item, int gender);
 struct Struct_02072e94 {
     short unknown_0_[10];
     unsigned char unknown_14_0_ : 1;
@@ -31,17 +31,17 @@ extern char data_020f0d0a[];
 
 // USA: func_02072e94
 extern "C" ARM int func_02072e94(char* arg0, int arg1, int arg2,
-                                Struct_02015ef4_4* arg3, void* arg4) {
+                                ItemData_02015ef4_4* arg3, void* arg4) {
     GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1);
     unsigned char* var1 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var0);
     Struct_02072e94* var2 = (Struct_02072e94*)func_02052e2c((Struct_02052e2c*)var0);
     int var3 = var2->unknown_14_0_;
-    int var4 = func_020de234(arg3, var2->unknown_14_0_);
-    Struct_02015ef4_4* var5 = NULL;
-    Struct_02015ef4_4* var6 = NULL;
+    int var4 = GetItemGraphicNumber_020de234(arg3, var2->unknown_14_0_);
+    ItemData_02015ef4_4* var5 = NULL;
+    ItemData_02015ef4_4* var6 = NULL;
     if (arg4 != NULL) {
-        var6 = (Struct_02015ef4_4*)arg4;
-        var5 = (Struct_02015ef4_4*)((char*)arg4 + 0xe0);
+        var6 = (ItemData_02015ef4_4*)arg4;
+        var5 = (ItemData_02015ef4_4*)((char*)arg4 + 0xe0);
     }
     Struct_020e8834 var7 = data_020e8834;
     char var8[2] = {};
@@ -53,8 +53,8 @@ extern "C" ARM int func_02072e94(char* arg0, int arg1, int arg2,
         var4 += var2->unknown_15_0_;
     }
     int var10 = -1;
-    if (var5 != NULL && var5->unknown_18_ > -1) {
-        var10 = func_020de234(var5, var3);
+    if (var5 != NULL && var5->itemId_18_ > -1) {
+        var10 = GetItemGraphicNumber_020de234(var5, var3);
     }
     if (arg2 == 3) {
         var8[0] = 'a';
@@ -76,12 +76,12 @@ extern "C" ARM int func_02072e94(char* arg0, int arg1, int arg2,
     }
     if (arg2 == 5 && var6 != NULL) {
         if (var2->unknown_0_[4] == 8010 || var2->unknown_0_[4] < 0) {
-            var4 = func_020de234(var6, var3);
+            var4 = GetItemGraphicNumber_020de234(var6, var3);
         }
         strcpy(var7.unknown_0_, data_020f0d04);
     }
     if (arg2 == 6) strcpy(var7.unknown_0_, data_020f0d04);
-    if (arg3->unknown_18_ == 1000) var4 += var1[0x56a];
+    if (arg3->itemId_18_ == 1000) var4 += var1[0x56a];
     sprintf(arg0, data_020f0d0a, (char)arg3->unknown_12_4_, var4, var8, var9, var7.unknown_0_);
     return 1;
 }

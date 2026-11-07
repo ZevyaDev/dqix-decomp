@@ -6,8 +6,8 @@ struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" void func_02012028(void* arg0, unsigned char arg1);
-struct Struct_020a9ea4;
-extern "C" void func_020a9ea4(struct Struct_020a9ea4* arg0);
+struct SaveProgress_020a9ea4;
+extern "C" void ResetSaveProgress_020a9ea4(struct SaveProgress_020a9ea4* progress);
 extern "C" void func_ov004_0216afb0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
 extern "C" int func_ov004_0216b2c8(void* arg0, int arg1, int arg2, int arg3);
 extern "C" int func_ov004_0216b7bc(void* arg0, int arg1, int arg2, int arg3);
@@ -28,7 +28,7 @@ struct Struct_ov004_02171034_3 {
 #else
     unsigned char unknown_4_[0xc];
 #endif
-    struct Struct_020a9ea4* unknown_10_;
+    struct SaveProgress_020a9ea4* unknown_10_;
 };
 extern struct Struct_ov004_02171034_3 data_ov004_02171034;
 
@@ -43,7 +43,7 @@ extern "C" ARM int func_ov004_0216d004(void* arg0) {
     PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 5, 0);
 
     func_02012028((void*)GameState::GetInstance(), 0);
-    func_020a9ea4(data_ov004_02171034.unknown_10_);
+    ResetSaveProgress_020a9ea4(data_ov004_02171034.unknown_10_);
     data_ov004_02171034.unknown_2_ = 1;
 
     if (data_ov004_02171034.unknown_3_ == 4) {

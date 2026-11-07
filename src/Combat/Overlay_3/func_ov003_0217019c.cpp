@@ -4,7 +4,7 @@ struct TextWindowManager_0205d1e0;
 extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(struct TextWindowManager_0205d1e0* windowManager);
 struct TextWindowManager_0205d228;
 extern "C" void DrawTextWindows_0205d228(struct TextWindowManager_0205d228* windowManager);
-extern "C" void func_0205da88(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void FillBGUnderTextWindows_0205da88(void* windowManager, int fillBGIndex, int windowBGIndex, int screenEntry);
 struct TextWindowManager_0205d274;
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(struct TextWindowManager_0205d274* windowManager);
 extern "C" void func_ov003_0217033c(char* arg0);
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov003_0217019c(struct Struct_ov003_0217019c_2* arg0) {
 
     ClearTextWindowManagerBGScreenData_0205d1e0((struct TextWindowManager_0205d1e0*)arg0->unknown_3c_);
     DrawTextWindows_0205d228((struct TextWindowManager_0205d228*)arg0->unknown_3c_);
-    func_0205da88(arg0->unknown_3c_, 2, 1, 1);
+    FillBGUnderTextWindows_0205da88(arg0->unknown_3c_, 2, 1, 1);
     FlushTextWindowManagerBGScreenData_0205d274((struct TextWindowManager_0205d274*)arg0->unknown_3c_);
 
     func_ov003_0217033c((char*)arg0);

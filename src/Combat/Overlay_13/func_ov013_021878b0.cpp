@@ -15,8 +15,8 @@ extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" void func_ov013_02187a58(void* arg0, void* arg1);
 extern "C" void LoadBGBlock_0204b174(void* layer, void* block, int allocator, int arg3);
 
-struct Struct_0204af14;
-extern "C" void* func_0204af14(struct Struct_0204af14* arg0, unsigned int arg1);
+struct BGLayer_0204af14;
+extern "C" void* GetBGScreenBlock_0204af14(struct BGLayer_0204af14* layer, unsigned int screenBlockIndex);
 struct Struct_0204ae44;
 extern "C" void func_0204ae44(struct Struct_0204ae44* arg0, int arg1);
 struct Struct_0204b988;
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov013_021878b0(Struct_ov013_021878b0* arg0) {
             }
             var0->RemoveTask(arg0->unknown_5c_);
             arg0->unknown_5c_ = -1;
-            void* var9 = func_0204af14((struct Struct_0204af14*)arg0->unknown_28_, 0);
+            void* var9 = GetBGScreenBlock_0204af14((struct BGLayer_0204af14*)arg0->unknown_28_, 0);
             if (var9 != 0) {
                 func_0204ae44((struct Struct_0204ae44*)var9, arg0->unknown_67_);
             }

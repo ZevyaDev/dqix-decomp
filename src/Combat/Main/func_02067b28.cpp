@@ -154,8 +154,8 @@ struct Struct_02067b28 {
 };
 extern "C" int func_02044494(void*, void*);
 extern "C" int func_02044420(void*, void*);
-extern "C" FontGlyph_0204254c* func_0204254c(int, int);
-extern "C" int func_020424e4(int, int);
+extern "C" FontGlyph_0204254c* FindFontGlyph_0204254c(int, int);
+extern "C" int FindFontGlyphIndex_020424e4(int, int);
 extern "C" int func_02045c00(Struct_02045c00_2*, int);
 extern "C" int func_020459b8(Struct_02067b28*, unsigned char, FontGlyph_0204254c*, unsigned char);
 extern "C" int CompareBytes_02001aec(const void*, const void*, int);
@@ -193,8 +193,8 @@ extern "C" ARM void func_02067b28(Struct_02067b28* arg0) {
                 arg0->unknown_19c3_ = 1;
             }
         }
-        FontGlyph_0204254c* var4 = func_0204254c((int)var0, arg0->unknown_19dc_);
-        int var5 = func_020424e4((int)var0, arg0->unknown_19dc_);
+        FontGlyph_0204254c* var4 = FindFontGlyph_0204254c((int)var0, arg0->unknown_19dc_);
+        int var5 = FindFontGlyphIndex_020424e4((int)var0, arg0->unknown_19dc_);
         if (var4 && var5 >= 0) {
             int var6 = func_02045c00((Struct_02045c00_2*)arg0, (int)var4);
             arg0->unknown_7c_ += var4->codeLength_5_0_;

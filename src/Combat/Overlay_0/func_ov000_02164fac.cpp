@@ -12,7 +12,7 @@ struct Struct_02013fb4;
 struct TextureVRAMArea_0203d028;
 struct Struct_0205faf4_11;
 struct ObjectArchiveLoadInfo_0203d028_11;
-struct Struct_02015ef4_5;
+struct TextureVRAMArea_02015ef4_5;
 
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void func_02012de8(void);
@@ -37,7 +37,7 @@ extern "C" void func_ov000_02166a94(void* arg0);
 extern "C" void func_0207ab68(ActionTables_02108e10* arg0, SafeAllocator* arg1);
 #endif
 extern "C" int func_ov017_0219e008(void* arg0);
-extern "C" void func_0207dfc8(Struct_02015ef4_5* arg0, Struct_02015ef4_5* arg1);
+extern "C" void InitTextureVRAMAreaFromSaved_0207dfc8(TextureVRAMArea_02015ef4_5* sourceArea, TextureVRAMArea_02015ef4_5* area);
 
 extern const char data_ov000_02183960[];
 extern const char data_ov000_02183976[];
@@ -273,9 +273,9 @@ extern "C" ARM void func_ov000_02164fac(Struct_ov000_02164fac_3* arg0) {
         arg0->unknown_44_.CreateTypeA(var26, var25);
     }
     if (func_ov017_0219e008(var13) == 0) {
-        func_0207dfc8((Struct_02015ef4_5*)var13->unknown_2cc_, (Struct_02015ef4_5*)arg0->unknown_1bc_);
+        InitTextureVRAMAreaFromSaved_0207dfc8((TextureVRAMArea_02015ef4_5*)var13->unknown_2cc_, (TextureVRAMArea_02015ef4_5*)arg0->unknown_1bc_);
     } else {
-        func_0207dfc8((Struct_02015ef4_5*)&var11[7], (Struct_02015ef4_5*)arg0->unknown_1bc_);
+        InitTextureVRAMAreaFromSaved_0207dfc8((TextureVRAMArea_02015ef4_5*)&var11[7], (TextureVRAMArea_02015ef4_5*)arg0->unknown_1bc_);
     }
     var0.Reset();
     ZeroDestroyGPCPointer(&var0.pGPCFile);

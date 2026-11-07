@@ -87,7 +87,7 @@ extern "C" ARM void func_0206c794(void* arg0) {
 #else
 
 struct FontGlyph_0204254c { int unknown_0_; signed char unknown_4_; signed char codeLength_5_0_ : 6; signed char unknown_5_6_ : 2; unsigned char unknown_6_[2]; };
-extern "C" FontGlyph_0204254c* func_0204254c(int, int);
+extern "C" FontGlyph_0204254c* FindFontGlyph_0204254c(int, int);
 extern "C" int func_02042648(int);
 struct Struct_0204500c_4;
 extern "C" void func_0206b198(Struct_0204500c_4*, unsigned short);
@@ -163,7 +163,7 @@ extern "C" ARM void func_0206ad74(Struct_0206ad74* arg0) {
             for (;;) {
                 var0 = var6 + 1;
                 if (!*var7) break;
-                FontGlyph_0204254c* var15 = func_0204254c((int)var7, arg0->unknown_19dc_);
+                FontGlyph_0204254c* var15 = FindFontGlyph_0204254c((int)var7, arg0->unknown_19dc_);
                 if (var15) {
                     arg0->unknown_1942_++;
                     int var16 = var15->unknown_4_;

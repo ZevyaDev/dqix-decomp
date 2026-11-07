@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 
 struct Struct_ov017_021aa59c_6 {
     char unknown_0_[0x18];
-    struct Struct_0207fdcc_2* unknown_18_;
+    struct MenuLayout_0207fdcc_2* unknown_18_;
 };
 
-extern "C" int func_02080d54(struct Struct_0207fdcc_2* arg0, int arg1, int arg2, int arg3);
+extern "C" int func_02080d54(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2, int arg3);
 
 // USA: func_ov017_021ab1a4
 extern "C" ARM int func_ov017_021ab1a4(struct Struct_ov017_021aa59c_6* arg0) {

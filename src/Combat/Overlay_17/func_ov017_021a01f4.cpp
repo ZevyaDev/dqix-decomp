@@ -8,7 +8,7 @@ extern short data_ov017_021d6618[];
 extern Vector3i data_ov017_021d6600[];
 
 extern "C" void* func_0203cf4c(void);
-extern "C" void* func_0203df78(void* arg0, int arg1);
+extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
 extern "C" int func_02040528(int* arg0);
 extern "C" int func_ov017_0218dd18(void* arg0, void* arg1, int arg2);
 
@@ -25,7 +25,7 @@ extern "C" ARM int func_ov017_021a01f4(void* arg0, int arg1, int arg2, void* arg
 		short* var4 = data_ov017_021d6618 + var1 * 8;
 
 		while (*var4 != -1) {
-			void* var5 = func_0203df78(var3, *var4);
+			void* var5 = FindNPCById_0203df78(var3, *var4);
 			if (!var5) { var4++; continue; }
 
 			int var6 = func_02040528((int*)var5);

@@ -15,7 +15,7 @@ struct Struct_ov009_0218aafc { char unknown_0_[5]; };
 #if !defined(jpn)
 extern struct Struct_ov009_0218aafc data_ov009_0218aafc[];
 #endif
-extern "C" int func_020424e4(int arg0, int arg1);
+extern "C" int FindFontGlyphIndex_020424e4(int text, int font);
 
 struct Struct_ov009_021847ec {
 #if !defined(jpn)
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov009_021847ec(struct Struct_ov009_021847ec* arg0) {
     unsigned char* var0 = arg0->unknown_2a_;
     int var1;
     for (var1 = 0; var1 < 15; var1++) {
-        *var0++ = (unsigned char)func_020424e4((int)&data_ov009_0218aafc[var1], 1);
+        *var0++ = (unsigned char)FindFontGlyphIndex_020424e4((int)&data_ov009_0218aafc[var1], 1);
     }
 #endif
 }

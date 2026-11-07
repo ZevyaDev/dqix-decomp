@@ -51,13 +51,13 @@ extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" char* GetZone3D_02012fe4(void);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
 extern "C" void* func_020d7a50(void);
-struct Struct_020d7aa0_2;
-extern "C" void func_020d7aa0(Struct_020d7aa0_2*);
+struct TimedMessageQueue_020d7aa0_2;
+extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2*);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void ColorEffect_ConfigureAlphaBlend(void* reg, int plane1, int plane2, int ev1, int ev2);
 extern "C" void* func_0203cf4c(void);
-extern "C" void* func_0203df78(void* arg0, int arg1);
+extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
 extern "C" Vector3fix func_020406f8(void* arg0);
 extern "C" int fix32_Atan2(int arg0, int arg1);
 #include "Combat/EntryGetterTypes.h"
@@ -101,12 +101,12 @@ extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
 extern "C" void func_020e1154(void* arg0);
 extern "C" void func_ov017_021d1c2c(unsigned char, unsigned short);
 extern "C" void func_ov017_021d1dc0(unsigned short, int, int*, int, int);
-extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int arg1);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" void func_ov017_021a65c4(void* arg0, unsigned char arg1, int arg2);
-extern "C" void func_ov017_021baedc(unsigned char* arg0, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(unsigned char* node, int arg1);
 extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" int func_020107d0(char*);
 extern "C" int func_02010804(char*);
@@ -138,7 +138,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
     func_0205c904(arg0->unknown_2c_, var0->GetTickCount());
 
     if (arg0->unknown_8_ == 0) {
-        func_020d7aa0((Struct_020d7aa0_2*)func_020d7a50());
+        ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)func_020d7a50());
         arg0->unknown_24_ = inline_ov017_021a86d0();
         inline_ov017_021a86d0_2(0x11);
         DisablePlayerControl_020397cc((Struct_02018300_3*)var0->GetProtagonist(), 1);
@@ -147,9 +147,9 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
         void* var4 = func_0203cf4c();
         void* var5 = NULL;
         if (arg0->unknown_14_ == 0) {
-            var5 = func_0203df78(var4, 2);
+            var5 = FindNPCById_0203df78(var4, 2);
         } else if (arg0->unknown_14_ == 1) {
-            var5 = func_0203df78(var4, 0xcb);
+            var5 = FindNPCById_0203df78(var4, 0xcb);
         }
         if (var5 != NULL) {
             GameObject* var6 = var0->GetUnknownGameObject();
@@ -161,7 +161,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
             if (var9 < 0) {
                 var9 += 0x6488;
             }
-            func_02040af0((Struct_0203dce4*)var5, var9);
+            func_02040af0((NPC_0203dce4*)var5, var9);
         }
         FontLoader_0208cb08* var10 = GetFontLoader_02094a00();
         RequestSingleFontLoad_02094b30(var10, 0x205, 0);
@@ -369,14 +369,14 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
             func_ov017_021d1dc0(arg0->unknown_10_, 0, var34, 0, 0);
             func_0200fcfc(var0, var32);
             unsigned char* var35 = *(unsigned char**)(var30 + Enum_ov017_021a86d0_14092);
-            func_ov017_0219e310(var35, 0);
+            ResetZoneLoadTask_ov017_0219e310(var35, 0);
             AppendToQueue_020469b4((Queue_0201bdac_2*)var31, (QueueNode_0201bdac*)var35);
             if (var33) {
                 func_ov017_021a65c4(var30, 1, 0);
             }
         } else {
             unsigned char* var36 = *(unsigned char**)(var30 + Enum_ov017_021a86d0_14132);
-            func_ov017_021baedc(var36, 1);
+            ResetEventTask_ov017_021baedc(var36, 1);
             int var37 = 0;
             int var38 = 0;
             switch (arg0->unknown_c_) {

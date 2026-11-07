@@ -18,7 +18,7 @@ struct Struct_02018300_3;
 struct Struct_02033834_2;
 struct SoundEffectManager_02108760;
 struct Struct_020d805c;
-struct Struct_020d7aa0_2;
+struct TimedMessageQueue_020d7aa0_2;
 struct Struct_02013fb4;
 struct Struct_ov017_021ac3b0_6 { unsigned short unknown_0_; char unknown_2_[0x1e]; short unknown_20_; };
 struct Struct_ov017_021ac3b0_7 { char unknown_0_[5]; signed char unknown_5_; };
@@ -59,14 +59,14 @@ extern "C" void func_020a28a0(unsigned char*, unsigned char);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void* func_020d7a50();
 extern "C" int func_020d805c(Struct_020d805c*);
-extern "C" void func_020d7aa0(Struct_020d7aa0_2*);
+extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2*);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void*, const char*, int);
 #else
 extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 #endif
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
-extern "C" void func_02033834(Struct_02033834_2*, int);
+extern "C" void SetFacing_02033834(Struct_02033834_2*, int);
 extern "C" void LoadFileTables_020a0c0c();
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_ov017_021acc8c(void*, Struct_02013fb4*, int, int);
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
         if (var6) func_020a28a0((unsigned char*)var6, 3);
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         void* var7 = func_020d7a50();
-        if (func_020d805c((Struct_020d805c*)var7)) func_020d7aa0((Struct_020d7aa0_2*)var7);
+        if (func_020d805c((Struct_020d805c*)var7)) ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)var7);
 #if defined(jpn)
         StartMessage_0204500c(var3, data_ov017_021d7e88, 0);
 #else
@@ -126,7 +126,7 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
     } else if (arg0->unknown_28_ == 2) {
         ReleaseFileTablesForSpace_020a0cc4(0x2800);
         DisablePlayerControl_020397cc((Struct_02018300_3*)var1, 1);
-        func_02033834((Struct_02033834_2*)var1, fix32ReduceAngle0To2Pi(arg0->unknown_8_->unknown_20_));
+        SetFacing_02033834((Struct_02033834_2*)var1, fix32ReduceAngle0To2Pi(arg0->unknown_8_->unknown_20_));
         Struct_ov017_021ac3b0_7* var8 = var2->unknown_8_;
         char var9[0x50];
 #if defined(jpn)

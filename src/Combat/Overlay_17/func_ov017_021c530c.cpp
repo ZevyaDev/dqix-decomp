@@ -20,7 +20,7 @@ extern "C" int func_ov017_021c5c5c(int arg0, int arg1, int arg2);
 extern "C" void func_ov017_021c5b44(unsigned char arg0, int arg1, unsigned int arg2, unsigned char arg3, unsigned char arg4);
 extern "C" void func_0207dcf0(unsigned short arg0);
 extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
-extern "C" void func_02076ccc(void* arg0, int arg1);
+extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
 struct Struct_ov017_021c530c;
 extern "C" Struct_ov017_021c530c* GetBattleSetup_ov017_021b8478(void* battleManager);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
@@ -215,7 +215,7 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
                     func_0207dcf0(arg1->unknown_4_);
                     var3 = func_ov017_021a278c(arg3, arg1->unknown_4_);
                     if (var3 != NULL) {
-                        func_02076ccc(var3, 9);
+                        SetFieldMonsterState_02076ccc(var3, 9);
                     }
                 } else {
                     func_ov017_021c5a8c(arg0, arg1->unknown_4_);
@@ -333,7 +333,7 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
                 } else {
                     var13 = func_ov017_021a278c(arg3, arg1->unknown_4_);
                     if (var13 != NULL) {
-                        func_02076ccc(var13, 9);
+                        SetFieldMonsterState_02076ccc(var13, 9);
                     }
                 }
             }

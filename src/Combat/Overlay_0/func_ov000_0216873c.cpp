@@ -34,7 +34,7 @@ extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
 struct Struct_02095924_2;
 struct Struct_02099950;
-extern "C" struct Struct_02095924_2* func_02011584(void* arg0);
+extern "C" struct Struct_02095924_2* GetZoneList_02011584(void* gameState);
 extern "C" struct Struct_02099950* func_02099950(struct Struct_02095924_2* arg0, int arg1);
 extern "C" void func_0206461c(void* arg0, struct Struct_02099950* arg1);
 extern "C" void func_ov000_02160d80(void* arg0, int arg1);
@@ -119,7 +119,7 @@ extern "C" ARM void func_ov000_0216873c(struct Struct_ov000_0216873c* arg0) {
 #endif
     void* var5 = GetFlagManager_0205ec34();
     unsigned short* var6 = GetZone3D_02012fe4();
-    func_0206461c(var5, func_02099950(func_02011584(var0), *var6));
+    func_0206461c(var5, func_02099950(GetZoneList_02011584(var0), *var6));
     if (arg0->unknown_0_ != 0) {
         DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_0_ << 8);
     }

@@ -140,7 +140,7 @@ extern "C" void func_020cf0fc(int arg0);
 extern "C" void func_020cf1a8(int arg0);
 extern "C" void func_02095cfc(int, int);
 extern "C" int IsLocalWirelessGuest_0202c540(void *wireless);
-extern "C" void func_020ac0b4(void *arg0);
+extern "C" void GetAlchemyCount_020ac0b4(void *count);
 struct Struct_02061c04_24;
 extern "C" void func_020643e0(Struct_02061c04_24*, Struct_02061c04_24*);
 extern "C" int func_020a0870(Struct_02061c04* arg0);
@@ -173,7 +173,7 @@ struct Struct_01ff91ac_3 { unsigned int unknown_0_0_ : 24; unsigned int unknown_
 struct Struct_01ff91ac_4 { unsigned int unknown_0_0_ : 14; unsigned int unknown_1_6_ : 14; unsigned int unknown_3_4_ : 4; };
 struct Struct_01ff91ac_5 { unsigned int unknown_0_0_ : 9; unsigned int unknown_1_1_ : 14; unsigned int unknown_2_7_ : 9; };
 extern "C" void *func_0203cf4c(void);
-extern "C" void *func_0203df78(void *arg0, int arg1);
+extern "C" void *FindNPCById_0203df78(void *npcManager, int id);
 struct Struct_0203e0a0;
 extern "C" void * func_02040538(Struct_0203e0a0*);
 extern "C" void func_020cf0fc(int arg0);
@@ -199,7 +199,7 @@ extern "C" void func_02064af8(Struct_02061c04_28*, Struct_02061c04_27*);
 struct Struct_0205faf4_11;
 extern "C" int func_02061bd8(Struct_0205faf4_11*);
 extern "C" void func_02048418(unsigned char*, unsigned short);
-extern "C" void func_ov017_02191108(void *arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(void *gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 struct Struct_02033b58;
 extern "C" void func_02033b58(Struct_02033b58*, unsigned char);
 extern "C" void *GetActiveZones_02027ca4(void);
@@ -207,7 +207,7 @@ struct Struct_02028bac;
 extern "C" void * func_02028bac(Struct_02028bac*, int);
 extern "C" void func_ov017_021a23b0(void *arg0, unsigned short arg1);
 extern "C" void func_ov017_021c9544(int arg0, int arg1, int arg2, int arg3);
-extern "C" int func_0202ba00(int *arg0);
+extern "C" int GetLocalWirelessState_0202ba00(int *wireless);
 extern "C" void func_020ac4f8(int arg0);
 extern "C" void func_02010810(char*, int);
 extern "C" int func_0201081c(char*);
@@ -1031,7 +1031,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     case 0xc5: {
         GameState *var135 = GameState::GetInstance();
         void *var136 = GetLocalWireless_0202ae18();
-        int var137 = func_0202ba00((int *)var136);
+        int var137 = GetLocalWirelessState_0202ba00((int *)var136);
         int var138 = *((unsigned char *)var136 + 0x1000 + 0xd);
         int var139 = 0;
         if ((var137 == 5 && var138 > 1) || var137 == 6)
@@ -1139,7 +1139,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
                 func_02053fe4(var154, 1, 1);
             }
             func_02048418((unsigned char*)var154, 1);
-            func_ov017_02191108(var152, 1, 1, 1, 1);
+            RebuildFieldPartyOrder_ov017_02191108(var152, 1, 1, 1, 1);
             func_02033b58((Struct_02033b58*)var154, 0);
             *(short *)((char *)var154 + 0xb2) = 0;
         }
@@ -1391,7 +1391,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             if (var216)
                 var215 = *(*(unsigned short **)((char *)var216 + 0x134) + 0x18);
             var17.unknown_4_ = 0;
-            func_020ac0b4((void *)&var17.unknown_4_);
+            GetAlchemyCount_020ac0b4((void *)&var17.unknown_4_);
             func_020643e0((Struct_02061c04_24*)&var213->unknown_0_, (Struct_02061c04_24*)&var212->unknown_0_.unknown_0_);
             func_020643e0((Struct_02061c04_24*)&var213->unknown_4_, (Struct_02061c04_24*)&var212->unknown_0_.unknown_4_);
             var213->unknown_8_0_ = var212->unknown_8_0_;
@@ -1413,7 +1413,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     }
     case 0xe8: {
         void *var217 = func_0203cf4c();
-        void *var218 = func_0203df78(var217, arg1->unknown_2_);
+        void *var218 = FindNPCById_0203df78(var217, arg1->unknown_2_);
         if (!var218)
             return 1;
         void *var219 = func_02040538((Struct_0203e0a0*)var218);

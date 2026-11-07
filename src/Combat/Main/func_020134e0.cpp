@@ -15,7 +15,7 @@ struct Struct_020134e0_2;
 extern "C" void func_02094d00(Struct_020134e0_2*);
 extern "C" void func_02012fa4(char* arg0);
 extern "C" void func_020982b4(void* arg0);
-extern "C" unsigned char func_0200fb9c(char* arg0);
+extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
 extern "C" int func_0201201c(void* arg0);
 struct Struct_02000c9c_12;
 extern "C" unsigned char func_020115a8(Struct_02000c9c_12*);
@@ -84,7 +84,7 @@ extern "C" ARM void func_020134e0(char* arg0) {
     *(int*)(arg0 + 0x274c + Enum_020134e0_0_2) = 1;
     *(int*)(arg0 + 0x2750 + Enum_020134e0_0_2) = 1;
 
-    if (func_0200fb9c((char*)var0) != 5) {
+    if (GetGameMode_0200fb9c((char*)var0) != 5) {
         *(short*)(arg0 + 0x27d8 + Enum_020134e0_0_2) = 0;
         *(short*)(arg0 + 0x27da + Enum_020134e0_0_2) = 0;
     }
@@ -94,8 +94,8 @@ extern "C" ARM void func_020134e0(char* arg0) {
         return;
     }
 
-    if (func_0201201c(var0) == 5 || func_0200fb9c((char*)var0) == 4 ||
-        func_0200fb9c((char*)var0) == 2) {
+    if (func_0201201c(var0) == 5 || GetGameMode_0200fb9c((char*)var0) == 4 ||
+        GetGameMode_0200fb9c((char*)var0) == 2) {
         func_020982b4(arg0 + 0x840 + Enum_020134e0_0);
         *(short*)(arg0 + 0x27b4 + Enum_020134e0_0_2) = 2;
         *(short*)(arg0 + 0x27b6 + Enum_020134e0_0_2) = 0;

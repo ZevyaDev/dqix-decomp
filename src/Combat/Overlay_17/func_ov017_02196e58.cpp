@@ -3,7 +3,7 @@
 #include "Graphics/LightingManager.h"
 #include "World/Zone3D.h"
 
-extern "C" void func_020a1df8(int arg0);
+extern "C" void PushOverlay_020a1df8(int overlayEntry);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" Zone3D* GetZone3D_02012fe4(void);
 extern "C" void func_ov004_0216fa08(void* arg0);
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov017_02196e58(struct Struct_ov017_02196e58* arg0) {
     if (var2 == NULL) {
         return;
     }
-    func_020a1df8(4);
+    PushOverlay_020a1df8(4);
     func_ov004_0216fa08(arg0->unknown_3b74_);
     *(unsigned short*)((unsigned char*)arg0->unknown_3b74_ + 8) = arg0->unknown_36b6_;
     func_ov004_0216fa74(arg0->unknown_3b74_, 1);

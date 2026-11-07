@@ -16,8 +16,8 @@ extern "C" void func_ov017_021a0fa4(char* arg0);
 
 extern "C" void func_020a1de4();
 extern "C" void func_020a1edc();
-extern "C" void func_020a1df8(int arg0);
-extern "C" void func_020a1ef0(int arg0);
+extern "C" void PushOverlay_020a1df8(int overlayEntry);
+extern "C" void PushSubOverlay_020a1ef0(int subOverlayEntry);
 
 struct Struct_ov017_0219de70 {
 	char unknown_0_[0xc];
@@ -79,10 +79,10 @@ extern "C" ARM void func_ov017_0219de70(char* arg0, void* arg1, Struct_ov017_021
 	int var2 = *(int*)(arg0 + 0x2000 + 0xb08);
 #endif
 	if (var2 == 0 || var2 == 2 || var2 == 5) {
-		func_020a1df8(3);
-		func_020a1ef0(1);
+		PushOverlay_020a1df8(3);
+		PushSubOverlay_020a1ef0(1);
 	} else if (var2 == 1) {
-		func_020a1df8(0);
-		func_020a1ef0(1);
+		PushOverlay_020a1df8(0);
+		PushSubOverlay_020a1ef0(1);
 	}
 }

@@ -22,7 +22,7 @@ extern "C" void func_02039df4(struct Struct_02037d88_10* arg0);
 struct Struct_02037d88_11;
 extern "C" void func_02052ae8(struct Struct_02037d88_11* arg0);
 
-extern "C" int func_020535c8(signed char* arg0);
+extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int func_ov017_0219a370(unsigned char* arg0);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 
@@ -134,7 +134,7 @@ extern "C" ARM void func_02037d88(struct Struct_02037d88_7* arg0) {
         int* var8 = (int*)arg0->unknown_130_;
 
         if ((*var8 & 1) != 0
-            || func_020535c8((signed char*)arg0) != 0
+            || IsPerformingGesture_020535c8((signed char*)arg0) != 0
             || *(int*)((char*)var7 + Enum_02037d88_1060) != 0
             || var6 == 0
             || arg0->unknown_c2_5_) {

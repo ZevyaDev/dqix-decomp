@@ -16,7 +16,7 @@ struct MessageWindow_02021b84;
 
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
-extern "C" const char* func_020e046c(char* arg0, void* arg1, unsigned int arg2, short arg3);
+extern "C" const char* CopyStringFromTableFile_020e046c(char* buffer, void* fileData, unsigned int fileSize, short stringId);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" char* GetFlagManager_0205ec34();
 
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
                 sprintf(var10, data_ov008_0218b47c, var7->unknown_150_->unknown_49c_.unknown_0_0_);
                 void* var12 = ExtractFileFromGP2(var11, var10, &var9);
                 if (var12 != NULL)
-                    func_020e046c(var8, var12, var9, (short)arg1->unknown_12_7_);
+                    CopyStringFromTableFile_020e046c(var8, var12, var9, (short)arg1->unknown_12_7_);
                 BackgroundLoader::RemoveLockGlobal();
                 int var13 = (0xa0 - func_020420e8(var8, 1)) / 2;
                 if (var13 < 0)
@@ -229,7 +229,7 @@ extern "C" ARM void func_ov008_02187f6c(Struct_ov008_021842a0_2* arg0, Struct_ov
             sprintf(var27, data_ov008_0218b47c, var24->unknown_150_->unknown_49c_.unknown_0_0_);
             void* var29 = ExtractFileFromGP2(var28, var27, &var26);
             if (var29 != NULL)
-                func_020e046c(var25, var29, var26, (short)arg1->unknown_12_7_);
+                CopyStringFromTableFile_020e046c(var25, var29, var26, (short)arg1->unknown_12_7_);
             BackgroundLoader::RemoveLockGlobal();
             int var30 = (0xa0 - func_020420e8(var25, 1)) / 2;
             if (var30 < 0)

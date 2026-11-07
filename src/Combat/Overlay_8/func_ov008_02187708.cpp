@@ -344,7 +344,7 @@ void ClearMessageParams_02046380(MessageWindow_02021b84* window);
 void func_02042764(const void* arg0, char* arg1, int arg2);
 void func_020e4b34(Struct_ov008_02187708_2* arg0, char* arg1, char* arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8,
                    int arg9, int arg10, int arg11);
-const char* func_020e046c(char* arg0, void* arg1, unsigned int arg2, short arg3);
+const char* CopyStringFromTableFile_020e046c(char* buffer, void* fileData, unsigned int fileSize, short stringId);
 void func_02046608(MessageWindow_02021b84* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, int arg6);
 int func_020420e8(const char* arg0, int arg1);
 }
@@ -423,7 +423,7 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
                 sprintf(var19, data_ov008_0218b47c, var5);
                 void* var20 = ExtractFileFromGP2(var18, var19, &var17);
                 if (var20 != NULL)
-                    var15 = func_020e046c(var4, var20, var17, var3);
+                    var15 = CopyStringFromTableFile_020e046c(var4, var20, var17, var3);
                 BackgroundLoader::RemoveLockGlobal();
             }
         }

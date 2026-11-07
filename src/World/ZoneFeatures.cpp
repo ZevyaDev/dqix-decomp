@@ -9,7 +9,7 @@ extern Script::OpcodeLookupEntry data_020ef388[];
 
 extern "C"
 {
-    extern "C" void* func_02011584(GameState*);
+    extern "C" void* GetZoneList_02011584(GameState*);
     void _ZN15Struct_020134e017Struct_0201cb60_313func_0201ce10Ev(void*);
 
     Matrix4x3 _Z15RotationMatrixYi(fix32_t);
@@ -324,7 +324,7 @@ extern "C" int func_0201d638(Script::Parameter* arg0, int arg1)
 {
     if (data_020fdc20.unknown_0_ == NULL)
         return 0;
-    void* var0 = func_02011584(GameState::GetInstance());
+    void* var0 = GetZoneList_02011584(GameState::GetInstance());
     switch (data_020fdc20.unknown_0_->unknown_4_)
     {
     case 0:

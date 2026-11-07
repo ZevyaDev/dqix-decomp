@@ -57,7 +57,7 @@ struct Struct_ov005_02153954 {
 extern int gSoundEffectManager_02108760;
 
 extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char arg1);
-extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
+extern "C" Struct_ov005_02153ba4_2* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" int func_ov005_02157ae8(Struct_ov005_02153954* arg0, int arg1);
@@ -67,7 +67,7 @@ extern "C" int func_ov005_02155670(Struct_ov005_02153954* arg0, int arg1, int ar
 // USA: func_ov005_021567ac
 extern "C" ARM void func_ov005_021567ac(Struct_ov005_02153954* arg0, int arg1, int arg2) {
     GameState::GetInstance();
-    Struct_ov005_02153ba4_2* var0 = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+    Struct_ov005_02153ba4_2* var0 = GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
     if (!func_ov005_02157ae8(arg0, var0->unknown_4fc_))
         return;
     arg0->unknown_3d78_ = func_ov005_02155670(arg0, arg1, arg2);

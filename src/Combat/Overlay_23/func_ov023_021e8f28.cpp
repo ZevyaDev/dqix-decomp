@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* arg1);
+extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* outOwnPartyOrder);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 

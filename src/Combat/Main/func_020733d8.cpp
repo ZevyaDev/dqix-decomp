@@ -20,8 +20,8 @@ extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void VectorizedInvertedMemcpy(const void* src, void* dst, unsigned int length);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
-struct Struct_0202b2f0;
-extern "C" int func_0202c1c0(struct Struct_0202b2f0* arg0, int arg1);
+struct LocalWireless_0202b2f0;
+extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" int func_02039888(void* arg0);
 
 extern "C" void func_02034104(void* arg0, GameObject* arg1);
@@ -183,7 +183,7 @@ extern "C" ARM void func_020733d8(unsigned char* arg0, int arg1) {
                 }
             } else {
                 for (var41 = 0; var41 < 4; var41++) {
-                    if (!func_0202c1c0((struct Struct_0202b2f0*)var46, var41)) {
+                    if (!IsLocalWirelessPlayerJoined_0202c1c0((struct LocalWireless_0202b2f0*)var46, var41)) {
                         continue;
                     }
                     var40 = var47->GetPartyMemberByIndex(var41);

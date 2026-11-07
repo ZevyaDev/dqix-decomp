@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int PlayWifiSetupSoundEffect_ov031_02236878(int soundEffectIndex);
-extern "C" void* func_ov031_0223e218(void* arg0, void* arg1, void* arg2, int arg3);
+extern "C" void* AddTask_ov031_0223e218(void* listIndex, void* callback, void* callbackData, int priority);
 extern "C" void func_ov031_0222c71c(void);
 
 struct Struct_ov031_0222ca64 {
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov031_0222ca64(void) {
         data_ov031_02290c8c.unknown_4_->unknown_59_ = 1;
     } else {
         PlayWifiSetupSoundEffect_ov031_02236878(0x13);
-        void* var0 = func_ov031_0223e218(NULL, (void*)func_ov031_0222c71c, NULL, 0x78);
+        void* var0 = AddTask_ov031_0223e218(NULL, (void*)func_ov031_0222c71c, NULL, 0x78);
         data_ov031_02290c8c.unknown_4_->unknown_38_ = var0;
     }
 }

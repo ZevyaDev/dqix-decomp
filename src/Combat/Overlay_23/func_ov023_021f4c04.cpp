@@ -167,28 +167,28 @@ extern "C" unsigned char func_02010750(char* arg0);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_ov017_021d2400(void);
-extern "C" void func_0209c678(MusicManager_02109bf4_4* arg0, int arg1);
+extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4* manager, int fadeDuration);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1,
                                     unsigned int* arg2);
-extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, void* arg2, int scriptSize, int idFilter, int idFilterCount,
+extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, void* scriptData, int scriptSize, int idFilter, int idFilterCount,
                               int skippedStringCount);
 extern "C" void func_ov023_021f50fc();
 extern "C" int func_ov000_02163c80(void* arg0, int arg1);
 extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
 extern "C" void func_ov017_021c9b20(int arg0, int arg1);
-extern "C" int func_02076ccc(void* arg0, int arg1);
+extern "C" int SetFieldMonsterState_02076ccc(void* monster, int state);
 extern "C" void func_ov017_021a23b0(void* arg0, int arg1);
 extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
-extern "C" void func_ov000_0216d370(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void ResetBattleCamera_ov000_0216d370(void* camera, int resetRoll, int resetFieldOfView, int resetTurns);
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, const char* text, int arg2, int arg3);
 #endif
-extern "C" void func_0209c6d8(void* arg0, int arg1);
+extern "C" void PlayJingle_0209c6d8(void* manager, int jingleIndex);
 extern "C" int func_ov017_021959b4(void);
 extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 extern "C" void func_ov017_021cbfb8(unsigned short arg0, unsigned char arg1);
@@ -229,7 +229,7 @@ extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
         if (func_02010750((char*)var3) != 0 && IsLocalWirelessOn_0202b7d8((int*)var9) != 0) {
             func_ov017_021d2400();
         }
-        func_0209c678(&gMusicManager_02109bf4, 0x1e);
+        StopMusic_0209c678(&gMusicManager_02109bf4, 0x1e);
         SetBattleSceneFlags_ov000_02160fa8(arg0, 0x800000);
         ClearGlobalFlags_020466f4(var7, 0x40000);
         inline_ov023_021f4c04().unknown_4_ = 0;
@@ -256,7 +256,7 @@ extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
             GameObject* var15 = func_ov017_021a278c((void*)var5, var14);
             if (var15 != NULL) {
                 func_ov017_021c9b20((unsigned short)var14, 1);
-                func_02076ccc(var15, 1);
+                SetFieldMonsterState_02076ccc(var15, 1);
                 *(unsigned char*)((char*)var15 + 0x17d) &= ~0x80;
             }
         } else {
@@ -277,7 +277,7 @@ extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
         var4->unknown_30_ = var17;
         var4->unknown_31_ = var18;
 #endif
-        func_ov000_0216d370(arg0->unknown_c18_, 0, 0, 1);
+        ResetBattleCamera_ov000_0216d370(arg0->unknown_c18_, 0, 0, 1);
 #if defined(jpn)
         int var21 = *(int*)((char*)var3->GetProtagonist() + 0x134);
         sprintf(var0, (const char*)FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 0x14), var21);
@@ -288,7 +288,7 @@ extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
         StartMessage_0204500c(var4, var0, 1, 0xe3);
 #endif
         var4->unknown_998_ = 1;
-        func_0209c6d8(&gMusicManager_02109bf4, 0x3a);
+        PlayJingle_0209c6d8(&gMusicManager_02109bf4, 0x3a);
         arg0->unknown_eac_ = 2;
     } else if (var10 == 2) {
         if (func_ov017_021959b4() == 0 && *(unsigned char*)((char*)var3 + REGION_LAYOUT(0x54c8, 0x5728)) == 0) {

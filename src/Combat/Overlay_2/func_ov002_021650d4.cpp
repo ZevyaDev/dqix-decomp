@@ -11,14 +11,14 @@
 #endif
 
 struct TextWindowManager_0205de24_2;
-struct Struct_0205def8;
+struct TextWindowManager_0205def8;
 struct Struct_ov002_021650d4;
 extern "C" int GetResources_0200fb8c(int *gameState);
 extern "C" void *GetGlobalFlags_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int *globalFlags, unsigned int mask);
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
-extern "C" void func_0205def8(struct Struct_0205def8 *arg0, int arg1, int arg2);
+extern "C" void func_0205def8(struct TextWindowManager_0205def8 *arg0, int arg1, int arg2);
 extern "C" void func_ov023_021e71b4(void *arg0, SafeAllocator *arg1);
 extern "C" void func_020dc2bc();
 extern "C" void func_020dc2d0(int arg0);
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov002_021650d4(char *arg0) {
             func_ov002_02161cf0(arg0);
             func_ov002_0215e44c(arg0);
             for (int var3 = 0; var3 < 3; var3++) {
-                func_0205def8((struct Struct_0205def8 *) (arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0,
+                func_0205def8((struct TextWindowManager_0205def8 *) (arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0,
                                                                         data_ov002_0216cc88[var3]);
             }
             SetSubBrightness(var1, -16, 0xf);

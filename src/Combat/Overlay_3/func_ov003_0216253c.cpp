@@ -70,8 +70,8 @@ extern "C" int func_ov003_02160854(Struct_ov003_02154af4_3 *);
 extern "C" int func_ov003_021614e8(int);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *, int, int);
-struct Struct_0207fe44;
-extern "C" void func_0207fe44(Struct_0207fe44*);
+struct MenuLayout_0207fe44;
+extern "C" void CloseMenuLayoutWindows_0207fe44(MenuLayout_0207fe44*);
 extern "C" Struct_ov003_0216253c * func_ov003_02160bd0(void*, int);
 extern "C" int *GetLocalWireless_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int *);
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
                 PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
                 func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
                 arg0->unknown_470_ = 0;
-                func_0207fe44((Struct_0207fe44*)var0);
+                CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var0);
                 arg0->unknown_464_ |= 0x80000;
                 arg0->unknown_484_  = 0x4d;
                 arg0->unknown_4a4_ = 100;
@@ -170,7 +170,7 @@ extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
             func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
             arg0->unknown_470_ = 0;
-            func_0207fe44((Struct_0207fe44*)var0);
+            CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var0);
             arg0->unknown_464_ |= 0x80000;
             arg0->unknown_464_ |= 8;
             unsigned char *var6 = (unsigned char *) GetGameResources();
@@ -181,7 +181,7 @@ extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
             int var8 = *((unsigned char *)GetParty_02010828(GameState::GetInstance()) + 0xf7c);
             int var9 = func_ov003_02160b84(arg0);
             if (var8 + var9 == 4) {
-                func_0207fe44((Struct_0207fe44*)var0);
+                CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var0);
                 arg0->unknown_464_ |= 0x80000;
                 arg0->unknown_484_  = 6;
                 arg0->unknown_486_  = 2;
@@ -211,7 +211,7 @@ extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
             if (func_ov003_02160a68(arg0) == 0) {
                 return;
             }
-            func_0207fe44((Struct_0207fe44*)var0);
+            CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var0);
             arg0->unknown_464_ |= 0x80000;
             arg0->unknown_484_  = 2;
             arg0->unknown_4a3_  = 1;

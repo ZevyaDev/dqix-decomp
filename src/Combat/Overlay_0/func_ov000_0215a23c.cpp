@@ -51,7 +51,7 @@ extern "C" int func_ov000_0215fc60(char* arg0);
 extern "C" int func_02085230(unsigned char* arg0);
 extern "C" int func_ov000_02158324(GameObject* arg0);
 extern "C" int func_ov000_0215830c(GameObject* arg0);
-extern "C" int func_0202053c(void* arg0);
+extern "C" int GetLevel_0202053c(void* gameObject);
 extern "C" short func_ov000_0215a16c(void* arg0, int arg1, int arg2, short* arg3);
 extern "C" short func_ov000_0215a1d4(void* arg0, int arg1, int arg2, short* arg3);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov000_0215a23c(void* arg0) {
             }
             if (func_ov000_02158324((GameObject*)var14)) {
                 int var16 = 10;
-                int var17 = func_0202053c(var14) >> 1;
+                int var17 = GetLevel_0202053c(var14) >> 1;
                 if (var17 > 10) {
                     var16 = var17;
                 }
@@ -132,13 +132,13 @@ extern "C" ARM void func_ov000_0215a23c(void* arg0) {
         }
         int var21 = 0;
         if (func_ov000_0215830c((GameObject*)var19)) {
-            var21 = func_0202053c(var19) / 10;
+            var21 = GetLevel_0202053c(var19) / 10;
             if (var21 < 3) {
                 var21 = 3;
             }
         }
         if (HasLearnedSkillEntry_02083b00(var19->unknown_150_, 0x3f) && var20->unknown_2ac_ > 0 && var20->unknown_29c_4_ == 3) {
-            float var22 = (float)(unsigned int)func_0202053c(var19) / 10.0f;
+            float var22 = (float)(unsigned int)GetLevel_0202053c(var19) / 10.0f;
             var21 += (int)(1.0f + NextRandomFloatBetween((Random*)arg0, 0.0f, var22));
         }
         if (var21 > 0) {

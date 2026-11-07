@@ -9,7 +9,7 @@ extern "C" void func_020ddfb4(struct Struct_020ddea0_2* arg0);
 extern "C" int fix32_Divide(unsigned int arg0, unsigned int arg1);
 
 extern "C" void* GetOAMManager_0203bd08(void);
-extern "C" void* func_0203be4c(void* arg0);
+extern "C" void* GetSubOAMBuffer_0203be4c(void* arg0);
 extern "C" void* func_0203be40(void* arg0);
 
 struct Struct_020ddea0 {
@@ -46,7 +46,7 @@ extern "C" ARM void func_020ddea0(Struct_020ddea0* arg0, unsigned short arg1, un
     func_020ddfb4((struct Struct_020ddea0_2*)arg0);
 
     void* var0 = GetOAMManager_0203bd08();
-    Struct_020ddea0_3* var1 = (Struct_020ddea0_3*)func_0203be4c(var0);
+    Struct_020ddea0_3* var1 = (Struct_020ddea0_3*)GetSubOAMBuffer_0203be4c(var0);
     if (arg4 == 0) {
         var1 = (Struct_020ddea0_3*)func_0203be40(var0);
     }

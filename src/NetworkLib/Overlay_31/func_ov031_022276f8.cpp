@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 
-extern "C" void* func_ov031_0223cf4c(unsigned int arg0, unsigned int arg1);
+extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int size, unsigned int alignAndDir);
 
 struct Struct_ov031_022276b4;
 extern "C" int func_ov031_022276b4(Struct_ov031_022276b4* arg0, unsigned int arg1);
@@ -11,7 +11,7 @@ struct Struct_ov031_022276f8;
 extern "C" void func_ov031_0223a4cc(void* arg0, Struct_ov031_022276f8* arg1);
 extern "C" int func_ov031_0223a718(void);
 extern "C" void HaltForever_020c9be0(void);
-extern "C" void* func_ov031_0223e218(void* arg0, void* arg1, void* arg2, int arg3);
+extern "C" void* AddTask_ov031_0223e218(void* listIndex, void* callback, void* callbackData, int priority);
 
 extern void* data_ov031_02290c44;
 extern Struct_ov031_022276b4* data_ov031_02290c4c;
@@ -23,7 +23,7 @@ extern "C" void func_ov031_02227898(void);
 
 // USA: func_ov031_022276f8
 extern "C" ARM void func_ov031_022276f8(int arg0) {
-	void* var0 = func_ov031_0223cf4c(0x1e2a4, 0x20);
+	void* var0 = AllocateZeroedMemory_ov031_0223cf4c(0x1e2a4, 0x20);
 	data_ov031_02290c44 = var0;
 	*(int*)((char*)var0 + 0x1e000 + 0x298) = arg0;
 	*(unsigned char*)((char*)data_ov031_02290c44 + 0x1e000 + 0x2a0) = 0;
@@ -40,6 +40,6 @@ extern "C" ARM void func_ov031_022276f8(int arg0) {
 		HaltForever_020c9be0();
 	}
 
-	void* var2 = func_ov031_0223e218(0, (void*)func_ov031_02227898, 0, 0x78);
+	void* var2 = AddTask_ov031_0223e218(0, (void*)func_ov031_02227898, 0, 0x78);
 	*(void**)((char*)data_ov031_02290c44 + 0x1e000 + 0x29c) = var2;
 }

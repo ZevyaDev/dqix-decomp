@@ -16,7 +16,7 @@ struct Struct_ov031_0223dabc {
     Struct_ov031_0223dabc_2* unknown_19c_;
 };
 extern Struct_ov031_0223dabc* data_ov031_02290d64;
-extern "C" void* func_ov031_0223cf4c(unsigned int, int);
+extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int, int);
 extern "C" Struct_ov031_0223dabc_2* func_ov031_0223beec(int, int, int);
 extern "C" Struct_ov031_0223d858* func_ov031_0223d858();
 extern "C" int func_ov031_0223d918(char*);
@@ -29,7 +29,7 @@ static inline Struct_ov031_0223dabc* inline_ov031_0223dabc(int arg0) {
 
 // USA: func_ov031_0223dabc
 extern "C" ARM void func_ov031_0223dabc() {
-    data_ov031_02290d64 = (Struct_ov031_0223dabc*)func_ov031_0223cf4c(0x340, 4);
+    data_ov031_02290d64 = (Struct_ov031_0223dabc*)AllocateZeroedMemory_ov031_0223cf4c(0x340, 4);
     int var0 = 0;
     int var1 = 0;
     do {

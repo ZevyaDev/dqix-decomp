@@ -6,7 +6,7 @@ enum { Enum_ov025_021dc590_680 = 0x2a8, Enum_ov025_021dc590_16644 = 0x4104, Enum
 
 #include <globaldefs.h>
 
-extern "C" void* func_ov000_02160f20(void* arg0);
+extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" void func_ov025_021e9778(void* arg0);
 extern "C" int func_ov025_021e9528(char* arg0);
 extern "C" int func_ov025_021dc940(void* arg0);
@@ -38,7 +38,7 @@ struct Struct_ov025_021dc590_3 {
 
 // USA: func_ov025_021dc590
 extern "C" ARM void func_ov025_021dc590(void* arg0) {
-    struct Struct_ov025_021dc590_3* var0 = (struct Struct_ov025_021dc590_3*)func_ov000_02160f20(arg0);
+    struct Struct_ov025_021dc590_3* var0 = (struct Struct_ov025_021dc590_3*)GetCurrentBattleAction_ov000_02160f20(arg0);
     func_ov025_021e9778((char*)arg0 + Enum_ov025_021dc590_680);
     if (!func_ov025_021e9528((char*)arg0 + Enum_ov025_021dc590_680)) {
         return;

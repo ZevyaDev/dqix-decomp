@@ -66,8 +66,8 @@ extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44* zon
 extern "C" Struct_020771fc* func_020283c0(Struct_0201a300_11* arg0, int arg1);
 extern "C" void func_02033b68(Struct_02033b68* arg0, int arg1);
 extern "C" void* func_02033f44(Struct_02033f44* arg0);
-extern "C" void func_02076ccc(void* arg0, int arg1);
-extern "C" void func_02033834(Struct_02033834_2* arg0, int arg1);
+extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
+extern "C" void SetFacing_02033834(Struct_02033834_2* object, int angle);
 
 // USA: func_020771fc
 extern "C" ARM void func_020771fc(Struct_020771fc_2* arg0) {
@@ -106,7 +106,7 @@ extern "C" ARM void func_020771fc(Struct_020771fc_2* arg0) {
         }
     }
     if (var6 != 0) {
-        func_02076ccc(arg0, 1);
+        SetFieldMonsterState_02076ccc(arg0, 1);
         arg0->unknown_154_ = 0;
         arg0->unknown_17c_ = 1;
         if (IsLocalWirelessOn_0202b7d8((int*)var0) != 0) {
@@ -119,10 +119,10 @@ extern "C" ARM void func_020771fc(Struct_020771fc_2* arg0) {
         Vector3fix_Subtract(&arg0->unknown_158_, &var1, &var8);
         if (Vector3fix_Length(&var8) < 0x1000) {
             var4 = 1;
-            func_02076ccc(arg0, 1);
+            SetFieldMonsterState_02076ccc(arg0, 1);
         }
         Vector3fix_Normalize(&var8, &var8);
-        func_02033834((Struct_02033834_2*)arg0, fix32_Atan2(var8.x, var8.z));
+        SetFacing_02033834((Struct_02033834_2*)arg0, fix32_Atan2(var8.x, var8.z));
     }
     if (var3 < 0x1000) {
         Vector3i var9 = arg0->unknown_44_;
@@ -148,7 +148,7 @@ extern "C" ARM void func_020771fc(Struct_020771fc_2* arg0) {
             }
         }
         var4 = 1;
-        func_02076ccc(arg0, 1);
+        SetFieldMonsterState_02076ccc(arg0, 1);
     }
     if (var4 == 0) {
         return;

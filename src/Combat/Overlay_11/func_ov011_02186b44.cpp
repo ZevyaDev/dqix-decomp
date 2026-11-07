@@ -20,9 +20,9 @@ extern "C" ARM void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" ARM int func_ov023_021fbe08(void* arg0, void* arg1, int arg2, int arg3, int arg4);
 extern "C" void* InitItemTable_020de824(void* itemTable);
 
-struct Struct_ov004_0215c30c;
-struct Struct_ov004_0215c30c_2;
-extern "C" void func_ov023_021f67ac(struct Struct_ov004_0215c30c* arg0, struct Struct_ov004_0215c30c_2* arg1);
+struct MenuObjectList_ov004_0215c30c;
+struct MenuObject_ov004_0215c30c_2;
+extern "C" void AppendMenuObject_ov023_021f67ac(struct MenuObjectList_ov004_0215c30c* objectList, struct MenuObject_ov004_0215c30c_2* object);
 
 extern char data_ov024_021ff280;
 
@@ -65,6 +65,6 @@ extern "C" ARM int func_ov011_02186b44(struct ScriptValue_ov011_02184c30* arg0, 
     if (!func_ov023_021fbe08(var5, var3, var1, var2, var0))
         return 0;
 
-    func_ov023_021f67ac((struct Struct_ov004_0215c30c*)GetMenuObjectList_ov011_021849c8(var3), (struct Struct_ov004_0215c30c_2*)var5);
+    AppendMenuObject_ov023_021f67ac((struct MenuObjectList_ov004_0215c30c*)GetMenuObjectList_ov011_021849c8(var3), (struct MenuObject_ov004_0215c30c_2*)var5);
     return 1;
 }

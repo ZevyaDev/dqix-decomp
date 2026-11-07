@@ -14,7 +14,7 @@ extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void func_ov017_021d48f0(void* arg0);
 extern "C" void func_0202b0f4(void* arg0);
 extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
-extern "C" int func_0202ba00(int* arg0);
+extern "C" int GetLocalWirelessState_0202ba00(int* wireless);
 extern "C" void func_0202dd28(void);
 
 // USA: func_ov003_021714a0
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov003_021714a0(Struct_ov003_0216c00c* arg0) {
     void* var0 = GetLocalWireless_0202ae18();
     func_ov017_021d48f0(GetLocalWirelessPacketQueue_0202ae24());
 
-    if (func_0202ba00((int*)var0) == -1) {
+    if (GetLocalWirelessState_0202ba00((int*)var0) == -1) {
         func_0202dd28();
         func_0202b0f4(var0);
         return 0;

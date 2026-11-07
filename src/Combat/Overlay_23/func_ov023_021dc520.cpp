@@ -39,7 +39,7 @@ extern Struct_ov023_021ffa0c data_ov023_021ffa0c[3];
 extern unsigned char data_ov023_021fd565[2][2];
 extern "C" void* GetOAMManager_0203bd08();
 extern "C" Struct_ov023_021dc520_3* func_0203be40(void*);
-extern "C" Struct_ov023_021dc520_3* func_0203be4c(void*);
+extern "C" Struct_ov023_021dc520_3* GetSubOAMBuffer_0203be4c(void*);
 extern "C" void DrawSprite_0205ac40(SpriteSet_0205ac40*, Sprite_0205ac40_2*);
 extern "C" short func_020dee58(Struct_020dee58*);
 extern "C" int func_02075db0(Struct_02075db0*, int, int);
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov023_021dc520(Struct_ov023_021dc520* arg0) {
         Struct_ov023_021dc520_3* var2 = func_0203be40(GetOAMManager_0203bd08());
         var1 = var2;
     } else {
-        Struct_ov023_021dc520_3* var3 = func_0203be4c(GetOAMManager_0203bd08());
+        Struct_ov023_021dc520_3* var3 = GetSubOAMBuffer_0203be4c(GetOAMManager_0203bd08());
         var1 = var3;
     }
     if (data_ov023_021ff9e0.unknown_50_) {

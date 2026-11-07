@@ -24,7 +24,7 @@ struct MenuCursor_0205bb84;
 extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84*);
 extern "C" int func_0205bf58(void*, int);
 extern "C" int func_ov005_02157190(void*);
-extern "C" char* func_ov017_021a193c(int*);
+extern "C" char* GetEquipMenu_ov017_021a193c(int*);
 extern "C" void func_ov005_021551fc(char*, int, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov005_021555c0(void*);
@@ -125,7 +125,7 @@ extern "C" ARM void func_ov005_0215b2bc(Struct_ov000_0217ab8c* arg0) {
             arg0->unknown_3dbd_ = arg0->unknown_3dfc_[var2 & 0xff];
         }
         arg0->unknown_3dbb_ = arg0->unknown_3dbc_;
-        Struct_ov005_0215b2bc_2* var10 = (Struct_ov005_0215b2bc_2*)func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+        Struct_ov005_0215b2bc_2* var10 = (Struct_ov005_0215b2bc_2*)GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
         func_ov005_021551fc((char*)arg0, var10->unknown_4fc_, 0);
         if (var1 == 0) return;
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);

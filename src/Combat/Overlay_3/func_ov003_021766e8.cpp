@@ -12,16 +12,16 @@ enum { Enum_ov003_021766e8_2208 = 0x8a0 };
 #endif
 
 struct Struct_020e28dc;
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
 extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
-extern "C" int func_02080d54(struct Struct_0207fdcc_2* arg0, int arg1, int arg2, int arg3);
+extern "C" int func_02080d54(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2, int arg3);
 
 struct Struct_ov003_021766e8 {
     struct Struct_020e28dc* unknown_0_;
     char unknown_4_[Enum_ov003_021766e8_2204 - 0x4];
-    struct Struct_0207fdcc_2* unknown_89c_;
+    struct MenuLayout_0207fdcc_2* unknown_89c_;
     char unknown_8a0_[Enum_ov003_021766e8_4094 - Enum_ov003_021766e8_2208];
     short unknown_ffe_;
 };

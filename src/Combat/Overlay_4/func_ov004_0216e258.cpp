@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int func_020ab7a8(void* arg0, int arg1);
-extern "C" void func_0200fb94(char* arg0, unsigned char arg1);
+extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
 extern "C" void* GetGlobalFlags_020d6c00(void);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov004_0216e258(void* arg0) {
     int var1 = func_020ab7a8((void*)data_ov004_02171034.unknown_10_, 0);
     int var2 = 1;
     if (var1 == 5) {
-        func_0200fb94((char*)var0, 5);
+        SetGameMode_0200fb94((char*)var0, 5);
         ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x80);
         data_ov004_02171034.unknown_2_ = 0;
         data_ov004_02171034.unknown_10_[1] = 0;

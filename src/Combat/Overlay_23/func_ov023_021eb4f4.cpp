@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct TextWindowManager_0205d2bc;
-extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc*);
+extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(struct TextWindowManager_0205d2bc*);
 struct BGLayer_02020cb8_5;
 extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5*, int, int);
 extern "C" void CopyBGScreenDataToVRAM_0204b088(void*, int);
@@ -13,7 +13,7 @@ extern "C" void func_ov023_021ed44c(void*);
 // USA: func_ov023_021eb4f4
 extern "C" ARM void func_ov023_021eb4f4(char* arg0) {
 	if (*(unsigned char*)(arg0 + 0x431) == 0) return;
-	func_0205d2bc((struct TextWindowManager_0205d2bc*)(arg0 + 0xc4));
+	CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((struct TextWindowManager_0205d2bc*)(arg0 + 0xc4));
 	unsigned short var0 = *(unsigned short*)(arg0 + 0x400 + 0x38);
 	if ((var0 & 0x40) || (var0 & 0x200)) {
 		short var1 = *(short*)(arg0 + 0x400 + 0x3a);

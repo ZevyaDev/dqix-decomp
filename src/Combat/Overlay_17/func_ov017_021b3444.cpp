@@ -6,7 +6,7 @@ struct Struct_ov017_021b3444;
 extern "C" unsigned char func_ov017_021b354c(Struct_ov017_021b3444* arg0);
 extern "C" void func_02072afc(int arg0, int* arg1, short* arg2);
 
-extern int data_020f2a38;
+extern int gItemDataPath_020f2a38;
 extern int data_020f2a30;
 
 struct Struct_ov017_021b3444_2 {
@@ -26,9 +26,9 @@ extern "C" ARM int func_ov017_021b3444(struct Struct_ov017_021b3444_2* arg0) {
     if (var2 != 0) {
         if (func_ov017_021b354c((Struct_ov017_021b3444*)var2) != 0) {
 #if defined(jpn)
-            arg0->unknown_10_ = ((BackgroundLoader*)(var1))->QueueLoadGP1((const char*)(data_020f2a38), (SafeAllocator*)(0));
+            arg0->unknown_10_ = ((BackgroundLoader*)(var1))->QueueLoadGP1((const char*)(gItemDataPath_020f2a38), (SafeAllocator*)(0));
 #else
-            arg0->unknown_10_ = ((BackgroundLoader*)(var1))->QueueLoadFileInGP2((const char*)(data_020f2a38), (const char*)(data_020f2a30), (SafeAllocator*)(0));
+            arg0->unknown_10_ = ((BackgroundLoader*)(var1))->QueueLoadFileInGP2((const char*)(gItemDataPath_020f2a38), (const char*)(data_020f2a30), (SafeAllocator*)(0));
 #endif
             return 1;
         }
@@ -55,9 +55,9 @@ extern "C" ARM int func_ov017_021b3444(struct Struct_ov017_021b3444_2* arg0) {
             continue;
         }
 #if defined(jpn)
-        arg0->unknown_10_ = ((BackgroundLoader*)(var1))->QueueLoadGP1((const char*)(data_020f2a38), (SafeAllocator*)(0));
+        arg0->unknown_10_ = ((BackgroundLoader*)(var1))->QueueLoadGP1((const char*)(gItemDataPath_020f2a38), (SafeAllocator*)(0));
 #else
-        arg0->unknown_10_ = ((BackgroundLoader*)(var1))->QueueLoadFileInGP2((const char*)(data_020f2a38), (const char*)(data_020f2a30), (SafeAllocator*)(0));
+        arg0->unknown_10_ = ((BackgroundLoader*)(var1))->QueueLoadFileInGP2((const char*)(gItemDataPath_020f2a38), (const char*)(data_020f2a30), (SafeAllocator*)(0));
 #endif
         return 1;
     }

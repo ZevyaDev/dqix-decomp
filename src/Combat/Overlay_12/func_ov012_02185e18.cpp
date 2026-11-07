@@ -6,7 +6,7 @@
 
 struct StringList_02072a68_2;
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
-extern "C" void LoadStringList_020728ac(void* stringList, SafeAllocator* allocator, const void* arg2, unsigned int scriptSize, int, int, int);
+extern "C" void LoadStringList_020728ac(void* stringList, SafeAllocator* allocator, const void* scriptData, unsigned int scriptSize, int, int, int);
 #if defined(jpn)
 extern char data_ov012_0218bf40[];
 extern char data_ov012_0218bf52[];

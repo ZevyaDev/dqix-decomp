@@ -7,10 +7,10 @@
 extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" int func_0202ba00(int* arg0);
+extern "C" int GetLocalWirelessState_0202ba00(int* wireless);
 extern "C" int func_020ac4f8(int arg0);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
-extern "C" int func_020ac0b4(void* arg0);
+extern "C" int GetAlchemyCount_020ac0b4(void* count);
 extern "C" int func_020a0870(Struct_02061c04* arg0);
 extern "C" int func_020a08a4(Struct_02061c04* arg0);
 extern "C" int func_020a08d8(Struct_02061c04* arg0);
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov017_021d1118(int arg0, int arg1, bool arg2, unsigned 
     }
     if (arg1 & 1) {
         var4 = (Struct_ov017_021d1118_7*)GetLocalWireless_0202ae18();
-        var5 = func_0202ba00((int*)var4);
+        var5 = GetLocalWirelessState_0202ba00((int*)var4);
         var6 = var4->unknown_100d_;
         var7 = 0;
         if ((var5 == 5 && var6 > 1) || var5 == 6) var7 = 1;
@@ -151,7 +151,7 @@ extern "C" ARM void func_ov017_021d1118(int arg0, int arg1, bool arg2, unsigned 
         Struct_02061c04 var17;
         GetBattleRecords_020ac4c0(&var17);
         unsigned int var18 = 0;
-        func_020ac0b4(&var18);
+        GetAlchemyCount_020ac0b4(&var18);
         var8 = 0;
         var9 = 0;
         var10 = (Struct_ov017_021d1118_6*)var0->GetProtagonist();

@@ -2,12 +2,12 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
 
-extern "C" void func_ov000_0216d370(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void ResetBattleCamera_ov000_0216d370(void* camera, int resetRoll, int resetFieldOfView, int resetTurns);
 
 struct Struct_0202ecc8 { unsigned int unknown_0_[12]; };
 struct Struct_0202ecc8_2;
 extern "C" void func_0202ecc8(struct Struct_0202ecc8_2* arg0, struct Struct_0202ecc8* arg1);
-extern "C" void func_0202e694(void* arg0, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
 
 extern "C" void func_ov000_0216d234(void* arg0, void* arg1, void* arg2);
 
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov000_0216de00(struct Struct_ov000_0216de00* arg0, int 
     if (var1 == NULL || var2 == NULL) {
         return;
     }
-    func_ov000_0216d370(arg0, 1, 1, 1);
+    ResetBattleCamera_ov000_0216d370(arg0, 1, 1, 1);
     Vector3fix var3 = var1->obj3D_.position_;
     Vector3fix var4 = var2->obj3D_.position_;
     Vector3fix var5;
@@ -41,5 +41,5 @@ extern "C" ARM void func_ov000_0216de00(struct Struct_ov000_0216de00* arg0, int 
     var8[1] = 0;
     var8[2] = 0x1000;
     arg0->unknown_10_ = var7;
-    func_0202e694(arg0, var8);
+    SetCameraOrbitFromArray_0202e694(arg0, var8);
 }

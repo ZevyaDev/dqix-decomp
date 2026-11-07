@@ -46,7 +46,7 @@ extern "C" void func_ov000_0216de00(char* arg0, int arg1, int arg2);
 extern "C" void func_ov000_0216df00(char* arg0, int arg1, int arg2, float arg3, float arg4);
 extern "C" short func_ov000_0215ffa0(void* arg0);
 extern "C" void func_ov000_0216e250(char* arg0, int* arg1, int arg2);
-extern "C" void func_ov000_0216d370(char* arg0, int arg1, int arg2, int arg3);
+extern "C" void ResetBattleCamera_ov000_0216d370(char* camera, int resetRoll, int resetFieldOfView, int resetTurns);
 extern "C" void func_ov000_0216f2b8(char* arg0);
 
 // USA: func_ov025_021e3c80
@@ -163,7 +163,7 @@ extern "C" ARM int func_ov025_021e3c80(Struct_ov025_021e3c80* arg0, BattleAction
         break;
     }
     case 10:
-        func_ov000_0216d370(var3, 0, 0, 0);
+        ResetBattleCamera_ov000_0216d370(var3, 0, 0, 0);
         break;
     }
     if (var2 != 0 && var7) {

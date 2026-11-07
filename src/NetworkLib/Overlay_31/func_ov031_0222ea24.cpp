@@ -37,7 +37,7 @@ struct Struct_ov031_02290ca0 {
 extern Struct_ov031_02290ca0 data_ov031_02290ca0;
 extern signed char data_ov031_02249034[];
 extern "C" Struct_ov031_0222ea24_3* func_ov031_02235c70();
-extern "C" Struct_ov031_0222ea24_2* func_ov031_0223cf4c(int, int);
+extern "C" Struct_ov031_0222ea24_2* AllocateZeroedMemory_ov031_0223cf4c(int, int);
 extern "C" void func_ov031_0222ee34();
 extern "C" void func_ov031_0222ec20();
 extern "C" int func_ov031_02227548();
@@ -47,7 +47,7 @@ extern "C" void func_ov031_02223a0c();
 extern "C" void func_ov031_022350bc(int, int, int, int, int);
 extern "C" void* func_ov031_0223c560(int, int);
 extern "C" Struct_ov031_0222ea24* func_ov031_0223be44(int, int);
-extern "C" void* func_ov031_0223e218(void*, void*, void*, int);
+extern "C" void* AddTask_ov031_0223e218(void*, void*, void*, int);
 extern "C" void func_ov031_02230778();
 extern "C" void func_ov031_02230cd8();
 extern "C" void func_ov031_0222f9ec();
@@ -58,7 +58,7 @@ extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 // USA: func_ov031_0222ea24
 extern "C" ARM void func_ov031_0222ea24() {
     Struct_ov031_0222ea24_3* var0 = func_ov031_02235c70();
-    data_ov031_02290ca0.unknown_8_ = func_ov031_0223cf4c(0x48, 4);
+    data_ov031_02290ca0.unknown_8_ = AllocateZeroedMemory_ov031_0223cf4c(0x48, 4);
     data_ov031_02290ca0.unknown_8_->unknown_43_ = var0->unknown_f6_;
     data_ov031_02290ca0.unknown_8_->unknown_42_ = 12;
     func_ov031_0222ee34();
@@ -88,8 +88,8 @@ extern "C" ARM void func_ov031_0222ea24() {
         data_ov031_02290ca0.unknown_8_->unknown_34_->unknown_4_ = (data_ov031_02290ca0.unknown_8_->unknown_34_->unknown_4_ & ~0xc00) | 0xc00;
         break;
     }
-    data_ov031_02290ca0.unknown_8_->unknown_3c_ = func_ov031_0223e218((void*)1, (void*)func_ov031_02230778, 0, 0x6e);
-    data_ov031_02290ca0.unknown_8_->unknown_0_ = func_ov031_0223e218(0, (void*)func_ov031_02230cd8, 0, 0x78);
+    data_ov031_02290ca0.unknown_8_->unknown_3c_ = AddTask_ov031_0223e218((void*)1, (void*)func_ov031_02230778, 0, 0x6e);
+    data_ov031_02290ca0.unknown_8_->unknown_0_ = AddTask_ov031_0223e218(0, (void*)func_ov031_02230cd8, 0, 0x78);
     func_ov031_0222f9ec();
     func_ov031_022307fc();
     SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222ee70);

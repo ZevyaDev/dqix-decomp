@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void* GetBattleScene_ov000_02160130();
-extern "C" void* func_ov000_02160f20(void* arg0);
+extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 struct BattleAction_ov000_0215440c_2;
 extern "C" void* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
 struct BattleAction_ov000_0215440c;
@@ -41,7 +41,7 @@ struct Struct_ov025_021ea474_4 {
 extern "C" ARM void func_ov025_021ea474(char* arg0) {
     if (*(int*)(arg0 + 0x1c4) & 1) return;
     void* var0 = GameState::GetInstance();
-    Struct_ov025_021ea474* var1 = (Struct_ov025_021ea474*)func_ov000_02160f20(GetBattleScene_ov000_02160130());
+    Struct_ov025_021ea474* var1 = (Struct_ov025_021ea474*)GetCurrentBattleAction_ov000_02160f20(GetBattleScene_ov000_02160130());
     if (var1 != 0) {
         Struct_ov025_021ea474_2* var2 = (Struct_ov025_021ea474_2*)GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var1, 0);
         int var3 = 0;

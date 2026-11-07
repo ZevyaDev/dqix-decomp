@@ -2,7 +2,7 @@
 
 extern "C" void func_ov031_0223c150();
 extern "C" void ColorEffect_ConfigureBrightnessAdjust(unsigned short* dst, int flag, int value);
-extern "C" void* func_ov031_0223e218(void* arg0, void* arg1, void* arg2, int arg3);
+extern "C" void* AddTask_ov031_0223e218(void* listIndex, void* callback, void* callbackData, int priority);
 
 extern unsigned char data_ov031_022493a0[];
 
@@ -35,7 +35,7 @@ extern "C" ARM int StartBrightnessFade_ov031_0223c078(int mode, int useSubScreen
 		ColorEffect_ConfigureBrightnessAdjust((unsigned short*)0x4000050, layerMask, startBrightnessByMode[mode]);
 	}
 
-	fade->pTask_0_ = (unsigned int)func_ov031_0223e218((void*)1, (void*)func_ov031_0223c150, fade, 0xc8);
+	fade->pTask_0_ = (unsigned int)AddTask_ov031_0223e218((void*)1, (void*)func_ov031_0223c150, fade, 0xc8);
 	fade->elapsedTime_4_ = 0;
 	fade->mode_8_ = (unsigned char)mode;
 	fade->duration_6_ = (unsigned short)duration;

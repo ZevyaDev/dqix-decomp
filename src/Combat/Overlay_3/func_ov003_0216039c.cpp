@@ -24,7 +24,7 @@ enum { Enum_ov003_0216039c_1160 = 0x488 };
 enum { Enum_ov003_0216039c_1140 = 0x474 };
 #endif
 
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 struct Struct_020e28dc;
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimationList_0205a330;
@@ -33,7 +33,7 @@ struct SpriteAnimation_0205a254_2 {
     unsigned char unknown_15_;
 };
 
-extern "C" unsigned char* func_02081da8(Struct_0207fdcc_2* arg0, int arg1);
+extern "C" unsigned char* func_02081da8(MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" int func_020e28dc(Struct_020e28dc* arg0);
 extern "C" void SetSpriteAnimationOAMIndex_0205a42c(SpriteAnimationList_0205a254* animationList, int index, int oamIndex);
 extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
@@ -46,7 +46,7 @@ extern "C" void func_020e27ec(SpriteAnimationList_0205a254* arg0, int arg1, shor
 
 struct Struct_ov003_0216039c {
     char unknown_0_[Enum_ov003_0216039c_804];
-    Struct_0207fdcc_2* unknown_324_;
+    MenuLayout_0207fdcc_2* unknown_324_;
     char unknown_328_[Enum_ov003_0216039c_820 - Enum_ov003_0216039c_808];
     char unknown_334_[Enum_ov003_0216039c_908 - Enum_ov003_0216039c_820];
     SpriteAnimationList_0205a254* unknown_38c_;

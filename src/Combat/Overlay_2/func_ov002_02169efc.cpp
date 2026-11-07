@@ -27,11 +27,11 @@ extern "C" void InitSpriteAnimationList_0205a234(Struct_ov002_0215624c_24*);
 extern "C" void InitSpriteSet_0205a444(char *spriteSet);
 extern "C" void *GetPacEntryData_020467f0(Struct_ov002_0215624c_25 *pac, int index, void **outEntry, int *outSize);
 extern "C" void LoadSpriteSetFile_0205a528(void *spriteSet, void *fileData, unsigned int size, SafeAllocator *allocator);
-extern "C" void func_020a9ea4(struct Struct_ov002_02169efc *arg0);
+extern "C" void ResetSaveProgress_020a9ea4(struct Struct_ov002_02169efc *progress);
 extern "C" int func_020aad1c(void *arg0, void *arg1, int arg2, int arg3);
 extern "C" void ClearGlobalFlags_020466f4(Struct_ov002_02168d54_9 *globalFlags, unsigned int mask);
-extern "C" void func_0200fb94(char *arg0, unsigned char arg1);
-extern "C" void func_0209c678(Struct_ov002_02169efc_2 *arg0, int arg1);
+extern "C" void SetGameMode_0200fb94(char *gameState, unsigned char mode);
+extern "C" void StopMusic_0209c678(Struct_ov002_02169efc_2 *manager, int fadeDuration);
 extern "C" void func_ov017_0218d258(void *arg0);
 
 extern "C" char data_ov002_0216d384[] __attribute__((aligned(4)));
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov002_02169efc(char *arg0) {
             return;
         }
         *(unsigned int *) (arg0 + RG(0x247c, 0x22ac)) |= 8;
-        func_020a9ea4((struct Struct_ov002_02169efc *) (arg0 + RG(0x98 + 0x2400, 0x2c8 + 0x2000)));
+        ResetSaveProgress_020a9ea4((struct Struct_ov002_02169efc *) (arg0 + RG(0x98 + 0x2400, 0x2c8 + 0x2000)));
         *(int *) (arg0 + RG(0x1bc0, 0x1a88)) = 0x64;
     } else if (var8 == 0x64) {
         *(unsigned char *) (var4 + RG(0x19af, 0x17df)) = 0;
@@ -137,10 +137,10 @@ extern "C" ARM void func_ov002_02169efc(char *arg0) {
         *(int *) (arg0 + RG(0x1bc0, 0x1a88))           = 0;
         ClearGlobalFlags_020466f4((Struct_ov002_02168d54_9 *) var6, 0x80);
         *(unsigned int *) (arg0 + RG(0x247c, 0x22ac)) &= ~8;
-        func_0200fb94((char *) GameState::GetInstance(), 0);
+        SetGameMode_0200fb94((char *) GameState::GetInstance(), 0);
     } else if (var8 == 3) {
         *(unsigned char *) (var4 + RG(0x19af, 0x17df)) = 0;
-        func_0209c678((Struct_ov002_02169efc_2 *) &gMusicManager_02109bf4, 0x3c);
+        StopMusic_0209c678((Struct_ov002_02169efc_2 *) &gMusicManager_02109bf4, 0x3c);
         SetBrightness(var5, -16, 0xb4);
         *(int *) (arg0 + RG(0x1bc0, 0x1a88)) += 1;
     } else if (var8 == 4) {

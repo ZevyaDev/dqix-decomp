@@ -23,7 +23,7 @@ struct Struct_ov025_021eb8e8_2 {
 };
 
 extern "C" void* GetBattleScene_ov000_02160130(void);
-extern "C" char* func_ov000_02160f08(void* arg0);
+extern "C" char* GetBattleUI_ov000_02160f08(void* battleScene);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov000_0215ec1c(int arg0, short* arg1, int arg2, int arg3);
 extern "C" Struct_ov025_021eb8e8_3* func_0204a01c(unsigned char* arg0);
@@ -43,7 +43,7 @@ extern "C" void func_02033920(GameObject* arg0, int arg1, int arg2);
 extern "C" ARM void func_ov025_021eb8e8(Struct_ov025_021eb8e8_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetBattleScene_ov000_02160130();
-    char* var2 = func_ov000_02160f08(var1);
+    char* var2 = GetBattleUI_ov000_02160f08(var1);
     short var3[16];
     int var4 = 0;
     var4 = var4 + CollectPartyCombatantIndices_ov000_0215e9fc(arg0->unknown_c_, var3, 0x10, var4);

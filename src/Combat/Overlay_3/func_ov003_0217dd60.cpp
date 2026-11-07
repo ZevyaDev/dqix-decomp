@@ -61,7 +61,7 @@ struct Struct_ov003_0217dd60_2 {
 
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2*, unsigned char, unsigned char);
 extern "C" void func_0205cf04(void*);
-extern "C" void func_0205cef8(void*);
+extern "C" void EnableTouchMenuCursor_0205cef8(void*);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void GetZone3D_02012fe4();
 extern "C" void __clear(void* arg0, int arg1);
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
     }
     arg0->unknown_8c_->unknown_b5_ = 1;
     func_0205cf04(arg0->unknown_8c_);
-    func_0205cef8(arg0->unknown_8c_);
+    EnableTouchMenuCursor_0205cef8(arg0->unknown_8c_);
     int var6;
     int var7;
     int var8 = arg0->unknown_8c_->unknown_68_;
@@ -198,7 +198,7 @@ extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
     }
     arg0->unknown_90_->unknown_b5_ = 1;
     func_0205cf04(arg0->unknown_90_);
-    func_0205cef8(arg0->unknown_90_);
+    EnableTouchMenuCursor_0205cef8(arg0->unknown_90_);
     int var21;
     int var22;
     int var23 = arg0->unknown_90_->unknown_68_;

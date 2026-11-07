@@ -4,7 +4,7 @@ struct Struct_ov031_0223d884 { int unknown_0_, unknown_4_, unknown_8_, unknown_c
 struct Struct_ov031_0223bf2c { int unknown_0_, unknown_4_, unknown_8_, unknown_c_; };
 extern "C" void func_ov031_0223d884(Struct_ov031_0223d884);
 extern "C" void func_ov031_0223bf2c(Struct_ov031_0223bf2c);
-extern "C" unsigned int func_ov031_0223cf70(void**);
+extern "C" unsigned int FreeAndClearPointer_ov031_0223cf70(void**);
 struct Struct_ov031_0223b870 {
     char unknown_0_[0x220];
     void* unknown_220_;
@@ -34,5 +34,5 @@ extern "C" ARM void func_ov031_0223b870() {
         var0++;
         var1 += sizeof(Struct_ov031_0223b870);
     } while (var0 < 2);
-    func_ov031_0223cf70((void**)&data_ov031_02290d28_arg);
+    FreeAndClearPointer_ov031_0223cf70((void**)&data_ov031_02290d28_arg);
 }

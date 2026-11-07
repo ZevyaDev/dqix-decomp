@@ -11,8 +11,8 @@ extern "C" int func_ov017_021d446c(void* arg0, void* arg1, int arg2);
 extern "C" int GetZone3D_02012fe4(void);
 extern "C" int func_02018fbc(int arg0, Vector3i* arg1);
 struct Struct_02033834_2;
-extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
-extern "C" void func_02076ccc(void*, int);
+extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
+extern "C" void SetFieldMonsterState_02076ccc(void*, int);
 
 struct Struct_ov017_021c9334 {
     unsigned char unknown_0_[4];
@@ -47,6 +47,6 @@ extern "C" ARM void func_ov017_021c9334(int arg0, Struct_ov017_021c9334* arg1) {
 
     *(short*)((char*)var0[2] + 0x100 + 0x66) = arg1->unknown_7_4_;
     *(Vector3i*)((char*)var0[2] + 0x158) = var1;
-    func_02033834((struct Struct_02033834_2*)var0[2], var2);
-    func_02076ccc((void*)var0[2], var3);
+    SetFacing_02033834((struct Struct_02033834_2*)var0[2], var2);
+    SetFieldMonsterState_02076ccc((void*)var0[2], var3);
 }

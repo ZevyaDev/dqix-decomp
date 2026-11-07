@@ -2,8 +2,8 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 
-struct Struct_02074bf4;
-extern "C" void func_02074bf4(struct Struct_02074bf4*);
+struct BGControlSave_02074bf4;
+extern "C" void RestoreSubBGControl_02074bf4(struct BGControlSave_02074bf4*);
 extern "C" int DisableSubBGVRAMBanks(void);
 extern "C" void MapVRAMBanksToSubObj(int value);
 extern "C" void MapVRAMBanksToSubBG(int);
@@ -20,7 +20,7 @@ extern "C" ARM void func_ov023_021e7340(void* arg0) {
     volatile unsigned int* var2 = (volatile unsigned int*)0x4001010;
     var2[0] = 0;
     var2[1] = 0;
-    func_02074bf4((struct Struct_02074bf4*)(var0 + 0x64));
+    RestoreSubBGControl_02074bf4((struct BGControlSave_02074bf4*)(var0 + 0x64));
 
     volatile unsigned int* var3 = (volatile unsigned int*)0x4001000;
     *var3 = (*var3 & ~0x1f00) | (*(int*)(var0 + 0x48) << 8);

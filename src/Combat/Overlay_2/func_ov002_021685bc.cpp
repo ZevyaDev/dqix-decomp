@@ -13,7 +13,7 @@ extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2 *window, int index, char *text);
 extern "C" void InitPartyMemberNoun_020e4bf4(void *noun, int partyMemberIndex);
-extern "C" void *func_020e5294(void *arg0, int arg1);
+extern "C" void *FindNounInTable_020e5294(void *nounTable, int nounId);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0 *window, int index, int number);
 extern "C" void func_020466c8(struct Struct_020466c8 *arg0, int arg1);
 extern "C" int func_ov002_021574d4(void *arg0, int arg1);
@@ -96,7 +96,7 @@ extern "C" ARM void func_ov002_021685bc(unsigned char *arg0) {
                 InitPartyMemberNoun_020e4bf4(var5, var3);
                 *(void **) var7 = var5;
                 if (var0->unknown_6_4_ == 1) {
-                    void **var8            = (void **) func_020e5294(*(void **) (arg0 + 0x2000 + 0x44c), var0->unknown_2_);
+                    void **var8            = (void **) FindNounInTable_020e5294(*(void **) (arg0 + 0x2000 + 0x44c), var0->unknown_2_);
                     *(void ***) (var7 + 8) = var8;
                     __clear(var6, 0x80);
                     ExpandInflectionTags_020e4864(*var8, var6, 1, 0, 0, 0);

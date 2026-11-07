@@ -16,7 +16,7 @@ extern "C" void* FindPartyMemberPanel_ov000_02161318(void*, int);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" void func_0205cf10(void*);
 extern "C" void func_0205cf1c(Struct_0205cf1c*);
-extern "C" void func_0205cef8(void*);
+extern "C" void EnableTouchMenuCursor_0205cef8(void*);
 extern "C" void func_0205cf04(void*);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
@@ -177,7 +177,7 @@ extern "C" ARM void func_ov000_0217c638(Struct_ov000_0217c638_3* arg0, int arg1,
         func_0205cf1c((Struct_0205cf1c*)arg0->unknown_188_);
         return;
     }
-    func_0205cef8(arg0->unknown_188_);
+    EnableTouchMenuCursor_0205cef8(arg0->unknown_188_);
     func_0205cf04(arg0->unknown_188_);
     SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&arg0->unknown_18c_, var0, var2, 0);
     SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&arg0->unknown_1dc_, var0, var2, 0);

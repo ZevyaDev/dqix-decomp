@@ -11,11 +11,11 @@ struct TextWindowManager_0205d2bc {
 
 extern "C" void CopyBGScreenDataToVRAM_0204b088(struct Struct_0204b088_2*, int);
 
-// USA: func_0205d2bc
-extern "C" ARM void func_0205d2bc(struct TextWindowManager_0205d2bc* arg0) {
-    unsigned char var0;
-    if (arg0->pBGLayers_98_ == 0) return;
-    for (var0 = 0; var0 < arg0->bgLayerCount_b2_; var0++) {
-        CopyBGScreenDataToVRAM_0204b088(&arg0->pBGLayers_98_[var0], 0);
+// USA: CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc
+extern "C" ARM void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(struct TextWindowManager_0205d2bc* windowManager) {
+    unsigned char i;
+    if (windowManager->pBGLayers_98_ == 0) return;
+    for (i = 0; i < windowManager->bgLayerCount_b2_; i++) {
+        CopyBGScreenDataToVRAM_0204b088(&windowManager->pBGLayers_98_[i], 0);
     }
 }

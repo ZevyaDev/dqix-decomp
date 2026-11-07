@@ -12,7 +12,7 @@ extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId)
 extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void EnablePlayerControl_020397c0(void* object);
-extern "C" void func_0205ebec(void* arg0);
+extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
 
 extern char gSoundEffectManager_02108760;
 extern int gMainHeap_02114e20;
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov017_021a7280(struct Struct_ov017_021a7280* arg0) {
 
 	EnablePlayerControl_020397c0(GameState::GetInstance()->GetUnknownGameObject());
 
-	func_0205ebec(&gSoundEffectManager_02108760);
+	UnloadExtraSoundSet_0205ebec(&gSoundEffectManager_02108760);
 
 	void* var0 = arg0->unknown_30_.GetSignedAllocator();
 	if (var0 != NULL) {

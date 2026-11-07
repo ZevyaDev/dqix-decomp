@@ -22,7 +22,7 @@ extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" Struct_ov002_0216acf0_4* GetLocalWireless_0202ae18(void);
 extern "C" char* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void _ZN8Vector3iaSERKS_(int* arg0, const void* arg1);
-extern "C" int func_0202c578(Struct_ov002_0216acf0_4* arg0, int arg1);
+extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(Struct_ov002_0216acf0_4* wireless, int protagonistObjectIndex);
 extern "C" int func_ov002_0216c628(unsigned char*, int);
 extern "C" void func_ov002_0215b6c0(char* arg0);
 extern "C" void func_ov002_0215a7b4(char* arg0, int arg1, int arg2, int arg3, int arg4);
@@ -163,7 +163,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
         if (U8(RG(0x1c7b, 0x1b3f)) == 0x14) {
             int var12 = 0;
             for (int var13 = 0; var13 < U8(RG(0x1ccb, 0x1b8f)); var13++) {
-                if (func_0202c578(var2, *(signed char*)(arg0 + var13 + RG(0x1ccc, 0x1b90)))) {
+                if (IsLocalWirelessPlayerDisconnected_0202c578(var2, *(signed char*)(arg0 + var13 + RG(0x1ccc, 0x1b90)))) {
                     var12 = 1;
                     break;
                 }

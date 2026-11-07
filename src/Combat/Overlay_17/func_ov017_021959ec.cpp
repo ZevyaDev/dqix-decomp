@@ -4,7 +4,7 @@
 
 extern "C" int func_0202e09c(int arg0);
 extern "C" void func_ov000_0216d50c(void* arg0);
-extern "C" void func_0202e0a4(int arg0);
+extern "C" void UpdateCamera_0202e0a4(int camera);
 
 // USA: func_ov017_021959ec
 extern "C" ARM void func_ov017_021959ec(void*) {
@@ -14,6 +14,6 @@ extern "C" ARM void func_ov017_021959ec(void*) {
 	if (func_0202e09c((int)var1) & 8) {
 		func_ov000_0216d50c(var1);
 	} else {
-		func_0202e0a4((int)var1);
+		UpdateCamera_0202e0a4((int)var1);
 	}
 }

@@ -9,7 +9,7 @@ enum { Enum_ov017_0219b43c_1584 = 0x630, Enum_ov017_0219b43c_11152 = 0x2b90 };
 #include "GameState/GameState.h"
 
 struct Struct_02015ef4 { unsigned int unknown_0_[3]; };
-extern "C" int func_0202ec84(void* arg0, struct Struct_02015ef4* arg1, int* arg2, int* arg3);
+extern "C" int ConvertWorldToScreen_0202ec84(void* camera, struct Struct_02015ef4* worldPosition, int* outX, int* outY);
 
 struct Struct_0203a46c;
 extern "C" void func_0203a46c(struct Struct_0203a46c* arg0, int arg1, int arg2, int arg3);
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov017_0219b43c(char* arg0, int arg1, struct Struct_0201
     }
 
     int var1, var2;
-    func_0202ec84(var0, arg2, &var1, &var2);
+    ConvertWorldToScreen_0202ec84(var0, arg2, &var1, &var2);
 
     struct Struct_ov017_0219b43c* var3 = (struct Struct_ov017_0219b43c*)(arg0 + Enum_ov017_0219b43c_11152) + arg1;
     *(struct Struct_ov017_0219b43c**)(arg0 + 0x3000 + Enum_ov017_0219b43c_1584) = var3;

@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct Struct_0207fe44;
+struct MenuLayout_0207fe44;
 struct Struct_02081f20_2;
 struct SoundEffectManager_02108760;
 struct Struct_ov003_02162f40_3;
@@ -82,7 +82,7 @@ struct Struct_ov003_02162f40_2 {
     Struct_ov003_02162f40_4 unknown_64_;
 };
 
-extern "C" void func_0207fe44(Struct_0207fe44 *);
+extern "C" void CloseMenuLayoutWindows_0207fe44(MenuLayout_0207fe44 *);
 extern "C" void func_020813ec(Struct_ov003_0216201c *, int);
 extern "C" int func_02080468(void *, int);
 extern "C" void func_0208203c(Struct_02081f20_2 *);
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov003_02162f40(Struct_ov003_02154af4_3 *arg0) {
     Struct_ov003_0216201c *var1    = arg0->unknown_324_;
 
     if (var0 == 0) {
-        func_0207fe44((Struct_0207fe44 *) var1);
+        CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44 *) var1);
         func_020813ec(var1, 8);
         arg0->unknown_488_   = 8;
         arg0->unknown_490_   = func_02080468(var1, arg0->unknown_488_);
@@ -130,7 +130,7 @@ extern "C" ARM void func_ov003_02162f40(Struct_ov003_02154af4_3 *arg0) {
             unsigned char var2 = arg0->unknown_490_ - 0x25;
             Struct_ov003_02162f40_3 *var3  = (Struct_ov003_02162f40_3 *) GetGameResources();
             func_ov003_0217e5dc(var3, var2);
-            func_0207fe44((Struct_0207fe44 *) var1);
+            CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44 *) var1);
             arg0->unknown_4a3_  = 0x10;
             arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
         } else {
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov003_02162f40(Struct_ov003_02154af4_3 *arg0) {
             }
             func_0208203c((Struct_02081f20_2 *) arg0->unknown_308_);
             arg0->unknown_470_ = 0;
-            func_0207fe44((Struct_0207fe44 *) var1);
+            CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44 *) var1);
             arg0->unknown_484_  = 2;
             arg0->unknown_4a3_  = 1;
             arg0->unknown_4a4_ = 0;
@@ -161,7 +161,7 @@ extern "C" ARM void func_ov003_02162f40(Struct_ov003_02154af4_3 *arg0) {
             arg0->unknown_480_ = var8->unknown_0_0_;
         }
         var1->unknown_36_ = arg0->unknown_492_;
-        func_0207fe44((Struct_0207fe44 *) var1);
+        CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44 *) var1);
         func_02081198((Struct_02081198 *) var1, 5, 1);
         func_02081164((Struct_02081164 *) var1, 5, 1);
         func_020813ec(var1, 5);
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov003_02162f40(Struct_ov003_02154af4_3 *arg0) {
         arg0->unknown_484_  = 0x15;
         arg0->unknown_4a4_ = 5;
     } else if (var0 == 4) {
-        func_0207fe44((Struct_0207fe44 *) var1);
+        CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44 *) var1);
         arg0->unknown_464_ |= 0x80000;
         arg0->unknown_484_  = 2;
         arg0->unknown_4a3_  = 1;
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov003_02162f40(Struct_ov003_02154af4_3 *arg0) {
         int var12 = func_ov003_02161344(arg0);
         if (var12 != -1) {
             if (var12 == 1) {
-                func_0207fe44((Struct_0207fe44 *) var1);
+                CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44 *) var1);
                 arg0->unknown_464_ |= 0x80000;
 #if defined(jpn)
                 int var13 = 4;
@@ -230,7 +230,7 @@ extern "C" ARM void func_ov003_02162f40(Struct_ov003_02154af4_3 *arg0) {
                 }
             }
         } else {
-            func_0207fe44((Struct_0207fe44 *) var1);
+            CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44 *) var1);
             arg0->unknown_464_ |= 0x80000;
             arg0->unknown_464_ |= 8;
             arg0->unknown_484_  = 0x5a;

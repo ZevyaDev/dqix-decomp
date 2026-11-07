@@ -3,8 +3,8 @@
 #include "std_library_functions.h"
 
 extern "C" void __clear(void* arg0, int arg1);
-struct Struct_02015ef4_4;
-extern "C" unsigned short func_020de234(struct Struct_02015ef4_4* arg0, int arg1);
+struct ItemData_02015ef4_4;
+extern "C" unsigned short GetItemGraphicNumber_020de234(struct ItemData_02015ef4_4* item, int gender);
 struct Struct_02075d64;
 extern "C" void func_02075d64(struct Struct_02075d64* arg0);
 
@@ -26,16 +26,16 @@ extern "C" ARM int func_ov023_021e0244(void* arg0) {
         __clear(var2, 0x40);
 
         if ((*(unsigned short*)((char*)arg0 + Enum_ov023_021e0244_1908) & 0x1000) != 0) {
-            struct Struct_02015ef4_4* var3 = *(struct Struct_02015ef4_4**)((char*)arg0 + 0x4c);
-            unsigned short var4 = func_020de234(var3, 0);
-            struct Struct_02015ef4_4* var5 = *(struct Struct_02015ef4_4**)((char*)arg0 + 0x4c);
+            struct ItemData_02015ef4_4* var3 = *(struct ItemData_02015ef4_4**)((char*)arg0 + 0x4c);
+            unsigned short var4 = GetItemGraphicNumber_020de234(var3, 0);
+            struct ItemData_02015ef4_4* var5 = *(struct ItemData_02015ef4_4**)((char*)arg0 + 0x4c);
             unsigned int var6 = *(unsigned int*)((char*)var5 + 0x10);
             int var7 = (var6 << 4) >> 0x18;
             sprintf(var2, data_ov023_021fdc23, var7, var4);
         } else {
-            struct Struct_02015ef4_4* var8 = *(struct Struct_02015ef4_4**)((char*)arg0 + 0x4c);
-            unsigned short var9 = func_020de234(var8, 0);
-            struct Struct_02015ef4_4* var10 = *(struct Struct_02015ef4_4**)((char*)arg0 + 0x4c);
+            struct ItemData_02015ef4_4* var8 = *(struct ItemData_02015ef4_4**)((char*)arg0 + 0x4c);
+            unsigned short var9 = GetItemGraphicNumber_020de234(var8, 0);
+            struct ItemData_02015ef4_4* var10 = *(struct ItemData_02015ef4_4**)((char*)arg0 + 0x4c);
             unsigned int var11 = *(unsigned int*)((char*)var10 + 0x10);
             int var12 = (var11 << 4) >> 0x18;
             sprintf(var2, data_ov023_021fdc36, var12, var9);

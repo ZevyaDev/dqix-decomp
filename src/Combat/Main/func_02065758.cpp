@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct Struct_0203dce4_2;
-struct Struct_0203dce4;
+struct NPCManager_0203dce4_2;
+struct NPC_0203dce4;
 extern "C" void* func_0203cf4c(void);
-extern "C" Struct_0203dce4* func_0203dce4(Struct_0203dce4_2* arg0, int arg1);
+extern "C" NPC_0203dce4* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2* npcManager, int index);
 
 struct Struct_02065758 {
     #if defined(jpn)
@@ -28,11 +28,11 @@ struct Struct_02065758 {
 
 // USA: func_02065758
 extern "C" ARM int func_02065758(Struct_02065758* arg0, int arg1) {
-    Struct_0203dce4* var0;
+    NPC_0203dce4* var0;
     int var1;
     unsigned char var2;
 
-    var0 = func_0203dce4((Struct_0203dce4_2*)func_0203cf4c(), arg0->unknown_1838_);
+    var0 = GetNPCByIndex_0203dce4((NPCManager_0203dce4_2*)func_0203cf4c(), arg0->unknown_1838_);
     if (var0 == NULL) {
         return 0;
     }

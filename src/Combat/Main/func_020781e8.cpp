@@ -16,7 +16,7 @@ struct Struct_ov009_0218aa28 {
 extern "C" struct Struct_ov009_0218aa28 func_02034104(GameObject* arg0);
 
 struct Struct_02033834_2;
-extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
+extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 
 struct Struct_ov001_021592bc {
     int unknown_0_;
@@ -71,7 +71,7 @@ extern "C" ARM int func_020781e8(struct Struct_020781e8* arg0) {
         var5.unknown_4_ = -var5.unknown_4_;
         var5.unknown_8_ = -var5.unknown_8_;
         var2 = fix32_Atan2(var5.unknown_0_, var5.unknown_8_);
-        func_02033834((struct Struct_02033834_2*)arg0, var2);
+        SetFacing_02033834((struct Struct_02033834_2*)arg0, var2);
         var5.unknown_4_ = 0;
         Vector3fixMultiplyScalar((Vector3i const*)&var5, 0x5000, (Vector3i*)&var5);
         Vector3fix_Add((const Vector3fix*)&arg0->unknown_44_, (const Vector3fix*)&var5, (Vector3fix*)&arg0->unknown_158_);

@@ -144,7 +144,7 @@ extern "C" float func_0200c700(int);
 extern "C" short func_ov000_0216352c(int arg0, float arg1, float arg2);
 extern "C" int func_ov000_021635e4(int arg0, unsigned char arg1);
 extern "C" int func_ov000_02163c0c(void* arg0, int arg1);
-extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
+extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov025_021ee438(struct Struct_ov025_021ee438* arg0, int arg1);
 extern "C" void func_ov025_021dcf14(void* arg0);
@@ -467,7 +467,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Struct_ov025_021e9778_4* arg0) {
                     if (var12[Enum_ov025_021ebb90_28665] != 0 && func_ov000_02163c0c(var12, var47) != 0) {
                         var0.unknown_2c_.unknown_4_ += 0xe66;
                     }
-                    func_02057fb4(var49, arg0->unknown_0_[var17].unknown_20_, &var0);
+                    PlayEffect_02057fb4(var49, arg0->unknown_0_[var17].unknown_20_, &var0);
                 }
 
                 if (arg0->unknown_0_[var17].unknown_6_ & 0x20) SetMainBrightness(var13, 0x10, 0xf);

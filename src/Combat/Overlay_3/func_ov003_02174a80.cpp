@@ -7,7 +7,7 @@
 
 #if defined(jpn)
 enum { Enum_ov003_02174a80_2096 = 0x7ac, Enum_ov003_02174a80_2164 = 0x7f0, Enum_ov003_02174a80_2008 = 0x754, Enum_ov003_02174a80_728 = 0x228, Enum_ov003_02174a80_1721 = 0x870 - 0x237 };
-extern const char* data_020f2a38;
+extern const char* gItemDataPath_020f2a38;
 extern const char data_ov003_0217ed74[];
 extern const char data_ov003_0217eda8[];
 extern const char data_ov003_0217edc6[];
@@ -140,7 +140,7 @@ extern "C" void LoadSpriteSetFile_0205a528(void*, void*, int, SafeAllocator*);
 extern "C" Struct_ov003_02174a80* GetMessageWindow_020421a0(void);
 extern "C" void func_ov003_02176798(void*);
 
-extern const char* data_020f2a38;
+extern const char* gItemDataPath_020f2a38;
 extern const char* data_020f2a30;
 extern char data_ov003_0217fab4[];
 extern char data_ov003_02180af4[];
@@ -165,9 +165,9 @@ extern "C" ARM void func_ov003_02174a80(Struct_ov003_02174a80_5* arg0) {
     if (arg0->unknown_103f_ == 0) {
         var1->AddFence();
 #if defined(jpn)
-        arg0->unknown_fec_ = var1->QueueLoadGP1(data_020f2a38, 0);
+        arg0->unknown_fec_ = var1->QueueLoadGP1(gItemDataPath_020f2a38, 0);
 #else
-        arg0->unknown_fec_ = var1->QueueLoadFileInGP2(data_020f2a38, data_020f2a30, 0);
+        arg0->unknown_fec_ = var1->QueueLoadFileInGP2(gItemDataPath_020f2a38, data_020f2a30, 0);
 #endif
         arg0->unknown_103f_++;
     } else if (arg0->unknown_103f_ == 1) {

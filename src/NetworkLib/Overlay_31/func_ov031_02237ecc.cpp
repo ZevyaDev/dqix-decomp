@@ -11,7 +11,7 @@ struct Struct_ov031_02237ecc { unsigned char unknown_0_[0x1a]; signed char unkno
 extern Struct_ov031_02237ecc* data_ov031_02290d10;
 
 struct Struct_ov031_02237ecc_3 { unsigned char unknown_0_[8]; int unknown_8_; };
-extern "C" void func_ov031_0223e2b8(struct Struct_ov031_02237ecc_3* arg0, int arg1);
+extern "C" void SetTaskCallback_ov031_0223e2b8(struct Struct_ov031_02237ecc_3* task, int callback);
 
 extern "C" void func_ov031_02237f2c(void);
 
@@ -22,5 +22,5 @@ extern "C" ARM void func_ov031_02237ecc(void* arg0) {
     if (data_ov031_02290d10->unknown_1a_ > -12) {
         return;
     }
-    func_ov031_0223e2b8((struct Struct_ov031_02237ecc_3*)arg0, (int)func_ov031_02237f2c);
+    SetTaskCallback_ov031_0223e2b8((struct Struct_ov031_02237ecc_3*)arg0, (int)func_ov031_02237f2c);
 }

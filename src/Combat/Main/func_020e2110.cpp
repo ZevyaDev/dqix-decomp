@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" ARM void* func_020421b0(int arg0);
+extern "C" ARM void* GetWindowTile_020421b0(int tileIndex);
 extern "C" ARM void func_0205b530(void* arg0, void* arg1, short arg2, short arg3, int arg4, int arg5);
 extern "C" ARM void* __clear(void* arg0, int arg1);
 
@@ -13,8 +13,8 @@ extern "C" ARM void func_020e2110(void* arg0) {
     unsigned char var2 = ((unsigned char*)var0)[0x3a];
     unsigned char var3 = ((unsigned char*)var0)[0x3b];
 
-    void* var4 = func_020421b0(1);
-    void* var5 = func_020421b0(6);
+    void* var4 = GetWindowTile_020421b0(1);
+    void* var5 = GetWindowTile_020421b0(6);
     if (var4 != 0 && var5 != 0) {
         int var6, var7;
         int var8 = var2 - 9;
@@ -24,8 +24,8 @@ extern "C" ARM void func_020e2110(void* arg0) {
         }
     }
 
-    void* var9 = func_020421b0(3);
-    void* var10 = func_020421b0(4);
+    void* var9 = GetWindowTile_020421b0(3);
+    void* var10 = GetWindowTile_020421b0(4);
     if (var9 != 0 && var10 != 0) {
         int var11, var12;
         int var13 = var3 - 9;
@@ -49,7 +49,7 @@ extern "C" ARM void func_020e2110(void* arg0) {
     int var18;
     for (var18 = 0; var18 < 4; var18++) {
         int var19 = (&data_020ee94c)[var18];
-        void* var20 = func_020421b0(var19);
+        void* var20 = GetWindowTile_020421b0(var19);
         if (var20 != 0) {
             func_0205b530(var1, var20, var14[var18], var15[var18], 8, 0xf);
         }

@@ -5,17 +5,17 @@
 #include "Resource/GameResources.h"
 
 extern "C" int func_020dc920(int arg0, int arg1, int arg2, int arg3);
-extern "C" int func_0207c378(void* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_02052d7c(void* arg0, int arg1, short arg2);
+extern "C" int AddEquipmentToBag_0207c378(void* bag, int itemId, int count, int category);
+extern "C" void SetEquippedItem_02052d7c(void* gameObject, int slot, short itemId);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
-extern "C" void func_ov017_021c3fb4(int arg0, int arg1);
+extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int memberIndex, int requestModelLoad);
 extern "C" void func_ov017_021c4418(int arg0, int arg1);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void* GetParty_02010828(GameState*);
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" int func_020535c8(signed char*);
+extern "C" int IsPerformingGesture_020535c8(signed char*);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 extern "C" int func_02048418(unsigned char*, unsigned short);
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov017_021d27e4(void* arg0, Struct_ov017_021d27e4_2* arg
         if (!var5) return;
         int var9 = 1;
         if ((*reinterpret_cast<int*>(static_cast<char*>(GetMessageWindow_020421a0()) + Enum_ov017_021d27e4_2456)) != 0) var9 = 0;
-        if (func_020535c8((signed char*)arg2->GetUnknownGameObject()) != 0) var9 = 0;
+        if (IsPerformingGesture_020535c8((signed char*)arg2->GetUnknownGameObject()) != 0) var9 = 0;
         if (IsQueueEmpty_02046b08(static_cast<void**>(arg3->unknown_ptr_array_36fc[0])) == 0) var9 = 0;
         if (func_020dc920((unsigned char)var1, 1, 1, 0) == 0) var9 = 0;
         if (var9) {
@@ -111,15 +111,15 @@ extern "C" ARM void func_ov017_021d27e4(void* arg0, Struct_ov017_021d27e4_2* arg
                     if (var14 == 2 || var14 == 3 || var14 == 4) continue;
                     Struct_ov017_021d27e4* var15 = reinterpret_cast<Struct_ov017_021d27e4*>(*reinterpret_cast<char**>(reinterpret_cast<char*>(var11) + Enum_ov017_021d27e4_336) + 0x194) + (unsigned char)var14;
                     if (var15 != NULL && var15->unknown_a_2_) {
-                        func_0207c378((char*)var0 + 0x1d4, var15->unknown_18_, 1, var15->unknown_8_0_);
-                        func_02052d7c(var11, var12.unknown_0_[var14], -1);
+                        AddEquipmentToBag_0207c378((char*)var0 + 0x1d4, var15->unknown_18_, 1, var15->unknown_8_0_);
+                        SetEquippedItem_02052d7c(var11, var12.unknown_0_[var14], -1);
                         var13 = 1;
                     }
                 }
                 if (var13) {
                     func_02048418((unsigned char*)var11, 4);
                     func_ov017_021c9e00(var2, 0, 0, 1);
-                    func_ov017_021c3fb4(var2, 1);
+                    SendPartyMemberEquippedItems_ov017_021c3fb4(var2, 1);
                     func_ov017_021c4418(var2, -1);
                     GameResources* var16 = GetGameResources();
                     BackgroundLoader::GetInstance();

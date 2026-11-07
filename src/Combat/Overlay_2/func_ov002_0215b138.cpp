@@ -6,11 +6,11 @@
 #define REGION_VALUE(j, u) (u)
 #endif
 
-struct Struct_0205def8;
+struct TextWindowManager_0205def8;
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0;
 
-extern "C" void func_0205def8(struct Struct_0205def8* arg0, int arg1, int arg2);
+extern "C" void func_0205def8(struct TextWindowManager_0205def8* arg0, int arg1, int arg2);
 extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 extern "C" void func_ov002_02154bcc(int arg0, int arg1, void* arg2, int arg3, unsigned char arg4, unsigned char arg5);
@@ -18,7 +18,7 @@ extern "C" void func_ov002_02154bcc(int arg0, int arg1, void* arg2, int arg3, un
 // USA: func_ov002_0215b138
 // KEEP-NAME
 extern "C" ARM void func_ov002_0215b138(unsigned char* arg0) {
-    func_0205def8((struct Struct_0205def8*)(arg0 + REGION_VALUE(0xe20, 0xec8)), 0, REGION_VALUE(0x2b, 0x28));
+    func_0205def8((struct TextWindowManager_0205def8*)(arg0 + REGION_VALUE(0xe20, 0xec8)), 0, REGION_VALUE(0x2b, 0x28));
 
     if (*(int*)(arg0 + REGION_VALUE(0x1a80, 0x1bb8)) != 4 && *(int*)(arg0 + REGION_VALUE(0x1a80, 0x1bb8)) != 5) {
         return;
@@ -47,5 +47,5 @@ extern "C" ARM void func_ov002_0215b138(unsigned char* arg0) {
     unsigned short var4 = (unsigned short)(var3 + REGION_VALUE(0x29, 0x27));
     func_ov002_02154bcc(var2, var1, *(void**)(arg0 + REGION_VALUE(0x19c0, 0x1a68)), var4, 0x58, 0xff);
 
-    func_0205def8((struct Struct_0205def8*)(arg0 + REGION_VALUE(0xe20, 0xec8)), 1, REGION_VALUE(0x2b, 0x28));
+    func_0205def8((struct TextWindowManager_0205def8*)(arg0 + REGION_VALUE(0xe20, 0xec8)), 1, REGION_VALUE(0x2b, 0x28));
 }

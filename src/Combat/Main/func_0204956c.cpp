@@ -22,7 +22,7 @@ extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" void func_02049ae4(unsigned char*);
 extern "C" int func_02049ee8(unsigned char*);
 extern "C" int func_020494a0(unsigned char*);
-extern "C" int func_020493a4(unsigned char*);
+extern "C" int GetCombatantCell_020493a4(unsigned char*);
 extern "C" void func_020494c0(Struct_02048f64_2*);
 extern "C" int func_02031468(Vector3i*, Vector3i*, Vector3i*, Vector3i*);
 extern "C" Struct_02107850 data_02107850;
@@ -77,7 +77,7 @@ extern "C" ARM void func_0204956c(Struct_0204956c_2* arg0) {
                 return;
             }
         }
-        Struct_02048cf0 var15 = inline_0204956c(func_020493a4(var0));
+        Struct_02048cf0 var15 = inline_0204956c(GetCombatantCell_020493a4(var0));
         Vector3i var16 = data_020e7b3c;
         var16.x = var15.unknown_0_;
         var16.z = var15.unknown_4_;

@@ -77,11 +77,11 @@ extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14*);
 extern "C" int func_020e038c(void*, void*, int);
 extern "C" int func_ov009_0218a420(Struct_ov009_02189a4c_2*, Struct_ov009_02189a4c_3*);
 extern "C" void __clear(void*, unsigned int);
-extern "C" Struct_ov009_02186e00* func_0204254c(int, int);
+extern "C" Struct_ov009_02186e00* FindFontGlyph_0204254c(int, int);
 extern "C" void func_ov009_0218a484(int, char*, char*);
 extern "C" unsigned int func_020e0424(Struct_020e0424*);
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
-extern "C" int func_020424e4(int, int);
+extern "C" int FindFontGlyphIndex_020424e4(int, int);
 extern "C" Struct_ov009_02186e00* func_020425b4(int, int);
 extern "C" int ConvertTextToGlyphIndices_020426bc(const char*, unsigned char*, int);
 extern "C" int func_ov009_0218a4c8(int, int, int, int, int);
@@ -159,7 +159,7 @@ __clear(var7, 64);
     char* var23 = var11;
     for (;;) {
         if (!*var23) break;
-        Struct_ov009_02186e00* var24 = func_0204254c((int)var23, 1);
+        Struct_ov009_02186e00* var24 = FindFontGlyph_0204254c((int)var23, 1);
         __clear(var8, 12);
         int var25 = var24->unknown_5_0_;
         char* var26 = var24->unknown_0_;
@@ -211,7 +211,7 @@ exact_done:
     char* var41 = var4;
     for (;;) {
         if (!*var11) break;
-        int var42 = func_020424e4((int)var11, 1);
+        int var42 = FindFontGlyphIndex_020424e4((int)var11, 1);
         Struct_ov009_02186e00* var43 = func_020425b4(var42, 1);
         if (!var43) goto fallback_character;
         if (((var42 >= 8 && var42 <= 69) || var42 == 77 || var42 == 83 ||

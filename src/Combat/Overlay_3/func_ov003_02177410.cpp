@@ -15,8 +15,8 @@ enum { Enum_ov003_02177410_4163 = 0x1043 };
 #endif
 #include "GameState/GameState.h"
 
-struct Struct_0207fdcc_2;
-extern "C" void func_02080c20(struct Struct_0207fdcc_2* arg0, int arg1);
+struct MenuLayout_0207fdcc_2;
+extern "C" void func_02080c20(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
 struct Struct_02081214;
 extern "C" void* func_02081214(struct Struct_02081214* arg0, int arg1);
@@ -55,7 +55,7 @@ struct Struct_ov003_02177410_3 {
 
 struct Struct_ov003_02177410_4 {
     char unknown_0_[Enum_ov003_02177410_2204];
-    struct Struct_0207fdcc_2* unknown_89c_;
+    struct MenuLayout_0207fdcc_2* unknown_89c_;
     char unknown_8a0_[Enum_ov003_02177410_4163 - Enum_ov003_02177410_2208];
     signed char unknown_1043_;
 };
@@ -63,7 +63,7 @@ struct Struct_ov003_02177410_4 {
 // USA: func_ov003_02177410
 extern "C" ARM void func_ov003_02177410(Struct_ov003_02177410_4* arg0) {
     GameState* var0 = GameState::GetInstance();
-    struct Struct_0207fdcc_2* var1 = arg0->unknown_89c_;
+    struct MenuLayout_0207fdcc_2* var1 = arg0->unknown_89c_;
     func_02080c20(var1, 0xe);
     func_02080c68(var1, 0xe, 0);
 

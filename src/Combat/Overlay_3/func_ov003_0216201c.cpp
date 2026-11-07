@@ -50,8 +50,8 @@ extern "C" void func_0208203c(Struct_02081f20_2*);
 extern "C" int func_02080468(void *, int);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *, int, int);
-struct Struct_0207fe44;
-extern "C" void func_0207fe44(Struct_0207fe44*);
+struct MenuLayout_0207fe44;
+extern "C" void CloseMenuLayoutWindows_0207fe44(MenuLayout_0207fe44*);
 extern "C" int func_ov003_02160b84(void *);
 extern "C" int func_ov003_02160a68(Struct_ov003_02154af4_3 *);
 extern "C" int func_ov003_02160854(Struct_ov003_02154af4_3 *);
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
     Struct_ov003_0216201c *var5     = arg0->unknown_324_;
 
     if (var4 == 0) {
-        func_0207fe44((Struct_0207fe44*)var5);
+        CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var5);
         arg0->unknown_488_ = 0x1e;
         if (*((unsigned char *)GetParty_02010828(GameState::GetInstance()) + 0xf7c) == 1) {
             arg0->unknown_488_ = 0x1d;
@@ -106,11 +106,11 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
                         arg0->unknown_484_ = 6;
                         arg0->unknown_486_ = 2;
                     } else if (*((unsigned char *)GetParty_02010828(GameState::GetInstance()) + 0x2000 + 0xc8c) == 0) {
-                        func_0207fe44((Struct_0207fe44*)var5);
+                        CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var5);
                         arg0->unknown_4a3_  = 2;
                         arg0->unknown_4a4_ = 0;
                     } else {
-                        func_0207fe44((Struct_0207fe44*)var5);
+                        CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var5);
                         arg0->unknown_484_  = 0x4c;
                         arg0->unknown_4a3_  = 2;
                         arg0->unknown_4a4_ = 4;
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
                         arg0->unknown_484_ = 0x45;
                         arg0->unknown_486_ = 2;
                     } else {
-                        func_0207fe44((Struct_0207fe44*)var5);
+                        CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var5);
                         arg0->unknown_484_  = 0xa;
                         arg0->unknown_4a3_  = 3;
                         arg0->unknown_4a4_ = 0;
@@ -154,7 +154,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
                     func_ov003_02160c58(arg0, &var13, &var14);
                     var14 = var14 - (var1[0xf7c] - 1);
                     if (var14 > 0) {
-                        func_0207fe44((Struct_0207fe44*)var5);
+                        CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var5);
                         arg0->unknown_4a3_ = 4;
                         arg0->unknown_484_ = 0x13;
                         arg0->unknown_464_ |= 2;
@@ -168,7 +168,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
                 case 0xb5:
                 case 0xb9:
                     if (*((unsigned char *)GetParty_02010828(GameState::GetInstance()) + 0x2000 + 0xc8c) != 0) {
-                        func_0207fe44((Struct_0207fe44*)var5);
+                        CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var5);
                         arg0->unknown_4a3_ = 5;
                         arg0->unknown_49f_ = 0;
                         SetFlag_0206df6c(var2, var2 + 0x8c, 0x785, 1);
@@ -181,7 +181,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
                     break;
                 case 0xb6:
                 case 0xba:
-                    func_0207fe44((Struct_0207fe44*)var5);
+                    CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var5);
                     if (IsFlagSet_0206dfb0((int) var2, var2 + 0x8c, 0x784) != 0 && var3 != 0 &&
                         HasLearnedSkillEntry_02083b00(var3, 0x11e) == 0)
                     {
@@ -198,7 +198,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
             }
             func_02080c68(var5, arg0->unknown_488_, 1);
         } else if (func_ov003_02160a68(arg0) != 0) {
-            func_0207fe44((Struct_0207fe44*)var5);
+            CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var5);
             if (IsFlagSet_0206dfb0((int) var2, var2 + 0x8c, 0x784) != 0 && var3 != 0 &&
                 HasLearnedSkillEntry_02083b00(var3, 0x11e) == 0)
             {

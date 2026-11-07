@@ -11,9 +11,9 @@ extern struct Struct_ov031_02290d24_3 data_ov031_02290d24;
 extern "C" void func_ov031_0223bfa0(void*);
 extern "C" void HaltForever_020c9be0(void);
 extern "C" int func_ov031_0223b744(char*, char*, int);
-extern "C" void* func_ov031_0223cf4c(unsigned int arg0, int arg1);
+extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int size, int alignAndDir);
 extern "C" void func_020ca7e8(void*, void*);
-extern "C" unsigned int func_ov031_0223cf70(void** arg0);
+extern "C" unsigned int FreeAndClearPointer_ov031_0223cf70(void** pointer);
 extern char data_ov031_0224c56c[];
 
 // USA: func_ov031_0223b61c
@@ -30,7 +30,7 @@ extern "C" ARM void* func_ov031_0223b61c(char* arg0, unsigned int* arg1, int arg
 
     int var2 = func_ov031_0223b744(arg0, data_ov031_0224c56c, 2) ? -4 : arg2;
 
-    void* var3 = func_ov031_0223cf4c(var1, var2);
+    void* var3 = AllocateZeroedMemory_ov031_0223cf4c(var1, var2);
     NitroVM_ReadSync(&var0, var3, var1);
     NitroVM_FinishRead(&var0);
 
@@ -40,8 +40,8 @@ extern "C" ARM void* func_ov031_0223b61c(char* arg0, unsigned int* arg1, int arg
 
     unsigned int var4 = *(unsigned int*)var3 >> 8;
     if (arg1) *arg1 = var4;
-    void* var5 = func_ov031_0223cf4c(var4, arg2);
+    void* var5 = AllocateZeroedMemory_ov031_0223cf4c(var4, arg2);
     func_020ca7e8(var3, var5);
-    func_ov031_0223cf70(&var3);
+    FreeAndClearPointer_ov031_0223cf70(&var3);
     return var5;
 }

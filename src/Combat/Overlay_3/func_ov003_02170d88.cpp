@@ -155,7 +155,7 @@ extern "C" void func_0205e22c(void*);
 extern "C" void VectorizedMemset(void*, int, unsigned int);
 extern "C" void* func_02052a10(char*);
 extern "C" short* func_02052e2c(Struct_02052e2c*);
-extern "C" int func_020ac0b4(void*);
+extern "C" int GetAlchemyCount_020ac0b4(void*);
 extern "C" int func_020ac4f8(int);
 extern "C" int func_020a0870(Struct_02061c04*);
 extern "C" int func_020a08a4(Struct_02061c04*);
@@ -203,7 +203,7 @@ extern "C" ARM void func_ov003_02170d88(Struct_ov003_02170d88_4* arg0) {
     Struct_ov003_02170d88_14* var7 = &arg0->unknown_1c0_.unknown_ac_;
     var0 = &var6->unknown_7504_;
     unsigned int var8 = 0;
-    func_020ac0b4(&var8);
+    GetAlchemyCount_020ac0b4(&var8);
     unsigned int var9 = 0;
     unsigned int var10 = 0;
     GameObject* var11 = var3->GetProtagonist();

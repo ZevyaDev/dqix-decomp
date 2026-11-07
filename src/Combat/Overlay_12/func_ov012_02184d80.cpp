@@ -63,7 +63,7 @@ extern const char* data_020f285c;
 extern char data_ov012_0218b220[];
 extern "C" void __clear(void*, unsigned int);
 extern "C" void func_ov012_021855f0(void*, char*, char*);
-extern "C" int func_020424e4(int, int);
+extern "C" int FindFontGlyphIndex_020424e4(int, int);
 extern "C" Struct_ov009_02186e00* func_020425b4(int, int);
 extern "C" int ConvertTextToGlyphIndices_020426bc(const char*, unsigned char*, int);
 extern "C" int func_ov012_02185634(void*, void*, int, int, int);
@@ -146,7 +146,7 @@ extern "C" ARM int func_ov012_02184d80(Struct_ov012_02184d80* arg0, char* arg1, 
     for (;;) {
         if (!*arg1) break;
         Struct_ov009_02186e00* var27;
-        int var28 = func_020424e4((int)arg1, 1);
+        int var28 = FindFontGlyphIndex_020424e4((int)arg1, 1);
         var27 = func_020425b4(var28, 1);
         if (!var27) goto fallback_character;
         if (((var28 >= 8 && var28 <= 69) || var28 == 77 || var28 == 83 ||

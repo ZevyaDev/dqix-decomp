@@ -12,27 +12,27 @@ extern "C" void* GetFlagManager_0205ec34(void);
 
 struct Struct_02052d7c {
     unsigned char unknown_0_[Enum_02052d7c_336];
-    char* unknown_150_;
+    char* pPartyMemberData_150_;
 };
 
-// USA: func_02052d7c
-extern "C" ARM void func_02052d7c(struct Struct_02052d7c* arg0, int arg1, short arg2) {
-    char* var0 = arg0->unknown_150_;
-    if (var0 == 0) return;
-    short var1 = *(short*)(var0 + arg1 * 2 + 0x400 + 0x88);
-    if (arg2 == var1) return;
+// USA: SetEquippedItem_02052d7c
+extern "C" ARM void SetEquippedItem_02052d7c(struct Struct_02052d7c* gameObject, int slot, short itemId) {
+    char* memberData = gameObject->pPartyMemberData_150_;
+    if (memberData == 0) return;
+    short currentItemId = *(short*)(memberData + slot * 2 + 0x400 + 0x88);
+    if (itemId == currentItemId) return;
 
-    if (arg1 != 7 && arg1 != 8) {
-        void* var2 = GetFlagManager_0205ec34();
-        SetFlag_0206df6c(var2, (unsigned char*)var2 + 0x8c, 0x113f, 1);
+    if (slot != 7 && slot != 8) {
+        void* flagManager = GetFlagManager_0205ec34();
+        SetFlag_0206df6c(flagManager, (unsigned char*)flagManager + 0x8c, 0x113f, 1);
     }
 
-    var0 = arg0->unknown_150_;
-    *(short*)(var0 + arg1 * 2 + 0x400 + 0x88) = arg2;
-    if (arg1 != 9) return;
+    memberData = gameObject->pPartyMemberData_150_;
+    *(short*)(memberData + slot * 2 + 0x400 + 0x88) = itemId;
+    if (slot != 9) return;
 
-    var0 = arg0->unknown_150_;
-    if (var0 != 0) {
-        var0[0x56e] = 1;
+    memberData = gameObject->pPartyMemberData_150_;
+    if (memberData != 0) {
+        memberData[0x56e] = 1;
     }
 }

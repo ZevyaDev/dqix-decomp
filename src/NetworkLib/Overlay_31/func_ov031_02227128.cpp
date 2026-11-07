@@ -19,9 +19,9 @@ extern "C" void func_ov031_0223e00c(void);
 extern "C" ARM void func_ov031_0223b324(void);
 extern "C" void func_ov031_0223cff0(void);
 extern "C" void func_ov031_0223bff8(void);
-extern "C" void* func_ov031_0223cf4c(unsigned int arg0, int arg1);
+extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int size, int alignAndDir);
 extern "C" int func_ov031_0221b9b0(void*);
-extern "C" unsigned int func_ov031_0223cf70(void**);
+extern "C" unsigned int FreeAndClearPointer_ov031_0223cf70(void**);
 
 // USA: func_ov031_02227128
 extern "C" ARM void func_ov031_02227128(void) {
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov031_02227128(void) {
     func_ov031_0223b324();
     func_ov031_0223cff0();
     func_ov031_0223bff8();
-    void* var2 = func_ov031_0223cf4c(0x700, 0x20);
+    void* var2 = AllocateZeroedMemory_ov031_0223cf4c(0x700, 0x20);
     func_ov031_0221b9b0(var2);
-    func_ov031_0223cf70(&var2);
+    FreeAndClearPointer_ov031_0223cf70(&var2);
 }

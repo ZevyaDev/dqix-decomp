@@ -3,14 +3,13 @@
 #include "NitroSDK/NSBXX/Animation.h"
 
 #if defined(jpn)
-#define func_020ca390 func_020cbe5c
 #define data_020f1c7c data_020f1de8
 #endif
 
 extern "C"
 {
     // memset
-    void func_020ca390(int, void*, unsigned);
+    void Memset16Bit_020ca390(int, void*, unsigned);
 }
 
 // processing callback for M.PT animations
@@ -30,7 +29,7 @@ void InitializeModelAnimationFromMPT(AnimationData* anim, void* pvMPT, NSBXXInte
     anim->numEntries_ = model->numMaterials_;
     NSBXXAnimationMPT* mpt = (NSBXXAnimationMPT*)pvMPT;
     anim->pRawData_ = mpt;
-    func_020ca390(0, &anim->entries_[0], anim->numEntries_ * 2);
+    Memset16Bit_020ca390(0, &anim->entries_[0], anim->numEntries_ * 2);
     
     for (track = 0; track < mpt->tracks_.numEntries_; track++)
     {

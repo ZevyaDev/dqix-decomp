@@ -17,7 +17,7 @@ struct Struct_02037d88_9 {
     unsigned short unknown_70_;
 };
 
-extern "C" void func_02076ccc(void*, int);
+extern "C" void SetFieldMonsterState_02076ccc(void*, int);
 
 // USA: func_02077630
 extern "C" ARM void func_02077630(void* arg0) {
@@ -31,5 +31,5 @@ extern "C" ARM void func_02077630(void* arg0) {
     if (((Object3D*)((struct Struct_020243b8*)arg0))->GetInheritedAlpha() != 0x1f) {
         return;
     }
-    func_02076ccc(arg0, 1);
+    SetFieldMonsterState_02076ccc(arg0, 1);
 }

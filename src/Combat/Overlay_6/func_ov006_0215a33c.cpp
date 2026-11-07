@@ -5,10 +5,10 @@
 
 #if defined(jpn)
 extern "C" void func_ov006_02156e54(void*);
-extern const char* data_020f2a38;
+extern const char* gItemDataPath_020f2a38;
 #else
 extern "C" void func_ov006_02156e54(void*);
-extern const char* data_020f2a38;
+extern const char* gItemDataPath_020f2a38;
 extern const char* data_020f2a30;
 #endif
 
@@ -34,8 +34,8 @@ extern "C" ARM void func_ov006_0215a33c(Struct_ov006_0215a33c* arg0, int) {
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
     var0->AddFence();
 #if defined(jpn)
-    arg0->unknown_354_ = var0->QueueLoadGP1(data_020f2a38, 0);
+    arg0->unknown_354_ = var0->QueueLoadGP1(gItemDataPath_020f2a38, 0);
 #else
-    arg0->unknown_354_ = var0->QueueLoadFileInGP2(data_020f2a38, data_020f2a30, 0);
+    arg0->unknown_354_ = var0->QueueLoadFileInGP2(gItemDataPath_020f2a38, data_020f2a30, 0);
 #endif
 }

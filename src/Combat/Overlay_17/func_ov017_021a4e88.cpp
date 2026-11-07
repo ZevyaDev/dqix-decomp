@@ -48,8 +48,8 @@ struct Struct_ov017_021a4e88_6 {
 
 extern "C" void* func_0203cf4c(void);
 extern "C" void __clear(void* arg0, int arg1);
-struct Struct_0203dce4_2;
-extern "C" Struct_ov017_021a4e88_4* func_0203dce4(Struct_0203dce4_2*, int);
+struct NPCManager_0203dce4_2;
+extern "C" Struct_ov017_021a4e88_4* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
 extern "C" void func_02040648(unsigned int*);
 extern "C" void func_02040658(unsigned int*);
 extern "C" void func_02040bcc(char*);
@@ -58,8 +58,8 @@ struct Struct_0203de84_2;
 extern "C" void func_020406f8(Struct_0203de84* arg0, Struct_0203de84_2* arg1);
 struct Struct_0203e0a0;
 extern "C" Struct_ov017_021a4e88_3* func_02040538(Struct_0203e0a0*);
-extern "C" Struct_ov017_021a4e88_4* func_0203df78(void* arg0, int arg1);
-extern "C" int func_020535c8(signed char*);
+extern "C" Struct_ov017_021a4e88_4* FindNPCById_0203df78(void* npcManager, int id);
+extern "C" int IsPerformingGesture_020535c8(signed char*);
 struct Struct_ov009_0218aa28;
 extern "C" short func_ov017_021a4700(Struct_ov009_0218aa28*, int, Struct_ov009_0218aa28*);
 extern "C" unsigned char* func_02040528(int*);
@@ -90,7 +90,7 @@ extern "C" ARM int func_ov017_021a4e88(int arg0, unsigned short* arg1) {
     int var10 = -1;
     short var11 = 0x3244;
     for (int var12 = 0; var12 < 0x20; var12++) {
-        Struct_ov017_021a4e88_4* var13 = func_0203dce4((Struct_0203dce4_2*)var1, var12);
+        Struct_ov017_021a4e88_4* var13 = GetNPCByIndex_0203dce4((NPCManager_0203dce4_2*)var1, var12);
         if (var13 == NULL) {
             continue;
         }
@@ -134,7 +134,7 @@ extern "C" ARM int func_ov017_021a4e88(int arg0, unsigned short* arg1) {
         func_02040658((unsigned int*)var13);
         func_02040bcc((char*)var13);
         if (var18->unknown_b_ != 0) {
-            Struct_ov017_021a4e88_4* var20 = func_0203df78(var1, var18->unknown_b_);
+            Struct_ov017_021a4e88_4* var20 = FindNPCById_0203df78(var1, var18->unknown_b_);
             if (var20 != NULL) {
                 func_02040658((unsigned int*)var20);
                 func_02040bcc((char*)var20);
@@ -144,7 +144,7 @@ extern "C" ARM int func_ov017_021a4e88(int arg0, unsigned short* arg1) {
         if ((var13->unknown_0_ & 0x200) || var2->unknown_4080_ != 0) {
             continue;
         }
-        if (func_020535c8((signed char*)var3)) {
+        if (IsPerformingGesture_020535c8((signed char*)var3)) {
             continue;
         }
         int var21 = (short)fix32abs(inline_ov017_021a4e88(&var4, (short)var5.y, var13));

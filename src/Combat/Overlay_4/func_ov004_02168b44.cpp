@@ -17,10 +17,10 @@ extern "C" int func_020a08a4(Struct_02061c04* arg0);
 extern "C" int func_020a08d8(Struct_02061c04* arg0);
 extern "C" int func_020a090c(Struct_02061c04* arg0);
 extern "C" int func_0201e830(struct Struct_0201e830* arg0);
-extern "C" int func_0202ba00(int* arg0);
+extern "C" int GetLocalWirelessState_0202ba00(int* wireless);
 extern "C" int func_020ac4f8(int arg0);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
-extern "C" int func_020ac0b4(void* arg0);
+extern "C" int GetAlchemyCount_020ac0b4(void* count);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
@@ -117,7 +117,7 @@ extern "C" ARM int func_ov004_02168b44(void* arg0) {
             if (var2->unknown_7_ != 0 || var2->unknown_8_ != 0 || var2->unknown_9_ >= 0) return 1;
         }
     }
-    int var4 = func_0202ba00((int*)var1);
+    int var4 = GetLocalWirelessState_0202ba00((int*)var1);
     int var5 = *((unsigned char*)var1 + 0x100d);
     int var6 = 0;
     if ((var4 == 5 && var5 > 1) || var4 == 6) var6 = 1;
@@ -144,7 +144,7 @@ extern "C" ARM int func_ov004_02168b44(void* arg0) {
     Struct_02061c04 var9;
     int var10 = GetBattleRecords_020ac4c0(&var9);
     unsigned int var11 = 0;
-    func_020ac0b4(&var11);
+    GetAlchemyCount_020ac0b4(&var11);
     if (var11 > 0x1869f) var11 = 0x1869f;
     int var12 = 0;
     struct Struct_ov004_02168b44_4* var13 =

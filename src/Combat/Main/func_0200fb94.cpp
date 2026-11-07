@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_0200fb94
-extern "C" ARM void func_0200fb94(char* arg0, unsigned char arg1) {
-    arg0[4] = arg1;
+// USA: SetGameMode_0200fb94
+extern "C" ARM void SetGameMode_0200fb94(char* gameState, unsigned char mode) {
+    gameState[4] = mode;
 }

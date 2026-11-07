@@ -41,12 +41,12 @@ struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 struct Struct_0205a244;
 extern "C" void func_0205a244(struct Struct_0205a244* arg0);
-extern "C" void func_0205a494(void* arg0);
+extern "C" void DestroySpriteSet_0205a494(void* spriteSet);
 extern "C" void func_020a64e8(void* arg0);
 struct BGControlSave_02074bd0;
 extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
-struct Struct_02074bf4;
-extern "C" void func_02074bf4(struct Struct_02074bf4* arg0);
+struct BGControlSave_02074bf4;
+extern "C" void RestoreSubBGControl_02074bf4(struct BGControlSave_02074bf4* save);
 struct StringList_020727d8 {
     void* unknown_0_;
     short unknown_4_;
@@ -82,11 +82,11 @@ extern "C" ARM void func_ov003_02173d40(Struct_ov003_02173d40* arg0) {
     ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x1000);
     var2[0x1000 + Enum_ov003_02173d40_2494] = 0;
     func_0205a244(arg0->unknown_12c_);
-    func_0205a494(arg0->unknown_130_);
+    DestroySpriteSet_0205a494(arg0->unknown_130_);
     func_020a64e8(arg0->unknown_d8_);
     *(volatile int*)0x4001010 = 0;
     RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)arg0->unknown_fa_);
-    func_02074bf4((struct Struct_02074bf4*)arg0->unknown_10c_);
+    RestoreSubBGControl_02074bf4((struct BGControlSave_02074bf4*)arg0->unknown_10c_);
 
     volatile unsigned int* var3 = (volatile unsigned int*)0x4000000;
     *var3 = (*var3 & ~0x1f00) | (arg0->unknown_120_ << 8);

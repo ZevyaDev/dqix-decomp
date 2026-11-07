@@ -18,7 +18,7 @@ struct Struct_ov025_021e5c68_3 {
     short unknown_e_;
 };
 
-extern "C" void func_0202e694(void* arg0, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
 struct BattleAction_ov000_0215440c;
 extern "C" Struct_ov025_021e5c68_3* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" char* GetBattleScene_ov000_02160130();
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov025_021e5c68(Struct_ov025_021e5c68_2* arg0, void* arg1
     GameState* var0 = GameState::GetInstance();
     Struct_ov025_021e5c68* var1 = (Struct_ov025_021e5c68*)GetCamera_020100bc(var0);
     if (arg0->unknown_14_ == 0) {
-        if (var1 != 0) func_0202e694(var1, (int*)&arg0->unknown_8_);
+        if (var1 != 0) SetCameraOrbitFromArray_0202e694(var1, (int*)&arg0->unknown_8_);
     } else if (arg0->unknown_14_ == 2) {
         fix32_t var2 = 1;
         Struct_ov025_021e5c68_3* var3 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, 0);
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov025_021e5c68(Struct_ov025_021e5c68_2* arg0, void* arg1
             if (var5 >= 1.6f) var5 = 1.6f;
         }
         arg0->unknown_8_.z = (int)(4096.0f * ((arg0->unknown_8_.z / 4096.0f) * var5));
-        if (var1 != 0) func_0202e694(var1, (int*)&arg0->unknown_8_);
+        if (var1 != 0) SetCameraOrbitFromArray_0202e694(var1, (int*)&arg0->unknown_8_);
     } else {
         if (var1 != 0) {
             Vector3fix var6 = var1->unknown_70_;
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov025_021e5c68(Struct_ov025_021e5c68_2* arg0, void* arg1
             var6.x = var6.x + var7.x;
             var6.y = var6.y + var7.y;
             var6.z = var6.z + var7.z;
-            func_0202e694(var1, (int*)&var6);
+            SetCameraOrbitFromArray_0202e694(var1, (int*)&var6);
         }
     }
     char* var8 = GetBattleScene_ov000_02160130();

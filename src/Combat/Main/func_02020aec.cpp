@@ -12,7 +12,7 @@ struct Struct_020534ac;
 
 extern "C" void* func_0203bd14();
 extern "C" void* GetOAMManager_0203bd08(void);
-extern "C" void* func_0203be4c(void);
+extern "C" void* GetSubOAMBuffer_0203be4c(void);
 
 struct PacEntry_02020aec;
 extern "C" int func_0205a498(void* arg0, struct PacEntry_02020aec* arg1, int arg2, void* arg3);
@@ -34,7 +34,7 @@ extern "C" ARM void func_02020aec(Struct_02020554* arg0, Type_02020aec arg1, Saf
     *(int*)(var3 + (IS_JPN ? 0x608 : 0x508)) = 0x2000;
     GetOAMManager_0203bd08();
 
-    char* var4 = (char*)func_0203be4c() + 0x2c0;
+    char* var4 = (char*)GetSubOAMBuffer_0203be4c() + 0x2c0;
     var3 = (char*)func_0203bd14();
     *(char**)var3 = var4;
 

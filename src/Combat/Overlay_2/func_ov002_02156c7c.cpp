@@ -8,13 +8,13 @@
 #define RG(u, j) (u)
 #endif
 
-struct Struct_0200f3a4_8;
+struct SkillTable_0200f3a4_8;
 struct Struct_0209a470;
 struct Struct_02086f24_6;
 struct Struct_02013fb4;
 extern "C" void ClearItemTable_020de848(void *itemTable);
 extern "C" void func_0209a804(int *arg0);
-extern "C" void func_0209a338(struct Struct_0200f3a4_8 *arg0);
+extern "C" void ClearSkillTable_0209a338(struct SkillTable_0200f3a4_8 *table);
 extern "C" void func_0209a470(struct Struct_0209a470 *arg0,
                                                                                                     SafeAllocator *arg1,
                                                                                                     struct Struct_02013fb4 *arg2,
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov002_02156c7c(char *arg0) {
 #endif
             var6->GetLoadedFileByID(*var9, &var4, &var5);
             ((SafeAllocator *) (arg0 + RG(0, 0x3b4) + RG(0x850, 0x400)))->Reset();
-            func_0209a338((struct Struct_0200f3a4_8 *) (arg0 + RG(0x3c, 0x274) + RG(0x2400, 0x2000)));
+            ClearSkillTable_0209a338((struct SkillTable_0200f3a4_8 *) (arg0 + RG(0x3c, 0x274) + RG(0x2400, 0x2000)));
             if (var4 != NULL && var5 != 0) {
                 func_0209a470(
                     (struct Struct_0209a470 *) (arg0 + RG(0x3c, 0x274) + RG(0x2400, 0x2000)), (SafeAllocator *) (arg0 + RG(0, 0x3b4) + RG(0x850, 0x400)),

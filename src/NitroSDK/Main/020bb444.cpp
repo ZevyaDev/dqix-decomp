@@ -62,16 +62,16 @@ extern "C" ARM void func_020bb444(int arg0, int arg1, int arg2, int arg3, int ar
     data_020f1f00[4] = &data_020f1f14[arg4];
 }
 
-extern "C" ARM void func_020bb48c(unsigned int arg0, int arg1) {
-    if (arg0 <= 2)
+extern "C" ARM void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install) {
+    if (bankCount <= 2)
         func_020bb444(4, 3, 2, 0, 1);
     else
         func_020bb444(4, 3, 0, 2, 1);
 
-    data_0210cf84 = arg0;
+    data_0210cf84 = bankCount;
     func_020bb514();
 
-    if (arg1) {
+    if (install) {
         data_020f1ee8 = func_020bb588;
         data_020f1eec = func_020bb6f8;
     }

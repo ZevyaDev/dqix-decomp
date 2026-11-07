@@ -82,7 +82,7 @@ extern "C" int func_02083960(Struct_0207d300*);
 extern "C" void func_0205cf10(void*);
 struct Struct_0205cf1c;
 extern "C" void func_0205cf1c(Struct_0205cf1c*);
-extern "C" void func_0205cef8(void*);
+extern "C" void EnableTouchMenuCursor_0205cef8(void*);
 extern "C" void func_0205cf04(void*);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
 struct MenuCursor_0205bacc;
@@ -195,7 +195,7 @@ extern "C" ARM void func_ov000_0217ab8c(Struct_ov000_0217ab8c* arg0, int arg1, i
         func_0205cf1c((Struct_0205cf1c*)arg0->unknown_38_);
         return;
     }
-    func_0205cef8(arg0->unknown_38_);
+    EnableTouchMenuCursor_0205cef8(arg0->unknown_38_);
     func_0205cf04(arg0->unknown_38_);
     SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&var5->unknown_4_, var0, var1, 0);
     SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&var5->unknown_54_, var0, var1, 0);

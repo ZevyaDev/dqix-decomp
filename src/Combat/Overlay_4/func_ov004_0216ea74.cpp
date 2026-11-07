@@ -36,7 +36,7 @@ extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_ov017_021b2090(Struct_ov004_021589e8 arg0, Struct_ov004_021589e8 arg1);
 extern "C" int func_0201e830(struct Struct_0201e830* arg0);
 extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
-extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
+extern "C" void Set3DFog_020c54a4(int, unsigned int, unsigned int, unsigned short);
 extern "C" int func_020cf0fc(int);
 extern "C" int func_020cf1a8(int);
 
@@ -105,7 +105,7 @@ extern "C" ARM int func_ov004_0216ea74(SafeAllocator* arg0) {
     SetFlags04(var6, 0x8de);
 
     Set3DClearColorAndDepth_020c5588(0, 0x1f, 0x7fff, 0, 0);
-    func_020c54a4(0, 0, 0, 0);
+    Set3DFog_020c54a4(0, 0, 0, 0);
 
     int var7[4];
     int var8[3];

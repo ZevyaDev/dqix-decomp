@@ -65,7 +65,7 @@ extern "C" void func_020dc548(signed char arg0, signed char* arg1, signed char* 
 extern "C" void func_ov017_021917f0(int arg0, int arg1);
 extern "C" Struct_ov017_021c9954* func_ov017_021a278c(void* arg0, int arg1);
 extern "C" void func_ov017_021c98f4(int arg0, int arg1);
-extern "C" void func_02076ccc(void* arg0, int arg1);
+extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
 extern "C" Struct_ov017_021c9954_4* func_ov017_021a7c8c(void* arg0);
 extern "C" void func_ov017_021a7c1c(unsigned char* arg0);
 
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov017_021c9954(int arg0, int arg1, int arg2, int arg3) 
     }
 
     if (var1 != 0 && arg2 != 0) {
-        func_02076ccc(var1, 1);
+        SetFieldMonsterState_02076ccc(var1, 1);
         var1->unknown_17d_7_ = 0;
     }
 

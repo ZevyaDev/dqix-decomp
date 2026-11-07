@@ -9,7 +9,7 @@ struct OAMEntry_0205ac40_4 {
 };
 
 extern "C" void* GetOAMManager_0203bd08();
-extern "C" OAMEntry_0205ac40_4* func_0203be4c(void*);
+extern "C" OAMEntry_0205ac40_4* GetSubOAMBuffer_0203be4c(void*);
 extern "C" OAMEntry_0205ac40_4* func_0203be40(void*);
 extern "C" void func_020b0a1c(OAMEntry_0205ac40_4*, unsigned short, Sprite_0205ac40_2*, Matrix2x2_0205ac40_3*, int*, unsigned short, int);
 
@@ -29,7 +29,7 @@ extern "C" ARM void DrawSprite_0205ac40(SpriteSet_0205ac40* spriteSet, Sprite_02
     if (sprite != NULL) {
         oamManager = GetOAMManager_0203bd08();
         transform = NULL;
-        oamBuffer = func_0203be4c(oamManager);
+        oamBuffer = GetSubOAMBuffer_0203be4c(oamManager);
         if (spriteSet->isSubScreen_50_ == 0) oamBuffer = func_0203be40(oamManager);
         isDoubleSize = false;
         if (sprite->isAffine_23_) {

@@ -30,7 +30,7 @@ struct StringList_020727d8 {
     short unknown_6_;
 };
 extern "C" void ResetStringList_020727d8(struct StringList_020727d8* stringList);
-extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, void* arg2, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
+extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, void* scriptData, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 
 struct StringList_02072a68_2;
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
@@ -39,7 +39,7 @@ struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
 extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
-extern "C" void func_0205ebec(void* arg0);
+extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
 
 struct Struct_0204bd7c;
 extern "C" unsigned short func_0204bd7c(struct Struct_0204bd7c* arg0);
@@ -56,7 +56,7 @@ struct Struct_02095924_2;
 extern "C" struct Struct_02099950* func_02099950(struct Struct_02095924_2* arg0, int arg1);
 
 extern "C" void* func_02033fa0(void* arg0);
-extern "C" void* func_02011584(void* arg0);
+extern "C" void* GetZoneList_02011584(void* gameState);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void* func_020120a0(char* arg0, unsigned int arg1);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
@@ -76,7 +76,7 @@ extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 struct Struct_02057de0_2;
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" int func_02057de0(struct Struct_02057de0_2* arg0, int arg1, SafeAllocator* arg2, int arg3, int arg4);
-extern "C" int func_02057fb4(void* arg0, int arg1, void* arg2);
+extern "C" int PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 
 struct Vector3i;
 
@@ -226,7 +226,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
         if (var15->unknown_c_0_ == 0) {
             void* var17 = func_02033fa0(var3);
             if (var17 != NULL) {
-                struct Struct_02095924_2* var18 = (struct Struct_02095924_2*)func_02011584(var2);
+                struct Struct_02095924_2* var18 = (struct Struct_02095924_2*)GetZoneList_02011584(var2);
                 struct Struct_02099950* var19 = func_02099950(var18,
                     func_0204bd7c((struct Struct_0204bd7c*)var17));
                 if (var19 != NULL) {
@@ -366,7 +366,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
 
         *(Vector3i*)&var33.unknown_2c_ = *(Vector3i const*)&var30.unknown_0_;
         *(Vector3i*)&var33.unknown_44_ = *(Vector3i const*)&var32.unknown_0_;
-        arg0->unknown_8_ = func_02057fb4(var31, 0x11, &var33);
+        arg0->unknown_8_ = PlayEffect_02057fb4(var31, 0x11, &var33);
 
         struct Struct_ov010_02184354 var34;
         var34.unknown_0_ = (short)(var30.unknown_0_ >> 4);
@@ -414,7 +414,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
         }
         if (var39 != 0) {
             func_ov010_021842d8((struct Struct_ov010_021842d8*)arg0);
-            func_0205ebec(&gSoundEffectManager_02108760);
+            UnloadExtraSoundSet_0205ebec(&gSoundEffectManager_02108760);
             return 1;
         }
     }

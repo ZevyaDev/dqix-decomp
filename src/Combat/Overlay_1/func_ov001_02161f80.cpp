@@ -8,7 +8,7 @@ extern "C" void GetZone3D_02012fe4(void);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" float func_ov017_021d6110(void* arg0);
 struct Vector3i;
-extern "C" void func_02070378(char*);
+extern "C" void InitZoneEntry_02070378(char*);
 
 struct Struct_ov001_02161f80 {
     short unknown_0_;
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov001_02161f80(void* arg0, int arg1) {
     if (var6 > 5) {
         var3 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x28);
     }
-    func_02070378((char*)var2);
+    InitZoneEntry_02070378((char*)var2);
     var2->unknown_2_ = 1;
     var2->unknown_7_ = 1;
     var2->unknown_0_ = (short)var5;

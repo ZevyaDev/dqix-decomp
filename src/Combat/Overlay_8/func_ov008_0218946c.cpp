@@ -20,7 +20,7 @@
 #include <globaldefs.h>
 
 struct TextWindowManager_0205d2bc;
-extern "C" void func_0205d2bc(struct TextWindowManager_0205d2bc*);
+extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(struct TextWindowManager_0205d2bc*);
 extern "C" void func_ov008_02184968(void* arg0);
 
 struct Struct_ov008_0218946c_2 { char unknown_0_[R(0x95, 0x99)]; signed char unknown_99_; };
@@ -30,7 +30,7 @@ struct Struct_ov008_0218946c { char unknown_0_[R(0xeb8, 0xec0)]; unsigned char u
 // USA: func_ov008_0218946c
 extern "C" ARM void func_ov008_0218946c(char* arg0) {
     if (((struct Struct_ov008_0218946c_2*)(arg0 + 0xe00))->unknown_99_ != 0) {
-        func_0205d2bc((struct TextWindowManager_0205d2bc*)(arg0 + 0x18));
+        CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((struct TextWindowManager_0205d2bc*)(arg0 + 0x18));
     }
     if (((struct Struct_ov008_0218946c_3*)(arg0 + 0xe00))->unknown_9b_ == 0) return;
     if (!((struct Struct_ov008_0218946c*)arg0)->unknown_ec0_0_) return;

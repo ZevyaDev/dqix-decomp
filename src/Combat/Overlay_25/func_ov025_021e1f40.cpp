@@ -3,7 +3,7 @@
 
 extern "C" int func_02049ee8(unsigned char*);
 extern "C" int func_02048bd0(unsigned char*);
-extern "C" int func_020493a4(unsigned char*);
+extern "C" int GetCombatantCell_020493a4(unsigned char*);
 extern "C" int func_02048c68(unsigned char*);
 
 // USA: func_ov025_021e1f40
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov025_021e1f40(GameObject* arg0, int arg1) {
     if (func_02048bd0((unsigned char*)arg0)) {
         return 0;
     }
-    if (func_020493a4((unsigned char*)arg0) == 0xff) {
+    if (GetCombatantCell_020493a4((unsigned char*)arg0) == 0xff) {
         return 0;
     }
     if (func_02048c68((unsigned char*)arg0)) {

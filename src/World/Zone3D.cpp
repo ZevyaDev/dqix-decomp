@@ -12,7 +12,7 @@
 
 extern "C"
 {
-    void* func_02011584(GameState*);
+    void* GetZoneList_02011584(GameState*);
 
     void* GetPartyMemberData_02053c6c(void*);
     void _Z25RunBufferedStream0205e104iiP12StreamHeaderi(const char*, SafeAllocator*, const void*, unsigned int);
@@ -74,7 +74,7 @@ void Zone3D::SwitchZone(unsigned short newID, int)
     GameState* gameState = GameState::GetInstance();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
 
-    void* uVar3 = func_02011584(gameState);
+    void* uVar3 = GetZoneList_02011584(gameState);
     (void)GetGameResources();
     GameObject* iVar4 = gameState->GetUnknownGameObject();
 

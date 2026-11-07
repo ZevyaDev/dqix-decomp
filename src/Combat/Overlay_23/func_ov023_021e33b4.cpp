@@ -99,7 +99,7 @@ struct Struct_ov023_021e33b4 {
     void* unknown_640_[2];
 };
 
-extern const char* data_020f2a38;
+extern const char* gItemDataPath_020f2a38;
 extern const char* data_020f2a30;
 extern const char* data_020f2a40;
 extern const char data_ov023_021fd66c[];
@@ -151,11 +151,11 @@ extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02042b30(void* arg0, void* arg1);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" void func_020a2010(void* arg0);
+extern "C" void InitFollowCamera_020a2010(void* arg0);
 extern "C" void func_0202e5c0(Struct_0202e5c0* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0202e5c8(unsigned char* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
-extern "C" void func_020c54a4(int arg0, unsigned int arg1, unsigned int arg2, unsigned short arg3);
+extern "C" void Set3DFog_020c54a4(int isEnabled, unsigned int type, unsigned int depthShift, unsigned short offset);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void InitSprite_0205a198(Sprite_02043368_2* sprite);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
@@ -180,7 +180,7 @@ void func_ov005_0215a960(void* arg0);
 void func_ov005_0215ae7c(void* arg0);
 void func_020dea64(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, const void* arg4, int arg5);
 void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
-void func_020432c4(void* arg0);
+void InitMessageGlyphs_020432c4(void* window);
 void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, SafeAllocator* allocator);
 void ClearMessageParams_02046380(void* window);
 void func_02046608(void* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
@@ -217,9 +217,9 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
         {
             func_ov017_0219ba0c(var1, 1);
 #if defined(jpn)
-            arg0->unknown_630_ = var2->QueueLoadGP1(data_020f2a38, NULL);
+            arg0->unknown_630_ = var2->QueueLoadGP1(gItemDataPath_020f2a38, NULL);
 #else
-            arg0->unknown_630_ = var2->QueueLoadFileInGP2(data_020f2a38, data_020f2a30, NULL);
+            arg0->unknown_630_ = var2->QueueLoadFileInGP2(gItemDataPath_020f2a38, data_020f2a30, NULL);
 #endif
             arg0->unknown_4e4_++;
         }
@@ -313,16 +313,16 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             void* var8 = GetMessageWindow_020421a0();
             func_02042b30(var8, arg0->unknown_474_);
             RestoreTextureVRAMState_0207df90(arg0->unknown_474_);
-            func_020432c4(var8);
+            InitMessageGlyphs_020432c4(var8);
             SaveTextureVRAMState_0207dfac(arg0->unknown_474_);
 
             arg0->unknown_138_ = GetCamera_020100bc(var0);
-            func_020a2010(arg0->unknown_13c_);
+            InitFollowCamera_020a2010(arg0->unknown_13c_);
             func_0202e5c0((Struct_0202e5c0*)arg0->unknown_13c_, 0xb666, 0xa800, 0x42ccc);
-            func_0202e5c8((unsigned char*)arg0->unknown_13c_, 0xb666, 0xa800, 0);
+            SetCameraTarget_0202e5c8((unsigned char*)arg0->unknown_13c_, 0xb666, 0xa800, 0);
             DisableCameraFollow_020a27a0(arg0->unknown_13c_);
             SetCamera_020100c4(var0, (int)arg0->unknown_13c_);
-            func_020c54a4(0, 0, 0, 0);
+            Set3DFog_020c54a4(0, 0, 0, 0);
 
             var2->RemoveTask(arg0->unknown_630_);
             arg0->unknown_630_ = -1;

@@ -43,8 +43,8 @@ struct Struct_020391ac_3 {
 extern "C" void func_ov017_021917f0(int, int);
 extern "C" void func_02033b68(Struct_02033b68*, int);
 int fix32ReduceAngle0To2Pi(int);
-extern "C" void func_02033834(Struct_02033834_2*, int);
-extern "C" void func_02039d24(unsigned char*);
+extern "C" void SetFacing_02033834(Struct_02033834_2*, int);
+extern "C" void ResetFollowTrail_02039d24(unsigned char*);
 extern "C" void func_02033b58(Struct_02033b58*, unsigned char);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
@@ -93,7 +93,7 @@ extern "C" ARM void func_020391ac(Struct_020391ac_3* arg0) {
             Vector3fix_Subtract(&var14, &var13, &var15);
             int var16 = Vector3fix_Length(&var15);
             Vector3fix_Normalize(&var15, &var15);
-            func_02033834((Struct_02033834_2*)arg0, fix32ReduceAngle0To2Pi(fix32_Atan2(var15.x, var15.z)));
+            SetFacing_02033834((Struct_02033834_2*)arg0, fix32ReduceAngle0To2Pi(fix32_Atan2(var15.x, var15.z)));
             if (var16 < 0x1000)
                 func_02033b68((Struct_02033b68*)arg0, 0);
             else {
@@ -109,7 +109,7 @@ extern "C" ARM void func_020391ac(Struct_020391ac_3* arg0) {
             arg0->unknown_268_ = 0;
             arg0->unknown_0_.position_ = var2->unknown_0_.position_;
             arg0->unknown_0_.SetInheritedAlpha(31);
-            func_02039d24((unsigned char*)arg0);
+            ResetFollowTrail_02039d24((unsigned char*)arg0);
             func_02033b68((Struct_02033b68*)arg0, 0);
             arg0->unknown_1ce_ |= 4;
         }
@@ -187,7 +187,7 @@ extern "C" ARM void func_020391ac(Struct_020391ac_3* arg0) {
         if (var3)
             SetFacingInstantly_02033874((Struct_02033834*)arg0, var1->unknown_0_.rotation_.y);
         else
-            func_02033834((Struct_02033834_2*)arg0, var10);
+            SetFacing_02033834((Struct_02033834_2*)arg0, var10);
         if (var24 <= 0x800 && arg0->unknown_1cc_ != arg0->unknown_1cb_) {
             ++arg0->unknown_1cc_;
             arg0->unknown_1cc_ %= 16;

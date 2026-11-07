@@ -2,7 +2,7 @@
 #include <std_library_functions.h>
 
 struct ItemTable_0201099c_10;
-struct Struct_02015ef4_4;
+struct ItemData_02015ef4_4;
 
 struct Struct_ov005_021556e4
 {
@@ -45,7 +45,7 @@ struct Struct_ov015_02193ce5
 };
 
 extern "C" Struct_ov005_021556e4* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
-extern "C" unsigned short func_020de234(Struct_02015ef4_4* arg0, int arg1);
+extern "C" unsigned short GetItemGraphicNumber_020de234(ItemData_02015ef4_4* item, int gender);
 
 extern const Struct_ov015_02193cd4 data_ov015_02193cd4;
 extern const Struct_ov015_02193ce5 data_ov015_02193ce5;
@@ -58,7 +58,7 @@ extern "C" ARM bool func_ov015_0218c03c(Struct_ov015_0218c03c_2* arg0, char* arg
 {
     Struct_ov005_021556e4* var0 = FindItemData_020dedd0((ItemTable_0201099c_10*)&arg0->unknown_0_->unknown_4c_, (short)arg0->unknown_20_[arg2]);
     Struct_ov005_021556e4* var1 = FindItemData_020dedd0((ItemTable_0201099c_10*)&arg0->unknown_0_->unknown_4c_, (short)arg0->unknown_20_[7]);
-    int var2 = func_020de234((Struct_02015ef4_4*)var0, arg0->unknown_3b_);
+    int var2 = GetItemGraphicNumber_020de234((ItemData_02015ef4_4*)var0, arg0->unknown_3b_);
     Struct_ov015_02193cd4 var3 = data_ov015_02193cd4;
     char var4[2] = {0};
     char var5[2] = {0};
@@ -80,7 +80,7 @@ extern "C" ARM bool func_ov015_0218c03c(Struct_ov015_0218c03c_2* arg0, char* arg
         var4[1] = 0;
         if (var1 != NULL && var1->unknown_18_ > -1)
         {
-            int var6 = (int)func_020de234((Struct_02015ef4_4*)var1, arg0->unknown_3b_) / 100;
+            int var6 = (int)GetItemGraphicNumber_020de234((ItemData_02015ef4_4*)var1, arg0->unknown_3b_) / 100;
             if ((unsigned int)var6 >= 10)
                 return false;
             Struct_ov015_02193ce5 var7 = data_ov015_02193ce5;

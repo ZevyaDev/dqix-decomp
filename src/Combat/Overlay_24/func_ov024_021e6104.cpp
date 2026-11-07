@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_ov000_021584e8;
+struct ActionResult_ov000_021584e8;
 struct BattleAction_ov000_0215440c;
 struct ActionTarget_ov000_021600f8;
 struct Struct_ov024_021e6104_5 { int unknown_0_; int unknown_4_; };
@@ -10,12 +10,12 @@ extern "C" int func_020850fc(unsigned char* arg0);
 extern "C" struct ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index);
 extern "C" void* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
 extern "C" short func_ov000_0215a16c(void* arg0, int arg1, int arg2, short* arg3);
-extern "C" struct Struct_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
+extern "C" struct ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, struct Struct_ov024_021e6104_5* flags, int flagIndex);
-extern "C" void func_ov000_0215ccbc(
-    int arg0, struct Struct_ov000_021584e8* arg1, GameObject* arg2, short arg3, short arg4, short arg5,
-    struct Struct_ov024_021e6104_5 arg6, unsigned char arg7);
+extern "C" void SetActionResult_ov000_0215ccbc(
+    int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant, short arg3, short currHP, short currMP,
+    struct Struct_ov024_021e6104_5 flags, unsigned char isCriticalHit);
 extern "C" void func_ov000_0215fe84(void* arg0, void* arg1, int arg2);
 
 struct BattleAction_ov000_0215440c { char unknown_0_[9]; unsigned char unknown_9_; };
@@ -65,14 +65,14 @@ extern "C" ARM int func_ov024_021e6104(struct Struct_ov024_021e6104_4* arg0, int
         if (var6 > 0 && inline_ov000_021584e8(var0) < inline_ov024_021e6104(var0)) {
             short var7 = 0;
             short var8 = func_ov000_0215a16c(arg0->unknown_10_, arg1, var6, &var7);
-            struct Struct_ov000_021584e8* var9 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
+            struct ActionResult_ov000_021584e8* var9 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
             if (!var9) return 0;
             AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var9, 0x215);
             struct Struct_ov024_021e6104_5 var10;
             var10.unknown_0_ = 0;
             var10.unknown_4_ = 0;
             SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var10, 0x25);
-            func_ov000_0215ccbc((int)arg0->unknown_10_, var9, var0, -var7, var8,
+            SetActionResult_ov000_0215ccbc((int)arg0->unknown_10_, var9, var0, -var7, var8,
                 inline_ov000_021584e8_2(var0), var10, 0);
             func_ov000_0215fe84(arg0->unknown_8_, var9, 3);
             ((unsigned char*)arg0->unknown_10_)[0x8e02]++;

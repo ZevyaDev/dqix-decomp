@@ -5,7 +5,7 @@
 struct Struct_02046b1c;
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_02046b1c(struct Struct_02046b1c* arg0);
-extern "C" void func_02070378(char*);
+extern "C" void InitZoneEntry_02070378(char*);
 struct Struct_02011b24;
 extern "C" void func_02011b24(struct Struct_02011b24* arg0);
 
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov017_021cf5d4(void* arg0, struct Struct_ov017_021cf5d4
         return;
     }
     struct Struct_ov017_021cf5d4_2 var2;
-    func_02070378((char*)&var2);
+    InitZoneEntry_02070378((char*)&var2);
     var2.unknown_0_ = arg1->unknown_4_;
     var2.unknown_2_ = 1;
     if (arg1->unknown_7_ != 0) {

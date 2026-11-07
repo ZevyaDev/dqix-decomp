@@ -133,7 +133,7 @@ struct Struct_ov004_0216920c_6 {
     short unknown_106_;
 };
 extern "C" Struct_ov004_0216920c_6* func_ov004_02168fa4(void*, int);
-extern "C" void func_ov023_021f809c(void*, void*);
+extern "C" void RedrawMenuWindow_ov023_021f809c(void*, void*);
 #define func_ov023_021f6524 func_ov004_02168f08
 #define func_ov023_021f6600 func_ov004_02168ed8
 #define func_ov023_021f65d4 func_ov004_02168eac
@@ -198,7 +198,7 @@ extern "C" ARM int func_ov004_0216920c(struct Struct_ov004_0216920c_5* arg0) {
     if (var13) {
         var13->unknown_104_ = var2;
         var13->unknown_106_ = var4;
-        func_ov023_021f809c(var13, arg0);
+        RedrawMenuWindow_ov023_021f809c(var13, arg0);
     }
 #else
     func_ov023_021f6630((int)arg0, 0x14, var2, var4);

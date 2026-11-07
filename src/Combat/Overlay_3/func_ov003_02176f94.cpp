@@ -36,8 +36,8 @@ enum {
 
 #include "GameState/GameState.h"
 
-struct Struct_0207fdcc_2;
-extern "C" void func_02080c20(struct Struct_0207fdcc_2 *arg0, int arg1);
+struct MenuLayout_0207fdcc_2;
+extern "C" void func_02080c20(struct MenuLayout_0207fdcc_2 *arg0, int arg1);
 extern "C" void func_02080c68(void *arg0, int arg1, int arg2);
 extern "C" void func_02080bac(void *arg0, int arg1);
 struct ItemTable_0201099c_10;
@@ -51,11 +51,11 @@ extern "C" void func_02080f8c(struct Struct_02080f8c *arg0, int arg1, int arg2);
 extern "C" int func_020dcc98(int arg0);
 struct Struct_02080cc0;
 extern "C" void func_02080cc0(struct Struct_02080cc0 *arg0, int arg1, int arg2);
-struct Struct_02080fa8;
-extern "C" void func_02080fa8(struct Struct_02080fa8 *arg0, int arg1, int arg2);
+struct MenuLayout_02080fa8;
+extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8 *menuLayout, int textId, int value);
 extern "C" int func_02080b2c(void *arg0, int arg1);
 extern "C" void func_02080b54(void *arg0, int arg1);
-extern "C" void func_02080c04(struct Struct_0207fdcc_2 *arg0, int arg1);
+extern "C" void func_02080c04(struct MenuLayout_0207fdcc_2 *arg0, int arg1);
 extern "C" short func_02086bf4(char *arg0, int arg1);
 extern "C" void func_020813ec(void *arg0, int arg1);
 extern "C" void *GetParty_02010828(GameState *gameState);
@@ -68,7 +68,7 @@ struct Struct_ov003_02176f94 {
 
 struct Struct_ov003_02176f94_2 {
     unsigned char unknown_0_[Enum_ov003_02176f94_2204];
-    Struct_0207fdcc_2* unknown_89c_;
+    MenuLayout_0207fdcc_2* unknown_89c_;
     unsigned char unknown_8a0_[Enum_ov003_02176f94_4124 - Enum_ov003_02176f94_2204 - 4];
     int unknown_101c_[4];
     unsigned char unknown_102c_[Enum_ov003_02176f94_4144 - Enum_ov003_02176f94_4124 - 16];
@@ -82,7 +82,7 @@ static inline int inline_ov003_02176f94(unsigned int arg0) {
 }
 
 extern "C" ARM void func_ov003_02176f94(Struct_ov003_02176f94_2* arg0) {
-    struct Struct_0207fdcc_2 *var0 = arg0->unknown_89c_;
+    struct MenuLayout_0207fdcc_2 *var0 = arg0->unknown_89c_;
     GameState *var1    = GameState::GetInstance();
     char *var2            = (char *) GetParty_02010828(var1);
 
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov003_02176f94(Struct_ov003_02176f94_2* arg0) {
             }
             func_02080f8c((struct Struct_02080f8c *) var0, var4, var11);
             func_02080cc0((struct Struct_02080cc0 *) var0, var4, func_020dcc98(var13));
-            func_02080fa8((struct Struct_02080fa8 *) var0, var5, var12);
+            SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8 *) var0, var5, var12);
             if (var12 != 0) {
                 func_02080b2c(var0, var7);
             } else {
@@ -155,7 +155,7 @@ extern "C" ARM void func_ov003_02176f94(Struct_ov003_02176f94_2* arg0) {
         func_02080b54(var0, var3);
         func_02080c04(var0, var3);
     }
-    func_02080fa8((struct Struct_02080fa8 *) var0, var5,
+    SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8 *) var0, var5,
                                                          func_02086bf4(var2, arg0->unknown_103a_));
     func_020813ec(var0, var3);
 }

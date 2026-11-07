@@ -7,9 +7,6 @@
 #include "std_library_functions.h"
 #include "Combat/MapDisplay.h"
 
-#if defined(jpn)
-#define func_020c39c8 func_020c5494
-#endif
 
 struct Struct_ov001_0215686c {
     char unknown_0_[0xd2];
@@ -51,7 +48,7 @@ struct Struct_ov001_0215686c_4 {
     unsigned char* unknown_2c_;
 };
 
-extern "C" int func_020c39c8(volatile unsigned short* arg0);
+extern "C" int ReadBrightnessRegister_020c39c8(volatile unsigned short* reg);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
@@ -76,7 +73,7 @@ extern "C" ARM void func_ov001_0215686c(void) {
     GameResources* var4 = GetGameResources();
     int var5 = GetBrightness((GameResources*)var4, true);
     if (var3 == 0) {
-        var5 = func_020c39c8((volatile unsigned short*)0x0400006c);
+        var5 = ReadBrightnessRegister_020c39c8((volatile unsigned short*)0x0400006c);
     }
 
     if (var5 != -0x10 && var5 != 0x10) {

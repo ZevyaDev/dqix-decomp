@@ -6,7 +6,7 @@ struct Struct_02081198;
 struct Struct_02081164;
 struct Struct_02081f20_2;
 struct SoundEffectManager_02108760;
-struct Struct_0207fe44;
+struct MenuLayout_0207fe44;
 
 struct Struct_ov003_02162ba8 {
 #if defined(jpn)
@@ -40,7 +40,7 @@ extern "C" void func_ov003_02160794(unsigned char *);
 extern "C" int func_ov003_02160854(unsigned char *);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *, int, int);
 extern "C" int func_ov003_02161544(void *);
-extern "C" void func_0207fe44(Struct_0207fe44 *);
+extern "C" void CloseMenuLayoutWindows_0207fe44(MenuLayout_0207fe44 *);
 extern "C" int func_ov003_02160a68(unsigned char *);
 extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *);
 extern "C" void func_ov003_02161480(unsigned char *);
@@ -98,14 +98,14 @@ extern "C" ARM void func_ov003_02162ba8(unsigned char *arg0) {
             func_0208203c((Struct_02081f20_2 *) (arg0 + RO(0x308)));
             *(int *) (arg0 + RO(0x470)) = 0;
             if (func_ov003_02161544(arg0) == 0) {
-                func_0207fe44((Struct_0207fe44 *) var2);
+                CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44 *) var2);
                 *(unsigned int *) (arg0 + RO(0x464)) |= 0x80000;
                 var3[0]       = 0x49;
                 var3[1]       = 2;
                 arg0[RO(0x4a3)] = 1;
                 arg0[RO(0x4a4)] = 0;
             } else {
-                func_0207fe44((Struct_0207fe44 *) var2);
+                CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44 *) var2);
                 *(unsigned int *) (arg0 + RO(0x464)) |= 0x80000;
                 arg0[RO(0x4a4)]++;
             }
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov003_02162ba8(unsigned char *arg0) {
             if (func_ov003_02160a68(arg0) == 0) return;
             func_0208203c((Struct_02081f20_2 *) (arg0 + RO(0x308)));
             *(int *) (arg0 + RO(0x470)) = 0;
-            func_0207fe44((Struct_0207fe44 *) var2);
+            CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44 *) var2);
             *(unsigned int *) (arg0 + RO(0x464)) |= 0x80000;
             var3[0]       = 2;
             arg0[RO(0x4a3)] = 1;

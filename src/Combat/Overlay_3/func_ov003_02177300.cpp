@@ -12,8 +12,8 @@ enum { Enum_ov003_02177300_2204 = 0x89c };
 
 #include "GameState/GameState.h"
 
-struct Struct_0207fdcc_2;
-extern "C" void func_02080c20(struct Struct_0207fdcc_2* arg0, int arg1);
+struct MenuLayout_0207fdcc_2;
+extern "C" void func_02080c20(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
 struct Struct_02080f8c;
 extern "C" void func_02080f8c(struct Struct_02080f8c* arg0, int arg1, int arg2);
@@ -27,7 +27,7 @@ extern "C" void func_020813ec(void* arg0, int arg1);
 extern "C" ARM void func_ov003_02177300(char* arg0) {
     GameState* var0 = GameState::GetInstance();
     int var1 = *(int*)(arg0 + Enum_ov003_02177300_4144);
-    struct Struct_0207fdcc_2* var2 = *(struct Struct_0207fdcc_2**)(arg0 + Enum_ov003_02177300_2204);
+    struct MenuLayout_0207fdcc_2* var2 = *(struct MenuLayout_0207fdcc_2**)(arg0 + Enum_ov003_02177300_2204);
     int var3 = -1, var4 = -1;
 
     switch (var1) {

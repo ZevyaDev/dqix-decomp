@@ -23,12 +23,12 @@ struct Struct_020e28dc;
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
 extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
 
-struct Struct_0207fdcc_2;
-extern "C" int func_02080d54(struct Struct_0207fdcc_2* arg0, int arg1, int arg2, int arg3);
+struct MenuLayout_0207fdcc_2;
+extern "C" int func_02080d54(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2, int arg3);
 
 struct Struct_ov003_02160a68 {
     char unknown_0_[Enum_ov003_02160a68_804];
-    struct Struct_0207fdcc_2* unknown_324_;
+    struct MenuLayout_0207fdcc_2* unknown_324_;
     char unknown_328_[Enum_ov003_02160a68_912 - Enum_ov003_02160a68_808];
     struct Struct_020e28dc* unknown_390_;
     char unknown_394_[Enum_ov003_02160a68_1160 - Enum_ov003_02160a68_916];

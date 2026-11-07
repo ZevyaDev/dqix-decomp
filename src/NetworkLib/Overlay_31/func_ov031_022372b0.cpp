@@ -13,7 +13,7 @@ extern Struct_ov031_02290d04_15 data_ov031_02290d04;
 extern "C" void func_ov031_0223bbd8(void*, int, int, int);
 extern "C" void func_ov031_0223e2c0(int, void*);
 extern "C" void func_ov031_0223ba20(void*);
-extern "C" void func_ov031_0223cf70(void*);
+extern "C" void FreeAndClearPointer_ov031_0223cf70(void*);
 extern void* data_ov031_02290d08;
 
 // USA: func_ov031_022372b0
@@ -43,5 +43,5 @@ extern "C" ARM void func_ov031_022372b0(void* arg0) {
 		func_ov031_0223ba20(var7);
 		var6++;
 	} while (var6 < 5);
-	func_ov031_0223cf70(&data_ov031_02290d08);
+	FreeAndClearPointer_ov031_0223cf70(&data_ov031_02290d08);
 }

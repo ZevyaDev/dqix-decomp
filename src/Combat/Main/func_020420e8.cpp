@@ -3,7 +3,7 @@
 #include "Graphics/GlyphMetrics.h"
 
 extern int data_020e7a94[];
-extern "C" int func_020424e4(int, int);
+extern "C" int FindFontGlyphIndex_020424e4(int, int);
 extern "C" FontGlyph_020420e8* func_020425b4(int arg0, int arg1);
 extern "C" int func_020425e4(int arg0, int arg1, int arg2);
 
@@ -64,7 +64,7 @@ extern "C" ARM int func_020420e8(char* arg0, int arg1) {
     for (;;) {
         if (*arg0 == 0) break;
         int var5 = var0 + 1;
-        int var6 = func_020424e4((int)arg0, arg1);
+        int var6 = FindFontGlyphIndex_020424e4((int)arg0, arg1);
         if (var6 < 0) {
             var2 = var1;
             arg0++;

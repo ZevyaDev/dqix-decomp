@@ -171,7 +171,7 @@ struct ActiveZone_020fdd44 {
     unsigned short unknown_4_;
 };
 
-struct Struct_0203dce4_2;
+struct NPCManager_0203dce4_2;
 struct Struct_02028460_3;
 struct Struct_0203e524 {
     short unknown_0_, unknown_2_, unknown_4_;
@@ -336,7 +336,7 @@ extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" Struct_020a95a4_3* func_02094d6c(void);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
-extern "C" int func_0202ba00(int* arg0);
+extern "C" int GetLocalWirelessState_0202ba00(int* wireless);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" Struct_020a95a4_5* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" unsigned short* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
@@ -354,14 +354,14 @@ extern "C" void func_020ac4f8(int arg0);
 extern "C" int func_0201b588(int arg0);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
-extern "C" int GetOwnPartyOrder_02011494(char* gameState, void* arg1);
+extern "C" int GetOwnPartyOrder_02011494(char* gameState, void* outOwnPartyOrder);
 extern "C" void func_020a99d0(Struct_020a99d0_3* arg0, Struct_020a99d0_3* arg1);
 extern "C" int func_020ac7b4(int arg0);
 extern "C" void func_ov017_021d0d58(void);
 extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
 extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44* zones, int zoneId);
-extern "C" Struct_0203dce4_2* func_0203cf4c(void);
-extern "C" int func_0203e524(Struct_0203dce4_2* arg0, Struct_02028460_3* arg1, Struct_0203e524* arg2);
+extern "C" NPCManager_0203dce4_2* func_0203cf4c(void);
+extern "C" int func_0203e524(NPCManager_0203dce4_2* arg0, Struct_02028460_3* arg1, Struct_0203e524* arg2);
 extern "C" Struct_02087574_2* func_02087574(Struct_02087574* arg0, int arg1);
 
 extern char data_020f1bf0[];
@@ -653,7 +653,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
     func_02075acc((char*)arg1->unknown_3a24_ - var21, reinterpret_cast<Struct_020a9eb8_2*>(var0)->unknown_7ac0_, 0x3b4, 0);
 
     Struct_ov031_0224e6e0* var47 = GetLocalWireless_0202ae18();
-    int var48 = func_0202ba00(&var47->unknown_0_);
+    int var48 = GetLocalWirelessState_0202ba00(&var47->unknown_0_);
     int var49 = var47->unknown_100d_;
     int var50 = 0;
     if ((var48 == 5 && var49 > 1) || var48 == 6) {

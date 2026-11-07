@@ -2,13 +2,13 @@
 #include <globaldefs.h>
 
 struct Struct_02081164;
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 extern "C" void func_0208103c(void*, int, int);
 extern "C" void func_02080798(void*, int, int);
 extern "C" void func_02081164(Struct_02081164*, int, int);
 extern "C" int func_020813ec(void*, int);
 extern "C" void func_02080c68(void*, int, int);
-extern "C" void func_02080c20(Struct_0207fdcc_2*, int);
+extern "C" void func_02080c20(MenuLayout_0207fdcc_2*, int);
 
 struct Struct_ov006_0215fcf0 {
 #if defined(jpn)
@@ -33,5 +33,5 @@ extern "C" ARM void func_ov006_0215fcf0(Struct_ov006_0215fcf0* arg0) {
     func_02081164((Struct_02081164*)var0, 0xf, 1);
     func_020813ec(var0, 0xf);
     func_02080c68(var0, 0xf, 2);
-    func_02080c20((Struct_0207fdcc_2*)var0, 0xf);
+    func_02080c20((MenuLayout_0207fdcc_2*)var0, 0xf);
 }

@@ -31,7 +31,7 @@ extern unsigned char data_ov031_02249394[];
 extern const unsigned char data_ov031_022492fe[][2];
 extern const Struct_ov031_0224931c data_ov031_0224931c[];
 extern const Struct_ov031_022492e2 data_ov031_022492e2;
-extern "C" void* func_ov031_0223cf4c(unsigned int, int);
+extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int, int);
 extern "C" Struct_ov031_02222ce4* func_ov031_0223be70(int, int, int);
 extern "C" void func_ov031_0223bbd8(Struct_ov031_02222ce4*, int, int, int);
 extern "C" void func_ov031_0223bcc8(Struct_ov031_02222ce4*, int, int);
@@ -43,7 +43,7 @@ extern "C" void func_ov031_0223ca54(void*, int, int, void*, int);
 extern "C" void func_ov031_0223cd30(int, int, int, int);
 extern "C" void func_ov031_0223cc18(int, int, const Struct_ov031_022492e2*);
 extern "C" void func_ov031_022381c8(int);
-extern "C" void* func_ov031_0223e218(void*, void*, void*, int);
+extern "C" void* AddTask_ov031_0223e218(void*, void*, void*, int);
 extern "C" void func_ov031_02237ecc(void*);
 extern "C" void func_ov031_02237f2c(void*);
 #define REG_DISPCNT (*(volatile unsigned int*)0x04000000)
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov031_02237b2c(int arg0, int arg1, unsigned char arg2, 
         data_ov031_022492d8.unknown_4_[4], data_ov031_022492d8.unknown_4_[5]
     };
     int var1 = func_ov031_022276cc(data_ov031_02290c4c, arg0, arg3, arg4);
-    data_ov031_02290d10 = (Struct_ov031_02237b2c*)func_ov031_0223cf4c(sizeof(Struct_ov031_02237b2c), 4);
+    data_ov031_02290d10 = (Struct_ov031_02237b2c*)AllocateZeroedMemory_ov031_0223cf4c(sizeof(Struct_ov031_02237b2c), 4);
     data_ov031_02290d10->unknown_1c_ = arg1;
     data_ov031_02290d10->unknown_1b_ = -2;
     data_ov031_02290d10->unknown_1e_ = arg2;
@@ -88,6 +88,6 @@ extern "C" ARM void func_ov031_02237b2c(int arg0, int arg1, unsigned char arg2, 
     func_ov031_0223cc18(0, 1, &data_ov031_022492e2);
     func_ov031_022381c8(192);
     REG_DISPCNT = (REG_DISPCNT & ~0xe000) | 0x6000;
-    if (arg2) data_ov031_02290d10->unknown_14_ = func_ov031_0223e218((void*)1, (void*)func_ov031_02237ecc, 0, 120);
-    else data_ov031_02290d10->unknown_14_ = func_ov031_0223e218((void*)1, (void*)func_ov031_02237f2c, 0, 120);
+    if (arg2) data_ov031_02290d10->unknown_14_ = AddTask_ov031_0223e218((void*)1, (void*)func_ov031_02237ecc, 0, 120);
+    else data_ov031_02290d10->unknown_14_ = AddTask_ov031_0223e218((void*)1, (void*)func_ov031_02237f2c, 0, 120);
 }

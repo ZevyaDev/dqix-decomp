@@ -117,7 +117,7 @@ extern "C" Struct_ov025_021ebb90* FindActionData_02079e2c(char* actionTables, in
 extern "C" void func_020e4e38(void* arg0, Struct_020e4e38* arg1);
 extern "C" void func_02046520(char* arg0, char* arg1);
 extern "C" void* GetBattleScene_ov000_02160130(void);
-extern "C" char* func_ov000_02160f08(void* arg0);
+extern "C" char* GetBattleUI_ov000_02160f08(void* battleScene);
 extern "C" void* func_ov025_021dafd0(char* arg0, int arg1);
 extern "C" Struct_ov025_021ed634_7* func_02054000(Struct_02054000* arg0);
 extern "C" void InitNoun_020e46c4(void* noun);
@@ -469,7 +469,7 @@ SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var28);
 #endif
 #if defined(jpn)
         if (var26 != 0) {
-            char* var71 = func_ov000_02160f08(GetBattleScene_ov000_02160130());
+            char* var71 = GetBattleUI_ov000_02160f08(GetBattleScene_ov000_02160130());
             int var72 = var26->unknown_20_;
             char* var73;
             if (inline_ov025_021ed634(var72)) {
@@ -496,7 +496,7 @@ found_entry:
 
 #else
         if (var26 != 0) {
-            char* var77 = func_ov000_02160f08(GetBattleScene_ov000_02160130());
+            char* var77 = GetBattleUI_ov000_02160f08(GetBattleScene_ov000_02160130());
             Struct_ov025_021ed634_6* var78 = (Struct_ov025_021ed634_6*)func_ov025_021dafd0(var77, var26->unknown_20_);
             if (inline_ov025_021ed634_3(var26->unknown_20_)) {
                 int var79 = var78->unknown_2c_;
@@ -541,7 +541,7 @@ found_entry:
         unsigned char var83 = 0;
         unsigned char var84 = 0;
         unsigned char* var85 = (unsigned char*)GetBattleSetup_ov017_021b8478(GetGameResources()->unknown_ptr_3718);
-        char* var86 = func_ov000_02160f08(GetBattleScene_ov000_02160130());
+        char* var86 = GetBattleUI_ov000_02160f08(GetBattleScene_ov000_02160130());
         for (int var87 = 0; var87 < var82; var87++) {
             Struct_ov025_021ed634_5* var88 = (Struct_ov025_021ed634_5*)func_ov025_021dafd0(var86, (unsigned char)var16[var87]);
             if (var88 != 0 && IsPartyMemberInBattle_020a35e0(var85, var16[var87]) != 0) {

@@ -60,7 +60,7 @@ extern "C"
 {
     void* GetCamera_020100bc(GameState*);
 
-    void func_0202ec84(void*, const Vector3fix*, int*, int*);
+    void ConvertWorldToScreen_0202ec84(void*, const Vector3fix*, int*, int*);
 
     bool IsFlagSet_0206dfb0(void*, void*, int);
 
@@ -68,7 +68,7 @@ extern "C"
 
     void func_0207ba28(LightingInfo*, int, float*, float*, float*);
 
-    void func_020c54a4(int, int, int, int);
+    void Set3DFog_020c54a4(int, int, int, int);
     void func_020c555c(unsigned short*);
     void func_020c5574(void*);
 
@@ -789,7 +789,7 @@ void LightingManager::ProcessZoneChange(Zone3D *newZone)
         spriteDiffuseColor_ = info->basic_.spriteDiffuseColor[index];
         modelDiffuseColor_ = info->basic_.modelDiffuseColor[index];
         edgeColor_ = info->basic_.edgeColor[index];
-        func_020c54a4(true, fog->type, fog->depthShift, fog->offset);
+        Set3DFog_020c54a4(true, fog->type, fog->depthShift, fog->offset);
         GX_FOG_COLOR = fog->color | (fog->alpha << 16);
         func_020c5574(fog->densityTable);
         unsigned short edgeColors[8] = {
@@ -803,7 +803,7 @@ void LightingManager::ProcessZoneChange(Zone3D *newZone)
     }
     else
     {
-        func_020c54a4(0, 0, 1, 0x5800);
+        Set3DFog_020c54a4(0, 0, 1, 0x5800);
         maybePotBarrelDiffuseColor_ = 0x7fff;
         spriteDiffuseColor_ = 0x7fff;
         modelDiffuseColor_ = 0x7fff;
@@ -927,7 +927,7 @@ void LightingManager::RecomputeAdvancedLighting()
     ComputeFogInfo(&fogInfo_);
     if (fogEnabled_)
     {
-        func_020c54a4(true, fogInfo_.type, fogInfo_.depthShift, fogInfo_.offset);
+        Set3DFog_020c54a4(true, fogInfo_.type, fogInfo_.depthShift, fogInfo_.offset);
         GX_FOG_COLOR = (fogInfo_.color) | (fogInfo_.alpha << 16);
         func_020c5574(fogInfo_.densityTable);
     }
@@ -979,7 +979,7 @@ void LightingManager::MaybeComputeHorizonPosition()
     Vector3fix_Normalize(&cameraRay, &cameraRay);
     Vector3fixMultiplyScalar(&cameraRay, 2048 << 12, &cameraRay);
     int pixelX, pixelY;
-    func_0202ec84(maybeCameraData, &cameraRay, &pixelX, &pixelY);
+    ConvertWorldToScreen_0202ec84(maybeCameraData, &cameraRay, &pixelX, &pixelY);
     if (pixelY < 192 && pixelY > 0)
     {
         gradientCenterNorm_ = fix32_Divide(pixelY << 12, 191 << 12);

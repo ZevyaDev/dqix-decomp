@@ -30,7 +30,7 @@ extern "C" ARM void func_0208f87c(const void* arg0, int arg1, int arg2, int arg3
     Matrix3x3 var3;
     Mat3x3_WriteIdentity(&var3);
     func_020ca528(&var3, &data_0210a0cc);
-    data_0210a010.flags &= ~0xa4;
+    gRenderConfig_0210a010.flags &= ~0xa4;
     var1->SetInheritedAlpha(arg3);
     RenderConfig::SubmitToFifo();
     var1->DrawMeshWithMaterialSimple(0, 0, 0, 1);

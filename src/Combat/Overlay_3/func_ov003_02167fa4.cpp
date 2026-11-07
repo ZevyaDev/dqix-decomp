@@ -6,8 +6,8 @@ extern "C" void func_0208103c(void* arg0, int arg1, int arg2);
 extern "C" void func_02080798(void* arg0, int arg1, int arg2);
 struct Struct_02080cc0;
 extern "C" void func_02080cc0(struct Struct_02080cc0* arg0, int arg1, int arg2);
-struct Struct_02080fa8;
-extern "C" void func_02080fa8(struct Struct_02080fa8* arg0, int arg1, int arg2);
+struct MenuLayout_02080fa8;
+extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8* menuLayout, int textId, int value);
 extern "C" ARM int func_020dd11c(unsigned int arg0, unsigned int arg1);
 
 // USA: func_ov003_02167fa4
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov003_02167fa4(void* arg0, int arg1, unsigned char* arg
 #if !defined(jpn)
             func_02080798(var0, var1, 1);
 #endif
-            func_02080fa8((struct Struct_02080fa8*)var0, var2, var6);
+            SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, var2, var6);
         }
         var1 = (short)(var1 + 1);
         var2 = (short)(var2 + 1);

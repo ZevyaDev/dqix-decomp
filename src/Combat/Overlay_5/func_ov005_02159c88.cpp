@@ -21,8 +21,8 @@ extern "C" void func_020473c8(Struct_02015ef4_2*, int);
 extern "C" void func_02047554(void* arg0, int arg1, int arg2);
 struct ItemTable_0201099c_10;
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
-extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
-extern "C" int func_020dd4c4(char arg0, void* arg1);
+extern "C" Struct_ov005_02153ba4_2* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
+extern "C" int GetEquipRestrictions_020dd4c4(char memberIndex, void* item);
 extern "C" void func_ov005_02154d18(void* arg0, int arg1, int arg2);
 extern "C" void func_ov005_02154d34(void* arg0, int arg1, int arg2);
 extern "C" void func_ov005_02154d50(void* arg0, int arg1, int arg2);
@@ -163,8 +163,8 @@ extern "C" ARM void func_ov005_02159c88(Struct_ov005_02159c88_4* arg0) {
                 if (var26 != 0) {
                     Struct_ov005_02159c88_2* var27 = var20->unknown_8_;
                     GameResources* var28 = GetGameResources();
-                    Struct_ov005_02153ba4_2* var29 = func_ov017_021a193c((int*)var28->unknown_ptr_array_36fc[3]);
-                    if (func_020dd4c4(var29->unknown_4fc_, var26) != 0) {
+                    Struct_ov005_02153ba4_2* var29 = GetEquipMenu_ov017_021a193c((int*)var28->unknown_ptr_array_36fc[3]);
+                    if (GetEquipRestrictions_020dd4c4(var29->unknown_4fc_, var26) != 0) {
                         int var30 = var20->unknown_c_;
                         int var31 = var20->unknown_10_;
                         Struct_ov005_02159c88 var32 = var27->unknown_1c_;

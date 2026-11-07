@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
-struct Struct_0207fdcc_2;
-struct Struct_0207fdcc;
-extern "C" Struct_0207fdcc* func_02081da8(struct Struct_0207fdcc_2* arg0, int arg1);
+struct MenuLayout_0207fdcc_2;
+struct TextWindow_0207fdcc;
+extern "C" TextWindow_0207fdcc* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 extern "C" void func_ov003_02173f08(char* arg0, char* arg1, char* arg2, char* arg3);
 extern "C" void func_ov003_0217585c(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
 
 // USA: func_ov003_0217545c
 extern "C" ARM void func_ov003_0217545c(void* arg0) {
-	struct Struct_0207fdcc_2* var0;
-	struct Struct_0207fdcc* var1;
+	struct MenuLayout_0207fdcc_2* var0;
+	struct TextWindow_0207fdcc* var1;
 	short var2;
 	short var3;
 	char var4, var5, var6, var7;
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov003_0217545c(void* arg0) {
 #else
     enum { Enum_ov003_0217545c_2204 = 0x89c };
 #endif
-	var0 = *(struct Struct_0207fdcc_2**)((char*)arg0 + Enum_ov003_0217545c_2204);
+	var0 = *(struct MenuLayout_0207fdcc_2**)((char*)arg0 + Enum_ov003_0217545c_2204);
 	var1 = func_02081da8(var0, 10);
 	if (var1 == NULL) return;
 	if (!IsTextWindowReady_0204c7cc((unsigned char*)var1)) return;

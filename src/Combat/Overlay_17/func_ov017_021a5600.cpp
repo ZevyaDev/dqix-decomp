@@ -36,16 +36,16 @@ extern "C" void func_ov002_02154d40(char*, SafeAllocator*);
 extern "C" int func_ov002_02155960(char*, int);
 extern "C" void func_ov002_021556fc(char*);
 extern "C" void func_ov017_021a55b0(Struct_ov017_021a5600_2*);
-extern "C" void func_ov017_02191108(GameResources*, int, int, int, int);
+extern "C" void RebuildFieldPartyOrder_ov017_02191108(GameResources*, int, int, int, int);
 extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" unsigned char* GetFollowCamera_020100f8(char*);
 extern "C" void func_020a28a0(unsigned char*, unsigned char);
-extern "C" void func_020a28b0(unsigned char*, int);
+extern "C" void ClearCameraFlags_020a28b0(unsigned char*, int);
 extern "C" void func_02027288(unsigned char*, int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void func_020a1df8(int);
-extern "C" void func_020a1ef0(int);
+extern "C" void PushOverlay_020a1df8(int);
+extern "C" void PushSubOverlay_020a1ef0(int);
 extern "C" void func_ov002_021556ec(void*, int, int);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void EnablePlayerControl_020397c0(void*);
@@ -81,8 +81,8 @@ extern "C" ARM void func_ov017_021a5600(Struct_ov017_021a5600_2* arg0) {
         } else {
             arg0->unknown_c_.CreateTypeA(var7, Enum_ov017_021a5600_173456);
             arg0->unknown_c_.Reset();
-            func_020a1df8(2);
-            func_020a1ef0(1);
+            PushOverlay_020a1df8(2);
+            PushSubOverlay_020a1ef0(1);
             data_ov017_021d83ac = (char*)arg0->unknown_c_.Allocate(Enum_ov017_021a5600_9552);
             func_ov002_0215505c(data_ov017_021d83ac);
             func_ov002_021556ec(data_ov017_021d83ac, arg0->unknown_20_, arg0->unknown_21_);
@@ -112,11 +112,11 @@ extern "C" ARM void func_ov017_021a5600(Struct_ov017_021a5600_2* arg0) {
         Queue_02038598_5* var13 = (Queue_02038598_5*)var1->unknown_ptr_array_36fc[0];
         if (var13 && (IsTypeInQueue_02046b60(var13, 2) || IsTypeInQueue_02046b60(var13, 47))) var12 = 0;
         if (var12) {
-            func_020a28b0(var4, 3);
+            ClearCameraFlags_020a28b0(var4, 3);
             ClearFlags04(var1, 0xc0);
             EnablePlayerControl_020397c0(var2);
         }
-        func_ov017_02191108(var1, 1, 1, 0, 1);
+        RebuildFieldPartyOrder_ov017_02191108(var1, 1, 1, 0, 1);
         func_0202ac74();
         LoadFileTables_020a0c0c();
         if (!TestGlobalFlags_02046708(var3, 0x100000)) {

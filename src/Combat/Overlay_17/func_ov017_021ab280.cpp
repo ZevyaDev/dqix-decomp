@@ -24,7 +24,7 @@ struct Struct_ov009_0218aa28 { int unknown_0_; int unknown_4_; int unknown_8_; }
 extern "C" int fix32_Atan2(int arg0, int arg1);
 
 struct Struct_02033834_2;
-extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
+extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 struct Struct_02033b68;
 extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
 struct Struct_02033b58;
@@ -33,13 +33,13 @@ struct GameResources;
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 
-extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* arg1);
+extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* outOwnPartyOrder);
 
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void VectorizedMemset(void* dst, int val, int size);
 struct Vector3i;
-extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int arg1);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
@@ -92,7 +92,7 @@ extern "C" ARM int func_ov017_021ab280(struct Struct_ov017_021ab280_2* arg0) {
         Vector3fix_Normalize((const Vector3fix*)&var5, (Vector3fix*)&var5);
         int var8 = fix32_Atan2(var5.unknown_0_, var5.unknown_8_);
 
-        func_02033834((struct Struct_02033834_2*)var2, var8);
+        SetFacing_02033834((struct Struct_02033834_2*)var2, var8);
         func_02033b68((struct Struct_02033b68*)var2, 1);
         SetBrightness((GameResources*)var1, -16, 15);
 
@@ -114,7 +114,7 @@ extern "C" ARM int func_ov017_021ab280(struct Struct_ov017_021ab280_2* arg0) {
         Vector3fix_Normalize((const Vector3fix*)&var10, (Vector3fix*)&var10);
         int var12 = fix32_Atan2(var10.unknown_0_, var10.unknown_8_);
 
-        func_02033834((struct Struct_02033834_2*)var2, var12);
+        SetFacing_02033834((struct Struct_02033834_2*)var2, var12);
         func_02033b58((struct Struct_02033b58*)var2, 1);
         *(unsigned short*)((char*)var2 + 0xb2) = 0xa3;
 
@@ -129,7 +129,7 @@ extern "C" ARM int func_ov017_021ab280(struct Struct_ov017_021ab280_2* arg0) {
         Vector3fix_Normalize((const Vector3fix*)&var13, (Vector3fix*)&var13);
         int var15 = fix32_Atan2(var13.unknown_0_, var13.unknown_8_);
 
-        func_02033834((struct Struct_02033834_2*)var2, var15);
+        SetFacing_02033834((struct Struct_02033834_2*)var2, var15);
         func_02033b58((struct Struct_02033b58*)var2, 1);
         *(unsigned short*)((char*)var2 + 0xb2) = 0xa3;
 
@@ -180,7 +180,7 @@ extern "C" ARM int func_ov017_021ab280(struct Struct_ov017_021ab280_2* arg0) {
         var21[7] = 1;
         func_0200fcfc(var0, var20);
 
-        func_ov017_0219e310(*(unsigned char**)(var1 + 0x3000 + Enum_ov017_021ab280_1804), 0);
+        ResetZoneLoadTask_ov017_0219e310(*(unsigned char**)(var1 + 0x3000 + Enum_ov017_021ab280_1804), 0);
         AppendToQueue_020469b4(*(struct Queue_0201bdac_2**)(var1 + 0x3000 + Enum_ov017_021ab280_1788),
                           *(struct QueueNode_0201bdac**)(var1 + 0x3000 + Enum_ov017_021ab280_1804));
 

@@ -7,7 +7,7 @@ enum { Enum_ov017_021cc388_1744 = 0x6d0 };
 #endif
 #include "GameState/GameState.h"
 
-struct Struct_0202b2f0;
+struct LocalWireless_0202b2f0;
 
 struct Struct_ov017_021cc388 {
 	unsigned char unknown_0_[4];
@@ -28,11 +28,11 @@ extern "C" void func_ov017_0218f064(unsigned char* arg0, int arg1, int arg2, int
 extern "C" void func_ov017_021cc4b8(unsigned char arg0, int arg1, int arg2);
 extern "C" ARM void func_020263b0(unsigned char* arg0, unsigned int arg1);
 
-extern "C" void func_0202c288(struct Struct_0202b2f0* arg0);
+extern "C" void func_0202c288(struct LocalWireless_0202b2f0* arg0);
 
 // USA: func_ov017_021cc388
 extern "C" ARM void func_ov017_021cc388(int arg0, Struct_ov017_021cc388* arg1, GameState* arg2,
-                                        unsigned char* arg3, struct Struct_0202b2f0* arg4) {
+                                        unsigned char* arg3, struct LocalWireless_0202b2f0* arg4) {
 	if (arg1->unknown_4_ >= 0) {
 		if (arg1->unknown_4_ != GetProtagonistObjectIndex_020100a8(arg2)) return;
 	}

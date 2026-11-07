@@ -55,7 +55,7 @@ extern "C" Struct_ov025_021e41a0_2* GetActionActor_ov000_02160094(BattleAction_o
 extern "C" Struct_ov025_021e41a0_3* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" void func_02078484(Struct_02078398_2*);
 extern "C" Struct_ov025_021e41a0* GetBattleScene_ov000_02160130();
-extern "C" void* func_02057fb4(void*, int, void*);
+extern "C" void* PlayEffect_02057fb4(void*, int, void*);
 extern "C" void** func_ov025_021e8cf0(char*, int);
 
 static inline void inline_ov025_021e41a0(Vector3i* arg0, int arg1) {
@@ -120,7 +120,7 @@ extern "C" ARM int func_ov025_021e41a0(Struct_ov025_021e41a0_4* arg0, BattleActi
     }
     Struct_ov025_021e41a0* var20 = GetBattleScene_ov000_02160130();
     var20->unknown_6f02_ = arg0->unknown_e_;
-    void* var21 = func_02057fb4(var1, arg0->unknown_e_, &var6);
+    void* var21 = PlayEffect_02057fb4(var1, arg0->unknown_e_, &var6);
     void** var22 = func_ov025_021e8cf0(data_ov025_021ef988.unknown_c_, arg0->unknown_d_);
     if (var22) *var22 = var21;
     return 1;

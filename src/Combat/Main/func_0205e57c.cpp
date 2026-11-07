@@ -33,7 +33,7 @@ extern "C" int func_0205e830(struct Struct_0205e57c_6* arg0, int arg1);
 struct LocalWireless_0202c1a4;
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* func_0202c19c(void* arg0);
-extern "C" int func_0202c1c0(Struct_0202b2f0* arg0, int arg1);
+extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 
 struct Struct_0205e57c {
@@ -73,7 +73,7 @@ static int data_02108750;
 extern "C" ARM void func_0205e57c(struct Struct_0205e57c_5* arg0) {
     static unsigned char sSeq;
 
-    Struct_0202b2f0* var0 = (Struct_0202b2f0*)GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* var0 = (LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
     if (sSeq >= 0xfa) {
         sSeq = 0;
     }
@@ -115,7 +115,7 @@ extern "C" ARM void func_0205e57c(struct Struct_0205e57c_5* arg0) {
     }
 
     for (int var8 = 0; var8 < 4; var8++) {
-        if (!func_0202c1c0(var0, var8)) continue;
+        if (!IsLocalWirelessPlayerJoined_0202c1c0(var0, var8)) continue;
         if (var8 == GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var0)) continue;
         struct Struct_0205e57c_2* var9 = (struct Struct_0205e57c_2*)func_0202c178(var0, var8);
         if (var9 == NULL) continue;

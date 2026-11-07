@@ -2,12 +2,12 @@
 
 extern int data_ov031_0224bd8c;
 extern "C" ARM int LoadToMainBG2ScreenData(int, int, unsigned int);
-typedef void (*Type_ov031_022234d8)(void*, int, int);
-extern "C" ARM void func_ov031_022234d8(int arg0, Type_ov031_022234d8 arg1);
+typedef void (*VRAMLoader_ov031_022234d8)(void*, int, int);
+extern "C" ARM void LoadFileToVRAM_ov031_022234d8(int path, VRAMLoader_ov031_022234d8 loadToVRAM);
 
 // USA: func_ov031_02233e7c
 extern "C" ARM void func_ov031_02233e7c(void) {
-	func_ov031_022234d8((int)&data_ov031_0224bd8c, (Type_ov031_022234d8)LoadToMainBG2ScreenData);
+	LoadFileToVRAM_ov031_022234d8((int)&data_ov031_0224bd8c, (VRAMLoader_ov031_022234d8)LoadToMainBG2ScreenData);
 	volatile unsigned short* var0 = (volatile unsigned short*)0x4001008;
 	volatile unsigned short* var1 = (volatile unsigned short*)0x400000a;
 	var0[0] = (var0[0] & ~3) | 3;

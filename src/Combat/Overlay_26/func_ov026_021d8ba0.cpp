@@ -32,7 +32,7 @@ struct Struct_ov026_021d8ba0_7;
 struct Struct_ov026_021d8ba0_8;
 struct Struct_ov026_021d8ba0_9;
 struct Struct_020a36a8;
-struct Struct_0200f3a4_8;
+struct SkillTable_0200f3a4_8;
 struct Struct_0209a470;
 struct Struct_02086f24_6;
 struct Struct_02013fb4;
@@ -44,12 +44,12 @@ struct Struct_ov026_021d8ba0_10;
 struct Struct_0203c108_3;
 struct Struct_02053dc0;
 struct Struct_02010604;
-struct Struct_02015ef4_5;
+struct TextureVRAMArea_02015ef4_5;
 struct Struct_020e385c;
 struct Struct_02046574_2;
 struct GlobalFlags_02012de8;
 struct GlobalFlags_02038598_4;
-struct Struct_0202b2f0;
+struct LocalWireless_0202b2f0;
 struct Struct_02053dd0;
 
 struct Struct_ov026_021d8ba0 {
@@ -117,7 +117,7 @@ extern "C" int func_02012060(void*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int func_020a36a8(Struct_020a36a8*);
 extern "C" void func_ov000_0215e8e8(void*);
-extern "C" void func_0209a338(Struct_0200f3a4_8*);
+extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8*);
 extern "C" void func_0209a470(Struct_0209a470*, SafeAllocator*, Struct_02013fb4*, int);
 extern "C" void func_0209a804(int*);
 extern "C" void func_0209a8b4(Struct_02086f24_6*, SafeAllocator*, Struct_02013fb4*, int);
@@ -132,7 +132,7 @@ extern "C" Struct_020d6ec8* func_ov000_02163524(void*);
 extern "C" void func_020d6f44(Struct_020d6ec8*);
 extern "C" void func_020d738c(void*);
 extern "C" void func_ov000_02163a7c(Struct_ov000_02163a7c*);
-extern "C" int func_020493a4(unsigned char*);
+extern "C" int GetCombatantCell_020493a4(unsigned char*);
 extern "C" void func_02049390(unsigned char*, unsigned char);
 extern "C" void func_02049bd4(unsigned char*, int*);
 extern "C" void ResetMessageWindow_02043204(char*);
@@ -151,7 +151,7 @@ extern "C" void func_ov000_02181364(void*);
 extern "C" void func_ov000_021816e8(void*, int);
 extern "C" void func_ov000_02181694(void*, int);
 extern "C" void func_ov000_0217f5d0(void*);
-extern "C" void func_0207dfc8(Struct_02015ef4_5*, Struct_02015ef4_5*);
+extern "C" void InitTextureVRAMAreaFromSaved_0207dfc8(TextureVRAMArea_02015ef4_5*, TextureVRAMArea_02015ef4_5*);
 extern "C" void func_ov017_021ca174(unsigned short);
 extern "C" Struct_020e385c* func_020e3808();
 extern "C" int func_020e3ad0(Struct_020e385c*, int, int);
@@ -171,7 +171,7 @@ extern "C" void func_020e3798(unsigned char*);
 extern "C" void func_020e36f0(unsigned char*);
 extern "C" int func_ov000_0217fb98(void*);
 extern "C" void func_ov000_02162c90(char*, int, int);
-extern "C" int func_0202c1c0(Struct_0202b2f0*, int);
+extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0*, int);
 extern "C" int func_ov000_02168720(char*);
 extern "C" void func_ov000_021813d4(void*);
 extern "C" void func_0205eb54(void*, int, int);
@@ -556,7 +556,7 @@ state1:
             return;
         }
         var23->GetLoadedFileByID(inline_ov026_021d8ba0_2().unknown_18_, &var52, &var53);
-        func_0209a338((Struct_0200f3a4_8*)(arg0->unknown_e98_));
+        ClearSkillTable_0209a338((SkillTable_0200f3a4_8*)(arg0->unknown_e98_));
         func_0209a470((Struct_0209a470*)(arg0->unknown_e98_), (SafeAllocator*)(arg0->unknown_30_), (Struct_02013fb4*)var52, var53);
         var23->RemoveTask(inline_ov026_021d8ba0_2().unknown_18_);
         inline_ov026_021d8ba0_2().unknown_18_ = -1;
@@ -652,7 +652,7 @@ state1:
             for (; var29 < var34; var64 += 2, var66++, var65++, var29++) {
                 *var66 = (unsigned char*)var35->GetCombatantByIndex(*var65);
                 if (*var66 != 0) {
-                    int var67 = func_020493a4(*var66);
+                    int var67 = GetCombatantCell_020493a4(*var66);
                     var64[0] = var67 % 9;
                     var64[1] = var67 / 9;
                     if (var64[0] < 3) var30 = 1;
@@ -839,7 +839,7 @@ state1:
         }
         if (((SafeAllocator*)arg0->unknown_774c_)->GetSignedAllocator() == 0) {
             ((SafeAllocator*)arg0->unknown_774c_)->CreateTypeA(((SafeAllocator*)(arg0->unknown_30_))->Allocate(0x16000), 0x16000);
-            func_0207dfc8((Struct_02015ef4_5*)(arg0->unknown_14c_), (Struct_02015ef4_5*)(arg0->unknown_7760_));
+            InitTextureVRAMAreaFromSaved_0207dfc8((TextureVRAMArea_02015ef4_5*)(arg0->unknown_14c_), (TextureVRAMArea_02015ef4_5*)(arg0->unknown_7760_));
         }
         arg0->unknown_eac_ = 0xe;
         {
@@ -1030,7 +1030,7 @@ state1:
                 var46 = GetLocalWireless_0202ae18();
                 if (IsLocalWirelessOn_0202b7d8(var46)) {
                     for (var92 = 0; var92 < 4; var92++) {
-                        if (IsPartyMemberInBattle_020a35e0((unsigned char*)var45, var92) && func_0202c1c0((Struct_0202b2f0*)var46, var92)) {
+                        if (IsPartyMemberInBattle_020a35e0((unsigned char*)var45, var92) && IsLocalWirelessPlayerJoined_0202c1c0((LocalWireless_0202b2f0*)var46, var92)) {
                             var107 = (var107 & arg0->unknown_54f4_[var92]) ? 1 : 0;
                         }
                     }
@@ -1306,7 +1306,7 @@ state1:
             }
         }
         func_ov000_02168144(arg0);
-        func_0209a338((Struct_0200f3a4_8*)(arg0->unknown_e98_));
+        ClearSkillTable_0209a338((SkillTable_0200f3a4_8*)(arg0->unknown_e98_));
         ((SafeAllocator*)(arg0->unknown_30_))->Reset();
         arg0->unknown_55d8_ = 0;
         func_ov000_0215d588(var19);

@@ -17,7 +17,7 @@ extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 #if defined(jpn)
 #define func_ov012_021845f8 func_ov012_02185690
-extern "C" void func_0205bef8(void* arg0);
+extern "C" void InitKeyMenuCursor_0205bef8(void* cursor);
 extern "C" void func_ov023_021e20c0(void* arg0);
 #endif
 extern "C" void func_ov012_021845f8(void* arg0);
@@ -174,7 +174,7 @@ extern "C" ARM void func_ov012_021843d4(Struct_ov012_021843d4* arg0)
 #if defined(jpn)
     arg0->unknown1_1374_ = 0;
     arg0->unknown_1375_ = 0;
-    func_0205bef8(arg0->unknown1_1378_);
+    InitKeyMenuCursor_0205bef8(arg0->unknown1_1378_);
     arg0->unknown_13b8_ = 0;
     func_ov023_021e20c0(arg0->unknown_13bc_);
 #endif

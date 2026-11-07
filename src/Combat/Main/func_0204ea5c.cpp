@@ -41,7 +41,7 @@ struct Struct_0204cd60 {
 
 extern "C" int func_0204fd00(Struct_0204cd60* arg0, int arg1);
 extern "C" void func_0204f914(Struct_0204cd60* arg0, int arg1, short arg2, short arg3, short arg4, short arg5);
-extern "C" void* func_020421b0(int arg0);
+extern "C" void* GetWindowTile_020421b0(int tileIndex);
 extern "C" void func_0204e1c8(Struct_0204cd60* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 
 // USA: func_0204ea5c
@@ -51,28 +51,28 @@ extern "C" ARM void func_0204ea5c(Struct_0204cd60* arg0) {
     }
     if (!func_0204fd00(arg0, 1)) {
         func_0204f914(arg0, 0, 0, 0, 8, 8);
-        char* var0 = (char*)func_020421b0(Enum_0204ea5c_21);
+        char* var0 = (char*)GetWindowTile_020421b0(Enum_0204ea5c_21);
         if (var0) {
             func_0204e1c8(arg0, var0, 0, 0, 8, 8, 0xf0, 0xf);
         }
     }
     if (!func_0204fd00(arg0, 2)) {
         func_0204f914(arg0, 0, (short)((arg0->unknown_a8_ - 1) << 3), 0, (short)(arg0->unknown_a8_ << 3), 8);
-        char* var1 = (char*)func_020421b0(Enum_0204ea5c_22);
+        char* var1 = (char*)GetWindowTile_020421b0(Enum_0204ea5c_22);
         if (var1) {
             func_0204e1c8(arg0, var1, (short)((arg0->unknown_a8_ - 1) << 3), 0, 8, 8, 0xf0, 0xf);
         }
     }
     if (!func_0204fd00(arg0, 4)) {
         func_0204f914(arg0, 0, 0, (short)((arg0->unknown_aa_ - 1) << 3), 8, (short)(arg0->unknown_aa_ << 3));
-        char* var2 = (char*)func_020421b0(Enum_0204ea5c_24);
+        char* var2 = (char*)GetWindowTile_020421b0(Enum_0204ea5c_24);
         if (var2) {
             func_0204e1c8(arg0, var2, 0, (short)((arg0->unknown_aa_ - 1) << 3), 8, 8, 0xf0, 0xf);
         }
     }
     if (!func_0204fd00(arg0, 8)) {
         func_0204f914(arg0, 0, (short)((arg0->unknown_a8_ - 1) << 3), (short)((arg0->unknown_aa_ - 1) << 3), (short)(arg0->unknown_a8_ << 3), (short)(arg0->unknown_aa_ << 3));
-        char* var3 = (char*)func_020421b0(Enum_0204ea5c_23);
+        char* var3 = (char*)GetWindowTile_020421b0(Enum_0204ea5c_23);
         if (var3) {
             func_0204e1c8(arg0, var3, (short)((arg0->unknown_a8_ - 1) << 3), (short)((arg0->unknown_aa_ - 1) << 3), 8, 8, 0xf0, 0xf);
         }

@@ -192,11 +192,11 @@ extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int pale
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
-extern "C" void func_020a2010(void* arg0);
+extern "C" void InitFollowCamera_020a2010(void* arg0);
 struct Struct_0202e5c0;
 extern "C" void func_0202e5c0(Struct_0202e5c0* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0202e5c8(unsigned char* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0202e0a4(void* arg0);
+extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
+extern "C" void UpdateCamera_0202e0a4(void* camera);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" void func_ov009_02188bf8(unsigned char* arg0, int arg1, short* arg2, short* arg3);
@@ -252,7 +252,7 @@ extern "C" void func_ov009_021855dc(unsigned char* arg0, int arg1);
 
 extern const char data_ov009_0218acb0[];
 extern const char data_ov009_0218acc9[];
-extern const char* data_020f2a38;
+extern const char* gItemDataPath_020f2a38;
 extern const char* data_020f2a30;
 extern const char data_ov009_0218ab48[];
 
@@ -309,7 +309,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
         LoadStringTable_020dfec0(arg0->unknown_e0_, &arg0->unknown_0_[5], var4, var5);
         arg0->unknown_d8_ = *(int*)(GetMessageWindow_020421a0() + 0x28);
         ClearItemTable_020de848(arg0->unknown_c8_);
-        func_020e0484(arg0->unknown_c8_, &arg0->unknown_0_[4], data_020f2a38, data_ov009_0218ab48, 0x29, 1);
+        func_020e0484(arg0->unknown_c8_, &arg0->unknown_0_[4], gItemDataPath_020f2a38, data_ov009_0218ab48, 0x29, 1);
 #else
         BackgroundLoader::AddLockGlobal();
         BackgroundLoader::FreeAllocationsGlobal();
@@ -322,7 +322,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
         ClearItemTable_020de848(arg0->unknown_c8_);
         BackgroundLoader::AddLockGlobal();
         unsigned int var8;
-        void* var9 = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &var8);
+        void* var9 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var8);
         if (var9 != NULL)
             func_020de9a4(arg0->unknown_c8_, &arg0->unknown_0_[4], var9, var8, data_ov009_0218ab48, 0x29);
         BackgroundLoader::RemoveLockGlobal();
@@ -391,10 +391,10 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
 #else
         Struct_ov003_02154af4_3* var19 = (Struct_ov003_02154af4_3*)((char*)arg0 + 0x124);
 #endif
-        func_020a2010(var19->unknown_800_);
+        InitFollowCamera_020a2010(var19->unknown_800_);
         func_0202e5c0((Struct_0202e5c0*)var19->unknown_800_, 0xd000, 0xf800, 0x42ccc);
-        func_0202e5c8((unsigned char*)var19->unknown_800_, 0xd000, 0xf800, 0);
-        func_0202e0a4(var19->unknown_800_);
+        SetCameraTarget_0202e5c8((unsigned char*)var19->unknown_800_, 0xd000, 0xf800, 0);
+        UpdateCamera_0202e0a4(var19->unknown_800_);
         DisableCameraFollow_020a27a0(var19->unknown_800_);
         SetCamera_020100c4(var1, (int)var19->unknown_800_);
 

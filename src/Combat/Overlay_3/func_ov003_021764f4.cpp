@@ -21,8 +21,8 @@ extern "C" int func_ov003_021766e8(void* arg0);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
-struct Struct_0207fdcc_2;
-extern "C" void func_0207fdcc(struct Struct_0207fdcc_2* arg0, int arg1);
+struct MenuLayout_0207fdcc_2;
+extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 
 struct Struct_02081f20_2;
 extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
@@ -60,7 +60,7 @@ alt:
 merge:
     if (var0 != 0) {
         short var1 = *(short*)(arg0 + Enum_ov003_021764f4_4094);
-        func_0207fdcc(*(struct Struct_0207fdcc_2**)(arg0 + Enum_ov003_021764f4_2204), var1);
+        CloseMenuLayoutWindow_0207fdcc(*(struct MenuLayout_0207fdcc_2**)(arg0 + Enum_ov003_021764f4_2204), var1);
         func_0208203c((struct Struct_02081f20_2*)(arg0 + Enum_ov003_021764f4_2188));
         *(void**)(arg0 + Enum_ov003_021764f4_4088) = 0;
     }

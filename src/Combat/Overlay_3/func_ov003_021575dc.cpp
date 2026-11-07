@@ -102,8 +102,8 @@ struct Struct_02081f20_2;
 extern "C" void func_0208203c(Struct_02081f20_2*);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
-struct Struct_0207fe44;
-extern "C" void func_0207fe44(Struct_0207fe44*);
+struct MenuLayout_0207fe44;
+extern "C" void CloseMenuLayoutWindows_0207fe44(MenuLayout_0207fe44*);
 extern "C" int func_ov003_02155ffc(void* arg0, int arg1);
 extern "C" int func_ov003_02155f88(void* arg0, int arg1);
 extern "C" void func_ov003_0215873c(void* arg0);
@@ -143,7 +143,7 @@ extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned
 extern "C" ARM int func_020813ec(void* arg0, int arg1);
 extern "C" void func_0207d300(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" void func_020e046c(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" void CopyStringFromTableFile_020e046c(void* buffer, void* fileData, int fileSize, int stringId);
 extern "C" void func_02082490(void* arg0, void* arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov003_02158334(void* arg0);
 extern "C" int func_ov003_021550dc(void* arg0);
@@ -163,7 +163,7 @@ extern "C" void func_ov023_021eb26c(void* arg0);
 
 extern char gSoundEffectManager_02108760;
 extern char data_ov003_0217fdbb;
-extern const char* data_020f2a38;
+extern const char* gItemDataPath_020f2a38;
 extern const char* data_020f2a30;
 extern short data_ov003_0217f2e8[];
 extern char gMusicManager_02109bf4;
@@ -209,12 +209,12 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
             unsigned char var11 = var0->unknown_1f2_[var10];
             var0->unknown_1f7_ = var11;
             var0->unknown_1f9_ = var0->unknown_1f9_ + 1;
-            func_0207fe44((Struct_0207fe44*)var6);
+            CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var6);
         } else if (func_ov003_02155208(arg0) != 0) {
             var0->unknown_8_ = 0;
             var5[0] = 7;
             var0->unknown_1f8_ = 7;
-            func_0207fe44((Struct_0207fe44*)var6);
+            CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var6);
         }
     } else if (var3 == 2) {
         signed char var12 = var0->unknown_1f7_;
@@ -228,14 +228,14 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
         if (func_ov003_02155fc0(arg0, var12) != 0) {
             var5[1] = 0x41;
             var0->unknown_1f8_ = 7;
-            func_0207fe44((Struct_0207fe44*)var6);
+            CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var6);
             return;
         }
         var12 = var0->unknown_1f7_;
         if (func_ov003_02155f88(arg0, var12) != 0) {
             var5[1] = 0x12;
             var0->unknown_1f8_ = 7;
-            func_0207fe44((Struct_0207fe44*)var6);
+            CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var6);
             return;
         }
         var5[1] = 0x13;
@@ -287,9 +287,9 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
     } else if (var3 == 7) {
         BackgroundLoader* var23 = BackgroundLoader::GetInstance();
 #if defined(jpn)
-        var0->unknown_1d0_ = var23->QueueLoadGP1(data_020f2a38, (SafeAllocator*)0);
+        var0->unknown_1d0_ = var23->QueueLoadGP1(gItemDataPath_020f2a38, (SafeAllocator*)0);
 #else
-        var0->unknown_1d0_ = var23->QueueLoadFileInGP2(data_020f2a38, data_020f2a30, (SafeAllocator*)0);
+        var0->unknown_1d0_ = var23->QueueLoadFileInGP2(gItemDataPath_020f2a38, data_020f2a30, (SafeAllocator*)0);
 #endif
         var0->unknown_1f9_ = var0->unknown_1f9_ + 1;
     } else if (var3 == 8) {
@@ -421,7 +421,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
                     sprintf(var56, &data_ov003_0217fde7, var58);
                     void* var59 = ExtractFileFromGP2(var55, var56, &var54);
                     if (var59 != 0) {
-                        func_020e046c(var53, var59, var54, var38[var50]);
+                        CopyStringFromTableFile_020e046c(var53, var59, var54, var38[var50]);
                     }
                     BackgroundLoader::RemoveLockGlobal();
 #endif

@@ -13,9 +13,9 @@ enum { Enum_ov017_021c2784_17128 = 0x40c8, Enum_ov017_021c2784_10132 = 0x27d4 };
 enum { Enum_ov017_021c2784_17128 = 0x42e8, Enum_ov017_021c2784_10132 = 0x2794 };
 #endif
 
-struct Struct_0202b2f0;
-extern "C" struct Struct_0202b2f0* GetLocalWireless_0202ae18(void);
-extern "C" int IsNotLocalWirelessGuest_0202c508(struct Struct_0202b2f0* wireless);
+struct LocalWireless_0202b2f0;
+extern "C" struct LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
+extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202b2f0* wireless);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, int arg6);
 extern "C" int func_ov017_021959b4(void);
@@ -31,11 +31,11 @@ extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectInde
 extern "C" void func_020e1154(void* arg0);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
-struct Struct_020d7aa0_2;
-extern "C" void func_020d7aa0(struct Struct_020d7aa0_2* arg0);
+struct TimedMessageQueue_020d7aa0_2;
+extern "C" void ClearTimedMessageQueue_020d7aa0(struct TimedMessageQueue_020d7aa0_2* queue);
 struct Struct_02059cfc_4;
 struct Struct_ov008_021870e4;
-extern "C" void func_0205ebec(void* arg0);
+extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" int func_ov017_021a26e8(GameResources* arg0, int arg1);
 extern "C" void func_ov017_021d09cc(int arg0, int arg1, int arg2, int arg3);
@@ -61,7 +61,7 @@ struct Struct_ov017_021c2784 {
 extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
-    struct Struct_0202b2f0* var2 = GetLocalWireless_0202ae18();
+    struct LocalWireless_0202b2f0* var2 = GetLocalWireless_0202ae18();
     void* var3 = func_020d7a50();
 
     GameObject* var4 = var0->GetPartyMemberByIndex(arg0->unknown_14_);
@@ -138,7 +138,7 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
         if (arg0->unknown_11_ != 0) {
             var18 = 0;
         } else {
-            func_020d7aa0((struct Struct_020d7aa0_2*)var3);
+            ClearTimedMessageQueue_020d7aa0((struct TimedMessageQueue_020d7aa0_2*)var3);
 #if defined(jpn)
             func_020d7e10(var3, data_ov017_021d7108, 0, 0, 1);
 #else
@@ -164,7 +164,7 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
                 }
             }
         }
-        func_0205ebec(&gSoundEffectManager_02108760);
+        UnloadExtraSoundSet_0205ebec(&gSoundEffectManager_02108760);
         EnablePlayerControl_020397c0(var6);
         arg0->unknown_1_ = 1;
         return;

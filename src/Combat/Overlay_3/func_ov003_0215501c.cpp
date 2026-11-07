@@ -8,9 +8,9 @@ enum { Enum_ov003_0215501c_486 = 0x1e6 };
 enum { Enum_ov003_0215501c_476 = 0x1dc };
 #endif
 
-struct Struct_0207fdcc_2;
-struct Struct_0207fdcc;
-extern "C" Struct_0207fdcc* func_02081da8(Struct_0207fdcc_2* arg0, int arg1);
+struct MenuLayout_0207fdcc_2;
+struct TextWindow_0207fdcc;
+extern "C" TextWindow_0207fdcc* func_02081da8(MenuLayout_0207fdcc_2* arg0, int arg1);
 
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov003_0215501c(unsigned char* arg0) {
     if (*(short*)(arg0 + Enum_ov003_0215501c_486) < 0) {
         return;
     }
-    Struct_0207fdcc* var0 = func_02081da8(*(Struct_0207fdcc_2**)(arg0 + 0x18), *(short*)(arg0 + Enum_ov003_0215501c_486));
+    TextWindow_0207fdcc* var0 = func_02081da8(*(MenuLayout_0207fdcc_2**)(arg0 + 0x18), *(short*)(arg0 + Enum_ov003_0215501c_486));
     if (var0 == NULL) {
         return;
     }
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov003_0215501c(unsigned char* arg0) {
         return;
     }
     short var1, var2;
-    func_020809c4(*(Struct_0207fdcc_2**)(arg0 + 0x18), *(short*)(arg0 + Enum_ov003_0215501c_486), *(short*)*(void**)(arg0 + 8), &var1, &var2);
+    func_020809c4(*(MenuLayout_0207fdcc_2**)(arg0 + 0x18), *(short*)(arg0 + Enum_ov003_0215501c_486), *(short*)*(void**)(arg0 + 8), &var1, &var2);
     func_020e263c(*(Struct_020e263c_2**)(arg0 + 0x1c), *(int*)(arg0 + Enum_ov003_0215501c_476));
     var1 = var1 - 0x10;
     var2 = var2 - 3;

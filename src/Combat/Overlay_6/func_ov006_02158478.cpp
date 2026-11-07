@@ -10,7 +10,7 @@
 #define func_ov006_02154fe4 func_ov006_02156730
 #endif
 
-struct Struct_0207fdcc_2;
+struct MenuLayout_0207fdcc_2;
 struct BGLayer_02020cb8;
 struct BGLayer_02020cb8_5;
 struct Struct_ov006_02155480_2;
@@ -58,8 +58,8 @@ struct Struct_ov006_02158478 {
 
 extern "C" void* GetSubBG0ScreenBase();
 extern "C" void* memset(void*, int, unsigned int);
-extern "C" int func_ov006_02158080(Struct_0207fdcc_2*, int);
-extern "C" Struct_ov006_02158478* func_02081da8(Struct_0207fdcc_2*, int);
+extern "C" int func_ov006_02158080(MenuLayout_0207fdcc_2*, int);
+extern "C" Struct_ov006_02158478* func_02081da8(MenuLayout_0207fdcc_2*, int);
 extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8*);
 extern "C" int SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
 extern "C" void func_0204b938(void*, void*, int, int, unsigned short);
@@ -169,9 +169,9 @@ extern "C" ARM void func_ov006_02158478(Struct_ov006_02157a60* arg0)
         return;
     unsigned short* var0 = (unsigned short*)GetSubBG0ScreenBase();
     memset(var0, 0, 0x800);
-    if (func_ov006_02158080((Struct_0207fdcc_2*)R(*(void**)((char*)arg0+0xc),arg0->unknown_14_), 1))
+    if (func_ov006_02158080((MenuLayout_0207fdcc_2*)R(*(void**)((char*)arg0+0xc),arg0->unknown_14_), 1))
     {
-        Struct_ov006_02158478* var1 = func_02081da8((Struct_0207fdcc_2*)R(*(void**)((char*)arg0+0xc),arg0->unknown_14_), 1);
+        Struct_ov006_02158478* var1 = func_02081da8((MenuLayout_0207fdcc_2*)R(*(void**)((char*)arg0+0xc),arg0->unknown_14_), 1);
         if (var1 == 0)
             return;
         short var2;

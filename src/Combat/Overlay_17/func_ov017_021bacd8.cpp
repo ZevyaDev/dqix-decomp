@@ -12,9 +12,9 @@ enum { Enum_ov017_021bacd8_62524 = 0xf43c, Enum_ov017_021bacd8_1020 = 0x3fc };
 
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
-extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
+extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" void EnablePlayerControl_020397c0(void* object);
-extern "C" void func_020a1df8(int arg0);
+extern "C" void PushOverlay_020a1df8(int overlayEntry);
 
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov017_021bacd8(Struct_ov017_021bacd8* arg0) {
             arg0->unknown_1_ = 1;
             return;
         }
-        func_020a1df8(3);
+        PushOverlay_020a1df8(3);
         func_ov003_0215c650(arg0->unknown_20_);
         func_ov003_0215c568(arg0->unknown_20_, &arg0->unknown_c_);
         arg0->unknown_8_ += 1;
@@ -101,7 +101,7 @@ extern "C" ARM void func_ov017_021bacd8(Struct_ov017_021bacd8* arg0) {
     func_ov017_021bac8c((struct Struct_ov017_021bac8c*)arg0);
     ClearFlags04((GameResources*)var1, 0xc0);
     EnablePlayerControl_020397c0(var2);
-    func_020a28b0((unsigned char*)var3, 3);
+    ClearCameraFlags_020a28b0((unsigned char*)var3, 3);
     LoadFileTables_020a0c0c();
     arg0->unknown_1_ = 1;
 }

@@ -11,7 +11,7 @@ struct Struct_ov031_02223ff8 {
 
 extern Struct_ov031_02223ff8* data_ov031_02250bfc;
 extern "C" void func_ov031_02224ca4(int arg0, int arg1, int arg2);
-extern "C" void func_ov031_0223e2b8(void* arg0, int arg1);
+extern "C" void SetTaskCallback_ov031_0223e2b8(void* task, int callback);
 extern "C" void func_ov031_0222408c(void* arg0);
 
 static inline void inline_ov031_02223ff8(const Struct_ov031_02222ddc_2* arg0, unsigned int* arg1, unsigned int* arg2) {
@@ -30,5 +30,5 @@ extern "C" ARM void func_ov031_02223ff8(void* arg0) {
     }
     func_ov031_02224ca4(data_ov031_02250bfc->unknown_11d_, 0, 0x51);
     func_ov031_02224ca4(data_ov031_02250bfc->unknown_11d_, 1, 0xc0);
-    func_ov031_0223e2b8(arg0, (int)func_ov031_0222408c);
+    SetTaskCallback_ov031_0223e2b8(arg0, (int)func_ov031_0222408c);
 }

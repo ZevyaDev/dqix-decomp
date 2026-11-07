@@ -32,9 +32,9 @@ extern "C" void* func_ov031_0223c7c4(int arg0);
 extern "C" int func_ov031_02223440(void);
 extern "C" void func_ov031_02234f08(void);
 extern "C" void func_ov031_0223b710(void* arg0);
-extern "C" void func_ov031_022234d8(int arg0, void (*arg1)(int, int, unsigned int));
-extern "C" void func_ov031_0223cbbc(int arg0, int arg1);
-extern "C" unsigned int func_ov031_0223cf70(void** arg0);
+extern "C" void LoadFileToVRAM_ov031_022234d8(int path, void (*loadToVRAM)(int, int, unsigned int));
+extern "C" void HideScreenLayers_ov031_0223cbbc(int isSubScreen, int layerMask);
+extern "C" unsigned int FreeAndClearPointer_ov031_0223cf70(void** pointer);
 extern "C" void func_ov031_02235194(void);
 
 extern "C" void LoadToMainObjStandardPalette(int, int, unsigned int);
@@ -43,7 +43,7 @@ extern "C" char* func_ov031_02235c70(void);
 extern "C" void func_ov031_02236094(int arg0);
 extern "C" void* VectorizedMemset(void* dst, int val, int n);
 extern "C" void func_ov031_0222750c(int, int);
-extern "C" void func_ov031_022274d0(int, int);
+extern "C" void SetStepIndicatorAndButtonBarModes_ov031_022274d0(int, int);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_0222cbe0(void);
 extern "C" void func_ov031_0222d720(void);
@@ -86,10 +86,10 @@ extern "C" ARM void func_ov031_0222f6f8(void) {
         var2++;
     } while (var2 < 2);
 
-    func_ov031_022234d8((int)&data_ov031_0224bb64, LoadToMainObjStandardPalette);
+    LoadFileToVRAM_ov031_022234d8((int)&data_ov031_0224bb64, LoadToMainObjStandardPalette);
 
-    func_ov031_0223cbbc(1, 1);
-    func_ov031_0223cbbc(0, 0x1d);
+    HideScreenLayers_ov031_0223cbbc(1, 1);
+    HideScreenLayers_ov031_0223cbbc(0, 0x1d);
 
     *(volatile unsigned int*)0x4000010 = 0;
     *(volatile unsigned int*)0x4000018 = 0;
@@ -100,14 +100,14 @@ extern "C" ARM void func_ov031_0222f6f8(void) {
     case 0:
     case 1:
         func_ov031_0222750c(data_ov031_02290ca0.unknown_8_->unknown_40_, var4);
-        func_ov031_022274d0(2, 0);
+        SetStepIndicatorAndButtonBarModes_ov031_022274d0(2, 0);
         SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222cbe0);
         break;
     case 4: case 5: case 6: case 9: case 10: {
         unsigned int var5 = data_ov031_02290ca0.unknown_8_->unknown_40_;
         int var6 = var5 - 4;
         if (var5 >= 9) var6 -= 2;
-        func_ov031_022274d0(2, 0);
+        SetStepIndicatorAndButtonBarModes_ov031_022274d0(2, 0);
         func_ov031_0222750c(var6, 0);
         SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222d720);
         break;
@@ -125,28 +125,28 @@ extern "C" ARM void func_ov031_0222f6f8(void) {
         if (var7[0xf6] != 0) {
             VectorizedMemset(var7 + 0xc8, 0, 8);
         }
-        func_ov031_022274d0(2, 0);
+        SetStepIndicatorAndButtonBarModes_ov031_022274d0(2, 0);
         func_ov031_0222750c(0, 0);
         SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02233a00);
         break;
     }
     case 12:
-        func_ov031_022274d0(var4, var4);
+        SetStepIndicatorAndButtonBarModes_ov031_022274d0(var4, var4);
         SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02230f00);
         break;
     case 13:
         if (data_ov031_02290ca0.unknown_1_ == 0) {
             var4 = 1;
-            func_ov031_022274d0(2, var4);
+            SetStepIndicatorAndButtonBarModes_ov031_022274d0(2, var4);
             SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02232508);
         } else {
             func_ov031_02236094(((unsigned char*)func_ov031_02235c70())[0xf4]);
             var4 = 1;
-            func_ov031_022274d0(0, var4);
+            SetStepIndicatorAndButtonBarModes_ov031_022274d0(0, var4);
             SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02233248);
         }
         break;
     }
 
-    func_ov031_0223cf70((void**)&data_ov031_02290ca8);
+    FreeAndClearPointer_ov031_0223cf70((void**)&data_ov031_02290ca8);
 }

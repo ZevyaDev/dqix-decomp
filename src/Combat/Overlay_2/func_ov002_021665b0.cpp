@@ -140,8 +140,8 @@ extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* w
 extern "C" int func_0205d97c(char* arg0);
 extern "C" int func_ov002_02161b48(char*, int);
 extern "C" void ResetMessageWindow_02043204(char* window);
-struct Struct_0205def8;
-extern "C" void func_0205def8(Struct_0205def8*, int, int);
+struct TextWindowManager_0205def8;
+extern "C" void func_0205def8(TextWindowManager_0205def8*, int, int);
 extern "C" void func_ov016_0218b5c0(int arg0, int arg1);
 extern "C" void func_ov017_0218b5f8(int arg0);
 
@@ -720,7 +720,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
                 ResetMessageWindow_02043204(var94);
                 arg0->unknown_1bb8_ = NEXT_BACK_021665b0;
                 arg0->unknown_1bbc_ = NEXT_MENU_021665b0;
-                func_0205def8((Struct_0205def8*)((char*)arg0 + LIST_021665b0), 1, FLAG_KEY_021665b0);
+                func_0205def8((TextWindowManager_0205def8*)((char*)arg0 + LIST_021665b0), 1, FLAG_KEY_021665b0);
                 arg0->unknown_1caf_ = 0;
                 arg0->unknown_1c28_ = -1;
                 arg0->unknown_1c2a_ = -1;

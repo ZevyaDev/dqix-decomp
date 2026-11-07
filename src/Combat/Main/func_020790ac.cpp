@@ -13,7 +13,7 @@ struct Struct_02039df4;
 struct Object3D;
 extern "C" int func_02079238(Object3D* arg0, int arg1);
 extern "C" short func_020793c0(Object3D* arg0, int arg1);
-extern "C" int func_02076ccc(void* arg0, int arg1);
+extern "C" int SetFieldMonsterState_02076ccc(void* monster, int state);
 
 struct Struct_020790ac { int unknown_0_; int unknown_4_; int unknown_8_; };
 extern "C" void func_ov017_021c95ec(int arg0, int arg1, int arg2, int arg3, int arg4,
@@ -57,7 +57,7 @@ extern "C" ARM void func_020790ac(struct Struct_020790ac_2* arg0) {
     if (var1 == -1) return;
 
     arg0->unknown_166_ = var1;
-    func_02076ccc(arg0, 0xa);
+    SetFieldMonsterState_02076ccc(arg0, 0xa);
 
     void* var2 = GetLocalWireless_0202ae18();
     if (!IsLocalWirelessOn_0202b7d8((int*)var2) || GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var2) != 0) {

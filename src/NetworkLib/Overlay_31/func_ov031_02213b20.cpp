@@ -2,15 +2,12 @@
 #include "NitroSDK/Memory.h"
 
 
-#if defined(jpn)
-#define func_020ca408 func_020cbed4
-#endif
 
 struct Struct_ov031_02213b20 { unsigned char unknown_0_; unsigned char unknown_1_; unsigned char unknown_2_; unsigned char unknown_3_; };
 struct Struct_ov031_02213b20_2 { unsigned char unknown_0_[0xc0]; };
 struct Struct_ov031_02213b20_3 { unsigned char unknown_0_[0x444]; Struct_ov031_02213b20 unknown_444_[11]; Struct_ov031_02213b20_2 unknown_470_[11]; };
 extern "C" void func_020ca3ec(unsigned int, void*, unsigned int);
-extern "C" void func_020ca408(const void*, void*, unsigned int);
+extern "C" void Memcpy32Bit_020ca408(const void*, void*, unsigned int);
 
 // USA: func_ov031_02213b20
 extern "C" ARM void func_ov031_02213b20(int arg0, Struct_ov031_02213b20_3* arg1) {
@@ -25,12 +22,12 @@ extern "C" ARM void func_ov031_02213b20(int arg0, Struct_ov031_02213b20_3* arg1)
         Struct_ov031_02213b20_2* var6 = &var2[var0];
         do {
             if (var1[arg0].unknown_2_ < var1[var0].unknown_2_) break;
-            func_020ca408(var5, &var4, 4);
-            func_020ca408(&var1[arg0], var5, 4);
-            func_020ca408(&var4, &var1[arg0], 4);
-            func_020ca408(var6, &var3, 0xc0);
-            func_020ca408(&var2[arg0], var6, 0xc0);
-            func_020ca408(&var3, &var2[arg0], 0xc0);
+            Memcpy32Bit_020ca408(var5, &var4, 4);
+            Memcpy32Bit_020ca408(&var1[arg0], var5, 4);
+            Memcpy32Bit_020ca408(&var4, &var1[arg0], 4);
+            Memcpy32Bit_020ca408(var6, &var3, 0xc0);
+            Memcpy32Bit_020ca408(&var2[arg0], var6, 0xc0);
+            Memcpy32Bit_020ca408(&var3, &var2[arg0], 0xc0);
             arg0 = var0;
             --var5;
             --var6;

@@ -21,11 +21,11 @@ struct Struct_ov000_0216e3c4 {
 };
 struct Struct_ov000_0216d368 { int unknown_0_, unknown_4_, unknown_8_; };
 struct Struct_0202e6a8;
-extern "C" void func_ov000_0216d370(Struct_020a212c_2*, int, int, int);
+extern "C" void ResetBattleCamera_ov000_0216d370(Struct_020a212c_2*, int, int, int);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(Random*, short*, int, int);
-extern "C" void func_0202e5d8(Struct_020a212c_2*, int, int, int);
+extern "C" void SetCameraOrbit_0202e5d8(Struct_020a212c_2*, int, int, int);
 extern "C" Struct_ov000_0216e3c4* GetEnemyByIndex_0200fea4(GameState*, int);
-extern "C" void func_0202e5c8(unsigned char*, int, int, int);
+extern "C" void SetCameraTarget_0202e5c8(unsigned char*, int, int, int);
 extern "C" void func_ov000_0216d368(Struct_ov000_0216d368*, int, int, int);
 extern "C" void func_0202e6a8(Struct_0202e6a8*, int);
 
@@ -33,7 +33,7 @@ extern "C" void func_0202e6a8(Struct_0202e6a8*, int);
 extern "C" ARM void func_ov000_0216e3c4(Struct_020a212c_2* arg0) {
     if (!arg0->unknown_21c_) return;
     GameState* var0 = GameState::GetInstance();
-    func_ov000_0216d370(arg0, 1, 1, 1);
+    ResetBattleCamera_ov000_0216d370(arg0, 1, 1, 1);
     GameObject* var1 = var0->GetProtagonist();
     int var2 = -1;
     if (var1) var2 = var1->obj3D_.GetField06();
@@ -67,8 +67,8 @@ extern "C" ARM void func_ov000_0216e3c4(Struct_020a212c_2* arg0) {
         if (var15) var13 = var15->obj3D_.rotation_.y;
     }
     var13 = fix32ReduceAngle0To2Pi(var13 - 0x648);
-    func_0202e5c8((unsigned char*)arg0, var5.x, 0x800, var5.z);
-    func_0202e5d8(arg0, var13, 0x1000, var11);
+    SetCameraTarget_0202e5c8((unsigned char*)arg0, var5.x, 0x800, var5.z);
+    SetCameraOrbit_0202e5d8(arg0, var13, 0x1000, var11);
     int var16 = 0;
     arg0->unknown_238_ = 14;
     arg0->unknown_278_ = 1;

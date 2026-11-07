@@ -10,7 +10,7 @@ enum { Enum_ov017_021984f4_108 = 0x6c };
 
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
-extern "C" int func_020535c8(signed char* arg0);
+extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int func_02094b9c(void* arg0, void* arg1);
 int fix32ReduceAngle0To2Pi(int angle);
 int fix32SignedAngleDistance(int a, int b);
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov017_021984f4(void* arg0) {
     if (var1 == NULL) {
         return;
     }
-    if (func_020535c8((signed char*)var1) != 0) {
+    if (IsPerformingGesture_020535c8((signed char*)var1) != 0) {
         return;
     }
 

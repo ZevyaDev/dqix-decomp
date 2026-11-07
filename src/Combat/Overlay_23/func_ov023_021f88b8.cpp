@@ -14,7 +14,7 @@ struct Struct_ov023_021f88b8 { char unknown_0_[0x45]; unsigned char unknown_45_0
 
 extern "C" int func_ov023_021f6f18(void* arg0);
 
-extern "C" void func_ov023_021f809c(void* arg0, void* arg1);
+extern "C" void RedrawMenuWindow_ov023_021f809c(void* window, void* menu);
 
 // USA: func_ov023_021f88b8
 extern "C" ARM void func_ov023_021f88b8(void* arg0, void* arg1, int arg2) {
@@ -32,5 +32,5 @@ extern "C" ARM void func_ov023_021f88b8(void* arg0, void* arg1, int arg2) {
         }
         var1 = (void*)func_ov023_021f6f18(var1);
     }
-    func_ov023_021f809c(arg0, arg1);
+    RedrawMenuWindow_ov023_021f809c(arg0, arg1);
 }

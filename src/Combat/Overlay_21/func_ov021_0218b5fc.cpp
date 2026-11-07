@@ -29,15 +29,15 @@ struct Struct_0209c3b4_2;
 struct MusicManager_02109bf4_4;
 struct Struct_02109bf4_3;
 
-extern "C" void func_020a1df8(int arg0);
-extern "C" void func_020a1e54(int arg0);
+extern "C" void PushOverlay_020a1df8(int overlayEntry);
+extern "C" void PopOverlay_020a1e54(int isPreviousReloaded);
 extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" void func_0200fb84(int* arg0, int arg1);
 extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
 extern "C" void* GetOAMManager_0203bd08(void);
-extern "C" void func_0203bd24(char* arg0);
+extern "C" void ResetOAMManager_0203bd24(char* oamManager);
 extern "C" int* func_0203bd14();
-extern "C" int func_0203be4c(void* arg0);
+extern "C" int GetSubOAMBuffer_0203be4c(void* arg0);
 extern "C" void func_0203c35c(int* arg0);
 extern "C" void MapVRAMBanksToLCDC(unsigned short mask);
 extern "C" void Memset32Bit_020ca458(unsigned int value, void* dest, int count);
@@ -49,7 +49,7 @@ void LockStagedTextureVRAMCopying();
 void UnlockStagedTextureVRAMCopying();
 void UpdateVRAMStagingVRAMBanks();
 extern "C" void MapVRAMBanksToTextureImage(int handle);
-extern "C" void func_020bb48c(unsigned int arg0, int arg1);
+extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install);
 extern "C" void MapVRAMBanksToTexturePalette(int value);
 extern "C" void func_020bb780(void* arg0, int arg1);
 extern "C" void MapVRAMBanksToMainBG(int v);
@@ -67,7 +67,7 @@ extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" void func_020440a4(void* arg0);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void func_020432c4(void* arg0);
+extern "C" void InitMessageGlyphs_020432c4(void* window);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_020100a0(GameState* arg0, int arg1);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
@@ -77,9 +77,9 @@ extern "C" void* func_02010954(char* arg0);
 extern "C" void func_ov009_021842a0(void* arg0, SafeAllocator* arg1);
 extern "C" void PlayMusic_0209c3b4(Struct_0209c3b4_2* manager, int musicIndex);
 extern "C" void WaitForVBlank_020c9820();
-extern "C" void func_020c38d4();
+extern "C" void TurnOnMainDisplay_020c38d4();
 extern "C" void func_02010124(Struct_0200f3a4_9* arg0);
-extern "C" int func_0200fb9c(char* arg0);
+extern "C" int GetGameMode_0200fb9c(char* gameState);
 extern "C" void func_02012efc();
 extern "C" void func_ov021_0218bb30(void* arg0);
 extern "C" void func_020bbcb4();
@@ -87,10 +87,10 @@ extern "C" void func_ov009_02184ca4(void* arg0);
 extern "C" void func_0203bdb0(Struct_0203bdb0* arg0);
 void UpdateAndApplyBrightness(GameResources* resources);
 extern "C" void func_ov009_02184848(void* arg0);
-extern "C" void func_0209c678(MusicManager_02109bf4_4* arg0, int arg1);
+extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4* manager, int fadeDuration);
 extern "C" void func_0203ad88(void* arg0, void* arg1, int arg2);
 extern "C" void func_0203aa08(void* arg0);
-extern "C" void func_0209c20c(Struct_02109bf4_3* arg0);
+extern "C" void ResetMusic_0209c20c(Struct_02109bf4_3* manager);
 extern "C" void func_02043000(char* arg0);
 extern char gMainHeap_02114e20;
 extern char gMusicManager_02109bf4;
@@ -119,7 +119,7 @@ extern "C" void func_ov021_0218baf8(Struct_ov021_0218b5fc_2* arg0);
 // USA: func_ov021_0218b5fc
 extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
 #if !defined(jpn)
-    func_020a1df8(3);
+    PushOverlay_020a1df8(3);
 #endif
     LoadOverlay_020a1940(OVERLAY_ID(9));
     LoadOverlay_020a1940(OVERLAY_ID(23));
@@ -129,10 +129,10 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
     BackgroundLoader::GetInstance()->MaybeReset();
     void* var1 = GetOAMManager_0203bd08();
-    func_0203bd24((char*)var1);
+    ResetOAMManager_0203bd24((char*)var1);
     *(int*)var1 = 0;
     int* var2 = func_0203bd14();
-    *var2 = func_0203be4c(var1) + 0x200;
+    *var2 = GetSubOAMBuffer_0203be4c(var1) + 0x200;
     func_0203c35c(var2);
     var2[Enum_ov021_0218b5fc_1288 / 4] = 0x7000;
     MapVRAMBanksToLCDC(0x1ff);
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     func_020c537c();
     LockStagedTextureVRAMCopying();
     MapVRAMBanksToTextureImage(1);
-    func_020bb48c(1, 1);
+    InitTextureImageVRAMAllocator_020bb48c(1, 1);
     MapVRAMBanksToTexturePalette(0x40);
     func_020bb780((void*)0x4000, 1);
     MapVRAMBanksToMainBG(0x10);
@@ -196,7 +196,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     *(char**)((char*)var5 + Enum_ov021_0218b5fc_7720) = arg0->unknown_44_;
     ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)arg0->unknown_44_);
     RestoreTextureVRAMState_0207df90(arg0->unknown_44_);
-    func_020432c4(var5);
+    InitMessageGlyphs_020432c4(var5);
     SaveTextureVRAMState_0207dfac(arg0->unknown_44_);
     func_020100a0(var0, 0);
     arg0->unknown_2c_.CreateTypeA(AllocateRoundedSize_02012d88((AllocatorUnion*)&gMainHeap_02114e20, Enum_ov021_0218b5fc_307768), Enum_ov021_0218b5fc_307768);
@@ -209,12 +209,12 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     func_ov009_021842a0(arg0->unknown_40_, &arg0->unknown_2c_);
     PlayMusic_0209c3b4((Struct_0209c3b4_2*)&gMusicManager_02109bf4, 2);
     WaitForVBlank_020c9820();
-    func_020c38d4();
+    TurnOnMainDisplay_020c38d4();
     DISPCNTSUB |= 0x10000;
     func_02010124((Struct_0200f3a4_9*)var0);
 
     for (;;) {
-        if (func_0200fb9c((char*)var0) == 0 || arg0->unknown_b8_ != 0) {
+        if (GetGameMode_0200fb9c((char*)var0) == 0 || arg0->unknown_b8_ != 0) {
             break;
         }
         func_02012efc();
@@ -231,14 +231,14 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     }
 
     func_ov009_02184848(arg0->unknown_40_);
-    func_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
+    StopMusic_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
     func_0203ad88(&gMusicManager_02109bf4, 0, 0);
     func_0203aa08(&gMusicManager_02109bf4);
-    func_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
+    ResetMusic_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
     func_02043000((char*)var5);
     ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)arg0->unknown_44_);
     func_0200fb84((int*)var0, 0);
 #if !defined(jpn)
-    func_020a1e54(1);
+    PopOverlay_020a1e54(1);
 #endif
 }

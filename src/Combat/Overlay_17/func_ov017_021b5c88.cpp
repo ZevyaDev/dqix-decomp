@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
-struct Struct_02015ef4_4 {
+struct ItemData_02015ef4_4 {
     int unknown_0_, unknown_4_, unknown_8_, unknown_c_;
     unsigned int unknown_10_0_ : 10;
     unsigned int unknown_11_2_ : 10;
     unsigned int unknown_12_4_ : 8;
     unsigned int unknown_13_4_ : 4;
-    short unknown_14_, unknown_16_, unknown_18_, unknown_1a_, unknown_1c_;
+    short unknown_14_, unknown_16_, itemId_18_, unknown_1a_, unknown_1c_;
 };
 
 struct ItemTable_0201099c_10 {
     unsigned short unknown_0_;
     unsigned char unknown_2_[10];
-    Struct_02015ef4_4* pItems_c_;
+    ItemData_02015ef4_4* pItems_c_;
     unsigned char unknown_10_[4];
     unsigned char isSorted_14_;
 };
@@ -44,8 +44,8 @@ struct Struct_ov017_021b5c88_3 {
 };
 
 extern "C" Struct_ov017_021b5c88* GetZone3D_02012fe4(void);
-extern "C" Struct_02015ef4_4* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
-extern "C" unsigned short func_020de234(Struct_02015ef4_4* arg0, int arg1);
+extern "C" ItemData_02015ef4_4* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
+extern "C" unsigned short GetItemGraphicNumber_020de234(ItemData_02015ef4_4* item, int gender);
 
 // USA: func_ov017_021b5c88
 extern "C" ARM int func_ov017_021b5c88(Struct_ov017_021b5c88_3* arg0) {
@@ -54,10 +54,10 @@ extern "C" ARM int func_ov017_021b5c88(Struct_ov017_021b5c88_3* arg0) {
         arg0->unknown_17_ = 0x69;
         arg0->unknown_14_ = 0x7f;
     } else {
-        Struct_02015ef4_4* var1 = FindItemData_020dedd0(var0, arg0->unknown_12_);
+        ItemData_02015ef4_4* var1 = FindItemData_020dedd0(var0, arg0->unknown_12_);
         if (var1 != NULL) {
             arg0->unknown_17_ = var1->unknown_12_4_;
-            arg0->unknown_14_ = func_020de234(var1, 0);
+            arg0->unknown_14_ = GetItemGraphicNumber_020de234(var1, 0);
         }
     }
     return 2;

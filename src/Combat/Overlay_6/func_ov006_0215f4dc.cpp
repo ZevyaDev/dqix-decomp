@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Struct_02080f8c;
-struct Struct_02080fa8;
+struct MenuLayout_02080fa8;
 
 struct Struct_ov006_02157a60 {
 #if !defined(jpn)
@@ -41,13 +41,13 @@ extern "C" void func_02080b54(void*, int);
 extern "C" void func_02080608(void*, int);
 extern "C" void func_020806c4(void*, int);
 extern "C" void func_02080b40(void*, int);
-extern "C" void* func_020e5294(void*, int);
+extern "C" void* FindNounInTable_020e5294(void*, int);
 #if defined(jpn)
 struct Struct_0201099c_3;
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 #endif
 extern "C" void func_02080f8c(Struct_02080f8c*, int, int);
-extern "C" void func_02080fa8(Struct_02080fa8*, int, int);
+extern "C" void SetMenuLayoutTextValue_02080fa8(MenuLayout_02080fa8*, int, int);
 extern "C" void func_020805f4(void*, int);
 extern "C" void func_02081130(void*, int, int);
 extern "C" void* memset(void*, int, unsigned int);
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov006_0215f4dc(Struct_ov006_02157a60* arg0) {
 #if defined(jpn)
             func_02080f8c((Struct_02080f8c*)var4, var6, (int)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_170_, var5[var8]));
 #else
-            const char** var10 = (const char**)func_020e5294(arg0->unknown_170_, var5[var8]);
+            const char** var10 = (const char**)FindNounInTable_020e5294(arg0->unknown_170_, var5[var8]);
             if (var10 != NULL) {
                 memset(arg0->unknown_4_[var9], 0, 4);
                 ExpandInflectionTags_020e4864(*var10, arg0->unknown_4_[var9], 1, 0, 0, 0);
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov006_0215f4dc(Struct_ov006_02157a60* arg0) {
 #endif
             unsigned char var11 = var1[var8];
             if (arg0->unknown_370_ == var5[var8]) var11 -= arg0->unknown_38b_;
-            func_02080fa8((Struct_02080fa8*)var4, var7, var11);
+            SetMenuLayoutTextValue_02080fa8((MenuLayout_02080fa8*)var4, var7, var11);
         }
         var6 = (short)(var6 + 1);
         var3++;
@@ -108,8 +108,8 @@ extern "C" ARM void func_ov006_0215f4dc(Struct_ov006_02157a60* arg0) {
     func_02080b40(var4, 0x7c);
     func_02080b40(var4, 0x7d);
     func_02080b40(var4, 0x7e);
-    func_02080fa8((Struct_02080fa8*)var4, 0x7c, arg0->unknown_388_ + 1);
-    func_02080fa8((Struct_02080fa8*)var4, 0x7d, arg0->unknown_389_);
+    SetMenuLayoutTextValue_02080fa8((MenuLayout_02080fa8*)var4, 0x7c, arg0->unknown_388_ + 1);
+    SetMenuLayoutTextValue_02080fa8((MenuLayout_02080fa8*)var4, 0x7d, arg0->unknown_389_);
     func_02081130(var4, 0x11, (arg0->unknown_394_ & 4) ? 1 : 0);
     func_020813ec(var4, 0x11);
 }

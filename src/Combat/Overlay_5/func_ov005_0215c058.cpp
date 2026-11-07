@@ -71,7 +71,7 @@ struct Struct_ov005_0215c058_4
     short unknown_3de0_;
 };
 
-extern "C" Struct_ov005_0215c058_2* func_ov017_021a193c(int*);
+extern "C" Struct_ov005_0215c058_2* GetEquipMenu_ov017_021a193c(int*);
 extern "C" void func_ov005_021551fc(char*, int, int);
 extern "C" GameState* _ZN9GameState11GetInstanceEv();
 extern "C" void func_ov005_02156658(Struct_ov005_0215c058_4* arg0, int arg1, int arg2);
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov005_0215c058(Struct_ov005_0215c058_4* arg0)
     }
     else if (arg0->unknown_3dba_ == 1)
     {
-        Struct_ov005_0215c058_2* var0 = func_ov017_021a193c(((Struct_ov005_0215c058*)GetGameResources())->unknown_3708_);
+        Struct_ov005_0215c058_2* var0 = GetEquipMenu_ov017_021a193c(((Struct_ov005_0215c058*)GetGameResources())->unknown_3708_);
         func_ov005_021551fc((char*)arg0, var0->unknown_4fc_, 0);
         GameState* var1 = _ZN9GameState11GetInstanceEv();
         int var2 = 0;
