@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_0205cf1c;
+struct TextWindowManager_0205cf1c;
 struct MenuCursor_0205ba68;
 struct MenuCursor_0205bacc;
 struct MenuCursor_0205bcdc {
@@ -48,8 +48,8 @@ struct Struct_ov023_021e6e60 {
     int unknown_13d4_; int unknown_13d8_; int unknown_13dc_; int unknown_13e0_; int unknown_13e4_;
     int unknown_13e8_; int unknown_13ec_; int unknown_13f0_; int unknown_13f4_; int unknown_13f8_;
 };
-extern "C" void func_0205cf10(void*);
-extern "C" void func_0205cf1c(Struct_0205cf1c*);
+extern "C" void DisableTouchMenuCursor_0205cf10(void*);
+extern "C" void DisableKeyMenuCursor_0205cf1c(TextWindowManager_0205cf1c*);
 extern "C" void func_0205c53c(Struct_0205c53c*);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
@@ -91,8 +91,8 @@ extern "C" ARM void func_ov023_021e6e60(Struct_ov023_021e6e60* arg0) {
         var5 = arg0->unknown_13f0_; break;
     case 13: var0 = 1; var1 = 8; var2 = 1; var4 = 8; var5 = arg0->unknown_13f4_; break;
     default:
-        func_0205cf10(&arg0->unknown_ac_);
-        func_0205cf1c((Struct_0205cf1c*)&arg0->unknown_ac_);
+        DisableTouchMenuCursor_0205cf10(&arg0->unknown_ac_);
+        DisableKeyMenuCursor_0205cf1c((TextWindowManager_0205cf1c*)&arg0->unknown_ac_);
         return;
     }
     func_0205c53c(&arg0->unknown_ac_);

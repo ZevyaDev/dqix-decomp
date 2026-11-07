@@ -46,7 +46,7 @@ extern "C" int func_02011430(Struct_02011430*, int, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_02094d14(Struct_0201afd0_6*, Struct_0201afd0_7*, int);
 extern "C" void ClearItemTable_020de848(void*);
-extern "C" int func_020de9a4(void*, SafeAllocator*, void*, unsigned int, unsigned short*, unsigned short);
+extern "C" int LoadItemTableByIds_020de9a4(void*, SafeAllocator*, void*, unsigned int, unsigned short*, unsigned short);
 extern "C" void __clear(void*, int);
 
 #if defined(jpn)
@@ -251,7 +251,7 @@ extern "C" ARM int func_0201afd0(Zone3D* arg0, const void* arg1, unsigned int ar
             void* var35 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var34);
 
             if (var35 != NULL) {
-                func_020de9a4(arg0->unknown_struct_2754_, arg0->pAllocator_68_, var35, var34, var25, var27);
+                LoadItemTableByIds_020de9a4(arg0->unknown_struct_2754_, arg0->pAllocator_68_, var35, var34, var25, var27);
             }
             BackgroundLoader::RemoveLockGlobal();
 #endif

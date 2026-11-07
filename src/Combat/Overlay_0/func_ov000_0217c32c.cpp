@@ -33,8 +33,8 @@ struct Struct_02054000 {
 };
 extern "C" struct Struct_ov000_0217c32c_4* func_02054000(struct Struct_02054000* arg0);
 
-struct Struct_02052e14;
-extern "C" short* func_02052e14(struct Struct_02052e14* arg0);
+struct PartyMember_02052e14;
+extern "C" short* func_02052e14(struct PartyMember_02052e14* arg0);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 struct SkillTable_0200f3a4_8;
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov000_0217c32c(struct Struct_ov000_0217c32c_3* arg0) {
     }
     struct Struct_ov000_0217c32c_4* var1 = func_02054000(var0);
     struct Struct_ov000_0217c32c_4* var2 = &var0->unknown_150_->unknown_2b4_;
-    short* var3 = func_02052e14((struct Struct_02052e14*)var0);
+    short* var3 = func_02052e14((struct PartyMember_02052e14*)var0);
     if (var3 != NULL) {
         if (var3[7] < 0) {
             var1 = NULL;

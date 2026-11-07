@@ -9,10 +9,10 @@ enum { Enum_ov003_0217e1e4_144 = 0x90 };
 
 struct TextWindow_0205d0e0 {
     char unknown_0_[0xa8];
-    short unknown_a8_;
+    short width_a8_;
     short unknown_aa_;
-    short unknown_ac_;
-    short unknown_ae_;
+    short tileX_ac_;
+    short tileY_ae_;
 };
 
 struct TextWindowManager_0205d81c;
@@ -49,15 +49,15 @@ extern "C" ARM int func_ov003_0217e1e4(struct Struct_ov003_0217e1e4_2* arg0) {
     if (var2 == NULL) {
         goto fail;
     }
-    short var3 = var2->unknown_ac_;
-    short var4 = var2->unknown_ae_;
+    short var3 = var2->tileX_ac_;
+    short var4 = var2->tileY_ae_;
     short var5 = var2->unknown_aa_;
-    var3 += var2->unknown_a8_;
+    var3 += var2->width_a8_;
     var4 += var5;
     var4 <<= 3;
     if (var4 - 16 <= var1 && var1 < var4) {
         struct Struct_ov003_0217e1e4* var6 = arg0->unknown_90_;
-        short var7 = var2->unknown_ac_ << 3;
+        short var7 = var2->tileX_ac_ << 3;
         if (var0 >= var7 && var0 < var7 + 16) {
             func_0205c4a8((struct Struct_0205c4a8*)var6->unknown_54_, -1);
         }

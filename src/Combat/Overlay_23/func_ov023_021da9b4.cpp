@@ -14,7 +14,7 @@ struct SpriteAnimation_0205a254_2 {
 };
 struct TextWindow_0205d0e0 {
     unsigned char unknown_0_[0xac];
-    short unknown_ac_, unknown_ae_;
+    short tileX_ac_, tileY_ae_;
     unsigned char unknown_b0_[12];
     short unknown_bc_, unknown_be_;
     unsigned char unknown_c0_[4];
@@ -52,8 +52,8 @@ extern "C" ARM void func_ov023_021da9b4(Struct_ov009_021842a0* arg0) {
     TextWindow_0205d0e0* var5 = FindTextWindow_0205d81c((TextWindowManager_0205d81c*)&arg0->unknown_1f8_[1], 1);
     if (var5 == NULL) return;
     if (!IsTextWindowOpen_0204c7e0((unsigned char*)var5)) return;
-    short var6 = (short)(var5->unknown_ac_ << 3);
-    short var7 = (short)(var5->unknown_ae_ << 3);
+    short var6 = (short)(var5->tileX_ac_ << 3);
+    short var7 = (short)(var5->tileY_ae_ << 3);
     var6 = (short)(var6 + var5->unknown_bc_);
     var7 = (short)(var7 + var5->unknown_be_);
     SetSpriteAnimationOAMIndex_0205a42c(arg0->unknown_7ec_, 0, 0x3f);

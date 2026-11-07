@@ -163,7 +163,7 @@ extern "C" unsigned char func_ov006_0215fecc(Struct_ov006_02157a60* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int GetEquipRestrictions_020dd4c4(signed char memberIndex, void* item);
 extern "C" int func_ov006_02153a78(void* arg0, int arg1);
-extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 extern "C" void func_ov006_0215f9e8(Struct_ov006_02157a60* arg0);
 extern "C" unsigned char func_ov006_021599c0(Struct_ov006_02157a60* arg0);
 extern "C" void func_ov006_0215a5dc(Struct_ov006_02157a60* arg0);
@@ -367,7 +367,7 @@ extern "C" ARM void func_ov006_0215dee8(Struct_ov006_02157a60* arg0) {
     }
     else if (arg0->unknown_390_ == 8)
     {
-        func_02080c68(arg0->unknown_14_, 9, 1);
+        SetMenuLayoutWindowPalette_02080c68(arg0->unknown_14_, 9, 1);
         func_ov006_0215f9e8(arg0);
         arg0->unknown_394_ |= 8;
         arg0->unknown_393_ = 0;

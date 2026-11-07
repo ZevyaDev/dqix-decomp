@@ -26,7 +26,7 @@ struct Struct_ov026_021d8ba0_4 {
     char unknown_0_[0xb8];
 };
 
-struct Struct_ov000_02160da0 {
+struct BattleScene_ov000_02160da0 {
 #if defined(jpn)
     char unknown_0_[0x21c];
 #else
@@ -65,7 +65,7 @@ struct Struct_ov000_02160da0 {
 };
 
 extern "C" Struct_ov026_021d8ba0_6* func_ov026_021dae60(Struct_ov026_021d8ba0_4* arg0, int arg1);
-extern "C" int func_ov000_02160fd4(void* arg0, int arg1);
+extern "C" int TestBattleSceneFlags_ov000_02160fd4(void* battleScene, int flags);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
@@ -75,12 +75,12 @@ extern "C" {
 void* memset(void*, int, unsigned int);
 void func_ov000_0217fcc4(Struct_ov026_021d8ba0_4*, int);
 void func_ov000_0217f518(Struct_ov026_021d8ba0_6*);
-void func_ov000_02162c14(Struct_ov000_02160da0*, int, Struct_ov026_021d8ba0*);
+void func_ov000_02162c14(BattleScene_ov000_02160da0*, int, Struct_ov026_021d8ba0*);
 void func_ov017_021c6814(unsigned short, unsigned short, Struct_ov026_021d8ba0*, unsigned char, int, int);
 }
 
 // USA: func_ov026_021dbf04
-extern "C" ARM void func_ov026_021dbf04(Struct_ov000_02160da0* arg0) {
+extern "C" ARM void func_ov026_021dbf04(BattleScene_ov000_02160da0* arg0) {
     Struct_ov026_021d8ba0 var0;
 
     int var1 = arg0->unknown_eac_;
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov026_021dbf04(Struct_ov000_02160da0* arg0) {
         }
     }
 
-    int var6 = func_ov000_02160fd4(arg0, 0x2000000);
+    int var6 = TestBattleSceneFlags_ov000_02160fd4(arg0, 0x2000000);
     arg0->unknown_55f4_ = arg0->unknown_7734_;
     if (var6) {
         SetBattleSceneFlags_ov000_02160fa8(arg0, 0x2000000);

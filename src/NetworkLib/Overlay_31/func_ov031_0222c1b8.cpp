@@ -37,7 +37,7 @@ extern "C" void func_ov031_0223da58(void*);
 extern "C" void func_ov031_0223c760(void*);
 extern "C" void func_ov031_02235194();
 extern "C" void func_ov031_022238cc();
-extern "C" void func_ov031_02223440();
+extern "C" void CloseSubScreenMessage_ov031_02223440();
 extern "C" void func_ov031_02234f08();
 extern "C" void func_ov031_0223b710(void*);
 extern "C" void HideScreenLayers_ov031_0223cbbc(int, int);
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov031_0222c1b8() {
     func_ov031_0223c760(data_ov031_02290c8c.unknown_4_->unknown_c_);
     func_ov031_02235194();
     func_ov031_022238cc();
-    func_ov031_02223440();
+    CloseSubScreenMessage_ov031_02223440();
     func_ov031_02234f08();
     func_ov031_0223b710(data_ov031_02290c8c.unknown_4_->unknown_4_);
     func_ov031_0223b710(data_ov031_02290c8c.unknown_4_->unknown_8_);

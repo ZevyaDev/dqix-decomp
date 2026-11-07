@@ -67,7 +67,7 @@ struct Struct_ov017_021a1284_5 {
 struct Struct_ov017_021a1284_6 { char unknown_0_[0x56b]; unsigned char unknown_56b_0_ : 4; unsigned char unknown_56b_4_ : 4; };
 
 struct NPCManager_0203dce4_2;
-extern "C" NPCManager_0203dce4_2* func_0203cf4c();
+extern "C" NPCManager_0203dce4_2* GetNPCManager_0203cf4c();
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" Struct_02058564_2* GetEffectManager_02057924();
 extern "C" int* GetLocalWireless_0202ae18();
@@ -116,7 +116,7 @@ extern "C" int QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources*, int, int
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int, int);
-extern "C" void func_ov017_021c4418(int, int);
+extern "C" void SendPartyMemberBodyAppearance_ov017_021c4418(int, int);
 extern "C" void func_ov017_0219ba0c(GameResources*, int);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_020732a8();
@@ -131,7 +131,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     Zone3D* var2 = GetZone3D_02012fe4();
-    NPCManager_0203dce4_2* var3 = func_0203cf4c();
+    NPCManager_0203dce4_2* var3 = GetNPCManager_0203cf4c();
     Struct_02058564_2* var4 = GetEffectManager_02057924();
     int* var5 = GetLocalWireless_0202ae18();
     GameObject* var6 = var0->GetUnknownGameObject();
@@ -243,7 +243,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         for (int var25 = 0; var25 < 4; ++var25) {
             if (QueuePartyMemberModelLoad_ov017_0218f5a4(var7, var25, 0, 0, 0) && IsLocalWirelessOn_0202b7d8(var5) && IsInParty_02086ef0(var24, var25)) {
                 SendPartyMemberEquippedItems_ov017_021c3fb4(var25, 1);
-                func_ov017_021c4418(var25, -1);
+                SendPartyMemberBodyAppearance_ov017_021c4418(var25, -1);
             }
         }
         ClearFlags00(var7, 0x10);

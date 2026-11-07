@@ -87,13 +87,13 @@ struct Struct_ov014_02186bc8_3;
 extern "C" void func_ov014_02186df0(Struct_ov014_02186bc8_2*);
 extern "C" void func_0207fc6c(Struct_0207fc6c*, int);
 extern "C" short func_ov014_021874f8(Struct_ov014_02186bc8_3*);
-extern "C" void func_020804fc(void*, int);
+extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void*, int);
 
 extern "C" {
 bool func_ov017_021959b4();
 void func_02081f20(void* arg0, int arg1);
 int func_020800fc(Struct_ov000_0217ab8c* arg0, short* arg1, short arg2, unsigned short arg3, unsigned char, bool);
-void func_020813ec(Struct_ov000_0217ab8c* arg0, short arg1);
+void OpenMenuLayoutWindow_020813ec(Struct_ov000_0217ab8c* menuLayout, short windowId);
 void func_ov014_02184700(Struct_ov014_02186bc8* arg0);
 void func_ov014_021886f8(Struct_ov014_02186bc8* arg0);
 }
@@ -124,9 +124,9 @@ extern "C" ARM bool func_ov014_02186bc8(Struct_ov014_02186bc8* arg0, int arg1)
             arg0->unknown_160_ = func_020800fc(arg0->unknown_c0_, arg0->unknown_d0_, arg0->unknown_178_, arg0->unknown_158_, arg0->unknown_15a_, var0);
             arg0->unknown_c0_->unknown_36_ = *arg0->unknown_d0_;
             if (arg0->unknown_160_ != 0)
-                func_020804fc(arg0->unknown_c0_, arg0->unknown_170_);
+                ClearMenuLayoutWindowHighlights_020804fc(arg0->unknown_c0_, arg0->unknown_170_);
             if (arg0->unknown_178_ != *arg0->unknown_d0_)
-                func_020813ec(arg0->unknown_c0_, arg0->unknown_170_);
+                OpenMenuLayoutWindow_020813ec(arg0->unknown_c0_, arg0->unknown_170_);
         }
     }
     func_ov014_02184700(arg0);

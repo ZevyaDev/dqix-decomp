@@ -5,7 +5,7 @@
 struct BackgroundLoader;
 
 // USA: func_0207f8bc
-extern "C" ARM void func_0207f8bc(Struct_0207f7f0 *arg0) {
+extern "C" ARM void func_0207f8bc(MenuLayout_0207f7f0 *arg0) {
 	if (arg0->unknown_1c_ >= 0) {
 		BackgroundLoader *var0 = BackgroundLoader::GetInstance();
 		var0->RemoveTask(arg0->unknown_1c_);
@@ -21,5 +21,5 @@ extern "C" ARM void func_0207f8bc(Struct_0207f7f0 *arg0) {
 	}
 #endif
 
-	func_0207f84c(arg0);
+	ResetMenuLayout_0207f84c(arg0);
 }

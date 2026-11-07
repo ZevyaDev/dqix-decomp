@@ -18,11 +18,11 @@ enum { Enum_ov003_0217d53c_14092 = 0x370c };
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" char* GetZone3D_02012fe4(void);
 extern "C" int GetMessageChoice_020457e0(char* window);
-extern "C" void ResetEventTask_ov017_021baedc(void* node, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(void* node, int isRestart);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
-extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int arg1);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int isFullReset);
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void InitZoneEntry_02070378(char* zoneEntry);
 

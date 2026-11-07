@@ -34,7 +34,7 @@ struct Struct_ov031_022258b4_2 {
     unsigned short unknown_0_, unknown_2_, unknown_4_, unknown_6_;
 };
 
-Struct_ov031_022258b4* data_ov031_02250c00;
+Struct_ov031_022258b4* gNumericKeypad_ov031_02250c00;
 
 extern const unsigned char data_ov031_02248c70[2];
 extern const unsigned char data_ov031_02248c74[2];
@@ -70,7 +70,7 @@ extern "C" Struct_ov031_02222ce4* func_ov031_0223b8c4(int, int, int);
 extern "C" void* AddTask_ov031_0223e218(void*, void*, void*, int);
 extern "C" void func_ov031_0223ba20(void*);
 extern "C" void SetTaskCallback_ov031_0223e2b8(void* task, int callback);
-extern "C" void func_ov031_0223e2c0(int, void*);
+extern "C" void QueueTaskRemoval_ov031_0223e2c0(int, void*);
 extern "C" void func_ov031_0223bd28(Struct_ov031_02222f44_2*, int, unsigned int*, unsigned int*);
 extern "C" void func_ov031_0223cb34(const Struct_ov031_022489c4*, const Struct_ov031_022489c4*, Struct_ov031_022493b8*);
 extern "C" int func_ov031_0223d49c(Struct_ov031_022493b8* arg0);
@@ -81,7 +81,7 @@ extern "C" int func_ov031_0223d394(int);
 extern "C" ARM int func_ov031_0223d354(int arg0);
 extern "C" ARM int func_ov031_0223d3d4(int arg0);
 extern "C" void func_ov031_0223ca54(Struct_ov031_022266b0* arg0, int arg1, int arg2, void* arg3, int arg4);
-extern "C" void func_ov031_0223bbd8(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetSpritePosition_ov031_0223bbd8(void* sprite, int entryIndex, int x, int y);
 extern "C" void func_ov031_0223bb58(void* arg0, int arg1, int arg2, int arg3);
 extern "C" Struct_020b0a1c_2* func_ov031_0223baa0(Struct_ov031_022269d8* arg0, int arg1);
 extern "C" int func_ov031_0223bdb0(int arg0, int arg1, int arg2);
@@ -156,45 +156,45 @@ extern "C" ARM void func_ov031_022258b4() {
     unsigned short var5[2];
     var0.unknown_4_ = 28;
     var0.unknown_6_ = 20;
-    data_ov031_02250c00 = (Struct_ov031_022258b4*)AllocateZeroedMemory_ov031_0223cf4c(sizeof(Struct_ov031_022258b4), 4);
-    data_ov031_02250c00->unknown_60_ = 0x1f;
-    data_ov031_02250c00->unknown_63_ = 0;
-    data_ov031_02250c00->unknown_66_ = 1;
-    data_ov031_02250c00->unknown_67_ = 1;
-    data_ov031_02250c00->unknown_68_ = 1;
+    gNumericKeypad_ov031_02250c00 = (Struct_ov031_022258b4*)AllocateZeroedMemory_ov031_0223cf4c(sizeof(Struct_ov031_022258b4), 4);
+    gNumericKeypad_ov031_02250c00->unknown_60_ = 0x1f;
+    gNumericKeypad_ov031_02250c00->unknown_63_ = 0;
+    gNumericKeypad_ov031_02250c00->unknown_66_ = 1;
+    gNumericKeypad_ov031_02250c00->unknown_67_ = 1;
+    gNumericKeypad_ov031_02250c00->unknown_68_ = 1;
     for (var3 = 0; var3 < 10; ++var3) {
-        data_ov031_02250c00->unknown_10_[var3] = func_ov031_0223be44(0, 0x36);
-        data_ov031_02250c00->unknown_10_[var3]->unknown_0_ = (data_ov031_02250c00->unknown_10_[var3]->unknown_0_ & 0xc1fffcff) | 0x200;
-        data_ov031_02250c00->unknown_10_[var3]->unknown_4_ = (data_ov031_02250c00->unknown_10_[var3]->unknown_4_ & ~0xc00) | 0xc00;
+        gNumericKeypad_ov031_02250c00->unknown_10_[var3] = func_ov031_0223be44(0, 0x36);
+        gNumericKeypad_ov031_02250c00->unknown_10_[var3]->unknown_0_ = (gNumericKeypad_ov031_02250c00->unknown_10_[var3]->unknown_0_ & 0xc1fffcff) | 0x200;
+        gNumericKeypad_ov031_02250c00->unknown_10_[var3]->unknown_4_ = (gNumericKeypad_ov031_02250c00->unknown_10_[var3]->unknown_4_ & ~0xc00) | 0xc00;
     }
     for (var3 = 0; var3 < 2; ++var3) {
-        data_ov031_02250c00->unknown_38_[var3] = func_ov031_0223be44(0, data_ov031_02248c74[var3]);
-        data_ov031_02250c00->unknown_38_[var3]->unknown_0_ = (data_ov031_02250c00->unknown_38_[var3]->unknown_0_ & 0xc1fffcff) | 0x200;
-        data_ov031_02250c00->unknown_38_[var3]->unknown_4_ = (data_ov031_02250c00->unknown_38_[var3]->unknown_4_ & ~0xc00) | 0xc00;
+        gNumericKeypad_ov031_02250c00->unknown_38_[var3] = func_ov031_0223be44(0, data_ov031_02248c74[var3]);
+        gNumericKeypad_ov031_02250c00->unknown_38_[var3]->unknown_0_ = (gNumericKeypad_ov031_02250c00->unknown_38_[var3]->unknown_0_ & 0xc1fffcff) | 0x200;
+        gNumericKeypad_ov031_02250c00->unknown_38_[var3]->unknown_4_ = (gNumericKeypad_ov031_02250c00->unknown_38_[var3]->unknown_4_ & ~0xc00) | 0xc00;
     }
     for (var3 = 0; var3 < 2; ++var3) {
-        data_ov031_02250c00->unknown_40_[var3] = func_ov031_0223be70(0, data_ov031_02248c78[var3], 1);
-        func_ov031_0223bab4(data_ov031_02250c00->unknown_40_[var3], -1, 0x200, 0);
-        func_ov031_0223bcc8((Struct_ov031_02222ce4*)data_ov031_02250c00->unknown_40_[var3], -1, 3);
+        gNumericKeypad_ov031_02250c00->unknown_40_[var3] = func_ov031_0223be70(0, data_ov031_02248c78[var3], 1);
+        func_ov031_0223bab4(gNumericKeypad_ov031_02250c00->unknown_40_[var3], -1, 0x200, 0);
+        func_ov031_0223bcc8((Struct_ov031_02222ce4*)gNumericKeypad_ov031_02250c00->unknown_40_[var3], -1, 3);
     }
     var5[1] = 0;
     for (var3 = 0; var3 < 4; ++var3) {
-        data_ov031_02250c00->unknown_0_[var3] = func_ov031_0223c458(0, 12, 4, 0, &var1, 0);
+        gNumericKeypad_ov031_02250c00->unknown_0_[var3] = func_ov031_0223c458(0, 12, 4, 0, &var1, 0);
         var2 = var3 * 3;
         var0.unknown_0_ = 0;
         for (var4 = 0; var4 < 3; ++var4) {
             var5[0] = data_ov031_02248cc0[var2];
-            func_ov031_0223c980(data_ov031_02250c00->unknown_0_[var3], var0.unknown_0_,
+            func_ov031_0223c980(gNumericKeypad_ov031_02250c00->unknown_0_[var3], var0.unknown_0_,
                 var0.unknown_2_, var0.unknown_4_, var0.unknown_6_, 2, 0x480, var5);
             var0.unknown_0_ += 32;
             ++var2;
         }
-        data_ov031_02250c00->unknown_48_[var3] = func_ov031_0223b8c4(0, var1, 0);
+        gNumericKeypad_ov031_02250c00->unknown_48_[var3] = func_ov031_0223b8c4(0, var1, 0);
     }
-    data_ov031_02250c00->unknown_58_ = func_ov031_0223be70(0, 0x44, 1);
-    func_ov031_0223bab4(data_ov031_02250c00->unknown_58_, -1, 0x200, 0);
-    func_ov031_0223bcc8((Struct_ov031_02222ce4*)data_ov031_02250c00->unknown_58_, -1, 2);
-    data_ov031_02250c00->unknown_5c_ = AddTask_ov031_0223e218(0, (void*)func_ov031_02225c90, 0, 0x78);
+    gNumericKeypad_ov031_02250c00->unknown_58_ = func_ov031_0223be70(0, 0x44, 1);
+    func_ov031_0223bab4(gNumericKeypad_ov031_02250c00->unknown_58_, -1, 0x200, 0);
+    func_ov031_0223bcc8((Struct_ov031_02222ce4*)gNumericKeypad_ov031_02250c00->unknown_58_, -1, 2);
+    gNumericKeypad_ov031_02250c00->unknown_5c_ = AddTask_ov031_0223e218(0, (void*)func_ov031_02225c90, 0, 0x78);
     func_ov031_022266b0(0, 0xc0);
 }
 
@@ -223,38 +223,38 @@ extern const signed char data_ov031_02248d3a[56] = {
 
 // USA: func_ov031_02225bf0
 extern "C" ARM void func_ov031_02225bf0(void) {
-	func_ov031_0223ba20(data_ov031_02250c00->unknown_58_);
-	SetTaskCallback_ov031_0223e2b8(data_ov031_02250c00->unknown_5c_, (int)func_ov031_02226b10);
+	func_ov031_0223ba20(gNumericKeypad_ov031_02250c00->unknown_58_);
+	SetTaskCallback_ov031_0223e2b8(gNumericKeypad_ov031_02250c00->unknown_5c_, (int)func_ov031_02226b10);
 }
 
 // USA: func_ov031_02225c24
 extern "C" ARM unsigned char func_ov031_02225c24(void) {
-    return data_ov031_02250c00->unknown_60_;
+    return gNumericKeypad_ov031_02250c00->unknown_60_;
 }
 
 // USA: func_ov031_02225c38
 extern "C" ARM void func_ov031_02225c38(int arg0) {
-    data_ov031_02250c00->unknown_66_ = (unsigned char)arg0;
+    gNumericKeypad_ov031_02250c00->unknown_66_ = (unsigned char)arg0;
 }
 
 // USA: func_ov031_02225c4c
 extern "C" ARM void func_ov031_02225c4c(unsigned char arg0) {
-	data_ov031_02250c00->unknown_67_ = arg0;
+	gNumericKeypad_ov031_02250c00->unknown_67_ = arg0;
 }
 
 // USA: func_ov031_02225c60
 extern "C" ARM void func_ov031_02225c60(unsigned char arg0) {
-	data_ov031_02250c00->unknown_68_ = arg0;
+	gNumericKeypad_ov031_02250c00->unknown_68_ = arg0;
 }
 
 // USA: func_ov031_02225c74
 extern "C" ARM int func_ov031_02225c74(void) {
-    return data_ov031_02250c00 != NULL;
+    return gNumericKeypad_ov031_02250c00 != NULL;
 }
 
 // USA: func_ov031_02225c90
 extern "C" ARM void func_ov031_02225c90(void* arg0) {
-    Struct_ov031_022258b4* var0 = data_ov031_02250c00;
+    Struct_ov031_022258b4* var0 = gNumericKeypad_ov031_02250c00;
     int var1, var2;
     inline_ov031_02223ff8(var0->unknown_10_[0], (unsigned int*)&var1, (unsigned int*)&var2);
     var2 -= 0xc;
@@ -271,7 +271,7 @@ struct Struct_ov031_02225d14 { int unknown_0_; volatile int unknown_4_; };
 
 // USA: func_ov031_02225d14
 extern "C" ARM void func_ov031_02225d14(void* arg0) {
-    Struct_ov031_022258b4* var0 = data_ov031_02250c00;
+    Struct_ov031_022258b4* var0 = gNumericKeypad_ov031_02250c00;
     int var1 = var0->unknown_10_[3]->unknown_0_;
     struct Struct_ov031_02225d14 var2;
     var2.unknown_4_ = (unsigned int)(var1 & 0x1ff0000) >> 0x10;
@@ -289,7 +289,7 @@ struct Struct_ov031_02225d98 { int unknown_0_; volatile int unknown_4_; };
 
 // USA: func_ov031_02225d98
 extern "C" ARM void func_ov031_02225d98(void* arg0) {
-    Struct_ov031_022258b4* var0 = data_ov031_02250c00;
+    Struct_ov031_022258b4* var0 = gNumericKeypad_ov031_02250c00;
     int var1 = var0->unknown_10_[6]->unknown_0_;
     struct Struct_ov031_02225d98 var2;
     var2.unknown_4_ = (unsigned int)(var1 & 0x1ff0000) >> 0x10;
@@ -307,7 +307,7 @@ struct Struct_ov031_02225e1c { int unknown_0_; volatile int unknown_4_; };
 
 // USA: func_ov031_02225e1c
 extern "C" ARM void func_ov031_02225e1c(void* arg0) {
-    Struct_ov031_022258b4* var0 = data_ov031_02250c00;
+    Struct_ov031_022258b4* var0 = gNumericKeypad_ov031_02250c00;
     int var1 = var0->unknown_10_[9]->unknown_0_;
     struct Struct_ov031_02225e1c var2;
     var2.unknown_4_ = (unsigned int)(var1 & 0x1ff0000) >> 0x10;
@@ -324,7 +324,7 @@ extern "C" ARM void func_ov031_02225e1c(void* arg0) {
 // USA: func_ov031_02225ea0
 extern "C" ARM void func_ov031_02225ea0(void* arg0) {
     unsigned int var0, var1;
-    func_ov031_0223bd28((Struct_ov031_02222f44_2*)data_ov031_02250c00->unknown_40_[0], 0, &var0, &var1);
+    func_ov031_0223bd28((Struct_ov031_02222f44_2*)gNumericKeypad_ov031_02250c00->unknown_40_[0], 0, &var0, &var1);
     int var2 = (int)var1 - 0xc;
     var1 = (unsigned int)var2;
     if (var2 > 0xaa) {
@@ -348,18 +348,18 @@ extern "C" ARM void func_ov031_02225f14(void) {
 extern "C" ARM void func_ov031_02225f2c(void) {
     Struct_ov031_022493b8 var0;
     if (!func_ov031_0223d49c(&data_ov031_022493b8)) return;
-    data_ov031_02250c00->unknown_61_ = -1;
+    gNumericKeypad_ov031_02250c00->unknown_61_ = -1;
     const Struct_ov031_022489c4* var1 = data_ov031_02248cda;
     int var2 = 0;
     do {
         func_ov031_0223cb34(var1, &data_ov031_02248c88, &var0);
         if (func_ov031_0223d49c(&var0)) {
-            if (data_ov031_02250c00->unknown_67_ == 0) {
+            if (gNumericKeypad_ov031_02250c00->unknown_67_ == 0) {
                 PlayWifiSetupSoundEffect_ov031_02236878(9);
                 return;
             }
             PlayWifiSetupSoundEffect_ov031_02236878(0);
-            data_ov031_02250c00->unknown_61_ = (signed char)var2;
+            gNumericKeypad_ov031_02250c00->unknown_61_ = (signed char)var2;
             return;
         }
         var2++;
@@ -371,16 +371,16 @@ extern "C" ARM void func_ov031_02225f2c(void) {
         func_ov031_0223cb34(var3, &data_ov031_02248c90, &var0);
         if (func_ov031_0223d49c(&var0)) {
             if (var2 == 0) {
-                if (data_ov031_02250c00->unknown_66_ == 0) goto call9_l2;
+                if (gNumericKeypad_ov031_02250c00->unknown_66_ == 0) goto call9_l2;
             }
             if (var2 != 1) goto call0_l2;
-            if (data_ov031_02250c00->unknown_68_ != 0) goto call0_l2;
+            if (gNumericKeypad_ov031_02250c00->unknown_68_ != 0) goto call0_l2;
         call9_l2:
             PlayWifiSetupSoundEffect_ov031_02236878(9);
             return;
         call0_l2:
             PlayWifiSetupSoundEffect_ov031_02236878(0);
-            data_ov031_02250c00->unknown_61_ = (signed char)(var2 + 0xa);
+            gNumericKeypad_ov031_02250c00->unknown_61_ = (signed char)(var2 + 0xa);
             return;
         }
         var2++;
@@ -392,7 +392,7 @@ extern "C" ARM void func_ov031_02225f2c(void) {
         func_ov031_0223cb34(var4, &data_ov031_02248c94, &var0);
         if (func_ov031_0223d49c(&var0)) {
             PlayWifiSetupSoundEffect_ov031_02236878(0);
-            data_ov031_02250c00->unknown_61_ = (signed char)(var5 + 0xc);
+            gNumericKeypad_ov031_02250c00->unknown_61_ = (signed char)(var5 + 0xc);
             return;
         }
         var5++;
@@ -402,17 +402,17 @@ extern "C" ARM void func_ov031_02225f2c(void) {
 
 // USA: func_ov031_02226108
 extern "C" ARM void func_ov031_02226108() {
-    data_ov031_02250c00->unknown_60_ = 0;
+    gNumericKeypad_ov031_02250c00->unknown_60_ = 0;
     if (!func_ov031_0223d5ac(&data_ov031_022493b8)) return;
     Struct_ov031_022493b8 var0;
     int var1;
     for (var1 = 0; var1 < 10; var1++) {
         func_ov031_0223cb34(&data_ov031_02248cda[var1], &data_ov031_02248c88, &var0);
         if (func_ov031_0223d5ac(&var0)) {
-            Struct_ov031_022258b4* var2 = data_ov031_02250c00;
+            Struct_ov031_022258b4* var2 = gNumericKeypad_ov031_02250c00;
             if (var2->unknown_61_ != var1) return;
             var2->unknown_60_ = data_ov031_02248d74[var1];
-            data_ov031_02250c00->unknown_63_ = var1;
+            gNumericKeypad_ov031_02250c00->unknown_63_ = var1;
             func_ov031_022269d8();
             return;
         }
@@ -420,10 +420,10 @@ extern "C" ARM void func_ov031_02226108() {
     for (var1 = 0; var1 < 2; var1++) {
         func_ov031_0223cb34(&data_ov031_02248cb0[var1], &data_ov031_02248c90, &var0);
         if (func_ov031_0223d5ac(&var0)) {
-            Struct_ov031_022258b4* var3 = data_ov031_02250c00;
+            Struct_ov031_022258b4* var3 = gNumericKeypad_ov031_02250c00;
             if (var3->unknown_61_ != var1 + 10) return;
             var3->unknown_60_ = data_ov031_02248c84[var1];
-            data_ov031_02250c00->unknown_63_ = var1 + 10;
+            gNumericKeypad_ov031_02250c00->unknown_63_ = var1 + 10;
             func_ov031_022269d8();
             return;
         }
@@ -431,10 +431,10 @@ extern "C" ARM void func_ov031_02226108() {
     for (var1 = 0; var1 < 2; var1++) {
         func_ov031_0223cb34(&data_ov031_02248cb8[var1], &data_ov031_02248c94, &var0);
         if (func_ov031_0223d5ac(&var0)) {
-            Struct_ov031_022258b4* var4 = data_ov031_02250c00;
+            Struct_ov031_022258b4* var4 = gNumericKeypad_ov031_02250c00;
             if (var4->unknown_61_ != var1 + 12) return;
             var4->unknown_60_ = data_ov031_02248c80[var1];
-            data_ov031_02250c00->unknown_63_ = var1 + 12;
+            gNumericKeypad_ov031_02250c00->unknown_63_ = var1 + 12;
             func_ov031_022269d8();
             return;
         }
@@ -455,7 +455,7 @@ extern "C" ARM void func_ov031_022262d8() {
             do {
                 func_ov031_0223cb34(var3, var1, &var0);
                 if (func_ov031_0223d414(&var0)) {
-                    if (data_ov031_02250c00->unknown_61_ != var2) goto reset;
+                    if (gNumericKeypad_ov031_02250c00->unknown_61_ != var2) goto reset;
                     func_ov031_022264c8(var2);
                     goto clear;
                 }
@@ -472,18 +472,18 @@ extern "C" ARM void func_ov031_022262d8() {
             do {
                 func_ov031_0223cb34(var5, var4, &var0);
                 if (func_ov031_0223d414(&var0)) {
-                    if (data_ov031_02250c00->unknown_61_ != var6 + 10) goto reset;
+                    if (gNumericKeypad_ov031_02250c00->unknown_61_ != var6 + 10) goto reset;
                     func_ov031_022264c8(var6 + 10);
                     if (var6 != 0) goto clear;
-                    ++data_ov031_02250c00->unknown_65_;
-                    if (data_ov031_02250c00->unknown_65_ < 40) return;
-                    if (!data_ov031_02250c00->unknown_66_) {
+                    ++gNumericKeypad_ov031_02250c00->unknown_65_;
+                    if (gNumericKeypad_ov031_02250c00->unknown_65_ < 40) return;
+                    if (!gNumericKeypad_ov031_02250c00->unknown_66_) {
                         PlayWifiSetupSoundEffect_ov031_02236878(9);
-                        data_ov031_02250c00->unknown_61_ = -1;
+                        gNumericKeypad_ov031_02250c00->unknown_61_ = -1;
                         return;
                     }
-                    data_ov031_02250c00->unknown_60_ = 16;
-                    data_ov031_02250c00->unknown_65_ -= 7;
+                    gNumericKeypad_ov031_02250c00->unknown_60_ = 16;
+                    gNumericKeypad_ov031_02250c00->unknown_65_ -= 7;
                     return;
                 }
                 ++var6; ++var5;
@@ -499,7 +499,7 @@ extern "C" ARM void func_ov031_022262d8() {
             do {
                 func_ov031_0223cb34(var8, var7, &var0);
                 if (func_ov031_0223d414(&var0)) {
-                    if (data_ov031_02250c00->unknown_61_ != var9 + 12) goto reset;
+                    if (gNumericKeypad_ov031_02250c00->unknown_61_ != var9 + 12) goto reset;
                     func_ov031_022264c8(var9 + 12);
                     goto clear;
                 }
@@ -510,15 +510,15 @@ extern "C" ARM void func_ov031_022262d8() {
 reset:
     func_ov031_022264c8(-1);
 clear:
-    data_ov031_02250c00->unknown_65_ = 0;
+    gNumericKeypad_ov031_02250c00->unknown_65_ = 0;
 }
 
 // USA: func_ov031_022264c8
 extern "C" ARM void func_ov031_022264c8(int arg0) {
-	if (arg0 == data_ov031_02250c00->unknown_62_) return;
+	if (arg0 == gNumericKeypad_ov031_02250c00->unknown_62_) return;
 	func_ov031_02226910(arg0, 1);
-	func_ov031_02226910(data_ov031_02250c00->unknown_62_, 0);
-	data_ov031_02250c00->unknown_62_ = arg0;
+	func_ov031_02226910(gNumericKeypad_ov031_02250c00->unknown_62_, 0);
+	gNumericKeypad_ov031_02250c00->unknown_62_ = arg0;
 }
 
 // USA: func_ov031_02226514
@@ -529,7 +529,7 @@ extern "C" ARM void func_ov031_02226514(void) {
 	if (func_ov031_0223d394(0x80)) func_ov031_02226a64(3);
 
 	if (func_ov031_0223d354(1)) {
-		Struct_ov031_022258b4* var0 = data_ov031_02250c00;
+		Struct_ov031_022258b4* var0 = gNumericKeypad_ov031_02250c00;
 		int var1 = var0->unknown_63_;
 		if (var1 < 10) {
 			if (var0->unknown_67_ != 0) {
@@ -554,18 +554,18 @@ extern "C" ARM void func_ov031_02226514(void) {
 	}
 
 	if (func_ov031_0223d394(2)) {
-		Struct_ov031_022258b4* var2 = data_ov031_02250c00;
+		Struct_ov031_022258b4* var2 = gNumericKeypad_ov031_02250c00;
 		if (var2->unknown_66_ == 0) {
 			if (var2->unknown_69_ != 0) return;
 			PlayWifiSetupSoundEffect_ov031_02236878(9);
-			data_ov031_02250c00->unknown_69_ = 1;
+			gNumericKeypad_ov031_02250c00->unknown_69_ = 1;
 			return;
 		}
 		var2->unknown_60_ = 0x10;
 		return;
 	}
 	if (func_ov031_0223d3d4(2) == 0) return;
-	data_ov031_02250c00->unknown_69_ = 0;
+	gNumericKeypad_ov031_02250c00->unknown_69_ = 0;
 }
 
 // USA: func_ov031_022266b0
@@ -585,29 +585,29 @@ extern "C" ARM void func_ov031_022266b0(int arg0, int arg1) {
     if (var4 < var0[arg0]) {
         unsigned char var6 = arg1;
         do {
-            inline_020b0a1c(data_ov031_02250c00->unknown_10_[var3], Enum_020b0a1c_0, 0);
-            inline_ov031_022266b0(data_ov031_02250c00->unknown_10_[var3], data_ov031_02248cda[var3].unknown_0_, var6);
+            inline_020b0a1c(gNumericKeypad_ov031_02250c00->unknown_10_[var3], Enum_020b0a1c_0, 0);
+            inline_ov031_022266b0(gNumericKeypad_ov031_02250c00->unknown_10_[var3], data_ov031_02248cda[var3].unknown_0_, var6);
             var4++;
             var3++;
         } while (var4 < var0[arg0]);
     }
     if (arg0 < 4) {
-        func_ov031_0223ca54((Struct_ov031_022266b0*)data_ov031_02250c00->unknown_0_[arg0], data_ov031_02248cda[arg0 * 3].unknown_0_, arg1, data_ov031_02250c00->unknown_48_[arg0], 2);
+        func_ov031_0223ca54((Struct_ov031_022266b0*)gNumericKeypad_ov031_02250c00->unknown_0_[arg0], data_ov031_02248cda[arg0 * 3].unknown_0_, arg1, gNumericKeypad_ov031_02250c00->unknown_48_[arg0], 2);
     }
     var4 = 0;
     if (var4 < var1[arg0]) {
         unsigned char var7 = arg1;
         do {
-            inline_020b0a1c(data_ov031_02250c00->unknown_38_[var4], Enum_020b0a1c_0, 0);
-            inline_ov031_022266b0(data_ov031_02250c00->unknown_38_[var4], data_ov031_02248cb0[var4].unknown_0_, var7);
+            inline_020b0a1c(gNumericKeypad_ov031_02250c00->unknown_38_[var4], Enum_020b0a1c_0, 0);
+            inline_ov031_022266b0(gNumericKeypad_ov031_02250c00->unknown_38_[var4], data_ov031_02248cb0[var4].unknown_0_, var7);
             var4++;
         } while (var4 < var1[arg0]);
     }
     var5 = 0;
     if (var5 < var2[arg0]) {
         do {
-            func_ov031_0223bab4(data_ov031_02250c00->unknown_40_[var5], -1, 0, 0);
-            func_ov031_0223bbd8(data_ov031_02250c00->unknown_40_[var5], -1, data_ov031_02248cb8[var5].unknown_0_, arg1);
+            func_ov031_0223bab4(gNumericKeypad_ov031_02250c00->unknown_40_[var5], -1, 0, 0);
+            SetSpritePosition_ov031_0223bbd8(gNumericKeypad_ov031_02250c00->unknown_40_[var5], -1, data_ov031_02248cb8[var5].unknown_0_, arg1);
             var5++;
         } while (var5 < var2[arg0]);
     }
@@ -620,7 +620,7 @@ extern "C" ARM void func_ov031_02226910(int arg0, int arg1) {
     }
     if (arg0 < 10) {
         unsigned char var0 = data_ov031_02248c7c[arg1];
-        Struct_020b0a1c_2* var1 = data_ov031_02250c00->unknown_10_[arg0];
+        Struct_020b0a1c_2* var1 = gNumericKeypad_ov031_02250c00->unknown_10_[arg0];
         var1->unknown_0_ &= ~0xc00;
         var1->unknown_4_ = (var1->unknown_4_ & ~0xf000) | (var0 << 12);
         return;
@@ -628,37 +628,37 @@ extern "C" ARM void func_ov031_02226910(int arg0, int arg1) {
     int var2 = arg0 - 10;
     if (var2 < 2) {
         unsigned char var3 = data_ov031_02248c7c[arg1];
-        Struct_020b0a1c_2* var4 = data_ov031_02250c00->unknown_38_[var2];
+        Struct_020b0a1c_2* var4 = gNumericKeypad_ov031_02250c00->unknown_38_[var2];
         var4->unknown_0_ &= ~0xc00;
         var4->unknown_4_ = (var4->unknown_4_ & ~0xf000) | (var3 << 12);
         return;
     }
-    func_ov031_0223bb58(data_ov031_02250c00->unknown_40_[arg0 - 0xc], -1, 0, data_ov031_02248c70[arg1]);
+    func_ov031_0223bb58(gNumericKeypad_ov031_02250c00->unknown_40_[arg0 - 0xc], -1, 0, data_ov031_02248c70[arg1]);
 }
 
 // USA: func_ov031_022269d8
 extern "C" ARM void func_ov031_022269d8(void) {
-    signed char var0 = data_ov031_02250c00->unknown_63_;
+    signed char var0 = gNumericKeypad_ov031_02250c00->unknown_63_;
     int var1 = (var0 <= 0xb) ? 0x44 : 0x45;
-    void* var2 = data_ov031_02250c00->unknown_58_;
+    void* var2 = gNumericKeypad_ov031_02250c00->unknown_58_;
     void* var3 = func_ov031_0223baa0((Struct_ov031_022269d8*)var2, 0);
     func_ov031_0223bdb0(0, var1, (int)var3);
 
-    func_ov031_0223bcc8((Struct_ov031_02222ce4*)data_ov031_02250c00->unknown_58_, -1, 2);
+    func_ov031_0223bcc8((Struct_ov031_02222ce4*)gNumericKeypad_ov031_02250c00->unknown_58_, -1, 2);
 
-    signed char var4 = data_ov031_02250c00->unknown_63_;
-    void* var5 = data_ov031_02250c00->unknown_58_;
+    signed char var4 = gNumericKeypad_ov031_02250c00->unknown_63_;
+    void* var5 = gNumericKeypad_ov031_02250c00->unknown_58_;
     unsigned short var6 = *(unsigned short*)((char*)data_ov031_02248d02 + var4 * 4);
     unsigned short var7 = *(unsigned short*)((char*)data_ov031_02248d02 + 2 + var4 * 4);
-    func_ov031_0223bbd8(var5, -1, var6, var7);
+    SetSpritePosition_ov031_0223bbd8(var5, -1, var6, var7);
 }
 
 // USA: func_ov031_02226a64
 extern "C" ARM void func_ov031_02226a64(int arg0) {
-	signed char var0 = data_ov031_02250c00->unknown_63_;
+	signed char var0 = gNumericKeypad_ov031_02250c00->unknown_63_;
 	const signed char* var1 = data_ov031_02248d3a + var0 * 4;
-	data_ov031_02250c00->unknown_63_ = var1[arg0];
-	Struct_ov031_022258b4* var2 = data_ov031_02250c00;
+	gNumericKeypad_ov031_02250c00->unknown_63_ = var1[arg0];
+	Struct_ov031_022258b4* var2 = gNumericKeypad_ov031_02250c00;
 	signed char var3 = var2->unknown_63_;
 	if (var3 == 0xd) {
 		if (arg0 == 1 || arg0 == 3) {
@@ -685,7 +685,7 @@ end:
 // USA: func_ov031_02226b10
 extern "C" ARM void func_ov031_02226b10(void* arg0) {
 	int var0, var1;
-	inline_ov031_02223ff8(func_ov031_0223baa0((Struct_ov031_022269d8*)data_ov031_02250c00->unknown_40_[0], 0), (unsigned int*)&var0, (unsigned int*)&var1);
+	inline_ov031_02223ff8(func_ov031_0223baa0((Struct_ov031_022269d8*)gNumericKeypad_ov031_02250c00->unknown_40_[0], 0), (unsigned int*)&var0, (unsigned int*)&var1);
 	var1 += 0xc;
 	func_ov031_022266b0(4, var1);
 	if (var1 < 0xc0) return;
@@ -695,7 +695,7 @@ extern "C" ARM void func_ov031_02226b10(void* arg0) {
 // USA: func_ov031_02226b88
 extern "C" ARM void func_ov031_02226b88(void* arg0) {
     int var0, var1;
-    inline_ov031_02223ff8(data_ov031_02250c00->unknown_10_[9], (unsigned int*)&var0, (unsigned int*)&var1);
+    inline_ov031_02223ff8(gNumericKeypad_ov031_02250c00->unknown_10_[9], (unsigned int*)&var0, (unsigned int*)&var1);
     var1 += 0xc;
     func_ov031_022266b0(3, var1);
     if (var1 < 0xc0) return;
@@ -705,7 +705,7 @@ extern "C" ARM void func_ov031_02226b88(void* arg0) {
 // USA: func_ov031_02226bf8
 extern "C" ARM void func_ov031_02226bf8(void* arg0) {
     int var0, var1;
-    inline_ov031_02223ff8(data_ov031_02250c00->unknown_10_[6], (unsigned int*)&var0, (unsigned int*)&var1);
+    inline_ov031_02223ff8(gNumericKeypad_ov031_02250c00->unknown_10_[6], (unsigned int*)&var0, (unsigned int*)&var1);
     var1 += 0xc;
     func_ov031_022266b0(2, var1);
     if (var1 < 0xc0) return;
@@ -715,7 +715,7 @@ extern "C" ARM void func_ov031_02226bf8(void* arg0) {
 // USA: func_ov031_02226c68
 extern "C" ARM void func_ov031_02226c68(void* arg0) {
     int var0, var1;
-    inline_ov031_02223ff8(data_ov031_02250c00->unknown_10_[3], (unsigned int*)&var0, (unsigned int*)&var1);
+    inline_ov031_02223ff8(gNumericKeypad_ov031_02250c00->unknown_10_[3], (unsigned int*)&var0, (unsigned int*)&var1);
     var1 += 0xc;
     func_ov031_022266b0(1, var1);
     if (var1 < 0xc0) return;
@@ -725,7 +725,7 @@ extern "C" ARM void func_ov031_02226c68(void* arg0) {
 // USA: func_ov031_02226cd8
 extern "C" ARM void func_ov031_02226cd8(void* arg0) {
     int var0, var1;
-    inline_ov031_02223ff8(data_ov031_02250c00->unknown_10_[0], (unsigned int*)&var0, (unsigned int*)&var1);
+    inline_ov031_02223ff8(gNumericKeypad_ov031_02250c00->unknown_10_[0], (unsigned int*)&var0, (unsigned int*)&var1);
     var1 += 0xc;
     func_ov031_022266b0(0, var1);
     if (var1 < 0xc0) return;
@@ -734,25 +734,25 @@ extern "C" ARM void func_ov031_02226cd8(void* arg0) {
 
 // USA: func_ov031_02226d48
 extern "C" ARM void func_ov031_02226d48(void* arg0) {
-    func_ov031_0223e2c0(0, arg0);
+    QueueTaskRemoval_ov031_0223e2c0(0, arg0);
     {
         int var0 = 0;
         do {
-            func_ov031_0223ba20(data_ov031_02250c00->unknown_48_[var0]);
-            func_ov031_0223c534((Struct_ov031_02226d48*)data_ov031_02250c00->unknown_0_[var0]);
+            func_ov031_0223ba20(gNumericKeypad_ov031_02250c00->unknown_48_[var0]);
+            func_ov031_0223c534((Struct_ov031_02226d48*)gNumericKeypad_ov031_02250c00->unknown_0_[var0]);
         } while (++var0 < 4);
     }
     {
         int var1 = 0;
-        do { func_ov031_0223ba20(data_ov031_02250c00->unknown_40_[var1]); } while (++var1 < 2);
+        do { func_ov031_0223ba20(gNumericKeypad_ov031_02250c00->unknown_40_[var1]); } while (++var1 < 2);
     }
     {
         int var2 = 0;
-        do { func_ov031_0223da58(data_ov031_02250c00->unknown_38_[var2]); } while (++var2 < 2);
+        do { func_ov031_0223da58(gNumericKeypad_ov031_02250c00->unknown_38_[var2]); } while (++var2 < 2);
     }
     {
         int var3 = 0;
-        do { func_ov031_0223da58(data_ov031_02250c00->unknown_10_[var3]); } while (++var3 < 10);
+        do { func_ov031_0223da58(gNumericKeypad_ov031_02250c00->unknown_10_[var3]); } while (++var3 < 10);
     }
-    FreeAndClearPointer_ov031_0223cf70(&data_ov031_02250c00);
+    FreeAndClearPointer_ov031_0223cf70(&gNumericKeypad_ov031_02250c00);
 }

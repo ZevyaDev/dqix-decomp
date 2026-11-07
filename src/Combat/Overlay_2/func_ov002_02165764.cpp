@@ -7,19 +7,19 @@ struct Struct_0205c570;
 struct TextWindowManager_0205d81c;
 struct TextWindowManager_0205def8;
 struct SoundEffectManager_02108760;
-struct Struct_0205dee8;
+struct TextWindowManager_0205dee8;
 struct Struct_ov002_02165764 {
     int unknown_0_;
     unsigned int unknown_4_0_ : 12;
     unsigned int unknown_5_4_ : 20;
 };
 
-extern "C" void func_0205def8(struct TextWindowManager_0205def8 *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowVisible_0205def8(struct TextWindowManager_0205def8 *windowManager, int isVisible, int windowId);
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
-extern "C" void func_ov002_02161cf0(char *arg0);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215eadc(void *arg0, int arg1);
-extern "C" void func_0205dee8(struct Struct_0205dee8 *arg0, int arg1);
+extern "C" void SetCursorTextWindow_0205dee8(struct TextWindowManager_0205dee8 *windowManager, int windowId);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
 extern "C" void func_ov002_02161b98(char *arg0);
@@ -27,11 +27,11 @@ extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" int func_ov002_0216197c(int arg0, struct TextWindowManager_0205d81c *arg1);
 struct TextWindowManager_0205da38;
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
-extern "C" char *func_0200ff94(GameState *arg0, int arg1);
+extern "C" char *GetGameObjectByIndex_0200ff94(GameState *gameState, int index);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_0215b720(char *arg0, int arg1);
 extern "C" void func_ov002_02157d40(char *arg0);
-extern "C" int func_ov002_02161b48(char *arg0, int arg1);
+extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void func_ov002_02156ff0(unsigned char *arg0, int arg1);
 extern "C" int func_ov002_0215b7d0(char* arg0);
 
@@ -49,9 +49,9 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
     if (var0 == 0) {
         *(short *) (arg0 + 0x1ac2) = 0;
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) OBJ, 0, 2);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_0215eadc(arg0, 0);
-        func_0205dee8((struct Struct_0205dee8 *) OBJ, 0x12);
+        SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8 *) OBJ, 0x12);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x12, 0);
         *(int *) (arg0 + 0x1a88) += 1;
         return;
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
         int var4 = (var2 | var3) ? 1 : 0;
         if (var4) {
             *(unsigned char *) (arg0 + 0x1b48) = 3;
-            char *var5 = func_0200ff94(GameState::GetInstance(), *(signed char *) (arg0 + 0x1ae8));
+            char *var5 = GetGameObjectByIndex_0200ff94(GameState::GetInstance(), *(signed char *) (arg0 + 0x1ae8));
             if (var5 == 0) {
                 return;
             }
@@ -98,18 +98,18 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
             func_ov002_02157d40(arg0);
             return;
         }
-        if (func_ov002_02161b48(arg0, 1)) {
+        if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + 0x1ac2) = -1;
             *(short *) (arg0 + 0x1aee) = -1;
             *(int *) (arg0 + 0x1a80)   = 0x11;
             func_ov002_02156ff0((unsigned char *) arg0, 0x12);
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x12, 1);
-            func_0205dee8((struct Struct_0205dee8 *) OBJ, 0x11);
+            SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8 *) OBJ, 0x11);
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x11, 0);
             *(int *) (arg0 + 0x1a88) = 1;
             *(int *) (arg0 + 0x1a80) = 0x11;
             func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 0);
-            func_ov002_02161cf0(arg0);
+            ConfigureMenuCursors_ov002_02161cf0(arg0);
         }
         return;
     }
@@ -138,12 +138,12 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
 extern "C" ARM void func_ov002_02165764(char *arg0) {
     int var8 = *(int *) (arg0 + 0x1bc0);
     if (var8 == 0) {
-        func_0205def8((struct TextWindowManager_0205def8 *) OBJ, 0, 0x29);
+        SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8 *) OBJ, 0, 0x29);
         *(short *) (arg0 + 0x1bfa) = 0;
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) OBJ, 0, 2);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_0215eadc(arg0, 0);
-        func_0205dee8((struct Struct_0205dee8 *) OBJ, 0x11);
+        SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8 *) OBJ, 0x11);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x11, 0);
         func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8) & 0xff, 0);
         *(int *) (arg0 + 0x1bc0) += 1;
@@ -169,7 +169,7 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
         int var12 = (var10 | var11) ? 1 : 0;
         if (var12) {
             *(unsigned char *) (arg0 + 0x1c84) = 3;
-            char *var13 = func_0200ff94(GameState::GetInstance(), *(signed char *) (arg0 + 0x1c20));
+            char *var13 = GetGameObjectByIndex_0200ff94(GameState::GetInstance(), *(signed char *) (arg0 + 0x1c20));
             if (var13 == 0) {
                 return;
             }
@@ -195,19 +195,19 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
             func_ov002_02157d40(arg0);
             return;
         }
-        if (func_ov002_02161b48(arg0, 1)) {
+        if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + 0x1bfa) = -1;
             *(short *) (arg0 + 0x1c26) = -1;
             *(int *) (arg0 + 0x1bb8)   = 0x10;
             func_ov002_02156ff0((unsigned char *) arg0, 0x11);
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x11, 1);
-            func_0205dee8((struct Struct_0205dee8 *) OBJ, 0x10);
+            SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8 *) OBJ, 0x10);
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x10, 0);
             *(int *) (arg0 + 0x1bc0) = 1;
             *(int *) (arg0 + 0x1bb8) = 0x10;
             func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8) & 0xff, 0);
-            func_ov002_02161cf0(arg0);
-            func_0205def8((struct TextWindowManager_0205def8 *) OBJ, 1, 0x29);
+            ConfigureMenuCursors_ov002_02161cf0(arg0);
+            SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8 *) OBJ, 1, 0x29);
         }
         return;
     }

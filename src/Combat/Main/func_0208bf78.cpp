@@ -109,7 +109,7 @@ struct Struct_0208bf78_4 {
 };
 
 extern "C" void func_0208d854(Struct_0208b9a0*);
-extern "C" Struct_02065990_3* func_02094d6c();
+extern "C" Struct_02065990_3* GetQuestManager_02094d6c();
 extern "C" unsigned char func_020965ac(Struct_02065990_3*, unsigned char);
 extern "C" int func_02095870(void*, Struct_02013fb4*, int, int, unsigned char*);
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
@@ -218,7 +218,7 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
         unsigned int var5;
         var0->GetLoadedFileByID(arg0->unknown_bc_, &var4, &var5);
         if (var4) {
-            Struct_02065990_3* var6 = func_02094d6c();
+            Struct_02065990_3* var6 = GetQuestManager_02094d6c();
             unsigned char var7 = 0;
             func_02095870(var6, (Struct_02013fb4*)var4, var5, inline_0208bf78_2(var6, arg0->unknown_d2_), &var7);
             arg0->unknown_dd_ = var7;
@@ -262,7 +262,7 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
         arg0->unknown_da_ &= ~8;
         if (arg0->unknown_d2_ != 9999) {
             GetFlagManager_0205ec34();
-            Struct_02065990_3* var19 = func_02094d6c();
+            Struct_02065990_3* var19 = GetQuestManager_02094d6c();
             short var20 = arg0->unknown_d2_;
             char var21[8] = {0};
             sprintf(var21, data_020f1192, var20);

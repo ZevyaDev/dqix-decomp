@@ -27,7 +27,7 @@ extern "C" void func_02039d48(unsigned char*);
 extern "C" void ResetFollowTrail_02039d24(unsigned char*);
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void func_ov017_021907dc(int, int, int, int, int);
-extern "C" void func_02033b68(Struct_02033b68*, int);
+extern "C" void SetMotionIfDifferent_02033b68(Struct_02033b68*, int);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 
 // USA: func_ov017_021d3fa8
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov017_021d3fa8(int arg0, Struct_ov017_021d3fa8* arg1, G
                 if (!(var17 & 2)) {
                     var16->obj3D_.position_ = var1->obj3D_.position_;
                     var16->obj3D_.SetInheritedAlpha(31);
-                    func_02033b68((Struct_02033b68*)var16, 0);
+                    SetMotionIfDifferent_02033b68((Struct_02033b68*)var16, 0);
                     func_02039d48((unsigned char*)var16);
                 }
                 ResetFollowTrail_02039d24((unsigned char*)var16);

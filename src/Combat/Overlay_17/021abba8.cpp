@@ -75,7 +75,7 @@ extern "C" void* GetEffectManager_02057924(void);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" void func_ov017_021ac2a8(void* arg0);
-extern "C" void func_02046a8c(void* arg0, void* arg1);
+extern "C" void RemoveFromQueue_02046a8c(void* queue, void* node);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int GetFontLoader_02094a00(void);
 extern "C" void CancelFontLoad_02094ab0(int loader);
@@ -126,7 +126,7 @@ extern "C" ARM void func_ov017_021abba8(Struct_ov017_021abba8* arg0, Queue_02038
             arg0->unknown_1_ = 1;
             func_ov017_021ac2a8(arg0);
             if (IsTypeInQueue_02046b60(arg1, 3)) {
-                func_02046a8c(arg1, var2->unknown_ptr_array_36fc[4]);
+                RemoveFromQueue_02046a8c(arg1, var2->unknown_ptr_array_36fc[4]);
             }
         } else if (IsQueueEmpty_02046b08((void**)var2->unknown_ptr_array_36fc[1])) {
             SetFlags00(var2, 0x10);
@@ -159,7 +159,7 @@ extern "C" ARM void func_ov017_021abba8(Struct_ov017_021abba8* arg0, Queue_02038
         int var12[5];
         Struct_ov017_021abba8_2 var13[5];
         if (arg0->unknown_c_ != 0) {
-            func_02010834((Struct_02010834*)var0, var3->obj3D_.unknown_4_, var12, &var11);
+            func_02010834((Struct_02010834*)var0, var3->obj3D_.objectIndex_4_, var12, &var11);
             for (int var14 = 0; var14 < var11; var14++) {
                 arg0->unknown_d_ |= 1 << var12[var14];
             }

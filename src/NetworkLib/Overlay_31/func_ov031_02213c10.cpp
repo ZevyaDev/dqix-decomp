@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov031_022133f8(int arg0);
+extern "C" void* GetWifiConnectionBuffer_ov031_022133f8(int bufferFlag);
 extern "C" void func_ov031_02213694(int);
 
 struct Struct_ov031_02213c10 { short unknown_0_; short unknown_2_; int unknown_4_; int unknown_8_; };
 
 // USA: func_ov031_02213c10
 extern "C" ARM void func_ov031_02213c10(Struct_ov031_02213c10* arg0) {
-    void* var0 = func_ov031_022133f8(0x10);
+    void* var0 = GetWifiConnectionBuffer_ov031_022133f8(0x10);
     if (arg0->unknown_0_ == 5) {
         if (arg0->unknown_2_ == 0) return;
         switch (arg0->unknown_8_) {

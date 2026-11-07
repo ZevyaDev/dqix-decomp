@@ -8,7 +8,7 @@ extern "C" void CancelFontLoad_02094ab0(void* loader);
 struct Struct_02075cdc;
 extern "C" void func_02075d58(struct Struct_02075cdc* arg0);
 extern "C" void func_ov023_021dcd18(void* arg0);
-extern "C" void func_ov023_021dc134(void* arg0, int arg1, int arg2);
+extern "C" void InitItemInfoPanel_ov023_021dc134(void* arg0, int itemId, int arg2);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 
 extern AllocatorUnion gMainHeap_02114e20;
@@ -96,5 +96,5 @@ extern "C" ARM void func_ov023_021dc354(struct Struct_ov023_021dc354* arg0) {
         data_ov023_021ff9e0.unknown_4_ = 0;
     }
 
-    func_ov023_021dc134(arg0, -1, arg0->unknown_77b_);
+    InitItemInfoPanel_ov023_021dc134(arg0, -1, arg0->unknown_77b_);
 }

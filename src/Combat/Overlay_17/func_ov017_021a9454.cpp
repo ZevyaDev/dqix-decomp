@@ -73,7 +73,7 @@ extern char data_ov017_021d7c49;
 #else
 extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 #endif
-extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
+extern "C" void SetCameraFlags_020a28a0(unsigned char* camera, unsigned char flags);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" int GetMessageChoice_020457e0(void* window);
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov017_021a9454(Struct_ov017_021a9454_2* arg0) {
 #endif
         var1->unknown_19b2_ = 0;
         var1->unknown_998_ = 1;
-        func_020a28a0((unsigned char*)var2, 2);
+        SetCameraFlags_020a28a0((unsigned char*)var2, 2);
         arg0->unknown_8_ = 1;
         return;
     }

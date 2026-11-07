@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_0205bafc(void* arg0);
+extern "C" int GetMenuCursorItemCount_0205bafc(void* cursor);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 struct MenuCursor_0205bcdc {
     int itemCount_0_;
@@ -13,9 +13,9 @@ extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc* cur
 extern "C" ARM void func_0205d7a0(unsigned char* arg0, int arg1) {
     int var0;
     if (arg0[0x95]) {
-        var0 = func_0205bafc(arg0 + 0x54);
+        var0 = GetMenuCursorItemCount_0205bafc(arg0 + 0x54);
     } else if (arg0[0x94]) {
-        var0 = func_0205bafc(arg0 + 0x4);
+        var0 = GetMenuCursorItemCount_0205bafc(arg0 + 0x4);
     }
     if (arg1 < 0) {
         if (var0 <= arg1) return;

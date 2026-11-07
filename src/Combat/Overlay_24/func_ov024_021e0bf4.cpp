@@ -9,7 +9,7 @@ extern "C" short func_ov000_0215a124(void* arg0, int arg1, int arg2);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, struct Struct_ov024_021e0bf4* flags, int flagIndex);
 extern "C" struct ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void SetActionResult_ov000_0215ccbc(
-    int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant, short arg3, short currHP, short currMP,
+    int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant, short amount, short currHP, short currMP,
     struct Struct_ov024_021e0bf4 flags, unsigned char isCriticalHit);
 
 struct Struct_ov024_021e0bf4_2 { char unknown_0_[0x1c]; unsigned char unknown_1c_0_ : 7; unsigned char unknown_1c_7_ : 1; };

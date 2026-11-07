@@ -19,7 +19,7 @@ extern "C" struct ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e95
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, struct Struct_ov024_021e2950_4* flags, int flagIndex);
 extern "C" void SetActionResult_ov000_0215ccbc(
-    int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant, short arg3, short currHP, short currMP,
+    int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant, short amount, short currHP, short currMP,
     struct Struct_ov024_021e2950_4 flags, unsigned char isCriticalHit);
 
 struct Struct_ov024_021e2950 { char unknown_0_[0x1c]; unsigned char unknown_1c_0_ : 7; unsigned char unknown_1c_7_ : 1; };
@@ -33,7 +33,7 @@ struct Struct_ov024_021e2950_3 { unsigned char unknown_0_0_ : 1; unsigned char u
 
 static inline unsigned short inline_ov024_021dc700(GameObject* arg0) { return arg0->currentStats_->primaryStats.maxHP; }
 
-extern "C" int func_020882f8(unsigned char*);
+extern "C" int IsAsleep_020882f8(unsigned char*);
 extern "C" void func_02088390(void*);
 struct Struct_ov024_021de124;
 extern "C" int func_ov024_021de25c(Struct_ov024_021de124*);
@@ -56,7 +56,7 @@ extern "C" ARM struct ActionResult_ov000_021584e8* func_ov024_021e2950(struct St
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var1, 0x16);
         arg0->unknown_14_++;
     }
-    if (func_020882f8((unsigned char*)var0->currentStats_)) {
+    if (IsAsleep_020882f8((unsigned char*)var0->currentStats_)) {
         func_02088390(var0->currentStats_);
         ((struct Struct_ov024_021e2950_3*)((char*)var0->currentStats_ + 0x3b))->unknown_0_0_ = 1;
         SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var2, 0x10);

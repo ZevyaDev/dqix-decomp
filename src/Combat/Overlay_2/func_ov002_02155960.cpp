@@ -85,18 +85,18 @@ extern "C" void func_ov002_02156c7c(Struct_ov002_02155960_7*);
 extern "C" void func_ov002_021561b0(Struct_ov002_02155960_7*);
 extern "C" Struct_ov002_02155960_4* GetCursorTextWindow_0205d8c4(Struct_ov002_02155960_2*);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char*);
-extern "C" void func_0205bc24(void*, int);
+extern "C" void SetMenuCursorTouchedIndex_0205bc24(void*, int);
 extern "C" int func_020e28dc(Struct_0201079c*);
 extern "C" void func_020e263c(Struct_0201079c_2*, int);
 extern "C" int UpdateTextWindowManager_0205d0e0(Struct_ov002_02155960_2*, int);
-extern "C" int func_ov002_02161b48(char*, int);
+extern "C" int IsCancelPressed_ov002_02161b48(char*, int);
 extern "C" void* GetFlagManager_0205ec34();
 extern "C" int RunTrigger_020649b0(void*, int, void*);
 extern "C" void func_0206f81c(void*);
 extern "C" void func_ov023_021dca88(void*);
 extern "C" void func_ov002_0215aa14(char*);
 extern "C" int GetStoryChapter_0201079c(char*);
-extern "C" void func_0205def8(Struct_ov002_02155960_3*, int, int);
+extern "C" void SetTextWindowVisible_0205def8(Struct_ov002_02155960_3*, int, int);
 extern "C" void SetTextWindowPalette_0205deb4(Struct_ov002_02155960_2*, int, int);
 extern "C" void func_ov002_0215bba8(Struct_ov002_02155960_7*);
 extern unsigned int data_ov002_0216d3a8;
@@ -127,7 +127,7 @@ extern "C" ARM int func_ov002_02155960(Struct_ov002_02155960_7* arg0, int arg1) 
         func_ov002_021561b0(arg0);
         Struct_ov002_02155960_4* var1 = GetCursorTextWindow_0205d8c4((Struct_ov002_02155960_2*)&arg0->unknown_ec8_);
         if (var1 != 0 && IsTextWindowReady_0204c7cc((unsigned char*)var1) != 0 && (var1->unknown_c5_ & 2) == 0)
-            func_0205bc24(inline_ov002_02155960(arg0)->unknown_4_, -1);
+            SetMenuCursorTouchedIndex_0205bc24(inline_ov002_02155960(arg0)->unknown_4_, -1);
         if (arg0->unknown_4_.unknown_0_ != 0 && func_020e28dc(arg0->unknown_4_.unknown_0_) != 0) {
             func_020e263c(arg0->unknown_4_.unknown1_0_, arg0->unknown_1ba0_);
         } else {
@@ -135,7 +135,7 @@ extern "C" ARM int func_ov002_02155960(Struct_ov002_02155960_7* arg0, int arg1) 
         }
     }
     if (arg0->unknown_2485_ != 0) {
-        if ((arg0->unknown_1bb8_ == 4 && arg0->unknown_1bc0_ == 1 && func_ov002_02161b48((char*)arg0, 1) != 0) ||
+        if ((arg0->unknown_1bb8_ == 4 && arg0->unknown_1bc0_ == 1 && IsCancelPressed_ov002_02161b48((char*)arg0, 1) != 0) ||
                 g_keyManager.TestKeysPressed(0x800) != 0) {
             if (var0->unknown_998_ == 0)
                 arg0->unknown_2487_ = 1;
@@ -205,7 +205,7 @@ extern "C" ARM int func_ov002_02155960(Struct_ov002_02155960_7* arg0, int arg1) 
         }
     }
     if (GetStoryChapter_0201079c((char*)GameState::GetInstance()) == 1 || arg0->unknown_2485_ != 0) {
-        func_0205def8((Struct_ov002_02155960_3*)&arg0->unknown_ec8_, 0, RG(0x29, 0x2c));
+        SetTextWindowVisible_0205def8((Struct_ov002_02155960_3*)&arg0->unknown_ec8_, 0, RG(0x29, 0x2c));
     }
     SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)&arg0->unknown_ec8_, RG(0x29, 0x2c), 0);
     SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)&arg0->unknown_ec8_, RG(0x28, 0x2b), 0);

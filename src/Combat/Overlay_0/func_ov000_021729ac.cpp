@@ -7,19 +7,19 @@
 extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" unsigned short GetSubBGVRAMBanks(void);
 extern "C" void MapVRAMBanksToSubBG(int banks);
-extern "C" char* func_0203bd14();
+extern "C" char* GetSpriteTextManager_0203bd14();
 struct StringTable_0201099c_14;
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14*);
 extern "C" void LoadStringTable_020dfec0(void* stringTable, void* allocator, void* fileData, unsigned int fileSize);
 extern "C" void ClearItemTable_020de848(void* itemTable);
-extern "C" void func_020dea64(void* arg0, void* arg1, void* arg2, unsigned int arg3, const void* arg4, int arg5);
+extern "C" void LoadItemTableByCategories_020dea64(void* itemTable, void* allocator, void* fileData, unsigned int fileSize, const void* categories, int categoryCount);
 extern "C" void __clear(void* arg0, unsigned int arg1);
 extern "C" char* GetBattleSetup_ov017_021b8478(void* battleManager);
 struct Struct_02070f98_2;
 extern "C" struct Struct_ov000_021729ac* func_02070f98(Struct_02070f98_2*, int);
 struct Struct_02070fe4;
 extern "C" int func_02070fe4(Struct_02070fe4*);
-extern "C" int func_020de9a4(void* arg0, void* arg1, void* arg2, unsigned int arg3, void* arg4, unsigned short arg5);
+extern "C" int LoadItemTableByIds_020de9a4(void* itemTable, void* allocator, void* fileData, unsigned int fileSize, void* itemIds, unsigned short itemIdCount);
 struct Struct_0201099c_3;
 extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 struct Struct_0203c108_3;
@@ -233,9 +233,9 @@ extern "C" ARM int func_ov000_021729ac(Struct_ov000_021729ac_8* arg0) {
         *(int*)GetOAMManager_0203bd08() = 0;
 
 #if defined(jpn)
-        *(int*)(func_0203bd14() + 0x608) = 0x1d000;
+        *(int*)(GetSpriteTextManager_0203bd14() + 0x608) = 0x1d000;
 #else
-        *(int*)(func_0203bd14() + 0x508) = 0x18000;
+        *(int*)(GetSpriteTextManager_0203bd14() + 0x508) = 0x18000;
 #endif
 
 #if defined(jpn)
@@ -270,7 +270,7 @@ extern "C" ARM int func_ov000_021729ac(Struct_ov000_021729ac_8* arg0) {
             if (var6 != 0) {
                 arg0->unknown_1a78_[4].Reset();
                 ClearItemTable_020de848(arg0->unknown_d0_[0]);
-                func_020dea64(arg0->unknown_d0_[0], &arg0->unknown_1a78_[4], var6, var7, data_ov000_02183302, 3);
+                LoadItemTableByCategories_020dea64(arg0->unknown_d0_[0], &arg0->unknown_1a78_[4], var6, var7, data_ov000_02183302, 3);
                 arg0->unknown_1a78_[5].Reset();
                 ClearItemTable_020de848(arg0->unknown_d0_[1]);
                 __clear(var0, sizeof(var0));
@@ -295,7 +295,7 @@ extern "C" ARM int func_ov000_021729ac(Struct_ov000_021729ac_8* arg0) {
                         }
                     }
                 }
-                func_020de9a4(arg0->unknown_d0_[1], &arg0->unknown_1a78_[5], var6, var7, var0, var19);
+                LoadItemTableByIds_020de9a4(arg0->unknown_d0_[1], &arg0->unknown_1a78_[5], var6, var7, var0, var19);
             }
             var18->RemoveTask(arg0->unknown_90c_);
             arg0->unknown_90c_ = -1;

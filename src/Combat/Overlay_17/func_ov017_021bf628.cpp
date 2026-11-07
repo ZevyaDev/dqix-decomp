@@ -5,12 +5,12 @@
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
-extern "C" void func_020a27b8(unsigned char* arg0);
+extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
 struct Struct_02033834_2;
 extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 extern "C" void func_02033e18(void* arg0, int* arg1, short arg2);
 struct Struct_02033b68;
-extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
+extern "C" void SetMotionIfDifferent_02033b68(struct Struct_02033b68* object, int motion);
 
 struct Struct_ov017_021bf628 {
     char unknown_0_[8];
@@ -43,7 +43,7 @@ extern "C" ARM int func_ov017_021bf628(struct Struct_ov017_021bf628_4* arg0) {
     void* var3 = GetGameResources();
     int var4 = GetFollowCamera_020100f8((char*)var0);
     if (var4 != 0) {
-        func_020a27b8((unsigned char*)var4);
+        DisableCameraTurning_020a27b8((unsigned char*)var4);
     }
     if (var3 != 0) {
         SetFlags04((GameResources*)var3, 0x80);
@@ -54,7 +54,7 @@ extern "C" ARM int func_ov017_021bf628(struct Struct_ov017_021bf628_4* arg0) {
     var5.unknown_0_ = var2->unknown_8_;
     var5.unknown_8_ = var2->unknown_10_;
     func_02033e18(var1, var6, 0xcc);
-    func_02033b68((struct Struct_02033b68*)var1, 1);
+    SetMotionIfDifferent_02033b68((struct Struct_02033b68*)var1, 1);
     arg0->unknown_14_ = 5;
     return 1;
 }

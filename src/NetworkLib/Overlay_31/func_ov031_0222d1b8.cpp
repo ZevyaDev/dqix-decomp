@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-extern "C" void func_ov031_02223440(void);
+extern "C" void CloseSubScreenMessage_ov031_02223440(void);
 
 struct Struct_ov031_0222d1b8 { unsigned int unknown_0_; };
 extern "C" int func_ov031_0223da58(Struct_ov031_0222d1b8*);
 
-extern "C" ARM void* func_ov031_0223c7c4(int arg0);
+extern "C" ARM void* CloseScreenTextLayer_ov031_0223c7c4(int isSubScreen);
 
 typedef void (*VRAMLoader_ov031_022234d8)(void*, int, int);
 extern "C" void LoadFileToVRAM_ov031_022234d8(int path, VRAMLoader_ov031_022234d8 loadToVRAM);
@@ -28,9 +28,9 @@ extern int data_ov031_0224ba64;
 
 // USA: func_ov031_0222d1b8
 extern "C" ARM void func_ov031_0222d1b8(void) {
-    func_ov031_02223440();
+    CloseSubScreenMessage_ov031_02223440();
     func_ov031_0223da58(*(Struct_ov031_0222d1b8**)((char*)data_ov031_02290c94 + 4));
-    func_ov031_0223c7c4(0);
+    CloseScreenTextLayer_ov031_0223c7c4(0);
     LoadFileToVRAM_ov031_022234d8((int)&data_ov031_0224ba64, (VRAMLoader_ov031_022234d8)LoadToMainObjStandardPalette);
     HideScreenLayers_ov031_0223cbbc(1, 1);
     HideScreenLayers_ov031_0223cbbc(0, 0x15);

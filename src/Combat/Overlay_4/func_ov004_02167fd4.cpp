@@ -2,7 +2,7 @@
 #include "Resource/GameResources.h"
 
 
-extern "C" void ResetEventTask_ov017_021baedc(void* node, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(void* node, int isRestart);
 extern "C" void* GetFlagManager_0205ec34(void);
 
 struct Queue_0201bdac_2;

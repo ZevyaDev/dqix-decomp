@@ -21,7 +21,7 @@ struct Struct_0203402c;
 extern "C" int func_0203402c(Struct_0203402c* arg0);
 struct GlobalFlags_02012de8;
 extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8* globalFlags, unsigned int mask);
-extern "C" int func_02039d7c(char* arg0);
+extern "C" int IsOnLadder_02039d7c(char* object);
 extern "C" int ReadBrightnessRegister_020c39c8(volatile unsigned short* reg);
 struct SoundEffectManager_02108760;
 extern "C" int PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov017_021c05f4(void* arg0, unsigned char arg1, unsigned
             *(short*)((char*)var1 + 0xac) != 0 ||
             *(int*)((char*)var0 + Enum_ov017_021c05f4_2456) != 0) return;
         if (TestGlobalFlags_02046708((GlobalFlags_02012de8*)var2, 0x800) != 0) return;
-        if (func_02039d7c((char*)var1) != 0) return;
+        if (IsOnLadder_02039d7c((char*)var1) != 0) return;
         if (ReadBrightnessRegister_020c39c8((volatile unsigned short*)0x400006c) != 0) return;
         if (g_keyManager.TestKeysPressed(4) == 0) return;
         *(unsigned short*)((char*)var1 + 0xb2) = 0;

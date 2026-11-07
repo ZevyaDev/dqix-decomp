@@ -95,7 +95,7 @@ extern "C" void InitKeyMenuCursor_0205bef8(KeyMenuCursor_0205bef8* cursor);
 extern "C" void SetMenuCursorGrid_0205ba68(KeyMenuCursor_0205bef8* cursor, int columnCount, int rowCount, int isRowMajor);
 extern "C" void SetMenuCursorItemCount_0205bacc(KeyMenuCursor_0205bef8* cursor, int itemCount);
 extern "C" void SetMenuCursorIndex_0205bb04(KeyMenuCursor_0205bef8* cursor, int index);
-extern "C" int func_0205bf58(KeyMenuCursor_0205bef8* arg0, unsigned int arg1);
+extern "C" int UpdateKeyMenuCursor_0205bf58(KeyMenuCursor_0205bef8* cursor, unsigned int ticks);
 extern "C" int GetMenuCursorIndex_0205bb84(KeyMenuCursor_0205bef8* cursor);
 extern "C" void PlaySoundEffect_0205eaa0(void* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov023_021e2868(void* arg0);
@@ -107,7 +107,7 @@ extern "C" void func_ov023_021e68d8(Struct_ov012_02189314* arg0, char* arg1);
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2* stringList, short stringId);
 extern "C" void func_ov012_0218bba0(Struct_ov012_02189314* arg0, int arg1, int arg2);
 extern "C" int func_ov012_02185db4(void* arg0, const char* arg1);
-extern "C" void func_0205def8(void* arg0, int arg1, int arg2);
+extern "C" void SetTextWindowVisible_0205def8(void* windowManager, int isVisible, int windowId);
 extern "C" void func_ov012_02189d18(Struct_ov012_02189314* arg0);
 extern "C" Struct_ov012_02189314_3* GetMessageWindow_020421a0();
 extern "C" void StartMessage_0204500c(Struct_ov012_02189314_3* window, const char* text, int arg2);
@@ -189,7 +189,7 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
     }
     else if (arg0->unknown_1340_ == 4)
     {
-        if (func_0205bf58(&arg0->unknown_1378_, GameState::GetInstance()->GetTickCount()))
+        if (UpdateKeyMenuCursor_0205bf58(&arg0->unknown_1378_, GameState::GetInstance()->GetTickCount()))
         {
             int var8 = GetMenuCursorIndex_0205bb84(&arg0->unknown_1378_);
             if (var8 != arg0->unknown_13b8_)
@@ -308,7 +308,7 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
             GameState::GetInstance();
             if (func_ov012_02185db4(arg0->unknown_14d8_, arg0->unknown_1428_))
             {
-                func_0205def8(arg0->unknown_90_, 0, 14);
+                SetTextWindowVisible_0205def8(arg0->unknown_90_, 0, 14);
                 arg0->unknown_1340_ = 10;
                 return;
             }
@@ -351,7 +351,7 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
     {
         if (GetMessageWindow_020421a0()->unknown_868_ == 0)
         {
-            func_0205def8(arg0->unknown_90_, 1, 14);
+            SetTextWindowVisible_0205def8(arg0->unknown_90_, 1, 14);
             arg0->unknown_1340_ = 4;
         }
     }

@@ -3,11 +3,11 @@
 struct Struct_0205faf4_8;
 struct Struct_0205faf4_7;
 extern "C" struct Struct_0205faf4_8* func_02096134(struct Struct_0205faf4_7* arg0, int arg1);
-extern "C" int* func_02094d6c(void);
+extern "C" int* GetQuestManager_02094d6c(void);
 
 // USA: func_02064904
 extern "C" ARM void* func_02064904(void* arg0, int arg1, unsigned int arg2) {
-    struct Struct_0205faf4_8* var0 = func_02096134((struct Struct_0205faf4_7*)func_02094d6c(), arg1);
+    struct Struct_0205faf4_8* var0 = func_02096134((struct Struct_0205faf4_7*)GetQuestManager_02094d6c(), arg1);
     void* var1 = NULL;
     if (var0 != NULL && arg2 <= 9) {
         switch (arg2) {

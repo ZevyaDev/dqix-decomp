@@ -14,7 +14,7 @@ struct Struct_0202bad4;
 struct Struct_0202bad4_2;
 
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void func_0202b0f4(void* arg0);
+extern "C" void StopLocalWireless_0202b0f4(void* wireless);
 extern "C" int func_ov003_02171d78(void* arg0, unsigned char* arg1);
 extern "C" int func_0202bae4(void* arg0);
 extern "C" struct Struct_0202bad4* func_0202bad4(struct Struct_0202bad4_2* arg0, int arg1);
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov003_0217193c(struct Struct_ov003_0217193c* arg0) {
         arg0->unknown_732_ = arg0->unknown_732_ - 1;
     } else {
         arg0->unknown_4_ = 0;
-        func_0202b0f4(var2);
+        StopLocalWireless_0202b0f4(var2);
         arg0->unknown_731_--;
         if (arg0->unknown_731_ > 0) {
             arg0->unknown_0_ = 0;

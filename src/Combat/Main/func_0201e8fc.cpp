@@ -27,7 +27,7 @@ extern "C" ARM void* func_0201e8fc(struct Struct_0201e8fc_2* arg0, struct Struct
         struct Struct_0201e8fc* var1 = &arg0->unknown_84_[var0];
         Vector3fix var2;
         Matrix4x3 var3;
-        Struct_02018fbc var4;
+        BoundingBox_02018fbc var4;
         int var5;
 
         if (arg1->unknown_0_ < var1->unknown_1c_ || arg1->unknown_8_ < var1->unknown_20_) continue;

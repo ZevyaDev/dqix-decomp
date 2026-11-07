@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-extern "C" ARM void* func_ov031_022133f8(unsigned int arg0);
+extern "C" ARM void* GetWifiConnectionBuffer_ov031_022133f8(unsigned int bufferFlag);
 
 // USA: func_ov031_02214afc
 extern "C" ARM int func_ov031_02214afc(int arg0) {
-    unsigned char* var0 = (unsigned char*)func_ov031_022133f8(0x10) + 0xd00;
+    unsigned char* var0 = (unsigned char*)GetWifiConnectionBuffer_ov031_022133f8(0x10) + 0xd00;
     unsigned char var1;
     unsigned char var2;
     unsigned short var3 = *(unsigned short*)(var0 + 0x16);

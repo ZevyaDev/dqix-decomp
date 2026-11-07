@@ -11,7 +11,7 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 struct Struct_02052e2c;
-extern "C" short* func_02052e2c(struct Struct_02052e2c* arg0);
+extern "C" short* GetAppearance_02052e2c(struct Struct_02052e2c* gameObject);
 
 extern "C" unsigned short (*func_02099cac(void))[2];
 
@@ -66,7 +66,7 @@ extern "C" ARM void func_020730e0(int arg0, int arg1) {
         return;
     }
 
-    var3 = (struct Struct_020730e0*)func_02052e2c((struct Struct_02052e2c*)var1);
+    var3 = (struct Struct_020730e0*)GetAppearance_02052e2c((struct Struct_02052e2c*)var1);
     func_02099cac();
 
     func_02072afc(arg0, var7, var8);

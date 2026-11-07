@@ -19,7 +19,7 @@ extern "C" Struct_ov031_02223268_2* func_ov031_0223baa0(Struct_ov031_022269d8* a
 extern "C" void func_ov031_0223bdb0(int arg0, int arg1, void* arg2);
 extern "C" ARM void func_ov031_0223bcc8(Struct_ov031_02222ce4* arg0, int arg1, int arg2);
 extern "C" ARM void func_ov031_02222eb0(void* arg0);
-extern "C" ARM void func_ov031_0223e2c0(int arg0, int arg1);
+extern "C" ARM void QueueTaskRemoval_ov031_0223e2c0(int listIndex, int task);
 
 // USA: func_ov031_02223268
 extern "C" ARM void func_ov031_02223268(int arg0) {
@@ -41,6 +41,6 @@ extern "C" ARM void func_ov031_02223268(int arg0) {
 	data_ov031_02250ba8->unknown_16_ = -1;
 	if (data_ov031_02250ba8->unknown_10_) {
 		data_ov031_02250ba8->unknown_10_ = 0;
-		func_ov031_0223e2c0(0, arg0);
+		QueueTaskRemoval_ov031_0223e2c0(0, arg0);
 	}
 }

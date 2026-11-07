@@ -12,21 +12,21 @@ struct Struct_0205c570;
 struct TextWindowManager_0205def8;
 struct TextWindowManager_0205da38;
 struct SoundEffectManager_02108760;
-struct Struct_0205faf4_11;
+struct PartyMember_0205faf4_11;
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
-extern "C" void func_0205def8(struct TextWindowManager_0205def8 *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowVisible_0205def8(struct TextWindowManager_0205def8 *windowManager, int isVisible, int windowId);
 extern "C" void func_020dc4d0(signed char *arg0, signed char *arg1);
 extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *gameState, int index);
-extern "C" int func_02061bd8(struct Struct_0205faf4_11 *arg0);
+extern "C" int func_02061bd8(struct PartyMember_0205faf4_11 *arg0);
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int GetGlobalFlags_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int *globalFlags, unsigned int mask);
-extern "C" int func_ov002_02161b48(char *arg0, int arg1);
+extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void func_ov002_0215b814(char *arg0);
-extern "C" void func_ov002_02161cf0(char *arg0);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215e1d0(char *arg0);
 extern "C" void func_ov002_02156e90(char *arg0);
 extern "C" void func_020d79e0(char *arg0, int arg1);
@@ -68,15 +68,15 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
     if (var0 == 0) {
         func_ov002_0215b814(arg0);
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + OFF_LIST_02164d14), 0, 2);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_0215e1d0(arg0);
         *(int *) (arg0 + OFF_STATE_02164d14) += 1;
     } else if (var0 == 1) {
         GameState *var1 = GameState::GetInstance();
         if (*(short *) (arg0 + OFF_SEL_02164d14) != 0) {
-            func_0205def8((struct TextWindowManager_0205def8 *) (arg0 + OFF_LIST_02164d14), 1, 1);
-            func_0205def8((struct TextWindowManager_0205def8 *) (arg0 + OFF_LIST_02164d14), 1, K_0E_02164d14);
-            func_0205def8((struct TextWindowManager_0205def8 *) (arg0 + OFF_LIST_02164d14), 1,
+            SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8 *) (arg0 + OFF_LIST_02164d14), 1, 1);
+            SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8 *) (arg0 + OFF_LIST_02164d14), 1, K_0E_02164d14);
+            SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8 *) (arg0 + OFF_LIST_02164d14), 1,
                                                                     K_29_02164d14);
         }
         *(unsigned int *) (arg0 + OFF_FLAGS_02164d14) |= 4;
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
         int var7 = var6;
         for (int var8 = 0; var8 < var4; var8++) {
             GameObject *var9 = GetPartyMemberBaseByIndex_0200ff1c(var1, var3[var8]);
-            if (var9 != NULL && func_02061bd8((struct Struct_0205faf4_11 *) var9)) var7++;
+            if (var9 != NULL && func_02061bd8((struct PartyMember_0205faf4_11 *) var9)) var7++;
         }
         var4 -= var7;
         if (var4 + 1 != (var5 - 1)->unknown_60_) var6 = 1;
@@ -125,14 +125,14 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
             if (var3[*(short *) (arg0 + OFF_SEL_02164d14)] < 0) return;
             SetGlobalFlags_020466e4((unsigned int *) GetGlobalFlags_020d6c00(), 1);
             if (func_02061bd8(
-                    (struct Struct_0205faf4_11 *) GetPartyMemberBaseByIndex_0200ff1c(var1, var3[*(short *) (arg0 + OFF_SEL_02164d14)])))
+                    (struct PartyMember_0205faf4_11 *) GetPartyMemberBaseByIndex_0200ff1c(var1, var3[*(short *) (arg0 + OFF_SEL_02164d14)])))
             {
                 for (int var14 = 0; var14 < 4; var14++) {
                     short *var15 = (short *) (arg0 + OFF_SEL_02164d14);
                     (*var15)++;
                     *var15          = *var15 % 4;
                     GameObject *var16 = GetPartyMemberBaseByIndex_0200ff1c(var1, var3[*(short *) (arg0 + OFF_SEL_02164d14)]);
-                    if (var16 != NULL && !func_02061bd8((struct Struct_0205faf4_11 *) var16)) break;
+                    if (var16 != NULL && !func_02061bd8((struct PartyMember_0205faf4_11 *) var16)) break;
                 }
             }
             func_020d79e0(arg0, var3[*(short *) (arg0 + OFF_SEL_02164d14)]);
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
             *(int *) (arg0 + OFF_STATE_02164d14) = 0;
             GetZone3D_02012fe4();
             func_02017c58();
-        } else if (func_ov002_02161b48(arg0, 1)) {
+        } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + OFF_SEL_02164d14) = -1;
             func_ov002_02156e90(arg0);
         }

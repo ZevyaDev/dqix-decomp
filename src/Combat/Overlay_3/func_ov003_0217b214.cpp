@@ -5,9 +5,9 @@ struct SoundEffectManager_02108760;
 struct Struct_02081f20_2;
 
 extern "C" void func_0207fdf0(struct Struct_0207fdf0_2* arg0, int arg1);
-extern "C" void func_020813ec(void* arg0, int arg1);
+extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" short func_02080468(void* arg0, int arg1);
-extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov003_02175f90(void* arg0);
@@ -33,14 +33,14 @@ extern "C" ARM void func_ov003_0217b214(char* arg0) {
     }
 
     if (var1 == 1) {
-        func_020813ec(var0, 0x15);
+        OpenMenuLayoutWindow_020813ec(var0, 0x15);
         *(short*)(arg0 + 0xf00 + 0x7a) = 0x1d;
         if (*(short*)(arg0 + 0xf00 + 0x8e) < 0) {
             *(short*)(arg0 + 0xf00 + 0x8e) = func_02080468(var0, *(short*)(arg0 + 0xf00 + 0x7a));
         }
         *(short*)((char*)var0 + 0x2a) = *(short*)(arg0 + 0xf00 + 0x8e);
-        func_02080c68(var0, *(short*)(arg0 + 0xf00 + 0x7a), 0);
-        func_020813ec(var0, *(short*)(arg0 + 0xf00 + 0x7a));
+        SetMenuLayoutWindowPalette_02080c68(var0, *(short*)(arg0 + 0xf00 + 0x7a), 0);
+        OpenMenuLayoutWindow_020813ec(var0, *(short*)(arg0 + 0xf00 + 0x7a));
         func_0208203c((struct Struct_02081f20_2*)(arg0 + 0x808));
         *(void**)(arg0 + 0xf74) = 0;
         (*(unsigned char*)(arg0 + 0xf00 + 0xbb))++;
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov003_0217b214(char* arg0) {
     if (var1 == 2) {
         *(void**)(arg0 + 0xf74) = arg0 + 0xf00 + 0x8e;
         func_ov003_02177938(arg0);
-        func_02080c68(var0, 0x15, 1);
+        SetMenuLayoutWindowPalette_02080c68(var0, 0x15, 1);
         if (func_ov003_021765b4(arg0)) {
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
             func_0208203c((struct Struct_02081f20_2*)(arg0 + 0x808));
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov003_0217b214(char* arg0) {
             func_0207fdf0((struct Struct_0207fdf0_2*)var0, 0);
             *(unsigned char*)(arg0 + 0xf00 + 0xba) = 8;
             *(unsigned char*)(arg0 + 0xf00 + 0xbb) = 0;
-            func_02080c68(var0, *(short*)(arg0 + 0xf00 + 0x7a), 1);
+            SetMenuLayoutWindowPalette_02080c68(var0, *(short*)(arg0 + 0xf00 + 0x7a), 1);
             *(short*)(arg0 + 0xf00 + 0x78) = *(short*)(arg0 + 0xf00 + 0x7a);
             *(short*)(arg0 + 0xf00 + 0x8a) = -1;
             *(short*)(arg0 + 0xf00 + 0xb6) = 1;
@@ -94,14 +94,14 @@ extern "C" ARM void func_ov003_0217b214(char* arg0) {
     }
 
     if (var3 == 1) {
-        func_020813ec(var2, 0x15);
+        OpenMenuLayoutWindow_020813ec(var2, 0x15);
         *(short*)(arg0 + 0xf00 + 0xfe) = 0x1d;
         if (*(short*)(arg0 + 0x1000 + 0x12) < 0) {
             *(short*)(arg0 + 0x1000 + 0x12) = func_02080468(var2, *(short*)(arg0 + 0xf00 + 0xfe));
         }
         *(short*)((char*)var2 + 0x36) = *(short*)(arg0 + 0x1000 + 0x12);
-        func_02080c68(var2, *(short*)(arg0 + 0xf00 + 0xfe), 0);
-        func_020813ec(var2, *(short*)(arg0 + 0xf00 + 0xfe));
+        SetMenuLayoutWindowPalette_02080c68(var2, *(short*)(arg0 + 0xf00 + 0xfe), 0);
+        OpenMenuLayoutWindow_020813ec(var2, *(short*)(arg0 + 0xf00 + 0xfe));
         func_0208203c((struct Struct_02081f20_2*)(arg0 + 0x88c));
         *(void**)(arg0 + 0xff8) = 0;
         (*(unsigned char*)(arg0 + 0x1000 + 0x3f))++;
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov003_0217b214(char* arg0) {
     if (var3 == 2) {
         *(void**)(arg0 + 0xff8) = arg0 + 0x1000 + 0x12;
         func_ov003_02177938(arg0);
-        func_02080c68(var2, 0x15, 1);
+        SetMenuLayoutWindowPalette_02080c68(var2, 0x15, 1);
         if (func_ov003_021765b4(arg0)) {
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
             func_0208203c((struct Struct_02081f20_2*)(arg0 + 0x88c));
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov003_0217b214(char* arg0) {
             func_0207fdf0((struct Struct_0207fdf0_2*)var2, 0);
             *(unsigned char*)(arg0 + 0x1000 + 0x3e) = 8;
             *(unsigned char*)(arg0 + 0x1000 + 0x3f) = 0;
-            func_02080c68(var2, *(short*)(arg0 + 0xf00 + 0xfe), 1);
+            SetMenuLayoutWindowPalette_02080c68(var2, *(short*)(arg0 + 0xf00 + 0xfe), 1);
             *(short*)(arg0 + 0xf00 + 0xfc) = *(short*)(arg0 + 0xf00 + 0xfe);
             *(short*)(arg0 + 0x1000 + 0xe) = -1;
             *(short*)(arg0 + 0x1000 + 0x3a) = 1;

@@ -2,7 +2,7 @@
 #include <globaldefs.h>
 
 extern "C" void func_ov002_02157030(void *arg0, int arg1, short *arg2, short *arg3, short *arg4, short *arg5);
-extern "C" void func_ov002_0215be00(void *arg0, int arg1, int arg2, int arg3);
+extern "C" void SetNextTextWindow_ov002_0215be00(void *menu, int windowId, int x, int y);
 extern "C" void func_ov002_0215d950(void *arg0, void *arg1, int arg2);
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov002_0215d864(char *arg0) {
     short var2 = 0, var3 = 0, var4 = 1, var5 = 1;
     func_ov002_02157030(arg0, 3, &var2, &var3, &var4, &var5);
     var2 = var2 + var4;
-    func_ov002_0215be00(arg0, ((struct Struct_ov002_0215d864_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff, var2, 1);
+    SetNextTextWindow_ov002_0215be00(arg0, ((struct Struct_ov002_0215d864_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff, var2, 1);
 
     memset(((struct Struct_ov002_0215d864 *) (arg0 + 0x1000))->unknown_bd0_, 0, RG(0x960, 0x800));
     func_ov002_0215d950(arg0, ((struct Struct_ov002_0215d864 *) (arg0 + 0x1000))->unknown_bd0_, 0);

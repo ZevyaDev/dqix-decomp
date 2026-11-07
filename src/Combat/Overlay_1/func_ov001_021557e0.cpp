@@ -12,7 +12,7 @@ extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void* func_020e2ff8(void);
 struct Struct_02033fcc;
 extern "C" void func_02033fcc(struct Struct_02033fcc* arg0);
-extern "C" unsigned char func_02039d7c(char* arg0);
+extern "C" unsigned char IsOnLadder_02039d7c(char* object);
 extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 struct Struct_02010834;
@@ -29,7 +29,7 @@ extern "C" void func_ov017_02192400(int arg0, int arg1);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
-extern "C" void func_ov017_021917f0(int arg0, int arg1);
+extern "C" void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int isHeld);
 extern "C" void func_020e3368(unsigned char* arg0, unsigned char arg1);
 struct Struct_ov001_02154de4;
 extern "C" int func_ov001_02154de4(struct Struct_ov001_02154de4* arg0);
@@ -103,7 +103,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
                 continue;
             }
             func_02033fcc((struct Struct_02033fcc*)var5);
-            if (func_02039d7c((char*)var5) == 0 || func_020399a8(var5)->unknown_1_ != 2) {
+            if (IsOnLadder_02039d7c((char*)var5) == 0 || func_020399a8(var5)->unknown_1_ != 2) {
                 var5->obj3D_.MaybeSetRegularAnimation(data_ov001_02164bd1, 0x10);
             }
             ResetFollowTrail_02039d24((unsigned char*)var5);
@@ -151,7 +151,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
                 }
                 var16->unknown_c1_0_ |= 1;
                 var16->unknown_c1_0_ |= 2;
-                func_ov017_021917f0(var15, 0);
+                AttachPartyMemberWeapon_ov017_021917f0(var15, 0);
                 if (!(*var16->unknown_130_ & 1)) {
                     var16->unknown_18c_ |= 2;
                 }
@@ -163,7 +163,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
             var17->unknown_c1_0_ |= 1;
             var17->unknown_c1_0_ |= 2;
             var17->unknown_18c_ |= 2;
-            func_ov017_021917f0(arg0->unknown_116_, 0);
+            AttachPartyMemberWeapon_ov017_021917f0(arg0->unknown_116_, 0);
         }
     }
 

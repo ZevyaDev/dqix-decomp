@@ -1,7 +1,7 @@
 #include "std_library_functions.h"
 #include <globaldefs.h>
 
-extern "C" void func_ov002_0215be00(void *arg0, int arg1, int arg2, int arg3);
+extern "C" void SetNextTextWindow_ov002_0215be00(void *menu, int windowId, int x, int y);
 extern "C" void func_ov002_0215f084(void *arg0, void *arg1, int arg2);
 #if defined(jpn)
 extern "C" void OpenTextWindow_0205d304(void *windowManager, void *text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
@@ -39,7 +39,7 @@ static inline void inline_ov002_0215ef60(struct Struct_ov002_02155960_4 *arg0, s
 extern "C" ARM void func_ov002_0215ef60(char *arg0) {
 #if defined(jpn)
     SetNextTextWindowBGLayer_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + 0xe20), 0, 2);
-    func_ov002_0215be00(arg0, 0x14, 0x15, 8);
+    SetNextTextWindow_ov002_0215be00(arg0, 0x14, 0x15, 8);
 
     memset(*(void **) (arg0 + 0x1000 + 0xa98), 0, 0x800);
     func_ov002_0215f084(arg0, *(void **) (arg0 + 0x1000 + 0xa98), 0);
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov002_0215ef60(char *arg0) {
         var1 = var3->unknown_ae_ + var3->unknown_aa_;
     }
     SetNextTextWindowBGLayer_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + 0xec8), 0, 2);
-    func_ov002_0215be00(arg0, 0x13, var0, var1);
+    SetNextTextWindow_ov002_0215be00(arg0, 0x13, var0, var1);
 
     memset(((struct Struct_ov002_0215ef60 *) (arg0 + 0x1000))->unknown_bd0_, 0, 0x960);
     func_ov002_0215f084(arg0, ((struct Struct_ov002_0215ef60 *) (arg0 + 0x1000))->unknown_bd0_, 0);

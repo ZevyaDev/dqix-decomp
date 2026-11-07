@@ -12,14 +12,14 @@
 
 extern "C" void func_02080bac(void* arg0, int arg1);
 extern "C" void func_0208065c(void* arg0, int arg1);
-struct Struct_02080f8c;
-extern "C" void func_02080f8c(struct Struct_02080f8c* arg0, int arg1, int arg2);
+struct MenuLayout_02080f8c;
+extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c* menuLayout, int textId, int text);
 struct MenuLayout_02080fa8;
 extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8* menuLayout, int textId, int value);
 extern "C" void func_020806b0(void* arg0, int arg1);
 extern "C" void func_02080b2c(void* arg0, int arg1);
 extern "C" void func_02081130(void* arg0, int arg1, int arg2);
-extern "C" int func_020813ec(void* arg0, int arg1);
+extern "C" int OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 struct Struct_ov014_02186bc8_3;
@@ -50,9 +50,9 @@ extern "C" ARM void func_ov014_021885bc(void* arg0) {
     for (; var4 < 0x10; var3++, var4++) {
         if (var2 != NULL) {
             int var5 = FindStringInTable_020e0434((struct Struct_0201099c_3*)((char*)arg0 + 0xe0), 0x15);
-            func_02080f8c((struct Struct_02080f8c*)var0, var3, var5);
+            SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var0, var3, var5);
             if (var2->unknown_13_1_) {
-                func_02080f8c((struct Struct_02080f8c*)*(void**)((char*)arg0 + 0xc0), var3, var2->unknown_8_);
+                SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)*(void**)((char*)arg0 + 0xc0), var3, var2->unknown_8_);
             }
             var2 = var2->unknown_0_;
         } else {
@@ -68,5 +68,5 @@ extern "C" ARM void func_ov014_021885bc(void* arg0) {
     SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, 0x2d, var8);
     int var9 = (var6 > 0x10) ? 1 : 0;
     func_02081130(var0, 5, var9);
-    func_020813ec(var0, 5);
+    OpenMenuLayoutWindow_020813ec(var0, 5);
 }

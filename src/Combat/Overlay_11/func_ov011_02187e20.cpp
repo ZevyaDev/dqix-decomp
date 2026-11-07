@@ -17,7 +17,7 @@ extern "C" ARM void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" ARM void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" ARM void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" ARM int func_ov004_02167820(void* arg0, void* arg1, int arg2, int arg3);
-extern "C" void* func_020dfc2c(void* arg0);
+extern "C" void* ConstructStringTable_020dfc2c(void* stringTable);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void DestroySpriteSet_0205a494(void* spriteSet);
 
@@ -52,7 +52,7 @@ extern "C" ARM int func_ov011_02187e20(struct Struct_ov011_02187e20* arg0) {
     var5.unknown_0_ = &data_ov004_021705f8;
     var5.unknown_20_.ResetAllocatorPointer();
     char* var6 = var5.unknown_34_;
-    func_020dfc2c(var6 + 4);
+    ConstructStringTable_020dfc2c(var6 + 4);
     InitSpriteSet_0205a444(var6 + 0x60);
     memcpy(var4, &var5, sizeof(Struct_ov011_02187e20_2));
 

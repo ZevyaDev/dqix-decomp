@@ -6,10 +6,10 @@ extern "C" void ClearMessageParams_02046380(void);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void func_02042764(unsigned char* arg0, char* arg1, int arg2);
 
-struct Struct_020e4b34 { int unknown_0_; int unknown_4_; unsigned int unknown_8_; };
-extern "C" void func_020e4b34(Struct_020e4b34* arg0, void* arg1, int arg2, unsigned int arg3,
-    unsigned char arg4, unsigned char arg5, unsigned char arg6, unsigned char arg7,
-    unsigned char arg8, unsigned char arg9, unsigned char arg10, unsigned char arg11);
+struct Noun_020e4b34 { int unknown_0_; int unknown_4_; unsigned int unknown_8_; };
+extern "C" void SetNoun_020e4b34(Noun_020e4b34* noun, void* singularText, int pluralText, unsigned int singularIndefiniteArticle,
+    unsigned char pluralIndefiniteArticle, unsigned char singularDefiniteArticle, unsigned char pluralDefiniteArticle, unsigned char gender,
+    unsigned char isPluralOnly, unsigned char arg9, unsigned char hasInitialVowelSound, unsigned char isInitialVowelFromText);
 
 extern "C" int GetStandardString_020e51cc(int stringId);
 
@@ -33,20 +33,20 @@ extern "C" ARM void func_ov003_02170960(struct Struct_ov003_02170960_2* arg0, in
     int var0 = GetMessageWindow_020421a0();
     ClearMessageParams_02046380();
 
-    Struct_020e4b34 var1;
-    Struct_020e4b34 var2;
+    Noun_020e4b34 var1;
+    Noun_020e4b34 var2;
     char var3[0x30];
     __clear(var3, 0x30);
 
     if (arg2 != 0) {
         func_02042764((unsigned char*)arg2, var3, 1);
 
-        func_020e4b34(&var1, var3, 0, 0, 0, 0, 0, arg2->unknown_2e_0_, 0, 1, 0, 1);
+        SetNoun_020e4b34(&var1, var3, 0, 0, 0, 0, 0, arg2->unknown_2e_0_, 0, 1, 0, 1);
         *(void**)(var0 + 0x10) = &var1;
 
         int var4 = GetStandardString_020e51cc(arg2->unknown_c_0_);
 
-        func_020e4b34(&var2, (void*)var4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        SetNoun_020e4b34(&var2, (void*)var4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         *(void**)(var0 + 0x28) = &var2;
     }
 

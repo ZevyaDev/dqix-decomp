@@ -33,18 +33,18 @@ extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" char* func_ov000_02160f14(void* arg0);
 extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
-extern "C" void func_ov000_021626a0(void* arg0, int arg1, int arg2);
+extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void* battleScene, int selector, int isVisible);
 extern "C" void func_ov025_021eb8e8(char* arg0);
 extern "C" void func_ov000_0216d600(char* arg0, int arg1, int arg2, int arg3, float arg4, float arg5, float arg6, unsigned char arg7);
 extern "C" void func_ov000_0216d90c(char* arg0, int arg1);
 extern "C" void func_ov025_021eba60(char* arg0);
 extern "C" void func_ov000_0216da34(char* arg0, int arg1, int arg2);
 extern "C" struct Random* func_ov000_02160ef8(unsigned char* arg0);
-extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 extern "C" void func_ov000_0216dbf0(char* arg0, int* arg1, int arg2, short arg3);
 extern "C" void func_ov000_0216de00(char* arg0, int arg1, int arg2);
 extern "C" void func_ov000_0216df00(char* arg0, int arg1, int arg2, float arg3, float arg4);
-extern "C" short func_ov000_0215ffa0(void* arg0);
+extern "C" short GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 extern "C" void func_ov000_0216e250(char* arg0, int* arg1, int arg2);
 extern "C" void ResetBattleCamera_ov000_0216d370(char* camera, int resetRoll, int resetFieldOfView, int resetTurns);
 extern "C" void func_ov000_0216f2b8(char* arg0);
@@ -59,7 +59,7 @@ extern "C" ARM int func_ov025_021e3c80(Struct_ov025_021e3c80* arg0, BattleAction
     ActionActor_ov000_02160094* var5 = GetActionActor_ov000_02160094(arg1, 0);
     ActionTarget_ov000_021600f8* var6 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, 0);
     if (*(unsigned int*)(var4 + 0x1c4) & 0x40) {
-        func_ov000_021626a0(var2, 4, 1);
+        SetObjectsVisibleBySelector_ov000_021626a0(var2, 4, 1);
         *(unsigned int*)(var4 + 0x1c4) &= ~0x40;
     }
     var3[0x221] = 1;
@@ -86,7 +86,7 @@ extern "C" ARM int func_ov025_021e3c80(Struct_ov025_021e3c80* arg0, BattleAction
     case 3:
     case 11: {
         struct Random* var8 = func_ov000_02160ef8(var2);
-        int var9 = func_ov000_021820bc(var8, (int)arg1, 0x33, (int)var0);
+        int var9 = CollectObjectIndicesBySelector_ov000_021820bc(var8, (int)arg1, 0x33, (int)var0);
         func_ov000_0216dbf0(var3, var0, var9, arg0->unknown_8_ == 11);
         var7 = 1;
         break;
@@ -120,10 +120,10 @@ extern "C" ARM int func_ov025_021e3c80(Struct_ov025_021e3c80* arg0, BattleAction
     }
     case 12: {
         if (var6 == 0) return 1;
-        short var14 = func_ov000_0215ffa0(var6);
+        short var14 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var6);
         void* var15 = GetBattleScene_ov000_02160130();
         if (var15 != 0) {
-            func_ov000_021626a0(var15, 4, 0);
+            SetObjectsVisibleBySelector_ov000_021626a0(var15, 4, 0);
         }
         GameObject* var16 = GameState::GetInstance()->GetCombatantByIndex(var14);
         if (var16 != 0) {

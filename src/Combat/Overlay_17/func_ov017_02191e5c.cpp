@@ -2,8 +2,8 @@
 #include "GameState/GameState.h"
 
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-struct Struct_0205faf4_11;
-extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
+struct PartyMember_0205faf4_11;
+extern "C" int func_02061bd8(struct PartyMember_0205faf4_11* arg0);
 
 extern "C" void func_ov017_021919c8(int arg0, int arg1, short arg2);
 extern "C" void func_ov017_0218fd34(int arg0, int arg1, unsigned short arg2);
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov017_02191e5c(int arg0, int arg1, short arg2, unsigned
 	if (var3) {
 		GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
 		if (!var4) return;
-		if (!func_02061bd8((struct Struct_0205faf4_11*)var4)) {
+		if (!func_02061bd8((struct PartyMember_0205faf4_11*)var4)) {
 			func_ov017_0218fd34(arg0, arg1, arg4);
 			return;
 		}

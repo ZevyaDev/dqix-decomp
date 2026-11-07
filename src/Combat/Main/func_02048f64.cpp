@@ -34,14 +34,14 @@ extern "C" void func_020494c0(Struct_02048f64_2*);
 struct Struct_02033b58;
 extern "C" void func_02033b58(Struct_02033b58*, unsigned char);
 struct Struct_02033b68;
-extern "C" void func_02033b68(Struct_02033b68*, int);
+extern "C" void SetMotionIfDifferent_02033b68(Struct_02033b68*, int);
 struct Struct_02048f64_3;
 extern "C" void func_02049520(Struct_02048f64_3*);
 struct Struct_02048f64;
 extern "C" void func_02049a74(Struct_02048f64*);
 struct Struct_02048c90;
 extern "C" void func_02048c90(Struct_02048c90*);
-extern "C" void func_02049390(unsigned char*, unsigned char);
+extern "C" void SetCombatantCell_02049390(unsigned char*, unsigned char);
 struct Struct_02010604;
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 struct Struct_02033834_2;
@@ -125,7 +125,7 @@ extern "C" ARM void func_02048f64(Struct_02048e2c* arg0) {
             var22 = 0;
         }
     } else if (func_02049ee8((unsigned char*)arg0)) {
-        func_02033b68((Struct_02033b68*)arg0, 1);
+        SetMotionIfDifferent_02033b68((Struct_02033b68*)arg0, 1);
     }
 
     short var24 = var21 * 12;
@@ -148,7 +148,7 @@ extern "C" ARM void func_02048f64(Struct_02048e2c* arg0) {
         }
         func_02048c90((Struct_02048c90*)arg0);
         ((Object3D*)arg0)->SetAnimationPlaybackSpeed(0x1000, 500);
-        func_02049390((unsigned char*)arg0, var2->unknown_1d_);
+        SetCombatantCell_02049390((unsigned char*)arg0, var2->unknown_1d_);
         if (func_02049ee8((unsigned char*)arg0) && arg0->unknown_be_ == 1) {
             SetMotion_02033b88((Struct_02010604*)arg0, 0);
         }

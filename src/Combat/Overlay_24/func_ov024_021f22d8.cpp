@@ -2,8 +2,8 @@
 
 extern "C" int func_ov024_021edf00(int* arg0, int arg1, short* arg2);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
-extern "C" int func_ov000_02156068(void* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_ov024_021ed8c0(void* arg0, int arg1, int arg2, int* arg3, short* arg4);
+extern "C" int HasEnemyTrait_ov000_02156068(void* battle, int combatantIndex, int kind, int traitType);
+extern "C" void ChooseEnemyActionTargets_ov024_021ed8c0(void* targetSelector, int actorIndex, int action, int* count, short* targetIndices);
 
 extern unsigned short data_ov024_021febe4;
 
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov024_021f22d8(int* arg0, int arg1, int arg2, int* arg3,
 
 	*arg3 = 0;
 	for (int var6 = 0; var6 < var5; var6++) {
-		if (func_ov000_02156068((void*)*arg0, var0[var6], 0, 1)) {
+		if (HasEnemyTrait_ov000_02156068((void*)*arg0, var0[var6], 0, 1)) {
 			int var7 = *arg3;
 			*arg3 = var7 + 1;
 			arg4[var7] = var0[var6];
@@ -34,6 +34,6 @@ extern "C" ARM int func_ov024_021f22d8(int* arg0, int arg1, int arg2, int* arg3,
 	}
 	if (*arg3 <= 0) return 0;
 
-	func_ov024_021ed8c0(arg0, arg1, arg2, arg3, arg4);
+	ChooseEnemyActionTargets_ov024_021ed8c0(arg0, arg1, arg2, arg3, arg4);
 	return 1;
 }

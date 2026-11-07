@@ -22,8 +22,8 @@ struct Struct_02013fb4;
 
 struct Struct_0201f040_3;
 
-struct Struct_0207f524;
-extern "C" void func_0207f72c(struct Struct_0207f524* arg0);
+struct MenuLayoutTextEntryList_0207f524;
+extern "C" void func_0207f72c(struct MenuLayoutTextEntryList_0207f524* arg0);
 
 struct Struct_02108ee0 { void* unknown_0_; void* unknown_4_; };
 extern struct Struct_02108ee0 data_02108ee0;
@@ -39,6 +39,6 @@ extern "C" ARM void func_0207f524(void* arg0, void* arg1, struct Struct_02013fb4
         ((Script*)&var0)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f0fb0);
         ((Script*)((struct Struct_0201f040_2*)&var0))->Load(arg2, arg3);
         ((Script*)((struct Struct_0201f040_3*)&var0))->Execute();
-        func_0207f72c((struct Struct_0207f524*)arg0);
+        func_0207f72c((struct MenuLayoutTextEntryList_0207f524*)arg0);
     }
 }

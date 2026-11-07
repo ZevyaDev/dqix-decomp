@@ -10,7 +10,7 @@ enum { Enum_ov017_021bba08_156 = 0x9c };
 
 extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" int func_020107d0(char* arg0);
-extern "C" void ResetEventTask_ov017_021baedc(void* node, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(void* node, int isRestart);
 
 extern char data_ov017_021d7d7e[0xc];
 

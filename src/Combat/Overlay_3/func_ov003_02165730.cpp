@@ -13,7 +13,7 @@ enum { Enum_ov003_02165730_208 = 0xd0 };
 #include "Resource/GameResources.h"
 
 struct GlobalFlags_02012de8;
-struct Struct_020e25e8;
+struct YesNoWindow_020e25e8;
 
 struct Struct_ov003_02165278 {
     unsigned char unknown_0_[Enum_ov003_02165730_969];
@@ -25,7 +25,7 @@ extern "C" Struct_ov003_02165278* func_020936f8(void);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
-extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
+extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8* yesNoWindow);
 
 struct Struct_ov003_02165730 {
     unsigned char unknown_0_[0xf78];
@@ -35,7 +35,7 @@ struct Struct_ov003_02165730 {
 
 struct Struct_ov003_02165730_2 {
     unsigned char unknown_0_[Enum_ov003_02165730_912];
-    struct Struct_020e25e8* unknown_390_;
+    struct YesNoWindow_020e25e8* unknown_390_;
     unsigned char unknown_394_[Enum_ov003_02165730_208];
     unsigned int unknown_464_;
     unsigned char unknown_468_[0x1c];
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov003_02165730(Struct_ov003_02165730_2* arg0) {
         UnlockAndSetBrightness(var0, 0, 0xf);
         arg0->unknown_4a4_ = 1;
         if (arg0->unknown_390_ == NULL) return;
-        func_020e25e8(arg0->unknown_390_);
+        CloseYesNoWindow_020e25e8(arg0->unknown_390_);
     } else if (arg0->unknown_4a4_ == 1) {
         if (IsBrightnessTransitionActive(var0) != 0) return;
         if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)var1, 0x41) != 0) {

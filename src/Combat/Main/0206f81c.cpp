@@ -24,7 +24,7 @@ struct Struct_0203d028_2 {
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_020703c8(int arg0, int arg1, int arg2, int arg3);
-extern "C" void* ResetEventTask_ov017_021baedc(void* node, int arg1);
+extern "C" void* ResetEventTask_ov017_021baedc(void* node, int isRestart);
 
 struct QueueNode_0201bdac;
 struct Queue_0201bdac_2;
@@ -37,7 +37,7 @@ extern "C" void func_020e1154(void* arg0);
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void InitZoneEntry_02070378(char* zoneEntry);
 
-extern "C" void* func_0203cf4c(void);
+extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
 extern "C" int func_02040528(int* arg0);
 
@@ -45,7 +45,7 @@ extern "C" void func_ov017_021b8d80(void*);
 extern "C" void func_ov017_021b8d1c(void* arg0);
 
 extern "C" int GetFollowCamera_020100f8(char* gameState);
-extern "C" void func_020a27b8(unsigned char* arg0);
+extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
 
 struct Vector3i;
 
@@ -73,7 +73,7 @@ extern "C" void* func_02083554(struct Struct_0206f81c* arg0, int arg1);
 extern "C" void func_02083738(void* arg0, int arg1);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int memberIndex, int requestModelLoad);
-extern "C" void func_ov017_021c4418(int arg0, signed char arg1);
+extern "C" void SendPartyMemberBodyAppearance_ov017_021c4418(int memberIndex, signed char recipientIndex);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 
 struct Struct_0203d028_4;
@@ -233,7 +233,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
             }
 
             case 0x76: {
-                void* var20 = FindNPCById_0203df78(func_0203cf4c(), *(unsigned short*)(var14 + 2));
+                void* var20 = FindNPCById_0203df78(GetNPCManager_0203cf4c(), *(unsigned short*)(var14 + 2));
                 int var21 = 0;
                 if (var20 != NULL) {
                     var21 = func_02040528((int*)var20);
@@ -254,7 +254,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                     AppendToQueue_020469b4(var9, (struct QueueNode_0201bdac*)var23);
                     int var25 = GetFollowCamera_020100f8((char*)var11);
                     if (var25 != 0) {
-                        func_020a27b8((unsigned char*)var25);
+                        DisableCameraTurning_020a27b8((unsigned char*)var25);
                     }
                 }
                 break;
@@ -323,7 +323,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
             }
 
             case 0x7c: {
-                void* var31 = FindNPCById_0203df78(func_0203cf4c(), *(unsigned short*)(var14 + 2));
+                void* var31 = FindNPCById_0203df78(GetNPCManager_0203cf4c(), *(unsigned short*)(var14 + 2));
                 if (var31 != NULL) {
                     *(int*)var31 |= 0x8000;
                 }
@@ -396,7 +396,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                             if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18())) {
                                 int var51 = var42[var50];
                                 SendPartyMemberEquippedItems_ov017_021c3fb4(var51, 1);
-                                func_ov017_021c4418(var51, var49);
+                                SendPartyMemberBodyAppearance_ov017_021c4418(var51, var49);
                             }
                             void* var52 = GetGameResources();
                             void* var53 = *(void**)((char*)var52 + 0x3000 + REGION_VALUE(0x4f0, 0x700));
@@ -436,7 +436,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                                         func_02083738((void*)var62, var63->unknown_8_0_);
                                         if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18())) {
                                             SendPartyMemberEquippedItems_ov017_021c3fb4(var60, 1);
-                                            func_ov017_021c4418(var60, -1);
+                                            SendPartyMemberBodyAppearance_ov017_021c4418(var60, -1);
                                         }
                                         void* var64 = GetGameResources();
                                         void* var65 = *(void**)((char*)var64 + 0x3000 + REGION_VALUE(0x4f0, 0x700));

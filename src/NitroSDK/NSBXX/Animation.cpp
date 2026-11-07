@@ -12,7 +12,7 @@
 extern "C"
 {
     // memset
-    void func_020ca3ec(int value, void* dst, unsigned len);
+    void Memset32BitByWord_020ca3ec(int value, void* dst, unsigned len);
 }
 
 extern unsigned int data_020f1c6c; // number of animation types (5)
@@ -54,7 +54,7 @@ void InitializeModelAnimation(AnimationData *anim, void *pRawData, NSBXXInternal
 
 void PopulateModelRenderContext(ModelRenderContext *context, NSBXXInternalModel *model)
 {
-    func_020ca3ec(0, context, sizeof(ModelRenderContext));
+    Memset32BitByWord_020ca3ec(0, context, sizeof(ModelRenderContext));
     context->pfnProcessMaterialAnimations_ = data_020f1c8c;
     context->pfnProcessJointAnimations_ = data_020f1c88;
     context->pfnProcessVisibilityAnimations_ = data_020f1c84;

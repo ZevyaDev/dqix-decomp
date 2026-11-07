@@ -10,7 +10,7 @@ enum { Enum_ov017_021982ac_108 = 0x6c };
 struct Struct_020a2908;
 struct Struct_020a28e0;
 
-extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
+extern "C" void* GetFirstZoneFeatureOfType_0201e838(unsigned char* zoneFeatures, unsigned int type);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" int func_020a2cc4(unsigned char* arg0);
 extern "C" void func_020a2cd8(unsigned char* arg0, int arg1);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov017_021982ac(void) {
     unsigned char* var5;
     int var6;
 
-    var4 = (struct Struct_ov017_021982ac_2*)func_0201e838((unsigned char*)var1 + Enum_ov017_021982ac_108, 4);
+    var4 = (struct Struct_ov017_021982ac_2*)GetFirstZoneFeatureOfType_0201e838((unsigned char*)var1 + Enum_ov017_021982ac_108, 4);
     var5 = (unsigned char*)GetFollowCamera_020100f8((char*)var0);
     if (var5 == 0) {
         return;

@@ -85,7 +85,7 @@ extern char data_ov004_02170398[];
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
-extern "C" StringList_02072a68_2* func_ov023_021fa598(void*);
+extern "C" StringList_02072a68_2* GetMenuObjectStringList_ov023_021fa598(void*);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void func_02046608(void*, int, void*, char*, int, int, int);
@@ -110,7 +110,7 @@ extern "C" ARM int func_ov004_021561b0(void* arg0) {
     void* var4 = FindMenuObjectById_ov023_021f6880(var0, 11);
     if (!var4) return 0;
     if (func_ov023_021f6f10(var4) != 4) return 0;
-    StringList_02072a68_2* var5 = func_ov023_021fa598(var4);
+    StringList_02072a68_2* var5 = GetMenuObjectStringList_ov023_021fa598(var4);
     memset(data_ov004_021707c8.unknown_0_, 0, 0x1000);
     short var6 = var1 * 12;
     int var7 = 0;

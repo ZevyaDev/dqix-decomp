@@ -7,7 +7,7 @@ extern "C" void* memcpy(void*, const void*, unsigned int);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
-extern "C" void func_ov023_021fa598(void*);
+extern "C" void GetMenuObjectStringList_ov023_021fa598(void*);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_02012028(void*, unsigned char);
 extern "C" void* func_ov011_021845f8(void*, int);
@@ -21,7 +21,7 @@ extern "C" ARM int func_ov004_0216d718(void* arg0)
 {
     void* var0 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x192);
     if (var0 != 0 && func_ov023_021f6f10(var0) == 4)
-        func_ov023_021fa598(var0);
+        GetMenuObjectStringList_ov023_021fa598(var0);
     GetMessageWindow_020421a0();
     GameState* var1 = GameState::GetInstance();
     func_02012028(var1, 0);

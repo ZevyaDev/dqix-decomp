@@ -42,8 +42,8 @@ struct BGLayer_0204af14;
 extern "C" void* GetBGScreenBlock_0204af14(BGLayer_0204af14* layer, unsigned int screenBlockIndex);
 struct Struct_0204ae44;
 extern "C" void func_0204ae44(Struct_0204ae44* arg0, int arg1);
-struct Struct_0204b988;
-extern "C" void func_0204b988(Struct_0204b988* arg0, unsigned int arg1, int arg2, int arg3, unsigned short arg4);
+struct BGLayer_0204b988;
+extern "C" void CopyBGScreenBlock_0204b988(BGLayer_0204b988* layer, unsigned int screenBlockIndex, int destX, int destY, unsigned short palette);
 struct BGLayer_02020cb8_2;
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
 extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
@@ -139,7 +139,7 @@ extern "C" ARM bool func_ov013_021870f0(Struct_ov013_021870f0_6* arg0) {
     {
 #if defined(jpn)
         FontLoader_0208cb08* var3 = GetFontLoader_02094a00();
-        func_02094b3c(var3, 10);
+        ClearLoadedFontSetForSize_02094b3c(var3, 10);
         RequestSingleFontLoad_02094b30(var3, 0x68, 0);
 #else
         SafeAllocator* var4 = arg0->unknown_0_;
@@ -339,7 +339,7 @@ extern "C" ARM bool func_ov013_021870f0(Struct_ov013_021870f0_6* arg0) {
             void* var37 = GetBGScreenBlock_0204af14((BGLayer_0204af14*)&arg0->unknown_28_, 0);
             if (var37 != NULL)
                 func_0204ae44((Struct_0204ae44*)var37, arg0->unknown_67_);
-            func_0204b988((Struct_0204b988*)&arg0->unknown_28_, 0, 0, 0, 0xffff);
+            CopyBGScreenBlock_0204b988((BGLayer_0204b988*)&arg0->unknown_28_, 0, 0, 0, 0xffff);
             LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&arg0->unknown_28_, NULL);
             arg0->unknown_65_ = true;
             arg0->unknown_66_ = 0;

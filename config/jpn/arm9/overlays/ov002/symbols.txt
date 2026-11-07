@@ -82,7 +82,7 @@ func_ov002_0215b7d0 kind:function(arm,size=0x44) addr:0x0215ca24
 func_ov002_0215b814 kind:function(arm,size=0xb4) addr:0x0215ca68
 func_ov002_0215b9a4 kind:function(arm,size=0x1fc) addr:0x0215cb1c
 func_ov002_0215bba8 kind:function(arm,size=0x218) addr:0x0215cd18
-func_ov002_0215be00 kind:function(arm,size=0x130) addr:0x0215cf30
+SetNextTextWindow_ov002_0215be00 kind:function(arm,size=0x130) addr:0x0215cf30
 func_ov002_0215bf34 kind:function(arm,size=0xcc) addr:0x0215d060
 func_ov002_0215c028 kind:function(arm,size=0xac) addr:0x0215d12c
 func_ov002_0215c0f8 kind:function(arm,size=0x78) addr:0x0215d1d8
@@ -156,9 +156,9 @@ func_ov002_02161798 kind:function(arm,size=0xcc) addr:0x021626ac
 func_ov002_0216186c kind:function(arm,size=0xa0) addr:0x02162778
 func_ov002_02161920 kind:function(arm,size=0x5c) addr:0x02162818
 func_ov002_02161a8c kind:function(arm,size=0xbc) addr:0x02162874
-func_ov002_02161b48 kind:function(arm,size=0x4c) addr:0x02162930
+IsCancelPressed_ov002_02161b48 kind:function(arm,size=0x4c) addr:0x02162930
 func_ov002_02161b98 kind:function(arm,size=0x150) addr:0x0216297c
-func_ov002_02161cf0 kind:function(arm,size=0x5fc) addr:0x02162acc
+ConfigureMenuCursors_ov002_02161cf0 kind:function(arm,size=0x5fc) addr:0x02162acc
 func_ov002_021622ec kind:function(arm,size=0x284) addr:0x021630c8
 func_ov002_0216257c kind:function(arm,size=0x188) addr:0x0216334c
 func_ov002_02162714 kind:function(arm,size=0x244) addr:0x021634d4
@@ -229,7 +229,7 @@ data_ov002_0216d0f0 kind:data(any) addr:0x0216d0f0
 data_ov002_0216d0f4 kind:data(any) addr:0x0216d0f4
 data_ov002_0216d120 kind:data(any) addr:0x0216d120
 data_ov002_0216d124 kind:data(any) addr:0x0216d124
-data_ov002_0216d150 kind:data(any) addr:0x0216d150
+gTextWindowEntries_ov002_0216cb48 kind:data(any) addr:0x0216d150
 data_ov002_0216cc86 kind:data(any) addr:0x0216d2a2
 data_ov002_0216cc88 kind:data(any) addr:0x0216d2a4
 data_ov002_0216d2b0 kind:data(any) addr:0x0216d2b0

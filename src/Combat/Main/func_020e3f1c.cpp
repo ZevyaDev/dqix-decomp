@@ -117,7 +117,7 @@ extern "C" void SetMotion_02033b88(struct Struct_02010604* object, int motion);
 extern "C" void func_02037d88(GameObject* arg0);
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 extern "C" void func_020531f0(GameObject* arg0);
-extern "C" void func_020a27b8(unsigned char* arg0);
+extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
 extern "C" int func_02039874(void* arg0);
 extern "C" void func_020338d4(struct Struct_020338d4* arg0, struct Struct_ov009_0218aa28* arg1);
 extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
@@ -132,7 +132,7 @@ extern "C" void ClearTimedMessageQueue_020d7aa0(struct TimedMessageQueue_020d7aa
 extern "C" void func_ov017_021c3e18(int arg0);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void* func_020dfc2c(void* arg0);
+extern "C" void* ConstructStringTable_020dfc2c(void* stringTable);
 extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
 extern "C" void LoadStringTable_020dfec0(void* stringTable, void* allocator, void* fileData, unsigned int fileSize);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
@@ -232,7 +232,7 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
                 func_020531f0(var14);
             }
         }
-        func_020a27b8((unsigned char*)var5);
+        DisableCameraTurning_020a27b8((unsigned char*)var5);
         SetMainBrightness(var7, -16, 0x1e);
 #if defined(jpn)
         if (func_020d3018(var10->unknown_180_->unknown_0_, data_020f2e30) == 0) {
@@ -346,7 +346,7 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
         var31.ResetAllocatorPointer();
         var31.CreateTypeA(var30, 0x500);
         struct StringTable_0201099c_14 var32;
-        func_020dfc2c(&var32);
+        ConstructStringTable_020dfc2c(&var32);
         InitStringTable_020dfc40(&var32);
         LoadStringTable_020dfec0(&var32, &var31, var24, var25);
         var0->RemoveTask(arg0->unknown_c_);

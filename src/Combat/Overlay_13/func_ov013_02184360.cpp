@@ -12,7 +12,7 @@ struct BGControlSave_02074af4;
 extern "C" ARM void SaveMainBGControl_02074af4(struct BGControlSave_02074af4* save);
 struct TextWindowManager_0205cfd4;
 extern "C" ARM void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
-extern "C" ARM void func_0205c790(char* arg0);
+extern "C" ARM void InitChoiceList_0205c790(char* choiceList);
 struct BGLayer_02020cb8;
 extern "C" ARM void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov013_02184360(void* arg0, void* arg1) {
     }
 
     InitTextWindowManager_0205cfd4((TextWindowManager_0205cfd4*)(var0 + R(0x34, 0x38)));
-    func_0205c790((char*)(var0 + R(0x3d0, 0x3d4)));
+    InitChoiceList_0205c790((char*)(var0 + R(0x3d0, 0x3d4)));
 
     if (var0[R(0x5cc, 0x640)] != 0) {
         unsigned char* var5 = (unsigned char*)arg1 + 0x188;

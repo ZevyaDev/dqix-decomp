@@ -8,7 +8,7 @@ struct Struct_0207f0ac_2 {
     unsigned char unknown_13_;
     char unknown_14_[4];
 };
-struct Struct_0207f6ac {
+struct MenuLayoutTextEntry_0207f6ac {
     char unknown_0_[8];
     short unknown_8_;
     short unknown_a_;
@@ -16,15 +16,15 @@ struct Struct_0207f6ac {
     char unknown_e_[0x22];
 };
 struct Struct_0207f0ac { Struct_0207f0ac_2* unknown_0_; short unknown_4_; };
-struct Struct_0207f524 { Struct_0207f6ac* unknown_0_; short unknown_4_; };
+struct MenuLayoutTextEntryList_0207f524 { MenuLayoutTextEntry_0207f6ac* pEntries_0_; short count_4_; };
 struct MenuLayout_0207fdcc_2 {
     void* unknown_0_;
-    Struct_0207f524 unknown_4_;
+    MenuLayoutTextEntryList_0207f524 unknown_4_;
     Struct_0207f0ac unknown_c_;
 };
 extern "C" Struct_0207f0ac_2* func_0207f0ac(Struct_0207f0ac*, int);
-extern "C" Struct_0207f6ac* func_0207f6ac(Struct_0207f524*, int);
-extern "C" int func_020813ec(void*, int);
+extern "C" MenuLayoutTextEntry_0207f6ac* FindMenuLayoutTextEntry_0207f6ac(MenuLayoutTextEntryList_0207f524*, int);
+extern "C" int OpenMenuLayoutWindow_020813ec(void*, int);
 extern "C" void CloseMenuLayoutWindow_0207fdcc(MenuLayout_0207fdcc_2*, int);
 
 // USA: func_02081224
@@ -34,13 +34,13 @@ extern "C" ARM void func_02081224(MenuLayout_0207fdcc_2* arg0, int arg1) {
     int var2[8];
     Struct_0207f0ac_2* var3 = func_0207f0ac(&arg0->unknown_c_, arg1);
     if (!var3) return;
-    func_020813ec(arg0, arg1);
+    OpenMenuLayoutWindow_020813ec(arg0, arg1);
     int var4 = 0;
     int var5 = var3->unknown_13_;
     int var6 = 0;
     for (; var6 < var5; var6++) {
         int var7 = var3->unknown_0_[var6];
-        Struct_0207f6ac* var8 = func_0207f6ac(&arg0->unknown_4_, var7);
+        MenuLayoutTextEntry_0207f6ac* var8 = FindMenuLayoutTextEntry_0207f6ac(&arg0->unknown_4_, var7);
         if (var8) {
             var0[var4] = var7;
             var1[var4] = var8->unknown_8_;
@@ -77,7 +77,7 @@ extern "C" ARM void func_02081224(MenuLayout_0207fdcc_2* arg0, int arg1) {
     }
     int var20 = var19 >> 1;
     for (int var21 = 0; var21 < var4; var21++) {
-        Struct_0207f6ac* var22 = func_0207f6ac(&arg0->unknown_4_, (short)var0[var21]);
+        MenuLayoutTextEntry_0207f6ac* var22 = FindMenuLayoutTextEntry_0207f6ac(&arg0->unknown_4_, (short)var0[var21]);
         if (var22) {
             var22->unknown_8_ = var20;
             var20 += var18 + var22->unknown_c_;

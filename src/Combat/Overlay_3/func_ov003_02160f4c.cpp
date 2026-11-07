@@ -19,7 +19,7 @@ extern "C" void *FindStringInTable_020e0434(Struct_0201099c_3 *stringTable, int 
 extern "C" void InitPartyMemberNoun_020e4bf4(void *noun, int partyMemberIndex);
 extern "C" void *func_ov003_02160bf8(void *arg0, int arg1);
 extern "C" void func_02042764(void *arg0, void *arg1, int arg2);
-extern "C" void func_020e4b34(void *, const char *, void *, unsigned int, unsigned char, unsigned char, unsigned char,
+extern "C" void SetNoun_020e4b34(void *, const char *, void *, unsigned int, unsigned char, unsigned char, unsigned char,
                               unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(void *window, void *text, int arg2, int arg3);
@@ -151,7 +151,7 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *arg0) {
             unsigned char *var13 = (unsigned char *) func_ov003_02160bf8(arg0, *(short *) (arg0 + 0x400 + 0x80));
             if (var13 != 0) {
                 func_02042764(var13 + 0x140, var8, 1);
-                func_020e4b34(var9, var8, 0, 0, 0, 0, 0, ((Struct_ov003_02160f4c *) (var13 + 0x174))->unknown_0_0_, 0, 1, 0, 1);
+                SetNoun_020e4b34(var9, var8, 0, 0, 0, 0, 0, ((Struct_ov003_02160f4c *) (var13 + 0x174))->unknown_0_0_, 0, 1, 0, 1);
                 *(void **) (var7 + 0x10) = var9;
             }
             *(unsigned int *) (arg0 + 0x464) &= ~0x28u;

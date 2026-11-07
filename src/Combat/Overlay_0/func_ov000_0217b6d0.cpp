@@ -7,7 +7,7 @@ struct TextWindowManager_0205def8;
 struct SoundEffectManager_02108760;
 
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
-extern "C" void func_0205def8(struct TextWindowManager_0205def8* arg0, int arg1, int arg2);
+extern "C" void SetTextWindowVisible_0205def8(struct TextWindowManager_0205def8* windowManager, int isVisible, int windowId);
 struct TextWindowManager_0205da38;
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" int func_ov000_0217c4e8(void* arg0, int arg1);
@@ -99,7 +99,7 @@ extern "C" ARM int func_ov000_0217b6d0(Struct_ov000_0217b6d0_3* arg0, int arg1, 
     arg0->unknown_1e_ = var1;
     {
     var0 = data_ov000_02184294.inline_ov000_0217b6d0();
-    func_0205def8((struct TextWindowManager_0205def8*)var0->unknown_188_, 1, 0x23);
+    SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8*)var0->unknown_188_, 1, 0x23);
     if (var2 != var1) {
         return -1;
     }
@@ -109,7 +109,7 @@ extern "C" ARM int func_ov000_0217b6d0(Struct_ov000_0217b6d0_3* arg0, int arg1, 
         if (!func_ov000_0217c4e8(arg0, var1)) {
             return arg0->unknown_10_[arg0->unknown_18_];
         }
-        func_0205def8((struct TextWindowManager_0205def8*)var0->unknown_188_, 0, 0x23);
+        SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8*)var0->unknown_188_, 0, 0x23);
         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
         func_ov000_021716d0(arg0);
         GameObject* var5 = GameState::GetInstance()->GetPartyMemberByIndex(arg0->unknown_4c_);
@@ -146,7 +146,7 @@ extern "C" ARM int func_ov000_0217b6d0(Struct_ov000_0217b6d0_3* arg0, int arg1, 
     var8 = GetCursorIndex_0205d794((struct Struct_0205c570*)arg0->unknown_38_);
     arg0->unknown_1e_ = var8;
     var7 = data_ov000_02184294.unknown1_8_;
-    func_0205def8((struct TextWindowManager_0205def8*)var7->unknown1_188_, 1, 0x23);
+    SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8*)var7->unknown1_188_, 1, 0x23);
     if (var9 != var8) {
         return -1;
     }
@@ -156,7 +156,7 @@ extern "C" ARM int func_ov000_0217b6d0(Struct_ov000_0217b6d0_3* arg0, int arg1, 
         if (!func_ov000_0217c4e8(arg0, var8)) {
             return arg0->unknown_10_[arg0->unknown_18_];
         }
-        func_0205def8((struct TextWindowManager_0205def8*)var7->unknown1_188_, 0, 0x23);
+        SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8*)var7->unknown1_188_, 0, 0x23);
         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
         func_ov000_021716d0(arg0);
         GameObject* var12 = GameState::GetInstance()->GetPartyMemberByIndex(arg0->unknown_4c_);

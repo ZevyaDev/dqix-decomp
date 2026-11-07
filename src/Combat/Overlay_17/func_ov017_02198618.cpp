@@ -16,7 +16,7 @@ struct Struct_0203402c {
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int func_0203402c(struct Struct_0203402c* arg0);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
+extern "C" void* GetFirstZoneFeatureOfType_0201e838(unsigned char* zoneFeatures, unsigned int type);
 extern "C" int func_02094b9c(void* arg0, void* arg1);
 extern "C" void func_ov017_0219a674(unsigned char* arg0);
 extern "C" void func_ov017_0219b33c(void* arg0, void* arg1, int arg2, int arg3);
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov017_02198618(void* arg0) {
 
     unsigned char* var2 = (unsigned char*)GetZone3D_02012fe4();
     GetCamera_020100bc(var0);
-    unsigned char* var3 = (unsigned char*)func_0201e838(var2 + Enum_ov017_02198618_108, 10);
+    unsigned char* var3 = (unsigned char*)GetFirstZoneFeatureOfType_0201e838(var2 + Enum_ov017_02198618_108, 10);
     struct Struct_ov017_02198618 var4 = *(struct Struct_ov017_02198618*)((char*)var1 + 0x44);
 
     while (var3 != NULL) {

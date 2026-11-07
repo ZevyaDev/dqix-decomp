@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern char gLocalWirelessLink_021015a0;
-extern "C" void func_0202c848(int);
+extern "C" void SetLocalWirelessLinkError_0202c848(int);
 
 // USA: func_0202cd28
 extern "C" ARM void func_0202cd28(unsigned short* arg0) {
@@ -9,5 +9,5 @@ extern "C" ARM void func_0202cd28(unsigned short* arg0) {
         *(int*)(&gLocalWirelessLink_021015a0 + 0x10) = 1;
         return;
     }
-    func_0202c848(arg0[1]);
+    SetLocalWirelessLinkError_0202c848(arg0[1]);
 }

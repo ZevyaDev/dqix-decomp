@@ -98,7 +98,7 @@ struct Struct_ov003_021560e4 {
     int unknown_c_;
     BGLayer_02020cb8* unknown_10_;
     Struct_0207f7f0_2* unknown_14_;
-    Struct_0207f7f0* unknown_18_;
+    MenuLayout_0207f7f0* unknown_18_;
     void* unknown_1c_;
     char unknown_20_[4];
     int unknown_24_;
@@ -184,7 +184,7 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
                     SetMessageString_02046574(var8, 0, *(char**)((char*)var13 + 0x134));
                 }
 #else
-                InitPartyMemberNoun_020e4bf4(var4, var13->obj3D_.unknown_4_);
+                InitPartyMemberNoun_020e4bf4(var4, var13->obj3D_.objectIndex_4_);
                 *(void**)var8 = var4;
 #endif
             } else {
@@ -366,7 +366,7 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
     } else if (var1 == 9) {
         char* var58 = (char*)GetMessageWindow_020421a0();
         if (*(int*)(var58 + Enum_ov003_021560e4_2456 + 8) == 3) {
-            Struct_0207f7f0* var59 = arg0->unknown_18_;
+            MenuLayout_0207f7f0* var59 = arg0->unknown_18_;
             var59->unknown_2c_ = arg0->unknown_10_;
             var59->unknown_38_ = 2;
             func_0207f7f0(var59, arg0->unknown_14_, 3);

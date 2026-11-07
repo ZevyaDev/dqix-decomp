@@ -12,7 +12,7 @@ extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 // USA: func_ov000_0218124c
 #if defined(jpn)
-extern "C" int func_ov017_021bdbcc(void*);
+extern "C" int GetHaloObject_ov017_021bdbcc(void*);
 extern "C" ARM void func_ov000_0218124c(unsigned char* arg0, int arg1, void* arg2, int arg3, short arg4, short arg5) {
     GameObject* var0 = GameState::GetInstance()->GetPartyMemberByIndex(arg1);
     if (var0 != 0 && *(int*)((char*)var0 + 0x1b8) != 0) {
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov000_0218124c(unsigned char* arg0, int arg1, void* arg
         return;
     }
     unsigned char var2 = arg3 + 15;
-    if (func_ov017_021bdbcc(GetGameResources()) != 0) var2 = 15;
+    if (GetHaloObject_ov017_021bdbcc(GetGameResources()) != 0) var2 = 15;
     void* var3 = GetBGScreenBlock_0204af14((BGLayer_0204af14*)(arg0 + 0x8c4), var2);
     func_0204b938(arg2, var3, arg4, arg5, (unsigned short)(arg1 + 2));
 }

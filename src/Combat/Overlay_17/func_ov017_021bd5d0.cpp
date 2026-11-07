@@ -41,7 +41,7 @@ extern "C" ARM void func_ov017_021bd5d0(void) {
             unsigned short var8 = inline_ov017_021bd5d0_4(var5);
             unsigned short var9 = inline_ov017_021bd5d0_5(var5);
             unsigned short var10 = var4->inline_ov017_021bd5d0_2();
-            func_ov017_021c9d2c(var2->obj3D_.unknown_4_, 1, var9, var10, var8, var7, var6, 1, 0);
+            func_ov017_021c9d2c(var2->obj3D_.objectIndex_4_, 1, var9, var10, var8, var7, var6, 1, 0);
 
             func_02033b58((struct Struct_02033b58*)var2, 0);
             var2->unknown_ac_.unknown_b2_ = 0;

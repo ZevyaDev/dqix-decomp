@@ -5,7 +5,7 @@ extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int func_ov023_021ddbb8(void* arg0, int arg1, int arg2);
 extern "C" void func_ov023_021db2e4(volatile int* arg0);
 extern "C" int func_ov023_021dc354(void* arg0);
-extern "C" void func_ov023_021dc134(void* arg0, int arg1, int arg2);
+extern "C" void InitItemInfoPanel_ov023_021dc134(void* arg0, int itemId, int arg2);
 extern "C" void func_ov023_021dbfd0(void* arg0, void* arg1);
 
 #if defined(jpn)
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov023_021dc9e8(void* arg0, void* arg1, int arg2, int ar
 
     func_ov023_021dc354(arg0);
     signed char var1 = *(signed char*)((char*)arg0 + FIELD_OFFSET(0x77b));
-    func_ov023_021dc134(arg0, arg2, var1);
+    InitItemInfoPanel_ov023_021dc134(arg0, arg2, var1);
 
     unsigned short var2 = *(unsigned short*)((char*)arg0 + FIELD_OFFSET(0x774));
     *(unsigned short*)((char*)arg0 + FIELD_OFFSET(0x774)) = var2 | arg4;

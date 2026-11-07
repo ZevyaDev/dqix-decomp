@@ -3,7 +3,7 @@
 #include <globaldefs.h>
 
 struct Struct_0205c570;
-struct Struct_0205cf1c;
+struct TextWindowManager_0205cf1c;
 struct SoundEffectManager_02108760;
 
 #if defined(jpn)
@@ -80,13 +80,13 @@ extern "C" void func_ov003_0215dd3c(char *arg0);
 struct TextWindowManager_0205d81c;
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
 extern "C" void EnableTouchMenuCursor_0205cef8(void *windowManager);
-extern "C" void func_0205cf04(void *arg0);
+extern "C" void EnableKeyMenuCursor_0205cf04(void *windowManager);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570 *);
 struct TextWindowManager_0205d6a0;
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *, int, int);
-extern "C" void func_0205cf10(void *arg0);
-extern "C" void func_0205cf1c(Struct_0205cf1c *);
+extern "C" void DisableTouchMenuCursor_0205cf10(void *windowManager);
+extern "C" void DisableKeyMenuCursor_0205cf1c(TextWindowManager_0205cf1c *);
 extern "C" int func_ov003_0215dcb8(char *arg0);
 extern "C" ARM int func_ov003_0215dd00(char *arg0);
 
@@ -183,7 +183,7 @@ extern "C" ARM void func_ov003_0215d150(Struct_ov003_02154af4_3 *arg0) {
         arg0->unknown_3c1_ = 0;
         func_ov003_0215dd3c((char *) arg0);
         EnableTouchMenuCursor_0205cef8(arg0->unknown_98_);
-        func_0205cf04(arg0->unknown_98_);
+        EnableKeyMenuCursor_0205cf04(arg0->unknown_98_);
         arg0->unknown_3b8_ = arg0->unknown_3b8_ + 1;
     }
     if (var4 == 4) {
@@ -193,8 +193,8 @@ extern "C" ARM void func_ov003_0215d150(Struct_ov003_02154af4_3 *arg0) {
             arg0->unknown_3c2_ = 0;
             CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_98_, 0);
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
-            func_0205cf10(arg0->unknown_98_);
-            func_0205cf1c((Struct_0205cf1c *) arg0->unknown_98_);
+            DisableTouchMenuCursor_0205cf10(arg0->unknown_98_);
+            DisableKeyMenuCursor_0205cf1c((TextWindowManager_0205cf1c *) arg0->unknown_98_);
             switch (arg0->unknown_3bd_[arg0->unknown_3c1_]) {
             case 0: arg0->unknown_3bc_ = 2; break;
             case 1: arg0->unknown_3bc_ = 3; break;
@@ -205,8 +205,8 @@ extern "C" ARM void func_ov003_0215d150(Struct_ov003_02154af4_3 *arg0) {
             if (func_ov003_0215dd00((char *) arg0) != 0) {
                 arg0->unknown_3c2_ = 0;
                 CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_98_, 0);
-                func_0205cf10(arg0->unknown_98_);
-                func_0205cf1c((Struct_0205cf1c *) arg0->unknown_98_);
+                DisableTouchMenuCursor_0205cf10(arg0->unknown_98_);
+                DisableKeyMenuCursor_0205cf1c((TextWindowManager_0205cf1c *) arg0->unknown_98_);
                 arg0->unknown_3bc_ = 4;
                 arg0->unknown_3b8_ = 0;
             }

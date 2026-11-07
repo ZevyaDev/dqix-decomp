@@ -22,7 +22,7 @@ extern "C" char *GetFlagManager_0205ec34();
 extern "C" short func_0206e3e8(int arg0, int arg1);
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
-extern "C" void func_ov002_02161cf0(char *arg0);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_021609d4(char *arg0);
 extern "C" void func_ov002_02161b98(char *arg0);
 extern "C" int GetCursorIndex_0205d794(struct Struct_ov002_0215624c_15 *windowManager);
@@ -39,13 +39,13 @@ extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" void func_ov002_021607cc(void *arg0, void *arg1, int arg2);
 #if defined(jpn)
 struct Struct_ov002_02155960_3;
-extern "C" void func_0205def8(struct Struct_ov002_02155960_3 *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowVisible_0205def8(struct Struct_ov002_02155960_3 *windowManager, int isVisible, int windowId);
 extern "C" int SetTextWindowText_0205d5d0(struct Struct_ov002_0215bba8_3 *, int, int, int);
 #else
 extern "C" int SetTextWindowText_0205d5d0(struct Struct_ov002_0215bba8_3 *, int, int, int, unsigned char);
 #endif
 extern "C" void func_ov002_02156e90(void *arg0);
-extern "C" int func_ov002_02161b48(char *arg0, int arg1);
+extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 
 extern "C" char gSoundEffectManager_02108760;
 
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov002_0216994c(char *arg0) {
             *(short *) (arg0 + RG(0x1c0c, 0x1ad4)) = 0;
         }
         SetNextTextWindowBGLayer_0205de24((struct Struct_ov002_0215624c_11 *) OBJ, 0, 3);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_021609d4(arg0);
         *(int *) (arg0 + RG(0x1bc0, 0x1a88)) += 1;
         return;
@@ -74,8 +74,8 @@ extern "C" ARM void func_ov002_0216994c(char *arg0) {
         return;
     }
 #if defined(jpn)
-    func_0205def8((struct Struct_ov002_02155960_3 *) OBJ, 0, 0x22);
-    func_0205def8((struct Struct_ov002_02155960_3 *) OBJ, 0, 0x23);
+    SetTextWindowVisible_0205def8((struct Struct_ov002_02155960_3 *) OBJ, 0, 0x22);
+    SetTextWindowVisible_0205def8((struct Struct_ov002_02155960_3 *) OBJ, 0, 0x23);
 #endif
     *(unsigned int *) (arg0 + RG(0x247c, 0x22ac)) |= 4;
     func_ov002_02161b98(arg0);
@@ -119,7 +119,7 @@ extern "C" ARM void func_ov002_0216994c(char *arg0) {
         func_ov002_02156e90(arg0);
         return;
     }
-    if (func_ov002_02161b48(arg0, 1)) {
+    if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
         *(unsigned int *) (arg0 + RG(0x247c, 0x22ac)) &= ~4;
         *(short *) (arg0 + RG(0x1c0c, 0x1ad4)) = 0;
         func_ov002_02156e90(arg0);

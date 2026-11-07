@@ -62,7 +62,7 @@ extern "C" void ClearMessageParams_02046380(Struct_ov003_021552b8_2 *);
 extern "C" int func_ov003_02156034(void *);
 extern "C" void * FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void InitPartyMemberNoun_020e4bf4(void *, int);
-extern "C" void func_020e4b34(void *, void *, int, int, int, int, int, int, int, int, int, int);
+extern "C" void SetNoun_020e4b34(void *, void *, int, int, int, int, int, int, int, int, int, int);
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_ov003_021552b8_2*, void*, int);
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov003_021552b8(Struct_ov003_021552b8_5 *arg0) {
         if (var1 == 0x10 || var1 == 0x13 || var1 == 0x16) {
             var13 = var10;
         }
-        func_020e4b34(&var12, var13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        SetNoun_020e4b34(&var12, var13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         var0->unknown_28_ = &var12;
         SetMessageString_02046574((Struct_02046574_2*)var0, 1, (char*)var9);
         SetMessageString_02046574((Struct_02046574_2*)var0, 2, (char*)var10);

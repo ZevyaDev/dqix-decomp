@@ -48,7 +48,7 @@ void WaitForInterrupt(bool onlySubsequent, unsigned int mask)
     
     if (!(mask & DTCM_DATA.interruptsFired))
     {
-        BlockedContextList* list = &data_027e0000.block_60;
+        BlockedContextList* list = &gDTCMData_027e0000.block_60;
         unsigned int* pData;
         do {
             pData = &DTCM_DATA.interruptsFired;
@@ -113,7 +113,7 @@ void SetInterruptHandler(unsigned int mask, const void* proc)
     
     int interruptID;
     
-    regularTable = data_027e0000.interruptProcTable;
+    regularTable = gDTCMData_027e0000.interruptProcTable;
     specialTable = data_0211127c;
     interruptID = 0;
     do {
@@ -153,7 +153,7 @@ void SetInterruptHandler(unsigned int mask, const void* proc)
 InterruptHandlerProc GetInterruptHandler(unsigned int mask)
 {
     int interruptId = 0;
-    InterruptHandlerProc* pProc = &data_027e0000.interruptProcTable[0];
+    InterruptHandlerProc* pProc = &gDTCMData_027e0000.interruptProcTable[0];
     do
     {
         if (!(mask & 1))

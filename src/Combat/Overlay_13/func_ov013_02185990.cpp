@@ -36,7 +36,7 @@ extern "C" void func_0205cd94(unsigned char* arg0);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
-extern "C" void func_0205c790(char* arg0);
+extern "C" void InitChoiceList_0205c790(char* choiceList);
 
 extern int gSoundEffectManager_02108760;
 
@@ -44,7 +44,7 @@ extern int gSoundEffectManager_02108760;
 extern "C" ARM void func_ov013_02185990(unsigned char* arg0) {
     unsigned char* var0 = arg0 + LOW_REGION(0, 0x3d4);
 
-    func_0205c790((char*)(var0 + LOW_REGION(0x3d0, 0)));
+    InitChoiceList_0205c790((char*)(var0 + LOW_REGION(0x3d0, 0)));
 
     *(unsigned char*)(var0 + LOW_REGION(0x481, 0xb1)) = 1;
     *(unsigned char*)(var0 + LOW_REGION(0x480, 0xb0)) = 1;

@@ -115,7 +115,7 @@ struct Struct_ov024_021da9e0_4;
 extern "C" void func_ov024_021eb4e4(Struct_ov024_021da9e0_4*, int);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" void SetActionResultFlag_ov000_02159eac(void*, void*, int);
-extern "C" int func_ov000_02156068(void*, int, int, int);
+extern "C" int HasEnemyTrait_ov000_02156068(void*, int, int, int);
 extern "C" void func_ov000_0215a004(void*, int, int, int, void*, Struct_ov024_021e4c04_6*, int, int);
 extern "C" void func_ov000_0215cd44(void*, void*, GameObject*, int, unsigned long long, int);
 extern "C" int func_ov024_021e9198(Struct_ov024_021e4c04_5*, int, int, int);
@@ -199,7 +199,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
 
         if (func_0208569c(var10->unknown_150_)) {
             var4 = 10.5f;
-            if (func_ov000_02156068(arg0->unknown_10_, arg2, 0, 1) == 0 && inline_ov000_0215a908_5(var1)->unknown_48_ == 0) var4 = 0.0f;
+            if (HasEnemyTrait_ov000_02156068(arg0->unknown_10_, arg2, 0, 1) == 0 && inline_ov000_0215a908_5(var1)->unknown_48_ == 0) var4 = 0.0f;
             if ((float)var9 < var4) {
                 GameObject* var13 = GetCombatantByID((int)arg0->unknown_10_, arg2);
                 if (func_ov024_021e47dc((Struct_ov024_021e4604*)var13)) {

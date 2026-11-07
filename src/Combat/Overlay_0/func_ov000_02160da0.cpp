@@ -4,7 +4,7 @@
 
 extern int data_ov000_02184220;
 
-struct Struct_ov000_02160da0 {
+struct BattleScene_ov000_02160da0 {
 #if defined(jpn)
     char unknown_0_[0xe24];
 #else
@@ -21,7 +21,7 @@ struct Struct_ov000_02160da0 {
 };
 
 // USA: func_ov000_02160da0
-extern "C" ARM void func_ov000_02160da0(Struct_ov000_02160da0* arg0) {
+extern "C" ARM void func_ov000_02160da0(BattleScene_ov000_02160da0* arg0) {
     arg0->unknown_ea8_ = 0x12;
     arg0->unknown_eac_ = 0;
     data_ov000_02184220 = 1;

@@ -2,8 +2,8 @@
 #include <NitroSDK/Matrix.h>
 
 struct Struct_0203de84 : Vector3i {};
-struct Struct_0203de84_2;
-extern "C" void func_020406f8(Struct_0203de84* arg0, Struct_0203de84_2* arg1);
+struct NPC_0203de84_2;
+extern "C" void GetNPCPosition_020406f8(Struct_0203de84* outPosition, NPC_0203de84_2* npc);
 
 struct Struct_ov001_02164418 { int unknown_0_; char unknown_4_[8]; void* unknown_c_; };
 
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov001_02164418(Struct_ov001_02164418* arg0, int arg1, Ve
             Struct_0203de84 var2;
             var1 = var0->unknown_c_;
             if (var1 == 0) return 0;
-            func_020406f8(&var2, (Struct_0203de84_2*)var1);
+            GetNPCPosition_020406f8(&var2, (NPC_0203de84_2*)var1);
             *arg2 = var2;
             return 1;
         }

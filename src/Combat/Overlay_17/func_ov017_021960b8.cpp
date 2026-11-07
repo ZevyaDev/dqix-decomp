@@ -42,7 +42,7 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" void ResetGeometryEngine_020c52e8();
 extern "C" void ResetMatrixStacks_020c5414();
 extern "C" void func_020c57d4(int, int, int, int, void*);
-extern "C" void func_020c5770(int, int, int, int, int, int, int, int, void*);
+extern "C" void SetOrthographicProjection_020c5770(int, int, int, int, int, int, int, int, void*);
 extern "C" void func_ov017_021a3b30(int);
 extern "C" void func_020707c8(Struct_020707c8*);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
@@ -51,7 +51,7 @@ extern "C" void func_ov017_0219ad84(Struct_ov017_021960b8*);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 extern "C" void func_0205337c(GameObject*);
 extern "C" unsigned char func_02039820(void*);
-extern "C" int func_02039d7c(char*);
+extern "C" int IsOnLadder_02039d7c(char*);
 extern "C" void func_02096824(unsigned char*);
 extern "C" int* func_020936f8();
 extern "C" void func_02093f68(char*);
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov017_021960b8(Struct_ov017_021960b8* arg0) {
     ResetMatrixStacks_020c5414();
     *(volatile unsigned int*)0x04000440 = 0;
     func_020c57d4((int)&var5, (int)&var6, (int)&var4, 1, NULL);
-    func_020c5770(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, 1, NULL);
+    SetOrthographicProjection_020c5770(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, 1, NULL);
     *(volatile unsigned int*)0x04000440 = 2;
     func_ov017_021a3b30((int)arg0->unknown_36fc_);
 
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov017_021960b8(Struct_ov017_021960b8* arg0) {
     }
 
     if (TestFlags04((GameResources*)(arg0->unknown_0_), 0x80) == 0 && arg0->unknown_3658_ == 0 && var3 != NULL &&
-        (func_02039820(var3) != 0 || func_02039d7c((char*)var3) != 0)) {
+        (func_02039820(var3) != 0 || IsOnLadder_02039d7c((char*)var3) != 0)) {
         if (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) {
             if (data_ov017_021d8340 == 0) {
                 data_ov017_021d8340 = 1;

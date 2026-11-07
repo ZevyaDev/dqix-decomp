@@ -21,7 +21,7 @@ extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int 
 extern "C" void func_020da244(void* arg0);
 extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
 extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState*);
-extern "C" int func_02018fbc(void* arg0, Vector3i* arg1);
+extern "C" int GetGroundHeight_02018fbc(void* zone, Vector3i* position);
 extern "C" void func_ov017_0219c598(int* arg0, short* arg1, int arg2);
 
 struct Struct_020acecc
@@ -103,7 +103,7 @@ extern "C" ARM void func_020acecc(unsigned int* arg0, int arg1, int arg2)
         Struct_020acecc_3* var6 = func_0201b78c(var1, &var1->unknown_27b4_.unknown_4_);
         if (var6 != 0) {
             Vector3i var7 = var6->unknown_8_;
-            var7.y = func_02018fbc(var1, &var7);
+            var7.y = GetGroundHeight_02018fbc(var1, &var7);
             var5->obj3D_.position_ = var7;
             func_ov017_0219c598(&var7.x, &var6->unknown_20_, 0);
         }
@@ -113,7 +113,7 @@ extern "C" ARM void func_020acecc(unsigned int* arg0, int arg1, int arg2)
         Struct_020acecc_6 var8;
         var8.unknown_0_ = -1;
         var8.unknown_4_ = 0;
-        var8.unknown_0_ = var3->unknown_0_.unknown_4_;
+        var8.unknown_0_ = var3->unknown_0_.objectIndex_4_;
         func_020da77c(&data_ov017_021d82fc, 3, &var8);
         LoadExtraSoundSet_0205ebc0(&gSoundEffectManager_02108760, 0xa0, 0xa0);
         func_020a2770(var2, 0xca);
@@ -142,7 +142,7 @@ extern "C" ARM void func_020acecc(unsigned int* arg0, int arg1, int arg2)
         ClearFlags04((GameResources*)arg0, 0x40000);
     } else if (arg1 >= 0x4e20 && arg1 <= 0x752f && arg2 == 0x2774) {
         func_ov017_021d1c2c(var1->unknown_27b4_.unknown_0_, (unsigned char)var1->unknown_27b4_.unknown_2_);
-        short var10 = var0->GetUnknownGameObject()->obj3D_.unknown_4_;
+        short var10 = var0->GetUnknownGameObject()->obj3D_.objectIndex_4_;
         func_020a2770(var2, var10);
         ClearFlags04((GameResources*)arg0, 0x10044);
         SetFlags04((GameResources*)arg0, 0x40000);

@@ -137,7 +137,7 @@ extern char data_ov001_02164bc8[];
 extern char data_ov001_02164bcb[];
 
 extern "C" {
-struct Struct_ov001_021539d8_5* func_0203cf4c(void);
+struct Struct_ov001_021539d8_5* GetNPCManager_0203cf4c(void);
 
 void* GetLocalWireless_0202ae18(void);
 int IsNotLocalWirelessGuest_0202c508(void* wireless);
@@ -199,7 +199,7 @@ static inline void inline_ov001_021539d8_2(struct Struct_ov001_021539d8* arg0, i
 extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
-    struct Struct_ov001_021539d8_5* var2 = func_0203cf4c();
+    struct Struct_ov001_021539d8_5* var2 = GetNPCManager_0203cf4c();
     char* var3 = (char*)GetGameResources();
     void* var4 = GetLocalWireless_0202ae18();
     struct Struct_ov001_021539d8_3* var5;
@@ -685,7 +685,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             SetFlags04((GameResources*)var3, 0x400);
         }
         if (arg0->unknown_f8_0_ & 0x20) {
-            func_0203cf4c()->unknown_98_ |= 2;
+            GetNPCManager_0203cf4c()->unknown_98_ |= 2;
         }
     }
 }

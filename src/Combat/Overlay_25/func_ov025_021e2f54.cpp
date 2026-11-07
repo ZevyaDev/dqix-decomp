@@ -34,12 +34,12 @@ extern struct Struct_ov025_021ef988_5 data_ov025_021ef988;
 
 extern "C" struct Struct_ov025_021e2f54* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" void* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index);
-extern "C" short func_ov000_0215ffa0(void* arg0);
+extern "C" short GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 extern "C" void func_ov025_021ecc54(void* arg0, struct Struct_ov025_021e2f54_2* arg1);
 extern "C" int func_ov000_0215fc60(char* arg0);
 
 static inline int inline_ov025_021e2f54(void* arg0) {
-    return func_ov000_0215ffa0(arg0) >= 0xc0 && func_ov000_0215ffa0(arg0) <= 0xc7;
+    return GetLatestTargetCombatantIndex_ov000_0215ffa0(arg0) >= 0xc0 && GetLatestTargetCombatantIndex_ov000_0215ffa0(arg0) <= 0xc7;
 }
 
 // USA: func_ov025_021e2f54

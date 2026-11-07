@@ -17,7 +17,7 @@
 struct Struct_0205d0e0_2;
 extern "C" void* func_0205d888(struct Struct_0205d0e0_2* arg0);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
-extern "C" void func_0205bc24(void* arg0, int arg1);
+extern "C" void SetMenuCursorTouchedIndex_0205bc24(void* cursor, int index);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
 
@@ -65,7 +65,7 @@ extern "C" ARM unsigned char func_ov013_021847c4(void* arg0, int arg1) {
     if (var2 != 0) {
         if (IsTextWindowReady_0204c7cc((unsigned char*)var2) != 0) {
             if ((((unsigned char*)var2)[0xc5] & 2) == 0) {
-                func_0205bc24(var0 + R(0x38,0x3c), -1);
+                SetMenuCursorTouchedIndex_0205bc24(var0 + R(0x38,0x3c), -1);
             }
         }
     }

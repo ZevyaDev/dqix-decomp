@@ -51,7 +51,7 @@ extern "C" GameResources* GetResources_0200fb8c(int*);
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" Struct_ov017_021b1564_8* GetMessageWindow_020421a0();
 extern "C" unsigned char* GetFollowCamera_020100f8(char*);
-extern "C" void func_020a27b8(unsigned char*);
+extern "C" void DisableCameraTurning_020a27b8(unsigned char*);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void*, signed char*, int);
@@ -62,7 +62,7 @@ enum { Enum_ov017_021b1564_248832 = 0x3cc00, Enum_ov017_021b1564_255008 = 0x3e42
 #endif
 extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" int GetMessageChoice_020457e0(void*);
-extern "C" void func_020a27ac(void*);
+extern "C" void EnableCameraTurning_020a27ac(void*);
 void SetBrightness(GameResources*, int, int);
 extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4*, int);
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
@@ -81,7 +81,7 @@ extern "C" void func_ov006_021576a0(Struct_ov017_021b1564*, SafeAllocator*, void
 extern "C" int func_02097a04(Struct_020979c0*);
 extern "C" void SaveMainBGControl_02074af4(void*);
 extern "C" void SaveSubBGControl_02074b64(BGControlSave_02074b64*);
-extern "C" void* func_0203cf4c();
+extern "C" void* GetNPCManager_0203cf4c();
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void func_0203e0a0(void*, unsigned short);
 extern "C" void func_ov017_0219bf74();
@@ -133,7 +133,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
     Struct_ov017_021b1564_8* var3 = GetMessageWindow_020421a0();
     unsigned char* var4 = GetFollowCamera_020100f8((char*)var0);
     GameObject* var5 = var0->GetUnknownGameObject();
-    if (var4) func_020a27b8(var4);
+    if (var4) DisableCameraTurning_020a27b8(var4);
     if (arg0->unknown_48_ == 0) {
         arg0->unknown_3c_ = GetFlags00(var1);
         arg0->unknown_40_ = GetFlags04(var1);
@@ -160,7 +160,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         if (GetMessageChoice_020457e0(var3) == 1) {
             ResetMessageWindow_02043204((char*)var3);
             arg0->unknown_1_ = 1;
-            if (var4) func_020a27ac(var4);
+            if (var4) EnableCameraTurning_020a27ac(var4);
             return;
         }
         ResetMessageWindow_02043204((char*)var3);
@@ -180,7 +180,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         if (!var7) {
             LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
-            if (var4) func_020a27ac(var4);
+            if (var4) EnableCameraTurning_020a27ac(var4);
             return;
         }
         Struct_ov017_021b1564_2* var8 = &var7->unknown_820_;
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         if (!arg0->unknown_1c_ || !data_ov017_021d83ec) {
             LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
-            if (var4) func_020a27ac(var4);
+            if (var4) EnableCameraTurning_020a27ac(var4);
             return;
         }
         PushOverlay_020a1df8(6);
@@ -216,7 +216,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         SaveSubBGControl_02074b64((BGControlSave_02074b64*)arg0->unknown_20_);
         arg0->unknown_38_ = (REG_SUB_DISPLAY & 0x1f00) >> 8;
         SetFlags04(var1, 0x8de);
-        void* var10 = func_0203cf4c();
+        void* var10 = GetNPCManager_0203cf4c();
         Zone3D* var11 = GetZone3D_02012fe4();
         func_0203e0a0(var10, var11->currentZoneID_);
         func_ov017_0219bf74();
@@ -228,7 +228,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         SetFlags00(var1, 16);
         return;
     } else if (arg0->unknown_48_ == 4) {
-        func_0203d008((unsigned char*)func_0203cf4c());
+        func_0203d008((unsigned char*)GetNPCManager_0203cf4c());
         unsigned int var12 = GameState::GetInstance()->GetTickCount();
         if (!func_ov006_02157d7c(data_ov017_021d83ec, var12)) return;
         arg0->unknown_4a_ = data_ov017_021d83ec->unknown_434_;
@@ -241,7 +241,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
             func_ov017_021b14ec(arg0);
             LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;
-            if (var4) func_020a27ac(var4);
+            if (var4) EnableCameraTurning_020a27ac(var4);
             return;
         }
         PlayMusic_0209c3b4((Struct_0209c3b4_2*)gMusicManager_02109bf4, 7);
@@ -298,7 +298,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
             UnlockAndSetMainBrightness(var1, 0, 15);
             var16 = 1;
             if (!arg0->unknown_4a_) {
-                int* var17 = FindNPCById_0203df78(func_0203cf4c(), 100);
+                int* var17 = FindNPCById_0203df78(GetNPCManager_0203cf4c(), 100);
                 void* var18;
                 if (var17) var18 = func_02040528(var17);
                 Struct_ov017_021b1564_6* var19 = (Struct_ov017_021b1564_6*)var1->unknown_ptr_array_36fc[5];

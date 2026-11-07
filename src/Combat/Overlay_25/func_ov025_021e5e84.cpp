@@ -2,7 +2,7 @@
 
 #include "GameState/GameState.h"
 
-extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 struct Struct_02046574_2;
 extern "C" struct Struct_02046574_2* GetMessageWindow_020421a0(void);
 extern "C" void* GetBattleScene_ov000_02160130(void);
@@ -19,7 +19,7 @@ struct Struct_ov025_021e5e84 {
 // USA: func_ov025_021e5e84
 extern "C" ARM int func_ov025_021e5e84(struct Struct_ov025_021e5e84* arg0, int arg1, int arg2, void* arg3) {
     int var0[8];
-    if (func_ov000_021820bc(arg3, arg1, arg0->unknown_9_, (int)&var0[0]) != 1) {
+    if (CollectObjectIndicesBySelector_ov000_021820bc(arg3, arg1, arg0->unknown_9_, (int)&var0[0]) != 1) {
         return 1;
     }
 

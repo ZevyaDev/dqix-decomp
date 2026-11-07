@@ -25,7 +25,7 @@
 
 #include "Memory/SafeAllocator.h"
 
-extern "C" void func_0205eb80(void* arg0);
+extern "C" void UnloadExtraSoundSet_0205eb80(void* manager);
 extern "C" void func_02013750(void* arg0, int arg1);
 extern "C" void func_ov000_02172720(void* arg0);
 
@@ -53,7 +53,7 @@ struct Struct_ov000_021604f0 {
 // USA: func_ov000_021604f0
 extern "C" ARM void func_ov000_021604f0(struct Struct_ov000_021604f0* arg0) {
     if (arg0->unknown_7711_) {
-        func_0205eb80(gSoundEffectManager_02108760);
+        UnloadExtraSoundSet_0205eb80(gSoundEffectManager_02108760);
         arg0->unknown_7711_ = 0;
     }
     func_02013750(arg0->unknown_ec8_, 1);

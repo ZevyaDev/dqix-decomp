@@ -89,7 +89,7 @@ extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, voi
 extern "C" void LoadSpriteSetFile_0205a528(Struct_ov008_02188d74* spriteSet, void* fileData, unsigned int size, SafeAllocator* allocator);
 extern "C" void func_ov023_021e2bdc(void* arg0, int arg1, short* arg2, short* arg3);
 extern "C" void* GetFollowCamera_020100f8(char* gameState);
-extern "C" void InitFollowCamera_020a2010(void* arg0);
+extern "C" void InitFollowCamera_020a2010(void* storage);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
 extern "C" void SetCameraOrbit_0202e5d8(void* camera, int angle, int height, int distance);
 extern "C" void UpdateCamera_0202e0a4(void* camera);

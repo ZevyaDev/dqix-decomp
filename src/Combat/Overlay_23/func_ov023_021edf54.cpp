@@ -248,7 +248,7 @@ extern "C" void func_020a0858(Struct_020a0858* arg0, unsigned int arg1);
 extern "C" void func_020a0300(Struct_020a0300* arg0, unsigned int arg1);
 extern "C" int SetBattleRecords_020ac494(void* records);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
-extern "C" int func_ov000_02160fd4(void* arg0, int arg1);
+extern "C" int TestBattleSceneFlags_ov000_02160fd4(void* battleScene, int flags);
 extern "C" void func_ov023_021ed7e0(Struct_ov023_021ed7e0* arg0);
 extern "C" int func_020ac020(void* arg0, short* arg1, int* arg2, int arg3);
 extern "C" unsigned short GetLevel_0202053c(void* gameObject);
@@ -408,11 +408,11 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
             SetBattleSceneFlags_ov000_02160fa8(arg0, 0x2000000);
         if (IsLocalWirelessGuest_0202c540(var0) && arg0->unknown_2a0_->unknown_25_ != 0)
             var7->unknown_19b2_ = 0;
-        if (!func_ov000_02160fd4(arg0, 0x2000))
+        if (!TestBattleSceneFlags_ov000_02160fd4(arg0, 0x2000))
             return arg0->unknown_eac_;
-        if (!func_ov000_02160fd4(arg0, 0x4000))
+        if (!TestBattleSceneFlags_ov000_02160fd4(arg0, 0x4000))
             return arg0->unknown_eac_;
-        if (!func_ov000_02160fd4(arg0, 0x8000))
+        if (!TestBattleSceneFlags_ov000_02160fd4(arg0, 0x8000))
             return arg0->unknown_eac_;
     }
 

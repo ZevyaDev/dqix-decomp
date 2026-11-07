@@ -26,7 +26,7 @@ extern "C" ARM void func_ov017_021aaf08(char* arg0) {
     }
 
     if (*(void**)(arg0 + 0x18) != 0) {
-        func_0207f8bc(*(Struct_0207f7f0**)(arg0 + 0x18));
+        func_0207f8bc(*(MenuLayout_0207f7f0**)(arg0 + 0x18));
         *(void**)(arg0 + 0x18) = 0;
     }
 

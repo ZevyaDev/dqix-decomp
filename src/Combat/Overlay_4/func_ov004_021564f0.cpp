@@ -9,7 +9,7 @@ extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov024_021f6f10(void* arg0);
-extern "C" int func_ov023_021fa598(void*);
+extern "C" int GetMenuObjectStringList_ov023_021fa598(void*);
 extern "C" int func_ov023_021f9bc8(void*);
 extern "C" void RedrawMenuWindow_ov023_021f809c(void* window, void* menu);
 
@@ -63,7 +63,7 @@ extern "C" ARM int func_ov004_021564f0(void* arg0) {
         return 0;
     }
 
-    struct StringList_02072a68_2* var5 = (struct StringList_02072a68_2*)func_ov023_021fa598(var4);
+    struct StringList_02072a68_2* var5 = (struct StringList_02072a68_2*)GetMenuObjectStringList_ov023_021fa598(var4);
     if (!data_ov004_021707c8.unknown1_8_) {
         return 0;
     }

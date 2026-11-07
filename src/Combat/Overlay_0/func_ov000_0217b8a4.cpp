@@ -11,7 +11,7 @@ extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" int abs(int);
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc*, int);
 extern "C" void SetMenuCursorIndex_0205bb04(void*, int);
-extern "C" void func_0205def8(TextWindowManager_0205def8*, int, int);
+extern "C" void SetTextWindowVisible_0205def8(TextWindowManager_0205def8*, int, int);
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 #if defined(jpn)
@@ -99,7 +99,7 @@ extern "C" ARM int func_ov000_0217b8a4(Struct_ov000_0217b8a4_3* arg0, int arg1, 
     arg0->unknown_22_ = var3;
     arg0->unknown_2c_ = -1;
     Struct_ov000_0217b8a4_4* var7 = data_ov000_02184294.unknown_8_;
-    func_0205def8((TextWindowManager_0205def8*)var7->unknown_188_, 1, 0x24);
+    SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)var7->unknown_188_, 1, 0x24);
     if (var2 != var3) return -1;
     int var8 = g_keyManager.TestKeysPressed(0x601);
     int var9 = (var8 | IsEntryTouchedAgain_0205da38((TextWindowManager_0205da38*)arg0->unknown_38_, 0x14)) != 0;
@@ -109,7 +109,7 @@ extern "C" ARM int func_ov000_0217b8a4(Struct_ov000_0217b8a4_3* arg0, int arg1, 
         short var11 = var10->unknown_18_;
         if (var11 <= 0) return -1;
         arg0->unknown_2c_ = var11;
-        func_0205def8((TextWindowManager_0205def8*)var7->unknown_188_, 0, 0x24);
+        SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)var7->unknown_188_, 0, 0x24);
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
 #if defined(jpn)
         func_ov000_02171e60(arg0);

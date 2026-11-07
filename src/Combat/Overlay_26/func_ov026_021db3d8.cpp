@@ -27,7 +27,7 @@ struct Struct_ov023_021f4c04 {
     int unknown_9a0_;
 };
 
-struct Struct_02078398_2 {
+struct EffectParams_02078398_2 {
     unsigned char unknown_0_;
     unsigned char unknown_1_[0xf];
     unsigned char unknown_10_;
@@ -54,14 +54,14 @@ struct Struct_02078398_2 {
     Vector3fix unknown_44_;
 };
 
-struct Struct_ov000_02160da0 {
+struct BattleScene_ov000_02160da0 {
 #if defined(jpn)
     char unknown_0_[0x218];
 #else
     char unknown1_0_[0x29c];
 #endif
 
-    Struct_ov000_02161e30* unknown_29c_;
+    Struct_ov000_02161e30* pBattle_29c_;
 #if defined(jpn)
     char unknown_21c_[0x76fc];
 #else
@@ -80,7 +80,7 @@ struct Struct_ov000_02160da0 {
 
 extern "C" Struct_ov023_021f4c04* GetMessageWindow_020421a0();
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
-extern "C" void func_02078484(Struct_02078398_2* arg0);
+extern "C" void InitEffectParams_02078484(EffectParams_02078398_2* params);
 extern "C" int PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 
 extern "C" {
@@ -91,8 +91,8 @@ int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigne
 extern char data_ov026_021dedf0[];
 
 // USA: func_ov026_021db3d8
-extern "C" ARM void func_ov026_021db3d8(Struct_ov000_02160da0* arg0) {
-    if (arg0->unknown_29c_->unknown_8e49_ == 2) {
+extern "C" ARM void func_ov026_021db3d8(BattleScene_ov000_02160da0* arg0) {
+    if (arg0->pBattle_29c_->unknown_8e49_ == 2) {
         BackgroundLoader* var0 = BackgroundLoader::GetInstance();
         void* var1 = GetEffectManager_02057924();
 
@@ -121,8 +121,8 @@ extern "C" ARM void func_ov026_021db3d8(Struct_ov000_02160da0* arg0) {
                 arg0->unknown_7728_ = 2;
             }
         } else if (arg0->unknown_7728_ == 2 && arg0->unknown_772e_ == 2) {
-            Struct_02078398_2 var4;
-            func_02078484(&var4);
+            EffectParams_02078398_2 var4;
+            InitEffectParams_02078484(&var4);
             var4.unknown_11_1_ = 1;
             var4.unknown_10_ = 0;
             var4.unknown_2c_.z = -0x3000;

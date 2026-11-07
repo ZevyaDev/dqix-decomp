@@ -66,12 +66,12 @@ extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 extern "C" struct Struct_ov000_021735d0_2* func_ov000_0217f8c0(Struct_ov000_021735d0_3*);
 extern "C" int func_ov000_0217c5f4(void*);
 extern "C" void func_ov000_0217a9d0(int, int, int, TextWindowManager_0205d81c*);
-extern "C" void func_0205def8(TextWindowManager_0205def8*, int, int);
+extern "C" void SetTextWindowVisible_0205def8(TextWindowManager_0205def8*, int, int);
 extern "C" int func_ov000_021719f8(int*);
 extern "C" int func_ov000_0218158c(void* arg0, int arg1);
 extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
-extern "C" int func_020de9a4(void* arg0, void* arg1, void* arg2, unsigned int arg3, void* arg4, unsigned short arg5);
+extern "C" int LoadItemTableByIds_020de9a4(void* itemTable, void* allocator, void* fileData, unsigned int fileSize, void* itemIds, unsigned short itemIdCount);
 extern "C" int func_0207c984(void* arg0, int arg1, int arg2, void* arg3, void* arg4);
 extern "C" int func_ov000_0217c594(Struct_ov000_02178d28_2* arg0, int arg1);
 extern "C" Struct_ov000_0217d674* FindPartyMemberPanel_ov000_02161318(Struct_ov000_02178d28_2* battleUI, int memberIndex);
@@ -114,9 +114,9 @@ extern "C" ARM void func_ov000_0217d87c(Struct_ov000_02178d28_2* arg0, int arg1,
 #endif
         if (var7 != NULL) {
 #if defined(jpn)
-            func_020de9a4((char*)arg0 + 0x100, arg0->unknown_26_ + 0x1bd2, var7, var6, arg0->unknown_26_, arg0->unknown_66_);
+            LoadItemTableByIds_020de9a4((char*)arg0 + 0x100, arg0->unknown_26_ + 0x1bd2, var7, var6, arg0->unknown_26_, arg0->unknown_66_);
 #else
-            func_020de9a4((char*)arg0 + 0x100, arg0->unknown_26_ + 0x1ad2, var7, var6, arg0->unknown_26_, arg0->unknown_66_);
+            LoadItemTableByIds_020de9a4((char*)arg0 + 0x100, arg0->unknown_26_ + 0x1ad2, var7, var6, arg0->unknown_26_, arg0->unknown_66_);
 #endif
         }
         BackgroundLoader::RemoveLockGlobal();
@@ -156,8 +156,8 @@ extern "C" ARM void func_ov000_0217d87c(Struct_ov000_02178d28_2* arg0, int arg1,
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 0;
         arg0->unknown_1d68_ = arg0->unknown_1d68_ - 1;
         func_ov000_0217c638(arg0, arg1, arg2);
-        func_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 1, 1);
-        func_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 1, 2);
-        func_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 1, 5);
+        SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 1, 1);
+        SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 1, 2);
+        SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 1, 5);
     }
 }

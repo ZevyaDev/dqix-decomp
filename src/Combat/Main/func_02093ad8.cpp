@@ -8,21 +8,21 @@ struct Struct_02093b54 {
 #endif
 };
 
-struct Struct_02093ad8 {
-    Struct_02093b54 unknown_0_;
+struct Notice_02093ad8 {
+    Struct_02093b54 name_0_;
 #if defined(jpn)
     unsigned char unknown_b_;
 #endif
-    short unknown_30_;
-    signed char unknown_32_;
+    short noticeId_30_;
+    signed char memberIndex_32_;
     unsigned char unknown_33_;
 };
 
 extern "C" void func_02093980(char* arg0);
-extern "C" void func_02093b54(Struct_02093ad8* arg0, Struct_02093ad8* arg1);
+extern "C" void func_02093b54(Notice_02093ad8* arg0, Notice_02093ad8* arg1);
 
 // USA: func_02093ad8
-extern "C" ARM void func_02093ad8(void* arg0, Struct_02093ad8* arg1, Struct_02093ad8* arg2, int arg3) {
+extern "C" ARM void func_02093ad8(void* arg0, Notice_02093ad8* arg1, Notice_02093ad8* arg2, int arg3) {
     int var0;
     for (var0 = 0; var0 < 8; var0++) {
         func_02093980((char*)(arg2 + var0));

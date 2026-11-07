@@ -5,7 +5,7 @@
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 struct StringTable_0201099c_14;
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
-extern "C" void func_0205c790(char* arg0);
+extern "C" void InitChoiceList_0205c790(char* choiceList);
 
 // USA: func_ov003_0216ffbc
 extern "C" ARM void func_ov003_0216ffbc(char* arg0) {
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov003_0216ffbc(char* arg0) {
     *(int*)(arg0 + 0x174) = 0;
     InitStringTable_020dfc40((StringTable_0201099c_14*)(arg0 + 0xdc));
 
-    func_0205c790(arg0 + 0x178);
+    InitChoiceList_0205c790(arg0 + 0x178);
 
 #if !defined(jpn)
     memset(arg0 + 0x3b0, -1, 0x20);

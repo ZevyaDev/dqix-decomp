@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_0201e838
-extern "C" ARM void* func_0201e838(unsigned char* arg0, unsigned int arg1) {
-    return *(void**)(arg0 + arg1 * 4 + 0x3c);
+// USA: GetFirstZoneFeatureOfType_0201e838
+extern "C" ARM void* GetFirstZoneFeatureOfType_0201e838(unsigned char* zoneFeatures, unsigned int type) {
+    return *(void**)(zoneFeatures + type * 4 + 0x3c);
 }

@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" void func_ov002_02157030(void* arg0, unsigned int arg1, short* arg2, short* arg3, short* arg4, short* arg5);
-extern "C" void func_ov002_0215be00(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetNextTextWindow_ov002_0215be00(void* menu, int windowId, int x, int y);
 extern "C" void func_ov002_0215c52c(void* arg0, void* arg1, int arg2);
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -20,7 +20,7 @@ extern "C" ARM void func_ov002_0215c474(char* arg0) {
     short var3 = 1;
     func_ov002_02157030(arg0, 1, &var0, &var1, &var2, &var3);
 
-    func_ov002_0215be00(arg0, (*(int*)(arg0 + 0x1000 + RG(0xbb8, 0xa80))) & 0xff, var0, var1);
+    SetNextTextWindow_ov002_0215be00(arg0, (*(int*)(arg0 + 0x1000 + RG(0xbb8, 0xa80))) & 0xff, var0, var1);
 
     memset(*(void**)(arg0 + 0x1000 + RG(0xbd0, 0xa98)), 0, RG(0x960, 0x800));
 

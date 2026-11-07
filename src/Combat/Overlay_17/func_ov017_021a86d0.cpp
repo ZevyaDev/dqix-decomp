@@ -56,9 +56,9 @@ extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2*);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void ColorEffect_ConfigureAlphaBlend(void* reg, int plane1, int plane2, int ev1, int ev2);
-extern "C" void* func_0203cf4c(void);
+extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
-extern "C" Vector3fix func_020406f8(void* arg0);
+extern "C" Vector3fix GetNPCPosition_020406f8(void* outPosition);
 extern "C" int fix32_Atan2(int arg0, int arg1);
 #include "Combat/EntryGetterTypes.h"
 #include "Filesystem/BackgroundLoader.h"
@@ -73,7 +73,7 @@ extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov017_021a933c(void* arg0, int arg1);
-extern "C" void func_0205c790(char*);
+extern "C" void InitChoiceList_0205c790(char*);
 struct MenuCursor_0205ba68;
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
 struct MenuCursor_0205bacc;
@@ -101,12 +101,12 @@ extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
 extern "C" void func_020e1154(void* arg0);
 extern "C" void func_ov017_021d1c2c(unsigned char, unsigned short);
 extern "C" void func_ov017_021d1dc0(unsigned short, int, int*, int, int);
-extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int arg1);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int isFullReset);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" void func_ov017_021a65c4(void* arg0, unsigned char arg1, int arg2);
-extern "C" void ResetEventTask_ov017_021baedc(unsigned char* node, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(unsigned char* node, int isRestart);
 extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" int func_020107d0(char*);
 extern "C" int func_02010804(char*);
@@ -144,7 +144,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
         DisablePlayerControl_020397cc((Struct_02018300_3*)var0->GetProtagonist(), 1);
         SetFlags04(GetGameResources(), 0x40);
         ColorEffect_ConfigureAlphaBlend((void*)0x4000050, 0x10, 1, 0x1f, 0);
-        void* var4 = func_0203cf4c();
+        void* var4 = GetNPCManager_0203cf4c();
         void* var5 = NULL;
         if (arg0->unknown_14_ == 0) {
             var5 = FindNPCById_0203df78(var4, 2);
@@ -153,7 +153,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
         }
         if (var5 != NULL) {
             GameObject* var6 = var0->GetUnknownGameObject();
-            Vector3fix var7 = func_020406f8(var5);
+            Vector3fix var7 = GetNPCPosition_020406f8(var5);
             Vector3fix var8;
             Vector3fix_Subtract(&var6->obj3D_.position_, &var7, &var8);
             Vector3fix_Normalize(&var8, &var8);
@@ -198,7 +198,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
                     arg0->unknown_20_++;
                 }
             }
-            func_0205c790((char*)arg0->unknown_2c_);
+            InitChoiceList_0205c790((char*)arg0->unknown_2c_);
             var3->unknown_b1_ = 1;
             var3->unknown_b0_ = 1;
             int var15 = arg0->unknown_20_;
@@ -367,7 +367,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
             int var34[3];
             func_ov017_021d1c2c(arg0->unknown_10_, 0);
             func_ov017_021d1dc0(arg0->unknown_10_, 0, var34, 0, 0);
-            func_0200fcfc(var0, var32);
+            SetZoneEntry_0200fcfc(var0, var32);
             unsigned char* var35 = *(unsigned char**)(var30 + Enum_ov017_021a86d0_14092);
             ResetZoneLoadTask_ov017_0219e310(var35, 0);
             AppendToQueue_020469b4((Queue_0201bdac_2*)var31, (QueueNode_0201bdac*)var35);

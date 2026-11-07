@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 struct Vector3i;
-extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 struct Struct_02033834;
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 
@@ -32,7 +32,7 @@ struct Struct_ov025_021e87f4_4 {
 extern "C" ARM int func_ov025_021e87f4(struct Struct_ov025_021e87f4* arg0, int arg1, int arg2, void* arg3) {
     GameState* var0 = GameState::GetInstance();
     struct Struct_ov025_021e87f4_4 var1;
-    if (!func_ov000_021820bc(arg3, arg1, arg0->unknown_8_, (int)&var1.unknown_c_)) {
+    if (!CollectObjectIndicesBySelector_ov000_021820bc(arg3, arg1, arg0->unknown_8_, (int)&var1.unknown_c_)) {
         return 1;
     }
     GameObject* var2 = var0->GetMaybeWanderingMonsterByIndex(var1.unknown_c_);

@@ -4,7 +4,7 @@
 extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
 extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
 extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
-extern "C" void func_02049390(unsigned char* arg0, unsigned char arg1);
+extern "C" void SetCombatantCell_02049390(unsigned char* combatant, unsigned char cell);
 
 struct Struct_ov017_021c8ab0 {
     unsigned char unknown_0_[8];
@@ -42,14 +42,14 @@ extern "C" ARM void func_ov017_021c8ab0(int arg0, struct Struct_ov017_021c8ab0_3
     for (var3 = 0; var3 < 4; var3++) {
         GameObject* var4 = arg2->GetCombatantByIndex(var3);
         if (var4 != NULL && var2->unknown_0_[var3] != 0xff) {
-            func_02049390((unsigned char*)var4, var2->unknown_0_[var3]);
+            SetCombatantCell_02049390((unsigned char*)var4, var2->unknown_0_[var3]);
         }
     }
     int var5;
     for (var5 = 0; var5 < 8; var5++) {
         GameObject* var6 = arg2->GetCombatantByIndex(var5 + 0xc0);
         if (var6 != NULL && var2->unknown_4_[var5] != 0xff) {
-            func_02049390((unsigned char*)var6, var2->unknown_4_[var5]);
+            SetCombatantCell_02049390((unsigned char*)var6, var2->unknown_4_[var5]);
         }
     }
 }

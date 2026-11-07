@@ -240,7 +240,7 @@ extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 int LoadFileIntoMemory(const char* path, void* dst, unsigned int* outSize);
 struct ObjectArchiveLoadInfo;
 struct Vector3i;
-extern "C" void InitFollowCamera_020a2010(void* arg0);
+extern "C" void InitFollowCamera_020a2010(void* storage);
 struct Struct_0202e5c0;
 extern "C" void func_0202e5c0(Struct_0202e5c0*, int, int, int);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char*, int, int, int);

@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-extern int data_ov031_0224e53c;
+extern int gAccessPointConnection_ov031_0224e53c;
 
 // USA: func_ov031_0220d8d4
 extern "C" ARM void func_ov031_0220d8d4(void) {
-	*(unsigned int*)((char*)data_ov031_0224e53c + 0x2264) = 0xaaa082;
+	*(unsigned int*)((char*)gAccessPointConnection_ov031_0224e53c + 0x2264) = 0xaaa082;
 }

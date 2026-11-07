@@ -52,7 +52,7 @@ extern "C" Struct_020a83fc_2* func_020a83fc(Struct_020a83fc* arg0, int arg1);
 extern "C" void func_ov017_021d1a18(short arg0, short arg1, int arg2, int arg3);
 extern "C" void func_ov017_021d1c2c(unsigned char arg0, unsigned short arg1);
 extern "C" void InitZoneEntry_02070378(char* zoneEntry);
-extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int arg1);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int isFullReset);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void func_02017d7c(void* arg0);
 extern "C" void func_02039d58(unsigned char* arg0);

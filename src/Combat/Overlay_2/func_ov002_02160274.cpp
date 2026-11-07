@@ -3,7 +3,7 @@
 #include <globaldefs.h>
 
 extern "C" void func_ov002_02157480(void *arg0, int *arg1);
-extern "C" void func_ov002_0215be00(void *arg0, int arg1, int arg2, int arg3);
+extern "C" void SetNextTextWindow_ov002_0215be00(void *menu, int windowId, int x, int y);
 extern "C" void func_ov002_021605d4(void *arg0, void *arg1, int arg2);
 extern "C" void func_ov002_0216049c(void *arg0, void *arg1, int arg2);
 extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
@@ -28,7 +28,7 @@ struct Struct_ov002_0215624c_11;
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" void SetTextWindowPalette_0205deb4(struct Struct_ov002_02155960_2 *windowManager, int windowId, int palette);
-extern "C" void func_0205def8(struct Struct_ov002_02155960_3 *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowVisible_0205def8(struct Struct_ov002_02155960_3 *windowManager, int isVisible, int windowId);
 
 struct Struct_ov002_02160274 {
     char unknown_0_[0xbd0];
@@ -61,33 +61,33 @@ extern "C" ARM void func_ov002_02160274(char *arg0) {
     int var4 = var2 * 2;
     if (var2 == 1) var4++;
 #if defined(jpn)
-    func_ov002_0215be00(arg0, 0x21, 0x10, (short) (var4 + 10));
+    SetNextTextWindow_ov002_0215be00(arg0, 0x21, 0x10, (short) (var4 + 10));
     memset(*(char **) (arg0 + 0x1000 + 0xa98), 0, 0x800);
     func_ov002_021605d4(arg0, *(char **) (arg0 + 0x1000 + 0xa98), 0);
     OpenTextWindow_0205d304(arg0 + 0xe20, *(char **) (arg0 + 0x1000 + 0xa98), 0, 0, 0, 1, 0);
 
     SetNextTextWindowBGLayer_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + 0xe20), 0, 2);
-    func_ov002_0215be00(arg0, *(int *) (arg0 + 0x1000 + 0xa80) & 0xff, 0x10, 8);
+    SetNextTextWindow_ov002_0215be00(arg0, *(int *) (arg0 + 0x1000 + 0xa80) & 0xff, 0x10, 8);
     memset(*(char **) (arg0 + 0x1000 + 0xa98), 0, 0x800);
     func_ov002_0216049c(arg0, *(char **) (arg0 + 0x1000 + 0xa98), 0);
     OpenTextWindow_0205d304(arg0 + 0xe20, *(char **) (arg0 + 0x1000 + 0xa98), 0, 1, 0, 1, 0);
 
     SetTextWindowPalette_0205deb4((struct Struct_ov002_02155960_2 *) (arg0 + 0xe20), 0x21, 0);
-    func_0205def8((struct Struct_ov002_02155960_3 *) (arg0 + 0xe20), 0, 0x2c);
+    SetTextWindowVisible_0205def8((struct Struct_ov002_02155960_3 *) (arg0 + 0xe20), 0, 0x2c);
 #else
-    func_ov002_0215be00(arg0, 0x20, 0x10, (short) (var4 + 10));
+    SetNextTextWindow_ov002_0215be00(arg0, 0x20, 0x10, (short) (var4 + 10));
     memset(((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0, 0x960);
     func_ov002_021605d4(arg0, ((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0);
     OpenTextWindow_0205d304(arg0 + 0xec8, ((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0, 0, 0, 1, 0, 0);
 
     SetNextTextWindowBGLayer_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + 0xec8), 0, 2);
-    func_ov002_0215be00(arg0, ((struct Struct_ov002_02160274_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff, 0x10, 8);
+    SetNextTextWindow_ov002_0215be00(arg0, ((struct Struct_ov002_02160274_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff, 0x10, 8);
     memset(((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0, 0x960);
     func_ov002_0216049c(arg0, ((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0);
     OpenTextWindow_0205d304(arg0 + 0xec8, ((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0, 1, 0, 1, 0, 0);
 
     SetTextWindowPalette_0205deb4((struct Struct_ov002_02155960_2 *) (arg0 + 0xec8), 0x20, 0);
-    func_0205def8((struct Struct_ov002_02155960_3 *) (arg0 + 0xec8), 0, 0x29);
+    SetTextWindowVisible_0205def8((struct Struct_ov002_02155960_3 *) (arg0 + 0xec8), 0, 0x29);
     struct Struct_ov002_02155960_4 *var5 =
         FindTextWindow_0205d81c((struct Struct_ov002_02155960_2 *) (arg0 + 0xec8), 0x15);
     if (var5 != NULL) {

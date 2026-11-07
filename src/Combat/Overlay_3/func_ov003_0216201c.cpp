@@ -44,7 +44,7 @@ struct Struct_ov003_02154af4_3 {
 };
 
 extern int gSoundEffectManager_02108760;
-extern "C" void func_020813ec(void *, int);
+extern "C" void OpenMenuLayoutWindow_020813ec(void *, int);
 struct Struct_02081f20_2;
 extern "C" void func_0208203c(Struct_02081f20_2*);
 extern "C" int func_02080468(void *, int);
@@ -56,7 +56,7 @@ extern "C" int func_ov003_02160b84(void *);
 extern "C" int func_ov003_02160a68(Struct_ov003_02154af4_3 *);
 extern "C" int func_ov003_02160854(Struct_ov003_02154af4_3 *);
 extern "C" void func_ov003_02160c58(Struct_ov003_02154af4_3 *, short *, short *);
-extern "C" void func_02080c68(void *, int, int);
+extern "C" void SetMenuLayoutWindowPalette_02080c68(void *, int, int);
 extern "C" void *GetFlagManager_0205ec34();
 extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *);
 extern "C" int GetOwnPartyOrder_02011494(char*, void*);
@@ -85,14 +85,14 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
         arg0->unknown_48a_   = func_02080468(var5, arg0->unknown_488_);
         arg0->unknown_474_   = arg0->unknown_48a_;
         var5->unknown_36_ = arg0->unknown_48a_;
-        func_020813ec(var5, arg0->unknown_488_);
+        OpenMenuLayoutWindow_020813ec(var5, arg0->unknown_488_);
         func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
         arg0->unknown_470_  = 0;
         arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
         arg0->unknown_464_ &= ~0x300;
     } else if (var4 == 1) {
         arg0->unknown_470_ = &arg0->unknown_48a_;
-        func_02080c68(var5, arg0->unknown_488_, 0);
+        SetMenuLayoutWindowPalette_02080c68(var5, arg0->unknown_488_, 0);
         if (func_ov003_02160854(arg0) != 0) {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
             func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
@@ -196,7 +196,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
                     }
                     break;
             }
-            func_02080c68(var5, arg0->unknown_488_, 1);
+            SetMenuLayoutWindowPalette_02080c68(var5, arg0->unknown_488_, 1);
         } else if (func_ov003_02160a68(arg0) != 0) {
             CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var5);
             if (IsFlagSet_0206dfb0((int) var2, var2 + 0x8c, 0x784) != 0 && var3 != 0 &&

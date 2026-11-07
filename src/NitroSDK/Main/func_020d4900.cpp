@@ -3,7 +3,7 @@
 #include "NitroSDK/Cache.h"
 
 extern "C" void* func_020d41d8(void);
-extern "C" int func_020d424c(int arg0, int arg1, int arg2);
+extern "C" int CheckWirelessState_020d424c(int stateCount, int arg1, int arg2);
 
 struct Struct_020d4900 {
     unsigned char unknown_0_[4];
@@ -13,7 +13,7 @@ struct Struct_020d4900 {
 // USA: func_020d4900
 extern "C" ARM int func_020d4900(void) {
     struct Struct_020d4900* var0 = (struct Struct_020d4900*)func_020d41d8();
-    if (func_020d424c(2, 7, 8) != 0) return 0;
+    if (CheckWirelessState_020d424c(2, 7, 8) != 0) return 0;
     InvalidateDataCacheRange((const void*)((char*)var0->unknown_4_ + 0xc), 4);
     if (*(int*)((char*)var0->unknown_4_ + 0xc) == 1) return 0;
     InvalidateDataCacheRange((const void*)((char*)var0->unknown_4_ + 0x188), 2);

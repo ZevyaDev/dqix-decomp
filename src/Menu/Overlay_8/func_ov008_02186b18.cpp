@@ -36,7 +36,7 @@ struct Struct_ov008_02186b18 {
 extern char gSoundEffectManager_02108760[];
 extern char data_ov008_0218b490[];
 extern "C" {
-    int func_0205bafc(void*);
+    int GetMenuCursorItemCount_0205bafc(void*);
     int GetMenuCursorIndex_0205bb84(void*);
     void SetMenuCursorIndex_0205bb04(void*, int);
     void PlaySoundEffect_0205eaa0(void*, int, int);
@@ -44,7 +44,7 @@ extern "C" {
     int func_ov008_02186b18(Struct_ov008_02186b18* arg0, int arg1, int arg2) {
         if (!arg1 || !arg2)
             return -1;
-        int var0 = func_0205bafc(arg0->unknown_750_);
+        int var0 = GetMenuCursorItemCount_0205bafc(arg0->unknown_750_);
         if (var0 > 6)
             var0 = 6;
         for (int var1 = 0; var1 < var0; ++var1) {

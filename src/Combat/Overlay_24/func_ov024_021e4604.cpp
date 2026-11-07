@@ -5,7 +5,7 @@
 
 struct Struct_ov024_021e4604;
 
-extern "C" int func_ov000_02156068(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int HasEnemyTrait_ov000_02156068(void* battle, int combatantIndex, int kind, int traitType);
 extern "C" int func_ov024_021e47dc(struct Struct_ov024_021e4604* arg0);
 extern "C" void func_02088b34(unsigned char* arg0);
 extern "C" void func_ov000_0215a004(void* arg0, int arg1, int arg2, int arg3, void* arg4, int arg5, int arg6, int arg7);
@@ -33,12 +33,12 @@ static inline unsigned short inline_ov024_021dc540(GameObject* arg0) { SDK_NULL_
 // USA: func_ov024_021e4604
 extern "C" ARM unsigned long long func_ov024_021e4604(struct Struct_ov024_021e4604_3* arg0, int arg1, int arg2, int arg3) {
     GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
-    if (!func_ov000_02156068(arg0->unknown_10_, arg2, 0, 1)) {
+    if (!HasEnemyTrait_ov000_02156068(arg0->unknown_10_, arg2, 0, 1)) {
         if ((int)((struct Struct_ov024_021e4604_4*)var0->currentStats_)->unknown_48_ <= 0) return 0;
     }
     int var1 = NextRandomMax((struct Random*)arg0->unknown_10_, 100);
     float var2 = 12.5f;
-    if (!func_ov000_02156068(arg0->unknown_10_, arg2, 0, 1)) {
+    if (!HasEnemyTrait_ov000_02156068(arg0->unknown_10_, arg2, 0, 1)) {
         var2 = var2 * ((int)((struct Struct_ov024_021e4604_4*)var0->currentStats_)->unknown_48_ / 100.0f);
     }
     if (arg0->unknown_c_->unknown_1c_7_) var2 = 100.0f;

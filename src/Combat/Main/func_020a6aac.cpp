@@ -39,7 +39,7 @@ extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int 
 
 extern "C" void* func_0201b678(void* arg0, void* arg1);
 struct Struct_020a6aac;
-extern "C" int func_02018fbc(Struct_020a6aac*, Vector3fix*);
+extern "C" int GetGroundHeight_02018fbc(Struct_020a6aac*, Vector3fix*);
 extern "C" void func_ov017_0219c598(int* arg0, short* arg1, int arg2);
 
 extern "C" void* func_0201b754(void* arg0, int arg1);
@@ -184,7 +184,7 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
                 Struct_020a6aac_5* var12 = (Struct_020a6aac_5*)func_0201b678(var1, &var1->unknown_2774_.unknown_0_);
                 if (var12 != 0) {
                     Vector3i var13 = var12->unknown_30_;
-                    var13.y = func_02018fbc((Struct_020a6aac*)var1, &var13);
+                    var13.y = GetGroundHeight_02018fbc((Struct_020a6aac*)var1, &var13);
                     if (var6->unknown_5_ == 0) {
                         var5->obj3D_.position_ = var13;
                         func_0203db34((unsigned char*)var5, 0, var12->unknown_2e_, 0);
@@ -193,7 +193,7 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
                     var1->unknown_2774_.unknown_10_ = var12->unknown_2c_;
                     var1->unknown_2774_.unknown_12_ = (unsigned short)arg1;
                 }
-                func_020a2770(var3, var5->obj3D_.unknown_4_);
+                func_020a2770(var3, var5->obj3D_.objectIndex_4_);
                 ClearFlags04((GameResources*)arg0, 0x10004);
                 var1->unknown_2774_.unknown_14_ = 0;
                 short var14 = (short)var1->unknown_2774_.unknown_12_;
@@ -204,13 +204,13 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
                 Struct_020a6aac_5* var17 = (Struct_020a6aac_5*)func_0201b754(var1, var16);
                 if (var17 != 0) {
                     Vector3i var18 = var17->unknown_30_;
-                    var18.y = func_02018fbc((Struct_020a6aac*)var1, &var18);
+                    var18.y = GetGroundHeight_02018fbc((Struct_020a6aac*)var1, &var18);
                     if (var6->unknown_5_ == 0) {
                         var5->obj3D_.position_ = var18;
                         func_ov017_0219c598(&var18.x, &var17->unknown_2e_, 0);
                     }
                 }
-                func_020a2770(var3, var5->obj3D_.unknown_4_);
+                func_020a2770(var3, var5->obj3D_.objectIndex_4_);
                 ClearFlags04((GameResources*)arg0, 0x10004);
             }
             unsigned short var19 = var1->unknown_2774_.unknown_12_;
@@ -233,7 +233,7 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
     } else if (arg1 == 0x170c) {
         if (arg2 == 0x2710) {
             GameObject* var23 = var0->GetUnknownGameObject();
-            func_020a2770(var3, var23->obj3D_.unknown_4_);
+            func_020a2770(var3, var23->obj3D_.objectIndex_4_);
             ClearFlags04((GameResources*)arg0, 0x10004);
             ClearGameObjectByIndex_0200fd48(var0, 0xc9);
             if (IsLocalWirelessGuest_0202c540(var2) != 0) {
@@ -271,7 +271,7 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
             func_ov017_021d1a18((short)arg1, -1, 0, 0);
             var26->unknown_2774_.unknown_10_ = 0;
             var26->unknown_2774_.unknown_12_ = (unsigned short)arg1;
-            short var30 = var0->GetUnknownGameObject()->obj3D_.unknown_4_;
+            short var30 = var0->GetUnknownGameObject()->obj3D_.objectIndex_4_;
             func_020a2770(var3, var30);
             ClearFlags04((GameResources*)arg0, 0x10004);
             struct Struct_0201b600* var31 = func_0201b600((struct Struct_02017a94*)var26, 0, 4);
@@ -315,7 +315,7 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
         if (arg2 == 0x2710) {
             ClearFlags04((GameResources*)arg0, 0x10004);
             ClearGameObjectByIndex_0200fd48(var0, 0xc9);
-            short var38 = var0->GetUnknownGameObject()->obj3D_.unknown_4_;
+            short var38 = var0->GetUnknownGameObject()->obj3D_.objectIndex_4_;
             func_020a2770(var3, var38);
             short var39 = (short)var1->unknown_2774_.unknown_12_;
             short var40 = var1->unknown_2774_.unknown_10_;

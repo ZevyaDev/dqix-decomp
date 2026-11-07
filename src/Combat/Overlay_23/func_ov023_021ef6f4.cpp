@@ -89,7 +89,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
         for (int var8 = 0; var8 < var7; ++var8) {
             Struct_ov000_0217964c_2* var9 = GetEnemyByIndex_0200fea4(var0, var8 + 0xc0);
             if (var9 && var9->unknown_138_) {
-                arg0->unknown_6e30_[arg0->unknown_6e2e_] = var9->unknown_4_;
+                arg0->unknown_6e30_[arg0->unknown_6e2e_] = var9->objectIndex_4_;
                 ++arg0->unknown_6e2e_;
             }
         }

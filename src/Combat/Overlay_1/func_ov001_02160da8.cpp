@@ -28,13 +28,13 @@ struct Struct_ov001_02160da8_2 {
     char unknown_d4_[0xf8 - 0xd4]; unsigned int unknown_f8_0_ : 27; unsigned int unknown_fb_3_ : 5;
     char unknown_fc_[0x116 - 0xfc]; signed char unknown_116_;
 };
-struct Struct_0205faf4_11;
+struct PartyMember_0205faf4_11;
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(Struct_ov001_0215b72c*);
-extern "C" const char* func_ov017_021d612c(Struct_ov001_0215b72c*);
+extern "C" const char* GetScriptValueAsString_ov017_021d612c(Struct_ov001_0215b72c*);
 extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" int func_ov001_021612ac(void*);
-extern "C" int func_02061bd8(Struct_0205faf4_11*);
+extern "C" int func_02061bd8(PartyMember_0205faf4_11*);
 extern SafeAllocator* data_ov001_021658b8[];
 extern const char data_ov001_02165728[];
 extern const char data_ov001_02165745[];
@@ -102,7 +102,7 @@ extern "C" ARM int func_ov001_02160da8(Struct_ov001_0215b72c* arg0, int arg1) {
             int var7;
             for (var7 = 0; var7 < 4; ++var7) {
                 GameObject* var8 = GetCompanionByIndex_0200ff58(var0, var7);
-                if (var8 && func_02061bd8((Struct_0205faf4_11*)var8)) {
+                if (var8 && func_02061bd8((PartyMember_0205faf4_11*)var8)) {
                     var1->unknown_2_ = var7;
                     var5 = func_ov001_021612ac(var8);
                     break;
@@ -117,7 +117,7 @@ extern "C" ARM int func_ov001_02160da8(Struct_ov001_0215b72c* arg0, int arg1) {
     case 6:
     case 7: {
         if (arg1 < 3) return 0;
-        const char* var9 = func_ov017_021d612c(arg0 + 1);
+        const char* var9 = GetScriptValueAsString_ov017_021d612c(arg0 + 1);
         if (var1->unknown_0_0_ == 6) {
             if (!strstr(var9, data_ov001_02165728)) return 0;
             const char* var10 = strrchr(var9, '/');
@@ -140,7 +140,7 @@ extern "C" ARM int func_ov001_02160da8(Struct_ov001_0215b72c* arg0, int arg1) {
         break;
     case 3:
         if (arg1 < 3) return 0;
-        sprintf(var1->unknown_8_.unknown_0_, data_ov001_021657b2, func_ov017_021d612c(arg0 + 1));
+        sprintf(var1->unknown_8_.unknown_0_, data_ov001_021657b2, GetScriptValueAsString_ov017_021d612c(arg0 + 1));
         var1->unknown_1_ = GetScriptValueAsInt_ov017_021d60f4(arg0 + 2);
         if (arg1 > 3) var1->unknown_30_ = GetScriptValueAsInt_ov017_021d60f4(arg0 + 3);
         break;

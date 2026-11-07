@@ -10,7 +10,7 @@
 extern "C" int func_ov000_02153e40(void* arg0, short* arg1, int arg2, int arg3);
 extern "C" void func_ov000_02167b54(int* arg0, int arg1, int arg2, int arg3);
 extern "C" int GetCombatantCell_020493a4(unsigned char* combatant);
-extern "C" void func_02049390(unsigned char* arg0, unsigned char arg1);
+extern "C" void SetCombatantCell_02049390(unsigned char* combatant, unsigned char cell);
 extern "C" void func_02049bd4(unsigned char* arg0, int* arg1);
 extern "C" void func_02049c60(unsigned char* arg0, int* arg1);
 
@@ -38,12 +38,12 @@ extern "C" ARM void func_ov000_02167fb0(struct Struct_ov000_02167fb0* arg0, Game
     int var2 = func_ov000_02153e40(arg0->unknown_29c_, var1, 0x10, 0);
     int var3[3];
     int* var4;
-    int var5 = (arg1->obj3D_.unknown_4_ >= 0 && arg1->obj3D_.unknown_4_ <= 3) ? 1 : 0;
+    int var5 = (arg1->obj3D_.objectIndex_4_ >= 0 && arg1->obj3D_.objectIndex_4_ <= 3) ? 1 : 0;
     if (var5) {
         var4 = data_ov000_02183198;
         func_ov000_02167b54(var3, 0, 0x3244, 0);
     } else {
-        int var6 = (arg1->obj3D_.unknown_4_ >= 0xc0 && arg1->obj3D_.unknown_4_ <= 0xc7) ? 1 : 0;
+        int var6 = (arg1->obj3D_.objectIndex_4_ >= 0xc0 && arg1->obj3D_.objectIndex_4_ <= 0xc7) ? 1 : 0;
         if (!var6) {
             return;
         }
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov000_02167fb0(struct Struct_ov000_02167fb0* arg0, Game
         }
         if (!var9) {
             struct Struct_02048cf0 var12 = func_ov000_0216f74c(&var8);
-            func_02049390((unsigned char*)arg1, var8 & 0xff);
+            SetCombatantCell_02049390((unsigned char*)arg1, var8 & 0xff);
             struct Struct_ov000_021830d8 var13 = data_ov000_021830d8;
             var13.unknown_0_[0] = var12.unknown_0_;
             var13.unknown_0_[2] = var12.unknown_4_;

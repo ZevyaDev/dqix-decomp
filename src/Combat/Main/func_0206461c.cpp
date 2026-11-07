@@ -27,7 +27,7 @@ extern char data_020f05dc[] __attribute__((aligned(4)));
 extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" int func_020107d0(char*);
 extern "C" void func_02064574(Struct_02108844*, int, Struct_02013fb4*, int, int, int, int);
-extern "C" void* func_02094d6c();
+extern "C" void* GetQuestManager_02094d6c();
 extern "C" void func_02095578(void*);
 
 static inline SafeAllocator* inline_0206461c(GameResources* arg0, int arg1) {
@@ -56,6 +56,6 @@ extern "C" ARM int func_0206461c(Struct_0206461c* arg0, Struct_0206461c_2* arg1)
     Struct_02013fb4* var8 = (Struct_02013fb4*)LoadFileIntoMemory(var5, gFileScratchSpace_0211e33c, &var3);
     if (var8) func_02064574(var1, (int)var2, var8, var3, arg1->unknown_0_, var6, var7);
     BackgroundLoader::RemoveLockGlobal();
-    func_02095578(func_02094d6c());
+    func_02095578(GetQuestManager_02094d6c());
     return 1;
 }

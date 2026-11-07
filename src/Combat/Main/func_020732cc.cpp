@@ -7,7 +7,7 @@ extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 
 struct Struct_02052e2c;
-extern "C" short* func_02052e2c(struct Struct_02052e2c* arg0);
+extern "C" short* GetAppearance_02052e2c(struct Struct_02052e2c* gameObject);
 extern "C" void func_02048418(unsigned char*, unsigned short);
 
 struct EquipmentBag_020732cc;
@@ -43,7 +43,7 @@ extern "C" ARM void func_020732cc(int arg0) {
             signed short var7 = data_020e8854[var4];
             char* var8 = *(char**)((char*)var3 + Enum_020732cc_336) + 0x194;
             var6 = (struct Struct_020732cc_2*)(var8 + (unsigned char)data_020e8864[var7] * 0x20);
-            var5 = func_02052e2c(
+            var5 = GetAppearance_02052e2c(
                 (struct Struct_02052e2c*)var3);
             if (var5 != NULL && var6 != NULL) {
                 if (var5[var7] > 0) {

@@ -15,20 +15,20 @@ struct Struct_ov000_021626a0 {
     struct Struct_ov000_021626a0_2* unknown_148_;
 };
 
-struct Struct_ov000_02160da0 {
+struct BattleScene_ov000_02160da0 {
 #if defined(jpn)
     char unknown_0_[0x218];
 #else
     char unknown1_0_[0x29c];
 #endif
-    char* unknown_29c_;
+    char* pBattle_29c_;
     unsigned char* unknown_2a0_;
     char unknown_2a4_[0xea4 - 0x2a4];
     struct Struct_020d76b8* unknown_ea4_;
 };
 
 extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
-extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 extern "C" struct Struct_ov000_021626a0* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" int func_02049ee8(unsigned char* arg0);
 extern "C" void func_020d76b8(struct Struct_020d76b8* arg0, int arg1);
@@ -36,63 +36,63 @@ extern "C" void func_020d76d8(unsigned char* arg0, int arg1);
 extern "C" int func_ov000_0215fc60(char* arg0);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 
-// USA: func_ov000_021626a0
-extern "C" ARM void func_ov000_021626a0(Struct_ov000_02160da0* arg0, int arg1, int arg2) {
-    int var0[16];
-    GameState* var1;
-    char* var2;
-    int var3;
-    int var4;
-    int var5;
-    GameObject* var6;
-    int var7;
-    struct Struct_020d76b8* var8;
-    void* var9;
-    struct Struct_ov000_021626a0* var10;
-    struct Struct_ov000_021626a0_2* var11;
+// USA: SetObjectsVisibleBySelector_ov000_021626a0
+extern "C" ARM void SetObjectsVisibleBySelector_ov000_021626a0(BattleScene_ov000_02160da0* battleScene, int selector, int isVisible) {
+    int indices[16];
+    GameState* gameState;
+    char* battle;
+    int i;
+    int memberIndex;
+    int count;
+    GameObject* object;
+    int isShown;
+    struct Struct_020d76b8* combatantSlots;
+    void* action;
+    struct Struct_ov000_021626a0* enemy;
+    struct Struct_ov000_021626a0_2* enemyRecord;
 
-    var1 = GameState::GetInstance();
-    var2 = arg0->unknown_29c_;
-    var8 = arg0->unknown_ea4_;
-    var9 = GetCurrentBattleAction_ov000_02160f20(arg0);
-    if (var8 == NULL) {
+    gameState = GameState::GetInstance();
+    battle = battleScene->pBattle_29c_;
+    combatantSlots = battleScene->unknown_ea4_;
+    action = GetCurrentBattleAction_ov000_02160f20(battleScene);
+    if (combatantSlots == NULL) {
         return;
     }
-    var5 = func_ov000_021820bc(arg0->unknown_29c_, (int)var9, arg1, (int)var0);
-    for (var3 = 0; var3 < var5; var3++) {
-        var6 = var1->GetGameObjectByIndex(var0[var3]);
-        if (var6 == NULL) {
+    count = CollectObjectIndicesBySelector_ov000_021820bc(battleScene->pBattle_29c_, (int)action, selector, (int)indices);
+    for (i = 0; i < count; i++) {
+        object = gameState->GetGameObjectByIndex(indices[i]);
+        if (object == NULL) {
             continue;
         }
-        var7 = arg2;
-        if (var6->obj3D_.classFlags_0_ & 0x400) {
-            var10 = GetEnemyByIndex_0200fea4(var1, var0[var3]);
-            if (var10 != NULL) {
-                var11 = var10->unknown_148_;
-                if (func_02049ee8((unsigned char*)var10) == 0 && var11->unknown_13_3_) {
-                    var7 = 0;
+        isShown = isVisible;
+        if (object->obj3D_.classFlags_0_ & 0x400) {
+            enemy = GetEnemyByIndex_0200fea4(gameState, indices[i]);
+            if (enemy != NULL) {
+                enemyRecord = enemy->unknown_148_;
+                if (func_02049ee8((unsigned char*)enemy) == 0 && enemyRecord->unknown_13_3_) {
+                    isShown = 0;
                 }
             }
         }
-        if (var7) {
-            var6->obj3D_.MakeVisible();
-            func_020d76b8(var8, var0[var3]);
+        if (isShown) {
+            object->obj3D_.MakeVisible();
+            func_020d76b8(combatantSlots, indices[i]);
         } else {
-            var6->obj3D_.MakeHidden();
-            func_020d76d8((unsigned char*)var8, var0[var3]);
+            object->obj3D_.MakeHidden();
+            func_020d76d8((unsigned char*)combatantSlots, indices[i]);
         }
     }
-    if (func_ov000_0215fc60(var2) == 0) {
+    if (func_ov000_0215fc60(battle) == 0) {
         return;
     }
-    for (var4 = 1; var4 < 4; var4++) {
-        var6 = var1->GetGameObjectByIndex(var4);
-        if (var6 == NULL) {
+    for (memberIndex = 1; memberIndex < 4; memberIndex++) {
+        object = gameState->GetGameObjectByIndex(memberIndex);
+        if (object == NULL) {
             continue;
         }
-        if (IsPartyMemberInBattle_020a35e0(arg0->unknown_2a0_, var4)) {
-            var6->obj3D_.MakeHidden();
-            func_020d76d8((unsigned char*)var8, var4);
+        if (IsPartyMemberInBattle_020a35e0(battleScene->unknown_2a0_, memberIndex)) {
+            object->obj3D_.MakeHidden();
+            func_020d76d8((unsigned char*)combatantSlots, memberIndex);
         }
     }
 }

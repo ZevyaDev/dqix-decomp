@@ -69,7 +69,7 @@ extern "C" void ClearGlobalFlags_020466f4(Struct_ov002_02168d54_9* globalFlags, 
 extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
 extern "C" void func_020dc2d0(int arg0);
 extern "C" void func_ov002_0215a938(char* arg0);
-extern "C" void func_ov002_02161cf0(char* arg0);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(char* menu);
 extern "C" void SetNextTextWindowBGLayer_0205de24(Struct_ov002_0215624c_11* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" void func_ov002_02160274(char* arg0);
 
@@ -169,7 +169,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
         ResetMessageWindow_02043204(var8);
         CloseMessageWindow_02043124(var8);
         FontLoader_0208cb08* var9 = GetFontLoader_02094a00();
-        func_02094b3c(var9, 0xc);
+        ClearLoadedFontSetForSize_02094b3c(var9, 0xc);
         CancelFontLoad_02094ab0(var9);
         arg0[REGION_VALUE(0x2288, 0x2454)] = 0;
         arg0[REGION_VALUE(0x2289, 0x2455)] = 0;
@@ -277,7 +277,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
     } else if (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)) == 103) {
         func_ov002_0215a938(arg0);
         *(int*)(arg0 + REGION_VALUE(0x1a80, 0x1bb8)) = REGION_VALUE(0x20, 0x1f);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         SetNextTextWindowBGLayer_0205de24((Struct_ov002_0215624c_11*)(arg0 + REGION_VALUE(0xe20, 0xec8)), 0, 2);
         func_ov002_02160274(arg0);
     }

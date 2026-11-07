@@ -24,10 +24,10 @@ extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202c508* w
 
 extern "C" void func_ov017_021d1810(int, int, signed char);
 extern "C" int* func_020936f8(void);
-extern "C" void func_02094030(int* arg0, unsigned short arg1, short arg2, unsigned char arg3);
+extern "C" void QueueNotice_02094030(int* noticeQueue, unsigned short noticeId, short arg2, unsigned char memberIndex);
 extern "C" void func_0202c21c(struct LocalWireless_0202b2f0* arg0, int arg1);
 
-extern "C" void func_0202b0f4(void* arg0);
+extern "C" void StopLocalWireless_0202b0f4(void* wireless);
 extern "C" void func_ov003_02171e1c(void*, void*);
 extern "C" int func_0205e488(void* arg0);
 
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov003_02171764(char* arg0) {
         if (IsNotLocalWirelessGuest_0202c508((struct LocalWireless_0202c508*)var1) != 0) {
             func_ov017_021d1810(4, -1, 0);
             int* var3 = func_020936f8();
-            func_02094030(var3, 4, -1, 0);
+            QueueNotice_02094030(var3, 4, -1, 0);
         }
         func_0202c21c(var1, *(unsigned char*)(arg0 + 0x199));
     }
@@ -49,14 +49,14 @@ extern "C" ARM void func_ov003_02171764(char* arg0) {
     int var4 = var0->GetEffectiveDeltaTime();
     *(int*)(arg0 + Enum_ov003_02171764_1836) = var4;
     if ((unsigned int)var4 > 0xbb8) {
-        func_0202b0f4(var1);
+        StopLocalWireless_0202b0f4(var1);
         arg0[0] = 4;
         return;
     }
 
     if (*(int*)(arg0 + Enum_ov003_02171764_1824) != 0 && *(int*)(arg0 + Enum_ov003_02171764_1820) != 0) {
         func_ov003_02171e1c(arg0, arg0 + Enum_ov003_02171764_686);
-        func_0202b0f4(var1);
+        StopLocalWireless_0202b0f4(var1);
         arg0[0] = 4;
     }
 

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void func_020a0d58(void* arg0);
-extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
 
 // USA: func_020a2744
 extern "C" ARM void func_020a2744(char* arg0) {

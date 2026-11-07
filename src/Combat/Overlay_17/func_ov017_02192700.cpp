@@ -100,7 +100,7 @@ static inline void inline_ov017_02192700_2(Struct_01ff91ac_18* arg0) {
 static inline void inline_ov017_02192700_3(Struct_ov017_02192700_4* arg0, Struct_ov017_02192700_5* arg1) {
     Struct_01ff91ac_18 var0;
     inline_ov017_02192700_2(&var0);
-    var0.unknown_2_ = arg1->unknown_0_.unknown_4_;
+    var0.unknown_2_ = arg1->unknown_0_.objectIndex_4_;
     func_ov017_0219b33c(arg0, &var0);
 }
 
@@ -134,7 +134,7 @@ extern "C" ARM void func_ov017_02192700(Struct_ov017_02192700_4* arg0) {
                     continue;
                 }
                 GameState* var8 = GameState::GetInstance();
-                Struct_ov017_02192700_5* var9 = (Struct_ov017_02192700_5*)var8->GetPartyMemberByIndex(var7->unknown_0_.unknown_4_);
+                Struct_ov017_02192700_5* var9 = (Struct_ov017_02192700_5*)var8->GetPartyMemberByIndex(var7->unknown_0_.objectIndex_4_);
                 if (var9->unknown_0_.GetField06() != var7->unknown_0_.GetField06()) {
                     continue;
                 }
@@ -154,16 +154,16 @@ extern "C" ARM void func_ov017_02192700(Struct_ov017_02192700_4* arg0) {
                 if (var10 == NULL) {
                     continue;
                 }
-                if (IsInParty_02086ef0(var10, var7->unknown_0_.unknown_4_)) {
+                if (IsInParty_02086ef0(var10, var7->unknown_0_.objectIndex_4_)) {
                     continue;
                 }
                 Struct_ov017_02192700_4* var11 = inline_ov017_02192700();
                 if (var11->unknown_3bb4_->unknown_2_ == 0) {
-                    func_ov017_021c316c(var11->unknown_3bb4_, var7->unknown_0_.unknown_4_ & 0xff);
+                    func_ov017_021c316c(var11->unknown_3bb4_, var7->unknown_0_.objectIndex_4_ & 0xff);
                 }
                 continue;
             }
-            if (func_ov017_0218d4ec(arg0, var7->unknown_0_.unknown_4_) &&
+            if (func_ov017_0218d4ec(arg0, var7->unknown_0_.objectIndex_4_) &&
                 IsFlagSet_0206dfb0((int)var2, var2->unknown_8c_, 0x799) &&
                 func_ov017_02194140(var3, var7)) {
                 inline_ov017_02192700_3((Struct_ov017_02192700_4*)GetGameResources(), var7);
@@ -174,7 +174,7 @@ extern "C" ARM void func_ov017_02192700(Struct_ov017_02192700_4* arg0) {
             if (!var7->unknown_0_.IsVisible()) {
                 continue;
             }
-            int var12 = var7->unknown_0_.unknown_4_;
+            int var12 = var7->unknown_0_.objectIndex_4_;
             if (func_ov017_02194140(var3, var7)) {
                 if (!(var3->unknown_c2_0_ & (1 << var12))) {
                     var3->unknown_c2_0_ |= 1 << var12;

@@ -7,7 +7,7 @@ struct LocalWireless_0202c1a4 {
 };
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 
-extern "C" void* func_0207d78c(void);
+extern "C" void* GetBattleJoinTable_0207d78c(void);
 
 struct Struct_0207d7f4 { unsigned short unknown_0_; unsigned short unknown_2_; unsigned int unknown_4_; unsigned int unknown_8_; };
 extern "C" Struct_0207d7f4* func_0207d9bc(Struct_0207d7f4* arg0, unsigned short arg1);
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov017_021c5f54(int arg0, Struct_ov017_021c5f54* arg1, i
     Struct_0207d7f4* var0;
     if (GetOwnProtagonistObjectIndex_0202c1a4(arg4) != 0)
         return;
-    var0 = (Struct_0207d7f4*)func_0207d78c();
+    var0 = (Struct_0207d7f4*)GetBattleJoinTable_0207d78c();
     if (arg1->unknown_9_ == 0 && arg1->unknown_a_ == 0
         && func_ov017_021a278c(arg3, arg1->unknown_4_) == NULL
         && func_0207d9bc(var0, arg1->unknown_4_) == NULL) {

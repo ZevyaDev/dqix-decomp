@@ -12,7 +12,7 @@ struct Struct_ov031_0223c150 {
 };
 extern unsigned char data_ov031_022493a0[];
 extern Struct_ov031_0223c150* data_ov031_02290d34;
-extern "C" void func_ov031_0223e2c0(int, void*);
+extern "C" void QueueTaskRemoval_ov031_0223e2c0(int, void*);
 
 // USA: func_ov031_0223c150
 extern "C" ARM void func_ov031_0223c150(void* arg0, Struct_ov031_0223c150* arg1) {
@@ -29,6 +29,6 @@ extern "C" ARM void func_ov031_0223c150(void* arg0, Struct_ov031_0223c150* arg1)
         if (arg1 == data_ov031_02290d34) ColorEffect_ChangeBrightness(0x04001050, var1[arg1->unknown_8_]);
         else ColorEffect_ChangeBrightness(0x04000050, var1[arg1->unknown_8_]);
         arg1->unknown_9_ = 0;
-        func_ov031_0223e2c0(1, arg0);
+        QueueTaskRemoval_ov031_0223e2c0(1, arg0);
     }
 }

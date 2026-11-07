@@ -3,7 +3,7 @@
 #include "NitroSDK/Cache.h"
 #include "Resource/GameResources.h"
 
-extern "C" int func_ov017_021bdbcc(void* arg0);
+extern "C" int GetHaloObject_ov017_021bdbcc(void* gameResources);
 extern "C" ARM void* GetWindowTile_020421b0(int tileIndex);
 extern "C" int LoadToMainObjVRAM(int, int, unsigned int);
 
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov023_021e2ce8(int arg0, void* arg1) {
                 int var7 = *(int*)((char*)var6 + 0x950);
 
                 int var8 = ((int)GetGameResources());
-                int var9 = func_ov017_021bdbcc((void*)var8);
+                int var9 = GetHaloObject_ov017_021bdbcc((void*)var8);
                 if (var9 != 0) var7 = 0;
 
                 unsigned short var10 = *(unsigned short*)((char*)var5 + 0x4);

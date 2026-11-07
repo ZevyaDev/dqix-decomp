@@ -9,7 +9,7 @@ enum { Enum_ov017_021984f4_108 = 0x6c };
 #include "GameState/GameState.h"
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
+extern "C" void* GetFirstZoneFeatureOfType_0201e838(unsigned char* zoneFeatures, unsigned int type);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int func_02094b9c(void* arg0, void* arg1);
 int fix32ReduceAngle0To2Pi(int angle);
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov017_021984f4(void* arg0) {
 
     void* var2 = GetZone3D_02012fe4();
     GetCamera_020100bc(var0);
-    struct Struct_ov017_021984f4* var3 = (struct Struct_ov017_021984f4*)func_0201e838((unsigned char*)var2 + Enum_ov017_021984f4_108, 8);
+    struct Struct_ov017_021984f4* var3 = (struct Struct_ov017_021984f4*)GetFirstZoneFeatureOfType_0201e838((unsigned char*)var2 + Enum_ov017_021984f4_108, 8);
 
     struct Struct_ov017_021984f4_2 var4 = *(struct Struct_ov017_021984f4_2*)((char*)var1 + 0x44);
     int var5 = 0x270f000;

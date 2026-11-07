@@ -52,7 +52,7 @@ extern "C" int func_0202e09c(int);
 extern "C" Object3D* func_0204a438(Struct_0204a438*);
 extern "C" void SetCameraFieldOfView_0202e9a4(Struct_0202df68*, int);
 extern "C" void func_0204a170(int);
-extern "C" int func_ov000_021820bc(void*, int, int, int);
+extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void*, int, int, int);
 extern "C" void func_02048c90(Struct_02048c90*);
 extern "C" void func_02049ae4(unsigned char*);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
@@ -75,7 +75,7 @@ extern "C" ARM int func_ov025_021e2980(Struct_ov025_021e2980* arg0, Struct_ov025
         }
     } else {
         int var3[8];
-        int var4 = func_ov000_021820bc(arg3, (int)arg1, arg0->unknown_e_, (int)var3);
+        int var4 = CollectObjectIndicesBySelector_ov000_021820bc(arg3, (int)arg1, arg0->unknown_e_, (int)var3);
         if (!var4) return 1;
         for (int var5 = 0; var5 < var4; var5++) {
             Struct_ov025_021e2980_3* var6 = (Struct_ov025_021e2980_3*)var0->GetGameObjectByIndex(var3[var5]);

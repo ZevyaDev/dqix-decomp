@@ -333,13 +333,13 @@ extern "C" void func_020830cc(Struct_020a95a4_5* arg0, Struct_020a95a4_7* arg1);
 extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 
-extern "C" Struct_020a95a4_3* func_02094d6c(void);
+extern "C" Struct_020a95a4_3* GetQuestManager_02094d6c(void);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int GetLocalWirelessState_0202ba00(int* wireless);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" Struct_020a95a4_5* GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" unsigned short* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
+extern "C" unsigned short* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
 extern "C" unsigned char* func_0207c60c(void* arg0, unsigned int arg1);
 extern "C" short func_0207c620(unsigned char* arg0, unsigned int arg1);
 extern "C" unsigned char func_0207c694(unsigned char* arg0, unsigned int arg1);
@@ -360,7 +360,7 @@ extern "C" int func_020ac7b4(int arg0);
 extern "C" void func_ov017_021d0d58(void);
 extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
 extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44* zones, int zoneId);
-extern "C" NPCManager_0203dce4_2* func_0203cf4c(void);
+extern "C" NPCManager_0203dce4_2* GetNPCManager_0203cf4c(void);
 extern "C" int func_0203e524(NPCManager_0203dce4_2* arg0, Struct_02028460_3* arg1, Struct_0203e524* arg2);
 extern "C" Struct_02087574_2* func_02087574(Struct_02087574* arg0, int arg1);
 
@@ -399,7 +399,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
     Struct_020a95a4_2* var16 = GetZone3D_02012fe4();
     Struct_ov031_0224e6e0* var17 = GetLocalWireless_0202ae18();
     var1 = GetFlagManager_0205ec34();
-    var2 = func_02094d6c();
+    var2 = GetQuestManager_02094d6c();
     var3 = static_cast<Struct_020a95a4_8*>(GetParty_02010828(var0));
     reinterpret_cast<Struct_020a9eb8_2*>(var0)->unknown_5cc8_ = 1;
 
@@ -466,7 +466,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
         var13 = GetLocalWireless_0202ae18();
         var23 = GetZone3D_02012fe4();
         GetGameResources();
-        var12 = func_02094d6c();
+        var12 = GetQuestManager_02094d6c();
         ReleaseFileTablesForSpace_020a0cc4(sizeof(Struct_020a95a4_6));
         var22 = (Struct_020a95a4_6*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, sizeof(Struct_020a95a4_6));
         if (var22 != NULL) {
@@ -501,7 +501,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             memcpy(var22->unknown_1d5c_, var25->unknown_0_, sizeof(var25->unknown_0_));
             var8 = 0;
             for (var7 = 0; var7 < 8; var7++) {
-                unsigned short* var31 = func_0207c5f8(var25->unknown_1d4_, var7);
+                unsigned short* var31 = GetEquipmentBagItemIds_0207c5f8(var25->unknown_1d4_, var7);
                 unsigned char* var32 = func_0207c60c(var25->unknown_1d4_, var7);
                 short var33 = func_0207c620(var25->unknown_1d4_, var7);
                 memcpy(&var22->unknown_1f30_[var8], var31, var33 * 2);
@@ -648,7 +648,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
         func_02075acc((char*)arg1->unknown_6c3c_ - var21, reinterpret_cast<Struct_020a9eb8_2*>(GameState::GetInstance())->unknown_5e6c_, 0x110, 0);
     }
     func_02075acc((char*)arg1->unknown_2ff0_ - var21, var2->unknown_0_, sizeof(var2->unknown_0_), 0);
-    func_02075acc((char*)arg1->unknown_3090_ - var21, func_02094d6c()->unknown_178_, 0x330, 0);
+    func_02075acc((char*)arg1->unknown_3090_ - var21, GetQuestManager_02094d6c()->unknown_178_, 0x330, 0);
     func_02075acc((char*)arg1->unknown_3554_ - var21, reinterpret_cast<Struct_020a9eb8_2*>(var0)->unknown_75f0_, 0x4d0, 0);
     func_02075acc((char*)arg1->unknown_3a24_ - var21, reinterpret_cast<Struct_020a9eb8_2*>(var0)->unknown_7ac0_, 0x3b4, 0);
 
@@ -711,7 +711,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             var58.unknown_10_ = var61->unknown_2_4_;
         }
         var58.unknown_14_ = gMusicManager_02109bf4.unknown_c8_2_;
-        var58.unknown_15_ = func_0203e524(func_0203cf4c(), (Struct_02028460_3*)&var59->obj3D_.position_, &var58.unknown_16_);
+        var58.unknown_15_ = func_0203e524(GetNPCManager_0203cf4c(), (Struct_02028460_3*)&var59->obj3D_.position_, &var58.unknown_16_);
         func_02075acc((char*)&arg1->unknown_695c_ - var21, &var58, sizeof(var58), 0);
     }
 

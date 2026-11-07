@@ -50,8 +50,8 @@ struct Struct_ov023_021dc134 {
     unsigned char unknown_0_2_ : 6;
 };
 
-// USA: func_ov023_021dc134
-extern "C" ARM void func_ov023_021dc134(void* arg0, short arg1, int arg2) {
+// USA: InitItemInfoPanel_ov023_021dc134
+extern "C" ARM void InitItemInfoPanel_ov023_021dc134(void* arg0, short itemId, int arg2) {
 #if defined(jpn)
  enum {Enum_ov023_021dc134_296=0x124, Enum_ov023_021dc134_297=0x125, Enum_ov023_021dc134_300=0x128, Enum_ov023_021dc134_384=0x17c, Enum_ov023_021dc134_1584=0x62c, Enum_ov023_021dc134_256=0x80, Enum_ov023_021dc134_1840=0x6ac, Enum_ov023_021dc134_1844=0x6b0, Enum_ov023_021dc134_1848=0x6b4, Enum_ov023_021dc134_1880=0x6d4, Enum_ov023_021dc134_1884=0x6d8, Enum_ov023_021dc134_1888=0x6dc, Enum_ov023_021dc134_1892=0x6e0, Enum_ov023_021dc134_1896=0x6e4, Enum_ov023_021dc134_1900=0x6e8, Enum_ov023_021dc134_1904=0x6ec, Enum_ov023_021dc134_1906=0x6ee, Enum_ov023_021dc134_1908=0x6f0, Enum_ov023_021dc134_1910=0x6f2, Enum_ov023_021dc134_1911=0x6f3, Enum_ov023_021dc134_1912=0x6f4, Enum_ov023_021dc134_1913=0x6f5, Enum_ov023_021dc134_1914=0x6f6, Enum_ov023_021dc134_1915=0x6f7, Enum_ov023_021dc134_1916=0x6f8, Enum_ov023_021dc134_1917=0x6f9, Enum_ov023_021dc134_1918=0x6fa, Enum_ov023_021dc134_1920=0x6fc, Enum_ov023_021dc134_1945=0x715, Enum_ov023_021dc134_1946=0x716, Enum_ov023_021dc134_1947=0x717};
 #else
@@ -87,23 +87,23 @@ extern "C" ARM void func_ov023_021dc134(void* arg0, short arg1, int arg2) {
     *(unsigned char*)(var0 + Enum_ov023_021dc134_297) = 0;
     InitSpriteSet_0205a444(var0 + Enum_ov023_021dc134_300);
 
-    for (unsigned char var1 = 0; var1 < 30; var1++) {
-        InitSprite_0205a198((struct Sprite_02043368_2*)(var0 + Enum_ov023_021dc134_384 + var1 * 0x28));
+    for (unsigned char i = 0; i < 30; i++) {
+        InitSprite_0205a198((struct Sprite_02043368_2*)(var0 + Enum_ov023_021dc134_384 + i * 0x28));
     }
 
     memset(var0 + Enum_ov023_021dc134_1584, 0, Enum_ov023_021dc134_256);
 
     *(int*)(var0 + Enum_ov023_021dc134_1840) = 0;
     *(int*)(var0 + Enum_ov023_021dc134_1844) = -1;
-    for (int var2 = 0; var2 < 7; var2++) {
-        *(int*)(var0 + Enum_ov023_021dc134_1848 + var2 * 4) = -1;
+    for (int i = 0; i < 7; i++) {
+        *(int*)(var0 + Enum_ov023_021dc134_1848 + i * 4) = -1;
     }
 
     *(int*)(var0 + Enum_ov023_021dc134_1880) = 0;
     *(int*)(var0 + Enum_ov023_021dc134_1884) = 0;
 
-    *(short*)(var0 + Enum_ov023_021dc134_1904) = arg1;
-    *(short*)(var0 + Enum_ov023_021dc134_1906) = arg1;
+    *(short*)(var0 + Enum_ov023_021dc134_1904) = itemId;
+    *(short*)(var0 + Enum_ov023_021dc134_1906) = itemId;
     *(short*)(var0 + Enum_ov023_021dc134_1908) = 0;
 
     *(unsigned char*)(var0 + Enum_ov023_021dc134_1910) = 0;

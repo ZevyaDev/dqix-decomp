@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-extern "C" void* func_ov031_022133f8(unsigned int arg0);
+extern "C" void* GetWifiConnectionBuffer_ov031_022133f8(unsigned int bufferFlag);
 
 // USA: func_ov031_0221314c
 extern "C" ARM void func_ov031_0221314c(unsigned char* arg0, void* arg1, int arg2) {
-	unsigned char* var0 = (unsigned char*)func_ov031_022133f8(0x10);
+	unsigned char* var0 = (unsigned char*)GetWifiConnectionBuffer_ov031_022133f8(0x10);
 
 	var0[0xd0c] = (var0[0xd0c] & ~0xf) | 1;
 	VectorizedMemset(var0, 0, 0xf0);

@@ -7,7 +7,7 @@ struct MenuCursor_0205bcdc;
 
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void EnableTouchMenuCursor_0205cef8(void* windowManager);
-extern "C" void func_0205cf04(void* arg0);
+extern "C" void EnableKeyMenuCursor_0205cf04(void* windowManager);
 extern "C" void func_0205cf28(unsigned char* arg0, int arg1, int arg2, int arg3);
 extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc* cursor, int index);
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov000_0217636c(struct Struct_ov000_0215ab88* arg0, int 
         int var2 = arg0->unknown_48_;
         CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)var0, 1);
         EnableTouchMenuCursor_0205cef8(var0);
-        func_0205cf04(var0);
+        EnableKeyMenuCursor_0205cf04(var0);
         func_0205cf28((unsigned char*)var0, 2, 3, 0);
         SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)&var0->unknown_4_, 6);
         SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)&var0->unknown_54_, 6);

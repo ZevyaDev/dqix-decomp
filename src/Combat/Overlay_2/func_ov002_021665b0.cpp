@@ -122,7 +122,7 @@ struct Struct_ov002_021665b0_6 {
 
 extern "C" void func_ov002_02157ce0(char*);
 extern "C" void func_ov002_0215b814(Struct_ov002_021665b0_2* arg0);
-extern "C" Struct_ov002_021665b0_8* func_0200ff94(GameState* arg0, int arg1);
+extern "C" Struct_ov002_021665b0_8* GetGameObjectByIndex_0200ff94(GameState* gameState, int index);
 extern "C" Struct_ov002_021665b0_9* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" int func_02083bc0(unsigned char*, int);
 extern "C" int func_0209ac28(char* arg0, Struct_ov002_021665b0_8* arg1, int arg2);
@@ -137,11 +137,11 @@ extern "C" void func_ov002_021594e8(Struct_ov002_021665b0_2* arg0, int arg1, int
 extern "C" char* GetMessageWindow_020421a0(void);
 struct TextWindowManager_0205da38;
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
-extern "C" int func_0205d97c(char* arg0);
-extern "C" int func_ov002_02161b48(char*, int);
+extern "C" int HitTestCursorWindowTouch_0205d97c(char* windowManager);
+extern "C" int IsCancelPressed_ov002_02161b48(char*, int);
 extern "C" void ResetMessageWindow_02043204(char* window);
 struct TextWindowManager_0205def8;
-extern "C" void func_0205def8(TextWindowManager_0205def8*, int, int);
+extern "C" void SetTextWindowVisible_0205def8(TextWindowManager_0205def8*, int, int);
 extern "C" void func_ov016_0218b5c0(int arg0, int arg1);
 extern "C" void func_ov017_0218b5f8(int arg0);
 
@@ -202,7 +202,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
         int var15 = 0;
         for (int var16 = 0; var16 < var5; var16++) {
             var13 = arg0->unknown_1c54_[var16];
-            var3 = func_0200ff94(var0, var13);
+            var3 = GetGameObjectByIndex_0200ff94(var0, var13);
             if (var3 == NULL) {
                 continue;
             }
@@ -237,7 +237,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             if ((Struct_ov002_021665b0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, var13) == NULL) {
                 continue;
             }
-            var3 = func_0200ff94(var0, var13);
+            var3 = GetGameObjectByIndex_0200ff94(var0, var13);
             if (var3 == NULL) {
                 continue;
             }
@@ -270,7 +270,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
                     if (!func_02083bc0((unsigned char*)var25, 0x20)) {
                         continue;
                     }
-                    Struct_ov002_021665b0_8* var26 = func_0200ff94(var0, var23);
+                    Struct_ov002_021665b0_8* var26 = GetGameObjectByIndex_0200ff94(var0, var23);
                     if (func_02048448((Struct_02048448_2*)var26, (unsigned short)FindActionData_02079e2c((char*)var4, (short)0x23)->unknown_8_0_)) {
                         var18 = 1;
                         break;
@@ -299,7 +299,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             int var31 = arg0->unknown_1c54_[var30];
             var29 = &var27[var30];
             var29->unknown_2_ = var31;
-            Struct_ov002_021665b0_8* var32 = func_0200ff94(var0, var31);
+            Struct_ov002_021665b0_8* var32 = GetGameObjectByIndex_0200ff94(var0, var31);
             if (var32 == NULL) {
                 continue;
             }
@@ -466,7 +466,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
                     var60++;
                     continue;
                 }
-                if (func_0200ff94(var0, arg0->unknown_1cb2_[var60].unknown_0_)->unknown_130_->unknown_0_ & 1) {
+                if (GetGameObjectByIndex_0200ff94(var0, arg0->unknown_1cb2_[var60].unknown_0_)->unknown_130_->unknown_0_ & 1) {
                     var60++;
                     continue;
                 }
@@ -477,7 +477,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
                     }
                     var1.unknown_0_ = 0x23;
                     Struct_ov002_021665b0_10* var63 = FindActionData_02079e2c((char*)var4, (short)var1.unknown_0_);
-                    Struct_ov002_021665b0_8* var64 = func_0200ff94(var0, arg0->unknown_1cb2_[var60].unknown_0_);
+                    Struct_ov002_021665b0_8* var64 = GetGameObjectByIndex_0200ff94(var0, arg0->unknown_1cb2_[var60].unknown_0_);
                     if (!func_02048448((Struct_02048448_2*)var64, (unsigned short)var63->unknown_8_0_)) {
                         var60++;
                         continue;
@@ -494,7 +494,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             arg0->unknown_1cad_ = var60;
             func_ov002_021594e8(arg0, arg0->unknown_1caa_, arg0->unknown_1cb2_[var60].unknown_0_, var55);
             Struct_ov002_021665b0_8* var65 = (Struct_ov002_021665b0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, var55);
-            Struct_ov002_021665b0_8* var66 = func_0200ff94(var0, var55);
+            Struct_ov002_021665b0_8* var66 = GetGameObjectByIndex_0200ff94(var0, var55);
             var7[var55] = var65->unknown_130_->unknown_4_;
             if (!(var66->unknown_130_->unknown_0_ & 2)) {
                 var9[var55] = 0;
@@ -505,7 +505,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
         var53 = arg0->unknown_1cb2_[arg0->unknown_1cac_].unknown_0_;
         signed char var67 = arg0->unknown_1cb2_[arg0->unknown_1cac_].unknown_1_;
         arg0->unknown_1c20_ = var53;
-        Struct_ov002_021665b0_8* var68 = func_0200ff94(var0, var55);
+        Struct_ov002_021665b0_8* var68 = GetGameObjectByIndex_0200ff94(var0, var55);
         if (var67 == 0) {
             arg0->unknown_1cac_ = arg0->unknown_1cac_ + 1;
             arg0->unknown_1cae_ = 2;
@@ -665,7 +665,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
         var52 = 0;
         while (!var52) {
             Struct_ov002_021665b0_10* var88 = FindActionData_02079e2c((char*)var4, (short)arg0->unknown_1caa_);
-            Struct_ov002_021665b0_8* var89 = func_0200ff94(var0, var53);
+            Struct_ov002_021665b0_8* var89 = GetGameObjectByIndex_0200ff94(var0, var53);
             if (var89 == NULL || var88 == NULL) {
                 continue;
             }
@@ -689,7 +689,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
         int var90 = arg0->unknown_1c54_[arg0->unknown_1cb0_];
         func_ov002_021594e8(arg0, arg0->unknown_1caa_, arg0->unknown_1cb2_[arg0->unknown_1cac_].unknown_0_, var90);
         Struct_ov002_021665b0_8* var91 = (Struct_ov002_021665b0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, var90);
-        Struct_ov002_021665b0_8* var92 = func_0200ff94(var0, var90);
+        Struct_ov002_021665b0_8* var92 = GetGameObjectByIndex_0200ff94(var0, var90);
         var7[var90] = var91->unknown_130_->unknown_4_;
         if (!(var92->unknown_130_->unknown_0_ & 2)) {
             var9[var90] = 0;
@@ -713,14 +713,14 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             var94[CTL_FLAG_021665b0] = 0;
             int var96 = g_keyManager.TestKeysPressed(0x601);
             int var97 = (var96 | IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)((char*)arg0 + LIST_021665b0), 0x14)) ? 1 : 0;
-            int var98 = func_0205d97c((char*)arg0 + LIST_021665b0) == 1 ? 1 : 0;
-            int var99 = func_ov002_02161b48((char*)arg0, 1);
+            int var98 = HitTestCursorWindowTouch_0205d97c((char*)arg0 + LIST_021665b0) == 1 ? 1 : 0;
+            int var99 = IsCancelPressed_ov002_02161b48((char*)arg0, 1);
             int var100 = g_keyManager.TestKeysPressed(0xf0);
             if (var98 | (var99 | (var97 | (var100 | g_keyManager.TestKeysPressed(0x100))))) {
                 ResetMessageWindow_02043204(var94);
                 arg0->unknown_1bb8_ = NEXT_BACK_021665b0;
                 arg0->unknown_1bbc_ = NEXT_MENU_021665b0;
-                func_0205def8((TextWindowManager_0205def8*)((char*)arg0 + LIST_021665b0), 1, FLAG_KEY_021665b0);
+                SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)((char*)arg0 + LIST_021665b0), 1, FLAG_KEY_021665b0);
                 arg0->unknown_1caf_ = 0;
                 arg0->unknown_1c28_ = -1;
                 arg0->unknown_1c2a_ = -1;

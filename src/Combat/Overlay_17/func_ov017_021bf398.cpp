@@ -4,7 +4,7 @@
 
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
-extern "C" void func_020a27ac(void* arg0);
+extern "C" void EnableCameraTurning_020a27ac(void* camera);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern int gMainHeap_02114e20;
 
@@ -16,7 +16,7 @@ extern "C" ARM void func_ov017_021bf398(char* arg0) {
 	GameState* var0 = GameState::GetInstance();
 	int var1 = GetFollowCamera_020100f8((char*)var0);
 	GameObject* var2 = var0->GetUnknownGameObject();
-	func_020a27ac((void*)var1);
+	EnableCameraTurning_020a27ac((void*)var1);
 	EnablePlayerControl_020397c0(var2);
 	SafeAllocator* var3 = (SafeAllocator*)(arg0 + 0x14);
 	void* var4 = var3->GetSignedAllocator();

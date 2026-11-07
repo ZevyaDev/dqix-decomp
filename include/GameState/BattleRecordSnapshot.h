@@ -39,7 +39,7 @@ struct Struct_02061c04_3 {
     unsigned int unknown_1c_;
 };
 
-struct Struct_02061c04 {
+struct BattleRecords_02061c04 {
     Struct_02061c04_2 unknown_0_;
     unsigned int unknown_8_0_ : 24;
     unsigned int unknown_b_0_ : 8;
@@ -48,10 +48,10 @@ struct Struct_02061c04 {
     unsigned int unknown_f_4_ : 4;
     unsigned int unknown_10_0_ : 9;
     unsigned int unknown_11_1_ : 14;
-    unsigned int unknown_12_7_ : 9;
-    unsigned int unknown_14_0_ : 9;
-    unsigned int unknown_15_1_ : 9;
-    unsigned int unknown_16_2_ : 11;
+    unsigned int alchenomiconCount_12_7_ : 9;
+    unsigned int defeatedMonsterListCount_14_0_ : 9;
+    unsigned int itemListCount_15_1_ : 9;
+    unsigned int wardrobeCount_16_2_ : 11;
     unsigned int unknown_17_5_ : 3;
     unsigned int unknown_18_0_ : 9;
     unsigned int unknown_19_1_ : 7;

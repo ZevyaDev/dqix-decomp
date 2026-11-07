@@ -13,9 +13,9 @@ extern "C" int GetResources_0200fb8c(int *gameState);
 extern "C" void GetZone3D_02012fe4(void);
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
-extern "C" void func_ov002_02161cf0(char *arg0);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215f3a0(void *arg0);
-extern "C" void func_0205def8(struct TextWindowManager_0205def8 *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowVisible_0205def8(struct TextWindowManager_0205def8 *windowManager, int isVisible, int windowId);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" char *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
@@ -32,7 +32,7 @@ extern "C" void func_ov017_021c1798(GameResources *arg0, unsigned char arg1);
 extern "C" void func_ov002_0215a878(char *arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
 extern "C" void func_ov017_021bff8c(int arg0, int arg1);
-extern "C" int func_ov002_02161b48(char *arg0, int arg1);
+extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void func_ov002_02156e90(void *arg0);
 
 extern "C" char gSoundEffectManager_02108760;
@@ -51,12 +51,12 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
     if (var2 == 0) {
         *(short *) (arg0 + 0x1ac6) = 0;
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) OBJ, 0, 2);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_0215f3a0(arg0);
         *(int *) (arg0 + 0x1a88) += 1;
     } else if (var2 == 1) {
         *(unsigned int *) (arg0 + 0x22ac) |= 4;
-        func_0205def8((struct TextWindowManager_0205def8 *) OBJ, 1, 0x2c);
+        SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8 *) OBJ, 1, 0x2c);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x16, 0);
         short var3                  = *(short *) (arg0 + 0x1ac6);
         *(short *) (arg0 + 0x1ac6) = GetCursorIndex_0205d794((struct Struct_0205c570 *) OBJ);
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
                     break;
                 }
             }
-        } else if (func_ov002_02161b48(arg0, 1)) {
+        } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + 0x1ac6) = -1;
             func_ov002_02156e90(arg0);
         }
@@ -154,13 +154,13 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
     if (var16 == 0) {
         *(short *) (arg0 + 0x1bfe) = 0;
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) OBJ, 0, 2);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_0215f3a0(arg0);
         *(int *) (arg0 + 0x1bc0) += 1;
     } else if (var16 == 1) {
         *(unsigned int *) (arg0 + 0x247c) |= 4;
-        func_0205def8((struct TextWindowManager_0205def8 *) OBJ, 1, 0x29);
-        func_0205def8((struct TextWindowManager_0205def8 *) OBJ, 1, 1);
+        SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8 *) OBJ, 1, 0x29);
+        SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8 *) OBJ, 1, 1);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x15, 0);
         short var17                  = *(short *) (arg0 + 0x1bfe);
         *(short *) (arg0 + 0x1bfe) = GetCursorIndex_0205d794((struct Struct_0205c570 *) OBJ);
@@ -250,7 +250,7 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
                     break;
                 }
             }
-        } else if (func_ov002_02161b48(arg0, 1)) {
+        } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + 0x1bfe) = -1;
             func_ov002_02156e90(arg0);
         }

@@ -32,7 +32,7 @@ extern "C" int GetMessageWindow_020421a0();
 extern "C" int GetFollowCamera_020100f8(char*);
 extern "C" void func_020d8484(Struct_020d80b0_3*);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
-extern "C" void func_020a27b8(unsigned char*);
+extern "C" void DisableCameraTurning_020a27b8(unsigned char*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void LoadStringList_020728ac(StringList_02072a68_2*, SafeAllocator*, void*, unsigned int, int, int, int);
 extern "C" void ClearMessageParams_02046380(void*);
@@ -87,7 +87,7 @@ extern "C" ARM void func_020d80b0(Struct_020d80b0_3* arg0) {
     }
     if (arg0->unknown_8_ == 0) {
         DisablePlayerControl_020397cc((Struct_02018300_3*)var3, 1);
-        func_020a27b8(var7);
+        DisableCameraTurning_020a27b8(var7);
         arg0->unknown_14_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x300), 0x300);
 #if defined(jpn)
         arg0->unknown_28_ = BackgroundLoader::GetInstance()->QueueLoadFile(data_020f24b8, 0);

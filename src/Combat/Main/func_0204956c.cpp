@@ -59,7 +59,7 @@ extern "C" ARM void func_0204956c(Struct_0204956c_2* arg0) {
         var2->unknown_52_ = 0;
     }
     if (!var2->unknown_4f_) {
-        int var5 = var3->unknown_4_;
+        int var5 = var3->objectIndex_4_;
         int var6 = var5 + func_020494a0(var0) + var2->unknown_54_;
         int var7 = func_020494a0(var0);
         if (var7 == 0xff) { func_02049ae4(var0); return; }
@@ -142,7 +142,7 @@ extern "C" ARM void func_0204956c(Struct_0204956c_2* arg0) {
     if (var3->HasAnimationStopped()) {
         --var2->unknown_4f_;
         if (!var2->unknown_4f_) {
-            int var33 = var3->unknown_4_;
+            int var33 = var3->objectIndex_4_;
             int var34 = var33 + func_020494a0(var0) + var2->unknown_54_;
             Struct_020e7b54 var35 = data_020e7b54;
             var2->unknown_52_ = var35.unknown_0_[var34 % 3];

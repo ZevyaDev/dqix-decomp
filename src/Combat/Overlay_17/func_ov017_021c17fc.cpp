@@ -16,7 +16,7 @@ struct Struct_02018300_3;
 
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
-extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
+extern "C" void SetCameraFlags_020a28a0(unsigned char* camera, unsigned char flags);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov017_021c17fc(Struct_ov017_021c17fc_2* arg0) {
     DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
     SetFlags04(var1, 0xc0);
     unsigned char* var3 = (unsigned char*)GetFollowCamera_020100f8((char*)var0);
-    func_020a28a0(var3, 3);
+    SetCameraFlags_020a28a0(var3, 3);
     if (arg0->unknown_1c_ == 0) {
         ReleaseFileTablesForSpace_020a0cc4(Enum_ov017_021c17fc_189632);
         void* var4 = AllocateRoundedSize_02012d88((AllocatorUnion*)&gMainHeap_02114e20, Enum_ov017_021c17fc_189632);

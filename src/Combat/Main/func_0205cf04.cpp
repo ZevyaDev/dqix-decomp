@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_0205cf04
-extern "C" ARM void func_0205cf04(void* arg0) {
-    *(unsigned char*)((char*)arg0 + 0x95) = 1;
+// USA: EnableKeyMenuCursor_0205cf04
+extern "C" ARM void EnableKeyMenuCursor_0205cf04(void* windowManager) {
+    *(unsigned char*)((char*)windowManager + 0x95) = 1;
 }

@@ -37,7 +37,7 @@ extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" void GetZone3D_02012fe4();
 extern "C" void SetObject3DPosition_020407b4(Struct_02040774_2*, int, int, int);
 extern "C" void* func_ov017_0218d268(void*);
-extern "C" int func_0202e7f0(void*);
+extern "C" int GetCameraYaw_0202e7f0(void*);
 extern "C" int func_020968c4(Struct_02038138*);
 int fix32ReduceAngle0To2Pi(int);
 int fix32SignedAngleDistance(int, int);
@@ -93,7 +93,7 @@ extern "C" ARM void func_020adaac(Struct_020adaac* arg0) {
         Struct_020968d0* var5 = (Struct_020968d0*)func_ov017_0218d268(var1);
         if (arg0->unknown_134_ == 1) {
             int var6 = data_020e9118[arg0->unknown_1a0_ - 8];
-            var2 = var6 + func_0202e7f0(var0);
+            var2 = var6 + GetCameraYaw_0202e7f0(var0);
         } else if (var5->unknown_224_) {
             var2 = func_020968c4((Struct_02038138*)var5);
         }

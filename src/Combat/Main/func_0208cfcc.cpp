@@ -47,7 +47,7 @@ extern "C" void func_0205af38(int, char*, int, int);
 int IsSubBrightnessTransitionActive(GameResources*);
 extern "C" void func_0205eb54(void*, int, int);
 extern "C" void func_0205eb90(void*, int, int);
-extern "C" void func_0205eb80(void*);
+extern "C" void UnloadExtraSoundSet_0205eb80(void*);
 
 static inline int inline_0208cfcc(Struct_02065990_2* arg0) { return (arg0->unknown_da_ & 0x100) == 0; }
 
@@ -134,7 +134,7 @@ extern "C" ARM void func_0208cfcc(Struct_02065990_2* arg0) {
             }
         }
     } else if (arg0->unknown_d5_ == 6 && arg0->unknown_d9_ == 0) {
-        func_0205eb80(gSoundEffectManager_02108760);
+        UnloadExtraSoundSet_0205eb80(gSoundEffectManager_02108760);
         arg0->unknown_d4_ = 1;
         arg0->unknown_d5_ = 0;
     }

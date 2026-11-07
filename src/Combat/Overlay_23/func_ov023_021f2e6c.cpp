@@ -39,7 +39,7 @@ struct Struct_ov023_021f2e6c_7 { int unknown_0_[3]; };
 struct Struct_ov023_021f2e6c_8 { char* unknown_0_; char* unknown_4_; int unknown_8_; };
 struct Struct_ov023_021f2e6c_9 { int unknown_0_[0x15]; };
 
-extern "C" Struct_ov023_021f2e6c_4* func_02094d6c(void);
+extern "C" Struct_ov023_021f2e6c_4* GetQuestManager_02094d6c(void);
 extern "C" unsigned char* GetMessageWindow_020421a0(void);
 extern "C" void func_ov023_021d8b6c(void* arg0);
 extern "C" void func_ov023_021d8af8(void* arg0);
@@ -74,7 +74,7 @@ struct Struct_020deb08;
 extern "C" short func_020deb08(Struct_020deb08*);
 extern "C" void func_020de868(void* arg0);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
-extern "C" int func_020dea64(void* arg0, void* arg1, void* arg2, int arg3, void* arg4, int arg5);
+extern "C" int LoadItemTableByCategories_020dea64(void* itemTable, void* allocator, void* fileData, int fileSize, void* categories, int categoryCount);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" void func_0209e3dc(char*, int);
@@ -127,7 +127,7 @@ extern char data_ov023_021fd54e[];
 extern char data_ov023_021fd578[];
 extern char data_ov023_021fd5a2[];
 struct Struct_0206f01c_2;
-extern "C" void* func_0206f4f0(Struct_0206f01c_2*, int);
+extern "C" void* FindMonsterData_0206f4f0(Struct_0206f01c_2*, int);
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" void func_020de968(int,char*);
@@ -144,7 +144,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
     unsigned char* var0;
     int* var1 = _ZZ21inline_ov023_021f4c04vE1s;
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
-    Struct_ov023_021f2e6c_4* var3 = func_02094d6c();
+    Struct_ov023_021f2e6c_4* var3 = GetQuestManager_02094d6c();
     var0 = GetMessageWindow_020421a0();
     Struct_ov023_021f2e6c_3* var4;
     int var5 = var1[0];
@@ -170,7 +170,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
 #if defined(jpn)
                 char* var10 = data_ov023_021fd54e;
                 if (var6 == 0x12) var10 = data_ov023_021fd578;
-                void* var11 = func_0206f4f0((Struct_0206f01c_2*)(*(char**)(arg0 + 0x21c) + 0x678), var8);
+                void* var11 = FindMonsterData_0206f4f0((Struct_0206f01c_2*)(*(char**)(arg0 + 0x21c) + 0x678), var8);
                 if (var11 != 0) SetMessageString_02046574((Struct_02046574_2*)var0, 0, *(char**)var11);
                 char var12[0x40];
                 __clear(var12,0x40);
@@ -315,7 +315,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                 unsigned int var38;
                 void* var39 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var38);
                 if (var39 != 0) {
-                    func_020dea64(var37 + 0x3000, var35 + 0x5000, var39, var38, &data_ov023_021fd862, 3);
+                    LoadItemTableByCategories_020dea64(var37 + 0x3000, var35 + 0x5000, var39, var38, &data_ov023_021fd862, 3);
 
                 }
                 BackgroundLoader::RemoveLockGlobal();

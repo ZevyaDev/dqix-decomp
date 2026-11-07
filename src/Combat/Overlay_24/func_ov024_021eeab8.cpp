@@ -5,7 +5,7 @@
 
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov024_021eda60(GameObject* arg0);
-extern "C" int func_020882f8(unsigned char* arg0);
+extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
 
 struct Struct_ov024_021eeab8 { int unknown_0_; };
 struct Struct_ov024_021feecc { short unknown_0_[8]; };
@@ -23,7 +23,7 @@ extern "C" ARM int func_ov024_021eeab8(struct Struct_ov024_021eeab8* arg0, int a
         GameObject* var3 = GetCombatantByID(arg0->unknown_0_, var0.unknown_0_[var2]);
         if (!var3) continue;
         if (func_ov024_021eda60(var3)) continue;
-        if (!func_020882f8((unsigned char*)var3->currentStats_)) continue;
+        if (!IsAsleep_020882f8((unsigned char*)var3->currentStats_)) continue;
         int var4 = *arg3;
         *arg3 = var4 + 1;
         arg4[var4] = var0.unknown_0_[var2];

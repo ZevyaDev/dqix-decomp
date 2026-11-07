@@ -3,7 +3,7 @@
 extern int data_ov023_021fdd6c;
 extern "C" int _s32_div_f(int a, int b);
 extern "C" void func_0204f914(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" void* func_020425b4(int arg0, int arg1);
+extern "C" void* GetFontGlyph_020425b4(int glyphIndex, int font);
 struct FontGlyph_0204254c;
 extern "C" FontGlyph_0204254c* FindFontGlyph_0204254c(int text, int font);
 extern "C" void func_0204f41c(void* arg0, short arg1, short arg2, int arg3, int arg4, int arg5, void* arg6, void* arg7, int arg8);
@@ -22,7 +22,7 @@ extern "C" ARM void func_ov023_021e709c(void* arg0, unsigned char* arg1, int arg
     if (var0 == 0xff) {
         return;
     }
-    void* var5 = func_020425b4(var0, 1);
+    void* var5 = GetFontGlyph_020425b4(var0, 1);
     if (var0 == 0) {
         var5 = FindFontGlyph_0204254c((int)&data_ov023_021fdd6c, 1);
     }

@@ -60,7 +60,7 @@ struct Struct_ov004_0217101c_3 {
 extern "C" void* GetFlagManager_0205ec34();
 extern "C" void func_ov004_02166608(void*);
 extern "C" Struct_ov004_02153e20* func_ov023_021f6524(void*, int);
-extern "C" Struct_02065990_3* func_02094d6c();
+extern "C" Struct_02065990_3* GetQuestManager_02094d6c();
 extern "C" void GetMessageWindow_020421a0();
 extern "C" void func_ov023_021f65d4(void*, int, int);
 extern "C" Struct_ov004_02166bd8_3* func_0208d994(Struct_0208bf78_5*, int);
@@ -133,7 +133,7 @@ extern "C" ARM int func_ov004_02166bd8(void* arg0) {
         var9--;
         var3 = var3->unknown_8_;
     }
-    Struct_02065990_3* var10 = func_02094d6c();
+    Struct_02065990_3* var10 = GetQuestManager_02094d6c();
     GetMessageWindow_020421a0();
 #if !defined(jpn)
     unsigned char* var11 = var10->unknown_a8_;

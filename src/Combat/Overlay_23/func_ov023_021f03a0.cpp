@@ -27,12 +27,12 @@ struct Struct_ov023_021f03a0 { unsigned char unknown_0_, unknown_1_, unknown_2_,
 struct Struct_ov003_02162f40 { char unknown_0_[0x25]; unsigned char unknown_25_; };
 struct Struct_ov023_021f03a0_2 { char unknown_0_[0x11b]; unsigned char unknown_11b_; char unknown_11c_[2]; unsigned char unknown_11e_; char unknown_11f_; void* unknown_120_; };
 struct Struct_ov023_021f0a5c_3 { char unknown_0_[0x54]; };
-struct Struct_ov000_02160da0 {
+struct BattleScene_ov000_02160da0 {
     char unknown_0_[0x30]; SafeAllocator unknown_30_;
 #if defined(jpn)
-    char unknown_44_[0x218-0x30-sizeof(SafeAllocator)]; void* unknown_29c_; Struct_ov003_02162f40* unknown_2a0_;
+    char unknown_44_[0x218-0x30-sizeof(SafeAllocator)]; void* pBattle_29c_; Struct_ov003_02162f40* unknown_2a0_;
 #else
-    char unknown1_44_[0x29c-0x30-sizeof(SafeAllocator)]; void* unknown_29c_; Struct_ov003_02162f40* unknown_2a0_;
+    char unknown1_44_[0x29c-0x30-sizeof(SafeAllocator)]; void* pBattle_29c_; Struct_ov003_02162f40* unknown_2a0_;
 #endif
 
 #if defined(jpn)
@@ -92,10 +92,10 @@ extern "C" Struct_02092e0c* GetMessageWindow_020421a0();
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void func_ov023_021ed988(char*, int);
-extern "C" void func_ov000_02163b90(Struct_ov000_02160da0*, int);
-extern "C" void func_ov000_021626a0(Struct_ov000_02160da0*, int, int);
+extern "C" void func_ov000_02163b90(BattleScene_ov000_02160da0*, int);
+extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(BattleScene_ov000_02160da0*, int, int);
 extern "C" void func_ov000_02163a7c(Struct_ov000_02163a7c*);
-extern "C" void func_ov000_021639b4(Struct_ov000_02160da0*);
+extern "C" void func_ov000_021639b4(BattleScene_ov000_02160da0*);
 extern "C" void func_ov000_02167dd8(unsigned char*);
 extern "C" int func_ov000_02153e40(void*, short*, int, int);
 extern "C" void func_02048cf0(GameObject*, int);
@@ -124,7 +124,7 @@ extern "C" void StartMessage_0204500c(Struct_02092e0c*, char*, int, int);
 #endif
 extern "C" Struct_ov023_021f03a0* func_ov023_021f0360(void*, int);
 extern "C" int func_02082490(Struct_ov023_021f0a5c_3*, void*, unsigned int, unsigned char, int);
-extern "C" int func_ov023_021f4438(Struct_ov000_02160da0*);
+extern "C" int func_ov023_021f4438(BattleScene_ov000_02160da0*);
 extern "C" int func_ov023_021f4fc8();
 extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2*);
 
@@ -132,7 +132,7 @@ extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2*);
 extern "C" void StartMessage_0204500c(Struct_02092e0c*,char*,int);
 #endif
 // USA: func_ov023_021f03a0
-extern "C" ARM int func_ov023_021f03a0(Struct_ov000_02160da0* arg0) {
+extern "C" ARM int func_ov023_021f03a0(BattleScene_ov000_02160da0* arg0) {
     int var0;
     char var1[256];
 #if defined(jpn)
@@ -153,12 +153,12 @@ extern "C" ARM int func_ov023_021f03a0(Struct_ov000_02160da0* arg0) {
     if (var6->unknown_0_ == 0) {
         if (arg0->unknown_576c_) func_ov023_021ed988((char*)arg0, 0);
         func_ov000_02163b90(arg0, 1);
-        func_ov000_021626a0(arg0, 4, 0);
+        SetObjectsVisibleBySelector_ov000_021626a0(arg0, 4, 0);
         func_ov000_02163a7c((Struct_ov000_02163a7c*)arg0);
         func_ov000_021639b4(arg0);
         ClearFlags04(var8, 0x400);
         func_ov000_02167dd8((unsigned char*)arg0);
-        void* var10 = arg0->unknown_29c_;
+        void* var10 = arg0->pBattle_29c_;
         int var11;
         GameState* var12 = GameState::GetInstance();
         var11 = func_ov000_02153e40(var10, var4, 12, 0);

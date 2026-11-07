@@ -15,20 +15,20 @@ struct Struct_0205c570;
 struct SoundEffectManager_02108760;
 struct TextWindowManager_0205def8;
 struct TextWindowManager_0205d81c;
-struct Struct_0205dee8;
+struct TextWindowManager_0205dee8;
 struct Struct_020e280c;
 struct Struct_020676e0;
-struct Struct_020e25e8;
+struct YesNoWindow_020e25e8;
 struct TextWindowManager_0205d6a0;
 struct MenuCursor_0205bcdc;
 struct ItemTable_0201099c_10;
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
-extern "C" void func_ov002_02161cf0(char *arg0);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_02160fb4(char *arg0);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
-extern "C" void func_0205def8(struct TextWindowManager_0205def8 *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowVisible_0205def8(struct TextWindowManager_0205def8 *windowManager, int isVisible, int windowId);
 extern "C" char *func_020e1b24(void *arg0);
 extern "C" void func_020e280c(struct Struct_020e280c *arg0, void *arg1);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
@@ -36,7 +36,7 @@ extern "C" char *GetFollowCamera_020100f8(char *gameState);
 extern "C" int func_020a27c4(struct Struct_020676e0 *arg0);
 extern "C" int func_020e2918(signed char *arg0);
 extern "C" int func_020e2910(signed char *arg0);
-extern "C" void func_020e25e8(struct Struct_020e25e8 *arg0);
+extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8 *yesNoWindow);
 extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0 *windowManager, int isAll);
@@ -48,7 +48,7 @@ extern "C" int func_ov002_0215753c(unsigned char *arg0);
 extern "C" void func_ov002_02156e90(void *arg0);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" void ResetMessageWindow_02043204(char *window);
-extern "C" void func_0205dee8(struct Struct_0205dee8 *arg0, int arg1);
+extern "C" void SetCursorTextWindow_0205dee8(struct TextWindowManager_0205dee8 *windowManager, int windowId);
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc *cursor, int index);
 extern "C" void SetMenuCursorIndex_0205bb04(void *cursor, int index);
 extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
@@ -89,9 +89,9 @@ struct Struct_ov002_0216a300 {
         ResetMessageWindow_02043204(var0); \
         if (*(unsigned char *) (arg0 + 0x2000 + RG(0x521, 0x351)) != 0) { \
             *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) = *(int *) (arg0 + 0x1000 + RG(0xbbc, 0xa84)); \
-            func_0205dee8((struct Struct_0205dee8 *) LST(arg0), 4); \
+            SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8 *) LST(arg0), 4); \
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) LST(arg0), 4, 0); \
-            func_ov002_02161cf0(arg0); \
+            ConfigureMenuCursors_ov002_02161cf0(arg0); \
             *(unsigned char *) (arg0 + 0x2000 + RG(0x521, 0x351)) = 0; \
         } else if ((*(short *) (arg0 + RG(0x1b00 + 0xf0, 0x1a00 + 0xb8)) >= 0 || *(short *) (arg0 + RG(0x1b00 + 0xe8, 0x1a00 + 0xb0)) >= 0 || \
                     *(short *) (arg0 + RG(0x1c00 + 0xa, 0x1a00 + 0xd2)) >= 0) && \
@@ -106,10 +106,10 @@ struct Struct_ov002_0216a300 {
         if (*(int *) (arg0 + 0x1000 + RG(0xbbc, 0xa84)) == K(0xb, 0xc)) { \
             *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) = K(0xb, 0xc); \
             func_ov002_0215b9a4(arg0, K(0xb, 0xc), 0); \
-            func_0205dee8((struct Struct_0205dee8 *) LST(arg0), K(0xb, 0xc)); \
+            SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8 *) LST(arg0), K(0xb, 0xc)); \
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) LST(arg0), K(0xb, 0xc), 0); \
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) LST(arg0), K(0xd, 0xe), 1); \
-            func_ov002_02161cf0(arg0); \
+            ConfigureMenuCursors_ov002_02161cf0(arg0); \
         } \
     } while (0)
 
@@ -121,10 +121,10 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
     if (var1 == 0) {
         *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) LST(arg0), 0, 3);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_02160fb4(arg0);
         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 5, 0);
-        func_0205def8((struct TextWindowManager_0205def8 *) LST(arg0), 0, K(0x25, 0x28));
+        SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8 *) LST(arg0), 0, K(0x25, 0x28));
         char *var2 = func_020e1b24(*(void **) (*(char **) arg0 + 0x10));
         if (((struct Struct_ov002_0216a300 *) var2)->unknown_3f_0_) {
             func_020e280c(*(struct Struct_020e280c **) (arg0 + 4), *(void **) (var2 + 0x30));
@@ -133,7 +133,7 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
         }
         *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) += 1;
     } else if (var1 == 1) {
-        func_0205def8((struct TextWindowManager_0205def8 *) LST(arg0), 0, K(0x25, 0x28));
+        SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8 *) LST(arg0), 0, K(0x25, 0x28));
         *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) |= 4;
         *(short *) (arg0 + RG(0x1c00 + 0x12, 0x1a00 + 0xda)) =
             GetCursorIndex_0205d794((struct Struct_0205c570 *) LST(arg0));
@@ -149,7 +149,7 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
         *(short *) (arg0 + RG(0x1c00 + 0x12, 0x1a00 + 0xda)) = func_020e2918(*(signed char **) (arg0 + 4));
         if (*(short *) (arg0 + RG(0x1c00 + 0x12, 0x1a00 + 0xda)) >= 0 || var3) {
             *(short *) (arg0 + RG(0x1c00 + 0x12, 0x1a00 + 0xda)) = func_020e2910(*(signed char **) (arg0 + 4));
-            func_020e25e8(*(struct Struct_020e25e8 **) (arg0 + 4));
+            CloseYesNoWindow_020e25e8(*(struct YesNoWindow_020e25e8 **) (arg0 + 4));
             PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
             data_ov002_0216d3ac = 0;
             switch (*(short *) (arg0 + RG(0x1c00 + 0x12, 0x1a00 + 0xda))) {
@@ -217,7 +217,7 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
                         if (*(short *) (arg0 + RG(0x1c00 + 0xa, 0x1a00 + 0xd2)) >= 0) {
                             func_ov002_02156e90(arg0);
                             func_ov002_02156e90(arg0);
-                            func_ov002_02161cf0(arg0);
+                            ConfigureMenuCursors_ov002_02161cf0(arg0);
                             *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) = 1;
                             *(short *) (arg0 + RG(0x1c00 + 0xa, 0x1a00 + 0xd2)) = -1;
                         }
@@ -226,7 +226,7 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
                         *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80))  = K(0x26, 0x29);
                         *(short *) (arg0 + RG(0x1c00 + 0x16, 0x1a00 + 0xde)) = 0;
                         *(short *) (arg0 + RG(0x1c00 + 0x18, 0x1a00 + 0xe0)) = 0;
-                        func_ov002_02161cf0(arg0);
+                        ConfigureMenuCursors_ov002_02161cf0(arg0);
                         *(int *) (arg0 + 0x1000 + RG(0xbc8, 0xa90)) = 1;
                         *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) = 0;
                     }
@@ -249,7 +249,7 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
                     break;
             }
         } else if (*(struct Struct_020e28dc **) (arg0 + 4) != NULL && func_020e2984(*(struct Struct_020e28dc **) (arg0 + 4))) {
-            func_020e25e8(*(struct Struct_020e25e8 **) (arg0 + 4));
+            CloseYesNoWindow_020e25e8(*(struct YesNoWindow_020e25e8 **) (arg0 + 4));
             *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
             *(unsigned char *) (arg0 + 0x1000 + RG(0xc2e, 0xaf6)) = 0;
             data_ov002_0216d3ac                        = 0;

@@ -14,8 +14,8 @@ extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
-extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
-extern "C" void func_020a27ac(void* arg0);
+extern "C" void SetCameraFlags_020a28a0(unsigned char* camera, unsigned char flags);
+extern "C" void EnableCameraTurning_020a27ac(void* camera);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_ov017_0218f758(void* arg0);
 
@@ -90,9 +90,9 @@ extern "C" ARM int func_ov017_021b2758(Struct_ov017_021b2758_3* arg0) {
     if (var3 != 0) {
         ClearCameraFlags_020a28b0((unsigned char*)var3, 2);
         if (arg0->unknown_3e_ != 0) {
-            func_020a28a0((unsigned char*)var3, 2);
+            SetCameraFlags_020a28a0((unsigned char*)var3, 2);
         }
-        func_020a27ac((void*)var3);
+        EnableCameraTurning_020a27ac((void*)var3);
     }
     if (var4 != 0) {
         var4[Enum_ov017_021b2758_261] &= ~1;

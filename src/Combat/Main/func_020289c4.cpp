@@ -13,7 +13,7 @@ extern "C" ARM void func_020280b0(struct Struct_0201a300_5* arg0);
 extern "C" ARM void func_0209bffc(void* arg0);
 extern "C" ARM void func_0209bc84(void* arg0);
 extern "C" ARM void func_0209af34(struct Struct_020287b4_2* arg0);
-extern "C" ARM void* func_0206efc4(void* arg0);
+extern "C" ARM void* ClearMonsterTable_0206efc4(void* monsterTable);
 extern "C" ARM void func_0206ee60(struct Struct_020287b4_4* arg0);
 extern "C" ARM void func_020a8e88(void* arg0);
 
@@ -45,7 +45,7 @@ extern "C" ARM void func_020289c4(struct Struct_020288e0* arg0) {
     func_0209bffc((char*)arg0 + SUBOBJECT_OFFSET(0x44));
     func_0209bc84((char*)arg0 + SUBOBJECT_OFFSET(0x60));
     func_0209af34((struct Struct_020287b4_2*)((char*)arg0 + SUBOBJECT_OFFSET(0x124)));
-    func_0206efc4((char*)arg0 + SUBOBJECT_OFFSET(0x2f8));
+    ClearMonsterTable_0206efc4((char*)arg0 + SUBOBJECT_OFFSET(0x2f8));
     func_0206ee60((struct Struct_020287b4_4*)((char*)arg0 + SUBOBJECT_OFFSET(0x304)));
     func_020a8e88((char*)arg0 + SUBOBJECT_OFFSET(0x30c));
 }

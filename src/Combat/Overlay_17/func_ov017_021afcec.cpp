@@ -13,7 +13,7 @@ extern "C" void func_ov017_021afb8c(char* arg0, char* arg1);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void func_02042764(char* arg0, void* arg1, int arg2);
 extern "C" void func_ov017_0218b5c0(int arg0, int arg1);
-extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
+extern "C" void SetLoadingIndicator_020daf9c(int isShown, int isFadeWaitSkipped, int isScreenBlanked, int isMainScreenForced);
 extern "C" void func_ov017_0219aa5c(unsigned char* arg0);
 extern "C" int func_ov017_0218d268(void* arg0);
 struct Struct_020966cc;
@@ -57,7 +57,7 @@ extern "C" ARM int func_ov017_021afcec(unsigned char* arg0) {
     }
     SetFlags04(var1, 0x40);
     func_ov017_0218b5c0(0, -1);
-    func_020daf9c(1, 1, 0, 1);
+    SetLoadingIndicator_020daf9c(1, 1, 0, 1);
 #if defined(jpn)
     var2[0x17ff] |= 4;
 #else

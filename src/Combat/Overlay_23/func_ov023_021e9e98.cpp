@@ -5,7 +5,7 @@ extern "C" void SetScriptRefInt_ov017_021d6134(void*, int);
 
 // USA: func_ov023_021e9e98
 extern "C" ARM int func_ov023_021e9e98(void* arg0) {
-    Struct_02061c04 var0;
+    BattleRecords_02061c04 var0;
     GetBattleRecords_020ac4c0(&var0);
     SetScriptRefInt_ov017_021d6134(arg0, var0.unknown_40_0_);
     return 1;

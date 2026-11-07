@@ -15,7 +15,7 @@ struct Struct_02070b6c_3 {
     char unknown_0_[4];
 };
 
-extern "C" Struct_ov000_0215f03c_6* func_02070fd0(struct Struct_02070b6c_3* arg0, int arg1);
+extern "C" Struct_ov000_0215f03c_6* FindMonsterBattleData_02070fd0(struct Struct_02070b6c_3* table, int monsterId);
 
 struct Struct_ov000_0215f03c_2 {
     char unknown_0_[0x3e];
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov000_0215f03c(Struct_ov000_0215f03c_7* arg0) {
         var5 = var8->unknown_2_;
         for (var6 = 0; var6 < var8->unknown_a_0_; var6++) {
             var7 = &var2[var5[var6]];
-            Struct_ov000_0215f03c_6* var10 = func_02070fd0(&var1->unknown_400_, var9);
+            Struct_ov000_0215f03c_6* var10 = FindMonsterBattleData_02070fd0(&var1->unknown_400_, var9);
             if (var10 != NULL) {
                 var7->unknown_3e_ = var10->unknown_6c_;
                 var7->unknown_54_ = var10->unknown_82_;

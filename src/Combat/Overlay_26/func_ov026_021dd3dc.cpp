@@ -49,7 +49,7 @@ extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0*, int
 extern "C" int GetLeaderObjectIndex_020546a8(void*);
 extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" int func_ov026_021dce1c(Struct_ov026_021dc8fc_4*);
-extern "C" int func_020882f8(unsigned char*);
+extern "C" int IsAsleep_020882f8(unsigned char*);
 extern "C" int func_ov000_0215f7a8(Struct_ov000_02161e30*, short*, unsigned char);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
 extern "C" void GetBattleRecords_020ac4c0(void*);
@@ -159,7 +159,7 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
                 if (!var25) continue;
                 if (IsDead_02010088((Struct_02010088*)var25)) continue;
                 if (func_ov026_021dce1c((Struct_ov026_021dc8fc_4*)var25)) continue;
-                if (func_020882f8((unsigned char*)((Struct_ov017_021af66c_5*)var25)->unknown_138_)) continue;
+                if (IsAsleep_020882f8((unsigned char*)((Struct_ov017_021af66c_5*)var25)->unknown_138_)) continue;
                 if ((((Struct_ov017_021af66c_5*)var25)->unknown_138_->unknown_14_ & 0x80000) == 0) {
                     var1.unknown_0_[var23] = var24;
                     var23++;

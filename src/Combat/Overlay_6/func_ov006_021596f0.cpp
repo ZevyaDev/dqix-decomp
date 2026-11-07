@@ -8,7 +8,7 @@
 
 extern "C" void* func_ov006_02157368(void* arg0, int arg1);
 extern "C" void func_ov006_0215f4dc(void* arg0);
-extern "C" void func_020813ec(void* arg0, int arg1);
+extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 struct MenuLayout_02080fa8;
 extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8* menuLayout, int textId, int value);
 
@@ -54,5 +54,5 @@ extern "C" ARM void func_ov006_021596f0(struct Struct_ov006_021596f0* arg0) {
 		struct MenuLayout_02080fa8* var2 = (struct MenuLayout_02080fa8*)arg0->unknown_14_;
 		SetMenuLayoutTextValue_02080fa8(var2, 0x1f, var1);
 	}
-	func_020813ec(arg0->unknown_14_, 6);
+	OpenMenuLayoutWindow_020813ec(arg0->unknown_14_, 6);
 }

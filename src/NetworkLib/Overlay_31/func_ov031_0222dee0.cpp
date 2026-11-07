@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-extern "C" void func_ov031_02223440(void);
+extern "C" void CloseSubScreenMessage_ov031_02223440(void);
 extern "C" int func_ov031_0223da58(void*);
-extern "C" void* func_ov031_0223c7c4(int);
+extern "C" void* CloseScreenTextLayer_ov031_0223c7c4(int);
 extern "C" void HideScreenLayers_ov031_0223cbbc(int, int);
 extern "C" void SetStepIndicatorAndButtonBarModes_ov031_022274d0(int, int);
 extern "C" void func_ov031_02227520(int*, int*);
@@ -28,9 +28,9 @@ extern void* data_ov031_02290c98;
 
 // USA: func_ov031_0222dee0
 extern "C" ARM void func_ov031_0222dee0(void) {
-	func_ov031_02223440();
+	CloseSubScreenMessage_ov031_02223440();
 	func_ov031_0223da58(*(void**)((char*)data_ov031_02290c98 + 4));
-	func_ov031_0223c7c4(0);
+	CloseScreenTextLayer_ov031_0223c7c4(0);
 	LoadFileToVRAM_ov031_022234d8((int)&data_ov031_0224badc, (VRAMLoader_ov031_022234d8)LoadToMainObjStandardPalette);
 	HideScreenLayers_ov031_0223cbbc(1, 1);
 	HideScreenLayers_ov031_0223cbbc(0, 0x15);

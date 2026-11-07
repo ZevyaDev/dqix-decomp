@@ -15,7 +15,7 @@ extern "C" int* func_02033f44(struct Struct_02033f44* arg0);
 
 extern "C" void* GetEffectManager_02057924(void);
 
-struct Struct_02078398_2 {
+struct EffectParams_02078398_2 {
     unsigned char unknown_0_;
     unsigned char unknown_1_[0xf];
     unsigned char unknown_10_;
@@ -38,7 +38,7 @@ struct Struct_02078398_2 {
     int unknown_38_; int unknown_3c_; int unknown_40_;
     Vector3i unknown_44_;
 };
-extern "C" void func_02078484(struct Struct_02078398_2* arg0);
+extern "C" void InitEffectParams_02078484(struct EffectParams_02078398_2* params);
 
 extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 
@@ -68,8 +68,8 @@ extern "C" ARM void func_02078398(struct Struct_02078398* arg0) {
             arg0->TransitionInheritedAlpha(0, 0x7d);
             if (arg0->unknown_178_ > 0) {
                 void* var2 = GetEffectManager_02057924();
-                struct Struct_02078398_2 var3;
-                func_02078484(&var3);
+                struct EffectParams_02078398_2 var3;
+                InitEffectParams_02078484(&var3);
                 var3.unknown_2c_ = arg0->position_;
                 var3.unknown_44_ = arg0->GetScale();
                 PlayEffect_02057fb4(var2, (int)arg0->unknown_178_, &var3);

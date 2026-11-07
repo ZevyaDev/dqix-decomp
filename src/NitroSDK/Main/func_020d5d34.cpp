@@ -27,7 +27,7 @@ struct Struct_020d5d34
     unsigned short unknown_81e_[1];
 };
 
-extern "C" int func_020d424c(int arg0, ...);
+extern "C" int CheckWirelessState_020d424c(int stateCount, ...);
 extern "C" void Memset32Bit_020ca458(unsigned long value, void* dst, unsigned long size);
 extern "C" int func_020d4770(unsigned short arg0, Type_020d42e0 arg1, void* arg2);
 extern "C" int func_020d59bc(Type_020d42e0 arg0, void* arg1, const unsigned short* arg2,
@@ -47,7 +47,7 @@ extern "C" ARM int func_020d5d34(Struct_020d5d34* arg0, unsigned short arg1, uns
     int var0;
     int var1;
     unsigned short var2 = 1;
-    var0 = func_020d424c(2, 9, 10);
+    var0 = CheckWirelessState_020d424c(2, 9, 10);
     if (var0 != 0)
         return var0;
     if (arg0 == NULL)

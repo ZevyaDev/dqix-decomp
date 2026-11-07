@@ -10,8 +10,8 @@ struct MenuLayout_0207fdcc_2 {
 };
 extern "C" int func_020811d0(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" short func_02080468(void* arg0, int arg1);
-extern "C" void func_020813ec(void* arg0, int arg1);
-extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
+extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
+extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 
 struct Struct_02081f20_2;
@@ -61,8 +61,8 @@ extern "C" ARM void func_ov003_0217a280(struct Struct_ov003_0217a280* arg0) {
                 arg0->unknown_1004_ = func_02080468(var0, arg0->unknown_ffe_);
             }
             var0->unknown_36_ = arg0->unknown_1004_;
-            func_020813ec(var0, arg0->unknown_ffe_);
-            func_02080c68(var0, arg0->unknown_ffe_, 1);
+            OpenMenuLayoutWindow_020813ec(var0, arg0->unknown_ffe_);
+            SetMenuLayoutWindowPalette_02080c68(var0, arg0->unknown_ffe_, 1);
             arg0->unknown_ffc_ = arg0->unknown_ffe_;
         }
         arg0->unknown_ffe_ = 0x10;
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov003_0217a280(struct Struct_ov003_0217a280* arg0) {
             arg0->unknown_100c_ = func_02080468(var0, arg0->unknown_ffe_);
         }
         var0->unknown_36_ = arg0->unknown_100c_;
-        func_020813ec(var0, arg0->unknown_ffe_);
+        OpenMenuLayoutWindow_020813ec(var0, arg0->unknown_ffe_);
         func_0208203c((struct Struct_02081f20_2*)arg0->unknown_88c_);
         arg0->unknown_ff8_ = 0;
         arg0->unknown_103f_++;

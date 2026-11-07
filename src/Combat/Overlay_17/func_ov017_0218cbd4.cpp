@@ -18,7 +18,7 @@ extern "C" void* GetLocalWireless_0202ae18();
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" Struct_020579b4* GetEffectManager_02057924();
 extern "C" void* func_02039e70();
-extern "C" void* func_0203cf4c();
+extern "C" void* GetNPCManager_0203cf4c();
 extern "C" void* func_02010768(void*);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" Struct_0214e34c* func_020d7a50();
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
     func_02039e70();
     GameObject* var4 = var0->GetUnknownGameObject();
     unsigned int var5 = var0->GetTickCount();
-    Struct_0203dd20_2* var6 = (Struct_0203dd20_2*)func_0203cf4c();
+    Struct_0203dd20_2* var6 = (Struct_0203dd20_2*)GetNPCManager_0203cf4c();
     void** var7 = (void**)func_02010768(var0);
     MessageWindow_02021b84* var8 = (MessageWindow_02021b84*)GetMessageWindow_020421a0();
     Struct_0214e34c* var9 = func_020d7a50();

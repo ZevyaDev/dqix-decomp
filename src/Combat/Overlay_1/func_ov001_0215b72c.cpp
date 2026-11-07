@@ -4,7 +4,7 @@
 #include <std_library_functions.h>
 
 struct Struct_ov001_0215b72c { char unknown_0_[8]; };
-extern "C" const char* func_ov017_021d612c(Struct_ov001_0215b72c*);
+extern "C" const char* GetScriptValueAsString_ov017_021d612c(Struct_ov001_0215b72c*);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(Struct_ov001_0215b72c*);
 extern "C" int func_ov001_0215ad2c(int);
 extern "C" int func_ov001_0215ad3c(const char*, char*, char*);
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov001_0215b72c(Struct_ov001_0215b72c* arg0, int arg1) {
     int var2;
     Object3D* var3;
     BackgroundLoader* var4 = BackgroundLoader::GetInstance();
-    const char* var5 = func_ov017_021d612c(arg0);
+    const char* var5 = GetScriptValueAsString_ov017_021d612c(arg0);
     int var6 = inline_ov001_0215b72c(arg0 + 1);
     int var7 = 0;
     if (arg1 >= 3) var7 = GetScriptValueAsInt_ov017_021d60f4(arg0 + 2);

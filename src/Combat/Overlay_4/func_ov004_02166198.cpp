@@ -40,7 +40,7 @@ struct Struct_ov004_02166198_2 {
     short unknown_4c_;
     short unknown_4e_;
 };
-extern "C" int* func_02094d6c();
+extern "C" int* GetQuestManager_02094d6c();
 extern "C" void* GetFlagManager_0205ec34();
 extern "C" unsigned char func_020965ac(Struct_02065990_3*, unsigned char);
 extern "C" int func_0206e120(Struct_0205faf4_3*, int);
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov004_02166198() {
     Struct_ov004_02166198* var2;
     Struct_ov004_02166198_2* var3 = data_ov004_0217101c.inline_ov004_02166198();
     short var4 = var3->unknown_4e_;
-    Struct_02065990_3* var5 = (Struct_02065990_3*)(func_02094d6c());
+    Struct_02065990_3* var5 = (Struct_02065990_3*)(GetQuestManager_02094d6c());
     var2 = var5->unknown_a8_;
     void* var6 = GetFlagManager_0205ec34();
     short var7 = 0;

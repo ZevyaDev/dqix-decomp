@@ -24,7 +24,7 @@ extern "C" int func_ov003_02175f20(void *arg0);
 extern "C" void func_ov003_02177dd4(void *arg0);
 extern "C" void func_ov003_021769ec(void *arg0);
 extern "C" void func_02081ea4(struct MenuLayout_0207fdcc_2 *arg0, int arg1, int arg2);
-extern "C" void func_02080c68(void *arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowPalette_02080c68(void *menuLayout, int windowId, int palette);
 extern "C" void func_0208203c(struct Struct_02081f20_2 *arg0);
 extern "C" void func_ov003_021748c4(unsigned char *arg0);
 extern "C" void func_ov003_0217a14c(void *arg0);
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *arg0) {
         func_ov003_02177dd4(arg0);
         func_ov003_021769ec(arg0);
         func_02081ea4((struct MenuLayout_0207fdcc_2 *) var2, *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 0);
-        func_02080c68(var2, *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 0);
+        SetMenuLayoutWindowPalette_02080c68(var2, *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 0);
         func_0208203c((struct Struct_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
         *(void **) (arg0 + REGIONAL_OFFSET(0xf74, 0xff8))                 = 0;
         *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 1;
@@ -104,11 +104,11 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *arg0) {
                 FindItemData_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + REGIONAL_OFFSET(0x7f0, 0x874)), *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a));
             if (*(void **) (arg0 + 8) == 0) return;
             *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x78, 0xfc)) = *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe));
-            func_02080c68(var2, *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 1);
-            func_02080c68(var2, 4, 1);
-            func_02080c68(var2, 5, 1);
-            func_02080c68(var2, 6, 1);
-            func_02080c68(var2, 7, 1);
+            SetMenuLayoutWindowPalette_02080c68(var2, *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 1);
+            SetMenuLayoutWindowPalette_02080c68(var2, 4, 1);
+            SetMenuLayoutWindowPalette_02080c68(var2, 5, 1);
+            SetMenuLayoutWindowPalette_02080c68(var2, 6, 1);
+            SetMenuLayoutWindowPalette_02080c68(var2, 7, 1);
             *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 2;
             if (inline_ov003_0217b430(*(struct ItemData_0201099c_9 **) (arg0 + 8)) == 0) {
                 func_0207fdf0((struct Struct_0207fdf0_2 *) var2, 0);

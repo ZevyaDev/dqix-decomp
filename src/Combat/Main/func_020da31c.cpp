@@ -8,7 +8,7 @@ struct Struct_020da31c_3 {
     unsigned char unknown_c_;
     unsigned char unknown_d_, unknown_e_, unknown_f_, unknown_10_, unknown_11_;
 };
-struct Struct_02078398_2 {
+struct EffectParams_02078398_2 {
     char unknown_0_[16];
     unsigned char unknown_10_, unknown_11_;
     short unknown_12_, unknown_14_, unknown_16_, unknown_18_, unknown_1a_, unknown_1c_;
@@ -29,7 +29,7 @@ struct Struct_0205a180 {
     Struct_020da31c_2* unknown_4_;
 };
 extern "C" void* GetEffectManager_02057924();
-extern "C" void func_02078484(Struct_02078398_2*);
+extern "C" void InitEffectParams_02078484(EffectParams_02078398_2*);
 extern "C" void PlayEffect_02057fb4(void*, int, void*);
 extern "C" void* func_02058658(void*, int);
 extern "C" void func_0205a180(Struct_0205a180*);
@@ -46,9 +46,9 @@ extern "C" ARM void func_020da31c(Struct_020da31c_3* arg0) {
         GameObject* var2 = var1->GetMaybeWanderingMonsterByIndex(arg0->unknown_8_);
         if (!var2) return;
         if (!(arg0->unknown_d_ & 8)) {
-            Struct_02078398_2 var3;
+            EffectParams_02078398_2 var3;
             arg0->unknown_d_ |= 8;
-            func_02078484(&var3);
+            InitEffectParams_02078484(&var3);
             int var4 = arg0->unknown_8_;
             var3.unknown_14_ = var4;
             var3.unknown_10_ = 0;
@@ -66,8 +66,8 @@ extern "C" ARM void func_020da31c(Struct_020da31c_3* arg0) {
         if (var5 > 0x3d || var6 != 0) ++arg0->unknown_f_;
         if (arg0->unknown_f_ < 3) return;
         arg0->unknown_f_ = 0;
-        Struct_02078398_2 var7;
-        func_02078484(&var7);
+        EffectParams_02078398_2 var7;
+        InitEffectParams_02078484(&var7);
         var7.unknown_2c_ = var2->obj3D_.position_;
         var7.unknown_38_ = var2->obj3D_.rotation_;
         var7.unknown_44_.x = 200;
@@ -82,9 +82,9 @@ extern "C" ARM void func_020da31c(Struct_020da31c_3* arg0) {
         GameObject* var8 = var1->GetGameObjectByIndex(arg0->unknown_8_);
         if (!var8) return;
         if (!(arg0->unknown_d_ & 8)) {
-            Struct_02078398_2 var9;
+            EffectParams_02078398_2 var9;
             arg0->unknown_d_ |= 8;
-            func_02078484(&var9);
+            InitEffectParams_02078484(&var9);
             int var10 = arg0->unknown_8_;
             var9.unknown_14_ = var10;
             var9.unknown_10_ = 0;
@@ -99,8 +99,8 @@ extern "C" ARM void func_020da31c(Struct_020da31c_3* arg0) {
         }
         if (++arg0->unknown_f_ < 7) return;
         arg0->unknown_f_ = 0;
-        Struct_02078398_2 var11;
-        func_02078484(&var11);
+        EffectParams_02078398_2 var11;
+        InitEffectParams_02078484(&var11);
         var11.unknown_2c_ = var8->obj3D_.position_;
         var11.unknown_38_ = var8->obj3D_.rotation_;
         var11.unknown_44_.x = 225;
@@ -113,7 +113,7 @@ extern "C" ARM void func_020da31c(Struct_020da31c_3* arg0) {
     case 3: {
         GameObject* var12 = var1->GetMaybeWanderingMonsterByIndex(arg0->unknown_8_);
         if (!var12) return;
-        Struct_02078398_2 var13;
+        EffectParams_02078398_2 var13;
         Struct_0205a180* var14 = (Struct_0205a180*)func_02058658(var0, 0xd0);
         if (var14 && var14->unknown_4_) {
             Struct_020da31c_2* var15 = var14->unknown_4_;
@@ -137,7 +137,7 @@ extern "C" ARM void func_020da31c(Struct_020da31c_3* arg0) {
         ++arg0->unknown_f_;
         if (arg0->unknown_10_ < 1 && (arg0->unknown_d_ & 0x10)) {
             if (!arg0->unknown_11_) {
-                func_02078484(&var13);
+                InitEffectParams_02078484(&var13);
                 var13.unknown_2c_ = var12->obj3D_.position_;
                 var13.unknown_38_ = var12->obj3D_.rotation_;
                 var13.unknown_18_ = 90;

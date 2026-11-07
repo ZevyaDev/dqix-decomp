@@ -22,10 +22,10 @@ extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void func_0204201c(char* arg0, int arg1, int);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
-extern "C" int func_020a0870(Struct_02061c04* arg0);
-extern "C" int func_020a08d8(Struct_02061c04* arg0);
-extern "C" int func_020a08a4(Struct_02061c04* arg0);
-extern "C" int func_020a090c(Struct_02061c04* arg0);
+extern "C" int GetDefeatedMonsterListCompletion_020a0870(BattleRecords_02061c04* records);
+extern "C" int GetWardrobeCompletion_020a08d8(BattleRecords_02061c04* records);
+extern "C" int GetItemListCompletion_020a08a4(BattleRecords_02061c04* records);
+extern "C" int GetAlchenomiconCompletion_020a090c(BattleRecords_02061c04* records);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
 
 #if defined(jpn)
@@ -177,16 +177,16 @@ extern "C" ARM void func_ov008_02188408(Struct_ov008_021842a0_2* arg0, char* arg
         }
         else
         {
-            Struct_02061c04 var21;
+            BattleRecords_02061c04 var21;
             GetBattleRecords_020ac4c0(&var21);
-            int var22 = var21.unknown_14_0_;
-            int var23 = var21.unknown_16_2_;
-            int var24 = var21.unknown_15_1_;
-            int var25 = var21.unknown_12_7_;
-            var16 = func_020a0870(&var21);
-            var17 = func_020a08d8(&var21);
-            var18 = func_020a08a4(&var21);
-            var19 = func_020a090c(&var21);
+            int var22 = var21.defeatedMonsterListCount_14_0_;
+            int var23 = var21.wardrobeCount_16_2_;
+            int var24 = var21.itemListCount_15_1_;
+            int var25 = var21.alchenomiconCount_12_7_;
+            var16 = GetDefeatedMonsterListCompletion_020a0870(&var21);
+            var17 = GetWardrobeCompletion_020a08d8(&var21);
+            var18 = GetItemListCompletion_020a08a4(&var21);
+            var19 = GetAlchenomiconCompletion_020a090c(&var21);
             if (var16 == 0 && var22 > 0)
                 var16 = 1;
             if (var17 == 0 && var23 > 0)

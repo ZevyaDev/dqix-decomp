@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 #include "NitroSDK/Interrupts.h"
-extern char* data_ov031_0224e53c;
+extern char* gAccessPointConnection_ov031_0224e53c;
 
 // USA: func_ov031_0220d570
 extern "C" ARM int func_ov031_0220d570(int arg0) {
     int var0 = DisableIRQInterrupts();
-    char* var1 = data_ov031_0224e53c;
+    char* var1 = gAccessPointConnection_ov031_0224e53c;
     unsigned int var2 = 0;
     int var3 = *(int*)(var1 + 0x2000 + 0x264);
     if (var1 == NULL) {

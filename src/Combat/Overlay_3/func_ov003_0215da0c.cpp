@@ -54,11 +54,11 @@ extern "C" ARM void func_ov003_0215da0c(struct Struct_ov003_0215da0c* arg0) {
     var2 = GetLocalWireless_0202ae18();
 
     var4 = 0;
-    if (IsNotLocalWirelessGuest_0202c508(var2) && var1->GetUnknownGameObject()->obj3D_.unknown_4_ == 0) {
+    if (IsNotLocalWirelessGuest_0202c508(var2) && var1->GetUnknownGameObject()->obj3D_.objectIndex_4_ == 0) {
         var4 = 1;
     }
     var5 = 0;
-    if (IsNotLocalWirelessGuest_0202c508(var2) && var1->GetUnknownGameObject()->obj3D_.unknown_4_ != 0) {
+    if (IsNotLocalWirelessGuest_0202c508(var2) && var1->GetUnknownGameObject()->obj3D_.objectIndex_4_ != 0) {
         var5 = 1;
     }
 

@@ -178,7 +178,7 @@ extern "C" ARM void func_020733d8(unsigned char* arg0, int arg1) {
             if (IsLocalWirelessOn_0202b7d8(var46) == 0) {
                 var42 = var47->GetUnknownGameObject();
                 if (var42 != 0 && var45[0] == -1) {
-                    var43[0] = var42->obj3D_.unknown_4_;
+                    var43[0] = var42->obj3D_.objectIndex_4_;
                     var44 = 1;
                 }
             } else {

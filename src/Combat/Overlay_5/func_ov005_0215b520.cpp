@@ -41,8 +41,8 @@ extern "C" void func_ov005_02154d34(void* arg0, int arg1, int arg2);
 extern "C" void func_ov005_02154d7c(void* arg0, int arg1, int arg2);
 extern "C" Struct_ov005_02153ba4_2* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
 struct GameState;
-struct Struct_02052e14;
-extern "C" short* func_02052e14(Struct_02052e14*);
+struct PartyMember_02052e14;
+extern "C" short* func_02052e14(PartyMember_02052e14*);
 
 extern const unsigned char data_ov005_0215cbec[];
 extern const unsigned char data_ov005_0215cbdc[];
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
         void* var1 = (void*)GameState::GetInstance();
         GameResources* var2 = GetGameResources();
         Struct_ov005_02153ba4_2* var3 = GetEquipMenu_ov017_021a193c((int*)var2->unknown_ptr_array_36fc[3]);
-        short* var4 = func_02052e14((Struct_02052e14*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var1, var3->unknown_4fc_));
+        short* var4 = func_02052e14((PartyMember_02052e14*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var1, var3->unknown_4fc_));
         arg0->unknown_3de8_ += arg0->unknown_3de4_;
         if (arg0->unknown_3de8_ >= 3) {
             arg0->unknown_3de8_ -= 3;
@@ -232,7 +232,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
         void* var15 = (void*)GameState::GetInstance();
         GameResources* var16 = GetGameResources();
         Struct_ov005_02153ba4_2* var17 = GetEquipMenu_ov017_021a193c((int*)var16->unknown_ptr_array_36fc[3]);
-        short* var18 = func_02052e14((Struct_02052e14*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var15, var17->unknown_4fc_));
+        short* var18 = func_02052e14((PartyMember_02052e14*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var15, var17->unknown_4fc_));
         arg0->unknown_3de8_ += arg0->unknown_3de4_;
         if (arg0->unknown_3de8_ >= 3) {
             arg0->unknown_3de8_ -= 3;

@@ -81,7 +81,7 @@ extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int)
 extern "C" {
 Struct_ov014_02184f78* func_020974b0(Struct_020974b0* arg0, int arg1, int, bool arg3, int, short* arg5);
 void func_ov014_02188330(Struct_ov014_02186bc8* arg0);
-void func_020813ec(Struct_ov000_0217ab8c* arg0, short arg1);
+void OpenMenuLayoutWindow_020813ec(Struct_ov000_0217ab8c* menuLayout, short windowId);
 bool func_ov014_02186f10(Struct_ov014_02186bc8* arg0);
 }
 
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov014_02187c04(Struct_ov014_02186bc8* arg0)
             if (arg0->unknown_172_ < 0)
                 arg0->unknown_172_ = func_02080468(arg0->unknown_c0_, arg0->unknown_170_);
             arg0->unknown_c0_->unknown_36_ = arg0->unknown_172_;
-            func_020813ec(arg0->unknown_c0_, arg0->unknown_170_);
+            OpenMenuLayoutWindow_020813ec(arg0->unknown_c0_, arg0->unknown_170_);
             func_0208203c((Struct_02081f20_2*)arg0->unknown_14c_);
             arg0->unknown_d0_ = NULL;
             arg0->unknown_17b_++;

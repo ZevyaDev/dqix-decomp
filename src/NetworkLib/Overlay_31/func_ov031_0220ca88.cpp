@@ -3,12 +3,12 @@
 unsigned int DisableIRQInterrupts(void);
 unsigned int SetIRQInterruptState(int mask);
 
-extern void* data_ov031_0224e53c;
+extern void* gAccessPointConnection_ov031_0224e53c;
 
 // USA: func_ov031_0220ca88
 extern "C" ARM int func_ov031_0220ca88(void) {
 	unsigned int var0 = DisableIRQInterrupts();
-	void* var1 = data_ov031_0224e53c;
+	void* var1 = gAccessPointConnection_ov031_0224e53c;
 	if (var1 == 0) {
 		SetIRQInterruptState(var0);
 		return 1;
@@ -18,7 +18,7 @@ extern "C" ARM int func_ov031_0220ca88(void) {
 		SetIRQInterruptState(var0);
 		return 1;
 	}
-	data_ov031_0224e53c = 0;
+	gAccessPointConnection_ov031_0224e53c = 0;
 	SetIRQInterruptState(var0);
 	return 0;
 }

@@ -18,7 +18,7 @@ struct Struct_02033834;
 extern "C" Struct_020a8b0c_3* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
-extern "C" void func_0205eb80(void*);
+extern "C" void UnloadExtraSoundSet_0205eb80(void*);
 extern "C" void func_0205eb54(void*, int, int);
 extern "C" void func_0205eb90(void*, int, int);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
@@ -44,7 +44,7 @@ extern "C" ARM void func_020a8b0c(Struct_020a8b0c* arg0, int arg1) {
     else {
         var6 = var5-arg0->unknown_8_;
         if (fix32abs(var6) < 40) {
-            func_0205eb80(&gSoundEffectManager_02108760);
+            UnloadExtraSoundSet_0205eb80(&gSoundEffectManager_02108760);
             func_0205eb54(&gSoundEffectManager_02108760, 114, 114);
             func_0205eb90(&gSoundEffectManager_02108760, 3, 0);
         }

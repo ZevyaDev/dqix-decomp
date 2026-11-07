@@ -5,7 +5,7 @@
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 struct Struct_ov024_021da670_7;
 extern "C" int func_ov024_021da9b0(struct Struct_ov024_021da670_7* arg0);
-extern "C" int func_020882f8(unsigned char* arg0);
+extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
 
 struct Struct_ov024_021e9018 { char unknown_0_[0x10]; void* unknown_10_; };
 struct Struct_ov024_021e9018_2 { unsigned short unknown_0_0_ : 2; unsigned short unknown_0_2_ : 4; unsigned short unknown_0_6_ : 10; };
@@ -43,7 +43,7 @@ extern "C" ARM int func_ov024_021e9018(struct Struct_ov024_021e9018* arg0, int a
 #endif
 
         }
-        if (func_020882f8((unsigned char*)var1->currentStats_) && (unsigned short)(short)(arg2 - 2) <= 6) {
+        if (IsAsleep_020882f8((unsigned char*)var1->currentStats_) && (unsigned short)(short)(arg2 - 2) <= 6) {
 #if defined(jpn)
             return 0x1b;
 #else

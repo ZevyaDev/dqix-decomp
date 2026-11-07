@@ -18,7 +18,7 @@ struct Struct_ov025_021e5c68_3 {
     short unknown_e_;
 };
 
-extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
 struct BattleAction_ov000_0215440c;
 extern "C" Struct_ov025_021e5c68_3* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" char* GetBattleScene_ov000_02160130();

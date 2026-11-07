@@ -2,7 +2,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
 
-extern "C" void* func_ov017_021d612c(void* arg0);
+extern "C" void* GetScriptValueAsString_ov017_021d612c(void* value);
 struct Struct_ov001_0215e1cc;
 extern "C" unsigned int func_ov001_0215a750(const char* arg0, void** arg1);
 extern "C" void func_ov001_021537b0(void* arg0, int arg1, int arg2, int arg3);
@@ -24,7 +24,7 @@ extern "C" ARM int func_ov001_0215e1cc(void* arg0) {
     int var2;
     int var3;
 
-    sprintf(var0, data_ov001_02165745, func_ov017_021d612c(arg0));
+    sprintf(var0, data_ov001_02165745, GetScriptValueAsString_ov017_021d612c(arg0));
     var3 = 0;
     ((BackgroundLoader*)((Struct_ov001_0215e1cc*)(int)BackgroundLoader::GetInstance()))->GetLoadedFileByName((const char*)(var0), (void**)(&var1), (unsigned int*)(&var2));
     if (var1 == 0) {

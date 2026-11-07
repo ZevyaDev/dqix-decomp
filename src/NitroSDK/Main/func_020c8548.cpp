@@ -26,10 +26,10 @@ extern "C" ARM unsigned int func_020c8548(unsigned int arg0) {
     case 3:
         return 0x02000000;
     case 4: {
-        unsigned long var1 = (unsigned long)&data_027e0000 + 0x3f80 - (long)SDK_IRQ_STACKSIZE;
+        unsigned long var1 = (unsigned long)&gDTCMData_027e0000 + 0x3f80 - (long)SDK_IRQ_STACKSIZE;
         unsigned long var2;
         if ((long)SDK_SYS_STACKSIZE == 0) {
-            var2 = (unsigned long)&data_027e0000;
+            var2 = (unsigned long)&gDTCMData_027e0000;
             if (var2 < 0x027e0080) {
                 var2 = 0x027e0080;
             }

@@ -18,7 +18,7 @@ struct TextWindowManager_0205d81c;
 
 extern "C" void func_ov000_0217964c(void* arg0, void* arg1);
 extern "C" void func_ov000_0217ab8c(void* arg0, int arg1, int arg2);
-extern "C" int func_0205bafc(void* arg0);
+extern "C" int GetMenuCursorItemCount_0205bafc(void* cursor);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov000_0217979c(void* arg0, void* arg1, void* arg2);
 #if defined(jpn)
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov000_021794cc(char* arg0, void* arg1, int arg2, int ar
     *(unsigned char*)(var2 + 0xb1) = 0x11;
 
     int var3 = 0;
-    if (func_0205bafc(var2 + 0x54) > 4) var3 = 1;
+    if (GetMenuCursorItemCount_0205bafc(var2 + 0x54) > 4) var3 = 1;
 
     int var4 = GetMessageWindow_020421a0();
     void* var5 = *(void**)((char*)var4 + REGION_OFFSET_0);

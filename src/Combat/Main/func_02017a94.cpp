@@ -7,7 +7,7 @@
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" int func_0206eaec(unsigned char* arg0, int arg1, int arg2);
-extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
+extern "C" void* GetFirstZoneFeatureOfType_0201e838(unsigned char* zoneFeatures, unsigned int type);
 extern "C" int func_02064b24(void* arg0, int arg1, unsigned short arg2, void* arg3);
 
 struct Struct_02017a94;
@@ -77,7 +77,7 @@ extern "C" ARM void func_02017a94(Zone3D* arg0) {
                             unsigned short var9;
                             var6->unknown_2_ |= 1;
                             var7 = (struct Struct_02017a94_3*)
-                                func_0201e838((unsigned char*)&arg0->substruct_6c_, 2);
+                                GetFirstZoneFeatureOfType_0201e838((unsigned char*)&arg0->substruct_6c_, 2);
                             while (var7 != NULL) {
                                 if (var7->unknown_2d_ == var6->unknown_0_) {
                                     var8 = var7->unknown_2e_;

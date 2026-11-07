@@ -26,7 +26,7 @@ struct Struct_ov023_021f454c_7 {
     unsigned short unknown_6_;
 };
 
-extern "C" struct Struct_ov023_021f454c_7* func_02070fd0(struct Struct_02070b6c_3* arg0, int arg1);
+extern "C" struct Struct_ov023_021f454c_7* FindMonsterBattleData_02070fd0(struct Struct_02070b6c_3* table, int monsterId);
 
 #if defined(jpn)
 #define data_ov023_021fd888 data_ov023_021fcb3c
@@ -202,7 +202,7 @@ extern "C" ARM void func_ov023_021f454c(struct Struct_ov023_021f454c_6* arg0) {
                 }
                 var17->unknown_0_ = var13->treasureItemIDs_[var22];
                 var17->unknown_2_0_ = var2;
-                struct Struct_ov023_021f454c_7* var24 = func_02070fd0(var12, var2);
+                struct Struct_ov023_021f454c_7* var24 = FindMonsterBattleData_02070fd0(var12, var2);
                 if (var24 != 0) {
                     if (var24->unknown_6_ == var17->unknown_0_) {
                         var17->unknown_4_ = 2;
@@ -226,7 +226,7 @@ extern "C" ARM void func_ov023_021f454c(struct Struct_ov023_021f454c_6* arg0) {
             var16 = &var9[var7];
             if (var16->unknown_0_3_ == var16->unknown_9_) continue;
             var8 = var16->unknown_2_;
-            struct Struct_ov023_021f454c_7* var26 = func_02070fd0(var12, var8);
+            struct Struct_ov023_021f454c_7* var26 = FindMonsterBattleData_02070fd0(var12, var8);
             if (var26 == 0) continue;
             if (IsSpecial(arg0->unknown_2a0_) && var2 == var8) continue;
 

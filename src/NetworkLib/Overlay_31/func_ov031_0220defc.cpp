@@ -13,7 +13,7 @@ struct Struct_ov031_0220defc_2 {
     unsigned short unknown_2282_; unsigned int unknown_2284_;
     Struct_02101680 unknown_2288_;
 };
-extern Struct_ov031_0220defc_2* data_ov031_0224e53c;
+extern Struct_ov031_0220defc_2* gAccessPointConnection_ov031_0224e53c;
 extern "C" void func_ov031_0220da1c(int);
 extern "C" int func_ov031_0220d984(int, int, int, int);
 extern "C" void InvalidateDataCacheRange(const void*, unsigned int);
@@ -32,16 +32,16 @@ extern "C" ARM void func_ov031_0220defc(Struct_ov031_0220defc* arg0) {
     int var0 = 20;
     switch (arg0->unknown_2_) {
     case 0:
-        if (data_ov031_0224e53c->unknown_2260_ == 5) {
+        if (gAccessPointConnection_ov031_0224e53c->unknown_2260_ == 5) {
             func_ov031_0220da1c(6);
             func_ov031_0220d984(0, 0, 0, 0x704);
         }
-        switch (data_ov031_0224e53c->unknown_2260_) {
+        switch (gAccessPointConnection_ov031_0224e53c->unknown_2260_) {
         case 6:
-            data_ov031_0224e53c->unknown_2280_ = 7;
+            gAccessPointConnection_ov031_0224e53c->unknown_2280_ = 7;
             if (arg0->unknown_8_ == 5) {
-                InvalidateDataCacheRange(data_ov031_0224e53c->unknown_2288_.unknown_0_,
-                                        data_ov031_0224e53c->unknown_2288_.unknown_4_);
+                InvalidateDataCacheRange(gAccessPointConnection_ov031_0224e53c->unknown_2288_.unknown_0_,
+                                        gAccessPointConnection_ov031_0224e53c->unknown_2288_.unknown_4_);
                 int var1 = 0;
                 if ((int)arg0->unknown_e_ > 0) {
                     do {
@@ -52,22 +52,22 @@ extern "C" ARM void func_ov031_0220defc(Struct_ov031_0220defc* arg0) {
                 }
             }
             {
-                unsigned int var2 = data_ov031_0224e53c->unknown_2264_;
+                unsigned int var2 = gAccessPointConnection_ov031_0224e53c->unknown_2264_;
                 if ((var2 & 0xc00000) == 0xc00000) {
                     unsigned int var3 = func_ov031_0220db38(var2 & 0x3ffe);
                     if (var3 != 0) {
-                        unsigned int var4 = data_ov031_0224e53c->unknown_2284_;
+                        unsigned int var4 = gAccessPointConnection_ov031_0224e53c->unknown_2284_;
                         if (var4 % var3 == 0)
                             func_ov031_0220d9c8(8, 0, var4, 0, 0x728);
                     }
                 }
                 int var5 = func_ov031_0220d8f4(32 - func_ov031_0220db64(arg0->unknown_a_));
-                data_ov031_0224e53c->unknown_2288_.unknown_6_ = (1 << var5) >> 1;
+                gAccessPointConnection_ov031_0224e53c->unknown_2288_.unknown_6_ = (1 << var5) >> 1;
             }
-            InvalidateDataCacheRange(data_ov031_0224e53c->unknown_2288_.unknown_0_,
-                                    data_ov031_0224e53c->unknown_2288_.unknown_4_);
-            ++data_ov031_0224e53c->unknown_2284_;
-            var0 = func_020d5340((int)func_ov031_0220defc, &data_ov031_0224e53c->unknown_2288_);
+            InvalidateDataCacheRange(gAccessPointConnection_ov031_0224e53c->unknown_2288_.unknown_0_,
+                                    gAccessPointConnection_ov031_0224e53c->unknown_2288_.unknown_4_);
+            ++gAccessPointConnection_ov031_0224e53c->unknown_2284_;
+            var0 = func_020d5340((int)func_ov031_0220defc, &gAccessPointConnection_ov031_0224e53c->unknown_2288_);
             break;
         case 7:
             var0 = func_020d5490((int)func_ov031_0220e1e0);

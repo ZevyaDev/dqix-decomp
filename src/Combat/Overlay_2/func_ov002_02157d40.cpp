@@ -12,7 +12,7 @@
 #define FMT(a, b, c, d) func_020474a8(a, b, c, d)
 #define ST(x) ((x) == 7 ? 8 : (x) == 0x11 ? 0x12 : (x) == 0x14 ? 0x15 : (x) == 0x26 ? 0x29 : (x) == 0x2b ? 0x2e : (x))
 extern "C" void func_020474a8(void* arg0, int arg1, int arg2, char* arg3);
-extern "C" GameObject* func_0200ff94(GameState* arg0, int arg1);
+extern "C" GameObject* GetGameObjectByIndex_0200ff94(GameState* gameState, int index);
 #else
 #define RG(u, j) (u)
 #define FMT(a, b, c, d) func_02046608(a, b, c, d, 0xe3, 0, 1)
@@ -129,7 +129,7 @@ static inline short* inline_ov002_02157d40(char* arg0) {
     return (short*)((char*)var0 + 0x22);
 }
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(signed char memberIndex, int requestModelLoad);
-extern "C" void func_ov017_021c4418(signed char arg0, int arg1);
+extern "C" void SendPartyMemberBodyAppearance_ov017_021c4418(signed char memberIndex, int recipientIndex);
 extern "C" void func_ov017_021c9e00(signed char arg0, int arg1, int arg2, int arg3);
 
 extern int gSoundEffectManager_02108760;
@@ -296,7 +296,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
     var1 = (char*)var5;
     struct Struct_ov002_02157634_8* var6 = (struct Struct_ov002_02157634_8*)FindActionData_02079e2c(var1, arg0->unknown_1c26_);
     #if defined(jpn)
-    struct Struct_ov002_02157d40_17* var7 = (struct Struct_ov002_02157d40_17*)(Struct_ov002_02157d40*)func_0200ff94((GameState*)var2, arg0->unknown_1c20_);
+    struct Struct_ov002_02157d40_17* var7 = (struct Struct_ov002_02157d40_17*)(Struct_ov002_02157d40*)GetGameObjectByIndex_0200ff94((GameState*)var2, arg0->unknown_1c20_);
 #else
     struct Struct_ov002_02157d40_17* var7 = (struct Struct_ov002_02157d40_17*)(Struct_ov002_02157d40*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var2, arg0->unknown_1c20_);
 #endif
@@ -856,7 +856,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 if (var71) {
                     if (IsLocalWirelessOn_0202b7d8(var69) != 0) {
                         SendPartyMemberEquippedItems_ov017_021c3fb4(arg0->unknown_1c21_, 1);
-                        func_ov017_021c4418(arg0->unknown_1c21_, -1);
+                        SendPartyMemberBodyAppearance_ov017_021c4418(arg0->unknown_1c21_, -1);
                     }
                     void* var74 = GetGameResources();
                     BackgroundLoader::GetInstance();

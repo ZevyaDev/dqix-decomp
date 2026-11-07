@@ -10,21 +10,21 @@ extern "C" int func_0202d6a8(void);
 extern "C" void func_0202dd98(void);
 extern "C" int func_0202df10();
 
-// USA: func_0202b0f4
-extern "C" ARM unsigned char func_0202b0f4(int* arg0) {
-    int var0 = 0;
+// USA: StopLocalWireless_0202b0f4
+extern "C" ARM unsigned char StopLocalWireless_0202b0f4(int* wireless) {
+    int status = 0;
     func_020d8654();
-    if (*arg0 != 0) {
-        int var1 = 0;
+    if (*wireless != 0) {
+        int waitCount = 0;
         while (func_0202d6a8() == 3) {
-            var1++;
-            if (var1 > 5000) {
+            waitCount++;
+            if (waitCount > 5000) {
                 func_0202dd28();
-                var0 = func_0202b1f4(arg0, 1);
-                if (var0 == 3) {
-                    func_0202aec0(arg0);
+                status = func_0202b1f4(wireless, 1);
+                if (status == 3) {
+                    func_0202aec0(wireless);
                     func_020d8694();
-                    return (unsigned char)var0;
+                    return (unsigned char)status;
                 }
                 break;
             }
@@ -32,24 +32,24 @@ extern "C" ARM unsigned char func_0202b0f4(int* arg0) {
         }
 
         func_0202dd98();
-        var0 = func_0202b1f4(arg0, 1);
-        if (var0 == 3) {
-            func_0202aec0(arg0);
+        status = func_0202b1f4(wireless, 1);
+        if (status == 3) {
+            func_0202aec0(wireless);
             func_020d8694();
-            return (unsigned char)var0;
+            return (unsigned char)status;
         }
-        if (var0 != 0) {
+        if (status != 0) {
             func_0202dd28();
-            var0 = func_0202b1f4(arg0, 1);
-            if (var0 == 3) {
-                func_0202aec0(arg0);
+            status = func_0202b1f4(wireless, 1);
+            if (status == 3) {
+                func_0202aec0(wireless);
                 func_020d8694();
-                return (unsigned char)var0;
+                return (unsigned char)status;
             }
         }
         func_0202df10();
     }
-    func_0202aec0(arg0);
+    func_0202aec0(wireless);
     func_020d8694();
-    return (unsigned char)var0;
+    return (unsigned char)status;
 }

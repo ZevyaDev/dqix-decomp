@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
-extern "C" int func_020882f8(unsigned char* arg0);
+extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
 extern "C" float func_02074968(int arg0);
 extern "C" int func_ov000_021543f4(GameObject* arg0);
 extern "C" float func_02074978(int arg0);
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov000_02157288(struct Random* arg0, int arg1, struct Str
     }
 
     var1 = inline_ov000_02156cc4_2(arg1);
-    if (func_020882f8((unsigned char*)var4->currentStats_)) {
+    if (IsAsleep_020882f8((unsigned char*)var4->currentStats_)) {
         var0 = func_02074968(var1);
     } else if (func_ov000_021543f4(var4)) {
         var0 = func_02074978(var1);

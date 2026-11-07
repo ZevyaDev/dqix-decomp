@@ -25,7 +25,7 @@ extern "C" ARM void func_0205b234(Struct_0205b234_2* arg0, short arg1, short arg
 extern "C" int func_02042648(int);
 extern "C" int FindFontGlyphIndex_020424e4(int, int);
 extern "C" int func_020425e4(int, int, int);
-extern "C" FontGlyph_020420e8* func_020425b4(int arg0, int arg1);
+extern "C" FontGlyph_020420e8* GetFontGlyph_020425b4(int glyphIndex, int font);
 extern "C" void func_0205b36c(Struct_0205b234_2* arg0, FontGlyph_020420e8* arg1, short arg2, short arg3, unsigned char arg4, unsigned char arg5);
 
 // USA: func_0205b234
@@ -44,7 +44,7 @@ extern "C" ARM int func_0205b234(Struct_0205b234_2* arg0, short arg1, short arg2
         var5 += func_020425e4(var4, var6, arg5);
         int var8 = 1;
         if (var6 != 0xff) {
-            FontGlyph_020420e8* var9 = func_020425b4(var6, arg5);
+            FontGlyph_020420e8* var9 = GetFontGlyph_020425b4(var6, arg5);
             func_0205b36c(arg0, var9, var5, arg2, arg4, arg5);
             var7 = var9->width_4_ + 1;
             var8 = var9->codeLength_5_0_;

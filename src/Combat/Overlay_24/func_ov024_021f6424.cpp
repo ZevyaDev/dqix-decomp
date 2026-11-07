@@ -5,7 +5,7 @@
 
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, unsigned short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov024_021ede2c(int* arg0);
-extern "C" int func_020882f8(unsigned char* arg0);
+extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
 
 extern unsigned short data_ov024_021feb04;
 
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov024_021f6424(int* arg0, int arg1, int arg2, int* arg3,
 	int var6 = 0;
 	for (int var7 = 0; var7 < var5; var7++) {
 		GameObject* var8 = GetCombatantByID(*arg0, *(short*)&var0[var7]);
-		if (var8 && !func_020882f8((unsigned char*)var8->currentStats_)) {
+		if (var8 && !IsAsleep_020882f8((unsigned char*)var8->currentStats_)) {
 			var6 = 1;
 			break;
 		}

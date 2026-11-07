@@ -14,8 +14,8 @@ extern "C" short func_02080468(void* arg0, int arg1);
 extern "C" unsigned char func_0207ca94(int arg0);
 extern "C" short func_0207c638(void* arg0, unsigned int arg1);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-struct Struct_0207d300;
-extern "C" int func_02083960(struct Struct_0207d300* arg0);
+struct PartyMemberData_0207d300;
+extern "C" int CountHeldItems_02083960(struct PartyMemberData_0207d300* memberData);
 struct Struct_020a0b8c;
 extern "C" int func_020a0b8c(struct Struct_020a0b8c* arg0);
 
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov003_02179f34(char* arg0) {
             GameObject* var10 = var1->GetPartyMemberByIndex(var8);
             if (var10 != 0) {
                 int var11 = GetPartyMemberData_02053c6c((unsigned char*)var10);
-                var0 = (short)func_02083960((struct Struct_0207d300*)var11);
+                var0 = (short)CountHeldItems_02083960((struct PartyMemberData_0207d300*)var11);
             }
         } else {
             var0 = func_020a0b8c((struct Struct_020a0b8c*)var2);

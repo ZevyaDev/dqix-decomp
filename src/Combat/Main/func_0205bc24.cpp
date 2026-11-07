@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_0205bc24
-extern "C" ARM void func_0205bc24(void* arg0, int arg1) {
-    *(int*)((char*)arg0 + 0x30) = arg1;
+// USA: SetMenuCursorTouchedIndex_0205bc24
+extern "C" ARM void SetMenuCursorTouchedIndex_0205bc24(void* cursor, int index) {
+    *(int*)((char*)cursor + 0x30) = index;
 }

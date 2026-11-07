@@ -36,7 +36,7 @@ extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4*, int);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" Struct_0203e5d8* func_0203cf4c();
+extern "C" Struct_0203e5d8* GetNPCManager_0203cf4c();
 extern "C" void func_0203e5d8(Struct_0203e5d8*, int);
 extern "C" float func_020709ac(unsigned char*);
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
             func_0205e944(gSoundEffectManager_02108760, 127);
             SetFlags04(var1, 0x40);
             CloseMessageWindow_02043124(GetMessageWindow_020421a0());
-            func_0203e5d8(func_0203cf4c(), 0);
+            func_0203e5d8(GetNPCManager_0203cf4c(), 0);
             if ((int)func_020709ac(var3) > 30 || abs(GetBrightness((GameResources*)var1, false)) == 16) {
                 SetMainBrightness(var1, -16, 0);
                 if (GetBrightness((GameResources*)var1, true) == 0) {
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
             func_ov017_0218d274(var1);
             func_ov017_0218f79c(var1);
             func_ov017_021a2840(var1);
-            func_0203e5d8(func_0203cf4c(), 1);
+            func_0203e5d8(GetNPCManager_0203cf4c(), 1);
             arg0->unknown_1_ = 1;
         }
     }

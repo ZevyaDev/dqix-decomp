@@ -49,7 +49,7 @@ struct Struct_ov003_0215fb94 {
     SafeAllocator unknown_2c8_;
     unsigned char unknown_2dc_[0x18];
     unsigned char unknown_2f4_[0x30];
-    Struct_0207f7f0* unknown_324_;
+    MenuLayout_0207f7f0* unknown_324_;
     unsigned char unknown_328_[0x8];
     int unknown_330_;
     unsigned char unknown_334_[0x64];
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov003_0215fb94(Struct_ov003_0215fb94* arg0) {
 
     RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)arg0->unknown_2f4_);
 
-    Struct_0207f7f0* var3 = arg0->unknown_324_;
+    MenuLayout_0207f7f0* var3 = arg0->unknown_324_;
     if (var3 != NULL) {
         func_0207fcb8((struct Struct_0207fcb8*)var3);
         func_0207fd44((struct Struct_0207fd44_2*)var3);

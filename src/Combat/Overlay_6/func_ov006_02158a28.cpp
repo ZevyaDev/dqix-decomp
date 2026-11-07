@@ -25,7 +25,7 @@ struct Struct_ov000_0217ab8c {
 };
 
 extern "C" {
-void func_020813ec(Struct_ov000_0217ab8c*, int);
+void OpenMenuLayoutWindow_020813ec(Struct_ov000_0217ab8c*, int);
 }
 
 extern "C" int func_020e28dc(Struct_020e28dc*);
@@ -158,7 +158,7 @@ extern "C" ARM unsigned char func_ov006_02158a28(Struct_ov006_02157a60* arg0)
         if (arg0->unknown_35e_ != var5)
         {
             ((Struct_ov000_0217ab8c*)arg0->unknown_14_)->unknown_36_ = var5;
-            func_020813ec((Struct_ov000_0217ab8c*)arg0->unknown_14_, arg0->unknown_36e_);
+            OpenMenuLayoutWindow_020813ec((Struct_ov000_0217ab8c*)arg0->unknown_14_, arg0->unknown_36e_);
         }
     }
     return var0;

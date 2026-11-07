@@ -49,7 +49,7 @@ struct Queue_0201bdac_2 {
 };
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
-extern "C" void func_02046a8c(void* arg0, void* arg1);
+extern "C" void RemoveFromQueue_02046a8c(void* queue, void* node);
 
 // USA: func_020e3b8c
 extern "C" ARM void func_020e3b8c(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, unsigned char arg7)
@@ -58,7 +58,7 @@ extern "C" ARM void func_020e3b8c(char* arg0, int arg1, int arg2, int arg3, int 
 
     if (func_02046b38(*(struct Struct_02046b38**)(arg0 + Enum_020e3b8c_14084), (struct Struct_02046b38_2*)var0)) {
         func_020e3ed8((struct Struct_020e3b8c*)var0);
-        func_02046a8c(*(void**)(arg0 + Enum_020e3b8c_14084), var0);
+        RemoveFromQueue_02046a8c(*(void**)(arg0 + Enum_020e3b8c_14084), var0);
     }
 
     func_020e3c34(var0);

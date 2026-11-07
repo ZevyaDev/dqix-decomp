@@ -17,7 +17,7 @@ extern "C" void func_0205eabc(void* arg0, void* arg1, int arg2);
 extern "C" void* FindActionData_02079e2c(char*, int);
 extern "C" int func_ov025_021eb42c(void* arg0, short arg1, short arg2);
 extern "C" int func_ov025_021eb148(void*, short, int, unsigned char);
-extern "C" void* func_ov000_0215ffa0(void* arg0);
+extern "C" void* GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 extern "C" void* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
 extern "C" int func_ov000_0215fd90(void* arg0, int arg1);
 extern "C" void func_ov025_021ed124(unsigned char* arg0);
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
             }
         }
         {
-            void* var24 = func_ov000_0215ffa0(var16);
+            void* var24 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var16);
             Struct_ov000_0215ab88* var25 = (Struct_ov000_0215ab88*)((GameState*)var3)->GetCombatantByIndex((int)var24);
             if (var25 != 0 && (*(unsigned int*)(var25->unknown_138_ + 0x18) & 0x20)) {
                 func_ov025_021eb148(arg0, 0x1f, 0xb2c, 3);

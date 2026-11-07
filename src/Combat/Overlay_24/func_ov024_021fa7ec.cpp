@@ -121,7 +121,7 @@ extern "C" float func_02074738(int arg0, int arg1);
 extern "C" int GetLevel_0202053c(void*);
 float CalculateTensionBonus(int tension, int level);
 extern "C" float func_ov024_021f875c(struct Struct_ov024_021fa7ec_3* arg0, struct Struct_ov024_021fa7ec_11* arg1, struct Struct_ov024_021fa7ec* arg2, int arg3);
-extern "C" int func_ov000_02156068(struct Struct_ov024_021fa7ec_2* arg0, int arg1, int arg2, int arg3);
+extern "C" int HasEnemyTrait_ov000_02156068(struct Struct_ov024_021fa7ec_2* battle, int combatantIndex, int kind, int traitType);
 extern "C" float func_ov000_02156b38(struct Struct_ov024_021fa7ec_2* arg0, int arg1, int arg2);
 struct Struct_020886b0;
 extern "C" int func_020886b0(Struct_020886b0*);
@@ -248,40 +248,40 @@ extern "C" ARM void func_ov024_021fa7ec(struct Struct_ov024_021fa7ec_3* arg0, fl
     int var17 = arg8->unknown_4_;
 
     if (var9 && (var0->unknown_10_ & 0x40000)) {
-        if (func_ov000_02156068(arg0->unknown_0_, var17, 1, 0)) {
+        if (HasEnemyTrait_ov000_02156068(arg0->unknown_0_, var17, 1, 0)) {
             var7 = var7 * func_02085968((char*)var9->unknown_150_);
         }
-        if (func_ov000_02156068(arg0->unknown_0_, var17, 2, 0)) {
+        if (HasEnemyTrait_ov000_02156068(arg0->unknown_0_, var17, 2, 0)) {
             var7 = var7 * func_02085818(var9->unknown_150_);
         }
-        if (func_ov000_02156068(arg0->unknown_0_, var17, 3, 0)) {
+        if (HasEnemyTrait_ov000_02156068(arg0->unknown_0_, var17, 3, 0)) {
             var7 = var7 * func_02085a10((char*)var9->unknown_150_);
         }
-        if (func_ov000_02156068(arg0->unknown_0_, var17, 4, 0)) {
+        if (HasEnemyTrait_ov000_02156068(arg0->unknown_0_, var17, 4, 0)) {
             var7 = var7 * func_02085a48((Struct_02085a48*)var9->unknown_150_);
         }
-        if (func_ov000_02156068(arg0->unknown_0_, var17, 5, 0)) {
+        if (HasEnemyTrait_ov000_02156068(arg0->unknown_0_, var17, 5, 0)) {
             var7 = var7 * func_020859d8((char*)var9->unknown_150_);
         }
-        if (func_ov000_02156068(arg0->unknown_0_, var17, 6, 0)) {
+        if (HasEnemyTrait_ov000_02156068(arg0->unknown_0_, var17, 6, 0)) {
             var7 = var7 * func_020859a0((char*)var9->unknown_150_);
         }
-        if (func_ov000_02156068(arg0->unknown_0_, var17, 7, 0)) {
+        if (HasEnemyTrait_ov000_02156068(arg0->unknown_0_, var17, 7, 0)) {
             var7 = var7 * func_02085930((char*)var9->unknown_150_);
         }
-        if (func_ov000_02156068(arg0->unknown_0_, var17, 8, 0)) {
+        if (HasEnemyTrait_ov000_02156068(arg0->unknown_0_, var17, 8, 0)) {
             var7 = var7 * func_02085850(var9->unknown_150_);
         }
-        if (func_ov000_02156068(arg0->unknown_0_, var17, 9, 0)) {
+        if (HasEnemyTrait_ov000_02156068(arg0->unknown_0_, var17, 9, 0)) {
             var7 = var7 * func_020858f8(var9->unknown_150_);
         }
-        if (func_ov000_02156068(arg0->unknown_0_, var17, 10, 0)) {
+        if (HasEnemyTrait_ov000_02156068(arg0->unknown_0_, var17, 10, 0)) {
             var7 = var7 * func_02085a80((Struct_02085a80*)var9->unknown_150_);
         }
-        if (func_ov000_02156068(arg0->unknown_0_, var17, 11, 0)) {
+        if (HasEnemyTrait_ov000_02156068(arg0->unknown_0_, var17, 11, 0)) {
             var7 = var7 * func_020858c0(var9->unknown_150_);
         }
-        if (func_ov000_02156068(arg0->unknown_0_, var17, 12, 0)) {
+        if (HasEnemyTrait_ov000_02156068(arg0->unknown_0_, var17, 12, 0)) {
             var7 = var7 * func_02085888(var9->unknown_150_);
         }
     }

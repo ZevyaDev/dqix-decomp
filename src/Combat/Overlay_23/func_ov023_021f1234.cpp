@@ -264,7 +264,7 @@ extern "C" ARM int func_ov023_021f1234(Struct_ov023_021f1234_3* arg0)
                 if (var10 != NULL)
                 {
                     func_ov013_02184b4c(arg0->unknown_5574_, var10);
-                    arg0->unknown_5578_->unknown_67_ = var10->obj3D_.unknown_4_;
+                    arg0->unknown_5578_->unknown_67_ = var10->obj3D_.objectIndex_4_;
                 }
             }
         }
@@ -298,7 +298,7 @@ extern "C" ARM int func_ov023_021f1234(Struct_ov023_021f1234_3* arg0)
             }
             int var12 = arg0->unknown_5574_->unknown_65c_;
             if (var11 != NULL)
-                func_ov013_0218782c(arg0->unknown_5578_, (signed char)var11->obj3D_.unknown_4_, (unsigned char)var12);
+                func_ov013_0218782c(arg0->unknown_5578_, (signed char)var11->obj3D_.objectIndex_4_, (unsigned char)var12);
         }
         else if (var1->unknown_0_ == 6)
         {

@@ -51,7 +51,7 @@ extern "C" void func_020ae3f4(Struct_020ad61c_2*);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" int ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
-extern "C" int func_02018fbc(Zone3D*, Struct_02015ef4*);
+extern "C" int GetGroundHeight_02018fbc(Zone3D*, Struct_02015ef4*);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_ov017_021a72f4(GameResources*, int);
 extern short data_020e9450[];
@@ -145,7 +145,7 @@ extern "C" ARM void func_020ad61c(Struct_020ad61c_3* arg0) {
     }
     if (!var12) {
         for (int var18 = 0; var18 < 3; var18++) {
-            var15[var18].unknown_0_[1] = func_02018fbc(var0, &var15[var18]);
+            var15[var18].unknown_0_[1] = GetGroundHeight_02018fbc(var0, &var15[var18]);
             ConvertWorldToScreen_0202ec84(var8, &var15[var18], &var13[var18], &var14[var18]);
             if (var13[var18] - 16 < var1 && var1 < var13[var18] + 16 &&
                 var14[var18] - 24 < var2 && var2 < var14[var18] + 8) {

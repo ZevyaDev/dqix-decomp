@@ -122,7 +122,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
     var3 = &arg0->unknown_26c_;
     var4 = (unsigned int*)GetGlobalFlags_020d6c00();
 
-    if (arg0->unknown_0_.obj3D_.unknown_4_ != arg0->unknown_1ca_) return;
+    if (arg0->unknown_0_.obj3D_.objectIndex_4_ != arg0->unknown_1ca_) return;
     if (var3->unknown_0_ == 0) return;
 
     unsigned char var7 = var3->unknown_1_;
@@ -439,7 +439,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
             var45->unknown_6c_ = 9999;
         }
         var45->unknown_7_ = 1;
-        func_0200fcfc(var44, var45);
+        SetZoneEntry_0200fcfc(var44, var45);
 
         ResetZoneLoadTask_ov017_0219e310((unsigned char*)var46->unknown_ptr_array_36fc[4], 0);
         AppendToQueue_020469b4((struct Queue_0201bdac_2*)var46->unknown_ptr_array_36fc[0],

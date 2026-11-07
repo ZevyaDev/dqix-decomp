@@ -121,7 +121,7 @@ struct Struct_ov003_02170d88_9 : GameObject {
 };
 struct Struct_ov003_02170d88_10 {
     char unknown_0_[0x3c];
-    Struct_02061c04 unknown_3c_;
+    BattleRecords_02061c04 unknown_3c_;
 };
 struct Struct_ov003_02170d88_11 {
 #if defined(jpn)
@@ -154,13 +154,13 @@ extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
 extern "C" void func_0205e22c(void*);
 extern "C" void VectorizedMemset(void*, int, unsigned int);
 extern "C" void* func_02052a10(char*);
-extern "C" short* func_02052e2c(Struct_02052e2c*);
+extern "C" short* GetAppearance_02052e2c(Struct_02052e2c*);
 extern "C" int GetAlchemyCount_020ac0b4(void*);
 extern "C" int func_020ac4f8(int);
-extern "C" int func_020a0870(Struct_02061c04*);
-extern "C" int func_020a08a4(Struct_02061c04*);
-extern "C" int func_020a08d8(Struct_02061c04*);
-extern "C" int func_020a090c(Struct_02061c04*);
+extern "C" int GetDefeatedMonsterListCompletion_020a0870(BattleRecords_02061c04*);
+extern "C" int GetItemListCompletion_020a08a4(BattleRecords_02061c04*);
+extern "C" int GetWardrobeCompletion_020a08d8(BattleRecords_02061c04*);
+extern "C" int GetAlchenomiconCompletion_020a090c(BattleRecords_02061c04*);
 extern "C" Struct_ov003_02170d88_7* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" unsigned char func_020119f8(char*, void*);
@@ -198,7 +198,7 @@ extern "C" ARM void func_ov003_02170d88(Struct_ov003_02170d88_4* arg0) {
     arg0->unknown_1c0_.unknown_c_ = var5->unknown_150_->unknown_16c_[var5->unknown_150_->unknown_950_];
     Struct_ov003_02170d88_11* var6 = (Struct_ov003_02170d88_11*)var3;
     memcpy(&arg0->unknown_1c0_.unknown_14_, &var6->unknown_569c_, 0x7c);
-    memcpy(&arg0->unknown_1c0_.unknown_90_, func_02052e2c((Struct_02052e2c*)var5), 0x1c);
+    memcpy(&arg0->unknown_1c0_.unknown_90_, GetAppearance_02052e2c((Struct_02052e2c*)var5), 0x1c);
     VectorizedMemset(&arg0->unknown_1c0_.unknown_ac_, 0, 0x18);
     Struct_ov003_02170d88_14* var7 = &arg0->unknown_1c0_.unknown_ac_;
     var0 = &var6->unknown_7504_;
@@ -230,10 +230,10 @@ extern "C" ARM void func_ov003_02170d88(Struct_ov003_02170d88_4* arg0) {
     var7->unknown_0_.unknown_10_0_ = var0->unknown_3c_.unknown_b_0_;
     var7->unknown_0_.unknown_d_2_ = var0->unknown_3c_.unknown_d_6_;
     var7->unknown_0_.unknown_11_1_ = var0->unknown_3c_.unknown_11_1_;
-    var7->unknown_0_.unknown_9_6_ = (unsigned char)func_020a0870(&var0->unknown_3c_);
-    var7->unknown_0_.unknown_a_5_ = (unsigned char)func_020a08a4(&var0->unknown_3c_);
-    var7->unknown_0_.unknown_f_0_ = (unsigned char)func_020a08d8(&var0->unknown_3c_);
-    var7->unknown_0_.unknown_12_7_ = (unsigned char)func_020a090c(&var0->unknown_3c_);
+    var7->unknown_0_.unknown_9_6_ = (unsigned char)GetDefeatedMonsterListCompletion_020a0870(&var0->unknown_3c_);
+    var7->unknown_0_.unknown_a_5_ = (unsigned char)GetItemListCompletion_020a08a4(&var0->unknown_3c_);
+    var7->unknown_0_.unknown_f_0_ = (unsigned char)GetWardrobeCompletion_020a08d8(&var0->unknown_3c_);
+    var7->unknown_0_.unknown_12_7_ = (unsigned char)GetAlchenomiconCompletion_020a090c(&var0->unknown_3c_);
     var7->unknown_0_.unknown_14_ = var14->unknown_0_.unknown_6_3_;
     var7->unknown_0_.unknown_16_0_ = (unsigned char)var9;
     var7->unknown_0_.unknown_16_1_ = (unsigned char)var10;

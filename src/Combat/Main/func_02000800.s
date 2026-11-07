@@ -1,7 +1,7 @@
 	.section .text
 	.arm
 
-	.extern data_027e0000
+	.extern gDTCMData_027e0000
 	.extern func_01ff8000
 	.extern main
 	.extern func_02000954
@@ -100,7 +100,7 @@ _L128:
 	sub sp, sp, #4
 _L12c:
 	bx r1
-	.word data_027e0000
+	.word gDTCMData_027e0000
 	.word 0x00000400
 	.word 0x05000000
 	.word 0x07000000

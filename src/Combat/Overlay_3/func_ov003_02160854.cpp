@@ -41,7 +41,7 @@ extern "C" {
 extern short data_ov003_0217f484[];
 extern short data_ov003_0217f426[];
 void func_02080558(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
-void func_020813ec(Struct_ov003_02160854* arg0, int arg1);
+void OpenMenuLayoutWindow_020813ec(Struct_ov003_02160854* menuLayout, int windowId);
 void func_ov003_02160794(void* arg0);
 }
 
@@ -104,7 +104,7 @@ extern "C" ARM unsigned char func_ov003_02160854(Struct_ov003_02160854_2* arg0) 
         short var10 = *arg0->unknown_470_;
         if (arg0->unknown_474_ != var10)
             var5->unknown_36_ = var10;
-        func_020813ec(var5, arg0->unknown_488_);
+        OpenMenuLayoutWindow_020813ec(var5, arg0->unknown_488_);
         func_ov003_02160794(arg0);
     }
     return var0;

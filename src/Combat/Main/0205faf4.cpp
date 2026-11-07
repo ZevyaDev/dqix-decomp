@@ -57,9 +57,9 @@ struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" int func_0206eb98(unsigned char* arg0, int arg1);
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" void* func_02094d6c(void);
+extern "C" void* GetQuestManager_02094d6c(void);
 extern "C" int func_02096088(void* arg0, int arg1);
-extern "C" void* func_0203cf4c(void);
+extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
 struct Struct_0203e0a0;
 extern "C" void* func_02040538(struct Struct_0203e0a0* arg0);
@@ -87,7 +87,7 @@ extern "C" int func_0206483c(struct Struct_0203d028_2* arg0, char* arg1);
 extern "C" void* func_02064904(void* arg0, int arg1, unsigned int arg2);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
-extern "C" void* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
+extern "C" void* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
 extern "C" short func_0207c638(void* arg0, unsigned int arg1);
 struct Struct_0205faf4_9 { int unknown_0_[6]; };
 struct Struct_0205faf4_10 { int unknown_0_; int unknown_4_; unsigned int unknown_8_0_:9, unknown_9_1_:3; };
@@ -95,9 +95,9 @@ extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" struct Struct_0205faf4_10* func_020deb24(struct Struct_0205faf4_9* arg0, int arg1);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
-extern "C" int func_020de9a4(void* arg0, void* arg1, void* arg2, unsigned int arg3, void* arg4, unsigned short arg5);
-struct Struct_0205faf4_11;
-extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
+extern "C" int LoadItemTableByIds_020de9a4(void* itemTable, void* allocator, void* fileData, unsigned int fileSize, void* itemIds, unsigned short itemIdCount);
+struct PartyMember_0205faf4_11;
+extern "C" int func_02061bd8(struct PartyMember_0205faf4_11* arg0);
 extern "C" int func_020cf0fc(int arg0);
 extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_0205faf4_12;
@@ -334,13 +334,13 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return 0;
     }
     case 37: {
-        if (func_02096088(func_02094d6c(), CU16(2))) {
+        if (func_02096088(GetQuestManager_02094d6c(), CU16(2))) {
             if (func_0206e31c((int)arg0, CU16(2))) return 1;
         }
         return 0;
     }
     case 38: {
-        if (!func_02096088(func_02094d6c(), CU16(2))) {
+        if (!func_02096088(GetQuestManager_02094d6c(), CU16(2))) {
             if (func_0206e31c((int)arg0, CU16(2))) return 1;
         }
         return 0;
@@ -351,7 +351,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return !IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x776);
     case 41: {
         struct Struct_0205faf4_2 { int unknown_0_; int unknown_4_; int unknown_8_; };
-        void* var33 = FindNPCById_0203df78(func_0203cf4c(), EW(0));
+        void* var33 = FindNPCById_0203df78(GetNPCManager_0203cf4c(), EW(0));
         if (!var33) return 0;
         void* var34 = func_02040538((struct Struct_0203e0a0*)var33);
         if (!var34) return 0;
@@ -502,7 +502,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return *(OBJB + 0x492);
     }
     case 51: {
-        struct Struct_0205faf4_8* var73 = func_02096134((struct Struct_0205faf4_7*)func_02094d6c(), CU16(2));
+        struct Struct_0205faf4_8* var73 = func_02096134((struct Struct_0205faf4_7*)GetQuestManager_02094d6c(), CU16(2));
         if (var73 != NULL && var73->unknown_1_7_) return 1;
         break;
     }
@@ -644,7 +644,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return var93 == 0;
     }
     case 70: {
-        struct Struct_0205faf4_8* var94 = func_02096134((struct Struct_0205faf4_7*)func_02094d6c(), CU16(2));
+        struct Struct_0205faf4_8* var94 = func_02096134((struct Struct_0205faf4_7*)GetQuestManager_02094d6c(), CU16(2));
         if (var94 != NULL) {
             if (CU16(4) != 0) return var94->unknown_2_2_;
             return var94->unknown_2_2_ == 0;
@@ -729,7 +729,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         var111.ResetAllocatorPointer();
         var111.CreateTypeA(var110, 0xc000);
         unsigned char* var114 = (unsigned char*)GetParty_02010828((GameState*)(void*)GameState::GetInstance());
-        void* var115 = func_0207c5f8(var114 + 0x1d4, CU16(2));
+        void* var115 = GetEquipmentBagItemIds_0207c5f8(var114 + 0x1d4, CU16(2));
         short var116 = func_0207c638(var114 + 0x1d4, CU16(2));
         InitItemTable_020de824(&var112);
         ClearItemTable_020de848(&var112);
@@ -740,7 +740,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         var113 = 0;
         void* var117 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var113);
         if (var117 != NULL) {
-            func_020de9a4(&var112, &var111, var117, var113, var115, var116);
+            LoadItemTableByIds_020de9a4(&var112, &var111, var117, var113, var115, var116);
         }
         BackgroundLoader::RemoveLockGlobal();
 #endif
@@ -777,7 +777,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         for (var125 = 0; var125 < 4; var125++) {
             struct Struct_0203d028_3* var126 = (Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var124, var125);
             if (var126 == NULL) continue;
-            if (!func_02061bd8((struct Struct_0205faf4_11*)var126)) continue;
+            if (!func_02061bd8((struct PartyMember_0205faf4_11*)var126)) continue;
             if (inline_0205faf4_2(STAT130(var126)) <= 0) return CU16(2) == 0;
             return CU16(2) == 1;
         }
@@ -785,7 +785,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return CU16(2) == 0;
     }
     case 87: {
-        unsigned char var127 = *(unsigned char*)func_02094d6c();
+        unsigned char var127 = *(unsigned char*)GetQuestManager_02094d6c();
         if (CU16(2) != 0) return var127 == 8;
         return var127 < 8;
     }
@@ -805,7 +805,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return *((unsigned char*)arg1 + 4) == *(unsigned char*)(var129 + REGION_VALUE(0x4199, 0x4449)) && CU16(2) == *(signed char*)(var129 + REGION_VALUE(0x4196, 0x4446));
     }
     case 92: {
-        struct Struct_0205faf4_8* var130 = func_02096134((struct Struct_0205faf4_7*)func_02094d6c(), CU16(2));
+        struct Struct_0205faf4_8* var130 = func_02096134((struct Struct_0205faf4_7*)GetQuestManager_02094d6c(), CU16(2));
         if (var130 != NULL) return var130->unknown_1_1_ == 0;
         return 0;
     }

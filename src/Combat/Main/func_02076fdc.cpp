@@ -28,7 +28,7 @@ extern "C" struct Struct_02076fdc* func_020283c0(struct Struct_0201a300_11* arg0
 
 extern "C" int fix32_Atan2(int arg0, int arg1);
 extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
-extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
+extern "C" void SetMotionIfDifferent_02033b68(struct Struct_02033b68* object, int motion);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
@@ -81,7 +81,7 @@ extern "C" ARM int func_02076fdc(Struct_02076a8c* arg0) {
         arg0->unknown_0_.unknown_0_.unknown_b2_ = 0x1c2;
         break;
     }
-    func_02033b68((struct Struct_02033b68*)arg0, 1);
+    SetMotionIfDifferent_02033b68((struct Struct_02033b68*)arg0, 1);
     if (arg0->unknown_0_.unknown_134_ == 4 || arg0->unknown_0_.unknown_134_ == 5 || arg0->unknown_0_.unknown_134_ == 6) {
         arg0->unknown_0_.unknown_0_.unknown_0_.DisableFlag(0x80);
     } else {
@@ -91,7 +91,7 @@ extern "C" ARM int func_02076fdc(Struct_02076a8c* arg0) {
     if (IsLocalWirelessOn_0202b7d8((int*)var5)) {
         if (GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var5) == 0) {
             int var6 = arg0->unknown_0_.unknown_0_.unknown_0_.GetField06();
-            int var7 = arg0->unknown_0_.unknown_0_.unknown_0_.unknown_4_;
+            int var7 = arg0->unknown_0_.unknown_0_.unknown_0_.objectIndex_4_;
             var7 -= 0x70;
             int var8 = arg0->unknown_0_.unknown_0_.unknown_0_.unknown_2_;
             Vector3fix var9 = arg0->unknown_0_.unknown_0_.unknown_0_.position_;

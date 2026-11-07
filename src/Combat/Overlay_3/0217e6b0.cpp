@@ -113,7 +113,7 @@ extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth
 extern "C" void Set3DFog_020c54a4(int isEnabled, unsigned int type, unsigned int depthShift, unsigned short offset);
 extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" void ResetOAMManager_0203bd24(char* oamManager);
-extern "C" int* func_0203bd14(void);
+extern "C" int* GetSpriteTextManager_0203bd14(void);
 extern "C" int GetSubOAMBuffer_0203be4c(void* arg0);
 extern "C" void func_0203c35c(int* arg0);
 extern "C" int func_ov009_02184a18(void* arg0);
@@ -255,7 +255,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         char* var5 = (char*)GetOAMManager_0203bd08();
         ResetOAMManager_0203bd24(var5);
         *(int*)var5 = 0;
-        int* var6 = func_0203bd14();
+        int* var6 = GetSpriteTextManager_0203bd14();
         *var6 = GetSubOAMBuffer_0203be4c(var5) + 0x200;
         func_0203c35c(var6);
         var6[Enum_ov003_0217e6b0_1288 / 4] = 0x7000;

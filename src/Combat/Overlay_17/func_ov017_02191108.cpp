@@ -2,7 +2,7 @@
 #include "Combat/ActorAction.h"
 #include "GameState/GameState.h"
 
-extern "C" unsigned char func_02039d7c(char* arg0);
+extern "C" unsigned char IsOnLadder_02039d7c(char* object);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" int func_020a277c(void* arg0);
@@ -22,7 +22,7 @@ extern "C" ARM void RebuildFieldPartyOrder_ov017_02191108(void* gameResources, i
     if (gameState->GetProtagonist() == 0) return;
 
     GameObject* currentLeader = gameState->GetUnknownGameObject();
-    if (currentLeader != 0 && func_02039d7c((char*)currentLeader) != 0) {
+    if (currentLeader != 0 && IsOnLadder_02039d7c((char*)currentLeader) != 0) {
         Struct_02037d10* leaderAction = func_020399a8(currentLeader);
         leaderAction->isPartyOrderRebuildPending_52_ = 1;
         return;

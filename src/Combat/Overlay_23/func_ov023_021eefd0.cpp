@@ -147,9 +147,9 @@ extern "C" void StartMessage_0204500c(Struct_ov023_021eefd0_9*, const char*, int
 #endif
 
 extern "C" Struct_ov023_021eefd0_9* GetMessageWindow_020421a0();
-extern "C" void func_0206efc4(void* arg0);
+extern "C" void ClearMonsterTable_0206efc4(void* monsterTable);
 extern "C" void func_0206f200(int arg0, int arg1, int arg2, int arg3, int arg4);
-extern "C" void* func_0206f4f0(Struct_0206f01c_2* arg0, int arg1);
+extern "C" void* FindMonsterData_0206f4f0(Struct_0206f01c_2* monsterTable, int monsterId);
 extern "C" void InitNoun_020e46c4(void* noun);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void GetBattleRecords_020ac4c0(void* records);
@@ -202,7 +202,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
                 {
                     arg0->unknown_30_.Reset();
                     var1 = _ZZ21inline_ov023_021f4c04vE1s->unknown_10c_;
-                    func_0206efc4(var1);
+                    ClearMonsterTable_0206efc4(var1);
                     func_0206f200((int)var1, (int)&arg0->unknown_30_, (int)var5, var6, (short)arg0->unknown_58ca_);
                 }
                 var3->RemoveTask(_ZZ21inline_ov023_021f4c04vE1s->unknown_c_);
@@ -214,10 +214,10 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
                 return arg0->unknown_eac_;
             }
         }
-        if (var4 && arg0->unknown_58ca_ != 0 && func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_) == NULL)
+        if (var4 && arg0->unknown_58ca_ != 0 && FindMonsterData_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_) == NULL)
         {
             var1 = _ZZ21inline_ov023_021f4c04vE1s->unknown_10c_;
-            if (func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_) == NULL)
+            if (FindMonsterData_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_) == NULL)
             {
 #if defined(jpn)
                 _ZZ21inline_ov023_021f4c04vE1s->unknown_c_ = var3->QueueLoadFile(data_ov023_021fd4ec, NULL);
@@ -246,7 +246,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
         {
         case 0:
         {
-            void* var12 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
+            void* var12 = FindMonsterData_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
             if (var12 != NULL)
                 strcpy(var11, *(const char**)var12);
             sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 1), var11);
@@ -254,7 +254,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
         }
         case 1:
         {
-            void* var13 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
+            void* var13 = FindMonsterData_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
             if (var13 != NULL)
                 sprintf(var11, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 5), *(const char**)var13);
             sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 1), var11);
@@ -271,7 +271,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
         }
         case 3:
         {
-            void* var14 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
+            void* var14 = FindMonsterData_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
             if (var14 != NULL)
                 strcpy(var11, *(const char**)var14);
             sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 3), var11);
@@ -279,7 +279,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
         }
         case 4:
         {
-            void* var15 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
+            void* var15 = FindMonsterData_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
             if (var15 != NULL)
                 sprintf(var11, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 5), *(const char**)var15);
             sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 3), var11);
@@ -293,7 +293,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
         }
         case 6:
         {
-            void* var16 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
+            void* var16 = FindMonsterData_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
             if (var16 != NULL)
                 strcpy(var11, *(const char**)var16);
             sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 2), var11);
@@ -301,7 +301,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
         }
         case 7:
         {
-            void* var17 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
+            void* var17 = FindMonsterData_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
             if (var17 != NULL)
                 sprintf(var11, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 5), *(const char**)var17);
             sprintf(var20, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_5904_, 2), var11);
@@ -320,9 +320,9 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
         if (var9 != NULL)
             var10 = var9->unknown_c_;
         InitNoun_020e46c4(&var18);
-        void* var19 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
+        void* var19 = FindMonsterData_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
         if (var10 == 0x36 || var10 == 0x43 || var10 == 0x50)
-            var19 = func_0206f4f0((Struct_0206f01c_2*)var1, 0x1fc);
+            var19 = FindMonsterData_0206f4f0((Struct_0206f01c_2*)var1, 0x1fc);
         if (var19 != NULL)
         {
             var18 = func_ov023_021ed804(var18, var19);
@@ -398,7 +398,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
             var22->unknown_0[3] = 1;
             func_ov017_021cfc74(1);
         }
-        func_0206efc4(_ZZ21inline_ov023_021f4c04vE1s->unknown_10c_);
+        ClearMonsterTable_0206efc4(_ZZ21inline_ov023_021f4c04vE1s->unknown_10c_);
     }
     else if (var0->unknown_0_ == 100)
     {

@@ -99,7 +99,7 @@ extern "C" void func_02083738(void* arg0, int arg1);
 struct Struct_ov005_02157b74_3;
 extern "C" void func_ov005_021583fc(Struct_ov005_02157b74_3*, char);
 struct Struct_02052e2c;
-extern "C" Struct_ov005_02157b74_7* func_02052e2c(Struct_02052e2c*);
+extern "C" Struct_ov005_02157b74_7* GetAppearance_02052e2c(Struct_02052e2c*);
 extern "C" int func_ov005_0215840c(Struct_ov005_02157b74_2* arg0, int arg1);
 extern "C" void func_02083e28(void* arg0, int arg1);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
@@ -169,7 +169,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
             }
         }
         if (var6 == 0) {
-            func_02052e2c((Struct_02052e2c*)var5)->unknown_16_ = -1;
+            GetAppearance_02052e2c((Struct_02052e2c*)var5)->unknown_16_ = -1;
         }
         if (var7 == 0x4680) {
             if (func_ov005_0215840c(arg0, var5->unknown_4_) != 0) {
@@ -286,7 +286,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
     if (var14 == 0x62) {
         Struct_ov005_02157b74_6* var20 = func_020deda4((int)arg0->unknown_df4_, 0x61, (Struct_020deda4*)var13);
         if (var20 != 0) {
-            func_02052e2c((Struct_02052e2c*)var5)->unknown_16_ = var20->unknown_18_;
+            GetAppearance_02052e2c((Struct_02052e2c*)var5)->unknown_16_ = var20->unknown_18_;
         }
     }
 

@@ -336,7 +336,7 @@ extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
 extern "C" void func_ov000_0215ffc4(void* arg0, void* arg1, int arg2);
 extern "C" int func_ov000_021573a8(void* arg0, int arg1, int arg2, int arg3);
 extern "C" struct Struct_ov024_021eb5d0_6* GetNextActionResult_ov000_0215e958(void* battle);
-extern "C" void SetActionResult_ov000_0215ccbc(void* battle, struct Struct_ov024_021eb5d0_6* result, void* combatant, short arg3, short currHP, int currMP, unsigned long long flags, unsigned char isCriticalHit);
+extern "C" void SetActionResult_ov000_0215ccbc(void* battle, struct Struct_ov024_021eb5d0_6* result, void* combatant, short amount, short currHP, int currMP, unsigned long long flags, unsigned char isCriticalHit);
 extern "C" struct Struct_ov024_021eb5d0_8* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
 extern "C" int func_ov000_02157288(void* arg0, int arg1, struct Struct_ov024_021eaa50_2* arg2);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, unsigned long long arg4, int arg5);

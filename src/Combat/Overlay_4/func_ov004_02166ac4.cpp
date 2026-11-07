@@ -19,7 +19,7 @@ extern char* data_ov004_0217101c;
 #define CurrentBase0217101c data_ov004_0217101c
 #endif
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" int* func_02094d6c(void);
+extern "C" int* GetQuestManager_02094d6c(void);
 extern "C" int GetMessageWindow_020421a0(void);
 
 struct Struct_ov004_02166ac4 {
@@ -43,7 +43,7 @@ extern "C" ARM int func_ov004_02166ac4() {
     var0->unknown_1c_[0].Destroy();
     char* var3 = (char*)GetFlagManager_0205ec34();
     memcpy(var3 + 0x2cc, ((Struct_ov004_02166ac4*)CurrentBase0217101c)->unknown_51_, 0x66);
-    int* var4 = func_02094d6c();
+    int* var4 = GetQuestManager_02094d6c();
     *(int*)((char*)var4 + 0xa0) = ((Struct_ov004_02166ac4*)CurrentBase0217101c)->unknown_b8_;
     char* var5 = (char*)GetMessageWindow_020421a0();
     *(unsigned char*)(var5 + 0x1000 + Enum_ov004_02166ac4_2402) = 0;

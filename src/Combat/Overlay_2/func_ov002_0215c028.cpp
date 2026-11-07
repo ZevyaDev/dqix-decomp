@@ -17,11 +17,11 @@ struct Struct_ov002_0215c028 {
 };
 }
 
-extern "C" void func_ov002_0215be00(void*, int, short, short);
+extern "C" void SetNextTextWindow_ov002_0215be00(void*, int, short, short);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void UpdateTextWindowManager_0205d0e0(void*, int);
 struct TextWindowManager_0205def8;
-extern "C" void func_0205def8(TextWindowManager_0205def8*, int, int);
+extern "C" void SetTextWindowVisible_0205def8(TextWindowManager_0205def8*, int, int);
 #if defined(jpn)
 extern const char data_ov002_0216d91f[];
 extern "C" void func_020474a8(void*, unsigned char, const char*, char*);
@@ -41,7 +41,7 @@ extern "C" void OpenTextWindow_0205d304(void*, const char*, int, unsigned char, 
 // JPN: func_ov002_0215d12c
 extern "C" ARM void func_ov002_0215c028(char* arg0) {
     Struct_ov002_0215c028* var0 = ((Struct_ov002_0215c028*)(arg0));
-    func_ov002_0215be00(var0, Enum_ov002_0215c028_40, 0x15, 0x13);
+    SetNextTextWindow_ov002_0215be00(var0, Enum_ov002_0215c028_40, 0x15, 0x13);
     void* var1 = ((void*)(GetMessageWindow_020421a0()));
     memset(var0->unknown_1bd0_, 0, Enum_ov002_0215c028_2400);
 #if defined(jpn)
@@ -57,5 +57,5 @@ extern "C" ARM void func_ov002_0215c028(char* arg0) {
 #endif
     );
     UpdateTextWindowManager_0205d0e0(&var0->unknown_ec8_, 4);
-    func_0205def8(((TextWindowManager_0205def8*)(&var0->unknown_ec8_)), 0, Enum_ov002_0215c028_40);
+    SetTextWindowVisible_0205def8(((TextWindowManager_0205def8*)(&var0->unknown_ec8_)), 0, Enum_ov002_0215c028_40);
 }

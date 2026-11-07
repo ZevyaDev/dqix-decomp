@@ -151,7 +151,7 @@ extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02042b30(void* arg0, void* arg1);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" void InitFollowCamera_020a2010(void* arg0);
+extern "C" void InitFollowCamera_020a2010(void* storage);
 extern "C" void func_0202e5c0(Struct_0202e5c0* arg0, int arg1, int arg2, int arg3);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
@@ -178,7 +178,7 @@ void func_ov005_02153b20(void* arg0);
 int func_ov005_0215436c(void* arg0);
 void func_ov005_0215a960(void* arg0);
 void func_ov005_0215ae7c(void* arg0);
-void func_020dea64(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, const void* arg4, int arg5);
+void LoadItemTableByCategories_020dea64(void* itemTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize, const void* categories, int categoryCount);
 void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 void InitMessageGlyphs_020432c4(void* window);
 void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, SafeAllocator* allocator);
@@ -292,7 +292,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
 
             arg0->unknown_14_->Reset();
             ClearItemTable_020de848(arg0->unknown_a4_);
-            func_020dea64(arg0->unknown_a4_, arg0->unknown_14_, var4, var5, data_ov023_021fd66c, 9);
+            LoadItemTableByCategories_020dea64(arg0->unknown_a4_, arg0->unknown_14_, var4, var5, data_ov023_021fd66c, 9);
 
             arg0->unknown_638_ = arg0->unknown_2c_.Allocate(0x2a0);
             memset(arg0->unknown_638_, 0, 0x2a0);

@@ -26,7 +26,7 @@ extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
 extern "C" void func_02039d48(unsigned char*);
 int fix32sin(int);
 int fix32cos(int);
-extern "C" unsigned char func_02039d7c(char*);
+extern "C" unsigned char IsOnLadder_02039d7c(char*);
 extern "C" void func_02039d84(Struct_02039d84*);
 extern "C" void func_ov017_021d440c(int);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov017_021bd704(Struct_ov017_021bd704* arg0) {
             GameObject* var9 = var0->GetPartyMemberByIndex(var8);
             if (var9 == 0) continue;
             if (IsNotLocalWirelessGuest_0202c508(var1)) {
-                int var10 = var9->obj3D_.unknown_4_;
+                int var10 = var9->obj3D_.objectIndex_4_;
                 if (var10 != GetOwnPartyLeaderObjectIndex_020100b0(var0) && var2) {
                     var9->obj3D_.SetInheritedAlpha(0);
                     func_02039d48((unsigned char*)var9);
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov017_021bd704(Struct_ov017_021bd704* arg0) {
                     var4.x += var16;
                 }
             }
-            if (arg0->unknown_a_ != 8100 && func_02039d7c((char*)var9)) {
+            if (arg0->unknown_a_ != 8100 && IsOnLadder_02039d7c((char*)var9)) {
                 func_02039d84((Struct_02039d84*)var9);
                 func_ov017_021d440c(-1);
             }

@@ -10,8 +10,8 @@ enum { Enum_ov006_0215f2b4_24 = 0x18 };
 
 extern "C" int GetResources_0200fb8c(int* gameState);
 
-struct Struct_020e25e8;
-extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
+struct YesNoWindow_020e25e8;
+extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8* yesNoWindow);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 struct MusicManager_02109bf4_4;
@@ -22,7 +22,7 @@ extern int gMusicManager_02109bf4;
 
 struct Struct_ov006_0215f2b4 {
 	unsigned char unknown_0_[Enum_ov006_0215f2b4_24];
-	struct Struct_020e25e8* unknown_18_;
+	struct YesNoWindow_020e25e8* unknown_18_;
 	unsigned char unknown_1c_[0x38f - Enum_ov006_0215f2b4_24 - 4];
 	unsigned char unknown_38f_;
 	unsigned char unknown_390_;
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov006_0215f2b4(struct Struct_ov006_0215f2b4* arg0) {
 	int var0 = GetResources_0200fb8c((int*)GameState::GetInstance());
 	if (arg0->unknown_390_ == 0) {
 		if (arg0->unknown_18_ != 0) {
-			func_020e25e8(arg0->unknown_18_);
+			CloseYesNoWindow_020e25e8(arg0->unknown_18_);
 		}
 		SetBrightness((GameResources*)var0, -16, 16);
 		if ((arg0->unknown_394_ & 2) == 0) {

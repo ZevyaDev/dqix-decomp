@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-struct Struct_0207f524;
-extern "C" void* func_0207f6ac(struct Struct_0207f524* arg0, int arg1);
+struct MenuLayoutTextEntryList_0207f524;
+extern "C" void* FindMenuLayoutTextEntry_0207f6ac(struct MenuLayoutTextEntryList_0207f524* textEntries, int textId);
 extern "C" void func_0204fa0c(void* arg0, short arg1, short arg2);
 
 struct Struct_02081574 {
@@ -28,14 +28,14 @@ struct Struct_02081574_2 {
     unsigned char unknown_13_;
 };
 
-struct Struct_0207f524 {
-    Struct_02081574* unknown_0_;
-    short unknown_4_;
+struct MenuLayoutTextEntryList_0207f524 {
+    Struct_02081574* pEntries_0_;
+    short count_4_;
 };
 
 struct Struct_02081574_3 {
     void* unknown_0_;
-    Struct_0207f524 unknown_4_;
+    MenuLayoutTextEntryList_0207f524 unknown_4_;
     char unknown_c_[Enum_02081574_52 - 0xc];
     short unknown_34_;
     short unknown_36_;
@@ -56,7 +56,7 @@ extern "C" ARM void func_02081574(void* arg0, void* arg1, void* arg2) {
     }
     for (var4 = 0; var4 < var1->unknown_13_; var4++) {
         var3 = var1->unknown_0_[var4];
-        var2 = (struct Struct_02081574*)func_0207f6ac(&var0->unknown_4_, var3);
+        var2 = (struct Struct_02081574*)FindMenuLayoutTextEntry_0207f6ac(&var0->unknown_4_, var3);
         if (var2 != NULL) {
             if (var0->unknown_36_ == var3) {
                 short var5 = var2->unknown_8_;

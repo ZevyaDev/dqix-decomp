@@ -16,7 +16,7 @@ struct Struct_020a212c_2 {
     Vector3i unknown_70_;
 };
 
-struct Struct_ov000_02160da0 {
+struct BattleScene_ov000_02160da0 {
 #if defined(jpn)
     char unknown_0_[0x21c];
 #else
@@ -42,17 +42,17 @@ extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" int SetMotion_02033b88(Struct_02010604* object, int motion);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
-extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
 
 extern "C" {
 void* GetEffectManager_02057924();
 void RemoveEffectResource_02057f00(void*, int);
-Struct_020a212c_2* func_ov000_02160f14(Struct_ov000_02160da0*);
+Struct_020a212c_2* func_ov000_02160f14(BattleScene_ov000_02160da0*);
 void ResetBattleCamera_ov000_0216d370(Struct_020a212c_2*, int, int, int);
 }
 
 // USA: func_ov026_021dbba8
-extern "C" ARM void func_ov026_021dbba8(Struct_ov000_02160da0* arg0) {
+extern "C" ARM void func_ov026_021dbba8(BattleScene_ov000_02160da0* arg0) {
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
 

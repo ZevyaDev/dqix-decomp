@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_ov031_0223e2c0(int arg0, void* arg1);
+extern "C" void QueueTaskRemoval_ov031_0223e2c0(int listIndex, void* task);
 extern "C" ARM void* AddTask_ov031_0223e218(void* listIndex, void* callback, void* callbackData, int priority);
 extern "C" ARM void func_ov031_022384bc(int arg0);
 
@@ -18,7 +18,7 @@ extern "C" ARM void func_ov031_0223815c(void* arg0) {
     data_ov031_02290d10->unknown_1b_ = -1;
     data_ov031_02290d10->unknown_18_++;
     if (data_ov031_02290d10->unknown_18_ >= 0x78) {
-        func_ov031_0223e2c0(0, arg0);
+        QueueTaskRemoval_ov031_0223e2c0(0, arg0);
         data_ov031_02290d10->unknown_14_ = AddTask_ov031_0223e218((void*)1, (void*)func_ov031_022384bc, (void*)0, 0x78);
     }
 }

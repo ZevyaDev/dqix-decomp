@@ -5,7 +5,7 @@ struct Struct_ov031_02222ddc_6 { int unknown_0_, unknown_4_; Struct_ov031_022255
 extern "C" Struct_ov031_02225580_2* func_ov031_0223baa0(Struct_ov031_02222ddc_6* arg0, int arg1);
 
 struct Struct_ov031_02225580 { unsigned char unknown_0_[0xfc]; Struct_ov031_02222ddc_6* unknown_fc_; };
-extern Struct_ov031_02225580* data_ov031_02250bfc;
+extern Struct_ov031_02225580* gKeyboard_ov031_02250bfc;
 
 struct Struct_ov031_02225580_3 { int unknown_0_; };
 struct Struct_ov031_02225580_4 { int unknown_0_; };
@@ -15,9 +15,9 @@ extern "C" void func_ov031_02225604(void* arg0);
 
 // USA: func_ov031_02225580
 extern "C" ARM void func_ov031_02225580(void* arg0) {
-    Struct_ov031_02225580_2* var0 = func_ov031_0223baa0(data_ov031_02250bfc->unknown_fc_, 0);
+    Struct_ov031_02225580_2* var0 = func_ov031_0223baa0(gKeyboard_ov031_02250bfc->unknown_fc_, 0);
     int var1 = var0->unknown_0_;
-    Struct_ov031_02225580* var2 = data_ov031_02250bfc;
+    Struct_ov031_02225580* var2 = gKeyboard_ov031_02250bfc;
     unsigned char var3 = *((unsigned char*)var2 + 0x11d);
     struct Struct_ov031_02225580_4 var4;
     struct Struct_ov031_02225580_3 var5;

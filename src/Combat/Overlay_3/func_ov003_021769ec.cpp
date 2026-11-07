@@ -12,17 +12,17 @@ enum { Enum_ov003_021769ec_4096 = 0x1000 };
 
 extern "C" void* GetParty_02010828(GameState* gameState);
 struct MenuLayout_0207fdcc_2;
-extern "C" void func_02080c20(MenuLayout_0207fdcc_2*, int);
+extern "C" void ShowMenuLayoutWindow_02080c20(MenuLayout_0207fdcc_2*, int);
 extern "C" void func_02080c04(struct MenuLayout_0207fdcc_2* arg0, short arg1);
-extern "C" void func_02080c68(void*, int, int);
+extern "C" void SetMenuLayoutWindowPalette_02080c68(void*, int, int);
 extern "C" void func_02080b54(void*, int);
 struct ItemTable_0201099c_10 {
     char unknown_0_;
 };
 struct Struct_ov003_021769ec;
 extern "C" struct Struct_ov003_021769ec* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
-struct Struct_02080f8c;
-extern "C" void func_02080f8c(struct Struct_02080f8c* arg0, int arg1, int arg2);
+struct MenuLayout_02080f8c;
+extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c* menuLayout, int textId, int text);
 struct Struct_02080cc0;
 extern "C" void func_02080cc0(struct Struct_02080cc0* arg0, int arg1, int arg2);
 extern "C" int func_02080b40(void* arg0, int arg1);
@@ -36,7 +36,7 @@ extern "C" void func_02080fc4(struct Struct_02080fc4* arg0, int arg1, int arg2);
 extern "C" int GetEquipRestrictions_020dd4c4(int memberIndex, void* item);
 extern "C" int func_020dcc98(int arg0);
 extern "C" int func_ov003_021753a0(void* arg0, int arg1, void* arg2, void* arg3);
-extern "C" int func_020813ec(void* arg0, short arg1);
+extern "C" int OpenMenuLayoutWindow_020813ec(void* menuLayout, short windowId);
 
 extern int data_ov003_0217fb18[];
 
@@ -123,8 +123,8 @@ extern "C" ARM void func_ov003_021769ec(Struct_ov003_021769ec_3* arg0) {
         break;
     }
 
-    func_02080c20(var9, var0);
-    func_02080c68(var9, var0, 0);
+    ShowMenuLayoutWindow_02080c20(var9, var0);
+    SetMenuLayoutWindowPalette_02080c68(var9, var0, 0);
     func_02080b54(var9, var0);
 
     Struct_ov003_021769ec* var12 = FindItemData_020dedd0(&arg0->unknown_874_, arg0->unknown_1000_.unknown_3a_);
@@ -141,7 +141,7 @@ extern "C" ARM void func_ov003_021769ec(Struct_ov003_021769ec_3* arg0) {
             if (var18 != NULL) {
                 var17 = *(int*)((char*)var18 + 0x134);
             }
-            func_02080f8c((struct Struct_02080f8c*)var9, var1, var17);
+            SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var9, var1, var17);
             func_02080cc0((struct Struct_02080cc0*)var9, var1, func_020dcc98(var16));
             func_02080b40(var9, var1);
 
@@ -213,5 +213,5 @@ extern "C" ARM void func_ov003_021769ec(Struct_ov003_021769ec_3* arg0) {
         func_02080c04(var9, var0);
     }
 
-    func_020813ec(var9, var0);
+    OpenMenuLayoutWindow_020813ec(var9, var0);
 }

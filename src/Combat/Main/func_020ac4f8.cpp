@@ -22,7 +22,7 @@ unsigned long long GetCurrentTimestamp(void);
 // USA: func_020ac4f8
 extern "C" ARM int func_020ac4f8(int arg0) {
     GameState *var0;
-    Struct_02061c04 var1;
+    BattleRecords_02061c04 var1;
     unsigned short var2;
     unsigned char var3;
     unsigned char var4;

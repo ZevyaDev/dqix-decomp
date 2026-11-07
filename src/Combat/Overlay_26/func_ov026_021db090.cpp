@@ -31,9 +31,9 @@ struct Struct_ov026_021db090_4 {
     signed char unknown_1c_;
 };
 
-struct Struct_ov000_02160da0 {
+struct BattleScene_ov000_02160da0 {
     char unknown_0_[Enum_ov026_021db090_668];
-    Struct_ov000_02161e30* unknown_29c_;
+    Struct_ov000_02161e30* pBattle_29c_;
     Struct_ov000_0217e870_2* unknown_2a0_;
     char unknown_2a4_[0xc08];
     int unknown_eac_;
@@ -106,7 +106,7 @@ extern "C" Struct_ov026_021db090_4* func_ov026_021dae60(Struct_ov026_021d8ba0_4*
 
 extern "C" {
 int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
-void func_ov000_02162c14(Struct_ov000_02160da0*, int, Struct_ov026_021db090*);
+void func_ov000_02162c14(BattleScene_ov000_02160da0*, int, Struct_ov026_021db090*);
 void func_020dd0b0(int, char*);
 void GetZone3D_02012fe4();
 void func_ov017_021a23b0(GameResources*, unsigned short);
@@ -116,7 +116,7 @@ void StartMessage_0204500c(Struct_ov000_0217964c_3*, char*, int);
 void StartMessage_0204500c(Struct_ov000_0217964c_3*, char*, int, int);
 #endif
 void CloseMessageWindow_02043124(Struct_ov000_0217964c_3*);
-void func_ov000_02160da0(Struct_ov000_02160da0*);
+void func_ov000_02160da0(BattleScene_ov000_02160da0*);
 }
 
 #if defined(jpn)
@@ -131,7 +131,7 @@ extern Struct_ov000_02182c74 data_ov026_021de6bc;
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 // USA: func_ov026_021db090
-extern "C" ARM void func_ov026_021db090(Struct_ov000_02160da0* arg0) {
+extern "C" ARM void func_ov026_021db090(BattleScene_ov000_02160da0* arg0) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov000_0217964c_3* var1 = GetMessageWindow_020421a0();
 
@@ -163,7 +163,7 @@ extern "C" ARM void func_ov026_021db090(Struct_ov000_02160da0* arg0) {
         sprintf(var3, data_ov026_021dedee);
 #endif
         __clear(var5, sizeof(var5));
-        var9 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0->unknown_29c_, var7, 4, 0);
+        var9 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0->pBattle_29c_, var7, 4, 0);
         var8 = data_ov026_021de6bc;
 #if defined(jpn)
         var11 = 0;

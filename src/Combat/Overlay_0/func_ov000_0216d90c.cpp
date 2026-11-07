@@ -4,7 +4,7 @@
 
 extern "C" void ResetBattleCamera_ov000_0216d370(void* camera, int resetRoll, int resetFieldOfView, int resetTurns);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
-extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
 extern "C" void func_ov000_0216d530(void* arg0, int arg1);
 
 extern int data_ov000_021832a4[8];

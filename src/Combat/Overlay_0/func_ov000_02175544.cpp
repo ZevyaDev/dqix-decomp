@@ -3,8 +3,8 @@
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0 {
     unsigned char unknown_0_[0xac];
-    short unknown_ac_;
-    short unknown_ae_;
+    short tileX_ac_;
+    short tileY_ae_;
     unsigned char unknown_b0_[0xbc - 0xb0];
     short unknown_bc_;
     short unknown_be_;
@@ -48,8 +48,8 @@ extern "C" ARM void func_ov000_02175544(unsigned char* arg0) {
     if (var0->unknown_c4_ >= 0x1a) return;
     if (!IsTextWindowOpen_0204c7e0((unsigned char*)var0)) return;
 
-    short var1 = var0->unknown_ac_ * 8;
-    short var2 = var0->unknown_ae_ * 8;
+    short var1 = var0->tileX_ac_ * 8;
+    short var2 = var0->tileY_ae_ * 8;
     var1 += var0->unknown_bc_;
     var2 += var0->unknown_be_;
 

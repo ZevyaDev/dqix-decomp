@@ -15,8 +15,8 @@ struct Struct_02081164;
 extern "C" void func_0208103c(void* arg0, int arg1, int arg2);
 extern "C" void func_02080798(void* arg0, int arg1, int arg2);
 extern "C" void func_02081164(struct Struct_02081164* arg0, int arg1, int arg2);
-extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
-extern "C" void func_020813ec(void* arg0, int arg1);
+extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
+extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
 // USA: func_ov014_0218854c
 extern "C" ARM void func_ov014_0218854c(void* arg0) {
@@ -27,6 +27,6 @@ extern "C" ARM void func_ov014_0218854c(void* arg0) {
     func_02080798(*(void**)((char*)arg0 + 0xc0), 0x1a, 1);
 #endif
     func_02081164(*(struct Struct_02081164**)((char*)arg0 + 0xc0), 4, 1);
-    func_02080c68(*(void**)((char*)arg0 + 0xc0), 4, 1);
-    func_020813ec(*(void**)((char*)arg0 + 0xc0), 4);
+    SetMenuLayoutWindowPalette_02080c68(*(void**)((char*)arg0 + 0xc0), 4, 1);
+    OpenMenuLayoutWindow_020813ec(*(void**)((char*)arg0 + 0xc0), 4);
 }

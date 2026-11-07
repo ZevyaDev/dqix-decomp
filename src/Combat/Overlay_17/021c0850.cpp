@@ -109,7 +109,7 @@ extern "C" int func_0209cae8(Struct_0209cae8*);
 struct MusicManager_02109bf4_4;
 extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4*, int);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_0203cf4c(void);
+extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void func_0203e0a0(void* arg0, unsigned short arg1);
 void SetBrightness(GameResources* resources, int brightness, int duration);
 void SetMainBrightness(GameResources* resources, int brightness, int duration);
@@ -131,7 +131,7 @@ extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth
 extern "C" void Set3DFog_020c54a4(int isEnabled, unsigned int type, unsigned int depthShift, unsigned short offset);
 extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" void ResetOAMManager_0203bd24(char* oamManager);
-extern "C" int* func_0203bd14(void);
+extern "C" int* GetSpriteTextManager_0203bd14(void);
 extern "C" int GetSubOAMBuffer_0203be4c(void* arg0);
 extern "C" void func_0203c35c(int* arg0);
 extern "C" int func_ov017_021959b4(void);
@@ -238,7 +238,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
             }
         }
         unsigned short* var5 = (unsigned short*)GetZone3D_02012fe4();
-        func_0203e0a0(func_0203cf4c(), *var5);
+        func_0203e0a0(GetNPCManager_0203cf4c(), *var5);
         if (GetBrightness((GameResources*)var1, false) != -0x10
             || GetBrightness((GameResources*)var1, true) != -0x10) {
             SetBrightness(var1, -0x10, 0xf);
@@ -312,7 +312,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         char* var7 = (char*)GetOAMManager_0203bd08();
         ResetOAMManager_0203bd24(var7);
         *(int*)var7 = 0;
-        int* var8 = func_0203bd14();
+        int* var8 = GetSpriteTextManager_0203bd14();
         *var8 = GetSubOAMBuffer_0203be4c(var7) + 0x200;
         func_0203c35c(var8);
         var8[Enum_ov017_021c0850_1288 / 4] = 0x7000;

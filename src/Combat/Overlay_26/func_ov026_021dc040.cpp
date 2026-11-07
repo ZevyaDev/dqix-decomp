@@ -13,9 +13,9 @@ struct Struct_02010604;
 struct Struct_02012050;
 struct Struct_ov026_021daec8;
 #if defined(jpn)
-struct Struct_ov000_02160da0 { char unknown_0_[0x7902]; signed char unknown_7712_; };
+struct BattleScene_ov000_02160da0 { char unknown_0_[0x7902]; signed char unknown_7712_; };
 #else
-struct Struct_ov000_02160da0 { char unknown_0_[0x7712]; signed char unknown_7712_; };
+struct BattleScene_ov000_02160da0 { char unknown_0_[0x7712]; signed char unknown_7712_; };
 #endif
 
 struct Struct_ov026_021dc040 {
@@ -37,9 +37,9 @@ extern "C" void ClearGameObjectByIndex_0200fd48(GameState*, int);
 extern "C" void func_02012050(Struct_02012050*);
 extern "C" {
 int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
-int func_ov000_02160f14(Struct_ov000_02160da0*);
+int func_ov000_02160f14(BattleScene_ov000_02160da0*);
 void func_ov026_021daec8(Struct_ov000_02161e30*, Struct_ov026_021daec8*, int);
-void func_ov000_021626a0(Struct_ov000_02160da0*, int, int);
+void SetObjectsVisibleBySelector_ov000_021626a0(BattleScene_ov000_02160da0*, int, int);
 void __clear(void*, int);
 }
 struct Struct_ov026_021de6a0_2 { signed char unknown_0_[2]; };
@@ -47,7 +47,7 @@ extern const Struct_ov026_021de6a0_2 data_ov026_021de6a0;
 extern const char data_ov026_021dee57[];
 
 // USA: func_ov026_021dc040
-extern "C" ARM int func_ov026_021dc040(SafeAllocator* arg0, Struct_ov000_02160da0* arg1, Struct_ov000_02161e30* arg2, Struct_ov000_0217e870_2* arg3) {
+extern "C" ARM int func_ov026_021dc040(SafeAllocator* arg0, BattleScene_ov000_02160da0* arg1, Struct_ov000_02161e30* arg2, Struct_ov000_0217e870_2* arg3) {
     GameState* var0 = GameState::GetInstance();
     Struct_0204a438* var1 = (Struct_0204a438*)GetCamera_020100bc(var0);
     if (!var1) return 1;
@@ -119,8 +119,8 @@ extern "C" ARM int func_ov026_021dc040(SafeAllocator* arg0, Struct_ov000_02160da
         func_ov000_0216118c(arg1, 1);
         func_ov000_02167e6c((unsigned char*)arg1);
         func_ov026_021daec8(arg2, (Struct_ov026_021daec8*)func_ov000_02160f14(arg1), 1);
-        func_ov000_021626a0(arg1, 0x26, 0);
-        func_ov000_021626a0(arg1, 0x27, 1);
+        SetObjectsVisibleBySelector_ov000_021626a0(arg1, 0x26, 0);
+        SetObjectsVisibleBySelector_ov000_021626a0(arg1, 0x27, 1);
         arg0->Reset();
         ClearGameObjectByIndex_0200fd48(var0, 0xcf);
         func_02012050((Struct_02012050*)var0);

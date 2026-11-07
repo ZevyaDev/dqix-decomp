@@ -6,7 +6,7 @@
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void GetZone3D_02012fe4(void);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
-extern "C" float func_ov017_021d6110(void* arg0);
+extern "C" float GetScriptValueAsFloat_ov017_021d6110(void* value);
 struct Vector3i;
 extern "C" void InitZoneEntry_02070378(char*);
 
@@ -34,10 +34,10 @@ extern "C" ARM int func_ov001_02161f80(void* arg0, int arg1) {
     int var3 = -1;
     int var4;
     int var5 = GetScriptValueAsInt_ov017_021d60f4(arg0);
-    var0[0] = (int)(4096.0f * func_ov017_021d6110((char*)arg0 + 0x8));
-    var0[1] = (int)(4096.0f * func_ov017_021d6110((char*)arg0 + 0x10));
-    var0[2] = (int)(4096.0f * func_ov017_021d6110((char*)arg0 + 0x18));
-    var4 = (int)(4096.0f * func_ov017_021d6110((char*)arg0 + 0x20));
+    var0[0] = (int)(4096.0f * GetScriptValueAsFloat_ov017_021d6110((char*)arg0 + 0x8));
+    var0[1] = (int)(4096.0f * GetScriptValueAsFloat_ov017_021d6110((char*)arg0 + 0x10));
+    var0[2] = (int)(4096.0f * GetScriptValueAsFloat_ov017_021d6110((char*)arg0 + 0x18));
+    var4 = (int)(4096.0f * GetScriptValueAsFloat_ov017_021d6110((char*)arg0 + 0x20));
     int var6 = arg1;
     if (var6 > 5) {
         var3 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x28);
@@ -61,6 +61,6 @@ extern "C" ARM int func_ov001_02161f80(void* arg0, int arg1) {
             var2->unknown_69_ = 1;
         }
     }
-    func_0200fcfc(var1, var2);
+    SetZoneEntry_0200fcfc(var1, var2);
     return 1;
 }

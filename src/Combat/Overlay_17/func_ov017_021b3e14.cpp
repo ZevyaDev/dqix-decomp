@@ -28,7 +28,7 @@ struct Struct_02053cf8;
 extern "C" void func_02053cf8(struct Struct_02053cf8* arg0);
 struct Struct_02053e10;
 extern "C" void func_02053e10(struct Struct_02053e10* arg0);
-extern "C" void func_ov017_021917f0(int arg0, int arg1);
+extern "C" void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int isHeld);
 extern "C" void func_02026bc8(unsigned char* arg0, int arg1);
 struct Struct_02010604;
 extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
@@ -278,7 +278,7 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
         if (var20) {
             var34 = 1;
         }
-        func_ov017_021917f0(arg0->unknown_8_, var34);
+        AttachPartyMemberWeapon_ov017_021917f0(arg0->unknown_8_, var34);
         func_02026bc8((unsigned char*)var33->unknown_ptr_36d0, arg0->unknown_8_);
 
         GameObject* var35 = var8->GetGameObjectByIndex(var11.unknown_0_[3]);
@@ -291,7 +291,7 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
 
         if (var3 == 0) {
             struct LocalWireless_0202b2f0* var37 = GetLocalWireless_0202ae18();
-            int var38 = var10->unknown_0_.unknown_4_;
+            int var38 = var10->unknown_0_.objectIndex_4_;
             GameObject* var39 = GetCompanionByIndex_0200ff58(var8, var38);
             if (var39 != NULL) {
                 var38 = GetLeaderObjectIndex_020546a8(var39);

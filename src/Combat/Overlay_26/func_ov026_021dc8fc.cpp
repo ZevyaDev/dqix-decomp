@@ -16,7 +16,7 @@ struct Struct_ov000_02171640;
 struct Struct_ov000_02171968;
 struct Struct_0209a9dc_2;
 struct Struct_020839dc;
-struct Struct_0207d300;
+struct PartyMemberData_0207d300;
 struct Struct_0206f81c;
 struct Struct_ov026_021dc8fc_4;
 struct Struct_ov026_021dc8fc_5 {
@@ -91,11 +91,11 @@ extern "C" Struct_0209a9dc_3* func_0209a9dc(Struct_0209a9dc_2*, int);
 extern "C" Struct_ov026_021dc8fc_5* FindActionData_02079e2c(char*, int);
 extern "C" void func_ov000_02171640(Struct_ov000_02171640*, int, int);
 extern "C" void func_ov000_02171968(Struct_ov000_02171968*, int, int);
-extern "C" int func_02083960(Struct_0207d300*);
+extern "C" int CountHeldItems_02083960(PartyMemberData_0207d300*);
 extern "C" void func_ov000_02171b3c(Struct_ov000_02171b3c*);
 extern "C" void func_ov000_02171b68(void*, int, void*);
 extern "C" Struct_0206f81c_8* func_02083554(Struct_0206f81c*, int);
-extern "C" int func_020882f8(unsigned char*);
+extern "C" int IsAsleep_020882f8(unsigned char*);
 extern "C" int func_ov026_021dce1c(Struct_ov026_021dc8fc_4*);
 extern "C" Struct_ov026_021dc8fc_2* func_0209a594(void*, int);
 extern "C" int func_0209ab7c(Struct_0209a9dc_2*, GameObject*, unsigned char*);
@@ -175,7 +175,7 @@ extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Struct_ov026_021d8b
             }
         }
     }
-    int var27 = func_02083960((Struct_0207d300*)var2);
+    int var27 = CountHeldItems_02083960((PartyMemberData_0207d300*)var2);
     for (int var28 = 0; var28 < 8; ++var28) var7[var28] = var2->unknown_454_[var28];
     short* var29 = var2->unknown_488_;
     int var30;
@@ -217,7 +217,7 @@ extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Struct_ov026_021d8b
     }
     GameObject* var40 = var0->GetCombatantByIndex(arg6);
     if (var40) {
-        if (func_020882f8((unsigned char*)var40->currentStats_) ||
+        if (IsAsleep_020882f8((unsigned char*)var40->currentStats_) ||
             ((Struct_ov026_021dc8fc_3*)var40->currentStats_)->unknown_22_2_ ||
             func_ov026_021dce1c((Struct_ov026_021dc8fc_4*)var40)) {
             var3->unknown_87_ = 0;

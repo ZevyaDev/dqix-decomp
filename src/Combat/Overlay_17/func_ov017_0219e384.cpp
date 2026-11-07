@@ -249,7 +249,7 @@ extern "C" struct Struct_ov017_0219dc90_2* GetActiveZones_02027ca4(void);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" struct LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
 extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" int func_02039d7c(char* arg0);
+extern "C" int IsOnLadder_02039d7c(char* object);
 struct Vector3i;
 extern "C" void func_02097cac(void* arg0);
 struct Struct_0208f944;
@@ -283,7 +283,7 @@ extern "C" void* func_020daf90(void);
 struct Queue_02038598_5;
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" int func_020db2d4(void* arg0);
-extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
+extern "C" void SetLoadingIndicator_020daf9c(int isShown, int isFadeWaitSkipped, int isScreenBlanked, int isMainScreenForced);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 struct LocalWireless_0202c1a4;
 extern "C" void* GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
@@ -327,7 +327,7 @@ extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int)
 struct Struct_0208f3a8;
 extern "C" void func_0208f3a8(Struct_0208f3a8*);
 extern "C" void func_0206461c(void* arg0, void* arg1);
-extern "C" void* func_02094d6c(void);
+extern "C" void* GetQuestManager_02094d6c(void);
 extern "C" void func_02095b30(void* arg0, int arg1);
 extern "C" void func_02097ec8(void* arg0);
 extern "C" void func_ov017_021a2fa0(void* arg0);
@@ -385,7 +385,7 @@ extern "C" void func_ov017_021a7a74(void* arg0, struct Struct_ov017_0219e384_7* 
 extern "C" int SetFieldMonsterState_02076ccc(void* monster, int state);
 extern "C" void func_020a72ac(void* arg0, unsigned char arg1);
 extern "C" void* func_020936f8(void);
-extern "C" void func_02094030(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void QueueNotice_02094030(void* noticeQueue, int noticeId, int arg2, int memberIndex);
 
 extern int gMusicManager_02109bf4;
 extern int gSoundEffectManager_02108760;
@@ -418,7 +418,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 
 	if (arg0->unknown_8_ == 0) {
 		Struct_02037d10* var19 = func_020399a8(var3);
-		if (func_02039d7c((char*)var3) != 0 && var19->unknown_1_ != 2 && var4->unknown_6c_ != 9999) {
+		if (IsOnLadder_02039d7c((char*)var3) != 0 && var19->unknown_1_ != 2 && var4->unknown_6c_ != 9999) {
 			if (var4->unknown_67_ != 0) {
 				*(Vector3i*)var4->unknown_10_ = *(Vector3i const*)var3->unknown_44_;
 			}
@@ -547,7 +547,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			if (func_020db2d4(var31) != 0) {
 				return;
 			}
-			func_020daf9c(1, 0, 1, 0);
+			SetLoadingIndicator_020daf9c(1, 0, 1, 0);
 			SetBrightness((GameResources*)var1, -16, 0);
 			return;
 		}
@@ -722,7 +722,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			    IsLocalWirelessGuest_0202c540(var13) != 0) {
 				unsigned char* var54 = (unsigned char*)var8;
 				if (var54[0x1b62] == 0) {
-					func_020daf9c(1, 0, 1, 0);
+					SetLoadingIndicator_020daf9c(1, 0, 1, 0);
 					SetBrightness((GameResources*)var1, -16, 0);
 					arg0->unknown_8_ = 7;
 					return;
@@ -807,7 +807,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 		if (var4->unknown_a_ == 0) {
 			func_0208f3a8((Struct_0208f3a8*)var57);
 			func_0206461c(var11, (unsigned char*)var6->pUnknownStruct_8_);
-			func_02095b30(func_02094d6c(), 0);
+			func_02095b30(GetQuestManager_02094d6c(), 0);
 		}
 		if (IsNotLocalWirelessGuest_0202c508(var13) != 0) {
 			struct Struct_ov017_0219dc90_2* var67 = FindActiveZone_02028bd0((ActiveZone_020fdd44*)var10, var6->currentZoneID_);
@@ -996,7 +996,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 		}
 		for (var76 = 0; var76 < var12->unknown_f7c_; var76++) {
 			struct Struct_ov017_0219e384_3* var77 = (struct Struct_ov017_0219e384_3*)var0->GetPartyMemberByIndex(var12->unknown_f78_[var76]);
-			if (var77 != 0 && func_02039d7c((char*)var77) != 0) {
+			if (var77 != 0 && IsOnLadder_02039d7c((char*)var77) != 0) {
 				continue;
 			}
 			if (var77 != 0) {
@@ -1133,7 +1133,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 		}
 		if (*(short*)(var1 + Enum_ov017_0219e384_17586) >= 0) {
 			void* var100 = func_020936f8();
-			func_02094030(var100, *(short*)(var1 + Enum_ov017_0219e384_17586), -1, 0);
+			QueueNotice_02094030(var100, *(short*)(var1 + Enum_ov017_0219e384_17586), -1, 0);
 			*(short*)(var1 + Enum_ov017_0219e384_17586) = -1;
 		}
 		arg0->unknown_1_ = 1;

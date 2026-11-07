@@ -14,7 +14,7 @@ extern "C" char data_ov016_0219d06f[];
 
 extern "C" int func_02042648(int arg0);
 extern "C" int FindFontGlyphIndex_020424e4(int text, int font);
-extern "C" struct Struct_ov016_0218e240* func_020425b4(int arg0, int arg1);
+extern "C" struct Struct_ov016_0218e240* GetFontGlyph_020425b4(int glyphIndex, int font);
 extern "C" int func_020425e4(int arg0, int arg1, int arg2);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" int func_020420e8(char* arg0, int arg1);
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov016_0218e240(unsigned short* arg0, char* arg1, unsign
         var7 = 1;
         unsigned char var16 = FindFontGlyphIndex_020424e4((int)arg1, 1);
         if (var16 != 0xff) {
-                        var2 = func_020425b4(var16, 1);
+                        var2 = GetFontGlyph_020425b4(var16, 1);
             if (arg6 != 0) {
                 func_ov016_0218e17c(arg0, var1 - 1, var4, var2, 0, 1);
                 func_ov016_0218e17c(arg0, var1 + 1, var4, var2, 0, 1);

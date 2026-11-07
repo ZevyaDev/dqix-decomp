@@ -14,7 +14,7 @@ struct Struct_02080cc0 {
 #endif
     Type_ov003_021666c4 unknown_36_;
 };
-struct Struct_02080f8c;
+struct MenuLayout_02080f8c;
 struct MenuLayout_02080fa8;
 struct Struct_02081198;
 struct Struct_02081164;
@@ -51,12 +51,12 @@ extern "C" void func_02080b54(void*, int);
 extern "C" void GetLocalWireless_0202ae18();
 extern "C" void func_02080cc0(Struct_02080cc0*, int, int);
 extern "C" void func_02080b40(void*, int);
-extern "C" void func_02080f8c(Struct_02080f8c*, int, int);
+extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c*, int, int);
 extern "C" void SetMenuLayoutTextValue_02080fa8(MenuLayout_02080fa8*, Type_ov003_021666c4, int);
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_02081198(Struct_02081198*, int, int);
 extern "C" void func_02081164(Struct_02081164*, int, int);
-extern "C" void func_020813ec(void*, int);
+extern "C" void OpenMenuLayoutWindow_020813ec(void*, int);
 extern "C" void func_ov003_02160794(Struct_ov003_021666c4_2*);
 
 // USA: func_ov003_021666c4
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov003_021666c4(Struct_ov003_021666c4_2* arg0) {
                 func_02080cc0(var0, (Type_ov003_021666c4)var9, var4);
                 func_02080b40(var0, (Type_ov003_021666c4)(unsigned int)var9);
             }
-            func_02080f8c((Struct_02080f8c*)var0, var1, (int)var6);
+            SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)var0, var1, (int)var6);
 #if defined(jpn)
             int var11 = var1 + 8;
             func_02080cc0(var0, (Type_ov003_021666c4)var11, var4);
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov003_021666c4(Struct_ov003_021666c4_2* arg0) {
 #endif
         } else {
             int var10 = FindStringInTable_020e0434(&arg0->unknown_2dc_, 30000);
-            func_02080f8c((Struct_02080f8c*)var0, (Type_ov003_021666c4)var1, var10);
+            SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)var0, (Type_ov003_021666c4)var1, var10);
         }
         func_02080b40(var0, var1);
     }
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov003_021666c4(Struct_ov003_021666c4_2* arg0) {
     func_02080b40(var0, 202);
     func_02081198((Struct_02081198*)var0, 16, 1);
     func_02081164((Struct_02081164*)var0, 16, 1);
-    func_020813ec(var0, 16);
+    OpenMenuLayoutWindow_020813ec(var0, 16);
     arg0->unknown_464_ |= 0xd00000;
     func_ov003_02160794(arg0);
 }

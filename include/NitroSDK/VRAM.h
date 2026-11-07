@@ -12,9 +12,6 @@
 #define VRAM_BANK_H 0x80
 #define VRAM_BANK_I 0x100
 
-#if defined(jpn)
-#define data_02111224 data_02110ec4
-#endif
 
 struct VRAMBankUsages
 {
@@ -31,7 +28,7 @@ struct VRAMBankUsages
     unsigned short subOBJBanks_; // 38
     unsigned short subBGExtPaletteBanks_; // 3a
     unsigned short subObjExtPaletteBanks_; // 3c
-} extern data_02111224;
+} extern gVRAMBankUsages_02111224;
 
 extern "C"
 {
@@ -76,7 +73,7 @@ extern "C"
 
     // Reads the bank mask at the specified address, resets those
     // banks to LCDC mode, sets the mask to 0 and returns the prior
-    // value. In practice it's used with members of data_02111224
+    // value. In practice it's used with members of gVRAMBankUsages_02111224
     // to 'release' all VRAM banks used for a specific purpose
     unsigned short ResetAssignedVRAMBanksByUsage(unsigned short* usage);
 

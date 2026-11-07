@@ -64,7 +64,7 @@ extern "C" void func_ov005_02154d50(void* arg0, int arg1, int arg2);
 extern "C" void func_ov005_02154d7c(void* arg0, int arg1, int arg2);
 extern "C" char* GetEquipMenu_ov017_021a193c(int*);
 extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
-extern "C" void func_ov023_021dc134(void* arg0, int arg1, int arg2);
+extern "C" void InitItemInfoPanel_ov023_021dc134(void* arg0, int itemId, int arg2);
 extern "C" void func_ov023_021dbfd0(void* arg0, void* arg1);
 
 extern char data_ov005_0215cdb4[];
@@ -379,7 +379,7 @@ extern "C" ARM int func_ov005_0215436c(Struct_ov005_0215436c_3* arg0) {
         int var37 = *(int*)(GetEquipMenu_ov017_021a193c((int*)(*(int*)(var36 + REGION_LAYOUT(0x34f8, 0x3708)))) + REGION_LAYOUT(0x4f8, 0x4fc));
         LoadPartyMemberColors_020dc7e8(5, (signed char)var37);
         arg0->unknown_244_.Reset();
-        func_ov023_021dc134(arg0->unknown_1244_, arg0->unknown_2d90_, 0);
+        InitItemInfoPanel_ov023_021dc134(arg0->unknown_1244_, arg0->unknown_2d90_, 0);
         arg0->unknown_19b8_ |= 0xd0;
         func_ov023_021dbfd0(arg0->unknown_1244_, &arg0->unknown_244_);
         arg0->unknown_128c_ = arg0->unknown_df4_;

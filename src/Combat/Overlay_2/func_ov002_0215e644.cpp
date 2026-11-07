@@ -19,7 +19,7 @@ extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" int func_020420e8(const char *arg0, int arg1);
 extern "C" int sprintf(char *arg0, const char *arg1, ...);
 extern "C" void *__clear(void *arg0, int arg1);
-extern "C" int func_ov017_021bdbcc(GameResources *arg0);
+extern "C" int GetHaloObject_ov017_021bdbcc(GameResources *gameResources);
 extern "C" void func_02046608(void *arg0, int arg1, const char *arg2, char *arg3, int arg4, int arg5, int arg6);
 extern "C" char data_ov002_0216d2a1[];
 
@@ -49,11 +49,11 @@ extern "C" ARM void func_ov002_0215e644(char *arg0, char *arg1) {
     SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var3, 7, (*(unsigned int *) var5 << 12) >> 22);
     int var7          = *(int *) (var5 + 0x950);
     GameResources *var8 = GetGameResources();
-    if (func_ov017_021bdbcc(var8)) var7 = 0;
+    if (GetHaloObject_ov017_021bdbcc(var8)) var7 = 0;
     char *var9 = (char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20),
                                                                       (short) (var7 + 0x834));
     int var10  = (0x40 - func_020420e8(var9, 0)) >> 1;
-    if (func_ov017_021bdbcc(var8)) {
+    if (GetHaloObject_ov017_021bdbcc(var8)) {
         SetMessageString_02046574((struct Struct_02046574_2 *) var3, 1, var9);
     } else if (*(int *) ((char *) var4 + 0x1c4) == 0) {
         SetMessageString_02046574((struct Struct_02046574_2 *) var3, 1, var9);

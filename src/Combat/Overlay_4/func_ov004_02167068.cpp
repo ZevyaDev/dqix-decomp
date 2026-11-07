@@ -36,7 +36,7 @@ extern char data_ov004_021705a5[];
 extern char data_ov004_021705c0[];
 extern char data_ov004_021705d2[];
 #endif
-extern "C" int* func_02094d6c();
+extern "C" int* GetQuestManager_02094d6c();
 extern "C" int func_020957f4(void*, Struct_02013fb4*, int);
 extern "C" int func_02095e90(Struct_02095e90*, SafeAllocator*);
 extern "C" int func_02095ee0(Struct_02095ee0*);
@@ -51,7 +51,7 @@ extern "C" void func_0208becc(Struct_0208becc*, int, unsigned char);
 extern "C" ARM int func_ov004_02167068(void* arg0) {
     Struct_ov004_02167068_2* var0 = (Struct_ov004_02167068_2*)data_ov004_0217101c[Enum_ov004_02167068_0];
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
-    int* var2 = func_02094d6c();
+    int* var2 = GetQuestManager_02094d6c();
     int var3 = 1;
     if (var0->unknown_50_0_ == 0) {
 #if defined(jpn)

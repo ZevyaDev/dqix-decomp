@@ -25,7 +25,7 @@ extern Struct_ov004_021707c8 data_ov004_021707c8;
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
-extern "C" StringList_02072a68_2* func_ov023_021fa598(void*);
+extern "C" StringList_02072a68_2* GetMenuObjectStringList_ov023_021fa598(void*);
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void func_ov023_021f9b30(Struct_ov004_02157594*, unsigned short, unsigned short, unsigned short);
 extern "C" void func_ov023_021f9d14(Struct_ov004_02157594*, void*);
@@ -44,7 +44,7 @@ extern "C" ARM int func_ov004_02157594(void* arg0) {
     void* var4 = FindMenuObjectById_ov023_021f6880(var0, 0xb);
     if (!var4) return 0;
     if (func_ov023_021f6f10(var4) != 4) return 0;
-    StringList_02072a68_2* var5 = func_ov023_021fa598(var4);
+    StringList_02072a68_2* var5 = GetMenuObjectStringList_ov023_021fa598(var4);
     short var7 = var2 * 16;
     int var6 = 0;
     for (short var8 = 0; var8 < 16; var8++) {

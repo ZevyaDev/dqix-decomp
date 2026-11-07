@@ -92,9 +92,9 @@ void RenderModelFromRenderData(ModelRenderContext* renderData)
     
     if ((renderData->flags_ & 0x10) == 0x10)
     {
-        func_020ca3ec(0, renderData->animatedMaterials_, sizeof(renderData->animatedMaterials_));
-        func_020ca3ec(0, renderData->animatedBoneMatrices_, sizeof(renderData->animatedBoneMatrices_));
-        func_020ca3ec(0, renderData->animatedVisibilityConditions_, sizeof(renderData->animatedVisibilityConditions_));
+        Memset32BitByWord_020ca3ec(0, renderData->animatedMaterials_, sizeof(renderData->animatedMaterials_));
+        Memset32BitByWord_020ca3ec(0, renderData->animatedBoneMatrices_, sizeof(renderData->animatedBoneMatrices_));
+        Memset32BitByWord_020ca3ec(0, renderData->animatedVisibilityConditions_, sizeof(renderData->animatedVisibilityConditions_));
         if (renderData->materialAnimations_ != NULL)
             PopulateBitfieldFromAnimData(renderData->animatedMaterials_, renderData->materialAnimations_);
         if (renderData->jointAnimations_ != NULL)

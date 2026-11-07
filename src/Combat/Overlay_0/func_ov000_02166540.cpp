@@ -82,11 +82,11 @@ extern "C" void func_02048614(unsigned char*);
 extern "C" void func_02049c88(Struct_ov000_02166540_7*, Struct_ov000_02166540_8*);
 extern "C" void func_02048588(unsigned char*, unsigned char*);
 extern "C" void func_020488ec(char*);
-extern "C" char* func_02070fd0(Struct_02070b6c_3*, int);
+extern "C" char* FindMonsterBattleData_02070fd0(Struct_02070b6c_3*, int);
 extern "C" void func_0204887c(Struct_0204887c*, char*);
 extern "C" void func_02048bb8(unsigned char*);
 extern "C" void func_02048bf8(unsigned char*);
-extern "C" Struct_ov000_02166540_3* func_0206f4f0(Struct_0206f01c_2*, int);
+extern "C" Struct_ov000_02166540_3* FindMonsterData_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" int SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" void func_ov000_02166784(Struct_ov000_02161c0c_3*, unsigned char*, unsigned char*);
@@ -122,7 +122,7 @@ extern "C" ARM void func_ov000_02166540(Struct_ov000_02161c0c_3* arg0, int arg1,
     var7->unknown_138_ = &arg0->unknown_2a0_->unknown_158_[var3];
     func_020488ec((char*)var7);
     if (var7->unknown_138_->unknown_36_) {
-        char* var9 = func_02070fd0((Struct_02070b6c_3*)arg0->unknown_2a0_->unknown_684_, var7->unknown_138_->unknown_36_);
+        char* var9 = FindMonsterBattleData_02070fd0((Struct_02070b6c_3*)arg0->unknown_2a0_->unknown_684_, var7->unknown_138_->unknown_36_);
         if (var9) func_0204887c((Struct_0204887c*)var7, var9);
     }
     var7->unknown_0_.EnableFlag(8);
@@ -131,7 +131,7 @@ extern "C" ARM void func_ov000_02166540(Struct_ov000_02161c0c_3* arg0, int arg1,
         if (!var10->unknown_13_4_) func_02048bb8((unsigned char*)var7);
         if (!var10->unknown_1_7_) func_02048bf8((unsigned char*)var7);
     }
-    Struct_ov000_02166540_3* var11 = func_0206f4f0((Struct_0206f01c_2*)var2->unknown_400_, (short)arg2);
+    Struct_ov000_02166540_3* var11 = FindMonsterData_0206f4f0((Struct_0206f01c_2*)var2->unknown_400_, (short)arg2);
     if (var11) {
         int var12 = var11->unknown_c_ << 2;
         unsigned int var13 = 0x324;

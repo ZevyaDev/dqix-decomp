@@ -83,7 +83,7 @@ extern "C" void func_ov017_021bb27c(void* arg0);
 extern "C" void func_0208b9a0(void* arg0, unsigned char arg1);
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void func_0208b8c4(Struct_0208b8c4* arg0, SafeAllocator* arg1);
-extern "C" void* func_0203cf4c(void);
+extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void* func_0203d004(void* arg0);
 extern "C" void func_020401fc(Struct_0203d028_6* arg0, unsigned int arg1, SafeAllocator* arg2);
 extern "C" void InitSprite_0205a198(Sprite_02043368_2* sprite);
@@ -109,7 +109,7 @@ extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void func_02019568(void* arg0, int arg1);
 extern "C" Object3D* func_ov017_021bdbc0(unsigned char* arg0);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
-extern "C" void func_020a27b8(unsigned char* arg0);
+extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
 extern "C" void func_020213fc(Struct_020213fc* arg0, int arg1);
 
 extern AllocatorUnion gMainHeap_02114e20;
@@ -193,7 +193,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
 #endif
     }
     if ((arg0->unknown_c_.unknown_44_ & 1) || (arg0->unknown_c_.unknown_44_ & 4)) {
-        func_020401fc((Struct_0203d028_6*)func_0203d004(func_0203cf4c()), 0xc, &arg0->unknown_7c_);
+        func_020401fc((Struct_0203d028_6*)func_0203d004(GetNPCManager_0203cf4c()), 0xc, &arg0->unknown_7c_);
     }
     if (arg0->unknown_c_.unknown_44_ & 0x200) {
         arg0->unknown_7c_.GetMaxPossibleAllocation();
@@ -307,7 +307,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
     }
 
     DisableCameraFollow_020a27a0(var4);
-    func_020a27b8((unsigned char*)var4);
+    DisableCameraTurning_020a27b8((unsigned char*)var4);
     *(short*)((char*)var5 + 0xb2) = 0;
     func_020213fc((Struct_020213fc*)var2->unknown_ptr_36d0, 0);
     return 3;

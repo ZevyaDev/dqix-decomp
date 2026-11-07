@@ -2,12 +2,11 @@
 
 #if defined(jpn)
 enum { Enum_ov002_0215be00_3784 = 0xe20, Enum_ov002_0215be00_7096 = 0x1a80, Enum_ov002_0215be00_21 = 22, Enum_ov002_0215be00_13 = 14, Enum_ov002_0215be00_11 = 12, Enum_ov002_0215be00_17 = 14, Enum_ov002_0215be00_38 = 41 };
-#define data_ov002_0216cb48 data_ov002_0216d150
 #else
 enum { Enum_ov002_0215be00_3784 = 0xec8, Enum_ov002_0215be00_7096 = 0x1bb8, Enum_ov002_0215be00_21 = 21, Enum_ov002_0215be00_13 = 13, Enum_ov002_0215be00_11 = 11, Enum_ov002_0215be00_17 = 17, Enum_ov002_0215be00_38 = 38 };
 #endif
 
-struct Struct_ov002_0216cb48 {
+struct TextWindowEntry_ov002_0216cb48 {
     unsigned char windowId_0_, unknown_1_, unknown_2_;
     signed char width_3_, height_4_;
     unsigned char unknown_5_, unknown_6_;
@@ -27,46 +26,46 @@ struct Struct_ov002_0215be00_2 {
     unsigned char unknown_f80_[Enum_ov002_0215be00_7096 - Enum_ov002_0215be00_3784 - sizeof(TextWindowManager_ov002_0215be00)];
     int unknown_1bb8_;
 };
-extern "C" const Struct_ov002_0216cb48 data_ov002_0216cb48[];
+extern "C" const TextWindowEntry_ov002_0216cb48 gTextWindowEntries_ov002_0216cb48[];
 extern "C" void func_ov002_02156080(void*, short*, short*);
 
-// USA: func_ov002_0215be00
+// USA: SetNextTextWindow_ov002_0215be00
 // JPN: func_ov002_0215cf30
-extern "C" ARM void func_ov002_0215be00(Struct_ov002_0215be00_2* arg0, int arg1, short arg2, short arg3) {
-    for (int var0 = 0; data_ov002_0216cb48[var0].windowId_0_ != 255; ++var0) {
-        const Struct_ov002_0216cb48* var1 = &data_ov002_0216cb48[var0];
-        if (var1->windowId_0_ != arg1) continue;
-        TextWindowManager_ov002_0215be00* var2 = &arg0->windowManager_ec8_;
-        var2->nextWindowId_b1_ = var1->windowId_0_;
-        var2->nextX_a4_ = arg2;
-        var2->nextY_a6_ = arg3;
-        var2->inline_ov002_0215be00(var1->unknown_1_, var1->unknown_2_);
-        var2->inline_ov002_0215be00_2(var1->width_3_, var1->height_4_);
-        var2->inline_ov002_0215be00_3(var1->unknown_5_, var1->unknown_6_);
-        var2->unknown_b5_ = 1;
-        if (var1->windowId_0_ == Enum_ov002_0215be00_21) {
-            short var3[9], var4;
-            short var5 = 0;
-            func_ov002_02156080(arg0, var3, &var4);
-            if (var4 < 8) {
-                var5 = (8 - var4) * 2;
+extern "C" ARM void SetNextTextWindow_ov002_0215be00(Struct_ov002_0215be00_2* menu, int windowId, short x, short y) {
+    for (int i = 0; gTextWindowEntries_ov002_0216cb48[i].windowId_0_ != 255; ++i) {
+        const TextWindowEntry_ov002_0216cb48* windowEntry = &gTextWindowEntries_ov002_0216cb48[i];
+        if (windowEntry->windowId_0_ != windowId) continue;
+        TextWindowManager_ov002_0215be00* windowManager = &menu->windowManager_ec8_;
+        windowManager->nextWindowId_b1_ = windowEntry->windowId_0_;
+        windowManager->nextX_a4_ = x;
+        windowManager->nextY_a6_ = y;
+        windowManager->inline_ov002_0215be00(windowEntry->unknown_1_, windowEntry->unknown_2_);
+        windowManager->inline_ov002_0215be00_2(windowEntry->width_3_, windowEntry->height_4_);
+        windowManager->inline_ov002_0215be00_3(windowEntry->unknown_5_, windowEntry->unknown_6_);
+        windowManager->unknown_b5_ = 1;
+        if (windowEntry->windowId_0_ == Enum_ov002_0215be00_21) {
+            short menuEntries[9], menuEntryCount;
+            short heightReduction = 0;
+            func_ov002_02156080(menu, menuEntries, &menuEntryCount);
+            if (menuEntryCount < 8) {
+                heightReduction = (8 - menuEntryCount) * 2;
             } else {
-                var2->inline_ov002_0215be00(var1->unknown_1_, var1->unknown_2_ + 1);
+                windowManager->inline_ov002_0215be00(windowEntry->unknown_1_, windowEntry->unknown_2_ + 1);
             }
-            if (var5 < 0) var5 = 0;
-            var2->inline_ov002_0215be00_2(var1->width_3_, var1->height_4_ - var5);
+            if (heightReduction < 0) heightReduction = 0;
+            windowManager->inline_ov002_0215be00_2(windowEntry->width_3_, windowEntry->height_4_ - heightReduction);
         }
-        if (var1->windowId_0_ == Enum_ov002_0215be00_13 && arg0->unknown_1bb8_ == Enum_ov002_0215be00_11) {
-            var2->nextWidth_a0_ = Enum_ov002_0215be00_17;
-            var2->nextHeight_a2_ = 16;
+        if (windowEntry->windowId_0_ == Enum_ov002_0215be00_13 && menu->unknown_1bb8_ == Enum_ov002_0215be00_11) {
+            windowManager->nextWidth_a0_ = Enum_ov002_0215be00_17;
+            windowManager->nextHeight_a2_ = 16;
         }
-        int var6 = 10;
-        if (arg1 == Enum_ov002_0215be00_38) var6 = 12;
-        var2->fontSize_b7_ = var6;
+        int fontSize = 10;
+        if (windowId == Enum_ov002_0215be00_38) fontSize = 12;
+        windowManager->fontSize_b7_ = fontSize;
         break;
     }
 }
 
 #if defined(jpn)
-#undef data_ov002_0216cb48
+#undef gTextWindowEntries_ov002_0216cb48
 #endif

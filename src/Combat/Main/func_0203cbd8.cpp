@@ -8,7 +8,7 @@ struct Struct_0203cbd8 {
     unsigned char unknown_94_, unknown_95_;
 };
 struct Struct_0203ca24_2;
-extern "C" int func_0202e7f0(void*);
+extern "C" int GetCameraYaw_0202e7f0(void*);
 extern "C" void func_0203f1e4(Struct_0203ca24_2*, const char*);
 extern Struct_020e7918 data_020e7920[4], data_020e7918[4], data_020e7938[8], data_020e7928[8];
 extern const char* data_020efd00[];
@@ -20,7 +20,7 @@ static inline Struct_020e7918* inline_0203cbd8_2(Struct_020e7918* arg0, int arg1
 
 // USA: func_0203cbd8
 extern "C" ARM void func_0203cbd8(Struct_0203cbd8* arg0, void* arg1) {
-    int var0 = arg0->unknown_60_ - func_0202e7f0(arg1);
+    int var0 = arg0->unknown_60_ - GetCameraYaw_0202e7f0(arg1);
     int var1 = arg0->unknown_50_ & 8;
     if (var1) var0 += arg0->unknown_90_;
     while (var0 < 0) var0 += 0x6488;

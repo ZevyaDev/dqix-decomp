@@ -70,7 +70,7 @@ extern "C" void func_02089560(char* arg0, char* arg1, char* arg2);
 extern "C" void func_0208936c(char* arg0, char* arg1, char* arg2);
 void ApplyCombatantBuffs(int unused, int combatantId);
 extern "C" void func_ov000_02174738(void* arg0, int arg1);
-extern "C" void func_ov017_021917f0(int arg0, int arg1);
+extern "C" void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int isHeld);
 extern "C" void func_ov000_021675a0(struct Struct_ov000_02164d74_5* arg0);
 extern "C" void func_ov000_021676a8(struct Struct_ov000_02164d74_5* arg0);
 extern "C" void func_ov017_021901ac(void* arg0);
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov000_02164d74(struct Struct_ov000_02164d74_5* arg0) {
             SetMotion_02033b88((Struct_02010604*)var4, 4);
         }
         func_ov000_02174738(arg0->unknown_3760_, var3);
-        func_ov017_021917f0(var3, 1);
+        AttachPartyMemberWeapon_ov017_021917f0(var3, 1);
     }
     arg0->unknown_77d2_ = 1;
     func_ov000_021675a0(arg0);

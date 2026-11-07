@@ -92,7 +92,7 @@ extern "C" ARM void func_ov023_021ed4b8(char* arg0) {
 
 #else
     char var10[0xc];
-    int var11 = var8->obj3D_.unknown_4_;
+    int var11 = var8->obj3D_.objectIndex_4_;
     InitPartyMemberNoun_020e4bf4(var10, var11);
 
     *(void**)((char*)var9 + 0x0) = var10;

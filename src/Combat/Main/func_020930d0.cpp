@@ -8,7 +8,7 @@ struct Struct_02092cd0;
 extern "C" void func_02092d60(void* arg0, int arg1);
 extern "C" int GetMessageChoice_020457e0(char* window);
 extern "C" unsigned char* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void func_02094030(int* arg0, short arg1, short arg2, int arg3);
+extern "C" void QueueNotice_02094030(int* noticeQueue, short noticeId, short arg2, int memberIndex);
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void* GetParty_02010828(GameState* gameState);
@@ -148,16 +148,16 @@ extern "C" ARM void func_020930d0(struct Struct_02092cd0* arg0) {
         }
         if (arg0->unknown_3b_ != 0) {
             arg0->unknown_3b_ = 0;
-            func_02094030(var3, 0x4e24, -1, 0);
+            QueueNotice_02094030(var3, 0x4e24, -1, 0);
         }
         if (func_02092cd0(arg0, 2) > 1) {
-            func_02094030(var3, 0x4e22, -1, func_02092d18(arg0, 2));
+            QueueNotice_02094030(var3, 0x4e22, -1, func_02092d18(arg0, 2));
         } else if (func_02092cd0(arg0, 2) == 1) {
-            func_02094030(var3, 0x4e21, -1, func_02092d18(arg0, 2));
+            QueueNotice_02094030(var3, 0x4e21, -1, func_02092d18(arg0, 2));
         }
         for (unsigned char var19 = 0; var19 < 4; var19++) {
             if (((struct Struct_020930d0_2*)var1)->unknown_7f76_[var19] == 4) {
-                func_02094030(var3, 0x2711, -1, (signed char)var19);
+                QueueNotice_02094030(var3, 0x2711, -1, (signed char)var19);
             }
         }
         arg0->unknown_35_++;

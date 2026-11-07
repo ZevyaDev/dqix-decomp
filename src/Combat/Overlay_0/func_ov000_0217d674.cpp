@@ -45,7 +45,7 @@ extern "C" int func_ov000_0218155c(void*);
 struct TextWindowManager_0205d81c;
 extern "C" void func_ov000_0217a9d0(int, int, int, TextWindowManager_0205d81c*);
 struct TextWindowManager_0205def8;
-extern "C" void func_0205def8(TextWindowManager_0205def8*, int, int);
+extern "C" void SetTextWindowVisible_0205def8(TextWindowManager_0205def8*, int, int);
 extern "C" int func_020dd3cc(int arg0);
 extern "C" int func_ov000_0217c594(Struct_ov000_02178d28_2* arg0, int arg1);
 extern "C" int func_ov000_0217c514(int arg0, int arg1);
@@ -81,9 +81,9 @@ extern "C" ARM void func_ov000_0217d674(Struct_ov000_02178d28_2* arg0, int arg1,
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 6;
         func_ov000_02176634(arg0, func_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0), 6, arg1, arg2);
         func_ov000_0217a9d0(6, func_ov000_0218155c(arg0), 4, (TextWindowManager_0205d81c*)arg0->unknown_188_);
-        func_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 0, 1);
-        func_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 0, 2);
-        func_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 0, 5);
+        SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 0, 1);
+        SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 0, 2);
+        SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 0, 5);
     } else if (func_ov000_0217c5f4(arg0) != 0) {
         CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_188_, 0);
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 0;

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-extern "C" void* func_02094d6c(void);
+extern "C" void* GetQuestManager_02094d6c(void);
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" void SetScriptRefInt_ov017_021d6134(void*, int);
@@ -11,7 +11,7 @@ struct Struct_0209d334 { char unknown_0_[0xa]; unsigned short unknown_a_[1]; };
 
 // USA: func_0209d334
 extern "C" ARM int func_0209d334(char* arg0) {
-    void* var0 = func_02094d6c();
+    void* var0 = GetQuestManager_02094d6c();
     if (var0 == NULL) return 0;
     struct Struct_0209d334* var1 = (struct Struct_0209d334*)func_02096134(
         (struct Struct_0205faf4_7*)var0, GetScriptValueAsInt_ov017_021d60f4(arg0));

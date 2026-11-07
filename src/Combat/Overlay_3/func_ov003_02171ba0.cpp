@@ -16,7 +16,7 @@ extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(struct LocalWireless_0202b2f0*, int);
 extern "C" void func_0202c21c(struct LocalWireless_0202b2f0*, int);
-extern "C" void func_0202b0f4(void*);
+extern "C" void StopLocalWireless_0202b0f4(void*);
 
 struct Struct_0202bad4;
 struct Struct_0202bad4_2;
@@ -47,20 +47,20 @@ extern "C" ARM void func_ov003_02171ba0(struct Struct_ov003_02171ba0* arg0) {
     }
     arg0->unknown_72c_ += var0->GetEffectiveDeltaTime();
     if (arg0->unknown_72c_ > 0xbb8) {
-        func_0202b0f4(var1);
+        StopLocalWireless_0202b0f4(var1);
         arg0->unknown_0_ = 0;
         return;
     }
     if (IsLocalWirelessPlayerDisconnected_0202c578(var1, 0) && arg0->unknown_71c_ == 0) {
         func_0202bad4((struct Struct_0202bad4_2*)var1, arg0->unknown_199_);
-        func_0202b0f4(var1);
+        StopLocalWireless_0202b0f4(var1);
         arg0->unknown_0_ = 0;
         return;
     }
     if (arg0->unknown_720_ != 0 && arg0->unknown_71c_ != 0) {
         struct Struct_0202bad4* var3 = func_0202bad4((struct Struct_0202bad4_2*)var1, arg0->unknown_199_);
         func_ov003_02171e1c(arg0, (char*)var3 + 0x68);
-        func_0202b0f4(var1);
+        StopLocalWireless_0202b0f4(var1);
         arg0->unknown_0_ = 0;
     }
     if (func_0205e488(var2) != 0) {

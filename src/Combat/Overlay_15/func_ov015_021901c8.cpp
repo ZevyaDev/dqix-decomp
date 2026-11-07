@@ -29,7 +29,7 @@ extern "C" int func_020c555c(int arg0);
 extern "C" void* GetCamera_020100bc(GameState* gameState);
 extern "C" void UpdateCamera_0202e0a4(void* camera);
 extern "C" void func_020c57d4(int arg0, int arg1, int arg2, int arg3, void* arg4);
-extern "C" void func_020c5770(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, void* arg8);
+extern "C" void SetOrthographicProjection_020c5770(int top, int bottom, int left, int right, int nearPlane, int farPlane, int arg6, int isLoadedAsProjection, void* projectionMatrix);
 extern "C" void Swap3DBuffers_020d86d0(int keepTranslucentOrder, int useWDepth);
 extern "C" void func_ov015_02190348(void* arg0);
 extern "C" void func_ov015_02190428(void* arg0);
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov015_021901c8(void* arg0)
         Vector3fix var5 = data_ov015_02193d2c;
         func_020c57d4((int)&var4, (int)&var5, (int)&var3, 1, NULL);
     }
-    func_020c5770(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, 1, NULL);
+    SetOrthographicProjection_020c5770(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, 1, NULL);
     GXFIFO_MATRIX_MODE = 2;
     func_ov015_02190428(arg0);
     func_ov015_0219050c(arg0);

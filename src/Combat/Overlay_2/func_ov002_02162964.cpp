@@ -13,11 +13,11 @@ struct Struct_020a095c;
 extern "C" void func_ov002_0215b2c8(char *arg0);
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
-extern "C" void func_ov002_02161cf0(char *arg0);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215c614(char *arg0);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
-extern "C" void func_0205def8(struct TextWindowManager_0205def8 *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowVisible_0205def8(struct TextWindowManager_0205def8 *windowManager, int isVisible, int windowId);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" int func_0205df38(void *arg0, int arg1);
 extern "C" void func_ov002_0215b458(char *arg0, int arg1);
@@ -32,7 +32,7 @@ extern "C" int func_ov002_02157108(void *arg0, int arg1);
 extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
 extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" int func_020a0af4(struct Struct_020a095c *arg0, int arg1);
-extern "C" int func_ov002_02161b48(char *arg0, int arg1);
+extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void func_ov002_0215b428(unsigned char *arg0);
 extern "C" void func_ov002_02156e90(void *arg0);
 
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov002_02162964(char *arg0) {
         CUR = 0;
         SEL = *(int *) (arg0 + CUR * 4 + RG(0x1c3c, 0x1b00));
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) OBJ, 0, 2);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_0215c614(arg0);
         *(int *) (arg0 + RG(0x1bc0, 0x1a88)) += 1;
     } else if (var0 == 1) {
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov002_02162964(char *arg0) {
         }
         if (var3 != SEL) {
             func_ov002_0215b9a4(arg0, 5, 0);
-            func_0205def8((struct TextWindowManager_0205def8 *) OBJ, SEL >= 0 ? 1 : 0, 5);
+            SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8 *) OBJ, SEL >= 0 ? 1 : 0, 5);
         }
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 5, 1);
         if (g_keyManager.TestKeysHeld(0x40)) {
@@ -169,7 +169,7 @@ extern "C" ARM void func_ov002_02162964(char *arg0) {
             if (*(short *) (arg0 + RG(0x1be8, 0x1ab0)) == -1) {
                 *(short *) (arg0 + RG(0x1be8, 0x1ab0)) = 0;
             }
-        } else if (func_ov002_02161b48(arg0, 1)) {
+        } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
 #if !defined(jpn)
             func_ov002_0215b428((unsigned char *) arg0);
 #endif

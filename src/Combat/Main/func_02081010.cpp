@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-struct Struct_0207f524;
+struct MenuLayoutTextEntryList_0207f524;
 struct StringList_02072a68_2;
 
 struct Struct_02081010 {
@@ -8,12 +8,12 @@ struct Struct_02081010 {
     short unknown_e_;
 };
 
-extern "C" struct Struct_02081010* func_0207f6ac(struct Struct_0207f524* arg0, int arg1);
+extern "C" struct Struct_02081010* FindMenuLayoutTextEntry_0207f6ac(struct MenuLayoutTextEntryList_0207f524* textEntries, int textId);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 
 // USA: func_02081010
 extern "C" ARM void* func_02081010(void* arg0, int arg1) {
-    struct Struct_02081010* var0 = func_0207f6ac((struct Struct_0207f524*)((char*)arg0 + 0x4), arg1);
+    struct Struct_02081010* var0 = FindMenuLayoutTextEntry_0207f6ac((struct MenuLayoutTextEntryList_0207f524*)((char*)arg0 + 0x4), arg1);
     if (var0 == NULL) {
         return NULL;
     }

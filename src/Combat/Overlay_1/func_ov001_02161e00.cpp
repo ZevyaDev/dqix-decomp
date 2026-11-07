@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
-extern "C" float func_ov017_021d6110(void* arg0);
+extern "C" float GetScriptValueAsFloat_ov017_021d6110(void* value);
 
 struct Struct_ov001_02161e00 { char unknown_0_[0x1f8]; unsigned char unknown_1f8_; char unknown_1f9_[7]; float unknown_200_; unsigned int unknown_204_; };
 
@@ -12,8 +12,8 @@ extern "C" ARM int func_ov001_02161e00(void* arg0) {
     GameState* var0 = GameState::GetInstance();
     struct Struct_ov001_02161e00* var1 = (struct Struct_ov001_02161e00*)GetCamera_020100bc(var0);
     int var2 = GetScriptValueAsInt_ov017_021d60f4(arg0);
-    float var3 = func_ov017_021d6110((char*)arg0 + 8);
-    float var4 = func_ov017_021d6110((char*)arg0 + 0x10);
+    float var3 = GetScriptValueAsFloat_ov017_021d6110((char*)arg0 + 8);
+    float var4 = GetScriptValueAsFloat_ov017_021d6110((char*)arg0 + 0x10);
     int var5 = (int)(4096.0f * var4);
     if (var1 == NULL) {
         return 0;

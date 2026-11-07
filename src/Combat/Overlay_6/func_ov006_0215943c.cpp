@@ -38,7 +38,7 @@ struct Struct_ov006_02157a60 {
     unsigned short unknown_394_;
 };
 
-extern "C" void func_02080c20(MenuLayout_0207fdcc_2* arg0, int arg1);
+extern "C" void ShowMenuLayoutWindow_02080c20(MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void func_ov006_021573c8(void* arg0);
 extern "C" unsigned short func_ov006_021591ec(Struct_ov006_021591ec* arg0);
 extern "C" short func_02080468(void* arg0, int arg1);
@@ -49,7 +49,7 @@ extern "C" void func_02081ea4(MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
 
 // USA: func_ov006_0215943c
 extern "C" ARM void func_ov006_0215943c(Struct_ov006_02157a60* arg0) {
-    func_02080c20(arg0->unknown_14_, 0);
+    ShowMenuLayoutWindow_02080c20(arg0->unknown_14_, 0);
     arg0->unknown_394_ |= 0x10;
     arg0->unknown_370_ = -1;
     arg0->unknown_38b_ = 0;

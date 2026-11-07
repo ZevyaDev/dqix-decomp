@@ -27,7 +27,7 @@ struct Vector3i;
 void Vector3fixMultiplyScalar(Vector3i const*, int, Vector3i*);
 
 struct Struct_02033b68;
-extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
+extern "C" void SetMotionIfDifferent_02033b68(struct Struct_02033b68* object, int motion);
 
 struct Struct_02039df4;
 
@@ -79,7 +79,7 @@ extern "C" ARM int func_020781e8(struct Struct_020781e8* arg0) {
 
     arg0->unknown_b4_ = 0x1c2;
     arg0->unknown_b2_ = 0x1c2;
-    func_02033b68((struct Struct_02033b68*)arg0, 1);
+    SetMotionIfDifferent_02033b68((struct Struct_02033b68*)arg0, 1);
     ((Object3D*)((unsigned char*)arg0))->DisableFlag(0x80);
     arg0->unknown_17a_ = 0;
 

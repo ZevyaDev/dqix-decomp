@@ -9,7 +9,7 @@ struct Struct_ov025_021e56e8 {
     int unknown_c_;
 };
 
-extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 extern "C" void func_ov025_021e4448(int* arg0, int arg1, int arg2, int arg3);
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_02160f14(void* arg0);
@@ -21,7 +21,7 @@ extern Vector3fix data_ov025_021eef24;
 extern "C" ARM int func_ov025_021e56e8(struct Struct_ov025_021e56e8* arg0, int arg1, int arg2, void* arg3) {
     GameState* var0 = GameState::GetInstance();
     int var1[8];
-    int var2 = func_ov000_021820bc(arg3, arg1, arg0->unknown_8_, (int)var1);
+    int var2 = CollectObjectIndicesBySelector_ov000_021820bc(arg3, arg1, arg0->unknown_8_, (int)var1);
     Vector3fix var3 = data_ov025_021eef24;
     if (arg0->unknown_9_ == 0) {
         func_ov025_021e4448((int*)&var3, 0x10a, 0x10a, 0x10a);

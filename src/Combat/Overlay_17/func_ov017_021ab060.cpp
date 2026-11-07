@@ -2,7 +2,7 @@
 
 extern "C" void func_02080b54(void* arg0, int arg1);
 extern "C" int func_02080b40(void* arg0, int arg1);
-extern "C" void func_020813ec(void* arg0, int arg1);
+extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
 struct Struct_ov017_021aa59c_4 {
     char unknown_0_[0x18];
@@ -24,5 +24,5 @@ extern "C" ARM void func_ov017_021ab060(Struct_ov017_021aa59c_4* arg0) {
         func_02080b40(var1, var0);
         var0 = (short)(var0 + 1);
     }
-    func_020813ec(var1, 1);
+    OpenMenuLayoutWindow_020813ec(var1, 1);
 }

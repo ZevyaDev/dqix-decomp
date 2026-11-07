@@ -7,7 +7,7 @@ extern "C" void ResetBattleCamera_ov000_0216d370(void* camera, int resetRoll, in
 struct Struct_0202ecc8 { unsigned int unknown_0_[12]; };
 struct Struct_0202ecc8_2;
 extern "C" void func_0202ecc8(struct Struct_0202ecc8_2* arg0, struct Struct_0202ecc8* arg1);
-extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
 
 extern "C" void func_ov000_0216d234(void* arg0, void* arg1, void* arg2);
 

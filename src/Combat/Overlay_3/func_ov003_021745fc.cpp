@@ -56,7 +56,7 @@ void func_ov003_021749f0(Struct_ov003_021745fc_2* arg0);
 void func_ov003_021760cc(Struct_ov003_021745fc_2* arg0);
 void func_02081f20(void* arg0, int arg1);
 int func_020800fc(Struct_ov003_021745fc* arg0, short* arg1, short arg2, unsigned short arg3, unsigned char, bool);
-void func_020813ec(Struct_ov003_021745fc* arg0, short arg1);
+void OpenMenuLayoutWindow_020813ec(Struct_ov003_021745fc* menuLayout, short windowId);
 }
 
 extern "C" void func_ov003_02174988(char* arg0);
@@ -64,7 +64,7 @@ extern "C" void func_ov003_0217451c(char* arg0);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_0207fc6c(Struct_0207fc6c* arg0, int arg1);
-extern "C" void func_020804fc(void* arg0, int arg1);
+extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void* menuLayout, int windowId);
 extern "C" int func_020e28dc(Struct_020e28dc* arg0);
 extern "C" void func_020e263c(Struct_020e263c_2* arg0, int arg1);
 
@@ -100,9 +100,9 @@ extern "C" ARM bool func_ov003_021745fc(Struct_ov003_021745fc_2* arg0, int arg1)
             arg0->unknown_fe4_ = func_020800fc(var0, arg0->unknown_ff8_, arg0->unknown_1000_, arg0->unknown_898_, arg0->unknown_89a_, (arg0->unknown_1046_ & 0x400) != 0);
             var0->unknown_36_ = *arg0->unknown_ff8_;
             if (arg0->unknown_fe4_ != 0)
-                func_020804fc(var0, arg0->unknown_ffe_);
+                ClearMenuLayoutWindowHighlights_020804fc(var0, arg0->unknown_ffe_);
             if (arg0->unknown_1000_ != *arg0->unknown_ff8_)
-                func_020813ec(var0, arg0->unknown_ffe_);
+                OpenMenuLayoutWindow_020813ec(var0, arg0->unknown_ffe_);
         }
     }
 

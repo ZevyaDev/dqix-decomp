@@ -118,7 +118,7 @@ extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438** queue);
 extern "C" int func_02053cdc(int* arg0);
-extern "C" int func_02039d7c(char* arg0);
+extern "C" int IsOnLadder_02039d7c(char* object);
 extern "C" int func_02039760(void* arg0);
 extern "C" int func_02077a20(Struct_02077788_2* arg0);
 extern "C" void func_ov017_0219a674(unsigned char* arg0);
@@ -135,7 +135,7 @@ extern "C" unsigned short func_ov017_021971c4(Struct_ov017_02196430_8* arg0);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 struct Struct_0207d7f4;
-extern "C" Struct_0207d7f4* func_0207d78c();
+extern "C" Struct_0207d7f4* GetBattleJoinTable_0207d78c();
 extern "C" Struct_ov017_02196430_6* func_0207d9bc(Struct_0207d7f4* arg0, unsigned short arg1);
 extern "C" void func_ov017_021b6f18(void* arg0);
 extern "C" void func_ov017_02196c08(unsigned char* arg0);
@@ -188,7 +188,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
     if (var4->unknown_18c_ & 1) {
         return 2;
     }
-    if (func_02039d7c((char*)var4) != 0) {
+    if (IsOnLadder_02039d7c((char*)var4) != 0) {
         return 2;
     }
     if (TestFlags04((GameResources*)var0, 0x10)) {
@@ -247,7 +247,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
                 if (var28 && IsNotLocalWirelessGuest_0202c508(var2)) {
                     func_ov017_0219a674((unsigned char*)&var15);
                     var15.unknown_0_ = 9;
-                    var15.unknown_2_ = var27->unknown_0_.unknown_4_;
+                    var15.unknown_2_ = var27->unknown_0_.objectIndex_4_;
                     var15.unknown_10_ = func_ov017_021a4754(&var4->unknown_0_.position_, (short)var4->unknown_0_.rotation_.y, &var27->unknown_0_.position_);
                     if (var15.unknown_10_ < 0x1922) {
                         func_ov017_0219b33c(var0, &var15);
@@ -349,7 +349,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
         }
     }
     if (var23 && var25 && IsNotLocalWirelessGuest_0202c508(var2)) {
-        Struct_ov017_02196430_6* var34 = func_0207d9bc(func_0207d78c(), var26);
+        Struct_ov017_02196430_6* var34 = func_0207d9bc(GetBattleJoinTable_0207d78c(), var26);
         if (var34 != NULL && var34->unknown_4_ < 0) {
             var23 = 0;
         }

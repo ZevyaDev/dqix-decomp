@@ -12,8 +12,8 @@
 #endif
 
 extern "C" void func_ov013_02185aac(unsigned char* arg0);
-struct Struct_0205dee8;
-extern "C" void func_0205dee8(struct Struct_0205dee8* arg0, int arg1);
+struct TextWindowManager_0205dee8;
+extern "C" void SetCursorTextWindow_0205dee8(struct TextWindowManager_0205dee8* windowManager, int windowId);
 struct Struct_0205c570;
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 struct SoundEffectManager_02108760;
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov013_0218683c(void* arg0) {
     }
     if (var0[LOW_REGION(0x5ca, 0x63e)] != 1) return;
 
-    func_0205dee8((struct Struct_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 3);
+    SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 3);
     var0[LOW_REGION(0x5c7, 0x63b)] = 0;
     if (g_keyManager.TestKeysPressed(0xc0) != 0) {
         if (*(int*)(var0 + LOW_REGION(0x5e8, 0x660)) == 0) *(int*)(var0 + LOW_REGION(0x5e8, 0x660)) = 1;
@@ -69,9 +69,9 @@ extern "C" ARM void func_ov013_0218683c(void* arg0) {
                     var0[LOW_REGION(0x5c8, 0x63c)] = var2;
                     g_keyManager.CancelCurrentKeyRepeat();
                     var0[LOW_REGION(0x5ec, 0x664)] = 0;
-                    func_0205dee8((struct Struct_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 3);
+                    SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 3);
                     CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
-                    func_0205dee8((struct Struct_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 2);
+                    SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 2);
                     CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
                     var0[LOW_REGION(0x5c5, 0x639)] = 0;
                     var0[LOW_REGION(0x644, 0x6bc)] &= ~1;
@@ -85,9 +85,9 @@ extern "C" ARM void func_ov013_0218683c(void* arg0) {
                     var0[LOW_REGION(0x5c8, 0x63c)] = 5;
                     CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), var3);
                 } else {
-                    func_0205dee8((struct Struct_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 3);
+                    SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 3);
                     CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
-                    func_0205dee8((struct Struct_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 2);
+                    SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 2);
                     CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
                     var0[LOW_REGION(0x5c5, 0x639)] = 0;
                     var0[LOW_REGION(0x5c8, 0x63c)] = 1;
@@ -104,9 +104,9 @@ extern "C" ARM void func_ov013_0218683c(void* arg0) {
                 if (g_keyManager.TestKeysPressed(2) == 0) {
                     PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
                 }
-                func_0205dee8((struct Struct_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 3);
+                SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 3);
                 CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
-                func_0205dee8((struct Struct_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 2);
+                SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8*)(var0 + LOW_REGION(0x34, 0x38)), 2);
                 CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(var0 + LOW_REGION(0x34, 0x38)), 0);
                 var0[LOW_REGION(0x5c5, 0x639)] = 0;
                 var0[LOW_REGION(0x5c8, 0x63c)] = 1;

@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
-struct Struct_02109bf4_2;
-extern "C" void func_0209c830(Struct_02109bf4_2*, int);
+struct MusicManager_02109bf4_2;
+extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
 
-extern struct Struct_02109bf4_2 gMusicManager_02109bf4;
+extern struct MusicManager_02109bf4_2 gMusicManager_02109bf4;
 
 // USA: func_ov004_0216dfbc
 extern "C" ARM int func_ov004_0216dfbc(void) {
-    func_0209c830(&gMusicManager_02109bf4, 0x3d);
+    QueueJingle_0209c830(&gMusicManager_02109bf4, 0x3d);
     return 0;
 }

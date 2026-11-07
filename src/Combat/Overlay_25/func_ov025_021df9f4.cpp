@@ -29,12 +29,12 @@ extern "C" ARM int func_ov025_021df9f4(GameObject* arg0) {
         }
     }
     bool var1 = false;
-    if (arg0->obj3D_.unknown_4_ >= 0 && arg0->obj3D_.unknown_4_ <= 3) {
+    if (arg0->obj3D_.objectIndex_4_ >= 0 && arg0->obj3D_.objectIndex_4_ <= 3) {
         var1 = true;
     }
     if (var1) {
         GameState* var2 = GameState::GetInstance();
-        Struct_ov025_021df9f4* var3 = (Struct_ov025_021df9f4*)GetPartyMemberBaseByIndex_0200ff1c(var2, arg0->obj3D_.unknown_4_);
+        Struct_ov025_021df9f4* var3 = (Struct_ov025_021df9f4*)GetPartyMemberBaseByIndex_0200ff1c(var2, arg0->obj3D_.objectIndex_4_);
         if (var3 != 0 && ((var3->unknown_18c_ & 1) || var3->unknown_c0_ == 8)) {
             var0 = 0;
         }

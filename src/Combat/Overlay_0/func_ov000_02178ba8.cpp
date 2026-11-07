@@ -48,7 +48,7 @@ struct Struct_ov000_02178ba8_3 {
 };
 
 extern "C" Struct_ov000_02178ba8* GetMessageWindow_020421a0();
-extern "C" int func_0205bafc(void* arg0);
+extern "C" int GetMenuCursorItemCount_0205bafc(void* cursor);
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" void func_ov000_02178d28(Struct_ov000_02178ba8_3* arg0, Struct_ov000_02178ba8_2* arg1);
 extern "C" void func_ov000_0217ab8c(Struct_ov000_02178ba8_2* arg0, int arg1, int arg2);
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov000_02178ba8(Struct_ov000_02178ba8_3* arg0, Struct_ov
     var2->unknown_ae_ = 0xc;
     var2->unknown_b1_ = 0xf;
     int var3 = 0;
-    if (func_0205bafc(&var2->unknown_54_) > 4) {
+    if (GetMenuCursorItemCount_0205bafc(&var2->unknown_54_) > 4) {
         var3 = 1;
     }
     void* var4 = GetMessageWindow_020421a0()->unknown_5c_;

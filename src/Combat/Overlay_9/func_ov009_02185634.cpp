@@ -181,7 +181,7 @@ struct GameResources;
 extern "C" GameResources* GetResources_0200fb8c(int* gameState);
 extern "C" char* GetMessageWindow_020421a0();
 extern "C" void ClearItemTable_020de848(void* itemTable);
-extern "C" void func_020de9a4(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, const void* arg4, int arg5);
+extern "C" void LoadItemTableByIds_020de9a4(void* itemTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize, const void* itemIds, int itemIdCount);
 extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 extern "C" void func_ov023_021e4e8c(void* arg0);
 extern "C" void func_ov023_021e4f64(void* arg0, SafeAllocator* arg1);
@@ -192,7 +192,7 @@ extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int pale
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
-extern "C" void InitFollowCamera_020a2010(void* arg0);
+extern "C" void InitFollowCamera_020a2010(void* storage);
 struct Struct_0202e5c0;
 extern "C" void func_0202e5c0(Struct_0202e5c0* arg0, int arg1, int arg2, int arg3);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
@@ -324,7 +324,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
         unsigned int var8;
         void* var9 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var8);
         if (var9 != NULL)
-            func_020de9a4(arg0->unknown_c8_, &arg0->unknown_0_[4], var9, var8, data_ov009_0218ab48, 0x29);
+            LoadItemTableByIds_020de9a4(arg0->unknown_c8_, &arg0->unknown_0_[4], var9, var8, data_ov009_0218ab48, 0x29);
         BackgroundLoader::RemoveLockGlobal();
 #endif
 

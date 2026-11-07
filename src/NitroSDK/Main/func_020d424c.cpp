@@ -28,25 +28,25 @@ struct Struct_021142e0_3
 
 extern Struct_021142e0_3 data_021142e0;
 
-// USA: func_020d424c
-extern "C" ARM int func_020d424c(int arg0, ...)
+// USA: CheckWirelessState_020d424c
+extern "C" ARM int CheckWirelessState_020d424c(int stateCount, ...)
 {
-    int var0 = func_020d41e8();
-    unsigned short var1;
-    Type_02001bdc var2;
-    if (var0 != 0)
-        return var0;
+    int result = func_020d41e8();
+    unsigned short state;
+    Type_02001bdc allowedStates;
+    if (result != 0)
+        return result;
     InvalidateDataCacheRange(&data_021142e0.unknown_4_->unknown_4_->unknown_0_, sizeof(unsigned short));
-    var1 = data_021142e0.unknown_4_->unknown_4_->unknown_0_;
-    va_start(var2, arg0);
-    var0 = 3;
-    if (arg0 == 0)
-        return var0;
+    state = data_021142e0.unknown_4_->unknown_4_->unknown_0_;
+    va_start(allowedStates, stateCount);
+    result = 3;
+    if (stateCount == 0)
+        return result;
     do
     {
-        if (va_arg(var2, unsigned long) == var1)
-            var0 = 0;
-    } while (--arg0 != 0);
-    va_end(var2);
-    return var0;
+        if (va_arg(allowedStates, unsigned long) == state)
+            result = 0;
+    } while (--stateCount != 0);
+    va_end(allowedStates);
+    return result;
 }

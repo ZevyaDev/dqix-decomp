@@ -93,7 +93,7 @@ extern "C" ARM void func_ov017_02198aa0(GameResources* arg0) {
         } else {
             var19->unknown_0_ = 0x9c41;
         }
-        func_0200fcfc(var0, var19);
+        SetZoneEntry_0200fcfc(var0, var19);
         Queue_0201bdac_2* var21 = (Queue_0201bdac_2*)var3->unknown_ptr_array_36fc[0];
         unsigned char* var22 = (unsigned char*)var3->unknown_ptr_array_36fc[4];
         ResetZoneLoadTask_ov017_0219e310(var22, 0);

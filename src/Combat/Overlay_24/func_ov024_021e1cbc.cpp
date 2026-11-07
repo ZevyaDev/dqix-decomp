@@ -4,7 +4,7 @@
 
 struct Struct_02070b6c_3;
 struct Struct_ov024_021e1cbc_4 { char unknown_0_[8]; void* unknown_8_; };
-extern "C" Struct_ov024_021e1cbc_4* func_02070fd0(Struct_02070b6c_3* arg0, int arg1);
+extern "C" Struct_ov024_021e1cbc_4* FindMonsterBattleData_02070fd0(Struct_02070b6c_3* table, int monsterId);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
 
@@ -46,7 +46,7 @@ extern "C" ARM void* func_ov024_021e1cbc(Struct_ov024_021e1cbc_3* arg0, int arg1
 	int var1 = 0;
 	char* var2 = arg0->unknown_10_->unknown_8e18_;
 	for (int var3 = 0; var3 < arg0->unknown_10_->unknown_81b1_.unknown_0_4_; var3++) {
-		Struct_ov024_021e1cbc_4* var4 = func_02070fd0((Struct_02070b6c_3*)(var2 + 0x684), arg0->unknown_10_->unknown_81b4_[var3].unknown_0_);
+		Struct_ov024_021e1cbc_4* var4 = FindMonsterBattleData_02070fd0((Struct_02070b6c_3*)(var2 + 0x684), arg0->unknown_10_->unknown_81b4_[var3].unknown_0_);
 		if (var4 && var4->unknown_8_) var1 = 1;
 	}
 	if (!var1) {

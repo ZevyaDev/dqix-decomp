@@ -35,7 +35,7 @@ struct Struct_020a212c_2 {
 };
 
 extern "C" GameResources* GetResources_0200fb8c(int* gameState);
-extern "C" int func_0202e7f0(void* arg0);
+extern "C" int GetCameraYaw_0202e7f0(void* camera);
 int IsBrightnessTransitionActive(GameResources* resources);
 int fix32SignedAngleDistance(int a, int b);
 int fix32abs(int x);
@@ -64,7 +64,7 @@ extern "C" ARM void func_020a212c(Struct_020a212c_2* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = var0->GetGameObjectByIndex(arg0->unknown_21c_);
     GameResources* var2 = GetResources_0200fb8c((int*)var0);
-    int var3 = func_0202e7f0(arg0);
+    int var3 = GetCameraYaw_0202e7f0(arg0);
     int var4 = 0;
     int var5 = 0;
     if (arg1) {

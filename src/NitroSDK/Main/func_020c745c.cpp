@@ -3,7 +3,7 @@
 
 extern ProcessorContext* data_02111308;
 extern unsigned int data_0211155c[];
-extern "C" char data_027e0000[];
+extern "C" char gDTCMData_027e0000[];
 extern "C" void SDK_IRQ_STACKSIZE(void);
 extern "C" void SDK_SYS_STACKSIZE(void);
 
@@ -31,9 +31,9 @@ extern "C" ARM void func_020c745c()
 
     var0 = (long)SDK_SYS_STACKSIZE <= 0
         ? 0x027e0080 - (long)SDK_SYS_STACKSIZE
-        : (unsigned long)data_027e0000 + 0x3f80 - (long)SDK_IRQ_STACKSIZE - (long)SDK_SYS_STACKSIZE;
+        : (unsigned long)gDTCMData_027e0000 + 0x3f80 - (long)SDK_IRQ_STACKSIZE - (long)SDK_SYS_STACKSIZE;
 
-    data_021112e0.contextB.stackBottom = (unsigned long)data_027e0000 + 0x3f80 - (long)SDK_IRQ_STACKSIZE;
+    data_021112e0.contextB.stackBottom = (unsigned long)gDTCMData_027e0000 + 0x3f80 - (long)SDK_IRQ_STACKSIZE;
     data_021112e0.contextB.stackTop = var0;
     data_021112e0.contextB.stackUnknownTopSubspaceSize = 0;
 

@@ -29,7 +29,7 @@ struct Struct_020444e0;
 struct Struct_0203bdb0;
 
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
-extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
+extern "C" void SetLoadingIndicator_020daf9c(int isShown, int isFadeWaitSkipped, int isScreenBlanked, int isMainScreenForced);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void InitSprite_0205a198(Sprite_02043368_2* sprite);
 extern "C" void InitSpriteAnimationList_0205a234(SpriteAnimationList_02043368* animationList);
@@ -58,7 +58,7 @@ void Finish3DRendering();
 extern "C" void func_020c51dc();
 extern "C" void func_020c537c();
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
-extern "C" void func_020c5770(int, int, int, int, int, int, int, int, void*);
+extern "C" void SetOrthographicProjection_020c5770(int, int, int, int, int, int, int, int, void*);
 extern "C" void func_020bb780(void* arg0, int arg1);
 extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
@@ -85,7 +85,7 @@ void UpdateAndApplyBrightness(GameResources* res);
 extern "C" void TurnOnMainDisplay_020c38d4();
 extern "C" void __clear(void* arg0, int arg1);
 unsigned long long GetCurrentTimestamp();
-extern "C" void func_02012efc();
+extern "C" void UpdateInput_02012efc();
 extern "C" int GetMessageChoice_020457e0(MessageWindow_02021b84* window);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void ResetSaveProgress_020a9ea4(SaveProgress_020a9ea4* progress);
@@ -203,7 +203,7 @@ static inline void inline_ov019_0218b5a8_3(int arg0) {
 }
 
 static inline void inline_ov019_0218b5a8_4(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, void* arg7) {
-    func_020c5770(arg0, arg1, arg2, arg3, arg4, arg5, arg6, 1, arg7);
+    SetOrthographicProjection_020c5770(arg0, arg1, arg2, arg3, arg4, arg5, arg6, 1, arg7);
 }
 
 static inline void inline_ov019_0218b5a8_5(int arg0) {
@@ -231,7 +231,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     unsigned int* var2 = GetGlobalFlags_020d6c00();
-    func_020daf9c(0, 0, 1, 0);
+    SetLoadingIndicator_020daf9c(0, 0, 1, 0);
     arg0->unknown_4c_ = 0;
     arg0->unknown_50_ = 0;
     InitSpriteSet_0205a444(arg0->unknown_54_);
@@ -362,7 +362,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     unsigned long long var19 = GetCurrentTimestamp();
 
     for (;;) {
-        func_02012efc();
+        UpdateInput_02012efc();
         switch (var13) {
         case 1:
             if (var7->unknown_998_ == 0) {

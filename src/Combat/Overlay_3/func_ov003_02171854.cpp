@@ -18,7 +18,7 @@ enum { Enum_ov003_02171854_1828 = 0x724 };
 
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int func_0202b000(void* arg0);
-extern "C" void func_0202b0f4(void* arg0);
+extern "C" void StopLocalWireless_0202b0f4(void* wireless);
 extern "C" int func_0202b800(int* arg0);
 extern "C" void func_0202c360(void* arg0, int arg1);
 extern "C" void func_0202b2f0(void* arg0);
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov003_02171854(char* arg0) {
         if (var3 == 3) {
             return;
         }
-        func_0202b0f4(var1);
+        StopLocalWireless_0202b0f4(var1);
         arg0[0] = 0xa;
         return;
     }

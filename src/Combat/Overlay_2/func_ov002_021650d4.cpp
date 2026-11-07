@@ -18,15 +18,15 @@ extern "C" void *GetGlobalFlags_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int *globalFlags, unsigned int mask);
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
-extern "C" void func_0205def8(struct TextWindowManager_0205def8 *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowVisible_0205def8(struct TextWindowManager_0205def8 *windowManager, int isVisible, int windowId);
 extern "C" void func_ov023_021e71b4(void *arg0, SafeAllocator *arg1);
 extern "C" void func_020dc2bc();
 extern "C" void func_020dc2d0(int arg0);
 extern "C" void func_ov023_021e7bc4(struct Struct_ov002_021650d4 *arg0, unsigned int arg1, int arg2);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
-extern "C" int func_ov002_02161b48(char *arg0, int arg1);
+extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
-extern "C" void func_ov002_02161cf0(void *arg0);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(void *menu);
 extern "C" void func_ov002_0215e44c(void *arg0);
 extern "C" void func_ov002_02156e90(void *arg0);
 extern "C" short func_020dc428();
@@ -46,10 +46,10 @@ extern "C" ARM void func_ov002_021650d4(char *arg0) {
             SetGlobalFlags_020466e4((unsigned int *) GetGlobalFlags_020d6c00(), 1);
             LoadPartyMemberColors_020dc7e8(1, -1);
             SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0, 3);
-            func_ov002_02161cf0(arg0);
+            ConfigureMenuCursors_ov002_02161cf0(arg0);
             func_ov002_0215e44c(arg0);
             for (int var3 = 0; var3 < 3; var3++) {
-                func_0205def8((struct TextWindowManager_0205def8 *) (arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0,
+                SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8 *) (arg0 + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0,
                                                                         data_ov002_0216cc88[var3]);
             }
             SetSubBrightness(var1, -16, 0xf);
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov002_021650d4(char *arg0) {
             SetSubBrightness(var1, 0, 0xf);
             *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) += 1;
         } else if (var4 == 4) {
-            if (!func_ov002_02161b48(arg0, 1) && g_touchInput.pressed_ == 0) return;
+            if (!IsCancelPressed_ov002_02161b48(arg0, 1) && g_touchInput.pressed_ == 0) return;
             SetSubBrightness(var1, -16, 0xa);
             *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) += 1;
         } else if (var4 == 5) {

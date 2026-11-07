@@ -7,7 +7,7 @@
 #define LOW_REGION(j, u) (u)
 #endif
 
-struct Struct_02109bf4_2;
+struct MusicManager_02109bf4_2;
 
 struct Struct_ov005_02153954
 {
@@ -17,10 +17,10 @@ struct Struct_ov005_02153954
     unsigned char unknown_3df3_;
 };
 
-extern "C" void func_0209c830(Struct_02109bf4_2* arg0, int arg1);
+extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2* manager, int jingleIndex);
 extern "C" int func_0209ca2c(void* arg0);
 
-extern "C" Struct_02109bf4_2 gMusicManager_02109bf4;
+extern "C" MusicManager_02109bf4_2 gMusicManager_02109bf4;
 
 // USA: func_ov005_0215cb4c
 extern "C" ARM int func_ov005_0215cb4c(Struct_ov005_02153954* arg0)
@@ -30,7 +30,7 @@ extern "C" ARM int func_ov005_0215cb4c(Struct_ov005_02153954* arg0)
     unsigned char var0 = arg0->unknown_3df3_;
     if (var0 == 0)
     {
-        func_0209c830(&gMusicManager_02109bf4, 0x3d);
+        QueueJingle_0209c830(&gMusicManager_02109bf4, 0x3d);
         arg0->unknown_3df3_++;
     }
     if (var0 == 1)

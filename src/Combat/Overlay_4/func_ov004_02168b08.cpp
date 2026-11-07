@@ -12,7 +12,7 @@ extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" int func_ov024_021f6f10(void* arg0);
 #endif
 struct StringList_02072a68_2;
-extern "C" void* func_ov023_021fa598(void*);
+extern "C" void* GetMenuObjectStringList_ov023_021fa598(void*);
 
 // USA: func_ov004_02168b08
 extern "C" ARM StringList_02072a68_2* func_ov004_02168b08(void* arg0, int arg1) {
@@ -23,7 +23,7 @@ extern "C" ARM StringList_02072a68_2* func_ov004_02168b08(void* arg0, int arg1) 
 #else
     if (func_ov024_021f6f10(var0) != 0x4) goto ret0;
 #endif
-    return (StringList_02072a68_2*)func_ov023_021fa598(var0);
+    return (StringList_02072a68_2*)GetMenuObjectStringList_ov023_021fa598(var0);
 ret0:
     return 0;
 }

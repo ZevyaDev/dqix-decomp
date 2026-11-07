@@ -8,7 +8,7 @@ extern "C" ARM asm void func_01ff8218(void)
 {
     mov ip, #0x04000000
     str ip, [ip, #0x208]
-    ldr r1, =data_027e0000
+    ldr r1, =gDTCMData_027e0000
     add r1, r1, #0x3fc0
     add r1, r1, #0x3c
     mov r0, #0x0

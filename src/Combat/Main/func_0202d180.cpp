@@ -4,7 +4,7 @@ extern "C" int func_020d68dc(int, unsigned int, void*);
 extern char gLocalWirelessLink_021015a0;
 extern char data_02101600;
 extern char data_021016e0;
-extern "C" void func_0202c848(int arg0);
+extern "C" void SetLocalWirelessLinkError_0202c848(int errorCode);
 extern "C" void func_0202d1e4(unsigned short* arg0);
 
 typedef int (*Type_0202d180)(void*, void*);
@@ -18,7 +18,7 @@ extern "C" ARM int func_0202d180(void) {
     if (var2 == 2) {
         return 1;
     }
-    func_0202c848(var2);
+    SetLocalWirelessLinkError_0202c848(var2);
     *(int*)(&gLocalWirelessLink_021015a0 + 0x10) = 9;
     return 0;
 }

@@ -99,7 +99,7 @@ struct Struct_ov006_02154614 {
     unsigned char unknown_12bd_;
 };
 
-struct Struct_02078398_2;
+struct EffectParams_02078398_2;
 struct Struct_020dbfa4;
 
 struct Struct_ov006_02156d70 {
@@ -119,7 +119,7 @@ struct Struct_ov006_02156d70_2 {
 };
 
 extern "C" void func_020dbdc0(Struct_020dbd9c* arg0);
-extern "C" void func_02078484(Struct_02078398_2* arg0);
+extern "C" void InitEffectParams_02078484(EffectParams_02078398_2* params);
 extern "C" void func_020dbfa4(Struct_020dbfa4* arg0, int arg1);
 
 extern char data_ov006_02160089[];
@@ -130,7 +130,7 @@ extern "C" ARM void func_ov006_02156d70(Struct_ov006_02154614* arg0) {
     func_020dbdc0(&arg0->unknown_12a0_);
     if (arg0->unknown_12a0_.unknown_14_ == 0 && arg0->unknown_12bc_ != 0) {
         Struct_ov006_02156d70_2 var0;
-        func_02078484((Struct_02078398_2*)&var0);
+        InitEffectParams_02078484((EffectParams_02078398_2*)&var0);
         var0.unknown_11_ &= ~4;
         var0.unknown_12_ = 0;
         if (arg0->unknown_12bc_ == 1 || arg0->unknown_12bc_ == 2) {

@@ -5,7 +5,7 @@ extern "C" ARM int func_ov031_02236474(void);
 extern "C" int func_ov031_022130ac(void);
 extern "C" void* func_ov031_0221b9a4(void);
 extern "C" void func_ov031_02222bdc(void);
-extern "C" ARM void* func_ov031_0223c7c4(int arg0);
+extern "C" ARM void* CloseScreenTextLayer_ov031_0223c7c4(int isSubScreen);
 extern "C" void HideScreenLayers_ov031_0223cbbc(int, int);
 extern "C" ARM void SetStepIndicatorAndButtonBarModes_ov031_022274d0(int stepIndicatorMode, int buttonBarMode);
 extern "C" ARM void SetWifiSetupFrameHandler_ov031_022274c0(int);
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov031_02233ce0(void) {
     VectorizedInvertedMemcpy(func_ov031_0221b9a4(), var0 + 0xf0, 0xe);
     VectorizedInvertedMemcpy(func_ov031_0221b9a4(), var0 + 0x1f0, 0xe);
     func_ov031_02222bdc();
-    func_ov031_0223c7c4(0);
+    CloseScreenTextLayer_ov031_0223c7c4(0);
     HideScreenLayers_ov031_0223cbbc(0, 0x15);
     if (data_ov031_02290cd0.unknown_0_ == 0) {
         SetStepIndicatorAndButtonBarModes_ov031_022274d0(0, 1);

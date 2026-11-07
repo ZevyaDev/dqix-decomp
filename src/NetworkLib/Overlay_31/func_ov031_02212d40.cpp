@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 
-extern "C" void func_020ca3ec(int arg0, void* arg1, int arg2);
+extern "C" void Memset32BitByWord_020ca3ec(int arg0, void* arg1, int arg2);
 extern "C" int func_ov031_02213230(int arg0, void* arg1);
 extern "C" int func_ov031_0221add4(int arg0);
 extern "C" int func_ov031_0220c970(void* arg0, int arg1);
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov031_02212d40(Struct_ov031_02212d40* arg0) {
     Struct_ov031_0224e5c4_2* var0 = &data_ov031_0224e5c4;
     void* var1 = (void*)((int (*)(int, int))arg0->unknown_0_)(1, 0x24);
     var0->unknown_c_ = var1;
-    func_020ca3ec(0, var1, 0x24);
+    Memset32BitByWord_020ca3ec(0, var1, 0x24);
 
     void* var2 = var0->unknown_c_;
     *(void**)var2 = arg0->unknown_0_;
@@ -45,10 +45,10 @@ extern "C" ARM int func_ov031_02212d40(Struct_ov031_02212d40* arg0) {
     var0->unknown_4_  = (void*)func_ov031_02213230(4, (void*)0x58);
     var0->unknown_8_  = (void*)func_ov031_02213230(8, (void*)0xc);
 
-    func_020ca3ec(0, var0->unknown_10_, 0xd18);
-    func_020ca3ec(0, var0->unknown_0_, 0x2300);
-    func_020ca3ec(0, var0->unknown_4_, 0x58);
-    func_020ca3ec(0, var0->unknown_8_, 0xc);
+    Memset32BitByWord_020ca3ec(0, var0->unknown_10_, 0xd18);
+    Memset32BitByWord_020ca3ec(0, var0->unknown_0_, 0x2300);
+    Memset32BitByWord_020ca3ec(0, var0->unknown_4_, 0x58);
+    Memset32BitByWord_020ca3ec(0, var0->unknown_8_, 0xc);
 
     unsigned char* var3 = (unsigned char*)var0->unknown_10_;
     var3[0xd0a] = arg0->unknown_8_;

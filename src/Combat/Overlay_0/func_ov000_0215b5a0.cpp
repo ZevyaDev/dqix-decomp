@@ -33,7 +33,7 @@ struct Struct_02010088;
 extern "C" Struct_ov000_0215b5a0_5* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" int func_ov000_02153c0c(GameObject*);
-extern "C" int func_020882f8(unsigned char*);
+extern "C" int IsAsleep_020882f8(unsigned char*);
 extern "C" int func_ov000_02156038(GameObject*);
 extern "C" int func_ov000_02156050(GameObject*);
 extern "C" int func_020881c4(unsigned char*);
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov000_0215b5a0(Struct_ov000_0215b5a0_2* arg0, BattleAct
         inline_ov000_0215b5a0(var14)->unknown_23_6_ = 0;
         if (IsDead_02010088((Struct_02010088*)var14)) continue;
         if (func_ov000_02153c0c(var14)) continue;
-        if (func_020882f8((unsigned char*)var14->currentStats_)) continue;
+        if (IsAsleep_020882f8((unsigned char*)var14->currentStats_)) continue;
         if (func_ov000_02156038(var14)) continue;
         if (func_ov000_02156050(var14)) continue;
         if (inline_ov000_0215b5a0(var14)->unknown_14_ & 0x1000000) continue;

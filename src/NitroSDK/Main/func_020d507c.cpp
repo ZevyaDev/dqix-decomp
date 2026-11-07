@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-extern "C" int func_020d424c(int, int);
+extern "C" int CheckWirelessState_020d424c(int, int);
 extern "C" int func_020d40bc(int, int, int);
 struct Struct_020d507c;
 extern "C" int func_020d5158(struct Struct_020d507c* arg0);
-extern "C" void func_020d404c(int arg0, int arg1);
+extern "C" void SetWirelessCommandCallback_020d404c(int command, int callback);
 void CleanCacheRange(const void* addr, unsigned int size);
 
 struct Struct_0202db64 {
@@ -20,7 +20,7 @@ struct Struct_0202db64 {
 
 // USA: func_020d507c
 extern "C" ARM int func_020d507c(int arg0, struct Struct_0202db64* arg1) {
-    int var0 = func_020d424c(1, 2);
+    int var0 = CheckWirelessState_020d424c(1, 2);
     if (var0 != 0) {
         return var0;
     }
@@ -37,7 +37,7 @@ extern "C" ARM int func_020d507c(int arg0, struct Struct_0202db64* arg1) {
     }
 
     func_020d5158((struct Struct_020d507c*)arg1);
-    func_020d404c(7, arg0);
+    SetWirelessCommandCallback_020d404c(7, arg0);
     CleanCacheRange(arg1, 0x40);
     if (arg1->unknown_4_ != 0) {
         CleanCacheRange((void*)arg1->unknown_0_, arg1->unknown_4_);

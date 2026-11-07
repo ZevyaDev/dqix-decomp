@@ -12,9 +12,9 @@ void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
-struct Struct_ov000_02160da0 { char unknown_0_[0x7902]; signed char unknown_7712_; };
+struct BattleScene_ov000_02160da0 { char unknown_0_[0x7902]; signed char unknown_7712_; };
 #else
-struct Struct_ov000_02160da0 { char unknown_0_[0x7712]; signed char unknown_7712_; };
+struct BattleScene_ov000_02160da0 { char unknown_0_[0x7712]; signed char unknown_7712_; };
 #endif
 
 void ZeroInitGPCPointer(GPCFile**);
@@ -39,9 +39,9 @@ struct GameResources;
 void SetBrightness(struct GameResources*, int, int);
 void SetMainBrightness(struct GameResources*, int, int);
 extern "C" {
-void func_ov000_021626a0(Struct_ov000_02160da0*, int, int);
-void func_ov000_021637fc(Struct_ov000_02160da0*, int);
-void func_ov000_02167e6c(Struct_ov000_02160da0*);
+void SetObjectsVisibleBySelector_ov000_021626a0(BattleScene_ov000_02160da0*, int, int);
+void func_ov000_021637fc(BattleScene_ov000_02160da0*, int);
+void func_ov000_02167e6c(BattleScene_ov000_02160da0*);
 int func_02032370(int);
 }
 
@@ -85,15 +85,15 @@ extern const char data_ov026_021dee9c[];
 extern const char data_ov026_021deeb5[];
 
 // USA: func_ov026_021dc440
-extern "C" ARM void func_ov026_021dc440(SafeAllocator* arg0, Struct_ov000_02160da0* arg1, void* arg2, unsigned char* arg3, const char* arg4) {
+extern "C" ARM void func_ov026_021dc440(SafeAllocator* arg0, BattleScene_ov000_02160da0* arg1, void* arg2, unsigned char* arg3, const char* arg4) {
     GPCReadPair var0;
     unsigned int var1;
     char var2[0x50];
     GameState* var3 = GameState::GetInstance();
     GameResources* var4 = GetGameResources();
     int var5 = arg1->unknown_7712_;
-    func_ov000_021626a0(arg1, 0x26, 1);
-    func_ov000_021626a0(arg1, 0x27, 0);
+    SetObjectsVisibleBySelector_ov000_021626a0(arg1, 0x26, 1);
+    SetObjectsVisibleBySelector_ov000_021626a0(arg1, 0x27, 0);
     func_ov000_02167e6c(arg1);
     if (var5 != 5) arg0->Reset();
     BackgroundLoader::AddLockGlobal();

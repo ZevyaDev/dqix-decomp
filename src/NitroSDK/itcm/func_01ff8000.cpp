@@ -31,7 +31,7 @@ _find:
     mov r1, r3, lsr r0
     str r1, [ip, #0x4]
     rsbs r0, r0, #0x1f
-    ldr r1, =data_027e0000
+    ldr r1, =gDTCMData_027e0000
     ldr r0, [r1, r0, lsl #2]
     ldr lr, =func_01ff8068
     bx r0

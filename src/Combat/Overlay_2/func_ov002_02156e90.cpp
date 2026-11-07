@@ -19,7 +19,7 @@ extern "C" struct Struct_ov002_02156e90 *func_0205d888(struct Struct_0205d0e0_2 
 extern "C" void *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0 *windowManager, int isAll);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
-extern "C" void func_ov002_02161cf0(void *arg0);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(void *menu);
 extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
 extern "C" const unsigned char data_ov002_0216c99d[];
 extern "C" const unsigned char data_ov002_0216c99e[];
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov002_02156e90(char *arg0) {
     var1 = func_0205d888((struct Struct_0205d0e0_2 *) (arg0 + RG(0xec8, 0xe20)));
     if (var1 == NULL) return;
     *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) = var1->unknown_c4_;
-    func_ov002_02161cf0(arg0);
+    ConfigureMenuCursors_ov002_02161cf0(arg0);
     for (int var7 = 0; var7 < 8; var7++) {
         unsigned char var8 = data_ov002_0216c99d[var7 * 2];
         if (var8 == var1->unknown_c4_) {

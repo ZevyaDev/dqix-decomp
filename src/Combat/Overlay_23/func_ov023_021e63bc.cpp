@@ -5,7 +5,7 @@
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0 {
     unsigned char unknown_0_[0xac];
-    short unknown_ac_, unknown_ae_;
+    short tileX_ac_, tileY_ae_;
 };
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
 
@@ -30,8 +30,8 @@ extern "C" ARM int func_ov023_021e63bc(unsigned char* arg0) {
     int var1 = var0->unknown_1371_;
     TextWindow_0205d0e0* var2 = FindTextWindow_0205d81c(((TextWindowManager_0205d81c*)(&var0->unknown_ac_)), var1);
     int var3 = g_touchInput.prevX_;
-    int var4 = var2->unknown_ac_;
-    int var5 = var2->unknown_ae_;
+    int var4 = var2->tileX_ac_;
+    int var5 = var2->tileY_ae_;
     var4 = (short)(var4 << 3) + 0xa;
     var5 = (short)(var5 << 3) + 0x10;
     int var6 = g_touchInput.prevY_;

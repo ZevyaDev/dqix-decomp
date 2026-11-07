@@ -182,7 +182,7 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
             if (var23 == NULL) {
                 return;
             }
-            arg0->unknown_c_ = var23->obj3D_.unknown_4_;
+            arg0->unknown_c_ = var23->obj3D_.objectIndex_4_;
         }
         *(unsigned char*)((char*)var6 + 0xc3) = 0;
         arg0->unknown_10_ = 3;

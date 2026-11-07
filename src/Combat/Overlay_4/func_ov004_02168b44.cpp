@@ -12,10 +12,10 @@ enum { Enum_ov004_02168b44_336 = 0x150, Enum_ov004_02168b44_29888 = 0x74c0, Enum
 #endif
 
 struct Struct_0201e830;
-extern "C" int func_020a0870(Struct_02061c04* arg0);
-extern "C" int func_020a08a4(Struct_02061c04* arg0);
-extern "C" int func_020a08d8(Struct_02061c04* arg0);
-extern "C" int func_020a090c(Struct_02061c04* arg0);
+extern "C" int GetDefeatedMonsterListCompletion_020a0870(BattleRecords_02061c04* records);
+extern "C" int GetItemListCompletion_020a08a4(BattleRecords_02061c04* records);
+extern "C" int GetWardrobeCompletion_020a08d8(BattleRecords_02061c04* records);
+extern "C" int GetAlchenomiconCompletion_020a090c(BattleRecords_02061c04* records);
 extern "C" int func_0201e830(struct Struct_0201e830* arg0);
 extern "C" int GetLocalWirelessState_0202ba00(int* wireless);
 extern "C" int func_020ac4f8(int arg0);
@@ -141,7 +141,7 @@ extern "C" ARM int func_ov004_02168b44(void* arg0) {
     var8->unknown_1a0_ = 1;
     data_ov004_02171030->unknown_190_ = (unsigned char*)var0 + Enum_ov004_02168b44_29180;
 
-    Struct_02061c04 var9;
+    BattleRecords_02061c04 var9;
     int var10 = GetBattleRecords_020ac4c0(&var9);
     unsigned int var11 = 0;
     GetAlchemyCount_020ac0b4(&var11);
@@ -167,13 +167,13 @@ extern "C" ARM int func_ov004_02168b44(void* arg0) {
         data_ov004_02171030->unknown_194_->unknown_d_2_ = var9.unknown_d_6_;
         data_ov004_02171030->unknown_194_->unknown_11_1_ = var9.unknown_11_1_;
         data_ov004_02171030->unknown_194_->unknown_9_6_ =
-            (unsigned char)func_020a0870(&var9);
+            (unsigned char)GetDefeatedMonsterListCompletion_020a0870(&var9);
         data_ov004_02171030->unknown_194_->unknown_a_5_ =
-            (unsigned char)func_020a08a4(&var9);
+            (unsigned char)GetItemListCompletion_020a08a4(&var9);
         data_ov004_02171030->unknown_194_->unknown_f_0_ =
-            (unsigned char)func_020a08d8(&var9);
+            (unsigned char)GetWardrobeCompletion_020a08d8(&var9);
         data_ov004_02171030->unknown_194_->unknown_12_7_ =
-            (unsigned char)func_020a090c(&var9);
+            (unsigned char)GetAlchenomiconCompletion_020a090c(&var9);
         data_ov004_02171030->unknown_194_->unknown_14_ = var14->unknown_6_3_;
         data_ov004_02171030->unknown_194_->unknown_16_0_ = var12;
     }

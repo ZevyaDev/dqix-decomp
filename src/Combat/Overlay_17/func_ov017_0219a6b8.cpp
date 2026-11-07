@@ -17,7 +17,7 @@ extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8*, unsigned int);
 extern "C" unsigned char* func_0200ffc0(Struct_0200ffc0*);
 extern "C" int IsPerformingGesture_020535c8(signed char*);
 extern "C" int func_0203402c(Struct_0203402c*);
-extern "C" unsigned char func_02039d7c(char*);
+extern "C" unsigned char IsOnLadder_02039d7c(char*);
 extern "C" void __clear(void*, int);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020a7f40(unsigned char*);
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov017_0219a6b8(GameResources* arg0) {
     if (IsPerformingGesture_020535c8((signed char*)var4)) return;
     if (g_keyManager.TestKeysHeld(2) && !arg0->unknown_3658_[0]) return;
     if (func_0203402c((Struct_0203402c*)var4)) return;
-    if (func_02039d7c((char*)var4)) return;
+    if (IsOnLadder_02039d7c((char*)var4)) return;
     if (var2 == 0x2774) return;
     int var5[1];
     __clear(var5, sizeof(var5));

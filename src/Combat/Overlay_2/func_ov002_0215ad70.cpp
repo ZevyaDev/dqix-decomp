@@ -4,7 +4,7 @@
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0 {
     unsigned char unknown_0_[0xac];
-    short unknown_ac_, unknown_ae_;
+    short tileX_ac_, tileY_ae_;
 };
 struct Struct_0204c654;
 
@@ -46,8 +46,8 @@ extern "C" ARM void func_ov002_0215ad70(unsigned char *arg0) {
     if (var1 == 0) {
         return;
     }
-    int var2             = static_cast<short>(var1->unknown_ac_ * 8);
-    int var3             = static_cast<short>(var1->unknown_ae_ * 8);
+    int var2             = static_cast<short>(var1->tileX_ac_ * 8);
+    int var3             = static_cast<short>(var1->tileY_ae_ * 8);
     Struct_ov002_0216c98a var4 = data_ov002_0216c98a;
     unsigned char var5       = 0;
     unsigned short var6   = Enum_ov002_0215ad70_22;
@@ -74,8 +74,8 @@ extern "C" ARM void func_ov002_0215ad70(unsigned char *arg0) {
     if (var1 == 0) {
         return;
     }
-    int var14 = var1->unknown_ac_;
-    int var15 = var1->unknown_ae_;
+    int var14 = var1->tileX_ac_;
+    int var15 = var1->tileY_ae_;
     var14     = (short) (var14 * 8) + 0x10;
     var15     = (short) (var15 * 8) + 0x18;
     func_ov002_02154bcc(var14, var15, var0->unknown_1a68_, Enum_ov002_0215ad70_20, 0x54, 8);

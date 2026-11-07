@@ -149,13 +149,13 @@ extern "C" ARM void func_ov024_021fb91c(Struct_ov024_021fb91c_2* arg0) {
             func_ov024_021fd858(arg0);
         }
         if (var0->unknown_17_4_ == 2 || var0->unknown_17_4_ == 1 || var0->unknown_17_4_ == 8) {
-            func_ov024_021f9874(arg0, &var8, 0, (unsigned char)var10->obj3D_.unknown_4_);
+            func_ov024_021f9874(arg0, &var8, 0, (unsigned char)var10->obj3D_.objectIndex_4_);
             memset(&var8, 0, sizeof(var8));
         }
     }
     if (var0->unknown_17_4_ == 4 || var0->unknown_17_4_ == 3) {
         GetCombatantByID((int)arg0->unknown_0_, 0);
-        int var18 = (unsigned char)var3->obj3D_.unknown_4_;
+        int var18 = (unsigned char)var3->obj3D_.objectIndex_4_;
         if (var0->unknown_17_4_ == 3) var18 = 0xff;
         func_ov024_021f9874(arg0, &var8, 0, var18);
     }

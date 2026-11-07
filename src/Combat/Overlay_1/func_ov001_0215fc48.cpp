@@ -3,7 +3,7 @@
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
+extern "C" void* GetFirstZoneFeatureOfType_0201e838(unsigned char* zoneFeatures, unsigned int type);
 
 // USA: func_ov001_0215fc48
 extern "C" ARM int func_ov001_0215fc48(char* arg0, int arg1) {
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov001_0215fc48(char* arg0, int arg1) {
     }
 
     Zone3D* var5 = (Zone3D*)GetZone3D_02012fe4();
-    Struct_020134e0::Struct_02018300* var6 = (Struct_020134e0::Struct_02018300*)func_0201e838((unsigned char*)&var5->substruct_6c_, 2);
+    Struct_020134e0::Struct_02018300* var6 = (Struct_020134e0::Struct_02018300*)GetFirstZoneFeatureOfType_0201e838((unsigned char*)&var5->substruct_6c_, 2);
     while (var6 != NULL) {
         if (!(var6->unknown_2c_.unknown1_0_.unknown_2_4_ & 1) && var6->unknown_2c_.unknown1_0_.unknown_0_ == var0 && var6->unknown_2c_.unknown1_0_.unknown_1_ == var2) {
             var6->unknown_2c_.unknown1_0_.unknown_2_4_ = var6->unknown_2c_.unknown1_0_.unknown_2_4_ | 0x300;

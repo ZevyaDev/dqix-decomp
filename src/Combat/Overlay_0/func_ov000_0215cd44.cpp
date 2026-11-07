@@ -4,7 +4,7 @@
 struct ActionResult_ov000_021584e8;
 
 extern "C" void SetActionResult_ov000_0215ccbc(int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant,
-                            short arg3, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
+                            short amount, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
 
 static inline short inline_ov000_0215cd44(GameObject* arg0) { SDK_NULL_ASSERT(arg0); return arg0->currentStats_->primaryStats.currHP; }
 static inline short inline_ov000_0215cd44_2(GameObject* arg0) { SDK_NULL_ASSERT(arg0); return arg0->currentStats_->primaryStats.currMP; }

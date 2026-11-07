@@ -5,8 +5,8 @@ struct Struct_02033b68 {
     char unknown_0_[4];
     short unknown_4_;
     char unknown_6_[0xbe - 6];
-    unsigned char unknown_be_;
-    unsigned char unknown_bf_;
+    unsigned char motion_be_;
+    unsigned char previousMotion_bf_;
     unsigned char unknown_c0_;
     unsigned char unknown_c1_0_ : 4;
     unsigned char unknown_c1_4_ : 4;
@@ -19,7 +19,7 @@ struct Struct_02033b68 {
 
 extern "C" void GetEffectManager_02057924(void);
 extern "C" void func_02033dd4(unsigned char* arg0);
-extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
+extern "C" void SetMotionIfDifferent_02033b68(struct Struct_02033b68* object, int motion);
 
 // USA: func_02033ce8
 extern "C" ARM void func_02033ce8(struct Struct_02033b68* arg0) {
@@ -27,17 +27,17 @@ extern "C" ARM void func_02033ce8(struct Struct_02033b68* arg0) {
     GetEffectManager_02057924();
     func_02033dd4((unsigned char*)arg0);
 
-    if (arg0->unknown_be_ == 3 || arg0->unknown_be_ == 4) {
+    if (arg0->motion_be_ == 3 || arg0->motion_be_ == 4) {
         if (arg0->unknown_c0_ == 7 || arg0->unknown_c0_ == 8) {
             if (arg0->unknown_c0_ != 7) return;
             if (arg0->unknown_c1_4_ == 0) return;
-            func_02033b68(arg0, 0);
+            SetMotionIfDifferent_02033b68(arg0, 0);
         }
         return;
     }
 
-    if (arg0->unknown_be_ == 6) {
-        if (arg0->unknown_bf_ != 6) {
+    if (arg0->motion_be_ == 6) {
+        if (arg0->previousMotion_bf_ != 6) {
             var0 = (arg0->unknown_4_ >= 0 && arg0->unknown_4_ <= 3);
             if (!var0) {
                 if (arg0->unknown_c2_4_ == 0) {
@@ -50,7 +50,7 @@ extern "C" ARM void func_02033ce8(struct Struct_02033b68* arg0) {
         return;
     }
 
-    if (arg0->unknown_be_ == 5) {
+    if (arg0->motion_be_ == 5) {
         ((Object3D*)arg0)->SetInheritedAlpha(1);
         ((Object3D*)arg0)->TransitionInheritedAlpha(0x1f, 0xfa);
     }

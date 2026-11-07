@@ -58,7 +58,7 @@ extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void func_ov017_021aeea8(Struct_ov017_021ae85c_2*);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
-extern "C" void func_02033b68(Struct_02033b68*, int);
+extern "C" void SetMotionIfDifferent_02033b68(Struct_02033b68*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" ItemData_02015ef4_4* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
         arg0->unknown_a_--;
         if (arg0->unknown_a_) return;
         GameObject* var5 = var0->GetUnknownGameObject();
-        if (var5) func_02033b68((Struct_02033b68*)var5, 8);
+        if (var5) SetMotionIfDifferent_02033b68((Struct_02033b68*)var5, 8);
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x5b, 0);
         arg0->unknown_8_ = 2; arg0->unknown_a_ = 30;
     } else if (arg0->unknown_8_ == 2) {
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
         }
         var1->RemoveTask(arg0->unknown_10_);
         FontLoader_0208cb08* var13 = GetFontLoader_02094a00();
-        func_02094b3c(var13, 10);
+        ClearLoadedFontSetForSize_02094b3c(var13, 10);
         RequestSingleFontLoad_02094b30(var13, 0x1f9, 0);
         arg0->unknown_8_ = 4;
     } else if (arg0->unknown_8_ == 4) {
@@ -212,7 +212,7 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
         if (!arg0->unknown_a_) { GetMessageWindow_020421a0(); arg0->unknown_8_ = 7; }
         else if (arg0->unknown_a_ == 5) {
             GameObject* var27 = var0->GetUnknownGameObject();
-            EnablePlayerControl_020397c0(var27); func_02033b68((Struct_02033b68*)var27, 0);
+            EnablePlayerControl_020397c0(var27); SetMotionIfDifferent_02033b68((Struct_02033b68*)var27, 0);
         }
     } else if (arg0->unknown_8_ == 7) {
         Struct_ov017_021ae85c* var28 = GetMessageWindow_020421a0();

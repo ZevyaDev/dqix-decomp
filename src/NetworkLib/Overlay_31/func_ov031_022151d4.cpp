@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int func_ov031_0220d540(void);
-extern "C" char* func_ov031_022133f8(unsigned int arg0);
+extern "C" char* GetWifiConnectionBuffer_ov031_022133f8(unsigned int bufferFlag);
 extern "C" int func_ov031_02214520(int);
 extern "C" int func_ov031_0220cae0(void* arg0, void (*arg1)(void));
 extern "C" void func_ov031_02213c10(void);
@@ -12,7 +12,7 @@ struct Struct_ov031_022151d4 { unsigned int unknown_0_, unknown_4_, unknown_8_, 
 // USA: func_ov031_022151d4
 extern "C" ARM int func_ov031_022151d4(void) {
 	int var0 = func_ov031_0220d540();
-	char* var1 = func_ov031_022133f8(0x10);
+	char* var1 = GetWifiConnectionBuffer_ov031_022133f8(0x10);
 	if (var0 == 1) {
 		Struct_ov031_022151d4 var2;
 		var2.unknown_0_ = (unsigned char)var1[0xd0a];

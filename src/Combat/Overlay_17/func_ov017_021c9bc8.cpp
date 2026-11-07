@@ -4,7 +4,7 @@ struct Struct_0207d7f4;
 struct Struct_0207da94;
 struct Struct_ov000_0216377c;
 
-extern "C" void* func_0207d78c(void);
+extern "C" void* GetBattleJoinTable_0207d78c(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_0207da94(struct Struct_0207da94* arg0, int arg1);
 extern "C" int func_0207db58(struct Struct_0207d7f4* arg0, unsigned short arg1, char arg2);
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov017_021c9bc8(char arg0, struct Struct_ov017_021c9bc8*
 #else
  enum {Enum_ov017_021c9bc8_14104=0x3718};
 #endif
-	void* var0 = func_0207d78c();
+	void* var0 = GetBattleJoinTable_0207d78c();
 	unsigned int var1 = arg1->unknown_4_;
 	unsigned short var2 = arg1->unknown_6_;
 	if (IsNotLocalWirelessGuest_0202c508(arg4)) {

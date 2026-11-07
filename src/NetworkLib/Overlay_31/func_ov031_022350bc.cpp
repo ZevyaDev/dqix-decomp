@@ -8,7 +8,7 @@ extern "C" void func_ov031_0223cb10(unsigned short arg0, unsigned short arg1, St
 extern "C" int func_ov031_0223be70(int, int, int);
 extern unsigned char data_ov031_022491f0[];
 
-extern "C" void func_ov031_0223bbd8(void*, int, int, int);
+extern "C" void SetSpritePosition_ov031_0223bbd8(void*, int, int, int);
 
 struct Struct_ov031_02222ce4;
 extern "C" ARM void func_ov031_0223bcc8(Struct_ov031_02222ce4*, int, int);
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov031_022350bc(int arg0, int arg1, unsigned short arg2,
     data_ov031_02290cf4->unknown_1a_ = (unsigned char)arg4;
     func_ov031_0223cb10((unsigned short)arg2, (unsigned short)arg3, (Struct_ov031_022350bc_2*)((char*)data_ov031_02290cf4 + 0x10));
     data_ov031_02290cf4->unknown_0_ = func_ov031_0223be70(0, data_ov031_022491f0[arg0], 1);
-    func_ov031_0223bbd8((void*)data_ov031_02290cf4->unknown_0_, -1, arg2, arg3 + arg4);
+    SetSpritePosition_ov031_0223bbd8((void*)data_ov031_02290cf4->unknown_0_, -1, arg2, arg3 + arg4);
     func_ov031_0223bcc8((Struct_ov031_02222ce4*)data_ov031_02290cf4->unknown_0_, -1, 1);
     data_ov031_02290cf4->unknown_c_ = (int)AddTask_ov031_0223e218(0, (void*)func_ov031_02235234, 0, 0x80);
 }

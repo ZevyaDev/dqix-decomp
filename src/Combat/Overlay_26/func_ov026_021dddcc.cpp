@@ -49,13 +49,13 @@ struct Struct_ov026_021dddcc_2 {
     char unknown_82_[0x6];
 };
 
-struct Struct_ov000_02160da0 {
+struct BattleScene_ov000_02160da0 {
     #if defined(jpn)
     char unknown_0_[0x218];
 #else
     char unknown1_0_[0x29c];
 #endif
-    Struct_ov000_02161e30* unknown_29c_;
+    Struct_ov000_02161e30* pBattle_29c_;
     char unknown_2a0_[0xc08];
     int unknown_ea8_;
     int unknown_eac_;
@@ -129,7 +129,7 @@ static inline void inline_ov026_021dddcc_3(int arg0, int arg1, int arg2) {
 }
 
 // USA: func_ov026_021dddcc
-extern "C" ARM void func_ov026_021dddcc(Struct_ov000_02160da0* arg0) {
+extern "C" ARM void func_ov026_021dddcc(BattleScene_ov000_02160da0* arg0) {
     Struct_ov026_021de802 var0;
     short var1[8];
     short var2[8];
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov026_021dddcc(Struct_ov000_02160da0* arg0) {
     Struct_ov026_021de6cc var4;
     short var5[4];
     GameState* var6 = _ZN9GameState11GetInstanceEv();
-    Struct_ov000_02161e30* var7 = arg0->unknown_29c_;
+    Struct_ov000_02161e30* var7 = arg0->pBattle_29c_;
     char* var8;
     signed char var9;
     int var10;

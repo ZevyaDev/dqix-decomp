@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void* func_02094d6c(void);
+extern "C" void* GetQuestManager_02094d6c(void);
 extern "C" void* GetQuestBattleScript_0209dccc(void);
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
@@ -13,7 +13,7 @@ struct Struct_0209d2a8_2 { char unknown_0_[0x98]; int unknown_98_; };
 
 // USA: func_0209d2a8
 extern "C" ARM int func_0209d2a8(void* arg0) {
-    void* var0 = func_02094d6c();
+    void* var0 = GetQuestManager_02094d6c();
     if (var0 == NULL) return 0;
     struct Struct_0209d2a8_2* var1 = (struct Struct_0209d2a8_2*)GetQuestBattleScript_0209dccc();
     if (var1 == NULL) return 0;

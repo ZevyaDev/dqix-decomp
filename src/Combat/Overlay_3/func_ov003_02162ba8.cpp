@@ -32,7 +32,7 @@ static inline void inline_02000c9c_10(Struct_ov003_02162ba8 *arg0) {
 
 extern "C" void func_02081198(Struct_02081198 *, int, int);
 extern "C" void func_02081164(Struct_02081164 *, int, int);
-extern "C" void func_020813ec(void *, int);
+extern "C" void OpenMenuLayoutWindow_020813ec(void *, int);
 extern "C" int func_02080468(void *, int);
 extern "C" void func_0208203c(Struct_02081f20_2 *);
 extern "C" void func_ov003_02165888(unsigned char *, int);
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov003_02162ba8(unsigned char *arg0) {
         *(short *) (arg0 + RO(0x488)) = 0x13;
         func_02081198((Struct_02081198 *) var2, 0x12, 1);
         func_02081164((Struct_02081164 *) var2, 0x12, 1);
-        func_020813ec(var2, 0x12);
+        OpenMenuLayoutWindow_020813ec(var2, 0x12);
         *(short *) (arg0 + RO(0x48e))                = func_02080468(var2, *(short *) (arg0 + RO(0x488)));
         *(short *) (arg0 + RO(0x474))                = *(short *) (arg0 + RO(0x48e));
         *(short *) ((unsigned char *) var2 + RO_36) = *(short *) (arg0 + RO(0x48e));

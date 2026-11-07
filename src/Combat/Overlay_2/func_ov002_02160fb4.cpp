@@ -2,7 +2,7 @@
 #include <globaldefs.h>
 
 extern "C" void func_ov002_02157030(void *arg0, int arg1, short *arg2, short *arg3, short *arg4, short *arg5);
-extern "C" void func_ov002_0215be00(void *arg0, int arg1, int arg2, int arg3);
+extern "C" void SetNextTextWindow_ov002_0215be00(void *menu, int windowId, int x, int y);
 extern "C" void func_ov002_021610c4(void *arg0, void *arg1, int arg2);
 #if defined(jpn)
 extern "C" void OpenTextWindow_0205d304(void *windowManager, void *text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
@@ -13,10 +13,10 @@ extern "C" void OpenTextWindow_0205d304(void *windowManager, void *text, int arg
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0 {
     char unknown_0_[0xa8];
-    short unknown_a8_;
+    short width_a8_;
     short unknown_aa_;
-    short unknown_ac_;
-    short unknown_ae_;
+    short tileX_ac_;
+    short tileY_ae_;
 };
 extern "C" struct TextWindow_0205d0e0 *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
 extern "C" void func_0205d904(unsigned char *arg0);
@@ -39,11 +39,11 @@ struct Struct_ov002_02160fb4_2 {
 };
 
 static inline void inline_ov002_02160fb4(struct TextWindow_0205d0e0 *arg0, short arg1, short arg2) {
-    arg0->unknown_ac_ = arg1;
-    arg0->unknown_ae_ = arg2;
+    arg0->tileX_ac_ = arg1;
+    arg0->tileY_ae_ = arg2;
 }
 static inline void inline_ov002_02160fb4_2(struct TextWindow_0205d0e0 *arg0, short arg1, short arg2) {
-    arg0->unknown_a8_ = arg1;
+    arg0->width_a8_ = arg1;
     arg0->unknown_aa_ = arg2;
 }
 
@@ -51,7 +51,7 @@ static inline void inline_ov002_02160fb4_2(struct TextWindow_0205d0e0 *arg0, sho
 #if defined(jpn)
 extern "C" ARM void func_ov002_02160fb4(char *arg0) {
     short var0, var1, var2, var3;
-    func_ov002_0215be00(arg0, ((struct Struct_ov002_02160fb4_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff, 1, 1);
+    SetNextTextWindow_ov002_0215be00(arg0, ((struct Struct_ov002_02160fb4_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff, 1, 1);
 
     memset(((struct Struct_ov002_02160fb4 *) (arg0 + 0x1000))->unknown_bd0_, 0, 0x800);
     func_ov002_021610c4(arg0, ((struct Struct_ov002_02160fb4 *) (arg0 + 0x1000))->unknown_bd0_, 0);
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov002_02160fb4(char *arg0) {
 #else
 extern "C" ARM void func_ov002_02160fb4(char *arg0) {
     short var5, var6, var7, var8;
-    func_ov002_0215be00(arg0, ((struct Struct_ov002_02160fb4_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff, 1, 1);
+    SetNextTextWindow_ov002_0215be00(arg0, ((struct Struct_ov002_02160fb4_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff, 1, 1);
 
     memset(((struct Struct_ov002_02160fb4 *) (arg0 + 0x1000))->unknown_bd0_, 0, 0x960);
     func_ov002_021610c4(arg0, ((struct Struct_ov002_02160fb4 *) (arg0 + 0x1000))->unknown_bd0_, 0);

@@ -40,7 +40,7 @@ extern "C" void RebuildFieldPartyOrder_ov017_02191108(GameResources*, int, int, 
 extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" unsigned char* GetFollowCamera_020100f8(char*);
-extern "C" void func_020a28a0(unsigned char*, unsigned char);
+extern "C" void SetCameraFlags_020a28a0(unsigned char*, unsigned char);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char*, int);
 extern "C" void func_02027288(unsigned char*, int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov017_021a5600(Struct_ov017_021a5600_2* arg0) {
     var2->unknown_b2_ = 0;
     SetFlags04(var1, 0xc0);
     unsigned char* var4 = GetFollowCamera_020100f8((char*)var0);
-    func_020a28a0(var4, 3);
+    SetCameraFlags_020a28a0(var4, 3);
     int var5 = var0->GetTickCount();
     if (var5 < 0) var5 = 1;
     if (arg0->unknown_8_ == 0) {

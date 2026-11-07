@@ -2,9 +2,9 @@
 #include "NitroSDK/Cache.h"
 #include "NitroSDK/Memory.h"
 
-extern "C" int func_020d424c(int arg0, int arg1);
+extern "C" int CheckWirelessState_020d424c(int stateCount, int arg1);
 extern "C" void* func_020d41d8(void);
-extern "C" void func_020d404c(int arg0, int arg1);
+extern "C" void SetWirelessCommandCallback_020d404c(int command, int callback);
 extern "C" int func_020d4168(void* arg0, unsigned int arg1);
 
 struct Struct_020d54d0 { unsigned short unknown_0_; };
@@ -21,7 +21,7 @@ struct Struct_020d54d0_2 {
 
 // USA: func_020d54d0
 extern "C" ARM int func_020d54d0(int arg0, Struct_020d54d0* arg1, const void* arg2, int arg3, unsigned short arg4) {
-    int var0 = func_020d424c(1, 2);
+    int var0 = CheckWirelessState_020d424c(1, 2);
     if (var0 != 0) {
         return var0;
     }
@@ -32,7 +32,7 @@ extern "C" ARM int func_020d54d0(int arg0, Struct_020d54d0* arg1, const void* ar
     void* var1 = func_020d41d8();
     *(unsigned short*)((char*)var1 + 0x150) = 0;
     *(int*)((char*)var1 + 0x14c) = 0;
-    func_020d404c(0xc, arg0);
+    SetWirelessCommandCallback_020d404c(0xc, arg0);
     struct Struct_020d54d0_2 var2;
     var2.unknown_0_ = 0xc;
     var2.unknown_4_ = arg1;

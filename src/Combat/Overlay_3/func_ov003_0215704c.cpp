@@ -22,26 +22,26 @@ void func_ov003_02155580(void *, int);
 int func_ov003_02155618(void *);
 void *GetPartyMemberData_02053c6c(void *);
 void *func_ov003_02155e14(void *, int);
-void func_020de9a4(void *, void *, void *, unsigned int, void *, int);
+void LoadItemTableByIds_020de9a4(void *, void *, void *, unsigned int, void *, int);
 void _ZN13SafeAllocator5ResetEv(void *);
 void func_ov003_0215873c(void *);
 void *GetMessageWindow_020421a0(void);
 void ResetMessageWindow_02043204(void *);
 void func_ov003_02158a50(void *);
-void func_0209c830(void *, int);
+void QueueJingle_0209c830(void *, int);
 void func_ov003_0215582c(void *);
 int GetQueueHeadType_02046b24(void *);
 int _ZNK8Object3D19HasAnimationStoppedEv(void *);
 int GetLocalWireless_0202ae18(void);
 int IsLocalWirelessOn_0202b7d8(int);
 void SendPartyMemberEquippedItems_ov017_021c3fb4(int, int);
-void func_ov017_021c4418(int, int);
+void SendPartyMemberBodyAppearance_ov017_021c4418(int, int);
 void func_ov017_021cf078(int, int, int);
 void func_ov017_021ccc34(int);
 void func_ov017_021cc730(int, int, int, int);
 void func_02083e28(void *, int);
 void func_ov003_02155740(void *);
-void *func_02094d6c(void);
+void *GetQuestManager_02094d6c(void);
 int func_ov003_02158754(void *);
 }
 
@@ -220,7 +220,7 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
                 if (var12 != 0) {
                     void *var13 =
                         func_ov003_02155e14(var12 + 0xa4 + 0x400, func_ov003_02156034(arg0));
-                    func_020de9a4(arg0->unknown_178_, (char *) arg0->unknown_0_ + 0x78, var9, var10, var13, 8);
+                    LoadItemTableByIds_020de9a4(arg0->unknown_178_, (char *) arg0->unknown_0_ + 0x78, var9, var10, var13, 8);
                 }
             }
             var8->RemoveTask(arg0->unknown_1d0_);
@@ -233,7 +233,7 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
         arg0->unknown_1d4_ = 0;
         ResetMessageWindow_02043204(GetMessageWindow_020421a0());
         func_ov003_02158a50(arg0);
-        func_0209c830(gMusicManager_02109bf4, 0x34);
+        QueueJingle_0209c830(gMusicManager_02109bf4, 0x34);
         arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
     } else if (var1 == 7) {
         arg0->unknown_1d4_ = arg0->unknown_1d4_ + arg0->unknown_1dc_;
@@ -254,7 +254,7 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
         arg0->unknown_32c_ = 0;
         if (IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18()) != 0) {
             SendPartyMemberEquippedItems_ov017_021c3fb4(arg0->unknown_1f7_, 0);
-            func_ov017_021c4418(arg0->unknown_1f7_, -1);
+            SendPartyMemberBodyAppearance_ov017_021c4418(arg0->unknown_1f7_, -1);
             func_ov017_021cf078(arg0->unknown_1f7_, (unsigned char) func_ov003_02156034(arg0), 0);
             func_ov017_021ccc34(arg0->unknown_1f7_);
             func_ov017_021cc730(arg0->unknown_1f7_, 1, 0, 0);
@@ -264,7 +264,7 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
             func_02083e28(*(void **) ((char *) var15 + JPN_OFS(0x144, 0x150)), 0);
         }
         func_ov003_02155740(arg0);
-        struct Struct_ov003_0215704c_4 *var16 = (struct Struct_ov003_0215704c_4 *) func_02094d6c();
+        struct Struct_ov003_0215704c_4 *var16 = (struct Struct_ov003_0215704c_4 *) GetQuestManager_02094d6c();
         struct Struct_ov003_0215704c_3 *var17 = var16->unknown_4_;
         unsigned char var18      = var16->unknown_0_;
         int var19;

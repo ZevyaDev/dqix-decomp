@@ -29,7 +29,7 @@ struct Struct_02065990_2;
 
 extern "C" short func_ov004_02166684(int arg0);
 extern "C" short func_ov004_021666bc(void* arg0, char* arg1);
-extern "C" struct Struct_02065990_3* func_02094d6c(void);
+extern "C" struct Struct_02065990_3* GetQuestManager_02094d6c(void);
 extern "C" struct Struct_0205d594* GetFlagManager_0205ec34(void);
 extern "C" unsigned char func_020965ac(Struct_02065990_3* arg0, unsigned char arg1);
 extern "C" int func_02095d30(struct Struct_02065990_3* arg0, int arg1, int arg2);
@@ -59,7 +59,7 @@ extern "C" ARM int func_ov004_02167434(void* arg0) {
     short var1;
     char var2;
     short var3 = func_ov004_021666bc(arg0, &var2);
-    struct Struct_02065990_3* var4 = func_02094d6c();
+    struct Struct_02065990_3* var4 = GetQuestManager_02094d6c();
     struct Struct_0205d594* var5 = GetFlagManager_0205ec34();
     unsigned char var6 = func_020965ac(var4, (unsigned char)var3);
     func_02095d30(var4, var6, 1);

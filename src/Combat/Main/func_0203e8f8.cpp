@@ -109,7 +109,7 @@ extern "C" void func_020c555c(const unsigned short* arg0);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void Swap3DBuffers_020d86d0(int keepTranslucentOrder, int useWDepth);
 extern "C" void WaitForVBlank_020c9820(void);
-extern "C" Vector3i func_020406f8(Struct_0203e8f8* arg0);
+extern "C" Vector3i GetNPCPosition_020406f8(Struct_0203e8f8* outPosition);
 extern "C" Vector3i func_020407c4(Struct_0203e8f8* arg0);
 extern "C" void ResetGeometryEngine_020c52e8(void);
 extern "C" void ResetMatrixStacks_020c5414(void);
@@ -213,7 +213,7 @@ extern "C" ARM int func_0203e8f8(void* arg0, Struct_0203e8f8* arg1, SafeAllocato
     MapVRAMBanksToTextureImage(var9 & ~VRAM_BANK_D);
     MapVRAMBanksToLCDC(VRAM_BANK_D);
     arg1->unknown_1c_->EnableFlag(0x10);
-    Vector3i var1 = func_020406f8(arg1);
+    Vector3i var1 = GetNPCPosition_020406f8(arg1);
     Vector3i var2 = func_020407c4(arg1);
     ResetGeometryEngine_020c52e8();
     ResetMatrixStacks_020c5414();
@@ -228,7 +228,7 @@ extern "C" ARM int func_0203e8f8(void* arg0, Struct_0203e8f8* arg1, SafeAllocato
         var17->position_.z = 0;
     }
     SetFlags04(var8, 0x1000);
-    func_ov017_0218eafc(var8, arg1->unknown_1c_->unknown_4_);
+    func_ov017_0218eafc(var8, arg1->unknown_1c_->objectIndex_4_);
     ClearFlags04(var8, 0x1000);
     arg1->unknown_1c_->position_ = data_020e7968;
     arg1->unknown_1c_->rotation_ = data_020e7968;
@@ -258,7 +258,7 @@ extern "C" ARM int func_0203e8f8(void* arg0, Struct_0203e8f8* arg1, SafeAllocato
             Mat4x3_WriteViewMatrix(&var3, &data_020e7974, &data_020e7968, &gRenderConfig_0210a010.viewMatrix);
             gRenderConfig_0210a010.flags &= ~0xe8;
             RenderConfig::SubmitToFifo();
-            func_ov017_0218eafc(var8, arg1->unknown_1c_->unknown_4_);
+            func_ov017_0218eafc(var8, arg1->unknown_1c_->objectIndex_4_);
         }
     }
     SendQueuedDataToGeometryFifo();

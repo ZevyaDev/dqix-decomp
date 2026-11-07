@@ -14,18 +14,18 @@ struct Struct_0205c570;
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 struct TextWindowManager_0205da38;
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
-extern "C" int func_0205d97c(void *arg0);
+extern "C" int HitTestCursorWindowTouch_0205d97c(void *windowManager);
 struct TextWindowManager_0205d6a0;
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0 *windowManager, int isAll);
 extern "C" void ResetMessageWindow_02043204(char *window);
 struct SoundEffectManager_02108760;
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
-extern "C" void ResetEventTask_ov017_021baedc(void *node, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(void *node, int isRestart);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2 *queue, struct QueueNode_0201bdac *node);
-extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char *task, int arg1);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char *task, int isFullReset);
 extern "C" void *GetZoneEntry_0200fd0c(GameState *gameState);
 extern "C" void InitZoneEntry_02070378(char *zoneEntry);
 
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
         var4 = GetCursorIndex_0205d794((struct Struct_0205c570 *) arg0->unknown_90_);
     } else if (g_keyManager.TestKeysPressed(2) != 0) {
         var4 = -2;
-    } else if (func_0205d97c(arg0->unknown_90_) == 2) {
+    } else if (HitTestCursorWindowTouch_0205d97c(arg0->unknown_90_) == 2) {
         var4 = -2;
     }
     if (arg0->unknown_14_ != 0 || var3 != 0) {

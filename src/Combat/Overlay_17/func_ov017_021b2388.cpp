@@ -16,8 +16,8 @@ enum { Enum_ov017_021b2388_14080 = 0x3700 };
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
-extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
-extern "C" void func_020a27b8(unsigned char* arg0);
+extern "C" void SetCameraFlags_020a28a0(unsigned char* camera, unsigned char flags);
+extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
@@ -69,8 +69,8 @@ extern "C" ARM int func_ov017_021b2388(struct Struct_ov017_021b2388_2* arg0) {
 
     if (var2) {
         arg0->unknown_3e_ = (var2[0x244] & 2) != 0;
-        func_020a28a0(var2, 2);
-        func_020a27b8(var2);
+        SetCameraFlags_020a28a0(var2, 2);
+        DisableCameraTurning_020a27b8(var2);
         arg0->unknown_44_ = var2;
     }
 

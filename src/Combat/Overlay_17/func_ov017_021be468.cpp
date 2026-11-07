@@ -44,7 +44,7 @@ struct Struct_ov017_021be468_4 {
 extern AllocatorUnion gMainHeap_02114e20; extern char data_ov017_021d7e80[]; extern char gSoundEffectManager_02108760[];
 extern "C" void GetLocalWireless_0202ae18(); extern "C" void* GetEffectManager_02057924(); extern "C" unsigned char* GetZone3D_02012fe4();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*,int); extern "C" void func_0201bf98(unsigned char*,int,int);
-extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*,int); extern "C" void func_02046b8c(void*,int); extern "C" void func_02046a8c(void*,void*);
+extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*,int); extern "C" void func_02046b8c(void*,int); extern "C" void RemoveFromQueue_02046a8c(void*,void*);
 extern "C" void func_ov017_021d2738(unsigned char,unsigned char); extern "C" int IsQueueEmpty_02046b08(void**); 
 extern "C" void* GetFontLoader_02094a00(); extern "C" void CancelFontLoad_02094ab0(void*); extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*,unsigned int); extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
@@ -66,8 +66,8 @@ extern "C" ARM void func_ov017_021be468(Struct_ov017_021be468_5* arg0,Queue_0203
         DisablePlayerControl_020397cc((Struct_02018300_3*)var2,1); func_0201bf98(var5,1,0);
         if(IsTypeInQueue_02046b60(arg1,3)) func_02046b8c(arg1,3);
         else {
-            if(IsTypeInQueue_02046b60(arg1,0x34)) func_02046a8c(arg1,var1->unknown_ptr_array_3afc[28]);
-            if(IsTypeInQueue_02046b60(arg1,0x2e)) { func_02046a8c(arg1,var1->unknown_ptr_array_3afc[21]); func_ov017_021d2738((unsigned char)var2->obj3D_.unknown_4_,0); }
+            if(IsTypeInQueue_02046b60(arg1,0x34)) RemoveFromQueue_02046a8c(arg1,var1->unknown_ptr_array_3afc[28]);
+            if(IsTypeInQueue_02046b60(arg1,0x2e)) { RemoveFromQueue_02046a8c(arg1,var1->unknown_ptr_array_3afc[21]); func_ov017_021d2738((unsigned char)var2->obj3D_.objectIndex_4_,0); }
             if(IsQueueEmpty_02046b08((void**)var1->unknown_ptr_array_36fc[1])) {
                 SetFlags00(var1, 0x10); CancelFontLoad_02094ab0(GetFontLoader_02094a00()); ReleaseFileTablesForSpace_020a0cc4(0x2800);
                 arg0->unknown_20_=var4->QueueLoadFile(data_ov017_021d7e80,0); arg0->unknown_8_++;
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov017_021be468(Struct_ov017_021be468_5* arg0,Queue_0203
         }
     } else if(arg0->unknown_8_==2) {
         if(!IsMainBrightnessTransitionActive(var1)) {
-            int var10[5],var11=0; func_02010834((Struct_02010834*)var0,var2->obj3D_.unknown_4_,var10,&var11);
+            int var10[5],var11=0; func_02010834((Struct_02010834*)var0,var2->obj3D_.objectIndex_4_,var10,&var11);
             for(int var12=0;var12<var11;var12++) arg0->unknown_38_|=1<<var10[var12];
             Struct_ov017_021be468_2 var13[5];
             for(int var14=0;var14<var11;var14++) {

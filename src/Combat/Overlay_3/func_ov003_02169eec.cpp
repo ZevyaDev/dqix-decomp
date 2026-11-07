@@ -19,20 +19,20 @@ struct Struct_0205bc2c;
 struct Struct_0205bd04;
 struct Struct_0205bc10;
 struct Struct_0205c570;
-struct Struct_0205bf3c;
+struct KeyMenuCursor_0205bf3c;
 struct MenuCursor_0205bb84;
 struct Struct_02000c9c_8;
 struct SoundEffectManager_02108760;
-struct Struct_0205cf1c;
+struct TextWindowManager_0205cf1c;
 
 extern "C" void func_ov003_02169594(void* arg0);
 extern "C" void func_ov003_021696f4(void* arg0, int arg1);
 extern "C" int func_ov003_02169674(void* arg0, int arg1, int arg2, void* arg3);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
-extern "C" int func_0205bf58(void* arg0, int arg1);
+extern "C" int UpdateKeyMenuCursor_0205bf58(void* cursor, int ticks);
 
 extern "C" void EnableTouchMenuCursor_0205cef8(void* windowManager);
-extern "C" void func_0205cf04(void* arg0);
+extern "C" void EnableKeyMenuCursor_0205cf04(void* windowManager);
 extern "C" void func_0205bbcc(Struct_0205bbcc* arg0);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc* cursor, int itemCount);
@@ -42,20 +42,20 @@ extern "C" void func_ov003_0216a85c(Struct_ov003_02169eec_2* arg0);
 extern "C" unsigned char* GetCursorTextWindow_0205d8c4(TextWindowManager_0205d81c* windowManager);
 extern "C" void func_0204f138(unsigned char* arg0, unsigned char** arg1, unsigned char** arg2, unsigned char** arg3,
                               unsigned char** arg4);
-extern "C" void func_0205bc24(void* arg0, int arg1);
+extern "C" void SetMenuCursorTouchedIndex_0205bc24(void* cursor, int index);
 extern "C" int func_0205bc2c(Struct_0205bc2c*, int);
 extern "C" int func_0205bd04(Struct_0205bd04* arg0);
-extern "C" int func_0205bafc(void* arg0);
+extern "C" int GetMenuCursorItemCount_0205bafc(void* cursor);
 extern "C" void func_ov003_02169658(void* arg0);
 extern "C" void func_0205bc10(Struct_0205bc10* arg0);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
 extern "C" void func_ov003_021694b8(void* arg0, int arg1);
-extern "C" void func_0205bf3c(Struct_0205bf3c* arg0);
+extern "C" void func_0205bf3c(KeyMenuCursor_0205bf3c* arg0);
 extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84* cursor);
 extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" void func_0205cf10(void* arg0);
-extern "C" void func_0205cf1c(Struct_0205cf1c* arg0);
+extern "C" void DisableTouchMenuCursor_0205cf10(void* windowManager);
+extern "C" void DisableKeyMenuCursor_0205cf1c(TextWindowManager_0205cf1c* windowManager);
 
 extern unsigned char data_ov003_0217f544[];
 extern unsigned char data_ov003_0217f545[];
@@ -137,7 +137,7 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
     if (arg0->unknown_4e9_ == 0) {
         func_ov003_02169594(arg0);
         EnableTouchMenuCursor_0205cef8(arg0->unknown_e4_);
-        func_0205cf04(arg0->unknown_e4_);
+        EnableKeyMenuCursor_0205cf04(arg0->unknown_e4_);
         func_ov003_021696f4(arg0, arg0->unknown_4ee_);
         func_0205bbcc((Struct_0205bbcc*)arg0->unknown_53c_);
         SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)arg0->unknown_53c_, 1, 2, 0);
@@ -201,7 +201,7 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
                 arg0->unknown_576_ = var15;
                 arg0->unknown_5a8_.unknown_0_ = var14;
                 arg0->unknown_5a8_.unknown_2_ = var15;
-                func_0205bc24(arg0->unknown_53c_, func_ov003_02169674(arg0, var0, var1, &arg0->unknown_5a8_));
+                SetMenuCursorTouchedIndex_0205bc24(arg0->unknown_53c_, func_ov003_02169674(arg0, var0, var1, &arg0->unknown_5a8_));
                 if (func_ov003_02169674(arg0, var0, var1, &arg0->unknown_5a8_) >= 0) {
                     var10 = 1;
                     if (func_0205bc2c((Struct_0205bc2c*)arg0->unknown_53c_, arg1) != 0) {
@@ -209,7 +209,7 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
                         arg0->unknown_4ea_ = 2;
                         arg0->unknown_59e_ = 0x14;
                         int var16 = func_0205bd04((Struct_0205bd04*)arg0->unknown_53c_);
-                        int var17 = (signed char)func_0205bafc(arg0->unknown_4fc_);
+                        int var17 = (signed char)GetMenuCursorItemCount_0205bafc(arg0->unknown_4fc_);
                         if (var16 == 0) {
                             var8[var7]++;
                             signed char var18 = var8[var7];
@@ -242,7 +242,7 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
                             } else {
                                 arg0->unknown_59e_ = 10;
                                 var8[var7] += arg0->unknown_59c_;
-                                signed char var21 = func_0205bafc(arg0->unknown_4fc_);
+                                signed char var21 = GetMenuCursorItemCount_0205bafc(arg0->unknown_4fc_);
                                 if (var8[var7] > var21 - 1) {
                                     var8[var7] = var21 - 1;
                                 }
@@ -284,11 +284,11 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
                 g_keyManager.TestKeysReleased(0x40) || g_keyManager.TestKeysHeld(0x80) ||
                 g_keyManager.TestKeysPressed(0x80) ||
                 g_keyManager.TestKeysReleased(0x80)) {
-                func_0205bf3c((Struct_0205bf3c*)((char*)arg0 + Enum_ov003_02169eec_312));
+                func_0205bf3c((KeyMenuCursor_0205bf3c*)((char*)arg0 + Enum_ov003_02169eec_312));
                 int var24 = var8[var7];
-                int var25 = func_0205bafc(arg0->unknown_4fc_);
+                int var25 = GetMenuCursorItemCount_0205bafc(arg0->unknown_4fc_);
                 SetMenuCursorIndex_0205bb04(arg0->unknown_4fc_, var25 - 1 - var8[var7]);
-                if (func_0205bf58(arg0->unknown_4fc_, arg1) != 0) {
+                if (UpdateKeyMenuCursor_0205bf58(arg0->unknown_4fc_, arg1) != 0) {
                     var8[var7] = var25 - 1 - GetMenuCursorIndex_0205bb84((MenuCursor_0205bb84*)arg0->unknown_4fc_);
                     if (var24 != var8[var7]) {
                         arg0->unknown_4ea_ = 1;
@@ -376,14 +376,14 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
                 arg0->unknown_5a0_ += var44 * arg0->unknown_4ef_[var45];
                 var44 *= 10;
             }
-            func_0205cf10(arg0->unknown_e4_);
-            func_0205cf1c((Struct_0205cf1c*)arg0->unknown_e4_);
+            DisableTouchMenuCursor_0205cf10(arg0->unknown_e4_);
+            DisableKeyMenuCursor_0205cf1c((TextWindowManager_0205cf1c*)arg0->unknown_e4_);
             arg0->unknown_4e9_ = 0;
             return arg0->unknown_5a0_ == 0 ? -2 : 0;
         }
         if (var35 != 0) {
-            func_0205cf10(arg0->unknown_e4_);
-            func_0205cf1c((Struct_0205cf1c*)arg0->unknown_e4_);
+            DisableTouchMenuCursor_0205cf10(arg0->unknown_e4_);
+            DisableKeyMenuCursor_0205cf1c((TextWindowManager_0205cf1c*)arg0->unknown_e4_);
             arg0->unknown_4e9_ = 0;
             return -2;
         }

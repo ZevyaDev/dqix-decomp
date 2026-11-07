@@ -43,7 +43,7 @@ struct Struct_ov006_021576a0_5 {
     void* unknown_8_;
     SafeAllocator* unknown_c_;
     Struct_ov006_02154348* unknown_10_;
-    Struct_0207f7f0* unknown_14_;
+    MenuLayout_0207f7f0* unknown_14_;
     Struct_ov006_021576a0_4* unknown_18_;
     char (*unknown_1c_)[0x20];
     char (*unknown_20_)[0xe0];
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov006_021576a0(Struct_ov006_021576a0_5* arg0, SafeAlloc
     }
     arg0->unknown_8_ = arg1->Allocate(0x4000);
     arg0->unknown_c_ = (SafeAllocator*)arg1->Allocate(0xc8);
-    arg0->unknown_14_ = static_cast<Struct_0207f7f0*>(arg1->Allocate(R(0x34, 0x40)));
+    arg0->unknown_14_ = static_cast<MenuLayout_0207f7f0*>(arg1->Allocate(R(0x34, 0x40)));
     arg0->unknown_1c_ = (char (*)[0x20])arg1->Allocate(0x40);
     arg0->unknown_20_ = (char (*)[0xe0])arg1->Allocate(0x620);
     arg0->unknown_24_ = (char (*)[0x28])arg1->Allocate(0x488);
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov006_021576a0(Struct_ov006_021576a0_5* arg0, SafeAlloc
         arg0->unknown_c_[var4].CreateTypeA(arg1->Allocate(var5), var5);
         arg0->unknown_c_[var4].Reset();
     }
-    func_0207f84c(arg0->unknown_14_);
+    ResetMenuLayout_0207f84c(arg0->unknown_14_);
     for (unsigned char var6 = 0; var6 < 2; var6++) InitBGLayer_0204af64(arg0->unknown_1c_[var6]);
     for (unsigned char var7 = 0; var7 < 7; var7++) InitTextWindow_0204c684(arg0->unknown_20_[var7]);
     for (unsigned char var8 = 0; var8 < 29; var8++) InitSprite_0205a198(arg0->unknown_24_[var8]);

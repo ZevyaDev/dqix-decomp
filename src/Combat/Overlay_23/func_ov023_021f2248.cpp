@@ -70,7 +70,7 @@ extern "C" Struct_02081870* GetMessageWindow_020421a0();
 extern "C" void func_020de968(int, char*);
 extern "C" int func_020ac020(void*, short*, int*, int);
 extern "C" void func_020abe84(void*, short*, Struct_ov023_021ed7e0*, int);
-extern "C" Struct_ov023_021f2248_3* func_0206f4f0(Struct_0206f01c_2*, int);
+extern "C" Struct_ov023_021f2248_3* FindMonsterData_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void StartMessage_0204500c(Struct_02081870*, const char*, int);
@@ -94,7 +94,7 @@ extern "C" ARM int func_ov023_021f2248(Struct_ov023_021f2248_6* arg0) {
         GameObject* var8 = var0->GetProtagonist();
         if (!var8) return arg0->unknown_e28_;
         char* var9 = ((Struct_ov023_021f2248*)var8)->unknown_134_;
-        var10 = func_0206f4f0(&arg0->unknown_21c_->unknown_678_, (short)var4);
+        var10 = FindMonsterData_0206f4f0(&arg0->unknown_21c_->unknown_678_, (short)var4);
         if (!var10) return arg0->unknown_e28_;
         char* var19 = var10->unknown_0_;
         char var11[0x40] = {0};

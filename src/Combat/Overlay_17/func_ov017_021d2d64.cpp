@@ -285,13 +285,13 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
                         ClearMessageParams_02046380(var0);
                         char var39[0xc];
                         InitNoun_020e46c4(var39);
-                        InitPartyMemberNoun_020e4bf4(var39, var24->obj3D_.unknown_4_);
+                        InitPartyMemberNoun_020e4bf4(var39, var24->obj3D_.objectIndex_4_);
                         *(char**)((char*)var0 + 0x10) = var39;
 #endif
                         SetMessageNumberWidth_020465f0((unsigned char*)var0, 0, 0);
                         SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 0, var25->unknown_0_0_);
                         SetMessageNumberWidth_020465f0((unsigned char*)var0, 9, 0);
-                        SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 9, var24->obj3D_.unknown_4_);
+                        SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 9, var24->obj3D_.objectIndex_4_);
                         char var40[0x80];
                         __clear(var40, 0x80);
 #if defined(jpn)

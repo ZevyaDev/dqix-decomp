@@ -18,7 +18,7 @@ extern "C" ARM void func_ov003_02173f70(Struct_ov003_02173f70* arg0, SafeAllocat
     if (arg1 != NULL) {
         arg0->unknown_4_ = static_cast<SafeAllocator*>(arg1->Allocate(0x78));
         arg0->unknown_830_ = static_cast<Sprite_02043368_2*>(arg1->Allocate(0x528));
-        arg0->unknown_89c_ = static_cast<Struct_0207f7f0*>(arg1->Allocate(sizeof(Struct_0207f7f0)));
+        arg0->unknown_89c_ = static_cast<MenuLayout_0207f7f0*>(arg1->Allocate(sizeof(MenuLayout_0207f7f0)));
         arg0->unknown_82c_ = static_cast<SpriteAnimationList_02043368*>(arg1->Allocate(8));
         arg0->unknown_0_ = static_cast<Struct_020e2490*>(arg1->Allocate(0x24));
 #if defined(jpn)
@@ -43,8 +43,8 @@ extern "C" ARM void func_ov003_02173f70(Struct_ov003_02173f70* arg0, SafeAllocat
             var2->CreateTypeA(arg1->Allocate(var1), var1);
             var2->Reset();
         }
-        func_0207f84c(arg0->unknown_89c_);
-        Struct_0207f7f0* var3 = arg0->unknown_89c_;
+        ResetMenuLayout_0207f84c(arg0->unknown_89c_);
+        MenuLayout_0207f7f0* var3 = arg0->unknown_89c_;
         var3->unknown_2c_ = arg0->unknown_8a0_;
         var3->unknown_38_ = 2;
         func_0207f7f0(arg0->unknown_89c_, arg0->unknown_8e0_, 8);

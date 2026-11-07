@@ -79,7 +79,7 @@ extern "C" int func_ov005_02155670(Struct_ov005_0215c058_4* arg0, int arg1, int 
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 extern "C" void func_ov005_021579ec(Struct_ov005_0215c058_4* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" unsigned int _ZNK9GameState12GetTickCountEv(GameState* arg0);
-extern "C" int func_0205bf58(void* arg0, int arg1);
+extern "C" int UpdateKeyMenuCursor_0205bf58(void* cursor, int ticks);
 extern "C" int func_ov005_021585fc(Struct_ov005_0215c058_4* arg0, int arg1);
 extern "C" void func_ov005_021555c0(Struct_ov005_0215c058_4* arg0);
 extern "C" void func_ov005_021536e0(Struct_ov005_0215c058_3* arg0);
@@ -94,7 +94,7 @@ extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" int func_ov005_02157190(void* arg0);
 extern "C" unsigned char* GetParty_02010828(GameState*);
-extern "C" short* func_0207c5f8(unsigned char*, unsigned int);
+extern "C" short* GetEquipmentBagItemIds_0207c5f8(unsigned char*, unsigned int);
 extern "C" signed char* func_0207c60c(void*, unsigned int);
 extern "C" void func_ov005_0215792c(Struct_ov005_0215c058_4* arg0, int arg1);
 
@@ -153,7 +153,7 @@ extern "C" ARM void func_ov005_0215c058(Struct_ov005_0215c058_4* arg0)
             int var7 = _ZNK9GameState12GetTickCountEv(var1);
             if (var7 == 0)
                 var7 = 1;
-            func_0205bf58(arg0->unknown_19f4_, var7);
+            UpdateKeyMenuCursor_0205bf58(arg0->unknown_19f4_, var7);
             int var8 = 0;
             int var9 = (arg0->unknown_3dbb_ - 8) % 4;
             if (var9 == 0)
@@ -212,7 +212,7 @@ extern "C" ARM void func_ov005_0215c058(Struct_ov005_0215c058_4* arg0)
         {
             short var18 = arg0->unknown_3dbb_ - 8 + arg0->unknown_3dbd_ * 16;
             unsigned char* var19 = GetParty_02010828(var1);
-            short* var20 = func_0207c5f8(var19 + 0x1d4, data_ov005_0215cd10[arg0->unknown_3dbc_]);
+            short* var20 = GetEquipmentBagItemIds_0207c5f8(var19 + 0x1d4, data_ov005_0215cd10[arg0->unknown_3dbc_]);
             signed char* var21 = func_0207c60c(var19 + 0x1d4, data_ov005_0215cd10[arg0->unknown_3dbc_]);
             short var22 = var20[arg0->unknown_3de0_];
             signed char var23 = var21[arg0->unknown_3de0_];

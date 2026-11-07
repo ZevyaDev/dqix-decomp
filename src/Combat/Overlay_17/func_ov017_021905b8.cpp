@@ -24,7 +24,7 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_0202c600(LocalWireless_0202b2f0* arg0, int arg1);
 extern "C" void func_0202c718(LocalWireless_0202b2f0* arg0, int arg1);
 extern "C" void func_0202c21c(LocalWireless_0202b2f0* arg0, int arg1);
-extern "C" Struct_0207da94* func_0207d78c(void);
+extern "C" Struct_0207da94* GetBattleJoinTable_0207d78c(void);
 extern "C" void func_ov017_0218d500(void* arg0);
 extern "C" void func_0207da94(Struct_0207da94* arg0, int arg1);
 extern "C" Struct_020e3544* func_020e2ff8(void);
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov017_021905b8(GameResources* arg0, int arg1, int arg2)
         return;
     }
 
-    Struct_0207da94* var2 = func_0207d78c();
+    Struct_0207da94* var2 = GetBattleJoinTable_0207d78c();
     func_0207dba8(var2);
     func_ov017_0218d500(arg0);
     func_0202c600(var1, arg1);

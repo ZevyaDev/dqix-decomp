@@ -98,7 +98,7 @@ struct Struct_ov003_02174a80_5 {
 };
 
 extern "C" void ClearItemTable_020de848(void*);
-extern "C" void func_020dea64(void*, SafeAllocator*, void*, unsigned int, const char*, int);
+extern "C" void LoadItemTableByCategories_020dea64(void*, SafeAllocator*, void*, unsigned int, const char*, int);
 struct Struct_02072488;
 extern "C" void func_02072488(Struct_02072488*);
 struct Struct_02013fb4;
@@ -178,7 +178,7 @@ extern "C" ARM void func_ov003_02174a80(Struct_ov003_02174a80_5* arg0) {
             SafeAllocator* var6 = &arg0->unknown_4_->unknown_0_[0];
             var6->Reset();
             ClearItemTable_020de848((char*)arg0 + Enum_ov003_02174a80_2164);
-            func_020dea64((char*)arg0 + Enum_ov003_02174a80_2164, var6, var4, var5, data_ov003_0217fab4, 9);
+            LoadItemTableByCategories_020dea64((char*)arg0 + Enum_ov003_02174a80_2164, var6, var4, var5, data_ov003_0217fab4, 9);
             var1->RemoveTask(arg0->unknown_fec_);
             arg0->unknown_fec_ = -1;
             arg0->unknown_103f_++;

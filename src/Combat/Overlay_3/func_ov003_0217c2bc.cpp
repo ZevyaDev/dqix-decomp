@@ -4,7 +4,7 @@
 #include "World/Object3D.h"
 #include "Resource/GameResources.h"
 
-struct Struct_02109bf4_2;
+struct MusicManager_02109bf4_2;
 
 struct Struct_ov003_0217c2bc {
     SafeAllocator *unknown_0_;
@@ -20,10 +20,10 @@ extern "C" void PlayExtraSoundEffect_0205ebfc(void *manager, int soundEffectInde
 extern "C" void func_ov003_0217cb3c(Struct_ov003_0217c2bc *arg0, int arg1, int arg2);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_ov003_0217c974(Struct_ov003_0217c2bc *arg0);
-extern "C" void func_0209c830(Struct_02109bf4_2*, int);
+extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
 
 extern int gSoundEffectManager_02108760;
-extern struct Struct_02109bf4_2 gMusicManager_02109bf4;
+extern struct MusicManager_02109bf4_2 gMusicManager_02109bf4;
 
 // USA: func_ov003_0217c2bc
 extern "C" ARM void func_ov003_0217c2bc(Struct_ov003_0217c2bc *arg0) {
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov003_0217c2bc(Struct_ov003_0217c2bc *arg0) {
         arg0->unknown_141_++;
     } else if (arg0->unknown_141_ == 12) {
         if (IsBrightnessTransitionActive(var0)) return;
-        func_0209c830(&gMusicManager_02109bf4, 0x43);
+        QueueJingle_0209c830(&gMusicManager_02109bf4, 0x43);
         SetBrightness(var0, 0, 0x3c);
         func_ov003_0217cb3c(arg0, 0, 1);
         arg0->unknown_141_++;

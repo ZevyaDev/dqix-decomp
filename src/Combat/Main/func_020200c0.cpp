@@ -64,7 +64,7 @@ extern "C" void func_0205b20c(struct Struct_020200c0_4* arg0);
 extern "C" void func_0205b220(void* arg0, int arg1);
 extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
 extern "C" void func_0205b234(struct Struct_020200c0_4* arg0, short arg1, short arg2, const char* arg3, int arg4, int arg5);
-extern "C" int func_ov017_021bdbcc(GameResources* arg0);
+extern "C" int GetHaloObject_ov017_021bdbcc(GameResources* gameResources);
 extern "C" unsigned short GetLevel_0202053c(void* gameObject);
 extern "C" void WaitForVBlank_020c9820(void);
 extern "C" void DC_FlushRange(const void* arg0, unsigned int arg1);
@@ -117,7 +117,7 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
     Struct_020200c0_7* var15 = var8->unknown_144_;
     var11 = var15->unknown_8b8_;
     var14 = var15->unknown_186_[var15->unknown_8b8_];
-    if (func_ov017_021bdbcc(var2)) var11 = 0xd;
+    if (GetHaloObject_ov017_021bdbcc(var2)) var11 = 0xd;
     unsigned int var16 = var8->unknown_ac_.unknown_84_->unknown_0_;
     if (var16 & 1) {
         func_0205b234(&var7, 0x16, 0x2b, data_020ef464, 10, 8);
@@ -207,7 +207,7 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
     Struct_020200c0_7* var16 = var8->unknown_150_;
     var15 = var16->unknown_186_[var16->unknown_950_];
     var12 = var16->unknown_950_;
-    if (func_ov017_021bdbcc(var2)) var12 = 0xd;
+    if (GetHaloObject_ov017_021bdbcc(var2)) var12 = 0xd;
     if (var12 == 0) var12 = -1;
     if (var12 == 0xd) var12 = 0;
     var10 = 0xf;

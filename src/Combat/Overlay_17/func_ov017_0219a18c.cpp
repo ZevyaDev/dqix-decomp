@@ -25,10 +25,10 @@ extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(TextWindowManag
 
 struct TextWindow_0205d0e0 {
     char unknown_0_[0xA8];
-    short unknown_a8_;
+    short width_a8_;
     short unknown_aa_;
-    short unknown_ac_;
-    short unknown_ae_;
+    short tileX_ac_;
+    short tileY_ae_;
 };
 struct TextWindowManager_0205d81c;
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov017_0219a18c(unsigned char* arg0) {
     if (var5 && var8 >= 0) {
         TextWindow_0205d0e0* var9 = FindTextWindow_0205d81c(*(TextWindowManager_0205d81c**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248), var6);
         if (var9 != 0) {
-            FillBGScreenRect_0204bc74((BGLayer_0204bc74*)(arg0 + Enum_ov017_0219a18c_180 + Enum_ov017_0219a18c_15360), 1, var9->unknown_ac_, var9->unknown_ae_, var9->unknown_a8_, var9->unknown_aa_, 0xf);
+            FillBGScreenRect_0204bc74((BGLayer_0204bc74*)(arg0 + Enum_ov017_0219a18c_180 + Enum_ov017_0219a18c_15360), 1, var9->tileX_ac_, var9->tileY_ae_, var9->width_a8_, var9->unknown_aa_, 0xf);
         }
     }
 

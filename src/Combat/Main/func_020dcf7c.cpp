@@ -3,7 +3,7 @@
 #if defined(jpn)
 struct StringTable_0201099c_14;
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
-extern "C" void* func_020dfc2c(void* arg0);
+extern "C" void* ConstructStringTable_020dfc2c(void* stringTable);
 extern "C" int func_020e2168(char* arg0, const char* arg1,
     int arg2, int arg3, bool arg4);
 extern const char data_020f2b6c[];
@@ -25,7 +25,7 @@ extern "C" ARM void func_020dcf7c(int arg0, void* arg1) {
         Struct_020dcf7c var1;
         var0 = data_020f2b6c;
         *(char*)arg1 = 0;
-        func_020dfc2c(&var1);
+        ConstructStringTable_020dfc2c(&var1);
         InitStringTable_020dfc40((StringTable_0201099c_14*)&var1);
     } else {
         return;

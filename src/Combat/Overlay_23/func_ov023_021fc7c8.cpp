@@ -41,7 +41,7 @@ extern "C" void Set3DFog_020c54a4(int, unsigned int, unsigned int, unsigned shor
 extern "C" void func_ov023_021e5020(Struct_ov023_021fc7c8* arg0);
 extern "C" Vector3i func_ov023_021e613c(Struct_ov023_021fc7c8* arg0);
 extern "C" char* GetFollowCamera_020100f8(char* gameState);
-extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
+extern "C" void SetCameraFlags_020a28a0(unsigned char* camera, unsigned char flags);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" void func_0202ee38(char*, int, int);
 extern "C" void func_0202ee58(char*, int, int);
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov023_021fc7c8(Struct_ov023_021fc7c8_2* arg0, void* arg
         const Vector3i var7 = data_ov023_021fda08;
         const Vector3i var8 = data_ov023_021fd9fc;
         char* var9 = GetFollowCamera_020100f8((char*)var0);
-        func_020a28a0((unsigned char*)var9, 2);
+        SetCameraFlags_020a28a0((unsigned char*)var9, 2);
         func_0202ee38(var9, (int)&var7, 0xa000);
         func_0202ee58(var9, (int)&var8, 0xa000);
     }

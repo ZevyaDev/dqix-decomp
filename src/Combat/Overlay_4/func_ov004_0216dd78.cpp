@@ -6,7 +6,7 @@
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" unsigned short func_ov023_021f6f10(void*);
-extern "C" void* func_ov023_021fa598(void*);
+extern "C" void* GetMenuObjectStringList_ov023_021fa598(void*);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" int func_020ab7a8(void* arg0, int arg1);
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov004_0216dd78(void* arg0) {
     if (!var1) return 0;
     if (func_ov023_021f6f10(var1) != 4) return 0;
 
-    void* var2 = func_ov023_021fa598(var1);
+    void* var2 = GetMenuObjectStringList_ov023_021fa598(var1);
     void* var3 = GameState::GetInstance();
     MessageWindow_02021b84* var4 = (MessageWindow_02021b84*)GetMessageWindow_020421a0();
     struct GlobalFlags_02038598_4* var5 = (struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00();

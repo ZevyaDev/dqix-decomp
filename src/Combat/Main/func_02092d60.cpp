@@ -47,7 +47,7 @@ extern "C" ARM void func_02092d60(struct Struct_02092d60_3* arg0, int arg1) {
         if (var5 == 0xa) {
             void* var6 = GetBattleScene_ov000_02160130();
             if (var6 != 0) {
-                void* var7 = func_ov000_021677d8(var6, var1->obj3D_.unknown_4_);
+                void* var7 = func_ov000_021677d8(var6, var1->obj3D_.objectIndex_4_);
                 if (var7 != 0) {
                     *(Vector3i*)&var2.unknown_0_ = *(Vector3i const*)((int*)var7);
                 }

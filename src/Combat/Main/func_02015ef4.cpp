@@ -86,8 +86,8 @@ extern "C" ARM int func_02015ef4(Zone3D* arg0, int arg1) {
     Struct_02015ef4_8* var1 = &reinterpret_cast<Struct_02015ef4_8*>(arg0->unknown_47c_)[arg1];
     LootableContainerManager* var2 = LootableContainerManager::GetMainInstance();
     BackgroundLoader* var3 = BackgroundLoader::GetInstance();
-    int var4 = var0->GetProtagonist()->obj3D_.unknown_4_;
-    int var5 = var0->GetUnknownGameObject()->obj3D_.unknown_4_;
+    int var4 = var0->GetProtagonist()->obj3D_.objectIndex_4_;
+    int var5 = var0->GetUnknownGameObject()->obj3D_.objectIndex_4_;
     int var6 = 0;
     arg0->unk_23bc[1] = 0;
     if (var1->unknown_16_ == 0 || var1->unknown_16_ == 8) {

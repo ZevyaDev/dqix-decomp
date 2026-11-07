@@ -4,13 +4,13 @@
 extern "C" void func_ov031_02236174(void);
 
 struct Struct_ov031_02290cfc_4 { void* unknown_0_; };
-extern Struct_ov031_02290cfc_4 data_ov031_02290cfc;
+extern Struct_ov031_02290cfc_4 gConnectionSettings_ov031_02290cfc;
 
 struct Struct_ov031_02236250 { unsigned char unknown_0_0_ : 2; unsigned char unknown_0_2_ : 6; };
 
 // USA: func_ov031_02236250
 extern "C" ARM void func_ov031_02236250(unsigned char* arg0) {
-	unsigned char* var0 = (unsigned char*)data_ov031_02290cfc.unknown_0_;
+	unsigned char* var0 = (unsigned char*)gConnectionSettings_ov031_02290cfc.unknown_0_;
 
 	VectorizedMemset(var0 + 0x400, 0, 0xef);
 	VectorizedInvertedMemcpy(arg0, var0 + 0x440, 0x20);

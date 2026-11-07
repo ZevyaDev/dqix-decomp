@@ -199,7 +199,7 @@ extern "C" ARM void func_ov002_0215a0a4(Struct_ov002_0215a0a4* arg0, Struct_ov00
                     InitPartyMemberNoun_020e4bf4(arg0->unknown_14_, var6[var10]);
                     var8->unknown_10_ = arg0->unknown_14_;
 #endif
-                    SetMessageNumber_020465c0((Struct_ov002_02157d40_2*)var8, 9, var0->obj3D_.unknown_4_);
+                    SetMessageNumber_020465c0((Struct_ov002_02157d40_2*)var8, 9, var0->obj3D_.objectIndex_4_);
                     FORMAT(var8, 0xc, FindStringInTable_020e0434(&arg0->unknown_20_, var13), var5 + Enum_ov002_0215a0a4_2144);
                     AppendText_02042058(arg0->unknown_1000_.unknown_bd0_, (const char*)FindStringInTable_020e0434(&arg0->unknown_20_, 8));
                     AppendText_02042058(arg0->unknown_1000_.unknown_bd0_, var5 + Enum_ov002_0215a0a4_2144);
@@ -214,7 +214,7 @@ extern "C" ARM void func_ov002_0215a0a4(Struct_ov002_0215a0a4* arg0, Struct_ov00
         if (var0) {
             SetMessageString_02046574(var8, 2, inline_ov002_0215a0a4(var0));
 #if !defined(jpn)
-            InitPartyMemberNoun_020e4bf4(arg0->unknown_14_, var0->obj3D_.unknown_4_);
+            InitPartyMemberNoun_020e4bf4(arg0->unknown_14_, var0->obj3D_.objectIndex_4_);
             var8->unknown_10_ = arg0->unknown_14_;
 #endif
         }

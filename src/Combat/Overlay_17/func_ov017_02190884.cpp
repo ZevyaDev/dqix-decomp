@@ -43,7 +43,7 @@ struct Struct_ov017_021d61dc {
 extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00();
 extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8* globalFlags, unsigned int mask);
 extern "C" void func_020dc548(signed char arg0, signed char* arg1, signed char* arg2);
-extern "C" int func_02039d7c(char* arg0);
+extern "C" int IsOnLadder_02039d7c(char* object);
 extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18();
 extern "C" GameObject* func_0200fee0(GameState* arg0, int arg1);
 extern "C" char* GetZone3D_02012fe4();
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
     func_020dc548((signed char)arg0, var4, &var3);
     for (int var6 = 0; var6 < var3; var6++) {
         GameObject* var7 = var0->GetPartyMemberByIndex(var4[var6]);
-        if (var7 != NULL && func_02039d7c((char*)var7) != 0) {
+        if (var7 != NULL && IsOnLadder_02039d7c((char*)var7) != 0) {
             return;
         }
     }
@@ -201,7 +201,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
         }
     }
 
-    if (var34 != NULL && arg1[0] != var34->obj3D_.unknown_4_) {
+    if (var34 != NULL && arg1[0] != var34->obj3D_.objectIndex_4_) {
         GameObject* var35 = GetCompanionByIndex_0200ff58(var0, arg0);
         int var36;
         if (arg0 == 0 || var35 != NULL) {

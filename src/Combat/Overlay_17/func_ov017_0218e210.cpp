@@ -26,7 +26,7 @@ extern "C" ARM void func_ov017_0218e210(int arg0, int arg1) {
     if (!arg1) return;
     Vector3fix var3 = var1->obj3D_.position_;
     int var4 = Vector3fix_Distance(&var2, &var3);
-    int var5 = var1->obj3D_.unknown_4_;
+    int var5 = var1->obj3D_.objectIndex_4_;
     int var6 = 1;
     if (var5 == GetOwnPartyLeaderObjectIndex_020100b0(var0) && !(var1->obj3D_.classFlags_0_ & 0x8000) && var4 > 0x333) var6 = 2;
     int var7 = 0;

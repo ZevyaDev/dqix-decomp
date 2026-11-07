@@ -27,8 +27,8 @@ extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* men
 struct Struct_02081f20_2;
 extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 
-struct Struct_020e25e8;
-extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
+struct YesNoWindow_020e25e8;
+extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8* yesNoWindow);
 
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
@@ -65,7 +65,7 @@ merge:
         *(void**)(arg0 + Enum_ov003_021764f4_4088) = 0;
     }
     if (*(void**)arg0 != 0 && var0 != 0) {
-        func_020e25e8(*(struct Struct_020e25e8**)arg0);
+        CloseYesNoWindow_020e25e8(*(struct YesNoWindow_020e25e8**)arg0);
     }
     return var0;
 }

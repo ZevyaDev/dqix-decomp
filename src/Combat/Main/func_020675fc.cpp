@@ -11,7 +11,7 @@ enum { Enum_020675fc_2456 = 0x998, Enum_020675fc_288 = 0x120, Enum_020675fc_90 =
 #include "Resource/GameResources.h"
 
 struct NPCManager_0203dce4_2;
-struct Struct_0203de84_2;
+struct NPC_0203de84_2;
 struct Struct_02015ef4_2;
 struct Struct_0203de84 { unsigned int unknown_0_[3]; };
 struct Struct_02015ef4 { unsigned int unknown_0_[3]; };
@@ -29,10 +29,10 @@ struct Struct_020675fc_2 {
     unsigned char unknown_195d_[Enum_020675fc_90];
     unsigned char unknown_19b7_;
 };
-extern "C" NPCManager_0203dce4_2* func_0203cf4c();
+extern "C" NPCManager_0203dce4_2* GetNPCManager_0203cf4c();
 extern "C" NPC_0203dce4* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
 extern "C" void* GetCamera_020100bc(GameState*);
-extern "C" void func_020406f8(Struct_0203de84*, Struct_0203de84_2*);
+extern "C" void GetNPCPosition_020406f8(Struct_0203de84*, NPC_0203de84_2*);
 extern "C" int ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" void func_020473c8(Struct_02015ef4_2*, int);
 extern unsigned char data_020e7e08[];
@@ -40,7 +40,7 @@ extern unsigned char data_020e7e08[];
 // USA: func_020675fc
 extern "C" ARM void func_020675fc(Struct_020675fc_2* arg0) {
     if (!arg0->unknown_998_) return;
-    NPC_0203dce4* var0 = GetNPCByIndex_0203dce4(func_0203cf4c(), arg0->unknown_1838_);
+    NPC_0203dce4* var0 = GetNPCByIndex_0203dce4(GetNPCManager_0203cf4c(), arg0->unknown_1838_);
     if (var0 && arg0->unknown_19b7_) {
         GameResources* var1 = GetGameResources();
         void* var2 = GetCamera_020100bc(GameState::GetInstance());
@@ -48,7 +48,7 @@ extern "C" ARM void func_020675fc(Struct_020675fc_2* arg0) {
         int var4;
         Struct_02015ef4 var5;
         Struct_020675fc var6;
-        func_020406f8(&var6.unknown_0_, (Struct_0203de84_2*)var0);
+        GetNPCPosition_020406f8(&var6.unknown_0_, (NPC_0203de84_2*)var0);
         var5 = var6.unknown1_0_;
         ConvertWorldToScreen_0202ec84(var2, &var5, &var3, &var4);
         var3 -= 12;

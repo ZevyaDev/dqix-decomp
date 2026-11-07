@@ -13,7 +13,7 @@ extern "C" void func_0209bffc(void* arg0);
 extern "C" void func_0209bc84(void* arg0);
 struct Struct_020287b4_2;
 extern "C" void func_0209af34(struct Struct_020287b4_2* arg0);
-extern "C" void func_0206efc4(void* arg0);
+extern "C" void ClearMonsterTable_0206efc4(void* monsterTable);
 struct Struct_020287b4_4;
 extern "C" void func_0206ee60(struct Struct_020287b4_4* arg0);
 extern "C" void func_020a8e88(void* arg0);
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov017_021b478c(Struct_ov017_021b478c* arg0) {
     func_0209bffc(var6 + Enum_ov017_021b478c_68);
     func_0209bc84(var6 + Enum_ov017_021b478c_96);
     func_0209af34((struct Struct_020287b4_2*)(var6 + Enum_ov017_021b478c_292));
-    func_0206efc4(var6 + Enum_ov017_021b478c_760);
+    ClearMonsterTable_0206efc4(var6 + Enum_ov017_021b478c_760);
     func_0206ee60((struct Struct_020287b4_4*)(var6 + Enum_ov017_021b478c_772));
     func_020a8e88(var6 + Enum_ov017_021b478c_780);
 

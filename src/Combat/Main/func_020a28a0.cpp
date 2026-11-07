@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_020a28a0
-extern "C" ARM void func_020a28a0(unsigned char* arg0, unsigned char arg1) {
-    arg0[0x244] |= arg1;
+// USA: SetCameraFlags_020a28a0
+extern "C" ARM void SetCameraFlags_020a28a0(unsigned char* camera, unsigned char flags) {
+    camera[0x244] |= flags;
 }

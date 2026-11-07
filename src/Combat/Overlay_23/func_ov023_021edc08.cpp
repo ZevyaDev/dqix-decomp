@@ -82,16 +82,16 @@ extern "C" void func_ov000_021823a4(char*);
 extern "C" Struct_0203a54c* func_02039e70();
 extern "C" void func_0203a54c(Struct_0203a54c*);
 extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8*);
-extern "C" void func_0209a804(int*);
+extern "C" void ClearSpellTable_0209a804(int*);
 extern "C" void func_ov023_021f52a0(void*);
-extern "C" void func_0206efc4(void*);
+extern "C" void ClearMonsterTable_0206efc4(void*);
 extern "C" void PushSubOverlay_020a1ef0(int);
 extern "C" void func_ov023_021f52f8(void*, void*);
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void ClearMessageParams_02046380(Struct_02081870*);
 extern "C" Struct_ov023_021edc08_3* GetZone3D_02012fe4();
 extern "C" void InitNoun_020e46c4(void*);
-extern "C" void* func_0206f4f0(Struct_0206f01c_2*, int);
+extern "C" void* FindMonsterData_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" Struct_ov023_021edc08_5 func_ov023_021ed804(Struct_ov023_021edc08_5, void*);
 extern "C" void func_ov023_021edf38(void*, Struct_ov023_021edc08_5*);
 extern "C" const char* GetStandardString_020e51cc(int);
@@ -156,9 +156,9 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
     memset(var8->unknown_118_, 0, sizeof(var8->unknown_118_));
     var8->unknown_2788_ = 0;
     ClearSkillTable_0209a338(&var8->unknown_e8_);
-    func_0209a804(&var8->unknown_f0_);
+    ClearSpellTable_0209a804(&var8->unknown_f0_);
     func_ov023_021f52a0(var8->unknown_f4_);
-    func_0206efc4(&var8->unknown_10c_);
+    ClearMonsterTable_0206efc4(&var8->unknown_10c_);
     PushSubOverlay_020a1ef0(1);
     func_ov023_021f52f8(_ZZ21inline_ov023_021f4c04vE1s.unknown_0_->unknown_f4_, var7);
     if (IsLocalWirelessGuest_0202c540(var2) && arg0->unknown_2a0_->unknown_25_) {
@@ -175,7 +175,7 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
         InitNoun_020e46c4(&var14);
         Struct_ov003_02162f40* var15 = arg0->unknown_2a0_;
         for (int var16 = 0; var16 < 3; ++var16) {
-            void* var17 = func_0206f4f0(&var15->unknown_678_, var13->unknown_4_[var16]);
+            void* var17 = FindMonsterData_0206f4f0(&var15->unknown_678_, var13->unknown_4_[var16]);
             if (var17) {
                 const Struct_ov023_021edc08_5& var18 = func_ov023_021ed804(var14, var17);
                 func_ov023_021edf38(&var14, const_cast<Struct_ov023_021edc08_5*>(&var18));

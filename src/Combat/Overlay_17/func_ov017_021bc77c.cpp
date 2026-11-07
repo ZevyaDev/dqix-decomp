@@ -28,7 +28,7 @@ extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index)
 extern "C" Object3D* func_ov017_021bdbc0(unsigned char*);
 extern "C" int func_0201bfc0(unsigned char*, int);
 extern "C" void func_020e1154(void*);
-extern "C" void func_020a2794(void* arg0);
+extern "C" void EnableCameraFollow_020a2794(void* camera);
 extern "C" void func_020a2744(char*);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void func_ov017_0219b624(void* arg0);
@@ -46,7 +46,7 @@ extern "C" void func_0206f81c(void* arg0);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" unsigned char* GetBattleSetup_ov017_021b8478(unsigned char* battleManager);
-extern "C" void func_02046a8c(void* arg0, unsigned char* arg1);
+extern "C" void RemoveFromQueue_02046a8c(void* queue, unsigned char* node);
 extern "C" int func_0209ca68(char*);
 extern "C" void func_0209c530(void* arg0);
 extern "C" unsigned char* GetZoneEntry_0200fd0c(GameState* gameState);
@@ -251,7 +251,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
             func_020e1154((void*)0x1388);
         }
     }
-    func_020a2794(var5);
+    EnableCameraFollow_020a2794(var5);
     func_020a2744((char*)var5);
     if (arg0->unknown_c_.unknown_46_ > Enum_ov017_021bc77c_m1) {
         SetFlag_0206df6c(var13, var13 + 0x8c, arg0->unknown_c_.unknown_46_ + 0x38e, 1);
@@ -320,7 +320,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
                 }
             }
             if (var25) {
-                func_02046a8c(arg1, var14);
+                RemoveFromQueue_02046a8c(arg1, var14);
                 if (func_0209ca68((char*)gMusicManager_02109bf4) == 2) {
                     func_0209c530(gMusicManager_02109bf4);
                 }
@@ -367,7 +367,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
             func_ov017_021cdd70(arg0->unknown_14e_, 0, 0, 0, 0, 0, 0);
             unsigned char* var31 = RES_PTR(var1, 70c);
             if (var31[2]) {
-                func_02046a8c(arg1, var31);
+                RemoveFromQueue_02046a8c(arg1, var31);
             }
             return 5;
         }

@@ -48,7 +48,7 @@ extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 extern "C" void func_ov003_0216dc58(Struct_ov003_0216b968_2* arg0);
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
-extern "C" int func_0205d97c(void* arg0);
+extern "C" int HitTestCursorWindowTouch_0205d97c(void* windowManager);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov003_0216b968(Struct_ov003_0216b968_2* arg0) {
             var3 = GetCursorIndex_0205d794((struct Struct_0205c570*)arg0->unknown_12c0_);
         } else if (g_keyManager.TestKeysPressed(0x401) != 0) {
             var3 = GetCursorIndex_0205d794((struct Struct_0205c570*)arg0->unknown_12c0_);
-        } else if (g_keyManager.TestKeysPressed(2) != 0 || func_0205d97c(arg0->unknown_12c0_) == 2) {
+        } else if (g_keyManager.TestKeysPressed(2) != 0 || HitTestCursorWindowTouch_0205d97c(arg0->unknown_12c0_) == 2) {
             var3 = -2;
         }
 

@@ -10,7 +10,7 @@ enum { Enum_ov002_02160068_3784 = 0xec8, Enum_ov002_02160068_3024 = 0xbd0, Enum_
 #define FINAL_ARG_02160068 , 0
 extern "C" void OpenTextWindow_0205d304(void *windowManager, void *text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
-extern "C" void func_ov002_0215be00(void *arg0, int arg1, int arg2, int arg3);
+extern "C" void SetNextTextWindow_ov002_0215be00(void *menu, int windowId, int x, int y);
 struct TextWindowManager_0205de24_2;
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
@@ -31,13 +31,13 @@ struct Struct_ov002_02160068_2 {
 // USA: func_ov002_02160068
 extern "C" ARM void func_ov002_02160068(char *arg0) {
     SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + Enum_ov002_02160068_3784), 0, 3);
-    func_ov002_0215be00(arg0, Enum_ov002_02160068_29, Enum_ov002_02160068_21, 0xb);
+    SetNextTextWindow_ov002_0215be00(arg0, Enum_ov002_02160068_29, Enum_ov002_02160068_21, 0xb);
     memset(((struct Struct_ov002_02160068 *) (arg0 + 0x1000))->unknown_bd0_, 0, Enum_ov002_02160068_2400);
     func_ov002_021601e0(arg0, ((struct Struct_ov002_02160068 *) (arg0 + 0x1000))->unknown_bd0_, 0);
     OpenTextWindow_0205d304(arg0 + Enum_ov002_02160068_3784, ((struct Struct_ov002_02160068 *) (arg0 + 0x1000))->unknown_bd0_, 0, 0, 0, 1, 0 FINAL_ARG_02160068);
 
     SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + Enum_ov002_02160068_3784), 0, 3);
-    func_ov002_0215be00(arg0, ((struct Struct_ov002_02160068_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff, Enum_ov002_02160068_4, 3);
+    SetNextTextWindow_ov002_0215be00(arg0, ((struct Struct_ov002_02160068_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff, Enum_ov002_02160068_4, 3);
     memset(((struct Struct_ov002_02160068 *) (arg0 + 0x1000))->unknown_bd0_, 0, Enum_ov002_02160068_2400);
     AppendCursorTag_02041ea4(((struct Struct_ov002_02160068 *) (arg0 + 0x1000))->unknown_bd0_, *(short *) (arg0 + Enum_ov002_02160068_7174));
     OpenTextWindow_0205d304(arg0 + Enum_ov002_02160068_3784, ((struct Struct_ov002_02160068 *) (arg0 + 0x1000))->unknown_bd0_, 0, 0, 0, 1, 0 FINAL_ARG_02160068);

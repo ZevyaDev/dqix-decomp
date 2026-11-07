@@ -27,7 +27,7 @@ struct TextureVRAMArea_020432c4 {
 
 // USA: InitMessageGlyphs_020432c4
 extern "C" ARM void InitMessageGlyphs_020432c4(char* window) {
-    struct TextureVRAMArea_020432c4* var0 = *(struct TextureVRAMArea_020432c4**)(window + (
+    struct TextureVRAMArea_020432c4* textureVRAMArea = *(struct TextureVRAMArea_020432c4**)(window + (
 #if defined(jpn)
 0x1c4c
 #else
@@ -36,8 +36,8 @@ extern "C" ARM void InitMessageGlyphs_020432c4(char* window) {
 ));
     int slot;
 
-    if (var0 != 0) {
-        data_021077fc = var0->paletteAllocation_68_0_ << 3;
+    if (textureVRAMArea != 0) {
+        data_021077fc = textureVRAMArea->paletteAllocation_68_0_ << 3;
     }
 
     StageMemoryToVRAM(VRAMSubregion_TexturePalette, &data_020e7af8, data_021077fc, 0x20, true, true);

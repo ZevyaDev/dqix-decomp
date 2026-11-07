@@ -7,7 +7,7 @@ extern "C" void __clear(void* arg0, int arg1);
 
 struct Struct_02037d88_9;
 
-struct Struct_02078398_2 {
+struct EffectParams_02078398_2 {
     unsigned char unknown_0_;
     unsigned char unknown_1_[0xf];
     unsigned char unknown_10_;
@@ -30,7 +30,7 @@ struct Struct_02078398_2 {
     int unknown_34_; int unknown_38_; int unknown_3c_; int unknown_40_;
     int unknown_44_; int unknown_48_; int unknown_4c_;
 };
-extern "C" void func_02078484(struct Struct_02078398_2* arg0);
+extern "C" void InitEffectParams_02078484(struct EffectParams_02078398_2* params);
 
 struct Vector3i;
 
@@ -67,8 +67,8 @@ extern "C" ARM int func_0207853c(struct Struct_0207853c_2* arg0) {
 
     if (arg0->unknown_178_ > 0) {
         void* var1 = GetEffectManager_02057924();
-        struct Struct_02078398_2 var2;
-        func_02078484(&var2);
+        struct EffectParams_02078398_2 var2;
+        InitEffectParams_02078484(&var2);
         *(Vector3i*)&var2.unknown_2c_ = *(Vector3i const*)&arg0->unknown_44_;
         const Vector3fix& var3 = ((Object3D*)arg0)->GetScale();
         *(Vector3i*)&var2.unknown_44_ = *(Vector3i const*)((int*)&var3);

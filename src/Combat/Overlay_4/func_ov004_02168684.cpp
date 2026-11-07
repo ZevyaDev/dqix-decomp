@@ -7,12 +7,12 @@ struct Struct_ov004_02170038 { unsigned int unknown_0_[0x88 / 4]; };
 extern struct Struct_ov004_02170038 data_ov004_02170038;
 extern "C" void func_ov011_02184a24(void* arg0, void* arg1, int arg2);
 
-extern "C" void* func_0203cf4c(void);
+extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
 
 struct Struct_0203de84 { unsigned int unknown_0_[3]; };
-struct Struct_0203de84_2;
-extern "C" void func_020406f8(struct Struct_0203de84* arg0, struct Struct_0203de84_2* arg1);
+struct NPC_0203de84_2;
+extern "C" void GetNPCPosition_020406f8(struct Struct_0203de84* outPosition, struct NPC_0203de84_2* npc);
 
 struct Struct_ov009_0218aa28 { int unknown_0_; int unknown_4_; int unknown_8_; };
 struct Vector3i;
@@ -30,13 +30,13 @@ extern "C" ARM void func_ov004_02168684(SafeAllocator* arg0, void* arg1) {
     func_ov011_02184a24(arg1, var1, 0x22);
 
     GameState* var2 = GameState::GetInstance();
-    void* var3 = FindNPCById_0203df78(func_0203cf4c(), 0x67);
+    void* var3 = FindNPCById_0203df78(GetNPCManager_0203cf4c(), 0x67);
     if (!var3) return;
     GameObject* var4 = var2->GetUnknownGameObject();
     if (!var4) return;
 
     struct Struct_0203de84 var5;
-    func_020406f8(&var5, (struct Struct_0203de84_2*)var3);
+    GetNPCPosition_020406f8(&var5, (struct NPC_0203de84_2*)var3);
     struct Struct_ov004_02168684 var6;
     struct Struct_ov004_02168684 var7;
     var7 = *(struct Struct_ov004_02168684*)&var5;

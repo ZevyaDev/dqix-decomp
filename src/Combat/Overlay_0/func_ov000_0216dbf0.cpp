@@ -3,7 +3,7 @@
 
 extern "C" void ResetBattleCamera_ov000_0216d370(char* camera, int resetRoll, int resetFieldOfView, int resetTurns);
 extern "C" void func_ov000_0216d530(void*, int);
-extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
 
 extern Vector3i data_ov000_02183280;
 

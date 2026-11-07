@@ -85,7 +85,7 @@ extern "C" void func_ov017_021ae760(Struct_ov017_021adcb0_4* arg0);
 extern "C" void func_ov017_0218d5ac(void* arg0);
 extern "C" void* GetFollowCamera_020100f8(char* gameState);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
-extern "C" void func_020a2794(void* arg0);
+extern "C" void EnableCameraFollow_020a2794(void* camera);
 extern "C" void SetFacing_02033834(Struct_02033834_2* object, int angle);
 extern "C" int* GetLocalWireless_0202ae18(void);
 extern "C" unsigned char* func_020177a8(unsigned char* arg0, int arg1);
@@ -102,7 +102,7 @@ extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2* qu
 extern "C" short func_02086aec(Struct_02053f7c* arg0, int arg1);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void func_020113a8(void* arg0, int arg1, int arg2);
-extern "C" void func_02033b68(Struct_02033b68* arg0, int arg1);
+extern "C" void SetMotionIfDifferent_02033b68(Struct_02033b68* object, int motion);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_ov017_0218d510(GameResources* arg0, SafeAllocator* arg1);
 extern "C" void EnablePlayerControl_020397c0(void* object);
@@ -119,7 +119,7 @@ extern "C" void* InitItemTable_020de824(void*);
 extern "C" void func_0207cbe8(char*);
 extern "C" int func_0207d538(void*, int, int, char*, int);
 extern "C" void func_ov017_0218d644(GameResources*, Vector3fix*, int);
-extern "C" void func_0205eb80(void* arg0);
+extern "C" void UnloadExtraSoundSet_0205eb80(void* manager);
 extern "C" void func_0205eb54(void* arg0, int arg1, int arg2);
 extern "C" void func_0205eb90(void* arg0, int arg1, int arg2);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -257,7 +257,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
             if (arg0->unknown_20_) {
                 func_020113a8(var9, *(unsigned short*)var2 % 20, arg0->unknown_a_);
             }
-            func_02033b68((Struct_02033b68*)var6, 7);
+            SetMotionIfDifferent_02033b68((Struct_02033b68*)var6, 7);
             arg0->unknown_9_ = 1;
         }
         if ((arg0->unknown_9_ == 1 || arg0->unknown_9_ == 9) && var13 && var13->itemIDOrRank == 0x5617) {
@@ -279,7 +279,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
     } else if (arg0->unknown_9_ == 9) {
         arg0->unknown_c_--;
         if (arg0->unknown_c_ <= 0) {
-            func_02033b68((Struct_02033b68*)var6, 7);
+            SetMotionIfDifferent_02033b68((Struct_02033b68*)var6, 7);
             arg0->unknown_9_ = 1;
         }
     } else if (arg0->unknown_9_ == 1) {
@@ -287,12 +287,12 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
             Struct_ov017_021adcb0_2* var31 = (Struct_ov017_021adcb0_2*)func_020177a8(var2, arg0->unknown_a_);
             if (var31) {
                 if (var31->unknown_17_ == 2 || var31->unknown_17_ == 1) {
-                    func_02015a98((Struct_02015a98*)var31, var6->obj3D_.unknown_4_, 1, 1);
+                    func_02015a98((Struct_02015a98*)var31, var6->obj3D_.objectIndex_4_, 1, 1);
                 } else {
-                    func_02015a98((Struct_02015a98*)var31, var6->obj3D_.unknown_4_, 1, 0);
+                    func_02015a98((Struct_02015a98*)var31, var6->obj3D_.objectIndex_4_, 1, 0);
                 }
             }
-            func_ov017_021cfd5c(var6->obj3D_.unknown_4_, *(unsigned short*)var2, arg0->unknown_a_);
+            func_ov017_021cfd5c(var6->obj3D_.objectIndex_4_, *(unsigned short*)var2, arg0->unknown_a_);
             arg0->unknown_9_ = 2;
         }
     } else if (arg0->unknown_9_ == 2) {
@@ -307,7 +307,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
                 }
                 void* var33 = GetFollowCamera_020100f8((char*)GameState::GetInstance());
                 if (var33) {
-                    func_020a2794(var33);
+                    EnableCameraFollow_020a2794(var33);
                 }
                 if (var7) {
                     ClearFlags04(var7, 0x80);
@@ -392,7 +392,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
                     func_020d7e10(var5, *(char**)((char*)var1 + Enum_ov017_021adcb0_96), var47 == 2, var45->lootType == 2, 0, 0);
 #endif
                     if (arg0->unknown_21_) {
-                        func_0205eb80(&gSoundEffectManager_02108760);
+                        UnloadExtraSoundSet_0205eb80(&gSoundEffectManager_02108760);
                         func_0205eb54(&gSoundEffectManager_02108760, 0x15e, 0x15e);
                         func_0205eb90(&gSoundEffectManager_02108760, 0, 0);
                     } else if (var45->lootType != 0 && var45->itemIDOrRank != 0x5617) {
@@ -459,7 +459,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
             func_020d7e10(func_020d7a50(), var53, 0, 0, 1, 1);
 #endif
             func_ov017_021c2744((Struct_ov017_021adcb0*)var51);
-            var51->unknown_14_ = var6->obj3D_.unknown_4_;
+            var51->unknown_14_ = var6->obj3D_.objectIndex_4_;
             var51->unknown_11_ = 1;
             var51->unknown_18_ = arg0->unknown_22_;
             func_02046a3c((Struct_02046a3c_2*)var8, (Struct_02046a3c*)var51);

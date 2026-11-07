@@ -6,35 +6,35 @@ extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index)
 struct Struct_ov000_02156068 {
     char unknown_0_[0xa];
     unsigned short unknown_a_0_ : 7;
-    unsigned short unknown_a_7_ : 4;
+    unsigned short kind_a_7_ : 4;
     unsigned short unknown_b_3_ : 1;
     unsigned short unknown_b_4_ : 1;
     unsigned short unknown_b_5_ : 3;
 };
 
-// USA: func_ov000_02156068
-extern "C" ARM int func_ov000_02156068(int arg0, int arg1, int arg2, int arg3) {
-    int var0 = (arg1 >= 0 && arg1 <= 3);
-    if (var0) {
+// USA: HasEnemyTrait_ov000_02156068
+extern "C" ARM int HasEnemyTrait_ov000_02156068(int battle, int combatantIndex, int kind, int traitType) {
+    int isPartyMember = (combatantIndex >= 0 && combatantIndex <= 3);
+    if (isPartyMember) {
         return 0;
     }
-    GameState* var1 = GameState::GetInstance();
-    GameObject* var2 = GetEnemyByIndex_0200fea4(var1, arg1);
-    if (var2 == NULL) {
+    GameState* gameState = GameState::GetInstance();
+    GameObject* enemy = GetEnemyByIndex_0200fea4(gameState, combatantIndex);
+    if (enemy == NULL) {
         return 0;
     }
-    struct Struct_ov000_02156068* var3 = *(struct Struct_ov000_02156068**)((char*)var2 + 0x144);
-    if (var3 == NULL) {
+    struct Struct_ov000_02156068* species = *(struct Struct_ov000_02156068**)((char*)enemy + 0x144);
+    if (species == NULL) {
         return 0;
     }
-    if (arg3 > 0) {
-        if (arg3 == 1) {
-            if (var3->unknown_b_4_) return 1;
+    if (traitType > 0) {
+        if (traitType == 1) {
+            if (species->unknown_b_4_) return 1;
         } else {
-            if (var3->unknown_b_3_) return 1;
+            if (species->unknown_b_3_) return 1;
         }
     } else {
-        if (var3->unknown_a_7_ == arg2) return 1;
+        if (species->kind_a_7_ == kind) return 1;
     }
     return 0;
 }

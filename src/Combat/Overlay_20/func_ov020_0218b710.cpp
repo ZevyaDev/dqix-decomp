@@ -77,7 +77,7 @@ extern "C" void DrawTextWindows_0205d228(TextWindowManager_0205d228* windowManag
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274* windowManager);
 extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(TextWindowManager_0205d2bc* windowManager);
 extern "C" void func_020bbcb4();
-extern "C" void func_02012efc();
+extern "C" void UpdateInput_02012efc();
 void LockStagedTextureVRAMCopying();
 extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install);
 extern "C" void func_020bb780(void* arg0, int arg1);
@@ -89,7 +89,7 @@ extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_02045cac(Struct_02045cac* arg0);
-extern "C" void func_0205c790(char* arg0);
+extern "C" void InitChoiceList_0205c790(char* choiceList);
 extern "C" int func_020ab9c0(int arg0);
 extern "C" void func_0205cb74(char* arg0, int arg1);
 extern "C" void DrawMessageGlyphs_0204359c(void* window, int glyphCount);
@@ -240,7 +240,7 @@ static inline int inline_ov020_0218b710_2(Struct_ov020_0218b710_5* arg0) { retur
         if (!inline_ov020_0218b710_2(self)) break;          \
         func_ov020_0218d644(self);               \
         WaitForVBlank_020c9820();                     \
-        func_02012efc();          \
+        UpdateInput_02012efc();          \
         Swap3DBuffers_020d86d0(0, 1);     \
     }
 
@@ -249,7 +249,7 @@ static inline int inline_ov020_0218b710_2(Struct_ov020_0218b710_5* arg0) { retur
         if (!inline_ov020_0218b710(self)) break;         \
         func_ov020_0218d854(self);               \
         WaitForVBlank_020c9820();                     \
-        func_02012efc();          \
+        UpdateInput_02012efc();          \
         Swap3DBuffers_020d86d0(0, 1);     \
     }
 
@@ -410,7 +410,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         Swap3DBuffers_020d86d0(0, 1);
 
         while (arg0->unknown_0_ != -1) {
-            func_02012efc();
+            UpdateInput_02012efc();
             if (g_keyManager.TestKeysPressed(1) || g_keyManager.TestKeysPressed(2) ||
                 g_keyManager.TestKeysPressed(0x400) || g_keyManager.TestKeysPressed(0x800) ||
                 g_touchInput.pressed_ != 0) {
@@ -485,7 +485,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                 if (!func_ov020_0218d898(arg0)) {
                     if (!inline_ov020_0218b710(arg0)) break;
                     func_ov020_0218d854(arg0);
-                    func_02012efc();
+                    UpdateInput_02012efc();
                     if (arg0->unknown_4e4_ <= 2500) {
                         if (g_keyManager.TestKeysPressed(0xc0b) || g_touchInput.pressed_ != 0) break;
                     }
@@ -508,7 +508,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                 if (!inline_ov020_0218b710_2(arg0)) {
                     if (!inline_ov020_0218b710(arg0)) break;
                     func_ov020_0218d854(arg0);
-                    func_02012efc();
+                    UpdateInput_02012efc();
                     if (g_keyManager.TestKeysPressed(0xc0b) || g_touchInput.pressed_ != 0) break;
                 }
                 func_ov020_0218d644(arg0);
@@ -533,7 +533,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                 if (!inline_ov020_0218b710_2(arg0)) {
                     if (!inline_ov020_0218b710(arg0)) break;
                     func_ov020_0218d854(arg0);
-                    func_02012efc();
+                    UpdateInput_02012efc();
                 }
                 func_ov020_0218d644(arg0);
                 WaitForVBlank_020c9820();
@@ -553,7 +553,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                 if (!func_ov020_0218d898(arg0)) {
                     if (!inline_ov020_0218b710(arg0)) break;
                     func_ov020_0218d854(arg0);
-                    func_02012efc();
+                    UpdateInput_02012efc();
                     if (arg0->unknown_4e4_ <= 2500) {
                         if (g_keyManager.TestKeysPressed(0xf0b) || g_touchInput.pressed_ != 0) break;
                     }
@@ -576,7 +576,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                 if (!inline_ov020_0218b710_2(arg0)) {
                     if (!inline_ov020_0218b710(arg0)) break;
                     func_ov020_0218d854(arg0);
-                    func_02012efc();
+                    UpdateInput_02012efc();
                     if (g_keyManager.TestKeysPressed(0xf0b) || g_touchInput.pressed_ != 0) break;
                 }
                 func_ov020_0218d644(arg0);
@@ -599,7 +599,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         TurnOnMainDisplay_020c38d4();
         *(volatile unsigned int*)0x4001000 |= 0x10000;
         func_02045cac((Struct_02045cac*)var17);
-        func_0205c790(arg0->unknown_c_);
+        InitChoiceList_0205c790(arg0->unknown_c_);
         arg0->unknown_bd_ = 1;
         arg0->unknown_bc_ = 1;
 #if defined(jpn)
@@ -667,7 +667,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         func_0205e8ec((Struct_0205e8ec*)gSoundEffectManager_02108760);
         PlayMusic_0209c3b4((Struct_0209c3b4_2*)gMusicManager_02109bf4, 2);
         while (arg0->unknown_0_ != -1) {
-            func_02012efc();
+            UpdateInput_02012efc();
             if (++arg0->unknown_4_ >= 0xffffff) {
                 arg0->unknown_4_ = 1;
             }

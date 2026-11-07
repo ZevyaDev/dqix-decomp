@@ -5,7 +5,7 @@ struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 struct Struct_02052e2c;
-extern "C" short* func_02052e2c(struct Struct_02052e2c* arg0);
+extern "C" short* GetAppearance_02052e2c(struct Struct_02052e2c* gameObject);
 
 struct Struct_ov017_021c44d8 {
     unsigned char unknown_0_[4];
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov017_021c44d8(int arg0, struct Struct_ov017_021c44d8* 
     GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var1);
     if (!var3) return;
 
-    struct Struct_ov017_021c44d8_2* var4 = (struct Struct_ov017_021c44d8_2*)func_02052e2c((struct Struct_02052e2c*)var3);
+    struct Struct_ov017_021c44d8_2* var4 = (struct Struct_ov017_021c44d8_2*)GetAppearance_02052e2c((struct Struct_02052e2c*)var3);
     if (!var4) return;
 
     var4->unknown_15_0_ = arg1->unknown_5_;

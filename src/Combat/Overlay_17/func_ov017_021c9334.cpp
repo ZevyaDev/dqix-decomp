@@ -9,7 +9,7 @@ enum { Enum_ov017_021c9334_1060 = 0x424 };
 
 extern "C" int func_ov017_021d446c(void* arg0, void* arg1, int arg2);
 extern "C" int GetZone3D_02012fe4(void);
-extern "C" int func_02018fbc(int arg0, Vector3i* arg1);
+extern "C" int GetGroundHeight_02018fbc(int zone, Vector3i* position);
 struct Struct_02033834_2;
 extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 extern "C" void SetFieldMonsterState_02076ccc(void*, int);
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov017_021c9334(int arg0, Struct_ov017_021c9334* arg1) {
 
     int var4 = GetZone3D_02012fe4();
     if (arg1->unknown_4_ == *(unsigned short*)var4 && *(int*)((char*)var4 + Enum_ov017_021c9334_1060) == 0) {
-        var1.y = func_02018fbc(var4, &var1);
+        var1.y = GetGroundHeight_02018fbc(var4, &var1);
     }
 
     *(short*)((char*)var0[2] + 0x100 + 0x66) = arg1->unknown_7_4_;

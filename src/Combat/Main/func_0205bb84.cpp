@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
 struct MenuCursor_0205bb84 {
-    int unknown_0_;
-    int unknown_4_;
+    int itemCount_0_;
+    int pageCount_4_;
     int columnCount_8_;
     int rowCount_c_;
     int unknown_10_;
     int page_14_;
-    int unknown_18_;
-    int unknown_1c_;
+    int column_18_;
+    int row_1c_;
     int unknown_20_;
     int* pMinorCount_24_;
     int* pMajorIndex_28_;

@@ -13,7 +13,7 @@ struct Struct_ov017_021b2c88;
 extern "C" GameResources* GetResources_0200fb8c(int* gameState);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
-extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
+extern "C" void SetCameraFlags_020a28a0(unsigned char* camera, unsigned char flags);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void PushOverlay_020a1df8(int overlayEntry);
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov017_021b2ce8(Struct_ov017_021b2ce8* arg0) {
     GameObject* var2 = var0->GetUnknownGameObject();
     DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
     unsigned char* var3 = (unsigned char*)GetFollowCamera_020100f8((char*)var0);
-    func_020a28a0(var3, 3);
+    SetCameraFlags_020a28a0(var3, 3);
     int var4 = var0->GetTickCount();
     if (var4 < 0) {
         var4 = 1;

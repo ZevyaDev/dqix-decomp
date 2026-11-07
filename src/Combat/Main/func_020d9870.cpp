@@ -17,7 +17,7 @@ extern "C" void func_020d9a58(void* arg0);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov017_021cf730(int arg0, int arg1);
-extern "C" void func_020a27b8(unsigned char* arg0);
+extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
 extern "C" void func_020531f0(void* arg0);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
@@ -67,7 +67,7 @@ extern "C" ARM void func_020d9870(struct Struct_020d9870* arg0) {
         if (IsLocalWirelessOn_0202b7d8((int*)var4) != 0 && IsNotLocalWirelessGuest_0202c508(var4) != 0) {
             func_ov017_021cf730(-1, 0);
         }
-        func_020a27b8((unsigned char*)var5);
+        DisableCameraTurning_020a27b8((unsigned char*)var5);
         arg0->unknown_8_ = 1;
     } else if (arg0->unknown_8_ == 1) {
         RequestSingleFontLoad_02094b30(var3, 0x20e, 0);

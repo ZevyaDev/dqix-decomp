@@ -25,7 +25,7 @@ extern "C" void func_0205eabc(void* arg0, void* arg1, int arg2);
 extern "C" int func_02064a9c(void* arg0, void* arg1);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_ov017_021cc2f0(int);
-extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
+extern "C" void SetCameraFlags_020a28a0(unsigned char* camera, unsigned char flags);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 
 struct Struct_02053634 {
@@ -238,7 +238,7 @@ extern "C" ARM void func_02053634(void* arg0) {
                         var0[OBJECT_OFFSET(0x184)] = *(unsigned char*)(var0 + OBJECT_OFFSET(0x184)) - 1;
                         var27 = 1;
                     } else if (var26 != 0) {
-                        func_020a28a0((unsigned char*)var26, 1);
+                        SetCameraFlags_020a28a0((unsigned char*)var26, 1);
                     }
                 }
                 if (var27 != 0 && var26 != 0) {

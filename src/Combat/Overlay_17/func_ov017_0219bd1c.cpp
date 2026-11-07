@@ -10,9 +10,9 @@ enum { Enum_ov017_0219bd1c_1804 = 0x70c, Enum_ov017_0219bd1c_1788 = 0x6fc };
 
 struct Struct_02000c9c_54;
 extern "C" Struct_02000c9c_54* GetZoneEntry_0200fd0c(GameState* gameState);
-extern "C" void func_02046a8c(void* arg0, void* arg1);
+extern "C" void RemoveFromQueue_02046a8c(void* queue, void* node);
 extern "C" unsigned char func_ov017_0219bcac(unsigned char arg0);
-extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int arg1);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int isFullReset);
 struct Struct_020469f8;
 struct Struct_020469f8_2;
 extern "C" void func_020469f8(struct Struct_020469f8* arg0, struct Struct_020469f8_2* arg1);
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov017_0219bd1c(int arg0, unsigned char arg1, int arg2, 
     var3 = (struct Struct_ov017_0219bd1c*)GetZoneEntry_0200fd0c(var0);
     if (var5->unknown_3_) return;
     if (var5->unknown_2_) {
-        func_02046a8c(var4, var5);
+        RemoveFromQueue_02046a8c(var4, var5);
     }
     func_ov017_0219bcac(arg3);
     var3->unknown_2_ = 0;

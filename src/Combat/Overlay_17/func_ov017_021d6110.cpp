@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
-union Struct_ov017_021d6110 { int unknown_0_; float unknown1_0_; };
-struct Struct_ov017_021d6110_2 { int unknown_0_; Struct_ov017_021d6110 unknown_4_; };
+union ScriptValueData_ov017_021d6110 { int intValue_0_; float floatValue_0_; };
+struct ScriptValue_ov017_021d6110_2 { int type_0_; ScriptValueData_ov017_021d6110 value_4_; };
 
-// USA: func_ov017_021d6110
-extern "C" ARM float func_ov017_021d6110(Struct_ov017_021d6110_2 *arg0) {
-	if (arg0->unknown_0_ != 0) {
-		return arg0->unknown_4_.unknown1_0_;
+// USA: GetScriptValueAsFloat_ov017_021d6110
+extern "C" ARM float GetScriptValueAsFloat_ov017_021d6110(ScriptValue_ov017_021d6110_2 *value) {
+	if (value->type_0_ != 0) {
+		return value->value_4_.floatValue_0_;
 	}
-	return (float)arg0->unknown_4_.unknown_0_;
+	return (float)value->value_4_.intValue_0_;
 }

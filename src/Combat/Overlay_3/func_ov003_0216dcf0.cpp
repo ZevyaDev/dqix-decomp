@@ -13,8 +13,8 @@ enum { Enum_ov003_0216dcf0_4716 = 0x126c };
 
 struct TextWindow_0205d0e0 {
     char unknown_0_[0xac];
-    short unknown_ac_;
-    short unknown_ae_;
+    short tileX_ac_;
+    short tileY_ae_;
 };
 
 struct TextWindowManager_0205d81c;
@@ -40,8 +40,8 @@ extern "C" ARM void func_ov003_0216dcf0(char* arg0) {
     GameState* var0 = GameState::GetInstance();
     struct TextWindow_0205d0e0* var1 = GetCursorTextWindow_0205d8c4(*(struct TextWindowManager_0205d81c**)(arg0 + 0x1000 + Enum_ov003_0216dcf0_704));
     if (var1 != 0 && IsTextWindowOpen_0204c7e0((unsigned char*)var1) != 0) {
-        short var2 = var1->unknown_ae_ << 3;
-        short var3 = var1->unknown_ac_;
+        short var2 = var1->tileY_ae_ << 3;
+        short var3 = var1->tileX_ac_;
         short var4 = GetCursorIndex_0205d794(*(struct Struct_0205c570**)(arg0 + 0x1000 + Enum_ov003_0216dcf0_704));
         short var5 = var2 + var4 * 12;
         struct SpriteAnimationList_0205a254* var6 = *(struct SpriteAnimationList_0205a254**)(arg0 + 0x1000 + Enum_ov003_0216dcf0_680);

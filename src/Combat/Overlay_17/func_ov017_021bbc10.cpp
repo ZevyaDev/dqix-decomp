@@ -49,15 +49,15 @@ struct Struct_ov017_021bbc10 {
     unsigned char unknown_ff_;
 };
 
-extern "C" int func_02039d7c(char*);
-extern "C" int func_0202e7f0(void* arg0);
+extern "C" int IsOnLadder_02039d7c(char*);
+extern "C" int GetCameraYaw_0202e7f0(void* camera);
 extern "C" void* GetFollowCamera_020100f8(char*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int func_020a1eb0(void);
 extern "C" void PushOverlay_020a1df8(int);
 extern "C" unsigned int* GetGlobalFlags_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
-extern "C" void func_020a27b8(unsigned char* arg0);
+extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
 extern "C" void* func_020d7a50(void);
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2* queue);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
@@ -108,7 +108,7 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
         return arg0->unknown_a_;
     }
     Struct_02037d10* var6 = func_020399a8(var2);
-    if (func_02039d7c((char*)var2) != 0 && var6->unknown_1_ != 2) {
+    if (IsOnLadder_02039d7c((char*)var2) != 0 && var6->unknown_1_ != 2) {
         return arg0->unknown_a_;
     }
     if (arg0->unknown_fd_ == 0 && IsQueueEmpty_02046b08((void**)var4->unknown_ptr_array_36fc[1]) == 0) {
@@ -120,9 +120,9 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
     }
     func_ov001_0215aa14((SafeAllocator*)NULL);
     DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
-    func_020a27b8(var3);
+    DisableCameraTurning_020a27b8(var3);
     ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)func_020d7a50());
-    *(unsigned short*)(var3 + 0x21e) = func_0202e7f0(var3);
+    *(unsigned short*)(var3 + 0x21e) = GetCameraYaw_0202e7f0(var3);
 
     if (IsLocalWirelessOn_0202b7d8((int*)var5)) {
         char* var7 = (char*)GetParty_02010828(var0);
@@ -142,7 +142,7 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
         GameObject* var13 = var0->GetPartyMemberByIndex(var11[var12]);
         if (var13 != NULL) {
             func_02033fcc((Struct_02033fcc*)var13);
-            if (func_02039d7c((char*)var13) == 0 || func_020399a8(var13)->unknown_1_ != 2) {
+            if (IsOnLadder_02039d7c((char*)var13) == 0 || func_020399a8(var13)->unknown_1_ != 2) {
                 var13->obj3D_.MaybeSetRegularAnimation(data_ov017_021d7d6c, 0x10);
             }
             ResetFollowTrail_02039d24((unsigned char*)var13);

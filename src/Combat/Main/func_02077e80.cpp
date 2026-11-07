@@ -14,7 +14,7 @@ extern "C" Vector3fix func_02034104(void* arg0);
 struct Struct_02033834_2;
 extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 struct Struct_02033b68;
-extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
+extern "C" void SetMotionIfDifferent_02033b68(struct Struct_02033b68* object, int motion);
 extern "C" int _s32_div_f(int a, int b);
 extern "C" void func_ov017_021c927c(int arg0, int arg1, int arg2, Vector3fix arg3, int arg4, int arg5, int arg6);
 
@@ -46,7 +46,7 @@ extern "C" ARM int func_02077e80(Struct_02076a8c* arg0) {
 
     arg0->unknown_0_.unknown_0_.unknown_b4_ = 0x1c2;
     arg0->unknown_0_.unknown_0_.unknown_b2_ = 0x1c2;
-    func_02033b68((struct Struct_02033b68*)arg0, 1);
+    SetMotionIfDifferent_02033b68((struct Struct_02033b68*)arg0, 1);
 
     GameObject* var6 = var0->GetProtagonist();
     unsigned short var7 = var6->obj3D_.GetField06();
@@ -61,7 +61,7 @@ extern "C" ARM int func_02077e80(Struct_02076a8c* arg0) {
             int var9 = arg0->unknown_0_.unknown_0_.unknown_0_.GetField06();
             int var10 = arg0->unknown_0_.unknown_0_.unknown_0_.unknown_2_;
             Vector3fix* var11 = &arg0->unknown_158_;
-            int var12 = (arg0->unknown_0_.unknown_0_.unknown_0_.unknown_4_ - 0x70) % 0xc;
+            int var12 = (arg0->unknown_0_.unknown_0_.unknown_0_.objectIndex_4_ - 0x70) % 0xc;
             if (var12 >= 0 && var12 < 0xc) {
                 Vector3fix var13 = *var11;
                 func_ov017_021c927c(var9, var12, var10, var13, var2, 6, arg0->unknown_166_);

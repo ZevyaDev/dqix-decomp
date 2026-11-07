@@ -4,7 +4,7 @@
 #include "Util/Random.h"
 
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, unsigned short* indices, int maxCount, int filterFlags);
-extern "C" int func_020882f8(unsigned char* arg0);
+extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
 extern "C" int func_ov024_021ed890(struct Random** arg0, int* arg1, short* arg2);
 
 extern unsigned short data_ov024_021feb8c;
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov024_021f606c(int* arg0, int arg1, int arg2, int* arg3,
 	for (int var6 = 0; var6 < var5; var6++) {
 		GameObject* var7 = GetCombatantByID(*arg0, *(short*)&var0[var6]);
 		if (!var7) continue;
-		if (func_020882f8((unsigned char*)var7->currentStats_)) continue;
+		if (IsAsleep_020882f8((unsigned char*)var7->currentStats_)) continue;
 		int var8 = *arg3;
 		*arg3 = var8 + 1;
 		arg4[var8] = *((short*)var0 + var6);

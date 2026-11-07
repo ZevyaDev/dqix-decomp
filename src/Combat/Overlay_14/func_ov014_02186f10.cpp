@@ -21,7 +21,7 @@
 #include "Input/Input.h"
 
 extern "C" int func_02080dd4(void* arg0, int arg1, int arg2, int arg3, unsigned char* arg4, unsigned char arg5);
-extern "C" void func_020813ec(void* arg0, int arg1);
+extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
 // USA: func_ov014_02186f10
 extern "C" ARM int func_ov014_02186f10(char* arg0) {
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov014_02186f10(char* arg0) {
         short var4 = *(*(short**)(arg0 + 0xd0));
         if (*(short*)(arg0 + 0x178) != var4) {
             *(short*)(*(char**)(arg0 + 0xc0) + R(0x2a, 0x36)) = var4;
-            func_020813ec(*(void**)(arg0 + 0xc0), *(short*)(arg0 + 0x170));
+            OpenMenuLayoutWindow_020813ec(*(void**)(arg0 + 0xc0), *(short*)(arg0 + 0x170));
         }
     }
 

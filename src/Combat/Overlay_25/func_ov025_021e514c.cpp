@@ -9,9 +9,9 @@ struct Struct_02033834;
 struct Vector3i;
 extern "C" struct BattleAction_ov000_0215440c_2* GetActionActor_ov000_02160094(struct BattleAction_ov000_0215440c_2* action, int index);
 extern "C" struct BattleAction_ov000_0215440c* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index);
-extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 extern "C" void* GetCamera_020100bc(GameState* gameState);
-extern "C" int func_0202e7f0(void* arg0);
+extern "C" int GetCameraYaw_0202e7f0(void* camera);
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 extern "C" void func_0203db34(unsigned char* arg0, int arg1, int arg2, int arg3);
 extern "C" void* __clear(void* arg0, int arg1);
@@ -62,7 +62,7 @@ extern "C" ARM int func_ov025_021e514c(struct Struct_ov025_021e514c_2* arg0, str
     struct Struct_ov025_021e514c_5* var1 = (struct Struct_ov025_021e514c_5*)GetActionActor_ov000_02160094(arg1, 0);
     struct Struct_ov025_021e514c* var2 = (struct Struct_ov025_021e514c*)GetActionTarget_ov000_021600f8((struct BattleAction_ov000_0215440c*)arg1, 0);
     int var3[8];
-    int var4 = func_ov000_021820bc(arg3, (int)arg1, arg0->unknown_8_, (int)var3);
+    int var4 = CollectObjectIndicesBySelector_ov000_021820bc(arg3, (int)arg1, arg0->unknown_8_, (int)var3);
     Vector3fix var5;
     __clear(&var5, sizeof(var5));
     int var6 = 0;
@@ -99,7 +99,7 @@ extern "C" ARM int func_ov025_021e514c(struct Struct_ov025_021e514c_2* arg0, str
     case 3: {
         void* var14 = GetCamera_020100bc(var0);
         if (var14) {
-            Matrix4x3 var15 = RotationMatrixY(func_0202e7f0(var14));
+            Matrix4x3 var15 = RotationMatrixY(GetCameraYaw_0202e7f0(var14));
             Mat4x3_ApplyToVector(&arg0->unknown_14_, &var15, &var5);
         }
         break;
@@ -141,7 +141,7 @@ extern "C" ARM int func_ov025_021e514c(struct Struct_ov025_021e514c_2* arg0, str
     }
     case 7: {
         int var26[12];
-        func_ov000_021820bc(arg3, (int)arg1, arg0->unknown_a_, (int)var26);
+        CollectObjectIndicesBySelector_ov000_021820bc(arg3, (int)arg1, arg0->unknown_a_, (int)var26);
         GameObject* var27 = var0->GetGameObjectByIndex(var26[0]);
         if (var27) {
             *(Vector3i*)((int*)&var5) = *(Vector3i const*)(&var27->obj3D_.position_.x);

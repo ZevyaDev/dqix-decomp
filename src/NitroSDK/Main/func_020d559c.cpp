@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "NitroSDK/Cache.h"
 
-extern "C" int func_020d424c(int, int, int, int, int, int);
+extern "C" int CheckWirelessState_020d424c(int, int, int, int, int, int);
 extern "C" int func_020d40bc(int, int, int);
-extern "C" void func_020d404c(int arg0, int arg1);
+extern "C" void SetWirelessCommandCallback_020d404c(int command, int callback);
 extern "C" void* func_020d41d8(void);
 
 struct Struct_020d559c {
@@ -21,7 +21,7 @@ struct Struct_020d559c_2 {
 // USA: func_020d559c
 extern "C" ARM int func_020d559c(int arg0, unsigned int arg1) {
     Struct_020d559c_2* var0 = (Struct_020d559c_2*)func_020d41d8();
-    int var1 = func_020d424c(5, 7, 9, 8, 0xa, 0xb);
+    int var1 = CheckWirelessState_020d424c(5, 7, 9, 8, 0xa, 0xb);
     if (var1 != 0) {
         return var1;
     }
@@ -39,7 +39,7 @@ extern "C" ARM int func_020d559c(int arg0, unsigned int arg1) {
             return 6;
         }
     }
-    func_020d404c(0xd, arg0);
+    SetWirelessCommandCallback_020d404c(0xd, arg0);
     var1 = func_020d40bc(0xd, 1, 1 << arg1);
     if (var1 == 0) {
         var1 = 2;

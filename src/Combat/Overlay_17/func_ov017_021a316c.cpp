@@ -14,7 +14,7 @@ extern int data_ov017_021d82fc;
 
 extern "C" void func_ov017_021a27e8(void* arg0);
 
-extern "C" void* func_0203cf4c(void);
+extern "C" void* GetNPCManager_0203cf4c(void);
 struct Struct_0203cfb4;
 extern "C" void func_0203cfb4(struct Struct_0203cfb4* arg0);
 
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov017_021a316c(unsigned char* arg0) {
         }
     }
 
-    func_0203cfb4((struct Struct_0203cfb4*)func_0203cf4c());
+    func_0203cfb4((struct Struct_0203cfb4*)GetNPCManager_0203cf4c());
     func_0208f7ec((struct Struct_0201c014*)(var1 + Enum_ov017_021a316c_9828));
 
     if (func_0200ffc0((struct Struct_0200ffc0*)var0)) {

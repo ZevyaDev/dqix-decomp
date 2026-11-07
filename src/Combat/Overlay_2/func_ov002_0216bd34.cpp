@@ -19,9 +19,9 @@ extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
-extern "C" int func_ov002_02161b48(char *arg0, int arg1);
+extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void func_ov002_02161798(char *arg0);
-extern "C" void func_ov002_02161cf0(void *arg0);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(void *menu);
 extern "C" void func_ov002_02156e90(void *arg0);
 extern "C" void func_ov002_0215a7b4(char *arg0, int arg1, short arg2, int arg3, int arg4);
 extern "C" char gSoundEffectManager_02108760[];
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov002_0216bd34(char *arg0) {
     if (var1 == 0) {
         *(short *) (arg0 + RG(0x1c00 + 0x14, 0x1a00 + 0xdc)) = 0;
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0, 2);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_02161798(arg0);
         *(signed char *) (arg0 + 0x1000 + RG(0xc20, 0xae8)) = *(int *) (arg0 + *(short *) (arg0 + RG(0x1b00 + 0xe6, 0x1a00 + 0xae)) * 4 + 0x1000 + RG(0xc3c, 0xb00));
         if (*(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1a00 + 0xe8)) < 0) {
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov002_0216bd34(char *arg0) {
                     var4 = 1;
                     break;
             }
-        } else if (func_ov002_02161b48(arg0, 1)) {
+        } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + RG(0x1c00 + 0x14, 0x1a00 + 0xdc)) = 0;
             var4                              = 1;
             func_ov002_02156e90(arg0);

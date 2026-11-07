@@ -9,11 +9,11 @@ extern "C" void func_020a2ca0(unsigned char* arg0);
 extern "C" void func_020a2718(char* arg0);
 
 // USA: InitFollowCamera_020a2010
-extern "C" ARM void InitFollowCamera_020a2010(void* arg0) {
-    char* camera = (char*)arg0;
+extern "C" ARM void InitFollowCamera_020a2010(void* storage) {
+    char* camera = (char*)storage;
 
-    func_020a2cf0((struct Struct_0204a120_2*)arg0);
-    func_0202e08c((unsigned int*)arg0, 4);
+    func_020a2cf0((struct Struct_0204a120_2*)storage);
+    func_0202e08c((unsigned int*)storage, 4);
 
     *(int*)(camera + 0x220) = 0;
     *(int*)(camera + 0x224) = 0x6000;

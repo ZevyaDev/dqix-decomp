@@ -7,7 +7,7 @@ extern "C" void* func_0208e0a8(void);
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" int rand(void);
 extern "C" int _s32_div_f(int a, int b);
-extern "C" int func_02018fbc(int arg0, void* arg1);
+extern "C" int GetGroundHeight_02018fbc(int zone, void* position);
 extern "C" int func_0208e824(void* arg0, char* arg1);
 
 struct Struct_0208f168_2 {
@@ -112,7 +112,7 @@ extern "C" ARM void func_0208f168(struct Struct_0208f168* arg0, void* arg1) {
                         var14->unknown_0_ = var12 + (var8 << 3);
                         int var15 = var4->startTime;
                         var14->unknown_10_ = var15 + (rand() % (var4->endTime - var15));
-                        var7->unknown_c_[var12].y = func_02018fbc((int)var0, (void*)&var13[var12]);
+                        var7->unknown_c_[var12].y = GetGroundHeight_02018fbc((int)var0, (void*)&var13[var12]);
                         *(Vector3i*)((int*)&var14->unknown_4_) = *(Vector3i const*)((int*)&var13[var12]);
                         struct Struct_0208f168_6* var16 = arg0->unknown_c_;
                         if (var16 == 0) {

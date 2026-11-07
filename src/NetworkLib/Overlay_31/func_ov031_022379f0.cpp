@@ -2,7 +2,7 @@
 
 unsigned long long GetCurrentTimestamp(void);
 extern "C" int CompareBytes_02001aec(const void* left, const void* right, unsigned int count);
-extern "C" void func_ov031_0223e2c0(int, void*);
+extern "C" void QueueTaskRemoval_ov031_0223e2c0(int, void*);
 
 typedef void (*Type_02001aec_2)(int);
 
@@ -70,5 +70,5 @@ extern "C" ARM void func_ov031_022379f0(void* arg0) {
     }
     data_ov031_02290d0c->unknown_1b90_ = 0;
     data_ov031_02290d0c->unknown_1b96_ = 1;
-    func_ov031_0223e2c0(0, arg0);
+    QueueTaskRemoval_ov031_0223e2c0(0, arg0);
 }

@@ -39,7 +39,7 @@ extern "C" void func_020807c4(void*, int, short*, short*);
 extern "C" void func_02080878(void*, int, short*, short*);
 extern "C" void func_020807fc(void*, int, int, int);
 extern "C" void func_020808a4(void*, int, int, int);
-extern "C" void func_020813ec(void*, int);
+extern "C" void OpenMenuLayoutWindow_020813ec(void*, int);
 
 // USA: func_ov003_02158480
 extern "C" ARM void func_ov003_02158480(Struct_ov003_02158334_3* arg0) {
@@ -118,5 +118,5 @@ extern "C" ARM void func_ov003_02158480(Struct_ov003_02158334_3* arg0) {
         func_020807c4(var0, 6, &var20, &var21);
         func_02080878(var0, 6, &var22, &var23);
     }
-    func_020813ec(var0, 6);
+    OpenMenuLayoutWindow_020813ec(var0, 6);
 }

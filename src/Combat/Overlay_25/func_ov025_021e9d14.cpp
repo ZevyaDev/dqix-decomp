@@ -6,7 +6,7 @@ struct Struct_0203a48c_3;
 struct Struct_0203a588_2;
 struct Struct_ov000_021537b8_6;
 
-struct Struct_02078398_2 {
+struct EffectParams_02078398_2 {
     unsigned char unknown_0_;
     unsigned char unknown_1_[0xf];
     unsigned char unknown_10_;
@@ -74,7 +74,7 @@ extern "C" struct Struct_0203a588_2* func_02039e70(void);
 struct Struct_0203a48c_2;
 extern "C" void func_0203a48c(Struct_0203a48c_3*, int, Struct_0203a48c_2*, int, int, int);
 extern "C" void* GetEffectManager_02057924(void);
-extern "C" void func_02078484(struct Struct_02078398_2* arg0);
+extern "C" void InitEffectParams_02078484(struct EffectParams_02078398_2* params);
 extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_ov000_02176150(struct Struct_ov000_021537b8_6* arg0, unsigned short arg1);
@@ -110,8 +110,8 @@ extern "C" ARM void func_ov025_021e9d14(void) {
                 var11.y += var8->obj3D_.GetHeight();
                 func_0203a48c(var10, var9, (Struct_0203a48c_2*)&var11, 3, 0, 0);
                 void* var12 = GetEffectManager_02057924();
-                struct Struct_02078398_2 var13;
-                func_02078484(&var13);
+                struct EffectParams_02078398_2 var13;
+                InitEffectParams_02078484(&var13);
                 var13.unknown_2c_.y += var8->obj3D_.GetHeight() / 2;
                 var13.unknown_14_ = var5;
                 PlayEffect_02057fb4(var12, 0x10, &var13);

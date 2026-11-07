@@ -13,7 +13,7 @@ struct SoundEffectManager_02108760;
 extern "C" void InitKeyMenuCursor_0205bef8(KeyMenuCursor_0205bef8*);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
-extern "C" int func_0205bafc(void*);
+extern "C" int GetMenuCursorItemCount_0205bafc(void*);
 extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
@@ -24,7 +24,7 @@ extern "C" void func_ov009_0218ad0c(void*);
 extern "C" void func_ov009_0218b200(Struct_ov009_021842a0*, int);
 extern "C" void func_ov009_0218b850(Struct_ov009_021842a0*);
 extern "C" void SetMenuCursorIndex_0205bb04(Struct_ov009_02188c2c*, int);
-extern "C" int func_0205bf58(Struct_ov009_02188c2c*, unsigned int);
+extern "C" int UpdateKeyMenuCursor_0205bf58(Struct_ov009_02188c2c*, unsigned int);
 extern "C" void func_ov009_02188c2c(Struct_ov009_021842a0*);
 extern "C" void func_ov009_02188e70(Struct_ov009_021842a0*, int);
 extern "C" void func_ov009_02188944(Struct_ov009_021842a0*, int);
@@ -102,11 +102,11 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0* arg0)
         unsigned int var5 = GameState::GetInstance()->GetTickCount();
         if (!var5) var5 = 1;
         int var6 = arg0->unknown_bec_.unknown_1c_;
-        if (func_0205bf58(&arg0->unknown_bec_, var5))
+        if (UpdateKeyMenuCursor_0205bf58(&arg0->unknown_bec_, var5))
             var1 = GetMenuCursorIndex_0205bb84((MenuCursor_0205bb84*)&arg0->unknown_bec_);
         if (arg0->unknown_c58_ == 8) {
             int var7 = arg0->unknown_bec_.unknown_c_;
-            int var8 = func_0205bafc(&arg0->unknown_bec_);
+            int var8 = GetMenuCursorItemCount_0205bafc(&arg0->unknown_bec_);
             if (var7 == 1 && var8 == 8) {
                 if (var1 >= arg0->unknown_da0_[arg0->unknown_da3_]) {
                     SetMenuCursorIndex_0205bb04(&arg0->unknown_bec_, arg0->unknown_da0_[arg0->unknown_da3_] - 1);
@@ -168,7 +168,7 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0* arg0)
             }
         } else if (arg0->unknown_c58_ != 8) {
             int var9 = arg0->unknown_bec_.unknown_c_;
-            int var10 = func_0205bafc(&arg0->unknown_bec_);
+            int var10 = GetMenuCursorItemCount_0205bafc(&arg0->unknown_bec_);
             if (var9 == 1 && var10 == 8) {
                 if (var1 >= arg0->unknown_da0_[arg0->unknown_da3_]) {
                     SetMenuCursorIndex_0205bb04(&arg0->unknown_bec_, arg0->unknown_da0_[arg0->unknown_da3_] - 1);
@@ -249,7 +249,7 @@ struct SoundEffectManager_02108760;
 extern "C" void InitKeyMenuCursor_0205bef8(KeyMenuCursor_0205bef8*);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
-extern "C" int func_0205bafc(void*);
+extern "C" int GetMenuCursorItemCount_0205bafc(void*);
 extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 
@@ -305,7 +305,7 @@ struct Struct_ov009_021842a0_2 {
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" int func_ov009_02189854(Struct_ov009_021842a0_2*, int, int);
 extern "C" void SetMenuCursorIndex_0205bb04(Struct_ov009_02188ee8*, int);
-extern "C" int func_0205bf58(Struct_ov009_02188ee8*, unsigned int);
+extern "C" int UpdateKeyMenuCursor_0205bf58(Struct_ov009_02188ee8*, unsigned int);
 extern "C" void func_ov009_02188c2c(Struct_ov009_021842a0_2*);
 extern "C" void func_ov009_02188e70(Struct_ov009_021842a0_2*, int);
 extern "C" void func_ov009_02188944(Struct_ov009_021842a0_2*, int);
@@ -369,10 +369,10 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0_2* arg0) {
         unsigned int var20 = GameState::GetInstance()->GetTickCount();
         if (!var20) var20 = 1;
         int var21 = arg0->unknown_3ec_.unknown_800_.unknown_1c_;
-        if (func_0205bf58(&arg0->unknown_3ec_.unknown_800_, var20)) var16 = GetMenuCursorIndex_0205bb84((MenuCursor_0205bb84*)&arg0->unknown_3ec_.unknown_800_);
+        if (UpdateKeyMenuCursor_0205bf58(&arg0->unknown_3ec_.unknown_800_, var20)) var16 = GetMenuCursorIndex_0205bb84((MenuCursor_0205bb84*)&arg0->unknown_3ec_.unknown_800_);
         if (arg0->unknown_c58_ == 8) {
             int var22 = arg0->unknown_3ec_.unknown_800_.unknown_c_;
-            int var23 = func_0205bafc(&arg0->unknown_3ec_.unknown_800_);
+            int var23 = GetMenuCursorItemCount_0205bafc(&arg0->unknown_3ec_.unknown_800_);
             if (var22 == 1 && var23 == 8) {
                 if (var16 >= arg0->unknown_da0_[arg0->unknown_da3_]) {
                     SetMenuCursorIndex_0205bb04(&arg0->unknown_3ec_.unknown_800_, arg0->unknown_da0_[arg0->unknown_da3_] - 1);
@@ -403,7 +403,7 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0_2* arg0) {
             }
         } else if (arg0->unknown_c58_ != 8) {
             int var24 = arg0->unknown_3ec_.unknown_800_.unknown_c_;
-            int var25 = func_0205bafc(&arg0->unknown_3ec_.unknown_800_);
+            int var25 = GetMenuCursorItemCount_0205bafc(&arg0->unknown_3ec_.unknown_800_);
             if (var24 == 1 && var25 == 8) {
                 if (var16 >= arg0->unknown_da0_[arg0->unknown_da3_]) {
                     SetMenuCursorIndex_0205bb04(&arg0->unknown_3ec_.unknown_800_, arg0->unknown_da0_[arg0->unknown_da3_] - 1);

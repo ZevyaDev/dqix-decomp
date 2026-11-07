@@ -64,7 +64,7 @@ extern "C" void func_ov000_02174a38(void* arg0, int arg1);
 extern "C" void func_ov000_021710ac(struct Struct_ov000_02174738_3* arg0, int arg1, int arg2);
 extern "C" void func_ov000_02171138(void* arg0);
 extern "C" void func_ov000_02174b14(struct Struct_ov000_02174738_5* arg0);
-extern "C" int func_ov017_021bdbcc();
+extern "C" int GetHaloObject_ov017_021bdbcc();
 extern "C" int func_020420e8(char* arg0, int arg1);
 extern "C" void func_0205b234(struct Struct_ov000_02174738_6* arg0, short arg1, int arg2, void* arg3, unsigned char arg4, unsigned char arg5);
 
@@ -158,7 +158,7 @@ checkvalid:
             int var18 = *(int*)(*(char**)((char*)var16 + 0x150) + 0x950);
             unsigned char var19 = (unsigned char)(var18 * 4 + 0x28);
             GetGameResources();
-            if (func_ov017_021bdbcc() != 0) {
+            if (GetHaloObject_ov017_021bdbcc() != 0) {
                 var19 = 0x28;
             }
             memcpy(var13, GetWindowTile_020421b0(var19), 0x80);

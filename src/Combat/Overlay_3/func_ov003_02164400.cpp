@@ -56,10 +56,10 @@ extern "C" int func_020811e8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void func_02080cec(void* arg0, int arg1, int arg2);
 extern "C" void func_0208108c(void* arg0, int arg1);
-extern "C" void func_020813ec(void* arg0, int arg1);
+extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 extern "C" void func_020939dc(void* arg0);
-extern "C" void func_0202b0f4(int* arg0);
+extern "C" void StopLocalWireless_0202b0f4(int* wireless);
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" int func_020aad1c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -204,11 +204,11 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
             func_0208108c(var4, 0x43);
             func_0208108c(var4, 0x44);
 #endif
-            func_020813ec(var4, 0xf);
+            OpenMenuLayoutWindow_020813ec(var4, 0xf);
             func_0208203c((struct Struct_02081f20_2*)(arg0 + LO(0x308)));
             *(void**)(arg0 + HI(0x470)) = 0;
             arg0[HI(0x4a4)] = 6;
-            func_0202b0f4((int*)var3);
+            StopLocalWireless_0202b0f4((int*)var3);
             func_020939fc((unsigned char*)var2);
             func_ov017_021c36a0();
             *(short*)(arg0 + HI(0x476)) = 0;
@@ -235,14 +235,14 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
             *(unsigned short*)(arg0 + HI(0x478)) = *(unsigned short*)(arg0 + HI(0x478)) + *(int*)(arg0 + HI(0x460));
             if (*(unsigned short*)(arg0 + HI(0x478)) > 0x12c) {
                 func_02080cec(var4, 0xf, 2);
-                func_020813ec(var4, 0xf);
+                OpenMenuLayoutWindow_020813ec(var4, 0xf);
                 CloseMenuLayoutWindows_0207fe44((struct MenuLayout_0207fe44*)var4);
                 *(unsigned int*)(arg0 + HI(0x464)) |= 0x80000;
                 var5[0] = 7;
                 var5[1] = 1;
                 arg0[HI(0x4a3)] = 0xa;
                 arg0[HI(0x4a4)] = 0;
-                func_0202b0f4((int*)var3);
+                StopLocalWireless_0202b0f4((int*)var3);
                 func_020939fc((unsigned char*)var2);
                 return;
             }
@@ -257,7 +257,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         var5[1] = 1;
         arg0[HI(0x4a3)] = 0xa;
         arg0[HI(0x4a4)] = 0;
-        func_0202b0f4((int*)var3);
+        StopLocalWireless_0202b0f4((int*)var3);
         func_020939fc((unsigned char*)var2);
         return;
     }
@@ -308,7 +308,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         short* var22 = (short*)0 + 7;
         func_02081198((struct Struct_02081198*)var4, (int)var22, 1);
         func_02081164((struct Struct_02081164*)var4, (int)var22, 1);
-        func_020813ec(var4, (int)var22);
+        OpenMenuLayoutWindow_020813ec(var4, (int)var22);
         }
         *(unsigned int*)(arg0 + HI(0x464)) |= 0x180000;
         *(short*)(arg0 + HI(0x488)) = 0x10;
@@ -372,7 +372,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         arg0[HI(0x4a3)] = 0xa;
         arg0[HI(0x4a4)] = 0;
         *(unsigned int*)(arg0 + HI(0x464)) = (*(unsigned int*)(arg0 + HI(0x464)) | 0x80000) & ~0xf00000u;
-        func_0202b0f4((int*)var3);
+        StopLocalWireless_0202b0f4((int*)var3);
         func_020939fc((unsigned char*)var2);
         return;
     }
@@ -407,7 +407,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
 #if !defined(jpn)
             func_0208108c(var4, 0x51);
 #endif
-            func_020813ec(var4, *(short*)(arg0 + HI(0x488)));
+            OpenMenuLayoutWindow_020813ec(var4, *(short*)(arg0 + HI(0x488)));
             func_0208203c((struct Struct_02081f20_2*)(arg0 + LO(0x308)));
             *(void**)(arg0 + HI(0x470)) = 0;
             *(unsigned short*)(arg0 + HI(0x47a)) = *(unsigned short*)(arg0 + HI(0x47a)) + 1;

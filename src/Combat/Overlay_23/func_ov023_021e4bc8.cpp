@@ -40,7 +40,7 @@ extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_ov023_021e4250(char*);
 extern "C" {
 void func_020469b0(Struct_02045cac*, const char*, unsigned short*, int);
-int func_ov017_021bdbcc(GameResources*);
+int GetHaloObject_ov017_021bdbcc(GameResources*);
 void func_020439b0(Struct_02045cac*, int);
 }
 
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov023_021e4bc8(Struct_ov023_021e4bc8_4* arg0) {
                 }
             }
             short var11 = var9->unknown_144_->unknown_8b8_ + 500;
-            if (func_ov017_021bdbcc(GetGameResources())) var11 = 500;
+            if (GetHaloObject_ov017_021bdbcc(GetGameResources())) var11 = 500;
             if (inline_ov023_021e4bc8(var9->unknown_130_) <= 0) var11 = 0x226;
             func_020469b0(var2, (const char*)FindStringInTable_020e0434(var0, var11), arg0->unknown_53c_[var8], 10);
             char var12[3];

@@ -25,7 +25,7 @@ struct Struct_ov000_0217ab8c {
 };
 
 extern "C" {
-void func_020813ec(Struct_ov000_0217ab8c*, int);
+void OpenMenuLayoutWindow_020813ec(Struct_ov000_0217ab8c*, int);
 }
 
 extern "C" int func_020e28dc(Struct_020e28dc*);
@@ -73,7 +73,7 @@ extern "C" ARM unsigned char func_ov003_021765b4(Struct_ov003_021765b4* arg0)
         if (arg0->unknown_1000_ != var6)
         {
             var4->unknown_36_ = var6;
-            func_020813ec(var4, arg0->unknown_ffe_);
+            OpenMenuLayoutWindow_020813ec(var4, arg0->unknown_ffe_);
         }
     }
     return var0;

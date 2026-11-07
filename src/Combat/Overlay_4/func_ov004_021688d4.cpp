@@ -2,12 +2,12 @@
 #include "GameState/GameState.h"
 
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void* func_0203cf4c(void);
+extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
 
 struct Struct_0203de84;
-struct Struct_0203de84_2;
-extern "C" void func_020406f8(struct Struct_0203de84* arg0, struct Struct_0203de84_2* arg1);
+struct NPC_0203de84_2;
+extern "C" void GetNPCPosition_020406f8(struct Struct_0203de84* outPosition, struct NPC_0203de84_2* npc);
 
 struct Struct_ov004_021688d4 { unsigned int unknown_0_[3]; };
 
@@ -32,14 +32,14 @@ extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 // USA: func_ov004_021688d4
 extern "C" ARM int func_ov004_021688d4(void) {
     char* var0 = (char*)(int)GetMessageWindow_020421a0();
-    void* var1 = func_0203cf4c();
+    void* var1 = GetNPCManager_0203cf4c();
     void* var2 = FindNPCById_0203df78(var1, 6);
     if (var2) {
         GameObject* var3 = GameState::GetInstance()->GetUnknownGameObject();
         struct Struct_ov004_021688d4 var4;
         struct Struct_ov004_021688d4 var5;
         struct Struct_ov004_021688d4 var6;
-        func_020406f8((struct Struct_0203de84*)&var6, (struct Struct_0203de84_2*)var2);
+        GetNPCPosition_020406f8((struct Struct_0203de84*)&var6, (struct NPC_0203de84_2*)var2);
         var4 = var6;
         var5 = *(struct Struct_ov004_021688d4*)((char*)var3 + 0x44);
 

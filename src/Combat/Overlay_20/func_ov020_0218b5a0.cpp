@@ -9,7 +9,7 @@ extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, in
 extern "C" void SetSubBGMode_020c3984(unsigned int bgMode);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
-extern "C" void func_020c5770(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, void* arg8);
+extern "C" void SetOrthographicProjection_020c5770(int top, int bottom, int left, int right, int nearPlane, int farPlane, int arg6, int isLoadedAsProjection, void* projectionMatrix);
 
 struct Struct_ov020_0218b5a0 {
     char unknown_0_[0x8];
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov020_0218b5a0(struct Struct_ov020_0218b5a0* arg0) {
         Set3DClearColorAndDepth_020c5588(0, 0x1f, 0x7fff, 0, 0);
     }
 
-    func_020c5770(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, 1, 0);
+    SetOrthographicProjection_020c5770(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, 1, 0);
 
     *(volatile unsigned int*)0x400044c = 0;
     *(volatile unsigned short*)0x4000304 = *(volatile unsigned short*)0x4000304 & ~0x8000;

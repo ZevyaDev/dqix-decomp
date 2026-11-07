@@ -137,7 +137,7 @@ extern "C" struct Struct_0203d028_12* func_0209854c(struct Struct_0203d028_12* a
 
 extern "C" void* func_020daf90(void);
 extern "C" int func_020db2d4(void* arg0);
-extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
+extern "C" void SetLoadingIndicator_020daf9c(int isShown, int isFadeWaitSkipped, int isScreenBlanked, int isMainScreenForced);
 
 void SetMainBrightness(GameResources*, int, int);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
@@ -246,7 +246,7 @@ extern "C" void func_02041628(void* arg0, int arg1, int arg2);
 extern "C" void func_02041640(void* arg0, int arg1, int arg2);
 struct Vector3i;
 
-extern "C" int func_02018fbc(void* arg0, int* arg1);
+extern "C" int GetGroundHeight_02018fbc(void* zone, int* position);
 
 struct Struct_02040bfc { char unknown_0_[0x8c]; int unknown_8c_; };
 struct Struct_02040bfc_2 { char unknown_0_[0xc8]; int unknown_c8_; };
@@ -412,7 +412,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
             if (var29 != 0) {
                 {
                     if (func_020db2d4(func_020daf90()) == 0) {
-                        func_020daf9c(1, 0, 1, 0);
+                        SetLoadingIndicator_020daf9c(1, 0, 1, 0);
                         SetMainBrightness(var1, ~0xf, 0);
                     }
                     SetGlobalFlags_020466e4(var5, 0x400000);
@@ -672,7 +672,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
                 }
                 int var53[3];
                 *(Vector3i*)var53 = *(Vector3i const*)((int*)((char*)var10->unknown_1c_ + 0x44));
-                var53[1] = func_02018fbc(var3, var53);
+                var53[1] = GetGroundHeight_02018fbc(var3, var53);
                 *(Vector3i*)((int*)((char*)var10->unknown_1c_ + 0x44)) = *(Vector3i const*)var53;
             }
             func_02040bfc((struct Struct_0203d028_22*)var10, var11->unknown_38_);

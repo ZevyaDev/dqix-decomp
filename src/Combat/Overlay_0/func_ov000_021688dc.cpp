@@ -88,20 +88,20 @@ extern "C" void func_02082828(int arg0);
 extern "C" void func_020542b4(void* arg0, void* arg1, void* arg2);
 extern "C" void func_02048b0c(void* arg0, int arg1);
 extern "C" void func_02049c88(void* arg0, void* arg1);
-extern "C" void func_02046a8c(void* arg0, void* arg1);
+extern "C" void RemoveFromQueue_02046a8c(void* queue, void* node);
 extern "C" void func_02076a8c(void* arg0);
 extern "C" int func_ov000_02163c80(void* arg0, int arg1);
 extern "C" void func_ov000_02168284(void* arg0);
 extern "C" void func_02048150(void* arg0, int arg1, int arg2);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
-extern "C" void func_ov017_021917f0(int arg0, int arg1);
-extern "C" void func_ov017_02191234(int arg0);
-extern "C" void ResetEventTask_ov017_021baedc(void* node, int arg1);
+extern "C" void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int isHeld);
+extern "C" void RebuildPartyOrders_ov017_02191234(int gameResources);
+extern "C" void ResetEventTask_ov017_021baedc(void* node, int isRestart);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(int gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 extern "C" void func_ov017_02191aac(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_0219bd1c(int arg0, int arg1, int arg2, int arg3);
-extern "C" void func_ov000_021626a0(void* arg0, int arg1, int arg2);
+extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void* battleScene, int selector, int isVisible);
 
 extern "C" void func_ov017_0218d274(void* arg0);
 extern "C" void func_ov017_021901ac(int arg0);
@@ -127,14 +127,14 @@ extern "C" int IsInParty_02086ef0(struct Party_02048150* party, int objectIndex)
 
 struct Struct_0207d7f4;
 extern "C" void func_0207da7c(struct Struct_0207d7f4* arg0, unsigned short arg1);
-extern "C" int func_ov000_02160fd4(void* arg0, int arg1);
+extern "C" int TestBattleSceneFlags_ov000_02160fd4(void* battleScene, int flags);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 struct ActiveZone_020fdd44;
 extern "C" struct ActiveZone_020fdd44* func_02027cb0(void);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void* func_0207d78c(void);
+extern "C" void* GetBattleJoinTable_0207d78c(void);
 extern "C" void* GetGlobalFlags_020d6c00(void);
 
 extern "C" void EnablePlayerControl_020397c0(void* object);
@@ -167,8 +167,8 @@ extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
 
 struct TextureVRAMArea_0203d028;
 extern "C" void func_02072d58(int arg0, char* arg1, char* arg2);
-struct Struct_0205faf4_11;
-extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
+struct PartyMember_0205faf4_11;
+extern "C" int func_02061bd8(struct PartyMember_0205faf4_11* arg0);
 extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
@@ -215,7 +215,7 @@ struct Struct_ov000_02164fac_2 { char unknown_0_[0x70]; };
 static inline SafeAllocator* inline_ov000_02164fac(GameResources* arg0, int arg1) { return &arg0->allocator_array_38[arg1]; }
 static inline Struct_ov000_02164fac_2* inline_ov000_021688dc(GameResources* arg0, int arg1) { return &((Struct_ov000_02164fac_2*)arg0->unknown_2cc_)[arg1]; }
 
-static inline short inline_ov000_021688dc_2(GameObject* arg0) { return arg0->obj3D_.unknown_4_; }
+static inline short inline_ov000_021688dc_2(GameObject* arg0) { return arg0->obj3D_.objectIndex_4_; }
 
 static inline int inline_ov000_021688dc_3(GameObject* arg0) {
     return (**(int**)((char*)arg0 + 0x130) & 1) != 0;
@@ -248,7 +248,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
     GameObject* var15 = var9->GetProtagonist();
     struct ActiveZone_020fdd44* var16 = func_02027cb0();
     int var17 = GetMessageWindow_020421a0();
-    void* var18 = func_0207d78c();
+    void* var18 = GetBattleJoinTable_0207d78c();
     void* var19 = *(void**)(var10 + Enum_ov000_021688dc_14076);
     unsigned char* var20 = *(unsigned char**)(var10 + Enum_ov000_021688dc_14132);
     GetGlobalFlags_020d6c00();
@@ -287,7 +287,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
     func_0207da7c((struct Struct_0207d7f4*)var18, *(unsigned short*)(*(unsigned char**)(arg0 + Enum_ov000_021688dc_672) + 8));
     *(unsigned char*)(var17 + Enum_ov000_021688dc_6590) = 0;
 
-    if (func_ov000_02160fd4(arg0, 0x400000)) {
+    if (TestBattleSceneFlags_ov000_02160fd4(arg0, 0x400000)) {
         GameObject* var26 = GetPartyMemberBaseByIndex_0200ff1c(var9, 1);
         if (var26 != NULL) {
             int var27 = GetPartyMemberData_02053c6c((unsigned char*)var26);
@@ -316,19 +316,19 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
         *((unsigned char*)var22 + 0xc3) = 0xf;
     }
 
-    short var32 = var15->obj3D_.unknown_4_;
+    short var32 = var15->obj3D_.objectIndex_4_;
     if (IsInParty_02086ef0(var14, 0)) {
         for (int var33 = 0; var33 < var14->memberCount_f7c_; var33++) {
             GameObject* var34 = var9->GetPartyMemberByIndex(var14->memberObjectIndices_f78_[var33]);
             if (var34 != NULL && !IsDead_02010088((struct Struct_02010088*)var34)) {
                 if (!inline_ov000_021688dc_3(var34)) {
-                    var32 = var34->obj3D_.unknown_4_;
+                    var32 = var34->obj3D_.objectIndex_4_;
                     break;
                 }
             }
         }
     } else {
-        var32 = var22->obj3D_.unknown_4_;
+        var32 = var22->obj3D_.objectIndex_4_;
     }
 
     for (int var35 = 0; var35 < 4; var35++) {
@@ -341,21 +341,21 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
                 func_ov017_02191aac(var10, 0, var35, 2);
                 func_ov017_02191aac(var10, 0, var35, 4);
 
-                if (func_ov000_02160fd4(arg0, 1) && arg0[Enum_ov000_021688dc_30674] != 0) {
+                if (TestBattleSceneFlags_ov000_02160fd4(arg0, 1) && arg0[Enum_ov000_021688dc_30674] != 0) {
                     func_02048b0c(var36, HasLearnedSkillEntry_02083b00(*(unsigned char**)((char*)var36 + Enum_ov000_021688dc_336), 0x99) ? 1 : 0);
                     func_0203400c((Struct_02032e58*)var36);
                 }
 
                 if (IsInParty_02086ef0(var14, inline_ov000_021688dc_2(var36))) {
-                    if (var32 != var36->obj3D_.unknown_4_) {
+                    if (var32 != var36->obj3D_.objectIndex_4_) {
                         func_02039d48((unsigned char*)var36);
                     }
-                    if (func_ov000_02160fd4(arg0, 1)) {
+                    if (TestBattleSceneFlags_ov000_02160fd4(arg0, 1)) {
                         var36->obj3D_.position_ = *(Vector3i*)(arg0 + Enum_ov000_021688dc_22800 + var32 * 16);
                         SetFacingInstantly_02033874((struct Struct_02033834*)var36, *(short*)(arg0 + var32 * 16 + Enum_ov000_021688dc_22784 + Enum_ov000_021688dc_28));
                     }
                 } else {
-                    if (func_ov000_02160fd4(arg0, 1)) {
+                    if (TestBattleSceneFlags_ov000_02160fd4(arg0, 1)) {
                         var36->obj3D_.position_ = *(Vector3i*)(arg0 + Enum_ov000_021688dc_22800 + var35 * 16);
                         SetFacingInstantly_02033874((struct Struct_02033834*)var36, *(short*)(arg0 + var35 * 16 + Enum_ov000_021688dc_22784 + Enum_ov000_021688dc_28));
                     }
@@ -427,7 +427,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
     ClearFlags04((GameResources*)var10, 2);
     ClearFlags00((GameResources*)var10, 0x20);
     ClearFlags00((GameResources*)var10, 0x10);
-    func_ov000_021626a0(arg0, 0x26, 1);
+    SetObjectsVisibleBySelector_ov000_021626a0(arg0, 0x26, 1);
     *(volatile unsigned short*)0x04000304 &= ~0x8000;
     LockStagedTextureVRAMCopying();
     MapVRAMBanksToTextureImage(0xf);
@@ -452,7 +452,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
             }
             func_02049c88(var44, NULL);
             *((unsigned char*)var44 + 0xc2) &= ~0x20;
-            func_ov017_021917f0(var7[var43], 0);
+            AttachPartyMemberWeapon_ov017_021917f0(var7[var43], 0);
         }
     }
 
@@ -505,7 +505,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
                         ((SafeAllocator*)(var54 + 0x540))->Reset();
                         func_02072d58(var52, var1, var2);
 
-                        if (func_02061bd8((struct Struct_0205faf4_11*)var53)) {
+                        if (func_02061bd8((struct PartyMember_0205faf4_11*)var53)) {
                             var53->obj3D_.Destroy();
                             unsigned char* var56 = *(unsigned char**)((char*)var53 + Enum_ov000_021688dc_452);
                             if (var56 != NULL) {
@@ -533,7 +533,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
                             var53->obj3D_.LoadFromCCHROrCMOTArchive(&var4, NULL);
                         }
 
-                        if (func_02061bd8((struct Struct_0205faf4_11*)var53)) {
+                        if (func_02061bd8((struct PartyMember_0205faf4_11*)var53)) {
                             SaveTextureVRAMState_0207dfac((char*)(var54 + 0xcc));
                         } else {
                             sprintf(var3, data_ov000_02183b55, var2);
@@ -596,13 +596,13 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
     }
 
     if (var59 == 0) {
-        if (!func_ov000_02160fd4(arg0, 1)) {
+        if (!TestBattleSceneFlags_ov000_02160fd4(arg0, 1)) {
             func_ov017_0219bd1c(0, 4, 0, 0);
         }
     } else {
         unsigned char* var64 = *(unsigned char**)(var10 + Enum_ov000_021688dc_14092);
         if (var64[2] != 0) {
-            func_02046a8c(var19, var64);
+            RemoveFromQueue_02046a8c(var19, var64);
         }
     }
 
@@ -638,7 +638,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
 
     if (IsLocalWirelessGuest_0202c540(var11)) {
         func_ov017_021907dc(var10, 0, 1, 1, 1);
-        func_ov017_02191234(var10);
+        RebuildPartyOrders_ov017_02191234(var10);
     }
     *(unsigned short*)((char*)GetZoneEntry_0200fd0c(var9) + 0x1e) = *(int*)(*(unsigned char**)(arg0 + Enum_ov000_021688dc_672) + 0xc);
 

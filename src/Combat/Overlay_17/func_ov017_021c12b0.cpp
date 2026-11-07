@@ -20,6 +20,6 @@ extern "C" ARM void func_ov017_021c12b0(unsigned char arg0) {
 	if (var4 == NULL) {
 		var4 = var3->GetProtagonist();
 	}
-	short var5 = var4->obj3D_.unknown_4_;
+	short var5 = var4->obj3D_.objectIndex_4_;
 	func_ov017_021d2738((unsigned char)(var5 & 0xff), arg0);
 }

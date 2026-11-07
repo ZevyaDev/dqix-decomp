@@ -6,7 +6,7 @@ enum { Enum_020652d0_564 = 0x1c4, Enum_020652d0_563 = 0x1c3 };
 enum { Enum_020652d0_564 = 0x234, Enum_020652d0_563 = 0x233 };
 #endif
 
-extern "C" void func_0205c790(char* arg0);
+extern "C" void InitChoiceList_0205c790(char* choiceList);
 
 struct MenuCursor_0205ba68;
 extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
@@ -43,7 +43,7 @@ extern "C" ARM void func_020665bc(char* arg0, int arg1, const char* arg2, const 
 #else
 extern "C" ARM void func_020652d0(char* arg0, int arg1, int arg2, int arg3) {
 #endif
-    func_0205c790(arg0);
+    InitChoiceList_0205c790(arg0);
 
     arg0[0xb1] = 1;
     arg0[0xb0] = 1;

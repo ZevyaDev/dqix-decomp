@@ -92,7 +92,7 @@ extern "C" {
 #if !defined(jpn)
 void func_020806d8(Struct_ov000_0217ab8c* arg0, int, int, int, int);
 #endif
-void func_020813ec(Struct_ov000_0217ab8c* arg0, short arg1);
+void OpenMenuLayoutWindow_020813ec(Struct_ov000_0217ab8c* menuLayout, short windowId);
 }
 
 extern const short data_ov014_021894cc[3][11];
@@ -143,5 +143,5 @@ extern "C" ARM void func_ov014_02188330(Struct_ov014_02186bc8* arg0)
         func_02080b2c(arg0->unknown_c0_, var8);
     }
     func_02081164((Struct_02081164*)arg0->unknown_c0_, 0, 1);
-    func_020813ec(arg0->unknown_c0_, 0);
+    OpenMenuLayoutWindow_020813ec(arg0->unknown_c0_, 0);
 }

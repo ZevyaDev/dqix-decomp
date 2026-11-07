@@ -31,7 +31,7 @@ extern "C" int CompareBytes_02001aec(const void* left, const void* right, unsign
 extern "C" int FindFontGlyphIndex_020424e4(int, int);
 
 extern "C" char* func_020424ac(char*);
-extern "C" Struct_0206b974_2::Struct_0206b974_3* func_020425b4(int arg0, int arg1);
+extern "C" Struct_0206b974_2::Struct_0206b974_3* GetFontGlyph_020425b4(int glyphIndex, int font);
 extern "C" int func_020425e4(int arg0, int arg1, int arg2);
 extern "C" int func_02042648(int arg0);
 extern "C" int func_02044420(void*, void*);
@@ -234,7 +234,7 @@ extern "C" ARM void func_0206b974(Struct_0206b974* arg0, bool arg1, char *arg2, 
         }
         if (var16 >= 0)
         {
-            Struct_0206b974_2::Struct_0206b974_3* var25 = func_020425b4(var16, arg7);
+            Struct_0206b974_2::Struct_0206b974_3* var25 = GetFontGlyph_020425b4(var16, arg7);
             var24 = var25->unknown_5_0_;
             unsigned char var26 = var16;
             int var27 = func_020425e4(var7, var26, arg7);

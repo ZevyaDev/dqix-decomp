@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 struct Struct_ov001_0215cdf8;
 struct Struct_ov001_0215cd50;
 struct Object3D;
@@ -23,8 +23,8 @@ struct Struct_ov025_021e7324_2 {
 extern "C" ARM int func_ov025_021e7324(struct Struct_ov025_021e7324* arg0, int arg1, int arg2, void* arg3) {
     struct Struct_ov025_021e7324_2 var0;
     struct Struct_ov025_021e7324_2 var1;
-    int var2 = func_ov000_021820bc(arg3, arg1, arg0->unknown_8_, (int)&var0.unknown_0_);
-    int var3 = func_ov000_021820bc(arg3, arg1, arg0->unknown_9_, (int)&var1.unknown_0_);
+    int var2 = CollectObjectIndicesBySelector_ov000_021820bc(arg3, arg1, arg0->unknown_8_, (int)&var0.unknown_0_);
+    int var3 = CollectObjectIndicesBySelector_ov000_021820bc(arg3, arg1, arg0->unknown_9_, (int)&var1.unknown_0_);
     if (!var2 || !var3) {
         return 1;
     }

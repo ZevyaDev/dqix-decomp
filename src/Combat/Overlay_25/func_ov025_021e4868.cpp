@@ -6,7 +6,7 @@
 struct Struct_0204a438;
 extern "C" void* func_0204a438(struct Struct_0204a438* arg0);
 extern "C" int func_0202e09c(int arg0);
-extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 struct Struct_02059cfc_4;
 struct Struct_ov008_021870e4;
 extern int data_ov025_021ef988;
@@ -46,7 +46,7 @@ extern "C" ARM int func_ov025_021e4868(struct Struct_ov025_021e4868* arg0, int a
             return 1;
         }
     } else {
-        if (func_ov000_021820bc((void*)arg3, arg1, arg0->unknown_8_, (int)&var0.unknown_20_) != 1) {
+        if (CollectObjectIndicesBySelector_ov000_021820bc((void*)arg3, arg1, arg0->unknown_8_, (int)&var0.unknown_20_) != 1) {
             return 1;
         }
         var1 = var3->GetGameObjectByIndex(var0.unknown_20_);

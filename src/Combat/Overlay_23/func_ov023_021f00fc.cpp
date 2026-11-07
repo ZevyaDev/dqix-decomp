@@ -59,7 +59,7 @@ extern "C" Struct_ov023_021f00fc_2* func_ov023_021f0360(void* arg0, int arg1);
 extern "C" unsigned int func_ov023_021eea98(Struct_ov023_021edf54* arg0);
 extern "C" void func_ov017_021cd4c8(unsigned short, unsigned short, signed char);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
-extern "C" int func_ov000_02160fd4(void* arg0, int arg1);
+extern "C" int TestBattleSceneFlags_ov000_02160fd4(void* battleScene, int flags);
 
 extern "C" {
 void __clear(void* arg0, unsigned long arg1);
@@ -107,9 +107,9 @@ extern "C" ARM int func_ov023_021f00fc(Struct_ov023_021f00fc_4* arg0)
     {
         if (var2->unknown_42e2_ != 0)
             SetBattleSceneFlags_ov000_02160fa8(arg0, 0x2000000);
-        if (!func_ov000_02160fd4(arg0, 0x4000))
+        if (!TestBattleSceneFlags_ov000_02160fd4(arg0, 0x4000))
             return arg0->unknown_eac_;
-        if (!func_ov000_02160fd4(arg0, 0x8000))
+        if (!TestBattleSceneFlags_ov000_02160fd4(arg0, 0x8000))
             return arg0->unknown_eac_;
     }
     _ZZ21inline_ov023_021f4c04vE1s->unknown_10_ =func_ov023_021f5150(arg0, arg0->unknown_2a0_, arg0->unknown_5758_, &arg0->unknown_5768_, arg0->unknown_576c_) ? 1 : 0;

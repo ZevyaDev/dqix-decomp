@@ -4,7 +4,7 @@
 #include "Resource/CharacterCreationUI.h"
 
 struct MenuLayout_0207fdcc_2;
-struct Struct_02080f8c;
+struct MenuLayout_02080f8c;
 struct Struct_ov006_02159fb0;
 struct Struct_ov006_0215a00c;
 #if defined(jpn)
@@ -76,8 +76,8 @@ struct Struct_ov006_0215a00c_5 {
     int unknown_3b0_;
 };
 
-extern "C" void func_02080c20(struct MenuLayout_0207fdcc_2*, int);
-extern "C" void func_020813ec(void*, int);
+extern "C" void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2*, int);
+extern "C" void OpenMenuLayoutWindow_020813ec(void*, int);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3*, int);
 extern "C" struct MessageWindow_020465c0* GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(struct MessageWindow_020465c0*);
@@ -87,7 +87,7 @@ extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
 extern "C" void func_02046608(struct MessageWindow_020465c0*, int, const char*, char*, int, int, int);
 extern "C" char* FindFontGlyph_0204254c(int, int);
 extern "C" void __clear(void*, int);
-extern "C" void func_02080f8c(Struct_02080f8c*, int, int);
+extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c*, int, int);
 extern "C" void func_ov006_02159fb0(struct Struct_ov006_02159fb0*);
 extern char data_ov006_0215ffd2[];
 extern char data_ov006_0215ffea[];
@@ -107,8 +107,8 @@ extern "C" ARM void func_ov006_0215a00c(struct Struct_ov006_0215a00c_5* arg0) {
     unsigned char var3 = arg0->unknown_300_.unknown_92_;
     if (var3 == 0) {
         if (arg0->unknown_300_.unknown_94_ & 0x20) {
-            func_02080c20((struct MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
-            func_020813ec(arg0->unknown_14_, 0);
+            ShowMenuLayoutWindow_02080c20((struct MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
+            OpenMenuLayoutWindow_020813ec(arg0->unknown_14_, 0);
         }
         arg0->unknown_300_.unknown_94_ &= ~0x20;
         arg0->unknown_300_.unknown_80_ = 0;
@@ -271,9 +271,9 @@ extern "C" ARM void func_ov006_0215a00c(struct Struct_ov006_0215a00c_5* arg0) {
         arg0->unknown_300_.unknown_80_ = var14;
         __clear(var0, 0x400);
         memcpy(var0, var5, var14);
-        func_02080f8c((struct Struct_02080f8c*)arg0->unknown_14_, 1, (int)var0);
-        func_020813ec(arg0->unknown_14_, 1);
-        func_02080c20((struct MenuLayout_0207fdcc_2*)arg0->unknown_14_, 1);
+        SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)arg0->unknown_14_, 1, (int)var0);
+        OpenMenuLayoutWindow_020813ec(arg0->unknown_14_, 1);
+        ShowMenuLayoutWindow_02080c20((struct MenuLayout_0207fdcc_2*)arg0->unknown_14_, 1);
 #if defined(jpn)
         if (strstr(var0, data_ov006_021615c8) != 0) {
             arg0->unknown_3b0_ = 1;

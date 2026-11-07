@@ -18,7 +18,7 @@ extern "C" void *GetGlobalFlags_020d6c00();
 extern "C" void SetTextWindowPalette_0205deb4(struct Struct_ov002_02155960_2 *windowManager, int windowId, int palette);
 extern "C" void *GetLocalWireless_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
-extern "C" void func_0205def8(struct Struct_ov002_02155960_3 *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowVisible_0205def8(struct Struct_ov002_02155960_3 *windowManager, int isVisible, int windowId);
 extern "C" void SetGlobalFlags_020466e4(unsigned int *globalFlags, unsigned int mask);
 struct Struct_ov002_0215624c_23;
 extern "C" void InitSprite_0205a198(Struct_ov002_0215624c_23*);
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov002_02169efc(char *arg0) {
         }
         *(int *) (arg0 + RG(0x1bc0, 0x1a88)) = 0;
     } else if (var8 == 1) {
-        func_0205def8((struct Struct_ov002_02155960_3 *) OBJ, 0, RG(0x29, 0x2c));
+        SetTextWindowVisible_0205def8((struct Struct_ov002_02155960_3 *) OBJ, 0, RG(0x29, 0x2c));
         *(short *) (arg0 + RG(0x1c28, 0x1af0))         = 0x125d;
         *(short *) (arg0 + RG(0x1c2a, 0x1af2))         = -1;
         *(int *) (arg0 + RG(0x1bb8, 0x1a80))           = RG(0x26, 0x29);

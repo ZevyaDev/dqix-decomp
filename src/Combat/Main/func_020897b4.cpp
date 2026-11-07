@@ -27,7 +27,7 @@ extern "C" int func_0208274c(void* arg0, Struct_02013fb4* arg1, int arg2, int ar
 extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
 extern "C" void func_02083e28(void* arg0, int arg1);
 extern "C" void func_02083b8c(unsigned char* arg0, unsigned char* arg1, unsigned int arg2);
-extern "C" void func_0209a804(int* arg0);
+extern "C" void ClearSpellTable_0209a804(int* table);
 extern "C" void func_0209a8b4(Struct_02086f24_6* arg0, SafeAllocator* arg1, Struct_02013fb4* arg2, int arg3);
 extern "C" int func_0209aa54(void* arg0, unsigned char* arg1, unsigned char* arg2, int arg3);
 extern "C" void func_ov017_021ce614(unsigned char arg0, unsigned char arg1, unsigned char arg2);
@@ -110,7 +110,7 @@ extern "C" ARM void func_020897b4(unsigned char arg0, unsigned char arg1, int ar
     if (arg7 != 0) {
         var3.ResetAllocatorPointer();
         var3.CreateTypeA(var2, 0x600);
-        func_0209a804((int*)&var6);
+        ClearSpellTable_0209a804((int*)&var6);
         func_0209a8b4(&var6, &var3, (Struct_02013fb4*)arg7, arg8);
         unsigned int var11 = func_0209aa54(&var6, (unsigned char*)var7, var4, 0);
         func_02083b8c(reinterpret_cast<unsigned char*>(var9), var4, var11);

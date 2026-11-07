@@ -4,7 +4,7 @@
 struct MenuCursor_0205ba68;
 struct MenuCursor_0205bacc;
 struct MenuCursor_0205bcdc;
-struct Struct_0205cf1c;
+struct TextWindowManager_0205cf1c;
 
 extern "C" void* GetParty_02010828(GameState*);
 extern "C" void func_ov000_02174da4(int, void*);
@@ -14,10 +14,10 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_ov000_0218155c(void*);
 extern "C" void* FindPartyMemberPanel_ov000_02161318(void*, int);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char*);
-extern "C" void func_0205cf10(void*);
-extern "C" void func_0205cf1c(Struct_0205cf1c*);
+extern "C" void DisableTouchMenuCursor_0205cf10(void*);
+extern "C" void DisableKeyMenuCursor_0205cf1c(TextWindowManager_0205cf1c*);
 extern "C" void EnableTouchMenuCursor_0205cef8(void*);
-extern "C" void func_0205cf04(void*);
+extern "C" void EnableKeyMenuCursor_0205cf04(void*);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc*, int);
@@ -173,12 +173,12 @@ extern "C" ARM void func_ov000_0217c638(Struct_ov000_0217c638_3* arg0, int arg1,
         var4 = arg0->unknown_1c_;
         break;
     default:
-        func_0205cf10(arg0->unknown_188_);
-        func_0205cf1c((Struct_0205cf1c*)arg0->unknown_188_);
+        DisableTouchMenuCursor_0205cf10(arg0->unknown_188_);
+        DisableKeyMenuCursor_0205cf1c((TextWindowManager_0205cf1c*)arg0->unknown_188_);
         return;
     }
     EnableTouchMenuCursor_0205cef8(arg0->unknown_188_);
-    func_0205cf04(arg0->unknown_188_);
+    EnableKeyMenuCursor_0205cf04(arg0->unknown_188_);
     SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&arg0->unknown_18c_, var0, var2, 0);
     SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&arg0->unknown_1dc_, var0, var2, 0);
     SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&arg0->unknown_18c_, var1);

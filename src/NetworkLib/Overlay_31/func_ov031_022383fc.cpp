@@ -10,7 +10,7 @@ struct Struct_ov031_022269d8;
 struct Struct_ov031_02223268_2;
 extern "C" Struct_ov031_02223268_2* func_ov031_0223baa0(Struct_ov031_022269d8* arg0, int arg1);
 extern "C" void func_ov031_0223bdb0(int arg0, int arg1, void* arg2);
-extern "C" void func_ov031_0223bbd8(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetSpritePosition_ov031_0223bbd8(void* sprite, int entryIndex, int x, int y);
 
 struct Struct_ov031_02222ce4;
 extern "C" ARM void func_ov031_0223bcc8(Struct_ov031_02222ce4* arg0, int arg1, int arg2);
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov031_022383fc(int arg0) {
 	unsigned char var5 = *((unsigned char*)data_ov031_022492ea + var3 * 2 + arg0);
 	unsigned short var6 = *(unsigned short*)((char*)data_ov031_02249364 + var3 * 8 + var5 * 4);
 	unsigned short var7 = *(unsigned short*)((char*)data_ov031_02249366 + var3 * 8 + var5 * 4);
-	func_ov031_0223bbd8(var4, -1, var6, var7);
+	SetSpritePosition_ov031_0223bbd8(var4, -1, var6, var7);
 
 	void* var8 = *(void**)((char*)data_ov031_02290d10 + 8 + arg0 * 4);
 	func_ov031_0223bcc8((Struct_ov031_02222ce4*)var8, -1, 0);

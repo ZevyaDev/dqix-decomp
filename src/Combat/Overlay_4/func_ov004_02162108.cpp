@@ -68,7 +68,7 @@ extern "C" void func_ov004_0215e574(void* arg0, unsigned short arg1, int arg2, i
 extern "C" void func_ov004_0215e49c(void*, int, int);
 extern "C" Struct_ov004_02162108_2* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(Struct_ov004_02162108_2* arg0);
-extern "C" struct StringList_02072a68_2* func_ov023_021fa598(Struct_ov004_02162108_2* arg0);
+extern "C" struct StringList_02072a68_2* GetMenuObjectStringList_ov023_021fa598(Struct_ov004_02162108_2* object);
 #if !defined(jpn)
 extern "C" char* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, short stringId);
 #endif
@@ -187,7 +187,7 @@ extern "C" ARM int func_ov004_02162108(void* arg0) {
                         char* var26;
                         struct StringList_02072a68_2* var27;
                         Struct_ov004_02162108_2* var28;
-                        var27 = func_ov023_021fa598(var24);
+                        var27 = GetMenuObjectStringList_ov023_021fa598(var24);
                         var26 = data_ov004_021707e8.unknown_c_ + (var21 + var16) * 0x80;
                         memset(var26, 0, 0x80);
                         var25 = 0;

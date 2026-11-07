@@ -12,8 +12,8 @@ extern "C" int func_ov017_021925e0(void* arg0);
 extern "C" void func_ov017_021bd440(void* arg0, int arg1);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-struct Struct_0205faf4_11;
-extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
+struct PartyMember_0205faf4_11;
+extern "C" int func_02061bd8(struct PartyMember_0205faf4_11* arg0);
 extern "C" void func_02072afc(int arg0, int* arg1, short* arg2);
 extern "C" void* func_ov017_021a4658(void* arg0, int arg1);
 struct Queue_0201bdac_2;
@@ -24,14 +24,14 @@ extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct Qu
 extern "C" ARM int QueuePartyMemberModelLoad_ov017_0218f5a4(char* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload) {
     GameState* gameState = GameState::GetInstance();
     GetLocalWireless_0202ae18();
-    void* var1 = *(void**)(gameResources + 0x3000 + Enum_ov017_0218f5a4_1844);
+    void* eventTask = *(void**)(gameResources + 0x3000 + Enum_ov017_0218f5a4_1844);
 
     if (func_ov017_021925e0(gameResources + 0x3000) != 0) {
         GameObject* partyMember = gameState->GetPartyMemberByIndex(memberIndex);
         if (partyMember != 0) {
             unsigned short classFlags = partyMember->obj3D_.classFlags_0_;
             if (classFlags & 0x1000) {
-                func_ov017_021bd440(var1, memberIndex & 0xff);
+                func_ov017_021bd440(eventTask, memberIndex & 0xff);
                 return 0;
             }
         }
@@ -45,7 +45,7 @@ extern "C" ARM int QueuePartyMemberModelLoad_ov017_0218f5a4(char* gameResources,
         unsigned char* memberData = *(unsigned char**)((char*)partyMemberBase + Enum_ov017_0218f5a4_336);
         int isReloadPending = memberData ? memberData[0x56e] : 0;
         if (isReloadPending == 0 && isForced == 0) {
-            if (func_02061bd8((struct Struct_0205faf4_11*)partyMemberBase) == 0) {
+            if (func_02061bd8((struct PartyMember_0205faf4_11*)partyMemberBase) == 0) {
                 int partObjectIndices[0xb];
                 short partModelIds[0xb];
                 func_02072afc(memberIndex, partObjectIndices, partModelIds);

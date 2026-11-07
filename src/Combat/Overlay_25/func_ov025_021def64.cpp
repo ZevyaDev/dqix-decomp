@@ -12,7 +12,7 @@ struct Struct_ov025_021def64_2 {
     GameObject* unknown_c_;
 };
 
-extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 extern "C" Vector3fix func_02049c08(struct Struct_02049c08_2* arg0);
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 extern "C" void func_ov025_021df554(void* arg0);
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov025_021def64(struct Struct_ov025_021def64_3* arg0, in
     int var2[16];
     GameObject* var3[16];
     GameState* var4 = GameState::GetInstance();
-    int var5 = func_ov000_021820bc(arg0->unknown_29c_, arg1, arg2, (int)var2);
+    int var5 = CollectObjectIndicesBySelector_ov000_021820bc(arg0->unknown_29c_, arg1, arg2, (int)var2);
     if (var5 == 0) return;
 
     int var6 = 0;

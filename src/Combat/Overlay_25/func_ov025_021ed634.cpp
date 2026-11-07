@@ -97,7 +97,7 @@ extern "C" Struct_ov000_0215440c_4* GetActionActor_ov000_02160094(BattleAction_o
 extern "C" Struct_ov000_0215440c_5* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 extern "C" void func_ov025_021ed2a0(char* arg0);
 extern "C" void* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
-extern "C" short func_ov000_0215ffa0(void* arg0);
+extern "C" short GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" int func_ov000_02159f7c(void* arg0, Struct_ov000_02159f7c* arg1);
 extern "C" int func_ov000_0215fd90(void* arg0, int arg1);
@@ -265,7 +265,7 @@ extern "C" ARM void func_ov025_021ed634(Struct_ov025_021e9fc4* arg0) {
             for (int var44 = 0; var44 < arg0->unknown_164_->unknown_9_; var44++) {
                 Struct_ov000_0215440c_5* var45 = GetActionTarget_ov000_021600f8(arg0->unknown_164_, var44);
                 if (var45 == 0) continue;
-                var34 = func_ov000_0215ffa0(var45);
+                var34 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var45);
                 if (inline_ov025_021ed634_2(var34) != 0) {
                     if (var32 == 0) continue;
                 }
@@ -336,7 +336,7 @@ SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var28);
                 var20 = var14.unknown_0_[0];
                 if (var20 < 0) {
                     Struct_ov000_0215440c_5* var58 = GetActionTarget_ov000_021600f8(arg0->unknown_164_, 0);
-                    if (var58 != 0) var20 = func_ov000_0215ffa0(var58);
+                    if (var58 != 0) var20 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var58);
                 }
             }
 #if defined(jpn)

@@ -9,7 +9,7 @@ extern "C" int func_ov017_0218d75c(void* arg0);
 extern "C" int func_02039820(void* arg0);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
-extern "C" void func_020a27ac(void* arg0);
+extern "C" void EnableCameraTurning_020a27ac(void* camera);
 extern "C" int GetMessageWindow_020421a0(void);
 
 struct Struct_02015ef4 { unsigned int unknown_0_[3]; };
@@ -49,7 +49,7 @@ extern "C" ARM int func_ov017_021bfc40(struct Struct_ov017_021bfc40* arg0) {
         }
         int var5 = GetFollowCamera_020100f8((char*)var0);
         if (var5 != 0) {
-            func_020a27ac((void*)var5);
+            EnableCameraTurning_020a27ac((void*)var5);
         }
         if (var3 != NULL) {
             ClearFlags04(var3, 0x80);
@@ -103,7 +103,7 @@ extern "C" ARM int func_ov017_021bfc40(struct Struct_ov017_021bfc40* arg0) {
         }
         int var17 = GetFollowCamera_020100f8((char*)var0);
         if (var17 != 0) {
-            func_020a27ac((void*)var17);
+            EnableCameraTurning_020a27ac((void*)var17);
         }
         if (var2 != NULL) {
             ClearFlags04(var2, 0x80);

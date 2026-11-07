@@ -21,10 +21,10 @@ extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" int* func_020936f8(void);
 extern "C" void func_020939dc(void* arg0);
-extern "C" void func_02094030(int*, short, short, signed char);
+extern "C" void QueueNotice_02094030(int*, short, short, signed char);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" int func_0202bd34(LocalWireless_0202b2f0* arg0, int arg1);
-extern "C" void func_0202b0f4(void* arg0);
+extern "C" void StopLocalWireless_0202b0f4(void* wireless);
 extern "C" void func_ov017_02195748(unsigned char* arg0);
 extern "C" void func_ov017_02192594(unsigned char* arg0);
 extern "C" void* func_0205e854(Struct_0205e854* arg0);
@@ -51,7 +51,7 @@ extern "C" ARM unsigned char func_ov017_021af2f8(Struct_ov017_021af2f8* arg0) {
         ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x8020);
         int* var3 = func_020936f8();
         func_020939dc(var3);
-        func_02094030(var3, 4, -1, 0);
+        QueueNotice_02094030(var3, 4, -1, 0);
         return 3;
     }
 
@@ -84,7 +84,7 @@ extern "C" ARM unsigned char func_ov017_021af2f8(Struct_ov017_021af2f8* arg0) {
         if (g_keyManager.TestKeysPressed(2)) {
             arg0->unknown_f_ = -1;
             SetFlags00((GameResources*)var0, 2);
-            func_0202b0f4(var1);
+            StopLocalWireless_0202b0f4(var1);
             func_ov017_02195748((unsigned char*)var0);
             func_ov017_02192594((unsigned char*)var0);
             func_0205e854(var2);
@@ -97,7 +97,7 @@ extern "C" ARM unsigned char func_ov017_021af2f8(Struct_ov017_021af2f8* arg0) {
         }
     } else {
         SetFlags00((GameResources*)var0, 2);
-        func_0202b0f4(var1);
+        StopLocalWireless_0202b0f4(var1);
         func_ov017_02195748((unsigned char*)var0);
         func_ov017_02192594((unsigned char*)var0);
         func_0205e854(var2);

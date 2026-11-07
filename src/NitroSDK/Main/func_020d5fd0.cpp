@@ -31,7 +31,7 @@ struct Struct_020d5d34
 struct Struct_020d5fd0;
 struct Struct_020d5fd0_2;
 
-extern "C" int func_020d424c(int arg0, ...);
+extern "C" int CheckWirelessState_020d424c(int stateCount, ...);
 extern "C" void Memcpy16Bit_020ca3b8(const void* src, void* dst, unsigned long size);
 extern "C" int func_020d59bc(Type_020d42e0 arg0, void* arg1, const unsigned short* arg2,
                              unsigned short arg3, unsigned short arg4, unsigned short arg5,
@@ -49,7 +49,7 @@ extern "C" ARM int func_020d5fd0(Struct_020d5d34* arg0, const unsigned short* ar
     unsigned short var1;
     unsigned short var2;
     unsigned short var3;
-    var0 = func_020d424c(2, 9, 10);
+    var0 = CheckWirelessState_020d424c(2, 9, 10);
     if (var0 != 0)
         return var0;
     if (arg0 == NULL)

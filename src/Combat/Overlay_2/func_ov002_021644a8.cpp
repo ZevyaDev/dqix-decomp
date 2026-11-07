@@ -3,7 +3,7 @@
 
 struct TextWindowManager_0205de24_2;
 extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2*, unsigned char, unsigned char);
-extern "C" void func_ov002_02161cf0(char *arg0);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215dae0(unsigned char *arg0);
 struct Struct_0205c570;
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
@@ -12,16 +12,16 @@ struct TextWindowManager_0205d81c;
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
 extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
 struct TextWindowManager_0205def8;
-extern "C" void func_0205def8(TextWindowManager_0205def8*, int, int);
+extern "C" void SetTextWindowVisible_0205def8(TextWindowManager_0205def8*, int, int);
 extern "C" void * FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 struct TextWindowManager_0205da38;
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
-extern "C" int func_ov002_02161b48(char *arg0, int arg1);
+extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void func_ov002_02156e90(char *arg0);
-struct Struct_0205dee8;
-extern "C" void func_0205dee8(Struct_0205dee8*, int);
+struct TextWindowManager_0205dee8;
+extern "C" void SetCursorTextWindow_0205dee8(TextWindowManager_0205dee8*, int);
 
 extern int gSoundEffectManager_02108760;
 
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov002_021644a8(char *arg0) {
     if (var0 == 0) {
         *(short *) (arg0 + 0x1ab8) = 0;
         SetNextTextWindowBGLayer_0205de24((TextWindowManager_0205de24_2*)(arg0 + 0xe20), 0, 2);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_0215dae0((unsigned char *) arg0);
         (*(int *) (arg0 + 0x1a88))++;
     } else if (var0 == 1) {
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov002_021644a8(char *arg0) {
         SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(arg0 + 0xe20), 0xe, 1);
         if (*(short *) (arg0 + 0x1ab8) != 0) {
             func_ov002_0215b9a4(arg0, 0xe, 0);
-            func_0205def8((TextWindowManager_0205def8*)(arg0 + 0xe20), 1, 0xe);
+            SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)(arg0 + 0xe20), 1, 0xe);
             unsigned char *var3 = (unsigned char *) FindTextWindow_0205d81c((TextWindowManager_0205d81c*)(arg0 + 0xe20), 0xc);
             unsigned char *var4 = (unsigned char *) FindTextWindow_0205d81c((TextWindowManager_0205d81c*)(arg0 + 0xe20), 0xe);
             if (var3 != 0 && var4 != 0) {
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov002_021644a8(char *arg0) {
                 *(short *) (var4 + 0xae) = 1;
             }
         } else {
-            func_0205def8((TextWindowManager_0205def8*)(arg0 + 0xe20), 0, 0xe);
+            SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)(arg0 + 0xe20), 0, 0xe);
         }
         if (var1 != *(short *) (arg0 + 0x1ab8)) {
             return;
@@ -77,16 +77,16 @@ extern "C" ARM void func_ov002_021644a8(char *arg0) {
             *(int *) (arg0 + 0x1a88) = 0;
             *(char *) (arg0 + 0x1af6) = 1;
         } else {
-            if (func_ov002_02161b48(arg0, 1) == 0) {
+            if (IsCancelPressed_ov002_02161b48(arg0, 1) == 0) {
                 return;
             }
             func_ov002_02156e90(arg0);
             *(short *) (arg0 + 0x1ab8) = -1;
             *(char *) (arg0 + 0x1ae8) = -1;
             *(char *) (arg0 + 0x1ae9) = -1;
-            func_0205dee8((Struct_0205dee8*)(arg0 + 0xe20), (*(int *) (arg0 + 0x1a80) = 4));
+            SetCursorTextWindow_0205dee8((TextWindowManager_0205dee8*)(arg0 + 0xe20), (*(int *) (arg0 + 0x1a80) = 4));
             func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80), 0);
-            func_ov002_02161cf0(arg0);
+            ConfigureMenuCursors_ov002_02161cf0(arg0);
         }
     }
 }
@@ -96,7 +96,7 @@ extern "C" ARM void func_ov002_021644a8(char *arg0) {
     if (var10 == 0) {
         *(short *) (arg0 + 0x1bf0) = 0;
         SetNextTextWindowBGLayer_0205de24((TextWindowManager_0205de24_2*)(arg0 + 0xec8), 0, 2);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_0215dae0((unsigned char *) arg0);
         (*(int *) (arg0 + 0x1bc0))++;
     } else if (var10 == 1) {
@@ -109,7 +109,7 @@ extern "C" ARM void func_ov002_021644a8(char *arg0) {
         SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(arg0 + 0xec8), 0xd, 1);
         if (*(short *) (arg0 + 0x1bf0) != 0) {
             func_ov002_0215b9a4(arg0, 0xd, 0);
-            func_0205def8((TextWindowManager_0205def8*)(arg0 + 0xec8), 1, 0xd);
+            SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)(arg0 + 0xec8), 1, 0xd);
             unsigned char *var13 = (unsigned char *) FindTextWindow_0205d81c((TextWindowManager_0205d81c*)(arg0 + 0xec8), 0xb);
             unsigned char *var14 = (unsigned char *) FindTextWindow_0205d81c((TextWindowManager_0205d81c*)(arg0 + 0xec8), 0xd);
             if (var13 != 0 && var14 != 0) {
@@ -119,7 +119,7 @@ extern "C" ARM void func_ov002_021644a8(char *arg0) {
                 *(short *) (var14 + 0xae) = 1;
             }
         } else {
-            func_0205def8((TextWindowManager_0205def8*)(arg0 + 0xec8), 0, 0xd);
+            SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)(arg0 + 0xec8), 0, 0xd);
         }
         if (var11 != *(short *) (arg0 + 0x1bf0)) {
             return;
@@ -141,16 +141,16 @@ extern "C" ARM void func_ov002_021644a8(char *arg0) {
             *(int *) (arg0 + 0x1bc0) = 0;
             *(char *) (arg0 + 0x1c2e) = 1;
         } else {
-            if (func_ov002_02161b48(arg0, 1) == 0) {
+            if (IsCancelPressed_ov002_02161b48(arg0, 1) == 0) {
                 return;
             }
             func_ov002_02156e90(arg0);
             *(short *) (arg0 + 0x1bf0) = -1;
             *(char *) (arg0 + 0x1c20) = -1;
             *(char *) (arg0 + 0x1c21) = -1;
-            func_0205dee8((Struct_0205dee8*)(arg0 + 0x2c8 + 0xc00), (*(int *) (arg0 + 0x1bb8) = 4));
+            SetCursorTextWindow_0205dee8((TextWindowManager_0205dee8*)(arg0 + 0x2c8 + 0xc00), (*(int *) (arg0 + 0x1bb8) = 4));
             func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8), 0);
-            func_ov002_02161cf0(arg0);
+            ConfigureMenuCursors_ov002_02161cf0(arg0);
         }
     }
 }

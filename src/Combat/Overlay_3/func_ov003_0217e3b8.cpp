@@ -26,7 +26,7 @@ extern "C" unsigned int* GetResources_0200fb8c(int* gameState);
 extern "C" char* GetFollowCamera_020100f8(char* gameState);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void EnablePlayerControl_020397c0(void* object);
-extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
+extern "C" void SetCameraFlags_020a28a0(unsigned char* camera, unsigned char flags);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void LoadFileTables_020a0c0c(void);
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov003_0217e3b8(Struct_ov003_0217e3b8* arg0)
     char* var3 = GetFollowCamera_020100f8((char*)var0);
     SetFlags04((GameResources*)var1, 0xc0);
     DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
-    func_020a28a0((unsigned char*)var3, 3);
+    SetCameraFlags_020a28a0((unsigned char*)var3, 3);
     int var4 = var0->GetTickCount();
     if (var4 < 0)
         var4 = 1;

@@ -96,7 +96,7 @@ struct Random;
 unsigned int NextRandomMax(Random*, int);
 struct MenuLayout_0207fdcc_2;
 extern "C" void func_02080c04(MenuLayout_0207fdcc_2*, int);
-extern "C" void func_02080c20(MenuLayout_0207fdcc_2*, int);
+extern "C" void ShowMenuLayoutWindow_02080c20(MenuLayout_0207fdcc_2*, int);
 extern "C" int func_ov006_02158c70(Struct_ov006_0215e69c_3* arg0);
 extern "C" void func_ov006_02153cbc(void* arg0, int arg1, int arg2, void* arg3);
 extern "C" void func_ov006_0215759c(void* arg0, Struct_ov006_0215e69c_4* arg1, int arg2);
@@ -117,16 +117,16 @@ extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 #endif
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void ExpandInflectionTags_020e4864(void* text, void* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
-struct Struct_02080f8c;
-extern "C" void func_02080f8c(Struct_02080f8c*, int, int);
+struct MenuLayout_02080f8c;
+extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c*, int, int);
 extern "C" void func_020805f4(void* arg0, int arg1);
-extern "C" void func_020813ec(void* arg0, int arg1);
+extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" void func_ov006_021571fc(char*);
-struct Struct_02109bf4_2;
-extern "C" void func_0209c830(Struct_02109bf4_2*, int);
+struct MusicManager_02109bf4_2;
+extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
 extern "C" void CloseMenuLayoutWindow_0207fdcc(MenuLayout_0207fdcc_2*, int);
 extern "C" void func_ov006_0215728c(void*);
-extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 struct Struct_ov006_0215e5f8;
 extern "C" void func_ov006_0215e5f8(Struct_ov006_0215e5f8*, MenuLayout_0207fdcc_2*, int, unsigned char*);
 
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
         if (func_ov006_02158c70(arg0)) {
             CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
             CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 1);
-            func_02080c68(arg0->unknown_14_, 9, 0);
+            SetMenuLayoutWindowPalette_02080c68(arg0->unknown_14_, 9, 0);
             arg0->unknown_394_ &= ~0x40;
             if (arg0->unknown_34_->unknown_14_ >= 0) {
                 arg0->unknown_382_ = func_ov006_02153f24(arg0->unknown_74_, arg0->unknown_34_->unknown_14_);
@@ -247,7 +247,7 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
         }
     } else if (arg0->unknown_390_ == 0x5a) {
         if (func_ov006_02158c70(arg0)) {
-            func_02080c20((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
+            ShowMenuLayoutWindow_02080c20((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
             arg0->unknown_37e_ = 1;
             arg0->unknown_392_ = 0;
             arg0->unknown_394_ |= 0x20;
@@ -314,18 +314,18 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
         int var8;
         arg0->unknown_3b4_ = 1;
 #if defined(jpn)
-        func_02080f8c((Struct_02080f8c*)arg0->unknown_14_, 0x7f,
+        SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)arg0->unknown_14_, 0x7f,
             FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_164_, arg0->unknown_1ec_));
 #else
         var7 = FindNounInTable_020e5294(arg0->unknown_170_, arg0->unknown_1ec_);
         if (var7 != 0) {
             memset(*arg0->unknown_4_, 0, 0x80);
             ExpandInflectionTags_020e4864(*var7, *arg0->unknown_4_, 1, 0, 0, 0);
-            func_02080f8c((Struct_02080f8c*)arg0->unknown_14_, 0x7f, (int)(*arg0->unknown_4_));
+            SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)arg0->unknown_14_, 0x7f, (int)(*arg0->unknown_4_));
         }
         func_020805f4(arg0->unknown_14_, 0x7f);
 #endif
-        func_020813ec(arg0->unknown_14_, 0x12);
+        OpenMenuLayoutWindow_020813ec(arg0->unknown_14_, 0x12);
         var0->unknown_ae2_ |= 0x400;
         arg0->unknown_42f_ = 1;
         var8 = 0x3e;
@@ -333,7 +333,7 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
             var8 = 0x3f;
             func_ov006_021571fc((char*)arg0->unknown1_10_);
         }
-        func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, var8);
+        QueueJingle_0209c830((MusicManager_02109bf4_2*)&gMusicManager_02109bf4, var8);
         func_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
         arg0->unknown_37e_ = 0xc;
         arg0->unknown_392_ = 0;
@@ -391,21 +391,21 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
         arg0->unknown_389_ = var13;
         arg0->unknown_3b4_ = 1;
 #if defined(jpn)
-        func_02080f8c((Struct_02080f8c*)arg0->unknown_14_, 0x7f,
+        SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)arg0->unknown_14_, 0x7f,
             FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_164_, arg0->unknown_1ec_));
 #else
         var11 = FindNounInTable_020e5294(arg0->unknown_170_, arg0->unknown_1ec_);
         if (var11 != 0) {
             memset(*arg0->unknown_4_, 0, 0x80);
             ExpandInflectionTags_020e4864(*var11, *arg0->unknown_4_, 1, 0, 0, 0);
-            func_02080f8c((Struct_02080f8c*)arg0->unknown_14_, 0x7f, (int)(*arg0->unknown_4_));
+            SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)arg0->unknown_14_, 0x7f, (int)(*arg0->unknown_4_));
         }
         func_020805f4(arg0->unknown_14_, 0x7f);
 #endif
-        func_020813ec(arg0->unknown_14_, 0x12);
+        OpenMenuLayoutWindow_020813ec(arg0->unknown_14_, 0x12);
         var0->unknown_ae2_ |= 0x400;
         arg0->unknown_42f_ = 1;
-        func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, 0x3e);
+        QueueJingle_0209c830((MusicManager_02109bf4_2*)&gMusicManager_02109bf4, 0x3e);
         arg0->unknown_37e_ = 0xc;
         arg0->unknown_392_ = 0;
         arg0->unknown_390_++;

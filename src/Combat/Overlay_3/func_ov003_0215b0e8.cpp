@@ -17,8 +17,8 @@ struct Struct_0201099c_3;
 extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_ov003_02159250(void*, void*);
 extern "C" void CloseMessageWindow_02043124(void*);
-struct Struct_02109bf4_2;
-extern "C" void func_0209c830(Struct_02109bf4_2*, int);
+struct MusicManager_02109bf4_2;
+extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
 extern "C" int func_0209ca2c(void*);
 
 extern unsigned char gMusicManager_02109bf4;
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov003_0215b0e8(void* arg0) {
 
     if (var2 == 1) {
         if (*(int*)(var1 + Enum_ov003_0215b0e8_2456) != 0) return;
-        func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, 0x3b);
+        QueueJingle_0209c830((MusicManager_02109bf4_2*)&gMusicManager_02109bf4, 0x3b);
         *(unsigned char*)(var0 + 0x580) = *(unsigned char*)(var0 + 0x580) + 1;
     }
 

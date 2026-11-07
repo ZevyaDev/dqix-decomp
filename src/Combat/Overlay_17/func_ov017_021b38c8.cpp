@@ -29,7 +29,7 @@ struct Struct_ov017_021b38c8 {
     char unknown_c_[4]; int unknown_10_[11]; int unknown_3c_; int unknown_40_; int unknown_44_;
 };
 extern "C" Struct_0206f81c* GetPartyMemberData_02053c6c(unsigned char*);
-extern "C" Struct_ov017_021b38c8_6* func_02052e2c(Struct_02052e2c*);
+extern "C" Struct_ov017_021b38c8_6* GetAppearance_02052e2c(Struct_02052e2c*);
 extern "C" void func_020543ec(char*, char*);
 extern "C" void func_02072afc(int, int*, short*);
 extern "C" Struct_0206f81c_8* func_02083554(Struct_0206f81c*, int);
@@ -56,7 +56,7 @@ extern "C" ARM int func_ov017_021b38c8(Struct_ov017_021b38c8* arg0) {
     if (!var5) return 0;
     Struct_0206f81c* var6 = GetPartyMemberData_02053c6c((unsigned char*)var4);
     if (!var6) return 0;
-    Struct_ov017_021b38c8_6* var7 = func_02052e2c((Struct_02052e2c*)var4);
+    Struct_ov017_021b38c8_6* var7 = GetAppearance_02052e2c((Struct_02052e2c*)var4);
     if (!var7) return 0;
     if (!var4->obj3D_.pModel_) {
         GameResources* var8 = GetGameResources();

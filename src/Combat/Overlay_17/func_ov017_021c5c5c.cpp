@@ -65,7 +65,7 @@ struct Struct_ov017_021c5c5c_6 {
 
 extern "C" Struct_ov017_021c5c5c* GetBattleSetup_ov017_021b8478(Struct_ov017_021c5c5c_2* battleManager);
 extern "C" Struct_ov017_021c5c5c_6* func_ov017_021a278c(void* arg0, int arg1);
-extern "C" unsigned char func_02039d7c(char* arg0);
+extern "C" unsigned char IsOnLadder_02039d7c(char* object);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" void func_ov017_021ab010(void* arg0, int arg1);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
@@ -106,7 +106,7 @@ extern "C" ARM int func_ov017_021c5c5c(int arg0, int arg1) {
     if (var2->unknown_0_.GetField06() != var5->unknown_0_.GetField06()) {
         return 0;
     }
-    if (func_02039d7c((char*)var2) != 0) {
+    if (IsOnLadder_02039d7c((char*)var2) != 0) {
         return 0;
     }
 

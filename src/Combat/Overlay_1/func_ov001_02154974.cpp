@@ -48,7 +48,7 @@ struct Struct_ov001_02154974_6 {
 };
 
 extern "C" {
-struct Struct_ov001_02154974_4* func_0203cf4c(void);
+struct Struct_ov001_02154974_4* GetNPCManager_0203cf4c(void);
 void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 struct Struct_ov001_02154974_5* FindNPCById_0203df78(void* npcManager, int id);
 int* GetNPCByIndex_0203dce4(void* npcManager, int index);
@@ -69,7 +69,7 @@ extern char data_ov001_02164bd1[];
 // USA: func_ov001_02154974
 extern "C" ARM void func_ov001_02154974(struct Struct_ov001_02154974_3* arg0) {
     GameState* var0 = GameState::GetInstance();
-    struct Struct_ov001_02154974_4* var1 = func_0203cf4c();
+    struct Struct_ov001_02154974_4* var1 = GetNPCManager_0203cf4c();
     GameResources* var2 = GetGameResources();
     struct Struct_ov001_02154974_2* var3;
     struct Struct_ov001_02154974* var4;
@@ -167,6 +167,6 @@ extern "C" ARM void func_ov001_02154974(struct Struct_ov001_02154974_3* arg0) {
         ClearFlags04(var2, 0x400);
     }
     if (arg0->unknown_f8_0_ & 0x20) {
-        func_0203cf4c()->unknown_98_ &= ~2;
+        GetNPCManager_0203cf4c()->unknown_98_ &= ~2;
     }
 }

@@ -3,7 +3,7 @@
 #include "Combat/Overlay_1/EventArgs.h"
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" int func_02018fbc(int arg0, Struct_ov001_02158efc* arg1);
+extern "C" int GetGroundHeight_02018fbc(int zone, Struct_ov001_02158efc* position);
 struct ActiveZone_020fdd44;
 extern "C" struct ActiveZone_020fdd44* func_02027cb0(void);
 struct Vector3i;
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov017_021a3338(void*) {
         if (var7) {
             if (var2 == ((Object3D*)((struct Struct_02039df4*)var7))->GetField06()) {
                 Struct_ov001_02158efc var8 = *(Struct_ov001_02158efc*)((char*)var7 + 0x44);
-                var8.unknown_4_ = func_02018fbc((int)var1, &var8);
+                var8.unknown_4_ = GetGroundHeight_02018fbc((int)var1, &var8);
                 *(Vector3i*)(&var7->obj3D_.position_.x) = *(Vector3i const*)((int*)&var8);
             }
         }

@@ -170,7 +170,7 @@ struct Struct_0201099c_18 {
 
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
-extern "C" void func_020dfc2c(void* arg0);
+extern "C" void ConstructStringTable_020dfc2c(void* stringTable);
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 extern "C" void func_020dfc6c(StringTable_0201099c_14* arg0);
 extern "C" void LoadStringTable_020dfec0(StringTable_0201099c_14* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
@@ -183,13 +183,13 @@ extern "C" void func_02086598(Struct_0201099c_15* arg0, int arg1);
 extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void __clear(void* arg0, unsigned int arg1);
 extern "C" int ConvertTextToGlyphIndices_020426bc(void* text, void* outGlyphIndices, int font);
-extern "C" void func_0209a804(int* arg0);
+extern "C" void ClearSpellTable_0209a804(int* table);
 extern "C" void func_0209a810(Struct_0201099c_18* arg0, void* arg1);
 extern "C" int func_020865b0(Struct_0201099c_16* arg0);
 extern "C" void func_020865b8(Struct_0201099c_17* arg0, int arg1);
 extern "C" void InitItemTable_020de824(void* itemTable);
 extern "C" void ClearItemTable_020de848(void* itemTable);
-extern "C" int func_020dea64(void* arg0, void* arg1, void* arg2, unsigned int arg3, const void* arg4, short arg5);
+extern "C" int LoadItemTableByCategories_020dea64(void* itemTable, void* allocator, void* fileData, unsigned int fileSize, const void* categories, short categoryCount);
 extern "C" void* func_0208247c(void* arg0);
 extern "C" void func_02082828(Struct_0201099c_13* arg0);
 extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
@@ -267,7 +267,7 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
     var9.ResetAllocatorPointer();
     var9.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x5000), 0x5000);
     StringTable_0201099c_14 var10;
-    func_020dfc2c(&var10);
+    ConstructStringTable_020dfc2c(&var10);
     InitStringTable_020dfc40(&var10);
     BackgroundLoader::AddLockGlobal();
     unsigned int var11 = 0;
@@ -397,7 +397,7 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
     if (var16 > 0) {
         Struct_0201099c_13 var32;
         Struct_0201099c_18 var33;
-        func_0209a804(&var33.unknown_0_);
+        ClearSpellTable_0209a804(&var33.unknown_0_);
         func_0209a810(&var33, &var0);
         for (int var34 = 0; var34 < arg0->unknown_5690_; var34++) {
             var4 = &arg0->unknown_3984_[var34];
@@ -430,7 +430,7 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
         unsigned int var41 = 0;
         void* var42 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var41);
         if (var42 != NULL) {
-            func_020dea64(&var40, &var39, var42, var41, data_020e6d6c, 8);
+            LoadItemTableByCategories_020dea64(&var40, &var39, var42, var41, data_020e6d6c, 8);
         }
         BackgroundLoader::RemoveLockGlobal();
 #endif

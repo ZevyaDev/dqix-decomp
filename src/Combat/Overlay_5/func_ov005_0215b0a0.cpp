@@ -13,7 +13,7 @@
 #include "Resource/GameResources.h"
 
 struct ItemTable_0201099c_10;
-struct Struct_02052e14;
+struct PartyMember_02052e14;
 struct Struct_ov005_0215acc0_2 { char unknown_0_[LOW_REGION(0x4f8, 0x4fc)]; int unknown_4fc_; };
 struct Struct_ov005_0215b0a0 {
 #if defined(jpn)
@@ -24,7 +24,7 @@ struct Struct_ov005_0215b0a0 {
 };
 struct Struct_ov005_0215acc0 { char unknown_0_[0xdf4]; ItemTable_0201099c_10* unknown_df4_; char unknown_df8_[LOW_REGION(0x2f38, 0x2fc0)]; unsigned char unknown_3db8_; char unknown_3db9_[3]; unsigned char unknown_3dbc_; char unknown_3dbd_[0xc7]; Struct_ov005_0215b0a0 unknown_3e84_[8]; unsigned char unknown_4284_[8]; };
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" short* func_02052e14(Struct_02052e14*);
+extern "C" short* func_02052e14(PartyMember_02052e14*);
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" Struct_ov005_0215acc0_2* GetEquipMenu_ov017_021a193c(int*);
 #if defined(jpn)
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov005_0215b0a0(Struct_ov005_0215acc0* arg0) {
     GameState* var1 = GameState::GetInstance();
     GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var1, GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->unknown_4fc_);
     if (!var2) return;
-    short* var3 = func_02052e14((Struct_02052e14*)var2);
+    short* var3 = func_02052e14((PartyMember_02052e14*)var2);
     int var4 = LOW_REGION(29, 28);
 #if defined(jpn)
     int var6;

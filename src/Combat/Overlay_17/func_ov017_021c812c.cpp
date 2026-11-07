@@ -57,7 +57,7 @@ extern "C" ARM void func_ov017_021c812c(unsigned char arg0, int arg1) {
             for (int var10 = 0; var10 < var9; var10++) {
                 GameObject* var11 = var0->GetCombatantByIndex(var8[var10]);
                 if (var11 != NULL) {
-                    int var12 = var11->obj3D_.unknown_4_;
+                    int var12 = var11->obj3D_.objectIndex_4_;
                     var4->unknown_1_[var12] = GetCombatantCell_020493a4((unsigned char*)var11);
                 }
             }
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov017_021c812c(unsigned char arg0, int arg1) {
             for (int var13 = 0; var13 < var9; var13++) {
                 GameObject* var14 = var0->GetCombatantByIndex(var8[var13]);
                 if (var14 != NULL) {
-                    int var15 = var14->obj3D_.unknown_4_ - 0xc0;
+                    int var15 = var14->obj3D_.objectIndex_4_ - 0xc0;
                     var4->unknown_5_[var15] = GetCombatantCell_020493a4((unsigned char*)var14);
                 }
             }

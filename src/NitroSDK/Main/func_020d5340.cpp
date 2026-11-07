@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-extern "C" int func_020d424c(int arg0, int arg1, int arg2, int arg3);
-extern "C" void func_020d404c(int arg0, int arg1);
+extern "C" int CheckWirelessState_020d424c(int stateCount, int arg1, int arg2, int arg3);
+extern "C" void SetWirelessCommandCallback_020d404c(int command, int callback);
 extern "C" int func_020d4168(void* arg0, unsigned int arg1);
 
 struct Struct_02101680 {
@@ -34,7 +34,7 @@ struct Struct_020d5340 {
 
 // USA: func_020d5340
 extern "C" ARM int func_020d5340(int arg0, struct Struct_02101680* arg1) {
-    int var0 = func_020d424c(3, 2, 3, 5);
+    int var0 = CheckWirelessState_020d424c(3, 2, 3, 5);
     if (var0 != 0) {
         return var0;
     }
@@ -58,7 +58,7 @@ extern "C" ARM int func_020d5340(int arg0, struct Struct_02101680* arg1) {
             return 6;
         }
     }
-    func_020d404c(0x26, arg0);
+    SetWirelessCommandCallback_020d404c(0x26, arg0);
     struct Struct_020d5340 var1;
     var1.unknown_0_ = 0x26;
     var1.unknown_2_ = arg1->unknown_6_;

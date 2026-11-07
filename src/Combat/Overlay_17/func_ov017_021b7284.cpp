@@ -162,7 +162,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov017_021b848c(Struct_ov017_021b7284_9* arg0, signed char* arg1, signed char arg2, int arg3, unsigned short arg4, signed char arg5, int arg6, int arg7);
-extern "C" Struct_0207d7f4* func_0207d78c(void);
+extern "C" Struct_0207d7f4* GetBattleJoinTable_0207d78c(void);
 extern "C" int func_0207d978(Struct_0207d7f4* arg0, unsigned short arg1);
 extern "C" int func_0207da30(unsigned char* arg0, int arg1, int arg2);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
@@ -319,7 +319,7 @@ done:
             int var39 = GetProtagonistObjectIndex_020100a8(var3);
             func_ov017_021b848c(arg0, var12, var39, 0, func_0204bd7c(var36), arg0->unknown_51_, 1, arg0->unknown_28_);
         } else {
-            Struct_0207d7f4* var40 = func_0207d78c();
+            Struct_0207d7f4* var40 = GetBattleJoinTable_0207d78c();
             int var41 = func_0207d978(var40, arg0->unknown_24_) != 0 ? 1 : 0;
             if (func_0207da30((unsigned char*)var40, arg0->unknown_24_, GetProtagonistObjectIndex_020100a8(var3))) {
                 var41 = 0;

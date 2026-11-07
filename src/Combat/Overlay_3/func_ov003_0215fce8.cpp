@@ -31,7 +31,7 @@ extern "C" int *func_020936f8(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int *globalFlags, unsigned int mask);
 extern "C" void *GetLocalWireless_0202ae18();
 extern "C" void *GetLocalWirelessPacketQueue_0202ae24(void);
-extern "C" void func_0202b0f4(void *arg0);
+extern "C" void StopLocalWireless_0202b0f4(void *wireless);
 extern "C" void func_ov017_02195748(unsigned char *arg0);
 extern "C" void func_ov017_02192594(unsigned char* arg0);
 extern "C" void func_020939fc(unsigned char *arg0);
@@ -42,8 +42,8 @@ extern "C" Struct_ov003_021549a8 *GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char *window);
 struct Struct_020e28dc;
 extern "C" int func_020e28dc(struct Struct_020e28dc *arg0);
-struct Struct_020e25e8;
-extern "C" void func_020e25e8(struct Struct_020e25e8 *arg0);
+struct YesNoWindow_020e25e8;
+extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8 *yesNoWindow);
 struct Struct_020e263c_2;
 extern "C" void func_020e263c(struct Struct_020e263c_2 *arg0, int arg1);
 struct Struct_0207fc6c;
@@ -59,8 +59,8 @@ extern "C" void func_ov003_02160f4c(void *arg0);
 extern "C" void func_ov003_02160794(void *arg0);
 extern "C" int func_02081f20(void *arg0, int arg1);
 extern "C" int func_020800fc(void *arg0, short *arg1, short arg2, unsigned short arg3, unsigned char arg4, bool arg5);
-extern "C" void func_020804fc(void *arg0, int arg1);
-extern "C" void func_020813ec(void *arg0, int arg1);
+extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void *menuLayout, int windowId);
+extern "C" void OpenMenuLayoutWindow_020813ec(void *menuLayout, int windowId);
 
 #if defined(jpn)
 #define RG(usa, jpn) (jpn)
@@ -82,7 +82,7 @@ extern "C" ARM int func_ov003_0215fce8(unsigned char *arg0, int arg1) {
             void *var4          = GetLocalWireless_0202ae18();
             void *var5           = GetLocalWirelessPacketQueue_0202ae24();
             SetFlags00((GameResources*)var3, 2);
-            func_0202b0f4(var4);
+            StopLocalWireless_0202b0f4(var4);
             func_ov017_02195748(var3);
             func_ov017_02192594(var3);
             func_020939fc((unsigned char *) var2);
@@ -111,7 +111,7 @@ extern "C" ARM int func_ov003_0215fce8(unsigned char *arg0, int arg1) {
         arg0[SO(0x4a5)]                      = 0;
         struct Struct_020e28dc *var7       = *(struct Struct_020e28dc **) (arg0 + SO(0x390));
         if (var7 != 0 && func_020e28dc(var7) != 0) {
-            func_020e25e8(*(struct Struct_020e25e8 **) (arg0 + SO(0x390)));
+            CloseYesNoWindow_020e25e8(*(struct YesNoWindow_020e25e8 **) (arg0 + SO(0x390)));
         }
         arg0[SO(0x4a3)] = 0xf;
         arg0[SO(0x4a4)] = 0;
@@ -155,10 +155,10 @@ extern "C" ARM int func_ov003_0215fce8(unsigned char *arg0, int arg1) {
                           *(unsigned short *) (arg0 + SO(0x314)), arg0[SO(0x316)], (*(unsigned int *) (arg0 + SO(0x464)) & 1) != 0);
         *(short *) (var10 + RG(0x36, 0x2a)) = **(short **) (arg0 + SO(0x470));
         if (*(int *) (arg0 + SO(0x45c)) != 0) {
-            func_020804fc(var10, *(short *) (arg0 + SO(0x488)));
+            ClearMenuLayoutWindowHighlights_020804fc(var10, *(short *) (arg0 + SO(0x488)));
         }
         if (*(short *) (arg0 + SO(0x474)) != **(short **) (arg0 + SO(0x470))) {
-            func_020813ec(var10, *(short *) (arg0 + SO(0x488)));
+            OpenMenuLayoutWindow_020813ec(var10, *(short *) (arg0 + SO(0x488)));
             *(unsigned int *) (arg0 + SO(0x464)) |= 0x1000000;
             func_ov003_02160794(arg0);
         }

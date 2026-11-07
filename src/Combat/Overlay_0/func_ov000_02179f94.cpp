@@ -5,8 +5,8 @@
 struct TextWindow_0205d0e0 {
     char unknown_0_[0xAA];
     short unknown_aa_;
-    short unknown_ac_;
-    short unknown_ae_;
+    short tileX_ac_;
+    short tileY_ae_;
     char unknown_b0_[0xC2 - 0xB0];
     short palette_c2_;
     unsigned char unknown_c4_;
@@ -49,8 +49,8 @@ extern "C" void OpenTextWindow_0205d304(struct TextWindowManager_0205d81c* windo
 #endif
 
 static inline short inline_ov000_02179f94(const struct TextWindow_0205d0e0* arg0) { return arg0->unknown_aa_; }
-static inline short inline_ov000_02179f94_2(const struct TextWindow_0205d0e0* arg0) { return arg0->unknown_ac_; }
-static inline short inline_ov000_02179f94_3(const struct TextWindow_0205d0e0* arg0) { return arg0->unknown_ae_; }
+static inline short inline_ov000_02179f94_2(const struct TextWindow_0205d0e0* arg0) { return arg0->tileX_ac_; }
+static inline short inline_ov000_02179f94_3(const struct TextWindow_0205d0e0* arg0) { return arg0->tileY_ae_; }
 
 // USA: func_ov000_02179f94
 extern "C" ARM void func_ov000_02179f94(struct Struct_ov000_02179f94* arg0, void* arg1, int arg2, int arg3) {
@@ -98,6 +98,6 @@ extern "C" ARM void func_ov000_02179f94(struct Struct_ov000_02179f94* arg0, void
     }
     short var4 = inline_ov000_02179f94_2(var3);
     short var5 = inline_ov000_02179f94_3(var3) + inline_ov000_02179f94(var3);
-    var2->unknown_ac_ = var4;
-    var2->unknown_ae_ = var5;
+    var2->tileX_ac_ = var4;
+    var2->tileY_ae_ = var5;
 }

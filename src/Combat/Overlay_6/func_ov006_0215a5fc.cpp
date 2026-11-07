@@ -82,9 +82,9 @@ struct Struct_0207f914;
 extern "C" void func_0207f914(Struct_0207f914*, int, int, int);
 extern "C" int func_0207f9f4(void*);
 extern "C" void func_020810a0(void*, int);
-struct Struct_0207f7f0;
+struct MenuLayout_0207f7f0;
 struct Struct_0207f7f0_2;
-extern "C" void func_0207f7f0(Struct_0207f7f0*, Struct_0207f7f0_2*, int);
+extern "C" void func_0207f7f0(MenuLayout_0207f7f0*, Struct_0207f7f0_2*, int);
 extern "C" void func_0208108c(void*, int);
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int*, int, int, int, int);
 extern "C" void func_ov006_02158de0(void*);
@@ -96,7 +96,7 @@ extern "C" void func_ov006_02153c60(void*, int, unsigned short);
 extern "C" void func_ov006_0215373c(void*, void*);
 struct Struct_02081164;
 extern "C" void func_02081164(Struct_02081164*, int, int);
-extern "C" void func_020813ec(void*, int);
+extern "C" void OpenMenuLayoutWindow_020813ec(void*, int);
 struct MenuLayout_0207fdcc_2;
 extern "C" void* func_02081da8(MenuLayout_0207fdcc_2*, int);
 extern "C" void __clear(void*, int);
@@ -104,8 +104,8 @@ extern "C" void* GetMessageWindow_020421a0();
 struct Struct_0201099c_3;
 extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_02046608(void*, int, void*, void*, int, int, int);
-struct Struct_02080f8c;
-extern "C" void func_02080f8c(Struct_02080f8c*, int, int);
+struct MenuLayout_02080f8c;
+extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c*, int, int);
 
 struct Struct_ov006_02158478 {
     unsigned char unknown_0_[0xb8];
@@ -125,7 +125,7 @@ struct Struct_ov003_02154af4_3 {
     void* unknown_8_;
     void* unknown_c_;
     unsigned char unknown_10_[0x04];
-    Struct_0207f7f0* unknown_14_;
+    MenuLayout_0207f7f0* unknown_14_;
     void* unknown_18_;
     BGLayer_02020cb8* unknown_1c_;
     Struct_0207f7f0_2* unknown_20_;
@@ -403,7 +403,7 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
     else if (var2 == 0xe) {
         void* var24 = arg0->unknown_c_;
         ((SafeAllocator*)((char*)var24 + 0x64))->Reset();
-        func_0207f84c(arg0->unknown_14_);
+        ResetMenuLayout_0207f84c(arg0->unknown_14_);
 #if defined(jpn)
         func_02080654((Struct_0207f914*)arg0->unknown_14_, (unsigned int)var24 + 0x64, (int)data_ov006_02161657);
 #else
@@ -423,7 +423,7 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
     else if (var2 == 0x10) {
         func_020810a0(arg0->unknown_14_, 1);
         {
-            Struct_0207f7f0* var26 = arg0->unknown_14_;
+            MenuLayout_0207f7f0* var26 = arg0->unknown_14_;
             var26->unknown_2c_ = arg0->unknown_1c_;
             var26->unknown_38_ = 2;
         }
@@ -456,8 +456,8 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
         if ((arg0->unknown_394_ & 2) == 0) {
             func_02081164((Struct_02081164*)arg0->unknown_14_, 0, 1);
             func_02081164((Struct_02081164*)arg0->unknown_14_, 1, 1);
-            func_020813ec(arg0->unknown_14_, 0);
-            func_020813ec(arg0->unknown_14_, 1);
+            OpenMenuLayoutWindow_020813ec(arg0->unknown_14_, 0);
+            OpenMenuLayoutWindow_020813ec(arg0->unknown_14_, 1);
             Struct_ov006_02158478* var29 = (Struct_ov006_02158478*)func_02081da8((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 1);
             if (var29 != 0) {
                 var29->unknown_b8_ = 0xc;
@@ -465,15 +465,15 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
             }
 #if defined(jpn)
             void* var30 = FindStringInTable_020e0434((Struct_0201099c_3*)((char*)arg0 + REGIONAL_OFFSET(0x14c, 0x158)), 0);
-            func_02080f8c((Struct_02080f8c*)arg0->unknown_14_, 1, (int)var30);
+            SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)arg0->unknown_14_, 1, (int)var30);
 #else
             __clear(var0.unknown_44_, 0x400);
             void* var31 = GetMessageWindow_020421a0();
             void* var32 = FindStringInTable_020e0434((Struct_0201099c_3*)((char*)arg0 + REGIONAL_OFFSET(0x14c, 0x158)), 0);
             func_02046608(var31, 0xc, var32, var0.unknown_44_, 0xe3, 0, 1);
-            func_02080f8c((Struct_02080f8c*)arg0->unknown_14_, 1, (int)var0.unknown_44_);
+            SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)arg0->unknown_14_, 1, (int)var0.unknown_44_);
 #endif
-            func_020813ec(arg0->unknown_14_, 1);
+            OpenMenuLayoutWindow_020813ec(arg0->unknown_14_, 1);
         }
     }
 }

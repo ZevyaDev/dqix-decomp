@@ -16,7 +16,7 @@ struct Struct_ov025_021e41a0_4 {
     short unknown_18_;
     unsigned char unknown_1a_;
 };
-struct Struct_02078398_2 {
+struct EffectParams_02078398_2 {
     char unknown_0_[0x10];
     unsigned char unknown_10_;
     unsigned char unknown_11_0_ : 1;
@@ -53,7 +53,7 @@ extern Struct_ov025_021ef988_10 data_ov025_021ef988;
 extern "C" void* GetEffectManager_02057924();
 extern "C" Struct_ov025_021e41a0_2* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
 extern "C" Struct_ov025_021e41a0_3* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
-extern "C" void func_02078484(Struct_02078398_2*);
+extern "C" void InitEffectParams_02078484(EffectParams_02078398_2*);
 extern "C" Struct_ov025_021e41a0* GetBattleScene_ov000_02160130();
 extern "C" void* PlayEffect_02057fb4(void*, int, void*);
 extern "C" void** func_ov025_021e8cf0(char*, int);
@@ -73,8 +73,8 @@ extern "C" ARM int func_ov025_021e41a0(Struct_ov025_021e41a0_4* arg0, BattleActi
     GameObject* var4 = var0->GetGameObjectByIndex(var3);
     int var5 = var4->obj3D_.normalizedAnimationTime_;
     if (arg0->unknown_18_ > 0 && var5 < arg0->unknown_18_) return 0;
-    Struct_02078398_2 var6;
-    func_02078484(&var6);
+    EffectParams_02078398_2 var6;
+    InitEffectParams_02078484(&var6);
     var6.unknown_11_2_ = 0;
     int var7 = 1;
     if (arg0->unknown_10_ & 1) {

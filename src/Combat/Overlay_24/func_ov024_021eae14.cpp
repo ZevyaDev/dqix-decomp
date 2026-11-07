@@ -22,7 +22,7 @@ struct Struct_ov024_021df454_7;
 struct Struct_020885b4;
 struct Struct_02088644;
 struct Struct_02088514;
-extern "C" int func_020882f8(unsigned char*);
+extern "C" int IsAsleep_020882f8(unsigned char*);
 extern "C" void func_02088390(void*);
 extern "C" int func_ov024_021de25c(Struct_ov024_021de124*);
 extern "C" void func_020883fc(void*);
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov024_021eae14(Struct_ov017_021d82e0* arg0, int arg1) {
     if (!var0) return 0;
     int var1 = 0;
     int var2 = 0;
-    if (func_020882f8((unsigned char*)var0->currentStats_)) {
+    if (IsAsleep_020882f8((unsigned char*)var0->currentStats_)) {
         func_02088390(var0->currentStats_); var1++; var2 = 1;
     }
     if (func_ov024_021de25c((Struct_ov024_021de124*)var0)) {

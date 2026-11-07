@@ -42,7 +42,7 @@ extern "C" void func_02083e28(void* arg0, int arg1);
 extern "C" void func_ov003_02167e28(Struct_ov003_02167b34_3* arg0, BaseCombatStats* arg1, int arg2, unsigned char arg3, int arg4, int arg5, int arg6);
 extern "C" void func_ov003_02167fa4(Struct_ov003_02167b34_3* arg0, int arg1, unsigned char* arg2);
 extern "C" void func_ov003_02168088(struct Struct_ov003_02167b34_2* arg0, int* arg1);
-extern "C" void func_020813ec(void* arg0, int arg1);
+extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
 static inline BaseCombatStats* inline_02069120(GameObject* arg0) { SDK_NULL_ASSERT(arg0); return arg0->baseStats_; }
 
@@ -68,5 +68,5 @@ extern "C" ARM void func_ov003_02167b34(Struct_ov003_02167b34_3* arg0) {
     var2[10] = var0->baseStats_->primaryStats.defense;
     var2[11] = var1->unknown_c_0_;
     func_ov003_02168088((struct Struct_ov003_02167b34_2*)arg0, var2);
-    func_020813ec(arg0->unknown_10_, 0);
+    OpenMenuLayoutWindow_020813ec(arg0->unknown_10_, 0);
 }

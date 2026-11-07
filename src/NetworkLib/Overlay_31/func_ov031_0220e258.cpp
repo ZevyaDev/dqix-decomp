@@ -23,7 +23,7 @@ struct Struct_ov031_0220e258 {
     char unknown_2284_[0x74];
     unsigned short unknown_22f8_;
 };
-extern Struct_ov031_0220e258* data_ov031_0224e53c;
+extern Struct_ov031_0220e258* gAccessPointConnection_ov031_0224e53c;
 extern "C" void func_ov031_0220da1c(int);
 extern "C" void func_ov031_0220db6c();
 extern "C" int func_ov031_0220e584(void*);
@@ -42,15 +42,15 @@ extern "C" ARM void func_ov031_0220e258(Struct_ov031_0220e258_2* arg0) {
             break;
         case 8:
         case 9:
-            switch (data_ov031_0224e53c->unknown_2260_) {
+            switch (gAccessPointConnection_ov031_0224e53c->unknown_2260_) {
             case 10:
-                data_ov031_0224e53c->unknown_2282_ = 0;
+                gAccessPointConnection_ov031_0224e53c->unknown_2282_ = 0;
             case 8:
                 func_ov031_0220da1c(12);
                 return;
             case 9:
-                data_ov031_0224e53c->unknown_2282_ = 0;
-                data_ov031_0224e53c->unknown_2280_ = 6;
+                gAccessPointConnection_ov031_0224e53c->unknown_2282_ = 0;
+                gAccessPointConnection_ov031_0224e53c->unknown_2280_ = 6;
             case 12:
                 func_ov031_0220db6c();
                 return;
@@ -59,22 +59,22 @@ extern "C" ARM void func_ov031_0220e258(Struct_ov031_0220e258_2* arg0) {
             }
             break;
         case 7:
-            if (data_ov031_0224e53c->unknown_2260_ == 12) {
+            if (gAccessPointConnection_ov031_0224e53c->unknown_2260_ == 12) {
                 func_ov031_0220da1c(8);
                 func_ov031_0220db6c();
                 return;
             }
             if (arg0->unknown_a_ >= 1 && arg0->unknown_a_ <= 0x7d7) {
-                data_ov031_0224e53c->unknown_2282_ = arg0->unknown_a_;
-                int var1 = func_020d5b5c(func_ov031_0220e584, data_ov031_0224e53c->unknown_1500_, 0x620);
+                gAccessPointConnection_ov031_0224e53c->unknown_2282_ = arg0->unknown_a_;
+                int var1 = func_020d5b5c(func_ov031_0220e584, gAccessPointConnection_ov031_0224e53c->unknown_1500_, 0x620);
                 if (var1 == 2) return;
                 if (var1 != 3 && var1 == 8) {
                     func_ov031_0220da1c(12);
-                    func_ov031_0220d984(1, data_ov031_0224e53c->unknown_2140_, 0, 0x7ed);
+                    func_ov031_0220d984(1, gAccessPointConnection_ov031_0224e53c->unknown_2140_, 0, 0x7ed);
                     return;
                 }
                 func_ov031_0220da1c(11);
-                func_ov031_0220d984(7, data_ov031_0224e53c->unknown_2140_, 0, 0x7f6);
+                func_ov031_0220d984(7, gAccessPointConnection_ov031_0224e53c->unknown_2140_, 0, 0x7f6);
                 return;
             }
             func_ov031_0220db6c();
@@ -82,13 +82,13 @@ extern "C" ARM void func_ov031_0220e258(Struct_ov031_0220e258_2* arg0) {
         case 0:
         default:
             func_ov031_0220da1c(11);
-            func_ov031_0220d984(7, data_ov031_0224e53c->unknown_2140_, arg0->unknown_8_, 0x804);
+            func_ov031_0220d984(7, gAccessPointConnection_ov031_0224e53c->unknown_2140_, arg0->unknown_8_, 0x804);
             return;
         }
         break;
     }
     case 1:
-        data_ov031_0224e53c->unknown_22f8_ = arg0->unknown_e_;
+        gAccessPointConnection_ov031_0224e53c->unknown_22f8_ = arg0->unknown_e_;
     case 6:
     case 11:
     case 12:
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov031_0220e258(Struct_ov031_0220e258_2* arg0) {
     case 10:
     default:
         func_ov031_0220da1c(11);
-        func_ov031_0220d984(7, data_ov031_0224e53c->unknown_2140_, 0, 0x81b);
+        func_ov031_0220d984(7, gAccessPointConnection_ov031_0224e53c->unknown_2140_, 0, 0x81b);
         return;
     }
 }

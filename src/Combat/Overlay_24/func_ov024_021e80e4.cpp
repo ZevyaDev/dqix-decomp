@@ -110,7 +110,7 @@ struct BattleAction_ov000_0215440c_2;
 extern "C" struct Struct_ov024_021e80e4_2* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
 struct BattleAction_ov000_0215440c;
 extern "C" struct Struct_ov024_021e80e4* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
-extern "C" short func_ov000_0215ffa0(struct Struct_ov024_021e80e4* arg0);
+extern "C" short GetLatestTargetCombatantIndex_ov000_0215ffa0(struct Struct_ov024_021e80e4* entry);
 struct Struct_ov000_02159f7c;
 extern "C" int func_ov000_02159f7c(void*, Struct_ov000_02159f7c*);
 extern "C" int func_ov000_0215fd90(struct Struct_ov024_021e80e4_11* arg0, int arg1);
@@ -151,7 +151,7 @@ extern "C" ARM void func_ov024_021e80e4(struct Struct_ov024_021e80e4_4* arg0, st
     for (int var13 = 0; var13 < arg1->unknown_9_; var13++) {
         struct Struct_ov024_021e80e4* var14 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, var13);
         if (var14 == 0) continue;
-        int var15 = func_ov000_0215ffa0(var14);
+        int var15 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var14);
         struct Struct_ov024_021e80e4_11* var16;
         int var17 = 1;
         if (arg2->unknown_18_.unknown_0_5_ == 1) {
@@ -291,7 +291,7 @@ extern "C" ARM void func_ov024_021e80e4(struct Struct_ov024_021e80e4_4* arg0, st
         for (int var30 = 0; var30 < var27->unknown_9_; var30++) {
             struct Struct_ov024_021e80e4* var31 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var27, var30);
             if (var31 == 0) continue;
-            if (IN_RANGE_021e80e4(func_ov000_0215ffa0(var31))) continue;
+            if (IN_RANGE_021e80e4(GetLatestTargetCombatantIndex_ov000_0215ffa0(var31))) continue;
             if (var29 == 0) var29 = var31;
             var28++;
         }
@@ -306,7 +306,7 @@ extern "C" ARM void func_ov024_021e80e4(struct Struct_ov024_021e80e4_4* arg0, st
         for (int var33 = 0; var33 < arg1->unknown_9_; var33++) {
             struct Struct_ov024_021e80e4* var34 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, var33);
             if (var34 == 0) continue;
-            int var35 = func_ov000_0215ffa0(var34);
+            int var35 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var34);
             if (IN_RANGE_021e80e4(var35) && var20 == 0) continue;
             if (!IN_RANGE_021e80e4(var35) && var21 == 0) continue;
             for (struct Struct_ov024_021e80e4_11* var36 = var34->unknown_0_; var36 != 0; var36 = var36->unknown_20_) {
@@ -342,19 +342,19 @@ extern "C" ARM void func_ov024_021e80e4(struct Struct_ov024_021e80e4_4* arg0, st
                 if (var11 > 0) {
                     arg1->unknown_1a_ = var24;
                 } else if (var9 != 0) {
-                    arg1->unknown_1a_ = func_ov024_021e9b24(arg0, func_ov000_0215ffa0(var41), var38, 1);
+                    arg1->unknown_1a_ = func_ov024_021e9b24(arg0, GetLatestTargetCombatantIndex_ov000_0215ffa0(var41), var38, 1);
                 }
             } else if (var11 > 0) {
                 if (var41->unknown_18_ > 1) {
                     arg1->unknown_1a_ = var24;
                 } else if (var42 == 0 || func_ov000_0215fd90(var42, 0xd) == 0) {
-                    arg1->unknown_1a_ = func_ov024_021e9b24(arg0, func_ov000_0215ffa0(arg1->unknown_14_), var38, 0);
+                    arg1->unknown_1a_ = func_ov024_021e9b24(arg0, GetLatestTargetCombatantIndex_ov000_0215ffa0(arg1->unknown_14_), var38, 0);
                     if (arg1->unknown_1a_ == 0) {
                         if (var23 != 0) arg1->unknown_1a_ = 2;
                     }
                 }
             } else if (var9 != 0) {
-                arg1->unknown_1a_ = func_ov024_021e9b24(arg0, func_ov000_0215ffa0(var41), var38, 1);
+                arg1->unknown_1a_ = func_ov024_021e9b24(arg0, GetLatestTargetCombatantIndex_ov000_0215ffa0(var41), var38, 1);
             }
         }
     }
@@ -369,19 +369,19 @@ extern "C" ARM void func_ov024_021e80e4(struct Struct_ov024_021e80e4_4* arg0, st
                 if (var12 > 0) {
                     arg1->unknown_1c_ = var22;
                 } else if (var10 != 0) {
-                    arg1->unknown_1c_ = func_ov024_021e9b24(arg0, func_ov000_0215ffa0(var43), var39, 1);
+                    arg1->unknown_1c_ = func_ov024_021e9b24(arg0, GetLatestTargetCombatantIndex_ov000_0215ffa0(var43), var39, 1);
                 }
             } else if (var12 > 0) {
                 if (var43->unknown_18_ > 1) {
                     arg1->unknown_1c_ = var22;
                 } else if (var44 == 0 || func_ov000_0215fd90(var44, 0xd) == 0) {
-                    arg1->unknown_1c_ = func_ov024_021e9b24(arg0, func_ov000_0215ffa0(arg1->unknown_14_), var39, 0);
+                    arg1->unknown_1c_ = func_ov024_021e9b24(arg0, GetLatestTargetCombatantIndex_ov000_0215ffa0(arg1->unknown_14_), var39, 0);
                     if (arg1->unknown_1c_ == 0) {
                         if (var23 != 0) arg1->unknown_1c_ = 5;
                     }
                 }
             } else if (var10 != 0) {
-                arg1->unknown_1c_ = func_ov024_021e9b24(arg0, func_ov000_0215ffa0(var43), var39, 1);
+                arg1->unknown_1c_ = func_ov024_021e9b24(arg0, GetLatestTargetCombatantIndex_ov000_0215ffa0(var43), var39, 1);
             }
         }
     }

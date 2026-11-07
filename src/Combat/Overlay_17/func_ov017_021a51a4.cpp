@@ -44,7 +44,7 @@ extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bd
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_ov017_021a5568(void* arg0);
-extern "C" int func_02039d7c(char* arg0);
+extern "C" int IsOnLadder_02039d7c(char* object);
 extern "C" void func_ov017_021b2174(unsigned char* arg0);
 extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2* arg0, char* arg1);
 extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
@@ -205,7 +205,7 @@ extern "C" ARM void func_ov017_021a51a4(Struct_ov017_021a51a4_4* arg0) {
     if (func_0203402c((Struct_0203402c*)var1)) {
         return;
     }
-    if (func_02039d7c((char*)var1)) {
+    if (IsOnLadder_02039d7c((char*)var1)) {
         return;
     }
     DisablePlayerControl_020397cc((Struct_02018300_3*)var1, 1);

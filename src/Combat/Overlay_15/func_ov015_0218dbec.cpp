@@ -12,8 +12,8 @@ struct Struct_02070b6c_3;
 struct TextureVRAMArea_0203d028;
 struct ObjectArchiveLoadInfo_0203d028_11;
 
-extern "C" void* func_0206f4f0(Struct_0206f01c_2*, int);
-extern "C" void* func_02070fd0(Struct_02070b6c_3*, int);
+extern "C" void* FindMonsterData_0206f4f0(Struct_0206f01c_2*, int);
+extern "C" void* FindMonsterBattleData_02070fd0(Struct_02070b6c_3*, int);
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11*);
 
 extern "C" void* __clear(void* arg0, int arg1);
@@ -67,7 +67,7 @@ extern int gSoundEffectManager_02108760;
 
 // USA: func_ov015_0218dbec
 extern "C" ARM int func_ov015_0218dbec(Struct_ov015_0218dbec_3* arg0, Struct_ov015_0218dbec* arg1) {
-    arg0->unknown_10_ = (Struct_ov015_0218dbec_4*)func_0206f4f0((Struct_0206f01c_2*)(arg0->unknown_0_->unknown_64_), arg1->unknown_8_);
+    arg0->unknown_10_ = (Struct_ov015_0218dbec_4*)FindMonsterData_0206f4f0((Struct_0206f01c_2*)(arg0->unknown_0_->unknown_64_), arg1->unknown_8_);
     if (arg0->unknown_10_ == 0) {
         return 0;
     }
@@ -148,7 +148,7 @@ extern "C" ARM int func_ov015_0218dbec(Struct_ov015_0218dbec_3* arg0, Struct_ov0
         ZeroDestroyGPCPointer(&var3.pGPCFile);
         return var15;
     } else {
-        Struct_ov015_0218dbec_4* var16 = (Struct_ov015_0218dbec_4*)func_02070fd0((Struct_02070b6c_3*)(arg0->unknown_0_->unknown_70_), (unsigned short)arg1->unknown_8_);
+        Struct_ov015_0218dbec_4* var16 = (Struct_ov015_0218dbec_4*)FindMonsterBattleData_02070fd0((Struct_02070b6c_3*)(arg0->unknown_0_->unknown_70_), (unsigned short)arg1->unknown_8_);
         if (var16 != 0) {
             arg0->unknown_24_->SetField78(var16->unknown_14_ & 0xffff);
             _ZN8Object3D10SetField7aEt(arg0->unknown_24_, var16->unknown_14_ >> 16);

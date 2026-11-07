@@ -383,12 +383,12 @@ struct Struct_ov004_02157a28_4 {
 
 extern "C" signed char func_ov004_02157128(void*);
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" int func_ov004_02156fd4(void*, int);
+extern "C" int FindMenuItemTable_ov004_02156fd4(void*, int);
 extern "C" void func_0207cc18(void*, Struct_ov004_02157a28_2*);
 extern "C" void SetEquippedItem_02052d7c(struct Struct_02052d7c*, int, short);
 extern "C" int AddEquipmentToBag_0207c378(struct EquipmentBag_020732cc*, int, int, int);
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int, int);
-extern "C" void func_ov017_021c4418(int, int);
+extern "C" void SendPartyMemberBodyAppearance_ov017_021c4418(int, int);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources*, int, int, int, int);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void*, int);
@@ -412,7 +412,7 @@ extern "C" ARM int func_ov004_02157a28(void* arg0, int arg1) {
     GameState* var2 = GameState::GetInstance();
     GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var2, var0);
     if (!var3) return 0;
-    ItemTable_0201099c_10* var4 = (ItemTable_0201099c_10*)((void*)func_ov004_02156fd4(arg0, 5));
+    ItemTable_0201099c_10* var4 = (ItemTable_0201099c_10*)((void*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     if (!var4) return 0;
     Struct_ov004_02157a28_2* var5 = ((Struct_ov004_02157a28_2*)FindItemData_020dedd0(var4, ((Struct_ov004_02157a28_3*)data_ov004_021707e0)->unknown_e_));
     if (!var5) return 0;
@@ -468,7 +468,7 @@ extern "C" ARM int func_ov004_02157a28(void* arg0, int arg1) {
         }
         if (IsLocalWirelessOn_0202b7d8(var1)) {
             SendPartyMemberEquippedItems_ov017_021c3fb4(var0, 1);
-            func_ov017_021c4418(var0, -1);
+            SendPartyMemberBodyAppearance_ov017_021c4418(var0, -1);
             if (var18) func_ov017_021c9e00(var0, 0, 0, 1);
         }
         GameResources* var20 = GetGameResources();
@@ -694,7 +694,7 @@ extern "C" ARM int func_ov004_02157db8(void* arg0) {
     Set3DClearColorAndDepth_020c5588(0, 0x1f, 0x7fff, 0, 0);
     Set3DFog_020c54a4(0, 0, 0, 0);
 
-    void* var15 = ((void*)func_ov004_02156fd4(arg0, 5));
+    void* var15 = ((void*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     if (var15 != 0) {
         func_ov023_021f5598(var15);
     }
@@ -1176,7 +1176,7 @@ extern "C" ARM int func_ov004_02158a60(void* arg0) {
     if (var1 > 0 || var0->unknown_fa_ != 0) {
         void* var2 = (void*)GetMessageWindow_020421a0();
         ClearMessageParams_02046380(var2);
-        struct ItemTable_0201099c_10* var3 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+        struct ItemTable_0201099c_10* var3 = ((struct ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
         struct ItemData_0201099c_9* var4 = FindItemData_020dedd0(var3, var0->unknown_f8_);
 #if defined(jpn)
         char var5[80];
@@ -1289,7 +1289,7 @@ extern "C" ARM int func_ov004_02158bd4(void* arg0) {
         func_ov023_021fbdcc(var3, *(short*)((char*)var1 + 0));
     }
 
-    void* var4 = (void*)func_ov004_02156fd4(arg0, 5);
+    void* var4 = (void*)FindMenuItemTable_ov004_02156fd4(arg0, 5);
     if (!var4) return 0;
     ItemData_0201099c_9* var5 = FindItemData_020dedd0((ItemTable_0201099c_10*)var4, *(short*)((char*)var1 + 0));
     if (!var5) return 0;
@@ -1398,7 +1398,7 @@ extern "C" ARM int func_ov004_02158dcc(void* arg0) {
     if (var0 < 0) return 0;
     Struct_ov004_02158dcc_3* var1 = ((Struct_ov004_02158dcc_3*)func_ov004_021570a4(arg0, (unsigned char)var0));
     if (!var1) return 0;
-    Struct_ov004_02158dcc_4* var2 = ((Struct_ov004_02158dcc_4*)FindItemData_020dedd0(((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5)), var1->unknown_0_));
+    Struct_ov004_02158dcc_4* var2 = ((Struct_ov004_02158dcc_4*)FindItemData_020dedd0(((struct ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5)), var1->unknown_0_));
     if (!var2) return 0;
 #if defined(jpn)
     char var3[80];
@@ -1550,7 +1550,7 @@ extern "C" ARM int func_ov004_02158fec(void* arg0) {
         var5->unknown_5c_ = 0;
         var5->unknown_5e_ = 1;
     }
-    ItemTable_0201099c_10* var6 = ((ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    ItemTable_0201099c_10* var6 = ((ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     if (!var6) return 0;
     Struct_ov004_0216fb28 var7 = data_ov004_0216fb28;
     for (unsigned char var8 = 0; var8 < 6; var8++) {
@@ -1825,7 +1825,7 @@ struct Struct_ov004_02159650_3 { int unknown_0_; char unknown_4_[4]; int unknown
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 
 extern "C" int GetStandardString_020e51cc(int stringId);
-extern "C" void func_020e4b34(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10, int arg11);
+extern "C" void SetNoun_020e4b34(void* noun, int singularText, int pluralText, int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int arg9, int hasInitialVowelSound, int isInitialVowelFromText);
 extern "C" int GetEquippedItem_02052df8(struct Struct_02052df8* gameObject, int slot);
 
 struct Struct_ov004_0216fbb0 { unsigned int unknown_0_[9]; };
@@ -1839,7 +1839,7 @@ extern "C" ARM int func_ov004_02159650(void* arg0) {
     int var0 = GetMessageWindow_020421a0();
     ClearMessageParams_02046380((void*)var0);
 
-    struct ItemTable_0201099c_10* var1 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    struct ItemTable_0201099c_10* var1 = ((struct ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
 
     struct Struct_ov004_02159650_3* var2 = 0;
     struct Struct_ov004_02159650_2* var3 = 0;
@@ -1865,7 +1865,7 @@ extern "C" ARM int func_ov004_02159650(void* arg0) {
         void* var7 = *(void**)((char*)var6 + 0x150);
         int var8 = (short)(*(int*)((char*)var7 + 0x950));
         int var9 = GetStandardString_020e51cc(var8);
-        func_020e4b34(data_ov004_021707e0 + 0xac, var9, var9, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        SetNoun_020e4b34(data_ov004_021707e0 + 0xac, var9, var9, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         *(void**)((char*)var0 + 0x28) = data_ov004_021707e0 + 0xac;
 #endif
     }
@@ -1929,7 +1929,7 @@ extern "C" ARM int func_ov004_02159888(void* arg0) {
     unsigned int var3 = *(unsigned int*)((char*)var1 + 4) >> 7;
     if (*(unsigned int*)((char*)var2 + 0xf6c) < (data_ov004_021707e0[0x11] + 1) * var3) return 0;
 
-    struct ItemTable_0201099c_10* var4 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    struct ItemTable_0201099c_10* var4 = ((struct ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     if (!var4) return 0;
 
     struct Struct_ov004_02159888_2* var5 = ((struct Struct_ov004_02159888_2*)FindItemData_020dedd0(var4, *(short*)(data_ov004_021707e0 + 0xe)));
@@ -1986,7 +1986,7 @@ extern "C" ARM int func_ov004_02159a2c(void* arg0) {
     if (var1 < 0) return 0;
     void* var2 = func_ov004_021570a4(arg0, var1 & 0xff);
     if (!var2) return 0;
-    struct ItemTable_0201099c_10* var3 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    struct ItemTable_0201099c_10* var3 = ((struct ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     if (!var3) return 0;
     struct Struct_ov004_02159a2c_2* var4 = ((struct Struct_ov004_02159a2c_2*)FindItemData_020dedd0(var3, *(short*)var2));
     if (!var4) return 0;
@@ -2052,7 +2052,7 @@ extern "C" int func_0207d134(struct Struct_0207d134*, short, int);
 // USA: func_ov004_02159bcc
 extern "C" ARM int func_ov004_02159bcc(void* arg0) {
 #if !defined(jpn)
-    struct ItemTable_0201099c_10* var0 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    struct ItemTable_0201099c_10* var0 = ((struct ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     if (var0 == NULL) return 0;
     struct ItemData_0201099c_9* var1 = FindItemData_020dedd0(var0, *(short*)(((char*)data_ov004_021707e0) + 0xe));
     if (var1 == NULL) return 0;
@@ -2061,7 +2061,7 @@ extern "C" ARM int func_ov004_02159bcc(void* arg0) {
     ((char*)data_ov004_021707e0)[0x12] = (char)0xff;
 #endif
     if (*(unsigned char*)(((char*)data_ov004_021707e0) + 0x47) == 0) {
-        ItemTable_0201099c_10* var3 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+        ItemTable_0201099c_10* var3 = ((struct ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
         if (var3 != NULL) {
             Struct_ov004_02159bcc var4;
             var4.unknown_0_.ResetAllocatorPointer();
@@ -2102,7 +2102,7 @@ struct Struct_ov004_02159ce0_7 { unsigned int unknown_0_0_ : 4; unsigned int unk
 // USA: func_ov004_02159ce0
 extern "C" ARM int func_ov004_02159ce0(void* arg0) {
     int var0 = func_ov004_02157128(arg0);
-    ItemTable_0201099c_10* var1 = (ItemTable_0201099c_10*)((void*)func_ov004_02156fd4(arg0, 5));
+    ItemTable_0201099c_10* var1 = (ItemTable_0201099c_10*)((void*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     if (!var1) return 0;
 
     short var2 = *(short*)(data_ov004_021707e0 + 0xe);
@@ -2221,7 +2221,7 @@ extern "C" ARM int func_ov004_02159fcc(void* arg0) {
     GetLocalWireless_0202ae18();
     GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), var0);
     if (!var1) return 0;
-    ItemTable_0201099c_10* var2 = ((ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    ItemTable_0201099c_10* var2 = ((ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     if (!var2) return 0;
     Struct_ov000_0215767c_8* var3 = ((Struct_ov000_0215767c_8*)FindItemData_020dedd0(var2, ((Struct_ov004_02159fcc_4*)data_ov004_021707e0)->unknown_e_));
     if (!var3) return 0;
@@ -2364,7 +2364,7 @@ extern "C" void SetItemInfoPanelItem_ov023_021dcae0(struct ItemInfoPanel_ov003_0
 // USA: func_ov004_0215a31c
 extern "C" ARM int func_ov004_0215a31c(void* arg0) {
     signed char var0 = func_ov004_02157128(arg0);
-    ItemTable_0201099c_10* var1 = ((ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    ItemTable_0201099c_10* var1 = ((ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     StringList_02072a68_2* var2 = ((StringList_02072a68_2*)func_ov004_02157018(arg0, 3));
     short* var3;
     Struct_ov004_0215a31c_2* var4 = ((Struct_ov004_0215a31c_2*)func_ov004_02156ed0(arg0, 0x63));
@@ -2449,7 +2449,7 @@ extern "C" ARM int func_ov004_0215a31c(void* arg0) {
     return 0;
 }
 extern "C" int func_ov004_021571d8(int arg0);
-extern "C" void* func_0207c5f8(unsigned char*, unsigned int);
+extern "C" void* GetEquipmentBagItemIds_0207c5f8(unsigned char*, unsigned int);
 extern "C" void* func_0207c60c(void*, unsigned int);
 extern "C" void func_ov023_021f65d4(void* arg0, int arg1, int arg2);
 
@@ -2509,14 +2509,14 @@ extern "C" ARM int func_ov004_0215a738(void* arg0) {
     if (func_ov004_021571d8((int)arg0)) {
         int var7 = func_ov004_02156e2c(arg0, 0x65);
         if (var7 < 0) return 0;
-        var5 = (short*)func_0207c5f8(var3 + 0x1d4, *(data_ov004_021707e0 + var7 + 0x7c));
+        var5 = (short*)GetEquipmentBagItemIds_0207c5f8(var3 + 0x1d4, *(data_ov004_021707e0 + var7 + 0x7c));
         var6 = (signed char*)func_0207c60c(var3 + 0x1d4, *(data_ov004_021707e0 + var7 + 0x7c));
     } else {
         if (((int)func_ov004_02157128(arg0)) >= 0) return 0;
         var5 = (short*)(var3 + 0xc);
         var6 = (signed char*)(var3 + 0x13c);
     }
-    ItemTable_0201099c_10* var8 = (ItemTable_0201099c_10*)((void*)func_ov004_02156fd4(arg0, 5));
+    ItemTable_0201099c_10* var8 = (ItemTable_0201099c_10*)((void*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     for (int var9 = 0; var9 < 8; var9++) {
         int var10 = var9 + var0 * 8;
         Struct_ov004_0215a738_2* var11 = ((Struct_ov004_0215a738_2*)FindItemData_020dedd0(var8, var5[var10]));
@@ -2552,8 +2552,8 @@ extern "C" ARM int func_ov004_0215a738(void* arg0) {
     return 0;
 }
 extern "C" struct GameObject* GetPartyMemberBaseByIndex_0200ff1c(struct GameState*, int);
-struct Struct_0207d300;
-extern "C" int func_02083960(struct Struct_0207d300* arg0);
+struct PartyMemberData_0207d300;
+extern "C" int CountHeldItems_02083960(struct PartyMemberData_0207d300* memberData);
 extern "C" short func_0207c638(void*, unsigned int);
 
 // USA: func_ov004_0215aa10
@@ -2578,7 +2578,7 @@ extern "C" ARM int func_ov004_0215aa10(void* arg0) {
             GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var0, var5);
             if (!var7) return 0;
             int var8 = GetPartyMemberData_02053c6c((unsigned char*)var7);
-            var1 = func_02083960((struct Struct_0207d300*)var8);
+            var1 = CountHeldItems_02083960((struct PartyMemberData_0207d300*)var8);
         }
     }
     if (var1 > 0) {
@@ -2597,7 +2597,7 @@ extern "C" int func_020de194(void* arg0);
 // USA: func_ov004_0215aaf0
 extern "C" ARM int func_ov004_0215aaf0(void* arg0) {
     GameState* var0 = GameState::GetInstance();
-    struct ItemTable_0201099c_10* var1 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    struct ItemTable_0201099c_10* var1 = ((struct ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     unsigned char* var2 = (unsigned char*)GetParty_02010828(var0);
     if (!var2) return 0;
 
@@ -2610,7 +2610,7 @@ extern "C" ARM int func_ov004_0215aaf0(void* arg0) {
     struct Struct_ov004_0215aaf0_3* var6;
 
     if (func_ov004_021571d8((int)arg0)) {
-        unsigned char* var7 = (unsigned char*)func_0207c5f8(var2 + 0x1d4, *(unsigned int*)(data_ov004_021707e0 + 0x74));
+        unsigned char* var7 = (unsigned char*)GetEquipmentBagItemIds_0207c5f8(var2 + 0x1d4, *(unsigned int*)(data_ov004_021707e0 + 0x74));
         unsigned char* var8 = (unsigned char*)func_0207c60c(var2 + 0x1d4, *(unsigned int*)(data_ov004_021707e0 + 0x74));
         var6 = ((struct Struct_ov004_0215aaf0_3*)FindItemData_020dedd0(var1, ((short*)var7)[var5]));
         if (var6->unknown_8_.unknown_1_4_ == 0) {
@@ -2656,7 +2656,7 @@ extern "C" void func_ov023_021fb27c(void* arg0, int arg1);
 
 // USA: func_ov004_0215ad34
 extern "C" ARM int func_ov004_0215ad34(void* arg0) {
-    struct ItemData_0201099c_9* var0 = FindItemData_020dedd0(((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5)), *(short*)(((char*)data_ov004_021707e0) + 0x6c));
+    struct ItemData_0201099c_9* var0 = FindItemData_020dedd0(((struct ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5)), *(short*)(((char*)data_ov004_021707e0) + 0x6c));
     int var1;
     int var2;
     if (var0 == NULL) return 0;
@@ -2897,7 +2897,7 @@ extern "C" ARM int func_ov004_0215b120(void* arg0) {
     void* var0 = (void*)GetMessageWindow_020421a0();
     ClearMessageParams_02046380(var0);
 
-    struct ItemTable_0201099c_10* var1 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    struct ItemTable_0201099c_10* var1 = ((struct ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     struct Struct_ov004_0215b120* var2 = ((struct Struct_ov004_0215b120*)FindItemData_020dedd0(var1, ((Struct_ov004_0215b120_3*)data_ov004_021707e0)->unknown_6c_));
 
     Struct_ov004_0215b120_3* var3 = ((Struct_ov004_0215b120_3*)data_ov004_021707e0);
@@ -3086,7 +3086,7 @@ extern "C" ARM int func_ov004_0215b360(void* arg0) {
     short* var0 = NULL;
     signed char* var1 = NULL;
     int var2 = 0;
-    ItemTable_0201099c_10* var3 = ((ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    ItemTable_0201099c_10* var3 = ((ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     StringList_02072a68_2* var4 = ((StringList_02072a68_2*)func_ov004_02157018(arg0, 3));
     int var5 = func_ov004_02156e2c(arg0, 0x65);
     if (var5 < 0) return 0;
@@ -3097,7 +3097,7 @@ extern "C" ARM int func_ov004_0215b360(void* arg0) {
             Struct_ov004_0215b360* var8 = ((Struct_ov004_0215b360*)func_ov004_02156f04(arg0, 0x454));
             if (var8) var8->unknown_20_ = FindStringInList_02072a68(var4, (short)(var7 + 0x1b));
             func_ov023_021f6600(arg0, var7 + 0x38c, 8);
-            var0 = ((short*)func_0207c5f8(var6->unknown_1d4_, ((Struct_ov004_0215b360_3*)data_ov004_021707e0)->unknown_7c_[var5]));
+            var0 = ((short*)GetEquipmentBagItemIds_0207c5f8(var6->unknown_1d4_, ((Struct_ov004_0215b360_3*)data_ov004_021707e0)->unknown_7c_[var5]));
             var1 = ((signed char*)func_0207c60c(var6->unknown_1d4_, ((Struct_ov004_0215b360_3*)data_ov004_021707e0)->unknown_7c_[var5]));
             var2 = ((int)func_0207c638(var6->unknown_1d4_, ((Struct_ov004_0215b360_3*)data_ov004_021707e0)->unknown_7c_[var5]));
         } else {
@@ -3176,7 +3176,7 @@ extern "C" ARM int func_ov004_0215b740(void* arg0) {
     enum { Enum_ov004_0215b740_620 = 0x26c };
 #endif
     char* var0 = (char*)GameState::GetInstance() + Enum_ov004_0215b740_620 + 0x5c00;
-    void* var1 = ((void*)func_ov004_02156fd4(arg0, 5));
+    void* var1 = ((void*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     char var2[0x38];
     ((SafeAllocator*)var2)->ResetAllocatorPointer();
     InitItemTable_020de824(var2 + 0x14);
@@ -3350,7 +3350,7 @@ extern "C" ARM int func_ov004_0215b934(void* arg0) {
             QueueMenuScriptEntry_ov011_021848a0(arg0, 0x387);
             return 0;
         }
-        struct ItemTable_0201099c_10* var6 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+        struct ItemTable_0201099c_10* var6 = ((struct ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
         var2 = ((Struct_ov004_0215b934_5*)FindItemData_020dedd0(var6, var5->unknown_f8_.unknown_0_));
         if (!var2) return 0;
         var3 = ((Struct_ov004_0215b934_6*)GetMessageWindow_020421a0());
@@ -3545,7 +3545,7 @@ extern "C" ARM int func_ov004_0215be9c(int arg0) {
         if (var5 < 0) {
             return 0;
         }
-        var4 = (unsigned char*)func_0207c5f8(var1 + 0x1d4, *(data_ov004_021707e0 + var5 + 0x7c));
+        var4 = (unsigned char*)GetEquipmentBagItemIds_0207c5f8(var1 + 0x1d4, *(data_ov004_021707e0 + var5 + 0x7c));
     } else {
         signed char var6 = func_ov004_02157128((void*)arg0);
         if (var6 >= 0) {
@@ -3934,7 +3934,7 @@ extern "C" ARM int func_ov004_0215c50c(void* arg0) {
         if (data_ov004_021707e0[0x11] < 1) data_ov004_021707e0[0x11] = 1;
     }
 
-    int var8 = func_ov004_02156fd4(arg0, 5);
+    int var8 = FindMenuItemTable_ov004_02156fd4(arg0, 5);
     if (!var8) return 0;
 
     short var9 = *(short*)(data_ov004_021707e0 + 0xe);
@@ -4483,7 +4483,7 @@ extern "C" ARM int func_ov004_0215cec4(void* arg0) {
     if (var1 < 0) return 0;
     Struct_ov004_0215cec4_2* var2 = ((Struct_ov004_0215cec4_2*)func_ov004_021570a4(arg0, var1 & 0xff));
     if (!var2) return 0;
-    ItemTable_0201099c_10* var3 = ((ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+    ItemTable_0201099c_10* var3 = ((ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     if (!var3) return 0;
     Struct_ov004_0215cec4_3* var4 = ((Struct_ov004_0215cec4_3*)FindItemData_020dedd0(var3, var2->unknown_0_));
     if (!var4) return 0;
@@ -4766,7 +4766,7 @@ extern "C" ARM int func_ov004_0215d738(void* arg0) {
     if (var2 < 0) return 0;
     short* var3 = (short*)func_ov004_021570a4(arg0, var2 & 0xff);
     if (!var3) return 0;
-    void* var4 = ((void*)func_ov004_02156fd4(arg0, 5));
+    void* var4 = ((void*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     if (!var4) return 0;
     if (!FindItemData_020dedd0((struct ItemTable_0201099c_10*)var4, *var3)) return 0;
 
@@ -4833,7 +4833,7 @@ extern "C" ARM int func_ov004_0215da0c(void* arg0) {
     if (!var2) return 0;
 #endif
 
-    int var3 = func_ov004_02156fd4(arg0, 5);
+    int var3 = FindMenuItemTable_ov004_02156fd4(arg0, 5);
     if (var3) {
         unsigned char var4[0x38];
         ((SafeAllocator*)var4)->ResetAllocatorPointer();
@@ -4883,7 +4883,7 @@ extern Struct_ov004_0216fb40 data_ov004_0216fb40;
 struct Struct_ov004_0215db14_2 { SafeAllocator unknown_0_; char unknown_14_[0x18]; int unknown_2c_; char unknown_30_[8]; };
 struct Struct_ov004_0215db14_3 { char unknown_0_[0x130]; unsigned int* unknown_130_; };
 extern "C" int func_ov004_0215da0c(void*);
-extern "C" int func_02083960(Struct_0207d300*);
+extern "C" int CountHeldItems_02083960(PartyMemberData_0207d300*);
 extern "C" short func_02086bf4(char*, int);
 extern "C" void func_0207ccf0(void*, int, int, int, int, int, int);
 
@@ -4915,11 +4915,11 @@ extern "C" ARM int func_ov004_0215db14(void* arg0) {
     var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, ((Struct_ov004_0215db14*)data_ov004_021707e0)->unknown_12_);
     var3 = 0;
     if (var2) {
-        Struct_0207d300* var9 = ((Struct_0207d300*)GetPartyMemberData_02053c6c((unsigned char*)var2));
-        if (var9) var3 = 8 - func_02083960(var9);
+        PartyMemberData_0207d300* var9 = ((PartyMemberData_0207d300*)GetPartyMemberData_02053c6c((unsigned char*)var2));
+        if (var9) var3 = 8 - CountHeldItems_02083960(var9);
     }
     int var10 = func_02086bf4((char*)GetParty_02010828(var0), ((Struct_ov004_0215db14*)data_ov004_021707e0)->unknown_e_);
-    int var11 = func_ov004_02156fd4(arg0, 5);
+    int var11 = FindMenuItemTable_ov004_02156fd4(arg0, 5);
     if (var11) {
         Struct_ov004_0215db14_2 var12;
         var12.unknown_0_.ResetAllocatorPointer();
@@ -5002,12 +5002,12 @@ extern "C" ARM int func_ov004_0215dd3c(void* arg0) {
     return func_ov004_02157a28(arg0, 1);
 }
 
-struct Struct_02109bf4_2;
-extern "C" void func_0209c830(Struct_02109bf4_2*, int);
+struct MusicManager_02109bf4_2;
+extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
 
 // USA: func_ov004_0215de80
 extern "C" ARM int func_ov004_0215de80(void) {
-    func_0209c830((Struct_02109bf4_2*)gMusicManager_02109bf4, 0x3d);
+    QueueJingle_0209c830((MusicManager_02109bf4_2*)gMusicManager_02109bf4, 0x3d);
     return 0;
 }
 #if !defined(jpn)
@@ -5091,7 +5091,7 @@ extern "C" ARM int func_ov004_0215e148(void* arg0) {
         if (var0 < 0) return 0;
         void* var1 = func_ov004_021570a4(arg0, var0 & 0xff);
         if (!var1) return 0;
-        struct ItemTable_0201099c_10* var2 = ((struct ItemTable_0201099c_10*)func_ov004_02156fd4(arg0, 5));
+        struct ItemTable_0201099c_10* var2 = ((struct ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
         if (!var2) return 0;
         struct Struct_ov004_0215e148* var3 = ((struct Struct_ov004_0215e148*)FindItemData_020dedd0(var2, *(short*)var1));
         if (!var3) return 0;

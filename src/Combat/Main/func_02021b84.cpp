@@ -43,7 +43,7 @@ extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 struct PacEntry_02020aec;
 extern "C" int func_0205a498(void* arg0, struct PacEntry_02020aec* arg1, int arg2, void* arg3);
 extern "C" void func_0205af38(int arg0, char* arg1, int arg2, int arg3);
-extern "C" void* func_0203bd14();
+extern "C" void* GetSpriteTextManager_0203bd14();
 extern "C" int func_020233b8(void* arg0, int arg1);
 extern "C" void* GetSubOAMBuffer_0203be4c(void);
 extern "C" void func_02020aa0(void* arg0);
@@ -52,7 +52,7 @@ extern "C" void func_02026898(void* arg0);
 #else
 extern "C" void func_02026f34(void* arg0);
 #endif
-extern "C" void func_ov017_02191234(void* arg0);
+extern "C" void RebuildPartyOrders_ov017_02191234(void* gameResources);
 extern "C" void func_0202343c(void* arg0);
 extern "C" void func_02026b7c(unsigned char* arg0);
 extern "C" void func_02026bdc(void* arg0, int arg1);
@@ -195,7 +195,7 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
         func_0205a498((char*)&arg0->unknown_94_, (struct PacEntry_02020aec*)var1, var2, var8);
         func_0205af38((int)((char*)&arg0->unknown_94_), (char*)&arg0->unknown_e8_[9], 1, 1);
         func_0205af38((int)((char*)&arg0->unknown_94_), (char*)&arg0->unknown_e8_[11], 1, 1);
-        *(int*)((char*)func_0203bd14() +
+        *(int*)((char*)GetSpriteTextManager_0203bd14() +
 #if defined(jpn)
                 0x608
 #else
@@ -218,7 +218,7 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
 #endif
         GetOAMManager_0203bd08();
         char* var17 = (char*)GetSubOAMBuffer_0203be4c() + 0x2e8;
-        *(char**)func_0203bd14() = var17;
+        *(char**)GetSpriteTextManager_0203bd14() = var17;
         BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_a04_);
         arg0->unknown_a04_ = -1;
         func_02020aa0(arg0);
@@ -227,7 +227,7 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
 #else
         func_02026f34(arg0);
 #endif
-        func_ov017_02191234(var5);
+        RebuildPartyOrders_ov017_02191234(var5);
         arg0->unknown_9c4_ = 1;
         arg0->unknown_9c8_ = 0;
         arg0->unknown_9c3_ = 0;

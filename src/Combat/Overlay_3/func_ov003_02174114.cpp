@@ -94,7 +94,7 @@ extern "C" void StartMessage_0204500c(Struct_ov003_02174114 *, int, int, int);
 #endif
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14 *);
 extern "C" void SaveMainBGControl_02074af4(void *);
-extern "C" void func_ov023_021dc134(void *, int, int);
+extern "C" void InitItemInfoPanel_ov023_021dc134(void *, int, int);
 extern "C" void InitSpriteSet_0205a444(char *);
 extern "C" void func_ov003_02174408(Struct_ov003_02174114_4 *);
 extern "C" void func_02081ee4(Struct_02081ee4 *, Struct_02081ee4_2 *);
@@ -133,7 +133,7 @@ extern "C" ARM void func_ov003_02174114(Struct_ov003_02174114_3 *arg0) {
     arg0->unknown_38_             = (var3 & 0x1f00u) >> 8;
     var3                          = *var2;
     *var2                       = (var3 & ~0x1f00u) | 0x100u;
-    func_ov023_021dc134((char *) arg0 + 0x3c, -1, 0);
+    InitItemInfoPanel_ov023_021dc134((char *) arg0 + 0x3c, -1, 0);
     InitSpriteSet_0205a444(arg0->unknown_7d8_);
     arg0->unknown_830_ = 0;
     func_ov003_02174408((Struct_ov003_02174114_4 *) arg0->unknown_834_);

@@ -58,9 +58,9 @@ struct Struct_ov001_0215f3fc_2
 #endif
     Struct_ov001_0215f3fc unknown_2cc_[33];
 };
-extern "C" void* func_0203cf4c();
+extern "C" void* GetNPCManager_0203cf4c();
 extern "C" int GetResources_0200fb8c(int*);
-extern "C" const char* func_ov017_021d612c(void*);
+extern "C" const char* GetScriptValueAsString_ov017_021d612c(void*);
 extern "C" int func_0203e03c(Struct_0203e03c*);
 extern "C" void SetScriptRefInt_ov017_021d6134(void*, int);
 extern "C" unsigned int func_ov001_0215a750(const char*, void**);
@@ -85,14 +85,14 @@ extern const char data_ov001_021657d1[];
 extern "C" ARM int func_ov001_0215f3fc(Struct_ov001_0215f3fc_3* arg0, int arg1)
 {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_0203cf4c();
+    void* var1 = GetNPCManager_0203cf4c();
     Struct_ov001_0215f3fc_2* var2 = (Struct_ov001_0215f3fc_2*)GetResources_0200fb8c((int*)var0);
     BackgroundLoader* var3 = BackgroundLoader::GetInstance();
     if (!var2)
     {
         return 0;
     }
-    const char* var4 = func_ov017_021d612c(arg0++);
+    const char* var4 = GetScriptValueAsString_ov017_021d612c(arg0++);
     int var5 = func_0203e03c((Struct_0203e03c*)var1);
     if (var5 == -1)
     {

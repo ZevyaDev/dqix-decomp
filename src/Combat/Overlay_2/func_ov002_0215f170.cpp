@@ -11,7 +11,7 @@ enum { Enum_ov002_0215f170_3784 = 0x2c8 + 0xc00, Enum_ov002_0215f170_7096 = 0x1b
 #define FINAL_ARG_0215f170 , 0
 #endif
 extern "C" void func_ov002_0215f224(char *arg0, char *arg1, int arg2);
-extern "C" void func_ov002_0215be00(char *arg0, int arg1, int arg2, int arg3);
+extern "C" void SetNextTextWindow_ov002_0215be00(char *menu, int windowId, int x, int y);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 #if defined(jpn)
 extern "C" int OpenTextWindow_0205d304(char *windowManager, char *text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov002_0215f170(char *arg0) {
         var1 = 1;
     }
     SetNextTextWindowBGLayer_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + Enum_ov002_0215f170_3784), 0, 3);
-    func_ov002_0215be00(arg0, *(int *) (arg0 + Enum_ov002_0215f170_7096) & 0xff, 0x11, 1);
+    SetNextTextWindow_ov002_0215be00(arg0, *(int *) (arg0 + Enum_ov002_0215f170_7096) & 0xff, 0x11, 1);
     memset(*(char **) (arg0 + Enum_ov002_0215f170_7120), 0, Enum_ov002_0215f170_2400);
     func_ov002_0215f224(arg0, *(char **) (arg0 + Enum_ov002_0215f170_7120), 0);
     return OpenTextWindow_0205d304(arg0 + Enum_ov002_0215f170_3784, *(char **) (arg0 + Enum_ov002_0215f170_7120), 0, 0, var1, 1, 0 FINAL_ARG_0215f170);

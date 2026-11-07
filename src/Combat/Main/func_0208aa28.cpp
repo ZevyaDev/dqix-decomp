@@ -2,14 +2,14 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" GameObject* func_0200ff94(GameState* arg0, int arg1);
+extern "C" GameObject* GetGameObjectByIndex_0200ff94(GameState* gameState, int index);
 extern "C" int func_020855d0(unsigned char* arg0);
 extern "C" void* func_02033fa0(void* arg0);
 extern "C" int func_0204bdc0(unsigned short* arg0);
 extern "C" int func_0204bdd8(unsigned short* arg0);
 extern "C" int func_0204bdf0(unsigned short* arg0);
 extern "C" int func_0204be08(unsigned short* arg0);
-extern "C" unsigned char func_02039d7c(char* arg0);
+extern "C" unsigned char IsOnLadder_02039d7c(char* object);
 
 #if defined(jpn)
 enum { Enum_0208aa28_336 = 0x144 };
@@ -21,7 +21,7 @@ enum { Enum_0208aa28_336 = 0x150 };
 extern "C" ARM int func_0208aa28(unsigned char* arg0, int arg1, int arg2) {
     ((unsigned int*)GetGameResources());
     GameState* var0 = GameState::GetInstance();
-    GameObject* var1 = func_0200ff94(var0, arg1);
+    GameObject* var1 = GetGameObjectByIndex_0200ff94(var0, arg1);
     GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
     if (var1 == NULL || (**(int**)((char*)var1 + 0x130) & 1)) {
         return 0;
@@ -50,5 +50,5 @@ extern "C" ARM int func_0208aa28(unsigned char* arg0, int arg1, int arg2) {
     if (*(short*)((char*)var4 + 0xb2) == 0) {
         return 0;
     }
-    return func_02039d7c((char*)var4) == 0 ? 1 : 0;
+    return IsOnLadder_02039d7c((char*)var4) == 0 ? 1 : 0;
 }

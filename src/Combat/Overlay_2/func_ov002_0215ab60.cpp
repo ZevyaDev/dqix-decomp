@@ -15,8 +15,8 @@ struct Struct_0204c610 {
 };
 struct TextWindow_0205d0e0 : Struct_0204c610 {
     Type_020b1300 unknown_9c_[0xac - 0x9c];
-    short unknown_ac_;
-    short unknown_ae_;
+    short tileX_ac_;
+    short tileY_ae_;
     Type_020b1300 unknown_b0_[0xc5 - 0xb0];
     Type_020b1300 unknown_c5_;
     Type_020b1300 unknown_c6_[0xe0 - 0xc6];
@@ -62,8 +62,8 @@ extern "C" void func_0204c610(Struct_0204c610*, int, short*, short*, short*, sho
 extern "C" void func_ov002_02154bcc(int, int, void*, int, Type_020b1300, Type_020b1300);
 
 #if !defined(jpn)
-static inline short inline_ov002_0215ab60(TextWindow_0205d0e0* arg0) { SDK_NULL_ASSERT(arg0); return arg0->unknown_ac_; }
-static inline short inline_ov002_0215ab60_2(TextWindow_0205d0e0* arg0) { SDK_NULL_ASSERT(arg0); return arg0->unknown_ae_; }
+static inline short inline_ov002_0215ab60(TextWindow_0205d0e0* arg0) { SDK_NULL_ASSERT(arg0); return arg0->tileX_ac_; }
+static inline short inline_ov002_0215ab60_2(TextWindow_0205d0e0* arg0) { SDK_NULL_ASSERT(arg0); return arg0->tileY_ae_; }
 static inline short inline_ov002_0215ab60_3(Struct_ov002_0215ab60* arg0) { SDK_NULL_ASSERT(arg0); return arg0->unknown_245c_; }
 
 #endif
@@ -90,8 +90,8 @@ extern "C" ARM void func_ov002_0215ab60(Struct_ov002_0215ab60* arg0) {
             GameState* var6 = GameState::GetInstance();
             GetParty_02010828(var6);
             Type_020b1300 var7 = arg0->unknown_1c73_;
-            short var8 = var5->unknown_ac_ * 8;
-            short var9 = var5->unknown_ae_ * 8;
+            short var8 = var5->tileX_ac_ * 8;
+            short var9 = var5->tileY_ae_ * 8;
             for (Type_020b1300 var10 = 0; var10 < var7; ++var10) {
                 Type_ov002_0215ab60 var11 = arg0->unknown_1c6e_[var10];
                 GameObject* var12 = var6->GetPartyMemberByIndex(var11);

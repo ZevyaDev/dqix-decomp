@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_020a27ac
-extern "C" ARM void func_020a27ac(void* arg0) {
-    *(int*)((char*)arg0 + 0x23c) = 1;
+// USA: EnableCameraTurning_020a27ac
+extern "C" ARM void EnableCameraTurning_020a27ac(void* camera) {
+    *(int*)((char*)camera + 0x23c) = 1;
 }

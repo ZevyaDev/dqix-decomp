@@ -24,7 +24,7 @@ extern "C" void* __clear(void* arg0, int arg1);
 extern "C" int func_020420e8(char* arg0, int arg1);
 extern "C" int FindFontGlyphIndex_020424e4(int text, int font);
 extern "C" char* func_020424ac(char* arg0);
-extern "C" Struct_0204e3e0* func_020425b4(int arg0, int arg1);
+extern "C" Struct_0204e3e0* GetFontGlyph_020425b4(int glyphIndex, int font);
 extern "C" int func_020425e4(int arg0, int arg1, int arg2);
 extern "C" int func_0204fc40(void* arg0, char** arg1, char* arg2, short* arg3, int arg4);
 extern const unsigned char data_020e7bd6[];
@@ -159,7 +159,7 @@ extern "C" ARM short func_0204e3e0(Struct_0204e3e0_2* arg0, char* arg1, int arg2
         var16 = data_020e7bd6[arg5] + 1;
         if (var20 >= 0) {
             var6 = var20 & 0xff;
-            var17 = func_020425b4(var20, arg5);
+            var17 = GetFontGlyph_020425b4(var20, arg5);
             int var24 = func_020425e4(var5, var6, arg5);
             var5 = var6;
             var16 = var17->unknown_4_ + 1 + var24;

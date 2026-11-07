@@ -4,7 +4,7 @@
 #include "Resource/Brightness.h"
 
 extern "C" char* GetFollowCamera_020100f8(char* gameState);
-extern "C" void func_020a2794(void* arg0);
+extern "C" void EnableCameraFollow_020a2794(void* camera);
 extern "C" void func_020a2718(char* arg0);
 extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
 extern "C" void func_ov001_02154da0(void);
@@ -37,7 +37,7 @@ extern "C" ARM unsigned short func_ov001_021567c4(Struct_ov001_021567c4* arg0) {
 	inline_ov001_021567c4(var1)[1] = 1;
 	func_ov001_02154da0();
 	SetBrightness(var1, 0, 0x1e);
-	func_020a2794(var2);
+	EnableCameraFollow_020a2794(var2);
 	func_020a2718(var2);
 	SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, arg0->unknown_94_, 0);
 	func_ov001_02156b20(arg0);

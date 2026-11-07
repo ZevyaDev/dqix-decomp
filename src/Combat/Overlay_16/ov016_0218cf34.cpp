@@ -138,7 +138,7 @@ extern SafeAllocator* data_ov016_0219d0c8;
 #endif
 extern char gMusicManager_02109bf4;
 extern Struct_021052b4 data_021052b4[];
-extern char data_027e0000;
+extern char gDTCMData_027e0000;
 
 // USA: func_ov016_0218cf34
 extern "C" ARM void func_ov016_0218cf34(void) {
@@ -176,7 +176,7 @@ extern "C" ARM void func_ov016_0218d034(void) {
         }
         data_ov016_0219d148 ^= 1;
     }
-    *(unsigned int*)((char*)&data_027e0000 + 0x3000 + 0xff8) |= 1;
+    *(unsigned int*)((char*)&gDTCMData_027e0000 + 0x3000 + 0xff8) |= 1;
 }
 
 // USA: func_ov016_0218d0d4

@@ -38,7 +38,7 @@ extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject)
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 
 extern "C" short func_02080468(void* arg0, int arg1);
-extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 extern "C" void func_02081ea4(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
             *(short*)(arg0 + (0x1000 + 6 - Enum_ov003_02178910_0)) = var4;
         }
         *(short*)((char*)var2 + Enum_ov003_02178910_54) = *(short*)(arg0 + (0x1000 + 6 - Enum_ov003_02178910_0));
-        func_02080c68(var2, *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_02178910_0)), 0);
+        SetMenuLayoutWindowPalette_02080c68(var2, *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_02178910_0)), 0);
         func_02081ea4(var2, *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_02178910_0)), 0);
         func_ov003_02178548(arg0);
         func_ov003_021767ec(arg0);
@@ -187,16 +187,16 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
                     *(unsigned char*)(arg0 + (0x1000 + 0x3f - Enum_ov003_02178910_0)) = 5;
                     return;
                 }
-                func_02080c68(var2, 3, 1);
-                func_02080c68(var2, 4, 1);
-                func_02080c68(var2, 5, 1);
-                func_02080c68(var2, 6, 1);
-                func_02080c68(var2, 7, 1);
-                func_02080c68(var2, 8, 1);
-                func_02080c68(var2, 0x19, 1);
-                func_02080c68(var2, 0x1a, 1);
-                func_02080c68(var2, 0x1b, 1);
-                func_02080c68(var2, 0x1c, 1);
+                SetMenuLayoutWindowPalette_02080c68(var2, 3, 1);
+                SetMenuLayoutWindowPalette_02080c68(var2, 4, 1);
+                SetMenuLayoutWindowPalette_02080c68(var2, 5, 1);
+                SetMenuLayoutWindowPalette_02080c68(var2, 6, 1);
+                SetMenuLayoutWindowPalette_02080c68(var2, 7, 1);
+                SetMenuLayoutWindowPalette_02080c68(var2, 8, 1);
+                SetMenuLayoutWindowPalette_02080c68(var2, 0x19, 1);
+                SetMenuLayoutWindowPalette_02080c68(var2, 0x1a, 1);
+                SetMenuLayoutWindowPalette_02080c68(var2, 0x1b, 1);
+                SetMenuLayoutWindowPalette_02080c68(var2, 0x1c, 1);
                 *(short*)(arg0 + (0xf00 + 0xfc - Enum_ov003_02178910_0)) = *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_02178910_0));
                 (*(unsigned char*)(arg0 + (0x1000 + 0x3f - Enum_ov003_02178910_0)))++;
                 return;
@@ -540,7 +540,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
         *(short*)(arg0 + (0x1000 + 0xa - Enum_ov003_02178910_0)) = var70;
         *(short*)((char*)var2 + Enum_ov003_02178910_54) = *(short*)(arg0 + (0x1000 + 0xa - Enum_ov003_02178910_0));
         func_02081ea4(var2, *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_02178910_0)), 0);
-        func_02080c68(var2, *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_02178910_0)), 0);
+        SetMenuLayoutWindowPalette_02080c68(var2, *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_02178910_0)), 0);
         func_ov003_02177820((char*)arg0);
         short var71 = func_02080468(var2, *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_02178910_0)));
         short var72 = *(short*)(arg0 + (0x1000 + 0xa - Enum_ov003_02178910_0)) - var71;

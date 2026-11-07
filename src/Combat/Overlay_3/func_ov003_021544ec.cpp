@@ -34,7 +34,7 @@ struct Struct_ov003_021544ec_2 {
     void* unknown_c_;
     struct BGLayer_02020cb8* unknown_10_;
     char* unknown_14_;
-    Struct_0207f7f0* unknown_18_;
+    MenuLayout_0207f7f0* unknown_18_;
     struct Struct_020e2490* unknown_1c_;
     int* unknown_20_;
     struct Sprite_02043368_2* unknown_24_;
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov003_021544ec(struct Struct_ov003_021544ec_2* arg0, Sa
         arg0->unknown_c_ = arg1->Allocate(0x4c00);
         arg0->unknown_10_ = (struct BGLayer_02020cb8*)arg1->Allocate(0x40);
         arg0->unknown_14_ = (char*)arg1->Allocate(0x2a0);
-        arg0->unknown_18_ = static_cast<Struct_0207f7f0*>(arg1->Allocate(Enum_ov003_021544ec_128));
+        arg0->unknown_18_ = static_cast<MenuLayout_0207f7f0*>(arg1->Allocate(Enum_ov003_021544ec_128));
         arg0->unknown_20_ = (int*)arg1->Allocate(0x30);
         arg0->unknown_24_ = (struct Sprite_02043368_2*)arg1->Allocate(0x190);
         arg0->unknown_28_ = arg1->Allocate(8);
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov003_021544ec(struct Struct_ov003_021544ec_2* arg0, Sa
         for (unsigned char var5 = 0; var5 < 3; var5++) {
             InitTextWindow_0204c684(arg0->unknown_14_ + var5 * 0xe0);
         }
-        func_0207f84c(arg0->unknown_18_);
+        ResetMenuLayout_0207f84c(arg0->unknown_18_);
         for (unsigned char var6 = 0; var6 < 12; var6++) {
             arg0->unknown_20_[var6] = 0;
         }

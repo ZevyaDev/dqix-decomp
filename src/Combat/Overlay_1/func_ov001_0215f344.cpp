@@ -4,7 +4,7 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
-extern "C" void* func_ov017_021d612c(void* arg0);
+extern "C" void* GetScriptValueAsString_ov017_021d612c(void* value);
 struct ScriptValue_ov001_0215f344 { int type_0_; union { int unknown_0_; float unknown1_0_; } value_4_; };
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(ScriptValue_ov001_0215f344* value);
 extern "C" int func_ov001_0215ad2c(int arg0);
@@ -23,7 +23,7 @@ extern "C" ARM int func_ov001_0215f344(void* arg0) {
     int var1;
     int var2;
 
-    void* var3 = func_ov017_021d612c(arg0);
+    void* var3 = GetScriptValueAsString_ov017_021d612c(arg0);
     GameState* var4 = GameState::GetInstance();
     if (var4 == 0) return 0;
     sprintf(var0, data_ov001_02165745, var3);

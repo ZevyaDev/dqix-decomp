@@ -18,7 +18,7 @@ struct Struct_ov017_0218dd18_2 {
     Object3D* unknown_18_;
 };
 
-extern "C" Vector3fix func_020406f8(Struct_ov017_0218dd18_2* arg0);
+extern "C" Vector3fix GetNPCPosition_020406f8(Struct_ov017_0218dd18_2* outPosition);
 struct Struct_0203e0a0;
 extern "C" Struct_ov017_0218dd18* func_02040538(Struct_0203e0a0*);
 struct Struct_0203d028_15;
@@ -28,7 +28,7 @@ extern "C" unsigned int func_02039dcc(unsigned char* arg0);
 // USA: func_ov017_0218dd18
 extern "C" ARM int func_ov017_0218dd18(Object3D* arg0, Struct_ov017_0218dd18_2* arg1, int arg2) {
     Vector3fix var0 = arg0->position_;
-    Vector3fix var1 = func_020406f8(arg1);
+    Vector3fix var1 = GetNPCPosition_020406f8(arg1);
     if (fix32abs(var1.y - var0.y) >= 0x2000) {
         return 0;
     }

@@ -8,7 +8,7 @@ static inline int inline_020321e0(int arg0) {
 }
 
 // USA: func_020321e0
-extern "C" ARM int func_020321e0(const Vector3fix* arg0, const Struct_02018fbc* arg1, int arg2, const Vector3fix* arg3, int arg4) {
+extern "C" ARM int func_020321e0(const Vector3fix* arg0, const BoundingBox_02018fbc* arg1, int arg2, const Vector3fix* arg3, int arg4) {
     Vector3fix var0 = *arg0;
     Vector3fix var1;
     Matrix4x3 var2;

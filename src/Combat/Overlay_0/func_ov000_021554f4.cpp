@@ -220,7 +220,7 @@ extern "C" ARM void func_ov000_021554f4(Struct_ov000_021554f4_6* arg0, int arg1,
     if (arg5 & 4) return;
     if (arg5 & 0x10) return;
     if (arg5 & 0x20) return;
-    Struct_02061c04 var12;
+    BattleRecords_02061c04 var12;
     GetBattleRecords_020ac4c0(&var12);
     func_020a0840((Struct_020a0840*)&var12, 1);
     func_020a02d0((Struct_020a02d0*)&var12.unknown_68_, 1);

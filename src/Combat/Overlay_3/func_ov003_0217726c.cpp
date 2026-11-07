@@ -20,11 +20,11 @@ struct ItemData_0201099c_9;
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" unsigned int func_ov003_02175898(char* arg0, void* arg1);
 struct MenuLayout_0207fdcc_2;
-extern "C" void func_02080c20(struct MenuLayout_0207fdcc_2* arg0, int arg1);
-extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
+extern "C" void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
+extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 struct MenuLayout_02080fa8;
 extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8* menuLayout, int textId, int value);
-extern "C" void func_020813ec(void* arg0, int arg1);
+extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
 // USA: func_ov003_0217726c
 extern "C" ARM void func_ov003_0217726c(char* arg0) {
@@ -41,8 +41,8 @@ extern "C" ARM void func_ov003_0217726c(char* arg0) {
 		var5 = func_ov003_02175898(arg0, var3);
 	}
 	var6 = var5 * (*(unsigned char*)(arg0 + Enum_ov003_0217726c_4156));
-	func_02080c20(var2, 10);
-	func_02080c68(var2, 10, 0);
+	ShowMenuLayoutWindow_02080c20(var2, 10);
+	SetMenuLayoutWindowPalette_02080c68(var2, 10, 0);
 	SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var2, 0x5b, var6);
-	func_020813ec(var2, 10);
+	OpenMenuLayoutWindow_020813ec(var2, 10);
 }

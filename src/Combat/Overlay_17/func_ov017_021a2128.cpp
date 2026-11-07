@@ -49,7 +49,7 @@ struct Struct_ov017_021a2128 { char unknown_0_[0x31f0]; int unknown_31f0_; };
 #endif
 extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4();
 extern "C" Struct_ov017_021a2128_4* FindActiveZone_02028bd0(ActiveZone_020fdd44*, int);
-extern "C" Struct_ov017_021a2128_3* func_0206f4f0(Struct_0206f01c_2*, int);
+extern "C" Struct_ov017_021a2128_3* FindMonsterData_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" void* func_0206ef18(void*, int);
 extern "C" int func_ov017_021a20c0(int, int, int);
 extern "C" unsigned short* GetZone3D_02012fe4();
@@ -59,7 +59,7 @@ extern "C" Struct_02072adc* func_ov017_021a2738(void*, int);
 extern "C" void func_02072adc(Struct_02072adc*, Struct_02072adc*);
 struct Struct_ov017_021a2128_2 { short unknown_0_; short unknown_2_; };
 extern "C" Struct_ov017_021a2128_2* func_0209be84(Struct_02073ec4_2*, unsigned int, int);
-extern "C" int func_02018fbc(void*, Vector3fix*);
+extern "C" int GetGroundHeight_02018fbc(void*, Vector3fix*);
 extern "C" int func_020283fc(Struct_020283fc*, int);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void func_020795e8(Struct_020795e8*, Struct_020795e8_2*);
@@ -73,7 +73,7 @@ extern "C" void func_ov017_021c8f3c(int, int);
 extern "C" ARM int func_ov017_021a2128(Struct_ov017_021a2128* arg0, unsigned short arg1, int arg2, int arg3, const Vector3fix* arg4, int arg5, unsigned short arg6, unsigned char arg7) {
     Struct_ov017_021a2128_4* var0 = FindActiveZone_02028bd0(GetActiveZones_02027ca4(), arg1);
     if (!var0) return 0;
-    Struct_ov017_021a2128_3* var1 = func_0206f4f0((Struct_0206f01c_2*)var0->unknown_2f8_, (short)arg2);
+    Struct_ov017_021a2128_3* var1 = FindMonsterData_0206f4f0((Struct_0206f01c_2*)var0->unknown_2f8_, (short)arg2);
     void* var2 = func_0206ef18(var0->unknown_304_, (short)arg2);
     if (!var1) return 0;
     if (!var2) return 0;
@@ -91,9 +91,9 @@ extern "C" ARM int func_ov017_021a2128(Struct_ov017_021a2128* arg0, unsigned sho
     Struct_ov017_021a2128_2* var10 = func_0209be84((Struct_02073ec4_2*)var0->unknown_60_, arg2, arg3);
     if (var10) var9 = var10->unknown_2_;
     Vector3fix var11 __attribute__((aligned(4))) = *arg4;
-    if (arg1 == *var4) var11.y = func_02018fbc(var4, &var11);
+    if (arg1 == *var4) var11.y = GetGroundHeight_02018fbc(var4, &var11);
     var7->unknown_0_.unknown_2_ = arg2;
-    var7->unknown_0_.unknown_4_ = var6;
+    var7->unknown_0_.objectIndex_4_ = var6;
     var7->unknown_0_.SetField06(arg1);
     var7->unknown_168_ = arg3;
     var7->unknown_180_ = var1;

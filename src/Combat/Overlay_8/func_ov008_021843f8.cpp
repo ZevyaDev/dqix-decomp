@@ -65,7 +65,7 @@ extern "C" void func_020a13c4(Struct_020a13c4* arg0);
 extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
 extern "C" void InitKeyMenuCursor_0205bef8(KeyMenuCursor_0205bef8* cursor);
-extern "C" void InitFollowCamera_020a2010(void* arg0);
+extern "C" void InitFollowCamera_020a2010(void* storage);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 
 struct Struct_ov008_021842a0_2 {

@@ -34,7 +34,7 @@ struct Struct_ov023_021f2a48 { char unknown_0_[0x28]; short unknown_28_; };
 extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" BattleAction_ov000_0215440c* GetCurrentBattleAction_ov000_02160f20(void*);
 extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
-extern "C" short func_ov000_0215ffa0(ActionTarget_ov000_021600f8*);
+extern "C" short GetLatestTargetCombatantIndex_ov000_0215ffa0(ActionTarget_ov000_021600f8*);
 extern "C" int func_ov000_0215fd90(Struct_ov025_021ea604_2*, unsigned int);
 extern "C" void func_ov025_021ed35c(char*);
 extern "C" void func_ov025_021ea958(Struct_ov025_021ea604_3*, int, int, int);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov025_021ea604(Struct_ov025_021ea604_3* arg0, int arg1,
         }
         for (Struct_ov025_021ea604* var11 = arg3->unknown_8_; var11; var11 = var11->unknown_4_) {
             if (var11->unknown_0_ == 8) {
-                arg0->unknown_5d2_[arg0->unknown_5e4_] = func_ov000_0215ffa0(var2);
+                arg0->unknown_5d2_[arg0->unknown_5e4_] = GetLatestTargetCombatantIndex_ov000_0215ffa0(var2);
                 arg0->unknown_5e4_++;
                 var11->unknown_0_ = 0;
             }
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov025_021ea604(Struct_ov025_021ea604_3* arg0, int arg1,
         if (var4) { var3 = 1; arg0->unknown_5d1_ = var3; }
     }
     if (var2) {
-        int var12 = func_ov000_0215ffa0(var2);
+        int var12 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var2);
         if (!arg3) return;
         if (func_ov000_0215fd90(arg3, 11)) {
             GameObject* var13 = var0->GetCombatantByIndex(var2->unknown_e_);

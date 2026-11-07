@@ -62,7 +62,7 @@ extern "C" ARM void func_ov017_021c3e18(unsigned char arg0) {
                 var10 = *(Vector3i*)func_ov000_021677d8(var11, var8);
             }
         }
-        func_ov017_021d2ad0(var9->obj3D_.unknown_4_, var10.x, var10.y, var10.z, arg0);
+        func_ov017_021d2ad0(var9->obj3D_.objectIndex_4_, var10.x, var10.y, var10.z, arg0);
     }
     if (IsNotLocalWirelessGuest_0202c508(var5)) {
         Vector3i var12 = *(Vector3i*)((char*)var1 + Enum_ov017_021c3e18_32608);

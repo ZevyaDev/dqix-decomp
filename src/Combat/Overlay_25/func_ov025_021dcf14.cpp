@@ -64,7 +64,7 @@ struct Struct_ov025_021dcf14_6 {
     char unknown_2c_[0x14];
 };
 
-struct Struct_02078398_2 {
+struct EffectParams_02078398_2 {
     unsigned char unknown_0_;
     unsigned char unknown_1_[0xf];
     unsigned char unknown_10_;
@@ -93,7 +93,7 @@ struct Struct_ov000_02163a7c;
 extern "C" void func_ov000_02163a7c(Struct_ov000_02163a7c*);
 extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" void SetCameraOrbitFromArray_0202e694(void*, int*);
-extern "C" void func_ov000_021626a0(void* arg0, int arg1, int arg2);
+extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void* battleScene, int selector, int isVisible);
 struct Vector3i;
 extern "C" void func_ov000_02167f10(void* arg0);
 struct Struct_02033834;
@@ -124,11 +124,11 @@ extern "C" int func_ov000_0215fd90(void* arg0, int arg1);
 extern "C" int func_02048c68(unsigned char*);
 extern "C" int func_02049ee8(unsigned char*);
 extern "C" void func_0204a0c8(unsigned char*);
-extern "C" int func_ov000_0215ffa0(void* arg0);
+extern "C" int GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 struct Struct_ov025_021dce7c;
 extern "C" int func_ov025_021dce7c(unsigned char*, Struct_ov025_021dce7c*, int);
 extern "C" void* GetEffectManager_02057924(void);
-extern "C" void func_02078484(struct Struct_02078398_2* arg0);
+extern "C" void InitEffectParams_02078484(struct EffectParams_02078398_2* params);
 extern "C" void PlayEffect_02057fb4(void*, int, void*);
 extern "C" void PlayExtraSoundEffect_0205ebfc(void*, int, int);
 extern "C" void func_ov025_021eabd0(void* arg0, bool arg1);
@@ -204,7 +204,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
             var7.z = 0x847a;
             SetCameraOrbitFromArray_0202e694(arg0 + Enum_ov025_021dcf14_3096, (int*)&var7);
         }
-        func_ov000_021626a0(arg0, 4, 0);
+        SetObjectsVisibleBySelector_ov000_021626a0(arg0, 4, 0);
         for (int var8 = 0; var8 < *(short*)(arg0 + Enum_ov025_021dcf14_28410); var8++) {
             GameObject* var9 = var0->GetCombatantByIndex(((short*)(arg0 + Enum_ov025_021dcf14_28400))[var8]);
             var2[var8] = var9;
@@ -532,7 +532,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
                     if (func_02049ee8((unsigned char*)var72) == 0 || func_02048c68((unsigned char*)var72) != 0) {
                         var72->obj3D_.TransitionInheritedAlpha(0, 0x12c);
                         int var73 = 0;
-                        if (var72->obj3D_.unknown_4_ >= 0 && var72->obj3D_.unknown_4_ <= 3) {
+                        if (var72->obj3D_.objectIndex_4_ >= 0 && var72->obj3D_.objectIndex_4_ <= 3) {
                             var73 = 1;
                         }
                         if (var73 || func_02048c68((unsigned char*)var72)) {
@@ -567,9 +567,9 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
                 arg0[Enum_ov025_021dcf14_28238] = 0;
                 inline_ov025_021dcf14_2(arg0, 5, 0x12c);
             } else {
-                func_ov000_021626a0(arg0, 4, 0);
+                SetObjectsVisibleBySelector_ov000_021626a0(arg0, 4, 0);
                 GameObject* var79 = NULL;
-                int var80 = func_ov000_0215ffa0(var61);
+                int var80 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var61);
                 if (var62 || var63) {
                     if (!func_ov025_021dce7c((unsigned char*)arg0, (Struct_ov025_021dce7c*)var59, var80)) {
                         func_ov000_0216df00(arg0 + Enum_ov025_021dcf14_3096, var80, 0, 0, 1.8f);
@@ -582,11 +582,11 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
                 }
                 var79->obj3D_.MakeVisible();
                 if (var63) {
-                    int var81 = func_ov000_0215ffa0(var61);
+                    int var81 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var61);
                     struct Struct_ov025_021dcf14_6 var82 = inline_ov025_021dcf14_3(arg0);
                     void* var83 = GetEffectManager_02057924();
-                    struct Struct_02078398_2 var84;
-                    func_02078484(&var84);
+                    struct EffectParams_02078398_2 var84;
+                    InitEffectParams_02078484(&var84);
                     var84.unknown_14_ = var81;
                     if (var82.unknown_28_ & 1) {
                         var84.unknown_2c_.y += var79->obj3D_.GetHeight() / 2;
@@ -625,7 +625,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
             if (var87 == NULL) {
                 return 0;
             }
-            int var88 = func_ov000_0215ffa0(var87);
+            int var88 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var87);
             func_ov025_021eabd0(arg0 + Enum_ov025_021dcf14_680, inline_ov000_02169850(var88));
             func_ov025_021d8bfc(arg0, (Struct_ov025_021d8bfc*)var1);
             func_ov025_021ead5c(arg0 + Enum_ov025_021dcf14_680, inline_ov000_02169850(var88));
@@ -688,7 +688,7 @@ extern "C" void ResetBattleCamera_ov000_0216d370(void* camera, int resetRoll, in
 extern "C" void func_ov000_0216df00(void* arg0, int arg1, int arg2, int arg3, float arg4);
 extern "C" void func_ov000_0216dbf0(void* arg0, int* arg1, int arg2, int arg3);
 extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
-extern "C" void func_ov000_021626a0(void* arg0, int arg1, int arg2);
+extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void* battleScene, int selector, int isVisible);
 extern "C" void func_ov000_02167f10(void* arg0);
 extern "C" int func_ov025_021ed444(void* arg0, int arg1, int arg2, int arg3, int arg4, short arg5, unsigned short arg6);
 extern "C" int func_ov025_021ed564(void* arg0, int arg1, int arg2, int arg3, int arg4, short arg5, unsigned short arg6);
@@ -696,7 +696,7 @@ extern "C" void func_ov000_02163440(void* arg0, short arg1, unsigned short arg2,
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov000_0215ff80(char*, int);
 extern "C" void* GetBattleScene_ov000_02160130(void);
-extern "C" int func_ov000_0215ffa0(void* arg0);
+extern "C" int GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 extern "C" void func_ov025_021eabd0(void* arg0, bool arg1);
 extern "C" void func_ov025_021ead5c(void* arg0, bool arg1);
 extern "C" void func_ov025_021ed344(void* arg0, int arg1);
@@ -704,7 +704,7 @@ extern "C" int func_ov025_021ed2f4(void* arg0);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void CloseMessageWindow_02043124(int window);
 extern "C" void* GetEffectManager_02057924(void);
-extern "C" void func_02078484(struct Struct_02078398_2* arg0);
+extern "C" void InitEffectParams_02078484(struct EffectParams_02078398_2* params);
 extern "C" short func_ov000_0216352c(int arg0, float arg1, float arg2);
 extern "C" int func_ov000_021635e4(int arg0, int arg1);
 
@@ -769,7 +769,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
             ResetBattleCamera_ov000_0216d370(arg0 + Enum_ov025_021dcf14_3096, 0, 1, 1);
             func_ov000_0216df00(arg0 + Enum_ov025_021dcf14_3096, var6->unknown_e_[0], 0, 0, 1.8f);
             func_ov000_02163a7c((Struct_ov000_02163a7c*)arg0);
-            func_ov000_021626a0(arg0, 4, 0);
+            SetObjectsVisibleBySelector_ov000_021626a0(arg0, 4, 0);
             GameObject* var8 = var0->GetCombatantByIndex(var6->unknown_e_[0]);
             if (var8) {
                 var8->obj3D_.MakeVisible();
@@ -796,8 +796,8 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
         GameObject* var14 = var0->GetCombatantByIndex(var13);
         if (var14 && !var10) {
             void* var15 = GetEffectManager_02057924();
-            struct Struct_02078398_2 var16;
-            func_02078484(&var16);
+            struct EffectParams_02078398_2 var16;
+            InitEffectParams_02078484(&var16);
             var16.unknown_14_ = var13;
             if (*(unsigned int*)(arg0 + Enum_ov025_021dcf14_28576) & 1) {
                 var16.unknown_2c_.y += var14->obj3D_.GetHeight() / 2;
@@ -866,7 +866,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
                     if (var31 == 0) {
                         continue;
                     }
-                    int var32 = func_ov000_0215ffa0(var31);
+                    int var32 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var31);
                     if (var27) {
                         int var33 = var32 >= 0 && var32 <= 3;
                         if (var33) {
@@ -911,7 +911,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
             return 1;
         }
         CloseMessageWindow_02043124(GetMessageWindow_020421a0());
-        func_ov000_021626a0(arg0, 4, 0);
+        SetObjectsVisibleBySelector_ov000_021626a0(arg0, 4, 0);
         GameObject* var36 = var0->GetCombatantByIndex(*(short*)(arg0 + Enum_ov025_021dcf14_28412));
         if (var36) {
             var36->obj3D_.MakeVisible();
@@ -934,8 +934,8 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
             var40 = 1;
         }
         void* var41 = GetEffectManager_02057924();
-        struct Struct_02078398_2 var42;
-        func_02078484(&var42);
+        struct EffectParams_02078398_2 var42;
+        InitEffectParams_02078484(&var42);
         if (var39 || (arg0[Enum_ov025_021dcf14_3640] != 3 && var38 != 0 && var40 == 0)) {
             ResetBattleCamera_ov000_0216d370(arg0 + Enum_ov025_021dcf14_3096, 1, 1, 1);
             if (!func_ov025_021dce7c((unsigned char*)arg0, (Struct_ov025_021dce7c*)var1, *(short*)(arg0 + Enum_ov025_021dcf14_28412))) {
@@ -989,7 +989,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
             } else {
                 func_ov000_0216df00(arg0 + Enum_ov025_021dcf14_3096, *(short*)(arg0 + Enum_ov025_021dcf14_28412), 0, 0, 1.8f);
             }
-            func_ov000_021626a0(arg0, 4, 0);
+            SetObjectsVisibleBySelector_ov000_021626a0(arg0, 4, 0);
             GameObject* var49 = var0->GetCombatantByIndex(var48);
             if (var49) {
                 func_ov000_02167f10(arg0);
@@ -1026,7 +1026,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
                     if (var53->unknown_14_[var58] == 1 || var53->unknown_14_[var58] == 2) {
                         *(int*)(arg0 + Enum_ov025_021dcf14_24576 + var57 + Enum_ov025_021dcf14_3852) = 1;
                         if (var54 < 0) {
-                            var54 = func_ov000_0215ffa0(var53);
+                            var54 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var53);
                         }
                         if (var55) {
                             bool var59 = inline_ov000_02169850(var54);

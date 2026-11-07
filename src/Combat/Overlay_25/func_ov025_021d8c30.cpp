@@ -140,7 +140,7 @@ struct Struct_ov025_021d8c30_11 {
     unsigned char unknown_14_;
 };
 
-struct Struct_02078398_2 {
+struct EffectParams_02078398_2 {
     unsigned char unknown_0_;
     unsigned char unknown_1_[0xf];
     unsigned char unknown_10_;
@@ -180,7 +180,7 @@ extern "C" void func_ov025_021dcc70(char* arg0, char* arg1);
 extern "C" void func_ov025_021dcde8(unsigned char* arg0, struct Struct_ov025_021d8c30_11* arg1);
 extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 extern "C" struct Struct_ov000_0215feb4* func_ov000_0215feb4(char* arg0, int arg1, int arg2);
-extern "C" int func_ov000_0215ffa0(void* arg0);
+extern "C" int GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 extern "C" void* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
 extern "C" void func_ov000_02182498(void* arg0, int arg1);
 extern "C" int strcmp(const char* arg0, const char* arg1);
@@ -198,7 +198,7 @@ extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index)
 extern "C" int func_ov025_021ed444(char* arg0, int arg1, int arg2, int arg3, int arg4, short arg5, unsigned short arg6);
 extern "C" int func_ov025_021ed380(char* arg0, int arg1, int arg2, int arg3, int arg4, short arg5, unsigned short arg6);
 extern "C" void* GetEffectManager_02057924(void);
-extern "C" void func_02078484(struct Struct_02078398_2* arg0);
+extern "C" void InitEffectParams_02078484(struct EffectParams_02078398_2* params);
 extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 extern "C" int func_02085078(unsigned char* arg0);
 extern "C" int func_020850a4(unsigned char* arg0);
@@ -402,7 +402,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         ActionTarget_ov000_021600f8* var58 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, arg4);
         if (var58) {
             var50 = var58;
-            var48 = func_ov000_0215ffa0(var58);
+            var48 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var58);
             if (arg3 == 0) {
                 var8 = (int)func_ov000_0215fff4(var58, arg5, 0);
             } else if (arg3 == 1) {
@@ -528,15 +528,15 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
                 if (var50->unknown_14_[var44] == 2) var26 = 1;
                 if (var26) var16 = 0x20;
                 void* var64 = GetEffectManager_02057924();
-                struct Struct_02078398_2 var65;
-                func_02078484(&var65);
+                struct EffectParams_02078398_2 var65;
+                InitEffectParams_02078484(&var65);
                 Vector3fix var66;
                 Vector3fix var67 = var25->obj3D_.position_;
                 var66.x = 0;
                 var66.y = var67.y + (var25->obj3D_.GetHeight() >> 1);
                 var66.z = var25->obj3D_.GetRadius() >> 1;
                 var65.unknown_2c_ = var66;
-                var65.unknown_14_ = var25->obj3D_.unknown_4_;
+                var65.unknown_14_ = var25->obj3D_.objectIndex_4_;
                 PlayEffect_02057fb4(var64, var16, &var65);
                 int var68;
                 if (var26) {
@@ -601,13 +601,13 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
     if (arg2 == 2) {
         if (var16 == 0x22 || var16 == 0x1a || var16 == 0x21 || var16 == 0x23) {
             void* var73 = GetEffectManager_02057924();
-            struct Struct_02078398_2 var74;
-            func_02078484(&var74);
+            struct EffectParams_02078398_2 var74;
+            InitEffectParams_02078484(&var74);
             Vector3fix var75;
             var75.x = 0;
             var75.y = var17->obj3D_.position_.y + (var17->obj3D_.GetHeight() >> 1);
             var75.z = var17->obj3D_.GetRadius();
-            var74.unknown_14_ = var17->obj3D_.unknown_4_;
+            var74.unknown_14_ = var17->obj3D_.objectIndex_4_;
             if (var46 & 2) {
                 var75.z = 0;
                 var75.y = 0;
@@ -836,14 +836,14 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         arg1->unknown_22_ = 0;
     }
     if (func_ov000_0215fd90(var49, 8)) {
-        func_ov017_02191aac(var2, 0, var59->obj3D_.unknown_4_, 4);
+        func_ov017_02191aac(var2, 0, var59->obj3D_.objectIndex_4_, 4);
         if (!var9) var22 = 1;
     }
     if (func_ov000_0215fd90(var49, 0x2c)) {
-        func_ov017_02191aac(var2, 1, var59->obj3D_.unknown_4_, 2);
+        func_ov017_02191aac(var2, 1, var59->obj3D_.objectIndex_4_, 2);
     }
     if (func_ov000_0215fd90(var49, 0x28)) {
-        func_ov017_02191aac(var2, 0, var59->obj3D_.unknown_4_, 2);
+        func_ov017_02191aac(var2, 0, var59->obj3D_.objectIndex_4_, 2);
     }
 
     var52 = 0;
@@ -864,7 +864,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         } else {
             GameState* var95 = GameState::GetInstance();
             if (var59->obj3D_.classFlags_0_ & 0x400) {
-                GameObject* var96 = GetEnemyByIndex_0200fea4(var95, var59->obj3D_.unknown_4_);
+                GameObject* var96 = GetEnemyByIndex_0200fea4(var95, var59->obj3D_.objectIndex_4_);
                 unsigned char* var97;
                 if (var96 && (var97 = *(unsigned char**)((unsigned char*)var96 + 0x144)) != 0) {
                     short var98 = *(short*)(var97 + 8);
@@ -982,8 +982,8 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
     if (var15 && var13 && var16 > 0) {
         if (var49->unknown_0_ == 1 && arg2 == 2 && var59 == var13) var46 |= 1;
         var36 = GetEffectManager_02057924();
-        struct Struct_02078398_2 var108;
-        func_02078484(&var108);
+        struct EffectParams_02078398_2 var108;
+        InitEffectParams_02078484(&var108);
         if (arg2 == 3) {
             for (int var109 = 1; var109 < var50->unknown_17_; var109++) {
                 if (var50->unknown_14_[var109] == 3) var13 = var1->GetCombatantByIndex(var50->unknown_e_[var109 - 1]);
@@ -1071,7 +1071,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         if (var46 & 1) {
             var110.x = 0;
             var110.z = var17->obj3D_.GetRadius() >> 1;
-            var108.unknown_14_ = var17->obj3D_.unknown_4_;
+            var108.unknown_14_ = var17->obj3D_.objectIndex_4_;
         } else {
             var108.unknown_38_ = var17->obj3D_.rotation_;
             var108.unknown_44_ = var13->obj3D_.GetScale();

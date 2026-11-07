@@ -14,7 +14,7 @@ extern "C" void func_ov017_021cee78(int arg0, unsigned char arg1);
 extern "C" void func_ov017_021ce32c(int arg0);
 
 extern "C" void func_ov017_021c41fc(int arg0, int arg1);
-extern "C" void func_ov017_021c4418(int arg0, int arg1);
+extern "C" void SendPartyMemberBodyAppearance_ov017_021c4418(int memberIndex, int recipientIndex);
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int memberIndex, int requestModelLoad);
 extern "C" void func_ov017_021ce704(int arg0);
 extern "C" void func_ov017_021cf078(int arg0, unsigned char arg1, int arg2);
@@ -43,7 +43,7 @@ extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
 extern "C" ARM void func_ov017_021b0fe0(int arg0) {
 	func_ov017_021c41fc(arg0, -1);
 	func_ov017_021c45b4(arg0);
-	func_ov017_021c4418(arg0, -1);
+	SendPartyMemberBodyAppearance_ov017_021c4418(arg0, -1);
 	SendPartyMemberEquippedItems_ov017_021c3fb4(arg0, 0);
 	func_ov017_021ce704(arg0);
 

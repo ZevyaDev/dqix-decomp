@@ -121,7 +121,7 @@ extern "C" struct ActionActor_ov000_02160094* GetActionActor_ov000_02160094(stru
 extern "C" struct Struct_ov025_021ebb90* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" void func_ov000_0216346c(char* arg0, int arg1);
 extern "C" void func_ov000_021634c8(char* arg0, int arg1);
-extern "C" short func_ov000_0215ffa0(void* arg0);
+extern "C" short GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 extern "C" int func_ov025_021d8c30(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 extern "C" void func_02049ae4(unsigned char* arg0);
 extern "C" int func_02049ee8(unsigned char* arg0);
@@ -150,7 +150,7 @@ extern "C" int func_ov025_021ee438(struct Struct_ov025_021ee438* arg0, int arg1)
 extern "C" void func_ov025_021dcf14(void* arg0);
 extern "C" void* func_ov000_02160f14(void* arg0);
 extern "C" void func_ov000_0216df00(void* arg0, int arg1, int arg2, int arg3, float arg4);
-extern "C" void func_ov000_021626a0(void* arg0, int arg1, int arg2);
+extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void* battleScene, int selector, int isVisible);
 extern "C" void func_ov025_021ecb90(struct Struct_ov025_021ebb90_6* arg0, struct Struct_ov025_021ebb90_6* arg1);
 
 extern int gSoundEffectManager_02108760;
@@ -254,7 +254,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Struct_ov025_021e9778_4* arg0) {
                                 if (var12[Enum_ov025_021ebb90_28414] == 0) var12[Enum_ov025_021ebb90_28414] = 1;
                                 if (var30 != 0 && arg0->unknown_0_[var17].unknown_c_ != 0) arg0->unknown_0_[var17].unknown_6_ |= 0x80;
                                 func_ov000_021634c8((char*)var12, var28->unknown_e_[var31 - 1]);
-                                *(short*)(var12 + Enum_ov025_021ebb90_28412) = func_ov000_0215ffa0(var28);
+                                *(short*)(var12 + Enum_ov025_021ebb90_28412) = GetLatestTargetCombatantIndex_ov000_0215ffa0(var28);
                             }
                             arg0->unknown_306_ = 1;
                         }
@@ -309,14 +309,14 @@ extern "C" ARM void func_ov025_021ebb90(struct Struct_ov025_021e9778_4* arg0) {
                     int var41 = -1;
                     if (var40 == 1) {
                         struct ActionTarget_ov000_021600f8* var42 = GetActionTarget_ov000_021600f8((struct BattleAction_ov000_0215440c*)arg0->unknown_0_[var17].unknown_0_, var39);
-                        if (var42 != 0) var41 = func_ov000_0215ffa0(var42);
+                        if (var42 != 0) var41 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var42);
                     } else if (var40 == 0) {
                         struct ActionActor_ov000_02160094* var43 = GetActionActor_ov000_02160094((struct BattleAction_ov000_0215440c_2*)arg0->unknown_0_[var17].unknown_0_, var39);
                         if (var43 != 0) var41 = var43->unknown_20_;
                     }
                     if (var41 >= 0) {
                         func_ov000_0216df00(func_ov000_02160f14(var12), var41, 0, 0, 1.8f);
-                        func_ov000_021626a0(var12, 4, 0);
+                        SetObjectsVisibleBySelector_ov000_021626a0(var12, 4, 0);
                         GameObject* var44 = var11->GetCombatantByIndex(var41);
                         if (var44 != 0) {
                             ((Object3D*)((unsigned char*)var44))->MakeVisible();
@@ -343,7 +343,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Struct_ov025_021e9778_4* arg0) {
 
             if (var24 <= arg0->unknown_0_[var17].unknown_10_ && arg0->unknown_0_[var17].unknown_10_ < var25) {
                 int var47 = 0;
-                if (var19 != 0) var47 = func_ov000_0215ffa0(var19);
+                if (var19 != 0) var47 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var19);
                 if (var16 != 0) var47 = var19->unknown_e_[0];
 
                 GameObject* var48 = var11->GetGameObjectByIndex(var47);

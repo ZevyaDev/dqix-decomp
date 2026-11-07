@@ -11,7 +11,7 @@ struct Struct_ov031_0222481c {
     unsigned char unknown_122_;
     unsigned char unknown_123_;
 };
-extern Struct_ov031_0222481c* data_ov031_02250bfc;
+extern Struct_ov031_0222481c* gKeyboard_ov031_02250bfc;
 extern Struct_ov031_022493b8_3 data_ov031_022493b8;
 extern Struct_ov031_022489c4_3 data_ov031_02248a0c[47];
 extern Struct_ov031_022489c4_3 data_ov031_022489c8;
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov031_0222481c() {
         do {
             func_ov031_0223cb34(var2, &data_ov031_022489c8, &var0);
             if (func_ov031_0223d414(&var0)) {
-                if (data_ov031_02250bfc->unknown_11e_ != var1) goto clear;
+                if (gKeyboard_ov031_02250bfc->unknown_11e_ != var1) goto clear;
                 func_ov031_02224a20(var1);
                 goto reset;
             }
@@ -49,18 +49,18 @@ extern "C" ARM void func_ov031_0222481c() {
         do {
             func_ov031_0223cb34(var4, var3, &var0);
             if (func_ov031_0223d414(&var0)) {
-                if (data_ov031_02250bfc->unknown_11e_ != var5 + 47) goto clear;
+                if (gKeyboard_ov031_02250bfc->unknown_11e_ != var5 + 47) goto clear;
                 func_ov031_02224a20(var5 + 47);
                 if (var5 != 3) return;
-                data_ov031_02250bfc->unknown_122_++;
-                if (data_ov031_02250bfc->unknown_122_ < 40) return;
-                if (!data_ov031_02250bfc->unknown_123_) {
+                gKeyboard_ov031_02250bfc->unknown_122_++;
+                if (gKeyboard_ov031_02250bfc->unknown_122_ < 40) return;
+                if (!gKeyboard_ov031_02250bfc->unknown_123_) {
                     PlayWifiSetupSoundEffect_ov031_02236878(9);
-                    data_ov031_02250bfc->unknown_11e_ = -1;
+                    gKeyboard_ov031_02250bfc->unknown_11e_ = -1;
                     return;
                 }
-                data_ov031_02250bfc->unknown_11c_ = 0x80;
-                data_ov031_02250bfc->unknown_122_ -= 7;
+                gKeyboard_ov031_02250bfc->unknown_11c_ = 0x80;
+                gKeyboard_ov031_02250bfc->unknown_122_ -= 7;
                 return;
             }
             var5++;
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov031_0222481c() {
         do {
             func_ov031_0223cb34(var6, &data_ov031_022489c4, &var0);
             if (func_ov031_0223d414(&var0)) {
-                if (data_ov031_02250bfc->unknown_11e_ != var7 + 51) goto clear;
+                if (gKeyboard_ov031_02250bfc->unknown_11e_ != var7 + 51) goto clear;
                 func_ov031_02224a20(var7 + 51);
                 goto reset;
             }
@@ -85,5 +85,5 @@ extern "C" ARM void func_ov031_0222481c() {
 clear:
     func_ov031_02224a20(-1);
 reset:
-    data_ov031_02250bfc->unknown_122_ = 0;
+    gKeyboard_ov031_02250bfc->unknown_122_ = 0;
 }

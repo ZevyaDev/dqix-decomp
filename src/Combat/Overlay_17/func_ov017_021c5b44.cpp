@@ -53,7 +53,7 @@ extern "C" ARM void func_ov017_021c5b44(unsigned char arg0, int arg1, unsigned i
 
     GameObject* var5 = func_ov017_021a278c(var0, arg1);
     if (var5 != 0) {
-        var2 = var5->obj3D_.unknown_4_;
+        var2 = var5->obj3D_.objectIndex_4_;
     }
 
     if (!func_02046b38((struct Struct_02046b38*)var3, (struct Struct_02046b38_2*)var4)) {

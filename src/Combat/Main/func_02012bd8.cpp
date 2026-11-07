@@ -5,7 +5,7 @@
 #include "NitroSDK/OverlayId.h"
 
 extern "C" int func_020a18f4(unsigned int arg0);
-extern char data_027e0000;
+extern char gDTCMData_027e0000;
 
 // USA: func_02012bd8
 extern "C" ARM void func_02012bd8() {
@@ -16,5 +16,5 @@ extern "C" ARM void func_02012bd8() {
         }
     }
     (*(int*)((char*)GameState::GetInstance() + 0x3c8))++;
-    *(unsigned int*)((char*)&data_027e0000 + 0x3ff8) |= 1;
+    *(unsigned int*)((char*)&gDTCMData_027e0000 + 0x3ff8) |= 1;
 }

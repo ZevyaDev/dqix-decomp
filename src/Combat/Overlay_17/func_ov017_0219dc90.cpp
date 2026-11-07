@@ -88,7 +88,7 @@ struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 struct Struct_ov017_0219dc90_4;
 extern "C" void func_ov017_021b4760(Struct_ov017_0219dc90_4*);
-extern "C" void func_02046a8c(Queue_0201bdac_2* arg0, Struct_ov017_0219dc90_5* arg1);
+extern "C" void RemoveFromQueue_02046a8c(Queue_0201bdac_2* queue, Struct_ov017_0219dc90_5* node);
 
 // USA: func_ov017_0219dc90
 extern "C" ARM void func_ov017_0219dc90(Struct_ov017_0219dc90* arg0, int arg1, int arg2, unsigned char arg3, unsigned short arg4) {
@@ -127,7 +127,7 @@ extern "C" ARM void func_ov017_0219dc90(Struct_ov017_0219dc90* arg0, int arg1, i
                 AppendToQueue_020469b4(arg0->unknown_3704_, (QueueNode_0201bdac*)var8);
             } else {
                 func_ov017_021b4760((Struct_ov017_0219dc90_4*)var8);
-                func_02046a8c(arg0->unknown_3704_, var8);
+                RemoveFromQueue_02046a8c(arg0->unknown_3704_, var8);
                 func_ov017_021b46d8((Struct_ov017_0219dc90_3*)var8);
                 var8->unknown_8_ = var5;
                 var8->unknown_11_ = arg3;

@@ -15,7 +15,7 @@ struct Struct_ov017_021ba998_2 {
 extern "C" unsigned int* GetResources_0200fb8c(int*);
 extern "C" unsigned char* GetFollowCamera_020100f8(char*);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
-extern "C" void func_020a28a0(unsigned char*, unsigned char);
+extern "C" void SetCameraFlags_020a28a0(unsigned char*, unsigned char);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char*, int);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov017_021ba998(Struct_ov017_021ba998_2* arg0) {
     unsigned char* var3 = GetFollowCamera_020100f8((char*)var0);
     SetFlags04((GameResources*)var1, 0xc0);
     DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
-    func_020a28a0(var3, 3);
+    SetCameraFlags_020a28a0(var3, 3);
     int var4 = var0->GetTickCount();
     if (var4 < 0) var4 = 1;
     if (arg0->unknown_22_ == 0) {

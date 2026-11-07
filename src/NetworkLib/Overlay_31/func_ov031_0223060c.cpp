@@ -8,7 +8,7 @@ extern "C" void func_ov031_0222f9ec(void);
 extern "C" void func_ov031_02230120(void);
 extern "C" void func_ov031_022351f8(int arg0);
 extern "C" void func_ov031_022308d4(void);
-extern "C" void func_ov031_0223e2c0(int arg0, int arg1);
+extern "C" void QueueTaskRemoval_ov031_0223e2c0(int listIndex, int task);
 
 struct Struct_ov031_02290ca0_17 { unsigned char unknown_0_, unknown_1_, unknown_2_, unknown_3_; unsigned short unknown_4_; unsigned short unknown_6_; void* unknown_8_; };
 extern struct Struct_ov031_02290ca0_17 data_ov031_02290ca0;
@@ -38,5 +38,5 @@ extern "C" ARM void func_ov031_0223060c(int arg0) {
 	func_ov031_02235204();
 	func_ov031_022308d4();
 	*(int*)((char*)data_ov031_02290ca0.unknown_8_ + 0x38) = 0;
-	func_ov031_0223e2c0(0, arg0);
+	QueueTaskRemoval_ov031_0223e2c0(0, arg0);
 }

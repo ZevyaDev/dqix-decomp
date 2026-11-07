@@ -15,7 +15,7 @@ struct Struct_0209c0c0 {
     unsigned short unknown_18_;
 };
 extern "C" ARM unsigned short func_0209c0c0(struct Struct_0209c0c0* arg0, struct Struct_0209c0c0* arg1);
-extern "C" void* func_0206efc4(void* arg0);
+extern "C" void* ClearMonsterTable_0206efc4(void* monsterTable);
 struct Struct_0206efd8;
 #if defined(jpn)
 extern "C" void func_0206f230(void* arg0, SafeAllocator* arg1, Struct_0206efd8* arg2, int arg3, short* arg4, int arg5);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov017_021b5250(Struct_ov017_021b5250* arg0) {
             __clear(var4, sizeof(var4));
             short var5 = (short)func_0209c0c0(&var3->unknown_44_, (Struct_0209c0c0*)var4);
             char* var6 = arg0->unknown_8_->unknown_2f8_;
-            func_0206efc4(var6);
+            ClearMonsterTable_0206efc4(var6);
             Struct_ov017_021b5250_2* var7 = arg0->unknown_8_;
             func_0206f230(var6, var7->unknown_10_, (Struct_0206efd8*)var2, var1, (short*)var4, var5
 #if !defined(jpn)

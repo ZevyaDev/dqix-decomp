@@ -58,7 +58,7 @@ extern "C" ARM void func_ov017_021c41fc(int arg0, int arg1) {
     }
 
     GameObject* var6 = var0->GetUnknownGameObject();
-    if (var6 != NULL && arg0 == var6->obj3D_.unknown_4_) {
+    if (var6 != NULL && arg0 == var6->obj3D_.objectIndex_4_) {
         if (var4->unknown_2_ == 0x2710) {
             var4->unknown_2_ = 0x170c;
         } else if (var4->unknown_2_ == 0x2710 + 0x64) {

@@ -26,7 +26,7 @@ struct TextureVRAMArea_0203d028 {
     unsigned int savedPaletteState_60_[2];
 };
 
-struct Struct_02078398_2 {
+struct EffectParams_02078398_2 {
     unsigned char unknown_0_;
     unsigned char unknown_1_[0xf];
     unsigned char unknown_10_;
@@ -53,7 +53,7 @@ struct Struct_02078398_2 {
     Vector3fix unknown_44_;
 };
 
-struct Struct_ov000_02160da0 {
+struct BattleScene_ov000_02160da0 {
     char unknown_0_[0x30];
     SafeAllocator unknown_30_;
 #if defined(jpn)
@@ -61,7 +61,7 @@ struct Struct_ov000_02160da0 {
 #else
     char unknown_44_[0x258];
 #endif
-    Struct_ov000_02161e30* unknown_29c_;
+    Struct_ov000_02161e30* pBattle_29c_;
     Struct_ov000_0217e870_2* unknown_2a0_;
 #if defined(jpn)
     char unknown_220_[0x34fc];
@@ -117,8 +117,8 @@ int IsBrightnessTransitionActive(GameResources*);
 void SetMainBrightness(GameResources*, int, int);
 extern "C" void func_0205eb54(void* arg0, int arg1, int arg2);
 extern "C" void func_0205eb90(void* arg0, int arg1, int arg2);
-extern "C" void func_0205eb80(void* arg0);
-extern "C" void func_02078484(Struct_02078398_2* arg0);
+extern "C" void UnloadExtraSoundSet_0205eb80(void* manager);
+extern "C" void InitEffectParams_02078484(EffectParams_02078398_2* params);
 extern "C" int PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 extern "C" void func_02049f50(Struct_02049f50* arg0, int arg1, int arg2);
 extern "C" void func_ov000_021637c8(void* arg0);
@@ -132,11 +132,11 @@ int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigne
 void RemoveEffectResource_02057f00(void* effectManager, int effectId);
 int func_ov000_021759f4(void* arg0);
 void func_ov000_02175808(void* arg0);
-void func_ov000_021626a0(Struct_ov000_02160da0* arg0, int arg1, int arg2);
-void func_ov000_02163894(Struct_ov000_02160da0* arg0);
-void func_ov000_02163928(Struct_ov000_02160da0* arg0);
-void func_ov026_021dc440(SafeAllocator* arg0, Struct_ov000_02160da0* arg1, Struct_ov000_02161e30* arg2, Struct_ov000_0217e870_2* arg3, const char* arg4);
-int func_ov026_021dc040(SafeAllocator* arg0, Struct_ov000_02160da0* arg1, Struct_ov000_02161e30* arg2, Struct_ov000_0217e870_2* arg3);
+void SetObjectsVisibleBySelector_ov000_021626a0(BattleScene_ov000_02160da0* battleScene, int selector, int isVisible);
+void func_ov000_02163894(BattleScene_ov000_02160da0* arg0);
+void func_ov000_02163928(BattleScene_ov000_02160da0* arg0);
+void func_ov026_021dc440(SafeAllocator* arg0, BattleScene_ov000_02160da0* arg1, Struct_ov000_02161e30* arg2, Struct_ov000_0217e870_2* arg3, const char* arg4);
+int func_ov026_021dc040(SafeAllocator* arg0, BattleScene_ov000_02160da0* arg1, Struct_ov000_02161e30* arg2, Struct_ov000_0217e870_2* arg3);
 }
 
 extern const char data_ov026_021dee0c[];
@@ -147,7 +147,7 @@ extern const Struct_ov026_021de6a0 data_ov026_021de6a0;
 extern char gSoundEffectManager_02108760[];
 
 // USA: func_ov026_021db5a4
-extern "C" ARM void func_ov026_021db5a4(Struct_ov000_02160da0* arg0) {
+extern "C" ARM void func_ov026_021db5a4(BattleScene_ov000_02160da0* arg0) {
     GameResources* var0 = GetGameResources();
 
     if (arg0->unknown_7712_ == 0) {
@@ -183,20 +183,20 @@ extern "C" ARM void func_ov026_021db5a4(Struct_ov000_02160da0* arg0) {
                 var2++;
             }
             arg0->unknown_7714_ = arg0->unknown_771e_ = arg0->unknown_7720_ = -1;
-            func_ov000_021626a0(arg0, 0x26, 1);
-            func_ov000_021626a0(arg0, 0x27, 0);
+            SetObjectsVisibleBySelector_ov000_021626a0(arg0, 0x26, 1);
+            SetObjectsVisibleBySelector_ov000_021626a0(arg0, 0x27, 0);
             func_ov000_02167e6c((unsigned char*)arg0);
             arg0->unknown_7712_ = 2;
         }
     } else if (arg0->unknown_7712_ == 2) {
-        Struct_02078398_2 var9;
+        EffectParams_02078398_2 var9;
         func_0205eb54(gSoundEffectManager_02108760, 0x1b3, 0x1b3);
         func_0205eb90(gSoundEffectManager_02108760, 1, 0);
         arg0->unknown_7711_ = 1;
-        func_ov000_021626a0(arg0, 0x26, 0);
-        func_ov000_021626a0(arg0, 0x27, 0);
+        SetObjectsVisibleBySelector_ov000_021626a0(arg0, 0x26, 0);
+        SetObjectsVisibleBySelector_ov000_021626a0(arg0, 0x27, 0);
         SetFlags04((GameResources*)var0, 0x100000);
-        func_02078484(&var9);
+        InitEffectParams_02078484(&var9);
         var9.unknown_11_0_ = 1;
         var9.unknown_10_ = 1;
         var9.unknown_44_.x = 0x800;
@@ -234,17 +234,17 @@ extern "C" ARM void func_ov026_021db5a4(Struct_ov000_02160da0* arg0) {
             RemoveEffectResource_02057f00(GetEffectManager_02057924(), 0x1d);
             RemoveEffectResource_02057f00(GetEffectManager_02057924(), 0x1e);
             arg0->unknown_7722_ = arg0->unknown_7724_ = -1;
-            func_ov000_021626a0(arg0, 0x26, 1);
+            SetObjectsVisibleBySelector_ov000_021626a0(arg0, 0x26, 1);
             ClearFlags04((GameResources*)var0, 0x100000);
             arg0->unknown_7712_ = 5;
         }
     } else if (arg0->unknown_7712_ == 5) {
-        Struct_02078398_2 var15;
-        func_0205eb80(gSoundEffectManager_02108760);
+        EffectParams_02078398_2 var15;
+        UnloadExtraSoundSet_0205eb80(gSoundEffectManager_02108760);
         arg0->unknown_7711_ = 0;
         SetMainBrightness(var0, -0x10, 0);
         GameState* var16 = GameState::GetInstance();
-        func_02078484(&var15);
+        InitEffectParams_02078484(&var15);
         for (int var17 = 0; var17 < 4; var17++) {
             GameObject* var18 = var16->GetCombatantByIndex(var17);
             if (var18 != NULL) {
@@ -257,7 +257,7 @@ extern "C" ARM void func_ov026_021db5a4(Struct_ov000_02160da0* arg0) {
         func_ov000_02175808(arg0->unknown_3760_);
         arg0->unknown_54d2_ |= 0x200;
         func_ov000_021637c8(arg0);
-        func_ov026_021dc440(&arg0->unknown_774c_, arg0, arg0->unknown_29c_, arg0->unknown_2a0_, data_ov026_021dedec);
+        func_ov026_021dc440(&arg0->unknown_774c_, arg0, arg0->pBattle_29c_, arg0->unknown_2a0_, data_ov026_021dedec);
         func_ov000_02163894(arg0);
         func_ov000_021636ac(arg0);
         arg0->unknown_7712_ = 6;
@@ -266,7 +266,7 @@ extern "C" ARM void func_ov026_021db5a4(Struct_ov000_02160da0* arg0) {
         arg0->unknown_7711_ = 1;
     } else if (arg0->unknown_7712_ == 6) {
         func_ov000_02163928(arg0);
-        if (func_ov026_021dc040(&arg0->unknown_30_, arg0, arg0->unknown_29c_, arg0->unknown_2a0_)) {
+        if (func_ov026_021dc040(&arg0->unknown_30_, arg0, arg0->pBattle_29c_, arg0->unknown_2a0_)) {
             func_ov000_02163710(arg0, 0);
             arg0->unknown_7712_ = -1;
         }

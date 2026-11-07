@@ -36,7 +36,7 @@ extern "C" struct ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e95
 extern "C" int func_ov000_02159f18(void* arg0, unsigned long long arg1, int arg2);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void SetActionResult_ov000_0215ccbc(int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant,
-                            short arg3, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
+                            short amount, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
 extern "C" void func_ov000_0215fe84(void* arg0, void* arg1, int arg2);
 
 static inline short inline_ov024_021e57e0(GameObject* arg0) { SDK_NULL_ASSERT(arg0); return arg0->currentStats_->primaryStats.currMP; }

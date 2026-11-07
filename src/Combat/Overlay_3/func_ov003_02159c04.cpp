@@ -12,8 +12,8 @@ extern "C" void* GetMessageWindow_020421a0(void);
 struct TextWindowManager_0205d81c;
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
 
-struct Struct_0205dee8;
-extern "C" void func_0205dee8(struct Struct_0205dee8* arg0, int arg1);
+struct TextWindowManager_0205dee8;
+extern "C" void SetCursorTextWindow_0205dee8(struct TextWindowManager_0205dee8* windowManager, int windowId);
 
 extern "C" int func_ov003_0215b7a4(void* arg0);
 
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov003_02159c04(void* arg0) {
         SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 0, 0);
         SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 1, 0);
         SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 2, 0);
-        func_0205dee8((struct Struct_0205dee8*)(var0 + 0xf4), 1);
+        SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8*)(var0 + 0xf4), 1);
         *(unsigned char*)(var0 + 0x580) = *(unsigned char*)(var0 + 0x580) + 1;
     }
 

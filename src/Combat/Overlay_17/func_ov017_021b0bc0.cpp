@@ -34,7 +34,7 @@ extern "C" void func_0206df14(unsigned char*);
 extern "C" float func_020103e8(GameState*);
 extern "C" void func_ov017_0219bcac(unsigned char);
 extern "C" unsigned char* GetZoneEntry_0200fd0c(GameState*);
-extern "C" void* func_02094d6c();
+extern "C" void* GetQuestManager_02094d6c();
 extern "C" void* func_020965f8();
 extern "C" void* InitItemTable_020de824(void*);
 extern "C" void ClearItemTable_020de848(void*);
@@ -52,7 +52,7 @@ extern "C" void func_020a095c(Struct_0207cf30_4*, int, int);
 extern "C" void func_020dbc5c(char*, int);
 extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" void func_ov017_021cee78(int, unsigned char);
-extern "C" void func_ov017_02191234(GameResources*);
+extern "C" void RebuildPartyOrders_ov017_02191234(GameResources*);
 
 extern const char* data_020f2a18;
 extern const char* data_020f2a0c;
@@ -161,7 +161,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
     }
     GameObject* var11 = var5->GetPartyMemberByIndex(arg0->unknown_c_);
     if (var11 != NULL) {
-        func_02039880((unsigned char*)var11, var11->obj3D_.unknown_4_);
+        func_02039880((unsigned char*)var11, var11->obj3D_.objectIndex_4_);
     }
     short* var12 = var3;
     for (int var13 = 0; var13 < 4; var13++, var12++) {
@@ -246,7 +246,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
         var22->timeOfDayIndex_ = var5->GetTimeOfDay();
         func_ov017_0219bcac(1);
         GetZoneEntry_0200fd0c(var5)[0xa] = 0;
-        func_02094d6c();
+        GetQuestManager_02094d6c();
         func_020965f8();
 
         InitItemTable_020de824(var0);
@@ -279,6 +279,6 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
         }
     }
 
-    func_ov017_02191234(var6);
+    RebuildPartyOrders_ov017_02191234(var6);
     arg0->unknown_1_ = 1;
 }

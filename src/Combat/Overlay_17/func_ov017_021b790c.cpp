@@ -539,7 +539,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
                 if (var51 != NULL) {
                     GameObject* var52 = var0->GetPartyMemberByIndex(func_02039888(var51));
                     if (var52 != NULL) {
-                        InitPartyMemberNoun_020e4bf4(&var50, var52->obj3D_.unknown_4_);
+                        InitPartyMemberNoun_020e4bf4(&var50, var52->obj3D_.objectIndex_4_);
                         var42->unknown_0_ = &var50;
                         sprintf(var49, (const char*)GetStandardString_020e51cc(0x22));
                     }

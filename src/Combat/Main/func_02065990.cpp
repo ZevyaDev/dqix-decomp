@@ -82,11 +82,11 @@ extern "C" void func_ov017_0218b5f8(signed char arg0);
 struct Queue_02038598_5;
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void func_ov017_021a5ab0(void* arg0);
-extern "C" void* func_0203cf4c();
+extern "C" void* GetNPCManager_0203cf4c();
 struct NPCManager_0203dce4_2;
 extern "C" void* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
-struct Struct_0203de84_2;
-extern "C" void func_020406f8(Struct_0203de84*, Struct_0203de84_2*);
+struct NPC_0203de84_2;
+extern "C" void GetNPCPosition_020406f8(Struct_0203de84*, NPC_0203de84_2*);
 extern "C" int fix32_Atan2(int arg0, int arg1);
 int fix32ReduceAngle0To2Pi(int angle);
 extern "C" void func_02065418(int arg0);
@@ -95,13 +95,13 @@ extern "C" void func_020652d0(char* arg0, int arg1, int arg2, int arg3);
 extern "C" unsigned char* GetResources_0200fb8c(int*);
 struct Struct_02065990_2;
 extern "C" void func_0208bf28(Struct_02065990_2*, int, unsigned char);
-extern "C" unsigned char* func_02094d6c();
+extern "C" unsigned char* GetQuestManager_02094d6c();
 struct Struct_02065990_3;
 extern "C" int func_020965ac(Struct_02065990_3*, unsigned char);
 extern "C" void func_020cf0fc(int);
 extern "C" void func_020cf1a8(int);
-struct Struct_02109bf4_2;
-extern "C" void func_0209c830(Struct_02109bf4_2*, int);
+struct MusicManager_02109bf4_2;
+extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
 extern "C" void func_0208be94(unsigned char*);
 extern "C" void func_0208beb4(unsigned char*);
 extern "C" void func_0205e944(void* arg0, int arg1);
@@ -402,10 +402,10 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                 return;
             } else if (var1 == REGION_VALUE(0xff2f, 0xff2d)) {
                 unsigned char* var23 = (unsigned char*)GameState::GetInstance()->GetUnknownGameObject();
-                void* var24 = GetNPCByIndex_0203dce4((NPCManager_0203dce4_2*)func_0203cf4c(), arg0->unknown_1838_);
+                void* var24 = GetNPCByIndex_0203dce4((NPCManager_0203dce4_2*)GetNPCManager_0203cf4c(), arg0->unknown_1838_);
                 if (var23 != 0 && var24 != 0) {
                     var4 = *(struct Struct_0203de84*)(var23 + 0x44);
-                    func_020406f8(&var8, (Struct_0203de84_2*)var24);
+                    GetNPCPosition_020406f8(&var8, (NPC_0203de84_2*)var24);
                     var5 = var8;
                     arg0->unknown_1844_ = fix32ReduceAngle0To2Pi(fix32_Atan2(var4.unknown_0_[0] - var5.unknown_0_[0], var4.unknown_0_[2] - var5.unknown_0_[2]));
                     arg0->unknown_19b6_ = 1;
@@ -487,7 +487,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                     *(unsigned short*)(var37 + 0xda) = *(unsigned short*)(var37 + 0xda) | 0x40;
                     func_0208bf28((Struct_02065990_2*)(arg0->unknown_8c_), *(short*)(var0 + REGION_VALUE(0x1776, 0x1948)), 0);
                     *&arg0->unknown_195b_ |= 1;
-                    unsigned char* var38 = func_02094d6c();
+                    unsigned char* var38 = GetQuestManager_02094d6c();
                     int var39 = func_020965ac((Struct_02065990_3*)var38, (unsigned char)*(short*)(var0 + REGION_VALUE(0x1776, 0x1948)));
                     func_020cf0fc((int)&var6);
                     func_020cf1a8((int)&var7);
@@ -497,11 +497,11 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                     var3.unknown1_0_.unknown_2_0_ = var7.unknown_0_;
                     var3.unknown1_0_.unknown_2_5_ = var7.unknown_4_;
                     *(unsigned int*)(var38 + var39 * 4 + 0x178) = var3.unknown_0_;
-                    func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, 0x32);
+                    QueueJingle_0209c830((MusicManager_02109bf4_2*)&gMusicManager_02109bf4, 0x32);
                 }
             } else if (var1 > REGION_VALUE(0xff39, 0xff34) && var1 < REGION_VALUE(0xff4e, 0xff49)) {
                 arg0->func_02045688();
-                func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, var1 - REGION_VALUE(0xff08, 0xff03));
+                QueueJingle_0209c830((MusicManager_02109bf4_2*)&gMusicManager_02109bf4, var1 - REGION_VALUE(0xff08, 0xff03));
                 arg0->unknown_19c9_ = 1;
                 return;
             } else if (var1 >= REGION_VALUE(0xff4f, 0xff4a) && var1 <= REGION_VALUE(0xff51, 0xff4c)) {
@@ -519,7 +519,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                     *(unsigned short*)(var42 + 0xda) = *(unsigned short*)(var42 + 0xda) | 0x200;
                     func_0208be94((unsigned char*)(arg0->unknown_8c_));
                     *&arg0->unknown_195b_ |= 1;
-                    func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, 0x33);
+                    QueueJingle_0209c830((MusicManager_02109bf4_2*)&gMusicManager_02109bf4, 0x33);
                 }
             } else if (var1 == 0xff13) {
                 unsigned char* var43 = arg0->unknown_8c_;
@@ -527,7 +527,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                     *(unsigned short*)(var43 + 0xda) = *(unsigned short*)(var43 + 0xda) | 0x300;
                     func_0208be94((unsigned char*)(arg0->unknown_8c_));
                     *&arg0->unknown_195b_ |= 1;
-                    func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, 0x44);
+                    QueueJingle_0209c830((MusicManager_02109bf4_2*)&gMusicManager_02109bf4, 0x44);
                 }
             } else if (var1 == 0xff12) {
                 if (arg0->unknown_8c_ != 0) {

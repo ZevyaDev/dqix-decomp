@@ -30,7 +30,7 @@ struct Struct_0201099c_3;
 
 extern "C" unsigned char *GetCursorTextWindow_0205d8c4(struct Struct_ov002_02155960_2 *windowManager);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char *textWindow);
-extern "C" void func_0205bc24(void *arg0, int arg1);
+extern "C" void SetMenuCursorTouchedIndex_0205bc24(void *cursor, int index);
 extern "C" int UpdateTextWindowManager_0205d0e0(void *windowManager, int ticks);
 extern "C" int GetCursorIndex_0205d794(struct Struct_ov002_0215624c_15 *windowManager);
 extern "C" void PushSubOverlay_020a1ef0(int subOverlayEntry);
@@ -70,7 +70,7 @@ extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberI
 extern "C" void func_ov002_0215bf34(char *arg0);
 extern "C" void func_ov002_0215c028(char *arg0);
 extern "C" void func_ov002_0215bba8(char *arg0);
-extern "C" void func_ov002_02161cf0(char *arg0);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215c0f8(char *arg0);
 extern "C" void func_ov002_0215a938(char *arg0);
 
@@ -145,7 +145,7 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
 
     unsigned char *var2 = GetCursorTextWindow_0205d8c4((struct Struct_ov002_02155960_2 *) (arg0 + REGIONAL_OFFSET(0xe20, 0xec8)));
     if (var2 != 0 && IsTextWindowReady_0204c7cc(var2) && !(var2[0xc5] & 2)) {
-        func_0205bc24(&((struct Struct_ov002_0215624c_12 *) (arg0 + REGIONAL_OFFSET(0xe20, 0xec8)))->unknown_4_, -1);
+        SetMenuCursorTouchedIndex_0205bc24(&((struct Struct_ov002_0215624c_12 *) (arg0 + REGIONAL_OFFSET(0xe20, 0xec8)))->unknown_4_, -1);
     }
     S32(REGIONAL_OFFSET(0x1a90, 0x1bc8)) = UpdateTextWindowManager_0205d0e0(arg0 + REGIONAL_OFFSET(0xe20, 0xec8), S32(REGIONAL_OFFSET(0x1a68, 0x1ba0)));
     short var3   = S16(REGIONAL_OFFSET(0x1aa8, 0x1be0));
@@ -249,7 +249,7 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
             func_ov002_0215c028(arg0);
             int var23   = S32(REGIONAL_OFFSET(0x1a80, 0x1bb8));
             S32(REGIONAL_OFFSET(0x1a80, 0x1bb8)) = 1;
-            func_ov002_02161cf0(arg0);
+            ConfigureMenuCursors_ov002_02161cf0(arg0);
             func_ov002_0215c0f8(arg0);
             S32(REGIONAL_OFFSET(0x1a80, 0x1bb8)) = var23;
         }

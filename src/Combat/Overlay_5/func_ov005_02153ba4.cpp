@@ -158,7 +158,7 @@ extern "C" void func_ov023_021e20c0(void* arg0);
 extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
-extern "C" void func_ov023_021dc134(void* arg0, int arg1, int arg2);
+extern "C" void InitItemInfoPanel_ov023_021dc134(void* arg0, int itemId, int arg2);
 extern "C" void func_ov023_021e1318(Struct_ov002_0215505c_2* arg0);
 extern "C" void func_ov023_021dad78(void* arg0);
 extern "C" void func_ov005_021536e0(void* arg0);
@@ -171,7 +171,7 @@ extern "C" Struct_ov005_02153ba4_2* GetEquipMenu_ov017_021a193c(int* equipMenuTa
 extern "C" int func_0207c638(void* arg0, unsigned int arg1);
 extern "C" short GetEquippedItem_02052df8(Struct_02052df8* gameObject, int slot);
 extern "C" int func_0207c7a0(void* arg0, int arg1, int arg2);
-extern "C" short* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
+extern "C" short* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
 
 // USA: func_ov005_02153ba4
 extern "C" ARM void func_ov005_02153ba4(Struct_ov005_02153954* arg0) {
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov005_02153ba4(Struct_ov005_02153954* arg0) {
     for (int var2 = 0; var2 < 3; var2++)
         InitTextWindow_0204c684(arg0->unknown_fa0_[var2]);
     arg0->unknown_1240_ = NULL;
-    func_ov023_021dc134(arg0->unknown_1244_, -1, 0);
+    InitItemInfoPanel_ov023_021dc134(arg0->unknown_1244_, -1, 0);
     func_ov023_021e1318((Struct_ov002_0215505c_2*)arg0->unknown_19e0_);
     func_ov023_021dad78(arg0->unknown_19ec_);
     func_ov005_021536e0(arg0->unknown_1a34_);
@@ -315,7 +315,7 @@ extern "C" ARM void func_ov005_02153ba4(Struct_ov005_02153954* arg0) {
             arg0->unknown_3df4_[var15] = (var18 - 1) / 16 + 1;
         else
             arg0->unknown_3df4_[var15] = 1;
-        short* var23 = func_0207c5f8((unsigned char*)(var7 + 0x1d4), var16);
+        short* var23 = GetEquipmentBagItemIds_0207c5f8((unsigned char*)(var7 + 0x1d4), var16);
         short var24 = func_0207c620((unsigned char*)(var7 + 0x1d4), var16);
         int var25 = 0;
         for (int var26 = 0; var26 < var24; var26++) {

@@ -129,12 +129,12 @@ extern "C" void func_020ac4f8(int arg0);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02012084(unsigned char* arg0);
 extern "C" void func_02011af0(void* arg0);
-extern "C" void func_02046a8c(void* arg0, void* arg1);
+extern "C" void RemoveFromQueue_02046a8c(void* queue, void* node);
 extern "C" void func_020d84e0(void);
-extern "C" void func_0202b0f4(void* arg0);
+extern "C" void StopLocalWireless_0202b0f4(void* wireless);
 extern "C" void func_0205e22c(void* arg0);
 extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" int func_02039d7c(char* arg0);
+extern "C" int IsOnLadder_02039d7c(char* object);
 extern "C" void func_02039d84(Struct_02039d84* arg0);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
@@ -144,7 +144,7 @@ extern "C" void func_0202c288(void* arg0);
 extern "C" void func_020100a0(GameState* arg0, int arg1);
 extern "C" void func_020dcd40(void);
 extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
-extern "C" void func_ov017_02191234(void* arg0);
+extern "C" void RebuildPartyOrders_ov017_02191234(void* gameResources);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(void* gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 extern "C" void func_020546a0(void* arg0, int arg1);
 extern "C" void func_02039858(unsigned char* arg0, int arg1);
@@ -224,12 +224,12 @@ extern "C" ARM void func_ov017_021c37a4(void) {
         memcpy(var12, var17, strlen(var17));
         func_02012084((unsigned char*)var0);
         func_02011af0(var0);
-        func_02046a8c(var3->unknown_ptr_array_36fc[0], var3->unknown_ptr_array_3afc[0x14]);
+        RemoveFromQueue_02046a8c(var3->unknown_ptr_array_36fc[0], var3->unknown_ptr_array_3afc[0x14]);
     }
 
     SetFlags00(var3, 2);
     func_020d84e0();
-    func_0202b0f4(var2);
+    StopLocalWireless_0202b0f4(var2);
     func_0205e22c(var4);
 #if !defined(jpn)
     var2->unknown_1029_ &= ~0x10;
@@ -238,7 +238,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     for (int var18 = 0; var18 < 4; var18++) {
         if (var18 == GetProtagonistObjectIndex_020100a8(var0)) {
             GameObject* var19 = var0->GetPartyMemberByIndex(var18);
-            if (var9 && var19 && func_02039d7c((char*)var19)) {
+            if (var9 && var19 && IsOnLadder_02039d7c((char*)var19)) {
                 func_02039d84((Struct_02039d84*)var19);
             }
         } else {
@@ -282,7 +282,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
         func_020dcd40();
         LoadPartyMemberColors_020dc7e8(6, -1);
         LoadPartyMemberColors_020dc7e8(7, -1);
-        func_ov017_02191234(var3);
+        RebuildPartyOrders_ov017_02191234(var3);
         RebuildFieldPartyOrder_ov017_02191108(var3, 1, 1, 1, 1);
     }
 
@@ -300,7 +300,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
         func_020a2770(var27, 0);
     }
     RebuildFieldPartyOrder_ov017_02191108(var3, 1, 0, 1, 1);
-    func_ov017_02191234(var3);
+    RebuildPartyOrders_ov017_02191234(var3);
     var1->unknown_5ccc_ |= 2;
 
     Struct_ov017_021c37a4* var28 = (Struct_ov017_021c37a4*)GetParty_02010828(var0);

@@ -27,7 +27,7 @@ struct Struct_ov031_0220dc40_2 {
     short unknown_2280_;
 };
 
-extern Struct_ov031_0220dc40_2* data_ov031_0224e53c;
+extern Struct_ov031_0220dc40_2* gAccessPointConnection_ov031_0224e53c;
 
 // USA: func_ov031_0220dc40
 extern "C" ARM void func_ov031_0220dc40(Struct_ov031_0220dc40* arg0) {
@@ -61,12 +61,12 @@ extern "C" ARM void func_ov031_0220dc40(Struct_ov031_0220dc40* arg0) {
             var0 = func_020d6a84((int)func_ov031_0220dc40, 0);
             break;
         case 0x19: {
-            Struct_ov031_0220dc40_2* var1 = data_ov031_0224e53c;
+            Struct_ov031_0220dc40_2* var1 = gAccessPointConnection_ov031_0224e53c;
             var0 = func_020d6950((int)func_ov031_0220dc40, var1->unknown_2250_, var1->unknown_2251_, (int)var1->unknown_2200_);
             break;
         }
         case 0x27: {
-            Struct_ov031_0220dc40_2* var2 = data_ov031_0224e53c;
+            Struct_ov031_0220dc40_2* var2 = gAccessPointConnection_ov031_0224e53c;
             unsigned int var3 = var2->unknown_2264_;
             unsigned short var4 = (var3 & 0xc0000) == 0xc0000 ? 1 : 0;
             var0 = func_020d54d0((void*)func_ov031_0220e258, var2->unknown_2140_, 0,
@@ -79,24 +79,24 @@ extern "C" ARM void func_ov031_0220dc40(Struct_ov031_0220dc40* arg0) {
             return;
         case 8:
             func_ov031_0220da1c(0xc);
-            func_ov031_0220d984(1, data_ov031_0224e53c->unknown_2280_ == 5 ? data_ov031_0224e53c->unknown_2140_ : 0, 0, 0x6af);
+            func_ov031_0220d984(1, gAccessPointConnection_ov031_0224e53c->unknown_2280_ == 5 ? gAccessPointConnection_ov031_0224e53c->unknown_2140_ : 0, 0, 0x6af);
             return;
         case 3:
         default:
             func_ov031_0220da1c(0xb);
-            func_ov031_0220d984(7, data_ov031_0224e53c->unknown_2280_ == 5 ? data_ov031_0224e53c->unknown_2140_ : 0, 0, 0x6b8);
+            func_ov031_0220d984(7, gAccessPointConnection_ov031_0224e53c->unknown_2280_ == 5 ? gAccessPointConnection_ov031_0224e53c->unknown_2140_ : 0, 0, 0x6b8);
             return;
         }
     case 1:
         func_ov031_0220da1c(0xc);
-        func_ov031_0220d984(1, data_ov031_0224e53c->unknown_2280_ == 5 ? data_ov031_0224e53c->unknown_2140_ : 0, 0, 0x6de);
+        func_ov031_0220d984(1, gAccessPointConnection_ov031_0224e53c->unknown_2280_ == 5 ? gAccessPointConnection_ov031_0224e53c->unknown_2140_ : 0, 0, 0x6de);
         break;
     case 2:
     case 3:
     case 4:
     default:
         func_ov031_0220da1c(0xb);
-        func_ov031_0220d984(7, data_ov031_0224e53c->unknown_2280_ == 5 ? data_ov031_0224e53c->unknown_2140_ : 0, 0, 0x6e8);
+        func_ov031_0220d984(7, gAccessPointConnection_ov031_0224e53c->unknown_2280_ == 5 ? gAccessPointConnection_ov031_0224e53c->unknown_2140_ : 0, 0, 0x6e8);
         break;
     }
 }

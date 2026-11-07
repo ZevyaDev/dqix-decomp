@@ -59,7 +59,7 @@ struct Struct_ov017_021a9bf8 {
 extern "C" unsigned char* GetFollowCamera_020100f8(char*);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_ov017_021a9f58(int);
-extern "C" void func_020a27b8(unsigned char*);
+extern "C" void DisableCameraTurning_020a27b8(unsigned char*);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020e11a4();
 extern "C" char* GetMessageWindow_020421a0();
@@ -99,9 +99,9 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
     if (arg0->unknown_8_ == 0) {
         FontLoader_0208cb08* var6 = GetFontLoader_02094a00();
         CancelFontLoad_02094ab0(var6);
-        func_02094b3c(var6, 12);
+        ClearLoadedFontSetForSize_02094b3c(var6, 12);
         RequestSingleFontLoad_02094b30(var6, 0x203, 0);
-        func_020a27b8(var1);
+        DisableCameraTurning_020a27b8(var1);
         arg0->unknown_8_ = 1;
     } else if (arg0->unknown_8_ == 1) {
         if (!UpdateFontLoad_02094b4c(GetFontLoader_02094a00())) return;

@@ -56,7 +56,7 @@ extern "C" ARM void func_02097cac(Struct_02097cac_2* arg0) {
             case 5: var2->unknown_0_ = 0xc47d; break;
             case 6: var2->unknown_0_ = 0xc4e1; break;
         }
-        func_0200fcfc(var1, var2);
+        SetZoneEntry_0200fcfc(var1, var2);
     } else {
         if (IsLocalWirelessGuest_0202c540(var0) == 0 || var2->unknown_65_ == 0) return;
         int var8 = arg0->unknown_1b3c_;

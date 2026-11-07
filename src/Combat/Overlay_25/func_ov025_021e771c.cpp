@@ -27,7 +27,7 @@ extern "C" void func_ov000_02166804(Struct_ov025_021e771c_3* arg0);
 void* LoadFileIntoMemory(const char* path, void* dst, unsigned int* outSize);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 extern "C" void* func_020709d8(void* arg0);
-extern "C" void* func_0206efc4(void* arg0);
+extern "C" void* ClearMonsterTable_0206efc4(void* monsterTable);
 extern "C" void func_02070b6c(void* arg0, void* arg1, void* arg2, unsigned int arg3, int arg4, int arg5);
 #if defined(jpn)
 extern "C" void func_0206f230(void* arg0, void* arg1, void* arg2, unsigned int arg3, int arg4, int arg5);
@@ -76,7 +76,7 @@ extern "C" ARM int func_ov025_021e771c(short* arg0, int arg1, int arg2, int arg3
 #endif
 
         if (var8 != 0) {
-            func_0206efc4(var3);
+            ClearMonsterTable_0206efc4(var3);
 #if defined(jpn)
             func_0206f230(var3, var5, var8, var6, arg2, arg3);
 #else

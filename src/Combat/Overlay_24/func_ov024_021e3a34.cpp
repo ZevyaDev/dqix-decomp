@@ -25,7 +25,7 @@ struct Struct_ov024_021e303c {
 };
 union Struct_ov024_021e2bd0_6 { struct { int unknown_0_; int unknown_4_; }; unsigned long long unknown1_0_; };
 
-extern "C" int func_ov000_02156068(void*, int, int, int);
+extern "C" int HasEnemyTrait_ov000_02156068(void*, int, int, int);
 extern "C" int func_0208824c(unsigned char*);
 extern "C" int func_ov024_021e9464(Struct_ov024_021ddc80_4*, int, int);
 extern "C" int func_ov024_021eb4b0(int, int, int);
@@ -42,9 +42,9 @@ extern "C" ARM unsigned long long func_ov024_021e3a34(Struct_ov024_021e2bd0_3* a
     GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
     if (!var0) return 0;
     if (arg3->unknown_4_0_ == 0x52) {
-        if (!func_ov000_02156068(arg0->unknown_10_, arg2, 9, 0)) return 0;
+        if (!HasEnemyTrait_ov000_02156068(arg0->unknown_10_, arg2, 9, 0)) return 0;
     } else if (arg3->unknown_4_0_ == 0x58) {
-        if (!func_ov000_02156068(arg0->unknown_10_, arg2, 0, 1)
+        if (!HasEnemyTrait_ov000_02156068(arg0->unknown_10_, arg2, 0, 1)
             && ((Struct_ov024_021e2bd0_4*)var0->currentStats_)->unknown_4e_ == 0) return 0;
     } else if (((Struct_ov024_021e2bd0_4*)var0->currentStats_)->unknown_4e_ == 0) return 0;
     if (!func_0208824c((unsigned char*)var0->currentStats_)) return 0;
@@ -61,7 +61,7 @@ extern "C" ARM unsigned long long func_ov024_021e3a34(Struct_ov024_021e2bd0_3* a
             var2 = 25.0f;
             break;
         case 0x58:
-            if (func_ov000_02156068(arg0->unknown_10_, arg2, 0, 1)) var2 = 12.5f;
+            if (HasEnemyTrait_ov000_02156068(arg0->unknown_10_, arg2, 0, 1)) var2 = 12.5f;
             break;
         }
     }

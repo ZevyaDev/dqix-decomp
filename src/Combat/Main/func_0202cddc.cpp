@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-extern "C" void func_0202c848(int arg0);
+extern "C" void SetLocalWirelessLinkError_0202c848(int errorCode);
 extern "C" int func_020d4aa8(void);
 extern "C" unsigned short func_020d4be8(void);
 
@@ -26,11 +26,11 @@ extern "C" void func_0202cefc(void);
 extern "C" ARM int func_0202cddc(void) {
     int var0 = func_020d4aa8();
     if (var0 == 0x8000) {
-        func_0202c848(3);
+        SetLocalWirelessLinkError_0202c848(3);
         return 0;
     }
     if (var0 == 0) {
-        func_0202c848(0x16);
+        SetLocalWirelessLinkError_0202c848(0x16);
         return 0;
     }
 
@@ -64,6 +64,6 @@ extern "C" ARM int func_0202cddc(void) {
 
     int var8 = func_020d5340((int)func_0202cefc, &data_02101680);
     if (var8 == 2) return 1;
-    func_0202c848(var8);
+    SetLocalWirelessLinkError_0202c848(var8);
     return 0;
 }

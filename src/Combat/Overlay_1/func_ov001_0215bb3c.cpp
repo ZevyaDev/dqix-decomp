@@ -4,7 +4,7 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
-extern "C" void* func_ov017_021d612c(void* arg0);
+extern "C" void* GetScriptValueAsString_ov017_021d612c(void* value);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" int func_ov001_0215ad2c(int arg0);
 extern "C" unsigned int func_ov001_0215a750(const char* arg0, void** arg1);
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov001_0215bb3c(char* arg0, int arg1) {
 
     var4 =GameState::GetInstance();
     var5 = BackgroundLoader::GetInstance();
-    var8 = func_ov017_021d612c(arg0);
+    var8 = GetScriptValueAsString_ov017_021d612c(arg0);
     char* var11 = arg0 + 0x8;
     arg0 += 0x10;
     var9 = func_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(var11));

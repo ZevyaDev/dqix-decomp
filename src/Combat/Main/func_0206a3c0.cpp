@@ -22,12 +22,12 @@ extern "C" int CompareBytes_02001aec(const void*, const void*, unsigned int);
 #endif
 
 struct NPCManager_0203dce4_2;
-struct Struct_0203de84_2;
+struct NPC_0203de84_2;
 struct SoundEffectManager_02108760;
 struct Struct_0203de84 { int unknown_0_[3]; };
-extern "C" NPCManager_0203dce4_2* func_0203cf4c();
+extern "C" NPCManager_0203dce4_2* GetNPCManager_0203cf4c();
 extern "C" NPC_0203dce4* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
-extern "C" void func_020406f8(Struct_0203de84*, Struct_0203de84_2*);
+extern "C" void GetNPCPosition_020406f8(Struct_0203de84*, NPC_0203de84_2*);
 extern "C" int func_020d857c(signed char*, signed char*);
 extern "C" int func_020d85dc(const char*, const char*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
@@ -98,14 +98,14 @@ extern "C" ARM const char* func_0206a3c0(Struct_0206a3c0_2* arg0, const char* ar
     unsigned char var0 = 1;
     arg0->unknown_1000_.unknown_9b6_ = (unsigned char)var0;
     GameObject* var1 = GameState::GetInstance()->GetUnknownGameObject();
-    NPC_0203dce4* var2 = GetNPCByIndex_0203dce4(func_0203cf4c(), arg0->unknown_1000_.unknown_838_);
+    NPC_0203dce4* var2 = GetNPCByIndex_0203dce4(GetNPCManager_0203cf4c(), arg0->unknown_1000_.unknown_838_);
     if (var1 != NULL && var2 != NULL)
     {
         Struct_0203de84 var3;
         Struct_0203de84 var4;
         Struct_0203de84 var5;
         var3 = *(Struct_0203de84*)&var1->obj3D_.position_;
-        func_020406f8(&var5, (Struct_0203de84_2*)var2);
+        GetNPCPosition_020406f8(&var5, (NPC_0203de84_2*)var2);
         var4 = var5;
         arg0->unknown_1000_.unknown_844_ = fix32ReduceAngle0To2Pi(fix32_Atan2(var3.unknown_0_[0] - var4.unknown_0_[0], var3.unknown_0_[2] - var4.unknown_0_[2]));
         arg0->unknown_1000_.unknown_9b6_ = 1;

@@ -29,7 +29,7 @@ struct Struct_ov014_021868b8_5 {
     char unknown_0_[0xb4];
     SafeAllocator* unknown_b4_;
     char unknown_b8_[8];
-    Struct_0207f7f0* unknown_c0_;
+    MenuLayout_0207f7f0* unknown_c0_;
     Struct_ov014_021868b8_2* unknown_c4_;
     Struct_ov014_021868b8_3* unknown_c8_;
     void* unknown_cc_;
@@ -72,10 +72,10 @@ extern "C" ARM void func_ov014_021868b8(Struct_ov014_021868b8_5* arg0, SafeAlloc
         var6->unknown_1_3_ = 0;
         var6->unknown_2_2_ = 0;
     }
-    arg0->unknown_c0_ = static_cast<Struct_0207f7f0*>(arg1->Allocate(R(0x34,0x40)));
+    arg0->unknown_c0_ = static_cast<MenuLayout_0207f7f0*>(arg1->Allocate(R(0x34,0x40)));
     arg0->unknown_c4_ = (Struct_ov014_021868b8_2*)arg1->Allocate(0x40);
     arg0->unknown_c8_ = (Struct_ov014_021868b8_3*)arg1->Allocate(0x380);
-    func_0207f84c(arg0->unknown_c0_);
+    ResetMenuLayout_0207f84c(arg0->unknown_c0_);
     for (unsigned char var7 = 0; var7 < 2; ++var7) InitBGLayer_0204af64(&arg0->unknown_c4_[var7]);
     for (unsigned char var8 = 0; var8 < 4; ++var8) InitTextWindow_0204c684(&arg0->unknown_c8_[var8]);
     func_ov014_02184300((Struct_ov014_02184300_3*)arg0, arg1);

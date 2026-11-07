@@ -8,7 +8,7 @@
 struct NPCManager_0203dce4_2;
 struct Struct_0203e0a0;
 struct Struct_0203de84;
-struct Struct_0203de84_2;
+struct NPC_0203de84_2;
 struct Struct_0203402c;
 struct Struct_ov009_0218aa28 {
     int unknown_0_, unknown_4_, unknown_8_;
@@ -105,7 +105,7 @@ signed char data_ov017_021d76d8 = -1;
 short data_ov017_021d76da = -1;
 unsigned short data_ov017_021d83a8;
 
-extern "C" void* func_0203cf4c(void);
+extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" Struct_ov017_021a476c_2* GetZone3D_02012fe4(void);
 extern "C" void* GetLocalWireless_0202ae18(void);
@@ -115,11 +115,11 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" Struct_ov017_021a476c_3* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2* npcManager, int index);
 extern "C" Struct_ov017_021a476c_4* func_02040528(int* arg0);
 extern "C" Struct_ov017_021a476c_5* func_02040538(Struct_0203e0a0* arg0);
-extern "C" unsigned char func_02039d7c(char* arg0);
+extern "C" unsigned char IsOnLadder_02039d7c(char* object);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int func_0203402c(Struct_0203402c* arg0);
 extern "C" void func_ov017_0219a674(unsigned char* arg0);
-extern "C" void func_020406f8(Struct_0203de84* arg0, Struct_0203de84_2* arg1);
+extern "C" void GetNPCPosition_020406f8(Struct_0203de84* outPosition, NPC_0203de84_2* npc);
 extern "C" short func_ov017_021a4700(Struct_ov009_0218aa28* arg0, int arg1, Struct_ov009_0218aa28* arg2);
 extern "C" int func_ov017_0218daa8(void* arg0, Struct_ov009_0218aa28* arg1, int arg2, int arg3, unsigned char arg4);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
@@ -136,7 +136,7 @@ extern "C" ARM void func_ov017_021a476c(Struct_ov017_021a476c_9* arg0) {
     Struct_ov017_021a476c_6 var1;
     Vector3fix var2;
     GameState* var3 = GameState::GetInstance();
-    void* var4 = func_0203cf4c();
+    void* var4 = GetNPCManager_0203cf4c();
     GetCamera_020100bc(var3);
     GetMessageWindow_020421a0();
     Struct_ov017_021a476c_10* var5 = (Struct_ov017_021a476c_10*)var3->GetUnknownGameObject();
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov017_021a476c(Struct_ov017_021a476c_9* arg0) {
             if (var9->unknown_0_ & 0x200) {
                 return;
             }
-            if (func_02039d7c((char*)var5) != 0 || var6->unknown_4080_ != 0) {
+            if (IsOnLadder_02039d7c((char*)var5) != 0 || var6->unknown_4080_ != 0) {
                 return;
             }
             if (IsBrightnessOutsideValidRange(var6, false)) {
@@ -181,7 +181,7 @@ extern "C" ARM void func_ov017_021a476c(Struct_ov017_021a476c_9* arg0) {
                 int var12 = 0x1922;
                 func_ov017_0219a674((unsigned char*)&var0);
                 var0.unknown_0_ = 0;
-                func_020406f8((Struct_0203de84*)&var2, (Struct_0203de84_2*)var9);
+                GetNPCPosition_020406f8((Struct_0203de84*)&var2, (NPC_0203de84_2*)var9);
                 var0.unknown_10_ = fix32abs(func_ov017_021a4700((Struct_ov009_0218aa28*)&var5->unknown_0_.position_, (short)var5->unknown_0_.rotation_.y, (Struct_ov009_0218aa28*)&var2));
                 if (var7->unknown_0_ == 0x1901 && var10->unknown_0_ == 0x6a) {
                     var12 = 0x25b3;
@@ -296,7 +296,7 @@ extern "C" ARM void func_ov017_021a476c(Struct_ov017_021a476c_9* arg0) {
             var19 = fix32abs(var35.unknown1_0_.y - var34.unknown1_0_.y);
             var18 = var21 + var20;
             if (var27 == -1 || var18 < var27) {
-                var28 = var22->unknown_0_.unknown_4_;
+                var28 = var22->unknown_0_.objectIndex_4_;
                 var27 = var18;
                 var26 = var21;
                 var25 = var20;

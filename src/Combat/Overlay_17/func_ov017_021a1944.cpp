@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_0207d78c(void);
+extern "C" void* GetBattleJoinTable_0207d78c(void);
 struct Struct_0207d7f4;
 extern "C" struct Struct_0207d7f4* func_0207d9bc(struct Struct_0207d7f4* arg0, unsigned short arg1);
 
@@ -10,7 +10,7 @@ extern unsigned char data_ov017_021d7654[4];
 // USA: func_ov017_021a1944
 extern "C" ARM unsigned short func_ov017_021a1944(void) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_0207d78c();
+    void* var1 = GetBattleJoinTable_0207d78c();
     int var2, var3;
 retry:
     if (*(unsigned short*)(data_ov017_021d7654) > 0x7ff7) {

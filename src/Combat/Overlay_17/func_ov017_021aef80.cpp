@@ -13,8 +13,8 @@ extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalF
 extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" int* func_020936f8(void);
 extern "C" void func_020939dc(void* arg0);
-extern "C" void func_02094030(int*, short, short, signed char);
-extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueueNotice_02094030(int*, short, short, signed char);
+extern "C" void SetLoadingIndicator_020daf9c(int isShown, int isFadeWaitSkipped, int isScreenBlanked, int isMainScreenForced);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 
 // USA: func_ov017_021aef80
@@ -42,13 +42,13 @@ extern "C" ARM unsigned char func_ov017_021aef80(void* arg0) {
         ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x8020);
         int* var8 = func_020936f8();
         func_020939dc(var8);
-        func_02094030(var8, 4, -1, 0);
+        QueueNotice_02094030(var8, 4, -1, 0);
         return 3;
     }
 
     SetFlags00(var0, 0x40);
     *(short*)((char*)arg0 + 0x12) = 0;
-    func_020daf9c(1, 1, 0, 1);
+    SetLoadingIndicator_020daf9c(1, 1, 0, 1);
     SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x800000);
     return 1;
 }

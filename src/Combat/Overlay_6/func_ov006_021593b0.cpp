@@ -10,7 +10,7 @@ struct MenuLayout_02080fa8;
 extern "C" void func_ov006_02159274(void* arg0, unsigned char* arg1, unsigned char* arg2, unsigned char* arg3);
 extern "C" void func_ov006_0215f4dc(void* arg0);
 extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8* menuLayout, int textId, int value);
-extern "C" void func_020813ec(void* arg0, int arg1);
+extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
 struct Struct_ov006_021593b0 {
     unsigned char unknown_0_[R(0xc, 0x14)];
@@ -34,5 +34,5 @@ extern "C" ARM void func_ov006_021593b0(struct Struct_ov006_021593b0* arg0) {
     }
     func_ov006_0215f4dc(arg0);
     SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)arg0->unknown_14_, 0x1f, arg0->unknown_38b_);
-    func_020813ec(arg0->unknown_14_, 6);
+    OpenMenuLayoutWindow_020813ec(arg0->unknown_14_, 6);
 }

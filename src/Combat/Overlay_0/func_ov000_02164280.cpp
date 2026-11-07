@@ -46,7 +46,7 @@ struct Struct_ov000_02164280 {
 };
 
 extern "C" char* GetOAMManager_0203bd08(void);
-extern "C" int* func_0203bd14();
+extern "C" int* GetSpriteTextManager_0203bd14();
 extern "C" void MapVRAMBanksToTextureImage(int handle);
 extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install);
 extern "C" void MapVRAMBanksToSubObj(int value);
@@ -63,7 +63,7 @@ extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" ARM void func_ov000_02164280(Struct_ov000_02164280* arg0) {
     Struct_ov000_02161e30_6* var0 = (Struct_ov000_02161e30_6*)GetGameResources();
     char* var1 = GetOAMManager_0203bd08();
-    int* var2 = func_0203bd14();
+    int* var2 = GetSpriteTextManager_0203bd14();
     LockStagedTextureVRAMCopying();
     MapVRAMBanksToTextureImage(7);
     InitTextureImageVRAMAllocator_020bb48c(3, 1);

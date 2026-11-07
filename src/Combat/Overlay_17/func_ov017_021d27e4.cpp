@@ -9,7 +9,7 @@ extern "C" int AddEquipmentToBag_0207c378(void* bag, int itemId, int count, int 
 extern "C" void SetEquippedItem_02052d7c(void* gameObject, int slot, short itemId);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int memberIndex, int requestModelLoad);
-extern "C" void func_ov017_021c4418(int arg0, int arg1);
+extern "C" void SendPartyMemberBodyAppearance_ov017_021c4418(int memberIndex, int recipientIndex);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
@@ -120,7 +120,7 @@ extern "C" ARM void func_ov017_021d27e4(void* arg0, Struct_ov017_021d27e4_2* arg
                     func_02048418((unsigned char*)var11, 4);
                     func_ov017_021c9e00(var2, 0, 0, 1);
                     SendPartyMemberEquippedItems_ov017_021c3fb4(var2, 1);
-                    func_ov017_021c4418(var2, -1);
+                    SendPartyMemberBodyAppearance_ov017_021c4418(var2, -1);
                     GameResources* var16 = GetGameResources();
                     BackgroundLoader::GetInstance();
                     QueuePartyMemberModelLoad_ov017_0218f5a4(var16, var2, 1, 0, 0);

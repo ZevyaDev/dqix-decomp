@@ -8,8 +8,8 @@ enum { Enum_ov006_021571fc_4768 = 0x12a0, Enum_ov006_021571fc_4796 = 0x12bc };
 
 #include "std_library_functions.h"
 
-struct Struct_02078398_2;
-extern "C" void func_02078484(struct Struct_02078398_2*);
+struct EffectParams_02078398_2;
+extern "C" void InitEffectParams_02078484(struct EffectParams_02078398_2*);
 struct Struct_020dbfa4;
 extern "C" void func_020dbfa4(struct Struct_020dbfa4*, int);
 
@@ -42,7 +42,7 @@ struct Struct_ov006_021571fc {
 // USA: func_ov006_021571fc
 extern "C" ARM void func_ov006_021571fc(char* arg0) {
     struct Struct_ov006_021571fc var0;
-    func_02078484((struct Struct_02078398_2*)&var0);
+    InitEffectParams_02078484((struct EffectParams_02078398_2*)&var0);
     var0.unknown_11_2_ = 0;
     var0.unknown_12_ = 0;
     strcpy((char*)&var0, data_ov006_02160087);

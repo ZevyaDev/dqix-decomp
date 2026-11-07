@@ -9,7 +9,7 @@ struct Struct_0205d0e0_2 {
 };
 extern "C" void* func_0205d888(struct Struct_0205d0e0_2* arg0);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
-extern "C" void func_0205bc24(void* arg0, int arg1);
+extern "C" void SetMenuCursorTouchedIndex_0205bc24(void* cursor, int index);
 
 // USA: func_ov000_02175440
 extern "C" ARM void func_ov000_02175440(void* arg0) {
@@ -17,5 +17,5 @@ extern "C" ARM void func_ov000_02175440(void* arg0) {
     if (var0 == 0) return;
     if (!IsTextWindowReady_0204c7cc((unsigned char*)var0)) return;
     if (((unsigned char*)var0)[0xc5] & 0x2) return;
-    func_0205bc24((char*)arg0 + 0x18c, -1);
+    SetMenuCursorTouchedIndex_0205bc24((char*)arg0 + 0x18c, -1);
 }

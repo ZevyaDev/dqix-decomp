@@ -22,7 +22,7 @@ extern "C" void func_ov005_02157174(Struct_ov005_02156ecc*, Struct_ov005_02156ec
 
 struct MenuCursor_0205bb84;
 extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84*);
-extern "C" int func_0205bf58(void*, int);
+extern "C" int UpdateKeyMenuCursor_0205bf58(void*, int);
 extern "C" int func_ov005_02157190(void*);
 extern "C" char* GetEquipMenu_ov017_021a193c(int*);
 extern "C" void func_ov005_021551fc(char*, int, int);
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov005_0215b2bc(Struct_ov000_0217ab8c* arg0) {
         if (var3 == 0) {
             var0 = 1;
             unsigned int var9 = GameState::GetInstance()->GetTickCount();
-            func_0205bf58(arg0->unknown_19f4_, var9 ? var9 : var0);
+            UpdateKeyMenuCursor_0205bf58(arg0->unknown_19f4_, var9 ? var9 : var0);
             var2 = GetMenuCursorIndex_0205bb84((MenuCursor_0205bb84*)&arg0->unknown_19f4_[0]);
             if (func_ov005_02157190(arg0)) var1 = 1;
         }

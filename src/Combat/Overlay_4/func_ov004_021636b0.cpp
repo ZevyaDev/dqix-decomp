@@ -32,7 +32,7 @@ extern struct Struct_ov004_02171010 data_ov004_02171010;
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
-extern "C" struct StringList_02072a68_2* func_ov023_021fa598(void* arg0);
+extern "C" struct StringList_02072a68_2* GetMenuObjectStringList_ov023_021fa598(void* object);
 extern "C" int func_ov004_0216f8c0(unsigned short arg0);
 extern "C" void func_02046608(int arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
 extern "C" void* __clear(void* arg0, int arg1);
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov004_021636b0(void* arg0, const char* arg1) {
     void* var11 = FindMenuObjectById_ov023_021f6880(var4, 0x258);
     if (var11 == NULL) return;
     if (func_ov023_021f6f10(var11) != 4) return;
-    var6 = func_ov023_021fa598(var11);
+    var6 = GetMenuObjectStringList_ov023_021fa598(var11);
     for (int var12 = 0; var12 < 3; var12++) {
         __clear(var1, sizeof(var1));
         if (data_ov004_02171010.unknown_0_->unknown_ad4_[var10].discoveredTreasures_[var12] == 0) {
@@ -159,7 +159,7 @@ extern "C" ARM void func_ov004_021636b0(void* arg0, const char* arg1) {
             void* var18 = FindMenuObjectById_ov023_021f6880(var4, 0x32);
             if (var18 == NULL) return;
             if (func_ov023_021f6f10(var18) != 4) return;
-            struct StringList_02072a68_2* var19 = func_ov023_021fa598(var18);
+            struct StringList_02072a68_2* var19 = GetMenuObjectStringList_ov023_021fa598(var18);
             CopyCapitalizedText_0206819c((const char*)FindStringInList_02072a68(var19, (short)var17), var1, 0);
             func_02046608(var16, 0, var1, var5, 0x60, 0, 0);
         } else {

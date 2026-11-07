@@ -14,7 +14,7 @@ extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, 
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 extern "C" void func_ov017_021c41fc(int arg0, signed char arg1);
-extern "C" ARM void func_ov017_021c4418(int arg0, signed char arg1);
+extern "C" ARM void SendPartyMemberBodyAppearance_ov017_021c4418(int memberIndex, signed char recipientIndex);
 extern "C" ARM void func_ov017_021c45b4(int arg0);
 extern "C" void func_ov017_021ce704(int arg0);
 extern "C" ARM void func_ov017_021cf078(int arg0, unsigned short arg1, unsigned char arg2);
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov017_021cc4f8(signed char arg0, struct Struct_ov017_02
 
     if (var3 & 0x2) {
         func_ov017_021c41fc(var0, arg0);
-        func_ov017_021c4418(var0, arg0);
+        SendPartyMemberBodyAppearance_ov017_021c4418(var0, arg0);
     }
     if (var3 & 0x4) {
         func_ov017_021c45b4(var0);

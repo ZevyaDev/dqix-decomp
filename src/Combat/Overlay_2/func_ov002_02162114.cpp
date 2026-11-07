@@ -49,7 +49,7 @@ extern "C" void SetMessageString_02046574(void *window, int index, char *text);
 extern "C" void SetMessageNumber_020465c0(void *window, int index, int number);
 extern "C" char **FindActionData_02079e2c(ActionTables_02108e10 *actionTables, int actionId);
 extern "C" void *__clear(void *arg0, int arg1);
-extern "C" void func_020dfc2c(StringTable_0201099c_14 *arg0);
+extern "C" void ConstructStringTable_020dfc2c(StringTable_0201099c_14 *stringTable);
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14 *stringTable);
 extern "C" void func_020e038c(StringTable_0201099c_14 *arg0, void *arg1, unsigned int arg2);
 extern "C" void func_020e207c(StringTable_0201099c_14 *arg0, char *arg1, int arg2);
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov002_02162114(Struct_ov002_02162114 *arg0, char *arg1)
         BackgroundLoader::AddLockGlobal();
         void *var19 = LoadFileIntoMemory(data_ov002_0216da6e, gFileScratchSpace_0211e33c, &var3);
         __clear(var0, 0x40);
-        func_020dfc2c(&var1);
+        ConstructStringTable_020dfc2c(&var1);
         InitStringTable_020dfc40(&var1);
         func_020e038c(&var1, var19, var3);
         func_020e207c(&var1, var0, arg0->unknown_1aea_);

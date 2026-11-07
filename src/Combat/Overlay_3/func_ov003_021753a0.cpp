@@ -15,7 +15,7 @@ struct ItemTable_0201099c_10;
 struct ItemData_0201099c_9;
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 
-extern "C" GameObject* func_0200ff94(GameState* arg0, int arg1);
+extern "C" GameObject* GetGameObjectByIndex_0200ff94(GameState* gameState, int index);
 
 extern "C" int GetEquipRestrictions_020dd4c4(void* memberIndex, void* item);
 extern "C" void func_020dd7ac(void* arg0);
@@ -35,7 +35,7 @@ struct Struct_ov003_021753a0 {
 extern "C" ARM int func_ov003_021753a0(char* arg0, int arg1, int arg2, int arg3) {
     int var0 = 1;
     GameState* var1 = GameState::GetInstance();
-    GameObject* var2 = func_0200ff94(var1, arg1);
+    GameObject* var2 = GetGameObjectByIndex_0200ff94(var1, arg1);
     if (var2 == 0) return var0;
 
     int var3 = *(short*)(arg0 + Enum_ov003_021753a0_4096 + Enum_ov003_021753a0_58);

@@ -38,7 +38,7 @@ extern "C" void func_ov000_02163a7c(Struct_ov000_02163a7c*);
 extern "C" void* func_ov000_02169b04(struct Struct_ov000_02169b04* arg0, int arg1);
 extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 extern "C" Struct_ov025_021e9b2c* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
-extern "C" short func_ov000_0215ffa0(void* arg0);
+extern "C" short GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 extern "C" void func_ov025_021eb6fc(Struct_ov025_021e9778_3* arg0, int arg1);
 extern "C" void func_ov025_021ea474(Struct_ov025_021e9778_3* arg0);
 extern "C" void func_ov025_021eb7fc(Struct_ov025_021e9778_3* arg0);
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov025_021e9b2c(Struct_ov025_021e9778_3* arg0) {
                 bool var7 = true;
                 ActionTarget_ov000_021600f8* var8 = GetActionTarget_ov000_021600f8(var1, 0);
                 if (var8 != NULL) {
-                    int var9 = func_ov000_0215ffa0(var8);
+                    int var9 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var8);
                     var7 = (var9 >= 0 && var9 <= 3) ? 1 : 0;
                 }
                 func_ov025_021ea958(arg0, var7, 1, -1);

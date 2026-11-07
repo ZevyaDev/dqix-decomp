@@ -30,7 +30,7 @@ struct Struct_02000c9c_12;
 extern "C" unsigned char func_020115a8(Struct_02000c9c_12*);
 struct Struct_02000c9c_14;
 extern "C" void func_020115c0(Struct_02000c9c_14*);
-extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
+extern "C" void SetLoadingIndicator_020daf9c(int isShown, int isFadeWaitSkipped, int isScreenBlanked, int isMainScreenForced);
 void SetMainBrightness(GameResources*, int, int);
 void SetSubBrightness(GameResources*, int, int);
 extern "C" void func_0200fb84(int*, int);
@@ -44,7 +44,7 @@ extern "C" void* GetBGVRAMManager_0203b628();
 extern "C" void func_0203b634(char*);
 extern "C" void* GetOAMManager_0203bd08();
 extern "C" void ResetOAMManager_0203bd24(char*);
-extern "C" void* func_0203cf4c();
+extern "C" void* GetNPCManager_0203cf4c();
 struct Struct_0203cf58;
 extern "C" void func_0203cf58(Struct_0203cf58*);
 extern "C" void* GetLocalWireless_0202ae18();
@@ -66,7 +66,7 @@ extern "C" void* func_020e3580();
 struct Struct_020e358c;
 extern "C" void func_020e358c(Struct_020e358c*);
 extern "C" char* GetFlagManager_0205ec34();
-extern "C" char* func_02094d6c();
+extern "C" char* GetQuestManager_02094d6c();
 extern "C" unsigned char GetGameMode_0200fb9c(char*);
 extern "C" void SetGameMode_0200fb94(char*, unsigned char);
 extern "C" void func_0205facc(void* arg0);
@@ -132,7 +132,7 @@ extern "C" void func_02013718(char* arg0, int arg1, int arg2);
 extern "C" void func_0202df68(void* arg0);
 struct Struct_0204a120_2;
 extern "C" void func_020a2cf0(Struct_0204a120_2*);
-extern "C" void InitFollowCamera_020a2010(void* arg0);
+extern "C" void InitFollowCamera_020a2010(void* storage);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 struct Struct_02046958;
 extern "C" void func_02046958(Struct_02046958*);
@@ -202,7 +202,7 @@ extern "C" void* func_020936f8();
 extern "C" void func_020938f0(void* arg0);
 extern "C" void func_020939ac(void* arg0);
 extern "C" void func_0206ebf4(char*);
-extern "C" void* func_0207d78c();
+extern "C" void* GetBattleJoinTable_0207d78c();
 struct Struct_0207d798;
 extern "C" void func_0207d798(Struct_0207d798*);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
@@ -213,7 +213,7 @@ struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 struct Struct_0203d028_4;
 extern "C" void func_ov017_021a3498(Struct_0203d028_4*);
-extern "C" void ResetEventTask_ov017_021baedc(void* node, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(void* node, int isRestart);
 extern "C" void func_ov017_021b2174(unsigned char*);
 struct Struct_0206f81c_2;
 extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2*, char*);
@@ -231,7 +231,7 @@ extern "C" void func_0206e424(void* arg0, int arg1);
 extern "C" void func_ov017_021bdbf0(unsigned char*);
 extern "C" void func_0202ad30();
 extern "C" void func_0202adf0();
-extern "C" void func_02012efc();
+extern "C" void UpdateInput_02012efc();
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" int IsQueueEmpty_02046b08(void**);
 struct Vector3i;
@@ -439,7 +439,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     int var6 = func_0201201c(var5);
     unsigned char var7 = func_020115a8((Struct_02000c9c_12*)var5);
     if (var6 != 5 && var7 != 4 && var7 != 8 && var7 != 0xc) {
-        func_020daf9c(1, 0, 1, 0);
+        SetLoadingIndicator_020daf9c(1, 0, 1, 0);
     }
     SetMainBrightness((GameResources*)arg0, -16, 0);
     SetSubBrightness((GameResources*)arg0, -16, 0);
@@ -456,7 +456,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     func_0203b634((char*)var12);
     void* var13 = GetOAMManager_0203bd08();
     ResetOAMManager_0203bd24((char*)var13);
-    void* var14 = func_0203cf4c();
+    void* var14 = GetNPCManager_0203cf4c();
     func_0203cf58((Struct_0203cf58*)var14);
     void* var15 = GetLocalWireless_0202ae18();
     func_0202aec0(var15);
@@ -473,7 +473,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     func_020e3814((Struct_020e3814*)func_020e3808());
     func_020e358c((Struct_020e358c*)func_020e3580());
     char* var18 = GetFlagManager_0205ec34();
-    char* var19 = func_02094d6c();
+    char* var19 = GetQuestManager_02094d6c();
     if (func_020115a8((Struct_02000c9c_12*)var5) == 0) {
         if (func_0201201c(var5) == 5 || GetGameMode_0200fb9c((char*)var5) == 4) {
             func_0205facc(var18);
@@ -768,7 +768,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     void* var52 = func_020936f8();
     func_020938f0(var52);
     func_0206ebf4((char*)arg0->unknown_44c4_);
-    void* var53 = func_0207d78c();
+    void* var53 = GetBattleJoinTable_0207d78c();
     func_0207d798((Struct_0207d798*)var53);
     char* var54 = (char*)LightingManager::GetInstance();
     *(float*)(var54 + 0x94) = var5->GetDayTimer();
@@ -833,7 +833,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         if (TestFlags00((GameResources*)arg0, 0x4000) != 0) {
             var60 = 1;
         }
-        func_02012efc();
+        UpdateInput_02012efc();
         GameState::GetInstance();
         GetFlagManager_0205ec34();
         UpdateFontLoad_02094b4c(var59);

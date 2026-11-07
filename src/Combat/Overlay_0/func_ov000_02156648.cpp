@@ -17,7 +17,7 @@ struct Random {char unknown_0_[0x8e95];unsigned char unknown_8e95_;};int NextRan
 struct Struct_ov000_02156648 {char unknown_0_[0x1c];unsigned char unknown_1c_;};
 struct Struct_ov000_021537b8 {char unknown_0_[0xa];unsigned char unknown_a_;};
 struct Struct_ov000_0215440c_3 {unsigned int unknown_0_;unsigned int unknown_4_0_:12,unknown_5_4_:10,unknown_6_6_:10;unsigned int unknown_8_0_:8,unknown_9_0_:2,unknown_9_2_:22;unsigned int unknown_c_;unsigned int unknown_10_;unsigned int unknown_14_0_:7,unknown_14_7_:7,unknown_15_6_:7,unknown_16_5_:11;unsigned int unknown_18_0_:16,unknown_1a_0_:2,unknown_1a_2_:9,unknown_1b_3_:5;};
-extern "C" {int func_ov000_02156068(void*,int,int,int);float func_ov000_02156b38(void*,int,int);}
+extern "C" {int HasEnemyTrait_ov000_02156068(void*,int,int,int);float func_ov000_02156b38(void*,int,int);}
 #define IsParty(n) ((n)>=0&&(n)<=3?1:0)
 struct Struct_02000c9c_27 {char unknown_0_[0xe95];unsigned char unknown_e95_;};
 inline void inline_ov000_02156648(Random* arg0,int arg1){((Struct_02000c9c_27*)((char*)arg0+0x8000))->unknown_e95_=arg1;}
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov000_02156648(Random* arg0,int arg1,int arg2,Struct_ov0
   if(var1->unknown_138_->unknown_14_&0x200000){arg5->unknown_a_|=0x10;arg3->unknown_1c_|=0x10;func_02088af0((unsigned char*)var1->unknown_138_);return 0;}
  }
  if(arg6)return 1;
- if(func_ov000_02156068(arg0,arg2,0,1)&&!(arg4->unknown_10_&0x1000000))return 0;
+ if(HasEnemyTrait_ov000_02156068(arg0,arg2,0,1)&&!(arg4->unknown_10_&0x1000000))return 0;
  float var2=100.0f;int var3=NextRandomMax(arg0,100);
  if(IsParty(arg1)){
   GameObject* var4=GetPartyMemberBaseByIndex_0200ff1c(var0,arg1);if(!var4)return 0;

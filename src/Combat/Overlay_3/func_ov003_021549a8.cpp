@@ -58,7 +58,7 @@ struct Struct_ov003_021549a8_2 {
     char unknown_4_[0xc - 0x4];
     void* unknown_c_;
     char unknown_10_[0x18 - 0x10];
-    Struct_0207f7f0* unknown_18_;
+    MenuLayout_0207f7f0* unknown_18_;
     char unknown_1c_[Enum_ov003_021549a8_352 - 0x1c];
     char unknown_160_[Enum_ov003_021549a8_464 - Enum_ov003_021549a8_352];
     int unknown_1d0_;
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov003_021549a8(Struct_ov003_021549a8_2* arg0) {
     *(unsigned short*)0x4000050 = 0;
     RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)arg0->unknown_160_);
 
-    Struct_0207f7f0* var2 = arg0->unknown_18_;
+    MenuLayout_0207f7f0* var2 = arg0->unknown_18_;
     if (var2 != NULL) {
         func_0207fcb8((struct Struct_0207fcb8*)var2);
         func_0207fd44((struct Struct_0207fd44_2*)var2);

@@ -16,17 +16,17 @@ enum { Enum_ov003_02177410_4163 = 0x1043 };
 #include "GameState/GameState.h"
 
 struct MenuLayout_0207fdcc_2;
-extern "C" void func_02080c20(struct MenuLayout_0207fdcc_2* arg0, int arg1);
-extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
+extern "C" void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
+extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 struct Struct_02081214;
 extern "C" void* func_02081214(struct Struct_02081214* arg0, int arg1);
 extern "C" void func_0208077c(void* arg0, int arg1, short arg2);
 struct Struct_02080cc0;
 extern "C" void func_02080cc0(struct Struct_02080cc0* arg0, int arg1, int arg2);
-struct Struct_02080f8c;
-extern "C" void func_02080f8c(struct Struct_02080f8c* arg0, int arg1, int arg2);
+struct MenuLayout_02080f8c;
+extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c* menuLayout, int textId, int text);
 extern "C" void func_020805f4(void* arg0, int arg1);
-extern "C" void func_020813ec(void* arg0, int arg1);
+extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
 struct Struct_ov003_0217faa4 {
     unsigned char unknown_0_[8];
@@ -64,8 +64,8 @@ struct Struct_ov003_02177410_4 {
 extern "C" ARM void func_ov003_02177410(Struct_ov003_02177410_4* arg0) {
     GameState* var0 = GameState::GetInstance();
     struct MenuLayout_0207fdcc_2* var1 = arg0->unknown_89c_;
-    func_02080c20(var1, 0xe);
-    func_02080c68(var1, 0xe, 0);
+    ShowMenuLayoutWindow_02080c20(var1, 0xe);
+    SetMenuLayoutWindowPalette_02080c68(var1, 0xe, 0);
 
     Struct_ov003_02177410_3* var2 = (Struct_ov003_02177410_3*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg0->unknown_1043_);
     if (var2 == NULL) {
@@ -97,11 +97,11 @@ extern "C" ARM void func_ov003_02177410(Struct_ov003_02177410_4* arg0) {
         }
         func_0208077c(var1, var6, Enum_ov003_02177410_13);
         func_02080cc0((struct Struct_02080cc0*)var1, var6, var8);
-        func_02080f8c((struct Struct_02080f8c*)var1, var6, var7);
+        SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var1, var6, var7);
 #if !defined(jpn)
         func_020805f4(var1, var6);
 #endif
     }
 
-    func_020813ec(var1, 0xe);
+    OpenMenuLayoutWindow_020813ec(var1, 0xe);
 }

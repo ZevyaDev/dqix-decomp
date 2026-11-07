@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 #include "Combat/Overlay_1/EventArgs.h"
 
-extern "C" float func_ov017_021d6110(void*);
+extern "C" float GetScriptValueAsFloat_ov017_021d6110(void*);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" void* func_ov001_0215ab20(int arg0);
 extern "C" void* func_ov001_02158f30(void* arg0, Struct_ov001_02158efc arg1);
@@ -24,15 +24,15 @@ extern "C" ARM int func_ov001_0215ded8(void* arg0, int arg1) {
     if (arg1 >= 2) {
         void* var4 = arg0;
         arg0 = (char*)arg0 + 0x8;
-        var3.unknown_0_ += (int)(4096.0f * func_ov017_021d6110(var4));
+        var3.unknown_0_ += (int)(4096.0f * GetScriptValueAsFloat_ov017_021d6110(var4));
     }
     if (arg1 >= 3) {
         void* var5 = arg0;
         arg0 = (char*)arg0 + 0x8;
-        var3.unknown_4_ += (int)(4096.0f * func_ov017_021d6110(var5));
+        var3.unknown_4_ += (int)(4096.0f * GetScriptValueAsFloat_ov017_021d6110(var5));
     }
     if (arg1 >= 4) {
-        var3.unknown_8_ += (int)(4096.0f * func_ov017_021d6110(arg0));
+        var3.unknown_8_ += (int)(4096.0f * GetScriptValueAsFloat_ov017_021d6110(arg0));
     }
     void* var6 = data_ov001_02165880.unknown_24_;
     func_ov001_02158f30(var6, var3);

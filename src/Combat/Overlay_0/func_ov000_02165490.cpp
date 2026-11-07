@@ -152,7 +152,7 @@ extern "C" int* GetLocalWireless_0202ae18(GameResources*);
 extern "C" int func_ov000_0215ed34(Struct_ov000_02165490_14* arg0, short* arg1, int arg2);
 extern "C" void func_020709d8(void*);
 extern "C" void func_02070b6c(void*, void*, void*, unsigned int, short*, short);
-extern "C" Struct_ov000_02165490_11* func_02070fd0(void*, int);
+extern "C" Struct_ov000_02165490_11* FindMonsterBattleData_02070fd0(void*, int);
 extern "C" char* GetActionTables_020797dc();
 extern "C" Struct_ov000_02165490_13* FindActionData_02079e2c(char*, int);
 extern "C" int func_ov000_0215fb54(Struct_ov000_02165490_14*, int, int*);
@@ -166,7 +166,7 @@ extern "C" char* FindActiveZone_02028bd0(char*, int);
 extern "C" Struct_ov000_02165490* func_020a939c(char*, int);
 extern "C" int func_020a93d0(char*);
 extern "C" void* ExtractFileFromGP2(const char*, const char*, unsigned int*);
-extern "C" void func_0206efc4(void*);
+extern "C" void ClearMonsterTable_0206efc4(void*);
 #if defined(jpn)
 extern "C" void func_0206f230(void*, void*, void*, unsigned int, short*, short);
 #else
@@ -265,7 +265,7 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
             int var21 = 0;
             for (int var22 = 0; var22 < var9; var22++) {
                 int var23 = var5[var22];
-                Struct_ov000_02165490_11* var24 = func_02070fd0(&((Struct_ov000_02165490_9*)var10)->unknown_684_, var23);
+                Struct_ov000_02165490_11* var24 = FindMonsterBattleData_02070fd0(&((Struct_ov000_02165490_9*)var10)->unknown_684_, var23);
                 if (var24 != 0) {
                     int var25;
                     for (int var26 = 0; var26 < 6; var26++) {
@@ -374,11 +374,11 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
             int var54;
             for (int var55 = 0; var55 < var8; var55++) {
                 var52 = 0;
-                var51 = func_02070fd0(&((Struct_ov000_02165490_6*)var10)->unknown_400_, var2[var55]);
+                var51 = FindMonsterBattleData_02070fd0(&((Struct_ov000_02165490_6*)var10)->unknown_400_, var2[var55]);
                 for (var54 = 0; var54 < 6; var54++) {
                     Struct_ov000_02165490_13* var56 = FindActionData_02079e2c(var53, var51->unknown_18_[var54]);
                     if (var56 != 0 && var56->unknown_18_5_ == 0x22 && var56->unknown_2e_ > 0 &&
-                        func_02070fd0(&((Struct_ov000_02165490_6*)var10)->unknown_400_, var56->unknown_2e_) == 0) {
+                        FindMonsterBattleData_02070fd0(&((Struct_ov000_02165490_6*)var10)->unknown_400_, var56->unknown_2e_) == 0) {
                         var2[var8++] = var56->unknown_2e_;
                         var52 = 1;
                     }
@@ -408,7 +408,7 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
             Struct_ov000_02165490* var60 = func_020a939c(var58 + 0x30c, var59);
 #endif
             if (var60 != 0) {
-                Struct_ov000_02165490_11* var61 = func_02070fd0(&var14->unknown_400_, var60->unknown_0_);
+                Struct_ov000_02165490_11* var61 = FindMonsterBattleData_02070fd0(&var14->unknown_400_, var60->unknown_0_);
                 if (var61 != 0) {
                     var61->unknown_5c_.unknown_0_ = var60->unknown_2_;
                     var61->unknown_5c_.unknown_2_ = var60->unknown_4_;
@@ -435,18 +435,18 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
 
 #if defined(jpn)
     if (LoadFileIntoMemory(data_ov000_02184b4a, gFileScratchSpace_0211e33c, &var4)) {
-        func_0206efc4(&var11->unknown_400_);
+        ClearMonsterTable_0206efc4(&var11->unknown_400_);
         func_0206f230(&var11->unknown_400_, &arg0->unknown_44_, gFileScratchSpace_0211e33c, var4, var2, var8);
 #else
     void* var62 = ExtractFileFromGP2(data_ov000_02183a07, data_ov000_02183a1d, &var4);
     if (var62 != 0) {
-        func_0206efc4(&var11->unknown_400_);
+        ClearMonsterTable_0206efc4(&var11->unknown_400_);
         func_0206f230(&var11->unknown_400_, &arg0->unknown_44_, var62, var4, var2, var8, 0, 0);
 #endif
         unsigned int var63 = arg0->unknown_44_.GetMaxPossibleAllocation();
         int var64 = var9;
         for (int var65 = 0; var65 < var9; var65++) {
-            Struct_ov000_02165490_11* var66 = func_02070fd0(&var14->unknown_400_, var5[var65]);
+            Struct_ov000_02165490_11* var66 = FindMonsterBattleData_02070fd0(&var14->unknown_400_, var5[var65]);
             if (var66 != 0) {
                 if (var63 < (var66->unknown_2a_ << 10)) {
                     var64 = var65;

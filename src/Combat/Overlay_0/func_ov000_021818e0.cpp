@@ -8,7 +8,7 @@ struct ActionActor_ov000_02160094 { char unknown_0_[0x30]; struct ActionActor_ov
 struct BattleAction_ov000_0215440c_2 { char unknown_0_[8]; unsigned char unknown_8_; char unknown_9_[7]; struct ActionActor_ov000_02160094* unknown_10_; };
 extern "C" struct ActionActor_ov000_02160094* GetActionActor_ov000_02160094(struct BattleAction_ov000_0215440c_2* action, int index);
 
-extern "C" int func_ov000_0215ffa0(struct ActionTarget_ov000_021600f8* arg0);
+extern "C" int GetLatestTargetCombatantIndex_ov000_0215ffa0(struct ActionTarget_ov000_021600f8* entry);
 
 // USA: func_ov000_021818e0
 extern "C" ARM int func_ov000_021818e0(int arg0, int arg1, void* arg2, int* arg3) {
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov000_021818e0(int arg0, int arg1, void* arg2, int* arg3
         struct BattleAction_ov000_0215440c* var4 = (struct BattleAction_ov000_0215440c*)arg2;
         if (var4->unknown_9_ < arg1 + 1) return 0;
         struct ActionTarget_ov000_021600f8* var5 = GetActionTarget_ov000_021600f8(var4, arg1);
-        *arg3 = func_ov000_0215ffa0(var5);
+        *arg3 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var5);
         return 1;
     }
     }

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "NitroSDK/Matrix.h"
 
-extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
 struct Struct_0202e6a8;
 extern "C" void func_0202e6a8(struct Struct_0202e6a8*, int);
 extern "C" void func_020a212c(void* arg0, int arg1);

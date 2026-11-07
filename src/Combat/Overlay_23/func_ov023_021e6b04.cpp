@@ -5,7 +5,7 @@
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0 {
     unsigned char unknown_0_[0xac];
-    short unknown_ac_, unknown_ae_;
+    short tileX_ac_, tileY_ae_;
 };
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" void DrawSprite_0205ac40(SpriteSet_0205ac40*, Sprite_0205ac40_2*);
@@ -56,8 +56,8 @@ extern "C" ARM void func_ov023_021e6b04(char* arg0) {
     if (var1 == NULL) return;
 
 #if defined(jpn)
-    short var2 = var1->unknown_ac_;
-    short var3 = var1->unknown_ae_;
+    short var2 = var1->tileX_ac_;
+    short var3 = var1->tileY_ae_;
     int var4 = var0->unknown_13b8_;
     int var5 = var4 / 7;
     int var6 = var5 * 16 + 14;

@@ -24,7 +24,7 @@ extern "C" ARM void func_ov017_021ce054(int arg0, struct Struct_ov017_021ce054* 
     void* var3 = GetLocalWireless_0202ae18();
     if (arg1->unknown_4_ != 1) return;
     if (arg1->unknown_6_ > 0) {
-        func_ov017_02191aac(arg3, 1, var1->obj3D_.unknown_4_, 2);
+        func_ov017_02191aac(arg3, 1, var1->obj3D_.objectIndex_4_, 2);
         var2[0x56c] = 1;
         if (IsLocalWirelessGuest_0202c540(var3)) return;
         unsigned long long var4 = GetCurrentTimestamp();
@@ -32,6 +32,6 @@ extern "C" ARM void func_ov017_021ce054(int arg0, struct Struct_ov017_021ce054* 
         *(unsigned int*)(var2 + 0x484) = (unsigned int)(var4 >> 32);
     } else {
         var2[0x56c] = 0;
-        func_ov017_02191aac(arg3, 0, var1->obj3D_.unknown_4_, 2);
+        func_ov017_02191aac(arg3, 0, var1->obj3D_.objectIndex_4_, 2);
     }
 }

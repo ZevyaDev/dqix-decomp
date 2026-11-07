@@ -18,7 +18,7 @@ extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" Struct_ov004_0215e4e8* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" unsigned int func_ov023_021f6f10(void* arg0);
 extern "C" int GetStringLength_020d2ff0(const char* string);
-extern "C" void* func_ov023_021fa598(void* arg0);
+extern "C" void* GetMenuObjectStringList_ov023_021fa598(void* object);
 extern "C" int func_020420e8(void* arg0, int arg1);
 
 // USA: func_ov004_0215e4e8
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov004_0215e4e8(void* arg0, int arg1) {
     if (!var2) {
         Struct_ov004_0215e4e8* var3 = FindMenuObjectById_ov023_021f6880(var0, var1->unknown_36_);
         if (func_ov023_021f6f10(var3) == 4) {
-            struct StringList_02072a68_2* var4 = (struct StringList_02072a68_2*)func_ov023_021fa598(var3);
+            struct StringList_02072a68_2* var4 = (struct StringList_02072a68_2*)GetMenuObjectStringList_ov023_021fa598(var3);
             var2 = FindStringInList_02072a68(var4, var1->unknown_38_);
         }
     }

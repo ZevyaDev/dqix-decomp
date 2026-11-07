@@ -7,7 +7,7 @@
 #include "Combat/CombatantMotion.h"
 
 struct Struct_0203de84 { unsigned int unknown_0_[3]; };
-struct Struct_0203de84_2;
+struct NPC_0203de84_2;
 struct Struct_020407c4 { unsigned int unknown_0_[3]; };
 struct Struct_020407c4_2;
 struct Struct_02040c2c_4;
@@ -59,7 +59,7 @@ extern "C" void* func_0202ed6c(void* arg0);
 extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 extern "C" void func_0204117c(struct Struct_02040c2c_5* arg0, struct Struct_02028460_3* arg1);
 extern "C" void func_02041298(struct Struct_02040c2c_4* arg0, int arg1);
-extern "C" void func_020406f8(struct Struct_0203de84* arg0, struct Struct_0203de84_2* arg1);
+extern "C" void GetNPCPosition_020406f8(struct Struct_0203de84* outPosition, struct NPC_0203de84_2* npc);
 extern "C" void func_020407c4(struct Struct_020407c4* arg0, struct Struct_020407c4_2* arg1);
 
 // USA: func_02040c2c
@@ -137,7 +137,7 @@ extern "C" ARM void func_02040c2c(struct Struct_0203dd20* arg0, void* arg1, int 
     }
 
     if (arg0->unknown_10_ != 0) {
-        func_020406f8(&var4, (struct Struct_0203de84_2*)arg0);
+        GetNPCPosition_020406f8(&var4, (struct NPC_0203de84_2*)arg0);
         var1 = var4;
         func_020407c4(&var2, (struct Struct_020407c4_2*)arg0);
         struct Vector3i* var8 = (struct Vector3i*)&var2;

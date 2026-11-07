@@ -6,7 +6,7 @@ enum{Enum_ov001_0215e2a4_2104=0x838,Enum_ov001_0215e2a4_2456=0x998};
 #endif
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
-extern "C" void* func_ov017_021d612c(void*);
+extern "C" void* GetScriptValueAsString_ov017_021d612c(void*);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void*, int, int);
 #else
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov001_0215e2a4(Struct_ov001_0215e2a4_2* arg0, int arg1) 
         break;
     }
     case 2: {
-        void* var6 = func_ov017_021d612c(arg0);
+        void* var6 = GetScriptValueAsString_ov017_021d612c(arg0);
         *(int*)(var0 + 0x1000 + Enum_ov001_0215e2a4_2104) = -1;
 #if defined(jpn)
         StartMessage_0204500c(var0, (int)var6, 1);

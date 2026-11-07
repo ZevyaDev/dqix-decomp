@@ -31,7 +31,7 @@ extern "C" void func_02046a3c(struct Struct_02046a3c_2* arg0, struct Struct_0204
 extern "C" int func_ov017_0219ff58(GameResources* arg0, int arg1, int arg2, int arg3);
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void VectorizedMemset(void* dst, int val, int size);
-extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int arg1);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int isFullReset);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
@@ -177,7 +177,7 @@ extern "C" ARM int func_ov017_021ab860(int arg0, unsigned char arg1) {
             var14->unknown_10_ = data_ov017_021d83bc;
             var14->unknown_1c_ = data_ov017_021d83b0.unknown_18_;
             var14->unknown_7_ = 1;
-            func_0200fcfc(var0, var14);
+            SetZoneEntry_0200fcfc(var0, var14);
         }
         struct Queue_0201bdac_2* var15;
         unsigned char* var16 = (unsigned char*)var12->unknown_ptr_array_36fc[4];

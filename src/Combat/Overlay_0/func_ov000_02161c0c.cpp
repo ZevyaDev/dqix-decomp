@@ -10,8 +10,8 @@ struct Struct_02010604;
 
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" void func_ov000_02167c28(unsigned char* arg0, int arg1);
-extern "C" unsigned char* func_02070fd0(struct Struct_02070b6c_3* arg0, int arg1);
-extern "C" struct Struct_02048850_2* func_0206f4f0(struct Struct_0206f01c_2* arg0, int arg1);
+extern "C" unsigned char* FindMonsterBattleData_02070fd0(struct Struct_02070b6c_3* table, int monsterId);
+extern "C" struct Struct_02048850_2* FindMonsterData_0206f4f0(struct Struct_0206f01c_2* monsterTable, int monsterId);
 extern "C" void func_02048614(unsigned char* arg0);
 extern "C" void func_02049c88(unsigned char* arg0, int arg1);
 extern "C" void func_02048850(struct Struct_02048850* arg0, struct Struct_02048850_2* arg1);
@@ -64,8 +64,8 @@ extern "C" ARM void func_ov000_02161c0c(unsigned char* arg0, int arg1) {
     unsigned char var10 = var1[0x18c];
     unsigned char var11 = var1[0x18d];
     int var12 = *(int*)(var1 + 0x13c);
-    unsigned char* var13 = func_02070fd0(var3, var9);
-    struct Struct_02048850_2* var14 = func_0206f4f0(var4, (short)var9);
+    unsigned char* var13 = FindMonsterBattleData_02070fd0(var3, var9);
+    struct Struct_02048850_2* var14 = FindMonsterData_0206f4f0(var4, (short)var9);
     unsigned char* var15 = *(unsigned char**)(arg0 + Enum_ov000_02161c0c_672) + 0x158 + (arg1 - 0xc0) * 0xa4;
 
     func_02048614(var1);

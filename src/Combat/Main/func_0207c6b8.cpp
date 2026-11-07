@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-extern "C" void* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
+extern "C" void* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
 extern "C" signed short func_0207c620(unsigned char* arg0, unsigned int arg1);
 
 // USA: func_0207c6b8
 extern "C" ARM int func_0207c6b8(unsigned char* arg0, unsigned int arg1, int arg2) {
-    signed short* var0 = (signed short*)func_0207c5f8(arg0, arg1);
+    signed short* var0 = (signed short*)GetEquipmentBagItemIds_0207c5f8(arg0, arg1);
     if (var0 == NULL) {
         return -1;
     }

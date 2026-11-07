@@ -6,10 +6,10 @@ extern "C" void func_ov023_021f7eb8(void* arg0, void* arg1, int arg2, int arg3,
 
 struct MenuWindow_ov004_0215fdfc {
     char unknown_0_[0xc8];
-    short unknown_c8_;
-    short unknown_ca_;
-    short unknown_cc_;
-    short unknown_ce_;
+    short width_c8_;
+    short height_ca_;
+    short tileX_cc_;
+    short tileY_ce_;
     char unknown_d0_[0x12];
     unsigned short windowPalette_e2_;
     char unknown_e4_;
@@ -23,11 +23,11 @@ extern "C" ARM void RedrawMenuWindow_ov023_021f809c(struct MenuWindow_ov004_0215
         unsigned short storedPalette = window->windowPalette_e2_;
         int isTransparent = (windowFlags & 4) ? 1 : 0;
         int isFrameless = (windowFlags & 0x10) ? 1 : 0;
-        short y = window->unknown_ce_;
+        short y = window->tileY_ce_;
         unsigned char palette = (unsigned char)storedPalette;
-        short width = window->unknown_c8_;
-        short height = window->unknown_ca_;
-        short x = window->unknown_cc_;
+        short width = window->width_c8_;
+        short height = window->height_ca_;
+        short x = window->tileX_cc_;
         func_ov023_021f7eb8(window, menu, 0, x, y, width, height, palette, isTransparent, isFrameless);
     }
 }

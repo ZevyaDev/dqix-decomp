@@ -9,11 +9,11 @@ enum { Enum_ov017_021a4cf0_1808 = 0x710, Enum_ov017_021a4cf0_1828 = 0x724, Enum_
 #include "Combat/EntryGetterTypes.h"
 
 
-extern "C" void* func_0203cf4c(void);
+extern "C" void* GetNPCManager_0203cf4c(void);
 struct NPCManager_0203dce4_2;
 extern "C" struct NPC_0203dce4* GetNPCByIndex_0203dce4(struct NPCManager_0203dce4_2* npcManager, int index);
 extern "C" int func_02040528(int* arg0);
-extern "C" int* func_02094d6c(void);
+extern "C" int* GetQuestManager_02094d6c(void);
 extern "C" void func_02095924(int* arg0, int arg1);
 extern "C" void* GetFlagManager_0205ec34(void* arg0);
 extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
@@ -36,7 +36,7 @@ struct Struct_ov017_021a4cf0 {
 
 // USA: func_ov017_021a4cf0
 extern "C" ARM void func_ov017_021a4cf0(char* arg0) {
-    void* var0 = func_0203cf4c();
+    void* var0 = GetNPCManager_0203cf4c();
     short var1 = *(short*)((char*)&data_ov017_021d76d8 + 0x2);
     struct NPC_0203dce4* var2 = GetNPCByIndex_0203dce4((struct NPCManager_0203dce4_2*)var0, var1);
     if (var2 == NULL) {
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov017_021a4cf0(char* arg0) {
     if (*((unsigned char*)var4 + 0x130) != 0) {
         return;
     }
-    int* var5 = func_02094d6c();
+    int* var5 = GetQuestManager_02094d6c();
     unsigned short var6 = *(unsigned short*)var3;
     func_02095924(var5, var6 & 0xff);
     GameState* var7 = GameState::GetInstance();

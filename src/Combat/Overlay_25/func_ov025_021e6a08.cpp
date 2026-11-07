@@ -16,7 +16,7 @@ extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAct
 extern "C" void func_ov025_021e3158(Struct_ov025_021ef9a8*);
 extern "C" void func_02049ae4(unsigned char*);
 extern "C" int func_02048c10(unsigned char*);
-extern "C" int func_020882f8(unsigned char*);
+extern "C" int IsAsleep_020882f8(unsigned char*);
 extern "C" void func_02033920(GameObject*, int, int);
 extern "C" int SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_02048c90(Struct_02048c90*);
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov025_021e6a08(Struct_ov025_021e6a08* arg0, BattleAction
     if (data_ov025_021ef988.unknown_20_ == 0) {
         func_02049ae4((unsigned char*)var3);
         var5 = 1;
-        if (!func_02048c10((unsigned char*)var4) && !(((Struct_ov023_021f2a48*)var4->currentStats_)->unknown_14_ & 8) && !func_020882f8((unsigned char*)var4->currentStats_)) {
+        if (!func_02048c10((unsigned char*)var4) && !(((Struct_ov023_021f2a48*)var4->currentStats_)->unknown_14_ & 8) && !IsAsleep_020882f8((unsigned char*)var4->currentStats_)) {
             func_02033920(var4, var1->unknown_20_, var5);
         }
         data_ov025_021ef988.unknown_20_ = 1;

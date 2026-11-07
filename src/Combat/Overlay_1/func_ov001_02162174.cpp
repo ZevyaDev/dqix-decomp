@@ -4,7 +4,7 @@
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" int func_ov017_021bdbc0(unsigned char* arg0);
-extern "C" int func_ov017_021bdbcc(void*);
+extern "C" int GetHaloObject_ov017_021bdbcc(void*);
 
 // USA: func_ov001_02162174
 extern "C" ARM int func_ov001_02162174(void* arg0, int arg1) {
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov001_02162174(void* arg0, int arg1) {
 		}
 	}
 	if (var0 & 2) {
-		int var4 = func_ov017_021bdbcc(var1);
+		int var4 = GetHaloObject_ov017_021bdbcc(var1);
 		if (var4 != 0) {
 			if (var2 != 0) ((Object3D*)((void*)var4))->MakeVisible();
 			else ((Object3D*)((void*)var4))->MakeHidden();

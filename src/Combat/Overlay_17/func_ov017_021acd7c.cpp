@@ -4,7 +4,7 @@
 
 struct QueueNode_0204693c;
 extern "C" void ResetQueueNode_0204693c(struct QueueNode_0204693c* node);
-extern "C" void func_0205c790(char* arg0);
+extern "C" void InitChoiceList_0205c790(char* choiceList);
 
 #if defined(jpn)
 #define TAIL_OFFSET 0x20c
@@ -33,5 +33,5 @@ extern "C" ARM void func_ov017_021acd7c(char* arg0) {
     *(int*)(arg0 + 0x24) = 0;
     *(int*)(arg0 + 0x28) = 0;
     VectorizedMemset(arg0 + 0x2c, 0, 0x14);
-    func_0205c790(arg0 + 0x44);
+    InitChoiceList_0205c790(arg0 + 0x44);
 }

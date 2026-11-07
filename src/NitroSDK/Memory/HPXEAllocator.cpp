@@ -7,7 +7,7 @@
 
 extern "C"
 {
-    void func_020ca3ec(int val, void* dst, unsigned int len);
+    void Memset32BitByWord_020ca3ec(int val, void* dst, unsigned int len);
 }
 
 // USA: func_020af20c
@@ -140,7 +140,7 @@ void* HPXEAllocator::BlockManager::AllocateFromFreeBlock(
     unsigned int clearLength = pieceAfter.beginAddr - pieceBefore.endAddr;
     
     if (clearFlags & 1)
-        func_020ca3ec(0, (void*)pieceBefore.endAddr, clearLength);
+        Memset32BitByWord_020ca3ec(0, (void*)pieceBefore.endAddr, clearLength);
     
     MemoryRangeDescription thisPiece;
     thisPiece.beginAddr = trueStart;

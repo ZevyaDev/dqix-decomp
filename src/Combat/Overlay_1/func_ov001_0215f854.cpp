@@ -4,7 +4,7 @@
 #include "Memory/SafeAllocator.h"
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
-extern "C" void* func_ov017_021d612c(void*);
+extern "C" void* GetScriptValueAsString_ov017_021d612c(void*);
 extern "C" int func_ov001_0215ad2c(int arg0);
 extern SafeAllocator* data_ov001_021658b8[8];
 extern "C" void* func_02010768(void* arg0);
@@ -27,8 +27,8 @@ extern "C" ARM int func_ov001_0215f854(char* arg0) {
 	void* var2 = func_02010768(var0);
 
 	int var3 = GetScriptValueAsInt_ov017_021d60f4(arg0);
-	void* var4 = func_ov017_021d612c(arg0 + 0x8);
-	void* var5 = func_ov017_021d612c(arg0 + 0x10);
+	void* var4 = GetScriptValueAsString_ov017_021d612c(arg0 + 0x8);
+	void* var5 = GetScriptValueAsString_ov017_021d612c(arg0 + 0x10);
 
 	int var6 = func_ov001_0215ad2c(var3);
 

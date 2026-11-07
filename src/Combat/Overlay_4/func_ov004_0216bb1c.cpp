@@ -74,7 +74,7 @@ struct Struct_ov004_02171034 {
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" Struct_ov004_0216bb1c* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(Struct_ov004_0216bb1c* arg0);
-extern "C" void* func_ov023_021fa598(Struct_ov004_0216bb1c* arg0);
+extern "C" void* GetMenuObjectStringList_ov023_021fa598(Struct_ov004_0216bb1c* object);
 extern "C" const char* FindStringInList_02072a68(void* stringList, int stringId);
 extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" void func_ov011_02184ad8(void* arg0);
@@ -222,7 +222,7 @@ extern "C" ARM int func_ov004_0216bb1c(void* arg0) {
             if (!var53) {
                 Struct_ov004_0216bb1c* var54 = FindMenuObjectById_ov023_021f6880(var51, var52->unknown_36_);
                 if (func_ov023_021f6f10(var54) == 4) {
-                    var53 = FindStringInList_02072a68(func_ov023_021fa598(var54), var52->unknown_38_);
+                    var53 = FindStringInList_02072a68(GetMenuObjectStringList_ov023_021fa598(var54), var52->unknown_38_);
                 }
             }
             var26 = 0;

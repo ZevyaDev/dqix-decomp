@@ -135,7 +135,7 @@ extern "C" void func_020e526c(void* arg0);
 extern "C" void func_020e56fc(void* arg0, int arg1, int arg2);
 extern "C" const char** FindNounInTable_020e5294(void* nounTable, int nounId);
 extern "C" void ExpandInflectionTags_020e4864(const char* text, char* buffer, int, int, int, int);
-extern "C" void* func_020dfc2c(void* arg0);
+extern "C" void* ConstructStringTable_020dfc2c(void* stringTable);
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 extern "C" void CopyStringFromTableFile_020e046c(char* buffer, void* fileData, unsigned int fileSize, short stringId);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
@@ -233,7 +233,7 @@ extern "C" ARM void func_ov014_021850cc(Struct_ov014_02184dcc* arg0) {
             if (var12 != NULL) {
 #if defined(jpn)
                 char var13[0x18];
-                func_020dfc2c(var13);
+                ConstructStringTable_020dfc2c(var13);
                 InitStringTable_020dfc40((StringTable_0201099c_14*)var13);
                 func_020e038c(var13, var10, var11);
                 func_020e207c(var13, arg0->unknown_60_[0], var12->unknown_8_[0]);
@@ -266,7 +266,7 @@ extern "C" ARM void func_ov014_021850cc(Struct_ov014_02184dcc* arg0) {
         var0->GetLoadedFileByID(arg0->unknown_86_[2], &var16, &var17);
         if (var16 != NULL) {
             char var18[0x18];
-            func_020dfc2c(var18);
+            ConstructStringTable_020dfc2c(var18);
             InitStringTable_020dfc40((StringTable_0201099c_14*)var18);
             CopyStringFromTableFile_020e046c(arg0->unknown_68_, var16, var17, arg0->unknown_48_->unknown_1a_);
         }

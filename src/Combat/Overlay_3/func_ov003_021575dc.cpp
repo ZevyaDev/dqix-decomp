@@ -108,8 +108,8 @@ extern "C" int func_ov003_02155ffc(void* arg0, int arg1);
 extern "C" int func_ov003_02155f88(void* arg0, int arg1);
 extern "C" void func_ov003_0215873c(void* arg0);
 extern "C" void func_ov003_02158a50(unsigned char*);
-struct Struct_02109bf4_2;
-extern "C" void func_0209c830(Struct_02109bf4_2*, int);
+struct MusicManager_02109bf4_2;
+extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
 extern "C" int func_0209ca2c(void* arg0);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" void* InitItemTable_020de824(void* itemTable);
@@ -140,7 +140,7 @@ extern "C" ARM void* func_0208247c(void* arg0);
 
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
-extern "C" ARM int func_020813ec(void* arg0, int arg1);
+extern "C" ARM int OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" void func_0207d300(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void CopyStringFromTableFile_020e046c(void* buffer, void* fileData, int fileSize, int stringId);
@@ -244,7 +244,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
         func_ov003_02155580(arg0, 1);
         var0->unknown_1e8_ = var0->unknown_1ea_ = 7;
         var0->unknown_18_->unknown_36_ = var0->unknown_1ea_;
-        func_020813ec(var0->unknown_18_, var0->unknown_1e6_);
+        OpenMenuLayoutWindow_020813ec(var0->unknown_18_, var0->unknown_1e6_);
         var0->unknown_1f9_ = var0->unknown_1f9_ + 1;
     } else if (var3 == 4) {
         int var13 = func_ov003_02155618(arg0);
@@ -318,7 +318,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
     } else if (var3 == 9) {
         ResetMessageWindow_02043204((char*)GetMessageWindow_020421a0());
         func_ov003_02158a50((unsigned char*)arg0);
-        func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, 0x34);
+        QueueJingle_0209c830((MusicManager_02109bf4_2*)&gMusicManager_02109bf4, 0x34);
         var0->unknown_1f9_ = var0->unknown_1f9_ + 1;
     } else if (var3 == 0xa) {
         if (func_0209ca2c(&gMusicManager_02109bf4) != 0) {

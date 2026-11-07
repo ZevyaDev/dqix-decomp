@@ -3,7 +3,7 @@
 
 struct QueueNode_0204693c;
 extern "C" void ResetQueueNode_0204693c(struct QueueNode_0204693c* node);
-extern "C" void func_0205c790(char* arg0);
+extern "C" void InitChoiceList_0205c790(char* choiceList);
 struct StringTable_0201099c_14;
 extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
 
@@ -17,7 +17,7 @@ extern "C" ARM void func_ov017_021a7328(char* arg0) {
     *(int*)(arg0 + 0x20) = -1;
     *(int*)(arg0 + 0x14) = 0;
     *(int*)(arg0 + 0x18) = 0;
-    func_0205c790(arg0 + 0x24);
+    InitChoiceList_0205c790(arg0 + 0x24);
 #if defined(jpn)
     ((SafeAllocator*)(arg0 + 0x1ec))->ResetAllocatorPointer();
     InitStringTable_020dfc40((struct StringTable_0201099c_14*)(arg0 + 0x200));

@@ -17,11 +17,11 @@ enum {
 #include "GameState/GameState.h"
 
 struct MenuLayout_0207fdcc_2;
-extern "C" void func_02080c20(struct MenuLayout_0207fdcc_2 *arg0, int arg1);
-extern "C" void func_02080c68(void *arg0, int arg1, int arg2);
+extern "C" void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2 *menuLayout, int windowId);
+extern "C" void SetMenuLayoutWindowPalette_02080c68(void *menuLayout, int windowId, int palette);
 extern "C" void func_02080bac(void *arg0, int arg1);
-struct Struct_02080f8c;
-extern "C" void func_02080f8c(struct Struct_02080f8c *arg0, int arg1, int arg2);
+struct MenuLayout_02080f8c;
+extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c *menuLayout, int textId, int text);
 extern "C" void func_020805f4(void *arg0, int arg1);
 extern "C" void func_0208103c(void *arg0, int arg1, int arg2);
 struct Struct_02080cc0;
@@ -35,7 +35,7 @@ struct Struct_02080fc4;
 extern "C" void func_02080fc4(struct Struct_02080fc4 *arg0, int arg1, int arg2);
 extern "C" int GetEquipRestrictions_020dd4c4(int memberIndex, void *item);
 extern "C" int func_ov003_021753a0(void *arg0, int arg1, void *arg2, void *arg3);
-extern "C" void func_020813ec(void *arg0, int arg1);
+extern "C" void OpenMenuLayoutWindow_020813ec(void *menuLayout, int windowId);
 
 #if defined(jpn)
 extern int data_ov003_0217e3ac[];
@@ -79,10 +79,10 @@ extern "C" ARM void func_ov003_02177550(Struct_ov003_02177550_2 *arg0) {
         return;
     }
 
-    func_02080c20(var2, 0xf);
-    func_02080c68(var2, 0xf, 0);
+    ShowMenuLayoutWindow_02080c20(var2, 0xf);
+    SetMenuLayoutWindowPalette_02080c68(var2, 0xf, 0);
     func_02080bac(var2, 0xf);
-    func_02080f8c((struct Struct_02080f8c *) var2, 0x70, var3->unknown_4_);
+    SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c *) var2, 0x70, var3->unknown_4_);
 #if !defined(jpn)
     func_020805f4(var2, 0x70);
 #endif
@@ -153,5 +153,5 @@ extern "C" ARM void func_ov003_02177550(Struct_ov003_02177550_2 *arg0) {
         }
     }
 
-    func_020813ec(var2, 0xf);
+    OpenMenuLayoutWindow_020813ec(var2, 0xf);
 }

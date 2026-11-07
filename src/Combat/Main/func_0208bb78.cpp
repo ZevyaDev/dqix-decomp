@@ -38,7 +38,7 @@ extern "C" int func_0208baec(int, Struct_0208baec_2*, Struct_0208baec*, int, flo
 extern "C" int GetResources_0200fb8c(int*);
 extern "C" unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
-extern "C" int* func_02094d6c();
+extern "C" int* GetQuestManager_02094d6c();
 extern "C" unsigned char func_020965ac(Struct_02065990_3*, unsigned char);
 extern "C" int func_02096088(void*, int);
 
@@ -101,7 +101,7 @@ extern "C" ARM int func_0208bb78(Struct_0208bb78* arg0, int arg1) {
         }
     }
     if (arg0->unknown_d2_ != 9999 && arg0->unknown_d2_ >= 0 && arg0->unknown_d4_ != 0 && arg0->unknown_d4_ != 3 && GetQueueHeadType_02046b24(var6) != 0x2d) {
-        int* var11 = func_02094d6c();
+        int* var11 = GetQuestManager_02094d6c();
         int var12 = func_020965ac((Struct_02065990_3*)var11, (unsigned char)arg0->unknown_d2_);
         if (func_02096088(var11, var12)) {
             Struct_0208baec var13;

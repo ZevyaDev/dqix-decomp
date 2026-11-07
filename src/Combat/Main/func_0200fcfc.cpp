@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "Combat/Main/CopyRecord0200fbb4.h"
 
-// USA: func_0200fcfc
-extern "C" ARM void* func_0200fcfc(void* arg0, const void* arg1) {
+// USA: SetZoneEntry_0200fcfc
+extern "C" ARM void* SetZoneEntry_0200fcfc(void* gameState, const void* zoneEntry) {
     return func_0200fbb4(
-        (Struct_0200fba4*)((char*)arg0 + 0x3f8),
-        (const Struct_0200fba4*)arg1);
+        (ZoneEntry_0200fba4*)((char*)gameState + 0x3f8),
+        (const ZoneEntry_0200fba4*)zoneEntry);
 }

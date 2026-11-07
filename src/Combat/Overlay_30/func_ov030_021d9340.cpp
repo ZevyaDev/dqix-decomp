@@ -34,7 +34,7 @@ struct Struct_ov017_0219bfb4;
 extern "C" void func_ov017_021ba90c(Struct_ov017_0219bfb4*);
 struct QueueNode_0204693c;
 extern "C" void ResetQueueNode_0204693c(QueueNode_0204693c*);
-extern "C" void ResetEventTask_ov017_021baedc(void* node, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(void* node, int isRestart);
 extern "C" void func_ov017_021b2c4c(void* arg0);
 extern "C" void func_ov017_021b2f64(unsigned char*);
 struct Struct_ov017_0219dc90_3;

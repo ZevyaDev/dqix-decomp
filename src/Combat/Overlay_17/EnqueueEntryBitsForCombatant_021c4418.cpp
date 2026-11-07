@@ -4,12 +4,12 @@
 extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 struct Struct_02052e2c;
-extern "C" short* func_02052e2c(struct Struct_02052e2c* arg0);
+extern "C" short* GetAppearance_02052e2c(struct Struct_02052e2c* gameObject);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
-struct Struct_ov017_021c4418 {
+struct Appearance_ov017_021c4418 {
     char unknown_0_[0x14];
-    unsigned char unknown_14_0_ : 1;
+    unsigned char gender_14_0_ : 1;
     unsigned char unknown_14_1_ : 3;
     unsigned char unknown_14_4_ : 4;
     unsigned char unknown_15_0_ : 4;
@@ -19,40 +19,40 @@ struct Struct_ov017_021c4418 {
     short unknown_1a_;
 };
 
-struct Struct_ov017_021c4418_2 {
-    unsigned char unknown_0_;
+struct BodyAppearancePacket_ov017_021c4418_2 {
+    unsigned char kind_0_;
     unsigned char unknown_1_[3];
-    unsigned char unknown_4_;
+    unsigned char memberIndex_4_;
     unsigned char unknown_5_;
     unsigned char unknown_6_;
     unsigned char unknown_7_;
-    unsigned char unknown_8_;
+    unsigned char gender_8_;
     unsigned char unknown_9_;
     short unknown_a_;
     short unknown_c_;
     short unknown_e_;
-    signed char unknown_10_;
+    signed char recipientIndex_10_;
 };
 
-// USA: func_ov017_021c4418
-extern "C" ARM void func_ov017_021c4418(int arg0, signed char arg1) {
-    GameState* var0 = GameState::GetInstance();
-    void* var1 = GetLocalWirelessPacketQueue_0202ae24();
-    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg0);
-    if (!var2) return;
-    struct Struct_ov017_021c4418* var3 = (struct Struct_ov017_021c4418*)func_02052e2c((struct Struct_02052e2c*)var2);
-    if (!var3) return;
+// USA: SendPartyMemberBodyAppearance_ov017_021c4418
+extern "C" ARM void SendPartyMemberBodyAppearance_ov017_021c4418(int memberIndex, signed char recipientIndex) {
+    GameState* gameState = GameState::GetInstance();
+    void* packetQueue = GetLocalWirelessPacketQueue_0202ae24();
+    GameObject* partyMemberBase = GetPartyMemberBaseByIndex_0200ff1c(gameState, memberIndex);
+    if (!partyMemberBase) return;
+    struct Appearance_ov017_021c4418* appearance = (struct Appearance_ov017_021c4418*)GetAppearance_02052e2c((struct Struct_02052e2c*)partyMemberBase);
+    if (!appearance) return;
 
-    struct Struct_ov017_021c4418_2 var4;
-    var4.unknown_0_ = 1;
-    var4.unknown_4_ = arg0;
-    var4.unknown_5_ = var3->unknown_15_0_;
-    var4.unknown_6_ = var3->unknown_14_4_;
-    var4.unknown_7_ = var3->unknown_14_1_;
-    var4.unknown_8_ = var3->unknown_14_0_;
-    var4.unknown_a_ = var3->unknown_16_;
-    var4.unknown_c_ = var3->unknown_18_;
-    var4.unknown_e_ = var3->unknown_1a_;
-    var4.unknown_10_ = arg1;
-    QueueOutgoingPacket_0205e330(var1, &var4, 0);
+    struct BodyAppearancePacket_ov017_021c4418_2 packet;
+    packet.kind_0_ = 1;
+    packet.memberIndex_4_ = memberIndex;
+    packet.unknown_5_ = appearance->unknown_15_0_;
+    packet.unknown_6_ = appearance->unknown_14_4_;
+    packet.unknown_7_ = appearance->unknown_14_1_;
+    packet.gender_8_ = appearance->gender_14_0_;
+    packet.unknown_a_ = appearance->unknown_16_;
+    packet.unknown_c_ = appearance->unknown_18_;
+    packet.unknown_e_ = appearance->unknown_1a_;
+    packet.recipientIndex_10_ = recipientIndex;
+    QueueOutgoingPacket_0205e330(packetQueue, &packet, 0);
 }

@@ -6,7 +6,7 @@ extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 #include "Combat/EntryGetterTypes.h"
 #include "World/Object3D.h"
 struct NPCManager_0203dce4_2 { char unknown_0_[0xc]; struct NPC_0203dce4* npcs_c_[0x20]; };
-extern "C" void* func_0203cf4c(void);
+extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" struct NPC_0203dce4* GetNPCByIndex_0203dce4(struct NPCManager_0203dce4_2* npcManager, int index);
 extern "C" int func_02040528(int* arg0);
 extern "C" void* func_0203d004(void*);
@@ -38,7 +38,7 @@ extern "C" ARM int func_ov001_02161754(void* arg0) {
         return 0;
     }
 
-    void* var1 = func_0203cf4c();
+    void* var1 = GetNPCManager_0203cf4c();
     struct NPCManager_0203dce4_2* var2 = (struct NPCManager_0203dce4_2*)var1;
     struct NPC_0203dce4* var3 = GetNPCByIndex_0203dce4(var2, data_ov001_02165880.unknown_4_[var0].unknown_4_);
     if (var3 == NULL) {

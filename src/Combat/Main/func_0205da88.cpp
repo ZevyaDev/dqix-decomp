@@ -15,7 +15,7 @@ struct TextWindow_0205da88_2 {
     char unknown_0_[0x4];
     struct BGLayer_0205da88* pBGLayer_4_;
     char unknown_8_[0xa8 - 0x8];
-    short unknown_a8_;
+    short width_a8_;
     short unknown_aa_;
     short tileX_ac_;
     short tileY_ae_;
@@ -66,7 +66,7 @@ extern "C" ARM void FillBGUnderTextWindows_0205da88(struct TextWindowManager_020
             if (windowLayer != textWindow->pBGLayer_4_) continue;
             short x = textWindow->tileX_ac_;
             short y = textWindow->tileY_ae_;
-            short width = textWindow->unknown_a8_;
+            short width = textWindow->width_a8_;
             short height = textWindow->shownRows_c0_;
             FillBGScreenRect_0204bc74(fillLayer, screenEntry, x, y, width, height, 0);
             if (height == 0 || screenEntry == 0) continue;

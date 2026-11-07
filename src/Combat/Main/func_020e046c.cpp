@@ -17,11 +17,11 @@ extern "C" int func_020e0440(struct Struct_0201099c_3* arg0, int arg1);
 // USA: CopyStringFromTableFile_020e046c
 extern "C" ARM char* CopyStringFromTableFile_020e046c(char* buffer, void* fileData, void* fileSize, int stringId) {
     struct Struct_0201099c_3 stringTable;
-    int var1;
+    int isAlreadyResolved;
     char* text;
     if (buffer == NULL || fileData == NULL || fileSize == NULL || stringId < 0) return NULL;
     memset(&stringTable, 0, sizeof(stringTable));
-    func_020e0280(&stringTable, fileData, &var1, (void*)func_020dfbdc);
+    func_020e0280(&stringTable, fileData, &isAlreadyResolved, (void*)func_020dfbdc);
     text = (char*)func_020e0440(&stringTable, stringId);
     if (text == NULL) {
         buffer[0] = 0;

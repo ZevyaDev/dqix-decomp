@@ -10,7 +10,7 @@ extern Struct_021023c0 data_021023c0, data_02102be0;
 extern "C" int func_0202d0b4();
 extern "C" void func_0202dd28();
 extern "C" int func_020d68d0(void*);
-extern "C" void func_0202c848(int);
+extern "C" void SetLocalWirelessLinkError_0202c848(int);
 extern "C" int func_0202d54c();
 extern "C" int func_020d5f88(void*);
 extern "C" int func_0202cca4();
@@ -38,7 +38,7 @@ extern "C" ARM void func_0202dd98() {
         else {
             gLocalWirelessLink_021015a0.unknown_10_ = var1;
             int var2 = func_020d68d0(&data_021023c0);
-            if (var2) { func_0202c848(var2); var0 = 0; }
+            if (var2) { SetLocalWirelessLinkError_0202c848(var2); var0 = 0; }
             else if (!func_0202d54c()) var0 = 0;
             else var0 = 1;
         }
@@ -53,7 +53,7 @@ extern "C" ARM void func_0202dd98() {
     case 2: {
         int var3;
         int var4 = func_020d68d0(&data_021023c0);
-        if (var4) { func_0202c848(var4); var3 = 0; }
+        if (var4) { SetLocalWirelessLinkError_0202c848(var4); var3 = 0; }
         else if (func_0202cca4()) var3 = 1;
         else { func_0202dd28(); var3 = 0; }
         if (!var3) func_0202dd28();

@@ -55,7 +55,7 @@ extern "C" void func_ov000_02160030(void* arg0);
 extern "C" void func_ov000_02157cdc(void* arg0);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void SetActionResult_ov000_0215ccbc(int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant,
-                            short arg3, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
+                            short amount, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
 extern "C" void func_ov000_0215ffc4(void* arg0, void* arg1, int arg2);
 struct Struct_ov000_0215767c_7;
 struct Struct_ov000_0215767c_6;

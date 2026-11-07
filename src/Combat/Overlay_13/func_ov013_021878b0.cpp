@@ -19,8 +19,8 @@ struct BGLayer_0204af14;
 extern "C" void* GetBGScreenBlock_0204af14(struct BGLayer_0204af14* layer, unsigned int screenBlockIndex);
 struct Struct_0204ae44;
 extern "C" void func_0204ae44(struct Struct_0204ae44* arg0, int arg1);
-struct Struct_0204b988;
-extern "C" void func_0204b988(struct Struct_0204b988* arg0, unsigned int arg1, int arg2, int arg3, unsigned short arg4);
+struct BGLayer_0204b988;
+extern "C" void CopyBGScreenBlock_0204b988(struct BGLayer_0204b988* layer, unsigned int screenBlockIndex, int destX, int destY, unsigned short palette);
 struct BGLayer_02020cb8_2;
 extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2* layer, void* screenData);
 
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov013_021878b0(Struct_ov013_021878b0* arg0) {
             if (var9 != 0) {
                 func_0204ae44((struct Struct_0204ae44*)var9, arg0->unknown_67_);
             }
-            func_0204b988((struct Struct_0204b988*)arg0->unknown_28_, 0, 0, 0, 0xffff);
+            CopyBGScreenBlock_0204b988((struct BGLayer_0204b988*)arg0->unknown_28_, 0, 0, 0, 0xffff);
             LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2*)arg0->unknown_28_, 0);
             arg0->unknown_66_ = 0;
             arg0->unknown_69_ &= ~1;

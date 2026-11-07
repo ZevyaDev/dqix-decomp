@@ -44,7 +44,7 @@ extern "C" struct Struct_ov004_0216aaec_2* func_ov011_021845f8(void* arg0, int a
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" struct Struct_ov004_0216aaec_3* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
-extern "C" struct StringList_02072a68_2* func_ov023_021fa598(void* arg0);
+extern "C" struct StringList_02072a68_2* GetMenuObjectStringList_ov023_021fa598(void* object);
 extern "C" struct MessageWindow_020465c0* GetMessageWindow_020421a0(void);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
@@ -92,7 +92,7 @@ extern "C" ARM int func_ov004_0216aaec(void* arg0) {
     if (func_ov023_021f6f10(var7) != 4) {
         return 0;
     }
-    struct StringList_02072a68_2* var8 = func_ov023_021fa598(var7);
+    struct StringList_02072a68_2* var8 = GetMenuObjectStringList_ov023_021fa598(var7);
     struct MessageWindow_020465c0* var9 = GetMessageWindow_020421a0();
 #if !defined(jpn)
     void* var10 = var6->unknown_4_.Allocate(4);

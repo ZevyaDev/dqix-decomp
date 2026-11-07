@@ -20,7 +20,7 @@ extern "C" int RunTrigger_020649b0(void*, int, void*);
 extern "C" void* func_020e2ff8();
 extern "C" int func_020e34bc(Struct_0208ab34*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
-extern "C" unsigned char func_02039d7c(char*);
+extern "C" unsigned char IsOnLadder_02039d7c(char*);
 extern "C" int func_020852a4(unsigned char*);
 extern "C" int func_02085318(unsigned char*);
 extern "C" void func_020e3368(unsigned char*, unsigned char);
@@ -111,7 +111,7 @@ extern "C" ARM void func_0208b0f8(void* arg0) {
         var14 = func_020e34bc((Struct_0208ab34*)var9, 1);
         var15 = (Struct_0208b0f8*)var1->GetPartyMemberByIndex(var18[var13]);
         if (!IsLocalWirelessOn_0202b7d8(var4) || (IsLocalWirelessOn_0202b7d8(var4) && var14 != 1)) {
-            if (var15 == NULL || var12->unknown_b2_ == 0 || func_02039d7c((char*)var12) != 0 ||
+            if (var15 == NULL || var12->unknown_b2_ == 0 || IsOnLadder_02039d7c((char*)var12) != 0 ||
                 (var15->unknown_130_[0] & 1) || !IsQueueEmpty_02046b08(var8)) {
                 var7 = 1;
                 continue;

@@ -7,8 +7,8 @@ extern "C" int func_020e28dc(struct Struct_020e28dc *arg0);
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0 {
     unsigned char unknown_0_[0xac];
-    short unknown_ac_;
-    short unknown_ae_;
+    short tileX_ac_;
+    short tileY_ae_;
     unsigned char unknown_b0_[0xc];
     short unknown_bc_;
     short unknown_be_;
@@ -69,8 +69,8 @@ extern "C" ARM void func_ov002_0215afb8(char *arg0) {
     if (var3 == NULL) return;
     if (func_020e28dc(var3)) return;
 
-    short var4 = (short) (var2->unknown_ac_ * 8);
-    short var5 = (short) (var2->unknown_ae_ * 8);
+    short var4 = (short) (var2->tileX_ac_ * 8);
+    short var5 = (short) (var2->tileY_ae_ * 8);
     var4 += var2->unknown_bc_;
     var5 += var2->unknown_be_;
     struct SpriteAnimationList_0205a254 *var6 = var0->unknown_1a6c_;

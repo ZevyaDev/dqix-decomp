@@ -16,7 +16,7 @@ struct Struct_ov024_021dbf18_5 { char unknown_0_[0x20]; struct Struct_ov024_021d
 struct Struct_ov024_021dbf18_6 { char unknown_0_[0x3b]; unsigned char unknown_3b_0_ : 1; unsigned char unknown_3b_1_ : 7; };
 
 extern "C" unsigned long long func_ov024_021e4b14(struct Struct_ov024_021dbf18_4* arg0, int arg1, int arg2, struct Struct_ov024_021dbf18_5* arg3, int arg4);
-extern "C" int func_020882f8(unsigned char* arg0);
+extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
 extern "C" void func_02088390(void* arg0);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
 extern "C" int func_ov000_02159f18(void* arg0, unsigned long long arg1, int arg2);
@@ -34,7 +34,7 @@ extern "C" ARM void* func_ov024_021dbf18(struct Struct_ov024_021dbf18_4* arg0, i
 	unsigned long long var3 = 0;
 	if (arg6) {
 		var3 = func_ov024_021e4b14(arg0, arg1, arg2, arg3, 1);
-		if (func_020882f8((unsigned char*)var0->currentStats_)) {
+		if (IsAsleep_020882f8((unsigned char*)var0->currentStats_)) {
 			var1 = 0x40;
 			func_02088390(var0->currentStats_);
 			if (var3 == 0) {

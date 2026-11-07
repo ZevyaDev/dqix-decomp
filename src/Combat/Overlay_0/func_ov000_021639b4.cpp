@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
-extern "C" void func_ov017_021917f0(int arg0, int arg1);
+extern "C" void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int isHeld);
 
 struct Struct_ov000_021639b4 {
 #if defined(jpn)
@@ -27,6 +27,6 @@ extern "C" ARM void func_ov000_021639b4(struct Struct_ov000_021639b4* arg0) {
         if (var4 && var4->obj3D_.unknown_2_ >= 0) {
             ((Object3D*)((unsigned char*)var4))->MakeVisible();
         }
-        func_ov017_021917f0(var1[var3], 1);
+        AttachPartyMemberWeapon_ov017_021917f0(var1[var3], 1);
     }
 }

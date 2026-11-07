@@ -8,11 +8,11 @@ extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_0203de84 {
     unsigned int unknown_0_[3];
 };
-struct Struct_0203de84_2;
+struct NPC_0203de84_2;
 struct Struct_0203de84_3;
 struct Struct_0203de84_4;
 
-extern "C" void func_020406f8(struct Struct_0203de84* arg0, struct Struct_0203de84_2* arg1);
+extern "C" void GetNPCPosition_020406f8(struct Struct_0203de84* outPosition, struct NPC_0203de84_2* npc);
 extern "C" int func_02040adc(struct Struct_0203de84_3* arg0);
 extern "C" int func_02040910(struct Struct_0203de84_4* arg0, int arg1);
 extern "C" void func_0208f87c(const void* arg0, int arg1, int arg2, int arg3, int arg4);
@@ -63,7 +63,7 @@ extern "C" ARM void func_0203de84(void* arg0) {
         if (var7 & 0x40) continue;
         Object3D* var8 = var0->unknown_c_[var6]->unknown_18_;
         if (var8 != NULL && var8->GetFlag(0x10) != 0) continue;
-        func_020406f8(&var5, (struct Struct_0203de84_2*)var0->unknown_c_[var6]);
+        GetNPCPosition_020406f8(&var5, (struct NPC_0203de84_2*)var0->unknown_c_[var6]);
         func_0208f87c(&var5, var3, 0x1000, var4,
             func_02040adc((struct Struct_0203de84_3*)var0->unknown_c_[var6]));
     }

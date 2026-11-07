@@ -4,7 +4,7 @@
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" void func_ov017_021c812c(int arg0, int arg1);
-extern "C" void func_02049390(unsigned char* arg0, unsigned char arg1);
+extern "C" void SetCombatantCell_02049390(unsigned char* combatant, unsigned char cell);
 extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 
@@ -36,14 +36,14 @@ extern "C" ARM void func_ov017_021c82bc(int arg0, struct Struct_ov017_021c82bc* 
     for (var2 = 0; var2 < 4; var2++) {
         GameObject* var3 = var1->GetCombatantByIndex(var2);
         if (var3 != NULL && arg1->unknown_5_[var2] != 0xff) {
-            func_02049390((unsigned char*)var3, arg1->unknown_5_[var2]);
+            SetCombatantCell_02049390((unsigned char*)var3, arg1->unknown_5_[var2]);
         }
     }
     int var4;
     for (var4 = 0; var4 < 8; var4++) {
         GameObject* var5 = var1->GetCombatantByIndex(var4 + 0xc0);
         if (var5 != NULL && arg1->unknown_9_[var4] != 0xff) {
-            func_02049390((unsigned char*)var5, arg1->unknown_9_[var4]);
+            SetCombatantCell_02049390((unsigned char*)var5, arg1->unknown_9_[var4]);
         }
     }
 

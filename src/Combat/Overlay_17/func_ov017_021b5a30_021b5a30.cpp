@@ -8,7 +8,7 @@ extern "C" void func_ov017_0218d5c8(unsigned char* arg0);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
-extern "C" void func_020a2794(void* arg0);
+extern "C" void EnableCameraFollow_020a2794(void* camera);
 
 extern int gMainHeap_02114e20;
 
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov017_021b5a30(struct Struct_ov017_021b5a30* arg0) {
 
 	int var5 = GetFollowCamera_020100f8((char*)var3);
 	if (var5 != 0) {
-		func_020a2794((void*)var5);
+		EnableCameraFollow_020a2794((void*)var5);
 	}
 
 	if (var0 != 0) {

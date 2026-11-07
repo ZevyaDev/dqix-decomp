@@ -23,7 +23,7 @@ extern "C" void func_020340c4(Struct_020340c4* arg0);
 extern "C" void func_020340b4(Struct_020340b4* arg0);
 extern "C" int func_0203402c(Struct_0203402c* arg0);
 extern "C" void func_02034044(unsigned char* arg0, int arg1);
-extern "C" unsigned char func_02039d7c(char* arg0);
+extern "C" unsigned char IsOnLadder_02039d7c(char* object);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 
 // USA: func_ov017_021c2380
@@ -52,7 +52,7 @@ extern "C" ARM int func_ov017_021c2380(int arg0, int arg1) {
     if (func_0203402c((Struct_0203402c*)var3)) {
         return 0;
     }
-    if (var4 != NULL && func_02039d7c((char*)var4)) {
+    if (var4 != NULL && IsOnLadder_02039d7c((char*)var4)) {
         return 0;
     }
     if (var2->unknown_0_ != var3->obj3D_.GetField06()) {

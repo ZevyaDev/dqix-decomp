@@ -36,8 +36,8 @@ extern "C" void func_0206f81c(void*);
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void func_ov017_021d1118(int, int, int, int);
 extern "C" void func_ov017_021d1014(int, int, int);
-struct Struct_02109bf4_2;
-extern "C" void func_0209c830(Struct_02109bf4_2*, int);
+struct MusicManager_02109bf4_2;
+extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
 extern "C" int func_020bc0a4(int);
 struct SaveProgress_020a9ea4;
 extern "C" void ResetSaveProgress_020a9ea4(SaveProgress_020a9ea4*);
@@ -151,7 +151,7 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
                 }
             }
         }
-        func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, 0x3c);
+        QueueJingle_0209c830((MusicManager_02109bf4_2*)&gMusicManager_02109bf4, 0x3c);
         *(unsigned char*)(var0 + 0x59f) = *(unsigned char*)(var0 + 0x59f) | 2;
         *(unsigned char*)(var0 + 0x580) = *(unsigned char*)(var0 + 0x580) + 1;
     }

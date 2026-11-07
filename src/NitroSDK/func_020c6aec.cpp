@@ -39,7 +39,7 @@ ARM void SetInterruptHandler(unsigned int mask, const void *proc) {
                 dmaTimerIndex = interruptID + 1;
                 dmaTimerData  = &data_0211127c[dmaTimerIndex];
             } else {
-                data_027e0000.interruptProcTable[interruptID] = (InterruptHandlerProc) proc;
+                gDTCMData_027e0000.interruptProcTable[interruptID] = (InterruptHandlerProc) proc;
             }
 
             if (dmaTimerData != NULL) {
@@ -57,7 +57,7 @@ ARM void SetInterruptHandler(unsigned int mask, const void *proc) {
 // KEEP-NAME: curated interrupt-handler lookup interface.
 ARM InterruptHandlerProc GetInterruptHandler(unsigned int mask) {
     int interruptId             = 0;
-    InterruptHandlerProc *pProc = &data_027e0000.interruptProcTable[0];
+    InterruptHandlerProc *pProc = &gDTCMData_027e0000.interruptProcTable[0];
     do {
         if (!(mask & 1)) continue;
 

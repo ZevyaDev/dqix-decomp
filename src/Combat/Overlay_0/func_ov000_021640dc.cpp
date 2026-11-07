@@ -3,7 +3,7 @@
 #include "Resource/Brightness.h"
 
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
-extern "C" int func_ov000_02160fd4(void* arg0, int arg1);
+extern "C" int TestBattleSceneFlags_ov000_02160fd4(void* battleScene, int flags);
 extern "C" int func_ov017_02195658(GameResources* arg0);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" void func_020a367c(unsigned char* arg0, int arg1);
@@ -99,10 +99,10 @@ extern "C" ARM void func_ov000_021640dc(struct Struct_ov000_021640dc_4* arg0) {
         inline_ov000_02163db4((unsigned char*)var2, var3);
         return;
     }
-    if (!func_ov000_02160fd4(arg0, 4)) {
+    if (!TestBattleSceneFlags_ov000_02160fd4(arg0, 4)) {
         return;
     }
-    if (!func_ov000_02160fd4(arg0, 0x200000)) {
+    if (!TestBattleSceneFlags_ov000_02160fd4(arg0, 0x200000)) {
         return;
     }
     if (arg0->unknown_2a0_->unknown_2a_ != GetProtagonistObjectIndex_020100a8(var0)) {

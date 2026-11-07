@@ -40,7 +40,7 @@ extern "C" Struct_ov017_0219ad84_2* GetMessageWindow_020421a0();
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void func_0204724c(Struct_0201730c*);
 extern "C" void func_020473c8(Struct_02015ef4_2*, int);
-extern "C" unsigned char func_02039d7c(char*);
+extern "C" unsigned char IsOnLadder_02039d7c(char*);
 extern "C" int func_0203402c(Struct_0203402c*);
 extern "C" void func_0203a46c(Struct_0203a46c*, int, int, int);
 extern "C" void func_020478bc(Struct_02017098_3*, int);
@@ -109,7 +109,7 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
     var7 |= inline_ov017_0219ad84_2(arg0->unknown_ptr_array_3afc[30]);
     var7 |= inline_ov017_0219ad84_2(arg0->unknown_ptr_array_3afc[21]);
     var7 |= inline_ov017_0219ad84_2(arg0->unknown_ptr_array_3afc[43]);
-    var7 |= func_02039d7c((char*)var5);
+    var7 |= IsOnLadder_02039d7c((char*)var5);
     int var8 = func_0203402c((Struct_0203402c*)var5);
     if (var7 | var8 | inline_ov017_0219ad84_2(var4)) var6 = 0;
     if (var6) {
@@ -176,7 +176,7 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
             var14++;
             GXFIFO_MATRIX_POP = 1;
             if (var14 >= 3) break;
-        } else if (func_ov017_0218d4ec(arg0, var16->unknown_0_.unknown_4_)) {
+        } else if (func_ov017_0218d4ec(arg0, var16->unknown_0_.objectIndex_4_)) {
             Struct_02012fa4* var25 = &arg0->substruct_array_2b90[17];
             func_0203a46c((Struct_0203a46c*)var25, var21 << 12, var22 << 12, -0xa000);
             GXFIFO_MATRIX_PUSH = 0;

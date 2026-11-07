@@ -10,10 +10,10 @@ struct TextWindow_0207fdcc {
 
 extern "C" struct TextWindow_0207fdcc* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 
-// USA: func_02080c20
-extern "C" ARM void func_02080c20(struct MenuLayout_0207fdcc_2* arg0, int arg1) {
-    struct TextWindow_0207fdcc* var0 = func_02081da8(arg0, arg1);
-    if (var0 != NULL) {
-        var0->unknown_c5_ &= ~0x20;
+// USA: ShowMenuLayoutWindow_02080c20
+extern "C" ARM void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2* menuLayout, int windowId) {
+    struct TextWindow_0207fdcc* window = func_02081da8(menuLayout, windowId);
+    if (window != NULL) {
+        window->unknown_c5_ &= ~0x20;
     }
 }

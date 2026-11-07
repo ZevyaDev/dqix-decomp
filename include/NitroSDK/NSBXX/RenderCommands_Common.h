@@ -167,7 +167,7 @@ extern "C"
     // returns -1 if still waiting, 0 if done
     int func_020c552c(void*);
     // memset via u32 values
-    void func_020ca3ec(int value, void* dst, unsigned int len);
+    void Memset32BitByWord_020ca3ec(int value, void* dst, unsigned int len);
     // memcpy via u32 values
     void Memcpy32Bit_020ca408(const void* src, void* dst, unsigned int numBytes);
     // repeatedly write u32s to dst (useful for hardware registers)

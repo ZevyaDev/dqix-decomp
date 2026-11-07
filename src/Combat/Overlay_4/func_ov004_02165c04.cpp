@@ -8,8 +8,8 @@ struct Struct_02000c9c_8;
 extern "C" unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8* gameState);
 extern "C" void* func_ov023_021f79e4(void* arg0);
 
-struct Struct_0204b988;
-extern "C" void func_0204b988(struct Struct_0204b988*, unsigned int, int, int, unsigned short);
+struct BGLayer_0204b988;
+extern "C" void CopyBGScreenBlock_0204b988(struct BGLayer_0204b988*, unsigned int, int, int, unsigned short);
 
 struct BGLayer_0204b8d0;
 extern "C" void CopyBGScreenBlockRect_0204b8d0(struct BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
@@ -38,7 +38,7 @@ extern "C" ARM int func_ov004_02165c04(void* arg0) {
 
     *(unsigned char*)((char*)var3 + 0xc) |= 1;
     void* var4 = func_ov023_021f79e4(var3);
-    func_0204b988((struct Struct_0204b988*)var4, 0, 0, 0, 0xffff);
+    CopyBGScreenBlock_0204b988((struct BGLayer_0204b988*)var4, 0, 0, 0, 0xffff);
     if (var2 != 0) {
         CopyBGScreenBlockRect_0204b8d0((struct BGLayer_0204b8d0*)var4, var2, 0, 0, 0x16, 2, 9, 3, 0xffff);
     }

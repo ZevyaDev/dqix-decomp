@@ -103,7 +103,7 @@ extern "C" ARM void func_020d7b04(Struct_020d7b04_3* arg0) {
                 var6 = !IsTypeInQueue_02046b60((Queue_02038598_5*)var4, 0xc);
             }
             if (var6) {
-                func_02094b3c(var2, 10);
+                ClearLoadedFontSetForSize_02094b3c(var2, 10);
                 RequestSingleFontLoad_02094b30(var2, 505, 0);
                 arg0->unknown_0_[0].unknown_6f_0_ = 0;
                 arg0->unknown_150_7_ = 1;

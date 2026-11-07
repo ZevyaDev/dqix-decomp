@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
+extern "C" void* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
 
 struct Struct_02054000;
 extern "C" void* func_02054000(struct Struct_02054000* arg0);
@@ -33,7 +33,7 @@ extern "C" ARM int func_0207c984(unsigned char* arg0, int arg1, int arg2, short*
         }
     }
 
-    short* var7 = (short*)func_0207c5f8(arg0, 0);
+    short* var7 = (short*)GetEquipmentBagItemIds_0207c5f8(arg0, 0);
     short var8;
     for (var8 = 0; var8 < 0x110; var8++) {
         short var9 = var7[var8];

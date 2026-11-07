@@ -171,7 +171,7 @@ extern "C" Struct_ov023_021f68b8* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" Struct_ov023_021f8240* func_ov023_021f68b8(Struct_ov023_021f68b8* arg0, int arg1);
 extern "C" unsigned short func_ov023_021f6f10(Struct_ov023_021f8240* arg0);
 extern "C" Struct_ov023_021f8240* FindMenuObjectById_ov023_021f6880(Struct_ov023_021f68b8* objectList, int id);
-extern "C" StringList_02072a68_2* func_ov023_021fa598(Struct_ov023_021f8240* arg0);
+extern "C" StringList_02072a68_2* GetMenuObjectStringList_ov023_021fa598(Struct_ov023_021f8240* object);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" int func_02042190(int arg0);
 extern "C" void __clear(void* arg0, unsigned long arg1);
@@ -248,7 +248,7 @@ extern "C" ARM void func_ov023_021f8240(Struct_ov023_021f8240_6* arg0, void* arg
             {
                 Struct_ov023_021f8240* var9 = FindMenuObjectById_ov023_021f6880(var1, var4->unknown_36_);
                 if (var9 != NULL && func_ov023_021f6f10(var9) == 4)
-                    var6 = FindStringInList_02072a68(func_ov023_021fa598(var9), var4->unknown_38_);
+                    var6 = FindStringInList_02072a68(GetMenuObjectStringList_ov023_021fa598(var9), var4->unknown_38_);
             }
             if (var6 == NULL)
                 continue;

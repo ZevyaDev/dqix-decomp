@@ -4,9 +4,9 @@ struct Struct_0207f0ac;
 struct Struct_0207f0ac_2;
 extern "C" Struct_0207f0ac_2* func_0207f0ac(Struct_0207f0ac* arg0, int arg1);
 
-struct Struct_0207f524;
-struct Struct_0207f6ac;
-extern "C" Struct_0207f6ac* func_0207f6ac(Struct_0207f524* arg0, int arg1);
+struct MenuLayoutTextEntryList_0207f524;
+struct MenuLayoutTextEntry_0207f6ac;
+extern "C" MenuLayoutTextEntry_0207f6ac* FindMenuLayoutTextEntry_0207f6ac(MenuLayoutTextEntryList_0207f524* textEntries, int textId);
 
 struct Struct_02080468 {
     short* unknown_0_;
@@ -34,7 +34,7 @@ extern "C" ARM short func_02080468(void* arg0, int arg1) {
         unsigned char var2;
         for (var2 = 0; var2 < var1->unknown_13_; var2++) {
             var0 = var1->unknown_0_[var2];
-            Struct_02080468_2* var3 = (Struct_02080468_2*)func_0207f6ac((Struct_0207f524*)((char*)arg0 + 4), var0);
+            Struct_02080468_2* var3 = (Struct_02080468_2*)FindMenuLayoutTextEntry_0207f6ac((MenuLayoutTextEntryList_0207f524*)((char*)arg0 + 4), var0);
             if (var3 == NULL) continue;
             if (var3->unknown_2a_ & 2) continue;
             if (var3->unknown_18_ == 0 && var3->unknown_1c_ == 0 && var3->unknown_20_ == 0 && var3->unknown_24_ == 0) continue;

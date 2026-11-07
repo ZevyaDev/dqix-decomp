@@ -17,7 +17,7 @@
 
 struct GameResources;
 struct TextWindowManager_0205d81c;
-struct Struct_02109bf4_2;
+struct MusicManager_02109bf4_2;
 struct TextWindowManager_0205d6a0;
 struct Struct_0201099c_3;
 
@@ -94,7 +94,7 @@ int IsBrightnessTransitionActive(GameResources* resources);
 extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
 extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c* windowManager, int windowId, int palette);
-extern "C" void func_0209c830(Struct_02109bf4_2* arg0, int arg1);
+extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2* manager, int jingleIndex);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int func_0209ca2c(void* arg0);
 extern "C" int func_ov023_021ed014(struct Struct_ov023_021ec480* arg0);
@@ -177,7 +177,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
         *(Struct_ov023_021ec480_2*)var4 = *(Struct_ov023_021ec480_2*)&data_ov023_021fd844[0xa];
         for (int var5 = 0; var5 < 2; var5++)
             SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)arg0->unknown_c4_, var4[var5], 0);
-        func_0209c830((Struct_02109bf4_2*)gMusicManager_02109bf4, 0x40);
+        QueueJingle_0209c830((MusicManager_02109bf4_2*)gMusicManager_02109bf4, 0x40);
         arg0->unknown_432_++;
     }
     if (var2 == 3)
@@ -268,7 +268,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
             for (int var10 = 0; var10 < 2; var10++)
                 SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)arg0->unknown_c4_, var9[var10], 0);
         }
-        func_0209c830((Struct_02109bf4_2*)gMusicManager_02109bf4, 0x40);
+        QueueJingle_0209c830((MusicManager_02109bf4_2*)gMusicManager_02109bf4, 0x40);
         arg0->unknown_432_++;
     }
     if (var2 == 8)
@@ -309,7 +309,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
         var1->unknown_19b2_ = 0;
         var1->unknown_19c8_ = 0;
         var1->unknown_19ae_ = 0;
-        func_0209c830((Struct_02109bf4_2*)gMusicManager_02109bf4, 0x40);
+        QueueJingle_0209c830((MusicManager_02109bf4_2*)gMusicManager_02109bf4, 0x40);
         arg0->unknown_432_++;
     }
     if (var2 == 11)

@@ -83,10 +83,10 @@ struct Struct_ov003_02162f40_2 {
 };
 
 extern "C" void CloseMenuLayoutWindows_0207fe44(MenuLayout_0207fe44 *);
-extern "C" void func_020813ec(Struct_ov003_0216201c *, int);
+extern "C" void OpenMenuLayoutWindow_020813ec(Struct_ov003_0216201c *, int);
 extern "C" int func_02080468(void *, int);
 extern "C" void func_0208203c(Struct_02081f20_2 *);
-extern "C" void func_02080c68(void *, int, int);
+extern "C" void SetMenuLayoutWindowPalette_02080c68(void *, int, int);
 extern "C" int func_ov003_02160854(Struct_ov003_02154af4_3 *);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *, int, int);
 extern "C" void func_ov003_0217e5dc(Struct_ov003_02162f40_3 *, unsigned char);
@@ -112,17 +112,17 @@ extern "C" ARM void func_ov003_02162f40(Struct_ov003_02154af4_3 *arg0) {
 
     if (var0 == 0) {
         CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44 *) var1);
-        func_020813ec(var1, 8);
+        OpenMenuLayoutWindow_020813ec(var1, 8);
         arg0->unknown_488_   = 8;
         arg0->unknown_490_   = func_02080468(var1, arg0->unknown_488_);
         arg0->unknown_474_   = arg0->unknown_490_;
         var1->unknown_36_ = arg0->unknown_490_;
-        func_020813ec(var1, arg0->unknown_488_);
+        OpenMenuLayoutWindow_020813ec(var1, arg0->unknown_488_);
         func_0208203c((Struct_02081f20_2 *) arg0->unknown_308_);
         arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
     } else if (var0 == 1) {
         arg0->unknown_470_ = &arg0->unknown_490_;
-        func_02080c68(var1, arg0->unknown_488_, 0);
+        SetMenuLayoutWindowPalette_02080c68(var1, arg0->unknown_488_, 0);
         if (func_ov003_02160854(arg0) != 0) {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
             func_0208203c((Struct_02081f20_2 *) arg0->unknown_308_);
@@ -164,7 +164,7 @@ extern "C" ARM void func_ov003_02162f40(Struct_ov003_02154af4_3 *arg0) {
         CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44 *) var1);
         func_02081198((Struct_02081198 *) var1, 5, 1);
         func_02081164((Struct_02081164 *) var1, 5, 1);
-        func_020813ec(var1, 5);
+        OpenMenuLayoutWindow_020813ec(var1, 5);
         func_ov003_02165c9c(arg0);
         func_ov003_02166f80(arg0, arg0->unknown_488_, 1);
         arg0->unknown_464_ |= 0x780000;

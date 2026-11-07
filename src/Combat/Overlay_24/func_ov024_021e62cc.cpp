@@ -36,20 +36,20 @@ struct Struct_ov024_021e62cc_7 { int unknown_0_; int unknown_4_; };
 
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int func_ov000_0215fc60(char*);
-extern "C" int func_ov000_0215ffa0(struct Struct_ov024_021e62cc* arg0);
+extern "C" int GetLatestTargetCombatantIndex_ov000_0215ffa0(struct Struct_ov024_021e62cc* entry);
 extern "C" struct Struct_ov024_021e62cc* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index);
 extern "C" struct Struct_ov024_021e62cc_2* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
 extern "C" int func_ov024_021e6798(GameObject* arg0);
 extern "C" int func_ov024_021e67b0(GameObject* arg0);
 extern "C" int func_02085400(unsigned char* arg0);
-extern "C" int func_ov000_02156068(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int HasEnemyTrait_ov000_02156068(void* battle, int combatantIndex, int kind, int traitType);
 extern "C" short func_ov000_0215a004(void* arg0, int arg1, int arg2, int arg3, unsigned long long* arg4, struct Struct_ov024_021e62cc_5* arg5, int arg6, int arg7);
 extern "C" struct ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" int func_ov000_02159f18(void* arg0, unsigned long long arg1, int arg2);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void SetActionResult_ov000_0215ccbc(int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant,
-                            short arg3, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
+                            short amount, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
 extern "C" void func_ov000_0215fe84(void* arg0, void* arg1, int arg2);
 
 static inline short inline_ov024_021e57e0(ModifiableCombatStats* arg0) {
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov024_021e62cc(struct Struct_ov024_021e62cc_6* arg0, in
             if (var5->unknown_14_[var7] == 3) var6 = 1;
         }
         if (var6) continue;
-        int var8 = func_ov000_0215ffa0(var5);
+        int var8 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var5);
         if (arg1 == var8) continue;
         int var9 = 0;
         for (int var10 = 0; var10 < var2; var10++) {
@@ -125,7 +125,7 @@ extern "C" ARM void func_ov024_021e62cc(struct Struct_ov024_021e62cc_6* arg0, in
             if (!func_ov024_021e67b0(var16)) continue;
         }
         int var22 = var17 * var3[var15].unknown_4_;
-        if (func_ov000_02156068(arg0->unknown_10_, arg1, 0, 1)) {
+        if (HasEnemyTrait_ov000_02156068(arg0->unknown_10_, arg1, 0, 1)) {
             var22 = NextRandomMax((struct Random*)arg0->unknown_10_, 2);
         }
         if (var22 <= 0) continue;

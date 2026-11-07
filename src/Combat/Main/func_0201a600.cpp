@@ -114,7 +114,7 @@ int _Z39GenerateGrottoObjectPositionOrientationPviiPiS0_PK24TileFeaturePlacement
 int _ZNK8FloorMap16GetAdjacencyBitsEii(const Struct_0201a600_8* arg0, int arg1, int arg2);
 Struct_0201a600_6* func_0201ae8c(Struct_0201a600_6* arg0, Struct_0201a600_6* arg1);
 Struct_0201a600_5* GetZoneEntry_0200fd0c(GameState* gameState);
-int func_02018fbc(Struct_0201a600_3* arg0, Vector3i* arg1);
+int GetGroundHeight_02018fbc(Struct_0201a600_3* zone, Vector3i* position);
 void __clear(void* arg0, int arg1);
 void func_02024d94(void* arg0, unsigned short arg1, Vector3i* arg2);
 }
@@ -298,7 +298,7 @@ extern "C" ARM int func_0201a600(Struct_0201a600_3* arg0) {
                 var35->unknown_10_.x = 0;
                 var35->unknown_10_.y = 0;
                 var35->unknown_10_.z = 0xc000;
-                var35->unknown_10_.y = func_02018fbc(arg0, &var35->unknown_10_);
+                var35->unknown_10_.y = GetGroundHeight_02018fbc(arg0, &var35->unknown_10_);
                 var35->unknown_1c_ = 0x323d;
             } else {
                 Vector3i var36;
@@ -321,7 +321,7 @@ extern "C" ARM int func_0201a600(Struct_0201a600_3* arg0) {
                     var36.x -= 0x1800;
                     var37 = 0x4b65;
                 }
-                var36.y = func_02018fbc(arg0, &var36);
+                var36.y = GetGroundHeight_02018fbc(arg0, &var36);
                 var35->unknown_1c_ = var37;
                 var35->unknown_10_ = var36;
             }
@@ -420,7 +420,7 @@ extern "C" ARM int func_0201a600(Struct_0201a600_3* arg0) {
                 var41.x -= 0x1800;
                 var42 = 0x4b65;
             }
-            var41.y = func_02018fbc(arg0, &var41);
+            var41.y = GetGroundHeight_02018fbc(arg0, &var41);
             var39->unknown_1c_ = var42;
             var39->unknown_10_ = var41;
             var39->unknown_7_ = 1;

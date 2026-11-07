@@ -32,7 +32,7 @@ int fix32ReduceAngle0To2Pi(int);
 int fix32cos(int);
 int fix32sin(int);
 void Vector3fixMultiplyScalar(const Vector3i*, int, Vector3i*);
-extern "C" void* func_0201e838(unsigned char*, unsigned int);
+extern "C" void* GetFirstZoneFeatureOfType_0201e838(unsigned char*, unsigned int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_ov017_021d196c(unsigned short, unsigned short, int);
@@ -111,7 +111,7 @@ extern "C" ARM void func_02018300(Zone3D* arg0, Struct_020134e0::Struct_02018300
             break;
         }
     }
-    Struct_020134e0::Struct_02018300* var11 = (Struct_020134e0::Struct_02018300*)func_0201e838((unsigned char*)&arg0->substruct_6c_, 2);
+    Struct_020134e0::Struct_02018300* var11 = (Struct_020134e0::Struct_02018300*)GetFirstZoneFeatureOfType_0201e838((unsigned char*)&arg0->substruct_6c_, 2);
     while (var11) {
         if (var11->unknown_2c_.unknown1_0_.unknown_0_ == arg1->unknown_2c_.unknown1_0_.unknown_0_ && var11->unknown_2c_.unknown1_0_.unknown_1_ == arg1->unknown_2c_.unknown1_0_.unknown_1_)
             var11->unknown_2c_.unknown1_0_.unknown_2_4_ = (unsigned short)(var11->unknown_2c_.unknown1_0_.unknown_2_4_ | 1);

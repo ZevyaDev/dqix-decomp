@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Graphics/Vector.h"
 
-extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
 
 struct Struct_ov000_0216f0d0 {
     char unknown_0_[0x70];

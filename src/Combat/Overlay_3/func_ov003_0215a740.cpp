@@ -24,8 +24,8 @@ struct Struct_0201099c_3;
 extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_ov003_02159250(void*, void*);
 extern "C" void func_ov003_02159290(void*, unsigned short, int);
-struct Struct_0205dee8;
-extern "C" void func_0205dee8(Struct_0205dee8*, int);
+struct TextWindowManager_0205dee8;
+extern "C" void SetCursorTextWindow_0205dee8(TextWindowManager_0205dee8*, int);
 extern "C" void func_ov003_0215be20(void*);
 extern "C" int func_ov003_0215bd34(void*);
 extern "C" void func_ov003_0215c01c(void*, int, int);
@@ -40,8 +40,8 @@ struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" int func_ov003_0215bf18(void*, int);
 extern "C" int func_ov003_0215b580(void*, int);
-struct Struct_02109bf4_2;
-extern "C" void func_0209c830(Struct_02109bf4_2*, int);
+struct MusicManager_02109bf4_2;
+extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
 extern "C" int func_0209ca2c(void*);
 extern "C" void func_02048150(void*, int, int);
 extern "C" void func_02048418(unsigned char*, unsigned short);
@@ -51,7 +51,7 @@ extern "C" void SetEquippedItem_02052d7c(void*, signed char, int);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int, int);
-extern "C" void func_ov017_021c4418(int, int);
+extern "C" void SendPartyMemberBodyAppearance_ov017_021c4418(int, int);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void*, int, int, int, int);
 struct Struct_0203d028_4;
 extern "C" void func_ov017_021a3498(Struct_0203d028_4*);
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
 
     if (var3 == 1) {
         if (*(int*)(var2 + Enum_ov003_0215a740_2464) != 3) return;
-        func_0205dee8((Struct_0205dee8*)(var0 + 0xf4), 2);
+        SetCursorTextWindow_0205dee8((TextWindowManager_0205dee8*)(var0 + 0xf4), 2);
         *(unsigned char*)(var0 + 0x585) = 0;
         func_ov003_0215be20(arg0);
         *(unsigned char*)(var0 + 0x59f) = *(unsigned char*)(var0 + 0x59f) | 4;
@@ -213,7 +213,7 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
 
     if (var3 == 4) {
         if (*(int*)(var2 + Enum_ov003_0215a740_2464) != 3) return;
-        func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, 0x3b);
+        QueueJingle_0209c830((MusicManager_02109bf4_2*)&gMusicManager_02109bf4, 0x3b);
         *(unsigned char*)(var0 + 0x580) = *(unsigned char*)(var0 + 0x580) + 1;
     }
 
@@ -256,7 +256,7 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
             if (var18 != 0) {
                 if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18()) != 0) {
                     SendPartyMemberEquippedItems_ov017_021c3fb4(var14, 1);
-                    func_ov017_021c4418(var14, -1);
+                    SendPartyMemberBodyAppearance_ov017_021c4418(var14, -1);
                 }
                 void* var25 = (void*)GetGameResources();
                 void* var26 = *(void**)((char*)var25 + Enum_ov003_0215a740_14080);

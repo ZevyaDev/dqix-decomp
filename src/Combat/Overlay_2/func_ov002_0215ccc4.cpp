@@ -8,7 +8,7 @@
 #endif
 
 extern "C" void func_ov002_02157030(void* arg0, int arg1, short* arg2, short* arg3, short* arg4, short* arg5);
-extern "C" void func_ov002_0215be00(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetNextTextWindow_ov002_0215be00(void* menu, int windowId, int x, int y);
 extern "C" void func_ov002_0215cd98(void* arg0, void* arg1, int arg2);
 #if defined(jpn)
 extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov002_0215ccc4(char* arg0) {
     func_ov002_02157030(arg0, 4, &var0, &var1, &var2, &var3);
     var0 = var0 + 1;
     var1 = var1 + 8;
-    func_ov002_0215be00(arg0, ((struct Struct_ov002_0215ccc4_2*)(arg0 + 0x1000))->unknown_bb8_ & 0xff, var0, var1);
+    SetNextTextWindow_ov002_0215be00(arg0, ((struct Struct_ov002_0215ccc4_2*)(arg0 + 0x1000))->unknown_bb8_ & 0xff, var0, var1);
 
     memset(((struct Struct_ov002_0215ccc4*)(arg0 + 0x1000))->unknown_bd0_, 0, RG(0x960, 0x800));
     func_ov002_0215cd98(arg0, ((struct Struct_ov002_0215ccc4*)(arg0 + 0x1000))->unknown_bd0_, 0);

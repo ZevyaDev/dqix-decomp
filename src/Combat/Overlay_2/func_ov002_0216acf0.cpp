@@ -35,7 +35,7 @@ struct Struct_ov002_0215624c_11;
 extern "C" void SetNextTextWindowBGLayer_0205de24(Struct_ov002_0215624c_11*, unsigned char, unsigned char);
 extern "C" void func_ov002_02161174(char* arg0);
 extern "C" void func_ov002_0216bfd4(char* arg0, int arg1);
-extern "C" int func_ov002_02161b48(char* arg0, int arg1);
+extern "C" int IsCancelPressed_ov002_02161b48(char* menu, int isTouchCancelAllowed);
 extern "C" void func_ov017_021d0198(int arg0, int arg1, int arg2, int arg3);
 struct Struct_ov002_02164748;
 extern "C" int IsEntryTouchedAgain_0205da38(struct Struct_ov002_02164748* windowManager, int arg1);
@@ -49,10 +49,10 @@ extern "C" char* func_0205d888(Struct_ov002_0216acf0_2*);
 extern "C" void func_ov002_02156ff0(unsigned char*, int);
 extern "C" int func_ov002_02157108(void*, int);
 struct Struct_ov002_02164748_2;
-extern "C" void func_0205dee8(Struct_ov002_02164748_2*, int);
+extern "C" void SetCursorTextWindow_0205dee8(Struct_ov002_02164748_2*, int);
 struct Struct_ov002_02155960_2;
 extern "C" void SetTextWindowPalette_0205deb4(Struct_ov002_02155960_2*, int, int);
-extern "C" void func_ov002_02161cf0(char* arg0);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(char* menu);
 extern "C" void func_ov023_021dca88(char* arg0);
 extern "C" void func_0205d7a0(char* arg0, int arg1);
 extern "C" void func_ov002_0215c988(char* arg0, void* arg1, int arg2);
@@ -260,7 +260,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
                 break;
             case 2:
                 if (*(int*)(var1 + RG(0x9a0, 0x870)) == 3) {
-                    if (func_ov002_02161b48(arg0, 0) != 0 || g_touchInput.pressed_ != 0) {
+                    if (IsCancelPressed_ov002_02161b48(arg0, 0) != 0 || g_touchInput.pressed_ != 0) {
                         func_ov002_0216bfd4(arg0, 3);
                     }
                 }
@@ -283,7 +283,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
             int var23 = 0;
             int var24 = g_keyManager.TestKeysPressed(0x601);
             if (inline_ov002_0216acf0(var24, IsEntryTouchedAgain_0205da38((struct Struct_ov002_02164748*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0x14)) ||
-                func_ov002_02161b48(arg0, 1) != 0 ||
+                IsCancelPressed_ov002_02161b48(arg0, 1) != 0 ||
                 g_keyManager.TestKeysPressed(0xf0) != 0 || g_touchInput.pressed_ != 0) {
                 var23 = 1;
             }
@@ -361,9 +361,9 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
                         S16(RG(0x1be8, 0x1ab0)) = -1;
                         S32(RG(0x1bb8, 0x1a80)) = 4;
                         S32(RG(0x1bc0, 0x1a88)) = 1;
-                        func_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4);
+                        SetCursorTextWindow_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4);
                         SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4, 0);
-                        func_ov002_02161cf0(arg0);
+                        ConfigureMenuCursors_ov002_02161cf0(arg0);
                         if (S32(RG(0x247c, 0x22ac)) & 1) {
                             func_ov023_021dca88(arg0 + RG(0x50, 0x38));
                         }
@@ -380,7 +380,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
                 }
             } else if (S32(RG(0x1bb8, 0x1a80)) == K(0x11, 0x12)) {
                 if (S16(RG(0x1c26, 0x1aee)) == 0x22 || S16(RG(0x1c26, 0x1aee)) == 0x310) {
-                    func_ov002_02161cf0(arg0);
+                    ConfigureMenuCursors_ov002_02161cf0(arg0);
                 }
             } else if (S32(RG(0x247c, 0x22ac)) & 1) {
                 func_ov023_021dca88(arg0 + RG(0x50, 0x38));
@@ -429,9 +429,9 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
             char* var30 = func_0205d888((Struct_ov002_0216acf0_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)));
             if (U8(RG(0x2521, 0x2351)) != 0) {
                 S32(RG(0x1bb8, 0x1a80)) = S32(RG(0x1bbc, 0x1a84));
-                func_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4);
+                SetCursorTextWindow_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4);
                 SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4, 0);
-                func_ov002_02161cf0(arg0);
+                ConfigureMenuCursors_ov002_02161cf0(arg0);
                 U8(RG(0x2521, 0x2351)) = 0;
             } else if (var30 != 0) {
                 int var31 = S32(RG(0x1bbc, 0x1a84));
@@ -452,45 +452,45 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
         if (var32 == K(0xb, 0xc)) {
             func_ov002_0215b9a4(arg0, var32 & 0xff, 0);
             SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0xb, 0xc), 0);
-            func_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0xb, 0xc));
-            func_ov002_02161cf0(arg0);
+            SetCursorTextWindow_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0xb, 0xc));
+            ConfigureMenuCursors_ov002_02161cf0(arg0);
         } else if (var32 == 3) {
             short var33 = S16(RG(0x1be4, 0x1aac));
-            func_ov002_02161cf0(arg0);
+            ConfigureMenuCursors_ov002_02161cf0(arg0);
             S16(RG(0x1be4, 0x1aac)) = var33;
             func_ov002_0215b9a4(arg0, S32(RG(0x1bb8, 0x1a80)) & 0xff, 0);
         } else if (var32 == K(0x10, 0x11)) {
             func_ov002_0215b9a4(arg0, var32 & 0xff, 0);
             S32(RG(0x247c, 0x22ac)) |= 4;
             SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0x11, 0x12), 1);
-            func_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0x10, 0x11));
+            SetCursorTextWindow_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0x10, 0x11));
             SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0x10, 0x11), 0);
             S32(RG(0x1bc0, 0x1a88)) = 1;
-            func_ov002_02161cf0(arg0);
+            ConfigureMenuCursors_ov002_02161cf0(arg0);
         } else if (var32 == K(0x15, 0x16)) {
             short var34 = S16(RG(0x1bfe, 0x1ac6));
-            func_ov002_02161cf0(arg0);
+            ConfigureMenuCursors_ov002_02161cf0(arg0);
             S16(RG(0x1bfe, 0x1ac6)) = var34;
             func_ov002_0215b9a4(arg0, S32(RG(0x1bb8, 0x1a80)) & 0xff, 0);
         } else if (var32 == K(0x11, 0x12)) {
             if (FindTextWindow_0205d81c((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(7, 8)) != 0 || S16(RG(0x1bfc, 0x1ac4)) >= 0) {
                 func_ov002_02156ff0((unsigned char*)arg0, K(0x13, 0x14));
-                func_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0x11, 0x12));
+                SetCursorTextWindow_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0x11, 0x12));
                 SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(0x11, 0x12), 0);
                 S32(RG(0x1bc0, 0x1a88)) = 1;
                 S32(RG(0x1bb8, 0x1a80)) = K(0x11, 0x12);
                 if (S16(RG(0x1bfc, 0x1ac4)) >= 0) {
                     S16(RG(0x1bfc, 0x1ac4)) = -1;
                     S16(RG(0x1c26, 0x1aee)) = -1;
-                    func_ov002_02161cf0(arg0);
+                    ConfigureMenuCursors_ov002_02161cf0(arg0);
                     func_ov002_0215b9a4(arg0, S32(RG(0x1bb8, 0x1a80)) & 0xff, 0);
                 }
             }
-            func_ov002_02161cf0(arg0);
+            ConfigureMenuCursors_ov002_02161cf0(arg0);
         } else if (var32 == K(9, 0xa)) {
-            func_ov002_02161cf0(arg0);
+            ConfigureMenuCursors_ov002_02161cf0(arg0);
             SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(9, 0xa), 0);
-            func_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(9, 0xa));
+            SetCursorTextWindow_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), K(9, 0xa));
             S32(RG(0x1bc8, 0x1a90)) = 1;
             S32(RG(0x1bcc, 0x1a94)) = 1;
             func_ov002_0215b9a4(arg0, S32(RG(0x1bb8, 0x1a80)) & 0xff, 0);
@@ -503,9 +503,9 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
                     S16(RG(0x1be8, 0x1ab0)) = -1;
                     S32(RG(0x1bb8, 0x1a80)) = 4;
                     S32(RG(0x1bc0, 0x1a88)) = 1;
-                    func_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4);
+                    SetCursorTextWindow_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4);
                     SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4, 0);
-                    func_ov002_02161cf0(arg0);
+                    ConfigureMenuCursors_ov002_02161cf0(arg0);
                     if (S32(RG(0x247c, 0x22ac)) & 1) {
                         func_ov023_021dca88(arg0 + RG(0x50, 0x38));
                     }

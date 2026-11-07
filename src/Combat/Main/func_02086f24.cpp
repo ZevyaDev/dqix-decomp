@@ -145,7 +145,7 @@ extern "C" void InitItemTable_020de824(void* itemTable);
 extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" int func_020def44(int arg0, int arg1, int arg2, short arg3);
 extern "C" void func_02083e28(void* arg0, int arg1);
-extern "C" void func_0209a804(int* arg0);
+extern "C" void ClearSpellTable_0209a804(int* table);
 extern "C" void func_0209a8b4(Struct_02086f24_6* arg0, SafeAllocator* arg1, Struct_02013fb4* arg2, int arg3);
 extern "C" int func_0209ab20(Struct_02086f24_7* arg0, int arg1, int arg2, unsigned char* arg3);
 extern "C" int func_02086778(Struct_02086f24_4* arg0, Struct_0201099c_20* arg1, unsigned char arg2, unsigned char arg3);
@@ -282,7 +282,7 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
     if (var13) {
         void* var18 = LoadFileIntoMemory(data_020f102e, gFileScratchSpace_0211e33c, &var9);
         if (var18 != NULL) {
-            func_0209a804((int*)&var10);
+            ClearSpellTable_0209a804((int*)&var10);
             func_0209a8b4(&var10, &var4, (Struct_02013fb4*)var18, var9);
             int var19 = func_0209ab20((Struct_02086f24_7*)&var10, var12, var0.unknown_2_[var12], var7);
             unsigned char* var20 = var7;

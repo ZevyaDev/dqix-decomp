@@ -57,7 +57,7 @@ extern "C" void* func_0203f1c8(unsigned char*, unsigned int);
 extern "C" Struct_0203f53c_5* func_0203f354(Struct_0203f2b0_2*, unsigned int);
 extern "C" void* func_0202ed74(void*);
 extern "C" int func_020c56b0(int*);
-extern "C" int func_0202e7f0(void*);
+extern "C" int GetCameraYaw_0202e7f0(void*);
 extern "C" void func_020c51c0(int);
 extern "C" void func_020ca528(const void*, void*);
 extern "C" void func_02031278(void*);
@@ -138,7 +138,7 @@ extern "C" ARM int func_0203f53c(Struct_0203f53c* arg0, void* arg1, int arg2) {
         REG_TRANSLATE_0203f53c = -var20;
         REG_TRANSLATE_0203f53c = 0;
         if (!(arg0->unknown_50_ & 0x10)) func_020c51c0((int)var3);
-        else func_02031234(func_0202e7f0(arg1));
+        else func_02031234(GetCameraYaw_0202e7f0(arg1));
         REG_TRANSLATE_0203f53c = 0;
         REG_TRANSLATE_0203f53c = var20;
         REG_TRANSLATE_0203f53c = 0;

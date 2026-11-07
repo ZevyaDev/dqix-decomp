@@ -30,7 +30,7 @@ extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char*, int, unsigned char);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char*, int, unsigned char);
 extern "C" int GetStandardString_020e51cc(int);
-extern "C" void func_ov002_0215be00(void*, int, short, short);
+extern "C" void SetNextTextWindow_ov002_0215be00(void*, int, short, short);
 extern "C" void ClearMessageParams_02046380(void*);
 extern "C" void UpdateTextWindowManager_0205d0e0(void*, int);
 #if defined(jpn)
@@ -49,7 +49,7 @@ extern "C" void OpenTextWindow_0205d304(void*, const char*, int, unsigned char, 
 // JPN: func_ov002_0215d060
 extern "C" ARM void func_ov002_0215bf34(char* arg0) {
     Struct_ov002_0215bf34* var0 = ((Struct_ov002_0215bf34*)(arg0));
-    func_ov002_0215be00(var0, Enum_ov002_0215bf34_41, 0x15, 0x15);
+    SetNextTextWindow_ov002_0215be00(var0, Enum_ov002_0215bf34_41, 0x15, 0x15);
 
     Struct_ov002_0215bf34_2* var1 = static_cast<Struct_ov002_0215bf34_2*>(GetParty_02010828(GameState::GetInstance()));
     MessageWindow_020465c0* var2 = ((MessageWindow_020465c0*)(GetMessageWindow_020421a0()));

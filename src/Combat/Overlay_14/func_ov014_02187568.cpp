@@ -58,7 +58,7 @@ struct Struct_ov014_02186bc8 {
     SafeAllocator* unknown_b4_;
     Struct_ov014_02184f78* unknown_b8_;
     Struct_ov014_02184f78* unknown_bc_;
-    Struct_0207f7f0* unknown_c0_;
+    MenuLayout_0207f7f0* unknown_c0_;
     BGLayer_02020cb8* unknown_c4_;
     Struct_0207f7f0_2* unknown_c8_;
     void* unknown_cc_;
@@ -98,7 +98,7 @@ struct Struct_0207f914;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 struct StringTable_0201099c_14;
-struct Struct_0207f7f0;
+struct MenuLayout_0207f7f0;
 struct Struct_0207f7f0_2;
 
 extern "C" int* GetResources_0200fb8c(int*);
@@ -117,11 +117,11 @@ extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
 extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14*);
 extern "C" void func_020abf38(void*);
-extern "C" void func_0207f7f0(Struct_0207f7f0*, Struct_0207f7f0_2*, int);
+extern "C" void func_0207f7f0(MenuLayout_0207f7f0*, Struct_0207f7f0_2*, int);
 
 extern "C" {
 void func_020972e0(Struct_020974b0* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
-int func_0207f9f4(Struct_0207f7f0* arg0);
+int func_0207f9f4(MenuLayout_0207f7f0* arg0);
 void LoadSpriteSetFile_0205a528(Struct_ov008_02188d74* spriteSet, void* fileData, unsigned int size, SafeAllocator* allocator);
 void LoadStringTable_020dfec0(Struct_01ff8b48_13* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 void func_020abf60(Struct_020974b0* arg0);
@@ -314,7 +314,7 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
         BG3CNTSUB = (BG3CNTSUB & ~3) | 3;
         DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | (0x17 << 8);
         ColorEffect_ConfigureAlphaBlend(0x04001050, BLEND_TARGET_BG1, 4, 10, 6);
-        Struct_0207f7f0* var22 = arg0->unknown_c0_;
+        MenuLayout_0207f7f0* var22 = arg0->unknown_c0_;
         var22->unknown_2c_ = arg0->unknown_c4_;
         var22->unknown_38_ = 2;
         func_0207f7f0(arg0->unknown_c0_, arg0->unknown_c8_, 4);

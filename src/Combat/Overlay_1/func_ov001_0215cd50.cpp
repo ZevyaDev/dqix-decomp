@@ -2,7 +2,7 @@
 #include "World/Object3D.h"
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
-extern "C" int func_ov017_021d612c(void*);
+extern "C" int GetScriptValueAsString_ov017_021d612c(void*);
 
 struct Struct_ov001_0215cd50;
 struct Object3D;
@@ -17,7 +17,7 @@ extern "C" ARM int func_ov001_0215cd50(void* arg0, int arg1) {
     int var1 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x8);
     int var2 = 0;
     if (arg1 >= 3) {
-        var2 = func_ov017_021d612c((char*)arg0 + 0x10);
+        var2 = GetScriptValueAsString_ov017_021d612c((char*)arg0 + 0x10);
     }
     Struct_ov001_0215cd50_2* var3 = (Struct_ov001_0215cd50_2*)data_ov001_02165880.unknown_4_;
     void* var4 = NULL;

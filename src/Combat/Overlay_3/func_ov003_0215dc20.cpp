@@ -20,7 +20,7 @@ extern "C" ARM void func_ov003_0215dc20(void* arg0) {
 	var1 = var0[Enum_ov003_0215dc20_1005];
 	if (var1 == 0) {
 		var2 = GetFontLoader_02094a00();
-		func_02094b3c(var2, 0xa);
+		ClearLoadedFontSetForSize_02094b3c(var2, 0xa);
 		if (var0[Enum_ov003_0215dc20_1008] != 0) {
 			RequestSingleFontLoad_02094b30(var2, 0x1f5, 0);
 		} else {

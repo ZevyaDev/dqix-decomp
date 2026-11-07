@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" float func_ov017_021d6110(void*);
+extern "C" float GetScriptValueAsFloat_ov017_021d6110(void*);
 extern "C" void* GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" int func_ov001_0215ab20(void*);
 
@@ -24,15 +24,15 @@ extern "C" ARM int func_ov001_0215dfc4(void* arg0, int arg1) {
     if (arg1 >= 2) {
         void* var3 = arg0;
         arg0 = (char*)arg0 + 0x8;
-        var2.unknown_0_ += (int)(4096.0f * func_ov017_021d6110(var3));
+        var2.unknown_0_ += (int)(4096.0f * GetScriptValueAsFloat_ov017_021d6110(var3));
     }
     if (arg1 >= 3) {
         void* var4 = arg0;
         arg0 = (char*)arg0 + 0x8;
-        var2.unknown_4_ += (int)(4096.0f * func_ov017_021d6110(var4));
+        var2.unknown_4_ += (int)(4096.0f * GetScriptValueAsFloat_ov017_021d6110(var4));
     }
     if (arg1 >= 4) {
-        var2.unknown_8_ += (int)(4096.0f * func_ov017_021d6110(arg0));
+        var2.unknown_8_ += (int)(4096.0f * GetScriptValueAsFloat_ov017_021d6110(arg0));
     }
     func_ov001_02159250(data_ov001_02165880.unknown_24_, var1, var2);
     return 1;

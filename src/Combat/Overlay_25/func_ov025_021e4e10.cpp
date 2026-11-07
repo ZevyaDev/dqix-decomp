@@ -7,7 +7,7 @@ extern "C" void ResetBattleCamera_ov000_0216d370(int camera, int resetRoll, int 
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 struct Vector3i;
-extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
 
 struct Struct_ov025_021e4e10 {
     unsigned int unknown_0_[3];

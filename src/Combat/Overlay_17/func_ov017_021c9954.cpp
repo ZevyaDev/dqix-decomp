@@ -62,7 +62,7 @@ extern "C" Struct_ov017_021c9954_3* GetBattleSetup_ov017_021b8478(Struct_ov017_0
 extern "C" Struct_ov017_021c9954_3* GetBattleScene_ov017_021b8468(Struct_ov017_021c9954_2* battleManager);
 extern "C" void func_ov000_02163778(void* arg0);
 extern "C" void func_020dc548(signed char arg0, signed char* arg1, signed char* arg2);
-extern "C" void func_ov017_021917f0(int arg0, int arg1);
+extern "C" void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int isHeld);
 extern "C" Struct_ov017_021c9954* func_ov017_021a278c(void* arg0, int arg1);
 extern "C" void func_ov017_021c98f4(int arg0, int arg1);
 extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov017_021c9954(int arg0, int arg1, int arg2, int arg3) 
         signed char var9[7];
         func_020dc548(arg3, var9, &var8);
         for (int var10 = 0; var10 < var8; var10++) {
-            func_ov017_021917f0(var9[var10], 0);
+            AttachPartyMemberWeapon_ov017_021917f0(var9[var10], 0);
         }
     }
 }

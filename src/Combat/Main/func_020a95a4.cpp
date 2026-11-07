@@ -141,14 +141,14 @@ struct Struct_020a95a4_6 {
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" Struct_020a95a4_2* GetZone3D_02012fe4(void);
-extern "C" Struct_020a95a4_3* func_02094d6c(void);
+extern "C" Struct_020a95a4_3* GetQuestManager_02094d6c(void);
 extern "C" void func_020a93e0(char* arg0);
 extern "C" void func_02082d6c(void* arg0, void* arg1);
 extern "C" int func_020838c4(struct Struct_020838c4* arg0, int arg1);
 extern "C" void func_020a093c(struct Struct_0208660c* arg0, int arg1, int arg2, short arg3);
 extern "C" int func_020a0a08(struct Struct_02061c04_23* arg0, int arg1, int arg2);
 extern "C" void func_0207c258(void* arg0);
-extern "C" unsigned short* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
+extern "C" unsigned short* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
 extern "C" unsigned char* func_0207c60c(void* arg0, unsigned int arg1);
 extern "C" short func_0207c620(unsigned char* arg0, unsigned int arg1);
 extern "C" void func_0207c6a8(unsigned char* arg0, unsigned int arg1, unsigned char arg2);
@@ -170,7 +170,7 @@ extern "C" ARM int func_020a95a4(Struct_020a95a4_6* arg0, Struct_020a95a4_5* arg
     GetLocalWireless_0202ae18();
     Struct_020a95a4_2* var2 = GetZone3D_02012fe4();
     GetGameResources();
-    Struct_020a95a4_3* var3 = func_02094d6c();
+    Struct_020a95a4_3* var3 = GetQuestManager_02094d6c();
 #if !defined(jpn)
     func_020a93e0((char*)arg0);
 #endif
@@ -215,7 +215,7 @@ extern "C" ARM int func_020a95a4(Struct_020a95a4_6* arg0, Struct_020a95a4_5* arg
     int var9 = 0;
     func_0207c258(var1->unknown_1d4_);
     for (int var10 = 0; var10 < 8; var10++) {
-        unsigned short* var11 = func_0207c5f8(var1->unknown_1d4_, var10);
+        unsigned short* var11 = GetEquipmentBagItemIds_0207c5f8(var1->unknown_1d4_, var10);
         unsigned char* var12 = func_0207c60c(var1->unknown_1d4_, var10);
         short var13 = func_0207c620(var1->unknown_1d4_, var10);
         memcpy(var11, &arg0->unknown_1f30_[var9], var13 * 2);

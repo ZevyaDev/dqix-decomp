@@ -110,7 +110,7 @@ struct Struct_0210a010_3 {
 };
 extern Struct_0210a010_3 gRenderConfig_0210a010;
 
-extern "C" void InitFollowCamera_020a2010(void* arg0);
+extern "C" void InitFollowCamera_020a2010(void* storage);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
 extern "C" void SetCameraOrbit_0202e5d8(void* camera, int angle, int height, int distance);
 extern "C" void UpdateCamera_0202e0a4(void* camera);

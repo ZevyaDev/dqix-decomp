@@ -15,7 +15,7 @@ struct Struct_020e4b34_2 {
     unsigned int unknown_3_7_ : 1;
 };
 
-struct Struct_020e4b34 {
+struct Noun_020e4b34 {
     int unknown_0_;
     int unknown_4_;
     union {
@@ -24,20 +24,20 @@ struct Struct_020e4b34 {
     } unknown_8_;
 };
 
-// USA: func_020e4b34
-extern "C" ARM void func_020e4b34(Struct_020e4b34* arg0, int arg1, int arg2, unsigned int arg3,
-        unsigned char arg4, unsigned char arg5, unsigned char arg6, unsigned char arg7,
-        unsigned char arg8, unsigned char arg9, unsigned char arg10, unsigned char arg11) {
-    memset(arg0, 0, 0xc);
-    arg0->unknown_0_ = arg1;
-    arg0->unknown_4_ = arg2;
-    arg0->unknown_8_.unknown1_0_.unknown_0_0_ = arg3;
-    arg0->unknown_8_.unknown1_0_.unknown_0_6_ = arg4;
-    arg0->unknown_8_.unknown1_0_.unknown_1_4_ = arg5;
-    arg0->unknown_8_.unknown1_0_.unknown_2_2_ = arg6;
-    arg0->unknown_8_.unknown1_0_.unknown_3_0_ = arg7;
-    arg0->unknown_8_.unknown1_0_.unknown_3_2_ = arg8;
-    arg0->unknown_8_.unknown1_0_.unknown_3_3_ = arg9;
-    arg0->unknown_8_.unknown1_0_.unknown_3_4_ = arg10;
-    arg0->unknown_8_.unknown1_0_.unknown_3_6_ = arg11;
+// USA: SetNoun_020e4b34
+extern "C" ARM void SetNoun_020e4b34(Noun_020e4b34* noun, int singularText, int pluralText, unsigned int singularIndefiniteArticle,
+        unsigned char pluralIndefiniteArticle, unsigned char singularDefiniteArticle, unsigned char pluralDefiniteArticle, unsigned char gender,
+        unsigned char isPluralOnly, unsigned char arg9, unsigned char hasInitialVowelSound, unsigned char isInitialVowelFromText) {
+    memset(noun, 0, 0xc);
+    noun->unknown_0_ = singularText;
+    noun->unknown_4_ = pluralText;
+    noun->unknown_8_.unknown1_0_.unknown_0_0_ = singularIndefiniteArticle;
+    noun->unknown_8_.unknown1_0_.unknown_0_6_ = pluralIndefiniteArticle;
+    noun->unknown_8_.unknown1_0_.unknown_1_4_ = singularDefiniteArticle;
+    noun->unknown_8_.unknown1_0_.unknown_2_2_ = pluralDefiniteArticle;
+    noun->unknown_8_.unknown1_0_.unknown_3_0_ = gender;
+    noun->unknown_8_.unknown1_0_.unknown_3_2_ = isPluralOnly;
+    noun->unknown_8_.unknown1_0_.unknown_3_3_ = arg9;
+    noun->unknown_8_.unknown1_0_.unknown_3_4_ = hasInitialVowelSound;
+    noun->unknown_8_.unknown1_0_.unknown_3_6_ = isInitialVowelFromText;
 }

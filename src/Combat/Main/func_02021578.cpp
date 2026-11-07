@@ -53,7 +53,7 @@ extern "C" void func_02020fc4(void* arg0, int* arg1, SafeAllocator* arg2);
 #endif
 extern "C" void func_020210f8(char* arg0, int* arg1, SafeAllocator* arg2);
 extern "C" void func_0202445c(void* arg0);
-extern "C" void func_ov017_02191234(void* arg0);
+extern "C" void RebuildPartyOrders_ov017_02191234(void* gameResources);
 extern "C" void WaitForVBlank_020c9820(void);
 extern "C" void func_0202343c(void* arg0);
 extern "C" void func_02026b7c(unsigned char* arg0);
@@ -248,7 +248,7 @@ extern "C" ARM void func_02021578(Struct_02020554* arg0) {
         }
         func_020210f8((char*)arg0, arg0->unknown_9d8_, var12);
         func_0202445c(arg0);
-        func_ov017_02191234(var5);
+        RebuildPartyOrders_ov017_02191234(var5);
         arg0->unknown_55c_ = 1;
         arg0->unknown_9c4_ = 1;
         arg0->unknown_9c8_ = 0;

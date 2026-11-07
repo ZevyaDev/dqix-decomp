@@ -24,7 +24,7 @@ extern "C" void func_0205b20c(struct Struct_020200c0_4* arg0);
 extern "C" void func_0205b220(void* arg0, int arg1);
 extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
 extern "C" void* GetMessageWindow_020421a0(void);
-extern "C" void* func_020425b4(int arg0, int arg1);
+extern "C" void* GetFontGlyph_020425b4(int glyphIndex, int font);
 extern "C" int func_020425e4(int arg0, int arg1, int arg2);
 extern "C" int func_02042648(int arg0);
 extern "C" void DC_FlushRange(const void* p, unsigned int len);
@@ -184,7 +184,7 @@ extern "C" ARM void func_0203bebc(void* arg0, void* arg1, void* arg2)
         var28 = *var30;
         if (var28 == 0) break;
         int var31 = var27;
-        struct Struct_0203bebc_4* var32 = (struct Struct_0203bebc_4*)func_020425b4(var28, 0);
+        struct Struct_0203bebc_4* var32 = (struct Struct_0203bebc_4*)GetFontGlyph_020425b4(var28, 0);
         if (var32 != 0) {
             var31 = var32->unknown_4_;
             func_0205b36c(&var24, var32, (short)var25, 0, 0xf, 0);

@@ -84,7 +84,7 @@ struct Struct_ov006_02154614 {
     unsigned char unknown_12bd_;
 };
 
-extern "C" void func_ov023_021dc134(Struct_ov006_02154614_2* arg0, short arg1, signed char arg2);
+extern "C" void InitItemInfoPanel_ov023_021dc134(Struct_ov006_02154614_2* arg0, short itemId, signed char arg2);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void func_ov006_0215479c(Struct_ov006_02156e54* arg0);
 extern "C" void func_020dbd9c(Struct_020dbd9c* arg0);
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov006_02154614(Struct_ov006_02154614* arg0) {
     arg0->unknown_1e0_ = 0;
     arg0->unknown_1284_ = 0;
     arg0->unknown_1280_ = 0;
-    func_ov023_021dc134(&arg0->unknown_ae4_, -1, 1);
+    InitItemInfoPanel_ov023_021dc134(&arg0->unknown_ae4_, -1, 1);
     arg0->unknown_ae4_.unknown_774_ |= 0x10 | 0x200;
     InitSpriteSet_0205a444(arg0->unknown_1e4_);
     arg0->unknown_238_.Initialize();

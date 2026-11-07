@@ -10,13 +10,13 @@ struct Struct_0201b78c {
     char unknown_40_[0x30];
     Struct_0201b78c* unknown_70_;
 };
-extern "C" void* func_0201e838(unsigned char*, unsigned int);
+extern "C" void* GetFirstZoneFeatureOfType_0201e838(unsigned char*, unsigned int);
 int Vector3fix_Distance(const Vector3fix*, const Vector3fix*);
 
 // USA: func_0201b78c
 extern "C" ARM Struct_0201b78c* func_0201b78c(Zone3D* arg0, const Vector3fix* arg1) {
     Struct_0201b78c* var0 = 0;
-    Struct_0201b78c* var1 = (Struct_0201b78c*)func_0201e838((unsigned char*)&arg0->substruct_6c_, 11);
+    Struct_0201b78c* var1 = (Struct_0201b78c*)GetFirstZoneFeatureOfType_0201e838((unsigned char*)&arg0->substruct_6c_, 11);
     Vector3fix var2;
     var2.x = arg1->x * 6;
     var2.y = arg1->y * 6;

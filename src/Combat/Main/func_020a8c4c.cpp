@@ -27,7 +27,7 @@ extern "C" ARM void func_020a8c4c(struct Struct_020a8c4c* arg0, unsigned char ar
     if (IsBrightnessWithinValidRange(var1, false) == 0) {
         DisablePlayerControl_020397cc((struct Struct_02018300_3*)var3, 1);
         *(short*)((char*)var3 + 0xac) = 0;
-        if (arg1 == var2->obj3D_.unknown_4_) {
+        if (arg1 == var2->obj3D_.objectIndex_4_) {
             return;
         }
         func_ov017_021d2c34(arg1, 0, 0);

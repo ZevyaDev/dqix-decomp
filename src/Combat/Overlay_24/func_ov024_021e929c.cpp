@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
-extern "C" int func_020882f8(unsigned char* arg0);
+extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 
 struct Struct_ov024_021dbd84_6 {
@@ -16,7 +16,7 @@ extern "C" ARM int func_ov024_021e929c(struct Struct_ov024_021dbd84_6* arg0, int
     if (var0 == NULL) {
         return 0;
     }
-    int var1 = func_020882f8((unsigned char*)var0->currentStats_);
+    int var1 = IsAsleep_020882f8((unsigned char*)var0->currentStats_);
     if (arg2 != 0) {
         if (var1 != 0) {
             return SelectPartyOrEnemyMessage_ov024_021da644(arg1, 0x42, 0x42 + 0x13c);

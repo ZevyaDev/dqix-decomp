@@ -72,7 +72,7 @@ extern "C" ARM void func_ov017_0218e674(unsigned char* arg0) {
         if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) != 0 &&
             var9->obj3D_.GetField06() == var0->GetUnknownGameObject()->obj3D_.GetField06() &&
             ((var9->obj3D_.classFlags_0_ & 0x1000) != 0 ||
-             (var9->obj3D_.unknown_4_ == 0 && (*(unsigned int*)((char*)var9 + Enum_ov017_0218e674_396) & 1) != 0)) &&
+             (var9->obj3D_.objectIndex_4_ == 0 && (*(unsigned int*)((char*)var9 + Enum_ov017_0218e674_396) & 1) != 0)) &&
             func_02039860(var9) >= 0) {
             var2[var8] = 1;
             func_02037d88(var9);

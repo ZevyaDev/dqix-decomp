@@ -27,7 +27,7 @@ enum { Enum_ov017_021a2c14_1500 = 0x58c };
 #else
 enum { Enum_ov017_021a2c14_1500 = 0x5dc };
 #endif
-extern "C" void* func_0203cf4c();
+extern "C" void* GetNPCManager_0203cf4c();
 extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" int func_020107d0(char*);
 extern "C" int func_02010804(char*);
@@ -45,7 +45,7 @@ extern "C" void func_0203d028(void*, int, SafeAllocator*, unsigned char*);
 extern "C" void func_0203e2c4(void*, unsigned short);
 extern "C" void* GetZone3D_02012fe4();
 extern "C" Struct_ov017_021a2c14_2* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
-extern "C" int func_02018fbc(void*, Vector3i*);
+extern "C" int GetGroundHeight_02018fbc(void*, Vector3i*);
 extern char data_ov017_021d76a6[];
 extern unsigned char gFileScratchSpace_0211e33c[];
 extern char data_ov017_021d76bb[];
@@ -58,7 +58,7 @@ extern char data_ov017_021d76d4[];
 extern "C" ARM int func_ov017_021a2c14(GameResources* arg0, Zone3D_StructPtr_8* arg1) {
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
-    void* var2 = func_0203cf4c();
+    void* var2 = GetNPCManager_0203cf4c();
     SafeAllocator* var3 = &arg0->allocator_array_38[7];
     unsigned char* var4 = reinterpret_cast<unsigned char*>(arg0) + Enum_ov017_021a2c14_1500;
     int var5 = arg1->unknown_0_;
@@ -131,11 +131,11 @@ extern "C" ARM int func_ov017_021a2c14(GameResources* arg0, Zone3D_StructPtr_8* 
         if (!var25 || (var25->unknown_0_ & 0x800) || (var25->unknown_0_ & 0x1000)) continue;
         if (var25->unknown_14_) {
             Vector3i var26 = var25->unknown_14_->unknown_4_;
-            var26.y = func_02018fbc(var23, &var26);
+            var26.y = GetGroundHeight_02018fbc(var23, &var26);
             var25->unknown_14_->unknown_4_ = var26;
         } else if (var25->unknown_18_) {
             Vector3i var27 = var25->unknown_18_->position_;
-            var27.y = func_02018fbc(var23, &var27);
+            var27.y = GetGroundHeight_02018fbc(var23, &var27);
             var25->unknown_18_->position_ = var27;
         }
     }

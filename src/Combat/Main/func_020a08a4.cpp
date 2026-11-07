@@ -1,15 +1,15 @@
 #include "GameState/BattleRecordSnapshot.h"
 #include <globaldefs.h>
 
-// USA: func_020a08a4
-extern "C" ARM int func_020a08a4(Struct_02061c04* arg0) {
-    unsigned int var0 = arg0->unknown_15_1_;
-    unsigned int var1 = var0 * 100 / 232;
-    if (var1 != 0) {
-        return var1;
+// USA: GetItemListCompletion_020a08a4
+extern "C" ARM int GetItemListCompletion_020a08a4(BattleRecords_02061c04* records) {
+    unsigned int itemListCount = records->itemListCount_15_1_;
+    unsigned int percent = itemListCount * 100 / 232;
+    if (percent != 0) {
+        return percent;
     }
-    if (var0 != 0) {
+    if (itemListCount != 0) {
         return 1;
     }
-    return var1;
+    return percent;
 }

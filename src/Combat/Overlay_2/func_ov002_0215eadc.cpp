@@ -12,7 +12,7 @@ extern "C" void func_ov002_0215ee04(char *arg0);
 
 extern "C" void func_ov002_0215ef60(void *arg0);
 extern "C" void func_ov002_02157030(void *arg0, int arg1, short *arg2, short *arg3, short *arg4, short *arg5);
-extern "C" void func_ov002_0215be00(void *arg0, int arg1, int arg2, int arg3);
+extern "C" void SetNextTextWindow_ov002_0215be00(void *menu, int windowId, int x, int y);
 extern "C" void func_ov002_0215ec4c(void *arg0, void *arg1, int arg2);
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov002_0215eadc(char *arg0, int arg1) {
     int var6 = ((struct Struct_ov002_0215eadc_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff;
     if (arg1 != 0) var6 = RG(0x11, 0x12);
     if (FindTextWindow_0205d81c((struct Struct_ov002_02155960_2 *) (arg0 + RG(0xec8, 0xe20)), var6) == 0) {
-        func_ov002_0215be00(arg0, var6, var2, var3);
+        SetNextTextWindow_ov002_0215be00(arg0, var6, var2, var3);
         memset(((struct Struct_ov002_0215eadc *) (arg0 + 0x1000))->unknown_bd0_, 0, RG(0x960, 0x800));
         func_ov002_0215ec4c(arg0, ((struct Struct_ov002_0215eadc *) (arg0 + 0x1000))->unknown_bd0_, 0);
 #if defined(jpn)

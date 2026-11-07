@@ -5,7 +5,7 @@
 
 
 extern "C" void HaltForever_020c9be0(void);
-extern "C" void func_020ca3ec(int arg0, void* arg1, int arg2);
+extern "C" void Memset32BitByWord_020ca3ec(int arg0, void* arg1, int arg2);
 extern "C" void InitializeVRAM(void);
 
 extern unsigned short data_02111220;
@@ -42,9 +42,9 @@ extern "C" ARM void func_020c36f0(void) {
         var1 = *(int*)((char*)&data_020f226c + 4);
         DMAMemsetSynchronous(var1, 0x4001000, 0, 0x70);
     } else {
-        func_020ca3ec(0, (void*)0x4000008, 0x60);
+        Memset32BitByWord_020ca3ec(0, (void*)0x4000008, 0x60);
         *(volatile unsigned short*)0x400006c = 0;
-        func_020ca3ec(0, (void*)0x4001000, 0x70);
+        Memset32BitByWord_020ca3ec(0, (void*)0x4001000, 0x70);
     }
 
     *(volatile unsigned short*)0x4000020 = 0x100;

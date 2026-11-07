@@ -115,7 +115,7 @@ extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, in
 extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 void SetBrightness(GameResources* resources, int brightness, int duration);
 extern "C" void func_ov017_021a65c4(void* arg0, unsigned char arg1, int arg2);
-extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int arg1);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int isFullReset);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void func_0200fb40(void* arg0);
 extern "C" int func_02011b50(void* arg0, int arg1);

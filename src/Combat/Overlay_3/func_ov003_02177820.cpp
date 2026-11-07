@@ -12,15 +12,15 @@ enum { Enum_ov003_02177820_2204 = 0x89c };
 #include "GameState/GameState.h"
 
 struct MenuLayout_0207fdcc_2;
-extern "C" void func_02080c20(struct MenuLayout_0207fdcc_2* arg0, int arg1);
-extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
+extern "C" void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
+extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 extern "C" void func_02080bac(void* arg0, int arg1);
-struct Struct_02080f8c;
-extern "C" void func_02080f8c(struct Struct_02080f8c* arg0, int arg1, int arg2);
+struct MenuLayout_02080f8c;
+extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c* menuLayout, int textId, int text);
 struct Struct_02080cc0;
 extern "C" void func_02080cc0(struct Struct_02080cc0* arg0, int arg1, int arg2);
 extern "C" int func_020dcc98(int arg0);
-extern "C" void func_020813ec(void* arg0, int arg1);
+extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" void* GetParty_02010828(GameState* gameState);
 
 // USA: func_ov003_02177820
@@ -38,8 +38,8 @@ extern "C" ARM void func_ov003_02177820(char* arg0) {
     case 4: var3 = 0x14; var4 = 0x85; break;
     }
 
-    func_02080c20(var0, var3);
-    func_02080c68(var0, var3, 0);
+    ShowMenuLayoutWindow_02080c20(var0, var3);
+    SetMenuLayoutWindowPalette_02080c68(var0, var3, 0);
     func_02080bac(var0, var3);
 
     int var5;
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov003_02177820(char* arg0) {
         if (var7 != 0) {
             var5 = *(int*)((char*)var7 + 0x134);
         }
-        func_02080f8c((struct Struct_02080f8c*)var0, var4, var5);
+        SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var0, var4, var5);
 
         int var8 = func_020dcc98((signed char)*(int*)(arg0 + Enum_ov003_02177820_4124 + var6 * 4));
         func_02080cc0((struct Struct_02080cc0*)var0, var4, var8);
@@ -58,5 +58,5 @@ extern "C" ARM void func_ov003_02177820(char* arg0) {
         var4 = (short)(var4 + 1);
     }
 
-    func_020813ec(var0, var3);
+    OpenMenuLayoutWindow_020813ec(var0, var3);
 }

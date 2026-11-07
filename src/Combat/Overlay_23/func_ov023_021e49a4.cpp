@@ -51,7 +51,7 @@ extern const char data_ov023_021fdcd8[];
 extern "C" {
 void func_02045d14(Struct_02045cac*, const char*, unsigned short*, int);
 int func_020420e8(const char*, int);
-int func_ov017_021bdbcc(GameResources*);
+int GetHaloObject_ov017_021bdbcc(GameResources*);
 void __clear(void*, unsigned int);
 int sprintf(char*, const char*, ...);
 void func_020439b0(Struct_02045cac*, int);
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov023_021e49a4(Struct_ov023_021e49a4_4* arg0) {
             func_02045d14(var5, var13, var4[var11], 0);
             arg0->unknown_580_[var11] = 35 - func_020420e8(var13, 0) / 2;
             short var14 = var12->unknown_150_->unknown_950_ + 500;
-            if (func_ov017_021bdbcc(GetGameResources())) var14 = 500;
+            if (GetHaloObject_ov017_021bdbcc(GetGameResources())) var14 = 500;
             if (inline_ov023_021e49a4(var12->unknown_130_) <= 0) {
                 func_02045d14(var5, arg0->unknown_640_[var12->unknown_150_->unknown_49c_0_], var3[var11], 0);
             } else {

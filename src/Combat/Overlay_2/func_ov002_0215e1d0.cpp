@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" void func_ov002_0215be00(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetNextTextWindow_ov002_0215be00(void* menu, int windowId, int x, int y);
 extern "C" void func_ov002_0215e250(void* arg0, void* arg1, int arg2);
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -16,7 +16,7 @@ struct Struct_ov002_0215e1d0_2 { char unknown_0_[RG(0xbb8, 0xa80)]; int unknown_
 
 // USA: func_ov002_0215e1d0
 extern "C" ARM void func_ov002_0215e1d0(char* arg0) {
-    func_ov002_0215be00(arg0, ((struct Struct_ov002_0215e1d0_2*)(arg0 + 0x1000))->unknown_bb8_ & 0xff, 1, 1);
+    SetNextTextWindow_ov002_0215be00(arg0, ((struct Struct_ov002_0215e1d0_2*)(arg0 + 0x1000))->unknown_bb8_ & 0xff, 1, 1);
 
     memset(((struct Struct_ov002_0215e1d0*)(arg0 + 0x1000))->unknown_bd0_, 0, RG(0x960, 0x800));
     func_ov002_0215e250(arg0, ((struct Struct_ov002_0215e1d0*)(arg0 + 0x1000))->unknown_bd0_, 0);

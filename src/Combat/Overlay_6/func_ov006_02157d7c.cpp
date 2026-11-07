@@ -22,8 +22,8 @@ extern "C" int func_ov006_02158c70();
 extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" unsigned short func_02081f20(void* arg0, int arg1);
 extern "C" int func_020800fc(void* arg0, short* arg1, short arg2, unsigned short arg3, unsigned char arg4, int arg5);
-extern "C" int func_020804fc(void* arg0, int arg1);
-extern "C" int func_020813ec(void* arg0, int arg1);
+extern "C" int ClearMenuLayoutWindowHighlights_020804fc(void* menuLayout, int windowId);
+extern "C" int OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
 extern "C" void func_020e263c(struct Struct_020e263c_2* arg0, int arg1);
 
@@ -134,9 +134,9 @@ extern "C" ARM int func_ov006_02157d7c(struct Struct_ov006_02157d7c* arg0, int a
                                    (*(unsigned short*)((char*)arg0 + 0x300 + 0x94) & 4) != 0);
         *(short*)((char*)var1 + Enum_ov006_02157d7c_54) = *arg0->unknown_44_;
         if (arg0->unknown_350_ != 0)
-            func_020804fc(var1, *(short*)((char*)arg0 + 0x300 + 0x6e));
+            ClearMenuLayoutWindowHighlights_020804fc(var1, *(short*)((char*)arg0 + 0x300 + 0x6e));
         if (*(short*)((char*)arg0 + 0x300 + 0x5e) != *arg0->unknown_44_)
-            func_020813ec(var1, *(short*)((char*)arg0 + 0x300 + 0x6e));
+            OpenMenuLayoutWindow_020813ec(var1, *(short*)((char*)arg0 + 0x300 + 0x6e));
     }
 
     if (arg0->unknown_18_ != 0)

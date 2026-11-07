@@ -39,7 +39,7 @@ extern "C" Struct_02081870* GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(Struct_02081870*);
 extern "C" void GetPartyOrder_020114ec(char*, void*);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
-extern "C" Struct_ov023_021f2a48_3* func_0206f4f0(Struct_0206f01c_2*, int);
+extern "C" Struct_ov023_021f2a48_3* FindMonsterData_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" void InitNoun_020e46c4(void*);
 extern "C" Struct_ov023_021edc08_5 func_ov023_021ed804(Struct_ov023_021edc08_5, Struct_ov023_021f2a48_3*);
 extern "C" void func_ov023_021edf38(void*, Struct_ov023_021edc08_5*);
@@ -80,7 +80,7 @@ extern "C" ARM int func_ov023_021f2a48(Struct_ov023_021f2a48_6* arg0) {
             break;
         }
         if (!var9) return arg0->unknown_eac_;
-        Struct_ov023_021f2a48_3* var12 = func_0206f4f0(&arg0->unknown_2a0_->unknown_678_, (short)var4);
+        Struct_ov023_021f2a48_3* var12 = FindMonsterData_0206f4f0(&arg0->unknown_2a0_->unknown_678_, (short)var4);
         if (!var12) return arg0->unknown_eac_;
         Struct_ov023_021edc08_5 var13;
         Struct_ov023_021f2a48_4 var14;

@@ -13,7 +13,7 @@ extern "C" int func_ov017_021c5bf8(int arg0, int arg1);
 extern "C" void func_ov017_021c5e28(int, int);
 extern "C" void func_ov017_021c5a8c(int arg0, int arg1);
 extern "C" int func_ov017_021c5a1c(int arg0);
-extern "C" void* func_0207d78c(void);
+extern "C" void* GetBattleJoinTable_0207d78c(void);
 extern "C" int func_0207d7f4(void* arg0, unsigned short arg1, int arg2, int arg3,
                              signed char arg4, unsigned short arg5, unsigned char arg6);
 extern "C" int func_ov017_021c5c5c(int arg0, int arg1, int arg2);
@@ -204,7 +204,7 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
                     if (!IsNotLocalWirelessGuest_0202c508(GetLocalWireless_0202ae18())) {
                         var2 = false;
                     } else {
-                        var26 = func_0207d78c();
+                        var26 = GetBattleJoinTable_0207d78c();
                         func_0207d7f4(var26, arg1->unknown_4_, arg0, 1, arg0, arg1->unknown_6_, arg1->unknown_c_);
                         var2 = func_ov017_021c5c5c(arg0, arg1->unknown_4_, arg0) != 0;
                         func_0207d7f4(var26, arg1->unknown_4_, 0, var2, arg0, arg1->unknown_6_, arg1->unknown_c_);

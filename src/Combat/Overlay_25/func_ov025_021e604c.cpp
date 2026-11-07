@@ -9,7 +9,7 @@ struct Struct_ov009_0218aa28 {
 };
 
 extern "C" void* GetBattleScene_ov000_02160130();
-extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 extern "C" void func_02049f28(unsigned char* arg0);
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
@@ -49,7 +49,7 @@ extern "C" ARM int func_ov025_021e604c(void* arg0, int arg1, int arg2, void* arg
     if (var13 == NULL) {
         return 1;
     }
-    int var14 = func_ov000_021820bc(arg3, arg1, 0x18, (int)var0);
+    int var14 = CollectObjectIndicesBySelector_ov000_021820bc(arg3, arg1, 0x18, (int)var0);
     for (int var15 = 0; var15 < var14; var15++) {
         GameObject* var16 = var12->GetCombatantByIndex(var0[var15]);
         if (var16 != NULL) {

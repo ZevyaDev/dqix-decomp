@@ -24,6 +24,6 @@ extern "C" ARM void func_02048150(GameObject* arg0, int arg1, int arg2) {
     if (var7->unknown_0_ & 4) var6 = 1;
     var7->unknown_0_ = 0;
     if (var6) arg0->unknown_ac_.unknown_84_->unknown_0_ |= 4;
-    if (var4 && IsInParty_02086ef0(var2, arg0->obj3D_.unknown_4_) && arg2)
+    if (var4 && IsInParty_02086ef0(var2, arg0->obj3D_.objectIndex_4_) && arg2)
         RebuildFieldPartyOrder_ov017_02191108(var1, 1, 1, 1, 1);
 }

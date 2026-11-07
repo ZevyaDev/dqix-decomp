@@ -10,7 +10,7 @@ struct Struct_02033834_2;
 extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 
 struct Struct_02033b68;
-extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
+extern "C" void SetMotionIfDifferent_02033b68(struct Struct_02033b68* object, int motion);
 
 struct Struct_02039df4;
 
@@ -52,7 +52,7 @@ extern "C" ARM int func_020776a0(struct Struct_020776a0* arg0) {
     arg0->unknown_b0_ = 0x97;
     arg0->unknown_b4_ = 0x1c2;
     arg0->unknown_b2_ = 0x1c2;
-    func_02033b68((struct Struct_02033b68*)arg0, 1);
+    SetMotionIfDifferent_02033b68((struct Struct_02033b68*)arg0, 1);
 
     GameObject* var5 = var0->GetProtagonist();
     unsigned short var6 = ((Object3D*)((struct Struct_02039df4*)var5))->GetField06();

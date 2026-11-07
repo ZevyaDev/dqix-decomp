@@ -36,7 +36,7 @@ extern "C" void func_0200fb84(int* arg0, int arg1);
 extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
 extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" void ResetOAMManager_0203bd24(char* oamManager);
-extern "C" int* func_0203bd14();
+extern "C" int* GetSpriteTextManager_0203bd14();
 extern "C" int GetSubOAMBuffer_0203be4c(void* arg0);
 extern "C" void func_0203c35c(int* arg0);
 extern "C" void MapVRAMBanksToLCDC(unsigned short mask);
@@ -80,7 +80,7 @@ extern "C" void WaitForVBlank_020c9820();
 extern "C" void TurnOnMainDisplay_020c38d4();
 extern "C" void func_02010124(Struct_0200f3a4_9* arg0);
 extern "C" int GetGameMode_0200fb9c(char* gameState);
-extern "C" void func_02012efc();
+extern "C" void UpdateInput_02012efc();
 extern "C" void func_ov021_0218bb30(void* arg0);
 extern "C" void func_020bbcb4();
 extern "C" void func_ov009_02184ca4(void* arg0);
@@ -131,7 +131,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     void* var1 = GetOAMManager_0203bd08();
     ResetOAMManager_0203bd24((char*)var1);
     *(int*)var1 = 0;
-    int* var2 = func_0203bd14();
+    int* var2 = GetSpriteTextManager_0203bd14();
     *var2 = GetSubOAMBuffer_0203be4c(var1) + 0x200;
     func_0203c35c(var2);
     var2[Enum_ov021_0218b5fc_1288 / 4] = 0x7000;
@@ -217,7 +217,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
         if (GetGameMode_0200fb9c((char*)var0) == 0 || arg0->unknown_b8_ != 0) {
             break;
         }
-        func_02012efc();
+        UpdateInput_02012efc();
         func_ov021_0218baf8((Struct_ov021_0218b5fc_2*)arg0);
         func_ov021_0218bb30(arg0);
         arg0->unknown_28_ = 1;

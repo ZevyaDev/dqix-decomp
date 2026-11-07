@@ -12,9 +12,9 @@ extern "C" float _fflt(int v);
 extern "C" float _fsub(float arg0, float arg1);
 extern "C" int _ffix(float v);
 
-extern "C" void func_020a27b8(unsigned char* arg0);
-extern "C" int func_0202e7f0(void* arg0);
-extern "C" void func_020a27ac(void* arg0);
+extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
+extern "C" int GetCameraYaw_0202e7f0(void* camera);
+extern "C" void EnableCameraTurning_020a27ac(void* camera);
 struct Struct_0203ca24;
 extern "C" void func_0203cedc(struct Struct_0203ca24* arg0, int arg1, int arg2);
 struct Struct_0203ca24_2;
@@ -40,8 +40,8 @@ extern "C" ARM void func_0203ca24(struct Struct_0203ca24_3* arg0, void* arg1) {
     int var2;
     signed char var3;
 
-    func_020a27b8((unsigned char*)arg1);
-    var1 = func_0202e7f0(arg1);
+    DisableCameraTurning_020a27b8((unsigned char*)arg1);
+    var1 = GetCameraYaw_0202e7f0(arg1);
     var2 = _ffix(_fsub(25736.0f, _fflt(1608)));
     memset(var0, 0, 19);
 
@@ -93,7 +93,7 @@ tail:
         if (arg0->unknown_94_ == 0) {
             func_0203cedc((struct Struct_0203ca24*)arg0, 0, 0);
             arg0->unknown_94_ = 0xf;
-            func_020a27ac(arg1);
+            EnableCameraTurning_020a27ac(arg1);
             data_020efc18 = -1;
         }
     }

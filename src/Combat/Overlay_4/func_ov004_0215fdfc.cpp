@@ -3,7 +3,7 @@
 #include "Combat/Main/BattleList.h"
 
 extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
-extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
+extern "C" int func_02061bd8(struct PartyMember_0205faf4_11* arg0);
 extern "C" unsigned short func_ov004_0215eb20(void* arg0, int arg1);
 struct SoundEffectManager_02108760;
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
@@ -168,7 +168,7 @@ extern "C" ARM int func_ov004_0215fdfc(void* arg0) {
             if (var1 != NULL) break;
         }
     }
-    if (func_02061bd8((struct Struct_0205faf4_11*)var1)) {
+    if (func_02061bd8((struct PartyMember_0205faf4_11*)var1)) {
         int var9 = 0;
         while (!var9) {
             data_ov004_021707e8.unknown1_a_ = data_ov004_021707e8.unknown1_a_ + 1;
@@ -186,7 +186,7 @@ extern "C" ARM int func_ov004_0215fdfc(void* arg0) {
                 data_ov004_021707e8.unknown_1c_ = var4;
                 break;
             }
-            if (func_02061bd8((struct Struct_0205faf4_11*)var1) == 0) var9 = 1;
+            if (func_02061bd8((struct PartyMember_0205faf4_11*)var1) == 0) var9 = 1;
         }
     }
     int var10 = ((Struct_ov004_0215fdfc_3*)var1)->unknown_150_->unknown_950_;

@@ -22,7 +22,7 @@ struct Sprite_02043368_2;
 extern "C" void InitSprite_0205a198(struct Sprite_02043368_2* sprite);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 
-extern "C" void* func_0203bd14();
+extern "C" void* GetSpriteTextManager_0203bd14();
 extern "C" void* GetSubOAMBuffer_0203be4c(void);
 struct PacEntry_02020aec;
 extern "C" int func_0205a498(void* arg0, struct PacEntry_02020aec* arg1, int arg2, void* arg3);
@@ -45,7 +45,7 @@ struct BGLayer_02020cb8;
 extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 extern "C" void LoadBGBlock_0204b174(void* layer, void* block, SafeAllocator* allocator, int arg3);
 extern "C" void func_0202445c(void* arg0);
-extern "C" void func_ov017_02191234(void* arg0);
+extern "C" void RebuildPartyOrders_ov017_02191234(void* gameResources);
 extern "C" void func_0202343c(void* arg0);
 extern "C" void func_02026b7c(unsigned char* arg0);
 extern "C" void func_02026bdc(void* arg0, int arg1);
@@ -188,11 +188,11 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
         arg0->unknown_94_.unknown_50_ = 1;
         arg0->unknown_94_.unknown_40_ = arg0->unknown_e8_;
         arg0->unknown_94_.unknown_4c_ = 0x1b;
-        char* var20 = (char*)func_0203bd14();
+        char* var20 = (char*)GetSpriteTextManager_0203bd14();
         *(int*)(var20 + Enum_02021f88_1288) = 0x2000;
         GetOAMManager_0203bd08();
         char* var21 = (char*)GetSubOAMBuffer_0203be4c() + 0x2c0;
-        var20 = (char*)func_0203bd14();
+        var20 = (char*)GetSpriteTextManager_0203bd14();
         *(char**)var20 = var21;
         if (func_0201b5d8(*var12)) {
             if (var11->GetTaskStatus(arg0->unknown_9d0_) == 0) return;
@@ -318,7 +318,7 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
             arg0->unknown_a1c_ = -1;
         }
         func_0202445c(arg0);
-        func_ov017_02191234(var13);
+        RebuildPartyOrders_ov017_02191234(var13);
         arg0->unknown_55c_ = 1;
         arg0->unknown_9c4_ = 1;
         arg0->unknown_9c8_ = 0;

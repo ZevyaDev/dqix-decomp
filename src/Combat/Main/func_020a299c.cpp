@@ -39,7 +39,7 @@ extern "C" void Vector3fix_Add(const struct Struct_ov009_0218aa28* arg0, const s
 struct Vector3i;
 void Vector3fixMultiplyScalar(Vector3i const*, int, Vector3i*);
 extern "C" void func_0202ec5c(char*, int*);
-extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
 
 static inline int inline_02061c04_5(int arg0, int arg1) {
     return (int)(((long long)arg0 * arg1 + 0x800) >> 12);

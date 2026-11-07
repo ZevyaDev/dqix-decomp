@@ -12,7 +12,7 @@ struct Struct_ov000_0216e250 {
 };
 struct Struct_02049b54_2;
 extern "C" struct Struct_ov000_0216e250 func_02049b54(struct Struct_02049b54_2* arg0);
-extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
 
 extern int data_ov000_0218323c[];
 extern int data_ov000_02183244[];

@@ -7,33 +7,33 @@ struct TextWindowManager_0205d81c {
 };
 struct TextWindow_0205d0e0 {
     char unknown_0_[0xa8];
-    short unknown_a8_;
+    short width_a8_;
     short unknown_aa_;
-    short unknown_ac_;
-    short unknown_ae_;
+    short tileX_ac_;
+    short tileY_ae_;
 };
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 
-// USA: func_0205d97c
-extern "C" ARM int func_0205d97c(TextWindowManager_0205d81c* arg0) {
+// USA: HitTestCursorWindowTouch_0205d97c
+extern "C" ARM int HitTestCursorWindowTouch_0205d97c(TextWindowManager_0205d81c* windowManager) {
     if (!g_touchInput.pressed_) return -1;
     TextWindow_0205d0e0* var0;
-    int var1;
-    int var2;
-    var0 = FindTextWindow_0205d81c(arg0, arg0->cursorWindowId_b0_);
+    int touchX;
+    int touchY;
+    var0 = FindTextWindow_0205d81c(windowManager, windowManager->cursorWindowId_b0_);
     if (var0 == NULL) return 0;
-    g_touchInput.GetTouchPoint(&var1, &var2);
-    if (var1 == 0 || var2 == 0) return 0;
-    int var3 = var0->unknown_ac_;
-    int var4 = var0->unknown_ae_;
-    int var5 = var0->unknown_a8_;
-    int var6 = var0->unknown_aa_;
-    var3 = (short)(var3 << 3);
-    var4 = (short)(var4 << 3);
-    var5 = (short)(var5 << 3);
-    var6 = (short)(var6 << 3);
-    int var7 = var3 + var5;
-    int var8 = var4 + var6;
-    if (var3 <= var1 && var1 < var7 && var4 <= var2 && var2 < var8) return 1;
+    g_touchInput.GetTouchPoint(&touchX, &touchY);
+    if (touchX == 0 || touchY == 0) return 0;
+    int left = var0->tileX_ac_;
+    int top = var0->tileY_ae_;
+    int width = var0->width_a8_;
+    int height = var0->unknown_aa_;
+    left = (short)(left << 3);
+    top = (short)(top << 3);
+    width = (short)(width << 3);
+    height = (short)(height << 3);
+    int right = left + width;
+    int bottom = top + height;
+    if (left <= touchX && touchX < right && top <= touchY && touchY < bottom) return 1;
     return 2;
 }

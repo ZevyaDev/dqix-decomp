@@ -16,19 +16,19 @@ extern "C"
 
 void InitializeVRAM()
 {
-    data_02111224.lcdcMappedBanks_ = 0;
-    data_02111224.mainBGBanks_ = 0;
-    data_02111224.mainOBJBanks_ = 0;
-    data_02111224.arm7WorkRAMBanks_ = 0;
-    data_02111224.textureImageBanks_ = 0;
-    data_02111224.texturePaletteBanks_ = 0;
-    data_02111224.clearTextureBanks_ = 0;
-    data_02111224.mainBGExtPaletteBanks_ = 0;
-    data_02111224.mainObjExtPaletteBanks_ = 0;
-    data_02111224.subBGBanks_ = 0;
-    data_02111224.subOBJBanks_ = 0;
-    data_02111224.subBGExtPaletteBanks_ = 0;
-    data_02111224.subObjExtPaletteBanks_ = 0;
+    gVRAMBankUsages_02111224.lcdcMappedBanks_ = 0;
+    gVRAMBankUsages_02111224.mainBGBanks_ = 0;
+    gVRAMBankUsages_02111224.mainOBJBanks_ = 0;
+    gVRAMBankUsages_02111224.arm7WorkRAMBanks_ = 0;
+    gVRAMBankUsages_02111224.textureImageBanks_ = 0;
+    gVRAMBankUsages_02111224.texturePaletteBanks_ = 0;
+    gVRAMBankUsages_02111224.clearTextureBanks_ = 0;
+    gVRAMBankUsages_02111224.mainBGExtPaletteBanks_ = 0;
+    gVRAMBankUsages_02111224.mainObjExtPaletteBanks_ = 0;
+    gVRAMBankUsages_02111224.subBGBanks_ = 0;
+    gVRAMBankUsages_02111224.subOBJBanks_ = 0;
+    gVRAMBankUsages_02111224.subBGExtPaletteBanks_ = 0;
+    gVRAMBankUsages_02111224.subObjExtPaletteBanks_ = 0;
 
     intptr_t vramAddr = 0x04000240;
     *(int*)vramAddr = 0; // banks A, B, C, D
@@ -63,8 +63,8 @@ void InternalMapVRAMBanksToLCDC(int banks)
 
 extern "C" void MapVRAMBanksToMainBG(int banks)
 {
-    data_02111224.lcdcMappedBanks_ = ~banks & (data_02111224.lcdcMappedBanks_ | data_02111224.mainBGBanks_);
-    data_02111224.mainBGBanks_ = banks;
+    gVRAMBankUsages_02111224.lcdcMappedBanks_ = ~banks & (gVRAMBankUsages_02111224.lcdcMappedBanks_ | gVRAMBankUsages_02111224.mainBGBanks_);
+    gVRAMBankUsages_02111224.mainBGBanks_ = banks;
     // You can either use any of banks A,B,C,D, or you can use any of E,F,G
     // but you can't mix the two sets.
     // A,B,C,D are all 128k and are mapped consecutively to 06000000, 06020000, ...
@@ -141,13 +141,13 @@ extern "C" void MapVRAMBanksToMainBG(int banks)
         VRAMCNT_G = 0x81;
         break;
     }
-    InternalMapVRAMBanksToLCDC(data_02111224.lcdcMappedBanks_);
+    InternalMapVRAMBanksToLCDC(gVRAMBankUsages_02111224.lcdcMappedBanks_);
 }
 
 extern "C" void MapVRAMBanksToMainObj(int banks)
 {
-    data_02111224.lcdcMappedBanks_ = ~banks & (data_02111224.lcdcMappedBanks_ | data_02111224.mainOBJBanks_);
-    data_02111224.mainOBJBanks_ = banks;
+    gVRAMBankUsages_02111224.lcdcMappedBanks_ = ~banks & (gVRAMBankUsages_02111224.lcdcMappedBanks_ | gVRAMBankUsages_02111224.mainOBJBanks_);
+    gVRAMBankUsages_02111224.mainOBJBanks_ = banks;
     // You can either use A and/or B, or you can use any of E,F,G.
     // Offset assignments are like with main BG (see previous function).
     // Here MST = 2 in all cases, so offsets 0,1,2,3 correspond to
@@ -185,13 +185,13 @@ extern "C" void MapVRAMBanksToMainObj(int banks)
         VRAMCNT_G = 0x82;
         break;
     }
-    InternalMapVRAMBanksToLCDC(data_02111224.lcdcMappedBanks_);
+    InternalMapVRAMBanksToLCDC(gVRAMBankUsages_02111224.lcdcMappedBanks_);
 }
 
 void MapVRAMBanksToMainBGExtendedPalette(int banks)
 {
-    data_02111224.lcdcMappedBanks_ = ~banks & (data_02111224.lcdcMappedBanks_ | data_02111224.mainBGExtPaletteBanks_);
-    data_02111224.mainBGExtPaletteBanks_ = banks;
+    gVRAMBankUsages_02111224.lcdcMappedBanks_ = ~banks & (gVRAMBankUsages_02111224.lcdcMappedBanks_ | gVRAMBankUsages_02111224.mainBGExtPaletteBanks_);
+    gVRAMBankUsages_02111224.mainBGExtPaletteBanks_ = banks;
     // MST = 4 and offset 0 or 1: 0x84 or 0x8c
     switch (banks)
     {
@@ -214,13 +214,13 @@ void MapVRAMBanksToMainBGExtendedPalette(int banks)
         DISPCNT &= ~DISPCNT_ENABLE_BG_EXTENDED_PALETTE;
         break;
     }
-    InternalMapVRAMBanksToLCDC(data_02111224.lcdcMappedBanks_);
+    InternalMapVRAMBanksToLCDC(gVRAMBankUsages_02111224.lcdcMappedBanks_);
 }
 
 void MapVRAMBanksToMainObjExtendedPalette(int banks)
 {
-    data_02111224.lcdcMappedBanks_ = ~banks & (data_02111224.lcdcMappedBanks_ | data_02111224.mainObjExtPaletteBanks_);
-    data_02111224.mainObjExtPaletteBanks_ = banks;
+    gVRAMBankUsages_02111224.lcdcMappedBanks_ = ~banks & (gVRAMBankUsages_02111224.lcdcMappedBanks_ | gVRAMBankUsages_02111224.mainObjExtPaletteBanks_);
+    gVRAMBankUsages_02111224.mainObjExtPaletteBanks_ = banks;
     // MST = 5, only offset 0 can work
     switch (banks)
     {
@@ -236,13 +236,13 @@ void MapVRAMBanksToMainObjExtendedPalette(int banks)
         DISPCNT &= ~DISPCNT_ENABLE_OBJ_EXTENDED_PALETTE;
         break;
     }
-    InternalMapVRAMBanksToLCDC(data_02111224.lcdcMappedBanks_);
+    InternalMapVRAMBanksToLCDC(gVRAMBankUsages_02111224.lcdcMappedBanks_);
 }
 
 void MapVRAMBanksToTextureImage(int banks)
 {
-    data_02111224.lcdcMappedBanks_ = ~banks & (data_02111224.lcdcMappedBanks_ | data_02111224.textureImageBanks_);
-    data_02111224.textureImageBanks_ = banks;
+    gVRAMBankUsages_02111224.lcdcMappedBanks_ = ~banks & (gVRAMBankUsages_02111224.lcdcMappedBanks_ | gVRAMBankUsages_02111224.textureImageBanks_);
+    gVRAMBankUsages_02111224.textureImageBanks_ = banks;
     // MST = 3 for A-D means texture image.
     // Offsets 0, 1, 2, 3 are 0x83, 0x8b, 0x93, 0x9b respectively.
     if (banks == 0)
@@ -299,13 +299,13 @@ void MapVRAMBanksToTextureImage(int banks)
             VRAMCNT_A = 0x83;
         }
     }
-    InternalMapVRAMBanksToLCDC(data_02111224.lcdcMappedBanks_);
+    InternalMapVRAMBanksToLCDC(gVRAMBankUsages_02111224.lcdcMappedBanks_);
 }
 
 void MapVRAMBanksToTexturePalette(int banks)
 {
-    data_02111224.lcdcMappedBanks_ = ~banks & (data_02111224.lcdcMappedBanks_ | data_02111224.texturePaletteBanks_);
-    data_02111224.texturePaletteBanks_ = banks;
+    gVRAMBankUsages_02111224.lcdcMappedBanks_ = ~banks & (gVRAMBankUsages_02111224.lcdcMappedBanks_ | gVRAMBankUsages_02111224.texturePaletteBanks_);
+    gVRAMBankUsages_02111224.texturePaletteBanks_ = banks;
     // MST = 3 for E,F,G means texture palette.
     // Offset 2 for F or G puts it right after E ends
     switch (banks)
@@ -328,13 +328,13 @@ void MapVRAMBanksToTexturePalette(int banks)
         VRAMCNT_E = 0x83;
         break;
     }
-    InternalMapVRAMBanksToLCDC(data_02111224.lcdcMappedBanks_);
+    InternalMapVRAMBanksToLCDC(gVRAMBankUsages_02111224.lcdcMappedBanks_);
 }
 
 void MapVRAMBanksToClearTextures(int banks)
 {
-    data_02111224.lcdcMappedBanks_ = ~banks & (data_02111224.lcdcMappedBanks_ | data_02111224.clearTextureBanks_);
-    data_02111224.clearTextureBanks_ = banks;
+    gVRAMBankUsages_02111224.lcdcMappedBanks_ = ~banks & (gVRAMBankUsages_02111224.lcdcMappedBanks_ | gVRAMBankUsages_02111224.clearTextureBanks_);
+    gVRAMBankUsages_02111224.clearTextureBanks_ = banks;
     switch (banks)
     {
     case VRAM_BANK_A | VRAM_BANK_B:
@@ -361,14 +361,14 @@ void MapVRAMBanksToClearTextures(int banks)
         DISP3DCNT |= DISP3DCNT_USE_CLEAR_TEXTURES;
         break;
     }
-    InternalMapVRAMBanksToLCDC(data_02111224.lcdcMappedBanks_);
+    InternalMapVRAMBanksToLCDC(gVRAMBankUsages_02111224.lcdcMappedBanks_);
 }
 
 // This match is a war crime but switch(...) just wasn't cooperating here
 void MapVRAMBanksToArm7WorkRAM(int banks)
 {
-    data_02111224.lcdcMappedBanks_ = ~banks & (data_02111224.lcdcMappedBanks_ | data_02111224.arm7WorkRAMBanks_);
-    data_02111224.arm7WorkRAMBanks_ = banks;
+    gVRAMBankUsages_02111224.lcdcMappedBanks_ = ~banks & (gVRAMBankUsages_02111224.lcdcMappedBanks_ | gVRAMBankUsages_02111224.arm7WorkRAMBanks_);
+    gVRAMBankUsages_02111224.arm7WorkRAMBanks_ = banks;
     if (banks <= 8)
     {
         if (banks >= 8)
@@ -396,20 +396,20 @@ workram_case_D:
     VRAMCNT_D = 0x82;
     goto workram_switch_end;
 workram_switch_end:
-    InternalMapVRAMBanksToLCDC(data_02111224.lcdcMappedBanks_);
+    InternalMapVRAMBanksToLCDC(gVRAMBankUsages_02111224.lcdcMappedBanks_);
 }
 
 void MapVRAMBanksToLCDC(int banks)
 {
-    data_02111224.lcdcMappedBanks_ |= banks;
+    gVRAMBankUsages_02111224.lcdcMappedBanks_ |= banks;
     InternalMapVRAMBanksToLCDC(banks);
 }
 
 // more war crimes here
 void MapVRAMBanksToSubBG(int banks)
 {
-    data_02111224.lcdcMappedBanks_ = ~banks & (data_02111224.lcdcMappedBanks_ | data_02111224.subBGBanks_);
-    data_02111224.subBGBanks_ = banks;
+    gVRAMBankUsages_02111224.lcdcMappedBanks_ = ~banks & (gVRAMBankUsages_02111224.lcdcMappedBanks_ | gVRAMBankUsages_02111224.subBGBanks_);
+    gVRAMBankUsages_02111224.subBGBanks_ = banks;
     // this one uses MST 4 for bank C, but MST 1 for H and I (no offsets)
     if (banks <= 0x80)
     {
@@ -435,13 +435,13 @@ subBG_case_H:
     VRAMCNT_H = 0x81;
     goto subBG_switch_end;
 subBG_switch_end:
-    InternalMapVRAMBanksToLCDC(data_02111224.lcdcMappedBanks_);
+    InternalMapVRAMBanksToLCDC(gVRAMBankUsages_02111224.lcdcMappedBanks_);
 }
 
 void MapVRAMBanksToSubObj(int banks)
 {
-    data_02111224.lcdcMappedBanks_ = ~banks & (data_02111224.lcdcMappedBanks_ | data_02111224.subOBJBanks_);
-    data_02111224.subOBJBanks_ = banks;
+    gVRAMBankUsages_02111224.lcdcMappedBanks_ = ~banks & (gVRAMBankUsages_02111224.lcdcMappedBanks_ | gVRAMBankUsages_02111224.subOBJBanks_);
+    gVRAMBankUsages_02111224.subOBJBanks_ = banks;
     // this mode uses MST = 4 for D and MST = 2 for I
     switch (banks)
     {
@@ -454,13 +454,13 @@ void MapVRAMBanksToSubObj(int banks)
         VRAMCNT_I = 0x82;
         break;
     }
-    InternalMapVRAMBanksToLCDC(data_02111224.lcdcMappedBanks_);
+    InternalMapVRAMBanksToLCDC(gVRAMBankUsages_02111224.lcdcMappedBanks_);
 }
 
 void MapVRAMBanksToSubBGExtendedPalette(int banks)
 {
-    data_02111224.lcdcMappedBanks_ = ~banks & (data_02111224.lcdcMappedBanks_ | data_02111224.subBGExtPaletteBanks_);
-    data_02111224.subBGExtPaletteBanks_ = banks;
+    gVRAMBankUsages_02111224.lcdcMappedBanks_ = ~banks & (gVRAMBankUsages_02111224.lcdcMappedBanks_ | gVRAMBankUsages_02111224.subBGExtPaletteBanks_);
+    gVRAMBankUsages_02111224.subBGExtPaletteBanks_ = banks;
     switch (banks)
     {
     case VRAM_BANK_H:
@@ -471,13 +471,13 @@ void MapVRAMBanksToSubBGExtendedPalette(int banks)
         DISPCNTSUB &= ~DISPCNT_ENABLE_BG_EXTENDED_PALETTE;
         break;
     }
-    InternalMapVRAMBanksToLCDC(data_02111224.lcdcMappedBanks_);
+    InternalMapVRAMBanksToLCDC(gVRAMBankUsages_02111224.lcdcMappedBanks_);
 }
 
 void MapVRAMBanksToSubObjExtendedPalette(int banks)
 {
-    data_02111224.lcdcMappedBanks_ = ~banks & (data_02111224.lcdcMappedBanks_ | data_02111224.subObjExtPaletteBanks_);
-    data_02111224.subObjExtPaletteBanks_ = banks;
+    gVRAMBankUsages_02111224.lcdcMappedBanks_ = ~banks & (gVRAMBankUsages_02111224.lcdcMappedBanks_ | gVRAMBankUsages_02111224.subObjExtPaletteBanks_);
+    gVRAMBankUsages_02111224.subObjExtPaletteBanks_ = banks;
     switch (banks)
     {
     case VRAM_BANK_I:
@@ -488,70 +488,70 @@ void MapVRAMBanksToSubObjExtendedPalette(int banks)
         DISPCNTSUB &= ~DISPCNT_ENABLE_OBJ_EXTENDED_PALETTE;
         break;
     }
-    InternalMapVRAMBanksToLCDC(data_02111224.lcdcMappedBanks_);
+    InternalMapVRAMBanksToLCDC(gVRAMBankUsages_02111224.lcdcMappedBanks_);
 }
 
 unsigned short ResetAssignedVRAMBanksByUsage(unsigned short* usage)
 {
     int banks = *usage;
     *usage = 0;
-    data_02111224.lcdcMappedBanks_ |= banks;
+    gVRAMBankUsages_02111224.lcdcMappedBanks_ |= banks;
     InternalMapVRAMBanksToLCDC(banks);
     return banks;
 }
 
 unsigned short ReleaseMainBGVRAMBanks()
 {
-    return ResetAssignedVRAMBanksByUsage(&data_02111224.mainBGBanks_);
+    return ResetAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.mainBGBanks_);
 }
 
 unsigned short ReleaseMainBGExtendedPaletteVRAMBanks()
 {
     DISPCNT &= ~DISPCNT_ENABLE_BG_EXTENDED_PALETTE;
-    return ResetAssignedVRAMBanksByUsage(&data_02111224.mainBGExtPaletteBanks_);
+    return ResetAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.mainBGExtPaletteBanks_);
 }
 
 unsigned short ReleaseMainObjExtendedPaletteVRAMBanks()
 {
     DISPCNT &= ~DISPCNT_ENABLE_OBJ_EXTENDED_PALETTE;
-    return ResetAssignedVRAMBanksByUsage(&data_02111224.mainObjExtPaletteBanks_);
+    return ResetAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.mainObjExtPaletteBanks_);
 }
 
 unsigned short ReleaseTextureImageVRAMBanks()
 {
-    return ResetAssignedVRAMBanksByUsage(&data_02111224.textureImageBanks_);
+    return ResetAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.textureImageBanks_);
 }
 
 unsigned short ReleaseTexturePaletteVRAMBanks()
 {
-    return ResetAssignedVRAMBanksByUsage(&data_02111224.texturePaletteBanks_);
+    return ResetAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.texturePaletteBanks_);
 }
 
 unsigned short ReleaseClearTextureVRAMBanks()
 {
-    return ResetAssignedVRAMBanksByUsage(&data_02111224.clearTextureBanks_);
+    return ResetAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.clearTextureBanks_);
 }
 
 unsigned short ReleaseSubBGVRAMBanks()
 {
-    return ResetAssignedVRAMBanksByUsage(&data_02111224.subBGBanks_);
+    return ResetAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.subBGBanks_);
 }
 
 unsigned short ReleaseSubObjVRAMBanks()
 {
-    return ResetAssignedVRAMBanksByUsage(&data_02111224.subOBJBanks_);
+    return ResetAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.subOBJBanks_);
 }
 
 unsigned short ReleaseSubBGExtendedPaletteVRAMBanks()
 {
     DISPCNTSUB &= ~DISPCNT_ENABLE_BG_EXTENDED_PALETTE;
-    return ResetAssignedVRAMBanksByUsage(&data_02111224.subBGExtPaletteBanks_);
+    return ResetAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.subBGExtPaletteBanks_);
 }
 
 unsigned short ReleaseSubObjExtendedPaletteVRAMBanks()
 {
     DISPCNTSUB &= ~DISPCNT_ENABLE_OBJ_EXTENDED_PALETTE;
-    return ResetAssignedVRAMBanksByUsage(&data_02111224.subObjExtPaletteBanks_);
+    return ResetAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.subObjExtPaletteBanks_);
 }
 
 unsigned int DisableAssignedVRAMBanksByUsage(unsigned short* usage)
@@ -582,83 +582,83 @@ unsigned int DisableAssignedVRAMBanksByUsage(unsigned short* usage)
 
 unsigned int DisableMainBGVRAMBanks()
 {
-    return DisableAssignedVRAMBanksByUsage(&data_02111224.mainBGBanks_);
+    return DisableAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.mainBGBanks_);
 }
 
 unsigned int DisableMainObjVRAMBanks()
 {
-    return DisableAssignedVRAMBanksByUsage(&data_02111224.mainOBJBanks_);
+    return DisableAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.mainOBJBanks_);
 }
 
 unsigned int DisableMainBGExtendedPaletteVRAMBanks()
 {
     DISPCNT &= ~DISPCNT_ENABLE_BG_EXTENDED_PALETTE;
-    return DisableAssignedVRAMBanksByUsage(&data_02111224.mainBGExtPaletteBanks_);
+    return DisableAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.mainBGExtPaletteBanks_);
 }
 
 unsigned int DisableMainObjExtendedPaletteVRAMBanks()
 {
     DISPCNT &= ~DISPCNT_ENABLE_OBJ_EXTENDED_PALETTE;
-    return DisableAssignedVRAMBanksByUsage(&data_02111224.mainObjExtPaletteBanks_);
+    return DisableAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.mainObjExtPaletteBanks_);
 }
 
 unsigned int DisableTextureImageVRAMBanks()
 {
-    return DisableAssignedVRAMBanksByUsage(&data_02111224.textureImageBanks_);
+    return DisableAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.textureImageBanks_);
 }
 
 unsigned int DisableTexturePaletteVRAMBanks()
 {
-    return DisableAssignedVRAMBanksByUsage(&data_02111224.texturePaletteBanks_);
+    return DisableAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.texturePaletteBanks_);
 }
 
 unsigned int DisableClearTextureVRAMBanks()
 {
-    return DisableAssignedVRAMBanksByUsage(&data_02111224.clearTextureBanks_);
+    return DisableAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.clearTextureBanks_);
 }
 
 unsigned int DisableArm7WorkVRAMBanks()
 {
-    return DisableAssignedVRAMBanksByUsage(&data_02111224.arm7WorkRAMBanks_);
+    return DisableAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.arm7WorkRAMBanks_);
 }
 
 unsigned int DisableLCDCMappedVRAMBanks()
 {
-    return DisableAssignedVRAMBanksByUsage(&data_02111224.lcdcMappedBanks_);
+    return DisableAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.lcdcMappedBanks_);
 }
 
 unsigned int DisableSubBGVRAMBanks()
 {
-    return DisableAssignedVRAMBanksByUsage(&data_02111224.subBGBanks_);
+    return DisableAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.subBGBanks_);
 }
 
 unsigned int DisableSubObjVRAMBanks()
 {
-    return DisableAssignedVRAMBanksByUsage(&data_02111224.subOBJBanks_);
+    return DisableAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.subOBJBanks_);
 }
 
 unsigned int DisableSubBGExtendedPaletteVRAMBanks()
 {
     DISPCNTSUB &= ~DISPCNT_ENABLE_BG_EXTENDED_PALETTE;
-    return DisableAssignedVRAMBanksByUsage(&data_02111224.subBGExtPaletteBanks_);
+    return DisableAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.subBGExtPaletteBanks_);
 }
 
 unsigned int DisableSubObjExtendedPaletteVRAMBanks()
 {
     DISPCNTSUB &= ~DISPCNT_ENABLE_OBJ_EXTENDED_PALETTE;
-    return DisableAssignedVRAMBanksByUsage(&data_02111224.subObjExtPaletteBanks_);
+    return DisableAssignedVRAMBanksByUsage(&gVRAMBankUsages_02111224.subObjExtPaletteBanks_);
 }
 
-unsigned short GetMainBGVRAMBanks() { return data_02111224.mainBGBanks_; }
-unsigned short GetMainObjVRAMBanks() { return data_02111224.mainOBJBanks_; }
-unsigned short GetMainBGExtendedPaletteVRAMBanks() { return data_02111224.mainBGExtPaletteBanks_; }
-unsigned short GetMainObjExtendedPaletteVRAMBanks() { return data_02111224.mainObjExtPaletteBanks_; }
-unsigned short GetTextureImageVRAMBanks(){ return data_02111224.textureImageBanks_; }
-unsigned short GetTexturePaletteVRAMBanks() { return data_02111224.texturePaletteBanks_; }
-unsigned short GetSubBGVRAMBanks() { return data_02111224.subBGBanks_; }
-unsigned short GetSubObjVRAMBanks() { return data_02111224.subOBJBanks_; }
-unsigned short GetSubBGExtendedPaletteVRAMBanks() { return data_02111224.subBGExtPaletteBanks_; }
-unsigned short GetSubObjExtendedPaletteVRAMBanks() { return data_02111224.subObjExtPaletteBanks_; }
+unsigned short GetMainBGVRAMBanks() { return gVRAMBankUsages_02111224.mainBGBanks_; }
+unsigned short GetMainObjVRAMBanks() { return gVRAMBankUsages_02111224.mainOBJBanks_; }
+unsigned short GetMainBGExtendedPaletteVRAMBanks() { return gVRAMBankUsages_02111224.mainBGExtPaletteBanks_; }
+unsigned short GetMainObjExtendedPaletteVRAMBanks() { return gVRAMBankUsages_02111224.mainObjExtPaletteBanks_; }
+unsigned short GetTextureImageVRAMBanks(){ return gVRAMBankUsages_02111224.textureImageBanks_; }
+unsigned short GetTexturePaletteVRAMBanks() { return gVRAMBankUsages_02111224.texturePaletteBanks_; }
+unsigned short GetSubBGVRAMBanks() { return gVRAMBankUsages_02111224.subBGBanks_; }
+unsigned short GetSubObjVRAMBanks() { return gVRAMBankUsages_02111224.subOBJBanks_; }
+unsigned short GetSubBGExtendedPaletteVRAMBanks() { return gVRAMBankUsages_02111224.subBGExtPaletteBanks_; }
+unsigned short GetSubObjExtendedPaletteVRAMBanks() { return gVRAMBankUsages_02111224.subObjExtPaletteBanks_; }
 
 unsigned int GetTotalComponentVRAMSize(int banks)
 {
@@ -684,6 +684,6 @@ unsigned int GetTotalComponentVRAMSize(int banks)
     return total;
 }
 
-unsigned int GetMainBGAssignedVRAMSize() { return GetTotalComponentVRAMSize(data_02111224.mainBGBanks_); }
-unsigned int GetTextureImageAssignedVRAMSize() { return GetTotalComponentVRAMSize(data_02111224.textureImageBanks_); }
-unsigned int GetTexturePaletteAssignedVRAMSize() { return GetTotalComponentVRAMSize(data_02111224.texturePaletteBanks_); }
+unsigned int GetMainBGAssignedVRAMSize() { return GetTotalComponentVRAMSize(gVRAMBankUsages_02111224.mainBGBanks_); }
+unsigned int GetTextureImageAssignedVRAMSize() { return GetTotalComponentVRAMSize(gVRAMBankUsages_02111224.textureImageBanks_); }
+unsigned int GetTexturePaletteAssignedVRAMSize() { return GetTotalComponentVRAMSize(gVRAMBankUsages_02111224.texturePaletteBanks_); }

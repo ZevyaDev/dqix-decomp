@@ -91,7 +91,7 @@ extern "C" Struct_ov026_021ddf78_9* GetBattleSetup_ov017_021b8478(void*);
 extern "C" void* GetBattleScene_ov017_021b8468(void*);
 extern "C" void* GetBattleUI_ov000_02160f08(void*);
 extern "C" int func_02070094();
-extern "C" const char** func_0206f4f0(int, int);
+extern "C" const char** FindMonsterData_0206f4f0(int, int);
 extern "C" int func_ov000_0215ec1c(Struct_ov026_021ddf78_5*, short*, int, int);
 extern "C" void StartMessage_0204500c(Struct_ov026_021ddf78_7*, const char*, int);
 extern "C" void func_02043270(Struct_ov026_021ddf78_7*, int, int, int, int);
@@ -188,7 +188,7 @@ extern "C" ARM void func_ov026_021ddf78(Struct_ov026_021ddf78_5* arg0, Struct_ov
         int var22 = 0;
         Struct_ov026_021ddf78_3* var21 = var19->unknown_4c_;
         for (; var22 < 4; var21++, var22++) {
-            const char** var23 = func_0206f4f0(var20, var21->unknown_2_);
+            const char** var23 = FindMonsterData_0206f4f0(var20, var21->unknown_2_);
             if (var23 != 0) {
                 if (func_ov000_0215ec1c(arg0, var2, 8, 0) <= 1) {
                     strcpy(var1, *var23);

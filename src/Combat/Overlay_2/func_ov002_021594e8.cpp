@@ -11,7 +11,7 @@
 struct SoundEffectManager_02108760;
 struct Struct_02048350_2;
 extern "C" void *FindActionData_02079e2c(char *actionTables, int actionId);
-extern "C" GameObject *func_0200ff94(GameState *arg0, int arg1);
+extern "C" GameObject *GetGameObjectByIndex_0200ff94(GameState *gameState, int index);
 extern "C" int *GetLocalWireless_0202ae18(void);
 extern "C" void *__clear(void *arg0, int arg1);
 extern "C" int GetPartyOrder_020114ec(char *gameState, void *outPartyOrder);
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov002_021594e8(struct Struct_ov002_021594e8_2 *arg0, sh
     GameState *var5                     = GameState::GetInstance();
     ActionTables_02108e10* var6                         = GetActionTables_020797dc();
     struct Struct_ov002_021594e8_3 *var7 = (struct Struct_ov002_021594e8_3 *) FindActionData_02079e2c((char*)var6, arg0->unknown_1c26_);
-    GameObject *var8                  = func_0200ff94(var5, arg2);
+    GameObject *var8                  = GetGameObjectByIndex_0200ff94(var5, arg2);
     int *var9                     = GetLocalWireless_0202ae18();
     int var10                         = 0;
     if (arg0->unknown_1bb8_ == RG(0x17, 0x18)) {

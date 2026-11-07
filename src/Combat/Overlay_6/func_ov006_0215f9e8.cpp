@@ -17,11 +17,11 @@ struct Struct_ov006_0215f9e8 {
 };
 
 extern "C" void SetMenuLayoutTextValue_02080fa8(MenuLayout_02080fa8*, int, int);
-extern "C" int func_020813ec(void*, int);
+extern "C" int OpenMenuLayoutWindow_020813ec(void*, int);
 
 // USA: func_ov006_0215f9e8
 extern "C" ARM void func_ov006_0215f9e8(Struct_ov006_0215f9e8* arg0) {
     SetMenuLayoutTextValue_02080fa8(arg0->unknown_14_, 0x3d, arg0->unknown_38b_);
-    func_020813ec(arg0->unknown_14_, 10);
+    OpenMenuLayoutWindow_020813ec(arg0->unknown_14_, 10);
     arg0->unknown_36e_ = 10;
 }

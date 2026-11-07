@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void InitFollowCamera_020a2010(void* arg0);
+extern "C" void InitFollowCamera_020a2010(void* storage);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void SetCameraOrbit_0202e5d8(void*, int, int, int);

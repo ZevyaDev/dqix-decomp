@@ -35,7 +35,7 @@ struct Struct_02081870_2 {
 extern "C" void func_020a20d8(void* arg0);
 extern "C" Struct_ov006_02158478* GetCursorTextWindow_0205d8c4(TextWindowManager_0205d81c* windowManager);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
-extern "C" void func_0205bc24(void* arg0, int arg1);
+extern "C" void SetMenuCursorTouchedIndex_0205bc24(void* cursor, int index);
 extern "C" int UpdateTextWindowManager_0205d0e0(Struct_02081870_2* windowManager, unsigned int ticks);
 extern "C" void func_ov023_021e5020(void* arg0);
 extern "C" void func_ov009_02188604(void* arg0, unsigned int arg1);
@@ -86,7 +86,7 @@ extern "C" ARM int func_ov009_02184a18(Struct_ov009_021842a0_2* arg0)
     {
         Struct_ov006_02158478* var1 = GetCursorTextWindow_0205d8c4((TextWindowManager_0205d81c*)&arg0->unknown_1f8_[1]);
         if (var1 != NULL && IsTextWindowReady_0204c7cc((unsigned char*)var1) != 0 && !(var1->unknown_c5_ & 2))
-            func_0205bc24(&arg0->unknown_1f8_[1].unknown_0_.unknown_4_, -1);
+            SetMenuCursorTouchedIndex_0205bc24(&arg0->unknown_1f8_[1].unknown_0_.unknown_4_, -1);
     }
     UpdateTextWindowManager_0205d0e0(&arg0->unknown_1f8_[0], var0);
     arg0->unknown_d85_ = UpdateTextWindowManager_0205d0e0(&arg0->unknown_1f8_[1], var0);

@@ -25,13 +25,13 @@ struct Struct_ov024_021fe9b8 {
     unsigned char unknown_d_;
 };
 extern Struct_ov024_021fe9b8 data_ov024_021fe9b8[];
-extern "C" int* func_02094d6c();
+extern "C" int* GetQuestManager_02094d6c();
 extern "C" int func_02086aec(Struct_02053f7c*, int);
-extern "C" int func_020882f8(unsigned char*);
+extern "C" int IsAsleep_020882f8(unsigned char*);
 
 // USA: func_ov024_021df71c
 extern "C" ARM int func_ov024_021df71c(Struct_ov000_0215ab88* arg0, unsigned int arg1, int arg2, unsigned short* arg3, unsigned short* arg4, unsigned short* arg5) {
-    Struct_ov024_021df71c_3* var0 = (Struct_ov024_021df71c_3*)func_02094d6c();
+    Struct_ov024_021df71c_3* var0 = (Struct_ov024_021df71c_3*)GetQuestManager_02094d6c();
     if (!var0->unknown_0_) return 0;
     Struct_02053f7c* var1 = (Struct_02053f7c*)GetParty_02010828(GameState::GetInstance());
     int var2 = 0;
@@ -48,7 +48,7 @@ extern "C" ARM int func_ov024_021df71c(Struct_ov000_0215ab88* arg0, unsigned int
             if (func_02086aec(var1, (short)var6->unknown_a_) > 0) continue;
             if (var6->unknown_4_ != 0) {
                 if (var6->unknown_4_ == 1) {
-                    if (!func_020882f8((unsigned char*)arg0->currentStats_)) continue;
+                    if (!IsAsleep_020882f8((unsigned char*)arg0->currentStats_)) continue;
                 } else if (var6->unknown_4_ == 2) {
                     if (arg0->currentStats_->primaryStats.currHP > 700) continue;
                 } else if (var6->unknown_4_ == 3) {

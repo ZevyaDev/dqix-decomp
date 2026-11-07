@@ -9,7 +9,7 @@ extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 // USA: func_ov004_02156760
 // KEEP-NAME
 extern "C" ARM int func_ov004_02156760(void* arg0) {
-    Struct_02061c04 var0;
+    BattleRecords_02061c04 var0;
     char* var1 = (char*)FindMenuObjectById_ov023_021f6880((void**)GetMenuObjectList_ov011_021849c8(arg0), 3);
     if (var1 == 0) {
         return 0;

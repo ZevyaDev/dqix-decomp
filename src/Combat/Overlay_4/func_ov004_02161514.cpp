@@ -4,7 +4,7 @@
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 struct GameState;
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" void func_0209a804(int* arg0);
+extern "C" void ClearSpellTable_0209a804(int* table);
 struct Struct_0201099c_18 { void* unknown_0_; };
 extern "C" void func_0209a810(Struct_0201099c_18* arg0, void* arg1);
 extern "C" void func_ov004_0215e49c(void*, int, int);
@@ -126,7 +126,7 @@ extern "C" ARM int func_ov004_02161514(void* arg0) {
         var6 = (unsigned char*)GetPartyMemberData_02053c6c(var16);
         if (!var6) return 0;
         var7 = *(unsigned short*)(var6 + data_ov004_02170854[data_ov004_021707e8.unknown_8_] * 2 + 0x16c);
-        func_0209a804((int*)&var0);
+        ClearSpellTable_0209a804((int*)&var0);
         func_0209a810(&var0, &var1);
         var8 = var1.unknown_51c_[data_ov004_02170854[data_ov004_021707e8.unknown_8_]];
         var9 = var1.unknown_10c_[data_ov004_02170854[data_ov004_021707e8.unknown_8_]];

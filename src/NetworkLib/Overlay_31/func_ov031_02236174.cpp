@@ -25,12 +25,12 @@ struct Struct_ov031_02236174_2 {
 };
 
 struct Struct_ov031_02290cfc_3 { Struct_ov031_02236174_2* unknown_0_; };
-extern Struct_ov031_02290cfc_3 data_ov031_02290cfc;
+extern Struct_ov031_02290cfc_3 gConnectionSettings_ov031_02290cfc;
 
 // USA: func_ov031_02236174
 extern "C" ARM void func_ov031_02236174(void) {
-	Struct_ov031_02236174_2* var0 = &data_ov031_02290cfc.unknown_0_[4];
-	Struct_ov031_02236174* var1 = &data_ov031_02290cfc.unknown_0_[var0->unknown_f4_].unknown_0_;
+	Struct_ov031_02236174_2* var0 = &gConnectionSettings_ov031_02290cfc.unknown_0_[4];
+	Struct_ov031_02236174* var1 = &gConnectionSettings_ov031_02290cfc.unknown_0_[var0->unknown_f4_].unknown_0_;
 
 	*var1 = var0->unknown_0_;
 

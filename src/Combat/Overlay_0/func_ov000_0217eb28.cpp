@@ -52,7 +52,7 @@ struct Struct_ov000_0217e870_2 {
 extern Struct_02109bf4_5 gMusicManager_02109bf4;
 extern "C" int func_0209ca2c(void*);
 extern "C" void func_0209c73c(Struct_02109bf4_5*);
-extern "C" int func_0205d97c(void*);
+extern "C" int HitTestCursorWindowTouch_0205d97c(void*);
 extern "C" int func_ov000_021815c8(void*);
 extern "C" int* GetLocalWireless_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
@@ -64,7 +64,7 @@ extern "C" void func_ov000_02171c04(Struct_ov000_0217e870*);
 extern "C" Struct_ov000_02179cdc_2* func_0205d888(Struct_0205d0e0_2*);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 extern "C" void func_ov000_0217c638(Struct_ov004_021707e8*, int, int);
-extern "C" void func_0205def8(TextWindowManager_0205def8*, int, int);
+extern "C" void SetTextWindowVisible_0205def8(TextWindowManager_0205def8*, int, int);
 
 // USA: func_ov000_0217eb28
 extern "C" ARM void func_ov000_0217eb28(Struct_ov004_021707e8* arg0, int arg1, int arg2) {
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov000_0217eb28(Struct_ov004_021707e8* arg0, int arg1, i
     }
     int var0 = g_keyManager.TestKeysPressed(0x601);
     var0 |= g_keyManager.TestKeysPressed(0x802);
-    var0 |= func_0205d97c(arg0->unknown_188_) == 2;
+    var0 |= HitTestCursorWindowTouch_0205d97c(arg0->unknown_188_) == 2;
     if (!var0) return;
     if (arg0->unknown_1d60_[arg0->unknown_1d68_] == 0x20) {
         arg0->unknown_1d7a_ = 0;
@@ -111,9 +111,9 @@ extern "C" ARM void func_ov000_0217eb28(Struct_ov004_021707e8* arg0, int arg1, i
             }
         }
         func_ov000_0217c638(arg0, arg1, arg2);
-        func_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 1, 1);
-        func_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 1, 2);
-        func_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 1, 5);
+        SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 1, 1);
+        SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 1, 2);
+        SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 1, 5);
         arg0->unknown_1d6b_ = -1;
         arg0->unknown_1d6f_ = 0;
     } else {

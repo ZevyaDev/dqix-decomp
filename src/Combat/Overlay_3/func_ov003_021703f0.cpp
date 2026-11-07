@@ -2,8 +2,8 @@
 
 struct TextWindow_0205d0e0 {
     char unknown_0_[0xac];
-    short unknown_ac_;
-    short unknown_ae_;
+    short tileX_ac_;
+    short tileY_ae_;
 };
 
 struct TextWindowManager_0205d81c;
@@ -36,8 +36,8 @@ extern "C" ARM void func_ov003_021703f0(struct Struct_ov003_021703f0* arg0, shor
 #else
             struct TextWindow_0205d0e0* var0 = FindTextWindow_0205d81c(arg0->unknown_3c_, 0);
             if (var0 == 0) return;
-            short var1 = var0->unknown_ac_ << 3;
-            short var2 = var0->unknown_ae_ << 3;
+            short var1 = var0->tileX_ac_ << 3;
+            short var2 = var0->tileY_ae_ << 3;
             short var3, var4, var5, var6;
             func_0204c610((struct Struct_0204c610*)var0, arg0->unknown_8_, &var3, &var4, &var5, &var6);
             int var7 = var3;

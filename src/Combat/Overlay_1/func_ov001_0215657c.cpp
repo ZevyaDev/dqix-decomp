@@ -70,10 +70,10 @@ extern "C" Struct_02070900_2* func_020704fc();
 extern "C" void func_02070900(Struct_02070900_2*, Struct_02070900*, unsigned int);
 extern "C" void func_020707c8(Struct_020707c8*);
 extern "C" void SetMusicVolume_0209c2e0(void*, int, int);
-extern "C" void func_02046a8c(void*, void*);
+extern "C" void RemoveFromQueue_02046a8c(void*, void*);
 extern "C" void func_ov017_021bb0c4(unsigned char*);
 void SetBrightness(GameResources*, int, int);
-extern "C" void func_020a2794(void*);
+extern "C" void EnableCameraFollow_020a2794(void*);
 extern "C" void func_020a2718(char*);
 extern "C" void func_ov017_021bb27c(void*);
 extern int gMusicManager_02109bf4 __attribute__((aligned(4)));
@@ -127,16 +127,16 @@ extern "C" ARM int func_ov001_0215657c(Struct_ov001_0215657c_2* arg0, void* arg1
     if (var4) {
         arg0->unknown_8_ = arg0->unknown_152_;
         SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, arg0->unknown_94_, 0);
-        func_02046a8c(arg1, var5);
+        RemoveFromQueue_02046a8c(arg1, var5);
         func_ov017_021bb0c4((unsigned char*)arg0);
         return 0;
     }
     SetBrightness(var1, 0, 30);
-    func_020a2794(var2);
+    EnableCameraFollow_020a2794(var2);
     func_020a2718(var2);
     SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, arg0->unknown_94_, 0);
     func_ov017_021bb27c(arg0);
     arg0->unknown_1_ = 1;
-    func_02046a8c(arg1, var5);
+    RemoveFromQueue_02046a8c(arg1, var5);
     return arg0->unknown_a_;
 }

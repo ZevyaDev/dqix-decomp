@@ -4,7 +4,7 @@
 
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
-extern "C" void func_020a27ac(void* arg0);
+extern "C" void EnableCameraTurning_020a27ac(void* camera);
 
 struct Struct_02033e2c;
 extern "C" void func_02033e2c(struct Struct_02033e2c* arg0);
@@ -23,7 +23,7 @@ extern "C" ARM void func_ov017_021bff2c(void) {
 
 	int var3 = GetFollowCamera_020100f8((char*)var0);
 	if (var3 != 0) {
-		func_020a27ac((void*)var3);
+		EnableCameraTurning_020a27ac((void*)var3);
 	}
 
 	if (var2 != NULL) {

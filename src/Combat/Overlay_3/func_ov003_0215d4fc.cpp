@@ -57,7 +57,7 @@ extern int gSoundEffectManager_02108760;
 extern "C" int *GetLocalWireless_0202ae18();
 extern "C" void * GetResources_0200fb8c(int*);
 extern "C" Struct_ov003_0215d150_2 *GetMessageWindow_020421a0();
-extern "C" void *func_0203cf4c();
+extern "C" void *GetNPCManager_0203cf4c();
 extern "C" unsigned char *func_020e2ff8();
 extern "C" int IsNotLocalWirelessGuest_0202c508(int *);
 extern "C" void ResetMessageWindow_02043204(char*);
@@ -79,7 +79,7 @@ extern "C" void PlayJingle_0209c6d8(void*, int);
 extern "C" void func_020e3368(unsigned char *, unsigned char);
 struct Struct_0208ab34;
 extern "C" int func_020e34bc(Struct_0208ab34*, int);
-extern "C" char *func_0200ff94(GameState *, int);
+extern "C" char *GetGameObjectByIndex_0200ff94(GameState *, int);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
 extern "C" void func_020e3428(void *, int);
 struct Struct_0208ab34_2;
@@ -101,7 +101,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
     void *var1        = GetResources_0200fb8c((int*)var0);
     Struct_ov003_0215d150_2 *var2         = GetMessageWindow_020421a0();
     int *var3           = GetLocalWireless_0202ae18();
-    void *var4          = func_0203cf4c();
+    void *var4          = GetNPCManager_0203cf4c();
     GameObject *var5    = var0->GetUnknownGameObject();
     unsigned char *var6 = func_020e2ff8();
     unsigned char var7;
@@ -178,7 +178,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
             *(unsigned int *) (var13 + 0xf6c) = *(unsigned int *) (var13 + 0xf6c) - arg0->unknown_3cc_;
             for (var8 = 0; var8 < 4; var8++) {
                 if (arg0->unknown_3c4_[var8] != 0xff) {
-                    char *var14                                          = func_0200ff94(var0, arg0->unknown_3c4_[var8]);
+                    char *var14                                          = GetGameObjectByIndex_0200ff94(var0, arg0->unknown_3c4_[var8]);
                     *(unsigned short *) (*(char **) (var14 + 0x130) + 4) = *(unsigned short *) (*(char **) (var14 + 0x134) + 0x30);
                     *(unsigned short *) (*(char **) (var14 + 0x130) + 6) = *(unsigned short *) (*(char **) (var14 + 0x134) + 0x32);
                     func_ov017_021c9e00(arg0->unknown_3c4_[var8], 0, 0, 1);

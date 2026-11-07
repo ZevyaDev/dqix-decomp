@@ -6,7 +6,7 @@
 
 extern "C" int func_02053604(signed char* arg0);
 extern "C" void func_0205eabc(void* arg0, void* arg1, int arg2);
-extern "C" int func_02039d7c(char* arg0);
+extern "C" int IsOnLadder_02039d7c(char* object);
 extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a2c8c(unsigned char* arg0);
@@ -91,7 +91,7 @@ extern "C" ARM void func_020531f0(struct Struct_020531f0_2* arg0) {
     arg0->unknown_186_ = 0;
 
     if ((arg0->unknown_0_.classFlags_0_ & 0x200) != 0) {
-        if (func_02039d7c((char*)arg0) != 0) {
+        if (IsOnLadder_02039d7c((char*)arg0) != 0) {
             return;
         }
     }
@@ -102,7 +102,7 @@ extern "C" ARM void func_020531f0(struct Struct_020531f0_2* arg0) {
     SetMotion_02033b88((struct Struct_02010604*)arg0, 0);
 
     var1 = GameState::GetInstance();
-    var4 = arg0->unknown_0_.unknown_4_;
+    var4 = arg0->unknown_0_.objectIndex_4_;
     int var5 = GetOwnPartyLeaderObjectIndex_020100b0(var1);
     if (var5 == var4) {
         var3 = GetFollowCamera_020100f8((char*)var1);
@@ -114,5 +114,5 @@ extern "C" ARM void func_020531f0(struct Struct_020531f0_2* arg0) {
         }
     }
 
-    func_ov017_021cc1f8(arg0->unknown_0_.unknown_4_, (const char*)var2, 0, 1);
+    func_ov017_021cc1f8(arg0->unknown_0_.objectIndex_4_, (const char*)var2, 0, 1);
 }

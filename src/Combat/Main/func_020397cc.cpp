@@ -5,7 +5,7 @@ enum { Enum_020397cc_400 = 0x184 };
 enum { Enum_020397cc_400 = 0x190 };
 #endif
 
-extern "C" int func_02039d7c(char*);
+extern "C" int IsOnLadder_02039d7c(char*);
 
 struct Struct_02010604;
 extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
@@ -20,7 +20,7 @@ struct Struct_02018300_3 {
 
 // USA: DisablePlayerControl_020397cc
 extern "C" ARM void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill) {
-    if (standStill && object->isControllable_252_ && func_02039d7c((char*)(object)) == 0 && (object->unknown_c1_0_ & 2) == 0) {
+    if (standStill && object->isControllable_252_ && IsOnLadder_02039d7c((char*)(object)) == 0 && (object->unknown_c1_0_ & 2) == 0) {
         SetMotion_02033b88((struct Struct_02010604*)object, 0);
     }
     object->isControlRequested_253_ = 0;

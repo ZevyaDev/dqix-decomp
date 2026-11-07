@@ -65,13 +65,13 @@ extern "C" ARM void func_ov017_021c48f0(int arg0,Struct_ov017_021c48f0_5* arg1,G
                 ((Struct_ov017_021c48f0_6*)var6[var12])->unknown_d4_=var4;
                 ((Struct_ov017_021c48f0_6*)var6[var12])->unknown_e0_|=0x20;
             }
-            if(arg1->unknown_4_==10000 && var0==var13->obj3D_.unknown_4_ && var11) {
+            if(arg1->unknown_4_==10000 && var0==var13->obj3D_.objectIndex_4_ && var11) {
                 SetObject3DPosition_020407b4((Struct_02040774_2*)var6[var12],0x5f0a,0x3614,0x570);
                 SetFacingInstantly_02033874((Struct_02033834*)var6[var12],0x4b66);
             }
             var13->obj3D_.EnableFlag(0x4000000);
             if(var2->unknown_3_==0) func_ov017_02193428(var13,0);
-            func_02026bc8(((Struct_ov017_021c48f0_2*)arg3)->unknown_36d0_,var13->obj3D_.unknown_4_);
+            func_02026bc8(((Struct_ov017_021c48f0_2*)arg3)->unknown_36d0_,var13->obj3D_.objectIndex_4_);
         }
     }
     if(GetOwnProtagonistObjectIndex_0202c1a4(arg4)==0) {

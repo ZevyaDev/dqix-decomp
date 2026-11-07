@@ -102,7 +102,7 @@ extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char a
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" void func_ov005_021555c0(Struct_ov005_02153954* arg0);
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" short* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
+extern "C" short* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
@@ -203,7 +203,7 @@ extern "C" ARM void func_ov005_0215690c(Struct_ov005_02153954* arg0, int arg1, i
         func_ov005_02158560(arg0, var6, 1);
         arg0->unknown_3dcc_ |= 0x100;
     }
-    short* var35 = func_0207c5f8((unsigned char*)GetParty_02010828(var0) + 0x1d4, data_ov005_0215cd50[arg0->unknown_3dbc_]);
+    short* var35 = GetEquipmentBagItemIds_0207c5f8((unsigned char*)GetParty_02010828(var0) + 0x1d4, data_ov005_0215cd50[arg0->unknown_3dbc_]);
     int var36 = -1;
     int var37 = -1;
     for (short var38 = 0; var38 < arg0->unknown_3d98_[arg0->unknown_3dbc_]; var38++) {

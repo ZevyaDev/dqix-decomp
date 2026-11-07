@@ -6,7 +6,7 @@
 #define data_ov025_021ef8de data_ov025_021efba0
 #endif
 
-struct Struct_02078398_2 {
+struct EffectParams_02078398_2 {
     unsigned char unknown_0_;
     unsigned char unknown_1_[0xf];
     unsigned char unknown_10_;
@@ -61,7 +61,7 @@ extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* func_ov000_02160f00(void* arg0);
 extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
-extern "C" void func_02078484(Struct_02078398_2* arg0);
+extern "C" void InitEffectParams_02078484(EffectParams_02078398_2* params);
 extern "C" void* func_ov000_02160f14(void* arg0);
 extern "C" void func_0202ea10(unsigned char* arg0, int arg1, int arg2);
 extern "C" short func_ov000_0216352c(int arg0, float arg1, float arg2);
@@ -158,8 +158,8 @@ extern "C" ARM void func_ov025_021e9778(void* arg0) {
         }
         if (var8 == 0 && (data_ov025_021ef9a4 & 0x200) && !(data_ov025_021ef9a4 & 0x400)) {
             void* var13 = GetEffectManager_02057924();
-            struct Struct_02078398_2 var14;
-            func_02078484(&var14);
+            struct EffectParams_02078398_2 var14;
+            InitEffectParams_02078484(&var14);
             var14.unknown_14_ = *(unsigned short*)((char*)GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var4, 0) + 0x20);
             if (var4->unknown_a_ & 1) {
                 strcpy((char*)&var14, data_ov025_021ef8de);

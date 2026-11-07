@@ -32,7 +32,7 @@ extern "C" short func_ov000_0215a1d4(void* arg0, int arg1, int arg2, short* arg3
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, unsigned long long* flags, int flagIndex);
 extern "C" int func_ov000_0215a124(void* arg0, int arg1, int arg2);
 extern "C" void SetActionResult_ov000_0215ccbc(void* battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant,
-                            short arg3, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
+                            short amount, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
 
 static inline int inline_ov024_021dc540(GameObject* arg0) { SDK_NULL_ASSERT(arg0); return arg0->currentStats_->primaryStats.currHP; }
 

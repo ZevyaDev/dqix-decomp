@@ -12,7 +12,7 @@ extern "C" void func_020708c8(Struct_020708c8*, unsigned int);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_020531f0(GameObject*);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
-extern "C" int func_ov000_02160fd4(void*, int);
+extern "C" int TestBattleSceneFlags_ov000_02160fd4(void*, int);
 extern "C" int func_ov017_02195658(GameResources*);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" void func_ov017_021c8b78(unsigned short);
@@ -27,7 +27,7 @@ extern "C" TimedMessageQueue_020d7aa0_2* func_020d7a50();
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2*);
 extern "C" void func_ov017_021bd5d0(int);
 extern "C" int IsQueueEmpty_02046b08(void**);
-extern "C" void func_ov017_02191234(GameResources*);
+extern "C" void RebuildPartyOrders_ov017_02191234(GameResources*);
 extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void func_02012de8();
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov000_02163db4(Struct_ov000_02163db4_2* arg0) {
         }
         inline_ov000_02163db4((unsigned char*)var6, var7);
     }
-    if (arg0->unknown_2a0_->unknown_2a_ != GetProtagonistObjectIndex_020100a8(var0) && !func_ov000_02160fd4(arg0, 2)) return;
+    if (arg0->unknown_2a0_->unknown_2a_ != GetProtagonistObjectIndex_020100a8(var0) && !TestBattleSceneFlags_ov000_02160fd4(arg0, 2)) return;
     for (int var8 = 0; var8 < 4; var8++) {
         GameObject* var9 = GetPartyMemberBaseByIndex_0200ff1c(var0, var8);
         if (!var9) continue;
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov000_02163db4(Struct_ov000_02163db4_2* arg0) {
     if (arg0->unknown_2a0_->unknown_c_ >= 0) func_ov017_021bd5d0(arg0->unknown_2a0_->unknown_c_);
     if (var2->GetNumQueuedTasks() > 0) return;
     if (!IsQueueEmpty_02046b08((void**)var1->unknown_ptr_array_36fc[1])) return;
-    func_ov017_02191234(var1);
+    RebuildPartyOrders_ov017_02191234(var1);
     SetFlags00(var1, 0x10);
     unsigned int* var10 = GetGlobalFlags_020d6c00();
     SetGlobalFlags_020466e4(var10, 1);

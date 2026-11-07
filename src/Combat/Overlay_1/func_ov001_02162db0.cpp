@@ -45,7 +45,7 @@ struct Struct_ov001_02164d14_3 {
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 struct Struct_02052e2c;
-extern "C" short* func_02052e2c(Struct_02052e2c*);
+extern "C" short* GetAppearance_02052e2c(Struct_02052e2c*);
 struct Struct_02052df8;
 extern "C" int GetEquippedItem_02052df8(Struct_02052df8*, int);
 extern "C" void SetEquippedItem_02052d7c(Struct_ov001_02162db0_2* gameObject, int slot, short itemId);
@@ -97,7 +97,7 @@ extern "C" ARM int func_ov001_02162db0(void* arg0, int arg1) {
     if (&var1->unknown_150_->unknown_194_[(unsigned char)data_ov001_02164a30[var6]] == NULL) {
         return 0;
     }
-    var7 = func_02052e2c((Struct_02052e2c*)var1);
+    var7 = GetAppearance_02052e2c((Struct_02052e2c*)var1);
     if (var7 == NULL) {
         return 0;
     }

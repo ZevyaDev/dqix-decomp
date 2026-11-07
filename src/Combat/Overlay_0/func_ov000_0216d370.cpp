@@ -18,10 +18,10 @@ extern "C" void* func_0202eea4(void* arg0);
 extern "C" ARM void ResetBattleCamera_ov000_0216d370(char* camera, int resetRoll, int resetFieldOfView, int resetTurns) {
     *(unsigned char*)(camera + 0x220) = 0;
     if (*(int*)(camera + 0x224) >= 0) {
-        Vector3i var0 = *(Vector3i*)(camera + 0x12c);
-        Vector3i var1 = *(Vector3i*)(camera + 0x120);
-        *(Vector3i*)(camera + 0x10) = var0;
-        *(Vector3i*)(camera + 0x4) = var1;
+        Vector3i transformedTarget = *(Vector3i*)(camera + 0x12c);
+        Vector3i transformedEye = *(Vector3i*)(camera + 0x120);
+        *(Vector3i*)(camera + 0x10) = transformedTarget;
+        *(Vector3i*)(camera + 0x4) = transformedEye;
     }
 
     *(int*)(camera + 0x224) = -1;

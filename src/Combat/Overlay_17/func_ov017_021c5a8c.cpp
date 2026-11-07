@@ -4,7 +4,7 @@
 extern "C" void GetLocalWireless_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void);
 extern "C" void func_ov017_021ca2a0(int arg0, int arg1);
-extern "C" void* func_0207d78c(void);
+extern "C" void* GetBattleJoinTable_0207d78c(void);
 struct Struct_0207d7f4;
 extern "C" struct Struct_0207d7f4* func_0207d9bc(struct Struct_0207d7f4* arg0, unsigned short arg1);
 extern "C" void func_0207d7f4(void* arg0, unsigned short arg1, int arg2, int arg3, int arg4, unsigned short arg5, unsigned char arg6);
@@ -22,7 +22,7 @@ extern "C" ARM void func_ov017_021c5a8c(int arg0, int arg1) {
     if (IsNotLocalWirelessGuest_0202c508()) {
         func_ov017_021ca2a0(arg0, (unsigned short)arg1);
 
-        void* var0 = func_0207d78c();
+        void* var0 = GetBattleJoinTable_0207d78c();
         struct Struct_0207d7f4* var1 = func_0207d9bc((struct Struct_0207d7f4*)var0, arg1);
         if (var1 != NULL) {
             char* var2 = (char*)var1;

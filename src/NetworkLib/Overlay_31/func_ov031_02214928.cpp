@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" char* func_ov031_022133f8(int);
+extern "C" char* GetWifiConnectionBuffer_ov031_022133f8(int);
 extern "C" int func_ov031_0220d540(void);
 extern "C" int func_ov031_02214b64(int);
 extern "C" void func_ov031_0220cf6c(void);
@@ -10,7 +10,7 @@ extern "C" void func_ov031_022134cc(int arg0);
 
 // USA: func_ov031_02214928
 extern "C" ARM int func_ov031_02214928(void) {
-	char* var0 = func_ov031_022133f8(0x10);
+	char* var0 = GetWifiConnectionBuffer_ov031_022133f8(0x10);
 	unsigned int var1 = 9;
 
 	switch (func_ov031_0220d540()) {

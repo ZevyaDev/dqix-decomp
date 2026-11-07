@@ -6,7 +6,7 @@ extern "C" int func_ov024_021fa76c(struct Struct_021fa76c* arg0);
 extern "C" int func_0208824c(unsigned char* arg0);
 struct Struct_ov024_021da670_7;
 extern "C" int func_ov024_021da9b0(struct Struct_ov024_021da670_7* arg0);
-extern "C" int func_ov000_02156068(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int HasEnemyTrait_ov000_02156068(void* battle, int combatantIndex, int kind, int traitType);
 extern "C" void func_ov024_021fd088(void* arg0, float arg1, int arg2);
 struct Struct_ov024_021fd1bc;
 extern "C" void func_ov024_021fe6b4(struct Struct_ov024_021fd1bc* arg0, int arg1);
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov024_021fd66c(struct Struct_ov024_021fd66c* arg0) {
 			}
 		}
 	} else if (var5 == 0x52) {
-		if (!func_ov000_02156068(arg0->unknown_0_, var0->obj3D_.unknown_4_, 9, 0)) return;
+		if (!HasEnemyTrait_ov000_02156068(arg0->unknown_0_, var0->obj3D_.objectIndex_4_, 9, 0)) return;
 	}
 	if (var4 > 100.0f) var4 = 100.0f;
 	func_ov024_021fe6b4((struct Struct_ov024_021fd1bc*)arg0, 1);

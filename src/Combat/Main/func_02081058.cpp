@@ -8,13 +8,13 @@ struct Struct_02081058 {
     char unknown_2d_[0x30 - 0x2d];
 };
 
-struct Struct_0207f524;
+struct MenuLayoutTextEntryList_0207f524;
 
-extern "C" struct Struct_02081058* func_0207f6ac(struct Struct_0207f524*, int);
+extern "C" struct Struct_02081058* FindMenuLayoutTextEntry_0207f6ac(struct MenuLayoutTextEntryList_0207f524*, int);
 
 // USA: func_02081058
 extern "C" ARM void func_02081058(void* arg0, int arg1, int arg2) {
-    struct Struct_02081058* var0 = func_0207f6ac((struct Struct_0207f524*)((char*)arg0 + 4), arg1);
+    struct Struct_02081058* var0 = FindMenuLayoutTextEntry_0207f6ac((struct MenuLayoutTextEntryList_0207f524*)((char*)arg0 + 4), arg1);
     if (var0 == NULL) {
         return;
     }

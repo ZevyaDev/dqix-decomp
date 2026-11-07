@@ -4,7 +4,7 @@
 
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
-extern "C" void* func_ov017_021d612c(void* arg0);
+extern "C" void* GetScriptValueAsString_ov017_021d612c(void* value);
 extern "C" void* func_02010768(void* arg0);
 extern "C" void* GetZoneList_02011584(void* gameState);
 struct Struct_0201cb60_2;
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov001_02163b14(void* arg0) {
     if (var3 == 0) {
         var4 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     } else if (var3 == 2) {
-        var4 = (int)func_ov017_021d612c(arg0);
+        var4 = (int)GetScriptValueAsString_ov017_021d612c(arg0);
         if (var4 == 0) return 0;
         void* var5 = GetZoneList_02011584(var0);
         struct Struct_0201cb60* var6 = func_0209998c((struct Struct_0201cb60_2*)var5, (const char*)var4);

@@ -22,12 +22,12 @@ struct Struct_020abe84_2 {
 static inline unsigned int inline_020abe84(const Struct_020abe84* arg0) { return arg0->unknown_0_0_; }
 
 extern "C" int GetBattleRecords_020ac4c0(void*);
-extern "C" void func_020a0460(Struct_02061c04*, unsigned int);
+extern "C" void func_020a0460(BattleRecords_02061c04*, unsigned int);
 extern "C" int SetBattleRecords_020ac494(void*);
 
 // USA: func_020abe84
 extern "C" ARM int func_020abe84(void* arg0, short* arg1, Struct_020abe84* arg2, int arg3) {
-    Struct_02061c04 var0;
+    BattleRecords_02061c04 var0;
     Struct_020abe84* var1 = reinterpret_cast<Struct_020abe84_2*>(GameState::GetInstance())->unknown_75f0_;
     int var2 = 0;
     int var3;

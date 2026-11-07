@@ -33,7 +33,7 @@ struct Struct_ov025_021ea604_3 {
 extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" BattleAction_ov000_0215440c* GetCurrentBattleAction_ov000_02160f20(void*);
 extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
-extern "C" short func_ov000_0215ffa0(ActionTarget_ov000_021600f8*);
+extern "C" short GetLatestTargetCombatantIndex_ov000_0215ffa0(ActionTarget_ov000_021600f8*);
 extern "C" void func_ov025_021ed380(void*, unsigned short, short, int, int, int, int);
 extern "C" void func_ov025_021ead5c(Struct_ov025_021ea604_3*, int);
 extern unsigned int data_ov025_021ef9a4;
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov025_021ea958(Struct_ov025_021ea604_3* arg0, int arg1,
         for (int var5 = 0; var5 < var0->unknown_9_; var5++) {
             ActionTarget_ov000_021600f8* var6 = GetActionTarget_ov000_021600f8(var0, var5);
             if (var6) {
-                int var7 = func_ov000_0215ffa0(var6);
+                int var7 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var6);
                 if (arg1) {
                     if (inline_ov025_021dfce0_2(var7)) { arg3 = var7; break; }
                 } else if (!inline_ov025_021dfce0_2(var7)) { arg3 = var7; break; }

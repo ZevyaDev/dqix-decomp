@@ -70,7 +70,7 @@ extern "C" void func_02028d68(int arg0);
 extern "C" void func_02028ddc(void* arg0);
 extern "C" void func_02028dec(int);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
-extern "C" void func_020c5770(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, void* arg8);
+extern "C" void SetOrthographicProjection_020c5770(int top, int bottom, int left, int right, int nearPlane, int farPlane, int arg6, int isLoadedAsProjection, void* projectionMatrix);
 extern "C" int func_ov016_0218bc70(int arg0);
 extern "C" void func_ov016_0218e00c(Struct_ov016_0218b5c4_3* arg0);
 struct Struct_ov016_0218b5c4_4;
@@ -89,7 +89,7 @@ extern "C" void func_0202a8cc(char*, int);
 extern "C" void WaitForVBlank_020c9820();
 extern "C" void TurnOnMainDisplay_020c38d4();
 extern "C" int func_020115a8(Struct_02000c9c_12* arg0);
-extern "C" void func_02012efc();
+extern "C" void UpdateInput_02012efc();
 extern "C" void ResetGeometryEngine_020c52e8();
 extern "C" void ResetMatrixStacks_020c5414();
 extern "C" void func_02029060();
@@ -173,7 +173,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
     func_02028ddc(var10);
     func_02028dec(0);
     Set3DClearColorAndDepth_020c5588(0, 0x10, 0x7fff, 0x3f, 0);
-    func_020c5770(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, 1, 0);
+    SetOrthographicProjection_020c5770(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, 1, 0);
     *(volatile unsigned int*)0x400044c = 0;
     func_ov016_0218bc70(0);
 
@@ -215,9 +215,9 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
         var15 = func_020115a8((Struct_02000c9c_12*)var8);
         arg0->unknown_94_ = 0;
     }
-    func_02012efc();
+    UpdateInput_02012efc();
     while (var15 < 0) {
-        func_02012efc();
+        UpdateInput_02012efc();
         ResetGeometryEngine_020c52e8();
         ResetMatrixStacks_020c5414();
         DISP3DCNT &= (unsigned short)~0x3020;

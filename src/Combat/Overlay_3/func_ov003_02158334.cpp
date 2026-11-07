@@ -32,11 +32,11 @@ struct Struct_ov003_02158334_3 {
     unsigned char unknown_1f6_;
 };
 
-struct Struct_02080f8c;
-extern "C" void func_02080f8c(Struct_02080f8c*, int, int);
+struct MenuLayout_02080f8c;
+extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c*, int, int);
 struct Struct_02080cc0;
 extern "C" void func_02080cc0(Struct_02080cc0*, int, int);
-extern "C" void func_020813ec(Struct_ov003_02158334_2*, int);
+extern "C" void OpenMenuLayoutWindow_020813ec(Struct_ov003_02158334_2*, int);
 
 // USA: func_ov003_02158334
 extern "C" ARM void func_ov003_02158334(Struct_ov003_02158334_3* arg0) {
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov003_02158334(Struct_ov003_02158334_3* arg0) {
         Struct_ov000_0215ab88* var5 = (Struct_ov000_0215ab88*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg0->unknown_1f2_[var4]);
         if (var5 != NULL) {
             int var6 = 0xf;
-            func_02080f8c((Struct_02080f8c*)var3, var2, (int)var5->unknown_134_->unknown_0_);
+            SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)var3, var2, (int)var5->unknown_134_->unknown_0_);
 
             int var7 = var5->unknown_134_->unknown_30_;
             float var8;
@@ -79,5 +79,5 @@ extern "C" ARM void func_ov003_02158334(Struct_ov003_02158334_3* arg0) {
         var2 = (short)(var2 + 1);
     }
 
-    func_020813ec(var3, var1);
+    OpenMenuLayoutWindow_020813ec(var3, var1);
 }

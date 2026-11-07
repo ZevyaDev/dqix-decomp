@@ -157,7 +157,7 @@ extern "C" ARM void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2,
         var4 = 0;
     }
     if (!var16) HaltForever_020c9be0();
-    var16->unknown_0_.unknown_4_ = (short)arg1;
+    var16->unknown_0_.objectIndex_4_ = (short)arg1;
     var16->unknown_154_ = var6;
     var6->unknown_0_ = (short)arg1;
     SetGameObjectByIndex_0200fd38(var0, arg1, (GameObject*)var16);

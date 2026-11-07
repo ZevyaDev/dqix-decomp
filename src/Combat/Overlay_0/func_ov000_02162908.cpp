@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov000_0215ffa0(void* arg0);
+extern "C" int GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 
 #if defined(jpn)
 enum { Enum_ov000_02162908_668 = 0x218 };
@@ -19,7 +19,7 @@ extern "C" ARM int func_ov000_02162908(void* arg0, int arg1, int* arg2) {
     void* var1 = *(void**)((char*)var0 + 0x14);
     int var2 = 0;
     while (var1) {
-        arg2[var2++] = func_ov000_0215ffa0(var1);
+        arg2[var2++] = GetLatestTargetCombatantIndex_ov000_0215ffa0(var1);
         var1 = *(void**)((char*)var1 + 0x20);
     }
     return var2;

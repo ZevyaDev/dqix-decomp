@@ -62,7 +62,7 @@ class Object3D
 public:
     unsigned short classFlags_0_;
     short unknown_2_;
-    short unknown_4_;
+    short objectIndex_4_;
     unsigned short unknown_6_;
     Model3D* pModel_;
     AnimationPackage* loadedAnimationPackageList_;

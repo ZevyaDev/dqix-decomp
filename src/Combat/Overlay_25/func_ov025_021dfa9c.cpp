@@ -10,7 +10,7 @@ struct BattleAction_ov000_0215440c;
 struct ActionTarget_ov000_021600f8;
 extern "C" struct ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index);
 extern "C" int func_02048bd0(unsigned char* arg0);
-extern "C" short func_ov000_0215ffa0(void* arg0);
+extern "C" short GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 extern "C" int func_02048ae0(void* arg0, int arg1, void* arg2, int arg3);
 
 // USA: func_ov025_021dfa9c
@@ -49,7 +49,7 @@ extern "C" ARM int func_ov025_021dfa9c(void* arg0, void* arg1) {
     if (*(short*)((char*)var8 + 0xe) != *(short*)((char*)var9 + 0xe)) goto fail;
     if (*(unsigned short*)var6 != 1) goto fail;
 
-    if (*(short*)((char*)var9 + 0xe) != func_ov000_0215ffa0(var9)) goto fail;
+    if (*(short*)((char*)var9 + 0xe) != GetLatestTargetCombatantIndex_ov000_0215ffa0(var9)) goto fail;
 
     var11 = func_02048ae0(var5, var4, &var10[0], 2);
     if (var11 >= 2) return var10[1];

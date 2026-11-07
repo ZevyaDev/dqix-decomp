@@ -22,7 +22,7 @@ extern char data_ov026_021dedee[];
 #endif
 
 struct Struct_ov026_021d8ba0_4;
-struct Struct_ov000_02160da0;
+struct BattleScene_ov000_02160da0;
 struct Struct_ov000_02161e30;
 struct Struct_ov000_0217e870_2;
 struct Struct_ov026_021d8ba0_5;
@@ -111,7 +111,7 @@ extern "C" int func_ov000_0215fc60(char*);
 extern "C" void func_ov000_02160d80(void*, int);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 extern "C" void func_ov000_02160fbc(void*, int);
-extern "C" int func_ov000_02160fd4(void*, int);
+extern "C" int TestBattleSceneFlags_ov000_02160fd4(void*, int);
 extern "C" void func_ov000_0218173c(void*);
 extern "C" int func_02012060(void*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
@@ -119,9 +119,9 @@ extern "C" int func_020a36a8(Struct_020a36a8*);
 extern "C" void func_ov000_0215e8e8(void*);
 extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8*);
 extern "C" void func_0209a470(Struct_0209a470*, SafeAllocator*, Struct_02013fb4*, int);
-extern "C" void func_0209a804(int*);
+extern "C" void ClearSpellTable_0209a804(int*);
 extern "C" void func_0209a8b4(Struct_02086f24_6*, SafeAllocator*, Struct_02013fb4*, int);
-extern "C" void func_0205eb80(void*);
+extern "C" void UnloadExtraSoundSet_0205eb80(void*);
 extern "C" int func_0204671c(Struct_0204671c*);
 extern "C" void func_ov000_02180b3c(void*);
 extern "C" Struct_ov026_021d8ba0_8* func_ov000_0216f208(void*);
@@ -133,7 +133,7 @@ extern "C" void func_020d6f44(Struct_020d6ec8*);
 extern "C" void func_020d738c(void*);
 extern "C" void func_ov000_02163a7c(Struct_ov000_02163a7c*);
 extern "C" int GetCombatantCell_020493a4(unsigned char*);
-extern "C" void func_02049390(unsigned char*, unsigned char);
+extern "C" void SetCombatantCell_02049390(unsigned char*, unsigned char);
 extern "C" void func_02049bd4(unsigned char*, int*);
 extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_ov000_02174dc0(void*);
@@ -184,12 +184,12 @@ extern "C" void func_ov000_021637c8(void*);
 
 extern "C" {
 int* GetLocalWireless_0202ae18();
-void func_ov026_021d8aac( Struct_ov000_02160da0*, int arg1, int arg2);
+void func_ov026_021d8aac( BattleScene_ov000_02160da0*, int arg1, int arg2);
 void func_ov000_02181608(void*);
 void func_ov000_0218048c(void*);
-void func_ov000_02162cbc( Struct_ov000_02160da0*);
-void func_ov000_021626a0( Struct_ov000_02160da0*, int, int);
-void func_ov000_021629ec( Struct_ov000_02160da0*);
+void func_ov000_02162cbc( BattleScene_ov000_02160da0*);
+void SetObjectsVisibleBySelector_ov000_021626a0( BattleScene_ov000_02160da0*, int, int);
+void func_ov000_021629ec( BattleScene_ov000_02160da0*);
 int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
 int func_ov000_0215ec1c(Struct_ov000_02161e30*, short*, int, int);
 int CollectEnemyCombatantIndices_ov000_0215eb1c(Struct_ov000_02161e30*, short*, int, int);
@@ -201,17 +201,17 @@ void ExpandInflectionTags_020e4864(void*, char*, int, int, int, int);
 void __clear(void*, int);
 void func_02046608(Struct_ov023_021f4c04*, int, char*, char*, int, int, int);
 void func_ov000_0217f518(Struct_ov026_021d8ba0_6*);
-void func_ov000_02162c14( Struct_ov000_02160da0*, int, void*);
+void func_ov000_02162c14( BattleScene_ov000_02160da0*, int, void*);
 void func_ov000_0217fa60(void*);
 void func_ov000_02175258(void*);
 void func_ov000_02174c14(void*);
 void func_ov000_021814bc(void*);
-void func_ov026_021dc8fc( Struct_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*, void*, void*, int);
+void func_ov026_021dc8fc( BattleScene_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*, void*, void*, int);
 void* memset(void*, int, unsigned int);
 void func_ov000_0217fcc4(void*, int);
 int IsLocalWirelessGuest_0202c540(int*);
 void func_ov017_021c6814(unsigned short, unsigned short, Struct_ov026_021d8ba0*, unsigned char, int, int);
-int func_ov026_021ddd84(GameResources*, Struct_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*, void*, int);
+int func_ov026_021ddd84(GameResources*, BattleScene_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*, void*, int);
 void func_ov017_021c847c();
 void func_020dd0b0(int, void*);
 #if defined(jpn)
@@ -220,32 +220,32 @@ void StartMessage_0204500c(Struct_ov023_021f4c04*, void*, int);
 void StartMessage_0204500c(Struct_ov023_021f4c04*, void*, int, int);
 #endif
 int func_ov026_021d8a40();
-void func_ov026_021dce34(int, Struct_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*, void*, void*, void*, void*, void*, void*, void*);
+void func_ov026_021dce34(int, BattleScene_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*, void*, void*, void*, void*, void*, void*, void*);
 void func_ov026_021dd8a8(Struct_ov000_02161e30*, Struct_ov000_0217e870_2*);
 void func_ov000_0217fbf4(void*, int);
 void ClearMessageParams_02046380(Struct_ov023_021f4c04*);
 void func_020e4ce8(void*, char*, int);
-void func_ov000_0216258c( Struct_ov000_02160da0*);
-void func_ov026_021db3d8( Struct_ov000_02160da0*);
+void func_ov000_0216258c( BattleScene_ov000_02160da0*);
+void func_ov026_021db3d8( BattleScene_ov000_02160da0*);
 int IsNotLocalWirelessGuest_0202c508(int*);
 void func_ov000_02175be4(void*);
-void func_ov026_021db5a4( Struct_ov000_02160da0*);
-void func_ov026_021dbba8( Struct_ov000_02160da0*);
+void func_ov026_021db5a4( BattleScene_ov000_02160da0*);
+void func_ov026_021dbba8( BattleScene_ov000_02160da0*);
 void func_ov000_0217457c(void*, int);
 unsigned char func_ov026_021dd3dc(Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*);
-void* func_ov000_02160f14( Struct_ov000_02160da0*);
+void* func_ov000_02160f14( BattleScene_ov000_02160da0*);
 void func_ov017_021c894c(unsigned short);
 void func_ov017_021c8758(unsigned short);
 void func_ov017_021c8654();
 void* GetEffectManager_02057924();
 void RemoveEffectResource_02057f00(void*, int);
-void func_ov000_02168144( Struct_ov000_02160da0*);
+void func_ov000_02168144( BattleScene_ov000_02160da0*);
 void func_ov000_0215d588(Struct_ov000_02161e30*);
-void func_ov000_02160da0( Struct_ov000_02160da0*);
-void func_ov026_021dc440(SafeAllocator*, Struct_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, int);
-int func_ov026_021dc040(SafeAllocator*, Struct_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*);
-void func_ov000_02163894( Struct_ov000_02160da0*);
-void func_ov000_02163928( Struct_ov000_02160da0*);
+void func_ov000_02160da0( BattleScene_ov000_02160da0*);
+void func_ov026_021dc440(SafeAllocator*, BattleScene_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, int);
+int func_ov026_021dc040(SafeAllocator*, BattleScene_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*);
+void func_ov000_02163894( BattleScene_ov000_02160da0*);
+void func_ov000_02163928( BattleScene_ov000_02160da0*);
 }
 
 extern char data_ov026_021dedbc[];
@@ -340,7 +340,7 @@ struct Struct_ov000_02161e30 {
     unsigned char unknown_8e49_;
 };
 
-struct Struct_ov000_02160da0 {
+struct BattleScene_ov000_02160da0 {
     char unknown_0_[0x30];
 #if defined(jpn)
     char unknown_30_[0x108];
@@ -349,7 +349,7 @@ struct Struct_ov000_02160da0 {
     char unknown_30_[0x11c];
     char unknown_14c_[0x150];
 #endif
-    Struct_ov000_02161e30* unknown_29c_;
+    Struct_ov000_02161e30* pBattle_29c_;
     Struct_ov000_0217e870_2* unknown_2a0_;
     char unknown_2a4_[0x974];
     char unknown_c18_[0x220];
@@ -449,7 +449,7 @@ struct Struct_ov000_02160da0 {
 };
 
 // USA: func_ov026_021d8ba0
-extern "C" ARM void func_ov026_021d8ba0(Struct_ov000_02160da0* arg0) {
+extern "C" ARM void func_ov026_021d8ba0(BattleScene_ov000_02160da0* arg0) {
     char var0[0x80];
     Struct_020e6e88 var1;
     char var2[0x80];
@@ -505,7 +505,7 @@ extern "C" ARM void func_ov026_021d8ba0(Struct_ov000_02160da0* arg0) {
     var17 = GameState::GetInstance();
     var18 = GetGameResources();
     var22 = GetLocalWireless_0202ae18();
-    var19 = arg0->unknown_29c_;
+    var19 = arg0->pBattle_29c_;
     var20 = func_ov026_021dae60((Struct_ov026_021d8ba0_4*)arg0->unknown_3760_, GetProtagonistObjectIndex_020100a8(var17));
     var21 = GetMessageWindow_020421a0();
     var23 = BackgroundLoader::GetInstance();
@@ -545,7 +545,7 @@ extern "C" ARM void func_ov026_021d8ba0(Struct_ov000_02160da0* arg0) {
         inline_ov026_021d8ba0_2().unknown_18_ = var23->QueueLoadFile(data_ov026_021dedbc, 0);
         arg0->unknown_eac_ = 1;
         if (IsLocalWirelessOn_0202b7d8(var22) && func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
-            func_ov000_0215e8e8(arg0->unknown_29c_);
+            func_ov000_0215e8e8(arg0->pBattle_29c_);
         }
     }
 state1:
@@ -570,7 +570,7 @@ state1:
             return;
         }
         var23->GetLoadedFileByID(inline_ov026_021d8ba0_2().unknown_18_, &var54, &var55);
-        func_0209a804((int*)(arg0->unknown_ea0_));
+        ClearSpellTable_0209a804((int*)(arg0->unknown_ea0_));
         func_0209a8b4((Struct_02086f24_6*)(arg0->unknown_ea0_), (SafeAllocator*)(arg0->unknown_30_), (Struct_02013fb4*)var54, var55);
         var23->RemoveTask(inline_ov026_021d8ba0_2().unknown_18_);
         inline_ov026_021d8ba0_2().unknown_18_ = -1;
@@ -579,7 +579,7 @@ state1:
     if (arg0->unknown_eac_ == 3) {
         int var56;
         if (arg0->unknown_7711_ != 0) {
-            func_0205eb80(&gSoundEffectManager_02108760);
+            UnloadExtraSoundSet_0205eb80(&gSoundEffectManager_02108760);
             arg0->unknown_7711_ = 0;
         }
         arg0->unknown_7734_ = arg0->unknown_55f4_;
@@ -624,8 +624,8 @@ state1:
         if (var19->unknown_8e20_ > 0) {
             func_ov000_02162cbc(arg0);
         }
-        func_ov000_021626a0(arg0, 0x26, 0);
-        func_ov000_021626a0(arg0, 0x27, 1);
+        SetObjectsVisibleBySelector_ov000_021626a0(arg0, 0x26, 0);
+        SetObjectsVisibleBySelector_ov000_021626a0(arg0, 0x27, 1);
         func_ov000_02163a7c((Struct_ov000_02163a7c*)arg0);
         func_ov000_021629ec(arg0);
         {
@@ -679,7 +679,7 @@ state1:
                 for (var62 = 0; var62 < var34; var66++, var63++, var62++) {
                     if (*var66 != 0) {
                         int var68;
-                        func_02049390(*var66, *var63);
+                        SetCombatantCell_02049390(*var66, *var63);
                         var68 = *var63;
                         const Struct_ov026_021d8ba0_2& var69 = func_ov000_0216f74c(&var68);
                         Struct_ov026_021d8ba0_2 var70 = var69;
@@ -694,9 +694,9 @@ state1:
     shifted:
         ResetMessageWindow_02043204((char*)var21);
         CloseMessageWindow_02043124(var21);
-        func_ov026_021daec8(arg0->unknown_29c_, arg0->unknown_c18_, var49);
+        func_ov026_021daec8(arg0->pBattle_29c_, arg0->unknown_c18_, var49);
         {
-            Struct_ov000_02161e30* var71 = arg0->unknown_29c_;
+            Struct_ov000_02161e30* var71 = arg0->pBattle_29c_;
             int var73;
             int var74;
             var43 = GameState::GetInstance();
@@ -791,7 +791,7 @@ state1:
         {
             Struct_ov000_0217e870_2* var76;
             int var77;
-            var44 = arg0->unknown_29c_;
+            var44 = arg0->pBattle_29c_;
             var76 = arg0->unknown_2a0_;
             for (var77 = 0; var77 < 4; var77++) {
                 if (IsPartyMemberInBattle_020a35e0((unsigned char*)var76, var77)) {
@@ -812,7 +812,7 @@ state1:
             if (IsDead_02010088((Struct_02010088*)var27)) continue;
             SetMotion_02033b88((Struct_02010604*)var27, 0);
         }
-        if (var19->unknown_8e20_ == 0 && arg0->unknown_29c_->unknown_8e49_ == 2) {
+        if (var19->unknown_8e20_ == 0 && arg0->pBattle_29c_->unknown_8e49_ == 2) {
             func_ov000_02181364(arg0->unknown_3760_);
             func_ov000_0217fcc4(arg0->unknown_3760_, -1);
             arg0->unknown_772f_ = 0;
@@ -858,10 +858,10 @@ state1:
         }
     }
     if (arg0->unknown_eac_ == 0xe) {
-        if (func_ov026_021ddd84(var18, arg0, arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 1) != 0) {
+        if (func_ov026_021ddd84(var18, arg0, arg0->pBattle_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 1) != 0) {
             return;
         }
-        if (func_ov000_02160fd4(arg0, 0x40000000) != 0) {
+        if (TestBattleSceneFlags_ov000_02160fd4(arg0, 0x40000000) != 0) {
             if (arg0->unknown_774a_ != 0) {
                 int var83;
                 for (var83 = 0; var83 < 4; var83++) {
@@ -917,11 +917,11 @@ state1:
 #endif
             }
         }
-        if (func_ov026_021ddd84(var18, arg0, arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 1) != 0) {
+        if (func_ov026_021ddd84(var18, arg0, arg0->pBattle_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 1) != 0) {
             return;
         }
         if (func_ov026_021d8a40() && IsQueueEmpty_02046b08(var47) && IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, arg0->unknown_2a0_->unknown_2a_)) {
-            func_ov026_021dce34(-1, arg0, arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, arg0->unknown_ec8_, arg0->unknown_5c3c_, arg0->unknown_5728_, arg0->unknown_e98_, arg0->unknown_ea0_, arg0->unknown_5910_, arg0->unknown_c18_);
+            func_ov026_021dce34(-1, arg0, arg0->pBattle_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, arg0->unknown_ec8_, arg0->unknown_5c3c_, arg0->unknown_5728_, arg0->unknown_e98_, arg0->unknown_ea0_, arg0->unknown_5910_, arg0->unknown_c18_);
         }
     }
     if (arg0->unknown_eac_ == 4) {
@@ -940,7 +940,7 @@ state1:
             arg0->unknown_772f_ = 0;
         }
         func_ov000_02174514(arg0->unknown_3760_);
-        if (func_ov026_021ddd84(var18, arg0, arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 1) != 0) {
+        if (func_ov026_021ddd84(var18, arg0, arg0->pBattle_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 1) != 0) {
             return;
         }
         {
@@ -988,7 +988,7 @@ state1:
             }
         }
         if (func_ov026_021d8a40() && IsQueueEmpty_02046b08(var47) && IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, arg0->unknown_2a0_->unknown_2a_)) {
-            func_ov026_021dce34(-1, arg0, arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, arg0->unknown_ec8_, arg0->unknown_5c3c_, arg0->unknown_5728_, arg0->unknown_e98_, arg0->unknown_ea0_, arg0->unknown_5910_, arg0->unknown_c18_);
+            func_ov026_021dce34(-1, arg0, arg0->pBattle_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, arg0->unknown_ec8_, arg0->unknown_5c3c_, arg0->unknown_5728_, arg0->unknown_e98_, arg0->unknown_ea0_, arg0->unknown_5910_, arg0->unknown_c18_);
         }
         if (var19->unknown_8e47_ == 0) {
             if (TestGlobalFlags_02046708((GlobalFlags_02012de8*)var25, 0x200) == 0) {
@@ -1012,7 +1012,7 @@ state1:
             int var107 = 0;
             int var108 = var107;
             int var109 = var107;
-            if (IsLocalWirelessOn_0202b7d8(var22) && var19->unknown_8e20_ == 0 && arg0->unknown_29c_->unknown_8e49_ == 2) {
+            if (IsLocalWirelessOn_0202b7d8(var22) && var19->unknown_8e20_ == 0 && arg0->pBattle_29c_->unknown_8e49_ == 2) {
                 if (var21->unknown_998_ != 0) {
                     var109 = 1;
                 }
@@ -1117,7 +1117,7 @@ state1:
                 func_ov000_0217457c(arg0->unknown_3760_, -1);
                 if (arg0->unknown_7712_ == -1) {
                     arg0->unknown_7710_ = 60;
-                    func_0205eb80(&gSoundEffectManager_02108760);
+                    UnloadExtraSoundSet_0205eb80(&gSoundEffectManager_02108760);
                     arg0->unknown_7711_ = 0;
                     func_0205eb54(&gSoundEffectManager_02108760, 0x1b3, 0x1b3);
                     func_0205eb90(&gSoundEffectManager_02108760, 0, 0);
@@ -1137,8 +1137,8 @@ state1:
                 func_ov000_02160fbc(arg0, 0x40000000);
                 if (!IsLocalWirelessOn_0202b7d8(var22)) {
                     Random* var118;
-                    arg0->unknown_5950_ = func_ov026_021dd3dc(arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_);
-                    var118 = &arg0->unknown_29c_->unknown_0_;
+                    arg0->unknown_5950_ = func_ov026_021dd3dc(arg0->pBattle_29c_, arg0->unknown_2a0_, arg0->unknown_3760_);
+                    var118 = &arg0->pBattle_29c_->unknown_0_;
                     arg0->unknown_6e3c_ = GetRandomStateHi(var118);
                     arg0->unknown_6e40_ = GetRandomStateLo(var118);
                     arg0->unknown_eac_ = 5;
@@ -1150,7 +1150,7 @@ state1:
                     }
                     func_ov026_021daec8(var19, func_ov000_02160f14(arg0), 0);
                     if (func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
-                        arg0->unknown_5950_ = func_ov026_021dd3dc(arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_);
+                        arg0->unknown_5950_ = func_ov026_021dd3dc(arg0->pBattle_29c_, arg0->unknown_2a0_, arg0->unknown_3760_);
                         func_ov017_021cefe0(arg0->unknown_2a0_->unknown_8_, arg0->unknown_5950_, arg0->unknown_7748_);
                         SetBattleSceneFlags_ov000_02160fa8(arg0, 0x800000);
                     }
@@ -1179,7 +1179,7 @@ state1:
             }
         }
     } else if (arg0->unknown_eac_ == 0x12) {
-        if (func_ov026_021ddd84(var18, arg0, arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 0) != 0) {
+        if (func_ov026_021ddd84(var18, arg0, arg0->pBattle_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 0) != 0) {
             return;
         }
         if (func_020e37e8(var26) != 0 || TestGlobalFlags_02046708((GlobalFlags_02012de8*)var25, 0x200) == 0) {
@@ -1191,7 +1191,7 @@ state1:
             }
         }
     } else if (arg0->unknown_eac_ == 8) {
-        if (func_ov026_021ddd84(var18, arg0, arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 0) != 0) {
+        if (func_ov026_021ddd84(var18, arg0, arg0->pBattle_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 0) != 0) {
             return;
         }
         if (func_0205e488(var24)) {
@@ -1206,11 +1206,11 @@ state1:
             arg0->unknown_eac_ = 9;
         }
     } else if (arg0->unknown_eac_ == 9) {
-        if (func_ov026_021ddd84(var18, arg0, arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 0) != 0) {
+        if (func_ov026_021ddd84(var18, arg0, arg0->pBattle_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 0) != 0) {
             return;
         }
         if (func_0205e488(var24)) {
-            Random* var123 = &arg0->unknown_29c_->unknown_0_;
+            Random* var123 = &arg0->pBattle_29c_->unknown_0_;
             arg0->unknown_6e3c_ = GetRandomStateHi(var123);
             arg0->unknown_6e40_ = GetRandomStateLo(var123);
             func_ov017_021cf650(arg0->unknown_2a0_->unknown_8_, arg0->unknown_6e3c_, arg0->unknown_6e40_);
@@ -1223,10 +1223,10 @@ state1:
             arg0->unknown_eac_ = arg0->unknown_eac_ + 1;
         }
     } else if (arg0->unknown_eac_ == 0xa) {
-        if (func_ov026_021ddd84(var18, arg0, arg0->unknown_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 0) != 0) {
+        if (func_ov026_021ddd84(var18, arg0, arg0->pBattle_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 0) != 0) {
             return;
         }
-        if (func_ov000_02160fd4(arg0, 0x20000)) {
+        if (TestBattleSceneFlags_ov000_02160fd4(arg0, 0x20000)) {
             arg0->unknown_eac_ = 5;
         }
     } else if (arg0->unknown_eac_ == 5) {
@@ -1323,13 +1323,13 @@ state1:
             return;
         }
         func_ov000_021637c8(arg0);
-        func_ov026_021dc440((SafeAllocator*)(arg0->unknown_30_), arg0, arg0->unknown_29c_, arg0->unknown_2a0_, 0);
-        func_ov026_021dc040((SafeAllocator*)(arg0->unknown_30_), arg0, arg0->unknown_29c_, arg0->unknown_2a0_);
+        func_ov026_021dc440((SafeAllocator*)(arg0->unknown_30_), arg0, arg0->pBattle_29c_, arg0->unknown_2a0_, 0);
+        func_ov026_021dc040((SafeAllocator*)(arg0->unknown_30_), arg0, arg0->pBattle_29c_, arg0->unknown_2a0_);
         func_ov000_02163894(arg0);
         arg0->unknown_eac_ = 7;
     } else if (arg0->unknown_eac_ == 7) {
         func_ov000_02163928(arg0);
-        if (func_ov026_021dc040((SafeAllocator*)(arg0->unknown_30_), arg0, arg0->unknown_29c_, arg0->unknown_2a0_) != 0) {
+        if (func_ov026_021dc040((SafeAllocator*)(arg0->unknown_30_), arg0, arg0->pBattle_29c_, arg0->unknown_2a0_) != 0) {
             arg0->unknown_eac_ = 0;
         }
     }

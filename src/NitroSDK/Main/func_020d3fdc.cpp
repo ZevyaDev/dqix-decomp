@@ -3,7 +3,7 @@
 unsigned int DisableIRQInterrupts(void);
 unsigned int SetIRQInterruptState(int mask);
 extern "C" int func_020d41e8(void);
-extern "C" int func_020d424c(int arg0, int arg1);
+extern "C" int CheckWirelessState_020d424c(int stateCount, int arg1);
 #include "NitroSDK/IPC.h"
 
 extern "C" void func_020d468c(void);
@@ -24,7 +24,7 @@ extern "C" ARM int func_020d3fdc(void) {
         SetIRQInterruptState(var0);
         return 3;
     }
-    int var1 = func_020d424c(1, 0);
+    int var1 = CheckWirelessState_020d424c(1, 0);
     if (var1 != 0) {
         return var1;
     }

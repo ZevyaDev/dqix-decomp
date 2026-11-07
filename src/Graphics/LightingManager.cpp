@@ -72,7 +72,7 @@ extern "C"
     void func_020c555c(unsigned short*);
     void func_020c5574(void*);
 
-    extern "C" int func_ov000_02160fd4(void*, int);
+    extern "C" int TestBattleSceneFlags_ov000_02160fd4(void*, int);
 
     void* GetBattleScene_ov017_021b8468(void*);
     extern "C" void func_ov017_021901ac(GameResources*);
@@ -406,7 +406,7 @@ void LightingManager::GetCurrentAdvancedLightingValues(unsigned short *outMaybeA
         if (ov17thing != NULL)
         {
             void* ov0thing = GetBattleScene_ov017_021b8468(ov17thing);
-            if (ov0thing != NULL && func_ov000_02160fd4(ov0thing, 1 << 9))
+            if (ov0thing != NULL && TestBattleSceneFlags_ov000_02160fd4(ov0thing, 1 << 9))
             {
                 unsigned char* overrideData = (unsigned char*)GetBattleSetup_ov017_021b8478(ov17thing);
                 currentTimeType = overrideData[5];
@@ -1028,7 +1028,7 @@ void LightingManager::DrawBackgroundGradient()
         if (ov17inner != NULL)
         {
             void* ov0thing = GetBattleScene_ov017_021b8468(ov17inner);
-            if (ov0thing != NULL && func_ov000_02160fd4(ov0thing, 1 << 9))
+            if (ov0thing != NULL && TestBattleSceneFlags_ov000_02160fd4(ov0thing, 1 << 9))
             {
                 unsigned char* overrideData = (unsigned char*)GetBattleSetup_ov017_021b8478(ov17inner);
                 int index = overrideData[5];

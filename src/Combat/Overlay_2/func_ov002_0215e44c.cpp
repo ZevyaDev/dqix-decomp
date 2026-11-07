@@ -12,7 +12,7 @@ struct Struct_ov002_0216c9fb {
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" void func_020dc4d0(signed char *arg0, signed char *arg1);
-extern "C" void func_ov002_0215be00(void *arg0, int arg1, int arg2, int arg3);
+extern "C" void SetNextTextWindow_ov002_0215be00(void *menu, int windowId, int x, int y);
 extern "C" void func_ov002_0215e644(unsigned char *arg0, void *arg1, int arg2);
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov002_0215e44c(unsigned char *arg0) {
     var2 -= var0 * 4;
     for (signed char var3 = 0; var3 < var0; var3++) {
         *(signed char *) (arg0 + RG(0x1c20, 0x1ae8)) = var1.unknown_0_[var3];
-        func_ov002_0215be00(arg0, (unsigned char) (*(signed char *) (arg0 + RG(0x1c20, 0x1ae8)) + RG(0x2c, 0x2f)), (short) var2, 3);
+        SetNextTextWindow_ov002_0215be00(arg0, (unsigned char) (*(signed char *) (arg0 + RG(0x1c20, 0x1ae8)) + RG(0x2c, 0x2f)), (short) var2, 3);
         memset(*(void **) (arg0 + RG(0x1bd0, 0x1a98)), 0, RG(0x960, 0x800));
         func_ov002_0215e644(arg0, *(void **) (arg0 + RG(0x1bd0, 0x1a98)), 0);
 #if defined(jpn)

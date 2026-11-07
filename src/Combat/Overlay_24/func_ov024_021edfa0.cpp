@@ -4,7 +4,7 @@
 
 extern "C" int func_ov024_021edf00(int* arg0, int arg1, short* arg2);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
-extern "C" void func_ov024_021ed8c0(void* arg0, int arg1, int arg2, int* arg3, short* arg4);
+extern "C" void ChooseEnemyActionTargets_ov024_021ed8c0(void* targetSelector, int actorIndex, int action, int* count, short* targetIndices);
 
 struct Struct_ov024_021df454_2;
 extern "C" int func_ov024_021df6ec(struct Struct_ov024_021df454_2* arg0);
@@ -42,6 +42,6 @@ extern "C" ARM int func_ov024_021edfa0(int* arg0, int arg1, int arg2, int* arg3,
 	}
 	if (*arg3 <= 0) return 0;
 
-	func_ov024_021ed8c0(arg0, arg1, arg2, arg3, arg4);
+	ChooseEnemyActionTargets_ov024_021ed8c0(arg0, arg1, arg2, arg3, arg4);
 	return arg4[0] >= 0;
 }

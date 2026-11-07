@@ -7,7 +7,7 @@
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void ClearItemTable_020de848(void* itemTable);
 
-extern "C" void* func_020de9a4(void* arg0, void* arg1, void* arg2, unsigned int arg3, int arg4, unsigned int arg5);
+extern "C" void* LoadItemTableByIds_020de9a4(void* itemTable, void* allocator, void* fileData, unsigned int fileSize, int itemIds, unsigned int itemIdCount);
 
 #if defined(jpn)
 extern "C" void func_020e0484(void*, SafeAllocator*, char*, int, unsigned int, int);
@@ -30,7 +30,7 @@ extern "C" ARM void* func_0207d6dc(SafeAllocator* arg0, int arg1, int arg2) {
     unsigned int var2 = 0;
     void* var3 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var2);
     if (var3 != NULL) {
-        func_020de9a4((char*)arg0 + 0x14, arg0, var3, var2, arg1, (unsigned int)arg2 & 0xffff);
+        LoadItemTableByIds_020de9a4((char*)arg0 + 0x14, arg0, var3, var2, arg1, (unsigned int)arg2 & 0xffff);
     }
     BackgroundLoader::RemoveLockGlobal();
 #endif

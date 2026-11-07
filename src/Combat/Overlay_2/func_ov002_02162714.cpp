@@ -16,7 +16,7 @@ struct TimedMessageQueue_020d7aa0_2;
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
-extern "C" int func_ov002_02161b48(char *arg0, int arg1);
+extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 struct TextWindowManager_0205da38;
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" int GetResources_0200fb8c(int *gameState);
@@ -26,7 +26,7 @@ extern "C" int func_ov002_02157108(void *arg0, int arg1);
 extern "C" TimedMessageQueue_020d7aa0_2 *func_020d7a50();
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2 *queue);
 extern "C" void func_020d7978(char *arg0);
-extern "C" void func_ov002_02161cf0(char *arg0);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215c474(char *arg0);
 extern "C" void func_ov002_02156e90(char *arg0);
 
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov002_02162714(char *arg0) {
     if (var0 == 0) {
         *(short *) (arg0 + RG(0x1be4, 0x1aac)) = 0;
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + RG(0xec8, 0xe20)), 0, 2);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_0215c474(arg0);
         (*(int *) (arg0 + RG(0x1bc0, 0x1a88)))++;
     } else if (var0 == 1) {
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov002_02162714(char *arg0) {
                     *(int *) (arg0 + RG(0x1bc0, 0x1a88)) = 0;
                     break;
             }
-        } else if (func_ov002_02161b48(arg0, 1)) {
+        } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + RG(0x1be4, 0x1aac)) = -1;
             func_ov002_02156e90(arg0);
         }

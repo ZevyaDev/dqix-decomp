@@ -35,7 +35,7 @@ extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_ov017_02195530(unsigned char*);
 struct Struct_02052e2c;
-extern "C" Struct_0209a678_2* func_02052e2c(Struct_02052e2c*);
+extern "C" Struct_0209a678_2* GetAppearance_02052e2c(Struct_02052e2c*);
 extern "C" char* GetZone3D_02012fe4();
 extern "C" char* GetLocalWireless_0202ae18();
 extern "C" int IsNotLocalWirelessGuest_0202c508(char*);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov003_02163d7c(char* arg0) {
     GameResources* var2 = GetGameResources();
     char* var3 = *(char**)((char*)var2 + 0x3000 + Enum_ov003_02163d7c_1788);
     char* var4 = *(char**)((char*)var2 + 0x3000 + Enum_ov003_02163d7c_1844);
-    Struct_0209a678_2* var5 = func_02052e2c((Struct_02052e2c*)(var0->GetGameObjectByIndex(*(signed char*)(arg0 + Enum_ov003_02163d7c_1024 + Enum_ov003_02163d7c_162))));
+    Struct_0209a678_2* var5 = GetAppearance_02052e2c((Struct_02052e2c*)(var0->GetGameObjectByIndex(*(signed char*)(arg0 + Enum_ov003_02163d7c_1024 + Enum_ov003_02163d7c_162))));
     char* var6 = GetLocalWireless_0202ae18();
     func_ov017_021bbae4(var4, *(unsigned int*)(var1 + 0x8), 1);
     var4[Enum_ov003_02163d7c_205] = *(signed char*)(arg0 + Enum_ov003_02163d7c_1024 + Enum_ov003_02163d7c_162);

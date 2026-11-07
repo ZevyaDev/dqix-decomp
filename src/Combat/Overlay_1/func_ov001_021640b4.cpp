@@ -2,14 +2,14 @@
 #include "GameState/GameState.h"
 
 extern "C" int GetFollowCamera_020100f8(char* gameState);
-extern "C" float func_ov017_021d6110(void*);
+extern "C" float GetScriptValueAsFloat_ov017_021d6110(void*);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" void func_0202f0c4(void* arg0, int arg1, int arg2);
 
 // USA: func_ov001_021640b4
 extern "C" ARM int func_ov001_021640b4(void* arg0) {
     void* var0 = (void*)GetFollowCamera_020100f8((char*)GameState::GetInstance());
-    float var1 = func_ov017_021d6110(arg0);
+    float var1 = GetScriptValueAsFloat_ov017_021d6110(arg0);
     int var2 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x8);
     int var3 = (int)(4096.0f * var1);
     int var4 = (unsigned short)(var2 * 33);

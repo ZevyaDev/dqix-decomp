@@ -3,7 +3,7 @@
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void* func_02058658(void* arg0, int arg1);
 extern "C" void* func_ov025_021e8cf0(char* arg0, int arg1);
-extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 extern int data_ov025_021ef988;
 
 struct Struct_ov025_021e5014 { char unknown_0_[8]; unsigned char unknown_8_; unsigned char unknown_9_; };
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov025_021e5014(struct Struct_ov025_021e5014* arg0, int a
         return 1;
     }
     int var4[8];
-    int var5 = func_ov000_021820bc((void*)arg3, arg1, arg0->unknown_8_, (int)&var4[0]);
+    int var5 = CollectObjectIndicesBySelector_ov000_021820bc((void*)arg3, arg1, arg0->unknown_8_, (int)&var4[0]);
     if (var5 != 1) {
         *(short*)((char*)var3 + 0xb2) = -1;
         return 1;

@@ -27,7 +27,7 @@ struct Struct_02111654_5
 };
 
 extern Struct_02111654_5 data_02111654;
-extern "C" char data_027e0000[];
+extern "C" char gDTCMData_027e0000[];
 
 struct Struct_020c94e4;
 struct Struct_020c9384;
@@ -60,7 +60,7 @@ extern "C" ARM void func_020c94e4()
 
     DisableSpecificInterrupts(4);
     DISPSTAT &= ~0x20;
-    *(unsigned int*)((unsigned int)data_027e0000 + 0x3ff8) |= 4;
+    *(unsigned int*)((unsigned int)gDTCMData_027e0000 + 0x3ff8) |= 4;
     unsigned short var5 = DISPSTAT;
     var3 = ((var5 >> 8) & 0xff) | ((var5 << 1) & 0x100);
     var4 = func_020c96a8(var3 - 1);

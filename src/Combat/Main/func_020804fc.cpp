@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 
 struct Struct_0207f0ac;
-struct Struct_0207f524;
+struct MenuLayoutTextEntryList_0207f524;
 
-struct Struct_020804fc_2 {
-    short* unknown_0_;
+struct MenuLayoutWindowEntry_020804fc_2 {
+    short* pTextIds_0_;
     char unknown_4_[0x13 - 0x4];
-    unsigned char unknown_13_;
+    unsigned char textCount_13_;
 };
 
-struct Struct_020804fc {
+struct MenuLayoutTextEntry_020804fc {
     char unknown_0_[0x2a];
-    unsigned char unknown_2a_;
+    unsigned char flags_2a_;
 };
 
-extern "C" struct Struct_020804fc_2* func_0207f0ac(struct Struct_0207f0ac* arg0, int arg1);
-extern "C" struct Struct_020804fc* func_0207f6ac(struct Struct_0207f524* arg0, int arg1);
+extern "C" struct MenuLayoutWindowEntry_020804fc_2* func_0207f0ac(struct Struct_0207f0ac* arg0, int arg1);
+extern "C" struct MenuLayoutTextEntry_020804fc* FindMenuLayoutTextEntry_0207f6ac(struct MenuLayoutTextEntryList_0207f524* textEntries, int textId);
 
-// USA: func_020804fc
-extern "C" ARM void func_020804fc(void* arg0, int arg1) {
-    struct Struct_020804fc_2* var0;
-    unsigned char var1;
-    var0 = func_0207f0ac((struct Struct_0207f0ac*)((char*)arg0 + 0xc), arg1);
-    if (var0 == NULL) return;
-    for (var1 = 0; var1 < var0->unknown_13_; var1++) {
-        struct Struct_020804fc* var2 = func_0207f6ac((struct Struct_0207f524*)((char*)arg0 + 4), var0->unknown_0_[var1]);
-        if (var2 != NULL) {
-            var2->unknown_2a_ &= ~4;
+// USA: ClearMenuLayoutWindowHighlights_020804fc
+extern "C" ARM void ClearMenuLayoutWindowHighlights_020804fc(void* menuLayout, int windowId) {
+    struct MenuLayoutWindowEntry_020804fc_2* windowEntry;
+    unsigned char i;
+    windowEntry = func_0207f0ac((struct Struct_0207f0ac*)((char*)menuLayout + 0xc), windowId);
+    if (windowEntry == NULL) return;
+    for (i = 0; i < windowEntry->textCount_13_; i++) {
+        struct MenuLayoutTextEntry_020804fc* textEntry = FindMenuLayoutTextEntry_0207f6ac((struct MenuLayoutTextEntryList_0207f524*)((char*)menuLayout + 4), windowEntry->pTextIds_0_[i]);
+        if (textEntry != NULL) {
+            textEntry->flags_2a_ &= ~4;
         }
     }
 }

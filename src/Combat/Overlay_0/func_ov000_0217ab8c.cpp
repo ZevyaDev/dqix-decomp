@@ -67,7 +67,7 @@ struct Struct_ov000_02184294_2 {
     Struct_ov000_0217ab8c_2* unknown1_8_;
 #endif
 };
-struct Struct_0207d300;
+struct PartyMemberData_0207d300;
 struct MenuCursor_0205ba68;
 
 extern Struct_ov000_02184294_2 data_ov000_02184294;
@@ -78,12 +78,12 @@ struct Struct_ov000_02171968;
 extern "C" int func_ov000_021719c0(Struct_ov000_02171968*);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
-extern "C" int func_02083960(Struct_0207d300*);
-extern "C" void func_0205cf10(void*);
-struct Struct_0205cf1c;
-extern "C" void func_0205cf1c(Struct_0205cf1c*);
+extern "C" int CountHeldItems_02083960(PartyMemberData_0207d300*);
+extern "C" void DisableTouchMenuCursor_0205cf10(void*);
+struct TextWindowManager_0205cf1c;
+extern "C" void DisableKeyMenuCursor_0205cf1c(TextWindowManager_0205cf1c*);
 extern "C" void EnableTouchMenuCursor_0205cef8(void*);
-extern "C" void func_0205cf04(void*);
+extern "C" void EnableKeyMenuCursor_0205cf04(void*);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
 struct MenuCursor_0205bacc;
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
@@ -154,7 +154,7 @@ extern "C" ARM void func_ov000_0217ab8c(Struct_ov000_0217ab8c* arg0, int arg1, i
         GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var6, arg0->unknown_4c_);
         int var8 = GetPartyMemberData_02053c6c((unsigned char*)var7);
         if (var8 != 0) {
-            int var9 = func_02083960((Struct_0207d300*)var8);
+            int var9 = CountHeldItems_02083960((PartyMemberData_0207d300*)var8);
             var2 = (arg0->unknown_86_ - var9 + 3) / 4 + (var9 + 3) / 4;
             arg0->unknown_1b_ = var5->unknown_54_.unknown_14_;
             var3 = var2 * 4;
@@ -191,12 +191,12 @@ extern "C" ARM void func_ov000_0217ab8c(Struct_ov000_0217ab8c* arg0, int arg1, i
         var4 = arg0->unknown_23_;
         break;
     default:
-        func_0205cf10(var5);
-        func_0205cf1c((Struct_0205cf1c*)arg0->unknown_38_);
+        DisableTouchMenuCursor_0205cf10(var5);
+        DisableKeyMenuCursor_0205cf1c((TextWindowManager_0205cf1c*)arg0->unknown_38_);
         return;
     }
     EnableTouchMenuCursor_0205cef8(arg0->unknown_38_);
-    func_0205cf04(arg0->unknown_38_);
+    EnableKeyMenuCursor_0205cf04(arg0->unknown_38_);
     SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&var5->unknown_4_, var0, var1, 0);
     SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&var5->unknown_54_, var0, var1, 0);
     SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&var5->unknown_4_, var3);

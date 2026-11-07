@@ -28,7 +28,7 @@ extern "C" int func_ov002_02168c00(unsigned char *arg0);
 extern "C" void func_020a13c4(struct Struct_020a13c4 *arg0);
 extern "C" void func_020a13e4(void *arg0, void *arg1, int arg2, unsigned short arg3, unsigned char arg4);
 extern "C" void *func_020a15bc(struct Struct_020a15bc *arg0, int arg1);
-extern "C" void *func_020dfc2c(void *arg0);
+extern "C" void *ConstructStringTable_020dfc2c(void *stringTable);
 extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14 *stringTable);
 extern "C" void func_ov002_02168c38(struct Struct_ov002_021688f8 *arg0);
 extern "C" void func_ov002_02168d10(unsigned char *arg0, int arg1);
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov002_021688f8(char *arg0) {
         *(unsigned char *) (arg0 + 0x2000 + REGION_VALUE(0x2a1, 0x471)) =
             (func_ov023_021ed724(*(void **) (arg0 + 0x2000 + REGION_VALUE(0x294, 0x464)), var4, var7) & 1) ? 1 : 0;
         char *var10 = (char *) var8->GetProtagonist();
-        func_020dfc2c(var0);
+        ConstructStringTable_020dfc2c(var0);
         InitStringTable_020dfc40((struct StringTable_0201099c_14 *) var0);
 #if defined(jpn)
         func_020e1fc4(var0, (SafeAllocator*)(arg0 + 0x78c), data_ov002_0216dab4, var4,

@@ -126,10 +126,10 @@ struct Struct_ov006_021596f0;
 extern "C" void CloseMenuLayoutWindow_0207fdcc(MenuLayout_0207fdcc_2*, int);
 extern "C" short func_02080468(void*, int);
 extern "C" void func_02081ea4(MenuLayout_0207fdcc_2*, int, int);
-extern "C" void func_020813ec(void*, int);
-extern "C" void func_02080c68(void*, int, int);
+extern "C" void OpenMenuLayoutWindow_020813ec(void*, int);
+extern "C" void SetMenuLayoutWindowPalette_02080c68(void*, int, int);
 extern "C" void func_ov006_0215951c(Struct_ov006_0215951c*);
-extern "C" void func_020804fc(void*, int);
+extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void*, int);
 extern "C" void func_ov006_0215f4dc(Struct_ov006_02157a60*);
 extern "C" void func_ov006_021573c8(void*);
 extern "C" void func_ov006_021553bc(void*, short*, unsigned char*);
@@ -164,16 +164,16 @@ extern "C" ARM void func_ov006_0215c154(Struct_ov006_02157a60* arg0) {
         if (arg0->unknown_362_ < 0)
             arg0->unknown_362_ = func_02080468(var0, arg0->unknown_36e_);
         func_02081ea4(var0, arg0->unknown_36e_, 0);
-        func_020813ec(var0, arg0->unknown_36e_);
-        func_02080c68(var0, arg0->unknown_36e_, 0);
+        OpenMenuLayoutWindow_020813ec(var0, arg0->unknown_36e_);
+        SetMenuLayoutWindowPalette_02080c68(var0, arg0->unknown_36e_, 0);
         arg0->unknown_370_ = -1;
         arg0->unknown_38b_ = 0;
         func_ov006_0215951c((Struct_ov006_0215951c*)arg0);
         func_02081ea4(var0, 0x11, 0);
-        func_020804fc(var0, 0x11);
+        ClearMenuLayoutWindowHighlights_020804fc(var0, 0x11);
         func_ov006_0215f4dc(arg0);
         arg0->unknown_394_ |= 0x10;
-        func_02080c68(var0, 0x11, 1);
+        SetMenuLayoutWindowPalette_02080c68(var0, 0x11, 1);
         func_ov006_021573c8(arg0->unknown_100_);
         func_ov006_021553bc(arg0->unknown_10_, arg0->unknown_378_, arg0->unknown_38c_);
         func_0208203c(&arg0->unknown_9c_);
@@ -194,9 +194,9 @@ extern "C" ARM void func_ov006_0215c154(Struct_ov006_02157a60* arg0) {
             func_0208203c(&arg0->unknown_9c_);
             arg0->unknown_44_ = 0;
             if (func_ov006_02159218(arg0)) {
-                func_02080c68(var0, arg0->unknown_36e_, 1);
+                SetMenuLayoutWindowPalette_02080c68(var0, arg0->unknown_36e_, 1);
                 func_02081ea4(var0, arg0->unknown_36e_, 1);
-                func_02080c68(var0, 0x11, 0);
+                SetMenuLayoutWindowPalette_02080c68(var0, 0x11, 0);
                 arg0->unknown_390_++;
             } else {
                 return;

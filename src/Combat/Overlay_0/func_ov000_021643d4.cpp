@@ -167,7 +167,7 @@ extern "C" int GetLocalWireless_0202ae18(BackgroundLoader*);
 extern "C" int func_02027cb0();
 extern "C" Struct_ov000_0215f7a8* func_ov017_021a278c(void*, int);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
-extern "C" int func_02039d7c(char*);
+extern "C" int IsOnLadder_02039d7c(char*);
 struct Struct_02039d84;
 extern "C" void func_02039d84(Struct_02039d84*);
 extern "C" void func_ov017_021d440c(int arg0);
@@ -189,7 +189,7 @@ extern "C" struct Struct_ov017_0219e384* GetZoneEntry_0200fd0c(GameState*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void func_ov017_021a27e8(void* arg0);
 extern "C" void func_ov017_0219b938(int arg0);
-extern "C" int func_0203cf4c();
+extern "C" int GetNPCManager_0203cf4c();
 extern "C" int func_0203e06c(void*);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 struct Struct_0203cfb4;
@@ -254,7 +254,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
         if (!IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var12)) continue;
         Struct_ov000_0215f7a8* var13 = (Struct_ov000_0215f7a8*)var0->GetPartyMemberByIndex(var12);
         if (!var13) continue;
-        if (func_02039d7c((char*)var13)) {
+        if (IsOnLadder_02039d7c((char*)var13)) {
             func_02039d84((Struct_02039d84*)var13);
             func_ov017_021d440c(var12);
             if (var9) {
@@ -297,7 +297,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
                 int var24 = (var23 + ((Object3D*)var8)->GetRadius()) / 2;
                 Vector3fixMultiplyScalar(&var20, var22 - (var24 + 0x1000), &var21);
                 var19 = func_02019210(var5, &var19, &var21, ((Object3D*)var18)->GetRadius() / 2);
-                var19.y = func_02018fbc(var5, &var19);
+                var19.y = GetGroundHeight_02018fbc(var5, &var19);
                 var18->unknown_44_ = var19;
             }
             func_020338d4((Struct_020338d4*)var18, (Struct_ov009_0218aa28*)&var15);
@@ -338,7 +338,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
         Struct_ov000_0215f7a8* var30 = (Struct_ov000_0215f7a8*)var0->GetMaybeFieldMonsterByIndex(var29 + (var4->unknown_2_0_ * 12 + 0x70));
         if (var30) ((Object3D*)var30)->Destroy();
     }
-    int var31 = func_0203cf4c();
+    int var31 = GetNPCManager_0203cf4c();
     if (func_0203e06c((void*)var31) > 0) {
         SetBattleSceneFlags_ov000_02160fa8(arg0, 0x1000);
     }

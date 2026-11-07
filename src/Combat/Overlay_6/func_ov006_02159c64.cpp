@@ -41,7 +41,7 @@ struct SoundEffectManager_02108760;
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760 __attribute__((aligned(4)));
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov006_02158cfc(Struct_ov006_02158cfc_2*, Struct_ov006_02158cfc*);
-extern "C" void func_020804fc(void*, int);
+extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void*, int);
 extern "C" void func_ov006_0215f7e8(Struct_ov006_02158cfc_2*);
 extern "C" void func_ov006_0215fcf0(Struct_ov006_02158cfc_2*);
 
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov006_02159c64(Struct_ov006_02158cfc_2* arg0) {
     arg0->unknown_388_ = var2 / 16;
     func_ov006_02158cfc(arg0, var0);
     arg0->unknown_36a_ = var4 + 0x29;
-    func_020804fc(arg0->unknown_14_, 9);
+    ClearMenuLayoutWindowHighlights_020804fc(arg0->unknown_14_, 9);
     func_ov006_0215f7e8(arg0);
     func_ov006_0215fcf0(arg0);
 }

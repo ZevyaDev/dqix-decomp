@@ -11,7 +11,7 @@ extern "C" struct ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e95
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, struct Struct_ov024_021ddf5c_4* flags, int flagIndex);
 extern "C" void SetActionResult_ov000_0215ccbc(
-    int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant, short arg3, short currHP, short currMP,
+    int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant, short amount, short currHP, short currMP,
     struct Struct_ov024_021ddf5c_4 flags, unsigned char isCriticalHit);
 
 struct Struct_ov024_021ddf5c_5 {

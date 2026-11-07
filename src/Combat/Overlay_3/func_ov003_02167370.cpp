@@ -34,7 +34,7 @@ extern "C" ARM void func_ov003_02167370(char* arg0) {
     var1[1] = 0;
 
     if (*(void**)(arg0 + 0x10) != 0) {
-        func_0207f8bc(*(Struct_0207f7f0**)(arg0 + 0x10));
+        func_0207f8bc(*(MenuLayout_0207f7f0**)(arg0 + 0x10));
     }
     RestoreSubBGControl_02074bf4((struct BGControlSave_02074bf4*)(arg0 + 0x1c));
 
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov003_02167370(char* arg0) {
         *(int*)(arg0 + 0xc) = 0;
     }
     if (*(void**)(arg0 + 0x10) != 0) {
-        func_0207f8bc(*(Struct_0207f7f0**)(arg0 + 0x10));
+        func_0207f8bc(*(MenuLayout_0207f7f0**)(arg0 + 0x10));
         *(int*)(arg0 + 0x10) = 0;
     }
     if (*(int*)arg0 != 0) {

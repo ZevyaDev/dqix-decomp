@@ -12,8 +12,8 @@ extern "C" Struct_ov004_021676a4* FindMenuObjectById_ov023_021f6880(void* object
 extern "C" int func_ov024_021f6f10(void* arg0);
 extern "C" void* func_ov023_021f79e4(void* arg0);
 
-struct Struct_0204b988;
-extern "C" void func_0204b988(struct Struct_0204b988* arg0, unsigned int arg1, int arg2, int arg3, unsigned short arg4);
+struct BGLayer_0204b988;
+extern "C" void CopyBGScreenBlock_0204b988(struct BGLayer_0204b988* layer, unsigned int screenBlockIndex, int destX, int destY, unsigned short palette);
 struct BGLayer_0204b8d0;
 extern "C" void CopyBGScreenBlockRect_0204b8d0(struct BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 struct BGLayer_02020cb8_2;
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov004_021676a4(void* arg0) {
 
     var3->unknown_c_ |= 1;
     void* var4 = func_ov023_021f79e4(var3);
-    func_0204b988((struct Struct_0204b988*)var4, 1, 0, 0, 0xffff);
+    CopyBGScreenBlock_0204b988((struct BGLayer_0204b988*)var4, 1, 0, 0, 0xffff);
 
     if (var1 > 1) {
         CopyBGScreenBlockRect_0204b8d0((struct BGLayer_0204b8d0*)var4, var1, 0, 0, 0x16, 2, 9, 2, 0xffff);

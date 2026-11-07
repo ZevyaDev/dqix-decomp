@@ -14,9 +14,9 @@ struct Struct_020800fc_4 {
     unsigned char unknown_13_;
     char unknown_14_[4];
 };
-struct Struct_0207f524 {
-    Struct_020800fc_3* unknown_0_;
-    short unknown_4_;
+struct MenuLayoutTextEntryList_0207f524 {
+    Struct_020800fc_3* pEntries_0_;
+    short count_4_;
 };
 struct Struct_02012538 {
     Struct_020800fc_4* unknown_0_;
@@ -24,7 +24,7 @@ struct Struct_02012538 {
 };
 struct Struct_020800fc_2 {
     void* unknown_0_;
-    Struct_0207f524 unknown_4_;
+    MenuLayoutTextEntryList_0207f524 unknown_4_;
     Struct_02012538 unknown_c_;
 #if defined(jpn)
     char unknown_14_[0x2f - 0x14];
@@ -53,7 +53,7 @@ struct Struct_020800fc {
 
 extern "C" void* func_020810b4(unsigned char* arg0, short arg1);
 extern "C" int func_02080e40(void* arg0, int arg1, int arg2, int arg3);
-extern "C" struct Struct_020800fc_3* func_0207f6ac(struct Struct_0207f524* arg0, int arg1);
+extern "C" struct Struct_020800fc_3* FindMenuLayoutTextEntry_0207f6ac(struct MenuLayoutTextEntryList_0207f524* textEntries, int textId);
 extern "C" struct Struct_020800fc_3* func_0208036c(void* arg0, struct Struct_020800fc_3* arg1, int arg2, struct Struct_020800fc* arg3, unsigned char arg4);
 
 // USA: func_020800fc
@@ -96,7 +96,7 @@ extern "C" ARM int func_020800fc(struct Struct_020800fc_2* arg0, short* arg1, sh
     if (arg4 == 0) {
         return var0.unknown_0_;
     }
-    var2 = func_0207f6ac(&arg0->unknown_4_, *arg1);
+    var2 = FindMenuLayoutTextEntry_0207f6ac(&arg0->unknown_4_, *arg1);
     if (var2 == NULL) {
         return var0.unknown_0_;
     }

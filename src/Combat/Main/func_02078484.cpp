@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-struct Struct_02078398_2 {
+struct EffectParams_02078398_2 {
     unsigned char unknown_0_;
     unsigned char unknown_1_[0xf];
     unsigned char unknown_10_;
@@ -24,34 +24,34 @@ struct Struct_02078398_2 {
     int unknown_44_; int unknown_48_; int unknown_4c_;
 };
 
-// USA: func_02078484
-extern "C" ARM void func_02078484(struct Struct_02078398_2* arg0) {
-    arg0->unknown_0_ = 0;
-    arg0->unknown_10_ = 1;
-    arg0->unknown_12_ = 0;
-    arg0->unknown_14_ = -1;
-    arg0->unknown_16_ = -1;
-    arg0->unknown_18_ = -1;
-    arg0->unknown_1a_ = -1;
-    arg0->unknown_1c_ = -0x1000;
-    arg0->unknown_20_ = 0;
-    arg0->unknown_24_ = 0;
-    arg0->unknown_28_ = 0;
-    arg0->unknown_2c_ = 0;
-    arg0->unknown_30_ = 0;
-    arg0->unknown_34_ = 0;
-    arg0->unknown_38_ = 0;
-    arg0->unknown_3c_ = 0;
-    arg0->unknown_40_ = 0;
-    arg0->unknown_44_ = 0x1000;
-    arg0->unknown_48_ = 0x1000;
-    arg0->unknown_4c_ = 0x1000;
-    arg0->unknown_11_0_ = 0;
-    arg0->unknown_11_1_ = 0;
-    arg0->unknown_11_2_ = 1;
-    arg0->unknown_11_3_ = 0;
-    arg0->unknown_11_4_ = 0;
-    arg0->unknown_11_5_ = 0;
-    arg0->unknown_11_6_ = 0;
-    arg0->unknown_11_7_ = 0;
+// USA: InitEffectParams_02078484
+extern "C" ARM void InitEffectParams_02078484(struct EffectParams_02078398_2* params) {
+    params->unknown_0_ = 0;
+    params->unknown_10_ = 1;
+    params->unknown_12_ = 0;
+    params->unknown_14_ = -1;
+    params->unknown_16_ = -1;
+    params->unknown_18_ = -1;
+    params->unknown_1a_ = -1;
+    params->unknown_1c_ = -0x1000;
+    params->unknown_20_ = 0;
+    params->unknown_24_ = 0;
+    params->unknown_28_ = 0;
+    params->unknown_2c_ = 0;
+    params->unknown_30_ = 0;
+    params->unknown_34_ = 0;
+    params->unknown_38_ = 0;
+    params->unknown_3c_ = 0;
+    params->unknown_40_ = 0;
+    params->unknown_44_ = 0x1000;
+    params->unknown_48_ = 0x1000;
+    params->unknown_4c_ = 0x1000;
+    params->unknown_11_0_ = 0;
+    params->unknown_11_1_ = 0;
+    params->unknown_11_2_ = 1;
+    params->unknown_11_3_ = 0;
+    params->unknown_11_4_ = 0;
+    params->unknown_11_5_ = 0;
+    params->unknown_11_6_ = 0;
+    params->unknown_11_7_ = 0;
 }

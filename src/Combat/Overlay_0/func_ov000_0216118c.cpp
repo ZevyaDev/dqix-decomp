@@ -7,9 +7,9 @@ enum { Enum_ov000_0216118c_3096 = 0xc18, Enum_ov000_0216118c_668 = 0x29c, Enum_o
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void func_ov000_021626a0(void* arg0, int arg1, int arg2);
+extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void* battleScene, int selector, int isVisible);
 extern "C" void func_ov000_0216d600(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
-extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
 extern "C" void func_ov000_0216f1e4(void* arg0, int* arg1, int arg2, int arg3);
 
 struct Struct_ov000_0216118c { int unknown_0_[3]; };
@@ -18,7 +18,7 @@ struct Struct_ov000_0216118c { int unknown_0_[3]; };
 extern "C" ARM void func_ov000_0216118c(void* arg0, int arg1) {
     GameState::GetInstance();
     ((int)GetGameResources());
-    func_ov000_021626a0(arg0, 0x26, 0);
+    SetObjectsVisibleBySelector_ov000_021626a0(arg0, 0x26, 0);
     func_ov000_0216d600((char*)arg0 + Enum_ov000_0216118c_3096, 1, 1, 0, 0, 0, 0, 1);
     if (arg1 == 0) {
         return;

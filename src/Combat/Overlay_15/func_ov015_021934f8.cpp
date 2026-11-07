@@ -85,8 +85,8 @@ extern "C" void func_ov015_0218ba44(void*, int);
 extern "C" void* memset(void*, int, unsigned int);
 extern "C" void ClearItemTable_020de848(void*);
 extern "C" void* ExtractFileFromGP2(const char*, const char*, unsigned int*);
-extern "C" void func_020dea64(void*, SafeAllocator*, void*, unsigned int, const void*, int);
-extern "C" void func_0206efc4(void*);
+extern "C" void LoadItemTableByCategories_020dea64(void*, SafeAllocator*, void*, unsigned int, const void*, int);
+extern "C" void ClearMonsterTable_0206efc4(void*);
 extern "C" void func_0206efd8(void*, void*);
 extern "C" void func_020709d8(void*);
 extern "C" void func_020709ec(void*, void*);
@@ -117,7 +117,7 @@ extern "C" void DrawMessageGlyphs_0204359c(void*, int);
 extern "C" void func_020439b0(void*, int);
 extern "C" void func_ov015_02192700(void*);
 extern "C" void func_02012de4(AllocatorUnion*);
-extern "C" void func_02012efc();
+extern "C" void UpdateInput_02012efc();
 extern "C" void func_020bc028(int);
 extern "C" void func_ov015_02190e88(void*);
 extern "C" void func_ov015_02191294(void*);
@@ -160,8 +160,8 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     var1->MaybeReset();
     FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
-    func_02094b3c(var2, 10);
-    func_02094b3c(var2, 12);
+    ClearLoadedFontSetForSize_02094b3c(var2, 10);
+    ClearLoadedFontSetForSize_02094b3c(var2, 12);
     RequestFontLoad_02094b34(var2, 0x69, 0, 0, 0);
     func_02094b38(var2, 0x69);
     func_02094b38(var2, 0);
@@ -232,14 +232,14 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     var4 = 0;
     var5 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var4);
     if (var5 != NULL)
-        func_020dea64(arg0->unknown_4c_, &arg0->unknown_88_, var5, var4, data_ov015_02193cdc, 9);
+        LoadItemTableByCategories_020dea64(arg0->unknown_4c_, &arg0->unknown_88_, var5, var4, data_ov015_02193cdc, 9);
     BackgroundLoader::RemoveLockGlobal();
 #endif
 
     arg0->unknown_9c_.ResetAllocatorPointer();
     arg0->unknown_9c_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x20000), 0x20000);
     arg0->unknown_9c_.Reset();
-    func_0206efc4(arg0->unknown_64_);
+    ClearMonsterTable_0206efc4(arg0->unknown_64_);
     func_0206efd8(arg0->unknown_64_, &arg0->unknown_9c_);
 
     arg0->unknown_b0_.ResetAllocatorPointer();
@@ -288,7 +288,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
 
     for (;;)
     {
-        func_02012efc();
+        UpdateInput_02012efc();
         int var10;
         if (g_keyManager.TestKeysHeld(4) && g_keyManager.TestKeysHeld(8))
             var10 = 1;

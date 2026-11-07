@@ -13,7 +13,7 @@ extern "C" int func_ov024_021da9c8(struct Struct_ov024_021da670_8* arg0);
 struct Struct_ov024_021de124;
 extern "C" int func_ov024_021de25c(struct Struct_ov024_021de124* arg0);
 
-extern "C" int func_020882f8(unsigned char* arg0);
+extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
 extern "C" unsigned short GetLevel_0202053c(void* gameObject);
 
 struct Struct_ov024_021eb1ec {
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov024_021eb1ec(void* arg0, int arg1) {
     if (func_ov024_021de25c((struct Struct_ov024_021de124*)var1)) {
         return 0;
     }
-    if (func_020882f8((unsigned char*)var1->currentStats_)) {
+    if (IsAsleep_020882f8((unsigned char*)var1->currentStats_)) {
         return 0;
     }
     if (IsDead_02010088((struct Struct_02010088*)var1)) {

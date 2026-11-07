@@ -3,7 +3,7 @@
 // USA: func_02000ab0  (semantic: NitroSDK crt0 CP15 / protection-unit setup)
 
 extern "C" char data_027e0021[];
-extern "C" char data_027e0000[];
+extern "C" char gDTCMData_027e0000[];
 
 extern "C" ARM asm void func_02000ab0(void) {
     mrc p15, 0, r0, c1, c0, 0
@@ -22,7 +22,7 @@ extern "C" ARM asm void func_02000ab0(void) {
     mcr p15, 0, r0, c6, c2, 0
     ldr r0, =0x8000035
     mcr p15, 0, r0, c6, c3, 0
-    ldr r0, =data_027e0000
+    ldr r0, =gDTCMData_027e0000
     orr r0, r0, #0x1a
     orr r0, r0, #1
     mcr p15, 0, r0, c6, c4, 0
@@ -34,7 +34,7 @@ extern "C" ARM asm void func_02000ab0(void) {
     mcr p15, 0, r0, c6, c7, 0
     mov r0, #0x20
     mcr p15, 0, r0, c9, c1, 1
-    ldr r0, =data_027e0000
+    ldr r0, =gDTCMData_027e0000
     orr r0, r0, #0xa
     mcr p15, 0, r0, c9, c1, 0
     mov r0, #0x42

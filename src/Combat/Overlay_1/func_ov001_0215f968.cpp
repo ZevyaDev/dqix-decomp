@@ -5,7 +5,7 @@
 struct Struct_0202df68;
 extern "C" void SetCameraFieldOfView_0202e9a4(struct Struct_0202df68* camera, int halfAngle);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
-extern "C" float func_ov017_021d6110(void*);
+extern "C" float GetScriptValueAsFloat_ov017_021d6110(void*);
 
 struct Struct_ov001_0215f968 { int unknown_0_; };
 
@@ -17,7 +17,7 @@ extern "C" ARM int func_ov001_0215f968(Struct_ov001_0215f968* arg0) {
 		int var2 = GetScriptValueAsInt_ov017_021d60f4(arg0);
 		SetCameraFieldOfView_0202e9a4(var1, var2 << 0xc);
 	} else if (arg0->unknown_0_ == 1) {
-		float var3 = func_ov017_021d6110(arg0);
+		float var3 = GetScriptValueAsFloat_ov017_021d6110(arg0);
 		int var4 = (int)(4096.0f * var3);
 		SetCameraFieldOfView_0202e9a4(var1, var4);
 	}

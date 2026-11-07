@@ -10,14 +10,14 @@ struct Struct_020e4ce8_4 { char unknown_0_[0x144]; Struct_020e4ce8_3* unknown_14
 struct Struct_02000c9c_8;
 extern "C" unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" int GetStringLength_020d2ff0(const char*);
-extern "C" void func_020e4b34(void*, const char*, void*, unsigned int, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);
+extern "C" void SetNoun_020e4b34(void*, const char*, void*, unsigned int, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);
 // USA: func_020e4ce8
 extern "C" ARM void func_020e4ce8(Struct_020e4ce8_2* arg0, Struct_020e4ce8_4* arg1, int arg2) {
     memset(arg0, 0, 12);
     if (arg1) {
         Struct_020e4ce8_3* var0 = arg1->unknown_144_;
         const char* var1 = arg1->unknown_14c_;
-        func_020e4b34(arg0, var1, var0->unknown_14_, (unsigned char)var0->unknown_18_.unknown_0_0_,
+        SetNoun_020e4b34(arg0, var1, var0->unknown_14_, (unsigned char)var0->unknown_18_.unknown_0_0_,
             var0->unknown_18_.unknown_0_6_, var0->unknown_18_.unknown_1_4_, var0->unknown_18_.unknown_2_2_,
             var0->unknown_18_.unknown_3_0_, var0->unknown_18_.unknown_3_2_, var0->unknown_18_.unknown_3_3_,
             var0->unknown_18_.unknown_3_4_, 0);

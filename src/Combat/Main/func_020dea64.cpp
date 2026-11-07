@@ -4,27 +4,27 @@
 extern "C" int func_020de6c8(void* arg0, void* arg1, void* arg2);
 extern "C" int func_020df374(void* arg0, void* arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
 
-struct Struct_020dea64 {
-    unsigned short unknown_0_;
+struct ItemTable_020dea64 {
+    unsigned short count_0_;
     char unknown_2_[0x14 - 2];
-    unsigned char unknown_14_;
+    unsigned char isSorted_14_;
 };
 
-// USA: func_020dea64
-extern "C" ARM int func_020dea64(Struct_020dea64* arg0, void* arg1, void* arg2, void* arg3, void* arg4, short arg5) {
-    memset(arg0, 0, 0x14);
-    if (arg1 == 0 || arg2 == 0 || arg3 == 0 || arg4 == 0 || arg5 == 0) {
+// USA: LoadItemTableByCategories_020dea64
+extern "C" ARM int LoadItemTableByCategories_020dea64(ItemTable_020dea64* itemTable, void* allocator, void* fileData, void* fileSize, void* categories, short categoryCount) {
+    memset(itemTable, 0, 0x14);
+    if (allocator == 0 || fileData == 0 || fileSize == 0 || categories == 0 || categoryCount == 0) {
         return 0;
     }
-    char var0[0x14];
-    func_020de6c8(var0, arg2, arg3);
-    int var1 = func_020df374(arg1, arg0, var0, arg4, arg5, 0, 0);
-    unsigned char var2;
-    if (var1 != 0 && arg0->unknown_0_ > 1) {
-        var2 = 1;
+    char fileTable[0x14];
+    func_020de6c8(fileTable, fileData, fileSize);
+    int isLoaded = func_020df374(allocator, itemTable, fileTable, categories, categoryCount, 0, 0);
+    unsigned char isSorted;
+    if (isLoaded != 0 && itemTable->count_0_ > 1) {
+        isSorted = 1;
     } else {
-        var2 = 0;
+        isSorted = 0;
     }
-    arg0->unknown_14_ = var2;
-    return var1;
+    itemTable->isSorted_14_ = isSorted;
+    return isLoaded;
 }

@@ -16,11 +16,11 @@ struct Struct_ov017_021d82e0 {
 
 extern "C" int func_ov000_0215fc60(char* arg0);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-extern "C" GameObject* func_0200ff94(GameState* arg0, int arg1);
+extern "C" GameObject* GetGameObjectByIndex_0200ff94(GameState* gameState, int index);
 extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" float func_02084ee8(void* arg0);
 extern "C" int func_02085b88(unsigned char* arg0);
-extern "C" Struct_ov000_02156118* func_02070fd0(Struct_02070b6c_3* arg0, int arg1);
+extern "C" Struct_ov000_02156118* FindMonsterBattleData_02070fd0(Struct_02070b6c_3* table, int monsterId);
 extern "C" float func_02074988(int arg0);
 extern "C" int func_ov000_02156258(GameObject* arg0);
 
@@ -53,11 +53,11 @@ extern "C" ARM float func_ov000_02156118(Struct_ov017_021d82e0* arg0, int arg1) 
         int var8 = func_02085b88(var5);
         var2 = var8 + (var6 + var7);
     } else {
-        GameObject* var9 = func_0200ff94(var0, arg1);
+        GameObject* var9 = GetGameObjectByIndex_0200ff94(var0, arg1);
         if (var9 == 0) {
             return 0;
         }
-        Struct_ov000_02156118* var10 = func_02070fd0((Struct_02070b6c_3*)(arg0->unknown_8e18_ + 0x684), var9->obj3D_.unknown_2_);
+        Struct_ov000_02156118* var10 = FindMonsterBattleData_02070fd0((Struct_02070b6c_3*)(arg0->unknown_8e18_ + 0x684), var9->obj3D_.unknown_2_);
         signed char var11 = var10->unknown_12_0_;
         var2 = func_02074988(var11);
     }

@@ -13,7 +13,7 @@ struct Struct_ov031_022242ec {
     unsigned char unknown_123_;
     unsigned char unknown_124_;
 };
-extern Struct_ov031_022242ec* data_ov031_02250bfc;
+extern Struct_ov031_022242ec* gKeyboard_ov031_02250bfc;
 extern Struct_ov031_022489c4 data_ov031_02248a0c[47];
 extern Struct_ov031_022489c4 data_ov031_022489c8;
 extern Struct_ov031_022489c4 data_ov031_022489f4[4];
@@ -27,7 +27,7 @@ extern "C" int func_ov031_0223d49c(Struct_ov031_022493b8*);
 extern "C" ARM void func_ov031_022242ec() {
     Struct_ov031_022493b8 var0;
     if (!func_ov031_0223d49c(&data_ov031_022493b8)) return;
-    data_ov031_02250bfc->unknown_11e_ = -1;
+    gKeyboard_ov031_02250bfc->unknown_11e_ = -1;
     {
         Struct_ov031_022489c4* var1;
         Struct_ov031_022489c4* var2;
@@ -38,12 +38,12 @@ extern "C" ARM void func_ov031_022242ec() {
         do {
             func_ov031_0223cb34(var2, var1, &var0);
             if (func_ov031_0223d49c(&var0)) {
-                if (!data_ov031_02250bfc->unknown_124_) {
+                if (!gKeyboard_ov031_02250bfc->unknown_124_) {
                     PlayWifiSetupSoundEffect_ov031_02236878(9);
                     return;
                 }
                 PlayWifiSetupSoundEffect_ov031_02236878(0);
-                data_ov031_02250bfc->unknown_11e_ = var3;
+                gKeyboard_ov031_02250bfc->unknown_11e_ = var3;
                 return;
             }
             ++var3; ++var2;
@@ -59,12 +59,12 @@ extern "C" ARM void func_ov031_022242ec() {
         do {
             func_ov031_0223cb34(var5, var4, &var0);
             if (func_ov031_0223d49c(&var0)) {
-                if ((var6 == 3 && !data_ov031_02250bfc->unknown_123_) || (var6 == 2 && !data_ov031_02250bfc->unknown_124_)) {
+                if ((var6 == 3 && !gKeyboard_ov031_02250bfc->unknown_123_) || (var6 == 2 && !gKeyboard_ov031_02250bfc->unknown_124_)) {
                     PlayWifiSetupSoundEffect_ov031_02236878(9);
                     return;
                 }
                 PlayWifiSetupSoundEffect_ov031_02236878(data_ov031_0224b43c[var6]);
-                data_ov031_02250bfc->unknown_11e_ = var6 + 47;
+                gKeyboard_ov031_02250bfc->unknown_11e_ = var6 + 47;
                 return;
             }
             ++var6; ++var4; ++var5;
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov031_022242ec() {
             func_ov031_0223cb34(var8, var7, &var0);
             if (func_ov031_0223d49c(&var0)) {
                 PlayWifiSetupSoundEffect_ov031_02236878(0);
-                data_ov031_02250bfc->unknown_11e_ = var9 + 51;
+                gKeyboard_ov031_02250bfc->unknown_11e_ = var9 + 51;
                 return;
             }
             ++var9; ++var8;

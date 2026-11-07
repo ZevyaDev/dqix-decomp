@@ -4,7 +4,7 @@
 
 struct Struct_0203de84 { int unknown_0_, unknown_4_, unknown_8_; };
 struct Struct_02015ef4 { int unknown_0_, unknown_4_, unknown_8_; };
-struct Struct_0203de84_2;
+struct NPC_0203de84_2;
 struct Struct_0203e0a0;
 
 struct NPCManager_0203dce4_2;
@@ -21,9 +21,9 @@ extern const Struct_ov017_021d64f4 data_ov017_021d64f4;
 extern const Type_02000c9c_15 gNullMemberFunctionPointer_020e6d5c;
 extern "C" void* GetCamera_020100bc(GameState*);
 extern "C" int IsPerformingGesture_020535c8(signed char*);
-extern "C" NPCManager_0203dce4_2* func_0203cf4c();
-extern "C" Struct_0203de84_2* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
-extern "C" void func_020406f8(Struct_0203de84*, Struct_0203de84_2*);
+extern "C" NPCManager_0203dce4_2* GetNPCManager_0203cf4c();
+extern "C" NPC_0203de84_2* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
+extern "C" void GetNPCPosition_020406f8(Struct_0203de84*, NPC_0203de84_2*);
 extern "C" void* func_02040538(Struct_0203e0a0*);
 extern "C" void ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" void func_0203a46c(Struct_0203a46c*, int, int, int);
@@ -46,10 +46,10 @@ extern "C" ARM void func_ov017_0219aa7c(GameResources* arg0) {
     arg0->unknown_42e3_[3] = 0;
     int var7 = 1;
     if (((Struct_ov017_0219aa7c*)arg0->unknown_36b4_)->unknown_0_ == 0) {
-        Struct_0203de84_2* var8 = GetNPCByIndex_0203dce4(func_0203cf4c(), ((Struct_ov017_0219aa7c*)arg0->unknown_36b4_)->unknown_2_);
+        NPC_0203de84_2* var8 = GetNPCByIndex_0203dce4(GetNPCManager_0203cf4c(), ((Struct_ov017_0219aa7c*)arg0->unknown_36b4_)->unknown_2_);
         if (var8 != 0) {
             Struct_0203de84 var9;
-            func_020406f8(&var9, var8);
+            GetNPCPosition_020406f8(&var9, var8);
             var4 = *(Vector3fix*)&var9;
             var4.y += 0x1800;
             void* var10 = func_02040538((Struct_0203e0a0*)var8);

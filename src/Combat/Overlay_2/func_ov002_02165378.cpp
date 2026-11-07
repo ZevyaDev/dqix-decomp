@@ -13,7 +13,7 @@ extern "C" int func_ov002_0215edc8(unsigned char *arg0);
 extern "C" void func_ov002_02157174(char *arg0, int arg1);
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
-extern "C" void func_ov002_02161cf0(char *arg0);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215e900(char *arg0);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" void func_ov002_0215ece4(void *arg0, char *arg1, int arg2, int arg3, int arg4);
@@ -28,7 +28,7 @@ extern "C" TimedMessageQueue_020d7aa0_2 *func_020d7a50();
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2 *queue);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_0216364c(void *arg0);
-extern "C" int func_ov002_02161b48(char *arg0, int arg1);
+extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void func_ov002_02156e90(void *arg0);
 
 extern "C" char gSoundEffectManager_02108760;
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov002_02165378(char *arg0) {
         *(short *) (arg0 + 0x1ac0) = 0;
         func_ov002_02157174(arg0, *(signed char *) (arg0 + *(short *) (arg0 + 0x1ac0) + 0x1b32));
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + 0xe20), 0, 2);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_0215e900(arg0);
         *(short *) (arg0 + 0x1ac2)         = 0;
         *(short *) (arg0 + 0x1ac0)         = 0;
@@ -123,7 +123,7 @@ extern "C" ARM void func_ov002_02165378(char *arg0) {
         *(int *) (arg0 + 0x1a84)   = 0x11;
         return;
     }
-    if (func_ov002_02161b48(arg0, 1)) {
+    if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
         *(short *) (arg0 + 0x1ac0)       = -1;
         *(signed char *) (arg0 + 0x1ae8) = -1;
         func_ov002_02156e90(arg0);
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov002_02165378(char *arg0) {
         *(short *) (arg0 + 0x1bf8) = 0;
         func_ov002_02157174(arg0, *(signed char *) (arg0 + *(short *) (arg0 + 0x1bf8) + 0x1c6e));
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + 0x2c8 + 0xc00), 0, 2);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_0215e900(arg0);
         *(short *) (arg0 + 0x1bfa)         = 0;
         *(short *) (arg0 + 0x1bf8)         = 0;
@@ -216,7 +216,7 @@ extern "C" ARM void func_ov002_02165378(char *arg0) {
         *(int *) (arg0 + 0x1bbc)   = 0x10;
         return;
     }
-    if (func_ov002_02161b48(arg0, 1)) {
+    if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
         *(short *) (arg0 + 0x1bf8)       = -1;
         *(signed char *) (arg0 + 0x1c20) = -1;
         func_ov002_02156e90(arg0);

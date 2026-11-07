@@ -10,7 +10,7 @@ struct Struct_ov001_021626e4 {
     char unknown_1d_[3];
 };
 
-extern "C" int func_ov017_021d612c(void* arg0);
+extern "C" int GetScriptValueAsString_ov017_021d612c(void* value);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" unsigned int func_ov001_0215a750(const char* arg0, void** arg1);
 struct PacEntry_02020cb8_4;
@@ -53,7 +53,7 @@ extern "C" ARM int func_ov001_021626e4(void* arg0) {
     int var11;
 
     var7 = BackgroundLoader::GetInstance();
-    var8 = func_ov017_021d612c(arg0);
+    var8 = GetScriptValueAsString_ov017_021d612c(arg0);
     var11 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 8);
     sprintf(var0, data_ov001_02165745, var8);
 

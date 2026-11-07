@@ -26,7 +26,7 @@ extern "C" int fix32_Atan2(int arg0, int arg1);
 struct Struct_02033834_2;
 extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 struct Struct_02033b68;
-extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
+extern "C" void SetMotionIfDifferent_02033b68(struct Struct_02033b68* object, int motion);
 struct Struct_02033b58;
 extern "C" void func_02033b58(struct Struct_02033b58* arg0, unsigned char arg1);
 struct GameResources;
@@ -39,7 +39,7 @@ extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void VectorizedMemset(void* dst, int val, int size);
 struct Vector3i;
-extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int arg1);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int isFullReset);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
@@ -93,7 +93,7 @@ extern "C" ARM int func_ov017_021ab280(struct Struct_ov017_021ab280_2* arg0) {
         int var8 = fix32_Atan2(var5.unknown_0_, var5.unknown_8_);
 
         SetFacing_02033834((struct Struct_02033834_2*)var2, var8);
-        func_02033b68((struct Struct_02033b68*)var2, 1);
+        SetMotionIfDifferent_02033b68((struct Struct_02033b68*)var2, 1);
         SetBrightness((GameResources*)var1, -16, 15);
 
         arg0->unknown_8_ = arg0->unknown_8_ + 1;
@@ -178,7 +178,7 @@ extern "C" ARM int func_ov017_021ab280(struct Struct_ov017_021ab280_2* arg0) {
 
         var21[0xc] = 1;
         var21[7] = 1;
-        func_0200fcfc(var0, var20);
+        SetZoneEntry_0200fcfc(var0, var20);
 
         ResetZoneLoadTask_ov017_0219e310(*(unsigned char**)(var1 + 0x3000 + Enum_ov017_021ab280_1804), 0);
         AppendToQueue_020469b4(*(struct Queue_0201bdac_2**)(var1 + 0x3000 + Enum_ov017_021ab280_1788),

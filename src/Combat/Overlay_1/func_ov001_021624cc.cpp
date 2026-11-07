@@ -4,7 +4,7 @@
 #include "NitroSDK/Graphics.h"
 #include "NitroSDK/VRAM.h"
 
-extern "C" int func_ov017_021d612c(void* arg0);
+extern "C" int GetScriptValueAsString_ov017_021d612c(void* value);
 extern char data_ov001_02165745[];
 
 extern "C" unsigned int func_ov001_0215a750(const char* arg0, void** arg1);
@@ -57,7 +57,7 @@ extern "C" ARM int func_ov001_021624cc(void* arg0) {
     void* var6;
     char var7[0x50];
 
-    sprintf(var7, data_ov001_02165745, func_ov017_021d612c(arg0));
+    sprintf(var7, data_ov001_02165745, GetScriptValueAsString_ov017_021d612c(arg0));
     int var8 = 0;
     var4 = NULL;
     var5 = 0;

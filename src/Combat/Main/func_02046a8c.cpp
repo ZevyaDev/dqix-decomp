@@ -3,39 +3,39 @@
 struct QueueNode_0204693c;
 extern "C" void ResetQueueNode_0204693c(struct QueueNode_0204693c* node);
 
-struct Struct_02046a8c {
+struct QueueNode_02046a8c {
     char unknown_0_[2];
     unsigned char unknown_2_;
     char unknown_3_;
-    struct Struct_02046a8c* unknown_4_;
+    struct QueueNode_02046a8c* pNext_4_;
 };
 
-struct Struct_02046a8c_2 {
-    struct Struct_02046a8c* unknown_0_;
-    struct Struct_02046a8c* unknown_4_;
+struct Queue_02046a8c_2 {
+    struct QueueNode_02046a8c* pHead_0_;
+    struct QueueNode_02046a8c* pTail_4_;
 };
 
-// USA: func_02046a8c
-extern "C" ARM void func_02046a8c(struct Struct_02046a8c_2* arg0, struct Struct_02046a8c* arg1) {
-    struct Struct_02046a8c* var0 = arg0->unknown_0_;
-    if (var0 == 0) return;
-    if (var0 == arg1) {
-        arg0->unknown_0_ = arg1->unknown_4_;
+// USA: RemoveFromQueue_02046a8c
+extern "C" ARM void RemoveFromQueue_02046a8c(struct Queue_02046a8c_2* queue, struct QueueNode_02046a8c* node) {
+    struct QueueNode_02046a8c* current = queue->pHead_0_;
+    if (current == 0) return;
+    if (current == node) {
+        queue->pHead_0_ = node->pNext_4_;
     } else {
-        struct Struct_02046a8c* var1 = var0->unknown_4_;
-        if (var1 == 0) return;
-        while (var1 != arg1) {
-            if (var1 == 0) return;
-            var0 = var1;
-            var1 = var1->unknown_4_;
+        struct QueueNode_02046a8c* next = current->pNext_4_;
+        if (next == 0) return;
+        while (next != node) {
+            if (next == 0) return;
+            current = next;
+            next = next->pNext_4_;
         }
-        var0->unknown_4_ = var1->unknown_4_;
+        current->pNext_4_ = next->pNext_4_;
     }
-    var0 = arg0->unknown_0_;
-    arg0->unknown_4_ = 0;
-    while (var0 != 0) {
-        arg0->unknown_4_ = var0;
-        var0 = var0->unknown_4_;
+    current = queue->pHead_0_;
+    queue->pTail_4_ = 0;
+    while (current != 0) {
+        queue->pTail_4_ = current;
+        current = current->pNext_4_;
     }
-    ResetQueueNode_0204693c((struct QueueNode_0204693c*)arg1);
+    ResetQueueNode_0204693c((struct QueueNode_0204693c*)node);
 }

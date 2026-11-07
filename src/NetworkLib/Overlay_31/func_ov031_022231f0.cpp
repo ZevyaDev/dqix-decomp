@@ -7,7 +7,7 @@ struct Struct_ov031_022231f0 {
 	void* unknown_10_;
 };
 
-extern "C" ARM void func_ov031_0223e2c0(int arg0, int arg1);
+extern "C" ARM void QueueTaskRemoval_ov031_0223e2c0(int listIndex, int task);
 extern "C" ARM void func_ov031_0223ba20(void* arg0);
 extern "C" ARM void FreeAndClearPointer_ov031_0223cf70(Struct_ov031_022231f0** pointer);
 
@@ -22,10 +22,10 @@ extern Struct_ov031_022231f0* data_ov031_02250ba8;
 
 // USA: func_ov031_022231f0
 extern "C" ARM void func_ov031_022231f0(int arg0) {
-	func_ov031_0223e2c0(0, arg0);
+	QueueTaskRemoval_ov031_0223e2c0(0, arg0);
 
 	if (data_ov031_02250ba8->unknown_10_) {
-		func_ov031_0223e2c0(0, (int)data_ov031_02250ba8->unknown_10_);
+		QueueTaskRemoval_ov031_0223e2c0(0, (int)data_ov031_02250ba8->unknown_10_);
 	}
 
 	int var0 = 0;

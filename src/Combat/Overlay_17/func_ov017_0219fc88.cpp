@@ -22,7 +22,7 @@ extern "C" struct Struct_02071488* func_02071574(unsigned int arg0, struct Struc
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 
-extern "C" void ResetEventTask_ov017_021baedc(void* node, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(void* node, int isRestart);
 
 struct Struct_020213fc;
 extern "C" void func_020213fc(struct Struct_020213fc* arg0, int arg1);

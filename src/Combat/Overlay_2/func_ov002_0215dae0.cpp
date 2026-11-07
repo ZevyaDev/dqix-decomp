@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" void func_ov002_0215be00(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetNextTextWindow_ov002_0215be00(void* menu, int windowId, int x, int y);
 extern "C" void func_ov002_0215db8c(void* arg0, void* arg1, int arg2);
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -13,11 +13,11 @@ extern "C" void OpenTextWindow_0205d304(void* windowManager, int text, int arg2,
 #endif
 extern "C" void func_ov002_0215ddbc(void* arg0);
 
-struct Struct_0205dee8 {
+struct TextWindowManager_0205dee8 {
     char unknown_0_[0xb0];
-    unsigned char unknown_b0_;
+    unsigned char cursorWindowId_b0_;
 };
-extern "C" void func_0205dee8(struct Struct_0205dee8* arg0, int arg1);
+extern "C" void SetCursorTextWindow_0205dee8(struct TextWindowManager_0205dee8* windowManager, int windowId);
 
 struct TextWindowManager_0205d81c;
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c* windowManager, int windowId, int palette);
@@ -30,9 +30,9 @@ extern "C" ARM void func_ov002_0215dae0(unsigned char* arg0) {
     var0 = var0 + var2;
     var1 -= 3;
     var0 -= 2;
-    func_ov002_0215be00(arg0, (*(int*)(arg0 + 0x1000 + 0xa80)) & 0xff, var0, var1);
+    SetNextTextWindow_ov002_0215be00(arg0, (*(int*)(arg0 + 0x1000 + 0xa80)) & 0xff, var0, var1);
 #else
-    func_ov002_0215be00(arg0, (*(int*)(arg0 + 0x1000 + 0xbb8)) & 0xff, 5, 1);
+    SetNextTextWindow_ov002_0215be00(arg0, (*(int*)(arg0 + 0x1000 + 0xbb8)) & 0xff, 5, 1);
 #endif
 
     memset(*(void**)(arg0 + 0x1000 + RG(0xbd0, 0xa98)), 0, RG(0x960, 0x800));
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov002_0215dae0(unsigned char* arg0) {
 
     func_ov002_0215ddbc(arg0);
 
-    func_0205dee8((struct Struct_0205dee8*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), RG(0xb, 0xc));
+    SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), RG(0xb, 0xc));
 
     SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), RG(0xb, 0xc), 0);
 }

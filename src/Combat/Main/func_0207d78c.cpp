@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-extern int data_02108ea8;
+extern int gBattleJoinTable_02108ea8;
 
-// USA: func_0207d78c
-extern "C" ARM void* func_0207d78c(void) {
-    return &data_02108ea8;
+// USA: GetBattleJoinTable_0207d78c
+extern "C" ARM void* GetBattleJoinTable_0207d78c(void) {
+    return &gBattleJoinTable_02108ea8;
 }

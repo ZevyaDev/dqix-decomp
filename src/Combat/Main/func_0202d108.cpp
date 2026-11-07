@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_0202c848(int arg0);
+extern "C" void SetLocalWirelessLinkError_0202c848(int errorCode);
 extern char gLocalWirelessLink_021015a0;
 extern "C" int func_0202d180(void);
 extern "C" int func_0202d224(void);
@@ -14,7 +14,7 @@ struct Struct_0202d108 {
 extern "C" ARM void func_0202d108(struct Struct_0202d108* arg0) {
     unsigned short var0 = arg0->unknown_2_;
     if (var0 != 0) {
-        func_0202c848(var0);
+        SetLocalWirelessLinkError_0202c848(var0);
         return;
     }
     *(int*)(&gLocalWirelessLink_021015a0 + 0x10) = 1;

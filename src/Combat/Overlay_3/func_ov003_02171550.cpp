@@ -23,7 +23,7 @@ struct Struct_ov003_02171550 {
 
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int func_0202b000(void* arg0);
-extern "C" void func_0202b0f4(void* arg0);
+extern "C" void StopLocalWireless_0202b0f4(void* wireless);
 extern "C" int func_0202b7ec(void* arg0);
 extern "C" void func_0202c360(void* arg0, int arg1);
 extern "C" void func_0202b2f0(void* arg0);
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov003_02171550(struct Struct_ov003_02171550* arg0) {
     int var3 = func_0202b000(var1);
     if (var3 != 0) {
         if (var3 == 3) return;
-        func_0202b0f4(var1);
+        StopLocalWireless_0202b0f4(var1);
         arg0->unknown_0_ = 0xa;
         return;
     }

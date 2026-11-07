@@ -9,7 +9,7 @@ extern "C" int FastIntDivide(int arg0, unsigned int arg1);
 extern "C" void func_ov031_022351f8(int arg0);
 extern "C" void func_ov031_02235204(void);
 extern "C" void func_ov031_0222c8cc(void);
-extern "C" void func_ov031_0223e2c0(int arg0, void* arg1);
+extern "C" void QueueTaskRemoval_ov031_0223e2c0(int listIndex, void* task);
 
 struct Struct_ov031_0222c7d8 {
 	unsigned char unknown_0_[0x38];
@@ -39,5 +39,5 @@ extern "C" ARM void func_ov031_0222c7d8(void* arg0) {
 	func_ov031_02235204();
 	func_ov031_0222c8cc();
 	data_ov031_02290c8c.unknown_4_->unknown_38_ = 0;
-	func_ov031_0223e2c0(0, arg0);
+	QueueTaskRemoval_ov031_0223e2c0(0, arg0);
 }

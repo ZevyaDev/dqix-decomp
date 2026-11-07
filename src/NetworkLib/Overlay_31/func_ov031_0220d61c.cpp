@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-extern char* data_ov031_0224e53c;
+extern char* gAccessPointConnection_ov031_0224e53c;
 
 struct Struct_ov031_0220d61c { int unknown_0_; int unknown_4_; int unknown_8_; int unknown_c_; };
 
-#define REG0220D61C(off) (*(unsigned int*)((data_ov031_0224e53c + 0x2000) + (off)))
+#define REG0220D61C(off) (*(unsigned int*)((gAccessPointConnection_ov031_0224e53c + 0x2000) + (off)))
 
 // USA: func_ov031_0220d61c
 extern "C" ARM void func_ov031_0220d61c(Struct_ov031_0220d61c* arg0, int arg1) {

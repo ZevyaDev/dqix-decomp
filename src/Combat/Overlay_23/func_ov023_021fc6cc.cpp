@@ -4,7 +4,7 @@
 struct Struct_0202df68;
 extern "C" void func_ov023_021e4f18(void*);
 extern "C" int GetFollowCamera_020100f8(char*);
-extern "C" void func_020a2794(void*);
+extern "C" void EnableCameraFollow_020a2794(void*);
 extern "C" void SetCameraFieldOfView_0202e9a4(struct Struct_0202df68*, int);
 
 // USA: func_ov023_021fc6cc
@@ -13,6 +13,6 @@ extern "C" ARM void func_ov023_021fc6cc(void* arg0) {
         func_ov023_021e4f18((char*)arg0 + 0x20 + var0 * 0xc20);
     }
     void* var1 = (void*)GetFollowCamera_020100f8((char*)GameState::GetInstance());
-    func_020a2794(var1);
+    EnableCameraFollow_020a2794(var1);
     SetCameraFieldOfView_0202e9a4((struct Struct_0202df68*)var1, *(int*)((char*)arg0 + 0x1000 + 0x860));
 }

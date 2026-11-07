@@ -62,12 +62,12 @@ struct Struct_ov000_02166070_2 {
     Object3D* unknown_eb8_[4];
 };
 
-extern "C" Struct_ov000_02166070_3* func_0206f4f0(Struct_0206f01c_2*, int);
+extern "C" Struct_ov000_02166070_3* FindMonsterData_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" void func_020484d0(void*);
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11*);
-extern "C" Struct_ov000_02166070_4* func_02070fd0(struct Struct_02070b6c_3*, int);
+extern "C" Struct_ov000_02166070_4* FindMonsterBattleData_02070fd0(struct Struct_02070b6c_3*, int);
 extern "C" void func_ov000_0216d1c4(int, struct Struct_02013fb4*, int, int*);
 extern "C" void func_020484f8(Object3D*, Struct_020484f8_2*);
 extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028*);
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov000_02166070(Struct_ov000_02166070_2* arg0, GPCReadPa
     unsigned int var11;
     const void* var12;
     unsigned int var13;
-    Struct_ov000_02166070_3* var14 = func_0206f4f0(var1, (short)arg3);
+    Struct_ov000_02166070_3* var14 = FindMonsterData_0206f4f0(var1, (short)arg3);
     if (var14 == 0) return;
     sprintf(var4, data_ov000_02183a47, var14->unknown_4_);
     if (!DecompressFileFromGPCByName(arg1->pGPCFile, arg1->machine, gFileScratchSpace_0211e33c + arg5, var7, 0x30000 - arg5, var4)) {
@@ -135,8 +135,8 @@ extern "C" ARM void func_ov000_02166070(Struct_ov000_02166070_2* arg0, GPCReadPa
     var5.unknown_8_ = var11;
     var5.unknown_c_ = var2;
     var17->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&var5, 0);
-    var6.unknown_4_ = func_02070fd0(var3, arg3);
-    var6.unknown_0_ = func_0206f4f0(var1, arg3 << 16 >> 16);
+    var6.unknown_4_ = FindMonsterBattleData_02070fd0(var3, arg3);
+    var6.unknown_0_ = FindMonsterData_0206f4f0(var1, arg3 << 16 >> 16);
     sprintf(var6.unknown_4_->unknown_2c_, data_020ef078, var6.unknown_0_->unknown_0_);
     if (var12 == 0) {
         var6.unknown_8_ = 0;

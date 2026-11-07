@@ -9,7 +9,7 @@ extern "C" ARM void func_ov003_02167e28(void* arg0, void* arg1, int arg2, unsign
                                         int arg4, int arg5, int arg6);
 extern "C" ARM void func_ov003_02167fa4(void* arg0, int arg1, unsigned char* arg2);
 extern "C" void func_ov003_02168088(struct Struct_ov003_02167b34_2* arg0, int* arg1);
-extern "C" int func_020813ec(void* arg0, int arg1);
+extern "C" int OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" void func_02042764(unsigned char* arg0, char* arg1, int arg2);
 extern "C" void* func_02086e50(Struct_02086e50* arg0, int arg1);
 extern "C" int func_020865b0(Struct_0201099c_16* arg0);
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov003_02167ca8(Struct_ov003_02167ca8_2* arg0) {
     int var18 = var0->unknown_15c_.unknown_1_2_;
     var2[11] = var18;
     func_ov003_02168088((Struct_ov003_02167b34_2*)arg0, var2);
-    func_020813ec(arg0->unknown_10_, 0);
+    OpenMenuLayoutWindow_020813ec(arg0->unknown_10_, 0);
 }
 #else
 extern "C" ARM void func_ov003_02167ca8(Struct_ov003_02167ca8* arg0) {
@@ -135,6 +135,6 @@ extern "C" ARM void func_ov003_02167ca8(Struct_ov003_02167ca8* arg0) {
     int var37 = var19->unknown_15c_.unknown_1_2_;
     var21[11] = var37;
     func_ov003_02168088((Struct_ov003_02167b34_2*)arg0, var21);
-    func_020813ec(arg0->unknown_10_, 0);
+    OpenMenuLayoutWindow_020813ec(arg0->unknown_10_, 0);
 }
 #endif

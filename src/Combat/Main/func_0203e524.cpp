@@ -21,22 +21,22 @@ struct Struct_0203de84 {
 
 struct Struct_020406f8 {
     char unknown_0_[4];
-    struct Struct_0203de84 unknown_4_;
+    struct Struct_0203de84 position_4_;
 };
 
 struct Struct_020406f8_2 {
     char unknown_0_[0x44];
-    struct Struct_0203de84 unknown_44_;
+    struct Struct_0203de84 position_44_;
 };
 
-struct Struct_0203de84_2 {
+struct NPC_0203de84_2 {
     char unknown_0_[0x14];
     struct Struct_020406f8* unknown_14_;
     struct Struct_020406f8_2* unknown_18_;
     struct Struct_020406f8_2* unknown_1c_;
 };
 
-extern "C" void func_020406f8(struct Struct_0203de84* arg0, struct Struct_0203de84_2* arg1);
+extern "C" void GetNPCPosition_020406f8(struct Struct_0203de84* outPosition, struct NPC_0203de84_2* npc);
 
 struct Struct_0203e524 {
     short unknown_0_;
@@ -61,7 +61,7 @@ extern "C" ARM int func_0203e524(struct NPCManager_0203dce4_2* arg0, struct Stru
         {
             struct Struct_0203de84 var6;
             var1 = *(unsigned char*)var4;
-            func_020406f8(&var6, (struct Struct_0203de84_2*)var3);
+            GetNPCPosition_020406f8(&var6, (struct NPC_0203de84_2*)var3);
             arg2->unknown_0_ = (short)((int)var6.unknown_0_[0] >> 4);
             arg2->unknown_2_ = (short)((int)var6.unknown_0_[1] >> 4);
             arg2->unknown_4_ = (short)((int)var6.unknown_0_[2] >> 4);

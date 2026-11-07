@@ -47,11 +47,11 @@ struct Struct_ov023_021f4c04_3 {
     Struct_ov023_021f4c04_2* unknown_130_;
 };
 
-struct Struct_ov000_02160da0 {
+struct BattleScene_ov000_02160da0 {
     char unknown_0_[0x30];
     char unknown_30_[REGION_LAYOUT(0x108, 0x11c)];
     char unknown_14c_[REGION_LAYOUT(0xe0, 0x150)];
-    Struct_ov000_02161e30* unknown_29c_;
+    Struct_ov000_02161e30* pBattle_29c_;
     Struct_ov000_0217e870_2* unknown_2a0_;
     char unknown_2a4_[0x974];
     char unknown_c18_[0x220];
@@ -198,7 +198,7 @@ extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" void func_ov000_02160d80(void* arg0, int arg1);
 
 // USA: func_ov023_021f4c04
-extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
+extern "C" ARM void func_ov023_021f4c04(BattleScene_ov000_02160da0* arg0) {
     char var0[REGION_LAYOUT(0x50, 0xb4)];
 #if !defined(jpn)
     unsigned int var1;

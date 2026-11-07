@@ -9,15 +9,15 @@ struct Struct_ov031_02225148 {
     signed char unknown_121_;
 };
 
-extern Struct_ov031_02225148* data_ov031_02250bfc;
+extern Struct_ov031_02225148* gKeyboard_ov031_02250bfc;
 extern signed char data_ov031_02248b9c[53][4];
 
 // USA: func_ov031_02225148
 extern "C" ARM void func_ov031_02225148(int arg0) {
-    signed char var0 = data_ov031_02250bfc->unknown_121_;
-    data_ov031_02250bfc->unknown_121_ = data_ov031_02248b9c[var0][arg0];
+    signed char var0 = gKeyboard_ov031_02250bfc->unknown_121_;
+    gKeyboard_ov031_02250bfc->unknown_121_ = data_ov031_02248b9c[var0][arg0];
 
-    Struct_ov031_02225148* var1 = data_ov031_02250bfc;
+    Struct_ov031_02225148* var1 = gKeyboard_ov031_02250bfc;
     signed char var2 = var1->unknown_121_;
     if (var2 == 0x2e && arg0 == 3) {
         var1->unknown_120_ = var0;

@@ -44,7 +44,7 @@ struct Struct_ov001_02154f24_2
     unsigned int unknown_8_;
     char unknown_c_[0x34 - 0xc];
 };
-extern "C" void* func_0203cf4c();
+extern "C" void* GetNPCManager_0203cf4c();
 extern "C" Struct_ov001_02154f24* GetZone3D_02012fe4();
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" void func_02012de4(AllocatorUnion*);
@@ -89,7 +89,7 @@ extern "C" ARM int func_ov001_02154f24(Struct_ov001_02154f24_3* arg0)
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
-    void* var3 = func_0203cf4c();
+    void* var3 = GetNPCManager_0203cf4c();
     Struct_ov001_02154f24* var4 = GetZone3D_02012fe4();
     void* var5 = GetLocalWireless_0202ae18();
     if (!TestFlags00(var1, 0x1000))
@@ -110,7 +110,7 @@ extern "C" ARM int func_ov001_02154f24(Struct_ov001_02154f24_3* arg0)
     {
         func_0203e0a0(var3, var4->unknown_0_);
         func_ov017_021a316c(var1);
-        func_0203cf58((Struct_0203cf58*)func_0203cf4c());
+        func_0203cf58((Struct_0203cf58*)GetNPCManager_0203cf4c());
         SafeAllocator* var6 = inline_ov001_02154f24(var1, 7);
         arg0->unknown_90_ = var6->GetSize();
         void* var7 = var6->GetSignedAllocator();
@@ -121,7 +121,7 @@ extern "C" ARM int func_ov001_02154f24(Struct_ov001_02154f24_3* arg0)
     {
         func_0203e0a0(var3, var4->unknown_0_);
         func_ov017_021a316c(var1);
-        func_0203cf58((Struct_0203cf58*)func_0203cf4c());
+        func_0203cf58((Struct_0203cf58*)GetNPCManager_0203cf4c());
         var1->allocator_array_38[7].Reset();
     }
     unsigned int var8 = 0x40400;

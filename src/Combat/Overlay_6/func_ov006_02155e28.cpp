@@ -70,7 +70,7 @@ extern "C" void func_0207f914(struct Struct_0207f914* arg0, int arg1, int arg2);
 extern "C" void func_0207f914(struct Struct_0207f914* arg0, int arg1, int arg2, int arg3);
 #endif
 extern "C" int func_0207f9f4(void* arg0);
-extern "C" void func_0207f7f0(struct Struct_0207f7f0* arg0, struct Struct_0207f7f0_2* arg1, int arg2);
+extern "C" void func_0207f7f0(struct MenuLayout_0207f7f0* arg0, struct Struct_0207f7f0_2* arg1, int arg2);
 
 struct Struct_ov006_02155e28 {
     short unknown_0_;
@@ -165,7 +165,7 @@ struct Struct_ov006_02155e28_4 {
     struct Struct_ov006_02155e28_2* unknown_1c8_;
     struct BGLayer_02020cb8* unknown_1cc_;
     struct TextWindow_0204c7a8* unknown_1d0_;
-    struct Struct_0207f7f0* unknown_1d4_;
+    struct MenuLayout_0207f7f0* unknown_1d4_;
     unsigned char unknown_1d8_[8];
     int unknown_1e0_;
     struct Struct_ov006_02155e28_3 unknown_1e4_;
@@ -274,7 +274,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         var26[3] = (var26[3] & ~3) | 3;
         SafeAllocator* var27 = arg0->unknown_180_;
         var27[4].Reset();
-        func_0207f84c(arg0->unknown_1d4_);
+        ResetMenuLayout_0207f84c(arg0->unknown_1d4_);
         func_0207f914((struct Struct_0207f914*)arg0->unknown_1d4_, (int)&var27[4],
 #if defined(jpn)
                                             (int)data_ov006_021600d7);
@@ -507,7 +507,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         arg0->unknown_1a0_ = GetFollowCamera_020100f8((char*)var67);
         func_ov006_021542f4(arg0->unknown_5cc_);
         SetCamera_020100c4(var67, (int)arg0->unknown_5cc_);
-        struct Struct_0207f7f0* var68 = arg0->unknown_1d4_;
+        struct MenuLayout_0207f7f0* var68 = arg0->unknown_1d4_;
         var68->unknown_2c_ = arg0->unknown_1cc_;
         var68->unknown_38_ = 2;
         func_0207f7f0(arg0->unknown_1d4_, (struct Struct_0207f7f0_2*)arg0->unknown_1d0_, 1);

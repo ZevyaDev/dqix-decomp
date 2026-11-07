@@ -137,7 +137,7 @@ extern "C" void func_0202a944(Struct_0202a944_2*, Struct_0202a944*);
 extern "C" struct Struct_ov015_0218bb14* func_ov015_0218bb14(struct Struct_ov015_0218bb14_2* arg0, int arg1);
 extern "C" struct Struct_ov015_02192700_5* func_ov015_02193160(struct Struct_ov015_02192700_8* arg0, int arg1, int* arg2);
 struct Struct_0206f01c_2;
-extern "C" struct Struct_ov015_02192700_6* func_0206f4f0(Struct_0206f01c_2*, int);
+extern "C" struct Struct_ov015_02192700_6* FindMonsterData_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" int func_ov015_02190d08(struct Struct_ov015_02192700_8* arg0);
 struct ItemTable_0201099c_10;
 extern "C" struct Struct_ov002_0215a658* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
@@ -401,7 +401,7 @@ extern "C" ARM void func_ov015_02192700(struct Struct_ov015_02192700_8* arg0, in
             while (var8 != 0) {
                 func_0202949c((char*)&arg0->unknown_344_[var4]);
                 if (arg0->unknown_1a4_ == 6) {
-                    struct Struct_ov015_02192700_6* var9 = func_0206f4f0((Struct_0206f01c_2*)arg0->unknown_64_, var8->unknown_8_);
+                    struct Struct_ov015_02192700_6* var9 = FindMonsterData_0206f4f0((Struct_0206f01c_2*)arg0->unknown_64_, var8->unknown_8_);
                     if (var9 != 0) {
                         __clear(var1, 0x100);
                         sprintf(var1, data_ov015_02194508, var9->unknown_4_ + 1, var9->unknown_0_);

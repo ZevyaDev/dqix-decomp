@@ -46,7 +46,7 @@ struct Struct_ov017_021a4e88_6 {
     int unknown_4080_;
 };
 
-extern "C" void* func_0203cf4c(void);
+extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void __clear(void* arg0, int arg1);
 struct NPCManager_0203dce4_2;
 extern "C" Struct_ov017_021a4e88_4* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
@@ -54,8 +54,8 @@ extern "C" void func_02040648(unsigned int*);
 extern "C" void func_02040658(unsigned int*);
 extern "C" void func_02040bcc(char*);
 struct Struct_0203de84;
-struct Struct_0203de84_2;
-extern "C" void func_020406f8(Struct_0203de84* arg0, Struct_0203de84_2* arg1);
+struct NPC_0203de84_2;
+extern "C" void GetNPCPosition_020406f8(Struct_0203de84* outPosition, NPC_0203de84_2* npc);
 struct Struct_0203e0a0;
 extern "C" Struct_ov017_021a4e88_3* func_02040538(Struct_0203e0a0*);
 extern "C" Struct_ov017_021a4e88_4* FindNPCById_0203df78(void* npcManager, int id);
@@ -67,14 +67,14 @@ int fix32abs(int x);
 
 static inline short inline_ov017_021a4e88(Type_ov017_021a4e88* arg0, int arg1, Struct_ov017_021a4e88_4* arg2) {
     Type_ov017_021a4e88 var0;
-    func_020406f8((Struct_0203de84*)&var0, (Struct_0203de84_2*)arg2);
+    GetNPCPosition_020406f8((Struct_0203de84*)&var0, (NPC_0203de84_2*)arg2);
     return func_ov017_021a4700((Struct_ov009_0218aa28*)arg0, arg1, (Struct_ov009_0218aa28*)&var0);
 }
 
 // USA: func_ov017_021a4e88
 extern "C" ARM int func_ov017_021a4e88(int arg0, unsigned short* arg1) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = func_0203cf4c();
+    void* var1 = GetNPCManager_0203cf4c();
     Struct_ov017_021a4e88_6* var2 = (Struct_ov017_021a4e88_6*)GetGameResources();
     Struct_ov017_021a4e88_5* var3 = (Struct_ov017_021a4e88_5*)var0->GetUnknownGameObject();
     if (var3 == NULL) {
@@ -102,7 +102,7 @@ extern "C" ARM int func_ov017_021a4e88(int arg0, unsigned short* arg1) {
             var14 = 0;
         }
         var13->unknown_0_ &= ~0x40000;
-        Type_ov017_021a4e88 var15 = ((Type_ov017_021a4e88 (*)(Struct_ov017_021a4e88_4*))func_020406f8)(var13);
+        Type_ov017_021a4e88 var15 = ((Type_ov017_021a4e88 (*)(Struct_ov017_021a4e88_4*))GetNPCPosition_020406f8)(var13);
         int var16 = 0;
         int var17 = 0x1800;
         Struct_ov017_021a4e88_3* var18 = func_02040538((Struct_0203e0a0*)var13);

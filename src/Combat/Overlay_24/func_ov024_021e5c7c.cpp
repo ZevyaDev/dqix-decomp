@@ -30,7 +30,7 @@ struct Struct_ov024_021e5c7c_6 : GameObject {
 };
 extern "C" GameObject* func_ov000_021536f8(int, int);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
-extern "C" int func_ov000_0215ffa0(void*);
+extern "C" int GetLatestTargetCombatantIndex_ov000_0215ffa0(void*);
 extern "C" int func_ov000_0215fd24(int, int);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
 extern "C" void func_ov000_0215cd44(void*, void*, GameObject*, int, int, int, int);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov024_021e5c7c(Struct_ov024_021e5c7c_3* arg0, int arg1,
     int var4;
     Struct_ov024_021e5c7c_2* var5 = arg0->unknown_c_;
     if (!var5) return;
-    var3 = func_ov000_0215ffa0(var5);
+    var3 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var5);
     if (inline_ov000_02169850(var3)) return;
     var4 = 0;
     if (inline_ov000_02169850(arg1)) {

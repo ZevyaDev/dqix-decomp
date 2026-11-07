@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-extern "C" int func_0205d97c(void* arg0);
+extern "C" int HitTestCursorWindowTouch_0205d97c(void* windowManager);
 
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -9,13 +9,13 @@ extern "C" int func_0205d97c(void* arg0);
 #define RG(u, j) (u)
 #endif
 
-// USA: func_ov002_02161b48
-extern "C" ARM int func_ov002_02161b48(char* arg0, int arg1) {
+// USA: IsCancelPressed_ov002_02161b48
+extern "C" ARM int IsCancelPressed_ov002_02161b48(char* menu, int isTouchCancelAllowed) {
     if (g_keyManager.TestKeysPressed(2)) {
         return 1;
     }
-    if (arg1) {
-        if (func_0205d97c(arg0 + RG(0xec8, 0xe20)) == 2) {
+    if (isTouchCancelAllowed) {
+        if (HitTestCursorWindowTouch_0205d97c(menu + RG(0xec8, 0xe20)) == 2) {
             return 1;
         }
     }

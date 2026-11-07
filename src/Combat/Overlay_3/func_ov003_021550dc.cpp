@@ -19,7 +19,7 @@ struct Struct_ov000_0217ab8c {
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
 extern "C" int func_020e2918(signed char* arg0);
 extern "C" int func_02080dd4(void* arg0, int arg1, int arg2, int arg3, unsigned char* arg4, unsigned char arg5);
-extern "C" void func_020813ec(void* arg0, int arg1);
+extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
 struct Struct_ov003_021550dc {
     char unknown_0_[0x8];
@@ -57,7 +57,7 @@ extern "C" ARM unsigned char func_ov003_021550dc(Struct_ov003_021550dc* arg0) {
         short var6 = *arg0->unknown_8_;
         if (arg0->unknown_1e8_ != var6) {
             var2->unknown_36_ = var6;
-            func_020813ec(var2, arg0->unknown_1e6_);
+            OpenMenuLayoutWindow_020813ec(var2, arg0->unknown_1e6_);
         }
     }
     return var0;

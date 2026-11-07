@@ -34,7 +34,7 @@ struct Struct_ov002_02167998_4 {
 };
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
-extern "C" void func_0205def8(struct Struct_ov002_02155960_3 *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowVisible_0205def8(struct Struct_ov002_02155960_3 *windowManager, int isVisible, int windowId);
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" struct Struct_ov002_02155960_4 *FindTextWindow_0205d81c(struct Struct_ov002_02155960_2 *windowManager, int windowId);
@@ -44,9 +44,9 @@ extern "C" int GetCursorIndex_0205d794(struct Struct_ov002_0215624c_15 *windowMa
 extern "C" void func_0205d7a0(unsigned char *arg0, int arg1);
 extern "C" int IsEntryTouchedAgain_0205da38(struct Struct_ov002_02164748 *windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct Struct_ov002_02157d40_7 *manager, int soundEffectIndex, int handle);
-extern "C" int func_ov002_02161b48(char *arg0, int arg1);
+extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
-extern "C" void func_ov002_02161cf0(void *arg0);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(void *menu);
 extern "C" void func_ov002_0215f6a4(void *arg0);
 extern "C" void func_ov002_02161a8c(void);
 extern "C" void func_ov002_021619b4(int arg0, int arg1, int arg2);
@@ -70,12 +70,12 @@ extern "C" ARM void func_ov002_02167998(char *arg0) {
         arg0[0x1c34] = 0;
 #endif
         for (int var7 = 0; var7 < 5; var7++) {
-            func_0205def8((struct Struct_ov002_02155960_3 *) var0, 0, data_ov002_0216cc98[var7]);
+            SetTextWindowVisible_0205def8((struct Struct_ov002_02155960_3 *) var0, 0, data_ov002_0216cc98[var7]);
         }
         arg0[RG(0x1c20, 0x1ae8)]               = GetProtagonistObjectIndex_020100a8(var5);
         *(short *) (arg0 + RG(0x1c02, 0x1aca)) = 0;
         SetNextTextWindowBGLayer_0205de24((struct Struct_ov002_0215624c_11 *) var0, 0, 2);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_0215f6a4(arg0);
         (*(int *) (arg0 + RG(0x1bc0, 0x1a88)))++;
         func_ov002_02161a8c();
@@ -124,8 +124,8 @@ extern "C" ARM void func_ov002_02167998(char *arg0) {
     }
     var3  = var15 == *(signed char *) (arg0 + RG(0x1c73, 0x1b37));
     var4 = !var3;
-    func_0205def8((struct Struct_ov002_02155960_3 *) var0, var4, RG(0x1a, 0x1b));
-    func_0205def8((struct Struct_ov002_02155960_3 *) var0, var4, RG(0x1b, 0x1c));
+    SetTextWindowVisible_0205def8((struct Struct_ov002_02155960_3 *) var0, var4, RG(0x1a, 0x1b));
+    SetTextWindowVisible_0205def8((struct Struct_ov002_02155960_3 *) var0, var4, RG(0x1b, 0x1c));
     if (var16 != *(short *) (arg0 + RG(0x1c02, 0x1aca))) return;
     int var18 = g_keyManager.TestKeysPressed(0x601);
     int var19 = (var18 | IsEntryTouchedAgain_0205da38((struct Struct_ov002_02164748 *) OBJ, 0x14)) ? 1 : 0;
@@ -133,7 +133,7 @@ extern "C" ARM void func_ov002_02167998(char *arg0) {
         if (var15 == *(signed char *) (arg0 + RG(0x1c73, 0x1b37))) {
             PlaySoundEffect_0205eaa0((struct Struct_ov002_02157d40_7 *) gSoundEffectManager_02108760, 1, 0);
             for (int var20 = 0; var20 < 5; var20++) {
-                func_0205def8((struct Struct_ov002_02155960_3 *) var0, 1, data_ov002_0216cc98[var20]);
+                SetTextWindowVisible_0205def8((struct Struct_ov002_02155960_3 *) var0, 1, data_ov002_0216cc98[var20]);
             }
             *(short *) (arg0 + RG(0x1c02, 0x1aca)) = -1;
             func_ov002_02156e90(arg0);
@@ -176,9 +176,9 @@ extern "C" ARM void func_ov002_02167998(char *arg0) {
         }
         return;
     }
-    if (func_ov002_02161b48(arg0, 1)) {
+    if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
         for (int var26 = 0; var26 < 5; var26++) {
-            func_0205def8((struct Struct_ov002_02155960_3 *) var0, 1, data_ov002_0216cc98[var26]);
+            SetTextWindowVisible_0205def8((struct Struct_ov002_02155960_3 *) var0, 1, data_ov002_0216cc98[var26]);
         }
         *(short *) (arg0 + RG(0x1c02, 0x1aca)) = -1;
         func_ov002_02156e90(arg0);

@@ -37,7 +37,7 @@ extern "C" int func_0209c0ec(char*);
 extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" int func_0209c0a8(void*, int);
-extern "C" Struct_ov017_021a28a8_2* func_0206f4f0(Struct_0206f01c_2*, int);
+extern "C" Struct_ov017_021a28a8_2* FindMonsterData_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" void* func_0206ef18(void*, int);
 bool FindFilesInNarcBySubstring(const void*, const char*, const void**, unsigned int*, unsigned int);
 void* DecompressLZ77FileIntoAllocatedSpace(SafeAllocator&, const void*, unsigned int&);
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov017_021a28a8(Struct_ov017_021a28a8_4* arg0) {
         unsigned int var9 = 0x30000 - var8;
         for (int var10 = 0; var10 < func_0209c0ec(var3->unknown_44_); ++var10) {
             int var11 = func_0209c0a8(var3->unknown_44_, var10);
-            Struct_ov017_021a28a8_2* var12 = func_0206f4f0((Struct_0206f01c_2*)var3->unknown_2f8_, (short)var11);
+            Struct_ov017_021a28a8_2* var12 = FindMonsterData_0206f4f0((Struct_0206f01c_2*)var3->unknown_2f8_, (short)var11);
             void* var13 = func_0206ef18(var3->unknown_304_, (short)var11);
             if (var12 && var13) {
                 char var14[16];

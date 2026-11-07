@@ -52,7 +52,7 @@ extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4();
 extern "C" Struct_ov017_021a23e4_2* FindActiveZone_02028bd0(ActiveZone_020fdd44*, int);
 extern "C" Struct_02073ec4_3* func_02073ec4(int arg0, void* arg1);
 extern "C" int func_02073fdc(void* arg0);
-extern "C" Struct_ov017_021a23e4* func_0206f4f0(Struct_0206f01c_2*, int);
+extern "C" Struct_ov017_021a23e4* FindMonsterData_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" int func_ov017_021a20c0(int arg0, int arg1, int arg2);
 extern "C" int func_020795cc(unsigned char* arg0);
 extern "C" int func_02032370(int arg0);
@@ -81,7 +81,7 @@ extern "C" ARM int func_ov017_021a23e4(GameResources* arg0, int arg1, int arg2, 
         arg3 = func_02073fdc(var5);
         if (arg3 < 0) return 0;
     }
-    Struct_ov017_021a23e4* var6 = func_0206f4f0((Struct_0206f01c_2*)var4->unknown_2f8_, (short)arg3);
+    Struct_ov017_021a23e4* var6 = FindMonsterData_0206f4f0((Struct_0206f01c_2*)var4->unknown_2f8_, (short)arg3);
     if (!var6) return 0;
     int var7 = var6->unknown_c_ << 2;
     int var8 = var1->obj3D_.GetRadius() / 4 + var7 / 2;

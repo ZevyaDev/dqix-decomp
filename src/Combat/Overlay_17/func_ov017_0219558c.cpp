@@ -4,7 +4,7 @@
 
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void func_ov017_02195398(int, int);
-extern "C" void func_ov017_02191234(int);
+extern "C" void RebuildPartyOrders_ov017_02191234(int);
 extern "C" void func_ov017_021905b8(int, int, int);
 
 extern "C" void func_ov017_02195618(unsigned char* arg0);
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov017_0219558c(unsigned char* arg0, int arg1) {
 	if (arg1 == GetProtagonistObjectIndex_020100a8(var0)) return;
 	func_ov017_02195398(var1, arg1);
 	func_0202c660(var2, arg1);
-	func_ov017_02191234(var1);
+	RebuildPartyOrders_ov017_02191234(var1);
 	func_ov017_021905b8(var1, arg1, 1);
 	func_ov017_021b1454(*(struct Struct_ov017_0219558c**)((char*)arg0 + 0x3000 + Enum_ov017_0219558c_2868), arg1 & 0xff);
 }

@@ -34,7 +34,7 @@ extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void InitZoneEntry_02070378(char*);
-extern "C" void func_0200fcfc(void*, const void*);
+extern "C" void SetZoneEntry_0200fcfc(void*, const void*);
 extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char*, int);
 extern "C" void func_ov017_021a65c4(void*, unsigned char, int);
 
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov017_021d1e50(int arg0, Struct_ov017_021cd748_6* arg1,
                 var0->unknown_10_.z = 0x1000;
                 break;
             }
-            func_0200fcfc(arg2, var0);
+            SetZoneEntry_0200fcfc(arg2, var0);
             unsigned char* var8 = (unsigned char*)arg3->unknown_ptr_array_36fc[4];
             ResetZoneLoadTask_ov017_0219e310(var8, 0);
             AppendToQueue_020469b4(var4, (QueueNode_0201bdac*)var8);
@@ -125,7 +125,7 @@ extern "C" ARM void func_ov017_021d1e50(int arg0, Struct_ov017_021cd748_6* arg1,
             var9.y = arg1->unknown_e_ << 7;
             var9.z = arg1->unknown_10_ << 7;
             var6->unknown_27b8_ = var9;
-            func_0200fcfc(arg2, var0);
+            SetZoneEntry_0200fcfc(arg2, var0);
             unsigned char* var10 = (unsigned char*)arg3->unknown_ptr_array_36fc[4];
             ResetZoneLoadTask_ov017_0219e310(var10, 0);
             AppendToQueue_020469b4(var4, (QueueNode_0201bdac*)var10);

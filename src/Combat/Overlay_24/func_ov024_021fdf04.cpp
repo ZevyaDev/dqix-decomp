@@ -105,7 +105,7 @@ extern "C" float func_020748a8(int arg0);
 extern "C" float func_02074938(int arg0);
 extern "C" int func_ov024_021e67b0(GameObject*);
 extern "C" float func_ov024_021f875c(Struct_ov024_021fdf04_5*, Struct_ov024_021fdf04_8*, Struct_ov024_021fdf04_2*, int);
-extern "C" int func_020882f8(unsigned char*);
+extern "C" int IsAsleep_020882f8(unsigned char*);
 struct Struct_ov024_021da670_7;
 extern "C" int func_ov024_021da9b0(Struct_ov024_021da670_7*);
 struct Struct_ov024_021dced0_2;
@@ -208,7 +208,7 @@ extern "C" ARM void func_ov024_021fdf04(Struct_ov024_021fdf04_5* arg0, int arg1)
             float var26 = 33.3f;
 
             if (arg1 == 4) {
-                if (func_020882f8((unsigned char*)var22->unknown_138_) == 0) var24 = 1;
+                if (IsAsleep_020882f8((unsigned char*)var22->unknown_138_) == 0) var24 = 1;
                 var25 = 1;
                 var26 = 35.0f;
             } else if (arg1 == 5) {

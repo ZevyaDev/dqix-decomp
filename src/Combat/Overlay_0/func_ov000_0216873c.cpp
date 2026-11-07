@@ -16,7 +16,7 @@ enum { Enum_ov000_0216873c_5 = 5 };
 extern "C" GameResources* GetResources_0200fb8c(int* gameState);
 extern "C" void func_ov000_02160fbc(void* arg0, int arg1);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
-extern "C" int func_ov000_02160fd4(void* arg0, int arg1);
+extern "C" int TestBattleSceneFlags_ov000_02160fd4(void* battleScene, int flags);
 extern "C" void func_02013750(void* arg0, int arg1);
 extern "C" void func_ov000_02172720(void* arg0);
 
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov000_0216873c(struct Struct_ov000_0216873c* arg0) {
     for (int var4 = 0; var4 < Enum_ov000_0216873c_5; var4++) {
         arg0->unknown_8_[var4].Destroy();
     }
-    if (func_ov000_02160fd4(arg0, 1)) {
+    if (TestBattleSceneFlags_ov000_02160fd4(arg0, 1)) {
         func_ov017_021a05a8(var1);
     }
     func_ov017_0219b624(var1);

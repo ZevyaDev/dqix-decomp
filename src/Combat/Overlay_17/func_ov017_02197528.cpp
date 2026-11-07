@@ -10,7 +10,7 @@
 #include "Resource/GameResources.h"
 
 struct Queue_02038598_5;
-extern "C" void func_02046a8c(struct Queue_02038598_5* arg0, int arg1);
+extern "C" void RemoveFromQueue_02046a8c(struct Queue_02038598_5* queue, int node);
 
 // USA: func_ov017_02197528
 extern "C" ARM void func_ov017_02197528(void) {
@@ -19,5 +19,5 @@ extern "C" ARM void func_ov017_02197528(void) {
     unsigned char* var2 = *(unsigned char**)(var0 + REGION_FIELD_1);
     if (var2[2] == 0) return;
     if (var2[3] != 0) return;
-    func_02046a8c(var1, (int)var2);
+    RemoveFromQueue_02046a8c(var1, (int)var2);
 }

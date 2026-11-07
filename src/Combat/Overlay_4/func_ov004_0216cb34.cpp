@@ -77,7 +77,7 @@ extern "C" void func_ov004_0216b418(void* arg0, int arg1, int arg2);
 extern "C" int func_ov004_0216b2c8(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov004_0216b20c(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov023_021f9ba8(void* arg0, unsigned short arg1);
-extern "C" struct StringList_02072a68_2* func_ov023_021fa598(void* arg0);
+extern "C" struct StringList_02072a68_2* GetMenuObjectStringList_ov023_021fa598(void* object);
 extern "C" Struct_ov004_0216cb34* GetMessageWindow_020421a0();
 extern "C" void StartMessage_0204500c(Struct_ov004_0216cb34* window, void* text, int arg2);
 extern "C" void func_ov023_021f8120(void* arg0);
@@ -296,7 +296,7 @@ extern "C" ARM int func_ov004_0216cb34(void* arg0) {
         Struct_ov004_0216cb34_3* var14 = FindMenuObjectById_ov023_021f6880(var12, 0x192);
         if (var14 == 0) return 0;
         if (func_ov023_021f6f10(var14) != 4) return 0;
-        struct StringList_02072a68_2* var15 = func_ov023_021fa598(var14);
+        struct StringList_02072a68_2* var15 = GetMenuObjectStringList_ov023_021fa598(var14);
         Struct_ov004_0216cb34* var16 = GetMessageWindow_020421a0();
         var16->unknown_868_ = 1;
         StartMessage_0204500c(var16, FindStringInList_02072a68(var15, 0x5dc), 0);

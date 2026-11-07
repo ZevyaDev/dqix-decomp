@@ -8,7 +8,7 @@
 struct NPCManager_0203dce4_2;
 struct SoundEffectManager_02108760;
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
-extern "C" void* func_0203cf4c();
+extern "C" void* GetNPCManager_0203cf4c();
 extern "C" NPC_0203dce4* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
 extern "C" void func_0206b104(MessageWindow_02021b84*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
@@ -52,7 +52,7 @@ ARM int MessageWindow_02021b84::func_020440cc() {
     case 0:
         if (unknown_19be_) return 0;
         if (func_020656d0() == 0xff02) {
-            NPC_0203dce4* var3 = GetNPCByIndex_0203dce4((NPCManager_0203dce4_2*)func_0203cf4c(), unknown_1838_);
+            NPC_0203dce4* var3 = GetNPCByIndex_0203dce4((NPCManager_0203dce4_2*)GetNPCManager_0203cf4c(), unknown_1838_);
             if (var3) func_02040af0(var3, unknown_183c_);
         }
         return 1;

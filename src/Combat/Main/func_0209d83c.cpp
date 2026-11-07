@@ -2,7 +2,7 @@
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 
-extern "C" int* func_02094d6c(void);
+extern "C" int* GetQuestManager_02094d6c(void);
 extern "C" void* GetQuestBattleScript_0209dccc(void);
 
 struct Struct_0205faf4_7;
@@ -15,7 +15,7 @@ extern "C" ARM int func_0209d83c(void* arg0) {
     int var2;
     int var3;
 
-    var0 = (struct Struct_0205faf4_7*)func_02094d6c();
+    var0 = (struct Struct_0205faf4_7*)GetQuestManager_02094d6c();
     if (var0 == NULL) return 0;
 
     if (GetQuestBattleScript_0209dccc() == NULL) return 0;

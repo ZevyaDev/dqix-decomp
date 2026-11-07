@@ -22,7 +22,7 @@ extern "C" char* GetFollowCamera_020100f8(char* gameState);
 extern "C" void* func_02010768(void* arg0);
 extern "C" void* GetZone3D_02012fe4();
 extern "C" char* GetMessageWindow_020421a0();
-extern "C" void* func_0203cf4c(void);
+extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void* func_0203d004(void* arg0);
 extern "C" void* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
 extern "C" int* func_02040528(int* arg0);
@@ -112,7 +112,7 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
         }
     }
 
-    void* var13 = func_0203cf4c();
+    void* var13 = GetNPCManager_0203cf4c();
     char var14[16];
     const char* var15;
     char* var16;

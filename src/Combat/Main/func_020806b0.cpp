@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
-struct Struct_0207f6ac;
-struct Struct_0207f524 { Struct_0207f6ac* unknown_0_; short unknown_4_; };
+struct MenuLayoutTextEntry_0207f6ac;
+struct MenuLayoutTextEntryList_0207f524 { MenuLayoutTextEntry_0207f6ac* pEntries_0_; short count_4_; };
 struct Struct_020806b0 {
     void* unknown_0_;
-    Struct_0207f524 unknown_4_;
+    MenuLayoutTextEntryList_0207f524 unknown_4_;
 };
-extern "C" void func_0207f7ac(struct Struct_0207f524* arg0, int arg1, int arg2);
+extern "C" void func_0207f7ac(struct MenuLayoutTextEntryList_0207f524* arg0, int arg1, int arg2);
 
 // USA: func_020806b0
 extern "C" ARM void func_020806b0(void* arg0, int arg1) {

@@ -16,7 +16,7 @@ extern "C" void func_0208826c(unsigned char*);
 extern "C" void func_020883cc(unsigned char*);
 struct Struct_ov024_021da670_7;
 extern "C" int func_ov024_021da9b0(Struct_ov024_021da670_7*);
-extern "C" int func_020882f8(unsigned char*);
+extern "C" int IsAsleep_020882f8(unsigned char*);
 struct Struct_ov024_021da670_8;
 extern "C" int func_ov024_021da9c8(Struct_ov024_021da670_8*);
 extern "C" unsigned short func_ov024_021e9018(Struct_ov024_021da670*,int,int,int);
@@ -78,7 +78,7 @@ extern "C" ARM void* func_ov024_021da670(Struct_ov024_021da670* arg0,int arg1,in
         ((Struct_ov024_021da670_5*)var0->currentStats_)->unknown_22_.unknown_1_4_=0;
     }else if(func_ov024_021da9b0((Struct_ov024_021da670_7*)var0)){
         var2=0x70;
-    }else if(func_020882f8((unsigned char*)var0->currentStats_)){
+    }else if(IsAsleep_020882f8((unsigned char*)var0->currentStats_)){
         var2=0x44;
     }else if(func_ov024_021da9c8((Struct_ov024_021da670_8*)var0)){
         var2=func_ov024_021e9018(arg0,arg2,((Struct_ov024_021da670_5*)var0->currentStats_)->unknown_22_.unknown_0_2_,1);

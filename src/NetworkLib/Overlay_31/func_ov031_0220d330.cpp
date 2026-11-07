@@ -21,18 +21,18 @@ struct Struct_ov031_0220d330 {
 	short unknown_2280_;
 };
 
-extern Struct_ov031_0220d330* data_ov031_0224e53c;
+extern Struct_ov031_0220d330* gAccessPointConnection_ov031_0224e53c;
 
 // USA: func_ov031_0220d330
 extern "C" ARM int func_ov031_0220d330(void) {
 	int var0 = DisableIRQInterrupts();
-	if (data_ov031_0224e53c == 0) {
+	if (gAccessPointConnection_ov031_0224e53c == 0) {
 		SetIRQInterruptState(var0);
 		return 1;
 	}
 
 	int var1;
-	switch (data_ov031_0224e53c->unknown_2260_) {
+	switch (gAccessPointConnection_ov031_0224e53c->unknown_2260_) {
 		case 13:
 			SetIRQInterruptState(var0);
 			return 2;
@@ -41,7 +41,7 @@ extern "C" ARM int func_ov031_0220d330(void) {
 			return 0;
 		case 6:
 			func_ov031_0220da1c(0xd);
-			data_ov031_0224e53c->unknown_2280_ = 9;
+			gAccessPointConnection_ov031_0224e53c->unknown_2280_ = 9;
 			SetIRQInterruptState(var0);
 			return 3;
 		case 0:
@@ -58,9 +58,9 @@ extern "C" ARM int func_ov031_0220d330(void) {
 		case 3:
 		case 9:
 		case 12:
-			if (data_ov031_0224e53c->unknown_226b_ == 1) {
+			if (gAccessPointConnection_ov031_0224e53c->unknown_226b_ == 1) {
 				func_ov031_0220da1c(0xd);
-				data_ov031_0224e53c->unknown_2280_ = 9;
+				gAccessPointConnection_ov031_0224e53c->unknown_2280_ = 9;
 				goto epilogue3;
 			}
 			{
@@ -71,7 +71,7 @@ extern "C" ARM int func_ov031_0220d330(void) {
 						var1 = func_020d3fdc();
 						if (var1 != 0) break;
 						func_ov031_0220da1c(1);
-						data_ov031_0224e53c->unknown_2280_ = 0;
+						gAccessPointConnection_ov031_0224e53c->unknown_2280_ = 0;
 						SetIRQInterruptState(var0);
 						return 0;
 					case 1:
@@ -81,7 +81,7 @@ extern "C" ARM int func_ov031_0220d330(void) {
 						var1 = func_020d4f3c((int)func_ov031_0220dc40);
 						break;
 					default:
-						data_ov031_0224e53c->unknown_226b_ = 1;
+						gAccessPointConnection_ov031_0224e53c->unknown_226b_ = 1;
 						var1 = func_020d5004((int)func_ov031_0220e7b0);
 						break;
 				}
@@ -92,7 +92,7 @@ extern "C" ARM int func_ov031_0220d330(void) {
 	switch (var1) {
 		case 2:
 			func_ov031_0220da1c(0xd);
-			data_ov031_0224e53c->unknown_2280_ = 9;
+			gAccessPointConnection_ov031_0224e53c->unknown_2280_ = 9;
 			goto epilogue3;
 		case 8:
 			SetIRQInterruptState(var0);

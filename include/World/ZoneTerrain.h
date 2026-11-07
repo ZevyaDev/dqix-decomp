@@ -24,13 +24,13 @@ struct Struct_02018fbc_3 {
 };
 
 
-extern "C" int func_02017d90(Zone3D*, int, Struct_02018fbc_3*, Struct_02018fbc, Object3D*);
+extern "C" int func_02017d90(Zone3D*, int, Struct_02018fbc_3*, BoundingBox_02018fbc, Object3D*);
 extern "C" void func_02031188(Struct_02018fbc_2*, short*);
 extern "C" int func_020312bc(Struct_02018fbc_2*, int, Vector3fix*, Vector3fix*, Vector3fix*);
 extern "C" int func_020319d8(Struct_02018fbc_2*, int, Vector3fix*, Vector3fix*, Vector3fix*);
 extern "C" int func_020315b8(Struct_02018fbc_2*, int, Vector3fix*, int, Vector3fix*, int);
 
 extern "C" Zone3D* GetZone3D_02012fe4();
-extern "C" int func_02018fbc(Zone3D* arg0, Vector3fix* arg1);
+extern "C" int GetGroundHeight_02018fbc(Zone3D* zone, Vector3fix* position);
 extern "C" Vector3fix func_02019210(Zone3D* arg0, const Vector3fix* arg1,
                                    const Vector3fix* arg2, int arg3);

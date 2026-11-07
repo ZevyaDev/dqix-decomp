@@ -5,7 +5,7 @@ struct Struct_ov000_021599f4 { char unknown_0_[0x5c]; unsigned char unknown_5c_[
 struct Struct_ov000_02182efc { int unknown_0_; int unknown_4_; };
 struct Struct_02088660;
 extern "C" int func_ov000_02156038(GameObject*);
-extern "C" int func_020882f8(unsigned char*);
+extern "C" int IsAsleep_020882f8(unsigned char*);
 extern "C" int func_ov000_021543f4(GameObject*);
 extern "C" int func_ov000_02156404(GameObject*);
 extern "C" int func_ov000_02153a8c(GameObject*);
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov000_021599f4(void*, int arg1) {
     unsigned char* var2 = ((Struct_ov000_021599f4*)var0->currentStats_)->unknown_7f_;
     unsigned char var3[3];
     var3[0] = func_ov000_02156038(var0);
-    var3[1] = func_020882f8((unsigned char*)var0->currentStats_);
+    var3[1] = IsAsleep_020882f8((unsigned char*)var0->currentStats_);
     var3[2] = func_ov000_021543f4(var0);
     unsigned char* var4 = var3;
     int* var5 = data_ov000_02182a94;

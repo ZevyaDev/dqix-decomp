@@ -82,7 +82,7 @@ extern "C" void func_ov009_0218a484(int, char*, char*);
 extern "C" unsigned int func_020e0424(Struct_020e0424*);
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int FindFontGlyphIndex_020424e4(int, int);
-extern "C" Struct_ov009_02186e00* func_020425b4(int, int);
+extern "C" Struct_ov009_02186e00* GetFontGlyph_020425b4(int, int);
 extern "C" int ConvertTextToGlyphIndices_020426bc(const char*, unsigned char*, int);
 extern "C" int func_ov009_0218a4c8(int, int, int, int, int);
 extern "C" int func_ov009_0218a518(Struct_ov009_02189a4c_5*, const unsigned char*, const unsigned char*, int, int);
@@ -212,13 +212,13 @@ exact_done:
     for (;;) {
         if (!*var11) break;
         int var42 = FindFontGlyphIndex_020424e4((int)var11, 1);
-        Struct_ov009_02186e00* var43 = func_020425b4(var42, 1);
+        Struct_ov009_02186e00* var43 = GetFontGlyph_020425b4(var42, 1);
         if (!var43) goto fallback_character;
         if (((var42 >= 8 && var42 <= 69) || var42 == 77 || var42 == 83 ||
                       (var42 >= 120 && var42 <= 169) || var42 == var40 || var42 == var38 ||
                       var42 == var37 || var42 == 107 || var42 == var36)) {
             int var44 = var43->unknown_5_0_;
-            if (var42 == 107) var43 = func_020425b4(var39, 1);
+            if (var42 == 107) var43 = GetFontGlyph_020425b4(var39, 1);
             __clear(var9, 12);
             int var45 = var43->unknown_5_0_;
             char* var46 = var43->unknown_0_;

@@ -6,16 +6,16 @@ extern "C" int func_020d6ad4(int arg0, int arg1, int arg2, int arg3, unsigned sh
 extern "C" void func_ov031_0220da1c(int);
 extern "C" int func_ov031_0220d570(int);
 extern "C" void func_ov031_0220dc40(void);
-extern int data_ov031_0224e53c;
+extern int gAccessPointConnection_ov031_0224e53c;
 
 // USA: func_ov031_0220d010
 extern "C" ARM int func_ov031_0220d010(void* arg0, unsigned char* arg1, int arg2) {
 	int var0 = DisableIRQInterrupts();
-	if (data_ov031_0224e53c == 0) {
+	if (gAccessPointConnection_ov031_0224e53c == 0) {
 		SetIRQInterruptState(var0);
 		return 1;
 	}
-	int var1 = *(int*)((char*)data_ov031_0224e53c + 0x2260);
+	int var1 = *(int*)((char*)gAccessPointConnection_ov031_0224e53c + 0x2260);
 	switch (var1) {
 	case 3: {
 		if (arg0 == 0) {
@@ -31,19 +31,19 @@ extern "C" ARM int func_ov031_0220d010(void* arg0, unsigned char* arg1, int arg2
 				SetIRQInterruptState(var0);
 				return 1;
 			}
-			*(unsigned char*)((char*)data_ov031_0224e53c + 0x2250) = arg1[0];
-			*(unsigned char*)((char*)data_ov031_0224e53c + 0x2251) = arg1[1];
-			if (*(unsigned char*)((char*)data_ov031_0224e53c + 0x2250) == 0) {
-				VectorizedMemset((char*)data_ov031_0224e53c + 0x2200, 0, 0x50);
+			*(unsigned char*)((char*)gAccessPointConnection_ov031_0224e53c + 0x2250) = arg1[0];
+			*(unsigned char*)((char*)gAccessPointConnection_ov031_0224e53c + 0x2251) = arg1[1];
+			if (*(unsigned char*)((char*)gAccessPointConnection_ov031_0224e53c + 0x2250) == 0) {
+				VectorizedMemset((char*)gAccessPointConnection_ov031_0224e53c + 0x2200, 0, 0x50);
 			} else {
-				VectorizedInvertedMemcpy(arg1 + 2, (char*)data_ov031_0224e53c + 0x2200, 0x50);
+				VectorizedInvertedMemcpy(arg1 + 2, (char*)gAccessPointConnection_ov031_0224e53c + 0x2200, 0x50);
 			}
 		} else {
-			VectorizedMemset((char*)data_ov031_0224e53c + 0x2200, 0, 0x52);
+			VectorizedMemset((char*)gAccessPointConnection_ov031_0224e53c + 0x2200, 0, 0x52);
 		}
 
-		VectorizedInvertedMemcpy(arg0, (char*)data_ov031_0224e53c + 0x2140, 0xc0);
-		*(unsigned short*)((char*)data_ov031_0224e53c + 0x2170) = *(unsigned short*)((char*)data_ov031_0224e53c + 0x216e) | 3;
+		VectorizedInvertedMemcpy(arg0, (char*)gAccessPointConnection_ov031_0224e53c + 0x2140, 0xc0);
+		*(unsigned short*)((char*)gAccessPointConnection_ov031_0224e53c + 0x2170) = *(unsigned short*)((char*)gAccessPointConnection_ov031_0224e53c + 0x216e) | 3;
 		func_ov031_0220d570(arg2);
 		break;
 	}
@@ -62,7 +62,7 @@ extern "C" ARM int func_ov031_0220d010(void* arg0, unsigned char* arg1, int arg2
 	switch (var2) {
 	case 2:
 		func_ov031_0220da1c(8);
-		*(unsigned short*)((char*)data_ov031_0224e53c + 0x2280) = 5;
+		*(unsigned short*)((char*)gAccessPointConnection_ov031_0224e53c + 0x2280) = 5;
 		goto ret3;
 	case 8:
 		SetIRQInterruptState(var0);

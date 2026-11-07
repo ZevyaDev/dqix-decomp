@@ -5,7 +5,7 @@
 #include "Memory/SafeAllocator.h"
 
 struct Struct_ov003_0216759c {
-    int unknown_0_; SafeAllocator* unknown_4_; BGLayer_02020cb8* unknown_8_; Struct_0207f7f0_2* unknown_c_; Struct_0207f7f0* unknown_10_;
+    int unknown_0_; SafeAllocator* unknown_4_; BGLayer_02020cb8* unknown_8_; Struct_0207f7f0_2* unknown_c_; MenuLayout_0207f7f0* unknown_10_;
 #if defined(jpn)
     char unknown_14_[0x34-0x14];
 #else
@@ -128,11 +128,11 @@ extern "C" ARM int func_ov003_0216759c(Struct_ov003_0216759c* arg0) {
         SafeAllocator* var19=arg0->unknown_4_;
         var19[2].Reset();
 #if defined(jpn)
-        arg0->unknown_10_=(Struct_0207f7f0*)var19[2].Allocate(0x34);
+        arg0->unknown_10_=(MenuLayout_0207f7f0*)var19[2].Allocate(0x34);
 #else
-        arg0->unknown_10_=(Struct_0207f7f0*)var19[2].Allocate(0x40);
+        arg0->unknown_10_=(MenuLayout_0207f7f0*)var19[2].Allocate(0x40);
 #endif
-        func_0207f84c(arg0->unknown_10_);
+        ResetMenuLayout_0207f84c(arg0->unknown_10_);
 #if defined(jpn)
         func_02080654(arg0->unknown_10_,var19+2,data_ov003_0217e87f);
 #else
@@ -158,7 +158,7 @@ extern "C" ARM int func_ov003_0216759c(Struct_ov003_0216759c* arg0) {
         LoadToSubBGStandardPalette(data_ov003_0217f4dc,0x22,2);
         _Z15CleanCacheRangePKvj(data_ov003_0217f4dc,2);
         func_0207f7f0(arg0->unknown_10_,arg0->unknown_c_,4);
-        Struct_0207f7f0* var21=arg0->unknown_10_;
+        MenuLayout_0207f7f0* var21=arg0->unknown_10_;
         var21->unknown_2c_=arg0->unknown_8_;
         var21->unknown_38_=1;
         arg0->unknown_10_->unknown_3a_=0;

@@ -26,7 +26,7 @@ struct Struct_ov003_02173f70 {
     SpriteAnimationList_02043368* unknown_82c_;
     Sprite_02043368_2* unknown_830_;
     unsigned char unknown_834_[0x89c - 0x834];
-    Struct_0207f7f0* unknown_89c_;
+    MenuLayout_0207f7f0* unknown_89c_;
     BGLayer_02020cb8 unknown_8a0_[2];
     Struct_0207f7f0_2 unknown_8e0_[8];
 };

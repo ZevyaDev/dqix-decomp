@@ -21,29 +21,29 @@ struct Struct_ov031_02236094_3 {
     unsigned char unknown_4f6_;
 };
 
-extern Struct_ov031_02236094_3* data_ov031_02290cfc;
+extern Struct_ov031_02236094_3* gConnectionSettings_ov031_02290cfc;
 extern unsigned char data_ov031_02249248;
 
 // USA: func_ov031_02236094
 extern "C" ARM void func_ov031_02236094(unsigned char arg0) {
-    Struct_ov031_02236094_3* var0 = data_ov031_02290cfc;
+    Struct_ov031_02236094_3* var0 = gConnectionSettings_ov031_02290cfc;
     unsigned char* var1 = var0->unknown_0_[arg0].unknown_0_.unknown_0_;
 
     var0->unknown_400_ = var0->unknown_0_[arg0].unknown_0_;
     var0->unknown_4f4_ = arg0;
 
     if (CompareBytes_02001aec(var1 + 0xc0, &data_ov031_02249248, 4) != 0) {
-        data_ov031_02290cfc->unknown_4f5_ = 0;
+        gConnectionSettings_ov031_02290cfc->unknown_4f5_ = 0;
     } else {
-        data_ov031_02290cfc->unknown_4f5_ = 1;
+        gConnectionSettings_ov031_02290cfc->unknown_4f5_ = 1;
     }
 
     if (CompareBytes_02001aec(var1 + 0xc8, &data_ov031_02249248, 4) != 0 ||
         CompareBytes_02001aec(var1 + 0xcc, &data_ov031_02249248, 4) != 0) {
-        data_ov031_02290cfc->unknown_4f6_ = 0;
+        gConnectionSettings_ov031_02290cfc->unknown_4f6_ = 0;
     } else {
-        data_ov031_02290cfc->unknown_4f6_ = 1;
+        gConnectionSettings_ov031_02290cfc->unknown_4f6_ = 1;
     }
 
-    func_ov031_0221b19c(var1[0xd0], data_ov031_02290cfc->unknown_4f0_);
+    func_ov031_0221b19c(var1[0xd0], gConnectionSettings_ov031_02290cfc->unknown_4f0_);
 }

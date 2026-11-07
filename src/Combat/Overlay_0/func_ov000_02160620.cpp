@@ -61,7 +61,7 @@ extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int)
 extern "C" void* func_020936f8();
 extern "C" void func_020939dc(void*);
 extern "C" void func_02093a14(char*);
-extern "C" void func_02094030(void*, int, int, int);
+extern "C" void QueueNotice_02094030(void*, int, int, int);
 extern "C" void func_ov000_0215fb04(void*, int);
 extern "C" int func_ov017_02195550(unsigned char*);
 extern "C" void func_ov000_021682ec(Struct_ov000_02160620_2*);
@@ -81,7 +81,7 @@ extern "C" void func_ov000_02160fe4(void*);
 extern "C" void func_ov025_021e9558(void*);
 extern "C" void func_020a1edc();
 extern "C" void PushSubOverlay_020a1ef0(int);
-extern "C" void func_0205eb80(void*);
+extern "C" void UnloadExtraSoundSet_0205eb80(void*);
 extern int data_ov000_02184220;
 extern unsigned char gSoundEffectManager_02108760[0xd0];
 
@@ -109,7 +109,7 @@ extern "C" ARM void func_ov000_02160620(Struct_ov000_02160620_2* arg0) {
             void* var4 = func_020936f8();
             func_020939dc(var4);
             func_02093a14((char*)var4);
-            func_02094030(var4, 4, -1, 0);
+            QueueNotice_02094030(var4, 4, -1, 0);
             arg0->unknown_77d0_ = 1;
         }
     }
@@ -188,7 +188,7 @@ extern "C" ARM void func_ov000_02160620(Struct_ov000_02160620_2* arg0) {
     arg0->unknown_7710_ -= (signed char)var0->GetTickCount();
     if (arg0->unknown_7710_ < 0) {
         arg0->unknown_7710_ = 0;
-        func_0205eb80(gSoundEffectManager_02108760);
+        UnloadExtraSoundSet_0205eb80(gSoundEffectManager_02108760);
         arg0->unknown_7711_ = 0;
     }
 }

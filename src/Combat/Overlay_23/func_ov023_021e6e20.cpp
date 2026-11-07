@@ -6,7 +6,7 @@ struct TextWindowManager_0205d81c {
     unsigned char cursorWindowId_b0_;
 };
 
-extern "C" int func_0205d97c(TextWindowManager_0205d81c* arg0);
+extern "C" int HitTestCursorWindowTouch_0205d97c(TextWindowManager_0205d81c* windowManager);
 
 struct Struct_ov012_02186a7c {
 #if defined(jpn)
@@ -19,6 +19,6 @@ struct Struct_ov012_02186a7c {
 
 extern "C" ARM int func_ov023_021e6e20(Struct_ov012_02186a7c* arg0) {
     int var0 = g_keyManager.TestKeysPressed(2);
-    int var1 = func_0205d97c(&arg0->unknown_ac_) == 2;
+    int var1 = HitTestCursorWindowTouch_0205d97c(&arg0->unknown_ac_) == 2;
     return (var0 | var1) != 0;
 }

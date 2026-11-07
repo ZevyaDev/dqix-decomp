@@ -13,8 +13,8 @@ struct Struct_02081f20_2;
 struct SoundEffectManager_02108760;
 
 extern "C" short func_02080468(void* arg0, int arg1);
-extern "C" void func_020813ec(void* arg0, int arg1, int arg2);
-extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
+extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId, int arg2);
+extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 extern "C" void func_02081ea4(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
 extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 extern "C" int func_ov003_021765b4(void* arg0);
@@ -38,8 +38,8 @@ extern "C" ARM void func_ov003_021786bc(unsigned char* arg0) {
         }
         short var3 = *(short*)(arg0 + J(0x1000 + 4));
         *(short*)((char*)var1 + RG(0x36, 0x2a)) = var3;
-        func_020813ec(var1, *(short*)(arg0 + J(0xf00 + 0xfe)), var3);
-        func_02080c68(var1, *(short*)(arg0 + J(0xf00 + 0xfe)), 0);
+        OpenMenuLayoutWindow_020813ec(var1, *(short*)(arg0 + J(0xf00 + 0xfe)), var3);
+        SetMenuLayoutWindowPalette_02080c68(var1, *(short*)(arg0 + J(0xf00 + 0xfe)), 0);
         func_02081ea4(var1, *(short*)(arg0 + J(0xf00 + 0xfe)), 0);
         func_0208203c((struct Struct_02081f20_2*)(arg0 + J(0x88c)));
         *(void**)(arg0 + J(0xff8)) = 0;
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov003_021786bc(unsigned char* arg0) {
         case 4:
             var5 = 1;
             var4 = 2;
-            func_02080c68(var1, *(short*)(arg0 + J(0xf00 + 0xfe)), 1);
+            SetMenuLayoutWindowPalette_02080c68(var1, *(short*)(arg0 + J(0xf00 + 0xfe)), 1);
             *(short*)(arg0 + J(0xf00 + 0xfc)) = *(short*)(arg0 + J(0xf00 + 0xfe));
             *(unsigned short*)(arg0 + J(0x1000 + 0x46)) |= 0x20;
             *(short*)(arg0 + J(0x1000 + 0x14)) = 0;
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov003_021786bc(unsigned char* arg0) {
         case 5:
             var4 = 3;
             *(short*)(arg0 + J(0x1000 + 0xc)) = 0x76;
-            func_02080c68(var1, *(short*)(arg0 + J(0xf00 + 0xfe)), 1);
+            SetMenuLayoutWindowPalette_02080c68(var1, *(short*)(arg0 + J(0xf00 + 0xfe)), 1);
             *(short*)(arg0 + J(0xf00 + 0xfc)) = *(short*)(arg0 + J(0xf00 + 0xfe));
             break;
         case 6:

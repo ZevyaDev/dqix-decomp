@@ -12,11 +12,11 @@ struct TextWindowManager_0205def8 {
     int unknown_9c_;
 };
 
-// USA: func_0205def8
-extern "C" ARM void func_0205def8(struct TextWindowManager_0205def8* arg0, int arg1, int arg2) {
-    struct TextWindow_0205d0e0* var0;
-    if (arg0->unknown_98_ == 0 || arg0->unknown_9c_ == 0) return;
-    var0 = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)arg0, arg2);
-    if (var0 == 0) return;
-    func_0205d5b8((struct Struct_0205d5b8*)var0, arg1 == 0);
+// USA: SetTextWindowVisible_0205def8
+extern "C" ARM void SetTextWindowVisible_0205def8(struct TextWindowManager_0205def8* windowManager, int isVisible, int windowId) {
+    struct TextWindow_0205d0e0* textWindow;
+    if (windowManager->unknown_98_ == 0 || windowManager->unknown_9c_ == 0) return;
+    textWindow = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)windowManager, windowId);
+    if (textWindow == 0) return;
+    func_0205d5b8((struct Struct_0205d5b8*)textWindow, isVisible == 0);
 }

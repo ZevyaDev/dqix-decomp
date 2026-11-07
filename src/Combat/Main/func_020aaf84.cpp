@@ -99,7 +99,7 @@ extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" void func_02011544(Struct_02011544*);
-extern "C" Struct_020aaf84_5* func_02094d6c();
+extern "C" Struct_020aaf84_5* GetQuestManager_02094d6c();
 extern "C" void* func_020108d8(char*, int);
 extern "C" void func_020a9af8(unsigned char*);
 extern "C" void func_020a9ba4(void*);
@@ -166,11 +166,11 @@ extern "C" ARM int func_020aaf84(int* arg0, int arg1, int arg2, int arg3) {
         return 0;
     }
     var4 = GetFlagManager_0205ec34();
-    var6 = func_02094d6c();
+    var6 = GetQuestManager_02094d6c();
     func_020a95a4(var12->unknown_4_, func_020108d8((char*)var0, 0));
     func_020a9a50(var12->unknown_2cac_, var4, 0);
     memcpy(var6, var12->unknown_2ff0_, 0xa0);
-    memcpy(func_02094d6c()->unknown_178_, var12->unknown_3090_, 0x330);
+    memcpy(GetQuestManager_02094d6c()->unknown_178_, var12->unknown_3090_, 0x330);
     func_020a9af8(var12->unknown_33c0_);
     memcpy(var3->unknown_73b0_, var12->unknown_3554_, 0x4d0);
     memcpy(var3->unknown_7880_, var12->unknown_3a24_, 0x3b4);
@@ -254,12 +254,12 @@ extern "C" ARM int func_020aaf84(int* arg0, int arg1, int arg2, int arg3) {
         return 0;
     }
     var26 = GetFlagManager_0205ec34();
-    var20 = func_02094d6c();
+    var20 = GetQuestManager_02094d6c();
     var18 = 0;
     func_020a95a4(var27->unknown_4_, func_020108d8((char*)var13, 0), &var18);
     func_020a9a50(var27->unknown_2cac_, var26, 0);
     memcpy(var20, var27->unknown_2ff0_, 0xa0);
-    memcpy(func_02094d6c()->unknown_178_, var27->unknown_3090_, 0x330);
+    memcpy(GetQuestManager_02094d6c()->unknown_178_, var27->unknown_3090_, 0x330);
     func_020a9af8(var27->unknown_33c0_);
     memcpy(var16->unknown_75f0_, var27->unknown_3554_, 0x4d0);
     memcpy(var16->unknown_7ac0_, var27->unknown_3a24_, 0x3b4);

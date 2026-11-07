@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-// USA: func_02039d7c
-extern "C" ARM unsigned char func_02039d7c(char* arg0) {
+// USA: IsOnLadder_02039d7c
+extern "C" ARM unsigned char IsOnLadder_02039d7c(char* object) {
 #if defined(jpn)
-    return arg0[0x260];
+    return object[0x260];
 #else
-    return arg0[0x26c];
+    return object[0x26c];
 #endif
 }

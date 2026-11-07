@@ -48,7 +48,7 @@ extern "C" void func_ov017_0219593c();
 extern "C" TimedMessageQueue_020d7aa0_2* func_020d7a50();
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2*);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
-extern "C" void func_02046a8c(Queue_02038598_5*, void*);
+extern "C" void RemoveFromQueue_02046a8c(Queue_02038598_5*, void*);
 extern "C" void func_ov017_021a6b30(Struct_ov017_021a6648_2*);
 extern const char* data_ov017_021d771c[3];
 extern AllocatorUnion gMainHeap_02114e20;
@@ -147,10 +147,10 @@ extern "C" ARM void func_ov017_021a6648(Struct_ov017_021a6648_2* arg0, Queue_020
             ClearTimedMessageQueue_020d7aa0(func_020d7a50());
         }
         if (!arg0->unknown_b_ && IsTypeInQueue_02046b60(arg1, 0xa)) {
-            func_02046a8c(arg1, var2->unknown_ptr_3718);
+            RemoveFromQueue_02046a8c(arg1, var2->unknown_ptr_3718);
             ClearFlags00(var2, 0x800);
         }
-        if (!arg0->unknown_b_ && IsTypeInQueue_02046b60(arg1, 0x40)) func_02046a8c(arg1, var2->unknown_ptr_array_3afc[0x27]);
+        if (!arg0->unknown_b_ && IsTypeInQueue_02046b60(arg1, 0x40)) RemoveFromQueue_02046a8c(arg1, var2->unknown_ptr_array_3afc[0x27]);
         func_ov017_021a6b30(arg0);
         arg0->unknown_1_ = 1;
     }

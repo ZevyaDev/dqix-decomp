@@ -57,14 +57,14 @@ extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int func_020322c0(void* arg0, int* arg1);
 extern "C" void func_020794f8(Struct_020771fc_2* arg0, int arg1, int arg2);
 extern "C" Struct_020771fc_3* GetZone3D_02012fe4(void);
-extern "C" int func_02018fbc(Struct_020771fc_3* arg0, Vector3i* arg1);
+extern "C" int GetGroundHeight_02018fbc(Struct_020771fc_3* zone, Vector3i* position);
 extern "C" void func_ov017_021c9400(int arg0, int arg1, int arg2, Vector3i arg3, Vector3i arg4, int arg5);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
 extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44* zones, int zoneId);
 extern "C" Struct_020771fc* func_020283c0(Struct_0201a300_11* arg0, int arg1);
-extern "C" void func_02033b68(Struct_02033b68* arg0, int arg1);
+extern "C" void SetMotionIfDifferent_02033b68(Struct_02033b68* object, int motion);
 extern "C" void* func_02033f44(Struct_02033f44* arg0);
 extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
 extern "C" void SetFacing_02033834(Struct_02033834_2* object, int angle);
@@ -77,7 +77,7 @@ extern "C" ARM void func_020771fc(Struct_020771fc_2* arg0) {
     Vector3i var2 = arg0->unknown_158_;
     var2.y = 0;
     int var3 = Vector3fix_Distance(&var1, &var2);
-    func_02033b68((Struct_02033b68*)arg0, 1);
+    SetMotionIfDifferent_02033b68((Struct_02033b68*)arg0, 1);
     switch (arg0->unknown_139_) {
     case 0:
         arg0->unknown_b4_ = 0;
@@ -143,7 +143,7 @@ extern "C" ARM void func_020771fc(Struct_020771fc_2* arg0) {
             Struct_020771fc_3* var15 = GetZone3D_02012fe4();
             unsigned short var16 = var15->unknown_0_;
             if (var16 == ((Object3D*)arg0)->GetField06() && var15->unknown_424_ == 0) {
-                var9.y = func_02018fbc(var15, &var9);
+                var9.y = GetGroundHeight_02018fbc(var15, &var9);
                 arg0->unknown_44_ = var9;
             }
         }

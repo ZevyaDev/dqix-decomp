@@ -6,7 +6,7 @@ struct TimedMessageQueue_020d7aa0_2;
 extern "C" void ClearTimedMessageQueue_020d7aa0(struct TimedMessageQueue_020d7aa0_2* queue);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
-extern "C" void func_0205c790(char* arg0);
+extern "C" void InitChoiceList_0205c790(char* choiceList);
 
 struct MenuCursor_0205ba68;
 extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov017_021adb50(char* arg0) {
 #endif
     ClearTimedMessageQueue_020d7aa0((struct TimedMessageQueue_020d7aa0_2*)func_020d7a50());
     ResetMessageWindow_02043204((char*)GetMessageWindow_020421a0());
-    func_0205c790(arg0 + 0x44);
+    InitChoiceList_0205c790(arg0 + 0x44);
     SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(arg0 + 0x64), 1, 1, 0);
     SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(arg0 + 0xb4), 1, 1, 0);
     SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(arg0 + 0x64), 1);

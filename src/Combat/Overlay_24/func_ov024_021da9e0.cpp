@@ -71,7 +71,7 @@ struct Struct_ov024_021da9e0_2 {
 
 extern "C" float func_ov024_021db358(GameObject* arg0);
 extern "C" int func_ov000_0215fc60(char*);
-extern "C" int func_ov000_0215ffa0(void* arg0);
+extern "C" int GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 extern "C" void* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
 extern "C" struct Struct_ov024_021da9e0_10* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, GameObject* arg2, int arg3, unsigned long long arg4, int arg5);
@@ -90,7 +90,7 @@ extern "C" int func_ov024_021eb08c(struct Struct_ov024_021da9e0_2* arg0, int arg
 extern "C" void func_ov000_0215a908(void* arg0, int arg1);
 extern "C" unsigned short func_ov024_021e9b24(struct Struct_ov024_021da9e0_2* arg0, int arg1, struct Struct_ov024_021da9e0_8* arg2, int arg3);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
-extern "C" void SetActionResult_ov000_0215ccbc(void* battle, void* result, GameObject* combatant, short arg3, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
+extern "C" void SetActionResult_ov000_0215ccbc(void* battle, void* result, GameObject* combatant, short amount, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
 
 static inline int inline_ov024_021da9e0(int arg0) {
     return arg0 >= 0 && arg0 <= 3;
@@ -131,7 +131,7 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
                 arg0->unknown_48_[var6] = 0;
                 continue;
             }
-            if (var7 && func_ov000_0215ffa0(var7) == arg2) {
+            if (var7 && GetLatestTargetCombatantIndex_ov000_0215ffa0(var7) == arg2) {
                 for (int var8 = 1; var8 <= 2; var8++) {
                     struct Struct_ov024_021da9e0_10* var9 = var7->unknown_0_[var8];
                     if (!var9) continue;

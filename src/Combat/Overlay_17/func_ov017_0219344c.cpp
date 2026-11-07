@@ -229,7 +229,7 @@ extern "C" ARM int func_ov017_0219344c(Struct_ov017_0219344c_2* arg0, int arg1, 
             }
         }
         if (var27 != NULL && var14 != 0) {
-            short var33 = arg0->unknown_4_;
+            short var33 = arg0->objectIndex_4_;
             if (var33 != GetOwnPartyLeaderObjectIndex_020100b0(var4)) {
                 continue;
             }
@@ -251,13 +251,13 @@ extern "C" ARM int func_ov017_0219344c(Struct_ov017_0219344c_2* arg0, int arg1, 
         var1 = 1;
     }
     if (var1 != 0) {
-        if (var18 != 0 && var34->obj3D_.unknown_4_ == arg0->unknown_4_) {
+        if (var18 != 0 && var34->obj3D_.objectIndex_4_ == arg0->objectIndex_4_) {
             EnablePlayerControl_020397c0(var34);
         }
         arg0->unknown_ac_ = 0;
     } else if (var18 == 0) {
         SetMotion_02033b88((Struct_02010604*)arg0, 0);
-        if (var34->obj3D_.unknown_4_ == arg0->unknown_4_) {
+        if (var34->obj3D_.objectIndex_4_ == arg0->objectIndex_4_) {
             DisablePlayerControl_020397cc((Struct_02018300_3*)var34, 1);
             if (!var34->obj3D_.GetFlag(0x1000)) {
                 func_020531f0(var34);

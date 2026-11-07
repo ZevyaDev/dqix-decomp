@@ -8,7 +8,7 @@ extern "C" int func_0209494c(struct Struct_0209494c* arg0);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
-extern "C" void func_0202b0f4(void* arg0);
+extern "C" void StopLocalWireless_0202b0f4(void* wireless);
 extern "C" void func_ov017_02195748(unsigned char* arg0);
 extern "C" void func_ov017_02192594(unsigned char* arg0);
 extern "C" void func_020939fc(unsigned char* arg0);
@@ -40,7 +40,7 @@ extern "C" ARM unsigned char func_ov017_021af4ec(Struct_ov017_021af4ec* arg0) {
 		struct Struct_0205e854* var4 = (struct Struct_0205e854*)GetLocalWirelessPacketQueue_0202ae24();
 		arg0->unknown_f_ = 0;
 		SetFlags00((GameResources*)var2, 2);
-		func_0202b0f4(var3);
+		StopLocalWireless_0202b0f4(var3);
 		func_ov017_02195748((unsigned char*)var2);
 		func_ov017_02192594((unsigned char*)var2);
 		func_020939fc((unsigned char*)var1);

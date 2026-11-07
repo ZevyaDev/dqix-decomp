@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
 struct Struct_0207f0ac;
-struct Struct_0207f524;
+struct MenuLayoutTextEntryList_0207f524;
 extern "C" void* func_0207f0ac(struct Struct_0207f0ac* arg0, int arg1);
-extern "C" void* func_0207f6ac(struct Struct_0207f524* arg0, int arg1);
+extern "C" void* FindMenuLayoutTextEntry_0207f6ac(struct MenuLayoutTextEntryList_0207f524* textEntries, int textId);
 
 struct Struct_02080a6c {
     short* unknown_0_;
@@ -33,7 +33,7 @@ extern "C" ARM void func_02080a6c(void* arg0, int arg1, short arg2, short* arg3,
     unsigned char var1;
     for (var1 = 0; var1 < var0->unknown_13_; var1++) {
         if (var0->unknown_0_[var1] == arg2) {
-            struct Struct_02080a6c_2* var2 = (struct Struct_02080a6c_2*)func_0207f6ac((struct Struct_0207f524*)((char*)arg0 + 4), arg2);
+            struct Struct_02080a6c_2* var2 = (struct Struct_02080a6c_2*)FindMenuLayoutTextEntry_0207f6ac((struct MenuLayoutTextEntryList_0207f524*)((char*)arg0 + 4), arg2);
             if (!var2) {
                 return;
             }

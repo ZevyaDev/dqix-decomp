@@ -59,22 +59,22 @@ extern "C" ARM void func_020a84e0() {
             var6 = var0->GetPartyMemberByIndex(*(unsigned char*)(var4 + 0xf78 + var5));
             if (var6) {
                 if (!TestGlobalFlags_02046708(var1, 0x200000) &&
-                    func_02094b5c(var8, var6->obj3D_.unknown_4_) != 0) {
+                    func_02094b5c(var8, var6->obj3D_.objectIndex_4_) != 0) {
                     switch (var9[0]) {
                     case 2:
-                        func_020a8ac8(var9, var6->obj3D_.unknown_4_ & 0xff);
+                        func_020a8ac8(var9, var6->obj3D_.objectIndex_4_ & 0xff);
                         break;
                     case 3:
-                        func_020a8c4c(var9, var6->obj3D_.unknown_4_ & 0xff);
+                        func_020a8c4c(var9, var6->obj3D_.objectIndex_4_ & 0xff);
                         break;
                     }
                 }
                 switch (var9[0]) {
                 case 2:
-                    func_020a8b0c(var9, var6->obj3D_.unknown_4_ & 0xff);
+                    func_020a8b0c(var9, var6->obj3D_.objectIndex_4_ & 0xff);
                     break;
                 case 3:
-                    func_020a8d08(var9, var6->obj3D_.unknown_4_ & 0xff);
+                    func_020a8d08(var9, var6->obj3D_.objectIndex_4_ & 0xff);
                     break;
                 }
             }

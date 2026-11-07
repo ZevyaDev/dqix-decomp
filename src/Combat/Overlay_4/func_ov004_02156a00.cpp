@@ -21,7 +21,7 @@ extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" short func_ov023_021f9bc8(void* arg0);
-extern "C" void* func_ov023_021fa598(void* arg0);
+extern "C" void* GetMenuObjectStringList_ov023_021fa598(void* object);
 extern "C" void RedrawMenuWindow_ov023_021f809c(void* window, void* menu);
 extern "C" void func_ov004_021561b0(void* arg0);
 extern "C" void __clear(void* arg0, int arg1);
@@ -102,7 +102,7 @@ extern "C" ARM int func_ov004_02156a00(void* arg0) {
     if (func_ov023_021f6f10(var13) != 4) {
         return 0;
     }
-    void* var14 = func_ov023_021fa598(var13);
+    void* var14 = GetMenuObjectStringList_ov023_021fa598(var13);
 
     void* var15 = FindMenuObjectById_ov023_021f6880(var1, 0x66);
     if (var15 == 0) {

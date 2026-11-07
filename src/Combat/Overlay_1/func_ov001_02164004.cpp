@@ -11,12 +11,12 @@ struct Struct_02000c9c_39 {
     short unknown_28_;
 };
 
-extern "C" float func_ov017_021d6110(void* arg0);
+extern "C" float GetScriptValueAsFloat_ov017_021d6110(void* value);
 extern "C" unsigned int GetScriptValueAsInt_ov017_021d60f4(void* value);
 
 // USA: func_ov001_02164004
 extern "C" ARM int func_ov001_02164004(void* arg0, int arg1) {
-    float var0 = func_ov017_021d6110(arg0);
+    float var0 = GetScriptValueAsFloat_ov017_021d6110(arg0);
     unsigned int var1 = 0;
     GameState* var2 = GameState::GetInstance();
     if (arg1 >= 2) {

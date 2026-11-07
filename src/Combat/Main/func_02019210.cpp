@@ -11,7 +11,7 @@ extern "C" ARM Vector3fix func_02019210(Zone3D* arg0, const Vector3fix* arg1,
     Vector3fix_Add(arg1, arg2, &var0);
     Vector3fix_Length(arg2);
 
-    Struct_02018fbc var1;
+    BoundingBox_02018fbc var1;
     if (var0.x < arg1->x) {
         var1.unknown_0_.x = arg1->x;
         var1.unknown_c_.x = var0.x;

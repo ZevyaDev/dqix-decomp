@@ -74,8 +74,8 @@ extern "C" void func_ov005_02159b74(void* arg0);
 extern "C" int func_ov005_02158b3c(void* arg0, void* arg1);
 extern "C" int func_020e2918(signed char*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-struct Struct_020e25e8;
-extern "C" void func_020e25e8(Struct_020e25e8*);
+struct YesNoWindow_020e25e8;
+extern "C" void CloseYesNoWindow_020e25e8(YesNoWindow_020e25e8*);
 extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" int func_020dd768(Struct_020dd768* arg0);
@@ -104,9 +104,9 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
         var0 = func_020e2918((signed char*)arg0->unknown_e64_);
         if (var0 >= 0) {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
-            func_020e25e8((Struct_020e25e8*)arg0->unknown_e64_);
+            CloseYesNoWindow_020e25e8((YesNoWindow_020e25e8*)arg0->unknown_e64_);
         } else if (func_020e2984((struct Struct_020e28dc*)arg0->unknown_e64_)) {
-            func_020e25e8((Struct_020e25e8*)arg0->unknown_e64_);
+            CloseYesNoWindow_020e25e8((YesNoWindow_020e25e8*)arg0->unknown_e64_);
             var0 = -2;
         }
         if (var0 == 0) {
@@ -205,9 +205,9 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
         var0 = func_020e2918((signed char*)arg0->unknown_e64_);
         if (var0 >= 0) {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
-            func_020e25e8((Struct_020e25e8*)arg0->unknown_e64_);
+            CloseYesNoWindow_020e25e8((YesNoWindow_020e25e8*)arg0->unknown_e64_);
         } else if (func_020e2984((struct Struct_020e28dc*)arg0->unknown_e64_)) {
-            func_020e25e8((Struct_020e25e8*)arg0->unknown_e64_);
+            CloseYesNoWindow_020e25e8((YesNoWindow_020e25e8*)arg0->unknown_e64_);
             var0 = -2;
         }
         if (var0 == 0) {

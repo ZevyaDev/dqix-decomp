@@ -76,7 +76,7 @@ struct Struct_ov003_0217599c_2 {
 
 extern "C" int *GetLocalWireless_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int *);
-extern "C" short *func_02052e2c(Struct_02052e2c *);
+extern "C" short *GetAppearance_02052e2c(Struct_02052e2c *);
 extern "C" Struct_ov003_0217599c_4 *FindItemData_020dedd0(ItemTable_0201099c_10 *, int);
 extern "C" void *InitItemTable_020de824(void *);
 extern "C" void func_0207cbe8(char *);
@@ -92,7 +92,7 @@ static inline int inline_ov003_0217599c(unsigned int arg0) {
     return arg0 <= 7;
 }
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int, int);
-extern "C" void func_ov017_021c4418(int, int);
+extern "C" void SendPartyMemberBodyAppearance_ov017_021c4418(int, int);
 GameResources *GetGameResources();
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources *, int, int, int, int);
 
@@ -111,7 +111,7 @@ extern "C" ARM int func_ov003_0217599c(Struct_ov003_0217599c_2 *arg0) {
     int *var1          = GetLocalWireless_0202ae18();
     Struct_ov003_0217599c *var2 = (Struct_ov003_0217599c *) GetPartyMemberBaseByIndex_0200ff1c(var0, arg0->unknown_1043_);
     if (!var2) return 0;
-    if (!func_02052e2c((Struct_02052e2c *) var2)) return 0;
+    if (!GetAppearance_02052e2c((Struct_02052e2c *) var2)) return 0;
     Struct_ov003_0217599c_4 *var3 =
         FindItemData_020dedd0(&arg0->unknown_874_, arg0->unknown_103a_);
     if (!var3) return 0;
@@ -172,7 +172,7 @@ extern "C" ARM int func_ov003_0217599c(Struct_ov003_0217599c_2 *arg0) {
     }
     if (IsLocalWirelessOn_0202b7d8(var1)) {
         SendPartyMemberEquippedItems_ov017_021c3fb4(arg0->unknown_1043_, 1);
-        func_ov017_021c4418(arg0->unknown_1043_, -1);
+        SendPartyMemberBodyAppearance_ov017_021c4418(arg0->unknown_1043_, -1);
     }
     GameResources *var16 = GetGameResources();
     BackgroundLoader::GetInstance();

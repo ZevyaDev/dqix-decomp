@@ -2,7 +2,7 @@
 #include "Combat/EntryGetterTypes.h"
 #include "Resource/Brightness.h"
 
-extern "C" void* func_0203cf4c(void);
+extern "C" void* GetNPCManager_0203cf4c(void);
 
 struct NPC_0203dce4;
 struct NPCManager_0203dce4_2;
@@ -17,7 +17,7 @@ extern "C" ARM int func_ov017_0218df50(void* arg0, void* arg1) {
 	int var0 = 0;
 	GameResources* var1 = GetGameResources();
 	if (TestFlags00(var1, 0x100) == 0) {
-		void* var2 = func_0203cf4c();
+		void* var2 = GetNPCManager_0203cf4c();
 		for (int var3 = 0; var3 < 0x20; var3++) {
 			struct NPC_0203dce4* var4 = GetNPCByIndex_0203dce4((struct NPCManager_0203dce4_2*)var2, var3);
 			if (!var4) continue;

@@ -31,7 +31,7 @@ extern "C" unsigned char* GetFollowCamera_020100f8(char*);
 extern "C" TimedMessageQueue_020d7aa0_2* func_020d7a50();
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2*);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
-extern "C" void func_020a27b8(unsigned char*);
+extern "C" void DisableCameraTurning_020a27b8(unsigned char*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void LoadStringList_020728ac(StringList_02072a68_2*, SafeAllocator*, void*, unsigned int, int, int, int);
 extern "C" void ClearMessageParams_02046380(Struct_02046574_2*);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
     if (arg0->unknown_8_ == 0) {
         ClearTimedMessageQueue_020d7aa0(func_020d7a50());
         DisablePlayerControl_020397cc((Struct_02018300_3*)var3, 1);
-        func_020a27b8(var4);
+        DisableCameraTurning_020a27b8(var4);
         void* var5 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021bf014_800);
         arg0->unknown_14_.CreateTypeA(var5, Enum_ov017_021bf014_800);
 #if defined(jpn)

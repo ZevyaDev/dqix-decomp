@@ -37,7 +37,7 @@ extern "C" ARM short func_ov000_0215a004(void* arg0, void* arg1, int arg2, int a
         *arg4 = 0;
         *arg4 |= 4;
         func_ov000_021554f4(arg0, arg2, arg1, arg5, arg6, arg7);
-        func_02088e80((Struct_02088e80*)var1->currentStats_, (signed char)var1->obj3D_.unknown_4_);
+        func_02088e80((Struct_02088e80*)var1->currentStats_, (signed char)var1->obj3D_.objectIndex_4_);
         func_ov000_02155184(arg0, arg2, arg7);
         if (arg2 == GetProtagonistObjectIndex_020100a8(GameState::GetInstance())) {
             struct Struct_ov000_0215a004 var2;

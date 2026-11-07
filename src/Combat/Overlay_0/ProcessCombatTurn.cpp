@@ -130,7 +130,7 @@ extern "C" void func_0208a910(int* arg0);
 extern "C" int func_0208a91c(int* arg0, void* arg1, int arg2, int* arg3, short* arg4);
 extern "C" Struct_ov000_0215767c* FindActionData_02079e2c(char* actionTables, int actionId);
 struct Struct_02070b6c_3;
-extern "C" void* func_02070fd0(Struct_02070b6c_3*, int);
+extern "C" void* FindMonsterBattleData_02070fd0(Struct_02070b6c_3*, int);
 struct Struct_0204887c;
 extern "C" void func_0204887c(Struct_0204887c*, char*);
 struct Struct_ov000_0215767c_4;
@@ -357,7 +357,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
                     Struct_ov000_0215767c* var43 = FindActionData_02079e2c((char*)var2, (short)var27->unknown_0_);
                     if (var43 != 0) {
                         while (var43->unknown_18_5_ == 0x22) {
-                            void* var44 = func_02070fd0((Struct_02070b6c_3*)(arg0->unknown_8e18_ + 0x684), var43->unknown_2e_);
+                            void* var44 = FindMonsterBattleData_02070fd0((Struct_02070b6c_3*)(arg0->unknown_8e18_ + 0x684), var43->unknown_2e_);
                             if (var44 != 0) {
                                 func_0204887c((Struct_0204887c*)var41, (char*)var44);
                                 var41->unknown_138_->unknown_36_ = var43->unknown_2e_;
@@ -418,7 +418,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
                     Struct_ov000_0215767c* var56 = FindActionData_02079e2c((char*)var2, (short)var50->unknown_0_);
                     if (var56 != 0) {
                         while (var56->unknown_18_5_ == 0x22) {
-                            void* var57 = func_02070fd0((Struct_02070b6c_3*)(arg0->unknown_8e18_ + 0x684), var56->unknown_2e_);
+                            void* var57 = FindMonsterBattleData_02070fd0((Struct_02070b6c_3*)(arg0->unknown_8e18_ + 0x684), var56->unknown_2e_);
                             if (var57 != 0) {
                                 func_0204887c((Struct_0204887c*)var54, (char*)var57);
                                 var54->unknown_138_->unknown_36_ = var56->unknown_2e_;

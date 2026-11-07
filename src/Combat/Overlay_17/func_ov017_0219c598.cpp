@@ -13,7 +13,7 @@ int fix32ReduceAngle0To2Pi(int angle);
 extern "C" void func_020399b0(GameObject* arg0, unsigned short arg1, int* arg2, int arg3);
 
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
-extern "C" unsigned char func_02039d7c(char* arg0);
+extern "C" unsigned char IsOnLadder_02039d7c(char* object);
 struct Vector3i;
 
 struct Struct_0201e80c;
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov017_0219c598(int* arg0, short* arg1, int arg2) {
     if (var1[0xa] != 0 && arg2 == 0) {
         return;
     }
-    if (var1[0x67] != 0 && func_02039d7c((char*)var4) != 0) {
+    if (var1[0x67] != 0 && IsOnLadder_02039d7c((char*)var4) != 0) {
         return;
     }
 

@@ -16,11 +16,11 @@ struct Struct_ov031_02213270 {
 	unsigned char unknown_8_;
 };
 
-extern "C" void* func_ov031_022133f8(unsigned int);
+extern "C" void* GetWifiConnectionBuffer_ov031_022133f8(unsigned int);
 
 // USA: func_ov031_02213270
 extern "C" ARM void func_ov031_02213270(unsigned int arg0, int arg1, int arg2) {
-	struct Struct_ov031_02213270* var0 = (struct Struct_ov031_02213270*)func_ov031_022133f8(1);
+	struct Struct_ov031_02213270* var0 = (struct Struct_ov031_02213270*)GetWifiConnectionBuffer_ov031_022133f8(1);
 	if (var0 == NULL) return;
 	if (!(var0->unknown_8_ & arg0)) return;
 	var0->unknown_8_ &= ~arg0;

@@ -36,12 +36,12 @@ struct Struct_ov003_0217bf78_2 {
 };
 
 extern "C" void DisableCameraFollow_020a27a0(void *camera);
-extern "C" void func_020a27ac(void *arg0);
-extern "C" int func_0202e7f0(void *arg0);
+extern "C" void EnableCameraTurning_020a27ac(void *camera);
+extern "C" int GetCameraYaw_0202e7f0(void *camera);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char *window);
 extern "C" void func_ov003_0217c974(Struct_ov003_0217bf78_2 *arg0);
-extern "C" void SetCameraOrbitFromArray_0202e694(void *camera, int *arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void *camera, int *orbit);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState *gameState, int index, GameObject *object);
 extern "C" void func_ov003_0217ca84(Struct_ov003_0217bf78_2 *arg0, unsigned short arg1);
 extern "C" void func_020a64e8(void);
@@ -70,8 +70,8 @@ extern "C" ARM void func_ov003_0217bf78(Struct_ov003_0217bf78_2 *arg0) {
         arg0->unknown_134_            = var0->QueueLoadFile(data_ov003_02180c07, 0);
         Struct_ov003_0217bf78 *var3 = (Struct_ov003_0217bf78*)GetCamera_020100bc(var2);
         DisableCameraFollow_020a27a0(var3);
-        func_020a27ac(var3);
-        var3->unknown_21e_ = func_0202e7f0(var3);
+        EnableCameraTurning_020a27ac(var3);
+        var3->unknown_21e_ = GetCameraYaw_0202e7f0(var3);
         var0->RemoveTask(arg0->unknown_13c_);
         arg0->unknown_13c_ = -1;
         arg0->unknown_141_++;

@@ -40,8 +40,8 @@ struct Struct_020391ac_3 {
     unsigned char unknown_26d_;
 };
 
-extern "C" void func_ov017_021917f0(int, int);
-extern "C" void func_02033b68(Struct_02033b68*, int);
+extern "C" void AttachPartyMemberWeapon_ov017_021917f0(int, int);
+extern "C" void SetMotionIfDifferent_02033b68(Struct_02033b68*, int);
 int fix32ReduceAngle0To2Pi(int);
 extern "C" void SetFacing_02033834(Struct_02033834_2*, int);
 extern "C" void ResetFollowTrail_02039d24(unsigned char*);
@@ -74,14 +74,14 @@ extern "C" ARM void func_020391ac(Struct_020391ac_3* arg0) {
         return;
     if (var1->unknown_be_ == 2) {
         if (arg0->unknown_be_ != 2) {
-            func_ov017_021917f0(arg0->unknown_0_.unknown_4_, 1);
+            AttachPartyMemberWeapon_ov017_021917f0(arg0->unknown_0_.objectIndex_4_, 1);
         }
-        func_02033b68((Struct_02033b68*)arg0, 2);
+        SetMotionIfDifferent_02033b68((Struct_02033b68*)arg0, 2);
         return;
     }
     if (arg0->unknown_be_ == 2) {
-        func_ov017_021917f0(arg0->unknown_0_.unknown_4_, 0);
-        func_02033b68((Struct_02033b68*)arg0, 0);
+        AttachPartyMemberWeapon_ov017_021917f0(arg0->unknown_0_.objectIndex_4_, 0);
+        SetMotionIfDifferent_02033b68((Struct_02033b68*)arg0, 0);
     }
     if (var2->unknown_26c_) {
         if (var2->unknown_26d_ == 0 || var2->unknown_26d_ == 1 || var2->unknown_26d_ == 2) {
@@ -95,10 +95,10 @@ extern "C" ARM void func_020391ac(Struct_020391ac_3* arg0) {
             Vector3fix_Normalize(&var15, &var15);
             SetFacing_02033834((Struct_02033834_2*)arg0, fix32ReduceAngle0To2Pi(fix32_Atan2(var15.x, var15.z)));
             if (var16 < 0x1000)
-                func_02033b68((Struct_02033b68*)arg0, 0);
+                SetMotionIfDifferent_02033b68((Struct_02033b68*)arg0, 0);
             else {
                 arg0->unknown_b4_ = 0x189;
-                func_02033b68((Struct_02033b68*)arg0, 1);
+                SetMotionIfDifferent_02033b68((Struct_02033b68*)arg0, 1);
             }
             arg0->unknown_0_.SetInheritedAlpha(31 - arg0->unknown_268_);
             arg0->unknown_1ce_ &= ~4;
@@ -110,7 +110,7 @@ extern "C" ARM void func_020391ac(Struct_020391ac_3* arg0) {
             arg0->unknown_0_.position_ = var2->unknown_0_.position_;
             arg0->unknown_0_.SetInheritedAlpha(31);
             ResetFollowTrail_02039d24((unsigned char*)arg0);
-            func_02033b68((Struct_02033b68*)arg0, 0);
+            SetMotionIfDifferent_02033b68((Struct_02033b68*)arg0, 0);
             arg0->unknown_1ce_ |= 4;
         }
         return;
@@ -193,9 +193,9 @@ extern "C" ARM void func_020391ac(Struct_020391ac_3* arg0) {
             arg0->unknown_1cc_ %= 16;
         }
         if (var3)
-            func_02033b68((Struct_02033b68*)arg0, 0);
+            SetMotionIfDifferent_02033b68((Struct_02033b68*)arg0, 0);
         else if (arg0->unknown_be_ != 1)
-            func_02033b68((Struct_02033b68*)arg0, 1);
+            SetMotionIfDifferent_02033b68((Struct_02033b68*)arg0, 1);
     } else if (arg0->unknown_be_ != 0)
-        func_02033b68((Struct_02033b68*)arg0, 0);
+        SetMotionIfDifferent_02033b68((Struct_02033b68*)arg0, 0);
 }

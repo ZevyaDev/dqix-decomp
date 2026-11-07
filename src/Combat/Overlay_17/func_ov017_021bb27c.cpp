@@ -61,7 +61,7 @@ extern "C" Struct_ov017_021bb27c_4* GetZone3D_02012fe4();
 extern "C" void func_ov001_0215aa5c();
 extern "C" void func_02033fdc(Struct_02033fdc*);
 extern "C" void func_02033b58(Struct_02033b58*, unsigned char);
-extern "C" int func_02039d7c(char*);
+extern "C" int IsOnLadder_02039d7c(char*);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_02053ec8(void*, int);
@@ -77,7 +77,7 @@ extern "C" void func_020dc2d0(int);
 extern "C" void func_ov017_02190264(GameResources*, int);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources*, int, int, int, int);
 extern "C" void EnablePlayerControl_020397c0(void*);
-extern "C" void func_020a27ac(void*);
+extern "C" void EnableCameraTurning_020a27ac(void*);
 extern "C" void func_ov017_021921fc(const Vector3fix*, int, int);
 extern "C" void func_ov017_021d035c(unsigned char, unsigned char, unsigned char);
 extern "C" int func_02039790(void*, int);
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov017_021bb27c(Struct_ov017_021bb27c_7* arg0) {
         if (!var9) continue;
         func_02033fdc((Struct_02033fdc*)var9);
         func_02033b58((Struct_02033b58*)var9, 0);
-        if (!func_02039d7c((char*)var9) || func_020399a8(var9)->unknown_1_ != 2) {
+        if (!IsOnLadder_02039d7c((char*)var9) || func_020399a8(var9)->unknown_1_ != 2) {
                 var9->obj3D_.MaybeSetRegularAnimation(data_ov017_021d7d6c, 0x10);
         } else if (arg0->unknown_11_) {
                 ((Struct_ov017_021bb27c_2*)var9)->unknown_e0_ &= ~1;
@@ -179,7 +179,7 @@ extern "C" ARM void func_ov017_021bb27c(Struct_ov017_021bb27c_7* arg0) {
         if (arg0->unknown_175_ & (1 << var19)) QueuePartyMemberModelLoad_ov017_0218f5a4(var2, var19, 0, 0, 1);
     }
     if (var5) EnablePlayerControl_020397c0(var5);
-    if (var6) func_020a27ac(var6);
+    if (var6) EnableCameraTurning_020a27ac(var6);
     const Struct_ov017_021d6c20* var20 = data_ov017_021d6c20;
     for (int var21 = 0; var21 < 3; var21++, var20++) {
         if (var20->unknown_0_ != arg0->unknown_8_) continue;

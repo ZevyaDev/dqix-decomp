@@ -10,7 +10,7 @@ enum { Enum_ov017_021af59c_640 = 0x280, Enum_ov017_021af59c_644 = 0x284, Enum_ov
 
 struct QueueNode_0204693c;
 extern "C" void ResetQueueNode_0204693c(struct QueueNode_0204693c* node);
-extern "C" void func_0205c790(char* arg0);
+extern "C" void InitChoiceList_0205c790(char* choiceList);
 extern "C" unsigned char func_02039820(void* arg0);
 
 // USA: func_ov017_021af59c
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov017_021af59c(char* arg0) {
     *(int*)(arg0 + 0x38) = 0;
     *(short*)(arg0 + 0x40) = 0;
     arg0[0x42] = 0;
-    func_0205c790(arg0 + 0x48);
+    InitChoiceList_0205c790(arg0 + 0x48);
     *(int*)(arg0 + Enum_ov017_021af59c_640) = (*(unsigned int*)0x4000000 & 0x1f00) >> 8;
     GameObject* var0 = GameState::GetInstance()->GetUnknownGameObject();
     if (var0 != 0) {

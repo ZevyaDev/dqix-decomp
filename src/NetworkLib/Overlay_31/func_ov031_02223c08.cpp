@@ -74,7 +74,7 @@ struct Struct_ov031_02223c08_2 {
     bool unknown_124_;
     bool unknown_125_;
 };
-extern Struct_ov031_02223c08_2* data_ov031_02250bfc;
+extern Struct_ov031_02223c08_2* gKeyboard_ov031_02250bfc;
 extern const unsigned char data_ov031_022489bc[4];
 extern const unsigned char data_ov031_022489b4[2];
 extern unsigned short* data_ov031_0224b430[3];
@@ -99,47 +99,47 @@ extern "C" ARM void func_ov031_02223c08() {
     unsigned short var6[2];
     var0.unknown_4_ = 17;
     var0.unknown_6_ = 18;
-    data_ov031_02250bfc = (Struct_ov031_02223c08_2*)AllocateZeroedMemory_ov031_0223cf4c(sizeof(Struct_ov031_02223c08_2), 4);
-    data_ov031_02250bfc->unknown_11c_ = 0xff;
-    data_ov031_02250bfc->unknown_121_ = 0;
-    data_ov031_02250bfc->unknown_123_ = 1;
-    data_ov031_02250bfc->unknown_124_ = 1;
+    gKeyboard_ov031_02250bfc = (Struct_ov031_02223c08_2*)AllocateZeroedMemory_ov031_0223cf4c(sizeof(Struct_ov031_02223c08_2), 4);
+    gKeyboard_ov031_02250bfc->unknown_11c_ = 0xff;
+    gKeyboard_ov031_02250bfc->unknown_121_ = 0;
+    gKeyboard_ov031_02250bfc->unknown_123_ = 1;
+    gKeyboard_ov031_02250bfc->unknown_124_ = 1;
     for (var3 = 0; var3 < 47; ++var3) {
-        data_ov031_02250bfc->unknown_30_[var3] = func_ov031_0223be44(0, 0x34);
-        inline_ov031_02223c08(data_ov031_02250bfc->unknown_30_[var3], Enum_ov031_02223c08_512, 0);
-        inline_ov031_02223c08_2(data_ov031_02250bfc->unknown_30_[var3], 3);
+        gKeyboard_ov031_02250bfc->unknown_30_[var3] = func_ov031_0223be44(0, 0x34);
+        inline_ov031_02223c08(gKeyboard_ov031_02250bfc->unknown_30_[var3], Enum_ov031_02223c08_512, 0);
+        inline_ov031_02223c08_2(gKeyboard_ov031_02250bfc->unknown_30_[var3], 3);
     }
     for (var3 = 0; var3 < 4; ++var3) {
-        data_ov031_02250bfc->unknown_ec_[var3] = func_ov031_0223be44(0, data_ov031_022489bc[var3]);
-        inline_ov031_02223c08(data_ov031_02250bfc->unknown_ec_[var3], Enum_ov031_02223c08_512, 0);
-        inline_ov031_02223c08_2(data_ov031_02250bfc->unknown_ec_[var3], 3);
+        gKeyboard_ov031_02250bfc->unknown_ec_[var3] = func_ov031_0223be44(0, data_ov031_022489bc[var3]);
+        inline_ov031_02223c08(gKeyboard_ov031_02250bfc->unknown_ec_[var3], Enum_ov031_02223c08_512, 0);
+        inline_ov031_02223c08_2(gKeyboard_ov031_02250bfc->unknown_ec_[var3], 3);
     }
     for (var3 = 0; var3 < 2; ++var3) {
-        data_ov031_02250bfc->unknown_fc_[var3] = func_ov031_0223be70(0, data_ov031_022489b4[var3], 1);
-        func_ov031_0223bab4(data_ov031_02250bfc->unknown_fc_[var3], -1, 0x200, 0);
-        func_ov031_0223bcc8(data_ov031_02250bfc->unknown_fc_[var3], -1, 3);
+        gKeyboard_ov031_02250bfc->unknown_fc_[var3] = func_ov031_0223be70(0, data_ov031_022489b4[var3], 1);
+        func_ov031_0223bab4(gKeyboard_ov031_02250bfc->unknown_fc_[var3], -1, 0x200, 0);
+        func_ov031_0223bcc8(gKeyboard_ov031_02250bfc->unknown_fc_[var3], -1, 3);
     }
     var6[1] = 0;
     for (var3 = 0; var3 < 3; ++var3) {
         for (var4 = 0; var4 < 4; ++var4) {
-            data_ov031_02250bfc->unknown_0_[var3][var4] = func_ov031_0223c458(0, 28, 2, 0, &var1, 0);
+            gKeyboard_ov031_02250bfc->unknown_0_[var3][var4] = func_ov031_0223c458(0, 28, 2, 0, &var1, 0);
             var2 = var4 * 12;
             var0.unknown_0_ = 0;
             for (var5 = 0; var5 < 12;) {
                 var6[0] = data_ov031_0224b430[var3][var2];
-                func_ov031_0223c980(data_ov031_02250bfc->unknown_0_[var3][var4], var0.unknown_0_,
+                func_ov031_0223c980(gKeyboard_ov031_02250bfc->unknown_0_[var3][var4], var0.unknown_0_,
                     var0.unknown_2_, var0.unknown_4_, var0.unknown_6_, 2, 0x480, var6);
                 ++var5;
                 var0.unknown_0_ += 18;
                 ++var2;
             }
             if (var3 == 0)
-                data_ov031_02250bfc->unknown_104_[var4] = func_ov031_0223b8c4(0, var1, 1);
+                gKeyboard_ov031_02250bfc->unknown_104_[var4] = func_ov031_0223b8c4(0, var1, 1);
         }
     }
-    data_ov031_02250bfc->unknown_114_ = func_ov031_0223be70(0, 0x40, 1);
-    func_ov031_0223bab4(data_ov031_02250bfc->unknown_114_, -1, 0x200, 0);
-    func_ov031_0223bcc8(data_ov031_02250bfc->unknown_114_, -1, 2);
-    data_ov031_02250bfc->unknown_118_ = AddTask_ov031_0223e218(0, (void*)func_ov031_02223ff8, 0, 0x78);
-    func_ov031_02224ca4(data_ov031_02250bfc->unknown_11d_, 0, 0xc0);
+    gKeyboard_ov031_02250bfc->unknown_114_ = func_ov031_0223be70(0, 0x40, 1);
+    func_ov031_0223bab4(gKeyboard_ov031_02250bfc->unknown_114_, -1, 0x200, 0);
+    func_ov031_0223bcc8(gKeyboard_ov031_02250bfc->unknown_114_, -1, 2);
+    gKeyboard_ov031_02250bfc->unknown_118_ = AddTask_ov031_0223e218(0, (void*)func_ov031_02223ff8, 0, 0x78);
+    func_ov031_02224ca4(gKeyboard_ov031_02250bfc->unknown_11d_, 0, 0xc0);
 }

@@ -15,7 +15,7 @@ enum { Enum_ov017_021c1404_147456 = 0x24000, Enum_ov017_021c1404_828 = 0x33c, En
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
-extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
+extern "C" void SetCameraFlags_020a28a0(unsigned char* camera, unsigned char flags);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void PushOverlay_020a1df8(int overlayEntry);
 extern "C" void PushSubOverlay_020a1ef0(int subOverlayEntry);
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov017_021c1404(struct Struct_ov017_021c1404* arg0) {
 	if (var2) {
 		DisablePlayerControl_020397cc((struct Struct_02018300_3*)var2, 1);
 	}
-	func_020a28a0((unsigned char*)var3, 3);
+	SetCameraFlags_020a28a0((unsigned char*)var3, 3);
 	unsigned char var4 = arg0->unknown_1c_;
 
 	if (var4 == 0) {

@@ -4,7 +4,7 @@ extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 struct BattleAction_ov000_0215440c;
 extern "C" void* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
-extern "C" short func_ov000_0215ffa0(void* arg0);
+extern "C" short GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 extern "C" int func_ov025_021ed380(char* arg0, unsigned short arg1, short arg2, int arg3, int arg4, short arg5, unsigned short arg6);
 
 extern unsigned int data_ov025_021ef9a4;
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov025_021eabd0(char* arg0, int arg1) {
     for (int var2 = 0; var2 < var0->unknown_9_; var2++) {
         void* var3 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var0, var2);
         if (var3 == 0) continue;
-        short var4 = func_ov000_0215ffa0(var3);
+        short var4 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var3);
         if (arg1 != 0) {
             if (inline_ov000_02156cc4_2(var4) != 0) {
                 var1 = var4;

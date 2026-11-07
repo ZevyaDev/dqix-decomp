@@ -7,7 +7,7 @@ enum { Enum_ov006_0215f348_20 = 0x14 };
 #endif
 
 extern "C" void func_0208103c(void* arg0, int arg1, int arg2);
-extern "C" void func_020813ec(void*, int);
+extern "C" void OpenMenuLayoutWindow_020813ec(void*, int);
 
 struct Struct_ov006_0215b7e8_2 {
     char unknown_0_[Enum_ov006_0215f348_20];
@@ -37,5 +37,5 @@ extern "C" ARM void func_ov006_0215f348(struct Struct_ov006_0215b7e8_2* arg0) {
             var0 = (short)(var0 + 1);
         }
     }
-    func_020813ec(arg0->unknown_14_, 3);
+    OpenMenuLayoutWindow_020813ec(arg0->unknown_14_, 3);
 }

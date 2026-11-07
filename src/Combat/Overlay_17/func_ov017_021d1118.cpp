@@ -11,10 +11,10 @@ extern "C" int GetLocalWirelessState_0202ba00(int* wireless);
 extern "C" int func_020ac4f8(int arg0);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" int GetAlchemyCount_020ac0b4(void* count);
-extern "C" int func_020a0870(Struct_02061c04* arg0);
-extern "C" int func_020a08a4(Struct_02061c04* arg0);
-extern "C" int func_020a08d8(Struct_02061c04* arg0);
-extern "C" int func_020a090c(Struct_02061c04* arg0);
+extern "C" int GetDefeatedMonsterListCompletion_020a0870(BattleRecords_02061c04* records);
+extern "C" int GetItemListCompletion_020a08a4(BattleRecords_02061c04* records);
+extern "C" int GetWardrobeCompletion_020a08d8(BattleRecords_02061c04* records);
+extern "C" int GetAlchenomiconCompletion_020a090c(BattleRecords_02061c04* records);
 
 struct Struct_ov017_021d1118_8 { unsigned char unknown_0_[6]; };
 
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov017_021d1118(int arg0, int arg1, bool arg2, unsigned 
         var7 = 0;
         if ((var5 == 5 && var6 > 1) || var5 == 6) var7 = 1;
         func_020ac4f8(var7);
-        Struct_02061c04 var17;
+        BattleRecords_02061c04 var17;
         GetBattleRecords_020ac4c0(&var17);
         unsigned int var18 = 0;
         GetAlchemyCount_020ac0b4(&var18);
@@ -172,10 +172,10 @@ extern "C" ARM void func_ov017_021d1118(int arg0, int arg1, bool arg2, unsigned 
         var19.unknown_10_0_ = var17.unknown_b_0_;
         var19.unknown_d_2_ = var17.unknown_d_6_;
         var19.unknown_11_1_ = var17.unknown_11_1_;
-        var19.unknown_9_6_ = (unsigned char)func_020a0870(&var17);
-        var19.unknown_a_5_ = (unsigned char)func_020a08a4(&var17);
-        var19.unknown_f_0_ = (unsigned char)func_020a08d8(&var17);
-        var19.unknown_12_7_ = (unsigned char)func_020a090c(&var17);
+        var19.unknown_9_6_ = (unsigned char)GetDefeatedMonsterListCompletion_020a0870(&var17);
+        var19.unknown_a_5_ = (unsigned char)GetItemListCompletion_020a08a4(&var17);
+        var19.unknown_f_0_ = (unsigned char)GetWardrobeCompletion_020a08d8(&var17);
+        var19.unknown_12_7_ = (unsigned char)GetAlchenomiconCompletion_020a090c(&var17);
         var19.unknown_14_ = var14->unknown_6_3_;
         var19.unknown_16_0_ = var8;
         var19.unknown_16_1_ = var9;

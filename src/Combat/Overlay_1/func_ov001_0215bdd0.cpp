@@ -10,7 +10,7 @@ extern "C" int func_ov001_02164248(void* arg0, int arg1, int arg2, int arg3, int
 
 #include "Combat/EntryGetterTypes.h"
 struct NPCManager_0203dce4_2;
-extern "C" void* func_0203cf4c(void);
+extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" struct NPC_0203dce4* GetNPCByIndex_0203dce4(struct NPCManager_0203dce4_2* npcManager, int index);
 
 struct Struct_ov001_02165880_10 { void* unknown_0_; char* unknown_4_; };
@@ -43,7 +43,7 @@ extern "C" ARM int func_ov001_0215bdd0(char* arg0) {
     }
 
     if (var3 == 2 || var3 == 6) {
-        struct NPC_0203dce4* var5 = GetNPCByIndex_0203dce4((struct NPCManager_0203dce4_2*)func_0203cf4c(), var1);
+        struct NPC_0203dce4* var5 = GetNPCByIndex_0203dce4((struct NPCManager_0203dce4_2*)GetNPCManager_0203cf4c(), var1);
         if (var5 == NULL) return 0;
         var5->flags_0_ |= 0x10000;
         return func_ov001_02164248(data_ov001_02165880.unknown_4_, var2, var3, var1, (int)var5);

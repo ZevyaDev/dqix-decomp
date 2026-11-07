@@ -23,7 +23,7 @@ extern "C" void func_ov031_0223cb34(Struct_ov031_02248918*, Struct_ov031_0224891
 extern "C" int func_ov031_0223d49c(Struct_ov031_02223000*);
 extern "C" void* func_ov031_0223baa0(Struct_ov031_02222ce4*, int);
 extern "C" void func_ov031_0223bdb0(int, int, void*);
-extern "C" void func_ov031_0223bbd8(Struct_ov031_02222ce4*, int, int, int);
+extern "C" void SetSpritePosition_ov031_0223bbd8(Struct_ov031_02222ce4*, int, int, int);
 extern "C" void func_ov031_0223bcc8(Struct_ov031_02222ce4*, int, int);
 extern "C" void* AddTask_ov031_0223e218(void*, void*, void*, int);
 extern "C" void func_ov031_02223268();
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov031_02223000() {
                 int var3 = data_ov031_02248924[data_ov031_02250ba8->unknown_17_][var1];
                 func_ov031_0223bdb0(0, var3 + 1, func_ov031_0223baa0(data_ov031_02250ba8->unknown_0_[var1], 0));
                 int var4 = data_ov031_02248932[data_ov031_02250ba8->unknown_17_][var1];
-                func_ov031_0223bbd8(data_ov031_02250ba8->unknown_0_[var1], -1, data_ov031_0224891c[var4].unknown_0_, data_ov031_0224891e[var4].unknown_0_);
+                SetSpritePosition_ov031_0223bbd8(data_ov031_02250ba8->unknown_0_[var1], -1, data_ov031_0224891c[var4].unknown_0_, data_ov031_0224891e[var4].unknown_0_);
                 func_ov031_0223bcc8(data_ov031_02250ba8->unknown_0_[var1], -1, 1);
                 data_ov031_02250ba8->unknown_10_ = AddTask_ov031_0223e218(0, (void*)func_ov031_02223268, 0, 0x6e);
                 data_ov031_02250ba8->unknown_16_ = var1;

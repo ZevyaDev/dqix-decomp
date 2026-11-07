@@ -2,7 +2,7 @@
 extern "C" int func_020d5490(int);
 
 extern "C" int func_0202d108(void);
-extern "C" void func_0202c848(int arg0);
+extern "C" void SetLocalWirelessLinkError_0202c848(int errorCode);
 
 // USA: func_0202d0e0
 extern "C" ARM int func_0202d0e0(void) {
@@ -10,6 +10,6 @@ extern "C" ARM int func_0202d0e0(void) {
     if (var0 == 2) {
         return 1;
     }
-    func_0202c848(var0);
+    SetLocalWirelessLinkError_0202c848(var0);
     return 0;
 }

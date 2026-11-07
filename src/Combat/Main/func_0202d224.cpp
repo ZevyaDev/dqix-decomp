@@ -6,7 +6,7 @@ extern char data_02101614;
 
 extern "C" void func_0202d2a4();
 extern "C" int func_020d54d0(void* arg0, void* arg1, void* arg2, int arg3, unsigned short arg4);
-extern "C" void func_0202c848(int arg0);
+extern "C" void SetLocalWirelessLinkError_0202c848(int errorCode);
 
 // USA: func_0202d224
 extern "C" ARM int func_0202d224(void) {
@@ -18,6 +18,6 @@ extern "C" ARM int func_0202d224(void) {
     int var2 = func_020d54d0((void*)func_0202d2a4, &data_021016e0, &data_02101614, 1, var1);
     if (var2 == 2)
         return 1;
-    func_0202c848(var2);
+    SetLocalWirelessLinkError_0202c848(var2);
     return 0;
 }

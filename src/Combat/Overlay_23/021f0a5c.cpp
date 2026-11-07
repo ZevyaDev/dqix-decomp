@@ -31,7 +31,7 @@ struct Struct_ov000_0215d63c_2 {
 #endif
 };
 #if defined(jpn)
-struct Struct_ov000_02160da0 {
+struct BattleScene_ov000_02160da0 {
     char unknown_0_[0x30]; SafeAllocator unknown_30_;
     char unknown_44_[0xe28 - 0x30 - sizeof(SafeAllocator)]; int unknown_eac_;
     char unknown_e2c_[0x371c - 0xe2c]; char unknown_3760_[0x5778 - 0x371c];
@@ -40,7 +40,7 @@ struct Struct_ov000_02160da0 {
     char unknown_5ab0_[0x5af4 - 0x5ab0]; StringList_02072a68_2 unknown_5904_;
 };
 #else
-struct Struct_ov000_02160da0 {
+struct BattleScene_ov000_02160da0 {
     char unknown_0_[0x30]; SafeAllocator unknown_30_;
     char unknown_44_[0xeac - 0x30 - sizeof(SafeAllocator)]; int unknown_eac_;
     char unknown_eb0_[0x3760 - 0xeb0]; char unknown_3760_[0x5588 - 0x3760];
@@ -122,7 +122,7 @@ extern "C" int func_0209ca2c(void*);
 static inline int inline_ov023_021f0a5c(Struct_ov000_0215d63c_2* arg0) { return arg0->unknown1_16c_[arg0->unknown_950_]; }
 
 // USA: func_ov023_021f0a5c
-extern "C" ARM int func_ov023_021f0a5c(Struct_ov000_02160da0* arg0) {
+extern "C" ARM int func_ov023_021f0a5c(BattleScene_ov000_02160da0* arg0) {
     char var0[0x100];
     char var1[0x100];
     char var2[40];

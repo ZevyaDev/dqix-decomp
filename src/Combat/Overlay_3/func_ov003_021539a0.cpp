@@ -86,8 +86,8 @@ extern "C" void SetBGPriority_0204b5b4(void*, int);
 struct BGLayer_02020cb8_5;
 extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
 extern "C" void InitTextWindow_0204c684(void*);
-struct Struct_0204b988;
-extern "C" void func_0204b988(Struct_0204b988*, unsigned int, int, int, unsigned short);
+struct BGLayer_0204b988;
+extern "C" void CopyBGScreenBlock_0204b988(BGLayer_0204b988*, unsigned int, int, int, unsigned short);
 struct BGLayer_02020cb8_2;
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2*, void*);
 struct Struct_0201099c_3;
@@ -213,7 +213,7 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
                 if (var17) {
                     var17->unknown_16_ &= ~1;
                 }
-                func_0204b988((Struct_0204b988*)arg0->unknown_18_, (unsigned char)(var15 + 1) & 0xff, 3, 2, 0xffff);
+                CopyBGScreenBlock_0204b988((BGLayer_0204b988*)arg0->unknown_18_, (unsigned char)(var15 + 1) & 0xff, 3, 2, 0xffff);
                 LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)arg0->unknown_18_, 0);
                 unsigned char var22 = var15 - 1;
                 var2.unknown_b8_ = 0xa;
@@ -347,7 +347,7 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
                 if (var48) {
                     var48->unknown_16_ &= ~1;
                 }
-                func_0204b988((Struct_0204b988*)arg0->unknown_18_, (unsigned char)(var46 + 1) & 0xff, 3, 2, 0xffff);
+                CopyBGScreenBlock_0204b988((BGLayer_0204b988*)arg0->unknown_18_, (unsigned char)(var46 + 1) & 0xff, 3, 2, 0xffff);
                 LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)arg0->unknown_18_, 0);
                 unsigned char var53 = var46 - 1;
                 var31.unknown_b8_ = 0xa;

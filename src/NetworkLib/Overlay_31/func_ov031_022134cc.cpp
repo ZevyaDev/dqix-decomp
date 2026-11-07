@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-extern "C" char* func_ov031_022133f8(int);
+extern "C" char* GetWifiConnectionBuffer_ov031_022133f8(int);
 extern "C" int func_ov031_022134b0(void);
 
 // USA: func_ov031_022134cc
 extern "C" ARM void func_ov031_022134cc(int arg0) {
-	char *var0 = func_ov031_022133f8(1);
+	char *var0 = GetWifiConnectionBuffer_ov031_022133f8(1);
 	*(int*)(var0 + 0xc) = arg0;
 	*(var0 + 0xa) = (unsigned char)func_ov031_022134b0();
 }

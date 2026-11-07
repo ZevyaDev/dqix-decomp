@@ -2,7 +2,7 @@
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 
-extern "C" void* func_0203cf4c(void);
+extern "C" void* GetNPCManager_0203cf4c(void);
 
 struct NPCManager_0203dce4_2;
 struct NPC_0203dce4;
@@ -17,7 +17,7 @@ extern "C" ARM int func_ov001_0215d0f4(void* arg0) {
     unsigned char* var1 = data_ov001_02165880.unknown_4_ + var0 * 0x10;
     int var2 = *(int*)(var1 + 0x4);
     struct NPC_0203dce4* var3 = GetNPCByIndex_0203dce4(
-        (struct NPCManager_0203dce4_2*)func_0203cf4c(), var2);
+        (struct NPCManager_0203dce4_2*)GetNPCManager_0203cf4c(), var2);
     if (var3 == NULL) return 0;
     *(int*)((char*)var3 + 0x10) = 0;
     return 1;

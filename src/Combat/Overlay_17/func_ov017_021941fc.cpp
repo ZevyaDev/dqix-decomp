@@ -157,7 +157,7 @@ extern "C" void func_020939dc(void* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_020dc2d0(int arg0);
 extern "C" void func_02093a14(char* arg0);
-extern "C" void func_02094030(int* arg0, int arg1, int arg2, signed char arg3);
+extern "C" void QueueNotice_02094030(int* noticeQueue, int noticeId, int arg2, signed char memberIndex);
 extern "C" int func_0209494c(struct Struct_0209494c* arg0);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" unsigned int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
@@ -211,11 +211,11 @@ extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" void func_020531f0(void* arg0);
 extern "C" GameObject* func_0200ffe0(GameState* arg0, int arg1);
 extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
-extern "C" void func_ov017_021917f0(int arg0, int arg1);
-extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
+extern "C" void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int isHeld);
+extern "C" void SetMotionIfDifferent_02033b68(struct Struct_02033b68* object, int motion);
 extern "C" void func_ov017_021bd4d0(void* arg0, unsigned char arg1, int arg2, int arg3);
 extern "C" void func_ov017_021d48f0(void);
-extern "C" void* func_0207d78c(void);
+extern "C" void* GetBattleJoinTable_0207d78c(void);
 extern "C" void func_0207dba8(void* arg0);
 extern int data_ov017_021d63f0;
 extern int data_ov017_021d63d8;
@@ -283,7 +283,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
         if (var15 != 0) {
             func_020dc2d0(0);
             func_02093a14((char*)var13);
-            func_02094030(var13, 4, -1, 0);
+            QueueNotice_02094030(var13, 4, -1, 0);
             *(unsigned char*)(arg0 + 0x4000 + Enum_ov017_021941fc_738) = 0;
             *(unsigned char*)(arg0 + 0x4000 + Enum_ov017_021941fc_739) = 0;
         }
@@ -306,7 +306,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
         for (int var18 = 1; var18 < 4; var18++) {
             if (IsLocalWirelessPlayerDisconnected_0202c578(var7, var18) == 0) continue;
             if (func_0202c758(var7, var18) != 0) continue;
-            func_02094030(func_020936f8(), 3, var17, var18);
+            QueueNotice_02094030(func_020936f8(), 3, var17, var18);
             func_ov017_021d1810(3, var17, var18);
             func_ov017_021cea34(var18);
             func_0202c6dc(var7, var18);
@@ -419,7 +419,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
                         (struct Struct_020469f8_2*)var29);
                     (*(unsigned char**)(arg0 + 0x4000 + Enum_ov017_021941fc_1052))[0] = 2;
                 } else if (*(unsigned char*)(arg0 + 0x4000 + Enum_ov017_021941fc_741) != 0) {
-                    func_02094030(var13, 5, -1, 0);
+                    QueueNotice_02094030(var13, 5, -1, 0);
                     *(unsigned char*)(arg0 + 0x4000 + Enum_ov017_021941fc_741) = 0;
                 }
             }
@@ -564,11 +564,11 @@ dispatched:
         if ((((struct Struct_ov017_021941fc_3*)((char*)var42 + 0xc1))->unknown_0_0_ & 2) == 0) {
             int var46 = *(unsigned char*)((char*)var42 + 0xbe);
             if (var46 == 2 && var41->unknown_0_.unknown_1_0_ != 2) {
-                func_ov017_021917f0(var40, 0);
+                AttachPartyMemberWeapon_ov017_021917f0(var40, 0);
             } else if (var41->unknown_0_.unknown_1_0_ == 2 && var46 != 2) {
-                func_ov017_021917f0(var40, 1);
+                AttachPartyMemberWeapon_ov017_021917f0(var40, 1);
             }
-            func_02033b68((struct Struct_02033b68*)var42, var41->unknown_0_.unknown_1_0_);
+            SetMotionIfDifferent_02033b68((struct Struct_02033b68*)var42, var41->unknown_0_.unknown_1_0_);
         }
         if ((*(unsigned char*)(arg0 + 0x4000 + Enum_ov017_021941fc_853) & (1 << var40)) == 0) continue;
         if (var41->unknown_3_7_ != 1) continue;
@@ -577,5 +577,5 @@ dispatched:
     }
     }
     func_ov017_021d48f0();
-    func_0207dba8(func_0207d78c());
+    func_0207dba8(GetBattleJoinTable_0207d78c());
 }

@@ -23,10 +23,10 @@ struct Struct_02065990;
 struct Struct_020456d0;
 struct SoundEffectManager_02108760;
 struct Queue_02038598_5;
-struct Struct_0203de84_2;
+struct NPC_0203de84_2;
 struct Struct_02065990_2;
 struct Struct_02065990_3;
-struct Struct_02109bf4_2;
+struct MusicManager_02109bf4_2;
 struct Struct_02066a6c_2;
 struct Struct_02042b98_3;
 struct Struct_02015ef4_2;
@@ -507,7 +507,7 @@ extern "C" unsigned char* GetMessageWindow_020421a0();
 extern "C" void __clear(void* arg0, unsigned int arg1);
 extern "C" void func_02046458(int arg0, int arg1, unsigned char arg2, char* arg3, unsigned char arg4, unsigned char arg5, void* arg6, int arg7, int arg8);
 extern "C" void func_02050678(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, short* arg6, short* arg7);
-extern "C" NPCManager_0203dce4_2* func_0203cf4c();
+extern "C" NPCManager_0203dce4_2* GetNPCManager_0203cf4c();
 extern "C" NPC_0203dce4* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2* npcManager, int index);
 extern "C" void func_0206b104(struct Struct_0206b104* arg0);
 extern "C" void func_0206cba0(struct Struct_0206b224* arg0);
@@ -533,7 +533,7 @@ extern "C" void func_ov016_0218b5c0(int arg0, signed char arg1);
 extern "C" void func_ov017_0218b5f8(signed char arg0);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void func_ov017_021a5ab0(void* arg0);
-extern "C" void func_020406f8(Struct_0203de84*, Struct_0203de84_2*);
+extern "C" void GetNPCPosition_020406f8(Struct_0203de84*, NPC_0203de84_2*);
 extern "C" int fix32_Atan2(int arg0, int arg1);
 int fix32ReduceAngle0To2Pi(int angle);
 extern "C" void func_02065418(int arg0);
@@ -541,11 +541,11 @@ extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void func_020652d0(char* arg0, int arg1, int arg2, int arg3);
 extern "C" unsigned char* GetResources_0200fb8c(int* gameState);
 extern "C" void func_0208bf28(Struct_02065990_2*, int, unsigned char);
-extern "C" unsigned char* func_02094d6c();
+extern "C" unsigned char* GetQuestManager_02094d6c();
 extern "C" int func_020965ac(Struct_02065990_3*, unsigned char);
 extern "C" void func_020cf0fc(int);
 extern "C" void func_020cf1a8(int);
-extern "C" void func_0209c830(Struct_02109bf4_2*, int);
+extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
 extern "C" void func_0208be94(unsigned char*);
 extern "C" void func_0208beb4(unsigned char*);
 extern "C" void func_0205e944(void* arg0, int arg1);
@@ -607,7 +607,7 @@ extern "C" double func_020055d4(const char* arg0);
 extern "C" void func_020436dc(Struct_02069ecc* arg0, int arg1, int arg2);
 extern "C" void func_02010834(GameState* arg0, int arg1, int* arg2, int* arg3);
 extern "C" void func_02010890(GameState* arg0, int* arg1, int* arg2);
-extern "C" Struct_02069ecc_4* func_02052e2c(GameObject* arg0);
+extern "C" Struct_02069ecc_4* GetAppearance_02052e2c(GameObject* gameObject);
 extern "C" void func_0206c520(void* arg0, const char** arg1, const char* arg2, int arg3);
 extern "C" unsigned short func_jpn_02098210(void* arg0, unsigned int arg1);
 extern "C" void func_02043270(void*, int, int, int, int);
@@ -798,7 +798,7 @@ ARM int MessageWindow_02021b84::func_020656e4(int arg0) {
     if (!unknown_19b6_) return 0;
 
     struct NPC_0203dce4* var0 = GetNPCByIndex_0203dce4(
-        (struct NPCManager_0203dce4_2*)func_0203cf4c(),
+        (struct NPCManager_0203dce4_2*)GetNPCManager_0203cf4c(),
         unknown_1838_);
     if (var0 == NULL) return 0;
 
@@ -819,7 +819,7 @@ extern "C" ARM int func_02065758(Struct_02065758* arg0, int arg1) {
     int var1;
     unsigned char var2;
 
-    var0 = GetNPCByIndex_0203dce4((NPCManager_0203dce4_2*)func_0203cf4c(), arg0->unknown_1838_);
+    var0 = GetNPCByIndex_0203dce4((NPCManager_0203dce4_2*)GetNPCManager_0203cf4c(), arg0->unknown_1838_);
     if (var0 == NULL) {
         return 0;
     }
@@ -1193,10 +1193,10 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                 return;
             } else if (var1 == 0xff2f) {
                 unsigned char* var23 = (unsigned char*)GameState::GetInstance()->GetUnknownGameObject();
-                void* var24 = GetNPCByIndex_0203dce4((NPCManager_0203dce4_2*)func_0203cf4c(), arg0->unknown_1838_);
+                void* var24 = GetNPCByIndex_0203dce4((NPCManager_0203dce4_2*)GetNPCManager_0203cf4c(), arg0->unknown_1838_);
                 if (var23 != 0 && var24 != 0) {
                     var4 = *(struct Struct_0203de84*)(var23 + 0x44);
-                    func_020406f8(&var8, (Struct_0203de84_2*)var24);
+                    GetNPCPosition_020406f8(&var8, (NPC_0203de84_2*)var24);
                     var5 = var8;
                     arg0->unknown_1844_ = fix32ReduceAngle0To2Pi(fix32_Atan2(var4.unknown_0_[0] - var5.unknown_0_[0], var4.unknown_0_[2] - var5.unknown_0_[2]));
                     arg0->unknown_19b6_ = 1;
@@ -1262,7 +1262,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                     *(unsigned short*)(var37 + 0xda) = *(unsigned short*)(var37 + 0xda) | 0x40;
                     func_0208bf28((Struct_02065990_2*)(arg0->unknown_8c_), *(short*)(var0 + 0x1776), 0);
                     *&arg0->unknown_195b_ |= 1;
-                    unsigned char* var38 = func_02094d6c();
+                    unsigned char* var38 = GetQuestManager_02094d6c();
                     int var39 = func_020965ac((Struct_02065990_3*)var38, (unsigned char)*(short*)(var0 + 0x1776));
                     func_020cf0fc((int)&var6);
                     func_020cf1a8((int)&var7);
@@ -1272,11 +1272,11 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                     var3.unknown1_0_.unknown_2_0_ = var7.unknown_0_;
                     var3.unknown1_0_.unknown_2_5_ = var7.unknown_4_;
                     *(unsigned int*)(var38 + var39 * 4 + 0x178) = var3.unknown_0_;
-                    func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, 0x32);
+                    QueueJingle_0209c830((MusicManager_02109bf4_2*)&gMusicManager_02109bf4, 0x32);
                 }
             } else if (var1 > 0xff39 && var1 < 0xff4e) {
                 arg0->func_02045688();
-                func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, var1 - 0xff08);
+                QueueJingle_0209c830((MusicManager_02109bf4_2*)&gMusicManager_02109bf4, var1 - 0xff08);
                 arg0->unknown_19c9_ = 1;
                 return;
             } else if (var1 >= 0xff4f && var1 <= 0xff51) {
@@ -1294,7 +1294,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                     *(unsigned short*)(var42 + 0xda) = *(unsigned short*)(var42 + 0xda) | 0x200;
                     func_0208be94((unsigned char*)(arg0->unknown_8c_));
                     *&arg0->unknown_195b_ |= 1;
-                    func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, 0x33);
+                    QueueJingle_0209c830((MusicManager_02109bf4_2*)&gMusicManager_02109bf4, 0x33);
                 }
             } else if (var1 == 0xff13) {
                 unsigned char* var43 = arg0->unknown_8c_;
@@ -1302,7 +1302,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                     *(unsigned short*)(var43 + 0xda) = *(unsigned short*)(var43 + 0xda) | 0x300;
                     func_0208be94((unsigned char*)(arg0->unknown_8c_));
                     *&arg0->unknown_195b_ |= 1;
-                    func_0209c830((Struct_02109bf4_2*)&gMusicManager_02109bf4, 0x44);
+                    QueueJingle_0209c830((MusicManager_02109bf4_2*)&gMusicManager_02109bf4, 0x44);
                 }
             } else if (var1 == 0xff12) {
                 if (arg0->unknown_8c_ != 0) {
@@ -1743,7 +1743,7 @@ extern "C" ARM void func_02066cf0(Struct_02066cf0_3* arg0, int arg1) {
 extern "C" ARM void func_020675fc(Struct_020675fc_2* arg0) {
     static const unsigned char data_020e7e08[2] = {0xd, 0xe};
     if (!arg0->unknown_998_) return;
-    NPC_0203dce4* var0 = GetNPCByIndex_0203dce4(func_0203cf4c(), arg0->unknown_1838_);
+    NPC_0203dce4* var0 = GetNPCByIndex_0203dce4(GetNPCManager_0203cf4c(), arg0->unknown_1838_);
     if (var0 && arg0->unknown_19b7_) {
         GameResources* var1 = GetGameResources();
         void* var2 = GetCamera_020100bc(GameState::GetInstance());
@@ -1751,7 +1751,7 @@ extern "C" ARM void func_020675fc(Struct_020675fc_2* arg0) {
         int var4;
         Struct_02015ef4 var5;
         Struct_020675fc var6;
-        func_020406f8(&var6.unknown_0_, (Struct_0203de84_2*)var0);
+        GetNPCPosition_020406f8(&var6.unknown_0_, (NPC_0203de84_2*)var0);
         var5 = var6.unknown1_0_;
         ConvertWorldToScreen_0202ec84(var2, &var5, &var3, &var4);
         var3 -= 12;
@@ -2683,7 +2683,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 if (var83 == 0) {
                     continue;
                 }
-                if (func_02052e2c(var83)->unknown_14_0_ == 0) {
+                if (GetAppearance_02052e2c(var83)->unknown_14_0_ == 0) {
                     var2 = 1;
                     continue;
                 }
@@ -2709,7 +2709,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 if (var84 == 0) {
                     continue;
                 }
-                if (func_02052e2c(var84)->unknown_14_0_ == 0) {
+                if (GetAppearance_02052e2c(var84)->unknown_14_0_ == 0) {
                     var3 = 1;
                     continue;
                 }
@@ -2814,7 +2814,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
             if (func_020d857c(var140, data_020f0a00)) {
                 int var99 = 7;
                 short var100 = ParseDecimal_02005a94(var140 + var99);
-                arg0->unknown_1776_ = func_jpn_02098210(func_02094d6c(), var100 & 0xff);
+                arg0->unknown_1776_ = func_jpn_02098210(GetQuestManager_02094d6c(), var100 & 0xff);
                 while (var140[var99] != '>') {
                     if (var140[var99] == 0) {
                         return;
@@ -3029,14 +3029,14 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
     unsigned char var0 = 1;
     arg0->unknown_1000_.unknown_9b6_ = (unsigned char)var0;
     GameObject* var1 = GameState::GetInstance()->GetUnknownGameObject();
-    NPC_0203dce4* var2 = GetNPCByIndex_0203dce4(func_0203cf4c(), arg0->unknown_1000_.unknown_838_);
+    NPC_0203dce4* var2 = GetNPCByIndex_0203dce4(GetNPCManager_0203cf4c(), arg0->unknown_1000_.unknown_838_);
     if (var1 != NULL && var2 != NULL)
     {
         Struct_0203de84 var3;
         Struct_0203de84 var4;
         Struct_0203de84 var5;
         var3 = *(Struct_0203de84*)&var1->obj3D_.position_;
-        func_020406f8(&var5, (Struct_0203de84_2*)var2);
+        GetNPCPosition_020406f8(&var5, (NPC_0203de84_2*)var2);
         var4 = var5;
         arg0->unknown_1000_.unknown_844_ = fix32ReduceAngle0To2Pi(fix32_Atan2(var3.unknown_0_[0] - var4.unknown_0_[0], var3.unknown_0_[2] - var4.unknown_0_[2]));
         arg0->unknown_1000_.unknown_9b6_ = 1;

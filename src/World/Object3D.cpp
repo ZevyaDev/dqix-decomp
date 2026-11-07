@@ -110,7 +110,7 @@ void Object3D::Initialize()
 {
     classFlags_0_ = 1;
     unknown_2_ = -1;
-    unknown_4_ = -1;
+    objectIndex_4_ = -1;
     unknown_6_ = -1;
     activeAnimationIndex_ = -1;
     animationFlags_ = 0;

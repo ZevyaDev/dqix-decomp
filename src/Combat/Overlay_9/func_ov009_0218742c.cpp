@@ -106,7 +106,7 @@ extern "C" void func_02083cbc(void*, void*, void*);
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" void func_02083e28(void*, int);
 extern "C" void func_020863c4(unsigned char*);
-extern "C" void func_0209a804(int*);
+extern "C" void ClearSpellTable_0209a804(int*);
 extern "C" void func_0209a810(Struct_0201099c_18*, void*);
 extern "C" void func_02083b60(unsigned char*, int);
 extern "C" void func_020830cc(void*, Struct_ov009_0218742c*);
@@ -228,7 +228,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             var17[4].unknown_0_0_ = var18->unknown_72_;
             var17[4].unknown_1_2_ = var18->unknown_0_[3].unknown_0_0_;
             int var19;
-            func_0209a804(&var19);
+            ClearSpellTable_0209a804(&var19);
             Struct_ov009_0218742c_4 var20;
             func_0209a810((Struct_0201099c_18*)&var19, &var20);
             unsigned char var21 = arg0->unknown_d88_->unknown_950_;
@@ -287,7 +287,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             var36[4].unknown_0_0_ = var25->unknown_72_;
             var36[4].unknown_1_2_ = var25->unknown_0_[3].unknown_0_0_;
             int var37;
-            func_0209a804(&var37);
+            ClearSpellTable_0209a804(&var37);
             Struct_ov009_0218742c_4 var38;
             func_0209a810((Struct_0201099c_18*)&var37, &var38);
             unsigned char var39 = var25->unknown_950_;

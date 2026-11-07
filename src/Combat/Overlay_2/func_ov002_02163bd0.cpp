@@ -15,7 +15,7 @@ struct Struct_0205c570;
 struct TextWindowManager_0205da38;
 struct SoundEffectManager_02108760;
 struct TextWindowManager_0205d81c;
-struct Struct_0205dee8;
+struct TextWindowManager_0205dee8;
 struct TextWindowManager_0205def8;
 struct Party_02048150;
 struct Struct_0207cf30_3;
@@ -31,7 +31,7 @@ extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" int func_020dcc20(int arg0, int arg1);
 extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" int IsInParty_02086ef0(struct Party_02048150 *party, int objectIndex);
-extern "C" void func_0205def8(struct TextWindowManager_0205def8 *arg0, int arg1, int arg2);
+extern "C" void SetTextWindowVisible_0205def8(struct TextWindowManager_0205def8 *windowManager, int isVisible, int windowId);
 extern "C" int func_0205df38(void *arg0, int arg1);
 extern "C" int func_020dcbbc(unsigned char *arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
@@ -46,10 +46,10 @@ extern "C" int *GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
-extern "C" void func_0205dee8(struct Struct_0205dee8 *arg0, int arg1);
-extern "C" int func_ov002_02161b48(char *arg0, int arg1);
+extern "C" void SetCursorTextWindow_0205dee8(struct TextWindowManager_0205dee8 *windowManager, int windowId);
+extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void func_ov002_0215b814(char *arg0);
-extern "C" void func_ov002_02161cf0(char *arg0);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215d654(char *arg0);
 extern "C" void func_ov002_02156e90(void *arg0);
 extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
         *(unsigned char *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xae9, 0xc21)) =
             *(unsigned char *) (arg0 + *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xb6, 0x1b00 + 0xee)) + 0x1000 + REGIONAL_OFFSET(0xb2c, 0xc68));
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) L(arg0), 0, 3);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_0215d654(arg0);
         *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa88, 0xbc0)) += 1;
     } else if (var1 == 1) {
@@ -119,9 +119,9 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                                *(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe9, 0x1c00 + 0x21))) &&
             *(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe9, 0x1c00 + 0x21)) != 4)
         {
-            func_0205def8((struct TextWindowManager_0205def8 *) L(arg0), var8, Enum_ov002_02163bd0_13);
+            SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8 *) L(arg0), var8, Enum_ov002_02163bd0_13);
         } else {
-            func_0205def8((struct TextWindowManager_0205def8 *) L(arg0), 1, Enum_ov002_02163bd0_13);
+            SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8 *) L(arg0), 1, Enum_ov002_02163bd0_13);
             if (func_0205df38(L(arg0), Enum_ov002_02163bd0_13)) var8 = 1;
         }
         if (*(unsigned char *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xb88, 0xcc4)) != 0 ||
@@ -220,9 +220,9 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                 }
                 *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa80, 0xbb8)) = Enum_ov002_02163bd0_13;
                 *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa88, 0xbc0)) = 0;
-                func_0205dee8((struct Struct_0205dee8 *) L(arg0), Enum_ov002_02163bd0_13);
+                SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8 *) L(arg0), Enum_ov002_02163bd0_13);
             }
-        } else if (func_ov002_02161b48(arg0, 1)) {
+        } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xb6, 0x1b00 + 0xee))        = -1;
             *(signed char *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xae9, 0xc21)) = -1;
             func_ov002_02156e90(arg0);

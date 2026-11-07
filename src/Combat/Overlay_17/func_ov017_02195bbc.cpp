@@ -20,7 +20,7 @@ extern "C" void func_02016874(Zone3D* arg0);
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
 extern "C" int func_0201201c(void* arg0);
 extern "C" void func_0202343c(void* arg0);
-extern "C" Struct_0203dde0_2* func_0203cf4c();
+extern "C" Struct_0203dde0_2* GetNPCManager_0203cf4c();
 extern "C" void func_0203de84(void* arg0);
 extern "C" void func_0203dde0(Struct_0203dde0_2* arg0);
 extern "C" void* GetLocalWireless_0202ae18(void);
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov017_02195bbc(Struct_ov017_02195bbc* arg0) {
 
     if (GetGameMode_0200fb9c((char*)var3) != 6 && func_0201201c(var3) != 5 &&
         TestFlags04((GameResources*)(arg0->unknown_0_), 8) == 0) {
-        var5 = func_0203cf4c();
+        var5 = GetNPCManager_0203cf4c();
         func_0203de84(var5);
         func_0203dde0(var5);
     }

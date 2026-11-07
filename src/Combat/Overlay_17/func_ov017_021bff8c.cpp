@@ -11,11 +11,11 @@ extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int func_02039820(void* arg0);
-extern "C" int func_02039d7c(char* arg0);
+extern "C" int IsOnLadder_02039d7c(char* object);
 extern "C" void func_ov017_021cf4b0(int arg0, int arg1);
 extern "C" void func_0200fb40(void* arg0);
 extern "C" int* func_020936f8(void);
-extern "C" void func_02094030(int*, short, short, int);
+extern "C" void QueueNotice_02094030(int*, short, short, int);
 struct Struct_ov017_021c0124;
 extern "C" void func_ov017_021c0124(Struct_ov017_021c0124* arg0, unsigned char arg1);
 struct Queue_0201bdac_2;
@@ -79,10 +79,10 @@ extern "C" ARM void func_ov017_021bff8c(Struct_ov017_021bff8c* arg0, unsigned ch
             var1 = 1;
         } else if (*(int*)(var5 + Enum_ov017_021bff8c_2456) != 0) {
             var1 = 1;
-        } else if (func_02039d7c((char*)var4) != 0) {
+        } else if (IsOnLadder_02039d7c((char*)var4) != 0) {
             var1 = 1;
         }
-        unsigned char var9 = var4->obj3D_.unknown_4_;
+        unsigned char var9 = var4->obj3D_.objectIndex_4_;
         if (var0) {
             func_ov017_021cf4b0(var9, 5);
             func_0200fb40(var2);
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov017_021bff8c(Struct_ov017_021bff8c* arg0, unsigned ch
             return;
         }
         func_ov017_021cf4b0(var9, 1);
-        func_02094030(func_020936f8(), 0x2712, -1, arg1);
+        QueueNotice_02094030(func_020936f8(), 0x2712, -1, arg1);
     }
     func_ov017_021c0124(arg0->unknown_3b1c_, arg1);
     AppendToQueue_020469b4(arg0->unknown_36fc_, (QueueNode_0201bdac*)arg0->unknown_3b1c_);

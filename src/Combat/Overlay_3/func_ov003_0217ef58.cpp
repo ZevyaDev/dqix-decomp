@@ -42,12 +42,12 @@ extern "C" void func_ov003_0216ae0c(Struct_ov003_0217ef58* arg0, SafeAllocator* 
 extern "C" int func_ov003_0216af14(Struct_ov003_0217ef58* arg0);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
-extern "C" void func_020a27b8(unsigned char* arg0);
+extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
 extern "C" int func_ov017_021959b4(void);
 extern "C" void func_ov003_0217f194(Struct_ov003_0217ef58_2* arg0);
 extern "C" void func_ov003_0217f118(Struct_ov003_0217ef58_2* arg0);
 extern "C" void EnablePlayerControl_020397c0(void* object);
-extern "C" void func_020a27ac(void* arg0);
+extern "C" void EnableCameraTurning_020a27ac(void* camera);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" void func_ov003_0217f1b8(unsigned char* arg0);
 extern AllocatorUnion gMainHeap_02114e20;
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov003_0217ef58(Struct_ov003_0217ef58_2* arg0) {
         func_ov003_0216ae0c(arg0->unknown_c_, &arg0->unknown_14_);
         arg0->unknown_c_->unknown_a_ = arg0->unknown_8_;
         DisablePlayerControl_020397cc((Struct_02018300_3*)var0->GetUnknownGameObject(), 1);
-        func_020a27b8((unsigned char*)GetFollowCamera_020100f8((char*)var0));
+        DisableCameraTurning_020a27b8((unsigned char*)GetFollowCamera_020100f8((char*)var0));
         arg0->unknown_10_ = 1;
     } else if (arg0->unknown_10_ == 1) {
         if (func_ov003_0216af14(arg0->unknown_c_) == 0) {
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov003_0217ef58(Struct_ov003_0217ef58_2* arg0) {
         func_ov003_0217f118(arg0);
         EnablePlayerControl_020397c0(var0->GetUnknownGameObject());
         int var2 = GetFollowCamera_020100f8((char*)var0);
-        func_020a27ac((void*)var2);
+        EnableCameraTurning_020a27ac((void*)var2);
         ClearCameraFlags_020a28b0((unsigned char*)var2, 2);
         ClearFlags04(GetGameResources(), 0xc0);
         arg0->unknown_10_ = -1;

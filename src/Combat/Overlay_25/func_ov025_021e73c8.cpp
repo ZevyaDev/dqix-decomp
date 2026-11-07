@@ -5,9 +5,9 @@ struct BattleAction_ov000_0215440c_2;
 struct ActionActor_ov000_02160094;
 struct Struct_ov001_0215cdf8;
 
-extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 extern "C" struct ActionActor_ov000_02160094* GetActionActor_ov000_02160094(struct BattleAction_ov000_0215440c_2* action, int index);
-extern "C" int func_ov017_021917f0(int arg0, int arg1);
+extern "C" int AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int isHeld);
 
 struct Struct_ov025_021e73c8 {
     char unknown_0_[8];
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov025_021e73c8(struct Struct_ov025_021e73c8* arg0, int a
     GameState* var1;
     GameObject* var2;
 
-    if (func_ov000_021820bc(arg3, arg1, arg0->unknown_8_, (int)&var0[0]) == 0) {
+    if (CollectObjectIndicesBySelector_ov000_021820bc(arg3, arg1, arg0->unknown_8_, (int)&var0[0]) == 0) {
         return 1;
     }
     var1 = GameState::GetInstance();
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov025_021e73c8(struct Struct_ov025_021e73c8* arg0, int a
     if (arg0->unknown_8_ >= 0x22 && arg0->unknown_8_ <= 0x25) {
         struct ActionActor_ov000_02160094* var3 = GetActionActor_ov000_02160094((struct BattleAction_ov000_0215440c_2*)arg1, arg0->unknown_8_ - 0x22);
         if (var3 != NULL) {
-            func_ov017_021917f0(*(unsigned short*)((char*)var3 + 0x20), 1);
+            AttachPartyMemberWeapon_ov017_021917f0(*(unsigned short*)((char*)var3 + 0x20), 1);
         }
     }
     return 1;

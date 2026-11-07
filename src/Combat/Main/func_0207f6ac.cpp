@@ -1,31 +1,31 @@
 #include <globaldefs.h>
 
-struct Struct_0207f6ac {
+struct MenuLayoutTextEntry_0207f6ac {
     char unknown_0_[4];
     short unknown_4_;
     char unknown_6_[0x30 - 0x6];
 };
 
-struct Struct_0207f524 {
-    struct Struct_0207f6ac* unknown_0_;
-    short unknown_4_;
+struct MenuLayoutTextEntryList_0207f524 {
+    struct MenuLayoutTextEntry_0207f6ac* pEntries_0_;
+    short count_4_;
 };
 
-static inline struct Struct_0207f6ac* inline_0207f6ac(struct Struct_0207f524* arg0, unsigned int arg1) {
-    return &arg0->unknown_0_[arg1];
+static inline struct MenuLayoutTextEntry_0207f6ac* inline_0207f6ac(struct MenuLayoutTextEntryList_0207f524* arg0, unsigned int arg1) {
+    return &arg0->pEntries_0_[arg1];
 }
 
-// USA: func_0207f6ac
-extern "C" ARM struct Struct_0207f6ac* func_0207f6ac(struct Struct_0207f524* arg0, int arg1) {
-    short var0;
-    struct Struct_0207f6ac* var1;
-    if (arg1 < 0) {
+// USA: FindMenuLayoutTextEntry_0207f6ac
+extern "C" ARM struct MenuLayoutTextEntry_0207f6ac* FindMenuLayoutTextEntry_0207f6ac(struct MenuLayoutTextEntryList_0207f524* textEntries, int textId) {
+    short i;
+    struct MenuLayoutTextEntry_0207f6ac* textEntry;
+    if (textId < 0) {
         return NULL;
     }
-    for (var0 = 0; var0 < arg0->unknown_4_; var0++) {
-        var1 = inline_0207f6ac(arg0, var0);
-        if (arg1 == var1->unknown_4_) {
-            return var1;
+    for (i = 0; i < textEntries->count_4_; i++) {
+        textEntry = inline_0207f6ac(textEntries, i);
+        if (textId == textEntry->unknown_4_) {
+            return textEntry;
         }
     }
     return NULL;

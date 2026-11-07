@@ -49,7 +49,7 @@ extern "C" ARM void func_ov002_0215a658(char* arg0, int arg1) {
                             if (*(short*)(var1 + var0) == 0x570a) {
                                 if (func_02083994((struct Struct_02083994*)var7, 0x570a) == 1) {
                                     *(char*)(*(char**)((char*)var6 + 0x130) + 8) = 0;
-                                    func_ov017_021c9e00(var6->obj3D_.unknown_4_, 0, 0, 1);
+                                    func_ov017_021c9e00(var6->obj3D_.objectIndex_4_, 0, 0, 1);
                                 }
                             }
                             func_020a095c((struct Struct_0207cf30_4*)var3, *(short*)(var1 + var0), 1);
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov002_0215a658(char* arg0, int arg1) {
                             if (*(short*)(var13 + var12) == 0x570a) {
                                 if (func_02083994((struct Struct_02083994*)var19, 0x570a) == 1) {
                                     *(char*)(*(char**)((char*)var18 + 0x130) + 8) = 0;
-                                    func_ov017_021c9e00(var18->obj3D_.unknown_4_, 0, 0, 1);
+                                    func_ov017_021c9e00(var18->obj3D_.objectIndex_4_, 0, 0, 1);
                                 }
                             }
                             func_020a095c((struct Struct_0207cf30_4*)var15, *(short*)(var13 + var12), 1);

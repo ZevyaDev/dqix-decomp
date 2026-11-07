@@ -9,11 +9,11 @@ extern HPXEAllocator* data_ov031_02290d3c;
 // USA: FreeAndClearPointer_ov031_0223cf70
 extern "C" ARM unsigned int FreeAndClearPointer_ov031_0223cf70(void** pointer) {
     unsigned int previousInterruptMask = DisableSpecificInterrupts(1);
-    void* var1 = *pointer;
-    if (var1 == NULL) {
+    void* block = *pointer;
+    if (block == NULL) {
         return previousInterruptMask;
     }
-    data_ov031_02290d3c->Free(var1);
+    data_ov031_02290d3c->Free(block);
     EnableSpecificInterrupts(previousInterruptMask);
     *pointer = NULL;
     return 0;

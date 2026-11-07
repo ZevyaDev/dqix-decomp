@@ -11,7 +11,7 @@ struct ActionResult_ov000_021584e8 {
     int unknown_0_;
     int unknown_4_;
     char unknown_8_[0xc - 8];
-    short unknown_c_;
+    short amount_c_;
     short currHP_e_;
     short currMP_10_;
     short maxHP_12_;
@@ -25,9 +25,9 @@ struct ActionResult_ov000_021584e8 {
 
 // USA: SetActionResult_ov000_0215ccbc
 extern "C" ARM void SetActionResult_ov000_0215ccbc(int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant,
-                                 short arg3, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit) {
+                                 short amount, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit) {
     if (result == NULL) return;
-    result->unknown_c_ = arg3;
+    result->amount_c_ = amount;
     result->currHP_e_ = currHP;
     result->currMP_10_ = currMP;
     result->maxHP_12_ = combatant->currentStats_->primaryStats.maxHP;

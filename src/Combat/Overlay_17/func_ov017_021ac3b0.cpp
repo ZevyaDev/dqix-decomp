@@ -55,7 +55,7 @@ extern "C" int func_ov017_021959b4();
 extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_ov017_021ac32c(Struct_ov017_021ac3b0_2*);
 extern "C" int GetFollowCamera_020100f8(char*);
-extern "C" void func_020a28a0(unsigned char*, unsigned char);
+extern "C" void SetCameraFlags_020a28a0(unsigned char*, unsigned char);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void* func_020d7a50();
 extern "C" int func_020d805c(Struct_020d805c*);
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
     }
     if (arg0->unknown_28_ == 0) {
         int var6 = GetFollowCamera_020100f8((char*)var0);
-        if (var6) func_020a28a0((unsigned char*)var6, 3);
+        if (var6) SetCameraFlags_020a28a0((unsigned char*)var6, 3);
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         void* var7 = func_020d7a50();
         if (func_020d805c((Struct_020d805c*)var7)) ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)var7);
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
         StartMessage_0204500c(var3, data_ov017_021d7920, 0, 0xe3);
 #endif
         var3->unknown_19b2_ = 0; var3->unknown_998_ = 1;
-        func_02094b3c(var5, 10);
+        ClearLoadedFontSetForSize_02094b3c(var5, 10);
         RequestSingleFontLoad_02094b30(var5, 0x1f6, 1);
         arg0->unknown_28_++;
     } else if (arg0->unknown_28_ == 1) {

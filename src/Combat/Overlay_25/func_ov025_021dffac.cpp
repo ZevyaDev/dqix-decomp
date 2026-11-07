@@ -24,7 +24,7 @@ extern "C" int func_ov025_021e1048(Struct_ov025_021dffac_4*, Struct_ov025_021dff
 extern "C" unsigned char GetCombatantCell_020493a4(unsigned char*);
 extern "C" unsigned char func_020493c8(unsigned char*);
 extern "C" unsigned char func_020493ec(unsigned char*);
-extern "C" void func_02049390(unsigned char*, unsigned char);
+extern "C" void SetCombatantCell_02049390(unsigned char*, unsigned char);
 extern "C" void func_020493b8(unsigned char*, unsigned char);
 extern "C" void func_020493dc(unsigned char*, unsigned char);
 extern "C" void func_02049400(unsigned char*, unsigned char);
@@ -76,7 +76,7 @@ extern "C" ARM int func_ov025_021dffac(Struct_ov025_021dffac_5* arg0) {
         GameObject* var13 = var6[var12].unknown_8_;
         int var14 = GetCombatantCell_020493a4((unsigned char*)var13);
         if (var14 == func_020493ec((unsigned char*)var13))
-            func_02049390((unsigned char*)var13, (unsigned char)func_ov025_021e1540(var13->obj3D_.unknown_4_));
+            SetCombatantCell_02049390((unsigned char*)var13, (unsigned char)func_ov025_021e1540(var13->obj3D_.objectIndex_4_));
     }
     var2 = 0;
     if (var3->unknown_10_) var2 = var3->unknown_10_->unknown_20_;
@@ -168,7 +168,7 @@ extern "C" ARM int func_ov025_021dffac(Struct_ov025_021dffac_5* arg0) {
             GameObject* var47 = var0->GetCombatantByIndex(var45);
             if (!var47 || !var29 || !func_ov025_021e1f40(var47, var16)) continue;
             unsigned char var48 = func_020493ec((unsigned char*)var47);
-            if (var48 < 81 && (!inline_ov025_021dffac_2(var18[var48]) || var18[var48] == func_ov025_021dfbd4(var47->obj3D_.unknown_4_)))
+            if (var48 < 81 && (!inline_ov025_021dffac_2(var18[var48]) || var18[var48] == func_ov025_021dfbd4(var47->obj3D_.objectIndex_4_)))
                 func_020493b8((unsigned char*)var47, var48);
             else func_ov025_021e1d54(var29, var18);
             func_020493dc((unsigned char*)var47, 0xff);

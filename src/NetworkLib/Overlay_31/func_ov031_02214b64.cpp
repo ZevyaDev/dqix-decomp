@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 #include "NitroSDK/Timing.h"
 
-extern "C" void* func_ov031_022133f8(unsigned int arg0);
+extern "C" void* GetWifiConnectionBuffer_ov031_022133f8(unsigned int bufferFlag);
 extern "C" int func_ov031_022151b0(void*, void*, int, int);
 extern int data_ov031_02245fb0;
 extern int data_ov031_02245fb8;
 
 // USA: func_ov031_02214b64
 extern "C" ARM void func_ov031_02214b64(int arg0) {
-    char* var0 = (char*)func_ov031_022133f8(0x10);
+    char* var0 = (char*)GetWifiConnectionBuffer_ov031_022133f8(0x10);
     switch (arg0) {
     case 3: {
         *(unsigned long long*)(var0 + 0xcb0) = GetCurrentTimestamp();

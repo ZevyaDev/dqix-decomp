@@ -36,7 +36,7 @@ extern "C" void SetMessageNumberWidth_020465f0(void *window, int index, unsigned
 extern "C" void SetMessageNumberAlignment_020465d8(void *window, int index, unsigned char alignment);
 extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" unsigned short GetLevel_0202053c(GameObject *gameObject);
-extern "C" int func_ov017_021bdbcc(GameResources *arg0);
+extern "C" int GetHaloObject_ov017_021bdbcc(GameResources *gameResources);
 extern "C" unsigned char func_ov002_02160fd8(GameObject *arg0);
 extern "C" int sprintf(char *arg0, const char *arg1, ...);
 extern "C" char data_ov002_0216d94c[];
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov002_02160d14(Struct_ov002_02160d14 *arg0, char *arg1)
     var2 = var13->GetPartyMemberByIndex(arg0->unknown_1ae8_);
     if (var2 == NULL) return;
     const char *var3;
-    switch (func_ov017_021bdbcc(GetGameResources())) {
+    switch (GetHaloObject_ov017_021bdbcc(GetGameResources())) {
     default:
         var3 = FindStringInTable_020e0434(arg0->unknown_8_, 0x898);
         break;

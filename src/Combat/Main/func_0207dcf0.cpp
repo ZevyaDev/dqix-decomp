@@ -18,7 +18,7 @@ struct Struct_0207dcf0 {
 };
 extern "C" void func_ov017_021c60a4(struct Struct_0207dcf0* arg0);
 
-extern int data_02108ea8;
+extern int gBattleJoinTable_02108ea8;
 
 #if defined(jpn)
 enum { Enum_0207dcf0_14104 = 0x3508 };
@@ -28,7 +28,7 @@ enum { Enum_0207dcf0_14104 = 0x3718 };
 
 // USA: func_0207dcf0
 extern "C" ARM void func_0207dcf0(unsigned short arg0) {
-    struct Struct_0207d7f4* var0 = (struct Struct_0207d7f4*)&data_02108ea8;
+    struct Struct_0207d7f4* var0 = (struct Struct_0207d7f4*)&gBattleJoinTable_02108ea8;
     if (!func_0207d978(var0, arg0)) return;
 
     struct Struct_0207d7f4* var1 = func_0207d9bc(var0, arg0);

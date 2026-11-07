@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct Struct_0205cf1c {
+struct TextWindowManager_0205cf1c {
     char unknown_0_[0x95];
-    unsigned char unknown_95_;
+    unsigned char isKeyMenuCursorEnabled_95_;
 };
 
-// USA: func_0205cf1c
-extern "C" ARM void func_0205cf1c(struct Struct_0205cf1c* arg0) {
-    arg0->unknown_95_ = 0;
+// USA: DisableKeyMenuCursor_0205cf1c
+extern "C" ARM void DisableKeyMenuCursor_0205cf1c(struct TextWindowManager_0205cf1c* windowManager) {
+    windowManager->isKeyMenuCursorEnabled_95_ = 0;
 }

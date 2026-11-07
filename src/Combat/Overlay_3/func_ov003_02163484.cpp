@@ -58,7 +58,7 @@ struct Struct_02081198;
 extern "C" void func_02081198(Struct_02081198*, int, int);
 struct Struct_02081164;
 extern "C" void func_02081164(Struct_02081164*, int, int);
-extern "C" void func_020813ec(void *, int);
+extern "C" void OpenMenuLayoutWindow_020813ec(void *, int);
 struct Struct_02081f20_2;
 extern "C" void func_0208203c(Struct_02081f20_2*);
 extern "C" int func_02080468(void *, int);
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov003_02163484(Struct_ov003_02154af4_3 *arg0) {
         var1->unknown_36_ = arg0->unknown_494_;
         func_02081198((Struct_02081198*)var1, 0x18, 1);
         func_02081164((Struct_02081164*)var1, 0x18, 1);
-        func_020813ec(var1, 0x18);
+        OpenMenuLayoutWindow_020813ec(var1, 0x18);
         func_ov003_02166f80(arg0, arg0->unknown_488_, 0);
         func_ov003_02166220(arg0);
         func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);

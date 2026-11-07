@@ -57,7 +57,7 @@ extern "C" ARM void func_020a8d08(struct Struct_020a8d08_2* arg0, unsigned char 
         var1->unknown_c1_ &= ~8;
         EnablePlayerControl_020397c0(var1);
         arg0->unknown_5_ |= (1 << arg1);
-        if (var1->unknown_0_.unknown_4_ != var2->unknown_4_) {
+        if (var1->unknown_0_.objectIndex_4_ != var2->objectIndex_4_) {
             var1->unknown_0_.position_ = var2->position_;
         }
         Vector3i var4 = var1->unknown_0_.position_;
@@ -66,7 +66,7 @@ extern "C" ARM void func_020a8d08(struct Struct_020a8d08_2* arg0, unsigned char 
         ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x402);
     } else {
         SetFacingInstantly_02033874((struct Struct_02033834*)var1, var1->unknown_ae_ + arg0->unknown_8_);
-        if (var1->unknown_0_.unknown_4_ == var2->unknown_4_) {
+        if (var1->unknown_0_.objectIndex_4_ == var2->objectIndex_4_) {
             arg0->unknown_8_ -= 40;
         }
         DisablePlayerControl_020397cc((struct Struct_02018300_3*)var1, 1);

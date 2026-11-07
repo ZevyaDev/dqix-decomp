@@ -119,7 +119,7 @@ extern "C" void* GetEffectManager_02057924(void);
 extern "C" void* GetZoneList_02011584(void*);
 extern "C" Struct_ov017_0219d250_7* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void* func_0203cf4c(void);
+extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_ov017_02191bdc(unsigned char*, int);
 struct Struct_02095924_2;
@@ -135,7 +135,7 @@ extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" int func_0206e558(void* arg0);
 extern "C" int func_ov017_0219c774(Struct_ov017_0219d250_6* arg0, int arg1, int arg2);
 extern "C" void* func_020936f8(void);
-extern "C" void func_02094030(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void QueueNotice_02094030(void* noticeQueue, int noticeId, int arg2, int memberIndex);
 extern "C" void func_0203e074(char*);
 extern "C" int func_0209cd50(int arg0);
 struct Struct_0209cae8;
@@ -228,7 +228,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
     var11 = GetZoneList_02011584(var5);
     var1 = GetZoneEntry_0200fd0c(var5);
     var12 = GetLocalWireless_0202ae18();
-    var13 = func_0203cf4c();
+    var13 = GetNPCManager_0203cf4c();
     var14 = (Struct_ov017_0219d250_4*)GetParty_02010828(var5);
     char* var28 = (char*)&((Zone3D*)var27)->grotto_;
     GetFlagManager_0205ec34();
@@ -288,7 +288,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
                 }
                 if (var24) {
                     if (arg0->unknown_42e9_ != 0) {
-                        func_02094030(func_020936f8(), 0x4e23, -1, 0);
+                        QueueNotice_02094030(func_020936f8(), 0x4e23, -1, 0);
                     }
                     var1->unknown_6e_ &= ~2;
                     func_0203e074((char*)var13);

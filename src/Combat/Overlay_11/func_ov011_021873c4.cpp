@@ -14,7 +14,7 @@ extern "C" int func_ov023_021f6f10(void* arg0);
 #else
 extern "C" int func_ov024_021f6f10(void* arg0);
 #endif
-extern "C" void* func_ov023_021fa598(void* arg0);
+extern "C" void* GetMenuObjectStringList_ov023_021fa598(void* object);
 extern "C" int GetMessageWindow_020421a0();
 struct StringList_02072a68_2;
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov011_021873c4(ScriptValue_ov011_02184c30* arg0) {
 #else
     if (func_ov024_021f6f10(var4) != 4) return 1;
 #endif
-    StringList_02072a68_2* var5 = (StringList_02072a68_2*)func_ov023_021fa598(var4);
+    StringList_02072a68_2* var5 = (StringList_02072a68_2*)GetMenuObjectStringList_ov023_021fa598(var4);
     if (!var5) return 1;
     MessageWindow_02021b84* var6 = (MessageWindow_02021b84*)GetMessageWindow_020421a0();
     const char* var7 = (const char*)FindStringInList_02072a68(var5, (short)var1);

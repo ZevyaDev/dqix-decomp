@@ -69,9 +69,9 @@ extern "C" void func_020e2490(Struct_020e2490*, int, int, void*, SafeAllocator*,
 struct BGLayer_02020cb8_2;
 extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2*, void*);
 extern "C" void func_0205aed0(void*, char*, unsigned int, int);
-struct Struct_0207f7f0;
+struct MenuLayout_0207f7f0;
 struct Struct_0207f7f0_2;
-extern "C" void func_0207f7f0(Struct_0207f7f0*, Struct_0207f7f0_2*, int);
+extern "C" void func_0207f7f0(MenuLayout_0207f7f0*, Struct_0207f7f0_2*, int);
 extern "C" unsigned char func_ov003_02160b50(void* arg0);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
@@ -115,7 +115,7 @@ struct Struct_ov003_021615bc_3 {
     void* unknown_318_;
     void* unknown_31c_;
     void* unknown_320_;
-    Struct_0207f7f0* unknown_324_;
+    MenuLayout_0207f7f0* unknown_324_;
     BGLayer_02020cb8* unknown_328_;
     Struct_0207f7f0_2* unknown_32c_;
     char unknown_330_[4];
@@ -167,7 +167,7 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
         arg0->unknown_318_ = arg0->unknown_228_.Allocate(Enum_ov003_021615bc_120);
         arg0->unknown_31c_ = arg0->unknown_228_.Allocate(0x1c);
         arg0->unknown_320_ = arg0->unknown_228_.Allocate(0x130);
-        arg0->unknown_324_ = (Struct_0207f7f0*)arg0->unknown_228_.Allocate(Enum_ov003_021615bc_64);
+        arg0->unknown_324_ = (MenuLayout_0207f7f0*)arg0->unknown_228_.Allocate(Enum_ov003_021615bc_64);
         arg0->unknown_328_ = (BGLayer_02020cb8*)arg0->unknown_228_.Allocate(0x60);
         arg0->unknown_32c_ = (Struct_0207f7f0_2*)arg0->unknown_228_.Allocate(0x380);
         arg0->unknown_394_ = (void**)arg0->unknown_228_.Allocate(0x10);
@@ -175,7 +175,7 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
         func_ov003_021672e4(arg0->unknown_318_, 0, -1);
         func_0205563c((Struct_0205563c*)arg0->unknown_31c_);
         func_02032e58(arg0->unknown_320_);
-        func_0207f84c(arg0->unknown_324_);
+        ResetMenuLayout_0207f84c(arg0->unknown_324_);
         for (int var5 = 0; var5 < 3; var5++) {
             InitBGLayer_0204af64((BGLayer_02020cb8*)(arg0->unknown_328_ + var5));
         }
@@ -295,7 +295,7 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
     }
     if (arg0->unknown_4a4_ == 6) {
 #if defined(jpn)
-        Struct_0207f7f0* var22 = arg0->unknown_324_;
+        MenuLayout_0207f7f0* var22 = arg0->unknown_324_;
         var22->unknown_3b_ = 0x12;
         var22->unknown_3c_ = 0x10;
 #endif
@@ -307,7 +307,7 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
             arg0->unknown_464_ &= ~0x20000;
         }
 #if !defined(jpn)
-        Struct_0207f7f0* var24 = arg0->unknown_324_;
+        MenuLayout_0207f7f0* var24 = arg0->unknown_324_;
         var24->unknown_3b_ = 0x12;
         var24->unknown_3c_ = 0x10;
         func_0208108c(var24, 0);
@@ -365,7 +365,7 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
         }
     }
     if (arg0->unknown_4a4_ == 8) {
-        Struct_0207f7f0* var36 = arg0->unknown_324_;
+        MenuLayout_0207f7f0* var36 = arg0->unknown_324_;
 #if defined(jpn)
         arg0->unknown_47c_ = func_02081b80(var36, data_ov003_0217e862);
         arg0->unknown_47e_ = func_02081b80(var36, data_ov003_0217e865);

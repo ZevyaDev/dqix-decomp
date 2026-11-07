@@ -21,7 +21,7 @@ struct Struct_0205308c {
     int unknown_194_;
 };
 
-extern "C" short* func_02052e2c(struct Struct_02052e2c*);
+extern "C" short* GetAppearance_02052e2c(struct Struct_02052e2c*);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
 
@@ -40,7 +40,7 @@ struct Struct_0205308c_2 {
 extern "C" ARM void func_0205308c(void* arg0, int arg1) {
     struct Struct_0205308c* var0 = (struct Struct_0205308c*)arg0;
     char var1[0x50];
-    short* var2 = func_02052e2c((struct Struct_02052e2c*)arg0);
+    short* var2 = GetAppearance_02052e2c((struct Struct_02052e2c*)arg0);
     BackgroundLoader* var3;
     int var4;
 

@@ -8,7 +8,7 @@
 #include <globaldefs.h>
 
 struct Struct_020e28dc;
-struct Struct_020e25e8;
+struct YesNoWindow_020e25e8;
 struct GlobalFlags_02012de8;
 struct GlobalFlags_02038598_4;
 
@@ -16,7 +16,7 @@ extern "C" int GetResources_0200fb8c(int *);
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char *);
 extern "C" int func_020e28dc(struct Struct_020e28dc *);
-extern "C" void func_020e25e8(struct Struct_020e25e8 *);
+extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8 *);
 void SetSubBrightness(GameResources *, int, int);
 int IsSubBrightnessTransitionActive(GameResources *);
 extern "C" void func_ov023_021dca88(char *);
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov002_0216c654(char *arg0) {
     if (var1 == 0) {
         ResetMessageWindow_02043204(GetMessageWindow_020421a0());
         if (S32(4) != 0 && func_020e28dc((struct Struct_020e28dc *) S32(4))) {
-            func_020e25e8((struct Struct_020e25e8 *) S32(4));
+            CloseYesNoWindow_020e25e8((struct YesNoWindow_020e25e8 *) S32(4));
         }
         *(short *) (arg0 + 0x1c14 + Enum_ov002_0216c654_0) = 0;
         if ((S32(0x247c + Enum_ov002_0216c654_0_3) & 1) || *(unsigned char *) (arg0 + 0x1cc3 + Enum_ov002_0216c654_0_2) != 0 || *(unsigned char *) (arg0 + 0x2472 + Enum_ov002_0216c654_0_3) != 0) {

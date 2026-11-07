@@ -35,7 +35,7 @@ struct Struct_02081f20_2;
 struct Struct_020e280c;
 struct SoundEffectManager_02108760;
 
-extern "C" int func_020813ec(void *arg0, int arg1);
+extern "C" int OpenMenuLayoutWindow_020813ec(void *menuLayout, int windowId);
 extern "C" void func_0208203c(struct Struct_02081f20_2 *arg0);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_02080c04(struct MenuLayout_0207fdcc_2* arg0, int arg1);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov003_021612c0(struct Struct_ov003_021612c0* arg0) {
     arg0->unknown_488_ = 9;
     arg0->unknown_474_ = arg0->unknown_49c_ = 0x2c;
     arg0->unknown_324_->unknown_36_ = arg0->unknown_49c_;
-    func_020813ec(arg0->unknown_324_, arg0->unknown_488_);
+    OpenMenuLayoutWindow_020813ec(arg0->unknown_324_, arg0->unknown_488_);
     func_0208203c((struct Struct_02081f20_2*)arg0->unknown_308_);
     arg0->unknown_470_ = 0;
     PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 5, 0);

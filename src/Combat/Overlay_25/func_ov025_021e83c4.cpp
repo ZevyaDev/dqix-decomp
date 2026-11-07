@@ -14,7 +14,7 @@ extern "C" int func_ov025_021e24d0(char* arg0, char* arg1, char* arg2);
 
 struct Struct_ov025_021e4aac;
 struct Struct_ov001_0215e1cc;
-extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 extern "C" void func_ov025_021e267c(int arg0, int arg1, int arg2, int arg3);
 struct Struct_ov025_021e27c8;
 extern "C" void func_ov025_021eb084(struct Struct_ov025_021e27c8* arg0, int arg1);
@@ -62,7 +62,7 @@ extern "C" ARM int func_ov025_021e83c4(struct Struct_ov025_021e83c4_2* arg0, str
 
     if (var9 != 0) {
         int var12[8];
-        int var13 = func_ov000_021820bc(arg3, (int)arg1, arg0->unknown_8_, (int)&var12[0]);
+        int var13 = CollectObjectIndicesBySelector_ov000_021820bc(arg3, (int)arg1, arg0->unknown_8_, (int)&var12[0]);
         if (var13 > 0) {
             for (int var14 = 0; var14 < var13; var14++) {
                 func_ov025_021e267c(var12[var14], var9, var10, 0);

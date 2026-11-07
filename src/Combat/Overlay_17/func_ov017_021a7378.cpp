@@ -115,7 +115,7 @@ extern "C" void func_020ae380(unsigned char* arg0);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
-extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
+extern "C" void SetCameraFlags_020a28a0(unsigned char* camera, unsigned char flags);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" int GetMessageChoice_020457e0(Struct_ov000_0217964c_3* window);
 extern "C" Struct_ov017_021a7378* GetZoneEntry_0200fd0c(GameState* gameState);
@@ -123,13 +123,13 @@ extern "C" void InitZoneEntry_02070378(char* zoneEntry);
 extern "C" void* func_02033fa0(void* arg0);
 extern "C" int func_0204bedc(unsigned short* arg0);
 extern "C" int func_0204bef4(Struct_0204bef4* arg0);
-extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int arg1);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int isFullReset);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void func_ov017_021a65c4(void* arg0, unsigned char arg1, int arg2);
-extern "C" void ResetEventTask_ov017_021baedc(QueueNode_0201bdac* node, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(QueueNode_0201bdac* node, int isRestart);
 extern "C" void func_ov017_021d1c2c(unsigned char arg0, unsigned short arg1);
 extern "C" void func_ov017_021d1dc0(unsigned short, int, int*, int, int);
-extern "C" void* func_02094d6c(void);
+extern "C" void* GetQuestManager_02094d6c(void);
 extern "C" Struct_ov017_021a7378_2* func_02096134(Struct_0205faf4_7* arg0, int arg1);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_0205ce50(unsigned char* arg0);
@@ -197,7 +197,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
             }
             var2->unknown_19b2_ = 0;
             var2->unknown_998_ = 1;
-            func_020a28a0(var1, 2);
+            SetCameraFlags_020a28a0(var1, 2);
         }
     } else if (arg0->unknown_8_ == 0xc8) {
         if (var2->unknown_9a0_ == 0) {
@@ -238,7 +238,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
                     StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x26), 0, 0xe3);
 #endif
                     arg0->unknown_8_ = 0x12d;
-                    func_020a28a0(var1, 2);
+                    SetCameraFlags_020a28a0(var1, 2);
                 }
             } else {
                 var2->unknown_998_ = 1;
@@ -248,7 +248,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
                 StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x25), 0, 0xe3);
 #endif
                 arg0->unknown_8_ = 0x12d;
-                func_020a28a0(var1, 2);
+                SetCameraFlags_020a28a0(var1, 2);
             }
         }
     } else if (arg0->unknown_8_ == 0x12d) {
@@ -285,7 +285,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
             var12->unknown_14_ = 0;
             var12->unknown_18_ = 0x100000;
             var3->unknown_27b8_ = var4->unknown_44_;
-            func_0200fcfc(var0, var12);
+            SetZoneEntry_0200fcfc(var0, var12);
             QueueNode_0201bdac* var16 = (QueueNode_0201bdac*)var11->unknown_ptr_array_36fc[4];
             ResetZoneLoadTask_ov017_0219e310((unsigned char*)var16, 0);
             AppendToQueue_020469b4(var13, var16);
@@ -311,7 +311,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
         if (var3->unknown_27d0_ < 0xff) {
             var3->unknown_27d0_++;
         }
-        Struct_ov017_021a7378_2* var18 = func_02096134((Struct_0205faf4_7*)func_02094d6c(), 0xbc);
+        Struct_ov017_021a7378_2* var18 = func_02096134((Struct_0205faf4_7*)GetQuestManager_02094d6c(), 0xbc);
         if (var18 != NULL && var18->unknown_4_ < 10) {
             var18->unknown_4_++;
         }

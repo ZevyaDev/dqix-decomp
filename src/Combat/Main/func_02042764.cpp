@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" void* func_020425b4(int arg0, int arg1);
+extern "C" void* GetFontGlyph_020425b4(int glyphIndex, int font);
 extern unsigned char data_020e7a50;
 
 // USA: func_02042764
@@ -25,7 +25,7 @@ extern "C" ARM void func_02042764(unsigned char* arg0, char* arg1, int arg2) {
         var2[1] = var0;
         void* var4 = var2;
         int var5 = 1;
-        void* var6 = func_020425b4(var3, arg2);
+        void* var6 = GetFontGlyph_020425b4(var3, arg2);
         if (var6 != NULL) {
             var4 = *(void**)var6;
             signed char var7 = *((signed char*)var6 + 5);

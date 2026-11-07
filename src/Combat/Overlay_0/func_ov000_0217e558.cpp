@@ -54,7 +54,7 @@ struct Struct_ov000_0217e558 {
     unsigned char unknown_1d79_;
 };
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
-extern "C" void func_0205def8(TextWindowManager_0205def8*, int, int);
+extern "C" void SetTextWindowVisible_0205def8(TextWindowManager_0205def8*, int, int);
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
 extern "C" GameResources* GetResources_0200fb8c(int*);
 extern "C" Struct_ov000_0217e558_2* GetBattleScene_ov017_021b8468(void*);
@@ -83,7 +83,7 @@ extern int data_ov000_02184294[3];
 extern "C" ARM void func_ov000_0217e558(Struct_ov000_0217e558* arg0, int arg1, int arg2) {
     arg0->unknown_1d72_ |= 0x100;
     arg0->unknown_1d6d_ = GetCursorIndex_0205d794(&arg0->unknown_188_.unknown_0_);
-    func_0205def8(&arg0->unknown_188_.unknown1_0_, 1, 0x18);
+    SetTextWindowVisible_0205def8(&arg0->unknown_188_.unknown1_0_, 1, 0x18);
     SetTextWindowPalette_0205deb4(&arg0->unknown_188_.unknown2_0_, 0x18, 0);
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetResources_0200fb8c((int*)var0);

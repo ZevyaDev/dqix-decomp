@@ -7,7 +7,7 @@ extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result
 extern "C" void func_ov000_0215fe84(void* arg0, void* arg1, int arg2);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
 extern "C" void SetActionResult_ov000_0215ccbc(
-    void* battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant, short arg3, short currHP, short currMP,
+    void* battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant, short amount, short currHP, short currMP,
     unsigned long long flags, unsigned char isCriticalHit);
 
 static inline short inline_ov000_021584e8(ModifiableCombatStats* arg0) { return arg0->primaryStats.currHP; }

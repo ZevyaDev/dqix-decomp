@@ -118,7 +118,7 @@ extern "C" ARM void func_02025f28(unsigned char* arg0) {
     var12[2] -= 0x4000;
 
     if (var5) {
-        short var16 = var4->obj3D_.unknown_4_;
+        short var16 = var4->obj3D_.objectIndex_4_;
         unsigned char var17 = (unsigned char)(var16 + 0x44);
         unsigned short var18 = (unsigned short)(var16 + 4);
         func_0202756c(arg0, var12[0], var12[2], 5, var17, 0, var18, 0xff, 0x1000, 0x1000);

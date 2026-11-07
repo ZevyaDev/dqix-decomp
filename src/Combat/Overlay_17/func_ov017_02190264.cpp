@@ -25,7 +25,7 @@ extern "C" Struct_0200f3a4_7* GetPartyMemberData_02053c6c(unsigned char*);
 extern "C" void func_02082828(Struct_0200f3a4_7*);
 extern "C" void func_ov017_021bd3d4(void*, int);
 extern "C" Struct_ov000_02161e30_4* func_ov017_021a4658(GameResources*, int);
-extern "C" void func_02046a8c(void*, Struct_ov000_02161e30_4*);
+extern "C" void RemoveFromQueue_02046a8c(void*, Struct_ov000_02161e30_4*);
 extern "C" void func_ov017_021b33d8(void*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void* func_020120a0(char*, unsigned int);
@@ -38,7 +38,7 @@ extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(GameResources*, int, int, int, int);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" void func_ov017_02190884(int, Struct_ov017_02190264_2*, int*, int, int, int);
-extern "C" void func_ov017_02191234(GameResources*);
+extern "C" void RebuildPartyOrders_ov017_02191234(GameResources*);
 #if defined(jpn)
 #define data_ov017_021d622c data_ov017_021d667c
 #endif
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov017_02190264(GameResources* arg0, int arg1) {
     }
     Struct_ov000_02161e30_4* var7 = func_ov017_021a4658(arg0, arg1);
     if (var7->unknown_2_) {
-        func_02046a8c(arg0->unknown_ptr_array_36fc[1], var7);
+        RemoveFromQueue_02046a8c(arg0->unknown_ptr_array_36fc[1], var7);
         func_ov017_021b33d8(var7);
     }
     GameObject* var8 = GetPartyMemberBaseByIndex_0200ff1c(var1, arg1);
@@ -122,5 +122,5 @@ extern "C" ARM void func_ov017_02190264(GameResources* arg0, int arg1) {
             func_ov017_02190884(var22, &var23, &var24, 1, 1, 1);
         }
     }
-    func_ov017_02191234(arg0);
+    RebuildPartyOrders_ov017_02191234(arg0);
 }

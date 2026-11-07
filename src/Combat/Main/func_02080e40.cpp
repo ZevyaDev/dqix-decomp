@@ -11,7 +11,7 @@ struct Struct_0207f0ac_2 {
     char unknown_14_[4];
 };
 
-struct Struct_0207f6ac {
+struct MenuLayoutTextEntry_0207f6ac {
     char unknown_0_[4];
     short unknown_4_;
     short unknown_6_;
@@ -21,26 +21,26 @@ struct Struct_0207f6ac {
     char unknown_e_[4];
     unsigned char unknown_12_;
     char unknown_13_[5];
-    Struct_0207f6ac* unknown_18_;
-    Struct_0207f6ac* unknown_1c_;
-    Struct_0207f6ac* unknown_20_;
-    Struct_0207f6ac* unknown_24_;
+    MenuLayoutTextEntry_0207f6ac* unknown_18_;
+    MenuLayoutTextEntry_0207f6ac* unknown_1c_;
+    MenuLayoutTextEntry_0207f6ac* unknown_20_;
+    MenuLayoutTextEntry_0207f6ac* unknown_24_;
     short unknown_28_;
     unsigned char unknown_2a_;
     char unknown_2b_[5];
 };
 
 struct Struct_0207f0ac { Struct_0207f0ac_2* unknown_0_; short unknown_4_; };
-struct Struct_0207f524 { Struct_0207f6ac* unknown_0_; short unknown_4_; };
+struct MenuLayoutTextEntryList_0207f524 { MenuLayoutTextEntry_0207f6ac* pEntries_0_; short count_4_; };
 struct MenuLayout_0207fdcc_2 {
     void* unknown_0_;
-    Struct_0207f524 unknown_4_;
+    MenuLayoutTextEntryList_0207f524 unknown_4_;
     Struct_0207f0ac unknown_c_;
 };
 
 extern "C" int func_02080d54(MenuLayout_0207fdcc_2*, int, int, int);
 extern "C" Struct_0207f0ac_2* func_0207f0ac(Struct_0207f0ac*, int);
-extern "C" Struct_0207f6ac* func_0207f6ac(Struct_0207f524*, int);
+extern "C" MenuLayoutTextEntry_0207f6ac* FindMenuLayoutTextEntry_0207f6ac(MenuLayoutTextEntryList_0207f524*, int);
 
 // USA: func_02080e40
 
@@ -52,7 +52,7 @@ extern "C" ARM int func_02080e40(MenuLayout_0207fdcc_2* arg0, int arg1, int arg2
     short var2 = var0->unknown_c_ * 8;
     for (unsigned char var3 = 0; var3 < var0->unknown_13_; var3++) {
         int var4 = var0->unknown_0_[var3];
-        Struct_0207f6ac* var5 = func_0207f6ac(&arg0->unknown_4_, var4);
+        MenuLayoutTextEntry_0207f6ac* var5 = FindMenuLayoutTextEntry_0207f6ac(&arg0->unknown_4_, var4);
         if (!var5 || var5->unknown_12_ == 1) continue;
         if (var5->unknown_2a_ & 1) continue;
         if (!var5->unknown_18_ && !var5->unknown_1c_ && !var5->unknown_20_ && !var5->unknown_24_) continue;

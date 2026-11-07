@@ -13,55 +13,55 @@ extern "C" void func_02026348(char* arg0, unsigned char* arg1, int arg2);
 extern "C" void func_020114c0(char* arg0, int arg1, void* arg2);
 extern "C" void func_02011468(void* arg0, int arg1, void* arg2);
 
-// USA: func_ov017_02191234
-extern "C" ARM void func_ov017_02191234(unsigned char* arg0) {
+// USA: RebuildPartyOrders_ov017_02191234
+extern "C" ARM void RebuildPartyOrders_ov017_02191234(unsigned char* gameResources) {
 #if defined(jpn)
  enum {Enum_ov017_02191234_722=0x2c6, Enum_ov017_02191234_14032=0x34c0};
 #else
  enum {Enum_ov017_02191234_722=0x2d2, Enum_ov017_02191234_14032=0x36d0};
 #endif
-    GameState* var0 = GameState::GetInstance();
-    LocalWireless_0202b2f0* var1 = GetLocalWireless_0202ae18();
-    unsigned char var2 = 0;
-    unsigned char var3 = 0;
-    unsigned char var4[4];
-    unsigned char var5[4];
+    GameState* gameState = GameState::GetInstance();
+    LocalWireless_0202b2f0* wireless = GetLocalWireless_0202ae18();
+    unsigned char partyCount = 0;
+    unsigned char ownPartyCount = 0;
+    unsigned char partyOrder[4];
+    unsigned char ownPartyOrder[4];
 
-    if (IsLocalWirelessOn_0202b7d8((int*)var1)) {
-        for (int var6 = 0; var6 < 4; var6++) {
-            if (!IsLocalWirelessPlayerJoined_0202c1c0(var1, var6)) continue;
-            var4[var2++] = var6;
-            int var7 = 0;
-            if (var6 == GetProtagonistObjectIndex_020100a8(var0)) {
-                var5[var3++] = var6;
-                var7 = 1;
+    if (IsLocalWirelessOn_0202b7d8((int*)wireless)) {
+        for (int protagonistIndex = 0; protagonistIndex < 4; protagonistIndex++) {
+            if (!IsLocalWirelessPlayerJoined_0202c1c0(wireless, protagonistIndex)) continue;
+            partyOrder[partyCount++] = protagonistIndex;
+            int isOwnProtagonist = 0;
+            if (protagonistIndex == GetProtagonistObjectIndex_020100a8(gameState)) {
+                ownPartyOrder[ownPartyCount++] = protagonistIndex;
+                isOwnProtagonist = 1;
             }
-            for (int var8 = 1; var8 < 4; var8++) {
-                unsigned char* var9 = GetCompanionByIndex_0200ff58(var0, var8);
-                if (var9 == 0) continue;
-                if (var6 != GetLeaderObjectIndex_020546a8(var9)) continue;
-                var4[var9[Enum_ov017_02191234_722]] = var8;
-                var2++;
-                if (var7) {
-                    var5[var9[Enum_ov017_02191234_722]] = var8;
-                    var3++;
+            for (int companionIndex = 1; companionIndex < 4; companionIndex++) {
+                unsigned char* companion = GetCompanionByIndex_0200ff58(gameState, companionIndex);
+                if (companion == 0) continue;
+                if (protagonistIndex != GetLeaderObjectIndex_020546a8(companion)) continue;
+                partyOrder[companion[Enum_ov017_02191234_722]] = companionIndex;
+                partyCount++;
+                if (isOwnProtagonist) {
+                    ownPartyOrder[companion[Enum_ov017_02191234_722]] = companionIndex;
+                    ownPartyCount++;
                 }
             }
         }
     } else {
-        var4[var2++] = 0;
-        var5[var3++] = 0;
-        for (int var10 = 1; var10 < 4; var10++) {
-            unsigned char* var11 = GetCompanionByIndex_0200ff58(var0, var10);
-            if (var11 != 0) {
-                var4[var11[Enum_ov017_02191234_722]] = var10;
-                var2++;
-                var5[var11[Enum_ov017_02191234_722]] = var10;
-                var3++;
+        partyOrder[partyCount++] = 0;
+        ownPartyOrder[ownPartyCount++] = 0;
+        for (int companionIndex = 1; companionIndex < 4; companionIndex++) {
+            unsigned char* companion = GetCompanionByIndex_0200ff58(gameState, companionIndex);
+            if (companion != 0) {
+                partyOrder[companion[Enum_ov017_02191234_722]] = companionIndex;
+                partyCount++;
+                ownPartyOrder[companion[Enum_ov017_02191234_722]] = companionIndex;
+                ownPartyCount++;
             }
         }
     }
-    func_02026348(*(char**)(arg0 + Enum_ov017_02191234_14032), var4, var2);
-    func_020114c0((char*)var0, var2, var4);
-    func_02011468(var0, var3, var5);
+    func_02026348(*(char**)(gameResources + Enum_ov017_02191234_14032), partyOrder, partyCount);
+    func_020114c0((char*)gameState, partyCount, partyOrder);
+    func_02011468(gameState, ownPartyCount, ownPartyOrder);
 }

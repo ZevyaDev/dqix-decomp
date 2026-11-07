@@ -26,7 +26,7 @@ extern "C" void* GetParty_02010828(GameState*);
 extern "C" void func_ov003_0217a220(unsigned char* arg0);
 
 extern "C" short func_02080468(void* arg0, int arg1);
-extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov003_0217a764(unsigned char* arg0) {
         func_ov003_02177820((char*)arg0);
         func_ov003_02177938(arg0);
         *(short*)((char*)var1 + Enum_ov003_0217a764_54) = *(short*)(arg0 + (0x1000 + 0x10 - Enum_ov003_0217a764_0));
-        func_02080c68(var1, var3, 1);
+        SetMenuLayoutWindowPalette_02080c68(var1, var3, 1);
         *(short*)(arg0 + (0xf00 + 0xfc - Enum_ov003_0217a764_0)) = *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_0217a764_0));
         *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_0217a764_0)) = 0x15;
         if (*(short*)(arg0 + (0x1000 + 0xe - Enum_ov003_0217a764_0)) < 0) {

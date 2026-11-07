@@ -69,8 +69,8 @@ struct Struct_ov000_0215ab88 {
     unsigned char unknown_18c_, unknown_18d_;
 };
 extern "C" int* GetLocalWireless_0202ae18();
-extern "C" Struct_02048934* func_02070fd0(Struct_02070b6c_3*, int);
-extern "C" Struct_02048850_2* func_0206f4f0(Struct_0206f01c_2*, int);
+extern "C" Struct_02048934* FindMonsterBattleData_02070fd0(Struct_02070b6c_3*, int);
+extern "C" Struct_02048850_2* FindMonsterData_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" Struct_ov000_0215ab88* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" void func_ov000_021620d8(Struct_ov000_02161e30_3*);
 extern "C" void func_ov000_02167c28(unsigned char*, int);
@@ -94,8 +94,8 @@ extern "C" ARM void func_ov000_02161e30(Struct_ov000_02161e30* arg0, int arg1, i
     GetLocalWireless_0202ae18();
     Struct_ov000_02161e30_6* var4 = arg0->unknown_2a0_;
     Struct_0206f01c_2* var5 = (Struct_0206f01c_2*)arg0->unknown_2a0_->unknown_678_;
-    var0 = func_02070fd0((Struct_02070b6c_3*)var4->unknown_684_, arg2);
-    Struct_02048850_2* var6 = func_0206f4f0(var5, (short)arg2);
+    var0 = FindMonsterBattleData_02070fd0((Struct_02070b6c_3*)var4->unknown_684_, arg2);
+    Struct_02048850_2* var6 = FindMonsterData_0206f4f0(var5, (short)arg2);
     if (!var0 || !var6) return;
     var1 = GetEnemyByIndex_0200fea4(var3, arg1);
     int var7 = var1->unknown_17c_;

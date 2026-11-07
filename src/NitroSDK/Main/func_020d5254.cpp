@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
 extern "C" void* func_020d41d8(void);
-extern "C" int func_020d424c(int arg0, int arg1, int arg2, int arg3);
-extern "C" void func_020d404c(int arg0, int arg1);
+extern "C" int CheckWirelessState_020d424c(int stateCount, int arg1, int arg2, int arg3);
+extern "C" void SetWirelessCommandCallback_020d404c(int command, int callback);
 extern "C" int func_020d4168(void* arg0, unsigned int arg1);
 
 struct Struct_020d5254 {
@@ -23,7 +23,7 @@ struct Struct_020d5254_2 {
 
 // USA: func_020d5254
 extern "C" ARM int func_020d5254(int arg0, struct Struct_020d5254* arg1) {
-    int var0 = func_020d424c(3, 2, 3, 5);
+    int var0 = CheckWirelessState_020d424c(3, 2, 3, 5);
     if (var0 != 0) {
         return var0;
     }
@@ -36,7 +36,7 @@ extern "C" ARM int func_020d5254(int arg0, struct Struct_020d5254* arg1) {
     if (arg1->unknown_4_ < 1 || arg1->unknown_4_ > 0xe) {
         return 6;
     }
-    func_020d404c(0xa, arg0);
+    SetWirelessCommandCallback_020d404c(0xa, arg0);
     struct Struct_020d5254_2 var1;
     var1.unknown_0_ = 0xa;
     var1.unknown_2_ = arg1->unknown_4_;

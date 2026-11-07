@@ -11,7 +11,7 @@ struct Struct_0205c570;
 struct TextWindowManager_0205da38;
 struct SoundEffectManager_02108760;
 struct TextWindowManager_0205d81c;
-struct Struct_0205dee8;
+struct TextWindowManager_0205dee8;
 struct Struct_020a83b0;
 struct Struct_02048350_2;
 struct Struct_ov002_02165b44 {
@@ -28,12 +28,12 @@ extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205d
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
-extern "C" int func_ov002_02161b48(char *arg0, int arg1);
+extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
-extern "C" void func_0205dee8(struct Struct_0205dee8 *arg0, int arg1);
+extern "C" void SetCursorTextWindow_0205dee8(struct TextWindowManager_0205dee8 *windowManager, int windowId);
 extern "C" void func_ov002_02156ff0(unsigned char *arg0, int arg1);
 extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState *gameState);
-extern "C" GameObject *func_0200ff94(GameState *arg0, int arg1);
+extern "C" GameObject *GetGameObjectByIndex_0200ff94(GameState *gameState, int index);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char *flags, int flagIndex);
 extern "C" char *func_020a83b0(struct Struct_020a83b0 *arg0, int arg1);
 extern "C" char *FindActionData_02079e2c(char *actionTables, int actionId);
@@ -41,11 +41,11 @@ extern "C" void func_02048350(struct Struct_02048350_2 *arg0, int arg1);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" void *GetZoneEntry_0200fd0c(GameState *gameState);
 extern "C" void VectorizedMemset(void *dst, int value, unsigned int length);
-extern "C" void *func_0200fcfc(void *arg0, const void *arg1);
+extern "C" void *SetZoneEntry_0200fcfc(void *gameState, const void *zoneEntry);
 extern "C" void func_ov017_021acd30(char *arg0, unsigned char arg1, unsigned char arg2, unsigned char arg3);
-extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char *task, int arg1);
+extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char *task, int isFullReset);
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2 *queue, struct QueueNode_0201bdac *node);
-extern "C" void func_ov002_02161cf0(char *arg0);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215f170(char *arg0);
 extern "C" void func_ov002_02161b98(char *arg0);
 extern "C" void func_ov002_0215a7b4(char *arg0, int arg1, short arg2, int arg3, int arg4);
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
     if (var0 == 0) {
         *(short *) (arg0 + 0x1ac4) = 0;
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + 0xe20), 0, 2);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_0215f170(arg0);
         *(int *) (arg0 + 0x1a88) += 1;
     } else if (var0 == 1) {
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
             GameState *var3 = GameState::GetInstance();
             int var4        = *(signed char *) (arg0 + 0x1ae8);
             if (var4 == 4) var4 = GetOwnPartyLeaderObjectIndex_020100b0(var3);
-            GameObject *var5 = func_0200ff94(var3, var4);
+            GameObject *var5 = GetGameObjectByIndex_0200ff94(var3, var4);
             if (var5 == NULL) return;
             *(unsigned char *) (arg0 + 0xed8) = *(int *) (arg0 + 0x1a80);
             *(unsigned int *) (arg0 + 0x22ac) &= ~4;
@@ -119,7 +119,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 0x64, 0);
                         char *var12 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), 0xca);
                         func_02048350(
-                            (struct Struct_02048350_2 *) func_0200ff94(var3, *(signed char *) (arg0 + 0x1ae8)),
+                            (struct Struct_02048350_2 *) GetGameObjectByIndex_0200ff94(var3, *(signed char *) (arg0 + 0x1ae8)),
                             ((struct Struct_ov002_02165b44 *) var12)->unknown_8_0_);
                         if (IsLocalWirelessOn_0202b7d8(var11)) func_ov017_021c9e00(*(signed char *) (arg0 + 0x1ae8), 0, 0, 1);
                     }
@@ -144,7 +144,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                     *(short *) (var13 + 0x1c)      = *(short *) (var10 + 0xa);
                     var13[7]                       = 1;
                     var13[0x63]                    = 0;
-                    func_0200fcfc(var3, var13);
+                    SetZoneEntry_0200fcfc(var3, var13);
                     if (IsNotLocalWirelessGuest_0202c508(var11) && IsFlagSet_0206dfb0(var6, (unsigned char *) ((char *) var6 + 0x8c), 0x2b)) {
                         *(unsigned short *) (var7 + 0x27c6) = *(unsigned short *) (var10 + 0x1a);
                         *(unsigned short *) (var7 + 0x27c4) = *(unsigned short *) (var10 + 0x1c);
@@ -198,7 +198,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                     *(int *) (arg0 + 0x1a84) = 0x12;
                 }
             }
-        } else if (func_ov002_02161b48(arg0, 1)) {
+        } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + 0x1ac4) = -1;
             if (*(short *) (arg0 + 0x1aea) == 0x5603) {
                 *(short *) (arg0 + 0x1aea) = -1;
@@ -207,9 +207,9 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                 *(short *) (arg0 + 0x1aee) = -1;
                 func_ov002_02156ff0((unsigned char *) arg0, 0x14);
                 *(int *) (arg0 + 0x1a80) = 0x12;
-                func_0205dee8((struct Struct_0205dee8 *) (arg0 + 0xe20), 0x12);
+                SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8 *) (arg0 + 0xe20), 0x12);
                 SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xe20), 0x12, 0);
-                func_ov002_02161cf0(arg0);
+                ConfigureMenuCursors_ov002_02161cf0(arg0);
                 func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 0);
                 *(int *) (arg0 + 0x1a88) = 1;
             }
@@ -220,7 +220,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
     if (var19 == 0) {
         *(short *) (arg0 + 0x1b00 + 0xfc) = 0;
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + 0x2c8 + 0xc00), 0, 2);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_0215f170(arg0);
         *(int *) (arg0 + 0x1000 + 0xbc0) += 1;
     } else if (var19 == 1) {
@@ -233,7 +233,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
             GameState *var22 = GameState::GetInstance();
             int var23        = *(signed char *) (arg0 + 0x1c00 + 0x20);
             if (var23 == 4) var23 = GetOwnPartyLeaderObjectIndex_020100b0(var22);
-            GameObject *var24 = func_0200ff94(var22, var23);
+            GameObject *var24 = GetGameObjectByIndex_0200ff94(var22, var23);
             if (var24 == NULL) return;
             *(unsigned char *) (arg0 + 0xf80) = *(int *) (arg0 + 0x1000 + 0xbb8);
             *(unsigned int *) (arg0 + 0x2000 + 0x47c) &= ~4;
@@ -273,7 +273,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 0x64, 0);
                         char *var31 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), 0xca);
                         func_02048350(
-                            (struct Struct_02048350_2 *) func_0200ff94(var22, *(signed char *) (arg0 + 0x1c00 + 0x20)),
+                            (struct Struct_02048350_2 *) GetGameObjectByIndex_0200ff94(var22, *(signed char *) (arg0 + 0x1c00 + 0x20)),
                             ((struct Struct_ov002_02165b44 *) var31)->unknown_8_0_);
                         if (IsLocalWirelessOn_0202b7d8(var30)) func_ov017_021c9e00(*(signed char *) (arg0 + 0x1c00 + 0x20), 0, 0, 1);
                     }
@@ -298,7 +298,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                     *(short *) (var32 + 0x1c)      = *(short *) (var29 + 0xa);
                     var32[7]                       = 1;
                     var32[0x63]                    = 0;
-                    func_0200fcfc(var22, var32);
+                    SetZoneEntry_0200fcfc(var22, var32);
                     if (IsNotLocalWirelessGuest_0202c508(var30) && IsFlagSet_0206dfb0(var25, (unsigned char *) ((char *) var25 + 0x8c), 0x2b)) {
                         *(unsigned short *) (var26 + 0x2700 + 0x86) = *(unsigned short *) (var29 + 0x1a);
                         *(unsigned short *) (var26 + 0x2700 + 0x84) = *(unsigned short *) (var29 + 0x1c);
@@ -352,7 +352,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                     *(int *) (arg0 + 0x1000 + 0xbbc) = 0x11;
                 }
             }
-        } else if (func_ov002_02161b48(arg0, 1)) {
+        } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + 0x1b00 + 0xfc) = -1;
             if (*(short *) (arg0 + 0x1c00 + 0x22) == 0x5603) {
                 *(short *) (arg0 + 0x1c00 + 0x22) = -1;
@@ -361,9 +361,9 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                 *(short *) (arg0 + 0x1c00 + 0x26) = -1;
                 func_ov002_02156ff0((unsigned char *) arg0, 0x13);
                 *(int *) (arg0 + 0x1000 + 0xbb8) = 0x11;
-                func_0205dee8((struct Struct_0205dee8 *) (arg0 + 0x2c8 + 0xc00), 0x11);
+                SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8 *) (arg0 + 0x2c8 + 0xc00), 0x11);
                 SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0x2c8 + 0xc00), 0x11, 0);
-                func_ov002_02161cf0(arg0);
+                ConfigureMenuCursors_ov002_02161cf0(arg0);
                 func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + 0xbb8) & 0xff, 0);
                 *(int *) (arg0 + 0x1000 + 0xbc0) = 1;
             }

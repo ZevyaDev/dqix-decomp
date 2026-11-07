@@ -100,11 +100,11 @@ extern "C" ARM int func_020236dc(Struct_020236dc* arg0, unsigned char* arg1, Vec
             var13->unknown_f_ = -1;
         }
         var13->unknown_c_ = 5;
-        var13->unknown_d_ = var9->obj3D_.unknown_4_ + 4;
+        var13->unknown_d_ = var9->obj3D_.objectIndex_4_ + 4;
         GameObject* var15 = var0->GetPartyMemberByIndex(var8);
         GameObject* var16 = GetCompanionByIndex_0200ff58(var0, var8);
-        if (var15 && (var9->obj3D_.unknown_4_ == 0 || var16)) var13->unknown_e_ = func_02039874(var15) + 0x58;
-        else var13->unknown_e_ = var9->obj3D_.unknown_4_ + 0x5b;
+        if (var15 && (var9->obj3D_.objectIndex_4_ == 0 || var16)) var13->unknown_e_ = func_02039874(var15) + 0x58;
+        else var13->unknown_e_ = var9->obj3D_.objectIndex_4_ + 0x5b;
         if (var15) var13->unknown_13_ = func_02039874(var15);
         if (var9->unknown_ac_.unknown_84_->unknown_0_ & 1) {
             var13->unknown_c_ = 6;

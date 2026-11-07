@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" void func_0205c790(char* arg0);
+extern "C" void InitChoiceList_0205c790(char* choiceList);
 
 struct Struct_0204166c;
 extern "C" void func_0204166c(struct Struct_0204166c* arg0);
@@ -49,7 +49,7 @@ extern "C" ARM void func_02042c68(char* arg0) {
     *(int*)(arg0 + REGION_OFFSET(0x4, 0x38)) = 0;
     *(int*)(arg0 + REGION_OFFSET(0x8, 0x3c)) = 9;
     *(int*)(arg0 + REGION_OFFSET(0x4c, 0x8c)) = 0;
-    func_0205c790(arg0 + REGION_OFFSET(0x50, 0x90));
+    InitChoiceList_0205c790(arg0 + REGION_OFFSET(0x50, 0x90));
 
     *(int*)(arg0 + REGION_OFFSET(0x218, 0x2c8)) = 0;
     memset(arg0 + REGION_OFFSET(0x21c, 0x2cc), 0, 4);

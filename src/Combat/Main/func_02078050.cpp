@@ -21,7 +21,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_020794f8(void* arg0, int arg1, int arg2);
 
 struct Struct_02033b68;
-extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
+extern "C" void SetMotionIfDifferent_02033b68(struct Struct_02033b68* object, int motion);
 
 struct Struct_02033834_2;
 extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
@@ -32,7 +32,7 @@ extern "C" void* GetZone3D_02012fe4(void);
 
 struct Struct_02039df4;
 
-extern "C" int func_02018fbc(int arg0, void* arg1);
+extern "C" int GetGroundHeight_02018fbc(int zone, void* position);
 
 struct Vector3i;
 
@@ -72,7 +72,7 @@ extern "C" ARM void func_02078050(struct Struct_02078050* arg0) {
 
     arg0->unknown_b4_ = 0x1c2;
     arg0->unknown_b2_ = 0x1c2;
-    func_02033b68((struct Struct_02033b68*)arg0, 1);
+    SetMotionIfDifferent_02033b68((struct Struct_02033b68*)arg0, 1);
 
     struct Struct_ov009_0218aa28 var1 = arg0->unknown_44_;
     var1.unknown_4_ = 0;
@@ -99,7 +99,7 @@ extern "C" ARM void func_02078050(struct Struct_02078050* arg0) {
     unsigned short var7 = var5->unknown_0_;
 
     if (var7 == ((Object3D*)((struct Struct_02039df4*)arg0))->GetField06() && var5->unknown_424_ == 0) {
-        var6.unknown_4_ = func_02018fbc((int)var5, &var6);
+        var6.unknown_4_ = GetGroundHeight_02018fbc((int)var5, &var6);
         *(Vector3i*)((int*)&arg0->unknown_44_) = *(Vector3i const*)((int*)&var6);
     }
 

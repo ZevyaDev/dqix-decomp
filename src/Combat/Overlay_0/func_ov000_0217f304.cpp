@@ -3,7 +3,7 @@
 struct Struct_0205c570;
 struct MenuCursor_0205bb84;
 
-extern "C" int func_0205bf58(void* arg0, int arg1);
+extern "C" int UpdateKeyMenuCursor_0205bf58(void* cursor, int ticks);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 extern "C" int GetMenuCursorIndex_0205bb84(struct MenuCursor_0205bb84* cursor);
 extern "C" int func_ov000_021753d8(void* arg0, int arg1);
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov000_0217f304(struct Struct_ov000_0217f304_2* arg0, in
     if (arg3 == NULL) return;
     int var1 = arg3->unknown_10_[arg3->unknown_18_];
     if (var1 != 0xe && var1 != 0x19) return;
-    func_0205bf58(arg0->unknown_244_, 1);
+    UpdateKeyMenuCursor_0205bf58(arg0->unknown_244_, 1);
     var0 = GetCursorIndex_0205d794((struct Struct_0205c570*)arg0->unknown_188_);
     int var2 = GetMenuCursorIndex_0205bb84((struct MenuCursor_0205bb84*)arg0->unknown_244_);
     int var3 = arg3->unknown_1d_;

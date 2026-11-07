@@ -27,7 +27,7 @@ extern "C" void SetMessageNumberAlignment_020465d8(unsigned char *window, int in
 extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" int GetStringLength_020d2ff0(const char *string);
 extern "C" void *__clear(void *arg0, int arg1);
-extern "C" int func_ov017_021bdbcc(GameResources *arg0);
+extern "C" int GetHaloObject_ov017_021bdbcc(GameResources *gameResources);
 extern "C" void func_020474a8(void *arg0, int arg1, const char *arg2, char *arg3);
 
 static inline unsigned short inline_ov002_0215f7ac(char *arg0, int arg1) { return *(unsigned short *) (arg0 + arg1); }
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov002_0215f7ac(char *arg0, char *arg1) {
     int var7 = (0x40 - GetStringLength_020d2ff0(FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8),
                                                     (short) (var5->unknown_8b8_ + 0x834))) / 2 * 8) / 2;
     SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var3, 8, var7);
-    if (func_ov017_021bdbcc(GetGameResources())) {
+    if (GetHaloObject_ov017_021bdbcc(GetGameResources())) {
         SetMessageString_02046574((struct Struct_02046574_2 *) var3, 1, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x834));
     } else if (*(int *) ((char *) var4 + 0x1b8) == 0) {
         SetMessageString_02046574((struct Struct_02046574_2 *) var3, 1,

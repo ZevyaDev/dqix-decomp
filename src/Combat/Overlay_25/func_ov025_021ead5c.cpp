@@ -35,7 +35,7 @@ extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" BattleAction_ov000_0215440c* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 extern "C" int func_ov000_0215fd90(Struct_ov025_021ead5c_2* arg0, int arg1);
-extern "C" short func_ov000_0215ffa0(ActionTarget_ov000_021600f8* arg0);
+extern "C" short GetLatestTargetCombatantIndex_ov000_0215ffa0(ActionTarget_ov000_021600f8* entry);
 extern "C" int func_ov025_021ed380(char* arg0, int arg1, int arg2, int arg3, int arg4, short arg5, unsigned short arg6);
 
 static inline int inline_ov017_021c530c(int arg0) {
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov025_021ead5c(Struct_ov025_021ead5c* arg0, int arg1) {
                 if (var6->unknown_e_ > 0) {
                     continue;
                 }
-                int var7 = func_ov000_0215ffa0(var5);
+                int var7 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var5);
                 if (inline_ov017_021c530c(var7)) {
                     if (var3 == 0) {
                         var3 = var7;

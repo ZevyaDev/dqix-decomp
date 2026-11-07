@@ -13,7 +13,7 @@ struct Struct_ov024_021da670_6;
 extern "C" int func_ov024_021da998(struct Struct_ov024_021da670_6* arg0);
 struct Struct_ov024_021dd028_5;
 extern "C" int func_ov024_021dd260(struct Struct_ov024_021dd028_5* arg0);
-extern "C" void func_ov024_021ed8c0(void* arg0, int arg1, int arg2, int* arg3, short* arg4);
+extern "C" void ChooseEnemyActionTargets_ov024_021ed8c0(void* targetSelector, int actorIndex, int action, int* count, short* targetIndices);
 
 struct Struct_ov024_021f2ab4 { char unknown_0_[0x2e]; short unknown_2e_; };
 
@@ -58,6 +58,6 @@ extern "C" ARM int func_ov024_021f2ab4(int* arg0, int arg1, int arg2, int* arg3,
 	}
 	if (*arg3 <= 0) return 0;
 
-	func_ov024_021ed8c0(arg0, arg1, arg2, arg3, arg4);
+	ChooseEnemyActionTargets_ov024_021ed8c0(arg0, arg1, arg2, arg3, arg4);
 	return 1;
 }

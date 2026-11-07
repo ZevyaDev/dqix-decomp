@@ -14,7 +14,7 @@ struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
-extern "C" void func_020a2794(void* arg0);
+extern "C" void EnableCameraFollow_020a2794(void* camera);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_ov017_0218d5ac(void* arg0);
 struct Struct_02046b38;
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov017_021b58b8(Struct_ov017_021b58b8* arg0, Struct_0204
                 arg0->unknown_18_ = 0;
                 int var5 = GetFollowCamera_020100f8((char*)var0);
                 if (var5 != 0) {
-                    func_020a2794((void*)var5);
+                    EnableCameraFollow_020a2794((void*)var5);
                 }
                 GameResources* var6 = GetGameResources();
                 if (var6 != 0) {

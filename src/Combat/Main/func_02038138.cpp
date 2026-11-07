@@ -51,9 +51,9 @@ struct Struct_02038138_4 {
 extern "C" char* GetZone3D_02012fe4();
 extern "C" struct Struct_02038138_3* func_ov017_0218d268(void*);
 extern "C" void SetMotion_02033b88(struct Struct_02010604*, int);
-extern "C" void func_02033b68(struct Struct_02033b68*, int);
+extern "C" void SetMotionIfDifferent_02033b68(struct Struct_02033b68*, int);
 extern "C" void func_02033b58(struct Struct_02033b58*, unsigned char);
-extern "C" int func_0202e7f0(void*);
+extern "C" int GetCameraYaw_0202e7f0(void*);
 int fix32ReduceAngle0To2Pi(int);
 extern "C" struct Struct_02038138_2* func_0201e8fc(struct Struct_0201e8fc_2*, struct Struct_ov009_0218aa28*);
 int fix32SignedAngleDistance(int, int);
@@ -135,12 +135,12 @@ extern "C" ARM void func_02038138(struct Struct_02038138_4* arg0) {
         arg0->unknown_255_ = -1;
     } else if (var3 == 1) {
         if (arg0->unknown_c0_ == 0 || arg0->unknown_c0_ == 0xa) {
-            func_02033b68((struct Struct_02033b68*)arg0, 1);
+            SetMotionIfDifferent_02033b68((struct Struct_02033b68*)arg0, 1);
         } else {
             func_02033b58((struct Struct_02033b58*)arg0, 1);
         }
         int var9 = data_020e780c[arg0->unknown_250_ - 8];
-        int var10 = fix32ReduceAngle0To2Pi(var9 + func_0202e7f0(var1));
+        int var10 = fix32ReduceAngle0To2Pi(var9 + GetCameraYaw_0202e7f0(var1));
         if (arg0->unknown_255_ == arg0->unknown_250_) {
             var10 = arg0->unknown_256_;
         } else {
@@ -164,7 +164,7 @@ extern "C" ARM void func_02038138(struct Struct_02038138_4* arg0) {
         SetFacing_02033834((struct Struct_02033834_2*)arg0, var10);
     } else if (var3 == 2) {
         if (arg0->unknown_c0_ == 0) {
-            func_02033b68((struct Struct_02033b68*)arg0, 1);
+            SetMotionIfDifferent_02033b68((struct Struct_02033b68*)arg0, 1);
         } else {
             func_02033b58((struct Struct_02033b58*)arg0, 1);
         }

@@ -273,7 +273,7 @@ extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject)
 extern "C" struct Struct_ov004_0215f0c0_10* func_ov004_0215e47c(void* arg0, int arg1);
 extern "C" void* func_ov023_021fad18(void* arg0);
 extern "C" struct Struct_ov004_0215f0c0_8* func_ov004_0215e438(void* arg0, int arg1);
-extern "C" int func_ov017_021bdbcc(void* arg0);
+extern "C" int GetHaloObject_ov017_021bdbcc(void* gameResources);
 extern "C" void* GetWindowTile_020421b0(int tileIndex);
 extern "C" unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8* gameState);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
@@ -284,7 +284,7 @@ extern "C" int func_020420e8(void* arg0, int arg1);
 extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" int func_ov004_0215e460(void);
 extern "C" void func_ov004_0215e49c(void*, int, int);
-extern "C" struct StringList_02072a68_2* func_ov023_021fa598(Struct_ov004_0215f0c0_5* arg0);
+extern "C" struct StringList_02072a68_2* GetMenuObjectStringList_ov023_021fa598(Struct_ov004_0215f0c0_5* object);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ClearMessageParams_02046380(void* window);
@@ -325,7 +325,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
                     struct Struct_ov004_0215f0c0_7* var12;
                     if (var11 != 0 && (var12 = var11->unknown_8_) != 0) {
                         var7 = var10->unknown_150_->unknown_950_;
-                        int var13 = func_ov017_021bdbcc(GetGameResources());
+                        int var13 = GetHaloObject_ov017_021bdbcc(GetGameResources());
                         if (var13 != 0) {
                             var7 = 0;
                         }
@@ -529,7 +529,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
 #else
         Struct_ov004_0215f0c0_5* var39 = FindMenuObjectById_ov023_021f6880(var19, 6);
         if (var39 != 0 && func_ov023_021f6f10(var39) == 4) {
-            struct StringList_02072a68_2* var40 = func_ov023_021fa598(var39);
+            struct StringList_02072a68_2* var40 = GetMenuObjectStringList_ov023_021fa598(var39);
             struct Struct_ov004_0215f0c0_9 var41;
             InitPartyMemberNoun_020e4bf4(&var41, data_ov004_02170804);
             int var42 = GetMessageWindow_020421a0();
@@ -590,7 +590,7 @@ extern "C" int GetEquippedItem_02052df8(struct Struct_ov004_0215f770_3* gameObje
 extern "C" struct Struct_ov004_0215f770_2* FindItemData_020dedd0(struct Struct_0200fb08* itemTable, int itemId);
 extern "C" int GetCamera_020100bc(GameState* gameState);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
-extern "C" void InitFollowCamera_020a2010(void* arg0);
+extern "C" void InitFollowCamera_020a2010(void* storage);
 extern "C" void func_0202e5c0(struct Struct_ov004_0215f770_4* arg0, int arg1, int arg2, int arg3);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);

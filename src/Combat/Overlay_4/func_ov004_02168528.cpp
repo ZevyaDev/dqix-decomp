@@ -11,7 +11,7 @@ struct Struct_0203e2c4_2 {
     struct Struct_0203d028_21* unknown_18_;
 };
 
-extern "C" void* func_0203cf4c(void);
+extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
 extern "C" void func_02040b2c(struct Struct_0203e2c4_2* arg0, int arg1);
 extern "C" int func_020415b0(Struct_0203d028_21*, int, int);
@@ -20,7 +20,7 @@ extern char data_ov004_021706f4[];
 
 // USA: func_ov004_02168528
 extern "C" ARM int func_ov004_02168528(void) {
-    struct Struct_0203e2c4_2* var0 = (struct Struct_0203e2c4_2*)FindNPCById_0203df78(func_0203cf4c(), 0x67);
+    struct Struct_0203e2c4_2* var0 = (struct Struct_0203e2c4_2*)FindNPCById_0203df78(GetNPCManager_0203cf4c(), 0x67);
     if (var0) {
         func_02040b2c(var0, 0);
         var0->unknown_18_->unknown_d0_ = 5;

@@ -13,7 +13,7 @@ extern char data_ov013_02188d20[];
 extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void EnableTouchMenuCursor_0205cef8(void* windowManager);
-extern "C" void func_0205cf04(void* arg0);
+extern "C" void EnableKeyMenuCursor_0205cf04(void* windowManager);
 extern "C" void func_ov013_02185310(unsigned char* arg0);
 extern "C" void func_ov013_02185cc0(void* arg0);
 extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov013_02184d80(Struct_ov013_02184d80_4* arg0) {
             BG1CNTSUB = (BG1CNTSUB & ~3) | 3;
             DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | 0x1700;
             EnableTouchMenuCursor_0205cef8(&arg0->unknown_38_);
-            func_0205cf04(&arg0->unknown_38_);
+            EnableKeyMenuCursor_0205cf04(&arg0->unknown_38_);
             func_ov013_02185310((unsigned char*)arg0);
             func_ov013_02185cc0(arg0);
             arg0->unknown_63e_ = 0;
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov013_02184d80(Struct_ov013_02184d80_4* arg0) {
         if (arg0->unknown_63e_ == 0)
         {
             FontLoader_0208cb08* var3 = GetFontLoader_02094a00();
-            func_02094b3c(var3, 0xc);
+            ClearLoadedFontSetForSize_02094b3c(var3, 0xc);
             RequestSingleFontLoad_02094b30(var3, 0x1f7, 0);
             arg0->unknown_63e_++;
         }
@@ -264,7 +264,7 @@ extern "C" ARM void func_ov013_02184d80(Struct_ov013_02184d80_4* arg0) {
             BG2CNT = BG2CNT & ~3;
             DISPCNT = (DISPCNT & ~0x1f00) | 0x1700;
             EnableTouchMenuCursor_0205cef8(&arg0->unknown_38_);
-            func_0205cf04(&arg0->unknown_38_);
+            EnableKeyMenuCursor_0205cf04(&arg0->unknown_38_);
             func_ov013_02185310((unsigned char*)arg0);
             func_ov013_02185cc0(arg0);
             arg0->unknown_63e_ = 0;

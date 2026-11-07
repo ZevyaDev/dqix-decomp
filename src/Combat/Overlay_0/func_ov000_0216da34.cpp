@@ -10,7 +10,7 @@ struct Struct_0202ecc8 { unsigned int unknown_0_[12]; };
 struct Struct_0202ecc8_2;
 extern "C" void func_0202ecc8(struct Struct_0202ecc8_2* arg0, struct Struct_0202ecc8* arg1);
 extern "C" void func_0202ecec(unsigned char* arg0);
-extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* arg1);
+extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
 
 extern Vector3i data_ov000_02183274;
 

@@ -39,7 +39,7 @@ extern Struct_021015a0_2 gLocalWirelessLink_021015a0;
 extern unsigned char data_02101b80[0x400];
 extern Struct_02101640 data_02101640;
 extern Struct_021016e0 data_021016e0;
-extern "C" void func_0202c848(int);
+extern "C" void SetLocalWirelessLinkError_0202c848(int);
 extern "C" int func_0202d0e0();
 extern "C" void InvalidateDataCacheRange(const void*, unsigned int);
 extern "C" int func_020c0290(Struct_021016e0*);
@@ -49,7 +49,7 @@ static inline int inline_0202cefc(Struct_021016e0* arg0) { return arg0->unknown_
 // USA: func_0202cefc
 extern "C" ARM void func_0202cefc(Struct_0202cefc* arg0) {
     if (arg0->unknown_2_ != 0) {
-        func_0202c848(arg0->unknown_2_);
+        SetLocalWirelessLinkError_0202c848(arg0->unknown_2_);
         gLocalWirelessLink_021015a0.unknown_10_ = 9;
         return;
     }

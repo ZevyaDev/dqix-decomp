@@ -14,7 +14,7 @@ extern "C" ARM void func_02092f00(struct Struct_02092f00* arg0) {
     if (!(var0 & 4)) return;
     FontLoader_0208cb08* var1 = GetFontLoader_02094a00();
     if (arg0->unknown_36_ == 0) {
-        func_02094b3c(var1, 0xa);
+        ClearLoadedFontSetForSize_02094b3c(var1, 0xa);
         RequestSingleFontLoad_02094b30(var1, 0x1f8, 0);
         arg0->unknown_36_ = arg0->unknown_36_ + 1;
         return;

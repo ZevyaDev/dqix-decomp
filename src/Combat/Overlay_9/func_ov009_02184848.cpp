@@ -17,7 +17,7 @@ extern "C" void func_02045cac(struct Struct_02045cac* arg0);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void DestroySpriteSet_0205a494(void* spriteSet);
-extern "C" void* func_0203bd14();
+extern "C" void* GetSpriteTextManager_0203bd14();
 extern "C" void func_0203c4c4(char* arg0);
 struct BGLayer_0204b010;
 extern "C" void ClearBGScreenData_0204b010(BGLayer_0204b010* layer, void* screenData);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov009_02184848(Struct_ov009_021842a0* arg0) {
     if (*(void**)(var0 + R(0x7a8,0x7e4)) != 0) {
         DestroySpriteSet_0205a494(*(void**)(var0 + R(0x7a8,0x7e4)));
     }
-    func_0203c4c4((char*)func_0203bd14());
+    func_0203c4c4((char*)GetSpriteTextManager_0203bd14());
 
     {
         void* var2[6];

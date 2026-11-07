@@ -11,7 +11,7 @@ struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 
 extern "C" int GetFollowCamera_020100f8(char* gameState);
-extern "C" void func_020a27ac(void* arg0);
+extern "C" void EnableCameraTurning_020a27ac(void* camera);
 extern "C" void func_020e1154(void* arg0);
 
 struct Struct_020e455c {
@@ -53,7 +53,7 @@ extern "C" ARM void func_020e455c(struct Struct_020e455c_2* arg0) {
         arg0->unknown_c_ = -1;
     }
 
-    func_020a27ac((void*)GetFollowCamera_020100f8((char*)var0));
+    EnableCameraTurning_020a27ac((void*)GetFollowCamera_020100f8((char*)var0));
     func_020e1154((void*)0x3e8);
     arg0->unknown_1_ = 1;
 }

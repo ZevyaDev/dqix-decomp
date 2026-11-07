@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int func_ov017_021a4e70(unsigned char* arg0);
-extern "C" unsigned char func_02039d7c(char* arg0);
+extern "C" unsigned char IsOnLadder_02039d7c(char* object);
 
 struct Struct_ov017_0219b33c {
     unsigned char unknown_0_;
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov017_0219b33c(char* arg0, struct Struct_ov017_0219b33c
 
     if (var0) {
         if (*(int*)((char*)var0 + Enum_ov017_0219b33c_396) & 1) return;
-        if (func_02039d7c((char*)var0) != 0) return;
+        if (IsOnLadder_02039d7c((char*)var0) != 0) return;
     }
 
     if (*(short*)(arg0 + Enum_ov017_0219b33c_14020) < arg1->unknown_10_) return;

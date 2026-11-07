@@ -10,7 +10,7 @@
 
 struct Struct_020534ac;
 
-extern "C" void* func_0203bd14();
+extern "C" void* GetSpriteTextManager_0203bd14();
 extern "C" void* GetOAMManager_0203bd08(void);
 extern "C" void* GetSubOAMBuffer_0203be4c(void);
 
@@ -30,12 +30,12 @@ extern "C" ARM void func_02020aec(Struct_02020554* arg0, Type_02020aec arg1, Saf
     var0->GetLoadedFileByID(*arg1, &var1, &var2);
 #endif
 
-    char* var3 = (char*)func_0203bd14();
+    char* var3 = (char*)GetSpriteTextManager_0203bd14();
     *(int*)(var3 + (IS_JPN ? 0x608 : 0x508)) = 0x2000;
     GetOAMManager_0203bd08();
 
     char* var4 = (char*)GetSubOAMBuffer_0203be4c() + 0x2c0;
-    var3 = (char*)func_0203bd14();
+    var3 = (char*)GetSpriteTextManager_0203bd14();
     *(char**)var3 = var4;
 
     func_0205a498(&arg0->unknown_94_, (PacEntry_02020aec*)var1, var2, arg2);

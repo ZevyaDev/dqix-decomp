@@ -20,7 +20,7 @@ struct Struct_0208b9a0 {
     unsigned short unknown_c_, unknown_e_;
 };
 extern "C" void func_0208d82c(struct Struct_0208b9a0* arg0);
-extern "C" int* func_02094d6c(void);
+extern "C" int* GetQuestManager_02094d6c(void);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_020e2d24(int* arg0, int arg1, int arg2);
 extern "C" void* GetFlagManager_0205ec34(void);
@@ -48,7 +48,7 @@ struct Struct_ov004_02166844 {
 extern "C" ARM int func_ov004_02166844(void* arg0) {
     char* var0;
     data_ov004_0217101c[Enum_ov004_02166844_0] = 0;
-    int* var1 = func_02094d6c();
+    int* var1 = GetQuestManager_02094d6c();
     char* var2 = (char*)GetFlagManager_0205ec34();
     var0 = (char*)func_ov011_021845f8(arg0, 0);
     if (var0 == 0) {

@@ -17,7 +17,7 @@
 #include <GameState/GameState.h>
 
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" short* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
+extern "C" short* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
 extern "C" signed char* func_0207c60c(void* arg0, unsigned int arg1);
 
 extern "C" unsigned char data_ov005_0215cd60[8];
@@ -45,7 +45,7 @@ struct Struct_ov005_02153954 {
 // USA: func_ov005_021555c0
 extern "C" ARM void func_ov005_021555c0(Struct_ov005_02153954* arg0) {
     char* var0 = (char*)GetParty_02010828(GameState::GetInstance());
-    short* var1 = func_0207c5f8((unsigned char*)(var0 + 0x1d4), data_ov005_0215cd60[arg0->unknown_3dbc_]);
+    short* var1 = GetEquipmentBagItemIds_0207c5f8((unsigned char*)(var0 + 0x1d4), data_ov005_0215cd60[arg0->unknown_3dbc_]);
     signed char* var2 = func_0207c60c(var0 + 0x1d4, data_ov005_0215cd60[arg0->unknown_3dbc_]);
     signed char var3 = arg0->unknown_3dbd_;
     for (int var4 = 0; var4 < 16; var4++) {

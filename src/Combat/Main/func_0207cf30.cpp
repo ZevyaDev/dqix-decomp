@@ -8,7 +8,7 @@ struct ItemTable_0201099c_10;
 struct ItemData_0201099c_9;
 struct Struct_0207cf30_3;
 struct Struct_0207cf30_4;
-struct Struct_0205faf4_11;
+struct PartyMember_0205faf4_11;
 struct Struct_0207cf30;
 
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
@@ -16,7 +16,7 @@ extern "C" void* func_0207d6dc(SafeAllocator* arg0, int arg1, int arg2);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int func_020a0b3c(struct Struct_0207cf30_3* arg0, int arg1);
 extern "C" int func_020a095c(struct Struct_0207cf30_4* arg0, int arg1, int arg2);
-extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
+extern "C" int func_02061bd8(struct PartyMember_0205faf4_11* arg0);
 extern "C" struct Struct_0207cf30* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 
@@ -72,7 +72,7 @@ extern "C" ARM int func_0207cf30(struct Struct_0207cf30_2* arg0, short arg1, int
                 GameObject* var10 = GetPartyMemberBaseByIndex_0200ff1c(var3, *(unsigned char*)(var8 + var9 + 0xf78));
                 if (var10 == NULL)
                     continue;
-                if (func_02061bd8((struct Struct_0205faf4_11*)var10) != 0)
+                if (func_02061bd8((struct PartyMember_0205faf4_11*)var10) != 0)
                     continue;
                 struct Struct_0207cf30* var11 = GetPartyMemberData_02053c6c((unsigned char*)var10);
                 if (var11 == NULL)

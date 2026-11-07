@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-// USA: func_0207c5f8
-extern "C" ARM void* func_0207c5f8(unsigned char* arg0, unsigned int arg1) {
-    if (arg1 > 7) {
+// USA: GetEquipmentBagItemIds_0207c5f8
+extern "C" ARM void* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category) {
+    if (category > 7) {
         return NULL;
     }
-    return *(void**)(arg0 + arg1 * 4 + 0xbd0);
+    return *(void**)(bag + category * 4 + 0xbd0);
 }

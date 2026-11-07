@@ -45,7 +45,7 @@ extern "C" ARM void func_02033ba0(void *arg0, int arg1) {
         if (var3 < 7) {
             Struct_020e77bc var4 = data_020e77bc;
             int var5               = 0;
-            if (var0->unknown_0_.unknown_4_ >= 0xc0 && var0->unknown_0_.unknown_4_ <= 0xc7) {
+            if (var0->unknown_0_.objectIndex_4_ >= 0xc0 && var0->unknown_0_.objectIndex_4_ <= 0xc7) {
                 var5 = 1;
             }
             if (!var0->unknown_0_.MaybeSetRegularAnimation(data_020ef978[var4.unknown_0_[var5][var3]], 0x10)) {

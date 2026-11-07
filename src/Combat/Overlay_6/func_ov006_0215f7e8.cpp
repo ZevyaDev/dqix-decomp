@@ -4,7 +4,7 @@ struct Struct_ov006_02154614;
 struct Struct_ov006_02158d50_2;
 struct MenuLayout_02080fa8;
 struct Struct_0201099c_3;
-struct Struct_02080f8c;
+struct MenuLayout_02080f8c;
 struct Struct_02080cc0;
 struct MenuLayout_0207fdcc_2;
 
@@ -126,7 +126,7 @@ extern "C" void func_02080bac(void* arg0, int arg1);
 extern "C" void func_0208065c(void* arg0, int arg1);
 extern "C" void SetMenuLayoutTextValue_02080fa8(MenuLayout_02080fa8* menuLayout, int textId, int value);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
-extern "C" void func_02080f8c(Struct_02080f8c* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c* menuLayout, int textId, int text);
 extern "C" void func_02080cc0(Struct_02080cc0* arg0, int arg1, int arg2);
 extern "C" Struct_ov006_021555b0* func_ov006_02153c6c(void* arg0, short arg1);
 extern "C" const char** FindNounInTable_020e5294(void* nounTable, int nounId);
@@ -135,10 +135,10 @@ extern "C" void ExpandInflectionTags_020e4864(const char* text, char* buffer, in
 extern "C" void func_020805f4(void* arg0, int arg1);
 extern "C" void func_020806b0(void* arg0, int arg1);
 extern "C" void func_02080b2c(void* arg0, int arg1);
-extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 extern "C" void func_02081ea4(MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
 extern "C" void func_02081130(void* arg0, int arg1, int arg2);
-extern "C" void func_020813ec(void* arg0, int arg1);
+extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
 // USA: func_ov006_0215f7e8
 extern "C" ARM void func_ov006_0215f7e8(Struct_ov006_02157a60* arg0) {
@@ -161,7 +161,7 @@ extern "C" ARM void func_ov006_0215f7e8(Struct_ov006_02157a60* arg0) {
     {
         if (var2 != 0)
         {
-            func_02080f8c((Struct_02080f8c*)var1, var4, (int)var3);
+            SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)var1, var4, (int)var3);
             func_02080cc0((Struct_02080cc0*)var1, var4, 3);
             Struct_ov006_021555b0* var6 = func_ov006_02153c6c(arg0->unknown_74_, var2->unknown_0_);
             if (var6 != 0)
@@ -170,7 +170,7 @@ extern "C" ARM void func_ov006_0215f7e8(Struct_ov006_02157a60* arg0) {
 #if defined(jpn)
                 if (var6->unknown_2_1_)
                     var7 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_170_, var2->unknown_2_);
-                func_02080f8c((Struct_02080f8c*)var1, var4, (int)var7);
+                SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)var1, var4, (int)var7);
 #else
                 if (var6->unknown_2_1_)
                 {
@@ -182,7 +182,7 @@ extern "C" ARM void func_ov006_0215f7e8(Struct_ov006_02157a60* arg0) {
                         var7 = arg0->unknown_4_[var5];
                     }
                 }
-                func_02080f8c((Struct_02080f8c*)var1, var4, (int)var7);
+                SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)var1, var4, (int)var7);
                 func_020805f4(var1, var4);
 #endif
                 func_02080cc0((Struct_02080cc0*)var1, var4, 0xf);
@@ -196,8 +196,8 @@ extern "C" ARM void func_ov006_0215f7e8(Struct_ov006_02157a60* arg0) {
         }
         var4++;
     }
-    func_02080c68(var1, 9, 0);
+    SetMenuLayoutWindowPalette_02080c68(var1, 9, 0);
     func_02081ea4((MenuLayout_0207fdcc_2*)var1, 9, 0);
     func_02081130(var1, 9, (arg0->unknown_394_ & 4) ? 1 : 0);
-    func_020813ec(var1, 9);
+    OpenMenuLayoutWindow_020813ec(var1, 9);
 }

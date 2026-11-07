@@ -25,7 +25,7 @@ extern "C" void SetMenuLayoutTextValue_02080fa8(MenuLayout_02080fa8*, int, int);
 extern "C" void func_02081164(Struct_02081164*, int, int);
 extern "C" void func_020806d8(void*, int, int, int, int);
 extern "C" int func_ov006_02154138(int*);
-extern "C" void func_020813ec(void*, int);
+extern "C" void OpenMenuLayoutWindow_020813ec(void*, int);
 
 // USA: func_ov006_0215fa1c
 extern "C" ARM void func_ov006_0215fa1c(Struct_ov006_0215fa1c* arg0, int arg1) {
@@ -58,5 +58,5 @@ extern "C" ARM void func_ov006_0215fa1c(Struct_ov006_0215fa1c* arg0, int arg1) {
         }
     }
     func_02081164((Struct_02081164*)var0, 0xd, 1);
-    func_020813ec(var0, 0xd);
+    OpenMenuLayoutWindow_020813ec(var0, 0xd);
 }

@@ -23,7 +23,7 @@ struct Struct_02048cf0_3 {
 extern "C" int func_020493ec(unsigned char*);
 extern "C" int func_020493c8(unsigned char*);
 extern "C" int GetCombatantCell_020493a4(unsigned char*);
-extern "C" void func_02049390(unsigned char*, unsigned char);
+extern "C" void SetCombatantCell_02049390(unsigned char*, unsigned char);
 extern "C" void func_020493b8(unsigned char*, unsigned char);
 extern "C" void func_020493dc(unsigned char*, unsigned char);
 extern "C" void func_02049bd4(unsigned char*, int*);
@@ -60,7 +60,7 @@ extern "C" ARM void func_02048cf0(struct Struct_02048cf0_3* arg0, int arg1) {
             *(Vector3i*)arg0->unknown_44_ = *(Vector3i const*)var2.unknown_0_;
         }
     }
-    func_02049390((unsigned char*)arg0, var0 & 0xff);
+    SetCombatantCell_02049390((unsigned char*)arg0, var0 & 0xff);
     func_020493b8((unsigned char*)arg0, 0xff);
     if (arg1 == 0) {
         func_020493dc((unsigned char*)arg0, 0xff);

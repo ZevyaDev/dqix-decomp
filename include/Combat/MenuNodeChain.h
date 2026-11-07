@@ -9,7 +9,7 @@ struct Struct_0207f7f0_2 {
     unsigned char unknown_8_[0xd8];
 };
 
-struct Struct_0207f7f0 {
+struct MenuLayout_0207f7f0 {
     int unknown_0_;
     unsigned char unknown_4_[8];
     unsigned char unknown_c_[8];
@@ -30,7 +30,7 @@ struct Struct_0207f7f0 {
     unsigned char unknown_3c_;
 };
 
-extern "C" void func_0207f84c(Struct_0207f7f0*);
-extern "C" void func_0207f7f0(Struct_0207f7f0*, Struct_0207f7f0_2*, int);
+extern "C" void ResetMenuLayout_0207f84c(MenuLayout_0207f7f0*);
+extern "C" void func_0207f7f0(MenuLayout_0207f7f0*, Struct_0207f7f0_2*, int);
 
-extern "C" void func_0207f8bc(Struct_0207f7f0*);
+extern "C" void func_0207f8bc(MenuLayout_0207f7f0*);

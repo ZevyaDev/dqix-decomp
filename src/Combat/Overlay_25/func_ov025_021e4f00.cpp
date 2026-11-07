@@ -4,7 +4,7 @@
 
 struct Struct_0204a5d4;
 extern "C" int func_0202e09c(int arg0);
-extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 extern "C" void func_0204a5d4(struct Struct_0204a5d4* arg0, int arg1);
 extern "C" void func_ov000_0216d530(void* arg0, int arg1);
 
@@ -20,13 +20,13 @@ extern "C" ARM int func_ov025_021e4f00(struct Struct_ov025_021e4f00* arg0, int a
     void* var2 = GetCamera_020100bc(GameState::GetInstance());
     if (var2 != 0) {
         if (func_0202e09c((int)var2) & 0x10) {
-            if (func_ov000_021820bc(arg3, arg1, arg0->unknown_8_, (int)var0) != 1) {
+            if (CollectObjectIndicesBySelector_ov000_021820bc(arg3, arg1, arg0->unknown_8_, (int)var0) != 1) {
                 func_0204a5d4((struct Struct_0204a5d4*)var2, -1);
                 return 1;
             }
             func_0204a5d4((struct Struct_0204a5d4*)var2, var0[0]);
         } else if (func_0202e09c((int)var2) & 8) {
-            if (func_ov000_021820bc(arg3, arg1, arg0->unknown_8_, (int)var1) != 1) {
+            if (CollectObjectIndicesBySelector_ov000_021820bc(arg3, arg1, arg0->unknown_8_, (int)var1) != 1) {
                 func_ov000_0216d530(var2, -1);
                 return 1;
             }

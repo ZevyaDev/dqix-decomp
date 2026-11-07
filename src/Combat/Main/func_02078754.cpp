@@ -19,7 +19,7 @@ struct Struct_02033834_2;
 extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 
 struct Struct_02033b68;
-extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
+extern "C" void SetMotionIfDifferent_02033b68(struct Struct_02033b68* object, int motion);
 
 struct Struct_02037d88_8;
 
@@ -60,7 +60,7 @@ extern "C" ARM int func_02078754(struct Struct_02078754* arg0) {
     SetFacing_02033834((struct Struct_02033834_2*)arg0, var4);
 
     arg0->unknown_b2_ = 0;
-    func_02033b68((struct Struct_02033b68*)arg0, 0);
+    SetMotionIfDifferent_02033b68((struct Struct_02033b68*)arg0, 0);
     ((Object3D*)((unsigned char*)arg0))->EnableFlag(0x80);
     ((Object3D*)((struct Struct_02037d88_8*)arg0))->SetInheritedAlpha(0x1f);
     arg0->unknown_17a_ = 0;

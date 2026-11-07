@@ -5,7 +5,7 @@
 
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 struct Struct_02052e2c;
-extern "C" short* func_02052e2c(Struct_02052e2c* arg0);
+extern "C" short* GetAppearance_02052e2c(Struct_02052e2c* gameObject);
 struct ItemData_02015ef4_4 {
     int unknown_0_, unknown_4_, unknown_8_, unknown_c_;
     unsigned int unknown_10_0_ : 10;
@@ -34,7 +34,7 @@ extern "C" ARM int func_02072e94(char* arg0, int arg1, int arg2,
                                 ItemData_02015ef4_4* arg3, void* arg4) {
     GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1);
     unsigned char* var1 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var0);
-    Struct_02072e94* var2 = (Struct_02072e94*)func_02052e2c((Struct_02052e2c*)var0);
+    Struct_02072e94* var2 = (Struct_02072e94*)GetAppearance_02052e2c((Struct_02052e2c*)var0);
     int var3 = var2->unknown_14_0_;
     int var4 = GetItemGraphicNumber_020de234(arg3, var2->unknown_14_0_);
     ItemData_02015ef4_4* var5 = NULL;

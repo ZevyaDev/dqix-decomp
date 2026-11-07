@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-extern "C" unsigned char func_02039d7c(char* arg0);
+extern "C" unsigned char IsOnLadder_02039d7c(char* object);
 
 // USA: func_0208ae00
 extern "C" ARM int func_0208ae00(char* arg0, int arg1) {
@@ -27,5 +27,5 @@ extern "C" ARM int func_0208ae00(char* arg0, int arg1) {
     if (*(short*)((char*)var5 + 0xb2) == 0) {
         return 0;
     }
-    return func_02039d7c((char*)var5) == 0 ? 1 : 0;
+    return IsOnLadder_02039d7c((char*)var5) == 0 ? 1 : 0;
 }

@@ -6,7 +6,7 @@
 struct Struct_ov031_02213b20 { unsigned char unknown_0_; unsigned char unknown_1_; unsigned char unknown_2_; unsigned char unknown_3_; };
 struct Struct_ov031_02213b20_2 { unsigned char unknown_0_[0xc0]; };
 struct Struct_ov031_02213b20_3 { unsigned char unknown_0_[0x444]; Struct_ov031_02213b20 unknown_444_[11]; Struct_ov031_02213b20_2 unknown_470_[11]; };
-extern "C" void func_020ca3ec(unsigned int, void*, unsigned int);
+extern "C" void Memset32BitByWord_020ca3ec(unsigned int, void*, unsigned int);
 extern "C" void Memcpy32Bit_020ca408(const void*, void*, unsigned int);
 
 // USA: func_ov031_02213b20
@@ -33,6 +33,6 @@ extern "C" ARM void func_ov031_02213b20(int arg0, Struct_ov031_02213b20_3* arg1)
             --var6;
         } while (--var0 >= 0);
     }
-    func_020ca3ec(0, &var1[10], 4);
-    func_020ca3ec(0, &var2[10], 0xc0);
+    Memset32BitByWord_020ca3ec(0, &var1[10], 4);
+    Memset32BitByWord_020ca3ec(0, &var2[10], 0xc0);
 }

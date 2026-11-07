@@ -6,7 +6,7 @@
 #endif
 
 extern "C" void func_020c9bf0(void);
-extern char data_027e0000;
+extern char gDTCMData_027e0000;
 
 #define INTERRUPT_MASTER_ENABLE (*(volatile unsigned short*)0x04000208)
 
@@ -17,11 +17,11 @@ extern "C" ARM void func_020c9778(bool arg0, unsigned int arg1) {
     INTERRUPT_MASTER_ENABLE = 1;
 
     if (arg0) {
-        *(unsigned int*)((char*)&data_027e0000 + 0x3ff8) &= ~arg1;
+        *(unsigned int*)((char*)&gDTCMData_027e0000 + 0x3ff8) &= ~arg1;
     }
 
-    unsigned int* var2 = (unsigned int*)((char*)&data_027e0000 + 0x3ff8);
-    if ((arg1 & *(unsigned int*)((char*)&data_027e0000 + 0x3ff8)) == 0) {
+    unsigned int* var2 = (unsigned int*)((char*)&gDTCMData_027e0000 + 0x3ff8);
+    if ((arg1 & *(unsigned int*)((char*)&gDTCMData_027e0000 + 0x3ff8)) == 0) {
         do {
             func_020c9bf0();
             EnableIRQInterrupts();

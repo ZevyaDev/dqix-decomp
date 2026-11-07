@@ -85,14 +85,14 @@ extern "C" unsigned int func_02049444(unsigned char*);
 extern "C" int func_020493ec(unsigned char*);
 extern "C" int func_020493c8(unsigned char*);
 extern "C" void func_020493dc(unsigned char*, unsigned char);
-extern "C" void func_02049390(unsigned char*, unsigned char);
+extern "C" void SetCombatantCell_02049390(unsigned char*, unsigned char);
 extern "C" struct Struct_ov000_02169b04_2* func_ov000_02169b04(struct Struct_ov000_02169b04*, int);
 extern "C" struct Struct_ov000_02169b04_2* func_ov000_02169b54(struct Struct_ov000_02169b54*, int);
 extern "C" struct Struct_ov025_021db8d8* GetActionActor_ov000_02160094(struct BattleAction_ov000_0215440c_2*, int);
 extern "C" void func_ov000_02167dd8(unsigned char*);
 extern "C" void func_ov000_02163a7c(struct Struct_ov000_02163a7c*);
 extern "C" int func_ov025_021dfa9c(void* arg0, void* arg1);
-extern "C" void func_ov000_021626a0(void* arg0, int arg1, int arg2);
+extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void* battleScene, int selector, int isVisible);
 extern "C" int func_ov000_02153e40(void* arg0, short* arg1, int arg2, int arg3);
 extern "C" void func_02048cf0(GameObject* arg0, int arg1);
 extern "C" void func_ov000_0216e678(void* arg0, int arg1, int arg2, int arg3, int arg4);
@@ -167,7 +167,7 @@ extern "C" ARM void func_ov025_021db8d8(struct Struct_ov025_021db8d8_6* arg0) {
     }
     int var21 = 0;
     if (var18 || !var19) {
-        func_ov000_021626a0(arg0, 4, 1);
+        SetObjectsVisibleBySelector_ov000_021626a0(arg0, 4, 1);
         var7 = 0;
         GameObject* var22 = var2->GetCombatantByIndex(var17);
         if (var22 && func_020493ec((unsigned char*)var22) != 0xff) {
@@ -233,7 +233,7 @@ extern "C" ARM void func_ov025_021db8d8(struct Struct_ov025_021db8d8_6* arg0) {
             if (var34) {
                 func_020493dc((unsigned char*)var34, var11);
                 if (var11 != 0xff && var10 != 0xff) {
-                    func_02049390((unsigned char*)var34, var10);
+                    SetCombatantCell_02049390((unsigned char*)var34, var10);
                 }
             }
             func_ov000_02167dd8((unsigned char*)arg0);

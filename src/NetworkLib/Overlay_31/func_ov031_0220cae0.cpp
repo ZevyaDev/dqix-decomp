@@ -12,16 +12,16 @@ extern "C" void func_ov031_0220d61c(int, int);
 extern "C" void func_ov031_0220dc40(void);
 struct Struct_ov031_0220dbc8;
 extern "C" void func_ov031_0220dbc8(struct Struct_ov031_0220dbc8* arg0);
-extern int data_ov031_0224e53c;
+extern int gAccessPointConnection_ov031_0224e53c;
 
 // USA: func_ov031_0220cae0
 extern "C" ARM int func_ov031_0220cae0(int arg0, int arg1) {
 	unsigned int var0 = DisableIRQInterrupts();
-	if (data_ov031_0224e53c == 0) {
+	if (gAccessPointConnection_ov031_0224e53c == 0) {
 		SetIRQInterruptState(var0);
 		return 1;
 	}
-	int var1 = *(int*)((char*)data_ov031_0224e53c + 0x2260);
+	int var1 = *(int*)((char*)gAccessPointConnection_ov031_0224e53c + 0x2260);
 	switch (var1) {
 	case 1:
 		func_ov031_0220d61c(arg0, arg1);
@@ -37,8 +37,8 @@ extern "C" ARM int func_ov031_0220cae0(int arg0, int arg1) {
 		return 1;
 	}
 
-	int var2 = (unsigned short)(*(int*)((char*)data_ov031_0224e53c + 0x226c));
-	int var3 = func_020d3dcc(data_ov031_0224e53c, var2);
+	int var2 = (unsigned short)(*(int*)((char*)gAccessPointConnection_ov031_0224e53c + 0x226c));
+	int var3 = func_020d3dcc(gAccessPointConnection_ov031_0224e53c, var2);
 	switch (var3) {
 	case 3:
 		func_ov031_0220da1c(0xb);
@@ -75,7 +75,7 @@ extern "C" ARM int func_ov031_0220cae0(int arg0, int arg1) {
 		switch (var5) {
 		case 2:
 			func_ov031_0220da1c(2);
-			*(unsigned short*)((char*)data_ov031_0224e53c + 0x2280) = 1;
+			*(unsigned short*)((char*)gAccessPointConnection_ov031_0224e53c + 0x2280) = 1;
 			goto ret3;
 		case 8:
 			func_ov031_0220da1c(0xc);

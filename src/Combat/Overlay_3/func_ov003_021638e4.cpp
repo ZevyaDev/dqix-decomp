@@ -49,7 +49,7 @@ struct Struct_020bc1ec {
 
 struct Struct_01ff91ac_30;
 extern "C" Struct_020bc1ec *GetZone3D_02012fe4();
-extern "C" void func_020daf9c(int, int, int, int);
+extern "C" void SetLoadingIndicator_020daf9c(int, int, int, int);
 void SetAndLockBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *, int);
@@ -66,13 +66,13 @@ extern "C" int *GetLocalWireless_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int *);
 extern "C" void func_ov017_021d1810(int, int, signed char);
 extern "C" void *func_020936f8();
-extern "C" void func_02094030(void *, int, int, int);
+extern "C" void QueueNotice_02094030(void *, int, int, int);
 extern "C" unsigned int *GetGlobalFlags_020d6c00();
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState *);
 struct Struct_02052e2c;
-extern "C" Struct_0209a678_2 * func_02052e2c(Struct_02052e2c*);
+extern "C" Struct_0209a678_2 * GetAppearance_02052e2c(Struct_02052e2c*);
 extern "C" void func_ov017_021bbae4(Struct_ov000_0215b278 *, int, int);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
@@ -123,7 +123,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
 
     if (var5 == 0) {
         if (!(arg0->unknown_464_ & 0x40) || arg0->unknown_4b0_ != 0) {
-            func_020daf9c(1, 0, 1, 0);
+            SetLoadingIndicator_020daf9c(1, 0, 1, 0);
             SetAndLockBrightness((GameResources*)var0, 0x10, 0xf);
             arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
         }
@@ -171,7 +171,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
             }
             if (IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18()) != 0) {
                 func_ov017_021d1810(0, -1, (signed char) GetProtagonistObjectIndex_020100a8(var1));
-                func_02094030(func_020936f8(), 1, -1, 0);
+                QueueNotice_02094030(func_020936f8(), 1, -1, 0);
             }
         } else {
             if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() > 0) {
@@ -197,7 +197,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
             ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x80000);
             Struct_020bc1ec *var19   = GetZone3D_02012fe4();
             Struct_ov000_0215b278 *var20     = *(Struct_ov000_0215b278 **) (var0 + 0x3000 + RES_NODE_C_021638e4);
-            Struct_0209a678_2 *var21 = func_02052e2c((Struct_02052e2c*)(var1->GetGameObjectByIndex(GetOwnPartyLeaderObjectIndex_020100b0(var1))));
+            Struct_0209a678_2 *var21 = GetAppearance_02052e2c((Struct_02052e2c*)(var1->GetGameObjectByIndex(GetOwnPartyLeaderObjectIndex_020100b0(var1))));
             func_ov017_021bbae4(var20, var19->unknown_8_, 2);
             var20->unknown_cd_ = GetOwnPartyLeaderObjectIndex_020100b0(var1);
             var20->unknown_ce_ = var21->unknown_14_0_;

@@ -691,7 +691,7 @@ extern "C" void func_02045cac(struct Struct_02045cac* arg0);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void DestroySpriteSet_0205a494(void* spriteSet);
-extern "C" void* func_0203bd14();
+extern "C" void* GetSpriteTextManager_0203bd14();
 extern "C" void func_0203c4c4(char* arg0);
 extern "C" void ClearBGScreenData_0204b010(BGLayer_0204b010*, void*);
 extern "C" void FlushBGScreenData_0204b04c(void*, int);
@@ -703,7 +703,7 @@ extern "C" int func_ov009_02185c58(Struct_ov009_02185c58* arg0);
 extern "C" void func_020a20d8(void* arg0);
 extern "C" Struct_ov006_02158478_2* GetCursorTextWindow_0205d8c4(TextWindowManager_0205d81c* windowManager);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
-extern "C" void func_0205bc24(void* arg0, int arg1);
+extern "C" void SetMenuCursorTouchedIndex_0205bc24(void* cursor, int index);
 extern "C" int UpdateTextWindowManager_0205d0e0(Struct_02081870_2* windowManager, unsigned int ticks);
 extern "C" void func_ov023_021e5020(void* arg0);
 extern "C" void func_ov009_021893c4(Struct_ov009_021842a0_9* arg0, unsigned int arg1);
@@ -743,7 +743,7 @@ extern "C" void* GetBGScreenBlock_0204af14(BGLayer_0204af14* layer, unsigned int
 extern "C" void func_0204b620(Struct_ov003_021594c4* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9);
 extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
 extern "C" GameResources* GetResources_0200fb8c(int*);
-extern "C" void func_020de9a4(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, const void* arg4, int arg5);
+extern "C" void LoadItemTableByIds_020de9a4(void* itemTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize, const void* itemIds, int itemIdCount);
 extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 extern "C" void func_ov023_021e4e8c(void* arg0);
 extern "C" void func_ov023_021e4f64(void* arg0, SafeAllocator* arg1);
@@ -753,7 +753,7 @@ extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int pale
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
-extern "C" void InitFollowCamera_020a2010(void* arg0);
+extern "C" void InitFollowCamera_020a2010(void* storage);
 extern "C" void func_0202e5c0(Struct_0202e5c0* arg0, int arg1, int arg2, int arg3);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
 extern "C" void UpdateCamera_0202e0a4(void* camera);
@@ -806,7 +806,7 @@ extern "C" void func_02083cbc(void*, void*, void*);
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" void func_02083e28(void*, int);
 extern "C" void func_020863c4(unsigned char*);
-extern "C" void func_0209a804(int*);
+extern "C" void ClearSpellTable_0209a804(int*);
 extern "C" void func_0209a810(Struct_0201099c_18*, void*);
 extern "C" void func_02083b60(unsigned char*, int);
 extern "C" void func_020830cc(void*, Struct_ov009_0218742c*);
@@ -828,13 +828,13 @@ extern "C" void func_ov023_021e540c(void* arg0);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
 extern "C" void SetMenuCursorIndex_0205bb04(void*, int);
-extern "C" int func_0205bafc(void*);
+extern "C" int GetMenuCursorItemCount_0205bafc(void*);
 extern "C" int GetMenuCursorIndex_0205bb84(void*);
 extern "C" int func_ov009_0218a8b4(Struct_ov009_02189854_2* arg0, int arg1, int arg2);
 extern "C" int func_ov009_0218aab0(Struct_ov009_021842a0* arg0, unsigned char arg1);
 extern "C" void func_ov009_0218b200(Struct_ov009_021842a0* arg0, int arg1);
 extern "C" void func_ov009_0218b850(Struct_ov009_021842a0* arg0);
-extern "C" int func_0205bf58(Struct_ov009_02188c2c*, unsigned int);
+extern "C" int UpdateKeyMenuCursor_0205bf58(Struct_ov009_02188c2c*, unsigned int);
 extern "C" void func_ov009_0218b2e8(Struct_ov009_021842a0* arg0);
 extern "C" void func_ov009_0218b680(Struct_ov009_021842a0* arg0);
 extern "C" int func_ov009_0218b150(int arg0);
@@ -1089,7 +1089,7 @@ extern "C" ARM void func_ov009_02184848(Struct_ov009_021842a0* arg0) {
     if (*(void**)(var0 + (0x7a8)) != 0) {
         DestroySpriteSet_0205a494(*(void**)(var0 + (0x7a8)));
     }
-    func_0203c4c4((char*)func_0203bd14());
+    func_0203c4c4((char*)GetSpriteTextManager_0203bd14());
 
     {
         void* var2[6];
@@ -1153,7 +1153,7 @@ extern "C" ARM int func_ov009_02184a18(Struct_ov009_021842a0_3* arg0)
     {
         Struct_ov006_02158478_2* var1 = GetCursorTextWindow_0205d8c4((TextWindowManager_0205d81c*)&arg0->unknown_1f8_[1]);
         if (var1 != NULL && IsTextWindowReady_0204c7cc((unsigned char*)var1) != 0 && !(var1->unknown_c5_ & 2))
-            func_0205bc24(&arg0->unknown_1f8_[1].unknown_0_.unknown_4_, -1);
+            SetMenuCursorTouchedIndex_0205bc24(&arg0->unknown_1f8_[1].unknown_0_.unknown_4_, -1);
     }
     UpdateTextWindowManager_0205d0e0(&arg0->unknown_1f8_[0], var0);
     arg0->unknown_d85_ = UpdateTextWindowManager_0205d0e0(&arg0->unknown_1f8_[1], var0);
@@ -2424,7 +2424,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             var17[4].unknown_0_0_ = var18->unknown_72_;
             var17[4].unknown_1_2_ = var18->unknown_0_[3].unknown_0_0_;
             int var19;
-            func_0209a804(&var19);
+            ClearSpellTable_0209a804(&var19);
             Struct_ov009_0218742c_4 var20;
             func_0209a810((Struct_0201099c_18*)&var19, &var20);
             unsigned char var21 = arg0->unknown_d88_->unknown_950_;
@@ -3125,11 +3125,11 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0* arg0)
         unsigned int var5 = GameState::GetInstance()->GetTickCount();
         if (!var5) var5 = 1;
         int var6 = arg0->unknown_bec_.unknown_1c_;
-        if (func_0205bf58(&arg0->unknown_bec_, var5))
+        if (UpdateKeyMenuCursor_0205bf58(&arg0->unknown_bec_, var5))
             var1 = GetMenuCursorIndex_0205bb84((MenuCursor_0205bb84*)&arg0->unknown_bec_);
         if (arg0->unknown_c58_ == 8) {
             int var7 = arg0->unknown_bec_.unknown_c_;
-            int var8 = func_0205bafc(&arg0->unknown_bec_);
+            int var8 = GetMenuCursorItemCount_0205bafc(&arg0->unknown_bec_);
             if (var7 == 1 && var8 == 8) {
                 if (var1 >= arg0->unknown_da0_[arg0->unknown_da3_]) {
                     SetMenuCursorIndex_0205bb04(&arg0->unknown_bec_, arg0->unknown_da0_[arg0->unknown_da3_] - 1);
@@ -3191,7 +3191,7 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0* arg0)
             }
         } else if (arg0->unknown_c58_ != 8) {
             int var9 = arg0->unknown_bec_.unknown_c_;
-            int var10 = func_0205bafc(&arg0->unknown_bec_);
+            int var10 = GetMenuCursorItemCount_0205bafc(&arg0->unknown_bec_);
             if (var9 == 1 && var10 == 8) {
                 if (var1 >= arg0->unknown_da0_[arg0->unknown_da3_]) {
                     SetMenuCursorIndex_0205bb04(&arg0->unknown_bec_, arg0->unknown_da0_[arg0->unknown_da3_] - 1);
@@ -3317,7 +3317,7 @@ extern "C" int func_ov009_0218a8b4(Struct_ov009_02189854_2* arg0, int arg1, int 
         }
 
         int var17 = arg0->unknown_bf8_;
-        int var18 = func_0205bafc(arg0->unknown_bec_);
+        int var18 = GetMenuCursorItemCount_0205bafc(arg0->unknown_bec_);
         if (var17 == 1 && var18 == 8 && var10 >= 0 && var10 != 0x65 && var10 != 0x6c) {
             func_ov009_02188c2c((Struct_ov009_021842a0*)arg0);
             SetMenuCursorIndex_0205bb04(arg0->unknown_bec_, var10);

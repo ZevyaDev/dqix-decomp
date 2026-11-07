@@ -18,8 +18,8 @@ struct LocalWireless_0202c1a4;
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" unsigned char* func_02070fd0(Struct_02070b6c_3* arg0, int arg1);
-extern "C" Struct_02048850_2* func_0206f4f0(Struct_0206f01c_2* arg0, int arg1);
+extern "C" unsigned char* FindMonsterBattleData_02070fd0(Struct_02070b6c_3* table, int monsterId);
+extern "C" Struct_02048850_2* FindMonsterData_0206f4f0(Struct_0206f01c_2* monsterTable, int monsterId);
 extern "C" int IsDead_02010088(Struct_02010088* object);
 extern "C" int func_ov000_02161bb8(unsigned char* arg0);
 extern "C" void func_02048934(void* arg0, Struct_02048934* arg1, Random* arg2);
@@ -250,8 +250,8 @@ extern "C" ARM int func_ov000_02161380(Struct_ov000_02161380_10* arg0, int arg1,
         }
     }
 
-    var12 = func_02070fd0(var0, arg1);
-    var5 = func_0206f4f0(var3, (short)arg1);
+    var12 = FindMonsterBattleData_02070fd0(var0, arg1);
+    var5 = FindMonsterData_0206f4f0(var3, (short)arg1);
     if (!var12) return -1;
     if (!var5) return -1;
 

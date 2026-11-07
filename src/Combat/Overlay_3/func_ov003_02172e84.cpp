@@ -200,7 +200,7 @@ extern "C" void func_ov003_0217bd38(void *arg0, int arg1);
 extern "C" unsigned char func_ov017_021b1fa8(void *arg0);
 extern "C" void *GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
-extern "C" void func_0202b0f4(void *arg0);
+extern "C" void StopLocalWireless_0202b0f4(void *wireless);
 extern "C" int func_ov003_021734dc(int arg0, int arg1, int arg2);
 extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330 *animationList, int ticks);
 extern "C" int GetMessageChoice_020457e0(Struct_ov003_02172e84_3 *window);
@@ -392,7 +392,7 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
             arg0->unknown_d0_->unknown_0_ = 10;
             void *var30 = GetLocalWireless_0202ae18();
             if (IsLocalWirelessOn_0202b7d8((int *) var30)) {
-                func_0202b0f4(var30);
+                StopLocalWireless_0202b0f4(var30);
             }
             arg0->unknown_ec_ = 5;
             arg0->unknown_ee_ = 0;

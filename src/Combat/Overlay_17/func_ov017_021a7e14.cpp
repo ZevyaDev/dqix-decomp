@@ -119,7 +119,7 @@ extern "C" Struct_ov017_021a7e14_3* FindItemData_020dedd0(ItemTable_0201099c_10*
 extern "C" void func_ov017_021d0198(int arg0, int arg1, int arg2, int arg3);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" char* GetStandardString_020e51cc(int stringId);
-extern "C" void func_020e4b34(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10, int arg11);
+extern "C" void SetNoun_020e4b34(void* noun, char* singularText, int pluralText, int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int arg9, int hasInitialVowelSound, int isInitialVowelFromText);
 extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0* window);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
@@ -263,7 +263,7 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
         InitPartyMemberNoun_020e4bf4(arg0->unknown_40_, arg0->unknown_34_);
         InitNoun_020e46c4(arg0->unknown_44_);
         char* var15 = GetStandardString_020e51cc((short)var14->unknown_150_->unknown_950_);
-        func_020e4b34(arg0->unknown_44_, var15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        SetNoun_020e4b34(arg0->unknown_44_, var15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         ClearMessageParams_02046380(var2);
         SetMessageNumber_020465c0(var2, 0, 1);
         SetMessageNumberWidth_020465f0((unsigned char*)var2, 0, 1);

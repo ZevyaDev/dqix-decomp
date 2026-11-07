@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void* GetEffectManager_02057924(void);
-extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 extern "C" void* func_ov025_021e8cf0(char* arg0, int arg1);
 extern "C" short func_ov000_0216352c(int arg0, float arg1, float arg2);
 
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov025_021e8148(Struct_ov025_021e8148* arg0, int arg1, in
         return 0;
     }
     int var2[8];
-    if (func_ov000_021820bc(arg3, arg1, arg0->unknown_8_, (int)var2) != 1) {
+    if (CollectObjectIndicesBySelector_ov000_021820bc(arg3, arg1, arg0->unknown_8_, (int)var2) != 1) {
         return 0;
     }
     void* var3 = func_ov025_021e8cf0(data_ov025_021ef988.unknown_c_, arg0->unknown_c_);

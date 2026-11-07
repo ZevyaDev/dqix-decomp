@@ -9,7 +9,7 @@
 #endif
 
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_ov002_0215be00(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetNextTextWindow_ov002_0215be00(void* menu, int windowId, int x, int y);
 extern "C" void func_ov002_02161234(void* arg0, void* arg1, int arg2);
 
 struct Struct_020466c8;
@@ -30,7 +30,7 @@ struct Struct_ov002_02161174_4 { char unknown_0_[RG(0xbd0, 0xa98)]; void* unknow
 extern "C" ARM void func_ov002_02161174(char* arg0) {
     int var0 = GetMessageWindow_020421a0();
 
-    func_ov002_0215be00(arg0, ((struct Struct_ov002_02161174*)(arg0 + 0x1000))->unknown_bb8_ & 0xff, 0, 0xf);
+    SetNextTextWindow_ov002_0215be00(arg0, ((struct Struct_ov002_02161174*)(arg0 + 0x1000))->unknown_bb8_ & 0xff, 0, 0xf);
 
     if (*(unsigned char*)(arg0 + 0x1000 + RG(0xc31, 0xaf9)) != 0) {
         memcpy(((struct Struct_ov002_02161174_4*)(arg0 + 0x1000))->unknown_bd0_, *(void**)(arg0 + 0x1000 + RG(0xbd4, 0xa9c)), RG(0x960, 0x800));

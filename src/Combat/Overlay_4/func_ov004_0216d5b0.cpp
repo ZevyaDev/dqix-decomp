@@ -11,7 +11,7 @@ extern "C" unsigned int func_ov023_021f6f10(void* arg0);
 extern "C" int func_ov024_021f6f10(void* arg0);
 #define NODE_KIND_CALL func_ov024_021f6f10
 #endif
-extern "C" void* func_ov023_021fa598(void* arg0);
+extern "C" void* GetMenuObjectStringList_ov023_021fa598(void* object);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" int func_020abb64(void);
 struct StringList_02072a68_2;
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov004_0216d5b0(void* arg0) {
     if (!var0) return 0;
     if (NODE_KIND_CALL(var0) != 4) return 0;
 
-    struct StringList_02072a68_2* var1 = (struct StringList_02072a68_2*)func_ov023_021fa598(var0);
+    struct StringList_02072a68_2* var1 = (struct StringList_02072a68_2*)GetMenuObjectStringList_ov023_021fa598(var0);
     GameState* var2 = GameState::GetInstance();
     MessageWindow_02021b84* var3 = (MessageWindow_02021b84*)GetMessageWindow_020421a0();
 

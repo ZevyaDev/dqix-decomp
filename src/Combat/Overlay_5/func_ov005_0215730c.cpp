@@ -37,7 +37,7 @@ extern int gSoundEffectManager_02108760;
 extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char arg1);
 extern "C" Struct_ov005_02153ba4_2* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" int func_0205bf58(void* arg0, int arg1);
+extern "C" int UpdateKeyMenuCursor_0205bf58(void* cursor, int ticks);
 extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84* cursor);
 extern "C" void func_ov005_0215742c(Struct_ov005_02153954* arg0);
 extern "C" void func_ov005_0215751c(Struct_ov005_02153954* arg0);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov005_0215730c(Struct_ov005_02153954* arg0) {
     int var1 = GameState::GetInstance()->GetTickCount();
     if (var1 == 0)
         var1 = 1;
-    func_0205bf58(arg0->unknown_19f4_, var1);
+    UpdateKeyMenuCursor_0205bf58(arg0->unknown_19f4_, var1);
     GetMenuCursorIndex_0205bb84((MenuCursor_0205bb84*)arg0->unknown_19f4_);
     switch (arg0->unknown_3db8_) {
     case 2:

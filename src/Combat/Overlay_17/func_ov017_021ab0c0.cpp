@@ -19,7 +19,7 @@ struct Struct_ov017_021aa59c_5 {
 };
 
 extern "C" int func_02080dd4(void* arg0, int arg1, int arg2, int arg3, unsigned char* arg4, unsigned char arg5);
-extern "C" void func_020813ec(void* arg0, int arg1);
+extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
 // USA: func_ov017_021ab0c0
 extern "C" ARM int func_ov017_021ab0c0(struct Struct_ov017_021aa59c_5* arg0) {
@@ -40,7 +40,7 @@ extern "C" ARM int func_ov017_021ab0c0(struct Struct_ov017_021aa59c_5* arg0) {
         short var5 = *arg0->unknown_44_;
         if (arg0->unknown_4e_ != var5) {
             *(short*)((char*)var1 + Enum_ov017_021ab0c0_54) = var5;
-            func_020813ec(var1, arg0->unknown1_48_);
+            OpenMenuLayoutWindow_020813ec(var1, arg0->unknown1_48_);
         }
     }
     return var0;

@@ -8,7 +8,7 @@ struct Struct_ov031_0223c278 {
 	unsigned char unknown_9_;
 };
 
-extern "C" void func_ov031_0223e2c0(int, void*);
+extern "C" void QueueTaskRemoval_ov031_0223e2c0(int, void*);
 
 // USA: func_ov031_0223c2d0
 extern "C" ARM void func_ov031_0223c2d0(void* arg0, Struct_ov031_0223c278* arg1) {
@@ -17,5 +17,5 @@ extern "C" ARM void func_ov031_0223c2d0(void* arg0, Struct_ov031_0223c278* arg1)
 		return;
 	}
 	arg1->unknown_9_ = 0;
-	func_ov031_0223e2c0(1, arg0);
+	QueueTaskRemoval_ov031_0223e2c0(1, arg0);
 }

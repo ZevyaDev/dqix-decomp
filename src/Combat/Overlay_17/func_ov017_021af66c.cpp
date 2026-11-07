@@ -78,7 +78,7 @@ struct AllocatorUnion;
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" void func_ov017_021c37a4();
 extern "C" Struct_ov017_021af66c_3* GetZone3D_02012fe4();
-extern "C" void ResetEventTask_ov017_021baedc(Struct_ov017_021af66c* node, int arg1);
+extern "C" void ResetEventTask_ov017_021baedc(Struct_ov017_021af66c* node, int isRestart);
 extern "C" void func_ov017_021bbae4(Struct_ov017_021af66c* arg0, int arg1, int arg2);
 extern "C" void func_ov017_0219577c(int arg0, int arg1, int arg2);
 extern "C" int func_ov017_02195658(GameResources* arg0);
@@ -103,7 +103,7 @@ extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_02039830(void* arg0);
 extern "C" void func_0205ce94(unsigned char* arg0);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
-extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
+extern "C" void SetLoadingIndicator_020daf9c(int isShown, int isFadeWaitSkipped, int isScreenBlanked, int isMainScreenForced);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 
@@ -222,7 +222,7 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
     func_0205ce94(arg0->unknown_48_);
     ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x800000);
     func_ov017_0218b5c0(1, -1);
-    func_020daf9c(0, 1, 0, 1);
+    SetLoadingIndicator_020daf9c(0, 1, 0, 1);
     DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_280_ << 8);
     ClearFlags04(var1, 0x40);
     if (arg0->unknown_288_ != 0) {

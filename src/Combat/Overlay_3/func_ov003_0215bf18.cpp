@@ -23,8 +23,8 @@ extern "C" int func_020e2918(signed char* arg0);
 
 extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
 
-struct Struct_020e25e8;
-extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
+struct YesNoWindow_020e25e8;
+extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8* yesNoWindow);
 
 // USA: func_ov003_0215bf18
 extern "C" ARM int func_ov003_0215bf18(void* arg0, int arg1) {
@@ -47,13 +47,13 @@ extern "C" ARM int func_ov003_0215bf18(void* arg0, int arg1) {
         if (var4 >= 0) {
             *(unsigned char*)(var0 + 0x581) = 0;
             *(unsigned char*)(var0 + 0x59f) &= ~1;
-            func_020e25e8((struct Struct_020e25e8*)*(void**)(var0 + 0x570));
+            CloseYesNoWindow_020e25e8((struct YesNoWindow_020e25e8*)*(void**)(var0 + 0x570));
             return var4;
         }
         if (func_020e2984(*(struct Struct_020e28dc**)(var0 + 0x570))) {
             *(unsigned char*)(var0 + 0x581) = 0;
             *(unsigned char*)(var0 + 0x59f) &= ~1;
-            func_020e25e8((struct Struct_020e25e8*)*(void**)(var0 + 0x570));
+            CloseYesNoWindow_020e25e8((struct YesNoWindow_020e25e8*)*(void**)(var0 + 0x570));
             return -2;
         }
     }

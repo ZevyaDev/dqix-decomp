@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_0200ff94(GameState*, int);
+extern "C" GameObject* GetGameObjectByIndex_0200ff94(GameState*, int);
 
 struct Struct_ov000_021710ac {
     char unknown_0_[0x8];
@@ -23,7 +23,7 @@ extern "C" ARM void func_ov000_021710ac(struct Struct_ov000_021710ac* arg0, int 
     if (!var0) {
         return;
     }
-    GameObject* var1 = func_0200ff94(GameState::GetInstance(), arg1);
+    GameObject* var1 = GetGameObjectByIndex_0200ff94(GameState::GetInstance(), arg1);
     if (var1 == 0) {
         return;
     }

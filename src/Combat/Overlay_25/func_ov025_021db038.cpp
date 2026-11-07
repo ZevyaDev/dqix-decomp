@@ -88,9 +88,9 @@ extern "C" void func_ov025_021e88d8(char*);
 extern "C" void func_ov025_021e8a40(char*, int, int);
 extern "C" void func_ov025_021e8a4c(char*, int);
 extern "C" void func_ov000_0216df00(void*, int, int, int, float);
-extern "C" void func_ov000_021626a0(void*, int, int);
+extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void*, int, int);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
-extern "C" int func_ov000_02160fd4(void*, int);
+extern "C" int TestBattleSceneFlags_ov000_02160fd4(void*, int);
 extern "C" void func_ov000_02160fbc(void*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov025_021dbe10(Struct_ov000_021537b8*);
@@ -151,8 +151,8 @@ extern "C" ARM void func_ov025_021db038(Struct_ov000_021537b8* arg0) {
                     func_ov025_021e8a40(arg0->unknown_2a8_, (int)&arg0->unknown_30_, (int)arg0->unknown_14c_);
                     func_ov025_021e8a4c(arg0->unknown_2a8_, (int)var1);
                     func_ov000_0216df00(arg0->unknown_c18_, var5, 0, 0, 1.8f);
-                    func_ov000_021626a0(arg0, 4, 0);
-                    func_ov000_021626a0(arg0, 0, 1);
+                    SetObjectsVisibleBySelector_ov000_021626a0(arg0, 4, 0);
+                    SetObjectsVisibleBySelector_ov000_021626a0(arg0, 0, 1);
                     SetBattleSceneFlags_ov000_02160fa8(arg0, 0x1000000);
                     if (func_ov000_0215fc60((char*)var1) == 1) var8 = 0x1ee;
                     else if (func_ov000_0215fc60((char*)var1) == 2) var8 = 0x211;
@@ -170,7 +170,7 @@ extern "C" ARM void func_ov025_021db038(Struct_ov000_021537b8* arg0) {
             func_ov000_0216fd0c((Struct_ov000_0216fd0c*)var0);
         }
     }
-    if (func_ov000_02160fd4(arg0, 0x1000000)) {
+    if (TestBattleSceneFlags_ov000_02160fd4(arg0, 0x1000000)) {
         GameState* var9;
         char* var10;
         GameObject* var11;

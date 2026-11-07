@@ -4,7 +4,7 @@
 #include "Util/Random.h"
 struct Struct_02070b6c_3;
 struct Struct_ov024_021e2298_3 { unsigned short unknown_0_; unsigned char unknown_2_; unsigned char unknown_3_; int unknown_4_; void* unknown_8_; unsigned short unknown_c_; };
-extern "C" Struct_ov024_021e2298_3* func_02070fd0(Struct_02070b6c_3*,int);
+extern "C" Struct_ov024_021e2298_3* FindMonsterBattleData_02070fd0(Struct_02070b6c_3*,int);
 extern "C" short func_ov000_0215cda0(void*);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" void func_ov000_0215cd44(void*,void*,GameObject*,int,int,int,int);
@@ -34,7 +34,7 @@ extern "C" ARM void* func_ov024_021e2298(Struct_ov024_021e2298_2* arg0,int arg1,
         int var7=arg0->unknown_10_->unknown_81b1_.unknown_0_0_;
         for(int var8=0;var8<arg0->unknown_10_->unknown_81b1_.unknown_0_4_;var8++){
             Struct_ov024_021e2298_4* var9=&arg0->unknown_10_->unknown_81b4_[var8];
-            Struct_ov024_021e2298_3* var10=func_02070fd0((Struct_02070b6c_3*)(var2+0x400),var9->unknown_0_);
+            Struct_ov024_021e2298_3* var10=FindMonsterBattleData_02070fd0((Struct_02070b6c_3*)(var2+0x400),var9->unknown_0_);
             if(var10){
                 if(var10->unknown_8_)var6|=1;
                 if(var10->unknown_c_)var6|=2;

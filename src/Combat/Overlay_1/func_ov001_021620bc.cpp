@@ -40,6 +40,6 @@ extern "C" ARM int func_ov001_021620bc(void) {
     *(Vector3i*)var2->unknown_10_ = *(Vector3i const*)var0;
     var2->unknown_1c_ = var4;
     var2->unknown_68_ = 1;
-    func_0200fcfc(var1, var2);
+    SetZoneEntry_0200fcfc(var1, var2);
     return 1;
 }

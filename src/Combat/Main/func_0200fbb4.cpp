@@ -3,7 +3,7 @@
 union Struct_0200fbb4 { int unknown_0_[3]; };
 union Struct_0200fbb4_2 { int unknown_0_[12]; };
 
-struct Struct_0200fba4 {
+struct ZoneEntry_0200fba4 {
     unsigned short unknown_0_;
     unsigned char unknown_2_, unknown_3_, unknown_4_, unknown_5_, unknown_6_, unknown_7_;
     unsigned char unknown_8_, unknown_9_, unknown_a_;
@@ -21,7 +21,7 @@ struct Struct_0200fba4 {
 };
 
 // USA: func_0200fbb4
-extern "C" ARM Struct_0200fba4* func_0200fbb4(Struct_0200fba4* arg0, const Struct_0200fba4* arg1) {
+extern "C" ARM ZoneEntry_0200fba4* func_0200fbb4(ZoneEntry_0200fba4* arg0, const ZoneEntry_0200fba4* arg1) {
     arg0->unknown_0_ = arg1->unknown_0_;
     arg0->unknown_2_ = arg1->unknown_2_;
     arg0->unknown_3_ = arg1->unknown_3_;

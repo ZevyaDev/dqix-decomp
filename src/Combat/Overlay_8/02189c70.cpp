@@ -279,7 +279,7 @@ struct DetailedTreasureMapData;
 bool ExportDetailedTreasureMapData(TreasureMapMetadata const*, DetailedTreasureMapData*, bool, unsigned char const*);
 extern "C" void func_020a395c();
 extern "C" void func_020464e8(char*, int, char*);
-extern "C" void func_020e4b34(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10, int arg11);
+extern "C" void SetNoun_020e4b34(void* noun, void* singularText, void* pluralText, int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int arg9, int hasInitialVowelSound, int isInitialVowelFromText);
 extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" unsigned char func_02011804(GameState* arg0);
 extern "C" void func_020ac760(void* arg0);
@@ -605,7 +605,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
         char var53[0x30];
         __clear(var53, 0x30);
         func_02042764(arg0->unknown_ebc_, var53, 1);
-        func_020e4b34(var8, var53, var53, 0, 0, 0, 0, arg0->unknown_ebc_->unknown_2e_0_, 0, 1, 0, 1);
+        SetNoun_020e4b34(var8, var53, var53, 0, 0, 0, 0, arg0->unknown_ebc_->unknown_2e_0_, 0, 1, 0, 1);
         InitPartyMemberNoun_020e4bf4(var7, GetOwnPartyLeaderObjectIndex_020100b0(var9));
         var11->unknown_10_ = var8;
         var11->unknown_0_ = var7;

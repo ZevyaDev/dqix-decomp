@@ -10,17 +10,17 @@ struct Struct_0207f0ac_2 {
     unsigned char unknown_13_;
     char unknown_14_[4];
 };
-struct Struct_0207f6ac;
+struct MenuLayoutTextEntry_0207f6ac;
 struct Struct_0207f0ac { Struct_0207f0ac_2* unknown_0_; short unknown_4_; };
-struct Struct_0207f524 { Struct_0207f6ac* unknown_0_; short unknown_4_; };
+struct MenuLayoutTextEntryList_0207f524 { MenuLayoutTextEntry_0207f6ac* pEntries_0_; short count_4_; };
 struct Struct_0208065c {
     void* unknown_0_;
-    Struct_0207f524 unknown_4_;
+    MenuLayoutTextEntryList_0207f524 unknown_4_;
     Struct_0207f0ac unknown_c_;
 };
 
 extern "C" Struct_0207f0ac_2* func_0207f0ac(Struct_0207f0ac* arg0, int arg1);
-extern "C" void func_0207f7cc(struct Struct_0207f524* arg0, int arg1, int arg2);
+extern "C" void func_0207f7cc(struct MenuLayoutTextEntryList_0207f524* arg0, int arg1, int arg2);
 
 // USA: func_0208065c
 extern "C" ARM void func_0208065c(void* arg0, int arg1) {

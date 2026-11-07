@@ -42,8 +42,8 @@ extern "C" int func_ov023_021f6bb8(Struct_ov023_021fbf4c_3* arg0);
 extern "C" void func_ov023_021f6bb0(Struct_ov023_021fbf4c_3* arg0, int arg1);
 extern "C" Struct_ov023_021fbf4c* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void func_020de888(Struct_02000c9c_74* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
-extern "C" void func_020dea64(Struct_02000c9c_74* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3,
-                              unsigned char* arg4, int arg5);
+extern "C" void LoadItemTableByCategories_020dea64(Struct_02000c9c_74* itemTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize,
+                              unsigned char* categories, int categoryCount);
 
 // USA: func_ov023_021fbf4c
 extern "C" ARM int func_ov023_021fbf4c(Struct_ov023_021fbf4c_2* arg0, void* arg1)
@@ -127,7 +127,7 @@ extern "C" ARM int func_ov023_021fbf4c(Struct_ov023_021fbf4c_2* arg0, void* arg1
                     var6 = Enum_ov023_021fbf4c_106496;
                 arg0->unknown_20_.CreateTypeA(var0->unknown_4_.Allocate(var6), var6);
                 arg0->unknown_20_.Reset();
-                func_020dea64(&arg0->unknown_34_, &arg0->unknown_20_, var4, var5, var8, var7);
+                LoadItemTableByCategories_020dea64(&arg0->unknown_34_, &arg0->unknown_20_, var4, var5, var8, var7);
             }
         }
         var2->RemoveTask(var3);

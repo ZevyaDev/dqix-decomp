@@ -342,8 +342,8 @@ int sprintf(char* arg0, const char* arg1, ...);
 void* ExtractFileFromGP2(char* arg0, char* arg1, unsigned int* arg2);
 void ClearMessageParams_02046380(MessageWindow_02021b84* window);
 void func_02042764(const void* arg0, char* arg1, int arg2);
-void func_020e4b34(Struct_ov008_02187708_2* arg0, char* arg1, char* arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8,
-                   int arg9, int arg10, int arg11);
+void SetNoun_020e4b34(Struct_ov008_02187708_2* noun, char* singularText, char* pluralText, int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly,
+                   int arg9, int hasInitialVowelSound, int isInitialVowelFromText);
 const char* CopyStringFromTableFile_020e046c(char* buffer, void* fileData, unsigned int fileSize, short stringId);
 void func_02046608(MessageWindow_02021b84* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, int arg6);
 int func_020420e8(const char* arg0, int arg1);
@@ -396,7 +396,7 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
         var5 = var13->unknown_16_0_;
         func_02042764(var8, var2, 1);
         InitNoun_020e46c4(&var7);
-        func_020e4b34(&var7, var2, var2, 0, 0, 0, 0, var5, 0, 1, 0, 1);
+        SetNoun_020e4b34(&var7, var2, var2, 0, 0, 0, 0, var5, 0, 1, 0, 1);
         var1->unknown_10_ = &var7;
     }
     if (var3 > 0)

@@ -7,7 +7,7 @@ extern "C" float func_02084f58(void* arg0);
 extern "C" int func_02085c08(unsigned char* arg0);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 extern "C" float func_ov000_02155a04(GameObject* arg0);
-extern "C" GameObject* func_0200ff94(GameState* arg0, int arg1);
+extern "C" GameObject* GetGameObjectByIndex_0200ff94(GameState* gameState, int index);
 extern "C" int func_ov000_021563ec(GameObject* arg0);
 extern "C" int func_ov000_02156404(GameObject* arg0);
 
@@ -17,7 +17,7 @@ struct Struct_02070b6c_4 {
     unsigned int unknown_11_5_ : 3;
 };
 struct Struct_02070b6c_3;
-extern "C" struct Struct_02070b6c_4* func_02070fd0(struct Struct_02070b6c_3* arg0, int arg1);
+extern "C" struct Struct_02070b6c_4* FindMonsterBattleData_02070fd0(struct Struct_02070b6c_3* table, int monsterId);
 extern "C" float func_02074988(int arg0);
 
 struct Struct_ov000_02156270 {
@@ -54,11 +54,11 @@ extern "C" ARM float func_ov000_02156270(struct Struct_ov000_02156270* arg0, int
             var0 = var0 * var6;
         }
     } else {
-        GameObject* var9 = func_0200ff94(var1, arg1);
+        GameObject* var9 = GetGameObjectByIndex_0200ff94(var1, arg1);
         if (var9 == NULL) {
             return 0.0f;
         }
-        struct Struct_02070b6c_4* var10 = func_02070fd0(
+        struct Struct_02070b6c_4* var10 = FindMonsterBattleData_02070fd0(
             (struct Struct_02070b6c_3*)(arg0->unknown_8e18_ + 0x684), var9->obj3D_.unknown_2_);
         var0 = func_02074988((signed char)var10->unknown_11_5_);
     }

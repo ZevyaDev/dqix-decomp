@@ -18,7 +18,7 @@ extern "C" void func_ov017_021bb088(struct Struct_ov017_021baedc* arg0);
 struct Struct_ov017_021baedc_2 { unsigned char unknown_0_0_:1; unsigned char unknown_0_1_:7; };
 
 // USA: ResetEventTask_ov017_021baedc
-extern "C" ARM void ResetEventTask_ov017_021baedc(void* node, int arg1) {
+extern "C" ARM void ResetEventTask_ov017_021baedc(void* node, int isRestart) {
 	char* eventTask = (char*)node;
 	ResetQueueNode_0204693c((struct QueueNode_0204693c*)eventTask);
 	*(signed char*)(eventTask + 0x0) = 4;
@@ -49,10 +49,10 @@ extern "C" ARM void ResetEventTask_ov017_021baedc(void* node, int arg1) {
 	*(unsigned char*)(eventTask + 0x10a + Enum_ov017_021baedc_0) = 0;
 	*(unsigned char*)(eventTask + 0x10b + Enum_ov017_021baedc_0) = 0;
 	*(unsigned char*)(eventTask + 0x10c + Enum_ov017_021baedc_0) = 0;
-	if (arg1 == 0) {
+	if (isRestart == 0) {
 		*(unsigned char*)(eventTask + 0x105 + Enum_ov017_021baedc_0) = 0;
 	}
-	if (arg1 == 0) {
+	if (isRestart == 0) {
 		*(unsigned short*)(eventTask + 0x11c + Enum_ov017_021baedc_0) = 0;
 	}
 	memset(eventTask + 0xc, 0, 0x68);

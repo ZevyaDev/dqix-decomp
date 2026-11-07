@@ -4,11 +4,11 @@ extern "C" void func_ov003_0215b3bc(void* arg0);
 extern "C" int func_ov003_0215b328(void* arg0);
 
 extern "C" void EnableTouchMenuCursor_0205cef8(void* windowManager);
-extern "C" void func_0205cf04(void* arg0);
-extern "C" void func_0205cf10(void* arg0);
+extern "C" void EnableKeyMenuCursor_0205cf04(void* windowManager);
+extern "C" void DisableTouchMenuCursor_0205cf10(void* windowManager);
 
-struct Struct_0205cf1c;
-extern "C" void func_0205cf1c(struct Struct_0205cf1c* arg0);
+struct TextWindowManager_0205cf1c;
+extern "C" void DisableKeyMenuCursor_0205cf1c(struct TextWindowManager_0205cf1c* windowManager);
 
 struct Struct_0205c570;
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov003_0215bd34(void* arg0) {
     if (var1 == 0) {
         func_ov003_0215b3bc(var0);
         EnableTouchMenuCursor_0205cef8(var0 + 0xf4);
-        func_0205cf04(var0 + 0xf4);
+        EnableKeyMenuCursor_0205cf04(var0 + 0xf4);
         *(unsigned char*)(var0 + 0x581) = *(unsigned char*)(var0 + 0x581) + 1;
     }
     if (var1 == 1) {
@@ -39,15 +39,15 @@ extern "C" ARM int func_ov003_0215bd34(void* arg0) {
             int var4 = var3 & ~1;
             *(unsigned char*)(var0 + 0x59f) = var4;
             PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
-            func_0205cf10(var0 + 0xf4);
-            func_0205cf1c((struct Struct_0205cf1c*)(var0 + 0xf4));
+            DisableTouchMenuCursor_0205cf10(var0 + 0xf4);
+            DisableKeyMenuCursor_0205cf1c((struct TextWindowManager_0205cf1c*)(var0 + 0xf4));
             *(unsigned char*)(var0 + 0x581) = 0;
             return *(signed char*)(var0 + 0x585);
         } else {
             if (func_ov003_0215b370(var0, 1) != 0) {
                 *(unsigned char*)(var0 + 0x59f) &= ~1;
-                func_0205cf10(var0 + 0xf4);
-                func_0205cf1c((struct Struct_0205cf1c*)(var0 + 0xf4));
+                DisableTouchMenuCursor_0205cf10(var0 + 0xf4);
+                DisableKeyMenuCursor_0205cf1c((struct TextWindowManager_0205cf1c*)(var0 + 0xf4));
                 *(unsigned char*)(var0 + 0x581) = 0;
                 return -2;
             }

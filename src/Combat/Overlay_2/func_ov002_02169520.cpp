@@ -12,8 +12,8 @@ extern "C" int GetCursorIndex_0205d794(struct Struct_ov002_0215624c_15 *windowMa
 extern "C" int IsEntryTouchedAgain_0205da38(struct Struct_ov002_02164748* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct Struct_ov002_02157d40_7 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_021574d4(void *arg0, int arg1);
-extern "C" int func_ov002_02161b48(char *arg0, int arg1);
-extern "C" void func_ov002_02161cf0(void *arg0);
+extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
+extern "C" void ConfigureMenuCursors_ov002_02161cf0(void *menu);
 extern "C" void func_ov002_02160274(void *arg0);
 extern "C" void func_ov002_02156e90(void *arg0);
 extern char gSoundEffectManager_02108760[];
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov002_02169520(char *arg0) {
     if (var0 == 0) {
         *(short *) (arg0 + 0x1c08 + Enum_ov002_02169520_0) = 0;
         SetNextTextWindowBGLayer_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + 0xec8 + Enum_ov002_02169520_0_2), 0, 2);
-        func_ov002_02161cf0(arg0);
+        ConfigureMenuCursors_ov002_02161cf0(arg0);
         func_ov002_02160274(arg0);
         (*(int *) (arg0 + 0x1bc0 + Enum_ov002_02169520_0))++;
         return;
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov002_02169520(char *arg0) {
         *(int *) (arg0 + 0x1bc0 + Enum_ov002_02169520_0)   = 0;
         return;
     }
-    if (func_ov002_02161b48(arg0, 1)) {
+    if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
         *(short *) (arg0 + 0x1c08 + Enum_ov002_02169520_0)       = -1;
         *(signed char *) (arg0 + 0x1c20 + Enum_ov002_02169520_0) = -1;
         func_ov002_02156e90(arg0);

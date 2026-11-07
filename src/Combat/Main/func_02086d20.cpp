@@ -3,8 +3,8 @@
 
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
-struct Struct_0207d300;
-extern "C" int func_02083960(struct Struct_0207d300* arg0);
+struct PartyMemberData_0207d300;
+extern "C" int CountHeldItems_02083960(struct PartyMemberData_0207d300* memberData);
 
 // USA: func_02086d20
 extern "C" ARM int func_02086d20(unsigned char* arg0) {
@@ -17,7 +17,7 @@ extern "C" ARM int func_02086d20(unsigned char* arg0) {
         if (var4 != 0) {
             int var5 = GetPartyMemberData_02053c6c((unsigned char*)var4);
             if (var5 != 0) {
-                var0 = var0 + func_02083960((struct Struct_0207d300*)var5);
+                var0 = var0 + CountHeldItems_02083960((struct PartyMemberData_0207d300*)var5);
             }
         }
         var2++;

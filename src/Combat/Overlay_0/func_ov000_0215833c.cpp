@@ -29,7 +29,7 @@ extern float data_ov000_02182bd4[];
 int NextRandomMax(struct Random* random, int max);
 extern "C" int func_ov000_02156038(GameObject* arg0);
 extern "C" void func_020882dc(void* arg0);
-extern "C" int func_020882f8(unsigned char* arg0);
+extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
 extern "C" void func_02088390(void* arg0);
 extern "C" int func_ov000_021543f4(GameObject* arg0);
 extern "C" void func_020883fc(void* arg0);
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov000_0215833c(struct Random* arg0, int arg1, Struct_ov0
                 return 1;
             }
         }
-    } else if (func_020882f8((unsigned char*)var1->currentStats_)) {
+    } else if (IsAsleep_020882f8((unsigned char*)var1->currentStats_)) {
         if (var0[1] != 0) {
             int var5 = var0[1] - 1;
             float var6 = data_ov000_02182bd4[var5 & 0xff];

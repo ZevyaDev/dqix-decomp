@@ -1,13 +1,13 @@
 #include <globaldefs.h>
-struct Struct_0207d300 { unsigned char unknown_0_[0x454]; short unknown_454_[8]; };
-// USA: func_02083960
-extern "C" ARM int func_02083960(struct Struct_0207d300* arg0) {
-    int var0 = 0;
-    int var1;
-    for (var1 = 0; var1 < 8; var1++) {
-        if (arg0->unknown_454_[var1] > 0) {
-            var0++;
+struct PartyMemberData_0207d300 { unsigned char unknown_0_[0x454]; short heldItems_454_[8]; };
+// USA: CountHeldItems_02083960
+extern "C" ARM int CountHeldItems_02083960(struct PartyMemberData_0207d300* memberData) {
+    int count = 0;
+    int i;
+    for (i = 0; i < 8; i++) {
+        if (memberData->heldItems_454_[i] > 0) {
+            count++;
         }
     }
-    return var0;
+    return count;
 }
