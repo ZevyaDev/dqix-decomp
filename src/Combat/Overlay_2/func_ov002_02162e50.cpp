@@ -27,8 +27,8 @@ extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
 extern "C" void func_ov002_0215b458(char *arg0, int arg1);
 extern "C" int func_0205df38(void *arg0, int arg1);
 extern "C" void func_ov023_021dc9e8(char *arg0, SafeAllocator *arg1, int arg2, char *arg3, int arg4);
-extern "C" void InitItemInfoPanel_ov023_021dc134(char *arg0, int itemId, int arg2);
-extern "C" void func_ov023_021dbfd0(char *arg0, SafeAllocator *arg1);
+extern "C" void InitItemInfoPanel_ov023_021dc134(char *panel, int itemId, int isEmbedded);
+extern "C" void AllocateItemInfoPanelBuffers_ov023_021dbfd0(char *panel, SafeAllocator *allocator);
 extern "C" void SetItemInfoPanelItem_ov023_021dcae0(char *panel, int itemId);
 extern "C" void func_ov023_021dca88(char *arg0);
 extern "C" char gSoundEffectManager_02108760[];
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
                 unsigned short unknown_6f0_;
             };
             ((Struct_ov002_02162e50 *) (var1))->unknown_6f0_ |= 0x50;
-            func_ov023_021dbfd0(var1, (SafeAllocator *) (arg0 + 0x7c8));
+            AllocateItemInfoPanelBuffers_ov023_021dbfd0(var1, (SafeAllocator *) (arg0 + 0x7c8));
             *(char **) (var1 + 0x48) = arg0 + 0x750;
             *(unsigned int *) (arg0 + 0x22ac) |= 1;
         }
@@ -144,7 +144,7 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
                 unsigned short unknown_774_;
             };
             ((Struct_ov002_02162e50 *) (arg0 + 0x50))->unknown_774_ |= 0x50;
-            func_ov023_021dbfd0(arg0 + 0x50, (SafeAllocator *) (arg0 + 0x64 + 0x800));
+            AllocateItemInfoPanelBuffers_ov023_021dbfd0(arg0 + 0x50, (SafeAllocator *) (arg0 + 0x64 + 0x800));
             *(char **) (arg0 + 0x98) = arg0 + 0x3ec + 0x400;
             *(unsigned int *) (arg0 + 0x2000 + 0x47c) |= 1;
         }

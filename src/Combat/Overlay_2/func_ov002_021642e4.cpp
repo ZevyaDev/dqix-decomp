@@ -16,8 +16,8 @@ extern "C" void func_ov002_0215d864(char *arg0);
 extern "C" void func_ov002_02161b98(char *arg0);
 extern "C" void func_ov002_02156e90(char *arg0);
 extern "C" void func_ov023_021dc9e8(char *arg0, SafeAllocator *arg1, int arg2, char *arg3, int arg4);
-extern "C" void InitItemInfoPanel_ov023_021dc134(char *arg0, int itemId, int arg2);
-extern "C" void func_ov023_021dbfd0(char *arg0, SafeAllocator *arg1);
+extern "C" void InitItemInfoPanel_ov023_021dc134(char *panel, int itemId, int isEmbedded);
+extern "C" void AllocateItemInfoPanelBuffers_ov023_021dbfd0(char *panel, SafeAllocator *allocator);
 extern "C" void SetItemInfoPanelItem_ov023_021dcae0(char *panel, int itemId);
 extern "C" void func_ov023_021dca88(char *arg0);
 
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov002_021642e4(char *arg0) {
                 unsigned short unknown_6f0_;
             };
             ((Struct_ov002_02162e50 *) (var1))->unknown_6f0_ |= 0x50;
-            func_ov023_021dbfd0(var1, (SafeAllocator *) (arg0 + 0x7c8));
+            AllocateItemInfoPanelBuffers_ov023_021dbfd0(var1, (SafeAllocator *) (arg0 + 0x7c8));
             *(char **) (var1 + 0x48) = arg0 + 0x750;
             *(int *) (arg0 + 0x22ac) |= 1;
         }
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov002_021642e4(char *arg0) {
                 unsigned short unknown_774_;
             };
             ((Struct_ov002_02162e50 *) (arg0 + 0x50))->unknown_774_ |= 0x50;
-            func_ov023_021dbfd0(arg0 + 0x50, (SafeAllocator *) (arg0 + 0x864));
+            AllocateItemInfoPanelBuffers_ov023_021dbfd0(arg0 + 0x50, (SafeAllocator *) (arg0 + 0x864));
             *(char **) (arg0 + 0x98) = arg0 + 0x7ec;
             *(int *) (arg0 + 0x247c) |= 1;
         }

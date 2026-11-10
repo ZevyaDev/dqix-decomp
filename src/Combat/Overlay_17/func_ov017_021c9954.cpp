@@ -57,7 +57,7 @@ struct Struct_ov017_021c9954_7 {
 };
 
 extern "C" void func_ov017_021b86f8(Struct_ov017_021c9954_2* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_02076a8c(void* arg0);
+extern "C" void InitFieldMonster_02076a8c(void* monster);
 extern "C" Struct_ov017_021c9954_3* GetBattleSetup_ov017_021b8478(Struct_ov017_021c9954_2* battleManager);
 extern "C" Struct_ov017_021c9954_3* GetBattleScene_ov017_021b8468(Struct_ov017_021c9954_2* battleManager);
 extern "C" void func_ov000_02163778(void* arg0);
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov017_021c9954(int arg0, int arg1, int arg2, int arg3) 
 
     var1 = func_ov017_021a278c(var0, arg0);
     if (var1 != 0 && arg2 == 0) {
-        func_02076a8c(var1);
+        InitFieldMonster_02076a8c(var1);
         var1->unknown_0_.MakeHidden();
     }
     func_ov017_021c98f4(arg0, 0);

@@ -15,7 +15,7 @@ struct Struct_02083508_2 { char unknown_0_[0x20]; };
 
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void func_0202c288(void*);
+extern "C" void UpdateLocalWirelessPlayerCount_0202c288(void*);
 extern "C" void func_02039880(unsigned char*, int);
 extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
@@ -153,7 +153,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
 #if defined(jpn)
     Struct_ov017_021b0bc0* var9 = inline_ov017_021b0bc0(var8);
 #endif
-    func_0202c288(var7);
+    UpdateLocalWirelessPlayerCount_0202c288(var7);
 
     int var10 = 1;
     if (arg0->unknown_4_ != NULL && *arg0->unknown_4_ == 10) {

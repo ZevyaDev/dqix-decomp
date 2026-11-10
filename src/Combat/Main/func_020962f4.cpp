@@ -2,15 +2,15 @@
 #include <std_library_functions.h>
 
 
-struct Struct_0205faf4_3;
+struct FlagManager_0205faf4_3;
 struct Struct_020962f4 {
     unsigned int unknown_0_0_ : 9;
     unsigned int unknown_1_1_ : 23;
     unsigned int unknown_4_[3];
 };
 struct Struct_020962f4_2 { unsigned char unknown_0_; char unknown_1_[3]; Struct_020962f4 unknown_4_[8]; };
-extern "C" Struct_0205faf4_3* GetFlagManager_0205ec34();
-extern "C" void func_0206e164(Struct_0205faf4_3*, int, int);
+extern "C" FlagManager_0205faf4_3* GetFlagManager_0205ec34();
+extern "C" void func_0206e164(FlagManager_0205faf4_3*, int, int);
 
 // USA: func_020962f4
 extern "C" ARM int func_020962f4(Struct_020962f4_2* arg0, Struct_020962f4 arg1) {

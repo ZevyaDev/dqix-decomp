@@ -6,11 +6,11 @@
 struct Struct_020708c8;
 struct TimedMessageQueue_020d7aa0_2;
 extern "C" void* GetLocalWireless_0202ae18();
-extern "C" Struct_020708c8* func_020704fc();
+extern "C" Struct_020708c8* GetColorFade_020704fc();
 extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
 extern "C" void func_020708c8(Struct_020708c8*, unsigned int);
 extern "C" int func_ov017_021959b4();
-extern "C" void func_020531f0(GameObject*);
+extern "C" void StopGesture_020531f0(GameObject*);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 extern "C" int TestBattleSceneFlags_ov000_02160fd4(void*, int);
 extern "C" int func_ov017_02195658(GameResources*);
@@ -70,14 +70,14 @@ extern "C" ARM void func_ov000_02163db4(Struct_ov000_02163db4_2* arg0) {
     GameResources* var1 = GetGameResources();
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
     GetLocalWireless_0202ae18();
-    Struct_020708c8* var3 = func_020704fc();
+    Struct_020708c8* var3 = GetColorFade_020704fc();
     GetLocalWirelessPacketQueue_0202ae24();
     SetBrightness(var1, -16, 0);
     func_020708c8(var3, 0);
     if (func_ov017_021959b4()) {
         for (int var4 = 0; var4 < 4; var4++) {
             GameObject* var5 = GetPartyMemberBaseByIndex_0200ff1c(var0, var4);
-            if (var5) func_020531f0(var5);
+            if (var5) StopGesture_020531f0(var5);
         }
         SetBattleSceneFlags_ov000_02160fa8(arg0, 0x2000000);
     }
@@ -95,9 +95,9 @@ extern "C" ARM void func_ov000_02163db4(Struct_ov000_02163db4_2* arg0) {
         GameObject* var9 = GetPartyMemberBaseByIndex_0200ff1c(var0, var8);
         if (!var9) continue;
         if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var8 & 0xff)) {
-            if (IsPerformingGesture_020535c8((signed char*)var9)) func_020531f0(var9);
+            if (IsPerformingGesture_020535c8((signed char*)var9)) StopGesture_020531f0(var9);
         } else {
-            if (func_020535e0((int*)var9)) func_020531f0(var9);
+            if (func_020535e0((int*)var9)) StopGesture_020531f0(var9);
         }
     }
     ClearTimedMessageQueue_020d7aa0(func_020d7a50());

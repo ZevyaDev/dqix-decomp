@@ -3,7 +3,7 @@
 
 struct Struct_02048cf0_3;
 
-struct Struct_02048cf0 { int unknown_0_; int unknown_4_; };
+struct CellPosition_02048cf0 { int x_0_; int z_4_; };
 struct Struct_020e7b48 { int unknown_0_[3]; };
 
 struct Struct_02048cf0_2 {
@@ -31,7 +31,7 @@ struct Struct_02010604;
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 struct Struct_02048c90;
 extern "C" void func_02048c90(Struct_02048c90*);
-extern "C" struct Struct_02048cf0 func_ov000_0216f74c(int* arg0);
+extern "C" struct CellPosition_02048cf0 GetCellPosition_ov000_0216f74c(int* cell);
 struct Vector3i;
 
 extern Struct_020e7b48 data_020e7b48;
@@ -49,10 +49,10 @@ extern "C" ARM void func_02048cf0(struct Struct_02048cf0_3* arg0, int arg1) {
         var0 = GetCombatantCell_020493a4((unsigned char*)arg0);
     }
     if (var0 != 0xff) {
-        struct Struct_02048cf0 var1 = func_ov000_0216f74c(&var0);
+        struct CellPosition_02048cf0 var1 = GetCellPosition_ov000_0216f74c(&var0);
         struct Struct_020e7b48 var2 = data_020e7b48;
-        var2.unknown_0_[0] = var1.unknown_0_;
-        var2.unknown_0_[2] = var1.unknown_4_;
+        var2.unknown_0_[0] = var1.x_0_;
+        var2.unknown_0_[2] = var1.z_4_;
         unsigned int var3 = arg0->unknown_13c_->unknown_20_;
         func_02049bd4((unsigned char*)arg0, var2.unknown_0_);
         arg0->unknown_13c_->unknown_20_ = var3;

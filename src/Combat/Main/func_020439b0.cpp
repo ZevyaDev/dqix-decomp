@@ -14,10 +14,9 @@ extern "C" void func_02066cf0(void* arg0, int arg1);
 #endif
 extern "C" void func_02044074(struct Struct_02044074* arg0);
 #if defined(jpn)
-#define func_02042b98 func_02043270
 #define func_02043600 func_02043de0
 #endif
-extern "C" void func_02042b98(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void SetMessageWindowRect_02042b98(void* window, int x, int y, int width, int height);
 extern "C" void func_0204408c(struct Struct_020439b0_7* arg0, short arg1, short arg2, short arg3, short arg4);
 extern "C" void func_02043600(void* arg0, void* arg1);
 #include "Resource/MessageUpdate.h"
@@ -30,8 +29,8 @@ struct Struct_0204394c;
 #endif
 extern "C" void func_0204394c(struct Struct_0204394c* arg0);
 
-struct Struct_020439b0;
-extern "C" void func_020e2cc4(struct Struct_020439b0* arg0, int arg1);
+struct DisplayWindow_020439b0;
+extern "C" void SetDisplayWindowEnabled_020e2cc4(struct DisplayWindow_020439b0* displayWindow, int isEnabled);
 
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 struct Struct_0200f3a4_13;
@@ -118,7 +117,7 @@ extern "C" ARM void func_020439b0(char* arg0, int arg1) {
             if ((*(unsigned char*)(arg0 + Enum_020439b0_6603)) != 0) {
             prepareBounds:
                 if (var0->unknown_19b1_ != 0) {
-                    func_02042b98(arg0, 2, 0x74, 0xfc, 0x4a);
+                    SetMessageWindowRect_02042b98(arg0, 2, 0x74, 0xfc, 0x4a);
                     func_0204408c(&var3.unknown1_0_, var1 + 2, var2 + 0x74, 0xfc, 0x4a);
                     func_02043600((*(Struct_020439b0_6**)(arg0 + Enum_020439b0_52)), &var3);
                     func_0204408c(&var3.unknown1_0_, 2, 0x74, 0xfc, 0x4a);
@@ -241,7 +240,7 @@ extern "C" ARM void func_020439b0(char* arg0, int arg1) {
     {
         int var29;
         for (var29 = 0; var29 < 2; var29++) {
-            func_020e2cc4((Struct_020439b0*)&var0->unknown_1964_[var29], 0);
+            SetDisplayWindowEnabled_020e2cc4((DisplayWindow_020439b0*)&var0->unknown_1964_[var29], 0);
         }
     }
 
@@ -278,7 +277,7 @@ extern "C" ARM void func_020439b0(char* arg0, int arg1) {
     if ((*(Struct_020439b0_5*)(arg0 + Enum_020439b0_2324)).unknown_8_ >= 2) {
         func_020e2d2c((Struct_020439b0_3*)&var0->unknown_1964_[0], 4, 0x76, 0xf8, 0x46);
         if ((*(unsigned char*)(arg0 + Enum_020439b0_6498)) != 0) {
-            func_020e2cc4((Struct_020439b0*)&var0->unknown_1964_[0], 1);
+            SetDisplayWindowEnabled_020e2cc4((DisplayWindow_020439b0*)&var0->unknown_1964_[0], 1);
         }
     }
 
@@ -289,7 +288,7 @@ extern "C" ARM void func_020439b0(char* arg0, int arg1) {
         int var36 = (*(Struct_020439b0_7*)(arg0 + Enum_020439b0_324)).unknown_6_;
         func_020e2d2c((Struct_020439b0_3*)&var0->unknown_1964_[1], var33 + 2, var34 + 2, var35 - 4, var36 - 4);
         if ((*(unsigned char*)(arg0 + Enum_020439b0_6498)) != 0) {
-            func_020e2cc4((Struct_020439b0*)&var0->unknown_1964_[1], 1);
+            SetDisplayWindowEnabled_020e2cc4((DisplayWindow_020439b0*)&var0->unknown_1964_[1], 1);
         }
     }
 

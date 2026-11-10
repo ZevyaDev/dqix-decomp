@@ -25,7 +25,7 @@ extern "C" int func_02039d68(unsigned char* arg0);
 extern "C" int func_02053cdc(int* arg0);
 extern "C" int func_02053cd4(unsigned char* arg0);
 extern "C" int func_02032fdc(void* arg0, int arg1, Vector3i* arg2);
-extern "C" int func_02061bd8(PartyMember_0205faf4_11* arg0);
+extern "C" int IsNPCCompanion_02061bd8(PartyMember_0205faf4_11* partyMember);
 extern "C" unsigned char func_02053eb4(void* arg0, int arg1);
 extern "C" void func_02031234(int arg0);
 extern "C" Object3D* GetHaloObject_ov017_021bdbcc(void* gameResources);
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov017_0218eafc(Struct_ov017_0218eafc* arg0, int arg1) {
             }
         }
 
-        if (!func_02061bd8((PartyMember_0205faf4_11*)var3)) {
+        if (!IsNPCCompanion_02061bd8((PartyMember_0205faf4_11*)var3)) {
             int var22 = func_02053eb4(var3, 0);
             GetModelBonePositionAndDirectionMatrices(var7, NULL, NULL, var22);
             Object3D* var23 = (Object3D*)var0->GetGameObjectByIndex(var14);

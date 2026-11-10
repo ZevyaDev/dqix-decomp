@@ -2,7 +2,7 @@
 
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
-extern "C" void func_ov000_0215ffc4(void* arg0, void* arg1, int arg2);
+extern "C" void AppendTargetResult_ov000_0215ffc4(void* target, void* result, int listIndex);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
 extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, unsigned long long arg4, int arg5);
 
@@ -16,7 +16,7 @@ extern "C" ARM void* func_ov024_021e8cfc(struct Struct_ov024_021ddc80_5* arg0, v
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var0, 0xf1);
     }
     AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var0, 0x25c);
-    func_ov000_0215ffc4(arg0->unknown_c_, var0, 1);
+    AppendTargetResult_ov000_0215ffc4(arg0->unknown_c_, var0, 1);
     ((unsigned char*)arg0->unknown_10_)[0x8e02] = ((unsigned char*)arg0->unknown_10_)[0x8e02] + 1;
     union { struct { int unknown_0_; int unknown_4_; }; unsigned long long unknown1_0_; } var1;
     var1.unknown_0_ = 0;

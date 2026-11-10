@@ -37,7 +37,7 @@ extern "C" void func_ov017_021c9168(int arg0, int arg1, int arg2, int arg3,
         Vector3fix arg4, Vector3fix arg5, int arg6);
 
 // USA: func_02076fdc
-extern "C" ARM int func_02076fdc(Struct_02076a8c* arg0) {
+extern "C" ARM int func_02076fdc(FieldMonster_02076a8c* arg0) {
     struct ActiveZone_020fdd44* var0 = GetActiveZones_02027ca4();
     struct ActiveZone_020fdd44* var1 =
         FindActiveZone_02028bd0(var0, arg0->unknown_0_.unknown_0_.unknown_0_.GetField06());
@@ -82,7 +82,7 @@ extern "C" ARM int func_02076fdc(Struct_02076a8c* arg0) {
         break;
     }
     SetMotionIfDifferent_02033b68((struct Struct_02033b68*)arg0, 1);
-    if (arg0->unknown_0_.unknown_134_ == 4 || arg0->unknown_0_.unknown_134_ == 5 || arg0->unknown_0_.unknown_134_ == 6) {
+    if (arg0->unknown_0_.previousState_134_ == 4 || arg0->unknown_0_.previousState_134_ == 5 || arg0->unknown_0_.previousState_134_ == 6) {
         arg0->unknown_0_.unknown_0_.unknown_0_.DisableFlag(0x80);
     } else {
         arg0->unknown_0_.unknown_0_.unknown_0_.EnableFlag(0x80);

@@ -10,7 +10,7 @@ void _ZN13SafeAllocator5ResetEv(void *);
 void ResetTextureVRAMState_0207df50(void *);
 void RestoreTextureVRAMState_0207df90(void *);
 void SaveTextureVRAMState_0207dfac(void *);
-void func_02059f38(void *, void *);
+void SetObject3DPositionFromVector_02059f38(void *, void *);
 void SetObject3DPosition_020407b4(void *, int, int, int);
 int func_02098210(int, int);
 unsigned short *GetZone3D_02012fe4(void);
@@ -90,7 +90,7 @@ extern "C" ARM int func_ov003_02158754(struct Struct_ov003_02158754_3 *arg0) {
         unsigned int var10       = var9[0];
         if (var7->IsVisible() && var7->GetInheritedAlpha() != 0 && var10 != 10000) {
             if (TestFlags04((GameResources*)var3, 4) == 0 || ((struct Struct_ov003_02158754_2 *) var7)->unknown_4_ == 0) {
-                func_02059f38(var4, (char *) var7 + 0x44);
+                SetObject3DPositionFromVector_02059f38(var4, (char *) var7 + 0x44);
                 const Vector3fix &var11 = var7->GetScale();
                 var4->SetScale(&var11);
                 var4->MaybeSetRegularAnimation(data_ov003_0217fe16, 9);

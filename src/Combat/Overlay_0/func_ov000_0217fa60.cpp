@@ -4,7 +4,7 @@
 
 struct Struct_ov000_02170fd0;
 extern "C" void func_ov000_02175754(void* arg0);
-extern "C" int func_ov000_021719f8(int* arg0);
+extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
 extern "C" void func_ov000_02170fd0(struct Struct_ov000_02170fd0* arg0, int arg1);
 
 struct Struct_ov000_0217fa60 {
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov000_0217fa60(struct Struct_ov000_0217fa60_3* arg0) {
         var3 = &arg0->unknown_958_[arg0->unknown_6c_[var5]];
         if (var3->unknown_4c_ < 0) continue;
         if (var3->unknown_87_ == 0) continue;
-        if (func_ov000_021719f8((int*)var3)) continue;
+        if (IsPanelMemberIncapacitated_ov000_021719f8((int*)var3)) continue;
         if (var3->unknown_445_ == 0) continue;
         func_ov000_02170fd0((struct Struct_ov000_02170fd0*)var3, 0);
         var3->unknown_24_ &= ~4;

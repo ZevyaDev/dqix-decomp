@@ -32,14 +32,14 @@ extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct Qu
 
 struct Struct_020213fc;
 extern "C" void func_020213fc(struct Struct_020213fc* arg0, int arg1);
-extern "C" void func_020e1154(void* arg0);
+extern "C" void DisableInputForDuration_020e1154(void* durationMs);
 
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void InitZoneEntry_02070378(char* zoneEntry);
 
 extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
-extern "C" int func_02040528(int* arg0);
+extern "C" int GetNPCData_02040528(int* npc);
 
 extern "C" void func_ov017_021b8d80(void*);
 extern "C" void func_ov017_021b8d1c(void* arg0);
@@ -62,7 +62,7 @@ extern char* data_020f2a30;
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 extern "C" int func_020de980(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
 extern "C" void func_0207cbe8(char* arg0);
-extern "C" void func_0207d300(void* arg0, short arg1, int arg2, int arg3);
+extern "C" void AddItem_0207d300(void* itemContext, short itemId, int count, int isAliveRequired);
 
 extern "C" int func_02086d88(unsigned char* arg0, int arg1);
 extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* outOwnPartyOrder);
@@ -90,7 +90,7 @@ extern "C" void func_ov017_021c16a8(unsigned char* arg0);
 extern "C" void func_ov017_021b65e0(void* arg0, int arg1);
 
 struct Struct_0206f81c_2;
-extern "C" void func_ov017_021b2174(unsigned char* arg0);
+extern "C" void ResetMenuTask_ov017_021b2174(unsigned char* node);
 extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2* arg0, char* arg1);
 extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
 struct Struct_0206f81c_3;
@@ -99,9 +99,9 @@ struct Struct_0206f81c_4;
 extern "C" void func_ov017_021b2c0c(Struct_0206f81c_4* arg0, unsigned int arg1);
 struct Struct_0206f81c_5;
 extern "C" void func_ov017_021b2bdc(Struct_0206f81c_5* arg0, unsigned int arg1);
-struct Struct_020469f8;
-struct Struct_020469f8_2;
-extern "C" void func_020469f8(struct Struct_020469f8* arg0, struct Struct_020469f8_2* arg1);
+struct Queue_020469f8;
+struct QueueNode_020469f8_2;
+extern "C" void PrependToQueue_020469f8(struct Queue_020469f8* queue, struct QueueNode_020469f8_2* node);
 
 extern "C" void func_ov004_0215e25c(void*, void*);
 extern "C" void func_ov004_02168684();
@@ -214,7 +214,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                 *(unsigned short*)((char*)var18 + 8) = *(unsigned short*)(var14 + 2);
                 AppendToQueue_020469b4(var9, var18);
                 func_020213fc(*(struct Struct_020213fc**)((char*)var12 + 0x3000 + REGION_VALUE(0x4c0, 0x6d0)), 1);
-                func_020e1154((void*)0x1f4);
+                DisableInputForDuration_020e1154((void*)0x1f4);
                 break;
             }
 
@@ -236,7 +236,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                 void* var20 = FindNPCById_0203df78(GetNPCManager_0203cf4c(), *(unsigned short*)(var14 + 2));
                 int var21 = 0;
                 if (var20 != NULL) {
-                    var21 = func_02040528((int*)var20);
+                    var21 = GetNPCData_02040528((int*)var20);
                 }
                 if (var21 != 0) {
                     unsigned char var22;
@@ -357,7 +357,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                     func_0207cbe8((char*)&var37);
                     func_0207cbe8((char*)&var37);
                     var37.unknown_2c_ = var32;
-                    func_0207d300(&var37, *(short*)(var14 + 2), (signed char)*(unsigned short*)(var14 + 4), 0);
+                    AddItem_0207d300(&var37, *(short*)(var14 + 2), (signed char)*(unsigned short*)(var14 + 4), 0);
                 }
                 break;
             }
@@ -483,7 +483,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                     func_0207cbe8((char*)&var73);
                     func_0207cbe8((char*)&var73);
                     var73.unknown_2c_ = var68;
-                    func_0207d300(&var73, *(short*)(var14 + 6), 1, 0);
+                    AddItem_0207d300(&var73, *(short*)(var14 + 6), 1, 0);
                 }
                 break;
             }
@@ -496,7 +496,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
             case 0x91: {
                 void* var74 = GetGameResources();
                 unsigned short var75 = *(unsigned short*)(var14 + 2);
-                struct Struct_020469f8* var76 = *(struct Struct_020469f8**)((char*)var74 + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
+                struct Queue_020469f8* var76 = *(struct Queue_020469f8**)((char*)var74 + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
                 switch (var75) {
                 case 2:
                     func_ov017_021b65e0(var74, 1);
@@ -505,31 +505,31 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                     ((struct Struct_0206f81c_10*)((char*)var11 + REGION_VALUE(0xc, 0x26c)))->unknown_5d0c_.unknown_0_0_ |= 0x20;
                 case 5: {
                     unsigned char* var77 = *(unsigned char**)((char*)var74 + 0x3000 + REGION_VALUE(0x92c, 0xb4c));
-                    func_ov017_021b2174(var77);
+                    ResetMenuTask_ov017_021b2174(var77);
                     func_ov017_021b2ba0((Struct_0206f81c_2*)var77, data_020f0b40);
                     func_ov017_021b2bd0(var77, (int)func_ov004_0215e25c, OVERLAY_ID(4));
-                    func_020469f8(var76, (struct Struct_020469f8_2*)var77);
+                    PrependToQueue_020469f8(var76, (struct QueueNode_020469f8_2*)var77);
                     break;
                 }
                 case 7: {
                     unsigned char* var78 = *(unsigned char**)((char*)var74 + 0x3000 + REGION_VALUE(0x92c, 0xb4c));
-                    func_ov017_021b2174(var78);
+                    ResetMenuTask_ov017_021b2174(var78);
                     func_ov017_021b2bf4((Struct_0206f81c_3*)var78, 1);
                     func_ov017_021b2c0c((Struct_0206f81c_4*)var78, 1);
                     func_ov017_021b2ba0((Struct_0206f81c_2*)var78, data_020f0b4c);
                     func_ov017_021b2bd0(var78, (int)func_ov004_02168684, OVERLAY_ID(4));
-                    func_020469f8(var76, (struct Struct_020469f8_2*)var78);
+                    PrependToQueue_020469f8(var76, (struct QueueNode_020469f8_2*)var78);
                     break;
                 }
                 case 8: {
                     unsigned char* var79 = *(unsigned char**)((char*)var74 + 0x3000 + REGION_VALUE(0x92c, 0xb4c));
-                    func_ov017_021b2174(var79);
+                    ResetMenuTask_ov017_021b2174(var79);
                     func_ov017_021b2bf4((Struct_0206f81c_3*)var79, 1);
                     func_ov017_021b2c0c((Struct_0206f81c_4*)var79, 1);
                     func_ov017_021b2bdc((Struct_0206f81c_5*)var79, 0);
                     func_ov017_021b2ba0((Struct_0206f81c_2*)var79, data_020f0b56);
                     func_ov017_021b2bd0(var79, (int)func_ov004_021689d8, OVERLAY_ID(4));
-                    func_020469f8(var76, (struct Struct_020469f8_2*)var79);
+                    PrependToQueue_020469f8(var76, (struct QueueNode_020469f8_2*)var79);
                     break;
                 }
                 }

@@ -80,7 +80,7 @@ struct Struct_0201099c_3;
 struct Struct_0200ffd0;
 struct TimedMessageQueue_020d7aa0_2;
 struct Struct_0204bef4;
-struct Struct_0205faf4_7;
+struct QuestManager_0205faf4_7;
 
 struct Struct_ov017_021a7378_3 {
     unsigned char unknown_0_;
@@ -130,7 +130,7 @@ extern "C" void ResetEventTask_ov017_021baedc(QueueNode_0201bdac* node, int isRe
 extern "C" void func_ov017_021d1c2c(unsigned char arg0, unsigned short arg1);
 extern "C" void func_ov017_021d1dc0(unsigned short, int, int*, int, int);
 extern "C" void* GetQuestManager_02094d6c(void);
-extern "C" Struct_ov017_021a7378_2* func_02096134(Struct_0205faf4_7* arg0, int arg1);
+extern "C" Struct_ov017_021a7378_2* FindAcceptedQuest_02096134(QuestManager_0205faf4_7* questManager, int questId);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_0205ce50(unsigned char* arg0);
 extern "C" void func_ov017_021a79f0(Struct_ov017_021a7378_3* arg0);
@@ -311,7 +311,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
         if (var3->unknown_27d0_ < 0xff) {
             var3->unknown_27d0_++;
         }
-        Struct_ov017_021a7378_2* var18 = func_02096134((Struct_0205faf4_7*)GetQuestManager_02094d6c(), 0xbc);
+        Struct_ov017_021a7378_2* var18 = FindAcceptedQuest_02096134((QuestManager_0205faf4_7*)GetQuestManager_02094d6c(), 0xbc);
         if (var18 != NULL && var18->unknown_4_ < 10) {
             var18->unknown_4_++;
         }

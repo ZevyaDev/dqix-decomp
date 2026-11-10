@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov031_0223d354(int arg0);
+extern "C" int AreKeysPressed_ov031_0223d354(int keys);
 extern "C" void func_ov031_02222e20(int arg0);
 
 // USA: func_ov031_02229b10
 extern "C" ARM void func_ov031_02229b10(void) {
-	if (func_ov031_0223d354(1) == 0) return;
+	if (AreKeysPressed_ov031_0223d354(1) == 0) return;
 	func_ov031_02222e20(0);
 }

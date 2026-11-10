@@ -66,7 +66,7 @@ extern "C" void FreeMemory_02012da4(AllocatorUnion *allocator, void *block);
 extern "C" void DestroySpriteSet_0205a494(void *spriteSet);
 extern "C" void func_ov003_021700bc(Struct_ov003_0216bcfc *arg0);
 extern "C" void *GetLocalWireless_0202ae18();
-extern "C" void func_0202c288();
+extern "C" void UpdateLocalWirelessPlayerCount_0202c288();
 extern "C" void CloseMessageWindow_02043124(void *window);
 extern "C" void LoadSpriteSetFile_0205a528(void *spriteSet, void *fileData, unsigned int size, SafeAllocator *allocator);
 #if defined(jpn)
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov003_0216bcfc(Struct_ov003_0216bcfc_3 *arg0) {
     void *var2                = GetLocalWireless_0202ae18();
 
     if (arg0->unknown_6_ == 0) {
-        func_0202c288();
+        UpdateLocalWirelessPlayerCount_0202c288();
         if (IsLocalWirelessOn_0202b7d8((int *) var2) != 0 && (int) *((unsigned char *) var2 + 0x100d) > 1) {
             func_ov003_0216d8d4(arg0, 0x5d, -1, -1, -1);
             arg0->unknown_6_  = 0;

@@ -3,8 +3,8 @@
 
 extern "C" void* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
 
-struct Struct_02054000;
-extern "C" void* func_02054000(struct Struct_02054000* arg0);
+struct PartyMember_02054000;
+extern "C" void* GetEquippedWeaponItemData_02054000(struct PartyMember_02054000* gameObject);
 
 extern short data_020e8a34[];
 
@@ -15,7 +15,7 @@ extern "C" ARM int func_0207c984(unsigned char* arg0, int arg1, int arg2, short*
         return 1;
     }
 
-    void* var1 = func_02054000((struct Struct_02054000*)var0);
+    void* var1 = GetEquippedWeaponItemData_02054000((struct PartyMember_02054000*)var0);
     short var2 = -1;
     if (var1 != 0) {
         unsigned int var3 = *(unsigned int*)((char*)var1 + 0x8);

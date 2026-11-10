@@ -591,7 +591,7 @@ extern "C" struct Struct_ov004_0215f770_2* FindItemData_020dedd0(struct Struct_0
 extern "C" int GetCamera_020100bc(GameState* gameState);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" void InitFollowCamera_020a2010(void* storage);
-extern "C" void func_0202e5c0(struct Struct_ov004_0215f770_4* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetCameraEye_0202e5c0(struct Struct_ov004_0215f770_4* camera, int x, int y, int z);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void func_ov023_021f6bec(void* arg0, int arg1, unsigned int arg2, unsigned int arg3);
@@ -785,7 +785,7 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
     LoadPartyMemberColors_020dc7e8(5, (signed char)data_ov004_02170804);
     data_ov004_021707f8 = GetCamera_020100bc(var3);
     InitFollowCamera_020a2010(data_ov004_021708c8);
-    func_0202e5c0((struct Struct_ov004_0215f770_4*)data_ov004_021708c8, 0xb666, 0xa800, 0x42ccc);
+    SetCameraEye_0202e5c0((struct Struct_ov004_0215f770_4*)data_ov004_021708c8, 0xb666, 0xa800, 0x42ccc);
     SetCameraTarget_0202e5c8((unsigned char*)data_ov004_021708c8, 0xb666, 0xa800, 0);
     DisableCameraFollow_020a27a0(data_ov004_021708c8);
     SetCamera_020100c4(var3, (int)data_ov004_021708c8);

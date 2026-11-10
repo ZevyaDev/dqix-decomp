@@ -47,7 +47,7 @@ extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
 extern "C" {
 void* GetEffectManager_02057924();
 void RemoveEffectResource_02057f00(void*, int);
-Struct_020a212c_2* func_ov000_02160f14(BattleScene_ov000_02160da0*);
+Struct_020a212c_2* GetBattleCamera_ov000_02160f14(BattleScene_ov000_02160da0*);
 void ResetBattleCamera_ov000_0216d370(Struct_020a212c_2*, int, int, int);
 }
 
@@ -71,13 +71,13 @@ extern "C" ARM void func_ov026_021dbba8(BattleScene_ov000_02160da0* arg0) {
     }
 
     Struct_020a212c_2* var4 = (Struct_020a212c_2*)GetCamera_020100bc(var0);
-    Struct_020a212c_2* var5 = func_ov000_02160f14(arg0);
+    Struct_020a212c_2* var5 = GetBattleCamera_ov000_02160f14(arg0);
     Vector3i var6 = var4->unknown_70_;
     ResetBattleCamera_ov000_0216d370(var5, 1, 1, 1);
     var5->unknown_10_ = var4->unknown_10_;
     SetCameraOrbitFromArray_0202e694(var5, &var6.x);
     var5->unknown_4_ = var4->unknown_4_;
-    SetCamera_020100c4(var0, (int)func_ov000_02160f14(arg0));
+    SetCamera_020100c4(var0, (int)GetBattleCamera_ov000_02160f14(arg0));
     ClearGameObjectByIndex_0200fd48(var0, 0xcf);
 
     var1->RemoveTask(arg0->unknown_7714_);

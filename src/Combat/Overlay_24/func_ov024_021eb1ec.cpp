@@ -5,7 +5,7 @@ struct Struct_02010088;
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
 
 struct Struct_ov024_021da670_7;
-extern "C" int func_ov024_021da9b0(struct Struct_ov024_021da670_7* arg0);
+extern "C" int IsParalysed_ov024_021da9b0(struct Struct_ov024_021da670_7* combatant);
 
 struct Struct_ov024_021da670_8;
 extern "C" int func_ov024_021da9c8(struct Struct_ov024_021da670_8* arg0);
@@ -41,7 +41,7 @@ extern "C" ARM int func_ov024_021eb1ec(void* arg0, int arg1) {
     if (func_ov024_021da9c8((struct Struct_ov024_021da670_8*)var1)) {
         return 0;
     }
-    if (func_ov024_021da9b0((struct Struct_ov024_021da670_7*)var1)) {
+    if (IsParalysed_ov024_021da9b0((struct Struct_ov024_021da670_7*)var1)) {
         return 0;
     }
     if (func_ov024_021de25c((struct Struct_ov024_021de124*)var1)) {

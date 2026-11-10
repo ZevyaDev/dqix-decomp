@@ -39,7 +39,7 @@ extern "C" void func_020dafd4();
 extern "C" void func_020db0f0(Struct_02000c9c_18* arg0);
 extern "C" void func_020db228(void* arg0);
 extern "C" void func_0209c174(Struct_02000c9c_16* arg0);
-extern "C" void func_0209c290(void* arg0);
+extern "C" void OpenMusicArchive_0209c290(void* manager);
 extern "C" void func_0205e88c(Struct_02000c9c_17* arg0);
 extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
 extern "C" void func_020421c4(SafeAllocator* arg0);
@@ -47,8 +47,8 @@ extern "C" void func_02071688();
 extern "C" char* func_02099cac();
 extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
 extern "C" char GetGameMode_0200fb9c(char* gameState);
-extern "C" void func_02012010(void* arg0, int arg1);
-extern "C" int func_0201201c(void* arg0);
+extern "C" void SetTitleState_02012010(void* arg0, int state);
+extern "C" int GetTitleState_0201201c(void* arg0);
 extern "C" void func_020ac910();
 extern "C" int func_02011570(Struct_02000c9c_9* arg0);
 extern "C" void func_0201155c(Struct_02000c9c_11* arg0);
@@ -206,8 +206,8 @@ inline bool inline_02000c9c_3() {
 
 inline void inline_02000c9c_4(GameState* arg0) {
     SetGameMode_0200fb94((char*)arg0, 6);
-    if (func_0201201c(arg0) != 2) {
-        func_02012010(arg0, 0);
+    if (GetTitleState_0201201c(arg0) != 2) {
+        SetTitleState_02012010(arg0, 0);
     }
 }
 
@@ -247,7 +247,7 @@ extern "C" ARM void main() {
     func_020db0f0(var2);
     func_020db228(var2);
     func_0209c174((Struct_02000c9c_16*)gMusicManager_02109bf4);
-    func_0209c290(gMusicManager_02109bf4);
+    OpenMusicArchive_0209c290(gMusicManager_02109bf4);
     func_0205e88c((Struct_02000c9c_17*)gSoundEffectManager_02108760);
     LoadSoundEffectSet_0205ea20(gSoundEffectManager_02108760, 100);
     SafeAllocator var3;
@@ -259,7 +259,7 @@ extern "C" ARM void main() {
     char* var4 = func_02099cac();
     if (*(int*)0x027ffc20 != 0) {
         SetGameMode_0200fb94((char*)var0, 6);
-        func_02012010(var0, 0);
+        SetTitleState_02012010(var0, 0);
     }
     func_020ac910();
 
@@ -268,13 +268,13 @@ extern "C" ARM void main() {
             func_0201155c((Struct_02000c9c_11*)var0);
             RUNTITLE();
         }
-        if (func_0201201c(var0) != 5) {
+        if (GetTitleState_0201201c(var0) != 5) {
             func_0208660c(var1);
         }
         func_02099cb8(var4);
 
         bool var5 = false;
-        if (func_0201201c(var0) != 5) {
+        if (GetTitleState_0201201c(var0) != 5) {
             inline_02000c9c_4(var0);
             inline_02000c9c_4(var0);
             if (GetGameMode_0200fb9c((char*)var0) != 6) {
@@ -299,19 +299,19 @@ extern "C" ARM void main() {
 
         switch (GetGameMode_0200fb9c((char*)var0)) {
         case 2:
-            func_02012010(var0, 0);
+            SetTitleState_02012010(var0, 0);
             break;
         case 0:
             if (var5 != true) {
-                func_02012010(var0, 0);
+                SetTitleState_02012010(var0, 0);
             }
             break;
         case 7:
             SetGameMode_0200fb94((char*)var0, 0);
             break;
         case 5:
-            if (func_0201201c(var0) != 6) {
-                func_02012010(var0, 0);
+            if (GetTitleState_0201201c(var0) != 6) {
+                SetTitleState_02012010(var0, 0);
             }
             break;
         }
@@ -395,7 +395,7 @@ extern "C" ARM void main() {
                 LoadOverlay_020a1940(&OVERLAY_32_ID);
                 g_touchInput.Unpause();
                 func_0209c174((Struct_02000c9c_16*)gMusicManager_02109bf4);
-                func_0209c290(gMusicManager_02109bf4);
+                OpenMusicArchive_0209c290(gMusicManager_02109bf4);
                 SetInterruptHandler(1, (const void*)func_02012bd8);
                 EnableSpecificInterrupts(1);
                 func_020d6c9c();
@@ -410,7 +410,7 @@ extern "C" ARM void main() {
                 REG_POWCNT1 &= ~0x8000;
                 WaitForVBlank_020c9820();
                 SetGameMode_0200fb94((char*)var0, 6);
-                func_02012010(var0, 1);
+                SetTitleState_02012010(var0, 1);
                 var7 = false;
                 break;
             }

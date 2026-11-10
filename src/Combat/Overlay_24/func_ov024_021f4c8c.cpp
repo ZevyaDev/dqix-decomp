@@ -6,7 +6,7 @@
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, unsigned short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov024_021ede2c(int* arg0);
 struct Struct_ov024_021da670_7;
-extern "C" int func_ov024_021da9b0(struct Struct_ov024_021da670_7* arg0);
+extern "C" int IsParalysed_ov024_021da9b0(struct Struct_ov024_021da670_7* combatant);
 
 extern unsigned short data_ov024_021febb4;
 
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov024_021f4c8c(int* arg0, int arg1, int arg2, int* arg3,
 	*arg3 = 0;
 	for (int var6 = 0; var6 < var5; var6++) {
 		GameObject* var7 = GetCombatantByID(*arg0, *(short*)&var0[var6]);
-		if (var7 && !func_ov024_021da9b0((struct Struct_ov024_021da670_7*)var7)) {
+		if (var7 && !IsParalysed_ov024_021da9b0((struct Struct_ov024_021da670_7*)var7)) {
 			*arg3 = *arg3 + 1;
 		}
 	}

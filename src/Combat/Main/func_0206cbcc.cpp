@@ -5,13 +5,13 @@
 #include "Combat/WorkRecord.h"
 
 
-struct Struct_0205faf4_3;
+struct FlagManager_0205faf4_3;
 struct Struct_0205faf4_4;
-struct Struct_0205faf4_13;
-extern "C" int func_0206e120(Struct_0205faf4_3*, int);
+struct FlagManager_0205faf4_13;
+extern "C" int GetQuestState_0206e120(FlagManager_0205faf4_3*, int);
 extern "C" int func_0206e260(Struct_0205faf4_4*, int);
-extern "C" int func_0206e2dc(Struct_0205faf4_13*, int);
-extern "C" Struct_0205faf4_3* GetFlagManager_0205ec34();
+extern "C" int IsQuestUnlocked_0206e2dc(FlagManager_0205faf4_13*, int);
+extern "C" FlagManager_0205faf4_3* GetFlagManager_0205ec34();
 extern "C" void func_0206dd68(void*, int);
 struct Struct_02108cec {
     int unknown_0_;
@@ -25,14 +25,14 @@ struct Struct_02108cec {
     SafeAllocator* unknown_14_;
 };
 extern Struct_02108cec data_02108cec;
-static inline int inline_0206cbcc(Struct_0205faf4_3* arg0, int arg1, int arg2) {
-    return func_0206e120(arg0, arg1) == arg2;
+static inline int inline_0206cbcc(FlagManager_0205faf4_3* arg0, int arg1, int arg2) {
+    return GetQuestState_0206e120(arg0, arg1) == arg2;
 }
 
 // USA: func_0206cbcc
 extern "C" ARM int func_0206cbcc(Script::Parameter* arg0, int arg1) {
     data_02108cec.unknown_a_++;
-    Struct_0205faf4_3* var0;
+    FlagManager_0205faf4_3* var0;
     int var1 = arg0[0].ToInt();
     int var2 = arg0[1].ToInt();
     int var3 = arg0[2].ToInt();
@@ -56,7 +56,7 @@ extern "C" ARM int func_0206cbcc(Script::Parameter* arg0, int arg1) {
     case 0: if (!inline_0206cbcc(var0, var1, 2)) return 1; break;
     case 1: if (!func_0206e260((Struct_0205faf4_4*)var0, var1)) return 1; break;
     case 2: if (!inline_0206cbcc(var0, var1, 3)) return 1; break;
-    case 4: if (!func_0206e2dc((Struct_0205faf4_13*)var0, var1) || !inline_0206cbcc(var0, var1, 0)) return 1; break;
+    case 4: if (!IsQuestUnlocked_0206e2dc((FlagManager_0205faf4_13*)var0, var1) || !inline_0206cbcc(var0, var1, 0)) return 1; break;
     }
     GameState* var6 = GameState::GetInstance();
     if (var3 == 1) { if (var6->IsMorningDayOrEvening()) return 1; }

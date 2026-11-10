@@ -54,7 +54,7 @@ struct Struct_0208fa8c { unsigned short unknown_0_; };
 extern "C" Struct_0208fa8c* GetZone3D_02012fe4();
 extern "C" void* GetActiveZones_02027ca4();
 extern "C" Struct_0206ef40* func_02027cb0();
-extern "C" void func_02076a8c(GameObject*);
+extern "C" void InitFieldMonster_02076a8c(GameObject*);
 extern "C" int func_02046b38(Struct_02046b38*, Struct_02046b38_2*);
 extern "C" Struct_02072adc* func_ov017_021a2738(void*, int);
 extern "C" void func_02072adc(Struct_02072adc*, Struct_02072adc*);
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov017_021d46a4(void*, Struct_ov017_021d46a4_4* arg1) {
     var5 = var4->unknown_2_0_ * 12 + 0x70 + arg1->unknown_8_0_;
     var6 = var0->GetMaybeFieldMonsterByIndex(var5);
     if (!var6) return;
-    func_02076a8c(var6);
+    InitFieldMonster_02076a8c(var6);
     if (!func_02046b38(var3, var7)) {
         Struct_02072adc* var8 = func_ov017_021a2738(var1, arg1->unknown_a_);
         if (var8) func_02072adc(var8, (Struct_02072adc*)var6);

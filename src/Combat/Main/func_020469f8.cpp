@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 
-struct Struct_020469f8_2 {
+struct QueueNode_020469f8_2 {
     char unknown_0_[2];
-    unsigned char unknown_2_;
+    unsigned char isQueued_2_;
     unsigned char unknown_3_;
-    struct Struct_020469f8_2* unknown_4_;
+    struct QueueNode_020469f8_2* pNext_4_;
 };
 
-struct Struct_020469f8 {
-    struct Struct_020469f8_2* unknown_0_;
-    struct Struct_020469f8_2* unknown_4_;
+struct Queue_020469f8 {
+    struct QueueNode_020469f8_2* pHead_0_;
+    struct QueueNode_020469f8_2* pTail_4_;
 };
 
-// USA: func_020469f8
-extern "C" ARM void func_020469f8(struct Struct_020469f8* arg0, struct Struct_020469f8_2* arg1) {
-    if (arg0->unknown_0_ != NULL && arg0->unknown_4_ != NULL) {
-        arg0->unknown_0_->unknown_3_ = 0;
-        arg1->unknown_4_ = arg0->unknown_0_;
-        arg0->unknown_0_ = arg1;
+// USA: PrependToQueue_020469f8
+extern "C" ARM void PrependToQueue_020469f8(struct Queue_020469f8* queue, struct QueueNode_020469f8_2* node) {
+    if (queue->pHead_0_ != NULL && queue->pTail_4_ != NULL) {
+        queue->pHead_0_->unknown_3_ = 0;
+        node->pNext_4_ = queue->pHead_0_;
+        queue->pHead_0_ = node;
     } else {
-        arg0->unknown_0_ = arg1;
-        arg0->unknown_4_ = arg1;
-        arg1->unknown_4_ = NULL;
+        queue->pHead_0_ = node;
+        queue->pTail_4_ = node;
+        node->pNext_4_ = NULL;
     }
-    arg1->unknown_2_ = 1;
+    node->isQueued_2_ = 1;
 }

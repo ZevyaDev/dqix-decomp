@@ -13,25 +13,25 @@ extern "C" ARM Vector3fix func_02019210(Zone3D* arg0, const Vector3fix* arg1,
 
     BoundingBox_02018fbc var1;
     if (var0.x < arg1->x) {
-        var1.unknown_0_.x = arg1->x;
-        var1.unknown_c_.x = var0.x;
+        var1.maxCorner_0_.x = arg1->x;
+        var1.minCorner_c_.x = var0.x;
     } else {
-        var1.unknown_0_.x = var0.x;
-        var1.unknown_c_.x = arg1->x;
+        var1.maxCorner_0_.x = var0.x;
+        var1.minCorner_c_.x = arg1->x;
     }
     if (var0.y < arg1->y) {
-        var1.unknown_0_.y = arg1->y;
-        var1.unknown_c_.y = var0.y;
+        var1.maxCorner_0_.y = arg1->y;
+        var1.minCorner_c_.y = var0.y;
     } else {
-        var1.unknown_0_.y = var0.y;
-        var1.unknown_c_.y = arg1->y;
+        var1.maxCorner_0_.y = var0.y;
+        var1.minCorner_c_.y = arg1->y;
     }
     if (var0.z < arg1->z) {
-        var1.unknown_0_.z = arg1->z;
-        var1.unknown_c_.z = var0.z;
+        var1.maxCorner_0_.z = arg1->z;
+        var1.minCorner_c_.z = var0.z;
     } else {
-        var1.unknown_0_.z = var0.z;
-        var1.unknown_c_.z = arg1->z;
+        var1.maxCorner_0_.z = var0.z;
+        var1.minCorner_c_.z = arg1->z;
     }
 
     Vector3fix var2 = *arg1;

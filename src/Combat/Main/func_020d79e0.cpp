@@ -14,7 +14,7 @@ struct Struct_020d79e0 {
 };
 
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" void func_ov017_021b2174(unsigned char* arg0);
+extern "C" void ResetMenuTask_ov017_021b2174(unsigned char* node);
 extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2* arg0, char* arg1);
 extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
 extern "C" void func_02046a3c(Struct_02046a3c_2* arg0, Struct_02046a3c* arg1);
@@ -29,7 +29,7 @@ extern "C" ARM void func_020d79e0(void* arg0, int arg1) {
     Struct_020d79e0* var2 = static_cast<Struct_020d79e0*>(var0->unknown_ptr_array_3afc[20]);
     var1 = static_cast<Struct_02046a3c_2*>(var0->unknown_ptr_array_36fc[0]);
     PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
-    func_ov017_021b2174(reinterpret_cast<unsigned char*>(var2));
+    ResetMenuTask_ov017_021b2174(reinterpret_cast<unsigned char*>(var2));
     var2->unknown_4c_ = arg1;
     func_ov017_021b2ba0((Struct_0206f81c_2*)var2, &data_020f233d);
     func_ov017_021b2bd0(var2, (int)func_ov004_021633ac, OVERLAY_ID(4));

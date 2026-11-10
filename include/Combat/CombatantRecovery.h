@@ -23,7 +23,7 @@ struct Struct_020236dc_2 : GameObject {
     unsigned int unknown_18c_;
 };
 
-extern "C" void func_02048150(GameObject* arg0, int arg1, int arg2);
+extern "C" void RevivePartyMember_02048150(GameObject* gameObject, int hp, int isPartyOrderRebuildAllowed);
 extern "C" void func_02053fe4(GameObject* arg0, int arg1, int arg2);
 
 #if defined(jpn)

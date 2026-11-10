@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Struct_0204a120_2;
-extern "C" void func_020a2cf0(struct Struct_0204a120_2*);
+extern "C" void InitKeyControlledCamera_020a2cf0(struct Struct_0204a120_2*);
 extern "C" ARM void func_0202e08c(unsigned int* arg0, unsigned int arg1);
 
 struct Struct_0204a120 {
@@ -24,7 +24,7 @@ struct Struct_0204a120 {
 
 // USA: func_0204a120
 extern "C" ARM void func_0204a120(struct Struct_0204a120* arg0) {
-    func_020a2cf0((struct Struct_0204a120_2*)arg0);
+    InitKeyControlledCamera_020a2cf0((struct Struct_0204a120_2*)arg0);
     func_0202e08c((unsigned int*)arg0, 0x10);
     arg0->unknown_21c_ = 0;
     arg0->unknown_220_ = 0;

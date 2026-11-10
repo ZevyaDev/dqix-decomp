@@ -15,7 +15,7 @@ extern "C" int func_ov024_021da998(Struct_ov024_021da670_6*);
 extern "C" void func_0208826c(unsigned char*);
 extern "C" void func_020883cc(unsigned char*);
 struct Struct_ov024_021da670_7;
-extern "C" int func_ov024_021da9b0(Struct_ov024_021da670_7*);
+extern "C" int IsParalysed_ov024_021da9b0(Struct_ov024_021da670_7*);
 extern "C" int IsAsleep_020882f8(unsigned char*);
 struct Struct_ov024_021da670_8;
 extern "C" int func_ov024_021da9c8(Struct_ov024_021da670_8*);
@@ -76,7 +76,7 @@ extern "C" ARM void* func_ov024_021da670(Struct_ov024_021da670* arg0,int arg1,in
             break;
         }
         ((Struct_ov024_021da670_5*)var0->currentStats_)->unknown_22_.unknown_1_4_=0;
-    }else if(func_ov024_021da9b0((Struct_ov024_021da670_7*)var0)){
+    }else if(IsParalysed_ov024_021da9b0((Struct_ov024_021da670_7*)var0)){
         var2=0x70;
     }else if(IsAsleep_020882f8((unsigned char*)var0->currentStats_)){
         var2=0x44;

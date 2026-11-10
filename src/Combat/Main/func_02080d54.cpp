@@ -2,29 +2,29 @@
 
 struct MenuLayout_0207fdcc_2;
 
-struct Struct_02080d54 {
+struct TextWindow_02080d54 {
     char unknown_0_[0xa8];
-    short unknown_a8_;
-    short unknown_aa_;
-    short unknown_ac_;
-    short unknown_ae_;
+    short width_a8_;
+    short height_aa_;
+    short tileX_ac_;
+    short tileY_ae_;
 };
 
-extern "C" struct Struct_02080d54* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
+extern "C" struct TextWindow_02080d54* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 
-// USA: func_02080d54
-extern "C" ARM int func_02080d54(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2, int arg3) {
-    struct Struct_02080d54* var0 = func_02081da8(arg0, arg1);
-    short var1, var2;
-    if (var0 == NULL) {
+// USA: IsPointInMenuLayoutWindow_02080d54
+extern "C" ARM int IsPointInMenuLayoutWindow_02080d54(struct MenuLayout_0207fdcc_2* menuLayout, int windowId, int x, int y) {
+    struct TextWindow_02080d54* window = func_02081da8(menuLayout, windowId);
+    short tileRight, tileBottom;
+    if (window == NULL) {
         return 0;
     }
-    var1 = var0->unknown_ac_ + var0->unknown_a8_;
-    var2 = var0->unknown_ae_ + var0->unknown_aa_;
-    if (arg2 >= (short)(var0->unknown_ac_ * 8)) {
-        if (arg2 < (short)(var1 * 8)) {
-            if (arg3 >= (short)(var0->unknown_ae_ * 8)) {
-                if (arg3 < (short)(var2 * 8)) {
+    tileRight = window->tileX_ac_ + window->width_a8_;
+    tileBottom = window->tileY_ae_ + window->height_aa_;
+    if (x >= (short)(window->tileX_ac_ * 8)) {
+        if (x < (short)(tileRight * 8)) {
+            if (y >= (short)(window->tileY_ae_ * 8)) {
+                if (y < (short)(tileBottom * 8)) {
                     return 1;
                 }
             }

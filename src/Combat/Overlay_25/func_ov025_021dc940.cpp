@@ -63,9 +63,9 @@ struct Struct_02109bf4_5;
 
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
-extern "C" int func_ov000_0215ec1c(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectAllEnemyCombatantIndices_ov000_0215ec1c(void* battle, short* indices, int maxCount, int arg3);
 extern "C" int func_02058618(void* arg0);
-extern "C" unsigned char* func_02039e70(void);
+extern "C" unsigned char* GetBattleNumberPopups_02039e70(void);
 extern "C" int func_0203a5d0(unsigned char* arg0);
 extern "C" int func_ov025_021ed2f4(void* arg0);
 extern "C" int func_ov025_021ed0fc(void* arg0);
@@ -116,7 +116,7 @@ extern "C" ARM int func_ov025_021dc940(Struct_ov025_021dc940_5* arg0) {
     short var4[16];
     int var5 = 0;
     var5 = var5 + CollectPartyCombatantIndices_ov000_0215e9fc(var1, var4, 0x10, var5);
-    var5 = var5 + func_ov000_0215ec1c(var1, var4 + var5, 0x10 - var5, 0);
+    var5 = var5 + CollectAllEnemyCombatantIndices_ov000_0215ec1c(var1, var4 + var5, 0x10 - var5, 0);
 
     for (int var6 = 0; var6 < var5; var6++) {
         GameObject* var7 = var0->GetCombatantByIndex(var4[var6]);
@@ -128,7 +128,7 @@ extern "C" ARM int func_ov025_021dc940(Struct_ov025_021dc940_5* arg0) {
     if (func_02058618(var2) > 0) {
         return 0;
     }
-    if (func_0203a5d0(func_02039e70()) == 0) {
+    if (func_0203a5d0(GetBattleNumberPopups_02039e70()) == 0) {
         return 0;
     }
     if (func_ov025_021ed2f4(arg0->unknown_890_) == 0) {

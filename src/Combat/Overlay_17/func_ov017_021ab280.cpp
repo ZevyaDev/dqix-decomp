@@ -28,7 +28,7 @@ extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 struct Struct_02033b68;
 extern "C" void SetMotionIfDifferent_02033b68(struct Struct_02033b68* object, int motion);
 struct Struct_02033b58;
-extern "C" void func_02033b58(struct Struct_02033b58* arg0, unsigned char arg1);
+extern "C" void SetMotionKeepingAnimation_02033b58(struct Struct_02033b58* object, unsigned char motion);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
@@ -103,7 +103,7 @@ extern "C" ARM int func_ov017_021ab280(struct Struct_ov017_021ab280_2* arg0) {
         if (var9 <= 4) {
             arg0->unknown_8_ = var4 + 1;
             arg0->unknown_c_ = 0;
-            func_02033b58((struct Struct_02033b58*)var2, 1);
+            SetMotionKeepingAnimation_02033b58((struct Struct_02033b58*)var2, 1);
         }
     } else if (var4 == 2) {
         struct Struct_ov009_0218aa28 var10;
@@ -115,7 +115,7 @@ extern "C" ARM int func_ov017_021ab280(struct Struct_ov017_021ab280_2* arg0) {
         int var12 = fix32_Atan2(var10.unknown_0_, var10.unknown_8_);
 
         SetFacing_02033834((struct Struct_02033834_2*)var2, var12);
-        func_02033b58((struct Struct_02033b58*)var2, 1);
+        SetMotionKeepingAnimation_02033b58((struct Struct_02033b58*)var2, 1);
         *(unsigned short*)((char*)var2 + 0xb2) = 0xa3;
 
         if (IsBrightnessTransitionActive((GameResources*)var1) == 0) {
@@ -130,7 +130,7 @@ extern "C" ARM int func_ov017_021ab280(struct Struct_ov017_021ab280_2* arg0) {
         int var15 = fix32_Atan2(var13.unknown_0_, var13.unknown_8_);
 
         SetFacing_02033834((struct Struct_02033834_2*)var2, var15);
-        func_02033b58((struct Struct_02033b58*)var2, 1);
+        SetMotionKeepingAnimation_02033b58((struct Struct_02033b58*)var2, 1);
         *(unsigned short*)((char*)var2 + 0xb2) = 0xa3;
 
         if (IsBrightnessTransitionActive((GameResources*)var1) == 0) {

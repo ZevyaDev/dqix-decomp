@@ -5,7 +5,7 @@
 #include "Resource/GameResources.h"
 
 struct Struct_02109bf4_5;
-struct Struct_0205d0e0_2;
+struct TextWindowManager_0205d0e0_2;
 struct TextWindowManager_0205d6a0;
 struct TextWindowManager_0205def8;
 struct Struct_ov000_02179cdc_2 {
@@ -59,9 +59,9 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int, int);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources*, int, int, int, int);
 extern "C" Struct_ov000_0217e870* FindPartyMemberPanel_ov000_02161318(Struct_ov004_021707e8*, int);
-extern "C" int func_ov000_021719f8(int*);
+extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int*);
 extern "C" void func_ov000_02171c04(Struct_ov000_0217e870*);
-extern "C" Struct_ov000_02179cdc_2* func_0205d888(Struct_0205d0e0_2*);
+extern "C" Struct_ov000_02179cdc_2* GetLastOpenedTextWindow_0205d888(TextWindowManager_0205d0e0_2*);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 extern "C" void func_ov000_0217c638(Struct_ov004_021707e8*, int, int);
 extern "C" void SetTextWindowVisible_0205def8(TextWindowManager_0205def8*, int, int);
@@ -90,22 +90,22 @@ extern "C" ARM void func_ov000_0217eb28(Struct_ov004_021707e8* arg0, int arg1, i
         QueuePartyMemberModelLoad_ov017_0218f5a4(var2, var1, 1, 0, 0);
         Struct_ov000_0217e870* var3 = FindPartyMemberPanel_ov000_02161318(arg0, var1);
         if (!var3) return;
-        if (func_ov000_021719f8((int*)var3)) {
+        if (IsPanelMemberIncapacitated_ov000_021719f8((int*)var3)) {
             var3->unknown_10_[var3->unknown_18_] = 0x64;
             var3->unknown_24_ &= ~4;
         }
         func_ov000_02171c04(var3);
-        Struct_ov000_02179cdc_2* var4 = func_0205d888((Struct_0205d0e0_2*)arg0->unknown_188_);
+        Struct_ov000_02179cdc_2* var4 = GetLastOpenedTextWindow_0205d888((TextWindowManager_0205d0e0_2*)arg0->unknown_188_);
         while (var4) {
             if (var4->unknown_c4_ == 2) break;
             CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_188_, 0);
-            var4 = func_0205d888((Struct_0205d0e0_2*)arg0->unknown_188_);
+            var4 = GetLastOpenedTextWindow_0205d888((TextWindowManager_0205d0e0_2*)arg0->unknown_188_);
         }
         unsigned char var5 = ((Struct_ov000_0217e870_2*)GetParty_02010828(GameState::GetInstance()))->unknown_f7c_;
         for (unsigned char var6 = 0; var6 < var5; var6++) {
             int var7 = arg0->unknown_70_[var6];
             Struct_ov000_0217e870* var8 = FindPartyMemberPanel_ov000_02161318(arg0, var7);
-            if (var8 && !func_ov000_021719f8((int*)var8) && var8->unknown_87_) {
+            if (var8 && !IsPanelMemberIncapacitated_ov000_021719f8((int*)var8) && var8->unknown_87_) {
                 arg0->unknown_17c_ = var7;
                 break;
             }

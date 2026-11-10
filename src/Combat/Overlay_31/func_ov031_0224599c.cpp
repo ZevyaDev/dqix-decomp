@@ -13,7 +13,7 @@ extern "C" int func_ov031_0220eb88(int arg0);
 extern "C" int func_ov031_0220eb30(void);
 extern "C" int func_020c7ea0(void* arg0, int* arg1, int arg2);
 extern "C" void Memset32Bit_020ca458(unsigned int arg0, void* arg1, int arg2);
-extern "C" void func_020ca4b4(const void* arg0, void* arg1, int arg2);
+extern "C" void Memcpy32BitByBlock_020ca4b4(const void* arg0, void* arg1, int arg2);
 
 struct Struct_ov031_0224599c {
 	int unknown_0_;
@@ -47,7 +47,7 @@ static inline void inline_ov031_0224599c(void* arg0, int arg1) {
 }
 
 static inline void inline_ov031_0224599c_2(const void* arg0, void* arg1, int arg2) {
-	func_020ca4b4(arg0, arg1, arg2);
+	Memcpy32BitByBlock_020ca4b4(arg0, arg1, arg2);
 }
 
 enum Enum_ov031_0224599c { Enum_ov031_0224599c_1 = 1, Enum_ov031_0224599c_4 = 4, Enum_ov031_0224599c_5 = 5 };

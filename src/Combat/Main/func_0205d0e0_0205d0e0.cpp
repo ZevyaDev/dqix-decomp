@@ -23,8 +23,8 @@ struct TextWindowManager_0205d81c {
     unsigned char unknown_b8_;
 };
 
-struct Struct_0205d0e0_2;
-extern "C" void* func_0205d888(struct Struct_0205d0e0_2* arg0);
+struct TextWindowManager_0205d0e0_2;
+extern "C" void* GetLastOpenedTextWindow_0205d888(struct TextWindowManager_0205d0e0_2* windowManager);
 
 extern "C" int func_0205c5b0(void* arg0, int arg1);
 extern "C" unsigned int func_0205c710(unsigned char* arg0);
@@ -47,7 +47,7 @@ extern "C" ARM int UpdateTextWindowManager_0205d0e0(void* windowManager, int tic
     if (textWindowManager->pTextWindows_9c_ == 0) return 0;
 
     cursorChange = 0;
-    textWindow = (struct TextWindow_0205d0e0*)func_0205d888((struct Struct_0205d0e0_2*)windowManager);
+    textWindow = (struct TextWindow_0205d0e0*)GetLastOpenedTextWindow_0205d888((struct TextWindowManager_0205d0e0_2*)windowManager);
     if (textWindow != 0) {
         cursorChange = func_0205c5b0(windowManager, ticks);
         if (textWindowManager->cursorWindowId_b0_ == textWindow->unknown_c4_) {

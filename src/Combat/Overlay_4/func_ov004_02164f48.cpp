@@ -12,7 +12,7 @@ struct Struct_02011930 {
 };
 extern "C" unsigned char func_02011930(void* arg0, struct Struct_02011930* arg1, void* arg2, void* arg3);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
-extern char* data_ov004_02171010;
+extern char* gTreasureMapScreen_ov004_02171010;
 extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_020985ec {
     unsigned char unknown_0_[0x10];
@@ -35,7 +35,7 @@ extern "C" ARM int func_ov004_02164f48(void* arg0) {
 
         srand(GetMain16BitTimerCounter());
 
-        char* var4 = data_ov004_02171010;
+        char* var4 = gTreasureMapScreen_ov004_02171010;
 #if defined(jpn)
         unsigned char var5 = *(unsigned char*)(var4 + 0x1000 + 0x9f4);
 #else
@@ -81,7 +81,7 @@ extern "C" ARM int func_ov004_02164f48(void* arg0) {
 #endif
         if (var9 != 0) var6->TreasureDiscoveryFlags = var9;
 
-        unsigned char* var10 = (unsigned char*)data_ov004_02171010;
+        unsigned char* var10 = (unsigned char*)gTreasureMapScreen_ov004_02171010;
 #if defined(jpn)
         *(var10 + 0x1000 + 0x9f4) = *(var10 + 0x1000 + 0x9f4) + 1;
 #else

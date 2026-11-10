@@ -129,7 +129,7 @@ extern "C" void func_02083cbc(Struct_ov000_02166e5c_6*, Struct_ov000_02166e5c_5*
 extern "C" void func_02083e28(Struct_ov000_02166e5c_6*, int);
 extern "C" void func_02083ca0(unsigned char*, int);
 extern "C" void func_02083c18(char*);
-extern "C" void func_02083b60(unsigned char*, int);
+extern "C" void LearnSpell_02083b60(unsigned char*, int);
 extern "C" void func_020a35cc(unsigned char*, unsigned char);
 struct Struct_02010604;
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
@@ -235,7 +235,7 @@ extern "C" ARM void func_ov000_02166e5c(Struct_ov000_02166e5c* arg0) {
     var6->unknown_130_->maxMP = var6->unknown_134_->primaryStats.maxMP;
     func_02083ca0((unsigned char*)var11, 0);
     func_02083c18((char*)var11);
-    func_02083b60((unsigned char*)var11, var13->unknown_13_);
+    LearnSpell_02083b60((unsigned char*)var11, var13->unknown_13_);
     var11->unknown_16c_[0] = var13->unknown_12_;
     var11->unknown_56a_ = 0xb;
     var11->unknown_94c_ = 3;

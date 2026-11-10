@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" int func_ov024_021fe698(char* arg0, int arg1);
+extern "C" int TrySelectTacticOption_ov024_021fe698(char* tacticAI, int option);
 extern "C" void func_ov024_021f9874(void* arg0, void* arg1, int arg2, int arg3);
 
 struct Struct_ov024_021fcc6c {
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov024_021fcc6c(Struct_ov024_021fcc6c_4* arg0) {
         if (arg0->unknown_c_ >= 4) var0 = 50.0f;
     }
     if (!var1) return;
-    if (!func_ov024_021fe698((char*)arg0, 0x12)) return;
+    if (!TrySelectTacticOption_ov024_021fe698((char*)arg0, 0x12)) return;
     Struct_ov024_021fcc6c_5 var2;
     for (int var3 = 0; var3 < arg0->unknown_9c_; var3++) {
         Struct_ov024_021fcc6c_2* var4 = arg0->unknown_7c_[var3];

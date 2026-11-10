@@ -3,7 +3,7 @@
 #include "NitroSDK/NSBXX/GeometryFifo.h"
 
 extern "C" unsigned short (*func_02099cac(void))[2];
-extern "C" int func_020c555c(int arg0);
+extern "C" int Set3DEdgeColors_020c555c(int edgeColors);
 extern "C" void func_02031234(int arg0);
 
 extern char data_ov023_021fdcef;
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov023_021e5628(Struct_ov023_021e5628* arg0, Struct_ov02
 
     unsigned short var1 = *(unsigned short*)((char*)var0 + 0x128);
     unsigned short var2[8] = {var1, var1, var1, var1, var1, var1, var1, var1};
-    func_020c555c((int)var2);
+    Set3DEdgeColors_020c555c((int)var2);
 
     if (arg0->unknown_0_.unknown_2_ >= 0) {
         arg0->unknown_0_.AdvanceEffects();

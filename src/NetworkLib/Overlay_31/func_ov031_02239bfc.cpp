@@ -14,7 +14,7 @@ struct Struct_ov031_02290d18_19 {
 
 extern Struct_ov031_02290d18_19 data_ov031_02290d18 __attribute__((aligned(4)));
 
-extern "C" void func_020c99ac(void* arg0);
+extern "C" void GetMACAddress_020c99ac(void* macAddress);
 extern "C" void func_ov031_022393e4(int arg0);
 extern "C" void func_ov031_02239368(int);
 extern "C" unsigned short func_ov031_02239cd4(unsigned short);
@@ -24,7 +24,7 @@ static inline unsigned long inline_0202d6c8() { return *(volatile unsigned long*
 // USA: func_ov031_02239bfc
 extern "C" ARM int func_ov031_02239bfc(void) {
     unsigned short var0[3];
-    func_020c99ac(var0);
+    GetMACAddress_020c99ac(var0);
     data_ov031_02290d18.unknown_4_->unknown_58_ = var0[0] + inline_0202d6c8() + var0[1] + var0[2];
     data_ov031_02290d18.unknown_4_->unknown_58_ = data_ov031_02290d18.unknown_4_->unknown_58_ * 69069 + 12345;
     data_ov031_02290d18.unknown_4_->unknown_5c_ = 0;

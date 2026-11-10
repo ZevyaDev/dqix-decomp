@@ -4,24 +4,24 @@ struct MenuCursor_0205bb84;
 extern "C" int GetMenuCursorIndex_0205bb84(struct MenuCursor_0205bb84*);
 extern "C" void SetMenuCursorIndex_0205bb04(void*, int);
 
-struct Struct_0205c4a8 {
-    int unknown_0_;
-    int unknown_4_;
+struct MenuCursor_0205c4a8 {
+    int itemCount_0_;
+    int pageCount_4_;
     char unknown_8_[0xc];
-    int unknown_14_;
+    int page_14_;
 };
 
-// USA: func_0205c4a8
-extern "C" ARM void func_0205c4a8(struct Struct_0205c4a8* arg0, int arg1) {
-    int var0;
-    arg0->unknown_14_ += arg1;
-    if (arg0->unknown_4_ <= arg0->unknown_14_) {
-        arg0->unknown_14_ -= arg0->unknown_4_;
-    } else if (arg0->unknown_14_ < 0) {
-        arg0->unknown_14_ += arg0->unknown_4_;
+// USA: ChangeMenuCursorPage_0205c4a8
+extern "C" ARM void ChangeMenuCursorPage_0205c4a8(struct MenuCursor_0205c4a8* cursor, int pageStep) {
+    int itemCount;
+    cursor->page_14_ += pageStep;
+    if (cursor->pageCount_4_ <= cursor->page_14_) {
+        cursor->page_14_ -= cursor->pageCount_4_;
+    } else if (cursor->page_14_ < 0) {
+        cursor->page_14_ += cursor->pageCount_4_;
     }
-    var0 = arg0->unknown_0_;
-    if (var0 <= GetMenuCursorIndex_0205bb84((struct MenuCursor_0205bb84*)arg0)) {
-        SetMenuCursorIndex_0205bb04((void*)arg0, var0 - 1);
+    itemCount = cursor->itemCount_0_;
+    if (itemCount <= GetMenuCursorIndex_0205bb84((struct MenuCursor_0205bb84*)cursor)) {
+        SetMenuCursorIndex_0205bb04((void*)cursor, itemCount - 1);
     }
 }

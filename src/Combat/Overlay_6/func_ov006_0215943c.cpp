@@ -17,7 +17,7 @@ struct MenuLayout_0207fdcc_2 {
     short unknown_36_;
 };
 
-struct Struct_02081f20_2;
+struct KeyRepeat_02081f20_2;
 struct Struct_ov006_021591ec;
 
 struct Struct_ov006_02157a60 {
@@ -44,7 +44,7 @@ extern "C" unsigned short func_ov006_021591ec(Struct_ov006_021591ec* arg0);
 extern "C" short func_02080468(void* arg0, int arg1);
 extern "C" void func_ov006_0215f4dc(Struct_ov006_02157a60* arg0);
 extern "C" void func_ov006_0215f740(Struct_ov006_02157a60* arg0);
-extern "C" void func_0208203c(Struct_02081f20_2* arg0);
+extern "C" void func_0208203c(KeyRepeat_02081f20_2* arg0);
 extern "C" void func_02081ea4(MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
 
 // USA: func_ov006_0215943c
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov006_0215943c(Struct_ov006_02157a60* arg0) {
     arg0->unknown_14_->unknown_36_ = arg0->unknown_364_;
     func_ov006_0215f4dc(arg0);
     func_ov006_0215f740(arg0);
-    func_0208203c((Struct_02081f20_2*)arg0->unknown_9c_);
+    func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
     arg0->unknown_44_ = 0;
     func_02081ea4(arg0->unknown_14_, arg0->unknown_36e_, 0);
 }

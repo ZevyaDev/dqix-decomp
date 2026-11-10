@@ -11,16 +11,16 @@ struct Struct_020200c0_3 {
     short unknown_a_;
 };
 
-struct Struct_020200c0_4 {
-    int unknown_0_;
-    int unknown_4_;
-    unsigned char unknown_8_;
+struct Canvas_020200c0_4 {
+    int pCharacterData_0_;
+    int pRects_4_;
+    unsigned char rectCount_8_;
 };
 
 extern "C" void func_02023064(struct Struct_020200c0_3* arg0, unsigned int arg1, short* arg2, short* arg3, short* arg4, short* arg5);
-extern "C" void func_0205b20c(struct Struct_020200c0_4* arg0);
-extern "C" void func_0205b220(void* arg0, int arg1);
-extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
+extern "C" void InitCanvas_0205b20c(struct Canvas_020200c0_4* canvas);
+extern "C" void SetCanvasCharacterData_0205b220(void* canvas, int characterData);
+extern "C" void SetCanvasRects_0205b228(void* canvas, int rects, unsigned char rectCount);
 extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" int func_0205b234(void*, short, short, int, unsigned char, unsigned char);
 
@@ -47,10 +47,10 @@ extern "C" ARM void func_020e0ec4(void* arg0, void* arg1, int arg2, int) {
 #else
     func_02023064(var0, Enum_020e0ec4_14, data_020ee920, data_020ee8cc, data_020ee8e8, data_020ee904);
 #endif
-    struct Struct_020200c0_4 var1;
-    func_0205b20c(&var1);
-    func_0205b220(&var1, (int)arg1 + arg2);
-    func_0205b228(&var1, (int)var0, Enum_020e0ec4_14);
+    struct Canvas_020200c0_4 var1;
+    InitCanvas_0205b20c(&var1);
+    SetCanvasCharacterData_0205b220(&var1, (int)arg1 + arg2);
+    SetCanvasRects_0205b228(&var1, (int)var0, Enum_020e0ec4_14);
 
 #if defined(jpn)
     func_0205b234(&var1, (short)44, (short)18, (int)((char*)arg0 + 0x680), (unsigned char)10, (unsigned char)15);

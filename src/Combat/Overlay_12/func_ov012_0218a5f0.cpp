@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 struct StringList_02072a68_2;
-struct Struct_0205c508;
+struct MenuCursor_0205c508;
 struct MessageWindow_020465c0;
 struct Struct_ov012_02189af4 {
     int unknown_0_;
@@ -23,7 +23,7 @@ struct Struct_ov012_02189af4_2 {
 extern "C" void AppendFrameTag_02041c08(char*, int, int, int, int, int);
 extern "C" int AppendCursorTag_02041ea4(char*, int);
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void func_0205c508(Struct_0205c508*, int*, int*);
+extern "C" void GetMenuCursorPageRange_0205c508(MenuCursor_0205c508*, int*, int*);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" int AppendMenuEntry_02041b70(char*, int, const char*);
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov012_0218a5f0(char* arg0, char* arg1, int arg2) {
     int var4 = var3->unknown_14_;
     int var5 = var3->unknown_4_;
     int var6, var7;
-    func_0205c508((Struct_0205c508*)var3, &var6, &var7);
+    GetMenuCursorPageRange_0205c508((MenuCursor_0205c508*)var3, &var6, &var7);
     GetLocalWireless_0202ae18();
     GameState::GetInstance();
     for (var2 = var6; var2 < var7; ++var2) {
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov012_0218a5f0(char* arg0, char* arg1, int arg2) {
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_0205c508;
+struct MenuCursor_0205c508;
 struct StringList_02072a68_2;
 
 struct Struct_ov012_0218a5f0
@@ -122,7 +122,7 @@ struct Struct_ov012_0218a5f0_4
 extern "C" void AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" void AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void func_0205c508(Struct_0205c508* arg0, int* arg1, int* arg2);
+extern "C" void GetMenuCursorPageRange_0205c508(MenuCursor_0205c508* cursor, int* outPageStartIndex, int* outPageEndIndex);
 extern "C" void GetLocalWireless_0202ae18();
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
@@ -149,7 +149,7 @@ extern "C" ARM void func_ov012_0218a5f0(Struct_ov012_0218a5f0_4* arg0, char* arg
     int var15 = var13->unknown_4_;
     int var16;
     int var17;
-    func_0205c508((Struct_0205c508*)var13, &var16, &var17);
+    GetMenuCursorPageRange_0205c508((MenuCursor_0205c508*)var13, &var16, &var17);
     GetLocalWireless_0202ae18();
     var11 = (Struct_ov012_0218a5f0_3*)GameState::GetInstance()->GetProtagonist();
     int var18 = 0x50dc;

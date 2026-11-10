@@ -5,7 +5,7 @@ extern "C" int GetMessageWindow_020421a0(void);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
-extern "C" void func_02012028(void* arg0, unsigned char arg1);
+extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
 struct SaveProgress_020a9ea4;
 extern "C" void ResetSaveProgress_020a9ea4(struct SaveProgress_020a9ea4* progress);
 extern "C" void func_ov004_0216afb0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov004_0216d004(void* arg0) {
 #endif
     PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 5, 0);
 
-    func_02012028((void*)GameState::GetInstance(), 0);
+    SetTitleIdleTimeoutEnabled_02012028((void*)GameState::GetInstance(), 0);
     ResetSaveProgress_020a9ea4(data_ov004_02171034.unknown_10_);
     data_ov004_02171034.unknown_2_ = 1;
 

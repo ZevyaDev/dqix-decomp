@@ -13,7 +13,7 @@ enum { Enum_ov003_02154f80_640 = 0x280 };
 
 struct Struct_02059cfc_2;
 struct Struct_02059cfc_3;
-extern "C" void func_02059f38(struct Struct_02059cfc_2* arg0, struct Struct_02059cfc_3* arg1);
+extern "C" void SetObject3DPositionFromVector_02059f38(struct Struct_02059cfc_2* object, struct Struct_02059cfc_3* position);
 
 // USA: func_ov003_02154f80
 extern "C" ARM void func_ov003_02154f80(char* arg0) {
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov003_02154f80(char* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = var0->GetPartyMemberByIndex(*(signed char*)(arg0 + Enum_ov003_02154f80_503));
     if (var1 != 0) {
-        func_02059f38((struct Struct_02059cfc_2*)(arg0 + Enum_ov003_02154f80_640), (struct Struct_02059cfc_3*)((char*)var1 + 0x44));
+        SetObject3DPositionFromVector_02059f38((struct Struct_02059cfc_2*)(arg0 + Enum_ov003_02154f80_640), (struct Struct_02059cfc_3*)((char*)var1 + 0x44));
     }
     ((Object3D*)(arg0 + Enum_ov003_02154f80_640))->AdvanceEffects();
     ((Object3D*)(arg0 + Enum_ov003_02154f80_640))->Draw(1);

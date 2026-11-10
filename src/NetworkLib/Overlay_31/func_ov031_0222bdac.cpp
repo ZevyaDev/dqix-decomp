@@ -20,7 +20,7 @@ extern Struct_ov031_02290c8c_6 data_ov031_02290c8c;
 extern "C" unsigned char func_ov031_022351e4();
 extern "C" unsigned char func_ov031_022351d0();
 extern "C" void DisableButtonBarInput_ov031_02222e98();
-extern "C" void func_ov031_02222e80();
+extern "C" void EnableButtonBarInput_ov031_02222e80();
 extern "C" void func_ov031_022238cc();
 extern "C" void func_ov031_0222c3b4();
 extern "C" void func_ov031_0222c8cc();
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov031_0222bdac() {
         return;
     case 3: {
         data_ov031_02290c8c.unknown_4_->unknown_57_ = 0;
-        func_ov031_02222e80();
+        EnableButtonBarInput_ov031_02222e80();
         data_ov031_02290c8c.unknown_2_ = FastIntDivide(data_ov031_02290c8c.unknown_4_->unknown_40_ * func_ov031_022351d0(), data_ov031_02290c8c.unknown_4_->unknown_53_);
         PlayWifiSetupSoundEffect_ov031_02236878(0x13);
         func_ov031_0222c3b4();

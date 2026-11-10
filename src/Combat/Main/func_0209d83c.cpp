@@ -5,23 +5,23 @@ extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" int* GetQuestManager_02094d6c(void);
 extern "C" void* GetQuestBattleScript_0209dccc(void);
 
-struct Struct_0205faf4_7;
-extern "C" void* func_02096134(struct Struct_0205faf4_7* arg0, int arg1);
+struct QuestManager_0205faf4_7;
+extern "C" void* FindAcceptedQuest_02096134(struct QuestManager_0205faf4_7* questManager, int questId);
 
 // USA: func_0209d83c
 extern "C" ARM int func_0209d83c(void* arg0) {
-    struct Struct_0205faf4_7* var0;
+    struct QuestManager_0205faf4_7* var0;
     void* var1;
     int var2;
     int var3;
 
-    var0 = (struct Struct_0205faf4_7*)GetQuestManager_02094d6c();
+    var0 = (struct QuestManager_0205faf4_7*)GetQuestManager_02094d6c();
     if (var0 == NULL) return 0;
 
     if (GetQuestBattleScript_0209dccc() == NULL) return 0;
 
     var2 = GetScriptValueAsInt_ov017_021d60f4(arg0);
-    var1 = func_02096134(var0, var2);
+    var1 = FindAcceptedQuest_02096134(var0, var2);
     if (var1 == NULL) return 0;
 
     var3 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 8);

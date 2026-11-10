@@ -6,7 +6,7 @@ struct Party_02048150;
 struct ItemTable_0201099c_10;
 struct Struct_0201099c_3;
 struct Struct_02046574_2;
-struct Struct_0207cf30_3;
+struct ItemBag_0207cf30_3;
 struct Struct_020a0b8c;
 struct MessageWindow_020465c0;
 extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
@@ -26,7 +26,7 @@ extern "C" void func_020474a8(void *arg0, int arg1, const char *arg2, char *arg3
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int func_02042428(char *arg0, int arg1);
 extern "C" int func_020a0b8c(struct Struct_020a0b8c *arg0);
-extern "C" int func_020a0b3c(Struct_0207cf30_3 *arg0, int arg1);
+extern "C" int GetBagItemCount_020a0b3c(ItemBag_0207cf30_3 *bag, int itemId);
 extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" int sprintf(char *arg0, const char *arg1, ...);
 extern "C" char data_ov002_0216d939[];
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov002_0215ef64(char *arg0, char *arg1, int arg2) {
             char var2[0x40];
             memset(var2, 0, 0x40);
             sprintf(var2, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x481),
-                    func_020a0b3c((Struct_0207cf30_3 *) var6, *(short *) (var21 + 0x18)));
+                    GetBagItemCount_020a0b3c((ItemBag_0207cf30_3 *) var6, *(short *) (var21 + 0x18)));
             AppendText_02042058(arg1, var2);
             if (var19 != var18 - 1) {
                 AppendText_02042058(arg1, *(const char **) (arg0 + 0x1000 + 0xaa4));

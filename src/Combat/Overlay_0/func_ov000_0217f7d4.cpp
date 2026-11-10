@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_ov000_021719f8(int* arg0);
+extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
 struct Struct_ov000_02170fd0;
 extern "C" void func_ov000_02170fd0(struct Struct_ov000_02170fd0* arg0, int arg1);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov000_0217f7d4(char* arg0) {
         var2 = (struct Struct_ov000_0217f7d4*)(arg0 + 0x958) + var4;
         if (var2->unknown_4c_ < 0) continue;
         if (var2->unknown_87_ == 0) continue;
-        if (func_ov000_021719f8((int*)var2)) continue;
+        if (IsPanelMemberIncapacitated_ov000_021719f8((int*)var2)) continue;
         if (var2->unknown_445_ == 0) continue;
 
         if (*(int*)(arg0 + 0x17c) == var2->unknown_4c_) {

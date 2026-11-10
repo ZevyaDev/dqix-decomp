@@ -3,20 +3,20 @@
 #include "Resource/Script.h"
 
 
-struct Struct_0205faf4_3;
+struct FlagManager_0205faf4_3;
 struct Struct_0205faf4_4;
-struct Struct_0205faf4_13;
-extern "C" int func_0206e120(Struct_0205faf4_3* arg0, int arg1);
+struct FlagManager_0205faf4_13;
+extern "C" int GetQuestState_0206e120(FlagManager_0205faf4_3* flagManager, int questId);
 extern "C" int func_0206e260(Struct_0205faf4_4* arg0, int arg1);
-extern "C" int func_0206e2dc(Struct_0205faf4_13* arg0, int arg1);
+extern "C" int IsQuestUnlocked_0206e2dc(FlagManager_0205faf4_13* flagManager, int questId);
 
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int func_ov017_021b9bcc(int arg0, const char* arg1);
 
-static inline int inline_ov017_021ba524(Struct_0205faf4_3* arg0, int arg1, int arg2) {
-    return func_0206e120(arg0, arg1) == arg2;
+static inline int inline_ov017_021ba524(FlagManager_0205faf4_3* arg0, int arg1, int arg2) {
+    return GetQuestState_0206e120(arg0, arg1) == arg2;
 }
 
 struct Struct_ov017_021ba524 {
@@ -53,7 +53,7 @@ extern "C" ARM int func_ov017_021ba524(Script::Parameter* arg0, int arg1) {
     int var3 = var2->unknown_4_;
     if (var3 > 0) return 1;
 
-    Struct_0205faf4_3* var4 = (Struct_0205faf4_3*)GetFlagManager_0205ec34();
+    FlagManager_0205faf4_3* var4 = (FlagManager_0205faf4_3*)GetFlagManager_0205ec34();
     int var5 = arg0[0].ToInt();
     int var6 = data_ov017_021d7c54.unknown_0_;
     if (var6 != var5 && var6 > -1) {
@@ -84,7 +84,7 @@ extern "C" ARM int func_ov017_021ba524(Script::Parameter* arg0, int arg1) {
         if (!inline_ov017_021ba524(var4, var5, 1)) return 1;
         break;
     case 4:
-        if (func_0206e2dc((Struct_0205faf4_13*)var4, var5) && inline_ov017_021ba524(var4, var5, 0)) {
+        if (IsQuestUnlocked_0206e2dc((FlagManager_0205faf4_13*)var4, var5) && inline_ov017_021ba524(var4, var5, 0)) {
         } else {
             return 1;
         }

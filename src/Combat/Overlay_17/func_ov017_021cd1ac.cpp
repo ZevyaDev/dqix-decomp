@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" void func_02083acc(unsigned char* arg0, int arg1);
+extern "C" void LearnSkillEntry_02083acc(unsigned char* memberData, int skillEntryId);
 extern "C" void func_02083e28(void* arg0, int arg1);
 
 struct Struct_ov017_021cd1ac {
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov017_021cd1ac(int arg0, unsigned char* arg1, GameState
 	if (!var3) return;
 	for (int var4 = 0; var4 < var1->unknown_0_3_; var4++) {
         unsigned short var5 = var0->unknown_2_[var4];
-		func_02083acc(var3, var5);
+		LearnSkillEntry_02083acc(var3, var5);
 	}
 	func_02083e28(var3, 0);
 }

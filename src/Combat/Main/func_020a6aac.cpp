@@ -27,7 +27,7 @@ extern "C" void func_020da77c(void* arg0, int arg1, void* arg2);
 
 extern "C" void func_020a2770(void* arg0, short arg1);
 
-extern "C" void func_0203db34(unsigned char* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetObject3DRotation_0203db34(unsigned char* object, int x, int y, int z);
 
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
@@ -158,7 +158,7 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
         var10 = var1->inline_020a6728();
         var4->unknown_144_ = var10->unknown_0_;
         int var11 = var1->unknown_2774_.unknown_c_;
-        func_0203db34((unsigned char*)var4, 0, var11, 0);
+        SetObject3DRotation_0203db34((unsigned char*)var4, 0, var11, 0);
         if (IsNotLocalWirelessGuest_0202c508(var2) != 0 && var8 == 0) {
             var1->unknown_2774_.unknown_14_ = 1;
             func_ov017_021d1a18(1, -1, 1, 0);
@@ -187,7 +187,7 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
                     var13.y = GetGroundHeight_02018fbc((Struct_020a6aac*)var1, &var13);
                     if (var6->unknown_5_ == 0) {
                         var5->obj3D_.position_ = var13;
-                        func_0203db34((unsigned char*)var5, 0, var12->unknown_2e_, 0);
+                        SetObject3DRotation_0203db34((unsigned char*)var5, 0, var12->unknown_2e_, 0);
                         func_ov017_0219c598(&var13.x, &var12->unknown_2e_, 0);
                     }
                     var1->unknown_2774_.unknown_10_ = var12->unknown_2c_;

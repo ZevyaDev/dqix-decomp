@@ -23,7 +23,7 @@ extern "C" void func_02080bac(void *arg0, int arg1);
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c *menuLayout, int textId, int text);
 extern "C" void func_020805f4(void *arg0, int arg1);
-extern "C" void func_0208103c(void *arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutTextStringId_0208103c(void *menuLayout, int textId, int stringId);
 struct Struct_02080cc0;
 extern "C" void func_02080cc0(struct Struct_02080cc0 *arg0, int arg1, int arg2);
 extern "C" int func_02080b2c(void *arg0, int arg1);
@@ -89,11 +89,11 @@ extern "C" ARM void func_ov003_02177550(Struct_ov003_02177550_2 *arg0) {
     int var4         = GetEquipRestrictions_020dd4c4(arg0->unknown_1043_, var3);
     unsigned int var5 = var3->unknown_c_7_;
     if (var5 != 0) {
-        func_0208103c(var2, 0x71, (short) (var5 + 0x2f));
+        SetMenuLayoutTextStringId_0208103c(var2, 0x71, (short) (var5 + 0x2f));
     }
 
     if (var4 != 0) {
-        func_0208103c(var2, 0x75, 0xb);
+        SetMenuLayoutTextStringId_0208103c(var2, 0x75, 0xb);
         func_02080cc0((struct Struct_02080cc0 *) var2, 0x75, 3);
         func_02080b2c(var2, 0x72);
         func_02080b2c(var2, 0x73);
@@ -112,7 +112,7 @@ extern "C" ARM void func_ov003_02177550(Struct_ov003_02177550_2 *arg0) {
         }
         int var7 = GetEquippedItem_02052df8((Struct_02052df8 *) var1, var6);
         if (var7 == var3->unknown_18_) {
-            func_0208103c(var2, 0x75, 0x22);
+            SetMenuLayoutTextStringId_0208103c(var2, 0x75, 0x22);
             func_02080b2c(var2, 0x72);
             func_02080b2c(var2, 0x73);
             func_02080b2c(var2, 0x74);

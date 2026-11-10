@@ -4,7 +4,7 @@
 extern "C" void* GetLocalWireless_0202ae18(void);
 
 struct PartyMember_0205faf4_11;
-extern "C" int func_02061bd8(struct PartyMember_0205faf4_11* arg0);
+extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
 
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov023_021f4098(void* arg0, int arg1, int arg2) {
     GameState* var0 = GameState::GetInstance();
     struct LocalWireless_0202b2f0* var1 = (struct LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
     GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
-    if (var2 == 0 || func_02061bd8((struct PartyMember_0205faf4_11*)var2) != 0) {
+    if (var2 == 0 || IsNPCCompanion_02061bd8((struct PartyMember_0205faf4_11*)var2) != 0) {
         return 0;
     }
     if (GetPartyMemberData_02053c6c((unsigned char*)var2) == 0) {
@@ -57,7 +57,7 @@ extern "C" ARM int func_ov023_021f4098(void* arg0, int arg1, int arg2) {
     for (var7 = 0; var7 < 4; var7++) {
         if (IsPartyMemberInBattle_020a35e0(*(unsigned char**)((char*)arg0 + Enum_ov023_021f4098_672), var7)) {
             GameObject* var8 = GetPartyMemberBaseByIndex_0200ff1c(var0, var7);
-            if (var8 != 0 && func_02061bd8((struct PartyMember_0205faf4_11*)var8) == 0) {
+            if (var8 != 0 && IsNPCCompanion_02061bd8((struct PartyMember_0205faf4_11*)var8) == 0) {
                 var6[var7] = (float)(unsigned int)func_02053dfc((struct Struct_02053dfc*)var8);
                 var5[var7] = (float)(unsigned int)GetLevel_0202053c(var8);
             }

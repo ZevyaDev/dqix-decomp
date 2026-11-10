@@ -9,10 +9,10 @@ struct Struct_020200c0_3 {
     short unknown_a_;
 };
 
-struct Struct_020200c0_4 {
-    int unknown_0_;
-    int unknown_4_;
-    unsigned char unknown_8_;
+struct Canvas_020200c0_4 {
+    int pCharacterData_0_;
+    int pRects_4_;
+    unsigned char rectCount_8_;
 };
 
 struct Struct_0203bebc_4 {
@@ -20,9 +20,9 @@ struct Struct_0203bebc_4 {
     signed char unknown_4_;
 };
 
-extern "C" void func_0205b20c(struct Struct_020200c0_4* arg0);
-extern "C" void func_0205b220(void* arg0, int arg1);
-extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
+extern "C" void InitCanvas_0205b20c(struct Canvas_020200c0_4* canvas);
+extern "C" void SetCanvasCharacterData_0205b220(void* canvas, int characterData);
+extern "C" void SetCanvasRects_0205b228(void* canvas, int rects, unsigned char rectCount);
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void* GetFontGlyph_020425b4(int glyphIndex, int font);
 extern "C" int func_020425e4(int arg0, int arg1, int arg2);
@@ -164,10 +164,10 @@ extern "C" ARM void func_0203bebc(void* arg0, void* arg1, void* arg2)
         var21 += var23->unknown_8_;
     }
 
-    struct Struct_020200c0_4 var24;
-    func_0205b20c(&var24);
-    func_0205b220(&var24, (int)var18);
-    func_0205b228(&var24, (int)var19, 4);
+    struct Canvas_020200c0_4 var24;
+    InitCanvas_0205b20c(&var24);
+    SetCanvasCharacterData_0205b220(&var24, (int)var18);
+    SetCanvasRects_0205b228(&var24, (int)var19, 4);
 
     *(short*)((char*)arg0 + 0x22) = (short)((unsigned int)arg2 >> 7);
     memset(arg0, 0, 0x20);

@@ -20,13 +20,13 @@ enum { Enum_ov003_02160134_908 = 0x38c };
 enum { Enum_ov003_02160134_1120 = 0x460 };
 #endif
 
-struct Struct_0207fcb8;
-extern "C" void func_0207fcb8(struct Struct_0207fcb8* arg0);
+struct MenuLayout_0207fcb8;
+extern "C" void ClearMenuLayoutBGScreenData_0207fcb8(struct MenuLayout_0207fcb8* menuLayout);
 struct Struct_0207fd00;
 extern "C" void func_0207fd00(struct Struct_0207fd00* arg0);
 extern "C" void func_0207fe80(void* arg0, int arg1, int arg2, int arg3);
-struct Struct_0207fd44_2;
-extern "C" void func_0207fd44(struct Struct_0207fd44_2* arg0);
+struct MenuLayout_0207fd44_2;
+extern "C" void FlushMenuLayoutBGScreenData_0207fd44(struct MenuLayout_0207fd44_2* menuLayout);
 extern "C" void func_ov003_02166fc4(void* arg0);
 struct Struct_020e28dc;
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
@@ -41,7 +41,7 @@ extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254
 extern "C" struct SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index);
 struct SpriteAnimationList_0205a330;
 extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330* animationList, int ticks);
-extern "C" void func_020e27ec(struct SpriteAnimationList_0205a254* arg0, int arg1, short arg2, short arg3);
+extern "C" void SetSpriteAnimationPosition_020e27ec(struct SpriteAnimationList_0205a254* animationList, int index, short x, short y);
 extern "C" void DrawSpriteAnimations_0205ae8c(void*);
 
 // USA: func_ov003_02160134
@@ -50,10 +50,10 @@ extern "C" ARM void func_ov003_02160134(char* arg0) {
 
     void* var0 = *(void**)(arg0 + Enum_ov003_02160134_804);
     if (var0 != 0) {
-        func_0207fcb8((struct Struct_0207fcb8*)var0);
+        ClearMenuLayoutBGScreenData_0207fcb8((struct MenuLayout_0207fcb8*)var0);
         func_0207fd00((struct Struct_0207fd00*)var0);
         func_0207fe80(var0, 1, 2, 1);
-        func_0207fd44((struct Struct_0207fd44_2*)var0);
+        FlushMenuLayoutBGScreenData_0207fd44((struct MenuLayout_0207fd44_2*)var0);
     }
     func_ov003_02166fc4(arg0);
 
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov003_02160134(char* arg0) {
     AdvanceSpriteAnimations_0205a330((struct SpriteAnimationList_0205a330*)var1, var3);
 
     var1 = *(struct SpriteAnimationList_0205a254**)(arg0 + Enum_ov003_02160134_908);
-    func_020e27ec(var1, 1, 0xd7, 0x96);
+    SetSpriteAnimationPosition_020e27ec(var1, 1, 0xd7, 0x96);
 
     DrawSpriteAnimations_0205ae8c(arg0 + Enum_ov003_02160134_820);
 }

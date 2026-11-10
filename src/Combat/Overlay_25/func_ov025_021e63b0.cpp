@@ -23,7 +23,7 @@ struct Struct_ov025_021ef988_23 {
     int unknown_28_;
 };
 struct Struct_ov025_021ef9a8;
-struct Struct_02054000;
+struct PartyMember_02054000;
 struct Struct_ov025_021e267c_2;
 struct Struct_ov025_021e267c_3 {
     unsigned char unknown_0_;
@@ -43,7 +43,7 @@ extern Struct_ov025_021ef9a8 data_ov025_021ef9a8;
 extern char data_ov025_021ef809[];
 extern char data_ov025_021ef791[];
 extern "C" void func_ov025_021e3158(Struct_ov025_021ef9a8*);
-extern "C" void* func_02054000(Struct_02054000*);
+extern "C" void* GetEquippedWeaponItemData_02054000(PartyMember_02054000*);
 extern "C" void func_02072e94(char*, int, int, void*, int);
 extern "C" int func_ov025_021e2628(int, int);
 extern "C" SafeAllocator* func_ov025_021e8a54(char*);
@@ -53,7 +53,7 @@ extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" Struct_ov025_021e63b0_4* GetBattleScene_ov000_02160130();
-extern "C" void func_ov017_02191aac(GameResources*, int, int, int);
+extern "C" void SetCombatantAppearanceFlags_ov017_02191aac(GameResources*, int, int, int);
 
 // USA: func_ov025_021e63b0
 extern "C" ARM int func_ov025_021e63b0(void* arg0, Struct_ov025_021e63b0_3* arg1) {
@@ -67,7 +67,7 @@ extern "C" ARM int func_ov025_021e63b0(void* arg0, Struct_ov025_021e63b0_3* arg1
             func_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
-        void* var4 = func_02054000((Struct_02054000*)var3);
+        void* var4 = GetEquippedWeaponItemData_02054000((PartyMember_02054000*)var3);
         if (!var4) {
             func_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
@@ -128,7 +128,7 @@ extern "C" ARM int func_ov025_021e63b0(void* arg0, Struct_ov025_021e63b0_3* arg1
             if (((Struct_ov025_021e63b0*)var16->currentStats_)->unknown_14_ & 0x8000000) {
                 GameResources* var17 = GetGameResources();
                 var12->SetAlphaScaleFactor(0);
-                func_ov017_02191aac(var17, 1, var14, 2);
+                SetCombatantAppearanceFlags_ov017_02191aac(var17, 1, var14, 2);
             }
         }
         var1->RemoveTask(var7);

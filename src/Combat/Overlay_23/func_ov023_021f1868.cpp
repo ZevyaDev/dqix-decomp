@@ -191,7 +191,7 @@ extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8* table);
 extern "C" void func_0209a470(Struct_0209a470* arg0, SafeAllocator* arg1, Struct_02013fb4* arg2, int arg3);
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
-extern "C" void func_020e526c(void* arg0);
+extern "C" void InitNounTable_020e526c(void* nounTable);
 extern "C" void func_0209fe9c(char* arg0);
 extern "C" void func_0209fee4(Struct_0209fee4* arg0, SafeAllocator* arg1, int arg2, int arg3);
 extern "C" void func_0209ff64(Struct_0209ff64* arg0, int arg1);
@@ -204,7 +204,7 @@ extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" void** FindNounInTable_020e5294(void* nounTable, int nounId);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
 extern "C" void ResetMessageWindow_02043204(char* window);
-extern "C" void func_020a13c4(Struct_020a13c4* arg0);
+extern "C" void ClearAccoladeTable_020a13c4(Struct_020a13c4* table);
 extern "C" void func_020a13e4(void* arg0, void* arg1, int arg2, unsigned short arg3, unsigned char arg4);
 extern "C" void* ConstructStringTable_020dfc2c(void* stringTable);
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
@@ -348,7 +348,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
             arg0->unknown_5770_ = NULL;
             arg0->unknown_57b4_ = NULL;
             arg0->unknown_57b8_ = arg0->unknown_30_.Allocate(0x14);
-            func_020a13c4((Struct_020a13c4*)arg0->unknown_57b8_);
+            ClearAccoladeTable_020a13c4((Struct_020a13c4*)arg0->unknown_57b8_);
             func_020a13e4(arg0->unknown_57b8_, &arg0->unknown_30_, (int)var9, (unsigned short)var11, 4);
             arg0->unknown_55d5_ = func_ov023_021ed724(arg0->unknown_57b8_, var9, var11) & 1 ? 1 : 0;
             Struct_ov023_021f1868_14* var14 = var19->GetProtagonist();
@@ -411,7 +411,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
             LoadStringList_020728ac(arg0->unknown_557c_, &arg0->unknown_30_, var26, var25, 0, 0, 0);
         var26 = ExtractFileFromGP2(data_ov023_021fe25e, data_ov023_021fe273, &var25);
         arg0->unknown_5580_ = arg0->unknown_30_.Allocate(0xc);
-        func_020e526c(arg0->unknown_5580_);
+        InitNounTable_020e526c(arg0->unknown_5580_);
         if (var26 != NULL)
             func_020e5604(arg0->unknown_5580_, &arg0->unknown_30_, var26, var25);
         BackgroundLoader::RemoveLockGlobal();
@@ -526,7 +526,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
             arg0->unknown_5580_ = NULL;
             arg0->unknown_55c4_ = NULL;
             arg0->unknown_55c8_ = arg0->unknown_30_.Allocate(0x14);
-            func_020a13c4((Struct_020a13c4*)arg0->unknown_55c8_);
+            ClearAccoladeTable_020a13c4((Struct_020a13c4*)arg0->unknown_55c8_);
             func_020a13e4(arg0->unknown_55c8_, &arg0->unknown_30_, (int)var40, (unsigned short)var37, 4);
             arg0->unknown_55d5_ = func_ov023_021ed724(arg0->unknown_55c8_, var40, var37) & 1 ? 1 : 0;
             Struct_ov023_021f1868_14* var42 = var19->GetProtagonist();

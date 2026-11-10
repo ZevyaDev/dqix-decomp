@@ -5,8 +5,8 @@ extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int func_ov023_021ddbb8(void* arg0, int arg1, int arg2);
 extern "C" void func_ov023_021db2e4(volatile int* arg0);
 extern "C" int func_ov023_021dc354(void* arg0);
-extern "C" void InitItemInfoPanel_ov023_021dc134(void* arg0, int itemId, int arg2);
-extern "C" void func_ov023_021dbfd0(void* arg0, void* arg1);
+extern "C" void InitItemInfoPanel_ov023_021dc134(void* panel, int itemId, int isEmbedded);
+extern "C" void AllocateItemInfoPanelBuffers_ov023_021dbfd0(void* panel, void* allocator);
 
 #if defined(jpn)
 #define FIELD_OFFSET(value) ((value) - 0x84)
@@ -31,6 +31,6 @@ extern "C" ARM void func_ov023_021dc9e8(void* arg0, void* arg1, int arg2, int ar
     unsigned short var2 = *(unsigned short*)((char*)arg0 + FIELD_OFFSET(0x774));
     *(unsigned short*)((char*)arg0 + FIELD_OFFSET(0x774)) = var2 | arg4;
 
-    func_ov023_021dbfd0(arg0, arg1);
+    AllocateItemInfoPanelBuffers_ov023_021dbfd0(arg0, arg1);
     *(int*)((char*)arg0 + 0x48) = arg3;
 }

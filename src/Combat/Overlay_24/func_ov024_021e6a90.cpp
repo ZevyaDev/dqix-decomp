@@ -129,8 +129,8 @@ struct Struct_ov024_021dd028_5;
 extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
 extern "C" float func_02074738(int arg0, int arg1);
 extern "C" int HasEnemyTrait_ov000_02156068(struct Struct_ov024_021e6a90_4* battle, int combatantIndex, int kind, int traitType);
-extern "C" struct Struct_ov024_021e6a90_6* func_ov000_02153710(struct Struct_ov024_021e6a90_4* arg0, int arg1);
-extern "C" int func_ov000_02159dbc(struct Struct_ov024_021e6a90_4* arg0, int arg1);
+extern "C" struct Struct_ov024_021e6a90_6* GetPartyMemberDataByIndex_ov000_02153710(struct Struct_ov024_021e6a90_4* battle, int combatantIndex);
+extern "C" int GetEnemyLevel_ov000_02159dbc(struct Struct_ov024_021e6a90_4* battle, int combatantIndex);
 float CalculateTensionBonus(int tension, int level);
 struct Struct_ov024_021e6a90_7;
 extern "C" int func_ov024_021ea7fc(void*, Struct_ov024_021e6a90_7*, int);
@@ -234,10 +234,10 @@ extern "C" ARM int func_ov024_021e6a90(struct Struct_ov024_021e6a90_5* arg0, int
             if (var7) {
                 signed char var8;
                 if (inline_ov000_02169850(arg1)) {
-                    struct Struct_ov024_021e6a90_6* var9 = func_ov000_02153710(arg0->unknown_10_, arg1);
+                    struct Struct_ov024_021e6a90_6* var9 = GetPartyMemberDataByIndex_ov000_02153710(arg0->unknown_10_, arg1);
                     var8 = var9->unknown_16c_[var9->unknown_950_];
                 } else {
-                    var8 = func_ov000_02159dbc(arg0->unknown_10_, arg1);
+                    var8 = GetEnemyLevel_ov000_02159dbc(arg0->unknown_10_, arg1);
                 }
                 var4 = var4 + CalculateTensionBonus(var1->unknown_138_->unknown_24_, var8);
             }

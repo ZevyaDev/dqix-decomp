@@ -15,7 +15,7 @@ extern "C" int func_02041fac(char* arg0, int arg1, int arg2);
 extern "C" int AppendPositionTag_02041a90(char* buffer, int x, int y);
 
 struct Struct_ov002_0215f224;
-extern "C" void func_0205c508(struct Struct_ov002_0215f224* arg0, int* arg1, int* arg2);
+extern "C" void GetMenuCursorPageRange_0205c508(struct Struct_ov002_0215f224* cursor, int* outPageStartIndex, int* outPageEndIndex);
 
 struct Struct_ov002_0215f224_2;
 struct Struct_ov002_0215f224_3;
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov002_0215f224(char* arg0, char* arg1, int arg2) {
 
     char* var1 = arg0 + RG(0x2c8 + 0xc00, 0xe20);
     int var2, var3;
-    func_0205c508((struct Struct_ov002_0215f224*)(var1 + 0x54), &var2, &var3);
+    GetMenuCursorPageRange_0205c508((struct Struct_ov002_0215f224*)(var1 + 0x54), &var2, &var3);
 
     int var4 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + RG(0x20, 8)), 0x578);
     func_02041fac(arg1, var4, 0x10);

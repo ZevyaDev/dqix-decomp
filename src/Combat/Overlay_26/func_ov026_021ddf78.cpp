@@ -92,9 +92,9 @@ extern "C" void* GetBattleScene_ov017_021b8468(void*);
 extern "C" void* GetBattleUI_ov000_02160f08(void*);
 extern "C" int func_02070094();
 extern "C" const char** FindMonsterData_0206f4f0(int, int);
-extern "C" int func_ov000_0215ec1c(Struct_ov026_021ddf78_5*, short*, int, int);
+extern "C" int CollectAllEnemyCombatantIndices_ov000_0215ec1c(Struct_ov026_021ddf78_5*, short*, int, int);
 extern "C" void StartMessage_0204500c(Struct_ov026_021ddf78_7*, const char*, int);
-extern "C" void func_02043270(Struct_ov026_021ddf78_7*, int, int, int, int);
+extern "C" void SetMessageWindowRect_02042b98(Struct_ov026_021ddf78_7*, int, int, int, int);
 extern "C" void __clear(void*, int);
 
 extern "C" const Struct_ov026_021ddf78_10 _ZZ23inline_ov026_021d8ba0_2vE1s;
@@ -190,7 +190,7 @@ extern "C" ARM void func_ov026_021ddf78(Struct_ov026_021ddf78_5* arg0, Struct_ov
         for (; var22 < 4; var21++, var22++) {
             const char** var23 = FindMonsterData_0206f4f0(var20, var21->unknown_2_);
             if (var23 != 0) {
-                if (func_ov000_0215ec1c(arg0, var2, 8, 0) <= 1) {
+                if (CollectAllEnemyCombatantIndices_ov000_0215ec1c(arg0, var2, 8, 0) <= 1) {
                     strcpy(var1, *var23);
                 } else {
                     sprintf(var1, data_ov026_021df5fa, *var23);
@@ -244,7 +244,7 @@ extern "C" ARM void func_ov026_021ddf78(Struct_ov026_021ddf78_5* arg0, Struct_ov
     var5->unknown_17e1_ = 0;
     var5->unknown_1730_ = 0xc;
     var5->unknown_1734_ = 0x12;
-    func_02043270(var5, 0xc, 0x80, 0x100, 0x40);
+    SetMessageWindowRect_02042b98(var5, 0xc, 0x80, 0x100, 0x40);
     var5->unknown_17e2_ = 0;
     var5->unknown_1789_ |= 2;
     var5->unknown_868_ = 1;

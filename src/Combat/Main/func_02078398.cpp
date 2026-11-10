@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
 
-extern "C" void func_02076a8c(unsigned char* arg0);
+extern "C" void InitFieldMonster_02076a8c(unsigned char* monster);
 
 struct Struct_02033f44 {
     char unknown_0_[0xe0];
@@ -54,7 +54,7 @@ struct Struct_02078398 : Object3D {
 // USA: func_02078398
 extern "C" ARM void func_02078398(struct Struct_02078398* arg0) {
     if (arg0->GetInheritedAlpha() == 0) {
-        func_02076a8c((unsigned char*)arg0);
+        InitFieldMonster_02076a8c((unsigned char*)arg0);
         arg0->MakeHidden();
         return;
     }

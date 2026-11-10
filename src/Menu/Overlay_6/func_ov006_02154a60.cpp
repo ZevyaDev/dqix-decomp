@@ -47,8 +47,8 @@ struct Struct_ov006_02154a60_2 {
     unsigned char unknown_12bb_;
 };
 extern "C" {
-void func_0207fcb8(void*);
-void func_0207fd44(void*);
+void ClearMenuLayoutBGScreenData_0207fcb8(void*);
+void FlushMenuLayoutBGScreenData_0207fd44(void*);
 void ResetMatrixStacks_020c5414();
 extern Matrix4x3* data_ov006_0216038c[3];
 struct Struct_ov006_0215ff6c { unsigned char unknown_0_[4][4]; };
@@ -70,8 +70,8 @@ extern "C" ARM void func_ov006_02154a60(Struct_ov006_02154a60_2* arg0)
     if (arg0->unknown_127f_1_) return;
     if (!arg0->unknown_adc_) return;
     void* var0 = arg0->unknown_1d4_;
-    func_0207fcb8(var0);
-    func_0207fd44(var0);
+    ClearMenuLayoutBGScreenData_0207fcb8(var0);
+    FlushMenuLayoutBGScreenData_0207fd44(var0);
     if (arg0->unknown_ae2_ & 8) return;
     Matrix4x3 var1[3];
     for (int var2 = 0; var2 < 3; var2++) data_ov006_0216038c[var2] = &var1[var2];

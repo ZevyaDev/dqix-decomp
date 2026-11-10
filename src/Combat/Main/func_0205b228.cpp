@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-// USA: func_0205b228
-extern "C" ARM void func_0205b228(void* arg0, int arg1, unsigned char arg2) {
-    *(int*)((char*)arg0 + 0x4) = arg1;
-    *(unsigned char*)((char*)arg0 + 0x8) = arg2;
+// USA: SetCanvasRects_0205b228
+extern "C" ARM void SetCanvasRects_0205b228(void* canvas, int rects, unsigned char rectCount) {
+    *(int*)((char*)canvas + 0x4) = rects;
+    *(unsigned char*)((char*)canvas + 0x8) = rectCount;
 }

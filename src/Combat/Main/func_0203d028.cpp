@@ -231,7 +231,7 @@ struct Struct_0203d028_20 {
 };
 extern "C" int func_02041598(struct Struct_0203d028_20* arg0, int arg1, int arg2);
 
-extern "C" void func_0203db34(unsigned char* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetObject3DRotation_0203db34(unsigned char* object, int x, int y, int z);
 
 struct Struct_0203d028_21 {
     char unknown_0_[0xcc];
@@ -651,7 +651,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
                 if (var10->unknown_0_ & 0x800) {
                     ((Object3D*)((unsigned char*)var10->unknown_18_))->SetFlag16();
                     ((Object3D*)((unsigned char*)var10->unknown_18_))->EnableFlag(0x2000000);
-                    func_0203db34((unsigned char*)var10->unknown_18_, 0x4b5c, var11->unknown_1c_, 0);
+                    SetObject3DRotation_0203db34((unsigned char*)var10->unknown_18_, 0x4b5c, var11->unknown_1c_, 0);
                 }
                 if (var11->unknown_58_ != 0) {
                     func_020415b0((struct Struct_0203d028_21*)var10->unknown_18_, var11->unknown_58_, 0);
@@ -665,7 +665,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
                 func_02041628(var10->unknown_1c_, var11->unknown_1e_, 0);
                 if (var10->unknown_0_ & 0x800) {
                     ((Object3D*)((unsigned char*)var10->unknown_1c_))->SetFlag16();
-                    func_0203db34((unsigned char*)var10->unknown_1c_, 0x4b5c, var11->unknown_1c_, 0);
+                    SetObject3DRotation_0203db34((unsigned char*)var10->unknown_1c_, 0x4b5c, var11->unknown_1c_, 0);
                 }
                 if (var11->unknown_58_ != 0) {
                     func_02041640(var10->unknown_1c_, var11->unknown_58_, 0);

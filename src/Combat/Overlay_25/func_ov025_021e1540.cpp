@@ -2,8 +2,8 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
 
-struct Struct_02048cf0 { int unknown_0_; int unknown_4_; };
-extern "C" struct Struct_02048cf0 func_ov000_0216f74c(int* arg0);
+struct CellPosition_02048cf0 { int x_0_; int z_4_; };
+extern "C" struct CellPosition_02048cf0 GetCellPosition_ov000_0216f74c(int* cell);
 
 // USA: func_ov025_021e1540
 extern "C" ARM unsigned char func_ov025_021e1540(int arg0) {
@@ -18,10 +18,10 @@ extern "C" ARM unsigned char func_ov025_021e1540(int arg0) {
             if (var4 % 18 == 17) {
                 continue;
             }
-            Struct_02048cf0 var5 = func_ov000_0216f74c(&var4);
+            CellPosition_02048cf0 var5 = GetCellPosition_ov000_0216f74c(&var4);
             Vector3fix var6 = {0};
-            var6.x = var5.unknown_0_;
-            var6.z = var5.unknown_4_;
+            var6.x = var5.x_0_;
+            var6.z = var5.z_4_;
             fix32_t var7 = Vector3fix_Distance(&var2, &var6);
             if (var7 < var3) {
                 var1 = var4;

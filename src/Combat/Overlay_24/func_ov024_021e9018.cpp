@@ -4,7 +4,7 @@
 
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 struct Struct_ov024_021da670_7;
-extern "C" int func_ov024_021da9b0(struct Struct_ov024_021da670_7* arg0);
+extern "C" int IsParalysed_ov024_021da9b0(struct Struct_ov024_021da670_7* combatant);
 extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
 
 struct Struct_ov024_021e9018 { char unknown_0_[0x10]; void* unknown_10_; };
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov024_021e9018(struct Struct_ov024_021e9018* arg0, int a
     } else {
         GameObject* var1 = GetCombatantByID((int)arg0->unknown_10_, arg1);
         if (!var1) return 0;
-        if (func_ov024_021da9b0((struct Struct_ov024_021da670_7*)var1) &&
+        if (IsParalysed_ov024_021da9b0((struct Struct_ov024_021da670_7*)var1) &&
             (arg2 == 3 || arg2 == 4 || arg2 == 5 || arg2 == 8)) {
 #if defined(jpn)
             return 0x1b;

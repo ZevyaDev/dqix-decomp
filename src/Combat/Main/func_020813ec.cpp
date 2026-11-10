@@ -7,8 +7,8 @@
 
 struct MenuLayout_0207fdcc_2;
 extern "C" int func_02081da8(MenuLayout_0207fdcc_2*, int);
-struct Struct_0207f0ac;
-extern "C" int func_0207f0ac(Struct_0207f0ac*, int);
+struct MenuLayoutWindowEntryList_0207f0ac;
+extern "C" int FindMenuLayoutWindowEntry_0207f0ac(MenuLayoutWindowEntryList_0207f0ac*, int);
 struct Struct_020813ec;
 extern "C" unsigned int func_02081e18(Struct_020813ec*, int);
 struct Struct_020813ec_2;
@@ -28,7 +28,7 @@ extern "C" ARM int OpenMenuLayoutWindow_020813ec(void *menuLayout, int windowId)
     }
 
     int window = func_02081da8((MenuLayout_0207fdcc_2*)menuLayout, windowId);
-    int windowEntry = func_0207f0ac((Struct_0207f0ac*)((char *)menuLayout + 0xc), windowId);
+    int windowEntry = FindMenuLayoutWindowEntry_0207f0ac((MenuLayoutWindowEntryList_0207f0ac*)((char *)menuLayout + 0xc), windowId);
     if (windowEntry == 0) {
         return 1;
     }

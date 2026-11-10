@@ -3,7 +3,7 @@
 
 struct Party_02048150;
 struct ItemTable_0201099c_10;
-struct Struct_0207cf30_3;
+struct ItemBag_0207cf30_3;
 struct Struct_020a0b8c;
 struct MessageWindow_020465c0;
 extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
@@ -18,7 +18,7 @@ extern "C" void CopyCapitalizedText_0206819c(const char *text, char *outText, in
 extern "C" int AppendMenuEntry_02041b70(char *buffer, int entryIndex, const char *text);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int func_020a0b8c(struct Struct_020a0b8c *arg0);
-extern "C" int func_020a0b3c(Struct_0207cf30_3 *arg0, int arg1);
+extern "C" int GetBagItemCount_020a0b3c(ItemBag_0207cf30_3 *bag, int itemId);
 extern "C" void func_ov002_0215b918(unsigned char *arg0, int arg1, int arg2, int arg3);
 extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" int sprintf(char *arg0, const char *arg1, ...);
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov002_0215de9c(char *arg0, char *arg1, int arg2) {
             AppendMenuEntry_02041b70(arg1, var19, var1);
             __clear(var2, 0x40);
             sprintf(var2, data_ov002_0216d270,
-                    func_020a0b3c((Struct_0207cf30_3 *) var6, *(short *) (var21 + 0x18)));
+                    GetBagItemCount_020a0b3c((ItemBag_0207cf30_3 *) var6, *(short *) (var21 + 0x18)));
             AppendText_02042058(arg1, var2);
             if (var19 != var18 - 1) {
                 AppendText_02042058(arg1, *(const char **) (arg0 + 0x1000 + 0xbdc));

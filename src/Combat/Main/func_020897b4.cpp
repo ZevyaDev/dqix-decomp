@@ -89,7 +89,7 @@ extern "C" ARM void func_020897b4(unsigned char arg0, unsigned char arg1, int ar
     var9->unknown_954_ |= 1 << arg2;
     var9->unknown_950_ = arg2;
     var9->unknown_16c_[arg2] = arg1;
-    var9->unknown_138_[arg2] = var8->unknown_0_.unknown_0_0_;
+    var9->unknown_138_[arg2] = var8->unknown_0_.requiredExperience_0_0_;
     var9->unknown_564_ = var8->unknown_0_.unknown_4_7_;
     func_02083cbc(var9, var8, var1.unknown_3c_);
 

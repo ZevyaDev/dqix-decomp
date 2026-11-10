@@ -17,17 +17,17 @@ extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d8
 // USA: HitTestCursorWindowTouch_0205d97c
 extern "C" ARM int HitTestCursorWindowTouch_0205d97c(TextWindowManager_0205d81c* windowManager) {
     if (!g_touchInput.pressed_) return -1;
-    TextWindow_0205d0e0* var0;
+    TextWindow_0205d0e0* cursorWindow;
     int touchX;
     int touchY;
-    var0 = FindTextWindow_0205d81c(windowManager, windowManager->cursorWindowId_b0_);
-    if (var0 == NULL) return 0;
+    cursorWindow = FindTextWindow_0205d81c(windowManager, windowManager->cursorWindowId_b0_);
+    if (cursorWindow == NULL) return 0;
     g_touchInput.GetTouchPoint(&touchX, &touchY);
     if (touchX == 0 || touchY == 0) return 0;
-    int left = var0->tileX_ac_;
-    int top = var0->tileY_ae_;
-    int width = var0->width_a8_;
-    int height = var0->unknown_aa_;
+    int left = cursorWindow->tileX_ac_;
+    int top = cursorWindow->tileY_ae_;
+    int width = cursorWindow->width_a8_;
+    int height = cursorWindow->unknown_aa_;
     left = (short)(left << 3);
     top = (short)(top << 3);
     width = (short)(width << 3);

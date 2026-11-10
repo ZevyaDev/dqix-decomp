@@ -10,7 +10,7 @@ enum { Enum_ov003_0217a764_0 = 0, Enum_ov003_0217a764_54 = 0x36 };
 struct MenuLayout_0207fdcc_2;
 struct Struct_0207fdf0_2;
 struct SoundEffectManager_02108760;
-struct Struct_02081f20_2;
+struct KeyRepeat_02081f20_2;
 struct ItemTable_0201099c_10;
 struct ItemInfoPanel_ov003_02178910;
 struct ItemData_0201099c_9;
@@ -28,7 +28,7 @@ extern "C" void func_ov003_0217a220(unsigned char* arg0);
 extern "C" short func_02080468(void* arg0, int arg1);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
+extern "C" void func_0208203c(struct KeyRepeat_02081f20_2* arg0);
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void func_0207fdf0(struct Struct_0207fdf0_2* arg0, int arg1);
 extern "C" ARM int func_ov003_02175d78(char* arg0);
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov003_0217a764(unsigned char* arg0) {
             *(short*)(arg0 + (0x1000 + 0xe - Enum_ov003_0217a764_0)) = func_02080468(var1, *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_0217a764_0)));
         }
         *(short*)((char*)var1 + Enum_ov003_0217a764_54) = *(short*)(arg0 + (0x1000 + 0xe - Enum_ov003_0217a764_0));
-        func_0208203c((struct Struct_02081f20_2*)(arg0 + (0x88c - Enum_ov003_0217a764_0)));
+        func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + (0x88c - Enum_ov003_0217a764_0)));
         *(void**)(arg0 + (0xff8 - Enum_ov003_0217a764_0)) = 0;
         *(unsigned char*)(arg0 + (0x1000 + 0x3f - Enum_ov003_0217a764_0)) = 1;
         func_ov003_0217a220(arg0);
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov003_0217a764(unsigned char* arg0) {
         SetItemInfoPanelItem_ov023_021dcae0((struct ItemInfoPanel_ov003_02178910*)(arg0 + 0x3c), *(short*)(arg0 + (0x1000 + 0x3a - Enum_ov003_0217a764_0)));
         if (func_ov003_021765b4(arg0) != 0) {
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-            func_0208203c((struct Struct_02081f20_2*)(arg0 + (0x88c - Enum_ov003_0217a764_0)));
+            func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + (0x88c - Enum_ov003_0217a764_0)));
             *(void**)(arg0 + (0xff8 - Enum_ov003_0217a764_0)) = 0;
             void* var4 = (void*)FindItemData_020dedd0((struct ItemTable_0201099c_10*)(arg0 + (0x874 - Enum_ov003_0217a764_0)), *(short*)(arg0 + (0x1000 + 0x3a - Enum_ov003_0217a764_0)));
             *(void**)(arg0 + 8) = var4;
@@ -127,7 +127,7 @@ extern "C" ARM void func_ov003_0217a764(unsigned char* arg0) {
             return;
         }
         if (func_ov003_021766e8(arg0) == 0) return;
-        func_0208203c((struct Struct_02081f20_2*)(arg0 + (0x88c - Enum_ov003_0217a764_0)));
+        func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + (0x88c - Enum_ov003_0217a764_0)));
         *(void**)(arg0 + (0xff8 - Enum_ov003_0217a764_0)) = 0;
         *(unsigned char*)(arg0 + (0x1000 + 0x3e - Enum_ov003_0217a764_0)) = 4;
         *(unsigned char*)(arg0 + (0x1000 + 0x3f - Enum_ov003_0217a764_0)) = 1;

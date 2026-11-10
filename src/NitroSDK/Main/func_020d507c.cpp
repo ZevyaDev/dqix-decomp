@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int CheckWirelessState_020d424c(int, int);
-extern "C" int func_020d40bc(int, int, int);
+extern "C" int SendWirelessCommand_020d40bc(int, int, int);
 struct Struct_020d507c;
 extern "C" int func_020d5158(struct Struct_020d507c* arg0);
 extern "C" void SetWirelessCommandCallback_020d404c(int command, int callback);
@@ -42,7 +42,7 @@ extern "C" ARM int func_020d507c(int arg0, struct Struct_0202db64* arg1) {
     if (arg1->unknown_4_ != 0) {
         CleanCacheRange((void*)arg1->unknown_0_, arg1->unknown_4_);
     }
-    var0 = func_020d40bc(7, 1, (int)arg1);
+    var0 = SendWirelessCommand_020d40bc(7, 1, (int)arg1);
     if (var0 == 0) {
         var0 = 2;
     }

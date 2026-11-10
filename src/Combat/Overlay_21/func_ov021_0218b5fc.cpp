@@ -51,7 +51,7 @@ void UpdateVRAMStagingVRAMBanks();
 extern "C" void MapVRAMBanksToTextureImage(int handle);
 extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install);
 extern "C" void MapVRAMBanksToTexturePalette(int value);
-extern "C" void func_020bb780(void* arg0, int arg1);
+extern "C" void InitTexturePaletteVRAMAllocator_020bb780(void* size, int install);
 extern "C" void MapVRAMBanksToMainBG(int v);
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void MapVRAMBanksToMainObj(int mode);
@@ -59,7 +59,7 @@ extern "C" void MapVRAMBanksToSubObj(int value);
 extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, int isBG03D);
 extern "C" void SetSubBGMode_020c3984(unsigned int bgMode);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
-extern "C" void func_020c555c(int arg0);
+extern "C" void Set3DEdgeColors_020c555c(int edgeColors);
 extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02042c68(void* arg0);
@@ -145,7 +145,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     MapVRAMBanksToTextureImage(1);
     InitTextureImageVRAMAllocator_020bb48c(1, 1);
     MapVRAMBanksToTexturePalette(0x40);
-    func_020bb780((void*)0x4000, 1);
+    InitTexturePaletteVRAMAllocator_020bb780((void*)0x4000, 1);
     MapVRAMBanksToMainBG(0x10);
     MapVRAMBanksToSubBG(4);
     MapVRAMBanksToMainObj(0x20);
@@ -187,7 +187,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
 
     Struct_ov021_0218bbc4 var4 = data_ov021_0218bbc4;
-    func_020c555c((int)&var4);
+    Set3DEdgeColors_020c555c((int)&var4);
     InitTextureVRAMArea_0207de48(arg0->unknown_44_, 0x4000, 0x40);
     void* var5 = GetMessageWindow_020421a0();
     func_02042c68(var5);

@@ -4,7 +4,7 @@
 
 extern "C" int func_020d4204(void);
 extern "C" void SetWirelessCommandCallback_020d404c(int command, int callback);
-extern "C" int func_020d40bc(int, int, int, int, int);
+extern "C" int SendWirelessCommand_020d40bc(int, int, int, int, int);
 
 
 // USA: func_020d6950
@@ -23,7 +23,7 @@ extern "C" ARM int func_020d6950(int arg0, int arg1, int arg2, int arg3) {
         CleanCacheRange((const void*)arg3, 0x50);
     }
     SetWirelessCommandCallback_020d404c(0x27, arg0);
-    var0 = func_020d40bc(0x27, 3, arg1, arg3, arg2);
+    var0 = SendWirelessCommand_020d40bc(0x27, 3, arg1, arg3, arg2);
     if (var0 == 0) {
         var0 = 2;
     }

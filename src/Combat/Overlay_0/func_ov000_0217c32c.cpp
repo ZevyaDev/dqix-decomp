@@ -23,18 +23,18 @@ struct Struct_ov000_0217c32c_5 {
     int unknown_950_;
 };
 
-struct Struct_02054000 {
+struct PartyMember_02054000 {
 #if defined(jpn)
     char unknown_0_[0x144];
 #else
     char unknown1_0_[0x150];
 #endif
-    struct Struct_ov000_0217c32c_5* unknown_150_;
+    struct Struct_ov000_0217c32c_5* pPartyMemberData_150_;
 };
-extern "C" struct Struct_ov000_0217c32c_4* func_02054000(struct Struct_02054000* arg0);
+extern "C" struct Struct_ov000_0217c32c_4* GetEquippedWeaponItemData_02054000(struct PartyMember_02054000* gameObject);
 
 struct PartyMember_02052e14;
-extern "C" short* func_02052e14(struct PartyMember_02052e14* arg0);
+extern "C" short* GetEquippedItems_02052e14(struct PartyMember_02052e14* gameObject);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 
 struct SkillTable_0200f3a4_8;
@@ -82,13 +82,13 @@ struct Struct_ov000_0217c32c_3 {
 
 // USA: func_ov000_0217c32c
 extern "C" ARM void func_ov000_0217c32c(struct Struct_ov000_0217c32c_3* arg0) {
-    struct Struct_02054000* var0 = (struct Struct_02054000*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0->unknown_4c_);
+    struct PartyMember_02054000* var0 = (struct PartyMember_02054000*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0->unknown_4c_);
     if (var0 == NULL) {
         return;
     }
-    struct Struct_ov000_0217c32c_4* var1 = func_02054000(var0);
-    struct Struct_ov000_0217c32c_4* var2 = &var0->unknown_150_->unknown_2b4_;
-    short* var3 = func_02052e14((struct PartyMember_02052e14*)var0);
+    struct Struct_ov000_0217c32c_4* var1 = GetEquippedWeaponItemData_02054000(var0);
+    struct Struct_ov000_0217c32c_4* var2 = &var0->pPartyMemberData_150_->unknown_2b4_;
+    short* var3 = GetEquippedItems_02052e14((struct PartyMember_02052e14*)var0);
     if (var3 != NULL) {
         if (var3[7] < 0) {
             var1 = NULL;
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov000_0217c32c(struct Struct_ov000_0217c32c_3* arg0) {
             continue;
         }
         int var9;
-        if (var0->unknown_150_->unknown_950_ == 0) {
+        if (var0->pPartyMemberData_150_->unknown_950_ == 0) {
             var9 = 1;
         } else if (var1 != NULL) {
             var9 = var1->unknown_0_->unknown_0_7_ == var8->unknown_4_0_;

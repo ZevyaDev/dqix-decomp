@@ -44,8 +44,8 @@ extern "C" unsigned char* GetMessageWindow_020421a0(void);
 extern "C" void func_ov023_021d8b6c(void* arg0);
 extern "C" void func_ov023_021d8af8(void* arg0);
 extern "C" void func_ov000_0215fa84(void* arg0, short* arg1, short* arg2, short* arg3);
-struct Struct_0205faf4_7;
-extern "C" void* func_02096134(Struct_0205faf4_7*, int);
+struct QuestManager_0205faf4_7;
+extern "C" void* FindAcceptedQuest_02096134(QuestManager_0205faf4_7*, int);
 extern "C" void ClearMessageParams_02046380(unsigned char* window);
 struct StringList_02072a68_2;
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2*, int);
@@ -100,7 +100,7 @@ extern "C" void func_02048588(unsigned char* arg0, unsigned char* arg1);
 struct Struct_02010604;
 extern "C" int SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_02049f28(unsigned char* arg0);
-extern "C" void* func_ov000_02160f14(void* arg0);
+extern "C" void* GetBattleCamera_ov000_02160f14(void* battleScene);
 extern "C" void ResetBattleCamera_ov000_0216d370(void* camera, int resetRoll, int resetFieldOfView, int resetTurns);
 extern "C" void func_ov000_0216d530(void* arg0, int arg1);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char*, int, int, int);
@@ -164,7 +164,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
             short var7 = 0;
             short var8 = 0;
             func_ov000_0215fa84(*(void**)(arg0 + Enum_ov023_021f2e6c_668), &var6, &var8, &var7);
-            void* var9 = func_02096134((Struct_0205faf4_7*)var3, *(short*)(*(char**)(arg0 + Enum_ov023_021f2e6c_668) + 0x8e4a));
+            void* var9 = FindAcceptedQuest_02096134((QuestManager_0205faf4_7*)var3, *(short*)(*(char**)(arg0 + Enum_ov023_021f2e6c_668) + 0x8e4a));
             if (var7 != 0 && var9 != 0) {
                 ClearMessageParams_02046380(var0);
 #if defined(jpn)
@@ -436,7 +436,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                             ((Object3D*)var57)->SetInheritedAlpha(0x1f);
                             ((Object3D*)var57)->MakeVisible();
                             func_02049f28(var57);
-                            void* var61 = func_ov000_02160f14(arg0);
+                            void* var61 = GetBattleCamera_ov000_02160f14(arg0);
                             ResetBattleCamera_ov000_0216d370(var61, 1, 1, 1);
                             func_ov000_0216d530(var61, var54);
                             int var62 = ((Object3D*)var57)->GetHeight();
@@ -479,7 +479,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                             ((Object3D*)var69)->MakeHidden();
                             func_02049f3c(var69);
                             *(unsigned char*)(arg0 + Enum_ov023_021f2e6c_21950) = 0;
-                            void* var71 = func_ov000_02160f14(arg0);
+                            void* var71 = GetBattleCamera_ov000_02160f14(arg0);
                             Struct_ov023_021f2e6c_9 var72 = *func_0202ed64(var71);
                             func_ov000_0216d2d0(var71);
                             func_0202ed0c((Struct_0202ed0c_2*)var71, (Struct_0202ed0c*)&var72);

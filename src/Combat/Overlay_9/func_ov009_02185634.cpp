@@ -193,8 +193,8 @@ extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void InitFollowCamera_020a2010(void* storage);
-struct Struct_0202e5c0;
-extern "C" void func_0202e5c0(Struct_0202e5c0* arg0, int arg1, int arg2, int arg3);
+struct Camera_0202e5c0;
+extern "C" void SetCameraEye_0202e5c0(Camera_0202e5c0* camera, int x, int y, int z);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
 extern "C" void UpdateCamera_0202e0a4(void* camera);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
@@ -392,7 +392,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_2* arg0)
         Struct_ov003_02154af4_3* var19 = (Struct_ov003_02154af4_3*)((char*)arg0 + 0x124);
 #endif
         InitFollowCamera_020a2010(var19->unknown_800_);
-        func_0202e5c0((Struct_0202e5c0*)var19->unknown_800_, 0xd000, 0xf800, 0x42ccc);
+        SetCameraEye_0202e5c0((Camera_0202e5c0*)var19->unknown_800_, 0xd000, 0xf800, 0x42ccc);
         SetCameraTarget_0202e5c8((unsigned char*)var19->unknown_800_, 0xd000, 0xf800, 0);
         UpdateCamera_0202e0a4(var19->unknown_800_);
         DisableCameraFollow_020a27a0(var19->unknown_800_);

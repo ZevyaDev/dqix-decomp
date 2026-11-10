@@ -27,7 +27,7 @@ extern "C" void func_02019678(unsigned short* arg0, int arg1);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 extern "C" Object3D* func_ov017_021bdbc0(unsigned char*);
 extern "C" int func_0201bfc0(unsigned char*, int);
-extern "C" void func_020e1154(void*);
+extern "C" void DisableInputForDuration_020e1154(void*);
 extern "C" void EnableCameraFollow_020a2794(void* camera);
 extern "C" void func_020a2744(char*);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
@@ -248,7 +248,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
             var20->MakeVisible();
         }
         if (func_0201bfc0((unsigned char*)var6, 1) || func_0201bfc0((unsigned char*)var6, 0)) {
-            func_020e1154((void*)0x1388);
+            DisableInputForDuration_020e1154((void*)0x1388);
         }
     }
     EnableCameraFollow_020a2794(var5);

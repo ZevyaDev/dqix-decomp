@@ -3,7 +3,7 @@
 struct MenuLayoutTextEntryList_0207f524;
 extern "C" int func_0207f7cc(struct MenuLayoutTextEntryList_0207f524*, int, int);
 
-// USA: func_02080b40
-extern "C" ARM int func_02080b40(void* arg0, int arg1) {
-    return func_0207f7cc((struct MenuLayoutTextEntryList_0207f524*)((char*)arg0 + 4), arg1, 1);
+// USA: ShowMenuLayoutText_02080b40
+extern "C" ARM int ShowMenuLayoutText_02080b40(void* menuLayout, int textId) {
+    return func_0207f7cc((struct MenuLayoutTextEntryList_0207f524*)((char*)menuLayout + 4), textId, 1);
 }

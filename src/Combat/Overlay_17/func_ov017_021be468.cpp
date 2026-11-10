@@ -48,7 +48,7 @@ extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*,int); extern "C" void fu
 extern "C" void func_ov017_021d2738(unsigned char,unsigned char); extern "C" int IsQueueEmpty_02046b08(void**); 
 extern "C" void* GetFontLoader_02094a00(); extern "C" void CancelFontLoad_02094ab0(void*); extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*,unsigned int); extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
-extern "C" void func_02057e6c(void*,int,SafeAllocator*,void*,unsigned int,TextureVRAMArea_0203d028*);
+extern "C" void AddEffectResource_02057e6c(void*,int,SafeAllocator*,void*,unsigned int,TextureVRAMArea_0203d028*);
 int IsMainBrightnessTransitionActive(GameResources*); extern "C" void func_02010834(Struct_02010834*,int,int*,int*);
 extern "C" void PlayEffect_02057fb4(void*,int,void*); extern "C" void LoadExtraSoundSet_0205ebc0(void*,int,int); extern "C" void PlayExtraSoundEffect_0205ebfc(void*,int,int);
 void SetBrightness(GameResources*,int,int);  extern "C" void func_ov017_02197528();
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov017_021be468(Struct_ov017_021be468_5* arg0,Queue_0203
                 TextureVRAMArea_0203d028* var8=&((Struct_ov017_021be468_7*)var0->GetUnknownGameObject())->unknown_154_->unknown_568_;
                 ResetTextureVRAMState_0207df50(var8);
                 void* var9=arg0->unknown_24_.Allocate(var6); memcpy(var9,var7,var6);
-                func_02057e6c(var3,5,&arg0->unknown_24_,var9,var6,var8); var4->RemoveTask(arg0->unknown_20_); arg0->unknown_8_++;
+                AddEffectResource_02057e6c(var3,5,&arg0->unknown_24_,var9,var6,var8); var4->RemoveTask(arg0->unknown_20_); arg0->unknown_8_++;
             }
         }
     } else if(arg0->unknown_8_==2) {

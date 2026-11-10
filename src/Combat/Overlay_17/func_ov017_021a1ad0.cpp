@@ -8,7 +8,7 @@ struct ActiveZone_020fdd44 {
     unsigned short unknown_2_3_ : 13;
 };
 struct Struct_02028bac;
-struct Struct_02076a8c_2;
+struct FieldMonster_02076a8c_2;
 struct Struct_ov017_021a1ad0 {
     Object3D unknown_0_;
     char unknown_ac_[0x130 - 0xac];
@@ -35,7 +35,7 @@ struct Struct_ov017_021a1ad0_4 {
 extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4();
 extern "C" ActiveZone_020fdd44* func_02028bac(Struct_02028bac*, int);
 extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44*, int);
-extern "C" void func_02076b58(Struct_02076a8c_2*);
+extern "C" void func_02076b58(FieldMonster_02076a8c_2*);
 extern "C" int func_0201b5d8(int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_ov017_021c9544(int, int, int, int);
@@ -44,7 +44,7 @@ extern "C" unsigned short* GetZone3D_02012fe4();
 extern "C" int IsNotLocalWirelessGuest_0202c508(int*);
 extern "C" void func_02034104(Vector3fix*, GameObject*);
 extern "C" int func_02031118(Vector3fix*, Struct_ov017_021a1ad0_2*);
-extern "C" void func_02076a8c(Struct_ov017_021a1ad0*);
+extern "C" void InitFieldMonster_02076a8c(Struct_ov017_021a1ad0*);
 
 // USA: func_ov017_021a1ad0
 extern "C" ARM void func_ov017_021a1ad0() {
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov017_021a1ad0() {
             for (int var8 = 0; var8 < 12; var8++) {
                 Struct_ov017_021a1ad0* var9 = (Struct_ov017_021a1ad0*)var0->GetMaybeFieldMonsterByIndex(var8 + var4);
                 if (!var9 || !var9->unknown_0_.IsVisible()) continue;
-                func_02076b58((Struct_02076a8c_2*)var9);
+                func_02076b58((FieldMonster_02076a8c_2*)var9);
                 int var10 = 1;
                 if ((var9->unknown_17d_ & 2) || (var9->unknown_17d_ & 4) || func_0201b5d8(*var3)) var10 = 0;
                 if (var9->unknown_17d_ & 8) var10 = 0;
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov017_021a1ad0() {
                 }
 collisionComplete:
                 if (var11 && var9->unknown_130_ != 8 && var9->unknown_130_ != 9) {
-                    func_02076a8c(var9);
+                    InitFieldMonster_02076a8c(var9);
                     var9->unknown_0_.MakeHidden();
                     if (IsLocalWirelessOn_0202b7d8(var2) && var6) {
                         func_ov017_021c9544(var6->zoneId_0_, var8, var9->unknown_0_.unknown_2_, var7);
@@ -115,7 +115,7 @@ collisionComplete:
         if (!var18) return;
         for (int var19 = 0; var19 < 12; var19++) {
             Struct_ov017_021a1ad0* var20 = (Struct_ov017_021a1ad0*)var0->GetMaybeFieldMonsterByIndex(var18->unknown_2_0_ * 12 + 0x70 + var19);
-            if (var20 && var20->unknown_0_.IsVisible()) func_02076b58((Struct_02076a8c_2*)var20);
+            if (var20 && var20->unknown_0_.IsVisible()) func_02076b58((FieldMonster_02076a8c_2*)var20);
         }
     }
 }

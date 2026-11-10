@@ -45,7 +45,7 @@ struct Struct_0204459c_2 {
 };
 
 extern "C" void func_0204455c(void* arg0, short* arg1, short* arg2);
-extern "C" void func_0204f914(void* arg0, int arg1, short arg2, short arg3, short arg4, short arg5);
+extern "C" void FillTextWindowRect_0204f914(void* textWindow, int colorIndex, short left, short top, short right, short bottom);
 extern "C" void func_020e23c0(struct Struct_020e23c0*, int, int, int, short, short);
 
 // USA: func_0204459c
@@ -57,7 +57,7 @@ extern "C" ARM void func_0204459c(struct Struct_0204459c_2* arg0, int arg1) {
             func_0204455c(arg0->unknown_34_, &var0.unknown_2_, &var0.unknown_0_);
             int var1 = var0.unknown_0_;
             int var2 = var0.unknown_2_;
-            func_0204f914(arg0->unknown_34_, 0, var2 - 3, var1, var2 + 4, var1 + 4);
+            FillTextWindowRect_0204f914(arg0->unknown_34_, 0, var2 - 3, var1, var2 + 4, var1 + 4);
         }
     }
     if (arg0->unknown_19af_ != 1) return;
@@ -67,7 +67,7 @@ extern "C" ARM void func_0204459c(struct Struct_0204459c_2* arg0, int arg1) {
         func_0204455c(arg0->unknown_34_, &var3, &var4);
         if (arg0->unknown_19ae_ <= 15) return;
         for (short var5 = 0; var5 < 4; var5++) {
-            func_0204f914(arg0->unknown_34_, 15, var3 - (3 - var5), var4 + var5, var3 + (4 - var5), var4 + var5 + 1);
+            FillTextWindowRect_0204f914(arg0->unknown_34_, 15, var3 - (3 - var5), var4 + var5, var3 + (4 - var5), var4 + var5 + 1);
         }
         return;
     }

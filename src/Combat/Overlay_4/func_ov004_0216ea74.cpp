@@ -37,7 +37,7 @@ extern "C" int func_ov017_021b2090(Struct_ov004_021589e8 arg0, Struct_ov004_0215
 extern "C" int func_0201e830(struct Struct_0201e830* arg0);
 extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
 extern "C" void Set3DFog_020c54a4(int, unsigned int, unsigned int, unsigned short);
-extern "C" int func_020cf0fc(int);
+extern "C" int GetCurrentDate_020cf0fc(int);
 extern "C" int func_020cf1a8(int);
 
 struct Struct_ov004_0216ea74 {
@@ -109,7 +109,7 @@ extern "C" ARM int func_ov004_0216ea74(SafeAllocator* arg0) {
 
     int var7[4];
     int var8[3];
-    func_020cf0fc((int)var7);
+    GetCurrentDate_020cf0fc((int)var7);
     func_020cf1a8((int)var8);
 
     data_ov004_02171048.unknown_4_->unknown_38_.unknown_0_0_ = var7[0] + 0x7d0;

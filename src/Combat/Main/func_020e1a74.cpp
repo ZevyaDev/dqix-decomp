@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-struct Struct_020439b0;
-extern "C" ARM void func_020e2cc4(struct Struct_020439b0*, int);
+struct DisplayWindow_020439b0;
+extern "C" ARM void SetDisplayWindowEnabled_020e2cc4(struct DisplayWindow_020439b0*, int);
 
 struct Struct_020e13dc;
 extern "C" ARM void func_020e13dc(struct Struct_020e13dc*);
@@ -40,7 +40,7 @@ struct Struct_020e1a74_2 {
 extern "C" ARM void func_020e1a74(struct Struct_020e1a74_2* arg0) {
     if (arg0->unknown_4_ == 0) return;
     if (arg0->unknown_4_->unknown_3f_1_) {
-        func_020e2cc4((struct Struct_020439b0*)((char*)arg0 + 0x28), 0);
+        SetDisplayWindowEnabled_020e2cc4((struct DisplayWindow_020439b0*)((char*)arg0 + 0x28), 0);
         func_020e13dc((struct Struct_020e13dc*)((char*)arg0->unknown_4_ + 0xc));
         arg0->unknown_4_->unknown_3f_ &= ~2;
     }

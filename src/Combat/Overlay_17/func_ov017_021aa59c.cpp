@@ -30,10 +30,10 @@ struct PacEntry_02020aec;
 struct Struct_0207f914;
 struct MenuLayout_0207f7f0;
 struct Struct_0207f7f0_2;
-struct Struct_0207fcb8;
-struct Struct_0207fd44_2;
-struct Struct_0207fd88;
-struct Struct_02081f20_2;
+struct MenuLayout_0207fcb8;
+struct MenuLayout_0207fd44_2;
+struct MenuLayout_0207fd88;
+struct KeyRepeat_02081f20_2;
 struct Struct_ov017_021aa59c_4;
 struct MenuLayout_0207fdcc_2;
 struct Struct_0207fc6c;
@@ -76,15 +76,15 @@ extern "C" void func_0207f914(struct Struct_0207f914* arg0, int arg1, int arg2, 
 #endif
 extern "C" int func_0207f9f4(void* arg0);
 extern "C" void func_0207f7f0(struct MenuLayout_0207f7f0* arg0, struct Struct_0207f7f0_2* arg1, int arg2);
-extern "C" void func_0207fcb8(struct Struct_0207fcb8* arg0);
-extern "C" void func_0207fd44(struct Struct_0207fd44_2* arg0);
-extern "C" void func_0207fd88(struct Struct_0207fd88* arg0);
-extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
+extern "C" void ClearMenuLayoutBGScreenData_0207fcb8(struct MenuLayout_0207fcb8* menuLayout);
+extern "C" void FlushMenuLayoutBGScreenData_0207fd44(struct MenuLayout_0207fd44_2* menuLayout);
+extern "C" void CopyMenuLayoutBGScreenDataToVRAM_0207fd88(struct MenuLayout_0207fd88* menuLayout);
+extern "C" void func_0208203c(struct KeyRepeat_02081f20_2* arg0);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" void func_ov017_021ab060(struct Struct_ov017_021aa59c_4* arg0);
 extern "C" void* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" void func_0207fc6c(struct Struct_0207fc6c* arg0, int arg1);
-extern "C" void func_02081f20(void* arg0, int arg1);
+extern "C" void UpdateKeyRepeat_02081f20(void* keyRepeat, int elapsedFrames);
 extern "C" int func_020800fc(void* arg0, short* arg1, short arg2, unsigned short arg3, unsigned char arg4, bool arg5);
 extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void* menuLayout, int windowId);
 extern "C" int func_ov017_021ab0c0(struct Struct_ov017_021aa59c_5* arg0);
@@ -278,9 +278,9 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
         var21->unknown_38_ = 2;
         func_0207f7f0(var21, arg0->unknown_20_, 2);
         var21->unknown_3a_ = 1;
-        func_0207fcb8((Struct_0207fcb8*)var21);
-        func_0207fd44((Struct_0207fd44_2*)var21);
-        func_0207fd88((Struct_0207fd88*)var21);
+        ClearMenuLayoutBGScreenData_0207fcb8((MenuLayout_0207fcb8*)var21);
+        FlushMenuLayoutBGScreenData_0207fd44((MenuLayout_0207fd44_2*)var21);
+        CopyMenuLayoutBGScreenDataToVRAM_0207fd88((MenuLayout_0207fd88*)var21);
         BG0CNT = (BG0CNT & ~3) | 2;
         BG1CNT = BG1CNT & ~3;
         BG2CNT = (BG2CNT & ~3) | 1;
@@ -291,7 +291,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
         arg0->unknown_48_ = 0;
         arg0->unknown_4c_ = 0;
         arg0->unknown_4e_ = 0;
-        func_0208203c((Struct_02081f20_2*)arg0->unknown_3c_);
+        func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_3c_);
         arg0->unknown_44_ = NULL;
         OpenMenuLayoutWindow_020813ec(arg0->unknown_18_, arg0->unknown_48_);
         func_ov017_021ab060((Struct_ov017_021aa59c_4*)arg0);
@@ -308,7 +308,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
                 func_0207fc6c((Struct_0207fc6c*)var25, var26);
                 arg0->unknown_44_ = &arg0->unknown_4c_;
                 if (arg0->unknown_44_ != NULL) {
-                    func_02081f20(arg0->unknown_3c_, var26);
+                    UpdateKeyRepeat_02081f20(arg0->unknown_3c_, var26);
                     arg0->unknown_4e_ = *arg0->unknown_44_;
                     arg0->unknown_38_ = func_020800fc(var25, arg0->unknown_44_, arg0->unknown_4e_, arg0->unknown_40_->unknown_0_, arg0->unknown_40_->unknown_2_, false);
                     var25->unknown_36_ = *arg0->unknown_44_;
@@ -325,7 +325,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
                         return;
                     }
                     PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-                    func_0208203c((Struct_02081f20_2*)arg0->unknown_3c_);
+                    func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_3c_);
                     arg0->unknown_44_ = NULL;
                     if (arg0->unknown_4c_ == 0) {
                         CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)arg0->unknown_18_);

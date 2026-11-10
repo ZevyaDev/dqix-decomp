@@ -5,10 +5,10 @@ struct OAMEntry_ov031_0223bbd8_2 {
     unsigned short unknown_4_;
     unsigned short unknown_6_;
 };
-struct Struct_ov031_0223bbd8 {
+struct OAMAllocation_ov031_0223bbd8 {
     unsigned char unknown_0_[8];
-    OAMEntry_ov031_0223bbd8_2* unknown_8_;
-    unsigned char unknown_c_;
+    OAMEntry_ov031_0223bbd8_2* pOAMEntries_8_;
+    unsigned char oamCount_c_;
 };
 
 static inline void inline_ov031_0223bbd8(const OAMEntry_ov031_0223bbd8_2* arg0, unsigned long* arg1, unsigned long* arg2) {
@@ -21,8 +21,8 @@ static inline void inline_ov031_0223bbd8_2(OAMEntry_ov031_0223bbd8_2* arg0, int 
 }
 
 // USA: SetSpritePosition_ov031_0223bbd8
-extern "C" ARM void SetSpritePosition_ov031_0223bbd8(Struct_ov031_0223bbd8* sprite, int entryIndex, int x, int y) {
-    OAMEntry_ov031_0223bbd8_2* oamEntries = sprite->unknown_8_;
+extern "C" ARM void SetSpritePosition_ov031_0223bbd8(OAMAllocation_ov031_0223bbd8* sprite, int entryIndex, int x, int y) {
+    OAMEntry_ov031_0223bbd8_2* oamEntries = sprite->pOAMEntries_8_;
     if (entryIndex >= 0) {
         inline_ov031_0223bbd8_2(&oamEntries[entryIndex], x, y);
         return;
@@ -33,7 +33,7 @@ extern "C" ARM void SetSpritePosition_ov031_0223bbd8(Struct_ov031_0223bbd8* spri
     inline_ov031_0223bbd8_2(oamEntries, x, y);
     int offsetX = x - firstX;
     int offsetY = y - firstY;
-    for (i = 1; i < sprite->unknown_c_; i++) {
+    for (i = 1; i < sprite->oamCount_c_; i++) {
         int entryX, entryY;
         inline_ov031_0223bbd8(&oamEntries[i], (unsigned long*)&entryX, (unsigned long*)&entryY);
         inline_ov031_0223bbd8_2(&oamEntries[i], entryX + offsetX, entryY + offsetY);

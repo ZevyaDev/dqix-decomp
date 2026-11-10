@@ -18,7 +18,7 @@ extern Struct_020f1f14* data_020f1ef8[2];
 // No idea why
 extern Struct_020f1f14* data_020f1f00[5];
 
-struct Struct_0210cf88
+struct TexturePaletteVRAMAllocator_0210cf88
 {
     unsigned int unknown_0_;
     unsigned int unknown_4_;

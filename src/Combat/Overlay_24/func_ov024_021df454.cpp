@@ -9,7 +9,7 @@ struct Struct_ov024_021dced0_2;
 struct Struct_ov024_021df454_7;
 extern "C" int func_020885b4(Struct_020885b4*);
 extern "C" void func_02088644(Struct_02088644*);
-extern "C" int func_02088514(Struct_02088514*);
+extern "C" int IsEnvenomated_02088514(Struct_02088514*);
 extern "C" void func_02088598(unsigned char*);
 extern "C" int func_ov024_021df6ec(Struct_ov024_021df454_2*);
 extern "C" int func_ov024_021dd010(Struct_ov024_021dced0_2*);
@@ -71,7 +71,7 @@ extern "C" ARM void* func_ov024_021df454(Struct_ov024_021df454_3* arg0, int arg1
         func_02088644((Struct_02088644*)var0->currentStats_);
         ++var1;
     }
-    if (func_02088514((Struct_02088514*)var0->currentStats_)) {
+    if (IsEnvenomated_02088514((Struct_02088514*)var0->currentStats_)) {
         func_02088598((unsigned char*)var0->currentStats_);
         ++var1;
     }

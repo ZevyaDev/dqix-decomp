@@ -279,7 +279,7 @@ struct DetailedTreasureMapData;
 bool ExportDetailedTreasureMapData(TreasureMapMetadata const*, DetailedTreasureMapData*, bool, unsigned char const*);
 extern "C" void func_020a395c();
 extern "C" void func_020464e8(char*, int, char*);
-extern "C" void SetNoun_020e4b34(void* noun, void* singularText, void* pluralText, int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int arg9, int hasInitialVowelSound, int isInitialVowelFromText);
+extern "C" void SetNoun_020e4b34(void* noun, void* singularText, void* pluralText, int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int isProperName, int hasInitialVowelSound, int isInitialVowelFromText);
 extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" unsigned char func_02011804(GameState* arg0);
 extern "C" void func_020ac760(void* arg0);

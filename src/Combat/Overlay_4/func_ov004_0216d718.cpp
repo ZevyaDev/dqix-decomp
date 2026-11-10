@@ -9,7 +9,7 @@ extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
 extern "C" void GetMenuObjectStringList_ov023_021fa598(void*);
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_02012028(void*, unsigned char);
+extern "C" void SetTitleIdleTimeoutEnabled_02012028(void*, unsigned char);
 extern "C" void* func_ov011_021845f8(void*, int);
 extern "C" int func_020c7170(char* arg0, unsigned long arg1, const char* arg2, ...);
 extern const char data_ov004_02170fac[];
@@ -24,7 +24,7 @@ extern "C" ARM int func_ov004_0216d718(void* arg0)
         GetMenuObjectStringList_ov023_021fa598(var0);
     GetMessageWindow_020421a0();
     GameState* var1 = GameState::GetInstance();
-    func_02012028(var1, 0);
+    SetTitleIdleTimeoutEnabled_02012028(var1, 0);
     SafeAllocator* var2 = (SafeAllocator*)((char*)func_ov011_021845f8(arg0, 5) + 4);
     char* var3 = (char*)var2->Allocate(0x400);
     memset(var3, 0, 0x400);

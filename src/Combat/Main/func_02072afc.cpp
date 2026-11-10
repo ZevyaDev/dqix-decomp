@@ -6,7 +6,7 @@
 struct Struct_02052e2c;
 struct PartyMember_02052e14;
 extern "C" short* GetAppearance_02052e2c(Struct_02052e2c* gameObject);
-extern "C" short* func_02052e14(PartyMember_02052e14* arg0);
+extern "C" short* GetEquippedItems_02052e14(PartyMember_02052e14* gameObject);
 
 struct Struct_020e8878 {
     int unknown_0_[11];
@@ -19,7 +19,7 @@ extern "C" ARM void func_02072afc(int arg0, int* arg1, short* arg2) {
     if (var0 == NULL) return;
     short* var1 = GetAppearance_02052e2c((Struct_02052e2c*)var0);
     if (var1 == NULL) return;
-    short* var2 = func_02052e14((PartyMember_02052e14*)var0);
+    short* var2 = GetEquippedItems_02052e14((PartyMember_02052e14*)var0);
     Struct_020e8878 var3 = data_020e8878;
     int var4 = arg0 * 12;
     var3.unknown_0_[0] = arg0;

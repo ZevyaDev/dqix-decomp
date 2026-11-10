@@ -8,14 +8,14 @@
 #define RG(u, j) (u)
 #endif
 
-struct Struct_0205d0e0_2;
+struct TextWindowManager_0205d0e0_2;
 struct TextWindowManager_0205d6a0;
 struct TextWindowManager_0205d81c;
 struct Struct_ov002_02156e90 {
     char unknown_0_[0xc4];
     unsigned char unknown_c4_;
 };
-extern "C" struct Struct_ov002_02156e90 *func_0205d888(struct Struct_0205d0e0_2 *arg0);
+extern "C" struct Struct_ov002_02156e90 *GetLastOpenedTextWindow_0205d888(struct TextWindowManager_0205d0e0_2 *windowManager);
 extern "C" void *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0 *windowManager, int isAll);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
@@ -27,7 +27,7 @@ extern "C" const unsigned char data_ov002_0216c99e[];
 // USA: func_ov002_02156e90
 extern "C" ARM void func_ov002_02156e90(char *arg0) {
     int var0              = 1;
-    struct Struct_ov002_02156e90 *var1 = func_0205d888((struct Struct_0205d0e0_2 *) (arg0 + RG(0xec8, 0xe20)));
+    struct Struct_ov002_02156e90 *var1 = GetLastOpenedTextWindow_0205d888((struct TextWindowManager_0205d0e0_2 *) (arg0 + RG(0xec8, 0xe20)));
     if (var1 != NULL) {
         for (int var2 = 0; var2 < 8; var2++) {
             unsigned char var3 = var1->unknown_c4_;
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov002_02156e90(char *arg0) {
     for (int var6 = 0; var6 < var0; var6++) {
         CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0 *) (arg0 + RG(0xec8, 0xe20)), 0);
     }
-    var1 = func_0205d888((struct Struct_0205d0e0_2 *) (arg0 + RG(0xec8, 0xe20)));
+    var1 = GetLastOpenedTextWindow_0205d888((struct TextWindowManager_0205d0e0_2 *) (arg0 + RG(0xec8, 0xe20)));
     if (var1 == NULL) return;
     *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) = var1->unknown_c4_;
     ConfigureMenuCursors_ov002_02161cf0(arg0);

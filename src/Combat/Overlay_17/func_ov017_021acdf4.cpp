@@ -20,8 +20,8 @@ struct Struct_0206f81c_4;
 struct Struct_0206f81c_5;
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
-struct Struct_020469f8;
-struct Struct_020469f8_2;
+struct Queue_020469f8;
+struct QueueNode_020469f8_2;
 struct Struct_ov003_021638e4_2;
 
 #if defined(jpn)
@@ -105,7 +105,7 @@ extern "C" void InitZoneEntry_02070378(char* zoneEntry);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void func_0205ce94(unsigned char* arg0);
-extern "C" int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigned int arg4, TextureVRAMArea_0203d028* arg5);
+extern "C" int AddEffectResource_02057e6c(void* effectManager, int effectId, SafeAllocator* allocator, void* fileData, unsigned int fileSize, TextureVRAMArea_0203d028* textureVRAMArea);
 extern "C" void func_02010834(Struct_02010834* arg0, int arg1, int* arg2, int* arg3);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
@@ -119,7 +119,7 @@ extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int isFull
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void func_0200fb40(void* arg0);
 extern "C" int func_02011b50(void* arg0, int arg1);
-extern "C" void func_ov017_021b2174(unsigned char* arg0);
+extern "C" void ResetMenuTask_ov017_021b2174(unsigned char* node);
 extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2* arg0, char* arg1);
 extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021b2bf4(Struct_0206f81c_3* arg0, unsigned int arg1);
@@ -136,7 +136,7 @@ extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_02039d58(unsigned char* arg0);
 extern "C" void func_ov017_021c37a4(void);
 extern "C" void func_ov017_021b11b0(Struct_ov003_021638e4_2* arg0);
-extern "C" void func_020469f8(Struct_020469f8* arg0, Struct_020469f8_2* arg1);
+extern "C" void PrependToQueue_020469f8(Queue_020469f8* queue, QueueNode_020469f8_2* node);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_020e4c74(void* arg0, GameObject* arg1);
 extern "C" int GetStandardString_020e51cc(int stringId);
@@ -169,7 +169,7 @@ static inline Struct_01ff91ac_21* inline_ov017_021acdf4_2(GameResources* arg0) {
 }
 
 // USA: func_ov017_021acdf4
-extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_020469f8* arg1) {
+extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Queue_020469f8* arg1) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     GameObject* var2 = var0->GetUnknownGameObject();
@@ -238,7 +238,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
         if (arg0->unknown_280_ && !arg0->unknown_27f_) {
             func_0205ce94(arg0->unknown_44_);
         }
-        func_02057e6c(var3, 8, &arg0->unknown_8_, var9, var8, var7);
+        AddEffectResource_02057e6c(var3, 8, &arg0->unknown_8_, var9, var8, var7);
         var4->RemoveTask(arg0->unknown_40_);
         arg0->unknown1_1c_ = 1;
     } else if (arg0->unknown1_1c_ == 1) {
@@ -396,7 +396,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
                 Queue_0201bdac_2* var31;
                 unsigned char* var32 = (unsigned char*)var1->unknown_ptr_array_3afc[0x14];
                 var31 = (Queue_0201bdac_2*)var1->unknown_ptr_array_36fc[0];
-                func_ov017_021b2174(var32);
+                ResetMenuTask_ov017_021b2174(var32);
                 func_ov017_021b2ba0((Struct_0206f81c_2*)var32, &data_ov017_021d798f);
                 func_ov017_021b2bd0(var32, (int)func_ov004_021689d8, OVERLAY_ID(4));
                 func_ov017_021b2bf4((Struct_0206f81c_3*)var32, 1);
@@ -438,7 +438,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Struct_0204
         }
         Struct_ov003_021638e4_2* var34 = (Struct_ov003_021638e4_2*)var1->unknown_ptr_array_3afc[0xe];
         func_ov017_021b11b0(var34);
-        func_020469f8(arg1, (Struct_020469f8_2*)var34);
+        PrependToQueue_020469f8(arg1, (QueueNode_020469f8_2*)var34);
         arg0->unknown1_1c_ = 5;
     } else if (arg0->unknown1_1c_ == 0xa) {
         arg0->unknown_1d_ += var0->GetTickCount();

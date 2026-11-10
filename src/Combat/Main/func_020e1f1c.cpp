@@ -39,10 +39,10 @@ struct Struct_020e1288;
 extern "C" int func_020e1288(Struct_020e1288*);
 extern "C" void func_020e2018(void* arg0);
 extern "C" void func_02020520(Struct_020200c0_3* arg0);
-struct Struct_020200c0_4;
-extern "C" void func_0205b20c(Struct_020200c0_4*);
-extern "C" void func_0205b220(void* arg0, int arg1);
-extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
+struct Canvas_020200c0_4;
+extern "C" void InitCanvas_0205b20c(Canvas_020200c0_4*);
+extern "C" void SetCanvasCharacterData_0205b220(void* canvas, int characterData);
+extern "C" void SetCanvasRects_0205b228(void* canvas, int rects, unsigned char rectCount);
 
 // USA: func_020e1f1c
 extern "C" ARM void* func_020e1f1c(Struct_020e1f1c_3* arg0) {
@@ -65,9 +65,9 @@ extern "C" ARM void* func_020e1f1c(Struct_020e1f1c_3* arg0) {
             var5->unknown_a_ = var6->unknown_b_;
         }
         void* var7 = arg0->unknown_4_->unknown_4_;
-        func_0205b20c((Struct_020200c0_4*)var7);
-        func_0205b220(var7, (int)((unsigned int)arg0->unknown_0_ + arg0->unknown_4_->unknown_30_));
-        func_0205b228(var7, (int)arg0->unknown_4_->unknown_0_, var3);
+        InitCanvas_0205b20c((Canvas_020200c0_4*)var7);
+        SetCanvasCharacterData_0205b220(var7, (int)((unsigned int)arg0->unknown_0_ + arg0->unknown_4_->unknown_30_));
+        SetCanvasRects_0205b228(var7, (int)arg0->unknown_4_->unknown_0_, var3);
     }
     return arg0->unknown_0_;
 }

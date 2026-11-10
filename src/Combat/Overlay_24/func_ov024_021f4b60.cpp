@@ -8,7 +8,7 @@ extern "C" int func_ov024_021ede2c(int* arg0);
 struct Struct_020885b4;
 struct Struct_02088514;
 extern "C" int func_020885b4(struct Struct_020885b4* arg0);
-extern "C" int func_02088514(struct Struct_02088514* arg0);
+extern "C" int IsEnvenomated_02088514(struct Struct_02088514* stats);
 
 struct Struct_ov024_021feb4c { short unknown_0_[4]; };
 extern struct Struct_ov024_021feb4c data_ov024_021feb4c;
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov024_021f4b60(int* arg0, int arg1, int arg2, int* arg3,
 		GameObject* var3 = GetCombatantByID(*arg0, var0.unknown_0_[var2]);
 		if (!var3) continue;
 		if (func_020885b4((struct Struct_020885b4*)var3->currentStats_)) continue;
-		if (func_02088514((struct Struct_02088514*)var3->currentStats_)) continue;
+		if (IsEnvenomated_02088514((struct Struct_02088514*)var3->currentStats_)) continue;
 		int var4 = ((Struct_ov024_021f4b60*)var3->currentStats_)->unknown_4d_;
 		if (var4 <= 0) continue;
 		int var5 = *arg3;

@@ -6,9 +6,6 @@ enum { Enum_ov025_021e5e1c_2481 = 0x7e1, Enum_ov025_021e5e1c_2482 = 0x7e2, Enum_
 enum { Enum_ov025_021e5e1c_2481 = 0x9b1, Enum_ov025_021e5e1c_2482 = 0x9b2, Enum_ov025_021e5e1c_2456 = 0x998 };
 #endif
 
-#if defined(jpn)
-#define func_02042b98 func_02043270
-#endif
 
 extern "C" int GetMessageWindow_020421a0();
 #if defined(jpn)
@@ -16,7 +13,7 @@ extern "C" void StartMessage_0204500c(void* window, void* text, int arg2);
 #else
 extern "C" void StartMessage_0204500c(void* window, void* text, int arg2, int arg3);
 #endif
-extern "C" void func_02042b98(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void SetMessageWindowRect_02042b98(void* window, int x, int y, int width, int height);
 
 struct Struct_ov025_021e5e1c { char unknown_0_[8]; void* unknown_8_; };
 
@@ -33,9 +30,9 @@ extern "C" ARM void func_ov025_021e5e1c(struct Struct_ov025_021e5e1c* arg0) {
 #if defined(jpn)
     *(int*)(var0 + 0x1730) = 0xc;
     *(int*)(var0 + 0x1734) = 0x10;
-    func_02042b98((void*)var0, *(int*)(var0 + 0x1730), 0x90, 0x100, 0x30);
+    SetMessageWindowRect_02042b98((void*)var0, *(int*)(var0 + 0x1730), 0x90, 0x100, 0x30);
 #else
-    func_02042b98((void*)var0, 2, 0x92, 0xfc, 0x4a);
+    SetMessageWindowRect_02042b98((void*)var0, 2, 0x92, 0xfc, 0x4a);
 #endif
     *(unsigned char*)(var0 + 0x1000 + Enum_ov025_021e5e1c_2482) = 0;
     *(int*)(var0 + Enum_ov025_021e5e1c_2456) = 1;

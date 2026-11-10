@@ -49,22 +49,22 @@ struct Struct_020531f0_2 {
     int unknown_194_;
 };
 
-// USA: func_020531f0
-extern "C" ARM void func_020531f0(struct Struct_020531f0_2* arg0) {
+// USA: StopGesture_020531f0
+extern "C" ARM void StopGesture_020531f0(struct Struct_020531f0_2* arg0) {
 #if defined(jpn)
     enum { Enum_020531f0_408 = 0x18c, Enum_020531f0_6577 = 0x17e1 };
 #else
     enum { Enum_020531f0_408 = 0x198, Enum_020531f0_6577 = 0x19b1 };
 #endif
-    BackgroundLoader* var0;
-    GameState* var1;
-    signed char var2[4];
-    int var3;
-    int var4;
+    BackgroundLoader* backgroundLoader;
+    GameState* gameState;
+    signed char gestureIds[4];
+    int camera;
+    int objectIndex;
 
-    var0 = BackgroundLoader::GetInstance();
+    backgroundLoader = BackgroundLoader::GetInstance();
     if (arg0->unknown_180_ > -1) {
-        var0->RemoveTask(arg0->unknown_180_);
+        backgroundLoader->RemoveTask(arg0->unknown_180_);
         arg0->unknown_180_ = -1;
     }
 
@@ -81,7 +81,7 @@ extern "C" ARM void func_020531f0(struct Struct_020531f0_2* arg0) {
     arg0->unknown_184_ = 0;
 
     if (arg0->unknown_194_ > -1) {
-        var0->RemoveTask(arg0->unknown_194_);
+        backgroundLoader->RemoveTask(arg0->unknown_194_);
         arg0->unknown_194_ = -1;
     }
 
@@ -101,18 +101,18 @@ extern "C" ARM void func_020531f0(struct Struct_020531f0_2* arg0) {
     arg0->unknown_b2_ = 0;
     SetMotion_02033b88((struct Struct_02010604*)arg0, 0);
 
-    var1 = GameState::GetInstance();
-    var4 = arg0->unknown_0_.objectIndex_4_;
-    int var5 = GetOwnPartyLeaderObjectIndex_020100b0(var1);
-    if (var5 == var4) {
-        var3 = GetFollowCamera_020100f8((char*)var1);
-        if (var3 != 0) {
+    gameState = GameState::GetInstance();
+    objectIndex = arg0->unknown_0_.objectIndex_4_;
+    int ownPartyLeaderObjectIndex = GetOwnPartyLeaderObjectIndex_020100b0(gameState);
+    if (ownPartyLeaderObjectIndex == objectIndex) {
+        camera = GetFollowCamera_020100f8((char*)gameState);
+        if (camera != 0) {
             if (g_keyManager.TestKeysHeld(2) == 0
                 || ((unsigned char*)GetMessageWindow_020421a0())[Enum_020531f0_6577] != 0) {
-                func_020a2c8c((unsigned char*)var3);
+                func_020a2c8c((unsigned char*)camera);
             }
         }
     }
 
-    func_ov017_021cc1f8(arg0->unknown_0_.objectIndex_4_, (const char*)var2, 0, 1);
+    func_ov017_021cc1f8(arg0->unknown_0_.objectIndex_4_, (const char*)gestureIds, 0, 1);
 }

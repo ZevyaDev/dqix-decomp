@@ -2,11 +2,11 @@
 
 struct TextWindowManager_0205d2bc;
 extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(struct TextWindowManager_0205d2bc* windowManager);
-extern "C" void func_020e2d24(int* arg0, int arg1, int arg2);
+extern "C" void SetDisplayWindowInsideLayers_020e2d24(int* displayWindow, int layers, int isEffectEnabled);
 struct Struct_020e28dc;
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
-struct Struct_020439b0;
-extern "C" void func_020e2cc4(struct Struct_020439b0* arg0, int arg1);
+struct DisplayWindow_020439b0;
+extern "C" void SetDisplayWindowEnabled_020e2cc4(struct DisplayWindow_020439b0* displayWindow, int isEnabled);
 struct Struct_020e2834;
 extern "C" void func_020e2834(struct Struct_020e2834* arg0);
 
@@ -23,8 +23,8 @@ extern "C" ARM void func_ov003_02159100(void* arg0) {
 
     unsigned char* var1 = *(unsigned char**)((char*)(*(void**)(var0 + 0x570)) + 0x10);
     int var2;
-    func_020e2d24((int*)(var1 + 0x28), 0x11, 1);
+    SetDisplayWindowInsideLayers_020e2d24((int*)(var1 + 0x28), 0x11, 1);
     var2 = func_020e28dc((struct Struct_020e28dc*)*(void**)(var0 + 0x570));
-    func_020e2cc4((struct Struct_020439b0*)(var1 + 0x28), var2);
+    SetDisplayWindowEnabled_020e2cc4((struct DisplayWindow_020439b0*)(var1 + 0x28), var2);
     func_020e2834((struct Struct_020e2834*)*(void**)(var0 + 0x570));
 }

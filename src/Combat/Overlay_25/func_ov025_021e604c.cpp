@@ -19,7 +19,7 @@ extern "C" void func_02049bac(unsigned char* arg0, int* arg1);
 extern "C" void func_ov000_02161c0c(void* arg0, int arg1);
 extern "C" void func_ov000_02167fb0(void* arg0, GameObject* arg1);
 extern "C" void func_ov000_021677fc(void* arg0);
-extern "C" void* func_ov000_02160f14(void* arg0);
+extern "C" void* GetBattleCamera_ov000_02160f14(void* battleScene);
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" void __clear(void* arg0, int arg1);
 
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov025_021e604c(void* arg0, int arg1, int arg2, void* arg
         }
     }
     func_ov000_021677fc(var13);
-    struct Struct_ov025_021e604c* var17 = (struct Struct_ov025_021e604c*)func_ov000_02160f14(var13);
+    struct Struct_ov025_021e604c* var17 = (struct Struct_ov025_021e604c*)GetBattleCamera_ov000_02160f14(var13);
     var11 = GameState::GetInstance();
     GetResources_0200fb8c((int*)var11);
     var10 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg3, var7, 8, 0);

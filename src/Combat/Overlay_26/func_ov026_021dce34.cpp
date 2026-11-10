@@ -125,7 +125,7 @@ void func_ov000_02174738(void*, int);
 void* memset(void*, int, unsigned int);
 void func_02049c88(void*, void*);
 void func_ov026_021dc8fc(BattleScene_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*, void*, void*, int);
-void func_020531f0(void*);
+void StopGesture_020531f0(void*);
 void func_ov000_02167fb0(void*, GameObject*);
 int IsLocalWirelessGuest_0202c540(int*);
 int func_ov017_0219c774(int, int, int);
@@ -183,7 +183,7 @@ extern "C" ARM void func_ov026_021dce34(int arg0, BattleScene_ov000_02160da0* ar
             func_02053da0((char*)var11, (Struct_02053da0*)&arg7[var6]);
             func_0208936c((char*)var11->currentStats_, (char*)((Struct_ov023_021f2a48_2*)var11)->unknown_130_, (char*)var11->baseStats_);
             func_ov026_021dc8fc(arg1, arg2, arg3, arg4, arg8, arg9, var6);
-            func_020531f0(var11);
+            StopGesture_020531f0(var11);
             func_02039d84((Struct_02039d84*)var11);
             ((Struct_ov023_021f2a48_2*)var11)->unknown_c1_.unknown_0_0_ |= 3;
             ((Struct_ov023_021f2a48_2*)var11)->unknown_c2_5_ = 1;

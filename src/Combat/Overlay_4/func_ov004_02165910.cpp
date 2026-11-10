@@ -12,7 +12,7 @@ extern "C" void func_ov023_021f9ba8(void* arg0, unsigned short arg1);
 extern "C" void func_ov004_02164084(void* arg0);
 extern "C" int func_ov023_021f98e0(void*, void*);
 
-extern char* data_ov004_02171010;
+extern char* gTreasureMapScreen_ov004_02171010;
 
 struct Struct_ov004_02165910 { char unknown_0_[0x5c]; short unknown_5c_; short unknown_5e_; char unknown_60_[0x61 - 0x5e - 2]; unsigned char unknown_61_; };
 
@@ -35,9 +35,9 @@ extern "C" ARM int func_ov004_02165910(void* arg0) {
 #else
             if (func_ov024_021f6f10(var2) == 7) {
 #endif
-                *(short*)((char*)data_ov004_02171010 + Enum_ov004_02165910_6144 + 0xf6) = (short)var1;
-                short var3 = *(short*)((char*)data_ov004_02171010 + Enum_ov004_02165910_6144 + 0xf8);
-                short var4 = *(short*)((char*)data_ov004_02171010 + Enum_ov004_02165910_6144 + 0xf6);
+                *(short*)((char*)gTreasureMapScreen_ov004_02171010 + Enum_ov004_02165910_6144 + 0xf6) = (short)var1;
+                short var3 = *(short*)((char*)gTreasureMapScreen_ov004_02171010 + Enum_ov004_02165910_6144 + 0xf8);
+                short var4 = *(short*)((char*)gTreasureMapScreen_ov004_02171010 + Enum_ov004_02165910_6144 + 0xf6);
                 var2->unknown_5c_ = var4;
                 var2->unknown_5e_ = var3;
                 func_ov023_021f9ba8(var2, (unsigned short)var0);

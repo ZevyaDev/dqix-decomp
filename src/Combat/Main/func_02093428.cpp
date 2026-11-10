@@ -6,7 +6,7 @@ struct Struct_02093428_5;
 
 extern "C" void GetZone3D_02012fe4();
 extern "C" int GetMessageChoice_020457e0(char* window);
-extern "C" void func_020531f0(GameObject* arg0);
+extern "C" void StopGesture_020531f0(GameObject* arg0);
 extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void func_020945ac(struct Struct_02093428_5* arg0);
 extern "C" void func_0200fb40(void* arg0);
@@ -82,7 +82,7 @@ extern "C" ARM void func_02093428(struct Struct_02093428_6* arg0) {
         for (unsigned char var6 = 0; var6 < var5; var6++) {
             GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var0, var4->unknown_f78_[var6]);
             if (var7 != 0 && IsPerformingGesture_020535c8((signed char*)var7) != 0) {
-                func_020531f0(var7);
+                StopGesture_020531f0(var7);
             }
         }
         arg0->unknown_30_ = 10;

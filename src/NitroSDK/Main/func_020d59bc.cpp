@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int CheckWirelessState_020d424c(int stateCount, int arg1, int arg2);
-extern "C" int func_020d40bc(int arg0, int arg1, const void* arg2, unsigned int arg3,
+extern "C" int SendWirelessCommand_020d40bc(int command, int paramCount, const void* arg2, unsigned int arg3,
                              unsigned short arg4, unsigned short arg5, unsigned short arg6,
                              int arg7, int arg8);
 extern "C" void* func_020d41d8(void);
@@ -56,7 +56,7 @@ extern "C" ARM int func_020d59bc(int arg0, int arg1, const void* arg2, unsigned 
         return 6;
     }
     CleanCacheRange(arg2, arg3);
-    var2 = func_020d40bc(0xf, 7, arg2, arg3, arg4, arg5, arg6, arg0, arg1);
+    var2 = SendWirelessCommand_020d40bc(0xf, 7, arg2, arg3, arg4, arg5, arg6, arg0, arg1);
     if (var2 == 0) {
         var2 = 2;
     }

@@ -29,7 +29,7 @@ struct Struct_02046574_2 {
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 extern "C" void func_020464e8(char* arg0, int arg1, char* arg2);
 
-extern unsigned char* data_ov004_02171010;
+extern unsigned char* gTreasureMapScreen_ov004_02171010;
 
 // USA: func_ov004_02164e40
 extern "C" ARM int func_ov004_02164e40(void* arg0) {
@@ -57,28 +57,28 @@ extern "C" ARM int func_ov004_02164e40(void* arg0) {
     VectorizedMemset(var8, 0, 32);
 
     unsigned int var9 = var4 * 0x1e4;
-    unsigned char* var10 = data_ov004_02171010;
+    unsigned char* var10 = gTreasureMapScreen_ov004_02171010;
     unsigned char* var11 = var10 + 0xad5;
     var11 = var11 + var9;
     unsigned char var12 = *var11;
     if (var12 == 1) {
         char* var13 = (char*)var10 + 0xb20 + var9;
         strcpy(var5, var13 + 0x3b);
-        char* var14 = (char*)data_ov004_02171010 + 0xb20;
+        char* var14 = (char*)gTreasureMapScreen_ov004_02171010 + 0xb20;
         var14 = var14 + var9;
         strcpy(var6, var14 + 0x5b);
         strcpy(var7, &data_ov004_02170e42);
-        char* var15 = (char*)data_ov004_02171010 + 0xb20;
+        char* var15 = (char*)gTreasureMapScreen_ov004_02171010 + 0xb20;
         var15 = var15 + var9;
         strcpy(var8, var15 + 0x9b);
     } else if (var12 == 2) {
         char* var16 = (char*)var10 + 0xb20 + var9;
         strcpy(var5, var16 + 0x90);
-        char* var17 = (char*)data_ov004_02171010 + 0xb20;
+        char* var17 = (char*)gTreasureMapScreen_ov004_02171010 + 0xb20;
         var17 = var17 + var9;
         strcpy(var6, var17 + 0xb0);
         strcpy(var7, &data_ov004_02170598);
-        char* var18 = (char*)data_ov004_02171010 + 0xb20;
+        char* var18 = (char*)gTreasureMapScreen_ov004_02171010 + 0xb20;
         var18 = var18 + var9;
         strcpy(var8, var18 + 0xd0);
     }
@@ -97,7 +97,7 @@ extern "C" ARM int func_ov004_02164e40(void* arg0) {
     char var19[0x40];
     VectorizedMemset(var19, 0, 0x40);
 
-    unsigned char* var20 = data_ov004_02171010;
+    unsigned char* var20 = gTreasureMapScreen_ov004_02171010;
     unsigned int var21 = var4 * 0x1c4;
     unsigned char* var22 = var20 + 0xad5;
     var22 = var22 + var21;

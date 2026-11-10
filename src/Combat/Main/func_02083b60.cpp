@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-// USA: func_02083b60
-extern "C" ARM void func_02083b60(unsigned char* arg0, int arg1) {
+// USA: LearnSpell_02083b60
+extern "C" ARM void LearnSpell_02083b60(unsigned char* memberData, int spellId) {
 #if defined(jpn)
-    unsigned char* var0 = arg0 + 0x878;
+    unsigned char* learnedSpells = memberData + 0x878;
 #else
-    unsigned char* var0 = arg0 + 0x910;
+    unsigned char* learnedSpells = memberData + 0x910;
 #endif
-    var0[arg1 / 8] |= 1 << (arg1 % 8);
+    learnedSpells[spellId / 8] |= 1 << (spellId % 8);
 }

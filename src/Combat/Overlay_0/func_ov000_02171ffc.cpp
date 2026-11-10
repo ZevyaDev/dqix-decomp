@@ -11,8 +11,8 @@
 #endif
 #include "GameState/GameState.h"
 
-struct Struct_02054000;
-extern "C" void* func_02054000(struct Struct_02054000* arg0);
+struct PartyMember_02054000;
+extern "C" void* GetEquippedWeaponItemData_02054000(struct PartyMember_02054000* gameObject);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 
 struct Struct_ov000_02171ffc {
@@ -89,7 +89,7 @@ extern "C" ARM int func_ov000_02171ffc(struct Struct_ov000_0215ab88* arg0) {
     }
     if (var1 == 1) {
         if (var0 != 0) {
-            struct Struct_ov000_02171ffc_4* var5 = (struct Struct_ov000_02171ffc_4*)func_02054000((struct Struct_02054000*)var0);
+            struct Struct_ov000_02171ffc_4* var5 = (struct Struct_ov000_02171ffc_4*)GetEquippedWeaponItemData_02054000((struct PartyMember_02054000*)var0);
             if (var5 != 0 && var5->unknown_18_ > 0) {
                 struct Struct_ov000_02171ffc* var6 = &var0->unknown_150_->unknown_2f4_;
                 if (var6->unknown_0_1_) {

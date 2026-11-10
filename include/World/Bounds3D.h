@@ -3,8 +3,8 @@
 #include "NitroSDK/Matrix.h"
 
 struct BoundingBox_02018fbc {
-    Vector3fix unknown_0_;
-    Vector3fix unknown_c_;
+    Vector3fix maxCorner_0_;
+    Vector3fix minCorner_c_;
 };
 
 

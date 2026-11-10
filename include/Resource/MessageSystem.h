@@ -6,13 +6,13 @@
 
 #if defined(jpn)
 
-struct Struct_020439b0 {
+struct DisplayWindow_020439b0 {
     unsigned char unknown_0_;
     unsigned char unknown_1_;
     unsigned char unknown_2_;
 };
 struct Struct_0204500c {
-    Struct_020439b0 unknown_0_;
+    DisplayWindow_020439b0 unknown_0_;
     unsigned char unknown_3_[0x21];
 };
 struct Struct_020439b0_2 {
@@ -164,7 +164,7 @@ struct Struct_02042c68 {
     unsigned char unknown_0_[0x1c];
 };
 
-struct Struct_020439b0 {
+struct DisplayWindow_020439b0 {
     unsigned char unknown_0_[0x24];
 };
 
@@ -253,7 +253,7 @@ struct MessageWindow_02021b84 {
     unsigned char unknown_1960_;
     unsigned char unknown_1961_;
     unsigned char unknown_1962_[2];
-    Struct_020439b0 unknown_1964_[2];
+    DisplayWindow_020439b0 unknown_1964_[2];
     unsigned char unknown_19ac_;
     unsigned char unknown_19ad_;
     unsigned char unknown_19ae_;

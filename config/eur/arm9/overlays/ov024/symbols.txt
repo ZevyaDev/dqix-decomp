@@ -66,7 +66,7 @@ func_ov024_021da55c kind:function(arm,size=0xe8) addr:0x021da55c
 SelectPartyOrEnemyMessage_ov024_021da644 kind:function(arm,size=0x2c) addr:0x021da644
 func_ov024_021da670 kind:function(arm,size=0x328) addr:0x021da670
 func_ov024_021da998 kind:function(arm,size=0x18) addr:0x021da998
-func_ov024_021da9b0 kind:function(arm,size=0x18) addr:0x021da9b0
+IsParalysed_ov024_021da9b0 kind:function(arm,size=0x18) addr:0x021da9b0
 func_ov024_021da9c8 kind:function(arm,size=0x18) addr:0x021da9c8
 func_ov024_021da9e0 kind:function(arm,size=0x978) addr:0x021da9e0
 func_ov024_021db358 kind:function(arm,size=0x4c) addr:0x021db358
@@ -569,7 +569,7 @@ func_ov024_021fd7b8 kind:function(arm,size=0xa0) addr:0x021fd7b8
 func_ov024_021fd858 kind:function(arm,size=0xfc) addr:0x021fd858
 func_ov024_021fd954 kind:function(arm,size=0x5b0) addr:0x021fd954
 func_ov024_021fdf04 kind:function(arm,size=0x794) addr:0x021fdf04
-func_ov024_021fe698 kind:function(arm,size=0x1c) addr:0x021fe698
+TrySelectTacticOption_ov024_021fe698 kind:function(arm,size=0x1c) addr:0x021fe698
 func_ov024_021fe6b4 kind:function(arm,size=0x14) addr:0x021fe6b4
 data_ov024_021fe6c8 kind:data(any) addr:0x021fe6c8
 data_ov024_021fe6d0 kind:data(any) addr:0x021fe6d0

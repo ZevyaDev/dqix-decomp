@@ -4,7 +4,7 @@ extern "C" void* func_020d41d8(void);
 extern "C" int CheckWirelessState_020d424c(int stateCount, int arg1, int arg2);
 extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 extern "C" void SetWirelessCommandCallback_020d404c(int command, int callback);
-extern "C" int func_020d40bc(int arg0, int arg1);
+extern "C" int SendWirelessCommand_020d40bc(int command, int paramCount);
 
 struct Struct_020d5aec {
     unsigned char unknown_0_[4];
@@ -23,6 +23,6 @@ extern "C" ARM int func_020d5aec(int arg0) {
         return 3;
     }
     SetWirelessCommandCallback_020d404c(0x10, arg0);
-    var1 = func_020d40bc(0x10, 0);
+    var1 = SendWirelessCommand_020d40bc(0x10, 0);
     return (var1 == 0) ? 2 : var1;
 }

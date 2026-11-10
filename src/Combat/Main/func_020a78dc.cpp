@@ -51,7 +51,7 @@ extern "C" struct Struct_02038138_3* func_ov017_0218d268(void*);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" void SetMotion_02033b88(struct Struct_02010604*, int);
 extern "C" void SetMotionIfDifferent_02033b68(struct Struct_02033b68*, int);
-extern "C" void func_02033b58(struct Struct_02033b58*, unsigned char);
+extern "C" void SetMotionKeepingAnimation_02033b58(struct Struct_02033b58*, unsigned char);
 extern "C" int GetCameraYaw_0202e7f0(void*);
 int fix32ReduceAngle0To2Pi(int);
 extern "C" struct Struct_02038138_2* func_0201e8fc(struct Struct_0201e8fc_2*, struct Struct_ov009_0218aa28*);
@@ -149,7 +149,7 @@ extern "C" ARM void func_020a78dc(struct Struct_020a78dc* arg0) {
         if (arg0->unknown_c0_ == 0 || arg0->unknown_c0_ == 0xa) {
             SetMotionIfDifferent_02033b68((struct Struct_02033b68*)arg0, 1);
         } else {
-            func_02033b58((struct Struct_02033b58*)arg0, 1);
+            SetMotionKeepingAnimation_02033b58((struct Struct_02033b58*)arg0, 1);
         }
         int var13 = var5.unknown_0_[arg0->unknown_158_ - 8];
         int var14 = fix32ReduceAngle0To2Pi(var13 + GetCameraYaw_0202e7f0(var1));
@@ -179,7 +179,7 @@ extern "C" ARM void func_020a78dc(struct Struct_020a78dc* arg0) {
         if (arg0->unknown_c0_ == 0) {
             SetMotionIfDifferent_02033b68((struct Struct_02033b68*)arg0, 1);
         } else {
-            func_02033b58((struct Struct_02033b58*)arg0, 1);
+            SetMotionKeepingAnimation_02033b58((struct Struct_02033b58*)arg0, 1);
         }
         struct Struct_02038138_3* var18 = func_ov017_0218d268(var2);
         if (var18->unknown_224_ != 0) {

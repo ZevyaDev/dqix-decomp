@@ -76,7 +76,7 @@ extern "C" void func_ov023_021e20f0(void*, void*, void*, unsigned int);
 extern "C" void* func_ov006_02157368(void*, int);
 extern "C" void LoadSpriteSetFile_0205a528(void*, void*, void*, void*);
 extern "C" void InitSpriteSet_0205a444(char*);
-extern "C" void func_020e526c(void*);
+extern "C" void InitNounTable_020e526c(void*);
 extern "C" void func_020e5604(void*, void*, void*, unsigned int);
 struct Struct_0207f914;
 extern "C" void func_0207f914(Struct_0207f914*, int, int, int);
@@ -94,8 +94,8 @@ extern "C" void func_02071ffc(Struct_02071ffc_4*, int, int, int, short, short*);
 extern "C" void func_ov006_02158cac(void*);
 extern "C" void func_ov006_02153c60(void*, int, unsigned short);
 extern "C" void func_ov006_0215373c(void*, void*);
-struct Struct_02081164;
-extern "C" void func_02081164(Struct_02081164*, int, int);
+struct MenuLayout_02081164;
+extern "C" void SetMenuLayoutWindowFrameless_02081164(MenuLayout_02081164*, int, int);
 extern "C" void OpenMenuLayoutWindow_020813ec(void*, int);
 struct MenuLayout_0207fdcc_2;
 extern "C" void* func_02081da8(MenuLayout_0207fdcc_2*, int);
@@ -391,7 +391,7 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
                 InitStringTable_020dfc40((StringTable_0201099c_14*)((char*)arg0 + REGIONAL_OFFSET(0x164, 0x170)));
                 LoadStringTable_020dfec0((char*)arg0 + REGIONAL_OFFSET(0x164, 0x170), (char*)var23 + 0x28, var0.unknown_8_, var0.unknown_4_);
 #else
-                func_020e526c((char*)arg0 + REGIONAL_OFFSET(0x164, 0x170));
+                InitNounTable_020e526c((char*)arg0 + REGIONAL_OFFSET(0x164, 0x170));
                 func_020e5604((char*)arg0 + REGIONAL_OFFSET(0x164, 0x170), (char*)var23 + 0x28, var0.unknown_8_, var0.unknown_4_);
 #endif
             }
@@ -454,8 +454,8 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
         func_ov006_02153c60((char*)arg0 + REGIONAL_OFFSET(0x6c, 0x74), arg0->unknown_38_, 0x1d7);
         func_ov006_0215373c((char*)arg0 + REGIONAL_OFFSET(0x6c, 0x74), (char*)arg0 + REGIONAL_OFFSET(0x140, 0x14c));
         if ((arg0->unknown_394_ & 2) == 0) {
-            func_02081164((Struct_02081164*)arg0->unknown_14_, 0, 1);
-            func_02081164((Struct_02081164*)arg0->unknown_14_, 1, 1);
+            SetMenuLayoutWindowFrameless_02081164((MenuLayout_02081164*)arg0->unknown_14_, 0, 1);
+            SetMenuLayoutWindowFrameless_02081164((MenuLayout_02081164*)arg0->unknown_14_, 1, 1);
             OpenMenuLayoutWindow_020813ec(arg0->unknown_14_, 0);
             OpenMenuLayoutWindow_020813ec(arg0->unknown_14_, 1);
             Struct_ov006_02158478* var29 = (Struct_ov006_02158478*)func_02081da8((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 1);

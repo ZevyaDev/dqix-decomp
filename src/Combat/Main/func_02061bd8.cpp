@@ -14,11 +14,11 @@ struct PartyMember_0205faf4_11 {
     struct PartyMemberData_02061bd8* pPartyMemberData_150_;
 };
 
-// USA: func_02061bd8
-extern "C" ARM int func_02061bd8(struct PartyMember_0205faf4_11* arg0) {
-    struct PartyMemberData_02061bd8* var0 = arg0->pPartyMemberData_150_;
-    if (var0 != NULL) {
-        return var0->unknown_56b_0_ != 0;
+// USA: IsNPCCompanion_02061bd8
+extern "C" ARM int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember) {
+    struct PartyMemberData_02061bd8* memberData = partyMember->pPartyMemberData_150_;
+    if (memberData != NULL) {
+        return memberData->unknown_56b_0_ != 0;
     }
     return 0;
 }

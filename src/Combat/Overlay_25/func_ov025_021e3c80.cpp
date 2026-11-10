@@ -30,7 +30,7 @@ struct Struct_ov025_021ef988_8 {
 extern Struct_ov025_021ef988_8 data_ov025_021ef988;
 
 extern "C" void* GetBattleScene_ov000_02160130();
-extern "C" char* func_ov000_02160f14(void* arg0);
+extern "C" char* GetBattleCamera_ov000_02160f14(void* battleScene);
 extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void* battleScene, int selector, int isVisible);
@@ -54,7 +54,7 @@ extern "C" ARM int func_ov025_021e3c80(Struct_ov025_021e3c80* arg0, BattleAction
     int var0[12];
     int var1[8];
     unsigned char* var2 = (unsigned char*)GetBattleScene_ov000_02160130();
-    char* var3 = func_ov000_02160f14(var2);
+    char* var3 = GetBattleCamera_ov000_02160f14(var2);
     char* var4 = data_ov025_021ef988.unknown_c_;
     ActionActor_ov000_02160094* var5 = GetActionActor_ov000_02160094(arg1, 0);
     ActionTarget_ov000_021600f8* var6 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, 0);

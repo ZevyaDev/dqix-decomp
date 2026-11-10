@@ -17,8 +17,8 @@ extern "C" void* GetGlobalFlags_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 
 extern "C" void func_ov023_021dc9e8(void* arg0, void* arg1, int arg2, void* arg3, int arg4);
-extern "C" void InitItemInfoPanel_ov023_021dc134(void* arg0, int itemId, int arg2);
-extern "C" void func_ov023_021dbfd0(void* arg0, void* arg1);
+extern "C" void InitItemInfoPanel_ov023_021dc134(void* panel, int itemId, int isEmbedded);
+extern "C" void AllocateItemInfoPanelBuffers_ov023_021dbfd0(void* panel, void* allocator);
 
 // USA: func_ov003_021748c4
 extern "C" ARM void func_ov003_021748c4(unsigned char* arg0) {
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov003_021748c4(unsigned char* arg0) {
         short var4 = *(short*)(arg0 + Enum_ov003_021748c4_4154);
         InitItemInfoPanel_ov023_021dc134(arg0 + 0x3c, var4, 0);
         *(unsigned short*)(arg0 + Enum_ov003_021748c4_1968) |= 0x450;
-        func_ov023_021dbfd0(arg0 + 0x3c, var2);
+        AllocateItemInfoPanelBuffers_ov023_021dbfd0(arg0 + 0x3c, var2);
         *(void**)(arg0 + 0x84) = arg0 + Enum_ov003_021748c4_2164;
         *(unsigned short*)(arg0 + Enum_ov003_021748c4_4166) |= 0x880;
     }

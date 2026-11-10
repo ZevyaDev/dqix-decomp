@@ -24,8 +24,8 @@ extern "C" unsigned int* GetGlobalFlags_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
-extern "C" int func_0201201c(void* arg0);
-extern "C" void func_02012010(void* arg0, int arg1);
+extern "C" int GetTitleState_0201201c(void* arg0);
+extern "C" void SetTitleState_02012010(void* arg0, int state);
 struct Struct_02000c9c_12;
 extern "C" unsigned char func_020115a8(Struct_02000c9c_12*);
 struct Struct_02000c9c_14;
@@ -73,7 +73,7 @@ extern "C" void func_0205facc(void* arg0);
 extern "C" void func_02095518(char*);
 extern "C" void func_020ac0dc();
 extern "C" void func_02096524(void* arg0);
-extern "C" void* func_020704fc();
+extern "C" void* GetColorFade_020704fc();
 struct Struct_02108d5c;
 extern "C" void func_02070508(Struct_02108d5c*);
 extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
@@ -104,14 +104,14 @@ extern "C" void func_020c537c();
 extern "C" void func_0202ac74();
 extern "C" void func_02028d68(int arg0);
 extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install);
-extern "C" void func_020bb780(void* arg0, int arg1);
-extern "C" void func_0202c288(void* arg0);
+extern "C" void InitTexturePaletteVRAMAllocator_020bb780(void* size, int install);
+extern "C" void UpdateLocalWirelessPlayerCount_0202c288(void* wireless);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_020100a0(GameState* arg0, int arg1);
 extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState* gameState);
 struct LocalWireless_0202c1a4;
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
-extern "C" void func_020c555c(int);
+extern "C" void Set3DEdgeColors_020c555c(int);
 extern "C" void func_ov017_021a02f0(void* arg0);
 extern "C" void func_02079870(char*);
 extern "C" void func_020798b8(char*);
@@ -131,7 +131,7 @@ extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int pale
 extern "C" void func_02013718(char* arg0, int arg1, int arg2);
 extern "C" void func_0202df68(void* arg0);
 struct Struct_0204a120_2;
-extern "C" void func_020a2cf0(Struct_0204a120_2*);
+extern "C" void InitKeyControlledCamera_020a2cf0(Struct_0204a120_2*);
 extern "C" void InitFollowCamera_020a2010(void* storage);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 struct Struct_02046958;
@@ -182,7 +182,7 @@ extern "C" void func_02028894(void* arg0, void* arg1);
 extern "C" void func_02028894(void* arg0, void* arg1, void* arg2);
 #endif
 extern "C" void func_020287b4(void* arg0);
-extern "C" void* func_02039e70();
+extern "C" void* GetBattleNumberPopups_02039e70();
 extern "C" void func_02039e7c(void* arg0);
 struct Struct_0203a54c;
 extern "C" void func_0203a54c(Struct_0203a54c*);
@@ -214,7 +214,7 @@ extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 struct Struct_0203d028_4;
 extern "C" void func_ov017_021a3498(Struct_0203d028_4*);
 extern "C" void ResetEventTask_ov017_021baedc(void* node, int isRestart);
-extern "C" void func_ov017_021b2174(unsigned char*);
+extern "C" void ResetMenuTask_ov017_021b2174(unsigned char*);
 struct Struct_0206f81c_2;
 extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2*, char*);
 extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
@@ -436,7 +436,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     unsigned int* var4 = GetGlobalFlags_020d6c00();
     SetGlobalFlags_020466e4(var4, 0x100);
     GameState* var5 = GameState::GetInstance();
-    int var6 = func_0201201c(var5);
+    int var6 = GetTitleState_0201201c(var5);
     unsigned char var7 = func_020115a8((Struct_02000c9c_12*)var5);
     if (var6 != 5 && var7 != 4 && var7 != 8 && var7 != 0xc) {
         SetLoadingIndicator_020daf9c(1, 0, 1, 0);
@@ -475,7 +475,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     char* var18 = GetFlagManager_0205ec34();
     char* var19 = GetQuestManager_02094d6c();
     if (func_020115a8((Struct_02000c9c_12*)var5) == 0) {
-        if (func_0201201c(var5) == 5 || GetGameMode_0200fb9c((char*)var5) == 4) {
+        if (GetTitleState_0201201c(var5) == 5 || GetGameMode_0200fb9c((char*)var5) == 4) {
             func_0205facc(var18);
             func_02095518((char*)var19);
             func_020ac0dc();
@@ -484,12 +484,12 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     }
     *(int*)(var18 + 0x480) = 0;
     *(int*)(var18 + 0x47c) = 0;
-    func_02070508((Struct_02108d5c*)func_020704fc());
+    func_02070508((Struct_02108d5c*)GetColorFade_020704fc());
     SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
     func_0205e944(&gSoundEffectManager_02108760, 0x7f);
     gMusicManager_02109bf4.unknown_c8_ &= ~4;
     func_020d7a5c((Struct_0214e34c*)func_020d7a50());
-    if (func_0201201c(var5) == 5 && GetGameMode_0200fb9c((char*)var5) != 9) {
+    if (GetTitleState_0201201c(var5) == 5 && GetGameMode_0200fb9c((char*)var5) != 9) {
         SetGameMode_0200fb94((char*)var5, 6);
     }
 
@@ -533,16 +533,16 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     func_0202ac74();
     func_02028d68(3);
     InitTextureImageVRAMAllocator_020bb48c(4, 1);
-    func_020bb780((void*)0x4000, 1);
+    InitTexturePaletteVRAMAllocator_020bb780((void*)0x4000, 1);
 
-    func_0202c288(var15);
+    UpdateLocalWirelessPlayerCount_0202c288(var15);
     if (IsLocalWirelessOn_0202b7d8((int*)var15) == 0) {
         func_020100a0(GameState::GetInstance(), 0);
     } else {
         GameState* var22 = GameState::GetInstance();
         func_020100a0(var22, GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var15));
     }
-    func_020c555c((int)&data_ov017_021d615c);
+    Set3DEdgeColors_020c555c((int)&data_ov017_021d615c);
     func_ov017_021a02f0(arg0);
     ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var4, 0x100);
     ActionTables_02108e10* var23 = GetActionTables_020797dc();
@@ -570,7 +570,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     }
     func_02013718(var9, (int)arg0->unknown_38_, (int)arg0->unknown_2cc_);
     func_0202df68(var0);
-    func_020a2cf0((Struct_0204a120_2*)var0);
+    InitKeyControlledCamera_020a2cf0((Struct_0204a120_2*)var0);
     InitFollowCamera_020a2010(var0);
     SetCamera_020100c4(var5, (int)var0);
     func_02046958((Struct_02046958*)arg0->unknown_36fc_);
@@ -596,7 +596,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
                 int var33 = GetGameMode_0200fb9c((char*)var5) == 5;
                 var27 = var29 = 1;
                 var31 = !var33;
-                if (func_0201201c(var5) == 6) {
+                if (GetTitleState_0201201c(var5) == 6) {
                     var28 = 0;
                     if (func_020aaf84(var2, 0, var33, 0) != 0) {
                         if (func_020ac864(var31 == 0) != 0) {
@@ -743,7 +743,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
 #else
     func_02028894(var49, arg0->unknown_d8_, arg0->unknown_27c_);
 #endif
-    void* var50 = func_02039e70();
+    void* var50 = GetBattleNumberPopups_02039e70();
     func_02039e7c(var50);
     void* var51 = GetMessageWindow_020421a0();
     func_02042c68(var51);
@@ -793,7 +793,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     }
     if (GetGameMode_0200fb9c((char*)var5) == 6 || GetGameMode_0200fb9c((char*)var5) == 9) {
         void* var56 = arg0->unknown_3b4c_;
-        func_ov017_021b2174((unsigned char*)var56);
+        ResetMenuTask_ov017_021b2174((unsigned char*)var56);
         if (GetGameMode_0200fb9c((char*)var5) == 6) {
             func_ov017_021b2ba0((Struct_0206f81c_2*)var56, (char*)&data_ov017_021d736c);
             func_ov017_021b2bd0(var56, (int)func_ov004_0216e9cc, OVERLAY_ID(4));
@@ -986,7 +986,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
             FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var69);
         }
         SetGameMode_0200fb94((char*)var5, 6);
-        func_02012010(var5, 2);
+        SetTitleState_02012010(var5, 2);
     }
     int var70 = arg0->unknown_2b08_;
     if (var70 == 0) {
@@ -1014,6 +1014,6 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     SafeAllocator::GetLiveCount();
     func_0200fb84((int*)var5, 0);
     InitFollowCamera_020a2010(var0);
-    func_020a2cf0((Struct_0204a120_2*)var0);
+    InitKeyControlledCamera_020a2cf0((Struct_0204a120_2*)var0);
     func_0202df68(var0);
 }

@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 
-struct Struct_0208103c {
+struct MenuLayoutTextEntry_0208103c {
     char unknown_0_[0xe];
-    short unknown_e_;
+    short stringId_e_;
     char unknown_10_[0x30 - 0x10];
 };
 
 struct MenuLayoutTextEntryList_0207f524;
 
-extern "C" struct Struct_0208103c* FindMenuLayoutTextEntry_0207f6ac(struct MenuLayoutTextEntryList_0207f524*, int);
+extern "C" struct MenuLayoutTextEntry_0208103c* FindMenuLayoutTextEntry_0207f6ac(struct MenuLayoutTextEntryList_0207f524*, int);
 
-// USA: func_0208103c
-extern "C" ARM void func_0208103c(void* arg0, int arg1, int arg2) {
-    struct Struct_0208103c* var0 = FindMenuLayoutTextEntry_0207f6ac((struct MenuLayoutTextEntryList_0207f524*)((char*)arg0 + 4), arg1);
-    if (var0 != NULL) {
-        var0->unknown_e_ = (short)arg2;
+// USA: SetMenuLayoutTextStringId_0208103c
+extern "C" ARM void SetMenuLayoutTextStringId_0208103c(void* menuLayout, int textId, int stringId) {
+    struct MenuLayoutTextEntry_0208103c* textEntry = FindMenuLayoutTextEntry_0207f6ac((struct MenuLayoutTextEntryList_0207f524*)((char*)menuLayout + 4), textId);
+    if (textEntry != NULL) {
+        textEntry->stringId_e_ = (short)stringId;
     }
 }

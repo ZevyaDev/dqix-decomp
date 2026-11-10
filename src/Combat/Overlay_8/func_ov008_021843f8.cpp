@@ -61,7 +61,7 @@ struct KeyMenuCursor_0205bef8;
 extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
-extern "C" void func_020a13c4(Struct_020a13c4* arg0);
+extern "C" void ClearAccoladeTable_020a13c4(Struct_020a13c4* table);
 extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
 extern "C" void InitKeyMenuCursor_0205bef8(KeyMenuCursor_0205bef8* cursor);
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov008_021843f8(Struct_ov008_021842a0_2* arg0)
     arg0->unknown_8c_.ResetAllocatorPointer();
     InitStringTable_020dfc40((StringTable_0201099c_14*)arg0->unknown_a0_);
     arg0->unknown_b8_ = NULL;
-    func_020a13c4((Struct_020a13c4*)arg0->unknown_bc_);
+    ClearAccoladeTable_020a13c4((Struct_020a13c4*)arg0->unknown_bc_);
     InitBGLayer_0204af64((BGLayer_02020cb8*)arg0->unknown_d0_[0]);
     InitBGLayer_0204af64((BGLayer_02020cb8*)arg0->unknown_d0_[1]);
     InitBGLayer_0204af64((BGLayer_02020cb8*)arg0->unknown_d0_[2]);

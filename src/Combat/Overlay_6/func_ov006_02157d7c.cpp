@@ -9,7 +9,7 @@ enum { Enum_ov006_02157d7c_16 = 0x10, Enum_ov006_02157d7c_2786 = 0xae2, Enum_ov0
 struct Struct_0207fc6c;
 struct MenuLayout_0207fdcc_2;
 struct Struct_020e28dc;
-struct Struct_020e263c_2;
+struct YesNoWindow_020e263c_2;
 
 extern "C" int func_ov017_021959b4(void);
 extern "C" void func_ov006_021585ac(void* arg0);
@@ -20,12 +20,12 @@ extern "C" void func_0207fc6c(struct Struct_0207fc6c* arg0, int arg1);
 extern "C" void func_ov006_0215a00c(void* arg0, int arg1);
 extern "C" int func_ov006_02158c70();
 extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
-extern "C" unsigned short func_02081f20(void* arg0, int arg1);
+extern "C" unsigned short UpdateKeyRepeat_02081f20(void* keyRepeat, int elapsedFrames);
 extern "C" int func_020800fc(void* arg0, short* arg1, short arg2, unsigned short arg3, unsigned char arg4, int arg5);
 extern "C" int ClearMenuLayoutWindowHighlights_020804fc(void* menuLayout, int windowId);
 extern "C" int OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
-extern "C" void func_020e263c(struct Struct_020e263c_2* arg0, int arg1);
+extern "C" void UpdateYesNoWindow_020e263c(struct YesNoWindow_020e263c_2* yesNoWindow, int ticks);
 
 typedef int (*Type_ov006_02157d7c)(void* self);
 
@@ -126,7 +126,7 @@ extern "C" ARM int func_ov006_02157d7c(struct Struct_ov006_02157d7c* arg0, int a
 
     if (arg0->unknown_44_ != 0)
     {
-        func_02081f20(arg0->unknown_9c_, arg1);
+        UpdateKeyRepeat_02081f20(arg0->unknown_9c_, arg1);
         *(short*)((char*)arg0 + 0x300 + 0x5e) = *arg0->unknown_44_;
         arg0->unknown_350_ = func_020800fc(var1, arg0->unknown_44_, *(short*)((char*)arg0 + 0x300 + 0x5e),
                                    *(unsigned short*)((char*)arg0 + Enum_ov006_02157d7c_168),
@@ -142,7 +142,7 @@ extern "C" ARM int func_ov006_02157d7c(struct Struct_ov006_02157d7c* arg0, int a
     if (arg0->unknown_18_ != 0)
     {
         if (func_020e28dc((struct Struct_020e28dc*)arg0->unknown_18_) != 0)
-            func_020e263c((struct Struct_020e263c_2*)arg0->unknown_18_, arg0->unknown_34c_);
+            UpdateYesNoWindow_020e263c((struct YesNoWindow_020e263c_2*)arg0->unknown_18_, arg0->unknown_34c_);
     }
 
     if ((data_ov006_02160398 & 1) == 0)

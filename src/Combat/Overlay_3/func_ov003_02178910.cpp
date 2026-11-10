@@ -28,11 +28,11 @@ extern "C" void* GetParty_02010828(GameState*);
 struct MenuLayout_0207fdcc_2;
 struct Struct_0207fdf0_2;
 struct SoundEffectManager_02108760;
-struct Struct_02081f20_2;
+struct KeyRepeat_02081f20_2;
 struct ItemTable_0201099c_10;
 struct ItemData_0201099c_9 { char unknown_0_[8]; unsigned int unknown_8_0_ : 4; };
 struct ItemInfoPanel_ov003_02178910;
-struct Struct_0207cf30_3 { short* unknown_0_; signed char* unknown_4_; short unknown_8_; };
+struct ItemBag_0207cf30_3 { short* pItemIds_0_; signed char* pCounts_4_; short slotCount_8_; };
 
 extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
@@ -41,11 +41,11 @@ extern "C" short func_02080468(void* arg0, int arg1);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 extern "C" void func_02081ea4(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
+extern "C" void func_0208203c(struct KeyRepeat_02081f20_2* arg0);
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void func_0207fdf0(struct Struct_0207fdf0_2* arg0, int arg1);
-extern "C" signed char func_020a0b3c(struct Struct_0207cf30_3* arg0, int arg1);
+extern "C" signed char GetBagItemCount_020a0b3c(struct ItemBag_0207cf30_3* bag, int itemId);
 extern "C" unsigned int func_ov003_02175898(char* arg0, void* arg1);
 extern "C" int func_ov003_021758cc(char* arg0, int arg1);
 extern "C" void func_ov003_02175924(char* arg0);
@@ -85,7 +85,7 @@ extern "C" int GetEquipRestrictions_020dd4c4(int memberIndex, void* item);
 extern "C" int func_ov003_0217839c(int arg0, void* arg1);
 extern "C" void* func_ov003_02179cfc(char* arg0, int arg1, void* arg2);
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" int func_02081f20(void* arg0, int arg1);
+extern "C" int UpdateKeyRepeat_02081f20(void* keyRepeat, int elapsedFrames);
 extern "C" void func_0207ccf0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
         func_ov003_021769ec(arg0);
         func_ov003_02176ed4(arg0);
         func_ov003_02176f94(arg0);
-        func_0208203c((struct Struct_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
+        func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
         *(void**)(arg0 + (0xff8 - Enum_ov003_02178910_0)) = 0;
         (*(unsigned char*)(arg0 + (0x1000 + 0x3f - Enum_ov003_02178910_0)))++;
         func_ov003_021748c4(arg0);
@@ -147,7 +147,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
         if (var8 != 0 && var6 == *(short*)(arg0 + (0x1000 + 0x3a - Enum_ov003_02178910_0))) {
             *(unsigned char*)(arg0 + (0x1000 + 0x3c - Enum_ov003_02178910_0)) = 1;
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-            func_0208203c((struct Struct_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
+            func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
             *(void**)(arg0 + (0xff8 - Enum_ov003_02178910_0)) = 0;
             struct ItemData_0201099c_9* var9 = FindItemData_020dedd0((struct ItemTable_0201099c_10*)(arg0 + (0x874 - Enum_ov003_02178910_0)), *(short*)(arg0 + (0x1000 + 0x3a - Enum_ov003_02178910_0)));
             *(void**)(arg0 + 8) = var9;
@@ -219,7 +219,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
         }
         int var24 = func_ov003_021766e8(arg0);
         if (var24 == 0) return;
-        func_0208203c((struct Struct_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
+        func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
         *(void**)(arg0 + (0xff8 - Enum_ov003_02178910_0)) = 0;
         *(short*)(arg0 + (0x1000 + 0x36 - Enum_ov003_02178910_0)) = 0xa;
         *(unsigned char*)(arg0 + (0x1000 + 0x3e - Enum_ov003_02178910_0)) = 1;
@@ -241,7 +241,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
     if (var3 == 3) {
         func_ov003_02177208((char*)arg0);
         func_ov003_0217726c((char*)arg0);
-        func_0208203c((struct Struct_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
+        func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
         (*(unsigned char*)(arg0 + (0x1000 + 0x3f - Enum_ov003_02178910_0)))++;
         *(unsigned char*)(arg0 + (0x1000 + 0x4a - Enum_ov003_02178910_0)) = 0;
         return;
@@ -261,7 +261,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
 
         struct Struct_0203d028_2* var27 = (Struct_0203d028_2*)GameState::GetInstance();
         int var28 = ((GameState*)var27)->GetTickCount();
-        int var29 = func_02081f20(arg0 + (0x8c + 0x800 - Enum_ov003_02178910_0), var28);
+        int var29 = UpdateKeyRepeat_02081f20(arg0 + (0x8c + 0x800 - Enum_ov003_02178910_0), var28);
         if ((unsigned short)(var29 + 0xffff) <= 1) {
             void* var30 = *(void**)(arg0 + (0x88c - Enum_ov003_02178910_0));
             int var31 = (var30 != 0) ? *(unsigned short*)var30 : 0;
@@ -300,7 +300,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
                 *(short*)(arg0 + (0x1000 + 0x36 - Enum_ov003_02178910_0)) = 2;
             }
             (*(unsigned char*)(arg0 + (0x1000 + 0x3f - Enum_ov003_02178910_0)))++;
-            func_0208203c((struct Struct_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
+            func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
             return;
         }
 
@@ -308,7 +308,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
         if (var41 != 0 || var39 == -1) {
             CloseMenuLayoutWindow_0207fdcc(var2, 9);
             CloseMenuLayoutWindow_0207fdcc(var2, 0xa);
-            func_0208203c((struct Struct_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
+            func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
             *(unsigned char*)(arg0 + (0x1000 + 0x3f - Enum_ov003_02178910_0)) = 1;
         }
         return;
@@ -444,7 +444,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
         func_ov003_02177300((char*)arg0);
         func_ov003_02177410(arg0);
         func_ov003_02177550(arg0);
-        func_0208203c((struct Struct_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
+        func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
         *(void**)(arg0 + (0xff8 - Enum_ov003_02178910_0)) = 0;
         (*(unsigned char*)(arg0 + (0x1000 + 0x3f - Enum_ov003_02178910_0)))++;
         inline_ov003_02178910(arg0, *(signed char*)(arg0 + (0x1000 + 0x43 - Enum_ov003_02178910_0)));
@@ -471,7 +471,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
         int var62 = func_ov003_021765b4(arg0);
         if (var62 != 0) {
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-            func_0208203c((struct Struct_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
+            func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
             *(void**)(arg0 + (0xff8 - Enum_ov003_02178910_0)) = 0;
             func_0207fdf0((struct Struct_0207fdf0_2*)var2, 0);
             int var63 = GetEquipRestrictions_020dd4c4(*(signed char*)(arg0 + (0x1000 + 0x43 - Enum_ov003_02178910_0)), *(void**)(arg0 + 8));
@@ -513,7 +513,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
 
         int var68 = func_ov003_021766e8(arg0);
         if (var68 == 0) return;
-        func_0208203c((struct Struct_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
+        func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
         *(void**)(arg0 + (0xff8 - Enum_ov003_02178910_0)) = 0;
         func_0207fdf0((struct Struct_0207fdf0_2*)var2, 0);
         func_ov003_02175cb0((char*)arg0, 0);
@@ -547,7 +547,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
         int var73 = ((int*)(arg0 + (0x1000 + 0x1c - Enum_ov003_02178910_0)))[var72];
         *(unsigned char*)(arg0 + (0x1000 + 0x43 - Enum_ov003_02178910_0)) = var73;
         *(unsigned char*)(arg0 + (0x1000 + 0x44 - Enum_ov003_02178910_0)) = *(signed char*)(arg0 + (0x1000 + 0x43 - Enum_ov003_02178910_0));
-        func_0208203c((struct Struct_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
+        func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
         *(void**)(arg0 + (0xff8 - Enum_ov003_02178910_0)) = 0;
         (*(unsigned char*)(arg0 + (0x1000 + 0x3f - Enum_ov003_02178910_0)))++;
         return;
@@ -558,7 +558,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
         int var74 = func_ov003_021765b4(arg0);
         if (var74 != 0) {
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-            func_0208203c((struct Struct_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
+            func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
             *(void**)(arg0 + (0xff8 - Enum_ov003_02178910_0)) = 0;
             short var75 = func_02080468(var2, *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_02178910_0)));
             short var76 = *(short*)(arg0 + (0x1000 + 0xa - Enum_ov003_02178910_0)) - var75;
@@ -591,7 +591,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
                     *(unsigned char*)(arg0 + (0x1000 + 0x3f - Enum_ov003_02178910_0)) = 1;
                     *(unsigned short*)(arg0 + (0x1000 + 0x46 - Enum_ov003_02178910_0)) |= 0x20;
                     void* var84 = GetParty_02010828((GameState*)var78);
-                    int var85 = func_020a0b3c((struct Struct_0207cf30_3*)var84, *(short*)(arg0 + (0x1000 + 0x3a - Enum_ov003_02178910_0)));
+                    int var85 = GetBagItemCount_020a0b3c((struct ItemBag_0207cf30_3*)var84, *(short*)(arg0 + (0x1000 + 0x3a - Enum_ov003_02178910_0)));
                     if (var85 == 0x63) {
                         *(short*)(arg0 + (0x1000 + 0x36 - Enum_ov003_02178910_0)) = 0x22;
                     } else {
@@ -626,7 +626,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
             *(unsigned char*)(arg0 + (0x1000 + 0x3f - Enum_ov003_02178910_0)) = 1;
             *(unsigned short*)(arg0 + (0x1000 + 0x46 - Enum_ov003_02178910_0)) |= 0x20;
             void* var89 = GetParty_02010828((GameState*)var78);
-            int var90 = func_020a0b3c((struct Struct_0207cf30_3*)var89, *(short*)(arg0 + (0x1000 + 0x3a - Enum_ov003_02178910_0)));
+            int var90 = GetBagItemCount_020a0b3c((struct ItemBag_0207cf30_3*)var89, *(short*)(arg0 + (0x1000 + 0x3a - Enum_ov003_02178910_0)));
             if (*(unsigned char*)(arg0 + (0x1000 + 0x3c - Enum_ov003_02178910_0)) > (0x63 - var90)) {
                 *(short*)(arg0 + (0x1000 + 0x36 - Enum_ov003_02178910_0)) = 0x37;
             }
@@ -637,13 +637,13 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
         int var91 = func_ov003_021766e8(arg0);
         if (var91 == 0) return;
         func_0207fdf0((struct Struct_0207fdf0_2*)var2, 0);
-        func_0208203c((struct Struct_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
+        func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + (0x88c - Enum_ov003_02178910_0)));
         *(void**)(arg0 + (0xff8 - Enum_ov003_02178910_0)) = 0;
         *(short*)(arg0 + (0x1000 + 0x36 - Enum_ov003_02178910_0)) = 0x18;
         *(unsigned char*)(arg0 + (0x1000 + 0x3f - Enum_ov003_02178910_0)) = 1;
         *(unsigned short*)(arg0 + (0x1000 + 0x46 - Enum_ov003_02178910_0)) |= 0x20;
         void* var92 = GetParty_02010828((GameState*)var0);
-        int var93 = func_020a0b3c((struct Struct_0207cf30_3*)var92, *(short*)(arg0 + (0x1000 + 0x3a - Enum_ov003_02178910_0)));
+        int var93 = GetBagItemCount_020a0b3c((struct ItemBag_0207cf30_3*)var92, *(short*)(arg0 + (0x1000 + 0x3a - Enum_ov003_02178910_0)));
         if (*(unsigned char*)(arg0 + (0x1000 + 0x3c - Enum_ov003_02178910_0)) > (0x63 - var93)) {
             *(short*)(arg0 + (0x1000 + 0x36 - Enum_ov003_02178910_0)) = 0x37;
         }

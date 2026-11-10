@@ -7,13 +7,13 @@ enum { Enum_ov017_021aad8c_728 = 0x2d8 };
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_0207fcb8;
-extern "C" void func_0207fcb8(struct Struct_0207fcb8* arg0);
+struct MenuLayout_0207fcb8;
+extern "C" void ClearMenuLayoutBGScreenData_0207fcb8(struct MenuLayout_0207fcb8* menuLayout);
 struct Struct_0207fd00;
 extern "C" void func_0207fd00(struct Struct_0207fd00* arg0);
 extern "C" void func_0207fe80(void* arg0, int arg1, int arg2, int arg3);
-struct Struct_0207fd44_2;
-extern "C" void func_0207fd44(struct Struct_0207fd44_2* arg0);
+struct MenuLayout_0207fd44_2;
+extern "C" void FlushMenuLayoutBGScreenData_0207fd44(struct MenuLayout_0207fd44_2* menuLayout);
 struct MenuLayout_0207fdcc_2;
 extern "C" void* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" void func_020809c4(void* arg0, int arg1, int arg2, short* arg3, short* arg4);
@@ -56,10 +56,10 @@ extern "C" ARM void func_ov017_021aad8c(struct Struct_ov017_021aad8c_2* arg0) {
 
     if (arg0->unknown_18_ != NULL) {
         void* var0 = arg0->unknown_18_;
-        func_0207fcb8((struct Struct_0207fcb8*)var0);
+        ClearMenuLayoutBGScreenData_0207fcb8((struct MenuLayout_0207fcb8*)var0);
         func_0207fd00((struct Struct_0207fd00*)var0);
         func_0207fe80(var0, 2, 1, 1);
-        func_0207fd44((struct Struct_0207fd44_2*)var0);
+        FlushMenuLayoutBGScreenData_0207fd44((struct MenuLayout_0207fd44_2*)var0);
     }
 
     if (arg0->unknown_44_ == NULL) return;

@@ -6,7 +6,7 @@
 
 extern "C" void* func_ov011_021845f8(unsigned char* arg0, unsigned int arg1);
 struct Struct_020a13c4;
-extern "C" void func_020a13c4(Struct_020a13c4* arg0);
+extern "C" void ClearAccoladeTable_020a13c4(Struct_020a13c4* table);
 struct Struct_02013fb4;
 extern "C" void func_020a147c(void*, void*, Struct_02013fb4*, int, int, unsigned short, unsigned char);
 extern "C" int func_020ac460(void* arg0);
@@ -51,10 +51,10 @@ extern "C" ARM int func_ov004_021567f8(void* arg0) {
 #endif
     if (var5 != 0) {
 #if defined(jpn)
-        func_020a13c4(*(Struct_020a13c4**)((char*)&data_ov004_021707c8 + 8));
+        ClearAccoladeTable_020a13c4(*(Struct_020a13c4**)((char*)&data_ov004_021707c8 + 8));
         func_020a147c(*(void**)((char*)&data_ov004_021707c8 + 8), var2, (Struct_02013fb4*)var5, var3, 0, 0, 0xf);
 #else
-        func_020a13c4(*(Struct_020a13c4**)((char*)&data_ov004_021707c8 + 12));
+        ClearAccoladeTable_020a13c4(*(Struct_020a13c4**)((char*)&data_ov004_021707c8 + 12));
         func_020a147c(*(void**)((char*)&data_ov004_021707c8 + 12), var2, (Struct_02013fb4*)var5, var6, 0, 0, 0xf);
 #endif
     }

@@ -56,12 +56,12 @@ extern int gSoundEffectManager_02108760;
 extern "C" unsigned int *GetGlobalFlags_020d6c00();
 struct Struct_02081198;
 extern "C" void func_02081198(Struct_02081198*, int, int);
-struct Struct_02081164;
-extern "C" void func_02081164(Struct_02081164*, int, int);
+struct MenuLayout_02081164;
+extern "C" void SetMenuLayoutWindowFrameless_02081164(MenuLayout_02081164*, int, int);
 extern "C" void OpenMenuLayoutWindow_020813ec(void *, int);
 extern "C" void func_ov003_02165c9c(Struct_ov003_02154af4_3 *);
-struct Struct_02081f20_2;
-extern "C" void func_0208203c(Struct_02081f20_2*);
+struct KeyRepeat_02081f20_2;
+extern "C" void func_0208203c(KeyRepeat_02081f20_2*);
 extern "C" int func_02080468(void *, int);
 extern "C" void SetGlobalFlags_020466e4(unsigned int *, unsigned int);
 extern "C" void func_ov003_02165bd8(Struct_ov003_02154af4_3 *);
@@ -98,10 +98,10 @@ extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
         arg0->unknown_474_   = arg0->unknown_48c_;
         var0->unknown_36_ = arg0->unknown_48c_;
         func_02081198((Struct_02081198*)var0, 0x15, 1);
-        func_02081164((Struct_02081164*)var0, 0x15, 1);
+        SetMenuLayoutWindowFrameless_02081164((MenuLayout_02081164*)var0, 0x15, 1);
         OpenMenuLayoutWindow_020813ec(var0, 0x15);
         func_ov003_02165c9c(arg0);
-        func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
+        func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
         arg0->unknown_470_ = 0;
         arg0->unknown_464_ |= 0x780000;
         if (arg0->unknown_464_ & 1) {
@@ -120,14 +120,14 @@ extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
         arg0->unknown_474_   = arg0->unknown_48c_;
         var0->unknown_36_ = arg0->unknown_48c_;
         func_02081198((Struct_02081198*)var0, 0x15, 1);
-        func_02081164((Struct_02081164*)var0, 0x15, 1);
+        SetMenuLayoutWindowFrameless_02081164((MenuLayout_02081164*)var0, 0x15, 1);
         OpenMenuLayoutWindow_020813ec(var0, 0x15);
         func_ov003_02165c9c(arg0);
         arg0->unknown_464_ |= 0x780000;
         if (arg0->unknown_464_ & 1) {
             arg0->unknown_464_ |= 0x800000;
         }
-        func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
+        func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
         arg0->unknown_470_  = 0;
         arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
         SetGlobalFlags_020466e4(var1, 0x40);
@@ -150,7 +150,7 @@ extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
                     return;
                 }
                 PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
-                func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
+                func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
                 arg0->unknown_470_ = 0;
                 CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var0);
                 arg0->unknown_464_ |= 0x80000;
@@ -168,7 +168,7 @@ extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
             }
             arg0->unknown_480_ = var5;
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
-            func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
+            func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
             arg0->unknown_470_ = 0;
             CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var0);
             arg0->unknown_464_ |= 0x80000;

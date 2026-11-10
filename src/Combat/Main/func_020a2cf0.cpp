@@ -8,9 +8,9 @@ struct Struct_0204a120_2 {
     int unknown_218_;
 };
 
-// USA: func_020a2cf0
-extern "C" ARM void func_020a2cf0(struct Struct_0204a120_2* arg0) {
-    func_0202df68(arg0);
-    func_0202e08c((unsigned int*)arg0, 2);
-    arg0->unknown_218_ = 0;
+// USA: InitKeyControlledCamera_020a2cf0
+extern "C" ARM void InitKeyControlledCamera_020a2cf0(struct Struct_0204a120_2* camera) {
+    func_0202df68(camera);
+    func_0202e08c((unsigned int*)camera, 2);
+    camera->unknown_218_ = 0;
 }

@@ -8,10 +8,10 @@
 #define REGION_OFFSET_1 0x6e
 #endif
 
-struct Struct_0205c508;
+struct MenuCursor_0205c508;
 struct Struct_0201099c_3;
 
-extern "C" void func_0205c508(struct Struct_0205c508* arg0, int* arg1, int* arg2);
+extern "C" void GetMenuCursorPageRange_0205c508(struct MenuCursor_0205c508* cursor, int* outPageStartIndex, int* outPageEndIndex);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_ov000_0217542c(void* arg0);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
@@ -24,7 +24,7 @@ extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" ARM void func_ov000_02177f74(void* arg0, char* arg1) {
     int var0;
     int var1;
-    func_0205c508((struct Struct_0205c508*)((char*)arg0 + 0x1dc), &var0, &var1);
+    GetMenuCursorPageRange_0205c508((struct MenuCursor_0205c508*)((char*)arg0 + 0x1dc), &var0, &var1);
     signed char var2 = var0;
     signed char var3 = var1;
     struct Struct_0201099c_3* var4 = (struct Struct_0201099c_3*)((char*)arg0 + 0xb8);

@@ -3,19 +3,19 @@
 #if defined(jpn)
 namespace {
 struct Struct_020200c0_3;
-struct Struct_020200c0_4 {
-    void* unknown_0_;
-    Struct_020200c0_3* unknown_4_;
-    unsigned char unknown_8_;
+struct Canvas_020200c0_4 {
+    void* pCharacterData_0_;
+    Struct_020200c0_3* pRects_4_;
+    unsigned char rectCount_8_;
 };
 }
 extern "C" void __clear(void*, int);
-extern "C" void func_0205b234(Struct_020200c0_4*, int, int, void*, int, int);
+extern "C" void func_0205b234(Canvas_020200c0_4*, int, int, void*, int, int);
 
 // JPN: func_0205c9ac
-extern "C" ARM void func_0205c9ac(Struct_020200c0_4* arg0, short arg1, short arg2, int arg3,
+extern "C" ARM void func_0205c9ac(Canvas_020200c0_4* arg0, short arg1, short arg2, int arg3,
                                   int arg4, int arg5, unsigned char arg6, unsigned char arg7) {
-    if (arg0->unknown_0_ != NULL && arg0->unknown_4_ != NULL) {
+    if (arg0->pCharacterData_0_ != NULL && arg0->pRects_4_ != NULL) {
         int var0 = arg3;
         while ((var0 = var0 / 10) != 0) {}
         if (arg7 == 1) {

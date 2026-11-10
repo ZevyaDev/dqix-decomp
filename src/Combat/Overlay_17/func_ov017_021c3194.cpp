@@ -21,7 +21,7 @@ struct Struct_ov017_021c3194_2 {
 };
 
 extern "C" Struct_ov017_021c3194_2* GetMessageWindow_020421a0(void);
-extern "C" void func_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* arg0);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 extern "C" void ClearMessageParams_02046380(void* window);
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov017_021c3194(Struct_ov017_021c3194* arg0) {
     unsigned char var4 = arg0->unknown_8_;
     if (var4 == 0) {
         if (var1 != NULL) {
-            func_020531f0(var1);
+            StopGesture_020531f0(var1);
             DisablePlayerControl_020397cc((struct Struct_02018300_3*)var1, 1);
         }
         ClearMessageParams_02046380(var3);

@@ -182,7 +182,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 struct LocalWireless_0202c1a4;
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" void SetFieldMonsterState_02076ccc(void*, int);
-extern "C" void func_02076a8c(Struct_ov000_0215f7a8* arg0);
+extern "C" void InitFieldMonster_02076a8c(Struct_ov000_0215f7a8* monster);
 extern "C" void func_ov017_0219bf74();
 extern "C" void func_ov017_0219bd1c(int arg0, int arg1, int arg2, int arg3);
 extern "C" struct Struct_ov017_0219e384* GetZoneEntry_0200fd0c(GameState*);
@@ -312,7 +312,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
         if (!IsLocalWirelessOn_0202b7d8((int*)var1) || !GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var1)) {
             SetFieldMonsterState_02076ccc(var8, 9);
         } else {
-            func_02076a8c(var8);
+            InitFieldMonster_02076a8c(var8);
             ((Object3D*)var8)->MakeHidden();
         }
     }

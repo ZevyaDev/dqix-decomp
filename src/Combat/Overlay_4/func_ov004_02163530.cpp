@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern char* data_ov004_02171010;
+extern char* gTreasureMapScreen_ov004_02171010;
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" unsigned int func_ov023_021f6f10(void* arg0);
@@ -14,9 +14,9 @@ struct Struct_ov004_02163530 { char unknown_0_[0x5c]; short unknown_5c_; short u
 
 // USA: func_ov004_02163530
 extern "C" ARM int func_ov004_02163530(void* arg0) {
-    *(short*)(data_ov004_02171010 + Enum_ov004_02163530_6144 + 0xf8) = 1;
-    while (*(short*)(data_ov004_02171010 + Enum_ov004_02163530_6144 + 0xf8) * 8 < *(unsigned char*)(data_ov004_02171010 + Enum_ov004_02163530_6144 + 0xf4)) {
-        (*(short*)(data_ov004_02171010 + Enum_ov004_02163530_6144 + 0xf8))++;
+    *(short*)(gTreasureMapScreen_ov004_02171010 + Enum_ov004_02163530_6144 + 0xf8) = 1;
+    while (*(short*)(gTreasureMapScreen_ov004_02171010 + Enum_ov004_02163530_6144 + 0xf8) * 8 < *(unsigned char*)(gTreasureMapScreen_ov004_02171010 + Enum_ov004_02163530_6144 + 0xf4)) {
+        (*(short*)(gTreasureMapScreen_ov004_02171010 + Enum_ov004_02163530_6144 + 0xf8))++;
     }
 
     void* var0 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0xa);
@@ -30,10 +30,10 @@ extern "C" ARM int func_ov004_02163530(void* arg0) {
     }
 
     struct Struct_ov004_02163530* var2 = (struct Struct_ov004_02163530*)var0;
-    *(short*)(data_ov004_02171010 + Enum_ov004_02163530_6144 + 0xf6) = var2->unknown_5c_;
+    *(short*)(gTreasureMapScreen_ov004_02171010 + Enum_ov004_02163530_6144 + 0xf6) = var2->unknown_5c_;
 
-    short var3 = *(short*)(data_ov004_02171010 + Enum_ov004_02163530_6144 + 0xf8);
-    short var4 = *(short*)(data_ov004_02171010 + Enum_ov004_02163530_6144 + 0xf6);
+    short var3 = *(short*)(gTreasureMapScreen_ov004_02171010 + Enum_ov004_02163530_6144 + 0xf8);
+    short var4 = *(short*)(gTreasureMapScreen_ov004_02171010 + Enum_ov004_02163530_6144 + 0xf6);
     var2->unknown_5c_ = var4;
     var2->unknown_5e_ = var3;
     return var4;

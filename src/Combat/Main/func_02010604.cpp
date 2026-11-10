@@ -13,7 +13,7 @@ enum { Enum_02010604_2428 = 0x97c, Enum_02010604_396 = 0x18c, Enum_02010604_2432
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_ov017_021d2400(void);
-extern "C" void func_02048150(void* arg0, int arg1, int arg2);
+extern "C" void RevivePartyMember_02048150(void* gameObject, int hp, int isPartyOrderRebuildAllowed);
 extern "C" void func_ov017_021cedf4(int arg0, int arg1, int arg2);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_0219bfb4(int arg0, int arg1);
@@ -55,7 +55,7 @@ extern "C" ARM void func_02010604(GameState* arg0, int arg1, int arg2, int arg3)
         if (var3 == NULL) continue;
         var4 = (struct Struct_02010604_2*)var3;
         if ((*var4->unknown_130_ & 1) == 0) continue;
-        func_02048150(var3, 0, 1);
+        RevivePartyMember_02048150(var3, 0, 1);
         func_020482bc((struct Struct_02010604_3*)var3);
         var4->unknown_18c_ &= ~1;
         SetMotion_02033b88((struct Struct_02010604*)var3, 0);

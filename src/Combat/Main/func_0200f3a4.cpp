@@ -8,7 +8,7 @@
 extern "C" void func_020c99c8(void* arg0);
 extern "C" void func_0208660c(char* arg0);
 struct Struct_0200f3a4_7;
-extern "C" void func_02082828(Struct_0200f3a4_7* arg0);
+extern "C" void InitPartyMemberData_02082828(Struct_0200f3a4_7* memberData);
 extern "C" void func_0200fb40(void* arg0);
 struct SkillTable_0200f3a4_8;
 extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8* table);
@@ -122,7 +122,7 @@ extern "C" ARM void func_0200f3a4(void* arg0) {
     var0->pCamera_3b0_ = 0;
     var0->protagonistObjectIndex_ = 0;
     for (int var4 = 0; var4 < 4; var4++) {
-        func_02082828((Struct_0200f3a4_7*)(var1 + 0x474 + var4 * J_PARTY_STRIDE));
+        InitPartyMemberData_02082828((Struct_0200f3a4_7*)(var1 + 0x474 + var4 * J_PARTY_STRIDE));
     }
 
     VectorizedMemset(var1 + 0x3f8, 0, 0x70);

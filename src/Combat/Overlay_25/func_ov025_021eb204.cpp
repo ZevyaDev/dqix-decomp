@@ -27,7 +27,7 @@ struct Struct_ov025_021eeff4 {
 
 extern "C" void func_ov025_021eb3c0(struct Struct_ov025_021eb204* arg0);
 extern "C" void* GetEffectManager_02057924(void);
-extern "C" int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigned int arg4, int arg5);
+extern "C" int AddEffectResource_02057e6c(void* effectManager, int effectId, SafeAllocator* allocator, void* fileData, unsigned int fileSize, int textureVRAMArea);
 
 extern struct Struct_ov025_021eeff4 data_ov025_021eeff4;
 extern struct Struct_ov025_021eeff0 data_ov025_021eeff0;
@@ -75,7 +75,7 @@ extern "C" ARM int func_ov025_021eb204(struct Struct_ov025_021e9778_2* arg0) {
             unsigned int var12 = 0;
             var2->GetLoadedFileByID(var1->unknown_0_, &var11, &var12);
             if (var11 != NULL) {
-                func_02057e6c(var3, var1->unknown_4_, var4, var11, var12, var5);
+                AddEffectResource_02057e6c(var3, var1->unknown_4_, var4, var11, var12, var5);
             }
             var2->RemoveTask(var1->unknown_0_);
             func_ov025_021eb3c0(var1);

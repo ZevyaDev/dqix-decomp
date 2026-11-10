@@ -5,7 +5,7 @@ struct Struct_ov001_021638cc { int unknown_0_; Struct_0203a914 unknown_4_; };
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(Struct_ov001_021638cc* value);
 extern "C" void func_0205ebb4(void* arg0, void* arg1, int arg2);
-extern "C" void func_020bc078(int* arg0);
+extern "C" void ClearSoundHandle_020bc078(int* handle);
 
 extern int data_ov001_02165958[16];
 extern int gSoundEffectManager_02108760;
@@ -25,6 +25,6 @@ extern "C" ARM int func_ov001_021638cc(Struct_ov001_021638cc* arg0, int arg1) {
         var2 = GetScriptValueAsInt_ov017_021d60f4((Struct_ov001_021638cc*)((char*)arg0 + 8));
     }
     func_0205ebb4(&gSoundEffectManager_02108760, var1, var2);
-    func_020bc078(var1);
+    ClearSoundHandle_020bc078(var1);
     return 1;
 }

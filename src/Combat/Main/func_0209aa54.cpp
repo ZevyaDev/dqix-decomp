@@ -24,7 +24,7 @@ struct Struct_0209aa54_4 {
 };
 
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" void func_02083b60(unsigned char* arg0, int arg1);
+extern "C" void LearnSpell_02083b60(unsigned char* memberData, int spellId);
 
 // USA: func_0209aa54
 extern "C" ARM int func_0209aa54(struct Struct_0209aa54_3* arg0, unsigned char* arg1, unsigned char* arg2,
@@ -42,7 +42,7 @@ extern "C" ARM int func_0209aa54(struct Struct_0209aa54_3* arg0, unsigned char* 
         int var6 = *(unsigned short*)((unsigned char*)var0 + var0->unknown_950_ * 2 + 0x100 + 0x6c);
         var3 = arg0->unknown_0_->unknown_100_[var1].unknown_c_[var2].unknown_0_;
         if (var6 >= var5 && var5 > arg3) {
-            func_02083b60((unsigned char*)var0, var3);
+            LearnSpell_02083b60((unsigned char*)var0, var3);
             arg2[var4] = (unsigned char)var3;
             var4++;
         }

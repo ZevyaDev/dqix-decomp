@@ -10,8 +10,8 @@ struct Struct_02082064 {
 };
 
 struct Struct_0201099c {
-    unsigned int unknown_0_0_ : 32;
-    unsigned short unknown_4_0_ : 7;
+    unsigned int requiredExperience_0_0_ : 32;
+    unsigned short level_4_0_ : 7;
     unsigned short unknown_4_7_ : 9;
     unsigned short unknown_6_;
     Struct_02082064 unknown_8_;
@@ -21,8 +21,8 @@ struct Struct_0201099c {
 
 struct Struct_0201099c_2 {
     Struct_0201099c unknown_0_;
-    Struct_0201099c unknown_14_;
-    Struct_0201099c unknown_28_;
+    Struct_0201099c reachedLevelEntry_14_;
+    Struct_0201099c levelUpGains_28_;
     unsigned char unknown_3c_[0x16];
 };
 

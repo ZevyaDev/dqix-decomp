@@ -107,7 +107,7 @@ extern "C" int func_ov024_021e67b0(GameObject*);
 extern "C" float func_ov024_021f875c(Struct_ov024_021fdf04_5*, Struct_ov024_021fdf04_8*, Struct_ov024_021fdf04_2*, int);
 extern "C" int IsAsleep_020882f8(unsigned char*);
 struct Struct_ov024_021da670_7;
-extern "C" int func_ov024_021da9b0(Struct_ov024_021da670_7*);
+extern "C" int IsParalysed_ov024_021da9b0(Struct_ov024_021da670_7*);
 struct Struct_ov024_021dced0_2;
 extern "C" int func_ov024_021dd010(Struct_ov024_021dced0_2*);
 struct Struct_ov024_021de124;
@@ -216,7 +216,7 @@ extern "C" ARM void func_ov024_021fdf04(Struct_ov024_021fdf04_5* arg0, int arg1)
                 var25 = 1;
                 var26 = 35.0f;
             } else if (arg1 == 3) {
-                if (func_ov024_021da9b0((Struct_ov024_021da670_7*)var22) == 0) var24 = 1;
+                if (IsParalysed_ov024_021da9b0((Struct_ov024_021da670_7*)var22) == 0) var24 = 1;
                 var25 = 1;
             } else if (arg1 == 6) {
                 if (func_ov024_021dd010((Struct_ov024_021dced0_2*)var22) == 0) var24 = 1;

@@ -100,7 +100,7 @@ extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" void PushSubOverlay_020a1ef0(int subOverlayEntry);
 extern "C" void func_ov009_0218454c(void* arg0, int arg1, int arg2);
 extern "C" void func_ov008_021842a0(void* arg0, SafeAllocator* arg1);
-extern "C" void func_02082828(void* arg0);
+extern "C" void InitPartyMemberData_02082828(void* memberData);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" void func_ov003_0217eea8(int arg0);
 void LockStagedTextureVRAMCopying(void);
@@ -212,7 +212,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         func_ov008_021842a0(arg0->unknown_1c_, &arg0->unknown_8_);
         void* var4 = arg0->unknown_8_.Allocate(Enum_ov003_0217e6b0_2404);
         if (var4) {
-            func_02082828(var4);
+            InitPartyMemberData_02082828(var4);
             *(void**)((char*)arg0->unknown_1c_ + Enum_ov003_0217e6b0_3464) = var4;
         }
         arg0->unknown_b0_ = GetCamera_020100bc(var0);

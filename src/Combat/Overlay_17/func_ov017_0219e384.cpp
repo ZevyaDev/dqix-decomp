@@ -277,7 +277,7 @@ extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* tri
 extern "C" void func_0206f81c(void* arg0);
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
-extern "C" void func_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* arg0);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" void* func_020daf90(void);
 struct Queue_02038598_5;
@@ -530,7 +530,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 		void* var31;
 		void** var32;
 		if (var3 != 0 && IsPerformingGesture_020535c8((signed char*)var3) != 0) {
-			func_020531f0(var3);
+			StopGesture_020531f0(var3);
 		}
 		if (var5->GetNumQueuedTasks() > 0) {
 			return;

@@ -101,7 +101,7 @@ extern "C" void func_020290ac(int arg0);
 extern "C" void func_020e57e0(Struct_020e57e0* arg0);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 extern "C" void func_020e57f4(int, int, Struct_02013fb4*, int);
-extern "C" int func_0201201c(void* arg0);
+extern "C" int GetTitleState_0201201c(void* arg0);
 struct Struct_ov016_0218b5c4_6;
 extern "C" Struct_ov016_0218b5c4_2* func_ov016_0218e124(Struct_ov016_0218b5c4_6**, int);
 extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4* manager, int fadeDuration);
@@ -113,7 +113,7 @@ extern "C" void func_0205e88c(Struct_02000c9c_17* arg0);
 extern "C" void func_0209c174(Struct_02000c9c_16* arg0);
 extern "C" void func_0209c2b8(void* arg0);
 extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
-extern "C" void func_0209c290(void* arg0);
+extern "C" void OpenMusicArchive_0209c290(void* manager);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void LoadFileTables_020a0c0c();
 #if defined(jpn)
@@ -267,7 +267,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
     Swap3DBuffers_020d86d0(0, 1);
 
     int var18 = 2;
-    if (func_0201201c(var8) == 5) {
+    if (GetTitleState_0201201c(var8) == 5) {
         var18 = 1;
     } else if (func_020115a8((Struct_02000c9c_12*)var8) != 0) {
         var18 = 0;
@@ -311,7 +311,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
                 func_0205e88c((Struct_02000c9c_17*)&gSoundEffectManager_02108760);
                 func_0209c174((Struct_02000c9c_16*)&gMusicManager_02109bf4);
                 LoadSoundEffectSet_0205ea20(&gSoundEffectManager_02108760, 100);
-                func_0209c290(&gMusicManager_02109bf4);
+                OpenMusicArchive_0209c290(&gMusicManager_02109bf4);
             }
 #endif
         }

@@ -25,7 +25,7 @@ extern "C" char* GetMessageWindow_020421a0();
 extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void* func_0203d004(void* arg0);
 extern "C" void* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
-extern "C" int* func_02040528(int* arg0);
+extern "C" int* GetNPCData_02040528(int* npc);
 struct Struct_0204027c_2;
 extern "C" int func_02040404(Struct_0204027c_2*, char const*);
 extern "C" void func_0204039c(Struct_0204039c* arg0, int arg1);
@@ -37,11 +37,11 @@ extern "C" int func_0203adfc(void* arg0, void* arg1);
 extern "C" void func_0203ad88(void* arg0, void* arg1, int arg2);
 extern "C" void func_0202e874(unsigned char*, unsigned short);
 extern "C" void func_0202f0c4(void* arg0, int arg1, int arg2);
-extern "C" void* func_020704fc();
+extern "C" void* GetColorFade_020704fc();
 struct Struct_020708c8;
 extern "C" void func_020708c8(Struct_020708c8*, unsigned int);
 extern "C" void func_0209c278(void* arg0);
-extern "C" void func_0209c290(void* arg0);
+extern "C" void OpenMusicArchive_0209c290(void* manager);
 extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
 extern "C" void func_ov028_021d9714();
 extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
@@ -123,7 +123,7 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
     for (; var8 < 0x20; var8++) {
         int* var17 = (int*)GetNPCByIndex_0203dce4((NPCManager_0203dce4_2*)var13, var8);
         if (var17 != 0) {
-            unsigned char* var18 = (unsigned char*)func_02040528(var17);
+            unsigned char* var18 = (unsigned char*)GetNPCData_02040528(var17);
             if (var18[2] == 3) {
                 Struct_0204039c* var19 = (Struct_0204039c*)func_0203d004(var13);
 #if defined(jpn)
@@ -148,14 +148,14 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
     ClearFlags04(var6, 0x2000);
     func_0202e874((unsigned char*)var10, 0);
     func_0202f0c4(var10, 0xf000, 0);
-    func_020708c8((Struct_020708c8*)func_020704fc(), 0);
+    func_020708c8((Struct_020708c8*)GetColorFade_020704fc(), 0);
     var1->MaybeReset();
 
     REG_DISPSTAT_304 &= ~0x8000;
     if (TestFlags00(var6, 0x1000) != 0) {
 #if !defined(jpn)
         func_0209c278(gMusicManager_02109bf4);
-        func_0209c290(gMusicManager_02109bf4);
+        OpenMusicArchive_0209c290(gMusicManager_02109bf4);
         LoadSoundEffectSet_0205ea20(gSoundEffectManager_02108760, 0x64);
 #endif
         ClearFlags00((GameResources*)var6, 0x1000);

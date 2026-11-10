@@ -17,7 +17,7 @@ extern "C" void func_ov001_02164214(void* arg0, int arg1, int arg2, int arg3, in
 extern "C" void func_ov001_02164248(void* arg0, int arg1, int arg2, int arg3, int arg4);
 
 extern "C" void func_ov001_0215acb4(Struct_02000c9c_37* arg0);
-extern "C" Struct_ov001_0215ab54* func_ov001_0215ab20(int arg0);
+extern "C" Struct_ov001_0215ab54* GetEventActorState_ov001_0215ab20(int actorIndex);
 extern "C" void func_ov001_02159d9c(void* arg0);
 extern "C" void func_ov001_02159ea8(void* arg0, int arg1);
 
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov001_0215ab54(int arg0, int arg1, int arg2) {
         func_ov001_02164248(data_ov001_02165880.unknown_4_, arg2, arg0, arg1, (int)var3);
     }
 
-    Struct_ov001_0215ab54* var4 = func_ov001_0215ab20(arg2);
+    Struct_ov001_0215ab54* var4 = GetEventActorState_ov001_0215ab20(arg2);
     if (var4 == NULL) return;
     func_ov001_02159d9c(var4);
     func_ov001_02159ea8(var4, arg2);

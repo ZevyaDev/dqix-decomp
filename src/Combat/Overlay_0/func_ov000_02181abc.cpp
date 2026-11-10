@@ -13,7 +13,7 @@ struct BattleAction_ov000_0215440c_2 {
 };
 extern "C" struct ActionActor_ov000_02160094* GetActionActor_ov000_02160094(struct BattleAction_ov000_0215440c_2* action, int index);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
-extern "C" int func_ov000_0215ec1c(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectAllEnemyCombatantIndices_ov000_0215ec1c(void* battle, short* indices, int maxCount, int arg3);
 
 // USA: func_ov000_02181abc
 extern "C" ARM int func_ov000_02181abc(void* arg0, struct BattleAction_ov000_0215440c_2* arg1, int* arg2) {
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov000_02181abc(void* arg0, struct BattleAction_ov000_021
     }
     var2 = 0;
     var2 = var2 + CollectPartyCombatantIndices_ov000_0215e9fc(arg0, var1, 0x10, var2);
-    var2 = var2 + func_ov000_0215ec1c(arg0, var1 + var2, 0x10 - var2, 0);
+    var2 = var2 + CollectAllEnemyCombatantIndices_ov000_0215ec1c(arg0, var1 + var2, 0x10 - var2, 0);
     for (var3 = 0; var3 < var2; var3++) {
         arg2[var3] = var1[var3];
     }

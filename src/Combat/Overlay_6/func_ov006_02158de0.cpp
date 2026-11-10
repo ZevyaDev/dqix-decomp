@@ -42,7 +42,7 @@ extern "C" Struct_ov000_02182a74* GetParty_02010828(GameState* gameState);
 extern "C" void* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" short func_0207c620(unsigned char* arg0, unsigned int arg1);
 extern "C" short* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
-extern "C" unsigned char* func_0207c60c(void* arg0, unsigned int arg1);
+extern "C" unsigned char* GetEquipmentBagCounts_0207c60c(void* bag, unsigned int category);
 extern "C" void func_ov006_02158fd8(Struct_ov006_02157a60* arg0, unsigned int arg1, short arg2, unsigned char arg3);
 extern "C" void func_ov006_0215373c(void* arg0, void* arg1);
 extern "C" void func_ov006_021537c8(void* arg0, short** arg1, unsigned char** arg2, unsigned short* arg3);
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov006_02158de0(Struct_ov006_02157a60* arg0) {
         int var11 = data_ov006_02160010[var10];
         short var12 = func_0207c620((unsigned char*)var4 + 0x1d4, var11);
         short* var13 = GetEquipmentBagItemIds_0207c5f8((unsigned char*)var4 + 0x1d4, var11);
-        unsigned char* var14 = func_0207c60c((char*)var4 + 0x1d4, var11);
+        unsigned char* var14 = GetEquipmentBagCounts_0207c60c((char*)var4 + 0x1d4, var11);
         for (short var15 = 0; var15 < var12; var15++)
             func_ov006_02158fd8(arg0, var10, var13[var15], var14[var15]);
     }

@@ -200,7 +200,7 @@ extern "C" void func_02000b9c(const void*);
 
 extern "C" void func_ov031_02203008(void);
 extern "C" void func_ov031_02203c6c(void);
-extern "C" void func_020c99ac(void*);
+extern "C" void GetMACAddress_020c99ac(void*);
 
 static inline void inline_ov031_02200298(Struct_ov031_0224c9e8* arg0, Type_020b11c8_2 arg1) {
     arg0->unknown_0_ = arg1;
@@ -247,7 +247,7 @@ extern "C" ARM void func_ov031_02200298(Struct_ov031_02200298* arg0) {
     recv_tail = 0;
     recv_head = 0;
     ephemeral_port = 0x400 + inline_ov031_02200298_2(&data_ov031_0224c9e8, 0xf88);
-    func_020c99ac(data_ov031_0224ce68);
+    GetMACAddress_020c99ac(data_ov031_0224ce68);
     data_ov031_0224c981 = 0;
     PopulateContext(&data_ov031_0224cbe8, (unsigned int)func_ov031_02203008, 0, (unsigned int)data_ov031_0224e1c0, 0x800, data_ov031_02249680);
     PopulateContext(&data_ov031_0224cb28, (unsigned int)func_ov031_02203c6c, 0, (unsigned int)data_ov031_0224d9c0, 0x800, data_ov031_02249680);

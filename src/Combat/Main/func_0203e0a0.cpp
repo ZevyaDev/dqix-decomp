@@ -74,7 +74,7 @@ extern "C" ARM void func_0203e0a0(void *arg0, unsigned short arg1) {
             var2->unknown_2_         = (short) (var9 >> 4);
             var2->unknown_4_         = (short) (var8 >> 4);
             var2->unknown_6_     = var6;
-            unsigned short *var10 = (unsigned short *) func_02040528(&var4->flags_0_);
+            unsigned short *var10 = (unsigned short *) GetNPCData_02040528(&var4->flags_0_);
             if (var10 != NULL) {
                 var2->unknown_8_0_ = *var10;
             }

@@ -62,7 +62,7 @@ extern "C" Struct_ov017_021a4e88_4* FindNPCById_0203df78(void* npcManager, int i
 extern "C" int IsPerformingGesture_020535c8(signed char*);
 struct Struct_ov009_0218aa28;
 extern "C" short func_ov017_021a4700(Struct_ov009_0218aa28*, int, Struct_ov009_0218aa28*);
-extern "C" unsigned char* func_02040528(int*);
+extern "C" unsigned char* GetNPCData_02040528(int*);
 int fix32abs(int x);
 
 static inline short inline_ov017_021a4e88(Type_ov017_021a4e88* arg0, int arg1, Struct_ov017_021a4e88_4* arg2) {
@@ -157,7 +157,7 @@ extern "C" ARM int func_ov017_021a4e88(int arg0, unsigned short* arg1) {
             var11 = var21;
             continue;
         }
-        unsigned char* var22 = func_02040528((int*)var13);
+        unsigned char* var22 = GetNPCData_02040528((int*)var13);
         if (arg0 == 0 || var22[2] == 1) {
             continue;
         }

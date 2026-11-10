@@ -77,7 +77,7 @@ extern "C" void func_02028ddc(void*);
 extern "C" void func_02028d68(int);
 extern "C" void func_02028dec(int);
 extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int, int);
-extern "C" void func_020bb780(void*, int);
+extern "C" void InitTexturePaletteVRAMAllocator_020bb780(void*, int);
 extern "C" void func_ov015_02192600(struct Struct_ov015_02192600_3*);
 extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
 extern "C" void func_ov015_0218b810(struct Struct_ov015_0218b810*);
@@ -91,7 +91,7 @@ extern "C" void func_0206efd8(void*, void*);
 extern "C" void func_020709d8(void*);
 extern "C" void func_020709ec(void*, void*);
 extern "C" void func_0202df68(void*);
-extern "C" void func_020a2cf0(struct Struct_0204a120_2*);
+extern "C" void InitKeyControlledCamera_020a2cf0(struct Struct_0204a120_2*);
 extern "C" void InitFollowCamera_020a2010(void*);
 extern "C" void DisableCameraFollow_020a27a0(void*);
 extern "C" void SetCamera_020100c4(GameState*, int);
@@ -208,7 +208,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     func_02028d68(4);
     func_02028dec(1);
     InitTextureImageVRAMAllocator_020bb48c(3, 1);
-    func_020bb780((void*)0x8000, 1);
+    InitTexturePaletteVRAMAllocator_020bb780((void*)0x8000, 1);
     func_ov015_02192600((struct Struct_ov015_02192600_3*)arg0);
     Set3DClearColorAndDepth_020c5588(0x594a, 0x10, 0x7fff, 0, 0);
     func_ov015_0218b810((struct Struct_ov015_0218b810*)&arg0->unknown_3c_);
@@ -250,7 +250,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
 
     Struct_ov015_021934f8 var6;
     func_0202df68(&var6);
-    func_020a2cf0((struct Struct_0204a120_2*)&var6);
+    InitKeyControlledCamera_020a2cf0((struct Struct_0204a120_2*)&var6);
     InitFollowCamera_020a2010(&var6);
     DisableCameraFollow_020a27a0(&var6);
     SetCamera_020100c4(var0, (int)&var6);
@@ -352,6 +352,6 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     CancelFontLoad_02094ab0(var2);
     LoadSoundEffectSet_0205ea20(&gSoundEffectManager_02108760, 0x64);
     InitFollowCamera_020a2010(&var6);
-    func_020a2cf0((struct Struct_0204a120_2*)&var6);
+    InitKeyControlledCamera_020a2cf0((struct Struct_0204a120_2*)&var6);
     func_0202df68(&var6);
 }

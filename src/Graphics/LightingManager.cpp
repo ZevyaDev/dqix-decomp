@@ -69,7 +69,7 @@ extern "C"
     void func_0207ba28(LightingInfo*, int, float*, float*, float*);
 
     void Set3DFog_020c54a4(int, int, int, int);
-    void func_020c555c(unsigned short*);
+    void Set3DEdgeColors_020c555c(unsigned short*);
     void func_020c5574(void*);
 
     extern "C" int TestBattleSceneFlags_ov000_02160fd4(void*, int);
@@ -796,7 +796,7 @@ void LightingManager::ProcessZoneChange(Zone3D *newZone)
             edgeColor_, edgeColor_, edgeColor_, edgeColor_,
             edgeColor_, edgeColor_, edgeColor_, edgeColor_
         };
-        func_020c555c(edgeColors);
+        Set3DEdgeColors_020c555c(edgeColors);
         RenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
         func_ov017_021901ac(GetGameResources());
         tint_4a_ = modelDiffuseColor_;
@@ -812,7 +812,7 @@ void LightingManager::ProcessZoneChange(Zone3D *newZone)
             edgeColor_, edgeColor_, edgeColor_, edgeColor_,
             edgeColor_, edgeColor_, edgeColor_, edgeColor_
         };
-        func_020c555c(edgeColors);
+        Set3DEdgeColors_020c555c(edgeColors);
         RenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
         func_ov017_021901ac(GetGameResources());
         tint_4a_ = modelDiffuseColor_;
@@ -957,7 +957,7 @@ void LightingManager::SubmitToRenderConfig()
             edgeColor_, edgeColor_, edgeColor_, edgeColor_,
             edgeColor_, edgeColor_, edgeColor_, edgeColor_
         };
-        func_020c555c(edgeColors);
+        Set3DEdgeColors_020c555c(edgeColors);
     }
 }
 

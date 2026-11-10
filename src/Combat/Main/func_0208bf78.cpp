@@ -18,9 +18,9 @@ struct Struct_02013fb4;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 struct Struct_0208bf78_5;
-struct Struct_0205faf4_3;
+struct FlagManager_0205faf4_3;
 struct Struct_0205faf4_4;
-struct Struct_0205faf4_7;
+struct QuestManager_0205faf4_7;
 struct QueueNode_02015438;
 struct BGLayer_02020cb8;
 struct BGLayer_02020cb8_5;
@@ -118,8 +118,8 @@ extern "C" int func_0208d9e8(Struct_0208bf78_5*, int);
 extern "C" int func_02096088(void*, int);
 extern "C" int func_02096100(int, unsigned char*, int);
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
-extern "C" int func_0206e120(Struct_0205faf4_3*, int);
-extern "C" unsigned char func_0209618c(Struct_0205faf4_7*, int);
+extern "C" int GetQuestState_0206e120(FlagManager_0205faf4_3*, int);
+extern "C" unsigned char func_0209618c(QuestManager_0205faf4_7*, int);
 extern "C" int func_0208da18(Struct_0208bf78_5*, int, int);
 extern "C" int func_0208dac4(Struct_0208bf78_5*, int);
 extern "C" int func_0208da00(Struct_0208bf78_5*, int);
@@ -128,7 +128,7 @@ extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" int func_0208dadc(Struct_0208bf78_5*, int);
 extern "C" int func_0206e260(Struct_0205faf4_4*, int);
 extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0();
-extern "C" Struct_0208bf78_7* func_02096134(Struct_0205faf4_7*, int);
+extern "C" Struct_0208bf78_7* FindAcceptedQuest_02096134(QuestManager_0205faf4_7*, int);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8*);
 extern "C" void SetBGScreenSize_0204b11c(unsigned char*, int);
@@ -137,7 +137,7 @@ extern "C" void func_0208c9cc(int, int, int, int, int);
 extern "C" void FlushBGBlock_0204b2e0(void*, char*);
 extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6*, char*);
 extern "C" void InitTextWindow_0204c684(Struct_0208bf78_2*);
-extern "C" Struct_0205faf4_3* GetFlagManager_0205ec34();
+extern "C" FlagManager_0205faf4_3* GetFlagManager_0205ec34();
 extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0*);
 extern "C" void func_0208d42c(void*, Struct_0208bf78_2*, short, short, int, unsigned char, unsigned char, unsigned char, unsigned char);
 extern "C" void SetBGPriority_0204b5b4(void*, int);
@@ -164,11 +164,11 @@ static inline Struct_0208bf78_6 inline_0208bf78_3(Struct_02065990_3* arg0, unsig
 }
 
 static inline bool inline_0208bf78_4(unsigned char arg0, int arg1) {
-    return func_0206e120(GetFlagManager_0205ec34(), arg0) == arg1;
+    return GetQuestState_0206e120(GetFlagManager_0205ec34(), arg0) == arg1;
 }
 
-static inline bool inline_0208bf78_5(Struct_0205faf4_3* arg0, unsigned char arg1, int arg2) {
-    return func_0206e120(arg0, arg1) == arg2;
+static inline bool inline_0208bf78_5(FlagManager_0205faf4_3* arg0, unsigned char arg1, int arg2) {
+    return GetQuestState_0206e120(arg0, arg1) == arg2;
 }
 
 #if defined(jpn)
@@ -286,7 +286,7 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
 #endif
             if (inline_0208bf78_4(inline_0208bf78_2(var19, var20), 2)) {
                 var22 = func_0208da18((Struct_0208bf78_5*)&arg0->unknown_1c_, var20,
-                                                      func_0209618c((Struct_0205faf4_7*)var19, inline_0208bf78_2(var19, var20)));
+                                                      func_0209618c((QuestManager_0205faf4_7*)var19, inline_0208bf78_2(var19, var20)));
                 var24 = 1;
                 if (func_02096088(var19, inline_0208bf78_2(var19, var20))) arg0->unknown_da_ |= 8;
             } else if (inline_0208bf78_4(inline_0208bf78_2(var19, var20), 3)) {
@@ -299,7 +299,7 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
                 var24 = 2;
             } else {
                 unsigned char var25 = inline_0208bf78_2(var19, var20);
-                Struct_0205faf4_3* var26 = GetFlagManager_0205ec34();
+                FlagManager_0205faf4_3* var26 = GetFlagManager_0205ec34();
                 bool var27 = inline_0208bf78_5(var26, var25, 0) || inline_0208bf78_5(var26, var25, 1);
                 if (var27) {
                     var22 = func_0208da00((Struct_0208bf78_5*)&arg0->unknown_1c_, var20);
@@ -328,7 +328,7 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
 #else
             memset(var31, 0, 0x960);
 #endif
-            Struct_0208bf78_7* var32 = func_02096134((Struct_0205faf4_7*)var19, inline_0208bf78_2(var19, var20));
+            Struct_0208bf78_7* var32 = FindAcceptedQuest_02096134((QuestManager_0205faf4_7*)var19, inline_0208bf78_2(var19, var20));
             if (var32) {
                 ClearMessageParams_02046380(var30);
                 if (var32->unknown_2_0_) {

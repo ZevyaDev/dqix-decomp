@@ -74,7 +74,7 @@ extern "C" void func_ov005_02157b74(Struct_ov005_02153954* arg0, int arg1, int a
 extern "C" int func_ov005_02155670(Struct_ov005_02153954* arg0, int arg1, int arg2);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" short* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
-extern "C" signed char* func_0207c60c(void* arg0, unsigned int arg1);
+extern "C" signed char* GetEquipmentBagCounts_0207c60c(void* bag, unsigned int category);
 extern "C" void func_ov005_021555c0(Struct_ov005_02153954* arg0);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov005_02156ecc(Struct_ov005_02153954* arg0, int arg1, i
             short var4 = (var3 - 8) + arg0->unknown_3dbd_ * 16;
             char* var5 = (char*)GetParty_02010828(GameState::GetInstance());
             short* var6 = GetEquipmentBagItemIds_0207c5f8((unsigned char*)var5 + 0x1d4, data_ov005_0215cd48[arg0->unknown_3dbc_]);
-            signed char* var7 = func_0207c60c(var5 + 0x1d4, data_ov005_0215cd48[arg0->unknown_3dbc_]);
+            signed char* var7 = GetEquipmentBagCounts_0207c60c(var5 + 0x1d4, data_ov005_0215cd48[arg0->unknown_3dbc_]);
             short var8 = arg0->unknown_3de0_;
             short var9 = var6[var8];
             signed char var10 = var7[var8];

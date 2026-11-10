@@ -67,7 +67,7 @@ extern "C" struct Struct_ov000_021735d0_2* func_ov000_0217f8c0(Struct_ov000_0217
 extern "C" int func_ov000_0217c5f4(void*);
 extern "C" void func_ov000_0217a9d0(int, int, int, TextWindowManager_0205d81c*);
 extern "C" void SetTextWindowVisible_0205def8(TextWindowManager_0205def8*, int, int);
-extern "C" int func_ov000_021719f8(int*);
+extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int*);
 extern "C" int func_ov000_0218158c(void* arg0, int arg1);
 extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
@@ -131,7 +131,7 @@ extern "C" ARM void func_ov000_0217d87c(Struct_ov000_02178d28_2* arg0, int arg1,
         if (var8 == NULL) {
             return;
         }
-        if (func_ov000_021719f8((int*)var8) != 0) {
+        if (IsPanelMemberIncapacitated_ov000_021719f8((int*)var8) != 0) {
             var8->unknown_10_[var8->unknown_18_] = 100;
             var8->unknown_24_ &= ~4;
         }
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov000_0217d87c(Struct_ov000_02178d28_2* arg0, int arg1,
             if (var13 == NULL) {
                 continue;
             }
-            if (func_ov000_021719f8((int*)var13) != 0) {
+            if (IsPanelMemberIncapacitated_ov000_021719f8((int*)var13) != 0) {
                 continue;
             }
             if (var13->unknown_87_ != 0) {

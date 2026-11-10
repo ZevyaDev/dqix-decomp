@@ -45,12 +45,12 @@ struct Struct_ov025_021ef988_11 {
 
 struct Struct_ov025_021ef9a8 { int unknown_0_; int unknown_4_; int unknown_8_; int unknown_c_; int unknown_10_; int unknown_14_; };
 
-struct Struct_02054000;
+struct PartyMember_02054000;
 struct Struct_ov025_021e267c_2;
 struct ObjectArchiveLoadInfo_0203d028_11;
 
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-extern "C" Struct_ov025_021e66cc_3* func_02054000(struct Struct_02054000* arg0);
+extern "C" Struct_ov025_021e66cc_3* GetEquippedWeaponItemData_02054000(struct PartyMember_02054000* gameObject);
 extern "C" void func_ov025_021e3158(struct Struct_ov025_021ef9a8* arg0);
 extern "C" int func_ov025_021e2628(int arg0, int arg1);
 extern "C" SafeAllocator* func_ov025_021e8a54(char* arg0);
@@ -74,7 +74,7 @@ extern "C" ARM int func_ov025_021e66cc(void* arg0, struct Struct_ov025_021e66cc_
             func_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
-        Struct_ov025_021e66cc_3* var3 = func_02054000((struct Struct_02054000*)var2);
+        Struct_ov025_021e66cc_3* var3 = GetEquippedWeaponItemData_02054000((struct PartyMember_02054000*)var2);
         if (var3 == NULL) {
             func_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;

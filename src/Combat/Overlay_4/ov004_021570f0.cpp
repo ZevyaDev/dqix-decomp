@@ -311,8 +311,8 @@ extern "C" ARM void func_ov004_021578a8(void* arg0) {
     }
 }
 
-struct Struct_0207cf30_3 { short* unknown_0_; signed char* unknown_4_; short unknown_8_; };
-extern "C" signed char func_020a0b3c(struct Struct_0207cf30_3* arg0, int arg1);
+struct ItemBag_0207cf30_3 { short* pItemIds_0_; signed char* pCounts_4_; short slotCount_8_; };
+extern "C" signed char GetBagItemCount_020a0b3c(struct ItemBag_0207cf30_3* bag, int itemId);
 extern "C" int func_02086d20(unsigned char* arg0);
 extern "C" int func_0207c7a0(void* arg0, int arg1, int arg2);
 
@@ -325,7 +325,7 @@ extern "C" ARM int func_ov004_0215799c(void* arg0, int arg1, unsigned int arg2, 
         if (arg2 == 9) {
             var2 = (char*)arg0 + 0x204 + 0xc00;
         }
-        signed char var3 = func_020a0b3c((struct Struct_0207cf30_3*)var2, arg1);
+        signed char var3 = GetBagItemCount_020a0b3c((struct ItemBag_0207cf30_3*)var2, arg1);
         int var4 = func_02086d20((unsigned char*)arg0);
         var0 = (arg3 * 8 + 0x63) - (var3 + var4);
     } else {
@@ -339,7 +339,7 @@ extern "C" ARM int func_ov004_0215799c(void* arg0, int arg1, unsigned int arg2, 
 
 struct ItemTable_0201099c_10;
 struct Struct_02052df8;
-struct Struct_0207c484;
+struct EquipmentBag_0207c484;
 struct QueueNode_02015438;
 struct Struct_0203d028_4;
 
@@ -399,7 +399,7 @@ extern "C" void func_0207cbe8(char*);
 extern "C" void func_0207cc0c(char*);
 extern "C" void* GetParty_02010828(struct GameState*);
 extern "C" int GetEquippedItem_02052df8(Struct_02052df8*, int);
-extern "C" int func_0207c484(struct Struct_0207c484*, int, int, int);
+extern "C" int RemoveEquipmentFromBag_0207c484(struct EquipmentBag_0207c484*, int, int, int);
 extern "C" void func_020483f0(unsigned char*, unsigned short);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
@@ -447,7 +447,7 @@ extern "C" ARM int func_ov004_02157a28(void* arg0, int arg1) {
         AddEquipmentToBag_0207c378((EquipmentBag_020732cc*)(var12 + 0x1d4), ((Struct_ov004_02157a28_3*)data_ov004_021707e0)->unknown_e_, (signed char)(((Struct_ov004_02157a28_3*)data_ov004_021707e0)->unknown_11_ - 1), var6);
         ((Struct_ov004_02157a28_3*)data_ov004_021707e0)->unknown_9d_ = 0;
     } else {
-        func_0207c484((Struct_0207c484*)(var12 + 0x1d4), ((Struct_ov004_02157a28_3*)data_ov004_021707e0)->unknown_e_, 1, var6);
+        RemoveEquipmentFromBag_0207c484((EquipmentBag_0207c484*)(var12 + 0x1d4), ((Struct_ov004_02157a28_3*)data_ov004_021707e0)->unknown_e_, 1, var6);
     }
     ((Struct_ov004_02157a28_3*)data_ov004_021707e0)->unknown_47_++;
     if (((Struct_ov004_02157a28_2*)FindItemData_020dedd0(var4, var13))) {
@@ -588,7 +588,7 @@ extern "C" void ResetSaveProgress_020a9ea4(struct SaveProgress_020a9ea4*);
 struct StringTable_0201099c_14;
 extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14*);
 #else
-extern "C" void func_020e526c(void*);
+extern "C" void InitNounTable_020e526c(void*);
 #endif
 extern "C" void InitNoun_020e46c4(void*);
 extern "C" void* GetZone3D_02012fe4(void);
@@ -596,7 +596,7 @@ extern "C" unsigned short func_0201e830(struct Struct_0201e830* arg0);
 extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
 extern "C" void Set3DFog_020c54a4(int, unsigned int, unsigned int, unsigned short);
 extern "C" void func_ov023_021f5598(void*);
-extern "C" void func_020cf0fc(int);
+extern "C" void GetCurrentDate_020cf0fc(int);
 extern "C" void func_020cf1a8(int);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
@@ -669,7 +669,7 @@ extern "C" ARM int func_ov004_02157db8(void* arg0) {
     var7->unknown_9c_ = 0;
     var7->unknown_9d_ = 0;
 #else
-    func_020e526c(var7->unknown1_8c_);
+    InitNounTable_020e526c(var7->unknown1_8c_);
     var7->unknown_98_ = 0;
     var7->unknown_9c_ = 0;
     var7->unknown_9d_ = 0;
@@ -700,7 +700,7 @@ extern "C" ARM int func_ov004_02157db8(void* arg0) {
     }
     int var16[4];
     int var17[3];
-    func_020cf0fc((int)var16);
+    GetCurrentDate_020cf0fc((int)var16);
     func_020cf1a8((int)var17);
 
     ((Struct_ov004_02157db8_4*)data_ov004_021707e0)->unknown_18_.unknown_0_0_ = var16[0] + 0x7d0;
@@ -1825,7 +1825,7 @@ struct Struct_ov004_02159650_3 { int unknown_0_; char unknown_4_[4]; int unknown
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 
 extern "C" int GetStandardString_020e51cc(int stringId);
-extern "C" void SetNoun_020e4b34(void* noun, int singularText, int pluralText, int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int arg9, int hasInitialVowelSound, int isInitialVowelFromText);
+extern "C" void SetNoun_020e4b34(void* noun, int singularText, int pluralText, int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int isProperName, int hasInitialVowelSound, int isInitialVowelFromText);
 extern "C" int GetEquippedItem_02052df8(struct Struct_02052df8* gameObject, int slot);
 
 struct Struct_ov004_0216fbb0 { unsigned int unknown_0_[9]; };
@@ -2450,7 +2450,7 @@ extern "C" ARM int func_ov004_0215a31c(void* arg0) {
 }
 extern "C" int func_ov004_021571d8(int arg0);
 extern "C" void* GetEquipmentBagItemIds_0207c5f8(unsigned char*, unsigned int);
-extern "C" void* func_0207c60c(void*, unsigned int);
+extern "C" void* GetEquipmentBagCounts_0207c60c(void*, unsigned int);
 extern "C" void func_ov023_021f65d4(void* arg0, int arg1, int arg2);
 
 struct Struct_ov004_0215a738 {
@@ -2510,7 +2510,7 @@ extern "C" ARM int func_ov004_0215a738(void* arg0) {
         int var7 = func_ov004_02156e2c(arg0, 0x65);
         if (var7 < 0) return 0;
         var5 = (short*)GetEquipmentBagItemIds_0207c5f8(var3 + 0x1d4, *(data_ov004_021707e0 + var7 + 0x7c));
-        var6 = (signed char*)func_0207c60c(var3 + 0x1d4, *(data_ov004_021707e0 + var7 + 0x7c));
+        var6 = (signed char*)GetEquipmentBagCounts_0207c60c(var3 + 0x1d4, *(data_ov004_021707e0 + var7 + 0x7c));
     } else {
         if (((int)func_ov004_02157128(arg0)) >= 0) return 0;
         var5 = (short*)(var3 + 0xc);
@@ -2611,7 +2611,7 @@ extern "C" ARM int func_ov004_0215aaf0(void* arg0) {
 
     if (func_ov004_021571d8((int)arg0)) {
         unsigned char* var7 = (unsigned char*)GetEquipmentBagItemIds_0207c5f8(var2 + 0x1d4, *(unsigned int*)(data_ov004_021707e0 + 0x74));
-        unsigned char* var8 = (unsigned char*)func_0207c60c(var2 + 0x1d4, *(unsigned int*)(data_ov004_021707e0 + 0x74));
+        unsigned char* var8 = (unsigned char*)GetEquipmentBagCounts_0207c60c(var2 + 0x1d4, *(unsigned int*)(data_ov004_021707e0 + 0x74));
         var6 = ((struct Struct_ov004_0215aaf0_3*)FindItemData_020dedd0(var1, ((short*)var7)[var5]));
         if (var6->unknown_8_.unknown_1_4_ == 0) {
             QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3a1);
@@ -2960,7 +2960,7 @@ extern "C" ARM int func_ov004_0215b1d4(void* arg0) {
         short var4 = *(short*)(data_ov004_021707e0 + 0x6c);
         signed char var5 = *(signed char*)(data_ov004_021707e0 + 0x6e);
         int var6 = *(int*)(data_ov004_021707e0 + 0x74);
-        func_0207c484((struct Struct_0207c484*)((char*)var3 + 0x1d4), var4, var5, var6);
+        RemoveEquipmentFromBag_0207c484((struct EquipmentBag_0207c484*)((char*)var3 + 0x1d4), var4, var5, var6);
     } else if (*(signed char*)(data_ov004_021707e0 + 0x70) == -1) {
         void* var7 = GetParty_02010828(var0);
         if (!var7) return 0;
@@ -3098,7 +3098,7 @@ extern "C" ARM int func_ov004_0215b360(void* arg0) {
             if (var8) var8->unknown_20_ = FindStringInList_02072a68(var4, (short)(var7 + 0x1b));
             func_ov023_021f6600(arg0, var7 + 0x38c, 8);
             var0 = ((short*)GetEquipmentBagItemIds_0207c5f8(var6->unknown_1d4_, ((Struct_ov004_0215b360_3*)data_ov004_021707e0)->unknown_7c_[var5]));
-            var1 = ((signed char*)func_0207c60c(var6->unknown_1d4_, ((Struct_ov004_0215b360_3*)data_ov004_021707e0)->unknown_7c_[var5]));
+            var1 = ((signed char*)GetEquipmentBagCounts_0207c60c(var6->unknown_1d4_, ((Struct_ov004_0215b360_3*)data_ov004_021707e0)->unknown_7c_[var5]));
             var2 = ((int)func_0207c638(var6->unknown_1d4_, ((Struct_ov004_0215b360_3*)data_ov004_021707e0)->unknown_7c_[var5]));
         } else {
             func_ov023_021f65d4(arg0, var7 + 0x38c, 8);
@@ -3165,7 +3165,7 @@ extern "C" ARM int func_ov004_0215b710(void* arg0) {
     }
     return 0;
 }
-extern "C" void func_0207d300(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void AddItem_0207d300(void* itemContext, int itemId, int count, int isAliveRequired);
 extern "C" void func_ov004_0215b7c8(struct Struct_ov004_0215b740*);
 
 // USA: func_ov004_0215b740
@@ -3185,7 +3185,7 @@ extern "C" ARM int func_ov004_0215b740(void* arg0) {
     *(void**)(var2 + 0x2c) = var1;
     short var3 = *(short*)(var0 + 0xf8);
     signed char var4 = *(unsigned short*)(var0 + 0xfa);
-    func_0207d300(var2, var3, var4, 0);
+    AddItem_0207d300(var2, var3, var4, 0);
     func_ov004_0215b7c8((Struct_ov004_0215b740*)(var0 + 0xf8));
     QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3a4);
     return 0;
@@ -3380,7 +3380,7 @@ extern "C" ARM int func_ov004_0215b934(void* arg0) {
             InitItemTable_020de824(var10 + 0x14);
             func_0207cbe8(var10);
             func_0207cbe8(var10);
-            func_0207d300(var10, var5->unknown_f8_.unknown_0_, (signed char)var5->unknown_f8_.unknown_2_, 0);
+            AddItem_0207d300(var10, var5->unknown_f8_.unknown_0_, (signed char)var5->unknown_f8_.unknown_2_, 0);
 #if defined(jpn)
             char var11[80];
             func_020e207c((Struct_0201099c_3*)(((Struct_ov004_0215b934*)data_ov004_021707e0)->unknown_8c_), var11, var2->unknown_18_);

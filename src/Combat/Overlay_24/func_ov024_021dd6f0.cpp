@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_ov024_021da670_7;
-extern "C" int func_ov024_021da9b0(struct Struct_ov024_021da670_7* arg0);
+extern "C" int IsParalysed_ov024_021da9b0(struct Struct_ov024_021da670_7* combatant);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" void func_020882dc(void* arg0);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
@@ -31,7 +31,7 @@ extern "C" ARM void* func_ov024_021dd6f0(struct Struct_ov024_021dd6f0_4* arg0, i
 	var1.unknown_0_ = 0;
 	var1.unknown_4_ = 0;
 	unsigned short var2;
-	if (func_ov024_021da9b0((struct Struct_ov024_021da670_7*)var0) && arg6 != 0) {
+	if (IsParalysed_ov024_021da9b0((struct Struct_ov024_021da670_7*)var0) && arg6 != 0) {
 		var2 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, arg3->unknown_20_.unknown_2_4_, arg3->unknown_24_.unknown_0_0_);
 		func_020882dc((void*)var0->currentStats_);
 		SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var1, 0x1a);

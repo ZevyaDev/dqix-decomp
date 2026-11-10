@@ -16,7 +16,7 @@ extern "C" void func_020d2038(int arg0, int arg1, int arg2, int arg3, int arg4, 
 extern "C" int func_020d1f70(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" int func_020d1ee4(int arg0, int arg1, int arg2, int arg3);
 extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
-extern "C" void func_020bc078(int* arg0);
+extern "C" void ClearSoundHandle_020bc078(int* handle);
 extern "C" void func_0203aa44(void* arg0);
 extern "C" void func_0203aaf8(void* arg0, int arg1, int arg2);
 extern "C" void func_020c3864(int arg0);
@@ -270,7 +270,7 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 	data_ov016_0219d180 = 0;
 	data_ov016_0219d150 = arg3->unknown_12_ < 0 ? 1 : 0;
 	data_ov016_0219d0c0 = arg4.unknown_0_;
-	func_020bc078(&data_ov016_0219d14c);
+	ClearSoundHandle_020bc078(&data_ov016_0219d14c);
 	if (data_ov016_0219d154->unknown_10_ == 0) {
 		func_0203aa44(&gMusicManager_02109bf4);
 		func_0203aaf8(&gMusicManager_02109bf4, data_ov016_0219d154->unknown_12_, 0);

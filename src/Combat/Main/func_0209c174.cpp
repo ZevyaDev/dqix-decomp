@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void func_0203a914(void* arg0);
-extern "C" void func_020bc078(int* arg0);
+extern "C" void ClearSoundHandle_020bc078(int* handle);
 extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
 extern "C" void func_0209ca70(void* arg0, int arg1);
 
@@ -28,10 +28,10 @@ extern "C" ARM void func_0209c174(struct Struct_02000c9c_16* arg0) {
     arg0->unknown_b0_ = 0;
     arg0->unknown_b4_ = 0;
     arg0->unknown_b8_ = -1;
-    func_020bc078((int*)&arg0->unknown_bc_);
+    ClearSoundHandle_020bc078((int*)&arg0->unknown_bc_);
     arg0->unknown_ba_ = -1;
-    func_020bc078((int*)&arg0->unknown_c0_);
-    func_020bc078((int*)&arg0->unknown_c4_);
+    ClearSoundHandle_020bc078((int*)&arg0->unknown_c0_);
+    ClearSoundHandle_020bc078((int*)&arg0->unknown_c4_);
     arg0->unknown_c8_ &= ~1;
     SetMusicVolume_0209c2e0(arg0, 0x7f, 0);
     func_0209ca70(arg0, 3);

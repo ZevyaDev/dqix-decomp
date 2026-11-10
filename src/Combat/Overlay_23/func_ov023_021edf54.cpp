@@ -224,7 +224,7 @@ extern "C" {
 int func_ov023_021f5340(void* arg0);
 void* GetLocalWireless_0202ae18();
 int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov023_021edf54_14* battle, short* indices, int maxCount, unsigned int filterFlags);
-int func_ov000_0215ec1c(Struct_ov023_021edf54_14* arg0, short* arg1, int arg2, int arg3);
+int CollectAllEnemyCombatantIndices_ov000_0215ec1c(Struct_ov023_021edf54_14* battle, short* indices, int maxCount, int arg3);
 int func_ov023_021f4098(Struct_ov023_021edf54_16* arg0, int arg1, int arg2);
 void func_ov023_021f454c(Struct_ov023_021edf54_16* arg0);
 void func_ov017_021cd218(unsigned short arg0, unsigned short arg1, unsigned short arg2, unsigned short arg3, unsigned short arg4, unsigned short arg5);
@@ -237,7 +237,7 @@ int func_ov023_021f5150(Struct_ov023_021edf54_16* arg0, Struct_ov023_021edf54_15
 }
 
 extern "C" Struct_ov023_021edf54_20* GetMessageWindow_020421a0();
-extern "C" void func_02049ae4(unsigned char* arg0);
+extern "C" void StopCombatantSidestep_02049ae4(unsigned char* combatant);
 extern "C" void func_ov023_021f50fc();
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
@@ -291,11 +291,11 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
         GameState* var11 = GameState::GetInstance();
         var10 = 0;
         var10 += CollectPartyCombatantIndices_ov000_0215e9fc(var8, var3, 0x10, var10);
-        var10 += func_ov000_0215ec1c(var8, var3 + var10, 0x10 - var10, 0);
+        var10 += CollectAllEnemyCombatantIndices_ov000_0215ec1c(var8, var3 + var10, 0x10 - var10, 0);
         for (var9 = 0; var9 < var10; var9++) {
             GameObject* var12 = var11->GetCombatantByIndex(var3[var9]);
             if (var12 != 0)
-                func_02049ae4((unsigned char*)var12);
+                StopCombatantSidestep_02049ae4((unsigned char*)var12);
         }
     }
     func_ov023_021f50fc();

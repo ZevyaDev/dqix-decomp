@@ -13,8 +13,8 @@
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 
-struct Struct_0205c508;
-extern "C" void func_0205c508(struct Struct_0205c508* arg0, int* arg1, int* arg2);
+struct MenuCursor_0205c508;
+extern "C" void GetMenuCursorPageRange_0205c508(struct MenuCursor_0205c508* cursor, int* outPageStartIndex, int* outPageEndIndex);
 
 extern "C" void func_ov002_0215ece4(void* arg0, char* arg1, int arg2, int arg3, int arg4);
 
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov002_0215ec4c(void* arg0, char* arg1, int arg2) {
     }
     AppendCursorTag_02041ea4(arg1, var2);
     void* var3 = (void*)((char*)arg0 + RG(0x2c8 + 0xc00, 0xe20));
-    func_0205c508((struct Struct_0205c508*)((unsigned char*)var3 + 0x54), &var0, &var1);
+    GetMenuCursorPageRange_0205c508((struct MenuCursor_0205c508*)((unsigned char*)var3 + 0x54), &var0, &var1);
     int var4 = *(signed char*)((char*)arg0 + RG(0x1c20, 0x1ae8));
     func_ov002_0215ece4(arg0, arg1, var4, var0, var1);
 }

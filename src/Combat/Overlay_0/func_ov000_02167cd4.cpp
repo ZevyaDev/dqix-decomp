@@ -10,8 +10,8 @@ extern "C" void func_02049bd4(unsigned char* arg0, int* arg1);
 extern "C" void func_02049c60(unsigned char* arg0, int* arg1);
 extern "C" void __clear(void* arg0, int arg1);
 
-struct Struct_02048cf0 { int unknown_0_; int unknown_4_; };
-extern "C" struct Struct_02048cf0 func_ov000_0216f74c(int* arg0);
+struct CellPosition_02048cf0 { int x_0_; int z_4_; };
+extern "C" struct CellPosition_02048cf0 GetCellPosition_ov000_0216f74c(int* cell);
 
 extern unsigned char data_ov000_02183118[][8];
 struct Struct_ov000_021830cc { unsigned int unknown_0_[3]; };
@@ -36,10 +36,10 @@ extern "C" ARM void func_ov000_02167cd4(unsigned char* arg0) {
             if (GetCombatantCell_020493a4((unsigned char*)var5) != 0xff) {
                 var6 = GetCombatantCell_020493a4((unsigned char*)var5);
             }
-            struct Struct_02048cf0 var7 = func_ov000_0216f74c(&var6);
+            struct CellPosition_02048cf0 var7 = GetCellPosition_ov000_0216f74c(&var6);
             struct Struct_ov000_021830cc var8 = data_ov000_021830cc;
-            var8.unknown_0_[0] = var7.unknown_0_;
-            var8.unknown_0_[2] = var7.unknown_4_;
+            var8.unknown_0_[0] = var7.x_0_;
+            var8.unknown_0_[2] = var7.z_4_;
             int var9[3];
             __clear(var9, 0xc);
             SetCombatantCell_02049390((unsigned char*)var5, (unsigned char)(var6 & 0xff));

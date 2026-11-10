@@ -26,7 +26,7 @@ extern "C" void ClearGameObjectByIndex_0200fd48(GameState*, int);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" void GetLocalWireless_0202ae18();
 extern "C" void GetZone3D_02012fe4();
-extern "C" void func_02076a8c(GameObject*);
+extern "C" void InitFieldMonster_02076a8c(GameObject*);
 
 // USA: func_02028a54
 extern "C" ARM int func_02028a54(Struct_020288e0* arg0, int arg1)
@@ -65,7 +65,7 @@ extern "C" ARM int func_02028a54(Struct_020288e0* arg0, int arg1)
     int var8 = var2 * 12;
     var8 += 0x70;
     for (; var6 < 12; ++var6) {
-        func_02076a8c(&var5[var6].unknown_0_);
+        InitFieldMonster_02076a8c(&var5[var6].unknown_0_);
         var5[var6].unknown_0_.obj3D_.MakeHidden();
         SetGameObjectByIndex_0200fd38(var0, var6 + var8, &var5[var6].unknown_0_);
     }

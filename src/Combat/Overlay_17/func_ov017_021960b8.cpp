@@ -37,7 +37,7 @@ struct Struct_ov017_021960b8 {
     unsigned char* unknown_4328_;
 };
 
-extern "C" void* func_020704fc(void);
+extern "C" void* GetColorFade_020704fc(void);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void ResetGeometryEngine_020c52e8();
 extern "C" void ResetMatrixStacks_020c5414();
@@ -71,7 +71,7 @@ extern int data_ov017_021d8350;
 extern "C" ARM void func_ov017_021960b8(Struct_ov017_021960b8* arg0) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov003_02174114* var1 = GetMessageWindow_020421a0();
-    Struct_020707c8* var2 = (Struct_020707c8*)func_020704fc();
+    Struct_020707c8* var2 = (Struct_020707c8*)GetColorFade_020704fc();
     GameObject* var3 = var0->GetUnknownGameObject();
     var0->GetTickCount();
 

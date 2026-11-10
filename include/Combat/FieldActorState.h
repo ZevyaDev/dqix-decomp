@@ -2,13 +2,13 @@
 
 #include "Combat/ObjectStateInitialization.h"
 
-// Shared prefix of the field actors initialized by func_02076a8c and updated
+// Shared prefix of the field actors initialized by InitFieldMonster_02076a8c and updated
 // by func_02076b58. The type name is part of the existing
 // dispatcher and member-function-table ABI.
-struct Struct_02076a8c_2 {
+struct FieldMonster_02076a8c_2 {
     Struct_02032e58 unknown_0_;
-    int unknown_130_;
-    int unknown_134_;
+    int state_130_;
+    int previousState_134_;
     unsigned char unknown_138_;
     unsigned char unknown_139_;
     unsigned char unknown_13a_;
@@ -18,20 +18,20 @@ struct Struct_02076a8c_2 {
     int unknown_140_;
     int unknown_144_;
     int unknown_148_;
-    int unknown_14c_;
+    int stateTime_14c_;
     int unknown_150_;
     int unknown_154_;
 };
 
 
-extern "C" void func_02076b58(Struct_02076a8c_2* arg0);
+extern "C" void func_02076b58(FieldMonster_02076a8c_2* arg0);
 
 struct Struct_ov017_021a1d98;
 struct Struct_02078998;
 
-// Extent initialized by func_02076a8c. This does not assert the full actor size.
-struct Struct_02076a8c {
-    Struct_02076a8c_2 unknown_0_;
+// Extent initialized by InitFieldMonster_02076a8c. This does not assert the full actor size.
+struct FieldMonster_02076a8c {
+    FieldMonster_02076a8c_2 unknown_0_;
     Vector3fix unknown_158_;
     unsigned short unknown_164_;
     unsigned short unknown_166_;
@@ -53,4 +53,4 @@ struct Struct_02076a8c {
 };
 
 
-extern "C" void func_02076a8c(Struct_02076a8c* arg0);
+extern "C" void InitFieldMonster_02076a8c(FieldMonster_02076a8c* monster);

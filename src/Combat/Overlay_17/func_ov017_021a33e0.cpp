@@ -7,7 +7,7 @@ struct ActiveZone_020fdd44;
 extern "C" struct ActiveZone_020fdd44* func_02027ccc(int arg0);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
-extern "C" void func_02076a8c(void* arg0);
+extern "C" void InitFieldMonster_02076a8c(void* monster);
 extern "C" void func_ov017_021c9544(int arg0, int arg1, int arg2, int arg3);
 
 struct Struct_ov017_021a33e0 { unsigned char unknown_0_[2]; unsigned short unknown_2_0_ : 2; unsigned short unknown_2_2_ : 14; };
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov017_021a33e0(void* arg0, int arg1) {
         int var5 = var4 * 0xc + 0x70;
         GameObject* var6 = var0->GetMaybeFieldMonsterByIndex(var3 + var5);
         if (var6) {
-            func_02076a8c(var6);
+            InitFieldMonster_02076a8c(var6);
             ((Object3D*)((unsigned char*)var6))->MakeHidden();
             if (IsLocalWirelessOn_0202b7d8((int*)var1) && IsNotLocalWirelessGuest_0202c508(var1)) {
                 func_ov017_021c9544(arg1, var3, var6->obj3D_.unknown_2_, -1);

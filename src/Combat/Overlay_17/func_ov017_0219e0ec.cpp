@@ -6,7 +6,7 @@ struct Struct_02028bac { unsigned char unknown_0_[0x318]; };
 extern "C" struct Struct_02028bac* func_02028bac(struct Struct_02028bac* arg0, int arg1);
 struct ActiveZone_020fdd44;
 extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
-extern "C" void func_02076a8c(void* arg0);
+extern "C" void InitFieldMonster_02076a8c(void* monster);
 
 // USA: func_ov017_0219e0ec
 extern "C" ARM void func_ov017_0219e0ec(void*) {
@@ -24,7 +24,7 @@ extern "C" ARM void func_ov017_0219e0ec(void*) {
 		for (int var6 = 0; var6 < 0xc; var6++) {
 			GameObject* var7 = var1->GetMaybeFieldMonsterByIndex(var6 + var0);
 			if (var7) {
-				func_02076a8c(var7);
+				InitFieldMonster_02076a8c(var7);
 				((Object3D*)((unsigned char*)var7))->MakeHidden();
 			}
 		}

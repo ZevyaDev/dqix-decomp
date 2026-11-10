@@ -34,7 +34,7 @@ extern "C" ARM void* func_ov023_021e27f8(struct Struct_ov023_021e257c_3* arg0, i
 extern "C" ARM void func_ov023_021e2030(int arg0, int arg1, int arg2, void* arg3);
 extern "C" int func_ov023_021e2c38(void* arg0, int arg1);
 extern "C" void func_ov023_021e2b5c(void* arg0, int arg1, short* arg2, short* arg3);
-extern "C" void func_0204f914(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" void FillTextWindowRect_0204f914(void* textWindow, int colorIndex, int left, int top, int right, int bottom);
 extern "C" int func_020420e8(void* arg0, int arg1);
 extern "C" void func_0204f41c(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, short* arg6, short* arg7, int arg8);
 extern "C" void func_0204f7e8(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, short* arg6, short* arg7, int arg8, int arg9, bool arg10, bool arg11);
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov023_021e257c(struct Struct_ov023_021e257c* arg0) {
 		case 0: {
 			int var8 = (short)(var3 + var1->unknown_8_);
 			int var9 = (short)(var4 + var1->unknown_a_);
-			func_0204f914(arg0->unknown_4_, var1->unknown_3_4_, var3, var4, var8, var9);
+			FillTextWindowRect_0204f914(arg0->unknown_4_, var1->unknown_3_4_, var3, var4, var8, var9);
 			break;
 		}
 		case 1: {

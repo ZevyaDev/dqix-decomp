@@ -2,7 +2,7 @@
 
 
 extern "C" ARM void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int size, int alignAndDir);
-extern "C" int func_020ca4b4(void*, void*, int);
+extern "C" int Memcpy32BitByBlock_020ca4b4(void*, void*, int);
 extern "C" ARM void* AddTask_ov031_0223e218(void *listIndex, void *callback, void *callbackData, int priority);
 extern "C" void func_ov031_02234fa4(void);
 
@@ -12,7 +12,7 @@ extern unsigned char* data_ov031_02290ce8;
 extern "C" ARM void func_ov031_02234ea8(void* arg0) {
 	unsigned char* var0 = (unsigned char*)AllocateZeroedMemory_ov031_0223cf4c(0x608, 4);
 	data_ov031_02290ce8 = var0;
-	func_020ca4b4(arg0, var0 + 4, 0x600);
+	Memcpy32BitByBlock_020ca4b4(arg0, var0 + 4, 0x600);
 	void* var1 = AddTask_ov031_0223e218((void*)1, (void*)func_ov031_02234fa4, 0, 0x78);
 	*(void**)data_ov031_02290ce8 = var1;
 }

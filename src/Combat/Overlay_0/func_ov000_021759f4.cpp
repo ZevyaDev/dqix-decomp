@@ -69,7 +69,7 @@ extern "C" struct Struct_020a36a8* GetBattleSetup_ov017_021b8478(void* battleMan
 extern "C" int func_020a36a8(struct Struct_020a36a8* arg0);
 extern "C" struct Struct_ov000_021759f4* GetBattleScene_ov017_021b8468(void* battleManager);
 extern "C" struct Struct_ov000_021643d4_8* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
-extern "C" int func_ov000_021719f8(int* arg0);
+extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
 extern "C" void func_ov017_021c9cd8(unsigned char arg0);
 extern unsigned short data_ov000_02183444[];
 
@@ -102,7 +102,7 @@ extern "C" ARM int func_ov000_021759f4(struct Struct_ov000_021759f4_5* arg0) {
         if (var7 == NULL) {
             break;
         }
-        if (func_ov000_021719f8((int*)var7) != 0 || var7->unknown_10_[var7->unknown_18_] != 100 ||
+        if (IsPanelMemberIncapacitated_ov000_021719f8((int*)var7) != 0 || var7->unknown_10_[var7->unknown_18_] != 100 ||
             var7->unknown_1c_ != 5) {
             break;
         }

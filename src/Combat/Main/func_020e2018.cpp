@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 struct Struct_020e1568 { int unknown_0_, unknown_4_; unsigned char unknown_8_, unknown_9_, unknown_a_, unknown_b_; };
 struct Struct_020200c0_3 { int unknown_0_; short unknown_4_, unknown_6_, unknown_8_, unknown_a_; };
-struct Struct_020200c0_4 { int unknown_0_, unknown_4_; unsigned char unknown_8_; };
+struct Canvas_020200c0_4 { int pCharacterData_0_, pRects_4_; unsigned char rectCount_8_; };
 struct Struct_020e2018 { int unknown_0_; char unknown_4_[6]; unsigned char unknown_a_, unknown_b_; };
 struct Struct_020e2018_2 {
     char unknown_0_[8];
@@ -15,10 +15,10 @@ struct Struct_020e2018_2 {
 struct Struct_020e2018_3 { int unknown_0_; Struct_020e2018_2* unknown_4_; };
 extern "C" void func_020e1568(Struct_020e1568*);
 extern "C" void func_02020520(Struct_020200c0_3*);
-extern "C" void func_0205b20c(Struct_020200c0_4*);
-extern "C" void func_0205b220(void*, int);
-extern "C" void func_0205b228(void*, int, unsigned char);
-extern "C" void func_0205b734(Struct_020200c0_4*, int, int, int, int, int);
+extern "C" void InitCanvas_0205b20c(Canvas_020200c0_4*);
+extern "C" void SetCanvasCharacterData_0205b220(void*, int);
+extern "C" void SetCanvasRects_0205b228(void*, int, unsigned char);
+extern "C" void func_0205b734(Canvas_020200c0_4*, int, int, int, int, int);
 // USA: func_020e2018
 extern "C" ARM void func_020e2018(Struct_020e2018_3* arg0) {
     Struct_020e2018_2* var0 = arg0->unknown_4_;
@@ -38,9 +38,9 @@ extern "C" ARM void func_020e2018(Struct_020e2018_3* arg0) {
     func_02020520(&var4);
     var4.unknown_8_ = var1->unknown_a_;
     var4.unknown_a_ = var1->unknown_b_;
-    Struct_020200c0_4 var5;
-    func_0205b20c(&var5);
-    func_0205b220(&var5, arg0->unknown_0_ + (arg0->unknown_4_->unknown_30_ + arg0->unknown_4_->unknown_34_));
-    func_0205b228(&var5, (int)&var4, 1);
+    Canvas_020200c0_4 var5;
+    InitCanvas_0205b20c(&var5);
+    SetCanvasCharacterData_0205b220(&var5, arg0->unknown_0_ + (arg0->unknown_4_->unknown_30_ + arg0->unknown_4_->unknown_34_));
+    SetCanvasRects_0205b228(&var5, (int)&var4, 1);
     func_0205b734(&var5, 0, 0, var0->unknown_24_.unknown_a_, var0->unknown_24_.unknown_b_, 1);
 }

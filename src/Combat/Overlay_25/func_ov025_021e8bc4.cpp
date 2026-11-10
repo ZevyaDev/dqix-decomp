@@ -6,7 +6,7 @@
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId);
 extern "C" void* GetBattleScene_ov000_02160130(void);
-extern "C" void* func_ov000_02160f14(void* arg0);
+extern "C" void* GetBattleCamera_ov000_02160f14(void* battleScene);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 struct Struct_ov001_0215bcc0;
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov025_021e8bc4(struct Struct_ov025_021e8bc4_2* arg0, in
             RemoveEffectResource_02057f00(var1, var2->unknown_4_);
             break;
         case 3:
-            SetCamera_020100c4(var0, (int)func_ov000_02160f14(GetBattleScene_ov000_02160130()));
+            SetCamera_020100c4(var0, (int)GetBattleCamera_ov000_02160f14(GetBattleScene_ov000_02160130()));
             break;
         case 4: {
             GameObject* var8 = var0->GetGameObjectByIndex(var2->unknown_2_);

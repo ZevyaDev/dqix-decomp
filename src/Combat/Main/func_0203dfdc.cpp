@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-extern "C" unsigned short* func_02040528(int*);
+extern "C" unsigned short* GetNPCData_02040528(int*);
 
 struct Struct_0203dfdc { char unknown_0_[0xc]; void* unknown_c_[0x20]; };
 
@@ -11,7 +11,7 @@ extern "C" ARM int func_0203dfdc(void* arg0, int arg1) {
         if (var1 == NULL) continue;
         if (*(int*)var1 & 0x8000) continue;
         {
-            unsigned short* var2 = func_02040528((int*)(var1));
+            unsigned short* var2 = GetNPCData_02040528((int*)(var1));
             if (var2 == NULL) continue;
             if (*var2 == arg1) return var0;
         }

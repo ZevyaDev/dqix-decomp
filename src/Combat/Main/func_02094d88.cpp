@@ -13,11 +13,11 @@ struct Struct_0201c1c8 {
 
 extern "C" void* GetFlagManager_0205ec34(void);
 
-struct Struct_0205faf4_3 {
+struct FlagManager_0205faf4_3 {
     unsigned char unknown_0_[0x2CC];
-    unsigned char unknown_2cc_[1];
+    unsigned char questStates_2cc_[1];
 };
-extern "C" int func_0206e120(struct Struct_0205faf4_3* arg0, int arg1);
+extern "C" int GetQuestState_0206e120(struct FlagManager_0205faf4_3* flagManager, int questId);
 
 extern "C" void func_0205ec70(SafeAllocator* arg0, int arg1, struct Struct_0201c1c8* arg2, void* arg3, void* arg4);
 
@@ -83,7 +83,7 @@ tail:
     void* var6 = GetFlagManager_0205ec34();
     int var7 = ((Script::Parameter*)&arg0[6])->ToInt();
     if (var7 >= 0) {
-        int var8 = (func_0206e120((struct Struct_0205faf4_3*)var6, var7) == 3);
+        int var8 = (GetQuestState_0206e120((struct FlagManager_0205faf4_3*)var6, var7) == 3);
         if (var8 == 0) {
             return 0;
         }

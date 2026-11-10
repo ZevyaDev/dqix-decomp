@@ -49,7 +49,7 @@ struct BGLayer_0204af38;
 extern "C" void AllocateBGScreenBlocks_0204af38(BGLayer_0204af38*, int, SafeAllocator*);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" char* GetStandardString_020e51cc(int stringId);
-extern "C" void func_0204f914(void* arg0, int arg1, short arg2, short arg3, short arg4, short arg5);
+extern "C" void FillTextWindowRect_0204f914(void* textWindow, int colorIndex, short left, short top, short right, short bottom);
 extern "C" void func_0204f41c(void* arg0, short arg1, short arg2, void* arg3, int arg4, int arg5, short* arg6, short* arg7, int arg8);
 extern "C" void LoadBGBlock_0204b174(void* layer, void* block, SafeAllocator* allocator, int arg3);
 struct BGLayer_0204b8d0;
@@ -439,10 +439,10 @@ extern "C" ARM int func_ov000_021729ac(Struct_ov000_021729ac_8* arg0) {
                             var38 = data_ov000_021833ba[var41].unknown_0_;
                             var39 = data_ov000_021833bc[var41].unknown_0_;
                             var40 = data_ov000_021833be[var41].unknown_0_;
-                            func_0204f914(&var2, 3, var38, var39, var38 + 0x10, var39 + 8);
+                            FillTextWindowRect_0204f914(&var2, 3, var38, var39, var38 + 0x10, var39 + 8);
                             func_0204f41c(&var2, var38 + 1, var39 - 2, var37, 8, 2, &var17, &var16, 0);
                             func_0204f41c(&var2, var38, var39 - 2, var37, 8, 0xa, &var17, &var16, 0);
-                            func_0204f914(&var2, 3, var38, var40, var38 + 0x10, var40 + 8);
+                            FillTextWindowRect_0204f914(&var2, 3, var38, var40, var38 + 0x10, var40 + 8);
                             func_0204f41c(&var2, var38 + 1, var40 - 2, var36, 8, 2, &var17, &var16, 0);
                             func_0204f41c(&var2, var38, var40 - 2, var36, 8, 0xa, &var17, &var16, 0);
                         }

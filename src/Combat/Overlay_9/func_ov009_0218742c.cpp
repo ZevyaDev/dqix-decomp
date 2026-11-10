@@ -108,7 +108,7 @@ extern "C" void func_02083e28(void*, int);
 extern "C" void func_020863c4(unsigned char*);
 extern "C" void ClearSpellTable_0209a804(int*);
 extern "C" void func_0209a810(Struct_0201099c_18*, void*);
-extern "C" void func_02083b60(unsigned char*, int);
+extern "C" void LearnSpell_02083b60(unsigned char*, int);
 extern "C" void func_020830cc(void*, Struct_ov009_0218742c*);
 extern "C" void func_02086778(void*, Struct_ov009_0218742c*, unsigned char, unsigned char);
 extern "C" void* func_ov003_0215f4fc(void*, const char*);
@@ -236,7 +236,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             Struct_ov009_0218742c_3* var23 = var20.unknown_10c_[var21];
             for (int var24 = 0; var24 < 20; ++var24) {
                 if (var22 >= var23[var24].unknown_2_ && var23[var24].unknown_2_ != 0)
-                    func_02083b60((unsigned char*)arg0->unknown_d88_, var23[var24].unknown_0_);
+                    LearnSpell_02083b60((unsigned char*)arg0->unknown_d88_, var23[var24].unknown_0_);
             }
             func_020830cc(arg0->unknown_d88_, &var8);
             func_02086778(var7, &var8, 0, 0);
@@ -295,7 +295,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             Struct_ov009_0218742c_3* var41 = var38.unknown_10c_[var39];
             for (int var42 = 0; var42 < 20; ++var42) {
                 if (var40 >= var41[var42].unknown_2_ && var41[var42].unknown_2_ != 0)
-                    func_02083b60((unsigned char*)var25, var41[var42].unknown_0_);
+                    LearnSpell_02083b60((unsigned char*)var25, var41[var42].unknown_0_);
             }
             func_020830cc(var25, &var27);
             func_02086778(var26, &var27, 0, 0);

@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-extern "C" int func_ov024_021fe698(void* arg0, int arg1);
+extern "C" int TrySelectTacticOption_ov024_021fe698(void* tacticAI, int option);
 extern "C" void func_ov024_021f9874(void* arg0, void* arg1, int arg2, int arg3);
 struct Struct_ov024_021fc37c;
 extern "C" int func_ov024_021fc498(struct Struct_ov024_021fc37c* arg0);
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov024_021fc37c(struct Struct_ov024_021fc37c_3* arg0) {
 	}
 	if (var2 >= var3) return;
 	if (!var4) return;
-	if (!func_ov024_021fe698(arg0, 0x12)) return;
+	if (!TrySelectTacticOption_ov024_021fe698(arg0, 0x12)) return;
 	if (((unsigned char*)arg0->unknown_8_->currentStats_)[0x24] >= 3) return;
 	char var5[0xc8];
 	memset(var5, 0, 0xc8);

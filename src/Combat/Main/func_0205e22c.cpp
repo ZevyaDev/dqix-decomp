@@ -18,7 +18,7 @@ struct Struct_0205e18c {
 extern "C" void func_0205e18c(struct Struct_0205e18c* arg0, struct Struct_0205e18c_2* arg1);
 
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void func_0202c288(void);
+extern "C" void UpdateLocalWirelessPlayerCount_0202c288(void);
 extern "C" void* func_0202c19c(void* arg0);
 
 struct LocalWireless_0202b2f0;
@@ -43,7 +43,7 @@ extern "C" ARM void func_0205e22c(void* arg0) {
     }
 
     void* var2 = GetLocalWireless_0202ae18();
-    func_0202c288();
+    UpdateLocalWirelessPlayerCount_0202c288();
 
     struct Struct_0205e22c* var3 = (struct Struct_0205e22c*)func_0202c19c(var2);
     memset(var3, 0, 0x74);

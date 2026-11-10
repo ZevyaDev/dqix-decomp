@@ -4,7 +4,7 @@
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
 extern "C" void MapVRAMBanksToTextureImage(int a);
 extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install);
-extern "C" void func_020bb780(void* arg0, int arg1);
+extern "C" void InitTexturePaletteVRAMAllocator_020bb780(void* size, int install);
 
 // USA: func_ov017_0218d274
 extern "C" ARM void func_ov017_0218d274(void* arg0) {
@@ -15,5 +15,5 @@ extern "C" ARM void func_ov017_0218d274(void* arg0) {
 		MapVRAMBanksToTextureImage(0xf);
 		InitTextureImageVRAMAllocator_020bb48c(4, 1);
 	}
-	func_020bb780((void*)0x4000, 1);
+	InitTexturePaletteVRAMAllocator_020bb780((void*)0x4000, 1);
 }

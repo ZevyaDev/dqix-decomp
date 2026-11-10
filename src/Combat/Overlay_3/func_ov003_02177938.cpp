@@ -50,7 +50,7 @@ extern "C" void func_02080608(void *arg0, int arg1);
 extern "C" unsigned char func_0207ca94(int arg0);
 extern "C" int func_0207c638(void *arg0, unsigned int arg1);
 extern "C" int func_0207c6b8(unsigned char *arg0, unsigned int arg1, int arg2);
-extern "C" int func_02080b40(void *arg0, int arg1);
+extern "C" int ShowMenuLayoutText_02080b40(void *menuLayout, int textId);
 extern "C" int func_02081010(void *arg0, int arg1);
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c *menuLayout, int textId, int text);
@@ -75,7 +75,7 @@ extern "C" struct ItemData_0201099c_9 *FindItemData_020dedd0(struct ItemTable_02
 extern "C" void func_020805f4(void *arg0, int arg1);
 extern "C" void func_020806c4(void *arg0, int arg1);
 extern "C" void func_ov003_0217818c(void *arg0, struct ItemData_0201099c_9 *arg1, int arg2, int arg3);
-extern "C" void func_0208103c(void *arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutTextStringId_0208103c(void *menuLayout, int textId, int stringId);
 extern "C" void func_0208108c(void *arg0, int arg1);
 extern "C" void OpenMenuLayoutWindow_020813ec(void *menuLayout, int windowId);
 
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov003_02177938(Struct_ov003_02177938 *arg0) {
         for (short var13 = 0; var13 < var12; var13++) {
             var9[var13] = func_0207c6b8(var1 + 0x1d4, var11, var13);
         }
-        func_02080b40(var2, 0x8a);
+        ShowMenuLayoutText_02080b40(var2, 0x8a);
         SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c *) var2, 0x8a,
                                    func_02081010(var2, arg0->unknown_1012_));
         func_02080cc0((struct Struct_02080cc0 *) var2, 0x8a, 0xf);
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov003_02177938(Struct_ov003_02177938 *arg0) {
                 for (int var18 = 0; var18 < var17; var18++) {
                     var9[var18] = ((short *) (var16 + 0x454))[var18];
                 }
-                func_02080b40(var2, 0x8a);
+                ShowMenuLayoutText_02080b40(var2, 0x8a);
                 SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c *) var2, 0x8a, *(int *) ((char *) var15 + 0x134));
                 func_02080cc0((struct Struct_02080cc0 *) var2, 0x8a, func_020dcc98(arg0->unknown_1043_));
                 var3 = var17 != 0;
@@ -163,7 +163,7 @@ extern "C" ARM void func_ov003_02177938(Struct_ov003_02177938 *arg0) {
             for (short var20 = 0; var20 < var19; var20++) {
                 var9[var20] = ((short *) (var1 + 0xc))[var20];
             }
-            func_02080b40(var2, 0x8a);
+            ShowMenuLayoutText_02080b40(var2, 0x8a);
             SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c *) var2, 0x8a,
                                        func_02081010(var2, 0x7a));
             func_02080cc0((struct Struct_02080cc0 *) var2, 0x8a, 0xf);
@@ -175,9 +175,9 @@ extern "C" ARM void func_ov003_02177938(Struct_ov003_02177938 *arg0) {
     if (var8 != 0) {
         SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8 *) var2, 0xa3, arg0->unknown_1014_ + 1);
         SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8 *) var2, 0xa4, arg0->unknown_1016_);
-        func_02080b40(var2, 0xa3);
-        func_02080b40(var2, 0xa4);
-        func_02080b40(var2, 0xa5);
+        ShowMenuLayoutText_02080b40(var2, 0xa3);
+        ShowMenuLayoutText_02080b40(var2, 0xa4);
+        ShowMenuLayoutText_02080b40(var2, 0xa5);
     }
 
     for (unsigned char var21 = 0; var21 < 8; var21++) {
@@ -195,9 +195,9 @@ extern "C" ARM void func_ov003_02177938(Struct_ov003_02177938 *arg0) {
             func_020806c4(var2, var4);
             SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c *) var2, var4, var22);
             SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8 *) var2, var5, var23);
-            func_02080b40(var2, var4);
-            func_02080b40(var2, var5);
-            func_02080b40(var2, var6);
+            ShowMenuLayoutText_02080b40(var2, var4);
+            ShowMenuLayoutText_02080b40(var2, var5);
+            ShowMenuLayoutText_02080b40(var2, var6);
             func_ov003_0217818c(arg0, var24, var5, var6);
         }
         var4 = var4 + 1;
@@ -206,9 +206,9 @@ extern "C" ARM void func_ov003_02177938(Struct_ov003_02177938 *arg0) {
     }
 
     if (var3 == 0) {
-        func_0208103c(var2, 0x143, var7);
-        func_02080b40(var2, 0x143);
-        func_02080b40(var2, 0x144);
+        SetMenuLayoutTextStringId_0208103c(var2, 0x143, var7);
+        ShowMenuLayoutText_02080b40(var2, 0x143);
+        ShowMenuLayoutText_02080b40(var2, 0x144);
         func_0208108c(var2, 0x143);
         func_0208108c(var2, 0x144);
     }

@@ -60,14 +60,14 @@ extern "C" unsigned char func_ov017_02191764(int, int);
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
-extern "C" void func_02082828(void*);
+extern "C" void InitPartyMemberData_02082828(void*);
 extern "C" void func_02054664(Struct_02054664*);
 extern "C" void func_02053c4c(char*, char*);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" void func_020546a0(void*, int);
 extern "C" void func_020546b4(void*, int);
-extern "C" void func_02059f38(Struct_02059cfc_2*, Struct_02059cfc_3*);
+extern "C" void SetObject3DPositionFromVector_02059f38(Struct_02059cfc_2*, Struct_02059cfc_3*);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void func_ov017_02191508(int, Struct_ov017_021c1e6c_7*);
 extern "C" void func_02039830(void*);
@@ -141,7 +141,7 @@ extern "C" ARM void func_ov017_021c1e6c(Struct_ov017_021c1e6c_6* arg0) {
             void* var13 = var2->allocator_11c0.Allocate(0x964);
 #endif
             if (!var13) goto configureCombatant;
-            func_02082828(var13);
+            InitPartyMemberData_02082828(var13);
 #if defined(jpn)
             Struct_ov017_021c1e6c* var14 = (Struct_ov017_021c1e6c*)var2->allocator_11c0.Allocate(0x2c8);
 #else
@@ -170,7 +170,7 @@ configureCombatant:
             func_020546b4(var17, var9);
             var17->obj3D_.SetField06(*var3);
             if (var0->GetUnknownGameObject()) {
-                func_02059f38((Struct_02059cfc_2*)var17, (Struct_02059cfc_3*)&((Struct_ov017_021c1e6c_3*)var0)->unknown_7f60_);
+                SetObject3DPositionFromVector_02059f38((Struct_02059cfc_2*)var17, (Struct_02059cfc_3*)&((Struct_ov017_021c1e6c_3*)var0)->unknown_7f60_);
                 SetFacingInstantly_02033874((Struct_02033834*)var17, ((Struct_ov017_021c1e6c_3*)var0)->unknown_7f5c_);
             }
             if (var4->unknown_10_3_) func_ov017_02191508(var8, var4);
@@ -209,7 +209,7 @@ configureCombatant:
                     }
                     GameObject* var26 = var0->GetGameObjectByIndex(0);
                     if (var26) {
-                        func_02059f38((Struct_02059cfc_2*)var23, (Struct_02059cfc_3*)&((Struct_ov017_021c1e6c_3*)var0)->unknown_7f60_);
+                        SetObject3DPositionFromVector_02059f38((Struct_02059cfc_2*)var23, (Struct_02059cfc_3*)&((Struct_ov017_021c1e6c_3*)var0)->unknown_7f60_);
                         SetFacingInstantly_02033874((Struct_02033834*)var23, ((Struct_ov017_021c1e6c_3*)var0)->unknown_7f5c_);
                         var23->obj3D_.SetField06(var26->obj3D_.GetField06());
                     }

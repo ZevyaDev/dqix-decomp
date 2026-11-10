@@ -91,7 +91,7 @@ extern "C" void SetFacing_02033834(Struct_02033834_2*, int);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" int SetMotion_02033b88(Struct_02010604*, int);
-extern "C" void func_02033b58(Struct_02033b58*, unsigned char);
+extern "C" void SetMotionKeepingAnimation_02033b58(Struct_02033b58*, unsigned char);
 extern "C" int func_02033ec8(Struct_02033ec8*);
 extern "C" void func_02038500(Struct_02038500*, int, int, int);
 extern "C" void func_02033e18(void*, int*, short);
@@ -383,7 +383,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
     if (var7 == 5) {
         DisablePlayerControl_020397cc((struct Struct_02018300_3*)arg0, 1);
         arg0->unknown_0_.obj3D_.EnableFlag(0x80);
-        func_02033b58((struct Struct_02033b58*)arg0, 1);
+        SetMotionKeepingAnimation_02033b58((struct Struct_02033b58*)arg0, 1);
         if (!func_02033ec8((struct Struct_02033ec8*)arg0)) goto Exit;
         unsigned char var42 = var3->isPartyOrderRebuildPending_52_;
 

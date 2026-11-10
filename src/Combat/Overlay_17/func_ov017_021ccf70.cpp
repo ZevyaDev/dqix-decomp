@@ -4,7 +4,7 @@
 
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" void func_02083b60(unsigned char* arg0, int arg1);
+extern "C" void LearnSpell_02083b60(unsigned char* memberData, int spellId);
 
 struct Struct_ov017_021ccf70 {
 	unsigned char unknown_0_0_ : 3;
@@ -33,6 +33,6 @@ extern "C" ARM void func_ov017_021ccf70(int arg0, unsigned char* arg1, GameState
 	if (!var3) return;
 
 	for (int var4 = 0; var4 < var1->unknown_0_3_; var4++) {
-        func_02083b60(var3, var0->unknown_1_[var4]);
+        LearnSpell_02083b60(var3, var0->unknown_1_[var4]);
 	}
 }

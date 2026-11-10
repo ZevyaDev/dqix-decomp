@@ -12,7 +12,7 @@ enum { Enum_ov005_02159274_3684 = 0xe64, Enum_ov005_02159274_2400 = 0x960, Enum_
 #include <GameState/GameState.h>
 
 struct Struct_020e28dc;
-struct Struct_020e263c_2;
+struct YesNoWindow_020e263c_2;
 struct SoundEffectManager_02108760;
 struct TextWindowManager_0205d5d0;
 struct ItemTable_0201099c_10;
@@ -68,7 +68,7 @@ struct Struct_ov005_02159274_3 {
 extern "C" char gSoundEffectManager_02108760[];
 
 extern "C" int func_020e28dc(Struct_020e28dc* arg0);
-extern "C" void func_020e263c(Struct_020e263c_2* arg0, int arg1);
+extern "C" void UpdateYesNoWindow_020e263c(YesNoWindow_020e263c_2* yesNoWindow, int ticks);
 extern "C" void func_ov005_021589f4(void* arg0);
 extern "C" void func_ov005_02159b74(void* arg0);
 extern "C" int func_ov005_02158b3c(void* arg0, void* arg1);
@@ -80,8 +80,8 @@ extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" int func_020dd768(Struct_020dd768* arg0);
 extern "C" void func_ov005_02157b74(void* arg0, int arg1, int arg2);
-struct Struct_0207c484;
-extern "C" void func_0207c484(Struct_0207c484*, int, int, int);
+struct EquipmentBag_0207c484;
+extern "C" void RemoveEquipmentFromBag_0207c484(EquipmentBag_0207c484*, int, int, int);
 extern "C" void func_ov005_021555c0(void* arg0);
 
 // USA: func_ov005_02159274
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
         var0 = 1;
 
     if (arg0->unknown_e64_ != 0 && func_020e28dc((Struct_020e28dc*)arg0->unknown_e64_))
-        func_020e263c((Struct_020e263c_2*)arg0->unknown_e64_, var0);
+        UpdateYesNoWindow_020e263c((YesNoWindow_020e263c_2*)arg0->unknown_e64_, var0);
 
     if (arg0->unknown_3ddc_ == 0) {
         arg0->unknown_3dd1_ = 8;
@@ -142,7 +142,7 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
                     char* var4 = (char*)GetParty_02010828(GameState::GetInstance());
                     int var5 = ((Struct_ov005_02159274*)((char*)var1 + 8))->unknown_0_0_;
                     var0 = *(short*)((char*)var1 + 0x18);
-                    func_0207c484((Struct_0207c484*)(var4 + 0x1d4), var0, 1, var5);
+                    RemoveEquipmentFromBag_0207c484((EquipmentBag_0207c484*)(var4 + 0x1d4), var0, 1, var5);
                     var2 = 1;
                     func_ov005_021555c0(arg0);
                     for (int var6 = 8; var6 < 0x18; var6++) {
@@ -241,7 +241,7 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
                     arg0->unknown_df4_,
                     arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_);
                 var0 = *(short*)((char*)var7 + 0x18);
-                func_0207c484((Struct_0207c484*)(var9 + 0x1d4), var0, 1, ((Struct_ov005_02159274*)((char*)var7 + 8))->unknown_0_0_);
+                RemoveEquipmentFromBag_0207c484((EquipmentBag_0207c484*)(var9 + 0x1d4), var0, 1, ((Struct_ov005_02159274*)((char*)var7 + 8))->unknown_0_0_);
                 var8 = 1;
                 func_ov005_021555c0(arg0);
                 for (int var10 = 8; var10 < 0x18; var10++) {

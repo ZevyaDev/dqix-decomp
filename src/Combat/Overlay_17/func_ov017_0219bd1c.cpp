@@ -13,9 +13,9 @@ extern "C" Struct_02000c9c_54* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void RemoveFromQueue_02046a8c(void* queue, void* node);
 extern "C" unsigned char func_ov017_0219bcac(unsigned char arg0);
 extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int isFullReset);
-struct Struct_020469f8;
-struct Struct_020469f8_2;
-extern "C" void func_020469f8(struct Struct_020469f8* arg0, struct Struct_020469f8_2* arg1);
+struct Queue_020469f8;
+struct QueueNode_020469f8_2;
+extern "C" void PrependToQueue_020469f8(struct Queue_020469f8* queue, struct QueueNode_020469f8_2* node);
 struct Struct_02046a3c_2;
 struct Struct_02046a3c;
 extern "C" void func_02046a3c(struct Struct_02046a3c_2* arg0, struct Struct_02046a3c* arg1);
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov017_0219bd1c(int arg0, unsigned char arg1, int arg2, 
     var3->unknown_6e_ = arg1;
     ResetZoneLoadTask_ov017_0219e310((unsigned char*)var5, 0);
     if (arg0) {
-        func_020469f8((struct Struct_020469f8*)var4, (struct Struct_020469f8_2*)var5);
+        PrependToQueue_020469f8((struct Queue_020469f8*)var4, (struct QueueNode_020469f8_2*)var5);
     } else if (arg2) {
         func_02046a3c((struct Struct_02046a3c_2*)var4, (struct Struct_02046a3c*)var5);
     } else {

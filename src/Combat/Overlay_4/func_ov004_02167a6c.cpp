@@ -5,7 +5,7 @@
 extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void func_0207cbe8(char* arg0);
 extern "C" int func_ov004_02167908(void* arg0, int arg1);
-extern "C" void func_0207d300(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" void AddItem_0207d300(void* itemContext, void* itemId, int count, int isAliveRequired);
 
 // USA: func_ov004_02167a6c
 extern "C" ARM int func_ov004_02167a6c(void* arg0, void* arg1) {
@@ -18,7 +18,7 @@ extern "C" ARM int func_ov004_02167a6c(void* arg0, void* arg1) {
 		func_0207cbe8(var1);
 		func_0207cbe8(var1);
 		*(void**)(var1 + 0x2c) = var0;
-		func_0207d300(var1, arg1, 1, 0);
+		AddItem_0207d300(var1, arg1, 1, 0);
 	}
 	return 0;
 }

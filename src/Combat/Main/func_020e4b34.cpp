@@ -27,7 +27,7 @@ struct Noun_020e4b34 {
 // USA: SetNoun_020e4b34
 extern "C" ARM void SetNoun_020e4b34(Noun_020e4b34* noun, int singularText, int pluralText, unsigned int singularIndefiniteArticle,
         unsigned char pluralIndefiniteArticle, unsigned char singularDefiniteArticle, unsigned char pluralDefiniteArticle, unsigned char gender,
-        unsigned char isPluralOnly, unsigned char arg9, unsigned char hasInitialVowelSound, unsigned char isInitialVowelFromText) {
+        unsigned char isPluralOnly, unsigned char isProperName, unsigned char hasInitialVowelSound, unsigned char isInitialVowelFromText) {
     memset(noun, 0, 0xc);
     noun->unknown_0_ = singularText;
     noun->unknown_4_ = pluralText;
@@ -37,7 +37,7 @@ extern "C" ARM void SetNoun_020e4b34(Noun_020e4b34* noun, int singularText, int 
     noun->unknown_8_.unknown1_0_.unknown_2_2_ = pluralDefiniteArticle;
     noun->unknown_8_.unknown1_0_.unknown_3_0_ = gender;
     noun->unknown_8_.unknown1_0_.unknown_3_2_ = isPluralOnly;
-    noun->unknown_8_.unknown1_0_.unknown_3_3_ = arg9;
+    noun->unknown_8_.unknown1_0_.unknown_3_3_ = isProperName;
     noun->unknown_8_.unknown1_0_.unknown_3_4_ = hasInitialVowelSound;
     noun->unknown_8_.unknown1_0_.unknown_3_6_ = isInitialVowelFromText;
 }

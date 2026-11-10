@@ -40,8 +40,8 @@ struct Struct_020e1e24;
 extern "C" void func_020e1e24(Struct_020e1e24*, unsigned short*, unsigned short*, int);
 struct Struct_020e28f0;
 extern "C" void func_020e28f0(Struct_020e28f0*, short, short);
-struct Struct_020e263c_2;
-extern "C" void func_020e263c(Struct_020e263c_2*, int);
+struct YesNoWindow_020e263c_2;
+extern "C" void UpdateYesNoWindow_020e263c(YesNoWindow_020e263c_2*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 // USA: func_ov005_02159b74
@@ -64,6 +64,6 @@ extern "C" ARM void func_ov005_02159b74(Struct_ov005_02153954* arg0) {
     int var4 = GameState::GetInstance()->GetTickCount();
     if (var4 == 0)
         var4 = 1;
-    func_020e263c((Struct_020e263c_2*)arg0->unknown_e64_, var4);
+    UpdateYesNoWindow_020e263c((YesNoWindow_020e263c_2*)arg0->unknown_e64_, var4);
     PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 5, 0);
 }

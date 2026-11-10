@@ -5,7 +5,7 @@ struct MusicManager_02109bf4_4;
 extern "C" void StopMusic_0209c678(struct MusicManager_02109bf4_4* manager, int fadeDuration);
 
 extern "C" void func_0203aa44(void* arg0);
-extern "C" void func_020bc078(int* arg0);
+extern "C" void ClearSoundHandle_020bc078(int* handle);
 
 extern "C" void UpdateSound_020bbd9c(void);
 extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
@@ -29,8 +29,8 @@ extern "C" ARM void ResetMusic_0209c20c(struct Struct_02109bf4_3* manager) {
     manager->musicState_b0_ = 0;
     manager->unknown_b4_ = 0;
     manager->musicIndex_b8_ = -1;
-    func_020bc078((int*)&manager->unknown_bc_);
+    ClearSoundHandle_020bc078((int*)&manager->unknown_bc_);
     manager->unknown_ba_ = -1;
-    func_020bc078((int*)&manager->unknown_c0_);
+    ClearSoundHandle_020bc078((int*)&manager->unknown_c0_);
     SetMusicVolume_0209c2e0(manager, 0x7f, 0);
 }

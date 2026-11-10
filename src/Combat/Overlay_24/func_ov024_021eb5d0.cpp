@@ -333,7 +333,7 @@ struct Struct_ov024_021dd028_5;
 extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, unsigned char flagIndex);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
-extern "C" void func_ov000_0215ffc4(void* arg0, void* arg1, int arg2);
+extern "C" void AppendTargetResult_ov000_0215ffc4(void* target, void* result, int listIndex);
 extern "C" int func_ov000_021573a8(void* arg0, int arg1, int arg2, int arg3);
 extern "C" struct Struct_ov024_021eb5d0_6* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void SetActionResult_ov000_0215ccbc(void* battle, struct Struct_ov024_021eb5d0_6* result, void* combatant, short amount, short currHP, int currMP, unsigned long long flags, unsigned char isCriticalHit);
@@ -797,7 +797,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
             if (arg0->unknown_c_->unknown_1c_.unknown_0_3_) { var64 = 9; var65 = 0x2b; }
             if (var64 > 0) SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, var63, var64);
             if (var65 > 0) AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var63, (unsigned short)var65);
-            func_ov000_0215ffc4(arg0->unknown_c_, var63, 0);
+            AppendTargetResult_ov000_0215ffc4(arg0->unknown_c_, var63, 0);
             arg0->unknown_10_->unknown_8e02_ = arg0->unknown_10_->unknown_8e02_ + 1;
             var42 = var42 + var45;
             arg0->unknown_74_ = 1;
@@ -830,7 +830,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                         SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, var70, 0x2a);
                         SetActionResult_ov000_0215ccbc(
                             arg0->unknown_10_, var70, var71, var67, var71->unknown_138_->unknown_0_, var69, var70->unknown_0_, 0);
-                        func_ov000_0215ffc4(arg0->unknown_c_, var70, 1);
+                        AppendTargetResult_ov000_0215ffc4(arg0->unknown_c_, var70, 1);
                         arg0->unknown_10_->unknown_8e02_ = arg0->unknown_10_->unknown_8e02_ + 1;
                         if (arg0->unknown_68_ != 0) {
                             var70->unknown_8_ = arg0->unknown_68_->unknown_8_;
@@ -854,7 +854,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                         SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, var74, 0x19);
                         func_ov000_0215cd44(arg0->unknown_10_, var74, var75, 0, 0, 0);
                         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var74, (unsigned short)var73);
-                        func_ov000_0215ffc4(arg0->unknown_c_, var74, 1);
+                        AppendTargetResult_ov000_0215ffc4(arg0->unknown_c_, var74, 1);
                         arg0->unknown_10_->unknown_8e02_ = arg0->unknown_10_->unknown_8e02_ + 1;
                         func_ov024_021eb4e4((Struct_ov024_021da9e0_4*)arg0, (int)arg0->unknown_c_);
                     }

@@ -9,12 +9,12 @@ struct Struct_020a13c4 {
     char unknown_10_;
 };
 
-// USA: func_020a13c4
-extern "C" ARM void func_020a13c4(struct Struct_020a13c4* arg0) {
-    arg0->unknown_0_ = 0;
-    arg0->unknown_4_ = 0;
-    arg0->unknown_6_ = 0;
-    arg0->unknown_8_ = 0;
-    arg0->unknown_c_ = 0;
-    arg0->unknown_10_ = 0;
+// USA: ClearAccoladeTable_020a13c4
+extern "C" ARM void ClearAccoladeTable_020a13c4(struct Struct_020a13c4* table) {
+    table->unknown_0_ = 0;
+    table->unknown_4_ = 0;
+    table->unknown_6_ = 0;
+    table->unknown_8_ = 0;
+    table->unknown_c_ = 0;
+    table->unknown_10_ = 0;
 }

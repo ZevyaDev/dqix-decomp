@@ -22,7 +22,7 @@ extern "C" void LoadStringList_020728ac(void* stringList, SafeAllocator* allocat
 struct Struct_0208df10;
 extern "C" void func_0208df10(Struct_0208df10* arg0);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" signed char func_020dd11c(unsigned int arg0, unsigned int arg1);
+extern "C" signed char GetVocationSkill_020dd11c(unsigned int vocation, unsigned int index);
 struct Struct_0208df20;
 extern "C" void func_0208df20(Struct_0208df20* arg0, void* arg1, int arg2, int arg3, int arg4, void* arg5);
 struct BGLayer_02020cb8;
@@ -255,7 +255,7 @@ extern "C" ARM bool func_ov013_021870f0(Struct_ov013_021870f0_6* arg0) {
                 {
                     for (unsigned char var26 = 0; var26 < 5; var26++)
                     {
-                        var23[var26] = func_020dd11c((unsigned char)var25->unknown_950_, var26);
+                        var23[var26] = GetVocationSkill_020dd11c((unsigned char)var25->unknown_950_, var26);
                     }
                     var22 = var23;
                 }

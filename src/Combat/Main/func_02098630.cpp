@@ -46,7 +46,7 @@ extern "C" int CompareBytes_02001aec(const void*, const void*, int);
 extern "C" int func_02098a84(Struct_02097cac_2*);
 extern "C" Struct_02098630* func_02098834(Struct_02098630*, Struct_02098630*);
 extern "C" void func_020989cc(Struct_02097cac_2*);
-extern "C" int func_020cf0fc(int);
+extern "C" int GetCurrentDate_020cf0fc(int);
 
 // USA: func_02098630
 extern "C" ARM int func_02098630(Struct_02097cac_2* arg0, Struct_02098630* arg1, int arg2, int arg3)
@@ -77,7 +77,7 @@ extern "C" ARM int func_02098630(Struct_02097cac_2* arg0, Struct_02098630* arg1,
     var4->unknown_f_6_ = 1;
     var4->unknown_10_2_ = arg0->unknown_1b34_;
     Struct_02098630_2 var5;
-    if (func_020cf0fc((int)&var5) == 0)
+    if (GetCurrentDate_020cf0fc((int)&var5) == 0)
     {
         arg0->unknown_0_[var1].unknown_b_0_ = (unsigned char)var5.unknown_0_;
         arg0->unknown_0_[var1].unknown_d_7_ = var5.unknown_4_;

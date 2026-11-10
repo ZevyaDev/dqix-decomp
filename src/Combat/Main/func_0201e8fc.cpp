@@ -39,8 +39,8 @@ extern "C" ARM void* func_0201e8fc(struct Struct_0201e8fc_2* arg0, struct Struct
         Mat4x3_ApplyToVector(&var2, &var3, &var2);
         Vector3fix_Add(&var2, &var1->unknown_0_, &var2);
 
-        func_0201ce78(&var4.unknown_c_.x, var1->unknown_0_.x - var1->unknown_c_.x / 2, var1->unknown_0_.y - var1->unknown_c_.y / 2, var1->unknown_0_.z - var1->unknown_c_.z / 2);
-        func_0201ce78(&var4.unknown_0_.x, var1->unknown_0_.x + var1->unknown_c_.x / 2, var1->unknown_0_.y + var1->unknown_c_.y / 2, var1->unknown_0_.z + var1->unknown_c_.z / 2);
+        func_0201ce78(&var4.minCorner_c_.x, var1->unknown_0_.x - var1->unknown_c_.x / 2, var1->unknown_0_.y - var1->unknown_c_.y / 2, var1->unknown_0_.z - var1->unknown_c_.z / 2);
+        func_0201ce78(&var4.maxCorner_0_.x, var1->unknown_0_.x + var1->unknown_c_.x / 2, var1->unknown_0_.y + var1->unknown_c_.y / 2, var1->unknown_0_.z + var1->unknown_c_.z / 2);
 
         if (func_02031118(&var2, &var4) != 0)
             return var1;

@@ -72,7 +72,7 @@ struct Struct_0209c3b4_2;
 extern "C" void PlayMusic_0209c3b4(struct Struct_0209c3b4_2* manager, int musicIndex);
 struct Struct_02059cfc_2;
 struct Struct_02059cfc_3;
-extern "C" void func_02059f38(Struct_02059cfc_2*, Struct_02059cfc_3*);
+extern "C" void SetObject3DPositionFromVector_02059f38(Struct_02059cfc_2*, Struct_02059cfc_3*);
 struct Struct_02033834;
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 struct TextureVRAMArea_0203d028;
@@ -377,7 +377,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
                     Struct_ov009_0218aa28 var26 = *(Struct_ov009_0218aa28*)((char*)var24 + 0x44);
                     Struct_ov009_0218aa28 var27 = *(Struct_ov009_0218aa28*)((char*)var24 + 0x50);
                     var26.unknown_8_ += 0x1800;
-                    func_02059f38((Struct_02059cfc_2*)var24, (Struct_02059cfc_3*)&var26);
+                    SetObject3DPositionFromVector_02059f38((Struct_02059cfc_2*)var24, (Struct_02059cfc_3*)&var26);
                     SetFacingInstantly_02033874((Struct_02033834*)var24, 0);
                 } else {
                     void* var28 = ((GameState*)var0)->GetPartyMemberByIndex(var25);
@@ -525,7 +525,7 @@ phase2:;
         *(unsigned char*)(arg0 + 0x1000 + 0x278) = 1;
         ((Object3D*)(arg0 + 0x1cc + 0x1000))->MaybeSetRegularAnimation(data_ov003_0217e9b4, 1);
         struct Struct_0203d028_3* var40 = (Struct_0203d028_3*)((GameState*)var0)->GetUnknownGameObject();
-        func_02059f38((Struct_02059cfc_2*)(arg0 + 0x1cc + 0x1000), (Struct_02059cfc_3*)((char*)var40 + 0x44));
+        SetObject3DPositionFromVector_02059f38((Struct_02059cfc_2*)(arg0 + 0x1cc + 0x1000), (Struct_02059cfc_3*)((char*)var40 + 0x44));
         ((Object3D*)(arg0 + 0x1cc + 0x1000))->SetScale(&((Object3D*)var40)->GetScale());
         SetBrightness(var1, 0, 0xa);
         *(short*)(arg0 + 6) = 0xf;
@@ -562,7 +562,7 @@ phase2:;
                 Struct_ov009_0218aa28 var46 = *(Struct_ov009_0218aa28*)((char*)var44 + 0x44);
                 Struct_ov009_0218aa28 var47 = *(Struct_ov009_0218aa28*)((char*)var44 + 0x50);
                 var46.unknown_8_ -= 0x1800;
-                func_02059f38((Struct_02059cfc_2*)var44, (Struct_02059cfc_3*)&var46);
+                SetObject3DPositionFromVector_02059f38((Struct_02059cfc_2*)var44, (Struct_02059cfc_3*)&var46);
                 SetFacingInstantly_02033874((Struct_02033834*)var44, 0x323d);
             } else {
                 void* var48 = ((GameState*)var0)->GetPartyMemberByIndex(var45);
@@ -888,7 +888,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
                     Struct_ov009_0218aa28 var93 = *(Struct_ov009_0218aa28*)((char*)var91 + 0x44);
                     Struct_ov009_0218aa28 var94 = *(Struct_ov009_0218aa28*)((char*)var91 + 0x50);
                     var93.unknown_8_ += 0x1800;
-                    func_02059f38((Struct_02059cfc_2*)var91, (Struct_02059cfc_3*)&var93);
+                    SetObject3DPositionFromVector_02059f38((Struct_02059cfc_2*)var91, (Struct_02059cfc_3*)&var93);
                     SetFacingInstantly_02033874((Struct_02033834*)var91, 0);
                 } else {
                     void* var95 = ((GameState*)var68)->GetPartyMemberByIndex(var92);
@@ -1038,7 +1038,7 @@ phase2:;
         *(unsigned char*)(arg0 + 0x1000 + 0x3e8) = 1;
         ((Object3D*)(arg0 + 0x33c + 0x1000))->MaybeSetRegularAnimation(data_ov003_021801f8, 1);
         struct Struct_0203d028_3* var109 = (Struct_0203d028_3*)((GameState*)var68)->GetUnknownGameObject();
-        func_02059f38((Struct_02059cfc_2*)(arg0 + 0x33c + 0x1000), (Struct_02059cfc_3*)((char*)var109 + 0x44));
+        SetObject3DPositionFromVector_02059f38((Struct_02059cfc_2*)(arg0 + 0x33c + 0x1000), (Struct_02059cfc_3*)((char*)var109 + 0x44));
         ((Object3D*)(arg0 + 0x33c + 0x1000))->SetScale(&((Object3D*)var109)->GetScale());
         SetBrightness(var69, 0, 0xa);
         *(short*)(arg0 + 6) = 0xf;
@@ -1074,7 +1074,7 @@ phase2:;
                 Struct_ov009_0218aa28 var116 = *(Struct_ov009_0218aa28*)((char*)var114 + 0x44);
                 Struct_ov009_0218aa28 var117 = *(Struct_ov009_0218aa28*)((char*)var114 + 0x50);
                 var116.unknown_8_ -= 0x1800;
-                func_02059f38((Struct_02059cfc_2*)var114, (Struct_02059cfc_3*)&var116);
+                SetObject3DPositionFromVector_02059f38((Struct_02059cfc_2*)var114, (Struct_02059cfc_3*)&var116);
                 SetFacingInstantly_02033874((Struct_02033834*)var114, 0x323d);
             } else {
                 void* var118 = ((GameState*)var68)->GetPartyMemberByIndex(var115);

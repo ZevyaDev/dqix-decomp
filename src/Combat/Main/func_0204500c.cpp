@@ -9,7 +9,7 @@ extern "C" void func_02044f3c(void*, const char*, int);
 extern "C" void func_0206cb14(void*, int, unsigned short);
 extern "C" void func_0205e944(void*, int);
 extern "C" void func_02041bbc(Struct_0204166c*);
-extern "C" void func_02043270(void*, int, int, int, int);
+extern "C" void SetMessageWindowRect_02042b98(void*, int, int, int, int);
 extern "C" void func_02044d0c(void);
 extern "C" void func_02044104(Struct_0204394c*);
 extern "C" void func_020698d8(void*, int, const char*, char*);
@@ -21,7 +21,7 @@ extern "C" int func_020e1f1c(void*);
 extern "C" void func_020e2110(void*);
 extern "C" void func_020e23f4(void*);
 extern "C" void func_020e2478(int*);
-extern "C" void func_020e2cc4(Struct_020439b0*, int);
+extern "C" void SetDisplayWindowEnabled_020e2cc4(DisplayWindow_020439b0*, int);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern int gSoundEffectManager_02108760;
 
@@ -37,7 +37,7 @@ extern "C" void func_02044f3c(struct MessageWindow_02021b84* arg0, const char* a
 extern "C" void func_0206b198(struct Struct_0204500c_4*, unsigned short);
 extern "C" void func_0205e944(void* arg0, int arg1);
 extern "C" void func_020416c0(struct Struct_0204166c*);
-extern "C" void func_02042b98(struct MessageWindow_02021b84* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void SetMessageWindowRect_02042b98(struct MessageWindow_02021b84* window, int x, int y, int width, int height);
 extern "C" void func_02042fcc(struct Struct_02042c68*);
 extern "C" void func_02045824(struct Struct_02042c68_2*, int, int);
 extern "C" void func_02044d0c(void);
@@ -55,7 +55,7 @@ extern "C" int func_020e1f1c(void*);
 extern "C" void func_020e2110(void*);
 extern "C" void func_020e23f4(void*);
 extern "C" void func_020e2478(int*);
-extern "C" void func_020e2cc4(struct Struct_020439b0*, int);
+extern "C" void SetDisplayWindowEnabled_020e2cc4(struct DisplayWindow_020439b0*, int);
 extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028*);
 
 extern int gSoundEffectManager_02108760;
@@ -113,7 +113,7 @@ extern "C" ARM void StartMessage_0204500c(MessageWindow_02021b84* window, const 
         window->unknown_1864_ = 0x10;
         window->unknown_174c_ = 0x7fff;
         window->unknown_9a4_ = 3;
-        func_02043270(window, 2, 0x80, 0xfc, 0x3e);
+        SetMessageWindowRect_02042b98(window, 2, 0x80, 0xfc, 0x3e);
         window->unknown_19b8_ = 0;
         window->unknown_19b1_ = 1;
         window->unknown_860_ = 0x80;
@@ -159,7 +159,7 @@ extern "C" ARM void StartMessage_0204500c(MessageWindow_02021b84* window, const 
         func_020698d8(window, window->unknown_1788_, text, window->unknown_2c_);
         func_02069ecc((Struct_0204500c_5*)window, window->unknown_2c_, window->unknown_30_);
         func_0206c570(window, window->unknown_30_);
-        func_02043270(window, 2, 0x74, 0xfc, 0x4a);
+        SetMessageWindowRect_02042b98(window, 2, 0x74, 0xfc, 0x4a);
         window->unknown_1728_ = 2;
         window->unknown_172c_ = 0x7e;
         window->unknown_1730_ = 0xc;
@@ -193,7 +193,7 @@ extern "C" ARM void StartMessage_0204500c(MessageWindow_02021b84* window, const 
         window->unknown_19ca_ = 1;
         window->unknown_19b4_ = 0;
         for (int var7 = 0; var7 < 2; var7++) {
-            func_020e2cc4(&window->unknown_1964_[var7].unknown_0_, 0);
+            SetDisplayWindowEnabled_020e2cc4(&window->unknown_1964_[var7].unknown_0_, 0);
         }
         if (window->unknown_1e28_ != 0) ResetTextureVRAMState_0207df50(window->unknown_1e28_);
     }
@@ -279,7 +279,7 @@ extern "C" ARM void StartMessage_0204500c(struct MessageWindow_02021b84* window,
         window->unknown_1864_ = 0x10;
         window->unknown_187c_ = 0x7fff;
         window->unknown_9a4_ = 3;
-        func_02042b98(window, 2, 0x80, 0xfc, 0x3e);
+        SetMessageWindowRect_02042b98(window, 2, 0x80, 0xfc, 0x3e);
         func_02042fcc(&window->unknown_930_);
         window->unknown_19b8_ = 0;
         window->unknown_19b1_ = 1;
@@ -330,7 +330,7 @@ extern "C" ARM void StartMessage_0204500c(struct MessageWindow_02021b84* window,
         func_020695f4(window, var22, var21, window->unknown_19dc_);
         func_02069fec(window, var21, var22);
         func_0206a974((struct Struct_0204500c_3*)window, var22, arg3);
-        func_02042b98(window, 2, 0x74, 0xfc, 0x4a);
+        SetMessageWindowRect_02042b98(window, 2, 0x74, 0xfc, 0x4a);
         window->unknown_1858_ = 2;
         window->unknown_185c_ = 0x7e;
         window->unknown_1860_ = 0xc;
@@ -364,7 +364,7 @@ extern "C" ARM void StartMessage_0204500c(struct MessageWindow_02021b84* window,
         window->unknown_19ca_ = 1;
         window->unknown_19b4_ = 0;
         for (int var24 = 0; var24 < 2; var24++) {
-            func_020e2cc4(&window->unknown_1964_[var24], 0);
+            SetDisplayWindowEnabled_020e2cc4(&window->unknown_1964_[var24], 0);
         }
         if (window->unknown_1e28_ != 0) {
             ResetTextureVRAMState_0207df50(window->unknown_1e28_);

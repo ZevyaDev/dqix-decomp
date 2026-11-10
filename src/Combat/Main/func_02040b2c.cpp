@@ -7,7 +7,7 @@ enum { Enum_02040b2c_724 = 0x2d4 };
 
 struct Struct_0203cda8;
 extern "C" void func_0203cda8(struct Struct_0203cda8* arg0, int arg1);
-extern "C" void func_0203db34(unsigned char* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetObject3DRotation_0203db34(unsigned char* object, int x, int y, int z);
 
 struct Struct_02040b2c { int unknown_0_, unknown_4_, unknown_8_; };
 
@@ -31,7 +31,7 @@ extern "C" ARM void func_02040b2c(struct Struct_0203e2c4_2* arg0, int arg1) {
     var1 = arg0->unknown_18_;
     if (var1 != NULL) {
         struct Struct_02040b2c var2 = *(struct Struct_02040b2c*)(var1 + 0x50);
-        func_0203db34(var1, var2.unknown_0_, arg1, var2.unknown_8_);
+        SetObject3DRotation_0203db34(var1, var2.unknown_0_, arg1, var2.unknown_8_);
         var1 = arg0->unknown_18_;
         *(int*)(var1 + 0xb0) = arg1;
         return;
@@ -40,7 +40,7 @@ extern "C" ARM void func_02040b2c(struct Struct_0203e2c4_2* arg0, int arg1) {
     if (var1 == NULL) return;
     {
         struct Struct_02040b2c var3 = *(struct Struct_02040b2c*)(var1 + 0x50);
-        func_0203db34(var1, var3.unknown_0_, arg1, var3.unknown_8_);
+        SetObject3DRotation_0203db34(var1, var3.unknown_0_, arg1, var3.unknown_8_);
     }
     var1 = arg0->unknown_1c_;
     *(int*)(var1 + Enum_02040b2c_724) = arg1;

@@ -2,13 +2,13 @@
 
 struct Struct_0207fdf0_2;
 struct SoundEffectManager_02108760;
-struct Struct_02081f20_2;
+struct KeyRepeat_02081f20_2;
 
 extern "C" void func_0207fdf0(struct Struct_0207fdf0_2* arg0, int arg1);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" short func_02080468(void* arg0, int arg1);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
-extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
+extern "C" void func_0208203c(struct KeyRepeat_02081f20_2* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov003_02175f90(void* arg0);
 extern "C" void func_ov003_02177938(void* arg0);
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov003_0217b214(char* arg0) {
         *(short*)((char*)var0 + 0x2a) = *(short*)(arg0 + 0xf00 + 0x8e);
         SetMenuLayoutWindowPalette_02080c68(var0, *(short*)(arg0 + 0xf00 + 0x7a), 0);
         OpenMenuLayoutWindow_020813ec(var0, *(short*)(arg0 + 0xf00 + 0x7a));
-        func_0208203c((struct Struct_02081f20_2*)(arg0 + 0x808));
+        func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + 0x808));
         *(void**)(arg0 + 0xf74) = 0;
         (*(unsigned char*)(arg0 + 0xf00 + 0xbb))++;
         func_ov003_02177938(arg0);
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov003_0217b214(char* arg0) {
         SetMenuLayoutWindowPalette_02080c68(var0, 0x15, 1);
         if (func_ov003_021765b4(arg0)) {
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-            func_0208203c((struct Struct_02081f20_2*)(arg0 + 0x808));
+            func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + 0x808));
             *(void**)(arg0 + 0xf74) = 0;
             if (func_ov003_02175f90(arg0) == 0) {
                 *(short*)(arg0 + 0xf00 + 0xb2) = 0x24;
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov003_0217b214(char* arg0) {
         *(short*)((char*)var2 + 0x36) = *(short*)(arg0 + 0x1000 + 0x12);
         SetMenuLayoutWindowPalette_02080c68(var2, *(short*)(arg0 + 0xf00 + 0xfe), 0);
         OpenMenuLayoutWindow_020813ec(var2, *(short*)(arg0 + 0xf00 + 0xfe));
-        func_0208203c((struct Struct_02081f20_2*)(arg0 + 0x88c));
+        func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + 0x88c));
         *(void**)(arg0 + 0xff8) = 0;
         (*(unsigned char*)(arg0 + 0x1000 + 0x3f))++;
         func_ov003_02177938(arg0);
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov003_0217b214(char* arg0) {
         SetMenuLayoutWindowPalette_02080c68(var2, 0x15, 1);
         if (func_ov003_021765b4(arg0)) {
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-            func_0208203c((struct Struct_02081f20_2*)(arg0 + 0x88c));
+            func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + 0x88c));
             *(void**)(arg0 + 0xff8) = 0;
             if (func_ov003_02175f90(arg0) == 0) {
                 *(short*)(arg0 + 0x1000 + 0x36) = 0x24;

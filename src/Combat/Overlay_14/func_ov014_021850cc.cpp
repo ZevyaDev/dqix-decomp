@@ -131,7 +131,7 @@ extern "C" void func_02096fb0(void* arg0);
 extern "C" void func_02097054(Struct_02000c9c_52* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, short arg4);
 extern "C" Struct_ov014_021850cc* func_02097238(Struct_02097238* arg0);
 extern "C" Struct_ov014_021850cc_3* func_02097224(Struct_02097054_5* arg0, int arg1);
-extern "C" void func_020e526c(void* arg0);
+extern "C" void InitNounTable_020e526c(void* nounTable);
 extern "C" void func_020e56fc(void* arg0, int arg1, int arg2);
 extern "C" const char** FindNounInTable_020e5294(void* nounTable, int nounId);
 extern "C" void ExpandInflectionTags_020e4864(const char* text, char* buffer, int, int, int, int);
@@ -240,7 +240,7 @@ extern "C" ARM void func_ov014_021850cc(Struct_ov014_02184dcc* arg0) {
                 func_020e207c(var13, arg0->unknown_60_[1], var12->unknown_8_[1]);
 #else
                 char var14[0xc];
-                func_020e526c(var14);
+                InitNounTable_020e526c(var14);
                 func_020e56fc(var14, (int)var10, var11);
                 const char** var15 = FindNounInTable_020e5294(var14, var12->unknown_8_[0]);
                 if (var15 != NULL) {

@@ -24,7 +24,7 @@ extern "C" int GetAlchemyCount_020ac0b4(void* count);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
-extern "C" void func_020e2d24(int* arg0, int arg1, int arg2);
+extern "C" void SetDisplayWindowInsideLayers_020e2d24(int* displayWindow, int layers, int isEffectEnabled);
 extern "C" void* func_ov004_02168ad4(void* arg0, int arg1);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* GetLocalWireless_0202ae18(void);
@@ -219,7 +219,7 @@ extern "C" ARM int func_ov004_02168b44(void* arg0) {
     char* var22 = (char*)GetMessageWindow_020421a0();
     ResetMessageWindow_02043204(var22);
     *(unsigned char*)(var22 + Enum_ov004_02168b44_6498) = 1;
-    func_020e2d24((int*)(var22 + Enum_ov004_02168b44_6500), 9, 1);
-    func_020e2d24((int*)(var22 + Enum_ov004_02168b44_6536), 0x19, 1);
+    SetDisplayWindowInsideLayers_020e2d24((int*)(var22 + Enum_ov004_02168b44_6500), 9, 1);
+    SetDisplayWindowInsideLayers_020e2d24((int*)(var22 + Enum_ov004_02168b44_6536), 0x19, 1);
     return 0;
 }

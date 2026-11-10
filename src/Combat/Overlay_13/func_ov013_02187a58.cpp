@@ -22,7 +22,7 @@ extern "C" Struct_0208e024_2* func_0208e024(Struct_0208e024* arg0, int arg1, int
 #define func_0208e934(list, kind, index) ((Struct_ov013_02187a58*)func_0208e024((Struct_0208e024*)(list), (kind), (index)))
 struct Struct_0208e06c;
 extern "C" Struct_ov013_02187a58* func_0208e06c(Struct_0208e06c* arg0, int arg1);
-extern "C" int func_020dd11c(unsigned int, unsigned int);
+extern "C" int GetVocationSkill_020dd11c(unsigned int, unsigned int);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
 struct StringList_02072a68_2;
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov013_02187a58(void* arg0, void* arg1) {
     int var2;
     unsigned char* var3 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var1);
     if (!var3) return;
-    int var4 = func_020dd11c(*(unsigned int*)(var3 + 0x8b8) & 0xff, var0[0x54]);
+    int var4 = GetVocationSkill_020dd11c(*(unsigned int*)(var3 + 0x8b8) & 0xff, var0[0x54]);
     int var5 = (var3 + var4)[0x464];
     int var6 = 30;
     const char* var7 = (const char*)FindStringInList_02072a68((StringList_02072a68_2*)(var0 + 4), var4);
@@ -113,7 +113,7 @@ struct StringList_02072a68_2;
 extern "C" ARM struct Struct_ov013_02187a58_3* func_0208e024(struct Struct_0208e024* arg0, int arg1, int arg2);
 extern "C" ARM struct Struct_ov013_02187a58_3* func_0208e06c(struct Struct_0208e06c* arg0, int arg1);
 extern "C" ARM void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
-extern "C" ARM int func_020dd11c(unsigned int arg0, unsigned int arg1);
+extern "C" ARM int GetVocationSkill_020dd11c(unsigned int vocation, unsigned int index);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void* GetMessageWindow_020421a0(void);
 
@@ -154,7 +154,7 @@ extern "C" ARM void func_ov013_02187a58(void* arg0, void* arg1) {
         return;
     }
 
-    int var27 = func_020dd11c(*(unsigned int*)(var26 + 0x950) & 0xff, var23[0x68]);
+    int var27 = GetVocationSkill_020dd11c(*(unsigned int*)(var26 + 0x950) & 0xff, var23[0x68]);
     int var28 = (var26 + var27)[0x464];
     int var29 = 0x1e;
     void* var30 = FindStringInList_02072a68((struct StringList_02072a68_2*)(var23 + 4), var27);

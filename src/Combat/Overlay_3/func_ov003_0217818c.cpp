@@ -5,9 +5,9 @@ enum { Enum_ov003_0217818c_2204 = 0x818 };
 enum { Enum_ov003_0217818c_2204 = 0x89c };
 #endif
 
-extern "C" int func_02080b40(void* arg0, int arg1);
+extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
 extern "C" int func_02080b2c(void* arg0, int arg1);
-extern "C" void func_0208103c(void* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutTextStringId_0208103c(void* menuLayout, int textId, int stringId);
 extern "C" void func_02080798(void* arg0, int arg1, int arg2);
 
 struct Struct_ov003_021767ec {
@@ -28,8 +28,8 @@ extern "C" ARM void func_ov003_0217818c(char* arg0, struct Struct_ov003_021767ec
 		var1 &= 0xff;
 	}
 	if (var1) {
-		func_02080b40(var0, arg2);
-		func_0208103c(var0, arg3, 0x48);
+		ShowMenuLayoutText_02080b40(var0, arg2);
+		SetMenuLayoutTextStringId_0208103c(var0, arg3, 0x48);
 #if !defined(jpn)
 #if !defined(jpn)
 		func_02080798(var0, arg3, 1);
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov003_0217818c(char* arg0, struct Struct_ov003_021767ec
 #endif
 	} else {
 		func_02080b2c(var0, arg2);
-		func_0208103c(var0, arg3, 0x46);
+		SetMenuLayoutTextStringId_0208103c(var0, arg3, 0x46);
 #if !defined(jpn)
 #if !defined(jpn)
 		func_02080798(var0, arg3, 1);

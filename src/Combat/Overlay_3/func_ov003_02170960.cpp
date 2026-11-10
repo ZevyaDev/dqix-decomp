@@ -9,7 +9,7 @@ extern "C" void func_02042764(unsigned char* arg0, char* arg1, int arg2);
 struct Noun_020e4b34 { int unknown_0_; int unknown_4_; unsigned int unknown_8_; };
 extern "C" void SetNoun_020e4b34(Noun_020e4b34* noun, void* singularText, int pluralText, unsigned int singularIndefiniteArticle,
     unsigned char pluralIndefiniteArticle, unsigned char singularDefiniteArticle, unsigned char pluralDefiniteArticle, unsigned char gender,
-    unsigned char isPluralOnly, unsigned char arg9, unsigned char hasInitialVowelSound, unsigned char isInitialVowelFromText);
+    unsigned char isPluralOnly, unsigned char isProperName, unsigned char hasInitialVowelSound, unsigned char isInitialVowelFromText);
 
 extern "C" int GetStandardString_020e51cc(int stringId);
 

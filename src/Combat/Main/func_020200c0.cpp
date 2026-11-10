@@ -11,10 +11,10 @@ struct Struct_020200c0_3 {
     short unknown_a_;
 };
 
-struct Struct_020200c0_4 {
-    int unknown_0_;
-    int unknown_4_;
-    unsigned char unknown_8_;
+struct Canvas_020200c0_4 {
+    int pCharacterData_0_;
+    int pRects_4_;
+    unsigned char rectCount_8_;
 };
 
 struct Struct_020200c0_5 {
@@ -60,10 +60,10 @@ extern "C" Struct_020200c0_6* GetMessageWindow_020421a0(void);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" void func_02020520(struct Struct_020200c0_3* arg0);
 extern "C" void func_0205b890(struct Struct_020200c0_3* arg0, int arg1, int arg2);
-extern "C" void func_0205b20c(struct Struct_020200c0_4* arg0);
-extern "C" void func_0205b220(void* arg0, int arg1);
-extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
-extern "C" void func_0205b234(struct Struct_020200c0_4* arg0, short arg1, short arg2, const char* arg3, int arg4, int arg5);
+extern "C" void InitCanvas_0205b20c(struct Canvas_020200c0_4* canvas);
+extern "C" void SetCanvasCharacterData_0205b220(void* canvas, int characterData);
+extern "C" void SetCanvasRects_0205b228(void* canvas, int rects, unsigned char rectCount);
+extern "C" void func_0205b234(struct Canvas_020200c0_4* arg0, short arg1, short arg2, const char* arg3, int arg4, int arg5);
 extern "C" int GetHaloObject_ov017_021bdbcc(GameResources* gameResources);
 extern "C" unsigned short GetLevel_0202053c(void* gameObject);
 extern "C" void WaitForVBlank_020c9820(void);
@@ -72,7 +72,7 @@ extern "C" void LoadToSubObjVRAM(const void* src, unsigned int offset, unsigned 
 
 #if defined(jpn)
 extern "C" int GetStringLength_020d2ff0(const char* string);
-extern "C" void func_0205c9ac(struct Struct_020200c0_4* arg0, short arg1, short arg2, int arg3, int arg4, int arg5,
+extern "C" void func_0205c9ac(struct Canvas_020200c0_4* arg0, short arg1, short arg2, int arg3, int arg4, int arg5,
                               unsigned char arg6, unsigned char arg7);
 extern char data_020ef464[];
 extern char data_020ef469[];
@@ -99,10 +99,10 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
     Struct_020200c0_3 var6;
     func_02020520(&var6);
     func_0205b890(&var6, 1, arg1);
-    Struct_020200c0_4 var7;
-    func_0205b20c(&var7);
-    func_0205b220(&var7, (int)var5);
-    func_0205b228(&var7, (int)&var6, 1);
+    Canvas_020200c0_4 var7;
+    InitCanvas_0205b20c(&var7);
+    SetCanvasCharacterData_0205b220(&var7, (int)var5);
+    SetCanvasRects_0205b228(&var7, (int)&var6, 1);
 
     Struct_020200c0_8* var8 = (Struct_020200c0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg0);
     if (var8 == NULL) return;
@@ -152,11 +152,11 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
 #else
 struct Struct_020200c0_2;
 
-extern "C" void func_0205b734(struct Struct_020200c0_4* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" void func_0205b734(struct Canvas_020200c0_4* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" const char* GetStandardString_020e51cc(int stringId);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" void* GetWindowTile_020421b0(int tileIndex);
-extern "C" void func_0205b530(struct Struct_020200c0_4* arg0, void* arg1, short arg2, short arg3, int arg4, int arg5);
+extern "C" void func_0205b530(struct Canvas_020200c0_4* arg0, void* arg1, short arg2, short arg3, int arg4, int arg5);
 extern "C" void func_0205b674(struct Struct_020200c0_2* arg0, short arg1, int arg2, int arg3,
                                          unsigned char arg4, unsigned char arg5, unsigned char arg6, unsigned char arg7);
 extern "C" void __clear(void* arg0, int arg1);
@@ -184,10 +184,10 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
     Struct_020200c0_3 var6;
     func_02020520(&var6);
     func_0205b890(&var6, 1, arg1);
-    Struct_020200c0_4 var7;
-    func_0205b20c(&var7);
-    func_0205b220(&var7, (int)var5);
-    func_0205b228(&var7, (int)&var6, 1);
+    Canvas_020200c0_4 var7;
+    InitCanvas_0205b20c(&var7);
+    SetCanvasCharacterData_0205b220(&var7, (int)var5);
+    SetCanvasRects_0205b228(&var7, (int)&var6, 1);
     func_0205b734(&var7, 7, 0x10, 0x17, 0x18, 1);
     func_0205b234(&var7, 7, 0xe, GetStandardString_020e51cc(0xc9), 0xf, 0);
     func_0205b734(&var7, 7, 0x1c, 0x17, 0x24, 1);

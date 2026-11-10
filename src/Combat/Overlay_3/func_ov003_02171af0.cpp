@@ -18,7 +18,7 @@ extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void StopLocalWireless_0202b0f4(void* wireless);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" void func_0202c1e8(struct LocalWireless_0202b2f0* arg0, int arg1);
-extern "C" void func_0202c288(void* arg0);
+extern "C" void UpdateLocalWirelessPlayerCount_0202c288(void* wireless);
 extern "C" void func_ov003_02172518(struct Struct_ov003_021714f0* arg0, int arg1);
 
 struct Struct_ov003_02171af0 {
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov003_02171af0(struct Struct_ov003_02171af0* arg0) {
     signed char var2 = GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var1);
     func_0202c1e8((struct LocalWireless_0202b2f0*)var1, var2);
     func_0202c1e8((struct LocalWireless_0202b2f0*)var1, arg0->unknown_199_);
-    func_0202c288(var1);
+    UpdateLocalWirelessPlayerCount_0202c288(var1);
 
 #if defined(jpn)
     func_ov003_021714f0(arg0);

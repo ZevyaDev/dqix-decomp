@@ -17,7 +17,7 @@ extern "C" int func_020abb64(void);
 struct StringList_02072a68_2;
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
-extern "C" void func_02012028(void* arg0, unsigned char arg1);
+extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
 // USA: func_ov004_0216d5b0
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov004_0216d5b0(void* arg0) {
 #endif
         var3->unknown_19ca_ = 0;
         var3->unknown_19af_ = 0;
-        func_02012028(var2, 0);
+        SetTitleIdleTimeoutEnabled_02012028(var2, 0);
         return 0;
     }
 
@@ -50,7 +50,7 @@ extern "C" ARM int func_ov004_0216d5b0(void* arg0) {
     StartMessage_0204500c(var3, (const char*)var5, 0, 0xe3);
 #endif
     SetGameMode_0200fb94((char*)var2, 7);
-    func_02012028(var2, 0);
+    SetTitleIdleTimeoutEnabled_02012028(var2, 0);
     QueueMenuScriptEntry_ov011_021848a0(arg0, 0x97);
     return 0;
 }

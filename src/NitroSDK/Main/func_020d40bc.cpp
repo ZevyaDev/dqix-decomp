@@ -13,25 +13,25 @@ extern "C" int func_020c7e0c(void* arg0, void* arg1, int arg2);
 
 extern int data_021142e8;
 
-// USA: func_020d40bc
-extern "C" ARM int func_020d40bc(int arg0, unsigned short arg1, ...)
+// USA: SendWirelessCommand_020d40bc
+extern "C" ARM int SendWirelessCommand_020d40bc(int command, unsigned short paramCount, ...)
 {
-    Type_02001bdc var0;
-    int var1;
-    int var2;
-    unsigned long* var3;
-    var3 = (unsigned long*)func_020d4064();
-    if (var3 == NULL)
+    Type_02001bdc params;
+    int i;
+    int sendResult;
+    unsigned long* commandBuffer;
+    commandBuffer = (unsigned long*)func_020d4064();
+    if (commandBuffer == NULL)
         return 8;
-    *(unsigned short*)var3 = arg0;
-    va_start(var0, arg1);
-    for (var1 = 0; var1 < arg1; var1++)
-        var3[var1 + 1] = va_arg(var0, unsigned long);
-    va_end(var0);
-    CleanCacheRange(var3, 0x100);
-    var2 = SendCommandToArm7(10, (int)var3, false);
-    func_020c7e0c(&data_021142e8, var3, 1);
-    if (var2 < 0)
+    *(unsigned short*)commandBuffer = command;
+    va_start(params, paramCount);
+    for (i = 0; i < paramCount; i++)
+        commandBuffer[i + 1] = va_arg(params, unsigned long);
+    va_end(params);
+    CleanCacheRange(commandBuffer, 0x100);
+    sendResult = SendCommandToArm7(10, (int)commandBuffer, false);
+    func_020c7e0c(&data_021142e8, commandBuffer, 1);
+    if (sendResult < 0)
         return 8;
     return 2;
 }

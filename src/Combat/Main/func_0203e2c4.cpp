@@ -73,7 +73,7 @@ extern "C" ARM void func_0203e2c4(void *arg0, unsigned short arg1) {
             NPC_0203dce4 **var3 = var0->unknown_c_;
             for (unsigned int var4 = 0; var4 < var0->unknown_8c_; ++var3, ++var4) {
                 NPC_0203dce4 *var5 = *var3;
-                unsigned short *var6 = (unsigned short *) func_02040528(&var5->flags_0_);
+                unsigned short *var6 = (unsigned short *) GetNPCData_02040528(&var5->flags_0_);
                 void *var7 = func_02040538((Struct_0203e0a0 *) var5);
                 if (var6 == NULL || var7 == NULL) {
                     continue;

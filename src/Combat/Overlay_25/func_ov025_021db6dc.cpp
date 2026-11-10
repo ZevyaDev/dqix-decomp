@@ -3,7 +3,7 @@
 #include "Resource/GameResources.h"
 
 struct Struct_02033b58;
-extern "C" void func_02033b58(struct Struct_02033b58* arg0, unsigned char arg1);
+extern "C" void SetMotionKeepingAnimation_02033b58(struct Struct_02033b58* object, unsigned char motion);
 extern "C" void func_ov017_02195540(unsigned char* arg0);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_ov025_021ed124(unsigned char* arg0);
@@ -14,7 +14,7 @@ extern "C" void func_ov025_021eed58(char* arg0);
 
 extern "C" ARM void func_ov025_021e88d8(void* arg0);
 extern "C" ARM void func_ov025_021dfbfc(void* arg0);
-extern "C" int func_ov000_0215ec1c(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectAllEnemyCombatantIndices_ov000_0215ec1c(void* battle, short* indices, int maxCount, int arg3);
 
 #if defined(jpn)
 enum { Enum_ov025_021db6dc_680 = 0x224, Enum_ov025_021db6dc_668 = 0x218, Enum_ov025_021db6dc_23216 = 0x5ca0, Enum_ov025_021db6dc_2864 = 0xaac, Enum_ov025_021db6dc_3760 = 0xe2c, Enum_ov025_021db6dc_6590 = 0x17ee, Enum_ov025_021db6dc_672 = 0x21c, Enum_ov025_021db6dc_2192 = 0x80c, Enum_ov025_021db6dc_3756 = 0xe28, Enum_ov025_021db6dc_28629 = 0x71c5 };
@@ -43,13 +43,13 @@ extern "C" ARM void func_ov025_021db6dc(void* arg0) {
 
     short var4[16];
     int var5 = 0;
-    var5 = var5 + func_ov000_0215ec1c(*(void**)(var0 + Enum_ov025_021db6dc_668), var4, 0x10, var5);
+    var5 = var5 + CollectAllEnemyCombatantIndices_ov000_0215ec1c(*(void**)(var0 + Enum_ov025_021db6dc_668), var4, 0x10, var5);
     for (int var6 = 0; var6 < var5; var6++) {
         GameObject* var7 = var1->GetCombatantByIndex(var4[var6]);
         if (var7 != 0) {
             int var8 = *(int*)((char*)var7->currentStats_ + 0x14);
             if (!(var8 & 1)) {
-                func_02033b58((struct Struct_02033b58*)var7, 0);
+                SetMotionKeepingAnimation_02033b58((struct Struct_02033b58*)var7, 0);
             }
         }
     }

@@ -4,7 +4,7 @@
 extern "C" void* GetLocalWireless_0202ae18(void);
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
-extern "C" void func_0202c288(void* arg0);
+extern "C" void UpdateLocalWirelessPlayerCount_0202c288(void* wireless);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
 extern "C" void func_0206f81c(void* arg0);
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov017_021b9a98(Struct_02061c04_11* arg0, int arg1, unsi
 
     if (arg0->unknown_130_ == 0) return;
 
-    func_0202c288(var0);
+    UpdateLocalWirelessPlayerCount_0202c288(var0);
 
     int var2 = arg0->unknown_131_ + 1;
     arg0->unknown_131_ = (unsigned char)var2;

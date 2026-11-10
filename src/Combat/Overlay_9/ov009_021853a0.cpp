@@ -47,7 +47,7 @@ struct TextWindow_0205cf78_2;
 struct Struct_0201099c_3;
 struct TextureVRAMArea_0203d028;
 struct GameResources;
-struct Struct_0202e5c0;
+struct Camera_0202e5c0;
 struct Sprite_02043368_2;
 struct SpriteAnimationList_02043368;
 struct SoundEffectManager_02108760;
@@ -754,7 +754,7 @@ extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void InitFollowCamera_020a2010(void* storage);
-extern "C" void func_0202e5c0(Struct_0202e5c0* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetCameraEye_0202e5c0(Camera_0202e5c0* camera, int x, int y, int z);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
 extern "C" void UpdateCamera_0202e0a4(void* camera);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
@@ -808,7 +808,7 @@ extern "C" void func_02083e28(void*, int);
 extern "C" void func_020863c4(unsigned char*);
 extern "C" void ClearSpellTable_0209a804(int*);
 extern "C" void func_0209a810(Struct_0201099c_18*, void*);
-extern "C" void func_02083b60(unsigned char*, int);
+extern "C" void LearnSpell_02083b60(unsigned char*, int);
 extern "C" void func_020830cc(void*, Struct_ov009_0218742c*);
 extern "C" void func_02086778(void*, Struct_ov009_0218742c*, unsigned char, unsigned char);
 extern "C" Object3D* func_ov023_021e6194(void*);
@@ -1597,7 +1597,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_6* arg0)
 
         Struct_ov009_021842a0_6* var19 = arg0;
         InitFollowCamera_020a2010(var19->unknown_800_);
-        func_0202e5c0((Struct_0202e5c0*)var19->unknown_800_, 0xd000, 0xf800, 0x42ccc);
+        SetCameraEye_0202e5c0((Camera_0202e5c0*)var19->unknown_800_, 0xd000, 0xf800, 0x42ccc);
         SetCameraTarget_0202e5c8((unsigned char*)var19->unknown_800_, 0xd000, 0xf800, 0);
         UpdateCamera_0202e0a4(var19->unknown_800_);
         DisableCameraFollow_020a27a0(var19->unknown_800_);
@@ -2432,7 +2432,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             Struct_ov009_0218742c_3* var23 = var20.unknown_10c_[var21];
             for (int var24 = 0; var24 < 20; ++var24) {
                 if (var22 >= var23[var24].unknown_2_ && var23[var24].unknown_2_ != 0)
-                    func_02083b60((unsigned char*)arg0->unknown_d88_, var23[var24].unknown_0_);
+                    LearnSpell_02083b60((unsigned char*)arg0->unknown_d88_, var23[var24].unknown_0_);
             }
             func_020830cc(arg0->unknown_d88_, &var8);
             func_02086778(var7, &var8, 0, 0);

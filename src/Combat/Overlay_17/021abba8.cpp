@@ -82,7 +82,7 @@ extern "C" void CancelFontLoad_02094ab0(int loader);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
-extern "C" int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigned int arg4, TextureVRAMArea_0203d028* arg5);
+extern "C" int AddEffectResource_02057e6c(void* effectManager, int effectId, SafeAllocator* allocator, void* fileData, unsigned int fileSize, TextureVRAMArea_0203d028* textureVRAMArea);
 extern "C" void func_02010834(Struct_02010834* arg0, int arg1, int* arg2, int* arg3);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
@@ -96,7 +96,7 @@ extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" int func_02011b50(void* arg0, int arg1);
-extern "C" void func_ov017_021b2174(unsigned char* arg0);
+extern "C" void ResetMenuTask_ov017_021b2174(unsigned char* node);
 extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2* arg0, char* arg1);
 extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021b2bf4(Struct_0206f81c_3* arg0, unsigned int arg1);
@@ -150,7 +150,7 @@ extern "C" ARM void func_ov017_021abba8(Struct_ov017_021abba8* arg0, Queue_02038
             ResetTextureVRAMState_0207df50(var9);
             void* var10 = arg0->unknown_10_.Allocate(var7);
             memcpy(var10, var8, var7);
-            func_02057e6c(var4, 5, &arg0->unknown_10_, var10, var7, var9);
+            AddEffectResource_02057e6c(var4, 5, &arg0->unknown_10_, var10, var7, var9);
             var5->RemoveTask(arg0->unknown_24_);
             arg0->unknown_8_++;
         }
@@ -268,7 +268,7 @@ extern "C" ARM void func_ov017_021abba8(Struct_ov017_021abba8* arg0, Queue_02038
                 Queue_0201bdac_2* var23;
                 unsigned char* var24 = (unsigned char*)var2->unknown_ptr_array_3afc[0x14];
                 var23 = (Queue_0201bdac_2*)var2->unknown_ptr_array_36fc[0];
-                func_ov017_021b2174(var24);
+                ResetMenuTask_ov017_021b2174(var24);
                 func_ov017_021b2ba0((Struct_0206f81c_2*)var24, &data_ov017_021d78f1);
                 func_ov017_021b2bd0(var24, (int)func_ov004_021689d8, OVERLAY_ID(4));
                 func_ov017_021b2bf4((Struct_0206f81c_3*)var24, 1);

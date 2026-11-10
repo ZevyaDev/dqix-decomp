@@ -16,7 +16,7 @@ struct TextureVRAMArea_02015ef4_5;
 
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
-extern "C" int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, int arg3, int arg4, TextureVRAMArea_02015ef4_5* arg5);
+extern "C" int AddEffectResource_02057e6c(void* effectManager, int effectId, SafeAllocator* allocator, int fileData, int fileSize, TextureVRAMArea_02015ef4_5* textureVRAMArea);
 extern "C" unsigned int func_02012dd0(Struct_02114e20*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void InitTextureVRAMAreaFromSaved_0207dfc8(TextureVRAMArea_02015ef4_5*, TextureVRAMArea_02015ef4_5*);
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov017_021c2b6c(Struct_ov017_021c2b6c* arg0) {
             arg0->unknown_8c_ = 3;
             return;
         }
-        func_02057e6c(var2, 0x11, &arg0->unknown_8_, (int)var7, var4, (TextureVRAMArea_02015ef4_5*)arg0->unknown_1c_);
+        AddEffectResource_02057e6c(var2, 0x11, &arg0->unknown_8_, (int)var7, var4, (TextureVRAMArea_02015ef4_5*)arg0->unknown_1c_);
         arg0->unknown_8d_++;
     } else if (arg0->unknown_8d_ == 1) {
         GameObject* var8 = var0->GetPartyMemberByIndex(arg0->unknown_95_);

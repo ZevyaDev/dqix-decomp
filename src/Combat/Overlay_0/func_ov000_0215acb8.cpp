@@ -50,7 +50,7 @@ extern "C" void func_ov000_02157cdc(void* arg0);
 extern "C" void SetActionResult_ov000_0215ccbc(int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant,
                             short amount, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
-extern "C" void func_ov000_0215ffc4(void* arg0, void* arg1, int arg2);
+extern "C" void AppendTargetResult_ov000_0215ffc4(void* target, void* result, int listIndex);
 
 struct Struct_ov000_0215767c_7;
 struct Struct_ov000_0215767c_6;
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov000_0215acb8(struct Struct_ov000_0215acb8_4* arg0, in
     AddActionResultMessage_ov000_0215a88c(arg0, var4, 0x243);
     var3->unknown_e_ = arg1;
     var3->unknown_17_ = 1;
-    func_ov000_0215ffc4(var3, var4, 0);
+    AppendTargetResult_ov000_0215ffc4(var3, var4, 0);
     func_ov000_02160068((struct Struct_ov000_0215767c_7*)var1, (struct Struct_ov000_0215767c_6*)var2);
     func_ov000_021600cc((struct Struct_ov000_0215767c_5*)var1, (struct Struct_ov000_0215767c_4*)var3);
     arg0->unknown_8e0f_++;

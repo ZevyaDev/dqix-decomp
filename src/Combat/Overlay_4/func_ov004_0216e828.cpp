@@ -6,7 +6,7 @@ extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" unsigned short func_ov023_021f6f10(void*);
 extern "C" void* func_ov023_021fad18(void* arg0);
-extern "C" void func_02012028(void* arg0, unsigned char arg1);
+extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
 
 // USA: func_ov004_0216e828
 extern "C" ARM int func_ov004_0216e828(void* arg0) {
@@ -28,6 +28,6 @@ extern "C" ARM int func_ov004_0216e828(void* arg0) {
             *(int*)((char*)var1 + Enum_ov004_0216e828_736) = var4;
         }
     }
-    func_02012028(GameState::GetInstance(), 0);
+    SetTitleIdleTimeoutEnabled_02012028(GameState::GetInstance(), 0);
     return 0;
 }

@@ -191,7 +191,7 @@ extern "C" void InitItemTable_020de824(void* itemTable);
 extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" int LoadItemTableByCategories_020dea64(void* itemTable, void* allocator, void* fileData, unsigned int fileSize, const void* categories, short categoryCount);
 extern "C" void* func_0208247c(void* arg0);
-extern "C" void func_02082828(Struct_0201099c_13* arg0);
+extern "C" void InitPartyMemberData_02082828(Struct_0201099c_13* memberData);
 extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
 extern "C" ItemData_0201099c_9* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void func_02083e28(void* arg0, int arg1);
@@ -450,12 +450,12 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
                     var4 = &arg0->unknown_3984_[var48];
                     func_0208247c(var47);
                     func_02082490(var47, gFileScratchSpace_0211e33c, var46, var4->unknown_2_[var44], 0);
-                    var4->unknown_1c_[var44] = var47->unknown_0_.unknown_0_0_;
+                    var4->unknown_1c_[var44] = var47->unknown_0_.requiredExperience_0_0_;
                     var4->unknown_f4_ += var47->unknown_0_.unknown_4_7_;
                     if (var44 == func_020865b0((Struct_0201099c_16*)var4)) {
                         var43 = &var32;
                         Struct_0201099c_11* var49 = &var43->unknown_3c_;
-                        func_02082828(var43);
+                        InitPartyMemberData_02082828(var43);
                         func_02083cbc(var43, &var1, var1.unknown_3c_);
                         short* var50 = var4->unknown_160_.unknown_0_;
                         for (int var51 = 0; var51 < 8; var51++) {

@@ -25,8 +25,8 @@ extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
 
 extern "C" void func_020809c4(void* arg0, int arg1, int arg2, short* arg3, short* arg4);
 
-struct Struct_020e263c_2;
-extern "C" void func_020e263c(struct Struct_020e263c_2* arg0, int arg1);
+struct YesNoWindow_020e263c_2;
+extern "C" void UpdateYesNoWindow_020e263c(struct YesNoWindow_020e263c_2* yesNoWindow, int ticks);
 
 struct Struct_020e28f0;
 extern "C" void func_020e28f0(struct Struct_020e28f0* arg0, short arg1, short arg2);
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov003_02175fd4(unsigned char* arg0) {
     }
     short var1, var2;
     func_020809c4(*(MenuLayout_0207fdcc_2**)(arg0 + Enum_ov003_02175fd4_2204), *(short*)(arg0 + Enum_ov003_02175fd4_4094), *(short*)*(void**)(arg0 + Enum_ov003_02175fd4_4088), &var1, &var2);
-    func_020e263c(*(Struct_020e263c_2**)(arg0 + 0x0), *(int*)(arg0 + Enum_ov003_02175fd4_4064));
+    UpdateYesNoWindow_020e263c(*(YesNoWindow_020e263c_2**)(arg0 + 0x0), *(int*)(arg0 + Enum_ov003_02175fd4_4064));
     var1 = var1 - 0x10;
     var2 = var2 - 3;
     func_020e28f0(*(Struct_020e28f0**)(arg0 + 0x0), var1, var2);

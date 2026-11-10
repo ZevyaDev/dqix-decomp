@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" void func_0203c198(char* arg0);
-extern "C" int func_ov000_021719f8(int* arg0);
+extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
 extern "C" void __clear(void* arg0, int arg1);
 #if defined(jpn)
 extern "C" int func_ov000_02171a74(void* arg0);
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov000_0217f518(char* arg0) {
 #else
     *(char*)(arg0 + 0x43d) = -1;
 #endif
-    if (func_ov000_021719f8((int*)arg0)) {
+    if (IsPanelMemberIncapacitated_ov000_021719f8((int*)arg0)) {
 #if defined(jpn)
         int var1 = func_ov000_02171a74(arg0);
         struct Struct_0201099c_3* var2 = *(struct Struct_0201099c_3**)(arg0 + 4);

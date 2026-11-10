@@ -8,7 +8,7 @@ extern "C" void CancelFontLoad_02094ab0(void* loader);
 struct Struct_02075cdc;
 extern "C" void func_02075d58(struct Struct_02075cdc* arg0);
 extern "C" void func_ov023_021dcd18(void* arg0);
-extern "C" void InitItemInfoPanel_ov023_021dc134(void* arg0, int itemId, int arg2);
+extern "C" void InitItemInfoPanel_ov023_021dc134(void* panel, int itemId, int isEmbedded);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 
 extern AllocatorUnion gMainHeap_02114e20;

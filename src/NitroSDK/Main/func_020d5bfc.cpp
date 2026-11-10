@@ -5,7 +5,7 @@
 extern "C" void* func_020d41d8(void);
 extern "C" int CheckWirelessState_020d424c(int stateCount, int arg1);
 extern "C" void SetWirelessCommandCallback_020d404c(int command, int callback);
-extern "C" int func_020d40bc(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int SendWirelessCommand_020d40bc(int command, int paramCount, int arg2, int arg3, int arg4, int arg5);
 
 struct Struct_020d5bfc {
     unsigned char unknown_0_[4];
@@ -25,6 +25,6 @@ extern "C" ARM int func_020d5bfc(int arg0, void* arg1, void* arg2, unsigned int 
     SetWirelessCommandCallback_020d404c(0x12, arg0);
     unsigned char var2[8];
     VectorizedInvertedMemcpy(arg1, var2, 6);
-    int var3 = func_020d40bc(0x12, 4, *(int*)&var2[0], *(int*)&var2[4], (int)arg2, (int)arg3);
+    int var3 = SendWirelessCommand_020d40bc(0x12, 4, *(int*)&var2[0], *(int*)&var2[4], (int)arg2, (int)arg3);
     return (var3 == 0) ? 2 : var3;
 }

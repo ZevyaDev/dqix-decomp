@@ -27,7 +27,7 @@ struct Struct_ov006_02157a60 {
 
 extern "C" short func_ov023_021e2868(void* arg0);
 extern "C" short func_ov023_021e29d0(void* arg0);
-extern "C" unsigned short func_02081f20(void* arg0, int arg1);
+extern "C" unsigned short UpdateKeyRepeat_02081f20(void* keyRepeat, int elapsedFrames);
 extern "C" unsigned short func_ov006_021599ac(void** arg0);
 extern "C" void func_ov006_02159320(Struct_ov006_02157a60* arg0);
 extern "C" void func_ov006_021593b0(Struct_ov006_02157a60* arg0);
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov006_02159834(Struct_ov006_02157a60* arg0) {
         var0 = var5 == 0x11 ? 1 : 0;
         var1 = var5 == 0x12 ? 1 : 0;
     }
-    if ((unsigned short)(func_02081f20(arg0->unknown_9c_, GameState::GetInstance()->GetTickCount()) + 0xffff) <= 1) {
+    if ((unsigned short)(UpdateKeyRepeat_02081f20(arg0->unknown_9c_, GameState::GetInstance()->GetTickCount()) + 0xffff) <= 1) {
         unsigned short var6 = func_ov006_021599ac((void**)arg0->unknown_9c_);
         if (var6 == 0x40)
             var2 = 1;

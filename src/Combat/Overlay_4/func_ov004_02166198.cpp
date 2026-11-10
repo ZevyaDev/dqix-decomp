@@ -16,8 +16,8 @@ struct Struct_02065990_3 {
     Struct_ov004_02166198* unknown_a8_;
     unsigned char unknown_ac_[0xcc];
 };
-struct Struct_0205faf4_3;
-struct Struct_0205faf4_13;
+struct FlagManager_0205faf4_3;
+struct FlagManager_0205faf4_13;
 struct Struct_ov000_02179cdc_2 {
     short unknown_0_;
     unsigned short unknown_2_0_ : 2;
@@ -43,8 +43,8 @@ struct Struct_ov004_02166198_2 {
 extern "C" int* GetQuestManager_02094d6c();
 extern "C" void* GetFlagManager_0205ec34();
 extern "C" unsigned char func_020965ac(Struct_02065990_3*, unsigned char);
-extern "C" int func_0206e120(Struct_0205faf4_3*, int);
-extern "C" int func_0206e2dc(Struct_0205faf4_13*, int);
+extern "C" int GetQuestState_0206e120(FlagManager_0205faf4_3*, int);
+extern "C" int IsQuestUnlocked_0206e2dc(FlagManager_0205faf4_13*, int);
 extern "C" int func_02096088(void*, int);
 extern "C" void func_ov004_021660f4();
 struct Struct_ov004_0217101c_2 {
@@ -87,9 +87,9 @@ extern "C" ARM void func_ov004_02166198() {
         }
         if (var12 == 0xcc) continue;
         if (var9->unknown_0_0_ == 0 || var9->unknown_0_0_ >= 0xff) continue;
-        int var13 = func_0206e120((Struct_0205faf4_3*)(var6), var9->unknown_0_0_);
+        int var13 = GetQuestState_0206e120((FlagManager_0205faf4_3*)(var6), var9->unknown_0_0_);
         if (var9->unknown_1_2_) {
-            if (func_0206e2dc((Struct_0205faf4_13*)(var6), var9->unknown_0_0_)) var8++;
+            if (IsQuestUnlocked_0206e2dc((FlagManager_0205faf4_13*)(var6), var9->unknown_0_0_)) var8++;
         } else {
             switch (var13) {
             case 1:
@@ -128,10 +128,10 @@ extern "C" ARM void func_ov004_02166198() {
         }
         if (var20 == 0xcc) continue;
         if (var19->unknown_0_0_ == 0 || var19->unknown_0_0_ >= 0xff) continue;
-        var17 = func_0206e120((Struct_0205faf4_3*)(var6), var19->unknown_0_0_);
+        var17 = GetQuestState_0206e120((FlagManager_0205faf4_3*)(var6), var19->unknown_0_0_);
         bool var21 = false;
         if (var19->unknown_1_2_) {
-            if (func_0206e2dc((Struct_0205faf4_13*)(var6), var19->unknown_0_0_)) {
+            if (IsQuestUnlocked_0206e2dc((FlagManager_0205faf4_13*)(var6), var19->unknown_0_0_)) {
                 var21 = true;
                 if (var17 == 1 && func_02096088(var5, var19->unknown_0_0_)) var17 = 3;
             }

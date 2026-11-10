@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov000_021719f8(int* arg0);
+extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
 
 struct Struct_ov000_02180a64_3 {
     char unknown_0_[0x10];
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov000_02180a64(Struct_ov000_02180a64_2* arg0) {
     for (var3 = 0; var3 < 4; var3++) {
         var2 = &arg0->unknown_958_[arg0->unknown_6c_[var3]];
         if (var2->unknown_4c_ < 0) continue;
-        if (func_ov000_021719f8((int*)var2)) continue;
+        if (IsPanelMemberIncapacitated_ov000_021719f8((int*)var2)) continue;
         var0++;
         if (var2->unknown_10_[var2->unknown_18_] < 100) continue;
         if (var2->unknown_1c_ == 6) var1++;

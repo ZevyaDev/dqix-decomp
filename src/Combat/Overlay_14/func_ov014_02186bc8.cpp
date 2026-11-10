@@ -91,7 +91,7 @@ extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void*, int);
 
 extern "C" {
 bool func_ov017_021959b4();
-void func_02081f20(void* arg0, int arg1);
+void UpdateKeyRepeat_02081f20(void* keyRepeat, int elapsedFrames);
 int func_020800fc(Struct_ov000_0217ab8c* arg0, short* arg1, short arg2, unsigned short arg3, unsigned char, bool);
 void OpenMenuLayoutWindow_020813ec(Struct_ov000_0217ab8c* menuLayout, short windowId);
 void func_ov014_02184700(Struct_ov014_02186bc8* arg0);
@@ -116,7 +116,7 @@ extern "C" ARM bool func_ov014_02186bc8(Struct_ov014_02186bc8* arg0, int arg1)
         func_0207fc6c((Struct_0207fc6c*)arg0->unknown_c0_, arg0->unknown_164_);
         if (arg0->unknown_d0_ != NULL)
         {
-            func_02081f20(arg0->unknown_14c_, arg0->unknown_164_);
+            UpdateKeyRepeat_02081f20(arg0->unknown_14c_, arg0->unknown_164_);
             arg0->unknown_178_ = *arg0->unknown_d0_;
             bool var0 = false;
             if (arg0->unknown_17a_ == 4)

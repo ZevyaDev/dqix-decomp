@@ -5,7 +5,7 @@ extern "C" void* func_ov031_0223b61c(char* arg0, unsigned int* arg1, int arg2);
 extern "C" void func_020bbd14(void*);
 extern "C" void func_020bd368(void*, int);
 extern "C" void func_020be6c4(int);
-extern "C" void func_020bc078(int* arg0);
+extern "C" void ClearSoundHandle_020bc078(int* handle);
 extern "C" void func_020bbf34(int arg0, int arg1);
 extern "C" void func_020bbf4c(int arg0, int arg1);
 extern "C" void func_020bbf6c(int arg0, void* arg1);
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov031_0223677c(void) {
 	func_020bd368(data_ov031_02290d00, *(int*)((char*)data_ov031_02290d00 + 0x98));
 	func_020be6c4(0);
 
-	func_020bc078((int*)((char*)data_ov031_02290d00 + 0x94));
+	ClearSoundHandle_020bc078((int*)((char*)data_ov031_02290d00 + 0x94));
 
 	int var2 = 0;
 	do {

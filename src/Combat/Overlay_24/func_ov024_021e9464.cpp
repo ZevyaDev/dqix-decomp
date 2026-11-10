@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_ov024_021da670_7;
-extern "C" int func_ov024_021da9b0(struct Struct_ov024_021da670_7* arg0);
+extern "C" int IsParalysed_ov024_021da9b0(struct Struct_ov024_021da670_7* combatant);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 
 struct Struct_ov024_021ddc80_4 { char unknown_0_[0x10]; int unknown_10_; };
@@ -12,7 +12,7 @@ struct Struct_ov024_021ddc80_4 { char unknown_0_[0x10]; int unknown_10_; };
 extern "C" ARM int func_ov024_021e9464(struct Struct_ov024_021ddc80_4* arg0, int arg1, int arg2) {
     GameObject* var0 = GetCombatantByID(arg0->unknown_10_, arg1);
     if (!var0) return 0;
-    int var1 = func_ov024_021da9b0((struct Struct_ov024_021da670_7*)var0);
+    int var1 = IsParalysed_ov024_021da9b0((struct Struct_ov024_021da670_7*)var0);
     if (arg2 != 0) {
         return var1 ? 0x6e : 0x1e;
     }

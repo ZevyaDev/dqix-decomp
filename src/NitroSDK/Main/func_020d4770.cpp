@@ -43,7 +43,7 @@ struct Struct_02114330
     unsigned short unknown_42_;
 };
 
-extern "C" void func_020c99ac(void* arg0);
+extern "C" void GetMACAddress_020c99ac(void* macAddress);
 extern "C" int func_020d41e8();
 extern "C" Struct_020d424c_2* func_020d41d8();
 extern "C" unsigned short func_020d46fc();
@@ -68,7 +68,7 @@ extern "C" ARM int func_020d4770(unsigned short arg0, Type_020d42e0 arg1, void* 
         var2.unknown_1a_ = 0xffff;
         var2.unknown_1c_ = arg2;
         var2.unknown_12_ = 0;
-        func_020c99ac(var2.unknown_14_);
+        GetMACAddress_020c99ac(var2.unknown_14_);
     }
     var1 = DisableIRQInterrupts();
     var0 = func_020d41e8();

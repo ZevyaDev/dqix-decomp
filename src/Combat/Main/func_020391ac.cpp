@@ -45,7 +45,7 @@ extern "C" void SetMotionIfDifferent_02033b68(Struct_02033b68*, int);
 int fix32ReduceAngle0To2Pi(int);
 extern "C" void SetFacing_02033834(Struct_02033834_2*, int);
 extern "C" void ResetFollowTrail_02039d24(unsigned char*);
-extern "C" void func_02033b58(Struct_02033b58*, unsigned char);
+extern "C" void SetMotionKeepingAnimation_02033b58(Struct_02033b58*, unsigned char);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 
@@ -135,7 +135,7 @@ extern "C" ARM void func_020391ac(Struct_020391ac_3* arg0) {
         }
     }
     if (arg0->unknown_1cd_ == 0) {
-        func_02033b58((Struct_02033b58*)arg0, 0);
+        SetMotionKeepingAnimation_02033b58((Struct_02033b58*)arg0, 0);
         return;
     }
     var3 = arg0->unknown_ac_ != 0;

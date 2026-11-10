@@ -93,12 +93,12 @@ struct StringTable_0201099c_14 {
     int unknown_14_;
 };
 
-struct Struct_02076a8c_2;
+struct FieldMonster_02076a8c_2;
 struct Struct_02010604;
 struct Struct_02018300_3;
 struct Struct_020338d4;
 struct Struct_0202e6a8;
-struct Struct_0202e5c0;
+struct Camera_0202e5c0;
 struct Struct_0202ea4c;
 struct TimedMessageQueue_020d7aa0_2;
 struct Struct_02046574_2;
@@ -110,13 +110,13 @@ extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_020e4524(char* arg0);
 extern "C" void func_ov004_0216fa48(void* arg0);
-extern "C" void func_02076b58(struct Struct_02076a8c_2* arg0);
+extern "C" void func_02076b58(struct FieldMonster_02076a8c_2* arg0);
 extern "C" void* GetGlobalFlags_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void SetMotion_02033b88(struct Struct_02010604* object, int motion);
 extern "C" void func_02037d88(GameObject* arg0);
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
-extern "C" void func_020531f0(GameObject* arg0);
+extern "C" void StopGesture_020531f0(GameObject* arg0);
 extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
 extern "C" int func_02039874(void* arg0);
 extern "C" void func_020338d4(struct Struct_020338d4* arg0, struct Struct_ov009_0218aa28* arg1);
@@ -124,7 +124,7 @@ extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 extern "C" void func_020338b0(unsigned char* arg0, int arg1);
 extern "C" void func_0202e6a8(struct Struct_0202e6a8* arg0, int arg1);
 extern "C" int func_0202e800(void* arg0);
-extern "C" void func_0202e5c0(struct Struct_0202e5c0* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetCameraEye_0202e5c0(struct Camera_0202e5c0* camera, int x, int y, int z);
 extern "C" void func_0202ea4c(struct Struct_0202ea4c* arg0);
 extern "C" void UpdateCamera_0202e0a4(struct Struct_020e3f1c_2* camera);
 extern "C" struct TimedMessageQueue_020d7aa0_2* func_020d7a50();
@@ -202,7 +202,7 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
         func_ov004_0216fa48(arg0);
         return;
     }
-    func_02076b58((struct Struct_02076a8c_2*)var10);
+    func_02076b58((struct FieldMonster_02076a8c_2*)var10);
     SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 2);
 
     int var11;
@@ -229,7 +229,7 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
         for (int var13 = 0; var13 < 4; var13++) {
             GameObject* var14 = var1->GetPartyMemberByIndex(var13);
             if (var14 != NULL) {
-                func_020531f0(var14);
+                StopGesture_020531f0(var14);
             }
         }
         DisableCameraTurning_020a27b8((unsigned char*)var5);
@@ -270,10 +270,10 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
         if (arg0->unknown_e_ == 1) {
             int var21 = inline_02061c04_5(var19, 0xddb);
             int var22 = inline_02061c04_5(var19, 0x599);
-            func_0202e5c0((struct Struct_0202e5c0*)var5, var20.unknown_0_, var20.unknown_4_ + var22, var20.unknown_8_ + var21);
+            SetCameraEye_0202e5c0((struct Camera_0202e5c0*)var5, var20.unknown_0_, var20.unknown_4_ + var22, var20.unknown_8_ + var21);
             func_0202ea4c((struct Struct_0202ea4c*)var5);
         } else if (arg0->unknown_e_ == 2) {
-            func_0202e5c0((struct Struct_0202e5c0*)var5, var20.unknown_0_, var20.unknown_4_ + 0x2000, var20.unknown_8_ + 0xd800);
+            SetCameraEye_0202e5c0((struct Camera_0202e5c0*)var5, var20.unknown_0_, var20.unknown_4_ + 0x2000, var20.unknown_8_ + 0xd800);
             func_0202ea4c((struct Struct_0202ea4c*)var5);
         }
         UpdateCamera_0202e0a4(var5);

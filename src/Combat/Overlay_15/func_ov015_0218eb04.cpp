@@ -35,7 +35,7 @@ struct Struct_ov015_02193ee8
 };
 
 extern "C" Struct_02099d34* func_02099cac();
-extern "C" int func_020c555c(int arg0);
+extern "C" int Set3DEdgeColors_020c555c(int edgeColors);
 ModelRenderContext* GetModel3DContext(Model3D* model);
 
 extern const Struct_ov015_02193ee8 data_ov015_02193ee8;
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov015_0218eb04(Struct_ov015_0218c03c_2* arg0)
 {
     unsigned short var0 = func_02099cac()->unknown_128_;
     unsigned short var1[8] = {var0, var0, var0, var0, var0, var0, var0, var0};
-    func_020c555c((int)var1);
+    Set3DEdgeColors_020c555c((int)var1);
     arg0->unknown_36_ = 0;
     arg0->unknown_34_ = 0;
     Model3D* var2 = arg0->unknown_24_->pModel_;

@@ -34,7 +34,7 @@ struct Struct_ov000_02174614_2 {
     signed char unknown_1d68_;
 };
 
-extern "C" int func_ov000_021719f8(int* arg0);
+extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
 extern "C" void func_ov000_0217f518(Struct_ov000_02174614* arg0);
 extern "C" void func_ov000_0217636c(Struct_ov000_02174614* arg0, int arg1);
 
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov000_02174614(Struct_ov000_02174614_2* arg0, int arg1)
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 1;
         for (var1 = 0; var1 < 4; var1++) {
             var0 = &arg0->unknown_958_[arg0->unknown_6c_[var1]];
-            if (var0->unknown_4c_ >= 0 && var0->unknown_87_ != 0 && !func_ov000_021719f8((int*)var0)) {
+            if (var0->unknown_4c_ >= 0 && var0->unknown_87_ != 0 && !IsPanelMemberIncapacitated_ov000_021719f8((int*)var0)) {
                 func_ov000_0217f518(var0);
                 if (var0->unknown_38_ != 0) {
                     func_ov000_0217636c(var0, 0);

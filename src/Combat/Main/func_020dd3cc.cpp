@@ -7,7 +7,7 @@ enum { Enum_020dd3cc_336 = 0x150, Enum_020dd3cc_2384 = 0x950 };
 #include "GameState/GameState.h"
 
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
-extern "C" int func_020dd11c(unsigned int arg0, unsigned int arg1);
+extern "C" int GetVocationSkill_020dd11c(unsigned int vocation, unsigned int index);
 extern "C" int func_020dd300(int arg0);
 extern unsigned short data_020f29f4[];
 
@@ -27,7 +27,7 @@ extern "C" ARM int func_020dd3cc(int arg0) {
     unsigned char* var4 = *(unsigned char**)((char*)var1 + Enum_020dd3cc_336);
     unsigned char var5 = (unsigned char)*(int*)(var4 + Enum_020dd3cc_2384);
     for (unsigned char var6 = 0; var6 < 4; var6++) {
-        unsigned int var7 = func_020dd11c(var5, var6);
+        unsigned int var7 = GetVocationSkill_020dd11c(var5, var6);
         if (var7 == 0) {
             continue;
         }

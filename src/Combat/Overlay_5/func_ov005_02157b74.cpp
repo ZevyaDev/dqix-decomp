@@ -115,7 +115,7 @@ extern "C" Struct_ov005_02157b74_6* func_020deda4(int, int, Struct_020deda4*);
 extern "C" void func_020483f0(unsigned char*, unsigned short);
 extern "C" int func_0207c7a0(char* arg0, short arg1, int arg2);
 extern "C" int func_0207caa4(char* arg0, short arg1, int arg2);
-extern "C" void func_0207c484(char* arg0, short arg1, int arg2, int arg3);
+extern "C" void RemoveEquipmentFromBag_0207c484(char* bag, short itemId, int count, int category);
 struct Struct_0207cb38;
 extern "C" void func_0207cb38(Struct_0207cb38*, int, int, int, char);
 extern "C" void func_ov023_021e4e1c(void* arg0, int arg1, short arg2, int arg3);
@@ -313,14 +313,14 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
     signed char var23 = func_0207c7a0(var0 + 0x1d4, var17, var21);
     if (var22 == 1 && var23 == 0) {
         int var24 = func_0207caa4(var0 + 0x1d4, arg1, var21);
-        func_0207c484(var0 + 0x1d4, arg1, 1, var21);
+        RemoveEquipmentFromBag_0207c484(var0 + 0x1d4, arg1, 1, var21);
         if (var24 >= 0) {
             func_0207cb38((Struct_0207cb38*)(var0 + 0x1d4), var24, var21, var17, 1);
         } else {
             AddEquipmentToBag_0207c378(var0 + 0x1d4, var17, 1, var21);
         }
     } else {
-        func_0207c484(var0 + 0x1d4, arg1, 1, var21);
+        RemoveEquipmentFromBag_0207c484(var0 + 0x1d4, arg1, 1, var21);
         AddEquipmentToBag_0207c378(var0 + 0x1d4, var17, 1, var21);
     }
 

@@ -22,7 +22,7 @@ struct MusicManager_02109bf4_4;
 struct Struct_0203e5d8;
 struct Queue_02038598_5;
 extern "C" void* GetZone3D_02012fe4();
-extern "C" unsigned char* func_020704fc();
+extern "C" unsigned char* GetColorFade_020704fc();
 extern "C" void func_02017c58(void*);
 extern "C" int func_02046cc8(Struct_02046f84*);
 extern "C" int func_0204700c(Struct_02046f84*);
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
     GameResources* var1 = GetGameResources();
     GetZone3D_02012fe4();
     Struct_02018300_3* var2 = (Struct_02018300_3*)var0->GetUnknownGameObject();
-    unsigned char* var3 = func_020704fc();
+    unsigned char* var3 = GetColorFade_020704fc();
     BackgroundLoader* var4 = BackgroundLoader::GetInstance();
     void* var5 = var1->unknown_ptr_3718;
     if (arg0->unknown_fc_ == 0) {

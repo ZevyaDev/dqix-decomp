@@ -55,7 +55,7 @@ extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_0201bc94(Struct_0201bc94* arg0);
 extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void* func_020d7a50(void);
-extern "C" void func_ov017_02191aac(char* arg0, int arg1, int arg2, unsigned char arg3);
+extern "C" void SetCombatantAppearanceFlags_ov017_02191aac(char* gameResources, int isSet, int combatantIndex, unsigned char flags);
 extern "C" void func_ov017_021ce014(int arg0, unsigned short arg1, unsigned short arg2, unsigned short arg3);
 
 // USA: func_02052bfc
@@ -101,6 +101,6 @@ extern "C" ARM void func_02052bfc(struct Struct_02052bfc_2* arg0) {
         func_020d7e10(func_020d7a50(), var8, 0, 0, 1, 1);
 #endif
     }
-    func_ov017_02191aac((char*)var1, 0, var5, 2);
+    SetCombatantAppearanceFlags_ov017_02191aac((char*)var1, 0, var5, 2);
     func_ov017_021ce014(0, 1, 0, var5);
 }

@@ -3,13 +3,13 @@
 extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void* menuLayout, int windowId);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
-struct Struct_0207f0ac;
+struct MenuLayoutWindowEntryList_0207f0ac;
 struct Struct_02080558 {
     short* unknown_0_;
     char unknown_4_[0x13 - 4];
     unsigned char unknown_13_;
 };
-extern "C" Struct_02080558* func_0207f0ac(Struct_0207f0ac* arg0, int arg1);
+extern "C" Struct_02080558* FindMenuLayoutWindowEntry_0207f0ac(MenuLayoutWindowEntryList_0207f0ac* windowEntries, int windowId);
 
 struct MenuLayoutTextEntryList_0207f524;
 struct Struct_02080558_2 {
@@ -25,7 +25,7 @@ extern "C" ARM void func_02080558(void* arg0, int arg1, int arg2, int arg3, unsi
     if (arg3) {
         ClearMenuLayoutWindowHighlights_020804fc(arg0, arg1);
     }
-    Struct_02080558* var0 = func_0207f0ac((Struct_0207f0ac*)((char*)arg0 + 0xc), arg1);
+    Struct_02080558* var0 = FindMenuLayoutWindowEntry_0207f0ac((MenuLayoutWindowEntryList_0207f0ac*)((char*)arg0 + 0xc), arg1);
     if (var0 != 0) {
         for (unsigned char var1 = 0; var1 < var0->unknown_13_; var1++) {
             short var2 = var0->unknown_0_[var1];

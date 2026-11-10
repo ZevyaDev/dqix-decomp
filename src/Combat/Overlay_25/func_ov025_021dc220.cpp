@@ -11,7 +11,7 @@ extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" int func_ov000_021627fc(void* arg0);
 struct BattleAction_ov000_0215440c;
 extern "C" void* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index);
-extern "C" void func_02049ae4(unsigned char* arg0);
+extern "C" void StopCombatantSidestep_02049ae4(unsigned char* combatant);
 extern "C" int func_02048c10(unsigned char* arg0);
 extern "C" void func_0204a030(unsigned char*, int);
 extern "C" void func_02033920(void* arg0, int arg1, int arg2);
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov025_021dc220(void* arg0) {
         while (var6 != NULL) {
             GameObject* var8 = var1->GetCombatantByIndex(var6->unknown_20_);
             if (var8 != NULL) {
-                func_02049ae4((unsigned char*)var8);
+                StopCombatantSidestep_02049ae4((unsigned char*)var8);
                 if (var3 >= 0) {
                     int var9 = var7;
                     if (func_02048c10((unsigned char*)var8) || var0->unknown_e78_ == 0) {

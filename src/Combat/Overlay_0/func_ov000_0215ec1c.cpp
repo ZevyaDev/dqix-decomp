@@ -3,18 +3,18 @@
 
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 
-// USA: func_ov000_0215ec1c
-extern "C" ARM int func_ov000_0215ec1c(void* arg0, short* arg1, int arg2) {
-    int var0 = 0;
-    int var1;
-    for (var1 = 0; var1 < 8; var1++) {
-        short var2 = (short)(var1 + 0xc0);
-        GameState* var3 = GameState::GetInstance();
-        GameObject* var4 = GetEnemyByIndex_0200fea4(var3, var2);
-        if (var4 != NULL) {
-            arg1[var0++] = var2;
-            if (var0 == arg2) return var0;
+// USA: CollectAllEnemyCombatantIndices_ov000_0215ec1c
+extern "C" ARM int CollectAllEnemyCombatantIndices_ov000_0215ec1c(void* battle, short* indices, int maxCount) {
+    int count = 0;
+    int i;
+    for (i = 0; i < 8; i++) {
+        short combatantIndex = (short)(i + 0xc0);
+        GameState* gameState = GameState::GetInstance();
+        GameObject* enemy = GetEnemyByIndex_0200fea4(gameState, combatantIndex);
+        if (enemy != NULL) {
+            indices[count++] = combatantIndex;
+            if (count == maxCount) return count;
         }
     }
-    return var0;
+    return count;
 }

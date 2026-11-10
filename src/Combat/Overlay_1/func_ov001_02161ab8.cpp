@@ -50,7 +50,7 @@ struct Struct_ov001_02161ab8_5 {
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" void SetScriptRefInt_ov017_021d6134(void* value, int number);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
-extern "C" int func_02061bd8(PartyMember_0205faf4_11* arg0);
+extern "C" int IsNPCCompanion_02061bd8(PartyMember_0205faf4_11* partyMember);
 
 static inline int inline_ov000_0215a908_2(Struct_ov001_02161ab8* arg0) { return arg0->unknown_4_; }
 
@@ -86,7 +86,7 @@ extern "C" ARM int func_ov001_02161ab8(char* arg0, int arg1) {
             int var8;
             for (var8 = 0; var8 < 4; var8++) {
                 var7 = (Struct_ov001_02161ab8_3*)GetCompanionByIndex_0200ff58(var0, var8);
-                if (var7 != NULL && func_02061bd8((PartyMember_0205faf4_11*)var7)) break;
+                if (var7 != NULL && IsNPCCompanion_02061bd8((PartyMember_0205faf4_11*)var7)) break;
             }
             if (var8 == 4) {
                 SetScriptRefInt_ov017_021d6134(arg0 + 8, var5);

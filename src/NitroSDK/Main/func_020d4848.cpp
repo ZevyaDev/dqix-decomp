@@ -4,7 +4,7 @@
 extern "C" void* func_020d41d8(void);
 extern "C" int func_020d41e8(void);
 extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
-extern "C" int func_020ca4b4(void*, void*, int);
+extern "C" int Memcpy32BitByBlock_020ca4b4(void*, void*, int);
 
 struct Struct_020d4848 {
     unsigned char unknown_0_[4];
@@ -22,6 +22,6 @@ extern "C" ARM int func_020d4848(void* arg0) {
         return 6;
     }
     InvalidateDataCacheRange((const void*)((int)var0->unknown_4_), 0x7d0);
-    func_020ca4b4(var0->unknown_4_, arg0, 0x7d0);
+    Memcpy32BitByBlock_020ca4b4(var0->unknown_4_, arg0, 0x7d0);
     return 0;
 }

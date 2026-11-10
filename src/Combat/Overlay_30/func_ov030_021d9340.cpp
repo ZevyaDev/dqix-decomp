@@ -67,7 +67,7 @@ extern "C" void func_ov017_021c0760(unsigned char*, unsigned char);
 struct Struct_ov017_021b146c;
 extern "C" void func_ov017_021b14a0(Struct_ov017_021b146c*);
 extern "C" void func_ov017_021b1d44(void* arg0, int arg1, int arg2);
-extern "C" void func_ov017_021b2174(unsigned char*);
+extern "C" void ResetMenuTask_ov017_021b2174(unsigned char*);
 struct Struct_ov017_021c12fc;
 extern "C" void func_ov017_021c1350(Struct_ov017_021c12fc*, unsigned char, unsigned char);
 extern "C" void func_ov017_021c17cc(void* arg0);
@@ -281,7 +281,7 @@ extern "C" ARM void func_ov030_021d9340(GameResources* arg0) {
     func_ov017_021b14a0((Struct_ov017_021b146c*)(*(void**)(var0 + R(0x3924, (0x3000 + 0xb44)))));
     func_ov017_021b1d44(*(void**)(var0 + R(0x3928, (0x3000 + 0xb48))), 0x40, 1);
     *(*(unsigned char**)(var0 + R(0x3928, (0x3000 + 0xb48))) + 0x33) = R(5, 8);
-    func_ov017_021b2174((unsigned char*)(*(void**)(var0 + R(0x392c, (0x3000 + 0xb4c)))));
+    ResetMenuTask_ov017_021b2174((unsigned char*)(*(void**)(var0 + R(0x392c, (0x3000 + 0xb4c)))));
     func_ov017_021c1350((Struct_ov017_021c12fc*)(*(void**)(var0 + R(0x3930, (0x3000 + 0xb50)))), 0, 0);
     func_ov017_021c17cc(*(void**)(var0 + R(0x3934, (0x3000 + 0xb54))));
     func_ov017_021c16a8((unsigned char*)(*(void**)(var0 + R(0x3938, (0x3000 + 0xb58)))));

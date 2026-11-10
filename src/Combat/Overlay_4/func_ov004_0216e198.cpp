@@ -3,7 +3,7 @@
 #if defined(jpn)
 #include "GameState/GameState.h"
 
-extern "C" void func_02012028(void* arg0, unsigned char arg1);
+extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
 extern "C" int func_020ab9c0(int arg0);
 extern "C" int func_020ab5d4(void* arg0, int arg1, int arg2, void* arg3);
 
@@ -24,7 +24,7 @@ extern Struct_ov004_02171034 data_ov004_02171034[];
 // JPN: func_ov004_0216e198
 extern "C" ARM int func_ov004_0216e198(void) {
     GameState* var0 = GameState::GetInstance();
-    func_02012028(var0, 1);
+    SetTitleIdleTimeoutEnabled_02012028(var0, 1);
     data_ov004_02171034[0].unknown_5_ = 0;
     data_ov004_02171034[0].unknown_1_ = 0;
     int var1 = func_020ab9c0(0);

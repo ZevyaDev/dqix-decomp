@@ -4,7 +4,7 @@ extern "C" int func_ov031_0223d49c(void*);
 extern "C" int func_ov031_0223d5ac(void*);
 extern "C" void func_ov031_02222e20(int);
 extern "C" void func_ov031_0222c8cc(void);
-extern "C" int func_ov031_0223d354(int);
+extern "C" int AreKeysPressed_ov031_0223d354(int);
 extern "C" void func_ov031_0223521c(void);
 extern "C" int func_ov031_0223d394(int);
 extern "C" void func_ov031_0222cad8(void);
@@ -81,12 +81,12 @@ extern "C" ARM void func_ov031_0222bb58(void) {
         } while (var3 < 4);
     }
 
-    if (func_ov031_0223d354(1)) {
+    if (AreKeysPressed_ov031_0223d354(1)) {
         func_ov031_02222e20(1);
         func_ov031_0223521c();
         return;
     }
-    if (func_ov031_0223d354(2)) {
+    if (AreKeysPressed_ov031_0223d354(2)) {
         func_ov031_02222e20(0);
         return;
     }

@@ -7,8 +7,8 @@ extern int gSoundEffectManager_02108760;
 struct Struct_020e28dc;
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
 
-struct Struct_020e263c_2;
-extern "C" void func_020e263c(struct Struct_020e263c_2* arg0, int arg1);
+struct YesNoWindow_020e263c_2;
+extern "C" void UpdateYesNoWindow_020e263c(struct YesNoWindow_020e263c_2* yesNoWindow, int ticks);
 
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov003_0215bf18(void* arg0, int arg1) {
     if (*(void**)(var0 + 0x570) != 0 && func_020e28dc((struct Struct_020e28dc*)*(void**)(var0 + 0x570)) != 0) {
         GameState* var1 = GameState::GetInstance();
         int var2 = var1->GetTickCount();
-        func_020e263c((struct Struct_020e263c_2*)*(void**)(var0 + 0x570), var2);
+        UpdateYesNoWindow_020e263c((struct YesNoWindow_020e263c_2*)*(void**)(var0 + 0x570), var2);
     }
     unsigned char var3 = *(unsigned char*)(var0 + 0x581);
     if (var3 == 0) {

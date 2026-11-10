@@ -88,7 +88,7 @@ extern "C" Struct_ov026_021d8ba0_8* GetBattleSetup_ov017_021b8478(void*);
 extern "C" void* GetBattleScene_ov017_021b8468(void*);
 extern "C" void func_020dd0b0(int, char*);
 extern "C" void StartMessage_0204500c(Struct_ov023_021f4c04*, char*, int, int);
-extern "C" void func_02042b98(Struct_ov023_021f4c04*, int, int, int, int);
+extern "C" void SetMessageWindowRect_02042b98(Struct_ov023_021f4c04*, int, int, int, int);
 extern "C" Struct_ov023_021f4c04* GetMessageWindow_020421a0();
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" int IsDead_02010088(Struct_02010088*);
@@ -282,7 +282,7 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
     }
     StartMessage_0204500c(var8, var0, 0, 0xe3);
     var8->unknown_19b1_ = 0;
-    func_02042b98(var8, 2, 0x92, 0xfc, 0x4a);
+    SetMessageWindowRect_02042b98(var8, 2, 0x92, 0xfc, 0x4a);
     var8->unknown_19b2_ = 0;
     var8->unknown_195b_ |= 2;
     var8->unknown_998_ = 1;

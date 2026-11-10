@@ -32,7 +32,7 @@ extern "C" int func_ov025_021e1540(int);
 extern "C" Struct_ov025_021dffac_7* func_ov025_021e1010(unsigned char*, int, int);
 extern "C" void func_ov025_021e110c(unsigned char*, Struct_ov025_021dffac_7*, int);
 extern "C" int func_02048bd0(unsigned char*);
-extern "C" Struct_ov025_021dffac_8 func_ov000_0216f74c(int*);
+extern "C" Struct_ov025_021dffac_8 GetCellPosition_ov000_0216f74c(int*);
 extern "C" void __clear(void*, int);
 extern "C" int func_02031468(const Vector3fix*, const Vector3fix*, const Vector3fix*, Vector3fix*);
 extern "C" void func_ov025_021e1ff4(unsigned char*, unsigned char, unsigned char*, GameObject*, GameObject*, Struct_ov025_021dffac_7*, int);
@@ -125,7 +125,7 @@ extern "C" ARM int func_ov025_021dffac(Struct_ov025_021dffac_5* arg0) {
                 int var37 = 0;
                 for (int var38 = 0; var38 < 81; ++var38) {
                     if (var38 % 18 == 17) continue;
-                    Struct_ov025_021dffac_8 var39 = func_ov000_0216f74c(&var38);
+                    Struct_ov025_021dffac_8 var39 = GetCellPosition_ov000_0216f74c(&var38);
                     __clear(&var22, 12);
                     var22.unknown_0_.x = var39.unknown_0_;
                     var22.unknown_0_.z = var39.unknown_4_;

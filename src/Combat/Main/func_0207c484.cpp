@@ -3,42 +3,42 @@
 struct Struct_0207c378;
 extern "C" int func_0207caa4(struct Struct_0207c378* arg0, int arg1, int arg2);
 
-struct Struct_0207c484 {
+struct EquipmentBag_0207c484 {
     char unknown_0_[0xbd0];
-    short* unknown_bd0_[8];
-    signed char* unknown_bf0_[8];
+    short* pItemIds_bd0_[8];
+    signed char* pCounts_bf0_[8];
     short unknown_c10_[8];
-    unsigned char unknown_c20_[8];
+    unsigned char categories_c20_[8];
 };
 
-// USA: func_0207c484
-extern "C" ARM int func_0207c484(struct Struct_0207c484* arg0, int arg1, int arg2, int arg3) {
-    int var0;
-    int var1;
-    int var2;
-    signed char* var3;
+// USA: RemoveEquipmentFromBag_0207c484
+extern "C" ARM int RemoveEquipmentFromBag_0207c484(struct EquipmentBag_0207c484* bag, int itemId, int count, int category) {
+    int categoryIndex;
+    int i;
+    int slot;
+    signed char* counts;
 
-    if (arg2 <= 0) {
+    if (count <= 0) {
         return 0;
     }
 
-    var2 = func_0207caa4((struct Struct_0207c378*)arg0, arg1, arg3);
-    if (var2 < 0) {
+    slot = func_0207caa4((struct Struct_0207c378*)bag, itemId, category);
+    if (slot < 0) {
         return 0;
     }
 
-    for (var1 = 0; var1 < 8; var1++) {
-        if (arg3 == arg0->unknown_c20_[var1]) {
-            var0 = var1;
+    for (i = 0; i < 8; i++) {
+        if (category == bag->categories_c20_[i]) {
+            categoryIndex = i;
             break;
         }
     }
 
-    var3 = arg0->unknown_bf0_[var0];
-    var3[var2] = var3[var2] - arg2;
-    if (var3[var2] <= 0) {
-        arg0->unknown_bd0_[var0][var2] = -1;
-        var3[var2] = 0;
+    counts = bag->pCounts_bf0_[categoryIndex];
+    counts[slot] = counts[slot] - count;
+    if (counts[slot] <= 0) {
+        bag->pItemIds_bd0_[categoryIndex][slot] = -1;
+        counts[slot] = 0;
     }
 
     return 1;

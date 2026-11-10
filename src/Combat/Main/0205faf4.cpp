@@ -46,8 +46,8 @@ struct Struct_0205faf4;
 struct GameState;
 struct Struct_02053f7c;
 extern "C" short func_02086aec(struct Struct_02053f7c* arg0, int arg1);
-struct Struct_0205faf4_3;
-extern "C" int func_0206e120(struct Struct_0205faf4_3* arg0, int arg1);
+struct FlagManager_0205faf4_3;
+extern "C" int GetQuestState_0206e120(struct FlagManager_0205faf4_3* flagManager, int questId);
 extern "C" int func_0206e31c(int arg0, int arg1);
 struct Struct_0205faf4_4;
 extern "C" int func_0206e260(struct Struct_0205faf4_4* arg0, int arg1);
@@ -79,9 +79,9 @@ struct Struct_0205faf4_5 {
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 struct Struct_0205faf4_6 { char unknown_0_[8]; unsigned int unknown_8_0_:18, unknown_a_2_:1; };
-struct Struct_0205faf4_7;
+struct QuestManager_0205faf4_7;
 struct Struct_0205faf4_8 { unsigned int unknown_0_0_:9, unknown_1_1_:1, unknown_1_2_:5, unknown_1_7_:1, unknown_2_0_:2, unknown_2_2_:1; };
-extern "C" struct Struct_0205faf4_8* func_02096134(struct Struct_0205faf4_7* arg0, int arg1);
+extern "C" struct Struct_0205faf4_8* FindAcceptedQuest_02096134(struct QuestManager_0205faf4_7* questManager, int questId);
 extern "C" int func_0206474c(struct Struct_0203d028_2* arg0, int arg1, int arg2);
 extern "C" int func_0206483c(struct Struct_0203d028_2* arg0, char* arg1);
 extern "C" void* func_02064904(void* arg0, int arg1, unsigned int arg2);
@@ -97,14 +97,14 @@ extern "C" struct Struct_0205faf4_10* func_020deb24(struct Struct_0205faf4_9* ar
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 extern "C" int LoadItemTableByIds_020de9a4(void* itemTable, void* allocator, void* fileData, unsigned int fileSize, void* itemIds, unsigned short itemIdCount);
 struct PartyMember_0205faf4_11;
-extern "C" int func_02061bd8(struct PartyMember_0205faf4_11* arg0);
-extern "C" int func_020cf0fc(int arg0);
+extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
+extern "C" int GetCurrentDate_020cf0fc(int date);
 extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_0205faf4_12;
 extern "C" unsigned char func_02098ee8(struct Struct_0205faf4_12* arg0);
 extern "C" int func_02011b50(void* arg0, int arg1);
-struct Struct_0205faf4_13;
-extern "C" int func_0206e2dc(struct Struct_0205faf4_13* arg0, int arg1);
+struct FlagManager_0205faf4_13;
+extern "C" int IsQuestUnlocked_0206e2dc(struct FlagManager_0205faf4_13* flagManager, int questId);
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 
 extern AllocatorUnion gMainHeap_02114e20;
@@ -216,7 +216,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return func_02086aec((struct Struct_02053f7c*)GetParty_02010828((GameState*)(void*)GameState::GetInstance()), CS16(2)) <= 0;
     case 20: {
         int var12 = 0;
-        int var13 = func_0206e120((struct Struct_0205faf4_3*)arg0, CU16(2)) == 2;
+        int var13 = GetQuestState_0206e120((struct FlagManager_0205faf4_3*)arg0, CU16(2)) == 2;
         if (var13) {
             if (func_0206e31c((int)arg0, CU16(2))) var12 = 1;
         }
@@ -230,7 +230,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     }
     case 22: {
         int var14 = 0;
-        int var15 = func_0206e120((struct Struct_0205faf4_3*)arg0, CU16(2)) == 3;
+        int var15 = GetQuestState_0206e120((struct FlagManager_0205faf4_3*)arg0, CU16(2)) == 3;
         if (var15) {
             if (func_0206e31c((int)arg0, CU16(2))) var14 = 1;
         }
@@ -265,7 +265,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     }
     case 25: {
         int var18 = 0;
-        int var19 = func_0206e120((struct Struct_0205faf4_3*)arg0, CU16(2)) == 1;
+        int var19 = GetQuestState_0206e120((struct FlagManager_0205faf4_3*)arg0, CU16(2)) == 1;
         if (var19) {
             if (func_0206e31c((int)arg0, CU16(2))) var18 = 1;
         }
@@ -277,7 +277,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return !func_0206eb98(OBJB, CU16(2));
     case 28: {
         int var20 = 0;
-        int var21 = func_0206e120((struct Struct_0205faf4_3*)arg0, CU16(2)) == 0;
+        int var21 = GetQuestState_0206e120((struct FlagManager_0205faf4_3*)arg0, CU16(2)) == 0;
         if (var21) {
             if (func_0206e31c((int)arg0, CU16(2))) var20 = 1;
         }
@@ -502,7 +502,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return *(OBJB + 0x492);
     }
     case 51: {
-        struct Struct_0205faf4_8* var73 = func_02096134((struct Struct_0205faf4_7*)GetQuestManager_02094d6c(), CU16(2));
+        struct Struct_0205faf4_8* var73 = FindAcceptedQuest_02096134((struct QuestManager_0205faf4_7*)GetQuestManager_02094d6c(), CU16(2));
         if (var73 != NULL && var73->unknown_1_7_) return 1;
         break;
     }
@@ -644,7 +644,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return var93 == 0;
     }
     case 70: {
-        struct Struct_0205faf4_8* var94 = func_02096134((struct Struct_0205faf4_7*)GetQuestManager_02094d6c(), CU16(2));
+        struct Struct_0205faf4_8* var94 = FindAcceptedQuest_02096134((struct QuestManager_0205faf4_7*)GetQuestManager_02094d6c(), CU16(2));
         if (var94 != NULL) {
             if (CU16(4) != 0) return var94->unknown_2_2_;
             return var94->unknown_2_2_ == 0;
@@ -777,7 +777,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         for (var125 = 0; var125 < 4; var125++) {
             struct Struct_0203d028_3* var126 = (Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var124, var125);
             if (var126 == NULL) continue;
-            if (!func_02061bd8((struct PartyMember_0205faf4_11*)var126)) continue;
+            if (!IsNPCCompanion_02061bd8((struct PartyMember_0205faf4_11*)var126)) continue;
             if (inline_0205faf4_2(STAT130(var126)) <= 0) return CU16(2) == 0;
             return CU16(2) == 1;
         }
@@ -797,7 +797,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return 1;
     case 90: {
         struct Struct_0205faf4_15 var128;
-        func_020cf0fc((int)&var128);
+        GetCurrentDate_020cf0fc((int)&var128);
         return var128.unknown_4_ == CU16(2) && var128.unknown_8_ == CU16(4);
     }
     case 91: {
@@ -805,7 +805,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return *((unsigned char*)arg1 + 4) == *(unsigned char*)(var129 + REGION_VALUE(0x4199, 0x4449)) && CU16(2) == *(signed char*)(var129 + REGION_VALUE(0x4196, 0x4446));
     }
     case 92: {
-        struct Struct_0205faf4_8* var130 = func_02096134((struct Struct_0205faf4_7*)GetQuestManager_02094d6c(), CU16(2));
+        struct Struct_0205faf4_8* var130 = FindAcceptedQuest_02096134((struct QuestManager_0205faf4_7*)GetQuestManager_02094d6c(), CU16(2));
         if (var130 != NULL) return var130->unknown_1_1_ == 0;
         return 0;
     }
@@ -865,14 +865,14 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     case 504: {
         char* var141 = (char*)(void*)GameState::GetInstance();
         struct Struct_0205faf4_15 var142;
-        func_020cf0fc((int)&var142);
+        GetCurrentDate_020cf0fc((int)&var142);
         struct Struct_0205faf4_16* var143 = (struct Struct_0205faf4_16*)(var141 + REGION_VALUE(0x543c, 0x569c));
         return var142.unknown_4_ == var143->unknown_1_4_ && var142.unknown_8_ == var143->unknown_2_0_;
     }
     case 505:
         return func_02011b50((void*)GameState::GetInstance(), 1);
     case 506:
-        return func_0206e2dc((struct Struct_0205faf4_13*)arg0, CU16(2));
+        return IsQuestUnlocked_0206e2dc((struct FlagManager_0205faf4_13*)arg0, CU16(2));
     case 507:
         return CU16(2) == *(unsigned short*)GetZoneEntry_0200fd0c((GameState*)(void*)GameState::GetInstance());
     }

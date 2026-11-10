@@ -10,7 +10,7 @@ struct Struct_02033834_2;
 extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 
 struct Struct_02033b58;
-extern "C" void func_02033b58(struct Struct_02033b58* arg0, unsigned char arg1);
+extern "C" void SetMotionKeepingAnimation_02033b58(struct Struct_02033b58* object, unsigned char motion);
 
 struct Struct_02032fd0;
 extern "C" void func_02032fd0(Struct_02032fd0* arg0, short arg1, unsigned short arg2);
@@ -34,7 +34,7 @@ extern "C" ARM int func_02078cc0(struct Struct_02078cc0* arg0) {
     if (var1 == 0) {
         return 0;
     }
-    func_02033b58((struct Struct_02033b58*)arg0, 0);
+    SetMotionKeepingAnimation_02033b58((struct Struct_02033b58*)arg0, 0);
     arg0->unknown_b0_ = 0x328;
     arg0->unknown_b2_ = 0;
     struct Struct_ov009_0218aa28 var2 = func_02034104(var1);

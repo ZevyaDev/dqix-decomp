@@ -13,7 +13,7 @@ struct Struct_020ae074 : Object3D {
 };
 struct Struct_02040774_2;
 extern "C" void func_02032fdc(Struct_020ae074*, int, int);
-extern "C" void func_0203db34(unsigned char*, int, int, int);
+extern "C" void SetObject3DRotation_0203db34(unsigned char*, int, int, int);
 extern "C" void func_020ae20c(void*, Struct_02040774_2*, int*, int);
 
 // USA: func_020ae074
@@ -27,12 +27,12 @@ extern "C" ARM void func_020ae074(Struct_020ae074* arg0) {
     if (var2) {
         arg0->unknown_164_.y += arg0->unknown_150_;
         var2->obj3D_.position_ = arg0->unknown_164_;
-        func_0203db34((unsigned char*)var2, 0, arg0->unknown_170_, 0);
+        SetObject3DRotation_0203db34((unsigned char*)var2, 0, arg0->unknown_170_, 0);
         var2->obj3D_.Draw(true);
         arg0->unknown_164_.y -= arg0->unknown_150_;
         arg0->unknown_174_.y += arg0->unknown_150_;
         var2->obj3D_.position_ = arg0->unknown_174_;
-        func_0203db34((unsigned char*)var2, 0, arg0->unknown_180_, 0);
+        SetObject3DRotation_0203db34((unsigned char*)var2, 0, arg0->unknown_180_, 0);
         var2->obj3D_.Draw(true);
         arg0->unknown_174_.y -= arg0->unknown_150_;
     }

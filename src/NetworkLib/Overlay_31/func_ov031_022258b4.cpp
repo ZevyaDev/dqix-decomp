@@ -78,7 +78,7 @@ extern "C" int func_ov031_0223d5ac(Struct_ov031_022493b8*);
 extern "C" int func_ov031_0223d414(Struct_ov031_022493b8*);
 extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int soundEffectIndex);
 extern "C" int func_ov031_0223d394(int);
-extern "C" ARM int func_ov031_0223d354(int arg0);
+extern "C" ARM int AreKeysPressed_ov031_0223d354(int keys);
 extern "C" ARM int func_ov031_0223d3d4(int arg0);
 extern "C" void func_ov031_0223ca54(Struct_ov031_022266b0* arg0, int arg1, int arg2, void* arg3, int arg4);
 extern "C" void SetSpritePosition_ov031_0223bbd8(void* sprite, int entryIndex, int x, int y);
@@ -528,7 +528,7 @@ extern "C" ARM void func_ov031_02226514(void) {
 	if (func_ov031_0223d394(0x10)) func_ov031_02226a64(2);
 	if (func_ov031_0223d394(0x80)) func_ov031_02226a64(3);
 
-	if (func_ov031_0223d354(1)) {
+	if (AreKeysPressed_ov031_0223d354(1)) {
 		Struct_ov031_022258b4* var0 = gNumericKeypad_ov031_02250c00;
 		int var1 = var0->unknown_63_;
 		if (var1 < 10) {

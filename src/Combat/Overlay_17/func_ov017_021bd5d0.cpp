@@ -10,7 +10,7 @@ extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" int func_02048418(unsigned char* arg0, unsigned short arg1);
-extern "C" void func_02033b58(struct Struct_02033b58* arg0, unsigned char arg1);
+extern "C" void SetMotionKeepingAnimation_02033b58(struct Struct_02033b58* object, unsigned char motion);
 extern "C" void func_ov017_021c9d2c(int arg0, unsigned short arg1, unsigned short arg2, unsigned short arg3, int arg4, unsigned int arg5, unsigned char arg6, int arg7, int arg8);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(void* gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 
@@ -43,12 +43,12 @@ extern "C" ARM void func_ov017_021bd5d0(void) {
             unsigned short var10 = var4->inline_ov017_021bd5d0_2();
             func_ov017_021c9d2c(var2->obj3D_.objectIndex_4_, 1, var9, var10, var8, var7, var6, 1, 0);
 
-            func_02033b58((struct Struct_02033b58*)var2, 0);
+            SetMotionKeepingAnimation_02033b58((struct Struct_02033b58*)var2, 0);
             var2->unknown_ac_.unknown_b2_ = 0;
         } else if (IsLocalWirelessOn_0202b7d8((int*)var1) == 0) {
             func_02053fe4(var2, 1, 0);
             func_02048418((unsigned char*)var2, 1);
-            func_02033b58((struct Struct_02033b58*)var2, 0);
+            SetMotionKeepingAnimation_02033b58((struct Struct_02033b58*)var2, 0);
             var2->unknown_ac_.unknown_b2_ = 0;
         }
         RebuildFieldPartyOrder_ov017_02191108(var3, 1, 1, 1, 0);

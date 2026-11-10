@@ -19,11 +19,11 @@ enum { Enum_ov003_02175df4_4154 = 0x103a };
 enum { Enum_ov003_02175df4_4148 = 0x1034 };
 #endif
 
-struct Struct_0207c484;
+struct EquipmentBag_0207c484;
 struct Struct_02061c04_23;
 struct Struct_02061c04_22;
 
-extern "C" int func_0207c484(struct Struct_0207c484* arg0, int arg1, int arg2, int arg3);
+extern "C" int RemoveEquipmentFromBag_0207c484(struct EquipmentBag_0207c484* bag, int itemId, int count, int category);
 extern "C" short func_02080468(void* arg0, int arg1);
 extern "C" struct Struct_02061c04_22* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_0208386c(struct Struct_02061c04_22* arg0, int arg1);
@@ -56,7 +56,7 @@ extern "C" ARM int func_ov003_02175df4(Struct_ov003_02175df4_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     char* var1 = (char*)GetParty_02010828(var0);
     if (arg0->unknown_100c_ == 0x77) {
-        return func_0207c484((struct Struct_0207c484*)(var1 + 0x1d4), arg0->unknown_103a_, arg0->unknown_103c_, arg0->unknown_8_->unknown_8_0_);
+        return RemoveEquipmentFromBag_0207c484((struct EquipmentBag_0207c484*)(var1 + 0x1d4), arg0->unknown_103a_, arg0->unknown_103c_, arg0->unknown_8_->unknown_8_0_);
     }
     int var2;
     switch (arg0->unknown_1030_) {

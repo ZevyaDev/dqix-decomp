@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void func_02012028(void* arg0, unsigned char arg1);
+extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
 extern "C" void func_ov004_0216afb0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
 extern "C" int func_ov004_0216b7bc(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void* func_ov004_0216b1c4(void* arg0, int arg1);
@@ -16,7 +16,7 @@ extern unsigned char data_ov004_02171034[];
 
 // USA: func_ov004_0216d1c4
 extern "C" ARM int func_ov004_0216d1c4(void* arg0) {
-    func_02012028(GameState::GetInstance(), 0);
+    SetTitleIdleTimeoutEnabled_02012028(GameState::GetInstance(), 0);
 #if defined(jpn)
     int var0 = *(int*)&data_ov004_02171034[0x10];
 #else

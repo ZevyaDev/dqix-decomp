@@ -35,7 +35,7 @@ struct Struct_ov025_021eb7fc_5 {
 };
 
 extern "C" void* GetBattleScene_ov000_02160130(void);
-extern "C" struct Struct_ov025_021eb7fc_2* func_ov000_02160f14(void* arg0);
+extern "C" struct Struct_ov025_021eb7fc_2* GetBattleCamera_ov000_02160f14(void* battleScene);
 extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" void func_ov025_021eb00c(struct Struct_ov025_021e4450* arg0);
 extern "C" void func_ov000_02163710(void* arg0, int arg1);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov025_021eb7fc(struct Struct_ov025_021eb7fc* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     void* var2 = GetBattleScene_ov000_02160130();
-    struct Struct_ov025_021eb7fc_2* var3 = func_ov000_02160f14(var2);
+    struct Struct_ov025_021eb7fc_2* var3 = GetBattleCamera_ov000_02160f14(var2);
     var3->unknown_27c_ = GetCurrentBattleAction_ov000_02160f20(var2);
     func_ov025_021eb00c((struct Struct_ov025_021e4450*)arg0);
     func_ov000_02163710(var2, 0);

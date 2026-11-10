@@ -51,82 +51,82 @@ struct Struct_ov023_021dc134 {
 };
 
 // USA: InitItemInfoPanel_ov023_021dc134
-extern "C" ARM void InitItemInfoPanel_ov023_021dc134(void* arg0, short itemId, int arg2) {
+extern "C" ARM void InitItemInfoPanel_ov023_021dc134(void* panel, short itemId, int isEmbedded) {
 #if defined(jpn)
  enum {Enum_ov023_021dc134_296=0x124, Enum_ov023_021dc134_297=0x125, Enum_ov023_021dc134_300=0x128, Enum_ov023_021dc134_384=0x17c, Enum_ov023_021dc134_1584=0x62c, Enum_ov023_021dc134_256=0x80, Enum_ov023_021dc134_1840=0x6ac, Enum_ov023_021dc134_1844=0x6b0, Enum_ov023_021dc134_1848=0x6b4, Enum_ov023_021dc134_1880=0x6d4, Enum_ov023_021dc134_1884=0x6d8, Enum_ov023_021dc134_1888=0x6dc, Enum_ov023_021dc134_1892=0x6e0, Enum_ov023_021dc134_1896=0x6e4, Enum_ov023_021dc134_1900=0x6e8, Enum_ov023_021dc134_1904=0x6ec, Enum_ov023_021dc134_1906=0x6ee, Enum_ov023_021dc134_1908=0x6f0, Enum_ov023_021dc134_1910=0x6f2, Enum_ov023_021dc134_1911=0x6f3, Enum_ov023_021dc134_1912=0x6f4, Enum_ov023_021dc134_1913=0x6f5, Enum_ov023_021dc134_1914=0x6f6, Enum_ov023_021dc134_1915=0x6f7, Enum_ov023_021dc134_1916=0x6f8, Enum_ov023_021dc134_1917=0x6f9, Enum_ov023_021dc134_1918=0x6fa, Enum_ov023_021dc134_1920=0x6fc, Enum_ov023_021dc134_1945=0x715, Enum_ov023_021dc134_1946=0x716, Enum_ov023_021dc134_1947=0x717};
 #else
  enum {Enum_ov023_021dc134_296=0x128, Enum_ov023_021dc134_297=0x129, Enum_ov023_021dc134_300=0x12c, Enum_ov023_021dc134_384=0x180, Enum_ov023_021dc134_1584=0x630, Enum_ov023_021dc134_256=0x100, Enum_ov023_021dc134_1840=0x730, Enum_ov023_021dc134_1844=0x734, Enum_ov023_021dc134_1848=0x738, Enum_ov023_021dc134_1880=0x758, Enum_ov023_021dc134_1884=0x75c, Enum_ov023_021dc134_1888=0x760, Enum_ov023_021dc134_1892=0x764, Enum_ov023_021dc134_1896=0x768, Enum_ov023_021dc134_1900=0x76c, Enum_ov023_021dc134_1904=0x770, Enum_ov023_021dc134_1906=0x772, Enum_ov023_021dc134_1908=0x774, Enum_ov023_021dc134_1910=0x776, Enum_ov023_021dc134_1911=0x777, Enum_ov023_021dc134_1912=0x778, Enum_ov023_021dc134_1913=0x779, Enum_ov023_021dc134_1914=0x77a, Enum_ov023_021dc134_1915=0x77b, Enum_ov023_021dc134_1916=0x77c, Enum_ov023_021dc134_1917=0x77d, Enum_ov023_021dc134_1918=0x77e, Enum_ov023_021dc134_1920=0x780, Enum_ov023_021dc134_1945=0x799, Enum_ov023_021dc134_1946=0x79a, Enum_ov023_021dc134_1947=0x79b};
 #endif
-    char* var0 = (char*)arg0;
+    char* panelBytes = (char*)panel;
 
     data_ov023_021ff9e0.unknown_4_ = 0;
 
-    ((SafeAllocator*)(var0 + 0x0))->ResetAllocatorPointer();
-    ((SafeAllocator*)(var0 + 0x14))->ResetAllocatorPointer();
-    ((SafeAllocator*)(var0 + 0x28))->ResetAllocatorPointer();
+    ((SafeAllocator*)(panelBytes + 0x0))->ResetAllocatorPointer();
+    ((SafeAllocator*)(panelBytes + 0x14))->ResetAllocatorPointer();
+    ((SafeAllocator*)(panelBytes + 0x28))->ResetAllocatorPointer();
 
-    *(int*)(var0 + 0x3c) = 0;
-    *(int*)(var0 + 0x40) = 0;
-    *(int*)(var0 + 0x44) = 0;
-    *(int*)(var0 + 0x48) = 0;
-    *(int*)(var0 + 0x4c) = 0;
-    *(int*)(var0 + 0x50) = 0;
-    InitStringTable_020dfc40((struct StringTable_0201099c_14*)(var0 + 0x54));
+    *(int*)(panelBytes + 0x3c) = 0;
+    *(int*)(panelBytes + 0x40) = 0;
+    *(int*)(panelBytes + 0x44) = 0;
+    *(int*)(panelBytes + 0x48) = 0;
+    *(int*)(panelBytes + 0x4c) = 0;
+    *(int*)(panelBytes + 0x50) = 0;
+    InitStringTable_020dfc40((struct StringTable_0201099c_14*)(panelBytes + 0x54));
 
-    func_020df828(var0 + 0x6c);
-    func_020df828(var0 + 0x7c);
+    func_020df828(panelBytes + 0x6c);
+    func_020df828(panelBytes + 0x7c);
 
-    InitStringTable_020dfc40((struct StringTable_0201099c_14*)(var0 + 0x8c));
-    InitStringTable_020dfc40((struct StringTable_0201099c_14*)(var0 + 0xa4));
+    InitStringTable_020dfc40((struct StringTable_0201099c_14*)(panelBytes + 0x8c));
+    InitStringTable_020dfc40((struct StringTable_0201099c_14*)(panelBytes + 0xa4));
 
-    *(int*)(var0 + 0xc4) = 0;
-    *(int*)(var0 + 0xc8) = 0;
-    func_ov023_021e20c0(var0 + 0xcc);
+    *(int*)(panelBytes + 0xc4) = 0;
+    *(int*)(panelBytes + 0xc8) = 0;
+    func_ov023_021e20c0(panelBytes + 0xcc);
 
-    *(unsigned char*)(var0 + Enum_ov023_021dc134_296) = 0;
-    *(unsigned char*)(var0 + Enum_ov023_021dc134_297) = 0;
-    InitSpriteSet_0205a444(var0 + Enum_ov023_021dc134_300);
+    *(unsigned char*)(panelBytes + Enum_ov023_021dc134_296) = 0;
+    *(unsigned char*)(panelBytes + Enum_ov023_021dc134_297) = 0;
+    InitSpriteSet_0205a444(panelBytes + Enum_ov023_021dc134_300);
 
     for (unsigned char i = 0; i < 30; i++) {
-        InitSprite_0205a198((struct Sprite_02043368_2*)(var0 + Enum_ov023_021dc134_384 + i * 0x28));
+        InitSprite_0205a198((struct Sprite_02043368_2*)(panelBytes + Enum_ov023_021dc134_384 + i * 0x28));
     }
 
-    memset(var0 + Enum_ov023_021dc134_1584, 0, Enum_ov023_021dc134_256);
+    memset(panelBytes + Enum_ov023_021dc134_1584, 0, Enum_ov023_021dc134_256);
 
-    *(int*)(var0 + Enum_ov023_021dc134_1840) = 0;
-    *(int*)(var0 + Enum_ov023_021dc134_1844) = -1;
+    *(int*)(panelBytes + Enum_ov023_021dc134_1840) = 0;
+    *(int*)(panelBytes + Enum_ov023_021dc134_1844) = -1;
     for (int i = 0; i < 7; i++) {
-        *(int*)(var0 + Enum_ov023_021dc134_1848 + i * 4) = -1;
+        *(int*)(panelBytes + Enum_ov023_021dc134_1848 + i * 4) = -1;
     }
 
-    *(int*)(var0 + Enum_ov023_021dc134_1880) = 0;
-    *(int*)(var0 + Enum_ov023_021dc134_1884) = 0;
+    *(int*)(panelBytes + Enum_ov023_021dc134_1880) = 0;
+    *(int*)(panelBytes + Enum_ov023_021dc134_1884) = 0;
 
-    *(short*)(var0 + Enum_ov023_021dc134_1904) = itemId;
-    *(short*)(var0 + Enum_ov023_021dc134_1906) = itemId;
-    *(short*)(var0 + Enum_ov023_021dc134_1908) = 0;
+    *(short*)(panelBytes + Enum_ov023_021dc134_1904) = itemId;
+    *(short*)(panelBytes + Enum_ov023_021dc134_1906) = itemId;
+    *(short*)(panelBytes + Enum_ov023_021dc134_1908) = 0;
 
-    *(unsigned char*)(var0 + Enum_ov023_021dc134_1910) = 0;
-    *(unsigned char*)(var0 + Enum_ov023_021dc134_1911) = 0;
-    *(unsigned char*)(var0 + Enum_ov023_021dc134_1912) = 0;
-    *(signed char*)(var0 + Enum_ov023_021dc134_1913) = -1;
-    *(signed char*)(var0 + Enum_ov023_021dc134_1914) = -1;
-    *(signed char*)(var0 + Enum_ov023_021dc134_1946) = -1;
+    *(unsigned char*)(panelBytes + Enum_ov023_021dc134_1910) = 0;
+    *(unsigned char*)(panelBytes + Enum_ov023_021dc134_1911) = 0;
+    *(unsigned char*)(panelBytes + Enum_ov023_021dc134_1912) = 0;
+    *(signed char*)(panelBytes + Enum_ov023_021dc134_1913) = -1;
+    *(signed char*)(panelBytes + Enum_ov023_021dc134_1914) = -1;
+    *(signed char*)(panelBytes + Enum_ov023_021dc134_1946) = -1;
 
-    ((Struct_ov023_021dc134*)(var0 + Enum_ov023_021dc134_1947))->unknown_0_0_ = 0;
-    ((Struct_ov023_021dc134*)(var0 + Enum_ov023_021dc134_1947))->unknown_0_1_ = 0;
+    ((Struct_ov023_021dc134*)(panelBytes + Enum_ov023_021dc134_1947))->unknown_0_0_ = 0;
+    ((Struct_ov023_021dc134*)(panelBytes + Enum_ov023_021dc134_1947))->unknown_0_1_ = 0;
 
-    *(signed char*)(var0 + Enum_ov023_021dc134_1917) = -1;
-    *(unsigned char*)(var0 + Enum_ov023_021dc134_1918) = 1;
-    *(int*)(var0 + Enum_ov023_021dc134_1920) = -1;
+    *(signed char*)(panelBytes + Enum_ov023_021dc134_1917) = -1;
+    *(unsigned char*)(panelBytes + Enum_ov023_021dc134_1918) = 1;
+    *(int*)(panelBytes + Enum_ov023_021dc134_1920) = -1;
 
-    func_ov023_021dce88(var0);
+    func_ov023_021dce88(panelBytes);
 
-    *(int*)(var0 + Enum_ov023_021dc134_1888) = 0;
-    *(int*)(var0 + Enum_ov023_021dc134_1892) = 0;
-    *(unsigned char*)(var0 + Enum_ov023_021dc134_1945) = 1;
-    *(int*)(var0 + Enum_ov023_021dc134_1896) = 0;
-    *(int*)(var0 + Enum_ov023_021dc134_1900) = 0;
+    *(int*)(panelBytes + Enum_ov023_021dc134_1888) = 0;
+    *(int*)(panelBytes + Enum_ov023_021dc134_1892) = 0;
+    *(unsigned char*)(panelBytes + Enum_ov023_021dc134_1945) = 1;
+    *(int*)(panelBytes + Enum_ov023_021dc134_1896) = 0;
+    *(int*)(panelBytes + Enum_ov023_021dc134_1900) = 0;
 
 #if defined(jpn)
     data_ov023_021ff9e0.unknown_8_ = 5;
@@ -143,25 +143,25 @@ extern "C" ARM void InitItemInfoPanel_ov023_021dc134(void* arg0, short itemId, i
 #endif
 
 
-    *(signed char*)(var0 + Enum_ov023_021dc134_1915) = (signed char)arg2;
-    *(unsigned char*)(var0 + Enum_ov023_021dc134_1916) = 1;
+    *(signed char*)(panelBytes + Enum_ov023_021dc134_1915) = (signed char)isEmbedded;
+    *(unsigned char*)(panelBytes + Enum_ov023_021dc134_1916) = 1;
 
-    if (arg2 == 1) {
-        *(unsigned char*)(var0 + Enum_ov023_021dc134_1916) = 0;
-        *(unsigned short*)(var0 + Enum_ov023_021dc134_1908) |= 0x800;
+    if (isEmbedded == 1) {
+        *(unsigned char*)(panelBytes + Enum_ov023_021dc134_1916) = 0;
+        *(unsigned short*)(panelBytes + Enum_ov023_021dc134_1908) |= 0x800;
     }
 
-    *(short*)(var0 + 0xc2) = 0;
-    memset(var0 + 0xbc, 0, 6);
+    *(short*)(panelBytes + 0xc2) = 0;
+    memset(panelBytes + 0xbc, 0, 6);
 
-    data_ov023_021ff9e0.unknown_14_ = var0 + 0x54;
-    data_ov023_021ff9e0.unknown_24_ = var0 + 0x6c;
-    data_ov023_021ff9e0.unknown_0_ = var0 + 0x7c;
-    data_ov023_021ff9e0.unknown1_8_ = var0 + 0x8c;
-    data_ov023_021ff9e0.unknown_28_ = var0 + 0xa4;
-    data_ov023_021ff9e0.unknown_20_ = var0;
+    data_ov023_021ff9e0.unknown_14_ = panelBytes + 0x54;
+    data_ov023_021ff9e0.unknown_24_ = panelBytes + 0x6c;
+    data_ov023_021ff9e0.unknown_0_ = panelBytes + 0x7c;
+    data_ov023_021ff9e0.unknown1_8_ = panelBytes + 0x8c;
+    data_ov023_021ff9e0.unknown_28_ = panelBytes + 0xa4;
+    data_ov023_021ff9e0.unknown_20_ = panelBytes;
 
-    *(unsigned short*)(var0 + Enum_ov023_021dc134_1908) |= 8;
+    *(unsigned short*)(panelBytes + Enum_ov023_021dc134_1908) |= 8;
 
     func_ov023_021db0d4(&data_ov023_021ffa0c, 0);
 }

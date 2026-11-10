@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void func_02080b54(void* arg0, int arg1);
-extern "C" int func_02080b40(void* arg0, int arg1);
+extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
 struct Struct_ov017_021aa59c_4 {
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov017_021ab060(Struct_ov017_021aa59c_4* arg0) {
     int var2;
     func_02080b54(var1, 1);
     for (var2 = 0; var2 < 3; var2++) {
-        func_02080b40(var1, var0);
+        ShowMenuLayoutText_02080b40(var1, var0);
         var0 = (short)(var0 + 1);
     }
     OpenMenuLayoutWindow_020813ec(var1, 1);

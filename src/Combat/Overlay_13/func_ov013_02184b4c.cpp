@@ -15,7 +15,7 @@
 #pragma opt_arithtransformation off
 
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" int func_020dd11c(unsigned int arg0, unsigned int arg1);
+extern "C" int GetVocationSkill_020dd11c(unsigned int vocation, unsigned int index);
 
 // USA: func_ov013_02184b4c
 extern "C" ARM void func_ov013_02184b4c(void* arg0, void* arg1) {
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov013_02184b4c(void* arg0, void* arg1) {
     *(int*)(var0 + R(0x5f8,0x670)) = 0x64;
 
     for (var5 = 0; var5 < 5; var5++) {
-        (var0 + var5)[R(0x631,0x6a9)] = (unsigned char)func_020dd11c(var0[R(0x630,0x6a8)], (unsigned char)var5);
+        (var0 + var5)[R(0x631,0x6a9)] = (unsigned char)GetVocationSkill_020dd11c(var0[R(0x630,0x6a8)], (unsigned char)var5);
         (var0 + var5)[R(0x624,0x69c)] = 0;
         {
             unsigned char var8 = (var0 + var5)[R(0x631,0x6a9)];

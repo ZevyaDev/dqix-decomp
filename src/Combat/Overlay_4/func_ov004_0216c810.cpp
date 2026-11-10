@@ -10,7 +10,7 @@ struct Struct_ov004_0216b7bc;
 extern "C" void func_0209ca70(void* arg0, int arg1);
 extern "C" void func_0205e9f4(struct Struct_02108760_2* arg0, int arg1);
 extern "C" void PlayMusic_0209c3b4(struct Struct_0209c3b4_2* manager, int musicIndex);
-extern "C" void func_02012028(void* arg0, unsigned char arg1);
+extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
 extern "C" void* func_ov004_0216b1c4(void* arg0, int arg1);
 extern "C" void* func_ov004_0216ae9c(void* arg0, int arg1);
 extern "C" unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8* gameState);
@@ -186,7 +186,7 @@ extern "C" ARM int func_ov004_0216c810(void* arg0) {
             var5->inline_ov004_0216c810_21(8);
         }
     } else if (data_ov004_02171034.unknown_3_ == 4) {
-        func_02012028(var0, 0);
+        SetTitleIdleTimeoutEnabled_02012028(var0, 0);
         QueueMenuScriptEntry_ov011_021848a0(arg0, 0x190);
         return 0;
     } else if (data_ov004_02171034.unknown_3_ == 5) {
@@ -213,7 +213,7 @@ extern "C" ARM int func_ov004_0216c810(void* arg0) {
             var5->inline_ov004_0216c810_21(0xa);
         }
     } else if (data_ov004_02171034.unknown_3_ == 6) {
-        func_02012028(var0, 0);
+        SetTitleIdleTimeoutEnabled_02012028(var0, 0);
         void* var12 = GetMenuObjectList_ov011_021849c8(arg0);
         Struct_ov004_0216c810_3* var13 = FindMenuObjectById_ov023_021f6880(var12, 1);
         if (var13 == 0) return 0;
@@ -228,10 +228,10 @@ extern "C" ARM int func_ov004_0216c810(void* arg0) {
         StartMessage_0204500c(var16, FindStringInList_02072a68(var15, 0x5dc), 0, 0xe3);
         var16->unknown_19ca_ = 0;
         var16->unknown_19af_ = 0;
-        func_02012028(var0, 0);
+        SetTitleIdleTimeoutEnabled_02012028(var0, 0);
         return 0;
     } else if (data_ov004_02171034.unknown_3_ == 7) {
-        func_02012028(var0, 0);
+        SetTitleIdleTimeoutEnabled_02012028(var0, 0);
         QueueMenuScriptEntry_ov011_021848a0(arg0, 0x258);
         return 0;
     }

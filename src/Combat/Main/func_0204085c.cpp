@@ -7,7 +7,7 @@ enum { Enum_0204085c_724 = 0x2d4 };
 
 struct Struct_0203cda8;
 extern "C" void func_0203cda8(struct Struct_0203cda8* arg0, int arg1);
-extern "C" void func_0203db34(unsigned char* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetObject3DRotation_0203db34(unsigned char* object, int x, int y, int z);
 
 struct Struct_0203d028_16 {
     char unknown_0_[0x14];
@@ -30,7 +30,7 @@ extern "C" ARM void func_0204085c(struct Struct_0203d028_16* arg0, int arg1, int
     }
     var1 = arg0->unknown_18_;
     if (var1 != NULL) {
-        func_0203db34(var1, arg1, arg2, arg3);
+        SetObject3DRotation_0203db34(var1, arg1, arg2, arg3);
         var1 = arg0->unknown_18_;
         *(int*)(var1 + 0xb0) = arg2;
         return;
@@ -39,7 +39,7 @@ extern "C" ARM void func_0204085c(struct Struct_0203d028_16* arg0, int arg1, int
     if (var1 == NULL) {
         return;
     }
-    func_0203db34(var1, arg1, arg2, arg3);
+    SetObject3DRotation_0203db34(var1, arg1, arg2, arg3);
     var1 = arg0->unknown_1c_;
     *(int*)(var1 + Enum_0204085c_724) = arg2;
 }

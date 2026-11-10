@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
-extern "C" int func_ov000_0215ec1c(int arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectAllEnemyCombatantIndices_ov000_0215ec1c(int battle, short* indices, int maxCount, int arg3);
 struct Struct_02049f50;
 extern "C" void func_02049f50(struct Struct_02049f50* arg0, int arg1, int arg2);
 
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov000_02163a7c(struct Struct_ov000_02163a7c* arg0) {
     short var1[16];
     int var2 = 0;
     var2 = var2 + CollectPartyCombatantIndices_ov000_0215e9fc(arg0->unknown_29c_, var1, 0x10, var2);
-    var2 = var2 + func_ov000_0215ec1c(arg0->unknown_29c_, var1 + var2, 0x10 - var2, 0);
+    var2 = var2 + CollectAllEnemyCombatantIndices_ov000_0215ec1c(arg0->unknown_29c_, var1 + var2, 0x10 - var2, 0);
     short* var3 = var1;
     for (int var4 = 0; var4 < var2; var3++, var4++) {
         GameObject* var5 = var0->GetCombatantByIndex(*var3);

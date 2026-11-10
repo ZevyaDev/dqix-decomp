@@ -6,8 +6,8 @@ extern "C" void* GetFlagManager_0205ec34();
 struct GameState;
 extern "C" void* GetParty_02010828(GameState*);
 extern "C" int func_0209645c(void* arg0, int arg1);
-struct Struct_0205faf4_3;
-extern "C" int func_0206e120(Struct_0205faf4_3*, int);
+struct FlagManager_0205faf4_3;
+extern "C" int GetQuestState_0206e120(FlagManager_0205faf4_3*, int);
 extern "C" void func_0206e218(unsigned char*, int);
 extern "C" void func_0206eb64(unsigned char*, int, int);
 struct Struct_02053f7c;
@@ -43,7 +43,7 @@ extern "C" ARM int func_02095d30(struct Struct_02095d30_2* arg0, int arg1, int a
         if (var3->unknown_0_0_ != arg1) {
             continue;
         }
-        int var4 = (func_0206e120((Struct_0205faf4_3*)var1, arg1) == 2);
+        int var4 = (GetQuestState_0206e120((FlagManager_0205faf4_3*)var1, arg1) == 2);
         if (var4 != 0) {
             if (!var3->unknown_1_2_) {
                 return 0;

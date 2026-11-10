@@ -9,12 +9,12 @@ struct Struct_ov025_021e8584 {
 };
 
 extern "C" void* GetBattleScene_ov000_02160130(void);
-extern "C" void* func_ov000_02160f14(void* arg0);
+extern "C" void* GetBattleCamera_ov000_02160f14(void* battleScene);
 extern "C" void func_0202e95c(Struct_0202e95c*, short, unsigned short);
 
 // USA: func_ov025_021e8584
 extern "C" ARM int func_ov025_021e8584(struct Struct_ov025_021e8584* arg0) {
     void* var0 = GetBattleScene_ov000_02160130();
-    func_0202e95c((struct Struct_0202e95c*)func_ov000_02160f14(var0), arg0->unknown_8_, arg0->unknown_a_);
+    func_0202e95c((struct Struct_0202e95c*)GetBattleCamera_ov000_02160f14(var0), arg0->unknown_8_, arg0->unknown_a_);
     return 1;
 }

@@ -22,7 +22,7 @@ struct LocalWireless_0202c1a4;
 extern "C" int* GetLocalWireless_0202ae18();
 extern "C" int func_ov017_021925e0();
 extern "C" Struct_0200f3a4_7* GetPartyMemberData_02053c6c(unsigned char*);
-extern "C" void func_02082828(Struct_0200f3a4_7*);
+extern "C" void InitPartyMemberData_02082828(Struct_0200f3a4_7*);
 extern "C" void func_ov017_021bd3d4(void*, int);
 extern "C" Struct_ov000_02161e30_4* func_ov017_021a4658(GameResources*, int);
 extern "C" void RemoveFromQueue_02046a8c(void*, Struct_ov000_02161e30_4*);
@@ -30,7 +30,7 @@ extern "C" void func_ov017_021b33d8(void*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void* func_020120a0(char*, unsigned int);
 extern "C" int IsPerformingGesture_020535c8(signed char*);
-extern "C" void func_020531f0(GameObject*);
+extern "C" void StopGesture_020531f0(GameObject*);
 extern "C" void func_020545ac(short*);
 extern "C" int func_020115a8(Struct_02000c9c_12*);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState*, int);
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov017_02190264(GameResources* arg0, int arg1) {
             Struct_0200f3a4_7* var5 = GetPartyMemberData_02053c6c((unsigned char*)var4);
             if (var5) {
                 short var6 = var5->unknown_568_;
-                func_02082828(var5);
+                InitPartyMemberData_02082828(var5);
                 var5->unknown_568_ = var6;
             }
             func_ov017_021bd3d4(var3, (unsigned char)arg1);
@@ -76,13 +76,13 @@ extern "C" ARM void func_ov017_02190264(GameResources* arg0, int arg1) {
             short* var9 = (short*)func_020120a0((char*)var1, arg1);
             if (var9) *var9 = 0;
         }
-        if (IsPerformingGesture_020535c8((signed char*)var8)) func_020531f0(var8);
+        if (IsPerformingGesture_020535c8((signed char*)var8)) StopGesture_020531f0(var8);
         strcpy(arg0->unknown_435c_[arg1], (char*)var8->baseStats_);
         short* var10 = ((Struct_ov017_02190264*)var8)->unknown_154_;
         if (var10) func_020545ac(var10);
         if (!func_020115a8((Struct_02000c9c_12*)var1)) {
             Struct_0200f3a4_7* var11 = GetPartyMemberData_02053c6c((unsigned char*)var8);
-            if (var11) func_02082828(var11);
+            if (var11) InitPartyMemberData_02082828(var11);
         }
     }
     Struct_ov017_021d622c var12 = data_ov017_021d622c;

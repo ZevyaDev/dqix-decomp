@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct SpriteAnimationList_0205a254;
-extern "C" void func_020e27ec(struct SpriteAnimationList_0205a254* arg0, int arg1, short arg2, short arg3);
+extern "C" void SetSpriteAnimationPosition_020e27ec(struct SpriteAnimationList_0205a254* animationList, int index, short x, short y);
 
 struct Struct_020e28f0 {
     char unknown_0_[0x1c];
@@ -12,5 +12,5 @@ struct Struct_020e28f0 {
 
 // USA: func_020e28f0
 extern "C" ARM void func_020e28f0(struct Struct_020e28f0* arg0, short arg1, short arg2) {
-    func_020e27ec(arg0->unknown_20_, arg0->unknown_1c_, arg1, arg2);
+    SetSpriteAnimationPosition_020e27ec(arg0->unknown_20_, arg0->unknown_1c_, arg1, arg2);
 }

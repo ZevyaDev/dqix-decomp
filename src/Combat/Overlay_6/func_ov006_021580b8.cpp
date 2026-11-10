@@ -14,9 +14,9 @@ struct BGLayer_0204b010;
 struct BGLayer_0204af14;
 struct Struct_02000c9c_8;
 struct BGLayer_0204b8d0;
-struct Struct_0207fcb8;
+struct MenuLayout_0207fcb8;
 struct Struct_0207fd00;
-struct Struct_0207fd44_2;
+struct MenuLayout_0207fd44_2;
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimationList_0205a330;
 struct Struct_020e28dc;
@@ -63,11 +63,11 @@ extern "C" void* GetBGScreenBlock_0204af14(BGLayer_0204af14*, unsigned int);
 extern "C" void func_0204b938(void*, void*, int, int, unsigned short);
 extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
 extern "C" void CopyBGScreenBlockRect_0204b8d0(BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
-extern "C" void func_0207fcb8(Struct_0207fcb8*);
+extern "C" void ClearMenuLayoutBGScreenData_0207fcb8(MenuLayout_0207fcb8*);
 extern "C" void func_0207fd00(Struct_0207fd00*);
 extern "C" void func_0207fe80(void*, int, int, int);
 extern "C" void FlushBGScreenData_0204b04c(void*, int);
-extern "C" void func_0207fd44(Struct_0207fd44_2*);
+extern "C" void FlushMenuLayoutBGScreenData_0207fd44(MenuLayout_0207fd44_2*);
 extern "C" void PlaySpriteAnimation_0205a370(SpriteAnimationList_0205a254*, int);
 extern "C" Struct_ov006_021580b8_2* FindSpriteAnimation_0205a3d0(SpriteAnimationList_0205a254*, int);
 extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330*, int);
@@ -224,11 +224,11 @@ extern "C" ARM void func_ov006_021580b8(Struct_ov006_02157a60* arg0)
         }
 #endif
         void* var3 = arg0->unknown_14_;
-        func_0207fcb8((Struct_0207fcb8*)var3);
+        ClearMenuLayoutBGScreenData_0207fcb8((MenuLayout_0207fcb8*)var3);
         func_0207fd00((Struct_0207fd00*)var3);
         func_0207fe80(var3, 2, 1, 1);
         FlushBGScreenData_0204b04c(arg0->unknown_54_, 0);
-        func_0207fd44((Struct_0207fd44_2*)var3);
+        FlushMenuLayoutBGScreenData_0207fd44((MenuLayout_0207fd44_2*)var3);
         if (arg0->unknown_394_ & 0x200)
         {
             arg0->unknown_42c_ = 0;

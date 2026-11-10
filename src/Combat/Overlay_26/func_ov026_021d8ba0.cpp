@@ -191,9 +191,9 @@ void func_ov000_02162cbc( BattleScene_ov000_02160da0*);
 void SetObjectsVisibleBySelector_ov000_021626a0( BattleScene_ov000_02160da0*, int, int);
 void func_ov000_021629ec( BattleScene_ov000_02160da0*);
 int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
-int func_ov000_0215ec1c(Struct_ov000_02161e30*, short*, int, int);
+int CollectAllEnemyCombatantIndices_ov000_0215ec1c(Struct_ov000_02161e30*, short*, int, int);
 int CollectEnemyCombatantIndices_ov000_0215eb1c(Struct_ov000_02161e30*, short*, int, int);
-Struct_ov026_021d8ba0_2 func_ov000_0216f74c(int* arg0);
+Struct_ov026_021d8ba0_2 GetCellPosition_ov000_0216f74c(int* cell);
 void CloseMessageWindow_02043124(Struct_ov023_021f4c04*);
 void func_ov026_021daec8(Struct_ov000_02161e30*, void*, int);
 void func_ov000_02174614(void*, int);
@@ -233,7 +233,7 @@ void func_ov026_021db5a4( BattleScene_ov000_02160da0*);
 void func_ov026_021dbba8( BattleScene_ov000_02160da0*);
 void func_ov000_0217457c(void*, int);
 unsigned char func_ov026_021dd3dc(Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*);
-void* func_ov000_02160f14( BattleScene_ov000_02160da0*);
+void* GetBattleCamera_ov000_02160f14( BattleScene_ov000_02160da0*);
 void func_ov017_021c894c(unsigned short);
 void func_ov017_021c8758(unsigned short);
 void func_ov017_021c8654();
@@ -640,7 +640,7 @@ state1:
             var35 = GameState::GetInstance();
             var34 = 0;
             var34 = var34 + CollectPartyCombatantIndices_ov000_0215e9fc(var19, var16, 12, var34);
-            var34 = var34 + func_ov000_0215ec1c(var19, &var16[var34], 12 - var34, 0);
+            var34 = var34 + CollectAllEnemyCombatantIndices_ov000_0215ec1c(var19, &var16[var34], 12 - var34, 0);
             var33 = 0;
             var32 = 0;
             var31 = var33;
@@ -681,7 +681,7 @@ state1:
                         int var68;
                         SetCombatantCell_02049390(*var66, *var63);
                         var68 = *var63;
-                        const Struct_ov026_021d8ba0_2& var69 = func_ov000_0216f74c(&var68);
+                        const Struct_ov026_021d8ba0_2& var69 = GetCellPosition_ov000_0216f74c(&var68);
                         Struct_ov026_021d8ba0_2 var70 = var69;
                         var12 = data_ov026_021de6dc;
                         var12.unknown_0_[0] = var70.unknown_0_;
@@ -1148,7 +1148,7 @@ state1:
                     if (arg0->unknown_7749_ == 0) {
                         func_ov000_02167e6c((unsigned char*)arg0);
                     }
-                    func_ov026_021daec8(var19, func_ov000_02160f14(arg0), 0);
+                    func_ov026_021daec8(var19, GetBattleCamera_ov000_02160f14(arg0), 0);
                     if (func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
                         arg0->unknown_5950_ = func_ov026_021dd3dc(arg0->pBattle_29c_, arg0->unknown_2a0_, arg0->unknown_3760_);
                         func_ov017_021cefe0(arg0->unknown_2a0_->unknown_8_, arg0->unknown_5950_, arg0->unknown_7748_);
@@ -1238,7 +1238,7 @@ state1:
             return;
         }
         if (arg0->unknown_7748_ != 0) {
-            int var125 = func_ov000_0215ec1c(var19, var10, 8, 0);
+            int var125 = CollectAllEnemyCombatantIndices_ov000_0215ec1c(var19, var10, 8, 0);
             int var126;
             for (var126 = 0; var126 < var125; var126++) {
                 GameObject* var127 = GetEnemyByIndex_0200fea4(var17, var10[var126]);

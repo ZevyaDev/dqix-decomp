@@ -13,7 +13,7 @@ extern Struct_ov031_02249198_2 data_ov031_0224919e[];
 extern Struct_ov031_02290cc8_3 data_ov031_02290cc8;
 extern "C" int func_ov031_02227570(unsigned int);
 extern "C" void func_ov031_02222e20(int);
-extern "C" int func_ov031_0223d354(int);
+extern "C" int AreKeysPressed_ov031_0223d354(int);
 extern "C" int func_ov031_0223d49c(Struct_ov031_02233524_2*);
 extern "C" void func_ov031_022237dc(unsigned short, unsigned short, unsigned short, unsigned short);
 extern "C" int func_ov031_0223d394(int);
@@ -38,11 +38,11 @@ extern "C" ARM void func_ov031_02233524(void) {
         ++var0;
         var1 += sizeof(Struct_ov031_02233524_2);
     } while (var0 < 4);
-    if (func_ov031_0223d354(1)) {
+    if (AreKeysPressed_ov031_0223d354(1)) {
         func_ov031_02222e20(1);
         return;
     }
-    if (func_ov031_0223d354(2)) {
+    if (AreKeysPressed_ov031_0223d354(2)) {
         func_ov031_02222e20(0);
         return;
     }

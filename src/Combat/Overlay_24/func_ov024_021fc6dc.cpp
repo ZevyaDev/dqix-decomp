@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov024_021fe698(void* arg0, int arg1);
+extern "C" int TrySelectTacticOption_ov024_021fe698(void* tacticAI, int option);
 extern "C" void func_ov024_021fd954(void* arg0, int arg1);
 
 // USA: func_ov024_021fc6dc
 extern "C" ARM void func_ov024_021fc6dc(void* arg0) {
-    if (!func_ov024_021fe698(arg0, 2)) return;
-    if (!func_ov024_021fe698(arg0, 5)) return;
+    if (!TrySelectTacticOption_ov024_021fe698(arg0, 2)) return;
+    if (!TrySelectTacticOption_ov024_021fe698(arg0, 5)) return;
     short var0 = *(short*)((char*)(*(int**)((char*)arg0 + 0x64c)) + 0x30);
     if (var0 <= 0) return;
     if (var0 > 5) return;

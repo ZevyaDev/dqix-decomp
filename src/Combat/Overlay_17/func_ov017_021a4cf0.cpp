@@ -12,7 +12,7 @@ enum { Enum_ov017_021a4cf0_1808 = 0x710, Enum_ov017_021a4cf0_1828 = 0x724, Enum_
 extern "C" void* GetNPCManager_0203cf4c(void);
 struct NPCManager_0203dce4_2;
 extern "C" struct NPC_0203dce4* GetNPCByIndex_0203dce4(struct NPCManager_0203dce4_2* npcManager, int index);
-extern "C" int func_02040528(int* arg0);
+extern "C" int GetNPCData_02040528(int* npc);
 extern "C" int* GetQuestManager_02094d6c(void);
 extern "C" void func_02095924(int* arg0, int arg1);
 extern "C" void* GetFlagManager_0205ec34(void* arg0);
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov017_021a4cf0(char* arg0) {
     if (var2 == NULL) {
         return;
     }
-    int* var3 = (int*)func_02040528(&var2->flags_0_);
+    int* var3 = (int*)GetNPCData_02040528(&var2->flags_0_);
     if (var3 == NULL) {
         return;
     }

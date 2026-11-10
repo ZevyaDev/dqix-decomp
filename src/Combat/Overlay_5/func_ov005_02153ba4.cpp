@@ -158,7 +158,7 @@ extern "C" void func_ov023_021e20c0(void* arg0);
 extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
-extern "C" void InitItemInfoPanel_ov023_021dc134(void* arg0, int itemId, int arg2);
+extern "C" void InitItemInfoPanel_ov023_021dc134(void* panel, int itemId, int isEmbedded);
 extern "C" void func_ov023_021e1318(Struct_ov002_0215505c_2* arg0);
 extern "C" void func_ov023_021dad78(void* arg0);
 extern "C" void func_ov005_021536e0(void* arg0);

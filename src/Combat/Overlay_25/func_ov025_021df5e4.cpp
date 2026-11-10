@@ -3,7 +3,7 @@
 #include "Graphics/Vector.h"
 #include "GameState/GameState.h"
 
-extern "C" void func_0203db34(unsigned char* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetObject3DRotation_0203db34(unsigned char* object, int x, int y, int z);
 
 struct Struct_ov025_021df5e4 {
     Object3D unknown_0_;
@@ -46,8 +46,8 @@ extern "C" ARM void func_ov025_021df5e4(Struct_ov025_021df5e4* arg0, int arg1, i
         arg0->unknown_18a_ = 10;
     }
     fix32_t var10 = fix32ReduceAngle0To2Pi(fix32_Atan2(arg0->unknown_158_.x, arg0->unknown_158_.z));
-    func_0203db34((unsigned char*)&arg0->unknown_0_, 0, var10, 0);
-    func_0203db34((unsigned char*)&arg0->unknown_ac_, 0, var10, 0);
+    SetObject3DRotation_0203db34((unsigned char*)&arg0->unknown_0_, 0, var10, 0);
+    SetObject3DRotation_0203db34((unsigned char*)&arg0->unknown_ac_, 0, var10, 0);
     Vector3fixMultiplyScalar(&arg0->unknown_158_, var5, &arg0->unknown_158_);
     arg0->unknown_18b_ = 0;
     memset(arg0->unknown_176_, 0, 0x14);

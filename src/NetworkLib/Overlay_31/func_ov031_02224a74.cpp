@@ -2,7 +2,7 @@
 
 extern "C" int func_ov031_0223d394(int arg0);
 extern "C" void func_ov031_02225148(int arg0);
-extern "C" int func_ov031_0223d354(int arg0);
+extern "C" int AreKeysPressed_ov031_0223d354(int keys);
 extern "C" int func_ov031_0223d3d4(int arg0);
 extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int soundEffectIndex);
 extern "C" void func_ov031_02224f20(int);
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov031_02224a74(void) {
     if (func_ov031_0223d394(0x10)) func_ov031_02225148(2);
     if (func_ov031_0223d394(0x80)) func_ov031_02225148(3);
 
-    if (func_ov031_0223d354(1)) {
+    if (AreKeysPressed_ov031_0223d354(1)) {
         Struct_ov031_02224a74* var0 = gKeyboard_ov031_02250bfc;
         int var1 = var0->unknown_121_;
         if (var1 < 0x2f) {
@@ -98,10 +98,10 @@ extern "C" ARM void func_ov031_02224a74(void) {
     }
 after_field36_check:
 
-    if (func_ov031_0223d354(0x400)) {
+    if (AreKeysPressed_ov031_0223d354(0x400)) {
         func_ov031_022247bc();
     }
-    if (func_ov031_0223d354(0x800)) {
+    if (AreKeysPressed_ov031_0223d354(0x800)) {
         func_ov031_022247ec();
     }
 }

@@ -149,7 +149,7 @@ extern "C" void func_020a093c(struct Struct_0208660c* arg0, int arg1, int arg2, 
 extern "C" int func_020a0a08(struct Struct_02061c04_23* arg0, int arg1, int arg2);
 extern "C" void func_0207c258(void* arg0);
 extern "C" unsigned short* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
-extern "C" unsigned char* func_0207c60c(void* arg0, unsigned int arg1);
+extern "C" unsigned char* GetEquipmentBagCounts_0207c60c(void* bag, unsigned int category);
 extern "C" short func_0207c620(unsigned char* arg0, unsigned int arg1);
 extern "C" void func_0207c6a8(unsigned char* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" unsigned short* func_020120a0(char* arg0, unsigned int arg1);
@@ -216,7 +216,7 @@ extern "C" ARM int func_020a95a4(Struct_020a95a4_6* arg0, Struct_020a95a4_5* arg
     func_0207c258(var1->unknown_1d4_);
     for (int var10 = 0; var10 < 8; var10++) {
         unsigned short* var11 = GetEquipmentBagItemIds_0207c5f8(var1->unknown_1d4_, var10);
-        unsigned char* var12 = func_0207c60c(var1->unknown_1d4_, var10);
+        unsigned char* var12 = GetEquipmentBagCounts_0207c60c(var1->unknown_1d4_, var10);
         short var13 = func_0207c620(var1->unknown_1d4_, var10);
         memcpy(var11, &arg0->unknown_1f30_[var9], var13 * 2);
         memcpy(var12, &arg0->unknown_2710_[var9], var13);

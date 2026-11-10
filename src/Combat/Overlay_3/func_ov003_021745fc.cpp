@@ -6,7 +6,7 @@
 #endif
 
 struct Struct_020e28dc;
-struct Struct_020e263c_2;
+struct YesNoWindow_020e263c_2;
 struct Struct_0207fc6c;
 
 struct Struct_ov003_021745fc {
@@ -54,7 +54,7 @@ bool func_ov017_021959b4();
 void func_ov003_02174550(Struct_ov003_021745fc_2* arg0);
 void func_ov003_021749f0(Struct_ov003_021745fc_2* arg0);
 void func_ov003_021760cc(Struct_ov003_021745fc_2* arg0);
-void func_02081f20(void* arg0, int arg1);
+void UpdateKeyRepeat_02081f20(void* keyRepeat, int elapsedFrames);
 int func_020800fc(Struct_ov003_021745fc* arg0, short* arg1, short arg2, unsigned short arg3, unsigned char, bool);
 void OpenMenuLayoutWindow_020813ec(Struct_ov003_021745fc* menuLayout, short windowId);
 }
@@ -66,7 +66,7 @@ extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_0207fc6c(Struct_0207fc6c* arg0, int arg1);
 extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void* menuLayout, int windowId);
 extern "C" int func_020e28dc(Struct_020e28dc* arg0);
-extern "C" void func_020e263c(Struct_020e263c_2* arg0, int arg1);
+extern "C" void UpdateYesNoWindow_020e263c(YesNoWindow_020e263c_2* yesNoWindow, int ticks);
 
 extern unsigned int data_ov003_02180cc8[2];
 extern Type_020200c0 gNullMemberFunctionPointer_020e6d5c;
@@ -95,7 +95,7 @@ extern "C" ARM bool func_ov003_021745fc(Struct_ov003_021745fc_2* arg0, int arg1)
         if (var0 != NULL)
             func_0207fc6c((Struct_0207fc6c*)var0, arg1);
         if (arg0->unknown_ff8_ != NULL) {
-            func_02081f20(arg0->unknown_88c_, arg1);
+            UpdateKeyRepeat_02081f20(arg0->unknown_88c_, arg1);
             arg0->unknown_1000_ = *arg0->unknown_ff8_;
             arg0->unknown_fe4_ = func_020800fc(var0, arg0->unknown_ff8_, arg0->unknown_1000_, arg0->unknown_898_, arg0->unknown_89a_, (arg0->unknown_1046_ & 0x400) != 0);
             var0->unknown_36_ = *arg0->unknown_ff8_;
@@ -107,7 +107,7 @@ extern "C" ARM bool func_ov003_021745fc(Struct_ov003_021745fc_2* arg0, int arg1)
     }
 
     if (arg0->unknown_0_ != NULL && func_020e28dc(arg0->unknown_0_))
-        func_020e263c((Struct_020e263c_2*)arg0->unknown_0_, arg0->unknown_fe0_);
+        UpdateYesNoWindow_020e263c((YesNoWindow_020e263c_2*)arg0->unknown_0_, arg0->unknown_fe0_);
 
     if (!(data_ov003_02180cc8[0] & 1)) {
         data_ov003_02180aa4[9] = gNullMemberFunctionPointer_020e6d5c;

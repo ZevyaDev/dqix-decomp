@@ -5,7 +5,7 @@ struct Struct_ov031_02290cc0_4 { unsigned char unknown_0_; unsigned char unknown
 extern Struct_ov031_02290cc0_4 data_ov031_02290cc0;
 extern "C" void func_ov031_02236e60(void);
 extern "C" void DisableButtonBarInput_ov031_02222e98(void);
-extern "C" void func_ov031_0223c278(int);
+extern "C" void StartBrightnessFadeDelay_ov031_0223c278(int);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_02232ac0(void);
 
@@ -15,6 +15,6 @@ extern "C" ARM void func_ov031_02232a84(void) {
 		func_ov031_02236e60();
 	}
 	DisableButtonBarInput_ov031_02222e98();
-	func_ov031_0223c278(8);
+	StartBrightnessFadeDelay_ov031_0223c278(8);
 	SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02232ac0);
 }

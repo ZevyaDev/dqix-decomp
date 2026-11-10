@@ -22,7 +22,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_020d84f4(void);
 extern "C" void* func_02079a3c(void* arg0);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
-extern "C" int func_02061bd8(PartyMember_0205faf4_11* arg0);
+extern "C" int IsNPCCompanion_02061bd8(PartyMember_0205faf4_11* partyMember);
 extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
@@ -182,7 +182,7 @@ extern "C" ARM void func_ov000_02164fac(Struct_ov000_02164fac_3* arg0) {
 
             SafeAllocator* var23;
             func_02012de8();
-            if (func_02061bd8((PartyMember_0205faf4_11*)var21)) {
+            if (IsNPCCompanion_02061bd8((PartyMember_0205faf4_11*)var21)) {
                 var21->unknown_0_.Destroy();
                 if (var21->unknown_1c4_ != NULL) {
                     sprintf(var1, data_ov000_0218399e, var21->unknown_1c4_[INFO_NAME_ID]);
@@ -217,7 +217,7 @@ extern "C" ARM void func_ov000_02164fac(Struct_ov000_02164fac_3* arg0) {
 
             func_02049c88(var21, &arg0->unknown_5c3c_[var20]);
             func_02012de8();
-            if (func_02061bd8((PartyMember_0205faf4_11*)var21)) {
+            if (IsNPCCompanion_02061bd8((PartyMember_0205faf4_11*)var21)) {
                 SaveTextureVRAMState_0207dfac((char*)(var22 + 0xcc));
                 if (var21->unknown_1c4_ != NULL) {
                     sprintf(var1, data_ov000_021839c0, var21->unknown_1c4_[INFO_NAME_ID]);
@@ -248,7 +248,7 @@ extern "C" ARM void func_ov000_02164fac(Struct_ov000_02164fac_3* arg0) {
 
             var21->unknown_c2_ |= 0x20;
             var21->unknown_0_.MaybeSetRegularAnimation(data_ov000_021839e8, 0);
-            if (func_02061bd8((PartyMember_0205faf4_11*)var21)) {
+            if (IsNPCCompanion_02061bd8((PartyMember_0205faf4_11*)var21)) {
                 Struct_ov000_02164fac* var24 = GetPartyMemberData_02053c6c((unsigned char*)var21);
                 if (var24 != NULL) {
                     var24->unknown_94c_ = 0;

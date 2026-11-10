@@ -84,7 +84,7 @@ struct Struct_ov006_02154614 {
     unsigned char unknown_12bd_;
 };
 
-extern "C" void InitItemInfoPanel_ov023_021dc134(Struct_ov006_02154614_2* arg0, short itemId, signed char arg2);
+extern "C" void InitItemInfoPanel_ov023_021dc134(Struct_ov006_02154614_2* panel, short itemId, signed char isEmbedded);
 extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void func_ov006_0215479c(Struct_ov006_02156e54* arg0);
 extern "C" void func_020dbd9c(Struct_020dbd9c* arg0);

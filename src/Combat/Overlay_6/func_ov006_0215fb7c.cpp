@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Struct_ov006_02154614;
-struct Struct_02081164;
+struct MenuLayout_02081164;
 struct MenuLayout_0207fdcc_2;
 
 struct Struct_ov006_02157a60 {
@@ -94,9 +94,9 @@ struct Struct_ov006_02157a60 {
     unsigned char unknown_434_;
 };
 
-extern "C" void func_0208103c(void* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutTextStringId_0208103c(void* menuLayout, int textId, int stringId);
 extern "C" void func_0208108c(void* arg0, int arg1);
-extern "C" void func_02081164(Struct_02081164* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowFrameless_02081164(MenuLayout_02081164* menuLayout, int windowId, int isFrameless);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 extern "C" void ShowMenuLayoutWindow_02080c20(MenuLayout_0207fdcc_2* menuLayout, int windowId);
@@ -175,9 +175,9 @@ extern "C" ARM void func_ov006_0215fb7c(Struct_ov006_02157a60* arg0) {
         var1 = 0x1c;
         break;
     }
-    func_0208103c(var0, 0x59, var1);
+    SetMenuLayoutTextStringId_0208103c(var0, 0x59, var1);
     func_0208108c(var0, 0x59);
-    func_02081164((Struct_02081164*)var0, 0xe, 1);
+    SetMenuLayoutWindowFrameless_02081164((MenuLayout_02081164*)var0, 0xe, 1);
     OpenMenuLayoutWindow_020813ec(var0, 0xe);
     SetMenuLayoutWindowPalette_02080c68(var0, 0xe, 2);
     ShowMenuLayoutWindow_02080c20((MenuLayout_0207fdcc_2*)var0, 0xe);

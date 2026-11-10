@@ -25,7 +25,7 @@ extern "C" void func_ov000_02157cdc(void*);
 extern "C" ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e958(Struct_ov000_0215a908*);
 extern "C" void SetActionResult_ov000_0215ccbc(int, ActionResult_ov000_021584e8*, GameObject*, short, short, short, unsigned long long, unsigned char);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
-extern "C" void func_ov000_0215ffc4(void*, void*, int);
+extern "C" void AppendTargetResult_ov000_0215ffc4(void*, void*, int);
 extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*, Struct_ov000_0215767c_6*);
 extern "C" void func_ov000_021600cc(Struct_ov000_0215767c_5*, Struct_ov000_0215767c_4*);
 extern short data_ov000_02182c24[8];
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov000_0215c4cc(Struct_ov000_0215a908* arg0) {
         AddActionResultMessage_ov000_0215a88c(arg0, var13, 0x164);
         var12->unknown_e_ = var0[var5];
         var12->unknown_17_ = 1;
-        func_ov000_0215ffc4(var12, var13, 0);
+        AppendTargetResult_ov000_0215ffc4(var12, var13, 0);
         arg0->unknown_8e02_++;
         func_ov000_02160068(var10, var11);
         func_ov000_021600cc((Struct_ov000_0215767c_5*)var10, var12);

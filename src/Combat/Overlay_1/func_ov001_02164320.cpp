@@ -2,7 +2,7 @@
 
 struct Struct_0203d028_16;
 struct Struct_0203e2c4_2;
-extern "C" void func_0203db34(unsigned char* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetObject3DRotation_0203db34(unsigned char* object, int x, int y, int z);
 extern "C" void func_0204085c(struct Struct_0203d028_16* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_02040b2c(struct Struct_0203e2c4_2* arg0, int arg1);
 
@@ -26,17 +26,17 @@ extern "C" ARM int func_ov001_02164320(struct Struct_ov001_02164320* arg0, int a
     case 5:
         var1 = var0->unknown_c_;
         if (var1 == NULL) return 0;
-        func_0203db34(var1, arg2, arg3, arg4);
+        SetObject3DRotation_0203db34(var1, arg2, arg3, arg4);
         return 1;
     case 0:
         var1 = var0->unknown_c_;
         if (var1 == NULL) return 0;
-        func_0203db34(var1, arg2, arg3, arg4);
+        SetObject3DRotation_0203db34(var1, arg2, arg3, arg4);
         return 1;
     case 1:
         var1 = var0->unknown_c_;
         if (var1 == NULL) return 0;
-        func_0203db34(var1, arg2, arg3, arg4);
+        SetObject3DRotation_0203db34(var1, arg2, arg3, arg4);
         return 1;
     case 2:
     case 6:

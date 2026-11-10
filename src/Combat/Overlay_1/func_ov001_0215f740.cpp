@@ -8,7 +8,7 @@ extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 struct NPCManager_0203dce4_2 { char unknown_0_[0xc]; struct NPC_0203dce4* npcs_c_[0x20]; };
 extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" struct NPC_0203dce4* GetNPCByIndex_0203dce4(struct NPCManager_0203dce4_2* npcManager, int index);
-extern "C" int func_02040528(int* arg0);
+extern "C" int GetNPCData_02040528(int* npc);
 extern "C" void* func_0203d004(void*);
 extern const char data_ov001_021657d4[];
 
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov001_0215f740(void* arg0) {
         return 0;
     }
     if (*(int*)((char*)var2 + 0x14) != 0) {
-        int var3 = func_02040528(&var2->flags_0_);
+        int var3 = GetNPCData_02040528(&var2->flags_0_);
         struct Struct_0204027c_2* var4 = (struct Struct_0204027c_2*)func_0203d004(var1);
         char var5[0x10];
 #if defined(jpn)

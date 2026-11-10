@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_020cf0fc(int arg0);
+extern "C" int GetCurrentDate_020cf0fc(int date);
 extern "C" void SetScriptRefInt_ov017_021d6134(void* value, int number);
 
 struct Struct_ov023_021e9a9c {
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov023_021e9a9c(void* arg0) {
 #endif
     void* var0 = GameState::GetInstance();
     int var1[4];
-    func_020cf0fc((int)var1);
+    GetCurrentDate_020cf0fc((int)var1);
 
     Struct_ov023_021e9a9c* var2 = (Struct_ov023_021e9a9c*)((char*)var0 + 0x5000 + Enum_ov023_021e9a9c_1692);
 

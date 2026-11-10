@@ -26,7 +26,7 @@ extern "C" WeaponPlacement_ov017_021917f0* func_02099f60(void);
 extern "C" int func_02053eb4(void*, int);
 extern "C" void func_02053ec0(unsigned char*, int);
 extern "C" void SetObject3DPosition_020407b4(Struct_02040774_2* object, int x, int y, int z);
-extern "C" void func_0203db34(unsigned char* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetObject3DRotation_0203db34(unsigned char* object, int x, int y, int z);
 
 // USA: AttachPartyMemberWeapon_ov017_021917f0
 extern "C" ARM void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int isHeld) {
@@ -47,7 +47,7 @@ extern "C" ARM void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int 
         int heldBoneIndex = func_02053eb4(partyMemberBase, placement->heldBoneSlot_e_);
         func_02053ec0((unsigned char*)partyMemberBase, heldBoneIndex);
         SetObject3DPosition_020407b4((Struct_02040774_2*)weaponObject, placement->heldPosition_10_[0], placement->heldPosition_10_[1], placement->heldPosition_10_[2]);
-        func_0203db34((unsigned char*)weaponObject, placement->heldRotation_16_[0], placement->heldRotation_16_[1], placement->heldRotation_16_[2]);
+        SetObject3DRotation_0203db34((unsigned char*)weaponObject, placement->heldRotation_16_[0], placement->heldRotation_16_[1], placement->heldRotation_16_[2]);
         weaponObject->obj3D_.Detach();
         weaponObject->obj3D_.Attach(&partyMemberBase->obj3D_, heldBoneIndex);
         if (placement->heldRotation_16_[0] != 0 || placement->heldRotation_16_[1] != 0 || placement->heldRotation_16_[2] != 0) {
@@ -59,7 +59,7 @@ extern "C" ARM void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int 
         int stowedBoneIndex = func_02053eb4(partyMemberBase, placement->stowedBoneSlot_1_);
         func_02053ec0((unsigned char*)partyMemberBase, stowedBoneIndex);
         SetObject3DPosition_020407b4((Struct_02040774_2*)weaponObject, placement->stowedPosition_2_[0], placement->stowedPosition_2_[1], placement->stowedPosition_2_[2]);
-        func_0203db34((unsigned char*)weaponObject, placement->stowedRotation_8_[0], placement->stowedRotation_8_[1], placement->stowedRotation_8_[2]);
+        SetObject3DRotation_0203db34((unsigned char*)weaponObject, placement->stowedRotation_8_[0], placement->stowedRotation_8_[1], placement->stowedRotation_8_[2]);
         weaponObject->obj3D_.Detach();
         weaponObject->obj3D_.Attach(&partyMemberBase->obj3D_, stowedBoneIndex);
         if (placement->stowedRotation_8_[0] != 0 || placement->stowedRotation_8_[1] != 0 || placement->stowedRotation_8_[2] != 0) {

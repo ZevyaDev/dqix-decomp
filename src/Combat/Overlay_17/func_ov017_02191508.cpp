@@ -53,7 +53,7 @@ extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
 extern "C" void func_02083e28(void* arg0, int arg1);
 extern "C" void func_02083ca0(unsigned char* arg0, int arg1);
 extern "C" void func_02083c18(char* arg0);
-extern "C" void func_02083b60(unsigned char* arg0, int arg1);
+extern "C" void LearnSpell_02083b60(unsigned char* memberData, int spellId);
 
 extern char data_020ef078[];
 
@@ -106,5 +106,5 @@ extern "C" ARM void func_ov017_02191508(int arg0, Struct_ov017_02191508_2* arg1)
     func_02083ca0((unsigned char*)var1, 0);
     func_02083c18((char*)var1);
     var1->unknown_16c_ = arg1->unknown_12_;
-    func_02083b60((unsigned char*)var1, arg1->unknown_13_);
+    LearnSpell_02083b60((unsigned char*)var1, arg1->unknown_13_);
 }

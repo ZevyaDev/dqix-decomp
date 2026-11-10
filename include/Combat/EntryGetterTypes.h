@@ -23,5 +23,5 @@ extern "C" int func_020409e0(NPC_0203dce4* arg0);
 extern "C" int func_02040a20(NPC_0203dce4* arg0);
 
 extern "C" int func_0203cdd0(Struct_0203cdd0 *arg0);
-extern "C" int func_02040528(int *arg0);
+extern "C" int GetNPCData_02040528(int *npc);
 extern "C" void *func_02040538(Struct_0203e0a0 *arg0);

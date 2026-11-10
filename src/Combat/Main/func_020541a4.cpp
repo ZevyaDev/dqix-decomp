@@ -8,7 +8,7 @@ enum { Enum_020541a4_330 = 0x13e };
 enum { Enum_020541a4_330 = 0x14a };
 #endif
 
-extern "C" void func_ov017_02191aac(char* arg0, int arg1, int arg2, unsigned char arg3);
+extern "C" void SetCombatantAppearanceFlags_ov017_02191aac(char* gameResources, int isSet, int combatantIndex, unsigned char flags);
 unsigned long long GetCurrentTimestamp(void);
 extern "C" void func_ov017_021ce014(int arg0, unsigned short arg1, unsigned short arg2, unsigned short arg3);
 
@@ -29,7 +29,7 @@ extern "C" ARM void func_020541a4(struct Struct_020541a4* arg0, unsigned char ar
     var0[0x56c] = 1;
     var0 = arg0->unknown_150_;
     var0[0x56d] = arg1;
-    func_ov017_02191aac((char*)var1, 1, arg0->unknown_4_, 2);
+    SetCombatantAppearanceFlags_ov017_02191aac((char*)var1, 1, arg0->unknown_4_, 2);
     unsigned long long var2 = GetCurrentTimestamp();
     var0 = arg0->unknown_150_;
     *(unsigned int*)(var0 + 0x480) = (unsigned int)var2;

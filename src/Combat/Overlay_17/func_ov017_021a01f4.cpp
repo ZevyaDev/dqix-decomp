@@ -9,7 +9,7 @@ extern Vector3i data_ov017_021d6600[];
 
 extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
-extern "C" int func_02040528(int* arg0);
+extern "C" int GetNPCData_02040528(int* npc);
 extern "C" int func_ov017_0218dd18(void* arg0, void* arg1, int arg2);
 
 // USA: func_ov017_021a01f4
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov017_021a01f4(void* arg0, int arg1, int arg2, void* arg
 			void* var5 = FindNPCById_0203df78(var3, *var4);
 			if (!var5) { var4++; continue; }
 
-			int var6 = func_02040528((int*)var5);
+			int var6 = GetNPCData_02040528((int*)var5);
 			if (!var6) { var4++; continue; }
 
 			if (*((unsigned char*)var6 + 2) == 1) { var4++; continue; }

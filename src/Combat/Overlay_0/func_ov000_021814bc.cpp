@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_ov000_021719f8(int* arg0);
+extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
 extern "C" void __clear(void* arg0, int arg1);
 #if defined(jpn)
 extern "C" int func_ov000_02171a74(void* arg0);
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov000_021814bc(char* arg0) {
         var1 = (struct Struct_ov000_021814bc*)(arg0 + 0x958) + *(signed char*)(arg0 + var2 + 0x6c);
         if (var1->unknown_4c_ < 0) continue;
         var1->unknown_3c_ = var1->unknown_28_;
-        if (!func_ov000_021719f8((int*)var1)) continue;
+        if (!IsPanelMemberIncapacitated_ov000_021719f8((int*)var1)) continue;
 #if defined(jpn)
         int var3 = func_ov000_02171a74(var1);
         if (var3 < 0) continue;

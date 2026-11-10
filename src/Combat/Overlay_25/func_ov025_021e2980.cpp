@@ -54,7 +54,7 @@ extern "C" void SetCameraFieldOfView_0202e9a4(Struct_0202df68*, int);
 extern "C" void func_0204a170(int);
 extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void*, int, int, int);
 extern "C" void func_02048c90(Struct_02048c90*);
-extern "C" void func_02049ae4(unsigned char*);
+extern "C" void StopCombatantSidestep_02049ae4(unsigned char*);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" Struct_ov025_021e2980_4* GetBattleScene_ov000_02160130();
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
@@ -82,7 +82,7 @@ extern "C" ARM int func_ov025_021e2980(Struct_ov025_021e2980* arg0, Struct_ov025
             if (!var6) continue;
             if (var6->unknown_0_.classFlags_0_ & 0x80) {
                 func_02048c90((Struct_02048c90*)var6);
-                func_02049ae4((unsigned char*)var6);
+                StopCombatantSidestep_02049ae4((unsigned char*)var6);
                 int var7 = var6->unknown_be_;
                 if (var7 != 0 && var7 != 4 && var7 != 6)
                     SetMotion_02033b88((Struct_02010604*)var6, 0);

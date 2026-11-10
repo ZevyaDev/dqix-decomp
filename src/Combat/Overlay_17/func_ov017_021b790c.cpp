@@ -32,8 +32,8 @@ extern "C" char data_ov017_021d83c0[];
 #include "Resource/Brightness.h"
 
 
-struct Struct_020469f8;
-struct Struct_020469f8_2;
+struct Queue_020469f8;
+struct QueueNode_020469f8_2;
 struct Queue_02038598_5;
 struct Struct_02109bf4_3;
 struct MusicManager_02109bf4_4;
@@ -155,7 +155,7 @@ extern "C" void func_ov017_021b71d8(Struct_ov017_021b790c_4* arg0);
 extern "C" void func_ov017_021b7284(Struct_ov017_021b790c_4* arg0);
 extern "C" int func_0209ca68(char* arg0);
 extern "C" void func_ov017_021b621c(void* arg0, void* arg1, void* arg2);
-extern "C" void func_020469f8(Struct_020469f8* arg0, Struct_020469f8_2* arg1);
+extern "C" void PrependToQueue_020469f8(Queue_020469f8* queue, QueueNode_020469f8_2* node);
 extern "C" void func_ov000_02160620(void* arg0);
 extern "C" int func_ov000_02161264(void* arg0);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
@@ -183,7 +183,7 @@ extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" void ResetMusic_0209c20c(Struct_02109bf4_3* manager);
 extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4* manager, int fadeDuration);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
-extern "C" void func_02048150(GameObject* arg0, int arg1, int arg2);
+extern "C" void RevivePartyMember_02048150(GameObject* gameObject, int hp, int isPartyOrderRebuildAllowed);
 extern "C" int SetMotion_02033b88(Struct_02010604* object, int motion);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov017_021cedf4(int arg0, int arg1, int arg2);
@@ -208,7 +208,7 @@ extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void func_02046608(void* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
 extern "C" int abs(int arg0);
-extern "C" void* func_020704fc(void);
+extern "C" void* GetColorFade_020704fc(void);
 extern "C" void func_02070900(Struct_02070900_2* arg0, Struct_02070900* arg1, unsigned int arg2);
 extern "C" void func_020707c8(Struct_020707c8* arg0);
 #if defined(jpn)
@@ -254,11 +254,11 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
     unsigned short var6 = arg0->unknown_6b4_;
     if (var6 == 6) {
         if (func_0209ca68(gMusicManager_02109bf4) != 2) {
-            Struct_020469f8* var7 = *(Struct_020469f8**)(var1 + 0x3000 + SCENE_NODES_021b790c);
-            Struct_020469f8_2* var8 = *(Struct_020469f8_2**)(var1 + 0x3000 + SCENE_NODE_021b790c);
+            Queue_020469f8* var7 = *(Queue_020469f8**)(var1 + 0x3000 + SCENE_NODES_021b790c);
+            QueueNode_020469f8_2* var8 = *(QueueNode_020469f8_2**)(var1 + 0x3000 + SCENE_NODE_021b790c);
             func_ov017_021b621c(var8, 0, 0);
             *(unsigned short*)((char*)var8 + 0xfe) = arg0->unknown_28_;
-            func_020469f8(var7, var8);
+            PrependToQueue_020469f8(var7, var8);
         }
         arg0->unknown_6b4_ = 0;
     } else if (var6 == 0) {
@@ -349,7 +349,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
             if (var15 && arg0->unknown_28_ >= 0 && IsLocalWirelessGuest_0202c540(var9) != 0) {
                 GameObject* var25 = var0->GetProtagonist();
                 if (var25 != NULL && (**(int**)((char*)var25 + 0x130) & 1)) {
-                    func_02048150(var25, 0, 1);
+                    RevivePartyMember_02048150(var25, 0, 1);
                     *(unsigned short*)(*(char**)((char*)var25 + 0x130) + 4) = 1;
                     *(unsigned int*)((char*)var25 + SCENE_COMBATANT_FLAGS_021b790c) &= ~1;
                     SetMotion_02033b88((Struct_02010604*)var25, 0);
@@ -433,7 +433,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
             }
 #endif
             if (abs(GetBrightness((GameResources*)var1, false)) == 0x10) {
-                void* var38 = func_020704fc();
+                void* var38 = GetColorFade_020704fc();
                 Struct_ov017_021b790c_8 var39;
                 __clear(&var39, sizeof(var39));
                 SetMainBrightness((GameResources*)var1, 0, 1);

@@ -83,7 +83,7 @@ extern "C" int func_020d805c(Struct_020d805c* arg0);
 extern "C" int func_ov017_0218b628(signed char);
 extern "C" void func_ov017_0218b5c0(int arg0, signed char arg1);
 extern "C" void func_ov017_02191ba0(char*, int, int);
-extern "C" void func_020e1154(void* arg0);
+extern "C" void DisableInputForDuration_020e1154(void* durationMs);
 extern "C" int func_02048418(unsigned char* arg0, unsigned short arg1);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void __clear(void* arg0, unsigned int arg1);
@@ -240,7 +240,7 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
                             }
                             var26 = 1;
                             if (IsTypeInQueue_02046b60(var5, 0x1a)) {
-                                func_020e1154((void*)0x1f4);
+                                DisableInputForDuration_020e1154((void*)0x1f4);
                             }
                             var23.unknown_0_[0] = 0x7955;
                         }

@@ -45,7 +45,7 @@ extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int sta
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_ov017_021a5568(void* arg0);
 extern "C" int IsOnLadder_02039d7c(char* object);
-extern "C" void func_ov017_021b2174(unsigned char* arg0);
+extern "C" void ResetMenuTask_ov017_021b2174(unsigned char* node);
 extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2* arg0, char* arg1);
 extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
 extern "C" void func_020dc2d0(int arg0);
@@ -211,7 +211,7 @@ extern "C" ARM void func_ov017_021a51a4(Struct_ov017_021a51a4_4* arg0) {
     DisablePlayerControl_020397cc((Struct_02018300_3*)var1, 1);
     var1->unknown_b2_ = 0;
     var2 = arg0->unknown_3b4c_;
-    func_ov017_021b2174(var2);
+    ResetMenuTask_ov017_021b2174(var2);
     func_ov017_021b2ba0((Struct_0206f81c_2*)var2, &data_ov017_021d76dc);
     func_ov017_021b2bd0(var2, (int)func_ov004_0216ae2c, OVERLAY_ID(4));
     AppendToQueue_020469b4(arg0->unknown_36fc_, (QueueNode_0201bdac*)var2);

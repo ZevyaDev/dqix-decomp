@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_02054000;
-extern "C" void* func_02054000(struct Struct_02054000* arg0);
+struct PartyMember_02054000;
+extern "C" void* GetEquippedWeaponItemData_02054000(struct PartyMember_02054000* gameObject);
 extern "C" int func_ov000_0217538c(void* arg0);
 
 struct Struct_ov000_02184294_10 {
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov000_0217c2a0(void* arg0) {
     int var3 = *(int*)(var0 + 0x4c);
     GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var2, var3);
     if (var4 != 0) {
-        void* var5 = func_02054000((struct Struct_02054000*)var4);
+        void* var5 = GetEquippedWeaponItemData_02054000((struct PartyMember_02054000*)var4);
         if (var5 != 0) {
             short var6 = *(short*)((char*)var5 + 0x18);
             if (var6 > 0) {

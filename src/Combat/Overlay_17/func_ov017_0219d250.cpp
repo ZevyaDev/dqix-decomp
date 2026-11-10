@@ -148,7 +148,7 @@ extern "C" void _ZN8Object3D10SetField06Et(Object3D* arg0, int arg1);
 extern "C" void ResetFollowTrail_02039d24(unsigned char*);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
-extern "C" void func_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* arg0);
 extern "C" void func_0203409c(unsigned char* arg0);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
@@ -340,7 +340,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
     }
 
     if (IsPerformingGesture_020535c8((signed char*)var10)) {
-        func_020531f0(var10);
+        StopGesture_020531f0(var10);
     }
     func_0203409c((unsigned char*)var9);
     if (((MessageWindow_02021b84*)var6)->unknown_998_ != NULL) {

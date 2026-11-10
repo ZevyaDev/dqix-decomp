@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "NitroSDK/Cache.h"
 
-struct Struct_020200c0_4 {
-    int unknown_0_;
-    int unknown_4_;
-    unsigned char unknown_8_;
+struct Canvas_020200c0_4 {
+    int pCharacterData_0_;
+    int pRects_4_;
+    unsigned char rectCount_8_;
 };
 struct Struct_ov023_021e6b8c {
     int unknown_0_;
@@ -50,9 +50,9 @@ struct Struct_ov023_021e6b8c_7 {
     unsigned char unknown_1372_[10];
     void* unknown_137c_;
 };
-extern "C" void func_0205b20c(Struct_020200c0_4*);
-extern "C" void func_0205b220(void*, int);
-extern "C" void func_0205b228(void*, int, unsigned char);
+extern "C" void InitCanvas_0205b20c(Canvas_020200c0_4*);
+extern "C" void SetCanvasCharacterData_0205b220(void*, int);
+extern "C" void SetCanvasRects_0205b228(void*, int, unsigned char);
 extern "C" {
 void func_ov003_0215ec68(int, short*, short*);
 void func_0205b890(Struct_ov023_021e6b8c*, int, Struct_ov023_021e6b8c_4*);
@@ -96,10 +96,10 @@ extern "C" ARM void func_ov023_021e6b8c(Struct_ov023_021e6b8c_7* arg0, unsigned 
     const char* var10 = arg2->unknown_4_;
     if (arg2->unknown_d_ == 0 && (var9 != 0 || (var8 & 2) != 0)) var10 = arg2->unknown_8_;
     int var11 = (var1 - func_020420e8(var10, 1)) >> 1;
-    Struct_020200c0_4 var12;
-    func_0205b20c(&var12);
-    func_0205b220(&var12, (int)arg0->unknown_137c_);
-    func_0205b228(&var12, (int)var3, 3);
+    Canvas_020200c0_4 var12;
+    InitCanvas_0205b20c(&var12);
+    SetCanvasCharacterData_0205b220(&var12, (int)arg0->unknown_137c_);
+    SetCanvasRects_0205b228(&var12, (int)var3, 3);
     func_0205b734(&var12, 9, 9, (short)(var1 + 7), (short)(var2 + 7), 9);
     func_0205b234(&var12, (short)(var11 + 8), 10, var10, 2, 1);
     DC_FlushRange(arg0->unknown_137c_, arg3);

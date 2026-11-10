@@ -87,7 +87,7 @@ Struct_ov000_0215ab88* _ZN9GameState21GetPartyMemberByIndexEi(GameState* arg0, i
 unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 char* func_020a6084();
 Struct_ov026_021d8ba0_6* func_ov026_021dae60(Struct_ov026_021d8ba0_4* arg0, int arg1);
-int func_ov000_021719f8(int* arg0);
+int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
 int func_ov000_021761c8(char* arg0, int arg1);
 int func_ov000_021761ec(char* arg0, int arg1);
 Struct_ov000_0215ab88* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
@@ -183,7 +183,7 @@ extern "C" ARM void func_ov026_021dddcc(BattleScene_ov000_02160da0* arg0) {
         int var20;
         int var21;
         if (var18 == 0) continue;
-        if (func_ov000_021719f8((int*)var18) != 0) continue;
+        if (IsPanelMemberIncapacitated_ov000_021719f8((int*)var18) != 0) continue;
         if (var18->unknown_1c_ == 6) continue;
         var19 = 0;
         if (var18->unknown_2e_ >= 0) {
@@ -264,7 +264,7 @@ extern "C" ARM void func_ov026_021dddcc(BattleScene_ov000_02160da0* arg0) {
         short var36;
         int var37;
         if (var31 == 0) continue;
-        if (func_ov000_021719f8((int*)var31) != 0) continue;
+        if (IsPanelMemberIncapacitated_ov000_021719f8((int*)var31) != 0) continue;
         if (var31->unknown_1c_ == 6) continue;
         var32 = 0;
         if (var31->unknown_2e_ >= 0) {

@@ -25,7 +25,7 @@ struct Struct_ov002_021688f8_2 {
 };
 struct Struct_0201099c_3;
 extern "C" int func_ov002_02168c00(unsigned char *arg0);
-extern "C" void func_020a13c4(struct Struct_020a13c4 *arg0);
+extern "C" void ClearAccoladeTable_020a13c4(struct Struct_020a13c4 *table);
 extern "C" void func_020a13e4(void *arg0, void *arg1, int arg2, unsigned short arg3, unsigned char arg4);
 extern "C" void *func_020a15bc(struct Struct_020a15bc *arg0, int arg1);
 extern "C" void *ConstructStringTable_020dfc2c(void *stringTable);
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov002_021688f8(char *arg0) {
         *(void **) (arg0 + 0x2000 + REGION_VALUE(0x290, 0x460)) = NULL;
         ((SafeAllocator *) (arg0 + REGION_VALUE(0x38c, 0x28) + REGION_VALUE(0x400, 0x800)))->Reset();
         *(void **) (arg0 + 0x2000 + REGION_VALUE(0x294, 0x464)) = ((SafeAllocator *) (arg0 + REGION_VALUE(0x38c, 0x28) + REGION_VALUE(0x400, 0x800)))->Allocate(0x14);
-        func_020a13c4((struct Struct_020a13c4 *) *(void **) (arg0 + 0x2000 + REGION_VALUE(0x294, 0x464)));
+        ClearAccoladeTable_020a13c4((struct Struct_020a13c4 *) *(void **) (arg0 + 0x2000 + REGION_VALUE(0x294, 0x464)));
         func_020a13e4(*(void **) (arg0 + 0x2000 + REGION_VALUE(0x294, 0x464)), arg0 + REGION_VALUE(0x38c, 0x28) + REGION_VALUE(0x400, 0x800), 0, 0, 4);
         *(unsigned char *) (arg0 + 0x2000 + REGION_VALUE(0x2a1, 0x471)) =
             (func_ov023_021ed724(*(void **) (arg0 + 0x2000 + REGION_VALUE(0x294, 0x464)), var4, var7) & 1) ? 1 : 0;

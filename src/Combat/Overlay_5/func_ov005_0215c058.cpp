@@ -95,7 +95,7 @@ extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int)
 extern "C" int func_ov005_02157190(void* arg0);
 extern "C" unsigned char* GetParty_02010828(GameState*);
 extern "C" short* GetEquipmentBagItemIds_0207c5f8(unsigned char*, unsigned int);
-extern "C" signed char* func_0207c60c(void*, unsigned int);
+extern "C" signed char* GetEquipmentBagCounts_0207c60c(void*, unsigned int);
 extern "C" void func_ov005_0215792c(Struct_ov005_0215c058_4* arg0, int arg1);
 
 extern char gSoundEffectManager_02108760[];
@@ -213,7 +213,7 @@ extern "C" ARM void func_ov005_0215c058(Struct_ov005_0215c058_4* arg0)
             short var18 = arg0->unknown_3dbb_ - 8 + arg0->unknown_3dbd_ * 16;
             unsigned char* var19 = GetParty_02010828(var1);
             short* var20 = GetEquipmentBagItemIds_0207c5f8(var19 + 0x1d4, data_ov005_0215cd10[arg0->unknown_3dbc_]);
-            signed char* var21 = func_0207c60c(var19 + 0x1d4, data_ov005_0215cd10[arg0->unknown_3dbc_]);
+            signed char* var21 = GetEquipmentBagCounts_0207c60c(var19 + 0x1d4, data_ov005_0215cd10[arg0->unknown_3dbc_]);
             short var22 = var20[arg0->unknown_3de0_];
             signed char var23 = var21[arg0->unknown_3de0_];
             var20[arg0->unknown_3de0_] = var20[var18];

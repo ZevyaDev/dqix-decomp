@@ -65,7 +65,7 @@ extern "C" void func_ov000_021600cc(Struct_ov000_0215767c_5*, Struct_ov000_02157
 extern "C" ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" int func_ov000_02159f18(void* arg0, unsigned long long arg1, int arg2);
 extern "C" void SetActionResult_ov000_0215ccbc(int, ActionResult_ov000_021584e8*, GameObject*, short, short, short, unsigned long long, unsigned char);
-extern "C" void func_ov000_0215ffc4(void* arg0, void* arg1, int arg2);
+extern "C" void AppendTargetResult_ov000_0215ffc4(void* target, void* result, int listIndex);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 
 static inline GameObject* inline_ov000_02153aa4(int arg0) {
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov000_0215c758(Struct_ov000_0215767c_2* arg0, short* ar
         SetActionResult_ov000_0215ccbc((int)arg0, var11, var6, var7, var9, var10, arg6[var4], 0);
         var5->unknown_e_ = arg1[var4];
         var5->unknown_17_ = 1;
-        func_ov000_0215ffc4(var5, var11, 0);
+        AppendTargetResult_ov000_0215ffc4(var5, var11, 0);
         arg0->unknown_8e02_++;
         if (arg3 == 2) {
             var0->unknown_18_ = 0;

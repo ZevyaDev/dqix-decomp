@@ -8,7 +8,7 @@ enum { Enum_020120f0_29950 = 0x74fe };
 #include "Util/Random.h"
 
 extern "C" int func_020cf1a8(int arg0);
-extern "C" void func_020c99ac(void* arg0);
+extern "C" void GetMACAddress_020c99ac(void* macAddress);
 unsigned long long GetCurrentTimestamp(void);
 extern "C" unsigned long long _u32_div_f(unsigned int arg0, unsigned int arg1);
 extern char data_020ef0ca;
@@ -22,7 +22,7 @@ extern "C" ARM void func_020120f0(unsigned char* arg0) {
     func_020cf1a8((int)var1);
 
     unsigned char var2[6];
-    func_020c99ac(var2);
+    GetMACAddress_020c99ac(var2);
 
     unsigned long long var3[6];
     var3[0] = (unsigned int)var1[0];

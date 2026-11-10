@@ -20,7 +20,7 @@ struct Struct_02097ec8_2 {
 extern "C" Struct_0208fa8c* GetZone3D_02012fe4();
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" void func_0201bd3c(Struct_0208fa8c*, int, int);
-extern "C" void func_02082828(Struct_02097ec8*);
+extern "C" void InitPartyMemberData_02082828(Struct_02097ec8*);
 extern "C" void func_020542b4(Struct_02054280*, SafeAllocator*, char*);
 extern "C" int func_020981e4(int, int);
 extern "C" int func_02098240(int, int);
@@ -61,7 +61,7 @@ extern "C" ARM void func_02097ec8(Struct_02097ec8_2* arg0) {
         arg0->unknown_1b58_ = (Struct_02054280*)var4->Allocate(0x5ec);
         arg0->unknown_1b5c_ = (Struct_02097ec8*)var4->Allocate(Enum_02097ec8_2404);
         func_02054280(arg0->unknown_1b58_);
-        func_02082828(arg0->unknown_1b5c_);
+        InitPartyMemberData_02082828(arg0->unknown_1b5c_);
         func_020542b4(arg0->unknown_1b58_, &var3->allocator_array_1a0[3], &inline_0203d028_5(var3, 0x930));
     }
 }

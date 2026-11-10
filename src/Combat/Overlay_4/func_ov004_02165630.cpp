@@ -23,7 +23,7 @@ extern "C" unsigned int func_ov023_021f9bb0(struct Struct_ov004_021549e4_2* arg0
 extern "C" unsigned int func_ov023_021f9ba0(void* arg0);
 extern "C" int func_020117f0(GameState* arg0);
 
-extern char* data_ov004_02171010;
+extern char* gTreasureMapScreen_ov004_02171010;
 
 struct Struct_ov004_02165630 {
     char unknown_0_[0x5c];
@@ -40,7 +40,7 @@ extern "C" ARM int func_ov004_02165630(void* arg0) {
 #else
  enum { Enum_ov004_02165630_2292 = 0x8f4, Enum_ov004_02165630_452 = 0x1c4, Enum_ov004_02165630_2301 = 0x8fd };
 #endif
-    if (*(unsigned char*)(data_ov004_02171010 + 0x1000 + Enum_ov004_02165630_2292) == 0) return 0;
+    if (*(unsigned char*)(gTreasureMapScreen_ov004_02171010 + 0x1000 + Enum_ov004_02165630_2292) == 0) return 0;
 
     Struct_ov004_02165630* var0 = (Struct_ov004_02165630*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0xa);
     if (!var0 || func_ov023_021f6f10(var0) != 7) return 0;
@@ -58,14 +58,14 @@ extern "C" ARM int func_ov004_02165630(void* arg0) {
 
     if (func_02011930(var1, NULL, NULL, NULL) != 0) {
         int var3 = func_ov004_021634dc(arg0);
-        if (((TreasureMapMetadata*)(data_ov004_02171010 + var3 * 0x1c))->GetInitialByteUnknownBit()) {
+        if (((TreasureMapMetadata*)(gTreasureMapScreen_ov004_02171010 + var3 * 0x1c))->GetInitialByteUnknownBit()) {
             var0->unknown_61_ = 0;
             return 0;
         }
         QueueMenuScriptEntry_ov011_021848a0(arg0, 0x68);
     } else if (func_020119f8((char*)var1, NULL) != 0) {
         unsigned int var4 = func_ov023_021f9bb0((struct Struct_ov004_021549e4_2*)var2);
-        if (*(unsigned char*)(data_ov004_02171010 + var4 * Enum_ov004_02165630_452 + 0xad4) != 3) {
+        if (*(unsigned char*)(gTreasureMapScreen_ov004_02171010 + var4 * Enum_ov004_02165630_452 + 0xad4) != 3) {
             var0->unknown_61_ = 0;
         } else {
             func_ov004_02165a1c(arg0);
@@ -81,10 +81,10 @@ extern "C" ARM int func_ov004_02165630(void* arg0) {
             short var6 = var2->unknown_5c_;
             unsigned int var7 = func_ov023_021f9bb0((struct Struct_ov004_021549e4_2*)var2);
             unsigned short var8 = var6 * func_ov023_021f9ba0(var2) + var7;
-            if (((TreasureMapMetadata*)(data_ov004_02171010 + var8 * 0x1c))->GetInitialByteUnknownBit()) {
+            if (((TreasureMapMetadata*)(gTreasureMapScreen_ov004_02171010 + var8 * 0x1c))->GetInitialByteUnknownBit()) {
                 QueueMenuScriptEntry_ov011_021848a0(arg0, 0x74);
             } else {
-                *(unsigned char*)(data_ov004_02171010 + 0x1000 + Enum_ov004_02165630_2301) = 1;
+                *(unsigned char*)(gTreasureMapScreen_ov004_02171010 + 0x1000 + Enum_ov004_02165630_2301) = 1;
                 QueueMenuScriptEntry_ov011_021848a0(arg0, 0x66);
             }
         }

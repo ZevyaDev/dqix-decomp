@@ -18,7 +18,7 @@ struct TextWindowManager_0205d81c;
 struct TextWindowManager_0205dee8;
 struct TextWindowManager_0205def8;
 struct Party_02048150;
-struct Struct_0207cf30_3;
+struct ItemBag_0207cf30_3;
 struct Struct_02061c04_23;
 struct Struct_0207cf30_4;
 struct Struct_02083994;
@@ -37,7 +37,7 @@ extern "C" int func_020dcbbc(unsigned char *arg0, int arg1, int arg2, int arg3, 
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
-extern "C" int func_020a0b3c(struct Struct_0207cf30_3 *arg0, int arg1);
+extern "C" int GetBagItemCount_020a0b3c(struct ItemBag_0207cf30_3 *bag, int itemId);
 extern "C" int func_020a0a08(Struct_02061c04_23*, int, int);
 extern "C" int func_020a095c(struct Struct_0207cf30_4 *arg0, int arg1, signed char arg2);
 extern "C" int func_02083994(struct Struct_02083994 *arg0, int arg1);
@@ -146,7 +146,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                 *(unsigned int *) (arg0 + 0x2000 + REGIONAL_OFFSET(0x2ac, 0x47c)) &= ~4;
                 if (*(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe8, 0x1c00 + 0x20)) == 4) {
                     void *var13 = GetParty_02010828(GameState::GetInstance());
-                    int var14     = func_020a0b3c((struct Struct_0207cf30_3 *) var13,
+                    int var14     = GetBagItemCount_020a0b3c((struct ItemBag_0207cf30_3 *) var13,
                                                                                *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)));
                     func_020a0a08((struct Struct_02061c04_23 *) var13, *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)), (signed char)var14);
                     func_020a095c((struct Struct_0207cf30_4 *) var13,

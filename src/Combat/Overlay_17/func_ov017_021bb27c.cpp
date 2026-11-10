@@ -60,7 +60,7 @@ extern "C" int* GetLocalWireless_0202ae18();
 extern "C" Struct_ov017_021bb27c_4* GetZone3D_02012fe4();
 extern "C" void func_ov001_0215aa5c();
 extern "C" void func_02033fdc(Struct_02033fdc*);
-extern "C" void func_02033b58(Struct_02033b58*, unsigned char);
+extern "C" void SetMotionKeepingAnimation_02033b58(Struct_02033b58*, unsigned char);
 extern "C" int IsOnLadder_02039d7c(char*);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov017_021bb27c(Struct_ov017_021bb27c_7* arg0) {
         GameObject* var9 = var1->GetPartyMemberByIndex(var8);
         if (!var9) continue;
         func_02033fdc((Struct_02033fdc*)var9);
-        func_02033b58((Struct_02033b58*)var9, 0);
+        SetMotionKeepingAnimation_02033b58((Struct_02033b58*)var9, 0);
         if (!IsOnLadder_02039d7c((char*)var9) || func_020399a8(var9)->unknown_1_ != 2) {
                 var9->obj3D_.MaybeSetRegularAnimation(data_ov017_021d7d6c, 0x10);
         } else if (arg0->unknown_11_) {

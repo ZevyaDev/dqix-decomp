@@ -5,7 +5,7 @@
 extern "C" int ParseDecimal_02005a94(const char*);
 extern "C" int func_020d85dc(const char*, const char*);
 extern "C" int CompareBytes_02001aec(const void*, const void*, unsigned int);
-extern "C" void func_02043270(void*, int, int, int, int);
+extern "C" void SetMessageWindowRect_02042b98(void*, int, int, int, int);
 extern const char data_020f00c1[], data_020f00c8[], data_020f00ce[], data_020f00d4[];
 extern const char data_020f00db[], data_020f00e2[], data_020f00ea[];
 extern const char* const data_020efe58[];
@@ -97,7 +97,7 @@ extern "C" ARM const char* func_02045504(Struct_02045504* arg0, const char* arg1
             if (var11 > 256) var11 = 256 - var9;
             if (var12 < 0) var12 = 192 - var10;
             if (var12 > 192) var12 = 192 - var10;
-            func_02043270(arg0, var9, var10, var11, var12);
+            SetMessageWindowRect_02042b98(arg0, var9, var10, var11, var12);
             arg1 += var8 + 1;
         }
         else if (func_020d85dc(arg1, data_020f00c8))

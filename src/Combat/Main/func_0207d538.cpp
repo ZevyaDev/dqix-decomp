@@ -9,7 +9,7 @@ struct MessageWindow_020465c0 {
     char unknown_4_[0x18 - 4];
     Struct_0207d538_2* unknown_18_;
 };
-extern "C" int func_0207d300(void*, int, int, int);
+extern "C" int AddItem_0207d300(void*, int, int, int);
 extern "C" void func_0207d2c4(void*, int);
 extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0*);
 extern "C" void func_02046608(MessageWindow_020465c0*, int, const char*, char*, int, int, int);
@@ -40,7 +40,7 @@ extern "C" ARM int func_0207d538(void* arg0, int arg1, int arg2, char* arg3) {
 #else
         short var0 = arg2;
 #endif
-        int var1 = func_0207d300(arg0, var0, 1, 0);
+        int var1 = AddItem_0207d300(arg0, var0, 1, 0);
         switch (var1) {
         case -1:
             return 0;

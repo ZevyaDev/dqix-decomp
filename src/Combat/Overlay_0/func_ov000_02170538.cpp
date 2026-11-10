@@ -21,7 +21,7 @@ struct Struct_0203c1c8 {
 struct Struct_0203c108_3;
 
 extern "C" void func_ov000_021704d8(struct Struct_0203c1c8* arg0, int* arg1, int* arg2, int* arg3);
-extern "C" int func_ov000_021719f8(int* arg0);
+extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
 #if defined(jpn)
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
@@ -101,7 +101,7 @@ extern "C" ARM void func_ov000_02170538(struct Struct_ov000_02170538_2* arg0, in
     int var9 = 1;
     unsigned int var10 = arg0->unknown_3c_ & 0x80019;
     unsigned int var11 = arg0->unknown_28_ & 0x80019;
-    if (func_ov000_021719f8((int*)arg0)) {
+    if (IsPanelMemberIncapacitated_ov000_021719f8((int*)arg0)) {
         if (var10 != var11) {
 #if defined(jpn)
             char* var12 = (char*)FindStringInTable_020e0434(*(struct Struct_0201099c_3**)((char*)arg0 + 4), func_ov000_02171a74(arg0));

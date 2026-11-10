@@ -28,12 +28,12 @@ struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2 *queue, QueueNode_0201bdac *node);
 extern "C" void func_0206e164(void *arg0, int arg1, int arg2);
-struct Struct_0205faf4_7;
-extern "C" void *func_02096134(Struct_0205faf4_7 *arg0, int arg1);
+struct QuestManager_0205faf4_7;
+extern "C" void *FindAcceptedQuest_02096134(QuestManager_0205faf4_7 *questManager, int questId);
 extern "C" void func_0206eb64(unsigned char *arg0, int arg1, int arg2);
 extern "C" void func_ov017_021c1a98(void *arg0, int arg1);
-extern "C" void func_02083acc(unsigned char*, int);
-extern "C" void func_02083b60(unsigned char*, int);
+extern "C" void LearnSkillEntry_02083acc(unsigned char*, int);
+extern "C" void LearnSpell_02083b60(unsigned char*, int);
 extern "C" void func_020ae6e8(int arg0);
 extern "C" void func_020ae730(int arg0);
 extern "C" void func_020ae7d4(int arg0);
@@ -45,9 +45,9 @@ extern "C" void *GetBattleSetup_ov017_021b8478(void *battleManager);
 extern "C" int func_020a3694(int*);
 struct Struct_02061c04_8;
 extern "C" void func_ov017_021aa16c(Struct_02061c04_8*);
-struct Struct_020469f8;
-struct Struct_020469f8_2;
-extern "C" void func_020469f8(Struct_020469f8*, Struct_020469f8_2*);
+struct Queue_020469f8;
+struct QueueNode_020469f8_2;
+extern "C" void PrependToQueue_020469f8(Queue_020469f8*, QueueNode_020469f8_2*);
 extern "C" void func_ov017_021a6b9c(void*, int);
 extern "C" void * func_02064904(void*, int, unsigned int);
 extern "C" void func_ov017_021a5568(void *arg0);
@@ -71,7 +71,7 @@ extern "C" void func_0202ea3c(unsigned char*);
 struct Struct_0202ea20;
 extern "C" void func_0202ea20(Struct_0202ea20*);
 extern "C" void *func_0208a9b4();
-extern "C" void func_0202c288(void);
+extern "C" void UpdateLocalWirelessPlayerCount_0202c288(void);
 struct Struct_02061c04_11;
 extern "C" void func_ov017_021b994c(Struct_02061c04_11*);
 extern "C" void func_ov017_021d079c(unsigned char, unsigned char, unsigned short);
@@ -92,8 +92,8 @@ extern "C" void func_ov017_0219c520(void);
 extern "C" void func_ov017_0218d7b0(unsigned char*, char*);
 struct Struct_02061c04_14 { unsigned int unknown_0_0_ : 17; unsigned int unknown_2_1_ : 1; };
 
-struct Struct_0205faf4_3;
-extern "C" int func_0206e120(Struct_0205faf4_3*, int);
+struct FlagManager_0205faf4_3;
+extern "C" int GetQuestState_0206e120(FlagManager_0205faf4_3*, int);
 struct Struct_02061c04_15;
 extern "C" void func_020d9dec(Struct_02061c04_15*, int);
 struct Struct_02061c04_16;
@@ -136,7 +136,7 @@ extern "C" void func_0208386c(Struct_02061c04_22*, int);
 struct Struct_02061c04_23;
 extern "C" void func_020a0a08(Struct_02061c04_23*, int, int);
 extern "C" void func_020ae9f0(void);
-extern "C" void func_020cf0fc(int arg0);
+extern "C" void GetCurrentDate_020cf0fc(int date);
 extern "C" void func_020cf1a8(int arg0);
 extern "C" void func_02095cfc(int, int);
 extern "C" int IsLocalWirelessGuest_0202c540(void *wireless);
@@ -176,7 +176,7 @@ extern "C" void *GetNPCManager_0203cf4c(void);
 extern "C" void *FindNPCById_0203df78(void *npcManager, int id);
 struct Struct_0203e0a0;
 extern "C" void * func_02040538(Struct_0203e0a0*);
-extern "C" void func_020cf0fc(int arg0);
+extern "C" void GetCurrentDate_020cf0fc(int date);
 extern "C" int func_020ac2d4(int arg0, void *arg1, void *arg2, int arg3);
 extern "C" void func_020ac104(void *arg0, void *arg1, int arg2);
 extern char gFileScratchSpace_0211e33c;
@@ -187,7 +187,7 @@ extern "C" void * func_02019508(Struct_02019508_3*, int, int);
 extern "C" void func_0206ea8c(void *arg0, unsigned char arg1, short arg2, int arg3);
 struct Struct_02013380;
 extern "C" void func_02013380(Struct_02013380*, int, int);
-extern "C" void func_020e1154(void *arg0);
+extern "C" void DisableInputForDuration_020e1154(void *durationMs);
 extern "C" void func_ov017_021a9bc4(void *arg0, unsigned char arg1);
 extern "C" void func_ov017_021a9a9c(void *arg0, unsigned char arg1, unsigned char arg2, unsigned short arg3, unsigned char arg4);
 extern "C" void func_ov017_021a8614(void *arg0, short arg1, unsigned short arg2, unsigned short arg3, unsigned short arg4, unsigned short arg5);
@@ -197,11 +197,11 @@ struct Struct_02061c04_27;
 struct Struct_02061c04_28;
 extern "C" void func_02064af8(Struct_02061c04_28*, Struct_02061c04_27*);
 struct PartyMember_0205faf4_11;
-extern "C" int func_02061bd8(PartyMember_0205faf4_11*);
+extern "C" int IsNPCCompanion_02061bd8(PartyMember_0205faf4_11*);
 extern "C" void func_02048418(unsigned char*, unsigned short);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(void *gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 struct Struct_02033b58;
-extern "C" void func_02033b58(Struct_02033b58*, unsigned char);
+extern "C" void SetMotionKeepingAnimation_02033b58(Struct_02033b58*, unsigned char);
 extern "C" void *GetActiveZones_02027ca4(void);
 struct Struct_02028bac;
 extern "C" void * func_02028bac(Struct_02028bac*, int);
@@ -424,7 +424,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     }
     case 0x7e: {
-        int var44 = func_0206e120((Struct_0205faf4_3*)arg0, arg1->unknown_2_) == 2;
+        int var44 = GetQuestState_0206e120((FlagManager_0205faf4_3*)arg0, arg1->unknown_2_) == 2;
         if (!var44)
             return 1;
         void *var45 = GetGameResources();
@@ -438,7 +438,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     }
     case 0x7f: {
-        func_020cf0fc((int)&var1);
+        GetCurrentDate_020cf0fc((int)&var1);
         func_020cf1a8((int)&var2);
         var17.unknown_24_.unknown_0_0_ = var1.unknown_0_;
         var17.unknown_24_.unknown_0_7_ = var1.unknown_4_;
@@ -459,7 +459,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     case 0x82: {
         void *var49 = GetLocalWireless_0202ae18();
         if (IsLocalWirelessOn_0202b7d8((int *)var49)) {
-            func_02096134((Struct_0205faf4_7 *)GetQuestManager_02094d6c(), arg1->unknown_2_);
+            FindAcceptedQuest_02096134((QuestManager_0205faf4_7 *)GetQuestManager_02094d6c(), arg1->unknown_2_);
             if (!GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4 *)var49)) {
                 if (arg1->unknown_4_ < 0x400)
                     func_ov017_021d0924(0, 0, arg1->unknown_4_, 1);
@@ -475,7 +475,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     case 0x83: {
         void *var50 = GetLocalWireless_0202ae18();
         if (IsLocalWirelessOn_0202b7d8((int *)var50)) {
-            void *var51 = func_02096134((Struct_0205faf4_7 *)GetQuestManager_02094d6c(), arg1->unknown_2_);
+            void *var51 = FindAcceptedQuest_02096134((QuestManager_0205faf4_7 *)GetQuestManager_02094d6c(), arg1->unknown_2_);
             if (!GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4 *)var50)) {
                 if (!(var51 != 0 && ((struct Struct_02061c04_32 *)var51)->unknown_1_2_ == 1) &&
                     arg1->unknown_4_ < 0x400)
@@ -663,7 +663,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         void *var80 = GetLocalWireless_0202ae18();
         if (IsLocalWirelessGuest_0202c540(var80))
             return 1;
-        int var81 = func_0206e120((Struct_0205faf4_3*)arg0, arg1->unknown_2_) == 2;
+        int var81 = GetQuestState_0206e120((FlagManager_0205faf4_3*)arg0, arg1->unknown_2_) == 2;
         if (!var81)
             return 1;
         unsigned int *var82 = (unsigned int *)((char *)GetQuestManager_02094d6c() + 4);
@@ -727,7 +727,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         void *var91 = *(void **)((char *)var89 + 0x3000 + REGION_VALUE(0x940, 0xb60));
         func_ov017_021bdbf0((unsigned char*)var91);
         *((unsigned char *)var91 + 0x11) = arg1->unknown_2_;
-        func_020469f8((Struct_020469f8*)var90, (Struct_020469f8_2*)var91);
+        PrependToQueue_020469f8((Queue_020469f8*)var90, (QueueNode_020469f8_2*)var91);
         return 1;
     }
     case 0x9b: {
@@ -818,13 +818,13 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     case 0xa5: {
         GameState *var95 = GameState::GetInstance();
         void *var96 = var95->GetGameObjectByIndex(0);
-        func_02083acc((unsigned char*)(*(void **)((char *)var96 + REGION_VALUE(0x144, 0x150))), arg1->unknown_2_);
+        LearnSkillEntry_02083acc((unsigned char*)(*(void **)((char *)var96 + REGION_VALUE(0x144, 0x150))), arg1->unknown_2_);
         return 1;
     }
     case 0xa6: {
         GameState *var97 = GameState::GetInstance();
         void *var98 = var97->GetGameObjectByIndex(0);
-        func_02083b60((unsigned char*)(*(void **)((char *)var98 + REGION_VALUE(0x144, 0x150))), arg1->unknown_2_);
+        LearnSpell_02083b60((unsigned char*)(*(void **)((char *)var98 + REGION_VALUE(0x144, 0x150))), arg1->unknown_2_);
         return 1;
     }
     case 0xa7: {
@@ -857,7 +857,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     case 0xb0: {
         void *var100 = GetQuestManager_02094d6c();
-        Struct_02061c04_14 *var101 = (Struct_02061c04_14 *)func_02096134((Struct_0205faf4_7 *)var100, arg1->unknown_2_);
+        Struct_02061c04_14 *var101 = (Struct_02061c04_14 *)FindAcceptedQuest_02096134((QuestManager_0205faf4_7 *)var100, arg1->unknown_2_);
         if (var101)
             var101->unknown_2_1_ = arg1->unknown_4_;
         return 1;
@@ -875,7 +875,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         void *var104 = GetGameResources();
         void *var105 = *(void **)((char *)var104 + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
         void *var106 = *(void **)((char *)var104 + 0x3000 + REGION_VALUE(0x948, 0xb68));
-        func_020e1154((void *)0xbb8);
+        DisableInputForDuration_020e1154((void *)0xbb8);
         func_ov017_021a9bc4(var106, ((unsigned char *)arg1)[2]);
         func_ov017_021a9a9c(var106, ((unsigned char *)arg1)[4], ((unsigned char *)arg1)[5], arg1->unknown_6_,
                             ((unsigned char *)arg1)[8]);
@@ -920,7 +920,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         void *var115 = *(void **)((char *)var114 + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
         void *var116 = *(void **)((char *)var114 + 0x3000 + REGION_VALUE(0x968, 0xb88));
         func_ov017_021aa16c((Struct_02061c04_8*)var116);
-        func_020469f8((Struct_020469f8*)var115, (Struct_020469f8_2*)var116);
+        PrependToQueue_020469f8((Queue_020469f8*)var115, (QueueNode_020469f8_2*)var116);
         return 1;
     }
     case 0xb9: {
@@ -976,7 +976,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     }
     case 0xbe: {
-        if (!func_02096134((Struct_0205faf4_7 *)GetQuestManager_02094d6c(), arg1->unknown_2_))
+        if (!FindAcceptedQuest_02096134((QuestManager_0205faf4_7 *)GetQuestManager_02094d6c(), arg1->unknown_2_))
             break;
         void *var124 = func_02064904(arg0, arg1->unknown_2_, arg1->unknown_4_);
         if (!var124)
@@ -994,7 +994,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             ++var128;
             ++var127;
         } while (--var126);
-        void *var129 = func_02096134((Struct_0205faf4_7 *)GetQuestManager_02094d6c(), arg1->unknown_2_);
+        void *var129 = FindAcceptedQuest_02096134((QuestManager_0205faf4_7 *)GetQuestManager_02094d6c(), arg1->unknown_2_);
         if (!var129)
             break;
         for (int var130 = 0; var130 < 5; var130++) {
@@ -1089,7 +1089,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     }
     case 0xc6: {
         void *var144 = GetLocalWireless_0202ae18();
-        func_0202c288();
+        UpdateLocalWirelessPlayerCount_0202c288();
         int var145 = *((unsigned char *)var144 + 0x100d);
         if (var145 <= 1)
             return 0;
@@ -1124,7 +1124,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             GameObject *var154 = GetPartyMemberBaseByIndex_0200ff1c(var151, var153);
             if (!var154)
                 continue;
-            if (!func_02061bd8((PartyMember_0205faf4_11*)var154))
+            if (!IsNPCCompanion_02061bd8((PartyMember_0205faf4_11*)var154))
                 continue;
             int var155 = *(unsigned short *)((char *)*(void **)((char *)var154 + 0x130) + 4);
             if (var155 > 0)
@@ -1140,7 +1140,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             }
             func_02048418((unsigned char*)var154, 1);
             RebuildFieldPartyOrder_ov017_02191108(var152, 1, 1, 1, 1);
-            func_02033b58((Struct_02033b58*)var154, 0);
+            SetMotionKeepingAnimation_02033b58((Struct_02033b58*)var154, 0);
             *(short *)((char *)var154 + 0xb2) = 0;
         }
         return 1;
@@ -1213,7 +1213,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     case 0xd1: {
         void *var180 = GetGameResources();
         void *var181 = GetLocalWireless_0202ae18();
-        func_0202c288();
+        UpdateLocalWirelessPlayerCount_0202c288();
         int var182 = *((unsigned char *)var181 + 0x100d);
         if (var182 <= 1)
             return 1;

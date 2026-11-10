@@ -4,7 +4,7 @@
 
 extern "C" void func_020116c8(void* arg0);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
-extern char* data_ov004_02171010;
+extern char* gTreasureMapScreen_ov004_02171010;
 
 // USA: func_ov004_02165b60
 extern "C" ARM int func_ov004_02165b60(void* arg0) {
@@ -14,8 +14,8 @@ extern "C" ARM int func_ov004_02165b60(void* arg0) {
     enum { Enum_ov004_02165b60_2292 = 0x8f4 };
 #endif
     func_020116c8(GameState::GetInstance());
-    for (int var0 = 0; var0 < *(unsigned char*)(data_ov004_02171010 + 0x1000 + Enum_ov004_02165b60_2292); var0++) {
-        ((TreasureMapMetadata*)(data_ov004_02171010 + var0 * 0x1c))->ClearInitialByteUnknownBit();
+    for (int var0 = 0; var0 < *(unsigned char*)(gTreasureMapScreen_ov004_02171010 + 0x1000 + Enum_ov004_02165b60_2292); var0++) {
+        ((TreasureMapMetadata*)(gTreasureMapScreen_ov004_02171010 + var0 * 0x1c))->ClearInitialByteUnknownBit();
     }
     QueueMenuScriptEntry_ov011_021848a0(arg0, 0x65);
     return 0;

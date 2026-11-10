@@ -10,16 +10,16 @@ struct Struct_020200c0_3 {
     short unknown_a_;
 };
 
-struct Struct_020200c0_4 {
-    int unknown_0_;
-    int unknown_4_;
-    unsigned char unknown_8_;
+struct Canvas_020200c0_4 {
+    int pCharacterData_0_;
+    int pRects_4_;
+    unsigned char rectCount_8_;
 };
 
 extern "C" void func_02023064(struct Struct_020200c0_3* arg0, unsigned int arg1, short* arg2, short* arg3, short* arg4, short* arg5);
-extern "C" void func_0205b20c(struct Struct_020200c0_4* arg0);
-extern "C" void func_0205b220(void* arg0, int arg1);
-extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
+extern "C" void InitCanvas_0205b20c(struct Canvas_020200c0_4* canvas);
+extern "C" void SetCanvasCharacterData_0205b220(void* canvas, int characterData);
+extern "C" void SetCanvasRects_0205b228(void* canvas, int rects, unsigned char rectCount);
 extern "C" ARM void* __clear(void* arg0, int arg1);
 extern char data_020ef6b6;
 extern "C" int func_0205b234(void* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5);
@@ -30,11 +30,11 @@ extern "C" int GetStringLength_020d2ff0(const char* string);
 
 extern "C" ARM void func_02023218(Struct_02020554* arg0, char* arg1, int arg2, unsigned int arg3) {
     Struct_020200c0_3 var0[6];
-    Struct_020200c0_4 var1;
+    Canvas_020200c0_4 var1;
     func_02023064(var0, 6, data_020e790a, data_020e7916, data_020e78f2, data_020e78fe);
-    func_0205b20c(&var1);
-    func_0205b220(&var1, (int)(arg1 + arg2));
-    func_0205b228(&var1, (int)var0, 6);
+    InitCanvas_0205b20c(&var1);
+    SetCanvasCharacterData_0205b220(&var1, (int)(arg1 + arg2));
+    SetCanvasRects_0205b228(&var1, (int)var0, 6);
     func_0205b234(&var1, 14, 3, arg0->inline_02023218(), 10, 15);
     func_0205b234(&var1, (short)(GetStringLength_020d2ff0(arg0->inline_02023218()) / 2 * 10 + 15), 3, arg0->inline_02023218_2(), 10, 15);
 }
@@ -46,7 +46,7 @@ extern "C" ARM void func_02023218(char* arg0, char* arg1, int arg2) {
     short var4[21];
     short var5[21];
     struct Struct_020200c0_3 var6[21];
-    struct Struct_020200c0_4 var7;
+    struct Canvas_020200c0_4 var7;
     char var8[0x100];
     int var9;
     int var10;
@@ -67,9 +67,9 @@ extern "C" ARM void func_02023218(char* arg0, char* arg1, int arg2) {
         var10 = (0x98 - var11) >> 1;
     }
 
-    func_0205b20c(&var7);
-    func_0205b220(&var7, (int)(arg1 + arg2));
-    func_0205b228(&var7, (int)var6, 0x15);
+    InitCanvas_0205b20c(&var7);
+    SetCanvasCharacterData_0205b220(&var7, (int)(arg1 + arg2));
+    SetCanvasRects_0205b228(&var7, (int)var6, 0x15);
 
     __clear(var8, 0x100);
     sprintf(var8, &data_020ef6b6, arg0 + 0x5b4, arg0 + 0x5f4);

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_02040528
-extern "C" ARM int func_02040528(int* arg0) {
-    return arg0[2];
+// USA: GetNPCData_02040528
+extern "C" ARM int GetNPCData_02040528(int* npc) {
+    return npc[2];
 }

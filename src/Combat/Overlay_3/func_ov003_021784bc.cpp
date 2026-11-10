@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-struct Struct_0207cf30_3 { short* unknown_0_; signed char* unknown_4_; short unknown_8_; };
-extern "C" signed char func_020a0b3c(struct Struct_0207cf30_3* arg0, int arg1);
+struct ItemBag_0207cf30_3 { short* pItemIds_0_; signed char* pCounts_4_; short slotCount_8_; };
+extern "C" signed char GetBagItemCount_020a0b3c(struct ItemBag_0207cf30_3* bag, int itemId);
 extern "C" int func_02086d20(unsigned char* arg0);
 extern "C" int func_0207c7a0(void* arg0, int arg1, int arg2);
 
@@ -14,7 +14,7 @@ extern "C" ARM int func_ov003_021784bc(void* arg0, int arg1, unsigned int arg2, 
         if (arg2 == 9) {
             var2 = (char*)arg0 + 0x204 + 0xc00;
         }
-        signed char var3 = func_020a0b3c((struct Struct_0207cf30_3*)var2, arg1);
+        signed char var3 = GetBagItemCount_020a0b3c((struct ItemBag_0207cf30_3*)var2, arg1);
         int var4 = func_02086d20((unsigned char*)arg0);
         var0 = (arg3 * 8 + 0x63) - (var3 + var4);
     } else {

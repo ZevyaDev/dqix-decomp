@@ -48,11 +48,11 @@ struct Struct_ov020_0218b710_3;
 
 extern "C" void WaitForVBlank_020c9820();
 extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
-extern "C" int func_0201201c(void* arg0);
-extern "C" void func_02012010(void* arg0, int arg1);
+extern "C" int GetTitleState_0201201c(void* arg0);
+extern "C" void SetTitleState_02012010(void* arg0, int state);
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
 extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
-extern "C" void func_02012028(void* arg0, unsigned char arg1);
+extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
 extern "C" void TurnOnMainDisplay_020c38d4();
 extern "C" void func_ov020_0218d7ac(Struct_ov020_0218b710* arg0, int arg1, int arg2);
 extern "C" void func_ov020_0218d800(Struct_ov020_0218b710_2* arg0, int arg1, int arg2);
@@ -80,7 +80,7 @@ extern "C" void func_020bbcb4();
 extern "C" void UpdateInput_02012efc();
 void LockStagedTextureVRAMCopying();
 extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install);
-extern "C" void func_020bb780(void* arg0, int arg1);
+extern "C" void InitTexturePaletteVRAMAllocator_020bb780(void* size, int install);
 void UpdateVRAMStagingVRAMBanks();
 void UnlockStagedTextureVRAMCopying();
 extern "C" void func_020440a4(void* arg0);
@@ -259,14 +259,14 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
     WaitForVBlank_020c9820();
     WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
     WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
-    if (func_0201201c(var0) == 1) {
+    if (GetTitleState_0201201c(var0) == 1) {
         WriteBrightnessRegister_020c39a0((short*)0x400006c, 16);
         WriteBrightnessRegister_020c39a0((short*)0x400106c, 16);
     }
     TurnOnMainDisplay_020c38d4();
     *(volatile unsigned int*)0x4001000 |= 0x10000;
 
-    if (func_0201201c(var0) == 1) {
+    if (GetTitleState_0201201c(var0) == 1) {
         START_FADE(arg0, -16, 2000);
         for (;;) {
             if (!func_ov020_0218d898(arg0)) break;
@@ -444,7 +444,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
     MapVRAMBanksToTextureImage(1);
     InitTextureImageVRAMAllocator_020bb48c(1, 1);
     MapVRAMBanksToTexturePalette(0x60);
-    func_020bb780((void*)0x8000, 1);
+    InitTexturePaletteVRAMAllocator_020bb780((void*)0x8000, 1);
     UpdateVRAMStagingVRAMBanks();
     UnlockStagedTextureVRAMCopying();
 
@@ -467,7 +467,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
     arg0->unknown_4_ = -1;
 
     if (GetGameMode_0200fb9c((char*)var0) == 6) {
-        if (func_0201201c(var0) == 0) {
+        if (GetTitleState_0201201c(var0) == 0) {
 #if defined(jpn)
             func_ov020_0218cf8c(arg0);
             TurnOnMainDisplay_020c38d4();
@@ -590,11 +590,11 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
             Set3DClearColorAndDepth_020c5588(0, 0x1f, 0x7fff, 0, 0);
 #endif
         }
-        func_02012010(var0, 5);
+        SetTitleState_02012010(var0, 5);
         SetGameMode_0200fb94((char*)var0, 0);
-        func_02012028(var0, 1);
+        SetTitleIdleTimeoutEnabled_02012028(var0, 1);
     } else {
-        func_02012010(var0, 0);
+        SetTitleState_02012010(var0, 0);
         func_ov020_0218c98c(arg0);
         TurnOnMainDisplay_020c38d4();
         *(volatile unsigned int*)0x4001000 |= 0x10000;
@@ -693,9 +693,9 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         }
 
         if (GetGameMode_0200fb9c((char*)var0) == 0) {
-            func_02012010(var0, 6);
+            SetTitleState_02012010(var0, 6);
         } else if (GetGameMode_0200fb9c((char*)var0) == 5) {
-            func_02012010(var0, 6);
+            SetTitleState_02012010(var0, 6);
         }
     }
 

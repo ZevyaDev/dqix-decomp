@@ -3,7 +3,7 @@
 
 extern "C" int func_02088540(unsigned char* arg0);
 struct Struct_02088514;
-extern "C" int func_02088514(struct Struct_02088514* arg0);
+extern "C" int IsEnvenomated_02088514(struct Struct_02088514* stats);
 extern "C" void func_ov024_021fd088(void* arg0, float arg1, int arg2);
 struct Struct_ov024_021fd1bc;
 extern "C" void func_ov024_021fe6b4(struct Struct_ov024_021fd1bc* arg0, int arg1);
@@ -22,7 +22,7 @@ struct Struct_ov024_021fd358_3 {
 extern "C" ARM void func_ov024_021fd358(struct Struct_ov024_021fd358_3* arg0) {
 	GameObject* var0 = arg0->unknown_668_;
 	if (!func_02088540((unsigned char*)var0->currentStats_)) return;
-	if (func_02088514((struct Struct_02088514*)var0->currentStats_)) return;
+	if (IsEnvenomated_02088514((struct Struct_02088514*)var0->currentStats_)) return;
 	float var1 = (float)arg0->unknown_64c_->unknown_14_.unknown_0_7_;
 	unsigned char var2 = *(unsigned char*)((char*)var0->currentStats_ + 0x4d);
 	float var3 = var1 * ((float)var2 / 100.0f);

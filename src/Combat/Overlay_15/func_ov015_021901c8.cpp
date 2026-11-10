@@ -25,7 +25,7 @@ struct Struct_ov015_02193d38
 
 extern "C" void ResetGeometryEngine_020c52e8();
 extern "C" void ResetMatrixStacks_020c5414();
-extern "C" int func_020c555c(int arg0);
+extern "C" int Set3DEdgeColors_020c555c(int edgeColors);
 extern "C" void* GetCamera_020100bc(GameState* gameState);
 extern "C" void UpdateCamera_0202e0a4(void* camera);
 extern "C" void func_020c57d4(int arg0, int arg1, int arg2, int arg3, void* arg4);
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov015_021901c8(void* arg0)
     DISP3DCNT = (DISP3DCNT & ~0x3000) | 0x20;
     {
         Struct_ov015_02193d38 var1 = data_ov015_02193d38;
-        func_020c555c((int)var1.unknown_0_);
+        Set3DEdgeColors_020c555c((int)var1.unknown_0_);
     }
     void* var2 = GetCamera_020100bc(var0);
     if (var2 != NULL)

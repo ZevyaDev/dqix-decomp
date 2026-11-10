@@ -4,9 +4,9 @@ extern "C" void* GetQuestManager_02094d6c(void);
 extern "C" void* GetQuestBattleScript_0209dccc(void);
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
-struct Struct_0205faf4_7;
+struct QuestManager_0205faf4_7;
 struct Struct_0205faf4_8;
-extern "C" struct Struct_0205faf4_8* func_02096134(struct Struct_0205faf4_7*, int);
+extern "C" struct Struct_0205faf4_8* FindAcceptedQuest_02096134(struct QuestManager_0205faf4_7*, int);
 
 struct Struct_0209d2a8 { char unknown_0_[0xa]; unsigned short unknown_a_[1]; };
 struct Struct_0209d2a8_2 { char unknown_0_[0x98]; int unknown_98_; };
@@ -17,7 +17,7 @@ extern "C" ARM int func_0209d2a8(void* arg0) {
     if (var0 == NULL) return 0;
     struct Struct_0209d2a8_2* var1 = (struct Struct_0209d2a8_2*)GetQuestBattleScript_0209dccc();
     if (var1 == NULL) return 0;
-    struct Struct_0209d2a8* var2 = (struct Struct_0209d2a8*)func_02096134((struct Struct_0205faf4_7*)var0, GetScriptValueAsInt_ov017_021d60f4(arg0));
+    struct Struct_0209d2a8* var2 = (struct Struct_0209d2a8*)FindAcceptedQuest_02096134((struct QuestManager_0205faf4_7*)var0, GetScriptValueAsInt_ov017_021d60f4(arg0));
     if (var2 == NULL) return 0;
     int var3 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 8);
     int var4 = var1->unknown_98_;

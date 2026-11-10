@@ -21,7 +21,7 @@ extern "C" void func_ov003_0217063c(unsigned char* arg0, unsigned short* arg1, u
 
 #if defined(jpn)
 extern "C" void func_0205b724(SpriteAnimationList_0205a254*, int);
-extern "C" void func_020e27ec(SpriteAnimationList_0205a254*, int, short, short);
+extern "C" void SetSpriteAnimationPosition_020e27ec(SpriteAnimationList_0205a254*, int, short, short);
 extern "C" void DrawSpriteAnimations_0205ae8c(void*);
 #endif
 
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov003_021704e8(char* arg0) {
         func_0205b724(var0, 2);
         SpriteAnimation_0205a254_2* var3 = FindSpriteAnimation_0205a3d0(var0, 2);
         if (var3 != NULL) *(unsigned char*)((char*)var3 + 0x15) |= 8;
-        func_020e27ec(var0, 2, var1, var2);
+        SetSpriteAnimationPosition_020e27ec(var0, 2, var1, var2);
         DrawSpriteAnimations_0205ae8c(arg0 + 0x68);
 #else
         func_ov003_0216dee4((struct Struct_ov003_0216dee4*)(arg0 + 0x68), 8, var1, var2, -1, 1, 3);
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov003_021704e8(char* arg0) {
         func_0205b724(var0, 3);
         SpriteAnimation_0205a254_2* var7 = FindSpriteAnimation_0205a3d0(var0, 3);
         if (var7 != NULL) *(unsigned char*)((char*)var7 + 0x15) |= 8;
-        func_020e27ec(var0, 3, var5, var6);
+        SetSpriteAnimationPosition_020e27ec(var0, 3, var5, var6);
         DrawSpriteAnimations_0205ae8c(arg0 + 0x68);
 #else
         func_ov003_0216dee4((struct Struct_ov003_0216dee4*)(arg0 + 0x68), 8, var5, var6, -1, 1, 3);

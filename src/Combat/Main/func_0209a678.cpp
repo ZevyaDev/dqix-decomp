@@ -2,7 +2,7 @@
 
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
-extern "C" void func_02083acc(unsigned char* arg0, int arg1);
+extern "C" void LearnSkillEntry_02083acc(unsigned char* memberData, int skillEntryId);
 
 struct Struct_0209a678 {
 #if defined(jpn)
@@ -59,7 +59,7 @@ extern "C" ARM int func_0209a678(char* arg0, void* arg1, unsigned short* arg2) {
             unsigned short var12 = (*(Struct_0209a678**)arg0)[var4].unknown1_0_0_;
 #endif
             if (HasLearnedSkillEntry_02083b00(var0, var12) == 0) {
-                func_02083acc(var0, var12);
+                LearnSkillEntry_02083acc(var0, var12);
                 arg2[var2] = var12;
                 var2++;
             }

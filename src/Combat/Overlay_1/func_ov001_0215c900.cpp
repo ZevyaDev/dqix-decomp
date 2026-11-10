@@ -3,7 +3,7 @@
 
 extern "C" float GetScriptValueAsFloat_ov017_021d6110(void*);
 extern "C" void* GetScriptValueAsInt_ov017_021d60f4(void*);
-extern "C" void* func_ov001_0215ab20(void*);
+extern "C" void* GetEventActorState_ov001_0215ab20(void*);
 extern "C" int GetZone3D_02012fe4(void);
 extern "C" int GetGroundHeight_02018fbc(int zone, Struct_ov001_02158efc* position);
 extern "C" void* func_ov001_0215a330(void* arg0, Struct_ov001_02158efc arg1);
@@ -17,7 +17,7 @@ extern "C" ARM int func_ov001_0215c900(void* arg0) {
     var1.unknown_4_ = 0xa000;
     var1.unknown_8_ = var2;
     var1.unknown_4_ = GetGroundHeight_02018fbc(GetZone3D_02012fe4(), &var1);
-    void* var3 = func_ov001_0215ab20(var0);
+    void* var3 = GetEventActorState_ov001_0215ab20(var0);
     if (var3 != NULL) {
         func_ov001_0215a330(var3, var1);
         return 1;

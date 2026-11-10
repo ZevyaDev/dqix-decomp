@@ -1,6 +1,6 @@
 _Z16GetCombatantByIDii kind:function(arm,size=0x18) addr:0x02154e60
 func_ov000_021536f8 kind:function(arm,size=0x18) addr:0x02154e78
-func_ov000_02153710 kind:function(arm,size=0x48) addr:0x02154e90
+GetPartyMemberDataByIndex_ov000_02153710 kind:function(arm,size=0x48) addr:0x02154e90
 func_ov000_02153758 kind:function(arm,size=0x60) addr:0x02154ed8
 func_ov000_021537b8 kind:function(arm,size=0x2d4) addr:0x02154f38
 func_ov000_02153a8c kind:function(arm,size=0x18) addr:0x0215520c
@@ -91,7 +91,7 @@ func_ov000_02159c58 kind:function(arm,size=0x5c) addr:0x0215b3d8
 func_ov000_02159cb4 kind:function(arm,size=0x70) addr:0x0215b434
 func_ov000_02159d24 kind:function(arm,size=0x70) addr:0x0215b4a4
 func_ov000_02159d94 kind:function(arm,size=0x28) addr:0x0215b514
-func_ov000_02159dbc kind:function(arm,size=0xa4) addr:0x0215b53c
+GetEnemyLevel_ov000_02159dbc kind:function(arm,size=0xa4) addr:0x0215b53c
 func_ov000_02159e60 kind:function(arm,size=0x4c) addr:0x0215b5e0
 SetActionResultFlag_ov000_02159eac kind:function(arm,size=0x6c) addr:0x0215b62c
 func_ov000_02159f18 kind:function(arm,size=0x64) addr:0x0215b698
@@ -135,7 +135,7 @@ func_ov000_0215e9b8 kind:function(arm,size=0x20) addr:0x02160138
 func_ov000_0215e9d8 kind:function(arm,size=0x24) addr:0x02160158
 CollectPartyCombatantIndices_ov000_0215e9fc kind:function(arm,size=0x120) addr:0x0216017c
 CollectEnemyCombatantIndices_ov000_0215eb1c kind:function(arm,size=0x100) addr:0x0216029c
-func_ov000_0215ec1c kind:function(arm,size=0x64) addr:0x0216039c
+CollectAllEnemyCombatantIndices_ov000_0215ec1c kind:function(arm,size=0x64) addr:0x0216039c
 func_ov000_0215ec80 kind:function(arm,size=0xb4) addr:0x02160400
 func_ov000_0215ed34 kind:function(arm,size=0x58) addr:0x021604b4
 func_ov000_0215ed8c kind:function(arm,size=0x2b0) addr:0x0216050c
@@ -170,7 +170,7 @@ func_ov000_0215ff20 kind:function(arm,size=0x30) addr:0x021616a0
 func_ov000_0215ff50 kind:function(arm,size=0x30) addr:0x021616d0
 func_ov000_0215ff80 kind:function(arm,size=0x20) addr:0x02161700
 GetLatestTargetCombatantIndex_ov000_0215ffa0 kind:function(arm,size=0x24) addr:0x02161720
-func_ov000_0215ffc4 kind:function(arm,size=0x30) addr:0x02161744
+AppendTargetResult_ov000_0215ffc4 kind:function(arm,size=0x30) addr:0x02161744
 func_ov000_0215fff4 kind:function(arm,size=0x3c) addr:0x02161774
 func_ov000_02160030 kind:function(arm,size=0x38) addr:0x021617b0
 func_ov000_02160068 kind:function(arm,size=0x2c) addr:0x021617e8
@@ -194,7 +194,7 @@ func_ov000_02160e94 kind:function(arm,size=0x64) addr:0x021625fc
 func_ov000_02160ef8 kind:function(arm,size=0x8) addr:0x02162660
 func_ov000_02160f00 kind:function(arm,size=0xc) addr:0x02162668
 GetBattleUI_ov000_02160f08 kind:function(arm,size=0xc) addr:0x02162674
-func_ov000_02160f14 kind:function(arm,size=0xc) addr:0x02162680
+GetBattleCamera_ov000_02160f14 kind:function(arm,size=0xc) addr:0x02162680
 GetCurrentBattleAction_ov000_02160f20 kind:function(arm,size=0x40) addr:0x0216268c
 func_ov000_02160f60 kind:function(arm,size=0x3c) addr:0x021626cc
 func_ov000_02160f9c kind:function(arm,size=0xc) addr:0x02162708
@@ -496,7 +496,7 @@ func_ov000_0216f710 kind:function(arm,size=0x8) addr:0x02170e3c
 func_ov000_0216f718 kind:function(arm,size=0x8) addr:0x02170e44
 func_ov000_0216f720 kind:function(arm,size=0x8) addr:0x02170e4c
 func_ov000_0216f728 kind:function(arm,size=0x24) addr:0x02170e54
-func_ov000_0216f74c kind:function(arm,size=0xe0) addr:0x02170e78
+GetCellPosition_ov000_0216f74c kind:function(arm,size=0xe0) addr:0x02170e78
 func_ov000_0216f82c kind:function(arm,size=0x4d0) addr:0x02170f58
 func_ov025_021e20d8 kind:function(arm,size=0x14) addr:0x02171428
 func_ov025_021e20ec kind:function(arm,size=0x28) addr:0x0217143c
@@ -543,7 +543,7 @@ func_ov000_0217193c kind:function(arm,size=0x2c) addr:0x0217328c
 func_ov000_02171968 kind:function(arm,size=0x34) addr:0x021732b8
 func_ov000_0217199c kind:function(arm,size=0x24) addr:0x021732ec
 func_ov000_021719c0 kind:function(arm,size=0x38) addr:0x02173310
-func_ov000_021719f8 kind:function(arm,size=0x68) addr:0x02173348
+IsPanelMemberIncapacitated_ov000_021719f8 kind:function(arm,size=0x68) addr:0x02173348
 func_ov000_02171a74 kind:function(arm,size=0x38) addr:0x021733b0
 func_ov000_02171b3c kind:function(arm,size=0x2c) addr:0x021733e8
 func_ov000_02171b68 kind:function(arm,size=0x34) addr:0x02173414
@@ -1021,7 +1021,7 @@ data_ov000_02185169 kind:data(any) addr:0x02185169
 data_ov000_021851a9 kind:data(any) addr:0x021851a9
 data_ov000_021851af kind:data(any) addr:0x021851af
 data_ov000_021851cc kind:data(any) addr:0x021851cc
-data_ov000_0218409c kind:data(any) addr:0x021851e8
+gObjectIndexCollectors_ov000_0218409c kind:data(any) addr:0x021851e8
 data_ov000_021852d0 kind:data(any) addr:0x021852d0
 data_ov000_021852d2 kind:data(any) addr:0x021852d2
 data_ov000_021852d4 kind:data(any) addr:0x021852d4

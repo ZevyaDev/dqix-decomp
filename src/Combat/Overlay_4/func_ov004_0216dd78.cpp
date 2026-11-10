@@ -14,7 +14,7 @@ struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
-extern "C" void func_02012028(void* arg0, unsigned char arg1);
+extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
 
 struct Struct_ov004_02171034_3 {
     #if defined(jpn)
@@ -64,7 +64,7 @@ extern "C" ARM int func_ov004_0216dd78(void* arg0) {
 #else
         StartMessage_0204500c(var4, (const char*)var9, 0, 0xe3);
 #endif
-        func_02012028(var3, 0);
+        SetTitleIdleTimeoutEnabled_02012028(var3, 0);
         var6 = 0;
     } else if (var8 == 2) {
         ClearGlobalFlags_020466f4(var5, 0x80);
@@ -75,7 +75,7 @@ extern "C" ARM int func_ov004_0216dd78(void* arg0) {
 #else
         StartMessage_0204500c(var4, (const char*)var10, 0, 0xe3);
 #endif
-        func_02012028(var3, 0);
+        SetTitleIdleTimeoutEnabled_02012028(var3, 0);
         var6 = 0;
     } else if (var8 == 3) {
         ClearGlobalFlags_020466f4(var5, 0x80);

@@ -20,7 +20,7 @@ extern Struct_ov031_02290ca0_7 data_ov031_02290ca0;
 extern "C" unsigned char func_ov031_022351e4();
 extern "C" unsigned char func_ov031_022351d0();
 extern "C" void DisableButtonBarInput_ov031_02222e98();
-extern "C" void func_ov031_02222e80();
+extern "C" void EnableButtonBarInput_ov031_02222e80();
 extern "C" void func_ov031_022238cc();
 extern "C" void func_ov031_0222f9ec();
 extern "C" void func_ov031_022308d4();

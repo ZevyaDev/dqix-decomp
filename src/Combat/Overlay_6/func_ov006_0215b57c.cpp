@@ -6,7 +6,7 @@ enum { Enum_ov006_0215b57c_4696 = 0x1054, Enum_ov006_0215b57c_54 = 0x2a };
 enum { Enum_ov006_0215b57c_4696 = 0x1258, Enum_ov006_0215b57c_54 = 0x36 };
 #endif
 
-struct Struct_02081f20_2;
+struct KeyRepeat_02081f20_2;
 struct Struct_ov006_02157184;
 struct SoundEffectManager_02108760;
 struct MenuLayout_0207fdcc_2;
@@ -135,7 +135,7 @@ extern "C" void func_ov006_0215fa1c(Struct_ov006_02157a60* arg0, int arg1);
 extern "C" void func_ov006_0215fb7c(Struct_ov006_02157a60* arg0);
 extern "C" void func_ov006_0215fcf0(Struct_ov006_02157a60* arg0);
 extern "C" void func_ov006_0215f7e8(Struct_ov006_02157a60* arg0);
-extern "C" void func_0208203c(Struct_02081f20_2* arg0);
+extern "C" void func_0208203c(KeyRepeat_02081f20_2* arg0);
 extern "C" Struct_ov006_021537d0* func_ov006_02158d8c(void* arg0, short arg1);
 extern "C" Struct_ov006_021555b0* func_ov006_02153c6c(void* arg0, short arg1);
 extern "C" void func_ov006_02153b9c(void* arg0, short arg1, unsigned char* arg2);
@@ -166,7 +166,7 @@ extern "C" ARM void func_ov006_0215b57c(Struct_ov006_02157a60* arg0) {
             arg0->unknown_36a_ = 0x29;
         arg0->unknown_14_->unknown_36_ = arg0->unknown_36a_;
         func_ov006_0215f7e8(arg0);
-        func_0208203c((Struct_02081f20_2*)arg0->unknown_9c_);
+        func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
         arg0->unknown_44_ = 0;
         arg0->unknown_390_++;
     }

@@ -107,7 +107,7 @@ extern "C" Struct_ov017_021b8e8c GetNPCPosition_020406f8(struct NPC_0203de84_2* 
 extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 extern "C" int func_0203dfdc(void* arg0, int arg1);
 extern "C" int func_02040a90(struct Struct_02040a90* arg0);
-extern "C" int func_02040528(int* arg0);
+extern "C" int GetNPCData_02040528(int* npc);
 extern "C" void func_0203cedc(struct Struct_0203ca24* arg0, int arg1, int arg2);
 extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" int func_020107d0(char* arg0);
@@ -207,7 +207,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_020
         SetFacing_02033834((Struct_02033834_2*)var6, fix32ReduceAngle0To2Pi(fix32_Atan2(var13.unknown_0_ - var11.unknown_0_, var13.unknown_8_ - var11.unknown_8_)));
         *(int*)(var4 + Enum_ov017_021b8e8c_6200) = func_0203dfdc(var5, arg0->unknown_114_->unknown_0_);
         *(int*)(var4 + Enum_ov017_021b8e8c_6200 + 4) = func_02040a90((Struct_02040a90*)var12);
-        char* var14 = (char*)func_02040528((int*)var12);
+        char* var14 = (char*)GetNPCData_02040528((int*)var12);
         if (var14 != NULL && strstr(var14 + Enum_ov017_021b8e8c_4, &data_ov017_021d7c90) != NULL && !(var12->unknown_0_ & 0x4000) &&
             var12->unknown_14_ != NULL) {
             func_0203cedc(var12->unknown_14_, 1, 0);
@@ -430,7 +430,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_020
         if (var38 == NULL) {
             break;
         }
-        char* var39 = (char*)func_02040528((int*)var38);
+        char* var39 = (char*)GetNPCData_02040528((int*)var38);
         if (var39 != NULL && strstr(var39 + Enum_ov017_021b8e8c_4, &data_ov017_021d7c90) != NULL && !(var38->unknown_0_ & 0x4000) &&
             var38->unknown_14_ != NULL) {
             func_0203cedc(var38->unknown_14_, 1, 1);

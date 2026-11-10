@@ -18,7 +18,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov017_021cf730(int arg0, int arg1);
 extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
-extern "C" void func_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* arg0);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020e11a4(void);
@@ -29,7 +29,7 @@ extern "C" void StartMessage_0204500c(void* window, void* text, int arg2, int ar
 #endif
 extern "C" int GetMessageChoice_020457e0(void* window);
 extern "C" void func_ov017_021ab860(short arg0, int arg1);
-extern "C" void func_020e1154(void* arg0);
+extern "C" void DisableInputForDuration_020e1154(void* durationMs);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_020d9ab0(void* arg0);
@@ -78,7 +78,7 @@ extern "C" ARM void func_020d9870(struct Struct_020d9870* arg0) {
         }
     } else if (arg0->unknown_8_ == 3) {
         if (var1 != NULL) {
-            func_020531f0(var1);
+            StopGesture_020531f0(var1);
             DisablePlayerControl_020397cc((Struct_02018300_3*)var1, 1);
         }
         func_020e11a4();
@@ -95,7 +95,7 @@ extern "C" ARM void func_020d9870(struct Struct_020d9870* arg0) {
         if (*(int*)((char*)var2 + Enum_020d9870_2456) == 0) {
             if (GetMessageChoice_020457e0(var2) == 0) {
                 func_ov017_021ab860(*(short*)((char*)var1 + 4), 1);
-                func_020e1154((void*)0xbb8);
+                DisableInputForDuration_020e1154((void*)0xbb8);
             }
             ResetMessageWindow_02043204((char*)var2);
             arg0->unknown_8_ = 5;

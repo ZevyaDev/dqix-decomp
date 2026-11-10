@@ -33,12 +33,12 @@ enum { Enum_ov003_021549a8_524 = 0x20c };
 extern "C" void func_ov023_021eb26c(void* arg0);
 struct BGControlSave_02074bd0;
 extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
-struct Struct_0207fcb8;
-extern "C" void func_0207fcb8(struct Struct_0207fcb8* arg0);
-struct Struct_0207fd44_2;
-extern "C" void func_0207fd44(struct Struct_0207fd44_2* arg0);
-struct Struct_0207fd88;
-extern "C" void func_0207fd88(struct Struct_0207fd88* arg0);
+struct MenuLayout_0207fcb8;
+extern "C" void ClearMenuLayoutBGScreenData_0207fcb8(struct MenuLayout_0207fcb8* menuLayout);
+struct MenuLayout_0207fd44_2;
+extern "C" void FlushMenuLayoutBGScreenData_0207fd44(struct MenuLayout_0207fd44_2* menuLayout);
+struct MenuLayout_0207fd88;
+extern "C" void CopyMenuLayoutBGScreenDataToVRAM_0207fd88(struct MenuLayout_0207fd88* menuLayout);
 extern "C" int LoadToMainBG1CharacterData(int src, int offset, unsigned int size);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(void* window);
@@ -91,9 +91,9 @@ extern "C" ARM void func_ov003_021549a8(Struct_ov003_021549a8_2* arg0) {
 
     MenuLayout_0207f7f0* var2 = arg0->unknown_18_;
     if (var2 != NULL) {
-        func_0207fcb8((struct Struct_0207fcb8*)var2);
-        func_0207fd44((struct Struct_0207fd44_2*)var2);
-        func_0207fd88((struct Struct_0207fd88*)var2);
+        ClearMenuLayoutBGScreenData_0207fcb8((struct MenuLayout_0207fcb8*)var2);
+        FlushMenuLayoutBGScreenData_0207fd44((struct MenuLayout_0207fd44_2*)var2);
+        CopyMenuLayoutBGScreenDataToVRAM_0207fd88((struct MenuLayout_0207fd88*)var2);
         func_0207f8bc(var2);
     }
 

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
-extern "C" void* func_020704fc(void*);
+extern "C" void* GetColorFade_020704fc(void*);
 struct Struct_02070900_2;
 struct Struct_02070900;
 extern "C" void func_02070900(struct Struct_02070900_2*, struct Struct_02070900*, unsigned int);
@@ -15,7 +15,7 @@ extern "C" ARM int func_ov001_0215b3ac(void* arg0) {
     var0.unknown_4_ = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x8);
     var0.unknown_8_ = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x10);
     unsigned int var1 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x18);
-    void* var2 = func_020704fc((void*)var1);
+    void* var2 = GetColorFade_020704fc((void*)var1);
     if (var2 != NULL) {
         func_02070900((struct Struct_02070900_2*)var2, (struct Struct_02070900*)&var0, var1);
     }

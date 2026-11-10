@@ -37,7 +37,7 @@ extern "C" void ClearGameObjectByIndex_0200fd48(GameState*, int);
 extern "C" void func_02012050(Struct_02012050*);
 extern "C" {
 int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
-int func_ov000_02160f14(BattleScene_ov000_02160da0*);
+int GetBattleCamera_ov000_02160f14(BattleScene_ov000_02160da0*);
 void func_ov026_021daec8(Struct_ov000_02161e30*, Struct_ov026_021daec8*, int);
 void SetObjectsVisibleBySelector_ov000_021626a0(BattleScene_ov000_02160da0*, int, int);
 void __clear(void*, int);
@@ -115,10 +115,10 @@ extern "C" ARM int func_ov026_021dc040(SafeAllocator* arg0, BattleScene_ov000_02
                 }
             }
         }
-        SetCamera_020100c4(var0, func_ov000_02160f14(arg1));
+        SetCamera_020100c4(var0, GetBattleCamera_ov000_02160f14(arg1));
         func_ov000_0216118c(arg1, 1);
         func_ov000_02167e6c((unsigned char*)arg1);
-        func_ov026_021daec8(arg2, (Struct_ov026_021daec8*)func_ov000_02160f14(arg1), 1);
+        func_ov026_021daec8(arg2, (Struct_ov026_021daec8*)GetBattleCamera_ov000_02160f14(arg1), 1);
         SetObjectsVisibleBySelector_ov000_021626a0(arg1, 0x26, 0);
         SetObjectsVisibleBySelector_ov000_021626a0(arg1, 0x27, 1);
         arg0->Reset();

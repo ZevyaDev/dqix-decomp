@@ -37,8 +37,8 @@ extern "C" struct LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" int func_0202be08(struct LocalWireless_0202b2f0* arg0, int arg1);
-struct Struct_02054000;
-extern "C" void* func_02054000(struct Struct_02054000* arg0);
+struct PartyMember_02054000;
+extern "C" void* GetEquippedWeaponItemData_02054000(struct PartyMember_02054000* gameObject);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_020483f0(unsigned char* arg0, unsigned short arg1);
 extern "C" void func_02083e28(void* arg0, int arg1);
@@ -315,7 +315,7 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
             if (var3 != 0) {
                 struct Struct_ov017_021b3e14_3* var41 = (struct Struct_ov017_021b3e14_3*)GetPartyMemberBaseByIndex_0200ff1c(var8, arg0->unknown_8_);
                 if (var41 != NULL) {
-                    struct Struct_ov017_021b3e14_4* var42 = (struct Struct_ov017_021b3e14_4*)func_02054000((struct Struct_02054000*)var41);
+                    struct Struct_ov017_021b3e14_4* var42 = (struct Struct_ov017_021b3e14_4*)GetEquippedWeaponItemData_02054000((struct PartyMember_02054000*)var41);
                     if (var42 != NULL && var42->unknown_18_ > 0 && var42->unknown_a_2_) {
                         int* var43 = (int*)GetPartyMemberData_02053c6c((unsigned char*)var41);
                         if (var43 != NULL) {

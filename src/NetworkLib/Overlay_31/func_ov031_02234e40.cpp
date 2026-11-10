@@ -5,7 +5,7 @@ extern "C" ARM void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_02234b2c(void);
 extern "C" void func_ov031_02234cac(void);
 extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int);
-extern "C" void func_ov031_02222e80(void);
+extern "C" void EnableButtonBarInput_ov031_02222e80(void);
 extern "C" void func_ov031_022376e4(int arg0);
 extern "C" void func_ov031_02234a90(void);
 
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov031_02234e40(void) {
 		return;
 	}
 	PlayWifiSetupSoundEffect_ov031_02236878(0xb);
-	func_ov031_02222e80();
+	EnableButtonBarInput_ov031_02222e80();
 	data_ov031_02290ce4 = 0;
 	func_ov031_022376e4((int)func_ov031_02234cac);
 	SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02234a90);

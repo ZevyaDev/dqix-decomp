@@ -13,7 +13,7 @@ struct Struct_020449a4 {
 };
 extern "C" int func_020d85dc(const char* arg0, const char* arg1);
 extern "C" int ParseDecimal_02005a94(const char* string);
-extern "C" void func_02042b98(Struct_020449a4*, int, int, int, int);
+extern "C" void SetMessageWindowRect_02042b98(Struct_020449a4*, int, int, int, int);
 extern char data_020f00a9[];
 extern char data_020f00b0[];
 extern char data_020f00b6[];
@@ -79,7 +79,7 @@ extern "C" ARM const char* func_020449a4(Struct_020449a4* arg0, const char* arg1
             if (var1 > 256) var1 = 256 - var5;
             if (var7 < 0) var7 = 192 - var6;
             if (var7 > 192) var7 = 192 - var6;
-            func_02042b98(arg0, var5, var6, var1, var7);
+            SetMessageWindowRect_02042b98(arg0, var5, var6, var1, var7);
             arg1 += var4 + 1;
         } else if (func_020d85dc(arg1, data_020f00b0)) {
             arg0->unknown_19b1_ = 0;

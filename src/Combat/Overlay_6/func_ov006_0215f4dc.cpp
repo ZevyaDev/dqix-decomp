@@ -40,7 +40,7 @@ struct Struct_ov006_02157a60 {
 extern "C" void func_02080b54(void*, int);
 extern "C" void func_02080608(void*, int);
 extern "C" void func_020806c4(void*, int);
-extern "C" void func_02080b40(void*, int);
+extern "C" void ShowMenuLayoutText_02080b40(void*, int);
 extern "C" void* FindNounInTable_020e5294(void*, int);
 #if defined(jpn)
 struct Struct_0201099c_3;
@@ -82,9 +82,9 @@ extern "C" ARM void func_ov006_0215f4dc(Struct_ov006_02157a60* arg0) {
     for (var9 = 0; var9 < 8; var9++) {
         if (var2 > var8 && var5[var8] > 0) {
             func_020806c4(var4, var6);
-            func_02080b40(var4, var6);
-            func_02080b40(var4, var3);
-            func_02080b40(var4, var7);
+            ShowMenuLayoutText_02080b40(var4, var6);
+            ShowMenuLayoutText_02080b40(var4, var3);
+            ShowMenuLayoutText_02080b40(var4, var7);
 #if defined(jpn)
             SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)var4, var6, (int)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_170_, var5[var8]));
 #else
@@ -105,9 +105,9 @@ extern "C" ARM void func_ov006_0215f4dc(Struct_ov006_02157a60* arg0) {
         var7 = (short)(var7 + 1);
         var8++;
     }
-    func_02080b40(var4, 0x7c);
-    func_02080b40(var4, 0x7d);
-    func_02080b40(var4, 0x7e);
+    ShowMenuLayoutText_02080b40(var4, 0x7c);
+    ShowMenuLayoutText_02080b40(var4, 0x7d);
+    ShowMenuLayoutText_02080b40(var4, 0x7e);
     SetMenuLayoutTextValue_02080fa8((MenuLayout_02080fa8*)var4, 0x7c, arg0->unknown_388_ + 1);
     SetMenuLayoutTextValue_02080fa8((MenuLayout_02080fa8*)var4, 0x7d, arg0->unknown_389_);
     func_02081130(var4, 0x11, (arg0->unknown_394_ & 4) ? 1 : 0);

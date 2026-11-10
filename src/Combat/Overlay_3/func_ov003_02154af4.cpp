@@ -48,12 +48,12 @@ extern "C" unsigned int GetLevel_0202053c(void*);
 struct MenuLayout_0207fdcc_2;
 extern "C" int func_020811d0(MenuLayout_0207fdcc_2*, int);
 extern "C" void func_ov003_02158334(Struct_ov003_02154af4_3*);
-extern "C" void func_02081f20(void*,unsigned int);
+extern "C" void UpdateKeyRepeat_02081f20(void*,unsigned int);
 extern "C" int func_020800fc(Struct_ov003_02154af4_2*,short*,int,unsigned short,unsigned char,int);
 extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void*, int);
 extern "C" void OpenMenuLayoutWindow_020813ec(Struct_ov003_02154af4_2*,int);
-struct Struct_020e263c_2;
-extern "C" void func_020e263c(Struct_020e263c_2*, int);
+struct YesNoWindow_020e263c_2;
+extern "C" void UpdateYesNoWindow_020e263c(YesNoWindow_020e263c_2*, int);
 // USA: func_ov003_02154af4
 extern "C" ARM int func_ov003_02154af4(Struct_ov003_02154af4_3* arg0,unsigned int arg1) {
  arg0->unknown_1dc_=arg1;
@@ -93,14 +93,14 @@ extern "C" ARM int func_ov003_02154af4(Struct_ov003_02154af4_3* arg0,unsigned in
   if(var4) for(int var15=0;var15<3;var15++) if(func_020811d0((MenuLayout_0207fdcc_2*)var0, data_ov003_0217f2a8[var15])) { func_ov003_02158334(arg0);break; }
  }
  if(arg0->unknown_8_) {
-  func_02081f20(arg0->unknown_80_,arg1);
+  UpdateKeyRepeat_02081f20(arg0->unknown_80_,arg1);
   arg0->unknown_1e8_=*arg0->unknown_8_;
   arg0->unknown_1d8_=func_020800fc(var0,arg0->unknown_8_,arg0->unknown_1e8_,arg0->unknown_8c_,arg0->unknown_8e_,(arg0->unknown_1fc_&4)!=0);
   var0->unknown_36_=*arg0->unknown_8_;
   if(arg0->unknown_1d8_) ClearMenuLayoutWindowHighlights_020804fc(var0, arg0->unknown_1e6_);
   if(arg0->unknown_1e8_!=*arg0->unknown_8_) OpenMenuLayoutWindow_020813ec(var0,arg0->unknown_1e6_);
  }
- if(arg0->unknown_1c_ && func_020e28dc((Struct_020e28dc*)arg0->unknown_1c_)) func_020e263c((Struct_020e263c_2*)arg0->unknown_1c_, arg0->unknown_1dc_);
+ if(arg0->unknown_1c_ && func_020e28dc((Struct_020e28dc*)arg0->unknown_1c_)) UpdateYesNoWindow_020e263c((YesNoWindow_020e263c_2*)arg0->unknown_1c_, arg0->unknown_1dc_);
  Struct_ov003_0217f340 var16; var16=data_ov003_0217f340;
  unsigned int var17=gNullMemberFunctionPointer_020e6d5c.unknown_4_;
  unsigned int var18=gNullMemberFunctionPointer_020e6d5c.unknown_0_;

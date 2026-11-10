@@ -10,7 +10,7 @@ struct Struct_02057a6c;
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_ov017_02196048(int*, int*, int*);
 extern "C" Struct_02057a6c* GetEffectManager_02057924(void);
-extern "C" int func_020ca4b4(const void* arg0, void* arg1, int arg2);
+extern "C" int Memcpy32BitByBlock_020ca4b4(const void* arg0, void* arg1, int arg2);
 extern "C" void func_02057a6c(Struct_02057a6c* arg0);
 extern "C" void func_ov017_021a3af0(int arg0);
 
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov017_02195ecc(Struct_ov017_02195ecc* arg0, unsigned in
     }
 
     func_ov017_02196048((int*)&var0, (int*)&var1, (int*)&var2);
-    func_020ca4b4(&var3, &gRenderConfig_0210a010.projectionMatrix, sizeof(Matrix4x4));
+    Memcpy32BitByBlock_020ca4b4(&var3, &gRenderConfig_0210a010.projectionMatrix, sizeof(Matrix4x4));
     gRenderConfig_0210a010.flags &= ~((1 << RENDER_CONFIG_FLAG_4) | (1 << RENDER_CONFIG_FLAG_6));
     RenderConfig::SubmitToFifo();
     SendQueuedDataToGeometryFifo();

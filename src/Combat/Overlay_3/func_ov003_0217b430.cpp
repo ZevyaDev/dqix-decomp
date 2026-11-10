@@ -11,7 +11,7 @@
 struct MenuLayout_0207fdcc_2;
 struct Struct_0207fdf0_2;
 struct SoundEffectManager_02108760;
-struct Struct_02081f20_2;
+struct KeyRepeat_02081f20_2;
 struct ItemTable_0201099c_10;
 struct Struct_ov003_02179e18;
 struct ItemInfoPanel_ov003_02178910;
@@ -25,7 +25,7 @@ extern "C" void func_ov003_02177dd4(void *arg0);
 extern "C" void func_ov003_021769ec(void *arg0);
 extern "C" void func_02081ea4(struct MenuLayout_0207fdcc_2 *arg0, int arg1, int arg2);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void *menuLayout, int windowId, int palette);
-extern "C" void func_0208203c(struct Struct_02081f20_2 *arg0);
+extern "C" void func_0208203c(struct KeyRepeat_02081f20_2 *arg0);
 extern "C" void func_ov003_021748c4(unsigned char *arg0);
 extern "C" void func_ov003_0217a14c(void *arg0);
 extern "C" void SetItemInfoPanelItem_ov023_021dcae0(struct ItemInfoPanel_ov003_02178910 *panel, int itemId);
@@ -42,7 +42,7 @@ extern "C" int func_ov003_021766e8(void *arg0);
 extern "C" void func_ov003_02177208(char *arg0);
 extern "C" void func_ov003_0217726c(char *arg0);
 extern "C" int func_ov003_02178218(void *arg0);
-extern "C" int func_02081f20(void *arg0, int arg1);
+extern "C" int UpdateKeyRepeat_02081f20(void *keyRepeat, int elapsedFrames);
 extern "C" unsigned short func_ov003_0217b200(void **arg0);
 extern "C" int func_0207c7a0(void *arg0, int arg1, int arg2);
 extern "C" unsigned int func_ov003_02179e18(struct Struct_ov003_02179e18 *arg0);
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *arg0) {
         func_ov003_021769ec(arg0);
         func_02081ea4((struct MenuLayout_0207fdcc_2 *) var2, *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 0);
         SetMenuLayoutWindowPalette_02080c68(var2, *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 0);
-        func_0208203c((struct Struct_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
+        func_0208203c((struct KeyRepeat_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
         *(void **) (arg0 + REGIONAL_OFFSET(0xf74, 0xff8))                 = 0;
         *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 1;
         func_ov003_021748c4(arg0);
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *arg0) {
         SetItemInfoPanelItem_ov023_021dcae0((struct ItemInfoPanel_ov003_02178910 *) (arg0 + 0x3c), *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a));
         if (func_ov003_021765b4(arg0) != 0 && var6 == *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a)) {
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-            func_0208203c((struct Struct_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
+            func_0208203c((struct KeyRepeat_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
             *(void **) (arg0 + REGIONAL_OFFSET(0xf74, 0xff8)) = 0;
             *(void **) (arg0 + 8) =
                 FindItemData_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + REGIONAL_OFFSET(0x7f0, 0x874)), *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a));
@@ -147,7 +147,7 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *arg0) {
             }
         }
         if (func_ov003_021766e8(arg0) == 0) return;
-        func_0208203c((struct Struct_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
+        func_0208203c((struct KeyRepeat_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
         *(void **) (arg0 + REGIONAL_OFFSET(0xf74, 0xff8)) = 0;
         func_0207fdf0((struct Struct_0207fdf0_2 *) var2, 0);
         *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3e)  = 7;
@@ -159,7 +159,7 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *arg0) {
     if (var3 == 2) {
         func_ov003_02177208((char *) arg0);
         func_ov003_0217726c((char *) arg0);
-        func_0208203c((struct Struct_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
+        func_0208203c((struct KeyRepeat_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
         *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 3;
         *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4a) = 0;
         return;
@@ -178,7 +178,7 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *arg0) {
         }
         GameState *var11 = GameState::GetInstance();
         int var12     = (int) var11->GetTickCount();
-        int var13     = func_02081f20(arg0 + REGIONAL_OFFSET(0x808, 0x88c), var12);
+        int var13     = UpdateKeyRepeat_02081f20(arg0 + REGIONAL_OFFSET(0x808, 0x88c), var12);
         if ((unsigned short) (var13 + 0xffff) <= 1) {
             unsigned short var14 = func_ov003_0217b200((void **) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
             if (var14 == 0x40)
@@ -214,7 +214,7 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *arg0) {
             *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 6;
             *(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) =
                 (unsigned short) (*(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x2000);
-            func_0208203c((struct Struct_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
+            func_0208203c((struct KeyRepeat_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
             if (inline_ov003_0217b430(*(struct ItemData_0201099c_9 **) (arg0 + 8)) != 2) return;
             *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)         = 0x11;
             *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 4;
@@ -223,7 +223,7 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *arg0) {
         if (g_keyManager.TestKeysPressed(2) != 0 || var18 == -1) {
             CloseMenuLayoutWindow_0207fdcc((struct MenuLayout_0207fdcc_2 *) var2, 9);
             CloseMenuLayoutWindow_0207fdcc((struct MenuLayout_0207fdcc_2 *) var2, 0xa);
-            func_0208203c((struct Struct_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
+            func_0208203c((struct KeyRepeat_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
             *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 0;
         }
         return;

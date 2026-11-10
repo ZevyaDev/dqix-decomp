@@ -12,7 +12,7 @@ extern "C" int *GetLocalWireless_0202ae18(void);
 extern "C" void func_ov002_02153e90(char *arg0);
 extern "C" int func_ov002_02154a6c(char *arg0, int arg1, int arg2);
 extern "C" int func_ov002_02153be0(char *arg0, int arg1, int arg2);
-extern "C" void func_02048150(GameObject *arg0, int arg1, int arg2);
+extern "C" void RevivePartyMember_02048150(GameObject *gameObject, int hp, int isPartyOrderRebuildAllowed);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(GameResources *gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 
@@ -85,7 +85,7 @@ extern "C" ARM int func_ov002_02154230(char *arg0, struct Struct_ov002_02154230 
             var8->unknown_2_ = var10;
             var8->unknown_0_  = 3;
         } else {
-            func_02048150(var12, var10, 1);
+            RevivePartyMember_02048150(var12, var10, 1);
         }
         if (IsLocalWirelessOn_0202b7d8(var3) && IsInParty_02086ef0(var2, var9)) {
             func_ov017_021c9e00(var9, 1, 0, 1);

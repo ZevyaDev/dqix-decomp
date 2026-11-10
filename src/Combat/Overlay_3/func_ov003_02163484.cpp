@@ -56,11 +56,11 @@ struct Struct_ov003_0216253c {
 extern int gSoundEffectManager_02108760;
 struct Struct_02081198;
 extern "C" void func_02081198(Struct_02081198*, int, int);
-struct Struct_02081164;
-extern "C" void func_02081164(Struct_02081164*, int, int);
+struct MenuLayout_02081164;
+extern "C" void SetMenuLayoutWindowFrameless_02081164(MenuLayout_02081164*, int, int);
 extern "C" void OpenMenuLayoutWindow_020813ec(void *, int);
-struct Struct_02081f20_2;
-extern "C" void func_0208203c(Struct_02081f20_2*);
+struct KeyRepeat_02081f20_2;
+extern "C" void func_0208203c(KeyRepeat_02081f20_2*);
 extern "C" int func_02080468(void *, int);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *, int, int);
@@ -90,11 +90,11 @@ extern "C" ARM void func_ov003_02163484(Struct_ov003_02154af4_3 *arg0) {
         }
         var1->unknown_36_ = arg0->unknown_494_;
         func_02081198((Struct_02081198*)var1, 0x18, 1);
-        func_02081164((Struct_02081164*)var1, 0x18, 1);
+        SetMenuLayoutWindowFrameless_02081164((MenuLayout_02081164*)var1, 0x18, 1);
         OpenMenuLayoutWindow_020813ec(var1, 0x18);
         func_ov003_02166f80(arg0, arg0->unknown_488_, 0);
         func_ov003_02166220(arg0);
-        func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
+        func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
         arg0->unknown_470_ = 0;
         arg0->unknown_464_ |= 0x780000;
         if (arg0->unknown_464_ & 1) {
@@ -122,7 +122,7 @@ extern "C" ARM void func_ov003_02163484(Struct_ov003_02154af4_3 *arg0) {
                 return;
             }
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
-            func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
+            func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
             arg0->unknown_470_ = 0;
             int var4      = var3->unknown_13f_0_;
             if (var4 == 3) {
@@ -141,7 +141,7 @@ extern "C" ARM void func_ov003_02163484(Struct_ov003_02154af4_3 *arg0) {
                 arg0->unknown_464_ |= 0x20;
             }
         } else if (func_ov003_02160a68(arg0) != 0) {
-            func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
+            func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
             arg0->unknown_470_ = 0;
             CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var1);
             arg0->unknown_464_ |= 0x80000;

@@ -241,13 +241,13 @@ int LoadFileIntoMemory(const char* path, void* dst, unsigned int* outSize);
 struct ObjectArchiveLoadInfo;
 struct Vector3i;
 extern "C" void InitFollowCamera_020a2010(void* storage);
-struct Struct_0202e5c0;
-extern "C" void func_0202e5c0(Struct_0202e5c0*, int, int, int);
+struct Camera_0202e5c0;
+extern "C" void SetCameraEye_0202e5c0(Camera_0202e5c0*, int, int, int);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char*, int, int, int);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void SetCamera_020100c4(GameState*, int);
 struct Struct_020a13c4;
-extern "C" void func_020a13c4(Struct_020a13c4*);
+extern "C" void ClearAccoladeTable_020a13c4(Struct_020a13c4*);
 extern "C" void func_020a13e4(void* arg0, void* arg1, int arg2, unsigned short arg3, unsigned char arg4);
 extern "C" int func_ov023_021ed724(void* arg0, short* arg1, int arg2);
 struct Struct_020a15bc;
@@ -514,7 +514,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
         BackgroundLoader::RemoveLockGlobal();
         SaveTextureVRAMState_0207dfac(var36 + 0x230);
         InitFollowCamera_020a2010(arg0->unknown_83c_);
-        func_0202e5c0((Struct_0202e5c0*)arg0->unknown_83c_, 0, 0x8000, 0x40000);
+        SetCameraEye_0202e5c0((Camera_0202e5c0*)arg0->unknown_83c_, 0, 0x8000, 0x40000);
         SetCameraTarget_0202e5c8((unsigned char*)arg0->unknown_83c_, 0, 0, 0);
         DisableCameraFollow_020a27a0(arg0->unknown_83c_);
         SetCamera_020100c4(var0, (int)arg0->unknown_83c_);
@@ -524,7 +524,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
             arg0->unknown_b11_ = 0xff;
         } else if (func_ov008_02185964(arg0->unknown_b04_) != 0) {
             if (arg0->unknown_b04_->unknown_68_ > 0) {
-                func_020a13c4((Struct_020a13c4*)arg0->unknown_bc_);
+                ClearAccoladeTable_020a13c4((Struct_020a13c4*)arg0->unknown_bc_);
                 func_020a13e4(arg0->unknown_bc_, arg0->unknown_8c_, 0, 0, 1);
                 short var42[50];
                 int var43 = arg0->unknown_b04_->unknown_68_;

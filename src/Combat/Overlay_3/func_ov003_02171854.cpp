@@ -26,7 +26,7 @@ extern "C" void func_0202c410(void* arg0);
 
 struct LocalWireless_0202b2f0;
 extern "C" void func_0202c21c(struct LocalWireless_0202b2f0* arg0, int arg1);
-extern "C" void func_0202c288(void* arg0);
+extern "C" void UpdateLocalWirelessPlayerCount_0202c288(void* wireless);
 extern "C" unsigned int _u32_div_f(unsigned int arg0, unsigned int arg1);
 
 // USA: func_ov003_02171854
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov003_02171854(char* arg0) {
     func_0202b2f0(var1);
     func_0202c410(var1);
     func_0202c21c((struct LocalWireless_0202b2f0*)var1, 0xf);
-    func_0202c288(var1);
+    UpdateLocalWirelessPlayerCount_0202c288(var1);
 
     int var4 = (rand() % 4 + 2) * 500;
     *(int*)(arg0 + 4) = var4;

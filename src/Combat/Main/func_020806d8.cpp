@@ -20,18 +20,18 @@ struct MenuLayoutTextEntryList_0207f524 {
     Struct_020806d8_2* pEntries_0_;
     short count_4_;
 };
-struct Struct_0207f0ac {
-    Struct_020806d8* unknown_0_;
-    short unknown_4_;
+struct MenuLayoutWindowEntryList_0207f0ac {
+    Struct_020806d8* pEntries_0_;
+    short count_4_;
 };
 struct Struct_020806d8_3 {
     StringList_02072a68_2* unknown_0_;
     MenuLayoutTextEntryList_0207f524 unknown_4_;
-    Struct_0207f0ac unknown_c_;
+    MenuLayoutWindowEntryList_0207f0ac unknown_c_;
 };
 
 extern "C" void* FindMenuLayoutTextEntry_0207f6ac(MenuLayoutTextEntryList_0207f524*, int);
-extern "C" Struct_020806d8* func_0207f0ac(Struct_0207f0ac*, int);
+extern "C" Struct_020806d8* FindMenuLayoutWindowEntry_0207f0ac(MenuLayoutWindowEntryList_0207f0ac*, int);
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 #if defined(jpn)
 extern "C" int GetStringLength_020d2ff0(const char*);
@@ -58,7 +58,7 @@ extern "C" ARM void func_020806d8(Struct_020806d8_3* arg0, int arg1, int arg2, i
     int var3 = func_02042190(var0->unknown_13_0_);
     int var4 = func_020420e8(var1, var3);
 #endif
-    Struct_020806d8* var5 = func_0207f0ac(&arg0->unknown_c_, arg1);
+    Struct_020806d8* var5 = FindMenuLayoutWindowEntry_0207f0ac(&arg0->unknown_c_, arg1);
     if (var5 == NULL) return;
     short var6 = var5->unknown_e_ << 3;
     var0->unknown_6_ = var6 - var4 - arg4;

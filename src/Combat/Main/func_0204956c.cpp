@@ -19,7 +19,7 @@ struct Struct_02010088;
 struct Struct_02048f64_2;
 extern "C" int func_02048c68(unsigned char*);
 extern "C" int IsDead_02010088(Struct_02010088*);
-extern "C" void func_02049ae4(unsigned char*);
+extern "C" void StopCombatantSidestep_02049ae4(unsigned char*);
 extern "C" int func_02049ee8(unsigned char*);
 extern "C" int func_020494a0(unsigned char*);
 extern "C" int GetCombatantCell_020493a4(unsigned char*);
@@ -34,8 +34,8 @@ extern const Struct_020e7b54 data_020e7b54;
 extern const char data_020f01a4[];
 void Vector3fixMultiplyScalar(const Vector3i*, int, Vector3i*);
 
-static inline Struct_02048cf0 inline_0204956c(const int& arg0) {
-    return func_ov000_0216f74c(const_cast<int*>(&arg0));
+static inline CellPosition_02048cf0 inline_0204956c(const int& arg0) {
+    return GetCellPosition_ov000_0216f74c(const_cast<int*>(&arg0));
 }
 
 // USA: func_0204956c
@@ -43,7 +43,7 @@ extern "C" ARM void func_0204956c(Struct_0204956c_2* arg0) {
     unsigned char* var0 = reinterpret_cast<unsigned char*>(arg0);
     if (!(arg0->unknown_13c_->unknown_20_ & 4)) return;
     if (!arg0->unknown_13c_->unknown_56_ || func_02048c68(var0) || IsDead_02010088(reinterpret_cast<Struct_02010088*>(arg0))) {
-        func_02049ae4(var0);
+        StopCombatantSidestep_02049ae4(var0);
         return;
     }
     if (!func_02049ee8(var0)) return;
@@ -62,9 +62,9 @@ extern "C" ARM void func_0204956c(Struct_0204956c_2* arg0) {
         int var5 = var3->objectIndex_4_;
         int var6 = var5 + func_020494a0(var0) + var2->unknown_54_;
         int var7 = func_020494a0(var0);
-        if (var7 == 0xff) { func_02049ae4(var0); return; }
+        if (var7 == 0xff) { StopCombatantSidestep_02049ae4(var0); return; }
         GameObject* var8 = var1->GetCombatantByIndex(var7);
-        if (!var8) { func_02049ae4(var0); return; }
+        if (!var8) { StopCombatantSidestep_02049ae4(var0); return; }
         Struct_02107850* var9 = &ClipAlias0204956c::data_02107850;
         if (data_02107850.unknown_1c_) {
             Vector3i var10 = var9->unknown_0_;
@@ -73,14 +73,14 @@ extern "C" ARM void func_0204956c(Struct_0204956c_2* arg0) {
             Vector3i var13;
             int var14 = func_02031468(&var10, &var11, &var12, &var13);
             if (var14 < var9->unknown_18_ + (var3->GetRadius() >> 1) + 0x2000) {
-                func_02049ae4(var0);
+                StopCombatantSidestep_02049ae4(var0);
                 return;
             }
         }
-        Struct_02048cf0 var15 = inline_0204956c(GetCombatantCell_020493a4(var0));
+        CellPosition_02048cf0 var15 = inline_0204956c(GetCombatantCell_020493a4(var0));
         Vector3i var16 = data_020e7b3c;
-        var16.x = var15.unknown_0_;
-        var16.z = var15.unknown_4_;
+        var16.x = var15.x_0_;
+        var16.z = var15.z_4_;
         Vector3i var17 = var8->obj3D_.position_;
         Vector3i var18 = var3->position_;
         Vector3i var19, var20;
@@ -109,9 +109,9 @@ extern "C" ARM void func_0204956c(Struct_0204956c_2* arg0) {
         return;
     }
     int var25 = func_020494a0(var0);
-    if (var25 == 0xff) { func_02049ae4(var0); return; }
+    if (var25 == 0xff) { StopCombatantSidestep_02049ae4(var0); return; }
     GameObject* var26 = var1->GetCombatantByIndex(var25);
-    if (!var26) { func_02049ae4(var0); return; }
+    if (!var26) { StopCombatantSidestep_02049ae4(var0); return; }
     Vector3i var27 = var3->position_;
     Vector3i var28 = var26->obj3D_.position_;
     Vector3i var29;
@@ -132,7 +132,7 @@ extern "C" ARM void func_0204956c(Struct_0204956c_2* arg0) {
         Vector3fix_Normalize(&var29, &var29);
         Vector3fix_CrossProduct(&var29, &var30, &var29);
         break;
-    default: func_02049ae4(var0); break;
+    default: StopCombatantSidestep_02049ae4(var0); break;
     }
     int var31 = var1->GetEffectiveDeltaTime();
     Vector3i var32;
@@ -153,6 +153,6 @@ extern "C" ARM void func_0204956c(Struct_0204956c_2* arg0) {
             func_020494c0(reinterpret_cast<Struct_02048f64_2*>(arg0));
         }
     } else if (var3->activeAnimationRecord_ && strcmp(var3->activeAnimationRecord_->name, data_020f01a4)) {
-        func_02049ae4(var0);
+        StopCombatantSidestep_02049ae4(var0);
     }
 }

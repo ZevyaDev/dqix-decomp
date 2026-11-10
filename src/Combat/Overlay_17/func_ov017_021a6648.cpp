@@ -36,7 +36,7 @@ extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" void func_020bb700(int*);
 extern "C" void func_020bb910(int*);
 extern "C" void DC_FlushRange(const void*, unsigned int);
-extern "C" int func_02057e6c(void*, int, SafeAllocator*, void*, unsigned int, TextureVRAMArea_0203d028*);
+extern "C" int AddEffectResource_02057e6c(void*, int, SafeAllocator*, void*, unsigned int, TextureVRAMArea_0203d028*);
 extern "C" void PlayEffect_02057fb4(void*, int, void*);
 extern "C" void LoadExtraSoundSet_0205ebc0(void*, int, int);
 extern "C" void PlayExtraSoundEffect_0205ebfc(void*, int, int);
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov017_021a6648(Struct_ov017_021a6648_2* arg0, Queue_020
         void* var10 = arg0->unknown_10_.Allocate(var7);
         memcpy(var10, var6, var7);
         DC_FlushRange(var10, var7);
-        func_02057e6c(var4, 0xc, &arg0->unknown_10_, var10, var7, var9);
+        AddEffectResource_02057e6c(var4, 0xc, &arg0->unknown_10_, var10, var7, var9);
         arg0->unknown_8_++;
     } else if (arg0->unknown_8_ == 2) {
         SetMainBrightness(var2, 0, 0x1e);

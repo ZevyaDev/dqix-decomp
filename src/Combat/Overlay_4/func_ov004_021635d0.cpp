@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Grotto/Main/TreasureMapMetadata.h"
 
-extern char* data_ov004_02171010;
+extern char* gTreasureMapScreen_ov004_02171010;
 extern "C" unsigned char func_020119f8(char* arg0, void* arg1);
 
 // USA: func_ov004_021635d0
@@ -18,16 +18,16 @@ extern "C" ARM int func_ov004_021635d0(int* arg0, int* arg1) {
     unsigned char var1 = func_020119f8((char*)GameState::GetInstance(), NULL);
     int var2;
     if (var1 != 0) {
-        for (var2 = 0; var2 < *(unsigned char*)(data_ov004_02171010 + 0x1000 + Enum_ov004_021635d0_2292); var2++) {
-            TreasureMapMetadata* var3 = (TreasureMapMetadata*)(data_ov004_02171010 + var2 * 0x1c);
+        for (var2 = 0; var2 < *(unsigned char*)(gTreasureMapScreen_ov004_02171010 + 0x1000 + Enum_ov004_021635d0_2292); var2++) {
+            TreasureMapMetadata* var3 = (TreasureMapMetadata*)(gTreasureMapScreen_ov004_02171010 + var2 * 0x1c);
             if (var3->GetDiscoveryState() == DiscoveryState_Cleared) {
                 var0 = var2;
                 break;
             }
         }
     } else {
-        for (var2 = 0; var2 < *(unsigned char*)(data_ov004_02171010 + 0x1000 + Enum_ov004_021635d0_2292); var2++) {
-            TreasureMapMetadata* var4 = (TreasureMapMetadata*)(data_ov004_02171010 + var2 * 0x1c);
+        for (var2 = 0; var2 < *(unsigned char*)(gTreasureMapScreen_ov004_02171010 + 0x1000 + Enum_ov004_021635d0_2292); var2++) {
+            TreasureMapMetadata* var4 = (TreasureMapMetadata*)(gTreasureMapScreen_ov004_02171010 + var2 * 0x1c);
             if (var4->GetInitialByteUnknownBit()) {
                 var0 = var2;
                 break;

@@ -24,7 +24,7 @@ struct Struct_0204f174 {
     unsigned short* unknown_d4_;
 };
 
-extern "C" void func_0204f914(Struct_0204f174* arg0, int arg1, short arg2, short arg3, short arg4, short arg5);
+extern "C" void FillTextWindowRect_0204f914(Struct_0204f174* textWindow, int colorIndex, short left, short top, short right, short bottom);
 extern "C" void func_0204ea5c(Struct_0204f174* arg0);
 extern "C" void func_0204ecb4(Struct_0204f174* arg0, int arg1, int arg2, short arg3, short arg4, signed char* arg5);
 
@@ -64,7 +64,7 @@ extern "C" ARM void func_0204f174(Struct_0204f174* arg0, short arg1, short arg2,
                 var1 += arg8[2];
                 var3 -= arg8[2] + arg8[3];
             }
-            func_0204f914(arg0, 0x11, var1, var2, var3, var4);
+            FillTextWindowRect_0204f914(arg0, 0x11, var1, var2, var3, var4);
         }
     } else {
         arg0->unknown_c5_ |= 1;
@@ -83,7 +83,7 @@ extern "C" ARM void func_0204f174(Struct_0204f174* arg0, short arg1, short arg2,
                 var5 += arg8[2];
                 var7 -= arg8[2] + arg8[3];
             }
-            func_0204f914(arg0, 0x11, var5, var6, var7, var8);
+            FillTextWindowRect_0204f914(arg0, 0x11, var5, var6, var7, var8);
         }
         memset(arg0->unknown_d4_, 0, var0);
         short var9 = arg0->unknown_a8_;

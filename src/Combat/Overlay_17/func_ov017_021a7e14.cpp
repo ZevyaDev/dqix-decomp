@@ -119,7 +119,7 @@ extern "C" Struct_ov017_021a7e14_3* FindItemData_020dedd0(ItemTable_0201099c_10*
 extern "C" void func_ov017_021d0198(int arg0, int arg1, int arg2, int arg3);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" char* GetStandardString_020e51cc(int stringId);
-extern "C" void SetNoun_020e4b34(void* noun, char* singularText, int pluralText, int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int arg9, int hasInitialVowelSound, int isInitialVowelFromText);
+extern "C" void SetNoun_020e4b34(void* noun, char* singularText, int pluralText, int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int isProperName, int hasInitialVowelSound, int isInitialVowelFromText);
 extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0* window);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);

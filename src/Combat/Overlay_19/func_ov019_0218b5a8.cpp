@@ -59,7 +59,7 @@ extern "C" void func_020c51dc();
 extern "C" void func_020c537c();
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void SetOrthographicProjection_020c5770(int, int, int, int, int, int, int, int, void*);
-extern "C" void func_020bb780(void* arg0, int arg1);
+extern "C" void InitTexturePaletteVRAMAllocator_020bb780(void* size, int install);
 extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_02042c68(MessageWindow_02021b84* arg0);
@@ -110,7 +110,7 @@ extern "C" void func_0203bdb0(Struct_0203bdb0* arg0);
 extern "C" void func_020439b0(MessageWindow_02021b84* arg0, int arg1);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
-extern "C" void func_02012010(void* arg0, int arg1);
+extern "C" void SetTitleState_02012010(void* arg0, int state);
 
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
 extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
@@ -276,7 +276,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     inline_ov019_0218b5a8_5(0);
     inline_ov019_0218b5a8_6(0, 0, 255, 191);
     InitTextureImageVRAMAllocator_020bb48c(4, 1);
-    func_020bb780((void*)0x4000, 1);
+    InitTexturePaletteVRAMAllocator_020bb780((void*)0x4000, 1);
 
     char var5[0x70];
     char var6[0x70];
@@ -534,5 +534,5 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     var10.Destroy();
     FreeMemory_02012da4(&gMainHeap_02114e20, var9);
     SetGameMode_0200fb94((char*)var0, 6);
-    func_02012010(var0, 0);
+    SetTitleState_02012010(var0, 0);
 }

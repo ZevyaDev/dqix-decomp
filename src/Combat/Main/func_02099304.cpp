@@ -38,7 +38,7 @@ extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0* window);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
-extern "C" void func_020cf0fc(int arg0);
+extern "C" void GetCurrentDate_020cf0fc(int date);
 extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0(void);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
 extern "C" int func_02098f20(int arg0, int arg1, int arg2);
@@ -65,7 +65,7 @@ extern "C" ARM int func_02099304(Struct_02099304* arg0, char* arg1, const void* 
     } else {
         if (arg6 & 2) {
             if (IsNotLocalWirelessGuest_0202c508(var0)) {
-                func_020cf0fc((int)var1);
+                GetCurrentDate_020cf0fc((int)var1);
                 if (var1[1] == arg0->unknown_1_4_ && var1[2] == arg0->unknown_2_0_) {
                     data_021098e8.unknown_0_ |= 1;
                 }

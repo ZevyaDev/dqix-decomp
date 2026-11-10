@@ -113,7 +113,7 @@ extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_ov017_021a4e88(int arg0, unsigned short* arg1);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" Struct_ov017_021a476c_3* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2* npcManager, int index);
-extern "C" Struct_ov017_021a476c_4* func_02040528(int* arg0);
+extern "C" Struct_ov017_021a476c_4* GetNPCData_02040528(int* npc);
 extern "C" Struct_ov017_021a476c_5* func_02040538(Struct_0203e0a0* arg0);
 extern "C" unsigned char IsOnLadder_02039d7c(char* object);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
@@ -160,7 +160,7 @@ extern "C" ARM void func_ov017_021a476c(Struct_ov017_021a476c_9* arg0) {
     if (data_ov017_021d76da >= 0) {
         Struct_ov017_021a476c_3* var9 = GetNPCByIndex_0203dce4((NPCManager_0203dce4_2*)var4, data_ov017_021d76da);
         if (var9 != NULL) {
-            Struct_ov017_021a476c_4* var10 = func_02040528((int*)var9);
+            Struct_ov017_021a476c_4* var10 = GetNPCData_02040528((int*)var9);
             Struct_ov017_021a476c_5* var11 = func_02040538((Struct_0203e0a0*)var9);
             if (var9->unknown_0_ & 0x200) {
                 return;

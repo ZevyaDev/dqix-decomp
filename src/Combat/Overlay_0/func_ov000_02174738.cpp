@@ -55,9 +55,9 @@ struct Struct_ov000_02174738_7 {
 };
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" void func_0205b20c(struct Struct_ov000_02174738_6* arg0);
-extern "C" void func_0205b220(void* arg0, int arg1);
-extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
+extern "C" void InitCanvas_0205b20c(struct Struct_ov000_02174738_6* canvas);
+extern "C" void SetCanvasCharacterData_0205b220(void* canvas, int characterData);
+extern "C" void SetCanvasRects_0205b228(void* canvas, int rects, unsigned char rectCount);
 extern "C" void* GetWindowTile_020421b0(int tileIndex);
 extern "C" void func_ov000_02174a38(void* arg0, int arg1);
 
@@ -184,9 +184,9 @@ checkvalid:
                 var24.unknown_6_ = 0;
                 var24.unknown_8_ = 0x10;
                 var24.unknown_a_ = 0x10;
-                func_0205b20c(&var23);
-                func_0205b220(&var23, (int)var13);
-                func_0205b228(&var23, (int)&var24, 1);
+                InitCanvas_0205b20c(&var23);
+                SetCanvasCharacterData_0205b220(&var23, (int)var13);
+                SetCanvasRects_0205b228(&var23, (int)&var24, 1);
                 char* var25 = *(char**)((char*)var16 + 0x150);
                 int var26 = *(int*)(var25 + 0x950);
                 char* var27 = var25 + var26 * 2 + 0x100;

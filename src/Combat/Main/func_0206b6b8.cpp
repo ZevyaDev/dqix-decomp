@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #if defined(jpn)
-extern "C" void func_02043270(void*, int, int, int, int);
+extern "C" void SetMessageWindowRect_02042b98(void*, int, int, int, int);
 
 // JPN: func_0206cf44
 extern "C" ARM void func_0206cf44(unsigned char* arg0) {
@@ -18,7 +18,7 @@ extern "C" ARM void func_0206cf44(unsigned char* arg0) {
     int var6 = (0xc0 - var5) >> 1;
     int var7 = var6 - 0x10;
     int var8 = 0xc0 - var7;
-    func_02043270(arg0, 2, var7, 0xfc, var8);
+    SetMessageWindowRect_02042b98(arg0, 2, var7, 0xfc, var8);
 }
 #else
 #include "std_library_functions.h"
@@ -32,7 +32,7 @@ struct Struct_0206b6b8 {
 };
 
 extern "C" struct Struct_0206b6b8* FindFontGlyph_0204254c(int text, int font);
-extern "C" void func_02042b98(unsigned char* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void SetMessageWindowRect_02042b98(unsigned char* window, int x, int y, int width, int height);
 
 // USA: func_0206b6b8
 extern "C" ARM void func_0206b6b8(unsigned char* arg0) {
@@ -63,7 +63,7 @@ extern "C" ARM void func_0206b6b8(unsigned char* arg0) {
     var8 = (0xc0 - var8) >> 1;
     int var9 = var8 - 0x10;
     int var10 = 0xc0 - var9;
-    func_02042b98(arg0, 2, var9, 0xfc, var10);
+    SetMessageWindowRect_02042b98(arg0, 2, var9, 0xfc, var10);
 }
 
 #endif

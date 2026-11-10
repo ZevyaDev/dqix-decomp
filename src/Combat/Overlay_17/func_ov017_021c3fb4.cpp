@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 struct PartyMember_02052e14;
-extern "C" short* func_02052e14(struct PartyMember_02052e14* arg0);
+extern "C" short* GetEquippedItems_02052e14(struct PartyMember_02052e14* gameObject);
 extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
@@ -21,7 +21,7 @@ extern "C" ARM void SendPartyMemberEquippedItems_ov017_021c3fb4(int memberIndex,
     GameObject* partyMemberBase = GetPartyMemberBaseByIndex_0200ff1c(gameState, memberIndex);
     if (partyMemberBase == NULL) return;
 
-    short* equippedItems = func_02052e14((struct PartyMember_02052e14*)partyMemberBase);
+    short* equippedItems = GetEquippedItems_02052e14((struct PartyMember_02052e14*)partyMemberBase);
     if (equippedItems == NULL) return;
 
     void* packetQueue = GetLocalWirelessPacketQueue_0202ae24();

@@ -75,9 +75,9 @@ extern "C" void StartMessage_0204500c(Struct_ov017_021bec00_5*, char*, int);
 extern "C" void StartMessage_0204500c(Struct_ov017_021bec00_5*, char*, int, int);
 #endif
 #if defined(jpn)
-extern "C" void func_02043270(Struct_ov017_021bec00_5*, int, int, int, int);
+extern "C" void SetMessageWindowRect_02042b98(Struct_ov017_021bec00_5*, int, int, int, int);
 #else
-extern "C" void func_02042b98(Struct_ov017_021bec00_5*, int, int, int, int);
+extern "C" void SetMessageWindowRect_02042b98(Struct_ov017_021bec00_5*, int, int, int, int);
 #endif
 extern "C" void func_ov017_021bef84(Struct_ov017_021bec00_2*);
 extern "C" Struct_ov017_021bec00_5* GetMessageWindow_020421a0();
@@ -172,9 +172,9 @@ extern "C" ARM void func_ov017_021bec00(Struct_ov017_021bec00_2* arg0) {
                 var2->unknown_19b8_ = 1;
                 var2->unknown_19af_ = 0;
 #if defined(jpn)
-                func_02043270(var2, (256-var2->unknown_918_)/2, 64, var2->unknown_918_, 30);
+                SetMessageWindowRect_02042b98(var2, (256-var2->unknown_918_)/2, 64, var2->unknown_918_, 30);
 #else
-                func_02042b98(var2, (256-var2->unknown_918_)/2, 64, var2->unknown_918_, 30);
+                SetMessageWindowRect_02042b98(var2, (256-var2->unknown_918_)/2, 64, var2->unknown_918_, 30);
 #endif
                 long long var13 = var2->unknown_1858_.unknown1_0_;
                 int var14 = (int)var13;

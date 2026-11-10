@@ -17,13 +17,13 @@ struct MenuLayout_0207fdcc_2 {
     short unknown_36_;
 };
 
-struct Struct_02081f20_2;
+struct KeyRepeat_02081f20_2;
 struct SoundEffectManager_02108760;
 struct Struct_020e29a8;
 struct Struct_020e280c;
 
 extern "C" void OpenMenuLayoutWindow_020813ec(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
-extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
+extern "C" void func_0208203c(struct KeyRepeat_02081f20_2* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_02080c04(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" void func_020e29a8(struct Struct_020e29a8* arg0, int arg1);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov003_02155580(struct Struct_ov003_02155580* arg0, int 
     arg0->unknown_1e8_ = arg0->unknown_1ea_ = 6;
     arg0->unknown_18_->unknown_36_ = arg0->unknown_1ea_;
     OpenMenuLayoutWindow_020813ec(arg0->unknown_18_, arg0->unknown_1e6_);
-    func_0208203c((struct Struct_02081f20_2*)arg0->unknown_80_);
+    func_0208203c((struct KeyRepeat_02081f20_2*)arg0->unknown_80_);
     arg0->unknown_8_ = 0;
     PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 5, 0);
     if (arg0->unknown_1c_ != 0) {

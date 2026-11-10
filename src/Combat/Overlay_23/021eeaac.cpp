@@ -22,7 +22,7 @@ extern "C" void ClearItemTable_020de848(void* itemTable);
 extern "C" int LoadItemTableByIds_020de9a4(void* itemTable, void* allocator, void* fileData, unsigned int fileSize, void* itemIds, unsigned short itemIdCount);
 extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void func_0207cbe8(char* arg0);
-extern "C" int func_0207d300(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int AddItem_0207d300(void* itemContext, int itemId, int count, int isAliveRequired);
 extern "C" int func_0207ccf0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
@@ -151,7 +151,7 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
             func_0207cbe8(var18);
             func_0207cbe8(var18);
             *(void**)(var18 + 0x2c) = *(void**)(arg0 + Enum_ov023_021eeaac_22796);
-            func_0207d300(var18, var10[var9], 1, 0);
+            AddItem_0207d300(var18, var10[var9], 1, 0);
         }
         var19 = *(void**)(arg0 + Enum_ov023_021eeaac_22796);
         var20 = (Struct_ov023_021eeaac*)(arg0 + Enum_ov023_021eeaac_22736);
@@ -175,7 +175,7 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
                 *(void**)(var25 + 0x2c) = var19;
                 var6 = var20->unknown_5_;
                 if (var6 < 0) {
-                    var26 = func_0207d300(var25, var20->unknown_0_, 1, 1);
+                    var26 = AddItem_0207d300(var25, var20->unknown_0_, 1, 1);
                 } else {
                     if (var28 != var6 && (IsLocalWirelessPlayerJoined_0202c1c0(GetLocalWireless_0202ae18(), var6) != 0 || var28 != 0)) {
                         if (var21 & (1 << var28)) {

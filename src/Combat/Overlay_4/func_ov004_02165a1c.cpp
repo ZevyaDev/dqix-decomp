@@ -12,7 +12,7 @@ extern "C" void func_02011a24(char* arg0, void* arg1);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern "C" void func_ov017_0218d77c(GameResources* arg0, int arg1);
 
-extern char* data_ov004_02171010;
+extern char* gTreasureMapScreen_ov004_02171010;
 
 // USA: func_ov004_02165a1c
 extern "C" ARM int func_ov004_02165a1c(void* arg0) {
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov004_02165a1c(void* arg0) {
     unsigned int var1 = func_ov023_021f9bb0((struct Struct_ov004_021549e4_2*)var0);
     int var2 = func_ov004_021634dc(arg0);
     GameState* var3 = GameState::GetInstance();
-    char* var4 = data_ov004_02171010;
+    char* var4 = gTreasureMapScreen_ov004_02171010;
     unsigned char var5 = *(unsigned char*)((int)(var4 + 0xad5) + var1 * Enum_ov004_02165a1c_452);
     if (var5 == 1) {
         func_02011a24((char*)var3, var4 + var2 * 0x1c);

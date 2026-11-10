@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-extern "C" void func_020c99ac(void*);
+extern "C" void GetMACAddress_020c99ac(void*);
 extern "C" void SetLocalWirelessLinkError_0202c848(int);
 extern "C" int func_0202d788(unsigned short);
 extern char gLocalWirelessLink_021015a0[];
@@ -7,7 +7,7 @@ static inline unsigned long inline_0202d6c8() { return *(volatile unsigned long*
 // USA: func_0202d6c8
 extern "C" ARM int func_0202d6c8() {
     unsigned short var0[3];
-    func_020c99ac(var0);
+    GetMACAddress_020c99ac(var0);
     *(unsigned*)(gLocalWirelessLink_021015a0 + 0x20) = (var0[0] + inline_0202d6c8() + var0[1] + var0[2]) * 0x00010dcd + 0x3039;
     *(unsigned short*)(gLocalWirelessLink_021015a0 + 2) = 0;
     *(unsigned short*)(gLocalWirelessLink_021015a0 + 6) = 0x65;

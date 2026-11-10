@@ -7,7 +7,7 @@ enum { Enum_ov006_0215c154_54 = 0x2a, Enum_ov006_0215c154_76 = 0x48, Enum_ov006_
 enum { Enum_ov006_0215c154_54 = 0x36, Enum_ov006_0215c154_76 = 0x4c, Enum_ov006_0215c154_4696 = 0x1258 };
 #endif
 
-struct Struct_02081f20_2 { int unknown_0_[3]; };
+struct KeyRepeat_02081f20_2 { int unknown_0_[3]; };
 struct SoundEffectManager_02108760;
 struct MenuLayout_0207fdcc_2;
 struct Struct_02071ffc_4;
@@ -50,7 +50,7 @@ struct Struct_ov006_02157a60 {
     unsigned short* unknown_50_;
     int unknown_54_[0x20 / 4];
     int unknown_74_[0x28 / 4];
-    Struct_02081f20_2 unknown_9c_;
+    KeyRepeat_02081f20_2 unknown_9c_;
     unsigned short unknown_a8_;
     unsigned char unknown_aa_;
     int unknown_ac_[0x54 / 4];
@@ -133,7 +133,7 @@ extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void*, int);
 extern "C" void func_ov006_0215f4dc(Struct_ov006_02157a60*);
 extern "C" void func_ov006_021573c8(void*);
 extern "C" void func_ov006_021553bc(void*, short*, unsigned char*);
-extern "C" void func_0208203c(Struct_02081f20_2*);
+extern "C" void func_0208203c(KeyRepeat_02081f20_2*);
 extern "C" void func_ov006_02155710(void*, int, int);
 extern "C" int func_ov006_021595b4(Struct_ov006_02157a60*);
 extern "C" unsigned char func_ov006_02158a28(Struct_ov006_02157a60*);

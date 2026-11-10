@@ -107,7 +107,7 @@ struct Struct_02040774_2;
 extern "C" void SetObject3DPosition_020407b4(struct Struct_02040774_2* object, int x, int y, int z);
 struct Struct_02059cfc_2;
 struct Struct_02059cfc_3;
-extern "C" void func_02059f38(struct Struct_02059cfc_2* arg0, struct Struct_02059cfc_3* arg1);
+extern "C" void SetObject3DPositionFromVector_02059f38(struct Struct_02059cfc_2* object, struct Struct_02059cfc_3* position);
 extern "C" void func_ov006_021542f4(void* arg0);
 struct Struct_ov006_0215426c;
 extern "C" void func_ov006_0215426c(struct Struct_ov006_0215426c* arg0);
@@ -417,7 +417,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
             arg0->unknown_238_[2].MaybeSetBCFGAnimation(0, 0);
             SaveTextureVRAMState_0207dfac(var51->unknown_2cc_);
             arg0->unknown_238_[2].SetScale(0x10a, 0x10a, 0x10a);
-            func_02059f38((struct Struct_02059cfc_2*)&arg0->unknown_238_[2], (struct Struct_02059cfc_3*)&arg0->unknown_238_[1].position_);
+            SetObject3DPositionFromVector_02059f38((struct Struct_02059cfc_2*)&arg0->unknown_238_[2], (struct Struct_02059cfc_3*)&arg0->unknown_238_[1].position_);
         }
         var0->RemoveTask(arg0->unknown_ad4_);
         arg0->unknown_ad4_ = -1;
@@ -443,7 +443,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
             var57.unk_10 = 1;
             arg0->unknown_238_[3].LoadFromCHRArchive(&var57);
             arg0->unknown_238_[3].SetScale(&arg0->unknown_238_[1].GetScale());
-            func_02059f38((struct Struct_02059cfc_2*)&arg0->unknown_238_[3], (struct Struct_02059cfc_3*)&arg0->unknown_238_[1].position_);
+            SetObject3DPositionFromVector_02059f38((struct Struct_02059cfc_2*)&arg0->unknown_238_[3], (struct Struct_02059cfc_3*)&arg0->unknown_238_[1].position_);
             arg0->unknown_238_[3].StopCurrentAnimation();
         }
         SaveTextureVRAMState_0207dfac(var54->unknown_2cc_);
@@ -472,7 +472,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
             var63->MaybeSetBCFGAnimation(0, 0);
             SaveTextureVRAMState_0207dfac(var60->unknown_2cc_);
             var63->SetScale(0x10a, 0x10a, 0x10a);
-            func_02059f38((struct Struct_02059cfc_2*)var63, (struct Struct_02059cfc_3*)&arg0->unknown_238_[1].position_);
+            SetObject3DPositionFromVector_02059f38((struct Struct_02059cfc_2*)var63, (struct Struct_02059cfc_3*)&arg0->unknown_238_[1].position_);
             var63->StopCurrentAnimation();
             var63->MaybeSetRegularAnimation(data_ov006_02160080, 9);
             var63->DisableFlag(0x1000);

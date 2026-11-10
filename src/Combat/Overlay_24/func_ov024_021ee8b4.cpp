@@ -8,7 +8,7 @@ extern "C" int func_ov024_021eda60(GameObject* arg0);
 struct Struct_020885b4;
 extern "C" int func_020885b4(struct Struct_020885b4* arg0);
 struct Struct_02088514;
-extern "C" int func_02088514(struct Struct_02088514* arg0);
+extern "C" int IsEnvenomated_02088514(struct Struct_02088514* stats);
 extern "C" int func_ov024_021ed890(struct Random** arg0, int* arg1, short* arg2);
 
 struct Struct_ov024_021ee8b4 { int unknown_0_; };
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov024_021ee8b4(struct Struct_ov024_021ee8b4* arg0, int a
         if (!var3) continue;
         if (func_ov024_021eda60(var3)) continue;
         if (!func_020885b4((struct Struct_020885b4*)var3->currentStats_) &&
-            !func_02088514((struct Struct_02088514*)var3->currentStats_)) continue;
+            !IsEnvenomated_02088514((struct Struct_02088514*)var3->currentStats_)) continue;
         int var4 = *arg3;
         *arg3 = var4 + 1;
         arg4[var4] = var0.unknown_0_[var2];

@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-struct Struct_0205d0e0_2 {
+struct TextWindowManager_0205d0e0_2 {
     char unknown_0_[0x98];
-    int unknown_98_;
-    void* unknown_9c_;
+    int pBGLayers_98_;
+    void* pTextWindows_9c_;
     char unknown_a0_[0x14];
-    unsigned char unknown_b4_;
+    unsigned char textWindowCount_b4_;
 };
-extern "C" void* func_0205d888(struct Struct_0205d0e0_2* arg0);
+extern "C" void* GetLastOpenedTextWindow_0205d888(struct TextWindowManager_0205d0e0_2* windowManager);
 
 struct TextWindowManager_0205d6a0 {
     char unknown_0_[0x98];
@@ -40,7 +40,7 @@ extern unsigned char data_ov000_021834cd[8];
 extern "C" ARM void func_ov000_0217629c(void* arg0) {
     if (*(void**)((char*)arg0 + 0x38) == 0) return;
     int var0 = 1;
-    void* var1 = func_0205d888((struct Struct_0205d0e0_2*)*(void**)((char*)arg0 + 0x38));
+    void* var1 = GetLastOpenedTextWindow_0205d888((struct TextWindowManager_0205d0e0_2*)*(void**)((char*)arg0 + 0x38));
     int var2;
     for (var2 = 0; var2 < 4; var2++) {
         if (data_ov000_021834cc[var2 << 1] == ((struct TextWindow_0205d0e0*)var1)->unknown_c4_) {
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov000_0217629c(void* arg0) {
     for (var3 = 0; var3 < var0; var3++) {
         CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)*(void**)((char*)arg0 + 0x38), 0);
     }
-    var1 = func_0205d888((struct Struct_0205d0e0_2*)*(void**)((char*)arg0 + 0x38));
+    var1 = GetLastOpenedTextWindow_0205d888((struct TextWindowManager_0205d0e0_2*)*(void**)((char*)arg0 + 0x38));
     if (var1 == 0) return;
     for (var2 = 0; var2 < 4; var2++) {
         if (data_ov000_021834cc[var2 << 1] == ((struct TextWindow_0205d0e0*)var1)->unknown_c4_) {

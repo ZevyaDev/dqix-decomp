@@ -105,7 +105,7 @@ struct Struct_ov017_021c37a4_5 {
 };
 
 struct Struct_02039d84;
-struct Struct_0205faf4_13;
+struct FlagManager_0205faf4_13;
 struct Struct_0206e2a0;
 struct Struct_02061c04_7;
 struct Queue_0201bdac_2;
@@ -140,7 +140,7 @@ extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int in
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" void func_ov017_02190264(void* arg0, int arg1);
 extern "C" void func_ov017_021c32b0(Struct_ov017_021c37a4_2* arg0, int arg1);
-extern "C" void func_0202c288(void* arg0);
+extern "C" void UpdateLocalWirelessPlayerCount_0202c288(void* wireless);
 extern "C" void func_020100a0(GameState* arg0, int arg1);
 extern "C" void func_020dcd40(void);
 extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
@@ -152,7 +152,7 @@ extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 extern "C" void* GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a2770(void* arg0, short arg1);
 extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" int func_0206e2dc(Struct_0205faf4_13* arg0, int arg1);
+extern "C" int IsQuestUnlocked_0206e2dc(FlagManager_0205faf4_13* flagManager, int questId);
 extern "C" void func_020abd20(int arg0);
 extern "C" void func_0206e2a0(Struct_0206e2a0* arg0, int arg1);
 extern "C" void func_020d9ae8(Struct_02061c04_7* arg0, int arg1);
@@ -161,8 +161,8 @@ extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bd
 extern "C" void func_02086d88(unsigned char* arg0, int arg1);
 extern "C" void func_ov017_0218d500(void* arg0);
 extern "C" void func_020116c8(void* arg0);
-extern "C" void func_02048150(void* arg0, int arg1, int arg2);
-extern "C" void func_ov017_02191aac(void* arg0, int arg1, int arg2, unsigned char arg3);
+extern "C" void RevivePartyMember_02048150(void* gameObject, int hp, int isPartyOrderRebuildAllowed);
+extern "C" void SetCombatantAppearanceFlags_ov017_02191aac(void* gameResources, int isSet, int combatantIndex, unsigned char flags);
 extern "C" void VectorizedMemset(void* dst, int value, int len);
 extern "C" char* func_020936f8(void);
 extern "C" void func_02093a14(char* arg0);
@@ -276,7 +276,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
         }
     }
 
-    func_0202c288(var2);
+    UpdateLocalWirelessPlayerCount_0202c288(var2);
     func_020100a0(var0, 0);
     if (var9) {
         func_020dcd40();
@@ -310,7 +310,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
         unsigned char* var30 = var13;
         unsigned char var31 = 0;
         for (int var32 = 0; var32 < 0xcc; var32++) {
-            if (func_0206e2dc((Struct_0205faf4_13*)var29, var32)) {
+            if (IsQuestUnlocked_0206e2dc((FlagManager_0205faf4_13*)var29, var32)) {
                 *var30 |= 1 << var31;
             }
             var31++;
@@ -327,7 +327,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
         bool var33 = false;
         for (int var34 = 0; var34 < 0xcc; var34++) {
             if (*var30 & (1 << var31)) {
-                if (!func_0206e2dc((Struct_0205faf4_13*)var29, var34)) {
+                if (!IsQuestUnlocked_0206e2dc((FlagManager_0205faf4_13*)var29, var34)) {
                     var33 = true;
                 }
                 func_0206e2a0((Struct_0206e2a0*)var29, var34);
@@ -356,7 +356,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
 
     Struct_ov017_021c37a4_8* var37 = (Struct_ov017_021c37a4_8*)var0->GetPartyMemberByIndex(0);
     if (var37 && (var37->unknown_130_->unknown_0_ & 1)) {
-        func_02048150(var37, 0, 1);
+        RevivePartyMember_02048150(var37, 0, 1);
         var37->unknown_130_->unknown_4_ = 1;
         var37->unknown_18c_ &= ~1;
     }
@@ -365,7 +365,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     for (int var39 = 0; var39 < var38->unknown_f7c_; var39++) {
         unsigned char var40 = var38->unknown_f78_[var39];
         if (GetPartyMemberBaseByIndex_0200ff1c(var0, var40)) {
-            func_ov017_02191aac(var3, 0, var40, 2);
+            SetCombatantAppearanceFlags_ov017_02191aac(var3, 0, var40, 2);
         }
     }
 

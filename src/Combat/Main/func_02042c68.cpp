@@ -28,7 +28,7 @@ extern "C" void func_02045824(struct Struct_02042c68_2* arg0, int arg1, int arg2
 struct Struct_02042b98_2;
 extern "C" void func_02042c54(struct Struct_02042b98_2* arg0, int arg1, int arg2, int arg3, int arg4);
 
-extern "C" void func_020bc078(int* arg0);
+extern "C" void ClearSoundHandle_020bc078(int* handle);
 
 extern int data_02107820;
 
@@ -171,7 +171,7 @@ extern "C" ARM void func_02042c68(char* arg0) {
 #else
     *(unsigned char*)(arg0 + 0x19ce) = 0;
 #endif
-    func_020bc078(&data_02107820);
+    ClearSoundHandle_020bc078(&data_02107820);
 
 #if defined(jpn)
     *(unsigned char*)(arg0 + 0x17ff) &= ~4;

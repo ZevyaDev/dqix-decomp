@@ -8,7 +8,7 @@ enum { Enum_ov000_02167e6c_672 = 0x2a0, Enum_ov000_02167e6c_2385 = 0x951 };
 
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" void func_02049d6c(GameObject* arg0);
-extern "C" void func_02049ae4(unsigned char* arg0);
+extern "C" void StopCombatantSidestep_02049ae4(unsigned char* combatant);
 
 // USA: func_ov000_02167e6c
 extern "C" ARM void func_ov000_02167e6c(unsigned char* arg0) {
@@ -18,7 +18,7 @@ extern "C" ARM void func_ov000_02167e6c(unsigned char* arg0) {
             GameObject* var2 = var0->GetCombatantByIndex(var1);
             if (var2) {
                 func_02049d6c(var2);
-                func_02049ae4((unsigned char*)var2);
+                StopCombatantSidestep_02049ae4((unsigned char*)var2);
             }
         }
     }
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov000_02167e6c(unsigned char* arg0) {
         GameObject* var4 = var0->GetCombatantByIndex(var3);
         if (var4) {
             func_02049d6c(var4);
-            func_02049ae4((unsigned char*)var4);
+            StopCombatantSidestep_02049ae4((unsigned char*)var4);
         }
     }
     unsigned char var5 = *(unsigned char*)(arg0 + 0x5000 + Enum_ov000_02167e6c_2385);

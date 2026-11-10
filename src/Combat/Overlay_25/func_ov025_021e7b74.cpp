@@ -22,7 +22,7 @@ extern "C" void func_ov000_02161c0c(void*, int);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState*, int);
 extern "C" void func_ov000_021677fc(void*);
 extern "C" void func_ov000_02167e6c(unsigned char*);
-extern "C" Struct_ov001_02158ae4_3* func_ov000_02160f14(void*);
+extern "C" Struct_ov001_02158ae4_3* GetBattleCamera_ov000_02160f14(void*);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" unsigned char* func_ov000_02163524(void*);
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
@@ -71,7 +71,7 @@ extern "C" ARM int func_ov025_021e7b74(void*, void*, void*, void* arg3) {
     }
     func_ov000_021677fc(var5);
     func_ov000_02167e6c((unsigned char*)var5);
-    Vector3i var22 = func_ov000_02160f14(var5)->unknown_240_;
+    Vector3i var22 = GetBattleCamera_ov000_02160f14(var5)->unknown_240_;
     int var23 = var22.z;
     for (int var24 = 0xc0; var24 < 0xc8; ++var24) {
         GameObject* var25 = var3->GetCombatantByIndex(var24);

@@ -13,14 +13,14 @@
 #endif
 #include <globaldefs.h>
 
-struct Struct_0207fd88;
-extern "C" unsigned int func_0207fd88(Struct_0207fd88*);
+struct MenuLayout_0207fd88;
+extern "C" unsigned int CopyMenuLayoutBGScreenDataToVRAM_0207fd88(MenuLayout_0207fd88*);
 extern "C" void func_ov014_02185c90(char*);
 
 // USA: func_ov014_02186dc8
 extern "C" ARM void func_ov014_02186dc8(char* arg0) {
     if (*(unsigned char*)(arg0 + 0x17a) != 0) {
-        func_0207fd88((Struct_0207fd88*)(*(unsigned int*)(arg0 + 0xc0)));
+        CopyMenuLayoutBGScreenDataToVRAM_0207fd88((MenuLayout_0207fd88*)(*(unsigned int*)(arg0 + 0xc0)));
     }
     func_ov014_02185c90(arg0);
 }

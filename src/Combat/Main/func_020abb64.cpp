@@ -12,14 +12,14 @@ struct Struct_020abb64_2 { unsigned int unknown_0_0_:9, unknown_1_1_:10, unknown
 struct Struct_020abb64_3 { Struct_020abb64 unknown_0_; Struct_020abb64_2 unknown_4_; unsigned char unknown_8_; };
 struct Struct_020abb64_4 { char unknown_0_[IS_JPN ? 0x543c : 0x569c]; Struct_020abb64_3 unknown_569c_; char unknown_56a8_[0xcd8]; char unknown_6380_[0x54]; };
 extern "C" char* func_020108d8(char*, int);
-extern "C" void func_02082828(char*);
+extern "C" void InitPartyMemberData_02082828(char*);
 extern "C" int func_020aba5c(int);
 extern "C" int func_020abae8(int);
 extern "C" void func_0208660c(char*);
 // USA: func_020abb64
 extern "C" ARM int func_020abb64() {
     GameState* var0 = GameState::GetInstance();
-    for (int var1 = 0;var1 < 4;var1++) { char* var2 = func_020108d8((char*)var0, var1); if (var2) func_02082828(var2); }
+    for (int var1 = 0;var1 < 4;var1++) { char* var2 = func_020108d8((char*)var0, var1); if (var2) InitPartyMemberData_02082828(var2); }
     if (!func_020aba5c(0)) return 0;
     if (!func_020aba5c(1)) return 0;
     if (!func_020abae8(0)) return 0;

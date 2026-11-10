@@ -36,7 +36,7 @@ struct Struct_02093b90_3 {
     unsigned int unknown_0_;
     unsigned short unknown_4_, unknown_6_, unknown_8_, unknown_a_;
 };
-struct Struct_020200c0_4 { void* unknown_0_; Struct_02093b90_3* unknown_4_; unsigned char unknown_8_; };
+struct Canvas_020200c0_4 { void* pCharacterData_0_; Struct_02093b90_3* pRects_4_; unsigned char rectCount_8_; };
 extern AllocatorUnion gMainHeap_02114e20;
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" char* GetOAMManager_0203bd08();
@@ -50,9 +50,9 @@ extern "C" int func_020943dc(Struct_02093b90_2*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" int func_0209378c(int);
 extern "C" int func_020937f0(int);
-extern "C" void func_0205b20c(Struct_020200c0_4*);
-extern "C" void func_0205b220(void*, int);
-extern "C" void func_0205b228(void*, int, unsigned char);
+extern "C" void InitCanvas_0205b20c(Canvas_020200c0_4*);
+extern "C" void SetCanvasCharacterData_0205b220(void*, int);
+extern "C" void SetCanvasRects_0205b228(void*, int, unsigned char);
 extern "C" void func_0205b234(void*, int, int, void*, int, int);
 extern "C" void DC_FlushRange(const void*, unsigned int);
 extern "C" void LoadToMainObjVRAM(const void*, unsigned int, unsigned int);
@@ -124,10 +124,10 @@ extern "C" ARM void func_02093b90(Struct_02093b90_2* arg0, int arg1) {
                     var12->unknown_a_=16;
                     var10+=256;
                 }
-                Struct_020200c0_4 var13;
-                func_0205b20c(&var13);
-                func_0205b220(&var13, (int)var3);
-                func_0205b228(&var13, (int)var7, 8);
+                Canvas_020200c0_4 var13;
+                InitCanvas_0205b20c(&var13);
+                SetCanvasCharacterData_0205b220(&var13, (int)var3);
+                SetCanvasRects_0205b228(&var13, (int)var7, 8);
                 func_0205b234(&var13, 16, 3, var5, DRAW_ARGS_02093b90);
                 DC_FlushRange(var3, 0x800);
                 if (var4==0) LoadToMainObjVRAM(var3, var6-0x800, 0x800);

@@ -9,19 +9,19 @@ struct BGLayer_0204b010;
 
 extern "C" void ClearBGScreenData_0204b010(struct BGLayer_0204b010* layer, void* screenData);
 
-struct Struct_0207fcb8 {
+struct MenuLayout_0207fcb8 {
     char unknown_0_[Enum_0207fcb8_44];
-    char* unknown_2c_;
+    char* pBGLayers_2c_;
     char unknown_30_[8];
-    unsigned char unknown_38_;
+    unsigned char bgLayerCount_38_;
 };
 
-// USA: func_0207fcb8
-extern "C" ARM void func_0207fcb8(struct Struct_0207fcb8* arg0) {
-    unsigned char var0;
-    if (arg0->unknown_2c_ != NULL) {
-        for (var0 = 0; var0 < arg0->unknown_38_; var0++) {
-            ClearBGScreenData_0204b010((struct BGLayer_0204b010*)(arg0->unknown_2c_ + var0 * 0x20), NULL);
+// USA: ClearMenuLayoutBGScreenData_0207fcb8
+extern "C" ARM void ClearMenuLayoutBGScreenData_0207fcb8(struct MenuLayout_0207fcb8* menuLayout) {
+    unsigned char i;
+    if (menuLayout->pBGLayers_2c_ != NULL) {
+        for (i = 0; i < menuLayout->bgLayerCount_38_; i++) {
+            ClearBGScreenData_0204b010((struct BGLayer_0204b010*)(menuLayout->pBGLayers_2c_ + i * 0x20), NULL);
         }
     }
 }

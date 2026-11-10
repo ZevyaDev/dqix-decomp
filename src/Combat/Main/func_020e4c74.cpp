@@ -8,7 +8,7 @@ struct Struct_020e4c74 {
 };
 
 extern "C" void SetNoun_020e4b34(void* noun, struct BaseCombatStats* singularText, struct BaseCombatStats* pluralText,
-    int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int arg9, int hasInitialVowelSound, int isInitialVowelFromText);
+    int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int isProperName, int hasInitialVowelSound, int isInitialVowelFromText);
 
 // USA: func_020e4c74
 extern "C" ARM void func_020e4c74(void* arg0, GameObject* arg1) {

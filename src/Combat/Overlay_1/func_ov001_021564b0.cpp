@@ -8,7 +8,7 @@ enum { Enum_ov001_021564b0_17122 = 0x42e2, Enum_ov001_021564b0_1788 = 0x6fc, Enu
 #endif
 
 extern "C" void RemoveFromQueue_02046a8c(int queue, int node);
-extern "C" void* func_020704fc(void);
+extern "C" void* GetColorFade_020704fc(void);
 struct Struct_020708c8;
 extern "C" void func_020708c8(Struct_020708c8*, unsigned int);
 struct GameResources;
@@ -26,7 +26,7 @@ extern "C" ARM unsigned short func_ov001_021564b0(struct Struct_ov001_021564b0* 
     if (*(unsigned char*)((char*)var0 + Enum_ov001_021564b0_17122) != 0) {
         char* var1 = (char*)var0 + 0x3000;
         RemoveFromQueue_02046a8c(*(int*)(var1 + Enum_ov001_021564b0_1788), *(int*)(var1 + Enum_ov001_021564b0_1816));
-        func_020708c8((Struct_020708c8*)func_020704fc(), 0xf);
+        func_020708c8((Struct_020708c8*)GetColorFade_020704fc(), 0xf);
         SetMainBrightness((GameResources*)var0, 0, 0xf);
         void* var2 = GetMessageWindow_020421a0();
         CloseMessageWindow_02043124(var2);

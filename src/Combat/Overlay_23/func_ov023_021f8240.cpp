@@ -189,8 +189,8 @@ extern "C" void func_ov023_021fbcb0(Struct_ov023_021f8240_3* arg0, unsigned shor
 extern "C" void func_ov023_021fbcb8(void* arg0, unsigned short arg1);
 extern "C" unsigned short func_ov023_021fc4fc(Struct_ov023_021f8240_4* arg0);
 extern "C" unsigned short func_ov023_021fc504(Struct_ov023_021f8240_7* arg0);
-extern "C" void func_0204f914(Struct_ov023_021f8240_5* arg0, unsigned char arg1, short arg2, short arg3, short arg4,
-                              short arg5);
+extern "C" void FillTextWindowRect_0204f914(Struct_ov023_021f8240_5* textWindow, unsigned char colorIndex, short left, short top, short right,
+                              short bottom);
 extern "C" Struct_ov023_021f8240* func_ov023_021f6f18(void* arg0);
 
 #if defined(jpn)
@@ -340,7 +340,7 @@ extern "C" ARM void func_ov023_021f8240(Struct_ov023_021f8240_6* arg0, void* arg
             unsigned short var42 = var40.unknown_4_ / 4096.0f;
             unsigned short var43 = func_ov023_021fc4fc(var38) + var41;
             unsigned short var44 = func_ov023_021fc504((Struct_ov023_021f8240_7*)var38) + var42;
-            func_0204f914(&arg0->unknown_20_, var39, var41, var42, var43, var44);
+            FillTextWindowRect_0204f914(&arg0->unknown_20_, var39, var41, var42, var43, var44);
         }
     }
 }

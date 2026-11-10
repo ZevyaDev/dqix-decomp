@@ -34,7 +34,7 @@ extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d0
 struct Struct_0204a120_2;
 struct Struct_020a3568;
 extern "C" Struct_0204a120_2* func_020100cc(char*);
-extern "C" void func_020a2cf0(Struct_0204a120_2*);
+extern "C" void InitKeyControlledCamera_020a2cf0(Struct_0204a120_2*);
 extern "C" void func_020a3568(Struct_020a3568*, int);
 ModelRenderContext* GetModel3DContext(Model3D*);
 extern "C" void func_ov015_0218bb3c(RenderCommandHandler*);
@@ -110,7 +110,7 @@ extern "C" ARM int func_ov015_0218e2a4(Struct_ov015_0218e2a4_2* arg0, Struct_ov0
     if (!var12) return 0;
     Struct_0204a120_2* var13 = func_020100cc((char*)var12);
     if (!var13) return 0;
-    func_020a2cf0(var13);
+    InitKeyControlledCamera_020a2cf0(var13);
     func_020a3568((Struct_020a3568*)var13, 0);
     arg0->unknown_c_ = arg1->unknown_0_;
     return 1;

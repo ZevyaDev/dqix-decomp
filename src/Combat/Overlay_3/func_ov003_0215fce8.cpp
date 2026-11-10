@@ -44,8 +44,8 @@ struct Struct_020e28dc;
 extern "C" int func_020e28dc(struct Struct_020e28dc *arg0);
 struct YesNoWindow_020e25e8;
 extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8 *yesNoWindow);
-struct Struct_020e263c_2;
-extern "C" void func_020e263c(struct Struct_020e263c_2 *arg0, int arg1);
+struct YesNoWindow_020e263c_2;
+extern "C" void UpdateYesNoWindow_020e263c(struct YesNoWindow_020e263c_2 *yesNoWindow, int ticks);
 struct Struct_0207fc6c;
 extern "C" void func_0207fc6c(struct Struct_0207fc6c *arg0, int arg1);
 struct Struct_ov003_0215fce8;
@@ -57,7 +57,7 @@ extern "C" void func_ov003_02167494(void *arg0, int arg1);
 extern "C" void func_ov003_02160ec4(void *arg0);
 extern "C" void func_ov003_02160f4c(void *arg0);
 extern "C" void func_ov003_02160794(void *arg0);
-extern "C" int func_02081f20(void *arg0, int arg1);
+extern "C" int UpdateKeyRepeat_02081f20(void *keyRepeat, int elapsedFrames);
 extern "C" int func_020800fc(void *arg0, short *arg1, short arg2, unsigned short arg3, unsigned char arg4, bool arg5);
 extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void *menuLayout, int windowId);
 extern "C" void OpenMenuLayoutWindow_020813ec(void *menuLayout, int windowId);
@@ -138,7 +138,7 @@ extern "C" ARM int func_ov003_0215fce8(unsigned char *arg0, int arg1) {
     if (*(int *) (arg0 + SO(0x470)) != 0 && (var9 = *(struct Struct_020e28dc **) (arg0 + SO(0x390))) != 0 &&
         func_020e28dc(var9) != 0)
     {
-        func_020e263c(*(struct Struct_020e263c_2 **) (arg0 + SO(0x390)), arg1);
+        UpdateYesNoWindow_020e263c(*(struct YesNoWindow_020e263c_2 **) (arg0 + SO(0x390)), arg1);
     }
     char *var10 = *(char **) (arg0 + SO(0x324));
     if (var10 != 0) {
@@ -148,7 +148,7 @@ extern "C" ARM int func_ov003_0215fce8(unsigned char *arg0, int arg1) {
     if (*(unsigned int *) (arg0 + SO(0x464)) & 0x1000) return 0;
     if (*(int *) (arg0 + SO(0x470)) != 0) {
         *(unsigned int *) (arg0 + SO(0x464)) &= ~0x1000000u;
-        func_02081f20((char *) arg0 + SO(0x308), arg1);
+        UpdateKeyRepeat_02081f20((char *) arg0 + SO(0x308), arg1);
         *(short *) (arg0 + SO(0x474)) = **(short **) (arg0 + SO(0x470));
         *(int *) (arg0 + SO(0x45c)) =
             func_020800fc(var10, *(short **) (arg0 + SO(0x470)), *(short *) (arg0 + SO(0x474)),

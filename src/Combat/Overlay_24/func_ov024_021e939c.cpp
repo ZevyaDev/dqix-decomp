@@ -3,7 +3,7 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
 extern "C" int func_020885b4(struct Struct_020885b4* arg0);
-extern "C" int func_02088514(struct Struct_02088514* arg0);
+extern "C" int IsEnvenomated_02088514(struct Struct_02088514* stats);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 
 struct Struct_ov024_021dbaf4_4 {
@@ -17,7 +17,7 @@ extern "C" ARM int func_ov024_021e939c(struct Struct_ov024_021dbaf4_4* arg0, int
     if (var0 == NULL) {
         return 0;
     }
-    int var1 = func_02088514((struct Struct_02088514*)var0->currentStats_);
+    int var1 = IsEnvenomated_02088514((struct Struct_02088514*)var0->currentStats_);
     int var2 = func_020885b4((struct Struct_020885b4*)var0->currentStats_);
     if (arg2 != 0) {
         if (arg3 != 0) {

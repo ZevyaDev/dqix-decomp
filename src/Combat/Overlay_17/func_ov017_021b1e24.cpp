@@ -12,7 +12,7 @@ extern "C" void func_ov031_02243518(void* arg0, int arg1);
 extern "C" void func_ov031_02243690(Struct_ov017_021b1e24* arg0);
 extern "C" void func_0205e92c(void* arg0);
 extern "C" void func_0209c278(void* arg0);
-extern "C" void func_0209c290(void* arg0);
+extern "C" void OpenMusicArchive_0209c290(void* manager);
 extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
 extern char gSoundEffectManager_02108760;
 extern char gMusicManager_02109bf4;
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov017_021b1e24(Struct_ov017_021b1e24_3* arg0) {
     }
     LoadOverlay_020a1940(OVERLAY_ID(32));
     func_0209c278(&gMusicManager_02109bf4);
-    func_0209c290(&gMusicManager_02109bf4);
+    OpenMusicArchive_0209c290(&gMusicManager_02109bf4);
     func_0205e92c(&gSoundEffectManager_02108760);
     LoadSoundEffectSet_0205ea20(&gSoundEffectManager_02108760, 100);
     SignedAllocatorHeader* var1 = arg0->unknown_c_.GetSignedAllocator();

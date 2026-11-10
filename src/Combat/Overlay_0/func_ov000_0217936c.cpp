@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-struct Struct_0205c508;
+struct MenuCursor_0205c508;
 struct Struct_0201099c_3;
 
 struct Struct_ov000_0217936c_2 {
@@ -14,7 +14,7 @@ struct Struct_ov000_0217936c {
     char unknown_1dc_[4];
 };
 
-extern "C" void func_0205c508(struct Struct_0205c508* arg0, int* arg1, int* arg2);
+extern "C" void GetMenuCursorPageRange_0205c508(struct MenuCursor_0205c508* cursor, int* outPageStartIndex, int* outPageEndIndex);
 extern "C" int func_ov000_0217542c(void* arg0);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov000_0217936c(struct Struct_ov000_0217936c* arg0, stru
     if (arg1 == NULL || arg2 == NULL) {
         return;
     }
-    func_0205c508((struct Struct_0205c508*)arg0->unknown_1dc_, &var2, &var3);
+    GetMenuCursorPageRange_0205c508((struct MenuCursor_0205c508*)arg0->unknown_1dc_, &var2, &var3);
     short var4 = var2;
     short var5 = var3;
     short var6 = arg1->unknown_1e_;

@@ -18,14 +18,14 @@ extern "C" ARM int GetGroundHeight_02018fbc(Zone3D* zone, Vector3fix* position) 
     Vector3fix segmentBottom;
     Vector3fix hit;
 
-    searchBox.unknown_0_ = snappedPosition;
-    searchBox.unknown_c_ = snappedPosition;
-    searchBox.unknown_0_.x += 0x800;
-    searchBox.unknown_0_.y += 0x1000;
-    searchBox.unknown_0_.z += 0x800;
-    searchBox.unknown_c_.x -= 0x800;
-    searchBox.unknown_c_.y -= 0xa000;
-    searchBox.unknown_c_.z -= 0x800;
+    searchBox.maxCorner_0_ = snappedPosition;
+    searchBox.minCorner_c_ = snappedPosition;
+    searchBox.maxCorner_0_.x += 0x800;
+    searchBox.maxCorner_0_.y += 0x1000;
+    searchBox.maxCorner_0_.z += 0x800;
+    searchBox.minCorner_c_.x -= 0x800;
+    searchBox.minCorner_c_.y -= 0xa000;
+    searchBox.minCorner_c_.z -= 0x800;
 
     int grottoTile;
     if (zone->isInMainGrottoFloor_23b8_ != 0) {

@@ -57,7 +57,7 @@ struct Struct_ov000_02170db0 {
 
 extern "C" struct Struct_ov000_02170cf8* func_ov000_02170cf8(struct Struct_ov000_02170db0_3* arg0, int arg1);
 extern "C" struct Struct_ov000_02170db0* func_ov000_02171d90(struct Struct_ov000_02170db0_3* arg0, int arg1);
-extern "C" int func_ov000_021719f8(int* arg0);
+extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
 #if defined(jpn)
 extern "C" int func_ov000_02171a74(struct Struct_ov000_02170db0_3* arg0);
 #else
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov000_02170db0(struct Struct_ov000_02170db0_3* arg0) {
     }
     struct Struct_ov000_02170db0_2* var3 = GetPartyMemberData_02053c6c((unsigned char*)var2);
     arg0->unknown_50_.unknown_10_ = 1;
-    if (func_ov000_021719f8((int*)arg0)) {
+    if (IsPanelMemberIncapacitated_ov000_021719f8((int*)arg0)) {
 #if defined(jpn)
         char* var4 = (char*)FindStringInTable_020e0434(arg0->unknown_4_, func_ov000_02171a74(arg0));
         if (var4 != NULL) {

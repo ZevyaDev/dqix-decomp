@@ -21,7 +21,7 @@ struct Struct_ov004_02163944_4 {
     int unknown_1964_[9]; int unknown_1988_[3];
 };
 struct Struct_ov004_02162dd8 { int unknown_0_; SafeAllocator unknown_4_; };
-extern Struct_ov004_02171010_2 data_ov004_02171010;
+extern Struct_ov004_02171010_2 gTreasureMapScreen_ov004_02171010;
 extern char data_ov004_0217055c[];
 extern char data_ov004_02170572[];
 #if defined(jpn)
@@ -38,7 +38,7 @@ extern "C" void VectorizedInvertedMemcpy(const void*, void*, unsigned int);
 extern "C" void func_ov004_02163530(void*);
 extern "C" void func_ov004_02163c40(void*);
 extern "C" bool func_ov004_021635d0(int*, int*);
-extern "C" void func_020e526c(void*);
+extern "C" void InitNounTable_020e526c(void*);
 extern "C" void func_020e5604(void*, SafeAllocator*, void*, unsigned int);
 extern "C" Struct_ov004_02163944_3* GetZone3D_02012fe4();
 extern "C" void func_02026420(unsigned char*, unsigned char);
@@ -48,7 +48,7 @@ void SetSubBrightness(GameResources*, int, int);
 extern "C" void func_ov004_021636b0(void*, const char*);
 extern "C" char* GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char*);
-extern "C" void func_020e2d24(int*, int, int);
+extern "C" void SetDisplayWindowInsideLayers_020e2d24(int*, int, int);
 
 // JPN: 0x02163efc; USA/EUR: 0x02163944.
 extern "C" ARM int func_ov004_02163944(void* arg0) {
@@ -57,18 +57,18 @@ extern "C" ARM int func_ov004_02163944(void* arg0) {
     SafeAllocator* var1 = &var0->unknown_4_;
     if (!var1) return 0;
     func_020a3844(var1);
-    data_ov004_02171010.unknown_0_ = (Struct_ov004_021636b0*)var1->Allocate(sizeof(Struct_ov004_021636b0));
-    if (!data_ov004_02171010.unknown_0_) return 0;
-    func_ov004_0216342c(data_ov004_02171010.unknown_0_);
-    data_ov004_02171010.unknown_0_->unknown_18fe_ = 1;
+    gTreasureMapScreen_ov004_02171010.unknown_0_ = (Struct_ov004_021636b0*)var1->Allocate(sizeof(Struct_ov004_021636b0));
+    if (!gTreasureMapScreen_ov004_02171010.unknown_0_) return 0;
+    func_ov004_0216342c(gTreasureMapScreen_ov004_02171010.unknown_0_);
+    gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_18fe_ = 1;
 #if !defined(jpn)
-    data_ov004_02171010.unknown_4_ = func_ov011_021845f8(arg0, 4)->unknown_4_.Allocate(0x333);
-    memset(data_ov004_02171010.unknown_4_, 0, 0x333);
+    gTreasureMapScreen_ov004_02171010.unknown_4_ = func_ov011_021845f8(arg0, 4)->unknown_4_.Allocate(0x333);
+    memset(gTreasureMapScreen_ov004_02171010.unknown_4_, 0, 0x333);
 #endif
     Struct_ov004_02163944 var2;
     if (func_020ac760(&var2)) {
-        data_ov004_02171010.unknown_0_->unknown_18f4_ = var2.unknown_0_;
-        for (int var3 = 0; var3 < 99; var3++) VectorizedInvertedMemcpy(&var2.unknown_2_[var3], &data_ov004_02171010.unknown_0_->unknown_0_[var3], 0x1c);
+        gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_18f4_ = var2.unknown_0_;
+        for (int var3 = 0; var3 < 99; var3++) VectorizedInvertedMemcpy(&var2.unknown_2_[var3], &gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_0_[var3], 0x1c);
     }
     func_ov004_02163530(arg0);
     func_ov004_02163c40(arg0);
@@ -76,34 +76,34 @@ extern "C" ARM int func_ov004_02163944(void* arg0) {
     int var5 = 0;
     if (!func_ov004_021635d0(&var4, &var5)) { var4 = 0; var5 = 0; }
     for (int var6 = 0; var6 < 8; var6++) {
-        ExportDetailedTreasureMapData(&data_ov004_02171010.unknown_0_->unknown_0_[var6 + var4 * 8], &data_ov004_02171010.unknown_0_->unknown_ad4_[var6], true, 0);
+        ExportDetailedTreasureMapData(&gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_0_[var6 + var4 * 8], &gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var6], true, 0);
     }
 #if !defined(jpn)
     Struct_ov004_02162dd8* var7 = func_ov011_021845f8(arg0, 3);
     if (!var7) return 0;
-    data_ov004_02171010.unknown_8_ = var7->unknown_4_.Allocate(12);
-    func_020e526c(data_ov004_02171010.unknown_8_);
+    gTreasureMapScreen_ov004_02171010.unknown_8_ = var7->unknown_4_.Allocate(12);
+    InitNounTable_020e526c(gTreasureMapScreen_ov004_02171010.unknown_8_);
     BackgroundLoader::AddLockGlobal();
     unsigned int var8 = 0;
     void* var9 = ExtractFileFromGP2(data_ov004_0217055c, data_ov004_02170572, &var8);
-    func_020e5604(data_ov004_02171010.unknown_8_, &var7->unknown_4_, var9, var8);
+    func_020e5604(gTreasureMapScreen_ov004_02171010.unknown_8_, &var7->unknown_4_, var9, var8);
     BackgroundLoader::RemoveLockGlobal();
 #endif
     Struct_ov004_02163944_3* var10 = GetZone3D_02012fe4();
     Struct_ov004_02163944_2* var11 = (Struct_ov004_02163944_2*)GetGameResources()->unknown_ptr_36d0;
-    data_ov004_02171010.unknown_0_->unknown_1910_ = var11->unknown_14_;
-    strcpy(data_ov004_02171010.unknown_0_->unknown_18ff_, var10->unknown_26_);
+    gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_1910_ = var11->unknown_14_;
+    strcpy(gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_18ff_, var10->unknown_26_);
     func_02026420((unsigned char*)var11, 1);
     func_020263dc((unsigned char*)var11, var1);
     func_020dc3b8();
     GameResources* var12 = GetGameResources();
     if (IsBrightnessWithinValidRange((GameResources*)var12, true)) SetSubBrightness(var12, -16, 0);
-    func_ov004_021636b0(arg0, data_ov004_02171010.unknown_0_->unknown_ad4_[var5].mapImageName_);
+    func_ov004_021636b0(arg0, gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var5].mapImageName_);
     Struct_ov004_02163944_4* var13 = (Struct_ov004_02163944_4*)GetMessageWindow_020421a0();
     ResetMessageWindow_02043204((char*)var13);
     var13->unknown_1962_ = 1;
-    func_020e2d24(var13->unknown_1964_, 9, 1);
-    func_020e2d24(var13->unknown_1988_, 25, 1);
-    data_ov004_02171010.unknown_0_->unknown_18fe_ = 0;
+    SetDisplayWindowInsideLayers_020e2d24(var13->unknown_1964_, 9, 1);
+    SetDisplayWindowInsideLayers_020e2d24(var13->unknown_1988_, 25, 1);
+    gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_18fe_ = 0;
     return 0;
 }

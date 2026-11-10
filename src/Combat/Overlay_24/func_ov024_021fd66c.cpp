@@ -5,7 +5,7 @@ struct Struct_021fa76c;
 extern "C" int func_ov024_021fa76c(struct Struct_021fa76c* arg0);
 extern "C" int func_0208824c(unsigned char* arg0);
 struct Struct_ov024_021da670_7;
-extern "C" int func_ov024_021da9b0(struct Struct_ov024_021da670_7* arg0);
+extern "C" int IsParalysed_ov024_021da9b0(struct Struct_ov024_021da670_7* combatant);
 extern "C" int HasEnemyTrait_ov000_02156068(void* battle, int combatantIndex, int kind, int traitType);
 extern "C" void func_ov024_021fd088(void* arg0, float arg1, int arg2);
 struct Struct_ov024_021fd1bc;
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov024_021fd66c(struct Struct_ov024_021fd66c* arg0) {
 	GameObject* var0 = arg0->unknown_668_;
 	if (!func_ov024_021fa76c((struct Struct_021fa76c*)var0)) return;
 	if (!func_0208824c((unsigned char*)var0->currentStats_)) return;
-	if (func_ov024_021da9b0((struct Struct_ov024_021da670_7*)var0)) return;
+	if (IsParalysed_ov024_021da9b0((struct Struct_ov024_021da670_7*)var0)) return;
 	struct Struct_ov024_021fd66c_4* var1 = arg0->unknown_64c_;
 	float var2 = (float)var1->unknown_14_.unknown_0_7_;
 	unsigned char var3 = *(unsigned char*)((char*)var0->currentStats_ + 0x4e);

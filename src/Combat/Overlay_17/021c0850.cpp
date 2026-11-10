@@ -26,8 +26,8 @@ struct Struct_0201e830;
 struct BGControlSave_02074b64;
 struct BGControlSave_02074bd0;
 struct BGControlSave_02074bf4;
-struct Struct_020469f8;
-struct Struct_020469f8_2;
+struct Queue_020469f8;
+struct QueueNode_020469f8_2;
 
 struct Struct_ov003_0217e6b0 {
     unsigned int unknown_0_0_ : 24;
@@ -155,7 +155,7 @@ extern "C" void func_ov017_021c0334(Struct_ov017_021c0334*);
 struct Struct_ov017_021b146c;
 extern "C" void func_ov017_021b14a0(Struct_ov017_021b146c*);
 extern "C" void func_ov017_021b1d3c(void* arg0, int arg1);
-extern "C" void func_020469f8(Struct_020469f8* arg0, Struct_020469f8_2* arg1);
+extern "C" void PrependToQueue_020469f8(Queue_020469f8* queue, QueueNode_020469f8_2* node);
 extern "C" void func_ov017_021c0580(void* arg0, int arg1, const char* arg2, void* arg3);
 extern "C" int func_0209cd50(int arg0);
 struct Struct_0209c3b4_2;
@@ -382,15 +382,15 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         arg0->unknown_28_ = arg0->unknown_1c_->unknown_b14_;
         arg0->unknown_2a_ = arg0->unknown_1c_->unknown_b16_;
         GameResources* var16 = GetGameResources();
-        Struct_020469f8* var17 = (Struct_020469f8*)var16->unknown_ptr_array_36fc[0];
-        Struct_020469f8_2* var18;
+        Queue_020469f8* var17 = (Queue_020469f8*)var16->unknown_ptr_array_36fc[0];
+        QueueNode_020469f8_2* var18;
         switch (arg0->unknown_1c_->unknown_b13_) {
         case 1:
             func_ov017_021c0820((Struct_ov017_021c0580*)arg0);
             arg0->unknown_24_ = 0;
-            var18 = (Struct_020469f8_2*)var16->unknown_ptr_array_3afc[15];
+            var18 = (QueueNode_020469f8_2*)var16->unknown_ptr_array_3afc[15];
             func_ov017_021c0334((Struct_ov017_021c0334*)var18);
-            func_020469f8(var17, var18);
+            PrependToQueue_020469f8(var17, var18);
             return;
         case 2:
             func_ov017_021c0580(arg0, 1, data_ov017_021d7f00, (void*)func_ov004_0215502c);
@@ -401,10 +401,10 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         case 4:
             func_ov017_021c0820((Struct_ov017_021c0580*)arg0);
             arg0->unknown_24_ = 3;
-            var18 = (Struct_020469f8_2*)var16->unknown_ptr_array_3afc[18];
+            var18 = (QueueNode_020469f8_2*)var16->unknown_ptr_array_3afc[18];
             func_ov017_021b14a0((Struct_ov017_021b146c*)var18);
             func_ov017_021b1d3c(var18, 1);
-            func_020469f8(var17, var18);
+            PrependToQueue_020469f8(var17, var18);
             return;
         case 5:
             func_ov017_021c0580(arg0, 4, data_ov017_021d7f12, (void*)func_ov004_02156dc8);

@@ -4,10 +4,10 @@
 #define data_020f1ef4 data_020f2060
 #endif
 
-struct Struct_0210cf88 {
+struct TexturePaletteVRAMAllocator_0210cf88 {
     unsigned int unknown_0_;
     unsigned int unknown_4_;
-    unsigned int unknown_8_;
+    unsigned int size_8_;
 };
 
 typedef unsigned int (*Type_020f1ef0)(unsigned int arg0, int arg1, int arg2);
@@ -16,16 +16,16 @@ typedef int (*Type_020f1ef4)(unsigned int arg0);
 extern Type_020f1ef0 data_020f1ef0;
 extern Type_020f1ef4 data_020f1ef4;
 
-static Struct_0210cf88 data_0210cf88;
+static TexturePaletteVRAMAllocator_0210cf88 data_0210cf88;
 
 extern "C" unsigned int func_020bb7cc(unsigned int arg0, int arg1, int arg2);
 extern "C" int func_020bb908(unsigned int arg0);
 extern "C" void func_020bb948(void);
 
-extern "C" ARM void func_020bb780(unsigned int arg0, int arg1) {
-    data_0210cf88.unknown_8_ = arg0;
+extern "C" ARM void InitTexturePaletteVRAMAllocator_020bb780(unsigned int size, int install) {
+    data_0210cf88.size_8_ = size;
     func_020bb948();
-    if (arg1) {
+    if (install) {
         data_020f1ef0 = func_020bb7cc;
         data_020f1ef4 = func_020bb908;
     }
@@ -110,5 +110,5 @@ extern "C" ARM void func_020bb92c(const unsigned int* arg0) {
 
 extern "C" ARM void func_020bb948(void) {
     data_0210cf88.unknown_0_ = 0;
-    data_0210cf88.unknown_4_ = data_0210cf88.unknown_8_;
+    data_0210cf88.unknown_4_ = data_0210cf88.size_8_;
 }

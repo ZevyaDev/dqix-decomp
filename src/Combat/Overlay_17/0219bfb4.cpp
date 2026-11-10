@@ -60,7 +60,7 @@ extern "C" void func_02039d48(unsigned char* arg0);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" int func_ov017_0219ff58(void* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_ov017_021b2174(unsigned char* arg0);
+extern "C" void ResetMenuTask_ov017_021b2174(unsigned char* node);
 extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2* arg0, char* arg1);
 extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021b2bf4(Struct_0206f81c_3* arg0, unsigned int arg1);
@@ -178,7 +178,7 @@ extern "C" ARM void func_ov017_0219bfb4(int arg0, unsigned short arg1) {
     ResetMessageWindow_02043204(var19);
     if (func_ov017_0219ff58(var0, 0, 0, 1)) {
         unsigned char* var20 = (unsigned char*)var0->unknown_ptr_array_3afc[0x14];
-        func_ov017_021b2174(var20);
+        ResetMenuTask_ov017_021b2174(var20);
         func_ov017_021b2ba0((Struct_0206f81c_2*)var20, &data_ov017_021d75d0);
         func_ov017_021b2bd0(var20, (int)func_ov004_021689d8, OVERLAY_ID(4));
         func_ov017_021b2bf4((Struct_0206f81c_3*)var20, 1);

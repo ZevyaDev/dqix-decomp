@@ -23,9 +23,9 @@ extern "C" void func_020823e4(struct Struct_02082064_2 *arg0, struct Struct_0208
 // USA: func_02082064
 extern "C" ARM int func_02082064(Script::Parameter *arg0, int arg1) {
     Struct_0201099c var0;
-    var0.unknown_4_0_ = ++data_02108ef8;
-    var0.unknown_0_0_ = (arg0++)->ToInt();
-    if (data_02108ef0 < data_02108ef8 && var0.unknown_0_0_ <= data_02108eec) {
+    var0.level_4_0_ = ++data_02108ef8;
+    var0.requiredExperience_0_0_ = (arg0++)->ToInt();
+    if (data_02108ef0 < data_02108ef8 && var0.requiredExperience_0_0_ <= data_02108eec) {
         var0.unknown_8_.unknown_0_0_ = (arg0++)->ToInt();
         var0.unknown_8_.unknown_2_4_ = (arg0++)->ToInt();
         var0.unknown_8_.unknown_1_2_ = (arg0++)->ToInt();
@@ -36,7 +36,7 @@ extern "C" ARM int func_02082064(Script::Parameter *arg0, int arg1) {
         var0.unknown_10_.unknown_1_2_ = (arg0++)->ToInt();
         var0.unknown_10_.unknown_2_4_ = (arg0++)->ToInt();
         var0.unknown_4_7_ = (arg0++)->ToInt();
-        func_020823e4((Struct_02082064_2 *) &data_02108ef4->unknown_14_, (Struct_02082064_2 *) &var0);
+        func_020823e4((Struct_02082064_2 *) &data_02108ef4->reachedLevelEntry_14_, (Struct_02082064_2 *) &var0);
         data_02108ee8 = 1;
     }
     if (data_02108ef8 == data_02108ef0) {
@@ -100,19 +100,19 @@ extern "C" ARM int func_02082490(void *arg0, void *arg1, unsigned int arg2, int 
     var1.Load(arg1, arg2);
     var1.Execute();
     if (data_02108ee8 != 0) {
-        var0->unknown_28_.unknown_4_0_      = (unsigned short) (var0->unknown_14_.unknown_4_0_ - var0->unknown_0_.unknown_4_0_);
-        var0->unknown_28_.unknown_0_0_         = var0->unknown_14_.unknown_0_0_ - var0->unknown_0_.unknown_0_0_;
-        var0->unknown_28_.unknown_8_.unknown_0_0_     = var0->unknown_14_.unknown_8_.unknown_0_0_ - var0->unknown_0_.unknown_8_.unknown_0_0_;
-        var0->unknown_28_.unknown_8_.unknown_2_4_    = var0->unknown_14_.unknown_8_.unknown_2_4_ - var0->unknown_0_.unknown_8_.unknown_2_4_;
-        var0->unknown_28_.unknown_8_.unknown_1_2_  = var0->unknown_14_.unknown_8_.unknown_1_2_ - var0->unknown_0_.unknown_8_.unknown_1_2_;
-        var0->unknown_28_.unknown_c_.unknown_0_0_     = var0->unknown_14_.unknown_c_.unknown_0_0_ - var0->unknown_0_.unknown_c_.unknown_0_0_;
-        var0->unknown_28_.unknown_c_.unknown_1_2_  = var0->unknown_14_.unknown_c_.unknown_1_2_ - var0->unknown_0_.unknown_c_.unknown_1_2_;
-        var0->unknown_28_.unknown_10_.unknown_0_0_    = var0->unknown_14_.unknown_10_.unknown_0_0_ - var0->unknown_0_.unknown_10_.unknown_0_0_;
-        var0->unknown_28_.unknown_c_.unknown_2_4_    = var0->unknown_14_.unknown_c_.unknown_2_4_ - var0->unknown_0_.unknown_c_.unknown_2_4_;
-        var0->unknown_28_.unknown_10_.unknown_1_2_ = var0->unknown_14_.unknown_10_.unknown_1_2_ - var0->unknown_0_.unknown_10_.unknown_1_2_;
-        var0->unknown_28_.unknown_10_.unknown_2_4_   = var0->unknown_14_.unknown_10_.unknown_2_4_ - var0->unknown_0_.unknown_10_.unknown_2_4_;
-        var0->unknown_28_.unknown_4_7_     = (unsigned short) (var0->unknown_14_.unknown_4_7_ - var0->unknown_0_.unknown_4_7_);
-        return var0->unknown_14_.unknown_4_0_;
+        var0->levelUpGains_28_.level_4_0_      = (unsigned short) (var0->reachedLevelEntry_14_.level_4_0_ - var0->unknown_0_.level_4_0_);
+        var0->levelUpGains_28_.requiredExperience_0_0_         = var0->reachedLevelEntry_14_.requiredExperience_0_0_ - var0->unknown_0_.requiredExperience_0_0_;
+        var0->levelUpGains_28_.unknown_8_.unknown_0_0_     = var0->reachedLevelEntry_14_.unknown_8_.unknown_0_0_ - var0->unknown_0_.unknown_8_.unknown_0_0_;
+        var0->levelUpGains_28_.unknown_8_.unknown_2_4_    = var0->reachedLevelEntry_14_.unknown_8_.unknown_2_4_ - var0->unknown_0_.unknown_8_.unknown_2_4_;
+        var0->levelUpGains_28_.unknown_8_.unknown_1_2_  = var0->reachedLevelEntry_14_.unknown_8_.unknown_1_2_ - var0->unknown_0_.unknown_8_.unknown_1_2_;
+        var0->levelUpGains_28_.unknown_c_.unknown_0_0_     = var0->reachedLevelEntry_14_.unknown_c_.unknown_0_0_ - var0->unknown_0_.unknown_c_.unknown_0_0_;
+        var0->levelUpGains_28_.unknown_c_.unknown_1_2_  = var0->reachedLevelEntry_14_.unknown_c_.unknown_1_2_ - var0->unknown_0_.unknown_c_.unknown_1_2_;
+        var0->levelUpGains_28_.unknown_10_.unknown_0_0_    = var0->reachedLevelEntry_14_.unknown_10_.unknown_0_0_ - var0->unknown_0_.unknown_10_.unknown_0_0_;
+        var0->levelUpGains_28_.unknown_c_.unknown_2_4_    = var0->reachedLevelEntry_14_.unknown_c_.unknown_2_4_ - var0->unknown_0_.unknown_c_.unknown_2_4_;
+        var0->levelUpGains_28_.unknown_10_.unknown_1_2_ = var0->reachedLevelEntry_14_.unknown_10_.unknown_1_2_ - var0->unknown_0_.unknown_10_.unknown_1_2_;
+        var0->levelUpGains_28_.unknown_10_.unknown_2_4_   = var0->reachedLevelEntry_14_.unknown_10_.unknown_2_4_ - var0->unknown_0_.unknown_10_.unknown_2_4_;
+        var0->levelUpGains_28_.unknown_4_7_     = (unsigned short) (var0->reachedLevelEntry_14_.unknown_4_7_ - var0->unknown_0_.unknown_4_7_);
+        return var0->reachedLevelEntry_14_.level_4_0_;
     }
     return 0;
 }

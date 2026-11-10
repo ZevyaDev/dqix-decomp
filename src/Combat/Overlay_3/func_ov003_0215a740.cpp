@@ -43,7 +43,7 @@ extern "C" int func_ov003_0215b580(void*, int);
 struct MusicManager_02109bf4_2;
 extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
 extern "C" int func_0209ca2c(void*);
-extern "C" void func_02048150(void*, int, int);
+extern "C" void RevivePartyMember_02048150(void*, int, int);
 extern "C" void func_02048418(unsigned char*, unsigned short);
 extern "C" void* GetParty_02010828(GameState*);
 extern "C" void AddEquipmentToBag_0207c378(void*, short, int, int);
@@ -226,7 +226,7 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
         unsigned char* var15 = (unsigned char*)(void*)GetPartyMemberBaseByIndex_0200ff1c(var1, var14);
         switch (arg2) {
         case 0x406: {
-            func_02048150(var15, 0, 1);
+            RevivePartyMember_02048150(var15, 0, 1);
             int var16 = *(int*)(var15 + Enum_ov003_0215a740_396);
             if (var16 & 1) {
                 *(int*)(var15 + Enum_ov003_0215a740_396) = var16 & ~1;

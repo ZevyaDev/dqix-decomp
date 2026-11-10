@@ -99,7 +99,7 @@ public:
     short unknown_106_;
 };
 
-extern Struct_ov004_02171010_2 data_ov004_02171010;
+extern Struct_ov004_02171010_2 gTreasureMapScreen_ov004_02171010;
 extern char data_ov004_02170584[];
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" Struct_ov004_02164084* FindMenuObjectById_ov023_021f6880(void*, int);
@@ -128,8 +128,8 @@ extern "C" ARM int func_ov004_02164084(void* arg0) {
     Struct_ov004_02153e20* var1 = (Struct_ov004_02153e20*)FindMenuObjectById_ov023_021f6880(var0, 10);
     if (!var1) return 0;
     if (func_ov023_021f6f10(var1) != 7) return 0;
-    short var2 = data_ov004_02171010.unknown_0_->unknown_18f6_;
-    short var3 = data_ov004_02171010.unknown_0_->unknown_18f8_;
+    short var2 = gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_18f6_;
+    short var3 = gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_18f8_;
     var1->unknown_5c_ = var2;
     var1->unknown_5e_ = var3;
     BackgroundLoader::AddLockGlobal();
@@ -144,7 +144,7 @@ extern "C" ARM int func_ov004_02164084(void* arg0) {
         return 0;
     }
     for (int var8 = 0; var8 < 8; var8++) {
-        int var9 = var8 + data_ov004_02171010.unknown_0_->unknown_18f6_ * 8;
+        int var9 = var8 + gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_18f6_ * 8;
         Struct_ov004_02164084* var10 = FindMenuObjectById_ov023_021f6880(var0, var8 + 0x3c);
         if (!var10) continue;
         if (func_ov023_021f6f10(var10) != 8) return 0;
@@ -155,7 +155,7 @@ extern "C" ARM int func_ov004_02164084(void* arg0) {
         Struct_ov004_02164084* var20 = FindMenuObjectById_ov023_021f6880(var0, var8 + 0x50);
         if (!var20) continue;
         if (func_ov023_021f6f10(var20) != 8) return 0;
-        data_ov004_02171010.unknown_0_->unknown_ad4_[var8].BlankFunction();
+        gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var8].BlankFunction();
 #else
         func_ov023_021f65d4(arg0, var8 + 0x226, 8);
         func_ov004_021634b8(arg0, var8 + 0x226, 0);
@@ -163,7 +163,7 @@ extern "C" ARM int func_ov004_02164084(void* arg0) {
         func_ov004_021634b8(arg0, var8 + 0x230, 0);
         func_ov023_021f65d4(arg0, var8 + 0x23a, 8);
         func_ov004_021634b8(arg0, var8 + 0x23a, 0);
-        DetailedTreasureMapData* var12 = &data_ov004_02171010.unknown_0_->unknown_ad4_[var8];
+        DetailedTreasureMapData* var12 = &gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var8];
         var12->BlankFunction();
 #endif
         var10->unknown_20_ = 0;
@@ -177,48 +177,48 @@ extern "C" ARM int func_ov004_02164084(void* arg0) {
         var20->unknown_c_ |= 8;
         func_ov023_021f9b30(var1, 0, var8, 2);
 #endif
-        if (var9 >= data_ov004_02171010.unknown_0_->unknown_18f4_) continue;
-        ExportDetailedTreasureMapData(&data_ov004_02171010.unknown_0_->unknown_0_[var9], &data_ov004_02171010.unknown_0_->unknown_ad4_[var8], true, var6);
+        if (var9 >= gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_18f4_) continue;
+        ExportDetailedTreasureMapData(&gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_0_[var9], &gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var8], true, var6);
         var10->unknown_c_ &= ~8;
         func_ov023_021f9b30(var1, (unsigned short)(var8 + 0x3c), (unsigned short)var8, 0);
         var11->unknown_c_ &= ~8;
 #if defined(jpn)
         func_ov023_021f9b30(var1, (unsigned short)(var8 + 0x46), var8, 1);
-        if (data_ov004_02171010.unknown_0_->unknown_ad4_[var8].mapType_ == 1) {
-            var10->unknown_20_ = data_ov004_02171010.unknown_0_->inline_ov004_02164084_57(var8)->nameNoLevel_;
-            var11->unknown_20_ = data_ov004_02171010.unknown_0_->inline_ov004_02164084_57(var8)->levelString_;
-        } else if (data_ov004_02171010.unknown_0_->unknown_ad4_[var8].mapType_ == 2) {
-            var10->unknown_20_ = data_ov004_02171010.unknown_0_->inline_ov004_02164084_58(var8)->mapNameNoLevel_;
-            var11->unknown_20_ = data_ov004_02171010.unknown_0_->inline_ov004_02164084_58(var8)->mapLevelString_;
+        if (gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var8].mapType_ == 1) {
+            var10->unknown_20_ = gTreasureMapScreen_ov004_02171010.unknown_0_->inline_ov004_02164084_57(var8)->nameNoLevel_;
+            var11->unknown_20_ = gTreasureMapScreen_ov004_02171010.unknown_0_->inline_ov004_02164084_57(var8)->levelString_;
+        } else if (gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var8].mapType_ == 2) {
+            var10->unknown_20_ = gTreasureMapScreen_ov004_02171010.unknown_0_->inline_ov004_02164084_58(var8)->mapNameNoLevel_;
+            var11->unknown_20_ = gTreasureMapScreen_ov004_02171010.unknown_0_->inline_ov004_02164084_58(var8)->mapLevelString_;
         }
         var20->unknown_c_ &= ~8;
         func_ov023_021f9b30(var1, (unsigned short)(var8 + 0x50), var8, 2);
         GameState* var13 = GameState::GetInstance();
         var10->inline_ov004_02164084_47(0xf);
         var11->inline_ov004_02164084_47(0xf);
-        if (data_ov004_02171010.unknown_0_->unknown_ad4_[var8].discoveryState_ == 1) {
+        if (gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var8].discoveryState_ == 1) {
             var20->inline_ov004_02164084_47(0xf);
             var20->unknown_20_ = data_ov004_02170e2c;
-        } else if (data_ov004_02171010.unknown_0_->unknown_ad4_[var8].discoveryState_ == 2) {
+        } else if (gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var8].discoveryState_ == 2) {
             var20->inline_ov004_02164084_47(0xd);
             var20->unknown_20_ = data_ov004_02170e33;
-        } else if (data_ov004_02171010.unknown_0_->unknown_ad4_[var8].discoveryState_ == 3) {
+        } else if (gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var8].discoveryState_ == 3) {
             var20->inline_ov004_02164084_47(7);
             var20->unknown_20_ = data_ov004_02170e3a;
         }
         if (func_020119f8((char*)var13, 0)) {
-            if (data_ov004_02171010.unknown_0_->unknown_ad4_[var8].discoveryState_ == 1) {
+            if (gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var8].discoveryState_ == 1) {
                 var10->inline_ov004_02164084_47(4);
                 var11->inline_ov004_02164084_47(4);
                 var20->inline_ov004_02164084_47(4);
-            } else if (data_ov004_02171010.unknown_0_->unknown_ad4_[var8].discoveryState_ == 2) {
+            } else if (gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var8].discoveryState_ == 2) {
                 var10->inline_ov004_02164084_47(4);
                 var11->inline_ov004_02164084_47(4);
                 var20->inline_ov004_02164084_47(4);
             }
         } else {
             if (!func_02011930(var13, 0, 0, 0)) continue;
-            if (!data_ov004_02171010.unknown_0_->unknown_0_[var9].GetInitialByteUnknownBit()) continue;
+            if (!gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_0_[var9].GetInitialByteUnknownBit()) continue;
             var10->inline_ov004_02164084_47(4);
             var11->inline_ov004_02164084_47(4);
             var20->inline_ov004_02164084_47(4);
@@ -251,7 +251,7 @@ extern "C" ARM int func_ov004_02164084(void* arg0) {
             }
         } else {
             if (!func_02011930(var13, 0, 0, 0)) continue;
-            if (!data_ov004_02171010.unknown_0_->unknown_0_[var9].GetInitialByteUnknownBit()) continue;
+            if (!gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_0_[var9].GetInitialByteUnknownBit()) continue;
             var10->inline_ov004_02164084_47(4);
             var11->inline_ov004_02164084_47(4);
         }
@@ -259,7 +259,7 @@ extern "C" ARM int func_ov004_02164084(void* arg0) {
     }
     var5->Free(var6);
     BackgroundLoader::RemoveLockGlobal();
-    if (data_ov004_02171010.unknown_0_->unknown_18f4_ == 0) {
+    if (gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_18f4_ == 0) {
         var1->unknown_5c_ = 1;
         var1->unknown_5e_ = 1;
         func_ov023_021f9b30(var1, 0x3c, 0, 0);
@@ -296,10 +296,10 @@ extern "C" ARM int func_ov004_02164084(void* arg0) {
     Struct_ov004_02164084* var17 = FindMenuObjectById_ov023_021f6880(var0, 0x14);
     if (!var17) return 0;
     if (func_ov023_021f6f10(var17) != 6) return 0;
-    if (data_ov004_02171010.unknown_0_->unknown_18f4_ <= 8) var17->unknown_c_ &= ~4;
+    if (gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_18f4_ <= 8) var17->unknown_c_ &= ~4;
     else var17->unknown_c_ |= 4;
-    short var18 = data_ov004_02171010.unknown_0_->unknown_18f6_;
-    short var19 = data_ov004_02171010.unknown_0_->unknown_18f8_;
+    short var18 = gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_18f6_;
+    short var19 = gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_18f8_;
     var17->unknown_104_ = var18;
     var17->unknown_106_ = var19;
     RedrawMenuWindow_ov023_021f809c(var17, arg0);

@@ -83,7 +83,7 @@ int IsSubBrightnessTransitionActive(GameResources*);
 extern "C" int* GetLocalWireless_0202ae18();
 extern "C" unsigned char* GetFollowCamera_020100f8(char*);
 extern "C" Zone3D* GetZone3D_02012fe4();
-extern "C" void func_020531f0(GameObject*);
+extern "C" void StopGesture_020531f0(GameObject*);
 extern "C" void func_ov017_021bb27c(Struct_ov017_021bbfc4_5*);
 extern "C" void* GetMainBG1CharacterBase();
 extern "C" void* GetMainBG1ScreenBase();
@@ -129,7 +129,7 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
     if (IsSubBrightnessTransitionActive(var2)) return arg0->unknown_a_;
     for (int var6 = 0; var6 < 4; ++var6) {
         GameObject* var7 = var0->GetPartyMemberByIndex(var6);
-        if (var7) func_020531f0(var7);
+        if (var7) StopGesture_020531f0(var7);
     }
     if (!var1->GetTaskStatus(arg0->unknown_74_)) return arg0->unknown_a_;
     if (var1->GetDetailedTaskStatus(arg0->unknown_74_) != BackgroundLoader::TaskStatus_Complete) {
@@ -140,7 +140,7 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
     }
     for (int var8 = 0; var8 < 4; ++var8) {
         GameObject* var9 = var0->GetPartyMemberByIndex(var8);
-        if (var9) func_020531f0(var9);
+        if (var9) StopGesture_020531f0(var9);
     }
     void* var10 = GetMainBG1CharacterBase();
     if (var10) memset(var10, 0, 0x20);

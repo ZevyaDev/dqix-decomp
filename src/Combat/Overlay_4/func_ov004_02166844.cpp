@@ -22,7 +22,7 @@ struct Struct_0208b9a0 {
 extern "C" void func_0208d82c(struct Struct_0208b9a0* arg0);
 extern "C" int* GetQuestManager_02094d6c(void);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_020e2d24(int* arg0, int arg1, int arg2);
+extern "C" void SetDisplayWindowInsideLayers_020e2d24(int* displayWindow, int layers, int isEffectEnabled);
 extern "C" void* GetFlagManager_0205ec34(void);
 extern "C" void func_02095b30(int* arg0, int arg1);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
@@ -112,7 +112,7 @@ extern "C" ARM int func_ov004_02166844(void* arg0) {
 
     char* var10 = (char*)GetMessageWindow_020421a0();
     *(unsigned char*)(var10 + 0x1000 + Enum_ov004_02166844_2402) = 1;
-    func_020e2d24((int*)(var10 + Enum_ov004_02166844_356 + Enum_ov004_02166844_6144), 9, 1);
-    func_020e2d24((int*)(var10 + Enum_ov004_02166844_392 + Enum_ov004_02166844_6144), 0x19, 1);
+    SetDisplayWindowInsideLayers_020e2d24((int*)(var10 + Enum_ov004_02166844_356 + Enum_ov004_02166844_6144), 9, 1);
+    SetDisplayWindowInsideLayers_020e2d24((int*)(var10 + Enum_ov004_02166844_392 + Enum_ov004_02166844_6144), 0x19, 1);
     return 0;
 }

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-struct Struct_0205c508;
-extern "C" void func_0205c508(struct Struct_0205c508* arg0, int* arg1, int* arg2);
+struct MenuCursor_0205c508;
+extern "C" void GetMenuCursorPageRange_0205c508(struct MenuCursor_0205c508* cursor, int* outPageStartIndex, int* outPageEndIndex);
 struct Struct_0201099c_3;
 extern "C" char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_ov000_0217542c(void* arg0);
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov000_0217979c(char* arg0, struct Struct_ov000_0217979c
     }
     int var0;
     int var1;
-    func_0205c508((struct Struct_0205c508*)(arg0 + 0x1dc), &var0, &var1);
+    GetMenuCursorPageRange_0205c508((struct MenuCursor_0205c508*)(arg0 + 0x1dc), &var0, &var1);
     signed char var2 = var0;
     signed char var3 = var1;
     signed char var4 = arg1->unknown_22_;

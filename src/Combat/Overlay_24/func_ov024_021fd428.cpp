@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Struct_ov024_021da670_7;
-extern "C" int func_ov024_021da9b0(struct Struct_ov024_021da670_7* arg0);
+extern "C" int IsParalysed_ov024_021da9b0(struct Struct_ov024_021da670_7* combatant);
 
 struct Struct_ov024_021fd428 {
     char unknown_0_[0x661];
@@ -14,7 +14,7 @@ extern "C" void func_ov024_021fd160(void* arg0, int arg1);
 
 // USA: func_ov024_021fd428
 extern "C" ARM void func_ov024_021fd428(struct Struct_ov024_021fd428* arg0) {
-    if (func_ov024_021da9b0(arg0->unknown_668_)) {
+    if (IsParalysed_ov024_021da9b0(arg0->unknown_668_)) {
         if (!arg0->unknown_661_) {
             func_ov024_021fd160(arg0, 3);
         }

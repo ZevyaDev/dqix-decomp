@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-struct Struct_0205faf4_3 {
+struct FlagManager_0205faf4_3 {
     unsigned char unknown_0_[0x2CC];
-    unsigned char unknown_2cc_[1];
+    unsigned char questStates_2cc_[1];
 };
 
 extern "C" void* GetLocalWireless_0202ae18(void);
@@ -10,21 +10,21 @@ extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov017_021d0924(unsigned char arg0, unsigned char arg1, unsigned short arg2, unsigned short arg3);
 
 // USA: func_0206e164
-extern "C" ARM void func_0206e164(struct Struct_0205faf4_3* arg0, int arg1, int arg2) {
+extern "C" ARM void func_0206e164(struct FlagManager_0205faf4_3* arg0, int arg1, int arg2) {
     if (arg1 >= 0xCC || arg1 < 0) {
         return;
     }
     int var0 = arg1 / 2;
     if (arg1 % 2) {
-        unsigned char var1 = arg0->unknown_2cc_[var0] >> 4;
+        unsigned char var1 = arg0->questStates_2cc_[var0] >> 4;
         var1 = (var1 & 0xc) | arg2;
-        arg0->unknown_2cc_[var0] &= 0xf;
-        arg0->unknown_2cc_[var0] |= var1 << 4;
+        arg0->questStates_2cc_[var0] &= 0xf;
+        arg0->questStates_2cc_[var0] |= var1 << 4;
     } else {
-        unsigned char var2 = arg0->unknown_2cc_[var0] & 0xf;
+        unsigned char var2 = arg0->questStates_2cc_[var0] & 0xf;
         var2 = (var2 & 0xc) | arg2;
-        arg0->unknown_2cc_[var0] &= 0xf0;
-        arg0->unknown_2cc_[var0] |= var2;
+        arg0->questStates_2cc_[var0] &= 0xf0;
+        arg0->questStates_2cc_[var0] |= var2;
     }
     if (IsNotLocalWirelessGuest_0202c508(GetLocalWireless_0202ae18()) == 0) {
         return;

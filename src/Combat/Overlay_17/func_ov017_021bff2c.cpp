@@ -9,7 +9,7 @@ extern "C" void EnableCameraTurning_020a27ac(void* camera);
 struct Struct_02033e2c;
 extern "C" void func_02033e2c(struct Struct_02033e2c* arg0);
 struct Struct_02033b58;
-extern "C" void func_02033b58(struct Struct_02033b58* arg0, unsigned char arg1);
+extern "C" void SetMotionKeepingAnimation_02033b58(struct Struct_02033b58* object, unsigned char motion);
 
 // USA: func_ov017_021bff2c
 extern "C" ARM void func_ov017_021bff2c(void) {
@@ -17,7 +17,7 @@ extern "C" ARM void func_ov017_021bff2c(void) {
 	GameObject* var1 = var0->GetUnknownGameObject();
 	EnablePlayerControl_020397c0(var1);
 	func_02033e2c((struct Struct_02033e2c*)var1);
-	func_02033b58((struct Struct_02033b58*)var1, 0);
+	SetMotionKeepingAnimation_02033b58((struct Struct_02033b58*)var1, 0);
 
 	void* var2 = GetGameResources();
 

@@ -141,14 +141,14 @@ extern "C" Struct_ov000_02176634_2* func_ov000_0217199c(void*, int);
 extern "C" int func_ov000_021815c8(void*);
 extern "C" Struct_ov000_02176634_3* func_ov000_021815e4(char*);
 extern "C" Struct_ov000_02176634_8* GetPartyMemberData_02053c6c(unsigned char*);
-struct Struct_02054000;
-extern "C" Struct_ov000_02176634_3* func_02054000(Struct_02054000*);
+struct PartyMember_02054000;
+extern "C" Struct_ov000_02176634_3* GetEquippedWeaponItemData_02054000(PartyMember_02054000*);
 extern "C" void func_020dcf7c(int, void*);
 extern "C" void PlayJingle_0209c6d8(void*, int);
 extern "C" void AddEquipmentToBag_0207c378(char*, short, int, int);
 extern "C" void SetEquippedItem_02052d7c(Struct_ov000_02176634_7*, int, short);
-struct Struct_0207c484;
-extern "C" void func_0207c484(Struct_0207c484*, int, int, int);
+struct EquipmentBag_0207c484;
+extern "C" void RemoveEquipmentFromBag_0207c484(EquipmentBag_0207c484*, int, int, int);
 extern "C" void func_020483f0(unsigned char*, unsigned short);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
 extern "C" void func_02046608(Struct_ov000_02176634_9*, int, char*, char*, int, int, int);
@@ -354,7 +354,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
         var6 = (char*)GetParty_02010828(var26);
         var7 = (Struct_ov000_02176634_7*)GetPartyMemberBaseByIndex_0200ff1c(var26, var12);
         var8 = GetPartyMemberData_02053c6c((unsigned char*)var7);
-        Struct_ov000_02176634_3* var27 = func_02054000((Struct_02054000*)var7);
+        Struct_ov000_02176634_3* var27 = GetEquippedWeaponItemData_02054000((PartyMember_02054000*)var7);
         var32 = 0x20;
         var9 = var5->unknown_18_;
         SetMessageString_02046574((Struct_02046574_2*)var13, 0, var7->inline_ov000_02176634());
@@ -377,7 +377,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
                 AddEquipmentToBag_0207c378(var6 + 0x1d4, var27->unknown_18_, 1, var27->unknown_8_0_);
             }
             SetEquippedItem_02052d7c(var7, 7, var9);
-            func_0207c484((Struct_0207c484*)(var6 + 0x1d4), var9, 1, 0);
+            RemoveEquipmentFromBag_0207c484((EquipmentBag_0207c484*)(var6 + 0x1d4), var9, 1, 0);
             if (var7->unknown_138_->unknown_14_ & 1) var25++;
             if (var5->unknown_a_2_) {
                 var25 = 0x24;
@@ -508,7 +508,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
         var6 = (char*)GetParty_02010828(var38);
         var7 = (Struct_ov000_02176634_7*)GetPartyMemberBaseByIndex_0200ff1c(var38, var12);
         var8 = GetPartyMemberData_02053c6c((unsigned char*)var7);
-        Struct_ov000_02176634_3* var39 = func_02054000((Struct_02054000*)var7);
+        Struct_ov000_02176634_3* var39 = GetEquippedWeaponItemData_02054000((PartyMember_02054000*)var7);
         var32 = 0x20;
         var9 = var5->unknown_18_;
         InitPartyMemberNoun_020e4bf4(&var30, var12);
@@ -536,7 +536,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
             }
             var13->unknown_18_ = &var31;
             SetEquippedItem_02052d7c(var7, 7, var9);
-            func_0207c484((Struct_0207c484*)(var6 + 0x1d4), var9, 1, 0);
+            RemoveEquipmentFromBag_0207c484((EquipmentBag_0207c484*)(var6 + 0x1d4), var9, 1, 0);
             if (var7->unknown_138_->unknown_14_ & 1) {
                 var33++;
             }

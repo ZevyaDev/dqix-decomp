@@ -56,7 +56,7 @@ extern "C" int func_02039820(void* arg0);
 extern "C" int func_02039828(void* arg0);
 extern "C" int func_02010038(GameState* arg0, unsigned char* arg1);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
-extern "C" void func_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* arg0);
 extern "C" int func_02039874(void* arg0);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void func_020340f4(unsigned char* arg0);
@@ -213,7 +213,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
         for (int var37 = 0; var37 < var36; var37++) {
             GameObject* var38 = var0->GetPartyMemberByIndex(var5[var37]);
             if (var38 != NULL && IsPerformingGesture_020535c8((signed char*)var38)) {
-                func_020531f0(var38);
+                StopGesture_020531f0(var38);
             }
         }
     }

@@ -33,7 +33,7 @@ struct Struct_ov006_02154348 {
 };
 extern "C" {
 extern unsigned int data_ov006_0215ff7c[];
-void func_ov023_021dbfd0(void*, SafeAllocator*);
+void AllocateItemInfoPanelBuffers_ov023_021dbfd0(void*, SafeAllocator*);
 void func_ov023_021dbfa8(void*, void*);
 void func_ov023_021e20c0(void*);
 void InitBGLayer_0204af64(void*);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov006_02154348(Struct_ov006_02154348* arg0, SafeAllocat
     arg0->unknown_1280_->Reset();
     arg0->unknown_1284_->CreateTypeA(arg1->Allocate(0x80), 0x80);
     arg0->unknown_1284_->Reset();
-    func_ov023_021dbfd0(arg0->unknown_ae4_, arg0->unknown_1280_);
+    AllocateItemInfoPanelBuffers_ov023_021dbfd0(arg0->unknown_ae4_, arg0->unknown_1280_);
     func_ov023_021dbfa8(arg0->unknown_ae4_, arg2);
     for (unsigned char var0 = 0; var0 < 6; var0++) {
         unsigned int var1 = data_ov006_0215ff7c[var0];

@@ -543,7 +543,7 @@ extern "C" unsigned char* GetResources_0200fb8c(int* gameState);
 extern "C" void func_0208bf28(Struct_02065990_2*, int, unsigned char);
 extern "C" unsigned char* GetQuestManager_02094d6c();
 extern "C" int func_020965ac(Struct_02065990_3*, unsigned char);
-extern "C" void func_020cf0fc(int);
+extern "C" void GetCurrentDate_020cf0fc(int);
 extern "C" void func_020cf1a8(int);
 extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
 extern "C" void func_0208be94(unsigned char*);
@@ -610,7 +610,7 @@ extern "C" void func_02010890(GameState* arg0, int* arg1, int* arg2);
 extern "C" Struct_02069ecc_4* GetAppearance_02052e2c(GameObject* gameObject);
 extern "C" void func_0206c520(void* arg0, const char** arg1, const char* arg2, int arg3);
 extern "C" unsigned short func_jpn_02098210(void* arg0, unsigned int arg1);
-extern "C" void func_02043270(void*, int, int, int, int);
+extern "C" void SetMessageWindowRect_02042b98(void*, int, int, int, int);
 extern "C" void func_0206aa28(char* arg0);
 extern "C" unsigned short* func_0206c730(void* arg0, unsigned short arg1, unsigned short* arg2);
 extern "C" void func_0206c794(void* arg0);
@@ -1264,7 +1264,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                     *&arg0->unknown_195b_ |= 1;
                     unsigned char* var38 = GetQuestManager_02094d6c();
                     int var39 = func_020965ac((Struct_02065990_3*)var38, (unsigned char)*(short*)(var0 + 0x1776));
-                    func_020cf0fc((int)&var6);
+                    GetCurrentDate_020cf0fc((int)&var6);
                     func_020cf1a8((int)&var7);
                     var3.unknown1_0_.unknown_0_0_ = var6.unknown_0_;
                     var3.unknown1_0_.unknown_0_7_ = var6.unknown_4_;
@@ -3125,7 +3125,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
             if (var11 > 256) var11 = 256 - var9;
             if (var12 < 0) var12 = 192 - var10;
             if (var12 > 192) var12 = 192 - var10;
-            func_02043270(arg0, var9, var10, var11, var12);
+            SetMessageWindowRect_02042b98(arg0, var9, var10, var11, var12);
             arg1 += var8 + 1;
         }
         else if (func_020d85dc(arg1, data_020f0ac2))
@@ -3597,7 +3597,7 @@ extern "C" ARM void func_0206cf44(unsigned char* arg0) {
     int var6 = (var9 - var5) >> 1;
     int var7 = var6 - 0x10;
     int var8 = var9 - var7;
-    func_02043270(arg0, 2, var7, 0xfc, var8);
+    SetMessageWindowRect_02042b98(arg0, 2, var7, 0xfc, var8);
 }
 
 extern "C" ARM void func_0206cfd4(char* arg0) {

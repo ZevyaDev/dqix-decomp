@@ -94,8 +94,8 @@ struct Struct_0209494c {
 };
 struct GlobalFlags_02012de8;
 struct GlobalFlags_02038598_4;
-struct Struct_020469f8;
-struct Struct_020469f8_2;
+struct Queue_020469f8;
+struct QueueNode_020469f8_2;
 struct QueueNode_02015438;
 struct Queue_02038598_5;
 struct Struct_0203402c;
@@ -192,7 +192,7 @@ extern "C" int func_0202bd68(struct LocalWireless_0202b2f0* arg0, int arg1);
 extern "C" void func_ov003_02167240(void* arg0);
 extern "C" int abs(int arg0);
 extern "C" void func_ov017_021af59c(void* arg0);
-extern "C" void func_020469f8(struct Struct_020469f8* arg0, struct Struct_020469f8_2* arg1);
+extern "C" void PrependToQueue_020469f8(struct Queue_020469f8* queue, struct QueueNode_020469f8_2* node);
 extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" void func_ov017_021905b8(unsigned char* arg0, int arg1, int arg2);
 extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
@@ -208,7 +208,7 @@ struct Vector3i;
 extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
-extern "C" void func_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* arg0);
 extern "C" GameObject* func_0200ffe0(GameState* arg0, int arg1);
 extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
 extern "C" void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int isHeld);
@@ -415,8 +415,8 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
                     var29[9] = (*(unsigned char**)(arg0 + 0x4000 + Enum_ov017_021941fc_1052))[1];
                     func_ov017_02195214((Struct_ov017_021941fc *) (var29 + 0xc),
                         (Struct_ov017_021941fc *) (*(unsigned char**)(arg0 + 0x4000 + Enum_ov017_021941fc_1052) + 2));
-                    func_020469f8((struct Struct_020469f8*)arg2,
-                        (struct Struct_020469f8_2*)var29);
+                    PrependToQueue_020469f8((struct Queue_020469f8*)arg2,
+                        (struct QueueNode_020469f8_2*)var29);
                     (*(unsigned char**)(arg0 + 0x4000 + Enum_ov017_021941fc_1052))[0] = 2;
                 } else if (*(unsigned char*)(arg0 + 0x4000 + Enum_ov017_021941fc_741) != 0) {
                     QueueNotice_02094030(var13, 5, -1, 0);
@@ -551,7 +551,7 @@ dispatched:
         }
         if (var41->unknown_0_.unknown_1_0_ == 2) {
             if (IsPerformingGesture_020535c8((signed char*)var42) != 0) {
-                func_020531f0(var42);
+                StopGesture_020531f0(var42);
             }
             GameObject* var45 = func_0200ffe0(var6,
                 *(unsigned short*)((char*)var42 + 0x100 + Enum_ov017_021941fc_178));

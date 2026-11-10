@@ -18,7 +18,7 @@ extern "C" void* func_02010768(void* arg0);
 extern "C" void func_ov017_021a3dcc(int arg0);
 extern "C" void func_02016874(Zone3D* arg0);
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
-extern "C" int func_0201201c(void* arg0);
+extern "C" int GetTitleState_0201201c(void* arg0);
 extern "C" void func_0202343c(void* arg0);
 extern "C" Struct_0203dde0_2* GetNPCManager_0203cf4c();
 extern "C" void func_0203de84(void* arg0);
@@ -92,7 +92,7 @@ extern "C" ARM void func_ov017_02195bbc(Struct_ov017_02195bbc* arg0) {
             func_02016874(var1);
         }
     }
-    if (GetGameMode_0200fb9c((char*)var3) != 6 && func_0201201c(var3) != 5) {
+    if (GetGameMode_0200fb9c((char*)var3) != 6 && GetTitleState_0201201c(var3) != 5) {
         func_0202343c(arg0->unknown_36d0_);
     }
     if (IsBrightnessOutsideValidRange((GameResources*)arg0, false) != 0) {
@@ -102,13 +102,13 @@ extern "C" ARM void func_ov017_02195bbc(Struct_ov017_02195bbc* arg0) {
     GXFIFO_MATRIX_MODE = 3;
     GXFIFO_MATRIX_IDENTITY = 0;
 
-    if (GetGameMode_0200fb9c((char*)var3) != 6 && func_0201201c(var3) != 5 &&
+    if (GetGameMode_0200fb9c((char*)var3) != 6 && GetTitleState_0201201c(var3) != 5 &&
         TestFlags04((GameResources*)(arg0->unknown_0_), 8) == 0) {
         var5 = GetNPCManager_0203cf4c();
         func_0203de84(var5);
         func_0203dde0(var5);
     }
-    if (GetGameMode_0200fb9c((char*)var3) == 6 || func_0201201c(var3) == 5) {
+    if (GetGameMode_0200fb9c((char*)var3) == 6 || GetTitleState_0201201c(var3) == 5) {
         return;
     }
 

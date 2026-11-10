@@ -66,7 +66,7 @@ extern "C" void StartMessage_0204500c(Struct_02046574_2*, char*, int);
 extern "C" void StartMessage_0204500c(Struct_02046574_2*, char*, int, int);
 #endif
 void SetMainBrightness(GameResources*, int, int);
-extern "C" Struct_02070900_2* func_020704fc();
+extern "C" Struct_02070900_2* GetColorFade_020704fc();
 extern "C" void func_02070900(Struct_02070900_2*, Struct_02070900*, unsigned int);
 extern "C" void func_020707c8(Struct_020707c8*);
 extern "C" void SetMusicVolume_0209c2e0(void*, int, int);
@@ -118,7 +118,7 @@ extern "C" ARM int func_ov001_0215657c(Struct_ov001_0215657c_2* arg0, void* arg1
             var9->unknown_19be_ = 1;
         }
         SetMainBrightness(var8, 0, 1);
-        Struct_02070900_2* var15 = func_020704fc();
+        Struct_02070900_2* var15 = GetColorFade_020704fc();
         Struct_02070900 var16 = {};
         func_02070900(var15, &var16, 0);
         func_020707c8((Struct_020707c8*)var15);

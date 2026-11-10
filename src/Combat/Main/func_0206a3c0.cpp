@@ -5,7 +5,6 @@
 
 #if defined(jpn)
 #define func_0206a3c0 func_0206bed8
-#define func_02042b98 func_02043270
 #define data_020f0934 data_020f0a2c
 #define data_020f093d data_020f0a54
 #define data_020f0943 data_020f0a5a
@@ -33,7 +32,7 @@ extern "C" int func_020d85dc(const char*, const char*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" int ParseDecimal_02005a94(const char*);
-extern "C" void func_02042b98(void*, int, int, int, int);
+extern "C" void SetMessageWindowRect_02042b98(void*, int, int, int, int);
 extern const char data_020f0934[], data_020f093d[], data_020f0943[], data_020f0949[];
 extern const char data_020f0950[], data_020f0956[], data_020f095c[], data_020f0963[];
 extern const char data_020f096a[], data_020f0972[];
@@ -194,7 +193,7 @@ extern "C" ARM const char* func_0206a3c0(Struct_0206a3c0_2* arg0, const char* ar
             if (var11 > 256) var11 = 256 - var9;
             if (var12 < 0) var12 = 192 - var10;
             if (var12 > 192) var12 = 192 - var10;
-            func_02042b98(arg0, var9, var10, var11, var12);
+            SetMessageWindowRect_02042b98(arg0, var9, var10, var11, var12);
             arg1 += var8 + 1;
         }
         else if (func_020d85dc(arg1, data_020f0950))
@@ -317,7 +316,7 @@ extern "C" ARM const char* func_0206a3c0(Struct_0206a3c0_2* arg0, const char* ar
 
 #if defined(jpn)
 #undef func_0206a3c0
-#undef func_02042b98
+#undef SetMessageWindowRect_02042b98
 #undef data_020f0934
 #undef data_020f093d
 #undef data_020f0943

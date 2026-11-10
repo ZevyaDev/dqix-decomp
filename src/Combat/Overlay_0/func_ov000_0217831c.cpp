@@ -2,10 +2,10 @@
 #include <GameState/GameState.h>
 #include <Combat/Main/BattleList.h>
 
-struct Struct_0205c508;
+struct MenuCursor_0205c508;
 struct Struct_0201099c_3;
 struct ItemTable_0201099c_10;
-struct Struct_02054000;
+struct PartyMember_02054000;
 struct Struct_ov000_0217831c {
     unsigned int unknown_0_;
     const char* unknown_4_;
@@ -31,9 +31,9 @@ struct Struct_ov000_0217831c_3 {
     signed char unknown_1d6f_;
 };
 
-extern "C" void func_0205c508(struct Struct_0205c508* arg0, int* arg1, int* arg2);
+extern "C" void GetMenuCursorPageRange_0205c508(struct MenuCursor_0205c508* cursor, int* outPageStartIndex, int* outPageEndIndex);
 extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
-extern "C" struct Struct_ov000_0217831c_2* func_02054000(struct Struct_02054000* arg0);
+extern "C" struct Struct_ov000_0217831c_2* GetEquippedWeaponItemData_02054000(struct PartyMember_02054000* gameObject);
 extern "C" int func_ov000_0217542c(void* arg0);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov000_0217831c(Struct_ov000_0217831c_3* arg0, char* arg
 {
     int var0;
     int var1;
-    func_0205c508((struct Struct_0205c508*)arg0->unknown_1dc_, &var0, &var1);
+    GetMenuCursorPageRange_0205c508((struct MenuCursor_0205c508*)arg0->unknown_1dc_, &var0, &var1);
     signed char var2 = var0;
     signed char var3 = var1;
     struct Struct_0201099c_3* var4 = (struct Struct_0201099c_3*)arg0->unknown_b8_;
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov000_0217831c(Struct_ov000_0217831c_3* arg0, char* arg
     int var10 = -1;
     GameState* var11 = GameState::GetInstance();
     GameObject* var12 = GetPartyMemberBaseByIndex_0200ff1c(var11, var9);
-    struct Struct_ov000_0217831c_2* var13 = func_02054000((struct Struct_02054000*)var12);
+    struct Struct_ov000_0217831c_2* var13 = GetEquippedWeaponItemData_02054000((struct PartyMember_02054000*)var12);
     if (var13 != NULL) {
         var10 = var13->unknown_18_;
     }

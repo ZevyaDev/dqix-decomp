@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-struct Struct_020439b0;
-extern "C" void func_020e2cc4(struct Struct_020439b0*, int);
+struct DisplayWindow_020439b0;
+extern "C" void SetDisplayWindowEnabled_020e2cc4(struct DisplayWindow_020439b0*, int);
 struct Struct_020e2bd8_2;
 extern "C" void func_020e2c7c(struct Struct_020e2bd8_2*);
 
@@ -28,6 +28,6 @@ extern "C" ARM void func_020e2bd8(struct Struct_020e2bd8* arg0, int arg1, int ar
     arg0->unknown_8_ = 1;
     arg0->unknown_c_ = 0x1f;
     arg0->unknown_10_ = 1;
-    func_020e2cc4((struct Struct_020439b0*)arg0, 0);
+    SetDisplayWindowEnabled_020e2cc4((struct DisplayWindow_020439b0*)arg0, 0);
     func_020e2c7c((struct Struct_020e2bd8_2*)arg0);
 }

@@ -7,24 +7,24 @@ enum { Enum_0207fd44_44 = 0x2c };
 
 extern "C" void FlushBGScreenData_0204b04c(void* layer, int screenData);
 
-struct Struct_0207fd44 { char unknown_0_[0x20]; };
+struct BGLayer_0207fd44 { char unknown_0_[0x20]; };
 
-struct Struct_0207fd44_2 {
+struct MenuLayout_0207fd44_2 {
     char unknown_0_[Enum_0207fd44_44];
-    Struct_0207fd44* unknown_2c_;
+    BGLayer_0207fd44* pBGLayers_2c_;
     char unknown_30_[0x38 - 0x30];
-    unsigned char unknown_38_;
+    unsigned char bgLayerCount_38_;
 };
 
-// USA: func_0207fd44
-extern "C" ARM void func_0207fd44(Struct_0207fd44_2* arg0) {
-    unsigned char var0;
-    Struct_0207fd44* var1 = arg0->unknown_2c_;
-    unsigned char var2;
-    if (var1 == NULL) return;
-    var0 = arg0->unknown_38_;
-    for (var2 = 0; var2 < var0; var2++) {
-        FlushBGScreenData_0204b04c(var1, 0);
-        var1++;
+// USA: FlushMenuLayoutBGScreenData_0207fd44
+extern "C" ARM void FlushMenuLayoutBGScreenData_0207fd44(MenuLayout_0207fd44_2* menuLayout) {
+    unsigned char bgLayerCount;
+    BGLayer_0207fd44* layer = menuLayout->pBGLayers_2c_;
+    unsigned char i;
+    if (layer == NULL) return;
+    bgLayerCount = menuLayout->bgLayerCount_38_;
+    for (i = 0; i < bgLayerCount; i++) {
+        FlushBGScreenData_0204b04c(layer, 0);
+        layer++;
     }
 }

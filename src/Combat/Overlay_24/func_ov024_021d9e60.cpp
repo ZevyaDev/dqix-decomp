@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Util/Random.h"
 
-extern "C" void* func_ov000_02153710(void*, short);
-extern "C" int func_ov000_02159dbc(void*, short);
+extern "C" void* GetPartyMemberDataByIndex_ov000_02153710(void*, short);
+extern "C" int GetEnemyLevel_ov000_02159dbc(void*, short);
 
 struct Struct_ov024_021d9e60 { struct Random* unknown_0_; };
 
@@ -19,7 +19,7 @@ extern "C" ARM int func_ov024_021d9e60(struct Struct_ov024_021d9e60* arg0, unsig
 	}
 	float var1;
 	if (var0) {
-		char* var2 = (char*)func_ov000_02153710(arg0->unknown_0_, (short)arg1);
+		char* var2 = (char*)GetPartyMemberDataByIndex_ov000_02153710(arg0->unknown_0_, (short)arg1);
 		if (var2 == NULL) {
 			return arg5;
 		}
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov024_021d9e60(struct Struct_ov024_021d9e60* arg0, unsig
 		unsigned short var4 = *(unsigned short*)(var2 + var3 * 2 + 0x16c);
 		var1 = var4;
 	} else {
-		int var5 = func_ov000_02159dbc(arg0->unknown_0_, (short)arg1);
+		int var5 = GetEnemyLevel_ov000_02159dbc(arg0->unknown_0_, (short)arg1);
 		var1 = var5;
 	}
 	struct Random* var6 = arg0->unknown_0_;

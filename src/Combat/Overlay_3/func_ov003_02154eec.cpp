@@ -8,14 +8,14 @@ enum { Enum_ov003_02154eec_504 = 0x1f8 };
 enum { Enum_ov003_02154eec_516 = 0x204 };
 #endif
 
-struct Struct_0207fcb8;
-extern "C" unsigned int func_0207fcb8(Struct_0207fcb8*);
+struct MenuLayout_0207fcb8;
+extern "C" unsigned int ClearMenuLayoutBGScreenData_0207fcb8(MenuLayout_0207fcb8*);
 struct Struct_020e28dc;
 extern "C" unsigned int func_020e28dc(Struct_020e28dc*);
 struct Struct_020e2794_2;
 extern "C" unsigned int func_020e2794(Struct_020e2794_2*, void*);
-struct Struct_0207fd44_2;
-extern "C" unsigned int func_0207fd44(Struct_0207fd44_2*);
+struct MenuLayout_0207fd44_2;
+extern "C" unsigned int FlushMenuLayoutBGScreenData_0207fd44(MenuLayout_0207fd44_2*);
 extern "C" unsigned int func_ov023_021eb4b8(void*);
 struct Struct_0207fd00;
 extern "C" unsigned int func_0207fd00(Struct_0207fd00*);
@@ -30,10 +30,10 @@ extern "C" ARM void func_ov003_02154eec(unsigned int arg0) {
     } else {
         unsigned int var0 = *(unsigned int*)((char*)arg0 + 0x18);
         if (var0 != 0) {
-            func_0207fcb8((Struct_0207fcb8*)var0);
+            ClearMenuLayoutBGScreenData_0207fcb8((MenuLayout_0207fcb8*)var0);
             func_0207fd00((Struct_0207fd00*)var0);
             func_0207fe80(var0, 2, 1, 1);
-            func_0207fd44((Struct_0207fd44_2*)var0);
+            FlushMenuLayoutBGScreenData_0207fd44((MenuLayout_0207fd44_2*)var0);
         }
     }
     if (*(unsigned int*)((char*)arg0 + 0x1c) != 0 && func_020e28dc((Struct_020e28dc*)(*(unsigned int*)((char*)arg0 + 0x1c))) != 0) {

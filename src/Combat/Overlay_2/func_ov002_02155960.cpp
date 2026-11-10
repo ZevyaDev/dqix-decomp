@@ -87,7 +87,7 @@ extern "C" Struct_ov002_02155960_4* GetCursorTextWindow_0205d8c4(Struct_ov002_02
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char*);
 extern "C" void SetMenuCursorTouchedIndex_0205bc24(void*, int);
 extern "C" int func_020e28dc(Struct_0201079c*);
-extern "C" void func_020e263c(Struct_0201079c_2*, int);
+extern "C" void UpdateYesNoWindow_020e263c(Struct_0201079c_2*, int);
 extern "C" int UpdateTextWindowManager_0205d0e0(Struct_ov002_02155960_2*, int);
 extern "C" int IsCancelPressed_ov002_02161b48(char*, int);
 extern "C" void* GetFlagManager_0205ec34();
@@ -129,7 +129,7 @@ extern "C" ARM int func_ov002_02155960(Struct_ov002_02155960_7* arg0, int arg1) 
         if (var1 != 0 && IsTextWindowReady_0204c7cc((unsigned char*)var1) != 0 && (var1->unknown_c5_ & 2) == 0)
             SetMenuCursorTouchedIndex_0205bc24(inline_ov002_02155960(arg0)->unknown_4_, -1);
         if (arg0->unknown_4_.unknown_0_ != 0 && func_020e28dc(arg0->unknown_4_.unknown_0_) != 0) {
-            func_020e263c(arg0->unknown_4_.unknown1_0_, arg0->unknown_1ba0_);
+            UpdateYesNoWindow_020e263c(arg0->unknown_4_.unknown1_0_, arg0->unknown_1ba0_);
         } else {
             arg0->unknown_1bc8_ = UpdateTextWindowManager_0205d0e0((Struct_ov002_02155960_2*)&arg0->unknown_ec8_, arg0->unknown_1ba0_);
         }

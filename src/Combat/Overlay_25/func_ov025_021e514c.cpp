@@ -13,7 +13,7 @@ extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int a
 extern "C" void* GetCamera_020100bc(GameState* gameState);
 extern "C" int GetCameraYaw_0202e7f0(void* camera);
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
-extern "C" void func_0203db34(unsigned char* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetObject3DRotation_0203db34(unsigned char* object, int x, int y, int z);
 extern "C" void* __clear(void* arg0, int arg1);
 
 static inline fix32_t inline_02061c04_5(fix32_t arg0, fix32_t arg1) {
@@ -133,7 +133,7 @@ extern "C" ARM int func_ov025_021e514c(struct Struct_ov025_021e514c_2* arg0, str
                 if (((Struct_ov025_021e514c_3*)var25)->unknown_0_ & 2) {
                     SetFacingInstantly_02033874((struct Struct_02033834*)var25, var24);
                 } else {
-                    func_0203db34((unsigned char*)var25, 0, var24, 0);
+                    SetObject3DRotation_0203db34((unsigned char*)var25, 0, var24, 0);
                 }
             }
         }
@@ -212,7 +212,7 @@ extern "C" ARM int func_ov025_021e514c(struct Struct_ov025_021e514c_2* arg0, str
             if (((Struct_ov025_021e514c_3*)var34)->unknown_0_ & 2) {
                 SetFacingInstantly_02033874((struct Struct_02033834*)var34, var6);
             } else {
-                func_0203db34((unsigned char*)var34, 0, var6, 0);
+                SetObject3DRotation_0203db34((unsigned char*)var34, 0, var6, 0);
             }
         }
     }

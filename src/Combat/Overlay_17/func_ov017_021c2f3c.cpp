@@ -3,7 +3,7 @@
 
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void func_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* arg0);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 struct Struct_02039df4;
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov017_021c2f3c(unsigned char* arg0) {
     unsigned char var3 = arg0[0x8c];
     if (var3 == 0) {
         if (var0 != 0) {
-            func_020531f0(var0);
+            StopGesture_020531f0(var0);
             DisablePlayerControl_020397cc((struct Struct_02018300_3*)var0, 1);
         }
 

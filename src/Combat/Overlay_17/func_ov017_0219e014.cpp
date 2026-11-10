@@ -7,7 +7,7 @@ extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
-extern "C" void func_02076a8c(void* arg0);
+extern "C" void InitFieldMonster_02076a8c(void* monster);
 
 struct Struct_ov017_0219d250_8 { unsigned char unknown_0_[2]; unsigned short unknown_2_0_ : 2; unsigned short unknown_2_2_ : 14; };
 
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov017_0219e014(unsigned char* arg0, Struct_ov017_0219d2
 
 			if (var5) {
 				if (IsLocalWirelessOn_0202b7d8((int*)var1) && GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var1) != 0) {
-					func_02076a8c(var5);
+					InitFieldMonster_02076a8c(var5);
 					((Object3D*)((unsigned char*)var5))->MakeHidden();
 				} else {
 					((Object3D*)((unsigned char*)var5))->Destroy();

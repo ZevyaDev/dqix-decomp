@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-// USA: func_020ca4b4  (semantic: NitroSDK MIi_CpuCopyFast)
-extern "C" ARM asm void func_020ca4b4(const void* srcp, void* destp, unsigned int size) {
+// USA: Memcpy32BitByBlock_020ca4b4  (semantic: NitroSDK MIi_CpuCopyFast)
+extern "C" ARM asm void Memcpy32BitByBlock_020ca4b4(const void* srcp, void* destp, unsigned int size) {
     stmfd sp!, {r4-r10}
     add r10, r1, r2
     mov r12, r2, lsr #5

@@ -19,7 +19,7 @@ extern "C" int _s32_div_f(int a, int b);
 extern "C" void func_ov017_021c927c(int arg0, int arg1, int arg2, Vector3fix arg3, int arg4, int arg5, int arg6);
 
 // USA: func_02077e80
-extern "C" ARM int func_02077e80(Struct_02076a8c* arg0) {
+extern "C" ARM int func_02077e80(FieldMonster_02076a8c* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = var0->GetPartyMemberByIndex(arg0->unknown_166_);
     if (var1 == NULL) {

@@ -110,7 +110,7 @@ extern "C" int func_ov024_021e929c(Struct_ov024_021dbd84_6*, int, int);
 extern "C" int func_ov024_021e9320(Struct_ov024_021dd828*, int, int);
 extern "C" int func_ov024_021e939c(Struct_ov024_021dbaf4_4*, int, int, int);
 extern "C" int func_ov024_021e9464(Struct_ov024_021ddc80_4*, int, int);
-extern "C" void func_ov000_0215ffc4(void*, void*, int);
+extern "C" void AppendTargetResult_ov000_0215ffc4(void*, void*, int);
 struct Struct_ov024_021da9e0_4;
 extern "C" void func_ov024_021eb4e4(Struct_ov024_021da9e0_4*, int);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
@@ -309,7 +309,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
     }
     if (var6) {
         func_ov000_0215cd44(arg0->unknown_10_, var2, var1, 0, var8.unknown1_0_, 0);
-        func_ov000_0215ffc4(arg0->unknown_c_, var2, 2);
+        AppendTargetResult_ov000_0215ffc4(arg0->unknown_c_, var2, 2);
         arg0->unknown_10_->unknown_8e02_++;
         func_ov024_021eb4e4((Struct_ov024_021da9e0_4*)arg0, (int)arg0->unknown_c_);
     }
@@ -317,7 +317,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
         void* var23 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
         if (!var23) return;
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var23, 0x25c);
-        func_ov000_0215ffc4(arg0->unknown_c_, var23, 2);
+        AppendTargetResult_ov000_0215ffc4(arg0->unknown_c_, var23, 2);
         arg0->unknown_10_->unknown_8e02_++;
         func_ov000_0215cd44(arg0->unknown_10_, var23, var1, 0, 0, 0);
     }

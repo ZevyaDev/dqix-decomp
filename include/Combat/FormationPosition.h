@@ -1,8 +1,8 @@
 #pragma once
 
-struct Struct_02048cf0 {
-    int unknown_0_;
-    int unknown_4_;
+struct CellPosition_02048cf0 {
+    int x_0_;
+    int z_4_;
 };
 
-extern "C" Struct_02048cf0 func_ov000_0216f74c(int *arg0);
+extern "C" CellPosition_02048cf0 GetCellPosition_ov000_0216f74c(int *cell);

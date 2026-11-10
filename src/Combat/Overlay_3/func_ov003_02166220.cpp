@@ -7,7 +7,7 @@ struct Struct_02080cc0;
 struct MenuLayout_02080f8c;
 struct MenuLayout_02080fa8;
 struct Struct_02081198;
-struct Struct_02081164;
+struct MenuLayout_02081164;
 struct Struct_0201099c_16;
 struct Struct_ov003_0215f56c_3;
 struct Struct_ov003_02165c9c_5;
@@ -22,13 +22,13 @@ extern "C" short func_020865b0(Struct_0201099c_16*);
 extern "C" int func_020865b0(Struct_0201099c_16*);
 #endif
 extern "C" int func_ov003_0215f56c(Struct_ov003_0215f56c_3*);
-extern "C" int func_02080b40(void* arg0, int arg1);
+extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
 extern "C" void func_02080cc0(struct Struct_02080cc0* arg0, int arg1, int arg2);
-extern "C" int func_02080b40(void*, int);
+extern "C" int ShowMenuLayoutText_02080b40(void*, int);
 extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c*, int, int);
 extern "C" void func_02080fe0(void*, int, int);
 extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8*, int, int);
-extern "C" void func_0208103c(void*, int, int);
+extern "C" void SetMenuLayoutTextStringId_0208103c(void*, int, int);
 extern "C" void func_02080828(void*, int, short*, short*);
 extern "C" void func_020808c8(void*, short, short*, short*);
 extern "C" void func_02080854(void*, int, int, int);
@@ -36,7 +36,7 @@ extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3*, int);
 extern "C" void func_ov003_0215f5e8(void* arg0, int arg1, int arg2);
 extern "C" void func_ov003_02160c58(void* arg0, short* arg1, short* arg2);
 extern "C" void func_02081198(struct Struct_02081198* arg0, int arg1, int arg2);
-extern "C" void func_02081164(struct Struct_02081164* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowFrameless_02081164(struct MenuLayout_02081164* menuLayout, int windowId, int isFrameless);
 extern "C" int OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" void func_ov003_02160678(void* arg0);
 extern "C" void func_ov003_02160794(void* arg0);
@@ -175,15 +175,15 @@ extern "C" ARM void func_ov003_02166220(Struct_ov003_02166220_4* arg0) {
             for (var13 = 0; var13 < 3; var13++) {
                 var6 = var8 + var13 * 4;
                 ((void (*)(struct Struct_02080cc0*, short, int))func_02080cc0)(var0, var6, var9);
-                func_02080b40(var0, (short)var6);
+                ShowMenuLayoutText_02080b40(var0, (short)var6);
             }
 #if !defined(jpn)
             func_02080cc0(var0, var4, var9);
-            func_02080b40(var0, var4);
+            ShowMenuLayoutText_02080b40(var0, var4);
 #endif
             arg0->unknown_468_[var11] = var3->unknown_174_0_ + 1;
             var15 = var3->unknown_f_[func_020865b0((Struct_0201099c_16*)var3)];
-            func_0208103c(var0, var10, (short)(var15 + 100));
+            SetMenuLayoutTextStringId_0208103c(var0, var10, (short)(var15 + 100));
             if (var15 != 0) {
                 var9 = 5;
                 if (var15 == 0xa) {
@@ -198,11 +198,11 @@ extern "C" ARM void func_ov003_02166220(Struct_ov003_02166220_4* arg0) {
                 func_02080854(var0, var10, (short)(var16 + var18 + 1), var17);
 #endif
                 func_02080cc0(var0, var10, var9);
-                func_02080b40(var0, var10);
+                ShowMenuLayoutText_02080b40(var0, var10);
             }
         } else {
             func_02080cc0(var0, var8, var9);
-            func_02080b40(var0, var8);
+            ShowMenuLayoutText_02080b40(var0, var8);
             SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var0, var8, (int)FindStringInTable_020e0434(&arg0->unknown_2dc_, 0x7530));
         }
         var7++;
@@ -224,7 +224,7 @@ extern "C" ARM void func_ov003_02166220(Struct_ov003_02166220_4* arg0) {
     for (int var23 = 0; var23 < 2; var23++) {
         short var24 = var22.unknown_0_[var23];
         func_02081198((struct Struct_02081198*)var0, var24, 1);
-        func_02081164((struct Struct_02081164*)var0, var24, 1);
+        SetMenuLayoutWindowFrameless_02081164((struct MenuLayout_02081164*)var0, var24, 1);
         OpenMenuLayoutWindow_020813ec(var0, var24);
     }
     func_ov003_02160678(arg0);

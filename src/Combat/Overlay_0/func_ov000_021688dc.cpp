@@ -84,21 +84,21 @@ struct Struct_ov000_02183218 { unsigned char unknown_0_[4]; };
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" void* GetOAMManager_0203bd08(void);
-extern "C" void func_02082828(int arg0);
+extern "C" void InitPartyMemberData_02082828(int memberData);
 extern "C" void func_020542b4(void* arg0, void* arg1, void* arg2);
 extern "C" void func_02048b0c(void* arg0, int arg1);
 extern "C" void func_02049c88(void* arg0, void* arg1);
 extern "C" void RemoveFromQueue_02046a8c(void* queue, void* node);
-extern "C" void func_02076a8c(void* arg0);
+extern "C" void InitFieldMonster_02076a8c(void* monster);
 extern "C" int func_ov000_02163c80(void* arg0, int arg1);
 extern "C" void func_ov000_02168284(void* arg0);
-extern "C" void func_02048150(void* arg0, int arg1, int arg2);
+extern "C" void RevivePartyMember_02048150(void* gameObject, int hp, int isPartyOrderRebuildAllowed);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int isHeld);
 extern "C" void RebuildPartyOrders_ov017_02191234(int gameResources);
 extern "C" void ResetEventTask_ov017_021baedc(void* node, int isRestart);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(int gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
-extern "C" void func_ov017_02191aac(int arg0, int arg1, int arg2, int arg3);
+extern "C" void SetCombatantAppearanceFlags_ov017_02191aac(int gameResources, int isSet, int combatantIndex, int flags);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_0219bd1c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void* battleScene, int selector, int isVisible);
@@ -168,7 +168,7 @@ extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
 struct TextureVRAMArea_0203d028;
 extern "C" void func_02072d58(int arg0, char* arg1, char* arg2);
 struct PartyMember_0205faf4_11;
-extern "C" int func_02061bd8(struct PartyMember_0205faf4_11* arg0);
+extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
 extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
 extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void SaveTextureVRAMState_0207dfac(char* area);
@@ -184,7 +184,7 @@ extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct Qu
 
 extern "C" void func_0201bf38(unsigned char* arg0, int arg1, int arg2, int arg3, unsigned short arg4);
 extern "C" void func_0201bf70(unsigned char* arg0, int arg1);
-extern "C" void func_020e1154(void* arg0);
+extern "C" void DisableInputForDuration_020e1154(void* durationMs);
 extern "C" void func_ov017_02195530(unsigned char* arg0);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
@@ -292,7 +292,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
         if (var26 != NULL) {
             int var27 = GetPartyMemberData_02053c6c((unsigned char*)var26);
             if (var27 != 0) {
-                func_02082828(var27);
+                InitPartyMemberData_02082828(var27);
             }
         }
         var14->memberCount_f7c_ -= 1;
@@ -338,8 +338,8 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
                 var36->obj3D_.MakeVisible();
                 func_02053f7c((struct Struct_02053f7c_3*)var36, 0, 0);
                 func_02049f50((struct Struct_02049f50*)var36, 0x1f, 0);
-                func_ov017_02191aac(var10, 0, var35, 2);
-                func_ov017_02191aac(var10, 0, var35, 4);
+                SetCombatantAppearanceFlags_ov017_02191aac(var10, 0, var35, 2);
+                SetCombatantAppearanceFlags_ov017_02191aac(var10, 0, var35, 4);
 
                 if (TestBattleSceneFlags_ov000_02160fd4(arg0, 1) && arg0[Enum_ov000_021688dc_30674] != 0) {
                     func_02048b0c(var36, HasLearnedSkillEntry_02083b00(*(unsigned char**)((char*)var36 + Enum_ov000_021688dc_336), 0x99) ? 1 : 0);
@@ -408,7 +408,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
             if (func_ov000_02163c80(arg0, 0) != 0) {
                 var40 = 1;
             } else {
-                func_02076a8c(var41);
+                InitFieldMonster_02076a8c(var41);
                 var41->obj3D_.MakeHidden();
             }
         }
@@ -505,7 +505,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
                         ((SafeAllocator*)(var54 + 0x540))->Reset();
                         func_02072d58(var52, var1, var2);
 
-                        if (func_02061bd8((struct PartyMember_0205faf4_11*)var53)) {
+                        if (IsNPCCompanion_02061bd8((struct PartyMember_0205faf4_11*)var53)) {
                             var53->obj3D_.Destroy();
                             unsigned char* var56 = *(unsigned char**)((char*)var53 + Enum_ov000_021688dc_452);
                             if (var56 != NULL) {
@@ -533,7 +533,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
                             var53->obj3D_.LoadFromCCHROrCMOTArchive(&var4, NULL);
                         }
 
-                        if (func_02061bd8((struct PartyMember_0205faf4_11*)var53)) {
+                        if (IsNPCCompanion_02061bd8((struct PartyMember_0205faf4_11*)var53)) {
                             SaveTextureVRAMState_0207dfac((char*)(var54 + 0xcc));
                         } else {
                             sprintf(var3, data_ov000_02183b55, var2);
@@ -615,7 +615,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
         func_0201bf70((unsigned char*)var12, 1);
     }
     if (*(int*)(arg0 + Enum_ov000_021688dc_28196) != 0 || *(int*)(arg0 + Enum_ov000_021688dc_28216) != 0) {
-        func_020e1154((void*)0xfa0);
+        DisableInputForDuration_020e1154((void*)0xfa0);
     }
     func_ov017_02195530((unsigned char*)var10);
 
@@ -629,7 +629,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
     if (func_ov000_0215fc60((char*)var13)) {
         GameObject* var66 = GetPartyMemberBaseByIndex_0200ff1c(var9, 0);
         if (var66 != NULL && *(unsigned short*)(*(unsigned char**)((char*)var66 + 0x130) + 4) == 0) {
-            func_02048150(var66, 1, 1);
+            RevivePartyMember_02048150(var66, 1, 1);
             *(int*)((char*)var66 + Enum_ov000_021688dc_396) &= ~1;
         }
         *(*(unsigned char**)(arg0 + Enum_ov000_021688dc_668) + 0x8e14) = 1;

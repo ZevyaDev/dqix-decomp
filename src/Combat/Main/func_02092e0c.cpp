@@ -47,10 +47,10 @@ extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_02046574_2*, int, int, int);
 #endif
-extern "C" void func_02042b98(Struct_02046574_2*, int, int, int, int);
+extern "C" void SetMessageWindowRect_02042b98(Struct_02046574_2*, int, int, int, int);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_02046574_2*, int, int);
-extern "C" void func_02043270(Struct_02046574_2*, int, int, int, int);
+extern "C" void SetMessageWindowRect_02042b98(Struct_02046574_2*, int, int, int, int);
 #endif
 // USA: func_02092e0c
 extern "C" ARM void func_02092e0c(Struct_02092e0c* arg0) {
@@ -69,7 +69,7 @@ extern "C" ARM void func_02092e0c(Struct_02092e0c* arg0) {
             var0->unknown_19b1_ = 0;
             var0->unknown_1730_ = 12;
             var0->unknown_1734_ = 16;
-            func_02043270(var0, var0->unknown_1730_, 0x90, 0x100, 0x30);
+            SetMessageWindowRect_02042b98(var0, var0->unknown_1730_, 0x90, 0x100, 0x30);
             var0->unknown_195b_ |= 2;
         }
 #else
@@ -80,7 +80,7 @@ extern "C" ARM void func_02092e0c(Struct_02092e0c* arg0) {
         var0->unknown_998_ = 1;
         if ((arg0->unknown_37_ & 1) && (arg0->unknown_37_ & 2)) {
             var0->unknown_19b1_ = 0;
-            func_02042b98(var0, 2, 0x92, 0xfc, 0x4a);
+            SetMessageWindowRect_02042b98(var0, 2, 0x92, 0xfc, 0x4a);
             var0->unknown_195b_ |= 2;
         }
 #endif

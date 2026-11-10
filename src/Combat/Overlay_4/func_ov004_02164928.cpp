@@ -16,7 +16,7 @@ struct Struct_ov004_021549e4_2;
 struct Struct_020d8080;
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
-extern Struct_ov004_02164928* data_ov004_02171010;
+extern Struct_ov004_02164928* gTreasureMapScreen_ov004_02171010;
 extern "C" GameResources* GetResources_0200fb8c(int*);
 extern "C" Zone3D* GetZone3D_02012fe4();
 int IsBrightnessTransitionActive(GameResources*);
@@ -42,43 +42,43 @@ extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 
 // JPN: 0x02164fe8; USA/EUR: 0x02164928.
 extern "C" ARM int func_ov004_02164928(void* arg0) {
-    if (data_ov004_02171010->unknown_18f4_ == 0) return 0;
+    if (gTreasureMapScreen_ov004_02171010->unknown_18f4_ == 0) return 0;
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetResources_0200fb8c(((int*)(var0)));
     Zone3D* var2 = GetZone3D_02012fe4();
     ActiveGrottoClass* var3 = var2->inline_02024518_2();
     GrottoStruct* var4 = var0->GetGrottoStruct();
     if (IsBrightnessTransitionActive(var1)) return 0;
-    for (int var5 = 0; var5 < data_ov004_02171010->unknown_18f4_; ++var5)
-        data_ov004_02171010->unknown_0_[var5].ClearInitialByteUnknownBit();
+    for (int var5 = 0; var5 < gTreasureMapScreen_ov004_02171010->unknown_18f4_; ++var5)
+        gTreasureMapScreen_ov004_02171010->unknown_0_[var5].ClearInitialByteUnknownBit();
     int var6 = func_ov004_021634dc(arg0);
     for (int var7 = 0; var7 < 99; ++var7)
-        data_ov004_02171010->unknown_0_[var7].ClearInitialByteUnknownBit();
-    data_ov004_02171010->unknown_0_[var6].SetInitialByteUnknownBit();
+        gTreasureMapScreen_ov004_02171010->unknown_0_[var7].ClearInitialByteUnknownBit();
+    gTreasureMapScreen_ov004_02171010->unknown_0_[var6].SetInitialByteUnknownBit();
     Struct_ov004_021549e4_2* var8 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 10);
     if (!var8) return 0;
     if (func_ov023_021f6f10(var8) != 7) return 0;
     unsigned int var9 = func_ov023_021f9bb0(var8);
 #if defined(jpn)
-    if (data_ov004_02171010->unknown_ad4_[var9].mapType_ == 1) {
-        ((Type_ov004_02164928)(func_0201165c))(((char*)(var0)), &data_ov004_02171010->unknown_0_[var6], data_ov004_02171010->unknown_ad4_[var9].entranceZoneID_, *((Struct_ov004_02164928_2*)(&data_ov004_02171010->unknown_ad4_[var9].entranceX_)), data_ov004_02171010->unknown_ad4_[var9].regular_.environ_, data_ov004_02171010->unknown_ad4_[var9].regular_.startingMonsterRank_);
+    if (gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].mapType_ == 1) {
+        ((Type_ov004_02164928)(func_0201165c))(((char*)(var0)), &gTreasureMapScreen_ov004_02171010->unknown_0_[var6], gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].entranceZoneID_, *((Struct_ov004_02164928_2*)(&gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].entranceX_)), gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].regular_.environ_, gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].regular_.startingMonsterRank_);
         var4->unknown_8 = func_02090294(var3);
-    } else if (data_ov004_02171010->unknown_ad4_[var9].mapType_ == 2) {
-        ((Type_ov004_02164928)(func_0201165c))(((char*)(var0)), &data_ov004_02171010->unknown_0_[var6], data_ov004_02171010->unknown_ad4_[var9].entranceZoneID_, *((Struct_ov004_02164928_2*)(&data_ov004_02171010->unknown_ad4_[var9].entranceX_)), 0, 0);
+    } else if (gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].mapType_ == 2) {
+        ((Type_ov004_02164928)(func_0201165c))(((char*)(var0)), &gTreasureMapScreen_ov004_02171010->unknown_0_[var6], gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].entranceZoneID_, *((Struct_ov004_02164928_2*)(&gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].entranceX_)), 0, 0);
         var4->unknown_8 = func_02090294(var3);
     }
-    strcpy(var4->activeMapImageName, data_ov004_02171010->unknown_ad4_[var9].mapImageName_);
-    if (data_ov004_02171010->unknown_ad4_[var9].mapType_ == 1) {
-        DetailedTreasureMapData::RegularMapData* var10 = &data_ov004_02171010->unknown_ad4_[var9].regular_;
+    strcpy(var4->activeMapImageName, gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].mapImageName_);
+    if (gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].mapType_ == 1) {
+        DetailedTreasureMapData::RegularMapData* var10 = &gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].regular_;
         sprintf(var4->activeMapNameNoLevel, var10->nameNoLevel_);
-        var4->activeMapLevel = data_ov004_02171010->unknown_ad4_[var9].regular_.level_;
-    } else if (data_ov004_02171010->unknown_ad4_[var9].mapType_ == 2) {
-        DetailedTreasureMapData::LegacyBossMapData* var11 = &data_ov004_02171010->unknown_ad4_[var9].legacy_;
+        var4->activeMapLevel = gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].regular_.level_;
+    } else if (gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].mapType_ == 2) {
+        DetailedTreasureMapData::LegacyBossMapData* var11 = &gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].legacy_;
         sprintf(var4->activeMapNameNoLevel, var11->mapNameNoLevel_);
-        var4->activeMapLevel = data_ov004_02171010->unknown_ad4_[var9].legacy_.level_;
+        var4->activeMapLevel = gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].legacy_.level_;
     }
 #else
-    Struct_ov004_02164928* var12 = data_ov004_02171010;
+    Struct_ov004_02164928* var12 = gTreasureMapScreen_ov004_02171010;
     DetailedTreasureMapData* var13 = &var12->unknown_ad4_[var9];
     if (var13->mapType_ == 1) {
         ((Type_ov004_02164928)(func_0201165c))(((char*)(var0)), &var12->unknown_0_[var6], var13->entranceZoneID_, *((Struct_ov004_02164928_2*)(&var13->entranceX_)), var13->regular_.environ_, var13->regular_.startingMonsterRank_);
@@ -118,7 +118,7 @@ extern "C" ARM int func_ov004_02164928(void* arg0) {
         func_ov017_021d3ec8();
     }
 #if defined(jpn)
-    if (data_ov004_02171010->unknown_ad4_[var9].discoveryState_ == 1) {
+    if (gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].discoveryState_ == 1) {
 #else
     if (var13->discoveryState_ == 1) {
 #endif

@@ -15,8 +15,8 @@ struct MenuCursor_0205bb84 {
     int* pMajorIndex_28_;
     int* pMinorIndex_2c_;
 };
-struct Struct_0205c4a8 : MenuCursor_0205bb84 {};
-struct KeyMenuCursor_0205bf3c : Struct_0205c4a8 {
+struct MenuCursor_0205c4a8 : MenuCursor_0205bb84 {};
+struct KeyMenuCursor_0205bf3c : MenuCursor_0205c4a8 {
     int step_30_;
     unsigned short heldKey_34_;
     unsigned char isVerticalKeyHeld_36_;
@@ -33,7 +33,7 @@ struct Struct_020e7db8 { unsigned short unknown_0_[5]; };
 struct Struct_020e7db0 { unsigned char unknown_0_[4]; };
 extern "C" void func_0205bf3c(KeyMenuCursor_0205bf3c*);
 extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84*);
-extern "C" void func_0205c4a8(Struct_0205c4a8*, int);
+extern "C" void ChangeMenuCursorPage_0205c4a8(MenuCursor_0205c4a8*, int);
 extern "C" void SetMenuCursorIndex_0205bb04(KeyMenuCursor_0205bf3c*, int);
 extern const Struct_020e7db8 data_020e7db8;
 extern const Struct_020e7dc4 data_020e7dc4;
@@ -89,23 +89,23 @@ extern "C" ARM int UpdateKeyMenuCursor_0205bf58(KeyMenuCursor_0205bf3c* cursor, 
                 if (cursor->columnCount_8_ <= cursor->column_18_) {
                     if (cursor->hasColumnWrap_3c_) {
                         cursor->column_18_ = 0;
-                        if (cursor->pageCount_4_ > 1) func_0205c4a8(cursor, 1);
+                        if (cursor->pageCount_4_ > 1) ChangeMenuCursorPage_0205c4a8(cursor, 1);
                     } else {
                         if (cursor->pageCount_4_ == 1) cursor->column_18_ = previousColumn;
                         else {
                             cursor->column_18_ = 0;
-                            func_0205c4a8(cursor, 1);
+                            ChangeMenuCursorPage_0205c4a8(cursor, 1);
                         }
                     }
                 } else if (cursor->column_18_ < 0) {
                     if (cursor->hasColumnWrap_3c_) {
                         cursor->column_18_ = cursor->columnCount_8_ - 1;
-                        if (cursor->pageCount_4_ > 1) func_0205c4a8(cursor, -1);
+                        if (cursor->pageCount_4_ > 1) ChangeMenuCursorPage_0205c4a8(cursor, -1);
                     } else {
                         if (cursor->pageCount_4_ == 1) cursor->column_18_ = previousColumn;
                         else {
                             cursor->column_18_ = cursor->columnCount_8_ - 1;
-                            func_0205c4a8(cursor, -1);
+                            ChangeMenuCursorPage_0205c4a8(cursor, -1);
                         }
                     }
                 }
@@ -113,7 +113,7 @@ extern "C" ARM int UpdateKeyMenuCursor_0205bf58(KeyMenuCursor_0205bf3c* cursor, 
                     if (cursor->pageCount_4_ == 1) cursor->column_18_ = previousColumn;
                     else {
                         cursor->column_18_ = 0;
-                        func_0205c4a8(cursor, 1);
+                        ChangeMenuCursorPage_0205c4a8(cursor, 1);
                     }
                 }
             }
@@ -158,16 +158,16 @@ extern "C" ARM int UpdateKeyMenuCursor_0205bf58(KeyMenuCursor_0205bf3c* cursor, 
                 cursor->column_18_ += cursor->step_30_;
                 if (cursor->columnCount_8_ <= cursor->column_18_) {
                     cursor->column_18_ = cursor->columnCount_8_ - 1;
-                    func_0205c4a8(cursor, 1);
+                    ChangeMenuCursorPage_0205c4a8(cursor, 1);
                 } else if (cursor->column_18_ < 0) {
                     cursor->column_18_ = 0;
-                    func_0205c4a8(cursor, -1);
+                    ChangeMenuCursorPage_0205c4a8(cursor, -1);
                 }
                 if (GetMenuCursorIndex_0205bb84(cursor) >= cursor->itemCount_0_) {
                     if (cursor->pageCount_4_ == 1) cursor->column_18_ = 0;
                     else {
                         cursor->column_18_ = 0;
-                        func_0205c4a8(cursor, 1);
+                        ChangeMenuCursorPage_0205c4a8(cursor, 1);
                     }
                 }
             }

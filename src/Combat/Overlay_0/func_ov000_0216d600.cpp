@@ -27,7 +27,7 @@ extern "C" void ResetBattleCamera_ov000_0216d370(Struct_0202df68*, int, int, int
 extern "C" void SetCameraFieldOfView_0202e9a4(Struct_0202df68*, int);
 extern "C" void func_ov000_0216d368(Struct_ov000_0216d368*, int, int, int);
 extern "C" Struct_ov000_0216d600* GetBattleScene_ov000_02160130();
-extern "C" void func_0202eab8(Struct_0202df68*);
+extern "C" void SetCameraOrbitFromEye_0202eab8(Struct_0202df68*);
 extern "C" int func_ov000_0216f210(Struct_0202df68*, int*);
 
 static inline int inline_ov000_0216d600(int arg0, int arg1) { return (int)(((long long)arg0 * arg1 + 0x800) >> 12); }
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov000_0216d600(Struct_0202df68* arg0, int arg1, int arg
     if (arg1 == 0) { var8.z = -var8.z; var9.z = -var9.z; }
     arg0->unknown_4_ = var8;
     arg0->unknown_10_ = var9;
-    func_0202eab8(arg0);
+    SetCameraOrbitFromEye_0202eab8(arg0);
     arg0->unknown_240_ = var8;
     arg0->unknown_24c_ = var9;
     arg0->unknown_258_ = func_ov000_0216f210(arg0, &var10);

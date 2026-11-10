@@ -4,7 +4,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
-extern "C" int func_ov000_0215ec1c(int arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectAllEnemyCombatantIndices_ov000_0215ec1c(int battle, short* indices, int maxCount, int arg3);
 extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" int func_0204936c(unsigned char* arg0);
 extern "C" void func_ov025_021dc220(void* arg0);
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov025_021dc168(struct Struct_ov025_021dc168_3* arg0) {
     short var2[12];
     int var3 = 0;
     var3 = var3 + CollectPartyCombatantIndices_ov000_0215e9fc(var1, var2, 12, var3);
-    var3 = var3 + func_ov000_0215ec1c(var1, var2 + var3, 12 - var3, 0);
+    var3 = var3 + CollectAllEnemyCombatantIndices_ov000_0215ec1c(var1, var2 + var3, 12 - var3, 0);
 
     if (arg0->unknown_eac_ == 2) {
         struct Struct_ov025_021dc168_2* var4 = (struct Struct_ov025_021dc168_2*)GetCurrentBattleAction_ov000_02160f20(arg0);

@@ -7,7 +7,7 @@ enum { Enum_ov006_0215fa1c_20 = 0x14, Enum_ov006_0215fa1c_116 = 0x74, Enum_ov006
 #endif
 
 struct MenuLayout_02080fa8;
-struct Struct_02081164;
+struct MenuLayout_02081164;
 struct Struct_ov006_0215fa1c {
     char unknown_0_[Enum_ov006_0215fa1c_20];
     MenuLayout_02080fa8* unknown_14_;
@@ -19,10 +19,10 @@ struct Struct_ov006_0215fa1c {
     unsigned char unknown_38f_;
 };
 extern "C" void func_02080b54(void*, int);
-extern "C" void func_02080b40(void*, int);
-extern "C" void func_0208103c(void*, int, int);
+extern "C" void ShowMenuLayoutText_02080b40(void*, int);
+extern "C" void SetMenuLayoutTextStringId_0208103c(void*, int, int);
 extern "C" void SetMenuLayoutTextValue_02080fa8(MenuLayout_02080fa8*, int, int);
-extern "C" void func_02081164(Struct_02081164*, int, int);
+extern "C" void SetMenuLayoutWindowFrameless_02081164(MenuLayout_02081164*, int, int);
 extern "C" void func_020806d8(void*, int, int, int, int);
 extern "C" int func_ov006_02154138(int*);
 extern "C" void OpenMenuLayoutWindow_020813ec(void*, int);
@@ -31,8 +31,8 @@ extern "C" void OpenMenuLayoutWindow_020813ec(void*, int);
 extern "C" ARM void func_ov006_0215fa1c(Struct_ov006_0215fa1c* arg0, int arg1) {
     MenuLayout_02080fa8* var0 = arg0->unknown_14_;
     func_02080b54(var0, 0xd);
-    func_02080b40(var0, 0x56);
-    func_0208103c(arg0->unknown_14_, 0x56, 0x2b);
+    ShowMenuLayoutText_02080b40(var0, 0x56);
+    SetMenuLayoutTextStringId_0208103c(arg0->unknown_14_, 0x56, 0x2b);
     if (arg0->unknown_38f_ != 10 && arg0->unknown_38f_ != 3) {
         int var1 = 0x2c;
         if (!arg1) {
@@ -41,8 +41,8 @@ extern "C" ARM void func_ov006_0215fa1c(Struct_ov006_0215fa1c* arg0, int arg1) {
             case 0x26: var1 = 0x13; break;
             }
         }
-        func_0208103c(var0, 0x57, var1);
-        func_02080b40(var0, 0x57);
+        SetMenuLayoutTextStringId_0208103c(var0, 0x57, var1);
+        ShowMenuLayoutText_02080b40(var0, 0x57);
         func_020806d8(var0, 0xd, 0x57, 1, Enum_ov006_0215fa1c_4);
         if (arg1) {
             unsigned int var2 = (unsigned short)func_ov006_02154138(&arg0->unknown_74_);
@@ -53,10 +53,10 @@ extern "C" ARM void func_ov006_0215fa1c(Struct_ov006_0215fa1c* arg0, int arg1) {
             if (var2 && var5 <= 0) var5 = 1;
             if (var5 > 100) var5 = 100;
             SetMenuLayoutTextValue_02080fa8(var0, 0x58, var5);
-            func_02080b40(var0, 0x58);
-            func_0208103c(arg0->unknown_14_, 0x56, 0x2e);
+            ShowMenuLayoutText_02080b40(var0, 0x58);
+            SetMenuLayoutTextStringId_0208103c(arg0->unknown_14_, 0x56, 0x2e);
         }
     }
-    func_02081164((Struct_02081164*)var0, 0xd, 1);
+    SetMenuLayoutWindowFrameless_02081164((MenuLayout_02081164*)var0, 0xd, 1);
     OpenMenuLayoutWindow_020813ec(var0, 0xd);
 }

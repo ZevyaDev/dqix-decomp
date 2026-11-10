@@ -10,7 +10,7 @@ enum { Enum_ov017_0219cdc0_396 = 0x18c };
 #endif
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
-extern "C" void func_02048150(GameObject*, int, int);
+extern "C" void RevivePartyMember_02048150(GameObject*, int, int);
 extern "C" int SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_ov017_021cedf4(int, int, int);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
@@ -47,8 +47,8 @@ extern "C" ARM void func_ov017_0219cdc0(unsigned short arg0, int arg1, signed ch
         if (!arg1) var8 = arg2;
         GameObject* var9 = (GameObject*)var0->GetPartyMemberByIndex(var8);
         if (var9 && (**(unsigned int**)((char*)var9 + 0x130) & 1)) {
-            if (var6) func_02048150(var9, 1, 1);
-            else func_02048150(var9, 0, 1);
+            if (var6) RevivePartyMember_02048150(var9, 1, 1);
+            else RevivePartyMember_02048150(var9, 0, 1);
             (*(unsigned int*)((char*)var9 + Enum_ov017_0219cdc0_396)) &= ~1;
             SetMotion_02033b88((Struct_02010604*)var9, 0);
             if (arg1) {
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov017_0219cdc0(unsigned short arg0, int arg1, signed ch
             GameObject* var17 = var0->GetGameObjectByIndex(var16 * 12 + 20);
             if (var17 && (var17->obj3D_.unknown_2_ == 9031 || var17->obj3D_.unknown_2_ == 9032 || var17->obj3D_.unknown_2_ == 9033)) {
                 if (**(unsigned int**)((char*)var13 + 0x130) & 1) {
-                    func_02048150(var13, 0, 1);
+                    RevivePartyMember_02048150(var13, 0, 1);
                     (*(unsigned int*)((char*)var13 + Enum_ov017_0219cdc0_396)) &= ~1;
                     SetMotion_02033b88((Struct_02010604*)var13, 0);
                     func_ov017_021cedf4(var16, 1, 0);
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov017_0219cdc0(unsigned short arg0, int arg1, signed ch
         if (var14 && arg1) {
             GameObject* var18 = (GameObject*)var0->GetProtagonist();
             if (var18 && (**(unsigned int**)((char*)var18 + 0x130) & 1)) {
-                func_02048150(var18, 0, 1);
+                RevivePartyMember_02048150(var18, 0, 1);
                 (*(unsigned int*)((char*)var18 + Enum_ov017_0219cdc0_396)) &= ~1;
                 SetMotion_02033b88((Struct_02010604*)var18, 0);
                 func_ov017_021cedf4(0, 1, 0);

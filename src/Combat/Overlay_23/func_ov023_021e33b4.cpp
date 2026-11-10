@@ -11,7 +11,7 @@ struct Struct_020deb08;
 struct Struct_0205faf4_9;
 struct Struct_ov005_02159c24;
 struct TextureVRAMArea_0203d028;
-struct Struct_0202e5c0;
+struct Camera_0202e5c0;
 struct Sprite_02043368_2;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
@@ -152,7 +152,7 @@ extern "C" void func_02042b30(void* arg0, void* arg1);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void InitFollowCamera_020a2010(void* storage);
-extern "C" void func_0202e5c0(Struct_0202e5c0* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetCameraEye_0202e5c0(Camera_0202e5c0* camera, int x, int y, int z);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void Set3DFog_020c54a4(int isEnabled, unsigned int type, unsigned int depthShift, unsigned short offset);
@@ -165,7 +165,7 @@ extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_ov023_021e20c0(void* arg0);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" void func_020c555c(int arg0);
+extern "C" void Set3DEdgeColors_020c555c(int edgeColors);
 extern "C" void func_ov023_021e33a0(char* arg0, signed char arg1);
 extern "C" void func_ov005_02159c24(Struct_ov005_02159c24*, void*, void*);
 
@@ -318,7 +318,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
 
             arg0->unknown_138_ = GetCamera_020100bc(var0);
             InitFollowCamera_020a2010(arg0->unknown_13c_);
-            func_0202e5c0((Struct_0202e5c0*)arg0->unknown_13c_, 0xb666, 0xa800, 0x42ccc);
+            SetCameraEye_0202e5c0((Camera_0202e5c0*)arg0->unknown_13c_, 0xb666, 0xa800, 0x42ccc);
             SetCameraTarget_0202e5c8((unsigned char*)arg0->unknown_13c_, 0xb666, 0xa800, 0);
             DisableCameraFollow_020a27a0(arg0->unknown_13c_);
             SetCamera_020100c4(var0, (int)arg0->unknown_13c_);
@@ -443,7 +443,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             func_ov005_0215a960(arg0->unknown_0_);
             func_ov005_0215ae7c(arg0->unknown_0_);
         }
-        func_020c555c((int)data_ov023_021fdc94);
+        Set3DEdgeColors_020c555c((int)data_ov023_021fdc94);
         func_ov023_021e3d3c(arg0->unknown_d4_, 0x11, 1);
         func_ov023_021e3d3c(arg0->unknown_d4_, 0x12, 1);
         func_ov023_021e3d3c(arg0->unknown_d4_, 0x1b, 1);

@@ -340,7 +340,7 @@ extern "C" int GetLocalWirelessState_0202ba00(int* wireless);
 extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" Struct_020a95a4_5* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" unsigned short* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
-extern "C" unsigned char* func_0207c60c(void* arg0, unsigned int arg1);
+extern "C" unsigned char* GetEquipmentBagCounts_0207c60c(void* bag, unsigned int category);
 extern "C" short func_0207c620(unsigned char* arg0, unsigned int arg1);
 extern "C" unsigned char func_0207c694(unsigned char* arg0, unsigned int arg1);
 extern "C" unsigned short* func_020120a0(char* arg0, unsigned int arg1);
@@ -502,7 +502,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             var8 = 0;
             for (var7 = 0; var7 < 8; var7++) {
                 unsigned short* var31 = GetEquipmentBagItemIds_0207c5f8(var25->unknown_1d4_, var7);
-                unsigned char* var32 = func_0207c60c(var25->unknown_1d4_, var7);
+                unsigned char* var32 = GetEquipmentBagCounts_0207c60c(var25->unknown_1d4_, var7);
                 short var33 = func_0207c620(var25->unknown_1d4_, var7);
                 memcpy(&var22->unknown_1f30_[var8], var31, var33 * 2);
                 memcpy(&var22->unknown_2710_[var8], var32, var33);

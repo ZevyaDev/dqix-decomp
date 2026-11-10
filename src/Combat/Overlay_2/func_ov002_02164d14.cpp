@@ -19,7 +19,7 @@ extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" void SetTextWindowVisible_0205def8(struct TextWindowManager_0205def8 *windowManager, int isVisible, int windowId);
 extern "C" void func_020dc4d0(signed char *arg0, signed char *arg1);
 extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *gameState, int index);
-extern "C" int func_02061bd8(struct PartyMember_0205faf4_11 *arg0);
+extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11 *partyMember);
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int GetGlobalFlags_020d6c00(void);
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
         int var7 = var6;
         for (int var8 = 0; var8 < var4; var8++) {
             GameObject *var9 = GetPartyMemberBaseByIndex_0200ff1c(var1, var3[var8]);
-            if (var9 != NULL && func_02061bd8((struct PartyMember_0205faf4_11 *) var9)) var7++;
+            if (var9 != NULL && IsNPCCompanion_02061bd8((struct PartyMember_0205faf4_11 *) var9)) var7++;
         }
         var4 -= var7;
         if (var4 + 1 != (var5 - 1)->unknown_60_) var6 = 1;
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
             }
             if (var3[*(short *) (arg0 + OFF_SEL_02164d14)] < 0) return;
             SetGlobalFlags_020466e4((unsigned int *) GetGlobalFlags_020d6c00(), 1);
-            if (func_02061bd8(
+            if (IsNPCCompanion_02061bd8(
                     (struct PartyMember_0205faf4_11 *) GetPartyMemberBaseByIndex_0200ff1c(var1, var3[*(short *) (arg0 + OFF_SEL_02164d14)])))
             {
                 for (int var14 = 0; var14 < 4; var14++) {
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
                     (*var15)++;
                     *var15          = *var15 % 4;
                     GameObject *var16 = GetPartyMemberBaseByIndex_0200ff1c(var1, var3[*(short *) (arg0 + OFF_SEL_02164d14)]);
-                    if (var16 != NULL && !func_02061bd8((struct PartyMember_0205faf4_11 *) var16)) break;
+                    if (var16 != NULL && !IsNPCCompanion_02061bd8((struct PartyMember_0205faf4_11 *) var16)) break;
                 }
             }
             func_020d79e0(arg0, var3[*(short *) (arg0 + OFF_SEL_02164d14)]);

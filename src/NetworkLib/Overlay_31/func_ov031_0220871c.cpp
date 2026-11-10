@@ -95,7 +95,7 @@ struct Struct_ov031_0220871c {
     unsigned long unknown_8_;
     int unknown_c_;
 };
-extern "C" int func_020cf0fc(int);
+extern "C" int GetCurrentDate_020cf0fc(int);
 extern "C" int func_ov031_02207f10(Struct_ov031_0220871c_2*, unsigned char**, int, int, int);
 extern "C" int func_ov031_022085a8(Struct_ov031_0220871c_2*);
 extern "C" int func_ov031_022086b0(const char*, const char*);
@@ -112,7 +112,7 @@ extern "C" ARM void func_ov031_0220871c(Struct_ov031_0220871c_2* arg0, unsigned 
     var4 = arg1[2] + (((arg1[0] << 8) + arg1[1]) << 8);
     arg1 += 3;
     arg0->unknown_45c_ = -1;
-    func_020cf0fc((int)&var0);
+    GetCurrentDate_020cf0fc((int)&var0);
     arg0->unknown_80c_ = ((var0.unknown_0_ + 2000) << 16) + (var0.unknown_4_ << 8) + var0.unknown_8_;
     var1 = 0;
     arg0->unknown_6b0_[0] = 0;

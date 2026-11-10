@@ -46,8 +46,8 @@ struct Struct_ov003_02154af4_3 {
 
 extern int gSoundEffectManager_02108760;
 extern "C" void OpenMenuLayoutWindow_020813ec(void *, int);
-struct Struct_02081f20_2;
-extern "C" void func_0208203c(Struct_02081f20_2*);
+struct KeyRepeat_02081f20_2;
+extern "C" void func_0208203c(KeyRepeat_02081f20_2*);
 extern "C" int func_02080468(void *, int);
 extern "C" char * GetResources_0200fb8c(int*);
 struct SoundEffectManager_02108760;
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov003_02163fd4(Struct_ov003_02154af4_3 *arg0) {
         arg0->unknown_474_   = arg0->unknown_48a_;
         var1->unknown_36_ = arg0->unknown_48a_;
         OpenMenuLayoutWindow_020813ec(var1, arg0->unknown_488_);
-        func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
+        func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
         arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
         arg0->unknown_464_ &= ~0x300;
         *(unsigned char *) (GetResources_0200fb8c((int*)GameState::GetInstance()) + 0x4000 + REGION_OFF_354) = 0xa;
@@ -96,7 +96,7 @@ extern "C" ARM void func_ov003_02163fd4(Struct_ov003_02154af4_3 *arg0) {
         short *var3 = &arg0->unknown_484_;
         if (func_ov003_02160854(arg0) != 0) {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
-            func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
+            func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
             arg0->unknown_470_ = 0;
             switch (arg0->unknown_48a_) {
                 case 0xa6:

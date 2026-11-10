@@ -171,7 +171,7 @@ struct Struct_ov000_02176134;
 struct Struct_ov000_021537b8_6;
 
 extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" struct Struct_0203a588_2* func_02039e70(void);
+extern "C" struct Struct_0203a588_2* GetBattleNumberPopups_02039e70(void);
 extern "C" int func_ov000_02163524(void* arg0);
 extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" unsigned char func_ov025_021dcc64(void* arg0);
@@ -188,7 +188,7 @@ extern "C" void func_ov025_021eaf48(unsigned char* arg0, int arg1, int arg2, int
 extern "C" void func_ov025_021ea604(unsigned char* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov000_02162dc4(unsigned char* arg0, GameObject* arg1, GameObject* arg2, unsigned int arg3,
                                     int arg4, int arg5, unsigned long long arg6, int arg7);
-extern "C" void func_02049ae4(unsigned char* arg0);
+extern "C" void StopCombatantSidestep_02049ae4(unsigned char* combatant);
 extern "C" void func_ov000_0216f1e4(void* arg0, int* arg1, int arg2, int arg3);
 extern "C" void func_0202ea10(unsigned char* arg0, int arg1, int arg2);
 extern "C" void func_ov000_02163440(void* arg0, short arg1, unsigned short arg2, unsigned short arg3);
@@ -219,7 +219,7 @@ extern "C" int func_02049ee8(unsigned char* arg0);
 extern "C" void func_020d7334(unsigned char* arg0, int arg1);
 extern "C" void func_02049f3c(unsigned char* arg0);
 extern "C" void func_ov000_02167434(unsigned char* arg0, int arg1);
-extern "C" void func_ov017_02191aac(char* arg0, int arg1, int arg2, unsigned char arg3);
+extern "C" void SetCombatantAppearanceFlags_ov017_02191aac(char* gameResources, int isSet, int combatantIndex, unsigned char flags);
 extern "C" void func_02054028(void* arg0, int arg1);
 extern "C" int GetResources_0200fb8c(int* gameState);
 void SetMainBrightness(GameResources* resources, int brightness, int duration);
@@ -328,7 +328,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
     var2 = (char*)GetGameResources();
     GetLocalWireless_0202ae18();
     var3 = (unsigned char*)GetCamera_020100bc(var1);
-    var4 = (struct Struct_0203a48c_3*)func_02039e70();
+    var4 = (struct Struct_0203a48c_3*)GetBattleNumberPopups_02039e70();
     var5 = func_ov000_02163524(arg0);
     var6 = (struct Struct_ov025_021d8c30_5*)FindActionData_02079e2c((char*)GetActionTables_020797dc(), *(short*)arg1);
     var7 = 0;
@@ -464,7 +464,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         func_ov000_02162dc4(arg0, var13, var59, var49->unknown_18_, var49->unknown_1d_, var49->unknown_1e_, var49->unknown_0_, 0);
     }
     if (var59) {
-        func_02049ae4((unsigned char*)var59);
+        StopCombatantSidestep_02049ae4((unsigned char*)var59);
     }
 
     var20 = 0;
@@ -798,8 +798,8 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         func_020d7334((unsigned char*)var5, var48);
         func_02049f3c((unsigned char*)var59);
         func_ov000_02167434(arg0, var59->obj3D_.GetTexturePaletteOffset());
-        func_ov017_02191aac(var2, 0, var48, 2);
-        func_ov017_02191aac(var2, 0, var48, 4);
+        SetCombatantAppearanceFlags_ov017_02191aac(var2, 0, var48, 2);
+        SetCombatantAppearanceFlags_ov017_02191aac(var2, 0, var48, 4);
         if (!var7 && arg2 != 0) {
             LightingManager::GetInstance()->BeginFade(0x800, 0x12c);
             func_ov000_02163440(arg0, 0x199, 0x258, 0x96);
@@ -836,14 +836,14 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         arg1->unknown_22_ = 0;
     }
     if (func_ov000_0215fd90(var49, 8)) {
-        func_ov017_02191aac(var2, 0, var59->obj3D_.objectIndex_4_, 4);
+        SetCombatantAppearanceFlags_ov017_02191aac(var2, 0, var59->obj3D_.objectIndex_4_, 4);
         if (!var9) var22 = 1;
     }
     if (func_ov000_0215fd90(var49, 0x2c)) {
-        func_ov017_02191aac(var2, 1, var59->obj3D_.objectIndex_4_, 2);
+        SetCombatantAppearanceFlags_ov017_02191aac(var2, 1, var59->obj3D_.objectIndex_4_, 2);
     }
     if (func_ov000_0215fd90(var49, 0x28)) {
-        func_ov017_02191aac(var2, 0, var59->obj3D_.objectIndex_4_, 2);
+        SetCombatantAppearanceFlags_ov017_02191aac(var2, 0, var59->obj3D_.objectIndex_4_, 2);
     }
 
     var52 = 0;
@@ -858,8 +858,8 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
             func_020d7334((unsigned char*)var5, var48);
             func_02049f3c((unsigned char*)var59);
             func_ov000_02167434(arg0, var59->obj3D_.GetTexturePaletteOffset());
-            func_ov017_02191aac(var2, 0, var48, 2);
-            func_ov017_02191aac(var2, 0, var48, 4);
+            SetCombatantAppearanceFlags_ov017_02191aac(var2, 0, var48, 2);
+            SetCombatantAppearanceFlags_ov017_02191aac(var2, 0, var48, 4);
             var20 = 1;
         } else {
             GameState* var95 = GameState::GetInstance();

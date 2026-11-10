@@ -103,7 +103,7 @@ extern "C" int func_ov025_021e2148(void* arg0, int arg1, int arg2, void* arg3, i
 extern "C" void func_ov025_021e120c(void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void HaltForever_020c9be0(void);
 extern "C" void func_ov000_0216f82c(Struct_ov025_021e0638_3* arg0, const int* arg1);
-extern "C" void func_ov000_0216f74c(Struct_ov025_021e0638_5* arg0, const int* arg1);
+extern "C" void GetCellPosition_ov000_0216f74c(Struct_ov025_021e0638_5* cell, const int* arg1);
 struct Vector3i;
 extern "C" void __clear(void* arg0, int arg1);
 
@@ -116,7 +116,7 @@ extern "C" int func_02049ee8(unsigned char*);
 extern "C" void func_ov025_021e2114(unsigned char*, void*, int);
 extern "C" void func_02049410(Struct_02049410*, void*, int);
 extern "C" void func_02049a74(Struct_02048f64*);
-extern "C" void func_02049ae4(unsigned char*);
+extern "C" void StopCombatantSidestep_02049ae4(unsigned char*);
 extern "C" void func_0204950c(unsigned char*);
 extern "C" void func_020494f8(unsigned char*);
 extern "C" void func_02048994(void);
@@ -373,14 +373,14 @@ found:
         if (func_02049ee8(var5[var69].unknown_8_) != 0 && var70 == 0 && arg0[Enum_ov025_021e0638_3704] != 0) {
             func_02049a74((Struct_02048f64*)var5[var69].unknown_8_);
         } else {
-            func_02049ae4(var5[var69].unknown_8_);
+            StopCombatantSidestep_02049ae4(var5[var69].unknown_8_);
         }
         func_0204950c(var5[var69].unknown_8_);
     }
     for (int var72 = 0; var72 < var29; var72++) {
         unsigned char* var73 = (unsigned char*)var2->GetCombatantByIndex(var6[var72]);
         if (var73 != 0 && func_02049444(var73) != 0) {
-            func_02049ae4(var73);
+            StopCombatantSidestep_02049ae4(var73);
             func_020494f8(var73);
         }
     }
@@ -388,7 +388,7 @@ found:
         if (var4->unknown_10_ != 0) {
             unsigned char* var75 = (unsigned char*)var2->GetCombatantByIndex(*(unsigned short*)(var4->unknown_10_ + var74 * 0x34 + 0x20));
             if (var75 != 0) {
-                func_02049ae4(var75);
+                StopCombatantSidestep_02049ae4(var75);
                 func_0204950c(var75);
             }
         }
@@ -397,7 +397,7 @@ found:
         if (var4->unknown_14_ != 0) {
             unsigned char* var77 = (unsigned char*)var2->GetCombatantByIndex(*(short*)(var4->unknown_14_ + var76 * 0x24 + 0xe));
             if (var77 != 0) {
-                func_02049ae4(var77);
+                StopCombatantSidestep_02049ae4(var77);
                 func_0204950c(var77);
             }
         }
@@ -422,7 +422,7 @@ found:
                 for (int var83 = 0; var83 < var0; var83++) {
                     int var84 = func_020493c8(var5[var83].unknown_8_);
                     if (var84 < 0x51 && var7[var84] == 1) {
-                        func_02049ae4(var79);
+                        StopCombatantSidestep_02049ae4(var79);
                         func_0204950c(var79);
                     }
                 }
@@ -442,7 +442,7 @@ found:
             }
             if (var89 < 0x51) {
                 var16 = var89;
-                func_ov000_0216f74c(&var15, &var16);
+                GetCellPosition_ov000_0216f74c(&var15, &var16);
                 var14 = var15;
                 Struct_ov025_021e0638_4 var90;
                 __clear(&var90, 0xc);

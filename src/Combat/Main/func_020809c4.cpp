@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-struct Struct_0207f0ac;
-struct Struct_0207f0ac_2;
-extern "C" Struct_0207f0ac_2* func_0207f0ac(Struct_0207f0ac* arg0, int arg1);
+struct MenuLayoutWindowEntryList_0207f0ac;
+struct MenuLayoutWindowEntry_0207f0ac_2;
+extern "C" MenuLayoutWindowEntry_0207f0ac_2* FindMenuLayoutWindowEntry_0207f0ac(MenuLayoutWindowEntryList_0207f0ac* windowEntries, int windowId);
 
 struct MenuLayoutTextEntryList_0207f524;
 struct MenuLayoutTextEntry_0207f6ac;
@@ -10,7 +10,7 @@ extern "C" MenuLayoutTextEntry_0207f6ac* FindMenuLayoutTextEntry_0207f6ac(MenuLa
 
 // USA: func_020809c4
 extern "C" ARM void func_020809c4(void* arg0, int arg1, int arg2, short* arg3, short* arg4) {
-    Struct_0207f0ac_2* var0 = func_0207f0ac((Struct_0207f0ac*)((char*)arg0 + 0xc), arg1);
+    MenuLayoutWindowEntry_0207f0ac_2* var0 = FindMenuLayoutWindowEntry_0207f0ac((MenuLayoutWindowEntryList_0207f0ac*)((char*)arg0 + 0xc), arg1);
     if (var0 == NULL) {
         return;
     }

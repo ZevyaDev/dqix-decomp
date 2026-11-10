@@ -14,7 +14,7 @@ extern "C" int func_ov024_021e8c48(void*, signed char);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int,int,int);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*,void*,int);
-extern "C" void func_ov000_0215ffc4(void*,void*,int);
+extern "C" void AppendTargetResult_ov000_0215ffc4(void*,void*,int);
 extern "C" void SetActionResultFlag_ov000_02159eac(void*,unsigned long long*,int);
 extern "C" void func_ov000_0215cd44(void*,void*,GameObject*,short,unsigned long long,unsigned char);
 extern "C" void func_ov000_0215af54(void*,int,int);
@@ -50,7 +50,7 @@ extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg
     void* var8=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if(!var8)return 0;
     func_ov000_0215cd44(arg0->unknown_10_,var8,var0,var6,var4,arg0->unknown_c_->unknown_1c_7_!=0);
-    func_ov000_0215ffc4(arg0->unknown_c_,var8,0);
+    AppendTargetResult_ov000_0215ffc4(arg0->unknown_c_,var8,0);
     ++*((unsigned char*)arg0->unknown_10_+0x8e02);
     AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var8,0x152);
     if(var6<var7){
@@ -63,7 +63,7 @@ extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg
       void* var9=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
       if(!var9)return 0;
       func_ov000_0215cd44(arg0->unknown_10_,var9,var0,var6,var4,arg0->unknown_c_->unknown_1c_7_!=0);
-      func_ov000_0215ffc4(arg0->unknown_c_,var9,0);
+      AppendTargetResult_ov000_0215ffc4(arg0->unknown_c_,var9,0);
       ++*((unsigned char*)arg0->unknown_10_+0x8e02);
       arg0->unknown_74_=1;
       AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var9,var3);
@@ -75,7 +75,7 @@ extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg
       AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var8,0x34);
       SetActionResultFlag_ov000_02159eac(arg0->unknown_10_,&var4,7);
       func_ov000_0215cd44(arg0->unknown_10_,var8,var0,var6,var4,arg0->unknown_c_->unknown_1c_7_!=0);
-      func_ov000_0215ffc4(arg0->unknown_c_,var8,0);
+      AppendTargetResult_ov000_0215ffc4(arg0->unknown_c_,var8,0);
       ++*((unsigned char*)arg0->unknown_10_+0x8e02);
       arg0->unknown_74_=1;
       AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var8,var3);
@@ -109,7 +109,7 @@ extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg
      var12=0;
     }
     func_ov000_0215cd44(arg0->unknown_10_,var13,var0,var12,var4,arg0->unknown_c_->unknown_1c_7_!=0);
-    func_ov000_0215ffc4(arg0->unknown_c_,var13,0);
+    AppendTargetResult_ov000_0215ffc4(arg0->unknown_c_,var13,0);
     ++*((unsigned char*)arg0->unknown_10_+0x8e02);
     arg0->unknown_74_=1;
     AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var13,var3);
@@ -119,7 +119,7 @@ extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg
    void* var15=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
    if(!var15)return 0;
    func_ov000_0215cd44(arg0->unknown_10_,var15,var0,0,0,arg0->unknown_c_->unknown_1c_7_!=0);
-   func_ov000_0215ffc4(arg0->unknown_c_,var15,0);
+   AppendTargetResult_ov000_0215ffc4(arg0->unknown_c_,var15,0);
    ++*((unsigned char*)arg0->unknown_10_+0x8e02);
    arg0->unknown_74_=1;
    AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var15,SelectPartyOrEnemyMessage_ov024_021da644(arg2,arg3->unknown_24_.unknown_1_2_,arg3->unknown_24_.unknown_2_4_));

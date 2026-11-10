@@ -644,7 +644,7 @@ data_ov004_021708c8 kind:bss addr:0x021708c8
 data_ov004_02170b90 kind:bss addr:0x02170b90
 data_ov004_02170dd0 kind:bss addr:0x02170dd0
 data_ov004_02171002 kind:bss addr:0x02171002
-data_ov004_02171010 kind:bss addr:0x02171010
+gTreasureMapScreen_ov004_02171010 kind:bss addr:0x02171010
 data_ov004_0217101c kind:bss addr:0x0217101c
 data_ov004_02171024 kind:bss addr:0x02171024
 data_ov004_02171030 kind:bss addr:0x02171030

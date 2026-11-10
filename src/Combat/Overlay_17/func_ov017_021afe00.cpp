@@ -73,7 +73,7 @@ struct Struct_ov017_021afe00_2 {
 
 extern "C" void* GetLocalWireless_0202ae18();
 extern "C" void* GetZone3D_02012fe4();
-extern "C" void func_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* arg0);
 extern "C" void func_ov017_021cff8c(int arg0, int arg1);
 extern "C" void func_ov017_021d0b30(int arg0, int arg1, int arg2);
 
@@ -153,7 +153,7 @@ extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
             GameObject* var11 = var0->GetPartyMemberByIndex(var10);
             if (var11 != 0) {
                 if (IsPerformingGesture_020535c8((signed char*)var11) != 0) {
-                    func_020531f0(var11);
+                    StopGesture_020531f0(var11);
                 }
             }
         }

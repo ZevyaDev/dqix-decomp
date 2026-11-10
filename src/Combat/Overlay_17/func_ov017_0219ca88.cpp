@@ -42,7 +42,7 @@ extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_ov017_0219bed0(void*);
 extern "C" unsigned char GetGameMode_0200fb9c(char*);
-extern "C" int func_0201201c(void*);
+extern "C" int GetTitleState_0201201c(void*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_020321e0(const Vector3fix*, Struct_02000c9c_56*, int, const Vector3fix*, int);
 extern "C" void* func_ov017_0219c6f4(void*);
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov017_0219ca88(GameResources* arg0) {
         arg0->unknown_42e3_[6] = 0;
     }
     int var7 = 1;
-    if (GetGameMode_0200fb9c((char*)var0) != 6 && func_0201201c(var0) != 5) {
+    if (GetGameMode_0200fb9c((char*)var0) != 6 && GetTitleState_0201201c(var0) != 5) {
         if (*reinterpret_cast<unsigned int*>(reinterpret_cast<char*>(var1) + Enum_ov017_0219ca88_396) & 1) var7 = 0;
         else if (var3[2]) var7 = 0;
         if (var7) {

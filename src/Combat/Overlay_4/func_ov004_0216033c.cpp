@@ -24,7 +24,7 @@ extern "C" void func_ov004_0215e49c(void*, int, int);
 extern "C" extern int func_ov023_021f6f10(void* arg0);
 extern "C" int func_ov004_0215e460(void);
 extern "C" int func_ov004_0215e4e8(void* arg0, int arg1);
-extern "C" int func_020dd11c(unsigned int arg0, unsigned int arg1);
+extern "C" int GetVocationSkill_020dd11c(unsigned int vocation, unsigned int index);
 
 typedef Vector3i Type_02000c9c_18;
 class Struct_ov004_0215fdfc_4 {
@@ -366,7 +366,7 @@ stats_done:
     if (func_ov004_0215e460() != 0) var60 = 1;
 
     for (var57 = 0; var57 < 5; var57++) {
-        var55 = func_020dd11c(D1[var51] & 0xff, var57 & 0xff);
+        var55 = GetVocationSkill_020dd11c(D1[var51] & 0xff, var57 & 0xff);
         switch (var55) {
         case 1: var61 = 0x12; break;
         case 2: var61 = 0x13; break;

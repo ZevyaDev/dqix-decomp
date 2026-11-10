@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct MenuCursor_0205bcdc;
-struct Struct_0205c4a8;
+struct MenuCursor_0205c4a8;
 struct MenuCursor_0205bb84;
 
 struct Struct_ov000_0217c158 {
@@ -39,7 +39,7 @@ struct Struct_ov000_0217c158_3 {
 };
 
 extern "C" int func_0205dd08(Struct_ov000_0217c158* arg0);
-extern "C" void func_0205c4a8(struct Struct_0205c4a8* arg0, int arg1);
+extern "C" void ChangeMenuCursorPage_0205c4a8(struct MenuCursor_0205c4a8* cursor, int pageStep);
 extern "C" int GetMenuCursorIndex_0205bb84(struct MenuCursor_0205bb84* cursor);
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc* cursor, int index);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
@@ -59,7 +59,7 @@ extern "C" ARM int func_ov000_0217c158(Struct_ov000_0217c158_3* arg0) {
         return 0;
     }
     var5 = arg0->unknown_38_;
-    func_0205c4a8((struct Struct_0205c4a8*)&var5->unknown_54_, var0);
+    ChangeMenuCursorPage_0205c4a8((struct MenuCursor_0205c4a8*)&var5->unknown_54_, var0);
     var1 = GetMenuCursorIndex_0205bb84((struct MenuCursor_0205bb84*)&var5->unknown_54_);
     SetTouchMenuCursorIndex_0205bcdc((struct MenuCursor_0205bcdc*)var5->unknown_4_, var1);
     switch (arg0->unknown_10_[arg0->unknown_18_]) {

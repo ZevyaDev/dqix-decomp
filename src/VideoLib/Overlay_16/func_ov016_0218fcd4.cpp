@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 
-extern "C" int func_020ca4b4(void*, void*, int);
+extern "C" int Memcpy32BitByBlock_020ca4b4(void*, void*, int);
 
 struct Struct_ov016_0219d1c0_3 {
     unsigned char unknown_0_[0x8];
@@ -21,7 +21,7 @@ extern "C" ARM void* func_ov016_0218fcd4(void) {
     if (data_ov016_0219d1c0.unknown_14_ < 0x659c)
         goto fallback;
     data_ov016_0219d1c0.unknown_8_ = data_ov016_0219d1c0.unknown_18_;
-    func_020ca4b4(data_ov016_02195f78, data_ov016_0219d1c0.unknown_18_, 0x659c);
+    Memcpy32BitByBlock_020ca4b4(data_ov016_02195f78, data_ov016_0219d1c0.unknown_18_, 0x659c);
     data_ov016_0219d1c0.unknown_18_ = (unsigned char*)data_ov016_0219d1c0.unknown_18_ + 0x659c;
     data_ov016_0219d1c0.unknown_14_ -= 0x659c;
     goto done;

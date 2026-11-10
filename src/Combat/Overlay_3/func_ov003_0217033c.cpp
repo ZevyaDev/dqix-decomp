@@ -3,7 +3,7 @@
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimation_0205a254_2;
 #if defined(jpn)
-extern "C" void func_020e27ec(SpriteAnimationList_0205a254*, int, short, short);
+extern "C" void SetSpriteAnimationPosition_020e27ec(SpriteAnimationList_0205a254*, int, short, short);
 #endif
 extern "C" void func_ov003_021703f0(void*, short*, short*);
 extern "C" void PlaySpriteAnimation_0205a370(SpriteAnimationList_0205a254*, int);
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov003_0217033c(char* arg0) {
         }
         AdvanceSpriteAnimations_0205a330((SpriteAnimationList_0205a330*)var0, 2);
 #if defined(jpn)
-        func_020e27ec(var0, 0, var1, var2);
+        SetSpriteAnimationPosition_020e27ec(var0, 0, var1, var2);
 #else
         short var4, var5;
         var5 = var2;

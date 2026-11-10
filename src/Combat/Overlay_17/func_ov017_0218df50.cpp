@@ -7,7 +7,7 @@ extern "C" void* GetNPCManager_0203cf4c(void);
 struct NPC_0203dce4;
 struct NPCManager_0203dce4_2;
 extern "C" struct NPC_0203dce4* GetNPCByIndex_0203dce4(struct NPCManager_0203dce4_2* npcManager, int index);
-extern "C" int func_02040528(int* arg0);
+extern "C" int GetNPCData_02040528(int* npc);
 
 extern "C" int func_ov017_0218dd18(void* arg0, struct NPC_0203dce4* arg1, void* arg2);
 
@@ -21,7 +21,7 @@ extern "C" ARM int func_ov017_0218df50(void* arg0, void* arg1) {
 		for (int var3 = 0; var3 < 0x20; var3++) {
 			struct NPC_0203dce4* var4 = GetNPCByIndex_0203dce4((struct NPCManager_0203dce4_2*)var2, var3);
 			if (!var4) continue;
-			int var5 = func_02040528(&var4->flags_0_);
+			int var5 = GetNPCData_02040528(&var4->flags_0_);
 			if (*((unsigned char*)var5 + 2) == 1) continue;
 			if (func_ov017_0218dd18(arg0, var4, arg1) != 0) {
 				var0 = 1;

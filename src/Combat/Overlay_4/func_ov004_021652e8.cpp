@@ -3,7 +3,7 @@
 
 struct Struct_ov004_02164670;
 extern "C" int GetMessageWindow_020421a0(void);
-extern char* data_ov004_02171010;
+extern char* gTreasureMapScreen_ov004_02171010;
 struct Struct_ov004_021652e8 {
 #if defined(jpn)
     unsigned char unknown_0_[0x19f4];
@@ -37,7 +37,7 @@ extern "C" ARM int func_ov004_021652e8(void* arg0) {
     if (*(void**)((char*)GetMessageWindow_020421a0() + Enum_ov004_021652e8_2456) != NULL) return 0;
 
     {
-        Struct_ov004_021652e8* var1 = (Struct_ov004_021652e8*)data_ov004_02171010;
+        Struct_ov004_021652e8* var1 = (Struct_ov004_021652e8*)gTreasureMapScreen_ov004_02171010;
         unsigned char var2 = var1->unknown_18f4_;
         if (var2 == 0) return 0;
 
@@ -50,7 +50,7 @@ extern "C" ARM int func_ov004_021652e8(void* arg0) {
         }
 
         unsigned char* var4 = *(unsigned char**)((char*)GetGameResources() + 0x3000 + Enum_ov004_021652e8_1744);
-        unsigned char var5 = ((Struct_ov004_021652e8*)data_ov004_02171010)->unknown_18fc_;
+        unsigned char var5 = ((Struct_ov004_021652e8*)gTreasureMapScreen_ov004_02171010)->unknown_18fc_;
         if (var5 == 1) {
             func_02026420(var4, 0);
         } else if (var5 == 0) {

@@ -14,7 +14,7 @@ extern "C" void func_ov000_02160030(void*);
 extern "C" void* func_ov000_0215e918(void*);
 extern "C" void* func_ov000_0215e938(void*);
 extern "C" void func_ov000_02157cdc(void*);
-extern "C" void func_ov000_0215ffc4(void*,void*,int);
+extern "C" void AppendTargetResult_ov000_0215ffc4(void*,void*,int);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*,void*,int);
 struct Struct_ov000_0215767c_7; struct Struct_ov000_0215767c_6; struct Struct_ov000_0215767c_5; struct Struct_ov000_0215767c_4;
 extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*,Struct_ov000_0215767c_6*);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov000_0215b278(unsigned char* arg0,BattleAction_ov000_0
    SetActionResult_ov000_0215ccbc(arg0,var10,var4,0,var12,var11,0,0);}
    AddActionResultMessage_ov000_0215a88c(arg0,var10,0x35);
    var9->unknown_e_=var1->unknown_e_;var9->unknown_17_=1;
-   func_ov000_0215ffc4(var9,var10,0);
+   AppendTargetResult_ov000_0215ffc4(var9,var10,0);
    arg0[0x8e02]++;
    func_ov000_02160068((Struct_ov000_0215767c_7*)var8,(Struct_ov000_0215767c_6*)var6);
    func_ov000_021600cc((Struct_ov000_0215767c_5*)var8,(Struct_ov000_0215767c_4*)var9);

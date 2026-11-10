@@ -21,8 +21,8 @@ struct Struct_02048e2c {
     Struct_02048e2c_2 *inline_02048e2c() const { return unknown_13c_; }
 };
 
-static inline Struct_02048cf0 inline_02048e2c_2(const int &arg0) {
-    return func_ov000_0216f74c(const_cast<int *>(&arg0));
+static inline CellPosition_02048cf0 inline_02048e2c_2(const int &arg0) {
+    return GetCellPosition_ov000_0216f74c(const_cast<int *>(&arg0));
 }
 
 // USA: func_02048e2c
@@ -58,9 +58,9 @@ extern "C" ARM void func_02048e2c(Struct_02048e2c *arg0) {
     }
 
     for (;;) {
-        Struct_02048cf0 var6 = inline_02048e2c_2(arg0->unknown_13c_->unknown_24_[1]);
-        int var7                  = var6.unknown_0_;
-        int var8                  = var6.unknown_4_;
+        CellPosition_02048cf0 var6 = inline_02048e2c_2(arg0->unknown_13c_->unknown_24_[1]);
+        int var7                  = var6.x_0_;
+        int var8                  = var6.z_4_;
         if (arg0->unknown_13c_->unknown_40_[0] == var7 && arg0->unknown_13c_->unknown_40_[2] == var8) {
             arg0->unknown_13c_->unknown_34_--;
             if (arg0->unknown_13c_->unknown_34_ <= 1) {

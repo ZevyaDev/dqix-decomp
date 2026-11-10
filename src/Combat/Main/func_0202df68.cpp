@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" void func_0202eab8(void* arg0);
+extern "C" void SetCameraOrbitFromEye_0202eab8(void* camera);
 extern "C" void SetCameraOrbit_0202e5d8(void* camera, int angle, int height, int distance);
 extern "C" void Mat3x3_WriteIdentity(void* obj);
 extern "C" void func_020a0d58(void* arg0);
@@ -26,7 +26,7 @@ extern "C" ARM void func_0202df68(void* arg0) {
     *(int*)((char*)arg0 + 0x1c) = 0;
     *(int*)((char*)arg0 + 0x20) = 0x1000;
     *(int*)((char*)arg0 + 0x24) = 0;
-    func_0202eab8(arg0);
+    SetCameraOrbitFromEye_0202eab8(arg0);
 
     SetCameraOrbit_0202e5d8(arg0, 0, 0x6000, 0xb000);
 

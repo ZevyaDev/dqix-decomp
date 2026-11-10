@@ -27,7 +27,7 @@ struct Struct_ov004_02171010 {
     void* unknown_8_;
 };
 
-extern struct Struct_ov004_02171010 data_ov004_02171010;
+extern struct Struct_ov004_02171010 gTreasureMapScreen_ov004_02171010;
 
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
@@ -86,21 +86,21 @@ extern "C" ARM void func_ov004_021636b0(void* arg0, const char* arg1) {
 
     int var10 = func_ov023_021f9bb0((struct Struct_ov004_021549e4_2*)var9);
 #if !defined(jpn)
-    var3 = &data_ov004_02171010.unknown_0_->unknown_ad4_[var10];
+    var3 = &gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var10];
 #endif
 
 #if defined(jpn)
-    if (data_ov004_02171010.unknown_0_->unknown_ad4_[var10].mapType_ == 1) {
-        func_02026428(var7, data_ov004_02171010.unknown_0_->inline_ov004_021636b0(var10)->nameNoLevel_);
-        func_02026470(var7, data_ov004_02171010.unknown_0_->unknown_ad4_[var10].regular_.level_);
-    } else if (data_ov004_02171010.unknown_0_->unknown_ad4_[var10].mapType_ == 2) {
-        func_02026428(var7, data_ov004_02171010.unknown_0_->inline_ov004_021636b0_2(var10)->mapNameNoLevel_);
-        func_02026470(var7, data_ov004_02171010.unknown_0_->unknown_ad4_[var10].legacy_.level_);
+    if (gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var10].mapType_ == 1) {
+        func_02026428(var7, gTreasureMapScreen_ov004_02171010.unknown_0_->inline_ov004_021636b0(var10)->nameNoLevel_);
+        func_02026470(var7, gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var10].regular_.level_);
+    } else if (gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var10].mapType_ == 2) {
+        func_02026428(var7, gTreasureMapScreen_ov004_02171010.unknown_0_->inline_ov004_021636b0_2(var10)->mapNameNoLevel_);
+        func_02026470(var7, gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var10].legacy_.level_);
     }
-    func_020264e4((char*)var7, data_ov004_02171010.unknown_0_->unknown_ad4_[var10].discoveredBy_);
-    func_02026528((char*)var7, data_ov004_02171010.unknown_0_->unknown_ad4_[var10].clearedBy_);
-    if (data_ov004_02171010.unknown_0_->unknown_ad4_[var10].mapType_ == 2) {
-        func_0202656c((struct Struct_0202656c*)var7, data_ov004_02171010.unknown_0_->unknown_ad4_[var10].legacy_.minTurns_);
+    func_020264e4((char*)var7, gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var10].discoveredBy_);
+    func_02026528((char*)var7, gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var10].clearedBy_);
+    if (gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var10].mapType_ == 2) {
+        func_0202656c((struct Struct_0202656c*)var7, gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var10].legacy_.minTurns_);
     }
 
 #else
@@ -127,21 +127,21 @@ extern "C" ARM void func_ov004_021636b0(void* arg0, const char* arg1) {
     var6 = GetMenuObjectStringList_ov023_021fa598(var11);
     for (int var12 = 0; var12 < 3; var12++) {
         __clear(var1, sizeof(var1));
-        if (data_ov004_02171010.unknown_0_->unknown_ad4_[var10].discoveredTreasures_[var12] == 0) {
-            func_020265a8((char*)var7, (unsigned char)var12, NULL, data_ov004_02171010.unknown_0_->unknown_ad4_[var10].treasureDropRates_[var12]);
+        if (gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var10].discoveredTreasures_[var12] == 0) {
+            func_020265a8((char*)var7, (unsigned char)var12, NULL, gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var10].treasureDropRates_[var12]);
             continue;
         }
-        if (!func_ov004_0216ff54(data_ov004_02171010.unknown_0_->unknown_ad4_[var10].treasureItemIDs_[var12], var1)) {
-            const char* var13 = (const char*)FindStringInList_02072a68(var6, (short)data_ov004_02171010.unknown_0_->unknown_ad4_[var10].treasureItemIDs_[var12]);
+        if (!func_ov004_0216ff54(gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var10].treasureItemIDs_[var12], var1)) {
+            const char* var13 = (const char*)FindStringInList_02072a68(var6, (short)gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var10].treasureItemIDs_[var12]);
             if (var13 != NULL) {
                 func_02041f50(var13, var1);
             }
         }
-        unsigned char var14 = data_ov004_02171010.unknown_0_->unknown_ad4_[var10].treasureDropRates_[var12];
+        unsigned char var14 = gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var10].treasureDropRates_[var12];
         func_020265a8((char*)var7, (unsigned char)var12, var1, var14);
     }
 #else
-    memset(data_ov004_02171010.unknown_4_, 0, 0x333);
+    memset(gTreasureMapScreen_ov004_02171010.unknown_4_, 0, 0x333);
 
     for (int var15 = 0; var15 < 3; var15++) {
         __clear(var0, 0x80);
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov004_021636b0(void* arg0, const char* arg1) {
             continue;
         }
 
-        var5 = data_ov004_02171010.unknown_4_ + var15 * 0x80;
+        var5 = gTreasureMapScreen_ov004_02171010.unknown_4_ + var15 * 0x80;
         memset(var5, 0, 0x80);
         int var17 = func_ov004_0216f8c0(var3->treasureItemIDs_[var15]);
         if (var17 != 0) {
@@ -163,7 +163,7 @@ extern "C" ARM void func_ov004_021636b0(void* arg0, const char* arg1) {
             CopyCapitalizedText_0206819c((const char*)FindStringInList_02072a68(var19, (short)var17), var1, 0);
             func_02046608(var16, 0, var1, var5, 0x60, 0, 0);
         } else {
-            char** var20 = (char**)FindNounInTable_020e5294(data_ov004_02171010.unknown_8_, (short)var3->treasureItemIDs_[var15]);
+            char** var20 = (char**)FindNounInTable_020e5294(gTreasureMapScreen_ov004_02171010.unknown_8_, (short)var3->treasureItemIDs_[var15]);
             CopyCapitalizedText_0206819c(*var20, var1, 0);
             func_02046608(var16, 0, var1, var5, 0x60, 0, 0);
         }

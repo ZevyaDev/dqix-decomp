@@ -51,13 +51,13 @@ struct BGLayer_02020cb8_2;
 struct Struct_02000c9c_8;
 
 extern "C" void WriteBrightnessRegister_020c39a0(short*, int);
-extern "C" void func_020bc078(int*);
+extern "C" void ClearSoundHandle_020bc078(int*);
 extern "C" void func_0203aa44(void*);
 extern "C" int func_0203aaf8(void*, void*, int*);
 extern "C" void func_ov016_0218be1c();
 extern "C" void func_02012bd8();
 extern "C" int func_020c3864(int);
-extern "C" int func_0201201c(void*);
+extern "C" int GetTitleState_0201201c(void*);
 extern "C" void SetSubBGMode_020c3984(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
@@ -127,7 +127,7 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
     IRQ_MASTER_ENABLE = 1;
     func_020c3864(1);
     GameState* var1 = GameState::GetInstance();
-    if (func_0201201c(var1) == 5)
+    if (GetTitleState_0201201c(var1) == 5)
     {
         MapVRAMBanksToLCDC(0x1ff);
         Memset32Bit_020ca458(0, (void*)0x06800000, 0xa4000);
@@ -210,7 +210,7 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
     data_ov016_0219d0c0.unknown_40_[1] = 0;
     data_ov016_0219d0c0.unknown_10_ = arg2->unknown_12_ < 0;
     data_ov016_0219d0c0.unknown_0_ = arg3;
-    func_020bc078(&data_ov016_0219d0cc);
+    ClearSoundHandle_020bc078(&data_ov016_0219d0cc);
     if (data_ov016_0219d0c0.unknown_34_->unknown_10_ == 0)
     {
         func_0203aa44(&gMusicManager_02109bf4);
@@ -222,7 +222,7 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
     IRQ_MASTER_ENABLE = 1;
     func_020c3864(1);
     GameState* var14 = GameState::GetInstance();
-    if (func_0201201c(var14) == 5)
+    if (GetTitleState_0201201c(var14) == 5)
     {
         MapVRAMBanksToLCDC(0x1ff);
         Memset32Bit_020ca458(0, (void*)0x06800000, 0xa4000);

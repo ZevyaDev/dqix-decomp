@@ -98,7 +98,7 @@ extern "C" int GetMessageChoice_020457e0(char* window);
 extern "C" unsigned char* GetFlagManager_0205ec34(void);
 extern "C" unsigned char* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
-extern "C" void func_020e1154(void* arg0);
+extern "C" void DisableInputForDuration_020e1154(void* durationMs);
 extern "C" void func_ov017_021d1c2c(unsigned char, unsigned short);
 extern "C" void func_ov017_021d1dc0(unsigned short, int, int*, int, int);
 extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int isFullReset);
@@ -319,7 +319,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
         var32[0xc] = 0;
         *(short*)(var32 + 0x6c) = -1;
         var32[7] = 1;
-        func_020e1154((void*)0x1f4);
+        DisableInputForDuration_020e1154((void*)0x1f4);
         if (arg0->unknown_c_ == arg0->unknown_10_) {
             int var33 = 1;
             switch (arg0->unknown_10_) {

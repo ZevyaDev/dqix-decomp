@@ -53,7 +53,7 @@ struct Struct_ov031_02217604_5 {
 extern "C" int func_020c7170(char*, unsigned long, const char*, ...);
 extern "C" int func_020c7130(char*, const char*, ...);
 extern "C" void HaltForever_020c9be0(void);
-extern "C" void func_020c99ac(unsigned char*);
+extern "C" void GetMACAddress_020c99ac(unsigned char*);
 extern "C" void func_020c99c8(void*);
 extern "C" int func_020cf25c(void*, void*);
 extern "C" unsigned char* func_ov031_0220f040(void);
@@ -92,7 +92,7 @@ extern "C" ARM int func_ov031_02217604(Struct_ov031_02217604_5* arg0, const Stru
     }
     VectorizedInvertedMemcpy(var6, arg0->unknown_1a_, 2);
     arg0->unknown_1d_ = '0';
-    func_020c99ac(var3);
+    GetMACAddress_020c99ac(var3);
     signed long var7 = 0;
     unsigned char* var8 = var3;
     char* var9 = arg0->unknown_1f_;

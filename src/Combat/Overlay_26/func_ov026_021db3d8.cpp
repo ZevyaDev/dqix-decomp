@@ -85,7 +85,7 @@ extern "C" int PlayEffect_02057fb4(void* effectManager, int effectId, void* para
 
 extern "C" {
 void* GetEffectManager_02057924();
-int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigned int arg4, TextureVRAMArea_0203d028* arg5);
+int AddEffectResource_02057e6c(void* effectManager, int effectId, SafeAllocator* allocator, void* fileData, unsigned int fileSize, TextureVRAMArea_0203d028* textureVRAMArea);
 }
 
 extern char data_ov026_021dedf0[];
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov026_021db3d8(BattleScene_ov000_02160da0* arg0) {
                 void* var2;
                 unsigned int var3;
                 var0->GetLoadedFileByID(arg0->unknown_772a_, &var2, &var3);
-                func_02057e6c(var1, 0x13, &arg0->unknown_774c_, var2, var3, &arg0->unknown_7760_);
+                AddEffectResource_02057e6c(var1, 0x13, &arg0->unknown_774c_, var2, var3, &arg0->unknown_7760_);
                 var0->RemoveTask(arg0->unknown_772a_);
                 arg0->unknown_7728_ = 2;
             }

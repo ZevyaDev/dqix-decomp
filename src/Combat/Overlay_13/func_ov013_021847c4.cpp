@@ -14,8 +14,8 @@
 #endif
 #include "GameState/GameState.h"
 
-struct Struct_0205d0e0_2;
-extern "C" void* func_0205d888(struct Struct_0205d0e0_2* arg0);
+struct TextWindowManager_0205d0e0_2;
+extern "C" void* GetLastOpenedTextWindow_0205d888(struct TextWindowManager_0205d0e0_2* windowManager);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 extern "C" void SetMenuCursorTouchedIndex_0205bc24(void* cursor, int index);
 extern "C" int GetMessageWindow_020421a0(void);
@@ -61,7 +61,7 @@ extern "C" ARM unsigned char func_ov013_021847c4(void* arg0, int arg1) {
     var1 = GameState::GetInstance();
     *(int*)(var0 + R(0x5d0,0x644)) = var1->GetTickCount();
 
-    var2 = func_0205d888((struct Struct_0205d0e0_2*)(var0 + R(0x34,0x38)));
+    var2 = GetLastOpenedTextWindow_0205d888((struct TextWindowManager_0205d0e0_2*)(var0 + R(0x34,0x38)));
     if (var2 != 0) {
         if (IsTextWindowReady_0204c7cc((unsigned char*)var2) != 0) {
             if ((((unsigned char*)var2)[0xc5] & 2) == 0) {

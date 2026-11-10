@@ -33,7 +33,7 @@ extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0 *window, int in
 extern "C" void *FindActionData_02079e2c(char *actionTables, int actionId);
 extern "C" void func_020e4e38(void *arg0, struct Struct_020e4e38 *arg1);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState *gameState);
-extern "C" void func_020e526c(void *arg0);
+extern "C" void InitNounTable_020e526c(void *nounTable);
 extern "C" void func_020e56fc(void *arg0, int arg1, int arg2);
 extern "C" void *FindNounInTable_020e5294(void *nounTable, int nounId);
 extern "C" void func_020e4f18(void *arg0, void *arg1, int arg2);
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov002_02161234(char *arg0, char *arg1) {
         }
         BackgroundLoader::AddLockGlobal();
         void *var23 = ExtractFileFromGP2(data_ov002_0216d2bc, data_ov002_0216d2d2, &var10);
-        func_020e526c(&var9);
+        InitNounTable_020e526c(&var9);
         func_020e56fc(&var9, (int) var23, var10);
         void *var24 = FindNounInTable_020e5294(&var9, *(short *) (arg0 + 0x1c22));
         void *var25 = FindNounInTable_020e5294(&var9, *(short *) (arg0 + 0x1c24));

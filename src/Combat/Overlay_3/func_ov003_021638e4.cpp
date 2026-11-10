@@ -57,9 +57,9 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState *);
 struct Struct_02033834;
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void func_ov017_021af59c(Struct_ov000_0215b278 *);
-struct Struct_020469f8;
-struct Struct_020469f8_2;
-extern "C" void func_020469f8(Struct_020469f8*, Struct_020469f8_2*);
+struct Queue_020469f8;
+struct QueueNode_020469f8_2;
+extern "C" void PrependToQueue_020469f8(Queue_020469f8*, QueueNode_020469f8_2*);
 struct Struct_ov003_021638e4_2;
 extern "C" void func_ov017_021b11b0(Struct_ov003_021638e4_2*);
 extern "C" int *GetLocalWireless_0202ae18();
@@ -151,11 +151,11 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
                 Struct_ov000_0215b278 *var10 = *(Struct_ov000_0215b278 **) (var0 + 0x3000 + RES_NODE_A_021638e4);
                 func_ov017_021af59c(var10);
                 var10->unknown_9_ = 2;
-                func_020469f8((Struct_020469f8*)var3, (Struct_020469f8_2*)var10);
+                PrependToQueue_020469f8((Queue_020469f8*)var3, (QueueNode_020469f8_2*)var10);
             } else {
                 Struct_ov000_0215b278 *var11 = *(Struct_ov000_0215b278 **) (var0 + 0x3000 + RES_NODE_B_021638e4);
                 func_ov017_021b11b0((Struct_ov003_021638e4_2*)var11);
-                func_020469f8((Struct_020469f8*)var3, (Struct_020469f8_2*)var11);
+                PrependToQueue_020469f8((Queue_020469f8*)var3, (QueueNode_020469f8_2*)var11);
             }
             arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
         }
@@ -212,7 +212,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
                 }
             } else {
                 var20->unknown_cf_ = 3;
-                func_020469f8((Struct_020469f8*)var3, (Struct_020469f8_2*)var20);
+                PrependToQueue_020469f8((Queue_020469f8*)var3, (QueueNode_020469f8_2*)var20);
                 func_ov017_0219bd1c(1, 0, 0, 1);
                 int *var22                         = GetZoneEntry_0200fd0c(var1);
                 var22[4]                           = 0x48cc;

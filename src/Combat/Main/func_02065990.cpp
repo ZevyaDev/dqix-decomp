@@ -98,7 +98,7 @@ extern "C" void func_0208bf28(Struct_02065990_2*, int, unsigned char);
 extern "C" unsigned char* GetQuestManager_02094d6c();
 struct Struct_02065990_3;
 extern "C" int func_020965ac(Struct_02065990_3*, unsigned char);
-extern "C" void func_020cf0fc(int);
+extern "C" void GetCurrentDate_020cf0fc(int);
 extern "C" void func_020cf1a8(int);
 struct MusicManager_02109bf4_2;
 extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
@@ -489,7 +489,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                     *&arg0->unknown_195b_ |= 1;
                     unsigned char* var38 = GetQuestManager_02094d6c();
                     int var39 = func_020965ac((Struct_02065990_3*)var38, (unsigned char)*(short*)(var0 + REGION_VALUE(0x1776, 0x1948)));
-                    func_020cf0fc((int)&var6);
+                    GetCurrentDate_020cf0fc((int)&var6);
                     func_020cf1a8((int)&var7);
                     var3.unknown1_0_.unknown_0_0_ = var6.unknown_0_;
                     var3.unknown1_0_.unknown_0_7_ = var6.unknown_4_;

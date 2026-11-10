@@ -38,7 +38,7 @@ struct Struct_ov000_02170ffc {
     unsigned char unknown_87_;
 };
 
-extern "C" int func_ov000_021719f8(int* arg0);
+extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
 #if defined(jpn)
 extern "C" int func_ov000_02171a74(struct Struct_ov000_02170ffc* arg0);
 #else
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov000_02170ffc(struct Struct_ov000_02170ffc* arg0) {
     if (arg0->unknown_87_ == 0) {
         return;
     }
-    if (func_ov000_021719f8((int*)arg0)) {
+    if (IsPanelMemberIncapacitated_ov000_021719f8((int*)arg0)) {
 #if defined(jpn)
         int var1 = func_ov000_02171a74(arg0);
         struct Struct_0201099c_3* var2 = arg0->unknown_4_;

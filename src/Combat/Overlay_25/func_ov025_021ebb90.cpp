@@ -123,12 +123,12 @@ extern "C" void func_ov000_0216346c(char* arg0, int arg1);
 extern "C" void func_ov000_021634c8(char* arg0, int arg1);
 extern "C" short GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 extern "C" int func_ov025_021d8c30(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
-extern "C" void func_02049ae4(unsigned char* arg0);
+extern "C" void StopCombatantSidestep_02049ae4(unsigned char* combatant);
 extern "C" int func_02049ee8(unsigned char* arg0);
 extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void CloseMessageWindow_02043124(void* window);
-extern "C" struct Struct_0203a588_2* func_02039e70(void);
+extern "C" struct Struct_0203a588_2* GetBattleNumberPopups_02039e70(void);
 extern "C" void func_0203a588(struct Struct_0203a588_2* arg0);
 extern "C" void func_ov000_02182a44(void* arg0);
 struct GameResources;
@@ -148,7 +148,7 @@ extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* par
 extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov025_021ee438(struct Struct_ov025_021ee438* arg0, int arg1);
 extern "C" void func_ov025_021dcf14(void* arg0);
-extern "C" void* func_ov000_02160f14(void* arg0);
+extern "C" void* GetBattleCamera_ov000_02160f14(void* battleScene);
 extern "C" void func_ov000_0216df00(void* arg0, int arg1, int arg2, int arg3, float arg4);
 extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void* battleScene, int selector, int isVisible);
 extern "C" void func_ov025_021ecb90(struct Struct_ov025_021ebb90_6* arg0, struct Struct_ov025_021ebb90_6* arg1);
@@ -315,18 +315,18 @@ extern "C" ARM void func_ov025_021ebb90(struct Struct_ov025_021e9778_4* arg0) {
                         if (var43 != 0) var41 = var43->unknown_20_;
                     }
                     if (var41 >= 0) {
-                        func_ov000_0216df00(func_ov000_02160f14(var12), var41, 0, 0, 1.8f);
+                        func_ov000_0216df00(GetBattleCamera_ov000_02160f14(var12), var41, 0, 0, 1.8f);
                         SetObjectsVisibleBySelector_ov000_021626a0(var12, 4, 0);
                         GameObject* var44 = var11->GetCombatantByIndex(var41);
                         if (var44 != 0) {
                             ((Object3D*)((unsigned char*)var44))->MakeVisible();
-                            func_02049ae4((unsigned char*)var44);
+                            StopCombatantSidestep_02049ae4((unsigned char*)var44);
                             if (func_02049ee8((unsigned char*)var44) != 0) {
                                 SetMotion_02033b88((struct Struct_02010604*)var44, 0);
                             }
                         }
                         CloseMessageWindow_02043124(GetMessageWindow_020421a0());
-                        func_0203a588(func_02039e70());
+                        func_0203a588(GetBattleNumberPopups_02039e70());
                         func_ov000_02182a44(var12 + Enum_ov025_021ebb90_28668);
                     }
                 }

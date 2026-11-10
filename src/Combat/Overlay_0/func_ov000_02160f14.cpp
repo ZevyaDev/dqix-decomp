@@ -6,8 +6,8 @@ enum { Enum_ov000_02160f14_24 = 0x394, Enum_ov000_02160f14_3072 = 0x800 };
 enum { Enum_ov000_02160f14_24 = 0x18, Enum_ov000_02160f14_3072 = 0xc00 };
 #endif
 
-// USA: func_ov000_02160f14
-extern "C" ARM void* func_ov000_02160f14(void* arg0) {
-    char* var0 = (char*)arg0 + Enum_ov000_02160f14_24;
-    return var0 + Enum_ov000_02160f14_3072;
+// USA: GetBattleCamera_ov000_02160f14
+extern "C" ARM void* GetBattleCamera_ov000_02160f14(void* battleScene) {
+    char* partialAddress = (char*)battleScene + Enum_ov000_02160f14_24;
+    return partialAddress + Enum_ov000_02160f14_3072;
 }

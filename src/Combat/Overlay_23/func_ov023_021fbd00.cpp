@@ -3,7 +3,7 @@
 extern "C" void func_ov023_021f6ed8(void*);
 extern "C" void* func_ov011_021845f8(void*, int);
 extern "C" void InitItemInfoPanel_ov023_021dc134(void*, int, int);
-extern "C" void func_ov023_021dbfd0(void*, void*);
+extern "C" void AllocateItemInfoPanelBuffers_ov023_021dbfd0(void*, void*);
 
 struct Struct_ov023_021fbd00 {
     char unknown_0_[4];
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov023_021fbd00(Struct_ov023_021fbd00* arg0, void* arg1, 
     if (var0 == NULL) return 0;
     InitItemInfoPanel_ov023_021dc134(arg0->unknown_20_, -1, 0);
     arg0->unknown_794_ = arg0->unknown_794_ | (unsigned short)(arg4 | 0x4000);
-    func_ov023_021dbfd0(arg0->unknown_20_, (char*)var0 + 4);
+    AllocateItemInfoPanelBuffers_ov023_021dbfd0(arg0->unknown_20_, (char*)var0 + 4);
     arg0->unknown_68_ = arg5;
     arg0->unknown_798_ = arg6;
     return 1;

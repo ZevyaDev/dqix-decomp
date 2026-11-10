@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_0205b220
-extern "C" ARM void func_0205b220(void* arg0, int arg1) {
-    *(int*)arg0 = arg1;
+// USA: SetCanvasCharacterData_0205b220
+extern "C" ARM void SetCanvasCharacterData_0205b220(void* canvas, int characterData) {
+    *(int*)canvas = characterData;
 }

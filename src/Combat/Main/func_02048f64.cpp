@@ -32,7 +32,7 @@ extern "C" int func_02049ee8(unsigned char*);
 struct Struct_02048f64_2;
 extern "C" void func_020494c0(Struct_02048f64_2*);
 struct Struct_02033b58;
-extern "C" void func_02033b58(Struct_02033b58*, unsigned char);
+extern "C" void SetMotionKeepingAnimation_02033b58(Struct_02033b58*, unsigned char);
 struct Struct_02033b68;
 extern "C" void SetMotionIfDifferent_02033b68(Struct_02033b68*, int);
 struct Struct_02048f64_3;
@@ -48,8 +48,8 @@ struct Struct_02033834_2;
 extern "C" void SetFacing_02033834(Struct_02033834_2*, int);
 extern "C" Vector3i func_ov025_021ee488(Vector3i* arg0, int arg1, int arg2);
 
-static inline Struct_02048cf0 inline_02048e2c_2(const int& arg0) {
-    return func_ov000_0216f74c(const_cast<int*>(&arg0));
+static inline CellPosition_02048cf0 inline_02048e2c_2(const int& arg0) {
+    return GetCellPosition_ov000_0216f74c(const_cast<int*>(&arg0));
 }
 
 // USA: func_02048f64
@@ -76,10 +76,10 @@ extern "C" ARM void func_02048f64(Struct_02048e2c* arg0) {
     Vector3i var6[16];
     int var7;
     for (var7 = 0; var7 < var3; var7++) {
-        Struct_02048cf0 var8 = inline_02048e2c_2(var4[var7]);
-        var6[var7].x       = var8.unknown_0_;
+        CellPosition_02048cf0 var8 = inline_02048e2c_2(var4[var7]);
+        var6[var7].x       = var8.x_0_;
         var6[var7].y       = 0xcc;
-        var6[var7].z       = var8.unknown_4_;
+        var6[var7].z       = var8.z_4_;
     }
     int var9  = var2->unknown_40_[2];
     int var10  = var2->unknown_40_[0];
@@ -89,10 +89,10 @@ extern "C" ARM void func_02048f64(Struct_02048e2c* arg0) {
 
     int var11 = var3;
     if (var2->unknown_1f_ != 0xff) {
-        Struct_02048cf0 var12 = inline_02048e2c_2(var2->unknown_1f_);
-        var6[var3].x   = var12.unknown_0_;
+        CellPosition_02048cf0 var12 = inline_02048e2c_2(var2->unknown_1f_);
+        var6[var3].x   = var12.x_0_;
         var6[var3].y   = 0xcc;
-        var6[var3].z   = var12.unknown_4_;
+        var6[var3].z   = var12.z_4_;
         var11                 = var3 + 1;
     }
     if (var11 < 4) {
@@ -121,7 +121,7 @@ extern "C" ARM void func_02048f64(Struct_02048e2c* arg0) {
             if (arg0->unknown_be_ != 0) {
                 func_020494c0((Struct_02048f64_2*)arg0);
             }
-            func_02033b58((Struct_02033b58*)arg0, 0);
+            SetMotionKeepingAnimation_02033b58((Struct_02033b58*)arg0, 0);
             var22 = 0;
         }
     } else if (func_02049ee8((unsigned char*)arg0)) {

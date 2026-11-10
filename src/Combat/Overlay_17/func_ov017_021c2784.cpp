@@ -28,7 +28,7 @@ extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
 extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
-extern "C" void func_020e1154(void* arg0);
+extern "C" void DisableInputForDuration_020e1154(void* durationMs);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 struct TimedMessageQueue_020d7aa0_2;
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
         unsigned short* var13 = GetZone3D_02012fe4();
         if (*var13 == 0x2710) {
             *(int*)((char*)var13 + Enum_ov017_021c2784_10132) = 0;
-            func_020e1154((void*)0x7d0);
+            DisableInputForDuration_020e1154((void*)0x7d0);
             arg0->unknown_10_ = 5;
             return;
         }

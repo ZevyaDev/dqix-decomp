@@ -7,7 +7,7 @@ extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" void func_0202e874(unsigned char* arg0, unsigned short arg1);
 struct Struct_0202df68;
 extern "C" void SetCameraFieldOfView_0202e9a4(struct Struct_0202df68* camera, int halfAngle);
-extern "C" void func_0202eab8(void* arg0);
+extern "C" void SetCameraOrbitFromEye_0202eab8(void* camera);
 extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
 
 extern int gMainHeap_02114e20;
@@ -27,7 +27,7 @@ extern "C" ARM void func_02046f84(struct Struct_02046f84* arg0) {
     void* var1 = GetCamera_020100bc(var0);
     func_0202e874((unsigned char*)var1, 0);
     SetCameraFieldOfView_0202e9a4((struct Struct_0202df68*)var1, 0xf000);
-    func_0202eab8(var1);
+    SetCameraOrbitFromEye_0202eab8(var1);
 
     if (arg0->unknown_38_ == 0) {
         void* var2 = arg0->unknown_24_.GetSignedAllocator();

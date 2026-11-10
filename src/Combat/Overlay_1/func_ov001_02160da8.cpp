@@ -34,7 +34,7 @@ extern "C" const char* GetScriptValueAsString_ov017_021d612c(Struct_ov001_0215b7
 extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" int func_ov001_021612ac(void*);
-extern "C" int func_02061bd8(PartyMember_0205faf4_11*);
+extern "C" int IsNPCCompanion_02061bd8(PartyMember_0205faf4_11*);
 extern SafeAllocator* data_ov001_021658b8[];
 extern const char data_ov001_02165728[];
 extern const char data_ov001_02165745[];
@@ -102,7 +102,7 @@ extern "C" ARM int func_ov001_02160da8(Struct_ov001_0215b72c* arg0, int arg1) {
             int var7;
             for (var7 = 0; var7 < 4; ++var7) {
                 GameObject* var8 = GetCompanionByIndex_0200ff58(var0, var7);
-                if (var8 && func_02061bd8((PartyMember_0205faf4_11*)var8)) {
+                if (var8 && IsNPCCompanion_02061bd8((PartyMember_0205faf4_11*)var8)) {
                     var1->unknown_2_ = var7;
                     var5 = func_ov001_021612ac(var8);
                     break;

@@ -12,7 +12,7 @@ struct MenuLayout_0207fdcc_2;
 
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
 extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
-extern "C" int func_02080d54(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2, int arg3);
+extern "C" int IsPointInMenuLayoutWindow_02080d54(struct MenuLayout_0207fdcc_2* menuLayout, int windowId, int x, int y);
 
 struct Struct_ov003_02155208 {
     char unknown_0_[0x18];
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov003_02155208(struct Struct_ov003_02155208* arg0) {
     } else if (g_touchInput.pressed_ != 0) {
         int var1, var2;
         g_touchInput.GetTouchPoint(&var1, &var2);
-        if (!func_02080d54(arg0->unknown_18_, arg0->unknown_1e6_, (short)var1, (short)var2)) {
+        if (!IsPointInMenuLayoutWindow_02080d54(arg0->unknown_18_, arg0->unknown_1e6_, (short)var1, (short)var2)) {
             var0 = 1;
         }
     }

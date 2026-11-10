@@ -82,7 +82,7 @@ extern "C" void ClearSkillTable_0209a338(struct SkillTable_0200f3a4_8*);
 extern "C" void func_0209a348(struct Struct_0209a348*, void*);
 extern "C" int func_0209a670(struct Struct_0209a670*);
 extern "C" struct Struct_ov004_0215eb40_4* func_0209a654(struct Struct_0209a654_2*, unsigned int);
-extern "C" void func_02083acc(unsigned char*, int);
+extern "C" void LearnSkillEntry_02083acc(unsigned char*, int);
 extern "C" void func_02083b28(unsigned char*, int);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char*, int);
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char*);
@@ -154,7 +154,7 @@ extern "C" ARM void func_ov004_0215eb40(void* arg0) {
             continue;
         }
         if (var7) {
-            func_02083acc(var3, var16->unknown_14_);
+            LearnSkillEntry_02083acc(var3, var16->unknown_14_);
         } else {
             func_02083b28(var3, var16->unknown_14_);
         }

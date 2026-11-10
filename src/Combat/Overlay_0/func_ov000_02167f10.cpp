@@ -8,7 +8,7 @@ enum { Enum_ov000_02167f10_672 = 0x2a0, Enum_ov000_02167f10_22865 = 0x5951 };
 
 struct Struct_02049e88;
 extern "C" void func_02049e88(struct Struct_02049e88* arg0);
-extern "C" void func_02049ae4(unsigned char* arg0);
+extern "C" void StopCombatantSidestep_02049ae4(unsigned char* combatant);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 
 // USA: func_ov000_02167f10
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov000_02167f10(unsigned char* arg0) {
             var1 = var0->GetCombatantByIndex(var2);
             if (var1) {
                 func_02049e88((struct Struct_02049e88*)var1);
-                func_02049ae4((unsigned char*)var1);
+                StopCombatantSidestep_02049ae4((unsigned char*)var1);
             }
         }
     }
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov000_02167f10(unsigned char* arg0) {
         var1 = var0->GetCombatantByIndex(var2);
         if (var1) {
             func_02049e88((struct Struct_02049e88*)var1);
-            func_02049ae4((unsigned char*)var1);
+            StopCombatantSidestep_02049ae4((unsigned char*)var1);
         }
     }
     arg0[Enum_ov000_02167f10_22865] &= ~0x3;

@@ -17,7 +17,7 @@ struct Struct_02080cc0 {
 struct MenuLayout_02080f8c;
 struct MenuLayout_02080fa8;
 struct Struct_02081198;
-struct Struct_02081164;
+struct MenuLayout_02081164;
 struct Struct_ov003_021666c4 {
     Type_020b1300 unknown_0_0_ : 1;
     Type_020b1300 unknown_0_1_ : 6;
@@ -50,12 +50,12 @@ struct Struct_ov003_021666c4_2 {
 extern "C" void func_02080b54(void*, int);
 extern "C" void GetLocalWireless_0202ae18();
 extern "C" void func_02080cc0(Struct_02080cc0*, int, int);
-extern "C" void func_02080b40(void*, int);
+extern "C" void ShowMenuLayoutText_02080b40(void*, int);
 extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c*, int, int);
 extern "C" void SetMenuLayoutTextValue_02080fa8(MenuLayout_02080fa8*, Type_ov003_021666c4, int);
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_02081198(Struct_02081198*, int, int);
-extern "C" void func_02081164(Struct_02081164*, int, int);
+extern "C" void SetMenuLayoutWindowFrameless_02081164(MenuLayout_02081164*, int, int);
 extern "C" void OpenMenuLayoutWindow_020813ec(void*, int);
 extern "C" void func_ov003_02160794(Struct_ov003_021666c4_2*);
 
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov003_021666c4(Struct_ov003_021666c4_2* arg0) {
             for (int var8 = 1; var8 < 3; var8 = (Type_ov003_021666c4)(var8 + 1)) {
                 int var9 = var1 + var8 * 4;
                 func_02080cc0(var0, (Type_ov003_021666c4)var9, var4);
-                func_02080b40(var0, (Type_ov003_021666c4)(unsigned int)var9);
+                ShowMenuLayoutText_02080b40(var0, (Type_ov003_021666c4)(unsigned int)var9);
             }
             SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)var0, var1, (int)var6);
 #if defined(jpn)
@@ -102,15 +102,15 @@ extern "C" ARM void func_ov003_021666c4(Struct_ov003_021666c4_2* arg0) {
             int var10 = FindStringInTable_020e0434(&arg0->unknown_2dc_, 30000);
             SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)var0, (Type_ov003_021666c4)var1, var10);
         }
-        func_02080b40(var0, var1);
+        ShowMenuLayoutText_02080b40(var0, var1);
     }
     SetMenuLayoutTextValue_02080fa8((MenuLayout_02080fa8*)var0, 201, arg0->unknown_4a0_ + 1);
     SetMenuLayoutTextValue_02080fa8((MenuLayout_02080fa8*)var0, 202, 2);
-    func_02080b40(var0, 200);
-    func_02080b40(var0, 201);
-    func_02080b40(var0, 202);
+    ShowMenuLayoutText_02080b40(var0, 200);
+    ShowMenuLayoutText_02080b40(var0, 201);
+    ShowMenuLayoutText_02080b40(var0, 202);
     func_02081198((Struct_02081198*)var0, 16, 1);
-    func_02081164((Struct_02081164*)var0, 16, 1);
+    SetMenuLayoutWindowFrameless_02081164((MenuLayout_02081164*)var0, 16, 1);
     OpenMenuLayoutWindow_020813ec(var0, 16);
     arg0->unknown_464_ |= 0xd00000;
     func_ov003_02160794(arg0);

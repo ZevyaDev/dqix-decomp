@@ -19,7 +19,7 @@ extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int fl
 struct QueueNode_02015438;
 extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
-extern "C" int func_0201201c(void* arg0);
+extern "C" int GetTitleState_0201201c(void* arg0);
 
 struct Struct_ov017_0218d0ec_3;
 
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov017_0218d0ec(unsigned char* arg0) {
 
     if (GetQueueHeadType_02046b24(*(struct QueueNode_02015438***)(arg0 + 0x3000 + Enum_ov017_0218d0ec_1788)) == 3) return;
     if (GetGameMode_0200fb9c((char*)var0) == 6) return;
-    if (func_0201201c(var0) == 5) return;
+    if (GetTitleState_0201201c(var0) == 5) return;
 
     Struct_ov017_0218d0ec_2* var3 = (Struct_ov017_0218d0ec_2*)(var1->unknown_8_ + 0xc);
     unsigned int var4 = var3->unknown_0_0_;

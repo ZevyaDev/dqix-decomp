@@ -29,7 +29,7 @@ struct Struct_02033b68;
 extern "C" void SetMotionIfDifferent_02033b68(struct Struct_02033b68* object, int motion);
 
 // USA: func_02077be0
-extern "C" ARM void func_02077be0(Struct_02076a8c* arg0) {
+extern "C" ARM void func_02077be0(FieldMonster_02076a8c* arg0) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetLocalWireless_0202ae18();
     GameObject* var2 = var0->GetPartyMemberByIndex(arg0->unknown_166_);

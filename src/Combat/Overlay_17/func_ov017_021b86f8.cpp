@@ -25,7 +25,7 @@ extern char data_ov017_021d83e7[];
 extern "C" void GetMessageWindow_020421a0(void);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" GameObject* GetGameObjectByIndex_0200ff94(GameState* gameState, int index);
-extern "C" Struct_020708c8* func_020704fc(void);
+extern "C" Struct_020708c8* GetColorFade_020704fc(void);
 extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_020d7a50(void);
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov017_021b86f8(Struct_ov017_021b86f8* arg0, int arg1, i
     GetMessageWindow_020421a0();
     GameObject* var1 = GetGameObjectByIndex_0200ff94(var0, GetProtagonistObjectIndex_020100a8(var0));
     GameResources* var2 = GetGameResources();
-    Struct_020708c8* var3 = func_020704fc();
+    Struct_020708c8* var3 = GetColorFade_020704fc();
     GlobalFlags_02012de8* var4 = GetGlobalFlags_020d6c00();
     GetZone3D_02012fe4();
     if (var1 != NULL) {

@@ -3,7 +3,7 @@
 #include "Graphics/Vector.h"
 #include "World/Object3D.h"
 
-extern "C" void func_0203db34(unsigned char *arg0, int arg1, int arg2, int arg3);
+extern "C" void SetObject3DRotation_0203db34(unsigned char *object, int x, int y, int z);
 
 struct Struct_02041378 {
     Object3D unknown_0_;
@@ -56,5 +56,5 @@ extern "C" ARM void func_02041378(void *arg0) {
     if (!var4) {
         var0->unknown_ac_ &= ~2;
     }
-    func_0203db34((unsigned char *) arg0, var0->unknown_0_.rotation_.x, var3, var0->unknown_0_.rotation_.z);
+    SetObject3DRotation_0203db34((unsigned char *) arg0, var0->unknown_0_.rotation_.x, var3, var0->unknown_0_.rotation_.z);
 }

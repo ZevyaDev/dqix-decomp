@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" void func_020489bc(void* arg0);
-extern "C" void func_020bc078(int* arg0);
+extern "C" void ClearSoundHandle_020bc078(int* handle);
 
 #if defined(jpn)
 enum { Enum_02052a4c_0 = 0xc };
@@ -15,7 +15,7 @@ extern "C" ARM void func_02052a4c(void* arg0) {
     char* var0 = (char*)arg0;
     func_020489bc(arg0);
     *(unsigned short*)var0 |= 0x100;
-    func_020bc078((int*)(var0 + (0x198 - Enum_02052a4c_0)));
+    ClearSoundHandle_020bc078((int*)(var0 + (0x198 - Enum_02052a4c_0)));
     *(int*)(var0 + (0x150 - Enum_02052a4c_0)) = 0;
     *(int*)(var0 + (0x154 - Enum_02052a4c_0)) = 0;
     *(int*)(var0 + (0x158 - Enum_02052a4c_0)) = 0;

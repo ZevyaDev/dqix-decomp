@@ -13,7 +13,7 @@ extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void* func_ov004_0216ae9c(void* arg0, int arg1);
 extern "C" void func_ov023_021f8960(char* arg0, short arg1, unsigned short arg2);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
-extern "C" void func_02012028(void* arg0, unsigned char arg1);
+extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
 
 // USA: func_ov004_0216e414
 extern "C" ARM int func_ov004_0216e414(void* arg0) {
@@ -25,7 +25,7 @@ extern "C" ARM int func_ov004_0216e414(void* arg0) {
         func_ov023_021f8960((char*)var1, 0, 7);
         QueueMenuScriptEntry_ov011_021848a0(arg0, 0x1f5);
     } else {
-        func_02012028((void*)GameState::GetInstance(), 1);
+        SetTitleIdleTimeoutEnabled_02012028((void*)GameState::GetInstance(), 1);
         QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3e7);
     }
     return 0;

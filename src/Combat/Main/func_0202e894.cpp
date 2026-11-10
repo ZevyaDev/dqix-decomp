@@ -4,7 +4,7 @@
 struct Struct_0202e5d8 { unsigned int unknown_0_[12]; };
 struct Struct_0202e5d8 RotationMatrixY(int angle);
 
-extern "C" void func_0202eab8(void* arg0);
+extern "C" void SetCameraOrbitFromEye_0202eab8(void* camera);
 
 struct Struct_0202e894 {
     unsigned int unknown_0_[3];
@@ -32,5 +32,5 @@ extern "C" ARM void func_0202e894(void* arg0, int arg1) {
 
     *(Vector3i*)((char*)arg0 + 0x10) = *(Vector3i*)&var1;
 
-    func_0202eab8(arg0);
+    SetCameraOrbitFromEye_0202eab8(arg0);
 }

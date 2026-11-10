@@ -113,7 +113,7 @@ extern "C" void InitMessageGlyphs_020432c4(void*);
 extern "C" void SaveTextureVRAMState_0207dfac(char*);
 void UnlockAndSetMainBrightness(GameResources*, int, int);
 extern "C" int* FindNPCById_0203df78(void*, int);
-extern "C" void* func_02040528(int*);
+extern "C" void* GetNPCData_02040528(int*);
 extern "C" void func_ov017_021b8d1c(Struct_ov017_021b1564_6*);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" void EnablePlayerControl_020397c0(void*);
@@ -300,7 +300,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
             if (!arg0->unknown_4a_) {
                 int* var17 = FindNPCById_0203df78(GetNPCManager_0203cf4c(), 100);
                 void* var18;
-                if (var17) var18 = func_02040528(var17);
+                if (var17) var18 = GetNPCData_02040528(var17);
                 Struct_ov017_021b1564_6* var19 = (Struct_ov017_021b1564_6*)var1->unknown_ptr_array_36fc[5];
                 func_ov017_021b8d1c(var19);
                 var19->unknown_114_ = var18;

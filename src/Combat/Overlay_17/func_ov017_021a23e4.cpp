@@ -56,7 +56,7 @@ extern "C" Struct_ov017_021a23e4* FindMonsterData_0206f4f0(Struct_0206f01c_2*, i
 extern "C" int func_ov017_021a20c0(int arg0, int arg1, int arg2);
 extern "C" int func_020795cc(unsigned char* arg0);
 extern "C" int func_02032370(int arg0);
-extern "C" void func_02076a8c(void* arg0);
+extern "C" void InitFieldMonster_02076a8c(void* monster);
 extern "C" int func_ov017_021a2128(void* arg0, int arg1, int arg2, int arg3, const Vector3fix* arg4, int arg5, int arg6, int arg7);
 
 // USA: func_ov017_021a23e4
@@ -99,7 +99,7 @@ extern "C" ARM int func_ov017_021a23e4(GameResources* arg0, int arg1, int arg2, 
         }
         GameObject* var17 = var0->GetMaybeFieldMonsterByIndex(var13[func_02032370(var12)]);
         if (var17) {
-            func_02076a8c(var17);
+            InitFieldMonster_02076a8c(var17);
             var17->obj3D_.MakeHidden();
         }
     }

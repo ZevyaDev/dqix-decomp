@@ -138,7 +138,7 @@ extern "C" Struct_02086f24* func_02089fb0(Struct_02086f24_5* arg0, int arg1);
 extern "C" void func_02086404(Struct_0201099c_20* arg0);
 extern "C" void __clear(void* arg0, unsigned int arg1);
 extern "C" int ConvertTextToGlyphIndices_020426bc(const void* text, void* outGlyphIndices, int font);
-extern "C" void func_02082828(Struct_02086f24_2* arg0);
+extern "C" void InitPartyMemberData_02082828(Struct_02086f24_2* memberData);
 extern "C" void func_02082d6c(Struct_02086f24_2* arg0, Struct_0201099c_20* arg1);
 extern "C" void func_02082fc4(void* arg0, void* arg1);
 extern "C" void InitItemTable_020de824(void* itemTable);
@@ -235,7 +235,7 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
         var14->unknown_16_ = var11->unknown_a_;
         var14->unknown_18_ = FX_F32_TO_FX16(var11->unknown_14_);
         var14->unknown_1a_ = FX_F32_TO_FX16(var11->unknown_18_);
-        func_02082828(&var2);
+        InitPartyMemberData_02082828(&var2);
         func_02082d6c(&var2, &var0);
         func_02082fc4(&var2, &var1);
         BackgroundLoader::AddLockGlobal();
@@ -272,7 +272,7 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
         var0.unknown_15c_0_ = inline_02086f24_8(&var2.unknown_3c_);
         var0.unknown_15d_2_ = var2.unknown_0_[3].unknown_0_0_;
         var0.unknown_f4_ = var1.unknown_0_.unknown_4_7_;
-        var0.unknown_1c_[var11->unknown_3d_] = var1.unknown_0_.unknown_0_0_;
+        var0.unknown_1c_[var11->unknown_3d_] = var1.unknown_0_.requiredExperience_0_0_;
         var12 = var11->unknown_3d_;
     } else {
         var13 = 0;

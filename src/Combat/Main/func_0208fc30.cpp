@@ -12,7 +12,7 @@ extern const char data_020f1438[];
 struct Struct_0208fa8c { unsigned short unknown_0_; unsigned short unknown_2_; };
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
-struct Struct_0205faf4_7;
+struct QuestManager_0205faf4_7;
 struct Struct_0205faf4_8 { unsigned int unknown_0_0_:14, unknown_1_6_:1; };
 struct Struct_0208fc30 { char unknown_0_[8]; unsigned short unknown_8_; };
 
@@ -21,8 +21,8 @@ extern "C" int* GetLocalWireless_0202ae18();
 extern "C" unsigned char* GetFlagManager_0205ec34();
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void ResetEventTask_ov017_021baedc(void* node, int isRestart);
-extern "C" struct Struct_0205faf4_7* GetQuestManager_02094d6c();
-extern "C" struct Struct_0205faf4_8* func_02096134(struct Struct_0205faf4_7*, int);
+extern "C" struct QuestManager_0205faf4_7* GetQuestManager_02094d6c();
+extern "C" struct Struct_0205faf4_8* FindAcceptedQuest_02096134(struct QuestManager_0205faf4_7*, int);
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2*, struct QueueNode_0201bdac*);
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
@@ -76,7 +76,7 @@ extern "C" ARM void func_0208fc30(ActiveGrottoClass* arg0) {
         if (IsNotLocalWirelessGuest_0202c508(var1)) {
             var10 = var3->unknown_ptr_array_371c[6];
             ResetEventTask_ov017_021baedc(var10, 1);
-            struct Struct_0205faf4_7* var12 = GetQuestManager_02094d6c();
+            struct QuestManager_0205faf4_7* var12 = GetQuestManager_02094d6c();
 #if defined(jpn)
             var0 = "\x96\xb2";
             const char* var13 = arg0->GetPopupName();
@@ -86,7 +86,7 @@ extern "C" ARM void func_0208fc30(ActiveGrottoClass* arg0) {
 #endif
                 IsFlagSet_0206dfb0((int)var2, var2 + 0x8c, 0x12) &&
                 !IsFlagSet_0206dfb0((int)var2, var2 + 0x8c, 0x2d) &&
-                !func_02096134(var12, 0xae)->unknown_1_6_) {
+                !FindAcceptedQuest_02096134(var12, 0xae)->unknown_1_6_) {
                 ((struct Struct_0208fc30*)var10)->unknown_8_ = 0x5105;
                 AppendToQueue_020469b4(var7, (struct QueueNode_0201bdac*)var10);
                 var11 = true;
@@ -94,7 +94,7 @@ extern "C" ARM void func_0208fc30(ActiveGrottoClass* arg0) {
             } else if (arg0->GetActiveGrottoEnviron() == 2 &&
                        IsFlagSet_0206dfb0((int)var2, var2 + 0x8c, 0x13) &&
                        !IsFlagSet_0206dfb0((int)var2, var2 + 0x8c, 0x2e) &&
-                       !func_02096134(var12, 0xc1)->unknown_1_6_) {
+                       !FindAcceptedQuest_02096134(var12, 0xc1)->unknown_1_6_) {
                 ((struct Struct_0208fc30*)var10)->unknown_8_ = 0x51c3;
                 AppendToQueue_020469b4(var7, (struct QueueNode_0201bdac*)var10);
                 var11 = true;

@@ -42,7 +42,7 @@ int CollectEnemyCombatantIndices_ov000_0215eb1c(void* battle, short* indices, in
 void func_ov000_0215c758(void* arg0, short* arg1, int arg2, int arg3, short* arg4, short* arg5,
                          unsigned long long* arg6);
 short func_ov000_0215a004(void* arg0, int arg1, int arg2, int arg3, unsigned long long* arg4, int arg5, int arg6, int arg7);
-int func_ov000_02159dbc(void* arg0, int arg1);
+int GetEnemyLevel_ov000_02159dbc(void* battle, int combatantIndex);
 Struct_ov000_0215a23c_3* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 Struct_ov000_0215a23c_2* GetPartyMemberData_02053c6c(Struct_ov000_0215a23c_3* gameObject);
 }
@@ -55,7 +55,7 @@ extern "C" int GetLevel_0202053c(void* gameObject);
 extern "C" short func_ov000_0215a16c(void* arg0, int arg1, int arg2, short* arg3);
 extern "C" short func_ov000_0215a1d4(void* arg0, int arg1, int arg2, short* arg3);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
-extern "C" int func_02088514(Struct_02088514* arg0);
+extern "C" int IsEnvenomated_02088514(Struct_02088514* stats);
 float NextRandomFloatBetween(Random* random, float minimum, float maximum);
 
 static inline Struct_ov000_0215a23c_3* inline_ov000_021537b8_2(int arg0) {
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov000_0215a23c(void* arg0) {
     var9 = 0;
     for (int var23 = 0; var23 < var12; var23++) {
         Struct_ov000_0215a23c_3* var24 = inline_ov000_021537b8_2(var11[var23]);
-        if (var24 != 0 && func_02088514((Struct_02088514*)var24->unknown_138_)) {
+        if (var24 != 0 && IsEnvenomated_02088514((Struct_02088514*)var24->unknown_138_)) {
             int var25 = var24->unknown_138_->unknown_4_ >> 4;
             if (var25 > 999) {
                 var25 = 999;
@@ -185,7 +185,7 @@ extern "C" ARM void func_ov000_0215a23c(void* arg0) {
             int var28 = 0;
             short var29 = 0;
             if (func_ov000_0215830c((GameObject*)var27)) {
-                var28 = func_ov000_02159dbc(arg0, var11[var26]);
+                var28 = GetEnemyLevel_ov000_02159dbc(arg0, var11[var26]);
                 if (var28 < 3) {
                     var28 = 3;
                 }
@@ -197,7 +197,7 @@ extern "C" ARM void func_ov000_0215a23c(void* arg0) {
     var9 = 0;
     for (int var30 = 0; var30 < var12; var30++) {
         Struct_ov000_0215a23c_3* var31 = inline_ov000_021537b8_2(var11[var30]);
-        if (var31 != 0 && func_02088514((Struct_02088514*)var31->unknown_138_)) {
+        if (var31 != 0 && IsEnvenomated_02088514((Struct_02088514*)var31->unknown_138_)) {
             int var32 = var31->unknown_138_->unknown_4_ >> 4;
             if (var32 > 999) {
                 var32 = 999;

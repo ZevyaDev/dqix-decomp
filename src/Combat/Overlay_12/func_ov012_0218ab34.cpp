@@ -63,7 +63,7 @@ extern "C" void func_0204f41c(Struct_ov012_0218ab34_2* arg0, short arg1, short a
                               unsigned char arg5, short* arg6, short* arg7, int arg8);
 extern "C" void func_0204f3bc(Struct_ov012_0218ab34_2* arg0, int arg1);
 extern "C" void func_ov003_0215ec68(int arg0, short* arg1, short* arg2);
-extern "C" void func_0204f914(Struct_ov012_0218ab34_2* arg0, int arg1, short arg2, short arg3, short arg4, short arg5);
+extern "C" void FillTextWindowRect_0204f914(Struct_ov012_0218ab34_2* textWindow, int colorIndex, short left, short top, short right, short bottom);
 struct Struct_0204fbf8_2;
 extern "C" void func_0204fbf8(struct Struct_0204fbf8_2* arg0);
 
@@ -123,7 +123,7 @@ extern "C" ARM void func_ov012_0218ab34(Struct_ov012_0218ab34_3* arg0, int arg1)
         func_ov003_0215ec68(var10->unknown_e_, &var15, &var16);
         short var20 = var10->unknown_0_ - var1;
         short var21 = var10->unknown_2_ - var2;
-        func_0204f914(var0, 4, var20 + 1, var21 + 1, var15 + var20 - 1, var16 + var21 - 1);
+        FillTextWindowRect_0204f914(var0, 4, var20 + 1, var21 + 1, var15 + var20 - 1, var16 + var21 - 1);
         var15 = (var15 - var19) >> 1;
         func_0204f41c(var0, var15 + var20, var21 + 2, var18, 0xc, 0xf, &var13, &var14, var12);
     }

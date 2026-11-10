@@ -21,7 +21,7 @@ struct Struct_020e4e38 {
 };
 
 extern "C" void SetNoun_020e4b34(void* noun, void* singularText, void* pluralText,
-    int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int arg9, int hasInitialVowelSound, int isInitialVowelFromText);
+    int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int isProperName, int hasInitialVowelSound, int isInitialVowelFromText);
 
 // USA: func_020e4e38
 extern "C" ARM void func_020e4e38(void* arg0, struct Struct_020e4e38* arg1) {

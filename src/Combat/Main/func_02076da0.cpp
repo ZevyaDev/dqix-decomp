@@ -2,7 +2,7 @@
 #include "World/Object3D.h"
 
 struct Struct_02033b58;
-extern "C" void func_02033b58(struct Struct_02033b58* arg0, unsigned char arg1);
+extern "C" void SetMotionKeepingAnimation_02033b58(struct Struct_02033b58* object, unsigned char motion);
 struct Struct_02010604;
 extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
 
@@ -19,7 +19,7 @@ struct Struct_02076da0 {
 
 // USA: func_02076da0
 extern "C" ARM int func_02076da0(struct Struct_02076da0* arg0) {
-    if (arg0->unknown_130_ == 0) func_02033b58((struct Struct_02033b58*)arg0, 0);
+    if (arg0->unknown_130_ == 0) SetMotionKeepingAnimation_02033b58((struct Struct_02033b58*)arg0, 0);
     else SetMotion_02033b88((struct Struct_02010604*)arg0, 0);
     arg0->unknown_b0_ = 0x328;
     arg0->unknown_b2_ = 0;

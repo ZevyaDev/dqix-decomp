@@ -139,7 +139,7 @@ struct Struct_02083508_2;
 struct SoundEffectManager_02108760;
 
 extern "C" short* GetEquipmentBagItemIds_0207c5f8(unsigned char*, unsigned int);
-extern "C" signed char* func_0207c60c(void*, unsigned int);
+extern "C" signed char* GetEquipmentBagCounts_0207c60c(void*, unsigned int);
 extern "C" void func_0207c51c(unsigned char*, int);
 extern "C" void func_ov023_021e1518(void*);
 extern "C" void func_ov023_021e1b5c(void*, int, int, int);
@@ -171,7 +171,7 @@ extern "C" ARM void func_ov005_0215c530(Struct_ov005_0215c530_3* arg0)
     unsigned char* var0 = (unsigned char*)GetParty_02010828(GameState::GetInstance());
     int var1 = arg0->unknown_3d98_[arg0->unknown_3dbc_];
     short* var2 = GetEquipmentBagItemIds_0207c5f8(var0 + 0x1d4, data_ov005_0215cd08[arg0->unknown_3dbc_]);
-    signed char* var3 = func_0207c60c(var0 + 0x1d4, data_ov005_0215cd08[arg0->unknown_3dbc_]);
+    signed char* var3 = GetEquipmentBagCounts_0207c60c(var0 + 0x1d4, data_ov005_0215cd08[arg0->unknown_3dbc_]);
     func_0207c51c(var0 + 0x1d4, data_ov005_0215cd00[arg0->unknown_3dbc_]);
 
     int var4 = 0;

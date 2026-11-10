@@ -79,7 +79,7 @@ extern "C" void RemoveEffectResource_02057f00(void*, int);
 extern "C" void func_020d6f0c(Struct_020d6f0c*);
 extern "C" void func_020d6d18(Struct_020d6d18_2*);
 extern "C" void func_ov000_021823a4(char*);
-extern "C" Struct_0203a54c* func_02039e70();
+extern "C" Struct_0203a54c* GetBattleNumberPopups_02039e70();
 extern "C" void func_0203a54c(Struct_0203a54c*);
 extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8*);
 extern "C" void ClearSpellTable_0209a804(int*);
@@ -134,7 +134,7 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
         arg0->unknown_ea4_ = 0;
     }
     func_ov000_021823a4(arg0->unknown_6ffc_);
-    func_0203a54c(func_02039e70());
+    func_0203a54c(GetBattleNumberPopups_02039e70());
     SafeAllocator* const var7 = inline_ov000_02166804(var1, 5);
     var7->Reset();
     Struct_ov023_021edc08* var8 = (Struct_ov023_021edc08*)var7->Allocate(sizeof(Struct_ov023_021edc08));

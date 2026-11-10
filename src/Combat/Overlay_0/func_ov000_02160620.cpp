@@ -49,7 +49,7 @@ extern "C" void func_02015438(void*);
 extern "C" void func_ov023_021eb43c(void*);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov000_021735d0(void*, unsigned int);
-extern "C" Struct_02039fec_2* func_02039e70();
+extern "C" Struct_02039fec_2* GetBattleNumberPopups_02039e70();
 extern "C" void func_02039fec(Struct_02039fec_2*);
 extern "C" void func_ov000_021824d8(void*);
 extern "C" int func_020a1fa8();
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov000_02160620(Struct_ov000_02160620_2* arg0) {
         if (arg0->unknown_5574_ == 0 && (arg0->unknown_55f4_ & 0x40000) == 0 && (arg0->unknown_55f4_ & 0x80000) != 0 &&
                 ((Struct_ov000_02160620*)GetMessageWindow_020421a0())->unknown_998_ == 0)
             func_ov000_021735d0(arg0->unknown_3760_, var0->GetTickCount());
-        func_02039fec(func_02039e70());
+        func_02039fec(GetBattleNumberPopups_02039e70());
         func_ov000_021824d8(arg0->unknown_6ffc_);
         if (arg0->unknown_ea8_ == 8 && func_020a1fa8() == 4)
             func_ov025_021df794(arg0->unknown_5ab0_);

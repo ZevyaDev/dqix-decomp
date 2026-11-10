@@ -3,7 +3,7 @@
 #include "Resource/GameResources.h"
 
 struct ItemTable_0201099c_10;
-struct Struct_0207c484;
+struct EquipmentBag_0207c484;
 struct PartyMember_02052e14;
 struct Struct_02052e2c;
 struct Struct_020a06ec;
@@ -116,7 +116,7 @@ struct Struct_ov003_0215582c_7 {
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" struct Struct_ov003_0215582c* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov003_02155e14(int arg0, int arg1);
-extern "C" short* func_02052e14(struct PartyMember_02052e14* arg0);
+extern "C" short* GetEquippedItems_02052e14(struct PartyMember_02052e14* gameObject);
 extern "C" int AddEquipmentToBag_0207c378(void* bag, int itemId, int count, int category);
 extern "C" int func_ov003_02156034(void* arg0);
 extern "C" void func_02083ca0(unsigned char* arg0, int arg1);
@@ -128,11 +128,11 @@ extern "C" int SetBattleRecords_020ac494(void* records);
 extern "C" int func_0207c7a0(void* arg0, int arg1, int arg2);
 extern "C" struct Struct_ov003_0215582c_10* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void SetEquippedItem_02052d7c(void* gameObject, int slot, int itemId);
-extern "C" int func_0207c484(struct Struct_0207c484* arg0, int arg1, int arg2, int arg3);
+extern "C" int RemoveEquipmentFromBag_0207c484(struct EquipmentBag_0207c484* bag, int itemId, int count, int category);
 extern "C" short* GetAppearance_02052e2c(struct Struct_02052e2c* gameObject);
 extern "C" void func_02083738(void* arg0, int arg1);
 extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
-extern "C" void func_02083b60(unsigned char* arg0, int arg1);
+extern "C" void LearnSpell_02083b60(unsigned char* memberData, int spellId);
 extern "C" void* GetLocalWireless_0202ae18(void);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 
@@ -169,7 +169,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
     }
 
     short* var8 = (short*)func_ov003_02155e14((int)var4, var2->unknown_150_->unknown_950_);
-    short* var9 = func_02052e14((struct PartyMember_02052e14*)var2);
+    short* var9 = GetEquippedItems_02052e14((struct PartyMember_02052e14*)var2);
     if (var8 != NULL && var9 != NULL) {
         var8[0] = var9[7];
         var8[1] = var9[0];
@@ -253,7 +253,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
             if (data_ov003_0217f2bc[var24] != 0xff) {
                 SetEquippedItem_02052d7c(var2, data_ov003_0217f2bc[var24], var26);
             }
-            func_0207c484((struct Struct_0207c484*)var1->unknown_1d4_, var26, 1, var27);
+            RemoveEquipmentFromBag_0207c484((struct EquipmentBag_0207c484*)var1->unknown_1d4_, var26, 1, var27);
             var25 = 1;
             if (data_ov003_0217f2bc[var24] == 4) {
                 short* var28 = GetAppearance_02052e2c((struct Struct_02052e2c*)var2);
@@ -298,10 +298,10 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
     func_02083cbc(var3, arg0->unknown_90_, arg0->unknown_cc_);
     switch (func_ov003_02156034(arg0)) {
     case 2:
-        func_02083b60((unsigned char*)var3, 0x1a);
+        LearnSpell_02083b60((unsigned char*)var3, 0x1a);
         break;
     case 3:
-        func_02083b60((unsigned char*)var3, 0);
+        LearnSpell_02083b60((unsigned char*)var3, 0);
         break;
     }
 

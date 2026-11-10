@@ -6,16 +6,16 @@
 #include "Memory/SafeAllocator.h"
 
 
-struct Struct_0205faf4_3;
+struct FlagManager_0205faf4_3;
 struct Struct_0205faf4_4;
-struct Struct_0205faf4_13;
-extern "C" int func_0206e120(Struct_0205faf4_3*, int);
+struct FlagManager_0205faf4_13;
+extern "C" int GetQuestState_0206e120(FlagManager_0205faf4_3*, int);
 extern "C" int func_0206e260(Struct_0205faf4_4*, int);
-extern "C" int func_0206e2dc(Struct_0205faf4_13*, int);
-extern "C" Struct_0205faf4_3* GetFlagManager_0205ec34();
-static inline int inline_0206cf58(Struct_0205faf4_3* arg0, int arg1, int arg2)
+extern "C" int IsQuestUnlocked_0206e2dc(FlagManager_0205faf4_13*, int);
+extern "C" FlagManager_0205faf4_3* GetFlagManager_0205ec34();
+static inline int inline_0206cf58(FlagManager_0205faf4_3* arg0, int arg1, int arg2)
 {
-    return func_0206e120(arg0, arg1) == arg2;
+    return GetQuestState_0206e120(arg0, arg1) == arg2;
 }
 struct Struct_02108cec_5
 {
@@ -37,7 +37,7 @@ extern Struct_02108cec_5 data_02108cec;
 // USA: func_0206cf58
 extern "C" ARM int func_0206cf58(Script::Parameter* arg0, int arg1)
 {
-    Struct_0205faf4_3* var0;
+    FlagManager_0205faf4_3* var0;
     Struct_0206bf2c* var1;
     data_02108cec.unknown_a_++;
     int var2 = arg0[0].ToInt();
@@ -87,7 +87,7 @@ extern "C" ARM int func_0206cf58(Script::Parameter* arg0, int arg1)
         if (!inline_0206cf58(var0, var2, 3)) return 1;
         break;
     case 4:
-        if (func_0206e2dc((Struct_0205faf4_13*)var0, var2) && inline_0206cf58(var0, var2, 0))
+        if (IsQuestUnlocked_0206e2dc((FlagManager_0205faf4_13*)var0, var2) && inline_0206cf58(var0, var2, 0))
         {
         }
         else return 1;

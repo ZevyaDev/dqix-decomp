@@ -91,7 +91,7 @@ extern "C" int SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" void func_ov000_02166784(Struct_ov000_02161c0c_3*, unsigned char*, unsigned char*);
 extern "C" int func_ov000_02167c28(unsigned char*, int);
-extern "C" void func_ov017_02191aac(void*, int, int, int);
+extern "C" void SetCombatantAppearanceFlags_ov017_02191aac(void*, int, int, int);
 
 // USA: func_ov000_02166540
 extern "C" ARM void func_ov000_02166540(Struct_ov000_02161c0c_3* arg0, int arg1, int arg2, unsigned char arg3) {
@@ -147,6 +147,6 @@ extern "C" ARM void func_ov000_02166540(Struct_ov000_02161c0c_3* arg0, int arg1,
     GameObject* var14 = var0->GetCombatantByIndex(arg1);
     if (var14) {
         struct Struct_ov000_02166540_6 { unsigned char unknown_0_[0x14]; unsigned int unknown_14_; };
-        if (((Struct_ov000_02166540_6*)var14->currentStats_)->unknown_14_ & 0x1000000) func_ov017_02191aac(var1, 1, arg1, 4);
+        if (((Struct_ov000_02166540_6*)var14->currentStats_)->unknown_14_ & 0x1000000) SetCombatantAppearanceFlags_ov017_02191aac(var1, 1, arg1, 4);
     }
 }

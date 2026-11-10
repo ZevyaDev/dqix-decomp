@@ -5,7 +5,7 @@
 #endif
 #include <globaldefs.h>
 
-struct Struct_0205c508;
+struct MenuCursor_0205c508;
 struct Struct_0201099c_3;
 
 struct Struct_ov012_0218a844
@@ -41,7 +41,7 @@ struct Struct_ov012_0218a844_2
 extern "C" void AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" void AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void func_0205c508(Struct_0205c508* arg0, int* arg1, int* arg2);
+extern "C" void GetMenuCursorPageRange_0205c508(MenuCursor_0205c508* cursor, int* outPageStartIndex, int* outPageEndIndex);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void AppendXPositionTag_02041a28(char* buffer, int x);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov012_0218a844(Struct_ov012_0218a844_2* arg0, char* arg
     int var5 = var3->unknown_4_;
     int var6;
     int var7;
-    func_0205c508((Struct_0205c508*)var3, &var6, &var7);
+    GetMenuCursorPageRange_0205c508((MenuCursor_0205c508*)var3, &var6, &var7);
     for (var2 = var6; var2 < var7; var2++)
     {
         if (var2 % 2 == 0)

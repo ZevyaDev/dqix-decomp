@@ -17,13 +17,13 @@ struct MenuLayout_0207fdcc_2 { char unknown_0_[REGIONAL_OFFSET(0x2a, 0x36)]; uns
 
 struct MenuLayout_0207fe44;
 struct GlobalFlags_02038598_4;
-struct Struct_02081f20_2;
+struct KeyRepeat_02081f20_2;
 struct SaveProgress_020a9ea4;
 struct Struct_02081198;
-struct Struct_02081164;
+struct MenuLayout_02081164;
 struct Struct_ov003_02164400;
-struct Struct_020469f8;
-struct Struct_020469f8_2;
+struct Queue_020469f8;
+struct QueueNode_020469f8_2;
 struct Struct_0202bad4_2;
 struct Struct_0202bad4;
 struct Random;
@@ -45,7 +45,7 @@ extern "C" void func_ov003_0216664c(void* arg0);
 extern "C" void func_ov003_02160344(void* arg0);
 extern "C" void func_ov017_021c36a0(void);
 extern "C" void func_ov017_021aeedc(struct Struct_ov003_02164400* arg0);
-extern "C" void func_020469f8(struct Struct_020469f8* arg0, struct Struct_020469f8_2* arg1);
+extern "C" void PrependToQueue_020469f8(struct Queue_020469f8* queue, struct QueueNode_020469f8_2* node);
 
 extern "C" void CloseMenuLayoutWindows_0207fe44(struct MenuLayout_0207fe44* menuLayout);
 extern "C" void func_020939fc(unsigned char* arg0);
@@ -57,7 +57,7 @@ extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* men
 extern "C" void func_02080cec(void* arg0, int arg1, int arg2);
 extern "C" void func_0208108c(void* arg0, int arg1);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
-extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
+extern "C" void func_0208203c(struct KeyRepeat_02081f20_2* arg0);
 extern "C" void func_020939dc(void* arg0);
 extern "C" void StopLocalWireless_0202b0f4(int* wireless);
 extern "C" void* GetMessageWindow_020421a0(void);
@@ -65,14 +65,14 @@ extern "C" int func_020aad1c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" short func_02080468(void* arg0, int arg1);
 extern "C" void func_02081198(struct Struct_02081198* arg0, int arg1, int arg2);
-extern "C" void func_02081164(struct Struct_02081164* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowFrameless_02081164(struct MenuLayout_02081164* menuLayout, int windowId, int isFrameless);
 extern "C" int func_0202bae4(void* arg0);
 extern "C" struct Struct_0202bad4* func_0202bad4(struct Struct_0202bad4_2* arg0, int arg1);
 extern "C" int CompareBytes_02001aec(int left, int right, int count);
 struct Random* GetBTRandom(void);
 int NextRandomMax(struct Random* random, int maximum);
 extern "C" void func_02080b54(void* arg0, int arg1);
-extern "C" int func_02080b40(void* arg0, int arg1);
+extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
 extern "C" struct TextWindow_0207fdcc* func_02081da8(struct MenuLayout_0207fdcc_2*, int);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 
@@ -205,7 +205,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
             func_0208108c(var4, 0x44);
 #endif
             OpenMenuLayoutWindow_020813ec(var4, 0xf);
-            func_0208203c((struct Struct_02081f20_2*)(arg0 + LO(0x308)));
+            func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + LO(0x308)));
             *(void**)(arg0 + HI(0x470)) = 0;
             arg0[HI(0x4a4)] = 6;
             StopLocalWireless_0202b0f4((int*)var3);
@@ -307,7 +307,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         {
         short* var22 = (short*)0 + 7;
         func_02081198((struct Struct_02081198*)var4, (int)var22, 1);
-        func_02081164((struct Struct_02081164*)var4, (int)var22, 1);
+        SetMenuLayoutWindowFrameless_02081164((struct MenuLayout_02081164*)var4, (int)var22, 1);
         OpenMenuLayoutWindow_020813ec(var4, (int)var22);
         }
         *(unsigned int*)(arg0 + HI(0x464)) |= 0x180000;
@@ -320,7 +320,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         var4->unknown_36_ = *(short*)(arg0 + HI(0x496));
         arg0[HI(0x4a0)] = 0;
         func_ov003_021666c4(arg0);
-        func_0208203c((struct Struct_02081f20_2*)(arg0 + LO(0x308)));
+        func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + LO(0x308)));
         *(void**)(arg0 + HI(0x470)) = 0;
         arg0[HI(0x4a4)] = 8;
         *(short*)(arg0 + HI(0x478)) = 0;
@@ -347,7 +347,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
             *(short*)(arg0 + HI(0x498)) = *(short*)(arg0 + HI(0x498)) + (((signed char)arg0[HI(0x4a0)]) << 2);
             if (*(short*)(arg0 + HI(0x498)) < *(short*)(arg0 + LO(0x226))) {
                 PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-                func_0208203c((struct Struct_02081f20_2*)(arg0 + LO(0x308)));
+                func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + LO(0x308)));
                 *(void**)(arg0 + HI(0x470)) = 0;
                 struct Struct_ov003_02164400_4* var25 = (struct Struct_ov003_02164400_4*)(arg0 + (*(short*)(arg0 + HI(0x498))) * Enum_ov003_02164400_55);
                 int var26 = 4 - var25->unknown_0_1_;
@@ -403,12 +403,12 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         if (*(unsigned short*)(arg0 + HI(0x47a)) == 0) {
             *(short*)(arg0 + HI(0x488)) = 0x11;
             func_02080b54(var4, 0x11);
-            func_02080b40(var4, 0x51);
+            ShowMenuLayoutText_02080b40(var4, 0x51);
 #if !defined(jpn)
             func_0208108c(var4, 0x51);
 #endif
             OpenMenuLayoutWindow_020813ec(var4, *(short*)(arg0 + HI(0x488)));
-            func_0208203c((struct Struct_02081f20_2*)(arg0 + LO(0x308)));
+            func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + LO(0x308)));
             *(void**)(arg0 + HI(0x470)) = 0;
             *(unsigned short*)(arg0 + HI(0x47a)) = *(unsigned short*)(arg0 + HI(0x47a)) + 1;
         }
@@ -464,14 +464,14 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         {
             char* var34 = (char*)GetGameResources() + 0x3000;
             struct Struct_ov003_02164400* var35 = *(struct Struct_ov003_02164400**)(var34 + REGIONAL_OFFSET(0x90c, 0xb2c));
-            struct Struct_020469f8* var36 = *(struct Struct_020469f8**)(var34 + REGIONAL_OFFSET(0x4ec, 0x6fc));
+            struct Queue_020469f8* var36 = *(struct Queue_020469f8**)(var34 + REGIONAL_OFFSET(0x4ec, 0x6fc));
             func_ov017_021aeedc(var35);
             memcpy((char*)var35 + 9, arg0 + (*(short*)(arg0 + HI(0x498))) * Enum_ov003_02164400_55 + REGIONAL_OFFSET(0x15, 0x31), 6);
             {
                 int var37;
                 for (var37 = 0; var37 < 6; var37++) { }
             }
-            func_020469f8(var36, (struct Struct_020469f8_2*)var35);
+            PrependToQueue_020469f8(var36, (struct QueueNode_020469f8_2*)var35);
         }
         *(short*)(arg0 + HI(0x47a)) = 0;
         arg0[HI(0x4a4)] = 0xf;

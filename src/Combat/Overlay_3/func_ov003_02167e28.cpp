@@ -10,14 +10,14 @@ struct Struct_02080cc0;
 extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c* menuLayout, int textId, int text);
 extern "C" void func_02080798(void* arg0, int arg1, int arg2);
-extern "C" void func_0208103c(void* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutTextStringId_0208103c(void* menuLayout, int textId, int stringId);
 extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8* menuLayout, int textId, int value);
 extern "C" char* func_02081010(void* arg0, int arg1);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" void func_02080828(void* arg0, int arg1, short* arg2, short* arg3);
 extern "C" void func_02080854(void* arg0, int arg1, int arg2, int arg3);
 extern "C" int func_02080b2c(void* arg0, int arg1);
-extern "C" int func_02080b40(void* arg0, int arg1);
+extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
 extern "C" void func_02080cc0(struct Struct_02080cc0* arg0, int arg1, int arg2);
 
 struct Struct_ov003_02167e28 {
@@ -37,10 +37,10 @@ extern "C" ARM void func_ov003_02167e28(struct Struct_ov003_02167e28* arg0, char
 #if !defined(jpn)
     func_02080798(var0, 0, 1);
 #endif
-    func_0208103c(var0, 1, (short)arg2);
+    SetMenuLayoutTextStringId_0208103c(var0, 1, (short)arg2);
     SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, 5, arg5);
     SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, 6, arg6);
-    func_0208103c(var0, 2, (short)(arg3 + 2));
+    SetMenuLayoutTextStringId_0208103c(var0, 2, (short)(arg3 + 2));
 #if defined(jpn)
     int var1 = (GetStringLength_020d2ff0(func_02081010(var0, 2)) >> 1) * 10;
 #else
@@ -56,13 +56,13 @@ extern "C" ARM void func_ov003_02167e28(struct Struct_ov003_02167e28* arg0, char
     if (arg4 == 0) {
         return;
     }
-    func_02080b40(var0, 0x2c);
+    ShowMenuLayoutText_02080b40(var0, 0x2c);
 #if defined(jpn)
     func_02080854(var0, 0x2c, (short)(var2 + var1 + 1), (short)(var3 + 2));
 #else
     func_02080854(var0, 0x2c, (short)(var2 + var1 + 1), var3);
 #endif
-    func_0208103c(var0, 0x2c, (short)(arg4 + 0x1c));
+    SetMenuLayoutTextStringId_0208103c(var0, 0x2c, (short)(arg4 + 0x1c));
     int var4 = 5;
     if (arg4 == 10) {
         var4 = 0xd;

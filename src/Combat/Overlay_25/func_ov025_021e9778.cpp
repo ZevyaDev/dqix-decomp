@@ -62,7 +62,7 @@ extern "C" void* func_ov000_02160f00(void* arg0);
 extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 extern "C" void InitEffectParams_02078484(EffectParams_02078398_2* params);
-extern "C" void* func_ov000_02160f14(void* arg0);
+extern "C" void* GetBattleCamera_ov000_02160f14(void* battleScene);
 extern "C" void func_0202ea10(unsigned char* arg0, int arg1, int arg2);
 extern "C" short func_ov000_0216352c(int arg0, float arg1, float arg2);
 extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
@@ -163,7 +163,7 @@ extern "C" ARM void func_ov025_021e9778(void* arg0) {
             var14.unknown_14_ = *(unsigned short*)((char*)GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var4, 0) + 0x20);
             if (var4->unknown_a_ & 1) {
                 strcpy((char*)&var14, data_ov025_021ef8de);
-                unsigned char* var15 = (unsigned char*)func_ov000_02160f14(var2);
+                unsigned char* var15 = (unsigned char*)GetBattleCamera_ov000_02160f14(var2);
                 func_0202ea10(var15, 0x199, 0x3e8);
             }
             int var16 = (var7 >= 0xc0 && var7 <= 0xc7);

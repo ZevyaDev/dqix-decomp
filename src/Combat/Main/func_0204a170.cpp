@@ -5,7 +5,7 @@
 
 extern "C" void func_020a2d14(void* arg0);
 extern "C" void func_0204a4ac(void* arg0);
-extern "C" void func_0202eab8(void* arg0);
+extern "C" void SetCameraOrbitFromEye_0202eab8(void* camera);
 int fix32ReduceAngle0To2Pi(int angle);
 
 struct Struct_0204a170;
@@ -85,7 +85,7 @@ extern "C" ARM void func_0204a170(struct Struct_0204a170_3* arg0) {
 
     *(Vector3i*)((int*)&arg0->unknown_10_) = *(Vector3i const*)((int*)&var7);
     *(Vector3i*)((int*)&arg0->unknown_4_) = *(Vector3i const*)((int*)&var6);
-    func_0202eab8(arg0);
+    SetCameraOrbitFromEye_0202eab8(arg0);
 
 struct Struct_0204a170_2* var10 = arg0->unknown_220_;
     if (var10 == NULL) return;

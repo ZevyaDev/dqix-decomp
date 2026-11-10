@@ -9,7 +9,7 @@ void Vector3fixMultiplyScalar(Vector3i const*, int, Vector3i*);
 
 struct Struct_02059cfc_2;
 struct Struct_02059cfc_3;
-extern "C" void func_02059f38(struct Struct_02059cfc_2* arg0, struct Struct_02059cfc_3* arg1);
+extern "C" void SetObject3DPositionFromVector_02059f38(struct Struct_02059cfc_2* object, struct Struct_02059cfc_3* position);
 
 struct Struct_02059cfc_4;
 
@@ -120,7 +120,7 @@ extern "C" ARM void func_02059cfc(unsigned char* arg0, int arg1, int arg2) {
         struct Struct_ov009_0218aa28 var9;
         Vector3fixMultiplyScalar((Vector3i const*)&var0->unknown_c0_, arg1 << 12, (Vector3i*)&var9);
         Vector3fix_Add((const Vector3fix*)&var5, (const Vector3fix*)&var9, (Vector3fix*)&var5);
-        func_02059f38((struct Struct_02059cfc_2*)var0, (struct Struct_02059cfc_3*)&var5);
+        SetObject3DPositionFromVector_02059f38((struct Struct_02059cfc_2*)var0, (struct Struct_02059cfc_3*)&var5);
 
         ((Object3D*)var0)->AdvanceEffects();
 

@@ -13,11 +13,11 @@ struct Struct_02104b60 {
 
 extern "C" void __register_global_object(int arg0, int arg1, struct Struct_02104b60* arg2);
 
-extern int data_02104b6c;
+extern int gBattleNumberPopups_02104b6c;
 extern struct Struct_02104b60 data_02104b60;
 
 // USA: func_020e5c00
 extern "C" __declspec(initcode) ARM void __sinit_020e5c00(void) {
-    func_0203a878(&data_02104b6c);
-    __register_global_object((int)&data_02104b6c, (int)func_0203a8d4, &data_02104b60);
+    func_0203a878(&gBattleNumberPopups_02104b6c);
+    __register_global_object((int)&gBattleNumberPopups_02104b6c, (int)func_0203a8d4, &data_02104b60);
 }

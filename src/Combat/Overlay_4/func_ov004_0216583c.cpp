@@ -16,7 +16,7 @@ struct Struct_ov004_0216342c {
     unsigned char unknown_18ff_[0x15];
 };
 
-extern char* data_ov004_02171010;
+extern char* gTreasureMapScreen_ov004_02171010;
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
 #if defined(jpn)
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov004_021660cc(void* arg0) {
 // USA: func_ov004_0216583c
 extern "C" ARM int func_ov004_0216583c(void* arg0) {
 #endif
-    Struct_ov004_0216342c* var0 = (Struct_ov004_0216342c*)data_ov004_02171010;
+    Struct_ov004_0216342c* var0 = (Struct_ov004_0216342c*)gTreasureMapScreen_ov004_02171010;
     var0->unknown_18fd_ = 1;
     QueueMenuScriptEntry_ov011_021848a0(arg0, 0x65);
     return 0;

@@ -19,7 +19,7 @@ extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" short* GetAppearance_02052e2c(struct Struct_02052e2c* gameObject);
 extern "C" void func_020830cc(void* arg0, void* arg1);
 extern "C" int GetResources_0200fb8c(int* gameState);
-extern "C" void func_02082828(void* arg0);
+extern "C" void InitPartyMemberData_02082828(void* memberData);
 extern "C" void func_020545ac(short* arg0);
 extern "C" void func_ov017_02190264(int arg0, int arg1);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(int, int, int, int, int);
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov017_021b6d60(int arg0, void* arg1) {
     }
     func_020830cc(var2, arg1);
     int var4 = GetResources_0200fb8c((int*)var0);
-    func_02082828(var2);
+    InitPartyMemberData_02082828(var2);
     short* var5 = *(short**)((char*)var1 + Enum_ov017_021b6d60_340);
     if (var5 != NULL) {
         func_020545ac(var5);

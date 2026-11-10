@@ -15,7 +15,7 @@ struct BattleAction_ov000_0215440c;
 extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
-extern "C" int func_ov000_0215ec1c(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectAllEnemyCombatantIndices_ov000_0215ec1c(void* battle, short* indices, int maxCount, int arg3);
 
 static inline int inline_ov000_02156cc4_2(int arg0) {
     return arg0 >= 0 && arg0 <= 3;
@@ -47,11 +47,11 @@ extern "C" ARM int func_ov000_0218177c(void* arg0, void* arg1, int arg2, int arg
         if (inline_ov000_02156cc4_2(var1)) {
             var4 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0, var0, 12, 0);
         } else if (inline_ov000_0218177c(var1)) {
-            var4 = func_ov000_0215ec1c(arg0, var0, 12, 0);
+            var4 = CollectAllEnemyCombatantIndices_ov000_0215ec1c(arg0, var0, 12, 0);
         }
     } else {
         if (inline_ov000_02156cc4_2(var1)) {
-            var4 = func_ov000_0215ec1c(arg0, var0, 12, 0);
+            var4 = CollectAllEnemyCombatantIndices_ov000_0215ec1c(arg0, var0, 12, 0);
         } else if (inline_ov000_0218177c(var1)) {
             var4 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0, var0, 12, 0);
         }

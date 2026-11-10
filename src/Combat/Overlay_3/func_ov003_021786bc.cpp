@@ -9,14 +9,14 @@
 
 struct MenuLayout_0207fdcc_2;
 struct MenuLayout_0207fe44;
-struct Struct_02081f20_2;
+struct KeyRepeat_02081f20_2;
 struct SoundEffectManager_02108760;
 
 extern "C" short func_02080468(void* arg0, int arg1);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId, int arg2);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 extern "C" void func_02081ea4(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
-extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
+extern "C" void func_0208203c(struct KeyRepeat_02081f20_2* arg0);
 extern "C" int func_ov003_021765b4(void* arg0);
 extern "C" int func_ov003_021766e8(void* arg0);
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov003_021786bc(unsigned char* arg0) {
         OpenMenuLayoutWindow_020813ec(var1, *(short*)(arg0 + J(0xf00 + 0xfe)), var3);
         SetMenuLayoutWindowPalette_02080c68(var1, *(short*)(arg0 + J(0xf00 + 0xfe)), 0);
         func_02081ea4(var1, *(short*)(arg0 + J(0xf00 + 0xfe)), 0);
-        func_0208203c((struct Struct_02081f20_2*)(arg0 + J(0x88c)));
+        func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + J(0x88c)));
         *(void**)(arg0 + J(0xff8)) = 0;
         (*(unsigned char*)(arg0 + J(0x1000 + 0x3f)))++;
         return;
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov003_021786bc(unsigned char* arg0) {
     *(void**)(arg0 + J(0xff8)) = arg0 + J(0x1000 + 4);
     if (func_ov003_021765b4(arg0) != 0) {
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-        func_0208203c((struct Struct_02081f20_2*)(arg0 + J(0x88c)));
+        func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + J(0x88c)));
         *(void**)(arg0 + J(0xff8)) = 0;
 
         unsigned char var4 = 0;
@@ -92,7 +92,7 @@ extern "C" ARM void func_ov003_021786bc(unsigned char* arg0) {
     }
 
     if (func_ov003_021766e8(arg0) == 0) return;
-    func_0208203c((struct Struct_02081f20_2*)(arg0 + J(0x88c)));
+    func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + J(0x88c)));
     *(void**)(arg0 + J(0xff8)) = 0;
     *(unsigned char*)(arg0 + J(0x1000 + 0x3e)) = 9;
     *(short*)(arg0 + J(0x1000 + 0x36)) = 6;

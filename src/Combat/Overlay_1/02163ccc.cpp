@@ -7,9 +7,9 @@ extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" void func_ov017_021b621c(void* arg0, SafeAllocator* arg1, void* arg2);
 extern SafeAllocator* data_ov001_021658b8[8];
 
-struct Struct_020469f8;
-struct Struct_020469f8_2;
-extern "C" void func_020469f8(struct Struct_020469f8* arg0, struct Struct_020469f8_2* arg1);
+struct Queue_020469f8;
+struct QueueNode_020469f8_2;
+extern "C" void PrependToQueue_020469f8(struct Queue_020469f8* queue, struct QueueNode_020469f8_2* node);
 
 struct Struct_ov001_02163ccc { int unknown_0_; int unknown_4_; int unknown_8_; unsigned char* unknown_c_; };
 struct Struct_ov001_02165880 { char unknown_0_[4]; Struct_ov001_02163ccc* unknown_4_; };
@@ -37,7 +37,7 @@ extern "C" ARM int func_ov001_02163ccc(char* arg0, int arg1) {
 
     if (arg1 < 1) {
         func_ov017_021b621c(var5, var0, 0);
-        func_020469f8((struct Struct_020469f8*)var4, (struct Struct_020469f8_2*)var5);
+        PrependToQueue_020469f8((struct Queue_020469f8*)var4, (struct QueueNode_020469f8_2*)var5);
     } else {
         var6 = GetScriptValueAsInt_ov017_021d60f4(arg0);
         var2 = -1;
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov001_02163ccc(char* arg0, int arg1) {
         }
         func_ov017_021b621c(var5, var0, var3);
         *(short*)(var5 + 0xfe) = (short)var2;
-        func_020469f8((struct Struct_020469f8*)var4, (struct Struct_020469f8_2*)var5);
+        PrependToQueue_020469f8((struct Queue_020469f8*)var4, (struct QueueNode_020469f8_2*)var5);
     }
     var5[8] = 0;
 #if defined(jpn)

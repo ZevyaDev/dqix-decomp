@@ -78,7 +78,7 @@ struct Struct_02082d6c {
     unsigned short unknown_954_;
 };
 
-extern "C" void func_02082828(struct Struct_02082d6c*);
+extern "C" void InitPartyMemberData_02082828(struct Struct_02082d6c*);
 extern "C" void func_02082fc4(void*, void*);
 extern "C" void func_02082fa8(struct Struct_02082fa8*, struct Struct_02082fa8*);
 extern "C" void __clear(void*, unsigned int);
@@ -90,7 +90,7 @@ extern "C" ARM void func_02082d6c(struct Struct_02082d6c* arg0, struct Struct_02
     if (arg1 == NULL) {
         return;
     }
-    func_02082828(arg0);
+    InitPartyMemberData_02082828(arg0);
     arg0->unknown_56a_ = arg1->unknown_1_0_;
     arg0->unknown_950_ = arg1->unknown_50_;
     arg0->unknown_954_ = arg1->unknown_54_;

@@ -35,7 +35,7 @@ struct Struct_ov015_02194564_2
 extern Struct_ov015_02194564_2 data_ov015_02194564;
 extern "C" Struct_ov015_0218e670_2* func_020100cc(char*);
 extern "C" void ResetMatrixStacks_020c5414();
-extern "C" void func_0202eab8(Struct_ov015_0218e670_2*);
+extern "C" void SetCameraOrbitFromEye_0202eab8(Struct_ov015_0218e670_2*);
 
 // USA: func_ov015_0218e670
 extern "C" ARM void func_ov015_0218e670(Struct_ov015_0218e670* arg0)
@@ -101,5 +101,5 @@ extern "C" ARM void func_ov015_0218e670(Struct_ov015_0218e670* arg0)
     Vector3fix_Add(&var7, &var10, &var7);
     Vector3fix_Add(&var8, &var10, &var8);
     (var4->unknown_10_ = var7, var4->unknown_4_) = var6;
-    func_0202eab8(var4);
+    SetCameraOrbitFromEye_0202eab8(var4);
 }

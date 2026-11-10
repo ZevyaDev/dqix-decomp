@@ -11,12 +11,12 @@ struct Struct_020cf294_2 { unsigned int unknown_0_; unsigned int unknown_4_; uns
 
 extern "C" void func_ov031_0221ae00(Struct_ov031_0221bfe8* arg0);
 extern "C" void func_020cf020(void);
-extern "C" int func_020cf0fc(int arg0);
+extern "C" int GetCurrentDate_020cf0fc(int date);
 extern "C" int func_020cf1a8(int arg0);
 extern "C" long long func_020cf990(int arg0, unsigned char* arg1);
 int Is64BitTimerInitialized();
 unsigned long long GetCurrentTimestamp(void);
-extern "C" void func_020c99ac(void* arg0);
+extern "C" void GetMACAddress_020c99ac(void* macAddress);
 extern "C" unsigned long long func_ov031_0221be64(unsigned int arg0, unsigned int arg1, unsigned char arg2, unsigned int arg3);
 
 struct Struct_ov031_0221bfe8_2 { unsigned int unknown_0_; unsigned int unknown_4_; unsigned int unknown_8_; };
@@ -35,7 +35,7 @@ static inline unsigned short inline_ov031_0221bfe8(Struct_ov031_0221bfe8_2* arg0
     }
 }
 
-static inline int inline_ov031_0221bfe8_2(Struct_020cf294* arg0) { return func_020cf0fc((int)arg0); }
+static inline int inline_ov031_0221bfe8_2(Struct_020cf294* arg0) { return GetCurrentDate_020cf0fc((int)arg0); }
 static inline int inline_ov031_0221bfe8_3(Struct_020cf294_2* arg0) { return func_020cf1a8((int)arg0); }
 static inline long long inline_ov031_0221bfe8_4(const Struct_020cf294* arg0, const Struct_020cf294_2* arg1) {
     return func_020cf990((int)arg0, (unsigned char*)arg1);
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov031_0221c258(Struct_ov031_0221bfe8* arg0) {
     var3 = inline_ov031_0221bfe8_4(&var1, &var2);
     if (var3 < 0) return 0;
     if (Is64BitTimerInitialized()) var3 += (unsigned int)GetCurrentTimestamp;
-    func_020c99ac(var0);
+    GetMACAddress_020c99ac(var0);
     var5 = (unsigned int)(var0[0] << 16 | var0[1] << 8 | var0[2]) != 0x9bf ? 1 : 0;
     var6 = var0[3] << 16 | var0[4] << 8 | var0[5];
     inline_ov031_0221bfe8_5(&var4, (unsigned int)var3);

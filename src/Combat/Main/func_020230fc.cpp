@@ -10,19 +10,19 @@ struct Struct_020200c0_3 {
     short unknown_a_;
 };
 
-struct Struct_020200c0_4 {
-    int unknown_0_;
-    int unknown_4_;
-    unsigned char unknown_8_;
+struct Canvas_020200c0_4 {
+    int pCharacterData_0_;
+    int pRects_4_;
+    unsigned char rectCount_8_;
 };
 
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int GetStringLength_020d2ff0(const char* string);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void func_02023064(struct Struct_020200c0_3* arg0, unsigned int arg1, short* arg2, short* arg3, short* arg4, short* arg5);
-extern "C" void func_0205b20c(struct Struct_020200c0_4* arg0);
-extern "C" void func_0205b220(void* arg0, int arg1);
-extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
+extern "C" void InitCanvas_0205b20c(struct Canvas_020200c0_4* canvas);
+extern "C" void SetCanvasCharacterData_0205b220(void* canvas, int characterData);
+extern "C" void SetCanvasRects_0205b228(void* canvas, int rects, unsigned char rectCount);
 extern "C" int func_0205b234(void* arg0, short arg1, int arg2, char* arg3, int arg4, int arg5);
 
 // USA: func_020230fc
@@ -32,7 +32,7 @@ extern "C" ARM void func_020230fc(Struct_02020554* arg0, char* arg1, int arg2) {
     short var2[18];
     short var3[18];
     struct Struct_020200c0_3 var4[18];
-    struct Struct_020200c0_4 var5;
+    struct Canvas_020200c0_4 var5;
     int var6;
     int var7;
     int var8;
@@ -76,9 +76,9 @@ extern "C" ARM void func_020230fc(Struct_02020554* arg0, char* arg1, int arg2) {
         }
 #endif
 
-        func_0205b20c(&var5);
-        func_0205b220(&var5, (int)(arg1 + arg2));
-        func_0205b228(&var5, (int)var4, 0x12);
+        InitCanvas_0205b20c(&var5);
+        SetCanvasCharacterData_0205b220(&var5, (int)(arg1 + arg2));
+        SetCanvasRects_0205b228(&var5, (int)var4, 0x12);
 
 #if defined(jpn)
         func_0205b234(&var5, (short)var7, 3, var10->substruct_c_.unknown1_2a_, 10, 15);

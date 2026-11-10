@@ -4,7 +4,7 @@ struct SpriteAnimationList_0205a254;
 struct SpriteAnimation_0205a254_2;
 extern "C" struct SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index);
 extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254* animationList, int index);
-extern "C" void func_020e27ec(struct SpriteAnimationList_0205a254* arg0, int arg1, short arg2, short arg3);
+extern "C" void SetSpriteAnimationPosition_020e27ec(struct SpriteAnimationList_0205a254* animationList, int index, short x, short y);
 extern "C" void SetSpriteAnimationOAMIndex_0205a42c(struct SpriteAnimationList_0205a254* animationList, int index, int oamIndex);
 
 struct SpriteAnimationList_0205a330;
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov003_0215c464(char* arg0) {
 				*(unsigned char*)((char*)var0 + 0x15) |= 8;
 			}
 			AdvanceSpriteAnimations_0205a330((struct SpriteAnimationList_0205a330*)var1, *(int*)(arg0 + 0x574));
-			func_020e27ec(var1, 1, 0xd7, 0x96);
+			SetSpriteAnimationPosition_020e27ec(var1, 1, 0xd7, 0x96);
 			SetSpriteAnimationOAMIndex_0205a42c(var1, 1, 6);
 		}
 		DrawSpriteAnimations_0205ae8c(arg0 + 0x98);

@@ -70,7 +70,7 @@ extern "C" int func_ov025_021def24(void* arg0);
 extern "C" void* GetBattleUI_ov000_02160f08(void* battleScene);
 extern "C" void* func_ov000_0215feb4(char* arg0, int arg1, int arg2);
 extern "C" struct Struct_ov025_021e9d14_3* func_ov025_021dafd0(char* arg0, int arg1);
-extern "C" struct Struct_0203a588_2* func_02039e70(void);
+extern "C" struct Struct_0203a588_2* GetBattleNumberPopups_02039e70(void);
 struct Struct_0203a48c_2;
 extern "C" void func_0203a48c(Struct_0203a48c_3*, int, Struct_0203a48c_2*, int, int, int);
 extern "C" void* GetEffectManager_02057924(void);
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov025_021e9d14(void) {
         if (var4->unknown_14_ != NULL) {
             int var9 = -var4->unknown_14_->unknown_c_;
             if (var9 > 0) {
-                struct Struct_0203a48c_3* var10 = (struct Struct_0203a48c_3*)func_02039e70();
+                struct Struct_0203a48c_3* var10 = (struct Struct_0203a48c_3*)GetBattleNumberPopups_02039e70();
                 Vector3fix var11 = var8->obj3D_.position_;
                 var11.y += var8->obj3D_.GetHeight();
                 func_0203a48c(var10, var9, (Struct_0203a48c_2*)&var11, 3, 0, 0);

@@ -32,7 +32,7 @@ extern "C" Struct_02050100_3* FindFontGlyph_0204254c(int, int);
 extern char data_020e7bda[];
 extern "C" char* func_02050064(Struct_02050100_2*);
 extern "C" void func_0204f41c(Struct_02050100_2*, short, short, char*, int, int, short*, short*, int);
-extern "C" void func_0204f914(Struct_02050100_2*, int, short, short, short, short);
+extern "C" void FillTextWindowRect_0204f914(Struct_02050100_2*, int, short, short, short, short);
 extern "C" void func_0204f7e8(Struct_02050100_2*, short, short, int, unsigned char, unsigned char, short*, short*, unsigned char, unsigned char, unsigned char, unsigned char);
 typedef void (*Type_02050100)(void*, int, unsigned int);
 extern "C" Type_02050100 func_0204a5e4(int, int);
@@ -70,11 +70,11 @@ extern "C" ARM void func_02050100(Struct_02050100_2* arg0, int arg1) {
     if (arg0->unknown_c5_ & 4) var0 = 0;
     var8 = var5 - 8 - var10 * 8;
     int var11 = var4 + 8;
-    func_0204f914(arg0, var0, var8, var4, var8 + var10 * 8 + 1, var11);
+    FillTextWindowRect_0204f914(arg0, var0, var8, var4, var8 + var10 * 8 + 1, var11);
     unsigned char var12 = var10;
     func_0204f7e8(arg0, var8, var4, arg0->unknown_d9_ + 1, 8, 15, &var6, &var7, 1, var12, 0, 0);
     var8 = var5 + 8;
-    func_0204f914(arg0, var0, var8, var4, var8 + var10 * 8 + 1, var11);
+    FillTextWindowRect_0204f914(arg0, var0, var8, var4, var8 + var10 * 8 + 1, var11);
     func_0204f7e8(arg0, var8, var4, arg0->unknown_da_, 8, 15, &var6, &var7, 0, var12, 0, 0);
     func_02050678(arg0, var5 - 4, var4, data_020f0336, 8, 15, &var6, &var7);
 #else
@@ -98,11 +98,11 @@ extern "C" ARM void func_02050100(Struct_02050100_2* arg0, int arg1) {
     func_0204f41c(arg0, var23, var13, data_020e7bda, 8, 15, &var15, &var16, 0);
     var17 = var14 - var19;
     int var24 = var13 + 9;
-    func_0204f914(arg0, var18, var17 - 14, var13, var17, var24);
+    FillTextWindowRect_0204f914(arg0, var18, var17 - 14, var13, var17, var24);
     unsigned char var25 = var21;
     func_0204f7e8(arg0, var17, var13, arg0->unknown_d9_ + 1, 8, 15, &var15, &var16, 1, var25, 0, 0);
     short var26 = var14 + var19;
-    func_0204f914(arg0, var18, var26, var13, var26 + 14, var24);
+    FillTextWindowRect_0204f914(arg0, var18, var26, var13, var26 + 14, var24);
     func_0204f7e8(arg0, var26 + 1, var13, arg0->unknown_da_, 8, 15, &var15, &var16, 0, var25, 0, 0);
 #endif
     if (arg1) {

@@ -61,11 +61,11 @@ extern "C" ARM void func_ov000_02167fb0(struct Struct_ov000_02167fb0* arg0, Game
             }
         }
         if (!var9) {
-            struct Struct_02048cf0 var12 = func_ov000_0216f74c(&var8);
+            struct CellPosition_02048cf0 var12 = GetCellPosition_ov000_0216f74c(&var8);
             SetCombatantCell_02049390((unsigned char*)arg1, var8 & 0xff);
             struct Struct_ov000_021830d8 var13 = data_ov000_021830d8;
-            var13.unknown_0_[0] = var12.unknown_0_;
-            var13.unknown_0_[2] = var12.unknown_4_;
+            var13.unknown_0_[0] = var12.x_0_;
+            var13.unknown_0_[2] = var12.z_4_;
             func_02049bd4((unsigned char*)arg1, var13.unknown_0_);
             func_02049c60((unsigned char*)arg1, var3);
             return;

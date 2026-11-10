@@ -21,7 +21,7 @@ extern "C" void func_020c51a4(int arg0);
 
 extern "C" char* GetEquipMenu_ov017_021a193c(int*);
 struct PartyMember_02052e14;
-extern "C" short* func_02052e14(PartyMember_02052e14*);
+extern "C" short* GetEquippedItems_02052e14(PartyMember_02052e14*);
 extern "C" void func_02047554(void* arg0, int arg1, int arg2);
 
 extern const unsigned char data_ov005_0215cc1c[];
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov005_0215a418(Struct_ov005_0215a418* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     char* var2 = GetEquipMenu_ov017_021a193c((int*)var1->unknown_ptr_array_36fc[3]);
-    short* var3 = func_02052e14((PartyMember_02052e14*)(GetPartyMemberBaseByIndex_0200ff1c(var0,*(int*)(var2 + LOW_REGION(0x4f8, 0x4fc)))));
+    short* var3 = GetEquippedItems_02052e14((PartyMember_02052e14*)(GetPartyMemberBaseByIndex_0200ff1c(var0,*(int*)(var2 + LOW_REGION(0x4f8, 0x4fc)))));
     if (arg0->unknown_3db8_ != 0) return;
 
     for (int var4 = 0; var4 < 8; var4++) {

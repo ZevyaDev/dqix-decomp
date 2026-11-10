@@ -57,12 +57,12 @@ struct Struct_ov024_021fc754_4 {
     GameObject* unknown_7c_[8];
     int unknown_9c_;
 };
-extern "C" int func_ov024_021fe698(Struct_ov024_021fc754_4*, int);
+extern "C" int TrySelectTacticOption_ov024_021fe698(Struct_ov024_021fc754_4*, int);
 extern "C" void func_ov024_021f9874(Struct_ov024_021fc754_4*, Struct_ov024_021f6a1c*, int, int);
 
 // USA: func_ov024_021fc754
 extern "C" ARM void func_ov024_021fc754(Struct_ov024_021fc754_4* arg0) {
-    if (!func_ov024_021fe698(arg0, 1)) return;
+    if (!TrySelectTacticOption_ov024_021fe698(arg0, 1)) return;
     int var0 = 0;
     for (int var1 = 0; var1 < arg0->unknown_9c_; var1++) {
         GameObject* var2 = arg0->unknown_7c_[var1];

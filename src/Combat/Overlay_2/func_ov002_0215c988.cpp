@@ -1,17 +1,17 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
 
-struct Struct_0205c508;
+struct MenuCursor_0205c508;
 struct MessageWindow_020465c0;
 struct ItemTable_0201099c_10;
 struct Struct_020a0b8c;
-struct Struct_0207cf30_3;
+struct ItemBag_0207cf30_3;
 struct TextWindowManager_0205d81c;
 
 extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
 extern "C" char *GetMessageWindow_020421a0();
-extern "C" void func_0205c508(struct Struct_0205c508 *arg0, int *arg1, int *arg2);
+extern "C" void GetMenuCursorPageRange_0205c508(struct MenuCursor_0205c508 *cursor, int *outPageStartIndex, int *outPageEndIndex);
 extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
 extern "C" int func_ov002_02157108(void *arg0, int arg1);
 extern "C" void ClearMessageParams_02046380(void *window);
@@ -23,7 +23,7 @@ extern "C" int AppendMenuEntry_02041b70(char *buffer, int entryIndex, const char
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" int func_020a0b8c(struct Struct_020a0b8c *arg0);
-extern "C" int func_020a0b3c(Struct_0207cf30_3 *arg0, int arg1);
+extern "C" int GetBagItemCount_020a0b3c(ItemBag_0207cf30_3 *bag, int itemId);
 extern "C" int sprintf(char *arg0, const char *arg1, ...);
 extern "C" void func_ov002_0215b918(unsigned char *arg0, int arg1, int arg2, int arg3);
 extern "C" char *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov002_0215c988(char *arg0, char *arg1, int arg2) {
     char *var6     = arg0 + 0xe20;
     int var7      = *(int *) (var6 + 0x68);
     int var8     = *(int *) (var6 + 0x58);
-    func_0205c508((struct Struct_0205c508 *) (var6 + 0x54), &var1, &var2);
+    GetMenuCursorPageRange_0205c508((struct MenuCursor_0205c508 *) (var6 + 0x54), &var1, &var2);
     int var9 = *(signed char *) (arg0 + 0x1a00 + 0xe8);
     int var10 = (var9 >= 0 && var9 <= 3) ? 1 : 0;
     if (var10) {
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov002_0215c988(char *arg0, char *arg1, int arg2) {
                               arg1 + var22);
                 memset(var0, 0, 0x40);
                 sprintf(var0, (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x481),
-                        func_020a0b3c((Struct_0207cf30_3 *) var17, *(short *) (var21 + 0x18)));
+                        GetBagItemCount_020a0b3c((ItemBag_0207cf30_3 *) var17, *(short *) (var21 + 0x18)));
                 AppendText_02042058(arg1, var0);
                 if (var20 != var2 - 1) {
                     AppendText_02042058(arg1, *(char **) (arg0 + 0x1000 + 0xaa4));
@@ -156,7 +156,7 @@ extern "C" ARM void func_ov002_0215c988(char *arg0, char *arg1, int arg2) {
     char *var33     = arg0 + 0x2c8 + 0xc00;
     int var34      = *(int *) (var33 + 0x68);
     int var35     = *(int *) (var33 + 0x58);
-    func_0205c508((struct Struct_0205c508 *) (var33 + 0x54), &var28, &var29);
+    GetMenuCursorPageRange_0205c508((struct MenuCursor_0205c508 *) (var33 + 0x54), &var28, &var29);
     int var36 = *(signed char *) (arg0 + 0x1c20);
     int var37 = (var36 >= 0 && var36 <= 3) ? 1 : 0;
     if (var37) {
@@ -207,7 +207,7 @@ extern "C" ARM void func_ov002_0215c988(char *arg0, char *arg1, int arg2) {
                 AppendMenuEntry_02041b70(arg1, var45, var26);
                 __clear(var27, 0x40);
                 sprintf(var27, data_ov002_0216d270,
-                        func_020a0b3c((Struct_0207cf30_3 *) var43, *(short *) (var47 + 0x18)));
+                        GetBagItemCount_020a0b3c((ItemBag_0207cf30_3 *) var43, *(short *) (var47 + 0x18)));
                 AppendText_02042058(arg1, var27);
                 if (var46 != var29 - 1) {
                     AppendText_02042058(arg1, *(char **) (arg0 + 0x1bdc));

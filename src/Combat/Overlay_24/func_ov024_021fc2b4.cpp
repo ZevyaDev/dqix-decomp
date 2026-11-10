@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov024_021fe698(void* arg0, int arg1);
+extern "C" int TrySelectTacticOption_ov024_021fe698(void* tacticAI, int option);
 extern "C" void func_ov024_021fdf04(void* arg0, int arg1);
 extern "C" void func_ov024_021fd954(void* arg0, int arg1);
 
@@ -10,7 +10,7 @@ extern "C" ARM void func_ov024_021fc2b4(void* arg0) {
 	unsigned int var1 = *(unsigned int*)((char*)var0 + 0x8);
 	unsigned int var2 = (var1 << 0x16) >> 0x1e;
 	if (var2 == 1) {
-		if (!func_ov024_021fe698(arg0, 0x10)) {
+		if (!TrySelectTacticOption_ov024_021fe698(arg0, 0x10)) {
 			return;
 		}
 		func_ov024_021fdf04(arg0, 0x16);
@@ -19,7 +19,7 @@ extern "C" ARM void func_ov024_021fc2b4(void* arg0) {
 	if (*(unsigned char*)((char*)arg0 + 0x6b) == 0) {
 		return;
 	}
-	if (!func_ov024_021fe698(arg0, 0xa)) {
+	if (!TrySelectTacticOption_ov024_021fe698(arg0, 0xa)) {
 		return;
 	}
 	func_ov024_021fd954(arg0, 0x16);

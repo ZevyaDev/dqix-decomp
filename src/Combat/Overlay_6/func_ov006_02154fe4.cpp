@@ -11,8 +11,8 @@
 #endif
 
 extern "C" void func_ov023_021dfad8(char* arg0);
-struct Struct_0207fd88;
-extern "C" void func_0207fd88(Struct_0207fd88* arg0);
+struct MenuLayout_0207fd88;
+extern "C" void CopyMenuLayoutBGScreenDataToVRAM_0207fd88(MenuLayout_0207fd88* menuLayout);
 
 struct Struct_ov006_02154fe4 {
     unsigned char unknown_0_0_ : 1;
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov006_02154fe4(void* arg0) {
     }
     func_ov023_021dfad8(var0 + R(0x164, 0x2e4) + 0x800);
     if (((Struct_ov006_02154fe4*)(var0 + 0x1000 + R(0x7b, 0x27f)))->unknown_0_1_) return;
-    Struct_0207fd88* var3 = *(Struct_0207fd88**)(var0 + R(0x54, 0x1d4));
+    MenuLayout_0207fd88* var3 = *(MenuLayout_0207fd88**)(var0 + R(0x54, 0x1d4));
     if (var3 == 0) return;
-    func_0207fd88(var3);
+    CopyMenuLayoutBGScreenDataToVRAM_0207fd88(var3);
 }

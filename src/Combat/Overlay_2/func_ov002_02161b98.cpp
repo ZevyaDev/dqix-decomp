@@ -9,13 +9,13 @@
 
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0;
-struct Struct_0205c4a8;
+struct MenuCursor_0205c4a8;
 struct MenuCursor_0205bb84;
 struct MenuCursor_0205bcdc;
 
 extern "C" struct TextWindow_0205d0e0 *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
 extern "C" int func_0205c6e4(unsigned char *arg0);
-extern "C" void func_0205c4a8(struct Struct_0205c4a8 *arg0, int arg1);
+extern "C" void ChangeMenuCursorPage_0205c4a8(struct MenuCursor_0205c4a8 *cursor, int pageStep);
 extern "C" int GetMenuCursorIndex_0205bb84(struct MenuCursor_0205bb84 *cursor);
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc *cursor, int index);
 extern "C" void SetMenuCursorIndex_0205bb04(void *cursor, int index);
@@ -54,13 +54,13 @@ extern "C" ARM int func_ov002_02161b98(char *arg0) {
         }
         int var12 = (short) (var2 * 8);
         if (var12 <= var0 && var0 < var12 + 16) {
-            func_0205c4a8((struct Struct_0205c4a8 *) (var4 + 0x54), -1);
+            ChangeMenuCursorPage_0205c4a8((struct MenuCursor_0205c4a8 *) (var4 + 0x54), -1);
             *(int *) (arg0 + 0x1000 + RG(0xbc8, 0xa90)) = 1;
         }
         int var13 = var0;
         int var14 = (short) (var3 * 8);
         if (var14 - 16 <= var13 && var13 < var14) {
-            func_0205c4a8((struct Struct_0205c4a8 *) (var4 + 0x54), 1);
+            ChangeMenuCursorPage_0205c4a8((struct MenuCursor_0205c4a8 *) (var4 + 0x54), 1);
             *(int *) (arg0 + 0x1000 + RG(0xbc8, 0xa90)) = 1;
         }
         int var15 = GetMenuCursorIndex_0205bb84((struct MenuCursor_0205bb84 *) (var4 + 0x54));

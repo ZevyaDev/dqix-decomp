@@ -12,7 +12,7 @@ struct Struct_ov017_021d26a4 {
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" void func_ov017_0218d4b8(unsigned char* arg0, int arg1);
 extern "C" void func_ov017_0218d4d0(void* arg0, int arg1);
-extern "C" void func_ov017_02191aac(void* arg0, int arg1, int arg2, unsigned char arg3);
+extern "C" void SetCombatantAppearanceFlags_ov017_02191aac(void* gameResources, int isSet, int combatantIndex, unsigned char flags);
 
 // USA: func_ov017_021d26a4
 extern "C" ARM void func_ov017_021d26a4(void* arg0, Struct_ov017_021d26a4* arg1, GameState* arg2, void* arg3) {
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov017_021d26a4(void* arg0, Struct_ov017_021d26a4* arg1,
     bool var3 = arg1->unknown_5_0_;
     var2[0x56c] = var3;
     if (var2[0x56c]) {
-        func_ov017_02191aac(arg3, 1, arg1->unknown_4_, 2);
+        SetCombatantAppearanceFlags_ov017_02191aac(arg3, 1, arg1->unknown_4_, 2);
     }
     if (arg1->unknown_5_1_) {
         func_ov017_0218d4b8((unsigned char*)var0, arg1->unknown_4_);

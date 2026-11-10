@@ -9,7 +9,7 @@ struct Struct_020e4bf4 {
 };
 
 extern "C" void SetNoun_020e4b34(void* noun, struct BaseCombatStats* singularText, struct BaseCombatStats* pluralText,
-    int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int arg9, int hasInitialVowelSound, int isInitialVowelFromText);
+    int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int isProperName, int hasInitialVowelSound, int isInitialVowelFromText);
 
 // USA: InitPartyMemberNoun_020e4bf4
 extern "C" ARM void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex) {

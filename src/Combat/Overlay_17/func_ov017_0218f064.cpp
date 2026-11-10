@@ -68,7 +68,7 @@ extern "C" int func_ov017_02192548();
 extern "C" void func_020415d8(Struct_020415d8*);
 extern "C" void HaltForever_020c9be0();
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
-extern "C" void func_0203db34(unsigned char*, int, int, int);
+extern "C" void SetObject3DRotation_0203db34(unsigned char*, int, int, int);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_02053c4c(char*, char*);
 extern "C" void func_02053c74(char*, int);
@@ -198,7 +198,7 @@ extern "C" ARM void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2,
     var16->unknown_0_.SetRadius(0x1000);
     var16->unknown_0_.MaybeSetRegularAnimation(data_ov017_021d73a4, 0);
     var16->unknown_0_.position_ = var2->unknown_10_;
-    func_0203db34((unsigned char*)var16, var16->unknown_0_.rotation_.x, var2->unknown_1c_, var16->unknown_0_.rotation_.z);
+    SetObject3DRotation_0203db34((unsigned char*)var16, var16->unknown_0_.rotation_.x, var2->unknown_1c_, var16->unknown_0_.rotation_.z);
     SetMotion_02033b88((Struct_02010604*)var16, 0);
     if (arg2 == 0x4000) {
 #if defined(jpn)

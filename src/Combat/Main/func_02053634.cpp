@@ -11,7 +11,7 @@ extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameSt
 extern "C" int func_02039874(void* arg0);
 extern "C" int func_02053604(signed char* arg0);
 
-extern "C" void func_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* arg0);
 struct ObjectArchiveLoadInfo;
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_0205308c(void* arg0, int arg1);
@@ -67,7 +67,7 @@ extern "C" ARM void func_02053634(void* arg0) {
         int var4 = GetOwnPartyLeaderObjectIndex_020100b0(var1);
         if (var4 == var3
             && ((unsigned char*)GetMessageWindow_020421a0())[GLOBAL_ACTIVE_OFFSET] != 0) {
-            func_020531f0(var0);
+            StopGesture_020531f0(var0);
             return;
         }
     }
@@ -76,7 +76,7 @@ extern "C" ARM void func_02053634(void* arg0) {
     int var6 = var0[OBJECT_OFFSET(0x17c)] > 0 ? 1 : 0;
     if (var6 != 0) {
         if (func_02039874(var5) > 0) {
-            func_020531f0(var0);
+            StopGesture_020531f0(var0);
             return;
         }
     }
@@ -121,7 +121,7 @@ extern "C" ARM void func_02053634(void* arg0) {
             }
             if (((Object3D*)var0)->MaybeSetRegularAnimation(&data_020f0477, 1) == 0) {
                 if (((Object3D*)var0)->MaybeSetRegularAnimation(&data_020f047e, 1) == 0) {
-                    func_020531f0(var0);
+                    StopGesture_020531f0(var0);
                     return;
                 }
                 var0[OBJECT_OFFSET(0x17f)] = 1;
@@ -151,7 +151,7 @@ extern "C" ARM void func_02053634(void* arg0) {
             var0[OBJECT_OFFSET(0x17e)] = 1;
             goto loadOK;
         loadFail:
-            func_020531f0(var0);
+            StopGesture_020531f0(var0);
             return;
         } else {
             goto loadOK;
@@ -160,7 +160,7 @@ extern "C" ARM void func_02053634(void* arg0) {
         var0[OBJECT_OFFSET(0x185)] = 1;
         goto detailOK;
     detailFail:
-        func_020531f0(var0);
+        StopGesture_020531f0(var0);
         return;
         }
     detailOK:
@@ -199,7 +199,7 @@ extern "C" ARM void func_02053634(void* arg0) {
                         func_0206f81c(var22);
                     }
                 }
-                func_020531f0(var0);
+                StopGesture_020531f0(var0);
                 return;
             } else if (var0[OBJECT_OFFSET(0x17f)] == 1) {
                 int var25 = 0;
@@ -213,10 +213,10 @@ extern "C" ARM void func_02053634(void* arg0) {
                     var0[OBJECT_OFFSET(0x17e)] = 2;
                     return;
                 }
-                func_020531f0(var0);
+                StopGesture_020531f0(var0);
                 return;
             } else {
-                func_020531f0(var0);
+                StopGesture_020531f0(var0);
                 return;
             }
         } else if (var7 == 2) {
@@ -249,7 +249,7 @@ extern "C" ARM void func_02053634(void* arg0) {
                 return;
             }
             if (((Object3D*)var0)->MaybeSetRegularAnimation(&data_020f0486, 1) == 0) {
-                func_020531f0(var0);
+                StopGesture_020531f0(var0);
                 return;
             }
             {
@@ -288,7 +288,7 @@ extern "C" ARM void func_02053634(void* arg0) {
                     func_0206f81c(var35);
                 }
             }
-            func_020531f0(var0);
+            StopGesture_020531f0(var0);
             return;
         }
     }

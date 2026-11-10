@@ -4,7 +4,7 @@
 struct Struct_02075cdc;
 extern "C" void func_02075cdc(struct Struct_02075cdc* arg0);
 
-struct Struct_ov023_021dbfd0 {
+struct ItemInfoPanel_ov023_021dbfd0 {
     SafeAllocator unknown_0_;                  // 0x00
     SafeAllocator unknown_14_;                  // 0x14
     SafeAllocator unknown_28_;                  // 0x28
@@ -24,35 +24,35 @@ struct Struct_ov023_021dbfd0_2 {
     unsigned char unknown_5e_;
 };
 
-// USA: func_ov023_021dbfd0
-extern "C" ARM void func_ov023_021dbfd0(Struct_ov023_021dbfd0* arg0, SafeAllocator* arg1) {
+// USA: AllocateItemInfoPanelBuffers_ov023_021dbfd0
+extern "C" ARM void AllocateItemInfoPanelBuffers_ov023_021dbfd0(ItemInfoPanel_ov023_021dbfd0* panel, SafeAllocator* allocator) {
 #if defined(jpn)
  enum {Enum_ov023_021dbfd0_1916=0x6f8};
 #else
  enum {Enum_ov023_021dbfd0_1916=0x77c};
 #endif
-    if (arg1 == NULL) return;
+    if (allocator == NULL) return;
 
-    arg0->unknown_0_.CreateTypeA(arg1->Allocate(0xd33), 0xd33);
-    arg0->unknown_14_.CreateTypeA(arg1->Allocate(0x4cc), 0x4cc);
-    arg0->unknown_28_.CreateTypeA(arg1->Allocate(0x400), 0x400);
+    panel->unknown_0_.CreateTypeA(allocator->Allocate(0xd33), 0xd33);
+    panel->unknown_14_.CreateTypeA(allocator->Allocate(0x4cc), 0x4cc);
+    panel->unknown_28_.CreateTypeA(allocator->Allocate(0x400), 0x400);
 
-    arg0->unknown_c4_ = (struct Struct_02075cdc*)arg1->Allocate(0x70);
-    arg0->unknown_c8_ = (struct Struct_02075cdc*)arg1->Allocate(0x70);
-    arg0->unknown_3c_ = (SafeAllocator*)arg1->Allocate(0x14);
-    arg0->unknown_40_ = (SafeAllocator*)arg1->Allocate(0x14);
-    arg0->unknown_44_ = (SafeAllocator*)arg1->Allocate(0x14);
-    arg0->unknown_44_->CreateTypeA(arg1->Allocate(0x180), 0x180);
+    panel->unknown_c4_ = (struct Struct_02075cdc*)allocator->Allocate(0x70);
+    panel->unknown_c8_ = (struct Struct_02075cdc*)allocator->Allocate(0x70);
+    panel->unknown_3c_ = (SafeAllocator*)allocator->Allocate(0x14);
+    panel->unknown_40_ = (SafeAllocator*)allocator->Allocate(0x14);
+    panel->unknown_44_ = (SafeAllocator*)allocator->Allocate(0x14);
+    panel->unknown_44_->CreateTypeA(allocator->Allocate(0x180), 0x180);
 
-    func_02075cdc(arg0->unknown_c4_);
-    func_02075cdc(arg0->unknown_c8_);
+    func_02075cdc(panel->unknown_c4_);
+    func_02075cdc(panel->unknown_c8_);
 
-    ((Struct_ov023_021dbfd0_2*)arg0->unknown_c4_)->unknown_5e_ = *(signed char*)((char*)arg0 + Enum_ov023_021dbfd0_1916);
-    ((Struct_ov023_021dbfd0_2*)arg0->unknown_c4_)->unknown_3c_ = 0;
-    ((Struct_ov023_021dbfd0_2*)arg0->unknown_c8_)->unknown_5e_ = *(signed char*)((char*)arg0 + Enum_ov023_021dbfd0_1916);
-    ((Struct_ov023_021dbfd0_2*)arg0->unknown_c8_)->unknown_38_ = 0x120;
-    ((Struct_ov023_021dbfd0_2*)arg0->unknown_c8_)->unknown_3c_ = 1;
+    ((Struct_ov023_021dbfd0_2*)panel->unknown_c4_)->unknown_5e_ = *(signed char*)((char*)panel + Enum_ov023_021dbfd0_1916);
+    ((Struct_ov023_021dbfd0_2*)panel->unknown_c4_)->unknown_3c_ = 0;
+    ((Struct_ov023_021dbfd0_2*)panel->unknown_c8_)->unknown_5e_ = *(signed char*)((char*)panel + Enum_ov023_021dbfd0_1916);
+    ((Struct_ov023_021dbfd0_2*)panel->unknown_c8_)->unknown_38_ = 0x120;
+    ((Struct_ov023_021dbfd0_2*)panel->unknown_c8_)->unknown_3c_ = 1;
 
-    arg0->unknown_3c_->CreateTypeA(arg1->Allocate(0x280), 0x280);
-    arg0->unknown_40_->CreateTypeA(arg1->Allocate(0x280), 0x280);
+    panel->unknown_3c_->CreateTypeA(allocator->Allocate(0x280), 0x280);
+    panel->unknown_40_->CreateTypeA(allocator->Allocate(0x280), 0x280);
 }

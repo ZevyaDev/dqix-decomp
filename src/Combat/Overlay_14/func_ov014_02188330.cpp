@@ -80,13 +80,13 @@ struct Struct_ov014_02186bc8 {
 };
 
 struct MenuLayout_02080fa8;
-struct Struct_02081164;
+struct MenuLayout_02081164;
 
 extern "C" void func_02080bac(void* arg0, int arg1);
-extern "C" void func_0208103c(void* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutTextStringId_0208103c(void* menuLayout, int textId, int stringId);
 extern "C" void SetMenuLayoutTextValue_02080fa8(MenuLayout_02080fa8* menuLayout, int textId, int value);
 extern "C" int func_02080b2c(void* arg0, int arg1);
-extern "C" void func_02081164(Struct_02081164* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowFrameless_02081164(MenuLayout_02081164* menuLayout, int windowId, int isFrameless);
 
 extern "C" {
 #if !defined(jpn)
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov014_02188330(Struct_ov014_02186bc8* arg0)
 #endif
     func_02080bac(arg0->unknown_c0_, 0);
     if (arg0->unknown_17d_ >= 0)
-        func_0208103c(arg0->unknown_c0_, 0x2f, (short)(arg0->unknown_17d_ + 0x1e));
+        SetMenuLayoutTextStringId_0208103c(arg0->unknown_c0_, 0x2f, (short)(arg0->unknown_17d_ + 0x1e));
 
     short var1 = 0;
     Struct_ov014_02184f78* var2 = arg0->unknown_b8_;
@@ -142,6 +142,6 @@ extern "C" ARM void func_ov014_02188330(Struct_ov014_02186bc8* arg0)
             break;
         func_02080b2c(arg0->unknown_c0_, var8);
     }
-    func_02081164((Struct_02081164*)arg0->unknown_c0_, 0, 1);
+    SetMenuLayoutWindowFrameless_02081164((MenuLayout_02081164*)arg0->unknown_c0_, 0, 1);
     OpenMenuLayoutWindow_020813ec(arg0->unknown_c0_, 0);
 }

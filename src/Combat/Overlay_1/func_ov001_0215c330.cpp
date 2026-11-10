@@ -3,7 +3,7 @@
 
 extern "C" float GetScriptValueAsFloat_ov017_021d6110(void*);
 extern "C" void* GetScriptValueAsInt_ov017_021d60f4(void*);
-extern "C" void* func_ov001_0215ab20(void*);
+extern "C" void* GetEventActorState_ov001_0215ab20(void*);
 extern "C" int func_ov001_0215a608(void* arg0, Struct_ov001_02158efc arg1, int arg2);
 
 // USA: func_ov001_0215c330
@@ -17,7 +17,7 @@ extern "C" ARM int func_ov001_0215c330(void* arg0, int arg1) {
     if (arg1 >= 5) {
         var0 = (int)GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x20);
     }
-    void* var3 = func_ov001_0215ab20(var1);
+    void* var3 = GetEventActorState_ov001_0215ab20(var1);
     if (var3 != NULL) {
         func_ov001_0215a608(var3, var2, var0);
         return 1;

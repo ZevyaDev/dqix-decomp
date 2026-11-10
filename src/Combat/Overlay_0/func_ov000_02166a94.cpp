@@ -48,7 +48,7 @@ extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d0
 extern "C" void func_02047b30(void*, int, int, int);
 extern "C" void func_ov000_02182114(char*);
 extern "C" void func_ov000_0218214c(void*, SafeAllocator*, const void*);
-extern "C" char* func_02039e70();
+extern "C" char* GetBattleNumberPopups_02039e70();
 extern "C" void func_02039e7c(void*);
 extern "C" void func_02039f04(char*, int, const void*);
 extern "C" void func_020d6d18(Struct_020d6d18_2*);
@@ -147,7 +147,7 @@ extern "C" ARM void func_ov000_02166a94(Struct_ov000_02166a94_3* arg0) {
     char* var23 = arg0->unknown_6ffc_;
     func_ov000_02182114(var23);
     func_ov000_0218214c(var23, var3, gFileScratchSpace_0211e33c);
-    char* var24 = func_02039e70();
+    char* var24 = GetBattleNumberPopups_02039e70();
     func_02039e7c(var24);
     func_02039f04(var24, (int)var3, gFileScratchSpace_0211e33c);
     SaveTextureVRAMState_0207dfac(var1->unknown_230_);

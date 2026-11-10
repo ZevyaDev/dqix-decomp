@@ -34,7 +34,7 @@ struct Struct_0204daf8 {
 extern "C" unsigned char func_02042764(void* arg0);
 extern "C" char* func_02042a50(int arg0, const char* arg1);
 extern "C" void func_0204cc68(Struct_0204daf8* arg0, int arg1, short arg2, short arg3, short arg4, short arg5);
-extern "C" void func_0204f914(Struct_0204daf8* arg0, int arg1, short arg2, short arg3, short arg4, short arg5);
+extern "C" void FillTextWindowRect_0204f914(Struct_0204daf8* textWindow, int colorIndex, short left, short top, short right, short bottom);
 extern "C" void func_0204ea5c(Struct_0204daf8* arg0);
 extern "C" void func_0204ecb4(Struct_0204daf8* arg0, int arg1, int arg2, int arg3, int arg4, signed char* arg5);
 extern "C" int func_0204fc40(void* arg0, char** arg1, char* arg2, short* arg3, int arg4);
@@ -174,7 +174,7 @@ extern "C" ARM void func_0204daf8(Struct_0204daf8* arg0, char* arg1, short arg2)
         var70 -= arg0->unknown_db_[0] + arg0->unknown_db_[1];
         var67 += arg0->unknown_db_[2];
         var69 -= arg0->unknown_db_[2] + arg0->unknown_db_[3];
-        func_0204f914(arg0, 0x11, var67, var68, var69, var70);
+        FillTextWindowRect_0204f914(arg0, 0x11, var67, var68, var69, var70);
         func_0204ea5c(arg0);
         var41 = 0x11;
     }

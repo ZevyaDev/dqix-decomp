@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-struct Struct_0207f0ac_2 {
+struct MenuLayoutWindowEntry_0207f0ac_2 {
     short* unknown_0_;
     char unknown_4_[0xc];
     short unknown_10_;
@@ -15,14 +15,14 @@ struct MenuLayoutTextEntry_0207f6ac {
     short unknown_c_;
     char unknown_e_[0x22];
 };
-struct Struct_0207f0ac { Struct_0207f0ac_2* unknown_0_; short unknown_4_; };
+struct MenuLayoutWindowEntryList_0207f0ac { MenuLayoutWindowEntry_0207f0ac_2* pEntries_0_; short count_4_; };
 struct MenuLayoutTextEntryList_0207f524 { MenuLayoutTextEntry_0207f6ac* pEntries_0_; short count_4_; };
 struct MenuLayout_0207fdcc_2 {
     void* unknown_0_;
     MenuLayoutTextEntryList_0207f524 unknown_4_;
-    Struct_0207f0ac unknown_c_;
+    MenuLayoutWindowEntryList_0207f0ac unknown_c_;
 };
-extern "C" Struct_0207f0ac_2* func_0207f0ac(Struct_0207f0ac*, int);
+extern "C" MenuLayoutWindowEntry_0207f0ac_2* FindMenuLayoutWindowEntry_0207f0ac(MenuLayoutWindowEntryList_0207f0ac*, int);
 extern "C" MenuLayoutTextEntry_0207f6ac* FindMenuLayoutTextEntry_0207f6ac(MenuLayoutTextEntryList_0207f524*, int);
 extern "C" int OpenMenuLayoutWindow_020813ec(void*, int);
 extern "C" void CloseMenuLayoutWindow_0207fdcc(MenuLayout_0207fdcc_2*, int);
@@ -32,7 +32,7 @@ extern "C" ARM void func_02081224(MenuLayout_0207fdcc_2* arg0, int arg1) {
     int var0[8];
     int var1[8];
     int var2[8];
-    Struct_0207f0ac_2* var3 = func_0207f0ac(&arg0->unknown_c_, arg1);
+    MenuLayoutWindowEntry_0207f0ac_2* var3 = FindMenuLayoutWindowEntry_0207f0ac(&arg0->unknown_c_, arg1);
     if (!var3) return;
     OpenMenuLayoutWindow_020813ec(arg0, arg1);
     int var4 = 0;

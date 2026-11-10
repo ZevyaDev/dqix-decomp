@@ -6,7 +6,7 @@
 struct Struct_ov025_021ed634 { char unknown_0_[0xc]; short unknown_c_; };
 struct Struct_ov000_02159f7c;
 struct Struct_020e4e38;
-struct Struct_02054000;
+struct PartyMember_02054000;
 struct MessageWindow_020465c0;
 
 struct BattleAction_ov000_0215440c {
@@ -119,7 +119,7 @@ extern "C" void func_02046520(char* arg0, char* arg1);
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" char* GetBattleUI_ov000_02160f08(void* battleScene);
 extern "C" void* func_ov025_021dafd0(char* arg0, int arg1);
-extern "C" Struct_ov025_021ed634_7* func_02054000(Struct_02054000* arg0);
+extern "C" Struct_ov025_021ed634_7* GetEquippedWeaponItemData_02054000(PartyMember_02054000* gameObject);
 extern "C" void InitNoun_020e46c4(void* noun);
 extern "C" void func_020dcf7c(int arg0, void* arg1);
 extern "C" unsigned char GetPartyOrder_020114ec(char*, void*);
@@ -131,7 +131,7 @@ extern "C" int sprintf(char* arg0, const char* arg1, ...);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, char* text, int arg2, int arg3);
 #endif
-extern "C" void func_02042b98(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void SetMessageWindowRect_02042b98(void* window, int x, int y, int width, int height);
 
 #if defined(jpn)
 extern "C" void func_020464e8(char*, char*);
@@ -143,7 +143,7 @@ struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" void func_020474a8(void*, int, char*, char*);
 extern "C" void StartMessage_0204500c(void*, char*, int);
-extern "C" void func_02043270(void*, int, int, int, int);
+extern "C" void SetMessageWindowRect_02042b98(void*, int, int, int, int);
 extern "C" char* strcpy(char*, const char*);
 extern "C" char* strcat(char*, const char*);
 extern char data_ov025_021efbfc[];
@@ -504,7 +504,7 @@ found_entry:
                 if (var19 == 0x257 || var19 == 0xc) {
                     GameObject* var80 = GetPartyMemberBaseByIndex_0200ff1c(var0, var26->unknown_20_);
                     if (var80 != 0) {
-                        Struct_ov025_021ed634_7* var81 = func_02054000((Struct_02054000*)var80);
+                        Struct_ov025_021ed634_7* var81 = GetEquippedWeaponItemData_02054000((PartyMember_02054000*)var80);
                         if (var81 != 0) var79 = var81->unknown_18_;
                     }
                 }
@@ -589,14 +589,14 @@ found_entry:
         *(var1 + 0x17e1) = 0;
         *(int*)(var1 + 0x1730) = 0xc;
         *(int*)(var1 + 0x1734) = 0x12;
-        func_02043270(var1, *(int*)(var1 + 0x1730), 0x92, 0x100, 0x30);
+        SetMessageWindowRect_02042b98(var1, *(int*)(var1 + 0x1730), 0x92, 0x100, 0x30);
         *(var1 + 0x17e2) = 0;
         *(unsigned char*)(var1 + 0x1789) |= 2;
         *(var1 + 0x17f6) = 1;
         *(int*)(var1 + 0x868) = 1;
 #else
         *(var1 + 0x1000 + 0x9b1) = 0;
-        func_02042b98(var1, 2, 0x92, 0xfc, 0x4a);
+        SetMessageWindowRect_02042b98(var1, 2, 0x92, 0xfc, 0x4a);
         *(var1 + 0x1000 + 0x9b2) = 0;
         *(unsigned char*)(var1 + 0x1000 + 0x95b) |= 2;
         *(var1 + 0x1000 + 0x9c5) = 1;

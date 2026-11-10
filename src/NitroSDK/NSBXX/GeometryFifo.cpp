@@ -46,7 +46,7 @@ extern "C"
         DMACompletionCallback onCompletion, int callbackUserdata);
 
     // inverse memcpy doing 32 bytes at a time, assumes 4 byte alignment
-    void func_020ca4b4(const void*, void*, unsigned);
+    void Memcpy32BitByBlock_020ca4b4(const void*, void*, unsigned);
     // repeated u32 memwrite, shifts source ptr along but keeps writing
     // to the same destination
     void func_020ca430(const void* src, volatile void* dst, unsigned int byteCount);
@@ -123,7 +123,7 @@ extern "C" void SubmitCommandToGeometryFifo(int command, const uint32_t* params,
                 data_0210cf78.pQueuedData->data[priorSize] = command;
                 if (numParams != 0)
                 {
-                    func_020ca4b4(params,
+                    Memcpy32BitByBlock_020ca4b4(params,
                         &data_0210cf78.pQueuedData->data[data_0210cf78.pQueuedData->amountQueued],
                         numParams * 4);
                     data_0210cf78.pQueuedData->amountQueued += numParams;

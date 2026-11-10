@@ -13,7 +13,7 @@ extern "C" void func_ov017_021bd440(void* arg0, int arg1);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
 struct PartyMember_0205faf4_11;
-extern "C" int func_02061bd8(struct PartyMember_0205faf4_11* arg0);
+extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
 extern "C" void func_02072afc(int arg0, int* arg1, short* arg2);
 extern "C" void* func_ov017_021a4658(void* arg0, int arg1);
 struct Queue_0201bdac_2;
@@ -45,7 +45,7 @@ extern "C" ARM int QueuePartyMemberModelLoad_ov017_0218f5a4(char* gameResources,
         unsigned char* memberData = *(unsigned char**)((char*)partyMemberBase + Enum_ov017_0218f5a4_336);
         int isReloadPending = memberData ? memberData[0x56e] : 0;
         if (isReloadPending == 0 && isForced == 0) {
-            if (func_02061bd8((struct PartyMember_0205faf4_11*)partyMemberBase) == 0) {
+            if (IsNPCCompanion_02061bd8((struct PartyMember_0205faf4_11*)partyMemberBase) == 0) {
                 int partObjectIndices[0xb];
                 short partModelIds[0xb];
                 func_02072afc(memberIndex, partObjectIndices, partModelIds);

@@ -31,12 +31,12 @@ struct Struct_ov000_0216d2d0 {
 };
 
 struct Struct_0204a120_2;
-extern "C" void func_020a2cf0(Struct_0204a120_2*);
+extern "C" void InitKeyControlledCamera_020a2cf0(Struct_0204a120_2*);
 extern "C" void func_0202e08c(unsigned int*, unsigned int);
 
 // USA: func_ov000_0216d2d0
 extern "C" ARM void func_ov000_0216d2d0(struct Struct_ov000_0216d2d0* arg0) {
-    func_020a2cf0((Struct_0204a120_2*)arg0);
+    InitKeyControlledCamera_020a2cf0((Struct_0204a120_2*)arg0);
     func_0202e08c((unsigned int*)arg0, 8);
     arg0->unknown_21c_ = 0;
     arg0->unknown_220_ = 0;

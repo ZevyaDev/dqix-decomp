@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 struct Struct_0204a120_2;
-extern "C" void func_020a2cf0(struct Struct_0204a120_2* arg0);
+extern "C" void InitKeyControlledCamera_020a2cf0(struct Struct_0204a120_2* camera);
 extern "C" void func_0202e08c(unsigned int* arg0, unsigned int arg1);
 extern "C" void func_020a0d58(void* arg0);
 extern "C" void func_020a2ca0(unsigned char* arg0);
@@ -12,7 +12,7 @@ extern "C" void func_020a2718(char* arg0);
 extern "C" ARM void InitFollowCamera_020a2010(void* storage) {
     char* camera = (char*)storage;
 
-    func_020a2cf0((struct Struct_0204a120_2*)storage);
+    InitKeyControlledCamera_020a2cf0((struct Struct_0204a120_2*)storage);
     func_0202e08c((unsigned int*)storage, 4);
 
     *(int*)(camera + 0x220) = 0;

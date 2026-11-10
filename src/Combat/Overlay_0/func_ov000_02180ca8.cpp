@@ -105,7 +105,7 @@ struct Struct_ov000_02180ca8_3  {
 };
 extern "C" int func_ov000_0217fe30(Struct_ov000_02180ca8_3*);
 extern "C" void DrawSprite_0205ac40(void*, void*);
-extern "C" int func_ov000_021719f8(int*);
+extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int*);
 extern "C" int func_ov000_02174e34(int, int);
 extern "C" Struct_0203c1c8* func_ov000_02174e1c(void*, int);
 extern "C" int func_ov000_02171ffc(Struct_ov000_02180ca8_5*);
@@ -167,7 +167,7 @@ extern "C" ARM void func_ov000_02180ca8(Struct_ov000_02180ca8_3* arg0, Struct_ov
             var11->unknown_26_ = 1;
             DrawSprite_0205ac40(arg0->unknown_11c_, var11);
         }
-        if (arg1->unknown_1c_ == 6 || arg1->unknown_c_ == 0 || func_ov000_021719f8(arg1->unknown_0_) || arg1->unknown_1c_ == 2 || arg1->unknown_443_ != 5)  {
+        if (arg1->unknown_1c_ == 6 || arg1->unknown_c_ == 0 || IsPanelMemberIncapacitated_ov000_021719f8(arg1->unknown_0_) || arg1->unknown_1c_ == 2 || arg1->unknown_443_ != 5)  {
             return;
         }
         int var12;
@@ -268,7 +268,7 @@ extern "C" ARM void func_ov000_02180ca8(Struct_ov000_02180ca8_3* arg0, Struct_ov
     }
     else  {
         Struct_0203c1c8* var30 = &arg0->unknown_1b54_;
-        if (func_ov000_021719f8(arg1->unknown_0_) || arg1->unknown_87_)  {
+        if (IsPanelMemberIncapacitated_ov000_021719f8(arg1->unknown_0_) || arg1->unknown_87_)  {
             return;
         }
         if (arg0->unknown_950_ == 0 && arg0->unknown_954_ == 2)  {

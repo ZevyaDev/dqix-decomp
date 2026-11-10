@@ -17,7 +17,7 @@ struct Struct_ov004_02163c40 {
 };
 struct Struct_ov004_02163c40_2 { char unknown_0_[0xc]; unsigned char unknown_c_; char unknown_d_[0x38 - 0xd]; unsigned short unknown_38_; };
 struct SoundEffectManager_02108760;
-extern Struct_ov004_02163c40* data_ov004_02171010;
+extern Struct_ov004_02163c40* gTreasureMapScreen_ov004_02171010;
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 #if defined(jpn)
 extern unsigned short data_ov004_02170660[3];
@@ -50,10 +50,10 @@ extern "C" ARM int func_ov004_02163c40(void* arg0) {
     int var9;
     unsigned short var10;
     int var11 = IsBrightnessTransitionActive(GetGameResources());
-    if (var11 && !data_ov004_02171010->unknown_18fe_) return 0;
-    if (!data_ov004_02171010->unknown_18f4_) return 0;
+    if (var11 && !gTreasureMapScreen_ov004_02171010->unknown_18fe_) return 0;
+    if (!gTreasureMapScreen_ov004_02171010->unknown_18f4_) return 0;
     if (GetMessageWindow_020421a0()->unknown_998_) return 0;
-    if (!data_ov004_02171010->unknown_18fe_) {
+    if (!gTreasureMapScreen_ov004_02171010->unknown_18fe_) {
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
     }
 #if defined(jpn)
@@ -61,26 +61,26 @@ extern "C" ARM int func_ov004_02163c40(void* arg0) {
 #else
     COPY_ARRAY(var4, data_ov004_0216fef8);
 #endif
-    var10 = var4[data_ov004_02171010->unknown_18fa_];
-    VectorizedInvertedMemcpy(data_ov004_02171010, var0, sizeof(var0));
+    var10 = var4[gTreasureMapScreen_ov004_02171010->unknown_18fa_];
+    VectorizedInvertedMemcpy(gTreasureMapScreen_ov004_02171010, var0, sizeof(var0));
     for (int var12 = 0; var12 < 99; var12++) var1[var12] = var12;
     for (unsigned int var13 = 0; var13 < 99; var13++) {
-        if (static_cast<int>(var13) >= data_ov004_02171010->unknown_18f4_) {
+        if (static_cast<int>(var13) >= gTreasureMapScreen_ov004_02171010->unknown_18f4_) {
             var2[var13] = 0xffff;
         } else {
             var2[var13] = 0;
             var3.Clear();
-            ExportDetailedTreasureMapData(&data_ov004_02171010->unknown_0_[var13], &var3, false, 0);
-            if (data_ov004_02171010->unknown_18fa_ == 0) {
+            ExportDetailedTreasureMapData(&gTreasureMapScreen_ov004_02171010->unknown_0_[var13], &var3, false, 0);
+            if (gTreasureMapScreen_ov004_02171010->unknown_18fa_ == 0) {
                 var2[var13] += var3.discoveryState_ * 1000;
                 if (var3.mapType_ == 1) var2[var13] += var3.regular_.level_ * 10;
                 else if (var3.mapType_ == 2) var2[var13] += var3.legacy_.level_ * 10;
                 var2[var13] += var3.mapType_;
-            } else if (data_ov004_02171010->unknown_18fa_ == 1) {
+            } else if (gTreasureMapScreen_ov004_02171010->unknown_18fa_ == 1) {
                 if (var3.mapType_ == 1) var2[var13] += var3.regular_.level_ * 10;
                 else if (var3.mapType_ == 2) var2[var13] += var3.legacy_.level_ * 10;
                 var2[var13] += var3.mapType_;
-            } else if (data_ov004_02171010->unknown_18fa_ == 2) {
+            } else if (gTreasureMapScreen_ov004_02171010->unknown_18fa_ == 2) {
                 var2[var13] += (2 - var3.mapType_) * 1000;
                 var2[var13] += var3.discoveryState_ * 100;
                 if (var3.mapType_ == 1) var2[var13] += var3.regular_.level_;
@@ -124,9 +124,9 @@ extern "C" ARM int func_ov004_02163c40(void* arg0) {
         var9 = var7;
     }
     for (int var22 = 0; var22 < 99; var22++) {
-        VectorizedInvertedMemcpy(&var0[var1[var22]], &data_ov004_02171010->unknown_0_[var22], sizeof(TreasureMapMetadata));
+        VectorizedInvertedMemcpy(&var0[var1[var22]], &gTreasureMapScreen_ov004_02171010->unknown_0_[var22], sizeof(TreasureMapMetadata));
     }
-    func_ov004_02163478(data_ov004_02171010);
+    func_ov004_02163478(gTreasureMapScreen_ov004_02171010);
     Struct_ov004_02163c40_2* var23 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x35);
     if (var23 && func_ov023_021f6f10(var23) == 8) var23->unknown_38_ = var10;
 #if defined(jpn)

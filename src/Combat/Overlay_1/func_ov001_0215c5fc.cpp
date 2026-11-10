@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
-extern "C" void* func_ov001_0215ab20(int);
+extern "C" void* GetEventActorState_ov001_0215ab20(int);
 extern "C" int fix32_Atan2(int arg0, int arg1);
 int fix32ReduceAngle0To2Pi(int angle);
 int fix32abs(int x);
@@ -17,10 +17,10 @@ extern "C" void func_ov001_0215a480(void* arg0, struct Struct_ov001_0215a480 arg
 // USA: func_ov001_0215c5fc
 extern "C" ARM int func_ov001_0215c5fc(void* arg0, int arg1) {
     int var0 = GetScriptValueAsInt_ov017_021d60f4(arg0);
-    void* var1 = func_ov001_0215ab20(var0);
+    void* var1 = GetEventActorState_ov001_0215ab20(var0);
     if (var1 == NULL) return 0;
     int var2 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x8);
-    void* var3 = func_ov001_0215ab20(var2);
+    void* var3 = GetEventActorState_ov001_0215ab20(var2);
     if (var3 == NULL) return 0;
 
     int var4 = *(int*)((char*)var3 + 0x74) - *(int*)((char*)var1 + 0x74);

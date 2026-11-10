@@ -5,7 +5,7 @@
 void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int size, int alignAndDir);
 void Memset16Bit_020ca390(int val, void* dst, unsigned int size);
 void VectorizedInvertedMemcpy(const void* src, void* dst, unsigned int length);
-void func_020c99ac(void* arg0);
+void GetMACAddress_020c99ac(void* macAddress);
 int func_ov031_0221e7d0(int (*arg0)(int), int (*arg1)(void*));
 void HaltForever_020c9be0(void);
 int func_ov031_02226fc8(int arg0);
@@ -56,7 +56,7 @@ ARM void func_ov031_02226e08(void) {
     data_ov031_02250c04.unknown_4_->unknown_10a_ = 1;
     data_ov031_02250c04.unknown_4_->unknown_10c_ = -1;
     data_ov031_02250c04.unknown_4_->unknown_10e_ = -1;
-    func_020c99ac(data_ov031_02250c04.unknown_4_->unknown_110_);
+    GetMACAddress_020c99ac(data_ov031_02250c04.unknown_4_->unknown_110_);
 
     if (func_ov031_0221e7d0(func_ov031_02226fc8, func_ov031_02226fd8) != 0) {
         HaltForever_020c9be0();

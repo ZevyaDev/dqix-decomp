@@ -25,8 +25,8 @@ struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c* menuLayout, int textId, int text);
 struct Struct_02080cc0;
 extern "C" void func_02080cc0(struct Struct_02080cc0* arg0, int arg1, int arg2);
-extern "C" int func_02080b40(void* arg0, int arg1);
-extern "C" void func_0208103c(void* arg0, int arg1, int arg2);
+extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
+extern "C" void SetMenuLayoutTextStringId_0208103c(void* menuLayout, int textId, int stringId);
 struct Struct_02052df8;
 extern "C" short GetEquippedItem_02052df8(Struct_02052df8* gameObject, int slot);
 struct MenuLayout_02080fa8;
@@ -143,12 +143,12 @@ extern "C" ARM void func_ov003_021769ec(Struct_ov003_021769ec_3* arg0) {
             }
             SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var9, var1, var17);
             func_02080cc0((struct Struct_02080cc0*)var9, var1, func_020dcc98(var16));
-            func_02080b40(var9, var1);
+            ShowMenuLayoutText_02080b40(var9, var1);
 
             if (var15 != 0) {
                 func_02080cc0((struct Struct_02080cc0*)var9, var5, 3);
-                func_0208103c(var9, var5, 0xb);
-                func_02080b40(var9, var5);
+                SetMenuLayoutTextStringId_0208103c(var9, var5, 0xb);
+                ShowMenuLayoutText_02080b40(var9, var5);
             } else {
                 func_02080cc0((struct Struct_02080cc0*)var9, var5, 0xf);
                 int var19 = data_ov003_0217fb18[var12->unknown_8_0_];
@@ -157,8 +157,8 @@ extern "C" ARM void func_ov003_021769ec(Struct_ov003_021769ec_3* arg0) {
                 }
                 short var20 = GetEquippedItem_02052df8((Struct_02052df8*)var18, var19);
                 if (var20 == var12->unknown_18_) {
-                    func_0208103c(var9, var5, 0x22);
-                    func_02080b40(var9, var5);
+                    SetMenuLayoutTextStringId_0208103c(var9, var5, 0x22);
+                    ShowMenuLayoutText_02080b40(var9, var5);
                 } else {
                     unsigned short var21;
                     unsigned short var22;
@@ -173,9 +173,9 @@ extern "C" ARM void func_ov003_021769ec(Struct_ov003_021769ec_3* arg0) {
                         func_02080cc0((struct Struct_02080cc0*)var9, var3, var23);
                         SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var9, var2, var21);
                         SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var9, var3, var22);
-                        func_02080b40(var9, var2);
-                        func_02080b40(var9, var3);
-                        func_02080b40(var9, var4);
+                        ShowMenuLayoutText_02080b40(var9, var2);
+                        ShowMenuLayoutText_02080b40(var9, var3);
+                        ShowMenuLayoutText_02080b40(var9, var4);
                     } else {
                         float var24;
                         float var25;
@@ -190,9 +190,9 @@ extern "C" ARM void func_ov003_021769ec(Struct_ov003_021769ec_3* arg0) {
                         func_02080cc0((struct Struct_02080cc0*)var9, var8, var26);
                         func_02080fc4((struct Struct_02080fc4*)var9, var7, *(int*)&var24);
                         func_02080fc4((struct Struct_02080fc4*)var9, var8, *(int*)&var25);
-                        func_02080b40(var9, var7);
-                        func_02080b40(var9, var8);
-                        func_02080b40(var9, var4);
+                        ShowMenuLayoutText_02080b40(var9, var7);
+                        ShowMenuLayoutText_02080b40(var9, var8);
+                        ShowMenuLayoutText_02080b40(var9, var4);
                     }
                 }
             }
@@ -206,8 +206,8 @@ extern "C" ARM void func_ov003_021769ec(Struct_ov003_021769ec_3* arg0) {
         }
 
         if (var12->unknown_c_7_ != 0) {
-            func_02080b40(var9, var6);
-            func_0208103c(var9, var6, (short)(var12->unknown_c_7_ + 0x2f));
+            ShowMenuLayoutText_02080b40(var9, var6);
+            SetMenuLayoutTextStringId_0208103c(var9, var6, (short)(var12->unknown_c_7_ + 0x2f));
         }
     } else {
         func_02080c04(var9, var0);

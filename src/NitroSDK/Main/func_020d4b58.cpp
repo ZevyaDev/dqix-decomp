@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-extern "C" ARM void func_020c99ac(void* arg0);
+extern "C" ARM void GetMACAddress_020c99ac(void* macAddress);
 
 // USA: func_020d4b58
 extern "C" ARM unsigned short func_020d4b58() {
     unsigned char var0[8];
-    func_020c99ac(var0);
+    GetMACAddress_020c99ac(var0);
     unsigned char* var1 = var0;
     unsigned short var2;
     int var3;

@@ -11,7 +11,7 @@ struct PartyMemberData_0207d300;
 
 struct Struct_0207ccf0_4 {
     char unknown_0_[0x2c];
-    struct ItemTable_0201099c_10* unknown_2c_;
+    struct ItemTable_0201099c_10* pItemTable_2c_;
 };
 
 struct ItemData_0201099c_9 {
@@ -25,7 +25,7 @@ extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_02
 extern "C" void* func_0207d6dc(SafeAllocator* arg0, int arg1, int arg2);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-extern "C" int func_02061bd8(struct PartyMember_0205faf4_11* arg0);
+extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
 extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" int CountHeldItems_02083960(struct PartyMemberData_0207d300* memberData);
 extern "C" int func_0207ccf0(struct Struct_0207ccf0_4* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
@@ -39,76 +39,76 @@ static inline int inline_0207d300(struct ItemData_0201099c_9* arg0) {
     return arg0->unknown_8_0_ <= 7;
 }
 
-// USA: func_0207d300
-extern "C" ARM int func_0207d300(struct Struct_0207ccf0_4* arg0, short arg1, short arg2, int arg3) {
-    int var0 = 0;
-    if (arg0->unknown_2c_ == NULL) {
-        func_0207d6dc((SafeAllocator*)arg0, (int)&arg1, 1);
-        var0 = 1;
+// USA: AddItem_0207d300
+extern "C" ARM int AddItem_0207d300(struct Struct_0207ccf0_4* itemContext, short itemId, short count, int isAliveRequired) {
+    int hasLoadedItemTable = 0;
+    if (itemContext->pItemTable_2c_ == NULL) {
+        func_0207d6dc((SafeAllocator*)itemContext, (int)&itemId, 1);
+        hasLoadedItemTable = 1;
     }
-    int var1 = -1;
-    struct ItemData_0201099c_9* var2 = FindItemData_020dedd0(arg0->unknown_2c_, arg1);
-    if (var2 == NULL) {
-        var1 = -2;
-    } else if (inline_0207d300(var2) != 0) {
-        func_0207d134(arg0, arg1, arg2);
-        var1 = 3;
-    } else if (var2->unknown_8_0_ == 9) {
-        func_0207d200(arg0, arg1, arg2);
-        var1 = 5;
-    } else if (var2->unknown_b_1_) {
-        if (func_0207cf30(arg0, arg1, arg2, 0) != 0) {
-            var1 = 2;
+    int result = -1;
+    struct ItemData_0201099c_9* item = FindItemData_020dedd0(itemContext->pItemTable_2c_, itemId);
+    if (item == NULL) {
+        result = -2;
+    } else if (inline_0207d300(item) != 0) {
+        func_0207d134(itemContext, itemId, count);
+        result = 3;
+    } else if (item->unknown_8_0_ == 9) {
+        func_0207d200(itemContext, itemId, count);
+        result = 5;
+    } else if (item->unknown_b_1_) {
+        if (func_0207cf30(itemContext, itemId, count, 0) != 0) {
+            result = 2;
         }
     } else {
-        GameState* var3 = GameState::GetInstance();
-        char* var4 = (char*)GetParty_02010828(var3);
-        unsigned char var5;
-        for (var5 = 0; var5 < *(unsigned char*)(var4 + 0xf7c); var5++) {
-            int var6 = *(signed char*)(var4 + var5 + 0xf78);
-            GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var3, var6);
-            if (var7 == NULL) {
+        GameState* gameState = GameState::GetInstance();
+        char* party = (char*)GetParty_02010828(gameState);
+        unsigned char i;
+        for (i = 0; i < *(unsigned char*)(party + 0xf7c); i++) {
+            int memberIndex = *(signed char*)(party + i + 0xf78);
+            GameObject* partyMemberBase = GetPartyMemberBaseByIndex_0200ff1c(gameState, memberIndex);
+            if (partyMemberBase == NULL) {
                 continue;
             }
-            if (func_02061bd8((struct PartyMember_0205faf4_11*)var7) != 0) {
+            if (IsNPCCompanion_02061bd8((struct PartyMember_0205faf4_11*)partyMemberBase) != 0) {
                 continue;
             }
-            if (arg3 != 0) {
-                if ((int)*(unsigned short*)(*(char**)((char*)var7 + 0x130) + 4) <= 0) {
+            if (isAliveRequired != 0) {
+                if ((int)*(unsigned short*)(*(char**)((char*)partyMemberBase + 0x130) + 4) <= 0) {
                     continue;
                 }
-                char* var8 = *(char**)((char*)var7 + 0x138);
-                if (var8 != NULL && *(unsigned short*)var8 == 0) {
+                char* currentStats = *(char**)((char*)partyMemberBase + 0x138);
+                if (currentStats != NULL && *(unsigned short*)currentStats == 0) {
                     continue;
                 }
             }
-            unsigned char* var9 = GetPartyMemberData_02053c6c((unsigned char*)var7);
-            if (var9 == NULL) {
+            unsigned char* memberData = GetPartyMemberData_02053c6c((unsigned char*)partyMemberBase);
+            if (memberData == NULL) {
                 continue;
             }
-            while (arg2 != 0) {
-                if (CountHeldItems_02083960((struct PartyMemberData_0207d300*)var9) == 8) {
+            while (count != 0) {
+                if (CountHeldItems_02083960((struct PartyMemberData_0207d300*)memberData) == 8) {
                     break;
                 }
-                var1 = func_0207ccf0(arg0, arg1, 1, var6, 0, 0, 0);
-                if (var1 != 0) {
+                result = func_0207ccf0(itemContext, itemId, 1, memberIndex, 0, 0, 0);
+                if (result != 0) {
                     break;
                 }
-                arg2 = (short)(arg2 - 1);
+                count = (short)(count - 1);
             }
         }
-        if (arg2 > 0) {
-            if (func_0207cf30(arg0, arg1, arg2, 0) != 0) {
-                var1 = 2;
+        if (count > 0) {
+            if (func_0207cf30(itemContext, itemId, count, 0) != 0) {
+                result = 2;
             }
         }
     }
-    if (var0) {
-        SafeAllocator* var10 = (SafeAllocator*)arg0;
-        SignedAllocatorHeader* var11 = var10->GetSignedAllocator();
-        var10->Destroy();
-        FreeMemory_02012da4(&gMainHeap_02114e20, var11);
-        arg0->unknown_2c_ = NULL;
+    if (hasLoadedItemTable) {
+        SafeAllocator* allocator = (SafeAllocator*)itemContext;
+        SignedAllocatorHeader* block = allocator->GetSignedAllocator();
+        allocator->Destroy();
+        FreeMemory_02012da4(&gMainHeap_02114e20, block);
+        itemContext->pItemTable_2c_ = NULL;
     }
-    return var1;
+    return result;
 }

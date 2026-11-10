@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_0201099c_3;
-struct Struct_02054000;
+struct PartyMember_02054000;
 
 struct Struct_ov000_02177d04 {
     int unknown_0_;
@@ -20,7 +20,7 @@ extern "C" int func_ov000_02170c7c(void* arg0);
 extern "C" int func_02041dd0(char* arg0, int arg1);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int AppendXPositionTag_02041a28(char* buffer, int x);
-extern "C" Struct_ov000_02177d04* func_02054000(struct Struct_02054000* arg0);
+extern "C" Struct_ov000_02177d04* GetEquippedWeaponItemData_02054000(struct PartyMember_02054000* gameObject);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov000_02177d04(char* arg0, char* arg1) {
         AppendMenuEntry_02041b70(arg1, var4, var7->baseStats_->unk);
         AppendXPositionTag_02041a28(arg1, 0x46);
         func_02041dd0(arg1, 0);
-        Struct_ov000_02177d04* var8 = func_02054000((struct Struct_02054000*)var7);
+        Struct_ov000_02177d04* var8 = GetEquippedWeaponItemData_02054000((struct PartyMember_02054000*)var7);
         if (var8 != 0) {
 #if defined(jpn)
             AppendText_02042058(arg1, var8->unknown_4_);

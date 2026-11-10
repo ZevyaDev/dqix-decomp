@@ -45,7 +45,7 @@ extern "C" void func_020444bc(Struct_ov002_0216acf0*);
 extern "C" void func_ov016_0218b5c0(int arg0, int arg1);
 extern "C" void func_ov017_0218b5f8(int arg0);
 struct Struct_ov002_0216acf0_2;
-extern "C" char* func_0205d888(Struct_ov002_0216acf0_2*);
+extern "C" char* GetLastOpenedTextWindow_0205d888(Struct_ov002_0216acf0_2*);
 extern "C" void func_ov002_02156ff0(unsigned char*, int);
 extern "C" int func_ov002_02157108(void*, int);
 struct Struct_ov002_02164748_2;
@@ -344,7 +344,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
             func_ov016_0218b5c0(1, -1);
             func_ov017_0218b5f8(-1);
             U8(RG(0x1c31, 0x1af9)) = 0;
-            char* var27 = func_0205d888((Struct_ov002_0216acf0_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)));
+            char* var27 = GetLastOpenedTextWindow_0205d888((Struct_ov002_0216acf0_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)));
             if (var27 != 0) {
                 int var28 = S32(RG(0x1bbc, 0x1a84));
                 if (var28 != *(unsigned char*)(var27 + 0xc4) && var28 != K(0x26, 0x29) && var28 != K(0x10, 0x11) && var28 != K(0x11, 0x12)) {
@@ -426,7 +426,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
                 LoadExtraSoundSet_0205ebc0(&gSoundEffectManager_02108760, 0x75, 0x75);
                 PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, 0, 0);
             }
-            char* var30 = func_0205d888((Struct_ov002_0216acf0_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)));
+            char* var30 = GetLastOpenedTextWindow_0205d888((Struct_ov002_0216acf0_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)));
             if (U8(RG(0x2521, 0x2351)) != 0) {
                 S32(RG(0x1bb8, 0x1a80)) = S32(RG(0x1bbc, 0x1a84));
                 SetCursorTextWindow_0205dee8((Struct_ov002_02164748_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4);
