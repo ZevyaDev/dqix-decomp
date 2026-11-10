@@ -3,9 +3,9 @@
 #include "Graphics/VRAMStaging.h"
 #include "NitroSDK/Cache.h"
 struct Struct_020e8e14 { unsigned int unknown_0_[3]; };
-extern unsigned short data_02109928[][2] __attribute__((aligned(4)));
-extern unsigned short data_021099b0[][8] __attribute__((aligned(4)));
-extern unsigned short data_02109a30[][2] __attribute__((aligned(4)));
+extern unsigned short data_02109928[][2];
+extern unsigned short data_021099b0[][8];
+extern unsigned short data_02109a30[][2];
 extern Struct_020e8e14 data_020e8e14, data_020e8e20;
 // USA: func_02099e18
 extern "C" ARM void func_02099e18(Model3D* arg0, int arg1, int arg2, int arg3) {

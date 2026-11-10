@@ -34,7 +34,7 @@ extern "C" void SetGameMode_0200fb94(char *gameState, unsigned char mode);
 extern "C" void StopMusic_0209c678(Struct_ov002_02169efc_2 *manager, int fadeDuration);
 extern "C" void func_ov017_0218d258(void *arg0);
 
-extern "C" char data_ov002_0216d384[] __attribute__((aligned(4)));
+extern "C" char data_ov002_0216d384[];
 extern "C" char gFileScratchSpace_0211e33c;
 extern "C" char gMusicManager_02109bf4;
 

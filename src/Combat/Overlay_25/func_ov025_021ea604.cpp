@@ -13,7 +13,7 @@ struct BattleAction_ov000_0215440c {
     unsigned char unknown_c_4_ : 4;
 };
 struct Struct_ov025_021ea604 { unsigned short unknown_0_; char unknown_2_[2]; Struct_ov025_021ea604* unknown_4_; };
-typedef unsigned long long Type_02000c9c_8 __attribute__((aligned(4)));
+typedef unsigned long long Type_02000c9c_8;
 struct Struct_ov025_021ea604_2 { Type_02000c9c_8 unknown_0_; Struct_ov025_021ea604* unknown_8_; };
 struct Struct_ov025_021ea604_3 {
     char unknown_0_[0x5c5];

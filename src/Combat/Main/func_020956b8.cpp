@@ -6,7 +6,7 @@
 #include "Resource/QuestScript.h"
 
 extern short data_020f13d8;
-extern const char data_020f1474[] __attribute__((aligned(4)));
+extern const char data_020f1474[];
 extern Script::OpcodeLookupEntry data_020f141c[];
 
 // USA: func_020956b8
