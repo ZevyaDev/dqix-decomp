@@ -87,7 +87,7 @@ extern char data_020ef20b[]; // "/data/ani/d_%c%03d.spr"
 extern char data_020ef222[]; // "tsuboware"
 extern char data_020ef22c[]; // "ARC:%s"
 
-void Zone3D::SwitchZone(unsigned short newID)
+void Zone3D::SwitchZone(unsigned short newID, int)
 {
     GameState* gameState = GameState::GetInstance();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
