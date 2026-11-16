@@ -10893,10 +10893,6 @@ src/Combat/Main/func_0209562c.cpp:
     complete
     .text start:0x0209727c end:0x02097308
 
-src/Combat/Main/func_020957f4.cpp:
-    complete
-    .text start:0x02097444 end:0x020974c0
-
 src/Combat/Main/func_02095870.cpp:
     complete
     .text start:0x020974c0 end:0x0209754c
@@ -18169,11 +18165,7 @@ src/Combat/Main/func_0208a03c.cpp:
 
 src/Combat/Main/func_020956b8.cpp:
     complete
-    .text start:0x02097308 end:0x020973bc
-
-src/Combat/Main/func_0209576c.cpp:
-    complete
-    .text start:0x020973bc end:0x02097444
+    .text start:0x02097308 end:0x020974c0
     .bss start:0x021090bc end:0x021090d0
 
 src/World/func_0201e018.cpp:
