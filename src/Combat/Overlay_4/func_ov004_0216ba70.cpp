@@ -124,9 +124,22 @@ static inline Type_ov004_0216ba70 inline_ov004_0216ba70_36(const Type_ov004_0216
     return inline_ov004_0216ba70_35(arg0);
 }
 
-static inline Type_ov004_0216ba70 inline_ov004_0216ba70_38(Struct_ov004_0216ba70* arg0) {
-    const Type_ov004_0216ba70& var0 = arg0->inline_ov004_0216ba70_29();
-    return inline_ov004_0216ba70_36(var0);
+static inline void inline_ov004_0216ba70_38(void* arg0, Struct_ov004_0216ba70* arg1, const Type_ov004_0216ba70& arg2) {
+    Type_ov004_0216ba70 var0 = inline_ov004_0216ba70_36(arg2);
+    inline_ov004_0216ba70_32(arg0, arg1, var0);
+    Struct_ov004_0216ba70* var1 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x5a);
+    if (var1) {
+        var1->inline_ov004_0216ba70_16(0xd);
+        inline_ov004_0216ba70_30(var1, var0, -0x5000);
+    }
+}
+
+static inline void inline_ov004_0216ba70_66(void* arg0, Struct_ov004_0216ba70* arg1) {
+    inline_ov004_0216ba70_38(arg0, arg1, arg1->inline_ov004_0216ba70_29());
+}
+
+static inline void inline_ov004_0216ba70_67(void* arg0) {
+    inline_ov004_0216ba70_66(arg0, FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x37));
 }
 
 // USA: func_ov004_0216ba70
@@ -156,14 +169,7 @@ extern "C" ARM int func_ov004_0216ba70(void* arg0) {
     }
 
     if (var6->unknown_d5_ != 0) {
-        Struct_ov004_0216ba70* var9 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x37);
-        Type_ov004_0216ba70 var10 = inline_ov004_0216ba70_38(var9);
-        inline_ov004_0216ba70_32(arg0, var9, var10);
-        Struct_ov004_0216ba70* var11 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x5a);
-        if (var11) {
-            var11->inline_ov004_0216ba70_16(0xd);
-            inline_ov004_0216ba70_30(var11, var10, -0x5000);
-        }
+        inline_ov004_0216ba70_67(arg0);
     }
 
     func_ov004_0216b120(arg0, 0x28, 2, 0xd3, 2, 0x10, 0xcb, 1);

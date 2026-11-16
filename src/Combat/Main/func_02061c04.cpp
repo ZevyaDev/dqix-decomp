@@ -272,6 +272,8 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     struct Struct_02061c04_10 var9;
     unsigned short var10[14];
     struct { int unknown_0_, unknown_4_, unknown_8_; } var11;
+    switch (arg1->unknown_0_) {
+    SafeAllocator var12;
     struct Struct_ov009_0218aa28 var13;
     struct Struct_ov009_0218aa28 var14;
     struct Struct_ov009_0218aa28 var15;
@@ -287,7 +289,6 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         struct Struct_02061c04_4 unknown_14_;
         struct Struct_02061c04_30 unknown_24_;
     } var17;
-    switch (arg1->unknown_0_) {
     case 0x64: {
         SetFlag_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_, 1);
         void *var18 = func_0202ae18();
@@ -1332,7 +1333,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         func_020732cc(arg1->unknown_2_);
         return 1;
     case 0xdb: {
-        SafeAllocator var12;
+        var12.ResetAllocatorPointer();
         var12.ResetAllocatorPointer();
         void *var195 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x1000);
         var12.CreateTypeA(var195, 0x1000);
