@@ -30,7 +30,7 @@ extern "C" void ExpandInflectionTags_020e4864(const char* text, char* buffer, in
 extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 struct MessageWindow_02021b84;
 extern "C" struct MessageWindow_02021b84* GetMessageWindow_020421a0();
-extern "C" void func_02046608(struct MessageWindow_02021b84* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(struct MessageWindow_02021b84* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 
 struct Struct_ov000_0215767c_8 {
     int unknown_0_;

@@ -16,8 +16,6 @@
 #include "NitroSDK/OverlayId.h"
 #include "Resource/Brightness.h"
 
-
-
 struct Struct_ov008_02189c70_17 { char unknown_0_[10]; };
 
 struct Struct_ov008_02189c70_18 {
@@ -265,7 +263,7 @@ extern "C" void* GetFlagManager_0205ec34();
 extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
-extern "C" void func_02046608(Struct_ov008_02189c70_12* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(Struct_ov008_02189c70_12* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_ov008_02189c70_12* window, char* text, int arg2, int arg3);
 #endif

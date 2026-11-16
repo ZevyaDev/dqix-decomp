@@ -32,8 +32,8 @@ extern "C" void func_020474a8(void*, int, const char*, char*);
 extern "C" int func_0204e3e0(Struct_0204cb20_2*, char*, int, int, int);
 extern "C" void func_0204cd60(Struct_0204cb20_2*, char*, int);
 #else
-extern "C" void func_02046608(void*, int, const char*, char*, int, int, int);
-extern "C" int func_0204e3e0(Struct_0204cb20_2*, char*, int, int, int, int);
+extern "C" void func_02046608(void*, int, const char*, char*, int, int, unsigned char);
+extern "C" int func_0204e3e0(Struct_0204cb20_2*, char*, int, unsigned char, unsigned char, unsigned char);
 extern "C" void func_0204cd60(Struct_0204cb20_2*, char*, int, int);
 #endif
 extern "C" void func_02050100(Struct_0204cb20_2*, int);
@@ -79,7 +79,7 @@ extern "C" ARM void func_0204cb20(Struct_0204cb20_2* arg0, const char* arg1, sho
     }
 }
 #else
-extern "C" ARM void func_0204cb20(Struct_0204cb20_2* arg0, const char* arg1, int arg2, int arg3) {
+extern "C" ARM void func_0204cb20(Struct_0204cb20_2* arg0, const char* arg1, bool arg2, unsigned char arg3) {
     char var12[0x800];
     short var13;
     short var14;

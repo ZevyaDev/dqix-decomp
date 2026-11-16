@@ -37,7 +37,7 @@ extern "C" void UpdateTextWindowManager_0205d0e0(void*, int);
 extern const char data_ov002_0216d908[];
 extern "C" void func_020474a8(void*, unsigned char, const char*, char*);
 #else
-extern "C" void func_02046608(void*, int, int, int, int, int, int);
+extern "C" void func_02046608(void*, int, int, int, int, int, unsigned char);
 #endif
 extern "C" void OpenTextWindow_0205d304(void*, const char*, int, unsigned char, unsigned char, unsigned char, void*
 #if !defined(jpn)

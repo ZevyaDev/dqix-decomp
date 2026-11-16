@@ -95,7 +95,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" int GetStandardString_020e51cc(int stringId);
-extern "C" void func_02046608(void* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(void* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" int func_020d805c(Struct_020d805c* arg0);
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2* queue);

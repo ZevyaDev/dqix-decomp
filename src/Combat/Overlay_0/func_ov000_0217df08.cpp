@@ -71,7 +71,7 @@ extern "C" void ClearMessageParams_02046380(Struct_ov000_0217df08_8*);
 extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
 extern "C" void AppendText_02042058(char*, const char*);
 extern "C" char* CopyStringFromTableFile_020e046c(char* buffer, void* fileData, unsigned int fileSize, int stringId);
-extern "C" void func_02046608(Struct_ov000_0217df08_8*, int, char*, char*, int, int, int);
+extern "C" void func_02046608(Struct_ov000_0217df08_8*, int, char*, char*, int, int, unsigned char);
 extern "C" void __clear(void*, int);
 extern "C" void func_ov000_0217aa08(char*, char*);
 extern "C" void func_020e4f18(Struct_ov000_0217df08*, Struct_ov000_0217df08*, int);

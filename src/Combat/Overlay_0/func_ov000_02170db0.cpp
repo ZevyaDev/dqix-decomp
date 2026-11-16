@@ -66,7 +66,7 @@ extern "C" int func_ov000_02171a74(struct Struct_ov000_02170db0_3* arg0, char* a
 extern "C" void ExpandInflectionTags_020e4864(void* text, char* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
 extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_02046608(int arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(int arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void func_ov000_0217616c(struct Struct_ov000_02170db0_3* arg0);
 
 extern char data_ov000_02183ff4[];

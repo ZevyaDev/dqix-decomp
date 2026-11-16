@@ -48,7 +48,7 @@ extern "C" int GetStringLength_020d2ff0(const char*);
 extern "C" void func_020474a8(Struct_02046574_2*, int, void*, char*);
 extern "C" void func_0204f41c(Struct_02081870_2*, short, int, char*, int, int, short*, short*);
 #else
-extern "C" void func_02046608(Struct_02046574_2*, int, void*, char*, int, int, int);
+extern "C" void func_02046608(Struct_02046574_2*, int, void*, char*, int, int, unsigned char);
 extern "C" void func_0204f41c(Struct_02081870_2*, short, int, char*, int, int, short*, short*, int);
 #endif
 

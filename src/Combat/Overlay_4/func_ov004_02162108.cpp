@@ -74,7 +74,7 @@ extern "C" char* FindStringInList_02072a68(struct StringList_02072a68_2* stringL
 #endif
 extern "C" char* func_020d2f88(char* arg0, char* arg1);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_02046608(int arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(int arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void func_ov004_0215f6f4(void* arg0, short arg1, short arg2, int arg3);
 
 extern struct Struct_ov004_021707e8_5 data_ov004_021707e8;

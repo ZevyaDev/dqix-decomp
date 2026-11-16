@@ -93,7 +93,7 @@ extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2*, void*);
 struct Struct_0201099c_3;
 extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void func_02046608(void*, int, char*, char*, int, int, int);
+extern "C" void func_02046608(void*, int, char*, char*, int, int, unsigned char);
 extern "C" void func_ov023_021e23d0(void*, int, int, unsigned char, unsigned char);
 extern "C" int func_02085fb4(unsigned char*);
 extern "C" int func_02086020(unsigned char*);

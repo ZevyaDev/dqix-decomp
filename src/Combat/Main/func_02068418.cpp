@@ -15,7 +15,7 @@ extern "C" void func_02067f5c(signed char* arg0, int arg1);
 extern char data_020f08f4[];
 
 // USA: func_02068418
-extern "C" ARM void func_02068418(void* arg0, char* arg1, char* arg2, int arg3) {
+extern "C" ARM void func_02068418(void* arg0, char* arg1, char* arg2, unsigned char arg3) {
     if (arg1 == 0 || arg2 == 0) return;
     signed char var0;
     for (;;) {

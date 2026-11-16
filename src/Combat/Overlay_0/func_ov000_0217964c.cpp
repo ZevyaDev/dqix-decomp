@@ -53,7 +53,7 @@ struct Struct_ov000_02176e3c {
 extern "C" Struct_ov000_0217964c* GetMessageWindow_020421a0();
 extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
 extern "C" Struct_ov000_02171ffc_5* func_ov000_02171b9c(void* arg0, int arg1);
-extern "C" void func_02046608(Struct_ov000_0217964c* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(Struct_ov000_0217964c* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 #if defined(jpn)
 extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int);

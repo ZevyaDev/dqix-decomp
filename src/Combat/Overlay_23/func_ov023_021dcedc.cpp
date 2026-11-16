@@ -43,7 +43,7 @@ extern char data_ov023_021fdb3e[];
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" int sprintf(char*, const char*, ...);
 extern "C" void CopyCapitalizedText_0206819c(const char*, char*, int);
-extern "C" void func_02046608(void*, int, const char*, char*, int, int, int);
+extern "C" void func_02046608(void*, int, const char*, char*, int, int, unsigned char);
 #if defined(jpn)
 extern "C" void func_02050678(void*, short, short, const char*, int, int, short*, short*);
 #else

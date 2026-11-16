@@ -51,7 +51,7 @@ struct TextWindowManager_0205d5d0;
 extern "C" Struct_ov000_02179194_5* GetMessageWindow_020421a0();
 extern "C" Struct_ov000_02179194* func_ov000_0217199c(void*, int);
 extern "C" void func_020dd040(int, char*);
-extern "C" void func_02046608(Struct_ov000_02179194_5*, int, char*, char*, int, int, int);
+extern "C" void func_02046608(Struct_ov000_02179194_5*, int, char*, char*, int, int, unsigned char);
 extern "C" void ClearMessageParams_02046380(Struct_ov000_02179194_5*);
 extern "C" int func_ov000_02153a8c(GameObject*);
 extern "C" unsigned int func_020dd290(void*, unsigned int);

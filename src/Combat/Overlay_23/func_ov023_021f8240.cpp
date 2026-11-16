@@ -177,7 +177,7 @@ extern "C" int func_02042190(int arg0);
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void func_02046608(void* arg0, int, const char* arg2, char* arg3, int, int, int);
+extern "C" void func_02046608(void* arg0, int, const char* arg2, char* arg3, int, int, unsigned char);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" void func_0204f41c(Struct_ov023_021f8240_5* arg0, short arg1, short arg2, const char* arg3, unsigned char arg4,
                               unsigned char arg5, unsigned short* arg6, unsigned short* arg7, int);

@@ -84,7 +84,7 @@ extern "C" void ClearMessageParams_02046380(struct MessageWindow_020465c0*);
 extern "C" void* FindNounInTable_020e5294(void*, int);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0*, int, int);
 extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
-extern "C" void func_02046608(struct MessageWindow_020465c0*, int, const char*, char*, int, int, int);
+extern "C" void func_02046608(struct MessageWindow_020465c0*, int, const char*, char*, int, int, unsigned char);
 extern "C" char* FindFontGlyph_0204254c(int, int);
 extern "C" void __clear(void*, int);
 extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c*, int, int);

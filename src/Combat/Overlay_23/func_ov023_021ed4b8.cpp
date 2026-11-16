@@ -16,7 +16,7 @@ struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 #if defined(jpn)
 extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 extern "C" void AppendText_02042058(char*, const char*);

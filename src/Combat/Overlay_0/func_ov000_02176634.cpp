@@ -151,7 +151,7 @@ struct EquipmentBag_0207c484;
 extern "C" void RemoveEquipmentFromBag_0207c484(EquipmentBag_0207c484*, int, int, int);
 extern "C" void func_020483f0(unsigned char*, unsigned short);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
-extern "C" void func_02046608(Struct_ov000_02176634_9*, int, char*, char*, int, int, int);
+extern "C" void func_02046608(Struct_ov000_02176634_9*, int, char*, char*, int, int, unsigned char);
 extern "C" void func_ov000_0217ab8c(Struct_ov000_02176634*, int, int);
 #if defined(jpn)
 extern "C" void OpenTextWindow_0205d304(Struct_ov000_02176634_10*, char*, int, int, int, int, int);

@@ -17,7 +17,7 @@ struct LocalWireless_0202b2f0;
 extern "C" struct LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202b2f0* wireless);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
-extern "C" void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" int func_ov017_021959b4(void);
 extern "C" int func_ov017_021a23e4(char* arg0, int arg1, unsigned int arg2, unsigned int arg3);
 

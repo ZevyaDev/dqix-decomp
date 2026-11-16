@@ -148,7 +148,7 @@ extern "C" int GetStringLength_020d2ff0(const char*);
 extern char data_020f1234[], data_020f129b[];
 #else
 extern "C" void func_0204f41c(Struct_0208bf78_2*, short, short, const char*, int, unsigned char, short*, short*, int);
-extern "C" void func_02046608(MessageWindow_020465c0*, int, const char*, char*, int, int, int);
+extern "C" void func_02046608(MessageWindow_020465c0*, int, const char*, char*, int, int, unsigned char);
 extern "C" int func_020420e8(char*, int);
 extern char data_020f1120[], data_020f113b[], data_020f1197[];
 #endif

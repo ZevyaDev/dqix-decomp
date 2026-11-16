@@ -29,7 +29,7 @@ extern "C" int GetMessageWindow_020421a0();
 extern "C" struct Struct_ov000_02170cf8* func_ov000_02170cf8(char* arg0, int arg1);
 extern "C" void func_020dd040(int arg0, char* arg1);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
-extern "C" void func_02046608(int arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(int arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 #if defined(jpn)
 extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int);

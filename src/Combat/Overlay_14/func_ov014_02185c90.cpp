@@ -100,7 +100,7 @@ extern "C" int func_02097224(Struct_02097054_5*, int);
 extern "C" void __clear(void*, int);
 extern "C" void CopyCapitalizedText_0206819c(const char*, char*, int);
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void func_02046608(void*, int, char*, char*, int, int, int);
+extern "C" void func_02046608(void*, int, char*, char*, int, int, unsigned char);
 extern "C" void func_ov023_021e24b0(void*, int, int, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);
 extern "C" void func_ov023_021e23d0(void*, int, int, unsigned char, unsigned char);
 struct Struct_0201099c_3;

@@ -91,7 +91,7 @@ extern "C" void func_ov017_021c9e00(int, int, int, int);
 #if defined(jpn)
 extern "C" void func_020474a8(void*, int, int, void*);
 #else
-extern "C" void func_02046608(void*, int, int, void*, int, int, int);
+extern "C" void func_02046608(void*, int, int, void*, int, int, unsigned char);
 #endif
 
 static inline char* inline_ov002_0215a0a4(GameObject* arg0) { SDK_NULL_ASSERT(arg0); return arg0->baseStats_->unk; }

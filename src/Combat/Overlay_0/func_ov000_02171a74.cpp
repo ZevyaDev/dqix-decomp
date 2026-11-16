@@ -6,7 +6,7 @@ extern "C" void InitNoun_020e46c4(void* noun);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 
 struct Struct_ov000_02171a74 {
     char unknown_0_[4];

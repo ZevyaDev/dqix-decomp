@@ -89,7 +89,7 @@ struct Struct_020943dc {
 extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" void CopyStringFromTableFile_020e046c(char*, void*, unsigned int, int);
-extern "C" void func_02046608(Struct_02046574_2*, int, char*, char*, int, int, int);
+extern "C" void func_02046608(Struct_02046574_2*, int, char*, char*, int, int, unsigned char);
 extern const char data_020f13aa[];
 extern const char data_020f13c5[];
 

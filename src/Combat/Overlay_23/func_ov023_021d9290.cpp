@@ -116,7 +116,6 @@ struct Struct_ov023_021d9290_2 {
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int GetMessageWindow_020421a0(void);
@@ -132,7 +131,7 @@ extern "C" ARM void InitPartyMemberNoun_020e4bf4(void*, int);
 extern "C" int func_020426a4(int, int);
 struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0*, int, int);
-extern "C" void func_02046608(int, int, void*, void*, int, int, int);
+extern "C" void func_02046608(int, int, void*, void*, int, int, unsigned char);
 extern "C" int AppendPositionTag_02041a90(char*, int, int);
 extern "C" int sprintf(char*, const char*, ...);
 

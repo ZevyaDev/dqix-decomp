@@ -21,7 +21,7 @@ extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index,
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" int GetStandardString_020e51cc(int stringId);
-extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 
 // USA: func_ov003_0215de6c
 extern "C" ARM void func_ov003_0215de6c(char* arg0, void* arg1) {

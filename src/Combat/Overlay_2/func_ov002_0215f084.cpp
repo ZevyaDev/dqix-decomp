@@ -8,7 +8,7 @@ struct Struct_ov002_02157d40_2;
 extern "C" void SetMessageNumber_020465c0(Struct_ov002_02157d40_2*, int, int);
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
-extern "C" void func_02046608(void *arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(void *arg0, int arg1, int arg2, int arg3, int arg4, int arg5, unsigned char arg6);
 
 #if defined(jpn)
 #define RG(u, j) (j)

@@ -28,7 +28,7 @@ extern "C" void* func_ov004_02168a6c(void* arg0, int arg1);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
-extern "C" void func_02046608(void* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(void* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" char* func_020d2f88(char* arg0, char* arg1);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);

@@ -103,7 +103,7 @@ extern "C" void __clear(void*, int);
 extern "C" void* GetMessageWindow_020421a0();
 struct Struct_0201099c_3;
 extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
-extern "C" void func_02046608(void*, int, void*, void*, int, int, int);
+extern "C" void func_02046608(void*, int, void*, void*, int, int, unsigned char);
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c*, int, int);
 

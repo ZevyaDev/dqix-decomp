@@ -59,7 +59,7 @@ extern "C" unsigned short* GetZone3D_02012fe4();
 extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" int GetStandardString_020e51cc(int);
-extern "C" void func_02046608(Struct_02046574_2*, int, int, char*, int, int, int);
+extern "C" void func_02046608(Struct_02046574_2*, int, int, char*, int, int, unsigned char);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_02046574_2*, char*, int);
 #else

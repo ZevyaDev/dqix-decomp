@@ -88,7 +88,7 @@ extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window,
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char* window, int index, unsigned char alignment);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
-extern "C" void func_02046608(void* arg0, int, const char* arg2, char* arg3, int, int, int);
+extern "C" void func_02046608(void* arg0, int, const char* arg2, char* arg3, int, int, unsigned char);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 
 #if defined(jpn)

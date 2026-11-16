@@ -59,7 +59,7 @@ extern "C" int AppendText_02042058(char*, const char*);
 extern "C" int AppendMenuEntry_02041b70(char*, int, const char*);
 extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
 extern "C" void ClearMessageParams_02046380(void*);
-extern "C" void func_02046608(void*, int, void*, void*, int, int, int);
+extern "C" void func_02046608(void*, int, void*, void*, int, int, unsigned char);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char*, int, unsigned char);
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char*, int, unsigned char);

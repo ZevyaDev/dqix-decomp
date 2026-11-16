@@ -20,7 +20,7 @@ extern "C" int func_020420e8(const char *arg0, int arg1);
 extern "C" int sprintf(char *arg0, const char *arg1, ...);
 extern "C" void *__clear(void *arg0, int arg1);
 extern "C" int GetHaloObject_ov017_021bdbcc(GameResources *gameResources);
-extern "C" void func_02046608(void *arg0, int arg1, const char *arg2, char *arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(void *arg0, int arg1, const char *arg2, char *arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" char data_ov002_0216d2a1[];
 
 static inline unsigned short inline_ov002_0215e644(char *arg0, int arg1) { return *(unsigned short *) (arg0 + arg1); }

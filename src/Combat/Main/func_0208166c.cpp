@@ -18,7 +18,7 @@ extern "C" ARM int func_02042190(int arg0);
 extern "C" ARM int GetMessageWindow_020421a0(void);
 
 extern "C" int func_020420e8(void* arg0, int arg1);
-extern "C" int func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
+extern "C" int func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" int func_0204f41c(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, void* arg6, void* arg7, int arg8);
 
 #define F13(e) ((struct Struct_0208166c*)((e) + 0x13))

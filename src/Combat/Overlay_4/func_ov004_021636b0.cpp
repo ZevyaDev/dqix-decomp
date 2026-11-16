@@ -34,7 +34,7 @@ extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" struct StringList_02072a68_2* GetMenuObjectStringList_ov023_021fa598(void* object);
 extern "C" int func_ov004_0216f8c0(unsigned short arg0);
-extern "C" void func_02046608(int arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(int arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void* __clear(void* arg0, int arg1);
 
 extern "C" unsigned int func_ov023_021f6f10(void* arg0);

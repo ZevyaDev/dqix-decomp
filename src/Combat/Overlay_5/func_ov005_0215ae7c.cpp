@@ -44,7 +44,7 @@ extern "C" void func_020462d0(MessageWindow_02021b84* arg0, unsigned short* arg1
 extern "C" ItemData_0201099c_9* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
-extern "C" void func_02046608(MessageWindow_02021b84* arg0, int, const char* arg2, char* arg3, int arg4, int, int);
+extern "C" void func_02046608(MessageWindow_02021b84* arg0, int, const char* arg2, char* arg3, int arg4, int, unsigned char);
 extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_020d2f88(char* arg0, char* arg1);
 extern "C" void func_02045d14(MessageWindow_02021b84* arg0, const char* arg1, unsigned short* arg2, int);

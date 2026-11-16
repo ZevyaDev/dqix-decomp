@@ -124,7 +124,7 @@ extern "C" int func_020420e8(void* arg0, int arg1);
 extern "C" void func_0204f41c(void* arg0, short arg1, short arg2, void* arg3, int arg4,
                               unsigned char arg5, short* arg6, short* arg7, int arg8);
 extern "C" void func_020749ac(void* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void ExpandInflectionTags_020e4864(void* text, void* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
 
 extern signed char data_ov013_02187dc8[];

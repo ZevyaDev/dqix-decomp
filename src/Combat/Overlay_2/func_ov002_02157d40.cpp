@@ -110,7 +110,7 @@ extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int func_02026780(void* arg0, void* arg1, unsigned int arg2);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" void func_02046608(void* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(void* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void SetEquippedItem_02052d7c(void* gameObject, signed char slot, int itemId);
 extern "C" void AddEquipmentToBag_0207c378(void* bag, short itemId, int count, unsigned int category);
 

@@ -620,7 +620,7 @@ extern "C" void func_0206b198(struct Struct_0204500c_4* arg0, unsigned short arg
 
 extern "C" int func_02044420(void* arg0, void* arg1);
 extern "C" void func_02041bbc(Struct_0204166c*);
-extern "C" void func_0206b974(void* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void func_0206b974(void* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6, unsigned char arg7);
 extern "C" int func_0206cc50(Struct_0206cc50* arg0, unsigned short* arg1);
 extern "C" int func_02067ad8(int arg0, void* arg1);
 

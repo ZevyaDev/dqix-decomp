@@ -4,7 +4,7 @@
 
 extern "C" void func_020dcfc8(int arg0, char* arg1);
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0;
 extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);

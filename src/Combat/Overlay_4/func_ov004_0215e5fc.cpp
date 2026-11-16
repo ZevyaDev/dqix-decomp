@@ -26,7 +26,7 @@ extern "C" void func_ov023_021f8960(char*, short, unsigned short);
 extern "C" struct Struct_ov004_0215e5fc_5* FindItemData_020dedd0(struct Struct_ov002_02157634_5*, int);
 extern "C" void func_02083738(void*, int);
 extern "C" void func_0208358c(void*, void*, int);
-extern "C" int func_02046608(int, int, void*, void*, int, int, int);
+extern "C" int func_02046608(int, int, void*, void*, int, int, unsigned char);
 extern "C" void func_02083e28(void*, int);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int GetPartyMemberData_02053c6c(unsigned char*);

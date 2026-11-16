@@ -4,14 +4,13 @@
 struct TextWindowManager_0205de24_2;
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" ARM void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, int arg6);
+extern "C" ARM void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 #if defined(jpn)
 extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 extern "C" void AppendText_02042058(char*, const char*);
 #else
 extern "C" ARM void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
-
 
 // USA: func_ov023_021ed354
 extern "C" ARM void func_ov023_021ed354(char* arg0) {
@@ -70,7 +69,6 @@ extern "C" ARM void func_ov023_021ed354(char* arg0) {
     unsigned char var4 = *(unsigned char*)(arg0 + 0x28);
     int var5 = *(int*)((char*)var3 + var4 * 0x244 + 4);
     func_02046608(var2, 1, var5, *(void**)(arg0 + 0x1c), 0xe3, 0, 1);
-
 
 #endif
 #if defined(jpn)

@@ -20,7 +20,7 @@ extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0 *window, int in
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char *window, int index, unsigned char width);
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char *window, int index, unsigned char alignment);
 extern "C" void func_02041b00(char *arg0, int arg1);
-extern "C" void func_02046608(void *arg0, int arg1, const char *arg2, char *arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(void *arg0, int arg1, const char *arg2, char *arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void AppendText_02042058(char *buffer, const char *text);
 
 #if defined(jpn)

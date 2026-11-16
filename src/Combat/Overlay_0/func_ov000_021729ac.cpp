@@ -27,7 +27,7 @@ extern "C" void func_0203c108(Struct_0203c108_3*, char*);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void InitNoun_020e46c4(void* noun);
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" void func_02046608(void* arg0, int arg1, char* arg2, void* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(void* arg0, int arg1, char* arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 struct PacEntry_02020cb8_4;
 extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
 struct PacEntry_02020aec;

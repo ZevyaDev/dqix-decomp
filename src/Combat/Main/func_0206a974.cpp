@@ -27,7 +27,7 @@ extern "C" ARM void func_0206c570(void* arg0, const char* arg1) {
 extern "C" int GetStringLength_020d2ff0(const char* string);
 
 extern "C" void func_0206aa28(void* arg0);
-extern "C" void func_0206b974(void* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void func_0206b974(void* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6, unsigned char arg7);
 
 struct Struct_0204500c_3 {
     char unknown_0_[0x48];

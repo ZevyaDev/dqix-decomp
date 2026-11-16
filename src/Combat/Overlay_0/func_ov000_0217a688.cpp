@@ -34,7 +34,7 @@ extern "C" void func_020e4ce8(Struct_020200c0_5*, GameObject*, int);
 extern "C" void func_ov000_0217aa08(char*, char*);
 extern "C" void func_020e4f18(Struct_020200c0_5*, Struct_020200c0_5*, int);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
-extern "C" void func_02046608(MessageWindow_020465c0*, int, const char*, char*, int, int, int);
+extern "C" void func_02046608(MessageWindow_020465c0*, int, const char*, char*, int, int, unsigned char);
 extern "C" int AppendMenuEntry_02041b70(char*, int, const char*);
 extern char data_ov000_02184060[];
 

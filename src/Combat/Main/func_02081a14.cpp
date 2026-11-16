@@ -20,7 +20,7 @@ extern "C" void SetMessageNumberWidth_020465f0(unsigned char*, int, unsigned cha
 extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3);
 extern "C" void func_0204f41c(void* arg0, short arg1, int arg2, void* arg3, int arg4, int arg5, short* arg6, short* arg7);
 #else
-extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" int func_020420e8(void* arg0, int arg1);
 extern "C" void func_0204f41c(void* arg0, short arg1, int arg2, void* arg3, int arg4, int arg5, short* arg6, short* arg7, int arg8);
 #endif

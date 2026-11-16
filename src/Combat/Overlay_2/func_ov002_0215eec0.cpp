@@ -3,7 +3,7 @@
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void func_020dd040(int arg0, char* arg1);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_02046608(int arg0, int arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(int arg0, int arg1, void* arg2, int arg3, int arg4, int arg5, unsigned char arg6);
 
 struct Struct_ov002_0215eec0 {
     unsigned int unknown_0_0_ : 12;

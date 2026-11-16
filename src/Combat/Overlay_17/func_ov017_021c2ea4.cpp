@@ -14,7 +14,7 @@ struct Struct_0208b494;
 extern "C" Struct_0208b494* func_0208a9b4(void);
 extern "C" void func_0208b494(struct Struct_0208b494* arg0);
 
-extern "C" ARM void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, int arg6);
+extern "C" ARM void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 
 // USA: func_ov017_021c2ea4
 extern "C" ARM void func_ov017_021c2ea4(unsigned char* arg0) {

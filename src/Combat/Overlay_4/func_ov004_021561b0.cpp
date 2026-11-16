@@ -88,7 +88,7 @@ extern "C" int func_ov023_021f6f10(void*);
 extern "C" StringList_02072a68_2* GetMenuObjectStringList_ov023_021fa598(void*);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
-extern "C" void func_02046608(void*, int, void*, char*, int, int, int);
+extern "C" void func_02046608(void*, int, void*, char*, int, int, unsigned char);
 extern "C" char* func_020d2f88(char*, char*);
 extern "C" void func_ov023_021f9b30(Struct_ov004_02153e20*, short, unsigned int, unsigned int);
 typedef void (*Type_ov004_021561b0)(Struct_ov004_02153e20*, unsigned short, unsigned int, unsigned int);

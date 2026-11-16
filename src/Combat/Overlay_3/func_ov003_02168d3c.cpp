@@ -24,7 +24,7 @@ extern "C" void func_020474a8(void*, int, int, char*);
 enum { Enum_ov003_02168d3c_228=0xe0, Enum_ov003_02168d3c_2464=0x870, Enum_ov003_02168d3c_6574=0x17de, Enum_ov003_02168d3c_2400=0x800 };
 #else
 extern "C" void StartMessage_0204500c(void*, int, int, int);
-extern "C" void func_02046608(void*, int, int, char*, int, int, int);
+extern "C" void func_02046608(void*, int, int, char*, int, int, unsigned char);
 enum { Enum_ov003_02168d3c_228=0xe4, Enum_ov003_02168d3c_2464=0x9a0, Enum_ov003_02168d3c_6574=0x19ae, Enum_ov003_02168d3c_2400=0x960 };
 #endif
 struct Struct_ov003_02168d3c {

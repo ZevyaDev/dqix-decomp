@@ -25,7 +25,7 @@ extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable,
 #if defined(jpn)
 extern "C" void func_020474a8(void* arg0, unsigned char arg1, const char* arg2, char* arg3);
 #else
-extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 #endif
 
 struct Struct_ov023_021e8604_2 { char unknown_0_[0xf74]; int unknown_f74_; };

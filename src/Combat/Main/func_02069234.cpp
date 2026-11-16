@@ -69,7 +69,7 @@ extern char data_020f0909[6];
 extern char data_020f0910[];
 
 // USA: func_02069234
-extern "C" ARM void func_02069234(Struct_02069234* arg0, char* arg1, char* arg2) {
+extern "C" ARM void func_02069234(Struct_02069234* arg0, char* arg1, char* arg2, unsigned char) {
     char* var0;
     if (arg1 == 0 || arg2 == 0) {
         return;

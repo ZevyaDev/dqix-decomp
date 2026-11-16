@@ -31,7 +31,6 @@ extern "C" char data_ov017_021d83c0[];
 #include "Graphics/LightingManager.h"
 #include "Resource/Brightness.h"
 
-
 struct Queue_020469f8;
 struct QueueNode_020469f8_2;
 struct Queue_02038598_5;
@@ -206,7 +205,7 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_020e4c74(void* arg0, GameObject* arg1);
 extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
-extern "C" void func_02046608(void* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(void* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" int abs(int arg0);
 extern "C" void* GetColorFade_020704fc(void);
 extern "C" void func_02070900(Struct_02070900_2* arg0, Struct_02070900* arg1, unsigned int arg2);

@@ -12,7 +12,6 @@ enum { Enum_ov004_0216aaec_2400 = 0x960, Enum_ov004_0216aaec_4 = 4 };
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
 
-
 struct Struct_ov004_02170138 {
     int unknown_0_[7];
 };
@@ -54,7 +53,7 @@ extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringL
 #if defined(jpn)
 extern "C" void func_02046608(struct MessageWindow_020465c0* arg0, int arg1, void* arg2, void* arg3);
 #else
-extern "C" void func_02046608(struct MessageWindow_020465c0* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(struct MessageWindow_020465c0* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 #endif
 extern "C" void func_ov023_021f8960(char* arg0, short arg1, unsigned short arg2);
 extern "C" void func_02021410(struct Struct_02021410* arg0, int arg1, int arg2);

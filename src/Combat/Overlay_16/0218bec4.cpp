@@ -56,7 +56,7 @@ extern "C" int func_ov016_0218e708(void* arg0, void* arg1, int arg2, int arg3);
 extern "C" int func_ov016_0218e72c(void* arg0);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_02046608(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void func_ov016_0218e240(unsigned short* arg0, char* arg1, unsigned short arg2, int arg3, int arg4, unsigned char arg5, int arg6, int arg7);
 
 // USA: func_ov016_0218bec4

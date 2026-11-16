@@ -289,7 +289,7 @@ extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
-extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void* func_ov004_0215e4c0(void* arg0, int arg1);
 extern "C" void RedrawMenuWindow_ov023_021f809c(void* window, void* menu);
 

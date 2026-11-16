@@ -28,7 +28,7 @@ extern "C" void func_020474a8(void*, unsigned char, const char*, char*);
 extern "C" int func_0204234c(char*, int);
 #else
 extern const char data_ov002_0216d26c[];
-extern "C" void func_02046608(void*, int, int, int, int, int, int);
+extern "C" void func_02046608(void*, int, int, int, int, int, unsigned char);
 extern "C" int func_02041cc0(char*, int);
 #endif
 extern "C" void OpenTextWindow_0205d304(void*, const char*, int, unsigned char, unsigned char, unsigned char, void*

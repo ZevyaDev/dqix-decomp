@@ -30,7 +30,7 @@ extern "C" void SetMessageNumberWidth_020465f0(unsigned char *window, int index,
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0 *window, int index, int number);
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
-extern "C" void func_02046608(void *arg0, int arg1, int arg2, void *arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(void *arg0, int arg1, int arg2, void *arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void func_ov016_0218b5c0(int arg0, int arg1);
 
 struct Struct_ov002_02159900 {

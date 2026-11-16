@@ -74,7 +74,7 @@ extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" Struct_0209a678* func_ov000_02170cf8(Struct_ov000_02179cdc_2* arg0, int arg1);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void func_020dd040(int arg0, char* arg1);
-extern "C" void func_02046608(MessageWindow_020465c0* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(MessageWindow_020465c0* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0* window);
 extern "C" int func_ov000_02153a8c(GameObject* arg0);
 extern "C" int func_020dd290(void*, unsigned int);

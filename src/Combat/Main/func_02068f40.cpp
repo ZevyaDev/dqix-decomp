@@ -20,7 +20,7 @@ struct Struct_02068f40 {
 };
 
 // USA: func_02068f40
-extern "C" ARM int func_02068f40(void* arg0, char* arg1, char* arg2, int arg3) {
+extern "C" ARM int func_02068f40(void* arg0, char* arg1, char* arg2, unsigned char arg3) {
     char var0[0x30];
     char var1[0x30];
     char var2[0x30];

@@ -113,7 +113,7 @@ extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2*, int);
-extern "C" void func_02046608(void* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(void* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2*, unsigned char, unsigned char);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);

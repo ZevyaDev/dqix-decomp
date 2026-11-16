@@ -12,7 +12,7 @@ struct MessageWindow_020465c0 {
 extern "C" int AddItem_0207d300(void*, int, int, int);
 extern "C" void func_0207d2c4(void*, int);
 extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0*);
-extern "C" void func_02046608(MessageWindow_020465c0*, int, const char*, char*, int, int, int);
+extern "C" void func_02046608(MessageWindow_020465c0*, int, const char*, char*, int, int, unsigned char);
 extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0();
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);

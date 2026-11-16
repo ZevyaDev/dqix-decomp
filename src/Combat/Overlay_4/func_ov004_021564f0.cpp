@@ -27,7 +27,7 @@ extern "C" int AppendPositionTag_02041a90(char* buffer, int x, int y);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 extern "C" int func_020420e8(void* arg0, int arg1);
-extern "C" int func_02046608(void* arg0, int arg1, unsigned int arg2, void* arg3, int arg4, int arg5, int arg6);
+extern "C" int func_02046608(void* arg0, int arg1, unsigned int arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 
 #if defined(jpn)
 struct Struct_ov004_021707c8 { char unknown_0_[4]; short* unknown1_8_; struct Struct_020a15bc* unknown_8_; };

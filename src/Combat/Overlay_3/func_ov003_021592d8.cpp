@@ -59,7 +59,7 @@ extern "C" void* func_0208247c(void* arg0);
 extern "C" int func_02082490(void* arg0, void* arg1, unsigned int arg2, int arg3, int arg4);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
-extern "C" void func_02046608(void* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(void* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 
 extern char data_ov003_0217fe18[];
 extern unsigned char gFileScratchSpace_0211e33c[0x30000];

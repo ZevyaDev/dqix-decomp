@@ -13,7 +13,7 @@ struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 struct Struct_0201099c_3;
 extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
-extern "C" void func_02046608(void* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(void* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 struct Struct_ov003_0216abd8 {

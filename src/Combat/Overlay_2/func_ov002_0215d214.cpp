@@ -45,7 +45,7 @@ extern "C" int sprintf(char *arg0, const char *arg1, ...);
 extern "C" char *strstr(const char *arg0, const char *arg1);
 extern "C" void *memcpy(void *arg0, const void *arg1, unsigned int arg2);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0 *window, int index, int number);
-extern "C" void func_02046608(void *arg0, int arg1, const char *arg2, char *arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(void *arg0, int arg1, const char *arg2, char *arg3, int arg4, int arg5, unsigned char arg6);
 
 extern "C" unsigned char data_ov002_0216cac4[];
 extern "C" unsigned char data_ov002_0216cac5[];

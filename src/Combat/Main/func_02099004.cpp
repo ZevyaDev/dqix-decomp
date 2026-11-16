@@ -135,7 +135,7 @@ extern "C" int GetMessageWindow_020421a0();
 extern "C" int GetStringLength_020d2ff0(const char*);
 extern "C" char* GetStandardString_020e51cc(int);
 extern "C" void func_02098f70(int*, void*, int, int);
-extern "C" void func_02046608(int, int, const char*, char*, int, int, int);
+extern "C" void func_02046608(int, int, const char*, char*, int, int, unsigned char);
 extern "C" void __clear(void*, int);
 extern "C" int func_02042764(const char*, char*, int);
 

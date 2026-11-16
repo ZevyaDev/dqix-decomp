@@ -37,7 +37,7 @@ extern "C" void InitNounTable_020e526c(void *nounTable);
 extern "C" void func_020e56fc(void *arg0, int arg1, int arg2);
 extern "C" void *FindNounInTable_020e5294(void *nounTable, int nounId);
 extern "C" void func_020e4f18(void *arg0, void *arg1, int arg2);
-extern "C" void func_02046608(void *arg0, int arg1, const char *arg2, char *arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046608(void *arg0, int arg1, const char *arg2, char *arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int GetStringLength_020d2ff0(const char *string);
 
