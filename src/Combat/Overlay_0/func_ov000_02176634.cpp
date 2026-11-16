@@ -1,5 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
 #if defined(jpn)
 #define LOW_REGION(j,u) (j)
 #else
@@ -133,14 +138,13 @@ extern "C" void __clear(void*, int);
 extern "C" void InitNoun_020e46c4(void*);
 extern "C" void* memset(void*, int, unsigned int);
 extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
-extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" Struct_ov000_02176634_4* FindPartyMemberPanel_ov000_02161318(Struct_ov000_02176634_11*, int);
 extern "C" Struct_ov000_02176634_2* func_ov000_0217199c(void*, int);
 extern "C" int func_ov000_021815c8(void*);
 extern "C" Struct_ov000_02176634_3* func_ov000_021815e4(char*);
-extern "C" Struct_ov000_02176634_8* GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" Struct_ov000_02176634_8* func_02053c6c(unsigned char*);
 struct PartyMember_02054000;
 extern "C" Struct_ov000_02176634_3* GetEquippedWeaponItemData_02054000(PartyMember_02054000*);
 extern "C" void func_020dcf7c(int, void*);
@@ -268,17 +272,17 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
     switch (arg2) {
     case 0xc:
         var32 = 0xc;
-        AppendText_02042058(var0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7554));
+        AppendText_02042058(var0, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7554)));
         break;
     case 0x29:
         var32 = 0x29;
-        SetMessageString_02046574((Struct_02046574_2*)var13, 1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7558));
-        func_020474a8(var13, 10, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7555), var0);
+        SetMessageString_02046574((Struct_02046574_2*)var13, 1, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7558)));
+        func_020474a8(var13, 10, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7555)), var0);
         break;
     case 0x2a:
         var32 = 0x2a;
-        SetMessageString_02046574((Struct_02046574_2*)var13, 1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7557));
-        func_020474a8(var13, 10, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7555), var0);
+        SetMessageString_02046574((Struct_02046574_2*)var13, 1, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7557)));
+        func_020474a8(var13, 10, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7555)), var0);
         break;
     case 0x2b: {
         Struct_ov000_02176634_4* var15 = FindPartyMemberPanel_ov000_02161318(arg0, arg0->unknown_70_[arg0->unknown_1d6b_]);
@@ -288,7 +292,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
         }
         var32 = 0x2b;
         SetMessageString_02046574((Struct_02046574_2*)var13, 0, var14);
-        func_020474a8(var13, 10, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x23), var0);
+        func_020474a8(var13, 10, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x23)), var0);
         break;
     }
     case 0x1a: {
@@ -296,25 +300,25 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
         Struct_ov000_02176634_2* var17 = func_ov000_0217199c(arg1, arg1->unknown_1e_);
         if (var17 != NULL && var17->unknown_2d_2_ == 6) var16 = 0x22;
         var32 = 0x1a;
-        AppendText_02042058(var0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, var16));
+        AppendText_02042058(var0, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(var16)));
         break;
     }
     case 0x1b:
         var32 = 0x1b;
         SetMessageString_02046574((Struct_02046574_2*)var13, 0, var14);
-        SetMessageString_02046574((Struct_02046574_2*)var13, 1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7545));
-        func_020474a8(var13, 10, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7547), var0);
+        SetMessageString_02046574((Struct_02046574_2*)var13, 1, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7545)));
+        func_020474a8(var13, 10, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7547)), var0);
         break;
     case 0x1c:
         var32 = 0x1c;
         SetMessageString_02046574((Struct_02046574_2*)var13, 0, var14);
-        SetMessageString_02046574((Struct_02046574_2*)var13, 1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7546));
-        func_020474a8(var13, 10, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7547), var0);
+        SetMessageString_02046574((Struct_02046574_2*)var13, 1, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7546)));
+        func_020474a8(var13, 10, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7547)), var0);
         break;
     case 0x1d:
         var32 = 0x1d;
         SetMessageString_02046574((Struct_02046574_2*)var13, 0, var14);
-        func_020474a8(var13, 10, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7548), var0);
+        func_020474a8(var13, 10, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7548)), var0);
         break;
     case 0x1e: {
         short var18 = 0x18;
@@ -328,7 +332,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
             }
         }
         var32 = 0x1e;
-        func_020474a8(var13, 10, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, var18), var0);
+        func_020474a8(var13, 10, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(var18)), var0);
         break;
     }
     case 0x1f: {
@@ -342,7 +346,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
             }
         }
         var32 = 0x1f;
-        func_020474a8(var13, 10, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, var23), var0);
+        func_020474a8(var13, 10, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(var23)), var0);
         break;
     }
     case 0x20: {
@@ -353,7 +357,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
         GameState* var26 = GameState::GetInstance();
         var6 = (char*)GetParty_02010828(var26);
         var7 = (Struct_ov000_02176634_7*)GetPartyMemberBaseByIndex_0200ff1c(var26, var12);
-        var8 = GetPartyMemberData_02053c6c((unsigned char*)var7);
+        var8 = func_02053c6c((unsigned char*)var7);
         Struct_ov000_02176634_3* var27 = GetEquippedWeaponItemData_02054000((PartyMember_02054000*)var7);
         var32 = 0x20;
         var9 = var5->unknown_18_;
@@ -388,31 +392,31 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
                 arg0->unknown_1d7a_ = 1;
             }
         }
-        func_020474a8(var13, 10, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, var25), var0);
+        func_020474a8(var13, 10, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(var25)), var0);
         break;
     }
     case 0x25:
         var32 = 0x25;
         SetMessageString_02046574((Struct_02046574_2*)var13, 0, var14);
-        SetMessageString_02046574((Struct_02046574_2*)var13, 1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7545));
-        func_020474a8(var13, 10, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7555), var0);
+        SetMessageString_02046574((Struct_02046574_2*)var13, 1, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7545)));
+        func_020474a8(var13, 10, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7555)), var0);
         break;
     case 0x26:
         var32 = 0x26;
         SetMessageString_02046574((Struct_02046574_2*)var13, 0, var14);
-        SetMessageString_02046574((Struct_02046574_2*)var13, 1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7546));
-        func_020474a8(var13, 10, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7555), var0);
+        SetMessageString_02046574((Struct_02046574_2*)var13, 1, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7546)));
+        func_020474a8(var13, 10, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7555)), var0);
         break;
     case 0x27:
         var32 = 0x27;
         SetMessageString_02046574((Struct_02046574_2*)var13, 0, var14);
-        SetMessageString_02046574((Struct_02046574_2*)var13, 1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7556));
-        func_020474a8(var13, 10, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7555), var0);
+        SetMessageString_02046574((Struct_02046574_2*)var13, 1, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7556)));
+        func_020474a8(var13, 10, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7555)), var0);
         break;
     case 0x28:
         var32 = 0x28;
-        SetMessageString_02046574((Struct_02046574_2*)var13, 1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7559));
-        func_020474a8(var13, 10, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7555), var0);
+        SetMessageString_02046574((Struct_02046574_2*)var13, 1, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7559)));
+        func_020474a8(var13, 10, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7555)), var0);
         break;
     default:
         return;
@@ -445,12 +449,12 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
         break;
     case 0x29:
         var32 = 0x29;
-        SetMessageString_02046574((Struct_02046574_2*)var13, 1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7558));
+        SetMessageString_02046574((Struct_02046574_2*)var13, 1, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7558)));
         var33 = 0x7555;
         break;
     case 0x2a:
         var32 = 0x2a;
-        SetMessageString_02046574((Struct_02046574_2*)var13, 1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7557));
+        SetMessageString_02046574((Struct_02046574_2*)var13, 1, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7557)));
         var33 = 0x7555;
         break;
     case 0x2b: {
@@ -473,12 +477,12 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
     }
     case 0x1b:
         var32 = 0x1b;
-        SetMessageString_02046574((Struct_02046574_2*)var13, 1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7545));
+        SetMessageString_02046574((Struct_02046574_2*)var13, 1, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7545)));
         var33 = 0x7547;
         break;
     case 0x1c:
         var32 = 0x1c;
-        SetMessageString_02046574((Struct_02046574_2*)var13, 1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7546));
+        SetMessageString_02046574((Struct_02046574_2*)var13, 1, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7546)));
         var33 = 0x7547;
         break;
     case 0x1d:
@@ -507,7 +511,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
         GameState* var38 = GameState::GetInstance();
         var6 = (char*)GetParty_02010828(var38);
         var7 = (Struct_ov000_02176634_7*)GetPartyMemberBaseByIndex_0200ff1c(var38, var12);
-        var8 = GetPartyMemberData_02053c6c((unsigned char*)var7);
+        var8 = func_02053c6c((unsigned char*)var7);
         Struct_ov000_02176634_3* var39 = GetEquippedWeaponItemData_02054000((PartyMember_02054000*)var7);
         var32 = 0x20;
         var9 = var5->unknown_18_;
@@ -553,29 +557,29 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
     }
     case 0x25:
         var32 = 0x25;
-        SetMessageString_02046574((Struct_02046574_2*)var13, 1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7545));
+        SetMessageString_02046574((Struct_02046574_2*)var13, 1, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7545)));
         var33 = 0x7555;
         break;
     case 0x26:
         var32 = 0x26;
-        SetMessageString_02046574((Struct_02046574_2*)var13, 1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7546));
+        SetMessageString_02046574((Struct_02046574_2*)var13, 1, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7546)));
         var33 = 0x7555;
         break;
     case 0x27:
         var32 = 0x27;
-        SetMessageString_02046574((Struct_02046574_2*)var13, 1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7556));
+        SetMessageString_02046574((Struct_02046574_2*)var13, 1, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7556)));
         var33 = 0x7555;
         break;
     case 0x28:
         var32 = 0x28;
-        SetMessageString_02046574((Struct_02046574_2*)var13, 1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x7559));
+        SetMessageString_02046574((Struct_02046574_2*)var13, 1, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7559)));
         var33 = 0x7555;
         break;
     default:
         return;
     }
 
-    func_02046608(var13, 10, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, var33), var11, 0xa4, 0, 0);
+    func_02046608(var13, 10, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(var33)), var11, 0xa4, 0, 0);
 #endif
     func_ov000_0217ab8c(arg1, arg3, arg4);
     Struct_ov000_02176634_10* var40 = &arg0->unknown_188_;

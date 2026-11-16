@@ -3,6 +3,10 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
 enum { Enum_ov003_02163d7c_1788 = 0x4ec };
 enum { Enum_ov003_02163d7c_1844 = 0x524 };
 enum { Enum_ov003_02163d7c_1024 = 0x200 };
@@ -37,7 +41,7 @@ extern "C" void func_ov017_02195530(unsigned char*);
 struct Struct_02052e2c;
 extern "C" Struct_0209a678_2* GetAppearance_02052e2c(Struct_02052e2c*);
 extern "C" char* GetZone3D_02012fe4();
-extern "C" char* GetLocalWireless_0202ae18();
+extern "C" char* func_0202ae18();
 extern "C" int IsNotLocalWirelessGuest_0202c508(char*);
 extern "C" void func_ov003_02161480();
 extern "C" void func_ov017_021bbae4(char*, unsigned int, int);
@@ -51,7 +55,7 @@ extern "C" ARM void func_ov003_02163d7c(char* arg0) {
     char* var3 = *(char**)((char*)var2 + 0x3000 + Enum_ov003_02163d7c_1788);
     char* var4 = *(char**)((char*)var2 + 0x3000 + Enum_ov003_02163d7c_1844);
     Struct_0209a678_2* var5 = GetAppearance_02052e2c((Struct_02052e2c*)(var0->GetGameObjectByIndex(*(signed char*)(arg0 + Enum_ov003_02163d7c_1024 + Enum_ov003_02163d7c_162))));
-    char* var6 = GetLocalWireless_0202ae18();
+    char* var6 = func_0202ae18();
     func_ov017_021bbae4(var4, *(unsigned int*)(var1 + 0x8), 1);
     var4[Enum_ov003_02163d7c_205] = *(signed char*)(arg0 + Enum_ov003_02163d7c_1024 + Enum_ov003_02163d7c_162);
     var4[Enum_ov003_02163d7c_206] = var5->unknown_14_0_;

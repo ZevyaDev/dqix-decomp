@@ -1,6 +1,7 @@
 #pragma once
 
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 
 struct Struct_02012ff0 {
     short unknown_0_;

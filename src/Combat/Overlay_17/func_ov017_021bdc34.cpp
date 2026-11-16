@@ -3,6 +3,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/GameResources.h"
 #include "Combat/CombatantRecovery.h"
+#include "Graphics/TextureArena.h"
 
 struct TextureVRAMArea_0203d028 { unsigned char unknown_0_[0x70]; };
 struct Struct_ov017_0218f064_6;
@@ -36,9 +37,6 @@ struct Struct_ov017_021bdc34_3 {
     unsigned char unknown_11_;
 };
 extern "C" Struct_ov017_021bdc34* func_ov017_021a11b4(Struct_ov017_0218f064_6*);
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
-extern "C" void RestoreTextureVRAMState_0207df90(char*);
-extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void func_ov017_021bdb78(int);
 extern "C" void func_ov017_0218fcf8(int, int, int);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void*, int, int, int, int);
@@ -90,7 +88,7 @@ extern "C" ARM void func_ov017_021bdc34(Struct_ov017_021bdc34_3* arg0) {
 #endif
                 for (int var7 = 0; var7 < 4; var7++) {
                     var5[var7]->Reset();
-                    ResetTextureVRAMState_0207df50(var6[var7]);
+                    ((TextureArena*)(var6[var7]))->Reset();
                 }
             } else {
                 for (int var8 = 0; var8 < 4; var8++) arg0->unknown_8_[var8] = -1;
@@ -129,10 +127,10 @@ extern "C" ARM void func_ov017_021bdc34(Struct_ov017_021bdc34_3* arg0) {
                     var15.allocator = var13;
                     var15.unk_8 = var12;
                     TextureVRAMArea_0203d028* var16 = var6[var10];
-                    RestoreTextureVRAMState_0207df90((char*)var16);
+                    ((TextureArena*)((char*)var16))->Restore();
                     var14->Initialize();
                     var14->LoadFromCCHROrCMOTArchive(&var15, 0);
-                    SaveTextureVRAMState_0207dfac((char*)var16);
+                    ((TextureArena*)((char*)var16))->Save();
                     switch (var10) {
                     case 0: var1->unknown_4334_ = var14; break;
                     case 1: var1->unknown_4338_ = var14; break;

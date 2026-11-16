@@ -1,6 +1,7 @@
 #include <globaldefs.h>
+#include "NitroSDK/Graphics3D/Graphics3D.h"
+void Nitro3D_SetModelPolygonID(Nitro3DModel* model, int id);
 
-extern "C" void NSBXX_Model_SetPolygonID(void* obj, unsigned int value);
 
 // USA: func_ov017_021923e0
 extern "C" ARM void func_ov017_021923e0(void* arg0, unsigned int arg1) {
@@ -12,5 +13,5 @@ extern "C" ARM void func_ov017_021923e0(void* arg0, unsigned int arg1) {
     if (var1 == NULL) {
         return;
     }
-    NSBXX_Model_SetPolygonID(var1, arg1);
+    Nitro3D_SetModelPolygonID((Nitro3DModel*)(var1), arg1);
 }

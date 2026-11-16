@@ -1,6 +1,12 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 
 struct StringTable_0201099c_14;
@@ -16,14 +22,12 @@ struct Struct_ov002_0215505c {
 extern "C" void *InitNoun_020e46c4(void *noun);
 struct Struct_ov002_0215505c_2;
 extern "C" void func_ov023_021e1318(Struct_ov002_0215505c_2*);
-extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14 *stringTable);
 extern "C" void SaveMainBGControl_02074af4(void *save);
 extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4 *windowManager);
-extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8 *layer);
 extern "C" void InitTextWindow_0204c684(void *textWindow);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" int GetOwnPartyOrder_02011494(char *gameState, void *outOwnPartyOrder);
-extern "C" char *GetFlagManager_0205ec34(void);
+extern "C" char *func_0205ec34(void);
 extern "C" unsigned short func_0206e384(unsigned char *arg0);
 extern "C" short func_0206e3d4(int arg0, int arg1);
 extern "C" void func_ov002_0215b234(char *arg0);
@@ -52,7 +56,7 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
     RESET(0x774);
     func_ov023_021e1318((Struct_ov002_0215505c_2*)(arg0 + 0x768));
     RESET(0x804);
-    InitStringTable_020dfc40((struct StringTable_0201099c_14 *) (arg0 + 0x8));
+    ((StringList*)((struct StringTable_0201099c_14 *) (arg0 + 0x8)))->Reset();
     U8(0x30) = 0;
     U8(0x31) = 0;
     SaveMainBGControl_02074af4(arg0 + 0x20);
@@ -63,7 +67,7 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
     }
     InitTextWindowManager_0205cfd4((struct TextWindowManager_0205cfd4 *) (arg0 + 0xe20));
     for (int var2 = 0; var2 < 3; var2++) {
-        InitBGLayer_0204af64((struct BGLayer_02020cb8 *) (arg0 + 0xedc + var2 * 0x20));
+        ((BGLayer*)((struct BGLayer_02020cb8 *) (arg0 + 0xedc + var2 * 0x20)))->Reset();
     }
     for (int var3 = 0; var3 < 12; var3++) {
         InitTextWindow_0204c684(arg0 + 0xf3c + var3 * 0xe0);
@@ -191,7 +195,7 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
     U8(0x1b87)        = 0;
     U8(0x22a8)        = 0;
     U8(0x22aa)        = 0;
-    char *var13           = GetFlagManager_0205ec34();
+    char *var13           = func_0205ec34();
     unsigned int var14 = (func_0206e384((unsigned char *) var13) << 16) | 0xffff;
     S32(0x22b0)       = 0;
     for (int var15 = 0; var15 < 0x20; var15++) {
@@ -250,7 +254,7 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
     RESET(0x810);
     func_ov023_021e1318((Struct_ov002_0215505c_2*)(arg0 + 0x804));
     RESET(0x8a0);
-    InitStringTable_020dfc40((struct StringTable_0201099c_14 *) (arg0 + 0x20));
+    ((StringList*)((struct StringTable_0201099c_14 *) (arg0 + 0x20)))->Reset();
     U8(0x48) = 0;
     U8(0x49) = 0;
     SaveMainBGControl_02074af4(arg0 + 0x38);
@@ -261,7 +265,7 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
     }
     InitTextWindowManager_0205cfd4((struct TextWindowManager_0205cfd4 *) (arg0 + 0x2c8 + 0xc00));
     for (int var20 = 0; var20 < 3; var20++) {
-        InitBGLayer_0204af64((struct BGLayer_02020cb8 *) (arg0 + 0x384 + 0xc00 + var20 * 0x20));
+        ((BGLayer*)((struct BGLayer_02020cb8 *) (arg0 + 0x384 + 0xc00 + var20 * 0x20)))->Reset();
     }
     for (int var21 = 0; var21 < 12; var21++) {
         InitTextWindow_0204c684(arg0 + 0x3e4 + 0xc00 + var21 * 0xe0);
@@ -392,7 +396,7 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
     U8(0x1cc3)        = 0;
     U8(0x2478)        = 0;
     U8(0x247a)        = 0;
-    char *var31           = GetFlagManager_0205ec34();
+    char *var31           = func_0205ec34();
     unsigned int var32 = (func_0206e384((unsigned char *) var31) << 16) | 0xffff;
     S32(0x2480)       = 0;
     for (int var33 = 0; var33 < 0x20; var33++) {

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Graphics/OBJSpriteSet.h"
 
 extern "C" void func_0208be8c(void);
 
@@ -14,11 +15,6 @@ struct Struct_ov017_021bb930 {
     unsigned char unknown_15_;
 };
 
-extern "C" struct Struct_ov017_021bb930* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254*, int);
-extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254*, int);
-extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330*, int);
-extern "C" void SetSpriteAnimationOAMIndex_0205a42c(struct SpriteAnimationList_0205a254*, int, int);
-extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
 
 struct Struct_ov017_021bb930_2 {
     char unknown_0_[0x3c];
@@ -46,21 +42,21 @@ extern "C" ARM void func_ov017_021bb930(struct Struct_ov017_021bb930_3* arg0) {
         if (var1 != NULL) {
             struct Struct_ov017_021bb930* var2;
             unsigned int var3;
-            PlaySpriteAnimation_0205a370(var1, 1);
-            var2 = FindSpriteAnimation_0205a3d0(var1, 1);
+            ((OBJSpriteSet::List*)(var1))->PlaySpriteAnimation(1);
+            var2 = ((Struct_ov017_021bb930*)((OBJSpriteSet::List*)(var1))->GetSprite(1));
             if (var2 != NULL) {
                 var2->unknown_15_ |= 0x8;
             }
             var3 = var0->GetTickCount();
-            AdvanceSpriteAnimations_0205a330((struct SpriteAnimationList_0205a330*)var1, var3);
-            var2 = FindSpriteAnimation_0205a3d0(var1, 1);
+            ((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a330*)var1))->UpdateAll(var3);
+            var2 = ((Struct_ov017_021bb930*)((OBJSpriteSet::List*)(var1))->GetSprite(1));
             if (var2 != NULL) {
                 var2->unknown_4_ = 0xd8;
                 var2->unknown_6_ = 0x98;
             }
-            SetSpriteAnimationOAMIndex_0205a42c(var1, 1, 6);
+            ((OBJSpriteSet::List*)(var1))->SetSpriteOBJIndex(1, 6);
         }
-        DrawSpriteAnimations_0205ae8c(arg0->unknown_168_);
+        ((OBJSpriteSet*)(arg0->unknown_168_))->DrawAll();
     }
     if (arg0->unknown_120_ != 0) {
         func_0208be8c();

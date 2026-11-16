@@ -1,7 +1,7 @@
 #include <globaldefs.h>
+#include "std_library_functions.h"
 
 unsigned long long GetCurrentTimestamp(void);
-extern "C" int CompareBytes_02001aec(const void* left, const void* right, unsigned int count);
 extern "C" void QueueTaskRemoval_ov031_0223e2c0(int, void*);
 
 typedef void (*Type_02001aec_2)(int);
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov031_022379f0(void* arg0) {
     var6 = (char*)var1;
     var5 = (char*)var1 + 0x1300;
     do {
-        if (CompareBytes_02001aec(var5, data_ov031_02249280, 6) != 0) {
+        if (memcmp(var5, data_ov031_02249280, 6) != 0) {
             if (*(unsigned char*)(var6 + 0x1306) != 0) {
                 var3 = 1;
             } else {

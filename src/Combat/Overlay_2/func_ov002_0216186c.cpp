@@ -1,13 +1,13 @@
 #include <globaldefs.h>
+#include "Resource/GameStrings.h"
+#include "Resource/StringList.h"
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_02041fac(char* arg0, int arg1, int arg2);
-extern "C" int GetStandardString_020e51cc(int stringId);
 
 // USA: func_ov002_0216186c
 #if defined(jpn)
@@ -48,14 +48,14 @@ extern "C" ARM void func_ov002_0216186c(char* arg0, char* arg1, int arg2) {
     }
     AppendCursorTag_02041ea4(arg1, var2);
 
-    int var3 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0x20), 0x23f0);
+    int var3 = ((int)((StringList*)((struct Struct_0201099c_3*)(arg0 + 0x20)))->GetString(0x23f0));
     func_02041fac(arg1, var3, 0x10);
 
-    AppendMenuEntry_02041b70(arg1, 0, (const char*)GetStandardString_020e51cc(0x1b));
+    AppendMenuEntry_02041b70(arg1, 0, (const char*)((int)GetGameString((eGameString)(0x1b))));
 
     void* var4 = *(void**)(arg0 + 0x1000 + 0xbdc);
     AppendText_02042058(arg1, (const char*)var4);
 
-    AppendMenuEntry_02041b70(arg1, 1, (const char*)GetStandardString_020e51cc(0x1c));
+    AppendMenuEntry_02041b70(arg1, 1, (const char*)((int)GetGameString((eGameString)(0x1c))));
 }
 #endif

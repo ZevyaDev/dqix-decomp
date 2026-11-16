@@ -2,6 +2,18 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct StringList_02072a68_2;
 struct MessageWindow_020465c0;
 struct Struct_ov004_021549e4_3;
@@ -18,8 +30,8 @@ extern "C" struct StringList_02072a68_2* func_ov004_02169040(void* arg0, int arg
 extern "C" struct StringList_02072a68_2* func_ov004_02168b08(void* arg0, int arg1);
 #endif
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" void* GetFlagManager_0205ec34(void* arg0);
+extern "C" void* func_02053c6c(unsigned char* gameObject);
+extern "C" void* func_0205ec34(void* arg0);
 extern "C" int func_ov023_021f9bc8(char* arg0);
 extern "C" unsigned int func_ov023_021f9b6c(struct Struct_ov004_021549e4_3* arg0, unsigned int arg1, unsigned int arg2);
 extern "C" void __clear(void* arg0, int arg1);
@@ -32,7 +44,7 @@ extern "C" void func_02046608(void* arg0, int arg1, char* arg2, char* arg3, int 
 extern "C" char* func_020d2f88(char* arg0, char* arg1);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char* window, int index, unsigned char alignment);
 #if defined(jpn)
@@ -144,8 +156,8 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
     struct StringList_02072a68_2* var2 = func_ov004_02168b08(arg0, 3);
 #endif
     void* var3 = (void*)GetMessageWindow_020421a0();
-    unsigned char* var4 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)GameState::GetInstance()->GetProtagonist());
-    unsigned char* var5 = (unsigned char*)GetFlagManager_0205ec34(var4);
+    unsigned char* var4 = (unsigned char*)func_02053c6c((unsigned char*)GameState::GetInstance()->GetProtagonist());
+    unsigned char* var5 = (unsigned char*)func_0205ec34(var4);
 #if defined(jpn)
     struct StringList_02072a68_2* var6 = func_ov004_02169040(arg0, 9);
 #else
@@ -276,7 +288,7 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
     GetBattleRecords_020ac4c0(&var23);
     var22 |= 1;
     SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), var21++, var15->unknown_5_6_);
-    if (IsFlagSet_0206dfb0((int)var5, var5 + 0x8c, 0x1198)) {
+    if (func_0206dfb0((int)var5, var5 + 0x8c, 0x1198)) {
         var22 |= 2;
         SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), var21++, var15->unknown_1_6_);
     }
@@ -290,7 +302,7 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
         var22 |= 0x10;
         SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), var21++, var15->unknown_d_2_);
     }
-    if (IsFlagSet_0206dfb0((int)var5, var5 + 0x8c, 0x1199)) {
+    if (func_0206dfb0((int)var5, var5 + 0x8c, 0x1199)) {
         var22 |= 0x20;
         SetMessageNumber_020465c0(static_cast<MessageWindow_020465c0*>(var3), var21++, var15->unknown_11_1_);
     }

@@ -8,6 +8,8 @@
 #include "Filesystem/FileIO.h"
 #include "Resource/GameResources.h"
 #include "World/Object3D.h"
+#include "Graphics/TextureArena.h"
+#include "Resource/StringList.h"
 
 struct Struct_ov014_02184f78 {
     Struct_ov014_02184f78* unknown_0_;
@@ -107,7 +109,6 @@ struct Struct_ov014_02184dcc {
 struct Struct_ov014_021845d4;
 struct Struct_02097238;
 struct Struct_02097054_5;
-struct StringTable_0201099c_14;
 struct TextureVRAMArea_0203d028;
 struct ObjectArchiveLoadInfo_0203d028_11;
 
@@ -135,18 +136,10 @@ extern "C" void InitNounTable_020e526c(void* nounTable);
 extern "C" void func_020e56fc(void* arg0, int arg1, int arg2);
 extern "C" const char** FindNounInTable_020e5294(void* nounTable, int nounId);
 extern "C" void ExpandInflectionTags_020e4864(const char* text, char* buffer, int, int, int, int);
-extern "C" void* ConstructStringTable_020dfc2c(void* stringTable);
-extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
-extern "C" void CopyStringFromTableFile_020e046c(char* buffer, void* fileData, unsigned int fileSize, short stringId);
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d028_11* loadInfo);
 extern "C" void func_ov014_02184c08(unsigned char* arg0);
 
 #if defined(jpn)
-extern "C" int func_020e038c(void* arg0, void* arg1, int arg2);
-extern "C" char* func_020e207c(void* arg0, char* arg1, int arg2);
 #endif
 
 // USA: func_ov014_021850cc
@@ -232,12 +225,11 @@ extern "C" ARM void func_ov014_021850cc(Struct_ov014_02184dcc* arg0) {
             Struct_ov014_021850cc_3* var12 = func_02097224((Struct_02097054_5*)&arg0->unknown_c_, arg0->unknown_48_->unknown_c_);
             if (var12 != NULL) {
 #if defined(jpn)
-                char var13[0x18];
-                ConstructStringTable_020dfc2c(var13);
-                InitStringTable_020dfc40((StringTable_0201099c_14*)var13);
-                func_020e038c(var13, var10, var11);
-                func_020e207c(var13, arg0->unknown_60_[0], var12->unknown_8_[0]);
-                func_020e207c(var13, arg0->unknown_60_[1], var12->unknown_8_[1]);
+                StringList var13;
+                var13.Reset();
+                var13.natData_0_.LoadFromMemory(var10, var11);
+                var13.GetAndCopyString(arg0->unknown_60_[0], var12->unknown_8_[0]);
+                var13.GetAndCopyString(arg0->unknown_60_[1], var12->unknown_8_[1]);
 #else
                 char var14[0xc];
                 InitNounTable_020e526c(var14);
@@ -265,10 +257,9 @@ extern "C" ARM void func_ov014_021850cc(Struct_ov014_02184dcc* arg0) {
         unsigned int var17;
         var0->GetLoadedFileByID(arg0->unknown_86_[2], &var16, &var17);
         if (var16 != NULL) {
-            char var18[0x18];
-            ConstructStringTable_020dfc2c(var18);
-            InitStringTable_020dfc40((StringTable_0201099c_14*)var18);
-            CopyStringFromTableFile_020e046c(arg0->unknown_68_, var16, var17, arg0->unknown_48_->unknown_1a_);
+            StringList var18;
+            var18.Reset();
+            GetStringFromNAT((char*)(arg0->unknown_68_), (void*)(var16), var17, arg0->unknown_48_->unknown_1a_);
         }
         var0->RemoveTask(arg0->unknown_86_[2]);
         arg0->unknown_86_[2] = -1;
@@ -305,25 +296,25 @@ extern "C" ARM void func_ov014_021850cc(Struct_ov014_02184dcc* arg0) {
                 unsigned int var24;
                 if (FindFilesInNarcBySubstring(var20, data_ov014_02189680, &var23, &var24, 1)) {
                     unsigned int var25;
-                    void* var26 = DecompressLZ77FileIntoAllocatedSpace(*var19, var23, var25);
+                    void* var26 = DecompressLZ77FileIntoAllocatedSpace(&(*var19), var23, &var25);
                     if (FindFilesInNarcBySubstring(var20, data_ov014_02189686, &var23, &var24, 1)) {
                         unsigned int var27;
-                        void* var28 = DecompressLZ77FileIntoAllocatedSpace(*var19, var23, var27);
+                        void* var28 = DecompressLZ77FileIntoAllocatedSpace(&(*var19), var23, &var27);
                         const void* var29;
                         unsigned int var30;
                         if (FindFilesInNarcBySubstring(var20, data_ov014_0218968c, &var29, &var30, 1)) {
                             arg0->unknown_40_->Initialize();
                             arg0->unknown_40_->unknown_2_ = arg0->unknown_48_->unknown_c_;
                             arg0->unknown_40_->EnableFlag(4);
-                            ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)var22->unknown_2cc_);
-                            RestoreTextureVRAMState_0207df90(var22->unknown_2cc_);
+                            ((TextureArena*)((TextureVRAMArea_0203d028*)var22->unknown_2cc_))->Reset();
+                            ((TextureArena*)(var22->unknown_2cc_))->Restore();
                             ObjectArchiveLoadInfo var31;
                             ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var31);
                             var31.fileData = var26;
                             var31.allocator = var19;
                             var31.unk_8 = var25;
                             arg0->unknown_40_->LoadFromCCHROrCMOTArchive(&var31, NULL);
-                            SaveTextureVRAMState_0207dfac(var22->unknown_2cc_);
+                            ((TextureArena*)(var22->unknown_2cc_))->Save();
                             ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var31);
                             var31.allocator = var19;
                             var31.fileData = var28;

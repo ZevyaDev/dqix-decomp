@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_020a8a34(void*, int, int, int);
@@ -9,7 +10,7 @@ extern "C" ARM void* func_020a86b8(int arg0, int arg1, unsigned char arg2, unsig
     Zone3D* var0 = (Zone3D*)GetZone3D_02012fe4();
     int var1 = 0;
     for (;;) {
-        Struct_020134e0::Struct_02018300* var2 = func_0201e664(&var0->substruct_6c_, var1);
+        Struct_020134e0::Struct_02018300* var2 = func_0201e664((Struct_020134e0*)(&var0->substruct_6c_), var1);
         var1++;
         if (!var2) return var2;
         if (var2->unknown_4_ != 0xc) continue;

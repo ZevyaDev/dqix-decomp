@@ -3,6 +3,14 @@
 #include "GameState/GameState.h"
 #include "World/Object3D.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 
 struct ActiveZone_020fdd44;
 
@@ -19,10 +27,10 @@ struct Struct_ov017_0219dac4 {
 };
 
 extern "C" void _ZN8Object3D10SetField06Et(Object3D* arg0, int arg1);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" int func_02053ed0(void* arg0);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
@@ -36,11 +44,11 @@ extern "C" void func_ov017_021cdaa0(void);
 // USA: func_ov017_0219dac4
 extern "C" ARM void func_ov017_0219dac4(unsigned char* arg0, int arg1, int arg2) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     GetActiveZones_02027ca4();
     unsigned short* var2 = GetZone3D_02012fe4();
     Struct_ov017_0219dac4* var3 = (Struct_ov017_0219dac4*)var0->GetPartyMemberByIndex(arg1);
-    GetFlagManager_0205ec34();
+    func_0205ec34();
     if (var3 == NULL) {
         return;
     }

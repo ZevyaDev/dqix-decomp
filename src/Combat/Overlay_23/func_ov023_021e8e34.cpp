@@ -2,13 +2,21 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 
 extern "C" int AppendXPositionTag_02041a28(char* buffer, int x);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
@@ -18,15 +26,15 @@ extern "C" ARM void func_ov023_021e8e34(void* arg0) {
     if (*(int*)((char*)arg0 + 0x5f4) == 0) return;
     char* var0 = *(char**)((char*)arg0 + 0x5d8);
     GameState* var1 = GameState::GetInstance();
-    void* var2 = GetLocalWireless_0202ae18();
+    void* var2 = func_0202ae18();
     int var3 = 0;
     if (!IsLocalWirelessOn_0202b7d8((int*)var2)) {
         GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var1, 0);
-        if (var4) var3 = GetPartyMemberData_02053c6c((unsigned char*)var4);
+        if (var4) var3 = func_02053c6c((unsigned char*)var4);
     } else {
         int var5 = GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var2);
         GameObject* var6 = GetPartyMemberBaseByIndex_0200ff1c(var1, var5);
-        if (var6) var3 = GetPartyMemberData_02053c6c((unsigned char*)var6);
+        if (var6) var3 = func_02053c6c((unsigned char*)var6);
     }
     if (var3 == 0) return;
     char* var7 = (char*)var3 + 0x3c;

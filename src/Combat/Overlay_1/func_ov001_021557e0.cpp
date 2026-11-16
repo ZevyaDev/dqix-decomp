@@ -3,10 +3,18 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 // USA: func_ov001_021557e0
 
 extern "C" int func_ov001_02153994(void);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void* func_020e2ff8(void);
@@ -18,7 +26,7 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 struct Struct_02010834;
 extern "C" void func_02010834(struct Struct_02010834* arg0, int arg1, int* arg2, int* arg3);
 extern "C" void func_02039d58(unsigned char* arg0);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 extern "C" void* GetParty_02010828(GameState* gameState);
 struct Party_02048150;
 extern "C" int IsInParty_02086ef0(struct Party_02048150* party, int objectIndex);
@@ -85,7 +93,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
         return arg0->unknown_a_;
     }
 
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     GameState* var2 = GameState::GetInstance();
 
     if (arg0->unknown_12_ != 0 && IsLocalWirelessGuest_0202c540(var1) != 0) {
@@ -122,7 +130,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
             func_02039d58((unsigned char*)var9);
         }
 
-        unsigned int* var10 = (unsigned int*)GetGlobalFlags_020d6c00();
+        unsigned int* var10 = (unsigned int*)func_020d6c00();
         void* var11 = GetParty_02010828(var2);
         for (int var12 = 0; var12 < 4; var12++) {
             struct Struct_ov001_021557e0* var13 = (struct Struct_ov001_021557e0*)GetPartyMemberBaseByIndex_0200ff1c(var2, var12);

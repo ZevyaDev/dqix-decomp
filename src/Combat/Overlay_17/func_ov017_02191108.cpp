@@ -2,6 +2,10 @@
 #include "Combat/ActorAction.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 extern "C" unsigned char IsOnLadder_02039d7c(char* object);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
@@ -12,7 +16,7 @@ extern "C" void func_0202c3e0(void* arg0);
 
 struct PartyOrder_ov017_02191108 { int memberIndices_0_[4]; };
 extern "C" void func_ov017_02190884(int arg0, struct PartyOrder_ov017_02191108* arg1, int* arg2, int arg3, int arg4, int arg5);
-extern "C" void* GetLocalWireless_0202ae18(void* arg0);
+extern "C" void* func_0202ae18(void* arg0);
 
 extern "C" void func_020a2be8(void* arg0);
 
@@ -57,5 +61,5 @@ extern "C" ARM void RebuildFieldPartyOrder_ov017_02191108(void* gameResources, i
         orderSlot[0xf78] = (unsigned char)partyOrder.memberIndices_0_[i];
     }
     party[0xf7c] = (unsigned char)partyCount;
-    func_0202c3e0(GetLocalWireless_0202ae18(party));
+    func_0202c3e0(func_0202ae18(party));
 }

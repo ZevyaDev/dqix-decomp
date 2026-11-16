@@ -23,7 +23,6 @@ extern "C" char* func_020023b8(long long, char*, Struct_02003418);
 extern "C" char* func_02002cb4(double, char*, Struct_02003418);
 extern "C" char* func_020026b4(double, char*, Struct_02003418);
 extern "C" int func_020019c8(char*, const unsigned short*, unsigned int);
-extern "C" char* func_02001ac0(const char*, int, unsigned int);
 extern const unsigned short data_020eef28[];
 extern const char data_020eef2c[];
 
@@ -131,7 +130,7 @@ extern "C" ARM int func_02003418(Type_02003418_3 arg0, void* arg1, const char* a
                 if (var2.unknown_2_ && var9 > var2.unknown_c_) var9 = var2.unknown_c_;
             } else if (var2.unknown_2_) {
                 var9 = var2.unknown_c_;
-                const char* var16 = func_02001ac0(var6, 0, var9);
+                const char* var16 = ((char*)memchr(var6, 0, var9));
                 if (var16) var9 = var16 - var6;
             } else var9 = strlen(var6);
             break;

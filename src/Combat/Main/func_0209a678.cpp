@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 extern "C" void LearnSkillEntry_02083acc(unsigned char* memberData, int skillEntryId);
 
@@ -26,7 +30,7 @@ struct Struct_0209a678_2 {
 
 // USA: func_0209a678
 extern "C" ARM int func_0209a678(char* arg0, void* arg1, unsigned short* arg2) {
-    unsigned char* var0 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)arg1);
+    unsigned char* var0 = (unsigned char*)func_02053c6c((unsigned char*)arg1);
     int var1 = 0;
     int var2 = 0;
     int var3;

@@ -4,8 +4,8 @@ enum {Enum_ov023_021dd404_1792=0x600, Enum_ov023_021dd404_116=0xf0, Enum_ov023_0
 enum {Enum_ov023_021dd404_1792=0x700, Enum_ov023_021dd404_116=0x74, Enum_ov023_021dd404_1947=0x79b, Enum_ov023_021dd404_520=0x208, Enum_ov023_021dd404_300=0x12c};
 #endif
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
-extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite, void* arg2, int arg3);
 
 struct Struct_ov023_021dd404 {
     unsigned char unknown_0_0_:1;
@@ -33,23 +33,23 @@ extern "C" ARM void func_ov023_021dd404(char* arg0) {
     if (var1 == 1) {
         Struct_ov023_021dd404_2* var2 = (Struct_ov023_021dd404_2*)(arg0 + Enum_ov023_021dd404_1792);
         if (!(var2->unknown_74_ & 0x800)) return;
-        char* var3 = arg0 + Enum_ov023_021dd404_520;
-        *(unsigned char*)(var3 + 0x426) = 1;
-        *(unsigned int*)(var3 + 0x414) = 0x10000;
-        *(unsigned int*)(var3 + 0x418) = 0x68000;
-        *(unsigned char*)(var3 + 0x422) = 0x58;
-        DrawSprite_0205ac40(arg0 + Enum_ov023_021dd404_300, var3 + 0x400, var3, 0x58);
+        OBJSpriteSet::Metatile* var3 = (OBJSpriteSet::Metatile*)(arg0 + Enum_ov023_021dd404_520 + 0x400);
+        var3->priority = 1;
+        var3->position.x = 0x10000;
+        var3->position.y = 0x68000;
+        var3->destinationObjIndex = 0x58;
+        ((OBJSpriteSet*)(arg0 + Enum_ov023_021dd404_300))->DrawMetatile(var3);
         return;
     }
     if (var1 == 2) {
         Struct_ov023_021dd404_2* var4 = (Struct_ov023_021dd404_2*)(arg0 + Enum_ov023_021dd404_1792);
         if (!(var4->unknown_74_ & 0x800)) return;
-        char* var5 = arg0 + Enum_ov023_021dd404_520;
-        *(unsigned char*)(var5 + 0x426) = 2;
-        *(unsigned int*)(var5 + 0x414) = 0x10000;
-        *(unsigned int*)(var5 + 0x418) = 0x68000;
-        *(unsigned char*)(var5 + 0x422) = 0x58;
-        DrawSprite_0205ac40(arg0 + Enum_ov023_021dd404_300, var5 + 0x400, var5, 0x58);
+        OBJSpriteSet::Metatile* var5 = (OBJSpriteSet::Metatile*)(arg0 + Enum_ov023_021dd404_520 + 0x400);
+        var5->priority = 2;
+        var5->position.x = 0x10000;
+        var5->position.y = 0x68000;
+        var5->destinationObjIndex = 0x58;
+        ((OBJSpriteSet*)(arg0 + Enum_ov023_021dd404_300))->DrawMetatile(var5);
         return;
     }
 }

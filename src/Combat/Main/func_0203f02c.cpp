@@ -1,11 +1,10 @@
 #include <globaldefs.h>
 #include "Graphics/itcm/VRAMStaging.h"
+#include "Graphics/TextureArena.h"
+#include "NitroSDK/VRAMAllocation.h"
 
 extern "C" int func_0204027c(void* arg0, int arg1, int arg2, int arg3, int arg4);
-extern "C" int func_020bb588(int arg0, int arg1, int arg2);
 
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
 struct Struct_02040468;
 struct Struct_0203f02c {
@@ -34,7 +33,7 @@ struct Struct_0203d028_14 {
 
 // USA: func_0203f02c
 extern "C" ARM void func_0203f02c(struct Struct_0203d028_14* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5) {
-    RestoreTextureVRAMState_0207df90(arg3);
+    ((TextureArena*)(arg3))->Restore();
 
     int var0;
     if (arg4) {
@@ -46,11 +45,11 @@ extern "C" ARM void func_0203f02c(struct Struct_0203d028_14* arg0, int arg1, int
 
     struct Struct_0203f02c* var1 = func_02040468(arg0->unknown_0_, arg0->unknown_28_);
     if (var1 != NULL) {
-        int var2 = func_020bb588(var1->unknown_34_, 0, 0);
+        int var2 = ((int)FrameAllocateTextureImageVRAM(var1->unknown_34_, 0, 0));
         arg0->unknown_4c_ = ((unsigned int)var2 << 16) >> 13;
         CancelVRAMStagingOperation(arg0->unknown_5a_);
         arg0->unknown_5a_ = StageMemoryToVRAM(VRAMSubregion_TexturePalette, var1->unknown_20_, var1->unknown_24_, var1->unknown_1c_ << 1, false, false);
     }
 
-    SaveTextureVRAMState_0207dfac(arg3);
+    ((TextureArena*)(arg3))->Save();
 }

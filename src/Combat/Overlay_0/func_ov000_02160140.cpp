@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include <Memory/SafeAllocator.h>
 #include <World/Object3D.h>
+#include "Graphics/SPRSprite.h"
 #if defined(jpn)
 #define NUM_SLOTS_02160140 4
 #else
@@ -161,7 +162,6 @@ extern "C" void func_020134e0(void*);
 extern "C" void func_ov000_0216d2d0(void*);
 extern "C" void func_ov000_021723a8(void*, void*);
 extern "C" void func_ov000_02168230(char*);
-extern "C" void func_0204719c(void*);
 extern "C" void func_02048614(unsigned char*);
 extern "C" void func_ov000_02163b60(void*);
 extern "C" void func_ov000_02163454(void*);
@@ -226,7 +226,7 @@ extern "C" ARM void func_ov000_02160140(Struct_ov000_02160140_2* arg0) {
     arg0->unknown_5aac_ = 0;
     arg0->unknown_5aad_ = 0;
     memset(arg0->unknown_5c3c_, 0, 0x1c0);
-    for (int var1 = 0; var1 < 2; ++var1) func_0204719c(arg0->unknown_5600_[var1]);
+    for (int var1 = 0; var1 < 2; ++var1) ((SPRSprite*)(arg0->unknown_5600_[var1]))->Reset();
     arg0->unknown_5dfc_ = 0;
     arg0->unknown_58ce_ = 0;
     for (int var2 = 0; var2 < NUM_SLOTS_02160140; ++var2) arg0->unknown_8_[var2].ResetAllocatorPointer();

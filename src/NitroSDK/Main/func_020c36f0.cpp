@@ -2,10 +2,18 @@
 #include "NitroSDK/DMA.h"
 #include "NitroSDK/GamecardBusOwnership.h"
 
+#if defined(jpn)
+#define func_020ca3ec func_020cbeb8
+#endif
+
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
 
 
-extern "C" void HaltForever_020c9be0(void);
-extern "C" void Memset32BitByWord_020ca3ec(int arg0, void* arg1, int arg2);
+
+extern "C" void func_020c9be0(void);
+extern "C" void func_020ca3ec(int arg0, void* arg1, int arg2);
 extern "C" void InitializeVRAM(void);
 
 extern unsigned short data_02111220;
@@ -26,7 +34,7 @@ extern "C" ARM void func_020c36f0(void) {
         do {
             var0 = (int)GenerateLockOwnerID();
             if (var0 == -3) {
-                HaltForever_020c9be0();
+                func_020c9be0();
             }
             data_02111222_field = (unsigned short)var0;
         } while (data_02111222_field == 0);
@@ -42,9 +50,9 @@ extern "C" ARM void func_020c36f0(void) {
         var1 = *(int*)((char*)&data_020f226c + 4);
         DMAMemsetSynchronous(var1, 0x4001000, 0, 0x70);
     } else {
-        Memset32BitByWord_020ca3ec(0, (void*)0x4000008, 0x60);
+        func_020ca3ec(0, (void*)0x4000008, 0x60);
         *(volatile unsigned short*)0x400006c = 0;
-        Memset32BitByWord_020ca3ec(0, (void*)0x4001000, 0x70);
+        func_020ca3ec(0, (void*)0x4001000, 0x70);
     }
 
     *(volatile unsigned short*)0x4000020 = 0x100;

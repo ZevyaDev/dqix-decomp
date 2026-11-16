@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+extern "C" int func_02053c6c(unsigned char* gameObject);
 
 struct Struct_ov017_021cca00 {
     unsigned short unknown_0_;
@@ -31,7 +35,7 @@ extern "C" ARM void func_ov017_021cca00(int arg0, unsigned char* arg1, GameState
     Struct_ov017_021cca00* var0 = &((Struct_ov017_021cca00_2*)arg1)->unknown_4_;
     GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var0->unknown_0_);
     if (var1 == NULL) return;
-    Struct_ov017_021cca00_3* var2 = (Struct_ov017_021cca00_3*)GetPartyMemberData_02053c6c((unsigned char*)var1);
+    Struct_ov017_021cca00_3* var2 = (Struct_ov017_021cca00_3*)func_02053c6c((unsigned char*)var1);
     if (var2 == NULL) return;
     var2->unknown_954_ = var0->unknown_2_;
     for (int var3 = 0; var3 < 12; ++var3) {

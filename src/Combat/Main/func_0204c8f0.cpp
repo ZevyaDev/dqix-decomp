@@ -1,8 +1,7 @@
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
 
 struct Struct_0204b878;
-extern "C" void func_0204b878(struct Struct_0204b878* arg0, int arg1, int arg2, int arg3,
-                                                  short arg4, short arg5, short arg6, short arg7, unsigned short arg8);
 
 struct Struct_0204c8f0 {
     char unknown_0_[0x4];
@@ -27,10 +26,5 @@ extern "C" ARM void func_0204c8f0(struct Struct_0204c8f0* arg0) {
     if (!(arg0->unknown_c5_ & 1) || arg0->unknown_9c_ == 0) return;
     if (arg0->unknown_c5_ & 0x20) return;
 
-    func_0204b878(
-        (struct Struct_0204b878*)arg0->unknown_4_,
-        (int)((char*)arg0 + 0xc8),
-        0, 0,
-        arg0->unknown_ac_, arg0->unknown_ae_, arg0->unknown_c8_, arg0->unknown_c0_,
-        arg0->unknown_c2_);
+    ((BGLayer*)((struct Struct_0204b878*)arg0->unknown_4_))->BlitSprite((const BGLayer::Sprite*)((int)((char*)arg0 + 0xc8)), 0, 0, arg0->unknown_ac_, arg0->unknown_ae_, arg0->unknown_c8_, arg0->unknown_c0_, arg0->unknown_c2_);
 }

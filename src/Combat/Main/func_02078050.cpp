@@ -7,9 +7,13 @@ enum { Enum_02078050_1058 = 0x422 };
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_ov009_0218aa28 { int unknown_0_; int unknown_4_; int unknown_8_; };
 
-extern "C" void* GetLocalWireless_0202ae18(void* arg0);
+extern "C" void* func_0202ae18(void* arg0);
 
 struct Struct_02033f44;
 extern "C" int* func_02033f44(struct Struct_02033f44* arg0);
@@ -58,7 +62,7 @@ struct Struct_02078050 {
 
 // USA: func_02078050
 extern "C" ARM void func_02078050(struct Struct_02078050* arg0) {
-    void* var0 = GetLocalWireless_0202ae18(arg0);
+    void* var0 = func_0202ae18(arg0);
 
     if (func_02033f44((struct Struct_02033f44*)arg0) != 0) {
         SetFieldMonsterState_02076ccc(arg0, 1);
@@ -112,4 +116,9 @@ extern "C" ARM void func_02078050(struct Struct_02078050* arg0) {
         return;
     }
     func_020794f8(arg0, 0, 0);
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

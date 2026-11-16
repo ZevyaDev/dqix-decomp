@@ -3,8 +3,14 @@
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
+#include "Resource/GameStrings.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct Struct_ov017_021c1af0 { unsigned char unknown_0_, unknown_1_; char unknown_2_[6]; int unknown_8_, unknown_c_; };
 struct Struct_ov017_021c1af0_2 {
@@ -31,7 +37,7 @@ enum { Enum_ov017_021c1af0_92 = 0x5c, Enum_ov017_021c1af0_2456 = 0x998, Enum_ov0
 struct Struct_02018300_3;
 struct LocalWireless_0202c1a4;
 extern "C" Zone3D* GetZone3D_02012fe4();
-extern "C" int* GetLocalWireless_0202ae18();
+extern "C" int* func_0202ae18();
 extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
@@ -43,7 +49,6 @@ extern "C" void ResetEventTask_ov017_021baedc(QueueNode_0201bdac*, int);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" void func_ov017_021d1c2c(unsigned char, unsigned short);
 extern "C" void func_ov017_021d1dc0(unsigned short, int, int*, int, int);
-extern "C" const char* GetStandardString_020e51cc(int);
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" void StartMessage_0204500c(void*, const char*, int
 #if !defined(jpn)
@@ -66,7 +71,7 @@ extern "C" ARM void func_ov017_021c1af0(Struct_ov017_021c1af0* arg0) {
         if (UpdateFontLoad_02094b4c(var2)) arg0->unknown_8_ = 1;
     } else if (arg0->unknown_8_ == 1) {
         Struct_02046574_2* var3 = GetMessageWindow_020421a0();
-        int* var4 = GetLocalWireless_0202ae18();
+        int* var4 = func_0202ae18();
         if (!IsLocalWirelessOn_0202b7d8(var4) || (IsLocalWirelessOn_0202b7d8(var4) && GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var4) == 0)) {
             GameResources* var5 = GetGameResources();
             Queue_0201bdac_2* var6 = static_cast<Queue_0201bdac_2*>(var5->unknown_ptr_array_36fc[0]);
@@ -108,8 +113,8 @@ extern "C" ARM void func_ov017_021c1af0(Struct_ov017_021c1af0* arg0) {
             else sprintf(var10, data_ov017_021d876c, var0->GetUnknownGameObject()->baseStats_->unk);
             StartMessage_0204500c(var3, var10, 0);
 #else
-            if (arg0->unknown_c_ == 0) sprintf(var10, GetStandardString_020e51cc(0x3c));
-            else sprintf(var10, GetStandardString_020e51cc(0x3d));
+            if (arg0->unknown_c_ == 0) sprintf(var10, GetGameString((eGameString)(0x3c)));
+            else sprintf(var10, GetGameString((eGameString)(0x3d)));
             SetMessageString_02046574(var3, 0, (char*)var0->GetUnknownGameObject()->baseStats_);
             StartMessage_0204500c(var3, var10, 0, 0xe3);
 #endif

@@ -69,7 +69,7 @@ extern "C" ARM void func_ov015_0218e670(Struct_ov015_0218e670* arg0)
     data_ov015_02194564.unknown_4_ = &var2;
 #endif
     ResetMatrixStacks_020c5414();
-    RenderConfig::SubmitToFifo();
+    Nitro3DRenderConfig::SubmitToFifo();
     arg0->unknown_24_->MaybeUpdateBonePositions();
 #if defined(jpn)
     data_ov015_02194564.unknown_0_ = NULL;

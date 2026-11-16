@@ -1,7 +1,7 @@
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void InitNoun_020e46c4(void* noun);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" void* GetMessageWindow_020421a0(void);
@@ -44,7 +44,7 @@ extern "C" ARM int func_ov000_02171a74(struct Struct_ov000_02171a74* arg0
         goto end;
     }
     {
-        int var2 = FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_4_, var1);
+        int var2 = ((int)((StringList*)((struct Struct_0201099c_3*)arg0->unknown_4_))->GetString(var1));
         if (var2 == 0) {
             goto end;
         }

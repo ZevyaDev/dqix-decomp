@@ -2,6 +2,10 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 struct Struct_0201c1c8 {
     int unknown_0_;
@@ -11,7 +15,7 @@ struct Struct_0201c1c8 {
     } unknown_4_;
 };
 
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 
 struct FlagManager_0205faf4_3 {
     unsigned char unknown_0_[0x2CC];
@@ -80,7 +84,7 @@ tail:
         return 0;
     }
     int var5 = ((Script::Parameter*)&arg0[5])->ToInt();
-    void* var6 = GetFlagManager_0205ec34();
+    void* var6 = func_0205ec34();
     int var7 = ((Script::Parameter*)&arg0[6])->ToInt();
     if (var7 >= 0) {
         int var8 = (GetQuestState_0206e120((struct FlagManager_0205faf4_3*)var6, var7) == 3);

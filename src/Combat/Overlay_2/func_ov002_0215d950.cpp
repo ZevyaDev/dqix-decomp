@@ -1,5 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
 
 struct MenuCursor_0205c508;
 struct MessageWindow_020465c0;
@@ -24,9 +29,8 @@ extern char data_ov002_0216d270[];
 #if defined(jpn)
 struct Struct_02046574_2;
 struct Struct_0201099c_3;
-extern "C" int GetStringLength_020d2ff0(const char *string);
+extern "C" int func_020d2ff0(const char *string);
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2 *window, int index, char *text);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char *window, int index, unsigned char width);
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char *window, int index, unsigned char alignment);
 extern "C" void func_020474a8(void *arg0, int arg1, const char *arg2, char *arg3);
@@ -60,12 +64,12 @@ extern "C" ARM void func_ov002_0215d950(char *arg0, char *arg1, int arg2) {
         SetMessageNumber_020465c0((MessageWindow_020465c0 *) var4, 0, var5);
         char *var11 = FindItemData_020dedd0((ItemTable_0201099c_10 *) (arg0 + 0x750), *(short *) (var3 + var6 * 2 + 0xc));
         if (var11 != 0) {
-            int var12 = GetStringLength_020d2ff0(arg1);
+            int var12 = func_020d2ff0(arg1);
             SetMessageString_02046574((struct Struct_02046574_2 *) var4, 0, *(char **) (var11 + 4));
-            func_020474a8(var4, 0xa, (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x480),
+            func_020474a8(var4, 0xa, (const char *) ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString(0x480)),
                           arg1 + var12);
             memset(var0, 0, sizeof(var0));
-            sprintf(var0, (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x481),
+            sprintf(var0, (const char *) ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString(0x481)),
                     GetBagItemCount_020a0b3c((ItemBag_0207cf30_3 *) var3, *(short *) (var11 + 0x18)));
             AppendText_02042058(arg1, var0);
             if (var6 != var2 - 1) AppendText_02042058(arg1, *(char **) (arg0 + 0x1000 + 0xaa4));
@@ -80,7 +84,7 @@ extern "C" ARM void func_ov002_0215d950(char *arg0, char *arg1, int arg2) {
         SetMessageNumberAlignment_020465d8((unsigned char *) var4, 0, 1);
         SetMessageNumberAlignment_020465d8((unsigned char *) var4, 1, 0);
         func_02042428(arg1, 8);
-        AppendText_02042058(arg1, (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x47f));
+        AppendText_02042058(arg1, (const char *) ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString(0x47f)));
     }
 #else
     char var13[0x100];

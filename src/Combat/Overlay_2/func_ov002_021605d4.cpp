@@ -1,5 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
 
 class GameState;
 struct Struct_0201099c_3;
@@ -9,8 +14,7 @@ struct Struct_ov002_0215b8c8 {
 struct MessageWindow_020465c0;
 
 extern "C" void func_ov002_02157480(void *arg0, int *arg1);
-extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
-extern "C" const char *FindStringInTable_020e0434(Struct_0201099c_3 *stringTable, int stringId);
+extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 extern "C" void __clear(void *arg0, unsigned long arg1);
 extern "C" void func_ov002_0215b8c8(Struct_ov002_0215b8c8 *arg0, const char *arg1, int arg2);
 extern "C" void func_02041fac(char *arg0, int arg1, int arg2);
@@ -45,7 +49,7 @@ extern "C" ARM void func_ov002_021605d4(char *arg0, char *arg1) {
     if (!var5) return;
     unsigned char *var6 = (unsigned char *) GetPartyMemberBaseByIndex_0200ff1c(var2, var4);
     if (var6 == 0) return;
-    unsigned char *var7 = GetPartyMemberData_02053c6c(var6);
+    unsigned char *var7 = func_02053c6c(var6);
     if (var7 == 0) return;
     func_02041fac(arg1, (int) data_ov002_0216da30, 0x10);
     void *var8 = GetMessageWindow_020421a0();
@@ -70,9 +74,9 @@ extern "C" ARM void func_ov002_021605d4(char *arg0, char *arg1) {
     if (!var16) return;
     unsigned char *var17 = (unsigned char *) GetPartyMemberBaseByIndex_0200ff1c(var13, var15);
     if (var17 == 0) return;
-    unsigned char *var18 = GetPartyMemberData_02053c6c(var17);
+    unsigned char *var18 = func_02053c6c(var17);
     if (var18 == 0) return;
-    const char *var19 = FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 0x20), 0x1005);
+    const char *var19 = ((StringList*)((Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(0x1005);
     __clear(var9, sizeof(var9));
     var12.unknown_0_ = var9;
     func_ov002_0215b8c8(&var12, var19, 0);
@@ -84,7 +88,7 @@ extern "C" ARM void func_ov002_021605d4(char *arg0, char *arg1) {
     SetMessageNumberAlignment_020465d8((unsigned char *) var20, 0, 1);
     __clear(var11, sizeof(var11));
     func_02041b00(arg1, -1);
-    func_02046608(var20, 8, FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 0x20), 0x1006), var11,
+    func_02046608(var20, 8, ((StringList*)((Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(0x1006), var11,
                   0x100, 0, 0);
     AppendText_02042058(arg1, var11);
 #endif

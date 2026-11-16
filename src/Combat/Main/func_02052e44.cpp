@@ -7,9 +7,17 @@
 
 #include "GameState/GameState.h"
 
-extern "C" void* GetGlobalFlags_020d6c00(void);
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02046708 func_02047528
+#endif
+
+extern "C" void* func_020d6c00(void);
 struct GlobalFlags_02012de8;
-extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
+extern "C" int func_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 
 extern "C" void func_0205308c(void* arg0, int arg1);
 extern "C" void func_ov017_021cc1f8(int arg0, void* arg1, int arg2, int arg3);
@@ -44,7 +52,7 @@ extern "C" ARM int func_02052e44(Struct_02037d88* arg0, signed char arg1) {
     signed char var1;
     GameState* var2;
 
-    if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)GetGlobalFlags_020d6c00(), 2)) {
+    if (func_02046708((struct GlobalFlags_02012de8*)func_020d6c00(), 2)) {
         return 0;
     }
 

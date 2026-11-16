@@ -30,7 +30,7 @@ extern "C" void func_ov025_021e1c20(int, unsigned char*, unsigned char*, int, vo
 extern "C" unsigned char func_ov025_021e1480(int, unsigned char*, int);
 extern "C" Struct_ov025_021e16c8_6* FindActionData_02079e2c(char*, int);
 
-static inline int inline_ov025_021e16c8(Struct_ov025_021e16c8_3* arg0) { return arg0->unknown_8_->obj3D_.objectIndex_4_; }
+static inline int inline_ov025_021e16c8(Struct_ov025_021e16c8_3* arg0) { return arg0->unknown_8_->obj3D_.unknown_4_; }
 static inline void inline_ov025_021e120c_2(unsigned char* arg0, unsigned int arg1, unsigned char arg2) {
     if (arg1 < 81) arg0[arg1] = arg2;
 }
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov025_021e16c8(Struct_ov025_021e16c8_3* arg0, Struct_ov
     Struct_ov025_021e16c8* var11 = 0;
     int var12 = 2;
     int var13 = 1;
-    if (arg1->unknown_8_->obj3D_.classFlags_0_ & 0x400) var11 = arg1->unknown_8_->unknown_148_;
+    if (arg1->unknown_8_->obj3D_.unknown_0_ & 0x400) var11 = arg1->unknown_8_->unknown_148_;
     if (var11) {
         unsigned int var14 = (var11->unknown_10_ << 1) >> 30;
         if (var14) { var12 += var14; var13 += var14; }

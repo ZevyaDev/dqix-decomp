@@ -27,15 +27,15 @@ extern "C" ARM int func_ov025_021e7ec0(struct Struct_ov025_021e7ec0* arg0, int a
     GameObject* var4 = func_ov000_02162d88(var3, arg0->unknown_a_);
     if (var4 == NULL) return 1;
     if (var4->obj3D_.pModel_ == NULL) return 1;
-    NSBXXTex* var5 = var4->obj3D_.pModel_->GetTEX0();
+    Nitro3DTextureSet* var5 = var4->obj3D_.pModel_->GetTEX0();
     if (var5 == NULL) return 1;
     for (int var6 = 0; var6 < var2; var6++) {
         GameObject* var7 = GetEnemyByIndex_0200fea4(var0, var1[var6]);
         if (var7) {
             func_02048588((unsigned char*)var4, (unsigned char*)var7);
             unsigned int var8 = var7->obj3D_.GetTexturePaletteOffset();
-            DC_FlushRange((char*)var5 + var5->block4Offset_, var5->block4NumEightBytes_ << 3);
-            NSBXX_Tex_WritePaletteVRAMOffset(var5, var8);
+            CleanInvalidateCacheRange((const void*)((char*)var5 + var5->block4Offset), var5->block4NumEightBytes << 3);
+            Nitro3D_StoreTexturePaletteVRAMOffsets((Nitro3DTextureSet*)(var5), var8);
             StageTexFilePaletteData(var5, true);
         }
     }

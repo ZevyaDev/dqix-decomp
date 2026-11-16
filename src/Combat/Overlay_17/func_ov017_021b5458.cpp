@@ -2,7 +2,11 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_020a8e88(void* arg0);
 extern "C" void func_020a8fd0(void* arg0, void* arg1, void* arg2, unsigned int arg3, short* arg4, int arg5);
@@ -52,7 +56,7 @@ extern "C" ARM void func_ov017_021b5458(struct Struct_ov017_021b5458* arg0) {
     struct Struct_ov017_021b5458_4* var0;
     GameState::GetInstance();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     if (!var1->GetTaskStatus(arg0->unknown_c_)) {
         return;
     }

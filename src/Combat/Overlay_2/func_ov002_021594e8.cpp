@@ -3,6 +3,10 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
 #define RG(u, j) (j)
 #else
 #define RG(u, j) (u)
@@ -12,7 +16,7 @@ struct SoundEffectManager_02108760;
 struct Struct_02048350_2;
 extern "C" void *FindActionData_02079e2c(char *actionTables, int actionId);
 extern "C" GameObject *GetGameObjectByIndex_0200ff94(GameState *gameState, int index);
-extern "C" int *GetLocalWireless_0202ae18(void);
+extern "C" int *func_0202ae18(void);
 extern "C" void *__clear(void *arg0, int arg1);
 extern "C" int GetPartyOrder_020114ec(char *gameState, void *outPartyOrder);
 extern "C" void func_02048350(struct Struct_02048350_2 *arg0, int arg1);
@@ -77,7 +81,7 @@ extern "C" ARM void func_ov002_021594e8(struct Struct_ov002_021594e8_2 *arg0, sh
     ActionTables_02108e10* var6                         = GetActionTables_020797dc();
     struct Struct_ov002_021594e8_3 *var7 = (struct Struct_ov002_021594e8_3 *) FindActionData_02079e2c((char*)var6, arg0->unknown_1c26_);
     GameObject *var8                  = GetGameObjectByIndex_0200ff94(var5, arg2);
-    int *var9                     = GetLocalWireless_0202ae18();
+    int *var9                     = func_0202ae18();
     int var10                         = 0;
     if (arg0->unknown_1bb8_ == RG(0x17, 0x18)) {
         arg0->unknown_1c28_  = 0x232d;

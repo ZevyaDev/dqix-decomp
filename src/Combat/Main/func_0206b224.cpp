@@ -9,10 +9,14 @@ enum { Enum_0206b224_76 = 0x4c, Enum_0206b224_640 = 0x280 };
 
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
 extern "C" void func_0206b104(void* arg0);
 extern "C" void func_0206aa28(void* arg0);
 extern "C" void func_0206b974(void* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6, unsigned char arg7);
-extern "C" int GetStringLength_020d2ff0(const char* string);
+extern "C" int func_020d2ff0(const char* string);
 
 struct Struct_0206b224 {
     char unknown_0_[Enum_0206b224_76];
@@ -46,7 +50,7 @@ extern "C" ARM void func_0206b224(struct Struct_0206b224* arg0) {
     func_0206aa28(arg0);
 #if !defined(jpn)
     func_0206b974(arg0, 1, arg0->unknown_50_, arg0->unknown_60_, 0xe3, 0, 1, 1);
-    int var2 = GetStringLength_020d2ff0((const char*)arg0->unknown_60_);
+    int var2 = func_020d2ff0((const char*)arg0->unknown_60_);
     memcpy(arg0->unknown_50_, arg0->unknown_60_, var2);
 #endif
 }

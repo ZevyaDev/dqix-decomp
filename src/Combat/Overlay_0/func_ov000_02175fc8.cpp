@@ -10,9 +10,13 @@
 
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 
 // USA: func_ov000_02175fc8
 extern "C" ARM void func_ov000_02175fc8(void* arg0) {
@@ -28,7 +32,7 @@ extern "C" ARM void func_ov000_02175fc8(void* arg0) {
         if (*var4 & 4) {
             *(int*)(var0 + 0x28) |= 4;
         }
-        int var5 = GetPartyMemberData_02053c6c((unsigned char*)var3);
+        int var5 = func_02053c6c((unsigned char*)var3);
         if (var5 != 0) {
             *(unsigned char*)(var0 + REGION_OFFSET_1) = (unsigned char)*(int*)(var5 + REGION_OFFSET_0);
         }

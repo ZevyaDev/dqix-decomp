@@ -3,6 +3,16 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 #include "Combat/MapDisplay.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
+
+#if defined(jpn)
+#define func_020de848 func_020e01c4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct TextWindowManager_0205cfd4 { char unknown_0_[0xbc]; };
 struct KeyMenuCursor_0205bef8 { char unknown_0_[0x40]; };
@@ -15,14 +25,12 @@ struct Struct_0203c0cc { char unknown_0_[0x18]; };
 enum { Enum_ov000_021723a8_1096 = 0x448, Enum_ov000_021723a8_9 = 9 };
 #endif
 
-extern "C" void ClearItemTable_020de848(void* itemTable);
-extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
+extern "C" void func_020de848(void* itemTable);
 extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
 extern "C" void InitKeyMenuCursor_0205bef8(struct KeyMenuCursor_0205bef8* cursor);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" void func_02092aa4(Struct_02092aa4* arg0, int arg1);
-extern "C" void InitSpriteSet_0205a444(char* spriteSet);
-extern "C" void* GetLocalWireless_0202ae18(GameState* arg0);
+extern "C" void* func_0202ae18(GameState* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_0203c0cc(struct Struct_0203c0cc* arg0);
 
@@ -151,8 +159,8 @@ extern "C" ARM void func_ov000_021723a8(struct Struct_ov000_021723a8* arg0, int 
     arg0->unknown_1ac8_.ResetAllocatorPointer();
     arg0->unknown_1adc_.ResetAllocatorPointer();
     arg0->unknown_1af8_.ResetAllocatorPointer();
-    ClearItemTable_020de848(arg0->unknown_d0_);
-    ClearItemTable_020de848(arg0->unknown_e8_);
+    func_020de848(arg0->unknown_d0_);
+    func_020de848(arg0->unknown_e8_);
     data_ov000_02184288.unknown_8_ = arg0;
     arg0->unknown_68_ = 0;
     arg0->unknown_178_ = 0;
@@ -176,9 +184,9 @@ extern "C" ARM void func_ov000_021723a8(struct Struct_ov000_021723a8* arg0, int 
             var2;
         }
     }
-    InitBGLayer_0204af64(&arg0->unknown_8a4_[0]);
-    InitBGLayer_0204af64(&arg0->unknown_8a4_[1]);
-    InitBGLayer_0204af64(&arg0->unknown_8a4_[2]);
+    ((BGLayer*)(&arg0->unknown_8a4_[0]))->Reset();
+    ((BGLayer*)(&arg0->unknown_8a4_[1]))->Reset();
+    ((BGLayer*)(&arg0->unknown_8a4_[2]))->Reset();
     InitTextWindowManager_0205cfd4(&arg0->unknown_188_);
     InitKeyMenuCursor_0205bef8(&arg0->unknown1_244_);
     for (int var5 = 0; var5 < 7; var5++) {
@@ -186,7 +194,7 @@ extern "C" ARM void func_ov000_021723a8(struct Struct_ov000_021723a8* arg0, int 
     }
     arg0->unknown_1af0_ = arg1;
     func_02092aa4(&arg0->unknown_7c_, 0);
-    InitSpriteSet_0205a444(arg0->unknown_11c_);
+    ((OBJSpriteSet*)(arg0->unknown_11c_))->Reset();
     arg0->unknown_170_ = 0;
     arg0->unknown_174_ = 0;
     arg0->unknown_910_ = 0;
@@ -219,7 +227,7 @@ extern "C" ARM void func_ov000_021723a8(struct Struct_ov000_021723a8* arg0, int 
     arg0->unknown_1d5c_ = 0;
     arg0->unknown_1d7a_ = 0;
     GameState* var6 = GameState::GetInstance();
-    GetLocalWireless_0202ae18(var6);
+    func_0202ae18(var6);
     int var7 = GetProtagonistObjectIndex_020100a8(var6);
     if (var7 < 0) {
         var7 = 0;

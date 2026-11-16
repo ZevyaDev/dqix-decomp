@@ -4,6 +4,10 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
 enum { Enum_ov003_02160cf8_572 = 0x124 };
 enum { Enum_ov003_02160cf8_792 = 0x200 };
 enum { Enum_ov003_02160cf8_920 = 0x280 };
@@ -23,7 +27,7 @@ enum { Enum_ov003_02160cf8_1192 = 0x4a8 };
 enum { Enum_ov003_02160cf8_1128 = 0x468 };
 #endif
 
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_ov003_02161438(void* arg0);
 
@@ -51,7 +55,7 @@ struct Struct_ov003_02160cf8 {
 // USA: func_ov003_02160cf8
 extern "C" ARM int func_ov003_02160cf8(struct Struct_ov003_02160cf8* arg0) {
 	GameResources* var0 = GetGameResources();
-	void* var1 = GetGlobalFlags_020d6c00();
+	void* var1 = func_020d6c00();
 	int var2 = 0;
 
 	if (arg0->unknown_4a8_ == 0) {

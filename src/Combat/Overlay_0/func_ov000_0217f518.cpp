@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "Resource/StringList.h"
 
 extern "C" void func_0203c198(char* arg0);
 extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
@@ -7,7 +8,6 @@ extern "C" void __clear(void* arg0, int arg1);
 #if defined(jpn)
 extern "C" int func_ov000_02171a74(void* arg0);
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3*, int);
 #else
 extern "C" int func_ov000_02171a74(void* arg0, char* arg1);
 #endif
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov000_0217f518(char* arg0) {
         int var1 = func_ov000_02171a74(arg0);
         struct Struct_0201099c_3* var2 = *(struct Struct_0201099c_3**)(arg0 + 4);
         if (var2 && var1 >= 0) {
-            func_0203c108((struct Struct_0203c108_3*)(arg0 + 0x50), (char*)FindStringInTable_020e0434(var2, var1));
+            func_0203c108((struct Struct_0203c108_3*)(arg0 + 0x50), (char*)((int)((StringList*)(var2))->GetString(var1)));
         }
 #else
         __clear(var0, 0x80);

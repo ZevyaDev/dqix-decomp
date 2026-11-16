@@ -3,6 +3,10 @@
 #include "Graphics/Vector.h"
 #include "World/Object3D.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 struct BattleAction_ov000_0215440c_2;
 struct BattleAction_ov000_0215440c;
 struct Struct_02033834;
@@ -10,7 +14,7 @@ struct Vector3i;
 extern "C" struct BattleAction_ov000_0215440c_2* GetActionActor_ov000_02160094(struct BattleAction_ov000_0215440c_2* action, int index);
 extern "C" struct BattleAction_ov000_0215440c* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index);
 extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
-extern "C" void* GetCamera_020100bc(GameState* gameState);
+extern "C" void* func_020100bc(GameState* gameState);
 extern "C" int GetCameraYaw_0202e7f0(void* camera);
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 extern "C" void SetObject3DRotation_0203db34(unsigned char* object, int x, int y, int z);
@@ -97,7 +101,7 @@ extern "C" ARM int func_ov025_021e514c(struct Struct_ov025_021e514c_2* arg0, str
         if (var9) var7 = 2; else var7 = 1;
         break;
     case 3: {
-        void* var14 = GetCamera_020100bc(var0);
+        void* var14 = func_020100bc(var0);
         if (var14) {
             Matrix4x3 var15 = RotationMatrixY(GetCameraYaw_0202e7f0(var14));
             Mat4x3_ApplyToVector(&arg0->unknown_14_, &var15, &var5);
@@ -159,7 +163,7 @@ extern "C" ARM int func_ov025_021e514c(struct Struct_ov025_021e514c_2* arg0, str
         break;
     }
     case 8: {
-        int* var29 = (int*)GetCamera_020100bc(var0);
+        int* var29 = (int*)func_020100bc(var0);
         if (!var29) return 1;
         Struct_ov025_021e514c_4 var30;
         *(Vector3i*)((int*)&var30.unknown_24_) = *(Vector3i const*)(var29 + 4);

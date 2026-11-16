@@ -3,7 +3,11 @@
 #include "GameState/GameState.h"
 #include "Combat/Main/BattleList.h"
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+extern "C" int func_02053c6c(unsigned char* gameObject);
 struct Struct_02052e2c;
 extern "C" short* GetAppearance_02052e2c(Struct_02052e2c* gameObject);
 struct ItemData_02015ef4_4 {
@@ -33,7 +37,7 @@ extern char data_020f0d0a[];
 extern "C" ARM int func_02072e94(char* arg0, int arg1, int arg2,
                                 ItemData_02015ef4_4* arg3, void* arg4) {
     GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1);
-    unsigned char* var1 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var0);
+    unsigned char* var1 = (unsigned char*)func_02053c6c((unsigned char*)var0);
     Struct_02072e94* var2 = (Struct_02072e94*)GetAppearance_02052e2c((Struct_02052e2c*)var0);
     int var3 = var2->unknown_14_0_;
     int var4 = GetItemGraphicNumber_020de234(arg3, var2->unknown_14_0_);

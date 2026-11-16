@@ -3,6 +3,14 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
 #define REGIONAL_OFFSET(jp, us) jp
 enum { Enum_ov002_02163bd0_13 = 0xe, Enum_ov002_02163bd0_38 = 0x29 };
 #else
@@ -24,7 +32,7 @@ struct Struct_0207cf30_4;
 struct Struct_02083994;
 struct ItemTable_0201099c_10;
 extern "C" int func_ov002_02154f4c(unsigned char *arg0);
-extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" void *func_02053c6c(unsigned char *gameObject);
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
@@ -42,7 +50,7 @@ extern "C" int func_020a0a08(Struct_02061c04_23*, int, int);
 extern "C" int func_020a095c(struct Struct_0207cf30_4 *arg0, int arg1, signed char arg2);
 extern "C" int func_02083994(struct Struct_02083994 *arg0, int arg1);
 extern "C" int func_020dc920(int arg0, int arg1, int arg2, int arg3);
-extern "C" int *GetLocalWireless_0202ae18(void);
+extern "C" int *func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
@@ -80,7 +88,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                     (*(unsigned char *) (arg0 + REGIONAL_OFFSET(0x31 + 0x1b00, 0x6d + 0x1c00)))--;
                 }
             }
-            int var5 = *(short *) ((char *) GetPartyMemberData_02053c6c((unsigned char *) var0->GetProtagonist()) + REGIONAL_OFFSET(0x800 + 0xc6, 0x900 + 0x5e));
+            int var5 = *(short *) ((char *) func_02053c6c((unsigned char *) var0->GetProtagonist()) + REGIONAL_OFFSET(0x800 + 0xc6, 0x900 + 0x5e));
             int var6;
             for (var6 = 0; var6 <= *(unsigned char *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xb31, 0xc6d)); var6++) {
                 if (var5 == *(unsigned char *) (arg0 + var6 + 0x1000 + REGIONAL_OFFSET(0xb2c, 0xc68))) {
@@ -139,7 +147,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
             GameObject *var11 = var0->GetProtagonist();
             if (var11 != NULL) {
                 int var12 = *(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe9, 0x1c00 + 0x21));
-                *(short *) ((char *) GetPartyMemberData_02053c6c((unsigned char *) var11) + REGIONAL_OFFSET(0x800 + 0xc6, 0x900 + 0x5e)) = var12;
+                *(short *) ((char *) func_02053c6c((unsigned char *) var11) + REGIONAL_OFFSET(0x800 + 0xc6, 0x900 + 0x5e)) = var12;
             }
             if (*(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe9, 0x1c00 + 0x21)) == 4) {
                 PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
@@ -171,7 +179,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                         }
                         if (*(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)) == 0x570a &&
                             func_02083994(
-                                (struct Struct_02083994 *) GetPartyMemberData_02053c6c((unsigned char *) var17), 0x570a) == 0)
+                                (struct Struct_02083994 *) func_02053c6c((unsigned char *) var17), 0x570a) == 0)
                         {
                             *(unsigned char *) (*(char **) (var17 + 0x130) + 8) = 0;
                             func_ov017_021c9e00(*(short *) (var17 + 4), 0, 0, 1);
@@ -191,7 +199,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                 PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
                 *(unsigned int *) (arg0 + 0x2000 + REGIONAL_OFFSET(0x2ac, 0x47c)) &= ~4;
                 func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa80, 0xbb8)), 1);
-                if (IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18())) {
+                if (IsLocalWirelessOn_0202b7d8(func_0202ae18())) {
                     int var18 = 1;
                     int var19  = 0;
                     for (; var19 < *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xafc, 0xc38)); var19++) {

@@ -4,6 +4,10 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
 #define func_ov012_02185cf8 func_ov012_0218634c
 #define func_ov012_02184d80 func_ov012_02185db4
 #define data_ov012_0218b188 data_ov012_0218bea8
@@ -118,7 +122,7 @@ extern "C" void func_ov012_021845f8(void* arg0);
 extern "C" int func_ov012_02184d80(void* arg0, char* arg1);
 #if defined(jpn)
 struct LocalWireless_0202b2f0;
-extern "C" LocalWireless_0202b2f0* GetLocalWireless_0202ae18();
+extern "C" LocalWireless_0202b2f0* func_0202ae18();
 extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(LocalWireless_0202b2f0*, int);
 #endif
 extern "C" void SetTextWindowVisible_0205def8(TextWindowManager_0205def8* windowManager, int isVisible, int windowId);
@@ -165,7 +169,7 @@ extern "C" ARM int func_ov012_02184acc(Struct_ov012_02184acc* arg0, int arg1)
 #endif
 #if defined(jpn)
         if ((var1->unknown_998_ == 0 && g_keyManager.TestKeysPressed(0x800)) ||
-            IsLocalWirelessPlayerDisconnected_0202c578(GetLocalWireless_0202ae18(), 0))
+            IsLocalWirelessPlayerDisconnected_0202c578(func_0202ae18(), 0))
 #else
         if (func_ov017_021959b4())
 #endif

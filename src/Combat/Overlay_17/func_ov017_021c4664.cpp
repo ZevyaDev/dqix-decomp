@@ -2,7 +2,11 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
 
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021c4664 {
@@ -23,7 +27,7 @@ struct Struct_ov017_021c4664_2 {
 // USA: func_ov017_021c4664
 extern "C" ARM void func_ov017_021c4664(int arg0, Vector3i arg1, short arg2) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetLocalWirelessPacketQueue_0202ae24();
+    void* var1 = func_0202ae24();
     Struct_ov017_021c4664_2 var2;
     Struct_ov017_021c4664* var3 = &var2.unknown_4_;
     var2.unknown_0_ = 0x36;

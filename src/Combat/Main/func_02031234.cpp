@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
+#define func_02031234 func_02030d6c
+#endif
+
+#if defined(jpn)
 #define func_020c51a4 func_020c6c70
 #endif
 

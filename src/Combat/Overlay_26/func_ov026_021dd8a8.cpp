@@ -2,6 +2,14 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
 struct Struct_02010088;
 struct Struct_ov026_021d8ba0_10;
 struct MessageWindow_020465c0;
@@ -84,8 +92,8 @@ struct Struct_ov023_021f4c04 {
 extern "C" void __clear(void*, int);
 extern "C" void ClearMessageParams_02046380(Struct_ov023_021f4c04*);
 extern "C" void func_020e4ce8(Struct_ov026_021db090_3*, GameObject*, int);
-extern "C" Struct_ov026_021d8ba0_8* GetBattleSetup_ov017_021b8478(void*);
-extern "C" void* GetBattleScene_ov017_021b8468(void*);
+extern "C" Struct_ov026_021d8ba0_8* func_ov017_021b8478(void*);
+extern "C" void* func_ov017_021b8468(void*);
 extern "C" void func_020dd0b0(int, char*);
 extern "C" void StartMessage_0204500c(Struct_ov023_021f4c04*, char*, int, int);
 extern "C" void SetMessageWindowRect_02042b98(Struct_ov023_021f4c04*, int, int, int, int);
@@ -190,7 +198,7 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
     }
     var11 = var15 - 1;
     if (var7 != NULL) {
-        var23 = GetBattleSetup_ov017_021b8478(var7);
+        var23 = func_ov017_021b8478(var7);
     }
     if (var23 != NULL) {
         var11 = var23->unknown_c_;
@@ -254,7 +262,7 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
     func_020dd0b0(var26, var24);
     strcpy(var0, var24);
     if (arg0->unknown_8e49_ == 1) {
-        Struct_ov026_021dd8a8* var32 = (Struct_ov026_021dd8a8*)GetBattleUI_ov000_02160f08(GetBattleScene_ov017_021b8468(var7));
+        Struct_ov026_021dd8a8* var32 = (Struct_ov026_021dd8a8*)GetBattleUI_ov000_02160f08(func_ov017_021b8468(var7));
         unsigned char var33 = arg1->unknown_8_ % 2;
         if (var32 != NULL) {
             var32->unknown_955_ = var33;

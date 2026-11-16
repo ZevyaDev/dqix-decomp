@@ -1,4 +1,6 @@
 #include "Input/Input.h"
+#include "Resource/StringList.h"
+#include "std_library_functions.h"
 
 #if defined(jpn)
 #include <globaldefs.h>
@@ -16,8 +18,6 @@ extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
 extern "C" int GetMenuCursorItemCount_0205bafc(void*);
 extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
-extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
-extern "C" int CompareBytes_02001aec(const void*, const void*, unsigned int);
 extern "C" int func_ov009_0218a8b4(Struct_ov009_021842a0*, int, int);
 extern "C" int func_ov009_0218aab0(Struct_ov009_021842a0*, unsigned char);
 extern "C" void func_ov009_0218ad0c(void*);
@@ -126,7 +126,7 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0* arg0)
                     if (var0 - 100 <= arg0->unknown_da0_[arg0->unknown_da3_] && var0 - 100 != arg0->unknown_c58_)
                         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
                 } else if (g_keyManager.TestKeysPressed(2)) {
-                    if (CompareBytes_02001aec(arg0->unknown_d74_[arg0->unknown_da3_], (const void*)FindStringInTable_020e0434(&arg0->unknown_e0_, 0x4272), 10) == 0)
+                    if (memcmp(arg0->unknown_d74_[arg0->unknown_da3_], (const void*)((int)((StringList*)(&arg0->unknown_e0_))->GetString(0x4272)), 10) == 0)
                         var0 = -3;
                     else {
                         func_ov009_0218b200(arg0, 0);
@@ -158,7 +158,7 @@ extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0* arg0)
                         arg0->unknown_d9c_ &= ~0x200000;
                     }
                 } else if (g_keyManager.TestKeysPressed(2)) {
-                    if (CompareBytes_02001aec(arg0->unknown_d74_[arg0->unknown_da3_], (const void*)FindStringInTable_020e0434(&arg0->unknown_e0_, 0x4272), 10) == 0)
+                    if (memcmp(arg0->unknown_d74_[arg0->unknown_da3_], (const void*)((int)((StringList*)(&arg0->unknown_e0_))->GetString(0x4272)), 10) == 0)
                         var0 = -3;
                     else {
                         func_ov009_0218b200(arg0, 0);

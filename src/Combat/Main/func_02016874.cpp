@@ -1,8 +1,21 @@
 #include <globaldefs.h>
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
 #include "NitroSDK/Graphics3D/RenderConfig.h"
+
+#if defined(jpn)
+#define func_020ca528 func_020cbff4
+#endif
+
+#if defined(jpn)
+#define func_0201b5b0 func_0201b328
+#endif
+
+#if defined(jpn)
+#define func_02016d8c func_02016b2c
+#endif
 
 struct Struct_02016874_3;
 struct Struct_020ef0dc {
@@ -62,7 +75,7 @@ extern "C" ARM void func_02016874(Zone3D* arg0) {
         var2 = var10;
         for (; var2 < var11; var2++) {
             for (var8 = var1; var8 < var9; var8++) {
-                var3 = &arg0->grottoTileMapData_420_[var2 * 16];
+                var3 = &((Struct_02013490*)arg0->grottoTileMapData_420_)[var2 * 16];
                 var3 = &var3[var8];
                 if (var3->unknown_0_ == 0) continue;
                 Struct_02016874_2* var12 = var3->unknown_0_->unknown_44_;
@@ -72,19 +85,19 @@ extern "C" ARM void func_02016874(Zone3D* arg0) {
                 if (var13 == 0 || var13->rawInternalModel_ == 0) continue;
                 LightingManager* var14 = LightingManager::GetInstance();
                 var14->ApplyAmbientColorToModel(var13->rawInternalModel_);
-                func_020ca528(&var3->unknown_14_, &gRenderConfig_0210a010.objectRotationPosition);
-                gRenderConfig_0210a010.flags &= ~0xa4;
-                RenderConfig::SetObjectPosition(&var3->unknown_3c_);
-                RenderConfig::SubmitToFifo();
+                func_020ca528(&var3->unknown_14_, &g_nitro3DRenderConfig.objectRotationPosition);
+                g_nitro3DRenderConfig.flags &= ~0xa4;
+                Nitro3DRenderConfig::SetObjectPosition(&var3->unknown_3c_);
+                Nitro3DRenderConfig::SubmitToFifo();
                 var13->Draw(true);
                 if (var0 == 4) {
                     var13 = func_020196fc(arg0, 11)->unknown_44_->unknown_24_->unknown1_4_;
-                    NSBXXInternalModel* var15 = var13->rawInternalModel_;
+                    Nitro3DModel* var15 = var13->rawInternalModel_;
                     if (var13 != 0 && var15 != 0) {
                         Matrix3x3 var16;
                         Mat3x3_WriteIdentity(&var16);
                         func_02016d8c(&var16);
-                        RenderConfig::SubmitToFifo();
+                        Nitro3DRenderConfig::SubmitToFifo();
                         var13->Draw(true);
                     }
                 }
@@ -102,8 +115,8 @@ extern "C" ARM void func_02016874(Zone3D* arg0) {
                         var21.x = (int)(4096.0f * (8.0f * (float)var20));
                         var21.y = 0;
                         var21.z = (int)(4096.0f * (8.0f * (float)var19));
-                        RenderConfig::SetObjectPosition(&var21);
-                        RenderConfig::SubmitToFifo();
+                        Nitro3DRenderConfig::SetObjectPosition(&var21);
+                        Nitro3DRenderConfig::SubmitToFifo();
                         var17->Draw(true);
                     }
                 }
@@ -117,8 +130,8 @@ extern "C" ARM void func_02016874(Zone3D* arg0) {
                         var24.x = (int)(4096.0f * (8.0f * (float)var23));
                         var24.y = 0;
                         var24.z = (int)(4096.0f * (8.0f * (float)var22));
-                        RenderConfig::SetObjectPosition(&var24);
-                        RenderConfig::SubmitToFifo();
+                        Nitro3DRenderConfig::SetObjectPosition(&var24);
+                        Nitro3DRenderConfig::SubmitToFifo();
                         var17->Draw(true);
                     }
                 }
@@ -132,8 +145,8 @@ extern "C" ARM void func_02016874(Zone3D* arg0) {
                         var27.x = (int)(4096.0f * (8.0f * (float)var26));
                         var27.y = 0;
                         var27.z = (int)(4096.0f * (8.0f * (float)var25));
-                        RenderConfig::SetObjectPosition(&var27);
-                        RenderConfig::SubmitToFifo();
+                        Nitro3DRenderConfig::SetObjectPosition(&var27);
+                        Nitro3DRenderConfig::SubmitToFifo();
                         var17->Draw(true);
                     }
                 }
@@ -145,7 +158,7 @@ extern "C" ARM void func_02016874(Zone3D* arg0) {
         if (var29 != (unsigned char)arg0->unk_830[1]) arg0->unk_830[2] = 1;
         else arg0->unk_830[2] = 0;
         arg0->unk_830[1] = var29;
-        Struct_02013454* var30 = arg0->firstBMDJStruct_41c_;
+        Struct_02013454* var30 = (Struct_02013454*)(arg0->firstBMDJStruct_41c_);
         while (var30 != 0) {
             func_02016db4(arg0, var30);
             var30 = var30->unknown_54_;

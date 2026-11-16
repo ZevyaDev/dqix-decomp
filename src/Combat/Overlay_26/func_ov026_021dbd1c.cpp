@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_ov000_02161e30;
 struct Struct_020a36a8;
 struct Struct_0207da94;
@@ -58,7 +62,7 @@ int IsPartyMemberInBattle_020a35e0(Struct_ov000_0217e870_2* battleSetup, unsigne
 void func_020a367c(Struct_ov000_0217e870_2* arg0, unsigned char arg1);
 void func_0207da94(void* arg0, unsigned char arg1);
 void func_ov017_02191b40(GameResources* arg0, int arg1);
-int* GetLocalWireless_0202ae18();
+int* func_0202ae18();
 int IsNotLocalWirelessGuest_0202c508(int*);
 void func_ov000_02174a50(Struct_ov026_021d8ba0_4*, int);
 void func_ov017_021c9b90(unsigned short, int);
@@ -73,7 +77,7 @@ extern "C" ARM void func_ov026_021dbd1c(BattleScene_ov000_02160da0* arg0, int ar
     Struct_ov026_021d8ba0_4* var2 = &arg0->unknown_3760_;
     Struct_ov000_02161e30* var3 = arg0->pBattle_29c_;
     void* var4 = GetBattleJoinTable_0207d78c();
-    int* var5 = GetLocalWireless_0202ae18();
+    int* var5 = func_0202ae18();
     GameResources* var6 = GetGameResources();
     int var7 = 0;
 

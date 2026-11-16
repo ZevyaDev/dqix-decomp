@@ -3,6 +3,10 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
+#if defined(jpn)
 struct Struct_020952f4_2 {
     char unknown_0_[5];
     char unknown_5_[3];
@@ -17,7 +21,7 @@ extern "C" Struct_020952f4* GetZone3D_02012fe4();
 extern "C" void __clear(void*, int);
 extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" int func_ov017_0218d2c4(int arg0);
-extern "C" int GetStringLength_020d2ff0(const char* string);
+extern "C" int func_020d2ff0(const char* string);
 
 // JPN: func_020952f4
 extern "C" ARM int func_020952f4(char* arg0) {
@@ -34,6 +38,6 @@ extern "C" ARM int func_020952f4(char* arg0) {
             strcat(arg0, var2);
         }
     }
-    return GetStringLength_020d2ff0(arg0);
+    return func_020d2ff0(arg0);
 }
 #endif

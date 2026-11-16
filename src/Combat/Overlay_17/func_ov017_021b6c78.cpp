@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 extern "C" void func_02087628(char* arg0);
 
 extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* outOwnPartyOrder);
@@ -10,7 +14,7 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
 extern "C" void __clear(void* arg0, int arg1);
 
-extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" void* func_02053c6c(unsigned char* gameObject);
 
 extern "C" signed char func_ov017_021b6c2c(int arg0, int arg1);
 
@@ -42,7 +46,7 @@ extern "C" ARM void func_ov017_021b6c78(void) {
             __clear(var3, 0x10);
             GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var0, var6);
             if (var7) {
-                unsigned char* var8 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var7);
+                unsigned char* var8 = (unsigned char*)func_02053c6c((unsigned char*)var7);
                 memcpy(var3, var8 + 0x54 + 0x400, 0x10);
             }
             signed char var9 = func_ov017_021b6c2c(var6, 1);

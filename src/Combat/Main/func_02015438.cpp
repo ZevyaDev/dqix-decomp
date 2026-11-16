@@ -4,6 +4,7 @@
 #include "Graphics/LightingManager.h"
 #include "Resource/GameResources.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 
 struct QueueNode_02015438;
 struct Struct_02015438_2;

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
 
 struct Struct_ov023_021d94e4_4
 {
@@ -77,7 +78,6 @@ extern "C" int func_020861d0(unsigned char* arg0);
 extern "C" int func_0208623c(unsigned char* arg0);
 extern "C" int func_020862a8(unsigned char* arg0);
 extern "C" int func_02086314(unsigned char* arg0);
-extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" void AppendPositionTag_02041a90(char* buffer, int x, int y);
 extern "C" void func_02041fac(char* arg0, int arg1, int arg2);
@@ -149,14 +149,14 @@ extern "C" ARM void func_ov023_021d94e4(Struct_ov023_021d94e4_5* arg0, char* arg
             var4[var5][1] = 999;
     }
 #if defined(jpn)
-    const char* var6 = FindStringInTable_020e0434(arg0->unknown_0_, 0x7602);
+    const char* var6 = ((StringList*)(arg0->unknown_0_))->GetString(0x7602);
     AppendText_02042058(arg1, var6);
     for (int var7 = 0; var7 < 9; var7++) {
         if (arg2 != 0) {
             AppendPositionTag_02041a90(arg1, 10, var7 * 15 + 0x15);
             char var8[0x100] = {0};
     ClearMessageParams_02046380(var0);
-    SetMessageString_02046574((Struct_02046574_2*)var0, 0, (char*)FindStringInTable_020e0434(arg0->unknown_0_, (short)(var7 + 0x760c)));
+    SetMessageString_02046574((Struct_02046574_2*)var0, 0, (char*)((StringList*)(arg0->unknown_0_))->GetString((short)(var7 + 0x760c)));
     short var9 = var4[var7][0];
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 0, var9);
     SetMessageNumberAlignment_020465d8((unsigned char*)var0, 0, 1);
@@ -171,18 +171,18 @@ extern "C" ARM void func_ov023_021d94e4(Struct_ov023_021d94e4_5* arg0, char* arg
             SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 2, var11);
             SetMessageNumberAlignment_020465d8((unsigned char*)var0, 2, 1);
             SetMessageNumberWidth_020465f0((unsigned char*)var0, 2, 0);
-            func_020474a8(var0,12,FindStringInTable_020e0434(arg0->unknown_0_,0x7603),var8);
+            func_020474a8(var0,12,((StringList*)(arg0->unknown_0_))->GetString(0x7603),var8);
             AppendText_02042058(arg1, var8);
             arg2--;
         }
     }
 
 #else
-    const char* var12 = FindStringInTable_020e0434(arg0->unknown_0_, 0x7602);
+    const char* var12 = ((StringList*)(arg0->unknown_0_))->GetString(0x7602);
     AppendPositionTag_02041a90(arg1, (0xd0 - func_020420e8(var12, 0)) >> 1, 1);
     func_02041fac(arg1, (int)var12, 0x10);
     int var13;
-    const char* var14 = FindStringInTable_020e0434(arg0->unknown_0_, 0x7603);
+    const char* var14 = ((StringList*)(arg0->unknown_0_))->GetString(0x7603);
     var13 = arg2 - 1;
     if (var13 < 0)
         return;
@@ -190,7 +190,7 @@ extern "C" ARM void func_ov023_021d94e4(Struct_ov023_021d94e4_5* arg0, char* arg
     char var15[0x100] = {0};
     char var16[0x100] = {0};
     ClearMessageParams_02046380(var0);
-    SetMessageString_02046574((Struct_02046574_2*)var0, 0, (char*)FindStringInTable_020e0434(arg0->unknown_0_, (short)(var13 + 0x760c)));
+    SetMessageString_02046574((Struct_02046574_2*)var0, 0, (char*)((StringList*)(arg0->unknown_0_))->GetString((short)(var13 + 0x760c)));
     short var17 = var4[var13][0];
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var0, 0, var17);
     SetMessageNumberAlignment_020465d8((unsigned char*)var0, 0, 1);

@@ -3,9 +3,13 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory.h"
 #include "NitroSDK/Matrix.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 struct Struct_02020554;
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void* GetZone3D_02012fe4(void);
 
@@ -70,10 +74,6 @@ struct Struct_02026780_3 {
 // USA: func_02026780
 extern "C" ARM int func_02026780(Struct_02020554* arg0, void* arg1, unsigned int arg2) {
     Struct_02026780* var0 = (Struct_02026780*)arg0;
-    char var1[0x800];
-    SafeAllocator var2;
-    Struct_02026780_3 var3;
-    Struct_02026780_2 var4;
     int var5;
     int var6;
     fix32_t var7;
@@ -84,13 +84,16 @@ extern "C" ARM int func_02026780(Struct_02020554* arg0, void* arg1, unsigned int
         return 0;
     }
 
-    if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) != 0) {
+    if (IsLocalWirelessGuest_0202c540(func_0202ae18()) != 0) {
         func_02026644((char*)var0);
         return 0;
     }
 
     GetZone3D_02012fe4();
-    var2.ResetAllocatorPointer();
+    char var1[0x800];
+    SafeAllocator var2;
+    Struct_02026780_3 var3;
+    Struct_02026780_2 var4;
     var2.ResetAllocatorPointer();
     var2.CreateTypeA(var1, sizeof(var1));
 
@@ -155,4 +158,9 @@ extern "C" ARM int func_02026780(Struct_02020554* arg0, void* arg1, unsigned int
     var2.Destroy();
     var0->unknown_9b8_ = 0;
     return 1;
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

@@ -10,10 +10,14 @@ enum { Enum_0201bdac_1788 = 0x6fc, Enum_0201bdac_1860 = 0x744, Enum_0201bdac_292
 #include "Grotto/Main/GrottoStruct.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 extern "C" void func_ov017_021a9bc4(void* arg0, int arg1);
 extern "C" void func_ov017_021a9a9c(void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov017_021aa4cc(void* arg0, int arg1);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void func_020ae53c(int arg0);
 
 extern "C" void* GetParty_02010828(GameState* gameState);
@@ -36,7 +40,7 @@ extern "C" ARM void func_0201bdac(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
     unsigned char* var1 = (unsigned char*)GetGameResources();
     Queue_0201bdac_2* var2 = *(Queue_0201bdac_2**)(var1 + 0x3000 + Enum_0201bdac_1788);
-    void* var3 = GetLocalWireless_0202ae18();
+    void* var3 = func_0202ae18();
     void* var4 = GetParty_02010828(var0);
 
     if (!IsQueueEmpty_02046b08((void**)var2)) return;

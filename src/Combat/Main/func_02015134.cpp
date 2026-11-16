@@ -29,7 +29,7 @@ extern "C" ARM int func_02015134(Zone3D* arg0, Struct_02012ff0* arg1, Struct_020
     if (var5) {
         var1->unknown_4_ = ((SafeAllocator*)var2)->Allocate(0x4c);
         if (var1->unknown_4_ == 0) return 0;
-        void* var6 = DecompressLZ77FileIntoAllocatedSpace(*(SafeAllocator*)var2, var5, var4);
+        void* var6 = DecompressLZ77FileIntoAllocatedSpace(&(*(SafeAllocator*)var2), var5, &var4);
         if (var6 == 0) return 0;
         func_0204bf30(var1->unknown_4_);
         func_0204bf44((Struct_02015134_3*)var1->unknown_4_, var2, (Struct_02015134_4*)var6, var4);

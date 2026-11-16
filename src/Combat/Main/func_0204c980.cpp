@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "NitroSDK/Cache.h"
+#include "Graphics/BGLayer.h"
 
 struct Struct_0204c980_2 {
     char unknown_0_[0x1c];
@@ -37,7 +38,6 @@ struct Struct_0204c980 {
 
 extern "C" void func_0204f0ec(char*);
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" int func_0204a5e4(int, int);
 #if defined(jpn)
 extern "C" void func_020474a8(void*, unsigned char, const char*, char*);
 extern "C" short func_0204f6a0(Struct_0204c980*, char*, int, unsigned char, unsigned char);
@@ -49,7 +49,7 @@ extern "C" void func_0204cd60(Struct_0204c980*, char*, short, short);
 #endif
 typedef void (*Type_0204c980)(const void*, unsigned int, unsigned int);
 
-inline int inline_0204c980(int arg0, int arg1) { return func_0204a5e4(arg1, arg0); }
+inline int inline_0204c980(int arg0, int arg1) { return ((int)GetCharVRAMLoadProc(arg1, arg0)); }
 
 inline int inline_0204c980_2(Struct_0204c980_2* arg0) { return arg0->unknown_1c_4_; }
 
@@ -77,7 +77,7 @@ extern "C" ARM void func_0204c980(Struct_0204c980* arg0, const char* arg1, unsig
 #endif
         arg0->unknown_a0_ = arg2;
         Type_0204c980 var5 = (Type_0204c980)inline_0204c980(inline_0204c980_2(arg0->unknown_4_), arg0->unknown_4_->unknown_1c_0_);
-        DC_FlushRange(arg0->unknown_8_, arg0->unknown_a4_);
+        CleanInvalidateCacheRange((const void*)(arg0->unknown_8_), arg0->unknown_a4_);
         var5(arg0->unknown_8_, arg0->unknown_a0_, arg0->unknown_a4_);
         if (arg0->unknown_c5_ & 1) {
             arg0->unknown_c0_ = 0;

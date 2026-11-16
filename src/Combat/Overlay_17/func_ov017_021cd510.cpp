@@ -1,7 +1,15 @@
 #include <globaldefs.h>
 
-extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
+extern "C" void* func_ov017_021b8478(void* battleManager);
+extern "C" void* func_ov017_021b8468(void* battleManager);
 bool GetTreasureMapTypeFromItemID(unsigned short itemID, unsigned char* out);
 extern "C" void func_ov000_0216341c(void* arg0, unsigned char arg1, unsigned char arg2, short arg3);
 extern "C" void func_ov000_02163404(void* arg0, unsigned char arg1);
@@ -20,13 +28,13 @@ extern "C" ARM void func_ov017_021cd510(int arg0, Struct_ov017_021cd510_2* arg1,
  enum {Enum_ov017_021cd510_1816=0x718};
 #endif
     unsigned char* var0 = *(unsigned char**)(arg3 + 0x3000 + Enum_ov017_021cd510_1816);
-    Struct_ov017_021cd510* var1 = (Struct_ov017_021cd510*)GetBattleSetup_ov017_021b8478(var0);
+    Struct_ov017_021cd510* var1 = (Struct_ov017_021cd510*)func_ov017_021b8478(var0);
     if (var1->unknown_8_ != arg1->unknown_4_) return;
 
     unsigned char var2[4];
     if (!GetTreasureMapTypeFromItemID(arg1->unknown_6_, var2)) return;
 
-    unsigned char* var3 = (unsigned char*)GetBattleScene_ov017_021b8468(var0);
+    unsigned char* var3 = (unsigned char*)func_ov017_021b8468(var0);
     if (!var3) return;
 
     ((Type_ov017_021cd510)func_ov000_0216341c)(var3, var2[0], var2[1], *(unsigned short*)(var2 + 2));

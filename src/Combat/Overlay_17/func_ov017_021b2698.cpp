@@ -2,10 +2,14 @@
 #include "Resource/GameResources.h"
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_ov017_021d83f0_7 { int unknown_0_; int unknown_4_; };
 extern Struct_ov017_021d83f0_7 data_ov017_021d83f0;
 extern "C" int func_ov011_02184694(int arg0);
-extern "C" int GetLocalWireless_0202ae18(void);
+extern "C" int func_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void);
 extern "C" int func_ov017_0219bddc(unsigned char* arg0);
 extern "C" int* func_020936f8(void);
@@ -37,7 +41,7 @@ extern "C" ARM int func_ov017_021b2698(Struct_ov017_021b2698* arg0) {
     if (((unsigned char*)var1)[2] != 0) {
         goto fail;
     }
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     if (IsLocalWirelessGuest_0202c540() == 0) {
         goto fail;
     }

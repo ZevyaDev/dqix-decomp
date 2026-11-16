@@ -2,6 +2,10 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct TextWindowManager_0205da38;
@@ -17,7 +21,7 @@ extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *man
 extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" void SetCursorTextWindow_0205dee8(struct TextWindowManager_0205dee8 *windowManager, int windowId);
-extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 extern "C" int func_ov002_02154f4c(unsigned char *arg0);
 extern "C" int func_020dcc20(int arg0, int arg1);
 extern "C" int func_020dcbbc(unsigned char *arg0, int arg1, int arg2, int arg3, int arg4);
@@ -43,7 +47,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
         *(short *) (arg0 + 0x1ab4) = func_ov002_02154f4c((unsigned char *) arg0);
         GameObject *var1 = GameState::GetInstance()->GetProtagonist();
         if (var1 != NULL) {
-            short var2 = *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var1) + 0x800 + 0xc6);
+            short var2 = *(short *) (func_02053c6c((unsigned char *) var1) + 0x800 + 0xc6);
             for (int var3 = 0; var3 < *(unsigned char *) (arg0 + 0x1000 + 0xb31); var3++) {
                 if (var2 == *(unsigned char *) (arg0 + var3 + 0x1000 + 0xb2c)) {
                     *(short *) (arg0 + 0x1ab4) = var3;
@@ -113,7 +117,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
             GameObject *var12 = GameState::GetInstance()->GetProtagonist();
             if (var12 != NULL) {
                 short var13                                                        = *(signed char *) (arg0 + 0x1ae9);
-                *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var12) + 0x800 + 0xc6) = var13;
+                *(short *) (func_02053c6c((unsigned char *) var12) + 0x800 + 0xc6) = var13;
             }
             func_ov002_02157634(arg0);
         } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
@@ -141,7 +145,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
             GameObject *var15 = GameState::GetInstance()->GetProtagonist();
             if (var15 != NULL) {
                 short var16                                                        = *(signed char *) (arg0 + 0x1ae9);
-                *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var15) + 0x800 + 0xc6) = var16;
+                *(short *) (func_02053c6c((unsigned char *) var15) + 0x800 + 0xc6) = var16;
             }
             func_ov002_02157634(arg0);
         } else if (var14 < 0) {
@@ -175,7 +179,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
         GameObject *var20 = GameState::GetInstance()->GetProtagonist();
         if (var20 != NULL) {
             int var21 = 0;
-            short var22   = *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var20) + 0x900 + 0x5e);
+            short var22   = *(short *) (func_02053c6c((unsigned char *) var20) + 0x900 + 0x5e);
             for (int var23 = 0; var23 < var18; var23++) {
                 if (var22 == var19[var23]) {
                     *(short *) (arg0 + 0x1b00 + 0xec) = var23;
@@ -247,7 +251,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
             GameObject *var32 = GameState::GetInstance()->GetProtagonist();
             if (var32 != NULL) {
                 short var33                                                        = *(signed char *) (arg0 + 0x1c00 + 0x21);
-                *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var32) + 0x900 + 0x5e) = var33;
+                *(short *) (func_02053c6c((unsigned char *) var32) + 0x900 + 0x5e) = var33;
             }
             func_ov002_02157634(arg0);
         } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
@@ -275,7 +279,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
             GameObject *var35 = GameState::GetInstance()->GetProtagonist();
             if (var35 != NULL) {
                 short var36                                                        = *(signed char *) (arg0 + 0x1c00 + 0x21);
-                *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var35) + 0x900 + 0x5e) = var36;
+                *(short *) (func_02053c6c((unsigned char *) var35) + 0x900 + 0x5e) = var36;
             }
             func_ov002_02157634(arg0);
         } else if (var34 < 0) {

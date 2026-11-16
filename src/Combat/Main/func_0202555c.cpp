@@ -4,6 +4,7 @@
 #include "NitroSDK/ColorEffects.h"
 #include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
+#include "Graphics/OBJSpriteSet.h"
 
 struct Struct_02020fc4_3;
 struct Struct_02024518_3 {
@@ -61,7 +62,6 @@ extern "C" void func_0202441c(Struct_0202441c*);
 extern "C" int func_020243b8(void*, int);
 extern "C" int func_02024d48(Struct_020236dc*, int);
 extern "C" void func_0202756c(void*, int, int, int, unsigned char, unsigned char, unsigned short, unsigned char, int, int);
-extern "C" void func_0205afdc(int, void*, int);
 
 // USA: func_0202555c
 extern "C" ARM void func_0202555c(Struct_0202555c_2* arg0) {
@@ -168,9 +168,9 @@ extern "C" ARM void func_0202555c(Struct_0202555c_2* arg0) {
         var0 = (char*)arg0->unknown_e8_ + (short)var16->unknown_c_ * (short)40;
         if (var16->unknown_13_) {
             ColorEffect_ConfigureAlphaBlend(0x04001050, 0, 3, 8, 8);
-            func_0205afdc((int)&arg0->unknown_94_, var0, 1);
+            ((OBJSpriteSet*)((int)&arg0->unknown_94_))->SetMetatileOBJMode((OBJSpriteSet::Metatile*)(var0), 1);
         } else {
-            func_0205afdc((int)&arg0->unknown_94_, var0, 0);
+            ((OBJSpriteSet*)((int)&arg0->unknown_94_))->SetMetatileOBJMode((OBJSpriteSet::Metatile*)(var0), 0);
         }
         func_0202756c(arg0, (var17 - 4) << 12, (var18 + 0x5c) << 12, var16->unknown_c_, var16->unknown_e_, 0,
                                  var16->unknown_d_, 0xff, 0x1000, 0x1000);

@@ -4,6 +4,10 @@
 #include "Resource/Brightness.h"
 #include "NitroSDK/Graphics.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct LocalWireless_0202b2f0;
 struct LocalWireless_0202c1a4;
 struct Struct_0201e830;
@@ -71,7 +75,7 @@ struct Struct_ov017_021afe00_2 {
     unsigned char unknown_0_;
 };
 
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0202ae18();
 extern "C" void* GetZone3D_02012fe4();
 extern "C" void StopGesture_020531f0(void* arg0);
 extern "C" void func_ov017_021cff8c(int arg0, int arg1);
@@ -95,7 +99,7 @@ extern AllocatorUnion gMainHeap_02114e20;
 // USA: func_ov017_021afe00
 extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
     GameState* var0 = GameState::GetInstance();
-    LocalWireless_0202b2f0* var1 = (LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* var1 = (LocalWireless_0202b2f0*)func_0202ae18();
     for (int var2 = 0; var2 < 4; var2++) {
         if (IsLocalWirelessPlayerJoined_0202c1c0(var1, var2) == 0) {
             continue;
@@ -219,7 +223,7 @@ extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
         for (int var15 = 0; var15 < 4; var15++) {
             GameObject* var16 = var0->GetGameObjectByIndex(var15);
             if (var16 != 0) {
-                if ((var16->obj3D_.classFlags_0_ & 0x200) != 0) {
+                if ((var16->obj3D_.unknown_0_ & 0x200) != 0) {
                     arg0->unknown_1b_[var15] = 1;
                 } else {
                     arg0->unknown_1b_[var15] = 2;

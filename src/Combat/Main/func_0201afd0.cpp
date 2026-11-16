@@ -8,6 +8,18 @@
 #include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_02094d00 func_02096950
+#endif
+
+#if defined(jpn)
+#define func_020de848 func_020e01c4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_0201afd0 {
     unsigned short unknown_0_;
     unsigned short unknown_2_;
@@ -36,7 +48,7 @@ struct Struct_0201afd0_5;
 struct Struct_02011430;
 struct Struct_0201afd0_6;
 struct Struct_0201afd0_7;
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0202ae18();
 extern "C" void func_020105a8(Struct_020105a8*, int*);
 int GenerateGrottoObjectPositionOrientation(void*, int, int, int*, int*, const TileFeaturePlacementData*, bool);
 extern "C" Struct_0201e690* func_0201e690(Struct_0201afd0_4*, int);
@@ -45,7 +57,7 @@ extern "C" void func_02094cdc(Struct_0201afd0_5*, int, SafeAllocator*);
 extern "C" int func_02011430(Struct_02011430*, int, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_02094d14(Struct_0201afd0_6*, Struct_0201afd0_7*, int);
-extern "C" void ClearItemTable_020de848(void*);
+extern "C" void func_020de848(void*);
 extern "C" int LoadItemTableByIds_020de9a4(void*, SafeAllocator*, void*, unsigned int, unsigned short*, unsigned short);
 extern "C" void __clear(void*, int);
 
@@ -80,12 +92,12 @@ static inline int inline_0201afd0_4(const ActiveGrottoClass* arg0, int arg1) {
 
 // USA: func_0201afd0
 extern "C" ARM int func_0201afd0(Zone3D* arg0, const void* arg1, unsigned int arg2, int arg3) {
-    Struct_020134e0* var0 = &arg0->substruct_6c_;
+    Struct_020134e0* var0 = (Struct_020134e0*)(((Struct_020134e0*)arg0->substruct_6c_));
     GameState* var1 = GameState::GetInstance();
     ActiveGrottoClass* var2 = &arg0->grotto_;
     int var3;
     FloorMap* var4 = &var2->floorMap_;
-    void* var5 = GetLocalWireless_0202ae18();
+    void* var5 = func_0202ae18();
     Struct_0201afd0_2* var6 = (Struct_0201afd0_2*)(arg0->unknown_struct_2724_);
 
     arg0->numChests_ = var4->chestCount;
@@ -97,7 +109,7 @@ extern "C" ARM int func_0201afd0(Zone3D* arg0, const void* arg1, unsigned int ar
         return 0;
     }
 
-    arg0->unknown_47c_ = (Struct_020133fc*)arg0->pAllocator_68_->Allocate(arg0->numChests_ * sizeof(Struct_020133fc));
+    arg0->unknown_47c_ = (int)((Struct_020133fc*)arg0->pAllocator_68_->Allocate(arg0->numChests_ * sizeof(Struct_020133fc)));
     var0->func_0201e634(arg0->numChests_, arg0->pAllocator_68_);
     srand(inline_0201afd0_4(var2, arg0->currentGrottoFloor_23ba_));
 
@@ -182,7 +194,6 @@ extern "C" ARM int func_0201afd0(Zone3D* arg0, const void* arg1, unsigned int ar
         int var28;
         int var29;
 
-        var18.ResetAllocatorPointer();
         var18.CreateTypeA(var19, sizeof(var19));
         var21 = data_020e6df0;
         if (GetFileInNarcPermissive(arg1, var21.unknown_0_, &var22, &var23)) {
@@ -207,10 +218,10 @@ extern "C" ARM int func_0201afd0(Zone3D* arg0, const void* arg1, unsigned int ar
             const LootDistribution::Outcome* var31 = var20.Sample(var24[var29]);
 
             if (var31 != NULL) {
-                Struct_020133fc* var32 = &arg0->unknown_47c_[var29];
+                Struct_020133fc* var32 = &((Struct_020133fc*)arg0->unknown_47c_)[var29];
                 Struct_0201afd0 var33;
 
-                func_020133fc(var32);
+                func_020133fc((Struct_020133fc*)((int)(var32)));
                 var32->unknown_0_ = var30->unknown_8_.unknown1_0_;
                 var32->unknown_c_ = var30->unknown_20_;
                 var32->unknown_10_ = 0;
@@ -241,14 +252,14 @@ extern "C" ARM int func_0201afd0(Zone3D* arg0, const void* arg1, unsigned int ar
             }
         }
 
-        ClearItemTable_020de848(arg0->unknown_struct_2754_);
+        func_020de848(arg0->unknown_struct_2754_);
         if (var27 > 0) {
 #if defined(jpn)
             func_020e0484(arg0->unknown_struct_2754_, arg0->pAllocator_68_, gItemDataPath_020f2a38, var25, var27, true);
 #else
             BackgroundLoader::AddLockGlobal();
             unsigned int var34 = 0;
-            void* var35 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var34);
+            void* var35 = ExtractFileFromGP2((const char*)(gItemDataPath_020f2a38), (const char*)(data_020f2a30), (unsigned int*)(&var34));
 
             if (var35 != NULL) {
                 LoadItemTableByIds_020de9a4(arg0->unknown_struct_2754_, arg0->pAllocator_68_, var35, var34, var25, var27);

@@ -3,6 +3,13 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/Brightness.h"
 #include "std_library_functions.h"
+#include "Graphics/TextureArena.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/VRAMAllocation.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
 
 struct Struct_02018300_3;
 struct TextureVRAMArea_0203d028 { char unknown_0_[0x70]; };
@@ -26,16 +33,12 @@ struct Struct_ov017_021a6648_3 {
     int unknown_38_, unknown_3c_, unknown_40_; Vector3i unknown_44_;
 };
 extern "C" void* GetEffectManager_02057924();
-extern "C" unsigned int* GetGlobalFlags_020d6c00();
+extern "C" unsigned int* func_020d6c00();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
-extern "C" void func_020bb700(int*);
-extern "C" void func_020bb910(int*);
-extern "C" void DC_FlushRange(const void*, unsigned int);
 extern "C" int AddEffectResource_02057e6c(void*, int, SafeAllocator*, void*, unsigned int, TextureVRAMArea_0203d028*);
 extern "C" void PlayEffect_02057fb4(void*, int, void*);
 extern "C" void LoadExtraSoundSet_0205ebc0(void*, int, int);
@@ -65,7 +68,7 @@ extern "C" ARM void func_ov017_021a6648(Struct_ov017_021a6648_2* arg0, Queue_020
     GameResources* var2 = GetGameResources();
     BackgroundLoader* var3 = BackgroundLoader::GetInstance();
     void* var4 = GetEffectManager_02057924();
-    unsigned int* var5 = GetGlobalFlags_020d6c00();
+    unsigned int* var5 = func_020d6c00();
     if (arg0->unknown_8_ == 0) {
         var1->obj3D_.MakeHidden();
         DisablePlayerControl_020397cc((Struct_02018300_3*)var1, 1);
@@ -84,12 +87,12 @@ extern "C" ARM void func_ov017_021a6648(Struct_ov017_021a6648_2* arg0, Queue_020
         arg0->unknown_10_.Reset();
         Struct_ov017_021a6648* var8 = (Struct_ov017_021a6648*)var2->unknown_2cc_;
         TextureVRAMArea_0203d028* var9 = &var8->unknown_c40_;
-        ResetTextureVRAMState_0207df50(var9);
-        func_020bb700(arg0->unknown_24_);
-        func_020bb910(arg0->unknown_4c_);
+        ((TextureArena*)(var9))->Reset();
+        SaveTextureImageAllocationState((unsigned int*)(arg0->unknown_24_));
+        SaveTexturePaletteAllocationState((unsigned int*)(arg0->unknown_4c_));
         void* var10 = arg0->unknown_10_.Allocate(var7);
         memcpy(var10, var6, var7);
-        DC_FlushRange(var10, var7);
+        CleanInvalidateCacheRange((const void*)(var10), var7);
         AddEffectResource_02057e6c(var4, 0xc, &arg0->unknown_10_, var10, var7, var9);
         arg0->unknown_8_++;
     } else if (arg0->unknown_8_ == 2) {

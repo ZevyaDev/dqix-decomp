@@ -8,7 +8,11 @@ enum { Enum_ov017_021b5348_68 = 0x44, Enum_ov017_021b5348_772 = 0x304, Enum_ov01
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
 struct Struct_020534ac_2;
 struct Struct_020534ac;
 extern "C" void __clear(void* arg0, int arg1);
@@ -42,7 +46,7 @@ extern "C" ARM void func_ov017_021b5348(struct Struct_ov017_021b5348_2* arg0) {
     void* var0;
     GameState::GetInstance();
     int var1 = (int)BackgroundLoader::GetInstance();
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     if (!((BackgroundLoader*)(var1))->GetTaskStatus((int)(arg0->unknown_c_))) {
         return;
     }

@@ -14,13 +14,13 @@ enum { Enum_ov003_02174454_742 = 0x2e6 };
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
+#include "NitroSDK/Cache.h"
 
 extern "C" int GetMessageWindow_020421a0();
 
 struct BGControlSave_02074bd0;
 extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
 
-extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
 
 // USA: func_ov003_02174454
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov003_02174454(char* arg0) {
 #endif
     {
         memset(*(void**)(arg0 + Enum_ov003_02174454_4084), 0, 0x20);
-        DC_FlushRange(*(void**)(arg0 + Enum_ov003_02174454_4084), 0x20);
+        CleanInvalidateCacheRange((const void*)(*(void**)(arg0 + Enum_ov003_02174454_4084)), 0x20);
         LoadToMainBG1CharacterData((int)*(void**)(arg0 + Enum_ov003_02174454_4084), 0, 0x20);
     }
     *(void**)(arg0 + Enum_ov003_02174454_4084) = 0;

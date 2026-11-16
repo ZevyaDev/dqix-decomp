@@ -7,6 +7,14 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
+#if defined(jpn)
 enum { Enum_ov025_021d8c30_336 = 0x144, Enum_ov025_021d8c30_2540 = 0x968, Enum_ov025_021d8c30_2528 = 0x95c, Enum_ov025_021d8c30_2086 = 0x7a2, Enum_ov025_021d8c30_1224 = 0x444, Enum_ov025_021d8c30_1220 = 0x440, Enum_ov025_021d8c30_3768 = 0xe34, Enum_ov025_021d8c30_3752 = 0xe24, Enum_ov025_021d8c30_1232 = 0x44c, Enum_ov025_021d8c30_1226 = 0x446, Enum_ov025_021d8c30_672 = 0x21c, Enum_ov025_021d8c30_1132 = 0x3e8, Enum_ov025_021d8c30_396 = 0x180, Enum_ov025_021d8c30_3208 = 0xc04, Enum_ov025_021d8c30_14176 = 0x371c, Enum_ov025_021d8c30_28238 = 0x703e, Enum_ov025_021d8c30_28414 = 0x70ee, Enum_ov025_021d8c30_28632 = 0x71c8, Enum_ov025_021d8c30_28648 = 0x71d8, Enum_ov025_021d8c30_30532 = 0x7934, Enum_ov025_021d8c30_30533 = 0x7935, Enum_ov025_021d8c30_30534 = 0x7936, Enum_ov025_021d8c30_28636 = 0x71cc, Enum_ov025_021d8c30_28668 = 0x71ec, Enum_ov025_021d8c30_680 = 0x224, Enum_ov025_021d8c30_2192 = 0x80c, Enum_ov025_021d8c30_3096 = 0xb94, Enum_ov025_021d8c30_3640 = 0xdb4 };
 #else
 enum { Enum_ov025_021d8c30_336 = 0x150, Enum_ov025_021d8c30_2540 = 0x9ec, Enum_ov025_021d8c30_2528 = 0x9e0, Enum_ov025_021d8c30_2086 = 0x826, Enum_ov025_021d8c30_1224 = 0x4c8, Enum_ov025_021d8c30_1220 = 0x4c4, Enum_ov025_021d8c30_3768 = 0xeb8, Enum_ov025_021d8c30_3752 = 0xea8, Enum_ov025_021d8c30_1232 = 0x4d0, Enum_ov025_021d8c30_1226 = 0x4ca, Enum_ov025_021d8c30_672 = 0x2a0, Enum_ov025_021d8c30_1132 = 0x46c, Enum_ov025_021d8c30_396 = 0x18c, Enum_ov025_021d8c30_3208 = 0xc88, Enum_ov025_021d8c30_14176 = 0x3760, Enum_ov025_021d8c30_28238 = 0x6e4e, Enum_ov025_021d8c30_28414 = 0x6efe, Enum_ov025_021d8c30_28632 = 0x6fd8, Enum_ov025_021d8c30_28648 = 0x6fe8, Enum_ov025_021d8c30_30532 = 0x7744, Enum_ov025_021d8c30_30533 = 0x7745, Enum_ov025_021d8c30_30534 = 0x7746, Enum_ov025_021d8c30_28636 = 0x6fdc, Enum_ov025_021d8c30_28668 = 0x6ffc, Enum_ov025_021d8c30_680 = 0x2a8, Enum_ov025_021d8c30_2192 = 0x890, Enum_ov025_021d8c30_3096 = 0xc18, Enum_ov025_021d8c30_3640 = 0xe38 };
@@ -170,7 +178,7 @@ struct Struct_02010604;
 struct Struct_ov000_02176134;
 struct Struct_ov000_021537b8_6;
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" struct Struct_0203a588_2* GetBattleNumberPopups_02039e70(void);
 extern "C" int func_ov000_02163524(void* arg0);
 extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
@@ -326,8 +334,8 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
 
     var1 = GameState::GetInstance();
     var2 = (char*)GetGameResources();
-    GetLocalWireless_0202ae18();
-    var3 = (unsigned char*)GetCamera_020100bc(var1);
+    func_0202ae18();
+    var3 = (unsigned char*)func_020100bc(var1);
     var4 = (struct Struct_0203a48c_3*)GetBattleNumberPopups_02039e70();
     var5 = func_ov000_02163524(arg0);
     var6 = (struct Struct_ov025_021d8c30_5*)FindActionData_02079e2c((char*)GetActionTables_020797dc(), *(short*)arg1);
@@ -536,7 +544,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
                 var66.y = var67.y + (var25->obj3D_.GetHeight() >> 1);
                 var66.z = var25->obj3D_.GetRadius() >> 1;
                 var65.unknown_2c_ = var66;
-                var65.unknown_14_ = var25->obj3D_.objectIndex_4_;
+                var65.unknown_14_ = var25->obj3D_.unknown_4_;
                 PlayEffect_02057fb4(var64, var16, &var65);
                 int var68;
                 if (var26) {
@@ -607,7 +615,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
             var75.x = 0;
             var75.y = var17->obj3D_.position_.y + (var17->obj3D_.GetHeight() >> 1);
             var75.z = var17->obj3D_.GetRadius();
-            var74.unknown_14_ = var17->obj3D_.objectIndex_4_;
+            var74.unknown_14_ = var17->obj3D_.unknown_4_;
             if (var46 & 2) {
                 var75.z = 0;
                 var75.y = 0;
@@ -770,7 +778,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         func_02049f28((unsigned char*)var59);
         var59->obj3D_.MakeVisible();
         var59->obj3D_.SetInheritedAlpha(0x1f);
-        if (var59->obj3D_.classFlags_0_ & 0x100) {
+        if (var59->obj3D_.unknown_0_ & 0x100) {
             *(unsigned int*)((unsigned char*)var59 + Enum_ov025_021d8c30_396) &= ~1;
         } else {
             unsigned char* var91 = 0;
@@ -825,7 +833,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
             func_ov000_0216f1e4(arg0 + Enum_ov025_021d8c30_3096, &var94.x, 0xccc, 0);
             func_0202ea10(arg0 + Enum_ov025_021d8c30_3096, 0xcc, 0x3e8);
         }
-        if (!((unsigned char*)GetCamera_020100bc(var1) == arg0 + Enum_ov025_021d8c30_3096 && arg0[Enum_ov025_021d8c30_3640] == 2) &&
+        if (!((unsigned char*)func_020100bc(var1) == arg0 + Enum_ov025_021d8c30_3096 && arg0[Enum_ov025_021d8c30_3640] == 2) &&
             *(int*)(arg0 + Enum_ov025_021d8c30_1232) == 0) {
             func_ov000_02163440(arg0, 0x199, 0x2bc, 0x96);
         }
@@ -836,14 +844,14 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         arg1->unknown_22_ = 0;
     }
     if (func_ov000_0215fd90(var49, 8)) {
-        SetCombatantAppearanceFlags_ov017_02191aac(var2, 0, var59->obj3D_.objectIndex_4_, 4);
+        SetCombatantAppearanceFlags_ov017_02191aac(var2, 0, var59->obj3D_.unknown_4_, 4);
         if (!var9) var22 = 1;
     }
     if (func_ov000_0215fd90(var49, 0x2c)) {
-        SetCombatantAppearanceFlags_ov017_02191aac(var2, 1, var59->obj3D_.objectIndex_4_, 2);
+        SetCombatantAppearanceFlags_ov017_02191aac(var2, 1, var59->obj3D_.unknown_4_, 2);
     }
     if (func_ov000_0215fd90(var49, 0x28)) {
-        SetCombatantAppearanceFlags_ov017_02191aac(var2, 0, var59->obj3D_.objectIndex_4_, 2);
+        SetCombatantAppearanceFlags_ov017_02191aac(var2, 0, var59->obj3D_.unknown_4_, 2);
     }
 
     var52 = 0;
@@ -863,15 +871,15 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
             var20 = 1;
         } else {
             GameState* var95 = GameState::GetInstance();
-            if (var59->obj3D_.classFlags_0_ & 0x400) {
-                GameObject* var96 = GetEnemyByIndex_0200fea4(var95, var59->obj3D_.objectIndex_4_);
+            if (var59->obj3D_.unknown_0_ & 0x400) {
+                GameObject* var96 = GetEnemyByIndex_0200fea4(var95, var59->obj3D_.unknown_4_);
                 unsigned char* var97;
                 if (var96 && (var97 = *(unsigned char**)((unsigned char*)var96 + 0x144)) != 0) {
                     short var98 = *(short*)(var97 + 8);
                     if (var98 == 0x2d || var98 == 0x2e || var98 == 0x2f || var98 == 0x11b) goto skipFlash;
                 }
             }
-            if (var59->obj3D_.classFlags_0_ & 0x100) {
+            if (var59->obj3D_.unknown_0_ & 0x100) {
                 func_02054028(var59, 0x64);
             } else {
                 var59->obj3D_.SetNoTextureTimer(2);
@@ -1071,7 +1079,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         if (var46 & 1) {
             var110.x = 0;
             var110.z = var17->obj3D_.GetRadius() >> 1;
-            var108.unknown_14_ = var17->obj3D_.objectIndex_4_;
+            var108.unknown_14_ = var17->obj3D_.unknown_4_;
         } else {
             var108.unknown_38_ = var17->obj3D_.rotation_;
             var108.unknown_44_ = var13->obj3D_.GetScale();

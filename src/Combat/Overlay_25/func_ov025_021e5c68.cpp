@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "GameState/Field3b0.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 struct Struct_ov025_021e5c68 {
     char unknown_0_[0x70];
     Vector3fix unknown_70_;
@@ -31,7 +35,7 @@ extern "C" ARM int func_ov025_021e5c68(Struct_ov025_021e5c68_2* arg0, void* arg1
  enum {Enum_ov025_021e5c68_28629=0x6fd5};
 #endif
     GameState* var0 = GameState::GetInstance();
-    Struct_ov025_021e5c68* var1 = (Struct_ov025_021e5c68*)GetCamera_020100bc(var0);
+    Struct_ov025_021e5c68* var1 = (Struct_ov025_021e5c68*)func_020100bc(var0);
     if (arg0->unknown_14_ == 0) {
         if (var1 != 0) SetCameraOrbitFromArray_0202e694(var1, (int*)&arg0->unknown_8_);
     } else if (arg0->unknown_14_ == 2) {

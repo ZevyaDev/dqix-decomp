@@ -7,6 +7,10 @@
 #include <asmhacks.h>
 
 #if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
+#if defined(jpn)
 #define data_020f2e44 data_020f2e58
 #define data_020f2290 data_020f23fc
 
@@ -34,7 +38,7 @@ extern struct
 extern "C"
 {
     int func_02000970(unsigned int);
-    void HaltForever_020c9be0();
+    void func_020c9be0();
     void func_020c0c3c(UnknownDownloadPlayStruct*, unsigned, unsigned, unsigned char*, unsigned);
 }
 
@@ -53,7 +57,7 @@ void InvalidateCacheAndZeroOverlay(const OverlayMetadata &overlay)
     unsigned int copySize = overlay.uncompressedSize;
     unsigned int totalSize = copySize + overlay.bssSectionSize;
 
-    IC_InvalidateRange(startAddr, totalSize);
+    InvalidateInstructionCacheRange((const void*)(startAddr), totalSize);
     InvalidateDataCacheRange(startAddr, totalSize);
     VectorizedMemset(startAddr + copySize, 0, totalSize - copySize);
 }
@@ -117,8 +121,8 @@ bool LoadOverlayMetadataFromNitro(OverlayMetadata *into, bool isArm7,
     if (!NitroVM_PrepareReadFileByID(&machine, overlayAccessor))
         return false;
     
-    into->romStorageOffset = machine.fileInfo.unknown_4_;
-    into->romStorageSize = machine.fileInfo.unknown_8_ - machine.fileInfo.unknown_4_;
+    into->romStorageOffset = machine.fileInfo.startOffset;
+    into->romStorageSize = machine.fileInfo.endOffset - machine.fileInfo.startOffset;
     NitroVM_FinishRead(&machine);
     return true;
 }
@@ -146,8 +150,8 @@ bool LoadOverlayMetadata(OverlayMetadata* into, bool isArm7, unsigned int idx)
         if (!NitroVM_PrepareReadFileByID(&machine, accessor))
             return false;
 
-        into->romStorageOffset = machine.fileInfo.unknown_4_;
-        into->romStorageSize = machine.fileInfo.unknown_8_ - machine.fileInfo.unknown_4_;
+        into->romStorageOffset = machine.fileInfo.startOffset;
+        into->romStorageSize = machine.fileInfo.endOffset - machine.fileInfo.startOffset;
         NitroVM_FinishRead(&machine);
         return true;
     }
@@ -247,7 +251,7 @@ void DecompressAndStaticInitializeOverlay(const OverlayMetadata& overlay)
         if (!result)
         {
             VectorizedMemset((void*)overlay.loadAddress, 0, initialSize);
-            HaltForever_020c9be0();
+            func_020c9be0();
             return;
         }
     }
@@ -256,7 +260,7 @@ void DecompressAndStaticInitializeOverlay(const OverlayMetadata& overlay)
     if (overlay.overlayFlags & (1 << OVERLAY_FLAG_COMPRESSED))
         func_02000970(overlay.loadAddress + initialSize);
     
-    DC_FlushRange((void*)overlay.loadAddress, overlay.uncompressedSize);
+    CleanInvalidateCacheRange((const void*)((void*)overlay.loadAddress), overlay.uncompressedSize);
     OverlayMetadata::StaticInitializer* pInitializer = overlay.staticInitStart;
     OverlayMetadata::StaticInitializer* initializerEnd = overlay.staticInitEnd;
     if (pInitializer < initializerEnd)

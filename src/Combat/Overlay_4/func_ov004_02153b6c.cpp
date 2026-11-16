@@ -1,13 +1,21 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" int func_020deb58(void*, int, int, int, int);
 extern "C" void* func_020dec30(void*, int, int, int, int, int);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 
 class Struct_ov004_02153b6c_2 {
 public:
@@ -42,7 +50,7 @@ extern "C" ARM void func_ov004_02153b6c(void* arg0, int arg1, int arg2, int arg3
     if (var0) {
         if (func_ov023_021f6f10(var0) == 0x11) {
             void* var1 = ((Struct_ov004_02153b6c_2*)var0)->inline_ov004_02153b6c_35();
-            void* var2 = GetFlagManager_0205ec34();
+            void* var2 = func_0205ec34();
             int var3 = func_020deb58(var1, 1, arg1, arg2, arg3);
 
             short var4 = 0;
@@ -53,7 +61,7 @@ extern "C" ARM void func_ov004_02153b6c(void* arg0, int arg1, int arg2, int arg3
                     int var7 = (var6->unknown_c_ << 9) >> 21;
                     var7 = (unsigned short)var7;
                     if (var7 > 0) {
-                        if (IsFlagSet_0206dfb0((int)var2, (unsigned char*)var2 + 0x8c, var7 + 0x76 + 0xc00)) {
+                        if (func_0206dfb0((int)var2, (unsigned char*)var2 + 0x8c, var7 + 0x76 + 0xc00)) {
                             var4++;
                         }
                     }

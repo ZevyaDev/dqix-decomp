@@ -29,3 +29,8 @@ extern "C" ARM void func_020d74a4(struct Struct_020d74a4* arg0, int arg1, Vector
         var1->unknown_e8_ = var0;
     }
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

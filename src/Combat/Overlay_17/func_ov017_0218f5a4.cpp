@@ -2,16 +2,24 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
 enum { Enum_ov017_0218f5a4_1844 = 0x524, Enum_ov017_0218f5a4_336 = 0x144, Enum_ov017_0218f5a4_396 = 0x180, Enum_ov017_0218f5a4_1792 = 0x4f0 };
 #else
 enum { Enum_ov017_0218f5a4_1844 = 0x734, Enum_ov017_0218f5a4_336 = 0x150, Enum_ov017_0218f5a4_396 = 0x18c, Enum_ov017_0218f5a4_1792 = 0x700 };
 #endif
 
-extern "C" void GetLocalWireless_0202ae18(void);
+extern "C" void func_0202ae18(void);
 extern "C" int func_ov017_021925e0(void* arg0);
 extern "C" void func_ov017_021bd440(void* arg0, int arg1);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 struct PartyMember_0205faf4_11;
 extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
 extern "C" void func_02072afc(int arg0, int* arg1, short* arg2);
@@ -23,13 +31,13 @@ extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct Qu
 // USA: QueuePartyMemberModelLoad_ov017_0218f5a4
 extern "C" ARM int QueuePartyMemberModelLoad_ov017_0218f5a4(char* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload) {
     GameState* gameState = GameState::GetInstance();
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     void* eventTask = *(void**)(gameResources + 0x3000 + Enum_ov017_0218f5a4_1844);
 
     if (func_ov017_021925e0(gameResources + 0x3000) != 0) {
         GameObject* partyMember = gameState->GetPartyMemberByIndex(memberIndex);
         if (partyMember != 0) {
-            unsigned short classFlags = partyMember->obj3D_.classFlags_0_;
+            unsigned short classFlags = partyMember->obj3D_.unknown_0_;
             if (classFlags & 0x1000) {
                 func_ov017_021bd440(eventTask, memberIndex & 0xff);
                 return 0;
@@ -39,7 +47,7 @@ extern "C" ARM int QueuePartyMemberModelLoad_ov017_0218f5a4(char* gameResources,
 
     GameObject* partyMemberBase = GetPartyMemberBaseByIndex_0200ff1c(gameState, memberIndex);
     if (partyMemberBase == 0) return 0;
-    if (GetPartyMemberData_02053c6c((unsigned char*)partyMemberBase) == 0) return 0;
+    if (func_02053c6c((unsigned char*)partyMemberBase) == 0) return 0;
 
     if (isFullReload == 0) {
         unsigned char* memberData = *(unsigned char**)((char*)partyMemberBase + Enum_ov017_0218f5a4_336);

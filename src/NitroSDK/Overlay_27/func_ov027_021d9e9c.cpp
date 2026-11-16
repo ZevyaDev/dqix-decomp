@@ -99,7 +99,7 @@ extern "C" ARM int func_ov027_021d9e9c(NitroVM* arg0, void* arg1, unsigned long 
 
         if (arg0 != NULL)
         {
-            var7 = arg0->fileInfo.unknown_c_ - arg0->fileInfo.unknown_4_;
+            var7 = arg0->fileInfo.cursorPos - arg0->fileInfo.startOffset;
             if (NitroVM_ReadSync(arg0, var6, sizeof(Struct_ov027_021d9e9c_5)) < (int)sizeof(Struct_ov027_021d9e9c_5))
                 var2 = 0;
             var8 = var6->unknown_80_;
@@ -116,7 +116,7 @@ extern "C" ARM int func_ov027_021d9e9c(NitroVM* arg0, void* arg1, unsigned long 
             NitroVM_PrepareRead(&var9, NitroHandle_FindBySignature(data_ov027_021dd8e8, 3), 0, var8 + 0x88,
                                 (unsigned int)-1);
             arg0 = &var9;
-            var7 = arg0->fileInfo.unknown_c_ - arg0->fileInfo.unknown_4_;
+            var7 = arg0->fileInfo.cursorPos - arg0->fileInfo.startOffset;
             VectorizedInvertedMemcpy(inline_ov027_021d9e9c(), var6, sizeof(Struct_ov027_021d9e9c_5));
             var6->unknown_60_ |= 0x406000;
         }
@@ -160,8 +160,8 @@ extern "C" ARM int func_ov027_021d9e9c(NitroVM* arg0, void* arg1, unsigned long 
         {
             var5 = (Struct_ov027_021d9e9c*)var3;
             var5->unknown_0_ = 0;
-            var5->unknown_4_ = var6->unknown_20_ + (var7 + arg0->fileInfo.unknown_4_);
-            var5->unknown_8_ = var6->unknown_30_ + (var7 + arg0->fileInfo.unknown_4_);
+            var5->unknown_4_ = var6->unknown_20_ + (var7 + arg0->fileInfo.startOffset);
+            var5->unknown_8_ = var6->unknown_30_ + (var7 + arg0->fileInfo.startOffset);
             var3 += 0x10;
             var2 -= 0x10;
         }
@@ -172,7 +172,7 @@ extern "C" ARM int func_ov027_021d9e9c(NitroVM* arg0, void* arg1, unsigned long 
 
         if (var2 >= var6->unknown_2c_ + var6->unknown_3c_)
         {
-            const int var12 = arg0->fileInfo.unknown_4_;
+            const int var12 = arg0->fileInfo.startOffset;
             NitroVM_Seek(arg0, var5->unknown_4_ - var12, 0);
             NitroVM_ReadSync(arg0, var3, var6->unknown_2c_);
             func_ov027_021dd118(var4, var5->unknown_4_, var6->unknown_2c_, var3, 3);
@@ -185,7 +185,7 @@ extern "C" ARM int func_ov027_021d9e9c(NitroVM* arg0, void* arg1, unsigned long 
         else if (var2 >= 0xcc00)
         {
             unsigned long var14;
-            const unsigned long var15 = arg0->fileInfo.unknown_4_;
+            const unsigned long var15 = arg0->fileInfo.startOffset;
             var14 = var5->unknown_4_;
             NitroVM_Seek(arg0, var14 - var15, 0);
             NitroVM_ReadSync(arg0, var3, 0x4400);
@@ -230,7 +230,7 @@ extern "C" ARM int func_ov027_021d9e9c(NitroVM* arg0, void* arg1, unsigned long 
             }
         }
         if (var0)
-            DC_FlushRange(arg1, arg2);
+            CleanInvalidateCacheRange((const void*)(arg1), arg2);
     }
     return var0;
 }

@@ -8,12 +8,24 @@ enum {Enum_ov017_021b67d8_1788=0x6fc, Enum_ov017_021b67d8_1844=0x734, Enum_ov017
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/GameResources.h"
 
-extern "C" void PopOverlay_020a1e54(int isPreviousReloaded);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+#if defined(jpn)
+#define func_020a1e54 func_020a3bcc
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
+extern "C" void func_020a1e54(int isPreviousReloaded);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void LoadFileTables_020a0c0c(void);
 struct Queue_02038598_5;
 extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 
 extern int gMainHeap_02114e20;
 
@@ -35,13 +47,13 @@ struct Struct_ov017_021b67d8_2 {
 extern "C" ARM void func_ov017_021b67d8(struct Struct_ov017_021b67d8* arg0) {
     if (arg0->unknown_24_ != NULL) {
         arg0->unknown_24_ = NULL;
-        PopOverlay_020a1e54(1);
+        func_020a1e54(1);
     }
 
     void* var0 = arg0->unknown_8_.GetSignedAllocator();
     if (var0 != NULL) {
         arg0->unknown_8_.Destroy();
-        FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var0);
+        func_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var0);
     }
 
     LoadFileTables_020a0c0c();
@@ -63,6 +75,6 @@ extern "C" ARM void func_ov017_021b67d8(struct Struct_ov017_021b67d8* arg0) {
         return;
     }
 
-    char* var5 = (char*)GetLocalWireless_0202ae18();
+    char* var5 = (char*)func_0202ae18();
     var5[0x1000 + 0x11] = 1;
 }

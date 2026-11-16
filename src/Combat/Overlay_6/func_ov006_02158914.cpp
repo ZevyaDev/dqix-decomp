@@ -11,6 +11,7 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 struct MenuLayout_0207fdcc_2;
 
@@ -42,7 +43,6 @@ extern const short data_ov006_0215ffca[];
 extern const short data_ov006_0215ffc4[];
 extern const unsigned char data_ov006_0215ffb4[];
 int func_ov023_021e2c38(void*, short);
-void DrawSprite_0205ac40(void*, Struct_ov006_021580b8*);
 }
 
 extern "C" Struct_ov006_02158478* func_02081da8(MenuLayout_0207fdcc_2*, int);
@@ -170,7 +170,7 @@ extern "C" ARM void func_ov006_02158914(Struct_ov006_02157a60* arg0)
                 var5->unknown_25_ = 0xb;
             else if (var4 == 9)
                 var5->unknown_25_ = 1;
-            DrawSprite_0205ac40(arg0->unknown_ac_, var5);
+            ((OBJSpriteSet*)(arg0->unknown_ac_))->DrawMetatile((OBJSpriteSet::Metatile*)(var5));
         }
     }
 }

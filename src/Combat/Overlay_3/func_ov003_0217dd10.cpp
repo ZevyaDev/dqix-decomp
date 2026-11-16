@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Resource/MessageSystem.h"
+#include "Resource/StringList.h"
 #if defined(jpn)
 enum { Enum_ov003_0217dd10_204 = 0xc8 };
 #else
@@ -8,12 +9,11 @@ enum { Enum_ov003_0217dd10_204 = 0xcc };
 
 extern "C" int GetMessageWindow_020421a0();
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 // USA: func_ov003_0217dd10
 extern "C" ARM void func_ov003_0217dd10(char* arg0, int arg1) {
     MessageWindow_02021b84* var0 = (MessageWindow_02021b84*)GetMessageWindow_020421a0();
-    const char* var1 = (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + Enum_ov003_0217dd10_204), (short)arg1);
+    const char* var1 = (const char*)((int)((StringList*)((struct Struct_0201099c_3*)(arg0 + Enum_ov003_0217dd10_204)))->GetString((short)arg1));
 #if defined(jpn)
     StartMessage_0204500c(var0, var1, 0);
 #else

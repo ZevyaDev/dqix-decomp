@@ -6,7 +6,7 @@
 extern "C" ARM void InitFieldMonster_02076a8c(FieldMonster_02076a8c* monster) {
     func_02032e58(&monster->unknown_0_.unknown_0_);
 
-    monster->unknown_0_.unknown_0_.unknown_0_.classFlags_0_ |= 0x20;
+    monster->unknown_0_.unknown_0_.unknown_0_.unknown_0_ |= 0x20;
     monster->unknown_0_.unknown_0_.unknown_b4_ = 0x1c2;
     monster->unknown_0_.state_130_ = 1;
     monster->unknown_0_.previousState_134_ = 1;

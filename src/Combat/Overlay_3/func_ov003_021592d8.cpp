@@ -1,3 +1,4 @@
+extern unsigned char g_fileScratchSpace[0x30000];
 #include <globaldefs.h>
 #if defined(jpn)
 enum { Enum_ov003_021592d8_2384 = 0x8b8 };
@@ -8,6 +9,11 @@ enum { Enum_ov003_021592d8_2384 = 0x950 };
 #include "std_library_functions.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
 
 struct Struct_ov003_021592d8 {
     char unknown_0_[0x138];
@@ -50,10 +56,9 @@ struct Struct_ov003_021592d8_6 {
 };
 
 extern "C" struct Struct_ov003_021592d8_3* GetMessageWindow_020421a0();
-extern "C" struct Struct_ov003_021592d8* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" struct Struct_ov003_021592d8* func_02053c6c(unsigned char* gameObject);
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 extern "C" void* func_0208247c(void* arg0);
 extern "C" int func_02082490(void* arg0, void* arg1, unsigned int arg2, int arg3, int arg4);
@@ -62,7 +67,6 @@ extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index,
 extern "C" void func_02046608(void* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 
 extern char data_ov003_0217fe18[];
-extern unsigned char gFileScratchSpace_0211e33c[0x30000];
 
 // USA: func_ov003_021592d8
 extern "C" ARM void func_ov003_021592d8(struct Struct_ov003_021592d8_6* arg0, struct Struct_ov003_021592d8_2* arg1,
@@ -71,7 +75,7 @@ extern "C" ARM void func_ov003_021592d8(struct Struct_ov003_021592d8_6* arg0, st
         return;
     }
     struct Struct_ov003_021592d8_3* var0 = GetMessageWindow_020421a0();
-    struct Struct_ov003_021592d8* var1 = GetPartyMemberData_02053c6c((unsigned char*)arg1);
+    struct Struct_ov003_021592d8* var1 = func_02053c6c((unsigned char*)arg1);
     int var2 = var1->unknown_950_;
     ClearMessageParams_02046380(var0);
 #if defined(jpn)
@@ -84,15 +88,14 @@ extern "C" ARM void func_ov003_021592d8(struct Struct_ov003_021592d8_6* arg0, st
     int var4;
     if (var1->unknown_16c_[var2] == 99) {
         SetMessageString_02046574((struct Struct_02046574_2*)var0, 1,
-                               (char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_,
-                                                            (short)(var1->unknown_950_ + 0x1e)));
+                               (char*)((int)((StringList*)((struct Struct_0201099c_3*)arg0->unknown_64_))->GetString((short)(var1->unknown_950_ + 0x1e))));
         var4 = 0x3fe;
     } else {
         char var5[0x28];
         unsigned int var6;
         sprintf(var5, data_ov003_0217fe18, var1->unknown_950_);
         BackgroundLoader::AddLockGlobal();
-        void* var7 = LoadFileIntoMemory(var5, gFileScratchSpace_0211e33c, &var6);
+        void* var7 = LoadFileIntoMemory(var5, g_fileScratchSpace, &var6);
         struct Struct_ov003_021592d8_4 var8;
         func_0208247c(&var8);
         if (var7 != NULL) {
@@ -113,9 +116,9 @@ extern "C" ARM void func_ov003_021592d8(struct Struct_ov003_021592d8_6* arg0, st
         BackgroundLoader::RemoveLockGlobal();
     }
 #if defined(jpn)
-    func_020474a8(var0, 0xc, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, var4), arg2);
+    func_020474a8(var0, 0xc, (const char*)((int)((StringList*)((struct Struct_0201099c_3*)arg0->unknown_64_))->GetString(var4)), arg2);
 #else
-    func_02046608(var0, 0xc, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, var4), arg2,
+    func_02046608(var0, 0xc, (const char*)((int)((StringList*)((struct Struct_0201099c_3*)arg0->unknown_64_))->GetString(var4)), arg2,
                   0xe3, 0, 1);
 #endif
 }

@@ -1,11 +1,23 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+
+extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0202ae24(void);
+extern "C" void* func_0205ec34(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021d2184 {
@@ -23,13 +35,13 @@ struct Struct_ov017_021d2184_2 {
 
 // USA: func_ov017_021d2184
 extern "C" ARM void func_ov017_021d2184(unsigned short arg0) {
-    if (IsNotLocalWirelessGuest_0202c508(GetLocalWireless_0202ae18())) {
+    if (IsNotLocalWirelessGuest_0202c508(func_0202ae18())) {
         struct Struct_ov017_021d2184_2 var0;
-        void* var1 = GetLocalWirelessPacketQueue_0202ae24();
+        void* var1 = func_0202ae24();
         struct Struct_ov017_021d2184* var2 = &var0.unknown_4_;
         var0.unknown_0_ = 0x9c;
         var2->unknown_e_4_ = arg0;
-        char* var3 = (char*)GetFlagManager_0205ec34() + 0x2cc;
+        char* var3 = (char*)func_0205ec34() + 0x2cc;
         int var4 = 0x66;
         unsigned char var5 = 0;
         while (var4 > 0) {

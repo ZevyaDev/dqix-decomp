@@ -6,6 +6,10 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
+#define func_02094d00 func_02096950
+#endif
+
+#if defined(jpn)
 enum { Enum_020134e0_0 = 0x20, Enum_020134e0_0_2 = 0x40 };
 #else
 enum { Enum_020134e0_0 = 0, Enum_020134e0_0_2 = 0 };
@@ -59,7 +63,7 @@ extern "C" ARM void func_020134e0(char* arg0) {
     *(short*)(arg0 + 0x27d6 + Enum_020134e0_0_2) = 0;
     *(char*)(arg0 + 0x23bb + Enum_020134e0_0) = -1;
 
-    ((Struct_020134e0*)(arg0 + 0x6c + Enum_020134e0_0))->func_0201e248();
+    func_0201e248((Struct_020134e0*)(arg0 + 0x6c + Enum_020134e0_0));
     ((AtmosphericEffectSet*)(arg0 + 0xf4 + Enum_020134e0_0))->Reset();
     ((LightingInfo*)(arg0 + 0x10c + Enum_020134e0_0))->Initialize();
     ((SafeAllocator*)(arg0 + 0x54 + Enum_020134e0_0))->ResetAllocatorPointer();

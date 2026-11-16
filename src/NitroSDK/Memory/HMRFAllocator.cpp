@@ -1,6 +1,10 @@
 #include "NitroSDK/Memory/HMRFAllocator.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_020ca3ec func_020cbeb8
+#endif
+
 
 
 extern "C"
@@ -9,7 +13,7 @@ extern "C"
     // 4-byte alignment (it writes ints).
     // Notably, if dst is not 4-byte aligned it might write before the start,
     // and if len is not a multiple of 4 it might write a bit past the end.
-    void Memset32BitByWord_020ca3ec(int value, void* dst, unsigned int len);
+    void func_020ca3ec(int value, void* dst, unsigned int len);
 }
 
 // USA: func_020af838
@@ -44,7 +48,7 @@ void* HMRFAllocator::Block::AllocateForward(unsigned int len, unsigned int align
     // rounded down, potentially overwriting data from the previous allocation
     // https://developer.arm.com/documentation/dui0379/g/Using-the-Assembler/Address-alignment
     if (clearFlags & 1)
-        Memset32BitByWord_020ca3ec(0, (void*)pieceTrueStart, clearLength);
+        func_020ca3ec(0, (void*)pieceTrueStart, clearLength);
     
     this->startAddress = pieceEnd;
     return (void*)pieceEffStart;    
@@ -64,7 +68,7 @@ void* HMRFAllocator::Block::AllocateBackward(unsigned int len, unsigned int alig
     // This one should be fine *provided* that the end address starts out being
     // 4-byte aligned and align >= 4 in all calls.
     if (clearFlags & 1)
-        Memset32BitByWord_020ca3ec(0, (void*)pieceStart, clearLength);
+        func_020ca3ec(0, (void*)pieceStart, clearLength);
     
     this->endAddress = pieceStart;
     return (void*)pieceStart;

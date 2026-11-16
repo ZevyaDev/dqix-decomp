@@ -6,9 +6,14 @@
 #include "std_library_functions.h"
 #include "Resource/Script.h"
 #include "Resource/Brightness.h"
+#include "Graphics/OBJSpriteSet.h"
+
+#if defined(jpn)
+#define func_0203bd08 func_0203b760
+#endif
 
 extern "C" unsigned short* GetZone3D_02012fe4(void);
-extern "C" char* GetOAMManager_0203bd08(void);
+extern "C" char* func_0203bd08(void);
 extern "C" ARM void* GetBGVRAMManager_0203b628(void);
 
 extern "C" void func_02021428(void* arg0, int arg1);
@@ -21,8 +26,6 @@ extern "C" int func_0203b784(int* arg0, int arg1, int arg2, int arg3, unsigned i
 extern "C" void func_0203b718(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0203ba74(void* arg0);
 
-extern "C" void InitSprite_0205a198(struct Sprite_02043368_2* sprite);
-extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 
 extern "C" void func_02020aa0(void* arg0);
 
@@ -90,7 +93,7 @@ extern "C" ARM void func_020227dc(Struct_02020554* arg0) {
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
     unsigned short* var1 = GetZone3D_02012fe4();
     char* var2 = ((char*)GetGameResources());
-    char* var3 = GetOAMManager_0203bd08();
+    char* var3 = func_0203bd08();
     void* var4 = GetBGVRAMManager_0203b628();
     int var5;
     SafeAllocator* var6 = (SafeAllocator*)(var2 + 0x128);
@@ -129,10 +132,10 @@ extern "C" ARM void func_020227dc(Struct_02020554* arg0) {
     func_0203ba74(var4);
 
     for (var5 = 0; var5 < 0x1c; var5++) {
-        InitSprite_0205a198(&arg0->unknown_e8_[var5]);
+        ((OBJSpriteSet::Metatile*)(&arg0->unknown_e8_[var5]))->Reset();
     }
 
-    InitSpriteSet_0205a444((char*)&arg0->unknown_94_);
+    ((OBJSpriteSet*)((char*)&arg0->unknown_94_))->Reset();
     arg0->unknown_94_.unknown_50_ = 1;
     arg0->unknown_94_.unknown_40_ = arg0->unknown_e8_;
     arg0->unknown_94_.unknown_4c_ = 0x1c;

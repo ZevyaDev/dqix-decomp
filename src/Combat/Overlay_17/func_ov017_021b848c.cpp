@@ -1,6 +1,14 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 
 struct Struct_02018300_3;
 struct GlobalFlags_02038598_4;
@@ -37,13 +45,13 @@ extern "C" int GetMessageWindow_020421a0();
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov017_021c9c64(unsigned short arg0, unsigned char arg1);
 extern "C" void func_ov017_021c8b78(unsigned short arg0);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 extern "C" void func_020a35cc(unsigned char* arg0, unsigned char arg1);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
-extern "C" void HaltForever_020c9be0(void);
+extern "C" void func_020c9be0(void);
 extern "C" void func_ov017_021c3f70(unsigned short arg0);
 
 // USA: func_ov017_021b848c
@@ -63,7 +71,7 @@ extern "C" ARM void func_ov017_021b848c(Struct_ov017_021b848c_2* arg0, signed ch
         return;
     }
 
-    void* var3 = GetGlobalFlags_020d6c00();
+    void* var3 = func_020d6c00();
     ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var3, 0x200);
     SetGlobalFlags_020466e4((unsigned int*)var3, 0x40000);
     GameObject* var4 = var0->GetUnknownGameObject();
@@ -84,7 +92,7 @@ extern "C" ARM void func_ov017_021b848c(Struct_ov017_021b848c_2* arg0, signed ch
         func_020a35cc(arg0->unknown_1c_, 3);
     }
     arg0->unknown_46_ = arg2;
-    if (IsPartyMemberInBattle_020a35e0(arg0->unknown_1c_, arg0->unknown_46_) == 0) HaltForever_020c9be0();
+    if (IsPartyMemberInBattle_020a35e0(arg0->unknown_1c_, arg0->unknown_46_) == 0) func_020c9be0();
     if (arg3 == 0) GetProtagonistObjectIndex_020100a8(var0);
     arg0->unknown_48_ = arg3;
     arg0->unknown_1e_ = arg4;

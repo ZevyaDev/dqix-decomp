@@ -9,6 +9,18 @@
 #include "Resource/Brightness.h"
 
 #if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_020a1df8 func_020a3b70
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
 #define data_ov017_021d7d6c data_ov017_021d8544
 #define data_ov017_021d7d9e data_ov017_021d8576
 #define data_ov017_021d7db8 data_ov017_021d8590
@@ -54,8 +66,8 @@ extern "C" int GetCameraYaw_0202e7f0(void* camera);
 extern "C" void* GetFollowCamera_020100f8(char*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int func_020a1eb0(void);
-extern "C" void PushOverlay_020a1df8(int);
-extern "C" unsigned int* GetGlobalFlags_020d6c00(void);
+extern "C" void func_020a1df8(int);
+extern "C" unsigned int* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
 extern "C" void* func_020d7a50(void);
@@ -73,7 +85,7 @@ extern "C" int* func_02010768(void* arg0);
 struct SafeAllocator;
 extern "C" void func_ov001_0215aa14(SafeAllocator*);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" ARM int func_ov017_021bb27c(Struct_ov017_021bbc10* arg0);
 
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
@@ -96,14 +108,14 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
     GameObject* var2 = var0->GetUnknownGameObject();
     unsigned char* var3 = (unsigned char*)GetFollowCamera_020100f8((char*)var0);
     GameResources* var4 = GetGameResources();
-    void* var5 = GetLocalWireless_0202ae18();
+    void* var5 = func_0202ae18();
 
     if (IsTypeInQueue_02046b60((Queue_02038598_5*)var4->unknown_ptr_array_36fc[0], 1)) {
         arg0->unknown_ff_ = 1;
         arg0->unknown_1_ = 1;
         return arg0->unknown_a_;
     }
-    SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 0x400e);
+    SetGlobalFlags_020466e4(func_020d6c00(), 0x400e);
     if (var4->unknown_4080_ != 0) {
         return arg0->unknown_a_;
     }
@@ -116,7 +128,7 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
     }
     SetFlags00(var4, 0x10);
     if (TestFlags00(var4, 0x1000) == 0 && func_020a1eb0() != 1) {
-        PushOverlay_020a1df8(1);
+        func_020a1df8(1);
     }
     func_ov001_0215aa14((SafeAllocator*)NULL);
     DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);

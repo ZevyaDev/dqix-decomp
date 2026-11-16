@@ -2,7 +2,11 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void LoadFileTables_020a0c0c(void);
 struct Struct_0214e34c;
 extern "C" struct Struct_0214e34c* func_020d7a50();
@@ -22,7 +26,7 @@ extern "C" ARM void func_ov017_021a55b0(struct Struct_ov017_021a55b0* arg0) {
     void* var0 = arg0->unknown_c_.GetSignedAllocator();
     if (var0 != NULL) {
         arg0->unknown_c_.Destroy();
-        FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var0);
+        func_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var0);
         LoadFileTables_020a0c0c();
     }
     ClearTimedMessageQueue_020d7aa0((struct TimedMessageQueue_020d7aa0_2*)func_020d7a50());

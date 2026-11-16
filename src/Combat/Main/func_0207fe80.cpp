@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
 
 struct Struct_0207fe80_2 {
     char unknown_0_[0x1c];
@@ -37,7 +38,6 @@ struct Struct_0207fe80_3 {
 };
 
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char*);
-extern "C" void FillBGScreenRect_0204bc74(struct Struct_0207fe80_2* layer, int screenEntry, short x, short y, short width, short height, int palette);
 extern "C" int func_0204fd00(struct Struct_0207fe80* arg0, int arg1);
 
 // USA: func_0207fe80
@@ -81,19 +81,19 @@ extern "C" ARM void func_0207fe80(struct Struct_0207fe80_3* arg0, int arg1, int 
                 var6 = var4->unknown_ac_;
                 var8 = var4->unknown_a8_;
                 var9 = var4->unknown_c0_;
-                FillBGScreenRect_0204bc74(var0, arg3, var6, var7, var8, var9, 0);
+                ((BGLayer*)(var0))->SetTileInRectangle(arg3, var6, var7, var8, var9, 0);
                 if (var9 && arg3) {
                     if (!func_0204fd00(var4, 1)) {
-                        FillBGScreenRect_0204bc74(var0, 2, var6, var7, 1, 1, 0);
+                        ((BGLayer*)(var0))->SetTileInRectangle(2, var6, var7, 1, 1, 0);
                     }
                     if (!func_0204fd00(var4, 2)) {
-                        FillBGScreenRect_0204bc74(var0, 0x402, (short)(var6 + var8 - 1), var7, 1, 1, 0);
+                        ((BGLayer*)(var0))->SetTileInRectangle(0x402, (short)(var6 + var8 - 1), var7, 1, 1, 0);
                     }
                     if (!func_0204fd00(var4, 4)) {
-                        FillBGScreenRect_0204bc74(var0, 0x802, var6, (short)(var7 + var9 - 1), 1, 1, 0);
+                        ((BGLayer*)(var0))->SetTileInRectangle(0x802, var6, (short)(var7 + var9 - 1), 1, 1, 0);
                     }
                     if (!func_0204fd00(var4, 8)) {
-                        FillBGScreenRect_0204bc74(var0, 0xc02, (short)(var6 + var8 - 1), (short)(var7 + var9 - 1), 1, 1, 0);
+                        ((BGLayer*)(var0))->SetTileInRectangle(0xc02, (short)(var6 + var8 - 1), (short)(var7 + var9 - 1), 1, 1, 0);
                     }
                 }
             }

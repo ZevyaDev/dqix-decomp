@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "NitroSDK/Cache.h"
 
-extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 void CleanCacheRange(const void* addr, unsigned int size);
 extern "C" int func_020e12c0(void*);
 
@@ -29,7 +29,7 @@ extern "C" ARM void func_020e1384(struct Struct_020e1384* arg0) {
         return;
     }
     int var4 = var0 + var2;
-    DC_FlushRange((const void*)(var4), arg0->unknown_4_);
+    CleanInvalidateCacheRange((const void*)((const void*)(var4)), arg0->unknown_4_);
     var3(var4, arg0->unknown_c_, arg0->unknown_4_);
     CleanCacheRange((const void*)(var4), arg0->unknown_4_);
 }

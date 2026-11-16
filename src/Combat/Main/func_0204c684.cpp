@@ -6,10 +6,10 @@
 #endif
 
 #include "std_library_functions.h"
+#include "Graphics/BGLayer.h"
 
 extern "C" void func_0204f0ec(char* arg0);
 struct BGScreenBlock_02020cb8_7;
-extern "C" void func_0204acb0(struct BGScreenBlock_02020cb8_7* arg0);
 
 struct Struct_0204c684 {
     unsigned char unknown_0_0_ : 1;
@@ -51,7 +51,7 @@ extern "C" ARM void InitTextWindow_0204c684(char* textWindow) {
     *(unsigned char*)(textWindow + 0xc6) = 2;
     *(unsigned char*)(textWindow + 0xc7) = 0xa;
 
-    func_0204acb0((struct BGScreenBlock_02020cb8_7*)(textWindow + 0xc8));
+    ((BGLayer::Sprite*)((struct BGScreenBlock_02020cb8_7*)(textWindow + 0xc8)))->Reset();
 
     Struct_0204c684* flags = (Struct_0204c684*)(textWindow + 0xd8);
     flags->unknown_0_0_ = 0;

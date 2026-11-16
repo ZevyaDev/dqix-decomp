@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+extern "C" void* func_ov017_021b8478(void* battleManager);
 extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
@@ -36,7 +40,7 @@ extern "C" ARM void func_ov017_021c6784(int arg0, Struct_ov017_021c6784* arg1, G
 #endif
 	void* var0 = *(void**)(arg3 + 0x3000 + Enum_ov017_021c6784_1816);
 
-	void* var1 = GetBattleSetup_ov017_021b8478(var0);
+	void* var1 = func_ov017_021b8478(var0);
 	if (!var1) return;
 
 	void* var2 = GetBattle_ov017_021b8470(var0);

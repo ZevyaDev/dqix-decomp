@@ -1,6 +1,15 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct MessageWindow_02021b84;
 struct StringList_02072a68_2;
@@ -63,7 +72,7 @@ static inline Struct_ov023_021e868c* inline_ov003_02172e84(GameState* arg0)
 
 extern "C" int GetMessageWindow_020421a0();
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
-extern "C" Struct_ov023_021e868c_2* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" Struct_ov023_021e868c_2* func_02053c6c(unsigned char* gameObject);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" void AppendXPositionTag_02041a28(char* buffer, int x);
 #if defined(jpn)
@@ -87,7 +96,7 @@ extern "C" void SetMessageNumberAlignment_020465d8(unsigned char* window, int in
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 
 extern "C" {
-void* GetLocalWireless_0202ae18();
+void* func_0202ae18();
 #if defined(jpn)
 void func_020474a8(MessageWindow_02021b84* arg0, unsigned char arg1, const char* arg2, char* arg3);
 #else
@@ -96,7 +105,6 @@ void func_02046608(MessageWindow_02021b84* arg0, int arg1, const char* arg2, cha
 #endif
 }
 #if defined(jpn)
-extern "C" int FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 #endif
 
 // USA: func_ov023_021e868c
@@ -105,19 +113,19 @@ extern "C" ARM void func_ov023_021e868c(Struct_ov023_021e868c_3* arg0)
 {
     GameState* var0 = GameState::GetInstance();
     MessageWindow_02021b84* var1 = (MessageWindow_02021b84*)GetMessageWindow_020421a0();
-    void* var2 = GetLocalWireless_0202ae18();
+    void* var2 = func_0202ae18();
     Struct_ov023_021e868c_2* var3 = NULL;
     if (IsLocalWirelessOn_0202b7d8((int*)var2) == 0)
     {
         void* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, 0);
         if (var4 != NULL)
-            var3 = GetPartyMemberData_02053c6c((unsigned char*)var4);
+            var3 = func_02053c6c((unsigned char*)var4);
     }
     else
     {
         void* var5 = GetPartyMemberBaseByIndex_0200ff1c(var0, GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var2));
         if (var5 != NULL)
-            var3 = GetPartyMemberData_02053c6c((unsigned char*)var5);
+            var3 = func_02053c6c((unsigned char*)var5);
     }
     if (var3 == NULL)
         return;
@@ -223,7 +231,7 @@ extern "C" ARM void func_ov023_021e868c(Struct_ov023_021e868c_3* arg0)
 #if defined(jpn)
     const char* var16;
     if (var14 < 700)
-        var16 = (const char*)FindStringInTable_020e0434(arg0->unknown_5f8_, (short)var14);
+        var16 = (const char*)((int)((StringList*)(arg0->unknown_5f8_))->GetString((short)var14));
     else
         var16 = FindStringInList_02072a68(arg0->unknown_5f4_, (short)(var14 + 20000));
 #else

@@ -4,6 +4,14 @@
 #include "Filesystem/GPC.h"
 #include "Resource/ResourceMutex.h"
 
+#if defined(jpn)
+#define func_020a1ccc func_020a3a44
+#endif
+
+#if defined(jpn)
+#define func_020a1a40 func_020a37b8
+#endif
+
 extern "C"
 {
     unsigned int func_01ff860c(const char*);
@@ -94,7 +102,7 @@ int Struct_ov034_022a2a6c::Process()
         }
 
         Task* gpcTask = NULL;
-        if (CheckGPCPairValid_020d917c(pGPC, reader_))
+        if (IsGPCPairValid(&pGPC, &reader_))
         {
             Task* pTask = &queuedTasks_[0];
             for (int j = 0; j < numPendingTasks_; j++, pTask++)
@@ -117,7 +125,7 @@ int Struct_ov034_022a2a6c::Process()
 
         if (gpcTask == NULL)
         {
-            ResetGPCPair(&pGPC, reader_);
+            ResetGPCPair(&pGPC, &reader_);
             currentArchiveCRC = 0;
             scratchRightArenaUsage_ = 0;
             flagMaybeGP2OperationInFlight_ = false;
@@ -198,8 +206,7 @@ int Struct_ov034_022a2a6c::Process()
                     else
                     {
                         unsigned int compressedSize = reader_.GetFileSize();
-                        reader_.DecompressBytes(inFlightTask.pFileData, inFlightTask.fileLengthOrOverlayID_,
-                            compressedSize, allocSize);
+                        reader_.DecompressBytes(inFlightTask.pFileData, &inFlightTask.fileLengthOrOverlayID_, compressedSize, allocSize);
                     }
                 }
                 else
@@ -219,9 +226,8 @@ int Struct_ov034_022a2a6c::Process()
             unsigned char* outputBufferLeft = (unsigned char*)scratchSpace_ + rightmostAllocationByte_;
             unsigned int outLength = 0;
             bool outSuccess = false;
-            if (!CheckGPCPairValid_020d917c(pGPC, reader_) &&
-                !LoadAndDecompressGPCHeaderAndInnerFileInfo(&pGPC, reader_, fullName, outputBufferLeft,
-                    outLength, outBufferRightMinusLeft, true, &outSuccess))
+            if (!IsGPCPairValid(&pGPC, &reader_) &&
+                !LoadAndDecompressGPCHeaderAndInnerFileInfo(&pGPC, &reader_, fullName, outputBufferLeft, &outLength, outBufferRightMinusLeft, true, &outSuccess))
             {
                 flagMaybeGP2OperationInFlight_ = false;
                 if (outSuccess)
@@ -233,7 +239,7 @@ int Struct_ov034_022a2a6c::Process()
             {
                 currentArchiveCRC = func_01ff860c(inFlightTask.outerFilename_);
                 scratchRightArenaUsage_ += outLength;
-                unsigned int innerFileLength = GetGPCInnerFileLengthByName(pGPC, reader_, inFlightTask.innerFilename_);
+                unsigned int innerFileLength = GetGPCInnerFileLengthByName(&pGPC, &reader_, inFlightTask.innerFilename_);
                 unsigned int allocSize = (innerFileLength + 7) & ~3;
                 if (inFlightTask.externalAllocator_ != NULL)
                 {
@@ -242,7 +248,7 @@ int Struct_ov034_022a2a6c::Process()
                         inFlightTask.status_ = TaskStatus_Unallocated;
                     else
                     {
-                        if (!DecompressFileFromGPCByName(pGPC, reader_, inFlightTask.pFileData, inFlightTask.fileLengthOrOverlayID_, allocSize, inFlightTask.innerFilename_))
+                        if (!DecompressFileFromGPCByName(&pGPC, &reader_, inFlightTask.pFileData, &inFlightTask.fileLengthOrOverlayID_, allocSize, inFlightTask.innerFilename_))
                         {
                             inFlightTask.externalAllocator_->Free(inFlightTask.pFileData);
                             inFlightTask.pFileData = NULL;
@@ -258,7 +264,7 @@ int Struct_ov034_022a2a6c::Process()
                         inFlightTask.status_ = TaskStatus_Unallocated;
                     else
                     {
-                        if (!DecompressFileFromGPCByName(pGPC, reader_, inFlightTask.pFileData, inFlightTask.fileLengthOrOverlayID_, allocSize, inFlightTask.innerFilename_))
+                        if (!DecompressFileFromGPCByName(&pGPC, &reader_, inFlightTask.pFileData, &inFlightTask.fileLengthOrOverlayID_, allocSize, inFlightTask.innerFilename_))
                         {
                             FreeScratchSpace(&inFlightTask.scratchAlloc_);
                             inFlightTask.pFileData = NULL;
@@ -310,9 +316,9 @@ int Struct_ov034_022a2a6c::Process()
             FreeScratchSpace(&inFlightTask.scratchAlloc_);
             if (inFlightTask.status_ == TaskStatus_Complete && inFlightTask.externalAllocator_ != NULL)
                 inFlightTask.externalAllocator_->Free(inFlightTask.pFileData);
-            if (CheckGPCPairValid_020d917c(pGPC, reader_))
+            if (IsGPCPairValid(&pGPC, &reader_))
             {
-                ResetGPCPair(&pGPC, reader_);
+                ResetGPCPair(&pGPC, &reader_);
                 currentArchiveCRC = 0;
                 scratchRightArenaUsage_ = 0;
                 flagMaybeGP2OperationInFlight_ = false;
@@ -324,7 +330,7 @@ int Struct_ov034_022a2a6c::Process()
 
 end:
     UnlockResourceMutex();
-    ResetGPCPair(&pGPC, reader_);
+    ResetGPCPair(&pGPC, &reader_);
     scratchRightArenaUsage_ = 0;
     flagMaybeGP2OperationInFlight_ = false;
     if (numPendingTasks_ <= 0)

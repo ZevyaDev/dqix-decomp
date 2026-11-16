@@ -2,6 +2,8 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "Graphics/SpriteAffineTransform.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/PAC.h"
 
 #if defined(jpn)
 #define REGION(j,u) (j)
@@ -21,10 +23,7 @@ struct Struct_ov023_021ddae4 {
 };
 
 struct PacEntry_02020cb8_4;
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" int LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, int allocator);
 
 // USA: func_ov023_021ddae4
 extern "C" ARM void func_ov023_021ddae4(void* arg0) {
@@ -42,10 +41,10 @@ extern "C" ARM void func_ov023_021ddae4(void* arg0) {
     if (var3 != 0 && var4 != 0)
 #endif
     {
-        int var6 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var3);
+        int var6 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var3));
         for (int var7 = 0; var7 < var6; var7++) {
-            void* var8 = GetPacEntryData_020467f0((PacEntry_02020aec*)var3, var7, &var2, &var5);
-            LoadSpriteSetFile_0205a528(&var0->unknown_12c_, var8, var5, (int)var0->unknown_44_);
+            void* var8 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var3), var7, (const char**)(&var2), (unsigned int*)(&var5));
+            ((OBJSpriteSet*)(&var0->unknown_12c_))->LoadFromNitroFile((void*)(var8), var5, (SafeAllocator*)((int)var0->unknown_44_));
         }
     }
     var0->unknown_77d_ = var0->unknown_77e_;

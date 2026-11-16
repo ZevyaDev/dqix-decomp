@@ -31,3 +31,8 @@ extern "C" ARM void func_0208f68c(unsigned char* arg0) {
         }
     }
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

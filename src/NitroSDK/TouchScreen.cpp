@@ -5,6 +5,10 @@
 #include "NitroSDK/HWRegisters.h"
 #include "NitroSDK/Input.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 
 struct LinearCoefficients
 {
@@ -37,7 +41,7 @@ struct
 extern "C"
 {
     // abort() or similar
-    void HaltForever_020c9be0();
+    void func_020c9be0();
 }
 
 int ComputeCalibrationCoefficients(TouchScreenCalibration* dst,
@@ -155,7 +159,7 @@ void TouchScreenIPCCommandReceiveProc(unsigned int a, unsigned int b, unsigned i
         break;
     case 1:
     default:
-        HaltForever_020c9be0();
+        func_020c9be0();
         break;
     }
 }

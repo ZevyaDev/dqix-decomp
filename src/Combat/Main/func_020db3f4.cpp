@@ -1,10 +1,15 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "NitroSDK/Cache.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
 
 struct Struct_020db3f4_3;
 extern "C" void func_020db844(struct Struct_020db3f4_3* arg0, int arg1, int arg2, int arg3);
 
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 
@@ -13,7 +18,6 @@ extern "C" int func_020937f0(int arg0);
 struct Struct_020db3a8;
 extern "C" int func_020db3a8(struct Struct_020db3a8* arg0);
 
-extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 void CleanCacheRange(const void* addr, unsigned int size);
 
 extern "C" void func_020db304(int arg0, int arg1);
@@ -66,7 +70,7 @@ extern "C" ARM void func_020db3f4(struct Struct_020db3f4* arg0) {
     func_020db844((struct Struct_020db3f4_3*)arg0, arg0->unknown_3c_, arg0->unknown_6a_, 0);
     arg0->unknown_51_ = 1;
 
-    SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x8000);
+    SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 0x8000);
 
     int var0 = func_020937f0(arg0->unknown_3c_);
     int var1 = var0 - 0xb80;
@@ -79,7 +83,7 @@ extern "C" ARM void func_020db3f4(struct Struct_020db3f4* arg0) {
 
     void* var4 = data_020f28e4[arg0->unknown_3c_]();
 
-    DC_FlushRange(arg0->unknown_40_, arg0->unknown_44_);
+    CleanInvalidateCacheRange((const void*)(arg0->unknown_40_), arg0->unknown_44_);
     data_020f28ec[arg0->unknown_3c_](arg0->unknown_40_, var1, arg0->unknown_44_);
     CleanCacheRange(arg0->unknown_40_, arg0->unknown_44_);
 
@@ -92,11 +96,11 @@ extern "C" ARM void func_020db3f4(struct Struct_020db3f4* arg0) {
         memset(var5, 0xeeeeeeee, 0x800);
     }
 
-    DC_FlushRange(var5, 0x800);
+    CleanInvalidateCacheRange((const void*)(var5), 0x800);
     data_020f28ec[arg0->unknown_3c_](var5, var3, 0x800);
     CleanCacheRange(var5, 0x800);
 
-    DC_FlushRange(arg0->unknown_48_, arg0->unknown_4c_);
+    CleanInvalidateCacheRange((const void*)(arg0->unknown_48_), arg0->unknown_4c_);
     data_020f28dc[arg0->unknown_3c_](arg0->unknown_48_, var2, arg0->unknown_4c_);
     CleanCacheRange(arg0->unknown_48_, arg0->unknown_4c_);
 

@@ -4,6 +4,10 @@
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 struct Struct_ov009_0218aa28 { int unknown_0_; int unknown_4_; int unknown_8_; };
 struct Struct_02010604;
 struct Struct_02033b68;
@@ -73,7 +77,7 @@ extern "C" ARM void func_020a78dc(struct Struct_020a78dc* arg0) {
     struct Struct_02038138_3* var3;
     void** var4;
 
-    var1 = GetCamera_020100bc(GameState::GetInstance());
+    var1 = func_020100bc(GameState::GetInstance());
     var2 = (char*)GetGameResources();
 #if defined(jpn)
     enum { Enum_020a78dc_14076 = 0x34ec, Enum_020a78dc_108 = 0x8c };

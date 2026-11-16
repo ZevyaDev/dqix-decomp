@@ -1,10 +1,11 @@
 #include <globaldefs.h>
-extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char g_fileScratchSpace[0x30000] __attribute__((aligned(4)));
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/GPC.h"
 #include "Filesystem/FileIO.h"
 #include "std_library_functions.h"
+#include "Graphics/BGLayer.h"
 
 struct Struct_020421c4 {
     int unknown_0_;
@@ -75,15 +76,13 @@ extern char data_020f007a;
 extern char data_020f0082;
 extern Script::OpcodeLookupEntry data_020efe20[];
 
-extern "C" void func_0204a82c(struct Struct_020421c4*);
-extern "C" int func_0204aa48(struct Struct_020421c4_2*);
 extern "C" void func_02094a24(struct Struct_020421c4_4*);
 extern "C" void func_0209564c(void*, SafeAllocator*);
 extern "C" void func_020952e4(int);
 extern "C" void func_02042998(struct Struct_020421c4_3*);
 
 static inline void* inline_020421c4(const char* arg0, unsigned int* arg1) {
-    return LoadFileIntoMemory(arg0, gFileScratchSpace_0211e33c, arg1);
+    return LoadFileIntoMemory(arg0, g_fileScratchSpace, arg1);
 }
 
 // JPN: func_020421c4
@@ -133,42 +132,41 @@ extern "C" ARM void func_020421c4(SafeAllocator* arg0) {
     data_02107778->unknown_48_ = data_0210776c;
     var0 = 0;
     var7 = inline_020421c4(&data_020f0038, &var0);
-    func_0204a82c(&var1);
+    ((BGLayer::CharacterData*)(&var1))->Reset();
     if (var7 != 0) {
         memcpy(&var1, var7, 0xc);
     }
-    var6 = func_0204aa48((struct Struct_020421c4_2*)&var1);
+    var6 = ((int)((BGLayer::CharacterData*)((struct Struct_020421c4_2*)&var1))->GetVRAMSize());
     var8 = arg0->Allocate(var6);
     data_02107744 = var8;
-    memcpy(var8, (void*)((int)gFileScratchSpace_0211e33c + 0x10), var6);
+    memcpy(var8, (void*)((int)g_fileScratchSpace + 0x10), var6);
 
     GPCReadPair* var13 = &var2;
     var18 = 0;
     var3 = var18;
     var17 = var18;
     var10 = var18;
-    var11 = gFileScratchSpace_0211e33c;
+    var11 = g_fileScratchSpace;
     var12 = 0x30000;
     ZeroInitGPCPointer(&var13->pGPCFile);
     var13->ZeroInitializeMachine();
-    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var2.pGPCFile, var2.machine, &data_020f0050,
-            var11, var3, var12, 0, 0)) {
+    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var2.pGPCFile, &var2.machine, &data_020f0050, var11, &var3, var12, 0, 0)) {
         var11 += var3;
         var12 -= var3;
         var19 = var11;
-        DecompressFileFromGPCByName(var2.pGPCFile, var2.machine, var11, var3, var12, &data_020f006c);
+        DecompressFileFromGPCByName(&var2.pGPCFile, &var2.machine, var11, &var3, var12, &data_020f006c);
         var10 = (var3 + 3) & ~3;
         var11 += var10;
         var12 -= var10;
-        DecompressFileFromGPCByName(var2.pGPCFile, var2.machine, var11, var3, var12, &data_020f0073);
+        DecompressFileFromGPCByName(&var2.pGPCFile, &var2.machine, var11, &var3, var12, &data_020f0073);
         var17 = (var3 + 3) & ~3;
         var11 += var17;
         var12 -= var17;
-        DecompressFileFromGPCByName(var2.pGPCFile, var2.machine, var11, var3, var12, &data_020f007a);
+        DecompressFileFromGPCByName(&var2.pGPCFile, &var2.machine, var11, &var3, var12, &data_020f007a);
         var18 = (var3 + 3) & ~3;
         var11 += var18;
         var12 -= var18;
-        DecompressFileFromGPCByName(var2.pGPCFile, var2.machine, var11, var3, var12, &data_020f0082);
+        DecompressFileFromGPCByName(&var2.pGPCFile, &var2.machine, var11, &var3, var12, &data_020f0082);
         var16 = (var3 + 3) & ~3;
         var2.Reset();
         var3 = var10 + var17 + var18 + var16;
@@ -243,8 +241,6 @@ extern char data_020f0023;
 extern char data_020f003f;
 
 extern "C" void func_02042944(void*);
-extern "C" void func_0204a82c(struct Struct_020421c4*);
-extern "C" int func_0204aa48(struct Struct_020421c4_2*);
 extern "C" void func_02094a24(struct Struct_020421c4_4*);
 extern "C" void func_02094a20(void*, SafeAllocator*);
 extern "C" void func_02094a10(int);
@@ -281,28 +277,26 @@ extern "C" ARM void func_020421c4(SafeAllocator* arg0) {
     BackgroundLoader::AddLockGlobal();
 
     var0 = 0;
-    var7 = LoadFileIntoMemory(&data_020f000b, gFileScratchSpace_0211e33c, &var0);
-    func_0204a82c(&var1);
+    var7 = LoadFileIntoMemory(&data_020f000b, g_fileScratchSpace, &var0);
+    ((BGLayer::CharacterData*)(&var1))->Reset();
     if (var7 != 0) {
         memcpy(&var1, var7, 0xc);
     }
-    var6 = func_0204aa48((struct Struct_020421c4_2*)&var1);
+    var6 = ((int)((BGLayer::CharacterData*)((struct Struct_020421c4_2*)&var1))->GetVRAMSize());
     var8 = arg0->Allocate(var6);
     data_02107800.unknown_4_ = var8;
-    memcpy(var8, (void*)((int)gFileScratchSpace_0211e33c + 0x10), var6);
+    memcpy(var8, (void*)((int)g_fileScratchSpace + 0x10), var6);
 
     GPCReadPair* var13 = &var2;
     var10 = 0;
     var3 = var10;
-    var11 = gFileScratchSpace_0211e33c;
+    var11 = g_fileScratchSpace;
     var12 = 0x30000;
     ZeroInitGPCPointer(&var13->pGPCFile);
     var13->ZeroInitializeMachine();
-    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var2.pGPCFile, var2.machine, &data_020f0023,
-            var11, var3, var12, 0, 0)) {
+    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var2.pGPCFile, &var2.machine, &data_020f0023, var11, &var3, var12, 0, 0)) {
         var5 = var3;
-        DecompressFileFromGPCByName(var2.pGPCFile, var2.machine, var11 + var5, var3,
-            var12 - var5, &data_020f003f);
+        DecompressFileFromGPCByName(&var2.pGPCFile, &var2.machine, var11 + var5, &var3, var12 - var5, &data_020f003f);
         var12 = (var3 + 3) & ~3;
         var2.Reset();
         var12 = var10 + (var10 + (var10 + var12));

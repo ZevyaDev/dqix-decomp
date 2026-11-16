@@ -3,6 +3,10 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_020a1df8 func_020a3b70
+#endif
+
 struct Struct_02018300_3;
 struct Struct_0206f7f4;
 struct Struct_ov017_021ba998 { char unknown_0_[0x5a0]; signed char unknown_5a0_; char unknown_5a1_[0x5c0 - 0x5a1]; };
@@ -20,7 +24,7 @@ extern "C" void ClearCameraFlags_020a28b0(unsigned char*, int);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void LoadFileTables_020a0c0c();
-extern "C" void PushOverlay_020a1df8(int);
+extern "C" void func_020a1df8(int);
 extern "C" Struct_0206f7f4* func_0206f504();
 extern "C" short func_0206f7f4(Struct_0206f7f4*, int);
 extern "C" void func_ov003_02158bb8(Struct_ov017_021ba998*);
@@ -62,7 +66,7 @@ extern "C" ARM void func_ov017_021ba998(Struct_ov017_021ba998_2* arg0) {
             LoadFileTables_020a0c0c(); arg0->unknown_1_ = 1;
             return;
         }
-        PushOverlay_020a1df8(3);
+        func_020a1df8(3);
         short var6;
         if (arg0->unknown_20_) var6 = arg0->unknown_21_ - 1;
         else var6 = func_0206f7f4(func_0206f504(), 0) - 1;

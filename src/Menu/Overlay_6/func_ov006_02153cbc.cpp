@@ -38,7 +38,7 @@ extern "C" ARM void func_ov006_02153cbc(void* arg0, short arg1, short arg2, void
     if (func_020ac2d4(0, &arg1, &var0, 1)) {
         var0.unknown_2_0_ = 1;
         var0.unknown_2_1_ = 1;
-        func_020ac104(gFileScratchSpace_0211e33c, &var0, 1);
+        func_020ac104(g_fileScratchSpace, &var0, 1);
         func_ov006_02153e8c(arg0, &var0);
         if (arg3) {
             Struct_ov006_02153cbc_2* var1 = func_02071d60(arg3, arg1);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov006_02153cbc(void* arg0, short arg1, short arg2, void
         if (func_020ac2d4(0, &arg2, &var0, 1)) {
             var0.unknown_0_ = arg2;
             var0.unknown_2_1_ = 1;
-            func_020ac104(gFileScratchSpace_0211e33c, &var0, 1);
+            func_020ac104(g_fileScratchSpace, &var0, 1);
             func_ov006_02153e8c(arg0, &var0);
             if (arg3) {
                 Struct_ov006_02153cbc_2* var2 = func_02071d60(arg3, arg2);

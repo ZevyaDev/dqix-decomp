@@ -5,6 +5,11 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
+#include "Graphics/TextureArena.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 struct Struct_02018300_3; struct Queue_02038598_5; struct TextureVRAMArea_0203d028; struct Struct_02010834; struct Queue_0201bdac_2; struct QueueNode_0201bdac;
 struct Struct_ov017_021be468_5 {
     unsigned char unknown_0_,unknown_1_; char unknown_2_[6]; int unknown_8_,unknown_c_; Vector3i unknown_10_; int unknown_1c_,unknown_20_;
@@ -42,12 +47,12 @@ struct Struct_ov017_021be468_4 {
 #define data_ov017_021d7e80 data_ov017_021d8693
 #endif
 extern AllocatorUnion gMainHeap_02114e20; extern char data_ov017_021d7e80[]; extern char gSoundEffectManager_02108760[];
-extern "C" void GetLocalWireless_0202ae18(); extern "C" void* GetEffectManager_02057924(); extern "C" unsigned char* GetZone3D_02012fe4();
+extern "C" void func_0202ae18(); extern "C" void* GetEffectManager_02057924(); extern "C" unsigned char* GetZone3D_02012fe4();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*,int); extern "C" void func_0201bf98(unsigned char*,int,int);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*,int); extern "C" void func_02046b8c(void*,int); extern "C" void RemoveFromQueue_02046a8c(void*,void*);
 extern "C" void func_ov017_021d2738(unsigned char,unsigned char); extern "C" int IsQueueEmpty_02046b08(void**); 
 extern "C" void* GetFontLoader_02094a00(); extern "C" void CancelFontLoad_02094ab0(void*); extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
-extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*,unsigned int); extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
+extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*,unsigned int);
 extern "C" void AddEffectResource_02057e6c(void*,int,SafeAllocator*,void*,unsigned int,TextureVRAMArea_0203d028*);
 int IsMainBrightnessTransitionActive(GameResources*); extern "C" void func_02010834(Struct_02010834*,int,int*,int*);
 extern "C" void PlayEffect_02057fb4(void*,int,void*); extern "C" void LoadExtraSoundSet_0205ebc0(void*,int,int); extern "C" void PlayExtraSoundEffect_0205ebfc(void*,int,int);
@@ -58,7 +63,7 @@ extern "C" void EnablePlayerControl_020397c0(void*); extern "C" void func_ov017_
 
 // USA: func_ov017_021be468
 extern "C" ARM void func_ov017_021be468(Struct_ov017_021be468_5* arg0,Queue_02038598_5* arg1) {
-    GameState* var0=GameState::GetInstance(); GetLocalWireless_0202ae18();
+    GameState* var0=GameState::GetInstance(); func_0202ae18();
     GameResources* var1=GetGameResources();
     GameObject* var2=var0->GetUnknownGameObject();
     void* var3=GetEffectManager_02057924(); BackgroundLoader* var4=BackgroundLoader::GetInstance(); unsigned char* var5=GetZone3D_02012fe4();
@@ -67,7 +72,7 @@ extern "C" ARM void func_ov017_021be468(Struct_ov017_021be468_5* arg0,Queue_0203
         if(IsTypeInQueue_02046b60(arg1,3)) func_02046b8c(arg1,3);
         else {
             if(IsTypeInQueue_02046b60(arg1,0x34)) RemoveFromQueue_02046a8c(arg1,var1->unknown_ptr_array_3afc[28]);
-            if(IsTypeInQueue_02046b60(arg1,0x2e)) { RemoveFromQueue_02046a8c(arg1,var1->unknown_ptr_array_3afc[21]); func_ov017_021d2738((unsigned char)var2->obj3D_.objectIndex_4_,0); }
+            if(IsTypeInQueue_02046b60(arg1,0x2e)) { RemoveFromQueue_02046a8c(arg1,var1->unknown_ptr_array_3afc[21]); func_ov017_021d2738((unsigned char)var2->obj3D_.unknown_4_,0); }
             if(IsQueueEmpty_02046b08((void**)var1->unknown_ptr_array_36fc[1])) {
                 SetFlags00(var1, 0x10); CancelFontLoad_02094ab0(GetFontLoader_02094a00()); ReleaseFileTablesForSpace_020a0cc4(0x2800);
                 arg0->unknown_20_=var4->QueueLoadFile(data_ov017_021d7e80,0); arg0->unknown_8_++;
@@ -80,14 +85,14 @@ extern "C" ARM void func_ov017_021be468(Struct_ov017_021be468_5* arg0,Queue_0203
                 unsigned int var6; void* var7; var4->GetLoadedFileByID(arg0->unknown_20_,&var7,&var6);
                 arg0->unknown_24_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20,0x2800),0x2800); arg0->unknown_24_.Reset();
                 TextureVRAMArea_0203d028* var8=&((Struct_ov017_021be468_7*)var0->GetUnknownGameObject())->unknown_154_->unknown_568_;
-                ResetTextureVRAMState_0207df50(var8);
+                ((TextureArena*)(var8))->Reset();
                 void* var9=arg0->unknown_24_.Allocate(var6); memcpy(var9,var7,var6);
                 AddEffectResource_02057e6c(var3,5,&arg0->unknown_24_,var9,var6,var8); var4->RemoveTask(arg0->unknown_20_); arg0->unknown_8_++;
             }
         }
     } else if(arg0->unknown_8_==2) {
         if(!IsMainBrightnessTransitionActive(var1)) {
-            int var10[5],var11=0; func_02010834((Struct_02010834*)var0,var2->obj3D_.objectIndex_4_,var10,&var11);
+            int var10[5],var11=0; func_02010834((Struct_02010834*)var0,var2->obj3D_.unknown_4_,var10,&var11);
             for(int var12=0;var12<var11;var12++) arg0->unknown_38_|=1<<var10[var12];
             Struct_ov017_021be468_2 var13[5];
             for(int var14=0;var14<var11;var14++) {

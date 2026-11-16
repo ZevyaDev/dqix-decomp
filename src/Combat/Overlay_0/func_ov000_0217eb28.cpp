@@ -4,6 +4,10 @@
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_02109bf4_5;
 struct TextWindowManager_0205d0e0_2;
 struct TextWindowManager_0205d6a0;
@@ -54,7 +58,7 @@ extern "C" int func_0209ca2c(void*);
 extern "C" void func_0209c73c(Struct_02109bf4_5*);
 extern "C" int HitTestCursorWindowTouch_0205d97c(void*);
 extern "C" int func_ov000_021815c8(void*);
-extern "C" int* GetLocalWireless_0202ae18();
+extern "C" int* func_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int, int);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources*, int, int, int, int);
@@ -83,7 +87,7 @@ extern "C" ARM void func_ov000_0217eb28(Struct_ov004_021707e8* arg0, int arg1, i
             arg0->unknown_1d68_--;
         }
         int var1 = func_ov000_021815c8(arg0);
-        if (IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18()))
+        if (IsLocalWirelessOn_0202b7d8(func_0202ae18()))
             SendPartyMemberEquippedItems_ov017_021c3fb4(var1, 1);
         GameResources* var2 = GetGameResources();
         BackgroundLoader::GetInstance();

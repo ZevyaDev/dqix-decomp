@@ -2,13 +2,21 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
+#if defined(jpn)
 enum { Enum_ov017_021cf024_30536 = 0x7938 };
 #else
 enum { Enum_ov017_021cf024_30536 = 0x7748 };
 #endif
 
-extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" void* func_ov017_021b8478(void* battleManager);
+extern "C" void* func_ov017_021b8468(void* battleManager);
 extern "C" void func_ov000_02163338(unsigned char* arg0, unsigned char arg1);
 
 struct Struct_ov017_021cf024 {
@@ -31,8 +39,8 @@ struct Struct_ov017_021cf024_3 {
 // USA: func_ov017_021cf024
 extern "C" ARM void func_ov017_021cf024(int arg0, Struct_ov017_021cf024* arg1, int arg2, GameResources* arg3) {
     void* var0 = arg3->unknown_ptr_3718;
-    Struct_ov017_021cf024_2* var1 = (Struct_ov017_021cf024_2*)GetBattleSetup_ov017_021b8478(var0);
-    Struct_ov017_021cf024_3* var2 = (Struct_ov017_021cf024_3*)GetBattleScene_ov017_021b8468(var0);
+    Struct_ov017_021cf024_2* var1 = (Struct_ov017_021cf024_2*)func_ov017_021b8478(var0);
+    Struct_ov017_021cf024_3* var2 = (Struct_ov017_021cf024_3*)func_ov017_021b8468(var0);
     if (var2 == NULL) {
         return;
     }

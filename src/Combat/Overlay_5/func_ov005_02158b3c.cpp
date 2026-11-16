@@ -9,6 +9,7 @@
 #include <Combat/Main/BattleList.h>
 #include <Resource/GameResources.h>
 #include <Resource/CharacterCreationUI.h>
+#include "Resource/StringList.h"
 
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void* window);
@@ -18,7 +19,6 @@ extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void InitNoun_020e46c4(void* noun);
 extern "C" short func_ov005_0215a930(void* arg0, int arg1);
 extern "C" void func_020dcf7c(int arg0, void* arg1);
-extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_02046608(void* arg0, unsigned char arg1, const char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 
 struct Struct_ov005_02158b3c_6 {
@@ -170,7 +170,7 @@ extern "C" ARM int func_ov005_02158b3c(void* arg0, void* arg1) {
     }
 
     if (var17 >= 0) {
-        sprintf((char*)arg1, FindStringInTable_020e0434(&var8->unknown_df8_, var17));
+        sprintf((char*)arg1, ((char*)((StringList*)(&var8->unknown_df8_))->GetString(var17)));
     }
 #if !defined(jpn)
     char var18[0x800];

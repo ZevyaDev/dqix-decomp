@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 struct TextWindowManager_0205de24_2;
 struct MenuCursor_0205ba68;
@@ -65,7 +66,6 @@ extern "C" void EnableTouchMenuCursor_0205cef8(void*);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void GetZone3D_02012fe4();
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" unsigned char* func_0205e00c(struct TextWindowManager_0205d81c* arg0, int arg1);
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
         var6 = arg0->unknown_2c_;
     }
     for (var7 = var8 * 6; var7 < var6; var7++) {
-        const char* var9 = (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_c8_, (short)(arg0->unknown_14_[var7] + 100));
+        const char* var9 = (const char*)((int)((StringList*)((struct Struct_0201099c_3*)arg0->unknown_c8_))->GetString((short)(arg0->unknown_14_[var7] + 100)));
         AppendMenuEntry_02041b70(var0, var7 % 6, var9);
         if (var7 != var6 - 1) {
             AppendText_02042058(var0, data_ov003_02180c7f);
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
         SetMessageNumberAlignment_020465d8((unsigned char*)var1, 0, 1);
         SetMessageNumberAlignment_020465d8((unsigned char*)var1, 1, 0);
         func_02042428(var0, 8);
-        AppendText_02042058(var0, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_c8_, 200));
+        AppendText_02042058(var0, (const char*)((int)((StringList*)((struct Struct_0201099c_3*)arg0->unknown_c8_))->GetString(200)));
     }
     if (arg0->unknown_2e_ > 1) {
         OpenTextWindow_0205d304(arg0->unknown_8c_, var0, 0, 0, 1, 1, 0);
@@ -208,7 +208,7 @@ extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
         var21 = arg0->unknown_30_;
     }
     for (var22 = var23 * 6; var22 < var21; var22++) {
-        const char* var24 = (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_cc_, (short)(arg0->unknown_18_[var22] + 100));
+        const char* var24 = (const char*)((int)((StringList*)((struct Struct_0201099c_3*)arg0->unknown_cc_))->GetString((short)(arg0->unknown_18_[var22] + 100)));
         AppendMenuEntry_02041b70(var13, var22 % 6, var24);
         if (var22 != var21 - 1) {
             AppendText_02042058(var13, data_ov003_02180c7f);

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
 
 struct TextWindowManager_0205d2bc;
-extern "C" void CopyBGScreenDataToVRAM_0204b088(void*, int);
 extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(struct TextWindowManager_0205d2bc*);
 
 #if defined(jpn)
@@ -15,10 +15,10 @@ extern "C" ARM void func_ov000_021742c8(void* arg0) {
     unsigned short var0 = *(unsigned short*)((char*)arg0 + Enum_ov000_021742c8_7538);
     if (!(var0 & 0x40)) return;
     if (var0 & 0x80) {
-        CopyBGScreenDataToVRAM_0204b088((char*)arg0 + 0x8c4, 0);
+        ((BGLayer*)((char*)arg0 + 0x8c4))->UploadIndexBuffer((const void*)(0));
         return;
     }
-    CopyBGScreenDataToVRAM_0204b088((char*)arg0 + 0x8a4, 0);
-    CopyBGScreenDataToVRAM_0204b088((char*)arg0 + 0x8c4, 0);
+    ((BGLayer*)((char*)arg0 + 0x8a4))->UploadIndexBuffer((const void*)(0));
+    ((BGLayer*)((char*)arg0 + 0x8c4))->UploadIndexBuffer((const void*)(0));
     CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((struct TextWindowManager_0205d2bc*)((char*)arg0 + 0x188));
 }

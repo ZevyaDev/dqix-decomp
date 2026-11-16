@@ -2,6 +2,10 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
 #define RG(u, j) (j)
 #define OBJ (arg0 + 0xe20)
 #define APPLY(s, k, t) SetTextWindowText_0205d5d0(s, k, t, 1)
@@ -18,7 +22,7 @@ struct Struct_ov002_02157d40_7;
 struct Struct_ov002_0215bba8_3;
 
 extern "C" int func_ov002_0215a9f0(void *arg0);
-extern "C" char *GetFlagManager_0205ec34();
+extern "C" char *func_0205ec34();
 extern "C" short func_0206e3e8(int arg0, int arg1);
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
@@ -60,7 +64,7 @@ extern "C" ARM void func_ov002_0216994c(char *arg0) {
     if (var0 == 0) {
         *(unsigned int *) (arg0 + RG(0x247c, 0x22ac)) &= ~4;
         int var1                    = func_ov002_0215a9f0(arg0);
-        *(short *) (arg0 + RG(0x1c0c, 0x1ad4)) = func_0206e3e8((int) GetFlagManager_0205ec34(), var1) - 1;
+        *(short *) (arg0 + RG(0x1c0c, 0x1ad4)) = func_0206e3e8((int) func_0205ec34(), var1) - 1;
         if (*(short *) (arg0 + RG(0x1c0c, 0x1ad4)) < 0) {
             *(short *) (arg0 + RG(0x1c0c, 0x1ad4)) = 0;
         }
@@ -92,7 +96,7 @@ extern "C" ARM void func_ov002_0216994c(char *arg0) {
     int var6 = (var4 | var5) ? 1 : 0;
     if (var6) {
         int var7 = func_ov002_0215a9b4(arg0, *(short *) (arg0 + RG(0x1c0c, 0x1ad4)));
-        int var8  = func_0206e3d4((int) GetFlagManager_0205ec34(), var7);
+        int var8  = func_0206e3d4((int) func_0205ec34(), var7);
         int var9  = 1;
         int var10   = var9;
         if (var8 >= 0 && *(short *) (arg0 + RG(0x1c0c, 0x1ad4)) != 0x1f) {

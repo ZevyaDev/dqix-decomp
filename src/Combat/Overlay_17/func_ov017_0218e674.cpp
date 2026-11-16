@@ -4,6 +4,14 @@
 #include "Input/Input.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 struct LocalWireless_0202b2f0;
 struct Struct_ov017_0218e674;
 struct Struct_02037d88_11;
@@ -14,7 +22,7 @@ struct Struct_ov017_0218e674_2 {
     unsigned char unknown_f7c_;
 };
 
-extern "C" struct LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
+extern "C" struct LocalWireless_0202b2f0* func_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(struct LocalWireless_0202b2f0* wireless);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02037d88(GameObject* arg0);
@@ -35,8 +43,8 @@ extern "C" ARM void func_ov017_0218e674(unsigned char* arg0) {
  enum {Enum_ov017_0218e674_1844=0x734, Enum_ov017_0218e674_396=0x18c};
 #endif
     GameState* var0 = GameState::GetInstance();
-    GetLocalWireless_0202ae18();
-    if (GetCamera_020100bc(var0) == 0) return;
+    func_0202ae18();
+    if (func_020100bc(var0) == 0) return;
 
     struct Struct_ov017_0218e674_2* var1 = (struct Struct_ov017_0218e674_2*)GetParty_02010828(var0);
     int var2[4];
@@ -69,10 +77,10 @@ extern "C" ARM void func_ov017_0218e674(unsigned char* arg0) {
         if (var9 == NULL) continue;
         if (var5 != 0 && var4 != 0) func_020d9834(1);
         var5++;
-        if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) != 0 &&
+        if (IsLocalWirelessGuest_0202c540(func_0202ae18()) != 0 &&
             var9->obj3D_.GetField06() == var0->GetUnknownGameObject()->obj3D_.GetField06() &&
-            ((var9->obj3D_.classFlags_0_ & 0x1000) != 0 ||
-             (var9->obj3D_.objectIndex_4_ == 0 && (*(unsigned int*)((char*)var9 + Enum_ov017_0218e674_396) & 1) != 0)) &&
+            ((var9->obj3D_.unknown_0_ & 0x1000) != 0 ||
+             (var9->obj3D_.unknown_4_ == 0 && (*(unsigned int*)((char*)var9 + Enum_ov017_0218e674_396) & 1) != 0)) &&
             func_02039860(var9) >= 0) {
             var2[var8] = 1;
             func_02037d88(var9);

@@ -34,3 +34,8 @@ extern "C" ARM void func_0202e894(void* arg0, int arg1) {
 
     SetCameraOrbitFromEye_0202eab8(arg0);
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

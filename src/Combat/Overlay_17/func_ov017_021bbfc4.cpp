@@ -3,8 +3,29 @@
 #include <Filesystem/BackgroundLoader.h>
 #include <Graphics/LightingManager.h>
 #include <World/Zone3D.h>
+#include "World/Zone3DTypes.h"
 #include <std_library_functions.h>
 #include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_02033fa0 func_02033ad8
+#endif
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 
 
@@ -80,7 +101,7 @@ struct Struct_ov017_021bbfc4_3 { char unknown_0_[0x5a4c]; unsigned char unknown_
 struct Struct_ov017_021bbfc4_3 { char unknown_0_[0x5cac]; unsigned char unknown_5cac_; char unknown_5cad_[0x1547]; int unknown_71f4_; };
 #endif
 int IsSubBrightnessTransitionActive(GameResources*);
-extern "C" int* GetLocalWireless_0202ae18();
+extern "C" int* func_0202ae18();
 extern "C" unsigned char* GetFollowCamera_020100f8(char*);
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void StopGesture_020531f0(GameObject*);
@@ -93,11 +114,11 @@ extern "C" Struct_ov017_021bbfc4_2* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void func_020213fc(Struct_020213fc*, int);
 extern "C" void InitZoneEntry_02070378(char*);
 extern "C" int func_02071488(Struct_02013fb4*, int, int, Struct_02071488*);
-extern "C" unsigned int* GetGlobalFlags_020d6c00();
+extern "C" unsigned int* func_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
-extern "C" void* GetFlagManager_0205ec34();
+extern "C" void* func_0205ec34();
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
-extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" Struct_0204bd7c* func_02033fa0(void*);
 extern "C" int func_0204bd7c(Struct_0204bd7c*);
 extern "C" int IsLocalWirelessGuest_0202c540(int*);
@@ -122,7 +143,7 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     GameResources* var2 = GetGameResources();
-    int* var3 = GetLocalWireless_0202ae18();
+    int* var3 = func_0202ae18();
     GameObject* var4 = var0->GetUnknownGameObject();
     GetFollowCamera_020100f8((char*)var0);
     Zone3D* var5 = GetZone3D_02012fe4();
@@ -179,16 +200,16 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
         return arg0->unknown_a_;
     }
     var1->RemoveTask(arg0->unknown_74_);
-    if (arg0->unknown_50_ & 0x100) SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 1);
+    if (arg0->unknown_50_ & 0x100) SetGlobalFlags_020466e4(func_020d6c00(), 1);
     arg0->unknown_118_ = arg0->unknown_c_.unknown_c_;
     int var15;
     int var16;
     int var17;
     int var18;
-    Struct_ov017_021bbfc4* var19 = (Struct_ov017_021bbfc4*)GetFlagManager_0205ec34();
+    Struct_ov017_021bbfc4* var19 = (Struct_ov017_021bbfc4*)func_0205ec34();
     if (arg0->unknown_98_) SetFlag_0206df6c(var19, var19->unknown_8c_, arg0->unknown_52_ + 0x38e, 0);
     var18 = 0;
-    if (IsFlagSet_0206dfb0((int)var19, var19->unknown_8c_, arg0->unknown_52_ + 0x38e)) var18 = 1;
+    if (func_0206dfb0((int)var19, var19->unknown_8c_, arg0->unknown_52_ + 0x38e)) var18 = 1;
     if (var18) {
         SetBrightness(var2, 0, 0x28);
         ((Struct_ov017_021bbfc4_3*)var0)->unknown_71f4_ = 0;
@@ -270,4 +291,9 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
     if (arg0->unknown_fd_ && arg0->unknown_106_) arg0->unknown_106_ = 0;
     arg0->unknown_fd_ = 0;
     return TestFlags00(var2, 0x1000) ? 13 : 12;
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

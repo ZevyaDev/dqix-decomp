@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 #if defined(jpn)
 enum { Enum_ov003_0216039c_804 = 0x20c };
@@ -35,13 +36,8 @@ struct SpriteAnimation_0205a254_2 {
 
 extern "C" unsigned char* func_02081da8(MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" int func_020e28dc(Struct_020e28dc* arg0);
-extern "C" void SetSpriteAnimationOAMIndex_0205a42c(SpriteAnimationList_0205a254* animationList, int index, int oamIndex);
-extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 extern "C" void func_020809c4(void* arg0, int arg1, int arg2, short* arg3, short* arg4);
-extern "C" void PlaySpriteAnimation_0205a370(SpriteAnimationList_0205a254* animationList, int index);
-extern "C" SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(SpriteAnimationList_0205a254* animationList, int index);
-extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330* animationList, int ticks);
 extern "C" void SetSpriteAnimationPosition_020e27ec(SpriteAnimationList_0205a254* animationList, int index, short x, short y);
 
 struct Struct_ov003_0216039c {
@@ -69,8 +65,8 @@ extern "C" ARM void func_ov003_0216039c(Struct_ov003_0216039c* arg0) {
         return;
     }
     if (arg0->unknown_390_ != NULL && func_020e28dc(arg0->unknown_390_) != 0) {
-        SetSpriteAnimationOAMIndex_0205a42c(arg0->unknown_38c_, 0, 0);
-        DrawSpriteAnimations_0205ae8c(arg0->unknown_334_);
+        ((OBJSpriteSet::List*)(arg0->unknown_38c_))->SetSpriteOBJIndex(0, 0);
+        ((OBJSpriteSet*)(arg0->unknown_334_))->DrawAll();
         return;
     }
     if (IsTextWindowOpen_0204c7e0(var0) == 0) {
@@ -81,16 +77,16 @@ extern "C" ARM void func_ov003_0216039c(Struct_ov003_0216039c* arg0) {
     func_020809c4(arg0->unknown_324_, arg0->unknown_488_, *arg0->unknown_470_, &var1, &var2);
     var1 -= 0x10;
     var2 -= 3;
-    PlaySpriteAnimation_0205a370(arg0->unknown_38c_, 0);
-    SpriteAnimation_0205a254_2* var3 = FindSpriteAnimation_0205a3d0(arg0->unknown_38c_, 0);
+    ((OBJSpriteSet::List*)(arg0->unknown_38c_))->PlaySpriteAnimation(0);
+    SpriteAnimation_0205a254_2* var3 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(arg0->unknown_38c_))->GetSprite(0));
     if (var3 != NULL) {
         var3->unknown_15_ |= 8;
     }
-    var3 = FindSpriteAnimation_0205a3d0(arg0->unknown_38c_, 1);
+    var3 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(arg0->unknown_38c_))->GetSprite(1));
     if (var3 != NULL) {
         var3->unknown_15_ &= ~8;
     }
-    AdvanceSpriteAnimations_0205a330((SpriteAnimationList_0205a330*)arg0->unknown_38c_, arg0->unknown_460_);
+    ((OBJSpriteSet::List*)((SpriteAnimationList_0205a330*)arg0->unknown_38c_))->UpdateAll(arg0->unknown_460_);
     SetSpriteAnimationPosition_020e27ec(arg0->unknown_38c_, 0, var1, var2);
-    DrawSpriteAnimations_0205ae8c(arg0->unknown_334_);
+    ((OBJSpriteSet*)(arg0->unknown_334_))->DrawAll();
 }

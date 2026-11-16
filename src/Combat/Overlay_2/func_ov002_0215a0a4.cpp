@@ -4,6 +4,11 @@
 #include "Resource/CharacterCreationUI.h"
 #include "Resource/ActionDataTables.h"
 #include <std_library_functions.h>
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 #if defined(jpn)
 enum { Enum_ov002_0215a0a4_3000 = 0xa80, Enum_ov002_0215a0a4_40 = 0x10, Enum_ov002_0215a0a4_7200 = 0x1ae8, Enum_ov002_0215a0a4_9352 = 0x22b8, Enum_ov002_0215a0a4_2400 = 0x800, Enum_ov002_0215a0a4_2144 = 0x700, Enum_ov002_0215a0a4_38 = 0x29, Enum_ov002_0215a0a4_17 = 0x12 };
@@ -82,10 +87,9 @@ extern "C" void SetMessageString_02046574(Struct_ov002_02157d40_6*, int, char*);
 extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
 extern "C" int func_02048350(Struct_ov002_02157d40_8*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
-extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" void SetMessageNumber_020465c0(Struct_ov002_02157d40_2*, int, int);
-extern "C" int* GetLocalWireless_0202ae18();
+extern "C" int* func_0202ae18();
 extern "C" void ClearMessageParams_02046380(void*);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
 #if defined(jpn)
@@ -112,7 +116,7 @@ extern "C" ARM void func_ov002_0215a0a4(Struct_ov002_0215a0a4* arg0, Struct_ov00
     func_020e3428(func_020e2ff8(), 1);
     var7 = GameState::GetInstance();
     var8 = GetMessageWindow_020421a0();
-    var2 = GetLocalWireless_0202ae18();
+    var2 = func_0202ae18();
     var9 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), arg0->unknown_1c26_);
     if (!var9) return;
     memset(arg0->unknown_1000_.unknown_bd0_, 0, Enum_ov002_0215a0a4_2400);
@@ -178,7 +182,7 @@ extern "C" ARM void func_ov002_0215a0a4(Struct_ov002_0215a0a4* arg0, Struct_ov00
     }
     if (arg0->unknown_1c26_ != 0x22 && arg0->unknown_1c26_ != 0x310) return;
     if (arg2) {
-        FORMAT(var8, 0xc, FindStringInTable_020e0434(&arg0->unknown_20_, 0x232d), var5 + Enum_ov002_0215a0a4_2144);
+        FORMAT(var8, 0xc, ((int)((StringList*)(&arg0->unknown_20_))->GetString(0x232d)), var5 + Enum_ov002_0215a0a4_2144);
         AppendText_02042058(arg0->unknown_1000_.unknown_bd0_, var5 + Enum_ov002_0215a0a4_2144);
         var4 = arg1->unknown_8_;
         var1 = 0x232c;
@@ -199,9 +203,9 @@ extern "C" ARM void func_ov002_0215a0a4(Struct_ov002_0215a0a4* arg0, Struct_ov00
                     InitPartyMemberNoun_020e4bf4(arg0->unknown_14_, var6[var10]);
                     var8->unknown_10_ = arg0->unknown_14_;
 #endif
-                    SetMessageNumber_020465c0((Struct_ov002_02157d40_2*)var8, 9, var0->obj3D_.objectIndex_4_);
-                    FORMAT(var8, 0xc, FindStringInTable_020e0434(&arg0->unknown_20_, var13), var5 + Enum_ov002_0215a0a4_2144);
-                    AppendText_02042058(arg0->unknown_1000_.unknown_bd0_, (const char*)FindStringInTable_020e0434(&arg0->unknown_20_, 8));
+                    SetMessageNumber_020465c0((Struct_ov002_02157d40_2*)var8, 9, var0->obj3D_.unknown_4_);
+                    FORMAT(var8, 0xc, ((int)((StringList*)(&arg0->unknown_20_))->GetString(var13)), var5 + Enum_ov002_0215a0a4_2144);
+                    AppendText_02042058(arg0->unknown_1000_.unknown_bd0_, (const char*)((int)((StringList*)(&arg0->unknown_20_))->GetString(8)));
                     AppendText_02042058(arg0->unknown_1000_.unknown_bd0_, var5 + Enum_ov002_0215a0a4_2144);
                 }
             }
@@ -214,16 +218,16 @@ extern "C" ARM void func_ov002_0215a0a4(Struct_ov002_0215a0a4* arg0, Struct_ov00
         if (var0) {
             SetMessageString_02046574(var8, 2, inline_ov002_0215a0a4(var0));
 #if !defined(jpn)
-            InitPartyMemberNoun_020e4bf4(arg0->unknown_14_, var0->obj3D_.objectIndex_4_);
+            InitPartyMemberNoun_020e4bf4(arg0->unknown_14_, var0->obj3D_.unknown_4_);
             var8->unknown_10_ = arg0->unknown_14_;
 #endif
         }
-        AppendText_02042058(var5 + Enum_ov002_0215a0a4_2144, (const char*)FindStringInTable_020e0434(&arg0->unknown_20_, 0x2333));
-        AppendText_02042058(var5 + Enum_ov002_0215a0a4_2144, (const char*)FindStringInTable_020e0434(&arg0->unknown_20_, 8));
+        AppendText_02042058(var5 + Enum_ov002_0215a0a4_2144, (const char*)((int)((StringList*)(&arg0->unknown_20_))->GetString(0x2333)));
+        AppendText_02042058(var5 + Enum_ov002_0215a0a4_2144, (const char*)((int)((StringList*)(&arg0->unknown_20_))->GetString(8)));
         if (func_02011538(var7) == 1)
-            AppendText_02042058(var5 + Enum_ov002_0215a0a4_2144, (const char*)FindStringInTable_020e0434(&arg0->unknown_20_, 0x2334));
+            AppendText_02042058(var5 + Enum_ov002_0215a0a4_2144, (const char*)((int)((StringList*)(&arg0->unknown_20_))->GetString(0x2334)));
         else
-            AppendText_02042058(var5 + Enum_ov002_0215a0a4_2144, (const char*)FindStringInTable_020e0434(&arg0->unknown_20_, 0x2335));
+            AppendText_02042058(var5 + Enum_ov002_0215a0a4_2144, (const char*)((int)((StringList*)(&arg0->unknown_20_))->GetString(0x2335)));
         FORMAT(var8, 0xc, (int)(var5 + Enum_ov002_0215a0a4_2144), arg0->unknown_1000_.unknown_bd0_);
     }
     arg0->unknown_1c31_ = 1;

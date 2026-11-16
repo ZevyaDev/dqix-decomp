@@ -4,7 +4,11 @@
 #include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 struct Struct_02010088;
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
@@ -57,7 +61,7 @@ struct Struct_ov024_021fc4f4_3 {
 extern "C" ARM void func_ov024_021fc4f4(struct Struct_ov024_021fc4f4_3* arg0) {
     if (arg0->unknown_6_ == 0) return;
     struct Struct_ov024_021fc4f4_6* var0 = arg0->unknown_8_;
-    GetPartyMemberData_02053c6c((unsigned char*)var0);
+    func_02053c6c((unsigned char*)var0);
     GetActionTables_020797dc();
     struct Struct_ov024_021fc4f4_7* var1 = arg0->unknown_64c_;
     if (var1->unknown_9_0_ == 1) return;

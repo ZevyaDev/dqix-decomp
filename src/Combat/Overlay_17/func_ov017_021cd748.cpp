@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 struct LocalWireless_0202c1a4;
 struct Queue_0201bdac_2;
@@ -64,7 +68,7 @@ struct Struct_ov017_021cd748_5 { char unknown_0_[0x44ac]; unsigned short unknown
 #endif
 struct Struct_0206ea7c_2 { unsigned char unknown_0_; unsigned char unknown_1_; unsigned char unknown_2_; char unknown_3_[25]; };
 struct Struct_0206ea7c { char unknown_0_[0x332]; unsigned char unknown_332_; char unknown_333_; };
-extern "C" Struct_0206ea7c* GetFlagManager_0205ec34();
+extern "C" Struct_0206ea7c* func_0205ec34();
 extern "C" Struct_ov017_021cd748* GetZone3D_02012fe4();
 extern "C" int IsLocalWirelessGuest_0202c540(LocalWireless_0202c1a4*);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
@@ -86,7 +90,7 @@ extern "C" ARM void func_ov017_021cd748(int arg0, Struct_ov017_021cd748_6* arg1,
     var1 = GameState::GetInstance();
     Queue_0201bdac_2* var4 = (Queue_0201bdac_2*)arg3->unknown_ptr_array_36fc[0];
     var2 = (Struct_ov017_021cd748_7*)arg3->unknown_ptr_array_371c[6];
-    GetFlagManager_0205ec34();
+    func_0205ec34();
     Struct_ov017_021cd748* var5 = GetZone3D_02012fe4();
     var3 = var5->unknown_0_;
     if ((IsLocalWirelessGuest_0202c540(arg4) && arg0 == 0) || arg1->unknown_e_) {
@@ -122,7 +126,7 @@ extern "C" ARM void func_ov017_021cd748(int arg0, Struct_ov017_021cd748_6* arg1,
                 }
             }
             if (var8 && IsLocalWirelessGuest_0202c540(arg4)) {
-                Struct_0206ea7c* var9 = GetFlagManager_0205ec34();
+                Struct_0206ea7c* var9 = func_0205ec34();
                 Struct_0206ea7c_2* var10 = func_0206ea7c(var9, var9->unknown_332_);
                 var2->unknown_178_0_ = 0;
                 var2->unknown_178_1_ = 0;

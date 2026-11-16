@@ -4,7 +4,17 @@
 #include <Graphics/Vector.h>
 #include <Resource/GameResources.h>
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "Input/Input.h"
+#include "NitroSDK/Matrix.h"
+
+#if defined(jpn)
+#define func_0202ec84 func_0202e7f4
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 #if defined(jpn)
 enum { Enum_020ad61c_10168 = 0x27f8, Enum_020ad61c_10180 = 0x2804 };
@@ -50,11 +60,10 @@ extern "C" void func_020ae398(Struct_020ad61c*);
 extern "C" void func_020ae3f4(Struct_020ad61c_2*);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void EnablePlayerControl_020397c0(void*);
-extern "C" int ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
+extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" int GetGroundHeight_02018fbc(Zone3D*, Struct_02015ef4*);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_ov017_021a72f4(GameResources*, int);
-extern short data_020e9450[];
 extern Struct_ov017_021d82fc_5 data_ov017_021d82fc;
 
 // USA: func_020ad61c
@@ -85,7 +94,7 @@ extern "C" ARM void func_020ad61c(Struct_020ad61c_3* arg0) {
     arg0->unknown_144_ = var4;
     arg0->unknown_148_ = var5;
     arg0->unknown_14c_ += var3->GetTickCount() * 364;
-    arg0->unknown_150_ = data_020e9450[(arg0->unknown_14c_ >> 4) * 2 + 1] >> 4;
+    arg0->unknown_150_ = g_fixSinCosTable[(arg0->unknown_14c_ >> 4) * 2 + 1] >> 4;
     if (var0->currentZoneID_ != 10100) return;
     Vector3i var6;
     var6 = arg0->unknown_0_.position_;
@@ -122,7 +131,7 @@ extern "C" ARM void func_020ad61c(Struct_020ad61c_3* arg0) {
         var11->obj3D_.position_ = arg0->unknown_0_.position_;
         EnablePlayerControl_020397c0(var11);
     }
-    var8 = GetCamera_020100bc(var3);
+    var8 = func_020100bc(var3);
     int var12 = 0;
     var9 = 0;
     int var13[3];
@@ -131,7 +140,7 @@ extern "C" ARM void func_020ad61c(Struct_020ad61c_3* arg0) {
     var15[0] = *(Struct_02015ef4*)&arg0->unknown_0_.position_;
     var15[1] = *(Struct_02015ef4*)&arg0->unknown_164_;
     var15[2] = *(Struct_02015ef4*)&arg0->unknown_174_;
-    for (int var16 = 0; var16 < 3; var16++) ConvertWorldToScreen_0202ec84(var8, &var15[var16], &var13[var16], &var14[var16]);
+    for (int var16 = 0; var16 < 3; var16++) func_0202ec84(var8, &var15[var16], &var13[var16], &var14[var16]);
     if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 10) {
         var1 = g_touchInput.prevX_;
         var2 = g_touchInput.prevY_;
@@ -146,7 +155,7 @@ extern "C" ARM void func_020ad61c(Struct_020ad61c_3* arg0) {
     if (!var12) {
         for (int var18 = 0; var18 < 3; var18++) {
             var15[var18].unknown_0_[1] = GetGroundHeight_02018fbc(var0, &var15[var18]);
-            ConvertWorldToScreen_0202ec84(var8, &var15[var18], &var13[var18], &var14[var18]);
+            func_0202ec84(var8, &var15[var18], &var13[var18], &var14[var18]);
             if (var13[var18] - 16 < var1 && var1 < var13[var18] + 16 &&
                 var14[var18] - 24 < var2 && var2 < var14[var18] + 8) {
                 var9 = 1;

@@ -1,8 +1,12 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 extern "C" void* GetEffectManager_02057924(void);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void StopGesture_020531f0(void* arg0);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
@@ -23,7 +27,7 @@ extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" ARM void func_ov017_021c2f3c(unsigned char* arg0) {
     GameObject* var0 = GameState::GetInstance()->GetUnknownGameObject();
     void* var1 = GetEffectManager_02057924();
-    void* var2 = GetLocalWireless_0202ae18();
+    void* var2 = func_0202ae18();
 
     if (var0 == 0) arg0[0x8c] = 3;
     unsigned char var3 = arg0[0x8c];

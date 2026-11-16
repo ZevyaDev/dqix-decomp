@@ -2,11 +2,14 @@
 #include "NitroSDK/Interrupts.h"
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
 
 extern "C"
 {
     // abort() or similar
-    void HaltForever_020c9be0();
+    void func_020c9be0();
 }
 
 void VerifyDMASource(int channel, unsigned int source, unsigned int length, unsigned int sourceCtrlFlags);
@@ -194,7 +197,7 @@ void AwaitDMACompletion(int id)
         volatile DMARegisterSet& regs = DMARegisters(id);
         regs.sourceAddr = 0;
         regs.destAddr = 0;
-        regs.controlAndSize.unknown_0_ = DMA_CONTROL_ENABLE | DMA_CONTROL_SRC_ADDR_FIXED | DMA_CONTROL_DST_ADDR_FIXED | 1;
+        regs.controlAndSize.u32 = DMA_CONTROL_ENABLE | DMA_CONTROL_SRC_ADDR_FIXED | DMA_CONTROL_DST_ADDR_FIXED | 1;
     }
     SetIRQInterruptState(priorState);
 }
@@ -215,7 +218,7 @@ void ResetDMAChannel(int id)
         volatile DMARegisterSet& regs = DMARegisters(id);
         regs.sourceAddr = 0;
         regs.destAddr = 0;
-        regs.controlAndSize.unknown_0_ = DMA_CONTROL_ENABLE | DMA_CONTROL_SRC_ADDR_FIXED | DMA_CONTROL_DST_ADDR_FIXED | 1;
+        regs.controlAndSize.u32 = DMA_CONTROL_ENABLE | DMA_CONTROL_SRC_ADDR_FIXED | DMA_CONTROL_DST_ADDR_FIXED | 1;
     }
 
     SetIRQInterruptState(priorState);
@@ -269,7 +272,7 @@ void VerifyDMATimingChangePermitted_020c9fd0(int channel, unsigned int newTiming
             continue;
         
         
-        HaltForever_020c9be0();
+        func_020c9be0();
     } while (loopChannel++, pControl += 3, loopChannel < 3);
 }
 
@@ -298,5 +301,5 @@ void VerifyDMASource(int channel, unsigned int source, unsigned int length, unsi
 
     if (startPtrSection == 0x04000000 || startPtrSection >= 0x08000000 ||
         endPtrSection == 0x04000000 || endPtrSection >= 0x08000000)
-        HaltForever_020c9be0();
+        func_020c9be0();
 }

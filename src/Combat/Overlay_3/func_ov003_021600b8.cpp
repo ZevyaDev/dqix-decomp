@@ -26,3 +26,8 @@ extern "C" ARM void func_ov003_021600b8(Struct_ov003_021600b8* arg0) {
     func_02032fdc(arg0->unknown_320_, 0, 0);
     *(int*)0x4000448 = 1;
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

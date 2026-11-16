@@ -30,3 +30,8 @@ extern "C" ARM void func_020a1034(struct Struct_020a1034* arg0) {
         Vector3fix_Add(&arg0->unknown_4_, &var1, &arg0->unknown_4_);
     }
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

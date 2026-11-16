@@ -1,3 +1,4 @@
+extern unsigned char g_fileScratchSpace[0x30000];
 #include <globaldefs.h>
 #include "Combat/Main/BattleList.h"
 #include "Memory/SafeAllocator.h"
@@ -9,6 +10,25 @@
 #include "Resource/FontBankLoader.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
+#include "Graphics/TextureArena.h"
+#include "Resource/GameStrings.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
 struct Struct_01ff91ac_31;
 struct Struct_0203d028_2 {
     int unknown_0_;
@@ -24,8 +44,8 @@ struct Struct_0203d028_3 {
 
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* GetLocalWireless_0202ae18();
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_0202ae18();
+extern "C" void* func_020d6c00(void);
 #if defined(jpn)
 extern "C" void func_ov003_0216d8d4(char* arg0, int arg1);
 #else
@@ -34,7 +54,7 @@ extern "C" void func_ov003_0216d8d4(char* arg0, int arg1, int arg2, int arg3, in
 extern "C" int GetMessageChoice_020457e0(char* window);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
+extern "C" void func_02012da4(AllocatorUnion*, void*);
 extern "C" void func_ov003_02170d38(char*);
 class Struct_ov003_0216c00c;
 extern "C" int func_ov003_021714a0(Struct_ov003_0216c00c* arg0);
@@ -51,7 +71,7 @@ extern "C" void func_ov003_02173d40(char* arg0);
 extern "C" void func_020119f8(char*, void*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_02011a40(char*);
-extern "C" void* GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" void* func_02053c6c(unsigned char*);
 struct GameState;
 extern "C" int func_02011804(GameState*);
 extern "C" void func_020119d8(void*);
@@ -76,9 +96,6 @@ extern "C" void SetObject3DPositionFromVector_02059f38(Struct_02059cfc_2*, Struc
 struct Struct_02033834;
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 struct TextureVRAMArea_0203d028;
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" int func_ov017_021b1fa8(void* arg0);
 extern "C" int func_ov017_021b1fb0(void* arg0);
 extern "C" void* func_ov017_021b1fb8(void* arg0);
@@ -88,7 +105,6 @@ extern "C" void func_020a03f8(Struct_020a03f8*, unsigned int);
 extern "C" void SetBattleRecords_020ac494(void* records);
 extern "C" void func_020ac760(void* arg0);
 extern "C" void func_020ac734(void* arg0);
-extern "C" const char* GetStandardString_020e51cc(int stringId);
 struct Struct_02011818;
 extern "C" void func_02011818(void*, Struct_02011818*);
 extern "C" void func_02011ab8(char*);
@@ -96,7 +112,6 @@ extern "C" void func_02011a74(char*, unsigned int, char const*);
 
 extern int gMusicManager_02109bf4;
 extern AllocatorUnion gMainHeap_02114e20;
-extern unsigned char gFileScratchSpace_0211e33c[];
 extern char data_ov003_021801e0[];
 extern char data_ov003_021801f8[];
 extern char data_ov003_021801fc[];
@@ -136,7 +151,6 @@ extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 struct Struct_0201099c_3;
-extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern char data_ov003_0217e99c[];
 extern char data_ov003_0217e9b4[];
 extern char data_ov003_0217e9b8[];
@@ -159,8 +173,8 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
     char* var2 = (char*)GetMessageWindow_020421a0();
     struct Struct_ov003_0216c00c_17* var3 = (struct Struct_ov003_0216c00c_17*)GetZone3D_02012fe4();
     struct Struct_ov003_0216c00c_11* var4 = &var3->unknown_860_;
-    void* var5 = GetLocalWireless_0202ae18();
-    void* var6 = GetGlobalFlags_020d6c00();
+    void* var5 = func_0202ae18();
+    void* var6 = func_020d6c00();
 
     short var7 = *(short*)(arg0 + 0xa);
     if (var7 == 1) {
@@ -216,7 +230,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
             *(short*)(arg0 + 6) = 3;
             struct Struct_0203d028_3* var10 = (Struct_0203d028_3*)((GameState*)var0)->GetProtagonist();
             if (var10 != 0) {
-                struct Struct_ov003_0216c00c_2* var11 = inline_ov003_0216c00c((struct Struct_ov003_0215d4fc*)GetPartyMemberData_02053c6c((unsigned char*)var10), 1);
+                struct Struct_ov003_0216c00c_2* var11 = inline_ov003_0216c00c((struct Struct_ov003_0215d4fc*)func_02053c6c((unsigned char*)var10), 1);
                 struct Struct_ov003_0216c00c_5* var12 = &((struct Struct_ov003_0216c00c_15*)var0)->unknown_3c_.unknown_5400_;
                 var12->unknown_3_1_ = var11->unknown_414_0_;
                 var12->unknown_2_5_ = var11->unknown_414_0_;
@@ -329,7 +343,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         if (var17 != 0) {
             *(Struct_ov003_0216c00c**)(arg0 + 0xe6c) = var17;
         }
-        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x10080);
+        SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 0x10080);
         SetMainBrightness(var1, -16, 0x24);
         SetSubBrightness(var1, -16, 0x24);
         *(short*)(arg0 + 6) = 6;
@@ -352,7 +366,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         }
         if (func_ov003_021727c8(arg0 + 0xda0) == 0) {
         *(unsigned char*)(arg0 + 0x1000 + 0x27b) = 1;
-        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x10080);
+        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)func_020d6c00(), 0x10080);
         *(unsigned char*)(arg0 + 0x1000 + 0x27e) = 0;
         *(unsigned char*)(arg0 + 0x1000 + 0x27e) = *(unsigned char*)(arg0 + 0xe70);
         int var20 = *(unsigned char*)(arg0 + 0xd97);
@@ -362,7 +376,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         void* var21 = ((SafeAllocator*)(arg0 + 0x164 + 0x1000))->GetSignedAllocator();
         if (var21 != 0) {
             ((SafeAllocator*)(arg0 + 0x164 + 0x1000))->Destroy();
-            FreeMemory_02012da4(&gMainHeap_02114e20, var21);
+            func_02012da4(&gMainHeap_02114e20, var21);
         }
         int var22[0x2c];
         GetBattleRecords_020ac4c0(var22);
@@ -470,7 +484,7 @@ phase2:;
         *(unsigned char*)(var2 + 0x1000 + 0x7de) = 0;
         *(unsigned char*)(arg0 + 0x1000 + 0x27c) |= 4;
         BackgroundLoader::AddLockGlobal();
-        if (func_020aad1c((int)(arg0 + 0x29c + 0x1000), (int)gFileScratchSpace_0211e33c, 8, 0) == 1) {
+        if (func_020aad1c((int)(arg0 + 0x29c + 0x1000), (int)g_fileScratchSpace, 8, 0) == 1) {
             *(unsigned char*)(arg0 + 0x1000 + 0x27c) &= ~4;
             func_ov003_0216d8d4(arg0, 0xc9);
             *(short*)(arg0 + 6) = 0x12f;
@@ -503,14 +517,14 @@ phase2:;
         ((SafeAllocator*)(arg0 + 0x178 + 0x1000))->CreateTypeA(var35, 0xc800);
         ((SafeAllocator*)(arg0 + 0x178 + 0x1000))->Reset();
         unsigned int var36;
-        void* var37 = LoadFileIntoNewAllocation(data_ov003_0217e99c, *(SafeAllocator*)(arg0 + 0x178 + 0x1000), &var36);
+        void* var37 = LoadFileIntoNewAllocation(data_ov003_0217e99c, &(*(SafeAllocator*)(arg0 + 0x178 + 0x1000)), &var36);
         if (var37 == 0) {
             *(short*)(arg0 + 6) = 0xf;
             return;
         }
         struct TextureVRAMArea_0203d028* var38 = (struct TextureVRAMArea_0203d028*)((char (*)[0x70])var1->unknown_2cc_)[0x1c];
-        ResetTextureVRAMState_0207df50(var38);
-        RestoreTextureVRAMState_0207df90((char*)var38);
+        ((TextureArena*)(var38))->Reset();
+        ((TextureArena*)((char*)var38))->Restore();
         struct ObjectArchiveLoadInfo var39;
         var39.unk_0 = 0;
         var39.unk_14 = 0;
@@ -521,7 +535,7 @@ phase2:;
         var39.fileData = var37;
         var39.unk_8 = var36;
         ((Object3D*)(arg0 + 0x1cc + 0x1000))->LoadFromCHRArchive(&var39);
-        SaveTextureVRAMState_0207dfac((char*)var38);
+        ((TextureArena*)((char*)var38))->Save();
         *(unsigned char*)(arg0 + 0x1000 + 0x278) = 1;
         ((Object3D*)(arg0 + 0x1cc + 0x1000))->MaybeSetRegularAnimation(data_ov003_0217e9b4, 1);
         struct Struct_0203d028_3* var40 = (Struct_0203d028_3*)((GameState*)var0)->GetUnknownGameObject();
@@ -537,13 +551,13 @@ phase2:;
         void* var41 = ((SafeAllocator*)(arg0 + 0x178 + 0x1000))->GetSignedAllocator();
         if (var41 != 0) {
             ((SafeAllocator*)(arg0 + 0x178 + 0x1000))->Destroy();
-            FreeMemory_02012da4(&gMainHeap_02114e20, var41);
+            func_02012da4(&gMainHeap_02114e20, var41);
         }
         *(unsigned char*)(arg0 + 0x1000 + 0x278) = 0;
         void* var42 = *(void**)((char*)var1 + 0x3928);
         SetMessageNumber_020465c0((MessageWindow_020465c0*)var2, 1, func_ov017_021b1fb0(var42));
         short var43 = func_ov017_021b1fa8(var42) + 0x64;
-        SetMessageString_02046574((Struct_02046574_2*)var2, 5, FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0x1b4 + 0x1000), var43));
+        SetMessageString_02046574((Struct_02046574_2*)var2, 5, ((char*)((StringList*)((Struct_0201099c_3*)(arg0 + 0x1b4 + 0x1000)))->GetString(var43)));
         *(int*)(var2 + 0x868) = 1;
         func_ov003_0216d8d4(arg0, 0x4f);
         *(short*)(arg0 + 6) = 0x10;
@@ -634,8 +648,8 @@ phase2:;
         char var65[0x20];
         sprintf(var65, data_ov003_0217e9b8, var64);
         func_02011ab8((char*)var0);
-        func_02011a74((char*)var0, 0, FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0x1b4 + 0x1000), (short)(func_ov017_021b1fa8(var61) + 0x64)));
-        func_02011a74((char*)var0, 1, FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0x1b4 + 0x1000), 0x64));
+        func_02011a74((char*)var0, 0, ((char*)((StringList*)((Struct_0201099c_3*)(arg0 + 0x1b4 + 0x1000)))->GetString((short)(func_ov017_021b1fa8(var61) + 0x64))));
+        func_02011a74((char*)var0, 1, ((char*)((StringList*)((Struct_0201099c_3*)(arg0 + 0x1b4 + 0x1000)))->GetString(0x64)));
         func_02011a74((char*)var0, 3, var65);
         func_ov017_021a9ff0(1);
         *(short*)(arg0 + 6) = 0x14;
@@ -669,8 +683,8 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
     GameResources* var69 = GetGameResources();
     char* var70 = (char*)GetMessageWindow_020421a0();
     void* var71 = GetZone3D_02012fe4();
-    void* var72 = GetLocalWireless_0202ae18();
-    void* var73 = GetGlobalFlags_020d6c00();
+    void* var72 = func_0202ae18();
+    void* var73 = func_020d6c00();
 
     short var74 = *(short*)(arg0 + 0xa);
     if (var74 == 1) {
@@ -725,7 +739,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
             *(short*)(arg0 + 6) = 3;
             struct Struct_0203d028_3* var77 = (Struct_0203d028_3*)((GameState*)var68)->GetProtagonist();
             if (var77 != 0) {
-                struct Struct_ov003_0216c00c_2* var78 = inline_ov003_0216c00c((struct Struct_ov003_0215d4fc*)GetPartyMemberData_02053c6c((unsigned char*)var77), 1);
+                struct Struct_ov003_0216c00c_2* var78 = inline_ov003_0216c00c((struct Struct_ov003_0215d4fc*)func_02053c6c((unsigned char*)var77), 1);
                 struct Struct_ov003_0216c00c_5* var79 = &((struct Struct_ov003_0216c00c_7*)var68)->unknown_29c_.unknown_5400_;
                 var79->unknown_3_1_ = var78->unknown_414_0_;
                 var79->unknown_2_5_ = var78->unknown_414_0_;
@@ -840,7 +854,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         if (var85 != 0) {
             *(Struct_ov003_0216c00c**)(arg0 + 0xfec) = var85;
         }
-        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x10080);
+        SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 0x10080);
         SetMainBrightness(var69, -16, 0x24);
         SetSubBrightness(var69, -16, 0x24);
         *(short*)(arg0 + 6) = 6;
@@ -863,7 +877,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         }
         if (func_ov003_021727c8(arg0 + 0x31c + 0xc00) == 0) {
         *(unsigned char*)(arg0 + 0x1000 + 0x3eb) = 1;
-        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x10080);
+        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)func_020d6c00(), 0x10080);
         *(unsigned char*)(arg0 + 0x1000 + 0x3ee) = 0;
         *(unsigned char*)(arg0 + 0x1000 + 0x3ee) = *(unsigned char*)(arg0 + 0xff0);
         int var88 = *(unsigned char*)(arg0 + 0xf13);
@@ -873,7 +887,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         void* var89 = ((SafeAllocator*)(arg0 + 0x2d4 + 0x1000))->GetSignedAllocator();
         if (var89 != 0) {
             ((SafeAllocator*)(arg0 + 0x2d4 + 0x1000))->Destroy();
-            FreeMemory_02012da4(&gMainHeap_02114e20, var89);
+            func_02012da4(&gMainHeap_02114e20, var89);
         }
         int var90[0x2c];
         GetBattleRecords_020ac4c0(var90);
@@ -983,7 +997,7 @@ phase2:;
         *(unsigned char*)(var70 + 0x1000 + 0x9ae) = 0;
         *(unsigned char*)(arg0 + 0x1000 + 0x3ec) |= 4;
         BackgroundLoader::AddLockGlobal();
-        if (func_020aad1c((int)(arg0 + 0xc + 0x1400), (int)gFileScratchSpace_0211e33c, 8, 0) == 1) {
+        if (func_020aad1c((int)(arg0 + 0xc + 0x1400), (int)g_fileScratchSpace, 8, 0) == 1) {
             *(unsigned char*)(arg0 + 0x1000 + 0x3ec) &= ~4;
             func_ov003_0216d8d4(arg0, 0xc9, -1, -1, -1);
             *(short*)(arg0 + 6) = 0x12f;
@@ -1016,14 +1030,14 @@ phase2:;
         ((SafeAllocator*)(arg0 + 0x2e8 + 0x1000))->CreateTypeA(var104, 0xc800);
         ((SafeAllocator*)(arg0 + 0x2e8 + 0x1000))->Reset();
         unsigned int var105;
-        void* var106 = LoadFileIntoNewAllocation(data_ov003_021801e0, *(SafeAllocator*)(arg0 + 0x2e8 + 0x1000), &var105);
+        void* var106 = LoadFileIntoNewAllocation(data_ov003_021801e0, &(*(SafeAllocator*)(arg0 + 0x2e8 + 0x1000)), &var105);
         if (var106 == 0) {
             *(short*)(arg0 + 6) = 0xf;
             return;
         }
         struct TextureVRAMArea_0203d028* var107 = (struct TextureVRAMArea_0203d028*)((char (*)[0x70])var69->unknown_2cc_)[0x1c];
-        ResetTextureVRAMState_0207df50(var107);
-        RestoreTextureVRAMState_0207df90((char*)var107);
+        ((TextureArena*)(var107))->Reset();
+        ((TextureArena*)((char*)var107))->Restore();
         struct ObjectArchiveLoadInfo var108;
         var108.unk_0 = 0;
         var108.unk_14 = 0;
@@ -1034,7 +1048,7 @@ phase2:;
         var108.fileData = var106;
         var108.unk_8 = var105;
         ((Object3D*)(arg0 + 0x33c + 0x1000))->LoadFromCHRArchive(&var108);
-        SaveTextureVRAMState_0207dfac((char*)var107);
+        ((TextureArena*)((char*)var107))->Save();
         *(unsigned char*)(arg0 + 0x1000 + 0x3e8) = 1;
         ((Object3D*)(arg0 + 0x33c + 0x1000))->MaybeSetRegularAnimation(data_ov003_021801f8, 1);
         struct Struct_0203d028_3* var109 = (Struct_0203d028_3*)((GameState*)var68)->GetUnknownGameObject();
@@ -1050,7 +1064,7 @@ phase2:;
         void* var110 = ((SafeAllocator*)(arg0 + 0x2e8 + 0x1000))->GetSignedAllocator();
         if (var110 != 0) {
             ((SafeAllocator*)(arg0 + 0x2e8 + 0x1000))->Destroy();
-            FreeMemory_02012da4(&gMainHeap_02114e20, var110);
+            func_02012da4(&gMainHeap_02114e20, var110);
         }
         *(unsigned char*)(arg0 + 0x1000 + 0x3e8) = 0;
         void* var111 = *(void**)((char*)var69 + 0x3b48);
@@ -1144,13 +1158,13 @@ phase2:;
         void* var135 = func_ov017_021b1fb8(var133);
         strcpy(var134 + 7, (char*)var135);
         func_02011818(var68, (Struct_02011818*)var134);
-        const char* var136 = GetStandardString_020e51cc(1011);
+        const char* var136 = GetGameString((eGameString)(1011));
         int var137 = func_ov017_021b1fb0(var133);
         char var138[0x20];
         sprintf(var138, data_ov003_021801fc, var136, var137);
         func_02011ab8((char*)var68);
         short var139 = (short)(func_ov017_021b1fa8(var133) + 0x45);
-        const char* var140 = GetStandardString_020e51cc(var139);
+        const char* var140 = GetGameString((eGameString)(var139));
         char var141[0x40];
         sprintf(var141, data_ov003_02180201, var140, var138);
         func_02011a74((char*)var68, 0, var141);

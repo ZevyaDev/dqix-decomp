@@ -2,11 +2,15 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 
 struct SaveProgress_020a9ea4;
 extern "C" void ResetSaveProgress_020a9ea4(struct SaveProgress_020a9ea4* progress);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 
 struct Struct_ov001_021658b8_14 {
@@ -26,7 +30,7 @@ extern "C" ARM int func_ov001_02163008(void) {
 	void* var2 = var0->Allocate(0x8000);
 	data_ov001_021658b8.unknown_4b8_ = var2;
 	memset(var2, 0, 0x8000);
-	void* var3 = GetFlagManager_0205ec34();
+	void* var3 = func_0205ec34();
 	SetFlag_0206df6c(var3, (unsigned char*)var3 + 0x8c, 0x1142, 1);
 	return 1;
 }

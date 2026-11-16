@@ -3,6 +3,10 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Grotto/Main/ActiveGrottoClass.h"
 
+#if defined(jpn)
+#define func_0201b5b0 func_0201b328
+#endif
+
 struct Struct_02013fb4;
 struct Struct_0209c08c {
     unsigned short unknown_0_[0xc];

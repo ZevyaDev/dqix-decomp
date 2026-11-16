@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 struct Struct_0205c570;
 extern "C" int GetMessageWindow_020421a0(void);
@@ -29,9 +30,6 @@ struct Struct_0205c96c {
     char unknown_8_[0xd];
     unsigned char unknown_15_;
 };
-extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254* animationList, int index);
-extern "C" struct Struct_0205c96c* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index);
-extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
 
 // USA: func_0205c96c
 extern "C" ARM void func_0205c96c(unsigned char* arg0, int arg1) {
@@ -88,15 +86,15 @@ extern "C" ARM void func_0205c96c(unsigned char* arg0, int arg1) {
                 unsigned short var28 = *(unsigned short*)(var0 + 0x2e4);
 
                 if (var22 != NULL && var27 != NULL) {
-                    PlaySpriteAnimation_0205a370((struct SpriteAnimationList_0205a254*)var27, var28);
-                    struct Struct_0205c96c* var29 = FindSpriteAnimation_0205a3d0((struct SpriteAnimationList_0205a254*)var27, var28);
+                    ((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a254*)var27))->PlaySpriteAnimation(var28);
+                    struct Struct_0205c96c* var29 = ((Struct_0205c96c*)((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a254*)var27))->GetSprite(var28));
                     if (var29 != NULL) var29->unknown_15_ |= 8;
-                    struct Struct_0205c96c* var30 = FindSpriteAnimation_0205a3d0((struct SpriteAnimationList_0205a254*)var27, var28);
+                    struct Struct_0205c96c* var30 = ((Struct_0205c96c*)((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a254*)var27))->GetSprite(var28));
                     if (var30 != NULL) {
                         var30->unknown_4_ = var26;
                         var30->unknown_6_ = var25;
                     }
-                    DrawSpriteAnimations_0205ae8c(var22);
+                    ((OBJSpriteSet*)(var22))->DrawAll();
                 }
             }
         }

@@ -5,6 +5,10 @@
 #include <std_library_functions.h>
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_ov000_02160fd4 func_ov000_02162740
+#endif
+
 struct Struct_ov000_02161e30 { char unknown_0_[0x8e14]; signed char unknown_8e14_; char unknown_8e15_[0xb]; int unknown_8e20_; int unknown_8e24_; };
 struct Struct_ov025_021db038 {
     int unknown_0_;
@@ -90,7 +94,7 @@ extern "C" void func_ov025_021e8a4c(char*, int);
 extern "C" void func_ov000_0216df00(void*, int, int, int, float);
 extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void*, int, int);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
-extern "C" int TestBattleSceneFlags_ov000_02160fd4(void*, int);
+extern "C" int func_ov000_02160fd4(void*, int);
 extern "C" void func_ov000_02160fbc(void*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov025_021dbe10(Struct_ov000_021537b8*);
@@ -170,7 +174,7 @@ extern "C" ARM void func_ov025_021db038(Struct_ov000_021537b8* arg0) {
             func_ov000_0216fd0c((Struct_ov000_0216fd0c*)var0);
         }
     }
-    if (TestBattleSceneFlags_ov000_02160fd4(arg0, 0x1000000)) {
+    if (func_ov000_02160fd4(arg0, 0x1000000)) {
         GameState* var9;
         char* var10;
         GameObject* var11;

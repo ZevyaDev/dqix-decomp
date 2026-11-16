@@ -4,6 +4,10 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
 #define data_ov000_02183658 data_ov000_02184714
 #endif
 struct Struct_0205c570;
@@ -14,7 +18,7 @@ extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 extern "C" void SetTextWindowVisible_0205def8(struct TextWindowManager_0205def8* windowManager, int isVisible, int windowId);
 struct TextWindowManager_0205da38;
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
-extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" void* func_02053c6c(unsigned char* gameObject);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
@@ -99,7 +103,7 @@ extern "C" ARM int func_ov000_0217bdf4(Struct_ov000_0217bdf4_3* arg0, int arg1, 
         if (var3 == NULL) {
             return -1;
         }
-        int var4 = ((Struct_ov000_0217bdf4_2*)GetPartyMemberData_02053c6c((unsigned char*)var3))->unknown_950_;
+        int var4 = ((Struct_ov000_0217bdf4_2*)func_02053c6c((unsigned char*)var3))->unknown_950_;
         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
         arg0->unknown_1d_ = 0;
         ActionTables_02108e10* var5 = GetActionTables_020797dc();

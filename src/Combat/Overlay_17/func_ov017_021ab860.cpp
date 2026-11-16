@@ -5,6 +5,14 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Combat/Main/CopyRecord0200fbb4.h"
 
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 #if defined(jpn)
 enum { Enum_ov017_021ab860_1276 = 0x4fc, Enum_ov017_021ab860_1260 = 0x4ec,
@@ -20,8 +28,8 @@ enum { Enum_ov017_021ab860_1804 = 0x70c, Enum_ov017_021ab860_1788 = 0x6fc,
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
-extern "C" unsigned char* GetFlagManager_0205ec34(void);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" unsigned char* func_0205ec34(void);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int func_020117f0(GameState* arg0);
 struct Struct_ov017_021ab860;
 extern "C" void func_ov017_021abb68(struct Struct_ov017_021ab860* arg0, unsigned char arg1);
@@ -95,8 +103,8 @@ extern "C" ARM int func_ov017_021ab860(int arg0, unsigned char arg1) {
     data_ov017_021d83b0.unknown_8_ = 0;
     memset(&data_ov017_021d83bc, 0, sizeof(Vector3i));
     data_ov017_021d83b0.unknown_18_ = 0;
-    unsigned char* var1 = GetFlagManager_0205ec34();
-    if (IsFlagSet_0206dfb0((int)var1, var1 + 0x8c, 0x113a) != 0) {
+    unsigned char* var1 = func_0205ec34();
+    if (func_0206dfb0((int)var1, var1 + 0x8c, 0x113a) != 0) {
         return 1;
     }
     if (func_020117f0(var0) != 0) {

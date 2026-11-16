@@ -6,7 +6,11 @@ enum {Enum_ov017_021913d0_2976=0xba0, Enum_ov017_021913d0_3936=0xf60, Enum_ov017
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_ov017_0218f574(int* arg0, int arg1, int arg2, int arg3);
@@ -36,7 +40,7 @@ extern "C" ARM void func_ov017_021913d0(unsigned char* arg0, int arg1) {
             struct Queue_0201bdac_2* var5 = *(struct Queue_0201bdac_2**)(arg0 + 0x3000 + Enum_ov017_021913d0_1792);
             AppendToQueue_020469b4(var5, (struct QueueNode_0201bdac*)var0);
         }
-        GetLocalWireless_0202ae18();
+        func_0202ae18();
         if (IsNotLocalWirelessGuest_0202c508()) {
             unsigned short* var6 = (unsigned short*)GetZone3D_02012fe4();
             func_ov017_021ce400(arg1, (unsigned short)*var6);

@@ -34,14 +34,18 @@ enum { Enum_ov003_02173d40_736 = 0x2e0 };
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "NitroSDK/Cache.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
 
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 struct Struct_0205a244;
-extern "C" void func_0205a244(struct Struct_0205a244* arg0);
-extern "C" void DestroySpriteSet_0205a494(void* spriteSet);
 extern "C" void func_020a64e8(void* arg0);
 struct BGControlSave_02074bd0;
 extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
@@ -54,7 +58,6 @@ struct StringList_020727d8 {
 };
 extern "C" void func_020727ec(struct StringList_020727d8* arg0);
 void CleanCacheRange(const void* addr, unsigned int size);
-extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(const void* src, unsigned int offset, unsigned int size);
 extern "C" void* GetMainBG1ScreenBase(void);
 unsigned long long GetCurrentTimestamp(void);
@@ -79,10 +82,10 @@ extern "C" ARM void func_ov003_02173d40(Struct_ov003_02173d40* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     unsigned char* var2 = (unsigned char*)GetMessageWindow_020421a0();
-    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x1000);
+    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)func_020d6c00(), 0x1000);
     var2[0x1000 + Enum_ov003_02173d40_2494] = 0;
-    func_0205a244(arg0->unknown_12c_);
-    DestroySpriteSet_0205a494(arg0->unknown_130_);
+    ((OBJSpriteSet::List*)(arg0->unknown_12c_))->Destroy();
+    ((OBJSpriteSet*)(arg0->unknown_130_))->Destroy();
     func_020a64e8(arg0->unknown_d8_);
     *(volatile int*)0x4001010 = 0;
     RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)arg0->unknown_fa_);
@@ -105,7 +108,7 @@ extern "C" ARM void func_ov003_02173d40(Struct_ov003_02173d40* arg0) {
     unsigned char var5[0x20];
     memset(var5, 0, 0x20);
     CleanCacheRange(var5, 0x20);
-    DC_FlushRange(var5, 0x20);
+    CleanInvalidateCacheRange((const void*)(var5), 0x20);
     LoadToMainBG1CharacterData(var5, 0, 0x20);
     memset(GetMainBG1ScreenBase(), 0, 0x800);
 

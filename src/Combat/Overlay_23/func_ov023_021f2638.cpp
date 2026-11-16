@@ -2,9 +2,13 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 extern "C" void ClearMessageParams_02046380(void);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
@@ -32,7 +36,7 @@ extern "C" ARM int func_ov023_021f2638(unsigned char* arg0) {
     int* var1 = _ZZ21inline_ov023_021f4c04vE1s;
     int var2 = GetMessageWindow_020421a0();
     unsigned char* var3 = (unsigned char*)var2;
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     void* var4 = GetZone3D_02012fe4();
     int var5 = *var1;
 
@@ -78,7 +82,7 @@ extern "C" ARM int func_ov023_021f2638(unsigned char* arg0) {
     int var14 = GetMessageWindow_020421a0();
     unsigned char* var15 = (unsigned char*)var14;
     ClearMessageParams_02046380();
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     void* var16 = GetZone3D_02012fe4();
     int var17 = *var13;
 

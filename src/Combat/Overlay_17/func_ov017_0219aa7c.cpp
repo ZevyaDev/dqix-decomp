@@ -1,6 +1,15 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Input/Input.h"
+#include "Graphics/SPRSprite.h"
+
+#if defined(jpn)
+#define func_0202ec84 func_0202e7f4
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 struct Struct_0203de84 { int unknown_0_, unknown_4_, unknown_8_; };
 struct Struct_02015ef4 { int unknown_0_, unknown_4_, unknown_8_; };
@@ -19,23 +28,21 @@ typedef void (GameResources::*Type_02000c9c_15)();
 struct Struct_ov017_021d64f4 { Type_02000c9c_15 unknown_0_[15]; };
 extern const Struct_ov017_021d64f4 data_ov017_021d64f4;
 extern const Type_02000c9c_15 gNullMemberFunctionPointer_020e6d5c;
-extern "C" void* GetCamera_020100bc(GameState*);
+extern "C" void* func_020100bc(GameState*);
 extern "C" int IsPerformingGesture_020535c8(signed char*);
 extern "C" NPCManager_0203dce4_2* GetNPCManager_0203cf4c();
 extern "C" NPC_0203de84_2* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
 extern "C" void GetNPCPosition_020406f8(Struct_0203de84*, NPC_0203de84_2*);
 extern "C" void* func_02040538(Struct_0203e0a0*);
-extern "C" void ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
+extern "C" void func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" void func_0203a46c(Struct_0203a46c*, int, int, int);
 extern "C" int IsQueueEmpty_02046b08(void**);
-extern "C" int func_020479fc(Struct_020479fc*);
-extern "C" unsigned char func_020479b8(Struct_020479b8_3*);
 extern "C" void __clear(void*, unsigned int);
 
 // USA: func_ov017_0219aa7c
 extern "C" ARM void func_ov017_0219aa7c(GameResources* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetCamera_020100bc(var0);
+    void* var1 = func_020100bc(var0);
     GameObject* var2 = var0->GetUnknownGameObject();
     if (var2 == 0 || IsPerformingGesture_020535c8((signed char*)var2) || ((Struct_ov017_0219aa7c*)arg0->unknown_36b4_)->unknown_1_ == 18) return;
     Struct_02012fa4* var3 = &arg0->substruct_array_2b90[((Struct_ov017_0219aa7c*)arg0->unknown_36b4_)->unknown_1_];
@@ -75,15 +82,15 @@ extern "C" ARM void func_ov017_0219aa7c(GameResources* arg0) {
         var4 = var2->obj3D_.position_;
         var4.y += var2->obj3D_.GetHeight();
     }
-    ConvertWorldToScreen_0202ec84(var1, (Struct_02015ef4*)&var4, &var5, &var6);
+    func_0202ec84(var1, (Struct_02015ef4*)&var4, &var5, &var6);
     var5 -= 12;
     var6 -= 24;
     func_0203a46c((Struct_0203a46c*)var3, var5 << 12, var6 << 12, 0);
     if (!IsQueueEmpty_02046b08(static_cast<void**>(arg0->unknown_ptr_array_36fc[0]))) return;
     int var13 = 0;
     if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 10) {
-        int var14 = func_020479fc((Struct_020479fc*)var3);
-        int var15 = func_020479b8((Struct_020479b8_3*)var3);
+        int var14 = ((int)((SPRSprite*)((Struct_020479fc*)var3))->GetCurrentTextureWidth());
+        int var15 = ((SPRSprite*)((Struct_020479b8_3*)var3))->GetCurrentTextureHeight();
         int var16 = g_touchInput.prevX_;
         int var17 = g_touchInput.prevY_;
         if (var5 < var16 && var6 < var17 && var16 < var5 + var14 && var17 < var6 + var15) var13 = 1;

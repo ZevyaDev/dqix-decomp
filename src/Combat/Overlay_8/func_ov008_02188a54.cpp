@@ -10,6 +10,9 @@
 #include <Resource/CharacterCreationUI.h>
 #include <Combat/MapDisplay.h>
 #include "Resource/GameResources.h"
+#include "Graphics/BGLayer.h"
+#include "Resource/PAC.h"
+#include "Resource/StringList.h"
 
 struct TextWindowManager_0205d6a0;
 struct BGLayer_02020cb8_5;
@@ -51,20 +54,7 @@ struct Struct_ov008_021842a0_2 {
     int unknown_b20_;
 };
 
-extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
-extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8*);
-extern "C" void SetBGScreenSize_0204b11c(unsigned char*, int);
-extern "C" void SetBGPriority_0204b5b4(BGLayer_02020cb8*, int);
-extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
-extern "C" void AllocateBGScreenData_0204b12c(BGLayer_0204b12c*, SafeAllocator*);
-extern "C" void AllocateBGScreenBlocks_0204af38(BGLayer_0204af38*, int, SafeAllocator*);
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
-extern "C" void LoadBGBlock_0204b174(BGLayer_02020cb8*, void*, SafeAllocator*, int);
-extern "C" void CopyBGScreenBlockRect_0204b8d0(BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
-extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2*, void*);
-extern "C" void FillBGScreenRect_0204bc74(BGLayer_02020cb8*, int, int, int, int, int, int);
 extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8*, SafeAllocator*, int, unsigned int);
 extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78*, TextWindow_0205cf78_2*, unsigned char);
 
@@ -77,7 +67,7 @@ extern "C" ARM int func_ov008_02188a54(Struct_ov008_021842a0_2* arg0, int arg1) 
 #if defined(jpn)
         int var3 = 1;
         if (arg1) var3 = 2;
-        const char* var4 = FindStringInTable_020e0434(&arg0->unknown_a0_, var3);
+        const char* var4 = ((StringList*)(&arg0->unknown_a0_))->GetString(var3);
         arg0->unknown_b20_ = var1->QueueLoadFile(var4, 0);
 #else
         int var5 = 1;
@@ -86,8 +76,8 @@ extern "C" ARM int func_ov008_02188a54(Struct_ov008_021842a0_2* arg0, int arg1) 
             var5 = 3;
             var6 = 4;
         }
-        const char* var7 = FindStringInTable_020e0434(&arg0->unknown_a0_, var6);
-        const char* var8 = FindStringInTable_020e0434(&arg0->unknown_a0_, var5);
+        const char* var7 = ((StringList*)(&arg0->unknown_a0_))->GetString(var6);
+        const char* var8 = ((StringList*)(&arg0->unknown_a0_))->GetString(var5);
         arg0->unknown_b20_ = var1->QueueLoadFileInGP2(var8, var7, 0);
 #endif
         ++arg0->unknown_b12_;
@@ -100,40 +90,40 @@ extern "C" ARM int func_ov008_02188a54(Struct_ov008_021842a0_2* arg0, int arg1) 
     if (var2 == 2) {
         if (var1->GetTaskStatus(arg0->unknown_b20_)) {
             arg0->unknown_14_.Reset();
-            InitBGLayer_0204af64(&arg0->unknown_f0_);
-            SetBGScreenSize_0204b11c((unsigned char*)&arg0->unknown_f0_, 0);
+            ((BGLayer*)(&arg0->unknown_f0_))->Reset();
+            ((BGLayer*)((unsigned char*)&arg0->unknown_f0_))->ConfigureTextMode(0);
             arg0->unknown_f0_.isSubScreen_1c_0_ = 1;
             arg0->unknown_f0_.bgIndex_1c_4_ = 0;
-            SetBGPriority_0204b5b4(&arg0->unknown_f0_, 1);
-            SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)&arg0->unknown_f0_, 0, 0);
-            AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)&arg0->unknown_f0_, &arg0->unknown_14_);
-            AllocateBGScreenBlocks_0204af38((BGLayer_0204af38*)&arg0->unknown_f0_, 1, &arg0->unknown_14_);
-            InitBGLayer_0204af64(&arg0->unknown_110_);
-            SetBGScreenSize_0204b11c((unsigned char*)&arg0->unknown_110_, 0);
+            ((BGLayer*)(&arg0->unknown_f0_))->SetPriority(1);
+            ((BGLayer*)((BGLayer_02020cb8_5*)&arg0->unknown_f0_))->SetOffset(0, 0);
+            ((BGLayer*)((BGLayer_0204b12c*)&arg0->unknown_f0_))->AllocateIndexBuffer((SafeAllocator*)(&arg0->unknown_14_));
+            ((BGLayer*)((BGLayer_0204af38*)&arg0->unknown_f0_))->AllocateSprites(1, (SafeAllocator*)(&arg0->unknown_14_));
+            ((BGLayer*)(&arg0->unknown_110_))->Reset();
+            ((BGLayer*)((unsigned char*)&arg0->unknown_110_))->ConfigureTextMode(0);
             arg0->unknown_110_.isSubScreen_1c_0_ = 1;
             arg0->unknown_110_.bgIndex_1c_4_ = 1;
-            SetBGPriority_0204b5b4(&arg0->unknown_110_, 0);
-            SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)&arg0->unknown_110_, 0, 0);
-            AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)&arg0->unknown_110_, &arg0->unknown_14_);
+            ((BGLayer*)(&arg0->unknown_110_))->SetPriority(0);
+            ((BGLayer*)((BGLayer_02020cb8_5*)&arg0->unknown_110_))->SetOffset(0, 0);
+            ((BGLayer*)((BGLayer_0204b12c*)&arg0->unknown_110_))->AllocateIndexBuffer((SafeAllocator*)(&arg0->unknown_14_));
             void* var9;
             void* var10;
             unsigned int var11;
             var1->GetLoadedFileByID(arg0->unknown_b20_, &var10, &var11);
-            int var12 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var10);
+            int var12 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var10));
             int var13;
             for (int var14 = 0; var14 < var12; ++var14) {
-                void* var15 = GetPacEntryData_020467f0((PacEntry_02020aec*)var10, var14, &var9, &var13);
+                void* var15 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var10), var14, (const char**)(&var9), (unsigned int*)(&var13));
                 if (var15) {
-                    if (var14 == var12 - 1) LoadBGBlock_0204b174(&arg0->unknown_110_, var15, &arg0->unknown_14_, var13);
-                    else LoadBGBlock_0204b174(&arg0->unknown_f0_, var15, &arg0->unknown_14_, var13);
+                    if (var14 == var12 - 1) ((BGLayer*)(&arg0->unknown_110_))->ProcessGraphicsFile((const void*)var15, (SafeAllocator*)(&arg0->unknown_14_), var13);
+                    else ((BGLayer*)(&arg0->unknown_f0_))->ProcessGraphicsFile((const void*)var15, (SafeAllocator*)(&arg0->unknown_14_), var13);
                 }
             }
             var1->RemoveTask(arg0->unknown_b20_);
             arg0->unknown_b20_ = -1;
-            CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&arg0->unknown_f0_, 0, 0, 0, 0, 0, 32, 24, 0xffff);
-            LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&arg0->unknown_f0_, 0);
-            FillBGScreenRect_0204bc74(&arg0->unknown_110_, 0, 0, 0, 32, 25, 0);
-            LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&arg0->unknown_110_, 0);
+            ((BGLayer*)((BGLayer_0204b8d0*)&arg0->unknown_f0_))->BlitSpriteByIndex(0, 0, 0, 0, 0, 32, 24, 0xffff);
+            ((BGLayer*)((BGLayer_02020cb8_2*)&arg0->unknown_f0_))->CleanCacheAndUploadIndexBuffer((const void*)(0));
+            ((BGLayer*)(&arg0->unknown_110_))->SetTileInRectangle(0, 0, 0, 32, 25, 0);
+            ((BGLayer*)((BGLayer_02020cb8_2*)&arg0->unknown_110_))->CleanCacheAndUploadIndexBuffer((const void*)(0));
             Struct_ov006_02158478* var16;
             for (int var17 = 0; var17 < 6; ++var17) {
                 var16 = &arg0->unknown_1ec_[var17];

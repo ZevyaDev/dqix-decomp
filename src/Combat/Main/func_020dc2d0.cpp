@@ -3,8 +3,16 @@
 #include "Grotto/Main/GrottoStruct.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 extern "C" {
-    void* GetLocalWireless_0202ae18(GrottoStruct* arg0);
+    void* func_0202ae18(GrottoStruct* arg0);
     int IsNotLocalWirelessGuest_0202c508(void* wireless);
     void* GetZone3D_02012fe4(void);
 }
@@ -22,7 +30,7 @@ struct Struct_020dc2d0 {
 extern "C" void func_020dc214(int arg0);
 extern "C" int* func_020936f8(void);
 extern "C" void func_020941b0(struct Struct_02093b90_2* arg0);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
 
@@ -36,7 +44,7 @@ enum { Enum_020dc2d0_1788 = 0x6fc };
 extern "C" ARM void func_020dc2d0(int arg0) {
     GameState* var0 = GameState::GetInstance();
     GrottoStruct* var1 = var0->GetGrottoStruct();
-    void* var2 = GetLocalWireless_0202ae18(var1);
+    void* var2 = func_0202ae18(var1);
     void* var3 = GetZone3D_02012fe4();
     int var4;
     int var5;
@@ -77,5 +85,5 @@ extern "C" ARM void func_020dc2d0(int arg0) {
     }
 
     func_020941b0((Struct_02093b90_2*)func_020936f8());
-    ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x41);
+    ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)func_020d6c00(), 0x41);
 }

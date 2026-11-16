@@ -3,6 +3,10 @@
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 struct Struct_ov025_021e2980 {
     unsigned char unknown_0_[8];
     const char* unknown_8_;
@@ -63,7 +67,7 @@ extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int)
 extern "C" ARM int func_ov025_021e2980(Struct_ov025_021e2980* arg0, Struct_ov025_021e2980_2* arg1, int arg2, void* arg3) {
     GameState* var0 = GameState::GetInstance();
     if (arg0->unknown_e_ == 0x19) {
-        void* var1 = GetCamera_020100bc(var0);
+        void* var1 = func_020100bc(var0);
         if (func_0202e09c((int)var1) & 0x10) {
             Object3D* var2 = func_0204a438((Struct_0204a438*)var1);
             if (var2) {
@@ -80,7 +84,7 @@ extern "C" ARM int func_ov025_021e2980(Struct_ov025_021e2980* arg0, Struct_ov025
         for (int var5 = 0; var5 < var4; var5++) {
             Struct_ov025_021e2980_3* var6 = (Struct_ov025_021e2980_3*)var0->GetGameObjectByIndex(var3[var5]);
             if (!var6) continue;
-            if (var6->unknown_0_.classFlags_0_ & 0x80) {
+            if (var6->unknown_0_.unknown_0_ & 0x80) {
                 func_02048c90((Struct_02048c90*)var6);
                 StopCombatantSidestep_02049ae4((unsigned char*)var6);
                 int var7 = var6->unknown_be_;

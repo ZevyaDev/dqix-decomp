@@ -2,6 +2,10 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 struct Struct_02114e20;
 extern "C" unsigned int func_02012dd0(struct Struct_02114e20* arg0);
 
@@ -11,7 +15,7 @@ struct NitroHandle;
 NitroHandle* NitroHandle_FindBySignature(const char* sig, int a);
 void NitroHandle_ReleaseFileTables(NitroHandle* h);
 
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 
 struct Struct_020a0cc4;
 
@@ -34,7 +38,7 @@ extern "C" ARM int ReleaseFileTablesForSpace_020a0cc4(int neededSize) {
         }
 
         NitroHandle_ReleaseFileTables(NitroHandle_FindBySignature(data_020f18e8, 3));
-        FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, data_02109d90);
+        func_02012da4((AllocatorUnion*)&gMainHeap_02114e20, data_02109d90);
         data_02109d90 = NULL;
 
         if (backgroundLoader != 0) {

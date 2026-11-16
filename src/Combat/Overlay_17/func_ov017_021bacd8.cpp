@@ -5,6 +5,10 @@
 #include "Resource/Brightness.h"
 
 #if defined(jpn)
+#define func_020a1df8 func_020a3b70
+#endif
+
+#if defined(jpn)
 enum { Enum_ov017_021bacd8_62524 = 0xf454, Enum_ov017_021bacd8_1020 = 0x414 };
 #else
 enum { Enum_ov017_021bacd8_62524 = 0xf43c, Enum_ov017_021bacd8_1020 = 0x3fc };
@@ -14,7 +18,7 @@ extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void SetCameraFlags_020a28a0(unsigned char* camera, unsigned char flags);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" void EnablePlayerControl_020397c0(void* object);
-extern "C" void PushOverlay_020a1df8(int overlayEntry);
+extern "C" void func_020a1df8(int overlayEntry);
 
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
@@ -75,7 +79,7 @@ extern "C" ARM void func_ov017_021bacd8(Struct_ov017_021bacd8* arg0) {
             arg0->unknown_1_ = 1;
             return;
         }
-        PushOverlay_020a1df8(3);
+        func_020a1df8(3);
         func_ov003_0215c650(arg0->unknown_20_);
         func_ov003_0215c568(arg0->unknown_20_, &arg0->unknown_c_);
         arg0->unknown_8_ += 1;

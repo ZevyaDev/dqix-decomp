@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "World/ZoneChest.h"
 #include "Graphics/Vector.h"
+#include "World/Zone3DTypes.h"
 
 struct ActiveZone_020fdd44 {
     unsigned short zoneId_0_;
@@ -18,7 +19,7 @@ extern "C" ARM void func_02018918(Zone3D* arg0, Struct_020134e0::Struct_02018300
         var0->unknown_2_ &= ~1;
         var0->unknown_2_ &= ~4;
         for (int var1 = 0; var1 < arg0->unknown_82c_; ++var1) {
-            Struct_02016874_2* var2 = arg0->unknown_824_[var1];
+            Struct_02016874_2* var2 = (*(Struct_02016874_2***)(arg0->unk_5f0 + 0x234))[var1];
             if (var2->unknown_28_ == var0) {
                 var2->unknown_2_ &= ~1;
                 break;

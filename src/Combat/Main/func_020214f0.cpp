@@ -1,9 +1,17 @@
 #include <globaldefs.h>
 
-extern "C" void* GetGlobalFlags_020d6c00(void);
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02046708 func_02047528
+#endif
+
+extern "C" void* func_020d6c00(void);
 
 struct GlobalFlags_02012de8;
-extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
+extern "C" int func_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 
 extern "C" {
     void func_02021578(void* arg0);
@@ -29,7 +37,7 @@ extern "C" ARM void func_020214f0(struct Struct_020214f0* arg0) {
     if (arg0->unknown_9c3_ == 0) {
         return;
     }
-    if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)GetGlobalFlags_020d6c00(), 0x41)) {
+    if (func_02046708((struct GlobalFlags_02012de8*)func_020d6c00(), 0x41)) {
         return;
     }
 

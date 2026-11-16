@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_0205c570;
 struct SoundEffectManager_02108760;
 struct TextWindowManager_0205d6a0;
@@ -52,7 +56,7 @@ extern "C" int func_ov000_0217c5f4(void* arg0);
 extern "C" int func_ov000_0217c594(void* arg0, int arg1);
 extern "C" void func_ov000_0217c638(void* arg0, int arg1, int arg2);
 extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
-extern "C" struct Struct_ov000_0217d438* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" struct Struct_ov000_0217d438* func_02053c6c(unsigned char* gameObject);
 extern "C" void func_ov000_02170ffc(void* arg0);
 extern "C" int func_ov000_02177798(void* arg0);
 extern "C" void func_ov017_021c847c();
@@ -78,7 +82,7 @@ extern "C" ARM void func_ov000_0217d438(struct Struct_ov000_0217d438_3* arg0, in
             if (var2 != NULL) {
                 GameObject* var3 = var0->GetPartyMemberByIndex(var1);
                 if (var3 != NULL) {
-                    struct Struct_ov000_0217d438* var4 = GetPartyMemberData_02053c6c((unsigned char*)var3);
+                    struct Struct_ov000_0217d438* var4 = func_02053c6c((unsigned char*)var3);
                     if ((signed char)var4->unknown_94c_ != arg0->unknown_1d6c_) {
                         var4->unknown_94c_ = arg0->unknown_1d6c_;
                         func_ov000_02170ffc(var2);
@@ -97,10 +101,10 @@ extern "C" ARM void func_ov000_0217d438(struct Struct_ov000_0217d438_3* arg0, in
                 if (var5->unknown_24_ & 2) {
                     continue;
                 }
-                if (!(var7->obj3D_.classFlags_0_ & 0x1000)) {
+                if (!(var7->obj3D_.unknown_0_ & 0x1000)) {
                     continue;
                 }
-                struct Struct_ov000_0217d438* var8 = GetPartyMemberData_02053c6c((unsigned char*)var7);
+                struct Struct_ov000_0217d438* var8 = func_02053c6c((unsigned char*)var7);
                 if ((signed char)var8->unknown_94c_ == arg0->unknown_1d6c_) {
                     continue;
                 }

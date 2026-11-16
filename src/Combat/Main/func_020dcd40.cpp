@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_02086e9c;
 struct Struct_02086e50;
 struct Struct_02086a04;
@@ -23,7 +27,7 @@ extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState* gameState
 extern "C" void func_020546a0(void* arg0, int arg1);
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" void func_020546b4(void*, int);
-extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" unsigned char* func_02053c6c(unsigned char* gameObject);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
 extern "C" int func_020865b0(Struct_0201099c_16* arg0);
@@ -84,7 +88,7 @@ extern "C" ARM int func_020dcd40() {
         }
         func_020546b4(var10, var13);
         GetParty_02010828(var2);
-        unsigned char* var16 = GetPartyMemberData_02053c6c((unsigned char*)var10);
+        unsigned char* var16 = func_02053c6c((unsigned char*)var10);
 #if defined(jpn)
         strcpy((char*)var10->baseStats_, (const char*)var6 + 0x140);
 #else

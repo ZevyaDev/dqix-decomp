@@ -4,6 +4,10 @@
 #include "NitroSDK/Filesystem/FileAccessor.h"
 #include "NitroSDK/GamecardBusOwnership.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 
 struct Struct_ov031_0223b324_2 {
 	void* unknown_0_;
@@ -20,7 +24,7 @@ extern "C" int func_ov031_0223b614(NitroHandle*, const void*, unsigned int, unsi
 extern "C" ARM int func_ov031_0223b5c4(NitroHandle* arg0, void* arg1, unsigned int arg2, unsigned int arg3);
 
 extern "C" ARM void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int size, int alignAndDir);
-extern "C" void HaltForever_020c9be0(void);
+extern "C" void func_020c9be0(void);
 extern "C" ARM void* func_ov031_0223beec(int arg0, int arg1, int arg2);
 extern "C" int func_020c7130(char*, const char*, ...);
 
@@ -37,10 +41,10 @@ extern "C" ARM void func_ov031_0223b324(void) {
 	NitroVM var0;
 	NitroVM_Initialize(&var0);
 	if (!NitroVM_PrepareReadFileByPath(&var0, data_ov031_0224c544))
-		HaltForever_020c9be0();
+		func_020c9be0();
 
 	data_ov031_02290d24.unknown_0_->unknown_e4_ = GenerateLockOwnerID();
-	void* var1 = (void*)var0.fileInfo.unknown_4_;
+	void* var1 = (void*)var0.fileInfo.startOffset;
 	Struct_ov031_0223b324 var2;
 	NitroVM_ReadSync(&var0, &var2, 8);
 	Struct_ov031_0223b324 var3;
@@ -49,14 +53,14 @@ extern "C" ARM void func_ov031_0223b324(void) {
 
 	NitroHandle_Initialize(&data_ov031_02290d24.unknown_0_->unknown_88_);
 	if (!NitroHandle_AddToHandleList(&data_ov031_02290d24.unknown_0_->unknown_88_, data_ov031_0224939c, 3))
-		HaltForever_020c9be0();
+		func_020c9be0();
 
 	NitroHandle_SetOpcodeOverride(&data_ov031_02290d24.unknown_0_->unknown_88_, func_ov031_0223b560, 0x602);
 
 	if (!NitroHandle_Populate(&data_ov031_02290d24.unknown_0_->unknown_88_, var1,
 			var3.unknown_0_, var3.unknown_4_, var2.unknown_0_, var2.unknown_4_,
 			func_ov031_0223b5c4, func_ov031_0223b614))
-		HaltForever_020c9be0();
+		func_020c9be0();
 
 	unsigned int var4 = NitroHandle_LoadFileTables(&data_ov031_02290d24.unknown_0_->unknown_88_, NULL, 0);
 	data_ov031_02290d24.unknown_0_->unknown_0_ = AllocateZeroedMemory_ov031_0223cf4c(var4, 4);

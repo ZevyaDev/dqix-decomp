@@ -1,15 +1,27 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0203be40 func_0203b898
+#endif
+
+#if defined(jpn)
+#define func_0203be4c func_0203b8a4
+#endif
+
+#if defined(jpn)
+#define func_0203bd08 func_0203b760
+#endif
+
 extern "C" void func_ov023_021f6ed8(void* arg0);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" int func_ov023_021f6c90(void* arg0, int arg1, int arg2);
 extern "C" ARM void func_ov023_021f6bec(void* arg0, int arg1, unsigned int arg2, unsigned int arg3);
 struct Struct_02075cdc;
 extern "C" void func_02075cdc(struct Struct_02075cdc* arg0);
-extern "C" void* GetOAMManager_0203bd08(void);
+extern "C" void* func_0203bd08(void);
 extern "C" void* func_0203be40(void);
-extern "C" void* GetSubOAMBuffer_0203be4c(void);
+extern "C" void* func_0203be4c(void);
 extern "C" int func_ov023_021f6e5c(void* arg0, int arg1);
 extern "C" void func_ov023_021f6e10(void* arg0, int arg1, unsigned int arg2);
 struct Struct_ov023_021fb534;
@@ -29,11 +41,11 @@ extern "C" ARM int func_ov023_021fb534(void* arg0, void* arg1, unsigned short ar
     func_02075cdc((struct Struct_02075cdc*)((char*)arg0 + 0x20));
     void* var2;
     if (arg5 == 0) {
-        GetOAMManager_0203bd08();
+        func_0203bd08();
         var2 = func_0203be40();
     } else {
-        GetOAMManager_0203bd08();
-        var2 = GetSubOAMBuffer_0203be4c();
+        func_0203bd08();
+        var2 = func_0203be4c();
     }
     *(void**)((char*)arg0 + 0x34) = (char*)var2 + var1 * 8;
     *(unsigned int*)((char*)arg0 + 0x58) = 0;

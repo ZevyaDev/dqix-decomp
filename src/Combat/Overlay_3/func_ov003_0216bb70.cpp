@@ -10,6 +10,10 @@
 #include <NitroSDK/Memory.h>
 #include <std_library_functions.h>
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 struct Struct_ov000_0217636c_2 {
     char unknown_0_[REGION_LAYOUT(0x28, 0x5c)];
     void* unknown_5c_;
@@ -37,7 +41,7 @@ struct Struct_ov003_0216bb70 {
 
 extern "C" Struct_ov000_0217636c_2* GetMessageWindow_020421a0();
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern AllocatorUnion gMainHeap_02114e20;
 
 extern "C" void func_ov003_0215c650(void* arg0);
@@ -77,7 +81,7 @@ extern "C" ARM void func_ov003_0216bb70(Struct_ov003_0216bb70* arg0)
         SignedAllocatorHeader* var3 = arg0->unknown_12d4_.GetSignedAllocator();
         if (var3 != NULL) {
             arg0->unknown_12d4_.Destroy();
-            FreeMemory_02012da4(&gMainHeap_02114e20, var3);
+            func_02012da4(&gMainHeap_02114e20, var3);
         }
         if (var2 == 0) {
             arg0->unknown_4_ = 7;

@@ -10,10 +10,14 @@ enum { Enum_ov017_021b8d80_140 = 0x8c };
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 extern "C" int GetMessageWindow_020421a0();
 struct Struct_0208ba54;
 extern "C" void func_0208ba54(struct Struct_0208ba54* arg0);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_ov008_021845ac(void* arg0);
 extern "C" void func_020dc2d0(int arg0);
 struct GameResources;
@@ -39,7 +43,7 @@ extern "C" ARM void func_ov017_021b8d80(unsigned char* arg0) {
         void* var3 = var2->GetSignedAllocator();
         if (var3) {
             var2->Destroy();
-            FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var3);
+            func_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var3);
         }
     }
 
@@ -49,7 +53,7 @@ extern "C" ARM void func_ov017_021b8d80(unsigned char* arg0) {
         void* var5 = var4->GetSignedAllocator();
         if (var5) {
             var4->Destroy();
-            FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var5);
+            func_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var5);
         }
         *(int*)(arg0 + 0x118) = 0;
 

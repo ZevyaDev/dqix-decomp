@@ -6,6 +6,15 @@
 #include "World/LootableContainer.h"
 #include "Resource/Brightness.h"
 #include "Resource/TextQueue.h"
+#include "Resource/GameStrings.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 #if defined(jpn)
 enum { Enum_ov017_021adcb0_10020 = 0x2764, Enum_ov017_021adcb0_10068 = 0x2794, Enum_ov017_021adcb0_96 = 0x2c, Enum_ov017_021adcb0_2400 = 0x800 };
@@ -87,14 +96,13 @@ extern "C" void* GetFollowCamera_020100f8(char* gameState);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void EnableCameraFollow_020a2794(void* camera);
 extern "C" void SetFacing_02033834(Struct_02033834_2* object, int angle);
-extern "C" int* GetLocalWireless_0202ae18(void);
+extern "C" int* func_0202ae18(void);
 extern "C" unsigned char* func_020177a8(unsigned char* arg0, int arg1);
 extern "C" Container* func_02094d5c(Struct_02015ef4_3* arg0, int arg1);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
-extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" int func_020d805c(Struct_020d805c* arg0);
@@ -111,7 +119,7 @@ extern "C" void func_02015a98(Struct_02015a98*, int, int, int);
 extern "C" void func_ov017_021cfd5c(unsigned char arg0, unsigned short arg1, unsigned short arg2);
 extern "C" int func_ov017_0218d618(Struct_ov017_0218d618_2* arg0);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" void func_ov017_021a9bc4(void* arg0, int arg1);
 extern "C" void func_ov017_021a9a9c(void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
@@ -169,7 +177,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
         }
         *(unsigned short*)((char*)var6 + 0xb2) = 0;
         SetFacing_02033834((Struct_02033834_2*)var6, arg0->unknown_10_);
-        int* var11 = GetLocalWireless_0202ae18();
+        int* var11 = func_0202ae18();
         Struct_ov017_021adcb0_2* var12 = (Struct_ov017_021adcb0_2*)func_020177a8(var2, arg0->unknown_a_);
         Container* var13 = NULL;
         if (var12) {
@@ -191,7 +199,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
 #else
             InitPartyMemberNoun_020e4bf4(var15, arg0->unknown_8_);
             *(char**)var1 = var15;
-            func_02046608(var1, 0xc, GetStandardString_020e51cc(0x28), var16, 0xe3, 0, 1);
+            func_02046608(var1, 0xc, ((int)GetGameString((eGameString)(0x28))), var16, 0xe3, 0, 1);
             func_020d7e10(func_020d7a50(), var16, 0, 0, 1, 1);
 #endif
             func_ov017_021ae760(arg0);
@@ -221,8 +229,8 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
                 char var23[0x100];
                 char var24[0xc];
                 char var25[0x100];
-                int var26 = GetStandardString_020e51cc(0x29);
-                sprintf(var25, data_ov017_021d799c, var26, GetStandardString_020e51cc(0x2b));
+                int var26 = ((int)GetGameString((eGameString)(0x29)));
+                sprintf(var25, data_ov017_021d799c, var26, ((int)GetGameString((eGameString)(0x2b))));
                 InitPartyMemberNoun_020e4bf4(var24, arg0->unknown_8_);
                 *(char**)var1 = var24;
                 func_02046608(var1, 0xc, (int)var25, var23, 0xe3, 0, 1);
@@ -242,10 +250,10 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
 #else
                 char var28[0x100];
                 if (var20 > 0 || var21 > 0) {
-                    int var29 = GetStandardString_020e51cc(0x29);
-                    sprintf(var28, data_ov017_021d799c, var29, GetStandardString_020e51cc(0x2c));
+                    int var29 = ((int)GetGameString((eGameString)(0x29)));
+                    sprintf(var28, data_ov017_021d799c, var29, ((int)GetGameString((eGameString)(0x2c))));
                 } else {
-                    sprintf(var28, data_ov017_021d79a2, GetStandardString_020e51cc(0x29));
+                    sprintf(var28, data_ov017_021d79a2, ((int)GetGameString((eGameString)(0x29))));
                 }
                 func_020d7e10(func_020d7a50(), var28, 0, 0, 1, 1);
 #endif
@@ -287,12 +295,12 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
             Struct_ov017_021adcb0_2* var31 = (Struct_ov017_021adcb0_2*)func_020177a8(var2, arg0->unknown_a_);
             if (var31) {
                 if (var31->unknown_17_ == 2 || var31->unknown_17_ == 1) {
-                    func_02015a98((Struct_02015a98*)var31, var6->obj3D_.objectIndex_4_, 1, 1);
+                    func_02015a98((Struct_02015a98*)var31, var6->obj3D_.unknown_4_, 1, 1);
                 } else {
-                    func_02015a98((Struct_02015a98*)var31, var6->obj3D_.objectIndex_4_, 1, 0);
+                    func_02015a98((Struct_02015a98*)var31, var6->obj3D_.unknown_4_, 1, 0);
                 }
             }
-            func_ov017_021cfd5c(var6->obj3D_.objectIndex_4_, *(unsigned short*)var2, arg0->unknown_a_);
+            func_ov017_021cfd5c(var6->obj3D_.unknown_4_, *(unsigned short*)var2, arg0->unknown_a_);
             arg0->unknown_9_ = 2;
         }
     } else if (arg0->unknown_9_ == 2) {
@@ -323,7 +331,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
             memset(var35, 0, Enum_ov017_021adcb0_2400);
             int var36 = 0;
             if (var34) {
-                GetFlagManager_0205ec34();
+                func_0205ec34();
                 unsigned short var37 = 0;
                 Container* var38;
                 if (arg0->unknown_20_) {
@@ -344,7 +352,6 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
                         arg0->unknown_22_ = var38->itemIDOrRank;
                     } else {
                         Struct_ov017_021a7e14_4 var40;
-                        var40.unknown_0_.ResetAllocatorPointer();
                         InitItemTable_020de824(var40.unknown_14_);
                         func_0207cbe8((char*)&var40);
                         char var41[0x80] = {};
@@ -365,7 +372,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
 #if defined(jpn)
                 sprintf(var35, data_ov017_021d80b3);
 #else
-                sprintf(var35, (char*)GetStandardString_020e51cc(0x2d));
+                sprintf(var35, (char*)((int)GetGameString((eGameString)(0x2d))));
 #endif
             }
         }
@@ -400,7 +407,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
                     }
                 }
                 int var48 = var45->uniqueID;
-                unsigned char* var49 = (unsigned char*)GetFlagManager_0205ec34();
+                unsigned char* var49 = (unsigned char*)func_0205ec34();
                 if (var45->containerType == 0) {
                     SetFlag_0206df6c(var49, var49 + 0x8c, var48 + 0x212, 1);
                     func_ov017_021cdb00(1, var48, 1, -1);
@@ -448,8 +455,8 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
 #if defined(jpn)
                     sprintf(var53, data_ov017_021d7f9c[0], var54[var57]);
 #else
-                    SetMessageString_02046574((Struct_02046574_2*)var1, 0, (char*)GetStandardString_020e51cc(var55[var57]));
-                    func_02046608(var1, 0xc, GetStandardString_020e51cc(0x2a), var53, 0xe3, 0, 1);
+                    SetMessageString_02046574((Struct_02046574_2*)var1, 0, (char*)((int)GetGameString((eGameString)(var55[var57]))));
+                    func_02046608(var1, 0xc, ((int)GetGameString((eGameString)(0x2a))), var53, 0xe3, 0, 1);
 #endif
                 }
             }
@@ -459,7 +466,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
             func_020d7e10(func_020d7a50(), var53, 0, 0, 1, 1);
 #endif
             func_ov017_021c2744((Struct_ov017_021adcb0*)var51);
-            var51->unknown_14_ = var6->obj3D_.objectIndex_4_;
+            var51->unknown_14_ = var6->obj3D_.unknown_4_;
             var51->unknown_11_ = 1;
             var51->unknown_18_ = arg0->unknown_22_;
             func_02046a3c((Struct_02046a3c_2*)var8, (Struct_02046a3c*)var51);

@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void* GetZone3D_02012fe4(void);
@@ -9,7 +13,7 @@ extern "C" void func_ov017_021ce400(unsigned char arg0, unsigned short arg1);
 
 // USA: func_ov017_021ce4e0
 extern "C" ARM void func_ov017_021ce4e0(void) {
-    if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18())) return;
+    if (IsLocalWirelessGuest_0202c540(func_0202ae18())) return;
     GameState* var0 = GameState::GetInstance();
     unsigned char* var1 = (unsigned char*)GetParty_02010828(var0);
     if (var1[0xf7d] == 0) return;

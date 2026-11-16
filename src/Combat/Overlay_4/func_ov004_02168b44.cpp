@@ -6,6 +6,10 @@
 #include "Resource/Brightness.h"
 
 #if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
 enum { Enum_ov004_02168b44_336 = 0x144, Enum_ov004_02168b44_29888 = 0x7280, Enum_ov004_02168b44_420 = 0x24, Enum_ov004_02168b44_29180 = 0x6fbc, Enum_ov004_02168b44_22172 = 0x543c, Enum_ov004_02168b44_108 = 0x8c, Enum_ov004_02168b44_15236 = 0x3964, Enum_ov004_02168b44_6498 = 0x1790, Enum_ov004_02168b44_6500 = 0x1794, Enum_ov004_02168b44_6536 = 0x17b8 };
 #else
 enum { Enum_ov004_02168b44_336 = 0x150, Enum_ov004_02168b44_29888 = 0x74c0, Enum_ov004_02168b44_420 = 0x1a4, Enum_ov004_02168b44_29180 = 0x71fc, Enum_ov004_02168b44_22172 = 0x569c, Enum_ov004_02168b44_108 = 0x6c, Enum_ov004_02168b44_15236 = 0x3b84, Enum_ov004_02168b44_6498 = 0x1962, Enum_ov004_02168b44_6500 = 0x1964, Enum_ov004_02168b44_6536 = 0x1988 };
@@ -27,7 +31,7 @@ extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void SetDisplayWindowInsideLayers_020e2d24(int* displayWindow, int layers, int isEffectEnabled);
 extern "C" void* func_ov004_02168ad4(void* arg0, int arg1);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 #if defined(jpn)
@@ -109,7 +113,7 @@ extern struct Struct_ov004_021700d4 data_ov004_021700d4;
 // USA: func_ov004_02168b44
 extern "C" ARM int func_ov004_02168b44(void* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     struct Struct_ov004_02168b44* var2 = (struct Struct_ov004_02168b44*)((char*)var0 + Enum_ov004_02168b44_29888);
     int var3;
     for (var3 = 0; var3 < 3; var3++, var2++) {

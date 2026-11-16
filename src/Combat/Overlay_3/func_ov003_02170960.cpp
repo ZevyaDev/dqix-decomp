@@ -1,5 +1,8 @@
+#if !defined(jpn)
 #include <globaldefs.h>
 #include "Combat/Main/BattleList.h"
+#include "Resource/GameStrings.h"
+#include "Resource/StringList.h"
 
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void);
@@ -11,10 +14,8 @@ extern "C" void SetNoun_020e4b34(Noun_020e4b34* noun, void* singularText, int pl
     unsigned char pluralIndefiniteArticle, unsigned char singularDefiniteArticle, unsigned char pluralDefiniteArticle, unsigned char gender,
     unsigned char isPluralOnly, unsigned char isProperName, unsigned char hasInitialVowelSound, unsigned char isInitialVowelFromText);
 
-extern "C" int GetStandardString_020e51cc(int stringId);
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 extern "C" void StartMessage_0204500c(void*, int, int, int);
 
@@ -44,15 +45,16 @@ extern "C" ARM void func_ov003_02170960(struct Struct_ov003_02170960_2* arg0, in
         SetNoun_020e4b34(&var1, var3, 0, 0, 0, 0, 0, arg2->unknown_2e_0_, 0, 1, 0, 1);
         *(void**)(var0 + 0x10) = &var1;
 
-        int var4 = GetStandardString_020e51cc(arg2->unknown_c_0_);
+        int var4 = ((int)GetGameString((eGameString)(arg2->unknown_c_0_)));
 
         SetNoun_020e4b34(&var2, (void*)var4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         *(void**)(var0 + 0x28) = &var2;
     }
 
-    int var5 = FindStringInTable_020e0434(arg0->unknown_d8_, (short)arg1);
+    int var5 = ((int)((StringList*)(arg0->unknown_d8_))->GetString((short)arg1));
     StartMessage_0204500c((void*)var0, var5, 0, 0xe3);
 
     *(unsigned char*)(var0 + 0x1000 + 0x9b2) = 1;
     *(int*)(var0 + 0x99c) = 2;
 }
+#endif

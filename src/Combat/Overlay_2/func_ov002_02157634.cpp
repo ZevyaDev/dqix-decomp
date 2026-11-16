@@ -3,6 +3,14 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 
 
 struct Struct_ov002_02157634_5;
@@ -119,11 +127,11 @@ extern "C" void func_ov002_02157ce0(char* arg0);
 extern "C" void func_020a8170(struct Struct_ov002_02157634_6* arg0);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
-extern "C" unsigned char* GetFlagManager_0205ec34(void);
+extern "C" unsigned char* func_0205ec34(void);
 extern "C" void func_020a818c(void* arg0, void* arg1);
 extern "C" void func_020a8304(void* arg0);
 extern "C" int func_ov017_021ab860(signed char arg0, int arg1);
@@ -155,7 +163,7 @@ extern "C" ARM void func_ov002_02157634(struct Struct_ov002_02157634_2* arg0) {
     int var5 = 0;
     int var6 = Enum_ov002_02157634_38;
     if (arg0->unknown_1bb8_ == Enum_ov002_02157634_6) {
-        void* var7 = GetLocalWireless_0202ae18();
+        void* var7 = func_0202ae18();
         unsigned short* var8 = (unsigned short*)GetZone3D_02012fe4();
         unsigned short var9 = *var8;
         switch (var3->unknown_18_) {
@@ -193,7 +201,7 @@ extern "C" ARM void func_ov002_02157634(struct Struct_ov002_02157634_2* arg0) {
             }
             arg0->unknown_1bb8_ = var6;
             {
-                unsigned char* var10 = GetFlagManager_0205ec34();
+                unsigned char* var10 = func_0205ec34();
                 SetFlag_0206df6c(var10, var10 + 0x8c, 0x1141, 1);
             }
             return;

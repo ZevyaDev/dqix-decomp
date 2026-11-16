@@ -1,6 +1,7 @@
 #include "Combat/TryApplyElemFields.h"
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameStrings.h"
 
 struct Struct_ov000_0215767c {
     char unknown_0_[4];
@@ -60,7 +61,6 @@ extern "C" void ClearMessageParams_02046380(Struct_ov000_02184294* window);
 extern "C" int func_ov000_02153a8c(GameObject* arg0);
 extern "C" int func_020dd290(void*, unsigned int);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
-extern "C" const char* GetStandardString_020e51cc(int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 struct TextWindowManager_0205d81c;
 extern "C" void* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
@@ -134,7 +134,7 @@ extern "C" ARM void func_ov000_02178d28(Struct_ov000_02178d28_2* arg0, Struct_ov
     SetMessageNumberAlignment_020465d8((unsigned char*)var4, 1, 1);
     AppendText_02042058(var0, data_ov000_02185169);
 #else
-    AppendText_02042058(var0, GetStandardString_020e51cc(0x3ec));
+    AppendText_02042058(var0, GetGameString((eGameString)(0x3ec)));
 #endif
     Struct_ov000_0217636c* var10 = &arg0->unknown_188_;
     if (FindTextWindow_0205d81c((TextWindowManager_0205d81c*)var10, 0x22) != NULL) {

@@ -3,6 +3,14 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
+#define func_0202b2f0 func_0202aea0
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
 enum { Enum_ov003_02171550_1840 = 0x62c };
 enum { Enum_ov003_02171550_1836 = 0x628 };
 enum { Enum_ov003_02171550_1828 = 0x618 };
@@ -21,7 +29,7 @@ struct Struct_ov003_02171550 {
     unsigned char unknown_730_;
 };
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int func_0202b000(void* arg0);
 extern "C" void StopLocalWireless_0202b0f4(void* wireless);
 extern "C" int func_0202b7ec(void* arg0);
@@ -41,7 +49,7 @@ extern "C" ARM void func_ov003_02171550(struct Struct_ov003_02171550* arg0) {
     }
 
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     GameObject* var2 = var0->GetProtagonist();
 
     int var3 = func_0202b000(var1);

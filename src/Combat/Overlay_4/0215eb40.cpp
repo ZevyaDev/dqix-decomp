@@ -3,6 +3,10 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_ov004_0215eb40_2 {
     unsigned short unknown_0_[7];
     unsigned char unknown_e_[7];
@@ -85,7 +89,7 @@ extern "C" struct Struct_ov004_0215eb40_4* func_0209a654(struct Struct_0209a654_
 extern "C" void LearnSkillEntry_02083acc(unsigned char*, int);
 extern "C" void func_02083b28(unsigned char*, int);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char*, int);
-extern "C" void* GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" void* func_02053c6c(unsigned char*);
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10*, int);
 extern "C" void* func_ov004_0215e47c(void*, int);
 extern "C" void func_ov004_0215ee90(void*);
@@ -110,7 +114,7 @@ extern "C" ARM void func_ov004_0215eb40(void* arg0) {
     func_ov004_0215ee90(data_ov004_02170b90);
     var1 = GameState::GetInstance();
     var2 = (unsigned char*)(void*)GetPartyMemberBaseByIndex_0200ff1c(var1, *(int*)((char*)&data_ov004_021707e8 + 0x1c));
-    var3 = (unsigned char*)GetPartyMemberData_02053c6c(var2);
+    var3 = (unsigned char*)func_02053c6c(var2);
     if (var2 == 0 || var3 == 0) {
         return;
     }

@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
+#include "Graphics/TextureArena.h"
 
 #if defined(jpn)
 enum { Enum_ov017_021a316c_4544 = 0xfb0, Enum_ov017_021a316c_4412 = 0xf2c, Enum_ov017_021a316c_4676 = 0x1034, Enum_ov017_021a316c_1500 = 0x58c, Enum_ov017_021a316c_9828 = 0x26a4 };
@@ -29,7 +30,6 @@ extern "C" void* func_0200ffd0(struct Struct_0200ffd0* arg0);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 
 struct TextureVRAMArea_0203d028;
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
 
 // USA: func_ov017_021a316c
 extern "C" ARM void func_ov017_021a316c(unsigned char* arg0) {
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov017_021a316c(unsigned char* arg0) {
     }
 
     ((SafeAllocator*)(arg0 + 0xc4))->Reset();
-    ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)(arg0 + Enum_ov017_021a316c_1500));
+    ((TextureArena*)((struct TextureVRAMArea_0203d028*)(arg0 + Enum_ov017_021a316c_1500)))->Reset();
 
     for (var3 = 0; var3 < 0x30; var3++) {
         GameObject* var6 = var0->GetMaybeFieldMonsterByIndex(var3 + 0x70);

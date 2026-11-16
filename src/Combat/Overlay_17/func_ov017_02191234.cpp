@@ -1,9 +1,13 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct LocalWireless_0202b2f0;
 
-extern "C" LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
+extern "C" LocalWireless_0202b2f0* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
@@ -21,7 +25,7 @@ extern "C" ARM void RebuildPartyOrders_ov017_02191234(unsigned char* gameResourc
  enum {Enum_ov017_02191234_722=0x2d2, Enum_ov017_02191234_14032=0x36d0};
 #endif
     GameState* gameState = GameState::GetInstance();
-    LocalWireless_0202b2f0* wireless = GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* wireless = func_0202ae18();
     unsigned char partyCount = 0;
     unsigned char ownPartyCount = 0;
     unsigned char partyOrder[4];

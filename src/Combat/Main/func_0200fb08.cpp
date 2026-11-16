@@ -4,9 +4,9 @@ extern "C" void func_020c99c8(void* arg0);
 
 struct Struct_02000c9c_8 { unsigned char unknown_0_[5]; unsigned char language_5_; };
 
-// USA: GetGameLanguage_0200fb08
-// EUR: GetGameLanguage_0200fb08
-extern "C" ARM unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState) {
+// USA: func_0200fb08
+// EUR: func_0200fb08
+extern "C" ARM unsigned char func_0200fb08(Struct_02000c9c_8* gameState) {
     unsigned char userSettings[0x54];
     unsigned char language;
     func_020c99c8(userSettings);

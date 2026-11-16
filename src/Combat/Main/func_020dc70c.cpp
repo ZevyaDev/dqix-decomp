@@ -7,7 +7,11 @@ enum { Enum_020dc70c_3276 = 0xccc };
 #include "GameState/GameState.h"
 #include "NitroSDK/Cache.h"
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void* func_020a6084(void);
 
 extern "C" int LoadToMainObjStandardPalette(int arg0, int arg1, unsigned int arg2);
@@ -21,7 +25,7 @@ extern "C" ARM void func_020dc70c(int arg0, int arg1, int arg2, int arg3, unsign
     GameObject* var1 = var0->GetPartyMemberByIndex(arg0);
     if (var1 == NULL)
         return;
-    int var2 = GetPartyMemberData_02053c6c((unsigned char*)var1);
+    int var2 = func_02053c6c((unsigned char*)var1);
     if (var2 == 0)
         return;
     unsigned char var3 = *(unsigned char*)(var2 + 0x56a);
@@ -32,7 +36,7 @@ extern "C" ARM void func_020dc70c(int arg0, int arg1, int arg2, int arg3, unsign
     unsigned int var6 = var4 << 1;
     int var7 = (int)func_020a6084();
     int var8 = var7 + (var3 << 5) + (arg1 << 1);
-    DC_FlushRange((void*)var8, arg6);
+    CleanInvalidateCacheRange((const void*)((void*)var8), arg6);
     if (arg2 == 0) {
         if (arg3 != 0)
             LoadToMainObjStandardPalette(var8, var6, arg6);

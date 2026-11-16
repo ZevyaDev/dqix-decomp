@@ -7,6 +7,14 @@ enum { Enum_ov017_021b6d60_340 = 0x154, Enum_ov017_021b6d60_47 = 0x2f, Enum_ov01
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_02052e2c;
 
 struct Struct_ov017_021b6d60 {
@@ -15,7 +23,7 @@ struct Struct_ov017_021b6d60 {
 };
 
 extern "C" void func_02086404(void* arg0);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" short* GetAppearance_02052e2c(struct Struct_02052e2c* gameObject);
 extern "C" void func_020830cc(void* arg0, void* arg1);
 extern "C" int GetResources_0200fb8c(int* gameState);
@@ -24,7 +32,7 @@ extern "C" void func_020545ac(short* arg0);
 extern "C" void func_ov017_02190264(int arg0, int arg1);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(int, int, int, int, int);
 extern "C" void RebuildPartyOrders_ov017_02191234(int gameResources);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov017_021cc68c(int arg0);
@@ -37,7 +45,7 @@ extern "C" ARM int func_ov017_021b6d60(int arg0, void* arg1) {
     if (var1 == NULL) {
         return 0;
     }
-    void* var2 = (void*)GetPartyMemberData_02053c6c((unsigned char*)var1);
+    void* var2 = (void*)func_02053c6c((unsigned char*)var1);
     short* var3 = GetAppearance_02052e2c((struct Struct_02052e2c*)var1);
     if (var2 == NULL) {
         return 0;
@@ -58,7 +66,7 @@ extern "C" ARM int func_ov017_021b6d60(int arg0, void* arg1) {
     struct Struct_ov017_021b6d60* var6 = (struct Struct_ov017_021b6d60*)(((char*)var4 + Enum_ov017_021b6d60_860) + 0x4000);
     var6 += arg0;
     var6->unknown_0_ = 0;
-    void* var7 = GetLocalWireless_0202ae18();
+    void* var7 = func_0202ae18();
     if (IsLocalWirelessOn_0202b7d8((int*)var7)) {
         if (IsNotLocalWirelessGuest_0202c508(var7)) {
             func_ov017_021cc68c(arg0);

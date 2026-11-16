@@ -4,6 +4,11 @@
 #include "Grotto/Main/ActiveGrottoClass.h"
 #include "std_library_functions.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct Struct_ov004_02164928 {
     TreasureMapMetadata unknown_0_[99];
@@ -31,7 +36,7 @@ extern "C" unsigned char func_02090294(ActiveGrottoClass*);
 extern "C" void func_0208f748(char*, int*);
 extern "C" void func_ov017_021cfcec(unsigned char);
 extern "C" void func_02011408(void*);
-extern "C" int* GetLocalWireless_0202ae18();
+extern "C" int* func_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int IsNotLocalWirelessGuest_0202c508(int*);
 extern "C" void func_ov017_021cfabc();
@@ -46,7 +51,7 @@ extern "C" ARM int func_ov004_02164928(void* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetResources_0200fb8c(((int*)(var0)));
     Zone3D* var2 = GetZone3D_02012fe4();
-    ActiveGrottoClass* var3 = var2->inline_02024518_2();
+    ActiveGrottoClass* var3 = (&var2->grotto_);
     GrottoStruct* var4 = var0->GetGrottoStruct();
     if (IsBrightnessTransitionActive(var1)) return 0;
     for (int var5 = 0; var5 < gTreasureMapScreen_ov004_02171010->unknown_18f4_; ++var5)
@@ -111,7 +116,7 @@ extern "C" ARM int func_ov004_02164928(void* arg0) {
     var16->unknown_0[3] = 0;
     func_ov017_021cfcec(1);
     func_02011408(var0);
-    int* var18 = GetLocalWireless_0202ae18();
+    int* var18 = func_0202ae18();
     if (IsLocalWirelessOn_0202b7d8(var18) && IsNotLocalWirelessGuest_0202c508(var18)) {
         func_ov017_021cfabc();
         func_ov017_021cf730(-1, 0);

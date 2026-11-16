@@ -2,6 +2,8 @@
 #include "Resource/GameResources.h"
 #include "Graphics/Vector.h"
 #include "GameState/GameState.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/SPRSprite.h"
 
 #if defined(jpn)
 #define func_020c51a4 func_020c6c70
@@ -30,11 +32,7 @@ struct BGLayer_0204b8d0 {
     char unknown_18_[5];
     unsigned char screenBlockCount_1d_;
 };
-extern "C" void CopyBGScreenBlockRect_0204b8d0(struct BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 struct BGLayer_0204b010;
-extern "C" void ClearBGScreenData_0204b010(struct BGLayer_0204b010* layer, void* screenData);
-extern "C" void FlushBGScreenData_0204b04c(void* layer, int screenData);
-extern "C" void func_02047554(void* arg0, int arg1, int arg2);
 extern "C" void func_ov005_0215792c(void* arg0, unsigned char arg1);
 extern "C" void func_ov005_021579ec(void* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" void func_ov005_02154d34(void* arg0, int arg1, int arg2);
@@ -137,7 +135,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
                 G3_MTX_TRANS = (arg0->unknown_3de2_ + 0x7f) << 12;
                 G3_MTX_TRANS = var8;
                 G3_MTX_TRANS = -0x200000;
-                func_02047554(&arg0->unknown_1a70_[var7 + 4], 0, 1);
+                ((SPRSprite*)(&arg0->unknown_1a70_[var7 + 4]))->DrawTextureScaleTranslate(0, 1);
                 G3_MTX_POP = 1;
                 G3_MTX_PUSH = 0;
                 G3_MTX_TRANS = (arg0->unknown_3de2_ + 0x100) << 12;
@@ -146,7 +144,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
                 Matrix4x3 var9;
                 var9 = RotationMatrixY(0x3244);
                 func_020c51a4((int)&var9);
-                func_02047554(&arg0->unknown_1a70_[var7 + 4], 0, 1);
+                ((SPRSprite*)(&arg0->unknown_1a70_[var7 + 4]))->DrawTextureScaleTranslate(0, 1);
                 G3_MTX_POP = 1;
                 G3_MTX_PUSH = 0;
                 G3_MTX_TRANS = (arg0->unknown_3de2_ + 0x70) << 12;
@@ -155,7 +153,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
                 G3_MTX_SCALE = 0x14000;
                 G3_MTX_SCALE = 0x1000;
                 G3_MTX_SCALE = 0x1000;
-                func_02047554(&arg0->unknown_1a70_[var7 + 5], 0, 1);
+                ((SPRSprite*)(&arg0->unknown_1a70_[var7 + 5]))->DrawTextureScaleTranslate(0, 1);
                 G3_MTX_POP = 1;
                 Struct_ov005_0215b520* var10 = &arg0->unknown_1a70_[var7 + 7 + var5];
                 if (var4[data_ov005_0215cbec[var5]] > 0) {
@@ -165,7 +163,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
                 G3_MTX_TRANS = (arg0->unknown_3de2_ + 0x85) << 12;
                 G3_MTX_TRANS = var8;
                 G3_MTX_TRANS = -0x1ff000;
-                func_02047554(var10, 0, 1);
+                ((SPRSprite*)(var10))->DrawTextureScaleTranslate(0, 1);
                 G3_MTX_POP = 1;
             }
         }
@@ -186,12 +184,12 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
                 arg0->unknown_3dec_ = 1;
             }
         }
-        ClearBGScreenData_0204b010((struct BGLayer_0204b010*)&arg0->unknown_ea4_, 0);
-        CopyBGScreenBlockRect_0204b8d0(&arg0->unknown_ea4_, 0, 0, 0, 0x20 - arg0->unknown_3de2_, 0, 0x10, 0x16, 0xffff);
+        ((BGLayer*)((struct BGLayer_0204b010*)&arg0->unknown_ea4_))->PrepareIndexBuffer((void*)(0));
+        ((BGLayer*)(&arg0->unknown_ea4_))->BlitSpriteByIndex(0, 0, 0, 0x20 - arg0->unknown_3de2_, 0, 0x10, 0x16, 0xffff);
         unsigned char var11 = arg0->unknown_3dbc_;
         short var12 = var11 * 2 + 0xf;
-        CopyBGScreenBlockRect_0204b8d0(&arg0->unknown_ea4_, (unsigned char)(var11 + 1), 0, 0, var12 + 0x10 - arg0->unknown_3de2_, 0, 4, 3, 0xffff);
-        FlushBGScreenData_0204b04c(&arg0->unknown_ea4_, 0);
+        ((BGLayer*)(&arg0->unknown_ea4_))->BlitSpriteByIndex((unsigned char)(var11 + 1), 0, 0, var12 + 0x10 - arg0->unknown_3de2_, 0, 4, 3, 0xffff);
+        ((BGLayer*)(&arg0->unknown_ea4_))->CleanIndexBufferCache((const void*)(0));
         if (arg0->unknown_3dec_ == 1) {
             arg0->unknown_3dba_++;
             arg0->unknown_3de2_ = 0;
@@ -217,12 +215,12 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
                 arg0->unknown_3dec_ = 2;
             }
         }
-        ClearBGScreenData_0204b010((struct BGLayer_0204b010*)&arg0->unknown_ea4_, 0);
-        CopyBGScreenBlockRect_0204b8d0(&arg0->unknown_ea4_, 0, 0, 0, arg0->unknown_3de2_ + 0x10, 0, 0x10, 0x16, 0xffff);
+        ((BGLayer*)((struct BGLayer_0204b010*)&arg0->unknown_ea4_))->PrepareIndexBuffer((void*)(0));
+        ((BGLayer*)(&arg0->unknown_ea4_))->BlitSpriteByIndex(0, 0, 0, arg0->unknown_3de2_ + 0x10, 0, 0x10, 0x16, 0xffff);
         unsigned char var13 = arg0->unknown_3dbc_;
         short var14 = var13 * 2 + 0xf;
-        CopyBGScreenBlockRect_0204b8d0(&arg0->unknown_ea4_, (unsigned char)(var13 + 1), 0, 0, var14 + arg0->unknown_3de2_, 0, 4, 3, 0xffff);
-        FlushBGScreenData_0204b04c(&arg0->unknown_ea4_, 0);
+        ((BGLayer*)(&arg0->unknown_ea4_))->BlitSpriteByIndex((unsigned char)(var13 + 1), 0, 0, var14 + arg0->unknown_3de2_, 0, 4, 3, 0xffff);
+        ((BGLayer*)(&arg0->unknown_ea4_))->CleanIndexBufferCache((const void*)(0));
         if (arg0->unknown_3dec_ == 2) {
             arg0->unknown_3dba_++;
             arg0->unknown_3de2_ = 0;
@@ -252,7 +250,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
                 G3_MTX_TRANS = (0xfa - arg0->unknown_3de2_) << 12;
                 G3_MTX_TRANS = var22;
                 G3_MTX_TRANS = -0x200000;
-                func_02047554(&arg0->unknown_1a70_[var21 + 4], 0, 1);
+                ((SPRSprite*)(&arg0->unknown_1a70_[var21 + 4]))->DrawTextureScaleTranslate(0, 1);
                 G3_MTX_POP = 1;
                 G3_MTX_PUSH = 0;
                 G3_MTX_TRANS = (0x17b - arg0->unknown_3de2_) << 12;
@@ -261,7 +259,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
                 Matrix4x3 var23;
                 var23 = RotationMatrixY(0x3244);
                 func_020c51a4((int)&var23);
-                func_02047554(&arg0->unknown_1a70_[var21 + 4], 0, 1);
+                ((SPRSprite*)(&arg0->unknown_1a70_[var21 + 4]))->DrawTextureScaleTranslate(0, 1);
                 G3_MTX_POP = 1;
                 G3_MTX_PUSH = 0;
                 G3_MTX_TRANS = (0xeb - arg0->unknown_3de2_) << 12;
@@ -270,7 +268,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
                 G3_MTX_SCALE = 0x14000;
                 G3_MTX_SCALE = 0x1000;
                 G3_MTX_SCALE = 0x1000;
-                func_02047554(&arg0->unknown_1a70_[var21 + 5], 0, 1);
+                ((SPRSprite*)(&arg0->unknown_1a70_[var21 + 5]))->DrawTextureScaleTranslate(0, 1);
                 G3_MTX_POP = 1;
                 Struct_ov005_0215b520* var24 = &arg0->unknown_1a70_[var21 + 7 + var19];
                 if (var18[data_ov005_0215cbdc[var19]] > 0) {
@@ -280,7 +278,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
                 G3_MTX_TRANS = (0x100 - arg0->unknown_3de2_) << 12;
                 G3_MTX_TRANS = var22;
                 G3_MTX_TRANS = -0x1ff000;
-                func_02047554(var24, 0, 1);
+                ((SPRSprite*)(var24))->DrawTextureScaleTranslate(0, 1);
                 G3_MTX_POP = 1;
             }
         }

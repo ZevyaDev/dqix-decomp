@@ -22,12 +22,12 @@ union FSRegister
     int s32;
     unsigned int u32;
     struct {
-        unsigned short unknown_0_;
-        unsigned short unknown_2_;
+        unsigned short low;
+        unsigned short high;
     } u16;
     struct {
-        short unknown_0_;
-        short unknown_2_;
+        short low;
+        short high;
     } s16;
 };
 
@@ -120,69 +120,69 @@ struct NitroVM
     {
         struct
         {
-            NitroDirectoryAccessor unknown_0_;
-            unsigned int unknown_c_;
+            NitroDirectoryAccessor accessor;
+            unsigned int parentID;
         } dirInfo;
         struct
         {
-            unsigned int unknown_0_;
-            int unknown_4_; // offsets relative to the start of the
-            int unknown_8_;   // archive the file is in. Notably, 
-            int unknown_c_;   // startOffset <= cursorPos <= endOffset.
+            unsigned int fileID;
+            int startOffset; // offsets relative to the start of the
+            int endOffset;   // archive the file is in. Notably, 
+            int cursorPos;   // startOffset <= cursorPos <= endOffset.
         } fileInfo;
     };
     union
     {
         struct
         {
-            void* unknown_0_;
-            int unknown_4_;
-            int unknown_8_;
+            void* destination;
+            int unknown;
+            int length;
         } args_Read;
         struct
         {
-            void* unknown_0_;
-            int unknown_4_;
-            int unknown_8_;
+            void* source;
+            int unknown;
+            int length;
         } args_Write;
         struct
         {
-            NitroDirectoryAccessor unknown_0_;
+            NitroDirectoryAccessor accessor;
         } args_GetDirectoryData;
         struct
         {
-            FileDataStore* unknown_0_;
-            CBool unknown_4_;
+            FileDataStore* output;
+            CBool skipStoreString;
         } args_GetFileOrDirectoryNameData;
         struct
         {
             // the directory to search in
-            NitroDirectoryAccessor unknown_0_;
-            const unsigned char* unknown_c_;
-            CBool unknown_10_;
-            void* volatile unknown_14_;
+            NitroDirectoryAccessor searchDirectory;
+            const unsigned char* path;
+            CBool searchForDirectory;
+            void* volatile output;
         } args_GetFileOrDirectoryByName;
         struct
         {
-            void* unknown_0_;
-            int unknown_4_;
+            void* pathOutput;
+            int outputCapacity;
             // when calling this manually, you should set this to zero 
-            unsigned short unknown_8_;
+            unsigned short numBytesWritten;
             // when calling this manually, you should set this to zero.
             // if you specified a directory, this will be populated with that ID,
             // if you specified a file this will be populated by the ID of the
             // directory containing it after this command runs
-            unsigned short unknown_a_;
+            unsigned short directoryID;
         } args_GetPath;
         struct
         {
-            NitroFileAccessor unknown_0_;
+            NitroFileAccessor accessor;
         } args_GetFATEntry;
         struct
         {
-            int unknown_0_;
-            int unknown_4_;
-            int unknown_8_;
+            int startOffset;
+            int endOffset;
+            int fileID;
         } args_SetFilePointers;
     };
 };
@@ -291,7 +291,7 @@ int NitroVM_DefaultCommand_SetFilePointers(NitroVM* fs);
 
 // Default implementation for NitroVM opcode 8.
 // Does nothing, but might be intended as a sort of shutdown/destructor.
-// (See e.g. _Z18NitroVM_FinishReadP7NitroVM in USA, which is used at the end of functions
+// (See e.g. func_020cca80 in USA, which is used at the end of functions
 // that create temporary VMs and invokes command 8).
 int NitroVM_DefaultCommand_Nop(NitroVM* fs);
 

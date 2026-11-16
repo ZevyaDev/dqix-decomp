@@ -3,6 +3,10 @@
 #include "NitroSDK/Matrix.h"
 #include "Grotto/Main/TileFeatures.h"
 
+#if defined(jpn)
+#define func_02013490 func_02013258
+#endif
+
 class Zone3D;
 class Model3D;
 class Struct_020134e0;

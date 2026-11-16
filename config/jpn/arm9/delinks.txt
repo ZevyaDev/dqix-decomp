@@ -11610,10 +11610,6 @@ src/Combat/Main/func_0201c1f8.cpp:
     complete
     .text start:0x0201bf70 end:0x0201c11c
 
-src/Combat/Main/func_020a57e4.cpp:
-    complete
-    .text start:0x020a7588 end:0x020a78c0
-
 src/Combat/Main/func_0202cb50.cpp:
     complete
     .text start:0x0202c6c0 end:0x0202c814
@@ -12861,11 +12857,7 @@ src/Grotto/Main/TreasureMapDataStructs.cpp:
 src/Grotto/Main/DetailedTreasureMapData.cpp:
     complete
     .rodata start:0x020e914c end:0x020e9188
-    .text start:0x020a5c20 end:0x020a7588
-
-src/Grotto/Main/func_020a5b1c.cpp:
-    complete
-    .text start:0x020a78c0 end:0x020a7a5c
+    .text start:0x020a5c20 end:0x020a7a5c
 
 src/Grotto/Main/TreasureMapMetadata.cpp:
 	complete

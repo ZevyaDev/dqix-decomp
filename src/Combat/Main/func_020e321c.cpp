@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
 struct LocalWireless_0202c508 { int state_0_; };
@@ -18,7 +22,7 @@ extern "C" void func_ov017_021ceae4(unsigned char arg0, unsigned char arg1, unsi
 
 // USA: func_020e321c
 extern "C" ARM void func_020e321c(Struct_0208ab34_2* arg0, int arg1, unsigned char arg2) {
-    int* var0 = (int*)GetLocalWireless_0202ae18();
+    int* var0 = (int*)func_0202ae18();
     if (!IsLocalWirelessOn_0202b7d8(var0)) return;
 
     if (IsNotLocalWirelessGuest_0202c508((LocalWireless_0202c508*)var0)) {

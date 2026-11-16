@@ -3,13 +3,17 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
 enum { Enum_ov004_0216033c_7=6,Enum_ov004_0216033c_11=8,Enum_ov004_0216033c_6=4,Enum_ov004_0216033c_8=7,Enum_ov004_0216033c_336=0x144,Enum_ov004_0216033c_2128=0x7b8 };
 #else
 enum { Enum_ov004_0216033c_7=7,Enum_ov004_0216033c_11=0xb,Enum_ov004_0216033c_6=6,Enum_ov004_0216033c_8=8,Enum_ov004_0216033c_336=0x150,Enum_ov004_0216033c_2128=0x850 };
 #endif
 
 extern "C" void func_ov004_0215f6f4(void* arg0, short arg1, short arg2, int arg3);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" int func_02085fb4(unsigned char* arg0);
 extern "C" int func_02086020(unsigned char* arg0);
@@ -147,7 +151,7 @@ extern "C" ARM int func_ov004_0216033c(void* arg0) {
     GameState* var9 = GameState::GetInstance();
     var4 = (unsigned char*)GetPartyMemberBaseByIndex_0200ff1c(var9, var7);
     if (!var4) goto stats_done;
-    var3 = (unsigned char*)GetPartyMemberData_02053c6c(var4);
+    var3 = (unsigned char*)func_02053c6c(var4);
     if (!var3) goto stats_done;
     {
 
@@ -185,7 +189,7 @@ extern "C" ARM int func_ov004_0216033c(void* arg0) {
             }
             var2->inline_ov004_0216033c_57(0xf);
         } else {
-            int var28 = GetPartyMemberData_02053c6c(var4) + Enum_ov004_0216033c_2128;
+            int var28 = func_02053c6c(var4) + Enum_ov004_0216033c_2128;
             int var29 = D1[var8];
             int var30 = (var29 & 0xff) * 0xc;
             Struct_ov003_021539a0_3* var31 = (Struct_ov003_021539a0_3*)(var28 + var30);
@@ -463,4 +467,9 @@ stats_done:
     }
 
     return 0;
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

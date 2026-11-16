@@ -5,6 +5,23 @@
 #include "GameState/GameState.h"
 #include "Resource/MessageSystem.h"
 #include "Resource/GameResources.h"
+#include "Graphics/TextureArena.h"
+
+#if defined(jpn)
+#define func_02099950 func_0209b684
+#endif
+
+#if defined(jpn)
+#define func_02033fa0 func_02033ad8
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_02011584 func_020112f4
+#endif
 
 #if defined(jpn)
 #define data_ov010_02184a80 data_ov010_02185b40
@@ -56,7 +73,7 @@ struct Struct_02095924_2;
 extern "C" struct Struct_02099950* func_02099950(struct Struct_02095924_2* arg0, int arg1);
 
 extern "C" void* func_02033fa0(void* arg0);
-extern "C" void* GetZoneList_02011584(void* gameState);
+extern "C" void* func_02011584(void* gameState);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void* func_020120a0(char* arg0, unsigned int arg1);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
@@ -69,9 +86,6 @@ extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" int GetMessageChoice_020457e0(void* window);
 
 struct TextureVRAMArea_0203d028;
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
 struct Struct_02057de0_2;
 extern "C" void* GetEffectManager_02057924(void);
@@ -85,7 +99,7 @@ extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 struct Struct_02048350_2;
 extern "C" int func_02048350(struct Struct_02048350_2* arg0, int arg1);
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 
@@ -170,7 +184,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
 #endif
     var3 = var2->GetPartyMemberByIndex(var5->unknown_c_);
     GameObject* var6 = var2->GetPartyMemberByIndex(GetOwnPartyLeaderObjectIndex_020100b0(var2));
-    void* var7 = GetLocalWireless_0202ae18();
+    void* var7 = func_0202ae18();
     void* var8 = GetGameResources();
     var4 = (struct Struct_ov010_02184354_2*)GetZone3D_02012fe4();
 #if defined(jpn)
@@ -226,7 +240,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
         if (var15->unknown_c_0_ == 0) {
             void* var17 = func_02033fa0(var3);
             if (var17 != NULL) {
-                struct Struct_02095924_2* var18 = (struct Struct_02095924_2*)GetZoneList_02011584(var2);
+                struct Struct_02095924_2* var18 = (struct Struct_02095924_2*)func_02011584(var2);
                 struct Struct_02099950* var19 = func_02099950(var18,
                     func_0204bd7c((struct Struct_0204bd7c*)var17));
                 if (var19 != NULL) {
@@ -322,12 +336,12 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
         char* var29 = (char*)var8 + 0x2cc;
 #endif
         struct Struct_ov010_02184354_6 var30 = *(struct Struct_ov010_02184354_6*)((char*)var3 + 0x44);
-        ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)(var29 + 0xc40));
-        RestoreTextureVRAMState_0207df90(var29 + 0xc40);
+        ((TextureArena*)((struct TextureVRAMArea_0203d028*)(var29 + 0xc40)))->Reset();
+        ((TextureArena*)(var29 + 0xc40))->Restore();
         void* var31 = GetEffectManager_02057924();
         func_02057de0((struct Struct_02057de0_2*)var31, 0x11, &arg0->unknown_14_,
                                       (int)var27, (int)var28);
-        SaveTextureVRAMState_0207dfac(var29 + 0xc40);
+        ((TextureArena*)(var29 + 0xc40))->Save();
 
         struct Struct_ov010_02184354_6 var32;
         var32.unknown_0_ = 0x10a;

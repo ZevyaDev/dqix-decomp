@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 struct MenuCursor_0205c508;
 struct Struct_0201099c_3;
@@ -25,7 +26,6 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" void ExpandInflectionTags_020e4864(int text, char* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
 extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 // USA: func_ov000_0217936c
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov000_0217936c(struct Struct_ov000_0217936c* arg0, stru
         AppendMenuEntry_02041b70(arg2, var7 - var4, var0);
 #endif
         if (var7 != var5 - 1) {
-            AppendText_02042058(arg2, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_b8_, 0));
+            AppendText_02042058(arg2, (const char*)((int)((StringList*)((struct Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0)));
         }
     }
 }

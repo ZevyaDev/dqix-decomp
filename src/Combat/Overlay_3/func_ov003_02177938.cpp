@@ -40,6 +40,10 @@ enum {
 #endif
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" int func_ov003_02179e44(void *arg0);
 struct MenuLayout_0207fdcc_2;
@@ -56,7 +60,7 @@ struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c *menuLayout, int textId, int text);
 struct Struct_02080cc0;
 extern "C" void func_02080cc0(struct Struct_02080cc0 *arg0, int arg1, int arg2);
-extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 struct PartyMemberData_0207d300;
 extern "C" int CountHeldItems_02083960(struct PartyMemberData_0207d300 *memberData);
 extern "C" int func_020dcc98(int arg0);
@@ -143,7 +147,7 @@ extern "C" ARM void func_ov003_02177938(Struct_ov003_02177938 *arg0) {
         if (var14) {
             GameObject *var15 = var0->GetPartyMemberByIndex(arg0->unknown_1043_);
             if (var15 != NULL) {
-                unsigned char *var16 = GetPartyMemberData_02053c6c((unsigned char *) var15);
+                unsigned char *var16 = func_02053c6c((unsigned char *) var15);
                 int var17              = CountHeldItems_02083960((struct PartyMemberData_0207d300 *) var16);
                 for (int var18 = 0; var18 < var17; var18++) {
                     var9[var18] = ((short *) (var16 + 0x454))[var18];

@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 enum { Enum_ov003_0215e13c_961 = 0x3d9 };
@@ -15,7 +16,6 @@ enum { Enum_ov003_0215e13c_957 = 0x3bd };
 struct Struct_0201099c_3;
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov003_0215e13c(char* arg0, char* arg1, int arg2) {
     int var2 = 0;
     while (var2 < *(unsigned char*)(arg0 + Enum_ov003_0215e13c_960)) {
         unsigned char var3 = *(unsigned char*)(arg0 + var2 + Enum_ov003_0215e13c_957);
-        int var4 = FindStringInTable_020e0434(var1, var3);
+        int var4 = ((int)((StringList*)(var1))->GetString(var3));
         AppendMenuEntry_02041b70(arg1, var2, (const char*)var4);
         if (var2 != *(unsigned char*)(arg0 + Enum_ov003_0215e13c_960) - 1) {
             AppendText_02042058(arg1, &data_ov003_0217ff3e);

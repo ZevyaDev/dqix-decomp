@@ -1,9 +1,13 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
 struct PartyMember_02052e14;
 extern "C" short* GetEquippedItems_02052e14(struct PartyMember_02052e14* gameObject);
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct EquippedItemsPacket_ov017_021c3fb4 {
@@ -24,7 +28,7 @@ extern "C" ARM void SendPartyMemberEquippedItems_ov017_021c3fb4(int memberIndex,
     short* equippedItems = GetEquippedItems_02052e14((struct PartyMember_02052e14*)partyMemberBase);
     if (equippedItems == NULL) return;
 
-    void* packetQueue = GetLocalWirelessPacketQueue_0202ae24();
+    void* packetQueue = func_0202ae24();
 
     struct EquippedItemsPacket_ov017_021c3fb4 packet;
     packet.kind_0_ = 2;

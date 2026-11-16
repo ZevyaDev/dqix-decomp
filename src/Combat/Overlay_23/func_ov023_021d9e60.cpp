@@ -1,3 +1,5 @@
+#include "Resource/StringList.h"
+
 #if defined(jpn)
 #include <globaldefs.h>
 #include "std_library_functions.h"
@@ -14,7 +16,6 @@ struct TextWindow_0205d0e0 {
     unsigned char unknown_c5_[0xe0 - 0xc5];
 };
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
-extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" int func_02042428(char*, int);
 
@@ -30,7 +31,7 @@ extern "C" ARM void func_ov023_021d9e60(char* arg0) {
         func_02042428(var0->unknown_f8_, 12);
         AppendText_02042058(var0->unknown_f8_, var0->unknown_d74_[var0->unknown_da3_]);
     } else {
-        int var2 = FindStringInTable_020e0434(&var0->unknown_e0_, 0x4274);
+        int var2 = ((int)((StringList*)(&var0->unknown_e0_))->GetString(0x4274));
         AppendText_02042058(var0->unknown_f8_, (const char*)var2);
     }
     SetTextWindowText_0205d5d0((TextWindowManager_0205d5d0*)&var0->unknown_1f8_[1], 3, (int)var0->unknown_f8_, 0);
@@ -48,13 +49,12 @@ struct TextWindowManager_0205d5d0;
 extern "C" int SetTextWindowText_0205d5d0(TextWindowManager_0205d5d0*, int, int, int, unsigned char);
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" int AppendXPositionTag_02041a28(char*, int);
 
 extern "C" void __clear(void*, int);
-extern "C" int ConvertTextToGlyphIndices_020426bc(void*, void*, int);
+extern "C" int func_020426bc(void*, void*, int);
 extern "C" void func_02042764(void*, void*, int);
 extern "C" int func_020420e8(void*, int);
 
@@ -73,14 +73,14 @@ extern "C" ARM void func_ov023_021d9e60(char* arg0) {
 		__clear(var6, 0x80);
 		int var7 = *(unsigned char*)(arg0 + 0xda3);
 		int* var8 = *(int**)(arg0 + 0xdb0);
-		int var9 = ConvertTextToGlyphIndices_020426bc((void*)var8[var7], var5, 0);
+		int var9 = func_020426bc((void*)var8[var7], var5, 0);
 		for (; var9 < 8; var9++) var5[var9] = *(unsigned char*)(arg0 + 0xdb4);
 		func_02042764(var5, var6, 0);
 		int var10 = func_020420e8(var6, 0);
 		AppendXPositionTag_02041a28(var3, (0x50 - var10) >> 1);
 		AppendText_02042058(var3, var6);
 	} else {
-		int var11 = FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0xe0), 0x4274);
+		int var11 = ((int)((StringList*)((Struct_0201099c_3*)(arg0 + 0xe0)))->GetString(0x4274));
 		AppendText_02042058(var3, (const char*)var11);
 	}
 	SetTextWindowText_0205d5d0((TextWindowManager_0205d5d0*)(arg0 + 0x2b4), 3, (int)var3, 0, 0);

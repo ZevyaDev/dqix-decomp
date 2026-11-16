@@ -3,6 +3,10 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_02093b54 {
 #if defined(jpn)
     char unknown_0_[0xb];
@@ -36,14 +40,14 @@ struct NoticeQueue_02094030 {
 extern "C" void func_02093980(char* arg0);
 extern "C" void func_02093b54(struct Notice_02093ad8* arg0, struct Notice_02093ad8* arg1);
 extern "C" int func_0209372c(int arg0);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 
 // USA: QueueNotice_02094030
 
 extern "C" ARM int QueueNotice_02094030(struct NoticeQueue_02094030* noticeQueue, int noticeId, int arg2, int memberIndex) {
     GameObject* member = GameState::GetInstance()->GetPartyMemberByIndex(memberIndex);
-    void* wireless = GetLocalWireless_0202ae18();
+    void* wireless = func_0202ae18();
     GameResources* gameResources = GetGameResources();
 
     if (IsLocalWirelessGuest_0202c540(wireless) != 0) {

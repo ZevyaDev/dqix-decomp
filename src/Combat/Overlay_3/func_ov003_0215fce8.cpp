@@ -2,6 +2,18 @@
 #include "Resource/Brightness.h"
 
 #if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
 #define data_ov003_02180cc0 data_ov003_0217ef38
 #define data_ov003_0217ff68 data_ov003_0217e758
 #endif
@@ -26,11 +38,11 @@ extern struct Struct_020e6d5c_14 gNullMemberFunctionPointer_020e6d5c;
 extern struct Struct_020e6d5c_14 data_ov003_0217ff68[];
 
 extern "C" int func_ov017_021959b4();
-extern "C" void *GetGlobalFlags_020d6c00(void);
+extern "C" void *func_020d6c00(void);
 extern "C" int *func_020936f8(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int *globalFlags, unsigned int mask);
-extern "C" void *GetLocalWireless_0202ae18();
-extern "C" void *GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void *func_0202ae18();
+extern "C" void *func_0202ae24(void);
 extern "C" void StopLocalWireless_0202b0f4(void *wireless);
 extern "C" void func_ov017_02195748(unsigned char *arg0);
 extern "C" void func_ov017_02192594(unsigned char* arg0);
@@ -75,12 +87,12 @@ extern "C" ARM int func_ov003_0215fce8(unsigned char *arg0, int arg1) {
     if (arg0[SO(0x4c0)] == 0 && func_ov017_021959b4() != 0) {
         unsigned char var0 = arg0[SO(0x4a3)];
         if ((var0 == 0xb && arg0[SO(0x4a4)] == 0x11) || (var0 == 6 && arg0[SO(0x4a4)] == 0)) {
-            void *var1 = GetGlobalFlags_020d6c00();
+            void *var1 = func_020d6c00();
             int *var2  = func_020936f8();
             SetGlobalFlags_020466e4((unsigned int *) var1, 0x20);
             unsigned char *var3 = (unsigned char*)GetGameResources();
-            void *var4          = GetLocalWireless_0202ae18();
-            void *var5           = GetLocalWirelessPacketQueue_0202ae24();
+            void *var4          = func_0202ae18();
+            void *var5           = func_0202ae24();
             SetFlags00((GameResources*)var3, 2);
             StopLocalWireless_0202b0f4(var4);
             func_ov017_02195748(var3);

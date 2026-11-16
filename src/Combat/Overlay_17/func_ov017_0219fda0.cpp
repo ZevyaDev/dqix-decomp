@@ -5,6 +5,10 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Memory/SafeAllocator.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 extern "C" void* GetZone3D_02012fe4(void);
 struct ActiveZone_020fdd44;
 extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
@@ -23,7 +27,7 @@ struct Struct_02028bac {
 extern "C" struct Struct_02028bac* func_02028bac(struct Struct_02028bac* arg0, int arg1);
 struct Struct_020288e0;
 extern "C" void func_020289c4(struct Struct_020288e0* arg0);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020a8e88(void* arg0);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
@@ -32,7 +36,6 @@ extern "C" void func_020a8e9c(Struct_020a8e9c_3*, SafeAllocator*, void*, unsigne
 
 extern AllocatorUnion gMainHeap_02114e20;
 extern const char data_ov017_021d7638[];
-extern unsigned char gFileScratchSpace_0211e33c[0x30000];
 #pragma opt_propagation off
 
 // USA: func_ov017_0219fda0
@@ -46,7 +49,7 @@ extern "C" ARM void func_ov017_0219fda0(void) {
 		void* var4 = (void*)var3->unknown_10_->GetSignedAllocator();
 		if (var4) {
 			var3->unknown_10_->Destroy();
-			FreeMemory_02012da4(&gMainHeap_02114e20, var4);
+			func_02012da4(&gMainHeap_02114e20, var4);
 		}
 	}
 	for (int var5 = 0x70; var5 <= 0x9f; var5++) {
@@ -62,8 +65,8 @@ extern "C" ARM void func_ov017_0219fda0(void) {
 	func_020a8e88(var6->unknown_30c_);
 	BackgroundLoader::AddLockGlobal();
 	unsigned int var9;
-	if (LoadFileIntoMemory(data_ov017_021d7638, gFileScratchSpace_0211e33c, &var9) != NULL) {
-		func_020a8e9c((Struct_020a8e9c_3*)var6->unknown_30c_, var6->unknown_10_, gFileScratchSpace_0211e33c, var9);
+	if (LoadFileIntoMemory(data_ov017_021d7638, g_fileScratchSpace, &var9) != NULL) {
+		func_020a8e9c((Struct_020a8e9c_3*)var6->unknown_30c_, var6->unknown_10_, g_fileScratchSpace, var9);
 	}
 	BackgroundLoader::RemoveLockGlobal();
 }

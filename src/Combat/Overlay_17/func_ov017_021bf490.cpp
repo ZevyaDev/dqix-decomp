@@ -4,8 +4,12 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 extern "C" void func_ov017_0218d5c8(unsigned char* arg0);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void EnableCameraTurning_020a27ac(void* camera);
 extern AllocatorUnion gMainHeap_02114e20;
@@ -26,13 +30,13 @@ extern "C" ARM void func_ov017_021bf490(void* arg0) {
     SignedAllocatorHeader* var5 = var1->GetSignedAllocator();
     if (var5 != NULL) {
         var1->Destroy();
-        FreeMemory_02012da4(&gMainHeap_02114e20, var5);
+        func_02012da4(&gMainHeap_02114e20, var5);
     }
 
     SignedAllocatorHeader* var6 = var2->GetSignedAllocator();
     if (var6 != NULL) {
         var2->Destroy();
-        FreeMemory_02012da4(&gMainHeap_02114e20, var6);
+        func_02012da4(&gMainHeap_02114e20, var6);
     }
 
     int var7 = GetFollowCamera_020100f8((char*)GameState::GetInstance());

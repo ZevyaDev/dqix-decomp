@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 struct TextWindowManager_0205de24_2;
 struct MenuCursor_0205ba68;
@@ -22,7 +23,6 @@ extern "C" short func_ov003_0216df38(char* arg0, struct Struct_0201099c_3* arg1,
 extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
-extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern char data_ov003_0217ea90[];
 extern char data_ov003_0217eaac[];
 extern char data_ov003_0217eabf[];
@@ -75,12 +75,12 @@ extern "C" ARM void func_ov003_0216fc58(char* arg0, int arg1, int arg2) {
     AppendFrameTag_02041c08(var1, arg2, 8, 5, 5, 5);
 
     if (arg1) {
-        sprintf(var2, data_ov003_0217ea90, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xdc), 6));
+        sprintf(var2, data_ov003_0217ea90, ((StringList*)((struct Struct_0201099c_3*)(arg0 + 0xdc)))->GetString(6));
     } else {
-        sprintf(var2, data_ov003_0217ea90, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xdc), 5));
+        sprintf(var2, data_ov003_0217ea90, ((StringList*)((struct Struct_0201099c_3*)(arg0 + 0xdc)))->GetString(5));
     }
     AppendText_02042058(var1, var2);
-    sprintf(var2, data_ov003_0217eaac, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xdc), 7));
+    sprintf(var2, data_ov003_0217eaac, ((StringList*)((struct Struct_0201099c_3*)(arg0 + 0xdc)))->GetString(7));
     AppendText_02042058(var1, var2);
     sprintf(var2, data_ov003_0217eabf, data_ov003_0217ea6f);
     AppendText_02042058(var1, var2);

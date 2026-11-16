@@ -14,6 +14,8 @@
 #endif
 #include "globaldefs.h"
 #include "Memory/SafeAllocator.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
 
 struct Struct_ov014_021868b8 { char unknown_0_[0x28]; };
 struct Struct_ov014_021868b8_2 { char unknown_0_[0x20]; };
@@ -40,9 +42,6 @@ struct Struct_ov014_021868b8_5 {
 };
 struct Struct_ov014_02184300_3;
 extern "C" {
-void InitSprite_0205a198(void*);
-void InitSpriteAnimationList_0205a234(void*);
-void InitBGLayer_0204af64(void*);
 void InitTextWindow_0204c684(void*);
 void func_ov014_02184300(Struct_ov014_02184300_3*, SafeAllocator*);
 extern const unsigned int data_ov014_021894b8[5];
@@ -55,8 +54,8 @@ extern "C" ARM void func_ov014_021868b8(Struct_ov014_021868b8_5* arg0, SafeAlloc
     arg0->unknown_d8_ = arg1->Allocate(8);
     arg0->unknown_b4_ = (SafeAllocator*)arg1->Allocate(0x64);
     arg0->unknown_dc_ = (Struct_ov014_021868b8_4*)arg1->Allocate(0x4d0);
-    for (unsigned char var0 = 0; var0 < 8; ++var0) InitSprite_0205a198(&arg0->unknown_d4_[var0]);
-    InitSpriteAnimationList_0205a234(arg0->unknown_d8_);
+    for (unsigned char var0 = 0; var0 < 8; ++var0) ((OBJSpriteSet::Metatile*)(&arg0->unknown_d4_[var0]))->Reset();
+    ((OBJSpriteSet::List*)(arg0->unknown_d8_))->Reset();
     for (int var1 = 0; var1 < 5; ++var1) {
         unsigned int var2;
         unsigned int var3 = var1 * sizeof(SafeAllocator);
@@ -76,7 +75,7 @@ extern "C" ARM void func_ov014_021868b8(Struct_ov014_021868b8_5* arg0, SafeAlloc
     arg0->unknown_c4_ = (Struct_ov014_021868b8_2*)arg1->Allocate(0x40);
     arg0->unknown_c8_ = (Struct_ov014_021868b8_3*)arg1->Allocate(0x380);
     ResetMenuLayout_0207f84c(arg0->unknown_c0_);
-    for (unsigned char var7 = 0; var7 < 2; ++var7) InitBGLayer_0204af64(&arg0->unknown_c4_[var7]);
+    for (unsigned char var7 = 0; var7 < 2; ++var7) ((BGLayer*)(&arg0->unknown_c4_[var7]))->Reset();
     for (unsigned char var8 = 0; var8 < 4; ++var8) InitTextWindow_0204c684(&arg0->unknown_c8_[var8]);
     func_ov014_02184300((Struct_ov014_02184300_3*)arg0, arg1);
 }

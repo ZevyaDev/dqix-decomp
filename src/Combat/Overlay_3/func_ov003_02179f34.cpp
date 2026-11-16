@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
 enum { Enum_ov003_02179f34_4096 = 0xf7c };
 enum { Enum_ov003_02179f34_2204 = 0x818 };
 #else
@@ -13,7 +17,7 @@ extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" short func_02080468(void* arg0, int arg1);
 extern "C" unsigned char func_0207ca94(int arg0);
 extern "C" short func_0207c638(void* arg0, unsigned int arg1);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 struct PartyMemberData_0207d300;
 extern "C" int CountHeldItems_02083960(struct PartyMemberData_0207d300* memberData);
 struct Struct_020a0b8c;
@@ -41,7 +45,7 @@ extern "C" ARM int func_ov003_02179f34(char* arg0) {
         if (var9) {
             GameObject* var10 = var1->GetPartyMemberByIndex(var8);
             if (var10 != 0) {
-                int var11 = GetPartyMemberData_02053c6c((unsigned char*)var10);
+                int var11 = func_02053c6c((unsigned char*)var10);
                 var0 = (short)CountHeldItems_02083960((struct PartyMemberData_0207d300*)var11);
             }
         } else {

@@ -2,6 +2,14 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct ItemTable_0201099c_10;
 struct EquipmentBag_0207c484;
 struct PartyMember_02052e14;
@@ -114,7 +122,7 @@ struct Struct_ov003_0215582c_7 {
 };
 
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" struct Struct_ov003_0215582c* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" struct Struct_ov003_0215582c* func_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov003_02155e14(int arg0, int arg1);
 extern "C" short* GetEquippedItems_02052e14(struct PartyMember_02052e14* gameObject);
 extern "C" int AddEquipmentToBag_0207c378(void* bag, int itemId, int count, int category);
@@ -133,7 +141,7 @@ extern "C" short* GetAppearance_02052e2c(struct Struct_02052e2c* gameObject);
 extern "C" void func_02083738(void* arg0, int arg1);
 extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
 extern "C" void LearnSpell_02083b60(unsigned char* memberData, int spellId);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 
 extern const unsigned char data_ov003_0217f2c4[];
@@ -152,7 +160,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
     if (var2 == NULL) {
         return;
     }
-    struct Struct_ov003_0215582c* var3 = GetPartyMemberData_02053c6c((unsigned char*)var2);
+    struct Struct_ov003_0215582c* var3 = func_02053c6c((unsigned char*)var2);
     if (var3 == NULL) {
         return;
     }
@@ -276,7 +284,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
                     }
                 }
                 if (var9[data_ov003_0217f2bc[var24]] != -1) {
-                    struct Struct_ov003_0215582c* var30 = GetPartyMemberData_02053c6c((unsigned char*)var2);
+                    struct Struct_ov003_0215582c* var30 = func_02053c6c((unsigned char*)var2);
                     func_02083738(var30, var27);
                     var30->unknown_2f4_[var24].unknown_0_[0] = 0;
                     var30->unknown_2f4_[var24].unknown_0_[1] = 0;
@@ -307,7 +315,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
 
     if (var19 == 0) {
         GameResources* var31 = GetGameResources();
-        GetLocalWireless_0202ae18();
+        func_0202ae18();
         QueuePartyMemberModelLoad_ov017_0218f5a4(var31, arg0->unknown_1f7_, 1, 0, 0);
     }
 }

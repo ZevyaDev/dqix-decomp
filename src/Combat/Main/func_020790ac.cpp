@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
 extern "C" void __clear(void* arg0, int arg1);
 
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
@@ -39,7 +43,7 @@ struct Struct_020790ac_2 {
 extern "C" ARM void func_020790ac(struct Struct_020790ac_2* arg0) {
     if (arg0->unknown_130_ != 1 && arg0->unknown_130_ != 2) return;
 
-    void* var0 = GetLocalWireless_0202ae18();
+    void* var0 = func_0202ae18();
     if (IsLocalWirelessOn_0202b7d8((int*)var0) && GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var0) != 0) {
         return;
     }
@@ -59,7 +63,7 @@ extern "C" ARM void func_020790ac(struct Struct_020790ac_2* arg0) {
     arg0->unknown_166_ = var1;
     SetFieldMonsterState_02076ccc(arg0, 0xa);
 
-    void* var2 = GetLocalWireless_0202ae18();
+    void* var2 = func_0202ae18();
     if (!IsLocalWirelessOn_0202b7d8((int*)var2) || GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var2) != 0) {
         return;
     }

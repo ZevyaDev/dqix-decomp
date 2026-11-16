@@ -1,8 +1,8 @@
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
 
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 struct Struct_0204aa28;
-extern "C" unsigned int func_0204aa28(Struct_0204aa28* arg0);
 
 struct Struct_02081e18 {
     char unknown_0_[0x1c];
@@ -44,5 +44,5 @@ extern "C" ARM unsigned int func_02081e18(Struct_020813ec* arg0, int arg1) {
             }
         }
     }
-    return func_0204aa28(reinterpret_cast<Struct_0204aa28*>(arg0->unknown_30_->unknown_4_));
+    return ((BGLayer::CharacterData*)(reinterpret_cast<Struct_0204aa28*>(arg0->unknown_30_->unknown_4_)))->GetEndVRAMOffset();
 }

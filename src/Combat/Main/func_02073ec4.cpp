@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02032370 func_02031ea8
+#endif
+
 struct Struct_0209bd80;
 struct Struct_02073ec4;
 extern "C" struct Struct_0209bd80* func_0209bd80(struct Struct_02073ec4* arg0, int arg1);

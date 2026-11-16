@@ -4,6 +4,14 @@
 #include "GameState/GameState.h"
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 
 #if defined(jpn)
 enum { Enum_ov003_02178910_0 = 0x84, Enum_ov003_02178910_54 = 0x2a };
@@ -34,7 +42,7 @@ struct ItemData_0201099c_9 { char unknown_0_[8]; unsigned int unknown_8_0_ : 4; 
 struct ItemInfoPanel_ov003_02178910;
 struct ItemBag_0207cf30_3 { short* pItemIds_0_; signed char* pCounts_4_; short slotCount_8_; };
 
-extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" unsigned char* func_02053c6c(unsigned char* gameObject);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 
 extern "C" short func_02080468(void* arg0, int arg1);
@@ -84,7 +92,7 @@ extern "C" void func_ov003_0217599c(void* arg0);
 extern "C" int GetEquipRestrictions_020dd4c4(int memberIndex, void* item);
 extern "C" int func_ov003_0217839c(int arg0, void* arg1);
 extern "C" void* func_ov003_02179cfc(char* arg0, int arg1, void* arg2);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" int UpdateKeyRepeat_02081f20(void* keyRepeat, int elapsedFrames);
 extern "C" void func_0207ccf0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 
@@ -351,7 +359,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
             short var46 = *(short*)(arg0 + (0x1000 + 0x34 - Enum_ov003_02178910_0));
         short var47 = *(short*)(arg0 + (0x1000 + 0x3a - Enum_ov003_02178910_0));
         if (var46 == 0x20 && var47 == 0x55f0) {
-                void* var48 = GetFlagManager_0205ec34();
+                void* var48 = func_0205ec34();
                 SetFlag_0206df6c(var48, (unsigned char*)var48 + 0x8c, 0x1139, 1);
             }
             return;
@@ -569,7 +577,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
             struct Struct_0203d028_2* var78 = (Struct_0203d028_2*)GameState::GetInstance();
             struct Struct_0203d028_3* var79 = (Struct_0203d028_3*)((GameState*)var78)->GetPartyMemberByIndex(*(signed char*)(arg0 + (0x1000 + 0x43 - Enum_ov003_02178910_0)));
             if (var79 != 0) {
-                unsigned char* var80 = GetPartyMemberData_02053c6c((unsigned char*)var79);
+                unsigned char* var80 = func_02053c6c((unsigned char*)var79);
                 if (var80 == 0) return;
 
                 short var81, var82;

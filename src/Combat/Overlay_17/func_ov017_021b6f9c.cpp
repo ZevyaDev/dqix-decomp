@@ -10,9 +10,21 @@ enum { Enum_ov017_021b6f9c_17408 = 0x4400, Enum_ov017_021b6f9c_174 = 0xae, Enum_
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_020a1e54 func_020a3bcc
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 extern "C" void func_ov000_021604f0(void);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
-extern "C" void PopOverlay_020a1e54(int isPreviousReloaded);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_020a1e54(int isPreviousReloaded);
 extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 struct Struct_02053f7c_3;
@@ -23,7 +35,7 @@ struct Queue_02038598_5;
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_02017d68(void* arg0);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 struct Struct_020a3578;
@@ -53,11 +65,11 @@ extern "C" ARM void func_ov017_021b6f9c(char* arg0) {
     void* var7 = var6->GetSignedAllocator();
     if (var7) {
         var6->Destroy();
-        FreeMemory_02012da4(&gMainHeap_02114e20, var7);
+        func_02012da4(&gMainHeap_02114e20, var7);
     }
 
     if (*(unsigned short*)(arg0 + 0x600 + 0xb6) & 0x800) {
-        PopOverlay_020a1e54(1);
+        func_020a1e54(1);
         PopSubOverlay_020a1f4c(1);
     }
 
@@ -92,5 +104,5 @@ extern "C" ARM void func_ov017_021b6f9c(char* arg0) {
         func_02017d68(var12);
     }
 
-    ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x40000);
+    ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)func_020d6c00(), 0x40000);
 }

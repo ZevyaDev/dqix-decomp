@@ -1,9 +1,13 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 extern AllocatorUnion gMainHeap_02114e20;
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 
 struct Struct_ov015_0218eef0;
 extern "C" void func_ov015_0218eef0(struct Struct_ov015_0218eef0* arg0);
@@ -33,7 +37,7 @@ extern "C" ARM void* func_ov015_021919e4(struct Struct_ov015_021919e4_2* arg0, v
     var0->unknown_4_ = 0;
     var0->unknown_0_ = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x5c);
     if (var0->unknown_0_ == 0) {
-        FreeMemory_02012da4(&gMainHeap_02114e20, var0);
+        func_02012da4(&gMainHeap_02114e20, var0);
         return 0;
     }
     void* var1 = var0->unknown_0_;
@@ -41,17 +45,17 @@ extern "C" ARM void* func_ov015_021919e4(struct Struct_ov015_021919e4_2* arg0, v
     func_ov015_0218eef0((struct Struct_ov015_0218eef0*)var1);
     int var2 = func_ov015_0218ef7c((struct Struct_ov015_0218ef7c_2*)var1, (struct Struct_ov015_0218ef7c_3*)arg0, (struct Struct_ov015_0218ef7c*)arg1);
     if (var2 == 0) {
-        FreeMemory_02012da4(&gMainHeap_02114e20, var0->unknown_0_);
+        func_02012da4(&gMainHeap_02114e20, var0->unknown_0_);
         var0->unknown_0_ = 0;
-        FreeMemory_02012da4(&gMainHeap_02114e20, var0);
+        func_02012da4(&gMainHeap_02114e20, var0);
         return 0;
     }
 
     if (!func_ov015_0218f27c(var1, arg1)) {
         func_ov015_0218f0c4(var0->unknown_0_);
-        FreeMemory_02012da4(&gMainHeap_02114e20, var0->unknown_0_);
+        func_02012da4(&gMainHeap_02114e20, var0->unknown_0_);
         var0->unknown_0_ = 0;
-        FreeMemory_02012da4(&gMainHeap_02114e20, var0);
+        func_02012da4(&gMainHeap_02114e20, var0);
         return 0;
     }
 

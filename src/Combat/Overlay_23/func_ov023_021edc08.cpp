@@ -4,6 +4,15 @@
 #include "Grotto/Main/ActiveGrottoClass.h"
 #include "Resource/MonsterDefinition.h"
 #include "Resource/GameResources.h"
+#include "Resource/GameStrings.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct Struct_ov023_021edc08_5 { unsigned int unknown_0_, unknown_4_, unknown_8_; };
 struct SkillTable_0200f3a4_8 { int unknown_0_, unknown_4_; };
@@ -66,9 +75,9 @@ extern const Struct_ov023_021fd870 data_ov023_021fd870;
 extern const char data_ov023_021fd45c[];
 extern "C" void StartMessage_0204500c(Struct_02081870*, const char*, int);
 #endif
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0202ae18();
 extern "C" Struct_02081870* GetMessageWindow_020421a0();
-extern "C" unsigned int* GetGlobalFlags_020d6c00();
+extern "C" unsigned int* func_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void func_ov017_021c9ad4(unsigned short);
 extern "C" void func_ov017_021a23b0(GameResources*, int);
@@ -94,7 +103,6 @@ extern "C" void InitNoun_020e46c4(void*);
 extern "C" void* FindMonsterData_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" Struct_ov023_021edc08_5 func_ov023_021ed804(Struct_ov023_021edc08_5, void*);
 extern "C" void func_ov023_021edf38(void*, Struct_ov023_021edc08_5*);
-extern "C" const char* GetStandardString_020e51cc(int);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_02081870*, const char*, int, int);
 #endif
@@ -118,9 +126,9 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
 #endif
 
     GameResources* var1 = GetGameResources();
-    void* var2 = GetLocalWireless_0202ae18();
+    void* var2 = func_0202ae18();
     Struct_02081870* var3 = GetMessageWindow_020421a0();
-    SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 0x20000);
+    SetGlobalFlags_020466e4(func_020d6c00(), 0x20000);
     func_ov017_021c9ad4(arg0->unknown_2a0_->unknown_8_);
     func_ov017_021a23b0(var1, arg0->unknown_2a0_->unknown_8_);
     StopMusic_0209c678(&gMusicManager_02109bf4, 0);
@@ -184,7 +192,7 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
             }
         }
         char var19[256];
-        sprintf(var19, GetStandardString_020e51cc(200));
+        sprintf(var19, GetGameString((eGameString)(200)));
         StartMessage_0204500c(var3, var19, 1, 0xe3);
 
 #endif

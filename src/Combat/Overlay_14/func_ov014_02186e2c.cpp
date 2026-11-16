@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 struct MenuLayout_0207fdcc_2;
 struct TextWindow_0207fdcc;
@@ -17,10 +18,6 @@ struct Struct_ov014_02186e2c {
     unsigned char unknown_15_;
 };
 
-extern "C" struct Struct_ov014_02186e2c* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254*, int);
-extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254*, int);
-extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330*, int);
-extern "C" void DrawSpriteAnimations_0205ae8c(void*);
 
 struct Struct_ov014_02186e2c_2 {
     char unknown_0_[0xc0];
@@ -53,18 +50,18 @@ extern "C" ARM void func_ov014_02186e2c(struct Struct_ov014_02186e2c_2* arg0) {
     var2 -= 0x10;
     var3 -= 3;
 
-    PlaySpriteAnimation_0205a370(arg0->unknown_d8_, 0);
-    var1 = FindSpriteAnimation_0205a3d0(arg0->unknown_d8_, 0);
+    ((OBJSpriteSet::List*)(arg0->unknown_d8_))->PlaySpriteAnimation(0);
+    var1 = ((Struct_ov014_02186e2c*)((OBJSpriteSet::List*)(arg0->unknown_d8_))->GetSprite(0));
     if (var1 != NULL) {
         var1->unknown_15_ |= 8;
     }
-    AdvanceSpriteAnimations_0205a330((struct SpriteAnimationList_0205a330*)arg0->unknown_d8_, arg0->unknown_164_);
+    ((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a330*)arg0->unknown_d8_))->UpdateAll(arg0->unknown_164_);
     var5 = var3;
     var4 = var2;
-    var1 = FindSpriteAnimation_0205a3d0(arg0->unknown_d8_, 0);
+    var1 = ((Struct_ov014_02186e2c*)((OBJSpriteSet::List*)(arg0->unknown_d8_))->GetSprite(0));
     if (var1 != NULL) {
         var1->unknown_4_ = var4;
         var1->unknown_6_ = var5;
     }
-    DrawSpriteAnimations_0205ae8c(&arg0->unknown_f8_);
+    ((OBJSpriteSet*)(&arg0->unknown_f8_))->DrawAll();
 }

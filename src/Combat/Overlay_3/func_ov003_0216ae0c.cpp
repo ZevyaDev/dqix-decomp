@@ -1,5 +1,7 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
 
 #if defined(jpn)
 enum { Enum_ov003_0216ae0c_4708 = 0x10f4 };
@@ -19,12 +21,9 @@ enum { Enum_ov003_0216ae0c_4812 = 0x12cc };
 struct TextWindowManager_0205cfd4;
 extern "C" ARM void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
 struct BGLayer_02020cb8;
-extern "C" ARM void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 struct Sprite_02043368_2;
-extern "C" void InitSprite_0205a198(struct Sprite_02043368_2*);
 struct SpriteAnimationList_02043368;
-extern "C" void InitSpriteAnimationList_0205a234(struct SpriteAnimationList_02043368* animationList);
 
 struct Struct_ov003_0216ae0c {
     char unknown_0_[Enum_ov003_0216ae0c_4708];
@@ -50,7 +49,7 @@ extern "C" ARM void func_ov003_0216ae0c(void* arg0, SafeAllocator* arg1) {
     InitTextWindowManager_0205cfd4((struct TextWindowManager_0205cfd4*)var0->unknown_12c0_);
 
     for (int var1 = 0; var1 < 2; var1++) {
-        InitBGLayer_0204af64((struct BGLayer_02020cb8*)((char*)var0->unknown_12c4_ + var1 * 0x20));
+        ((BGLayer*)((struct BGLayer_02020cb8*)((char*)var0->unknown_12c4_ + var1 * 0x20)))->Reset();
     }
     for (int var2 = 0; var2 < 1; var2++) {
         InitTextWindow_0204c684((char*)var0->unknown_12c8_ + var2 * 0xe0);
@@ -60,7 +59,7 @@ extern "C" ARM void func_ov003_0216ae0c(void* arg0, SafeAllocator* arg1) {
     var0->unknown_1268_ = var0->unknown_12d0_->Allocate(8);
 
     for (int var3 = 0; var3 < 0xf; var3++) {
-        InitSprite_0205a198((struct Sprite_02043368_2*)((char*)var0->unknown_1264_ + var3 * 0x28));
+        ((OBJSpriteSet::Metatile*)((struct Sprite_02043368_2*)((char*)var0->unknown_1264_ + var3 * 0x28)))->Reset();
     }
-    InitSpriteAnimationList_0205a234((struct SpriteAnimationList_02043368*)var0->unknown_1268_);
+    ((OBJSpriteSet::List*)((struct SpriteAnimationList_02043368*)var0->unknown_1268_))->Reset();
 }

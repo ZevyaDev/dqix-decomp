@@ -3,6 +3,14 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
 struct Struct_ov003_0216201c {
     char unknown_0_[0x2a];
     short unknown_36_;
@@ -53,7 +61,7 @@ struct Struct_ov003_0216253c {
 };
 
 extern int gSoundEffectManager_02108760;
-extern "C" unsigned int *GetGlobalFlags_020d6c00();
+extern "C" unsigned int *func_020d6c00();
 struct Struct_02081198;
 extern "C" void func_02081198(Struct_02081198*, int, int);
 struct MenuLayout_02081164;
@@ -73,7 +81,7 @@ extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *, int, int
 struct MenuLayout_0207fe44;
 extern "C" void CloseMenuLayoutWindows_0207fe44(MenuLayout_0207fe44*);
 extern "C" Struct_ov003_0216253c * func_ov003_02160bd0(void*, int);
-extern "C" int *GetLocalWireless_0202ae18();
+extern "C" int *func_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int *);
 extern "C" int IsNotLocalWirelessGuest_0202c508(int *);
 extern "C" void func_ov017_02195540(unsigned char *);
@@ -87,7 +95,7 @@ extern "C" int func_ov003_021669f0(Struct_ov003_02154af4_3 *);
 // USA: func_ov003_0216253c
 extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
     Struct_ov003_0216201c *var0    = arg0->unknown_324_;
-    unsigned int *var1  = GetGlobalFlags_020d6c00();
+    unsigned int *var1  = func_020d6c00();
     unsigned char var2 = arg0->unknown_4a4_;
 
     if (var2 == 0) {
@@ -174,7 +182,7 @@ extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
             arg0->unknown_464_ |= 0x80000;
             arg0->unknown_464_ |= 8;
             unsigned char *var6 = (unsigned char *) GetGameResources();
-            int *var7           = GetLocalWireless_0202ae18();
+            int *var7           = func_0202ae18();
             if (IsLocalWirelessOn_0202b7d8(var7) != 0 && IsNotLocalWirelessGuest_0202c508(var7) != 0) {
                 func_ov017_02195540(var6);
             }

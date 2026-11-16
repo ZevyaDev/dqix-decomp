@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
+#include "NitroSDK/VRAMAllocation.h"
 
-extern "C" int func_020bb7cc(unsigned int arg0, int arg1, int arg2);
 
 extern unsigned short data_020e7a0c[];
 
@@ -117,7 +117,7 @@ extern "C" ARM void func_0203fd5c(Struct_0203fd5c_4* arg0, char* arg1, SafeAlloc
             arg0->unknown_c_ = 0x10;
         else if (arg0->unknown_c_ <= 0x100)
             arg0->unknown_c_ = 0x100;
-        arg0->unknown_14_ = (unsigned short)func_020bb7cc(arg0->unknown_c_ * 2, 0, 0) << 3;
+        arg0->unknown_14_ = (unsigned short)((int)FrameAllocateTexturePaletteVRAM(arg0->unknown_c_ * 2, 0, 0)) << 3;
         arg0->unknown_10_ = (unsigned short*)arg2->Allocate(arg0->unknown_c_ * 2);
         memcpy(arg0->unknown_10_, arg3 + var1, arg0->unknown_c_ * 2);
         var1 += var8 * 2;

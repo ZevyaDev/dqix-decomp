@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Resource/CharacterCreationUI.h"
+#include "Graphics/OBJSpriteSet.h"
 
 struct Struct_020e28dc;
 extern "C" int func_020e28dc(struct Struct_020e28dc *arg0);
@@ -21,14 +22,10 @@ struct SpriteAnimation_0205a254_2 {
     unsigned char unknown_0_[0x15];
     unsigned char unknown_15_;
 };
-extern "C" struct SpriteAnimation_0205a254_2 *FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254 *animationList, int index);
-extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254 *animationList, int index);
 extern "C" void SetSpriteAnimationPosition_020e27ec(struct SpriteAnimationList_0205a254 *animationList, int index, short x, short y);
 
 struct SpriteAnimationList_0205a330;
-extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330 *animationList, int ticks);
 
-extern "C" void DrawSpriteAnimations_0205ae8c(void *spriteSet);
 
 #if defined(jpn)
 enum { Enum_ov002_0215afb8_9340 = 0x22ac, Enum_ov002_0215afb8_3784 = 0xe20, Enum_ov002_0215afb8_6764 = 0x19c4,
@@ -74,12 +71,12 @@ extern "C" ARM void func_ov002_0215afb8(char *arg0) {
     var4 += var2->unknown_bc_;
     var5 += var2->unknown_be_;
     struct SpriteAnimationList_0205a254 *var6 = var0->unknown_1a6c_;
-    PlaySpriteAnimation_0205a370(var6, 0);
-    var1 = FindSpriteAnimation_0205a3d0(var6, 0);
+    ((OBJSpriteSet::List*)(var6))->PlaySpriteAnimation(0);
+    var1 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(var6))->GetSprite(0));
     if (var1 != NULL) {
         var1->unknown_15_ |= 8;
     }
-    AdvanceSpriteAnimations_0205a330(((SpriteAnimationList_0205a330*)(var6)), var0->unknown_1ba0_);
+    ((OBJSpriteSet::List*)(((SpriteAnimationList_0205a330*)(var6))))->UpdateAll(var0->unknown_1ba0_);
     SetSpriteAnimationPosition_020e27ec(var6, 0, var4 - 8, var5 - 2);
-    DrawSpriteAnimations_0205ae8c(var0->unknown_1a68_);
+    ((OBJSpriteSet*)(var0->unknown_1a68_))->DrawAll();
 }

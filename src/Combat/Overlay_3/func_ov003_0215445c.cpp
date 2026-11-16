@@ -1,13 +1,17 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
 extern "C" int GetResources_0200fb8c(int* gameState);
 int IsSubBrightnessTransitionActive(GameResources*);
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
 struct BGControlSave_02074bf4;
 extern "C" void func_02074e54(struct BGControlSave_02074bf4*);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void func_020dc2d0(int);
@@ -38,7 +42,7 @@ extern "C" ARM void func_ov003_0215445c(struct Struct_ov003_0215445c* arg0) {
     if (IsSubBrightnessTransitionActive((GameResources*)var0) != 0) return;
 
     func_02074e54((struct BGControlSave_02074bf4*)((char*)arg0 + 0x38));
-    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 1);
+    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)func_020d6c00(), 1);
     func_020dc2d0(0);
     arg0->unknown_5a_ = 3;
     arg0->unknown_5b_ = 0;

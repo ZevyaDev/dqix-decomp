@@ -1,10 +1,18 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" int func_02053c6c(unsigned char* gameObject);
+extern "C" void* func_0202ae18(void);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int func_ov023_021f44d0(void* arg0);
 
@@ -17,7 +25,7 @@ extern "C" ARM int func_ov023_021f5150(void* arg0, unsigned char* arg1, int* arg
 #endif
     GameState* var0 = GameState::GetInstance();
     char* var1 = (char*)GetParty_02010828(var0);
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
 
     int var2 = 0;
     int var3;
@@ -26,7 +34,7 @@ extern "C" ARM int func_ov023_021f5150(void* arg0, unsigned char* arg1, int* arg
         var2 += arg2[var3];
         GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, var3);
         if (var4 == 0) continue;
-        int var5 = GetPartyMemberData_02053c6c((unsigned char*)var4);
+        int var5 = func_02053c6c((unsigned char*)var4);
         if (var5 == 0) continue;
         int* var6 = (int*)var5;
         int var7 = *(int*)((char*)var6 + Enum_ov023_021f5150_2384);

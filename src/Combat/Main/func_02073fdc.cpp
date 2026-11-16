@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_02032370 func_02031ea8
+#endif
+
 extern "C" int func_02032370(int arg0);
 
 struct Struct_02073fdc_2 {

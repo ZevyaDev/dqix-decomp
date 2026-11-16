@@ -5,6 +5,14 @@
 #include "NitroSDK/Filesystem/FSInnerDefs.h"
 #include "NitroSDK/Filesystem/FileAccessor.h"
 
+#if defined(jpn)
+#define func_020a1ccc func_020a3a44
+#endif
+
+#if defined(jpn)
+#define func_020a1a40 func_020a37b8
+#endif
+
 extern "C" void func_020d9834(int arg0);
 void NitroVM_Initialize(NitroVM* vm);
 void DecompressAndStaticInitializeOverlay(const OverlayMetadata& overlay);

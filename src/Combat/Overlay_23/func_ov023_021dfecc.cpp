@@ -4,30 +4,24 @@
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/FileIO.h"
 #include "Combat/MapDisplay.h"
+#include "Graphics/BGLayer.h"
+#include "Resource/PAC.h"
 
 struct Struct_ov023_021dcb70;
 extern "C" unsigned char func_ov023_021dcb70(struct Struct_ov023_021dcb70* arg0);
 
 struct Struct_020534ac;
 
-extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
-extern "C" void SetBGPriority_0204b5b4(void*, int);
-extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
 
 struct BGLayer_02020cb8_5;
-extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 
 struct PacEntry_02020cb8_4;
-extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 
 struct PacEntry_02020aec;
-extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
-extern "C" void FlushBGBlock_0204b2e0(void* layer, char* block);
 
 struct BGLayer_02020cb8_6;
-extern "C" void CopyBGBlockToVRAM_0204b3a0(struct BGLayer_02020cb8_6* layer, char* block);
 
 extern "C" int func_ov023_021e20f0(void*, void*, void*, void*);
 
@@ -69,7 +63,7 @@ extern "C" ARM int func_ov023_021dfecc(void* arg0) {
         if (var2 != 0 && var4 != 0) {
 #endif
 
-            InitBGLayer_0204af64(&var1);
+            ((BGLayer*)(&var1))->Reset();
 
             signed char var11 = *(signed char*)(var0 + Enum_ov023_021dfecc_1792 + Enum_ov023_021dfecc_124);
             if (var11 == 1) {
@@ -80,9 +74,9 @@ extern "C" ARM int func_ov023_021dfecc(void* arg0) {
                 var1.bgIndex_1c_4_ = 3;
             }
 
-            SetBGPriority_0204b5b4(&var1, 3);
-            SetBGScreenSize_0204b11c((unsigned char*)&var1, 0);
-            SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)&var1, 0, 0);
+            ((BGLayer*)(&var1))->SetPriority(3);
+            ((BGLayer*)((unsigned char*)&var1))->ConfigureTextMode(0);
+            ((BGLayer*)((struct BGLayer_02020cb8_5*)&var1))->SetOffset(0, 0);
 
             if (*(signed char*)(var0 + Enum_ov023_021dfecc_1792 + Enum_ov023_021dfecc_124) == 1) {
                 volatile unsigned int* var12 = (volatile unsigned int*)0x4001000;
@@ -92,12 +86,12 @@ extern "C" ARM int func_ov023_021dfecc(void* arg0) {
             }
 
             if (var10 == 0 && *(unsigned char*)(var0 + Enum_ov023_021dfecc_1912) != 0) {
-                int var14 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var2);
+                int var14 = GetNumFilesInPAC((const void*)((struct PacEntry_02020cb8_4*)var2));
                 for (unsigned char var15 = 0; var15 < var14; var15++) {
-                    var3 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var2, var15, &var6, &var5);
+                    var3 = GetFileInPACByIndex((void*)((struct PacEntry_02020aec*)var2), var15, (const char**)(&var6), (unsigned int*)(&var5));
                     if (var3) {
-                        FlushBGBlock_0204b2e0(&var1, (char*)var3);
-                        CopyBGBlockToVRAM_0204b3a0((struct BGLayer_02020cb8_6*)&var1, (char*)var3);
+                        ((BGLayer*)(&var1))->ProcessGraphicsFileMetadata((const void*)((char*)var3));
+                        ((BGLayer*)((struct BGLayer_02020cb8_6*)&var1))->StageGraphicsFileBuffer((const void*)((char*)var3));
                         func_ov023_021e20f0(var0 + 0xcc, var0, var3, (void*)var5);
                     }
                 }
@@ -108,8 +102,8 @@ extern "C" ARM int func_ov023_021dfecc(void* arg0) {
                     if (FindFilesInNarcBySubstring((const void*)var2, data_ov023_021fda78[var16],
                             (const void**)&var3, (unsigned int*)&var5, 1) != 0) {
                         if (var16 != 3) {
-                            FlushBGBlock_0204b2e0(&var1, (char*)var3);
-                            CopyBGBlockToVRAM_0204b3a0((struct BGLayer_02020cb8_6*)&var1, (char*)var3);
+                            ((BGLayer*)(&var1))->ProcessGraphicsFileMetadata((const void*)((char*)var3));
+                            ((BGLayer*)((struct BGLayer_02020cb8_6*)&var1))->StageGraphicsFileBuffer((const void*)((char*)var3));
                         } else {
                             func_ov023_021e20f0(var0 + 0xcc, var0, var3, (void*)var5);
                         }

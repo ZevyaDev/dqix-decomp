@@ -3,6 +3,15 @@
 #include "Resource/GameResources.h"
 #include "Resource/TextQueue.h"
 #include "Resource/Brightness.h"
+#include "Resource/GameStrings.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02046708 func_02047528
+#endif
 
 struct Struct_020708c8;
 struct GlobalFlags_02012de8;
@@ -26,17 +35,16 @@ extern "C" void GetMessageWindow_020421a0(void);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" GameObject* GetGameObjectByIndex_0200ff94(GameState* gameState, int index);
 extern "C" Struct_020708c8* GetColorFade_020704fc(void);
-extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00(void);
+extern "C" GlobalFlags_02012de8* func_020d6c00(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_020d7a50(void);
-extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void* GetBattleUI_ov000_02160f08(void* battleScene);
 extern "C" void func_ov000_02172850(void* arg0);
 extern "C" float func_020709ac(unsigned char* arg0);
 extern "C" void func_020708c8(Struct_020708c8* arg0, unsigned int arg1);
 extern "C" int abs(int arg0);
 void SetMainBrightness(GameResources* res, int level, int b);
-extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8* globalFlags, unsigned int mask);
+extern "C" int func_02046708(GlobalFlags_02012de8* globalFlags, unsigned int mask);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void func_020dc2d0(int arg0);
@@ -54,14 +62,14 @@ extern "C" ARM void func_ov017_021b86f8(Struct_ov017_021b86f8* arg0, int arg1, i
     GameObject* var1 = GetGameObjectByIndex_0200ff94(var0, GetProtagonistObjectIndex_020100a8(var0));
     GameResources* var2 = GetGameResources();
     Struct_020708c8* var3 = GetColorFade_020704fc();
-    GlobalFlags_02012de8* var4 = GetGlobalFlags_020d6c00();
+    GlobalFlags_02012de8* var4 = func_020d6c00();
     GetZone3D_02012fe4();
     if (var1 != NULL) {
         if (arg2) {
 #if defined(jpn)
             func_020d7e10(func_020d7a50(), data_ov017_021d83e7, 0, 0, 1);
 #else
-            func_020d7e10(func_020d7a50(), (void*)GetStandardString_020e51cc(0x23), 0, 0, 1
+            func_020d7e10(func_020d7a50(), (void*)((int)GetGameString((eGameString)(0x23))), 0, 0, 1
 #if !defined(jpn)
                 , 1
 #endif
@@ -77,7 +85,7 @@ extern "C" ARM void func_ov017_021b86f8(Struct_ov017_021b86f8* arg0, int arg1, i
     if (abs(GetBrightness((GameResources*)var2, false)) == 0x10) {
         SetMainBrightness(var2, 0, 0x1e);
     }
-    if (TestGlobalFlags_02046708(var4, 1)) {
+    if (func_02046708(var4, 1)) {
         ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var4, 1);
         func_020dc2d0(0);
     }

@@ -3,6 +3,14 @@
 #include "Resource/Brightness.h"
 #include <std_library_functions.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 unsigned short ComputeCurrentKeys();
 
 #if defined(jpn)
@@ -17,14 +25,14 @@ extern "C"
     // could it be a compiler intrinsic (it's between other compiler intrinsics)?
     double func_0200b454(double);
 
-    void* GetFlagManager_0205ec34();
+    void* func_0205ec34();
     // set flag in some big flag mask
     void SetFlag_0206df6c(void*, void*, int, bool);
     // get signed brightness
     int ReadBrightnessRegister_020c39c8(volatile unsigned short*);
 
     // abort() or similar
-    void HaltForever_020c9be0();
+    void func_020c9be0();
 }
 
 extern TouchInput* data_020fb3cc;
@@ -75,7 +83,7 @@ dont_ignore:
         currentKeys_ = ComputeCurrentKeys();
         if (currentKeys_ != 0)
         {
-            void* flagManager = GetFlagManager_0205ec34();
+            void* flagManager = func_0205ec34();
             SetFlag_0206df6c(flagManager, (unsigned char*)flagManager + 0x8c, 0x113e, true);
         }
     }
@@ -343,7 +351,7 @@ void TouchInput::Initialize()
     enabled_ = true;
     InitializeTouchSystem();
     if (!GetTouchScreenCalibration(&calibration_))
-        HaltForever_020c9be0();
+        func_020c9be0();
 
     SaveTouchScreenCalibration(&calibration_);
     Unpause();

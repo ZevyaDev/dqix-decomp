@@ -4,6 +4,10 @@
 #include <globaldefs.h>
 #include <asmhacks.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 #define TIMER_N_COUNTER(n) (*(volatile unsigned short*)(0x04000100 + 4 * (n)))
 #define TIMER_N_CONTROL(n) (*(volatile unsigned short*)(0x04000102 + 4 * (n)))
 
@@ -21,7 +25,7 @@
 extern "C"
 {
     // something like abort() (never returns)
-    void HaltForever_020c9be0();
+    void func_020c9be0();
 }
 
 void MarkAlarmInitializationFlagBit(int bit)
@@ -188,7 +192,7 @@ void SetTimeout(Alarm* alarm, uint64_t numTicks,
     Alarm::PFNCompletion callback, ProcessorContext** ppContext)
 {
     if (alarm == NULL || alarm->completionProc != NULL)
-        HaltForever_020c9be0();
+        func_020c9be0();
 
     int priorState = DisableIRQInterrupts();
     alarm->alarmIntervalLength = 0;
@@ -204,7 +208,7 @@ void SetInterval(Alarm *alarm, uint64_t residue, uint64_t interval,
     Alarm::PFNCompletion callback, ProcessorContext **ppContext)
 {
     if (alarm == NULL || alarm->completionProc != NULL)
-        HaltForever_020c9be0();
+        func_020c9be0();
 
     int priorState = DisableIRQInterrupts();
     alarm->alarmIntervalLength = interval;

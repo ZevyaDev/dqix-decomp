@@ -8,19 +8,35 @@ enum { Enum_ov017_021c05f4_1788 = 0x6fc, Enum_ov017_021c05f4_396 = 0x18c, Enum_o
 #include "GameState/GameState.h"
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_02046708 func_02047528
+#endif
+
 
 
 extern "C" void* GetMessageWindow_020421a0(void);
-extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" void* func_020d6c00(void);
+extern "C" void* func_0205ec34(void);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_02039820(void* arg0);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 struct Struct_0203402c;
 extern "C" int func_0203402c(Struct_0203402c* arg0);
 struct GlobalFlags_02012de8;
-extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8* globalFlags, unsigned int mask);
+extern "C" int func_02046708(GlobalFlags_02012de8* globalFlags, unsigned int mask);
 extern "C" int IsOnLadder_02039d7c(char* object);
 extern "C" int ReadBrightnessRegister_020c39c8(volatile unsigned short* reg);
 struct SoundEffectManager_02108760;
@@ -43,9 +59,9 @@ extern "C" ARM void func_ov017_021c05f4(void* arg0, unsigned char arg1, unsigned
     void* var0 = GetMessageWindow_020421a0();
     if (arg3 != 0) {
         GameObject* var1 = GameState::GetInstance()->GetUnknownGameObject();
-        void* var2 = GetGlobalFlags_020d6c00();
-        void* var3 = GetFlagManager_0205ec34();
-        if (IsFlagSet_0206dfb0((int)var3, (unsigned char*)var3 + 0x8c, 0x119a) == 0) return;
+        void* var2 = func_020d6c00();
+        void* var3 = func_0205ec34();
+        if (func_0206dfb0((int)var3, (unsigned char*)var3 + 0x8c, 0x119a) == 0) return;
         if (IsQueueEmpty_02046b08((void**)*(void**)((char*)arg0 + 0x3000 + Enum_ov017_021c05f4_1788)) == 0) return;
         if (func_02039820(var1) == 0) return;
         if (IsPerformingGesture_020535c8((signed char*)var1) != 0) return;
@@ -53,7 +69,7 @@ extern "C" ARM void func_ov017_021c05f4(void* arg0, unsigned char arg1, unsigned
         if (func_0203402c((Struct_0203402c*)var1) != 0 ||
             *(short*)((char*)var1 + 0xac) != 0 ||
             *(int*)((char*)var0 + Enum_ov017_021c05f4_2456) != 0) return;
-        if (TestGlobalFlags_02046708((GlobalFlags_02012de8*)var2, 0x800) != 0) return;
+        if (func_02046708((GlobalFlags_02012de8*)var2, 0x800) != 0) return;
         if (IsOnLadder_02039d7c((char*)var1) != 0) return;
         if (ReadBrightnessRegister_020c39c8((volatile unsigned short*)0x400006c) != 0) return;
         if (g_keyManager.TestKeysPressed(4) == 0) return;

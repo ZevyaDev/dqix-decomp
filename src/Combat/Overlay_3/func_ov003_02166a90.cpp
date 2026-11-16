@@ -3,6 +3,22 @@
 #include "Resource/Brightness.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 
 
 struct Struct_0201099c_16;
@@ -70,21 +86,21 @@ extern "C" void func_020546a0(void*, int);
 extern "C" int GetLeaderObjectIndex_020546a8(void*);
 extern "C" void func_020546b4(void*, int);
 typedef void (*Type_ov003_02166a90)(void*, int);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" int func_02053c6c(unsigned char*);
 extern "C" void func_02042764(unsigned char*, char*, int);
 extern "C" int func_020865b0(Struct_0201099c_16*);
 extern "C" void func_02083ca0(unsigned char*, int);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_ov017_021cc340(int, int, int);
 extern "C" void func_ov017_021cf078(int, unsigned short, unsigned char);
 extern "C" void func_ov017_021cc97c(int);
 extern "C" void func_ov017_021cca5c(int, int);
 extern "C" void func_ov017_021ccb58(int, int);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" void func_0206e424(void*, int);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
@@ -162,7 +178,7 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
         }
         ((Type_ov003_02166a90)func_020546b4)(var8, var11);
         GetParty_02010828(var2);
-        Struct_ov003_02166a90_2* var14 = (Struct_ov003_02166a90_2*)GetPartyMemberData_02053c6c((unsigned char*)var8);
+        Struct_ov003_02166a90_2* var14 = (Struct_ov003_02166a90_2*)func_02053c6c((unsigned char*)var8);
 #if defined(jpn)
         strcpy(((Struct_ov003_02166a90*)var8)->unknown_134_, (char*)var0->unknown_140_);
 #else
@@ -177,13 +193,13 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
     }
     if (arg0->unknown_4bc_ == 2) {
         QueueNode_02015438** var17 = (QueueNode_02015438**)var3->unknown_ptr_array_36fc[1];
-        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x41);
+        SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 0x41);
         if (GetQueueHeadType_02046b24(var17) != 0x13) {
             arg0->unknown_4bc_++;
         }
     }
     if (arg0->unknown_4bc_ == 3) {
-        if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18()) != 0) {
+        if (IsLocalWirelessOn_0202b7d8((int*)func_0202ae18()) != 0) {
             func_ov017_021cc340(arg0->unknown_4a2_, 1, -1);
             for (int var18 = 0; var18 < 13; var18++) {
                 func_ov017_021cf078(arg0->unknown_4a2_, (unsigned char)var18, 0);
@@ -196,12 +212,12 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
             func_ov017_021ccb58(arg0->unknown_4a2_, 7);
             func_ov017_021ccb58(arg0->unknown_4a2_, 10);
         }
-        func_0206e424(GetFlagManager_0205ec34(), arg0->unknown_4a2_);
+        func_0206e424(func_0205ec34(), arg0->unknown_4a2_);
         var2->GetPartyMemberByIndex(arg0->unknown_4a2_);
-        Struct_ov003_02166a90_4* var19 = (Struct_ov003_02166a90_4*)GetFlagManager_0205ec34();
+        Struct_ov003_02166a90_4* var19 = (Struct_ov003_02166a90_4*)func_0205ec34();
         SetFlag_0206df6c(var19, var19->unknown_8c_, 0x784, 1);
         arg0->unknown_4bc_ = 0;
-        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x41);
+        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)func_020d6c00(), 0x41);
         RebuildPartyOrders_ov017_02191234((unsigned char*)var3);
         if (var1 != 0) {
             func_020dc2d0(0);
@@ -209,14 +225,19 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
         RebuildFieldPartyOrder_ov017_02191108(var3, 1, 1, 1, 1);
         LoadPartyMemberColors_020dc7e8(6, -1);
         LoadPartyMemberColors_020dc7e8(7, -1);
-        int* var20 = (int*)GetLocalWireless_0202ae18();
+        int* var20 = (int*)func_0202ae18();
         if (var20 != 0 && IsLocalWirelessOn_0202b7d8(var20) != 0) {
             func_ov017_021d0dbc();
         }
-        if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18()) != 0) {
+        if (IsLocalWirelessOn_0202b7d8((int*)func_0202ae18()) != 0) {
             func_ov017_021cee78(arg0->unknown_4a2_, 1);
         }
         return 1;
     }
     return 0;
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

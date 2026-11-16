@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 extern "C" void* FindMenuObjectById_ov023_021f6880(void** objectList, int id);
 extern "C" void* func_ov023_021fad18(void* arg0);
@@ -6,7 +7,6 @@ extern "C" void func_ov023_021f6c3c(void*, unsigned int, unsigned int, unsigned 
 
 struct SpriteAnimation_0205a254_2;
 struct SpriteAnimationList_0205a254;
-extern "C" struct SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index);
 
 // USA: func_ov023_021fb364
 extern "C" ARM void func_ov023_021fb364(void* arg0, void** arg1) {
@@ -16,7 +16,7 @@ extern "C" ARM void func_ov023_021fb364(void* arg0, void** arg1) {
     func_ov023_021f6c3c((void*)arg1, *(unsigned char*)((char*)var1 + 0x50), *(unsigned short*)((char*)arg0 + 0x24), 1);
     struct SpriteAnimationList_0205a254* var2 = *(struct SpriteAnimationList_0205a254**)((char*)var1 + 0x3c);
     if (var2 == 0) return;
-    struct SpriteAnimation_0205a254_2* var3 = FindSpriteAnimation_0205a3d0(var2, *(unsigned short*)((char*)arg0 + 0x22));
+    struct SpriteAnimation_0205a254_2* var3 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(var2))->GetSprite(*(unsigned short*)((char*)arg0 + 0x22)));
     if (var3 != 0) {
         *(unsigned char*)((char*)var3 + 0x15) &= ~8;
     }

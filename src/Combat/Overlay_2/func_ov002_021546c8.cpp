@@ -1,7 +1,11 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
 
-extern "C" void *GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void *func_0202ae18(void);
 extern "C" void func_ov002_02153e90(void *arg0);
 extern "C" int func_ov002_02154a6c(void *arg0, int arg1, int arg2);
 extern "C" int func_ov002_02154b94(void *arg0, int arg1);
@@ -39,7 +43,7 @@ extern "C" ARM int func_ov002_021546c8(void *arg0, struct Struct_ov002_021546c8_
     if (arg2 == NULL) return 0;
 
     GameState *var0              = GameState::GetInstance();
-    void *var1                    = GetLocalWireless_0202ae18();
+    void *var1                    = func_0202ae18();
     int var2                    = 0;
     struct Struct_ov002_021546c8 *var3 = arg1->unknown_8_;
     if (arg3) var3 = arg1->unknown_20_;

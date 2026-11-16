@@ -5,6 +5,18 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
@@ -34,7 +46,7 @@ extern "C" void SetCursorTextWindow_0205dee8(struct TextWindowManager_0205dee8 *
 extern "C" void func_ov002_02156ff0(unsigned char *arg0, int arg1);
 extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState *gameState);
 extern "C" GameObject *GetGameObjectByIndex_0200ff94(GameState *gameState, int index);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char *flags, int flagIndex);
+extern "C" int func_0206dfb0(int flagManager, unsigned char *flags, int flagIndex);
 extern "C" char *func_020a83b0(struct Struct_020a83b0 *arg0, int arg1);
 extern "C" char *FindActionData_02079e2c(char *actionTables, int actionId);
 extern "C" void func_02048350(struct Struct_02048350_2 *arg0, int arg1);
@@ -50,9 +62,9 @@ extern "C" void func_ov002_0215f170(char *arg0);
 extern "C" void func_ov002_02161b98(char *arg0);
 extern "C" void func_ov002_0215a7b4(char *arg0, int arg1, short arg2, int arg3, int arg4);
 extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
-extern "C" char *GetFlagManager_0205ec34(void);
+extern "C" char *func_0205ec34(void);
 extern "C" char *GetZone3D_02012fe4(void);
-extern "C" int *GetLocalWireless_0202ae18(void);
+extern "C" int *func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(int *wireless);
 extern "C" void func_ov023_021dca88(char *arg0);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
@@ -91,10 +103,10 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
             }
             *(int *) (arg0 + 0x1a88) = 0;
             PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
-            int var6    = (int) GetFlagManager_0205ec34();
+            int var6    = (int) func_0205ec34();
             char *var7 = GetZone3D_02012fe4();
             int var8    = 0;
-            if (!IsFlagSet_0206dfb0(var6, (unsigned char *) ((char *) var6 + 0x8c), 0x113a)) {
+            if (!func_0206dfb0(var6, (unsigned char *) ((char *) var6 + 0x8c), 0x113a)) {
                 char *var9 = *(char **) (var7 + 8);
                 if (var9 != NULL) var8 = (unsigned int) (*(unsigned char *) (var9 + 0xe) << 30) >> 30;
             }
@@ -103,7 +115,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                 char *var10 = func_020a83b0(*(struct Struct_020a83b0 **) (arg0 + 0x22a4),
                                                     *(short *) (arg0 + 0x1ac4));
                 if (var10 != NULL) {
-                    int *var11                          = GetLocalWireless_0202ae18();
+                    int *var11                          = func_0202ae18();
                     *(short *) (arg0 + 0x1af2) = -1;
                     *(int *) (arg0 + 0x1a80)  = 0x29;
                     *(int *) (arg0 + 0x1a84)  = 0x2e;
@@ -145,7 +157,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                     var13[7]                       = 1;
                     var13[0x63]                    = 0;
                     SetZoneEntry_0200fcfc(var3, var13);
-                    if (IsNotLocalWirelessGuest_0202c508(var11) && IsFlagSet_0206dfb0(var6, (unsigned char *) ((char *) var6 + 0x8c), 0x2b)) {
+                    if (IsNotLocalWirelessGuest_0202c508(var11) && func_0206dfb0(var6, (unsigned char *) ((char *) var6 + 0x8c), 0x2b)) {
                         *(unsigned short *) (var7 + 0x27c6) = *(unsigned short *) (var10 + 0x1a);
                         *(unsigned short *) (var7 + 0x27c4) = *(unsigned short *) (var10 + 0x1c);
                         Vector3i *var14                               = (Vector3i *) (var7 + 0x27b4);
@@ -245,10 +257,10 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
             }
             *(int *) (arg0 + 0x1000 + 0xbc0) = 0;
             PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
-            int var25    = (int) GetFlagManager_0205ec34();
+            int var25    = (int) func_0205ec34();
             char *var26 = GetZone3D_02012fe4();
             int var27    = 0;
-            if (!IsFlagSet_0206dfb0(var25, (unsigned char *) ((char *) var25 + 0x8c), 0x113a)) {
+            if (!func_0206dfb0(var25, (unsigned char *) ((char *) var25 + 0x8c), 0x113a)) {
                 char *var28 = *(char **) (var26 + 8);
                 if (var28 != NULL) var27 = (unsigned int) (*(unsigned char *) (var28 + 0xe) << 30) >> 30;
             }
@@ -257,7 +269,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                 char *var29 = func_020a83b0(*(struct Struct_020a83b0 **) (arg0 + 0x2000 + 0x474),
                                                     *(short *) (arg0 + 0x1b00 + 0xfc));
                 if (var29 != NULL) {
-                    int *var30                          = GetLocalWireless_0202ae18();
+                    int *var30                          = func_0202ae18();
                     *(short *) (arg0 + 0x1c00 + 0x2a) = -1;
                     *(int *) (arg0 + 0x1000 + 0xbb8)  = 0x26;
                     *(int *) (arg0 + 0x1000 + 0xbbc)  = 0x2b;
@@ -299,7 +311,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                     var32[7]                       = 1;
                     var32[0x63]                    = 0;
                     SetZoneEntry_0200fcfc(var22, var32);
-                    if (IsNotLocalWirelessGuest_0202c508(var30) && IsFlagSet_0206dfb0(var25, (unsigned char *) ((char *) var25 + 0x8c), 0x2b)) {
+                    if (IsNotLocalWirelessGuest_0202c508(var30) && func_0206dfb0(var25, (unsigned char *) ((char *) var25 + 0x8c), 0x2b)) {
                         *(unsigned short *) (var26 + 0x2700 + 0x86) = *(unsigned short *) (var29 + 0x1a);
                         *(unsigned short *) (var26 + 0x2700 + 0x84) = *(unsigned short *) (var29 + 0x1c);
                         Vector3i *var33                               = (Vector3i *) (var26 + 0x374 + 0x2400);

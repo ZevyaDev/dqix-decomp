@@ -27,7 +27,6 @@ extern "C" ARM void func_ov006_0215759c(Struct_ov006_0215759c* arg0, Struct_ov00
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetParty_02010828(var0);
     Struct_ov006_0215759c_2 var2;
-    var2.unknown_0_.ResetAllocatorPointer();
     InitItemTable_020de824(var2.unknown_14_);
     func_0207cbe8(&var2);
     func_0207cbe8(&var2);

@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 struct Struct_ov015_0218b828_3
 {
     char* unknown_0_;
@@ -32,7 +36,7 @@ struct Struct_ov015_0218b810
     int unknown_c_;
 };
 
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_ov015_0218b810(Struct_ov015_0218b810* arg0);
 
 extern AllocatorUnion gMainHeap_02114e20;
@@ -44,12 +48,12 @@ extern "C" ARM void func_ov015_0218b828(Struct_ov015_0218b810* arg0)
     {
         if (arg0->unknown_0_[var0].unknown_0_ != NULL)
         {
-            FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_0_[var0].unknown_0_);
+            func_02012da4(&gMainHeap_02114e20, arg0->unknown_0_[var0].unknown_0_);
             arg0->unknown_0_[var0].unknown_0_ = NULL;
         }
         if (arg0->unknown_0_[var0].unknown_4_ != NULL)
         {
-            FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_0_[var0].unknown_4_);
+            func_02012da4(&gMainHeap_02114e20, arg0->unknown_0_[var0].unknown_4_);
             arg0->unknown_0_[var0].unknown_4_ = NULL;
         }
     }
@@ -57,7 +61,7 @@ extern "C" ARM void func_ov015_0218b828(Struct_ov015_0218b810* arg0)
     {
         if (arg0->unknown_4_[var1].unknown_0_ != NULL)
         {
-            FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_4_[var1].unknown_0_);
+            func_02012da4(&gMainHeap_02114e20, arg0->unknown_4_[var1].unknown_0_);
             arg0->unknown_4_[var1].unknown_0_ = NULL;
         }
         Struct_ov015_0218b828* var2 = arg0->unknown_4_[var1].unknown_4_;
@@ -66,21 +70,21 @@ extern "C" ARM void func_ov015_0218b828(Struct_ov015_0218b810* arg0)
             Struct_ov015_0218b828* var3 = var2->unknown_8_;
             if (var2->unknown_0_ != NULL)
             {
-                FreeMemory_02012da4(&gMainHeap_02114e20, var2->unknown_0_);
+                func_02012da4(&gMainHeap_02114e20, var2->unknown_0_);
                 var2->unknown_0_ = NULL;
             }
-            FreeMemory_02012da4(&gMainHeap_02114e20, var2);
+            func_02012da4(&gMainHeap_02114e20, var2);
             var2 = var3;
         }
     }
     if (arg0->unknown_0_ != NULL)
     {
-        FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_0_);
+        func_02012da4(&gMainHeap_02114e20, arg0->unknown_0_);
         arg0->unknown_0_ = NULL;
     }
     if (arg0->unknown_4_ != NULL)
     {
-        FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_4_);
+        func_02012da4(&gMainHeap_02114e20, arg0->unknown_4_);
         arg0->unknown_4_ = NULL;
     }
     func_ov015_0218b810(arg0);

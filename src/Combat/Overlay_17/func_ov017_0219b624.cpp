@@ -4,6 +4,10 @@
 #include "NitroSDK/Filesystem/NarcHandle.h"
 #include "Memory/SafeAllocator.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
+#include "Graphics/SPRSprite.h"
+#include "Graphics/TextureArena.h"
+#include "Filesystem/FileIO.h"
 
 struct TextureVRAMArea_0203d028;
 struct Struct_02000c9c_8;
@@ -19,23 +23,17 @@ enum { Enum_ov017_0219b624_1276 = 0x4fc };
 #endif
 struct Struct_ov017_021d656c { int unknown_0_; const char* unknown_4_; };
 extern const Struct_ov017_021d656c data_ov017_021d656c[];
-extern int gFileScratchSpace_0211e33c __attribute__((aligned(4)));
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);
 bool GetFileInNarc(const void*, const char*, const void**, unsigned int*, unsigned int);
 extern const char data_ov017_021d7504[], data_ov017_021d7510[], data_ov017_021d751b[];
 extern const char data_ov017_021d751f[], data_ov017_021d7526[], data_ov017_021d7530[], data_ov017_021d753a[];
 extern const char data_ov017_021d7544[], data_ov017_021d7555[], data_ov017_021d7567[];
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
-extern "C" void RestoreTextureVRAMState_0207df90(char*);
-extern "C" void SaveTextureVRAMState_0207dfac(char*);
-extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
+extern "C" int func_0200fb08(Struct_02000c9c_8*);
 extern "C" void* func_0208e9e8();
 extern "C" void func_02096604(char*, int);
 extern "C" {
 Zone3D* GetZone3D_02012fe4();
 void func_02018d28(Zone3D*, SafeAllocator*, void*, unsigned int);
-void func_0204719c(void*);
-void func_02047b40(Struct_02012fa4*, const void*, SafeAllocator*);
 void GetEffectManager_02057924();
 void func_0208f36c(void*, Object3D*);
 void func_02013d24(Zone3D*);
@@ -55,59 +53,59 @@ extern "C" ARM void func_ov017_0219b624(GameResources* arg0) {
     var2 = &arg0->allocator_array_38[5];
     TextureVRAMArea_0203d028* var4 = reinterpret_cast<TextureVRAMArea_0203d028*>(reinterpret_cast<char*>(arg0) + Enum_ov017_0219b624_1276);
     var2->Reset();
-    ResetTextureVRAMState_0207df50(var4);
+    ((TextureArena*)(var4))->Reset();
     BackgroundLoader::AddLockGlobal();
     char var5[0x50];
     unsigned int var6;
     sprintf(var5, data_ov017_021d7504, data_ov017_021d7510);
-    if (!LoadFileIntoMemory(var5, &gFileScratchSpace_0211e33c, &var6)) {
+    if (!LoadFileIntoMemory(var5, &g_fileScratchSpace, &var6)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    RestoreTextureVRAMState_0207df90((char*)var4);
+    ((TextureArena*)((char*)var4))->Restore();
     NarcHandle var7;
-    if (!var7.Initialize(data_ov017_021d751b, (const unsigned char*)&gFileScratchSpace_0211e33c)) {
+    if (!var7.Initialize(data_ov017_021d751b, (const unsigned char*)&g_fileScratchSpace)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    func_02018d28(var1, var2, &gFileScratchSpace_0211e33c, var6);
+    func_02018d28(var1, var2, &g_fileScratchSpace, var6);
     char var8[0x50];
     int var9 = 0;
     for (; data_ov017_021d656c[var9].unknown_0_ >= 0; var9++) {
         var0 = arg0->substruct_array_2b90;
         int var10 = data_ov017_021d656c[var9].unknown_0_;
         sprintf(var8, data_ov017_021d751f, data_ov017_021d656c[var9].unknown_4_);
-        func_0204719c(&var0[var10]);
+        ((SPRSprite*)(&var0[var10]))->Reset();
         const void* var11 = GetFileFromNARCInMemory(var8);
-        if (var11 != 0) func_02047b40(&var0[var10], var11, var2);
+        if (var11 != 0) ((SPRSprite*)(&var0[var10]))->LoadFromSPR((const void*)(var11), (SafeAllocator*)(var2));
     }
 #if !defined(jpn)
     sprintf(var8, data_ov017_021d751f, data_ov017_021d7526);
-    switch (GetGameLanguage_0200fb08((Struct_02000c9c_8*)var3)) {
+    switch (func_0200fb08((Struct_02000c9c_8*)var3)) {
     case 3: sprintf(var8, data_ov017_021d751f, data_ov017_021d7530); break;
     case 5: sprintf(var8, data_ov017_021d751f, data_ov017_021d753a); break;
     }
-    func_0204719c(&arg0->substruct_array_2b90[0]);
+    ((SPRSprite*)(&arg0->substruct_array_2b90[0]))->Reset();
     {
         const void* var12 = GetFileFromNARCInMemory(var8);
-        if (var12 != 0) func_02047b40(&arg0->substruct_array_2b90[0], var12, var2);
+        if (var12 != 0) ((SPRSprite*)(&arg0->substruct_array_2b90[0]))->LoadFromSPR((const void*)(var12), (SafeAllocator*)(var2));
     }
 #endif
     const void* var13;
     var13 = GetFileFromNARCInMemory(data_ov017_021d7544);
     if (var13 != 0) {
-        func_0204719c(&arg0->unknown_3520);
-        func_02047b40(&arg0->unknown_3520, var13, var2);
+        ((SPRSprite*)(&arg0->unknown_3520))->Reset();
+        ((SPRSprite*)(&arg0->unknown_3520))->LoadFromSPR((const void*)(var13), (SafeAllocator*)(var2));
     }
     var13 = GetFileFromNARCInMemory(data_ov017_021d7555);
     if (var13 != 0) {
-        func_0204719c(&(*reinterpret_cast<Struct_02012fa4*>(arg0->unknown_35a8)));
-        func_02047b40(&(*reinterpret_cast<Struct_02012fa4*>(arg0->unknown_35a8)), var13, var2);
+        ((SPRSprite*)(&(*reinterpret_cast<Struct_02012fa4*>(arg0->unknown_35a8))))->Reset();
+        ((SPRSprite*)(&(*reinterpret_cast<Struct_02012fa4*>(arg0->unknown_35a8))))->LoadFromSPR((const void*)(var13), (SafeAllocator*)(var2));
     }
     var7.Destroy();
     GetEffectManager_02057924();
     unsigned int var14;
-    if (GetFileInNarc(&gFileScratchSpace_0211e33c, data_ov017_021d7567, &var13, &var14, 0)) {
+    if (GetFileInNarc(&g_fileScratchSpace, data_ov017_021d7567, &var13, &var14, 0)) {
         Object3D* var15 = (Object3D*)var2->Allocate(0xac);
         if (var15 != 0) {
             var15->Initialize();
@@ -122,12 +120,12 @@ extern "C" ARM void func_ov017_0219b624(GameResources* arg0) {
     }
     BackgroundLoader::RemoveLockGlobal();
     func_02096604(static_cast<char*>(arg0->unknown_ptr_4328), (int)var2);
-    SaveTextureVRAMState_0207dfac((char*)var4);
-    var1->unknown_480_[0] = &arg0->substruct_array_2b90[5];
-    var1->unknown_480_[1] = &arg0->substruct_array_2b90[6];
-    var1->unknown_480_[2] = &arg0->substruct_array_2b90[7];
-    var1->unknown_480_[3] = &arg0->substruct_array_2b90[8];
-    var1->unknown_480_[4] = &arg0->substruct_array_2b90[9];
-    var1->unknown_480_[5] = &arg0->substruct_array_2b90[10];
+    ((TextureArena*)((char*)var4))->Save();
+    ((Struct_02012fa4**)var1->unk_480)[0] = &arg0->substruct_array_2b90[5];
+    ((Struct_02012fa4**)var1->unk_480)[1] = &arg0->substruct_array_2b90[6];
+    ((Struct_02012fa4**)var1->unk_480)[2] = &arg0->substruct_array_2b90[7];
+    ((Struct_02012fa4**)var1->unk_480)[3] = &arg0->substruct_array_2b90[8];
+    ((Struct_02012fa4**)var1->unk_480)[4] = &arg0->substruct_array_2b90[9];
+    ((Struct_02012fa4**)var1->unk_480)[5] = &arg0->substruct_array_2b90[10];
     func_02013d24(var1);
 }

@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "Resource/ActionDataTables.h"
+#include "Resource/StringList.h"
 
 struct Struct_0201099c_3;
 
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_ov000_0217542c(void* arg0);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
@@ -41,8 +41,8 @@ struct Struct_ov000_0217a2dc {
 // USA: func_ov000_0217a2dc
 extern "C" ARM void func_ov000_0217a2dc(struct Struct_ov000_0217a2dc* arg0, int arg1, char* arg2) {
     struct Struct_0201099c_3* var0 = (struct Struct_0201099c_3*)((char*)arg0 + 0xb8);
-    const char* var1 = (const char*)FindStringInTable_020e0434(var0, 0x1f);
-    const char* var2 = (const char*)FindStringInTable_020e0434(var0, 0);
+    const char* var1 = (const char*)((int)((StringList*)(var0))->GetString(0x1f));
+    const char* var2 = (const char*)((int)((StringList*)(var0))->GetString(0));
     signed char var3 = arg0->unknown_1d6d_;
     AppendText_02042058(arg2, var2);
 
@@ -127,10 +127,10 @@ extern "C" ARM void func_ov000_0217a2dc(struct Struct_ov000_0217a2dc* arg0, int 
     void* var13 = GetMessageWindow_020421a0();
     ClearMessageParams_02046380(var13);
     SetMessageString_02046574(var13, 0,
-        (const char*)FindStringInTable_020e0434(var0, 0x21));
+        (const char*)((int)((StringList*)(var0))->GetString(0x21)));
     AppendText_02042058(arg2, data_ov000_021851af);
 #else
-    const char* var14 = (const char*)FindStringInTable_020e0434(var0, 0x21);
+    const char* var14 = (const char*)((int)((StringList*)(var0))->GetString(0x21));
     AppendPositionTag_02041a90(arg2, (0xb0 - func_020420e8(var14, 0)) >> 1, 5);
     AppendText_02042058(arg2, var14);
     func_02041cc0(arg2, 0x11);

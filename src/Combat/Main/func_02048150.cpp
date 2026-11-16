@@ -24,6 +24,6 @@ extern "C" ARM void RevivePartyMember_02048150(GameObject* gameObject, int hp, i
     if (clearedStatus->unknown_0_ & 4) isCursed = 1;
     clearedStatus->unknown_0_ = 0;
     if (isCursed) gameObject->unknown_ac_.unknown_84_->unknown_0_ |= 4;
-    if (isDead && IsInParty_02086ef0(party, gameObject->obj3D_.objectIndex_4_) && isPartyOrderRebuildAllowed)
+    if (isDead && IsInParty_02086ef0(party, gameObject->obj3D_.unknown_4_) && isPartyOrderRebuildAllowed)
         RebuildFieldPartyOrder_ov017_02191108(gameResources, 1, 1, 1, 1);
 }

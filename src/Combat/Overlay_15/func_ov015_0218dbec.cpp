@@ -3,9 +3,10 @@
 #include "Memory/SafeAllocator.h"
 #include "World/Object3D.h"
 #include "Filesystem/GPC.h"
-extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char g_fileScratchSpace[0x30000] __attribute__((aligned(4)));
 #include "Filesystem/FileIO.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Graphics/TextureArena.h"
 
 struct Struct_0206f01c_2;
 struct Struct_02070b6c_3;
@@ -17,9 +18,6 @@ extern "C" void* FindMonsterBattleData_02070fd0(Struct_02070b6c_3*, int);
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11*);
 
 extern "C" void* __clear(void* arg0, int arg1);
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
-extern "C" void RestoreTextureVRAMState_0207df90(char*);
-extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void func_02079a3c(void*);
 extern "C" void _ZN8Object3D10SetField7aEt(Object3D*, unsigned int);
 extern "C" void LoadExtraSoundSet_0205ebc0(void*, int, int);
@@ -78,8 +76,8 @@ extern "C" ARM int func_ov015_0218dbec(Struct_ov015_0218dbec_3* arg0, Struct_ov0
 
     int var1 = 1;
     char* var2 = *arg0->unknown_4_;
-    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)var2);
-    RestoreTextureVRAMState_0207df90(var2);
+    ((TextureArena*)((TextureVRAMArea_0203d028*)var2))->Reset();
+    ((TextureArena*)(var2))->Restore();
 
     if (arg0->unknown_0_->unknown_1a1_ != 0) {
         sprintf(var0, &data_ov015_021940f5, arg0->unknown_10_->unknown_4_);
@@ -93,11 +91,10 @@ extern "C" ARM int func_ov015_0218dbec(Struct_ov015_0218dbec_3* arg0, Struct_ov0
     GPCReadPair var3;
     func_02079a3c(&var3);
     unsigned int var4;
-    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var3.pGPCFile, var3.machine, &data_ov015_02194105,
-                                                   gFileScratchSpace_0211e33c, var4, 0x30000, false, 0)) {
+    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var3.pGPCFile, &var3.machine, &data_ov015_02194105, g_fileScratchSpace, &var4, 0x30000, false, 0)) {
         unsigned int var5;
-        char* var6 = (char*)gFileScratchSpace_0211e33c + var4;
-        if (DecompressFileFromGPCByName(var3.pGPCFile, var3.machine, var6, var5, 0x30000 - var4, var0)) {
+        char* var6 = (char*)g_fileScratchSpace + var4;
+        if (DecompressFileFromGPCByName(&var3.pGPCFile, &var3.machine, var6, &var5, 0x30000 - var4, var0)) {
             const void* var7 = 0;
             unsigned int var8 = 0;
             unsigned int var9 = 0;
@@ -105,10 +102,10 @@ extern "C" ARM int func_ov015_0218dbec(Struct_ov015_0218dbec_3* arg0, Struct_ov0
             void* var11 = 0;
             void* var12 = 0;
             if (FindFilesInNarcBySubstring(var6, &data_ov015_0219411d, &var7, &var8, 1)) {
-                var11 = DecompressLZ77FileIntoAllocatedSpace(*arg0->unknown_8_, var7, var9);
+                var11 = DecompressLZ77FileIntoAllocatedSpace(&(*arg0->unknown_8_), var7, &var9);
             }
             if (FindFilesInNarcBySubstring(var6, &data_ov015_02194123, &var7, &var8, 1)) {
-                var12 = DecompressLZ77FileIntoAllocatedSpace(*arg0->unknown_8_, var7, var10);
+                var12 = DecompressLZ77FileIntoAllocatedSpace(&(*arg0->unknown_8_), var7, &var10);
             }
             ObjectArchiveLoadInfo var13;
             if (var11 != 0) {
@@ -139,7 +136,7 @@ extern "C" ARM int func_ov015_0218dbec(Struct_ov015_0218dbec_3* arg0, Struct_ov0
     }
 
     BackgroundLoader::RemoveLockGlobal();
-    SaveTextureVRAMState_0207dfac(var2);
+    ((TextureArena*)(var2))->Save();
 
     int var15;
     if (var1 == 0) {

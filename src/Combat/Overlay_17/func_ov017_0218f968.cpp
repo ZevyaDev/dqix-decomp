@@ -5,8 +5,12 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "NitroSDK/Cache.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 
 extern AllocatorUnion gMainHeap_02114e20;
 
@@ -36,14 +40,14 @@ extern "C" ARM void func_ov017_0218f968(unsigned char* arg0, int arg1, unsigned 
 
     GameObject* var5 = var0->GetGameObjectByIndex(arg1);
     if (var5 != NULL && var5->obj3D_.pModel_ != NULL) {
-        NSBXXTex* var6 = var5->obj3D_.pModel_->GetTEX0();
+        Nitro3DTextureSet* var6 = var5->obj3D_.pModel_->GetTEX0();
         if (var6 != NULL) {
             if (var5->obj3D_.GetField9e() == 0) {
-                unsigned int var7 = var6->block4VRAMLoadOffset_;
+                unsigned int var7 = var6->block4VRAMLoadOffset;
                 var7 = var5->obj3D_.GetTexturePaletteOffset() != 0 ? var5->obj3D_.GetTexturePaletteOffset() : var7;
-                unsigned int var8 = var6->block4NumEightBytes_ << 3;
+                unsigned int var8 = var6->block4NumEightBytes << 3;
                 unsigned int var9 = (var7 & 0xffff) << 3;
-                unsigned short* var10 = (unsigned short*)((char*)var6 + var6->block4Offset_);
+                unsigned short* var10 = (unsigned short*)((char*)var6 + var6->block4Offset);
                 var4 = (unsigned short*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var8);
                 if (var4 != NULL) {
                     for (unsigned int var11 = 0; var11 < var8 / 2; var11++) {
@@ -65,29 +69,29 @@ extern "C" ARM void func_ov017_0218f968(unsigned char* arg0, int arg1, unsigned 
                         }
                         var4[var11] = var13 | (var14 << 5) | (var15 << 10);
                     }
-                    DC_FlushRange(var4, var8);
+                    CleanInvalidateCacheRange((const void*)(var4), var8);
                     StageMemoryToVRAM(VRAMSubregion_TexturePalette, var4, var9, var8, false, true);
                 }
             } else if (var5->obj3D_.GetField9e() == 1) {
-                unsigned int var16 = var6->block4VRAMLoadOffset_;
+                unsigned int var16 = var6->block4VRAMLoadOffset;
                 var16 = var5->obj3D_.GetTexturePaletteOffset() != 0 ? var5->obj3D_.GetTexturePaletteOffset() : var16;
-                unsigned int var17 = var6->block4NumEightBytes_ << 3;
+                unsigned int var17 = var6->block4NumEightBytes << 3;
                 unsigned int var18 = (var16 & 0xffff) << 3;
                 var4 = (unsigned short*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var17);
                 if (var4 != NULL) {
                     for (unsigned int var19 = 0; var19 < var17 / 2; var19++) {
                         var4[var19] = arg2;
                     }
-                    DC_FlushRange(var4, var17);
+                    CleanInvalidateCacheRange((const void*)(var4), var17);
                     StageMemoryToVRAM(VRAMSubregion_TexturePalette, var4, var18, var17, false, true);
                 }
             } else if (var5->obj3D_.GetField9e() == 2) {
                 unsigned short* var20;
-                unsigned int var21 = var6->block4VRAMLoadOffset_;
+                unsigned int var21 = var6->block4VRAMLoadOffset;
                 var21 = var5->obj3D_.GetTexturePaletteOffset() != 0 ? var5->obj3D_.GetTexturePaletteOffset() : var21;
-                unsigned int var22 = var6->block4NumEightBytes_ << 3;
+                unsigned int var22 = var6->block4NumEightBytes << 3;
                 var21 = (var21 & 0xffff) << 3;
-                var20 = (unsigned short*)((char*)var6 + var6->block4Offset_);
+                var20 = (unsigned short*)((char*)var6 + var6->block4Offset);
                 var4 = (unsigned short*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var22);
                 if (var4 != NULL) {
                     float var23 = var1 / 31.0f;
@@ -103,7 +107,7 @@ extern "C" ARM void func_ov017_0218f968(unsigned char* arg0, int arg1, unsigned 
                         unsigned short var33 = var30 * var25;
                         var4[var26] = var31 | (var32 << 5) | (var33 << 10);
                     }
-                    DC_FlushRange(var4, var22);
+                    CleanInvalidateCacheRange((const void*)(var4), var22);
                     StageMemoryToVRAM(VRAMSubregion_TexturePalette, var4, var21, var22, false, true);
                 }
             }
@@ -112,6 +116,6 @@ extern "C" ARM void func_ov017_0218f968(unsigned char* arg0, int arg1, unsigned 
     UnlockStagedTextureVRAMCopying();
 
     if (var4 != NULL) {
-        FreeMemory_02012da4(&gMainHeap_02114e20, var4);
+        func_02012da4(&gMainHeap_02114e20, var4);
     }
 }

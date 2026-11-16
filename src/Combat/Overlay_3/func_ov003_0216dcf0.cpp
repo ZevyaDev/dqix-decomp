@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Graphics/OBJSpriteSet.h"
 
 #if defined(jpn)
 enum { Enum_ov003_0216dcf0_704 = 0x150 };
@@ -26,14 +27,10 @@ extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimation_0205a254_2;
-extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254* animationList, int index);
-extern "C" struct SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index);
 extern "C" void SetSpriteAnimationPosition_020e27ec(struct SpriteAnimationList_0205a254* animationList, int index, short x, short y);
 
 struct SpriteAnimationList_0205a330;
-extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330* animationList, int ticks);
 
-extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
 
 // USA: func_ov003_0216dcf0
 extern "C" ARM void func_ov003_0216dcf0(char* arg0) {
@@ -46,20 +43,20 @@ extern "C" ARM void func_ov003_0216dcf0(char* arg0) {
         short var5 = var2 + var4 * 12;
         struct SpriteAnimationList_0205a254* var6 = *(struct SpriteAnimationList_0205a254**)(arg0 + 0x1000 + Enum_ov003_0216dcf0_680);
         if (var6 == 0) return;
-        PlaySpriteAnimation_0205a370(var6, 0);
-        struct SpriteAnimation_0205a254_2* var7 = FindSpriteAnimation_0205a3d0(var6, 0);
+        ((OBJSpriteSet::List*)(var6))->PlaySpriteAnimation(0);
+        struct SpriteAnimation_0205a254_2* var7 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(var6))->GetSprite(0));
         if (var7 != 0) {
             *(unsigned char*)((char*)var7 + 0x15) |= 8;
         }
-        AdvanceSpriteAnimations_0205a330((struct SpriteAnimationList_0205a330*)var6, var0->GetTickCount());
+        ((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a330*)var6))->UpdateAll(var0->GetTickCount());
         SetSpriteAnimationPosition_020e27ec(var6, 0, (short)(var3 * 8) - 4, var5 + 2);
-        DrawSpriteAnimations_0205ae8c(arg0 + Enum_ov003_0216dcf0_4716);
+        ((OBJSpriteSet*)(arg0 + Enum_ov003_0216dcf0_4716))->DrawAll();
         return;
     }
 
     struct SpriteAnimationList_0205a254* var8 = *(struct SpriteAnimationList_0205a254**)(arg0 + 0x1000 + Enum_ov003_0216dcf0_680);
     if (var8 == 0) return;
-    struct SpriteAnimation_0205a254_2* var9 = FindSpriteAnimation_0205a3d0(var8, 0);
+    struct SpriteAnimation_0205a254_2* var9 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(var8))->GetSprite(0));
     if (var9 != 0) {
         *(unsigned char*)((char*)var9 + 0x15) &= ~8;
     }

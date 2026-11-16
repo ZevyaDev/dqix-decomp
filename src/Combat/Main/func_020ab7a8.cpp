@@ -3,6 +3,8 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 
+extern unsigned char g_fileScratchSpace[0x30000];
+
 struct Struct_02000c9c_11;
 extern "C" void func_0201155c(struct Struct_02000c9c_11* arg0);
 extern "C" int func_02075ca0();
@@ -48,7 +50,6 @@ struct Struct_020ab7a8 {
     struct Struct_020ab7a8_5* unknown_4_;
 };
 
-extern "C" char gFileScratchSpace_0211e33c[];
 extern "C" char data_020f1be8;
 
 // USA: func_020ab7a8
@@ -64,7 +65,7 @@ extern "C" ARM int func_020ab7a8(void* arg0, int arg1) {
             return 1;
         }
         BackgroundLoader::FreeAllocationsGlobal();
-        var0->unknown_4_ = (struct Struct_020ab7a8_5*)((unsigned char*)&gFileScratchSpace_0211e33c[0] + 0x2901c);
+        var0->unknown_4_ = (struct Struct_020ab7a8_5*)((unsigned char*)&g_fileScratchSpace[0] + 0x2901c);
         if (func_02075910(arg1 ? 0x8010 : 0x10, var0->unknown_4_, 0x6fe4, 1) == 0) {
             return 1;
         }

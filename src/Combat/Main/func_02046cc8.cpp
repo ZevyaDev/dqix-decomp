@@ -3,6 +3,9 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
+#include "Graphics/TextureArena.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
+void Nitro3D_SetModelPolygonID(Nitro3DModel* model, int id);
 
 #if defined(jpn)
 enum { Enum_02046cc8_716 = 0x27c };
@@ -10,12 +13,8 @@ enum { Enum_02046cc8_716 = 0x27c };
 enum { Enum_02046cc8_716 = 0x2cc };
 #endif
 
-extern "C" void NSBXX_Model_SetPolygonID(void* obj, unsigned int value);
 
 struct TextureVRAMArea_0203d028;
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 struct Struct_02040774_2;
 extern "C" void SetObject3DPosition_020407b4(struct Struct_02040774_2* object, int x, int y, int z);
 
@@ -47,8 +46,8 @@ extern "C" ARM int func_02046cc8(void* arg0) {
     if (var2->GetTaskStatus(*(int*)((char*)arg0 + 0xec)) != 0) {
         var0 = (char*)var1 + Enum_02046cc8_716;
         if (*(unsigned char*)((char*)arg0 + 0x1d) != 0) {
-            ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)(var0 + 0xc40));
-            RestoreTextureVRAMState_0207df90(var0 + 0xc40);
+            ((TextureArena*)((struct TextureVRAMArea_0203d028*)(var0 + 0xc40)))->Reset();
+            ((TextureArena*)(var0 + 0xc40))->Restore();
 
             var2->GetLoadedFileByID(*(int*)((char*)arg0 + 0xec), &var4, &var5);
             if (var4 != NULL && var3->GetSignedAllocator() != NULL) {
@@ -60,11 +59,11 @@ extern "C" ARM int func_02046cc8(void* arg0) {
                 var6.unk_10 = 1;
                 var7->LoadFromCHRArchive(&var6);
                 void* var8 = *(void**)((char*)arg0 + 0x44);
-                NSBXX_Model_SetPolygonID(*(void**)((char*)var8 + 0x54), 0x3d);
+                Nitro3D_SetModelPolygonID((Nitro3DModel*)(*(void**)((char*)var8 + 0x54)), 0x3d);
                 SetObject3DPosition_020407b4((struct Struct_02040774_2*)var7, 0, -0xa000, 0x1000);
                 var7->MaybeSetBCFGAnimation(0, 0);
             }
-            SaveTextureVRAMState_0207dfac(var0 + 0xc40);
+            ((TextureArena*)(var0 + 0xc40))->Save();
         }
         var2->RemoveTask(*(int*)((char*)arg0 + 0xec));
         *(int*)((char*)arg0 + 0xec) = -1;

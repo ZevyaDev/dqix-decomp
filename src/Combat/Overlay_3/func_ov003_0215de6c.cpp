@@ -9,10 +9,11 @@ enum { Enum_ov003_0215de6c_972 = 0x3cc };
 
 #if defined(jpn)
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_020474a8(int, int, void*, void*);
 #endif
 #include "GameState/GameState.h"
+#include "Resource/GameStrings.h"
+#include "Resource/StringList.h"
 
 struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
@@ -20,7 +21,6 @@ extern "C" void SetMessageNumberAlignment_020465d8(unsigned char* window, int in
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 
 // USA: func_ov003_0215de6c
@@ -42,10 +42,10 @@ extern "C" ARM void func_ov003_0215de6c(char* arg0, void* arg1) {
     SetMessageNumberAlignment_020465d8((unsigned char*)var1, 0, 1);
 
 #if defined(jpn)
-    int var5 = FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0x7c), 0xa);
+    int var5 = ((int)((StringList*)((Struct_0201099c_3*)(arg0 + 0x7c)))->GetString(0xa));
     func_020474a8(var1, 8, (void*)var5, arg1);
 #else
-    int var6 = GetStandardString_020e51cc(0x3f1);
+    int var6 = ((int)GetGameString((eGameString)(0x3f1)));
     func_02046608(var1, 8, (void*)var6, arg1, 0x100, 0, 0);
 #endif
 }

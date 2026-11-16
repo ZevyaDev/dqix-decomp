@@ -2,10 +2,18 @@
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 #include "Combat/CombatantRecovery.h"
-#include "NitroSDK/Graphics3D/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 #include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "NitroSDK/Graphics.h"
 #include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_02031234 func_02030d6c
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 struct PartyMember_0205faf4_11;
 
@@ -38,7 +46,7 @@ extern "C" ARM void func_ov017_0218eafc(Struct_ov017_0218eafc* arg0, int arg1) {
     void* var1 = GetEffectManager_02057924();
     int var2 = func_ov017_021922ac(arg0, (unsigned char)arg1);
     if (var2) func_02057ab8(var1, arg1);
-    if (GetCamera_020100bc(var0) == 0) return;
+    if (func_020100bc(var0) == 0) return;
 
     Struct_020236dc_2* var3 = (Struct_020236dc_2*)var0->GetPartyMemberByIndex(arg1);
     int var4 = arg1 * 12 + 0x13;
@@ -48,7 +56,7 @@ extern "C" ARM void func_ov017_0218eafc(Struct_ov017_0218eafc* arg0, int arg1) {
     if (var3->obj3D_.IsChild()) return;
     Model3D* var6 = var3->obj3D_.pModel_;
     if (var6 == NULL) return;
-    ModelRenderContext* var7 = var6->unknown_flags_a8_0_ ? &var6->renderContext_ : NULL;
+    Nitro3DRenderContext* var7 = var6->unknown_flags_a8_0_ ? &var6->renderContext_ : NULL;
     if (var7 == NULL) return;
 
     bool var8 = true;
@@ -67,7 +75,7 @@ extern "C" ARM void func_ov017_0218eafc(Struct_ov017_0218eafc* arg0, int arg1) {
 
     if ((var3->unknown_18c_ & 1) && !(var3->unknown_18c_ & 2) && var3->obj3D_.IsVisible()) {
         var3->obj3D_.PopulateRenderConfigWorld();
-        RenderConfig::SubmitToFifo();
+        Nitro3DRenderConfig::SubmitToFifo();
         arg0->unknown_36c8_->SetAlpha(var9);
         arg0->unknown_36c8_->Draw(var8);
         if (!var2) func_02057ab8(var1, arg1);
@@ -96,7 +104,7 @@ extern "C" ARM void func_ov017_0218eafc(Struct_ov017_0218eafc* arg0, int arg1) {
 
         if (!IsNPCCompanion_02061bd8((PartyMember_0205faf4_11*)var3)) {
             int var22 = func_02053eb4(var3, 0);
-            GetModelBonePositionAndDirectionMatrices(var7, NULL, NULL, var22);
+            Nitro3D_GetBonePosDirMatrices(var7, NULL, NULL, var22);
             Object3D* var23 = (Object3D*)var0->GetGameObjectByIndex(var14);
             if (var23) {
                 Vector3fix var24 = var23->GetScale();
@@ -116,7 +124,7 @@ extern "C" ARM void func_ov017_0218eafc(Struct_ov017_0218eafc* arg0, int arg1) {
                 var23->EnableFlag(0x8000);
                 var23->Draw(false);
             }
-            GetModelBonePositionAndDirectionMatrices(var7, NULL, NULL, func_02053eb4(var3, 3));
+            Nitro3D_GetBonePosDirMatrices(var7, NULL, NULL, func_02053eb4(var3, 3));
             var23 = (Object3D*)var0->GetGameObjectByIndex(var18);
             if (var23 && var23->unknown_2_ > 0) {
                 var23->EnableFlag(0x8000);
@@ -134,7 +142,7 @@ extern "C" ARM void func_ov017_0218eafc(Struct_ov017_0218eafc* arg0, int arg1) {
             if (arg1 == 0) {
                 Object3D* var25 = GetHaloObject_ov017_021bdbcc(arg0);
                 if (var25) {
-                    GetModelBonePositionAndDirectionMatrices(var7, NULL, NULL, var22);
+                    Nitro3D_GetBonePosDirMatrices(var7, NULL, NULL, var22);
                     var25->EnableFlag(0x8000);
                     var25->Draw(false);
                 }
@@ -143,7 +151,7 @@ extern "C" ARM void func_ov017_0218eafc(Struct_ov017_0218eafc* arg0, int arg1) {
             if (arg1 == 0) {
                 Object3D* var26 = func_ov017_021bdbc0((unsigned char*)arg0);
                 if (var26) {
-                    GetModelBonePositionAndDirectionMatrices(var7, NULL, NULL, func_02053eb4(var3, 2));
+                    Nitro3D_GetBonePosDirMatrices(var7, NULL, NULL, func_02053eb4(var3, 2));
                     var26->EnableFlag(0x8000);
                     var26->Draw(false);
                 }

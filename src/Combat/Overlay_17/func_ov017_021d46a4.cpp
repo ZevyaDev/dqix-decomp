@@ -103,7 +103,7 @@ extern "C" ARM void func_ov017_021d46a4(void*, Struct_ov017_021d46a4_4* arg1) {
     Struct_0209be84_2* var11 = func_0209be84(&var4->unknown_60_, arg1->unknown_a_, arg1->unknown_8_7_);
     if (var11) var10 = var11->unknown_2_;
     var10 = (var10 * 266LL + 0x800) >> 12;
-    var6->obj3D_.objectIndex_4_ = var5;
+    var6->obj3D_.unknown_4_ = var5;
     var6->obj3D_.unknown_2_ = arg1->unknown_a_;
     var6->obj3D_.SetField06(arg1->unknown_6_);
     var6->obj3D_.position_ = var9;
@@ -123,4 +123,9 @@ extern "C" ARM void func_ov017_021d46a4(void*, Struct_ov017_021d46a4_4* arg1) {
     func_0207964c(var6);
     Struct_020795e8_2* var14 = func_0206ef18(var4->unknown_304_, (short)arg1->unknown_a_);
     if (var14) func_020795e8((Struct_020795e8*)var6, var14);
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

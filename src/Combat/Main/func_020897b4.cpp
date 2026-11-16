@@ -9,6 +9,10 @@
 #include "std_library_functions.h"
 
 #if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
 enum { Enum_020897b4_2384 = 0x8b8 };
 #else
 enum { Enum_020897b4_2384 = 0x950 };
@@ -19,9 +23,8 @@ struct Struct_02086f24_6 { void* unknown_0_; };
 
 extern char data_020f1019[];
 extern char data_020f102e[];
-extern unsigned char gFileScratchSpace_0211e33c[0x30000];
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void* func_0208247c(void* arg0);
 extern "C" int func_0208274c(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3);
 extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
@@ -60,8 +63,6 @@ extern "C" ARM void func_020897b4(unsigned char arg0, unsigned char arg1, int ar
     char var0[0x50];
     Struct_0201099c_2 var1;
     char var2[0x600];
-    SafeAllocator var3;
-    unsigned char var4[0x14];
     unsigned int var5;
     Struct_02086f24_6 var6;
 
@@ -73,11 +74,11 @@ extern "C" ARM void func_020897b4(unsigned char arg0, unsigned char arg1, int ar
 
     if (arg5 == 0) {
         sprintf(var0, data_020f1019, arg2);
-        if (LoadFileIntoMemory(var0, &gFileScratchSpace_0211e33c, &var5) == 0) {
+        if (LoadFileIntoMemory(var0, &g_fileScratchSpace, &var5) == 0) {
             BackgroundLoader::RemoveLockGlobal();
             return;
         }
-        arg5 = &gFileScratchSpace_0211e33c;
+        arg5 = &g_fileScratchSpace;
         arg6 = var5;
     }
 
@@ -85,7 +86,7 @@ extern "C" ARM void func_020897b4(unsigned char arg0, unsigned char arg1, int ar
     func_0208274c(&var1, (Struct_02013fb4*)arg5, arg6, arg1);
 
     Struct_0201099c_2* const var8 = &var1;
-    Struct_020897b4* var9 = reinterpret_cast<Struct_020897b4*>(GetPartyMemberData_02053c6c((unsigned char*)var7));
+    Struct_020897b4* var9 = reinterpret_cast<Struct_020897b4*>(func_02053c6c((unsigned char*)var7));
     var9->unknown_954_ |= 1 << arg2;
     var9->unknown_950_ = arg2;
     var9->unknown_16c_[arg2] = arg1;
@@ -101,14 +102,15 @@ extern "C" ARM void func_020897b4(unsigned char arg0, unsigned char arg1, int ar
     }
 
     if (arg7 == 0) {
-        if (LoadFileIntoMemory(data_020f102e, &gFileScratchSpace_0211e33c, &var5) != 0) {
-            arg7 = &gFileScratchSpace_0211e33c;
+        if (LoadFileIntoMemory(data_020f102e, &g_fileScratchSpace, &var5) != 0) {
+            arg7 = &g_fileScratchSpace;
             arg8 = var5;
         }
     }
 
     if (arg7 != 0) {
-        var3.ResetAllocatorPointer();
+        SafeAllocator var3;
+        unsigned char var4[0x14];
         var3.CreateTypeA(var2, 0x600);
         ClearSpellTable_0209a804((int*)&var6);
         func_0209a8b4(&var6, &var3, (Struct_02013fb4*)arg7, arg8);

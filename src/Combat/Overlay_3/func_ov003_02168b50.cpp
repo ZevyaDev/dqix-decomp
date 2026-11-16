@@ -20,6 +20,7 @@ enum { Enum_ov003_02168b50_2400 = 0x960 };
 #endif
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
 
 struct Struct_ov003_02168b50 {
     char unknown_0_[Enum_ov003_02168b50_2456];
@@ -59,7 +60,6 @@ struct Struct_ov003_02168b50_4 {
 extern "C" struct Struct_ov003_02168b50* GetMessageWindow_020421a0();
 extern "C" struct Struct_ov003_02168b50_2* func_0206f504();
 extern "C" int func_02041fe8(char* arg0, int arg1);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov003_02168b50(struct Struct_ov003_02168b50_4* arg0) {
         if (var2->unknown_10_[0] != 0) {
             func_02041fe8(arg0->unknown_7c_, (int)var2->unknown_10_);
         }
-        AppendText_02042058(arg0->unknown_7c_, (const char*)FindStringInTable_020e0434(var1, 0x3e8));
+        AppendText_02042058(arg0->unknown_7c_, (const char*)((int)((StringList*)(var1))->GetString(0x3e8)));
         GameState* var3 = GameState::GetInstance();
         struct Struct_ov003_02168b50_3* var4 = (struct Struct_ov003_02168b50_3*)GetParty_02010828(var3);
         ClearMessageParams_02046380(var0);
@@ -94,9 +94,9 @@ extern "C" ARM void func_ov003_02168b50(struct Struct_ov003_02168b50_4* arg0) {
         if (var4->unknown_f68_ != 0) {
             SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var0, 0, var4->unknown_f68_);
             SetMessageNumberWidth_020465f0((unsigned char*)var0, 0, 0);
-            AppendText_02042058(arg0->unknown_7c_, (const char*)FindStringInTable_020e0434(var1, 0x3ea));
+            AppendText_02042058(arg0->unknown_7c_, (const char*)((int)((StringList*)(var1))->GetString(0x3ea)));
         } else {
-            AppendText_02042058(arg0->unknown_7c_, (const char*)FindStringInTable_020e0434(var1, 0x3e9));
+            AppendText_02042058(arg0->unknown_7c_, (const char*)((int)((StringList*)(var1))->GetString(0x3e9)));
         }
         var0->unknown_998_ = 1;
 #if defined(jpn)

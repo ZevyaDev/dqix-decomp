@@ -7,9 +7,17 @@ enum { Enum_ov017_021cc730_2384 = 0x950 };
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 
 struct Struct_ov017_021cc730 {
     unsigned char unknown_0_;
@@ -31,10 +39,10 @@ extern "C" ARM void func_ov017_021cc730(int arg0, unsigned char arg1, unsigned c
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg0);
     if (var1 == 0) return;
-    int var2 = GetPartyMemberData_02053c6c((unsigned char*)var1);
+    int var2 = func_02053c6c((unsigned char*)var1);
     if (var2 == 0) return;
 
-    void* var3 = GetLocalWirelessPacketQueue_0202ae24();
+    void* var3 = func_0202ae24();
     Struct_ov017_021cc730 var4;
     int var5 = *(int*)((char*)var2 + Enum_ov017_021cc730_2384);
 

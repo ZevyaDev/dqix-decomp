@@ -8,6 +8,25 @@
 #include "Resource/MessageSystem.h"
 #include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "Combat/MapDisplay.h"
+#include "Filesystem/FileIO.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Graphics/TextureArena.h"
+#include "NitroSDK/VRAMAllocation.h"
+#include "Resource/PAC.h"
+#include "Resource/StringList.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0203bd08 func_0203b760
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
 
 #if defined(jpn)
 #define func_020c51dc func_020c6ca8
@@ -28,16 +47,13 @@ struct GlobalFlags_02038598_4;
 struct Struct_020444e0;
 struct Struct_0203bdb0;
 
-extern "C" unsigned int* GetGlobalFlags_020d6c00();
+extern "C" unsigned int* func_020d6c00();
 extern "C" void SetLoadingIndicator_020daf9c(int isShown, int isFadeWaitSkipped, int isScreenBlanked, int isMainScreenForced);
-extern "C" void InitSpriteSet_0205a444(char* spriteSet);
-extern "C" void InitSprite_0205a198(Sprite_02043368_2* sprite);
-extern "C" void InitSpriteAnimationList_0205a234(SpriteAnimationList_02043368* animationList);
 extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
 extern "C" void func_0200fb84(int* arg0, int arg1);
 extern "C" char* GetBGVRAMManager_0203b628();
 extern "C" void func_0203b634(char* arg0);
-extern "C" void* GetOAMManager_0203bd08(void);
+extern "C" void* func_0203bd08(void);
 extern "C" void ResetOAMManager_0203bd24(char* oamManager);
 void LockStagedTextureVRAMCopying();
 extern "C" unsigned int DisableTextureImageVRAMBanks();
@@ -47,35 +63,25 @@ extern "C" unsigned int DisableSubBGVRAMBanks();
 extern "C" unsigned int DisableMainObjVRAMBanks();
 extern "C" unsigned int DisableSubObjVRAMBanks();
 extern "C" void MapVRAMBanksToTextureImage(int banks);
-extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install);
 extern "C" void MapVRAMBanksToTexturePalette(int banks);
 extern "C" void MapVRAMBanksToMainBG(int banks);
 extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, int isBG03D);
 extern "C" void MapVRAMBanksToMainObj(int banks);
 void UpdateVRAMStagingVRAMBanks();
 void UnlockStagedTextureVRAMCopying();
-void Finish3DRendering();
 extern "C" void func_020c51dc();
 extern "C" void func_020c537c();
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void SetOrthographicProjection_020c5770(int, int, int, int, int, int, int, int, void*);
-extern "C" void InitTexturePaletteVRAMAllocator_020bb780(void* size, int install);
-extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_02042c68(MessageWindow_02021b84* arg0);
 extern "C" void CloseMessageWindow_02043124(MessageWindow_02021b84* window);
 extern "C" void func_02042b30(void* arg0, void* arg1);
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 extern "C" void InitMessageGlyphs_020432c4(MessageWindow_02021b84* window);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020440b8(char* arg0, void* arg1, void* arg2);
 extern "C" void func_0202ad30();
 extern "C" void func_0202adf0();
-extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
-extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
-extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void Swap3DBuffers_020d86d0(int keepTranslucentOrder, int useWDepth);
 extern "C" void WaitForVBlank_020c9820();
 extern "C" void func_020bbcb4();
@@ -89,9 +95,6 @@ extern "C" void UpdateInput_02012efc();
 extern "C" int GetMessageChoice_020457e0(MessageWindow_02021b84* window);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void ResetSaveProgress_020a9ea4(SaveProgress_020a9ea4* progress);
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, SafeAllocator* allocator);
 extern "C" int func_020ab7a8(void* arg0, int arg1);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void PlayJingle_0209c6d8(void* manager, int jingleIndex);
@@ -108,12 +111,11 @@ extern "C" void func_0203bd88(void* arg0);
 extern "C" void DrawMessageGlyphs_0204359c(void* window, int glyphCount);
 extern "C" void func_0203bdb0(Struct_0203bdb0* arg0);
 extern "C" void func_020439b0(MessageWindow_02021b84* arg0, int arg1);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
 extern "C" void SetTitleState_02012010(void* arg0, int state);
 
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
-extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 
 #if defined(jpn)
 #define data_ov019_0218c2c0 data_ov019_0218cea0
@@ -122,7 +124,7 @@ extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned
 #define data_ov019_0218c2a0 data_ov019_0218ce88
 #define data_ov019_0218c2fe data_ov019_0218ced3
 #endif
-extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char g_fileScratchSpace[0x30000] __attribute__((aligned(4)));
 extern AllocatorUnion gMainHeap_02114e20;
 extern char gMusicManager_02109bf4[];
 extern char data_ov019_0218c2c0[];
@@ -170,7 +172,7 @@ static inline void inline_ov019_0218b5a8(MessageWindow_02021b84* arg0, Struct_ov
 #if defined(jpn)
     StartMessage_0204500c(arg0, (const char*)FindStringInList_02072a68((struct StringList_02072a68_2*)arg1->unknown_34_, arg2), 0);
 #else
-    StartMessage_0204500c(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)arg1->unknown_34_, arg2), 0, 0xe3);
+    StartMessage_0204500c(arg0, ((StringList*)((Struct_0201099c_3*)arg1->unknown_34_))->GetString(arg2), 0, 0xe3);
 #endif
 }
 
@@ -230,21 +232,21 @@ static inline void inline_ov019_0218b5a8_9(Vector3fix* arg0, Vector3fix* arg1, V
 extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
-    unsigned int* var2 = GetGlobalFlags_020d6c00();
+    unsigned int* var2 = func_020d6c00();
     SetLoadingIndicator_020daf9c(0, 0, 1, 0);
     arg0->unknown_4c_ = 0;
     arg0->unknown_50_ = 0;
-    InitSpriteSet_0205a444(arg0->unknown_54_);
+    ((OBJSpriteSet*)(arg0->unknown_54_))->Reset();
     for (int var3 = 0; var3 < 14; var3++) {
-        InitSprite_0205a198(&arg0->unknown_a8_[var3]);
+        ((OBJSpriteSet::Metatile*)(&arg0->unknown_a8_[var3]))->Reset();
     }
-    InitSpriteAnimationList_0205a234(&arg0->unknown_2d8_);
+    ((OBJSpriteSet::List*)(&arg0->unknown_2d8_))->Reset();
     WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
     WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
     func_0200fb84((int*)var0, (int)arg0);
     var1->MaybeReset();
     func_0203b634(GetBGVRAMManager_0203b628());
-    void* var4 = GetOAMManager_0203bd08();
+    void* var4 = func_0203bd08();
     ResetOAMManager_0203bd24((char*)var4);
     LockStagedTextureVRAMCopying();
     DisableTextureImageVRAMBanks();
@@ -254,7 +256,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     DisableMainObjVRAMBanks();
     DisableSubObjVRAMBanks();
     MapVRAMBanksToTextureImage(0xf);
-    InitTextureImageVRAMAllocator_020bb48c(4, 1);
+    InitializeTextureImageAllocation(4, 1);
     MapVRAMBanksToTexturePalette(0x40);
     MapVRAMBanksToMainBG(0x10);
     inline_ov016_0218b5c4(0);
@@ -267,7 +269,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     inline_ov017_021c0850(0);
     UpdateVRAMStagingVRAMBanks();
     UnlockStagedTextureVRAMCopying();
-    Finish3DRendering();
+    Nitro3D_FinishRender();
     func_020c51dc();
     func_020c537c();
     inline_ov019_0218b5a8_3(0);
@@ -275,57 +277,56 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     inline_ov019_0218b5a8_4(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, NULL);
     inline_ov019_0218b5a8_5(0);
     inline_ov019_0218b5a8_6(0, 0, 255, 191);
-    InitTextureImageVRAMAllocator_020bb48c(4, 1);
-    InitTexturePaletteVRAMAllocator_020bb780((void*)0x4000, 1);
+    InitializeTextureImageAllocation(4, 1);
+    InitializeTexturePaletteVRAMAllocation((unsigned int)((void*)0x4000), 1);
 
     char var5[0x70];
     char var6[0x70];
-    InitTextureVRAMArea_0207de48(var5, 0x4000, 0x20);
-    InitTextureVRAMArea_0207de48(var6, 0x4000, 0x20);
+    ((TextureArena*)(var5))->Initialize(0x4000, 0x20);
+    ((TextureArena*)(var6))->Initialize(0x4000, 0x20);
     MessageWindow_02021b84* var7 = GetMessageWindow_020421a0();
     func_02042c68(var7);
     CloseMessageWindow_02043124(var7);
     func_02042b30(var7, var5);
-    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)var5);
-    RestoreTextureVRAMState_0207df90(var5);
+    ((TextureArena*)((TextureVRAMArea_0203d028*)var5))->Reset();
+    ((TextureArena*)(var5))->Restore();
     InitMessageGlyphs_020432c4(var7);
-    SaveTextureVRAMState_0207dfac(var5);
+    ((TextureArena*)(var5))->Save();
 
     unsigned int var8;
     BackgroundLoader::AddLockGlobal();
-    if (LoadFileIntoMemory(data_ov019_0218c2c0, gFileScratchSpace_0211e33c, &var8) == NULL) {
+    if (LoadFileIntoMemory(data_ov019_0218c2c0, g_fileScratchSpace, &var8) == NULL) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
     void* var9 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x19000);
     SafeAllocator var10;
-    var10.ResetAllocatorPointer();
     var10.CreateTypeA(var9, 0x19000);
     NarcHandle var11;
-    if (var11.Initialize(data_ov019_0218c2d4, gFileScratchSpace_0211e33c)) {
-        RestoreTextureVRAMState_0207df90(var6);
-        func_020440b8((char*)var7, &var10, gFileScratchSpace_0211e33c);
-        SaveTextureVRAMState_0207dfac(var6);
+    if (var11.Initialize(data_ov019_0218c2d4, g_fileScratchSpace)) {
+        ((TextureArena*)(var6))->Restore();
+        func_020440b8((char*)var7, &var10, g_fileScratchSpace);
+        ((TextureArena*)(var6))->Save();
         var11.Destroy();
     }
     func_0202ad30();
     func_0202adf0();
     *(int*)((char*)var7 + Enum_ov019_0218b5a8_728) = 0;
 #if defined(jpn)
-    if (LoadFileIntoMemory(data_ov019_0218ceb8, gFileScratchSpace_0211e33c, &var8) == NULL) {
+    if (LoadFileIntoMemory(data_ov019_0218ceb8, g_fileScratchSpace, &var8) == NULL) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
     ResetStringList_020727d8((struct StringList_020727d8*)arg0->unknown_34_);
-    LoadStringList_020728ac((int)arg0->unknown_34_, (int)&var10, (struct Struct_02013fb4*)gFileScratchSpace_0211e33c, var8, 0, 0, 0);
+    LoadStringList_020728ac((int)arg0->unknown_34_, (int)&var10, (struct Struct_02013fb4*)g_fileScratchSpace, var8, 0, 0, 0);
 #else
-    void* var12 = ExtractFileFromGP2(data_ov019_0218c2d8, data_ov019_0218c2ed, &var8);
+    void* var12 = ExtractFileFromGP2((const char*)(data_ov019_0218c2d8), (const char*)(data_ov019_0218c2ed), (unsigned int*)(&var8));
     if (var12 == NULL) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    InitStringTable_020dfc40((StringTable_0201099c_14*)arg0->unknown_34_);
-    LoadStringTable_020dfec0(arg0->unknown_34_, &var10, var12, var8);
+    ((StringList*)((StringTable_0201099c_14*)arg0->unknown_34_))->Reset();
+    ((StringList*)(arg0->unknown_34_))->LoadFromMemory((SafeAllocator*)(&var10), (const void*)(var12), var8);
 #endif
     BackgroundLoader::RemoveLockGlobal();
 
@@ -395,26 +396,26 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
                 BackgroundLoader::AddLockGlobal();
                 BackgroundLoader::FreeAllocationsGlobal();
                 if (arg0->unknown_50_ == 0) {
-                    if (LoadFileIntoMemory(data_ov019_0218c2fe, gFileScratchSpace_0211e33c, &var8) == NULL) {
+                    if (LoadFileIntoMemory(data_ov019_0218c2fe, g_fileScratchSpace, &var8) == NULL) {
                         BackgroundLoader::RemoveLockGlobal();
                         return;
                     }
-                    InitSpriteSet_0205a444(arg0->unknown_54_);
+                    ((OBJSpriteSet*)(arg0->unknown_54_))->Reset();
                     for (int var20 = 0; var20 < 14; var20++) {
-                        InitSprite_0205a198(&arg0->unknown_a8_[var20]);
+                        ((OBJSpriteSet::Metatile*)(&arg0->unknown_a8_[var20]))->Reset();
                     }
-                    InitSpriteAnimationList_0205a234(&arg0->unknown_2d8_);
+                    ((OBJSpriteSet::List*)(&arg0->unknown_2d8_))->Reset();
                     arg0->unknown_a4_ = 0;
                     arg0->unknown_94_ = arg0->unknown_a8_;
                     arg0->unknown_a0_ = 14;
                     arg0->unknown_90_ = &arg0->unknown_2d8_;
-                    void* var21 = gFileScratchSpace_0211e33c;
-                    int var22 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var21);
+                    void* var21 = g_fileScratchSpace;
+                    int var22 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var21));
                     for (int var23 = 0; var23 < var22; var23++) {
                         void* var24;
                         int var25;
-                        void* var26 = GetPacEntryData_020467f0((PacEntry_02020aec*)var21, var23, &var24, &var25);
-                        LoadSpriteSetFile_0205a528(arg0->unknown_54_, var26, var25, &var10);
+                        void* var26 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var21), var23, (const char**)(&var24), (unsigned int*)(&var25));
+                        ((OBJSpriteSet*)(arg0->unknown_54_))->LoadFromNitroFile((void*)(var26), var25, (SafeAllocator*)(&var10));
                     }
                     arg0->unknown_4c_ |= 1;
                     arg0->unknown_50_++;
@@ -511,7 +512,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
         UpdateSound_020bbd9c();
         ResetGeometryEngine_020c52e8();
         ResetMatrixStacks_020c5414();
-        RenderConfig::Reset();
+        Nitro3DRenderConfig::Reset();
         DISP3DCNT = (DISP3DCNT & ~0x3000) | 8;
         DISP3DCNT = (DISP3DCNT & ~0x3000) | 0x10;
         inline_ov019_0218b5a8_8(0);
@@ -532,7 +533,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     }
 
     var10.Destroy();
-    FreeMemory_02012da4(&gMainHeap_02114e20, var9);
+    func_02012da4(&gMainHeap_02114e20, var9);
     SetGameMode_0200fb94((char*)var0, 6);
     SetTitleState_02012010(var0, 0);
 }

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Graphics/OBJSpriteSet.h"
 
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0;
@@ -7,9 +8,8 @@ extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindow
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 
 struct Struct_02000c9c_8;
-extern "C" int GetGameLanguage_0200fb08(struct Struct_02000c9c_8*);
+extern "C" int func_0200fb08(struct Struct_02000c9c_8*);
 
-extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 extern unsigned char data_ov003_0217f530;
 extern unsigned char data_ov003_0217f532;
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov003_0216a880(unsigned char* arg0) {
     if (!IsTextWindowReady_0204c7cc((unsigned char*)var0)) return;
 
 #if !defined(jpn)
-    int var1 = GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance());
+    int var1 = func_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance());
 #endif
 
     unsigned int var2 = 0x90000;
@@ -54,11 +54,11 @@ extern "C" ARM void func_ov003_0216a880(unsigned char* arg0) {
     unsigned char* var7 = *(unsigned char**)(arg0 + Enum_ov003_0216a880_1236) + var6;
     *(unsigned int*)(var7 + 0x14) = var2;
     *(unsigned int*)(var7 + 0x18) = 0x61000;
-    DrawSprite_0205ac40(arg0 + Enum_ov003_0216a880_1152, *(unsigned char**)(arg0 + Enum_ov003_0216a880_1236) + var6);
+    ((OBJSpriteSet*)(arg0 + Enum_ov003_0216a880_1152))->DrawMetatile((OBJSpriteSet::Metatile*)(*(unsigned char**)(arg0 + Enum_ov003_0216a880_1236) + var6));
 
     unsigned int var8 = (var4 + 1) * 0x28;
     unsigned char* var9 = *(unsigned char**)(arg0 + Enum_ov003_0216a880_1236) + var8;
     *(unsigned int*)(var9 + 0x14) = var3;
     *(unsigned int*)(var9 + 0x18) = 0x61000;
-    DrawSprite_0205ac40(arg0 + Enum_ov003_0216a880_1152, *(unsigned char**)(arg0 + Enum_ov003_0216a880_1236) + var8);
+    ((OBJSpriteSet*)(arg0 + Enum_ov003_0216a880_1152))->DrawMetatile((OBJSpriteSet::Metatile*)(*(unsigned char**)(arg0 + Enum_ov003_0216a880_1236) + var8));
 }

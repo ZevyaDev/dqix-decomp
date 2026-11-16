@@ -1,10 +1,13 @@
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct Struct_0204bbb4;
-extern "C" void func_0204bbb4(struct Struct_0204bbb4* arg0, unsigned int arg1, int arg2, int arg3,
-                           short arg4, short arg5, short arg6, short arg7, unsigned short arg8);
-extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
-extern "C" int* GetLocalWireless_0202ae18(void);
+extern "C" int* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
 extern const int data_ov000_021836a0[];
@@ -40,7 +43,7 @@ struct Struct_ov000_02180bac_2 {
 
 // USA: func_ov000_02180bac
 extern "C" ARM void func_ov000_02180bac(struct Struct_ov000_02180bac_2* arg0) {
-    func_0204bbb4((struct Struct_0204bbb4*)arg0->unknown_8c4_, 4, 1, 4, 0, 0, 0x20, 1, 0xffff);
+    ((BGLayer*)((struct Struct_0204bbb4*)arg0->unknown_8c4_))->BlitSpriteByIndexRepeated(4, 1, 4, 0, 0, 0x20, 1, 0xffff);
     if (arg0->unknown_934_ != 3) {
         struct Struct_ov000_02180bac* var0 = &arg0->unknown_170_[19];
         var0->unknown_14_ = arg0->unknown_930_ << 12;
@@ -51,10 +54,10 @@ extern "C" ARM void func_ov000_02180bac(struct Struct_ov000_02180bac_2* arg0) {
         var0->unknown_22_ = 0x48;
 #endif
         var0->unknown_26_ = 1;
-        DrawSprite_0205ac40(arg0->unknown_11c_, var0);
+        ((OBJSpriteSet*)(arg0->unknown_11c_))->DrawMetatile((OBJSpriteSet::Metatile*)(var0));
     }
     int var1 = (arg0->unknown_1d72_ & 0x400) ? 1 : 0;
-    if (var1 & IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18())) {
+    if (var1 & IsLocalWirelessOn_0202b7d8(func_0202ae18())) {
         struct Struct_ov000_02180bac* var2 = &arg0->unknown_170_[6];
         int var3 = arg0->unknown_1a_ - 2;
         if (arg0->unknown_1a_ < 0) {
@@ -68,6 +71,6 @@ extern "C" ARM void func_ov000_02180bac(struct Struct_ov000_02180bac_2* arg0) {
         var2->unknown_22_ = 0;
 #endif
         var2->unknown_26_ = 0;
-        DrawSprite_0205ac40(arg0->unknown_11c_, var2);
+        ((OBJSpriteSet*)(arg0->unknown_11c_))->DrawMetatile((OBJSpriteSet::Metatile*)(var2));
     }
 }

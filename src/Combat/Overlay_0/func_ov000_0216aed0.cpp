@@ -75,3 +75,8 @@ extern "C" ARM int func_ov000_0216aed0(Script::Parameter* arg0, int arg1)
     AppendBACTCommand_ov000_02169b78(var0);
     return 1;
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

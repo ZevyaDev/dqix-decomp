@@ -2,6 +2,7 @@
 
 #include "GameState/GameState.h"
 #include "Input/Input.h"
+#include "Graphics/SPRSprite.h"
 
 
 struct Struct_ov023_021f8e1c {
@@ -92,8 +93,6 @@ struct SoundEffectManager_02108760;
 extern "C" unsigned short func_ov011_02184a00(struct Struct_ov011_02184a00* arg0);
 extern "C" int ReadBrightnessRegister_020c39c8(volatile unsigned short* reg);
 extern "C" void* func_ov023_021f7318(void* arg0);
-extern "C" unsigned char func_02047a5c(struct Struct_02047a5c* arg0, int arg1);
-extern "C" int func_02047a3c(struct Struct_02047a3c* arg0, int arg1);
 extern "C" unsigned short func_ov023_021f8c50(unsigned char* arg0);
 extern "C" unsigned short func_ov023_021f8c60(unsigned char* arg0);
 extern "C" unsigned int func_ov023_021f6f08(struct Struct_ov004_02153978* arg0);
@@ -345,8 +344,8 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
                     var27 = (int)(var33.unknown_0_ / 4096.0f);
                     var28 = (int)(var33.unknown_4_ / 4096.0f);
                     void* var34 = func_ov023_021f7318(var32);
-                    var29 = func_02047a5c((struct Struct_02047a5c*)var34, 0);
-                    var30 = func_02047a3c((struct Struct_02047a3c*)var34, 0);
+                    var29 = ((SPRSprite*)((struct Struct_02047a5c*)var34))->GetTextureWidth(0);
+                    var30 = ((int)((SPRSprite*)((struct Struct_02047a3c*)var34))->GetTextureHeight(0));
                 } else if (func_ov023_021f6f10(var32) == 8) {
                     const Struct_ov023_021f8e1c* var35 = inline_ov023_021f8e1c_35(func_ov023_021f8b78(var32, arg1));
                     var33.unknown_0_ = var35->unknown_0_;

@@ -3,9 +3,13 @@
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
 struct GameResources;
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 extern "C" void func_ov017_021b6c78(void);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
@@ -30,7 +34,7 @@ extern "C" ARM int func_ov017_021afcec(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     unsigned char* var2 = (unsigned char*)GetMessageWindow_020421a0();
-    unsigned int* var3 = (unsigned int*)GetGlobalFlags_020d6c00();
+    unsigned int* var3 = (unsigned int*)func_020d6c00();
 
     if (arg0[9] == 2) {
         func_ov017_021b6c78();

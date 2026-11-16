@@ -1,6 +1,14 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_020ca4b4 func_020cbf80
+#endif
+
+#if defined(jpn)
+#define func_020ca458 func_020cbf24
+#endif
+
 
 void SleepCurrentContext(unsigned int ticks);
 extern "C" int func_ov031_0220d540(void);
@@ -12,8 +20,8 @@ extern "C" void func_ov031_0220eadc(void);
 extern "C" int func_ov031_0220eb88(int arg0);
 extern "C" int func_ov031_0220eb30(void);
 extern "C" int func_020c7ea0(void* arg0, int* arg1, int arg2);
-extern "C" void Memset32Bit_020ca458(unsigned int arg0, void* arg1, int arg2);
-extern "C" void Memcpy32BitByBlock_020ca4b4(const void* arg0, void* arg1, int arg2);
+extern "C" void func_020ca458(unsigned int arg0, void* arg1, int arg2);
+extern "C" void func_020ca4b4(const void* arg0, void* arg1, int arg2);
 
 struct Struct_ov031_0224599c {
 	int unknown_0_;
@@ -43,11 +51,11 @@ extern struct Struct_ov031_02292040 data_ov031_02292040;
 extern int data_ov031_02291f60;
 
 static inline void inline_ov031_0224599c(void* arg0, int arg1) {
-	Memset32Bit_020ca458(0, arg0, arg1);
+	func_020ca458(0, arg0, arg1);
 }
 
 static inline void inline_ov031_0224599c_2(const void* arg0, void* arg1, int arg2) {
-	Memcpy32BitByBlock_020ca4b4(arg0, arg1, arg2);
+	func_020ca4b4(arg0, arg1, arg2);
 }
 
 enum Enum_ov031_0224599c { Enum_ov031_0224599c_1 = 1, Enum_ov031_0224599c_4 = 4, Enum_ov031_0224599c_5 = 5 };

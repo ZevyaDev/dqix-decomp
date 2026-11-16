@@ -1,12 +1,10 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
+#include "Graphics/TextureArena.h"
+#include "NitroSDK/VRAMAllocation.h"
 
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void func_020bb700(int* arg0);
-extern "C" void func_020bb910(int* arg0);
-extern "C" int func_020bb588(unsigned int arg0, int arg1, int arg2);
-extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 extern "C" void func_020542b4(void* arg0, void* arg1, void* arg2);
 
 extern AllocatorUnion gMainHeap_02114e20;
@@ -66,22 +64,21 @@ extern "C" ARM void func_ov017_021a02f0(Struct_ov017_021a02f0_3* arg0) {
         arg0->unknown_38_[data_ov017_021d6984[var0].unknown_0_].CreateTypeA(var2, var1);
     }
 
-    func_020bb700(arg0->unknown_2a78_[0].unknown_0_);
-    func_020bb910(arg0->unknown_2a78_[0].unknown_28_);
-    func_020bb588(0x20000, 0, 0);
-    func_020bb588(0x20000, 0, 0);
+    SaveTextureImageAllocationState((unsigned int*)(arg0->unknown_2a78_[0].unknown_0_));
+    SaveTexturePaletteAllocationState((unsigned int*)(arg0->unknown_2a78_[0].unknown_28_));
+    FrameAllocateTextureImageVRAM(0x20000, 0, 0);
+    FrameAllocateTextureImageVRAM(0x20000, 0, 0);
 
     for (var0 = 0; data_ov017_021d6924[var0].unknown_4_ != 0; var0++) {
-        InitTextureVRAMArea_0207de48(&arg0->unknown_2cc_[data_ov017_021d6924[var0].unknown_0_], data_ov017_021d6924[var0].unknown_4_,
-                      data_ov017_021d6924[var0].unknown_8_);
+        ((TextureArena*)(&arg0->unknown_2cc_[data_ov017_021d6924[var0].unknown_0_]))->Initialize(data_ov017_021d6924[var0].unknown_4_, data_ov017_021d6924[var0].unknown_8_);
         if (var0 == 1) {
-            func_020bb700(arg0->unknown_2a78_[2].unknown_0_);
-            func_020bb910(arg0->unknown_2a78_[2].unknown_28_);
+            SaveTextureImageAllocationState((unsigned int*)(arg0->unknown_2a78_[2].unknown_0_));
+            SaveTexturePaletteAllocationState((unsigned int*)(arg0->unknown_2a78_[2].unknown_28_));
         }
     }
 
-    func_020bb700(arg0->unknown_2a78_[1].unknown_0_);
-    func_020bb910(arg0->unknown_2a78_[1].unknown_28_);
+    SaveTextureImageAllocationState((unsigned int*)(arg0->unknown_2a78_[1].unknown_0_));
+    SaveTexturePaletteAllocationState((unsigned int*)(arg0->unknown_2a78_[1].unknown_28_));
 
     for (int var3 = 0; var3 < 4; var3++) {
         func_020542b4(&arg0->unknown_12c8_[var3], &arg0->unknown_38_[var3 + 1], &arg0->unknown_2cc_[var3 + 1]);

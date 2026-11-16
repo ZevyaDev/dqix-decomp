@@ -48,7 +48,7 @@ extern "C" ARM void func_ov017_021ceee0(void* arg0, struct Struct_ov017_021ceee0
         if (!var2) {
             return;
         }
-        if (!(var0->obj3D_.classFlags_0_ & 0x80)) {
+        if (!(var0->obj3D_.unknown_0_ & 0x80)) {
             return;
         }
         GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(arg2, arg1->unknown_12_);

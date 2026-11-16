@@ -1,5 +1,8 @@
+#if !defined(jpn)
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Resource/GameStrings.h"
+#include "Resource/StringList.h"
 
 struct MessageWindow_020465c0;
 struct Struct_0201099c_3;
@@ -11,13 +14,11 @@ struct Struct_ov002_0215fcc0 {
 struct Struct_ov002_0216ca30 {
     int unknown_0_[5];
 };
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int func_02041a5c(char *arg0, int arg1);
 extern "C" int AppendXPositionTag_02041a28(char *buffer, int x);
 extern "C" int func_02041acc(char *arg0, int arg1);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int func_02041fac(char *arg0, int arg1, int arg2);
-extern "C" const char *GetStandardString_020e51cc(int stringId);
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0 *window, int index, int number);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char *window, int index, unsigned char width);
@@ -53,13 +54,13 @@ extern "C" ARM void func_ov002_0215fcc0(char *arg0, char *arg1) {
     var11    = *(unsigned short *) (var10 + *(int *) (var10 + 0x950) * 2 + 0x16c);
     if (var12 != 0) {
         const char *var13 =
-            (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), (short) (var12 + 0x8fc));
+            (const char *) ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString((short) (var12 + 0x8fc)));
         func_02041a5c(var0, 4);
         AppendText_02042058(var0, var8);
         func_02041acc(var0, 0x10);
         AppendText_02042058(var0, var13);
         func_02041acc(var0, 4);
-        AppendText_02042058(var0, GetStandardString_020e51cc(0x3f3));
+        AppendText_02042058(var0, GetGameString((eGameString)(0x3f3)));
         __clear(var2, 0x10);
         sprintf(var2, data_ov002_0216d285, var11);
         AppendText_02042058(var0, var2);
@@ -67,13 +68,13 @@ extern "C" ARM void func_ov002_0215fcc0(char *arg0, char *arg1) {
         func_02041a5c(var0, 4);
         AppendText_02042058(var0, var8);
         func_02041acc(var0, 0x12);
-        AppendText_02042058(var0, GetStandardString_020e51cc(0x3f3));
+        AppendText_02042058(var0, GetGameString((eGameString)(0x3f3)));
         __clear(var3, 0x10);
         sprintf(var3, data_ov002_0216d285, var11);
         AppendText_02042058(var0, var3);
     }
     __clear(var1, 0x100);
-    sprintf(var1, data_ov002_0216d2ae, GetStandardString_020e51cc(0x3f3), var11);
+    sprintf(var1, data_ov002_0216d2ae, GetGameString((eGameString)(0x3f3)), var11);
     int var14 = var9 + 0x12 + func_020420e8(var1, 0);
     if (var12 != 0) var14 += 9;
     int var15                             = (0x80 - var14) >> 1;
@@ -99,11 +100,12 @@ extern "C" ARM void func_ov002_0215fcc0(char *arg0, char *arg1) {
         SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var16, var19, var18[var19]);
     }
     for (int var20 = 0; var20 < 5; var20++) {
-        AppendText_02042058(arg1, (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), var6++));
+        AppendText_02042058(arg1, (const char *) ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(var6++)));
         AppendXPositionTag_02041a28(arg1, var17.unknown_0_[var20]);
-        AppendText_02042058(arg1, (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), var7++));
+        AppendText_02042058(arg1, (const char *) ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(var7++)));
         if (var20 != 4) {
             AppendText_02042058(arg1, *(const char **) (arg0 + 0x1000 + 0xbdc));
         }
     }
 }
+#endif

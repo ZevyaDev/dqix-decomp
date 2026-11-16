@@ -81,7 +81,7 @@ void CleanCacheRange(const void* where, unsigned int len)
     } while ((int)dst < end);
 }
 
-void DC_FlushRange(const void* where, unsigned int len)
+void CleanInvalidateCacheRange(const void* where, unsigned int len)
 {
     __asm("mov r12, 0"); // Need a blank register for use with drain write buffer
     int end = len + (int)where;
@@ -108,7 +108,7 @@ void InvalidateInstructionCache()
     __asm("mcr p15, 0x0, r0, c7, c5, 0");
 }
 
-void IC_InvalidateRange(const void* where, unsigned int len)
+void InvalidateInstructionCacheRange(const void* where, unsigned int len)
 {
     int end = len + (int)where;
     unsigned char* dst = (unsigned char*)((unsigned int)where & ~CACHE_LINE_LENGTH_BITMASK);

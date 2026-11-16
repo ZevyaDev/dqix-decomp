@@ -3,6 +3,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Util/Random.h"
 #include "Input/Input.h"
+#include "Resource/StringList.h"
 
 struct Struct_ov000_0217df08 { char* unknown_0_; char* unknown_4_; unsigned int unknown_8_; };
 
@@ -61,7 +62,6 @@ extern "C" Struct_ov000_0217df08_7* FindPartyMemberPanel_ov000_02161318(void* ba
 extern "C" int func_ov000_02171a60(void*);
 extern "C" void InitNoun_020e46c4(void*);
 struct Struct_0201099c_3;
-extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" Struct_ov000_0217df08_6* GetEnemyByIndex_0200fea4(GameState*, int);
@@ -70,7 +70,6 @@ extern "C" int func_ov000_0217ff34(void* arg0, int arg1, int* arg2);
 extern "C" void ClearMessageParams_02046380(Struct_ov000_0217df08_8*);
 extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
 extern "C" void AppendText_02042058(char*, const char*);
-extern "C" char* CopyStringFromTableFile_020e046c(char* buffer, void* fileData, unsigned int fileSize, int stringId);
 extern "C" void func_02046608(Struct_ov000_0217df08_8*, int, char*, char*, int, int, unsigned char);
 extern "C" void __clear(void*, int);
 extern "C" void func_ov000_0217aa08(char*, char*);
@@ -152,7 +151,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_5* arg0, int arg1,
             unsigned int var4;
             var2->GetLoadedFileByID(arg0->unknown_90c_, &var3, &var4);
             if (var3 != 0) {
-                const char* var5 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 6);
+                const char* var5 = ((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(6);
                 char* var6 = var1->unknown_28_;
                 char* var7 = var1->unknown_2c_;
                 memset(var6, 0, 0x800);
@@ -198,7 +197,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_5* arg0, int arg1,
                             }
                             var10 = 1;
                             memset(var6, 0, 0x800);
-                            CopyStringFromTableFile_020e046c(var6, var3, var4, var14);
+                            GetStringFromNAT((char*)(var6), (void*)(var3), var4, var14);
                             AppendText_02042058(var7, var6);
                             memset(var6, 0, 0x800);
                             func_020474a8(var1, 0xc, var7, var6);
@@ -223,7 +222,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_5* arg0, int arg1,
                     }
                     ClearMessageParams_02046380((Struct_ov000_0217df08_8*)var1);
                     SetMessageString_02046574((Struct_02046574_2*)var1, 2, var21);
-                    CopyStringFromTableFile_020e046c(var7, var3, var4, var20);
+                    GetStringFromNAT((char*)(var7), (void*)(var3), var4, var20);
                     func_020474a8(var1, 0xc, var7, var6);
                 }
                 StartMessage_0204500c(var1, var6, 0);
@@ -284,7 +283,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_9* arg0, int arg1,
                 Struct_ov000_0217df08 var33;
                 InitNoun_020e46c4(&var31);
                 InitNoun_020e46c4(&var32);
-                const char* var34 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 6);
+                const char* var34 = ((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(6);
                 char* var35 = var23->unknown_5c_;
                 char* var36 = var23->unknown_60_;
                 memset(var35, 0, 0x960);
@@ -327,7 +326,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_9* arg0, int arg1,
                             }
                             var40 = 1;
                             memset(var35, 0, 0x960);
-                            CopyStringFromTableFile_020e046c(var35, var25, var26, var41);
+                            GetStringFromNAT((char*)(var35), (void*)(var25), var26, var41);
                             AppendText_02042058(var36, var35);
                             memset(var35, 0, 0x960);
                             var23->unknown_30_ = var27;
@@ -359,7 +358,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_9* arg0, int arg1,
                     func_020e4f18(&var33, &var32, 2);
                     var32.unknown_8_ &= ~0x80000000;
                     var23->unknown_20_ = &var32;
-                    CopyStringFromTableFile_020e046c(var36, var25, var26, var46);
+                    GetStringFromNAT((char*)(var36), (void*)(var25), var26, var46);
                     var23->unknown_30_ = var27;
                     var23->unknown_31_ = var28;
                     func_02046608(var23, 0xc, var36, var35, 0xe3, 0, 1);

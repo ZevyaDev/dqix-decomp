@@ -1,6 +1,7 @@
 #pragma once
 
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 
 extern "C" void func_020133fc(Struct_020133fc* arg0);
 extern "C" void func_02013cb0(Zone3D* arg0, unsigned int arg1);

@@ -10,7 +10,11 @@ enum { Enum_ov017_021ab280_2096 = 0x830, Enum_ov017_021ab280_1804 = 0x70c, Enum_
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 
 struct Struct_02018300_3;
@@ -70,7 +74,7 @@ struct Struct_ov017_021ab280_2 {
 // USA: func_ov017_021ab280
 extern "C" ARM int func_ov017_021ab280(struct Struct_ov017_021ab280_2* arg0) {
     GameState* var0 = GameState::GetInstance();
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     unsigned char* var1 = (unsigned char*)GetGameResources();
     GameObject* var2 = var0->GetUnknownGameObject();
     void* var3 = GetZone3D_02012fe4();

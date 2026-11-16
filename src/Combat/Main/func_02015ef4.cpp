@@ -4,6 +4,17 @@
 #include <Filesystem/BackgroundLoader.h>
 #include <Resource/GameResources.h>
 #include <World/Zone3D.h>
+#include "World/Zone3DTypes.h"
+#include "Graphics/SPRSprite.h"
+#include "Graphics/TextureArena.h"
+
+#if defined(jpn)
+#define func_0202ec84 func_0202e7f4
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 struct Struct_02012fa4;
 struct Struct_02015ef4_2;
@@ -56,7 +67,6 @@ struct Struct_02015ef4_8 {
     Struct_02012fa4* unknown_20_;
 };
 
-extern "C" void func_02047230(Struct_02012fa4*);
 extern "C" int func_02015ae4(Struct_02015ef4_8*);
 extern "C" int func_02015cd0(Struct_02015ef4_8*);
 extern "C" void* func_02094d5c(Struct_02015ef4_3*, int);
@@ -65,14 +75,8 @@ extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" int GetItemGraphicNumber_020de234(ItemData_02015ef4_4*, int);
 extern "C" int sprintf(char*, const char*, ...);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
-extern "C" void func_0204719c(void*);
-extern "C" void InitTextureVRAMAreaFromSaved_0207dfc8(TextureVRAMArea_02015ef4_5*, TextureVRAMArea_02015ef4_5*);
-extern "C" void RestoreTextureVRAMState_0207df90(char*);
-extern "C" void func_02047b30(void*, int, int, int);
-extern "C" void SaveTextureVRAMState_0207dfac(char*);
-extern "C" void* GetCamera_020100bc(GameState*);
-extern "C" void ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
-extern "C" void func_020473c8(Struct_02015ef4_2*, int);
+extern "C" void* func_020100bc(GameState*);
+extern "C" void func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 
 struct Struct_020e6e88 {
     char unknown_0_[0x20];
@@ -86,13 +90,13 @@ extern "C" ARM int func_02015ef4(Zone3D* arg0, int arg1) {
     Struct_02015ef4_8* var1 = &reinterpret_cast<Struct_02015ef4_8*>(arg0->unknown_47c_)[arg1];
     LootableContainerManager* var2 = LootableContainerManager::GetMainInstance();
     BackgroundLoader* var3 = BackgroundLoader::GetInstance();
-    int var4 = var0->GetProtagonist()->obj3D_.objectIndex_4_;
-    int var5 = var0->GetUnknownGameObject()->obj3D_.objectIndex_4_;
+    int var4 = var0->GetProtagonist()->obj3D_.unknown_4_;
+    int var5 = var0->GetUnknownGameObject()->obj3D_.unknown_4_;
     int var6 = 0;
     arg0->unk_23bc[1] = 0;
     if (var1->unknown_16_ == 0 || var1->unknown_16_ == 8) {
         if (var1->unknown_20_) {
-            func_02047230((Struct_02012fa4*)var1->unknown_20_);
+            ((SPRSprite*)((Struct_02012fa4*)var1->unknown_20_))->Release();
             var1->unknown_20_ = 0;
         }
         return -1;
@@ -143,16 +147,16 @@ extern "C" ARM int func_02015ef4(Zone3D* arg0, int arg1) {
         GameResources* var16 = GetGameResources();
         QueueNode_02015438** var17 = (QueueNode_02015438**)var16->unknown_ptr_array_36fc[0];
         if (var14 && GetQueueHeadType_02046b24(var17) != 4) {
-            Struct_02012fa4* var18 = &reinterpret_cast<Struct_02012fa4*>(arg0->unknown_600_)[var1->unknown_14_];
+            Struct_02012fa4* var18 = &reinterpret_cast<Struct_02012fa4*>((arg0->unk_5f0 + 0x10))[var1->unknown_14_];
             var1->unknown_20_ = var18;
-            func_0204719c(var18);
+            ((SPRSprite*)(var18))->Reset();
             var1->unknown_20_->unknown_84_2_ = 1;
             char var19[0x70];
-            InitTextureVRAMAreaFromSaved_0207dfc8((TextureVRAMArea_02015ef4_5*)arg0->unknown_ptr_50_, (TextureVRAMArea_02015ef4_5*)var19);
-            RestoreTextureVRAMState_0207df90(var19);
-            func_02047b30(var1->unknown_20_, (int)var14, var15, (int)arg0->pAllocator_68_);
-            SaveTextureVRAMState_0207dfac(var19);
-            *reinterpret_cast<int*>(arg0->unknown_600_ + 0x220) = 0x1f;
+            ((TextureArena*)((TextureVRAMArea_02015ef4_5*)arg0->textureArena_50_))->CreateDescendant((TextureArena*)((TextureVRAMArea_02015ef4_5*)var19));
+            ((TextureArena*)(var19))->Restore();
+            ((SPRSprite*)(var1->unknown_20_))->LoadFromSPR((const void*)((int)var14), var15, (SafeAllocator*)((int)arg0->pAllocator_68_));
+            ((TextureArena*)(var19))->Save();
+            *reinterpret_cast<int*>((arg0->unk_5f0 + 0x10) + 0x220) = 0x1f;
             var1->unknown_19_ = 0;
         } else {
             var1->unknown_20_ = 0;
@@ -183,7 +187,7 @@ extern "C" ARM int func_02015ef4(Zone3D* arg0, int arg1) {
                 var1->unknown_e_ = 0x647a;
                 var1->unknown_16_ = 1;
                 if (var1->unknown_20_) {
-                    func_02047230((Struct_02012fa4*)var1->unknown_20_);
+                    ((SPRSprite*)((Struct_02012fa4*)var1->unknown_20_))->Release();
                     var1->unknown_20_ = 0;
                 }
             }
@@ -191,7 +195,7 @@ extern "C" ARM int func_02015ef4(Zone3D* arg0, int arg1) {
             var1->unknown_e_ = 0x4000;
             var1->unknown_16_ = 8;
             if (var1->unknown_20_) {
-                func_02047230((Struct_02012fa4*)var1->unknown_20_);
+                ((SPRSprite*)((Struct_02012fa4*)var1->unknown_20_))->Release();
                 var1->unknown_20_ = 0;
             }
         }
@@ -201,22 +205,22 @@ extern "C" ARM int func_02015ef4(Zone3D* arg0, int arg1) {
         arg0->unk_23bc[1] = 1;
         int var20 = 0;
         int var21 = 0;
-        void* var22 = GetCamera_020100bc(var0);
-        if (var22) ConvertWorldToScreen_0202ec84(var22, (Struct_02015ef4*)var1, &var20, &var21);
+        void* var22 = func_020100bc(var0);
+        if (var22) func_0202ec84(var22, (Struct_02015ef4*)var1, &var20, &var21);
         var20 -= 12;
         var21 -= 0x28;
         if (var1->unknown_19_ < 10) var1->unknown_19_++;
         if (var1->unknown_16_ == 7 && var1->unknown_20_) {
-            if (var8 < *reinterpret_cast<int*>(arg0->unknown_600_ + 0x220)) {
-                *reinterpret_cast<int*>(arg0->unknown_600_ + 0x220) -= var8;
+            if (var8 < *reinterpret_cast<int*>((arg0->unk_5f0 + 0x10) + 0x220)) {
+                *reinterpret_cast<int*>((arg0->unk_5f0 + 0x10) + 0x220) -= var8;
             } else {
-                *reinterpret_cast<int*>(arg0->unknown_600_ + 0x220) = 0;
+                *reinterpret_cast<int*>((arg0->unk_5f0 + 0x10) + 0x220) = 0;
                 var1->unknown_20_ = 0;
                 return 0;
             }
         }
         if (var20 >= -24 && var20 < 256 && var21 >= -24 && var21 < 192) {
-            int var23 = *reinterpret_cast<int*>(arg0->unknown_600_ + 0x220);
+            int var23 = *reinterpret_cast<int*>((arg0->unk_5f0 + 0x10) + 0x220);
             var1->unknown_20_->unknown_82_ = var23;
             int var24 = var20;
             int var25 = var21 - var1->unknown_19_;
@@ -224,7 +228,7 @@ extern "C" ARM int func_02015ef4(Zone3D* arg0, int arg1) {
             var26->unknown_1c_[0] = var24 << 12;
             var26->unknown_1c_[1] = var25 << 12;
             var26->unknown_1c_[2] = 0;
-            func_020473c8((Struct_02015ef4_2*)var1->unknown_20_, 1);
+            ((SPRSprite*)((Struct_02015ef4_2*)var1->unknown_20_))->DrawAnimatedNoRotation(1);
         }
     }
     return 0;

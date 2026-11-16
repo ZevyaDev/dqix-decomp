@@ -3,6 +3,23 @@
 #include <Filesystem/BackgroundLoader.h>
 #include <Filesystem/FileIO.h>
 #include <World/ZoneChest.h>
+#include "World/Zone3DTypes.h"
+
+#if defined(jpn)
+#define func_020de848 func_020e01c4
+#endif
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 
 struct Struct_0201647c {
@@ -20,14 +37,14 @@ struct Struct_0201647c_2 {
     short* unknown_c_;
 };
 struct Struct_020130b0;
-extern "C" void* GetFlagManager_0205ec34();
-extern "C" int* GetLocalWireless_0202ae18();
+extern "C" void* func_0205ec34();
+extern "C" int* func_0202ae18();
 extern "C" void* func_0208e0a8();
 extern "C" int func_0208e824(void*, char*);
-extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" Struct_020130b0* func_0201e844(void*, int, int);
-extern "C" void ClearItemTable_020de848(void*);
+extern "C" void func_020de848(void*);
 extern "C" int LoadItemTableByIds_020de9a4(void*, SafeAllocator*, void*, unsigned int, short*, unsigned short);
 extern "C" void func_02013b70(Zone3D*, SafeAllocator*);
 extern const char* gItemDataPath_020f2a38;
@@ -41,8 +58,8 @@ extern "C" int func_020e0484(void*, SafeAllocator*, const char*, short*, unsigne
 extern "C" ARM void func_0201647c(Zone3D* arg0) {
     SafeAllocator* var0 = arg0->pAllocator_68_;
     LootableContainerManager* var1 = LootableContainerManager::GetMainInstance();
-    unsigned char* var2 = (unsigned char*)GetFlagManager_0205ec34();
-    int* var3 = GetLocalWireless_0202ae18();
+    unsigned char* var2 = (unsigned char*)func_0205ec34();
+    int* var3 = func_0202ae18();
     Struct_0201647c_2* var4 = (Struct_0201647c_2*)func_0208e0a8();
     LootableContainerManager::Container* var5 = var1->pContainerList_;
     bool var6 = false;
@@ -51,14 +68,14 @@ extern "C" ARM void func_0201647c(Zone3D* arg0) {
     for (; var5; var5 = var5->pNext) {
         if (var5->containerType == 0 || var5->containerType == 4) var7++;
     }
-    arg0->unknown_47c_ = (Struct_020133fc*)var0->Allocate(var7 * sizeof(Struct_020133fc));
+    arg0->unknown_47c_ = (int)((Struct_020133fc*)var0->Allocate(var7 * sizeof(Struct_020133fc)));
     if (!arg0->unknown_47c_) return;
     var5 = var1->pContainerList_;
     arg0->numChests_ = 0;
     for (; var5; var5 = var5->pNext) {
         if (var5->containerType == 0 || var5->containerType == 4) {
-            Struct_020133fc* var8 = &arg0->unknown_47c_[arg0->numChests_];
-            func_020133fc(var8);
+            Struct_020133fc* var8 = &((Struct_020133fc*)arg0->unknown_47c_)[arg0->numChests_];
+            func_020133fc((Struct_020133fc*)((int)(var8)));
             var8->unknown_0_ = var5->position;
             var8->unknown_c_ = var5->unk_6;
             var8->unknown_10_ = 0;
@@ -67,9 +84,9 @@ extern "C" ARM void func_0201647c(Zone3D* arg0) {
             var8->unknown_17_ = 0;
             if (var5->containerType == 4) var8->unknown_17_ = 1;
             if ((var5->containerType == 0 &&
-                 IsFlagSet_0206dfb0((int)var2, var2 + 0x8c, var5->uniqueID + 0x212)) ||
+                 func_0206dfb0((int)var2, var2 + 0x8c, var5->uniqueID + 0x212)) ||
                 (var5->containerType == 4 &&
-                 IsFlagSet_0206dfb0((int)var2, var2 + 0x8c, var5->uniqueID + 0x79e))) {
+                 func_0206dfb0((int)var2, var2 + 0x8c, var5->uniqueID + 0x79e))) {
                 var8->unknown_16_ = 8;
                 var8->unknown_e_ = 0x4000;
                 var5->lootType = 0;
@@ -81,7 +98,7 @@ extern "C" ARM void func_0201647c(Zone3D* arg0) {
                 var8->unknown_18_ = 1;
             arg0->numChests_++;
         } else if (var5->containerType == 3) {
-            Struct_020130b0* var9 = func_0201e844(&arg0->substruct_6c_, 5, (unsigned short)var5->unk_6);
+            Struct_020130b0* var9 = func_0201e844(((Struct_020134e0*)arg0->substruct_6c_), 5, (unsigned short)var5->unk_6);
             if (var9) *(unsigned short*)((char*)var9 + 0x30) = var5->uniqueID;
         }
     }
@@ -114,7 +131,7 @@ extern "C" ARM void func_0201647c(Zone3D* arg0) {
             }
         }
     }
-    ClearItemTable_020de848(arg0->unknown_struct_2754_);
+    func_020de848(arg0->unknown_struct_2754_);
     if (var11 > 0) {
 #if defined(jpn)
         func_020e0484(arg0->unknown_struct_2754_, var0, gItemDataPath_020f2a38, var10,
@@ -122,18 +139,23 @@ extern "C" ARM void func_0201647c(Zone3D* arg0) {
 #else
         BackgroundLoader::AddLockGlobal();
         unsigned int var18 = 0;
-        void* var19 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var18);
+        void* var19 = ExtractFileFromGP2((const char*)(gItemDataPath_020f2a38), (const char*)(data_020f2a30), (unsigned int*)(&var18));
         if (var19) LoadItemTableByIds_020de9a4(arg0->unknown_struct_2754_, var0, var19, var18, var10, (unsigned short)var11);
         BackgroundLoader::RemoveLockGlobal();
 #endif
     }
     func_02013b70(arg0, arg0->pAllocator_68_);
-    if (arg0->unknown_27da_) {
-        func_02013cb0(arg0, arg0->unknown_27da_);
-        arg0->unknown_27da_ = 0;
+    if ((*(unsigned short*)(arg0->unk_276c + 0x6e))) {
+        func_02013cb0(arg0, (*(unsigned short*)(arg0->unk_276c + 0x6e)));
+        (*(unsigned short*)(arg0->unk_276c + 0x6e)) = 0;
     }
-    if (arg0->unknown_27d8_) {
-        func_02018c74(arg0, arg0->unknown_27d8_);
-        arg0->unknown_27d8_ = 0;
+    if ((*(unsigned short*)(arg0->unk_276c + 0x6c))) {
+        func_02018c74(arg0, (*(unsigned short*)(arg0->unk_276c + 0x6c)));
+        (*(unsigned short*)(arg0->unk_276c + 0x6c)) = 0;
     }
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

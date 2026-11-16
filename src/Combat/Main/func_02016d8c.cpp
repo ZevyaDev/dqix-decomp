@@ -1,13 +1,19 @@
 #include <globaldefs.h>
+#include "NitroSDK/Graphics3D/RenderConfig.h"
+
+#if defined(jpn)
+#define func_020ca528 func_020cbff4
+#endif
+
+#if defined(jpn)
+#define func_02016d8c func_02016b2c
+#endif
 
 extern "C" void func_020ca528(void* a, void* b);
-extern int data_0210a0cc;
 
-struct Struct_0210a010 { int unknown_0_[0x3f]; int unknown_fc_; };
-extern Struct_0210a010 gRenderConfig_0210a010;
 
 // USA: func_02016d8c
 extern "C" ARM void func_02016d8c(void* arg0) {
-    func_020ca528(arg0, &data_0210a0cc);
-    gRenderConfig_0210a010.unknown_fc_ &= ~0xa4;
+    func_020ca528(arg0, &g_nitro3DRenderConfig.objectRotationPosition);
+    g_nitro3DRenderConfig.flags &= ~0xa4;
 }

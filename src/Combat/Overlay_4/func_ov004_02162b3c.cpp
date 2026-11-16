@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 
 extern "C" Zone3D* GetZone3D_02012fe4(void);
 extern "C" int func_020981e4(int arg0, int arg1);

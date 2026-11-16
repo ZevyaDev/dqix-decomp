@@ -1,12 +1,16 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 // USA: func_ov017_021d3d40
 extern "C" ARM void func_ov017_021d3d40(const void* arg0, int arg1, int arg2, int arg3, int arg4) {
-	void* var0 = GetLocalWirelessPacketQueue_0202ae24();
+	void* var0 = func_0202ae24();
 	unsigned char var1[0x14];
 	unsigned char* var2 = var1 + 4;
 	unsigned char var3 = *(unsigned char*)(var2 + 0xd);

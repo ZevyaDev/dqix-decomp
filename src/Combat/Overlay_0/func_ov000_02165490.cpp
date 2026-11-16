@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Grotto/Main/DetailedTreasureMapData.h"
-extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char g_fileScratchSpace[0x30000] __attribute__((aligned(4)));
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
 #include "Filesystem/GPC.h"
@@ -9,6 +9,11 @@ extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(
 #include "Resource/GameResources.h"
 #include "World/ZoneTerrain.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 #if defined(jpn)
 #define func_ov000_02165490 func_ov000_02166bdc
@@ -148,7 +153,7 @@ struct Struct_ov000_02165490_10 {
 };
 
 
-extern "C" int* GetLocalWireless_0202ae18(GameResources*);
+extern "C" int* func_0202ae18(GameResources*);
 extern "C" int func_ov000_0215ed34(Struct_ov000_02165490_14* arg0, short* arg1, int arg2);
 extern "C" void func_020709d8(void*);
 extern "C" void func_02070b6c(void*, void*, void*, unsigned int, short*, short);
@@ -165,7 +170,6 @@ extern "C" char* GetActiveZones_02027ca4();
 extern "C" char* FindActiveZone_02028bd0(char*, int);
 extern "C" Struct_ov000_02165490* func_020a939c(char*, int);
 extern "C" int func_020a93d0(char*);
-extern "C" void* ExtractFileFromGP2(const char*, const char*, unsigned int*);
 extern "C" void ClearMonsterTable_0206efc4(void*);
 #if defined(jpn)
 extern "C" void func_0206f230(void*, void*, void*, unsigned int, short*, short);
@@ -235,16 +239,16 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
     Struct_ov000_02165490_9* var15;
 
     var12 = GameState::GetInstance();
-    var13 = GetLocalWireless_0202ae18(GetGameResources());
+    var13 = func_0202ae18(GetGameResources());
     var15 = arg0->unknown_2a0_;
     var11 = (Struct_ov000_02165490_6*)((char*)var15 + 0x278);
     var14 = (Struct_ov000_02165490_6*)((char*)var15 + 0x284);
 
     var8 = func_ov000_0215ed34(arg0->unknown_29c_, var2, 3);
     BackgroundLoader::AddLockGlobal();
-    if (LoadFileIntoMemory(data_ov000_021839ee, gFileScratchSpace_0211e33c, &var4)) {
+    if (LoadFileIntoMemory(data_ov000_021839ee, g_fileScratchSpace, &var4)) {
         func_020709d8(&var14->unknown_400_);
-        func_02070b6c(&var14->unknown_400_, &arg0->unknown_44_, gFileScratchSpace_0211e33c, var4, var2, var8);
+        func_02070b6c(&var14->unknown_400_, &arg0->unknown_44_, g_fileScratchSpace, var4, var2, var8);
 
         {
             Struct_ov000_02165490_14* var16 = arg0->unknown_29c_;
@@ -361,7 +365,7 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
 
         arg0->unknown_44_.Reset();
         func_020709d8(&var14->unknown_400_);
-        func_02070b6c(&var14->unknown_400_, &arg0->unknown_44_, gFileScratchSpace_0211e33c, var4, var5, var9);
+        func_02070b6c(&var14->unknown_400_, &arg0->unknown_44_, g_fileScratchSpace, var4, var5, var9);
         memcpy(var2, var5, var9 * 2);
 
         {
@@ -386,7 +390,7 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
                 if (var52) {
                     arg0->unknown_44_.Reset();
                     func_020709d8(&((Struct_ov000_02165490_6*)var10)->unknown_400_);
-                    func_02070b6c(&((Struct_ov000_02165490_6*)var10)->unknown_400_, &arg0->unknown_44_, gFileScratchSpace_0211e33c, var50, var2, var8);
+                    func_02070b6c(&((Struct_ov000_02165490_6*)var10)->unknown_400_, &arg0->unknown_44_, g_fileScratchSpace, var50, var2, var8);
                 }
             }
         }
@@ -394,7 +398,7 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
         var8 = func_ov000_02167484(var2, var8);
         arg0->unknown_44_.Reset();
         func_020709d8(&var14->unknown_400_);
-        func_02070b6c(&var14->unknown_400_, &arg0->unknown_44_, gFileScratchSpace_0211e33c, var4, var2, var8);
+        func_02070b6c(&var14->unknown_400_, &arg0->unknown_44_, g_fileScratchSpace, var4, var2, var8);
     }
 
     Zone3D* var57 = GetZone3D_02012fe4();
@@ -434,11 +438,11 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
     }
 
 #if defined(jpn)
-    if (LoadFileIntoMemory(data_ov000_02184b4a, gFileScratchSpace_0211e33c, &var4)) {
+    if (LoadFileIntoMemory(data_ov000_02184b4a, g_fileScratchSpace, &var4)) {
         ClearMonsterTable_0206efc4(&var11->unknown_400_);
-        func_0206f230(&var11->unknown_400_, &arg0->unknown_44_, gFileScratchSpace_0211e33c, var4, var2, var8);
+        func_0206f230(&var11->unknown_400_, &arg0->unknown_44_, g_fileScratchSpace, var4, var2, var8);
 #else
-    void* var62 = ExtractFileFromGP2(data_ov000_02183a07, data_ov000_02183a1d, &var4);
+    void* var62 = ExtractFileFromGP2((const char*)(data_ov000_02183a07), (const char*)(data_ov000_02183a1d), (unsigned int*)(&var4));
     if (var62 != 0) {
         ClearMonsterTable_0206efc4(&var11->unknown_400_);
         func_0206f230(&var11->unknown_400_, &arg0->unknown_44_, var62, var4, var2, var8, 0, 0);

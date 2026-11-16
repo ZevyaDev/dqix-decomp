@@ -11,6 +11,8 @@ enum { Enum_ov017_021b5dc4_1536 = 0x600, Enum_ov017_021b5dc4_716 = 0x2cc };
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/GameResources.h"
+#include "Graphics/SPRSprite.h"
+#include "Graphics/TextureArena.h"
 
 struct Struct_ov017_0218d618_2;
 extern "C" int func_ov017_0218d618(struct Struct_ov017_0218d618_2* arg0);
@@ -21,13 +23,8 @@ extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigne
 extern AllocatorUnion gMainHeap_02114e20;
 
 struct Struct_02012fa4;
-extern "C" void func_02047230(struct Struct_02012fa4* arg0);
 
 struct TextureVRAMArea_02015ef4_5;
-extern "C" void InitTextureVRAMAreaFromSaved_0207dfc8(struct TextureVRAMArea_02015ef4_5* sourceArea, struct TextureVRAMArea_02015ef4_5* area);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
-extern "C" void func_02047b30(void* arg0, int arg1, int arg2, int arg3);
 
 // USA: func_ov017_021b5dc4
 extern "C" ARM int func_ov017_021b5dc4(char* arg0) {
@@ -49,14 +46,14 @@ extern "C" ARM int func_ov017_021b5dc4(char* arg0) {
                     int var6 = GetProtagonistObjectIndex_020100a8(var4);
                     char* var7 = var5 + Enum_ov017_021b5dc4_1536 + var6 * 0x88;
                     *(int*)(arg0 + 0x20) = (int)var7;
-                    func_02047230((struct Struct_02012fa4*)*(int*)(arg0 + 0x20));
-                    func_0204719c((struct Struct_02012fa4*)*(int*)(arg0 + 0x20));
+                    ((SPRSprite*)((struct Struct_02012fa4*)*(int*)(arg0 + 0x20)))->Release();
+                    ((SPRSprite*)((struct Struct_02012fa4*)*(int*)(arg0 + 0x20)))->Reset();
                     unsigned char var8[0x70];
                     short* var9 = (short*)(((char*)GetGameResources()) + Enum_ov017_021b5dc4_716);
-                    InitTextureVRAMAreaFromSaved_0207dfc8((struct TextureVRAMArea_02015ef4_5*)((char*)var9 + 0x230), (struct TextureVRAMArea_02015ef4_5*)var8);
-                    RestoreTextureVRAMState_0207df90((char*)var8);
-                    func_02047b30((void*)*(int*)(arg0 + 0x20), (int)var1, (int)var2, (int)(arg0 + 0x40));
-                    SaveTextureVRAMState_0207dfac((char*)var8);
+                    ((TextureArena*)((struct TextureVRAMArea_02015ef4_5*)((char*)var9 + 0x230)))->CreateDescendant((TextureArena*)((struct TextureVRAMArea_02015ef4_5*)var8));
+                    ((TextureArena*)((char*)var8))->Restore();
+                    ((SPRSprite*)((void*)*(int*)(arg0 + 0x20)))->LoadFromSPR((const void*)((int)var1), (int)var2, (SafeAllocator*)((int)(arg0 + 0x40)));
+                    ((TextureArena*)((char*)var8))->Save();
                 }
             }
             var0->RemoveTask(*(int*)(arg0 + 0x28));

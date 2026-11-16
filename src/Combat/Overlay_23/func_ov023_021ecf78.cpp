@@ -1,13 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Graphics/OBJSpriteSet.h"
 
 
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimationList_0205a330;
-extern "C" void SetSpriteAnimationOAMIndex_0205a42c(struct SpriteAnimationList_0205a254* animationList, int index, int oamIndex);
-extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254* animationList, int index);
-extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330* animationList, int ticks);
-extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
 
 struct Struct_ov023_021ecf78 {
     char unknown_0_[4];
@@ -16,7 +13,6 @@ struct Struct_ov023_021ecf78 {
     char unknown_8_[0x15 - 8];
     unsigned char unknown_15_;
 };
-extern "C" struct Struct_ov023_021ecf78* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index);
 
 struct Struct_ov023_021ecf78_2 {
     char unknown_0_[0x424];
@@ -36,23 +32,23 @@ extern "C" ARM void func_ov023_021ecf78(struct Struct_ov023_021ecf78_2* arg0) {
     }
 
     GameState* var0 = GameState::GetInstance();
-    SetSpriteAnimationOAMIndex_0205a42c(arg0->unknown_42c_, 0, 0x40);
-    PlaySpriteAnimation_0205a370(arg0->unknown_42c_, 0);
+    ((OBJSpriteSet::List*)(arg0->unknown_42c_))->SetSpriteOBJIndex(0, 0x40);
+    ((OBJSpriteSet::List*)(arg0->unknown_42c_))->PlaySpriteAnimation(0);
 
-    struct Struct_ov023_021ecf78* var1 = FindSpriteAnimation_0205a3d0(arg0->unknown_42c_, 0);
+    struct Struct_ov023_021ecf78* var1 = ((Struct_ov023_021ecf78*)((OBJSpriteSet::List*)(arg0->unknown_42c_))->GetSprite(0));
     if (var1 != NULL) {
         var1->unknown_15_ |= 8;
     }
 
     unsigned int var2 = var0->GetTickCount();
-    AdvanceSpriteAnimations_0205a330((struct SpriteAnimationList_0205a330*)arg0->unknown_42c_, var2);
+    ((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a330*)arg0->unknown_42c_))->UpdateAll(var2);
 
     short var3 = arg0->unknown_448_;
-    struct Struct_ov023_021ecf78* var4 = FindSpriteAnimation_0205a3d0(arg0->unknown_42c_, 0);
+    struct Struct_ov023_021ecf78* var4 = ((Struct_ov023_021ecf78*)((OBJSpriteSet::List*)(arg0->unknown_42c_))->GetSprite(0));
     if (var4 != NULL) {
         var4->unknown_4_ = var3;
         var4->unknown_6_ = 0x24;
     }
 
-    DrawSpriteAnimations_0205ae8c(arg0->unknown_424_);
+    ((OBJSpriteSet*)(arg0->unknown_424_))->DrawAll();
 }

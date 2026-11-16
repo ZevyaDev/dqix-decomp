@@ -2,7 +2,11 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+extern "C" void* func_0202ae24(void);
 extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
@@ -27,7 +31,7 @@ struct Struct_ov017_021c894c_2 {
 extern "C" ARM void func_ov017_021c894c(unsigned short arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
-    void* var2 = GetLocalWirelessPacketQueue_0202ae24();
+    void* var2 = func_0202ae24();
     void* var3 = GetBattle_ov017_021b8470(var1->unknown_ptr_3718);
     if (var3 == NULL) {
         return;

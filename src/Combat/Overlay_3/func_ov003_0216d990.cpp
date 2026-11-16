@@ -1,4 +1,9 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct TextWindow_0205d0e0 {
     char unknown_0_[0xac];
@@ -12,8 +17,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_0204f138(unsigned char* arg0, unsigned char** arg1, unsigned char** arg2, unsigned char** arg3,
                               unsigned char** arg4);
 
-extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
+extern "C" void* func_0202ae18(void);
 
 struct Struct_ov003_0216d990 {
     unsigned char unknown_0_[0x14];
@@ -23,7 +27,7 @@ struct Struct_ov003_0216d990 {
 
 // USA: func_ov003_0216d990
 extern "C" ARM void func_ov003_0216d990(char* arg0) {
-    void* var0 = GetLocalWireless_0202ae18();
+    void* var0 = func_0202ae18();
     if (*(short*)(arg0 + 4) != 2 || *(short*)(arg0 + 6) != 2) return;
     if (IsLocalWirelessOn_0202b7d8((int*)var0) != 0) return;
 
@@ -61,5 +65,5 @@ extern "C" ARM void func_ov003_0216d990(char* arg0) {
     var1->unknown_14_ = (var10 + 2) << 12;
     var1->unknown_18_ = (var11 - 2) << 12;
 #endif
-    DrawSprite_0205ac40(arg0 + Enum_ov003_0216d990_4716, var1);
+    ((OBJSpriteSet*)(arg0 + Enum_ov003_0216d990_4716))->DrawMetatile((OBJSpriteSet::Metatile*)(var1));
 }

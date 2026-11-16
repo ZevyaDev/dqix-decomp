@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "Combat/MapDisplay.h"
+#include "Graphics/BGLayer.h"
 
 struct TextWindowManager_0205cfd4;
 extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
 
-extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
 extern "C" void InitTextWindow_0204c684(void*);
 
@@ -18,7 +18,7 @@ extern "C" ARM void func_ov017_021996fc(unsigned char* arg0) {
     InitTextWindowManager_0205cfd4(*(struct TextWindowManager_0205cfd4**)(arg0 + 0x3000 + Enum_ov017_021996fc_3248));
 
     for (int var0 = 0; var0 < 2; var0++) {
-        InitBGLayer_0204af64((struct BGLayer_02020cb8*)(arg0 + Enum_ov017_021996fc_180 + Enum_ov017_021996fc_15360 + var0 * 0x20));
+        ((BGLayer*)((struct BGLayer_02020cb8*)(arg0 + Enum_ov017_021996fc_180 + Enum_ov017_021996fc_15360 + var0 * 0x20)))->Reset();
     }
 
     for (int var1 = 0; var1 < 4; var1++) {

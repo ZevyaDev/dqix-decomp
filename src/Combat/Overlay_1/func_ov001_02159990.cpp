@@ -5,6 +5,10 @@
 #endif
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0203ac40 func_0203a698
+#endif
+
 extern "C" void func_0203ac40(void*, int, int, int);
 extern int gSoundEffectManager_02108760;
 extern int data_ov001_0216587c;

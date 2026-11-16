@@ -3,6 +3,10 @@
 #include "Resource/Script.h"
 #include "Combat/ScriptElementList.h"
 
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
 struct Struct_0208d51c;
 extern "C" void func_0208d51c(struct Struct_0208d51c* arg0);
 
@@ -20,7 +24,7 @@ extern "C" void func_0208d928(struct Struct_0208d594_2* arg0, struct Struct_0208
 
 extern const char data_020f1244[];
 
-extern "C" int GetStringLength_020d2ff0(const char* string);
+extern "C" int func_020d2ff0(const char* string);
 
 // USA: func_0208d594
 extern "C" ARM int func_0208d594(Script::Parameter* arg0) {
@@ -54,7 +58,7 @@ extern "C" ARM int func_0208d594(Script::Parameter* arg0) {
 
     var6 = (arg0 + 1)->ToString();
     if (var1 & 1) {
-        var7 = GetStringLength_020d2ff0(var6);
+        var7 = func_020d2ff0(var6);
         if (var7 != 0) {
             var0.unknown_4_ = (char*)data_02108fc0.unknown_0_->Allocate(var7 + 1);
             var0.unknown_4_[var7] = 0;
@@ -66,7 +70,7 @@ extern "C" ARM int func_0208d594(Script::Parameter* arg0) {
     arg0 += 3;
     var6 = var8->ToString();
     if (var1 & 2) {
-        var7 = GetStringLength_020d2ff0(var6);
+        var7 = func_020d2ff0(var6);
         if (var7 != 0) {
             var0.unknown_8_ = (char*)data_02108fc0.unknown_0_->Allocate(var7 + 1);
             var0.unknown_8_[var7] = 0;
@@ -86,7 +90,7 @@ extern "C" ARM int func_0208d594(Script::Parameter* arg0) {
         var6 = arg0->ToString();
         arg0++;
         if (var1 & var2) {
-            var7 = GetStringLength_020d2ff0(var6);
+            var7 = func_020d2ff0(var6);
             if (var7 != 0) {
                 var0.unknown_c_[var3] = (char*)data_02108fc0.unknown_0_->Allocate(var7 + 1);
                 var9 = var0.unknown_c_[var3];
@@ -99,7 +103,7 @@ extern "C" ARM int func_0208d594(Script::Parameter* arg0) {
 
     var6 = arg0->ToString();
     if (var1 & 0x400) {
-        var7 = GetStringLength_020d2ff0(var6);
+        var7 = func_020d2ff0(var6);
         if (var7 != 0) {
             var0.unknown_10_ = (char*)data_02108fc0.unknown_0_->Allocate(var7 + 1);
             var0.unknown_10_[var7] = 0;
@@ -109,7 +113,7 @@ extern "C" ARM int func_0208d594(Script::Parameter* arg0) {
 
     var6 = (arg0 + 1)->ToString();
     if (var1 & 0x800) {
-        var7 = GetStringLength_020d2ff0(var6);
+        var7 = func_020d2ff0(var6);
         if (var7 != 0) {
             var0.unknown_14_ = (char*)data_02108fc0.unknown_0_->Allocate(var7 + 1);
             var0.unknown_14_[var7] = 0;

@@ -5,13 +5,12 @@
 #endif
 #include <globaldefs.h>
 #include "World/ZoneLootableRecord.h"
+#include "Graphics/SPRSprite.h"
 
-extern "C" void func_02047230(struct Struct_02012fa4* arg0);
-extern "C" void func_02048080(struct Struct_0204719c* arg0);
 
 // USA: func_ov011_0218513c
 extern "C" ARM void* func_ov011_0218513c(void* arg0) {
-    func_02047230((struct Struct_02012fa4*)((char*)arg0 + 0x20));
-    func_02048080((struct Struct_0204719c*)((char*)arg0 + 0x34));
+    ((SPRSprite*)((struct Struct_02012fa4*)((char*)arg0 + 0x20)))->Release();
+    ((SPRSprite::Names*)((struct Struct_0204719c*)((char*)arg0 + 0x34)))->Reset();
     return arg0;
 }

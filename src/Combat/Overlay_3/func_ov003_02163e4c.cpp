@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
 enum { Enum_ov003_02163e4c_1188 = 0x2cc };
 enum { Enum_ov003_02163e4c_1024 = 0x200 };
 enum { Enum_ov003_02163e4c_130 = 0xaa };
@@ -21,7 +25,7 @@ enum { Enum_ov003_02163e4c_128 = 0x80 };
 enum { Enum_ov003_02163e4c_1124 = 0x464 };
 #endif
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void func_ov017_021b6bb8(int arg0);
 extern "C" int func_ov017_021b6d60(int arg0, void* arg1);
 extern "C" void func_02086778(void* arg0, void* arg1, int arg2, int arg3);
@@ -39,7 +43,7 @@ extern "C" ARM void func_ov003_02163e4c(char* arg0) {
             arg0[Enum_ov003_02163e4c_1187] = 0x10;
             return;
         }
-        unsigned char* var6 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var5);
+        unsigned char* var6 = (unsigned char*)func_02053c6c((unsigned char*)var5);
         if (var6 == NULL) {
             arg0[Enum_ov003_02163e4c_1187] = 0x10;
             return;

@@ -6,6 +6,7 @@ enum { Enum_ov003_0215af9c_2456 = 0x998 };
 #endif
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
+#include "Resource/StringList.h"
 
 struct Struct_ov003_021594c4_2 {
     char unknown_0_[0x64];
@@ -32,7 +33,6 @@ extern "C" void ClearMessageParams_02046380(Struct_ov003_0215af9c*);
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 struct Struct_0201099c_3;
-extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_ov003_02159250(Struct_ov003_021594c4_2*, void*);
 
 // USA: func_ov003_0215af9c
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov003_0215af9c(Struct_ov003_021594c4_2* arg0) {
             SetMessageString_02046574((Struct_02046574_2*)var1, 0, (char*)var4->baseStats_);
         }
         var1->unknown_998_ = 1;
-        func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, (short)(arg0->unknown_587_ + 0x438)));
+        func_ov003_02159250(arg0, ((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_64_))->GetString((short)(arg0->unknown_587_ + 0x438))));
         arg0->unknown_580_++;
     }
 

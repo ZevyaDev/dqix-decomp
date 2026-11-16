@@ -4,6 +4,7 @@
 #define func_ov003_0216da90 func_ov003_0216d478
 #endif
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
 
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
@@ -74,10 +75,9 @@ struct Struct_ov003_0216da90
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" void EnableTouchMenuCursor_0205cef8(void* windowManager);
-extern "C" unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
+extern "C" unsigned char func_0200fb08(Struct_02000c9c_8* gameState);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
 extern "C" void AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
-extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 #if defined(jpn)
 extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov003_0216da90(Struct_ov003_0216da90* arg0)
     EnableTouchMenuCursor_0205cef8(arg0->unknown_12c0_);
 
 #if !defined(jpn)
-    short var0 = data_ov003_0217f560[GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance())];
+    short var0 = data_ov003_0217f560[func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance())];
     arg0->unknown_12c0_->unknown_a0_.inline_ov003_0216da90(var0, 7);
     arg0->unknown_12c0_->unknown_a0_.inline_ov003_0216da90_2(0x1f - var0, 1);
 #endif
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov003_0216da90(Struct_ov003_0216da90* arg0)
     __clear(var2, 0x40);
     if (arg0->unknown_10_ == 2)
         AppendFrameTag_02041c08(var1, GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_12c0_), 8, 5, 5, 5);
-    AppendText_02042058(var1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_1324_, 0x5c));
+    AppendText_02042058(var1, ((StringList*)((Struct_0201099c_3*)arg0->unknown_1324_))->GetString(0x5c));
 #if defined(jpn)
     OpenTextWindow_0205d304(arg0->unknown_12c0_, var1, 0, 0, 0, 1, 0);
 #else

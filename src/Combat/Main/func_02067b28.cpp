@@ -35,7 +35,6 @@ extern "C" int func_02069444(void*, unsigned short);
 extern "C" int func_02043014(int, unsigned short*);
 extern "C" int func_02045c00(Struct_02045c00_2*, const char*, int);
 extern "C" int func_02046530(void*, unsigned short*, int, int);
-extern "C" int CompareBytes_02001aec(const void*, const void*, int);
 extern const char data_020f07ce[];
 
 extern "C" ARM void func_02067b28(Struct_02067b28* arg0) {
@@ -66,7 +65,7 @@ extern "C" ARM void func_02067b28(Struct_02067b28* arg0) {
             arg0->unknown_19c4_ = 1;
             if (arg0->unknown_1946_ <= 0) arg0->unknown_19c4_ = 0;
             var4 = 10;
-            if (!CompareBytes_02001aec(var0, data_020f07ce, 2)) {
+            if (!memcmp(var0, data_020f07ce, 2)) {
                 if (arg0->unknown_1942_ == 0) arg0->unknown_19c4_ = 0;
                 else {
                     int var6 = arg0->unknown_1942_ * var4;
@@ -158,7 +157,6 @@ extern "C" FontGlyph_0204254c* FindFontGlyph_0204254c(int, int);
 extern "C" int FindFontGlyphIndex_020424e4(int, int);
 extern "C" int func_02045c00(Struct_02045c00_2*, int);
 extern "C" int func_020459b8(Struct_02067b28*, unsigned char, FontGlyph_0204254c*, unsigned char);
-extern "C" int CompareBytes_02001aec(const void*, const void*, int);
 extern char data_020f08dc[3];
 
 // USA: func_02067b28
@@ -183,7 +181,7 @@ extern "C" ARM void func_02067b28(Struct_02067b28* arg0) {
         if (!arg0->unknown_19c2_) {
             arg0->unknown_19c4_ = 1;
             if (arg0->unknown_1946_ <= 0) arg0->unknown_19c4_ = 0;
-            if (!CompareBytes_02001aec(var0, data_020f08dc, 2)) {
+            if (!memcmp(var0, data_020f08dc, 2)) {
                 if (arg0->unknown_1942_ == 0) arg0->unknown_19c4_ = 0;
                 else {
                     arg0->unknown_934_ = arg0->unknown_1944_ + 18 + (short)(8 - (arg0->unknown_1944_ & 7));

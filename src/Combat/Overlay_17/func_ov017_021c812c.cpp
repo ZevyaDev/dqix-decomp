@@ -3,7 +3,11 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+extern "C" void* func_0202ae24(void);
 extern "C" ARM void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(void* battle, short* indices, int maxCount, int filterFlags);
@@ -34,7 +38,7 @@ extern "C" ARM void func_ov017_021c812c(unsigned char arg0, int arg1) {
 #endif
     GameState* var0 = GameState::GetInstance();
     char* var1 = (char*)GetGameResources();
-    void* var2 = GetLocalWirelessPacketQueue_0202ae24();
+    void* var2 = func_0202ae24();
 
     Struct_ov017_021c812c_2 var3;
     memset(&var3, 0, sizeof(var3));
@@ -57,7 +61,7 @@ extern "C" ARM void func_ov017_021c812c(unsigned char arg0, int arg1) {
             for (int var10 = 0; var10 < var9; var10++) {
                 GameObject* var11 = var0->GetCombatantByIndex(var8[var10]);
                 if (var11 != NULL) {
-                    int var12 = var11->obj3D_.objectIndex_4_;
+                    int var12 = var11->obj3D_.unknown_4_;
                     var4->unknown_1_[var12] = GetCombatantCell_020493a4((unsigned char*)var11);
                 }
             }
@@ -65,7 +69,7 @@ extern "C" ARM void func_ov017_021c812c(unsigned char arg0, int arg1) {
             for (int var13 = 0; var13 < var9; var13++) {
                 GameObject* var14 = var0->GetCombatantByIndex(var8[var13]);
                 if (var14 != NULL) {
-                    int var15 = var14->obj3D_.objectIndex_4_ - 0xc0;
+                    int var15 = var14->obj3D_.unknown_4_ - 0xc0;
                     var4->unknown_5_[var15] = GetCombatantCell_020493a4((unsigned char*)var14);
                 }
             }

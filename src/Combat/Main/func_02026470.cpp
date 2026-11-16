@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "Resource/GameStrings.h"
 
-extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" int func_020420e8(char*, int);
 
 #if defined(jpn)
@@ -18,7 +18,7 @@ extern "C" ARM void func_02026470(void* arg0, int arg1) {
 #if defined(jpn)
         sprintf((char*)arg0 + 0x5f4, &data_020ef6c5, arg1);
 #else
-        const char* var0 = (const char*)GetStandardString_020e51cc(0x3f3);
+        const char* var0 = (const char*)((int)GetGameString((eGameString)(0x3f3)));
         sprintf((char*)arg0 + 0x5f4, &data_020ef6c5, var0, arg1);
 #endif
     }

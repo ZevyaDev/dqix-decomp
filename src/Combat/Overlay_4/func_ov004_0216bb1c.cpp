@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
+#if defined(jpn)
 #include "NitroSDK/Matrix.h"
 #include "GameState/GameState.h"
 
@@ -76,7 +80,7 @@ extern "C" Struct_ov004_0216bb1c* FindMenuObjectById_ov023_021f6880(void* object
 extern "C" int func_ov023_021f6f10(Struct_ov004_0216bb1c* arg0);
 extern "C" void* GetMenuObjectStringList_ov023_021fa598(Struct_ov004_0216bb1c* object);
 extern "C" const char* FindStringInList_02072a68(void* stringList, int stringId);
-extern "C" int GetStringLength_020d2ff0(const char* string);
+extern "C" int func_020d2ff0(const char* string);
 extern "C" void func_ov011_02184ad8(void* arg0);
 extern "C" void* func_ov004_0216ae9c(void* arg0, int arg1);
 extern "C" void func_ov023_021f8120(void* arg0);
@@ -227,7 +231,7 @@ extern "C" ARM int func_ov004_0216bb1c(void* arg0) {
             }
             var26 = 0;
             if (var53) {
-                var26 = GetStringLength_020d2ff0(var53);
+                var26 = func_020d2ff0(var53);
                 var26 = (var26 * var52->unknown_44_0_) >> 1;
             }
         }

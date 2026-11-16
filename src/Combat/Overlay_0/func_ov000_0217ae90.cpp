@@ -1,6 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Input/Input.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
 
 #if defined(jpn)
 enum {Enum_ov000_0217ae90_130=0xc2,Enum_ov000_0217ae90_1085=0x47d,Enum_ov000_0217ae90_7538=0x1faa};
@@ -33,10 +38,9 @@ struct Struct_ov000_0215ed8c_4 {char unknown_0_[0x138];Struct_ov000_0217ae90* un
 extern Struct_ov000_02184294 data_ov000_02184294;
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*,int);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" int func_02053c6c(unsigned char*);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*,int,int);
-extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*,int);
 extern "C" void func_0203c108(Struct_0203c108_3*,char*);
 extern "C" int func_ov000_0217ab48(void*);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*,int);
@@ -53,7 +57,7 @@ extern "C" ARM int func_ov000_0217ae90(Struct_ov000_021682ec_5* arg0)
 {
     Struct_ov000_0215ed8c_4* var0=(Struct_ov000_0215ed8c_4*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(),arg0->unknown_4c_);
     int var1=0;
-    if(var0)var1=GetPartyMemberData_02053c6c((unsigned char*)var0);
+    if(var0)var1=func_02053c6c((unsigned char*)var0);
     GetZone3D_02012fe4();
     Struct_ov000_0217ae90_2* var2=&arg0->unknown_8_;
     var2->unknown_14_=GetCursorIndex_0205d794(arg0->unknown_38_);
@@ -72,7 +76,7 @@ extern "C" ARM int func_ov000_0217ae90(Struct_ov000_021682ec_5* arg0)
             var2->unknown_15_=0;var2->unknown_19_=-1;var2->unknown_26_=-1;var2->unknown_1e_=1;
             if(func_ov000_0217c2a0(arg0)){
                 var2->unknown_8_[var2->unknown_10_]=100;
-                func_0203c108((Struct_0203c108_3*)arg0->unknown_50_,(char*)FindStringInTable_020e0434(arg0->unknown_4_,0x7534));
+                func_0203c108((Struct_0203c108_3*)arg0->unknown_50_,(char*)((int)((StringList*)(arg0->unknown_4_))->GetString(0x7534)));
             }
             return var2->unknown_8_[var2->unknown_10_];
         case 1:
@@ -90,7 +94,7 @@ extern "C" ARM int func_ov000_0217ae90(Struct_ov000_021682ec_5* arg0)
         case 2:
             arg0->unknown_43d_=arg0->unknown_8_.unknown_8_[arg0->unknown_8_.unknown_10_];var2->unknown_1e_=3;
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760,1,0);
-            func_0203c108((Struct_0203c108_3*)arg0->unknown_50_,(char*)FindStringInTable_020e0434(arg0->unknown_4_,0x7536));
+            func_0203c108((Struct_0203c108_3*)arg0->unknown_50_,(char*)((int)((StringList*)(arg0->unknown_4_))->GetString(0x7536)));
             var2->unknown_10_++;var2->unknown_8_[var2->unknown_10_]=100;
             return var2->unknown_8_[var2->unknown_10_];
         case 3:

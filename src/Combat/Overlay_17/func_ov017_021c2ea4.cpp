@@ -1,6 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Resource/TextQueue.h"
+#include "Resource/GameStrings.h"
+
+#if defined(jpn)
+#define func_0208a9b4 func_0208b2a8
+#endif
 #if defined(jpn)
 extern "C" int sprintf(char*, const char*, ...);
 extern char* data_ov017_021d87f4;
@@ -8,7 +13,6 @@ extern char* data_ov017_021d87f4;
 
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
-extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void* func_020d7a50(void);
 struct Struct_0208b494;
 extern "C" Struct_0208b494* func_0208a9b4(void);
@@ -36,7 +40,7 @@ extern "C" ARM void func_ov017_021c2ea4(unsigned char* arg0) {
 #else
     InitPartyMemberNoun_020e4bf4(var0, arg0[0x95]);
     *(void**)var4 = var0;
-    int var6 = GetStandardString_020e51cc(0x31);
+    int var6 = ((int)GetGameString((eGameString)(0x31)));
     func_02046608(var4, 0xc, var6, var2, 0xe3, 0, 1);
 #endif
     void* var7 = func_020d7a50();

@@ -30,7 +30,6 @@ struct FontGlyph_0204254c {
 
 extern "C" bool func_02044494(void* arg0, void* arg1);
 extern "C" bool func_0206ac6c(void* arg0, void* arg1);
-extern "C" int CompareBytes_02001aec(unsigned char* left, unsigned char* right, int count);
 extern "C" int func_0206abf8(void* arg0, void* arg1);
 extern "C" struct FontGlyph_0204254c* FindFontGlyph_0204254c(int text, int font);
 
@@ -51,7 +50,7 @@ extern "C" ARM int func_0206ac94(void* arg0, unsigned short arg1, unsigned char*
         }
         if (func_0206ac6c(arg0, var1)) {
             int var2;
-            if (!CompareBytes_02001aec((unsigned char*)&arg1, var1, 2)) {
+            if (!memcmp((unsigned char*)&arg1, var1, 2)) {
                 return (int)var1;
             }
             var2 = func_0206abf8(arg0, var1) * 2 + 2;

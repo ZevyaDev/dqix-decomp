@@ -3,6 +3,18 @@
 #include "std_library_functions.h"
 #include "Combat/SearchEntry.h"
 #include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_0202b2f0 func_0202aea0
+#endif
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02046708 func_02047528
+#endif
 struct LocalWireless_0202b2f0 {
     int unknown_0_;
     unsigned short unknown_4_;
@@ -29,8 +41,8 @@ struct LocalWireless_0202b2f0 {
 };
 struct GlobalFlags_02012de8;
 extern "C" unsigned short func_0202df58();
-extern "C" void* GetGlobalFlags_020d6c00();
-extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8*, unsigned int);
+extern "C" void* func_020d6c00();
+extern "C" int func_02046708(GlobalFlags_02012de8*, unsigned int);
 extern "C" int func_0202d6a8();
 extern "C" int func_0202d8e8();
 extern "C" void func_0202db64(int, int, int);
@@ -69,7 +81,7 @@ extern "C" ARM void func_0202b2f0(LocalWireless_0202b2f0* arg0) {
         var4->unknown_4_ = var6 & ~0xffff;
     }
     GameState::GetInstance();
-    if (TestGlobalFlags_02046708((GlobalFlags_02012de8*)GetGlobalFlags_020d6c00(), 0x1000000)) {
+    if (func_02046708((GlobalFlags_02012de8*)func_020d6c00(), 0x1000000)) {
         arg0->unknown_0_ = -1;
         return;
     }

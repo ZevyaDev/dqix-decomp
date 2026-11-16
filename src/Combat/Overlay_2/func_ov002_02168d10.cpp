@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" int GetStringLength_020d2ff0(const char* string);
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
+extern "C" int func_020d2ff0(const char* string);
 extern char data_ov002_0216d2fc[];
 
 // USA: func_ov002_02168d10
@@ -10,6 +14,6 @@ extern "C" ARM void func_ov002_02168d10(unsigned char* arg0, int arg1) {
         return;
     }
     memset(arg0 + 0xc, 0, 0x38);
-    int var0 = GetStringLength_020d2ff0((const char*)(arg0 + 0xc));
+    int var0 = func_020d2ff0((const char*)(arg0 + 0xc));
     sprintf((char*)(arg0 + 0xc) + var0, data_ov002_0216d2fc, arg1);
 }

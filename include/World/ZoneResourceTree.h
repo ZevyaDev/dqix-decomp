@@ -4,6 +4,10 @@
 #include "World/Object3D.h"
 #include "World/ZoneResourceInitialization.h"
 
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
 struct Struct_02013018;
 struct Struct_020130b0;
 struct Struct_020130e0;
@@ -63,4 +67,4 @@ struct Struct_020177d4_2 {
     Vector3i unknown_48_;
 };
 
-extern "C" void *GetBattleSetup_ov017_021b8478(void *battleManager);
+extern "C" void *func_ov017_021b8478(void *battleManager);

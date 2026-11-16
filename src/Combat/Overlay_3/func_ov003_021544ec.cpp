@@ -2,14 +2,14 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
 
 struct Struct_020e2490;
 extern "C" void func_020e2490(struct Struct_020e2490* arg0, int arg1, int arg2, void* arg3, SafeAllocator* arg4, int arg5, unsigned char arg6);
 struct BGLayer_02020cb8;
-extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 extern "C" void InitTextWindow_0204c684(void*);
 struct Sprite_02043368_2;
-extern "C" void InitSprite_0205a198(struct Sprite_02043368_2*);
 
 struct Struct_ov003_021544ec {
     char unknown_0_[4];
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov003_021544ec(struct Struct_ov003_021544ec_2* arg0, Sa
             var2[var1].Reset();
         }
         for (unsigned char var4 = 0; var4 < 2; var4++) {
-            InitBGLayer_0204af64((struct BGLayer_02020cb8*)((char*)arg0->unknown_10_ + var4 * 0x20));
+            ((BGLayer*)((struct BGLayer_02020cb8*)((char*)arg0->unknown_10_ + var4 * 0x20)))->Reset();
         }
         for (unsigned char var5 = 0; var5 < 3; var5++) {
             InitTextWindow_0204c684(arg0->unknown_14_ + var5 * 0xe0);
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov003_021544ec(struct Struct_ov003_021544ec_2* arg0, Sa
             arg0->unknown_20_[var6] = 0;
         }
         for (unsigned char var7 = 0; var7 < 10; var7++) {
-            InitSprite_0205a198((struct Sprite_02043368_2*)((char*)arg0->unknown_24_ + var7 * 0x28));
+            ((OBJSpriteSet::Metatile*)((struct Sprite_02043368_2*)((char*)arg0->unknown_24_ + var7 * 0x28)))->Reset();
         }
         GameState::GetInstance();
         struct Struct_ov003_021544ec* var8 = arg0->unknown_4_;

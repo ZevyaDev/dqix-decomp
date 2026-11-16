@@ -4,6 +4,7 @@
 #include "Filesystem/FileIO.h"
 #include "World/ZoneObjectResourceLoading.h"
 #include "GameState/GameState.h"
+#include "Graphics/TextureArena.h"
 
 struct Struct_02000c9c_8;
 struct Struct_02057de0_2;
@@ -35,7 +36,7 @@ struct Struct_ov025_021ef988_3 {
 extern "C" SafeAllocator* func_ov025_021e8a54(char* arg0);
 extern "C" char* func_ov025_021e8a64(char* arg0);
 extern "C" Struct_02057de0_2* GetEffectManager_02057924(void);
-extern "C" unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
+extern "C" unsigned char func_0200fb08(Struct_02000c9c_8* gameState);
 extern "C" int func_ov025_021e24d0(char* arg0, char* arg1, char* arg2);
 extern "C" void func_ov025_021e8bac(Struct_ov025_021e267c_2* arg0, Struct_ov025_021e267c_3* arg1);
 extern "C" int func_02057de0(Struct_02057de0_2* arg0, int arg1, SafeAllocator* arg2, int arg3, int arg4);
@@ -63,7 +64,7 @@ extern "C" ARM void func_ov025_021e27c8(char* arg0, int arg1) {
 #if defined(jpn)
 
 #else
-    int var6 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
+    int var6 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
 #endif
 
     var3 = 0;
@@ -105,9 +106,9 @@ extern "C" ARM void func_ov025_021e27c8(char* arg0, int arg1) {
                 var14->unknown_0_ = 1;
                 var14->unknown_4_ = arg1;
                 func_ov025_021e8bac((Struct_ov025_021e267c_2*)data_ov025_021ef988.unknown_c_, var14);
-                RestoreTextureVRAMState_0207df90(var10);
+                ((TextureArena*)(var10))->Restore();
                 func_02057de0(var13, arg1, var11, (int)var12, var9);
-                SaveTextureVRAMState_0207dfac(var10);
+                ((TextureArena*)(var10))->Save();
                 data_ov025_021ef988.unknown1_8_++;
             }
         }

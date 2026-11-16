@@ -7,6 +7,20 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "World/ZoneLootableRecord.h"
 #include "Resource/GameResources.h"
+#include "Graphics/SPRSprite.h"
+#include "Graphics/TextureArena.h"
+
+#if defined(jpn)
+#define func_0202ec84 func_0202e7f4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 struct Struct_02010604;
 struct Struct_02018300_3;
@@ -53,7 +67,7 @@ struct Struct_ov017_021ae85c_3 {
     int unknown_30_, unknown_34_;
 };
 extern "C" Struct_ov017_021ae85c_5* GetZone3D_02012fe4();
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0202ae18();
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void func_ov017_021aeea8(Struct_ov017_021ae85c_2*);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
@@ -65,20 +79,15 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" unsigned short GetItemGraphicNumber_020de234(ItemData_02015ef4_4*, int);
 extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void InitTextureVRAMAreaFromSaved_0207dfc8(TextureVRAMArea_02015ef4_5*, TextureVRAMArea_02015ef4_5*);
-extern "C" void RestoreTextureVRAMState_0207df90(char*);
-extern "C" void func_02047b30(void*, int, int, int);
-extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" Struct_ov017_021ae85c* GetMessageWindow_020421a0();
 extern "C" void __clear(void*, int);
 extern "C" void* InitItemTable_020de824(void*);
 extern "C" void func_0207cbe8(char*);
 extern "C" int func_0207d538(void*, int, int, char*, int);
 extern "C" void* func_020d7a50();
-extern "C" void* GetCamera_020100bc(GameState*);
-extern "C" void ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
+extern "C" void* func_020100bc(GameState*);
+extern "C" void func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" void func_0203a46c(Struct_0203a46c*, int, int, int);
-extern "C" void func_020473c8(Struct_02015ef4_2*, int);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 #if defined(jpn)
 #define data_ov017_021d79a8 data_ov017_021d80dc
@@ -94,7 +103,7 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     GetZone3D_02012fe4();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
-    void* var2 = GetLocalWireless_0202ae18();
+    void* var2 = func_0202ae18();
     GameResources* var3 = GetGameResources();
     if (IsLocalWirelessGuest_0202c540(var2)) {
         if (var3->unknown_42e2_) {
@@ -125,7 +134,7 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
         ItemData_02015ef4_4* var7 = FindItemData_020dedd0(&var6->unknown_2754_, arg0->unknown_c_);
         if (var7) {
             arg0->unknown_28_ = &var6->unknown_600_[GetProtagonistObjectIndex_020100a8(var0)];
-            func_02047230(arg0->unknown_28_);
+            ((SPRSprite*)(arg0->unknown_28_))->Release();
             char var8[0x80];
             sprintf(var8, data_ov017_021d79a8, (signed char)var7->unknown_12_4_, GetItemGraphicNumber_020de234(var7, 0));
             arg0->unknown_10_ = var1->QueueLoadFile(var8, 0);
@@ -143,12 +152,12 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
             if (var11) {
                 arg0->unknown_2c_.ResetAllocatorPointer();
                 arg0->unknown_2c_.CreateTypeA(var11, 0x100); arg0->unknown_2c_.Reset();
-                func_02047230(arg0->unknown_28_); func_0204719c(arg0->unknown_28_);
+                ((SPRSprite*)(arg0->unknown_28_))->Release(); ((SPRSprite*)(arg0->unknown_28_))->Reset();
                 TextureVRAMArea_02015ef4_5 var12;
-                InitTextureVRAMAreaFromSaved_0207dfc8(&inline_ov017_021ae85c(var3)->unknown_230_, &var12);
-                RestoreTextureVRAMState_0207df90((char*)&var12);
-                func_02047b30(arg0->unknown_28_, (int)var9, var10, (int)&arg0->unknown_2c_);
-                SaveTextureVRAMState_0207dfac((char*)&var12);
+                ((TextureArena*)(&inline_ov017_021ae85c(var3)->unknown_230_))->CreateDescendant((TextureArena*)(&var12));
+                ((TextureArena*)((char*)&var12))->Restore();
+                ((SPRSprite*)(arg0->unknown_28_))->LoadFromSPR((const void*)((int)var9), var10, (SafeAllocator*)((int)&arg0->unknown_2c_));
+                ((TextureArena*)((char*)&var12))->Save();
             } else {
                 func_ov017_021aeea8(arg0); arg0->unknown_1_ = 1;
                 EnablePlayerControl_020397c0(var0->GetUnknownGameObject());
@@ -166,7 +175,6 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
         char var14[0x80] = {};
         Struct_ov017_021ae85c_5* var15 = GetZone3D_02012fe4();
         Struct_ov017_021ae85c_3 var16;
-        var16.unknown_0_.ResetAllocatorPointer();
         InitItemTable_020de824(var16.unknown_14_);
         func_0207cbe8((char*)&var16); func_0207cbe8((char*)&var16);
         var16.unknown_2c_ = &var15->unknown_2754_;
@@ -181,30 +189,30 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
     } else if (arg0->unknown_8_ == 5) {
         arg0->unknown_a_--;
         int var17 = var0->GetTickCount();
-        void* var18 = GetCamera_020100bc(var0);
+        void* var18 = func_020100bc(var0);
         Vector3fix var19 = arg0->unknown_14_;
         if (arg0->unknown_20_ < 0x191e) arg0->unknown_20_ += var17 * 0x199;
         var19.y += fix32sin(arg0->unknown_20_);
         int var20, var21;
         if (var18) {
-            ConvertWorldToScreen_0202ec84(var18, (Struct_02015ef4*)&var19, &var20, &var21);
+            func_0202ec84(var18, (Struct_02015ef4*)&var19, &var20, &var21);
         }
         func_0203a46c((Struct_0203a46c*)arg0->unknown_28_, (var20 - 12) << 12, (var21 - 40) << 12, 0);
-        func_020473c8((Struct_02015ef4_2*)arg0->unknown_28_, 1);
+        ((SPRSprite*)((Struct_02015ef4_2*)arg0->unknown_28_))->DrawAnimatedNoRotation(1);
         if (!arg0->unknown_a_) { arg0->unknown_8_ = 6; arg0->unknown_a_ = 7; }
     } else if (arg0->unknown_8_ == 6) {
         arg0->unknown_a_--;
         int var22 = var0->GetTickCount();
-        void* var23 = GetCamera_020100bc(var0);
+        void* var23 = func_020100bc(var0);
         Vector3fix var24 = arg0->unknown_14_;
         var24.y += fix32sin(arg0->unknown_20_);
         if (arg0->unknown_24_) {
             int var25, var26;
             if (var23) {
-                ConvertWorldToScreen_0202ec84(var23, (Struct_02015ef4*)&var24, &var25, &var26);
+                func_0202ec84(var23, (Struct_02015ef4*)&var24, &var25, &var26);
             }
             func_0203a46c((Struct_0203a46c*)arg0->unknown_28_, (var25 - 12) << 12, (var26 - 40) << 12, 0);
-            func_020473c8((Struct_02015ef4_2*)arg0->unknown_28_, 1);
+            ((SPRSprite*)((Struct_02015ef4_2*)arg0->unknown_28_))->DrawAnimatedNoRotation(1);
             arg0->unknown_24_ -= var22;
             arg0->unknown_28_->unknown_82_ = arg0->unknown_24_ > 31 ? 31 : arg0->unknown_24_;
             if (arg0->unknown_24_ < 0) arg0->unknown_24_ = 0;

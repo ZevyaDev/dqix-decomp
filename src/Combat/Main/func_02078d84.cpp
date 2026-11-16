@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 
 struct LocalWireless_0202c1a4;
@@ -7,7 +11,7 @@ extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireles
 
 extern "C" int SetFieldMonsterState_02076ccc(void*, int);
 
-extern "C" void* GetLocalWireless_0202ae18(void* arg0);
+extern "C" void* func_0202ae18(void* arg0);
 extern "C" unsigned short func_02078e60(void* arg0, char* arg1);
 
 struct Struct_02078d84 {
@@ -21,7 +25,7 @@ struct Struct_02078d84 {
 
 // USA: func_02078d84
 extern "C" ARM void func_02078d84(struct Struct_02078d84* arg0) {
-    void* var0 = GetLocalWireless_0202ae18(arg0);
+    void* var0 = func_0202ae18(arg0);
     if (IsLocalWirelessOn_0202b7d8((int*)var0) != 0) {
         if (GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var0) != 0) {
             return;

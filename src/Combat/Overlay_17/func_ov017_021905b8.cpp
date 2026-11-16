@@ -2,6 +2,18 @@
 #include "GameState/GameState.h"
 #include "World/ZoneResourceTree.h"
 
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct LocalWireless_0202b2f0;
 struct LocalWireless_0202c1a4;
 struct Struct_0207da94;
@@ -10,12 +22,12 @@ struct Struct_020e3b08;
 struct Struct_0207959c;
 struct Struct_0207958c;
 
-extern "C" LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
+extern "C" LocalWireless_0202b2f0* func_0202ae18(void);
 extern "C" void func_0207dba8(void* arg0);
 extern "C" void func_ov017_02190264(void* arg0, int arg1);
 extern "C" void func_ov000_0215fb04(void* arg0, int arg1);
 extern "C" void func_ov017_02192654(int arg0, int arg1, int arg2);
-extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" void* func_ov017_021b8468(void* battleManager);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
 
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
@@ -71,7 +83,7 @@ struct Struct_ov017_021905b8_5 {
 // USA: func_ov017_021905b8
 extern "C" ARM void func_ov017_021905b8(GameResources* arg0, int arg1, int arg2) {
     GameState* var0 = GameState::GetInstance();
-    LocalWireless_0202b2f0* var1 = GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* var1 = func_0202ae18();
     if (arg1 <= 0) {
         return;
     }
@@ -126,9 +138,9 @@ extern "C" ARM void func_ov017_021905b8(GameResources* arg0, int arg1, int arg2)
             Struct_ov017_021905b8_3* var10 = (Struct_ov017_021905b8_3*)arg0->unknown_ptr_3718;
             var9 = 1;
             if (var10->unknown_2_ != 0 && func_ov017_021b8480(var10) == 0) {
-                Struct_ov017_021905b8_4* var11 = (Struct_ov017_021905b8_4*)GetBattleSetup_ov017_021b8478(var10);
+                Struct_ov017_021905b8_4* var11 = (Struct_ov017_021905b8_4*)func_ov017_021b8478(var10);
                 if (var11 != NULL && var11->unknown_8_ == var8->unknown_16a_) {
-                    Struct_ov017_021905b8_5* var12 = (Struct_ov017_021905b8_5*)GetBattleScene_ov017_021b8468(var10);
+                    Struct_ov017_021905b8_5* var12 = (Struct_ov017_021905b8_5*)func_ov017_021b8468(var10);
                     if (var12 != NULL && var12->unknown_ea8_ == 7) {
                         var9 = 0;
                     }

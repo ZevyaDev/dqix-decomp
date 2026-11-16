@@ -9,6 +9,7 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/ColorEffects.h"
 #include "Input/Input.h"
+#include "Graphics/OBJSpriteSet.h"
 
 struct SpriteAnimationList_0205a330;
 struct Struct_0205c570;
@@ -44,7 +45,6 @@ struct Struct_ov003_0216b968_2 {
 extern "C" Struct_ov003_0216b968* GetMessageWindow_020421a0(void);
 extern "C" void func_0205d7a0(void* arg0, int arg1);
 extern "C" void func_ov003_0216da90(Struct_ov003_0216b968_2* arg0);
-extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330* animationList, int ticks);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 extern "C" void func_ov003_0216dc58(Struct_ov003_0216b968_2* arg0);
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov003_0216b968(Struct_ov003_0216b968_2* arg0) {
     } else if (arg0->unknown_6_ == 2) {
         GameState* var1 = GameState::GetInstance();
         struct SpriteAnimationList_0205a330* var2 = var0->unknown_2e0_;
-        AdvanceSpriteAnimations_0205a330(var2, var1->GetTickCount());
+        ((OBJSpriteSet::List*)(var2))->UpdateAll(var1->GetTickCount());
         var0->unknown_19ae_ = 0;
         arg0->unknown_13ee_ = 0;
         GetCursorIndex_0205d794((struct Struct_0205c570*)arg0->unknown_12c0_);

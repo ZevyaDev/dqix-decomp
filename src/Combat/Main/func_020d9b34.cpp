@@ -4,6 +4,11 @@
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
 
 #if defined(jpn)
 #define REGION_VALUE(jpnValue, usaValue) jpnValue
@@ -23,7 +28,7 @@ extern const char data_020f2826[];
 struct Struct_02114e20;
 extern "C" unsigned int func_02012dd0(Struct_02114e20* arg0);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
@@ -32,11 +37,9 @@ extern "C" void ClearMessageParams_02046380(void* window);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, void* text, int arg2, int arg3);
 #endif
-extern "C" void LoadStringTable_020dfec0(void* stringTable, void* allocator, void* fileData, unsigned int fileSize);
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 struct Struct_020d9b34 {
     char unknown_0_[REGION_VALUE(0x24, 0x58)];
@@ -65,7 +68,7 @@ extern "C" ARM void func_020d9b34(struct Struct_020d9b34_2* arg0) {
             return;
         }
         DisablePlayerControl_020397cc((struct Struct_02018300_3*)GameState::GetInstance()->GetUnknownGameObject(), 1);
-        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0xe);
+        SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 0xe);
         arg0->unknown_58_.ResetAllocatorPointer();
         arg0->unknown_58_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x400), 0x400);
         arg0->unknown_58_.Reset();
@@ -90,7 +93,7 @@ extern "C" ARM void func_020d9b34(struct Struct_020d9b34_2* arg0) {
 #if defined(jpn)
             LoadStringList_020728ac((int)&arg0->unknown_40_, (int)&arg0->unknown_58_, var1, var2, 0, 0, 0);
 #else
-            LoadStringTable_020dfec0(&arg0->unknown_40_, &arg0->unknown_58_, var1, var2);
+            ((StringList*)(&arg0->unknown_40_))->LoadFromMemory((SafeAllocator*)(&arg0->unknown_58_), (const void*)(var1), var2);
 #endif
             var0->RemoveTask(arg0->unknown_c_);
             arg0->unknown_c_ = -1;
@@ -110,7 +113,7 @@ extern "C" ARM void func_020d9b34(struct Struct_020d9b34_2* arg0) {
 #if defined(jpn)
         StartMessage_0204500c(var4, FindStringInList_02072a68((StringList_02072a68_2*)&arg0->unknown_40_, arg0->unknown_8_), 0);
 #else
-        StartMessage_0204500c(var4, (void*)FindStringInTable_020e0434((struct Struct_0201099c_3*)&arg0->unknown_40_, arg0->unknown_8_), 0, 0xe3);
+        StartMessage_0204500c(var4, (void*)((int)((StringList*)((struct Struct_0201099c_3*)&arg0->unknown_40_))->GetString(arg0->unknown_8_)), 0, 0xe3);
 #endif
         *(int*)((char*)var4 + REGION_VALUE(0x868, 0x998)) = 1;
         arg0->unknown_9_++;

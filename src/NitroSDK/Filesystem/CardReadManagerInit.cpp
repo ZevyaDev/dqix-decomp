@@ -7,6 +7,14 @@
 #include "NitroSDK/Filesystem/FSInnerDefs.h"
 #include <asmhacks.h>
 
+#if defined(jpn)
+#define func_020ca458 func_020cbf24
+#endif
+
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 #pragma optimization_level 2
 
 #if defined(jpn)
@@ -17,10 +25,10 @@
 extern "C"
 {
     // memset but tries to do 32 bytes at a time
-    void Memset32Bit_020ca458(int value, void* dst, unsigned len);
+    void func_020ca458(int value, void* dst, unsigned len);
 
     // abort() or fatal error or similar
-    void HaltForever_020c9be0();
+    void func_020c9be0();
 }
 // is card read manager initialized
 extern int data_02111860;
@@ -47,7 +55,7 @@ void LockCardReadManager(unsigned short ownerID, int taskType)
     if (volMan->lock.owner == ownerID)
     {
         if (manager->lock.taskType != taskType)
-            HaltForever_020c9be0();
+            func_020c9be0();
     }
     else
     {
@@ -69,12 +77,12 @@ void UnlockCardReadManager(unsigned short ownerID, int taskType)
     int priorState = DisableIRQInterrupts();
     if (volMan->lock.owner != ownerID || volMan->lock.multiplicity == 0)
     {
-        HaltForever_020c9be0();
+        func_020c9be0();
     }
     else
     {
         if (manager->lock.taskType != taskType)
-            HaltForever_020c9be0();
+            func_020c9be0();
         int multiplicity = volMan->lock.multiplicity;
         multiplicity--;
         volMan->lock.multiplicity = multiplicity;
@@ -101,8 +109,8 @@ void InitializeCardReadManager()
     manager->lock.taskType = 0;
     manager->pSharedData = &data_02111880;
     
-    Memset32Bit_020ca458(0, &data_02111880, sizeof(Arm7CardReadData));
-    DC_FlushRange(&data_02111880, sizeof(Arm7CardReadData));
+    func_020ca458(0, &data_02111880, sizeof(Arm7CardReadData));
+    CleanInvalidateCacheRange((const void*)(&data_02111880), sizeof(Arm7CardReadData));
     manager->instructionCacheCleanThreshold = 0xffffffff;
     manager->dataCacheCleanThreshold = 0xffffffff;
     
@@ -135,7 +143,7 @@ int IsCardReadManagerInitialized()
 void VerifyCardReadManagerInitialized()
 {
     if (!IsCardReadManagerInitialized())
-        HaltForever_020c9be0();
+        func_020c9be0();
 }
 
 void MarkCardReadManagerInitialized(int to)

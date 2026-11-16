@@ -14,6 +14,10 @@ enum { Enum_ov003_0216af14_5098 = 0x13ea };
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 struct Struct_ov003_0216af14_2 {
     unsigned char unknown_0_[0x4];
     short unknown_4_;
@@ -40,7 +44,7 @@ extern AllocatorUnion gMainHeap_02114e20;
 
 extern "C" int func_ov003_0215c924(void* arg0, int arg1);
 extern "C" void func_ov003_0215c800(void* arg0);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_ov003_0216d818(char* arg0);
 extern "C" void func_ov003_0216d84c(void* arg0);
 extern "C" int UpdateTextWindowManager_0205d0e0(void* windowManager, unsigned int ticks);
@@ -55,7 +59,7 @@ extern "C" ARM int func_ov003_0216af14(Struct_ov003_0216af14_2* arg0) {
             void* var1 = arg0->unknown_12d4_.GetSignedAllocator();
             if (var1 != 0) {
                 arg0->unknown_12d4_.Destroy();
-                FreeMemory_02012da4(&gMainHeap_02114e20, var1);
+                func_02012da4(&gMainHeap_02114e20, var1);
             }
         }
         func_ov003_0216d818((char*)arg0);

@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
 #define func_020341e0 func_02034104
 #endif
 
@@ -20,7 +24,7 @@ struct Struct_02077788 {
     unsigned char unknown_17b_;
 };
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" Vector3fix func_020341e0(void* arg0);
 extern "C" int func_020322c0(int arg0, int* arg1, int arg2);
 extern "C" void func_020794f8(void* arg0, int arg1, int arg2);
@@ -41,7 +45,7 @@ extern "C" int func_02039760(void* arg0);
 // USA: func_02077788
 extern "C" ARM void func_02077788(struct Struct_02077788* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     GameObject* var2 = var0->GetPartyMemberByIndex(arg0->unknown_166_);
     if (var2 == 0) {
         return;
@@ -76,7 +80,7 @@ extern "C" ARM void func_02077788(struct Struct_02077788* arg0) {
     }
 
     unsigned short var9 = arg0->unknown_166_;
-    if (var2->obj3D_.classFlags_0_ & 0x1000) {
+    if (var2->obj3D_.unknown_0_ & 0x1000) {
         var9 = 0;
     }
     if (!IsLocalWirelessOn_0202b7d8((int*)var1) || var9 == GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var1)) {

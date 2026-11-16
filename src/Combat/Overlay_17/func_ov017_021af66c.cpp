@@ -5,6 +5,22 @@
 #include "Resource/MessageSystem.h"
 
 #if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
+#if defined(jpn)
 #define data_ov017_021d6aec data_ov017_021d6ee4
 #endif
 
@@ -75,18 +91,18 @@ struct Struct_02046968;
 struct GlobalFlags_02038598_4;
 struct AllocatorUnion;
 
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0202ae18();
 extern "C" void func_ov017_021c37a4();
 extern "C" Struct_ov017_021af66c_3* GetZone3D_02012fe4();
 extern "C" void ResetEventTask_ov017_021baedc(Struct_ov017_021af66c* node, int isRestart);
 extern "C" void func_ov017_021bbae4(Struct_ov017_021af66c* arg0, int arg1, int arg2);
 extern "C" void func_ov017_0219577c(int arg0, int arg1, int arg2);
 extern "C" int func_ov017_02195658(GameResources* arg0);
-extern "C" void* GetBattleScene_ov017_021b8468(Struct_ov017_021af66c* battleManager);
+extern "C" void* func_ov017_021b8468(Struct_ov017_021af66c* battleManager);
 extern "C" void func_ov017_021afb8c(Struct_ov017_021af66c_4* arg0, unsigned char* arg1);
 extern "C" void func_ov017_0218b5c0(int arg0, int arg1);
 
-extern "C" void* GetGlobalFlags_020d6c00();
+extern "C" void* func_020d6c00();
 extern "C" void* func_020936f8();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
@@ -104,7 +120,7 @@ extern "C" void func_02039830(void* arg0);
 extern "C" void func_0205ce94(unsigned char* arg0);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void SetLoadingIndicator_020daf9c(int isShown, int isFadeWaitSkipped, int isScreenBlanked, int isMainScreenForced);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 
 extern Struct_ov017_021d6aec data_ov017_021d6aec;
@@ -125,9 +141,9 @@ struct Struct_ov017_021af66c_5 {
 extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg1) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
-    LocalWireless_0202b2f0* var2 = (LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* var2 = (LocalWireless_0202b2f0*)func_0202ae18();
     Struct_ov017_021af66c_5* var3 = (Struct_ov017_021af66c_5*)var0->GetUnknownGameObject();
-    GlobalFlags_02038598_4* var4 = (GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00();
+    GlobalFlags_02038598_4* var4 = (GlobalFlags_02038598_4*)func_020d6c00();
     char* var5 = (char*)func_020936f8();
     Struct_ov017_021af66c* var6 = static_cast<Struct_ov017_021af66c*>(var1->unknown_ptr_3718);
     DisablePlayerControl_020397cc((Struct_02018300_3*)var3, 0);
@@ -183,7 +199,7 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
     if (var12 > 0) {
         arg0->unknown_1b_[var12] = 0;
         if (var6->unknown_2_ != 0) {
-            void* var13 = GetBattleScene_ov017_021b8468(var6);
+            void* var13 = func_ov017_021b8468(var6);
             if (var13 != 0) {
                 func_ov000_02163b14(var13, (void*)var12);
                 func_ov017_021afb8c(arg0, arg0->unknown_e_);
@@ -191,7 +207,7 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
         }
     }
     if (var6->unknown_2_ != 0) {
-        void* var14 = GetBattleScene_ov017_021b8468(var6);
+        void* var14 = func_ov017_021b8468(var6);
         if (var14 != 0) {
             func_ov000_02163b40(var14);
         }
@@ -220,13 +236,13 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
         }
     }
     func_0205ce94(arg0->unknown_48_);
-    ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x800000);
+    ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)func_020d6c00(), 0x800000);
     func_ov017_0218b5c0(1, -1);
     SetLoadingIndicator_020daf9c(0, 1, 0, 1);
     DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_280_ << 8);
     ClearFlags04(var1, 0x40);
     if (arg0->unknown_288_ != 0) {
-        FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_288_);
+        func_02012da4(&gMainHeap_02114e20, arg0->unknown_288_);
         arg0->unknown_288_ = 0;
     }
     MessageWindow_02021b84* var18 = GetMessageWindow_020421a0();

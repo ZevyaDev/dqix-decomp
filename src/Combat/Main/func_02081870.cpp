@@ -2,6 +2,10 @@
 #include <std_library_functions.h>
 
 #if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
+#if defined(jpn)
 #define func_0204f41c func_02050678
 #endif
 
@@ -44,7 +48,7 @@ extern "C" int GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(Struct_02046574_2*);
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 #if defined(jpn)
-extern "C" int GetStringLength_020d2ff0(const char*);
+extern "C" int func_020d2ff0(const char*);
 extern "C" void func_020474a8(Struct_02046574_2*, int, void*, char*);
 extern "C" void func_0204f41c(Struct_02081870_2*, short, int, char*, int, int, short*, short*);
 #else
@@ -61,7 +65,7 @@ extern "C" ARM void func_02081870(Struct_02081870* arg0, Struct_02081870_2* arg1
         char* var1 = (char*)FindStringInList_02072a68(arg0->unknown_0_, arg2->unknown_e_);
         if (var1) {
             short var2 = arg1->unknown_a8_ * 8;
-            int var3 = GetStringLength_020d2ff0(var1) >> 1;
+            int var3 = func_020d2ff0(var1) >> 1;
             arg2->unknown_6_ = (short)(var2 - var3 * arg2->unknown_13_0_) >> 1;
         }
     }

@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 struct Struct_0202756c {
     char unknown_0_[0xc];
@@ -13,8 +14,6 @@ struct Struct_0202756c {
     unsigned char unknown_26_;
 };
 
-extern "C" void func_0205afb0(int arg0, void* arg1, int arg2);
-extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 // USA: func_0202756c
 extern "C" ARM void func_0202756c(void* arg0, int arg1, int arg2, int arg3,
@@ -25,12 +24,12 @@ extern "C" ARM void func_0202756c(void* arg0, int arg1, int arg2, int arg3,
     var0->unknown_22_ = arg4 & 0x7f;
     var0->unknown_26_ = arg5 & 0x3;
     if (arg6 < 0xf) {
-        func_0205afb0((int)((char*)arg0 + 0x94), var0, arg6);
+        ((OBJSpriteSet*)((int)((char*)arg0 + 0x94)))->SetMetatilePalette((OBJSpriteSet::Metatile*)(var0), arg6);
     }
     if (arg7 < 0x40) {
         var0->unknown_20_ = arg7;
     }
     var0->unknown_c_ = arg8;
     var0->unknown_10_ = arg9;
-    DrawSprite_0205ac40((char*)arg0 + 0x94, var0);
+    ((OBJSpriteSet*)((char*)arg0 + 0x94))->DrawMetatile((OBJSpriteSet::Metatile*)(var0));
 }

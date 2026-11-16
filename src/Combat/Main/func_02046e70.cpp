@@ -3,8 +3,9 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "World/Object3D.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
+void Nitro3D_SetModelPolygonID(Nitro3DModel* model, int id);
 
-extern "C" void NSBXX_Model_SetPolygonID(void* obj, unsigned int value);
 
 struct Struct_02040774_2;
 extern "C" void SetObject3DPosition_020407b4(struct Struct_02040774_2* object, int x, int y, int z);
@@ -28,7 +29,7 @@ extern "C" ARM void func_02046e70(void* arg0, void* arg1, Object3D* arg2) {
 
     *(Object3D**)((char*)arg0 + 0xe8) = arg2;
     if (arg2 != NULL) {
-        NSBXX_Model_SetPolygonID(*(void**)(*(char**)((char*)arg2 + 8) + 0x54), 0x3d);
+        Nitro3D_SetModelPolygonID((Nitro3DModel*)(*(void**)(*(char**)((char*)arg2 + 8) + 0x54)), 0x3d);
         Object3D* var0 = *(Object3D**)((char*)arg0 + 0xe8);
         var0->SetScale(0x1000, 0x1000, 0x1000);
         Object3D* var1 = *(Object3D**)((char*)arg0 + 0xe8);

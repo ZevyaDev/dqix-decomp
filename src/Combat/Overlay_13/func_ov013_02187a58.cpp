@@ -1,4 +1,12 @@
 #if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
@@ -23,10 +31,10 @@ extern "C" Struct_0208e024_2* func_0208e024(Struct_0208e024* arg0, int arg1, int
 struct Struct_0208e06c;
 extern "C" Struct_ov013_02187a58* func_0208e06c(Struct_0208e06c* arg0, int arg1);
 extern "C" int GetVocationSkill_020dd11c(unsigned int, unsigned int);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" int func_02053c6c(unsigned char*);
 struct StringList_02072a68_2;
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
-extern "C" int GetStringLength_020d2ff0(const char*);
+extern "C" int func_020d2ff0(const char*);
 extern "C" void __clear(void*, int);
 extern "C" void func_02050678(void*, short, short, const char*, int, unsigned char, short*, short*);
 extern "C" void func_020749ac(void*, int, int, int);
@@ -42,7 +50,7 @@ extern "C" ARM void func_ov013_02187a58(void* arg0, void* arg1) {
     GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), *(signed char*)(var0 + 0x53));
     if (!var1) return;
     int var2;
-    unsigned char* var3 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var1);
+    unsigned char* var3 = (unsigned char*)func_02053c6c((unsigned char*)var1);
     if (!var3) return;
     int var4 = GetVocationSkill_020dd11c(*(unsigned int*)(var3 + 0x8b8) & 0xff, var0[0x54]);
     int var5 = (var3 + var4)[0x464];
@@ -54,7 +62,7 @@ extern "C" ARM void func_ov013_02187a58(void* arg0, void* arg1) {
     char var12[32];
     char var13[16];
 
-    func_02050678(arg1, (short)(128 - (GetStringLength_020d2ff0(var7) >> 2) * 10), 12, var7, 10, 15, &var8, &var9);
+    func_02050678(arg1, (short)(128 - (func_020d2ff0(var7) >> 2) * 10), 12, var7, 10, 15, &var8, &var9);
     memset(var10, 0, sizeof(var10));
     for (unsigned char var14 = 0; var14 < 10; var14++) {
         Struct_ov013_02187a58_2* var15 = &var10[var14];
@@ -114,7 +122,7 @@ extern "C" ARM struct Struct_ov013_02187a58_3* func_0208e024(struct Struct_0208e
 extern "C" ARM struct Struct_ov013_02187a58_3* func_0208e06c(struct Struct_0208e06c* arg0, int arg1);
 extern "C" ARM void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern "C" ARM int GetVocationSkill_020dd11c(unsigned int vocation, unsigned int index);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void* GetMessageWindow_020421a0(void);
 
 extern "C" void __clear(void* arg0, int arg1);
@@ -149,7 +157,7 @@ extern "C" ARM void func_ov013_02187a58(void* arg0, void* arg1) {
     }
 
     int var25;
-    unsigned char* var26 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var24);
+    unsigned char* var26 = (unsigned char*)func_02053c6c((unsigned char*)var24);
     if (var26 == 0) {
         return;
     }

@@ -1,18 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
 
 extern "C" void* func_ov011_021845f8(void*, int);
 extern "C" void* func_ov011_0218466c(void* arg0, unsigned short arg1);
 
 struct Struct_020e03b8;
-extern "C" int func_020e03b8(int arg0, struct Struct_020e03b8* arg1, int arg2);
-extern "C" void* ConstructStringTable_020dfc2c(void* stringTable);
-struct StringTable_0201099c_14;
-extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
-extern "C" void LoadStringTable_020dfec0(void*, void*, void*, unsigned int);
-struct Struct_020e03f0;
-struct Struct_02072aa8;
-extern "C" int func_020e03f0(struct Struct_020e03f0* arg0, struct Struct_02072aa8* arg1);
 
 struct Struct_ov023_021fa644 {
     char unknown_0_[0x49c];
@@ -56,12 +49,11 @@ extern "C" ARM void func_ov023_021fa644(Struct_ov023_021fa644_2* arg0, void* arg
         return;
     }
 
-    char var2[0x18];
-    ConstructStringTable_020dfc2c(var2);
-    if (func_020e03b8((int)var2, arg2, arg3)) {
-        InitStringTable_020dfc40((StringTable_0201099c_14*)var2);
-        LoadStringTable_020dfec0(var2, (char*)var0 + 4, arg2, (unsigned int)arg3);
-        func_020e03f0((Struct_020e03f0*)var2, (Struct_02072aa8*)((char*)arg0 + 0x20));
+    StringList var2;
+    if (var2.natData_0_.VerifySize(arg2, arg3)) {
+        var2.Reset();
+        var2.LoadFromMemory((SafeAllocator*)((char*)var0 + 4), arg2, arg3);
+        var2.UnknownFunction_020e03f0((char*)arg0 + 0x20);
         return;
     }
 

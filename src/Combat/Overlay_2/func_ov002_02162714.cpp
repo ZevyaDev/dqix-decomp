@@ -3,6 +3,10 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
 #define RG(u, j) (j)
 #else
 #define RG(u, j) (u)
@@ -20,7 +24,7 @@ extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllow
 struct TextWindowManager_0205da38;
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" int GetResources_0200fb8c(int *gameState);
-extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" void *func_02053c6c(unsigned char *gameObject);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02157108(void *arg0, int arg1);
 extern "C" TimedMessageQueue_020d7aa0_2 *func_020d7a50();
@@ -60,7 +64,7 @@ extern "C" ARM void func_ov002_02162714(char *arg0) {
             GetResources_0200fb8c((int *) var6);
             GameObject *var7 = var6->GetProtagonist();
             if (var7 != 0) {
-                *(short *) ((char *) GetPartyMemberData_02053c6c((unsigned char *) var7) + RG(0x95a, 0x8c2)) = *(short *) (arg0 + RG(0x1be4, 0x1aac));
+                *(short *) ((char *) func_02053c6c((unsigned char *) var7) + RG(0x95a, 0x8c2)) = *(short *) (arg0 + RG(0x1be4, 0x1aac));
             }
             switch (*(short *) (arg0 + RG(0x1be4, 0x1aac))) {
                 case 0:

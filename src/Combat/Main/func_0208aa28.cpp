@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_02033fa0 func_02033ad8
+#endif
+
 extern "C" GameObject* GetGameObjectByIndex_0200ff94(GameState* gameState, int index);
 extern "C" int func_020855d0(unsigned char* arg0);
 extern "C" void* func_02033fa0(void* arg0);

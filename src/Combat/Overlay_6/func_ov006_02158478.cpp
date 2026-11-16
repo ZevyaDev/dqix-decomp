@@ -6,6 +6,7 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
 #if defined(jpn)
 #define func_ov006_02154fe4 func_ov006_02156730
 #endif
@@ -60,13 +61,9 @@ extern "C" void* GetSubBG0ScreenBase();
 extern "C" void* memset(void*, int, unsigned int);
 extern "C" int func_ov006_02158080(MenuLayout_0207fdcc_2*, int);
 extern "C" Struct_ov006_02158478* func_02081da8(MenuLayout_0207fdcc_2*, int);
-extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8*);
-extern "C" int SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
-extern "C" void func_0204b938(void*, void*, int, int, unsigned short);
 extern "C" void func_ov006_02154fe4(Struct_ov006_02154614*);
 extern "C" void func_ov006_02155480(Struct_ov006_02155480_2*);
 extern "C" int func_ov006_021570fc(Struct_ov006_02154614*, int);
-extern "C" void CopyBGScreenDataToVRAM_0204b088(void*, int);
 extern "C" int func_020e28dc(Struct_020e28dc*);
 extern "C" void SetDisplayWindowEnabled_020e2cc4(DisplayWindow_020439b0*, int);
 extern "C" void func_020e2834(Struct_020e2834*);
@@ -182,12 +179,12 @@ extern "C" ARM void func_ov006_02158478(Struct_ov006_02157a60* arg0)
         var2 = var1->unknown_ac_;
         var3 = var1->unknown_ae_;
         Struct_ov003_021594c4 var5;
-        InitBGLayer_0204af64((BGLayer_02020cb8*)&var5);
+        ((BGLayer*)((BGLayer_02020cb8*)&var5))->Reset();
         var5.unknown_1c_0_ = 1;
         var5.unknown_1c_4_ = 0;
         *(unsigned short**)&var5.unknown_0_[0x14] = var0;
-        SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)&var5, 0, 0);
-        func_0204b938(&var5, var4, var2, var3, 0xffff);
+        ((BGLayer*)((BGLayer_02020cb8_5*)&var5))->SetOffset(0, 0);
+        ((BGLayer*)(&var5))->BlitSprite((const BGLayer::Sprite*)(var4), var2, var3, 0xffff);
     }
     func_ov006_02154fe4(R(*(Struct_ov006_02154614**)((char*)arg0+8),arg0->unknown_10_));
     if (arg0->unknown_432_ != 0)
@@ -196,7 +193,7 @@ extern "C" ARM void func_ov006_02158478(Struct_ov006_02157a60* arg0)
         func_ov006_021570fc(R(*(Struct_ov006_02154614**)((char*)arg0+8),arg0->unknown_10_), 1);
         arg0->unknown_432_ = 0;
     }
-    CopyBGScreenDataToVRAM_0204b088(R((int*)((char*)arg0+0x4c),arg0->unknown_54_), 0);
+    ((BGLayer*)(R((int*)((char*)arg0+0x4c),arg0->unknown_54_)))->UploadIndexBuffer((const void*)(0));
     if (R(*(void**)((char*)arg0+0x10),arg0->unknown_18_) != 0)
     {
         void* var6 = *(void**)((char*)R(*(void**)((char*)arg0+0x10),arg0->unknown_18_) + 0x10);

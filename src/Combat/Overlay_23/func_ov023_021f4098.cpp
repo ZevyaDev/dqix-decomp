@@ -1,12 +1,20 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
 
 struct PartyMember_0205faf4_11;
 extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 
 extern "C" void __clear(void* arg0, int arg1);
 
@@ -37,12 +45,12 @@ extern "C" ARM int func_ov023_021f4098(void* arg0, int arg1, int arg2) {
  enum {Enum_ov023_021f4098_2240=0x8c0, Enum_ov023_021f4098_22528=0x5800, Enum_ov023_021f4098_204=0xcc, Enum_ov023_021f4098_672=0x2a0, Enum_ov023_021f4098_336=0x150};
 #endif
     GameState* var0 = GameState::GetInstance();
-    struct LocalWireless_0202b2f0* var1 = (struct LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
+    struct LocalWireless_0202b2f0* var1 = (struct LocalWireless_0202b2f0*)func_0202ae18();
     GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
     if (var2 == 0 || IsNPCCompanion_02061bd8((struct PartyMember_0205faf4_11*)var2) != 0) {
         return 0;
     }
-    if (GetPartyMemberData_02053c6c((unsigned char*)var2) == 0) {
+    if (func_02053c6c((unsigned char*)var2) == 0) {
         return 0;
     }
 

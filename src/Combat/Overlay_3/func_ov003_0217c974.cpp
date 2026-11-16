@@ -4,6 +4,7 @@
 #include "Memory/SafeAllocator.h"
 #include "World/Object3D.h"
 #include "Resource/GameResources.h"
+#include "Graphics/TextureArena.h"
 
 #if defined(jpn)
 enum { Enum_ov003_0217c974_716 = 0x27c };
@@ -14,9 +15,6 @@ enum { Enum_ov003_0217c974_716 = 0x2cc };
 struct Struct_020534ac;
 
 struct TextureVRAMArea_0203d028;
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 struct Vector3i;
 
 extern char data_ov003_02180c1d;
@@ -32,8 +30,8 @@ extern "C" ARM void func_ov003_0217c974(char* arg0) {
     ((BackgroundLoader*)((struct Struct_020534ac*)var0))->GetLoadedFileByID((int)(*(int*)(arg0 + 0x130)), (void**)(&var1), (unsigned int*)(&var2));
 
     void* var3 = GetGameResources();
-    ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)((char*)var3 + Enum_ov003_0217c974_716));
-    RestoreTextureVRAMState_0207df90((char*)var3 + Enum_ov003_0217c974_716);
+    ((TextureArena*)((struct TextureVRAMArea_0203d028*)((char*)var3 + Enum_ov003_0217c974_716)))->Reset();
+    ((TextureArena*)((char*)var3 + Enum_ov003_0217c974_716))->Restore();
 
     unsigned int var4;
     const void* var5;
@@ -42,7 +40,7 @@ extern "C" ARM void func_ov003_0217c974(char* arg0) {
     }
 
     unsigned int var6;
-    void* var7 = DecompressLZ77FileIntoAllocatedSpace(*(SafeAllocator*)(arg0 + 4), var5, var6);
+    void* var7 = DecompressLZ77FileIntoAllocatedSpace(&(*(SafeAllocator*)(arg0 + 4)), var5, &var6);
     if (var7 == 0) {
         return;
     }
@@ -58,7 +56,7 @@ extern "C" ARM void func_ov003_0217c974(char* arg0) {
     var8.unk_10 = 1;
     ((Object3D*)(arg0 + 0x80))->LoadFromCCHROrCMOTArchive(&var8, 0);
 
-    SaveTextureVRAMState_0207dfac((char*)var3 + Enum_ov003_0217c974_716);
+    ((TextureArena*)((char*)var3 + Enum_ov003_0217c974_716))->Save();
 
     struct Struct_ov003_0217fb8c var9 = data_ov003_0217fb8c;
     *(int*)(arg0 + 0xc4) = 0;

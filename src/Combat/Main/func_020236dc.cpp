@@ -4,7 +4,28 @@
 #include "Combat/MapDisplay.h"
 #include "GameState/GameState.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_02046708 func_02047528
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 
 struct Struct_020236dc_5 : Struct_020236dc_2 {
@@ -29,16 +50,16 @@ struct Struct_020236dc_6 {
 struct GlobalFlags_02012de8;
 struct Struct_020236dc_7;
 extern "C" void* GetZone3D_02012fe4();
-extern "C" void* GetLocalWireless_0202ae18();
-extern "C" void* GetFlagManager_0205ec34();
-extern "C" void* GetGlobalFlags_020d6c00();
+extern "C" void* func_0202ae18();
+extern "C" void* func_0205ec34();
+extern "C" void* func_020d6c00();
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
-extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8*, unsigned int);
+extern "C" int func_02046708(GlobalFlags_02012de8*, unsigned int);
 extern "C" void func_02053f58(Struct_020236dc_7*, int*, int*);
 extern "C" unsigned char func_02053f74(void*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_02039874(void*);
-extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" int func_02021394(Struct_02021394_2*, int, int, short*, short*);
 #if defined(jpn)
 #define data_020e704c data_020e78e8
@@ -56,9 +77,9 @@ extern "C" ARM int func_020236dc(Struct_020236dc* arg0, unsigned char* arg1, Vec
     GameResources* var1 = GetGameResources();
     GameObject* var2 = var0->GetProtagonist();
     Zone3D* var3 = (Zone3D*)GetZone3D_02012fe4();
-    GetLocalWireless_0202ae18();
-    Struct_020236dc_6* var4 = (Struct_020236dc_6*)GetFlagManager_0205ec34();
-    GlobalFlags_02012de8* var5 = (GlobalFlags_02012de8*)GetGlobalFlags_020d6c00();
+    func_0202ae18();
+    Struct_020236dc_6* var4 = (Struct_020236dc_6*)func_0205ec34();
+    GlobalFlags_02012de8* var5 = (GlobalFlags_02012de8*)func_020d6c00();
     Struct_02021394_2* var6 = (Struct_02021394_2*)var1->unknown_ptr_36d0;
     Struct_020236dc_4 var7;
     var7.unknown_0_ = arg0;
@@ -81,7 +102,7 @@ extern "C" ARM int func_020236dc(Struct_020236dc* arg0, unsigned char* arg1, Vec
         Struct_020236dc* var13 = &var7.unknown_0_[var7.unknown_4_];
         var13->unknown_14_ = var8;
         ++var7.unknown_4_;
-        var13->unknown_11_ = var9->unknown_1b2_ && !TestGlobalFlags_02046708(var5, 0x80000) ? 1 : 0;
+        var13->unknown_11_ = var9->unknown_1b2_ && !func_02046708(var5, 0x80000) ? 1 : 0;
         var13->unknown_12_ = var2 ? var2->obj3D_.GetField06() == var9->obj3D_.GetField06() : 0;
         if (var9->unknown_18c_ & 0x10) {
             func_02053f58((Struct_020236dc_7*)var9, &var13->unknown_0_.x, &var13->unknown_0_.z);
@@ -100,11 +121,11 @@ extern "C" ARM int func_020236dc(Struct_020236dc* arg0, unsigned char* arg1, Vec
             var13->unknown_f_ = -1;
         }
         var13->unknown_c_ = 5;
-        var13->unknown_d_ = var9->obj3D_.objectIndex_4_ + 4;
+        var13->unknown_d_ = var9->obj3D_.unknown_4_ + 4;
         GameObject* var15 = var0->GetPartyMemberByIndex(var8);
         GameObject* var16 = GetCompanionByIndex_0200ff58(var0, var8);
-        if (var15 && (var9->obj3D_.objectIndex_4_ == 0 || var16)) var13->unknown_e_ = func_02039874(var15) + 0x58;
-        else var13->unknown_e_ = var9->obj3D_.objectIndex_4_ + 0x5b;
+        if (var15 && (var9->obj3D_.unknown_4_ == 0 || var16)) var13->unknown_e_ = func_02039874(var15) + 0x58;
+        else var13->unknown_e_ = var9->obj3D_.unknown_4_ + 0x5b;
         if (var15) var13->unknown_13_ = func_02039874(var15);
         if (var9->unknown_ac_.unknown_84_->unknown_0_ & 1) {
             var13->unknown_c_ = 6;
@@ -117,7 +138,7 @@ extern "C" ARM int func_020236dc(Struct_020236dc* arg0, unsigned char* arg1, Vec
         for (Struct_02021f88* var19 = var18->unknown_754_; var19; var19 = var19->unknown_10_) {
             for (int var20 = 0; var20 < var19->unknown_2_; ++var20) {
                 int var21 = (unsigned short)var19->unknown_4_[var20];
-                int var22 = var3->unknown_2774_.unknown_12_;
+                int var22 = (*(Struct_020236dc_3*)(var3->unk_276c + 8)).unknown_12_;
                 if (var21 == var22) {
                     var17 = 1;
                     break;
@@ -125,10 +146,10 @@ extern "C" ARM int func_020236dc(Struct_020236dc* arg0, unsigned char* arg1, Vec
             }
         }
     }
-    if (var17 && IsFlagSet_0206dfb0((int)var4, var4->unknown_8c_, 0x2b)) {
+    if (var17 && func_0206dfb0((int)var4, var4->unknown_8c_, 0x2b)) {
         short var23 = 0;
         short var24 = 0;
-        if (func_02021394(var6, var3->unknown_2774_.unknown_12_, (unsigned char)var3->unknown_2774_.unknown_10_, &var23, &var24)) {
+        if (func_02021394(var6, (*(Struct_020236dc_3*)(var3->unk_276c + 8)).unknown_12_, (unsigned char)(*(Struct_020236dc_3*)(var3->unk_276c + 8)).unknown_10_, &var23, &var24)) {
             Struct_020236dc* var25 = &var7.unknown_0_[var7.unknown_4_];
             ++var7.unknown_4_;
             VectorizedMemset(var25, 0, sizeof(*var25));

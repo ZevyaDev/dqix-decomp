@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Resource/CharacterCreationUI.h"
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 enum { Enum_ov017_021a933c_632 = 0x208, Enum_ov017_021a933c_6578 = 0x17e2, Enum_ov017_021a933c_2460 = 0x86c };
@@ -22,7 +23,6 @@ struct Struct_ov017_021a933c_2 {
 };
 
 extern "C" Struct_ov017_021a933c_2* GetMessageWindow_020421a0(void);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3*, int);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(void*, const char*, int, int);
 #endif
@@ -37,9 +37,9 @@ extern "C" ARM void func_ov017_021a933c(Struct_ov017_021a933c* arg0, int arg1) {
         if (arg0->unknown_14_ == 1) arg1 += 0x64;
     }
 #if defined(jpn)
-    StartMessage_0204500c(var0, (const char*)FindStringInTable_020e0434(&arg0->unknown_278_, (short)arg1), 0);
+    StartMessage_0204500c(var0, (const char*)((int)((StringList*)(&arg0->unknown_278_))->GetString((short)arg1)), 0);
 #else
-    StartMessage_0204500c(var0, (const char*)FindStringInTable_020e0434(&arg0->unknown_278_, (short)arg1), 0, 0xe3);
+    StartMessage_0204500c(var0, (const char*)((int)((StringList*)(&arg0->unknown_278_))->GetString((short)arg1)), 0, 0xe3);
 #endif
 
     if (arg1 <= 0x12b && arg1 >= 0x64) {

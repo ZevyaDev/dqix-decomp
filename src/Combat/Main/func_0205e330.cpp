@@ -1,12 +1,20 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 
 extern "C" void func_020d8654(void);
 extern "C" void func_020d84e4(void);
 extern "C" void func_020d84e8(void);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void func_020d8694(void);
-extern "C" void HaltForever_020c9be0(void);
+extern "C" void func_020c9be0(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
 struct Struct_0205e1e4_2 {
@@ -56,7 +64,7 @@ extern "C" ARM void QueueOutgoingPacket_0205e330(unsigned char* packetQueue, str
     func_020d8654();
     func_020d84e4();
 
-    if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18())) {
+    if (IsLocalWirelessOn_0202b7d8((int*)func_0202ae18())) {
         node = func_0205e1e4((struct Struct_0205e1e4*)(packetQueue + 0x1500));
         if (node != NULL) {
             func_0205e3ec((struct LocalWirelessPacket_0205e330_3*)node, packet);
@@ -69,7 +77,7 @@ extern "C" ARM void QueueOutgoingPacket_0205e330(unsigned char* packetQueue, str
 
             for (int i = 0; i < ((struct Struct_0205e330_2*)(packetQueue + 0x1000))->incomingCount_520_; i++);
 
-            HaltForever_020c9be0();
+            func_020c9be0();
         }
     }
 

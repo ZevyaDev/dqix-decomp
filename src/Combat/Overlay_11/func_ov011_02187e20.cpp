@@ -1,6 +1,8 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/StringList.h"
 
 struct ScriptValue_ov011_02184c30 {
     int type_0_;
@@ -17,9 +19,6 @@ extern "C" ARM void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" ARM void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" ARM void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" ARM int func_ov004_02167820(void* arg0, void* arg1, int arg2, int arg3);
-extern "C" void* ConstructStringTable_020dfc2c(void* stringTable);
-extern "C" void InitSpriteSet_0205a444(char* spriteSet);
-extern "C" void DestroySpriteSet_0205a494(void* spriteSet);
 
 struct MenuObjectList_ov004_0215c30c;
 struct MenuObject_ov004_0215c30c_2;
@@ -27,12 +26,22 @@ extern "C" void AppendMenuObject_ov023_021f67ac(struct MenuObjectList_ov004_0215
 
 extern int data_ov004_021705f8;
 
+struct Struct_ov011_02187e20_3 {
+    char unknown_0_[4];
+    StringList unknown_4_;
+    char unknown_1c_[0x60 - 0x1c];
+    char unknown_60_[0x118 - 0x94];
+
+    Struct_ov011_02187e20_3() { ((OBJSpriteSet*)unknown_60_)->Reset(); }
+};
+
 struct Struct_ov011_02187e20_2 {
     void* unknown_0_;
     char unknown_4_[0x20 - 4];
     SafeAllocator unknown_20_;
-    char unknown_34_[0x94 - 0x34];
-    char unknown_94_[0x118 - 0x94];
+    Struct_ov011_02187e20_3 unknown_34_;
+
+    Struct_ov011_02187e20_2() : unknown_0_(&data_ov004_021705f8) {}
 };
 
 // USA: func_ov011_02187e20
@@ -49,20 +58,15 @@ extern "C" ARM int func_ov011_02187e20(struct Struct_ov011_02187e20* arg0) {
     if (var4 == 0) return 0;
 
     struct Struct_ov011_02187e20_2 var5;
-    var5.unknown_0_ = &data_ov004_021705f8;
-    var5.unknown_20_.ResetAllocatorPointer();
-    char* var6 = var5.unknown_34_;
-    ConstructStringTable_020dfc2c(var6 + 4);
-    InitSpriteSet_0205a444(var6 + 0x60);
     memcpy(var4, &var5, sizeof(Struct_ov011_02187e20_2));
 
     if (func_ov004_02167820(var4, var2, var0, var1) == 0) {
-        DestroySpriteSet_0205a494(var5.unknown_94_);
+        ((OBJSpriteSet*)(var5.unknown_34_.unknown_60_))->Destroy();
         return 0;
     }
 
     void* var7 = GetMenuObjectList_ov011_021849c8(var2);
     AppendMenuObject_ov023_021f67ac((struct MenuObjectList_ov004_0215c30c*)var7, (struct MenuObject_ov004_0215c30c_2*)var4);
-    DestroySpriteSet_0205a494(var5.unknown_94_);
+    ((OBJSpriteSet*)(var5.unknown_34_.unknown_60_))->Destroy();
     return 1;
 }

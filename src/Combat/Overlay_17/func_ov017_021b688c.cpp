@@ -5,6 +5,14 @@
 #include <NitroSDK/Graphics.h>
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_020a1df8 func_020a3b70
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 struct Struct_02018300_3;
 struct Queue_02038598_5;
@@ -47,7 +55,7 @@ extern "C" void ReleaseFileTablesForSpace_020a0cc4(int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern AllocatorUnion gMainHeap_02114e20;
 extern "C" void LoadFileTables_020a0c0c();
-extern "C" void PushOverlay_020a1df8(int);
+extern "C" void func_020a1df8(int);
 extern "C" void func_ov003_0215f9c0(Struct_ov017_021b688c*, int);
 extern "C" void func_ov003_0215f8cc(Struct_ov017_021b688c*, SafeAllocator*);
 extern "C" void DisableCameraTurning_020a27b8(unsigned char*);
@@ -59,7 +67,7 @@ extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" int func_ov017_021959b4();
 extern "C" void EnableCameraTurning_020a27ac(void*);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char*, int);
-extern "C" void* GetFlagManager_0205ec34();
+extern "C" void* func_0205ec34();
 extern "C" void* GetParty_02010828(GameState*);
 extern "C" void func_0206e424(void*, int);
 
@@ -87,7 +95,7 @@ extern "C" ARM void func_ov017_021b688c(Struct_ov017_021b688c_2* arg0) {
             arg0->unknown_1_ = 1;
             return;
         }
-        PushOverlay_020a1df8(3);
+        func_020a1df8(3);
         func_ov003_0215f9c0(arg0->unknown_24_, arg0->unknown_1c_);
         arg0->unknown_24_->unknown_4a1_ = arg0->unknown_1f_;
         arg0->unknown_24_->unknown_480_ = arg0->unknown_20_;
@@ -120,7 +128,7 @@ extern "C" ARM void func_ov017_021b688c(Struct_ov017_021b688c_2* arg0) {
         unsigned char* var6 = (unsigned char*)GetFollowCamera_020100f8((char*)var0);
         if (!func_ov017_021959b4()) EnableCameraTurning_020a27ac(var6);
         ClearCameraFlags_020a28b0(var6, 2);
-        void* var7 = GetFlagManager_0205ec34();
+        void* var7 = func_0205ec34();
         GetParty_02010828(var0);
         Struct_ov000_02175808_4* var8 = (Struct_ov000_02175808_4*)GetParty_02010828(var0);
         for (int var9 = 0; var9 < var8->unknown_f7c_; var9++) func_0206e424(var7, var8->unknown_f78_[var9]);

@@ -27,6 +27,7 @@ extern "C" void SetCameraOrbit_0202e5d8(Struct_020a212c_2*, int, int, int);
 extern "C" Struct_ov000_0216e3c4* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char*, int, int, int);
 extern "C" void func_ov000_0216d368(Struct_ov000_0216d368*, int, int, int);
+extern "C" fix32_t func_020c3544(fix32_t arg0, fix32_t arg1);
 extern "C" void func_0202e6a8(Struct_0202e6a8*, int);
 
 // USA: func_ov000_0216e3c4

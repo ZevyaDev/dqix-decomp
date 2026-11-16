@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "Resource/Script.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_02099304 {
     unsigned int unknown_0_0_ : 12;
     unsigned int unknown_1_4_ : 4;
@@ -34,7 +38,7 @@ struct Struct_021098e8_2 {
 extern Struct_021098e8_2 data_021098e8;
 extern Script::OpcodeLookupEntry data_020f1504[];
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0* window);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
@@ -46,7 +50,7 @@ extern "C" void SetMessageString_02046574(Struct_02046574_2* window, int index, 
 
 // USA: func_02099304
 extern "C" ARM int func_02099304(Struct_02099304* arg0, char* arg1, const void* arg2, unsigned int arg3, void* arg4, int arg5, unsigned char arg6, char* arg7, char* arg8) {
-    void* var0 = GetLocalWireless_0202ae18();
+    void* var0 = func_0202ae18();
     int var1[4];
     Script var2;
 

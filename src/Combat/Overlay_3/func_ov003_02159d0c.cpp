@@ -1,6 +1,21 @@
+extern unsigned char g_fileScratchSpace[0x30000];
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
+#include "Filesystem/FileIO.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 
 #if defined(jpn)
@@ -18,8 +33,8 @@ enum { Enum_ov003_02159d0c_13504 = 0x34c0 };
 #endif
 
 extern "C" void* GetMessageWindow_020421a0(void);
-extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_020d6c00(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void func_ov003_02159290(void*, unsigned short, int);
 extern "C" void func_ov003_02159250(void*, void*);
 struct TextWindowManager_0205d81c;
@@ -27,10 +42,9 @@ extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, 
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
 struct Struct_0201099c_3;
-extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_ov003_0215bf18(void*, int);
 extern "C" int GetMessageChoice_020457e0(void*);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" int RunTrigger_020649b0(void*, int, void*);
 extern "C" void func_0206f81c(void*);
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
@@ -54,14 +68,13 @@ extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 extern "C" void* memset(void*, int, unsigned int);
 
 extern int gMusicManager_02109bf4;
-extern int gFileScratchSpace_0211e33c;
 
 // USA: func_ov003_02159d0c
 extern "C" ARM void func_ov003_02159d0c(void* arg0) {
     unsigned char* var0 = (unsigned char*)arg0;
     unsigned char* var1 = (unsigned char*)GetMessageWindow_020421a0();
-    void* var2 = GetGlobalFlags_020d6c00();
-    void* var3 = GetLocalWireless_0202ae18();
+    void* var2 = func_020d6c00();
+    void* var3 = func_0202ae18();
     char var4[0x34];
 
     if (*(int*)(var1 + Enum_ov003_02159d0c_2464) == 3) {
@@ -87,7 +100,7 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
         if (IsLocalWirelessOn_0202b7d8((int*)var3) && IsLocalWirelessGuest_0202c540(var3)) {
             var6 += 8;
         }
-        func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), var6));
+        func_ov003_02159250(arg0, ((void*)((StringList*)((Struct_0201099c_3*)(var0 + 0x64)))->GetString(var6)));
         *(unsigned char*)(var0 + 0x580) = *(unsigned char*)(var0 + 0x580) + 1;
     }
 
@@ -126,11 +139,11 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
             if (var11) return;
         }
         *(unsigned char*)(var0 + 0x59f) = *(unsigned char*)(var0 + 0x59f) | 0x10;
-        if (RunTrigger_020649b0(GetFlagManager_0205ec34(), 0xc, var4)) {
+        if (RunTrigger_020649b0(func_0205ec34(), 0xc, var4)) {
             func_0206f81c(var4);
         }
         if (*(unsigned char*)(var0 + 0x5b4) == 0) {
-            func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x64));
+            func_ov003_02159250(arg0, ((void*)((StringList*)((Struct_0201099c_3*)(var0 + 0x64)))->GetString(0x64)));
         }
         SetGlobalFlags_020466e4((unsigned int*)var2, 0x80);
         *(int*)(var0 + 0x598) = 0xf;
@@ -174,7 +187,7 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
         if (IsLocalWirelessGuest_0202c540(var3)) var14 |= 0x14;
         BackgroundLoader::AddLockGlobal();
         BackgroundLoader::FreeAllocationsGlobal();
-        if (func_020aad1c(var0 + 0x1b8 + 0x400, &gFileScratchSpace_0211e33c, var14, 0) == 1) {
+        if (func_020aad1c(var0 + 0x1b8 + 0x400, &g_fileScratchSpace, var14, 0) == 1) {
             *(unsigned char*)(var0 + 0x580) = 3;
         }
         BackgroundLoader::RemoveLockGlobal();
@@ -192,7 +205,7 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
             unsigned char* var15 = (unsigned char*)GameState::GetInstance()->GetUnknownGameObject();
             ClearMessageParams_02046380(var1);
             SetMessageString_02046574((Struct_02046574_2*)var1, 0, (char*)(*(void**)(var15 + 0x134)));
-            AppendText_02042058((char*)(*(void**)(var0 + 0x7c)), (char const*)FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x3f3));
+            AppendText_02042058((char*)(*(void**)(var0 + 0x7c)), (char const*)((void*)((StringList*)((Struct_0201099c_3*)(var0 + 0x64)))->GetString(0x3f3)));
         } else {
             func_ov003_02159290(arg0, 0x3f3, 0x3f5);
         }
@@ -215,7 +228,7 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
                 SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 0, 1);
                 SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 1, 1);
                 SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 2, 1);
-                func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x3f7));
+                func_ov003_02159250(arg0, ((void*)((StringList*)((Struct_0201099c_3*)(var0 + 0x64)))->GetString(0x3f7)));
                 *(unsigned char*)(var0 + 0x580) = *(unsigned char*)(var0 + 0x580) + 1;
                 return;
             }
@@ -223,19 +236,19 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
                 SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 0, 1);
                 SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 1, 1);
                 SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 2, 1);
-                func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x3f9));
+                func_ov003_02159250(arg0, ((void*)((StringList*)((Struct_0201099c_3*)(var0 + 0x64)))->GetString(0x3f9)));
                 *(unsigned char*)(var0 + 0x580) = 6;
                 return;
             }
             CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)(var0 + 0xf4), 1);
-            func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x3f6));
+            func_ov003_02159250(arg0, ((void*)((StringList*)((Struct_0201099c_3*)(var0 + 0x64)))->GetString(0x3f6)));
             *(unsigned char*)(var0 + 0x59f) = *(unsigned char*)(var0 + 0x59f) | 0x10;
             *(unsigned char*)(var0 + 0x588) = 9;
             *(unsigned char*)(var0 + 0x580) = 0;
             return;
         } else if (var16 == 0) {
             CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)(var0 + 0xf4), 1);
-            func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x442));
+            func_ov003_02159250(arg0, ((void*)((StringList*)((Struct_0201099c_3*)(var0 + 0x64)))->GetString(0x442)));
             *(unsigned char*)(var0 + 0x580) = 7;
         }
     }
@@ -248,7 +261,7 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
             SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 0, 1);
             SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 1, 1);
             SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 2, 1);
-            func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x3f8));
+            func_ov003_02159250(arg0, ((void*)((StringList*)((Struct_0201099c_3*)(var0 + 0x64)))->GetString(0x3f8)));
             *(unsigned char*)(var0 + 0x580) = 1;
             return;
         } else if (var17 == 0) {
@@ -256,12 +269,12 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
                 SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 0, 1);
                 SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 1, 1);
                 SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(var0 + 0xf4), 2, 1);
-                func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x3f9));
+                func_ov003_02159250(arg0, ((void*)((StringList*)((Struct_0201099c_3*)(var0 + 0x64)))->GetString(0x3f9)));
                 *(unsigned char*)(var0 + 0x580) = 6;
                 return;
             }
             CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)(var0 + 0xf4), 1);
-            func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x3f6));
+            func_ov003_02159250(arg0, ((void*)((StringList*)((Struct_0201099c_3*)(var0 + 0x64)))->GetString(0x3f6)));
             *(unsigned char*)(var0 + 0x59f) = *(unsigned char*)(var0 + 0x59f) | 0x10;
             *(unsigned char*)(var0 + 0x588) = 9;
             *(unsigned char*)(var0 + 0x580) = 0;
@@ -275,12 +288,12 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
         if (var18 == -1) return;
         if (var18 == -2 || var18 == 1) {
             CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)(var0 + 0xf4), 1);
-            func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x442));
+            func_ov003_02159250(arg0, ((void*)((StringList*)((Struct_0201099c_3*)(var0 + 0x64)))->GetString(0x442)));
             *(unsigned char*)(var0 + 0x580) = 7;
             return;
         } else if (var18 == 0) {
             CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)(var0 + 0xf4), 1);
-            func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x3f6));
+            func_ov003_02159250(arg0, ((void*)((StringList*)((Struct_0201099c_3*)(var0 + 0x64)))->GetString(0x3f6)));
             *(unsigned char*)(var0 + 0x59f) = *(unsigned char*)(var0 + 0x59f) | 0x10;
             *(unsigned char*)(var0 + 0x588) = 9;
             *(unsigned char*)(var0 + 0x580) = 0;

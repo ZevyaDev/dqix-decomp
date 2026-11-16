@@ -1,7 +1,12 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "std_library_functions.h"
+
+#if defined(jpn)
+#define func_0201b5b0 func_0201b328
+#endif
 
 extern "C" int func_0201b5b0(int arg0);
 extern "C" int func_0201b5d8(int arg0);
@@ -12,8 +17,8 @@ extern char data_020ef11f;
 extern char data_020ef12f;
 
 // USA: func_0201403c
-ARM void Zone3D::func_0201403c() {
-    Zone3D* var0 = this;
+extern "C" ARM void func_0201403c(Zone3D* arg0) {
+    Zone3D* var0 = arg0;
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     char var2[0x14];
 

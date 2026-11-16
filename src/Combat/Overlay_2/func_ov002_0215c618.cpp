@@ -58,7 +58,6 @@ extern "C" ARM void func_ov002_0215c618(char *arg0, int arg1) {
     void *var9;
     signed char *var6;
     struct Struct_ov002_0215b458_2 *var7;
-    SafeAllocator var8;
     var0 = GameState::GetInstance();
     var4 = (struct Struct_ov002_0215b458_3 *) GetParty_02010828(var0);
     var2 = GetInventoryItemByID(arg0, *(short *) (arg0 + 0x1a00 + 0xb0), *(signed char *) (arg0 + 0x1a00 + 0xe8));
@@ -69,7 +68,7 @@ extern "C" ARM void func_ov002_0215c618(char *arg0, int arg1) {
 
     ((SafeAllocator *) (arg0 + 0x3b4 + 0x400))->Reset();
     var9 = ((SafeAllocator *) (arg0 + 0x3b4 + 0x400))->Allocate(0x4bc0);
-    var8.ResetAllocatorPointer();
+    SafeAllocator var8;
     var8.ResetAllocatorPointer();
     var8.CreateTypeA(var9, 0x4bc0);
     var1 = arg0 + 0x368;

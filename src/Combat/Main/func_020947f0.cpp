@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "NitroSDK/Cache.h"
 
 #if defined(jpn)
 enum { Enum_020947f0_836 = 0x104, Enum_020947f0_968 = 0x138 };
@@ -15,7 +16,6 @@ struct Struct_020947f0 {
 };
 struct Struct_02094654_2 { unsigned int unknown_0_; unsigned short unknown_4_; };
 extern "C" double func_02009424(double);
-extern "C" void DC_FlushRange(const void*, unsigned int);
 extern "C" void LoadToMainObjStandardPalette(const void*, unsigned int, unsigned int);
 extern "C" void LoadToSubObjStandardPalette(const void*, unsigned int, unsigned int);
 extern "C" int func_0209378c(int);
@@ -32,7 +32,7 @@ extern "C" ARM void func_020947f0(Struct_020947f0* arg0) {
     if (var1 < 0) var1 = 0;
     if (var1 > 31) var1 = 31;
     unsigned short var2 = var1 | (var1 << 5) | (var1 << 10);
-    DC_FlushRange(&var2, 2);
+    CleanInvalidateCacheRange((const void*)(&var2), 2);
     if (arg0->unknown_3c8_7_ == 0) LoadToMainObjStandardPalette(&var2, 0x1fe, 2);
     else LoadToSubObjStandardPalette(&var2, 0x1fe, 2);
     int var3 = func_0209378c(arg0->unknown_3c8_7_);

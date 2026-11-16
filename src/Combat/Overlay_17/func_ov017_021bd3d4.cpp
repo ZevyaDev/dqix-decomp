@@ -20,3 +20,8 @@ extern "C" ARM void func_ov017_021bd3d4(void* arg0, int arg1) {
 		*(int*)(var0 + Enum_ov017_021bd3d4_440 + arg1 * 4) = var2->obj3D_.rotation_.y;
 	}
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

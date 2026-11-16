@@ -1,5 +1,9 @@
 #pragma once
 
+#if defined(jpn)
+#define func_02011584 func_020112f4
+#endif
+
 struct Struct_0201cb60 {
     unsigned short unknown_0_;
     unsigned short unknown_2_;
@@ -17,5 +21,5 @@ struct Struct_0201cb60_2 {
     int unknown_8_;
 };
 
-extern "C" void *GetZoneList_02011584(void *gameState);
+extern "C" void *func_02011584(void *gameState);
 extern "C" Struct_0201cb60 *func_0209998c(Struct_0201cb60_2 *arg0, const char *arg1);

@@ -6,6 +6,19 @@
 #include "Graphics/LightingManager.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
+#include "Filesystem/FileIO.h"
+
+#if defined(jpn)
+#define func_020de848 func_020e01c4
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 
 struct LocalWireless_0202c1a4;
@@ -13,7 +26,7 @@ struct Struct_02033834;
 struct Struct_02053f7c_3;
 struct Struct_02083508_2 { char unknown_0_[0x20]; };
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void UpdateLocalWirelessPlayerCount_0202c288(void*);
 extern "C" void func_02039880(unsigned char*, int);
@@ -27,7 +40,7 @@ extern "C" void func_020120d4(unsigned char*, unsigned char);
 extern "C" void* func_020120a0(char* arg0, unsigned int arg1);
 extern "C" void func_0201206c(void*, int);
 extern "C" void func_02053f7c(Struct_02053f7c_3*, unsigned short, int);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" void func_0206dfe8(void*, int, int);
 extern "C" void func_0206e70c(char*);
 extern "C" void func_0206df14(unsigned char*);
@@ -37,9 +50,8 @@ extern "C" unsigned char* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void* GetQuestManager_02094d6c();
 extern "C" void* func_020965f8();
 extern "C" void* InitItemTable_020de824(void*);
-extern "C" void ClearItemTable_020de848(void*);
+extern "C" void func_020de848(void*);
 extern "C" void func_020de1d4(Struct_02083508_2*);
-extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 #if defined(jpn)
 extern "C" void* func_020e08f0(int arg0, unsigned int* arg1);
 #endif
@@ -142,13 +154,12 @@ struct Struct_ov017_021b0bc0_5 {
 extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
     char var0[0x18];
     Struct_02083508_2 var1;
-    Struct_ov017_021b0bc0_5 var2;
     short var3[4];
     unsigned int var4;
 
     GameState* var5 = GameState::GetInstance();
     GameResources* var6 = GetGameResources();
-    LocalWireless_0202b2f0* var7 = (LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* var7 = (LocalWireless_0202b2f0*)func_0202ae18();
     Struct_ov017_021b0bc0_2* var8 = (Struct_ov017_021b0bc0_2*)GetZone3D_02012fe4();
 #if defined(jpn)
     Struct_ov017_021b0bc0* var9 = inline_ov017_021b0bc0(var8);
@@ -161,7 +172,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
     }
     GameObject* var11 = var5->GetPartyMemberByIndex(arg0->unknown_c_);
     if (var11 != NULL) {
-        func_02039880((unsigned char*)var11, var11->obj3D_.objectIndex_4_);
+        func_02039880((unsigned char*)var11, var11->obj3D_.unknown_4_);
     }
     short* var12 = var3;
     for (int var13 = 0; var13 < 4; var13++, var12++) {
@@ -195,7 +206,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
             if (var16 == func_02039888(var17)) {
                 continue;
             }
-            if (var16 != 0 && !(var17->obj3D_.classFlags_0_ & 0x1000)) {
+            if (var16 != 0 && !(var17->obj3D_.unknown_0_ & 0x1000)) {
                 continue;
             }
             SetFacingInstantly_02033874((Struct_02033834*)var17, *var12);
@@ -235,7 +246,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
             }
         }
 
-        void* var21 = GetFlagManager_0205ec34();
+        void* var21 = func_0205ec34();
         func_0206dfe8(var21, 0x38e, 0x3e8);
         func_0206dfe8(var21, 0x79e, 0x2bc);
         func_0206e70c((char*)var21);
@@ -250,19 +261,19 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
         func_020965f8();
 
         InitItemTable_020de824(var0);
-        ClearItemTable_020de848(var0);
+        func_020de848(var0);
         func_020de1d4(&var1);
         BackgroundLoader::AddLockGlobal();
 #if defined(jpn)
         void* var23 = func_020e08f0(8, &var4);
 #else
-        void* var23 = ExtractFileFromGP2(data_020f2a18, data_020f2a0c, &var4);
+        void* var23 = ExtractFileFromGP2((const char*)(data_020f2a18), (const char*)(data_020f2a0c), (unsigned int*)(&var4));
 #endif
         if (var23 != NULL) {
             func_020def44((int)&var1, (int)var23, var4, 0x5612);
         }
         BackgroundLoader::RemoveLockGlobal();
-        var2.unknown_0_.ResetAllocatorPointer();
+        Struct_ov017_021b0bc0_5 var2;
         InitItemTable_020de824(var2.unknown_14_);
         func_0207cbe8((char*)&var2);
         func_0207cbe8((char*)&var2);

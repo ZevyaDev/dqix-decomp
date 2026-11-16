@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Combat/MapDisplay.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 
 extern "C" Zone3D* GetZone3D_02012fe4(void);
 extern "C" void DisableSubObjVRAMBanks(void);

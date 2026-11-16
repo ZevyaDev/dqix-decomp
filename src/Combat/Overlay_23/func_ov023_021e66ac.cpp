@@ -2,8 +2,12 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 extern "C" int GetStoryChapter_0201079c(char* gameState);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 
 struct StringList_02072a68_2 { struct StringListEntry_02072a68* unknown_0_; short capacity_4_; };
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
@@ -72,7 +76,7 @@ extern "C" ARM void func_ov023_021e66ac(void* arg0) {
         void* var3 = FindStringInList_02072a68(&var0->unknown_133c_, 0x6d);
         memcpy(var0->unknown_1400_, var3, 7);
     } else if (var2->unknown_3_6_) {
-        GetLocalWireless_0202ae18();
+        func_0202ae18();
         Struct_ov023_021e66ac_2* var4 = (Struct_ov023_021e66ac_2*)var1->GetProtagonist();
         int var5 = var4->unknown_150_->unknown_950_;
         if (GetStoryChapter_0201079c((char*)var1) == 1) {

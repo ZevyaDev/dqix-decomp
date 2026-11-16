@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "Combat/Main/BattleList.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_ov017_021ce5b4_2 {
     char unknown_0_[4];
     unsigned short unknown_4_;
@@ -42,7 +46,7 @@ struct Struct_ov017_021ce5b4_3 {
     Struct_02000c9c_61 unknown_100_;
 };
 
-extern "C" Struct_ov017_021ce5b4_3* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" Struct_ov017_021ce5b4_3* func_02053c6c(unsigned char* gameObject);
 
 static inline Struct_02000c9c_61* inline_ov017_021ce5b4(Struct_ov017_021ce5b4_3* arg0) {
     return &arg0->unknown_100_;
@@ -57,7 +61,7 @@ extern "C" ARM void* func_ov017_021ce5b4(int arg0, Struct_ov017_021ce5b4_2* arg1
     GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(arg2, arg1->unknown_4_);
     if (var0 == NULL) return var0;
 
-    Struct_ov017_021ce5b4_3* var1 = GetPartyMemberData_02053c6c((unsigned char*)var0);
+    Struct_ov017_021ce5b4_3* var1 = func_02053c6c((unsigned char*)var0);
     if (var1 == NULL) return var1;
 
     Struct_ov017_021ce5b4* var2 = inline_ov017_021ce5b4_2(inline_ov017_021ce5b4(var1));

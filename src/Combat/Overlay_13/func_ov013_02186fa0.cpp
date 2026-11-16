@@ -12,15 +12,13 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
+#include "Graphics/BGLayer.h"
+#include "NitroSDK/Cache.h"
 
 struct BGLayer_0204af14;
-extern "C" void* GetBGScreenBlock_0204af14(struct BGLayer_0204af14* layer, unsigned int screenBlockIndex);
 
-extern "C" void DC_FlushRange(const void* where, unsigned int len);
-extern "C" void LoadToMainBG1CharacterData(int, int, unsigned int);
 
 struct BGLayer_02020cb8_2;
-extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2* layer, void* screenData);
 
 struct BGControlSave_02074bd0;
 extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
@@ -35,13 +33,13 @@ extern "C" ARM void func_ov013_02186fa0(unsigned char* arg0) {
     CancelFontLoad_02094ab0(var0);
 
     if (arg0[R(0x50,0x64)] == 0) {
-        void* var1 = GetBGScreenBlock_0204af14((struct BGLayer_0204af14*)(arg0 + 0x28), 0);
+        void* var1 = ((void*)((BGLayer*)((struct BGLayer_0204af14*)(arg0 + 0x28)))->GetSprite(0));
         void* var2;
         if (var1 != 0 && (var2 = *(void**)((char*)var1 + 0xc)) != 0) {
             memset(var2, 0, 0x600);
-            DC_FlushRange(var2, 0x20);
-            LoadToMainBG1CharacterData((int)var2, 0, 0x20);
-            LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2*)(arg0 + 0x28), var2);
+            CleanInvalidateCacheRange((const void*)(var2), 0x20);
+            LoadToMainBG1CharacterData((const void*)((int)var2), 0, 0x20);
+            ((BGLayer*)((struct BGLayer_02020cb8_2*)(arg0 + 0x28)))->CleanCacheAndUploadIndexBuffer((const void*)(var2));
         }
 
         RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)(arg0 + 0x14));

@@ -15,9 +15,13 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
 struct TextWindowManager_0205d6a0;
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
-extern "C" void* GetGlobalFlags_020d6c00();
+extern "C" void* func_020d6c00();
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 
@@ -56,7 +60,7 @@ extern "C" ARM void func_ov008_0218b240(Struct_ov008_0218b240* arg0) {
     arg0->unknown_e9b_ = 2;
     arg0->unknown_e9c_ = 0;
 
-    void* var1 = GetGlobalFlags_020d6c00();
+    void* var1 = func_020d6c00();
     ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var1, 0x2f);
     ClearFlags00(GetGameResources(), 0x10);
 

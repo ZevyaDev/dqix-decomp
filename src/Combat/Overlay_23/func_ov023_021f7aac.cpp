@@ -1,6 +1,8 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
+#include "Graphics/BGLayer.h"
+#include "Resource/PAC.h"
 
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 
@@ -11,19 +13,15 @@ struct PacEntry_02020aec {
     int dataSize_44_;
     int nextOffset_48_;
 };
-extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
 struct PacEntry_02020cb8_4 {
     signed char unknown_0_;
     char unknown_1_[0x47];
     int nextOffset_48_;
 };
-extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 
 struct BGLayer_0204af38;
-extern "C" void AllocateBGScreenBlocks_0204af38(struct BGLayer_0204af38* layer, int capacity, SafeAllocator* allocator);
 
-extern "C" void LoadBGBlock_0204b174(struct BGLayer_0204af38* layer, void* block, SafeAllocator* allocator, int arg3);
 
 extern char data_ov023_021fe5f4[];
 
@@ -44,27 +42,27 @@ extern "C" ARM void func_ov023_021f7aac(struct Struct_ov023_021f7688* arg0, void
     void* var0 = func_ov011_021845f8(arg1, arg0->unknown_8_);
     if (var0 == 0) return;
 
-    int var1 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)arg2);
+    int var1 = GetNumFilesInPAC((const void*)((struct PacEntry_02020cb8_4*)arg2));
     int var2 = 0;
     int var3;
     for (var3 = 0; var3 < var1; var3++) {
         int var4;
         void* var5;
-        GetPacEntryData_020467f0(arg2, var3, &var5, &var4);
+        GetFileInPACByIndex((void*)(arg2), var3, (const char**)(&var5), (unsigned int*)(&var4));
         if (strstr((char*)var5, data_ov023_021fe5f4) != NULL) var2++;
     }
 
     if (var2 > 0) {
-        AllocateBGScreenBlocks_0204af38((struct BGLayer_0204af38*)((char*)arg0 + Enum_ov023_021f7aac_40), (unsigned char)var2, (SafeAllocator*)((char*)var0 + 4));
+        ((BGLayer*)((struct BGLayer_0204af38*)((char*)arg0 + Enum_ov023_021f7aac_40)))->AllocateSprites((unsigned char)var2, (SafeAllocator*)((SafeAllocator*)((char*)var0 + 4)));
     }
 
     int var6;
     for (var6 = 0; var6 < var1; var6++) {
         int var7;
         void* var8;
-        void* var9 = GetPacEntryData_020467f0(arg2, var6, &var8, &var7);
+        void* var9 = GetFileInPACByIndex((void*)(arg2), var6, (const char**)(&var8), (unsigned int*)(&var7));
         if (var9 != 0) {
-            LoadBGBlock_0204b174((struct BGLayer_0204af38*)((char*)arg0 + Enum_ov023_021f7aac_40), var9, (SafeAllocator*)((char*)var0 + 4), var7);
+            ((BGLayer*)((struct BGLayer_0204af38*)((char*)arg0 + Enum_ov023_021f7aac_40)))->ProcessGraphicsFile((const void*)var9, (SafeAllocator*)((SafeAllocator*)((char*)var0 + 4)), var7);
         }
     }
 }

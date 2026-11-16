@@ -4,6 +4,10 @@
 #include "NitroSDK/Memory/SignedAllocator.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 struct ItemTable_0201099c_10;
 struct ItemData_0201099c_9;
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
@@ -16,7 +20,7 @@ extern "C" int AddEquipmentToBag_0207c378(struct EquipmentBag_020732cc* bag, int
 
 extern "C" void func_0207cc18(void* arg0, struct ItemData_0201099c_9* arg1);
 
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 
 extern AllocatorUnion gMainHeap_02114e20;
 
@@ -54,7 +58,7 @@ extern "C" ARM int func_0207d134(struct Struct_0207d134* arg0, short arg1, int a
         SafeAllocator* var6 = (SafeAllocator*)arg0;
         SignedAllocatorHeader* var7 = var6->GetSignedAllocator();
         var6->Destroy();
-        FreeMemory_02012da4(&gMainHeap_02114e20, var7);
+        func_02012da4(&gMainHeap_02114e20, var7);
         arg0->unknown_2c_ = NULL;
     }
     return var1;

@@ -14,6 +14,22 @@
 #include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0203be40 func_0203b898
+#endif
+
+#if defined(jpn)
+#define func_0203bd08 func_0203b760
+#endif
+
+#if defined(jpn)
+#define func_0202ec84 func_0202e7f4
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 struct Struct_ov006_02154a60 {
     char unknown_0_[0x14];
     void* unknown_14_;
@@ -54,9 +70,9 @@ extern Matrix4x3* data_ov006_0216038c[3];
 struct Struct_ov006_0215ff6c { unsigned char unknown_0_[4][4]; };
 extern Struct_ov006_0215ff6c data_ov006_0215ff6c;
 extern int data_0210a00c;
-void* GetCamera_020100bc(GameState*);
-void ConvertWorldToScreen_0202ec84(void*, const Vector3fix*, int*, int*);
-void GetOAMManager_0203bd08();
+void* func_020100bc(GameState*);
+void func_0202ec84(void*, const Vector3fix*, int*, int*);
+void func_0203bd08();
 void* func_0203be40();
 void func_02076988(Struct_ov006_02154a60*, int, int);
 void func_02075db0(Struct_ov006_02154a60*, short, short);
@@ -76,7 +92,7 @@ extern "C" ARM void func_ov006_02154a60(Struct_ov006_02154a60_2* arg0)
     Matrix4x3 var1[3];
     for (int var2 = 0; var2 < 3; var2++) data_ov006_0216038c[var2] = &var1[var2];
     ResetMatrixStacks_020c5414();
-    RenderConfig::SubmitToFifo();
+    Nitro3DRenderConfig::SubmitToFifo();
     ((Object3D*)((char*)arg0 + R(0x368, 0x4e8)))->MaybeUpdateBonePositions();
     for (int var3 = 0; var3 < 3; var3++) data_ov006_0216038c[var3] = NULL;
     Vector3fix var4[3] = {
@@ -91,7 +107,7 @@ extern "C" ARM void func_ov006_02154a60(Struct_ov006_02154a60_2* arg0)
     }
     unsigned char var8 = arg0->unknown_12bb_;
     Struct_ov006_0215ff6c var9 = data_ov006_0215ff6c;
-    void* var10 = GetCamera_020100bc(GameState::GetInstance());
+    void* var10 = func_020100bc(GameState::GetInstance());
     if (var10) {
         Struct_ov006_02154a60* var11 = arg0->unknown_894_;
         for (unsigned char var12 = 0; var12 < 4; var12++, var11++) {
@@ -103,12 +119,12 @@ extern "C" ARM void func_ov006_02154a60(Struct_ov006_02154a60_2* arg0)
             Vector3fix var15 = arg0->unknown_328_;
             Vector3fix_Add(&var13, &var15, &var14);
             int var16, var17;
-            ConvertWorldToScreen_0202ec84(var10, &var14, &var16, &var17);
+            func_0202ec84(var10, &var14, &var16, &var17);
             var11->unknown_76_ = var16 - 18;
             var11->unknown_78_ = var17 - 12;
         }
     }
-    GetOAMManager_0203bd08();
+    func_0203bd08();
     void* var18 = func_0203be40();
     Struct_ov006_02154a60* var19;
     unsigned char var20;

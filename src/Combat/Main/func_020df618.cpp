@@ -2,6 +2,10 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_020da150 func_020dbb58
+#endif
+
 extern "C" char* func_020da150(SafeAllocator* arg0, const char* arg1);
 
 struct Struct_020def98 {

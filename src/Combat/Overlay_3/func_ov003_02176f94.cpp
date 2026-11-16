@@ -36,6 +36,10 @@ enum {
 
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct MenuLayout_0207fdcc_2;
 extern "C" void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2 *menuLayout, int windowId);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void *menuLayout, int windowId, int palette);
@@ -43,7 +47,7 @@ extern "C" void func_02080bac(void *arg0, int arg1);
 struct ItemTable_0201099c_10;
 struct Struct_ov003_02176f94;
 extern "C" struct Struct_ov003_02176f94 *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
-extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" void *func_02053c6c(unsigned char *gameObject);
 struct Struct_02083994;
 extern "C" int func_02083994(struct Struct_02083994 *arg0, int arg1);
 struct MenuLayout_02080f8c;
@@ -135,7 +139,7 @@ extern "C" ARM void func_ov003_02176f94(Struct_ov003_02176f94_2* arg0) {
             if (var14 != NULL) {
                 var11 = (int)var14->baseStats_;
                 var12 = func_02083994(
-                    (struct Struct_02083994 *) GetPartyMemberData_02053c6c((unsigned char *) var14), arg0->unknown_103a_);
+                    (struct Struct_02083994 *) func_02053c6c((unsigned char *) var14), arg0->unknown_103a_);
             }
             SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c *) var0, var4, var11);
             func_02080cc0((struct Struct_02080cc0 *) var0, var4, func_020dcc98(var13));

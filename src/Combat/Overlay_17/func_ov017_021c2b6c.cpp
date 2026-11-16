@@ -10,6 +10,7 @@ enum { Enum_ov017_021c2b6c_434 = 0x1b2 };
 #include "Filesystem/FileIO.h"
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
+#include "Graphics/TextureArena.h"
 
 struct Struct_02114e20;
 struct TextureVRAMArea_02015ef4_5;
@@ -19,7 +20,6 @@ extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" int AddEffectResource_02057e6c(void* effectManager, int effectId, SafeAllocator* allocator, int fileData, int fileSize, TextureVRAMArea_02015ef4_5* textureVRAMArea);
 extern "C" unsigned int func_02012dd0(Struct_02114e20*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void InitTextureVRAMAreaFromSaved_0207dfc8(TextureVRAMArea_02015ef4_5*, TextureVRAMArea_02015ef4_5*);
 extern "C" void PlayEffect_02057fb4(void*, int, void*);
 extern "C" void func_ov017_021d24a8(int);
 
@@ -76,9 +76,9 @@ extern "C" ARM void func_ov017_021c2b6c(Struct_ov017_021c2b6c* arg0) {
         arg0->unknown_8_.CreateTypeA(var5, 0x8000);
         arg0->unknown_8_.Reset();
         char* var6 = var1->unknown_2cc_;
-        InitTextureVRAMAreaFromSaved_0207dfc8((TextureVRAMArea_02015ef4_5*)(var6 + 0xc40), (TextureVRAMArea_02015ef4_5*)arg0->unknown_1c_);
+        ((TextureArena*)((TextureVRAMArea_02015ef4_5*)(var6 + 0xc40)))->CreateDescendant((TextureArena*)((TextureVRAMArea_02015ef4_5*)arg0->unknown_1c_));
         var4 = 0;
-        void* var7 = LoadFileIntoNewAllocation(data_ov017_021d7f6c, arg0->unknown_8_, &var4);
+        void* var7 = LoadFileIntoNewAllocation(data_ov017_021d7f6c, &arg0->unknown_8_, &var4);
         if (var7 == 0) {
             arg0->unknown_8c_ = 3;
             return;

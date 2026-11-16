@@ -1,11 +1,19 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+#if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+extern "C" void* func_ov017_021b8468(void* battleManager);
 extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 
 struct Struct_ov017_021c8588 {
     unsigned int unknown_0_0_ : 30;
@@ -24,7 +32,7 @@ extern "C" ARM void func_ov017_021c8588(int arg0, signed char* arg1, GameState* 
     signed char* var1;
     int var2;
     void* var3 = *(void**)(arg3 + Enum_ov017_021c8588_14104);
-    var0 = GetBattleScene_ov017_021b8468(var3);
+    var0 = func_ov017_021b8468(var3);
     if (var0 == 0) return;
     if (GetBattle_ov017_021b8470(var3) == 0) return;
 
@@ -32,7 +40,7 @@ extern "C" ARM void func_ov017_021c8588(int arg0, signed char* arg1, GameState* 
     for (var2 = 0; var2 < 4; var2++) {
         GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var2);
         if (var4 == 0) continue;
-        int var5 = GetPartyMemberData_02053c6c((unsigned char*)var4);
+        int var5 = func_02053c6c((unsigned char*)var4);
         if (var5 == 0) continue;
         signed char var6 = var1[var2];
         signed char var7 = *(var1 + var2 + 4);

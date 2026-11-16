@@ -1,7 +1,6 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
-extern "C" void func_0205af38(int arg0, char* arg1, int arg2, int arg3);
-extern "C" int DrawSprite_0205ac40(int spriteSet, void* sprite);
 
 struct Struct_0208baec {
     int unknown_0_;
@@ -23,10 +22,10 @@ struct Struct_0208baec_2 {
 };
 
 // USA: func_0208baec
-extern "C" ARM int func_0208baec(int arg0, Struct_0208baec_2* arg1, Struct_0208baec* arg2, int arg3,
+extern "C" ARM void func_0208baec(int arg0, Struct_0208baec_2* arg1, Struct_0208baec* arg2, int arg3,
                                          float arg4, int arg5, unsigned char arg6) {
     arg1->unknown_22_ = (unsigned char)arg3;
-    func_0205af38(arg0, (char*)arg1, 1, 1);
+    ((OBJSpriteSet*)(arg0))->SetMetatileTransformFlags((OBJSpriteSet::Metatile*)((char*)arg1), 1, 1);
     arg1->unknown_20_ = arg6;
     int var0 = arg2->unknown_0_, var1 = arg2->unknown_4_;
     int var2 = var0 - arg5;
@@ -36,5 +35,5 @@ extern "C" ARM int func_0208baec(int arg0, Struct_0208baec_2* arg1, Struct_0208b
     arg1->unknown_c_ = (int)(arg4 * 4096.0f);
     arg1->unknown_10_ = (int)(arg4 * 4096.0f);
     arg1->unknown_1c_ = arg2->unknown_c_;
-    return DrawSprite_0205ac40(arg0, arg1);
+    ((OBJSpriteSet*)(arg0))->DrawMetatile((OBJSpriteSet::Metatile*)(arg1));
 }

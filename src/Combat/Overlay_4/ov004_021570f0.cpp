@@ -1,4 +1,3 @@
-#pragma ipa file
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "NitroSDK/Matrix.h"
@@ -10,9 +9,29 @@
 #include "Combat/Main/MessageSlotTable.h"
 #include "Resource/FontBankLoader.h"
 #include "World/ZoneLootableRecord.h"
-extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char g_fileScratchSpace[0x30000] __attribute__((aligned(4)));
 #include "Filesystem/FileIO.h"
 #include "Resource/Brightness.h"
+#include "Graphics/SPRSprite.h"
+#include "Graphics/TextureArena.h"
+#include "Resource/GameStrings.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_020c54a4 func_020c6f70
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 #if defined(jpn)
 #define R(j, u) (j)
@@ -382,7 +401,7 @@ struct Struct_ov004_02157a28_4 {
 };
 
 extern "C" signed char func_ov004_02157128(void*);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int FindMenuItemTable_ov004_02156fd4(void*, int);
 extern "C" void func_0207cc18(void*, Struct_ov004_02157a28_2*);
 extern "C" void SetEquippedItem_02052d7c(struct Struct_02052d7c*, int, short);
@@ -408,7 +427,7 @@ extern "C" void func_ov017_021a3498(Struct_0203d028_4*);
 // USA: func_ov004_02157a28
 extern "C" ARM int func_ov004_02157a28(void* arg0, int arg1) {
     short var0 = ((short)func_ov004_02157128(arg0));
-    int* var1 = ((int*)GetLocalWireless_0202ae18());
+    int* var1 = ((int*)func_0202ae18());
     GameState* var2 = GameState::GetInstance();
     GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var2, var0);
     if (!var3) return 0;
@@ -418,7 +437,6 @@ extern "C" ARM int func_ov004_02157a28(void* arg0, int arg1) {
     if (!var5) return 0;
     int var6 = var5->unknown_8_.unknown_0_0_;
     Struct_ov004_02157a28_4 var7;
-    var7.unknown_0_.ResetAllocatorPointer();
     InitItemTable_020de824(var7.unknown_14_);
     func_0207cbe8((char*)&var7);
     func_0207cbe8((char*)&var7);
@@ -586,7 +604,6 @@ extern "C" void* func_ov011_021845f8(unsigned char*, unsigned int);
 extern "C" void ResetSaveProgress_020a9ea4(struct SaveProgress_020a9ea4*);
 #if defined(jpn)
 struct StringTable_0201099c_14;
-extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14*);
 #else
 extern "C" void InitNounTable_020e526c(void*);
 #endif
@@ -594,14 +611,14 @@ extern "C" void InitNoun_020e46c4(void*);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" unsigned short func_0201e830(struct Struct_0201e830* arg0);
 extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
-extern "C" void Set3DFog_020c54a4(int, unsigned int, unsigned int, unsigned short);
+extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
 extern "C" void func_ov023_021f5598(void*);
 extern "C" void GetCurrentDate_020cf0fc(int);
 extern "C" void func_020cf1a8(int);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" unsigned char func_0209ca98(char*);
-extern "C" void* GetGlobalFlags_020d6c00();
+extern "C" void* func_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" unsigned char GetOwnPartyOrder_02011494(char*, void*);
 
@@ -664,7 +681,7 @@ extern "C" ARM int func_ov004_02157db8(void* arg0) {
     var7->unknown_78_ = 0;
     ResetSaveProgress_020a9ea4((struct SaveProgress_020a9ea4*)var7->unknown_84_);
 #if defined(jpn)
-    InitStringTable_020dfc40((struct StringTable_0201099c_14*)var7->unknown_8c_);
+    ((StringList*)((struct StringTable_0201099c_14*)var7->unknown_8c_))->Reset();
     var7->unknown_98_ = 0;
     var7->unknown_9c_ = 0;
     var7->unknown_9d_ = 0;
@@ -692,7 +709,7 @@ extern "C" ARM int func_ov004_02157db8(void* arg0) {
 
     int var14 = 0;
     Set3DClearColorAndDepth_020c5588(0, 0x1f, 0x7fff, 0, 0);
-    Set3DFog_020c54a4(0, 0, 0, 0);
+    func_020c54a4(0, 0, 0, 0);
 
     void* var15 = ((void*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     if (var15 != 0) {
@@ -713,7 +730,7 @@ extern "C" ARM int func_ov004_02157db8(void* arg0) {
     ((Struct_ov004_02157db8_4*)data_ov004_021707e0)->unknown_2d_ = func_0209ca98(gMusicManager_02109bf4);
     unsigned int var18 = *(unsigned int*)(var4 + 0x50);
     ((Struct_ov004_02157db8_4*)data_ov004_021707e0)->unknown_2f_ = (var18 & 1) ? 1 : 0;
-    SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0xf);
+    SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 0xf);
 
     short* var19 = (short*)(var3 + 4);
     for (int var20 = 0; var20 < 6; ) {
@@ -779,7 +796,7 @@ extern "C" void func_0201e828(Struct_0201e828*, unsigned short);
 
 extern "C" void EnablePlayerControl_020397c0(void* object);
 
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 
@@ -810,7 +827,7 @@ extern "C" ARM int func_ov004_02158298(void) {
     struct Struct_ov004_02158298_3* var3 = (struct Struct_ov004_02158298_3*)((char*)var0 + Enum_ov004_02158298_620);
     var3->unknown_5d00_.unknown_c_0_ &= ~0x20;
 
-    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0xf);
+    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)func_020d6c00(), 0xf);
 
     unsigned char* var4 = *(unsigned char**)((char*)var1 + Enum_ov004_02158298_14096);
     if (var4[2] != 0) {
@@ -1139,7 +1156,6 @@ extern "C" ARM int func_ov004_021589e8(void* arg0) {
 }
 
 #if defined(jpn)
-extern "C" char* func_020e207c(struct Struct_0201099c_3*, char*, int);
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 #endif
@@ -1180,7 +1196,7 @@ extern "C" ARM int func_ov004_02158a60(void* arg0) {
         struct ItemData_0201099c_9* var4 = FindItemData_020dedd0(var3, var0->unknown_f8_);
 #if defined(jpn)
         char var5[80];
-        func_020e207c((Struct_0201099c_3*)(((char*)data_ov004_021707e0) + 0x8c), var5, *(short*)((char*)var4 + 0x18));
+        ((StringList*)((((char*)data_ov004_021707e0) + 0x8c)))->GetAndCopyString(var5, *(short*)((char*)var4 + 0x18));
         SetMessageString_02046574((Struct_02046574_2*)var2, 1, var5);
 #else
         int var6 = ((int)FindNounInTable_020e5294(((char*)data_ov004_021707e0) + 0x8c, *(short*)((char*)var4 + 0x18)));
@@ -1190,7 +1206,7 @@ extern "C" ARM int func_ov004_02158a60(void* arg0) {
         return 0;
     }
 
-    void* var7 = GetLocalWireless_0202ae18();
+    void* var7 = func_0202ae18();
     if (IsLocalWirelessGuest_0202c540(var7) != 0) {
         QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3ae);
         return 0;
@@ -1379,7 +1395,6 @@ struct Struct_ov004_02158dcc_7 {
 };
 struct Struct_ov004_02158dcc;
 #if defined(jpn)
-extern "C" char* func_020e207c(struct Struct_0201099c_3*, char*, int);
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 #else
@@ -1402,7 +1417,7 @@ extern "C" ARM int func_ov004_02158dcc(void* arg0) {
     if (!var2) return 0;
 #if defined(jpn)
     char var3[80];
-    func_020e207c((Struct_0201099c_3*)(((Struct_ov004_02158dcc_2*)data_ov004_021707e0)->unknown_8c_), var3, var2->unknown_16_);
+    ((StringList*)((((Struct_ov004_02158dcc_2*)data_ov004_021707e0)->unknown_8c_)))->GetAndCopyString(var3, var2->unknown_16_);
     SetMessageString_02046574((Struct_02046574_2*)((Struct_ov004_02158dcc_6*)GetMessageWindow_020421a0()), 1, var3);
 #else
     int var4 = ((int)FindNounInTable_020e5294(((Struct_ov004_02158dcc_2*)data_ov004_021707e0)->unknown_8c_, var2->unknown_16_));
@@ -1806,7 +1821,6 @@ extern "C" ARM int func_ov004_0215951c(void* arg0) {
 }
 
 #if defined(jpn)
-extern "C" char* func_020e207c(struct Struct_0201099c_3*, char*, int);
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 #endif
@@ -1824,7 +1838,6 @@ struct Struct_ov004_02159650_3 { int unknown_0_; char unknown_4_[4]; int unknown
 
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 
-extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void SetNoun_020e4b34(void* noun, int singularText, int pluralText, int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int isProperName, int hasInitialVowelSound, int isInitialVowelFromText);
 extern "C" int GetEquippedItem_02052df8(struct Struct_02052df8* gameObject, int slot);
 
@@ -1864,7 +1877,7 @@ extern "C" ARM int func_ov004_02159650(void* arg0) {
 
         void* var7 = *(void**)((char*)var6 + 0x150);
         int var8 = (short)(*(int*)((char*)var7 + 0x950));
-        int var9 = GetStandardString_020e51cc(var8);
+        int var9 = ((int)GetGameString((eGameString)(var8)));
         SetNoun_020e4b34(data_ov004_021707e0 + 0xac, var9, var9, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         *(void**)((char*)var0 + 0x28) = data_ov004_021707e0 + 0xac;
 #endif
@@ -1873,7 +1886,7 @@ extern "C" ARM int func_ov004_02159650(void* arg0) {
     if (var2 != 0) {
 #if defined(jpn)
         char var10[80];
-        func_020e207c((Struct_0201099c_3*)(data_ov004_021707e0 + 0x8c), var10, var2->unknown_18_);
+        ((StringList*)((data_ov004_021707e0 + 0x8c)))->GetAndCopyString(var10, var2->unknown_18_);
         SetMessageString_02046574((Struct_02046574_2*)var0, 1, var10);
 #else
         int var11 = ((int)FindNounInTable_020e5294(data_ov004_021707e0 + 0x8c, var2->unknown_18_));
@@ -2064,7 +2077,6 @@ extern "C" ARM int func_ov004_02159bcc(void* arg0) {
         ItemTable_0201099c_10* var3 = ((struct ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
         if (var3 != NULL) {
             Struct_ov004_02159bcc var4;
-            var4.unknown_0_.ResetAllocatorPointer();
             InitItemTable_020de824(var4.unknown_14_);
             func_0207cbe8((char*)&var4);
             func_0207cbe8((char*)&var4);
@@ -2205,7 +2217,6 @@ extern Struct_ov004_0216fb18 data_ov004_0216fb18;
 extern "C" int func_ov004_02159650(void*);
 #if defined(jpn)
 struct Struct_0201099c_3;
-extern "C" char* func_020e207c(struct Struct_0201099c_3*, char*, int);
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 #endif
@@ -2218,7 +2229,7 @@ static inline Struct_ov004_02159fcc_2* inline_ov004_02159fcc(Struct_ov004_02159f
 extern "C" ARM int func_ov004_02159fcc(void* arg0) {
     int var0 = func_ov004_02157128(arg0);
     ((Struct_ov004_02159fcc_4*)data_ov004_021707e0)->unknown_3c_ = var0;
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), var0);
     if (!var1) return 0;
     ItemTable_0201099c_10* var2 = ((ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
@@ -2239,7 +2250,7 @@ extern "C" ARM int func_ov004_02159fcc(void* arg0) {
             Struct_ov004_02159fcc_5* var8 = ((Struct_ov004_02159fcc_5*)GetMessageWindow_020421a0());
 #if defined(jpn)
             char var9[80];
-            func_020e207c((Struct_0201099c_3*)((Struct_ov004_02159fcc_4*)data_ov004_021707e0)->unknown_8c_, var9, var7->unknown_18_);
+            ((StringList*)(((Struct_ov004_02159fcc_4*)data_ov004_021707e0)->unknown_8c_))->GetAndCopyString(var9, var7->unknown_18_);
             SetMessageString_02046574((Struct_02046574_2*)var8, 1, var9);
 #else
             var8->unknown_18_ = FindNounInTable_020e5294(((Struct_ov004_02159fcc_4*)data_ov004_021707e0)->unknown_8c_, var7->unknown_18_);
@@ -2354,7 +2365,7 @@ struct Struct_ov004_0215a31c_3 {
 };
 struct Struct_020a0b8c;
 extern "C" int func_020a0b8c(Struct_020a0b8c* arg0);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" int func_02053c6c(unsigned char*);
 extern "C" int func_020dcc98(signed char arg0);
 typedef int (*Type_ov004_0215a31c)(Struct_ov004_0215a31c_2*, unsigned short, unsigned int, unsigned int);
 extern "C" void func_ov023_021f9ba8(Struct_ov004_0215a31c_2* arg0, int arg1);
@@ -2406,7 +2417,7 @@ extern "C" ARM int func_ov004_0215a31c(void* arg0) {
     } else {
         GameObject* var12 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), var0);
         if (!var12) return 0;
-        var3 = (short*)(((unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var12)) + 0x454);
+        var3 = (short*)(((unsigned char*)func_02053c6c((unsigned char*)var12)) + 0x454);
         Struct_ov004_0215a31c* var13 = ((Struct_ov004_0215a31c*)func_ov004_02156f04(arg0, 0x454));
         if (var13) {
             var13->unknown_20_ = var12->baseStats_;
@@ -2577,7 +2588,7 @@ extern "C" ARM int func_ov004_0215aa10(void* arg0) {
         } else {
             GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var0, var5);
             if (!var7) return 0;
-            int var8 = GetPartyMemberData_02053c6c((unsigned char*)var7);
+            int var8 = func_02053c6c((unsigned char*)var7);
             var1 = CountHeldItems_02083960((struct PartyMemberData_0207d300*)var8);
         }
     }
@@ -2633,7 +2644,7 @@ extern "C" ARM int func_ov004_0215aaf0(void* arg0) {
         } else {
             GameObject* var11 = GetPartyMemberBaseByIndex_0200ff1c(var0, var9);
             if (!var11) return 0;
-            int var12 = GetPartyMemberData_02053c6c((unsigned char*)var11);
+            int var12 = func_02053c6c((unsigned char*)var11);
             var6 = ((struct Struct_ov004_0215aaf0_3*)FindItemData_020dedd0(var1, ((short*)((char*)var12 + 0x400 + 0x54))[var3]));
             if (var6->unknown_8_.unknown_1_4_ == 0) {
                 QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3a1);
@@ -2848,7 +2859,6 @@ end:
 
 #if defined(jpn)
 struct Struct_0201099c_3;
-extern "C" char* func_020e207c(struct Struct_0201099c_3*, char*, int);
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 #endif
@@ -2907,7 +2917,7 @@ extern "C" ARM int func_ov004_0215b120(void* arg0) {
     if (var4 == 1) {
 #if defined(jpn)
         char var6[80];
-        func_020e207c(var5, var6, var2->unknown_18_);
+        ((StringList*)(var5))->GetAndCopyString(var6, var2->unknown_18_);
         SetMessageString_02046574((Struct_02046574_2*)var0, 1, var6);
 #else
         void* var7 = FindNounInTable_020e5294(var5, var2->unknown_18_);
@@ -2917,7 +2927,7 @@ extern "C" ARM int func_ov004_0215b120(void* arg0) {
     } else {
 #if defined(jpn)
         char var8[80];
-        func_020e207c(var5, var8, var2->unknown_18_);
+        ((StringList*)(var5))->GetAndCopyString(var8, var2->unknown_18_);
         SetMessageString_02046574((Struct_02046574_2*)var0, 1, var8);
 #else
         void* var9 = FindNounInTable_020e5294(var5, var2->unknown_18_);
@@ -2971,7 +2981,7 @@ extern "C" ARM int func_ov004_0215b1d4(void* arg0) {
         int var10 = *(signed char*)(data_ov004_021707e0 + 0x70);
         GameObject* var11 = GetPartyMemberBaseByIndex_0200ff1c(var0, var10);
         if (!var11) return 0;
-        int var12 = GetPartyMemberData_02053c6c((unsigned char*)var11);
+        int var12 = func_02053c6c((unsigned char*)var11);
         short var13 = *(short*)(data_ov004_021707e0 + 0x6c);
         func_020838c4((struct Struct_020838c4*)var12, var13);
     }
@@ -3259,7 +3269,7 @@ extern "C" ARM int func_ov004_0215b7f8(void* arg0) {
     if (!((struct StringList_02072a68_2*)func_ov004_02157018(arg0, 4))) return 0;
     GameState* var0 = GameState::GetInstance();
     Struct_ov004_0215b7f8_3* var1 = (Struct_ov004_0215b7f8_3*)((char*)var0 + Enum_ov004_0215b7f8_620 + 0x5c00);
-    if (IsNotLocalWirelessGuest_0202c508((LocalWireless_0202c508*)(GetLocalWireless_0202ae18())) && func_ov017_021b213c(var1->unknown_100_.unknown_0_, ((Struct_ov004_0215b7f8*)data_ov004_021707e0)->unknown_18_)) {
+    if (IsNotLocalWirelessGuest_0202c508((LocalWireless_0202c508*)(func_0202ae18())) && func_ov017_021b213c(var1->unknown_100_.unknown_0_, ((Struct_ov004_0215b7f8*)data_ov004_021707e0)->unknown_18_)) {
         char var2[0x200];
         char var3[0x220];
         int var4 = ((Struct_ov004_0215b7f8_4*)var0)->unknown_5f6c_.unknown_10_;
@@ -3330,7 +3340,6 @@ struct Struct_ov004_0215b934_6 {
 };
 struct Struct_02046574_2;
 #if defined(jpn)
-extern "C" char* func_020e207c(struct Struct_0201099c_3*, char*, int);
 #else
 extern "C" void* FindNounInTable_020e5294(void*, int);
 #endif
@@ -3365,7 +3374,7 @@ extern "C" ARM int func_ov004_0215b934(void* arg0) {
             struct StringList_02072a68_2* var8 = ((struct StringList_02072a68_2*)func_ov004_02157018(arg0, 9));
 #if defined(jpn)
             char var9[80];
-            func_020e207c((Struct_0201099c_3*)(((Struct_ov004_0215b934*)data_ov004_021707e0)->unknown_8c_), var9, var2->unknown_18_);
+            ((StringList*)((((Struct_ov004_0215b934*)data_ov004_021707e0)->unknown_8c_)))->GetAndCopyString(var9, var2->unknown_18_);
             SetMessageString_02046574((Struct_02046574_2*)var3, 1, var9);
 #else
             var3->unknown_18_ = ((int)FindNounInTable_020e5294(((Struct_ov004_0215b934*)data_ov004_021707e0)->unknown_8c_, var2->unknown_18_));
@@ -3383,7 +3392,7 @@ extern "C" ARM int func_ov004_0215b934(void* arg0) {
             AddItem_0207d300(var10, var5->unknown_f8_.unknown_0_, (signed char)var5->unknown_f8_.unknown_2_, 0);
 #if defined(jpn)
             char var11[80];
-            func_020e207c((Struct_0201099c_3*)(((Struct_ov004_0215b934*)data_ov004_021707e0)->unknown_8c_), var11, var2->unknown_18_);
+            ((StringList*)((((Struct_ov004_0215b934*)data_ov004_021707e0)->unknown_8c_)))->GetAndCopyString(var11, var2->unknown_18_);
             SetMessageString_02046574((Struct_02046574_2*)var3, 1, var11);
 #else
             var3->unknown_18_ = ((int)FindNounInTable_020e5294(((Struct_ov004_0215b934*)data_ov004_021707e0)->unknown_8c_, var2->unknown_18_));
@@ -3553,7 +3562,7 @@ extern "C" ARM int func_ov004_0215be9c(int arg0) {
             if (var7 == 0) {
                 return 0;
             }
-            unsigned char* var8 = (unsigned char*)((void*)GetPartyMemberData_02053c6c((unsigned char*)var7)) + 0x54;
+            unsigned char* var8 = (unsigned char*)((void*)func_02053c6c((unsigned char*)var7)) + 0x54;
             var4 = var8 + 0x400;
             var3 = 0;
         } else {
@@ -3569,7 +3578,6 @@ extern "C" ARM int func_ov004_0215be9c(int arg0) {
 }
 
 #if defined(jpn)
-extern "C" int func_020e038c(void*, void*, int);
 #endif
 
 #if defined(jpn)
@@ -3607,7 +3615,6 @@ struct Struct_0209c3b4_2;
 extern "C" void PlayMusic_0209c3b4(struct Struct_0209c3b4_2* manager, int musicIndex);
 extern "C" void func_0209ca70(void* arg0, int arg1);
 extern "C" void func_020dc2bc(void);
-extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 extern "C" int func_020e56fc(void* arg0, int arg1, int arg2);
 
 #if defined(jpn)
@@ -3640,11 +3647,11 @@ extern "C" ARM int func_ov004_0215bf94() {
 #if defined(jpn)
     unsigned int var4;
     LoadFileIntoMemory("data/prm/itemname.nat", ((Struct_ov004_0215bf94*)data_ov004_021707e0)->unknown_98_, &var4);
-    func_020e038c(&((Struct_ov004_0215bf94*)data_ov004_021707e0)->unknown_8c_, ((Struct_ov004_0215bf94*)data_ov004_021707e0)->unknown_98_, (int)var4);
+    ((StringList::NATData*)(&((Struct_ov004_0215bf94*)data_ov004_021707e0)->unknown_8c_))->LoadFromMemory((void*)(((Struct_ov004_0215bf94*)data_ov004_021707e0)->unknown_98_), (int)var4);
 #else
     BackgroundLoader::AddLockGlobal();
     unsigned int var5;
-    void* var6 = ExtractFileFromGP2("data/prm/itemname.gp2", "itemname_<LG>.nat", &var5);
+    void* var6 = ExtractFileFromGP2((const char*)("data/prm/itemname.gp2"), (const char*)("itemname_<LG>.nat"), (unsigned int*)(&var5));
     if (var5 <= 0x10800) {
         memcpy(((Struct_ov004_0215bf94*)data_ov004_021707e0)->unknown_98_, var6, var5);
         func_020e56fc(&((Struct_ov004_0215bf94*)data_ov004_021707e0)->unknown_8c_, (int)((Struct_ov004_0215bf94*)data_ov004_021707e0)->unknown_98_, (int)var5);
@@ -3804,7 +3811,7 @@ done:
 }
 
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
-extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char g_fileScratchSpace[0x30000] __attribute__((aligned(4)));
 extern "C" void* func_ov004_0215c448(void* arg0);
 extern "C" void* func_ov004_0215c474(void* arg0);
 extern "C" ARM int func_ov023_021f6f20(void* arg0, int arg1, int arg2, int arg3, int arg4, unsigned int arg5);
@@ -3812,11 +3819,6 @@ extern "C" ARM void* func_ov023_021f7318(void* arg0);
 extern "C" ARM void func_ov023_021f7320(void* arg0);
 
 struct TextureVRAMArea_0203d028;
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
-extern "C" void func_0204719c(void* arg0);
-extern "C" void func_02047b30(void* arg0, int arg1, int arg2, int arg3);
 
 struct MenuObjectList_ov004_0215c30c;
 struct MenuObject_ov004_0215c30c_2;
@@ -3849,16 +3851,16 @@ extern "C" ARM int func_ov004_0215c30c(void* arg0) {
 
     BackgroundLoader::AddLockGlobal();
     unsigned int var4;
-    void* var5 = LoadFileIntoMemory("data/menu/dqa_rox.spr", gFileScratchSpace_0211e33c, &var4);
+    void* var5 = LoadFileIntoMemory("data/menu/dqa_rox.spr", g_fileScratchSpace, &var4);
     char* var6 = inline_ov004_0215c30c(GetGameResources(), 0);
     void* var7 = func_ov023_021f7318(var1);
-    ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)var6);
-    RestoreTextureVRAMState_0207df90(var6);
-    func_0204719c(var7);
+    ((TextureArena*)((struct TextureVRAMArea_0203d028*)var6))->Reset();
+    ((TextureArena*)(var6))->Restore();
+    ((SPRSprite*)(var7))->Reset();
     if (var5 != 0) {
-        func_02047b30(var7, (int)var5, var4, (int)((char*)var0 + 4));
+        ((SPRSprite*)(var7))->LoadFromSPR((const void*)((int)var5), var4, (SafeAllocator*)((int)((char*)var0 + 4)));
     }
-    SaveTextureVRAMState_0207dfac(var6);
+    ((TextureArena*)(var6))->Save();
     BackgroundLoader::RemoveLockGlobal();
     func_ov023_021f7320(var1);
     AppendMenuObject_ov023_021f67ac((struct MenuObjectList_ov004_0215c30c*)GetMenuObjectList_ov011_021849c8(arg0), (struct MenuObject_ov004_0215c30c_2*)var1);
@@ -3869,7 +3871,6 @@ extern "C" ARM int func_ov004_0215c30c(void* arg0) {
 }
 
 struct Struct_0204719c;
-extern "C" void func_02048080(struct Struct_0204719c* arg0);
 extern int data_ov023_021fe3e4;
 
 // USA: func_ov004_0215c448
@@ -3877,18 +3878,17 @@ extern "C" ARM void* func_ov004_0215c448(void* arg0) {
     Struct_0204719c* var0 = (Struct_0204719c*)((char*)arg0 + 0x34);
     void* var1 = (char*)arg0 + 0x20;
     *(void**)arg0 = &data_ov023_021fe3e4;
-    func_02048080(var0);
-    func_0204719c(var1);
+    ((SPRSprite::Names*)(var0))->Reset();
+    ((SPRSprite*)(var1))->Reset();
 	return arg0;
 }
 
 struct Struct_02012fa4;
-extern "C" void func_02047230(struct Struct_02012fa4* arg0);
 
 // USA: func_ov004_0215c474
 extern "C" ARM void* func_ov004_0215c474(void* arg0) {
-    func_02047230((struct Struct_02012fa4*)((int)arg0 + 0x20));
-    func_02048080((struct Struct_0204719c*)((int)arg0 + 0x34));
+    ((SPRSprite*)((struct Struct_02012fa4*)((int)arg0 + 0x20)))->Release();
+    ((SPRSprite::Names*)((struct Struct_0204719c*)((int)arg0 + 0x34)))->Reset();
     return arg0;
 }
 
@@ -4031,13 +4031,8 @@ struct Struct_ov004_0215c774_4 {
 extern "C" void* func_ov004_0215c448(void*);
 extern "C" void* func_ov004_0215c474(void*);
 extern "C" int func_ov023_021f6f20(void*, int, int, int, int, unsigned int);
-extern "C" void* ExtractFileFromGP2(const char*, const char*, unsigned int*);
 extern "C" void* func_ov023_021f7318(void*);
 extern "C" Struct_ov004_0215c774_3* func_ov011_0218466c(void*, unsigned short);
-extern "C" void RestoreTextureVRAMState_0207df90(char*);
-extern "C" void func_0204719c(void*);
-extern "C" void func_02047b30(void*, int, int, int);
-extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void func_ov023_021f7320(void*);
 extern "C" void AppendMenuObject_ov023_021f67ac(MenuObjectList_ov004_0215c30c*, MenuObject_ov004_0215c30c_2*);
 
@@ -4067,7 +4062,7 @@ extern "C" ARM int func_ov004_0215c774(void* arg0) {
     sprintf(var4, "data/menu/dqa_%02d.spr", ((Struct_ov004_0215c774_4*)data_ov004_021707e0)->unknown_19_4_);
     BackgroundLoader::AddLockGlobal();
     unsigned int var7;
-    void* var8 = LoadFileIntoMemory(var4, gFileScratchSpace_0211e33c, &var7);
+    void* var8 = LoadFileIntoMemory(var4, g_fileScratchSpace, &var7);
 #else
     char var5[32];
     char var6[32];
@@ -4077,17 +4072,17 @@ extern "C" ARM int func_ov004_0215c774(void* arg0) {
     sprintf(var6, "dqa_%02d_<LG>.spr", ((Struct_ov004_0215c774_4*)data_ov004_021707e0)->unknown_19_4_);
     BackgroundLoader::AddLockGlobal();
     unsigned int var7;
-    void* var8 = ExtractFileFromGP2(var5, var6, &var7);
+    void* var8 = ExtractFileFromGP2((const char*)(var5), (const char*)(var6), (unsigned int*)(&var7));
 #endif
     void* var9 = func_ov023_021f7318(var1);
     Struct_ov004_0215c774_3* var10 = func_ov011_0218466c(arg0, 0);
     char* var11 = var10->unknown_4_;
-    RestoreTextureVRAMState_0207df90(var11);
-    func_0204719c(var9);
+    ((TextureArena*)(var11))->Restore();
+    ((SPRSprite*)(var9))->Reset();
     if (var8 != 0) {
-        func_02047b30(var9, (int)var8, var7, (int)&var0->unknown_4_);
+        ((SPRSprite*)(var9))->LoadFromSPR((const void*)((int)var8), var7, (SafeAllocator*)((int)&var0->unknown_4_));
     }
-    SaveTextureVRAMState_0207dfac(var11);
+    ((TextureArena*)(var11))->Save();
     BackgroundLoader::RemoveLockGlobal();
     func_ov023_021f7320(var1);
     AppendMenuObject_ov023_021f67ac(((MenuObjectList_ov004_0215c30c*)GetMenuObjectList_ov011_021849c8(arg0)), &var1->unknown_0_);
@@ -4188,12 +4183,12 @@ extern "C" ARM int func_ov004_0215c974(void* arg0) {
 
     func_ov023_021f6600(arg0, 0x36, 8);
 
-    var0 = GetGlobalFlags_020d6c00();
+    var0 = func_020d6c00();
     SetGlobalFlags_020466e4((unsigned int*)var0, 0x80);
 
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
-    var1 = func_020aad1c(data_ov004_021707e0 + 0x84, gFileScratchSpace_0211e33c, 0xa, 0) != 0;
+    var1 = func_020aad1c(data_ov004_021707e0 + 0x84, g_fileScratchSpace, 0xa, 0) != 0;
     BackgroundLoader::RemoveLockGlobal();
     if (!var1) return 1;
 
@@ -4577,7 +4572,7 @@ struct Struct_02053f7c;
 extern "C" short func_02086aec(struct Struct_02053f7c* arg0, int arg1);
 extern "C" int func_ov024_021f6f10(void*);
 struct Struct_02000c9c_8;
-extern "C" unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8*);
+extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8*);
 
 struct Struct_ov004_0215d384 { int unknown_0_; int unknown_4_; int unknown_8_; };
 
@@ -4631,7 +4626,7 @@ extern "C" ARM int func_ov004_0215d384(void* arg0) {
     Struct_ov004_0215d384 var7;
     var7.unknown_4_ = 0x4000;
     var7.unknown_8_ = 0;
-    int var8 = ((int)GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)var0));
+    int var8 = ((int)func_0200fb08((struct Struct_02000c9c_8*)var0));
     switch (var8) {
     case 1: var7.unknown_0_ = 0x14000; var6->inline_ov004_0215d384_65(var7); break;
     case 2: var7.unknown_0_ = 0xe000; var6->inline_ov004_0215d384_65(var7); break;
@@ -4665,7 +4660,7 @@ extern "C" ARM int func_ov004_0215d534(void* arg0) {
     int var0 = func_ov004_02156e2c(arg0, 0x5b);
     if (var0 < 0) return 0;
 
-    LocalWireless_0202b2f0* var1 = ((LocalWireless_0202b2f0*)GetLocalWireless_0202ae18());
+    LocalWireless_0202b2f0* var1 = ((LocalWireless_0202b2f0*)func_0202ae18());
     if (!IsLocalWirelessOn_0202b7d8((int*)var1)) {
         func_ov004_0215c0c0(arg0);
     } else {
@@ -4699,7 +4694,7 @@ extern "C" ARM int func_ov004_0215d670(void* arg0) {
  enum { Enum_ov004_0215d670_620 = 0x26c };
 #endif
     char* var0 = (char*)GameState::GetInstance() + Enum_ov004_0215d670_620;
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     unsigned short var2 = *(unsigned short*)(var0 + 0x5d00 + 0xc);
     int var3 = (unsigned int)(var2 << 16) >> 29;
     if (var3 == 1) {
@@ -4915,14 +4910,13 @@ extern "C" ARM int func_ov004_0215db14(void* arg0) {
     var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, ((Struct_ov004_0215db14*)data_ov004_021707e0)->unknown_12_);
     var3 = 0;
     if (var2) {
-        PartyMemberData_0207d300* var9 = ((PartyMemberData_0207d300*)GetPartyMemberData_02053c6c((unsigned char*)var2));
+        PartyMemberData_0207d300* var9 = ((PartyMemberData_0207d300*)func_02053c6c((unsigned char*)var2));
         if (var9) var3 = 8 - CountHeldItems_02083960(var9);
     }
     int var10 = func_02086bf4((char*)GetParty_02010828(var0), ((Struct_ov004_0215db14*)data_ov004_021707e0)->unknown_e_);
     int var11 = FindMenuItemTable_ov004_02156fd4(arg0, 5);
     if (var11) {
         Struct_ov004_0215db14_2 var12;
-        var12.unknown_0_.ResetAllocatorPointer();
         InitItemTable_020de824(var12.unknown_14_);
         func_0207cbe8((char*)&var12);
         func_0207cbe8((char*)&var12);
@@ -5033,7 +5027,7 @@ extern "C" ARM int func_ov004_0215de9c(void* arg0) {
 	Struct_ov004_0215de9c_2 var3;
 	var3.unknown_4_ = 0x5a000;
 	var3.unknown_8_ = 0;
-	switch (GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)var0)) {
+	switch (func_0200fb08((struct Struct_02000c9c_8*)var0)) {
 	case 1:
 		var3.unknown_0_ = 0x90000;
 		var2->inline_ov004_0215de9c_8(&var3);
@@ -5063,7 +5057,7 @@ extern "C" ARM int func_ov004_0215de9c(void* arg0) {
 	void* var4 = FindMenuObjectById_ov023_021f6880((void**)var1, 0x2bf);
 	if (!var4) return 0;
 	if (func_ov024_021f6f10(var4) != 1) return 0;
-	switch (GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)var0)) {
+	switch (func_0200fb08((struct Struct_02000c9c_8*)var0)) {
 	case 1: func_ov023_021fb25c((struct Struct_ov004_0215de9c*)var4, 0, 0, 0x2c, 0xc); break;
 	case 2: func_ov023_021fb25c((struct Struct_ov004_0215de9c*)var4, 0, 0, 0x2c, 0xc); break;
 	case 3: func_ov023_021fb25c((struct Struct_ov004_0215de9c*)var4, 0, 0, 0x24, 0xc); break;
@@ -5114,3 +5108,8 @@ extern "C" ARM int func_ov004_0215e148(void* arg0) {
 }
 
 #undef MESSAGE_FLAG_OFFSET
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

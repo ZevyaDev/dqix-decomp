@@ -3,9 +3,9 @@
 
 extern "C" int _ZN7Model3D7GetTEX0Ev(void* arg0);
 extern "C" void WaitForVBlank_020c9820(void);
-void StageTexFilePaletteData(NSBXXTex volatile*, bool);
-struct NSBXXTex;
-void StageTexFileImageData(NSBXXTex volatile*, bool);
+void StageTexFilePaletteData(Nitro3DTextureSet volatile*, bool);
+struct Nitro3DTextureSet;
+void StageTexFileImageData(Nitro3DTextureSet volatile*, bool);
 
 struct Struct_ov017_021d61fc {
     int unknown_0_[12];
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov017_0218f80c(void* arg0, int arg1) {
         if (var7 == 0) {
             continue;
         }
-        StageTexFilePaletteData((NSBXXTex volatile*)var7, 0);
-        StageTexFileImageData((NSBXXTex volatile*)var7, 0);
+        StageTexFilePaletteData((Nitro3DTextureSet volatile*)var7, 0);
+        StageTexFileImageData((Nitro3DTextureSet volatile*)var7, 0);
     }
 }

@@ -33,3 +33,8 @@ extern "C" ARM void func_02077630(void* arg0) {
     }
     SetFieldMonsterState_02076ccc(arg0, 1);
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

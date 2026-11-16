@@ -33,17 +33,17 @@ enum { Enum_ov003_0216982c_409 = 0x199 };
 extern "C" void func_02042428(void*, int);
 extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int);
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 #endif
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
+#include "Resource/GameStrings.h"
+#include "Resource/StringList.h"
 
 struct TextWindowManager_0205de24_2;
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 struct MessageWindow_020465c0;
@@ -78,10 +78,10 @@ extern "C" ARM void func_ov003_0216982c(unsigned char* arg0) {
 
 #if defined(jpn)
     func_02042428(*(void**)(arg0 + 0x7c), 8);
-    int var3 = FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + 0x64), 0x65);
+    int var3 = ((int)((StringList*)((Struct_0201099c_3*)(arg0 + 0x64)))->GetString(0x65));
     AppendText_02042058((char*)*(void**)(arg0 + 0x7c), (const char*)var3);
 #else
-    int var4 = GetStandardString_020e51cc(0x3f1);
+    int var4 = ((int)GetGameString((eGameString)(0x3f1)));
     AppendText_02042058((char*)*(void**)(arg0 + 0x7c), (const char*)var4);
 #endif
 

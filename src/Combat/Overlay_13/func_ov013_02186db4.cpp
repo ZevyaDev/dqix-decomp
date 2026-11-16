@@ -1,11 +1,11 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 struct TextWindowManager_0205d81c;
 
 extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c*, int);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char*);
 extern "C" void* func_ov013_02184338(void*, unsigned int);
-extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 struct Struct_ov013_02186db4 {
     unsigned char unknown_0_[0x14];
@@ -45,5 +45,5 @@ extern "C" ARM void func_ov013_02186db4(void* arg0) {
     var3->unknown_18_ = var5 * 0x1000;
     var3->unknown_26_ = 1;
     var3->unknown_22_ = 0x20;
-    DrawSprite_0205ac40(*(void**)(var0 + 0x18), var3);
+    ((OBJSpriteSet*)(*(void**)(var0 + 0x18)))->DrawMetatile((OBJSpriteSet::Metatile*)(var3));
 }

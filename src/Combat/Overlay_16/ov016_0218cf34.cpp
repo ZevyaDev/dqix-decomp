@@ -8,6 +8,10 @@
 #include "NitroSDK/Filesystem/LowNitroHandle.h"
 
 #if defined(jpn)
+#define func_020ca458 func_020cbf24
+#endif
+
+#if defined(jpn)
 #define func_ov016_0218d2f4 func_ov016_0218d9f8
 #endif
 
@@ -21,7 +25,7 @@ extern "C" void func_0203aa44(void* arg0);
 extern "C" void func_0203aaf8(void* arg0, int arg1, int arg2);
 extern "C" void func_020c3864(int arg0);
 extern "C" void MapVRAMBanksToLCDC(int banks);
-extern "C" void Memset32Bit_020ca458(int arg0, void* arg1, unsigned int arg2);
+extern "C" void func_020ca458(int arg0, void* arg1, unsigned int arg2);
 extern "C" void DisableLCDCMappedVRAMBanks(void);
 extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, int isBG03D);
 extern "C" void LoadToSubOAM(const void* p, unsigned int off, unsigned int n);
@@ -286,12 +290,12 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 	}
 	func_020c3864(1);
 	MapVRAMBanksToLCDC(0x1ff);
-	Memset32Bit_020ca458(0, (void*)0x6800000, 0xa4000);
+	func_020ca458(0, (void*)0x6800000, 0xa4000);
 	DisableLCDCMappedVRAMBanks();
-	Memset32Bit_020ca458(0xc0, (void*)0x7000000, 0x400);
-	Memset32Bit_020ca458(0, (void*)0x5000000, 0x400);
-	Memset32Bit_020ca458(0xc0, (void*)0x7000400, 0x400);
-	Memset32Bit_020ca458(0, (void*)0x5000400, 0x400);
+	func_020ca458(0xc0, (void*)0x7000000, 0x400);
+	func_020ca458(0, (void*)0x5000000, 0x400);
+	func_020ca458(0xc0, (void*)0x7000400, 0x400);
+	func_020ca458(0, (void*)0x5000400, 0x400);
 	MapVRAMBanksToLCDC(3);
 	SetMainDisplayAndBGMode_020c391c(2, 0, 0);
 	*(volatile unsigned short*)0x4000304 = *(volatile unsigned short*)0x4000304 | 0x8000;
@@ -308,7 +312,7 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 			data_021052b4[var3].unknown1_4_ = (var7 / 8 + (var6 / 8) * 32) | 0xf000;
 		}
 	}
-	DC_FlushRange(data_021052b4, 0x400);
+	CleanInvalidateCacheRange((const void*)(data_021052b4), 0x400);
 	LoadToSubOAM(data_021052b4, 0, 0x400);
 	ReleaseSubBGVRAMBanks();
 	ReleaseSubObjVRAMBanks();

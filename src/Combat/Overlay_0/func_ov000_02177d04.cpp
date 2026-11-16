@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
 
 struct Struct_0201099c_3;
 struct PartyMember_02054000;
@@ -10,7 +11,6 @@ struct Struct_ov000_02177d04 {
 };
 
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_ov000_0217542c(void* arg0);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
@@ -29,7 +29,7 @@ extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" ARM void func_ov000_02177d04(char* arg0, char* arg1) {
     GameState* var0 = GameState::GetInstance();
     unsigned char var1 = *((unsigned char*)GetParty_02010828(var0) + 0xf7c);
-    const char* var2 = (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0);
+    const char* var2 = (const char*)((int)((StringList*)((struct Struct_0201099c_3*)(arg0 + 0xb8)))->GetString(0));
 #if defined(jpn)
     signed char var3 = *(signed char*)(arg0 + 0x1f00 + 0xa3);
 #else

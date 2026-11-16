@@ -1,9 +1,13 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 struct AllocatorUnion;
-extern "C" void FreeMemory_02012da4(struct AllocatorUnion*, void*);
+extern "C" void func_02012da4(struct AllocatorUnion*, void*);
 struct Struct_02114e20;
 extern "C" unsigned int func_02012dd0(struct Struct_02114e20*);
 
@@ -19,7 +23,7 @@ extern "C" ARM int func_ov001_0215ea40(void* arg0) {
     SignedAllocatorHeader* var2 = var1->GetSignedAllocator();
     if (var2 != NULL) {
         var1->Destroy();
-        FreeMemory_02012da4(&gMainHeap_02114e20, var2);
+        func_02012da4(&gMainHeap_02114e20, var2);
     }
     func_02012dd0((struct Struct_02114e20*)&gMainHeap_02114e20);
     return 1;

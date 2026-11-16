@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020d1d1c func_020d37e8
+#endif
+
 // USA: func_020d1d1c
 extern "C" ARM void func_020d1d1c(unsigned short* arg0, const void* arg1, unsigned long arg2)
 {

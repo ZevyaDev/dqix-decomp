@@ -14,12 +14,12 @@ extern "C" ARM void func_ov015_0218ecd8(void* arg0) {
         var1.unknown_0_ = *(short*)((char*)*(void**)((char*)arg0 + 0x10) + 0xc) * 4;
         var1.unknown_4_ = *(short*)((char*)*(void**)((char*)arg0 + 0x10) + 0xe);
         var1.unknown_8_ = var1.unknown_0_;
-        RenderConfig::SubmitToFifo();
+        Nitro3DRenderConfig::SubmitToFifo();
         func_0208b5b4(var0, var1, 0, 0x7fff);
     }
     *(volatile unsigned int*)0x04000444 = 0;
     _ZN8Object3D4DrawEb(*(void**)((char*)arg0 + 0x24));
-    RenderConfig::SubmitToFifo();
+    Nitro3DRenderConfig::SubmitToFifo();
     *(volatile unsigned int*)0x04000448 = 1;
     *(unsigned short*)((char*)arg0 + 0x34) = *(unsigned short*)((char*)arg0 + 0x36) = 0;
     void* var2 = *(void**)((char*)arg0 + 0x24);

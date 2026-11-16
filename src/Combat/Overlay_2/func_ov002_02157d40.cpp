@@ -6,6 +6,16 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
+#include "Resource/StringList.h"
+extern unsigned char g_fileScratchSpace[0x30000];
+
+#if defined(jpn)
+#define func_0201b5b0 func_0201b328
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -62,7 +72,7 @@ extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_020e2ff8(void);
 extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int GetLevel_0202053c(void* gameObject);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 extern "C" void func_ov017_021c2b28(void* arg0, unsigned char arg1, unsigned char arg2);
@@ -81,7 +91,6 @@ extern "C" void func_02046a3c(struct Struct_ov002_02157d40_9* arg0, struct Struc
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void func_02026644(char* arg0);
 extern "C" void func_ov017_021c2744(struct Struct_ov002_02157d40_13* arg0);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_0208247c(void* arg0);
 extern "C" void func_02048350(struct Struct_ov002_02157d40_8* arg0, int arg1);
 extern "C" void func_ov002_02157ce0(char* arg0);
@@ -135,7 +144,6 @@ extern "C" void func_ov017_021c9e00(signed char arg0, int arg1, int arg2, int ar
 extern int gSoundEffectManager_02108760;
 extern unsigned char data_ov002_0216c992;
 extern int data_ov002_0216cf51;
-extern int gFileScratchSpace_0211e33c;
 extern int data_ov002_0216cf66;
 
 struct Struct_ov002_02157d40_14 {
@@ -300,7 +308,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
 #else
     struct Struct_ov002_02157d40_17* var7 = (struct Struct_ov002_02157d40_17*)(Struct_ov002_02157d40*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var2, arg0->unknown_1c20_);
 #endif
-    int* var8 = (int*)GetLocalWireless_0202ae18();
+    int* var8 = (int*)func_0202ae18();
     int var9 = 0;
     int var10;
     bool var11;
@@ -428,7 +436,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 }
                 SetMessageString_02046574((struct Struct_ov002_02157d40_6*)var26, 1, var17->unknown_0_);
                 if (var16 != 0) {
-                    FMT(var26, 0xc, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x232d), (char*)(var1 + RG(0x860, 0x700)));
+                    FMT(var26, 0xc, ((int)((StringList*)((struct Struct_0201099c_3*)(arg0->unknown_20_)))->GetString(0x232d)), (char*)(var1 + RG(0x860, 0x700)));
                     AppendText_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
                     struct Struct_ov002_02157634_3* var27 = var0.unknown_c8_.unknown_8_;
                     for (int var28 = 0; var28 < var0.unknown_c8_.unknown_3_; var28++) {
@@ -452,8 +460,8 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                         *(void**)(var26 + 0x10) = arg0->unknown_14_;
 #endif
                         SetMessageNumber_020465c0((struct Struct_ov002_02157d40_2*)var26, 9, var30->unknown_4_);
-                        FMT(var26, 0xc, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), var29), (char*)(var1 + RG(0x860, 0x700)));
-                        AppendText_02042058(arg0->unknown_1bd0_, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 8));
+                        FMT(var26, 0xc, ((int)((StringList*)((struct Struct_0201099c_3*)(arg0->unknown_20_)))->GetString(var29)), (char*)(var1 + RG(0x860, 0x700)));
+                        AppendText_02042058(arg0->unknown_1bd0_, (const char*)((int)((StringList*)((struct Struct_0201099c_3*)(arg0->unknown_20_)))->GetString(8)));
                         AppendText_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
                     }
                     func_02048350((struct Struct_ov002_02157d40_8*)var7, var17->unknown_8_0_);
@@ -469,12 +477,12 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                         *(void**)(var26 + 0x10) = arg0->unknown_14_;
 #endif
                     }
-                    AppendText_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x2333));
-                    AppendText_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 8));
+                    AppendText_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)((int)((StringList*)((struct Struct_0201099c_3*)(arg0->unknown_20_)))->GetString(0x2333)));
+                    AppendText_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)((int)((StringList*)((struct Struct_0201099c_3*)(arg0->unknown_20_)))->GetString(8)));
                     if (var18 == 1) {
-                        AppendText_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x2334));
+                        AppendText_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)((int)((StringList*)((struct Struct_0201099c_3*)(arg0->unknown_20_)))->GetString(0x2334)));
                     } else {
-                        AppendText_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x2335));
+                        AppendText_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)((int)((StringList*)((struct Struct_0201099c_3*)(arg0->unknown_20_)))->GetString(0x2335)));
                     }
                     FMT(var26, 0xc, (int)(var1 + RG(0x860, 0x700)), arg0->unknown_1bd0_);
                 }
@@ -530,7 +538,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 InitPartyMemberNoun_020e4bf4(arg0->unknown_8_, arg0->unknown_1c20_);
                 *(void**)var35 = arg0->unknown_8_;
 #endif
-                FMT(var35, 0xc, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x7537), (char*)(var1 + RG(0x860, 0x700)));
+                FMT(var35, 0xc, ((int)((StringList*)((struct Struct_0201099c_3*)(arg0->unknown_20_)))->GetString(0x7537)), (char*)(var1 + RG(0x860, 0x700)));
                 AppendText_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
             }
             __clear(var0.unknown_10_, 4);
@@ -565,7 +573,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     BackgroundLoader::AddLockGlobal();
                     var41 = var40->unknown_150_;
                     sprintf(var0.unknown_a0_, (const char*)&data_ov002_0216cf51, var41->unknown_950_);
-                    void* var44 = LoadFileIntoMemory(var0.unknown_a0_, &gFileScratchSpace_0211e33c, &var0.unknown_c_);
+                    void* var44 = LoadFileIntoMemory(var0.unknown_a0_, &g_fileScratchSpace, &var0.unknown_c_);
                     func_0208247c(var0.unknown_104_);
                     if (var44 != 0) {
                         func_02082490(var0.unknown_104_, var44, var0.unknown_c_, GetLevel_0202053c((void*)var40) + 1, 0);
@@ -581,8 +589,8 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     }
                 }
                 memset(var1 + RG(0x860, 0x700), 0, 0x100);
-                FMT(var35, 0xc, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), var43), (char*)(var1 + RG(0x860, 0x700)));
-                AppendText_02042058(arg0->unknown_1bd0_, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 8));
+                FMT(var35, 0xc, ((int)((StringList*)((struct Struct_0201099c_3*)(arg0->unknown_20_)))->GetString(var43)), (char*)(var1 + RG(0x860, 0x700)));
+                AppendText_02042058(arg0->unknown_1bd0_, (const char*)((int)((StringList*)((struct Struct_0201099c_3*)(arg0->unknown_20_)))->GetString(8)));
                 AppendText_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
             }
             arg0->unknown_1c31_ = 1;
@@ -645,7 +653,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     func_02026644((char*)var50);
                     BackgroundLoader::AddLockGlobal();
                     var0.unknown_8_ = 0;
-                    void* var51 = LoadFileIntoMemory((const char*)&data_ov002_0216cf66, &gFileScratchSpace_0211e33c, &var0.unknown_8_);
+                    void* var51 = LoadFileIntoMemory((const char*)&data_ov002_0216cf66, &g_fileScratchSpace, &var0.unknown_8_);
                     if (func_02026780(var50, var51, var0.unknown_8_) == 0) {
                         var49 = 0;
                     } else {
@@ -795,7 +803,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
             return;
         }
         if (arg0->unknown_1c26_ == 0xd1) {
-            if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18()) != 0) {
+            if (IsLocalWirelessOn_0202b7d8((int*)func_0202ae18()) != 0) {
                 int var65 = 1;
                 int var66;
                 for (var66 = 0; var66 < arg0->unknown_1c38_; var66++) {
@@ -829,7 +837,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 var67 = 1;
             }
             if (var67) {
-                int* var69 = (int*)GetLocalWireless_0202ae18();
+                int* var69 = (int*)func_0202ae18();
                 func_02048418((unsigned char*)var68, 4);
                 if (IsLocalWirelessOn_0202b7d8(var69) != 0) {
                     func_ov017_021c9e00(arg0->unknown_1c21_, 0, 0, 1);

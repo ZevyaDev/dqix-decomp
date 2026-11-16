@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov017_021c2380(int arg0, int arg1);
 extern "C" unsigned char func_02039820(void* arg0);
@@ -11,7 +15,7 @@ extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameSt
 // USA: func_ov017_021c25ac
 extern "C" ARM void func_ov017_021c25ac() {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     GameObject* var2 = var0->GetUnknownGameObject();
     if (var2 != 0 && func_02039820(var2) != 0 && IsPerformingGesture_020535c8((signed char*)var2) == 0) {
         for (int var3 = 0; var3 < 4; var3++) {

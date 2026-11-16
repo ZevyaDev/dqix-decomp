@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca3ec func_020cbeb8
+#endif
+
 
 struct GamecardBusLock
 {
@@ -11,7 +15,7 @@ struct GamecardBusLock
 extern "C"
 {
     void WaitByLoop(int);
-    void Memset32BitByWord_020ca3ec(int arg0, void* arg1, unsigned arg2);
+    void func_020ca3ec(int arg0, void* arg1, unsigned arg2);
 }
 
 int WeakLockGamecardBusLock(unsigned short owner, GamecardBusLock* lock, void (*onLock)());
@@ -43,7 +47,7 @@ ARM void InitializeGamecardBusOwnership()
     ((unsigned int*)0x027fffb0)[0] = 0xffffffff;
     ((unsigned int*)0x027fffb0)[1] = 0xffff0000;
 
-    Memset32BitByWord_020ca3ec(0, (void*)0x027fffc0, 0x28);
+    func_020ca3ec(0, (void*)0x027fffc0, 0x28);
     *(volatile unsigned short*)0x04000204 |= (1 << 11);
     *(volatile unsigned short*)0x04000204 |= (1 << 7);
 

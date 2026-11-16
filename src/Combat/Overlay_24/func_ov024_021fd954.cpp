@@ -2,7 +2,11 @@
 #include "std_library_functions.h"
 #include "Combat/Main/BattleList.h"
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 struct Struct_02010088;
@@ -97,7 +101,7 @@ extern "C" ARM void func_ov024_021fd954(struct Struct_ov024_021fbec4* arg0, int 
     int var4;
     struct Struct_ov024_021fd954* var5;
     var5 = arg0->unknown_8_;
-    GetPartyMemberData_02053c6c((unsigned char*)var5);
+    func_02053c6c((unsigned char*)var5);
     var0 = arg0->unknown_64c_;
     if (var0->unknown_9_0_ == 1) return;
     var1 = var0->unknown_17_4_;

@@ -1,6 +1,18 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 
 
 struct Struct_ov003_0216201c {
@@ -57,11 +69,11 @@ extern "C" int func_ov003_02160a68(Struct_ov003_02154af4_3 *);
 extern "C" int func_ov003_02160854(Struct_ov003_02154af4_3 *);
 extern "C" void func_ov003_02160c58(Struct_ov003_02154af4_3 *, short *, short *);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void *, int, int);
-extern "C" void *GetFlagManager_0205ec34();
-extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *);
+extern "C" void *func_0205ec34();
+extern "C" unsigned char *func_02053c6c(unsigned char *);
 extern "C" int GetOwnPartyOrder_02011494(char*, void*);
 extern "C" void SetFlag_0206df6c(void *, unsigned char *, int, int);
-extern "C" int IsFlagSet_0206dfb0(int, unsigned char *, int);
+extern "C" int func_0206dfb0(int, unsigned char *, int);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char *, int);
 extern "C" void LearnSkillEntry_02083acc(unsigned char *, int);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
@@ -71,8 +83,8 @@ extern "C" void func_ov017_021ccfd0(int);
 extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
     GameState *var0        = GameState::GetInstance();
     unsigned char *var1    = (unsigned char *)GetParty_02010828(var0);
-    unsigned char *var2  = (unsigned char *) GetFlagManager_0205ec34();
-    unsigned char *var3 = GetPartyMemberData_02053c6c((unsigned char *) var0->GetPartyMemberByIndex(0));
+    unsigned char *var2  = (unsigned char *) func_0205ec34();
+    unsigned char *var3 = func_02053c6c((unsigned char *) var0->GetPartyMemberByIndex(0));
     unsigned char var4  = arg0->unknown_4a4_;
     Struct_ov003_0216201c *var5     = arg0->unknown_324_;
 
@@ -182,7 +194,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
                 case 0xb6:
                 case 0xba:
                     CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var5);
-                    if (IsFlagSet_0206dfb0((int) var2, var2 + 0x8c, 0x784) != 0 && var3 != 0 &&
+                    if (func_0206dfb0((int) var2, var2 + 0x8c, 0x784) != 0 && var3 != 0 &&
                         HasLearnedSkillEntry_02083b00(var3, 0x11e) == 0)
                     {
                         arg0->unknown_484_ = 0x59;
@@ -199,7 +211,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
             SetMenuLayoutWindowPalette_02080c68(var5, arg0->unknown_488_, 1);
         } else if (func_ov003_02160a68(arg0) != 0) {
             CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var5);
-            if (IsFlagSet_0206dfb0((int) var2, var2 + 0x8c, 0x784) != 0 && var3 != 0 &&
+            if (func_0206dfb0((int) var2, var2 + 0x8c, 0x784) != 0 && var3 != 0 &&
                 HasLearnedSkillEntry_02083b00(var3, 0x11e) == 0)
             {
                 arg0->unknown_484_ = 0x59;

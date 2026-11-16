@@ -54,3 +54,8 @@ extern "C" ARM void func_0208f410(Struct_0208f410_3* arg0) {
         var5 = var5->unknown_14_;
     }
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

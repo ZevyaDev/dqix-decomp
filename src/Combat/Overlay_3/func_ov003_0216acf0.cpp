@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Combat/Main/BattleList.h"
+#include "Graphics/OBJSpriteSet.h"
 
 #if defined(jpn)
 enum { Enum_ov003_0216acf0_1439 = 0x59b };
@@ -22,13 +23,9 @@ extern "C" int IsTextWindowOpen_0204c7e0(unsigned char*);
 
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimation_0205a254_2;
-extern "C" void PlaySpriteAnimation_0205a370(SpriteAnimationList_0205a254*, int);
-extern "C" SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(SpriteAnimationList_0205a254*, int);
 
 struct SpriteAnimationList_0205a330;
-extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330*, int);
 
-extern "C" void DrawSpriteAnimations_0205ae8c(void*);
 
 // USA: func_ov003_0216acf0
 extern "C" ARM void func_ov003_0216acf0(char* arg0) {
@@ -48,24 +45,24 @@ extern "C" ARM void func_ov003_0216acf0(char* arg0) {
     short var6 = (short)(var4 + (short)(var2 << 3));
 
     SpriteAnimationList_0205a254* var7 = *(SpriteAnimationList_0205a254**)(arg0 + Enum_ov003_0216acf0_1240);
-    PlaySpriteAnimation_0205a370(var7, 0);
+    ((OBJSpriteSet::List*)(var7))->PlaySpriteAnimation(0);
 
     var7 = *(SpriteAnimationList_0205a254**)(arg0 + Enum_ov003_0216acf0_1240);
-    SpriteAnimation_0205a254_2* var8 = FindSpriteAnimation_0205a3d0(var7, 0);
+    SpriteAnimation_0205a254_2* var8 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(var7))->GetSprite(0));
     if (var8 != NULL) {
         *(unsigned char*)((char*)var8 + 0x15) |= 8;
     }
 
     var7 = *(SpriteAnimationList_0205a254**)(arg0 + Enum_ov003_0216acf0_1240);
     int var9 = *(int*)(arg0 + Enum_ov003_0216acf0_1244);
-    AdvanceSpriteAnimations_0205a330((SpriteAnimationList_0205a330*)var7, var9);
+    ((OBJSpriteSet::List*)((SpriteAnimationList_0205a330*)var7))->UpdateAll(var9);
 
     var7 = *(SpriteAnimationList_0205a254**)(arg0 + Enum_ov003_0216acf0_1240);
-    var8 = FindSpriteAnimation_0205a3d0(var7, 0);
+    var8 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(var7))->GetSprite(0));
     if (var8 != NULL) {
         *(short*)((char*)var8 + 0x4) = (short)(var5 - 8);
         *(short*)((char*)var8 + 0x6) = (short)(var6 - 2);
     }
 
-    DrawSpriteAnimations_0205ae8c(arg0 + Enum_ov003_0216acf0_1152);
+    ((OBJSpriteSet*)(arg0 + Enum_ov003_0216acf0_1152))->DrawAll();
 }

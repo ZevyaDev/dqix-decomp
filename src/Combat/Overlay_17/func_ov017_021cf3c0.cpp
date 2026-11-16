@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021cf3c0 {
@@ -24,7 +28,7 @@ struct Struct_ov017_021cf3c0_2 {
 
 // USA: func_ov017_021cf3c0
 extern "C" ARM void func_ov017_021cf3c0(struct Struct_ov017_021cf3c0 arg0, short arg1, unsigned char arg2, unsigned char arg3, signed char arg4) {
-    void* var0 = GetLocalWirelessPacketQueue_0202ae24();
+    void* var0 = func_0202ae24();
     struct Struct_ov017_021cf3c0_2 var1;
     var1.unknown_0_ = 0x38;
     var1.unknown_4_ = arg0.unknown_0_;

@@ -7,6 +7,7 @@ enum { Enum_ov019_0218c178_76 = 0x4c, Enum_ov019_0218c178_84 = 0x54 };
 #endif
 
 #include "GameState/GameState.h"
+#include "Graphics/OBJSpriteSet.h"
 
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimationList_0205a330;
@@ -26,11 +27,6 @@ struct Struct_ov019_0218c178 {
     struct SpriteAnimationList_0205a254* unknown_90_;
 };
 
-extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254*, int);
-extern "C" struct Struct_0205c96c* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254*, int);
-extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330*, int);
-extern "C" void SetSpriteAnimationOAMIndex_0205a42c(struct SpriteAnimationList_0205a254*, int, int);
-extern "C" void DrawSpriteAnimations_0205ae8c(void*);
 
 // USA: func_ov019_0218c178
 extern "C" ARM void func_ov019_0218c178(struct Struct_ov019_0218c178* arg0) {
@@ -39,25 +35,24 @@ extern "C" ARM void func_ov019_0218c178(struct Struct_ov019_0218c178* arg0) {
         struct SpriteAnimationList_0205a254* var1 = arg0->unknown_90_;
         if (var1 != NULL) {
             struct Struct_0205c96c* var2;
-            PlaySpriteAnimation_0205a370(var1, 1);
-            var2 = FindSpriteAnimation_0205a3d0(var1, 1);
+            ((OBJSpriteSet::List*)(var1))->PlaySpriteAnimation(1);
+            var2 = ((Struct_0205c96c*)((OBJSpriteSet::List*)(var1))->GetSprite(1));
             if (var2 != NULL) {
                 var2->unknown_15_ = var2->unknown_15_ | 8;
             }
-            AdvanceSpriteAnimations_0205a330(
-                (struct SpriteAnimationList_0205a330*)var1, var0->GetTickCount());
-            var2 = FindSpriteAnimation_0205a3d0(var1, 1);
+            ((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a330*)var1))->UpdateAll(var0->GetTickCount());
+            var2 = ((Struct_0205c96c*)((OBJSpriteSet::List*)(var1))->GetSprite(1));
             if (var2 != NULL) {
                 var2->unknown_4_ = 0xd7;
                 var2->unknown_6_ = 0x96;
             }
-            SetSpriteAnimationOAMIndex_0205a42c(var1, 1, 0x24);
+            ((OBJSpriteSet::List*)(var1))->SetSpriteOBJIndex(1, 0x24);
         }
-        DrawSpriteAnimations_0205ae8c((char*)arg0 + Enum_ov019_0218c178_84);
+        ((OBJSpriteSet*)((char*)arg0 + Enum_ov019_0218c178_84))->DrawAll();
     } else {
         struct SpriteAnimationList_0205a254* var3 = arg0->unknown_90_;
         if (var3 != NULL) {
-            struct Struct_0205c96c* var4 = FindSpriteAnimation_0205a3d0(var3, 1);
+            struct Struct_0205c96c* var4 = ((Struct_0205c96c*)((OBJSpriteSet::List*)(var3))->GetSprite(1));
             if (var4 != NULL) {
                 var4->unknown_15_ = var4->unknown_15_ & ~8;
             }

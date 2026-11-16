@@ -5,6 +5,10 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Matrix.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 struct Struct_ov000_0217e870_2;
 struct Struct_02010604;
 
@@ -70,7 +74,7 @@ extern "C" ARM void func_ov026_021dbba8(BattleScene_ov000_02160da0* arg0) {
         }
     }
 
-    Struct_020a212c_2* var4 = (Struct_020a212c_2*)GetCamera_020100bc(var0);
+    Struct_020a212c_2* var4 = (Struct_020a212c_2*)func_020100bc(var0);
     Struct_020a212c_2* var5 = GetBattleCamera_ov000_02160f14(arg0);
     Vector3i var6 = var4->unknown_70_;
     ResetBattleCamera_ov000_0216d370(var5, 1, 1, 1);

@@ -4,6 +4,15 @@
 #include "Graphics/Vector.h"
 #include "Resource/GameResources.h"
 #include "Resource/Brightness.h"
+#include "Graphics/SPRSprite.h"
+
+#if defined(jpn)
+#define func_0202ec84 func_0202e7f4
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 extern "C" int func_ov017_0218d75c(void* arg0);
 extern "C" int func_02039820(void* arg0);
@@ -13,10 +22,9 @@ extern "C" void EnableCameraTurning_020a27ac(void* camera);
 extern "C" int GetMessageWindow_020421a0(void);
 
 struct Struct_02015ef4 { unsigned int unknown_0_[3]; };
-extern "C" int ConvertWorldToScreen_0202ec84(void* camera, struct Struct_02015ef4* worldPosition, int* outX, int* outY);
+extern "C" int func_0202ec84(void* camera, struct Struct_02015ef4* worldPosition, int* outX, int* outY);
 
 struct Struct_02015ef4_2;
-extern "C" void func_020473c8(struct Struct_02015ef4_2* arg0, int arg1);
 
 struct Struct_ov017_021bfc40 {
     char unknown_0_[0x8];
@@ -60,7 +68,7 @@ extern "C" ARM int func_ov017_021bfc40(struct Struct_ov017_021bfc40* arg0) {
     }
 
     GameState* var6 = GameState::GetInstance();
-    void* var7 = GetCamera_020100bc(var6);
+    void* var7 = func_020100bc(var6);
     struct Struct_02015ef4 var8 = arg0->unknown_28_;
 
     if (arg0->unknown_18_ < 0x191e) {
@@ -72,7 +80,7 @@ extern "C" ARM int func_ov017_021bfc40(struct Struct_ov017_021bfc40* arg0) {
     int var9;
     int var10;
     if (var7 != NULL) {
-        ConvertWorldToScreen_0202ec84(var7, &var8, &var10, &var9);
+        func_0202ec84(var7, &var8, &var10, &var9);
     }
 
     int var11 = (var10 - 0xc) << 0xc;
@@ -81,7 +89,7 @@ extern "C" ARM int func_ov017_021bfc40(struct Struct_ov017_021bfc40* arg0) {
     *(int*)(var13 + 0x1c) = var11;
     *(int*)(var13 + 0x20) = var12;
     *(int*)(var13 + 0x24) = 0;
-    func_020473c8((struct Struct_02015ef4_2*)var13, 1);
+    ((SPRSprite*)((struct Struct_02015ef4_2*)var13))->DrawAnimatedNoRotation(1);
 
     short var14 = arg0->unknown_16_;
     if (var14 > 0x1f) {

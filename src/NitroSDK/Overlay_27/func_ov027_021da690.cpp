@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
 
-extern "C" void HaltForever_020c9be0(void);
+
+extern "C" void func_020c9be0(void);
 
 struct Struct_ov027_021da690 {
 	unsigned char unknown_0_[0x28];
@@ -34,7 +38,7 @@ extern "C" ARM void func_ov027_021da690(Struct_ov027_021da690 *arg0, int *arg1, 
 			arg2->unknown_c_ = arg2->unknown_c_ & ~1;
 			return;
 		}
-		HaltForever_020c9be0();
+		func_020c9be0();
 		return;
 	}
 	case 1: {
@@ -64,7 +68,7 @@ extern "C" ARM void func_ov027_021da690(Struct_ov027_021da690 *arg0, int *arg1, 
 		afterRange2:;
 		}
 		if (var3 == 1) {
-			HaltForever_020c9be0();
+			func_020c9be0();
 		}
 		arg2->unknown_8_ = arg0->unknown_3c_;
 		arg2->unknown_4_ = arg0->unknown_38_;

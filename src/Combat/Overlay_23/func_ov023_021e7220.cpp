@@ -1,6 +1,8 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
+#include "Graphics/BGLayer.h"
+#include "Resource/StringList.h"
 
 extern "C" unsigned short GetSubBGVRAMBanks(void);
 extern "C" unsigned short GetSubObjVRAMBanks(void);
@@ -12,10 +14,8 @@ struct TextWindowManager_0205cfd4;
 extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
 
 struct StringTable_0201099c_14;
-extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 
 struct BGLayer_02020cb8;
-extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
 extern "C" void InitTextWindow_0204c684(void*);
 
@@ -43,9 +43,9 @@ extern "C" ARM void func_ov023_021e7220(void* arg0, int arg1) {
     *(unsigned char*)((char*)arg0 + 0x75) = 0;
     SaveSubBGControl_02074b64((struct BGControlSave_02074b64*)((char*)arg0 + 0x64));
     InitTextWindowManager_0205cfd4((struct TextWindowManager_0205cfd4*)((char*)arg0 + 0x78));
-    InitStringTable_020dfc40((StringTable_0201099c_14*)((char*)arg0 + 0x4c));
+    ((StringList*)((StringTable_0201099c_14*)((char*)arg0 + 0x4c)))->Reset();
     for (int var1 = 0; var1 < 2; var1++) {
-        InitBGLayer_0204af64((struct BGLayer_02020cb8*)((char*)arg0 + 0x134 + var1 * 0x20));
+        ((BGLayer*)((struct BGLayer_02020cb8*)((char*)arg0 + 0x134 + var1 * 0x20)))->Reset();
     }
     for (int var2 = 0; var2 < 5; var2++) {
         InitTextWindow_0204c684((char*)arg0 + 0x174 + var2 * 0xe0);

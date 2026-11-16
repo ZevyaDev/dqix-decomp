@@ -13,6 +13,7 @@
 #define func_ov013_021864f0 func_ov013_02187820
 #endif
 #include "GameState/GameState.h"
+#include "Graphics/OBJSpriteSet.h"
 
 struct TextWindowManager_0205d0e0_2;
 extern "C" void* GetLastOpenedTextWindow_0205d888(struct TextWindowManager_0205d0e0_2* windowManager);
@@ -22,7 +23,6 @@ extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
 
 struct SpriteAnimationList_0205a330;
-extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330* animationList, int ticks);
 
 struct Struct_0205bc10;
 extern "C" void func_0205bc10(struct Struct_0205bc10* arg0);
@@ -77,7 +77,7 @@ extern "C" ARM unsigned char func_ov013_021847c4(void* arg0, int arg1) {
         int var4 = GetMessageWindow_020421a0();
         struct SpriteAnimationList_0205a330* var5 = *(struct SpriteAnimationList_0205a330**)(var4 + R(0x230,0x2e0));
         if (var5 != 0) {
-            AdvanceSpriteAnimations_0205a330(var5, var1->GetTickCount());
+            ((OBJSpriteSet::List*)(var5))->UpdateAll(var1->GetTickCount());
         }
     }
 

@@ -10,6 +10,7 @@
 #include "World/Object3D.h"
 
 #include <Memory/SafeAllocator.h>
+#include "Resource/StringList.h"
 
 struct Struct_ov008_021843f8_2 {
     Struct_020ac4f8 unknown_0_[2];
@@ -106,7 +107,6 @@ struct Struct_0201099c_3;
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void AppendTextColorTag_02041e70(char* buffer, int colorIndex);
 extern "C" void func_02041a5c(char* arg0, int arg1);
-extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 
 extern "C" {
@@ -175,7 +175,7 @@ extern "C" ARM void func_ov008_02187278(Struct_ov008_021842a0_2* arg0, char* arg
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var4, 1, var0->unknown_2_);
     SetMessageNumberWidth_020465f0((unsigned char*)var4, 1, 2);
     SetMessageNumberAlignment_020465d8((unsigned char*)var4, 1, 1);
-    func_020474a8(var4, 10, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 0x6e), var5);
+    func_020474a8(var4, 10, ((StringList*)((Struct_0201099c_3*)&arg0->unknown_a0_))->GetString(0x6e), var5);
     AppendTextColorTag_02041e70(arg1, 0xe);
     AppendText_02042058(arg1, var5);
 #else
@@ -184,7 +184,7 @@ extern "C" ARM void func_ov008_02187278(Struct_ov008_021842a0_2* arg0, char* arg
     func_02041a5c(arg1, 2);
     char var6[0x40];
     __clear(var6, sizeof(var6));
-    const char* var7 = FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 0x6e);
+    const char* var7 = ((StringList*)((Struct_0201099c_3*)&arg0->unknown_a0_))->GetString(0x6e);
     if (var7 != NULL)
         sprintf(var6, var7, var0->unknown_0_, var0->unknown_2_);
     AppendText_02042058(arg1, var6);

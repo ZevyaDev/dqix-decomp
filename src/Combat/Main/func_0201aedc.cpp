@@ -1,6 +1,11 @@
 #include <globaldefs.h>
 #include "Graphics/LightingManager.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
+
+#if defined(jpn)
+#define func_02016d8c func_02016b2c
+#endif
 
 extern "C" int func_0201b5d8(int arg0);
 
@@ -32,11 +37,11 @@ extern "C" ARM void func_0201aedc(Zone3D* arg0) {
             Model3D* var5 = var4->unknown1_4_;
             if (var5 != 0 && var5->rawInternalModel_ != 0) {
                 void* var6 = LightingManager::GetInstance();
-                NSBXXInternalModel* var7 = var5->rawInternalModel_;
+                Nitro3DModel* var7 = var5->rawInternalModel_;
                 ((LightingManager*)((Struct_0201aedc*)var6))->ApplyAmbientColorToModel(var7);
                 func_02016d8c(var0 + 0x48);
-                RenderConfig::SetObjectPosition((Vector3i*)(var0 + 0x6c));
-                RenderConfig::SubmitToFifo();
+                Nitro3DRenderConfig::SetObjectPosition((Vector3i*)(var0 + 0x6c));
+                Nitro3DRenderConfig::SubmitToFifo();
                 var5->Draw(1);
             }
         }
@@ -51,11 +56,11 @@ extern "C" ARM void func_0201aedc(Zone3D* arg0) {
     Model3D* var12 = var11->unknown1_4_;
     if (var12 != 0 && var12->rawInternalModel_ != 0) {
         void* var13 = LightingManager::GetInstance();
-        NSBXXInternalModel* var14 = var12->rawInternalModel_;
+        Nitro3DModel* var14 = var12->rawInternalModel_;
         ((LightingManager*)((Struct_0201aedc*)var13))->ApplyAmbientColorToModel(var14);
         func_02016d8c(var0 + 0x14);
-        RenderConfig::SetObjectPosition((Vector3i*)(var0 + 0x38));
-        RenderConfig::SubmitToFifo();
+        Nitro3DRenderConfig::SetObjectPosition((Vector3i*)(var0 + 0x38));
+        Nitro3DRenderConfig::SubmitToFifo();
         var12->Draw(1);
     }
 }

@@ -76,6 +76,6 @@ extern "C" ARM void func_ov017_0218dba0(int arg0) {
         int var13 = (int)(0.9f * (float)((Object3D*)((unsigned char*)var1))->GetRadius());
         func_0208f87c(&var7, var2, var13, var10, 8);
     } else {
-        RenderConfig::SubmitToFifo();
+        Nitro3DRenderConfig::SubmitToFifo();
     }
 }

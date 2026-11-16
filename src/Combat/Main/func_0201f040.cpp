@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/Script.h"
+#include "Filesystem/FileIO.h"
 
 struct Struct_0201f040;
 
@@ -9,9 +10,7 @@ struct Struct_02013fb4;
 
 struct Struct_0201f040_3;
 
-int LoadFileIntoMemory(const char*, void*, unsigned int*);
 
-extern char gFileScratchSpace_0211e33c;
 extern char data_020ef418;
 
 struct Struct_020fdc40_7 {
@@ -33,7 +32,7 @@ extern "C" ARM void func_0201f040(void* arg0, void* arg1, struct Struct_02013fb4
         BackgroundLoader::AddLockGlobal();
         var4 = var1;
         var1 = 1;
-        var2 = (struct Struct_02013fb4*)LoadFileIntoMemory((const char*)var4, &gFileScratchSpace_0211e33c, &var0);
+        var2 = (struct Struct_02013fb4*)LoadFileIntoMemory((const char*)var4, &g_fileScratchSpace, &var0);
     }
     if (var2 != NULL) {
         data_020fdc40.unknown_4_ = arg1;

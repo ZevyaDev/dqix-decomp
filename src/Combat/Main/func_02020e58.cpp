@@ -1,35 +1,27 @@
 #include <globaldefs.h>
 #include "Combat/MapDisplay.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Graphics/BGLayer.h"
+#include "Resource/PAC.h"
 
 struct Struct_020534ac;
 
 struct PacEntry_02020cb8_4;
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
 
 struct PacEntry_02020aec;
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
 struct BGLayer_02020cb8;
-extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 
-extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
 
-extern "C" void SetBGPriority_0204b5b4(void*, int);
 
 struct BGLayer_02020cb8_5;
-extern "C" int SetBGScroll_0204b5e8(BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 
-extern "C" void FlushBGBlock_0204b2e0(void* layer, char* block);
 
 struct BGLayer_02020cb8_6;
-extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6* layer, char* block);
 
 struct BGLayer_02020cb8_2;
-extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
 
 struct BGLayer_02020cb8_3;
-extern "C" void ResetBGLayerData_0204afb4(BGLayer_02020cb8_3* layer);
 
 // USA: func_02020e58
 extern "C" ARM void func_02020e58(void* arg0, Type_02020aec arg1) {
@@ -59,22 +51,22 @@ extern "C" ARM void func_02020e58(void* arg0, Type_02020aec arg1) {
         *arg1
 #endif
 , &var1, &var2);
-        int var8 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var1);
+        int var8 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var1));
         for (int var9 = 0; var9 < var8; var9++) {
-            var5[var9] = GetPacEntryData_020467f0((PacEntry_02020aec*)var1, var9, &var4, &var6[var9]);
+            var5[var9] = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var1), var9, (const char**)(&var4), (unsigned int*)(&var6[var9]));
         }
-        InitBGLayer_0204af64((BGLayer_02020cb8*)&var7);
+        ((BGLayer*)((BGLayer_02020cb8*)&var7))->Reset();
         var7.isSubScreen_1c_0_ = 1;
         var7.bgIndex_1c_4_ = 0;
-        SetBGPriority_0204b5b4(&var7, 2);
-        SetBGScreenSize_0204b11c((unsigned char*)&var7, 0);
-        SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)&var7, 0, 0);
+        ((BGLayer*)(&var7))->SetPriority(2);
+        ((BGLayer*)((unsigned char*)&var7))->ConfigureTextMode(0);
+        ((BGLayer*)((BGLayer_02020cb8_5*)&var7))->SetOffset(0, 0);
         for (int var10 = 0; var10 < var8; var10++) {
-            FlushBGBlock_0204b2e0(&var7, (char*)var5[var10]);
-            CopyBGBlockToVRAM_0204b3a0((BGLayer_02020cb8_6*)&var7, (char*)var5[var10]);
+            ((BGLayer*)(&var7))->ProcessGraphicsFileMetadata((const void*)((char*)var5[var10]));
+            ((BGLayer*)((BGLayer_02020cb8_6*)&var7))->StageGraphicsFileBuffer((const void*)((char*)var5[var10]));
         }
-        LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&var7, 0);
-        ResetBGLayerData_0204afb4((BGLayer_02020cb8_3*)&var7);
+        ((BGLayer*)((BGLayer_02020cb8_2*)&var7))->CleanCacheAndUploadIndexBuffer((const void*)(0));
+        ((BGLayer*)((BGLayer_02020cb8_3*)&var7))->MaybeDestroy();
         ((Struct_02020554*)arg0)->unknown_55c_ = 1;
     }
     BackgroundLoader* var11 = BackgroundLoader::GetInstance();

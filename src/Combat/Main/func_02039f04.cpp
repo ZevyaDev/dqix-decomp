@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/FileIO.h"
+#include "Graphics/SPRSprite.h"
 
-extern "C" void func_02047b40(void* arg0, const void* arg1, int arg2);
 
 struct Struct_02039f04 {
     const char* unknown_0_;
@@ -39,7 +39,7 @@ extern "C" ARM void func_02039f04(char* arg0, int arg1, const void* arg2) {
         void* var4;
         GetFileInNarc(arg2, var0.unknown1_0_[var1].unknown_0_, &var3, &var2, 0);
         var4 = var0.unknown1_0_[var1].unknown_4_;
-        func_02047b40(var4, var3, arg1);
+        ((SPRSprite*)(var4))->LoadFromSPR((const void*)(var3), (SafeAllocator*)(arg1));
         *(int*)var4 = 0x3e;
     }
 }

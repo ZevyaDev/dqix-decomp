@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "Combat/BattleHeapOwner.h"
+#include "Graphics/OBJSpriteSet.h"
 #if defined(jpn)
 #define data_ov003_02180cc8 data_ov003_0217ef40
 #endif
 extern "C" void func_020e2490(Struct_020e2490*, int, int, void*, SafeAllocator*, int, unsigned char);
-extern "C" void InitSprite_0205a198(Sprite_02043368_2*);
 extern unsigned int data_ov003_02180cc8[2];
 
 #if defined(jpn)
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov003_02173f70(Struct_ov003_02173f70* arg0, SafeAllocat
         func_0207f7f0(arg0->unknown_89c_, arg0->unknown_8e0_, 8);
         arg0->unknown_89c_->unknown_3a_ = 2;
         for (unsigned char var4 = 0; var4 < 0x21; ++var4)
-            InitSprite_0205a198(&arg0->unknown_830_[var4]);
+            ((OBJSpriteSet::Metatile*)(&arg0->unknown_830_[var4]))->Reset();
         arg0->unknown_828_ = 0;
         arg0->unknown_818_ = arg0->unknown_830_;
         arg0->unknown_824_ = 0x21;

@@ -7,6 +7,10 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
+#if defined(jpn)
 #define RG(usa, jpn) (jpn)
 #define data_020e780c data_020e8150
 #else
@@ -69,7 +73,7 @@ extern "C" ARM void func_02038138(struct Struct_02038138_4* arg0) {
     void* var1;
     GameResources* var2;
     int var3;
-    var1 = GetCamera_020100bc(GameState::GetInstance());
+    var1 = func_020100bc(GameState::GetInstance());
     var2 = GetGameResources();
     var0 = GetZone3D_02012fe4();
     var3 = 0;

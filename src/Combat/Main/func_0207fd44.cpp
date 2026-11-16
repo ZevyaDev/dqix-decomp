@@ -1,11 +1,11 @@
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
 #if defined(jpn)
 enum { Enum_0207fd44_44 = 0x20 };
 #else
 enum { Enum_0207fd44_44 = 0x2c };
 #endif
 
-extern "C" void FlushBGScreenData_0204b04c(void* layer, int screenData);
 
 struct BGLayer_0207fd44 { char unknown_0_[0x20]; };
 
@@ -24,7 +24,7 @@ extern "C" ARM void FlushMenuLayoutBGScreenData_0207fd44(MenuLayout_0207fd44_2* 
     if (layer == NULL) return;
     bgLayerCount = menuLayout->bgLayerCount_38_;
     for (i = 0; i < bgLayerCount; i++) {
-        FlushBGScreenData_0204b04c(layer, 0);
+        ((BGLayer*)(layer))->CleanIndexBufferCache((const void*)(0));
         layer++;
     }
 }

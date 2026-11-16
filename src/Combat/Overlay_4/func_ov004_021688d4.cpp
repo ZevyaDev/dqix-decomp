@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
@@ -19,7 +23,7 @@ extern "C" int fix32_Atan2(int, int);
 struct Struct_02033834_2;
 extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 
-extern "C" int GetLocalWireless_0202ae18(void);
+extern "C" int func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void);
 
 extern "C" int func_02011b50(void* arg0, int arg1);
@@ -64,7 +68,7 @@ extern "C" ARM int func_ov004_021688d4(void) {
         SetFacing_02033834((struct Struct_02033834_2*)var3, var12);
     }
 
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     if (IsNotLocalWirelessGuest_0202c508()) {
         GameState* var13 = GameState::GetInstance();
         if (func_02011b50(var13, 0x10)) {

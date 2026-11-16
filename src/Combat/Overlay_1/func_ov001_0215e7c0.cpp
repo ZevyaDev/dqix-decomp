@@ -1,14 +1,12 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Combat/MapDisplay.h"
+#include "Graphics/BGLayer.h"
+#include "Filesystem/FileIO.h"
 
-extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
-extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
 
-extern "C" void SetBGPriority_0204b5b4(void*, int);
 
 struct BGLayer_02020cb8_5 { char unknown_0_[0x1c]; unsigned char isSubScreen_1c_0_ : 4; unsigned char bgIndex_1c_4_ : 4; };
-extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 
 extern "C" void InitTextWindow_0204c684(void*);
 
@@ -31,7 +29,6 @@ struct Struct_0204fbf8_2 {
 };
 extern "C" void func_0204fbf8(struct Struct_0204fbf8_2* arg0);
 
-extern int gFileScratchSpace_0211e33c;
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 
@@ -54,17 +51,17 @@ extern "C" ARM int func_ov001_0215e7c0(void* arg0) {
     BackgroundLoader::FreeAllocationsGlobal();
 
     struct BGLayer_02020cb8 var0;
-    InitBGLayer_0204af64(&var0);
+    ((BGLayer*)(&var0))->Reset();
     var0.isSubScreen_1c_0_ = 1;
     var0.bgIndex_1c_4_ = 0;
-    SetBGScreenSize_0204b11c((unsigned char*)&var0, 0);
-    SetBGPriority_0204b5b4(&var0, 0);
-    SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)&var0, 0, 0);
+    ((BGLayer*)((unsigned char*)&var0))->ConfigureTextMode(0);
+    ((BGLayer*)(&var0))->SetPriority(0);
+    ((BGLayer*)((struct BGLayer_02020cb8_5*)&var0))->SetOffset(0, 0);
 
     struct Struct_0204fbf8_2 var1;
     InitTextWindow_0204c684(&var1);
     var1.unknown_4_ = &var0;
-    var1.unknown_8_ = &gFileScratchSpace_0211e33c;
+    var1.unknown_8_ = &g_fileScratchSpace;
     var1.unknown_a8_ = 0x20;
     var1.unknown_aa_ = 0x18;
     var1.unknown_a4_ = 0x6000;

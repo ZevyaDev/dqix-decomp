@@ -1,6 +1,23 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
+#include "NitroSDK/Cache.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02046708 func_02047528
+#endif
+
+#if defined(jpn)
+#define func_0203bd08 func_0203b760
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
 
 #if defined(jpn)
 #define ENTRY_TEXT_02093b90 0xc
@@ -39,11 +56,11 @@ struct Struct_02093b90_3 {
 struct Canvas_020200c0_4 { void* pCharacterData_0_; Struct_02093b90_3* pRects_4_; unsigned char rectCount_8_; };
 extern AllocatorUnion gMainHeap_02114e20;
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
-extern "C" char* GetOAMManager_0203bd08();
+extern "C" char* func_0203bd08();
 extern "C" unsigned char func_020938cc();
 extern "C" void func_0203be58(char*, int, int);
-extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00();
-extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8*, unsigned int);
+extern "C" GlobalFlags_02012de8* func_020d6c00();
+extern "C" int func_02046708(GlobalFlags_02012de8*, unsigned int);
 extern "C" void func_020941b0(Struct_02093b90_2*);
 extern "C" int func_020941f8(Struct_02093b90_2*);
 extern "C" int func_020943dc(Struct_02093b90_2*);
@@ -54,10 +71,9 @@ extern "C" void InitCanvas_0205b20c(Canvas_020200c0_4*);
 extern "C" void SetCanvasCharacterData_0205b220(void*, int);
 extern "C" void SetCanvasRects_0205b228(void*, int, unsigned char);
 extern "C" void func_0205b234(void*, int, int, void*, int, int);
-extern "C" void DC_FlushRange(const void*, unsigned int);
 extern "C" void LoadToMainObjVRAM(const void*, unsigned int, unsigned int);
 extern "C" void LoadToSubObjVRAM(const void*, unsigned int, unsigned int);
-extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
+extern "C" void func_02012da4(AllocatorUnion*, void*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_020945ac(Struct_02093b90_2*);
 
@@ -65,10 +81,10 @@ static inline unsigned char* inline_02093b90(Struct_02093b90_2* arg0) { return a
 
 // USA: func_02093b90
 extern "C" ARM void func_02093b90(Struct_02093b90_2* arg0, int arg1) {
-    char* var0 = GetOAMManager_0203bd08();
+    char* var0 = func_0203bd08();
     func_0203be58(var0, func_020938cc(), 1);
-    GlobalFlags_02012de8* var1 = GetGlobalFlags_020d6c00();
-    if (TestGlobalFlags_02046708(var1, 0x20)) {
+    GlobalFlags_02012de8* var1 = func_020d6c00();
+    if (func_02046708(var1, 0x20)) {
         func_020941b0(arg0);
         return;
     }
@@ -88,7 +104,7 @@ extern "C" ARM void func_02093b90(Struct_02093b90_2* arg0, int arg1) {
     if (6.28f <= arg0->unknown_344_) arg0->unknown_344_ -= 6.28f;
     if (arg0->unknown_3cb_ <= 0) return;
     if (func_020943dc(arg0)) return;
-    if (TestGlobalFlags_02046708(var1, 0x8000)) return;
+    if (func_02046708(var1, 0x8000)) return;
     if (arg0->unknown_348_[0]) {
         void* var3 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x800);
         if (!var3) return;
@@ -129,13 +145,13 @@ extern "C" ARM void func_02093b90(Struct_02093b90_2* arg0, int arg1) {
                 SetCanvasCharacterData_0205b220(&var13, (int)var3);
                 SetCanvasRects_0205b228(&var13, (int)var7, 8);
                 func_0205b234(&var13, 16, 3, var5, DRAW_ARGS_02093b90);
-                DC_FlushRange(var3, 0x800);
+                CleanInvalidateCacheRange((const void*)(var3), 0x800);
                 if (var4==0) LoadToMainObjVRAM(var3, var6-0x800, 0x800);
                 else LoadToSubObjVRAM(var3, var6-0x800, 0x800);
             }
           }
         }
-        FreeMemory_02012da4(&gMainHeap_02114e20,var3);
+        func_02012da4(&gMainHeap_02114e20,var3);
         memset(arg0->unknown_348_,0,TEXT_LEN_02093b90);
         arg0->unknown_3cd_ |=4;
         if (!arg0->unknown_0_[0].unknown_33_) {
@@ -160,12 +176,12 @@ extern "C" ARM void func_02093b90(Struct_02093b90_2* arg0, int arg1) {
             int var17=func_020937f0(var16);
             if (var17) {
                 memset(var15,0x11111111,0x800);
-                DC_FlushRange(var15,0x800);
+                CleanInvalidateCacheRange((const void*)(var15), 0x800);
                 if (var16==0) LoadToMainObjVRAM(var15,var17-0x800,0x800);
                 else LoadToSubObjVRAM(var15,var17-0x800,0x800);
             }
         }
-        FreeMemory_02012da4(&gMainHeap_02114e20,var15);
+        func_02012da4(&gMainHeap_02114e20,var15);
     }
     func_020945ac(arg0);
     arg0->unknown_3ca_=0;

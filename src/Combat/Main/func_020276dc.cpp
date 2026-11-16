@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "NitroSDK/Cache.h"
 
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int func_02027bd0(int arg0);
-extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToSubObjStandardPalette(int arg0, int arg1, unsigned int arg2);
 
 extern unsigned char data_020e703e[];
@@ -52,7 +52,7 @@ extern "C" ARM void func_020276dc(Struct_020276dc* arg0) {
             do { *var9++ = *var8++; } while (--var7);
         }
         data_020fdc4c.unknown_0_ = var2[var6];
-        DC_FlushRange(data_020fdc50 - 4, 2);
+        CleanInvalidateCacheRange((const void*)(data_020fdc50 - 4), 2);
         LoadToSubObjStandardPalette((int)(data_020fdc50 - 4), var1 * 32 + 0x1e, 2);
     }
 }

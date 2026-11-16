@@ -2,20 +2,28 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 
 struct Struct_020534ac;
 struct StringTable_0201099c_14;
-extern "C" void func_020dfc6c(struct StringTable_0201099c_14* arg0);
 extern "C" void func_020df83c(void* arg0);
 extern "C" void func_ov023_021db2e4(volatile int* arg0);
 extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg3, short arg4);
 
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 
 extern "C" {
     void func_020df850(void* arg0, void* arg1, int arg2, int arg3, int arg4);
-    void* GetFlagManager_0205ec34(void);
+    void* func_0205ec34(void);
     int ParseDecimal_02005a94(signed char* string);
     void InitTextWindow_0204c684(void* textWindow);
     void func_ov023_021db314(void* arg0, short* arg1, short* arg2);
@@ -69,9 +77,9 @@ extern "C" ARM int func_ov023_021e0840(void* arg0) {
     }
 #endif
 
-    func_020dfc6c((struct StringTable_0201099c_14*)(var0 + 0x8c));
+    ((StringList*)((struct StringTable_0201099c_14*)(var0 + 0x8c)))->Destroy();
     func_020df83c(var0 + 0x7c);
-    func_020dfc6c((struct StringTable_0201099c_14*)(var0 + 0xa4));
+    ((StringList*)((struct StringTable_0201099c_14*)(var0 + 0xa4)))->Destroy();
     ((class SafeAllocator*)(var0 + 0x28))->Reset();
 
     int var7 = *(short*)((char*)*(void**)(var0 + 0x4c) + 0x18);
@@ -83,7 +91,7 @@ extern "C" ARM int func_ov023_021e0840(void* arg0) {
         short var10;
         void* var11;
         struct Struct_ov023_021e0840* var12 = var8->unknown_4_;
-        var11 = GetFlagManager_0205ec34();
+        var11 = func_0205ec34();
         var10 = var8->unknown_2_;
         for (var9 = 0; var9 < var10; var9++, var12++) {
             char* var13 = var12->unknown_4_;
@@ -92,7 +100,7 @@ extern "C" ARM int func_ov023_021e0840(void* arg0) {
             if (strlen(var13) < 5) continue;
             int var14 = ParseDecimal_02005a94((signed char*)(var13 + 5));
             int var15 = var14 + 0x12 + 0xc00;
-            if (!IsFlagSet_0206dfb0((int)var11, (unsigned char*)var11 + 0x8c, var15)) {
+            if (!func_0206dfb0((int)var11, (unsigned char*)var11 + 0x8c, var15)) {
                 var12->unknown_1_ = 0;
             }
         }

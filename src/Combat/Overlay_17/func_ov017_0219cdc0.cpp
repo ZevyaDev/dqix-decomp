@@ -2,13 +2,17 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_02010604;
 #if defined(jpn)
 enum { Enum_ov017_0219cdc0_396 = 0x180 };
 #else
 enum { Enum_ov017_0219cdc0_396 = 0x18c };
 #endif
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0202ae18();
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void RevivePartyMember_02048150(GameObject*, int, int);
 extern "C" int SetMotion_02033b88(Struct_02010604*, int);
@@ -28,7 +32,7 @@ static inline int inline_ov017_0219cdc0_2(unsigned short arg0, unsigned short ar
 // USA: func_ov017_0219cdc0
 extern "C" ARM void func_ov017_0219cdc0(unsigned short arg0, int arg1, signed char arg2) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     GameResources* var2 = GetGameResources();
     int var3 = !inline_ov017_0219cdc0_2(arg0, 10100);
     unsigned short var4 = (arg0 / 100) * 100;

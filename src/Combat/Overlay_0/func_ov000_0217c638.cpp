@@ -1,6 +1,14 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct MenuCursor_0205ba68;
 struct MenuCursor_0205bacc;
 struct MenuCursor_0205bcdc;
@@ -8,12 +16,12 @@ struct TextWindowManager_0205cf1c;
 
 extern "C" void* GetParty_02010828(GameState*);
 extern "C" void func_ov000_02174da4(int, void*);
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_ov000_0218155c(void*);
 extern "C" void* FindPartyMemberPanel_ov000_02161318(void*, int);
-extern "C" void* GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" void* func_02053c6c(unsigned char*);
 extern "C" void DisableTouchMenuCursor_0205cf10(void*);
 extern "C" void DisableKeyMenuCursor_0205cf1c(TextWindowManager_0205cf1c*);
 extern "C" void EnableTouchMenuCursor_0205cef8(void*);
@@ -103,7 +111,7 @@ extern "C" ARM void func_ov000_0217c638(Struct_ov000_0217c638_3* arg0, int arg1,
         break;
     }
     case 2: {
-        void* var9 = GetLocalWireless_0202ae18();
+        void* var9 = func_0202ae18();
         var2 = 3;
         if (IsLocalWirelessOn_0202b7d8((int*)var9)) {
             if (GetProtagonistObjectIndex_020100a8(var5) == 0) var2 = 4;
@@ -149,7 +157,7 @@ extern "C" ARM void func_ov000_0217c638(Struct_ov000_0217c638_3* arg0, int arg1,
         if (var13 && FindPartyMemberPanel_ov000_02161318(arg0, var11)) {
             GameObject* var14 = var5->GetPartyMemberByIndex(var11);
             if (var14) {
-                var12 = (signed char)((Struct_ov000_0217c638*)GetPartyMemberData_02053c6c((unsigned char*)var14))->unknown_94c_;
+                var12 = (signed char)((Struct_ov000_0217c638*)func_02053c6c((unsigned char*)var14))->unknown_94c_;
             }
         }
         arg0->unknown_1d69_[3] = var12;

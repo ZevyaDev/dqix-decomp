@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Resource/CharacterCreationUI.h"
+#include "Resource/StringList.h"
 
 namespace {
 struct Struct_ov023_021e853c_2 {
@@ -25,7 +26,6 @@ extern "C" void SetMessageNumberAlignment_020465d8(unsigned char* window, int in
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 #if defined(jpn)
 extern "C" void func_020474a8(void* arg0, unsigned char arg1, const char* arg2, char* arg3);
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov023_021e853c(void* arg0) {
         SetMessageNumberAlignment_020465d8((unsigned char*)var2, var4, 1);
         SetMessageNumberWidth_020465f0((unsigned char*)var2, var4, 0xa);
     }
-    int var5 = FindStringInTable_020e0434(&var0->unknown_4c_, 1);
+    int var5 = ((int)((StringList*)(&var0->unknown_4c_))->GetString(1));
 #if defined(jpn)
     func_020474a8(((void*)(var2)), 0xa, ((const char*)(var5)), var0->unknown_5d8_);
 #else

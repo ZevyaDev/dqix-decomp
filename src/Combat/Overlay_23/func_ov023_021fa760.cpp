@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "Graphics/OBJSpriteSet.h"
 
 struct Struct_ov023_021fa760_2 {
     char unknown_0_[4];
@@ -19,7 +20,6 @@ struct Struct_ov023_021fa760_2 {
 
 extern "C" void func_ov023_021f6ed8(void* arg0);
 extern "C" void func_ov023_021faa60(void* arg0, int arg1);
-extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 
 // USA: func_ov023_021fa760
 #if defined(jpn)
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov023_021fa760(struct Struct_ov023_021fa760* arg0, int a
     arg0->unknown_8_ = arg3;
     arg0->unknown_a_ = 0;
     arg0->unknown_10_ = arg4;
-    InitSpriteSet_0205a444((char*)arg0 + 0x20);
+    ((OBJSpriteSet*)((char*)arg0 + 0x20))->Reset();
     memset(arg0->unknown_74_, 0, 0x10);
     arg0->unknown_70_ = arg5;
     func_ov023_021faa60(arg0, arg1);
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov023_021fa760(struct Struct_ov023_021fa760_2* arg0, int
     arg0->unknown_a_ = 0;
     arg0->unknown_20_ = arg4;
     arg0->unknown_10_ = arg5;
-    InitSpriteSet_0205a444((char*)arg0 + 0x24);
+    ((OBJSpriteSet*)((char*)arg0 + 0x24))->Reset();
     memset(arg0->unknown_78_, 0, 0x10);
     arg0->unknown_74_ = arg6;
     func_ov023_021faa60(arg0, arg1);

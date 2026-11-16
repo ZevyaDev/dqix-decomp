@@ -2,6 +2,7 @@
 #include "Combat/MenuNodeChain.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
+#include "Graphics/BGLayer.h"
 
 #if defined(jpn)
 enum { Enum_ov003_02167370_100 = 0x34 };
@@ -17,7 +18,6 @@ extern "C" int DisableSubBGVRAMBanks(void);
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void MapVRAMBanksToSubObj(int value);
 struct BGLayer_02020cb8_3;
-extern "C" void ResetBGLayerData_0204afb4(struct BGLayer_02020cb8_3* layer);
 struct Struct_0204c754;
 extern "C" void func_0204c754(struct Struct_0204c754* arg0);
 
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov003_02167370(char* arg0) {
     MapVRAMBanksToSubObj(*(int*)(arg0 + 0x18));
 
     if (*(void**)(arg0 + 8) != 0) {
-        ResetBGLayerData_0204afb4(*(struct BGLayer_02020cb8_3**)(arg0 + 8));
+        ((BGLayer*)(*(struct BGLayer_02020cb8_3**)(arg0 + 8)))->MaybeDestroy();
         *(int*)(arg0 + 8) = 0;
     }
     if (*(void**)(arg0 + 0xc) != 0) {

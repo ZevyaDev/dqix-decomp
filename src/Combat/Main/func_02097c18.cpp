@@ -1,11 +1,11 @@
 #include <globaldefs.h>
+#include "NitroSDK/VRAMAllocation.h"
 
 void LockStagedTextureVRAMCopying();
 extern "C" void MapVRAMBanksToTextureImage(int handle);
 extern "C" void MapVRAMBanksToTexturePalette(int value);
 extern "C" void MapVRAMBanksToMainBG(int v);
 extern "C" void MapVRAMBanksToMainObj(int mode);
-extern "C" ARM void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install);
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void MapVRAMBanksToSubObj(int value);
 void UpdateVRAMStagingVRAMBanks(void);
@@ -35,7 +35,7 @@ extern "C" ARM void func_02097c18(struct Struct_02097c18* arg0, unsigned char ar
             var1 = var1 + 1;
             var0 &= var0 - 1;
         }
-        InitTextureImageVRAMAllocator_020bb48c(var1, 1);
+        InitializeTextureImageAllocation(var1, 1);
     }
     if (arg1 & 2) {
         MapVRAMBanksToSubBG(arg6);

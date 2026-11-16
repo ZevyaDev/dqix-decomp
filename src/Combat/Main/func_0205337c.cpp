@@ -1,15 +1,31 @@
 #include <globaldefs.h>
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
+#include "Graphics/SPRSprite.h"
 
-extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02046708 func_02047528
+#endif
+
+#if defined(jpn)
+#define func_0202ec84 func_0202e7f4
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
+extern "C" void* func_020d6c00(void);
+extern "C" int func_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 
 struct Struct_02015ef4 { int unknown_0_; int unknown_4_; int unknown_8_; };
-extern "C" ARM int ConvertWorldToScreen_0202ec84(void* camera, struct Struct_02015ef4* worldPosition, int* outX, int* outY);
+extern "C" ARM int func_0202ec84(void* camera, struct Struct_02015ef4* worldPosition, int* outX, int* outY);
 
 struct Struct_02015ef4_2;
-extern "C" ARM void func_020473c8(struct Struct_02015ef4_2* arg0, int arg1);
 
 struct Struct_0205337c {
     unsigned char unknown_0_[0x1c];
@@ -42,17 +58,17 @@ struct Struct_0205337c_2 {
 
 // USA: func_0205337c
 extern "C" ARM void func_0205337c(struct Struct_0205337c_2* arg0) {
-    if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)GetGlobalFlags_020d6c00(), 2)) return;
+    if (func_02046708((struct GlobalFlags_02012de8*)func_020d6c00(), 2)) return;
     if (arg0->unknown_190_ == NULL) return;
 
-    void* var0 = GetCamera_020100bc(GameState::GetInstance());
+    void* var0 = func_020100bc(GameState::GetInstance());
     *(volatile int*)0x4000444 = 0;
 
     struct Struct_02015ef4 var1 = arg0->unknown_44_;
     var1.unknown_4_ += 0x1b33;
 
     int var2, var3;
-    ConvertWorldToScreen_0202ec84(var0, &var1, &var2, &var3);
+    func_0202ec84(var0, &var1, &var2, &var3);
     var2 -= 0xc;
     var3 -= 0xc;
 
@@ -74,6 +90,6 @@ extern "C" ARM void func_0205337c(struct Struct_0205337c_2* arg0) {
     var9->unknown_20_ = var8 << 12;
     var9->unknown_24_ = -0xa000;
 
-    func_020473c8((struct Struct_02015ef4_2*)arg0->unknown_190_, 1);
+    ((SPRSprite*)((struct Struct_02015ef4_2*)arg0->unknown_190_))->DrawAnimatedNoRotation(1);
     *(volatile int*)0x4000448 = 1;
 }

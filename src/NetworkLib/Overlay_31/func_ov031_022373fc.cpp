@@ -10,7 +10,7 @@ extern Struct_ov031_02290d04_17 data_ov031_02290d04;
 
 // USA: func_ov031_022373fc
 extern "C" ARM void func_ov031_022373fc(void* arg0) {
-	DC_FlushRange(data_ov031_02290d04.unknown_0_, 0x600);
+	CleanInvalidateCacheRange((const void*)(data_ov031_02290d04.unknown_0_), 0x600);
 	LoadToSubBG1ScreenData((int)data_ov031_02290d04.unknown_0_, 0, 0x600);
 	func_ov031_0223b710(data_ov031_02290d04.unknown_0_);
 	QueueTaskRemoval_ov031_0223e2c0(1, arg0);

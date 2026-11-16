@@ -2,6 +2,14 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
+#include "Graphics/BGLayer.h"
+#include "NitroSDK/Cache.h"
+#include "Resource/PAC.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
 
 struct Struct_ov003_021539a0_2;
 
@@ -77,21 +85,14 @@ struct SafeAllocator;
 extern "C" void __clear(void*, int);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void* func_0208247c(void*);
-extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" unsigned char* func_02053c6c(unsigned char*);
 extern "C" int func_02082490(void*, void*, unsigned int, int, int);
 struct PacEntry_02020aec;
-extern "C" char* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
-extern "C" void SetBGScreenSize_0204b11c(unsigned char*, int);
-extern "C" void SetBGPriority_0204b5b4(void*, int);
 struct BGLayer_02020cb8_5;
-extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
 extern "C" void InitTextWindow_0204c684(void*);
 struct BGLayer_0204b988;
-extern "C" void CopyBGScreenBlock_0204b988(BGLayer_0204b988*, unsigned int, int, int, unsigned short);
 struct BGLayer_02020cb8_2;
-extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2*, void*);
 struct Struct_0201099c_3;
-extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02046608(void*, int, char*, char*, int, int, unsigned char);
 extern "C" void func_ov023_021e23d0(void*, int, int, unsigned char, unsigned char);
@@ -106,8 +107,6 @@ extern "C" int func_020862a8(unsigned char*);
 extern "C" int func_02086314(unsigned char*);
 extern "C" void func_ov023_021e24b0(void*, int, int, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);
 extern "C" void func_ov023_021e257c(void*);
-extern "C" void DC_FlushRange(const void*, unsigned int);
-extern "C" void LoadToSubBG0CharacterData(int, int, unsigned int);
 extern "C" void* GetResources_0200fb8c(int*);
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
@@ -158,19 +157,19 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
         unsigned char* var11 = 0;
         unsigned char* var12;
         if (var10 != 0 && var5 != 0) {
-            var11 = GetPartyMemberData_02053c6c(var10);
+            var11 = func_02053c6c(var10);
             func_02082490(arg0->unknown_8_, var5, var6, *(unsigned short*)(var11 + 0x100 + arg0->unknown_14_ * 2 + 0x6c), 0);
         }
         ((BackgroundLoader*)var0)->RemoveTask(arg0->unknown_50_);
         arg0->unknown_50_ = -1;
         ((BackgroundLoader*)var0)->GetLoadedFileByID(arg0->unknown_54_, &var5, &var6);
-        var10 = (unsigned char*)GetPacEntryData_020467f0((PacEntry_02020aec*)var5, 0, &var7, &var8);
+        var10 = (unsigned char*)GetFileInPACByIndex((void*)((PacEntry_02020aec*)var5), 0, (const char**)(&var7), (unsigned int*)(&var8));
         if (var10 != 0) {
             var3.unknown_1c_0_ = 1;
             var3.unknown_1c_4_ = 0;
-            SetBGScreenSize_0204b11c((unsigned char*)&var3, 0);
-            SetBGPriority_0204b5b4(&var3, 0);
-            SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)&var3, 0, 0);
+            ((BGLayer*)((unsigned char*)&var3))->ConfigureTextMode(0);
+            ((BGLayer*)(&var3))->SetPriority(0);
+            ((BGLayer*)((BGLayer_02020cb8_5*)&var3))->SetOffset(0, 0);
             var12 = var10 + 0x10;
             InitTextWindow_0204c684(&var2);
             var2.unknown_a8_ = 0x20;
@@ -213,15 +212,15 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
                 if (var17) {
                     var17->unknown_16_ &= ~1;
                 }
-                CopyBGScreenBlock_0204b988((BGLayer_0204b988*)arg0->unknown_18_, (unsigned char)(var15 + 1) & 0xff, 3, 2, 0xffff);
-                LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)arg0->unknown_18_, 0);
+                ((BGLayer*)((BGLayer_0204b988*)arg0->unknown_18_))->BlitSpriteByIndex((unsigned char)(var15 + 1) & 0xff, 3, 2, 0xffff);
+                ((BGLayer*)((BGLayer_02020cb8_2*)arg0->unknown_18_))->CleanCacheAndUploadIndexBuffer((const void*)(0));
                 unsigned char var22 = var15 - 1;
                 var2.unknown_b8_ = 0xa;
                 var2.unknown_ba_ = 0x10;
                 unsigned char var23 = var22 + var22 * 2;
-                func_ov023_021e23d0(var13, 7, (int)FindStringInTable_020e0434((Struct_0201099c_3*)var16, var23), 0xc, 0xf);
-                func_ov023_021e23d0(var13, 8, (int)FindStringInTable_020e0434((Struct_0201099c_3*)var16, (short)(var23 + 1)), 0xc, 0xf);
-                func_ov023_021e23d0(var13, 9, (int)FindStringInTable_020e0434((Struct_0201099c_3*)var16, (short)(var23 + 2)), 0xc, 0xf);
+                func_ov023_021e23d0(var13, 7, (int)((char*)((StringList*)((Struct_0201099c_3*)var16))->GetString(var23)), 0xc, 0xf);
+                func_ov023_021e23d0(var13, 8, (int)((char*)((StringList*)((Struct_0201099c_3*)var16))->GetString((short)(var23 + 1))), 0xc, 0xf);
+                func_ov023_021e23d0(var13, 9, (int)((char*)((StringList*)((Struct_0201099c_3*)var16))->GetString((short)(var23 + 2))), 0xc, 0xf);
                 int var24 = (var15 & 0xff) * 0xc;
                 unsigned char* var25 = var11 + 0x7b8;
                 struct Struct_ov003_021539a0_3* var26 = (struct Struct_ov003_021539a0_3*)(var25 + var24);
@@ -241,8 +240,8 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
                 var13->unknown_12_ = 1;
                 func_ov023_021e257c(var13);
             }
-            DC_FlushRange(var12, 0x6000);
-            LoadToSubBG0CharacterData((int)var12, 0, 0x6000);
+            CleanInvalidateCacheRange((const void*)(var12), 0x6000);
+            LoadToSubBG0CharacterData((const void*)((int)var12), 0, 0x6000);
         }
         ((BackgroundLoader*)var0)->RemoveTask(arg0->unknown_54_);
         arg0->unknown_54_ = -1;
@@ -292,19 +291,19 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
         unsigned char* var42 = 0;
         unsigned char* var43;
         if (var41 != 0 && var36 != 0) {
-            var42 = GetPartyMemberData_02053c6c(var41);
+            var42 = func_02053c6c(var41);
             func_02082490(arg0->unknown_8_, var36, var37, *(unsigned short*)(var42 + 0x100 + arg0->unknown_14_ * 2 + 0x6c), 0);
         }
         ((BackgroundLoader*)var29)->RemoveTask(arg0->unknown_50_);
         arg0->unknown_50_ = -1;
         ((BackgroundLoader*)var29)->GetLoadedFileByID(arg0->unknown_54_, &var36, &var37);
-        var41 = (unsigned char*)GetPacEntryData_020467f0((PacEntry_02020aec*)var36, 0, &var38, &var39);
+        var41 = (unsigned char*)GetFileInPACByIndex((void*)((PacEntry_02020aec*)var36), 0, (const char**)(&var38), (unsigned int*)(&var39));
         if (var41 != 0) {
             var34.unknown_1c_0_ = 1;
             var34.unknown_1c_4_ = 0;
-            SetBGScreenSize_0204b11c((unsigned char*)&var34, 0);
-            SetBGPriority_0204b5b4(&var34, 0);
-            SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)&var34, 0, 0);
+            ((BGLayer*)((unsigned char*)&var34))->ConfigureTextMode(0);
+            ((BGLayer*)(&var34))->SetPriority(0);
+            ((BGLayer*)((BGLayer_02020cb8_5*)&var34))->SetOffset(0, 0);
             var43 = var41 + 0x10;
             InitTextWindow_0204c684(&var31);
             var31.unknown_a8_ = 0x20;
@@ -347,17 +346,17 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
                 if (var48) {
                     var48->unknown_16_ &= ~1;
                 }
-                CopyBGScreenBlock_0204b988((BGLayer_0204b988*)arg0->unknown_18_, (unsigned char)(var46 + 1) & 0xff, 3, 2, 0xffff);
-                LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)arg0->unknown_18_, 0);
+                ((BGLayer*)((BGLayer_0204b988*)arg0->unknown_18_))->BlitSpriteByIndex((unsigned char)(var46 + 1) & 0xff, 3, 2, 0xffff);
+                ((BGLayer*)((BGLayer_02020cb8_2*)arg0->unknown_18_))->CleanCacheAndUploadIndexBuffer((const void*)(0));
                 unsigned char var53 = var46 - 1;
                 var31.unknown_b8_ = 0xa;
                 var31.unknown_ba_ = 0x10;
                 var44->unknown_4a_ = 0x10;
                 __clear(var32, 0x400);
                 unsigned char var54 = var53 + var53 * 2;
-                char* var55 = FindStringInTable_020e0434((Struct_0201099c_3*)var47, (short)(var54 + 2));
-                char* var56 = FindStringInTable_020e0434((Struct_0201099c_3*)var47, (short)(var54 + 1));
-                char* var57 = FindStringInTable_020e0434((Struct_0201099c_3*)var47, (short)var54);
+                char* var55 = ((char*)((StringList*)((Struct_0201099c_3*)var47))->GetString((short)(var54 + 2)));
+                char* var56 = ((char*)((StringList*)((Struct_0201099c_3*)var47))->GetString((short)(var54 + 1)));
+                char* var57 = ((char*)((StringList*)((Struct_0201099c_3*)var47))->GetString((short)var54));
                 sprintf(var33, data_ov003_0217fcd5, var57, var56, var55);
                 func_02046608(GetMessageWindow_020421a0(), 0xc, var33, var32, 0xdc, 0, 1);
                 func_ov023_021e23d0(var44, 7, (int)var32, 0xc, 0xf);
@@ -383,8 +382,8 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
                 var44->unknown_12_ = 1;
                 func_ov023_021e257c(var44);
             }
-            DC_FlushRange(var43, 0x6000);
-            LoadToSubBG0CharacterData((int)var43, 0, 0x6000);
+            CleanInvalidateCacheRange((const void*)(var43), 0x6000);
+            LoadToSubBG0CharacterData((const void*)((int)var43), 0, 0x6000);
         }
         ((BackgroundLoader*)var29)->RemoveTask(arg0->unknown_54_);
         arg0->unknown_54_ = -1;

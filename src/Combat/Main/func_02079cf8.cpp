@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+extern unsigned char g_fileScratchSpace[0x30000];
 #if defined(jpn)
 #define func_02079808 func_0207a6fc
 #endif
@@ -19,12 +20,11 @@ extern "C" {
 }
 
 struct Struct_02000c9c_8;
-extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
+extern "C" int func_0200fb08(Struct_02000c9c_8*);
 
 struct Struct_02079808;
 extern "C" void* func_02079a3c(void* arg0);
 
-extern unsigned char gFileScratchSpace_0211e33c[0x30000];
 extern const char data_020f0e02[];
 extern const char data_020f0e17[];
 extern const char data_020f0e28[];
@@ -39,23 +39,21 @@ extern "C" ARM void func_02079cf8(ActionTables_02108e10* arg0, SafeAllocator* ar
 #endif
     unsigned int var0;
     unsigned char* var1;
-    var1 = gFileScratchSpace_0211e33c;
-    int var2 = sizeof(gFileScratchSpace_0211e33c);
+    var1 = g_fileScratchSpace;
+    int var2 = sizeof(g_fileScratchSpace);
     GPCReadPair var3;
     func_02079a3c(&var3);
 
     unsigned int var4;
 
     const char* var5 = data_020f0e02;
-    bool var6 = LoadAndDecompressGPCHeaderAndInnerFileInfo(&var3.pGPCFile, var3.machine,
-        var5, var1, var4, var2, false, NULL);
+    bool var6 = LoadAndDecompressGPCHeaderAndInnerFileInfo(&var3.pGPCFile, &var3.machine, var5, var1, &var4, var2, false, NULL);
     if (var6) {
         unsigned int var7 = 0;
         var0 = var4;
         var2 -= var0;
 #if defined(jpn)
-        DecompressFileFromGPCByName(var3.pGPCFile, var3.machine, var1 + var0,
-            var7, var2, data_020f0e17);
+        DecompressFileFromGPCByName(&var3.pGPCFile, &var3.machine, var1 + var0, &var7, var2, data_020f0e17);
 
         func_02079a58(&arg0->unknown_c_, arg1, var1 + var0,
             func_02079808, 0);
@@ -64,18 +62,16 @@ extern "C" ARM void func_02079cf8(ActionTables_02108e10* arg0, SafeAllocator* ar
         char var9[0x20];
         __clear(var9, sizeof(var9));
 
-        int var10 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)var8);
+        int var10 = func_0200fb08((Struct_02000c9c_8*)var8);
         StringReplaceLanguageTag(data_020f0e17, var9, var10);
 
-        DecompressFileFromGPCByName(var3.pGPCFile, var3.machine, var1 + var0,
-            var7, var2, var9);
+        DecompressFileFromGPCByName(&var3.pGPCFile, &var3.machine, var1 + var0, &var7, var2, var9);
 
         func_02079a58(&arg0->unknown_c_, arg1, var1 + var0,
             func_02079808, 0, arg2);
 #endif
 
-        DecompressFileFromGPCByName(var3.pGPCFile, var3.machine, var1 + var0,
-            var7, var2, data_020f0e28);
+        DecompressFileFromGPCByName(&var3.pGPCFile, &var3.machine, var1 + var0, &var7, var2, data_020f0e28);
 
 #if defined(jpn)
         func_02079bac(&arg0->unknown_24_, arg1, var1 + var0, NULL, 0);

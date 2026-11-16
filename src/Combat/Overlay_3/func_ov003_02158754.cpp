@@ -3,13 +3,10 @@
 #include "World/Object3D.h"
 #include <globaldefs.h>
 #include "Resource/Brightness.h"
+#include "Graphics/TextureArena.h"
 
 extern "C" {
-void InitTextureVRAMAreaFromSaved_0207dfc8(void *, void *);
 void _ZN13SafeAllocator5ResetEv(void *);
-void ResetTextureVRAMState_0207df50(void *);
-void RestoreTextureVRAMState_0207df90(void *);
-void SaveTextureVRAMState_0207dfac(void *);
 void SetObject3DPositionFromVector_02059f38(void *, void *);
 void SetObject3DPosition_020407b4(void *, int, int, int);
 int func_02098210(int, int);
@@ -71,10 +68,10 @@ extern "C" ARM int func_ov003_02158754(struct Struct_ov003_02158754_3 *arg0) {
         unsigned int var2 = 0;
         var0->GetLoadedFileByID(arg0->unknown_20c_, &var1, &var2);
         char *var3 = (char *) GetGameResources();
-        InitTextureVRAMAreaFromSaved_0207dfc8(var3 + Enum_ov003_02158754_716, arg0->unknown_210_);
+        ((TextureArena*)(var3 + Enum_ov003_02158754_716))->CreateDescendant((TextureArena*)(arg0->unknown_210_));
         _ZN13SafeAllocator5ResetEv((char *) arg0->unknown_0_ + 0x8c);
-        ResetTextureVRAMState_0207df50(arg0->unknown_210_);
-        RestoreTextureVRAMState_0207df90(arg0->unknown_210_);
+        ((TextureArena*)(arg0->unknown_210_))->Reset();
+        ((TextureArena*)(arg0->unknown_210_))->Restore();
         Object3D *var4 = (Object3D *) arg0->unknown_280_;
         var4->Initialize();
         ObjectArchiveLoadInfo var5;
@@ -115,7 +112,7 @@ extern "C" ARM int func_ov003_02158754(struct Struct_ov003_02158754_3 *arg0) {
         } else {
             var4->EnableFlag(1);
         }
-        SaveTextureVRAMState_0207dfac(arg0->unknown_210_);
+        ((TextureArena*)(arg0->unknown_210_))->Save();
         arg0->unknown_32c_ = 1;
         var0->RemoveTask(arg0->unknown_20c_);
         arg0->unknown_20c_  = -1;

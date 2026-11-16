@@ -2,6 +2,8 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Graphics.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 enum { Enum_ov003_0215f9c0_550 = 0x10e };
@@ -29,9 +31,7 @@ struct SaveProgress_020a9ea4 {
 };
 
 extern "C" void SaveMainBGControl_02074af4(struct BGControlSave_02074af4* save);
-extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void func_02081ee4(struct Struct_02081ee4* arg0, struct Struct_02081ee4_2* arg1);
-extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
 extern "C" void ResetSaveProgress_020a9ea4(struct SaveProgress_020a9ea4* progress);
 
 struct Struct_ov003_0215f9c0 {
@@ -130,10 +130,10 @@ extern "C" ARM void func_ov003_0215f9c0(struct Struct_ov003_0215f9c0* arg0, int 
     SaveMainBGControl_02074af4(&arg0->unknown_2f4_);
     arg0->unknown_330_ = (DISPCNT & 0x1f00) >> 8;
     DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
-    InitSpriteSet_0205a444(arg0->unknown_334_);
+    ((OBJSpriteSet*)(arg0->unknown_334_))->Reset();
     arg0->unknown_388_ = 0;
     func_02081ee4(&arg0->unknown_308_, &arg0->unknown_314_);
-    InitStringTable_020dfc40(&arg0->unknown_2dc_);
+    ((StringList*)(&arg0->unknown_2dc_))->Reset();
     arg0->unknown_318_ = 0;
     arg0->unknown_31c_ = 0;
     arg0->unknown_320_ = 0;

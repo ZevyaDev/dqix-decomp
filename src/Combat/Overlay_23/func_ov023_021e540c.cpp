@@ -88,10 +88,10 @@ extern "C" ARM void func_ov023_021e540c(Struct_ov023_021e540c_5* arg0) {
                     var13 *= 2;
                     Model3D* var14 = arg0->unknown_0_[var7].pModel_;
                     if (var14 != NULL) {
-                        NSBXXTex* var15 = var14->GetTEX0();
+                        Nitro3DTextureSet* var15 = var14->GetTEX0();
                         if (var15 != NULL) {
                             int var16 = 0x30;
-                            unsigned short var17 = var15->block4NumEightBytes_ << 3;
+                            unsigned short var17 = var15->block4NumEightBytes << 3;
                             var17 = (var17 + 0x1f) & ~0x1f;
                             int var18 = 0x20;
                             if (var7 == 0) var18 = 0x200;

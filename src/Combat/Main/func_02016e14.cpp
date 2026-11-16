@@ -8,6 +8,10 @@
 #include "NitroSDK/Graphics.h"
 #include "World/Object3D.h"
 
+#if defined(jpn)
+#define func_02016d8c func_02016b2c
+#endif
+
 struct Struct_02016e14_2 { unsigned char unknown_0_; unsigned char unknown_1_; };
 
 struct Struct_02016e14_3 { char unknown_0_[0xc]; unsigned char unknown_c_0_ : 4; unsigned char unknown_c_4_ : 4; };
@@ -96,7 +100,7 @@ extern "C" ARM void func_02016e14(struct Struct_02016e14_6* arg0, void* arg1, st
     }
 
     if (var5 != NULL) {
-        RenderConfig::SetObjectPosition(&arg2->unknown_8_);
+        Nitro3DRenderConfig::SetObjectPosition(&arg2->unknown_8_);
 
         int var8 = arg2->unknown_6_;
         if (arg2->unknown_38_ != 0) {
@@ -112,7 +116,7 @@ extern "C" ARM void func_02016e14(struct Struct_02016e14_6* arg0, void* arg1, st
         var12.x = arg2->unknown_14_.x;
         var12.y = arg2->unknown_14_.y;
         var12.z = arg2->unknown_14_.z;
-        RenderConfig::SetObjectScale(&var12);
+        Nitro3DRenderConfig::SetObjectScale(&var12);
 
         if ((arg2->unknown_2_ & 8) || arg2->unknown_4_7_ != 0) {
             var5->SetAlpha(arg2->unknown_4_0_);
@@ -124,7 +128,7 @@ extern "C" ARM void func_02016e14(struct Struct_02016e14_6* arg0, void* arg1, st
 
             int var14 = 0;
             if (var1->unknown_0_ == 0) {
-                RenderConfig::SubmitToFifo();
+                Nitro3DRenderConfig::SubmitToFifo();
                 var14 = var5->Draw(true);
             } else if (var1->unknown_0_ == 2) {
                 var6->AdvanceEffects();

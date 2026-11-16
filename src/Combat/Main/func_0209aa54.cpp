@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_0209aa54_2 { unsigned short unknown_0_; unsigned short unknown_2_; };
 struct Struct_0209aa54_5 {
     unsigned char unknown_0_[0xc];
@@ -23,7 +27,7 @@ struct Struct_0209aa54_4 {
     int unknown_950_;
 };
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void LearnSpell_02083b60(unsigned char* memberData, int spellId);
 
 // USA: func_0209aa54
@@ -31,7 +35,7 @@ extern "C" ARM int func_0209aa54(struct Struct_0209aa54_3* arg0, unsigned char* 
                                 int arg3) {
     if (&arg0->unknown_0_->unknown_100_[0].unknown_c_[0] == NULL) return 0;
     if (&arg0->unknown_0_->unknown_51c_[0] == NULL) return 0;
-    struct Struct_0209aa54_4* var0 = (struct Struct_0209aa54_4*)GetPartyMemberData_02053c6c(arg1);
+    struct Struct_0209aa54_4* var0 = (struct Struct_0209aa54_4*)func_02053c6c(arg1);
     if (var0 == 0) return 0;
     int var1 = var0->unknown_950_;
     int var2;

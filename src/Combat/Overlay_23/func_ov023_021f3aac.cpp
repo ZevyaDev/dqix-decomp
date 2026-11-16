@@ -2,6 +2,8 @@
 #include <std_library_functions.h>
 #include <Filesystem/BackgroundLoader.h>
 #include <Memory/SafeAllocator.h>
+#include "Filesystem/FileIO.h"
+#include "Resource/StringList.h"
 
 #define GUIDE_WINDOW_MESSAGE_WINDOW 4
 
@@ -11,8 +13,6 @@ struct Struct_0209ff6c;
 struct Struct_ov023_021f1868_10;
 struct Struct_020a13c4;
 struct Struct_020a15bc;
-struct StringTable_0201099c_14;
-struct Struct_0201099c_3;
 struct Struct_ov023_021f1868_11;
 
 struct Struct_ov023_021f3aac_5 {
@@ -57,10 +57,6 @@ struct Struct_ov023_021f3aac_9 {
 struct Struct_ov023_021f3aac {
     char unknown_0_[0x438];
     unsigned short unknown_438_;
-};
-
-struct Struct_ov023_021f3aac_2 {
-    char unknown_0_[0x18];
 };
 
 struct Struct_ov023_021f3aac_3 {
@@ -112,7 +108,6 @@ struct Struct_ov023_021f3aac_4 {
 extern "C" Struct_ov023_021f3aac_3* _ZZ21inline_ov023_021f4c04vE1s;
 #if defined(jpn)
 extern const char data_ov023_021fd533[];
-extern "C" void func_020e1fc4(Struct_ov023_021f3aac_2*, SafeAllocator*, const char*, short*, unsigned short, int, int);
 #endif
 extern const char data_ov023_021fe316[];
 extern const char data_ov023_021fe2a0[];
@@ -128,10 +123,7 @@ extern "C" void func_0209ff6c(Struct_0209ff6c* arg0);
 extern "C" int func_ov023_021f21f4(Struct_ov023_021f1868_10* arg0);
 extern "C" void ClearAccoladeTable_020a13c4(Struct_020a13c4* table);
 extern "C" void func_020a13e4(void* arg0, void* arg1, int arg2, unsigned short arg3, unsigned char arg4);
-extern "C" void* ConstructStringTable_020dfc2c(void* stringTable);
-extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 extern "C" void* func_020a15bc(Struct_020a15bc* arg0, int arg1);
-extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_ov023_021f222c(Struct_ov023_021f1868_11* arg0);
 extern "C" void func_ov023_021f2304(void* arg0, char* arg1);
 extern "C" void func_ov023_021f2348(void* arg0, int arg1);
@@ -141,8 +133,6 @@ void __clear(void* arg0, unsigned long arg1);
 void func_ov023_021f1818(void* arg0, int arg1);
 void func_ov023_021d8af8(void* arg0);
 int func_ov023_021ed724(void* arg0, short* arg1, int arg2);
-void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
-void func_020e0028(Struct_ov023_021f3aac_2* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, short* arg4, unsigned short arg5);
 void func_ov023_021f229c(Struct_ov023_021f3aac_9* arg0, void* arg1);
 void func_ov023_021eb138(Struct_ov023_021f3aac* arg0, int arg1);
 void func_ov023_021eb080(Struct_ov023_021f3aac* arg0, SafeAllocator* arg1);
@@ -220,18 +210,17 @@ extern "C" ARM int func_ov023_021f3aac(Struct_ov023_021f3aac_4* arg0)
             func_020a13e4(arg0->unknown_55c8_, &arg0->unknown_30_, 0, 0, 2);
             arg0->unknown_55d5_ = func_ov023_021ed724(arg0->unknown_55c8_, var7, var10) & 1 ? 1 : 0;
             Struct_ov023_021f3aac_7* var13 = GameState::GetInstance()->GetProtagonist();
-            Struct_ov023_021f3aac_2 var14;
-            ConstructStringTable_020dfc2c(&var14);
-            InitStringTable_020dfc40((StringTable_0201099c_14*)&var14);
+            StringList var14;
+            var14.Reset();
 #if defined(jpn)
-            func_020e1fc4(&var14, &arg0->unknown_30_, data_ov023_021fd533, var7, (unsigned short)var10, var13->unknown_150_->unknown_49c_.unknown_0_0_, 1);
+            var14.LoadSubsetFromFile(&arg0->unknown_30_, data_ov023_021fd533, var7, (unsigned short)var10, var13->unknown_150_->unknown_49c_.unknown_0_0_, 1);
             var8 = (Struct_ov023_021f3aac_9*)var11->Allocate(var10 * sizeof(void*));
             for (var9 = 0; var9 < var10; var9++)
             {
                 void* var15 = func_020a15bc((Struct_020a15bc*)arg0->unknown_55c8_, var7[var9]);
                 if (var15 == NULL)
                     continue;
-                const char* var16 = FindStringInTable_020e0434((Struct_0201099c_3*)&var14, var7[var9]);
+                const char* var16 = var14.GetString(var7[var9]);
                 if (var16 == NULL)
                     continue;
                 func_ov023_021f222c((Struct_ov023_021f1868_11*)&var8[var9]);
@@ -257,9 +246,9 @@ extern "C" ARM int func_ov023_021f3aac(Struct_ov023_021f3aac_4* arg0)
             __clear(var19, sizeof(var19));
             sprintf(var18, data_ov023_021fe2a0, var13->unknown_150_->unknown_49c_.unknown_0_0_);
             sprintf(var19, data_ov023_021fe2b7, var13->unknown_150_->unknown_49c_.unknown_0_0_);
-            void* var20 = ExtractFileFromGP2(var18, var19, &var17);
+            void* var20 = ExtractFileFromGP2((const char*)(var18), (const char*)(var19), (unsigned int*)(&var17));
             if (var20 != NULL)
-                func_020e0028(&var14, &arg0->unknown_30_, var20, var17, var7, (unsigned short)var10);
+                var14.LoadSubsetFromMemory((SafeAllocator*)(&arg0->unknown_30_), (void*)(var20), var17, (const short*)(var7), (unsigned short)var10);
             BackgroundLoader::RemoveLockGlobal();
             arg0->unknown_55d0_ = (Struct_ov023_021f3aac_9*)arg0->unknown_30_.Allocate(var10 * sizeof(Struct_ov023_021f3aac_9));
             for (var9 = 0; var9 < var10; var9++)
@@ -267,7 +256,7 @@ extern "C" ARM int func_ov023_021f3aac(Struct_ov023_021f3aac_4* arg0)
                 void* var21 = func_020a15bc((Struct_020a15bc*)arg0->unknown_55c8_, var7[var9]);
                 if (var21 == NULL)
                     continue;
-                const char* var22 = FindStringInTable_020e0434((Struct_0201099c_3*)&var14, var7[var9]);
+                const char* var22 = var14.GetString(var7[var9]);
                 if (var22 == NULL)
                     continue;
                 func_ov023_021f222c((Struct_ov023_021f1868_11*)&arg0->unknown_55d0_[var9]);

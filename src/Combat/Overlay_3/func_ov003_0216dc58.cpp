@@ -1,5 +1,6 @@
 #include "Combat/TryApplyElemFields.h"
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 #if defined(jpn)
 enum { Enum_ov003_0216dc58_4800 = 0x1150 };
 enum { Enum_ov003_0216dc58_4900 = 0x11b4 };
@@ -16,7 +17,6 @@ extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov003_0216dc58(char* arg0) {
 		int var3 = GetCursorIndex_0205d794(*(struct Struct_0205c570**)(arg0 + Enum_ov003_0216dc58_4800));
 		AppendFrameTag_02041c08(var0, var3, 8, 5, 5, 5);
 	}
-	var2 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + Enum_ov003_0216dc58_4900), 0x5c);
+	var2 = ((int)((StringList*)((struct Struct_0201099c_3*)(arg0 + Enum_ov003_0216dc58_4900)))->GetString(0x5c));
 	AppendText_02042058(var0, (const char*)var2);
 #if defined(jpn)
 	SetTextWindowText_0205d5d0((struct TextWindowManager_0205d5d0*)(*(void**)(arg0 + Enum_ov003_0216dc58_4800)), 0, (int)var0, 1);

@@ -6,9 +6,9 @@
 #include <globaldefs.h>
 #include "Resource/ActionDataTables.h"
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
 
 struct Struct_0201099c_3;
-extern "C" char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 struct Struct_0203c108_3 {
     char unknown_0_[0x14];
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov000_02171e60(struct Struct_ov000_02171e60* arg0) {
         arg0->unknown_18_++;
         arg0->unknown_10_[arg0->unknown_18_] = 0xe;
         arg0->unknown_1d_ = 0;
-        func_0203c108(&arg0->unknown_50_, FindStringInTable_020e0434(arg0->unknown_4_, 5));
+        func_0203c108(&arg0->unknown_50_, ((char*)((StringList*)(arg0->unknown_4_))->GetString(5)));
         return;
     }
     void* var1 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), var0->unknown_16_);
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov000_02171e60(struct Struct_ov000_02171e60* arg0) {
         arg0->unknown_18_++;
         arg0->unknown_10_[arg0->unknown_18_] = 0xe;
         arg0->unknown_1d_ = 0;
-        func_0203c108(&arg0->unknown_50_, FindStringInTable_020e0434(arg0->unknown_4_, 5));
+        func_0203c108(&arg0->unknown_50_, ((char*)((StringList*)(arg0->unknown_4_))->GetString(5)));
         return;
     }
     arg0->unknown_18_++;

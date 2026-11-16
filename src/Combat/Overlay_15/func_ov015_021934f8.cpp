@@ -6,6 +6,22 @@
 #include "NitroSDK/Graphics.h"
 #include "NitroSDK/VRAM.h"
 #include "Input/Input.h"
+#include "Filesystem/FileIO.h"
+#include "Graphics/TextureArena.h"
+#include "NitroSDK/VRAMAllocation.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
+
+#if defined(jpn)
+#define func_020de848 func_020e01c4
+#endif
+
+#if defined(jpn)
+#define func_020ca458 func_020cbf24
+#endif
+
+#if defined(jpn)
+#define func_0203bd08 func_0203b760
+#endif
 
 #if defined(jpn)
 #define func_020c51dc func_020c6ca8
@@ -61,30 +77,26 @@ struct Struct_ov015_021934f8_3 {
 
 extern "C" void func_0200fb84(int*, int);
 extern "C" void WriteBrightnessRegister_020c39a0(short*, int);
-extern "C" void* GetOAMManager_0203bd08();
+extern "C" void* func_0203bd08();
 extern "C" void ResetOAMManager_0203bd24(char*);
 void LockStagedTextureVRAMCopying();
-extern "C" void Memset32Bit_020ca458(unsigned int, unsigned int, unsigned int);
+extern "C" void func_020ca458(unsigned int, unsigned int, unsigned int);
 extern "C" void SetMainDisplayAndBGMode_020c391c(int, int, int);
 extern "C" void SetSubBGMode_020c3984(unsigned int);
 void UpdateVRAMStagingVRAMBanks();
 void UnlockStagedTextureVRAMCopying();
-void Finish3DRendering();
 extern "C" void func_020c51dc();
 extern "C" void func_020c537c();
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_02028ddc(void*);
 extern "C" void func_02028d68(int);
 extern "C" void func_02028dec(int);
-extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int, int);
-extern "C" void InitTexturePaletteVRAMAllocator_020bb780(void*, int);
 extern "C" void func_ov015_02192600(struct Struct_ov015_02192600_3*);
 extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
 extern "C" void func_ov015_0218b810(struct Struct_ov015_0218b810*);
 extern "C" void func_ov015_0218ba44(void*, int);
 extern "C" void* memset(void*, int, unsigned int);
-extern "C" void ClearItemTable_020de848(void*);
-extern "C" void* ExtractFileFromGP2(const char*, const char*, unsigned int*);
+extern "C" void func_020de848(void*);
 extern "C" void LoadItemTableByCategories_020dea64(void*, SafeAllocator*, void*, unsigned int, const void*, int);
 extern "C" void ClearMonsterTable_0206efc4(void*);
 extern "C" void func_0206efd8(void*, void*);
@@ -104,10 +116,7 @@ extern "C" void func_020c3a0c(int);
 unsigned long long GetCurrentTimestamp();
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02042b30(void*, void*);
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028*);
-extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void InitMessageGlyphs_020432c4(void*);
-extern "C" void SaveTextureVRAMState_0207dfac(char*);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void*, const void*, int);
 #else
@@ -170,11 +179,11 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
 
     WriteBrightnessRegister_020c39a0(MASTER_BRIGHT, -16);
     WriteBrightnessRegister_020c39a0(MASTER_BRIGHT_SUB, -16);
-    char* var3 = (char*)GetOAMManager_0203bd08();
+    char* var3 = (char*)func_0203bd08();
     ResetOAMManager_0203bd24(var3);
     LockStagedTextureVRAMCopying();
     MapVRAMBanksToLCDC(0x1ff);
-    Memset32Bit_020ca458(0, 0x6800000, 0xa4000);
+    func_020ca458(0, 0x6800000, 0xa4000);
     DisableLCDCMappedVRAMBanks();
     ReleaseTextureImageVRAMBanks();
     MapVRAMBanksToTextureImage(0xb);
@@ -196,7 +205,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     WriteBrightnessRegister_020c39a0(MASTER_BRIGHT, 0);
     WriteBrightnessRegister_020c39a0(MASTER_BRIGHT_SUB, 0);
     POWCNT1 &= ~0x8000;
-    Finish3DRendering();
+    Nitro3D_FinishRender();
     func_020c51dc();
     func_020c537c();
     BG1CNT = BG1CNT & ~3;
@@ -207,8 +216,8 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     func_02028ddc(arg0->unknown_84_);
     func_02028d68(4);
     func_02028dec(1);
-    InitTextureImageVRAMAllocator_020bb48c(3, 1);
-    InitTexturePaletteVRAMAllocator_020bb780((void*)0x8000, 1);
+    InitializeTextureImageAllocation(3, 1);
+    InitializeTexturePaletteVRAMAllocation((unsigned int)((void*)0x8000), 1);
     func_ov015_02192600((struct Struct_ov015_02192600_3*)arg0);
     Set3DClearColorAndDepth_020c5588(0x594a, 0x10, 0x7fff, 0, 0);
     func_ov015_0218b810((struct Struct_ov015_0218b810*)&arg0->unknown_3c_);
@@ -222,7 +231,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     arg0->unknown_88_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x17600), 0x17600);
 #endif
     arg0->unknown_88_.Reset();
-    ClearItemTable_020de848(arg0->unknown_4c_);
+    func_020de848(arg0->unknown_4c_);
 #if defined(jpn)
     func_020e052c(arg0->unknown_4c_, &arg0->unknown_88_, gItemDataPath_020f2a38, data_ov015_0219480c, 9, 1);
 #else
@@ -230,7 +239,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     unsigned int var4;
     void* var5;
     var4 = 0;
-    var5 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var4);
+    var5 = ExtractFileFromGP2((const char*)(gItemDataPath_020f2a38), (const char*)(data_020f2a30), (unsigned int*)(&var4));
     if (var5 != NULL)
         LoadItemTableByCategories_020dea64(arg0->unknown_4c_, &arg0->unknown_88_, var5, var4, data_ov015_02193cdc, 9);
     BackgroundLoader::RemoveLockGlobal();
@@ -264,10 +273,10 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     GetCurrentTimestamp();
     Struct_ov015_021934f8_2* var7 = (Struct_ov015_021934f8_2*)GetMessageWindow_020421a0();
     func_02042b30(var7, arg0->unknown_124_);
-    ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)arg0->unknown_124_);
-    RestoreTextureVRAMState_0207df90(arg0->unknown_124_);
+    ((TextureArena*)((struct TextureVRAMArea_0203d028*)arg0->unknown_124_))->Reset();
+    ((TextureArena*)(arg0->unknown_124_))->Restore();
     InitMessageGlyphs_020432c4(var7);
-    SaveTextureVRAMState_0207dfac(arg0->unknown_124_);
+    ((TextureArena*)(arg0->unknown_124_))->Save();
 #if defined(jpn)
     StartMessage_0204500c(var7, data_ov015_0219511b, 0);
 #else

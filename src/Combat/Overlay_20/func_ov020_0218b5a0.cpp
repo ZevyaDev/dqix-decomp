@@ -2,7 +2,11 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
 extern "C" void func_0200f3a4(void*);
 extern "C" void MapVRAMBanksToMainBG(int v);
 extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, int isBG03D);
@@ -33,7 +37,7 @@ struct Struct_ov020_0218b5a0 {
 // USA: func_ov020_0218b5a0
 extern "C" ARM void func_ov020_0218b5a0(struct Struct_ov020_0218b5a0* arg0) {
     char* var0 = (char*)GameState::GetInstance();
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     func_0200f3a4(var0);
     MapVRAMBanksToMainBG(4);
 

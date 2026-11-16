@@ -1,8 +1,12 @@
 #include <globaldefs.h>
+#include "NitroSDK/Cache.h"
+
+#if defined(jpn)
+#define func_020ca3ec func_020cbeb8
+#endif
 
 
-extern "C" void Memset32BitByWord_020ca3ec(int arg0, void* arg1, int arg2);
-extern "C" void DC_FlushRange(const void* addr, unsigned int size);
+extern "C" void func_020ca3ec(int arg0, void* arg1, int arg2);
 extern "C" int func_020d1ee4(int arg0, int arg1, int arg2, int arg3);
 
 struct Struct_0210fd74_2 {
@@ -31,10 +35,10 @@ extern "C" ARM void func_020bd08c(void) {
     Struct_0210fdbc_2* var0 = &data_0210fdbc;
     if (data_0210fd74.unknown_48_ == 0) return;
     var0->unknown_1c_ = 0;
-    Memset32BitByWord_020ca3ec(0, var0->unknown_c_, var0->unknown_14_);
-    Memset32BitByWord_020ca3ec(0, var0->unknown_10_, var0->unknown_14_);
-    DC_FlushRange(var0->unknown_c_, var0->unknown_14_);
-    DC_FlushRange(var0->unknown_10_, var0->unknown_14_);
+    func_020ca3ec(0, var0->unknown_c_, var0->unknown_14_);
+    func_020ca3ec(0, var0->unknown_10_, var0->unknown_14_);
+    CleanInvalidateCacheRange((const void*)(var0->unknown_c_), var0->unknown_14_);
+    CleanInvalidateCacheRange((const void*)(var0->unknown_10_), var0->unknown_14_);
     int var1 = var0->unknown_2c_;
     int var2 = (var1 >= 0) ? (1 << var1) : 0;
     func_020d1ee4(var0->unknown_24_, var0->unknown_28_, var2, 0);

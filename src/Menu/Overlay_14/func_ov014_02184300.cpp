@@ -16,6 +16,7 @@
 #include "globaldefs.h"
 #include "Memory/SafeAllocator.h"
 #include "World/Object3D.h"
+#include "Graphics/OBJSpriteSet.h"
 
 struct Struct_ov014_02184300 { char unknown_0_[0x28]; };
 struct Struct_ov014_02184300_2 {
@@ -50,8 +51,6 @@ struct Struct_ov014_02189498 { unsigned int unknown_0_[6]; };
 extern "C" {
 extern const Struct_ov014_02189498 data_ov014_02189498;
 extern const unsigned int data_ov014_02189480[3];
-void InitSprite_0205a198(void*);
-void InitSpriteSet_0205a444(Struct_ov014_02184300_2*);
 }
 
 extern "C" ARM void func_ov014_02184300(Struct_ov014_02184300_3* arg0, SafeAllocator* arg1) {
@@ -70,8 +69,8 @@ extern "C" ARM void func_ov014_02184300(Struct_ov014_02184300_3* arg0, SafeAlloc
         arg0->unknown_68_ = arg1->Allocate(R(0xc0, 0x200));
         arg0->unknown_4_ = (Struct_ov014_02184300_2*)arg1->Allocate(0x54);
         arg0->unknown_8_ = (Struct_ov014_02184300*)arg1->Allocate(0x78);
-        for (unsigned char var2 = 0; var2 < 3; ++var2) InitSprite_0205a198(&arg0->unknown_8_[var2]);
-        InitSpriteSet_0205a444(arg0->unknown_4_);
+        for (unsigned char var2 = 0; var2 < 3; ++var2) ((OBJSpriteSet::Metatile*)(&arg0->unknown_8_[var2]))->Reset();
+        ((OBJSpriteSet*)(arg0->unknown_4_))->Reset();
         arg0->unknown_4_->unknown_50_ = 0;
         Struct_ov014_02184300_2* var3 = arg0->unknown_4_;
         var3->unknown_40_ = arg0->unknown_8_;

@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "NitroSDK/Cache.h"
 #include <std_library_functions.h>
+#include "Graphics/BGLayer.h"
 
 extern "C" int func_02050064(void* arg0);
 extern "C" void func_0204fa0c(void* arg0, short arg1, short arg2);
-extern "C" int func_0204a5e4(int arg0, int arg1);
 
 struct Struct_0204ffc0 {
     char unknown_0_[0x1c];
@@ -40,7 +40,7 @@ extern "C" ARM void func_0204ffc0(Struct_0204ffc0_2* arg0, int) {
     }
     arg0->unknown_c5_ |= 0x40;
     func_0204fa0c(arg0, arg0->unknown_bc_, arg0->unknown_be_);
-    void (*var3)(void*, int, unsigned int) = (void(*)(void*, int, unsigned int))func_0204a5e4(var0, var1);
-    DC_FlushRange(arg0->unknown_8_, arg0->unknown_a4_);
+    void (*var3)(void*, int, unsigned int) = (void(*)(void*, int, unsigned int))((int)GetCharVRAMLoadProc(var0, var1));
+    CleanInvalidateCacheRange((const void*)(arg0->unknown_8_), arg0->unknown_a4_);
     var3(arg0->unknown_8_, arg0->unknown_a0_, arg0->unknown_a4_);
 }

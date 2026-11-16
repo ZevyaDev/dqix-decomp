@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_ov017_021901ac func_ov017_02190d90
+#endif
+
 struct Struct_ov000_02164d74 {
     char unknown_0_[0xf78];
     unsigned char unknown_f78_[4];

@@ -3,6 +3,10 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
 struct Struct_ov025_021e7890_3 {
 #if defined(jpn)
     char unknown_0_[0x508];
@@ -66,7 +70,7 @@ struct Struct_ov025_021e7890_2 {
     unsigned short unknown_0_;
 };
 
-extern "C" Struct_ov025_021e7890_6* GetBattleSetup_ov017_021b8478(void* battleManager);
+extern "C" Struct_ov025_021e7890_6* func_ov017_021b8478(void* battleManager);
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" Struct_ov000_0215440c_4* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 extern "C" int func_02070fe4(Struct_02070fe4* arg0);
@@ -101,7 +105,7 @@ extern "C" ARM int func_ov025_021e7890(int arg0, Struct_ov025_021e7890_2* arg1) 
     unsigned char var10;
     var4 = (Struct_ov025_021e7890_4*)GetGameResources();
     var6 = GameState::GetInstance();
-    var5 = GetBattleSetup_ov017_021b8478(var4->unknown_3000_.unknown_718_);
+    var5 = func_ov017_021b8478(var4->unknown_3000_.unknown_718_);
     var7 = GetBattleScene_ov000_02160130();
     var8 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg1, 0);
     if (var8 == 0) return 1;
@@ -165,4 +169,9 @@ extern "C" ARM int func_ov025_021e7890(int arg0, Struct_ov025_021e7890_2* arg1) 
         }
     }
     return 1;
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

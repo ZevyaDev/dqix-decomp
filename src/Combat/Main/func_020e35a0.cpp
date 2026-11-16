@@ -2,7 +2,11 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" int* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" int* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int func_ov017_02195760(int arg0);
@@ -15,7 +19,7 @@ extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(struct LocalWireless_0
 extern "C" ARM void func_020e35a0(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
     int var1 = ((int)GetGameResources());
-    int* var2 = GetLocalWireless_0202ae18();
+    int* var2 = func_0202ae18();
     if (!IsLocalWirelessOn_0202b7d8(var2)) return;
 
     if (IsNotLocalWirelessGuest_0202c508(var2)) {

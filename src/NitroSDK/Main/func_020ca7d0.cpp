@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca7d0 func_020cc29c
+#endif
+
 // USA: func_020ca7d0
 extern "C" THUMB asm void func_020ca7d0(void* dst)
 {

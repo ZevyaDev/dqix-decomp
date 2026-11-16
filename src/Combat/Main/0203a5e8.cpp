@@ -3,9 +3,17 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0202ec84 func_0202e7f4
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 extern "C" void* __clear(void*, int);
 struct Struct_02015ef4 { unsigned int unknown_0_[3]; };
-extern "C" int ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
+extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 
 struct Struct_02039fec {
     unsigned char unknown_0_[5];
@@ -45,7 +53,7 @@ extern "C" ARM void func_0203a5e8(Struct_02039fec_2* arg0, int arg1) {
     Struct_0203a5e8_2* var1 = (Struct_0203a5e8_2*)arg0;
     signed char var2 = 0;
     int var3 = 0;
-    void* var4 = GetCamera_020100bc(GameState::GetInstance());
+    void* var4 = func_020100bc(GameState::GetInstance());
     if (var4 != NULL) {
         bool var5 = false;
         int var6 = var5;
@@ -58,7 +66,7 @@ extern "C" ARM void func_0203a5e8(Struct_02039fec_2* arg0, int arg1) {
         for (int var10 = 0; var10 < 16; var10++) {
             if (var1->unknown_550_[var10].unknown_5_ > 0) {
                 int var11, var12 = 0;
-                ConvertWorldToScreen_0202ec84(var4, &var1->unknown_550_[var10].unknown_c_, &var11, &var12);
+                func_0202ec84(var4, &var1->unknown_550_[var10].unknown_c_, &var11, &var12);
                 var11 += var1->unknown_550_[var10].unknown_4_;
                 var12 += var1->unknown_550_[var10].unknown_2_;
                 var9[var10] = var12;

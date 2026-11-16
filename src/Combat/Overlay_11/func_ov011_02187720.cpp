@@ -35,8 +35,8 @@ struct Struct_ov011_02187720 {
 
 struct Struct_ov011_02187720_2 {
     char unknown_0_[0x6b8];
-    SafeAllocator unknown_6b8_[10];
-    SafeAllocator unknown_780_;
+    char unknown_6b8_[10][sizeof(SafeAllocator)];
+    char unknown_780_[sizeof(SafeAllocator)];
     char unknown_794_[0xc20 - 0x794];
 };
 
@@ -78,12 +78,12 @@ extern "C" ARM int func_ov011_02187720(struct ScriptValue_ov011_02184c30* arg0, 
     var0.unknown_0_ = &data_ov023_021ff5b4;
     var3 = var0.unknown_20_;
     do {
-        var2 = var3->unknown_6b8_;
+        var2 = (SafeAllocator*)var3->unknown_6b8_;
         do {
             var2->ResetAllocatorPointer();
             var2++;
-        } while (var2 < var3->unknown_6b8_ + 10);
-        var3->unknown_780_.ResetAllocatorPointer();
+        } while (var2 < (SafeAllocator*)(var3->unknown_6b8_ + 10));
+        ((SafeAllocator*)var3->unknown_780_)->ResetAllocatorPointer();
         func_ov023_021e4e8c(var3);
         var3++;
     } while (var3 < var0.unknown_20_ + 2);

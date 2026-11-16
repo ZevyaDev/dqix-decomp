@@ -2,12 +2,20 @@
 #include "Graphics/LightingManager.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
-extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" void* func_0205ec34(void);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void func_020103c8(int arg0, int arg1);
 struct Struct_ov017_0218d0ec_4;
@@ -39,8 +47,8 @@ extern "C" ARM void func_ov017_021c51c0(int arg0, Struct_ov017_021c51c0* arg1, G
 	*(unsigned char*)((char*)var1 + 0xb) = 1;
 
 	if (arg1->unknown_5_ == 1) {
-		void* var4 = GetFlagManager_0205ec34();
-		if (IsFlagSet_0206dfb0((int)var4, (unsigned char*)var4 + 0x8c, arg1->unknown_8_ + 0x38e) == 0) {
+		void* var4 = func_0205ec34();
+		if (func_0206dfb0((int)var4, (unsigned char*)var4 + 0x8c, arg1->unknown_8_ + 0x38e) == 0) {
 			*(int*)((char*)var2 + 0x24) = arg1->unknown_6_;
 		}
 	} else if (arg1->unknown_5_ == 2) {

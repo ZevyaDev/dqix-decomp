@@ -1,6 +1,15 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
 
 #if defined(jpn)
 struct Struct_ov002_0215f7ac {
@@ -16,36 +25,34 @@ struct MessageWindow_020465c0;
 struct Struct_0201099c_3;
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *gameState, int index);
-extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2 *window, int index, char *text);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0 *window, int index, int number);
-extern "C" char *FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int AppendTextColorTag_02041e70(char *buffer, int colorIndex);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char *window, int index, unsigned char width);
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char *window, int index, unsigned char alignment);
 extern "C" void ClearMessageParams_02046380(void *window);
-extern "C" int GetStringLength_020d2ff0(const char *string);
+extern "C" int func_020d2ff0(const char *string);
 extern "C" void *__clear(void *arg0, int arg1);
 extern "C" int GetHaloObject_ov017_021bdbcc(GameResources *gameResources);
 extern "C" void func_020474a8(void *arg0, int arg1, const char *arg2, char *arg3);
 
 static inline unsigned short inline_ov002_0215f7ac(char *arg0, int arg1) { return *(unsigned short *) (arg0 + arg1); }
 
-static const char data_ov002_0216d054[1] = {8};
-
 // JPN: func_ov002_0215f7ac
 extern "C" ARM void func_ov002_0215f7ac(char *arg0, char *arg1) {
+    static const char data_ov002_0216d054 = 8;
     char var1[0x20];
     if (arg1 == NULL) return;
     char *var3       = GetMessageWindow_020421a0();
     GameObject *var4 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), *(signed char *) (arg0 + 0x1a00 + 0xe8));
     if (var4 == NULL) return;
-    struct Struct_ov002_0215f7ac *var5 = (struct Struct_ov002_0215f7ac *) GetPartyMemberData_02053c6c((unsigned char *) var4);
+    struct Struct_ov002_0215f7ac *var5 = (struct Struct_ov002_0215f7ac *) func_02053c6c((unsigned char *) var4);
     if (var5 == NULL) return;
     ClearMessageParams_02046380(var3);
     SetMessageString_02046574((struct Struct_02046574_2 *) var3, 0, *(char **) ((char *) var4 + 0x134));
-    int var6 = GetStringLength_020d2ff0(*(const char **) ((char *) var4 + 0x134)) / 2;
+    int var6 = func_020d2ff0(*(const char **) ((char *) var4 + 0x134)) / 2;
     SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var3, 9, (0x40 - var6 * 10) / 2);
     SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var3, 0, inline_ov002_0215f7ac(*(char **) ((char *) var4 + 0x130), 4));
     SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var3, 1, inline_ov002_0215f7ac(*(char **) ((char *) var4 + 0x134), 0x30));
@@ -55,14 +62,13 @@ extern "C" ARM void func_ov002_0215f7ac(char *arg0, char *arg1) {
     SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var3, 5, inline_ov002_0215f7ac(*(char **) ((char *) var4 + 0x134), 0x34));
     SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var3, 6, inline_ov002_0215f7ac(*(char **) ((char *) var4 + 0x134), 0x36));
     SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var3, 7, var5->unknown_1_2_);
-    int var7 = (0x40 - GetStringLength_020d2ff0(FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8),
-                                                    (short) (var5->unknown_8b8_ + 0x834))) / 2 * 8) / 2;
+    int var7 = (0x40 - func_020d2ff0(((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString((short) (var5->unknown_8b8_ + 0x834)))) / 2 * 8) / 2;
     SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var3, 8, var7);
     if (GetHaloObject_ov017_021bdbcc(GetGameResources())) {
-        SetMessageString_02046574((struct Struct_02046574_2 *) var3, 1, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x834));
+        SetMessageString_02046574((struct Struct_02046574_2 *) var3, 1, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString(0x834)));
     } else if (*(int *) ((char *) var4 + 0x1b8) == 0) {
         SetMessageString_02046574((struct Struct_02046574_2 *) var3, 1,
-                      FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), (short) (var5->unknown_8b8_ + 0x834)));
+                      ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString((short) (var5->unknown_8b8_ + 0x834))));
     }
     unsigned char var11 = *((unsigned char *) var5 + var5->unknown_8b8_ + 0x186);
     if (var11 != 0) {
@@ -76,14 +82,14 @@ extern "C" ARM void func_ov002_0215f7ac(char *arg0, char *arg1) {
         AppendTextColorTag_02041e70(var1, 0xf);
         SetMessageString_02046574((struct Struct_02046574_2 *) var3, 2, var1);
     }
-    for (int var13 = 0; var13 < 8; var13++) {
+    for (int var13 = 0; var13 < data_ov002_0216d054; var13++) {
         int var14 = 3;
         if (var13 == 4) var14 = 2;
         SetMessageNumberWidth_020465f0((unsigned char *) var3, var13, var14);
     }
-    for (int var15 = 0; var15 < 8; var15++) {
+    for (int var15 = 0; var15 < data_ov002_0216d054; var15++) {
         SetMessageNumberAlignment_020465d8((unsigned char *) var3, var15, 1);
     }
-    func_020474a8(var3, 0xa, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x7d0), arg1);
+    func_020474a8(var3, 0xa, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString(0x7d0)), arg1);
 }
 #endif

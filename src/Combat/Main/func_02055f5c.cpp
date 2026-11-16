@@ -3,6 +3,10 @@
 
 #include "World/Object3D.h"
 
+#if defined(jpn)
+#define func_020ca528 func_020cbff4
+#endif
+
 struct Struct_02055f5c_2;
 struct Struct_02055f5c_3;
 struct Struct_02055ed0_3;

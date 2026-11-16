@@ -3,6 +3,8 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/PAC.h"
 
 struct Struct_0208baec_2 { unsigned char unknown_0_[0xc]; int unknown_c_, unknown_10_, unknown_14_, unknown_18_; unsigned short unknown_1c_; unsigned short unknown_1e_; unsigned short unknown_20_; unsigned char unknown_22_; unsigned char unknown_23_[5]; };
 
@@ -38,12 +40,6 @@ extern char data_020f11fe[];
 extern char gSoundEffectManager_02108760[];
 void SetSubBrightness(GameResources*, int, int);
 extern "C" void func_0208bf28(Struct_02065990_2*, int, unsigned char);
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
-extern "C" void InitSpriteSet_0205a444(char*);
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
-extern "C" void LoadSpriteSetFile_0205a528(Struct_0208cfcc_2*, void*, int, SafeAllocator*);
-extern "C" void func_0205aed0(void*, char*, unsigned int, int);
-extern "C" void func_0205af38(int, char*, int, int);
 int IsSubBrightnessTransitionActive(GameResources*);
 extern "C" void func_0205eb54(void*, int, int);
 extern "C" void func_0205eb90(void*, int, int);
@@ -85,17 +81,17 @@ extern "C" ARM void func_0208cfcc(Struct_02065990_2* arg0) {
             void* var6;
             unsigned int var7;
             var1->GetLoadedFileByID(arg0->unknown_c0_, &var6, &var7);
-            int var8 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var6);
-            InitSpriteSet_0205a444((char*)&arg0->unknown_60_);
+            int var8 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var6));
+            ((OBJSpriteSet*)((char*)&arg0->unknown_60_))->Reset();
             arg0->unknown_60_.unknown_50_ = 1;
             arg0->unknown_60_.unknown_40_ = arg0->unknown_b4_;
             arg0->unknown_60_.unknown_4c_ = 3;
             for (int var9 = 0; var9 < var8; var9++) {
                 int var10;
-                void* var11 = GetPacEntryData_020467f0((PacEntry_02020aec*)var6, var9, &var5, &var10);
-                LoadSpriteSetFile_0205a528(&arg0->unknown_60_, var11, var10, &var0->unknown_3c_);
+                void* var11 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var6), var9, (const char**)(&var5), (unsigned int*)(&var10));
+                ((OBJSpriteSet*)(&arg0->unknown_60_))->LoadFromNitroFile((void*)(var11), var10, (SafeAllocator*)(&var0->unknown_3c_));
             }
-            func_0205aed0(&arg0->unknown_60_, (char*)arg0->unknown_b4_, 3, 64);
+            ((OBJSpriteSet*)(&arg0->unknown_60_))->AssignOBJIndices((OBJSpriteSet::Metatile*)((char*)arg0->unknown_b4_), 3, 64);
             var1->RemoveTask(arg0->unknown_c0_);
             arg0->unknown_c0_ = -1;
             arg0->unknown_da_ |= 4;
@@ -105,8 +101,8 @@ extern "C" ARM void func_0208cfcc(Struct_02065990_2* arg0) {
         }
     } else if (arg0->unknown_d5_ == 2) {
         if (!IsSubBrightnessTransitionActive(GetGameResources())) {
-            func_0205af38((int)&arg0->unknown_60_, (char*)&arg0->unknown_b4_[0], 1, 1);
-            func_0205af38((int)&arg0->unknown_60_, (char*)&arg0->unknown_b4_[1], 1, 1);
+            ((OBJSpriteSet*)((int)&arg0->unknown_60_))->SetMetatileTransformFlags((OBJSpriteSet::Metatile*)((char*)&arg0->unknown_b4_[0]), 1, 1);
+            ((OBJSpriteSet*)((int)&arg0->unknown_60_))->SetMetatileTransformFlags((OBJSpriteSet::Metatile*)((char*)&arg0->unknown_b4_[1]), 1, 1);
             arg0->unknown_d8_ = 0;
             arg0->unknown_cc_ = 0;
             arg0->unknown_da_ &= ~1;

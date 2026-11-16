@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 
 extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int size, unsigned int alignAndDir);
 
@@ -10,7 +14,7 @@ extern "C" int func_ov031_022275a0(void);
 struct Struct_ov031_022276f8;
 extern "C" void func_ov031_0223a4cc(void* arg0, Struct_ov031_022276f8* arg1);
 extern "C" int func_ov031_0223a718(void);
-extern "C" void HaltForever_020c9be0(void);
+extern "C" void func_020c9be0(void);
 extern "C" void* AddTask_ov031_0223e218(void* listIndex, void* callback, void* callbackData, int priority);
 
 extern void* data_ov031_02290c44;
@@ -37,7 +41,7 @@ extern "C" ARM void func_ov031_022276f8(int arg0) {
 	func_ov031_0223a4cc(data_ov031_02290c44, (Struct_ov031_022276f8*)&var1);
 
 	if (func_ov031_0223a718() == 0) {
-		HaltForever_020c9be0();
+		func_020c9be0();
 	}
 
 	void* var2 = AddTask_ov031_0223e218(0, (void*)func_ov031_02227898, 0, 0x78);

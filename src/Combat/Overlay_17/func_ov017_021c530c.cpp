@@ -2,11 +2,19 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int func_02010038(GameState* arg0, unsigned char* arg1);
 struct Struct_02053f7c_3;
 extern "C" void func_02053f7c(Struct_02053f7c_3*, unsigned short, int);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov017_021cdaa0(void);
 extern "C" int func_ov017_021c5bf8(int arg0, int arg1);
@@ -22,7 +30,7 @@ extern "C" void func_0207dcf0(unsigned short arg0);
 extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
 extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
 struct Struct_ov017_021c530c;
-extern "C" Struct_ov017_021c530c* GetBattleSetup_ov017_021b8478(void* battleManager);
+extern "C" Struct_ov017_021c530c* func_ov017_021b8478(void* battleManager);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 struct Struct_ov017_021c530c_2 { unsigned short unknown_0_; unsigned short unknown_2_; unsigned char unknown_4_; unsigned char unknown_5_; unsigned char unknown_6_; };
 extern "C" void func_ov017_021c5f00(Struct_ov017_021c530c_2* arg0);
@@ -201,7 +209,7 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
                 }
             } else if (func_ov017_021c5a1c(arg1->unknown_4_)) {
                 if (func_ov017_021c5bf8(arg0, arg1->unknown_4_) == 0) {
-                    if (!IsNotLocalWirelessGuest_0202c508(GetLocalWireless_0202ae18())) {
+                    if (!IsNotLocalWirelessGuest_0202c508(func_0202ae18())) {
                         var2 = false;
                     } else {
                         var26 = GetBattleJoinTable_0207d78c();
@@ -245,7 +253,7 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
                 var8 = var7->unknown_3718_;
                 var9 = var7->unknown_36fc_;
                 var6 = NULL;
-                if (var8->unknown_2_ != 0 && (var6 = GetBattleSetup_ov017_021b8478(var8), var6->unknown_8_ == var4)) {
+                if (var8->unknown_2_ != 0 && (var6 = func_ov017_021b8478(var8), var6->unknown_8_ == var4)) {
                     var27 = 1;
                 } else {
                     var10 = var5->unknown_0_.GetField06();

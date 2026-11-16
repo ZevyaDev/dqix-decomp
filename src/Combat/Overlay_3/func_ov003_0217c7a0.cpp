@@ -6,6 +6,11 @@
 #include "Resource/Brightness.h"
 #include "NitroSDK/Matrix.h"
 #include "Resource/GameResources.h"
+#include "Graphics/BGLayer.h"
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 struct BGLayer_0204b010;
 struct BGLayer_02020cb8_3;
@@ -41,10 +46,6 @@ struct Struct_ov003_0217c7a0_2
     int unknown_150_[3];
 };
 
-extern "C" void ClearBGScreenData_0204b010(BGLayer_0204b010* layer, void* screenData);
-extern "C" void FlushBGScreenData_0204b04c(void* layer, int screenData);
-extern "C" void CopyBGScreenDataToVRAM_0204b088(void* layer, int screenData);
-extern "C" void ResetBGLayerData_0204afb4(BGLayer_02020cb8_3* layer);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
 extern "C" void EnableCameraFollow_020a2794(void* camera);
@@ -96,17 +97,17 @@ extern "C" ARM void func_ov003_0217c7a0(Struct_ov003_0217c7a0_2* arg0)
         var3->RemoveTask(arg0->unknown_138_);
         arg0->unknown_138_ = -1;
 
-        ClearBGScreenData_0204b010((BGLayer_0204b010*)&arg0->unknown_40_, 0);
-        FlushBGScreenData_0204b04c(&arg0->unknown_40_, 0);
-        CopyBGScreenDataToVRAM_0204b088(&arg0->unknown_40_, 0);
-        ResetBGLayerData_0204afb4((BGLayer_02020cb8_3*)&arg0->unknown_40_);
-        ClearBGScreenData_0204b010((BGLayer_0204b010*)&arg0->unknown_60_, 0);
-        FlushBGScreenData_0204b04c(&arg0->unknown_60_, 0);
-        CopyBGScreenDataToVRAM_0204b088(&arg0->unknown_60_, 0);
-        ResetBGLayerData_0204afb4((BGLayer_02020cb8_3*)&arg0->unknown_60_);
+        ((BGLayer*)((BGLayer_0204b010*)&arg0->unknown_40_))->PrepareIndexBuffer((void*)(0));
+        ((BGLayer*)(&arg0->unknown_40_))->CleanIndexBufferCache((const void*)(0));
+        ((BGLayer*)(&arg0->unknown_40_))->UploadIndexBuffer((const void*)(0));
+        ((BGLayer*)((BGLayer_02020cb8_3*)&arg0->unknown_40_))->MaybeDestroy();
+        ((BGLayer*)((BGLayer_0204b010*)&arg0->unknown_60_))->PrepareIndexBuffer((void*)(0));
+        ((BGLayer*)(&arg0->unknown_60_))->CleanIndexBufferCache((const void*)(0));
+        ((BGLayer*)(&arg0->unknown_60_))->UploadIndexBuffer((const void*)(0));
+        ((BGLayer*)((BGLayer_02020cb8_3*)&arg0->unknown_60_))->MaybeDestroy();
 
         Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
-        Struct_ov003_0217c7a0* var4 = (Struct_ov003_0217c7a0*)GetCamera_020100bc(var1);
+        Struct_ov003_0217c7a0* var4 = (Struct_ov003_0217c7a0*)func_020100bc(var1);
         var4->unknown_10_ = arg0->unknown_144_;
         SetCameraOrbitFromArray_0202e694(var4, arg0->unknown_150_);
         EnableCameraFollow_020a2794(var4);
@@ -115,4 +116,9 @@ extern "C" ARM void func_ov003_0217c7a0(Struct_ov003_0217c7a0_2* arg0)
         ClearGameObjectByIndex_0200fd48(var1, 0xa0);
         arg0->unknown_143_ = 1;
     }
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

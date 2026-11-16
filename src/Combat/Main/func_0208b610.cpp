@@ -3,6 +3,10 @@
 #include <NitroSDK/Graphics3D/RenderConfig.h>
 
 #if defined(jpn)
+#define func_02016d8c func_02016b2c
+#endif
+
+#if defined(jpn)
 #define func_0208b610 func_0208bf04
 #endif
 
@@ -15,7 +19,7 @@ extern "C" ARM void func_0208b588(unsigned int arg0, unsigned int arg1, unsigned
 
 // USA: func_0208b610
 extern "C" ARM void func_0208b610(Vector3fix arg0, unsigned short arg1, int arg2, int arg3, int arg4, short arg5) {
-    RenderConfig::SetObjectPosition(&arg0);
+    Nitro3DRenderConfig::SetObjectPosition(&arg0);
     fix32_t var0 = fix32cos(arg5);
     fix32_t var1 = fix32sin(arg5);
     Matrix3x3 var2;
@@ -25,8 +29,8 @@ extern "C" ARM void func_0208b610(Vector3fix arg0, unsigned short arg1, int arg2
     var3.x = arg2;
     var3.y = arg3;
     var3.z = arg4;
-    RenderConfig::SetObjectScale(&var3);
-    RenderConfig::SubmitToFifo();
+    Nitro3DRenderConfig::SetObjectScale(&var3);
+    Nitro3DRenderConfig::SubmitToFifo();
     func_0208b548(0, 0, 1, 1, 0, 0, 0, 0);
     func_0208b588(0, 0, 3, 0, 0, 0);
     *(volatile unsigned int*)0x04000500 = 1;

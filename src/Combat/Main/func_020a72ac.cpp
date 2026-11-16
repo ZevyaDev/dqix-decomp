@@ -4,6 +4,10 @@
 #include "World/Object3D.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_020a72ac {
     Object3D unknown_0_;
     unsigned char unknown_ac_[0x144 - 0xac];
@@ -32,7 +36,7 @@ struct Struct_020a72ac_3 {
     unsigned char unknown_2788_;
 };
 
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0202ae18();
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void func_020a6aa4(Vector3i* arg0, int arg1, int arg2, int arg3);
 extern "C" void* func_0200ffc0(struct Struct_0200ffc0* arg0);
@@ -46,7 +50,7 @@ extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int 
 extern "C" ARM void func_020a72ac(struct Struct_020a72ac_3* arg0) {
     GameState* var0 = GameState::GetInstance();
     GetGameResources();
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     LightingManager::GetInstance();
     Object3D* var2 = static_cast<Object3D*>(func_0200ffc0((struct Struct_0200ffc0*)var0));
     GameObject* var3 = var0->GetUnknownGameObject();

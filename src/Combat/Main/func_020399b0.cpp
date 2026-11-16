@@ -2,6 +2,7 @@
 #include "Combat/ActorAction.h"
 #include "World/Object3D.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "GameState/GameState.h"
 
 struct Struct_02033834;
@@ -75,7 +76,7 @@ extern "C" ARM void func_020399b0(GameObject* arg0, unsigned short arg1, const V
     }
     Struct_02037d10 var2;
     func_02038508(&var2);
-    Struct_020134e0::Struct_02018300* var3 = func_0201e6d4(&var1->substruct_6c_, *reinterpret_cast<short*>(var0 + 0x6c));
+    Struct_020134e0::Struct_02018300* var3 = func_0201e6d4((Struct_020134e0*)(&var1->substruct_6c_), *reinterpret_cast<short*>(var0 + 0x6c));
     if (!var3) return;
     int var4 = fix32cos(var3->unknown_20_);
     Vector3i var5;
@@ -83,7 +84,7 @@ extern "C" ARM void func_020399b0(GameObject* arg0, unsigned short arg1, const V
     var5.y = 0;
     var5.z = var4;
     Vector3fix_Normalize(&var5, &var5);
-    Struct_020134e0::Struct_02018300* var6 = func_0201e6d4(&var1->substruct_6c_, var3->unknown_2c_.unknown5_0_.unknown_2_);
+    Struct_020134e0::Struct_02018300* var6 = func_0201e6d4((Struct_020134e0*)(&var1->substruct_6c_), var3->unknown_2c_.unknown5_0_.unknown_2_);
     if (!var6) return;
     if (var3->unknown_2c_.unknown5_0_.unknown_5_ & 1) {
         SET_ACTION_POINTS(var6, var3, 1);

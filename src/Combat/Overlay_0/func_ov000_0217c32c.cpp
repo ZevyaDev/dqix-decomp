@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_ov000_0217c32c {
     unsigned int unknown_0_0_ : 7;
     unsigned int unknown_0_7_ : 4;
@@ -35,7 +39,7 @@ extern "C" struct Struct_ov000_0217c32c_4* GetEquippedWeaponItemData_02054000(st
 
 struct PartyMember_02052e14;
 extern "C" short* GetEquippedItems_02052e14(struct PartyMember_02052e14* gameObject);
-extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" void* func_02053c6c(unsigned char* gameObject);
 
 struct SkillTable_0200f3a4_8;
 extern "C" void ClearSkillTable_0209a338(struct SkillTable_0200f3a4_8* table);
@@ -97,7 +101,7 @@ extern "C" ARM void func_ov000_0217c32c(struct Struct_ov000_0217c32c_3* arg0) {
             var2 = NULL;
         }
     }
-    if (GetPartyMemberData_02053c6c((unsigned char*)var0) == NULL) {
+    if (func_02053c6c((unsigned char*)var0) == NULL) {
         return;
     }
     memset(arg0->unknown_88_, 0, sizeof(arg0->unknown_88_));

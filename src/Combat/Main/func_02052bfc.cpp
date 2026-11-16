@@ -15,6 +15,7 @@ enum { Enum_02052bfc_336 = 0x150, Enum_02052bfc_1788 = 0x6fc };
 #include "NitroSDK/Timing.h"
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
+#include "Resource/GameStrings.h"
 
 struct Party_02048150;
 
@@ -53,7 +54,6 @@ extern "C" void* GetZone3D_02012fe4(void);
 extern "C" long long _ll_udiv(long long arg0, long long arg1);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_0201bc94(Struct_0201bc94* arg0);
-extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void* func_020d7a50(void);
 extern "C" void SetCombatantAppearanceFlags_ov017_02191aac(char* gameResources, int isSet, int combatantIndex, unsigned char flags);
 extern "C" void func_ov017_021ce014(int arg0, unsigned short arg1, unsigned short arg2, unsigned short arg3);
@@ -85,14 +85,14 @@ extern "C" ARM void func_02052bfc(struct Struct_02052bfc_2* arg0) {
             #if defined(jpn)
             strcpy(var8, (char*)data_020f0420[1]);
 #else
-            strcpy(var8, (char*)GetStandardString_020e51cc(0x33));
+            strcpy(var8, (char*)((int)GetGameString((eGameString)(0x33))));
 #endif
         }
         else {
             #if defined(jpn)
             strcpy(var8, (char*)data_020f0420[5]);
 #else
-            strcpy(var8, (char*)GetStandardString_020e51cc(0x32));
+            strcpy(var8, (char*)((int)GetGameString((eGameString)(0x32))));
 #endif
         }
         #if defined(jpn)

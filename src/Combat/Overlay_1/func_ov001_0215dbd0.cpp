@@ -5,6 +5,10 @@
 #include "std_library_functions.h"
 #include "Combat/Overlay_1/EventArgs.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 extern "C" float GetScriptValueAsFloat_ov017_021d6110(void*);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" void func_ov001_02158f64(void* arg0, Struct_ov001_02158efc arg1, Struct_ov001_02158efc arg2, int arg3, int arg4, int arg5);
@@ -27,7 +31,7 @@ extern "C" ARM int func_ov001_0215dbd0(void* arg0) {
     var2.unknown_4_ = (int)(4096.0f * GetScriptValueAsFloat_ov017_021d6110((char*)arg0 + 0x8));
     var2.unknown_8_ = (int)(4096.0f * GetScriptValueAsFloat_ov017_021d6110((char*)arg0 + 0x10));
 
-    Vector3fix var3 = *(Vector3fix*)((char*)GetCamera_020100bc(var0) + 0x70);
+    Vector3fix var3 = *(Vector3fix*)((char*)func_020100bc(var0) + 0x70);
     Vector3fix var4;
     var4.x = 0;
     var4.y = var3.y;

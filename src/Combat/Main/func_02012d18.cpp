@@ -8,13 +8,17 @@ enum { Enum_02012d18_1233140 = 0x12d0f4 };
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "NitroSDK/Memory/HPXEAllocator.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 
 extern "C" int func_020c8534(int arg0);
 extern "C" int func_020c8520(int arg0);
 
 extern "C" {
     void* func_020c86fc(int, unsigned int, int);
-    void HaltForever_020c9be0(void);
+    void func_020c9be0(void);
 }
 
 // USA: func_02012d18
@@ -30,6 +34,6 @@ extern "C" ARM void func_02012d18(AllocatorUnion* arg0) {
     arg0->InitializeTypeB(var6, 4);
 
     if (var4 < Enum_02012d18_1233140) {
-        HaltForever_020c9be0();
+        func_020c9be0();
     }
 }

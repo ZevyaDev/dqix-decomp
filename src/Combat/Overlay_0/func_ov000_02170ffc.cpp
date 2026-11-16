@@ -1,5 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
 
 struct Struct_ov000_02170ffc_2 {
 #if defined(jpn)
@@ -11,8 +16,7 @@ struct Struct_ov000_02170ffc_2 {
 };
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
-extern "C" struct Struct_ov000_02170ffc_2* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" struct Struct_ov000_02170ffc_2* func_02053c6c(unsigned char* gameObject);
 
 struct Struct_0203c108_3 {
     char unknown_0_[0x14];
@@ -61,7 +65,7 @@ extern "C" ARM void func_ov000_02170ffc(struct Struct_ov000_02170ffc* arg0) {
         int var1 = func_ov000_02171a74(arg0);
         struct Struct_0201099c_3* var2 = arg0->unknown_4_;
         if (var2 != NULL && var1 >= 0) {
-            func_0203c108(&arg0->unknown_50_, (char*)FindStringInTable_020e0434(var2, var1));
+            func_0203c108(&arg0->unknown_50_, (char*)((int)((StringList*)(var2))->GetString(var1)));
             return;
         }
 #else
@@ -77,7 +81,7 @@ extern "C" ARM void func_ov000_02170ffc(struct Struct_ov000_02170ffc* arg0) {
     if (var4 == NULL) {
         return;
     }
-    struct Struct_ov000_02170ffc_2* var5 = GetPartyMemberData_02053c6c((unsigned char*)var4);
+    struct Struct_ov000_02170ffc_2* var5 = func_02053c6c((unsigned char*)var4);
     var3 += (signed char)var5->unknown_94c_;
-    func_0203c108(&arg0->unknown_50_, (char*)FindStringInTable_020e0434(arg0->unknown_4_, var3));
+    func_0203c108(&arg0->unknown_50_, (char*)((int)((StringList*)(arg0->unknown_4_))->GetString(var3)));
 }

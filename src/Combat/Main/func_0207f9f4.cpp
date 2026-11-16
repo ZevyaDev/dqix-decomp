@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
+#include "Resource/PAC.h"
 
 struct Struct_02013fb4;
 struct StringList_020727d8;
@@ -8,9 +9,7 @@ struct PacEntry_02020cb8_4;
 
 extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, void* scriptData, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
 struct PacEntry_02020aec;
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" char* GetMessageWindow_020421a0();
 extern "C" void func_0207f524(void* arg0, void* arg1, Struct_02013fb4* arg2, int arg3);
 struct Struct_0207ed1c;
@@ -91,11 +90,11 @@ extern "C" ARM int func_0207f9f4(Struct_0207f9f4* arg0) {
         void* var9;
         unsigned int var10;
         var7->GetLoadedFileByID(arg0->unknown_1c_, &var9, &var10);
-        int var11 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var9);
+        int var11 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var9));
         void* var12[3];
         int var13[3];
         for (int var14 = 0; var14 < var11; var14++) {
-            var12[var14] = GetPacEntryData_020467f0((PacEntry_02020aec*)var9, var14, &var8, &var13[var14]);
+            var12[var14] = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var9), var14, (const char**)(&var8), (unsigned int*)(&var13[var14]));
         }
         arg0->unknown_0_ = arg0->unknown_14_->Allocate(8);
         ResetStringList_020727d8((StringList_020727d8*)arg0->unknown_0_);

@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Graphics/Vector.h"
 #include "World/LootableContainer.h"
+#include "Graphics/SPRSprite.h"
 
 struct Struct_02017098;
 struct Struct_02017098_2;
@@ -8,8 +9,6 @@ struct Struct_02017098_3;
 struct SoundEffectManager_02108760;
 
 extern "C" struct Struct_02017098_4* func_0201777c(struct Struct_02017098* arg0, int arg1);
-extern "C" void func_0204792c(struct Struct_02017098_2* arg0, char* arg1);
-extern "C" void func_020478bc(struct Struct_02017098_3* arg0, int arg1);
 extern "C" float _fflt(int value);
 extern "C" float _fmul(float a, float b);
 extern "C" int _ffix(float value);
@@ -41,8 +40,8 @@ extern "C" ARM void func_02017098(struct Struct_02017098* arg0, int arg1) {
     if (var0 == NULL) return;
 
     var0->unknown_2_ = 3;
-    func_0204792c((struct Struct_02017098_2*)((char*)var0 + 8), data_020ef222);
-    func_020478bc((struct Struct_02017098_3*)((char*)var0 + 0x90), 1);
+    ((SPRSprite*)((struct Struct_02017098_2*)((char*)var0 + 8)))->SetAnimationRandomTime((const char*)(data_020ef222));
+    ((SPRSprite*)((struct Struct_02017098_3*)((char*)var0 + 0x90)))->SetAnimation(1);
 
     fix32_t var1 = 0x4b5c;
     for (int var2 = 0; var2 < 4; var2++) {
@@ -66,4 +65,9 @@ extern "C" ARM void func_02017098(struct Struct_02017098* arg0, int arg1) {
     }
 
     var0->unknown_4_ = 0;
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

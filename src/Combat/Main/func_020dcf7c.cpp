@@ -1,13 +1,8 @@
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 #if defined(jpn)
-struct StringTable_0201099c_14;
-extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
-extern "C" void* ConstructStringTable_020dfc2c(void* stringTable);
-extern "C" int func_020e2168(char* arg0, const char* arg1,
-    int arg2, int arg3, bool arg4);
 extern const char data_020f2b6c[];
-struct Struct_020dcf7c { unsigned char unknown_0_[0x18]; };
 #define func_020dcf7c func_020de968
 extern "C" void func_020de968(int arg0, void* arg1);
 #else
@@ -22,15 +17,14 @@ extern "C" ARM void func_020dcf7c(int arg0, void* arg1) {
 #if defined(jpn)
     const char* var0;
     if (arg0 > 0 && arg1 != NULL) {
-        Struct_020dcf7c var1;
         var0 = data_020f2b6c;
         *(char*)arg1 = 0;
-        ConstructStringTable_020dfc2c(&var1);
-        InitStringTable_020dfc40((StringTable_0201099c_14*)&var1);
+        StringList var1;
+        var1.Reset();
     } else {
         return;
     }
-    func_020e2168((char*)arg1, var0, arg0, 0, true);
+    GetStringFromNAT((char*)arg1, var0, arg0, 0, true);
 #else
     if (arg0 <= 0) return;
     if (arg1 == NULL) return;

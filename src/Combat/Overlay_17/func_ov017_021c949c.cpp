@@ -46,3 +46,8 @@ extern "C" ARM void func_ov017_021c949c(int arg0, Struct_ov017_021c949c* arg1) {
         SetFieldMonsterState_02076ccc((void*)var0[2], 1);
     }
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

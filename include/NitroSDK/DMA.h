@@ -7,19 +7,20 @@ struct DMARegisterSet
     unsigned int sourceAddr;
     unsigned int destAddr;
     union {
-        unsigned int unknown_0_;
+        unsigned int u32;
         struct {
-            unsigned short unknown1_0_;
-            unsigned short unknown_2_;
+            unsigned short transferSize;
+            unsigned short control;
         };
     } controlAndSize;
 };
 
 #if defined(jpn)
+#define data_020f2270 data_020f23dc
 #endif
 
 // DMA channel for general use
-extern int gGraphicsDMAChannel_020f2270;
+extern int data_020f2270;
 
 // ITCM functions. The atomic operations are wrapped with DisableIRQInterrupts()
 // and SetIRQInterruptState(), 

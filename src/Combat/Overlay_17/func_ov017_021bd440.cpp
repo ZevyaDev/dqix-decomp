@@ -31,3 +31,8 @@ extern "C" ARM void func_ov017_021bd440(void* arg0, int arg1) {
 	var3->obj3D_.rotation_.y = var4;
 	var3->obj3D_.rotation_.z = 0;
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

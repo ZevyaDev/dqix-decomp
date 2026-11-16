@@ -5,6 +5,14 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
+#define func_0202ec84 func_0202e7f4
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
+#if defined(jpn)
 #define func_0200b454 func_0200b318
 #endif
 
@@ -93,7 +101,7 @@ extern "C" int func_ov005_02157ae8(Struct_ov005_02153954* arg0, int arg1);
 struct Struct_ov005_0215690c;
 extern "C" Struct_ov005_0215690c_2* func_ov023_021e4e20(Struct_ov005_0215690c*);
 extern "C" int func_ov005_02155670(Struct_ov005_02153954* arg0, int arg1, int arg2);
-extern "C" int ConvertWorldToScreen_0202ec84(void* camera, Struct_02015ef4* worldPosition, int* outX, int* outY);
+extern "C" int func_0202ec84(void* camera, Struct_02015ef4* worldPosition, int* outX, int* outY);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" double func_0200b454(double x);
 extern "C" short GetEquippedItem_02052df8(Struct_02052df8* gameObject, int slot);
@@ -125,14 +133,14 @@ extern "C" ARM void func_ov005_0215690c(Struct_ov005_02153954* arg0, int arg1, i
         void* var8;
         int var9;
         int var10[8];
-        var8 = GetCamera_020100bc(var0);
+        var8 = func_020100bc(var0);
         int var11;
         Matrix4x3 var12;
         Vector3fix var13[8];
         var12 = RotationMatrixY(var1->unknown_50_.y);
         for (int var14 = 0; var14 < 8; var14++) {
             Mat4x3_ApplyToVector(&data_ov005_0215cc84[var14], &var12, &var13[var14]);
-            ConvertWorldToScreen_0202ec84(var8, (Struct_02015ef4*)&var13[var14], &var7[var14], &var10[var14]);
+            func_0202ec84(var8, (Struct_02015ef4*)&var13[var14], &var7[var14], &var10[var14]);
         }
         GameObject* var15 = GetPartyMemberBaseByIndex_0200ff1c(var0, var4);
         var11 = 0;

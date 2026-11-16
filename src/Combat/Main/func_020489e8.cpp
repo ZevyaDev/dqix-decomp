@@ -60,3 +60,8 @@ extern "C" ARM void func_020489e8(struct Struct_020489e8_5* arg0) {
     func_0204956c(arg0);
     func_0204a054((struct Struct_020489e8_3*)arg0);
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

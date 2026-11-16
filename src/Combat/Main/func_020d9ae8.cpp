@@ -6,6 +6,7 @@ enum { Enum_020d9ae8_48 = 0x30, Enum_020d9ae8_64 = 0x40, Enum_020d9ae8_88 = 0x58
 #endif
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
+#include "Resource/StringList.h"
 
 struct QueueNode_0204693c;
 extern "C" void ResetQueueNode_0204693c(QueueNode_0204693c* node);
@@ -14,7 +15,6 @@ struct StringList_020727d8;
 extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 
 struct StringTable_0201099c_14;
-extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 
 struct Struct_02061c04_7 {
     unsigned char unknown_0_;
@@ -36,7 +36,7 @@ extern "C" ARM void func_020d9ae8(Struct_02061c04_7* arg0, int arg1) {
 #if defined(jpn)
     ResetStringList_020727d8((StringList_020727d8*)((char*)arg0 + Enum_020d9ae8_28));
 #else
-    InitStringTable_020dfc40((StringTable_0201099c_14*)((char*)arg0 + Enum_020d9ae8_64));
+    ((StringList*)((StringTable_0201099c_14*)((char*)arg0 + Enum_020d9ae8_64)))->Reset();
 #endif
     ((SafeAllocator*)((char*)arg0 + Enum_020d9ae8_88))->ResetAllocatorPointer();
 }

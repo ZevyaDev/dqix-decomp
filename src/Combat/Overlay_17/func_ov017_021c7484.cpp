@@ -2,6 +2,14 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
 struct Struct_ov017_021c7484 {
     unsigned int unknown_0_0_ : 3, unknown_0_3_ : 3, unknown_0_6_ : 3, unknown_1_1_ : 3, unknown_1_4_ : 3, unknown_1_7_ : 3, unknown_2_2_ : 3, unknown_2_5_ : 3, unknown_3_0_ : 3, unknown_3_3_ : 3;
 };
@@ -33,16 +41,16 @@ struct Struct_ov017_021c7484_4 {
 
 struct Struct_ov017_021c7484_5 { char unknown_0_[8]; unsigned short unknown_8_; };
 
-extern "C" void* GetBattleSetup_ov017_021b8478(void*);
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
+extern "C" void* func_ov017_021b8478(void*);
+extern "C" void* func_0202ae24();
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" void QueueOutgoingPacket_0205e330(void*, void*, int);
 
 // USA: func_ov017_021c7484
 extern "C" ARM void func_ov017_021c7484() {
     GameState* var0 = GameState::GetInstance();
-    Struct_ov017_021c7484_5* var1 = (Struct_ov017_021c7484_5*)GetBattleSetup_ov017_021b8478(GetGameResources()->unknown_ptr_3718);
-    void* var2 = GetLocalWirelessPacketQueue_0202ae24();
+    Struct_ov017_021c7484_5* var1 = (Struct_ov017_021c7484_5*)func_ov017_021b8478(GetGameResources()->unknown_ptr_3718);
+    void* var2 = func_0202ae24();
     Struct_ov017_021c7484_4 var3;
     var3.unknown_0_ = 0x72;
     Struct_ov017_021c7484_3* var4 = &var3.unknown_4_;

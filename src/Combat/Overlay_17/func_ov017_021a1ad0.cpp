@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct ActiveZone_020fdd44 {
     unsigned short zoneId_0_;
     unsigned short unknown_2_0_ : 2;
@@ -39,7 +43,7 @@ extern "C" void func_02076b58(FieldMonster_02076a8c_2*);
 extern "C" int func_0201b5d8(int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_ov017_021c9544(int, int, int, int);
-extern "C" int* GetLocalWireless_0202ae18();
+extern "C" int* func_0202ae18();
 extern "C" unsigned short* GetZone3D_02012fe4();
 extern "C" int IsNotLocalWirelessGuest_0202c508(int*);
 extern "C" void func_02034104(Vector3fix*, GameObject*);
@@ -50,7 +54,7 @@ extern "C" void InitFieldMonster_02076a8c(Struct_ov017_021a1ad0*);
 extern "C" ARM void func_ov017_021a1ad0() {
     GameState* var0 = GameState::GetInstance();
     ActiveZone_020fdd44* var1 = GetActiveZones_02027ca4();
-    int* var2 = GetLocalWireless_0202ae18();
+    int* var2 = func_0202ae18();
     unsigned short* var3 = GetZone3D_02012fe4();
     if (IsNotLocalWirelessGuest_0202c508(var2)) {
         int var4;

@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -27,9 +28,6 @@ struct Struct_0205c96c {
     char unknown_8_[0xd];
     unsigned char unknown_15_;
 };
-extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254* animationList, int index);
-extern "C" struct Struct_0205c96c* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index);
-extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
 
 static inline int inline_0205c96c(unsigned char* arg0) { return *(int*)(arg0 + 0x88); }
 static inline int inline_0205c96c_2(unsigned char* arg0) { return *(int*)(arg0 + 0x8c); }
@@ -113,15 +111,15 @@ extern "C" ARM void func_0205c96c(unsigned char* arg0, int arg1) {
         return;
     }
 
-    PlaySpriteAnimation_0205a370(var13, var14);
-    var15 = FindSpriteAnimation_0205a3d0(var13, var14);
+    ((OBJSpriteSet::List*)(var13))->PlaySpriteAnimation(var14);
+    var15 = ((Struct_0205c96c*)((OBJSpriteSet::List*)(var13))->GetSprite(var14));
     if (var15 != NULL) {
         var15->unknown_15_ |= 8;
     }
-    var15 = FindSpriteAnimation_0205a3d0(var13, var14);
+    var15 = ((Struct_0205c96c*)((OBJSpriteSet::List*)(var13))->GetSprite(var14));
     if (var15 != NULL) {
         var15->unknown_4_ = var5;
         var15->unknown_6_ = var6;
     }
-    DrawSpriteAnimations_0205ae8c(var12);
+    ((OBJSpriteSet*)(var12))->DrawAll();
 }

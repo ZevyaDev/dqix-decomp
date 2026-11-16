@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0203be40 func_0203b898
+#endif
+
 extern int data_021052b4;
 
 // USA: func_0203be40

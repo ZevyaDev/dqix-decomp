@@ -2,6 +2,10 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_020da150 func_020dbb58
+#endif
+
 struct Struct_020df850;
 struct Struct_020dfa68;
 

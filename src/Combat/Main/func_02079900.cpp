@@ -1,12 +1,12 @@
 #include <globaldefs.h>
-extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char g_fileScratchSpace[0x30000] __attribute__((aligned(4)));
 #include "Filesystem/GPC.h"
 #include "Filesystem/FileIO.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "Resource/ActionDataTables.h"
 struct Struct_02000c9c_8;
-extern "C" unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8*);
+extern "C" unsigned char func_0200fb08(Struct_02000c9c_8*);
 extern "C" void* func_02079a3c(void*);
 extern "C" void __clear(void*, unsigned int);
 #if defined(jpn)
@@ -22,11 +22,11 @@ extern "C" ARM void func_02079900(ActionTables_02108e10* arg0, SafeAllocator* ar
     BackgroundLoader::AddLockGlobal();
     GPCReadPair var0;
     unsigned int var1 = 0;
-    unsigned char* var2 = gFileScratchSpace_0211e33c;
+    unsigned char* var2 = g_fileScratchSpace;
     int var3 = 0x30000;
     func_02079a3c(&var0);
     unsigned int var4;
-    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var0.pGPCFile, var0.machine, data_020f0dcc, var2, var4, var3, false, 0)) {
+    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var0.pGPCFile, &var0.machine, data_020f0dcc, var2, &var4, var3, false, 0)) {
         var1 = var4;
         unsigned int var5 = 0;
         unsigned int var6 = var3 - var1;
@@ -35,11 +35,11 @@ extern "C" ARM void func_02079900(ActionTables_02108e10* arg0, SafeAllocator* ar
         GameState* var8 = GameState::GetInstance();
         char var9[0x20];
         __clear(var9, 0x20);
-        StringReplaceLanguageTag(data_020f0de1, var9, GetGameLanguage_0200fb08((Struct_02000c9c_8*)var8));
+        StringReplaceLanguageTag(data_020f0de1, var9, func_0200fb08((Struct_02000c9c_8*)var8));
 #else
         const char* var9 = data_020f0de1;
 #endif
-        DecompressFileFromGPCByName(var0.pGPCFile, var0.machine, var7, var5, var6, var9);
+        DecompressFileFromGPCByName(&var0.pGPCFile, &var0.machine, var7, &var5, var6, var9);
 #if defined(jpn)
         Type_02079900 var10 = &func_0207a6fc;
 #else
@@ -50,7 +50,7 @@ extern "C" ARM void func_02079900(ActionTables_02108e10* arg0, SafeAllocator* ar
                       , NULL
 #endif
         );
-        DecompressFileFromGPCByName(var0.pGPCFile, var0.machine, var7, var5, var6, data_020f0df2);
+        DecompressFileFromGPCByName(&var0.pGPCFile, &var0.machine, var7, &var5, var6, data_020f0df2);
         func_02079bac(&arg0->unknown_18_, arg1, var7, NULL, NULL
 #if !defined(jpn)
                       , NULL

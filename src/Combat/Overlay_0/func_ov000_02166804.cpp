@@ -10,11 +10,11 @@
 
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
+#include "Graphics/TextureArena.h"
 
 struct TextureVRAMArea_0203d028 {
     char unknown_0_[0x68];
 };
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
 
 struct Struct_ov000_02166804 {
     char unknown_0_[0x44 - sizeof(SafeAllocator)];
@@ -49,5 +49,5 @@ extern "C" ARM void func_ov000_02166804(struct Struct_ov000_02166804* arg0) {
     SafeAllocator* var4 = inline_ov000_02166804(arg0, 1);
     struct TextureVRAMArea_0203d028* var5 = inline_ov000_02166804_2(arg0, 1);
     var4->Reset();
-    ResetTextureVRAMState_0207df50(var5);
+    ((TextureArena*)(var5))->Reset();
 }

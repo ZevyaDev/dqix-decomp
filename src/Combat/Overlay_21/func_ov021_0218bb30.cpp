@@ -9,9 +9,17 @@
 #endif
 #include "GameState/GameState.h"
 #include "GameState/Field3b0.h"
-#include "NitroSDK/Graphics3D/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 #include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "NitroSDK/Graphics.h"
+
+#if defined(jpn)
+#define func_0203bd08 func_0203b760
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 struct Struct_ov021_0218bb30
 {
@@ -24,7 +32,7 @@ extern "C" void ResetMatrixStacks_020c5414();
 extern "C" void UpdateCamera_0202e0a4(void* camera);
 extern "C" void func_ov009_02184c30(void* arg0);
 extern "C" void func_ov009_02184bbc(void* arg0);
-extern "C" void* GetOAMManager_0203bd08();
+extern "C" void* func_0203bd08();
 extern "C" void func_0203bd88(void* arg0);
 extern "C" void Swap3DBuffers_020d86d0(int keepTranslucentOrder, int useWDepth);
 
@@ -32,7 +40,7 @@ extern "C" void Swap3DBuffers_020d86d0(int keepTranslucentOrder, int useWDepth);
 extern "C" ARM void func_ov021_0218bb30(Struct_ov021_0218bb30* arg0)
 {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetCamera_020100bc(var0);
+    void* var1 = func_020100bc(var0);
     ResetGeometryEngine_020c52e8();
     ResetMatrixStacks_020c5414();
     DISP3DCNT = (DISP3DCNT & ~0x3000) | 8;
@@ -40,10 +48,10 @@ extern "C" ARM void func_ov021_0218bb30(Struct_ov021_0218bb30* arg0)
     DISP3DCNT = (DISP3DCNT & ~0x3000) | 0x20;
     if (var1 != NULL)
         UpdateCamera_0202e0a4(var1);
-    RenderConfig::SubmitToFifo();
-    SendQueuedDataToGeometryFifo();
+    Nitro3DRenderConfig::SubmitToFifo();
+    Nitro3D_FlushFifoQueue();
     func_ov009_02184c30(arg0->unknown_40_);
     func_ov009_02184bbc(arg0->unknown_40_);
-    func_0203bd88(GetOAMManager_0203bd08());
+    func_0203bd88(func_0203bd08());
     Swap3DBuffers_020d86d0(1, 0);
 }

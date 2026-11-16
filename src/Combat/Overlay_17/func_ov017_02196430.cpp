@@ -5,6 +5,10 @@
 #include "Input/Input.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_ov009_0218aa28;
 struct QueueNode_02015438;
 struct Struct_02077788_2;
@@ -112,7 +116,7 @@ struct Struct_ov017_021d6438 {
     unsigned char unknown_0_[3];
 };
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" Struct_ov017_02196430_3* GetZone3D_02012fe4(void);
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
@@ -151,7 +155,7 @@ extern Struct_ov017_021d6438 data_ov017_021d6438;
 extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
     Struct_ov017_02196430_8* var0 = (Struct_ov017_02196430_8*)arg0;
     GameState* var1 = GameState::GetInstance();
-    void* var2 = GetLocalWireless_0202ae18();
+    void* var2 = func_0202ae18();
     Struct_ov017_02196430_7* var3 = var0->unknown_36f8_;
     Struct_ov017_02196430* var4 = (Struct_ov017_02196430*)var1->GetUnknownGameObject();
     Struct_ov017_02196430_8* var5 = (Struct_ov017_02196430_8*)GetGameResources();
@@ -247,7 +251,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
                 if (var28 && IsNotLocalWirelessGuest_0202c508(var2)) {
                     func_ov017_0219a674((unsigned char*)&var15);
                     var15.unknown_0_ = 9;
-                    var15.unknown_2_ = var27->unknown_0_.objectIndex_4_;
+                    var15.unknown_2_ = var27->unknown_0_.unknown_4_;
                     var15.unknown_10_ = func_ov017_021a4754(&var4->unknown_0_.position_, (short)var4->unknown_0_.rotation_.y, &var27->unknown_0_.position_);
                     if (var15.unknown_10_ < 0x1922) {
                         func_ov017_0219b33c(var0, &var15);

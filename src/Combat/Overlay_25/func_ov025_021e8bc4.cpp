@@ -3,6 +3,10 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId);
 extern "C" void* GetBattleScene_ov000_02160130(void);
@@ -30,7 +34,7 @@ extern "C" ARM void func_ov025_021e8bc4(struct Struct_ov025_021e8bc4_2* arg0, in
 
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetEffectManager_02057924();
-    GetCamera_020100bc(var0);
+    func_020100bc(var0);
 
     struct Struct_ov025_021e8bc4* var2 = arg0->unknown_1d8_;
     while (var2 != 0 && arg1 <= var2->unknown_1_) {

@@ -2,12 +2,16 @@
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_020340d4;
 struct Struct_020340c4;
 struct Struct_020340b4;
 struct Struct_0203402c;
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov017_021d360c(int arg0, int arg1, int arg2, Vector3s arg3);
 
@@ -29,7 +33,7 @@ extern "C" void EnablePlayerControl_020397c0(void* object);
 // USA: func_ov017_021c2380
 extern "C" ARM int func_ov017_021c2380(int arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     Struct_ov017_021c2380* var2 = func_020120a0((char*)var0, arg0);
     if (var2 == NULL) {
         return 0;

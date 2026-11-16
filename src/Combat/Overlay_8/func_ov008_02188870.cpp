@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Graphics/OBJSpriteSet.h"
 
 struct MenuCursor_0205bb84;
 extern "C" int GetMenuCursorIndex_0205bb84(struct MenuCursor_0205bb84* cursor);
@@ -7,9 +8,6 @@ extern "C" int GetMenuCursorIndex_0205bb84(struct MenuCursor_0205bb84* cursor);
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimationList_0205a330;
 
-extern "C" void SetSpriteAnimationOAMIndex_0205a42c(struct SpriteAnimationList_0205a254* animationList, int index, int oamIndex);
-extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254* animationList, int index);
-extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330* animationList, int ticks);
 
 struct Struct_ov008_02188870 {
     char unknown_0_[4];
@@ -18,10 +16,8 @@ struct Struct_ov008_02188870 {
     char unknown_8_[0x15 - 8];
     unsigned char unknown_15_;
 };
-extern "C" struct Struct_ov008_02188870* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index);
 
 
-extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
 
 struct Struct_ov008_02188870_2 {
     char unknown_0_[0x730];
@@ -44,22 +40,22 @@ extern "C" ARM void func_ov008_02188870(struct Struct_ov008_02188870_2* arg0) {
     int var1 = GetMenuCursorIndex_0205bb84((struct MenuCursor_0205bb84*)((char*)arg0 + 0x750));
     short var2 = (short)(((var1 - arg0->unknown_b29_) << 4) + 7);
 
-    SetSpriteAnimationOAMIndex_0205a42c((struct SpriteAnimationList_0205a254*)arg0->unknown_738_, 0, 0x3f);
-    PlaySpriteAnimation_0205a370((struct SpriteAnimationList_0205a254*)arg0->unknown_738_, 0);
+    ((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a254*)arg0->unknown_738_))->SetSpriteOBJIndex(0, 0x3f);
+    ((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a254*)arg0->unknown_738_))->PlaySpriteAnimation(0);
 
-    struct Struct_ov008_02188870* var3 = FindSpriteAnimation_0205a3d0((struct SpriteAnimationList_0205a254*)arg0->unknown_738_, 0);
+    struct Struct_ov008_02188870* var3 = ((Struct_ov008_02188870*)((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a254*)arg0->unknown_738_))->GetSprite(0));
     if (var3 != NULL) {
         var3->unknown_15_ |= 8;
     }
 
     unsigned int var4 = var0->GetTickCount();
-    AdvanceSpriteAnimations_0205a330((struct SpriteAnimationList_0205a330*)arg0->unknown_738_, var4);
+    ((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a330*)arg0->unknown_738_))->UpdateAll(var4);
 
-    var3 = FindSpriteAnimation_0205a3d0((struct SpriteAnimationList_0205a254*)arg0->unknown_738_, 0);
+    var3 = ((Struct_ov008_02188870*)((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a254*)arg0->unknown_738_))->GetSprite(0));
     if (var3 != NULL) {
         var3->unknown_4_ = 4;
         var3->unknown_6_ = var2;
     }
 
-    DrawSpriteAnimations_0205ae8c(arg0->unknown_730_);
+    ((OBJSpriteSet*)(arg0->unknown_730_))->DrawAll();
 }

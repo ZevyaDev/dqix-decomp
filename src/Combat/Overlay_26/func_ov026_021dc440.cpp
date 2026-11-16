@@ -2,7 +2,7 @@
 #include <GameState/GameState.h>
 #include "GameState/Field3b0.h"
 #include <Filesystem/BackgroundLoader.h>
-extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char g_fileScratchSpace[0x30000] __attribute__((aligned(4)));
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
 #include <Filesystem/GPC.h>
 #include <Memory/SafeAllocator.h>
@@ -10,6 +10,11 @@ void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength
 #include <World/Object3D.h>
 #include <std_library_functions.h>
 #include "Resource/GameResources.h"
+#include "Filesystem/FileIO.h"
+
+#if defined(jpn)
+#define func_02032370 func_02031ea8
+#endif
 
 #if defined(jpn)
 struct BattleScene_ov000_02160da0 { char unknown_0_[0x7902]; signed char unknown_7712_; };
@@ -100,14 +105,14 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* arg0, BattleScene_ov000_0
     BackgroundLoader::FreeAllocationsGlobal();
 
     GPCReadPair* var6 = &var0;
-    unsigned char* var7 = gFileScratchSpace_0211e33c;
+    unsigned char* var7 = g_fileScratchSpace;
     unsigned int var8 = 0x30000;
     ZeroInitGPCPointer(&var6->pGPCFile);
     var6->ZeroInitializeMachine();
-    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var0.pGPCFile, var0.machine, data_ov026_021dee5c, var7, var1, var8, false, 0)) {
+    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var0.pGPCFile, &var0.machine, data_ov026_021dee5c, var7, &var1, var8, false, 0)) {
         var7 += var1;
         var8 -= var1;
-        if (DecompressFileFromGPCByName(var0.pGPCFile, var0.machine, var7, var1, var8, data_ov026_021dee77)) {
+        if (DecompressFileFromGPCByName(&var0.pGPCFile, &var0.machine, var7, &var1, var8, data_ov026_021dee77)) {
             Object3D* var9 = (Object3D*)arg0->Allocate(0xac);
             if (var9) {
                 var9->Initialize();
@@ -144,7 +149,7 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* arg0, BattleScene_ov000_0
                 }
             }
         }
-        if (DecompressFileFromGPCByName(var0.pGPCFile, var0.machine, var7, var1, var8, data_ov026_021dee8f)) {
+        if (DecompressFileFromGPCByName(&var0.pGPCFile, &var0.machine, var7, &var1, var8, data_ov026_021dee8f)) {
             Object3D* var19 = (Object3D*)arg0->Allocate(0xac);
             if (var19) {
                 var19->Initialize();
@@ -183,11 +188,11 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* arg0, BattleScene_ov000_0
 #endif
                     if (*(int*)((char*)var26 + Enum_ov026_021dc440_452)) {
                         sprintf(var2, data_ov026_021dee9c);
-                        LoadFileIntoMemory(var2, gFileScratchSpace_0211e33c, &var1);
-                        var7 = gFileScratchSpace_0211e33c;
+                        LoadFileIntoMemory(var2, g_fileScratchSpace, &var1);
+                        var7 = g_fileScratchSpace;
                     } else {
                         sprintf(var2, data_ov026_021deeb5, var27);
-                        DecompressFileFromGPCByName(var0.pGPCFile, var0.machine, var7, var1, var8, var2);
+                        DecompressFileFromGPCByName(&var0.pGPCFile, &var0.machine, var7, &var1, var8, var2);
                     }
                     if (var1) {
                         ObjectArchiveLoadInfo var28;

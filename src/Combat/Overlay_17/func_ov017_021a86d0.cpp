@@ -64,10 +64,19 @@ extern "C" int fix32_Atan2(int arg0, int arg1);
 #include "Filesystem/BackgroundLoader.h"
 #include "Input/Input.h"
 #include "Resource/Brightness.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 struct AllocatorUnion;
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void LoadStringTable_020dfec0(void* stringTable, void* allocator, void* fileData, unsigned int fileSize);
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 struct SoundEffectManager_02108760;
@@ -79,7 +88,6 @@ extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
 struct MenuCursor_0205bacc;
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
 struct Struct_0201099c_3;
-extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_0205cb74(char*, int);
 extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
 struct MenuCursor_0205bcdc;
@@ -89,13 +97,12 @@ struct Struct_0205c77c;
 extern "C" void func_0205c77c(Struct_0205c77c*, int);
 extern "C" void func_0205cd28(unsigned char* arg0);
 struct SpriteAnimationList_0205a330;
-extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330*, int);
 extern "C" int func_0205cecc(void* arg0);
 extern "C" int func_0205cb64(void* arg0);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_0205ce50(unsigned char* arg0);
 extern "C" int GetMessageChoice_020457e0(char* window);
-extern "C" unsigned char* GetFlagManager_0205ec34(void);
+extern "C" unsigned char* func_0205ec34(void);
 extern "C" unsigned char* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
 extern "C" void DisableInputForDuration_020e1154(void* durationMs);
@@ -110,7 +117,7 @@ extern "C" void ResetEventTask_ov017_021baedc(unsigned char* node, int isRestart
 extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" int func_020107d0(char*);
 extern "C" int func_02010804(char*);
-extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" int func_ov017_021a01b4(char* arg0, int arg1);
 extern "C" void func_ov017_021bbbf8(void*, unsigned short);
 extern "C" void EnablePlayerControl_020397c0(void* object);
@@ -181,7 +188,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
             unsigned int var13;
             ((BackgroundLoader*)var11)->GetLoadedFileByID(arg0->unknown_28_, &var12, &var13);
             ((SafeAllocator*)arg0->unknown_264_)->Reset();
-            LoadStringTable_020dfec0(arg0->unknown_278_, arg0->unknown_264_, var12, var13);
+            ((StringList*)(arg0->unknown_278_))->LoadFromMemory((SafeAllocator*)(arg0->unknown_264_), (const void*)(var12), var13);
             ((BackgroundLoader*)var11)->RemoveTask(arg0->unknown_28_);
             arg0->unknown_28_ = -1;
             SetMessageString_02046574((Struct_02046574_2*)var1, 0, *(char**)((char*)var0->GetProtagonist() + 0x134));
@@ -211,9 +218,9 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
                 if (arg0->unknown_18_[var17] == 4) {
                     var16 = 0xc;
                 }
-                func_0205cb74((char*)arg0->unknown_2c_, (int)(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_278_, arg0->unknown_18_[var17])));
+                func_0205cb74((char*)arg0->unknown_2c_, (int)(((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_278_))->GetString(arg0->unknown_18_[var17]))));
             }
-            func_0205cb74((char*)arg0->unknown_2c_, (int)(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_278_, 6)));
+            func_0205cb74((char*)arg0->unknown_2c_, (int)(((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_278_))->GetString(6))));
             int var18 = arg0->unknown_20_;
             int var19 = 0x60 - (var18 + 1) * 0xe;
             if (var18 == 2) {
@@ -253,7 +260,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
         }
     } else if (arg0->unknown_8_ == 3) {
         void* var25 = *(void**)(var1 + Enum_ov017_021a86d0_736);
-        AdvanceSpriteAnimations_0205a330((SpriteAnimationList_0205a330*)var25, var0->GetTickCount());
+        ((OBJSpriteSet::List*)((SpriteAnimationList_0205a330*)var25))->UpdateAll(var0->GetTickCount());
         var1[Enum_ov017_021a86d0_6574] = 0;
         int var26 = func_0205cecc(arg0->unknown_2c_);
         if (g_keyManager.TestKeysPressed(1)) {
@@ -302,7 +309,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
     } else if (arg0->unknown_8_ == 99) {
         int var27;
         int var28;
-        unsigned char* var29 = GetFlagManager_0205ec34();
+        unsigned char* var29 = func_0205ec34();
         char* var30 = (char*)GetGameResources();
         void* var31 = *(void**)(var30 + Enum_ov017_021a86d0_14076);
         unsigned char* var32 = GetZoneEntry_0200fd0c(var0);
@@ -433,17 +440,17 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
             int var39 = func_02010804((char*)var0);
             if (var27 == 10 && var28 == 8 && var39 == 1) {
                 if (arg0->unknown_14_ == 0 && arg0->unknown_10_ == 1 &&
-                    IsFlagSet_0206dfb0((int)var29, var29 + 0x8c, 4) &&
-                    IsFlagSet_0206dfb0((int)var29, var29 + 0x8c, 5) &&
-                    IsFlagSet_0206dfb0((int)var29, var29 + 0x8c, 6) &&
-                    IsFlagSet_0206dfb0((int)var29, var29 + 0x8c, 7) &&
-                    IsFlagSet_0206dfb0((int)var29, var29 + 0x8c, 8) &&
-                    IsFlagSet_0206dfb0((int)var29, var29 + 0x8c, 9) &&
-                    IsFlagSet_0206dfb0((int)var29, var29 + 0x8c, 10)) {
+                    func_0206dfb0((int)var29, var29 + 0x8c, 4) &&
+                    func_0206dfb0((int)var29, var29 + 0x8c, 5) &&
+                    func_0206dfb0((int)var29, var29 + 0x8c, 6) &&
+                    func_0206dfb0((int)var29, var29 + 0x8c, 7) &&
+                    func_0206dfb0((int)var29, var29 + 0x8c, 8) &&
+                    func_0206dfb0((int)var29, var29 + 0x8c, 9) &&
+                    func_0206dfb0((int)var29, var29 + 0x8c, 10)) {
                     var38 = 0x7080;
                 }
             } else if (var27 == 0x11 && var28 == 1 && var39 == 1 && arg0->unknown_14_ == 1 && arg0->unknown_10_ == 3) {
-                if (IsFlagSet_0206dfb0((int)var29, var29 + 0x8c, 0x15)) {
+                if (func_0206dfb0((int)var29, var29 + 0x8c, 0x15)) {
                     var38 = 0x721a;
                 }
             }

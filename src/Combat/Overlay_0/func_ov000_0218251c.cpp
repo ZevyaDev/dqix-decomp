@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "NitroSDK/Graphics.h"
 #include "GameState/GameState.h"
+#include "Graphics/SPRSprite.h"
 
 struct Struct_02000c9c_8;
 struct Struct_0203a46c;
@@ -23,9 +24,8 @@ struct Struct_ov000_021836d0 {
     unsigned char unknown_0_[5];
 };
 
-extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
+extern "C" int func_0200fb08(Struct_02000c9c_8* gameState);
 extern "C" void func_0203a46c(Struct_0203a46c* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_02047554(Struct_ov000_0218251c* arg0, int arg1, int arg2);
 
 extern const Struct_ov000_021836d0 data_ov000_021836d0;
 extern const signed char data_ov000_021836d5[][2];
@@ -33,7 +33,7 @@ extern const signed char data_ov000_021836d6[][2];
 
 static inline void inline_ov000_0218251c(Struct_ov000_0218251c* arg0) {
     GXFIFO_MATRIX_PUSH = 0;
-    func_02047554(arg0, 0, 1);
+    ((SPRSprite*)(arg0))->DrawTextureScaleTranslate(0, 1);
     GXFIFO_MATRIX_POP = 1;
 }
 
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov000_0218251c(Struct_ov000_0218251c_2* arg0) {
     if (var23 <= 0) {
         return;
     }
-    int var25 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance()) - 1;
+    int var25 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance()) - 1;
     Struct_ov000_021836d0 var26 = data_ov000_021836d0;
     int var27 = 30 - arg0->unknown_6ea_;
 

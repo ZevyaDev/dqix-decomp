@@ -3,8 +3,20 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
+extern "C" void* func_0202ae24(void);
 extern "C" void* func_020e2ff8(void);
 extern "C" void* func_020e3580(void);
 extern "C" int func_0202b000(void* arg0);
@@ -19,7 +31,7 @@ extern "C" void func_020e358c(struct Struct_020e358c* arg0);
 extern "C" void func_ov017_02195748(unsigned char* arg0);
 extern "C" void func_02010890(GameState* arg0, int* arg1, int* arg2);
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" int GetStringLength_020d2ff0(const char* string);
+extern "C" int func_020d2ff0(const char* string);
 extern "C" void func_0202c360(void* arg0, char* arg1);
 extern "C" void func_ov017_021972cc(char* arg0);
 extern "C" void func_ov017_02195520(void* arg0);
@@ -28,9 +40,9 @@ extern "C" void func_ov017_02195520(void* arg0);
 extern "C" ARM void func_ov017_021c36a0(void) {
 	GameState* var0 = GameState::GetInstance();
 	void* var1 = (void*)(int)((int)GetGameResources());
-	void* var2 = GetLocalWireless_0202ae18();
+	void* var2 = func_0202ae18();
 	GameObject* var3 = var0->GetProtagonist();
-	void* var4 = GetLocalWirelessPacketQueue_0202ae24();
+	void* var4 = func_0202ae24();
 	void* var5 = func_020e2ff8();
 	void* var6 = func_020e3580();
 
@@ -55,7 +67,7 @@ extern "C" ARM void func_ov017_021c36a0(void) {
 	char var9[20];
 	__clear(var9, 0x14);
 
-	int var10 = GetStringLength_020d2ff0(*(char**)((char*)var3 + 0x134));
+	int var10 = func_020d2ff0(*(char**)((char*)var3 + 0x134));
 	if (var10 > 0x14) {
 		var10 = 0x14;
 	}

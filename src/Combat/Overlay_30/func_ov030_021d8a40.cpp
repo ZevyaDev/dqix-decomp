@@ -4,7 +4,7 @@
 struct GameResources;
 
 extern "C" void* func_02012db0(AllocatorUnion* arg0, unsigned int arg1);
-extern "C" void func_0200ee94(void* arg0, int arg1, int arg2, void* arg3, void* arg4);
+extern "C" void __cxa_vec_ctor(void* arg0, int arg1, int arg2, void* arg3, void* arg4);
 extern "C" void* func_0201c0e8(void* arg0);
 extern "C" void* func_0201c108(void* arg0);
 extern "C" void func_ov030_021d9340(GameResources* arg0);
@@ -294,7 +294,7 @@ extern "C" ARM Struct_ov030_021d8a40_2* func_ov030_021d8a40(AllocatorUnion* arg0
             var86++;
         } while (var86 < var0->unknown_12c8_ + 4);
         var0->unknown_2b0c_.ResetAllocatorPointer();
-        func_0200ee94(var0->unknown_2b90_, 0x12, 0x88, (void*)func_0201c0e8, (void*)func_0201c108);
+        __cxa_vec_ctor(var0->unknown_2b90_, 0x12, 0x88, (void*)func_0201c0e8, (void*)func_0201c108);
         func_0201c0e8(var0->unknown_3520_);
         func_0201c0e8(var0->unknown_35a8_);
 
@@ -318,8 +318,8 @@ extern "C" ARM Struct_ov030_021d8a40_2* func_ov030_021d8a40(AllocatorUnion* arg0
         var0->unknown_36fc_[13] = var19;
         var0->unknown_36fc_[14] = var20;
         var0->unknown_36fc_[15] = var21;
-        func_0200ee94(var0->unknown_373c_, 0xc, 0x48, (void*)func_ov030_021d9250, (void*)func_ov030_021d9264);
-        func_0200ee94(var0->unknown_3a9c_, 4, Enum_ov030_021d8a40_24, (void*)func_ov030_021d9278, (void*)func_ov030_021d928c);
+        __cxa_vec_ctor(var0->unknown_373c_, 0xc, 0x48, (void*)func_ov030_021d9250, (void*)func_ov030_021d9264);
+        __cxa_vec_ctor(var0->unknown_3a9c_, 4, Enum_ov030_021d8a40_24, (void*)func_ov030_021d9278, (void*)func_ov030_021d928c);
 
         var0->unknown_3afc_[0] = var22;
         var0->unknown_3afc_[1] = var23;
@@ -372,8 +372,8 @@ extern "C" ARM Struct_ov030_021d8a40_2* func_ov030_021d8a40(AllocatorUnion* arg0
         var0->unknown_3afc_[48] = var70;
         var0->unknown_3afc_[49] = var71;
         var0->unknown_3afc_[50] = var72;
-        func_0200ee94(var0->unknown_3bc8_, 3, 0x14, (void*)func_ov030_021d92a0, (void*)func_ov030_021d92b4);
-        func_0200ee94(var0->unknown_3c04_, 4, 0x28, (void*)func_ov030_021d92c8, (void*)func_ov030_021d92dc);
+        __cxa_vec_ctor(var0->unknown_3bc8_, 3, 0x14, (void*)func_ov030_021d92a0, (void*)func_ov030_021d92b4);
+        __cxa_vec_ctor(var0->unknown_3c04_, 4, 0x28, (void*)func_ov030_021d92c8, (void*)func_ov030_021d92dc);
 
         var0->unknown_3ca4_ = var83;
         var0->unknown_3ca8_ = var73;

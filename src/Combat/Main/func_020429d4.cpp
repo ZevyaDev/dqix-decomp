@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020429d4 func_02042e94
+#endif
+
 extern char data_02107800;
 
 #if defined(jpn)

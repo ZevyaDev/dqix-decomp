@@ -3,6 +3,10 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 struct Struct_0204a438;
 extern "C" void* func_0204a438(struct Struct_0204a438* arg0);
 extern "C" int func_0202e09c(int arg0);
@@ -39,7 +43,7 @@ extern "C" ARM int func_ov025_021e4868(struct Struct_ov025_021e4868* arg0, int a
     }
     GameState* var3 = GameState::GetInstance();
     if (arg0->unknown_8_ == 0x19) {
-        void* var4 = GetCamera_020100bc(var3);
+        void* var4 = func_020100bc(var3);
         if (func_0202e09c((int)var4) & 0x10) {
             var1 = func_0204a438((struct Struct_0204a438*)var4);
         } else {

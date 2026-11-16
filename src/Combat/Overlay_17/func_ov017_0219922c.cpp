@@ -7,8 +7,12 @@ enum { Enum_ov017_0219922c_1724 = 0x6bc, Enum_ov017_0219922c_13824 = 0x3600, Enu
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
-extern "C" void* GetFlagManager_0205ec34(void);
+
+extern "C" void* func_0205ec34(void);
 extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
 extern "C" void func_0206f81c(void* arg0);
 extern "C" void func_ov017_021adc58(unsigned char* arg0);
@@ -34,7 +38,7 @@ extern "C" ARM void func_ov017_0219922c(unsigned char* arg0) {
     signed short var4 = *(signed short*)(arg0 + Enum_ov017_0219922c_13824 + Enum_ov017_0219922c_198);
 
     if (!var2) {
-        void* var5 = GetFlagManager_0205ec34();
+        void* var5 = func_0205ec34();
         struct Struct_ov017_0219922c var6;
         var6.unknown_20_ = *(unsigned short*)(var1 + 0x1c);
         if (RunTrigger_020649b0(var5, 0x12, &var6)) {
@@ -69,4 +73,9 @@ extern "C" ARM void func_ov017_0219922c(unsigned char* arg0) {
     struct Queue_0201bdac_2* var12 = *(struct Queue_0201bdac_2**)(var11 + Enum_ov017_0219922c_1788);
     struct QueueNode_0201bdac* var13 = *(struct QueueNode_0201bdac**)(var11 + Enum_ov017_0219922c_2852);
     AppendToQueue_020469b4(var12, var13);
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

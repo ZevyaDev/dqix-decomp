@@ -46,7 +46,7 @@ extern "C" ARM void func_ov017_021d36b4(int arg0, struct Struct_ov017_021d36b4* 
         if (!var1) {
             GameObject* var2 = func_0200ffe0(arg2, arg1->unknown_6_ - 4);
             if (var2 == 0) return;
-            arg1->unknown_6_ = var2->obj3D_.objectIndex_4_;
+            arg1->unknown_6_ = var2->obj3D_.unknown_4_;
         }
         GameObject* var3 = arg2->GetMaybeWanderingMonsterByIndex(arg1->unknown_6_);
         GameObject* var4 = arg2->GetPartyMemberByIndex(arg1->unknown_6_);
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov017_021d36b4(int arg0, struct Struct_ov017_021d36b4* 
         if (IsNotLocalWirelessGuest_0202c508(arg4)) {
             if (var0->unknown_0_ == 0) return;
             int var5 = 0;
-            if (var3->obj3D_.objectIndex_4_ >= 0 && var3->obj3D_.objectIndex_4_ <= 3) var5 = 1;
+            if (var3->obj3D_.unknown_4_ >= 0 && var3->obj3D_.unknown_4_ <= 3) var5 = 1;
             if (!var5) {
                 func_02034044((unsigned char*)var3, 5000);
                 if (var4 != 0) EnablePlayerControl_020397c0(var4);
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov017_021d36b4(int arg0, struct Struct_ov017_021d36b4* 
         } else if (arg0 == 0) {
             short var6;
             int var7 = 0;
-            var6 = var3->obj3D_.objectIndex_4_;
+            var6 = var3->obj3D_.unknown_4_;
             if (var6 >= 0 && var6 <= 3) var7 = 1;
             if (var7) {
                 if (var6 == GetOwnProtagonistObjectIndex_0202c1a4(arg4) && var4 != 0 && IsOnLadder_02039d7c((char*)var4) == 0) {

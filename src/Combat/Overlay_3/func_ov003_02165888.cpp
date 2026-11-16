@@ -2,6 +2,11 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 #include "Resource/CharacterCreationUI.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
 
 struct Struct_02080cc0;
 struct MenuLayout_02080f8c;
@@ -14,7 +19,7 @@ extern "C" int func_02080b2c(void* arg0, int arg1);
 extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
 extern "C" void func_02080cc0(struct Struct_02080cc0* arg0, int arg1, int arg2);
 extern "C" int func_020dcc98(int arg0);
-extern "C" int* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int* func_02053c6c(unsigned char* gameObject);
 extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c*, int, int);
 extern "C" void func_02080fe0(void*, int, int);
 extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8*, int, int);
@@ -22,7 +27,6 @@ extern "C" void SetMenuLayoutTextStringId_0208103c(void*, int, int);
 extern "C" void func_02080828(void*, int, short*, short*);
 extern "C" void func_020808c8(void*, short, short*, short*);
 extern "C" void func_02080854(void*, int, int, int);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3*, int);
 extern "C" void func_02081198(struct Struct_02081198* arg0, int arg1, int arg2);
 extern "C" void SetMenuLayoutWindowFrameless_02081164(struct MenuLayout_02081164* menuLayout, int windowId, int isFrameless);
 extern "C" int OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
@@ -107,7 +111,7 @@ extern "C" ARM void func_ov003_02165888(Struct_ov003_02165888* arg0) {
             }
 
             var4 = -1;
-            var17 = (struct Struct_ov003_02165888_2*)GetPartyMemberData_02053c6c((unsigned char*)var7);
+            var17 = (struct Struct_ov003_02165888_2*)func_02053c6c((unsigned char*)var7);
             ((unsigned char*)arg0 + var15)[0x290] = (unsigned char)(var17->unknown_49c_0_ + 1);
             var8 = (char*)var7->baseStats_;
             SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var0, var1, (int)var8);
@@ -144,7 +148,7 @@ extern "C" ARM void func_ov003_02165888(Struct_ov003_02165888* arg0) {
                 var2 = 0xa;
             }
             ShowMenuLayoutText_02080b40(var0, var1);
-            var8 = (char*)FindStringInTable_020e0434(&arg0->unknown_1c4_, 0x7530);
+            var8 = (char*)((int)((StringList*)(&arg0->unknown_1c4_))->GetString(0x7530));
             SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var0, var1, (int)var8);
             func_02080cc0(var0, var1, var2);
         }
@@ -242,7 +246,7 @@ extern "C" ARM void func_ov003_02165888(Struct_ov003_02165888* arg0) {
             func_02080cc0(var21, var37, var23);
 
             var25 = -1;
-            var39 = (struct Struct_ov003_02154af4_4*)GetPartyMemberData_02053c6c((unsigned char*)var28);
+            var39 = (struct Struct_ov003_02154af4_4*)func_02053c6c((unsigned char*)var28);
             ((unsigned char*)arg0 + var36)[0x468] = (unsigned char)(var39->unknown_49c_0_ + 1);
             var29 = (char*)var28->baseStats_;
             SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var21, var22, (int)var29);
@@ -279,7 +283,7 @@ extern "C" ARM void func_ov003_02165888(Struct_ov003_02165888* arg0) {
                 var23 = 0xa;
             }
             ShowMenuLayoutText_02080b40(var21, var22);
-            var29 = (char*)FindStringInTable_020e0434(&arg0->unknown_2dc_, 0x7530);
+            var29 = (char*)((int)((StringList*)(&arg0->unknown_2dc_))->GetString(0x7530));
             SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var21, var22, (int)var29);
             func_02080cc0(var21, var22, var23);
         }

@@ -1,5 +1,6 @@
 #include "GameState/GameState.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include <globaldefs.h>
 #if defined(jpn)
 enum { Enum_02024d94_1004 = 0xc, Enum_02024d94_8192 = 0x2400, Enum_02024d94_12 = 0x4c };

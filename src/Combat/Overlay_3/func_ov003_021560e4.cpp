@@ -5,6 +5,18 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/PAC.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 
 #if defined(jpn)
@@ -23,19 +35,12 @@ enum { Enum_ov003_021560e4_464 = 0x1d0, Enum_ov003_021560e4_1820 = 0x71c, Enum_o
 
 extern "C" {
 void ColorEffect_ConfigureAlphaBlend(int, int, int, int, int);
-int GetPacEntryData_020467f0(void*, int, void**, int*);
-int CountPacEntries_02046900(void*);
 int GetProtagonistObjectIndex_020100a8(void*);
-void InitSpriteSet_0205a444(void*);
-int IsFlagSet_0206dfb0(void*, void*, int);
-void InitStringTable_020dfc40(void*);
+int func_0206dfb0(void*, void*, int);
 void func_ov023_021e20c0(void*);
-void* FindStringInTable_020e0434(void*, int);
 void SetTextWindowBuffers_0204c7a8(void*, void*, int, int);
 void ClearMenuLayoutBGScreenData_0207fcb8(void*);
-void SetBGScroll_0204b5e8(void*, int, int);
 void func_020807fc(void*, int, int, int);
-void SetBGScreenSize_0204b11c(void*, int);
 void* func_020d7a50(void);
 void* GetMessageWindow_020421a0(void);
 void func_02080828(void*, short, short*, short*);
@@ -48,7 +53,6 @@ void CloseMenuLayoutWindows_0207fe44(void*);
 int func_ov003_0215570c(void*);
 int func_02081010(void*, int);
 void ClearTimedMessageQueue_020d7aa0(void*);
-void AllocateBGScreenData_0204b12c(void*, void*);
 void InitPartyMemberNoun_020e4bf4(void*, int);
 void func_020807c4(void*, int, short*, short*);
 void func_0207f914(void*, void*, const char*, const char*);
@@ -59,12 +63,8 @@ int func_020420e8(int, int);
 void StartMessage_0204500c(void*, void*, int, int);
 #endif
 void ClearMessageParams_02046380(void*);
-void LoadBGBlock_0204b174(void*, void*, int, int);
-void SetBGPriority_0204b5b4(void*, int);
-void LoadSpriteSetFile_0205a528(void*, void*, int, void*);
-void* GetFlagManager_0205ec34(void);
+void* func_0205ec34(void);
 int func_0207f9f4(void*);
-void LoadStringTable_020dfec0(void*, void*, void*, unsigned int);
 void func_ov003_02156054(void*);
 void func_ov023_021e20f0(void*, void*, void*, unsigned int);
 }
@@ -163,8 +163,8 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
             var2->GetLoadedFileByID(arg0->unknown_1d0_, &var5, &var6);
             void* var7 = arg0->unknown_0_;
             _ZN13SafeAllocator5ResetEv(var7);
-            InitStringTable_020dfc40(arg0->unknown_e4_);
-            LoadStringTable_020dfec0(arg0->unknown_e4_, var7, var5, var6);
+            ((StringList*)(arg0->unknown_e4_))->Reset();
+            ((StringList*)(arg0->unknown_e4_))->LoadFromMemory((SafeAllocator*)(var7), (const void*)(var5), var6);
             var2->RemoveTask(arg0->unknown_1d0_);
             arg0->unknown_1d0_ = -1;
             char* var8 = (char*)GetMessageWindow_020421a0();
@@ -184,12 +184,12 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
                     SetMessageString_02046574(var8, 0, *(char**)((char*)var13 + 0x134));
                 }
 #else
-                InitPartyMemberNoun_020e4bf4(var4, var13->obj3D_.objectIndex_4_);
+                InitPartyMemberNoun_020e4bf4(var4, var13->obj3D_.unknown_4_);
                 *(void**)var8 = var4;
 #endif
             } else {
-                char* var14 = (char*)GetFlagManager_0205ec34();
-                if (IsFlagSet_0206dfb0(var14, var14 + 0x8c, 0x799)) {
+                char* var14 = (char*)func_0205ec34();
+                if (func_0206dfb0(var14, var14 + 0x8c, 0x799)) {
                     var9 = 0;
                 } else {
                     arg0->unknown_1ec_ = 0;
@@ -197,7 +197,7 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
                     arg0->unknown_1f8_ = 7;
                 }
             }
-            void* var15 = FindStringInTable_020e0434(arg0->unknown_e4_, var9);
+            void* var15 = ((void*)((StringList*)(arg0->unknown_e4_))->GetString(var9));
             if (var15) {
 #if defined(jpn)
                 StartMessage_0204500c(var8, var15, 0);
@@ -207,7 +207,7 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
                 *(int*)(var8 + Enum_ov003_021560e4_2456) = 1;
                 *(int*)(var8 + Enum_ov003_021560e4_2456 + 4) = 1;
             }
-            InitSpriteSet_0205a444(arg0->unknown_2c_);
+            ((OBJSpriteSet*)(arg0->unknown_2c_))->Reset();
             arg0->unknown_7c_ = 0;
             arg0->unknown_6c_ = arg0->unknown_24_;
             arg0->unknown_78_ = 10;
@@ -228,12 +228,12 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
             unsigned int var18;
             int var19;
             var2->GetLoadedFileByID(arg0->unknown_1d0_, &var17, &var18);
-            int var20 = CountPacEntries_02046900(var17);
+            int var20 = GetNumFilesInPAC((const void*)(var17));
             var0 = (char*)arg0->unknown_0_;
             _ZN13SafeAllocator5ResetEv(var0 + 0x3c);
             for (int var21 = 0; var21 < var20; var21++) {
-                void* var22 = (void*)GetPacEntryData_020467f0(var17, var21, &var16, &var19);
-                LoadSpriteSetFile_0205a528(arg0->unknown_2c_, var22, var19, var0 + 0x3c);
+                void* var22 = (void*)GetFileInPACByIndex((void*)(var17), var21, (const char**)(&var16), (unsigned int*)(&var19));
+                ((OBJSpriteSet*)(arg0->unknown_2c_))->LoadFromNitroFile((void*)(var22), var19, (SafeAllocator*)(var0 + 0x3c));
             }
             var2->RemoveTask(arg0->unknown_1d0_);
             arg0->unknown_1d0_ = -1;
@@ -243,12 +243,12 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
             Struct_ov003_0217f29c var24 = data_ov003_0217f29c[1];
             for (unsigned char var25 = 0; var25 < 2; var25++) {
                 BGLayer_02020cb8* var26 = arg0->unknown_10_ + var25;
-                SetBGScreenSize_0204b11c(var26, 0);
+                ((BGLayer*)(var26))->ConfigureTextMode(0);
                 var26->isSubScreen_1c_0_ = 0;
                 var26->bgIndex_1c_4_ = var23.unknown_0_[var25];
-                SetBGPriority_0204b5b4(var26, var24.unknown_0_[var25]);
-                AllocateBGScreenData_0204b12c(var26, var0 + 0x14);
-                SetBGScroll_0204b5e8(var26, 0, 0);
+                ((BGLayer*)(var26))->SetPriority(var24.unknown_0_[var25]);
+                ((BGLayer*)(var26))->AllocateIndexBuffer((SafeAllocator*)(var0 + 0x14));
+                ((BGLayer*)(var26))->SetOffset(0, 0);
             }
             *(volatile unsigned short*)0x400000a = (*(volatile unsigned short*)0x400000a & 0x43) | 0x1e00;
             *(volatile unsigned short*)0x400000c = (*(volatile unsigned short*)0x400000c & 0x43) | 0x1f00;
@@ -263,11 +263,11 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
             unsigned int var29;
             int var30;
             var2->GetLoadedFileByID(arg0->unknown_1d0_, &var28, &var29);
-            int var31 = CountPacEntries_02046900(var28);
+            int var31 = GetNumFilesInPAC((const void*)(var28));
             BGLayer_02020cb8* var32 = arg0->unknown_10_;
             for (int var33 = 0; var33 < var31; var33++) {
-                void* var34 = (void*)GetPacEntryData_020467f0(var28, var33, &var27, &var30);
-                LoadBGBlock_0204b174(var32, var34, 0, var30);
+                void* var34 = (void*)GetFileInPACByIndex((void*)(var28), var33, (const char**)(&var27), (unsigned int*)(&var30));
+                ((BGLayer*)var32)->ProcessGraphicsFile((const void*)var34, (SafeAllocator*)0, var30);
             }
             var2->RemoveTask(arg0->unknown_1d0_);
             arg0->unknown_1d0_ = -1;
@@ -356,8 +356,8 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
             var2->GetLoadedFileByID(arg0->unknown_1d0_, &var55, &var56);
             if (var55) {
                 void* var57 = arg0->unknown_0_;
-                InitStringTable_020dfc40(arg0->unknown_fc_);
-                LoadStringTable_020dfec0(arg0->unknown_fc_, var57, var55, var56);
+                ((StringList*)(arg0->unknown_fc_))->Reset();
+                ((StringList*)(arg0->unknown_fc_))->LoadFromMemory((SafeAllocator*)(var57), (const void*)(var55), var56);
             }
             var2->RemoveTask(arg0->unknown_1d0_);
             arg0->unknown_1d0_ = -1;
@@ -404,8 +404,8 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
                     arg0->unknown_1f9_ = 2;
                 }
             } else {
-                char* var62 = (char*)GetFlagManager_0205ec34();
-                if (IsFlagSet_0206dfb0(var62, var62 + 0x8c, 0x796)) {
+                char* var62 = (char*)func_0205ec34();
+                if (func_0206dfb0(var62, var62 + 0x8c, 0x796)) {
                     arg0->unknown_1ec_ = 4;
                     arg0->unknown_1f8_ = 1;
                 } else {

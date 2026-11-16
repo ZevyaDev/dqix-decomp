@@ -95,7 +95,14 @@ def strip(path, dead=frozenset()):
             continue
         struct.pack_into("<I", data, e_shoff + st_shndx * e_shentsize + 20, 0)
         struct.pack_into("<I", data, sym_offset + k * SYM_SIZE + 8, 0)
+        if name in dead:
+            struct.pack_into("<B", data, sym_offset + k * SYM_SIZE + 12, STB_MULTIDEF << 4 | STT_FUNC)
         stripped.append(name.decode())
+
+    dead_debug = {b".dwarf." + name.encode() for name in stripped if name.encode() in dead}
+    for k, (st_name, _, _, st_info, _, st_shndx) in enumerate(symbols):
+        if st_info >> 4 == STB_GLOBAL and cstr(str_offset, st_name) in dead_debug:
+            struct.pack_into("<B", data, sym_offset + k * SYM_SIZE + 12, STB_MULTIDEF << 4 | st_info & 0xF)
 
     if stripped:
         with open(path, "wb") as fh:

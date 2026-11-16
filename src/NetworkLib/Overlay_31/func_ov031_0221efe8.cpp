@@ -2,6 +2,10 @@
 #include <Combat/Overlay31EntryLookup.h>
 #include <NitroSDK/Graphics3D/Internal.h>
 
+#if defined(jpn)
+#define func_020ca408 func_020cbed4
+#endif
+
 
 extern "C" int func_ov031_0220eb88(int);
 extern "C" int func_ov031_0220eb30(void);
@@ -14,7 +18,7 @@ extern "C" THUMB int func_ov031_0221efe8(unsigned char* arg0, int arg1) {
         int var1 = 0;
         if (var1 < var0) do {
             if (var1 >= arg1) break;
-            Memcpy32Bit_020ca408(func_ov031_0220ec04((unsigned short)var1), arg0, 0xc0);
+            func_020ca408(func_ov031_0220ec04((unsigned short)var1), arg0, 0xc0);
             ++var1;
             arg0 += 0xc0;
         } while (var1 < var0);

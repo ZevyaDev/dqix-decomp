@@ -9,6 +9,10 @@ enum { Enum_ov017_021bb1a4_255 = 0xff, Enum_ov017_021bb1a4_256 = 0x100, Enum_ov0
 #include "Resource/GameResources.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_020a1e54 func_020a3bcc
+#endif
+
 class Struct_ov017_021bb1a4 {
 public:
     char unknown_0_[0xa];
@@ -26,7 +30,7 @@ extern unsigned int data_ov017_021d845c;
 extern Type_02000c9c_19 gNullMemberFunctionPointer_020e6d5c;
 
 extern "C" void func_0208bb78(void* arg0, unsigned int arg1);
-extern "C" int PopOverlay_020a1e54(int isPreviousReloaded);
+extern "C" int func_020a1e54(int isPreviousReloaded);
 extern "C" void LoadFileTables_020a0c0c(void);
 
 // USA: func_ov017_021bb1a4
@@ -46,7 +50,7 @@ extern "C" ARM void func_ov017_021bb1a4(Struct_ov017_021bb1a4* arg0, int arg1) {
 
     if (arg0->unknown_ff_ != 0) {
         if (TestFlags00(GetGameResources(), 0x1000) == 0) {
-            PopOverlay_020a1e54(1);
+            func_020a1e54(1);
             LoadFileTables_020a0c0c();
         }
     }

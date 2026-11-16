@@ -2,7 +2,9 @@
 #include "Graphics/Model3D.h"
 #include "Memory/SafeAllocator.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "Filesystem/FileIO.h"
+#include "NitroSDK/VRAMAllocation.h"
 
 #if defined(jpn)
 #define data_020ef22c data_020ef168
@@ -18,8 +20,6 @@ extern char data_020ef242[];
 extern char data_020ef251[];
 extern char data_020ef260[];
 
-extern "C" void func_020bb700(int*);
-extern "C" void func_020bb740(int*);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void* _ZN7Model3DC1Ev(void*);
 extern "C" void* _ZN7Model3DD1Ev(void*);
@@ -40,54 +40,54 @@ extern "C" ARM void func_02018d28(Zone3D* arg0, SafeAllocator* arg1, void* arg2,
     int* var10;
     Model3D** var11;
 
-    func_020bb700(var1);
+    SaveTextureImageAllocationState((unsigned int*)(var1));
     _ZN7Model3DC1Ev(&var5);
     var5.Clear();
     sprintf(var4, data_020ef22c, data_020ef233);
-    if ((var7 = LoadFileIntoNewAllocation(var4, *arg1, &var0)) != 0) {
+    if ((var7 = LoadFileIntoNewAllocation(var4, &(*arg1), &var0)) != 0) {
         var5.SetAndProcessRawFile(var7, var0, Model3D::TextureStagingMode_Normal);
     }
     _ZN7Model3DC1Ev(&var6);
     var6.Clear();
     sprintf(var4, data_020ef22c, data_020ef242);
-    if ((var7 = LoadFileIntoNewAllocation(var4, *arg1, &var0)) != 0) {
+    if ((var7 = LoadFileIntoNewAllocation(var4, &(*arg1), &var0)) != 0) {
         var6.SetAndProcessRawFile(var7, var0, Model3D::TextureStagingMode_Normal);
     }
 
     __clear(var2, 0xc);
     var2[0] = &var5;
     var2[1] = &var6;
-    var8 = &arg0->unknown_5f0_[2];
+    var8 = (int*)&arg0->unk_5f0[8];
     var9 = var2;
     while (*var9 != 0) {
-        NSBXXTex* var12 = (*var9)->GetTEX0();
+        Nitro3DTextureSet* var12 = (*var9)->GetTEX0();
         if (var12 != 0) {
-            *var8 = var12->block4VRAMLoadOffset_;
+            *var8 = var12->block4VRAMLoadOffset;
         }
         var9++;
         var8++;
     }
 
     arg1->Reset();
-    func_020bb740(var1);
+    RestoreTextureImageAllocationState((const unsigned int*)(var1));
     sprintf(var4, data_020ef22c, data_020ef251);
-    if ((var7 = LoadFileIntoNewAllocation(var4, *arg1, &var0)) != 0) {
+    if ((var7 = LoadFileIntoNewAllocation(var4, &(*arg1), &var0)) != 0) {
         arg0->models_498_[0].SetAndProcessRawFile(var7, var0, Model3D::TextureStagingMode_Normal);
     }
     sprintf(var4, data_020ef22c, data_020ef260);
-    if ((var7 = LoadFileIntoNewAllocation(var4, *arg1, &var0)) != 0) {
+    if ((var7 = LoadFileIntoNewAllocation(var4, &(*arg1), &var0)) != 0) {
         arg0->models_498_[1].SetAndProcessRawFile(var7, var0, Model3D::TextureStagingMode_Normal);
     }
 
     __clear(var3, 0xc);
     var3[0] = &arg0->models_498_[0];
     var3[1] = &arg0->models_498_[1];
-    var10 = arg0->unknown_5f0_;
+    var10 = ((int*)arg0->unk_5f0);
     var11 = var3;
     while (*var11 != 0) {
-        NSBXXTex* var13 = (*var11)->GetTEX0();
+        Nitro3DTextureSet* var13 = (*var11)->GetTEX0();
         if (var13 != 0) {
-            *var10 = var13->block4VRAMLoadOffset_;
+            *var10 = var13->block4VRAMLoadOffset;
         }
         var11++;
         var10++;

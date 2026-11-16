@@ -2,6 +2,11 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 #include "Resource/TextQueue.h"
+#include "Resource/GameStrings.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 #if defined(jpn)
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
@@ -14,7 +19,7 @@ enum { Enum_ov017_021c2784_17128 = 0x42e8, Enum_ov017_021c2784_10132 = 0x2794 };
 #endif
 
 struct LocalWireless_0202b2f0;
-extern "C" struct LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
+extern "C" struct LocalWireless_0202b2f0* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202b2f0* wireless);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
@@ -25,7 +30,6 @@ extern "C" void* func_020d7a50(void);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
-extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
 extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 extern "C" void DisableInputForDuration_020e1154(void* durationMs);
@@ -61,7 +65,7 @@ struct Struct_ov017_021c2784 {
 extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
-    struct LocalWireless_0202b2f0* var2 = GetLocalWireless_0202ae18();
+    struct LocalWireless_0202b2f0* var2 = func_0202ae18();
     void* var3 = func_020d7a50();
 
     GameObject* var4 = var0->GetPartyMemberByIndex(arg0->unknown_14_);
@@ -92,7 +96,7 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
             char var10[0x50];
             InitPartyMemberNoun_020e4bf4(var9, arg0->unknown_14_);
             *(void**)var8 = var9;
-            int var11 = GetStandardString_020e51cc(0x26);
+            int var11 = ((int)GetGameString((eGameString)(0x26)));
             func_02046608(var8, 0xc, var11, var10, 0xe3, 0, 1);
             func_020d7e10(var3, var10, 0, 0, 1, 1);
 #endif
@@ -142,7 +146,7 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
 #if defined(jpn)
             func_020d7e10(var3, data_ov017_021d7108, 0, 0, 1);
 #else
-            int var19 = GetStandardString_020e51cc(0x27);
+            int var19 = ((int)GetGameString((eGameString)(0x27)));
             func_020d7e10(var3, (void*)var19, 0, 0, 1, 1);
 #endif
             var18 = 0xbb8;
@@ -182,7 +186,7 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
             if (var23 == NULL) {
                 return;
             }
-            arg0->unknown_c_ = var23->obj3D_.objectIndex_4_;
+            arg0->unknown_c_ = var23->obj3D_.unknown_4_;
         }
         *(unsigned char*)((char*)var6 + 0xc3) = 0;
         arg0->unknown_10_ = 3;

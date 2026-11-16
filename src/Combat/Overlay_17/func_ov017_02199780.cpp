@@ -2,10 +2,10 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "NitroSDK/Cache.h"
 #include "std_library_functions.h"
+#include "Resource/StringList.h"
 
 
 struct StringTable_0201099c_14;
-extern "C" void func_020dfc6c(struct StringTable_0201099c_14* arg0);
 
 struct Struct_ov017_02199684 { unsigned char unknown_0_[0x14]; int unknown_14_; unsigned char unknown_18_[0x20 - 0x18]; };
 extern "C" void func_ov017_02199684(Struct_ov017_02199684* arg0, int arg1, int arg2);
@@ -90,11 +90,11 @@ extern "C" ARM void func_ov017_02199780(unsigned char* arg0) {
 
 #if defined(jpn)
 		if (*(int*)(arg0 + 0x3000 + 0xe64) != 0) {
-			func_020dfc6c((StringTable_0201099c_14*)*(int*)(arg0 + 0x3000 + 0xe64));
+			((StringList*)((StringTable_0201099c_14*)*(int*)(arg0 + 0x3000 + 0xe64)))->Destroy();
 			*(int*)(arg0 + 0x3000 + 0xe64) = 0;
 #else
 		if (*(int*)(arg0 + 0x4000 + 0x84) != 0) {
-			func_020dfc6c((StringTable_0201099c_14*)*(int*)(arg0 + 0x4000 + 0x84));
+			((StringList*)((StringTable_0201099c_14*)*(int*)(arg0 + 0x4000 + 0x84)))->Destroy();
 			*(int*)(arg0 + 0x4000 + 0x84) = 0;
 #endif
 		}
@@ -119,11 +119,11 @@ extern "C" ARM void func_ov017_02199780(unsigned char* arg0) {
 
 #if defined(jpn)
 			memset(*(void**)(arg0 + 0x3000 + 0xe54), 0, 0x20);
-			DC_FlushRange(*(void**)(arg0 + 0x3000 + 0xe54), 0x20);
+			CleanInvalidateCacheRange((const void*)(*(void**)(arg0 + 0x3000 + 0xe54)), 0x20);
 			LoadToMainBG1CharacterData(*(int*)(arg0 + 0x3000 + 0xe54), 0, 0x20);
 #else
 			memset(*(void**)(arg0 + 0x4000 + 0x74), 0, 0x20);
-			DC_FlushRange(*(void**)(arg0 + 0x4000 + 0x74), 0x20);
+			CleanInvalidateCacheRange((const void*)(*(void**)(arg0 + 0x4000 + 0x74)), 0x20);
 			LoadToMainBG1CharacterData(*(int*)(arg0 + 0x4000 + 0x74), 0, 0x20);
 #endif
 		}

@@ -3,6 +3,18 @@
 #include "Input/Input.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 
 struct LocalWireless_0202c1a4;
 struct Party_02048150;
@@ -66,8 +78,8 @@ struct Struct_ov017_02192700 {
     unsigned char unknown_8c_[1];
 };
 
-extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18(void);
-extern "C" Struct_ov017_02192700* GetFlagManager_0205ec34(void);
+extern "C" LocalWireless_0202c1a4* func_0202ae18(void);
+extern "C" Struct_ov017_02192700* func_0205ec34(void);
 extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
@@ -78,7 +90,7 @@ extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 extern "C" void func_ov017_0219b33c(Struct_ov017_02192700_4* arg0, Struct_01ff91ac_18* arg1);
 extern "C" void func_ov017_021c316c(Struct_ov017_02192700_2* arg0, int arg1);
 extern "C" int func_ov017_0218d4ec(void* arg0, int arg1);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int func_02039860(void* arg0);
 extern "C" void func_ov017_0219344c(Struct_ov017_02192700_5* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 
@@ -100,7 +112,7 @@ static inline void inline_ov017_02192700_2(Struct_01ff91ac_18* arg0) {
 static inline void inline_ov017_02192700_3(Struct_ov017_02192700_4* arg0, Struct_ov017_02192700_5* arg1) {
     Struct_01ff91ac_18 var0;
     inline_ov017_02192700_2(&var0);
-    var0.unknown_2_ = arg1->unknown_0_.objectIndex_4_;
+    var0.unknown_2_ = arg1->unknown_0_.unknown_4_;
     func_ov017_0219b33c(arg0, &var0);
 }
 
@@ -111,8 +123,8 @@ extern "C" ARM void func_ov017_02192700(Struct_ov017_02192700_4* arg0) {
         return;
     }
     GameState* var0 = GameState::GetInstance();
-    LocalWireless_0202c1a4* var1 = GetLocalWireless_0202ae18();
-    Struct_ov017_02192700* var2 = GetFlagManager_0205ec34();
+    LocalWireless_0202c1a4* var1 = func_0202ae18();
+    Struct_ov017_02192700* var2 = func_0205ec34();
     Struct_ov017_02192700_5* var3 = (Struct_ov017_02192700_5*)var0->GetUnknownGameObject();
     if (var3 == NULL) {
         return;
@@ -134,7 +146,7 @@ extern "C" ARM void func_ov017_02192700(Struct_ov017_02192700_4* arg0) {
                     continue;
                 }
                 GameState* var8 = GameState::GetInstance();
-                Struct_ov017_02192700_5* var9 = (Struct_ov017_02192700_5*)var8->GetPartyMemberByIndex(var7->unknown_0_.objectIndex_4_);
+                Struct_ov017_02192700_5* var9 = (Struct_ov017_02192700_5*)var8->GetPartyMemberByIndex(var7->unknown_0_.unknown_4_);
                 if (var9->unknown_0_.GetField06() != var7->unknown_0_.GetField06()) {
                     continue;
                 }
@@ -154,17 +166,17 @@ extern "C" ARM void func_ov017_02192700(Struct_ov017_02192700_4* arg0) {
                 if (var10 == NULL) {
                     continue;
                 }
-                if (IsInParty_02086ef0(var10, var7->unknown_0_.objectIndex_4_)) {
+                if (IsInParty_02086ef0(var10, var7->unknown_0_.unknown_4_)) {
                     continue;
                 }
                 Struct_ov017_02192700_4* var11 = inline_ov017_02192700();
                 if (var11->unknown_3bb4_->unknown_2_ == 0) {
-                    func_ov017_021c316c(var11->unknown_3bb4_, var7->unknown_0_.objectIndex_4_ & 0xff);
+                    func_ov017_021c316c(var11->unknown_3bb4_, var7->unknown_0_.unknown_4_ & 0xff);
                 }
                 continue;
             }
-            if (func_ov017_0218d4ec(arg0, var7->unknown_0_.objectIndex_4_) &&
-                IsFlagSet_0206dfb0((int)var2, var2->unknown_8c_, 0x799) &&
+            if (func_ov017_0218d4ec(arg0, var7->unknown_0_.unknown_4_) &&
+                func_0206dfb0((int)var2, var2->unknown_8c_, 0x799) &&
                 func_ov017_02194140(var3, var7)) {
                 inline_ov017_02192700_3((Struct_ov017_02192700_4*)GetGameResources(), var7);
             }
@@ -174,7 +186,7 @@ extern "C" ARM void func_ov017_02192700(Struct_ov017_02192700_4* arg0) {
             if (!var7->unknown_0_.IsVisible()) {
                 continue;
             }
-            int var12 = var7->unknown_0_.objectIndex_4_;
+            int var12 = var7->unknown_0_.unknown_4_;
             if (func_ov017_02194140(var3, var7)) {
                 if (!(var3->unknown_c2_0_ & (1 << var12))) {
                     var3->unknown_c2_0_ |= 1 << var12;
@@ -210,4 +222,9 @@ extern "C" ARM void func_ov017_02192700(Struct_ov017_02192700_4* arg0) {
             func_ov017_0219344c(var17, 0, 0, 0, 0, 0);
         }
     }
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

@@ -8,7 +8,11 @@ enum { Enum_ov017_021c616c_1816 = 0x718 };
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+extern "C" void* func_ov017_021b8478(void* battleManager);
 extern "C" void func_ov017_021b848c(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
 extern "C" void SetFieldMonsterState_02076ccc(void*, int);
@@ -34,7 +38,7 @@ struct Struct_ov017_021c616c_2 {
 // USA: func_ov017_021c616c
 extern "C" ARM void func_ov017_021c616c(int arg0, unsigned char* arg1, GameState* arg2, unsigned char* arg3) {
     void* var0 = *(void**)(arg3 + 0x3000 + Enum_ov017_021c616c_1816);
-    Struct_ov017_021c616c* var1 = (Struct_ov017_021c616c*)GetBattleSetup_ov017_021b8478(var0);
+    Struct_ov017_021c616c* var1 = (Struct_ov017_021c616c*)func_ov017_021b8478(var0);
     Struct_ov017_021c616c_2* var2 = (Struct_ov017_021c616c_2*)(arg1 + 4);
     if (var1 != NULL && var1->unknown_8_ == var2->unknown_0_) {
         func_ov017_021b848c(var0, var2->unknown_4_, var2->unknown_8_, 0, var2->unknown_2_, var2->unknown_9_, 1, var2->unknown_a_);

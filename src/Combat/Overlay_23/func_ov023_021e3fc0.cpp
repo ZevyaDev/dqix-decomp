@@ -1,5 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/GameStrings.h"
 
 #define REG_MATRIX_PUSH (*(volatile unsigned int*)0x04000444)
 #define REG_MATRIX_POP (*(volatile unsigned int*)0x04000448)
@@ -98,10 +100,8 @@ extern "C" void func_02045f3c(void*, void*, int, int, int, int, int, int, int, i
 extern "C" void func_02046c78(void*, void*, int, int, int, int, int, int);
 #endif
 extern "C" int func_020420e8(const char*, int);
-extern "C" void DrawSprite_0205ac40(void*, void*);
 extern "C" unsigned char func_ov023_021e4250(char*);
-extern "C" char* GetStandardString_020e51cc(int);
-extern "C" unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8*);
+extern "C" unsigned char func_0200fb08(Struct_02000c9c_8*);
 extern "C" void func_ov005_02155258(void*, int, int, int, int);
 
 // USA: func_ov023_021e3fc0
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov023_021e3fc0(Struct_ov003_02165888* arg0) {
         var11->unknown_258_.unknown_18_ = 0xa2000;
         var11->unknown_258_.unknown_22_ = 0x70;
         var11->unknown_258_.unknown_26_ = 2;
-        DrawSprite_0205ac40(arg0->unknown_c8_, &var11->unknown_258_);
+        ((OBJSpriteSet*)(arg0->unknown_c8_))->DrawMetatile((OBJSpriteSet::Metatile*)(&var11->unknown_258_));
         if (func_ov023_021e4250((char*)var4)) {
             unsigned short var12 = 0xf0a;
             if (func_ov023_021e4250((char*)var4) >= 10)
@@ -166,8 +166,8 @@ extern "C" ARM void func_ov023_021e3fc0(Struct_ov003_02165888* arg0) {
             func_02045f3c(var2, &arg0->unknown_5f0_[arg0->unknown_4fc_], 0x50, 0xa1, var12, 10, 0, 0, 0, 0x11);
         }
         func_02045f3c(var2, arg0->unknown_5e0_, 0x5c, 0xa1, var3, 10, 0, 0, 0, 0x11);
-        short var13 = func_020420e8(GetStandardString_020e51cc(0x3f3), 0) + 0x5e;
-        if (GetGameLanguage_0200fb08((Struct_02000c9c_8*)var1) == 1) var13 += 2;
+        short var13 = func_020420e8(((char*)GetGameString((eGameString)(0x3f3))), 0) + 0x5e;
+        if (func_0200fb08((Struct_02000c9c_8*)var1) == 1) var13 += 2;
         Struct_ov023_021e3fc0_3* var14 = var4->inline_ov023_021e3fc0();
         var0 = var3;
         var3 = var14->unknown_16c_[var14->unknown_950_];

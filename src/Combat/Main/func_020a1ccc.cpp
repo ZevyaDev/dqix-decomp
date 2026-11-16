@@ -3,6 +3,10 @@
 #include "Resource/ResourceMutex.h"
 #include "NitroSDK/Filesystem/OverlayFSManagement.h"
 
+#if defined(jpn)
+#define func_020a1ccc func_020a3a44
+#endif
+
 extern "C" void func_020d9834(int arg0);
 extern "C" void func_020cd584(OverlayMetadata* arg0);
 

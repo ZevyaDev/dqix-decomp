@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "Resource/ActionDataTables.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 class GameState {
 public:
     static GameState* GetInstance();
@@ -99,7 +103,7 @@ struct Struct_ov024_021fefc2 {
 };
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" void* func_02053c6c(unsigned char* gameObject);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" int func_ov024_021e6798(GameObject* arg0);
@@ -119,7 +123,7 @@ extern Struct_ov024_021fefc2 data_ov024_021fefc2;
 extern "C" ARM void func_ov024_021f9030(Struct_ov024_021f9030_2* arg0, Struct_ov024_021f9030_5* arg1, int arg2, unsigned short* arg3) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg2);
-    Struct_ov024_021f9030_6* var2 = (Struct_ov024_021f9030_6*)GetPartyMemberData_02053c6c((unsigned char*)var1);
+    Struct_ov024_021f9030_6* var2 = (Struct_ov024_021f9030_6*)func_02053c6c((unsigned char*)var1);
     ActionTables_02108e10* var3 = GetActionTables_020797dc();
     unsigned char var4 = (signed char)var2->unknown_94c_;
     if (var4 >= 5) {

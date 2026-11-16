@@ -1,5 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 #if defined(jpn)
 enum { Enum_ov003_0215da0c_152 = 0xb0 };
@@ -20,9 +25,8 @@ struct TextWindowManager_0205d6a0;
 
 extern "C" char* GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char* window);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov003_0215cab0(void* arg0, int arg1);
 
@@ -51,14 +55,14 @@ extern "C" ARM void func_ov003_0215da0c(struct Struct_ov003_0215da0c* arg0) {
 
     var1 = GameState::GetInstance();
     var0 = GetMessageWindow_020421a0();
-    var2 = GetLocalWireless_0202ae18();
+    var2 = func_0202ae18();
 
     var4 = 0;
-    if (IsNotLocalWirelessGuest_0202c508(var2) && var1->GetUnknownGameObject()->obj3D_.objectIndex_4_ == 0) {
+    if (IsNotLocalWirelessGuest_0202c508(var2) && var1->GetUnknownGameObject()->obj3D_.unknown_4_ == 0) {
         var4 = 1;
     }
     var5 = 0;
-    if (IsNotLocalWirelessGuest_0202c508(var2) && var1->GetUnknownGameObject()->obj3D_.objectIndex_4_ != 0) {
+    if (IsNotLocalWirelessGuest_0202c508(var2) && var1->GetUnknownGameObject()->obj3D_.unknown_4_ != 0) {
         var5 = 1;
     }
 
@@ -80,7 +84,7 @@ extern "C" ARM void func_ov003_0215da0c(struct Struct_ov003_0215da0c* arg0) {
                 var6 = 0x73;
             }
         }
-        func_ov003_0215cab0(arg0, FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, var6));
+        func_ov003_0215cab0(arg0, ((int)((StringList*)((struct Struct_0201099c_3*)arg0->unknown_64_))->GetString(var6)));
         arg0->unknown_3b8_++;
     }
     if (var3 == 1 && *(int*)(var0 + Enum_ov003_0215da0c_2456) == 0) {

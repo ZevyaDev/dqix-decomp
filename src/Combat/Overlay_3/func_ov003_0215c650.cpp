@@ -4,6 +4,9 @@
 #include "Graphics/LightingManager.h"
 #include "NitroSDK/Graphics.h"
 #include "Combat/MapDisplay.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/StringList.h"
 
 struct BGControlSave_02074af4 {
     unsigned short unknown_0_;
@@ -85,11 +88,8 @@ struct Struct_ov003_0215c650 {
 };
 
 extern "C" void SaveMainBGControl_02074af4(struct BGControlSave_02074af4* save);
-extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
 extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
-extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 extern "C" void InitTextWindow_0204c684(struct Struct_02000c9c_83* textWindow);
-extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 
 // USA: func_ov003_0215c650
 extern "C" ARM void func_ov003_0215c650(struct Struct_ov003_0215c650* arg0) {
@@ -103,22 +103,22 @@ extern "C" ARM void func_ov003_0215c650(struct Struct_ov003_0215c650* arg0) {
     arg0->unknown_28_.ResetAllocatorPointer();
     arg0->unknown_3c_.ResetAllocatorPointer();
     arg0->unknown_50_.ResetAllocatorPointer();
-    InitStringTable_020dfc40(&arg0->unknown_64_);
+    ((StringList*)(&arg0->unknown_64_))->Reset();
 #if defined(jpn)
-    InitStringTable_020dfc40(&arg0->unknown_7c_);
+    ((StringList*)(&arg0->unknown_7c_))->Reset();
 #endif
     arg0->unknown1_7c_ = 0;
     InitTextWindowManager_0205cfd4(&arg0->unknown_98_);
 
     for (int var0 = 0; var0 < 2; var0++) {
-        InitBGLayer_0204af64(&arg0->unknown_154_[var0]);
+        ((BGLayer*)(&arg0->unknown_154_[var0]))->Reset();
     }
     for (int var1 = 0; var1 < 2; var1++) {
         InitTextWindow_0204c684(&arg0->unknown_194_[var1]);
     }
 
     arg0->unknown_354_ = 0;
-    InitSpriteSet_0205a444(arg0->unknown_358_);
+    ((OBJSpriteSet*)(arg0->unknown_358_))->Reset();
     arg0->unknown_3ac_ = 0;
     arg0->unknown_3b0_ = 0;
     arg0->unknown_3b4_ = 0;

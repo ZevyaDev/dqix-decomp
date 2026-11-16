@@ -12,6 +12,14 @@
 #endif
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 struct Struct_ov004_02153e20 {
     char unknown_0_[0x20];
@@ -65,13 +73,13 @@ public:
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" void func_ov023_021f9d14(Struct_ov004_02153e20* arg0, void* arg1);
 extern "C" int func_ov023_021f9b30(Struct_ov004_02153e20* arg0, unsigned short arg1, unsigned int arg2, unsigned int arg3);
 extern "C" void func_ov023_021f9da0(void* arg0, unsigned char arg1);
 extern "C" void func_ov023_021f6630(int arg0, int arg1, short arg2, short arg3);
 extern "C" int func_ov004_021552b8(void* arg0);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 
 // USA: func_ov004_0215534c
 extern "C" ARM int func_ov004_0215534c(void* arg0) {
@@ -101,7 +109,7 @@ extern "C" ARM int func_ov004_0215534c(void* arg0) {
     if (!var5) return 0;
     var6 = *var5;
     if (!var6) return 0;
-    var7 = (unsigned char*)GetFlagManager_0205ec34();
+    var7 = (unsigned char*)func_0205ec34();
 
     short var12 = var1 * 16;
     var8 = 0;
@@ -126,7 +134,7 @@ extern "C" ARM int func_ov004_0215534c(void* arg0) {
                 if (var13) {
                     int var14 = (unsigned short)((var13->unknown_c_ << 9) >> 21);
                     if (var14 > 0) {
-                        if (IsFlagSet_0206dfb0((int)var7, var7 + 0x8c, var14 + 0x76 + 0xc00)) {
+                        if (func_0206dfb0((int)var7, var7 + 0x8c, var14 + 0x76 + 0xc00)) {
                             var11->unknown_20_ = var13->unknown_4_;
                         }
                     }

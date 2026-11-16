@@ -8,6 +8,10 @@ enum { Enum_ov017_021983e0_14076 = 0x36fc, Enum_ov017_021983e0_108 = 0x6c };
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
@@ -48,7 +52,7 @@ extern "C" ARM void func_ov017_021983e0(unsigned char* arg0) {
     if (IsQueueEmpty_02046b08(*(void***)(arg0 + Enum_ov017_021983e0_14076))) {
         GameState* var0 = GameState::GetInstance();
         void* var1 = GetZone3D_02012fe4();
-        GetCamera_020100bc(var0);
+        func_020100bc(var0);
         GameObject* var2 = var0->GetUnknownGameObject();
         if (IsPerformingGesture_020535c8((signed char*)var2) == 0) {
             struct Struct_ov017_021983e0_2 var3 = *(struct Struct_ov017_021983e0_2*)((char*)var2 + 0x44);

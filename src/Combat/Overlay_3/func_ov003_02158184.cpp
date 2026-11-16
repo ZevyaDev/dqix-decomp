@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
 enum { Enum_ov003_02158184_505 = 0x1f5 };
 enum { Enum_ov003_02158184_504 = 0x1f4 };
 #else
@@ -9,7 +13,7 @@ enum { Enum_ov003_02158184_504 = 0x1f8 };
 #endif
 
 extern "C" int func_ov003_021538e0(void*);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void func_020dc2d0(int);
@@ -39,7 +43,7 @@ extern "C" ARM void func_ov003_02158184(void* arg0) {
     if (var1 != 1) return;
     if (func_ov003_021538e0(var2) == 0) return;
 
-    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 1);
+    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)func_020d6c00(), 1);
     func_020dc2d0(0);
     *(unsigned char*)(var0 + Enum_ov003_02158184_504) = 7;
 }

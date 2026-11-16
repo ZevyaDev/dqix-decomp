@@ -28,7 +28,7 @@ extern "C" ARM void func_02028f54(void) {
         }
     }
     int var4 = data_020ef74c.unknown_c_;
-    DC_FlushRange(glyphBitmapContext.unknown_0_, 32 * 24 * sizeof(unsigned short));
+    CleanInvalidateCacheRange((const void*)(glyphBitmapContext.unknown_0_), 32 * 24 * sizeof(unsigned short));
     if (var4 == 3) {
         LoadToMainBG1ScreenData(glyphBitmapContext.unknown_0_, 0, 32 * 24 * sizeof(unsigned short));
         return;

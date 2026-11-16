@@ -2,6 +2,15 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
+#include "Filesystem/FileIO.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 #if defined(jpn)
 #define REGION_LAYOUT(jpnValue, usaValue) jpnValue
@@ -159,9 +168,9 @@ extern "C" void StartMessage_0204500c(void*, const char*, int);
 extern "C" Struct_ov023_021f4c04* GetMessageWindow_020421a0();
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* GetGlobalFlags_020d6c00();
+extern "C" void* func_020d6c00();
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void func_0201075c(char* arg0, unsigned char arg1);
 extern "C" unsigned char func_02010750(char* arg0);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
@@ -171,8 +180,6 @@ extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4* manager, int fadeDur
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
-extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1,
-                                    unsigned int* arg2);
 extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, void* scriptData, int scriptSize, int idFilter, int idFilterCount,
                               int skippedStringCount);
 extern "C" void func_ov023_021f50fc();
@@ -210,9 +217,9 @@ extern "C" ARM void func_ov023_021f4c04(BattleScene_ov000_02160da0* arg0) {
     int var5 = GetResources_0200fb8c((int*)var3);
     GetZone3D_02012fe4();
     BackgroundLoader* var6 = BackgroundLoader::GetInstance();
-    GlobalFlags_02038598_4* var7 = (GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00();
+    GlobalFlags_02038598_4* var7 = (GlobalFlags_02038598_4*)func_020d6c00();
     void* var8 = GetParty_02010828(var3);
-    void* var9 = GetLocalWireless_0202ae18();
+    void* var9 = func_0202ae18();
 
     inline_ov023_021f4c04().unknown_4_ += var3->GetEffectiveDeltaTime();
     int var10 = arg0->unknown_eac_;
@@ -244,7 +251,7 @@ extern "C" ARM void func_ov023_021f4c04(BattleScene_ov000_02160da0* arg0) {
 #else
         BackgroundLoader::AddLockGlobal();
         var1 = 0;
-        void* var13 = ExtractFileFromGP2(data_ov023_021fe1d8, data_ov023_021fe1ee, &var1);
+        void* var13 = ExtractFileFromGP2((const char*)(data_ov023_021fe1d8), (const char*)(data_ov023_021fe1ee), (unsigned int*)(&var1));
         if (var13 != NULL) {
             LoadStringList_020728ac(arg0->unknown_5904_, arg0->unknown_30_, var13, var1, 0, 0, 0);
         }

@@ -9,7 +9,11 @@ enum { Enum_ov020_0218d8d8_1136 = 0x470 };
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
 
 struct MusicManager_02109bf4_4;
@@ -35,7 +39,7 @@ extern "C" ARM void func_ov020_0218d8d8(struct Struct_ov020_0218b710_3* arg0) {
     GameState* var0 = GameState::GetInstance();
     SignedAllocatorHeader* var1 = arg0->unknown_470_.GetSignedAllocator();
     arg0->unknown_470_.Destroy();
-    FreeMemory_02012da4(&gMainHeap_02114e20, var1);
+    func_02012da4(&gMainHeap_02114e20, var1);
     if (GetGameMode_0200fb9c((char*)var0) == 2) {
         return;
     }

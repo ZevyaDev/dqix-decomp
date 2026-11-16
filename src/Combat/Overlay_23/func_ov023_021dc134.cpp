@@ -1,14 +1,13 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/StringList.h"
 
 struct StringTable_0201099c_14;
-extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
 extern "C" void* func_020df828(void* arg0);
 extern "C" void func_ov023_021e20c0(void* arg0);
-extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 struct Sprite_02043368_2;
-extern "C" void InitSprite_0205a198(struct Sprite_02043368_2* sprite);
 extern "C" void func_ov023_021db0d4(void* arg0, int arg1);
 extern "C" void func_ov023_021dce88(void* arg0);
 
@@ -71,13 +70,13 @@ extern "C" ARM void InitItemInfoPanel_ov023_021dc134(void* panel, short itemId, 
     *(int*)(panelBytes + 0x48) = 0;
     *(int*)(panelBytes + 0x4c) = 0;
     *(int*)(panelBytes + 0x50) = 0;
-    InitStringTable_020dfc40((struct StringTable_0201099c_14*)(panelBytes + 0x54));
+    ((StringList*)((struct StringTable_0201099c_14*)(panelBytes + 0x54)))->Reset();
 
     func_020df828(panelBytes + 0x6c);
     func_020df828(panelBytes + 0x7c);
 
-    InitStringTable_020dfc40((struct StringTable_0201099c_14*)(panelBytes + 0x8c));
-    InitStringTable_020dfc40((struct StringTable_0201099c_14*)(panelBytes + 0xa4));
+    ((StringList*)((struct StringTable_0201099c_14*)(panelBytes + 0x8c)))->Reset();
+    ((StringList*)((struct StringTable_0201099c_14*)(panelBytes + 0xa4)))->Reset();
 
     *(int*)(panelBytes + 0xc4) = 0;
     *(int*)(panelBytes + 0xc8) = 0;
@@ -85,10 +84,10 @@ extern "C" ARM void InitItemInfoPanel_ov023_021dc134(void* panel, short itemId, 
 
     *(unsigned char*)(panelBytes + Enum_ov023_021dc134_296) = 0;
     *(unsigned char*)(panelBytes + Enum_ov023_021dc134_297) = 0;
-    InitSpriteSet_0205a444(panelBytes + Enum_ov023_021dc134_300);
+    ((OBJSpriteSet*)(panelBytes + Enum_ov023_021dc134_300))->Reset();
 
     for (unsigned char i = 0; i < 30; i++) {
-        InitSprite_0205a198((struct Sprite_02043368_2*)(panelBytes + Enum_ov023_021dc134_384 + i * 0x28));
+        ((OBJSpriteSet::Metatile*)((struct Sprite_02043368_2*)(panelBytes + Enum_ov023_021dc134_384 + i * 0x28)))->Reset();
     }
 
     memset(panelBytes + Enum_ov023_021dc134_1584, 0, Enum_ov023_021dc134_256);

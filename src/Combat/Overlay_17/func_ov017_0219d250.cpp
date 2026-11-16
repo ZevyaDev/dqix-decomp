@@ -3,8 +3,25 @@
 #include "Memory/SafeAllocator.h"
 #include "World/Object3D.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "Resource/MessageSystem.h"
 #include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_02099950 func_0209b684
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_02011584 func_020112f4
+#endif
 
 
 struct Struct_ov017_0219d250_6 {
@@ -116,11 +133,11 @@ extern "C" char* GetZone3D_02012fe4(void);
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void* GetActiveZones_02027ca4(void);
 extern "C" void* GetEffectManager_02057924(void);
-extern "C" void* GetZoneList_02011584(void*);
+extern "C" void* func_02011584(void*);
 extern "C" Struct_ov017_0219d250_7* GetZoneEntry_0200fd0c(GameState* gameState);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void* GetNPCManager_0203cf4c(void);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" void func_ov017_02191bdc(unsigned char*, int);
 struct Struct_02095924_2;
 extern "C" Struct_ov017_0219d250_6* func_02099950(Struct_02095924_2*, int);
@@ -225,13 +242,13 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
     var8 = GetEffectManager_02057924();
     var9 = var5->GetProtagonist();
     var10 = var5->GetUnknownGameObject();
-    var11 = GetZoneList_02011584(var5);
+    var11 = func_02011584(var5);
     var1 = GetZoneEntry_0200fd0c(var5);
-    var12 = GetLocalWireless_0202ae18();
+    var12 = func_0202ae18();
     var13 = GetNPCManager_0203cf4c();
     var14 = (Struct_ov017_0219d250_4*)GetParty_02010828(var5);
     char* var28 = (char*)&((Zone3D*)var27)->grotto_;
-    GetFlagManager_0205ec34();
+    func_0205ec34();
     var23 = arg0->unknown_370c_;
     if (var9 == NULL || var10 == NULL) {
         return;
@@ -259,8 +276,8 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
                     var25 = 0;
                 }
                 var22 = GameState::GetInstance();
-                var21 = GetLocalWireless_0202ae18();
-                var20 = GetFlagManager_0205ec34();
+                var21 = func_0202ae18();
+                var20 = func_0205ec34();
                 var19 = 1;
                 var26 = var3->unknown_0_;
                 var24 = 0;

@@ -2,6 +2,11 @@
 #include "World/ZoneChest.h"
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
+#include "World/Zone3DTypes.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 
 struct ActiveZone_020fdd44;
@@ -23,7 +28,7 @@ struct Struct_02018300_5 {
     short unknown_28_;
     char unknown_2a_[0xa];
 };
-extern "C" void* GetFlagManager_0205ec34();
+extern "C" void* func_0205ec34();
 extern "C" int func_02064b24(void*, int, unsigned short, void*);
 #if defined(jpn)
 #define data_020e6e74 data_020e7718
@@ -49,7 +54,7 @@ extern "C" ARM void func_02018300(Zone3D* arg0, Struct_020134e0::Struct_02018300
     if (!arg3 && (arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 8)) return;
     if (!arg3 && (arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 4)) return;
     if (!arg3) {
-        void* var1 = GetFlagManager_0205ec34();
+        void* var1 = func_0205ec34();
         Struct_02018300_5 var2;
         var2.unknown_28_ = arg1->unknown_20_;
         var2.unknown_1e_ = arg1->unknown_2c_.unknown1_0_.unknown_1_;
@@ -105,7 +110,7 @@ extern "C" ARM void func_02018300(Zone3D* arg0, Struct_020134e0::Struct_02018300
     arg1->unknown_2c_.unknown1_0_.unknown_2_4_ = (unsigned short)(arg1->unknown_2c_.unknown1_0_.unknown_2_4_ | 1);
     var0->unknown_2_ |= 1;
     for (int var9 = 0; var9 < arg0->unknown_82c_; var9++) {
-        Struct_02016874_2* var10 = arg0->unknown_824_[var9];
+        Struct_02016874_2* var10 = (*(Struct_02016874_2***)(arg0->unk_5f0 + 0x234))[var9];
         if (var10->unknown_28_ == var0) {
             var10->unknown_2_ |= 1;
             break;

@@ -5,11 +5,15 @@
 #include "Resource/GameResources.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct GameObject;
 struct Struct_020e3b8c_2;
 extern "C" void func_020e3c34(Struct_020e3b8c_2* arg0);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_020897b4(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
 extern "C" int QueuePartyMemberModelLoad_ov017_0218f5a4(char* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
@@ -39,7 +43,7 @@ extern "C" ARM void func_020e3c94(Struct_020e3b8c_2* arg0) {
     unsigned char* var3 = 0;
 
     if (var2) {
-        var3 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var2);
+        var3 = (unsigned char*)func_02053c6c((unsigned char*)var2);
     }
 
     if (arg0->unknown_1c_ == 0) {

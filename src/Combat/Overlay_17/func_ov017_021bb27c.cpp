@@ -4,6 +4,18 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 struct Struct_02033fdc;
 struct Struct_02033b58;
 struct Struct_02033834;
@@ -56,7 +68,7 @@ struct Struct_ov017_021bb27c {
 };
 struct Struct_ov017_021d6c20 { int unknown_0_; Vector3fix unknown_4_, unknown_10_, unknown_1c_; };
 extern "C" int GetFollowCamera_020100f8(char*);
-extern "C" int* GetLocalWireless_0202ae18();
+extern "C" int* func_0202ae18();
 extern "C" Struct_ov017_021bb27c_4* GetZone3D_02012fe4();
 extern "C" void func_ov001_0215aa5c();
 extern "C" void func_02033fdc(Struct_02033fdc*);
@@ -67,8 +79,8 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_02053ec8(void*, int);
 extern "C" void func_02053f04(void*);
 extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
-extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
-extern "C" GlobalFlags_02038598_4* GetGlobalFlags_020d6c00();
+extern "C" void func_02012da4(AllocatorUnion*, void*);
+extern "C" GlobalFlags_02038598_4* func_020d6c00();
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" void func_ov017_02191fec(GameResources*, int);
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
@@ -104,7 +116,7 @@ extern "C" ARM void func_ov017_021bb27c(Struct_ov017_021bb27c_7* arg0) {
     Struct_ov017_021bb27c_6* var4 = inline_ov017_021bb27c(var2);
     GameObject* var5 = var1->GetUnknownGameObject();
     void* var6 = (void*)GetFollowCamera_020100f8((char*)var1);
-    var0 = GetLocalWireless_0202ae18();
+    var0 = func_0202ae18();
     Struct_ov017_021bb27c_4* var7 = GetZone3D_02012fe4();
     if (!TestFlags00(var2, 0x1000)) {
         func_ov001_0215aa5c();
@@ -158,16 +170,16 @@ extern "C" ARM void func_ov017_021bb27c(Struct_ov017_021bb27c_7* arg0) {
     if (var16) { arg0->unknown_124_.Destroy(); arg0->unknown_7c_.Free(var16); }
     if (!TestFlags00(var2, 0x1000)) {
         var16 = arg0->unknown_7c_.GetSignedAllocator();
-        if (var16) { arg0->unknown_7c_.Destroy(); FreeMemory_02012da4(&gMainHeap_02114e20, var16); }
+        if (var16) { arg0->unknown_7c_.Destroy(); func_02012da4(&gMainHeap_02114e20, var16); }
     }
     if (arg0->unknown_138_) {
         var16 = arg0->unknown_138_->GetSignedAllocator();
-        if (var16) { arg0->unknown_138_->Destroy(); FreeMemory_02012da4(&gMainHeap_02114e20, var16); }
+        if (var16) { arg0->unknown_138_->Destroy(); func_02012da4(&gMainHeap_02114e20, var16); }
         arg0->unknown_138_ = 0;
     }
-    ClearGlobalFlags_020466f4(GetGlobalFlags_020d6c00(), 0x20000);
+    ClearGlobalFlags_020466f4(func_020d6c00(), 0x20000);
     for (int var17 = 0; var17 < 4; var17++) func_ov017_02191fec(var2, var17);
-    ClearGlobalFlags_020466f4(GetGlobalFlags_020d6c00(), 0x400f);
+    ClearGlobalFlags_020466f4(func_020d6c00(), 0x400f);
     Struct_ov017_021bb27c_5* var18 = (Struct_ov017_021bb27c_5*)GetZoneEntry_0200fd0c(var1);
     if (arg0->unknown_104_ && !var4->unknown_2_ && (!var18->unknown_2_ || arg0->unknown_10c_) &&
         !IsTypeInQueue_02046b60(var3, 10) && !(arg0->unknown_16_ == 1 && arg0->unknown_cf_ == 2)) {

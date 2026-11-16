@@ -1,8 +1,8 @@
 #include <globaldefs.h>
+#include "std_library_functions.h"
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" int ConvertTextToGlyphIndices_020426bc(void* text, void* outGlyphIndices, int font);
-extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
+extern "C" int func_020426bc(void* text, void* outGlyphIndices, int font);
 #if !defined(jpn)
 extern "C" void func_0203bebc(void* arg0, void* arg1, void* arg2);
 #endif
@@ -129,12 +129,12 @@ extern "C" ARM void func_0203c5a8(void* arg0, void* arg1, short* arg2)
     if (arg1 == 0) return;
     char var16[0x100];
     __clear(var16, 0x100);
-    int var17 = ConvertTextToGlyphIndices_020426bc(arg1, var16, 0);
+    int var17 = func_020426bc(arg1, var16, 0);
 
     struct Struct_0203c5a8* var18 = (struct Struct_0203c5a8*)((char*)arg0 + 4);
     for (short var19 = 0; var19 < 0x20; var18 = (struct Struct_0203c5a8*)((char*)var18 + 0x28), var19++) {
         if (var18->unknown_24_ != 0 && var18->unknown_20_ == var17) {
-            if (CompareBytes_02001aec(var18, var16, var17) == 0) {
+            if (memcmp(var18, var16, var17) == 0) {
                 var18->unknown_24_ = var18->unknown_24_ + 1;
                 *arg2 = var19;
                 return;

@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "NitroSDK/Graphics3D/Animation.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 
 struct Struct_0205563c { int unknown_0_[7]; };
 struct Struct_02057fd8_4 {
@@ -47,8 +48,8 @@ struct Struct_02057fd8_3 { unsigned char unknown_0_[8]; Struct_02057fd8 unknown_
 extern "C" void func_0205563c(Struct_0205563c*);
 extern "C" int func_02055660(Struct_02055660*, int, int, int);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
-ModelRenderContext* GetModel3DContext(Model3D*);
-extern "C" void func_020e2fdc(RenderCommandHandler*);
+Nitro3DRenderContext* GetModel3DContext(Model3D*);
+extern "C" void func_020e2fdc(Nitro3DRenderCommandHandler*);
 extern const char data_020e7d90[];
 extern const Vector3i data_020e7d84;
 
@@ -94,11 +95,11 @@ extern "C" ARM int func_02057fd8(Struct_02057fd8_3* arg0, Struct_02057fd8_2* arg
         COPY_REACTION_FLAGS_02057FD8();
         SetGameObjectByIndex_0200fd38(var0, var1, reinterpret_cast<GameObject*>(var3));
         if (var3->pModel_) {
-            ModelRenderContext* var4 = GetModel3DContext(var3->pModel_);
-            NSBXXNameList* var5 = var4->internalModel_ ? &var4->internalModel_->boneList_ : 0;
-            int var6 = var5 ? NSBXXNameList_SearchIndex(var5, data_020e7d90) : -1;
+            Nitro3DRenderContext* var4 = GetModel3DContext(var3->pModel_);
+            Nitro3DNameList* var5 = var4->model ? &var4->model->boneList : 0;
+            int var6 = var5 ? Nitro3D_GetNameListIndex((const Nitro3DNameList*)(var5), (const char*)(data_020e7d90)) : -1;
             if (var6 >= 0) {
-                SetModelRenderContextRenderCommandHook(var4, func_020e2fdc, 0, 7, 1);
+                Nitro3D_SetRenderHook(var4, func_020e2fdc, 0, 7, 1);
             }
         }
     } else {

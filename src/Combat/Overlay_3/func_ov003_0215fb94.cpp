@@ -16,6 +16,11 @@ enum { Enum_ov003_0215fb94_742 = 0x2e6 };
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
+#include "NitroSDK/Cache.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
 
 struct GlobalFlags_02038598_4;
 struct BGControlSave_02074bd0;
@@ -23,14 +28,13 @@ struct MenuLayout_0207fcb8;
 struct MenuLayout_0207fd44_2;
 struct MenuLayout_0207fd88;
 
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
 extern "C" void ClearMenuLayoutBGScreenData_0207fcb8(struct MenuLayout_0207fcb8* menuLayout);
 extern "C" void FlushMenuLayoutBGScreenData_0207fd44(struct MenuLayout_0207fd44_2* menuLayout);
 extern "C" void CopyMenuLayoutBGScreenDataToVRAM_0207fd88(struct MenuLayout_0207fd88* menuLayout);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
-extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
@@ -60,7 +64,7 @@ struct Struct_ov003_0215fb94 {
 
 // USA: func_ov003_0215fb94
 extern "C" ARM void func_ov003_0215fb94(Struct_ov003_0215fb94* arg0) {
-    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x80000);
+    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)func_020d6c00(), 0x80000);
     BackgroundLoader* var0 = BackgroundLoader::GetInstance();
     if (arg0->unknown_46c_ >= 0) {
         var0->RemoveTask(arg0->unknown_46c_);
@@ -86,7 +90,7 @@ extern "C" ARM void func_ov003_0215fb94(Struct_ov003_0215fb94* arg0) {
 
     if (arg0->unknown_398_ != NULL) {
         memset(arg0->unknown_398_, 0, 0x20);
-        DC_FlushRange(arg0->unknown_398_, 0x20);
+        CleanInvalidateCacheRange((const void*)(arg0->unknown_398_), 0x20);
         LoadToMainBG1CharacterData((int)arg0->unknown_398_, 0, 0x20);
     }
     arg0->unknown_398_ = NULL;

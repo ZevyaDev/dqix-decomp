@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 struct MenuCursor_0205c508;
 extern "C" void GetMenuCursorPageRange_0205c508(struct MenuCursor_0205c508* cursor, int* outPageStartIndex, int* outPageEndIndex);
@@ -9,7 +10,6 @@ extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" int func_ov000_02171674(void* arg0, int arg1);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 struct Struct_ov000_02178f28 {
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov000_02178f28(char* arg0, struct Struct_ov000_02178f28
             if (var6 == NULL) continue;
             AppendMenuEntry_02041b70(arg2, var5 - var2, *var6);
             if (var5 == var3 - 1) continue;
-            AppendText_02042058(arg2, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0));
+            AppendText_02042058(arg2, (const char*)((int)((StringList*)((struct Struct_0201099c_3*)(arg0 + 0xb8)))->GetString(0)));
         }
     }
 }

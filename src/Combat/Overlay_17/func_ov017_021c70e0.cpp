@@ -2,8 +2,16 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
+extern "C" void* func_ov017_021b8478(void* battleManager);
+extern "C" void* func_ov017_021b8468(void* battleManager);
 extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
@@ -15,9 +23,9 @@ extern "C" ARM void func_ov017_021c70e0(int arg0, unsigned char* arg1, GameState
  enum {Enum_ov017_021c70e0_1816=0x718};
 #endif
     unsigned char* var0 = *(unsigned char**)(arg3 + 0x3000 + Enum_ov017_021c70e0_1816);
-    unsigned char* var1 = (unsigned char*)GetBattleSetup_ov017_021b8478(var0);
+    unsigned char* var1 = (unsigned char*)func_ov017_021b8478(var0);
     if (!var1) return;
-    if (!GetBattleScene_ov017_021b8468(var0)) return;
+    if (!func_ov017_021b8468(var0)) return;
     if (!GetBattle_ov017_021b8470(var0)) return;
 
     int var2 = GetProtagonistObjectIndex_020100a8(arg2);

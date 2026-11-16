@@ -8,9 +8,9 @@ extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44* zon
 // USA: func_02013cb0
 extern "C" ARM void func_02013cb0(Zone3D* arg0, unsigned int arg1) {
     int var0;
-    for (var0 = 0; var0 < arg0->unknown_476_; var0++) {
+    for (var0 = 0; var0 < (unsigned char)arg0->unknown_476_; var0++) {
         if (arg1 & (1 << var0)) {
-            arg0->unknown_478_[var0].unknown_2_ = -1;
+            ((Struct_020133cc*)arg0->unknown_478_)[var0].unknown_2_ = -1;
         }
     }
     ActiveZone_020fdd44* var1 = GetActiveZones_02027ca4();

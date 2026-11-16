@@ -1,4 +1,6 @@
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
+#include "Resource/StringList.h"
 
 extern "C" void SaveMainBGControl_02074af4(void*);
 
@@ -6,10 +8,8 @@ struct BGControlSave_02074b64;
 extern "C" void SaveSubBGControl_02074b64(struct BGControlSave_02074b64* save);
 
 struct StringTable_0201099c_14;
-extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
 
 struct BGLayer_02020cb8;
-extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
 extern "C" void InitTextWindow_0204c684(void*);
 
@@ -30,13 +30,13 @@ extern "C" ARM void func_ov023_021eb138(void* arg0, unsigned char arg1) {
     struct StringTable_0201099c_14* var2 = (struct StringTable_0201099c_14*)((char*)arg0 + 4);
     *(int*)((char*)arg0 + 0x40) = (*var1 & 0x1f00) >> 8;
     *(int*)arg0 = 0;
-    InitStringTable_020dfc40(var2);
+    ((StringList*)(var2))->Reset();
 
     for (int var3 = 0; var3 < 2; var3++) {
-        InitBGLayer_0204af64((struct BGLayer_02020cb8*)((char*)arg0 + 0x44 + var3 * 0x20));
+        ((BGLayer*)((struct BGLayer_02020cb8*)((char*)arg0 + 0x44 + var3 * 0x20)))->Reset();
     }
     for (int var4 = 0; var4 < 2; var4++) {
-        InitBGLayer_0204af64((struct BGLayer_02020cb8*)((char*)arg0 + 0x84 + var4 * 0x20));
+        ((BGLayer*)((struct BGLayer_02020cb8*)((char*)arg0 + 0x84 + var4 * 0x20)))->Reset();
     }
     for (int var5 = 0; var5 < 3; var5++) {
         InitTextWindow_0204c684((char*)arg0 + 0x180 + var5 * 0xe0);

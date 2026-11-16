@@ -14,6 +14,11 @@ enum { Enum_ov017_021a7378_5120 = 0x1400 };
 #include "NitroSDK/Graphics.h"
 #include "Combat/Main/CopyRecord0200fbb4.h"
 #include "Resource/GameResources.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_02033fa0 func_02033ad8
+#endif
 
 struct Struct_ov000_0217964c_3 {
 #if defined(jpn)
@@ -113,8 +118,6 @@ extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void func_020ae38c(unsigned char* arg0);
 extern "C" void func_020ae380(unsigned char* arg0);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
-extern "C" int FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void SetCameraFlags_020a28a0(unsigned char* camera, unsigned char flags);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" int GetMessageChoice_020457e0(Struct_ov000_0217964c_3* window);
@@ -177,21 +180,21 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
             unsigned int var8;
             var6->GetLoadedFileByID(arg0->unknown_20_, &var7, &var8);
             arg0->unknown_25c_.Reset();
-            LoadStringTable_020dfec0(arg0->unknown_270_, &arg0->unknown_25c_, var7, var8);
+            ((StringList*)(arg0->unknown_270_))->LoadFromMemory((SafeAllocator*)(&arg0->unknown_25c_), (const void*)(var7), var8);
             var6->RemoveTask(arg0->unknown_20_);
             arg0->unknown_20_ = -1;
             if (arg0->unknown_c_ == 0) {
 #if defined(jpn)
-                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x23), 0);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_270_))->GetString(0x23)), 0);
 #else
-                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x23), 0, 0xe3);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_270_))->GetString(0x23)), 0, 0xe3);
 #endif
                 arg0->unknown_8_ = 0xc8;
             } else {
 #if defined(jpn)
-                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x24), 0);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_270_))->GetString(0x24)), 0);
 #else
-                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x24), 0, 0xe3);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_270_))->GetString(0x24)), 0, 0xe3);
 #endif
                 arg0->unknown_8_ = 0x12c;
             }
@@ -233,9 +236,9 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
                 } else {
                     var2->unknown_998_ = 1;
 #if defined(jpn)
-                    StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x26), 0);
+                    StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_270_))->GetString(0x26)), 0);
 #else
-                    StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x26), 0, 0xe3);
+                    StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_270_))->GetString(0x26)), 0, 0xe3);
 #endif
                     arg0->unknown_8_ = 0x12d;
                     SetCameraFlags_020a28a0(var1, 2);
@@ -243,9 +246,9 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
             } else {
                 var2->unknown_998_ = 1;
 #if defined(jpn)
-                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x25), 0);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_270_))->GetString(0x25)), 0);
 #else
-                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x25), 0, 0xe3);
+                StartMessage_0204500c((MessageWindow_02021b84*)var2, (const char*)((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_270_))->GetString(0x25)), 0, 0xe3);
 #endif
                 arg0->unknown_8_ = 0x12d;
                 SetCameraFlags_020a28a0(var1, 2);

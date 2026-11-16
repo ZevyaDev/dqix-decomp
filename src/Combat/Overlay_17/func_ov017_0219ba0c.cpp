@@ -7,12 +7,10 @@
 #include "Resource/GameResources.h"
 #include "World/Object3D.h"
 #include "std_library_functions.h"
+#include "Graphics/TextureArena.h"
 
 extern "C" char* GetMessageWindow_020421a0(void);
 struct TextureVRAMArea_0203d028;
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_020440b8(char* arg0, void* arg1, void* arg2);
 
 extern char data_ov017_021d7504[];
@@ -35,36 +33,36 @@ extern "C" ARM void func_ov017_0219ba0c(GameResources* arg0, int arg1) {
     char* var7 = arg0->unknown_2cc_ + 0x2a0;
     var5->AddLockGlobal();
     var6->Reset();
-    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)var7);
-    RestoreTextureVRAMState_0207df90(var7);
+    ((TextureArena*)((TextureVRAMArea_0203d028*)var7))->Reset();
+    ((TextureArena*)(var7))->Restore();
 
     char var8[0x50];
     sprintf(var8, data_ov017_021d7504, data_ov017_021d7510);
-    if (!LoadFileIntoMemory(var8, gFileScratchSpace_0211e33c, &var2)) {
+    if (!LoadFileIntoMemory(var8, g_fileScratchSpace, &var2)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
 
     NarcHandle var9;
-    if (!var9.Initialize(data_ov017_021d751b, gFileScratchSpace_0211e33c)) {
+    if (!var9.Initialize(data_ov017_021d751b, g_fileScratchSpace)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    func_020440b8(var4, var6, gFileScratchSpace_0211e33c);
+    func_020440b8(var4, var6, g_fileScratchSpace);
     if (arg1) {
         var9.Destroy();
-        SaveTextureVRAMState_0207dfac(var7);
+        ((TextureArena*)(var7))->Save();
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
     var9.Destroy();
 
     ((Model3D*)arg0->unknown_ptr_36c8)->Clear();
-    if (GetFileInNarc(gFileScratchSpace_0211e33c, data_ov017_021d7577, &var0, &var1, 0)) {
+    if (GetFileInNarc(g_fileScratchSpace, data_ov017_021d7577, &var0, &var1, 0)) {
         ((Model3D*)arg0->unknown_ptr_36c8)->CopyAndProcessRawFile(&var6->allocUnion, var0, var1, Model3D::TextureStagingMode_Normal);
     }
     ((Object3D*)arg0->unknown_ptr_36cc)->Initialize();
-    if (GetFileInNarc(gFileScratchSpace_0211e33c, data_ov017_021d7584, &var0, &var1, 0)) {
+    if (GetFileInNarc(g_fileScratchSpace, data_ov017_021d7584, &var0, &var1, 0)) {
         ObjectArchiveLoadInfo var10;
         var10.fileData = var0;
         var10.unk_8 = var1;
@@ -72,9 +70,9 @@ extern "C" ARM void func_ov017_0219ba0c(GameResources* arg0, int arg1) {
         var10.unk_10 = 1;
         ((Object3D*)arg0->unknown_ptr_36cc)->LoadFromCHRArchive(&var10);
     }
-    SaveTextureVRAMState_0207dfac(var7);
+    ((TextureArena*)(var7))->Save();
 
-    if (!LoadFileIntoMemory(data_ov017_021d758d, gFileScratchSpace_0211e33c, &var3)) {
+    if (!LoadFileIntoMemory(data_ov017_021d758d, g_fileScratchSpace, &var3)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
@@ -83,10 +81,10 @@ extern "C" ARM void func_ov017_0219ba0c(GameResources* arg0, int arg1) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    memcpy(var11, gFileScratchSpace_0211e33c, var3);
+    memcpy(var11, g_fileScratchSpace, var3);
     *(void**)((char*)arg0 + 0x30) = var11;
     *(unsigned int*)((char*)arg0 + 0x34) = var3;
-    if (!LoadFileIntoMemory(data_ov017_021d75a2, gFileScratchSpace_0211e33c, &var3)) {
+    if (!LoadFileIntoMemory(data_ov017_021d75a2, g_fileScratchSpace, &var3)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
@@ -95,7 +93,7 @@ extern "C" ARM void func_ov017_0219ba0c(GameResources* arg0, int arg1) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    memcpy(var11, gFileScratchSpace_0211e33c, var3);
+    memcpy(var11, g_fileScratchSpace, var3);
     *(void**)((char*)arg0 + 0x2c) = var11;
     BackgroundLoader::RemoveLockGlobal();
 }

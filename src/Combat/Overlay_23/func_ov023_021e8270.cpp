@@ -1,16 +1,20 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
+#include "Graphics/BGLayer.h"
+#include "NitroSDK/Cache.h"
+
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
 
 struct TextWindowManager_0205d81c;
 extern "C" void* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" int func_02050064(void* arg0);
 extern "C" void* __clear(void* arg0, int arg1);
-extern "C" int ConvertTextToGlyphIndices_020426bc(void* text, void* outGlyphIndices, int font);
-extern "C" int GetStringLength_020d2ff0(const char* string);
+extern "C" int func_020426bc(void* text, void* outGlyphIndices, int font);
+extern "C" int func_020d2ff0(const char* string);
 extern "C" void func_ov023_021e709c(void* arg0, void* arg1, int arg2);
-extern "C" void* func_0204a5e4(int arg0, int arg1);
-extern "C" void DC_FlushRange(void const*, unsigned int);
 void CleanCacheRange(void const*, unsigned int);
 
 struct Struct_ov023_021ffa44 {
@@ -45,9 +49,9 @@ extern "C" ARM void func_ov023_021e8270(char* arg0) {
 
     int var9;
     if (var0 != 0) {
-        var9 = ConvertTextToGlyphIndices_020426bc(var0, var8, 1);
+        var9 = func_020426bc(var0, var8, 1);
     } else {
-        var9 = GetStringLength_020d2ff0(var7 + 8);
+        var9 = func_020d2ff0(var7 + 8);
         memcpy(var8, var7 + 8, var9);
     }
 
@@ -57,10 +61,10 @@ extern "C" ARM void func_ov023_021e8270(char* arg0) {
 
     if (!(data_ov023_021ffa44.unknown_0_ & 1)) {
         struct Struct_ov023_021e8270* var10 = (struct Struct_ov023_021e8270*)((char*)var6 + 0x1c);
-        data_ov023_021ffa44.unknown_4_ = (void(*)(void*, void*, unsigned))func_0204a5e4(var10->unknown_0_0_, var10->unknown_0_4_);
+        data_ov023_021ffa44.unknown_4_ = (void(*)(void*, void*, unsigned))((void*)GetCharVRAMLoadProc(var10->unknown_0_0_, var10->unknown_0_4_));
         data_ov023_021ffa44.unknown_0_ |= 1;
     }
-    DC_FlushRange(var2, var4);
+    CleanInvalidateCacheRange((const void*)(var2), var4);
     data_ov023_021ffa44.unknown_4_(var2, (void*)var3, var4);
     CleanCacheRange(var2, var4);
 }

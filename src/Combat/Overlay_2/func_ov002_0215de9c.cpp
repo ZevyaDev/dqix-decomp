@@ -1,6 +1,10 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Party_02048150;
 struct ItemTable_0201099c_10;
 struct ItemBag_0207cf30_3;
@@ -9,7 +13,7 @@ struct MessageWindow_020465c0;
 extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
 extern "C" char *GetMessageWindow_020421a0();
-extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 extern "C" int IsInParty_02086ef0(Party_02048150 *party, int objectIndex);
 extern "C" int func_ov002_02157108(void *arg0, int arg1);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0 *window, int index, int number);
@@ -62,7 +66,7 @@ extern "C" ARM void func_ov002_0215de9c(char *arg0, char *arg1, int arg2) {
     if (var8) {
         GameObject *var13 = GetPartyMemberBaseByIndex_0200ff1c(var4, var7);
         if (var13 == NULL) return;
-        var9 = GetPartyMemberData_02053c6c((unsigned char *) var13);
+        var9 = func_02053c6c((unsigned char *) var13);
         if (!IsInParty_02086ef0((Party_02048150 *) var6, *(signed char *) (arg0 + 0x1c00 + 0x21))) return;
         int var14     = func_ov002_02157108(arg0, *(signed char *) (arg0 + 0x1c00 + 0x21));
         int var15 = 0;

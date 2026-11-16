@@ -3,6 +3,14 @@
 #include "Combat/MapDisplay.h"
 #include "Combat/CombatantRecovery.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02046708 func_02047528
+#endif
+
 struct Struct_020fdcb0_3 {
     int unknown_0_;
     int unknown_4_;
@@ -43,8 +51,8 @@ extern Struct_020fdc60_3 data_020fdc60[4];
 extern "C" void func_0201f9b8(Struct_020fdcb0_3*);
 extern "C" void func_0201f9e8(Struct_020fdc60_3*);
 extern "C" unsigned short GetLevel_0202053c(void*);
-extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00(void);
-extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8*, unsigned int);
+extern "C" GlobalFlags_02012de8* func_020d6c00(void);
+extern "C" int func_02046708(GlobalFlags_02012de8*, unsigned int);
 #if defined(jpn)
 extern "C" void func_02022644(Struct_02020554*);
 #else
@@ -101,7 +109,7 @@ extern "C" ARM void func_02022dc8(Struct_02020554* arg0) {
             var7->unknown_1e_ = 0;
         }
     }
-    if (TestGlobalFlags_02046708(GetGlobalFlags_020d6c00(), 1)) {
+    if (func_02046708(func_020d6c00(), 1)) {
 #if defined(jpn)
         func_02022644(arg0);
 #else

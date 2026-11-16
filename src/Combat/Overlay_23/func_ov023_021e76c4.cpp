@@ -2,6 +2,9 @@
 #include <Filesystem/BackgroundLoader.h>
 #include <Memory/SafeAllocator.h>
 #include <NitroSDK/Cache.h>
+#include "Graphics/BGLayer.h"
+#include "Resource/PAC.h"
+#include "Resource/StringList.h"
 
 #define REG_DISPCNT_SUB (*(volatile unsigned int*)0x04001000)
 #define REG_BG0CNT_SUB (*(volatile unsigned short*)0x04001008)
@@ -80,28 +83,14 @@ struct TextWindowManager_0205cf78;
 struct TextWindow_0205cf78_2;
 
 extern "C" Struct_ov023_021e76c4_2* GetMessageWindow_020421a0();
-extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
-extern "C" void AllocateBGScreenData_0204b12c(BGLayer_0204b12c* layer, SafeAllocator* allocator);
-extern "C" int SetBGScroll_0204b5e8(BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
-extern "C" void AllocateBGScreenBlocks_0204af38(BGLayer_0204af38* layer, int capacity, SafeAllocator* allocator);
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
-extern "C" Struct_ov023_021e76c4* GetBGScreenBlock_0204af14(BGLayer_0204af14* layer, unsigned int screenBlockIndex);
 extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
 extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78* windowManager, TextWindow_0205cf78_2* textWindows, unsigned char textWindowCapacity);
 
 extern "C" {
 void __clear(void* arg0, unsigned long arg1);
-void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
-void SetBGPriority_0204b5b4(Struct_ov023_021e76c4_4* layer, int priority);
 void DisableSubBGVRAMBanks();
 void MapVRAMBanksToSubBG(int banks);
-void LoadBGBlock_0204b174(Struct_ov023_021e76c4_4* layer, void* block, SafeAllocator* allocator, unsigned int arg3);
-void FillBGScreenRect_0204bc74(Struct_ov023_021e76c4_4* layer, int screenEntry, int x, int y, int width, int height, int palette);
-void LoadToSubBG1ScreenData(void* data, int offset, unsigned int size);
 void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
-void LoadToSubBGStandardPalette(const void* data, int offset, unsigned int size);
 }
 
 extern const char data_ov023_021fdd6e[];
@@ -145,7 +134,7 @@ extern "C" ARM int func_ov023_021e76c4(Struct_ov023_021e76c4_3* arg0)
         {
             var9->GetLoadedFileByID(arg0->unknown_5e4_, &var2, &var3);
             arg0->unknown_0_[2].Reset();
-            LoadStringTable_020dfec0(arg0->unknown_4c_, &arg0->unknown_0_[2], var2, var3);
+            ((StringList*)(arg0->unknown_4c_))->LoadFromMemory((SafeAllocator*)(&arg0->unknown_0_[2]), (const void*)(var2), var3);
             var9->RemoveTask(arg0->unknown_5e4_);
             arg0->unknown_5e4_ = -1;
             arg0->unknown_5e0_++;
@@ -162,14 +151,14 @@ extern "C" ARM int func_ov023_021e76c4(Struct_ov023_021e76c4_3* arg0)
         for (var11 = 0; var11 < 2; var11++)
         {
             var10 = &arg0->unknown_134_[var11];
-            SetBGScreenSize_0204b11c((unsigned char*)var10, var4[var11]);
+            ((BGLayer*)((unsigned char*)var10))->ConfigureTextMode(var4[var11]);
             var10->unknown_1c_0_ = 1;
             var10->unknown_1c_4_ = var11;
-            SetBGPriority_0204b5b4(var10, var11);
-            AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)var10, &arg0->unknown_0_[1]);
-            SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)var10, 0, 0);
+            ((BGLayer*)(var10))->SetPriority(var11);
+            ((BGLayer*)((BGLayer_0204b12c*)var10))->AllocateIndexBuffer((SafeAllocator*)(&arg0->unknown_0_[1]));
+            ((BGLayer*)((BGLayer_02020cb8_5*)var10))->SetOffset(0, 0);
         }
-        AllocateBGScreenBlocks_0204af38((BGLayer_0204af38*)&arg0->unknown_134_[1], 1, &arg0->unknown_0_[1]);
+        ((BGLayer*)((BGLayer_0204af38*)&arg0->unknown_134_[1]))->AllocateSprites(1, (SafeAllocator*)(&arg0->unknown_0_[1]));
         DisableSubBGVRAMBanks();
         MapVRAMBanksToSubBG(0x80);
         REG_BG0CNT_SUB = (REG_BG0CNT_SUB & 0x43) | 0xe00;
@@ -185,28 +174,28 @@ extern "C" ARM int func_ov023_021e76c4(Struct_ov023_021e76c4_3* arg0)
         if (var9->GetTaskStatus(arg0->unknown_5e4_))
         {
             var9->GetLoadedFileByID(arg0->unknown_5e4_, &var6, &var7);
-            int var12 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var6);
+            int var12 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var6));
             for (int var13 = 0; var13 < var12; var13++)
-                var0[var13] = GetPacEntryData_020467f0((PacEntry_02020aec*)var6, var13, (void**)var5, (int*)&var1[var13]);
+                var0[var13] = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var6), var13, (const char**)((void**)var5), (unsigned int*)((int*)&var1[var13]));
             Struct_ov023_021e76c4_4* var14 = &arg0->unknown_134_[0];
             for (int var15 = 0; var15 < var12; var15++)
             {
                 if (var0[var15] != NULL)
-                    LoadBGBlock_0204b174(var14, var0[var15], &arg0->unknown_0_[1], var1[var15]);
+                    ((BGLayer*)var14)->ProcessGraphicsFile((const void*)var0[var15], (SafeAllocator*)(&arg0->unknown_0_[1]), var1[var15]);
                 var14 = &arg0->unknown_134_[1];
             }
             var9->RemoveTask(arg0->unknown_5e4_);
             arg0->unknown_5e4_ = -1;
-            FillBGScreenRect_0204bc74(&arg0->unknown_134_[0], 0, 0, 0, 0x20, 0x19, 0);
-            LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&arg0->unknown_134_[0], 0);
-            Struct_ov023_021e76c4* var16 = GetBGScreenBlock_0204af14((BGLayer_0204af14*)&arg0->unknown_134_[1], 0);
+            ((BGLayer*)(&arg0->unknown_134_[0]))->SetTileInRectangle(0, 0, 0, 0x20, 0x19, 0);
+            ((BGLayer*)((BGLayer_02020cb8_2*)&arg0->unknown_134_[0]))->CleanCacheAndUploadIndexBuffer((const void*)(0));
+            Struct_ov023_021e76c4* var16 = ((Struct_ov023_021e76c4*)((BGLayer*)((BGLayer_0204af14*)&arg0->unknown_134_[1]))->GetSprite(0));
             if (var16 != NULL)
             {
                 void* var17;
                 unsigned int var18;
                 var18 = var16->unknown_8_;
                 var17 = var16->unknown_c_;
-                DC_FlushRange(var17, var18);
+                CleanInvalidateCacheRange((const void*)(var17), var18);
                 LoadToSubBG1ScreenData(var17, 0, var18);
             }
             arg0->unknown_5d4_ = arg0->unknown_0_[0].Allocate(0x4e00);
@@ -234,10 +223,10 @@ extern "C" ARM int func_ov023_021e76c4(Struct_ov023_021e76c4_3* arg0)
         arg0->unknown_5dc_ = var8;
         arg0->unknown_5e0_ = 0;
         LoadPartyMemberColors_020dc7e8(2, -1);
-        DC_FlushRange(&data_ov023_021fd760, 2);
+        CleanInvalidateCacheRange((const void*)(&data_ov023_021fd760), 2);
         LoadToSubBGStandardPalette(&data_ov023_021fd760, 2, 2);
         CleanCacheRange(&data_ov023_021fd760, 2);
-        DC_FlushRange(&data_ov023_021fd760, 2);
+        CleanInvalidateCacheRange((const void*)(&data_ov023_021fd760), 2);
         LoadToSubBGStandardPalette(&data_ov023_021fd760, 0x22, 2);
         CleanCacheRange(&data_ov023_021fd760, 2);
     }

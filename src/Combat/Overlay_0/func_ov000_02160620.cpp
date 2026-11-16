@@ -3,6 +3,14 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
 #define RG(usa, jpn) (jpn)
 #else
 #define RG(usa, jpn) (usa)
@@ -44,7 +52,7 @@ struct Struct_ov000_02160620 {
     int unknown_998_;
 };
 
-extern "C" LocalWireless_0202b2f0* GetLocalWireless_0202ae18();
+extern "C" LocalWireless_0202b2f0* func_0202ae18();
 extern "C" void func_02015438(void*);
 extern "C" void func_ov023_021eb43c(void*);
 extern "C" int GetMessageWindow_020421a0();
@@ -56,7 +64,7 @@ extern "C" int func_020a1fa8();
 extern "C" void func_ov025_021df794(void*);
 extern "C" int IsLocalWirelessGuest_0202c540(LocalWireless_0202b2f0*);
 extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(LocalWireless_0202b2f0*, int);
-extern "C" GlobalFlags_02038598_4* GetGlobalFlags_020d6c00();
+extern "C" GlobalFlags_02038598_4* func_020d6c00();
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" void* func_020936f8();
 extern "C" void func_020939dc(void*);
@@ -88,7 +96,7 @@ extern unsigned char gSoundEffectManager_02108760[0xd0];
 // USA: func_ov000_02160620
 extern "C" ARM void func_ov000_02160620(Struct_ov000_02160620_2* arg0) {
     GameState* var0 = GameState::GetInstance();
-    LocalWireless_0202b2f0* var1 = GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* var1 = func_0202ae18();
     unsigned char* var2 = (unsigned char*)GetGameResources();
     if (arg0->unknown_55f4_ & 0x200) {
         func_02015438(arg0->unknown_ec8_);
@@ -105,7 +113,7 @@ extern "C" ARM void func_ov000_02160620(Struct_ov000_02160620_2* arg0) {
         if (var3)
             var3->obj3D_.AdvanceEffects();
         if (IsLocalWirelessGuest_0202c540(var1) && IsLocalWirelessPlayerDisconnected_0202c578(var1, 0) && arg0->unknown_77d0_ == 0) {
-            ClearGlobalFlags_020466f4(GetGlobalFlags_020d6c00(), 0x8020);
+            ClearGlobalFlags_020466f4(func_020d6c00(), 0x8020);
             void* var4 = func_020936f8();
             func_020939dc(var4);
             func_02093a14((char*)var4);

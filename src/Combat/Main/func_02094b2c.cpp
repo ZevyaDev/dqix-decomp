@@ -1,9 +1,13 @@
 #include <globaldefs.h>
 #include "Resource/FontBankLoader.h"
+#include "std_library_functions.h"
 
 #if defined(jpn)
-extern "C" int GetStringLength_020d2ff0(const char*);
-extern "C" int CompareBytes_02001aec(const void*, const void*, unsigned int);
+#define func_020d2ff0 func_020d4a54
+#endif
+
+#if defined(jpn)
+extern "C" int func_020d2ff0(const char*);
 extern "C" void* memset(void*, int, unsigned int);
 extern "C" int sprintf(char*, const char*, ...);
 #endif
@@ -14,12 +18,12 @@ extern "C" ARM void func_02094b2c(FontLoader_0208cb08* arg0, int arg1, const cha
 #if defined(jpn)
     if (arg0->requestedFontSetId_34_ >= 0) return;
     if (!arg2) return;
-    int var0 = GetStringLength_020d2ff0(arg2);
+    int var0 = func_020d2ff0(arg2);
     if (!var0) return;
     if (var0 >= 16) return;
     if (arg0->unknown_40_ == 1000) {
-        int var1 = GetStringLength_020d2ff0(arg0->unknown_44_);
-        if (var1 == var0 && CompareBytes_02001aec(arg0->unknown_44_, arg2, var1) == 0) return;
+        int var1 = func_020d2ff0(arg0->unknown_44_);
+        if (var1 == var0 && memcmp(arg0->unknown_44_, arg2, var1) == 0) return;
     }
     memset(arg0->unknown_44_, 0, sizeof(arg0->unknown_44_));
     sprintf(arg0->unknown_44_, arg2);

@@ -82,6 +82,26 @@ enum {
 #include "Resource/Brightness.h"
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_02046708 func_02047528
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 
 struct LocalWireless_0202b2f0;
 struct LocalWireless_0202c1a4;
@@ -144,9 +164,9 @@ struct Struct_ov017_021941fc_3 {
     unsigned char unknown_0_0_ : 2;
     unsigned char unknown_0_2_ : 6;
 };
-extern "C" struct LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
-extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" struct LocalWireless_0202b2f0* func_0202ae18(void);
+extern "C" void* func_0205ec34(void);
+extern "C" void* func_020d6c00(void);
 extern "C" int* func_020936f8(void);
 extern "C" void* func_020e3580(void);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
@@ -160,7 +180,7 @@ extern "C" void func_02093a14(char* arg0);
 extern "C" void QueueNotice_02094030(int* noticeQueue, int noticeId, int arg2, signed char memberIndex);
 extern "C" int func_0209494c(struct Struct_0209494c* arg0);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
-extern "C" unsigned int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
+extern "C" unsigned int func_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 extern "C" void func_020939fc(unsigned char* arg0);
 extern "C" void func_ov017_021c37a4(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202b2f0* wireless);
@@ -176,7 +196,7 @@ extern "C" void func_020e35a0(unsigned char* arg0);
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" int func_ov017_0219531c(void* arg0, void* arg1);
 extern "C" int GetOwnPartyOrder_02011494(char* gameState, void* outOwnPartyOrder);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void func_ov017_02195250(void* arg0, void* arg1);
 extern "C" int func_0202bd34(struct LocalWireless_0202b2f0* arg0, int arg1);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
@@ -241,12 +261,12 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
     unsigned char* var14;
     var6 = GameState::GetInstance();
     var10 = ((int)GetGameResources());
-    var7 = GetLocalWireless_0202ae18();
+    var7 = func_0202ae18();
     var8 = var6->GetUnknownGameObject();
     var11 = (void*)(int)BackgroundLoader::GetInstance();
     arg2 = *(void***)(arg0 + 0x3000 + Enum_ov017_021941fc_1788);
-    var12 = GetFlagManager_0205ec34();
-    var9 = GetGlobalFlags_020d6c00();
+    var12 = func_0205ec34();
+    var9 = func_020d6c00();
     var13 = func_020936f8();
     arg1 = *(unsigned char**)(arg0 + 0x3000 + Enum_ov017_021941fc_1844);
     var14 = (unsigned char*)func_020e3580();
@@ -291,7 +311,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
     if (((struct Struct_0209494c*)var13)->unknown_3c9_0_ &&
         func_0209494c((struct Struct_0209494c*)var13) != 0 &&
         IsLocalWirelessOn_0202b7d8((int*)var7) == 0 &&
-        TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)var9, 0x1000) == 0) {
+        func_02046708((struct GlobalFlags_02012de8*)var9, 0x1000) == 0) {
         func_020939fc((unsigned char*)var13);
     }
     if (TestFlags00((GameResources*)arg0, 2) != 0) return;
@@ -312,7 +332,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
             func_0202c6dc(var7, var18);
         }
     }
-    if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)var9, 0x40000) == 0) {
+    if (func_02046708((struct GlobalFlags_02012de8*)var9, 0x40000) == 0) {
         func_ov017_02195658(arg0);
     }
     if (IsLocalWirelessGuest_0202c540(var7) != 0) {
@@ -336,7 +356,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
             int var20 = 1;
             int var21 = GetOwnPartyOrder_02011494((char*)var6, var5);
             if (var21 + var1[1] > 4) var20 = 0;
-            if (IsFlagSet_0206dfb0((int)var12, (unsigned char*)var12 + 0x8c, 3) != 0) {
+            if (func_0206dfb0((int)var12, (unsigned char*)var12 + 0x8c, 3) != 0) {
                 func_ov017_02195250(arg0, var1);
                 var20 = 0;
             }
@@ -406,8 +426,8 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
                 int var28 = abs(GetBrightness((GameResources*)arg0, false));
                 if (var28 + abs(GetBrightness((GameResources*)arg0, true)) > 0) var27 = 0;
                 if (*(short*)((char*)var8 + 0xac) != 0) var27 = 0;
-                if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)var9, 0x200) != 0) var27 = 1;
-                if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)var9, 0x400) != 0) var27 = 0;
+                if (func_02046708((struct GlobalFlags_02012de8*)var9, 0x200) != 0) var27 = 1;
+                if (func_02046708((struct GlobalFlags_02012de8*)var9, 0x400) != 0) var27 = 0;
                 if (((BackgroundLoader*)var11)->GetNumQueuedTasks() > 0) var27 = 0;
                 if (var27 != 0) {
                     unsigned char* var29 = *(unsigned char**)(arg0 + 0x3000 + Enum_ov017_021941fc_2864);
@@ -425,7 +445,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
             }
         } else if (IsLocalWirelessPlayerJoined_0202c1c0(var7,
                        (*(unsigned char**)(arg0 + 0x4000 + Enum_ov017_021941fc_1052))[2]) != 0) {
-            if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)var9, 0x40000) == 0) {
+            if (func_02046708((struct GlobalFlags_02012de8*)var9, 0x40000) == 0) {
                 func_ov017_021905b8(arg0,
                     (*(unsigned char**)(arg0 + 0x4000 + Enum_ov017_021941fc_1052))[2], 0);
             }

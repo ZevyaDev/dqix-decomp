@@ -3,6 +3,10 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 struct Struct_02032e58;
 
 struct Party_02048150;
@@ -89,7 +93,7 @@ struct Struct_02092e0c {
 struct Struct_020391ac { char unknown_0_[0xc1]; unsigned char unknown_c1_; unsigned char unknown_c2_0_ : 4; unsigned char unknown_c2_4_ : 1; unsigned char unknown_c2_5_ : 3; };
 extern "C" Struct_ov023_021eeaac_2* _ZZ21inline_ov023_021f4c04vE1s;
 extern "C" Struct_02092e0c* GetMessageWindow_020421a0();
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0202ae18();
 extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void func_ov023_021ed988(char*, int);
 extern "C" void func_ov000_02163b90(BattleScene_ov000_02160da0*, int);
@@ -146,7 +150,7 @@ extern "C" ARM int func_ov023_021f03a0(BattleScene_ov000_02160da0* arg0) {
     GameState* var5 = GameState::GetInstance();
     Struct_ov023_021eeaac_2* var6 = _ZZ21inline_ov023_021f4c04vE1s;
     Struct_02092e0c* var7 = GetMessageWindow_020421a0();
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     GameResources* var8 = GetGameResources();
     BackgroundLoader* var9 = BackgroundLoader::GetInstance();
     IsInParty_02086ef0((Party_02048150*)GetParty_02010828(var5), var6->unknown_18_);

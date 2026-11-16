@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
+#include "NitroSDK/Cache.h"
 
 #if defined(jpn)
 enum { Enum_ov003_02168324_204 = 0xc8 };
@@ -29,7 +30,6 @@ extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_02
 struct TextWindowManager_0205d2bc;
 extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(TextWindowManager_0205d2bc*);
 extern "C" void ResetTextWindowManager_0205d048(void* windowManager);
-extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void CloseMessageWindow_02043124(void* window);
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov003_02168324(char* arg0) {
     ResetTextWindowManager_0205d048(arg0 + Enum_ov003_02168324_228);
 
     memset(*(void**)(arg0 + 0x7c), 0, 0x20);
-    DC_FlushRange(*(void**)(arg0 + 0x7c), 0x20);
+    CleanInvalidateCacheRange((const void*)(*(void**)(arg0 + 0x7c)), 0x20);
     LoadToMainBG1CharacterData((int)*(void**)(arg0 + 0x7c), 0, 0x20);
 
     void* var1 = (void*)GetMessageWindow_020421a0();

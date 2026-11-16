@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 struct Struct_ov015_0218c03c_2;
 struct Struct_ov005_02155d6c;
 
@@ -44,7 +48,7 @@ struct Struct_ov015_02190acc
 };
 
 extern "C" void func_ov015_0218f0c4(Struct_ov015_0218c03c_2* arg0);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_ov015_0218b828(Struct_02000c9c_53* arg0);
 
 extern AllocatorUnion gMainHeap_02114e20;
@@ -56,34 +60,34 @@ extern "C" ARM void func_ov015_021933bc(Struct_ov015_02190acc* arg0)
     while (var0 != NULL)
     {
         func_ov015_0218f0c4(var0->unknown_0_);
-        FreeMemory_02012da4(&gMainHeap_02114e20, var0->unknown_0_);
+        func_02012da4(&gMainHeap_02114e20, var0->unknown_0_);
         Struct_ov015_02190e88* var1 = var0;
         var0 = var0->unknown_4_;
-        FreeMemory_02012da4(&gMainHeap_02114e20, var1);
+        func_02012da4(&gMainHeap_02114e20, var1);
     }
     for (int var2 = 0; var2 < 4; var2++)
     {
         if (arg0->unknown_c4_[var2].unknown_0_ != NULL)
-            FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_c4_[var2].unknown_0_);
+            func_02012da4(&gMainHeap_02114e20, arg0->unknown_c4_[var2].unknown_0_);
         if (arg0->unknown_e4_[var2].unknown_0_ != NULL)
-            FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_e4_[var2].unknown_0_);
+            func_02012da4(&gMainHeap_02114e20, arg0->unknown_e4_[var2].unknown_0_);
         if (arg0->unknown_104_[var2].unknown_0_ != NULL)
-            FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_104_[var2].unknown_0_);
+            func_02012da4(&gMainHeap_02114e20, arg0->unknown_104_[var2].unknown_0_);
     }
-    FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_88_.GetSignedAllocator());
-    FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_9c_.GetSignedAllocator());
-    FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_b0_.GetSignedAllocator());
+    func_02012da4(&gMainHeap_02114e20, arg0->unknown_88_.GetSignedAllocator());
+    func_02012da4(&gMainHeap_02114e20, arg0->unknown_9c_.GetSignedAllocator());
+    func_02012da4(&gMainHeap_02114e20, arg0->unknown_b0_.GetSignedAllocator());
     arg0->unknown_88_.Destroy();
     arg0->unknown_9c_.Destroy();
     arg0->unknown_b0_.Destroy();
     func_ov015_0218b828(&arg0->unknown_3c_);
     if (arg0->unknown_84_ != NULL)
     {
-        FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_84_);
+        func_02012da4(&gMainHeap_02114e20, arg0->unknown_84_);
         arg0->unknown_84_ = NULL;
     }
     if (arg0->unknown_344_ == NULL)
         return;
-    FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_344_);
+    func_02012da4(&gMainHeap_02114e20, arg0->unknown_344_);
     arg0->unknown_344_ = NULL;
 }

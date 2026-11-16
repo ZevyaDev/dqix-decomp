@@ -3,6 +3,10 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
 
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
 struct Struct_0201c1c8 {
     int unknown_0_;
     union { int unknown_0_; float unknown1_0_; } unknown_4_;
@@ -13,7 +17,7 @@ struct Struct_0201c3a4 {
     void* unknown_4_;
 };
 
-extern "C" int GetStringLength_020d2ff0(const char* string);
+extern "C" int func_020d2ff0(const char* string);
 
 struct Struct_ov003_0215e498 {
     short unknown_0_;
@@ -72,7 +76,7 @@ extern "C" ARM int func_ov003_0215e510(struct Struct_ov003_0215e510_2* arg0) {
 
     char* var1 = (char*)(void*)((Script::Parameter*)&arg0->unknown_18_)->ToString();
     if (var1 != NULL) {
-        int var2 = GetStringLength_020d2ff0(var1);
+        int var2 = func_020d2ff0(var1);
         if (var2 != 0) {
             char* var3 = (char*)((SafeAllocator*)data_ov003_02180cb8.unknown_0_)->Allocate(var2 + 1);
             var0.unknown_4_ = (int)var3;
@@ -82,7 +86,7 @@ extern "C" ARM int func_ov003_0215e510(struct Struct_ov003_0215e510_2* arg0) {
 
     char* var4 = (char*)(void*)((Script::Parameter*)&arg0->unknown_20_)->ToString();
     if (var4 != NULL) {
-        int var5 = GetStringLength_020d2ff0(var4);
+        int var5 = func_020d2ff0(var4);
         if (var5 != 0) {
             char* var6 = (char*)((SafeAllocator*)data_ov003_02180cb8.unknown_0_)->Allocate(var5 + 1);
             var0.unknown_8_ = (int)var6;

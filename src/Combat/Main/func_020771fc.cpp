@@ -2,6 +2,10 @@
 #include "World/Object3D.h"
 
 #if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
 enum { Enum_020771fc_24 = 0x14 };
 #else
 enum { Enum_020771fc_24 = 0x18 };
@@ -52,7 +56,7 @@ struct Struct_020771fc_3 {
     int unknown_424_;
 };
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int func_020322c0(void* arg0, int* arg1);
 extern "C" void func_020794f8(Struct_020771fc_2* arg0, int arg1, int arg2);
@@ -71,7 +75,7 @@ extern "C" void SetFacing_02033834(Struct_02033834_2* object, int angle);
 
 // USA: func_020771fc
 extern "C" ARM void func_020771fc(Struct_020771fc_2* arg0) {
-    void* var0 = GetLocalWireless_0202ae18();
+    void* var0 = func_0202ae18();
     Vector3i var1 = arg0->unknown_44_;
     var1.y = 0;
     Vector3i var2 = arg0->unknown_158_;

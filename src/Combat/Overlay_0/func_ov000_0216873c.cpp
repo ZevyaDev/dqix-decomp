@@ -5,6 +5,27 @@
 #include "Resource/Brightness.h"
 #include "NitroSDK/Graphics.h"
 #include "World/ZoneLootableRecord.h"
+#include "Graphics/SPRSprite.h"
+
+#if defined(jpn)
+#define func_02099950 func_0209b684
+#endif
+
+#if defined(jpn)
+#define func_02013750 func_02013518
+#endif
+
+#if defined(jpn)
+#define func_ov000_02160fd4 func_ov000_02162740
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_02011584 func_020112f4
+#endif
 
 
 #if defined(jpn)
@@ -16,7 +37,7 @@ enum { Enum_ov000_0216873c_5 = 5 };
 extern "C" GameResources* GetResources_0200fb8c(int* gameState);
 extern "C" void func_ov000_02160fbc(void* arg0, int arg1);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
-extern "C" int TestBattleSceneFlags_ov000_02160fd4(void* battleScene, int flags);
+extern "C" int func_ov000_02160fd4(void* battleScene, int flags);
 extern "C" void func_02013750(void* arg0, int arg1);
 extern "C" void func_ov000_02172720(void* arg0);
 
@@ -30,11 +51,11 @@ extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId)
 extern "C" void func_ov017_021a05a8(GameResources* arg0);
 extern "C" void func_ov017_0219b624(GameResources* arg0);
 extern "C" void func_ov017_0219ba0c(GameResources* arg0, int arg1);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
 struct Struct_02095924_2;
 struct Struct_02099950;
-extern "C" struct Struct_02095924_2* GetZoneList_02011584(void* gameState);
+extern "C" struct Struct_02095924_2* func_02011584(void* gameState);
 extern "C" struct Struct_02099950* func_02099950(struct Struct_02095924_2* arg0, int arg1);
 extern "C" void func_0206461c(void* arg0, struct Struct_02099950* arg1);
 extern "C" void func_ov000_02160d80(void* arg0, int arg1);
@@ -95,8 +116,8 @@ extern "C" ARM void func_ov000_0216873c(struct Struct_ov000_0216873c* arg0) {
     func_ov000_02172720(arg0->unknown_3760_);
     SetBattleSceneFlags_ov000_02160fa8(arg0, 0x800);
     func_02079f9c((char*)GetActionTables_020797dc());
-    func_02047230(&arg0->unknown_5600_);
-    func_02047230(&arg0->unknown_5688_);
+    ((SPRSprite*)(&arg0->unknown_5600_))->Release();
+    ((SPRSprite*)(&arg0->unknown_5688_))->Release();
     if (arg0->unknown_ea4_ != 0) {
         func_020d6f0c((struct Struct_020d6f0c*)arg0->unknown_ea4_);
         func_020d6d18(arg0->unknown_ea4_);
@@ -110,16 +131,16 @@ extern "C" ARM void func_ov000_0216873c(struct Struct_ov000_0216873c* arg0) {
     for (int var4 = 0; var4 < Enum_ov000_0216873c_5; var4++) {
         arg0->unknown_8_[var4].Destroy();
     }
-    if (TestBattleSceneFlags_ov000_02160fd4(arg0, 1)) {
+    if (func_ov000_02160fd4(arg0, 1)) {
         func_ov017_021a05a8(var1);
     }
     func_ov017_0219b624(var1);
 #if !defined(jpn)
     func_ov017_0219ba0c(var1, 0);
 #endif
-    void* var5 = GetFlagManager_0205ec34();
+    void* var5 = func_0205ec34();
     unsigned short* var6 = GetZone3D_02012fe4();
-    func_0206461c(var5, func_02099950(GetZoneList_02011584(var0), *var6));
+    func_0206461c(var5, func_02099950(func_02011584(var0), *var6));
     if (arg0->unknown_0_ != 0) {
         DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_0_ << 8);
     }

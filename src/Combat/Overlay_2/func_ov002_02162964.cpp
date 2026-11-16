@@ -2,6 +2,10 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct TextWindowManager_0205d81c;
@@ -29,7 +33,7 @@ extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2 *qu
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_021573f8(void *arg0, int arg1);
 extern "C" int func_ov002_02157108(void *arg0, int arg1);
-extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" int func_020a0af4(struct Struct_020a095c *arg0, int arg1);
 extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
@@ -163,7 +167,7 @@ extern "C" ARM void func_ov002_02162964(char *arg0) {
             if (!var10) {
                 return;
             }
-            unsigned char *var11 = GetPartyMemberData_02053c6c((unsigned char *) var10);
+            unsigned char *var11 = func_02053c6c((unsigned char *) var10);
             *(short *) (arg0 + RG(0x1be8, 0x1ab0)) =
                 func_020a0af4((struct Struct_020a095c *) GetParty_02010828(var9), *(short *) (var11 + RG(0x958, 0x8c0)));
             if (*(short *) (arg0 + RG(0x1be8, 0x1ab0)) == -1) {

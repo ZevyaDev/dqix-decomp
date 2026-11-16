@@ -7,6 +7,13 @@
 #include "NitroSDK/ColorEffects.h"
 #include "NitroSDK/Graphics.h"
 #include "Resource/Brightness.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/PAC.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_020c54a4 func_020c6f70
+#endif
 
 struct Struct_ov014_02184f78 {
     Struct_ov014_02184f78* unknown_0_;
@@ -102,7 +109,7 @@ struct MenuLayout_0207f7f0;
 struct Struct_0207f7f0_2;
 
 extern "C" int* GetResources_0200fb8c(int*);
-extern "C" void Set3DFog_020c54a4(int, unsigned int, unsigned int, unsigned short);
+extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
 extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
 extern "C" int func_02097420(Struct_02097420*);
 extern "C" Struct_ov014_02184f78* func_02097418(Struct_02097418*);
@@ -113,17 +120,12 @@ extern "C" void func_02080654(Struct_0207f914*, int, int);
 extern "C" void func_0207f914(Struct_0207f914*, int, int, int);
 extern "C" void func_02080798(void*, int, int);
 #endif
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
-extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14*);
 extern "C" void func_020abf38(void*);
 extern "C" void func_0207f7f0(MenuLayout_0207f7f0*, Struct_0207f7f0_2*, int);
 
 extern "C" {
 void func_020972e0(Struct_020974b0* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
 int func_0207f9f4(MenuLayout_0207f7f0* arg0);
-void LoadSpriteSetFile_0205a528(Struct_ov008_02188d74* spriteSet, void* fileData, unsigned int size, SafeAllocator* allocator);
-void LoadStringTable_020dfec0(Struct_01ff8b48_13* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 void func_020abf60(Struct_020974b0* arg0);
 void func_ov014_02187488(Struct_ov014_02186bc8* arg0);
 Struct_ov014_02184f78* func_020974b0(Struct_020974b0* arg0, int arg1, int, bool arg3, int, short* arg5);
@@ -153,7 +155,7 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
     if (arg0->unknown_17b_ == 0)
     {
         SetFlags04(GetGameResources(), 0x609fe);
-        Set3DFog_020c54a4(0, 0, 0, 0);
+        func_020c54a4(0, 0, 0, 0);
         Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
         FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
         CancelFontLoad_02094ab0(var2);
@@ -257,14 +259,14 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
             unsigned int var14;
             int var16;
             var1->GetLoadedFileByID(arg0->unknown_168_, &var12, &var13);
-            var16 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var12);
+            var16 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var12));
             var15 = arg0->unknown_b4_;
             var15[3].Reset();
             for (int var17 = 0; var17 < var16; var17++)
             {
-                void* var18 = GetPacEntryData_020467f0((PacEntry_02020aec*)var12, var17, &var11, (int*)&var14);
+                void* var18 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var12), var17, (const char**)(&var11), (unsigned int*)((int*)&var14));
                 if (var18 != NULL)
-                    LoadSpriteSetFile_0205a528(&arg0->unknown_f8_, var18, var14, &var15[3]);
+                    ((OBJSpriteSet*)(&arg0->unknown_f8_))->LoadFromNitroFile((void*)(var18), var14, (SafeAllocator*)(&var15[3]));
             }
             var1->RemoveTask(arg0->unknown_168_);
             arg0->unknown_168_ = -1;
@@ -273,7 +275,7 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
     }
     else if (arg0->unknown_17b_ == 9)
     {
-        InitStringTable_020dfc40((StringTable_0201099c_14*)&arg0->unknown_e0_);
+        ((StringList*)((StringTable_0201099c_14*)&arg0->unknown_e0_))->Reset();
 #if defined(jpn)
         arg0->unknown_168_ = var1->QueueLoadFile(data_ov014_0218a567, NULL);
 #else
@@ -292,7 +294,7 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
             {
                 SafeAllocator* var21 = arg0->unknown_b4_;
                 var21[4].Reset();
-                LoadStringTable_020dfec0(&arg0->unknown_e0_, &var21[4], var19, var20);
+                ((StringList*)(&arg0->unknown_e0_))->LoadFromMemory((SafeAllocator*)(&var21[4]), (const void*)(var19), var20);
             }
             var1->RemoveTask(arg0->unknown_168_);
             arg0->unknown_168_ = -1;

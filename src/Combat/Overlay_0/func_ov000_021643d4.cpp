@@ -3,8 +3,17 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "World/ZoneTerrain.h"
 #include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 struct GameResources;
 struct Struct_020338d4;
@@ -163,7 +172,7 @@ struct Struct_ov000_021643d4_7 {
     int unknown_77f0_;
 };
 
-extern "C" int GetLocalWireless_0202ae18(BackgroundLoader*);
+extern "C" int func_0202ae18(BackgroundLoader*);
 extern "C" int func_02027cb0();
 extern "C" Struct_ov000_0215f7a8* func_ov017_021a278c(void*, int);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
@@ -234,7 +243,7 @@ extern float data_ov000_0218423c[5];
 // USA: func_ov000_021643d4
 extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     GameState* var0 = GameState::GetInstance();
-    int var1 = GetLocalWireless_0202ae18(BackgroundLoader::GetInstance());
+    int var1 = func_0202ae18(BackgroundLoader::GetInstance());
     GameResources* var2 = GetGameResources();
     int var3 = (int)var2;
     Struct_ov000_021643d4* var4 = (Struct_ov000_021643d4*)func_02027cb0();
@@ -360,7 +369,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     func_ov000_0216f700(arg0->unknown_c18_, arg0->unknown_29c_);
     arg0->unknown_e20_ = 0x800;
     arg0->unknown_e24_ = 1;
-    arg0->unknown_2a4_ = GetCamera_020100bc(var0);
+    arg0->unknown_2a4_ = func_020100bc(var0);
     if (arg0->unknown_2a4_) {
         SetCameraFieldOfView_0202e9a4((Struct_0202df68*)((int)arg0->unknown_2a4_), 0xf);
     }

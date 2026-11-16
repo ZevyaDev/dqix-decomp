@@ -3,6 +3,26 @@
 #include "Graphics/Vector.h"
 
 #if defined(jpn)
+#define func_020ca528 func_020cbff4
+#endif
+
+#if defined(jpn)
+#define func_020c56b0 func_020c717c
+#endif
+
+#if defined(jpn)
+#define func_02031278 func_02030db0
+#endif
+
+#if defined(jpn)
+#define func_02031234 func_02030d6c
+#endif
+
+#if defined(jpn)
+#define func_0202ed74 func_0202e8e4
+#endif
+
+#if defined(jpn)
 #define func_020c51c0 func_020c6c8c
 #endif
 
@@ -64,7 +84,7 @@ extern "C" void func_02031278(void*);
 extern "C" void func_02031234(int);
 extern "C" void func_0203f98c(Struct_0203f53c*, Struct_0203f53c_4*, int, unsigned int,
     unsigned short, unsigned short, unsigned short);
-extern Matrix3x3 data_020e79e8, data_0210a0cc;
+extern Matrix3x3 data_020e79e8;
 extern Vector3i data_020e79c0;
 extern Struct_020e79cc data_020e79cc;
 
@@ -90,13 +110,13 @@ extern "C" ARM int func_0203f53c(Struct_0203f53c* arg0, void* arg1, int arg2) {
     var8.x = arg0->unknown_4_.x;
     var8.y = arg0->unknown_4_.y + var7;
     var8.z = arg0->unknown_4_.z;
-    RenderConfig::SetObjectPosition(&var8);
+    Nitro3DRenderConfig::SetObjectPosition(&var8);
     Matrix3x3 var9 = data_020e79e8;
-    func_020ca528(&var9, &data_0210a0cc);
-    gRenderConfig_0210a010.flags &= ~0xa4;
+    func_020ca528(&var9, &g_nitro3DRenderConfig.objectRotationPosition);
+    g_nitro3DRenderConfig.flags &= ~0xa4;
     Vector3i var10 = data_020e79c0;
-    RenderConfig::SetObjectScale(&var10);
-    RenderConfig::SubmitToFifo();
+    Nitro3DRenderConfig::SetObjectScale(&var10);
+    Nitro3DRenderConfig::SubmitToFifo();
     Struct_020e79cc var11 = data_020e79cc;
     var11.unknown_0_.unknown_2_ = -var7;
     var11.unknown_0_.unknown_8_ = var7;

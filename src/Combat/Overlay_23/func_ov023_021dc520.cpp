@@ -3,6 +3,19 @@
 #include "NitroSDK/Cache.h"
 #include "NitroSDK/LoadToVRAM.h"
 #include <std_library_functions.h>
+#include "Graphics/OBJSpriteSet.h"
+
+#if defined(jpn)
+#define func_0203be40 func_0203b898
+#endif
+
+#if defined(jpn)
+#define func_0203be4c func_0203b8a4
+#endif
+
+#if defined(jpn)
+#define func_0203bd08 func_0203b760
+#endif
 
 #if defined(jpn)
 #define REGION(j,u) (j)
@@ -37,10 +50,9 @@ struct Struct_ov023_021dc520 {
 extern Struct_ov023_021ff9e0_6 data_ov023_021ff9e0;
 extern Struct_ov023_021ffa0c data_ov023_021ffa0c[3];
 extern unsigned char data_ov023_021fd565[2][2];
-extern "C" void* GetOAMManager_0203bd08();
+extern "C" void* func_0203bd08();
 extern "C" Struct_ov023_021dc520_3* func_0203be40(void*);
-extern "C" Struct_ov023_021dc520_3* GetSubOAMBuffer_0203be4c(void*);
-extern "C" void DrawSprite_0205ac40(SpriteSet_0205ac40*, Sprite_0205ac40_2*);
+extern "C" Struct_ov023_021dc520_3* func_0203be4c(void*);
 extern "C" short func_020dee58(Struct_020dee58*);
 extern "C" int func_02075db0(Struct_02075db0*, int, int);
 inline int inline_ov023_021dc520(int arg0) { return arg0 * 2; }
@@ -57,10 +69,10 @@ extern "C" ARM void func_ov023_021dc520(Struct_ov023_021dc520* arg0) {
     Sprite_0205ac40_2* var0;
     Struct_ov023_021dc520_3* var1;
     if (arg0->unknown_77c_ == 0) {
-        Struct_ov023_021dc520_3* var2 = func_0203be40(GetOAMManager_0203bd08());
+        Struct_ov023_021dc520_3* var2 = func_0203be40(func_0203bd08());
         var1 = var2;
     } else {
-        Struct_ov023_021dc520_3* var3 = GetSubOAMBuffer_0203be4c(GetOAMManager_0203bd08());
+        Struct_ov023_021dc520_3* var3 = func_0203be4c(func_0203bd08());
         var1 = var3;
     }
     if (data_ov023_021ff9e0.unknown_50_) {
@@ -91,7 +103,7 @@ extern "C" ARM void func_ov023_021dc520(Struct_ov023_021dc520* arg0) {
                 var0->position_14_[0] = var10;
                 var0->position_14_[1] = var9;
                 var0->oamIndex_22_ = var4 + 0x48;
-                DrawSprite_0205ac40(&arg0->unknown_12c_, var0);
+                ((OBJSpriteSet*)(&arg0->unknown_12c_))->DrawMetatile((OBJSpriteSet::Metatile*)(var0));
             }
         }
     }
@@ -117,7 +129,7 @@ extern "C" ARM void func_ov023_021dc520(Struct_ov023_021dc520* arg0) {
                     if (var18 < 0) var18 = 0;
                     unsigned short var19 = var17 | (var18 << 5) | (var18 << 10);
                     int var20 = inline_ov023_021dc520(var15);
-                    DC_FlushRange(&var19, 2);
+                    CleanInvalidateCacheRange((const void*)(&var19), 2);
                     int var21 = 0xe0 + var20;
                     if (arg0->unknown_77c_ == 0) LoadToMainObjStandardPalette(&var19, var21, 2);
                     else LoadToSubObjStandardPalette(&var19, var21, 2);
@@ -126,7 +138,7 @@ extern "C" ARM void func_ov023_021dc520(Struct_ov023_021dc520* arg0) {
             var0->position_14_[0] = (var11 + var13) << 12;
             var0->position_14_[1] = (var13 + 11) << 12;
             var0->oamIndex_22_ = var12 + 0x4c;
-            DrawSprite_0205ac40(&arg0->unknown_12c_, var0);
+            ((OBJSpriteSet*)(&arg0->unknown_12c_))->DrawMetatile((OBJSpriteSet::Metatile*)(var0));
             var11 += 8;
             ++var12;
         }
@@ -136,7 +148,7 @@ extern "C" ARM void func_ov023_021dc520(Struct_ov023_021dc520* arg0) {
     var0->position_14_[0] = REGION(0x18000,0x10000);
     var0->position_14_[1] = 0x8000;
     var0->oamIndex_22_ = 0x52;
-    DrawSprite_0205ac40(&arg0->unknown_12c_, var0);
+    ((OBJSpriteSet*)(&arg0->unknown_12c_))->DrawMetatile((OBJSpriteSet::Metatile*)(var0));
     if (inline_ov023_021dc520_2(arg0->unknown_4c_)) {
         int var23 = 0, var24 = 0;
         Struct_ov023_021dc520_2* var25 = arg0->unknown_4c_->unknown_0_;
@@ -150,10 +162,10 @@ extern "C" ARM void func_ov023_021dc520(Struct_ov023_021dc520* arg0) {
             var0->position_14_[0] = REGION(0x9a000,0x90000);
             var0->position_14_[1] = 0x8000;
             var0->oamIndex_22_ = 0x53;
-            DrawSprite_0205ac40(&arg0->unknown_12c_, var0);
+            ((OBJSpriteSet*)(&arg0->unknown_12c_))->DrawMetatile((OBJSpriteSet::Metatile*)(var0));
         }
         if (!(arg0->unknown_774_ & 8)) {
-            GetOAMManager_0203bd08();
+            func_0203bd08();
             arg0->unknown_c4_->unknown_14_ = var1->unknown_2a0_;
             func_02075db0(arg0->unknown_c4_, 0x1c, 0x34);
         }

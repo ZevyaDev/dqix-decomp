@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 class GameState;
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
@@ -17,7 +21,7 @@ extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *man
 extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" void *GetParty_02010828(GameState *gameState);
-extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(void *menu);
 extern "C" void func_ov002_0215fb54(void *arg0);
 extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
@@ -49,7 +53,7 @@ extern "C" ARM void func_ov002_02167eb0(char *arg0) {
         GetParty_02010828(var4);
         unsigned char *var5 = (unsigned char *)var4->GetPartyMemberByIndex(*(signed char *) (arg0 + 0x1ae8));
         if (var5 == 0) return;
-        *(int *) (GetPartyMemberData_02053c6c(var5) + 0x8b4) = *(short *) (arg0 + 0x1acc);
+        *(int *) (func_02053c6c(var5) + 0x8b4) = *(short *) (arg0 + 0x1acc);
         *(short *) (arg0 + 0x1acc)            = -1;
         func_ov002_02156e90(arg0);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xe20), 0x1b, 0);
@@ -87,7 +91,7 @@ extern "C" ARM void func_ov002_02167eb0(char *arg0) {
         GetParty_02010828(var10);
         unsigned char *var11 = (unsigned char *)var10->GetPartyMemberByIndex(*(signed char *) (arg0 + 0x1c20));
         if (var11 == 0) return;
-        *(int *) (GetPartyMemberData_02053c6c(var11) + 0x94c) = *(short *) (arg0 + 0x1c04);
+        *(int *) (func_02053c6c(var11) + 0x94c) = *(short *) (arg0 + 0x1c04);
         *(short *) (arg0 + 0x1c04)            = -1;
         func_ov002_02156e90(arg0);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xec8), 0x1a, 0);

@@ -5,6 +5,7 @@
 #include "Resource/GameResources.h"
 #include "NitroSDK/Matrix.h"
 #include "Resource/Brightness.h"
+#include "Graphics/TextureArena.h"
 
 #if defined(jpn)
 #define data_ov026_021dee0c data_ov026_021df4bf
@@ -111,7 +112,6 @@ struct Struct_ov026_021de6a0 {
 #endif
 };
 
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 void SetMainBrightness(GameResources*, int, int);
@@ -153,7 +153,7 @@ extern "C" ARM void func_ov026_021db5a4(BattleScene_ov000_02160da0* arg0) {
     if (arg0->unknown_7712_ == 0) {
         if (func_ov000_021759f4(arg0->unknown_3760_)) {
             arg0->unknown_774c_.Reset();
-            ResetTextureVRAMState_0207df50(&arg0->unknown_7760_);
+            ((TextureArena*)(&arg0->unknown_7760_))->Reset();
             arg0->unknown_7714_ = arg0->unknown_771e_ = arg0->unknown_7720_ = -1;
             SetBrightness(var0, -0x10, 0xf);
             arg0->unknown_7714_ = BackgroundLoader::GetInstance()->QueueLoadFile(data_ov026_021dee0c, &arg0->unknown_774c_);

@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 struct Struct_ov023_021e67f4_3 {
     char unknown_0_[0xac];
@@ -23,10 +24,6 @@ struct SpriteAnimationList_0205a330;
 
 extern "C" Struct_ov023_021e67f4_3* GetCursorTextWindow_0205d8c4(struct TextWindowManager_0205d81c* windowManager);
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
-extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254* animationList, int index);
-extern "C" Struct_ov023_021e67f4_2* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index);
-extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330* animationList, int ticks);
-extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
 
 #if defined(jpn)
 struct Struct_ov023_021e67f4 {
@@ -67,16 +64,16 @@ extern "C" ARM void func_ov023_021e67f4(Struct_ov023_021e67f4* arg0)
     short var2 = var0->unknown_ae_ * 8;
     var1 += var0->unknown_bc_;
     var2 += var0->unknown_be_;
-    PlaySpriteAnimation_0205a370((SpriteAnimationList_0205a254*)arg0->unknown_1360_, 0);
-    Struct_ov023_021e67f4_2* var3 = FindSpriteAnimation_0205a3d0((SpriteAnimationList_0205a254*)arg0->unknown_1360_, 0);
+    ((OBJSpriteSet::List*)((SpriteAnimationList_0205a254*)arg0->unknown_1360_))->PlaySpriteAnimation(0);
+    Struct_ov023_021e67f4_2* var3 = ((Struct_ov023_021e67f4_2*)((OBJSpriteSet::List*)((SpriteAnimationList_0205a254*)arg0->unknown_1360_))->GetSprite(0));
     if (var3 != NULL)
         var3->unknown_15_ |= 8;
-    AdvanceSpriteAnimations_0205a330((SpriteAnimationList_0205a330*)arg0->unknown_1360_, arg0->unknown_13a4_);
-    var3 = FindSpriteAnimation_0205a3d0((SpriteAnimationList_0205a254*)arg0->unknown_1360_, 0);
+    ((OBJSpriteSet::List*)((SpriteAnimationList_0205a330*)arg0->unknown_1360_))->UpdateAll(arg0->unknown_13a4_);
+    var3 = ((Struct_ov023_021e67f4_2*)((OBJSpriteSet::List*)((SpriteAnimationList_0205a254*)arg0->unknown_1360_))->GetSprite(0));
     if (var3 != NULL)
     {
         var3->unknown_4_ = var1 - 8;
         var3->unknown_6_ = var2 - 2;
     }
-    DrawSpriteAnimations_0205ae8c(arg0->unknown_135c_);
+    ((OBJSpriteSet*)(arg0->unknown_135c_))->DrawAll();
 }

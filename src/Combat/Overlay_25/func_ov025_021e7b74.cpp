@@ -3,6 +3,10 @@
 #include "Resource/GameResources.h"
 #include <std_library_functions.h>
 
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
 struct Struct_02070f98_2;
 struct Struct_02070fe4;
 struct Struct_02070f98 { unsigned short unknown_0_0_ : 15; unsigned short unknown_1_7_ : 1; };
@@ -10,7 +14,7 @@ struct Struct_ov025_021e7b74 { char unknown_0_[0x400]; unsigned int unknown_400_
 struct Struct_ov025_021e7b74_2 { char unknown_0_[0x284]; Struct_ov025_021e7b74 unknown_284_; };
 struct Struct_ov001_02158ae4_3 { char unknown_0_[0x240]; Vector3i unknown_240_; };
 struct Struct_02033834;
-extern "C" Struct_ov025_021e7b74_2* GetBattleSetup_ov017_021b8478(void*);
+extern "C" Struct_ov025_021e7b74_2* func_ov017_021b8478(void*);
 extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(void*, short*, int, int);
 extern "C" int func_ov000_0215ed34(void*, short*, int);
@@ -36,7 +40,7 @@ extern "C" ARM int func_ov025_021e7b74(void*, void*, void*, void* arg3) {
     Struct_ov025_021e7b74* var1;
     GameResources* var2 = GetGameResources();
     GameState* var3 = GameState::GetInstance();
-    Struct_ov025_021e7b74_2* var4 = GetBattleSetup_ov017_021b8478(var2->unknown_ptr_3718);
+    Struct_ov025_021e7b74_2* var4 = func_ov017_021b8478(var2->unknown_ptr_3718);
     void* var5 = GetBattleScene_ov000_02160130();
     short var6[8];
     var0 = (unsigned char)CollectEnemyCombatantIndices_ov000_0215eb1c(arg3, var6, 8, 0x10);

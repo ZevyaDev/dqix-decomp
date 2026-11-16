@@ -2,6 +2,10 @@
 #include <GameState/GameState.h>
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_0205c570;
 struct TextWindowManager_0205def8;
 struct SoundEffectManager_02108760;
@@ -69,7 +73,7 @@ extern "C" void SetTextWindowVisible_0205def8(struct TextWindowManager_0205def8*
 struct TextWindowManager_0205da38;
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" unsigned char* func_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov000_0217ab48(void* arg0);
 extern "C" void func_ov000_02171458(Struct_ov000_0217b518_3* arg0);
 extern "C" void func_ov000_0217629c(Struct_ov000_0217b518_3* arg0);
@@ -101,7 +105,7 @@ extern "C" ARM int func_ov000_0217b518(Struct_ov000_0217b518_3* arg0, int arg1, 
         func_ov000_02171458(arg0);
         GameObject* var5 = GameState::GetInstance()->GetPartyMemberByIndex(arg0->unknown_4c_);
         if (var5 != NULL) {
-            unsigned char* var6 = GetPartyMemberData_02053c6c((unsigned char*)var5);
+            unsigned char* var6 = func_02053c6c((unsigned char*)var5);
             if (var6 != NULL) {
                 *(unsigned short*)(var6 + 0x8c8) = arg0->unknown_26_;
             }
@@ -148,7 +152,7 @@ extern "C" ARM int func_ov000_0217b518(Struct_ov000_0217b518_3* arg0, int arg1, 
         func_ov000_02171458(arg0);
         GameObject* var12 = GameState::GetInstance()->GetPartyMemberByIndex(arg0->unknown_4c_);
         if (var12 != NULL) {
-            unsigned char* var13 = GetPartyMemberData_02053c6c((unsigned char*)var12);
+            unsigned char* var13 = func_02053c6c((unsigned char*)var12);
             if (var13 != NULL) {
                 *(unsigned short*)(var13 + 0x960) = arg0->unknown_26_;
             }

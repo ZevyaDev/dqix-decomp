@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include <globaldefs.h>
+#include "NitroSDK/Cache.h"
 #if defined(jpn)
 #define FIELD_1ba4 0x1a6c
 #define FIELD_2458 0x228c
@@ -61,7 +62,6 @@ extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_02
 extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(TextWindowManager_0205d2bc *windowManager);
 extern "C" void ResetTextWindowManager_0205d048(struct TextWindowManager_0205d048 *windowManager);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
-extern "C" void DC_FlushRange(const void *p, unsigned int len);
 extern "C" void LoadToMainBG1CharacterData(const void *data, unsigned int offset, unsigned int length);
 extern "C" void func_ov002_0215b428(unsigned char *arg0);
 extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov002_021556fc(char *arg0) {
     ResetTextWindowManager_0205d048((struct TextWindowManager_0205d048 *) (arg0 + FIELD_ec8));
     if (*(void **) (arg0 + FIELD_1bd8) != 0) {
         memset(*(void **) (arg0 + FIELD_1bd8), 0, 0x20);
-        DC_FlushRange(*(void **) (arg0 + FIELD_1bd8), 0x20);
+        CleanInvalidateCacheRange((const void*)(*(void **) (arg0 + FIELD_1bd8)), 0x20);
         LoadToMainBG1CharacterData(*(void **) (arg0 + FIELD_1bd8), 0, 0x20);
     }
     *(void **) (arg0 + FIELD_1bd8) = 0;

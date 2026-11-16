@@ -4,8 +4,12 @@
 #include "Combat/MapDisplay.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 class AllocatorUnion;
-extern "C" int FreeMemory_02012da4(AllocatorUnion*, void*);
+extern "C" int func_02012da4(AllocatorUnion*, void*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 
 extern AllocatorUnion gMainHeap_02114e20;
@@ -22,7 +26,7 @@ extern "C" ARM void func_ov017_021a050c(GameResources* arg0) {
         arg0->allocator_array_38[var2].Destroy();
         arg0->allocator_array_38[var2].ResetAllocatorPointer();
         if (var3 != NULL) {
-            FreeMemory_02012da4(&gMainHeap_02114e20, var3);
+            func_02012da4(&gMainHeap_02114e20, var3);
         }
     }
 

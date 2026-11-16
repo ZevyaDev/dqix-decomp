@@ -1,11 +1,15 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" void func_ov017_021c812c(int arg0, int arg1);
 extern "C" void SetCombatantCell_02049390(unsigned char* combatant, unsigned char cell);
-extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" void* func_ov017_021b8468(void* battleManager);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 
 struct Struct_ov017_021c82bc {
@@ -48,7 +52,7 @@ extern "C" ARM void func_ov017_021c82bc(int arg0, struct Struct_ov017_021c82bc* 
     }
 
     void* var6 = *(void**)((char*)arg3 + 0x3000 + Enum_ov017_021c82bc_1816);
-    void* var7 = GetBattleScene_ov017_021b8468(var6);
+    void* var7 = func_ov017_021b8468(var6);
     if (!var7) return;
     SetBattleSceneFlags_ov000_02160fa8(var7, 0x200000);
 }

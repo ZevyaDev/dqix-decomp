@@ -2,6 +2,10 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_ov002_0215624c_11;
 struct Struct_ov002_0215624c_15;
 struct Struct_ov002_02164748;
@@ -19,7 +23,7 @@ extern "C" void PlaySoundEffect_0205eaa0(struct Struct_ov002_02157d40_7 *manager
 extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void SetTextWindowPalette_0205deb4(struct Struct_ov002_02155960_2 *windowManager, int windowId, int palette);
 extern "C" void SetCursorTextWindow_0205dee8(struct Struct_ov002_02164748_2 *windowManager, int windowId);
-extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 extern "C" int func_ov002_02157108(void *arg0, int arg1);
 extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *gameState, int index);
 extern "C" void *GetParty_02010828(GameState *gameState);
@@ -67,7 +71,7 @@ extern "C" ARM void func_ov002_02164748(char *arg0) {
             GameState *var4 = GameState::GetInstance();
             GameObject *var5 = GetPartyMemberBaseByIndex_0200ff1c(var4, *(signed char *) (arg0 + RG(0x1c00 + 0x21, 0x1ae9)));
             if (var5 == NULL) return;
-            unsigned char *var6 = GetPartyMemberData_02053c6c((unsigned char *) var5);
+            unsigned char *var6 = func_02053c6c((unsigned char *) var5);
             GameObject *var7     = GetPartyMemberBaseByIndex_0200ff1c(var4, *(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1ae8)));
             if (var7 == NULL && *(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1ae8)) != 4) return;
             int var8                          = 0;
@@ -116,7 +120,7 @@ extern "C" ARM void func_ov002_02164748(char *arg0) {
                 } else {
                     GameObject *var12 = GetPartyMemberBaseByIndex_0200ff1c(var4, *(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1ae8)));
                     if (var12 == NULL) return;
-                    unsigned char *var13                           = GetPartyMemberData_02053c6c((unsigned char *) var12);
+                    unsigned char *var13                           = func_02053c6c((unsigned char *) var12);
                     SLOT(var13, *(short *) (arg0 + RG(0x1b00 + 0xe8, 0x1ab0))) = *(short *) (arg0 + RG(0x1c00 + 0x24, 0x1aec));
                     SLOT(var6, *(short *) (arg0 + RG(0x1b00 + 0xf4, 0x1abc))) = *(short *) (arg0 + RG(0x1c00 + 0x22, 0x1aea));
                     if (*(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1ae8)) == *(signed char *) (arg0 + RG(0x1c00 + 0x21, 0x1ae9))) {
@@ -139,17 +143,17 @@ extern "C" ARM void func_ov002_02164748(char *arg0) {
                     var14 = 1;
                 if (*(short *) (arg0 + RG(0x1c00 + 0x22, 0x1aea)) == 0x570a && var15 != 4) {
                     short var16 = func_02083994(
-                        (struct Struct_ov002_02164748_4 *) GetPartyMemberData_02053c6c((unsigned char *) var7), 0x570a);
+                        (struct Struct_ov002_02164748_4 *) func_02053c6c((unsigned char *) var7), 0x570a);
                     if (var16 == 0 || (var16 == 1 && var14)) {
                         *(unsigned char *) (*(char **) ((char *) var7 + 0x130) + 8) = 0;
-                        func_ov017_021c9e00(var7->obj3D_.objectIndex_4_, 0, 0, 1);
+                        func_ov017_021c9e00(var7->obj3D_.unknown_4_, 0, 0, 1);
                     }
                 }
                 if (*(short *) (arg0 + RG(0x1c00 + 0x24, 0x1aec)) == 0x570a) {
                     short var17 = func_02083994((struct Struct_ov002_02164748_4 *) var6, 0x570a);
                     if (var17 == 0 || (var17 == 1 && var14)) {
                         *(unsigned char *) (*(char **) ((char *) var5 + 0x130) + 8) = 0;
-                        func_ov017_021c9e00(var5->obj3D_.objectIndex_4_, 0, 0, 1);
+                        func_ov017_021c9e00(var5->obj3D_.unknown_4_, 0, 0, 1);
                     }
                 }
             }

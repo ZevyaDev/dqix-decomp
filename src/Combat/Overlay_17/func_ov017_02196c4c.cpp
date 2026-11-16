@@ -5,18 +5,34 @@
 #include "Util/Random.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_02033fa0 func_02033ad8
+#endif
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+
+extern "C" void* func_0202ae18(void);
 extern "C" unsigned char* GetZone3D_02012fe4(void);
 struct Struct_0200ffc0;
 extern "C" void* func_0200ffc0(struct Struct_0200ffc0* arg0);
-extern "C" unsigned char* GetFlagManager_0205ec34(void);
+extern "C" unsigned char* func_0205ec34(void);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 struct QueueNode_02015438;
 extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 extern "C" int func_02053cdc(int* arg0);
 extern "C" int func_02039760(void* arg0);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 int NextRandomBetween(struct Random* rng, int lo, int hi);
 extern "C" void func_ov017_021b6f18(void* arg0);
 extern "C" void func_ov017_02196c08(unsigned char* arg0);
@@ -74,14 +90,14 @@ extern "C" ARM int func_ov017_02196c4c(Struct_ov017_02196c4c* arg0) {
  enum {Enum_ov017_02196c4c_396=0x18c, Enum_ov017_02196c4c_10132=0x2794};
 #endif
     GameState* var0 = GameState::GetInstance();
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     unsigned char* var1 = GetZone3D_02012fe4();
     unsigned short* var2 = arg0->unknown_36f8_;
     GameObject* var3 = var0->GetUnknownGameObject();
     void* var4 = func_0200ffc0((struct Struct_0200ffc0*)var0);
     LightingManager* var5;
     Struct_ov017_02196c4c_2* var6 = (Struct_ov017_02196c4c_2*)GetGameResources()->unknown_ptr_array_371c[6];
-    unsigned char* var7 = GetFlagManager_0205ec34();
+    unsigned char* var7 = func_0205ec34();
     var5 = LightingManager::GetInstance();
 
     if (IsQueueEmpty_02046b08((void**)arg0->unknown_36fc_) == 0) {
@@ -108,7 +124,7 @@ extern "C" ARM int func_ov017_02196c4c(Struct_ov017_02196c4c* arg0) {
     if (*var2 != 10000) {
         return 0;
     }
-    if (!IsFlagSet_0206dfb0((int)var7, var7 + 0x8c, 0x2b)) {
+    if (!func_0206dfb0((int)var7, var7 + 0x8c, 0x2b)) {
         return 0;
     }
 

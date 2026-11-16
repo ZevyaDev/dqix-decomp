@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" int func_020546bc(void* arg0);
@@ -28,7 +32,7 @@ extern "C" ARM void func_ov017_021ce32c(int arg0) {
 #else
  enum {Enum_ov017_021ce32c_722=0x2d2};
 #endif
-	void* var0 = GetLocalWirelessPacketQueue_0202ae24();
+	void* var0 = func_0202ae24();
 	GameObject* var1 = GetCompanionByIndex_0200ff58(GameState::GetInstance(), arg0);
 	if (var1 == NULL) {
 		return;

@@ -5,6 +5,10 @@
 #include "NitroSDK/Interrupts.h"
 #include "NitroSDK/Cache.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 struct Struct_ov031_02217604 {
     unsigned long long unknown_0_;
     unsigned long long unknown_8_;
@@ -52,7 +56,7 @@ struct Struct_ov031_02217604_5 {
 };
 extern "C" int func_020c7170(char*, unsigned long, const char*, ...);
 extern "C" int func_020c7130(char*, const char*, ...);
-extern "C" void HaltForever_020c9be0(void);
+extern "C" void func_020c9be0(void);
 extern "C" void GetMACAddress_020c99ac(unsigned char*);
 extern "C" void func_020c99c8(void*);
 extern "C" int func_020cf25c(void*, void*);
@@ -84,11 +88,11 @@ extern "C" ARM int func_ov031_02217604(Struct_ov031_02217604_5* arg0, const Stru
     const unsigned char* var5 = (const unsigned char*)((const CartridgeHeader*)BIOS_ADDR_CARTRIDGE_HEADER)->gameCode;
     const unsigned char* var6 = (const unsigned char*)((const CartridgeHeader*)BIOS_ADDR_CARTRIDGE_HEADER)->makerCode;
     if (var5[0] == 0) {
-        HaltForever_020c9be0();
+        func_020c9be0();
     }
     VectorizedInvertedMemcpy(var5, arg0->unknown_15_, 4);
     if (var6[0] == 0) {
-        HaltForever_020c9be0();
+        func_020c9be0();
     }
     VectorizedInvertedMemcpy(var6, arg0->unknown_1a_, 2);
     arg0->unknown_1d_ = '0';

@@ -9,6 +9,10 @@ enum { Enum_ov000_02160b54_22004 = 0x55f4, Enum_ov000_02160b54_3784 = 0xec8, Enu
 #include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 extern "C" void func_02016874(void* arg0);
 extern "C" void func_ov000_02161020(void* arg0);
 struct Vector3i;
@@ -19,7 +23,7 @@ extern "C" void func_ov025_021df864(void* arg0);
 extern "C" ARM void func_ov000_02160b54(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
     unsigned int* var1 = ((unsigned int*)GetGameResources());
-    GetCamera_020100bc(var0);
+    func_020100bc(var0);
     if (!(*(int*)(arg0 + Enum_ov000_02160b54_22004) & 0x200)) {
         return;
     }
@@ -40,7 +44,7 @@ extern "C" ARM void func_ov000_02160b54(unsigned char* arg0) {
             var3->obj3D_.Draw(0);
         }
     }
-    RenderConfig::SubmitToFifo();
+    Nitro3DRenderConfig::SubmitToFifo();
     if (*(int*)(arg0 + Enum_ov000_02160b54_3752) != 8) {
         return;
     }

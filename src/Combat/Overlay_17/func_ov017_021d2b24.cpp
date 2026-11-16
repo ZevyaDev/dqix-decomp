@@ -76,3 +76,8 @@ extern "C" ARM void func_ov017_021d2b24(void* arg0, struct Struct_ov017_021d2b24
         SetObject3DPosition_020407b4((struct Struct_02040774_2*)var2, arg1->unknown_8_, arg1->unknown_c_, arg1->unknown_10_);
     }
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

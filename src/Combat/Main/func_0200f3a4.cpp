@@ -5,6 +5,10 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
 extern "C" void func_020c99c8(void* arg0);
 extern "C" void func_0208660c(char* arg0);
 struct Struct_0200f3a4_7;
@@ -15,7 +19,7 @@ extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8* table);
 struct Struct_0200f3a4_9;
 extern "C" void func_02010124(Struct_0200f3a4_9* arg0);
 extern "C" void func_020118fc(void* arg0);
-extern "C" void* GetGlobalFlags_020d6c00();
+extern "C" void* func_020d6c00();
 struct Struct_0200f3a4_10;
 extern "C" void func_02046730(Struct_0200f3a4_10* arg0);
 struct Struct_0200f3a4_11;
@@ -299,7 +303,7 @@ extern "C" ARM void func_0200f3a4(void* arg0) {
     *(int*)(var1 + J(0x71f0)) = 0;
     *(int*)(var1 + J(0x71f4)) = 0;
 
-    func_02046730((Struct_0200f3a4_10*)GetGlobalFlags_020d6c00());
+    func_02046730((Struct_0200f3a4_10*)func_020d6c00());
 
     memset(var1 + J(0x7504), 0, 0xec);
     memset(var1 + J(0x75f0), 0, 0x4d0);

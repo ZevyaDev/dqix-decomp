@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 #define func_ov005_0215ae7c func_ov005_0215c33c
@@ -45,7 +46,6 @@ extern "C" ItemData_0201099c_9* FindItemData_020dedd0(ItemTable_0201099c_10* ite
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 extern "C" void func_02046608(MessageWindow_02021b84* arg0, int, const char* arg2, char* arg3, int arg4, int, unsigned char);
-extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_020d2f88(char* arg0, char* arg1);
 extern "C" void func_02045d14(MessageWindow_02021b84* arg0, const char* arg1, unsigned short* arg2, int);
 extern "C" void func_020439b0(MessageWindow_02021b84* arg0, int);
@@ -91,11 +91,11 @@ extern "C" ARM void func_ov005_0215ae7c(Struct_ov005_02153954* arg0)
         }
         else if (var7 <= 0)
         {
-            func_020469b0(var0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x2ee0), arg0->unknown_3e84_[var6], 0xa);
+            func_020469b0(var0, ((StringList*)((Struct_0201099c_3*)arg0->unknown_df8_))->GetString(0x2ee0), arg0->unknown_3e84_[var6], 0xa);
         }
         else
         {
-            func_020469b0(var0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x32c7), arg0->unknown_3e84_[var6], 0xa);
+            func_020469b0(var0, ((StringList*)((Struct_0201099c_3*)arg0->unknown_df8_))->GetString(0x32c7), arg0->unknown_3e84_[var6], 0xa);
         }
 #else
         char var9[0x80];
@@ -109,11 +109,11 @@ extern "C" ARM void func_ov005_0215ae7c(Struct_ov005_02153954* arg0)
         }
         else if (var7 <= 0)
         {
-            func_02046608(var0, 0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x2ee0), var9, 0x58, 0, 0);
+            func_02046608(var0, 0, ((StringList*)((Struct_0201099c_3*)arg0->unknown_df8_))->GetString(0x2ee0), var9, 0x58, 0, 0);
         }
         else
         {
-            func_02046608(var0, 0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x32c7), var9, 0x58, 0, 0);
+            func_02046608(var0, 0, ((StringList*)((Struct_0201099c_3*)arg0->unknown_df8_))->GetString(0x32c7), var9, 0x58, 0, 0);
         }
         if (func_020d2f88(var9, data_ov005_0215ce08))
             arg0->unknown_4284_[var6] = 1;

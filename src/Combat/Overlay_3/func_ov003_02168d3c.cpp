@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 extern "C" void* memset(void*, int, unsigned int);
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
 
 struct TextWindowManager_0205d81c;
 struct Struct_0201099c_3;
 struct MessageWindow_020465c0;
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
-extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" void func_ov003_0216abd8(void*, char*);
 extern "C" void func_ov003_02169c3c(void*);
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov003_02168d3c(Struct_ov003_02168d3c* arg0, void* arg1,
             else if(var2->unknown_f6c_<1000) var3=(short)(arg2+3);
             if(var3>=0) {
                 memset(arg0->unknown_7c_,0,Enum_ov003_02168d3c_2400);
-                int var4=FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_,var3);
+                int var4=((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_64_))->GetString(var3));
                 AppendText_02042058(arg0->unknown_7c_,(const char*)var4);
                 func_ov003_0216abd8(arg0,arg0->unknown_7c_);
                 inline_ov003_02168d3c(var1,(int)arg0->unknown_7c_);
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov003_02168d3c(Struct_ov003_02168d3c* arg0, void* arg1,
             else if(var2->unknown_f6c_>=0x989298) var10=(short)(arg2+4);
             if(var10>=0) {
                 memset(arg0->unknown_7c_,0,Enum_ov003_02168d3c_2400);
-                int var11=FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_,var10);
+                int var11=((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_64_))->GetString(var10));
                 AppendText_02042058(arg0->unknown_7c_,(const char*)var11);
                 func_ov003_0216abd8(arg0,arg0->unknown_7c_);
                 inline_ov003_02168d3c(var1,(int)arg0->unknown_7c_);
@@ -126,7 +126,7 @@ extern "C" ARM void func_ov003_02168d3c(Struct_ov003_02168d3c* arg0, void* arg1,
             }
             arg0->unknown_4f8_=var12*1000;
         }
-        int var18=FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_,(short)arg2);
+        int var18=((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_64_))->GetString((short)arg2));
         inline_ov003_02168d3c(var1,var18);
         arg0->unknown_4e8_++;
     } else if(arg0->unknown_4e8_==1) {
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov003_02168d3c(Struct_ov003_02168d3c* arg0, void* arg1,
             func_0205d6e4((TextWindowManager_0205d81c*)arg0->unknown_e4_,1);
             SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)arg0->unknown_e4_,1,1);
             memset(arg0->unknown_7c_,0,Enum_ov003_02168d3c_2400);
-            int var20=FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_,0x406);
+            int var20=((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_64_))->GetString(0x406));
             AppendText_02042058(arg0->unknown_7c_,(const char*)var20);
             func_ov003_0216abd8(arg0,arg0->unknown_7c_);
             inline_ov003_02168d3c(var1,(int)arg0->unknown_7c_);
@@ -183,7 +183,7 @@ extern "C" ARM void func_ov003_02168d3c(Struct_ov003_02168d3c* arg0, void* arg1,
             ClearMessageParams_02046380(var1);
             SetMessageNumber_020465c0((MessageWindow_020465c0*)var1,0,arg0->unknown_5a0_);
             SetMessageNumberWidth_020465f0((unsigned char*)var1,0,0);
-            int var25=FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_,(short)(var24+1));
+            int var25=((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_64_))->GetString((short)(var24+1)));
             inline_ov003_02168d3c_2(var1,var25,arg0->unknown_7c_);
             func_ov003_0216abd8(arg0,arg0->unknown_7c_);
             inline_ov003_02168d3c(var1,(int)arg0->unknown_7c_);
@@ -192,16 +192,16 @@ extern "C" ARM void func_ov003_02168d3c(Struct_ov003_02168d3c* arg0, void* arg1,
             ClearMessageParams_02046380(var1);
             SetMessageNumber_020465c0((MessageWindow_020465c0*)var1,0,0x3b9ac618-var2->unknown_f68_);
             SetMessageNumberWidth_020465f0((unsigned char*)var1,0,0);
-            int var26=FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_,var24);
+            int var26=((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_64_))->GetString(var24));
             inline_ov003_02168d3c_2(var1,var26,arg0->unknown_7c_);
             func_ov003_0216abd8(arg0,arg0->unknown_7c_);
             inline_ov003_02168d3c(var1,(int)arg0->unknown_7c_);
             arg0->unknown_4e8_++;
         } else {
             memset(arg0->unknown_7c_,0,Enum_ov003_02168d3c_2400);
-            int var27=FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_,(short)(var24+2));
+            int var27=((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_64_))->GetString((short)(var24+2)));
             AppendText_02042058(arg0->unknown_7c_,(const char*)var27);
-            var27=FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_,var24);
+            var27=((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_64_))->GetString(var24));
             AppendText_02042058(arg0->unknown_7c_,(const char*)var27);
             inline_ov003_02168d3c(var1,(int)arg0->unknown_7c_);
             for(int var28=0;var28<4;++var28) arg0->unknown_4ef_[var28]=0;

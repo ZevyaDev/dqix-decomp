@@ -22,7 +22,7 @@ extern "C" ARM void func_02089de8(void* arg0, void* arg1, const char* arg2) {
     unsigned int var0;
     Script var1;
     void* var2;
-    void* var3 = gFileScratchSpace_0211e33c;
+    void* var3 = g_fileScratchSpace;
     unsigned int* var4 = &var0;
     if (arg2 != 0) {
         var2 = LoadFileIntoMemory(arg2, var3, var4);
@@ -30,7 +30,7 @@ extern "C" ARM void func_02089de8(void* arg0, void* arg1, const char* arg2) {
         #if defined(jpn)
         var2 = LoadFileIntoMemory(&data_020f1088, var3, var4);
 #else
-        var2 = ExtractFileFromGP2(&data_020f1088, &data_020f109e, var4);
+        var2 = ExtractFileFromGP2((const char*)(&data_020f1088), (const char*)(&data_020f109e), (unsigned int*)(var4));
 #endif
     }
     if (var2 != 0) {

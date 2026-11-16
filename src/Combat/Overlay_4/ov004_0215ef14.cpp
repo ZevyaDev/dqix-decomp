@@ -5,6 +5,19 @@
 #include "NitroSDK/LoadToVRAM.h"
 #include "NitroSDK/Matrix.h"
 #include "Resource/GameResources.h"
+#include "Resource/GameStrings.h"
+
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 extern "C" unsigned short func_ov004_0215eb20(void* arg0, int arg1);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
@@ -268,20 +281,19 @@ struct Struct_ov004_0215f0c0_9 {
 struct Struct_02000c9c_8;
 struct StringList_02072a68_2;
 
-extern "C" int GetStringLength_020d2ff0(const char*);
-extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_020d2ff0(const char*);
+extern "C" unsigned char* func_02053c6c(unsigned char* gameObject);
 extern "C" struct Struct_ov004_0215f0c0_10* func_ov004_0215e47c(void* arg0, int arg1);
 extern "C" void* func_ov023_021fad18(void* arg0);
 extern "C" struct Struct_ov004_0215f0c0_8* func_ov004_0215e438(void* arg0, int arg1);
 extern "C" int GetHaloObject_ov017_021bdbcc(void* gameResources);
 extern "C" void* GetWindowTile_020421b0(int tileIndex);
-extern "C" unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8* gameState);
+extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8* gameState);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" Struct_ov004_0215f0c0_5* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(Struct_ov004_0215f0c0_5* arg0);
 extern "C" int func_02042190(int arg0);
 extern "C" int func_020420e8(void* arg0, int arg1);
-extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" int func_ov004_0215e460(void);
 extern "C" void func_ov004_0215e49c(void*, int, int);
 extern "C" struct StringList_02072a68_2* GetMenuObjectStringList_ov023_021fa598(Struct_ov004_0215f0c0_5* object);
@@ -301,7 +313,7 @@ extern unsigned short data_ov004_0216fdd0[];
 extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
     GameState* var0 = GameState::GetInstance();
     struct Struct_ov004_0215f0c0_2* var1 = (struct Struct_ov004_0215f0c0_2*)GetPartyMemberBaseByIndex_0200ff1c(var0, data_ov004_02170804);
-    struct Struct_ov004_0215f0c0_6* var2 = (struct Struct_ov004_0215f0c0_6*)GetPartyMemberData_02053c6c((unsigned char*)var1);
+    struct Struct_ov004_0215f0c0_6* var2 = (struct Struct_ov004_0215f0c0_6*)func_02053c6c((unsigned char*)var1);
     int var3 = 0;
     int var4 = 0xf;
     if ((int)var1->unknown_130_->unknown_4_ <= 0) {
@@ -335,7 +347,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
                         var15 = (unsigned short)(var12->unknown_4_ & 0x3ff) << 5;
                         for (var14 = 0; var14 < 4; var14++, var16++) {
                             void* var17 = GetWindowTile_020421b0(var16);
-                            DC_FlushRange(var17, 0x20);
+                            CleanInvalidateCacheRange((const void*)(var17), 0x20);
                             LoadToMainObjVRAM(var17, var15, 0x20);
                             CleanCacheRange(var17, 0x20);
                             var15 += 0x20;
@@ -353,7 +365,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
         }
     }
 
-    unsigned char var18 = GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)var0);
+    unsigned char var18 = func_0200fb08((struct Struct_02000c9c_8*)var0);
 #endif
     void* var19 = GetMenuObjectList_ov011_021849c8(arg0);
     Struct_ov004_0215f0c0_5* var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7f);
@@ -369,7 +381,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
             int var23 = 0;
             if (var22 != 0) {
 #if defined(jpn)
-                var23 = GetStringLength_020d2ff0((const char*)var22);
+                var23 = func_020d2ff0((const char*)var22);
                 var23 = (var23 * var21->unknown_44_0_) >> 1;
 #else
                 var23 = func_020420e8(var22, func_02042190(var21->unknown_44_0_));
@@ -444,7 +456,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
         }
         var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7d);
         if (var20 != 0) {
-            var20->unknown_20_ = (void*)GetStandardString_020e51cc(0x3f3);
+            var20->unknown_20_ = (void*)((int)GetGameString((eGameString)(0x3f3)));
         }
 #endif
     } else {
@@ -486,7 +498,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
         }
         var20 = FindMenuObjectById_ov023_021f6880(var19, 0x7d);
         if (var20 != 0) {
-            var20->unknown_20_ = (void*)GetStandardString_020e51cc(0x3f3);
+            var20->unknown_20_ = (void*)((int)GetGameString((eGameString)(0x3f3)));
         }
 #endif
     }
@@ -588,7 +600,7 @@ extern "C" ARM int func_ov004_0215f74c(int arg0, int arg1) {
 extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" int GetEquippedItem_02052df8(struct Struct_ov004_0215f770_3* gameObject, int slot);
 extern "C" struct Struct_ov004_0215f770_2* FindItemData_020dedd0(struct Struct_0200fb08* itemTable, int itemId);
-extern "C" int GetCamera_020100bc(GameState* gameState);
+extern "C" int func_020100bc(GameState* gameState);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" void InitFollowCamera_020a2010(void* storage);
 extern "C" void SetCameraEye_0202e5c0(struct Struct_ov004_0215f770_4* camera, int x, int y, int z);
@@ -783,7 +795,7 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
     data_ov004_021707ee = data_ov004_021707f1;
     LoadPartyMemberColors_020dc7e8(2, (signed char)data_ov004_02170804);
     LoadPartyMemberColors_020dc7e8(5, (signed char)data_ov004_02170804);
-    data_ov004_021707f8 = GetCamera_020100bc(var3);
+    data_ov004_021707f8 = func_020100bc(var3);
     InitFollowCamera_020a2010(data_ov004_021708c8);
     SetCameraEye_0202e5c0((struct Struct_ov004_0215f770_4*)data_ov004_021708c8, 0xb666, 0xa800, 0x42ccc);
     SetCameraTarget_0202e5c8((unsigned char*)data_ov004_021708c8, 0xb666, 0xa800, 0);
@@ -791,7 +803,7 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
     SetCamera_020100c4(var3, (int)data_ov004_021708c8);
     func_ov004_0215e47c(arg0, 9)->unknown_c_ |= 0x80;
     var0 = 0x18c6;
-    DC_FlushRange(&var0, 2);
+    CleanInvalidateCacheRange((const void*)(&var0), 2);
     LoadToSubBGStandardPalette(&var0, 2, 2);
     CleanCacheRange(&var0, 2);
 
@@ -808,4 +820,9 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
     }
 #endif
     return 0;
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

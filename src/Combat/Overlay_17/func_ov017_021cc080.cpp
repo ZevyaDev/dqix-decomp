@@ -1,7 +1,15 @@
 #include <globaldefs.h>
 
-extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
+extern "C" void* func_ov017_021b8478(void* battleManager);
+extern "C" void* func_ov017_021b8468(void* battleManager);
 extern "C" int func_ov000_02163d94(void* arg0);
 
 struct Struct_ov017_021cc080 { unsigned char unknown_0_[4]; unsigned short unknown_4_; };
@@ -17,8 +25,8 @@ extern "C" ARM void func_ov017_021cc080(int arg0, Struct_ov017_021cc080* arg1, i
         0x718
 #endif
 );
-	Struct_ov017_021cc080_2* var1 = (Struct_ov017_021cc080_2*)GetBattleSetup_ov017_021b8478(var0);
-	void* var2 = GetBattleScene_ov017_021b8468(var0);
+	Struct_ov017_021cc080_2* var1 = (Struct_ov017_021cc080_2*)func_ov017_021b8478(var0);
+	void* var2 = func_ov017_021b8468(var0);
 	if (!var1) {
 		return;
 	}

@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+extern "C" void* func_0202ae24(void);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
@@ -26,7 +30,7 @@ struct Struct_ov017_021c9e00_2 {
 
 // USA: func_ov017_021c9e00
 extern "C" ARM void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3) {
-    void* var0 = GetLocalWirelessPacketQueue_0202ae24();
+    void* var0 = func_0202ae24();
     GameState* var1 = GameState::GetInstance();
 
     int var2 = (arg0 >= 0) && (arg0 <= 3);

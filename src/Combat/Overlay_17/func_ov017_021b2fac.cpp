@@ -4,6 +4,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "World/Object3D.h"
 #include "Resource/GameResources.h"
+#include "Graphics/TextureArena.h"
 
 struct Struct_ov017_021b2fac {
     char unknown_0_[1];
@@ -61,8 +62,6 @@ extern "C" void* func_020d3d90(Struct_020d3d90*, int);
 extern "C" void func_ov017_02191508(int arg0, void* arg1);
 struct ObjectArchiveLoadInfo_0203d028_11;
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d028_11*);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 struct Struct_02010604;
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_02039d48(unsigned char*);
@@ -213,9 +212,9 @@ extern "C" ARM void func_ov017_021b2fac(struct Struct_ov017_021b2fac* arg0) {
                     var20.fileData = var18;
                     var20.unk_8 = var19;
                     var20.allocator = var10;
-                    RestoreTextureVRAMState_0207df90(var0->unknown_cc_);
+                    ((TextureArena*)(var0->unknown_cc_))->Restore();
                     ((Object3D*)var9)->LoadFromCCHROrCMOTArchive(&var20, 0);
-                    SaveTextureVRAMState_0207dfac(var0->unknown_cc_);
+                    ((TextureArena*)(var0->unknown_cc_))->Save();
                 }
             }
             ((Object3D*)var9)->SetScale(0x10a, 0x10a, 0x10a);

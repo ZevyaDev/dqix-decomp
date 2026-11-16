@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
 
 struct StringTable_0201099c_14;
-extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
 
 struct Struct_02092aa4 {
     SafeAllocator unknown_0_;
@@ -24,7 +24,7 @@ struct Struct_02092aa4 {
 // USA: func_02092aa4
 extern "C" ARM void func_02092aa4(Struct_02092aa4* arg0, int arg1) {
     arg0->unknown_0_.ResetAllocatorPointer();
-    InitStringTable_020dfc40((struct StringTable_0201099c_14*)((char*)arg0 + 0x14));
+    ((StringList*)((struct StringTable_0201099c_14*)((char*)arg0 + 0x14)))->Reset();
 
     arg0->unknown_2c_ = -1;
     arg0->unknown_30_ = -1;

@@ -2,7 +2,11 @@
 #include "Combat/SearchEntry.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void* arg0);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void* arg0);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 struct LocalWireless_0202b2f0;
@@ -15,7 +19,7 @@ struct Struct_020342ac {
 
 // USA: func_020342ac
 extern "C" ARM int func_020342ac(void* arg0) {
-    void* var0 = GetLocalWireless_0202ae18(arg0);
+    void* var0 = func_0202ae18(arg0);
     GetGameResources();
     if (!IsLocalWirelessOn_0202b7d8((int*)var0)) {
         goto fallback;

@@ -1,4 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/GameStrings.h"
+#include "Resource/StringList.h"
 
 extern "C" void* func_ov000_02174da4(int arg0, void* arg1);
 extern "C" int func_ov000_0217542c(void* arg0);
@@ -8,8 +10,6 @@ extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
-extern "C" int GetStandardString_020e51cc(int stringId);
 
 extern short data_ov000_021834c4[4];
 
@@ -47,13 +47,13 @@ extern "C" ARM void func_ov000_0217737c(void* arg0, char* arg1) {
             continue;
         }
         if (var4 != 0) {
-            int var8 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(var0 + 0xb8), var5);
+            int var8 = ((int)((StringList*)((struct Struct_0201099c_3*)(var0 + 0xb8)))->GetString(var5));
             AppendText_02042058(arg1, (const char*)var8);
         }
 #if defined(jpn)
         char* var9 = var2.unknown_0_[var7];
 #else
-        int var9 = GetStandardString_020e51cc(data_ov000_021834c4[var7]);
+        int var9 = ((int)GetGameString((eGameString)(data_ov000_021834c4[var7])));
 #endif
         AppendMenuEntry_02041b70(arg1, var4, (const char*)var9);
         var4++;

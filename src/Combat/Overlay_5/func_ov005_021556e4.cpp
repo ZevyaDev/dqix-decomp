@@ -6,6 +6,7 @@
 #include <globaldefs.h>
 #include <Filesystem/FileIO.h>
 #include <std_library_functions.h>
+#include "Resource/StringList.h"
 
 struct ItemTable_0201099c_10;
 struct ItemData_02015ef4_4;
@@ -26,7 +27,6 @@ struct Struct_ov005_021556e4 {
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" Struct_ov005_021556e4* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" int GetItemGraphicNumber_020de234(ItemData_02015ef4_4* item, int gender);
-extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_0203a46c(Struct_0203a46c* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov005_02155d38(Struct_ov005_021556e4_2* arg0);
 
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov005_021556e4(Struct_ov005_02153954* arg0) {
                 char var2[0x80];
                 __clear(var2, sizeof(var2));
                 int var3 = GetItemGraphicNumber_020de234((ItemData_02015ef4_4*)var1, 0);
-                sprintf(var2, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x7d1), (char)var1->unknown_12_4_, var3);
+                sprintf(var2, ((StringList*)((Struct_0201099c_3*)arg0->unknown_df8_))->GetString(0x7d1), (char)var1->unknown_12_4_, var3);
                 if (LoadFileIntoMemory(var2, arg0->unknown_3d8c_, NULL))
                     var0->unknown_14_ = 0;
                 int var4;
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov005_021556e4(Struct_ov005_02153954* arg0) {
                 char var8[0x80];
                 __clear(var8, sizeof(var8));
                 int var9 = GetItemGraphicNumber_020de234((ItemData_02015ef4_4*)var7, 0);
-                sprintf(var8, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x7d1), (char)var7->unknown_12_4_, var9);
+                sprintf(var8, ((StringList*)((Struct_0201099c_3*)arg0->unknown_df8_))->GetString(0x7d1), (char)var7->unknown_12_4_, var9);
                 if (LoadFileIntoMemory(var8, arg0->unknown_3d94_, NULL))
                     var6->unknown_14_ = 0;
                 arg0->unknown_3da8_++;
@@ -138,7 +138,7 @@ extern "C" ARM void func_ov005_021556e4(Struct_ov005_02153954* arg0) {
                     char var17[0x80];
                     __clear(var17, sizeof(var17));
                     int var18 = GetItemGraphicNumber_020de234((ItemData_02015ef4_4*)var15, 0);
-                    sprintf(var17, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x7d1), (char)var15->unknown_12_4_, var18);
+                    sprintf(var17, ((StringList*)((Struct_0201099c_3*)arg0->unknown_df8_))->GetString(0x7d1), (char)var15->unknown_12_4_, var18);
                     if (LoadFileIntoMemory(var17, arg0->unknown_3d90_ + var11, &var16)) {
                         var14->unknown_14_ = var11;
                         var16 = (var16 + 3) & ~3;
@@ -181,7 +181,7 @@ extern "C" ARM void func_ov005_021556e4(Struct_ov005_02153954* arg0) {
                     char var27[0x80];
                     __clear(var27, sizeof(var27));
                     int var28 = GetItemGraphicNumber_020de234((ItemData_02015ef4_4*)var25, 0);
-                    sprintf(var27, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_df8_, 0x7d1), (char)var25->unknown_12_4_, var28);
+                    sprintf(var27, ((StringList*)((Struct_0201099c_3*)arg0->unknown_df8_))->GetString(0x7d1), (char)var25->unknown_12_4_, var28);
                     if (LoadFileIntoMemory(var27, arg0->unknown_3d88_ + var21, &var26)) {
                         var24->unknown_14_ = var21;
                         var26 = (var26 + 3) & ~3;

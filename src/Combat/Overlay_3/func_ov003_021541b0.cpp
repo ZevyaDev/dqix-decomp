@@ -3,30 +3,25 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "NitroSDK/Graphics.h"
 #include "Resource/Brightness.h"
+#include "Graphics/BGLayer.h"
+#include "Resource/PAC.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
 
 extern "C" int GetResources_0200fb8c(int* gameState);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_020dc2bc(void);
-extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
-extern "C" void SetBGPriority_0204b5b4(void* layer, int priority);
 struct BGLayer_02020cb8_5;
-extern "C" void SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 struct BGLayer_0204af38;
-extern "C" void AllocateBGScreenBlocks_0204af38(struct BGLayer_0204af38* layer, int capacity, SafeAllocator* allocator);
 struct BGLayer_0204b12c;
-extern "C" void AllocateBGScreenData_0204b12c(struct BGLayer_0204b12c* layer, SafeAllocator* allocator);
 struct BGLayer_0204b010;
-extern "C" void ClearBGScreenData_0204b010(struct BGLayer_0204b010* layer, void* screenData);
 struct BGLayer_0204b988;
-extern "C" void CopyBGScreenBlock_0204b988(struct BGLayer_0204b988* layer, unsigned int screenBlockIndex, int destX, int destY, unsigned short palette);
 struct BGLayer_02020cb8_2;
-extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2* layer, void* screenData);
 struct PacEntry_02020cb8_4;
-extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
-extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void LoadBGBlock_0204b174(void* layer, void* block, SafeAllocator* allocator, int arg3);
 
 extern char data_ov003_0217fcb5[];
 extern char data_ov003_0217fcc7[];
@@ -63,7 +58,7 @@ extern "C" ARM void func_ov003_021541b0(struct Struct_ov003_021541b0* arg0) {
         }
     } else if (arg0->unknown_5b_ == 1) {
         if (IsSubBrightnessTransitionActive(var0) == 0) {
-            SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 1);
+            SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 1);
             func_020dc2bc();
             arg0->unknown_5b_++;
         }
@@ -79,11 +74,11 @@ extern "C" ARM void func_ov003_021541b0(struct Struct_ov003_021541b0* arg0) {
         var2->Reset();
         arg0->unknown_34_0_ = 1;
         arg0->unknown_34_4_ = 0;
-        SetBGScreenSize_0204b11c((unsigned char*)arg0->unknown_18_, 0);
-        SetBGPriority_0204b5b4(arg0->unknown_18_, 0);
-        SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)arg0->unknown_18_, 0, 0);
-        AllocateBGScreenBlocks_0204af38((struct BGLayer_0204af38*)arg0->unknown_18_, 14, var2);
-        AllocateBGScreenData_0204b12c((struct BGLayer_0204b12c*)arg0->unknown_18_, var2);
+        ((BGLayer*)((unsigned char*)arg0->unknown_18_))->ConfigureTextMode(0);
+        ((BGLayer*)(arg0->unknown_18_))->SetPriority(0);
+        ((BGLayer*)((struct BGLayer_02020cb8_5*)arg0->unknown_18_))->SetOffset(0, 0);
+        ((BGLayer*)((struct BGLayer_0204af38*)arg0->unknown_18_))->AllocateSprites(14, (SafeAllocator*)(var2));
+        ((BGLayer*)((struct BGLayer_0204b12c*)arg0->unknown_18_))->AllocateIndexBuffer((SafeAllocator*)(var2));
 #if defined(jpn)
         arg0->unknown_50_ = var1->QueueLoadFile(data_ov003_0217fcb5, 0);
 #else
@@ -97,17 +92,17 @@ extern "C" ARM void func_ov003_021541b0(struct Struct_ov003_021541b0* arg0) {
             void* var5;
             unsigned int var6;
             var1->GetLoadedFileByID(arg0->unknown_50_, &var5, &var6);
-            int var7 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var5);
+            int var7 = GetNumFilesInPAC((const void*)((struct PacEntry_02020cb8_4*)var5));
             for (int var8 = 0; var8 < var7; var8++) {
                 int var9;
-                void* var10 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var5, var8, &var4, &var9);
-                LoadBGBlock_0204b174(arg0->unknown_18_, var10, var3, var9);
+                void* var10 = GetFileInPACByIndex((void*)((struct PacEntry_02020aec*)var5), var8, (const char**)(&var4), (unsigned int*)(&var9));
+                ((BGLayer*)arg0->unknown_18_)->ProcessGraphicsFile((const void*)var10, (SafeAllocator*)var3, var9);
             }
             var1->RemoveTask(arg0->unknown_50_);
             arg0->unknown_50_ = -1;
-            ClearBGScreenData_0204b010((struct BGLayer_0204b010*)arg0->unknown_18_, 0);
-            CopyBGScreenBlock_0204b988((struct BGLayer_0204b988*)arg0->unknown_18_, 0, 0, 0, 0xffff);
-            LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2*)arg0->unknown_18_, 0);
+            ((BGLayer*)((struct BGLayer_0204b010*)arg0->unknown_18_))->PrepareIndexBuffer((void*)(0));
+            ((BGLayer*)((struct BGLayer_0204b988*)arg0->unknown_18_))->BlitSpriteByIndex(0, 0, 0, 0xffff);
+            ((BGLayer*)((struct BGLayer_02020cb8_2*)arg0->unknown_18_))->CleanCacheAndUploadIndexBuffer((const void*)(0));
             arg0->unknown_5a_ = 1;
             arg0->unknown_5b_ = 0;
             arg0->unknown_5d_ |= 2;

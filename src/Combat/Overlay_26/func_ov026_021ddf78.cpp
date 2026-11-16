@@ -1,6 +1,14 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
+#if defined(jpn)
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 #include "std_library_functions.h"
@@ -87,8 +95,8 @@ extern "C" Struct_ov026_021ddf78_8* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" int func_ov026_021dd3c4(Struct_ov026_021d8ba0_10*);
 extern "C" void SetMessageString_02046574(Struct_ov026_021ddf78_7*, int, char*);
-extern "C" Struct_ov026_021ddf78_9* GetBattleSetup_ov017_021b8478(void*);
-extern "C" void* GetBattleScene_ov017_021b8468(void*);
+extern "C" Struct_ov026_021ddf78_9* func_ov017_021b8478(void*);
+extern "C" void* func_ov017_021b8468(void*);
 extern "C" void* GetBattleUI_ov000_02160f08(void*);
 extern "C" int func_02070094();
 extern "C" const char** FindMonsterData_0206f4f0(int, int);
@@ -159,7 +167,7 @@ extern "C" ARM void func_ov026_021ddf78(Struct_ov026_021ddf78_5* arg0, Struct_ov
         var15 = var14->unknown_ptr_3718;
     }
     if (var15 != 0) {
-        var16 = GetBattleSetup_ov017_021b8478(var15);
+        var16 = func_ov017_021b8478(var15);
     }
     if (var16 != 0) {
         var18 = var16->unknown_c_;
@@ -209,7 +217,7 @@ extern "C" ARM void func_ov026_021ddf78(Struct_ov026_021ddf78_5* arg0, Struct_ov
             var25 = var24->unknown_ptr_3718;
         }
         if (var25 != 0) {
-            var26 = GetBattleSetup_ov017_021b8478(var25);
+            var26 = func_ov017_021b8478(var25);
         }
         if (var26 != 0) {
             var28 = var26->unknown_c_;
@@ -224,7 +232,7 @@ extern "C" ARM void func_ov026_021ddf78(Struct_ov026_021ddf78_5* arg0, Struct_ov
     if (arg0->unknown_8e49_ == 1) {
         strcat(var0, data_ov026_021df61b);
         strcat(var0, var1);
-        Struct_ov026_021ddf78_11* var29 = (Struct_ov026_021ddf78_11*)GetBattleUI_ov000_02160f08(GetBattleScene_ov017_021b8468(var15));
+        Struct_ov026_021ddf78_11* var29 = (Struct_ov026_021ddf78_11*)GetBattleUI_ov000_02160f08(func_ov017_021b8468(var15));
         unsigned char var30 = arg1->unknown_8_ % 2;
         if (var29 != 0) {
             var29->unknown_955_ = var30;

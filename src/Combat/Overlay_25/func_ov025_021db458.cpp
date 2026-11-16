@@ -101,3 +101,8 @@ extern "C" ARM void func_ov025_021db458(Struct_ov025_021db458_4* arg0) {
     next:;
     }
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

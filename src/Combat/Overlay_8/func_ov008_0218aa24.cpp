@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_ov008_0218aa24_6 {
     char unknown_0_[0xc];
     unsigned int unknown_c_0_ : 4;
@@ -117,7 +121,7 @@ extern "C" void func_02046608(void* arg0, int arg1, char* arg2, char* arg3, int 
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2*, unsigned char, unsigned char);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
-extern "C" Struct_ov008_0218aa24* GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" Struct_ov008_0218aa24* func_02053c6c(unsigned char*);
 extern "C" void func_ov008_0218b240(Struct_ov008_0218aa24_3* arg0);
 extern "C" void func_02042764(const void* arg0, char* arg1, int arg2);
 extern "C" void* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
@@ -165,7 +169,7 @@ extern "C" ARM void func_ov008_0218aa24(Struct_ov008_0218aa24_3* arg0) {
         if (var9 == 0) {
             var8 = 1;
         } else {
-            var10 = GetPartyMemberData_02053c6c((unsigned char*)var9);
+            var10 = func_02053c6c((unsigned char*)var9);
             if (var10 == 0) var8 = 1;
         }
         if (var8) {
@@ -277,7 +281,7 @@ extern "C" ARM void func_ov008_0218aa24(Struct_ov008_0218aa24_3* arg0) {
         if (var29 == 0) {
             var28 = 1;
         } else {
-            var30 = GetPartyMemberData_02053c6c((unsigned char*)var29);
+            var30 = func_02053c6c((unsigned char*)var29);
             if (var30 == 0) var28 = 1;
         }
         if (var28) {

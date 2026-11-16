@@ -8,6 +8,10 @@
 #include "GameState/Field3b0.h"
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 extern "C" void func_020a20d8(void* arg0);
 
 struct Struct_ov015_02190d7c;
@@ -41,7 +45,7 @@ extern "C" ARM void func_ov015_02190d7c(struct Struct_ov015_02190d7c_4* arg0) {
     if (var0 == 0) {
         return;
     }
-    void* var1 = GetCamera_020100bc(var0);
+    void* var1 = func_020100bc(var0);
     if (var1 != 0) {
         func_020a20d8(var1);
     }

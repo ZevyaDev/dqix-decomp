@@ -7,21 +7,29 @@ enum { Enum_ov017_0219b43c_1584 = 0x630, Enum_ov017_0219b43c_11152 = 0x2b90 };
 #include <globaldefs.h>
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
+#include "Graphics/SPRSprite.h"
+
+#if defined(jpn)
+#define func_0202ec84 func_0202e7f4
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 struct Struct_02015ef4 { unsigned int unknown_0_[3]; };
-extern "C" int ConvertWorldToScreen_0202ec84(void* camera, struct Struct_02015ef4* worldPosition, int* outX, int* outY);
+extern "C" int func_0202ec84(void* camera, struct Struct_02015ef4* worldPosition, int* outX, int* outY);
 
 struct Struct_0203a46c;
 extern "C" void func_0203a46c(struct Struct_0203a46c* arg0, int arg1, int arg2, int arg3);
 
 struct Struct_02017098_3;
-extern "C" void func_020478bc(struct Struct_02017098_3* arg0, int arg1);
 
 struct Struct_ov017_0219b43c { unsigned char unknown_0_[0x88]; };
 
 // USA: func_ov017_0219b43c
 extern "C" ARM void func_ov017_0219b43c(char* arg0, int arg1, struct Struct_02015ef4* arg2, int arg3, int arg4) {
-    void* var0 = GetCamera_020100bc(GameState::GetInstance());
+    void* var0 = func_020100bc(GameState::GetInstance());
     switch (arg1) {
     case 2:
         arg1 = 2;
@@ -44,7 +52,7 @@ extern "C" ARM void func_ov017_0219b43c(char* arg0, int arg1, struct Struct_0201
     }
 
     int var1, var2;
-    ConvertWorldToScreen_0202ec84(var0, arg2, &var1, &var2);
+    func_0202ec84(var0, arg2, &var1, &var2);
 
     struct Struct_ov017_0219b43c* var3 = (struct Struct_ov017_0219b43c*)(arg0 + Enum_ov017_0219b43c_11152) + arg1;
     *(struct Struct_ov017_0219b43c**)(arg0 + 0x3000 + Enum_ov017_0219b43c_1584) = var3;
@@ -54,7 +62,7 @@ extern "C" ARM void func_ov017_0219b43c(char* arg0, int arg1, struct Struct_0201
         int var4 = ((var1 - 0xc) + arg3) << 0xc;
         int var5 = ((var2 - 0x4c) + arg4) << 0xc;
         func_0203a46c(*(struct Struct_0203a46c**)(arg0 + 0x3000 + Enum_ov017_0219b43c_1584), var4, var5, 0);
-        func_020478bc(*(struct Struct_02017098_3**)(arg0 + 0x3000 + Enum_ov017_0219b43c_1584), 1);
+        ((SPRSprite*)(*(struct Struct_02017098_3**)(arg0 + 0x3000 + Enum_ov017_0219b43c_1584)))->SetAnimation(1);
         break;
     }
     case 0xc:

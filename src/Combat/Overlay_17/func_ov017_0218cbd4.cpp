@@ -4,7 +4,20 @@
 #include "Resource/MessageUpdate.h"
 #include "Resource/MessageSystem.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0208a9b4 func_0208b2a8
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 struct LocalWireless_0202c1a4;
 struct QueueNode_02015438;
@@ -14,7 +27,7 @@ struct Struct_0203dd20_2;
 struct Struct_020579b4;
 struct Struct_0214e34c;
 struct Struct_ov017_021d82fc_6 { char unknown_0_[0xe]; unsigned char unknown_e_; };
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0202ae18();
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" Struct_020579b4* GetEffectManager_02057924();
 extern "C" void* GetBattleNumberPopups_02039e70();
@@ -83,7 +96,7 @@ extern Struct_ov017_021d82fc_6 data_ov017_021d82fc;
 // USA: func_ov017_0218cbd4
 extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     Zone3D* var2 = GetZone3D_02012fe4();
     Struct_020579b4* var3 = GetEffectManager_02057924();
     GetBattleNumberPopups_02039e70();
@@ -123,7 +136,7 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
     func_020a654c(arg0);
     func_020ac9ac(arg0);
     func_02011b68(var0);
-    void* var13 = GetCamera_020100bc(var0);
+    void* var13 = func_020100bc(var0);
     if (var13) {
         if (func_0202e09c((int)var13) & 4) func_020a20d8(var13);
         else if (func_0202e09c((int)var13) & 8) func_ov000_0216d464(var13);
@@ -179,4 +192,9 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
     if (var12) func_020d9834(0);
     func_020e30f0(var10);
     func_ov017_0218d818((unsigned char*)arg0);
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

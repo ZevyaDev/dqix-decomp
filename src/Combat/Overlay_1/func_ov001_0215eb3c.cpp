@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
+#include "Graphics/TextureArena.h"
 
 #if defined(jpn)
 enum { Enum_ov001_0215eb3c_716 = 0x27c };
@@ -10,7 +11,6 @@ enum { Enum_ov001_0215eb3c_716 = 0x2cc };
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" int GetResources_0200fb8c(int* gameState);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
 struct Struct_ov001_0215eb3c {
     int unknown_0_[10];
@@ -50,7 +50,7 @@ extern "C" ARM int func_ov001_0215eb3c(void* arg0, int arg1) {
     if (var2 == 0) {
         return 0;
     }
-    SaveTextureVRAMState_0207dfac((char*)var2);
+    ((TextureArena*)((char*)var2))->Save();
     if (arg1 >= 2 && GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x8) != 0) {
         var2 = var1 + Enum_ov001_0215eb3c_716;
         var3 = (Struct_ov001_0215eb3c*)(var2 + 0xbd0);

@@ -5,9 +5,15 @@
 #endif
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
 struct Struct_ov009_021842a0;
 
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void func_ov023_021e4f18(void* arg0);
@@ -16,15 +22,10 @@ struct Struct_02045cac;
 extern "C" void func_02045cac(struct Struct_02045cac* arg0);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
-extern "C" void DestroySpriteSet_0205a494(void* spriteSet);
 extern "C" void* GetSpriteTextManager_0203bd14();
 extern "C" void func_0203c4c4(char* arg0);
 struct BGLayer_0204b010;
-extern "C" void ClearBGScreenData_0204b010(BGLayer_0204b010* layer, void* screenData);
-extern "C" void FlushBGScreenData_0204b04c(void* layer, int screenData);
-extern "C" void CopyBGScreenDataToVRAM_0204b088(void* layer, int screenData);
 struct BGLayer_02020cb8_3;
-extern "C" void ResetBGLayerData_0204afb4(struct BGLayer_02020cb8_3* layer);
 struct TextWindowManager_0205d048;
 extern "C" void ResetTextWindowManager_0205d048(struct TextWindowManager_0205d048* windowManager);
 extern "C" void* __clear(void* arg0, int arg1);
@@ -33,7 +34,7 @@ extern "C" void* __clear(void* arg0, int arg1);
 extern "C" ARM void func_ov009_02184848(Struct_ov009_021842a0* arg0) {
     char* var0 = (char*)arg0;
     if (*(unsigned char*)(var0 + R(0xd59,0xd95)) == 1) {
-        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0xf);
+        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)func_020d6c00(), 0xf);
     }
 
     func_ov023_021e4f18(*(void**)(var0 + R(0x7b4,0x7f0)));
@@ -45,10 +46,10 @@ extern "C" ARM void func_ov009_02184848(Struct_ov009_021842a0* arg0) {
     CloseMessageWindow_02043124((char*)var1);
 
     if (*(void**)(var0 + R(0x79c,0x7d8)) != 0) {
-        DestroySpriteSet_0205a494(*(void**)(var0 + R(0x79c,0x7d8)));
+        ((OBJSpriteSet*)(*(void**)(var0 + R(0x79c,0x7d8))))->Destroy();
     }
     if (*(void**)(var0 + R(0x7a8,0x7e4)) != 0) {
-        DestroySpriteSet_0205a494(*(void**)(var0 + R(0x7a8,0x7e4)));
+        ((OBJSpriteSet*)(*(void**)(var0 + R(0x7a8,0x7e4))))->Destroy();
     }
     func_0203c4c4((char*)GetSpriteTextManager_0203bd14());
 
@@ -62,10 +63,10 @@ extern "C" ARM void func_ov009_02184848(Struct_ov009_021842a0* arg0) {
         var2[5] = var0 + R(0x19c,0x1d8);
         for (int var3 = 0; var3 < 6; var3++) {
             void* var4 = var2[var3];
-            ClearBGScreenData_0204b010((BGLayer_0204b010*)var4, 0);
-            FlushBGScreenData_0204b04c(var4, 0);
-            CopyBGScreenDataToVRAM_0204b088(var4, 0);
-            ResetBGLayerData_0204afb4((struct BGLayer_02020cb8_3*)var4);
+            ((BGLayer*)((BGLayer_0204b010*)var4))->PrepareIndexBuffer((void*)(0));
+            ((BGLayer*)(var4))->CleanIndexBufferCache((const void*)(0));
+            ((BGLayer*)(var4))->UploadIndexBuffer((const void*)(0));
+            ((BGLayer*)((struct BGLayer_02020cb8_3*)var4))->MaybeDestroy();
         }
     }
 

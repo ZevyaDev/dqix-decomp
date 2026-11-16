@@ -6,6 +6,10 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct StringListEntry_02072a68 { short id_0_; void* pText_4_; };
 struct StringList_02072a68_2 { StringListEntry_02072a68* unknown_0_; short capacity_4_; };
 struct Struct_ov017_021bf014 { char unknown_0_[8]; int unknown_8_; StringList_02072a68_2 unknown_c_; SafeAllocator unknown_14_; int unknown_28_; };
@@ -24,7 +28,7 @@ struct Struct_02018300_3;
 extern AllocatorUnion gMainHeap_02114e20;
 extern char data_ov017_021d7ec0[];
 extern char data_ov017_021d7ed5[];
-extern "C" void GetLocalWireless_0202ae18();
+extern "C" void func_0202ae18();
 extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void* GetZone3D_02012fe4();
 extern "C" unsigned char* GetFollowCamera_020100f8(char*);
@@ -52,7 +56,7 @@ extern "C" void func_ov017_021bf398(char*);
 // USA: func_ov017_021bf014
 extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
     GameState* var0 = GameState::GetInstance();
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     GetGameResources();
     Struct_02046574_2* var1 = GetMessageWindow_020421a0();
     GetZone3D_02012fe4();

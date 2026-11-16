@@ -4,6 +4,11 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Grotto/Main/ActiveGrottoClass.h"
 #include "Resource/Brightness.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 struct Struct_02018300_3;
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
@@ -64,11 +69,10 @@ struct Struct_ov017_021bec00_2 {
     SafeAllocator unknown_44_;
     char unknown_58_[0xa4];
 };
-extern "C" void GetLocalWireless_0202ae18();
+extern "C" void func_0202ae18();
 extern "C" Struct_ov017_021bec00_3* GetZone3D_02012fe4();
 extern "C" void VectorizedMemset(void*, int, unsigned int);
 extern "C" int sprintf(char*, const char*, ...);
-extern "C" void LoadStringTable_020dfec0(void*, SafeAllocator*, void*, unsigned int);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_ov017_021bec00_5*, char*, int);
 #else
@@ -97,7 +101,7 @@ extern char data_ov017_021d7e98[], data_ov017_021d7eb2[];
 // USA: func_ov017_021bec00
 extern "C" ARM void func_ov017_021bec00(Struct_ov017_021bec00_2* arg0) {
     GameState* var0 = GameState::GetInstance();
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     GameResources* var1 = GetGameResources();
     Struct_ov017_021bec00_5* var2 = GetMessageWindow_020421a0();
     BackgroundLoader* var3 = BackgroundLoader::GetInstance();
@@ -125,7 +129,7 @@ extern "C" ARM void func_ov017_021bec00(Struct_ov017_021bec00_2* arg0) {
             unsigned int var8;
             var3->GetLoadedFileByID(arg0->unknown_40_, &var7, &var8);
             arg0->unknown_44_.Reset();
-            LoadStringTable_020dfec0(&arg0->unknown_58_, &arg0->unknown_44_, var7, var8);
+            ((StringList*)(&arg0->unknown_58_))->LoadFromMemory((SafeAllocator*)(&arg0->unknown_44_), (const void*)(var7), var8);
             var3->RemoveTask(arg0->unknown_40_);
             arg0->unknown_40_ = -1;
             arg0->unknown_38_ = 2;

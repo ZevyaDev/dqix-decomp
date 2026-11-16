@@ -2,6 +2,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Filesystem/NarcHandle.h"
+#include "Filesystem/FileIO.h"
 
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);
@@ -9,7 +10,6 @@ extern "C" void func_0202f310(char*, void*, void*);
 
 extern AllocatorUnion gMainHeap_02114e20;
 extern char data_020ef7ac[];
-extern char gFileScratchSpace_0211e33c[];
 extern char data_020ef7c0[];
 
 struct Struct_0202f24c {
@@ -31,7 +31,7 @@ extern "C" ARM void func_0202f24c(struct Struct_0202f24c* arg0) {
     BackgroundLoader::AddLockGlobal();
 
     unsigned int var1;
-    void* var2 = LoadFileIntoMemory(data_020ef7ac, gFileScratchSpace_0211e33c, &var1);
+    void* var2 = LoadFileIntoMemory(data_020ef7ac, g_fileScratchSpace, &var1);
     if (var2 != 0) {
         NarcHandle var3;
         if (var3.Initialize(data_020ef7c0, (const unsigned char*)var2)) {

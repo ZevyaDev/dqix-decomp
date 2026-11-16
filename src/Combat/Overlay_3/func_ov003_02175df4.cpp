@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
 enum { Enum_ov003_02175df4_2204 = 0x818 };
 enum { Enum_ov003_02175df4_4108 = 0xf88 };
 enum { Enum_ov003_02175df4_2208 = 0x81c };
@@ -25,7 +29,7 @@ struct Struct_02061c04_22;
 
 extern "C" int RemoveEquipmentFromBag_0207c484(struct EquipmentBag_0207c484* bag, int itemId, int count, int category);
 extern "C" short func_02080468(void* arg0, int arg1);
-extern "C" struct Struct_02061c04_22* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" struct Struct_02061c04_22* func_02053c6c(unsigned char* gameObject);
 extern "C" void func_0208386c(struct Struct_02061c04_22* arg0, int arg1);
 extern "C" int func_020a0a08(struct Struct_02061c04_23* arg0, int arg1, int arg2);
 
@@ -80,7 +84,7 @@ extern "C" ARM int func_ov003_02175df4(Struct_ov003_02175df4_2* arg0) {
             return 0;
         }
         short var5 = arg0->unknown_100e_ - func_02080468(arg0->unknown_89c_, 0x15);
-        func_0208386c(GetPartyMemberData_02053c6c((unsigned char*)var4), (signed char)var5);
+        func_0208386c(func_02053c6c((unsigned char*)var4), (signed char)var5);
         return 1;
     }
     func_020a0a08((struct Struct_02061c04_23*)var1, arg0->unknown_103a_, arg0->unknown_103c_);

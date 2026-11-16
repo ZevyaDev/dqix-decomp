@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 enum { Enum_ov003_0215b0e8_2456 = 0x868 };
@@ -14,7 +15,6 @@ enum { Enum_ov003_0215b0e8_2478 = 0x9ae };
 
 extern "C" void* GetMessageWindow_020421a0(void);
 struct Struct_0201099c_3;
-extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_ov003_02159250(void*, void*);
 extern "C" void CloseMessageWindow_02043124(void*);
 struct MusicManager_02109bf4_2;
@@ -33,10 +33,10 @@ extern "C" ARM void func_ov003_0215b0e8(void* arg0) {
     if (var2 == 0) {
         if (*(unsigned char*)(var0 + 0x59d) != 0) return;
 
-        void* var3 = FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x44c);
+        void* var3 = ((void*)((StringList*)((Struct_0201099c_3*)(var0 + 0x64)))->GetString(0x44c));
         if (var3 != 0 && strlen((char*)var3) != 0) {
             *(int*)(var1 + Enum_ov003_0215b0e8_2456) = 1;
-            void* var4 = FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + 0x64), 0x44c);
+            void* var4 = ((void*)((StringList*)((Struct_0201099c_3*)(var0 + 0x64)))->GetString(0x44c));
             func_ov003_02159250(arg0, var4);
         } else {
             CloseMessageWindow_02043124(var1);

@@ -6,6 +6,7 @@
 #include <NitroSDK/LoadToVRAM.h>
 #include <std_library_functions.h>
 #include "Resource/Brightness.h"
+#include "Graphics/BGLayer.h"
 
 #define REG_DISPCNT (*(volatile unsigned int*)0x04000000)
 
@@ -20,10 +21,6 @@ extern "C" unsigned int* GetResources_0200fb8c(int* gameState);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void ResetTextWindowManager_0205d048(void* windowManager);
 extern "C" void RestoreMainBGControl_02074bd0(BGControlSave_02074bd0* save);
-extern "C" void ClearBGScreenData_0204b010(BGLayer_0204b010* layer, void* screenData);
-extern "C" void FlushBGScreenData_0204b04c(void* layer, int screenData);
-extern "C" void CopyBGScreenDataToVRAM_0204b088(void* layer, int screenData);
-extern "C" void ResetBGLayerData_0204afb4(BGLayer_02020cb8_3* layer);
 
 struct Struct_ov005_02153954 {
     SafeAllocator unknown_0_;
@@ -79,13 +76,13 @@ extern "C" ARM void func_ov005_02154198(Struct_ov005_02153954* arg0) {
     CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_ee4_, 1);
     ResetTextWindowManager_0205d048(arg0->unknown_ee4_);
     RestoreMainBGControl_02074bd0((BGControlSave_02074bd0*)arg0->unknown_e6c_);
-    ClearBGScreenData_0204b010((BGLayer_0204b010*)arg0->unknown_e84_, 0);
-    FlushBGScreenData_0204b04c(arg0->unknown_e84_, 0);
-    CopyBGScreenDataToVRAM_0204b088(arg0->unknown_e84_, 0);
-    ResetBGLayerData_0204afb4((BGLayer_02020cb8_3*)arg0->unknown_e84_);
+    ((BGLayer*)((BGLayer_0204b010*)arg0->unknown_e84_))->PrepareIndexBuffer((void*)(0));
+    ((BGLayer*)(arg0->unknown_e84_))->CleanIndexBufferCache((const void*)(0));
+    ((BGLayer*)(arg0->unknown_e84_))->UploadIndexBuffer((const void*)(0));
+    ((BGLayer*)((BGLayer_02020cb8_3*)arg0->unknown_e84_))->MaybeDestroy();
     if (arg0->unknown_3d88_ != NULL) {
         memset(arg0->unknown_3d88_, 0, 0x20);
-        DC_FlushRange(arg0->unknown_3d88_, 0x20);
+        CleanInvalidateCacheRange((const void*)(arg0->unknown_3d88_), 0x20);
         LoadToMainBG1CharacterData(arg0->unknown_3d88_, 0, 0x20);
     }
     arg0->unknown_14_.Destroy();

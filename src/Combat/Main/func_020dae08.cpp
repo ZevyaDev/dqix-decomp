@@ -1,9 +1,17 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
+#if defined(jpn)
+#define func_020a1e54 func_020a3bcc
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 extern "C" void func_ov003_0217db88(void);
-extern "C" int PopOverlay_020a1e54(int isPreviousReloaded);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" int func_020a1e54(int isPreviousReloaded);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern int gMainHeap_02114e20;
 extern "C" void LoadFileTables_020a0c0c(void);
 
@@ -21,12 +29,12 @@ extern "C" ARM void func_020dae08(struct Struct_020dae08* arg0) {
     if (arg0->unknown_c_ != 0) {
         func_ov003_0217db88();
         arg0->unknown_c_ = 0;
-        PopOverlay_020a1e54(1);
+        func_020a1e54(1);
     }
     void* var0 = arg0->unknown_14_.GetSignedAllocator();
     if (var0 != NULL) {
         arg0->unknown_14_.Destroy();
-        FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var0);
+        func_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var0);
     }
     LoadFileTables_020a0c0c();
     arg0->unknown_1_ = 1;

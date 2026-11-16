@@ -1,8 +1,12 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void SetScriptRefInt_ov017_021d6134(void*, int);
 
 // USA: func_ov023_021ea7e0
@@ -12,7 +16,7 @@ extern "C" ARM int func_ov023_021ea7e0(void *arg0) {
 	void *var2 = (void*)GetPartyMemberBaseByIndex_0200ff1c(var0, var1);
 	int var3 = 0;
 	if (var2) {
-		int var4 = GetPartyMemberData_02053c6c((unsigned char*)var2);
+		int var4 = func_02053c6c((unsigned char*)var2);
 		int *var5 = (int*)(var4 + 0x138);
 		for (int var6 = 0; var6 < 13; var6++) {
 			var3 += var5[var6];

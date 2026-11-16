@@ -3,6 +3,9 @@
 #include <Memory/SafeAllocator.h>
 #include <std_library_functions.h>
 #include "Resource/GameResources.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/SPRSprite.h"
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 #define REGION(j,u) (j)
@@ -153,9 +156,7 @@ extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void SaveMainBGControl_02074af4(void* save);
 extern "C" char* GetZone3D_02012fe4();
 extern "C" short func_0201e830(Struct_0201e830* arg0);
-extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 extern "C" void func_ov023_021e20c0(void* arg0);
-extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" void InitItemInfoPanel_ov023_021dc134(void* panel, int itemId, int isEmbedded);
@@ -194,14 +195,14 @@ extern "C" ARM void func_ov005_02153ba4(Struct_ov005_02153954* arg0) {
     arg0->unknown_26c_.ResetAllocatorPointer();
     arg0->unknown_280_.ResetAllocatorPointer();
     arg0->unknown_df4_ = NULL;
-    InitStringTable_020dfc40((StringTable_0201099c_14*)arg0->unknown_df8_);
+    ((StringList*)((StringTable_0201099c_14*)arg0->unknown_df8_))->Reset();
     arg0->unknown_e10_ = NULL;
     func_ov023_021e20c0(arg0->unknown_e18_);
     arg0->unknown_e64_ = NULL;
     arg0->unknown_e68_ = 0;
-    InitBGLayer_0204af64((BGLayer_02020cb8*)arg0->unknown_e84_[0]);
-    InitBGLayer_0204af64((BGLayer_02020cb8*)arg0->unknown_e84_[1]);
-    InitBGLayer_0204af64((BGLayer_02020cb8*)arg0->unknown_e84_[2]);
+    ((BGLayer*)((BGLayer_02020cb8*)arg0->unknown_e84_[0]))->Reset();
+    ((BGLayer*)((BGLayer_02020cb8*)arg0->unknown_e84_[1]))->Reset();
+    ((BGLayer*)((BGLayer_02020cb8*)arg0->unknown_e84_[2]))->Reset();
     InitTextWindowManager_0205cfd4((TextWindowManager_0205cfd4*)arg0->unknown_ee4_);
     for (int var2 = 0; var2 < 3; var2++)
         InitTextWindow_0204c684(arg0->unknown_fa0_[var2]);
@@ -211,10 +212,10 @@ extern "C" ARM void func_ov005_02153ba4(Struct_ov005_02153954* arg0) {
     func_ov023_021dad78(arg0->unknown_19ec_);
     func_ov005_021536e0(arg0->unknown_1a34_);
     for (int var3 = 0; var3 < 36; var3++)
-        func_0204719c(&arg0->unknown_1a70_[var3]);
+        ((SPRSprite*)(&arg0->unknown_1a70_[var3]))->Reset();
     for (int var4 = 0; var4 < 24; var4++)
-        func_0204719c(&arg0->unknown_3030_[var4]);
-    func_0204719c(&arg0->unknown_3cf0_);
+        ((SPRSprite*)(&arg0->unknown_3030_[var4]))->Reset();
+    ((SPRSprite*)(&arg0->unknown_3cf0_))->Reset();
     arg0->unknown_3d78_ = -1;
     arg0->unknown_3d7c_ = 0;
     arg0->unknown_3d80_ = 0;

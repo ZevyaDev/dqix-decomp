@@ -4,6 +4,7 @@
 #include <globaldefs.h>
 #include <NitroSDK/Cache.h>
 #include <std_library_functions.h>
+#include "Graphics/BGLayer.h"
 
 struct Struct_02050100 {
     char unknown_0_[0x1c];
@@ -35,7 +36,6 @@ extern "C" void func_0204f41c(Struct_02050100_2*, short, short, char*, int, int,
 extern "C" void FillTextWindowRect_0204f914(Struct_02050100_2*, int, short, short, short, short);
 extern "C" void func_0204f7e8(Struct_02050100_2*, short, short, int, unsigned char, unsigned char, short*, short*, unsigned char, unsigned char, unsigned char, unsigned char);
 typedef void (*Type_02050100)(void*, int, unsigned int);
-extern "C" Type_02050100 func_0204a5e4(int, int);
 #if defined(jpn)
 extern char data_020f0336[];
 extern "C" void func_02050678(Struct_02050100_2*, short, short, char*, int, int, short*, short*);
@@ -106,8 +106,8 @@ extern "C" ARM void func_02050100(Struct_02050100_2* arg0, int arg1) {
     func_0204f7e8(arg0, var26 + 1, var13, arg0->unknown_da_, 8, 15, &var15, &var16, 0, var25, 0, 0);
 #endif
     if (arg1) {
-        Type_02050100 var27 = func_0204a5e4(var1, var2);
-        DC_FlushRange(arg0->unknown_8_, arg0->unknown_a4_);
+        Type_02050100 var27 = ((Type_02050100)GetCharVRAMLoadProc(var1, var2));
+        CleanInvalidateCacheRange((const void*)(arg0->unknown_8_), arg0->unknown_a4_);
         var27(arg0->unknown_8_, arg0->unknown_a0_, arg0->unknown_a4_);
     }
     arg0->unknown_d8_1_ = 0;

@@ -6,9 +6,17 @@ enum { Enum_ov017_021ca1a4_14104 = 0x3718, Enum_ov017_021ca1a4_21748 = 0x54f4 };
 
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
 extern "C" int func_020a1eb0(void);
-extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" void* func_ov017_021b8478(void* battleManager);
+extern "C" void* func_ov017_021b8468(void* battleManager);
 
 struct Struct_020a36a8;
 extern "C" int func_020a36a8(struct Struct_020a36a8* arg0);
@@ -39,8 +47,8 @@ extern "C" ARM void func_ov017_021ca1a4(int arg0, struct Struct_ov017_021ca1a4* 
     if (func_020a1eb0() != 0) return;
 
     void* var0 = *(void**)(arg3 + Enum_ov017_021ca1a4_14104);
-    void* var1 = GetBattleSetup_ov017_021b8478(var0);
-    void* var2 = GetBattleScene_ov017_021b8468(var0);
+    void* var1 = func_ov017_021b8478(var0);
+    void* var2 = func_ov017_021b8468(var0);
     if (!var1 || !var2) return;
 
     if (((struct Struct_ov017_021ca1a4_2*)var1)->unknown_8_ != arg1->unknown_4_) return;

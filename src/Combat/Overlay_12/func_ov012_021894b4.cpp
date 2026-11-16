@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
 struct StringList_02072a68_2;
 
 struct Struct_ov012_021894b4
@@ -88,7 +92,7 @@ extern "C" void SetMessageNumberWidth_020465f0(void* window, int index, int widt
 extern "C" void func_020474a8(void* arg0, int arg1, const char* arg2, char* arg3);
 #else
 extern "C" int func_020420e8(const char* arg0, int arg1);
-extern "C" int GetStringLength_020d2ff0(const char* string);
+extern "C" int func_020d2ff0(const char* string);
 extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 
 extern "C" const short data_ov012_0218af92[];
@@ -223,7 +227,7 @@ extern "C" ARM void func_ov012_021894b4(Struct_ov012_021894b4_2* arg0, char* arg
     else
     {
         const char* var11 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 0x78);
-        int var12 = GetStringLength_020d2ff0(var11);
+        int var12 = func_020d2ff0(var11);
         char var13[0x40];
         __clear(var13, sizeof(var13));
         memcpy(var13, var11 + 8, var12 - 0x11);

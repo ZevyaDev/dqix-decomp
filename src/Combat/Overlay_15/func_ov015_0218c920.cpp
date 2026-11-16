@@ -18,18 +18,16 @@ extern char data_ov015_0219408e[6];
 extern "C" ARM void func_ov015_0218c920(void* arg0, int arg1) {
     Struct_ov015_0218bcb0* var0 = static_cast<Struct_ov015_0218bcb0*>(arg0);
     SafeAllocator var1;
-    var1.ResetAllocatorPointer();
     var1.CreateTypeA(var0->unknown_14_, var0->unknown_18_);
     var1.Reset();
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
     unsigned int var2 = 0;
-    unsigned char* var3 = gFileScratchSpace_0211e33c;
+    unsigned char* var3 = g_fileScratchSpace;
     unsigned int var4 = 0x30000;
     GPCReadPair var5;
     func_02079a3c(&var5);
-    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var5.pGPCFile, var5.machine,
-            data_ov015_02194094, var3, var2, var4, false, 0)) {
+    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var5.pGPCFile, &var5.machine, data_ov015_02194094, var3, &var2, var4, false, 0)) {
         var3 += var2;
         var4 -= var2;
         var0->unknown_24_[0].RemoveAllAnimationPackages();
@@ -47,12 +45,12 @@ extern "C" ARM void func_ov015_0218c920(void* arg0, int arg1) {
         __clear(var7, 0x80);
         func_ov015_0218c274(var0, var6, 0);
         sprintf(var7, data_ov015_021940af, var6);
-        DecompressFileFromGPCByName(var5.pGPCFile, var5.machine, var3, var2, var4, var7);
+        DecompressFileFromGPCByName(&var5.pGPCFile, &var5.machine, var3, &var2, var4, var7);
         var0->unknown_24_[0].LoadType0AnimationFromFileInMemory(0, &var1, var3, var2);
         unsigned int var8 = var2;
         var4 -= var8;
         sprintf(var7, data_ov015_021940b8, var6);
-        DecompressFileFromGPCByName(var5.pGPCFile, var5.machine, var3 + var8, var2, var4, var7);
+        DecompressFileFromGPCByName(&var5.pGPCFile, &var5.machine, var3 + var8, &var2, var4, var7);
         var0->unknown_24_[0].LoadType0AnimationPackageFromBCFGScript(&var1, var3 + var8, var2);
         var1.Destroy();
         var0->unknown_24_[0].StopCurrentAnimation();

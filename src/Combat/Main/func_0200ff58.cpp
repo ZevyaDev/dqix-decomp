@@ -14,7 +14,7 @@ extern "C" ARM GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, in
     if (object == 0) {
         return 0;
     }
-    if ((object->obj3D_.classFlags_0_ & 0x1000) == 0) {
+    if ((object->obj3D_.unknown_0_ & 0x1000) == 0) {
         object = 0;
     }
     return object;

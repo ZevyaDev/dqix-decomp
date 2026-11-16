@@ -8,6 +8,7 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 #include "NitroSDK/Graphics.h"
+#include "NitroSDK/Cache.h"
 
 struct Struct_ov013_021846a0 {
 #if defined(jpn)
@@ -69,7 +70,6 @@ struct TextWindowManager_0205d2bc;
 extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(struct TextWindowManager_0205d2bc*);
 extern "C" void ResetTextWindowManager_0205d048(void*);
 
-extern "C" void DC_FlushRange(const void*, unsigned int);
 extern "C" int LoadToMainBG1CharacterData(const void*, int, unsigned int);
 
 // USA: func_ov013_021846a0
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov013_021846a0(Struct_ov013_021846a0_2* arg0) {
 
         if (arg0->unknown_654_) {
             memset(arg0->unknown_654_, 0, 0x20);
-            DC_FlushRange(arg0->unknown_654_, 0x20);
+            CleanInvalidateCacheRange((const void*)(arg0->unknown_654_), 0x20);
             LoadToMainBG1CharacterData(arg0->unknown_654_, 0, 0x20);
         }
 

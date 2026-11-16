@@ -5,6 +5,10 @@ enum { Enum_020dd8b4_336 = 0x144 };
 enum { Enum_020dd8b4_336 = 0x150 };
 #endif
 #include "GameState/GameState.h"
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
 struct Struct_020dd8b4 { unsigned int unknown_0_; unsigned int unknown_4_0_ : 10; unsigned int unknown_5_2_ : 22; };
 struct Struct_020dd8b4_2 { char unknown_0_[0x134]; BaseCombatStats* unknown_134_; char unknown_138_[Enum_020dd8b4_336 - 0x138]; Struct_020dd8b4* unknown_150_; };
 struct Struct_020dd8b4_3 { int unknown_0_; char unknown_4_[0x30]; };
@@ -26,7 +30,7 @@ struct Struct_020dd8b4_4 {
     unsigned short unknown_74_; short unknown_76_;
     unsigned short unknown_78_;
 };
-extern "C" char* GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" char* func_02053c6c(unsigned char*);
 extern "C" int func_02084fc8(char*);
 extern "C" int func_02084ee8(void*);
 extern "C" int func_02084f58(void*);
@@ -41,7 +45,7 @@ extern "C" ARM void func_020dd8b4(Struct_020dd8b4_4* arg0, int arg1, int arg2, u
     arg0->unknown_38_ = arg3;
     Struct_020dd8b4_2* var0 = (Struct_020dd8b4_2*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0->unknown_0_);
     if (!var0) return;
-    char* var1 = GetPartyMemberData_02053c6c((unsigned char*)var0);
+    char* var1 = func_02053c6c((unsigned char*)var0);
     arg0->unknown_3c_ = var0->unknown_134_->primaryStats.attack;
     arg0->unknown_40_ = var0->unknown_134_->primaryStats.defense;
     arg0->unknown_44_ = func_02084fc8(var1);

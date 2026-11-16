@@ -2,6 +2,7 @@
 #include "World/Object3D.h"
 #include "NitroSDK/Matrix.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 
 struct Struct_02017d90 {
     short unknown_0_[96][12];
@@ -25,7 +26,7 @@ extern "C" ARM int func_02017d90(Zone3D* arg0, int arg1, Struct_02017d90* arg2, 
         Struct_02016874_2* var1;
         int var2, var3, var4;
         if (arg1 < 256) {
-            Struct_02013490* var5 = &arg0->grottoTileMapData_420_[arg1];
+            Struct_02013490* var5 = &((Struct_02013490*)arg0->grottoTileMapData_420_)[arg1];
             if (var5->unknown_0_) var1 = var5->unknown_0_->unknown_44_->unknown_2c_;
             else return 0;
             var2 = var5->unknown_3c_.x;
@@ -72,7 +73,7 @@ extern "C" ARM int func_02017d90(Zone3D* arg0, int arg1, Struct_02017d90* arg2, 
         arg2->unknown_918_ = var4;
         return var14;
     }
-    Struct_02016874_2* var15 = arg0->unknown_824_[arg1];
+    Struct_02016874_2* var15 = (*(Struct_02016874_2***)(arg0->unk_5f0 + 0x234))[arg1];
     if (!var15->unknown_24_) return 0;
     if (var15->unknown_2_ & 4) return 0;
     Struct_02016874_2* var16 = var15->unknown_28_;

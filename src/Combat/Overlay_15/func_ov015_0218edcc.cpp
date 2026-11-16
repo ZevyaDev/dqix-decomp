@@ -17,9 +17,9 @@ extern "C" ARM void func_ov015_0218edcc(Struct_ov015_0218c03c_2* arg0)
 {
     GXFIFO_MATRIX_PUSH = 0;
     arg0->unknown_24_->Draw(false);
-    RenderConfig::SubmitToFifo();
+    Nitro3DRenderConfig::SubmitToFifo();
     GXFIFO_MATRIX_POP = 1;
     arg0->unknown_34_ = arg0->unknown_36_ = 0;
-    arg0->unknown_34_ = arg0->unknown_24_->pModel_->rawInternalModel_->numTriangles_;
-    arg0->unknown_36_ = arg0->unknown_24_->pModel_->rawInternalModel_->numQuads_;
+    arg0->unknown_34_ = arg0->unknown_24_->pModel_->rawInternalModel_->numTriangles;
+    arg0->unknown_36_ = arg0->unknown_24_->pModel_->rawInternalModel_->numQuads;
 }

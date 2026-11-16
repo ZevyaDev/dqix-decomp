@@ -17,6 +17,7 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
+#include "Graphics/BGLayer.h"
 
 extern "C" void* GetResources_0200fb8c(int*);
 extern "C" void func_020dc2bc();
@@ -29,17 +30,9 @@ extern "C" void func_02097bc4(struct Struct_020978fc*, int);
 extern "C" void func_02097c18(void*, int, int, int, int, int, int, int);
 
 struct BGLayer_02020cb8;
-extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8*);
-extern "C" void SetBGScreenSize_0204b11c(unsigned char*, int);
 struct BGLayer_02020cb8_5;
-extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
-extern "C" void FlushBGBlock_0204b2e0(void*, char*);
 struct BGLayer_02020cb8_6;
-extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6*, char*);
 
-extern "C" void LoadToSubBGStandardPalette(int, int, unsigned int);
-extern "C" void LoadToSubBG1ScreenData(int, int, unsigned int);
-extern "C" void LoadToSubBG1CharacterData(int, int, unsigned int);
 
 extern "C" void func_ov028_021d98e0(void*, void*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
@@ -77,37 +70,37 @@ extern "C" ARM void func_ov028_021d8dd0(unsigned char* arg0) {
         *var6 = (*var6 & 0x43) | 0x1000;
 
         unsigned char var7[0x20];
-        InitBGLayer_0204af64((BGLayer_02020cb8*)var7);
+        ((BGLayer*)((BGLayer_02020cb8*)var7))->Reset();
         unsigned char var8 = var7[0x1c];
         var8 = (var8 & ~0xf) | 1;
         var8 = var8 & 0xff;
         var8 = (var8 & ~0xf0) | 0x10;
         var7[0x1c] = var8;
-        SetBGScreenSize_0204b11c((unsigned char*)var7, 0);
-        SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)var7, 0, 0);
+        ((BGLayer*)((unsigned char*)var7))->ConfigureTextMode(0);
+        ((BGLayer*)((BGLayer_02020cb8_5*)var7))->SetOffset(0, 0);
         int var9 = *(int*)((char*)var3 + 0x2c);
-        FlushBGBlock_0204b2e0(var7, (char*)var9);
-        CopyBGBlockToVRAM_0204b3a0((BGLayer_02020cb8_6*)var7, (char*)var9);
+        ((BGLayer*)(var7))->ProcessGraphicsFileMetadata((const void*)((char*)var9));
+        ((BGLayer*)((BGLayer_02020cb8_6*)var7))->StageGraphicsFileBuffer((const void*)((char*)var9));
 
         unsigned short var10 = 0x67f5;
         memcpy(var5, &var10, 2);
-        DC_FlushRange(var5, 2);
-        LoadToSubBGStandardPalette((int)var5, 0xa, 2);
+        CleanInvalidateCacheRange((const void*)(var5), 2);
+        LoadToSubBGStandardPalette((const void*)((int)var5), 0xa, 2);
 
         unsigned short* var11 = (unsigned short*)var5;
         for (unsigned short var12 = 0; var12 < 0x400; var12++) {
             var11[var12] = var12;
         }
 
-        DC_FlushRange(var5, 0x800);
-        LoadToSubBG1ScreenData((int)var5, 0, 0x800);
+        CleanInvalidateCacheRange((const void*)(var5), 0x800);
+        LoadToSubBG1ScreenData((const void*)((int)var5), 0, 0x800);
         memset(var5, 0x11111111, 0x8000);
-        DC_FlushRange(var5, 0x8000);
-        LoadToSubBG1CharacterData((int)var5, 0, 0x8000);
+        CleanInvalidateCacheRange((const void*)(var5), 0x8000);
+        LoadToSubBG1CharacterData((const void*)((int)var5), 0, 0x8000);
         void* var13 = *(void**)(arg0 + 0x40);
         memset(var13, 0x11111111, 0x8000);
         var13 = *(void**)(arg0 + 0x40);
-        DC_FlushRange(var13, 0x8000);
+        CleanInvalidateCacheRange((const void*)(var13), 0x8000);
 
         unsigned short* var14 = (unsigned short*)0x4001008;
         var14[0] = (var14[0] & ~3) | 1;

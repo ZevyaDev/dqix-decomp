@@ -5,6 +5,8 @@
 #endif
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
+#include "Graphics/BGLayer.h"
+#include "Resource/StringList.h"
 
 struct BGControlSave_02074b64;
 extern "C" ARM void SaveSubBGControl_02074b64(struct BGControlSave_02074b64* save);
@@ -14,10 +16,8 @@ struct TextWindowManager_0205cfd4;
 extern "C" ARM void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
 extern "C" ARM void InitChoiceList_0205c790(char* choiceList);
 struct BGLayer_02020cb8;
-extern "C" ARM void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 struct StringTable_0201099c_14;
-extern "C" ARM void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 
 struct Struct_ov013_02184360 { unsigned int unknown_0_[20]; };
 struct Struct_ov013_02184360_2 { unsigned int unknown_0_[16]; };
@@ -80,14 +80,14 @@ extern "C" ARM void func_ov013_02184360(void* arg0, void* arg1) {
     }
 
     for (int var6 = 0; var6 < 2; var6++) {
-        InitBGLayer_0204af64((BGLayer_02020cb8*)(var0 + R(0xf0, 0xf4) + var6 * 0x20));
+        ((BGLayer*)((BGLayer_02020cb8*)(var0 + R(0xf0, 0xf4) + var6 * 0x20)))->Reset();
     }
     for (int var7 = 0; var7 < 3; var7++) {
         InitTextWindow_0204c684((void*)(var0 + R(0x130, 0x134) + var7 * 0xe0));
     }
 
     ((SafeAllocator*)(var0 + R(0x598, 0x60c)))->ResetAllocatorPointer();
-    InitStringTable_020dfc40((StringTable_0201099c_14*)(var0 + R(0x5ac, 0x620)));
+    ((StringList*)((StringTable_0201099c_14*)(var0 + R(0x5ac, 0x620))))->Reset();
     ((SafeAllocator*)var0)->ResetAllocatorPointer();
 
     for (int var8 = 0; var8 < 3; var8++) {

@@ -2,6 +2,7 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
+#include "Graphics/OBJSpriteSet.h"
 
 struct Struct_ov003_0217d6ac;
 extern "C" struct Struct_ov003_0217d6ac *GetZone3D_02012fe4(void);
@@ -9,7 +10,6 @@ extern "C" void func_0205d7a0(void *arg0, int arg1);
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int *out, unsigned char a, unsigned char b, unsigned char c, int d);
 extern "C" char *GetMessageWindow_020421a0(void);
 struct SpriteAnimationList_0205a330;
-extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330 *animationList, int ticks);
 struct Struct_0205c570;
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 struct TextWindowManager_0205da38;
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
     var0                                = GameState::GetInstance();
     var2                            = GetMessageWindow_020421a0();
     struct SpriteAnimationList_0205a330 *var8 = *(struct SpriteAnimationList_0205a330 **) (var2 + RG(0x2e0, 0x230));
-    AdvanceSpriteAnimations_0205a330(var8, var0->GetTickCount());
+    ((OBJSpriteSet::List*)(var8))->UpdateAll(var0->GetTickCount());
     var2[RG(0x19ae, 0x17de)] = 0;
     GetCursorIndex_0205d794((struct Struct_0205c570 *) arg0->unknown_90_);
     var3 = 0;

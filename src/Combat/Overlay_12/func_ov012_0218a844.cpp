@@ -4,6 +4,7 @@
 #define LOW_REGION(j, u) (u)
 #endif
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 struct MenuCursor_0205c508;
 struct Struct_0201099c_3;
@@ -44,7 +45,6 @@ extern "C" void* GetMessageWindow_020421a0();
 extern "C" void GetMenuCursorPageRange_0205c508(MenuCursor_0205c508* cursor, int* outPageStartIndex, int* outPageEndIndex);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void AppendXPositionTag_02041a28(char* buffer, int x);
-extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" void AppendPositionTag_02041a90(char* buffer, int x, int y);
 #if !defined(jpn)
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov012_0218a844(Struct_ov012_0218a844_2* arg0, char* arg
         {
             AppendXPositionTag_02041a28(arg1, LOW_REGION(0x7c, 0x88));
         }
-        AppendMenuEntry_02041b70(arg1, var2 & 0xf, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_1344_, arg0->unknown_13c8_[var2]));
+        AppendMenuEntry_02041b70(arg1, var2 & 0xf, ((StringList*)((Struct_0201099c_3*)arg0->unknown_1344_))->GetString(arg0->unknown_13c8_[var2]));
     }
     if (var5 > 1)
     {

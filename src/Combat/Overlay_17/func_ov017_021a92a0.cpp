@@ -4,7 +4,11 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/Brightness.h"
 
-extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
+extern "C" void func_02012da4(AllocatorUnion*, void*);
 extern AllocatorUnion gMainHeap_02114e20;
 
 struct Struct_ov017_021a92a0 {
@@ -27,7 +31,7 @@ extern "C" ARM void func_ov017_021a92a0(struct Struct_ov017_021a92a0* arg0) {
     void* var1 = arg0->unknown_264_.GetSignedAllocator();
     if (var1 != NULL) {
         arg0->unknown_264_.Destroy();
-        FreeMemory_02012da4(&gMainHeap_02114e20, var1);
+        func_02012da4(&gMainHeap_02114e20, var1);
     }
 
     ClearFlags04(GetGameResources(), 0x40);

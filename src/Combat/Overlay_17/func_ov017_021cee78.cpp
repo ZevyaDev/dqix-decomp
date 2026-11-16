@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 struct Vector3i;
 
@@ -20,7 +24,7 @@ extern "C" ARM void func_ov017_021cee78(int arg0, unsigned char arg1) {
 	if (var0 == NULL) {
 		return;
 	}
-	void* var1 = GetLocalWirelessPacketQueue_0202ae24();
+	void* var1 = func_0202ae24();
 	Struct_ov017_021cee78 var2;
 	var2.unknown_0_ = 0x14;
 	var2.unknown_12_ = arg0;
@@ -28,4 +32,9 @@ extern "C" ARM void func_ov017_021cee78(int arg0, unsigned char arg1) {
 	var2.unknown_10_ = var0->obj3D_.rotation_.y;
 	var2.unknown_13_ = arg1;
 	QueueOutgoingPacket_0205e330(var1, &var2, 0);
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

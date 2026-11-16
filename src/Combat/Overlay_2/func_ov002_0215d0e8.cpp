@@ -1,5 +1,6 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -10,7 +11,6 @@ extern "C" int func_02042638(char *arg0, int arg1, int arg2);
 #endif
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
 extern "C" int func_02041fac(char *arg0, int arg1, int arg2);
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov002_0215d0e8(unsigned char *arg0, char *arg1, int arg
     }
     AppendCursorTag_02041ea4(arg1, var0);
 
-    int var1 = FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + RG(0x20, 0x8)), 0x514);
+    int var1 = ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + RG(0x20, 0x8))))->GetString(0x514));
     func_02041fac(arg1, var1, 0x10);
 
     int var2          = *(arg0 + RG(0x1c6d, 0x1b31));

@@ -12,11 +12,19 @@
 #endif
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "NitroSDK/Graphics3D/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 #include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "Resource/Brightness.h"
 #include "NitroSDK/Graphics.h"
 #include "NitroSDK/Matrix.h"
+
+#if defined(jpn)
+#define func_020c555c func_020c7028
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 struct Struct_ov015_02193d38
 {
@@ -25,8 +33,8 @@ struct Struct_ov015_02193d38
 
 extern "C" void ResetGeometryEngine_020c52e8();
 extern "C" void ResetMatrixStacks_020c5414();
-extern "C" int Set3DEdgeColors_020c555c(int edgeColors);
-extern "C" void* GetCamera_020100bc(GameState* gameState);
+extern "C" int func_020c555c(int edgeColors);
+extern "C" void* func_020100bc(GameState* gameState);
 extern "C" void UpdateCamera_0202e0a4(void* camera);
 extern "C" void func_020c57d4(int arg0, int arg1, int arg2, int arg3, void* arg4);
 extern "C" void SetOrthographicProjection_020c5770(int top, int bottom, int left, int right, int nearPlane, int farPlane, int arg6, int isLoadedAsProjection, void* projectionMatrix);
@@ -47,19 +55,19 @@ extern "C" ARM void func_ov015_021901c8(void* arg0)
         return;
     ResetGeometryEngine_020c52e8();
     ResetMatrixStacks_020c5414();
-    RenderConfig::Reset();
+    Nitro3DRenderConfig::Reset();
     DISP3DCNT = (DISP3DCNT & ~0x3000) | 8;
     DISP3DCNT = (DISP3DCNT & ~0x3000) | 0x10;
     DISP3DCNT = (DISP3DCNT & ~0x3000) | 0x20;
     {
         Struct_ov015_02193d38 var1 = data_ov015_02193d38;
-        Set3DEdgeColors_020c555c((int)var1.unknown_0_);
+        func_020c555c((int)var1.unknown_0_);
     }
-    void* var2 = GetCamera_020100bc(var0);
+    void* var2 = func_020100bc(var0);
     if (var2 != NULL)
         UpdateCamera_0202e0a4(var2);
-    RenderConfig::SubmitToFifo();
-    SendQueuedDataToGeometryFifo();
+    Nitro3DRenderConfig::SubmitToFifo();
+    Nitro3D_FlushFifoQueue();
     func_ov015_02190348(arg0);
     ResetGeometryEngine_020c52e8();
     ResetMatrixStacks_020c5414();

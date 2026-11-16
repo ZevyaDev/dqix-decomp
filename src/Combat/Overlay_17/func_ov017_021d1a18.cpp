@@ -8,17 +8,25 @@ enum { Enum_ov017_021d1a18_10100 = 0x2774, Enum_ov017_021d1a18_10112 = 0x2780 };
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct LocalWireless_0202c1a4 {
     char unknown_0_[0x1038];
     signed char protagonistObjectIndexByConsole_1038_[16];
 };
 
-extern "C" int* GetLocalWireless_0202ae18(void);
+extern "C" int* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void* GetZone3D_02012fe4(void* arg0);
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021d1a18 { int unknown_0_, unknown_4_, unknown_8_; };
@@ -46,13 +54,13 @@ struct Struct_ov017_021d1a18_4 {
 
 // USA: func_ov017_021d1a18
 extern "C" ARM void func_ov017_021d1a18(int arg0, short arg1, short arg2, unsigned char arg3) {
-    if (!IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18())) return;
-    if (GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)GetLocalWireless_0202ae18()) != 0) return;
+    if (!IsLocalWirelessOn_0202b7d8(func_0202ae18())) return;
+    if (GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)func_0202ae18()) != 0) return;
 
     ((int)GetGameResources());
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetZone3D_02012fe4(GetZoneEntry_0200fd0c(var0));
-    void* var2 = GetLocalWirelessPacketQueue_0202ae24();
+    void* var2 = func_0202ae24();
 
     struct Struct_ov017_021d1a18_4 var3;
     var3.unknown_0_ = 0xb2;

@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
+#include "Resource/StringList.h"
 
 
 struct StringTable_0201099c_14;
-extern "C" void func_020dfc6c(struct StringTable_0201099c_14*);
 
 
 #if defined(jpn)
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov023_021e0a48(void* arg0) {
  enum {Enum_ov023_021e0a48_1864=0x748};
 #endif
     int var0 = (int)BackgroundLoader::GetInstance();
-    func_020dfc6c((struct StringTable_0201099c_14*)((char*)arg0 + 0x8c));
+    ((StringList*)((struct StringTable_0201099c_14*)((char*)arg0 + 0x8c)))->Destroy();
 #if defined(jpn)
     *(int*)((char*)arg0 + Enum_ov023_021e0a48_1732) = ((BackgroundLoader*)(var0))->QueueLoadFileInGP2((const char*)(data_020f2cb0), (const char*)(data_020f2cac), (SafeAllocator*)(0));
 #else

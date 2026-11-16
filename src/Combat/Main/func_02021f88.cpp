@@ -7,9 +7,24 @@
 #include "Resource/GameResources.h"
 #include "Grotto/Main/ActiveGrottoClass.h"
 #include "Resource/Brightness.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "NitroSDK/Cache.h"
+
+#if defined(jpn)
+#define func_0201b5b0 func_0201b328
+#endif
+
+#if defined(jpn)
+#define func_0203be4c func_0203b8a4
+#endif
+
+#if defined(jpn)
+#define func_0203bd08 func_0203b760
+#endif
 
 extern "C" unsigned short* GetZone3D_02012fe4(void);
-extern "C" void* GetOAMManager_0203bd08(void);
+extern "C" void* func_0203bd08(void);
 extern "C" void* GetBGVRAMManager_0203b628(void);
 extern "C" void func_02021428(void* arg0, int arg1);
 
@@ -19,20 +34,13 @@ extern "C" void ResetOAMManager_0203bd24(char* oamManager);
 extern "C" void func_0203b718(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0203ba74(void* arg0);
 struct Sprite_02043368_2;
-extern "C" void InitSprite_0205a198(struct Sprite_02043368_2* sprite);
-extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 
 extern "C" void* GetSpriteTextManager_0203bd14();
-extern "C" void* GetSubOAMBuffer_0203be4c(void);
+extern "C" void* func_0203be4c(void);
 struct PacEntry_02020aec;
-extern "C" int func_0205a498(void* arg0, struct PacEntry_02020aec* arg1, int arg2, void* arg3);
-extern "C" void func_0205af38(int arg0, char* arg1, int arg2, int arg3);
-extern "C" int func_0205a1f0(void* arg0, void* arg1, int arg2);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void VectorizedInvertedMemcpy(void* dst, void* src, int size);
 extern "C" void WaitForVBlank_020c9820(void);
-extern "C" void DC_FlushRange(const void* addr, unsigned int size);
-extern "C" int LoadToSubObjVRAM(int, int, unsigned int);
 extern "C" void func_02020aa0(void* arg0);
 extern "C" void func_02027974(void* arg0, int arg1, void* arg2);
 #if defined(jpn)
@@ -42,8 +50,6 @@ extern "C" void func_02020fc4(void* arg0, int* arg1, SafeAllocator* arg2);
 #endif
 extern "C" void func_020210f8(char* arg0, int* arg1, SafeAllocator* arg2);
 struct BGLayer_02020cb8;
-extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
-extern "C" void LoadBGBlock_0204b174(void* layer, void* block, SafeAllocator* allocator, int arg3);
 extern "C" void func_0202445c(void* arg0);
 extern "C" void RebuildPartyOrders_ov017_02191234(void* gameResources);
 extern "C" void func_0202343c(void* arg0);
@@ -133,7 +139,7 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
     var11 = BackgroundLoader::GetInstance();
     var12 = GetZone3D_02012fe4();
     var13 = GetGameResources();
-    var14 = (char*)GetOAMManager_0203bd08();
+    var14 = (char*)func_0203bd08();
     var15 = (char*)GetBGVRAMManager_0203b628();
     var16 = arg0->unknown_9c2_;
     var17 = inline_02021f88(var13, 12);
@@ -182,16 +188,16 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
         func_0203b718(var15, 1, 1, 0);
         func_0203ba74(var15);
         for (int var19 = 0; var19 < 0x1c; var19++) {
-            InitSprite_0205a198(&arg0->unknown_e8_[var19]);
+            ((OBJSpriteSet::Metatile*)(&arg0->unknown_e8_[var19]))->Reset();
         }
-        InitSpriteSet_0205a444((char*)&arg0->unknown_94_);
+        ((OBJSpriteSet*)((char*)&arg0->unknown_94_))->Reset();
         arg0->unknown_94_.unknown_50_ = 1;
         arg0->unknown_94_.unknown_40_ = arg0->unknown_e8_;
         arg0->unknown_94_.unknown_4c_ = 0x1b;
         char* var20 = (char*)GetSpriteTextManager_0203bd14();
         *(int*)(var20 + Enum_02021f88_1288) = 0x2000;
-        GetOAMManager_0203bd08();
-        char* var21 = (char*)GetSubOAMBuffer_0203be4c() + 0x2c0;
+        func_0203bd08();
+        char* var21 = (char*)func_0203be4c() + 0x2c0;
         var20 = (char*)GetSpriteTextManager_0203bd14();
         *(char**)var20 = var21;
         if (func_0201b5d8(*var12)) {
@@ -200,20 +206,20 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
         var4 = 0;
         var5 = 0;
         var11->GetLoadedFileByID(arg0->unknown_a10_, &var4, &var5);
-        func_0205a498((char*)&arg0->unknown_94_, (struct PacEntry_02020aec*)var4, var5, var17);
-        func_0205af38((int)((char*)&arg0->unknown_94_), (char*)&arg0->unknown_e8_[9], 1, 1);
-        func_0205af38((int)((char*)&arg0->unknown_94_), (char*)&arg0->unknown_e8_[11], 1, 1);
+        ((OBJSpriteSet*)((char*)&arg0->unknown_94_))->LoadFromPAC((void*)((struct PacEntry_02020aec*)var4), var5, (SafeAllocator*)(var17));
+        ((OBJSpriteSet*)((int)((char*)&arg0->unknown_94_)))->SetMetatileTransformFlags((OBJSpriteSet::Metatile*)((char*)&arg0->unknown_e8_[9]), 1, 1);
+        ((OBJSpriteSet*)((int)((char*)&arg0->unknown_94_)))->SetMetatileTransformFlags((OBJSpriteSet::Metatile*)((char*)&arg0->unknown_e8_[11]), 1, 1);
         BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_a10_);
         arg0->unknown_a10_ = -1;
         var11->GetLoadedFileByID(arg0->unknown_a14_, &var4, &var5);
         var6 = 0;
-        if (func_0205a1f0(&var6, var4, var5) != 0) return;
+        if (((int)GetCharBlockFromNitroFile((Nitro2DCharacter**)(&var6), (void*)(var4), var5)) != 0) return;
         char* var22 = (char*)GetMessageWindow_020421a0();
         char* var23 = *(char**)(var22 + Enum_02021f88_96);
         VectorizedInvertedMemcpy(var6->unknown_14_, var23, var6->unknown_10_);
         WaitForVBlank_020c9820();
-        DC_FlushRange(var23, var6->unknown_10_);
-        LoadToSubObjVRAM((int)var23, 0x2c20, var6->unknown_10_);
+        CleanInvalidateCacheRange((const void*)(var23), var6->unknown_10_);
+        LoadToSubObjVRAM((const void*)((int)var23), 0x2c20, var6->unknown_10_);
         BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_a14_);
         arg0->unknown_a14_ = -1;
         func_02020aa0(arg0);
@@ -274,7 +280,7 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
         if (func_0201b5b0(*var12)) {
             arg0->unknown_70_ = arg0->unknown_74_ + 1;
             char* var29 = inline_02021f88_2(var12);
-            InitBGLayer_0204af64(&arg0->unknown_4c_);
+            ((BGLayer*)(&arg0->unknown_4c_))->Reset();
             arg0->unknown_4c_.isSubScreen_1c_0_ = 1;
             arg0->unknown_4c_.bgIndex_1c_4_ = 0;
             arg0->unknown_4c_.unknown_0_ = arg0->unknown_70_ << 5;
@@ -310,8 +316,8 @@ extern "C" ARM void func_02021f88(Struct_02020554* arg0) {
             var9 = (var9 + 3) & ~3;
             var11->GetLoadedFileByID(arg0->unknown_a1c_, &var8, &var10);
             var10 = (var10 + 3) & ~3;
-            LoadBGBlock_0204b174(&arg0->unknown_4c_, var7, var17, var9);
-            LoadBGBlock_0204b174(&arg0->unknown_4c_, var8, var17, var10);
+            ((BGLayer*)(&arg0->unknown_4c_))->ProcessGraphicsFile((const void*)var7, (SafeAllocator*)var17, var9);
+            ((BGLayer*)(&arg0->unknown_4c_))->ProcessGraphicsFile((const void*)var8, (SafeAllocator*)var17, var10);
             BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_a18_);
             arg0->unknown_a18_ = -1;
             BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_a1c_);

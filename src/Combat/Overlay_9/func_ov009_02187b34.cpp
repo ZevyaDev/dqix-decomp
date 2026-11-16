@@ -19,6 +19,12 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 #include "NitroSDK/ColorEffects.h"
+#include "Graphics/TextureArena.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
 
 
 #define REG_BLDCNT 0x04000050
@@ -56,7 +62,7 @@ struct GlobalFlags_02038598_4;
 
 extern "C" Object3D* func_ov023_021e6194(void* arg0);
 extern "C" GameResources* GetResources_0200fb8c(int* gameState);
-extern "C" unsigned int* GetGlobalFlags_020d6c00();
+extern "C" unsigned int* func_020d6c00();
 extern "C" void func_ov023_021dac40(void* arg0, unsigned int arg1);
 extern "C" int func_ov009_0218a930(void* arg0, unsigned int arg1);
 extern "C" void func_0202ee38(char* arg0, int arg1, int arg2);
@@ -64,10 +70,6 @@ extern "C" void func_0202ee58(char* arg0, int arg1, int arg2);
 extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4* manager, int fadeDuration);
 extern "C" int func_0202eeb4(char* arg0);
 extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
-extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
@@ -135,7 +137,7 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetResources_0200fb8c((int*)var0);
     Object3D* var2 = func_ov023_021e6194(arg0->unknown_7f8_);
-    unsigned int* var3 = GetGlobalFlags_020d6c00();
+    unsigned int* var3 = func_020d6c00();
     BackgroundLoader* var4 = BackgroundLoader::GetInstance();
     if (var4 == NULL)
         return;
@@ -187,11 +189,11 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
         short var13 = arg0->unknown_da3_ * 100 + 2002;
         Struct_ov009_0218aa98 var14 = data_ov009_0218aa98;
         var14.unknown_0_[0].unknown_0_ = arg0->unknown_b8_;
-        var14.unknown_0_[0].unknown_4_ = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, var13);
+        var14.unknown_0_[0].unknown_4_ = ((StringList*)((Struct_0201099c_3*)arg0->unknown_e0_))->GetString(var13);
         var14.unknown_0_[1].unknown_0_ = &arg0->unknown_b8_[1];
-        var14.unknown_0_[1].unknown_4_ = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, var12);
+        var14.unknown_0_[1].unknown_4_ = ((StringList*)((Struct_0201099c_3*)arg0->unknown_e0_))->GetString(var12);
         var14.unknown_0_[2].unknown_0_ = arg0->unknown_b4_;
-        var14.unknown_0_[2].unknown_4_ = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 0x898);
+        var14.unknown_0_[2].unknown_4_ = ((StringList*)((Struct_0201099c_3*)arg0->unknown_e0_))->GetString(0x898);
         Struct_ov009_02187b34_2* var15 = var14.unknown_0_;
         const char* var16 = data_ov009_0218acd9;
         for (; var15->unknown_0_ != NULL; var15++)
@@ -253,10 +255,10 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
                     break;
                 case 2:
                     var25.allocator = arg0->unknown_b4_;
-                    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)arg0->unknown_c68_);
-                    RestoreTextureVRAMState_0207df90(arg0->unknown_c68_);
+                    ((TextureArena*)((TextureVRAMArea_0203d028*)arg0->unknown_c68_))->Reset();
+                    ((TextureArena*)(arg0->unknown_c68_))->Restore();
                     arg0->unknown_cd8_.LoadFromCHRArchive(&var25);
-                    SaveTextureVRAMState_0207dfac(arg0->unknown_c68_);
+                    ((TextureArena*)(arg0->unknown_c68_))->Save();
                     break;
                 }
             }
@@ -265,7 +267,7 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
         }
         arg0->unknown_c59_ = 5;
         var2->StopCurrentAnimation();
-        var2->MaybeSetRegularAnimation(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 2500), 0);
+        var2->MaybeSetRegularAnimation(((StringList*)((Struct_0201099c_3*)arg0->unknown_e0_))->GetString(2500), 0);
         Vector3fix var26;
         memset(&var26, 0, sizeof(var26));
         var26 = var2->rotation_;
@@ -280,7 +282,7 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
         arg0->unknown_878_.SetScale(var28, var29, var31);
         arg0->unknown_878_.rotation_ = var26;
         arg0->unknown_878_.StopCurrentAnimation();
-        arg0->unknown_878_.MaybeSetRegularAnimation(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 2500), 0);
+        arg0->unknown_878_.MaybeSetRegularAnimation(((StringList*)((Struct_0201099c_3*)arg0->unknown_e0_))->GetString(2500), 0);
         Vector3fix var32;
         var32 = ((Object3D*)((char*)var2 + 0x408))->position_;
         arg0->unknown_cd8_.rotation_ = var26;
@@ -292,7 +294,7 @@ extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
         var33->SetScale(var28, var29, var31);
         var33->rotation_ = var26;
         var33->StopCurrentAnimation();
-        var33->MaybeSetRegularAnimation(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 2500), 0);
+        var33->MaybeSetRegularAnimation(((StringList*)((Struct_0201099c_3*)arg0->unknown_e0_))->GetString(2500), 0);
         Vector3fix var34;
         var34 = ((Object3D*)((char*)var2 + 0x408))->position_;
         Object3D* var35 = &arg0->unknown_cd8_;

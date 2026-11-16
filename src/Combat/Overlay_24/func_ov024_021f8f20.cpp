@@ -2,7 +2,11 @@
 #include "GameState/GameState.h"
 #include "Combat/Main/BattleList.h"
 
-extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+extern "C" void* func_02053c6c(unsigned char* gameObject);
 
 struct Struct_ov024_021f8f20;
 typedef void (Struct_ov024_021f8f20::*Type_ov024_021f8f20)(unsigned short id, GameObject* combatant, unsigned short* state);
@@ -25,7 +29,7 @@ extern Type_ov024_021f8f20 gNullMemberFunctionPointer_020e6d5c;
 // USA: func_ov024_021f8f20
 extern "C" ARM void func_ov024_021f8f20(Struct_ov024_021f8f20* arg0, int arg1, int arg2, unsigned short* arg3) {
     GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg2);
-    void* var1 = GetPartyMemberData_02053c6c((unsigned char*)var0);
+    void* var1 = func_02053c6c((unsigned char*)var0);
     if (*arg3 != 1) {
         return;
     }

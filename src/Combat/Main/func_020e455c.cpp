@@ -2,10 +2,14 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
 extern "C" int GetFontLoader_02094a00(void);
 extern "C" void CancelFontLoad_02094ab0(void);
 extern "C" void EnablePlayerControl_020397c0(void* object);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
@@ -35,7 +39,7 @@ extern "C" ARM void func_020e455c(struct Struct_020e455c_2* arg0) {
     if (var1 != 0) {
         EnablePlayerControl_020397c0(var1);
     }
-    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 2);
+    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)func_020d6c00(), 2);
 
     unsigned int var2 = 0x1000000;
     int var3;

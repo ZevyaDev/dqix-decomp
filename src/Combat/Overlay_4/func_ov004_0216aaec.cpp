@@ -12,6 +12,18 @@ enum { Enum_ov004_0216aaec_2400 = 0x960, Enum_ov004_0216aaec_4 = 4 };
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_ov004_02170138 {
     int unknown_0_[7];
 };
@@ -36,8 +48,8 @@ struct MessageWindow_020465c0;
 struct Struct_02021410;
 struct Struct_020213fc;
 
-extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" void* func_0205ec34(void);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int func_0201081c(char* arg0);
 extern "C" struct Struct_ov004_0216aaec_2* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
@@ -45,7 +57,7 @@ extern "C" struct Struct_ov004_0216aaec_3* FindMenuObjectById_ov023_021f6880(voi
 extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" struct StringList_02072a68_2* GetMenuObjectStringList_ov023_021fa598(void* object);
 extern "C" struct MessageWindow_020465c0* GetMessageWindow_020421a0(void);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void ClearMessageParams_02046380(struct MessageWindow_020465c0* window);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
@@ -64,12 +76,12 @@ extern struct Struct_ov004_02170138 data_ov004_02170138;
 // USA: func_ov004_0216aaec
 extern "C" ARM int func_ov004_0216aaec(void* arg0) {
     GameState* var0 = GameState::GetInstance();
-    struct Struct_ov004_0216aaec* var1 = (struct Struct_ov004_0216aaec*)GetFlagManager_0205ec34();
+    struct Struct_ov004_0216aaec* var1 = (struct Struct_ov004_0216aaec*)func_0205ec34();
     struct Struct_ov004_02170138 var2 = data_ov004_02170138;
     unsigned char var3 = 0;
     int var4;
     for (var4 = 0; var4 < 7; var4++) {
-        if (IsFlagSet_0206dfb0((int)var1, var1->unknown_8c_, var2.unknown_0_[var4])) {
+        if (func_0206dfb0((int)var1, var1->unknown_8c_, var2.unknown_0_[var4])) {
             var3++;
         }
     }
@@ -96,7 +108,7 @@ extern "C" ARM int func_ov004_0216aaec(void* arg0) {
 #if !defined(jpn)
     void* var10 = var6->unknown_4_.Allocate(4);
 #endif
-    if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) != 0) {
+    if (IsLocalWirelessGuest_0202c540(func_0202ae18()) != 0) {
         var5 = 1000;
     }
     memset(var10, 0, Enum_ov004_0216aaec_2400);

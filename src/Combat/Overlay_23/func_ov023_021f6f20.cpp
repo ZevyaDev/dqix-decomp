@@ -1,7 +1,7 @@
 #include <globaldefs.h>
+#include "Graphics/SPRSprite.h"
 
 extern "C" void func_ov023_021f6ed8(void* arg0);
-extern "C" void func_0204719c(void* arg0);
 extern "C" void func_ov023_021f71a8(void* arg0, int arg1);
 
 // USA: func_ov023_021f6f20
@@ -12,7 +12,7 @@ extern "C" ARM int func_ov023_021f6f20(void* arg0, int arg1, int arg2, int arg3,
     *(unsigned short*)((char*)arg0 + 0x8) = arg3;
     *(unsigned short*)((char*)arg0 + 0xa) = arg4;
     *(unsigned int*)((char*)arg0 + 0x10) = arg5;
-    func_0204719c((char*)arg0 + 0x20);
+    ((SPRSprite*)((char*)arg0 + 0x20))->Reset();
     func_ov023_021f71a8(arg0, arg1);
     *(unsigned short*)((char*)arg0 + 0xa8) = 0;
     *(unsigned short*)((char*)arg0 + 0xaa) = 0;

@@ -1,11 +1,11 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 struct Struct_0201099c_3;
 
 extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
-extern "C" char *FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int func_020420e8(const char *arg0, int arg1);
 extern "C" void AppendPositionTag_02041a90(char *buffer, int x, int y);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov002_02160ce8(unsigned char *arg0, char *arg1, int arg
         AppendFrameTag_02041c08(arg1, var7, 8, 5, 5, 5);
     }
     AppendCursorTag_02041ea4(arg1, var7);
-    char *var10 = FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), 0xfa6);
+    char *var10 = ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(0xfa6));
     AppendPositionTag_02041a90(arg1, (0xf0 - func_020420e8(var10, 0)) >> 1, 4);
     AppendText_02042058(arg1, var10);
     func_02041fac(arg1, (int) data_ov002_0216d2b3, 0x10);
@@ -52,13 +52,13 @@ extern "C" ARM void func_ov002_02160ce8(unsigned char *arg0, char *arg1, int arg
         }
         AppendTextColorTag_02041e70(arg1, 0xf);
         AppendMenuEntry_02041b70(arg1, var8,
-                      FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), var1++));
+                      ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(var1++)));
         if (var3 != 2) {
             AppendXPositionTag_02041a28(arg1, 0x5a);
             var4 = 0x11fb;
             AppendTextColorTag_02041e70(arg1, 3);
             AppendText_02042058(
-                arg1, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), var4++));
+                arg1, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(var4++)));
             var5 = 0x7d;
             for (var6 = 0; var6 < 5; var6++) {
                 AppendXPositionTag_02041a28(arg1, var5);
@@ -69,18 +69,18 @@ extern "C" ARM void func_ov002_02160ce8(unsigned char *arg0, char *arg1, int arg
                 }
                 AppendTextColorTag_02041e70(arg1, var11);
                 AppendMenuEntry_02041b70(arg1, var9,
-                              FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), var4++));
+                              ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(var4++)));
                 var9++;
                 var5 += 0x10;
             }
             AppendXPositionTag_02041a28(arg1, 0xce);
             AppendTextColorTag_02041e70(arg1, 3);
             AppendText_02042058(
-                arg1, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), var4));
+                arg1, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(var4)));
             AppendXPositionTag_02041a28(arg1, var2 + 3);
             AppendTextColorTag_02041e70(arg1, 0xf);
             AppendText_02042058(
-                arg1, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), 0x1202));
+                arg1, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(0x1202)));
         }
         if (var3 != 2) {
             AppendText_02042058(arg1, *(char **) (arg0 + 0x1bdc));

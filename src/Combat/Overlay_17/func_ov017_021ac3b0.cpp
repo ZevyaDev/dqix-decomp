@@ -5,6 +5,15 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/GameResources.h"
+#include "Resource/GameStrings.h"
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 
 
@@ -70,10 +79,9 @@ extern "C" void SetFacing_02033834(Struct_02033834_2*, int);
 extern "C" void LoadFileTables_020a0c0c();
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_ov017_021acc8c(void*, Struct_02013fb4*, int, int);
-extern "C" Struct_ov017_021ac3b0_4* GetFlagManager_0205ec34();
-extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
+extern "C" Struct_ov017_021ac3b0_4* func_0205ec34();
+extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" void AppendText_02042058(char*, const char*);
-extern "C" const char* GetStandardString_020e51cc(int);
 extern "C" char* func_0206f504();
 extern "C" void func_0206f510(char*);
 extern "C" void func_0206f550(char*, char*, char*);
@@ -165,10 +173,10 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
         if (arg0->unknown_c_->unknown_17_) {
             const char* var17 = arg0->unknown_c_->unknown_0_;
             if (arg0->unknown_c_->unknown_14_ == 1) {
-                Struct_ov017_021ac3b0_4* var18 = GetFlagManager_0205ec34();
-                if (IsFlagSet_0206dfb0((int)var18, var18->unknown_8c_, 0x777)) {
+                Struct_ov017_021ac3b0_4* var18 = func_0205ec34();
+                if (func_0206dfb0((int)var18, var18->unknown_8c_, 0x777)) {
                     var17 = arg0->unknown_c_->unknown_4_;
-                    if (IsFlagSet_0206dfb0((int)var18, var18->unknown_8c_, arg0->unknown_c_->unknown_15_ + 0x114c) && arg0->unknown_c_->unknown_8_)
+                    if (func_0206dfb0((int)var18, var18->unknown_8c_, arg0->unknown_c_->unknown_15_ + 0x114c) && arg0->unknown_c_->unknown_8_)
                         var17 = arg0->unknown_c_->unknown_8_;
                 }
             }
@@ -177,8 +185,8 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
             else AppendText_02042058(var16, data_ov017_021d7eb0);
         } else AppendText_02042058(var16, data_ov017_021d7ed2);
 #else
-            else AppendText_02042058(var16, GetStandardString_020e51cc(0x3f2));
-        } else AppendText_02042058(var16, GetStandardString_020e51cc(0x53));
+            else AppendText_02042058(var16, GetGameString((eGameString)(0x3f2)));
+        } else AppendText_02042058(var16, GetGameString((eGameString)(0x53)));
 #endif
         if (strlen(var16) >= Enum_ov017_021ac3b0_2400) var16[Enum_ov017_021ac3b0_2400 - 1] = 0;
         char* var19 = func_0206f504();
@@ -191,9 +199,9 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
         var3->unknown_998_ = 1; var3->unknown_19b2_ = 0; arg0->unknown_28_ = 5;
     } else if (arg0->unknown_28_ == 5) {
         if (var3->unknown_998_) return;
-        Struct_ov017_021ac3b0_4* var20 = GetFlagManager_0205ec34();
-        if (IsFlagSet_0206dfb0((int)var20, var20->unknown_8c_, 0x777) && arg0->unknown_c_->unknown_14_ == 1 &&
-            !IsFlagSet_0206dfb0((int)var20, var20->unknown_8c_, arg0->unknown_c_->unknown_15_ + 0x114c)) {
+        Struct_ov017_021ac3b0_4* var20 = func_0205ec34();
+        if (func_0206dfb0((int)var20, var20->unknown_8c_, 0x777) && arg0->unknown_c_->unknown_14_ == 1 &&
+            !func_0206dfb0((int)var20, var20->unknown_8c_, arg0->unknown_c_->unknown_15_ + 0x114c)) {
             unsigned char var21 = arg0->unknown_c_->unknown_16_;
             if (var21) {
                 Struct_ov017_021ac3b0* var22 = (Struct_ov017_021ac3b0*)arg0->unknown_10_.Allocate(var21 * 4);
@@ -213,7 +221,7 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
     } else if (arg0->unknown_28_ == 6) {
         if (!UpdateFontLoad_02094b4c(GetFontLoader_02094a00())) return;
         func_ov017_021ac32c(arg0); EnablePlayerControl_020397c0(var1); arg0->unknown_1_ = 1;
-        Struct_ov017_021ac3b0_4* var26 = GetFlagManager_0205ec34();
+        Struct_ov017_021ac3b0_4* var26 = func_0205ec34();
         Struct_ov017_021ac3b0_5 var27;
         var27.unknown_c_ = var2->unknown_0_; var27.unknown_24_ = arg0->unknown_8_->unknown_0_;
         if (RunTrigger_020649b0(var26, 0x18, &var27)) func_0206f81c(&var27);

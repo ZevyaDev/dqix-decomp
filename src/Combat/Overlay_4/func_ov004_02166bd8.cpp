@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 struct Struct_ov004_02153e20 {
     char unknown_0_[0x5c];
@@ -57,7 +61,7 @@ struct Struct_ov004_0217101c_3 {
 #endif
 };
 
-extern "C" void* GetFlagManager_0205ec34();
+extern "C" void* func_0205ec34();
 extern "C" void func_ov004_02166608(void*);
 extern "C" Struct_ov004_02153e20* func_ov023_021f6524(void*, int);
 extern "C" Struct_02065990_3* GetQuestManager_02094d6c();
@@ -67,7 +71,7 @@ extern "C" Struct_ov004_02166bd8_3* func_0208d994(Struct_0208bf78_5*, int);
 extern "C" void func_ov023_021f9b30(Struct_ov004_02153e20*, unsigned short, unsigned int, unsigned int);
 extern "C" Struct_ov004_02166bd8* func_ov004_02165ea4(void*, int, int);
 struct Struct_02000c9c_8;
-extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
+extern "C" int func_0200fb08(Struct_02000c9c_8*);
 extern "C" unsigned int func_020965ac(Struct_02065990_3*, unsigned char);
 extern "C" int func_02096100(int, unsigned char*, int);
 extern "C" const char* func_ov023_021f63ac(void*, int, int);
@@ -107,7 +111,7 @@ static inline Struct_ov004_0215de9c* inline_ov004_02166bd8(Struct_ov004_0215de9c
 // USA: func_ov004_02166bd8
 // JPN: func_ov004_02166bd8
 extern "C" ARM int func_ov004_02166bd8(void* arg0) {
-    GetFlagManager_0205ec34();
+    func_0205ec34();
     func_ov004_02166608(arg0);
     short var0 = 0;
     short var1 = 1;
@@ -164,7 +168,7 @@ extern "C" ARM int func_ov004_02166bd8(void* arg0) {
                     var16->unknown_46_ = 0;
                     var16->unknown_3a_ = (var12 != 0);
                     if (var12 >= 1 && var12 <= 3) {
-                        int var17 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
+                        int var17 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
                         int var18 = 2;
                         switch (var17) {
                         case 4:

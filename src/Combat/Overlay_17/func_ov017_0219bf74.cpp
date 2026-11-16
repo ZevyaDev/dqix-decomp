@@ -2,6 +2,10 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_02013750 func_02013518
+#endif
+
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_02013750(void* arg0, int arg1);
 

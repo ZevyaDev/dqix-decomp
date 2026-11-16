@@ -3,6 +3,10 @@
 #include "Graphics/Vector.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
 struct Queue_02038598_5;
 
 struct Struct_ov017_021c5c5c {
@@ -63,7 +67,7 @@ struct Struct_ov017_021c5c5c_6 {
     unsigned int unknown_18c_;
 };
 
-extern "C" Struct_ov017_021c5c5c* GetBattleSetup_ov017_021b8478(Struct_ov017_021c5c5c_2* battleManager);
+extern "C" Struct_ov017_021c5c5c* func_ov017_021b8478(Struct_ov017_021c5c5c_2* battleManager);
 extern "C" Struct_ov017_021c5c5c_6* func_ov017_021a278c(void* arg0, int arg1);
 extern "C" unsigned char IsOnLadder_02039d7c(char* object);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
@@ -84,7 +88,7 @@ extern "C" ARM int func_ov017_021c5c5c(int arg0, int arg1) {
         return 0;
     }
     if (var1->unknown_3718_->unknown_2_ != 0) {
-        Struct_ov017_021c5c5c* var4 = GetBattleSetup_ov017_021b8478(var1->unknown_3718_);
+        Struct_ov017_021c5c5c* var4 = func_ov017_021b8478(var1->unknown_3718_);
         if (var4->unknown_8_ == arg1) {
             return 1;
         }

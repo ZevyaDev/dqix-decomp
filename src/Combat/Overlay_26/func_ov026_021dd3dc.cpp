@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_ov000_02161e30;
 struct Struct_ov000_0217e870_2;
 struct Struct_ov026_021d8ba0_4;
@@ -39,7 +43,7 @@ struct Struct_ov000_021643d4_3 {
 extern "C" const Struct_ov026_021de6cc data_ov026_021de6cc;
 extern "C" const Struct_ov026_021de6cc data_ov026_021de6d4;
 
-extern "C" LocalWireless_0202b2f0* GetLocalWireless_0202ae18();
+extern "C" LocalWireless_0202b2f0* func_0202ae18();
 extern "C" int func_ov000_0215fc60(char*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
@@ -67,7 +71,7 @@ extern "C" ARM int func_ov026_021dd3dc(Struct_ov000_02161e30* arg0, Struct_ov000
     int var3[4];
     Struct_ov000_021643d4_3 var4;
     GameState* var5 = GameState::GetInstance();
-    LocalWireless_0202b2f0* var6 = GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* var6 = func_0202ae18();
     int var7;
     int var8;
     int var9 = 0;

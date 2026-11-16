@@ -1,9 +1,23 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 #include <World/Zone3D.h>
+#include "World/Zone3DTypes.h"
 #include <NitroSDK/Cache.h>
 #include <std_library_functions.h>
 #include "Resource/Brightness.h"
+#include "Graphics/TextureArena.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_020a1df8 func_020a3b70
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
 
 struct MusicManager_02109bf4_4;
 struct Struct_0209c3b4_2;
@@ -48,7 +62,7 @@ struct Struct_ov017_021b1564_4 { char unknown_0_[0xae]; short unknown_ae_; };
 struct Struct_ov017_021b1564_5 { char unknown_0_[0x5b0]; char unknown_5b0_[1]; };
 struct Struct_ov017_021b1564_6 { char unknown_0_[0x114]; void* unknown_114_; char unknown_118_[0xc]; int unknown_124_; char unknown_128_[0x11]; unsigned char unknown_139_; };
 extern "C" GameResources* GetResources_0200fb8c(int*);
-extern "C" unsigned int* GetGlobalFlags_020d6c00();
+extern "C" unsigned int* func_020d6c00();
 extern "C" Struct_ov017_021b1564_8* GetMessageWindow_020421a0();
 extern "C" unsigned char* GetFollowCamera_020100f8(char*);
 extern "C" void DisableCameraTurning_020a27b8(unsigned char*);
@@ -72,7 +86,7 @@ extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void LoadFileTables_020a0c0c();
 extern "C" void CloseMessageWindow_02043124(void*);
-extern "C" void PushOverlay_020a1df8(int);
+extern "C" void func_020a1df8(int);
 extern "C" void PushSubOverlay_020a1ef0(int);
 extern "C" void func_ov017_021b1ca8(int);
 extern "C" void func_020979c0(Struct_020979c0*, unsigned char);
@@ -99,7 +113,7 @@ extern "C" void LoadToMainBG1CharacterData(void*, int, unsigned int);
 extern "C" void LoadToMainBG2CharacterData(void*, int, unsigned int);
 extern "C" void LoadToMainBG1ScreenData(void*, int, unsigned int);
 extern "C" void LoadToMainBG2ScreenData(void*, int, unsigned int);
-extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
+extern "C" void func_02012da4(AllocatorUnion*, void*);
 extern "C" void func_ov017_0218f79c(void*);
 void SetAndLockMainBrightness(GameResources*, int, int);
 extern "C" void func_ov017_021921fc(Vector3i*, short, int);
@@ -107,10 +121,7 @@ extern "C" void func_ov017_0219bd1c(int, int, int, int);
 extern "C" void func_ov017_021a2fa0(GameResources*);
 extern "C" void func_ov017_0219b624(GameResources*);
 extern "C" void func_ov017_0219ba0c(GameResources*, int);
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
-extern "C" void RestoreTextureVRAMState_0207df90(char*);
 extern "C" void InitMessageGlyphs_020432c4(void*);
-extern "C" void SaveTextureVRAMState_0207dfac(char*);
 void UnlockAndSetMainBrightness(GameResources*, int, int);
 extern "C" int* FindNPCById_0203df78(void*, int);
 extern "C" void* GetNPCData_02040528(int*);
@@ -129,7 +140,7 @@ static inline int inline_ov017_021b1564(Zone3D* arg0) { SDK_NULL_ASSERT(arg0); r
 extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_0201bdac_2* arg1) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetResources_0200fb8c((int*)var0);
-    unsigned int* var2 = GetGlobalFlags_020d6c00();
+    unsigned int* var2 = func_020d6c00();
     Struct_ov017_021b1564_8* var3 = GetMessageWindow_020421a0();
     unsigned char* var4 = GetFollowCamera_020100f8((char*)var0);
     GameObject* var5 = var0->GetUnknownGameObject();
@@ -197,7 +208,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
             if (var4) EnableCameraTurning_020a27ac(var4);
             return;
         }
-        PushOverlay_020a1df8(6);
+        func_020a1df8(6);
         PushSubOverlay_020a1ef0(1);
         func_ov017_021b1ca8(1);
         func_020979c0(arg0->unknown_1c_, 2);
@@ -256,13 +267,13 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         void* var13 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x800);
         if (var13) {
             memset(var13, 0, 0x800);
-            DC_FlushRange(var13, 0x20);
+            CleanInvalidateCacheRange((const void*)(var13), 0x20);
             LoadToMainBG1CharacterData(var13, 0, 0x20);
             LoadToMainBG2CharacterData(var13, 0, 0x20);
-            DC_FlushRange(var13, 0x800);
+            CleanInvalidateCacheRange((const void*)(var13), 0x800);
             LoadToMainBG1ScreenData(var13, 0, 0x800);
             LoadToMainBG2ScreenData(var13, 0, 0x800);
-            FreeMemory_02012da4(&gMainHeap_02114e20, var13);
+            func_02012da4(&gMainHeap_02114e20, var13);
         }
         ClearFlags00(var1, ~0u);
         ClearFlags04(var1, ~0u);
@@ -279,10 +290,10 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         func_ov017_0219ba0c(var1, 0);
         Struct_ov017_021b1564_5* var14 = (Struct_ov017_021b1564_5*)var1->unknown_2cc_;
         Struct_ov017_021b1564_8* var15 = GetMessageWindow_020421a0();
-        ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)var14->unknown_5b0_);
-        RestoreTextureVRAMState_0207df90(var14->unknown_5b0_);
+        ((TextureArena*)((TextureVRAMArea_0203d028*)var14->unknown_5b0_))->Reset();
+        ((TextureArena*)(var14->unknown_5b0_))->Restore();
         InitMessageGlyphs_020432c4(var15);
-        SaveTextureVRAMState_0207dfac(var14->unknown_5b0_);
+        ((TextureArena*)(var14->unknown_5b0_))->Save();
         ++arg0->unknown_48_;
         return;
     } else if (arg0->unknown_48_ == 6) {

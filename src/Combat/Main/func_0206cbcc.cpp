@@ -4,6 +4,10 @@
 #include "Memory/SafeAllocator.h"
 #include "Combat/WorkRecord.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 struct FlagManager_0205faf4_3;
 struct Struct_0205faf4_4;
@@ -11,7 +15,7 @@ struct FlagManager_0205faf4_13;
 extern "C" int GetQuestState_0206e120(FlagManager_0205faf4_3*, int);
 extern "C" int func_0206e260(Struct_0205faf4_4*, int);
 extern "C" int IsQuestUnlocked_0206e2dc(FlagManager_0205faf4_13*, int);
-extern "C" FlagManager_0205faf4_3* GetFlagManager_0205ec34();
+extern "C" FlagManager_0205faf4_3* func_0205ec34();
 extern "C" void func_0206dd68(void*, int);
 struct Struct_02108cec {
     int unknown_0_;
@@ -44,7 +48,7 @@ extern "C" ARM int func_0206cbcc(Script::Parameter* arg0, int arg1) {
         data_02108cec.unknown_4_ = -1;
     }
     if (data_02108cec.unknown_4_ > 0) return 1;
-    var0 = GetFlagManager_0205ec34();
+    var0 = func_0205ec34();
     if (data_02108cec.unknown_8_ != var1 && data_02108cec.unknown_8_ > -1 &&
         !inline_0206cbcc(var0, var1, 1) && !inline_0206cbcc(var0, var1, 2) &&
         inline_0206cbcc(var0, data_02108cec.unknown_8_, 3) && inline_0206cbcc(var0, var1, 3)) {

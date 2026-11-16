@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -7,7 +8,6 @@
 #endif
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov002_0215dd0c(unsigned char* arg0, char* arg1, int arg
     AppendCursorTag_02041ea4(arg1, var0);
 
     for (int var2 = 0; var2 < 2; var2++) {
-        int var3 = FindStringInTable_020e0434((Struct_0201099c_3*)(arg0 + RG(0x20, 0x8)), var1++);
+        int var3 = ((int)((StringList*)((Struct_0201099c_3*)(arg0 + RG(0x20, 0x8))))->GetString(var1++));
         AppendMenuEntry_02041b70(arg1, var2, (const char*)var3);
         if (var2 != 1) {
             AppendText_02042058(arg1, *(char**)(arg0 + RG(0x1bdc, 0x1aa4)));

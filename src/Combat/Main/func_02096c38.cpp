@@ -2,6 +2,7 @@
 #include <GameState/GameState.h>
 #include <Graphics/Vector.h>
 #include <NitroSDK/Graphics.h>
+#include "Graphics/SPRSprite.h"
 
 #if defined(jpn)
 #define func_020c51a4 func_020c6c70
@@ -19,8 +20,6 @@ struct Struct_020968d0 {
 };
 struct Struct_02096c38_2 { char unknown_0_[0xae]; short unknown_ae_; };
 extern "C" int func_020968d0(Struct_020968d0*, int*);
-extern "C" void func_020473c8(Struct_02015ef4_2*, int);
-extern "C" void func_020472e4(Struct_0201730c_2*, int);
 extern "C" void func_020c51a4(int);
 extern "C" void __clear(void*, int);
 
@@ -85,7 +84,7 @@ extern "C" ARM void func_02096c38(Struct_020968d0* arg0, int arg1, int arg2, int
     GXFIFO_MATRIX_TRANSLATE = -0x8000;
     GXFIFO_MATRIX_TRANSLATE = -0x8000;
     GXFIFO_MATRIX_TRANSLATE = 0;
-    func_020473c8(&arg0->unknown_0_[0].unknown_0_, 1);
+    ((SPRSprite*)(&arg0->unknown_0_[0].unknown_0_))->DrawAnimatedNoRotation(1);
     GXFIFO_MATRIX_POP = 1;
     GXFIFO_MATRIX_PUSH = 0;
     short var16 = fix32ReduceAngle0To2Pi(-fix32_Atan2(var9.x, var9.y));
@@ -100,7 +99,7 @@ extern "C" ARM void func_02096c38(Struct_020968d0* arg0, int arg1, int arg2, int
     GXFIFO_MATRIX_SCALE = 0x800;
     GXFIFO_MATRIX_SCALE = var17;
     GXFIFO_MATRIX_SCALE = 0x1000;
-    func_020472e4(&arg0->unknown_0_[1].unknown1_0_, 1);
+    ((SPRSprite*)(&arg0->unknown_0_[1].unknown1_0_))->DrawAnimatedWithRotation(1);
     GXFIFO_MATRIX_POP = 1;
     GXFIFO_MATRIX_POP = 1;
     GXFIFO_MATRIX_PUSH = 0;
@@ -112,14 +111,14 @@ extern "C" ARM void func_02096c38(Struct_020968d0* arg0, int arg1, int arg2, int
     GXFIFO_MATRIX_SCALE = 0xc00;
     GXFIFO_MATRIX_SCALE = -0xc00;
     GXFIFO_MATRIX_SCALE = 0x1000;
-    func_020472e4(&arg0->unknown_0_[2].unknown1_0_, 1);
+    ((SPRSprite*)(&arg0->unknown_0_[2].unknown1_0_))->DrawAnimatedWithRotation(1);
     GXFIFO_MATRIX_POP = 1;
     GXFIFO_MATRIX_POP = 1;
     GXFIFO_MATRIX_PUSH = 0;
     GXFIFO_MATRIX_TRANSLATE = -0x4000;
     GXFIFO_MATRIX_TRANSLATE = -0x4000;
     GXFIFO_MATRIX_TRANSLATE = 0x2000;
-    func_020473c8(&arg0->unknown_0_[3].unknown_0_, 1);
+    ((SPRSprite*)(&arg0->unknown_0_[3].unknown_0_))->DrawAnimatedNoRotation(1);
     GXFIFO_MATRIX_POP = 1;
     GXFIFO_MATRIX_POP = 1;
 }

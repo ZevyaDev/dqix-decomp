@@ -1,7 +1,20 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02046708 func_02047528
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct GlobalFlags_02012de8;
 struct Struct_02018300_3;
@@ -40,11 +53,11 @@ struct Struct_ov017_021d61dc {
     int unknown_0_[8];
 };
 
-extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00();
-extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8* globalFlags, unsigned int mask);
+extern "C" GlobalFlags_02012de8* func_020d6c00();
+extern "C" int func_02046708(GlobalFlags_02012de8* globalFlags, unsigned int mask);
 extern "C" void func_020dc548(signed char arg0, signed char* arg1, signed char* arg2);
 extern "C" int IsOnLadder_02039d7c(char* object);
-extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18();
+extern "C" LocalWireless_0202c1a4* func_0202ae18();
 extern "C" GameObject* func_0200fee0(GameState* arg0, int arg1);
 extern "C" char* GetZone3D_02012fe4();
 extern "C" int func_020981e4(int arg0, int arg1);
@@ -83,7 +96,7 @@ extern Struct_ov017_021d61dc data_ov017_021d61dc;
 extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3, int arg4, int arg5) {
     GameState* var0 = GameState::GetInstance();
 
-    if (TestGlobalFlags_02046708(GetGlobalFlags_020d6c00(), 0x2000) != 0) {
+    if (func_02046708(func_020d6c00(), 0x2000) != 0) {
         unsigned char* var1 = (unsigned char*)GetParty_02010828(var0);
         int var2;
         for (var2 = 0; var2 < var1[0xf7c]; var2++) {
@@ -105,7 +118,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
         }
     }
 
-    LocalWireless_0202c1a4* var8 = GetLocalWireless_0202ae18();
+    LocalWireless_0202c1a4* var8 = func_0202ae18();
     GameResources* var9 = GetGameResources();
     if (var9 == NULL) {
         return;
@@ -201,7 +214,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
         }
     }
 
-    if (var34 != NULL && arg1[0] != var34->obj3D_.objectIndex_4_) {
+    if (var34 != NULL && arg1[0] != var34->obj3D_.unknown_4_) {
         GameObject* var35 = GetCompanionByIndex_0200ff58(var0, arg0);
         int var36;
         if (arg0 == 0 || var35 != NULL) {

@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 struct Struct_ov023_021e0f44_2 {
     char unknown_0_[0xe0];
@@ -71,7 +72,6 @@ extern "C" const short data_ov023_021fd5a8[2] __attribute__((aligned(4)));
 extern "C" void InitTextWindow_0204c684(Struct_ov023_021e0f44_2* textWindow);
 extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg3, short arg4);
 extern "C" void __clear(void* arg0, unsigned long arg1);
-extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" Struct_ov023_021e0f44_4* func_ov023_021db4e4(Struct_ov023_021e0f44* arg0, int arg1);
 extern "C" void func_ov023_021e23d0(void* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4);
 extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
@@ -109,8 +109,8 @@ extern "C" ARM void func_ov023_021e0f44(Struct_ov023_021e0f44_3* arg0)
         char var1[2][0x80] = {0};
 #endif
 
-        const char* var2 = FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1f);
-        const char* var3 = FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1e);
+        const char* var2 = ((StringList*)(data_ov023_021ff9e0.unknown_14_))->GetString(0x1f);
+        const char* var3 = ((StringList*)(data_ov023_021ff9e0.unknown_14_))->GetString(0x1e);
         SHOW_ELEMENT(&arg0->unknown_cc_, 0xe);
         SHOW_ELEMENT(&arg0->unknown_cc_, 0xd);
         func_ov023_021e23d0(&arg0->unknown_cc_, 0xb, (int)var2, 10, 15);
@@ -122,7 +122,7 @@ extern "C" ARM void func_ov023_021e0f44(Struct_ov023_021e0f44_3* arg0)
         {
             if (var4 >= 2)
                 break;
-            const char* var6 = FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_28_, data_ov023_021ff9e0.unknown_20_->unknown_bc_[var4]);
+            const char* var6 = ((StringList*)(data_ov023_021ff9e0.unknown_28_))->GetString(data_ov023_021ff9e0.unknown_20_->unknown_bc_[var4]);
             if (var6 != NULL)
             {
 #if defined(jpn)

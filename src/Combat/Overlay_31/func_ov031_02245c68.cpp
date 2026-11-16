@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 
 struct BlockedContextList;
 
@@ -7,7 +11,7 @@ int DisableIRQInterrupts();
 int SetIRQInterruptState(int mask);
 void SleepCurrentContext(unsigned int ticks);
 void BlockCurrentContext(struct BlockedContextList* list);
-extern "C" void HaltForever_020c9be0(void);
+extern "C" void func_020c9be0(void);
 extern "C" int func_ov031_0220cae0(void* arg0, void (*arg1)(void));
 extern "C" int func_ov031_0220cce4(void);
 extern "C" int func_ov031_0220cdf4(int arg0, int arg1, int arg2);
@@ -89,7 +93,7 @@ extern "C" ARM int func_ov031_02245c68(int arg0) {
 			SetIRQInterruptState(var1);
 			return var0;
 		case 5:
-			HaltForever_020c9be0();
+			func_020c9be0();
 			break;
 		case 6:
 		case 7:

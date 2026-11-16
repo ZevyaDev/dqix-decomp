@@ -12,6 +12,8 @@
 #include "World/ZoneLootableRecord.h"
 #include <Memory/SafeAllocator.h>
 #include <std_library_functions.h>
+#include "Graphics/SPRSprite.h"
+#include "Graphics/TextureArena.h"
 
 struct Struct_02012fa4;
 struct TextureVRAMArea_0203d028;
@@ -29,11 +31,6 @@ struct Struct_ov005_02155d6c {
     char unknown_0_[0x70];
 };
 
-extern "C" void func_02047230(Struct_02012fa4* arg0);
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void func_02047b40(Struct_ov005_02155d6c_2* arg0, void* arg1, SafeAllocator* arg2);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_0203a46c(Struct_0203a46c* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov005_02155d38(Struct_ov005_021556e4_2* arg0);
 
@@ -90,12 +87,12 @@ extern "C" ARM void func_ov005_02155d6c(Struct_ov005_02153954* arg0) {
         if (arg0->unknown_3dab_ == 1) {
             Struct_ov005_02153ba4* var1 = &arg0->unknown_2d90_[arg0->unknown_3d78_];
             if (var1->unknown_14_ == 0) {
-                func_02047230((Struct_02012fa4*)&arg0->unknown_3cf0_);
-                ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)&arg0->unknown_d84_);
-                RestoreTextureVRAMState_0207df90((char*)&arg0->unknown_d84_);
+                ((SPRSprite*)((Struct_02012fa4*)&arg0->unknown_3cf0_))->Release();
+                ((TextureArena*)((TextureVRAMArea_0203d028*)&arg0->unknown_d84_))->Reset();
+                ((TextureArena*)((char*)&arg0->unknown_d84_))->Restore();
                 arg0->unknown_208_.Reset();
-                func_02047b40(&arg0->unknown_3cf0_, arg0->unknown_3d8c_, &arg0->unknown_208_);
-                SaveTextureVRAMState_0207dfac((char*)&arg0->unknown_d84_);
+                ((SPRSprite*)(&arg0->unknown_3cf0_))->LoadFromSPR((const void*)(arg0->unknown_3d8c_), (SafeAllocator*)(&arg0->unknown_208_));
+                ((TextureArena*)((char*)&arg0->unknown_d84_))->Save();
             }
             var1->unknown_14_ = -1;
             var1->unknown_3_ = 0;
@@ -108,11 +105,11 @@ extern "C" ARM void func_ov005_02155d6c(Struct_ov005_02153954* arg0) {
             Struct_ov005_02155d6c_2* var4 = var2->unknown_8_;
             if (var2->unknown_14_ == 0) {
                 func_ov005_02155d38((Struct_ov005_021556e4_2*)var2);
-                RestoreTextureVRAMState_0207df90((char*)var3);
+                ((TextureArena*)((char*)var3))->Restore();
                 arg0->unknown_28_[arg0->unknown_3dac_].Reset();
-                func_02047b40(var4, arg0->unknown_3d94_, &arg0->unknown_28_[arg0->unknown_3dac_]);
+                ((SPRSprite*)(var4))->LoadFromSPR((const void*)(arg0->unknown_3d94_), (SafeAllocator*)(&arg0->unknown_28_[arg0->unknown_3dac_]));
                 var2->unknown_18_ = var2->unknown_0_;
-                SaveTextureVRAMState_0207dfac((char*)var3);
+                ((TextureArena*)((char*)var3))->Save();
             }
             var4->unknown_82_ = 0x1f;
             var4->unknown_80_ = 0x7fff;
@@ -138,11 +135,11 @@ extern "C" ARM void func_ov005_02155d6c(Struct_ov005_02153954* arg0) {
                 Struct_ov005_02155d6c_2* var11 = var8->unknown_8_;
                 if (var10 >= 0) {
                     func_ov005_02155d38((Struct_ov005_021556e4_2*)var8);
-                    RestoreTextureVRAMState_0207df90((char*)var9);
+                    ((TextureArena*)((char*)var9))->Restore();
                     arg0->unknown_28_[var7].Reset();
-                    func_02047b40(var11, arg0->unknown_3d90_ + var10, &arg0->unknown_28_[var7]);
+                    ((SPRSprite*)(var11))->LoadFromSPR((const void*)(arg0->unknown_3d90_ + var10), (SafeAllocator*)(&arg0->unknown_28_[var7]));
                     var8->unknown_18_ = var8->unknown_0_;
-                    SaveTextureVRAMState_0207dfac((char*)var9);
+                    ((TextureArena*)((char*)var9))->Save();
                 }
                 var11->unknown_82_ = 0x1f;
                 var11->unknown_80_ = 0x7fff;
@@ -178,11 +175,11 @@ extern "C" ARM void func_ov005_02155d6c(Struct_ov005_02153954* arg0) {
                 int var18 = var15->unknown_14_;
                 if (var18 >= 0) {
                     func_ov005_02155d38((Struct_ov005_021556e4_2*)var15);
-                    RestoreTextureVRAMState_0207df90((char*)var16);
+                    ((TextureArena*)((char*)var16))->Restore();
                     arg0->unknown_c8_[var14 - 8].Reset();
-                    func_02047b40(var17, arg0->unknown_3d88_ + var18, &arg0->unknown_c8_[var14 - 8]);
+                    ((SPRSprite*)(var17))->LoadFromSPR((const void*)(arg0->unknown_3d88_ + var18), (SafeAllocator*)(&arg0->unknown_c8_[var14 - 8]));
                     var15->unknown_18_ = var15->unknown_0_;
-                    SaveTextureVRAMState_0207dfac((char*)var16);
+                    ((TextureArena*)((char*)var16))->Save();
                 }
                 var17->unknown_82_ = 0x1f;
                 var17->unknown_80_ = 0x7fff;

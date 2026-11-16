@@ -8,6 +8,10 @@ enum { Enum_ov017_021a4cf0_1808 = 0x710, Enum_ov017_021a4cf0_1828 = 0x724, Enum_
 #include "GameState/GameState.h"
 #include "Combat/EntryGetterTypes.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 extern "C" void* GetNPCManager_0203cf4c(void);
 struct NPCManager_0203dce4_2;
@@ -15,7 +19,7 @@ extern "C" struct NPC_0203dce4* GetNPCByIndex_0203dce4(struct NPCManager_0203dce
 extern "C" int GetNPCData_02040528(int* npc);
 extern "C" int* GetQuestManager_02094d6c(void);
 extern "C" void func_02095924(int* arg0, int arg1);
-extern "C" void* GetFlagManager_0205ec34(void* arg0);
+extern "C" void* func_0205ec34(void* arg0);
 extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
 extern "C" void func_0206f81c(void* arg0);
 struct Struct_02000c9c_59;
@@ -56,7 +60,7 @@ extern "C" ARM void func_ov017_021a4cf0(char* arg0) {
     GameState* var7 = GameState::GetInstance();
     unsigned short var8 = *(unsigned short*)var3;
     *(int*)((char*)var7 + 0x5000 + Enum_ov017_021a4cf0_1828) = var8;
-    void* var9 = GetFlagManager_0205ec34((char*)var7 + 0x5000);
+    void* var9 = func_0205ec34((char*)var7 + 0x5000);
     struct Struct_ov017_021a4cf0 var10;
     var10.unknown_0_ = *(unsigned short*)var3;
     var10.unknown_14_ = *(unsigned short*)&data_ov017_021d83a8;

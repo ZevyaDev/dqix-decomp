@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
@@ -7,6 +8,25 @@
 #include "Resource/GameResources.h"
 #include "World/Object3D.h"
 #include "std_library_functions.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Graphics/TextureArena.h"
+#include "Resource/PAC.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
 #if defined(jpn)
 #include "Filesystem/FileIO.h"
 #endif
@@ -77,7 +97,7 @@ struct Struct_ov001_021552a8_2 {
 };
 
 extern "C" char* GetFollowCamera_020100f8(char* gameState);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
 extern "C" void func_ov017_021bb27c(void* arg0);
 extern "C" void func_0208b9a0(void* arg0, unsigned char arg1);
@@ -86,26 +106,19 @@ extern "C" void func_0208b8c4(Struct_0208b8c4* arg0, SafeAllocator* arg1);
 extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void* func_0203d004(void* arg0);
 extern "C" void func_020401fc(Struct_0203d028_6* arg0, unsigned int arg1, SafeAllocator* arg2);
-extern "C" void InitSprite_0205a198(Sprite_02043368_2* sprite);
-extern "C" void InitSpriteAnimationList_0205a234(SpriteAnimationList_02043368* animationList);
-extern "C" void InitSpriteSet_0205a444(char* spriteSet);
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" int LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, void* allocator);
 extern "C" void func_ov001_0215a850(SafeAllocator* arg0);
 extern "C" void func_ov001_0215a8dc(void);
 extern "C" void func_ov001_021538d4(int arg0, void* arg1, SafeAllocator* arg2);
 extern "C" void func_ov001_0215aa14(SafeAllocator* arg0);
 extern "C" void func_ov001_0215aaa8(int arg0, int arg1);
 extern "C" void func_ov001_0215acf8(int arg0, int arg1);
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" int func_ov001_02153948(unsigned short arg0);
-extern "C" Struct_ov001_021552a8_2* GetFlagManager_0205ec34(void);
+extern "C" Struct_ov001_021552a8_2* func_0205ec34(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 extern "C" void func_02019568(void* arg0, int arg1);
 extern "C" Object3D* func_ov017_021bdbc0(unsigned char* arg0);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
@@ -154,7 +167,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
 #endif
         SignedAllocatorHeader* var6 = arg0->unknown_7c_.GetSignedAllocator();
         arg0->unknown_7c_.Destroy();
-        FreeMemory_02012da4(&gMainHeap_02114e20, var6);
+        func_02012da4(&gMainHeap_02114e20, var6);
         var3->RemoveTask(arg0->unknown_74_);
 #if !defined(jpn)
         var3->RemoveTask(arg0->unknown_78_);
@@ -201,10 +214,10 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
         arg0->unknown_168_ = (Struct_ov001_021552a8_3*)arg0->unknown_7c_.Allocate(0x54);
         arg0->unknown_16c_ = arg0->unknown_7c_.Allocate(8);
         for (int var12 = 0; var12 < 0xe; var12++) {
-            InitSprite_0205a198((Sprite_02043368_2*)((char*)arg0->unknown_170_ + var12 * 0x28));
+            ((OBJSpriteSet::Metatile*)((Sprite_02043368_2*)((char*)arg0->unknown_170_ + var12 * 0x28)))->Reset();
         }
-        InitSpriteAnimationList_0205a234((SpriteAnimationList_02043368*)arg0->unknown_16c_);
-        InitSpriteSet_0205a444((char*)arg0->unknown_168_);
+        ((OBJSpriteSet::List*)((SpriteAnimationList_02043368*)arg0->unknown_16c_))->Reset();
+        ((OBJSpriteSet*)((char*)arg0->unknown_168_))->Reset();
         arg0->unknown_168_->unknown_50_ = 0;
         inline_ov001_021552a8(arg0->unknown_168_, arg0->unknown_170_, 0xe);
         arg0->unknown_168_->unknown_3c_ = arg0->unknown_16c_;
@@ -214,10 +227,10 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
         unsigned int var15;
         int var16;
         var3->GetLoadedFileByID(arg0->unknown_110_, &var14, &var15);
-        int var17 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var14);
+        int var17 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var14));
         for (int var18 = 0; var18 < var17; var18++) {
-            void* var19 = GetPacEntryData_020467f0((PacEntry_02020aec*)var14, var18, &var13, &var16);
-            LoadSpriteSetFile_0205a528(arg0->unknown_168_, var19, var16, &arg0->unknown_7c_);
+            void* var19 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var14), var18, (const char**)(&var13), (unsigned int*)(&var16));
+            ((OBJSpriteSet*)(arg0->unknown_168_))->LoadFromNitroFile((void*)(var19), var16, (SafeAllocator*)(&arg0->unknown_7c_));
         }
         var3->RemoveTask(arg0->unknown_110_);
         arg0->unknown_110_ = -1;
@@ -255,7 +268,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
 #if !defined(jpn)
     var3->RemoveTask(arg0->unknown_78_);
 #endif
-    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)(var0 + 0xbd0));
+    ((TextureArena*)((TextureVRAMArea_0203d028*)(var0 + 0xbd0)))->Reset();
 
     if (func_ov001_02153948(arg0->unknown_c_.unknown_40_) == 0) {
         SignedAllocatorHeader* var21 = arg0->unknown_124_.GetSignedAllocator();
@@ -265,7 +278,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
         }
         SignedAllocatorHeader* var22 = arg0->unknown_7c_.GetSignedAllocator();
         arg0->unknown_7c_.Destroy();
-        FreeMemory_02012da4(&gMainHeap_02114e20, var22);
+        func_02012da4(&gMainHeap_02114e20, var22);
         func_ov017_021bb27c(arg0);
         arg0->unknown_1_ = 1;
         return arg0->unknown_a_;
@@ -274,7 +287,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
     int var23;
     int var24;
     Struct_02013454* var25;
-    Struct_ov001_021552a8_2* var26 = GetFlagManager_0205ec34();
+    Struct_ov001_021552a8_2* var26 = func_0205ec34();
     var25 = func_020196fc((Zone3D*)GetZone3D_02012fe4(), 0);
     var24 = var25->unknown_4_.unknown_10_;
     if (var25 != NULL) {
@@ -292,13 +305,13 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
     GameState* var30 = GameState::GetInstance();
     GameResources* var31 = GetGameResources();
     void* var32 = (Zone3D*)GetZone3D_02012fe4();
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     GetParty_02010828(var30);
-    GetGlobalFlags_020d6c00();
+    func_020d6c00();
     if (!(var29.unknown_44_ & 0x400)) {
         func_02019568(var32, var28);
     }
-    *((char*)GetFlagManager_0205ec34() + 0x490) = -1;
+    *((char*)func_0205ec34() + 0x490) = -1;
     if (var29.unknown_7_ != 0) {
         Object3D* var33 = func_ov017_021bdbc0((unsigned char*)var31);
         if (var33 != NULL) {

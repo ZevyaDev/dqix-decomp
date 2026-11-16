@@ -8,8 +8,12 @@ enum { Enum_020abca8_23752 = 0x5cc8 };
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern AllocatorUnion gMainHeap_02114e20;
 
 extern "C" int func_02075910(int arg0, void* arg1, unsigned int arg2, int arg3);
@@ -27,7 +31,7 @@ extern "C" ARM int func_020abca8() {
         if (var1 != 0) {
             func_02075acc(0x8010, var2, 0x6fe4, 0);
         }
-        FreeMemory_02012da4(&gMainHeap_02114e20, var2);
+        func_02012da4(&gMainHeap_02114e20, var2);
     }
     return var1;
 }

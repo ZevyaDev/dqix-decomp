@@ -9,6 +9,10 @@ enum Enum_02000c9c_F { Enum_02000c9c_F_336 = 0x150, Enum_02000c9c_F_2384 = 0x950
 
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_ov000_0217193c;
 struct Struct_ov000_02171614;
 struct Struct_ov000_02171b3c;
@@ -78,7 +82,7 @@ struct Struct_ov026_021dc8fc_3 {
     unsigned short unknown_22_6_ : 10;
 };
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" int func_02053c6c(unsigned char*);
 extern "C" Struct_ov026_021db090_4* func_ov026_021dae60(Struct_ov026_021d8ba0_4*, int);
 extern "C" void func_ov000_0217193c(Struct_ov000_0217193c*);
 extern "C" void func_ov000_02171614(Struct_ov000_02171614*);
@@ -106,7 +110,7 @@ extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Struct_ov026_021d8b
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg6);
     if (!var1) return;
-    Struct_ov026_021dc8fc* var2 = (Struct_ov026_021dc8fc*)GetPartyMemberData_02053c6c((unsigned char*)var1);
+    Struct_ov026_021dc8fc* var2 = (Struct_ov026_021dc8fc*)func_02053c6c((unsigned char*)var1);
     if (!var2) return;
     Struct_ov026_021db090_4* var3 = func_ov026_021dae60(arg3, arg6);
     if (!var3) return;

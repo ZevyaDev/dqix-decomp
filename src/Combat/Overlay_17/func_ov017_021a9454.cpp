@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameStrings.h"
 
 #if defined(jpn)
 enum { Enum_ov017_021a9454_92 = 0x28, Enum_ov017_021a9454_2456 = 0x868, Enum_ov017_021a9454_2464 = 0x870, Enum_ov017_021a9454_2482 = 0x7e2 };
@@ -64,7 +65,6 @@ extern "C" struct Struct_0214e34c* func_020d7a50(void);
 extern "C" void ClearTimedMessageQueue_020d7aa0(struct TimedMessageQueue_020d7aa0_2* queue);
 extern "C" void* func_0200ffc0(struct Struct_0200ffc0* arg0);
 extern "C" void func_020a7f40(unsigned char* arg0);
-extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void*, const char*, int);
@@ -101,13 +101,13 @@ extern "C" ARM void func_ov017_021a9454(Struct_ov017_021a9454_2* arg0) {
 #if defined(jpn)
             sprintf(var7, &data_ov017_021d7c28);
 #else
-            sprintf(var7, (const char*)GetStandardString_020e51cc(0x3a));
+            sprintf(var7, (const char*)((int)GetGameString((eGameString)(0x3a))));
 #endif
         } else {
 #if defined(jpn)
             sprintf(var7, &data_ov017_021d7c49);
 #else
-            sprintf(var7, (const char*)GetStandardString_020e51cc(0x3b));
+            sprintf(var7, (const char*)((int)GetGameString((eGameString)(0x3b))));
 #endif
             arg0->unknown_c_ = 0x170c;
         }

@@ -6,6 +6,15 @@
 #include "NitroSDK/LoadToVRAM.h"
 #include "std_library_functions.h"
 #include "Combat/MapDisplay.h"
+#include "Graphics/BGLayer.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 
 struct Struct_ov001_0215686c {
@@ -49,11 +58,10 @@ struct Struct_ov001_0215686c_4 {
 };
 
 extern "C" int ReadBrightnessRegister_020c39c8(volatile unsigned short* reg);
-extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_0202ae18(void);
+extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_020dc2bc();
-extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 
 static inline unsigned int inline_ov001_0215686c(Struct_ov001_0215686c_2* arg0) {
     return arg0->unknown_a_;
@@ -85,7 +93,7 @@ extern "C" ARM void func_ov001_0215686c(void) {
 
     Struct_ov001_0215686c_2* var6 = ((struct Struct_ov001_0215686c_3*)((char*)var4 + 0x3000))->unknown_734_;
     Struct_ov001_0215686c* var7 = var6->unknown_120_;
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
 
     if (!(var6->unknown_50_ & 0x20)) {
         if (TestFlags00(var4, 0x1000) == 0) {
@@ -113,7 +121,7 @@ cont:
         }
     }
 
-    SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 1);
+    SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 1);
     func_020dc2bc();
 
     volatile unsigned int* var8 = (volatile unsigned int*)0x4001000;
@@ -130,11 +138,11 @@ cont:
     var8[7] = 0;
     var9[0x28] = 0;
 
-    InitBGLayer_0204af64(&var0);
+    ((BGLayer*)(&var0))->Reset();
     var0.isSubScreen_1c_0_ = 3;
 
     unsigned char* var10 = ((struct Struct_ov001_0215686c_4*)var4)->unknown_2c_;
-    DC_FlushRange(var10 + 0xc, 0x20);
+    CleanInvalidateCacheRange((const void*)(var10 + 0xc), 0x20);
     LoadToSubBGStandardPalette(var10 + 0xc, 0, 0x20);
     CleanCacheRange(var10 + 0xc, 0x20);
 
@@ -142,7 +150,7 @@ cont:
     if (var5 == -0x10) {
         memset(var1, 0x11, 0x20);
     }
-    DC_FlushRange(var1, 0x20);
+    CleanInvalidateCacheRange((const void*)(var1), 0x20);
     LoadToSubBG3CharacterData(var1, 0x6000, 0x20);
     CleanCacheRange(var1, 0x20);
 

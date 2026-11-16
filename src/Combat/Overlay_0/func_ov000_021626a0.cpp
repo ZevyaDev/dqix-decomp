@@ -65,7 +65,7 @@ extern "C" ARM void SetObjectsVisibleBySelector_ov000_021626a0(BattleScene_ov000
             continue;
         }
         isShown = isVisible;
-        if (object->obj3D_.classFlags_0_ & 0x400) {
+        if (object->obj3D_.unknown_0_ & 0x400) {
             enemy = GetEnemyByIndex_0200fea4(gameState, indices[i]);
             if (enemy != NULL) {
                 enemyRecord = enemy->unknown_148_;

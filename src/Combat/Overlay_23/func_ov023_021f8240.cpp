@@ -3,6 +3,10 @@
 #endif
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
 struct Struct_ov023_021f8240_8
 {
     int unknown_0_;
@@ -194,7 +198,7 @@ extern "C" void FillTextWindowRect_0204f914(Struct_ov023_021f8240_5* textWindow,
 extern "C" Struct_ov023_021f8240* func_ov023_021f6f18(void* arg0);
 
 #if defined(jpn)
-extern "C" int GetStringLength_020d2ff0(const char*);
+extern "C" int func_020d2ff0(const char*);
 extern "C" void func_02050678(Struct_ov023_021f8240_5*, short, short, const char*, int, unsigned char, unsigned short*, unsigned short*);
 #endif
 
@@ -261,7 +265,7 @@ extern "C" ARM void func_ov023_021f8240(Struct_ov023_021f8240_6* arg0, void* arg
             arg0->unknown_20_.unknown_b6_ = var13;
 #if defined(jpn)
             short var14 = var4->unknown_42_;
-            int var15 = GetStringLength_020d2ff0(var6);
+            int var15 = func_020d2ff0(var6);
             int var16 = (var15 * var8) >> 1;
             switch (var4->unknown_45_1_)
             {

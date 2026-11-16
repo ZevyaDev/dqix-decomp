@@ -14,6 +14,11 @@ enum { Enum_ov003_0215b1dc_6574 = 0x19ae };
 #endif
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct Struct_ov003_021594c4_2 {
     char unknown_0_[0x64];
@@ -42,9 +47,8 @@ extern "C" void CloseMessageWindow_02043124(Struct_ov003_0215af9c*);
 extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_ov003_0215c270(Struct_ov003_021594c4_2*, unsigned int, unsigned int);
 struct Struct_0201099c_3;
-extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_ov003_02159250(Struct_ov003_021594c4_2*, void*);
-extern "C" int* GetLocalWireless_0202ae18(void);
+extern "C" int* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_ov017_021c37a4(void);
 
@@ -81,8 +85,8 @@ extern "C" ARM void func_ov003_0215b1dc(Struct_ov003_021594c4_2* arg0) {
         if (IsMainBrightnessTransitionActive(var1)) return;
         if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() > 0) return;
         var0->unknown_998_ = 1;
-        func_ov003_02159250(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, 0x6e));
-        if (IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18())) {
+        func_ov003_02159250(arg0, ((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_64_))->GetString(0x6e)));
+        if (IsLocalWirelessOn_0202b7d8(func_0202ae18())) {
             func_ov017_021c37a4();
         }
         arg0->unknown_580_++;

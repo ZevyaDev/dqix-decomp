@@ -1,11 +1,15 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 extern "C" void* GetParty_02010828(GameState* gameState);
 
 struct Struct_020a0b8c;
 extern "C" int func_020a0b8c(struct Struct_020a0b8c* arg0);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 struct PartyMemberData_0207d300;
 extern "C" int CountHeldItems_02083960(struct PartyMemberData_0207d300* memberData);
 
@@ -22,7 +26,7 @@ extern "C" ARM int func_ov002_02157108(void* arg0, int arg1) {
     } else {
         GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
         if (var4 != NULL) {
-            int var5 = GetPartyMemberData_02053c6c((unsigned char*)var4);
+            int var5 = func_02053c6c((unsigned char*)var4);
             var1 = CountHeldItems_02083960((struct PartyMemberData_0207d300*)var5);
         }
     }

@@ -4,6 +4,16 @@
 #include "NitroSDK/LoadToVRAM.h"
 #include "NitroSDK/Memory.h"
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/PAC.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
 
 struct Struct_ov003_0216bcfc_2 {
 #if defined(jpn)
@@ -59,16 +69,12 @@ struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4 *pac);
-extern "C" void *GetPacEntryData_020467f0(PacEntry_02020aec *pac, int index, void **outEntry, int *outSize);
 extern "C" void *AllocateRoundedSize_02012d88(AllocatorUnion *allocator, unsigned int size);
-extern "C" void FreeMemory_02012da4(AllocatorUnion *allocator, void *block);
-extern "C" void DestroySpriteSet_0205a494(void *spriteSet);
+extern "C" void func_02012da4(AllocatorUnion *allocator, void *block);
 extern "C" void func_ov003_021700bc(Struct_ov003_0216bcfc *arg0);
-extern "C" void *GetLocalWireless_0202ae18();
+extern "C" void *func_0202ae18();
 extern "C" void UpdateLocalWirelessPlayerCount_0202c288();
 extern "C" void CloseMessageWindow_02043124(void *window);
-extern "C" void LoadSpriteSetFile_0205a528(void *spriteSet, void *fileData, unsigned int size, SafeAllocator *allocator);
 #if defined(jpn)
 extern "C" void func_ov003_0216d8d4(void *arg0, int arg1);
 extern "C" void func_ov003_0216e02c(void *arg0, SafeAllocator *arg1);
@@ -91,7 +97,7 @@ extern char data_ov003_021801c9[];
 extern "C" ARM void func_ov003_0216bcfc(Struct_ov003_0216bcfc_3 *arg0) {
     Struct_ov003_0216bcfc_2 *var0   = (Struct_ov003_0216bcfc_2 *) GetMessageWindow_020421a0();
     BackgroundLoader *var1 = BackgroundLoader::GetInstance();
-    void *var2                = GetLocalWireless_0202ae18();
+    void *var2                = func_0202ae18();
 
     if (arg0->unknown_6_ == 0) {
         UpdateLocalWirelessPlayerCount_0202c288();
@@ -117,7 +123,7 @@ extern "C" ARM void func_ov003_0216bcfc(Struct_ov003_0216bcfc_3 *arg0) {
         arg0->unknown_4e8_ = &arg0->unknown_1324_;
         char var5[0x20];
         memset(var5, 0, 0x20);
-        DC_FlushRange(var5, 0x20);
+        CleanInvalidateCacheRange((const void*)(var5), 0x20);
         LoadToMainBG1CharacterData(var5, 0, 0x20);
         arg0->unknown_6_ = 1;
         CloseMessageWindow_02043124(var3);
@@ -130,12 +136,12 @@ extern "C" ARM void func_ov003_0216bcfc(Struct_ov003_0216bcfc_3 *arg0) {
         SignedAllocatorHeader *var6 = arg0->unknown_12d4_.GetSignedAllocator();
         if (var6 != 0) {
             arg0->unknown_12d4_.Destroy();
-            FreeMemory_02012da4((AllocatorUnion *) &gMainHeap_02114e20, var6);
+            func_02012da4((AllocatorUnion *) &gMainHeap_02114e20, var6);
         }
 #if defined(jpn)
-        DestroySpriteSet_0205a494((char *) arg0 + 0x10fc);
+        ((OBJSpriteSet*)((char *) arg0 + 0x10fc))->Destroy();
 #else
-        DestroySpriteSet_0205a494((char *) arg0 + 0x126c);
+        ((OBJSpriteSet*)((char *) arg0 + 0x126c))->Destroy();
 #endif
         arg0->unknown_12bc_ = 0;
         arg0->unknown_12ac_ = arg0->unknown_1264_;
@@ -151,14 +157,14 @@ extern "C" ARM void func_ov003_0216bcfc(Struct_ov003_0216bcfc_3 *arg0) {
         unsigned int var9;
         int var10;
         var1->GetLoadedFileByID(arg0->unknown_c_, &var8, &var9);
-        int var11            = CountPacEntries_02046900((PacEntry_02020cb8_4 *) var8);
+        int var11            = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4 *) var8));
         SafeAllocator *var12 = &arg0->unknown_1310_[0];
         for (int var13 = 0; var13 < var11; var13++) {
-            void *var14 = GetPacEntryData_020467f0((PacEntry_02020aec *) var8, var13, &var7, &var10);
+            void *var14 = GetFileInPACByIndex((void*)((PacEntry_02020aec *) var8), var13, (const char**)(&var7), (unsigned int*)(&var10));
 #if defined(jpn)
-            LoadSpriteSetFile_0205a528((char *) arg0 + 0x10fc, var14, var10, var12);
+            ((OBJSpriteSet*)((char *) arg0 + 0x10fc))->LoadFromNitroFile((void*)(var14), var10, (SafeAllocator*)(var12));
 #else
-            LoadSpriteSetFile_0205a528((char *) arg0 + 0x126c, var14, var10, var12);
+            ((OBJSpriteSet*)((char *) arg0 + 0x126c))->LoadFromNitroFile((void*)(var14), var10, (SafeAllocator*)(var12));
 #endif
         }
         var1->RemoveTask(arg0->unknown_c_);

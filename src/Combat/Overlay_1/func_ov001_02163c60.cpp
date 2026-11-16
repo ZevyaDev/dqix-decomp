@@ -1,10 +1,14 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Graphics/TextureArena.h"
+
+#if defined(jpn)
+#define func_02013750 func_02013518
+#endif
 
 extern "C" unsigned int func_02010768(void*);
 extern "C" unsigned int func_02013750(void*, int);
 struct TextureVRAMArea_0203d028;
-extern "C" unsigned int ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" unsigned int GetZone3D_02012fe4();
 
 // USA: func_ov001_02163c60
@@ -30,6 +34,6 @@ extern "C" ARM int func_ov001_02163c60(void) {
     var0 = *(unsigned int*)((char*)var2 + Enum_ov001_02163c60_76);
     unsigned int var5 = *(unsigned int*)((char*)var2 + Enum_ov001_02163c60_80);
     ((SafeAllocator*)var0)->Reset();
-    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)var5);
+    ((TextureArena*)((TextureVRAMArea_0203d028*)var5))->Reset();
     return 1;
 }

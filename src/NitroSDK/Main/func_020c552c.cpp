@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "NitroSDK/Graphics3D/Internal.h"
 
+#if defined(jpn)
+#define func_020ca528 func_020cbff4
+#endif
+
 extern "C" void func_020ca528(void* block, void* dst);
 
 // USA: func_020c552c

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Resource/FontBankLoader.h"
+#include "std_library_functions.h"
 
 #if defined(jpn)
 #include "GameState/GameState.h"
@@ -10,7 +11,6 @@ enum Enum_02094b30 {
 };
 
 extern "C" int func_020952f4(char* arg0);
-extern "C" int CompareBytes_02001aec(const void*, const void*, unsigned int);
 extern "C" int GetStoryChapter_0201079c(char* gameState);
 #endif
 
@@ -23,7 +23,7 @@ extern "C" ARM void RequestSingleFontLoad_02094b30(FontLoader_0208cb08* loader, 
         char fontName[8] = {};
         switch (loader->unknown_40_) {
         case Enum_02094b30_5000:
-            if (CompareBytes_02001aec(fontName, loader->unknown_59_, func_020952f4(fontName)) != 0) {
+            if (memcmp(fontName, loader->unknown_59_, func_020952f4(fontName)) != 0) {
                 isLoaded = 0;
             }
             break;

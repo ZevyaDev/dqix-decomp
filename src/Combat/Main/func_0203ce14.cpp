@@ -28,3 +28,8 @@ extern "C" ARM void func_0203ce14(void* arg0, Vector3i* arg1) {
     int var5 = fix32_Atan2(var3.x, var3.z);
     func_0203cdd8((struct Struct_0203cdd8*)arg0, var5);
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

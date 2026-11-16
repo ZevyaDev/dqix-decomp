@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
 struct Struct_ov002_02157d40_19 {
     int unknown_0_;
     int unknown_4_;
@@ -29,7 +33,7 @@ extern "C" void func_0208358c(void*, void*, int);
 extern "C" int func_02046608(int, int, void*, void*, int, int, unsigned char);
 extern "C" void func_02083e28(void*, int);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" int func_02053c6c(unsigned char*);
 extern "C" char* func_020d2f88(char*, char*);
 
 struct Struct_ov004_0215e5fc { int unknown_0_, unknown_4_, unknown_8_; };
@@ -148,7 +152,7 @@ extern "C" ARM void func_ov004_0215e5fc(void* arg0, int arg1) {
     int var11;
     void* var12 = GetPartyMemberBaseByIndex_0200ff1c(var5, arg1);
     if (var12 != 0) {
-        var8 = (char*)GetPartyMemberData_02053c6c((unsigned char*)var12);
+        var8 = (char*)func_02053c6c((unsigned char*)var12);
         Struct_ov004_0215e5fc_2* var13 = (Struct_ov004_0215e5fc_2*)func_ov004_0215e47c(arg0, 0x81);
         if (var13 != 0) {
             var6 = var13->inline_ov004_0215e5fc_59();
@@ -232,7 +236,7 @@ extern "C" ARM void func_ov004_0215e5fc(void* arg0, int arg1) {
     void* var30;
     void* var31 = GetPartyMemberBaseByIndex_0200ff1c(var24, arg1);
     if (var31 != 0) {
-        var26 = (char*)GetPartyMemberData_02053c6c((unsigned char*)var31);
+        var26 = (char*)func_02053c6c((unsigned char*)var31);
         Struct_ov004_0215e5fc_2* var32 = (Struct_ov004_0215e5fc_2*)func_ov004_0215e47c(arg0, 0x81);
         if (var32 != 0) {
             var30 = var32->inline_ov004_0215e5fc_59();

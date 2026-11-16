@@ -2,6 +2,14 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_ov000_02160fd4 func_ov000_02162740
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct LocalWireless_0202c1a4;
 struct Struct_ov023_021edf54;
 
@@ -59,11 +67,11 @@ extern "C" Struct_ov023_021f00fc_2* func_ov023_021f0360(void* arg0, int arg1);
 extern "C" unsigned int func_ov023_021eea98(Struct_ov023_021edf54* arg0);
 extern "C" void func_ov017_021cd4c8(unsigned short, unsigned short, signed char);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
-extern "C" int TestBattleSceneFlags_ov000_02160fd4(void* battleScene, int flags);
+extern "C" int func_ov000_02160fd4(void* battleScene, int flags);
 
 extern "C" {
 void __clear(void* arg0, unsigned long arg1);
-void* GetLocalWireless_0202ae18();
+void* func_0202ae18();
 void func_ov017_021cd590(unsigned short arg0, int* arg1, unsigned char arg2, int arg3);
 void func_ov017_021cd35c(unsigned short arg0, void* arg1, unsigned char arg2, signed char arg3);
 int func_ov023_021f5150(Struct_ov023_021f00fc_4* arg0, Struct_ov023_021f00fc* arg1, int* arg2, int* arg3, int arg4);
@@ -74,7 +82,7 @@ extern "C" ARM int func_ov023_021f00fc(Struct_ov023_021f00fc_4* arg0)
 {
     GameState* var0 = GameState::GetInstance();
     GetMessageWindow_020421a0();
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     GameResources* var2 = GetGameResources();
     if (!IsLocalWirelessOn_0202b7d8((int*)var1) || arg0->unknown_2a0_->unknown_2a_ == GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var1))
     {
@@ -107,9 +115,9 @@ extern "C" ARM int func_ov023_021f00fc(Struct_ov023_021f00fc_4* arg0)
     {
         if (var2->unknown_42e2_ != 0)
             SetBattleSceneFlags_ov000_02160fa8(arg0, 0x2000000);
-        if (!TestBattleSceneFlags_ov000_02160fd4(arg0, 0x4000))
+        if (!func_ov000_02160fd4(arg0, 0x4000))
             return arg0->unknown_eac_;
-        if (!TestBattleSceneFlags_ov000_02160fd4(arg0, 0x8000))
+        if (!func_ov000_02160fd4(arg0, 0x8000))
             return arg0->unknown_eac_;
     }
     _ZZ21inline_ov023_021f4c04vE1s->unknown_10_ =func_ov023_021f5150(arg0, arg0->unknown_2a0_, arg0->unknown_5758_, &arg0->unknown_5768_, arg0->unknown_576c_) ? 1 : 0;

@@ -103,12 +103,12 @@ struct Struct_ov006_02154614 {
 };
 
 #include "NitroSDK/Graphics.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 
 struct Struct_0210a010_3 {
     char unknown_0_[0xa0];
     int unknown_a0_;
 };
-extern Struct_0210a010_3 gRenderConfig_0210a010;
 
 extern "C" void InitFollowCamera_020a2010(void* storage);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov006_02154e58(Struct_ov006_02154614* arg0) {
             return;
     }
     if (arg0->unknown_ae4_.unknown_77d_ == 2 && arg0->unknown_ae4_.unknown_79b_1_ && (arg0->unknown_ae4_.unknown_774_ & 4)) {
-        gRenderConfig_0210a010.unknown_a0_ = 0x46501313;
+        g_nitro3DRenderConfig.viewportArg = 0x46501313;
         void* var0 = arg0->unknown_5cc_;
         BG0CNT = BG0CNT & ~3;
         BG1CNT = (BG1CNT & ~3) | 1;

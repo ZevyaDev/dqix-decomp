@@ -1,17 +1,29 @@
 #include <globaldefs.h>
 #include "Graphics/LightingManager.h"
-#include "NitroSDK/Graphics3D/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 #include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "NitroSDK/Graphics.h"
 #include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02046708 func_02047528
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct GlobalFlags_02012de8;
 struct QueueNode_02015438;
 
 unsigned long long GetCurrentTimestamp(void);
-extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00();
-extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" GlobalFlags_02012de8* func_020d6c00();
+extern "C" int func_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
+extern "C" void* func_0202ae18(void);
 extern "C" void ResetGeometryEngine_020c52e8();
 extern "C" void ResetMatrixStacks_020c5414();
 extern "C" void func_ov017_02195ecc(unsigned char* arg0, int arg1);
@@ -32,11 +44,11 @@ extern "C" ARM void func_ov017_02195a20(unsigned char* arg0) {
  enum {Enum_ov017_02195a20_17546=0x448a,Enum_ov017_02195a20_14076=0x36fc};
 #endif
     GetCurrentTimestamp();
-    GlobalFlags_02012de8* var0 = GetGlobalFlags_020d6c00();
-    void* var1 = GetLocalWireless_0202ae18();
+    GlobalFlags_02012de8* var0 = func_020d6c00();
+    void* var1 = func_0202ae18();
     ResetGeometryEngine_020c52e8();
     ResetMatrixStacks_020c5414();
-    RenderConfig::Reset();
+    Nitro3DRenderConfig::Reset();
     DISP3DCNT = (DISP3DCNT & ~0x3000) | 8;
     DISP3DCNT = (DISP3DCNT & ~0x3000) | 0x10;
     if (TestFlags04((GameResources*)arg0, 0x2000)) {
@@ -48,11 +60,11 @@ extern "C" ARM void func_ov017_02195a20(unsigned char* arg0) {
         func_ov017_02195ecc(arg0, 1);
     }
     func_ov017_021959ec(arg0);
-    RenderConfig::SubmitToFifo();
-    SendQueuedDataToGeometryFifo();
+    Nitro3DRenderConfig::SubmitToFifo();
+    Nitro3D_FlushFifoQueue();
     LightingManager::GetInstance()->SubmitToRenderConfig();
 
-    int var2 = TestGlobalFlags_02046708(var0, 0x800000);
+    int var2 = func_02046708(var0, 0x800000);
     if (var2) {
         func_020c3a0c(-1);
     }

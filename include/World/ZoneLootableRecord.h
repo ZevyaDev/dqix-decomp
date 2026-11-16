@@ -1,6 +1,7 @@
 #pragma once
 
 #include <globaldefs.h>
+#include "Graphics/SPRSprite.h"
 
 struct Struct_0204719c
 {
@@ -37,8 +38,4 @@ struct Struct_020133cc
     unsigned char unknown_338_[0x30];
 };
 
-extern "C" void func_02048004(Struct_02012fa4* arg0, Struct_02012fa4* arg1);
-extern "C" void func_02047230(Struct_02012fa4* arg0);
-extern "C" void func_02048080(Struct_0204719c* arg0);
-extern "C" void func_0204719c(void* arg0);
 

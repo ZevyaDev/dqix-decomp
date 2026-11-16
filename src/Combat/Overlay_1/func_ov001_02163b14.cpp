@@ -1,17 +1,21 @@
 #include <globaldefs.h>
+#include "World/Zone3D.h"
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
+
+#if defined(jpn)
+#define func_02011584 func_020112f4
+#endif
 
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" void* GetScriptValueAsString_ov017_021d612c(void* value);
 extern "C" void* func_02010768(void* arg0);
-extern "C" void* GetZoneList_02011584(void* gameState);
+extern "C" void* func_02011584(void* gameState);
 struct Struct_0201cb60_2;
 struct Struct_0201cb60;
 extern "C" Struct_0201cb60* func_0209998c(Struct_0201cb60_2* arg0, const char* arg1);
 extern "C" void func_02013718(char* arg0, int arg1, int arg2);
-extern "C" void _ZN6Zone3D10SwitchZoneEti(void* arg0, int arg1, int arg2);
 
 struct Struct_ov001_02163b14 {
 #if defined(jpn)
@@ -35,7 +39,7 @@ extern "C" ARM int func_ov001_02163b14(void* arg0) {
     } else if (var3 == 2) {
         var4 = (int)GetScriptValueAsString_ov017_021d612c(arg0);
         if (var4 == 0) return 0;
-        void* var5 = GetZoneList_02011584(var0);
+        void* var5 = func_02011584(var0);
         struct Struct_0201cb60* var6 = func_0209998c((struct Struct_0201cb60_2*)var5, (const char*)var4);
         if (var6 == 0) return 0;
         var4 = *(unsigned short*)var6;
@@ -58,7 +62,7 @@ extern "C" ARM int func_ov001_02163b14(void* arg0) {
     var10->CreateTypeA(var12, var11);
 
     func_02013718((char*)var9, (int)var10, var8);
-    _ZN6Zone3D10SwitchZoneEti(var9, var4, 0);
+    ((Zone3D*)var9)->SwitchZone(var4, 0);
 
     *(void**)var2 = var9;
     return 1;

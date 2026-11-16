@@ -7,7 +7,11 @@ src/NitroSDK/itcm/DMA_ITCM.cpp:
 
 src/Graphics/itcm/VRAMStagingITCM.cpp:
     complete
-    .text start:0x01ff87b0 end:0x01ff974c
+    .text start:0x01ff87b0 end:0x01ff96e0
+
+src/Graphics/itcm/func_01ff96d4.cpp:
+    complete
+    .text start:0x01ff96e0 end:0x01ff974c
 
 src/NitroSDK/itcm/func_01ff81e4.cpp:
     complete

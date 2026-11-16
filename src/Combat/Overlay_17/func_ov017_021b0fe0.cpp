@@ -3,6 +3,10 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
+#if defined(jpn)
 enum { Enum_ov017_021b0fe0_1788 = 0x4ec, Enum_ov017_021b0fe0_1816 = 0x508, Enum_ov017_021b0fe0_1096 = 0x488 };
 #else
 enum { Enum_ov017_021b0fe0_1788 = 0x6fc, Enum_ov017_021b0fe0_1816 = 0x718, Enum_ov017_021b0fe0_1096 = 0x448 };
@@ -28,7 +32,7 @@ extern "C" void func_ov017_021cff8c(int arg0, int arg1);
 extern "C" void func_ov017_021d0e00(int arg0);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_021d25f4(int arg0);
-extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" void* func_ov017_021b8468(void* battleManager);
 extern "C" void func_ov000_0217616c(void* arg0);
 
 extern "C" void* GetBattleUI_ov000_02160f08(void* battleScene);
@@ -80,7 +84,7 @@ extern "C" ARM void func_ov017_021b0fe0(int arg0) {
 	}
 
 	void* var3 = *(void**)((char*)var1 + 0x3000 + Enum_ov017_021b0fe0_1816);
-	void* var4 = GetBattleScene_ov017_021b8468(var3);
+	void* var4 = func_ov017_021b8468(var3);
 	void* var5 = GetBattleUI_ov000_02160f08(var4);
 
 	int var6 = (arg0 >= 0 && arg0 <= 3) ? 1 : 0;

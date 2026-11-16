@@ -8,6 +8,15 @@ enum { Enum_0201c124_10020 = 0x2724, Enum_0201c124_9828 = 0x2664, Enum_0201c124_
 #include "Grotto/Main/FloorMap.h"
 #include "Grotto/Main/ActiveGrottoClass.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
+
+#if defined(jpn)
+#define func_02094d00 func_02096950
+#endif
+
+#if defined(jpn)
+#define func_02013750 func_02013518
+#endif
 
 struct Struct_020134e0_2;
 struct Struct_0201c014;
@@ -32,6 +41,6 @@ extern "C" ARM void* func_0201c124(Zone3D* arg0) {
     func_0200ef44((char*)arg0 + Enum_0201c124_1536, 4, 0x88, (void*)func_0201c108);
     func_0200ef44(arg0->models_498_, 2, 0xac, (void*)_ZN7Model3DD1Ev);
     arg0->lighting_.Initialize();
-    arg0->substruct_6c_.func_0201e248();
+    func_0201e248((Struct_020134e0*)(&arg0->substruct_6c_));
     return arg0;
 }

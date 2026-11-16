@@ -1,8 +1,10 @@
 #include <globaldefs.h>
 
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "World/LootableContainer.h"
 #include "Graphics/LightingManager.h"
+#include "Graphics/SPRSprite.h"
 
 extern "C" void func_020133cc(Struct_020133cc* arg0);
 extern "C" void func_02013d24(Zone3D* arg0);
@@ -21,7 +23,7 @@ extern "C" ARM void func_02013b70(Zone3D* arg0, SafeAllocator* arg1)
             var3++;
     }
 
-    arg0->unknown_478_ = static_cast<Struct_020133cc*>(
+    arg0->unknown_478_ = (int)static_cast<Struct_020133cc*>(
         arg1->Allocate(var3 * sizeof(Struct_020133cc)));
     if (arg0->unknown_478_ == NULL)
         return;
@@ -31,17 +33,17 @@ extern "C" ARM void func_02013b70(Zone3D* arg0, SafeAllocator* arg1)
         if (var2->containerType != 1 && var2->containerType != 2)
             continue;
 
-        Struct_020133cc* var4 = &arg0->unknown_478_[(unsigned char)arg0->unknown_476_];
+        Struct_020133cc* var4 = &((Struct_020133cc*)arg0->unknown_478_)[(unsigned char)arg0->unknown_476_];
 
-        func_020133cc(var4);
-        func_0204719c(&var4->unknown_8_[0]);
+        func_020133cc((Struct_020133cc*)((int)(var4)));
+        ((SPRSprite*)(&var4->unknown_8_[0]))->Reset();
         var4->unknown_8_[0].unknown_80_ = var1;
-        func_0204719c(&var4->unknown_8_[1]);
+        ((SPRSprite*)(&var4->unknown_8_[1]))->Reset();
         var4->unknown_8_[1].unknown_80_ = var1;
 
         for (int var5 = 0; var5 < 4; ++var5)
         {
-            func_0204719c(&var4->unknown_118_[var5]);
+            ((SPRSprite*)(&var4->unknown_118_[var5]))->Reset();
             var4->unknown_118_[var5].unknown_80_ = var1;
         }
 
@@ -57,4 +59,9 @@ extern "C" ARM void func_02013b70(Zone3D* arg0, SafeAllocator* arg1)
     }
 
     func_02013d24(arg0);
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

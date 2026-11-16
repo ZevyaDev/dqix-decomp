@@ -5,6 +5,13 @@
 #include "std_library_functions.h"
 #include <globaldefs.h>
 #include "Input/Input.h"
+#include "Filesystem/FileIO.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct StringListEntry_02072a68;
 struct StringList_02072a68_2 {
@@ -183,7 +190,6 @@ extern "C" Struct_ov003_02172e84_3 *GetMessageWindow_020421a0();
 extern "C" const char *FindStringInList_02072a68(StringList_02072a68_2 *stringList, int stringId);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_ov003_02172e84_3 *window, const char *text, int arg2);
-extern "C" void func_020e2168(char *arg0, const char *arg1, int arg2, int arg3, int arg4);
 extern char data_ov003_0217eb9b[];
 extern char data_ov003_0217ebff[];
 extern char data_ov003_0217ec02[];
@@ -194,15 +200,12 @@ extern "C" void StartMessage_0204500c(Struct_ov003_02172e84_3 *window, const cha
 extern "C" Struct_ov003_02172e84_6 *GetZone3D_02012fe4(void);
 extern "C" void __clear(void *arg0, int arg1);
 extern "C" void func_02042764(Struct_ov003_02172e84_9 *arg0, char *arg1, int arg2);
-extern "C" void *ExtractFileFromGP2(const char *arg0, const char *arg1, unsigned int *arg2);
-extern "C" char *CopyStringFromTableFile_020e046c(char *buffer, void *fileData, unsigned int fileSize, int stringId);
 extern "C" void func_ov003_0217bd38(void *arg0, int arg1);
 extern "C" unsigned char func_ov017_021b1fa8(void *arg0);
-extern "C" void *GetLocalWireless_0202ae18(void);
+extern "C" void *func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" void StopLocalWireless_0202b0f4(void *wireless);
 extern "C" int func_ov003_021734dc(int arg0, int arg1, int arg2);
-extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330 *animationList, int ticks);
 extern "C" int GetMessageChoice_020457e0(Struct_ov003_02172e84_3 *window);
 extern "C" int func_ov003_02172570(unsigned char *arg0, void *arg1);
 
@@ -255,7 +258,7 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
             sprintf(arg0->unknown_2_, data_ov003_0217ebff, var8);
             int var9 = inline_ov003_02172e84_2(inline_ov003_02172e84(var8));
             if (var9 < 700) {
-                func_020e2168(arg0->unknown_42_, data_ov003_0217ec02, (short) var9, var8->unknown_6c_.unknown_3_1_, 1);
+                GetStringFromNAT(arg0->unknown_42_, data_ov003_0217ec02, (short) var9, var8->unknown_6c_.unknown_3_1_, 1);
             } else {
                 sprintf(arg0->unknown_42_, data_ov003_0217ebff,
                         FindStringInList_02072a68(&arg0->unknown_1dc_, (short) (var8->unknown_6c_.unknown_6_3_ + 20000)));
@@ -296,7 +299,7 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
         var1->unknown_230_ = arg0->unknown_138_;
         arg0->unknown_0_ = 0;
         SpriteAnimationList_0205a330 *var15 = var1->unknown_230_;
-        AdvanceSpriteAnimations_0205a330(var15, var14->GetTickCount() >> 2);
+        ((OBJSpriteSet::List*)(var15))->UpdateAll(var14->GetTickCount() >> 2);
         if (var1->unknown_870_ == 0) {
             var1->unknown_868_ = 1;
             if (GetMessageChoice_020457e0(var1) == 0) {
@@ -375,9 +378,9 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
                 __clear(var28, sizeof(var28));
                 sprintf(var27, data_ov003_02180a4c, var24->unknown_6c_.unknown_3_1_);
                 sprintf(var28, data_ov003_02180a63, var24->unknown_6c_.unknown_3_1_);
-                void *var29 = ExtractFileFromGP2(var27, var28, &var26);
+                void *var29 = ExtractFileFromGP2((const char*)(var27), (const char*)(var28), (unsigned int*)(&var26));
                 if (var29 != 0) {
-                    CopyStringFromTableFile_020e046c(arg0->unknown_44_, var29, var26, (short) var24->unknown_6c_.unknown_6_3_);
+                    GetStringFromNAT((char*)(arg0->unknown_44_), (void*)(var29), var26, (short) var24->unknown_6c_.unknown_6_3_);
                 }
                 BackgroundLoader::RemoveLockGlobal();
             } else {
@@ -390,7 +393,7 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
             func_ov003_0217bd38(arg0->unknown_1e0_, arg0->unknown_1c0_);
             arg0->unknown_30d_ = func_ov017_021b1fa8(var18);
             arg0->unknown_d0_->unknown_0_ = 10;
-            void *var30 = GetLocalWireless_0202ae18();
+            void *var30 = func_0202ae18();
             if (IsLocalWirelessOn_0202b7d8((int *) var30)) {
                 StopLocalWireless_0202b0f4(var30);
             }
@@ -425,7 +428,7 @@ extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
         var17->unknown_2e0_ = arg0->unknown_12c_;
         arg0->unknown_0_ = 0;
         SpriteAnimationList_0205a330 *var36 = var17->unknown_2e0_;
-        AdvanceSpriteAnimations_0205a330(var36, var35->GetTickCount() >> 2);
+        ((OBJSpriteSet::List*)(var36))->UpdateAll(var35->GetTickCount() >> 2);
         if (var17->unknown_9a0_ == 0) {
             var17->unknown_998_ = 1;
             if (GetMessageChoice_020457e0(var17) == 0) {

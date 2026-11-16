@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
+#include "Graphics/BGLayer.h"
 
 struct TextWindowManager_0205d048;
 struct BGLayer_02020cb8_3;
 extern "C" void ResetTextWindowManager_0205d048(struct TextWindowManager_0205d048* windowManager);
-extern "C" void ResetBGLayerData_0204afb4(struct BGLayer_02020cb8_3* layer);
 extern "C" void func_ov000_02170054(void* arg0);
 
 #if defined(jpn)
@@ -59,8 +59,8 @@ extern "C" ARM void func_ov000_02172720(Struct_ov000_02172720* arg0) {
         arg0->unknown_90c_ = -1;
     }
     ResetTextWindowManager_0205d048((struct TextWindowManager_0205d048*)arg0->unknown_188_);
-    ResetBGLayerData_0204afb4((struct BGLayer_02020cb8_3*)arg0->unknown_8c4_);
-    ResetBGLayerData_0204afb4((struct BGLayer_02020cb8_3*)arg0->unknown_8a4_);
+    ((BGLayer*)((struct BGLayer_02020cb8_3*)arg0->unknown_8c4_))->MaybeDestroy();
+    ((BGLayer*)((struct BGLayer_02020cb8_3*)arg0->unknown_8a4_))->MaybeDestroy();
 #if defined(jpn)
     if (arg0->unknown_1aa0_.GetSignedAllocator() != 0) {
         arg0->unknown_1aa0_.Destroy();

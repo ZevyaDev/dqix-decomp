@@ -1,9 +1,18 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/Brightness.h"
 #include "Combat/Main/CopyRecord0200fbb4.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 
 struct Struct_ov009_0218aa28 { int unknown_0_, unknown_4_, unknown_8_; };
@@ -35,8 +44,8 @@ struct Struct_ov017_0219ca88 { unsigned int unknown_0_, unknown_4_, unknown_8_, 
 
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
-extern "C" void* GetCamera_020100bc(GameState*);
-extern "C" void* GetFlagManager_0205ec34(void*);
+extern "C" void* func_020100bc(GameState*);
+extern "C" void* func_0205ec34(void*);
 extern "C" int func_02046b38(Struct_02046b38*, Struct_02046b38_2*);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" int IsQueueEmpty_02046b08(void**);
@@ -64,7 +73,7 @@ extern "C" ARM void func_ov017_0219ca88(GameResources* arg0) {
     BackgroundLoader::GetInstance();
     Vector3fix* var4;
     int var5 = 0;
-    void* var6 = GetFlagManager_0205ec34(GetCamera_020100bc(var0));
+    void* var6 = func_0205ec34(func_020100bc(var0));
     if (func_02046b38((Struct_02046b38*)arg0->unknown_ptr_array_36fc[0], (Struct_02046b38_2*)arg0->unknown_ptr_array_36fc[4])) return;
     if (GetQueueHeadType_02046b24((QueueNode_02015438**)arg0->unknown_ptr_array_36fc[0]) == 4) return;
     if (GetQueueHeadType_02046b24((QueueNode_02015438**)arg0->unknown_ptr_array_36fc[0]) == 10) return;
@@ -86,9 +95,9 @@ extern "C" ARM void func_ov017_0219ca88(GameResources* arg0) {
         if (var7) {
             var4 = (Vector3fix*)&var1->obj3D_.position_;
             Vector3fix var8 = *var4;
-            for (int var9 = 0; var9 < var2->substruct_6c_.unknown_1c_; ++var9) {
+            for (int var9 = 0; var9 < ((Struct_020134e0*)var2->substruct_6c_)->unknown_1c_; ++var9) {
                 GetProtagonistObjectIndex_020100a8(var0);
-                Struct_ov017_0219ca88_2* var10 = (Struct_ov017_0219ca88_2*)func_0201e548(&var2->substruct_6c_, var9);
+                Struct_ov017_0219ca88_2* var10 = (Struct_ov017_0219ca88_2*)func_0201e548((Struct_020134e0*)(((Struct_020134e0*)var2->substruct_6c_)), var9);
                 if (func_020321e0(&var8, &var10->unknown_4_, var10->unknown_52_, &var10->unknown_58_, var10->unknown_54_)) {
                     func_ov017_0219c6f4(var10);
                     var5 = 1;

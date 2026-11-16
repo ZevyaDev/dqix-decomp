@@ -1,12 +1,16 @@
 #include <globaldefs.h>
 
-extern "C" int* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" int* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 
 // USA: func_ov017_021a01bc
 extern "C" ARM void func_ov017_021a01bc(unsigned char* arg0) {
-	int* var0 = GetLocalWireless_0202ae18();
+	int* var0 = func_0202ae18();
 	if (!IsLocalWirelessOn_0202b7d8(var0)) return;
 	if (IsNotLocalWirelessGuest_0202c508(var0) == 0) {
 		arg0[

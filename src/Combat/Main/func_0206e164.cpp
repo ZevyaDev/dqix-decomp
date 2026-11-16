@@ -1,11 +1,15 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct FlagManager_0205faf4_3 {
     unsigned char unknown_0_[0x2CC];
     unsigned char questStates_2cc_[1];
 };
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov017_021d0924(unsigned char arg0, unsigned char arg1, unsigned short arg2, unsigned short arg3);
 
@@ -26,7 +30,7 @@ extern "C" ARM void func_0206e164(struct FlagManager_0205faf4_3* arg0, int arg1,
         arg0->questStates_2cc_[var0] &= 0xf0;
         arg0->questStates_2cc_[var0] |= var2;
     }
-    if (IsNotLocalWirelessGuest_0202c508(GetLocalWireless_0202ae18()) == 0) {
+    if (IsNotLocalWirelessGuest_0202c508(func_0202ae18()) == 0) {
         return;
     }
     if (arg1 < 0xAE) {

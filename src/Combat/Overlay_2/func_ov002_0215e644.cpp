@@ -1,16 +1,20 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
 
 struct Struct_02046574_2;
 struct MessageWindow_020465c0;
 struct Struct_0201099c_3;
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *gameState, int index);
-extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2 *window, int index, char *text);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0 *window, int index, int number);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int AppendTextColorTag_02041e70(char *buffer, int colorIndex);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char *window, int index, unsigned char width);
@@ -34,7 +38,7 @@ extern "C" ARM void func_ov002_0215e644(char *arg0, char *arg1) {
     char *var3       = GetMessageWindow_020421a0();
     GameObject *var4 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), *(signed char *) (arg0 + 0x1c00 + 0x20));
     if (var4 == NULL) return;
-    unsigned char *var5 = GetPartyMemberData_02053c6c((unsigned char *) var4);
+    unsigned char *var5 = func_02053c6c((unsigned char *) var4);
     if (var5 == NULL) return;
     ClearMessageParams_02046380(var3);
     SetMessageString_02046574((struct Struct_02046574_2 *) var3, 0, *(char **) ((char *) var4 + 0x134));
@@ -50,8 +54,7 @@ extern "C" ARM void func_ov002_0215e644(char *arg0, char *arg1) {
     int var7          = *(int *) (var5 + 0x950);
     GameResources *var8 = GetGameResources();
     if (GetHaloObject_ov017_021bdbcc(var8)) var7 = 0;
-    char *var9 = (char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20),
-                                                                      (short) (var7 + 0x834));
+    char *var9 = (char *) ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString((short) (var7 + 0x834)));
     int var10  = (0x40 - func_020420e8(var9, 0)) >> 1;
     if (GetHaloObject_ov017_021bdbcc(var8)) {
         SetMessageString_02046574((struct Struct_02046574_2 *) var3, 1, var9);
@@ -78,7 +81,7 @@ extern "C" ARM void func_ov002_0215e644(char *arg0, char *arg1) {
         SetMessageNumberAlignment_020465d8((unsigned char *) var3, var15, 1);
     }
     sprintf(var2,
-            (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), 0x7d0),
+            (const char *) ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(0x7d0)),
             var6, var10);
     func_02046608(var3, 0xa, var2, arg1, 0x100, 0, 0);
 }

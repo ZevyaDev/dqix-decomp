@@ -1,9 +1,13 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 extern "C" void ResetEventTask_ov017_021baedc(void* node, int isRestart);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
@@ -23,7 +27,7 @@ extern "C" ARM int func_ov004_02167fd4(void) {
 	ResetEventTask_ov017_021baedc(var2, 1);
 	*(short*)((char*)var2 + 0x8) = 0x6fae;
 	AppendToQueue_020469b4(var1, var2);
-	unsigned char* var3 = (unsigned char*)GetFlagManager_0205ec34();
+	unsigned char* var3 = (unsigned char*)func_0205ec34();
 	func_0206e348(var3, 0x17, 1);
 	return 0;
 }

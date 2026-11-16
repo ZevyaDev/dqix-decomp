@@ -1,10 +1,14 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
 #include "Combat/Overlay15ViewerContext.h"
-#include "NitroSDK/Graphics3D/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 #include "NitroSDK/Graphics.h"
 
-ModelRenderContext* GetModel3DContext(Model3D* model);
+#if defined(jpn)
+#define func_02031234 func_02030d6c
+#endif
+
+Nitro3DRenderContext* GetModel3DContext(Model3D* model);
 extern "C" void func_02031234(int arg0);
 
 struct Struct_ov015_0218e810
@@ -56,7 +60,7 @@ extern const char data_ov015_02194176[];
 extern "C" ARM void func_ov015_0218e810(void* arg0)
 {
     int var0;
-    ModelRenderContext* var1;
+    Nitro3DRenderContext* var1;
     int var2;
     int var3;
     Model3D* var4;
@@ -75,8 +79,8 @@ extern "C" ARM void func_ov015_0218e810(void* arg0)
     var5->Draw(true);
     if (var5->pModel_ != NULL && var5->pModel_->rawInternalModel_ != NULL)
     {
-        var6->unknown_34_ += var5->pModel_->rawInternalModel_->numTriangles_;
-        var6->unknown_36_ += var5->pModel_->rawInternalModel_->numQuads_;
+        var6->unknown_34_ += var5->pModel_->rawInternalModel_->numTriangles;
+        var6->unknown_36_ += var5->pModel_->rawInternalModel_->numQuads;
     }
     GXFIFO_MATRIX_POP = 1;
     var0 = var4->GetBoneIndex(data_ov015_0219416b);
@@ -96,13 +100,13 @@ extern "C" ARM void func_ov015_0218e810(void* arg0)
         int var10 = var8->unknown_4_;
         if (var9->unknown_2_ >= 0)
         {
-            GetModelBonePositionAndDirectionMatrices(var1, NULL, NULL, var10);
+            Nitro3D_GetBonePosDirMatrices(var1, NULL, NULL, var10);
             GXFIFO_MATRIX_PUSH = 0;
             var9->DrawSimple3(false);
             if (var9->pModel_ != NULL && var9->pModel_->rawInternalModel_ != NULL)
             {
-                var6->unknown_34_ += var9->pModel_->rawInternalModel_->numTriangles_;
-                var6->unknown_36_ += var9->pModel_->rawInternalModel_->numQuads_;
+                var6->unknown_34_ += var9->pModel_->rawInternalModel_->numTriangles;
+                var6->unknown_36_ += var9->pModel_->rawInternalModel_->numQuads;
             }
             GXFIFO_MATRIX_POP = 1;
         }
@@ -112,14 +116,14 @@ extern "C" ARM void func_ov015_0218e810(void* arg0)
         Object3D* var11 = &var6->unknown_24_[8];
         if (var11->unknown_2_ >= 0)
         {
-            GetModelBonePositionAndDirectionMatrices(var1, NULL, NULL, var2);
+            Nitro3D_GetBonePosDirMatrices(var1, NULL, NULL, var2);
             GXFIFO_MATRIX_PUSH = 0;
             func_02031234(0x3244);
             var11->DrawSimple2(false);
             if (var11->pModel_ != NULL && var11->pModel_->rawInternalModel_ != NULL)
             {
-                var6->unknown_34_ += var11->pModel_->rawInternalModel_->numTriangles_;
-                var6->unknown_36_ += var11->pModel_->rawInternalModel_->numQuads_;
+                var6->unknown_34_ += var11->pModel_->rawInternalModel_->numTriangles;
+                var6->unknown_36_ += var11->pModel_->rawInternalModel_->numQuads;
             }
             GXFIFO_MATRIX_POP = 1;
         }
@@ -131,8 +135,8 @@ extern "C" ARM void func_ov015_0218e810(void* arg0)
         var5[1].Draw(false);
         if (var5[1].pModel_ != NULL && var5[1].pModel_->rawInternalModel_ != NULL)
         {
-            var6->unknown_34_ += var5->pModel_->rawInternalModel_->numTriangles_;
-            var6->unknown_36_ += var5->pModel_->rawInternalModel_->numQuads_;
+            var6->unknown_34_ += var5->pModel_->rawInternalModel_->numTriangles;
+            var6->unknown_36_ += var5->pModel_->rawInternalModel_->numQuads;
         }
     }
     GXFIFO_MATRIX_POP = 1;

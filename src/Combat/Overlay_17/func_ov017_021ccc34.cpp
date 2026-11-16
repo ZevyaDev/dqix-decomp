@@ -1,9 +1,17 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" int func_02053c6c(unsigned char* gameObject);
+extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021ccc34 {
@@ -25,10 +33,10 @@ extern "C" ARM void func_ov017_021ccc34(int arg0) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg0);
     if (!var1) return;
-    int var2 = GetPartyMemberData_02053c6c((unsigned char*)var1);
+    int var2 = func_02053c6c((unsigned char*)var1);
     if (!var2) return;
 
-    void* var3 = GetLocalWirelessPacketQueue_0202ae24();
+    void* var3 = func_0202ae24();
     struct Struct_ov017_021ccc34 var4;
     unsigned char var5 = (unsigned char)arg0;
     var4.unknown_0_ = 0xe;

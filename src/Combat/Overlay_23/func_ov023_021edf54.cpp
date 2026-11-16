@@ -4,6 +4,18 @@
 #include <Filesystem/BackgroundLoader.h>
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_ov000_02160fd4 func_ov000_02162740
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct LocalWireless_0202c1a4;
 struct Struct_02010088;
 struct Struct_ov023_021edf54;
@@ -222,7 +234,7 @@ extern "C" Struct_ov023_021edf54_10 _ZZ21inline_ov023_021f4c04vE1s;
 
 extern "C" {
 int func_ov023_021f5340(void* arg0);
-void* GetLocalWireless_0202ae18();
+void* func_0202ae18();
 int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov023_021edf54_14* battle, short* indices, int maxCount, unsigned int filterFlags);
 int CollectAllEnemyCombatantIndices_ov000_0215ec1c(Struct_ov023_021edf54_14* battle, short* indices, int maxCount, int arg3);
 int func_ov023_021f4098(Struct_ov023_021edf54_16* arg0, int arg1, int arg2);
@@ -248,13 +260,13 @@ extern "C" void func_020a0858(Struct_020a0858* arg0, unsigned int arg1);
 extern "C" void func_020a0300(Struct_020a0300* arg0, unsigned int arg1);
 extern "C" int SetBattleRecords_020ac494(void* records);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
-extern "C" int TestBattleSceneFlags_ov000_02160fd4(void* battleScene, int flags);
+extern "C" int func_ov000_02160fd4(void* battleScene, int flags);
 extern "C" void func_ov023_021ed7e0(Struct_ov023_021ed7e0* arg0);
 extern "C" int func_020ac020(void* arg0, short* arg1, int* arg2, int arg3);
 extern "C" unsigned short GetLevel_0202053c(void* gameObject);
 extern "C" int IsDead_02010088(Struct_02010088* object);
 extern "C" int func_ov023_021eea98(Struct_ov023_021edf54* arg0);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" Struct_020e385c* func_020e3808();
 extern "C" void func_020e39d4(Struct_020e385c* arg0, int arg1, int arg2, int arg3);
@@ -282,7 +294,7 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
 
     Struct_ov023_021edf54_19* var6 = (Struct_ov023_021edf54_19*)GetGameResources();
     Struct_ov023_021edf54_20* var7 = GetMessageWindow_020421a0();
-    var0 = GetLocalWireless_0202ae18();
+    var0 = func_0202ae18();
 
     Struct_ov023_021edf54_14* var8 = arg0->unknown_29c_;
     if (var8 != 0) {
@@ -408,11 +420,11 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
             SetBattleSceneFlags_ov000_02160fa8(arg0, 0x2000000);
         if (IsLocalWirelessGuest_0202c540(var0) && arg0->unknown_2a0_->unknown_25_ != 0)
             var7->unknown_19b2_ = 0;
-        if (!TestBattleSceneFlags_ov000_02160fd4(arg0, 0x2000))
+        if (!func_ov000_02160fd4(arg0, 0x2000))
             return arg0->unknown_eac_;
-        if (!TestBattleSceneFlags_ov000_02160fd4(arg0, 0x4000))
+        if (!func_ov000_02160fd4(arg0, 0x4000))
             return arg0->unknown_eac_;
-        if (!TestBattleSceneFlags_ov000_02160fd4(arg0, 0x8000))
+        if (!func_ov000_02160fd4(arg0, 0x8000))
             return arg0->unknown_eac_;
     }
 
@@ -449,7 +461,7 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
                 var44->unknown_2_ = GetLevel_0202053c(var46);
                 var44->unknown_3_ = IsDead_02010088((Struct_02010088*)var46);
                 var44->unknown_4_ = arg0->unknown_5758_[var45] + func_ov023_021eea98((Struct_ov023_021edf54*)var46);
-                Struct_ov023_021edf54_7* var47 = (Struct_ov023_021edf54_7*)GetPartyMemberData_02053c6c((unsigned char*)var46);
+                Struct_ov023_021edf54_7* var47 = (Struct_ov023_021edf54_7*)func_02053c6c((unsigned char*)var46);
                 var44->unknown_38_.unknown_0_ = var47->unknown_0_;
                 var44->unknown_38_.unknown_18_ = var47->unknown_18_;
                 var44->unknown_38_.unknown_3c_ = var47->unknown_3c_;

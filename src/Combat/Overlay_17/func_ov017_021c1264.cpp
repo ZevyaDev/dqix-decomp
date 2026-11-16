@@ -12,12 +12,16 @@ enum { Enum_ov017_021c1404_147456 = 0x24000, Enum_ov017_021c1404_828 = 0x33c, En
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_020a1df8 func_020a3b70
+#endif
+
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" void SetCameraFlags_020a28a0(unsigned char* camera, unsigned char flags);
 extern "C" void EnablePlayerControl_020397c0(void* object);
-extern "C" void PushOverlay_020a1df8(int overlayEntry);
+extern "C" void func_020a1df8(int overlayEntry);
 extern "C" void PushSubOverlay_020a1ef0(int subOverlayEntry);
 
 struct Struct_02018300_3;
@@ -78,7 +82,7 @@ extern "C" ARM void func_ov017_021c1404(struct Struct_ov017_021c1404* arg0) {
 			arg0->unknown_1_ = 1;
 			return;
 		}
-		PushOverlay_020a1df8(3);
+		func_020a1df8(3);
 		PushSubOverlay_020a1ef0(1);
 		func_ov003_02154720((void*)data_ov017_021d8478, arg0->unknown_1e_);
 		func_ov003_021544ec((void*)data_ov017_021d8478, &arg0->unknown_8_);

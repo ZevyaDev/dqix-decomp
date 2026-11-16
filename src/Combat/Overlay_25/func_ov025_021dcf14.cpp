@@ -532,7 +532,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
                     if (func_02049ee8((unsigned char*)var72) == 0 || func_02048c68((unsigned char*)var72) != 0) {
                         var72->obj3D_.TransitionInheritedAlpha(0, 0x12c);
                         int var73 = 0;
-                        if (var72->obj3D_.objectIndex_4_ >= 0 && var72->obj3D_.objectIndex_4_ <= 3) {
+                        if (var72->obj3D_.unknown_4_ >= 0 && var72->obj3D_.unknown_4_ <= 3) {
                             var73 = 1;
                         }
                         if (var73 || func_02048c68((unsigned char*)var72)) {

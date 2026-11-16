@@ -2,6 +2,10 @@
 #include "World/Object3D.h"
 
 #if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
+#if defined(jpn)
 #define func_ov009_02188454 func_ov009_02189214
 #endif
 
@@ -47,7 +51,7 @@ extern "C" void func_ov023_021e6088(void*, Struct_ov009_02188454*);
 extern "C" Object3D* func_ov023_021e6194(Struct_ov009_021863d0* arg0);
 extern "C" void func_ov009_02188bf8(unsigned char*, int, short*, short*);
 extern "C" void func_ov023_021e5e68(Struct_ov009_021863d0* arg0, int arg1, int arg2);
-extern "C" int GetStringLength_020d2ff0(const char* string);
+extern "C" int func_020d2ff0(const char* string);
 
 // USA: func_ov009_02188454
 extern "C" ARM void func_ov009_02188454(Struct_ov009_021842a0_2* arg0) {
@@ -70,9 +74,9 @@ extern "C" ARM void func_ov009_02188454(Struct_ov009_021842a0_2* arg0) {
         int var6 = 0;
         const BCFG::AnimationRecord* var7 = var2->activeAnimationRecord_;
         if (var4 != NULL)
-            var5 = GetStringLength_020d2ff0(var4->name);
+            var5 = func_020d2ff0(var4->name);
         if (var7 != NULL)
-            var6 = GetStringLength_020d2ff0(var7->name);
+            var6 = func_020d2ff0(var7->name);
         if (var5 == var6 && var7 != NULL) {
             var3->MaybeSetRegularAnimation(var7->name, 0);
             var3->SetCurrentAnimationTime(var2->animationTime_);

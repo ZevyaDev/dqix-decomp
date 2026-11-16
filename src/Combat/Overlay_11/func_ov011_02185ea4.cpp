@@ -8,6 +8,7 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 #include "World/ZoneLootableRecord.h"
+#include "Graphics/SPRSprite.h"
 
 struct ScriptValue_ov011_02184c30 {
     int type_0_;
@@ -68,16 +69,16 @@ extern "C" ARM int func_ov011_02185ea4(struct Struct_ov011_02185ea4_3* arg0) {
     struct Struct_ov011_02185ea4_2 var7;
     struct Struct_ov011_02185ea4* var8 = &var7.unknown_20_;
     var7.unknown_0_ = &data_ov023_021fee68;
-    func_02048080((struct Struct_0204719c*)((char*)var8 + 0x54));
+    ((SPRSprite::Names*)((struct Struct_0204719c*)((char*)var8 + 0x54)))->Reset();
     memcpy(var6, &var7, sizeof(Struct_ov011_02185ea4_2));
 
     if (func_ov023_021fb534(var6, var4, var0, var1, var2, var3) == 0) {
-        func_02048080(&var7.unknown_20_.unknown_54_);
+        ((SPRSprite::Names*)(&var7.unknown_20_.unknown_54_))->Reset();
         return 0;
     }
 
     void* var9 = GetMenuObjectList_ov011_021849c8(var4);
     AppendMenuObject_ov023_021f67ac((struct MenuObjectList_ov004_0215c30c*)var9, (struct MenuObject_ov004_0215c30c_2*)var6);
-    func_02048080(&var7.unknown_20_.unknown_54_);
+    ((SPRSprite::Names*)(&var7.unknown_20_.unknown_54_))->Reset();
     return 1;
 }

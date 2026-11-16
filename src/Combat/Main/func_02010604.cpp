@@ -8,10 +8,18 @@ enum { Enum_02010604_2428 = 0x97c, Enum_02010604_396 = 0x18c, Enum_02010604_2432
 
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 
-extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void* GetFlagManager_0205ec34(void);
+
+extern "C" void* func_0202ae18(void);
+extern "C" void* func_0205ec34(void);
 extern "C" void func_ov017_021d2400(void);
 extern "C" void RevivePartyMember_02048150(void* gameObject, int hp, int isPartyOrderRebuildAllowed);
 extern "C" void func_ov017_021cedf4(int arg0, int arg1, int arg2);
@@ -39,7 +47,7 @@ struct Struct_02010604_2 {
 
 // USA: func_02010604
 extern "C" ARM void func_02010604(GameState* arg0, int arg1, int arg2, int arg3) {
-    void* var0 = GetLocalWireless_0202ae18();
+    void* var0 = func_0202ae18();
     int var1;
 
     if (arg1 != 0) {
@@ -74,7 +82,7 @@ extern "C" ARM void func_02010604(GameState* arg0, int arg1, int arg2, int arg3)
 
     if (*(int*)((char*)arg0 + 0x5000 + Enum_02010604_3248) == 0x10 && *(int*)((char*)arg0 + 0x5000 + Enum_02010604_3252) == 2 &&
         *(int*)((char*)arg0 + 0x5000 + Enum_02010604_3256) == 1) {
-        void* var6 = GetFlagManager_0205ec34();
+        void* var6 = func_0205ec34();
         SetFlag_0206df6c(var6, (unsigned char*)((char*)var6 + 0x8c), 0x113a, 0);
     }
 

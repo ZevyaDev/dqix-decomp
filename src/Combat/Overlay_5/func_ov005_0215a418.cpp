@@ -6,6 +6,7 @@
 #include <GameState/GameState.h>
 #include <Graphics/Vector.h>
 #include "Resource/GameResources.h"
+#include "Graphics/SPRSprite.h"
 
 #if defined(jpn)
 #define func_020c51a4 func_020c6c70
@@ -22,7 +23,6 @@ extern "C" void func_020c51a4(int arg0);
 extern "C" char* GetEquipMenu_ov017_021a193c(int*);
 struct PartyMember_02052e14;
 extern "C" short* GetEquippedItems_02052e14(PartyMember_02052e14*);
-extern "C" void func_02047554(void* arg0, int arg1, int arg2);
 
 extern const unsigned char data_ov005_0215cc1c[];
 
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov005_0215a418(Struct_ov005_0215a418* arg0) {
         Struct_ov005_0215a418_2* var9 = ((Struct_ov005_0215a418_3*)((char*)arg0 + LOW_REGION(0x9e8, 0xa70)))->unknown_1000_;
         G3_MTX_TRANS = var7;
         G3_MTX_TRANS = -0x200000;
-        func_02047554((Struct_ov005_0215a418_2*)((char*)var9 + var8), 0, 1);
+        ((SPRSprite*)((Struct_ov005_0215a418_2*)((char*)var9 + var8)))->DrawTextureScaleTranslate(0, 1);
         G3_MTX_POP = 1;
         G3_MTX_PUSH = 0;
         G3_MTX_TRANS = 0x100000;
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov005_0215a418(Struct_ov005_0215a418* arg0) {
         G3_MTX_TRANS = -0x200000;
         Matrix4x3 var10 = RotationMatrixY(0x3244);
         func_020c51a4((int)&var10);
-        func_02047554((Struct_ov005_0215a418_2*)((char*)var9 + var8), 0, 1);
+        ((SPRSprite*)((Struct_ov005_0215a418_2*)((char*)var9 + var8)))->DrawTextureScaleTranslate(0, 1);
         G3_MTX_POP = 1;
         G3_MTX_PUSH = 0;
         G3_MTX_TRANS = 0x70000;
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov005_0215a418(Struct_ov005_0215a418* arg0) {
         G3_MTX_SCALE = 0x14000;
         G3_MTX_SCALE = 0x1000;
         G3_MTX_SCALE = 0x1000;
-        func_02047554(&arg0->unknown_1a70_[var6 + 5], 0, 1);
+        ((SPRSprite*)(&arg0->unknown_1a70_[var6 + 5]))->DrawTextureScaleTranslate(0, 1);
         G3_MTX_POP = 1;
         Struct_ov005_0215a418_2* var11 = &arg0->unknown_1a70_[var6 + 7 + var4];
         if (var3[data_ov005_0215cc1c[var4]] > 0) {
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov005_0215a418(Struct_ov005_0215a418* arg0) {
         G3_MTX_TRANS = 0x85000;
         G3_MTX_TRANS = var7;
         G3_MTX_TRANS = -0x1ff000;
-        func_02047554(var11, 0, 1);
+        ((SPRSprite*)(var11))->DrawTextureScaleTranslate(0, 1);
         G3_MTX_POP = 1;
     }
 }

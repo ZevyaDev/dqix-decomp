@@ -1,5 +1,9 @@
 #include "NitroSDK/Memory/UnusedSignedAllocator.h"
 
+#if defined(jpn)
+#define func_020ca3ec func_020cbeb8
+#endif
+
 
 
 extern "C"
@@ -8,7 +12,7 @@ extern "C"
     // 4-byte alignment (it writes ints).
     // Notably, if dst is not 4-byte aligned it might write before the start,
     // and if len is not a multiple of 4 it might write a bit past the end.
-    void Memset32BitByWord_020ca3ec(int value, void* start, unsigned length);
+    void func_020ca3ec(int value, void* start, unsigned length);
 }
 
 // USA: func_020afaf0
@@ -33,7 +37,7 @@ void* UnusedSignedAllocator::Allocate()
     {
         unsigned int clearLength = blockSize;
         if ((unsigned char)header.clearFlags & 1)
-            Memset32BitByWord_020ca3ec(0, ret, clearLength);
+            func_020ca3ec(0, ret, clearLength);
     }
     return ret;
 }

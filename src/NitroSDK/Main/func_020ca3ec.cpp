@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 
-// USA: Memset32BitByWord_020ca3ec
-extern "C" ARM asm void Memset32BitByWord_020ca3ec(unsigned int data, void* dst, unsigned int size) {
+#if defined(jpn)
+#define func_020ca3ec func_020cbeb8
+#endif
+
+// USA: func_020ca3ec
+extern "C" ARM asm void func_020ca3ec(unsigned int data, void* dst, unsigned int size) {
     add ip, r1, r2
 top:
     cmp r1, ip

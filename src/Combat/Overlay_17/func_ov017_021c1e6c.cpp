@@ -3,6 +3,11 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
+#include "Graphics/TextureArena.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 #if defined(jpn)
 struct Struct_020d3c28 { char unknown_0_[0xa4]; };
@@ -57,9 +62,8 @@ extern "C" void func_020d3c84(Struct_020d3c28*, Struct_02013fb4*, int);
 extern "C" Struct_ov017_021c1e6c_7* func_020d3d90(Struct_020d3d90*, int);
 extern "C" void func_ov017_0218f064(GameResources*, int, int, int, int);
 extern "C" unsigned char func_ov017_02191764(int, int);
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0202ae18();
 extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" void InitPartyMemberData_02082828(void*);
 extern "C" void func_02054664(Struct_02054664*);
 extern "C" void func_02053c4c(char*, char*);
@@ -75,8 +79,6 @@ extern "C" void RebuildFieldPartyOrder_ov017_02191108(GameResources*, int, int, 
 extern "C" void RebuildPartyOrders_ov017_02191234(GameResources*);
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void func_ov017_021907dc(int, int, int, int, int);
-extern "C" void RestoreTextureVRAMState_0207df90(char*);
-extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_02039d58(unsigned char*);
 extern "C" int func_02039d68(unsigned char*);
@@ -126,12 +128,12 @@ extern "C" ARM void func_ov017_021c1e6c(Struct_ov017_021c1e6c_6* arg0) {
             var9 = func_ov017_02191764(var8, 0);
             arg0->unknown_1_ = 1;
         } else {
-            if (IsNotLocalWirelessGuest_0202c508(GetLocalWireless_0202ae18())) ((Struct_ov017_021c1e6c_2*)GetParty_02010828(var0))->unknown_f7d_ = arg0->unknown_b_;
+            if (IsNotLocalWirelessGuest_0202c508(func_0202ae18())) ((Struct_ov017_021c1e6c_2*)GetParty_02010828(var0))->unknown_f7d_ = arg0->unknown_b_;
             var8 = 0xce;
             var9 = 4;
             Struct_ov017_021c1e6c_4* var11 = ((Struct_ov017_021c1e6c_5*)var2)->inline_ov017_021c1e6c(1);
             var2->allocator_11c0.Reset();
-            ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)var11);
+            ((TextureArena*)((TextureVRAMArea_0203d028*)var11))->Reset();
             Struct_ov017_021c1e6c_7* var12 = (Struct_ov017_021c1e6c_7*)var2->allocator_11c0.Allocate(sizeof(Struct_ov017_021c1e6c_7));
             if (!var12) goto configureCombatant;
             memcpy(var12, var4, sizeof(Struct_ov017_021c1e6c_7));
@@ -178,7 +180,7 @@ configureCombatant:
             if (var18) func_02039830(var18);
             RebuildFieldPartyOrder_ov017_02191108(var2, 1, 1, 1, 1);
             RebuildPartyOrders_ov017_02191234(var2);
-            if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18())) func_ov017_021907dc((int)var2, 0, 1, 1, 1);
+            if (IsLocalWirelessGuest_0202c540(func_0202ae18())) func_ov017_021907dc((int)var2, 0, 1, 1, 1);
         } else arg0->unknown_1_ = 1;
     } else if (arg0->unknown_a_ == 2) {
         if (!var1->GetTaskStatus(arg0->unknown_8_)) return;
@@ -196,9 +198,9 @@ configureCombatant:
                 char* var22 = var2->unknown_11d4_;
                 GameObject* var23 = GetCompanionByIndex_0200ff58(var0, 0xce);
                 if (var23) {
-                    RestoreTextureVRAMState_0207df90(var22);
+                    ((TextureArena*)(var22))->Restore();
                     var23->obj3D_.LoadFromCCHROrCMOTArchive(&var21, 0);
-                    SaveTextureVRAMState_0207dfac(var22);
+                    ((TextureArena*)(var22))->Save();
                     var23->obj3D_.SetScale(0x10a, 0x10a, 0x10a);
                     func_020546a0(var23, 0);
                     SetMotion_02033b88((Struct_02010604*)var23, 0);

@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
+#include "Resource/StringList.h"
 
 struct QueueNode_0204693c;
 extern "C" void ResetQueueNode_0204693c(struct QueueNode_0204693c* node);
 struct StringTable_0201099c_14;
-extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
 
 // USA: func_ov017_021beba4
 extern "C" ARM void func_ov017_021beba4(char* arg0) {
@@ -17,5 +17,5 @@ extern "C" ARM void func_ov017_021beba4(char* arg0) {
 	*(int*)(arg0 + 0x38) = 0;
 	*(int*)(arg0 + 0x40) = -1;
 	((SafeAllocator*)(arg0 + 0x44))->ResetAllocatorPointer();
-	InitStringTable_020dfc40((struct StringTable_0201099c_14*)(arg0 + 0x58));
+	((StringList*)((struct StringTable_0201099c_14*)(arg0 + 0x58)))->Reset();
 }

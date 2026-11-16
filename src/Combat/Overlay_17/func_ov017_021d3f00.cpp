@@ -2,10 +2,18 @@
 #include "Combat/ActorAction.h"
 #include "GameState/GameState.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
 struct LocalWireless_0202b2f0;
 extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void* func_0202ae24(void);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
@@ -29,9 +37,9 @@ struct Struct_ov017_021d3f00_2 {
 extern "C" ARM void func_ov017_021d3f00(Struct_02037d10* arg0, unsigned char arg1, unsigned char arg2) {
     if (!arg0) return;
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     if (IsLocalWirelessPlayerDisconnected_0202c578((struct LocalWireless_0202b2f0*)var1, 0)) return;
-    void* var2 = GetLocalWirelessPacketQueue_0202ae24();
+    void* var2 = func_0202ae24();
 
     struct Struct_ov017_021d3f00_2 var3;
     struct Struct_ov017_021d3f00* var4 = &var3.unknown_4_;

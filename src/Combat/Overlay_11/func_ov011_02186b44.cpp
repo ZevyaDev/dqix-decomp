@@ -32,6 +32,7 @@ struct Struct_ov011_02186b44 {
 };
 
 struct Struct_ov011_02186b44_2 {
+    Struct_ov011_02186b44_2() : unknown_0_(&data_ov024_021ff280) {}
     void* unknown_0_;
     char unknown_4_[0x20 - 4];
     SafeAllocator unknown_20_;
@@ -58,8 +59,6 @@ extern "C" ARM int func_ov011_02186b44(struct ScriptValue_ov011_02184c30* arg0, 
         return 0;
 
     Struct_ov011_02186b44_2 var6;
-    var6.unknown_0_ = &data_ov024_021ff280;
-    var6.unknown_20_.ResetAllocatorPointer();
     InitItemTable_020de824(var6.unknown_34_);
     memcpy(var5, &var6, sizeof(Struct_ov011_02186b44_2));
     if (!func_ov023_021fbe08(var5, var3, var1, var2, var0))

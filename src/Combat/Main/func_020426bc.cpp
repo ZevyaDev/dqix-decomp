@@ -11,8 +11,8 @@ struct FontGlyph_020426bc {
 extern "C" struct FontGlyph_020426bc* FindFontGlyph_0204254c(int text, int font);
 extern "C" int FindFontGlyphIndex_020424e4(int text, int font);
 
-// USA: ConvertTextToGlyphIndices_020426bc
-extern "C" ARM int ConvertTextToGlyphIndices_020426bc(char* text, unsigned char* outGlyphIndices, int font) {
+// USA: func_020426bc
+extern "C" ARM int func_020426bc(char* text, unsigned char* outGlyphIndices, int font) {
     if (outGlyphIndices == 0) return 0;
     if (text == 0) {
         if (outGlyphIndices != 0) *outGlyphIndices = 0;

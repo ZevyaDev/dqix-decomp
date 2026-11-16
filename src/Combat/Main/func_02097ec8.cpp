@@ -6,6 +6,10 @@ enum { Enum_02097ec8_2404 = 0x964 };
 #endif
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_02054280;
 struct Struct_02097ec8;
 struct Struct_0208fa8c { unsigned short unknown_0_; unsigned short unknown_2_; };
@@ -18,7 +22,7 @@ struct Struct_02097ec8_2 {
     unsigned char unknown_1b60_;
 };
 extern "C" Struct_0208fa8c* GetZone3D_02012fe4();
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0202ae18();
 extern "C" void func_0201bd3c(Struct_0208fa8c*, int, int);
 extern "C" void InitPartyMemberData_02082828(Struct_02097ec8*);
 extern "C" void func_020542b4(Struct_02054280*, SafeAllocator*, char*);
@@ -44,7 +48,7 @@ extern "C" ARM void func_02097ec8(Struct_02097ec8_2* arg0) {
         !func_020981e4((int)arg0, var2)) return;
     if (var1 != 0xc3b5 && var1 != 0xc419 && var1 != 0xc47d && var1 != 0xc4e1)
         arg0->unknown_1b60_ = 1;
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     if (var1 == 0xc3b5 && arg0->unknown_1b3c_ >= 2) {
         func_0201bd3c(var0, 9, 0);
         func_0201bd3c(var0, 10, 0);

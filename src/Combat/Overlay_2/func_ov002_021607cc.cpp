@@ -1,5 +1,6 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 struct Struct_0201099c_3;
 
@@ -13,7 +14,6 @@ struct Struct_ov002_0216ca88 {
 extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
 extern "C" int func_02041c64(char *arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" char *FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int func_020420e8(const char *arg0, int arg1);
 extern "C" int AppendXPositionTag_02041a28(char *buffer, int x);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov002_021607cc(unsigned char *arg0, char *arg1, int arg
     }
     AppendCursorTag_02041ea4(arg1, var0);
     func_02041c64(arg1, 0x64, 2, 2, 2, 2);
-    char *var2 = FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x1194);
+    char *var2 = ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString(0x1194));
     AppendText_02042058(arg1, var2);
     func_02041cc0(arg1, 0x11);
     Struct_ov002_0216ca88 var3 = data_ov002_0216ca88;
@@ -63,10 +63,10 @@ extern "C" ARM void func_ov002_021607cc(unsigned char *arg0, char *arg1, int arg
         AppendPositionTag_02041a90(arg1, 0x2b, var1.unknown_0_[var5]);
         if (var7 != 0x119d) {
             AppendText_02042058(
-                var4, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), (short) var7));
+                var4, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString((short) var7)));
         } else {
             func_02042084(
-                var4, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), (short) var7),
+                var4, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString((short) var7)),
                 0x64, 0xa);
         }
         AppendMenuEntry_02041b70(arg1, var5, var4);
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov002_021607cc(unsigned char *arg0, char *arg1, int arg
     func_02041c64(arg1, 0, 2, 2, 2, 2);
     func_02041cc0(arg1, 0xa2);
     AppendPositionTag_02041a90(arg1, 0x2b, var1.unknown_0_[var5]);
-    AppendMenuEntry_02041b70(arg1, var5, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x11fa));
+    AppendMenuEntry_02041b70(arg1, var5, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString(0x11fa)));
 }
 #else
 extern "C" ARM void func_ov002_021607cc(unsigned char *arg0, char *arg1, int arg2) {
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov002_021607cc(unsigned char *arg0, char *arg1, int arg
     }
     AppendCursorTag_02041ea4(arg1, var8);
     func_02041c64(arg1, 0x64, 2, 2, 2, 2);
-    char *var10 = FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), 0x1194);
+    char *var10 = ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(0x1194));
     AppendXPositionTag_02041a28(arg1, (0x98 - func_020420e8(var10, 0)) >> 1);
     AppendText_02042058(arg1, var10);
     func_02041cc0(arg1, 0x11);
@@ -107,10 +107,10 @@ extern "C" ARM void func_ov002_021607cc(unsigned char *arg0, char *arg1, int arg
         AppendPositionTag_02041a90(arg1, 0x2b, var9.unknown_0_[var13]);
         if (var15 != 0x119d) {
             AppendText_02042058(
-                var12, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), (short) var15));
+                var12, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString((short) var15)));
         } else {
             func_02042084(
-                var12, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), (short) var15),
+                var12, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString((short) var15)),
                 0x64, 0);
         }
         AppendMenuEntry_02041b70(arg1, var13, var12);
@@ -118,6 +118,6 @@ extern "C" ARM void func_ov002_021607cc(unsigned char *arg0, char *arg1, int arg
     func_02041c64(arg1, 0, 2, 2, 2, 2);
     func_02041cc0(arg1, 0xa2);
     AppendPositionTag_02041a90(arg1, 0x2b, var9.unknown_0_[var13]);
-    AppendMenuEntry_02041b70(arg1, var13, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), 0x11fa));
+    AppendMenuEntry_02041b70(arg1, var13, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(0x11fa)));
 }
 #endif

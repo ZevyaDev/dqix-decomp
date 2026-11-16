@@ -7,15 +7,19 @@ enum {Enum_ov023_021e2f38_1584=0x630, Enum_ov023_021e2f38_292=0x124, Enum_ov023_
 #include "Resource/FontBankLoader.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
+#include "Graphics/OBJSpriteSet.h"
 
-extern "C" void* GetGlobalFlags_020d6c00(void);
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+extern "C" void* func_020d6c00(void);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4*, unsigned int);
 extern "C" void func_ov005_02154198(void*);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_02017d68(void* arg0);
 extern "C" void func_ov023_021e4f18(void* arg0);
-extern "C" void DestroySpriteSet_0205a494(void* spriteSet);
 extern "C" int GetMessageWindow_020421a0(void);
 struct Struct_02045cac;
 extern "C" void func_02045cac(struct Struct_02045cac*);
@@ -26,7 +30,7 @@ extern "C" void CloseMessageWindow_02043124(int);
 extern "C" ARM void func_ov023_021e2f38(void* arg0) {
     char* var0 = (char*)arg0;
 
-    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0xf);
+    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)func_020d6c00(), 0xf);
 
     int var1 = (int)BackgroundLoader::GetInstance();
     if (*(int*)(var0 + Enum_ov023_021e2f38_1584) > 0) {
@@ -49,7 +53,7 @@ extern "C" ARM void func_ov023_021e2f38(void* arg0) {
         func_ov023_021e4f18(*(void**)(var0 + Enum_ov023_021e2f38_288));
     }
     if (*(void**)(var0 + 0xc8) != 0) {
-        DestroySpriteSet_0205a494(*(void**)(var0 + 0xc8));
+        ((OBJSpriteSet*)(*(void**)(var0 + 0xc8)))->Destroy();
     }
 
     ((SafeAllocator*)(var0 + 0x90))->Destroy();

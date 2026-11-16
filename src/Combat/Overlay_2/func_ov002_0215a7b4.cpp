@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct ItemData_0201099c_9 { unsigned int unknown_0_[8]; };
 struct ItemTable_0201099c_10 {
     unsigned short unknown_0_;
@@ -18,7 +22,7 @@ extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int func_020a0a08(struct Struct_02061c04_23* arg0, int arg1, int arg2);
 extern "C" int func_020ddcbc(int arg0, int arg1, struct ItemTable_0201099c_10* arg2, int arg3);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void func_0208386c(struct Struct_02061c04_22* arg0, int arg1);
 
 #if defined(jpn)
@@ -51,7 +55,7 @@ extern "C" ARM void func_ov002_0215a7b4(char* arg0, int arg1, int arg2, int arg3
         GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);
         if (var3 == 0) return;
         {
-            int var4 = GetPartyMemberData_02053c6c((unsigned char*)var3);
+            int var4 = func_02053c6c((unsigned char*)var3);
             func_0208386c((struct Struct_02061c04_22*)var4, (signed char)arg3);
         }
     }

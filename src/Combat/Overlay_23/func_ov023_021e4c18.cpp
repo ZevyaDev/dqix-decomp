@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Input/Input.h"
+#include "Graphics/BGLayer.h"
 
 extern "C" int func_ov023_021e29d0(char* arg0);
 extern "C" void func_ov023_021e2ce8(int arg0, void* arg1);
 struct BGLayer_0204af14;
-extern "C" void* GetBGScreenBlock_0204af14(struct BGLayer_0204af14* layer, unsigned int screenBlockIndex);
 extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov023_021e4c18(struct Struct_ov023_021e4c18* arg0) {
         signed char var7 = (signed char)var6;
         struct BGLayer_0204af14* var8 = (struct BGLayer_0204af14*)((char*)arg0->unknown_0_ + Enum_ov023_021e4c18_3716);
         if (var8 != 0) {
-            if (GetBGScreenBlock_0204af14(var8, 1) != 0) {
+            if (((void*)((BGLayer*)(var8))->GetSprite(1)) != 0) {
                 LoadPartyMemberColors_020dc7e8(5, var7);
             }
         }
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov023_021e4c18(struct Struct_ov023_021e4c18* arg0) {
 #endif
 
     var5 = var1->GetGameObjectByIndex(arg0->unknown_4ec_[var2]);
-    unsigned short var9 = var5->obj3D_.classFlags_0_;
+    unsigned short var9 = var5->obj3D_.unknown_0_;
     if ((var9 & 0x1000) || (var9 & 0x800) || (var9 & 0x200)) {
         if (arg0->unknown_134_ > 0) return;
 

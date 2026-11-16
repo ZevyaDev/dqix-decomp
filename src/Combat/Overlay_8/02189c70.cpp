@@ -15,6 +15,27 @@
 #include "NitroSDK/Memory.h"
 #include "NitroSDK/OverlayId.h"
 #include "Resource/Brightness.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct Struct_ov008_02189c70_17 { char unknown_0_[10]; };
 
@@ -244,23 +265,22 @@ extern "C" void func_020474a8(Struct_ov008_02189c70_12*, int, char*, char*);
 extern "C" void StartMessage_0204500c(Struct_ov008_02189c70_12*, char*, int);
 #endif
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" int GetLocalWireless_0202ae18();
+extern "C" int func_0202ae18();
 extern "C" void LoadStringList_020728ac(void* stringList, SafeAllocator* allocator, void* scriptData, unsigned int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
-extern "C" void* GetGlobalFlags_020d6c00();
+extern "C" void* func_020d6c00();
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" void __clear(void* arg0, unsigned int arg1);
 extern "C" void func_ov008_0218b240(Struct_ov008_02189c70_16* arg0);
-extern "C" Struct_ov008_02189c70_9* GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" Struct_ov008_02189c70_9* func_02053c6c(unsigned char*);
 extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
 struct StringList_02072a68_2;
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 struct Struct_0201099c_3;
-extern "C" char* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_02099304(void* arg0, void* arg1, void* arg2, unsigned int arg3, char* arg4, int arg5, int arg6, char* arg7, char* arg8);
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" void* GetFlagManager_0205ec34();
-extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
+extern "C" void* func_0205ec34();
+extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" void func_02046608(Struct_ov008_02189c70_12* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
@@ -316,7 +336,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
     Struct_ov008_02189c70_12* var11 = (Struct_ov008_02189c70_12*)GetMessageWindow_020421a0();
     Struct_ov008_02189c70_15* var12 = (Struct_ov008_02189c70_15*)GetGameResources();
     Struct_ov008_02189c70_13* var13 = var12->unknown_3b84_;
-    int var14 = GetLocalWireless_0202ae18();
+    int var14 = func_0202ae18();
 
     if (arg0->unknown_e9a_ == 0) {
 #if defined(jpn)
@@ -346,7 +366,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
             }
             arg0->unknown_ec4_ = var16;
             arg0->unknown_ec8_ = var18;
-            ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x2f);
+            ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)func_020d6c00(), 0x2f);
             ClearFlags00(GetGameResources(), 0x10);
             arg0->unknown_e9a_ = arg0->unknown_e9a_ + 1;
         }
@@ -362,7 +382,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
             var10->GetLoadedFileByID(arg0->unknown_eb0_, &var20, &var21);
             arg0->unknown_ec4_ = var20;
             arg0->unknown_ec8_ = var21;
-            ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x2f);
+            ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)func_020d6c00(), 0x2f);
             ClearFlags00(GetGameResources(), 0x10);
             arg0->unknown_e9a_ = arg0->unknown_e9a_ + 1;
         }
@@ -381,7 +401,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
                 func_ov008_0218b240(arg0);
                 return;
             }
-            var23 = GetPartyMemberData_02053c6c((unsigned char*)var22);
+            var23 = func_02053c6c((unsigned char*)var22);
             var24 = (signed char)var22->unknown_150_->unknown_950_;
 #if defined(jpn)
             var25 = (char*)arg0 + 0xdf2;
@@ -419,7 +439,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
         char* var31;
         int var32 = arg0->unknown_e22_3_;
         if (var32 < 700) {
-            var31 = FindStringInTable_020e0434((Struct_0201099c_3*)((char*)arg0 + 0x288), (short)var32);
+            var31 = ((char*)((StringList*)((Struct_0201099c_3*)((char*)arg0 + 0x288)))->GetString((short)var32));
         } else if (var32 < 800) {
             int var33 = 20700;
 #if !defined(jpn)
@@ -435,8 +455,8 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
         char* var35 = var0;
         var35 += strlen(var0);
         if (arg0->unknown_ebc_ == 0) {
-            void* var36 = GetFlagManager_0205ec34();
-            if (!IsFlagSet_0206dfb0((int)var36, (unsigned char*)((char*)var36 + 0x8c), 0x119b)) {
+            void* var36 = func_0205ec34();
+            if (!func_0206dfb0((int)var36, (unsigned char*)((char*)var36 + 0x8c), 0x119b)) {
                 char* var37 = FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0x66);
                 int var38 = strlen(var37);
                 memcpy(var35, var37, var38);

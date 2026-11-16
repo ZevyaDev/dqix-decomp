@@ -2,10 +2,18 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0203be4c func_0203b8a4
+#endif
+
+#if defined(jpn)
+#define func_0203bd08 func_0203b760
+#endif
+
 struct Struct_02075cdc;
 extern "C" void func_02075cdc(struct Struct_02075cdc* arg0);
-extern "C" void* GetOAMManager_0203bd08(void);
-extern "C" void* GetSubOAMBuffer_0203be4c(void);
+extern "C" void* func_0203bd08(void);
+extern "C" void* func_0203be4c(void);
 struct ItemData_02015ef4_4;
 extern "C" unsigned short GetItemGraphicNumber_020de234(struct ItemData_02015ef4_4* item, int gender);
 
@@ -23,8 +31,8 @@ extern "C" ARM void func_ov006_0215fe34(char* arg0, struct ItemData_02015ef4_4* 
     *(int*)(arg0 + 0x3f4) = 5;
     *(unsigned char*)(arg0 + 0x416) = 1;
 
-    GetOAMManager_0203bd08();
-    void* var1 = GetSubOAMBuffer_0203be4c();
+    func_0203bd08();
+    void* var1 = func_0203be4c();
     *(char**)(arg0 + 0x3cc) = (char*)var1 + 0x1b8;
 
     *(int*)(arg0 + 0x3f0) = 0x10000;

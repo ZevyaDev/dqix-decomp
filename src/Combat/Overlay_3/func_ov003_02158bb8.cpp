@@ -13,6 +13,9 @@
 #include <globaldefs.h>
 #include <Memory/SafeAllocator.h>
 #include <NitroSDK/Graphics.h>
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/StringList.h"
 
 struct StringTable_0201099c_14;
 struct BGLayer_02020cb8;
@@ -28,10 +31,7 @@ struct Struct_ov003_02158bb8_2 {
 
 extern "C" void SaveMainBGControl_02074af4(Struct_ov003_02158bb8_2* save);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
-extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
-extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
-extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 extern "C" void ResetSaveProgress_020a9ea4(SaveProgress_020a9ea4* progress);
 
 struct Struct_ov003_02158bb8 {
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov003_02158bb8(Struct_ov003_02158bb8* arg0)
     SaveMainBGControl_02074af4(&arg0->unknown_80_);
     arg0->unknown_94_ = (DISPCNT & 0x1f00) >> 8;
     DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
-    InitSpriteSet_0205a444(arg0->unknown_98_);
+    ((OBJSpriteSet*)(arg0->unknown_98_))->Reset();
     arg0->unknown_ec_ = NULL;
     arg0->unknown_f0_ = NULL;
     arg0->unknown_3c_.ResetAllocatorPointer();
@@ -102,12 +102,12 @@ extern "C" ARM void func_ov003_02158bb8(Struct_ov003_02158bb8* arg0)
     arg0->unknown_0_.ResetAllocatorPointer();
     InitTextWindowManager_0205cfd4((TextWindowManager_0205cfd4*)arg0->unknown_f4_);
     for (int var0 = 0; var0 < 2; var0++) {
-        InitBGLayer_0204af64((BGLayer_02020cb8*)arg0->unknown_1b0_[var0]);
+        ((BGLayer*)((BGLayer_02020cb8*)arg0->unknown_1b0_[var0]))->Reset();
     }
     for (int var1 = 0; var1 < 4; var1++) {
         InitTextWindow_0204c684(arg0->unknown_1f0_[var1]);
     }
-    InitStringTable_020dfc40((StringTable_0201099c_14*)arg0->unknown_64_);
+    ((StringList*)((StringTable_0201099c_14*)arg0->unknown_64_))->Reset();
     arg0->unknown_587_ = 0;
     arg0->unknown_588_ = 0;
     arg0->unknown_580_ = 0;

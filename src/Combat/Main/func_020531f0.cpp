@@ -90,7 +90,7 @@ extern "C" ARM void StopGesture_020531f0(struct Struct_020531f0_2* arg0) {
     arg0->unknown_185_ = 0;
     arg0->unknown_186_ = 0;
 
-    if ((arg0->unknown_0_.classFlags_0_ & 0x200) != 0) {
+    if ((arg0->unknown_0_.unknown_0_ & 0x200) != 0) {
         if (IsOnLadder_02039d7c((char*)arg0) != 0) {
             return;
         }
@@ -102,7 +102,7 @@ extern "C" ARM void StopGesture_020531f0(struct Struct_020531f0_2* arg0) {
     SetMotion_02033b88((struct Struct_02010604*)arg0, 0);
 
     gameState = GameState::GetInstance();
-    objectIndex = arg0->unknown_0_.objectIndex_4_;
+    objectIndex = arg0->unknown_0_.unknown_4_;
     int ownPartyLeaderObjectIndex = GetOwnPartyLeaderObjectIndex_020100b0(gameState);
     if (ownPartyLeaderObjectIndex == objectIndex) {
         camera = GetFollowCamera_020100f8((char*)gameState);
@@ -114,5 +114,5 @@ extern "C" ARM void StopGesture_020531f0(struct Struct_020531f0_2* arg0) {
         }
     }
 
-    func_ov017_021cc1f8(arg0->unknown_0_.objectIndex_4_, (const char*)gestureIds, 0, 1);
+    func_ov017_021cc1f8(arg0->unknown_0_.unknown_4_, (const char*)gestureIds, 0, 1);
 }

@@ -1,4 +1,8 @@
 #include <globaldefs.h>
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 #if defined(jpn)
 #include "Resource/ActionDataTables.h"
 #include "GameState/GameState.h"
@@ -92,7 +96,7 @@ extern "C" void func_020117cc(char*, DetailedTreasureMapData*);
 extern "C" void func_ov023_021ed988(char*, int);
 extern "C" Struct_ov023_021ef524_2* FindActionData_02079e2c(char*, int);
 extern "C" {
-void* GetLocalWireless_0202ae18();
+void* func_0202ae18();
 Struct_ov023_021ef524_4* GetZone3D_02012fe4();
 void __clear(void*, unsigned int);
 void StartMessage_0204500c(MessageWindow_020465c0*, const char*, int);
@@ -111,7 +115,7 @@ extern "C" ARM int func_ov023_021ef524(Struct_ov023_021ef524_3* arg0) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov023_021eeaac_2* var1 = _ZZ21inline_ov023_021f4c04vE1s;
     MessageWindow_020465c0* var2 = GetMessageWindow_020421a0();
-    void* var3 = GetLocalWireless_0202ae18();
+    void* var3 = func_0202ae18();
     var4 = GetZone3D_02012fe4()->unknown_240c_.GetDetailedData();
     char var5[0x100];
     __clear(var5, sizeof(var5));
@@ -142,7 +146,7 @@ extern "C" ARM int func_ov023_021ef524(Struct_ov023_021ef524_3* arg0) {
         for (int var8 = 0; var8 < var7; ++var8) {
             Struct_ov000_0217964c_2* var9 = GetEnemyByIndex_0200fea4(var0, var8 + 0xc0);
             if (var9 && var9->unknown_138_) {
-                arg0->unknown_7020_[arg0->unknown_701e_] = var9->objectIndex_4_;
+                arg0->unknown_7020_[arg0->unknown_701e_] = var9->unknown_4_;
                 ++arg0->unknown_701e_;
             }
         }

@@ -7,12 +7,24 @@ enum { Enum_ov017_021c847c_2380 = 0x94c };
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
+extern "C" void* func_0202ae24(void);
 struct LocalWireless_0202c508;
 extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202c508* wireless);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021c847c {
@@ -31,8 +43,8 @@ struct Struct_ov017_021c847c_2 {
 // USA: func_ov017_021c847c
 extern "C" ARM void func_ov017_021c847c(void) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetLocalWireless_0202ae18();
-    void* var2 = GetLocalWirelessPacketQueue_0202ae24();
+    void* var1 = func_0202ae18();
+    void* var2 = func_0202ae24();
 
     struct Struct_ov017_021c847c_2 var3;
     var3.unknown_0_ = 0x76;
@@ -48,7 +60,7 @@ extern "C" ARM void func_ov017_021c847c(void) {
         for (var6 = 0; var6 < 4; var6++) {
             GameObject* var7 = GetCompanionByIndex_0200ff58(var0, var6);
             if (var7 != NULL) {
-                int var8 = GetPartyMemberData_02053c6c((unsigned char*)var7);
+                int var8 = func_02053c6c((unsigned char*)var7);
                 if (var8 != 0) {
                     var4[var6] = (unsigned char)*(int*)(var8 + Enum_ov017_021c847c_2380);
                 }
@@ -62,7 +74,7 @@ extern "C" ARM void func_ov017_021c847c(void) {
         unsigned char var11 = var9->unknown_f78_[var10];
         GameObject* var12 = GetPartyMemberBaseByIndex_0200ff1c(var0, var11);
         if (var12 != NULL) {
-            int var13 = GetPartyMemberData_02053c6c((unsigned char*)var12);
+            int var13 = func_02053c6c((unsigned char*)var12);
             if (var13 != 0) {
                 unsigned int var14 = *(unsigned int*)(var13 + 0x78);
                 *(var4 + var11 + 4) = (unsigned char)((var14 << 1) >> 31);

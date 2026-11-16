@@ -1,7 +1,7 @@
 #include <globaldefs.h>
+#include "std_library_functions.h"
 
 extern "C" int func_ov003_02171df0(unsigned char* arg0);
-extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
 
 struct Struct_ov003_02171d78 { char unknown_0_[6]; unsigned char unknown_6_; char unknown_7_; };
 
@@ -16,7 +16,7 @@ ret0:
         Struct_ov003_02171d78* var0 = (Struct_ov003_02171d78*)((char*)arg0 + 8);
         for (int var1 = 0; var1 < 0x32; var1++, var0++) {
             if (var0->unknown_6_ != 0) {
-                if (CompareBytes_02001aec(var0, arg1, 6) == 0) return 1;
+                if (memcmp(var0, arg1, 6) == 0) return 1;
             }
         }
     }

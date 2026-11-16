@@ -3,6 +3,10 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" void* GetScriptValueAsString_ov017_021d612c(void*);
 extern "C" int func_ov001_0215ad2c(int arg0);
@@ -37,7 +41,7 @@ extern "C" ARM int func_ov001_0215f854(char* arg0) {
 
 	void* var8 = var1->Allocate(0x268);
 
-	*(void**)((char*)var2 + 0x4) = GetCamera_020100bc(var0);
+	*(void**)((char*)var2 + 0x4) = func_020100bc(var0);
 
 	func_0204a120((struct Struct_0204a120*)var8);
 	func_0204a3f0((struct Struct_0204a3f0_2*)var8, (struct Struct_0204a3f0*)var7);

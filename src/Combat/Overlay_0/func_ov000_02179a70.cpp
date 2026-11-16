@@ -1,11 +1,11 @@
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 struct Struct_0201099c_3;
 
 extern "C" int func_ov000_0217542c(void* arg0);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int func_02041dd0(char* arg0, int arg1);
 #if defined(jpn)
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov000_02179a70(struct Struct_ov000_02179a70* arg0, stru
         var2 = &arg0->unknown_958_[arg0->unknown_74_[var3]];
         if (var2->unknown_4c_ >= 0) {
             if (var1 != 0) {
-                AppendText_02042058(arg3, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_b8_, 0));
+                AppendText_02042058(arg3, (const char*)((int)((StringList*)((struct Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0)));
             }
             func_02041dd0(arg3, func_ov000_02170c7c(var2));
 #if defined(jpn)

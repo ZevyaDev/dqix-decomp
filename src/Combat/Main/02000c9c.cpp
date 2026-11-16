@@ -6,6 +6,7 @@
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Input/Input.h"
+#include "Filesystem/FileIO.h"
 
 #if defined(jpn)
 #define func_020daf90 func_020dc998
@@ -64,7 +65,7 @@ extern "C" void func_0205e8d4(void* arg0);
 extern "C" void func_0203a950(void* arg0);
 void InitializeActiveAlarmList();
 extern "C" void func_ov031_02211c50(int arg0);
-extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
+extern "C" int func_0200fb08(Struct_02000c9c_8* gameState);
 extern "C" void func_ov031_0222708c(int arg0, int arg1);
 extern "C" int func_020d6c9c();
 extern "C" void func_020c983c();
@@ -103,7 +104,6 @@ extern "C" void func_020d6c68();
 extern "C" void func_02012bd8();
 
 extern AllocatorUnion gMainHeap_02114e20;
-extern char gFileScratchSpace_0211e33c[];
 extern char gMusicManager_02109bf4[];
 extern char gSoundEffectManager_02108760[];
 extern char data_02114ec4[];
@@ -237,7 +237,7 @@ extern "C" ARM void main() {
     if (!inline_02000c9c() && !inline_02000c9c_2() && !inline_02000c9c_3() && BackgroundLoader::GetInstance() == 0) {
 #endif
         LoadOverlay_020a1940(&OVERLAY_33_ID);
-        PopulateOv33BackgroundLoader(gFileScratchSpace_0211e33c, 0x30000, 0x14);
+        PopulateOv33BackgroundLoader(g_fileScratchSpace, 0x30000, 0x14);
     }
     func_020a1bb4(&OVERLAY_29_ID);
     LoadOverlay_020a1940(&OVERLAY_32_ID);
@@ -251,7 +251,6 @@ extern "C" ARM void main() {
     func_0205e88c((Struct_02000c9c_17*)gSoundEffectManager_02108760);
     LoadSoundEffectSet_0205ea20(gSoundEffectManager_02108760, 100);
     SafeAllocator var3;
-    var3.ResetAllocatorPointer();
     var3.CreateTypeA(data_02114ec4, STARTUP_ALLOCATOR_SIZE);
     var3.Reset();
     func_020421c4(&var3);
@@ -368,7 +367,7 @@ extern "C" ARM void main() {
 #if defined(jpn)
                 func_ov031_0222708c(0, 0x10);
 #else
-                switch (GetGameLanguage_0200fb08((Struct_02000c9c_8*)var0)) {
+                switch (func_0200fb08((Struct_02000c9c_8*)var0)) {
                 case 1:
                     func_ov031_0222708c(1, 0);
                     break;

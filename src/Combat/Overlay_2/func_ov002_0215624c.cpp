@@ -3,6 +3,11 @@
 #include "Memory/SafeAllocator.h"
 #include <globaldefs.h>
 #include "Input/Input.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "NitroSDK/Cache.h"
+#include "Resource/PAC.h"
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 #define REGIONAL_OFFSET(jp, us) jp
@@ -36,15 +41,7 @@ extern "C" int GetCursorIndex_0205d794(struct Struct_ov002_0215624c_15 *windowMa
 extern "C" void PushSubOverlay_020a1ef0(int subOverlayEntry);
 extern "C" int GetResources_0200fb8c(int *gameState);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void SetBGScreenSize_0204b11c(unsigned char *layer, int screenSize);
-extern "C" void SetBGPriority_0204b5b4(void *layer, int priority);
-extern "C" void AllocateBGScreenData_0204b12c(struct Struct_ov002_0215624c_17 *layer,
-                                                                                         SafeAllocator *allocator);
-extern "C" int SetBGScroll_0204b5e8(struct Struct_ov002_0215624c_18 *layer, int scrollX, int scrollY);
 extern "C" void ColorEffect_ConfigureAlphaBlend(int reg, int a, int b, int c, int d);
-extern "C" void FillBGScreenRect_0204bc74(void *layer, unsigned short screenEntry, int x, int y, int width, int height, unsigned short palette);
-extern "C" void LoadBGScreenData_0204b0e8(struct Struct_ov002_0215624c_19 *layer, void *screenData);
-extern "C" void LoadBGBlock_0204b174(void *layer, void *block, SafeAllocator *allocator, int arg3);
 extern "C" void SetTextWindowBuffers_0204c7a8(struct Struct_ov002_0215624c_20 *window, SafeAllocator *allocator,
                                                                            int characterData, unsigned int screenDataSize);
 extern "C" void SetTextWindowArray_0205cf78(struct Struct_ov002_0215624c_21 *windowManager,
@@ -53,19 +50,10 @@ extern "C" void SetTextWindowArray_0205cf78(struct Struct_ov002_0215624c_21 *win
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" void *memcpy(void *arg0, const void *arg1, unsigned int arg2);
 extern "C" void *GetWindowTile_020421b0(int tileIndex);
-extern "C" void DC_FlushRange(const void *where, unsigned int len);
 extern "C" void LoadToMainBG1CharacterData(const void *data, unsigned int offset, unsigned int length);
 extern "C" void LoadToMainBG3CharacterData(const void *data, unsigned int offset, unsigned int length);
-extern "C" void InitSprite_0205a198(struct Struct_ov002_0215624c_23 *sprite);
-extern "C" void InitSpriteAnimationList_0205a234(struct Struct_ov002_0215624c_24 *animationList);
-extern "C" void InitSpriteSet_0205a444(char *spriteSet);
-extern "C" void *GetPacEntryData_020467f0(struct Struct_ov002_0215624c_25 *pac, int index, void **outEntry, int *outSize);
-extern "C" void LoadSpriteSetFile_0205a528(void *spriteSet, void *fileData, int size, void *allocator);
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
-extern "C" int CountPacEntries_02046900(struct Struct_ov002_0215624c_26 *pac);
-extern "C" void LoadStringTable_020dfec0(void *stringTable, void *allocator, void *fileData, unsigned int fileSize);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
 extern "C" void func_ov002_0215bf34(char *arg0);
 extern "C" void func_ov002_0215c028(char *arg0);
@@ -169,13 +157,12 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
         struct Struct_ov002_0215624c_16 *var8;
         for (int var9 = 0; var9 < 3; var9++) {
             var8 = (struct Struct_ov002_0215624c_16 *) (arg0 + REGIONAL_OFFSET(0xedc, 0xf84) + var9 * 0x20);
-            SetBGScreenSize_0204b11c((unsigned char *) var8, 0);
+            ((BGLayer*)((unsigned char *) var8))->ConfigureTextMode(0);
             var8->unknown_1c_0_ = 0;
             var8->unknown_1c_4_ = var6.unknown_0_[var9];
-            SetBGPriority_0204b5b4(var8, var7.unknown_0_[var9]);
-            AllocateBGScreenData_0204b12c((struct Struct_ov002_0215624c_17 *) var8,
-                                                                                     (SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x78c, 0x828)));
-            SetBGScroll_0204b5e8((struct Struct_ov002_0215624c_18 *) var8, 0, 0);
+            ((BGLayer*)(var8))->SetPriority(var7.unknown_0_[var9]);
+            ((BGLayer*)((struct Struct_ov002_0215624c_17 *) var8))->AllocateIndexBuffer((SafeAllocator*)((SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x78c, 0x828))));
+            ((BGLayer*)((struct Struct_ov002_0215624c_18 *) var8))->SetOffset(0, 0);
         }
 
         REG16(0x0400000a) = (REG16(0x0400000a) & 0x43) | 0x1d00;
@@ -186,13 +173,13 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
         char *var10;
         for (int var11 = 0; var11 < 3; var11++) {
             var10 = arg0 + REGIONAL_OFFSET(0xedc, 0xf84) + var11 * 0x20;
-            FillBGScreenRect_0204bc74(var10, 0, 0, 0, 0x20, 0x19, 0);
-            LoadBGScreenData_0204b0e8((struct Struct_ov002_0215624c_19 *) var10, 0);
+            ((BGLayer*)(var10))->SetTileInRectangle(0, 0, 0, 0x20, 0x19, 0);
+            ((BGLayer*)((struct Struct_ov002_0215624c_19 *) var10))->CleanCacheAndUploadIndexBuffer((const void*)(0));
         }
 
         void *var12 = *(void **) (var5 + 0x2c);
-        LoadBGBlock_0204b174(arg0 + REGIONAL_OFFSET(0xefc, 0xfa4), var12, (SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x78c, 0x828)), 0);
-        LoadBGBlock_0204b174(arg0 + REGIONAL_OFFSET(0xf1c, 0xfc4), var12, (SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x78c, 0x828)), 0);
+        ((BGLayer*)(arg0 + REGIONAL_OFFSET(0xefc, 0xfa4)))->ProcessGraphicsFile((const void*)var12, (SafeAllocator*)((SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x78c, 0x828))), 0);
+        ((BGLayer*)(arg0 + REGIONAL_OFFSET(0xf1c, 0xfc4)))->ProcessGraphicsFile((const void*)var12, (SafeAllocator*)((SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x78c, 0x828))), 0);
 
         for (int var13 = 0; var13 < 3; var13++) {
             struct Struct_ov002_0215624c_13 *var14 = (struct Struct_ov002_0215624c_13 *) (arg0 + REGIONAL_OFFSET(0xedc, 0xf84)) + var13;
@@ -215,15 +202,15 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
         memset((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0, 0x60);
         memset((char *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)) + 0x20, 0x11111111, 0x20);
         memcpy((char *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)) + 0x40, GetWindowTile_020421b0(REGIONAL_OFFSET(0x1f, 0x15)), 0x20);
-        DC_FlushRange((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0x60);
+        CleanInvalidateCacheRange((const void*)((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8))), 0x60);
         LoadToMainBG1CharacterData((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0, 0x60);
         LoadToMainBG3CharacterData((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0, 0x60);
 
         for (unsigned char var17 = 0; var17 < REGIONAL_OFFSET(0x2c, 0x2b); var17++) {
-            InitSprite_0205a198((struct Struct_ov002_0215624c_23 *) (S32(REGIONAL_OFFSET(0x19bc, 0x1a64)) + var17 * 0x28));
+            ((OBJSpriteSet::Metatile*)((struct Struct_ov002_0215624c_23 *) (S32(REGIONAL_OFFSET(0x19bc, 0x1a64)) + var17 * 0x28)))->Reset();
         }
-        InitSpriteAnimationList_0205a234((struct Struct_ov002_0215624c_24 *) S32(REGIONAL_OFFSET(0x19c4, 0x1a6c)));
-        InitSpriteSet_0205a444((char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)));
+        ((OBJSpriteSet::List*)((struct Struct_ov002_0215624c_24 *) S32(REGIONAL_OFFSET(0x19c4, 0x1a6c))))->Reset();
+        ((OBJSpriteSet*)((char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68))))->Reset();
         *(unsigned char *) (S32(REGIONAL_OFFSET(0x19c0, 0x1a68)) + 0x50) = 0;
         {
             char *var18               = (char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68));
@@ -237,8 +224,8 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
         for (int var19 = 0; var19 < 4; var19++) {
             int var20;
             void *var21;
-            void *var22 = GetPacEntryData_020467f0((struct Struct_ov002_0215624c_25 *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), var19, &var21, &var20);
-            LoadSpriteSetFile_0205a528((void *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)), var22, var20, arg0 + REGIONAL_OFFSET(0x7dc, 0x878));
+            void *var22 = GetFileInPACByIndex((void*)((struct Struct_ov002_0215624c_25 *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8))), var19, (const char**)(&var21), (unsigned int*)(&var20));
+            ((OBJSpriteSet*)((void *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68))))->LoadFromNitroFile((void*)(var22), var20, (SafeAllocator*)(arg0 + REGIONAL_OFFSET(0x7dc, 0x878)));
         }
 
         S16(REGIONAL_OFFSET(0x1aa8, 0x1be0)) = 0;
@@ -302,12 +289,12 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
             unsigned int var29;
             int var30;
             var0->GetLoadedFileByID(S32(REGIONAL_OFFSET(0x1a6c, 0x1ba4)), &var28, &var29);
-            int var31 = CountPacEntries_02046900((struct Struct_ov002_0215624c_26 *) var28);
+            int var31 = GetNumFilesInPAC((const void*)((struct Struct_ov002_0215624c_26 *) var28));
             for (unsigned char var32 = 0; var32 < REGIONAL_OFFSET(0x2c, 0x2b); var32++) {
-                InitSprite_0205a198((struct Struct_ov002_0215624c_23 *) (S32(REGIONAL_OFFSET(0x19bc, 0x1a64)) + var32 * 0x28));
+                ((OBJSpriteSet::Metatile*)((struct Struct_ov002_0215624c_23 *) (S32(REGIONAL_OFFSET(0x19bc, 0x1a64)) + var32 * 0x28)))->Reset();
             }
-            InitSpriteAnimationList_0205a234((struct Struct_ov002_0215624c_24 *) S32(REGIONAL_OFFSET(0x19c4, 0x1a6c)));
-            InitSpriteSet_0205a444((char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)));
+            ((OBJSpriteSet::List*)((struct Struct_ov002_0215624c_24 *) S32(REGIONAL_OFFSET(0x19c4, 0x1a6c))))->Reset();
+            ((OBJSpriteSet*)((char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68))))->Reset();
             *(unsigned char *) (S32(REGIONAL_OFFSET(0x19c0, 0x1a68)) + 0x50) = 0;
             {
                 char *var33               = (char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68));
@@ -317,8 +304,8 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
             *(int *) (S32(REGIONAL_OFFSET(0x19c0, 0x1a68)) + 0x3c) = S32(REGIONAL_OFFSET(0x19c4, 0x1a6c));
             ((SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x7dc, 0x878)))->Reset();
             for (int var34 = 0; var34 < var31; var34++) {
-                void *var35 = GetPacEntryData_020467f0((struct Struct_ov002_0215624c_25 *) var28, var34, &var27, &var30);
-                LoadSpriteSetFile_0205a528((void *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)), var35, var30, arg0 + REGIONAL_OFFSET(0x7dc, 0x878));
+                void *var35 = GetFileInPACByIndex((void*)((struct Struct_ov002_0215624c_25 *) var28), var34, (const char**)(&var27), (unsigned int*)(&var30));
+                ((OBJSpriteSet*)((void *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68))))->LoadFromNitroFile((void*)(var35), var30, (SafeAllocator*)(arg0 + REGIONAL_OFFSET(0x7dc, 0x878)));
             }
             var0->RemoveTask(S32(REGIONAL_OFFSET(0x1a6c, 0x1ba4)));
             S32(REGIONAL_OFFSET(0x1a6c, 0x1ba4)) = -1;
@@ -329,8 +316,8 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
             unsigned int var37;
             var0->GetLoadedFileByID(S32(REGIONAL_OFFSET(0x1a70, 0x1ba8)), &var36, &var37);
             ((SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x7a0, 0x83c)))->Reset();
-            LoadStringTable_020dfec0(arg0 + REGIONAL_OFFSET(0x8, 0x20), arg0 + REGIONAL_OFFSET(0x7a0, 0x83c), var36, var37);
-            S32(REGIONAL_OFFSET(0x1aa4, 0x1bdc)) = FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + REGIONAL_OFFSET(0x8, 0x20)), 0);
+            ((StringList*)(arg0 + REGIONAL_OFFSET(0x8, 0x20)))->LoadFromMemory((SafeAllocator*)(arg0 + REGIONAL_OFFSET(0x7a0, 0x83c)), (const void*)(var36), var37);
+            S32(REGIONAL_OFFSET(0x1aa4, 0x1bdc)) = ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + REGIONAL_OFFSET(0x8, 0x20))))->GetString(0));
             var0->RemoveTask(S32(REGIONAL_OFFSET(0x1a70, 0x1ba8)));
             S32(REGIONAL_OFFSET(0x1a70, 0x1ba8)) = -1;
         }

@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 
 struct Struct_020d76b8;
 
@@ -66,7 +67,7 @@ extern "C" ARM void func_ov000_02161020(Struct_ov000_02161020* arg0) {
             int var12 = 1;
             Model3D* var13 = var7->obj3D_.pModel_;
             if (var13 != NULL && var13->rawInternalModel_ != NULL) {
-                var12 = NSBXX_Model_GetMaterialPolygonID(var13->rawInternalModel_, 0);
+                var12 = Nitro3D_GetModelMaterialPolygonID((Nitro3DModel*)(var13->rawInternalModel_), 0);
             }
             const Vector3fix& var14 = var7->obj3D_.MaybeGetShadowSource();
             func_0208f87c(&var14, var5, ((Struct_ov000_02161020_3*)var7)->unknown_18e_, var11, var12);

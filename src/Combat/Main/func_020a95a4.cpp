@@ -5,6 +5,10 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
 #define RG(u, j) (j)
 #else
 #define RG(u, j) (u)
@@ -139,7 +143,7 @@ struct Struct_020a95a4_6 {
 };
 
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" Struct_020a95a4_2* GetZone3D_02012fe4(void);
 extern "C" Struct_020a95a4_3* GetQuestManager_02094d6c(void);
 extern "C" void func_020a93e0(char* arg0);
@@ -167,7 +171,7 @@ extern "C" ARM int func_020a95a4(Struct_020a95a4_6* arg0, Struct_020a95a4_5* arg
 #endif
     GameState* var0 = GameState::GetInstance();
     Struct_020a95a4_8* var1 = static_cast<Struct_020a95a4_8*>(GetParty_02010828(var0));
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     Struct_020a95a4_2* var2 = GetZone3D_02012fe4();
     GetGameResources();
     Struct_020a95a4_3* var3 = GetQuestManager_02094d6c();
@@ -257,4 +261,9 @@ extern "C" ARM int func_020a95a4(Struct_020a95a4_6* arg0, Struct_020a95a4_5* arg
     *arg2 = arg0->unknown_2ca2_;
 #endif
     return 1;
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

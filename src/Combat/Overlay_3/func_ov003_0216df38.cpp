@@ -1,9 +1,9 @@
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 extern "C" void* __clear(void* arg0, int arg1);
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 extern "C" int func_020420e8(void* arg0, int arg1);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
@@ -21,8 +21,8 @@ extern "C" ARM short func_ov003_0216df38(char* arg0, struct Struct_0201099c_3* a
     int var2 = 5;
     int var3, var4;
     if (arg2) var2 = 6;
-    var3 = FindStringInTable_020e0434(arg1, var2);
-    var4 = FindStringInTable_020e0434(arg1, 7);
+    var3 = ((int)((StringList*)(arg1))->GetString(var2));
+    var4 = ((int)((StringList*)(arg1))->GetString(7));
 
     var1 = func_020420e8((void*)var3, 0);
     int var5 = func_020420e8((void*)var4, 0);
@@ -34,7 +34,7 @@ extern "C" ARM short func_ov003_0216df38(char* arg0, struct Struct_0201099c_3* a
     sprintf(var0, &data_ov003_02180215, var4);
     AppendText_02042058(arg0, var0);
 
-    int var6 = FindStringInTable_020e0434(arg1, 0xe);
+    int var6 = ((int)((StringList*)(arg1))->GetString(0xe));
     sprintf(var0, (const char*)var6);
     AppendText_02042058(arg0, var0);
 

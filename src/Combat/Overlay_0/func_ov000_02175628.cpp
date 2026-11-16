@@ -1,8 +1,12 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" void* func_02053c6c(unsigned char* gameObject);
 extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 
 // USA: func_ov000_02175628
@@ -17,7 +21,7 @@ extern "C" ARM void func_ov000_02175628(void* arg0) {
         if (var5 == 0) {
             continue;
         }
-        void* var6 = GetPartyMemberData_02053c6c((unsigned char*)var5);
+        void* var6 = func_02053c6c((unsigned char*)var5);
 #if defined(jpn)
         enum { Enum_ov000_02175628_2380 = 0x8b4 };
 #else

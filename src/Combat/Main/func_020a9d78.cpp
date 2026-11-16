@@ -83,3 +83,8 @@ extern "C" ARM int func_020a9d78(void* arg0) {
     var4->unknown_6_ = var0->unknown_15_;
     return 1;
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

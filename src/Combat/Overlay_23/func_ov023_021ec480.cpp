@@ -2,6 +2,15 @@
 #include <std_library_functions.h>
 #include <NitroSDK/ColorEffects.h>
 #include "Resource/GameResources.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 
 #define GUIDE_WINDOW_MAIN_SCREEN 8
@@ -95,12 +104,11 @@ extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, in
 extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectIndex, int handle);
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c* windowManager, int windowId, int palette);
 extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2* manager, int jingleIndex);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int func_0209ca2c(void* arg0);
 extern "C" int func_ov023_021ed014(struct Struct_ov023_021ec480* arg0);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
-extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void ResetMessageWindow_02043204(char* window);
 
@@ -111,7 +119,7 @@ void func_ov023_021ed194(Struct_ov023_021ec480* arg0);
 void func_ov023_021ed354(Struct_ov023_021ec480* arg0);
 void func_ov023_021ed4b8(Struct_ov023_021ec480* arg0);
 void func_ov023_021ed600(Struct_ov023_021ec480* arg0);
-void* GetFlagManager_0205ec34();
+void* func_0205ec34();
 #if defined(jpn)
 void StartMessage_0204500c(Struct_ov023_021ec480_4* window, const char* text, int arg2);
 #else
@@ -192,8 +200,8 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
             return;
         if (arg0->unknown_438_ & GUIDE_WINDOW_UNK_400)
         {
-            void* var6 = GetFlagManager_0205ec34();
-            if (arg0->unknown_28_ == arg0->unknown_24_ - 1 && IsFlagSet_0206dfb0((int)var6, (unsigned char*)var6 + 0x8c, 0x119a) &&
+            void* var6 = func_0205ec34();
+            if (arg0->unknown_28_ == arg0->unknown_24_ - 1 && func_0206dfb0((int)var6, (unsigned char*)var6 + 0x8c, 0x119a) &&
                 func_0209ca2c(gMusicManager_02109bf4))
                 return;
         }
@@ -228,8 +236,8 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
             ColorEffect_ConfigureAlphaBlend(REG_BLDCNT, 1, 2, 0xf, 0x1f);
         if (arg0->unknown_438_ & GUIDE_WINDOW_UNK_400)
         {
-            void* var8 = GetFlagManager_0205ec34();
-            if (IsFlagSet_0206dfb0((int)var8, (unsigned char*)var8 + 0x8c, 0x119a))
+            void* var8 = func_0205ec34();
+            if (func_0206dfb0((int)var8, (unsigned char*)var8 + 0x8c, 0x119a))
             {
                 arg0->unknown_432_++;
                 return;
@@ -248,8 +256,8 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
         if (arg0->unknown_84_[1].unknown_1c_0_ == 0)
         {
             memset(arg0->unknown_1c_, 0, Enum_ov023_021ec480_2400);
-            AppendText_02042058(arg0->unknown_1c_, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_4_, 1000));
-            AppendText_02042058(arg0->unknown_1c_, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_4_, 1002));
+            AppendText_02042058(arg0->unknown_1c_, ((StringList*)((Struct_0201099c_3*)arg0->unknown_4_))->GetString(1000));
+            AppendText_02042058(arg0->unknown_1c_, ((StringList*)((Struct_0201099c_3*)arg0->unknown_4_))->GetString(1002));
             var1->unknown_998_ = 1;
 #if defined(jpn)
             StartMessage_0204500c(var1, arg0->unknown_1c_, 0);
@@ -298,8 +306,8 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
     if (var2 == 10)
     {
         memset(arg0->unknown_1c_, 0, Enum_ov023_021ec480_2400);
-        AppendText_02042058(arg0->unknown_1c_, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_4_, 1001));
-        AppendText_02042058(arg0->unknown_1c_, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_4_, 1002));
+        AppendText_02042058(arg0->unknown_1c_, ((StringList*)((Struct_0201099c_3*)arg0->unknown_4_))->GetString(1001));
+        AppendText_02042058(arg0->unknown_1c_, ((StringList*)((Struct_0201099c_3*)arg0->unknown_4_))->GetString(1002));
         var1->unknown_998_ = 1;
 #if defined(jpn)
         StartMessage_0204500c(var1, arg0->unknown_1c_, 0);

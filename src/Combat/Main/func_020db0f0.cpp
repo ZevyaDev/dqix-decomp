@@ -4,17 +4,20 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "NitroSDK/Memory.h"
+#include "NitroSDK/Graphics2D/Character.h"
+#include "NitroSDK/Graphics2D/Palette.h"
+#include "Resource/PAC.h"
+
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
 
 
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" char* func_020467c0(void* arg0, char* arg1, unsigned int* arg2);
-extern "C" int func_020b01a4(void* arg0, void** arg1);
 struct Struct_0205ab78;
-extern "C" int func_020b01f0(struct Struct_0205ab78* arg0, void** arg1);
-extern "C" void HaltForever_020c9be0(void);
+extern "C" void func_020c9be0(void);
 
 extern AllocatorUnion gMainHeap_02114e20;
-extern unsigned char gFileScratchSpace_0211e33c[0x30000];
 extern const char data_020f290c;
 extern const char data_020f2925;
 extern const char data_020f2936;
@@ -54,19 +57,19 @@ extern "C" ARM void func_020db0f0(Struct_02000c9c_18* arg0) {
     arg0->unknown_0_.Reset();
     BackgroundLoader::AddLockGlobal();
 
-    var7 = gFileScratchSpace_0211e33c;
+    var7 = g_fileScratchSpace;
 
     var0 = 0;
     LoadFileIntoMemory(&data_020f290c, var7, &var0);
 
     var1 = 0;
     var2 = 0;
-    var3 = func_020467c0(var7, (char*)&data_020f2925, &var1);
-    var4 = (Struct_0205ab78*)func_020467c0(var7, (char*)&data_020f2936, &var2);
+    var3 = (char*)(GetFileInPAC((void*)(var7), (const char*)((char*)&data_020f2925), (unsigned int*)(&var1)));
+    var4 = (Struct_0205ab78*)GetFileInPAC((void*)(var7), (const char*)((char*)&data_020f2936), (unsigned int*)(&var2));
 
     var5 = NULL;
-    if (!func_020b01a4(var3, (void**)&var5)) {
-        HaltForever_020c9be0();
+    if (!((int)Nitro2D_GetCharacter((void*)(var3), (Nitro2DCharacter**)((void**)&var5)))) {
+        func_020c9be0();
     }
 
     arg0->unknown_44_ = var5->unknown_10_;
@@ -74,8 +77,8 @@ extern "C" ARM void func_020db0f0(Struct_02000c9c_18* arg0) {
     VectorizedInvertedMemcpy(var5->unknown_14_, arg0->unknown_40_, arg0->unknown_44_);
 
     var6 = NULL;
-    if (!func_020b01f0(var4, (void**)&var6)) {
-        HaltForever_020c9be0();
+    if (!((int)Nitro2D_GetPalette((void*)(var4), (Nitro2DPalette**)((void**)&var6)))) {
+        func_020c9be0();
     }
 
     arg0->unknown_4c_ = 0x20;

@@ -4,7 +4,15 @@
 #include "Input/Input.h"
 #include "Resource/Brightness.h"
 
-extern "C" void GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
+extern "C" void func_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_020391ac(void* arg0);
 extern "C" void func_02038138(void* arg0);
@@ -99,7 +107,7 @@ struct Struct_02037d88_7 {
 // USA: func_02037d88
 extern "C" ARM void func_02037d88(struct Struct_02037d88_7* arg0) {
     void* var0 = GameState::GetInstance();
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     unsigned char* var1 = (unsigned char*)((int)GetGameResources());
 
     int var2 = (arg0->unknown_1ce_ & 4) != 0;
@@ -129,7 +137,7 @@ extern "C" ARM void func_02037d88(struct Struct_02037d88_7* arg0) {
 
     {
         void* var5 = GameState::GetInstance();
-        void* var6 = GetCamera_020100bc((GameState*)var5);
+        void* var6 = func_020100bc((GameState*)var5);
         void* var7 = GetZone3D_02012fe4();
         int* var8 = (int*)arg0->unknown_130_;
 
@@ -231,4 +239,9 @@ extern "C" ARM void func_02037d88(struct Struct_02037d88_7* arg0) {
         }
         func_02038598(arg0);
     }
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

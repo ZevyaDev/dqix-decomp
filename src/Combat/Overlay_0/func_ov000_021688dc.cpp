@@ -11,6 +11,33 @@
 #include "NitroSDK/VRAM.h"
 #include "NitroSDK/Matrix.h"
 #include "Resource/Brightness.h"
+#include "Graphics/TextureArena.h"
+#include "NitroSDK/VRAMAllocation.h"
+#include "Filesystem/FileIO.h"
+
+#if defined(jpn)
+#define func_ov017_021901ac func_ov017_02190d90
+#endif
+
+#if defined(jpn)
+#define func_ov000_02160fd4 func_ov000_02162740
+#endif
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0203bd08 func_0203b760
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 struct Struct_02032e58;
 
 #if defined(jpn)
@@ -81,9 +108,9 @@ enum {
 
 struct Struct_ov000_02183218 { unsigned char unknown_0_[4]; };
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
-extern "C" void* GetOAMManager_0203bd08(void);
+extern "C" void* func_0203bd08(void);
 extern "C" void InitPartyMemberData_02082828(int memberData);
 extern "C" void func_020542b4(void* arg0, void* arg1, void* arg2);
 extern "C" void func_02048b0c(void* arg0, int arg1);
@@ -127,15 +154,15 @@ extern "C" int IsInParty_02086ef0(struct Party_02048150* party, int objectIndex)
 
 struct Struct_0207d7f4;
 extern "C" void func_0207da7c(struct Struct_0207d7f4* arg0, unsigned short arg1);
-extern "C" int TestBattleSceneFlags_ov000_02160fd4(void* battleScene, int flags);
+extern "C" int func_ov000_02160fd4(void* battleScene, int flags);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 
 struct ActiveZone_020fdd44;
 extern "C" struct ActiveZone_020fdd44* func_02027cb0(void);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* GetBattleJoinTable_0207d78c(void);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 
 extern "C" void EnablePlayerControl_020397c0(void* object);
 
@@ -169,9 +196,6 @@ struct TextureVRAMArea_0203d028;
 extern "C" void func_02072d58(int arg0, char* arg1, char* arg2);
 struct PartyMember_0205faf4_11;
 extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
 struct ObjectArchiveLoadInfo_0203d028_11;
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo);
@@ -195,7 +219,6 @@ extern "C" void* func_020e3580(void);
 extern "C" int func_020e37e8(unsigned char* arg0);
 extern "C" void func_020e3798(unsigned char* arg0);
 
-extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install);
 extern "C" void func_ov017_021c8c04(int, int, int);
 extern "C" void _ZN8Object3D10SetField06Et(void* arg0, int arg1);
 
@@ -203,7 +226,7 @@ struct Struct_ov000_021688dc { unsigned char unknown_0_0_ : 2; unsigned char unk
 
 extern Struct_ov000_02183218 data_ov000_02183218;
 extern int data_ov000_02183b0c;
-extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char g_fileScratchSpace[0x30000] __attribute__((aligned(4)));
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
 extern const char data_ov000_02183b20[];
 extern const char data_ov000_02183b3b[];
@@ -215,7 +238,7 @@ struct Struct_ov000_02164fac_2 { char unknown_0_[0x70]; };
 static inline SafeAllocator* inline_ov000_02164fac(GameResources* arg0, int arg1) { return &arg0->allocator_array_38[arg1]; }
 static inline Struct_ov000_02164fac_2* inline_ov000_021688dc(GameResources* arg0, int arg1) { return &((Struct_ov000_02164fac_2*)arg0->unknown_2cc_)[arg1]; }
 
-static inline short inline_ov000_021688dc_2(GameObject* arg0) { return arg0->obj3D_.objectIndex_4_; }
+static inline short inline_ov000_021688dc_2(GameObject* arg0) { return arg0->obj3D_.unknown_4_; }
 
 static inline int inline_ov000_021688dc_3(GameObject* arg0) {
     return (**(int**)((char*)arg0 + 0x130) & 1) != 0;
@@ -239,9 +262,9 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
 
     GameState* var9 = GameState::GetInstance();
     int var10 = (int)GetGameResources();
-    struct LocalWireless_0202b2f0* var11 = (struct LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
+    struct LocalWireless_0202b2f0* var11 = (struct LocalWireless_0202b2f0*)func_0202ae18();
     unsigned short* var12 = GetZone3D_02012fe4();
-    GetOAMManager_0203bd08();
+    func_0203bd08();
 
     void* var13 = *(void**)(arg0 + Enum_ov000_021688dc_668);
     struct Party_02048150* var14 = (struct Party_02048150*)GetParty_02010828(var9);
@@ -251,7 +274,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
     void* var18 = GetBattleJoinTable_0207d78c();
     void* var19 = *(void**)(var10 + Enum_ov000_021688dc_14076);
     unsigned char* var20 = *(unsigned char**)(var10 + Enum_ov000_021688dc_14132);
-    GetGlobalFlags_020d6c00();
+    func_020d6c00();
 
     if (*((unsigned char*)var13 + 0x8e97) != 0) {
         GameObject* var21 = var9->GetPartyMemberByIndex(GetProtagonistObjectIndex_020100a8(var9));
@@ -287,10 +310,10 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
     func_0207da7c((struct Struct_0207d7f4*)var18, *(unsigned short*)(*(unsigned char**)(arg0 + Enum_ov000_021688dc_672) + 8));
     *(unsigned char*)(var17 + Enum_ov000_021688dc_6590) = 0;
 
-    if (TestBattleSceneFlags_ov000_02160fd4(arg0, 0x400000)) {
+    if (func_ov000_02160fd4(arg0, 0x400000)) {
         GameObject* var26 = GetPartyMemberBaseByIndex_0200ff1c(var9, 1);
         if (var26 != NULL) {
-            int var27 = GetPartyMemberData_02053c6c((unsigned char*)var26);
+            int var27 = func_02053c6c((unsigned char*)var26);
             if (var27 != 0) {
                 InitPartyMemberData_02082828(var27);
             }
@@ -316,19 +339,19 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
         *((unsigned char*)var22 + 0xc3) = 0xf;
     }
 
-    short var32 = var15->obj3D_.objectIndex_4_;
+    short var32 = var15->obj3D_.unknown_4_;
     if (IsInParty_02086ef0(var14, 0)) {
         for (int var33 = 0; var33 < var14->memberCount_f7c_; var33++) {
             GameObject* var34 = var9->GetPartyMemberByIndex(var14->memberObjectIndices_f78_[var33]);
             if (var34 != NULL && !IsDead_02010088((struct Struct_02010088*)var34)) {
                 if (!inline_ov000_021688dc_3(var34)) {
-                    var32 = var34->obj3D_.objectIndex_4_;
+                    var32 = var34->obj3D_.unknown_4_;
                     break;
                 }
             }
         }
     } else {
-        var32 = var22->obj3D_.objectIndex_4_;
+        var32 = var22->obj3D_.unknown_4_;
     }
 
     for (int var35 = 0; var35 < 4; var35++) {
@@ -341,21 +364,21 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
                 SetCombatantAppearanceFlags_ov017_02191aac(var10, 0, var35, 2);
                 SetCombatantAppearanceFlags_ov017_02191aac(var10, 0, var35, 4);
 
-                if (TestBattleSceneFlags_ov000_02160fd4(arg0, 1) && arg0[Enum_ov000_021688dc_30674] != 0) {
+                if (func_ov000_02160fd4(arg0, 1) && arg0[Enum_ov000_021688dc_30674] != 0) {
                     func_02048b0c(var36, HasLearnedSkillEntry_02083b00(*(unsigned char**)((char*)var36 + Enum_ov000_021688dc_336), 0x99) ? 1 : 0);
                     func_0203400c((Struct_02032e58*)var36);
                 }
 
                 if (IsInParty_02086ef0(var14, inline_ov000_021688dc_2(var36))) {
-                    if (var32 != var36->obj3D_.objectIndex_4_) {
+                    if (var32 != var36->obj3D_.unknown_4_) {
                         func_02039d48((unsigned char*)var36);
                     }
-                    if (TestBattleSceneFlags_ov000_02160fd4(arg0, 1)) {
+                    if (func_ov000_02160fd4(arg0, 1)) {
                         var36->obj3D_.position_ = *(Vector3i*)(arg0 + Enum_ov000_021688dc_22800 + var32 * 16);
                         SetFacingInstantly_02033874((struct Struct_02033834*)var36, *(short*)(arg0 + var32 * 16 + Enum_ov000_021688dc_22784 + Enum_ov000_021688dc_28));
                     }
                 } else {
-                    if (TestBattleSceneFlags_ov000_02160fd4(arg0, 1)) {
+                    if (func_ov000_02160fd4(arg0, 1)) {
                         var36->obj3D_.position_ = *(Vector3i*)(arg0 + Enum_ov000_021688dc_22800 + var35 * 16);
                         SetFacingInstantly_02033874((struct Struct_02033834*)var36, *(short*)(arg0 + var35 * 16 + Enum_ov000_021688dc_22784 + Enum_ov000_021688dc_28));
                     }
@@ -431,14 +454,14 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
     *(volatile unsigned short*)0x04000304 &= ~0x8000;
     LockStagedTextureVRAMCopying();
     MapVRAMBanksToTextureImage(0xf);
-    InitTextureImageVRAMAllocator_020bb48c(4, 1);
+    InitializeTextureImageAllocation(4, 1);
     DisableSubBGVRAMBanks();
     MapVRAMBanksToSubBG(0x80);
     MapVRAMBanksToSubObj(0x100);
     *(volatile unsigned int*)0x04001000 = (*(volatile unsigned int*)0x04001000 & 0xffcfffef) | 0x10;
     UpdateVRAMStagingVRAMBanks();
     UnlockStagedTextureVRAMCopying();
-    RenderConfig::SetDiffuseAmbientColors(var12[Enum_ov000_021688dc_27], 0, 0);
+    Nitro3DRenderConfig::SetDiffuseAmbientColors(var12[Enum_ov000_021688dc_27], 0, 0);
     func_ov017_021901ac(var10);
 
     for (int var43 = 0; var43 < var31; var43++) {
@@ -480,13 +503,12 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
     BackgroundLoader::FreeAllocationsGlobal();
 
     GPCReadPair* var49 = &var0;
-    unsigned char* var50 = gFileScratchSpace_0211e33c;
+    unsigned char* var50 = g_fileScratchSpace;
     unsigned int var51 = 0x30000;
     ZeroInitGPCPointer(&var49->pGPCFile);
     var49->ZeroInitializeMachine();
 
-    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var0.pGPCFile, var0.machine,
-            data_ov000_02183b20, var50, var8, var51, false, NULL)) {
+    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var0.pGPCFile, &var0.machine, data_ov000_02183b20, var50, &var8, var51, false, NULL)) {
         var50 += var8;
         var51 -= var8;
 
@@ -513,14 +535,14 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
                             }
                             var55 = (SafeAllocator*)(var54 + 4);
                             var55->Reset();
-                            ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)(var54 + 0xcc));
-                            RestoreTextureVRAMState_0207df90((char*)(var54 + 0xcc));
-                            LoadFileIntoMemory(var3, gFileScratchSpace_0211e33c, &var8);
-                            var50 = gFileScratchSpace_0211e33c;
+                            ((TextureArena*)((struct TextureVRAMArea_0203d028*)(var54 + 0xcc)))->Reset();
+                            ((TextureArena*)((char*)(var54 + 0xcc)))->Restore();
+                            LoadFileIntoMemory(var3, g_fileScratchSpace, &var8);
+                            var50 = g_fileScratchSpace;
                         } else {
                             sprintf(var3, data_ov000_02183b55, var1);
                             var55 = (SafeAllocator*)(var54 + 0x52c);
-                            DecompressFileFromGPCByName(var0.pGPCFile, var0.machine, var50, var8, var51, var3);
+                            DecompressFileFromGPCByName(&var0.pGPCFile, &var0.machine, var50, &var8, var51, var3);
                         }
 
                         if (var8 != 0) {
@@ -534,10 +556,10 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
                         }
 
                         if (IsNPCCompanion_02061bd8((struct PartyMember_0205faf4_11*)var53)) {
-                            SaveTextureVRAMState_0207dfac((char*)(var54 + 0xcc));
+                            ((TextureArena*)((char*)(var54 + 0xcc)))->Save();
                         } else {
                             sprintf(var3, data_ov000_02183b55, var2);
-                            if (DecompressFileFromGPCByName(var0.pGPCFile, var0.machine, var50, var8, var51, var3)) {
+                            if (DecompressFileFromGPCByName(&var0.pGPCFile, &var0.machine, var50, &var8, var51, var3)) {
                                 ClearObjectArchiveLoadInfo_0203dafc((struct ObjectArchiveLoadInfo_0203d028_11*)&var5);
                                 var5.allocator = (SafeAllocator*)(var54 + 0x540);
                                 var5.unk_8 = var8;
@@ -596,7 +618,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
     }
 
     if (var59 == 0) {
-        if (!TestBattleSceneFlags_ov000_02160fd4(arg0, 1)) {
+        if (!func_ov000_02160fd4(arg0, 1)) {
             func_ov017_0219bd1c(0, 4, 0, 0);
         }
     } else {
@@ -619,7 +641,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
     }
     func_ov017_02195530((unsigned char*)var10);
 
-    struct GlobalFlags_02038598_4* var65 = (struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00();
+    struct GlobalFlags_02038598_4* var65 = (struct GlobalFlags_02038598_4*)func_020d6c00();
     ClearGlobalFlags_020466f4(var65, 2);
     ClearGlobalFlags_020466f4(var65, 0x200);
     ClearGlobalFlags_020466f4(var65, 0x2000);

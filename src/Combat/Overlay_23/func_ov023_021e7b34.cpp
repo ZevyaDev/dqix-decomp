@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "NitroSDK/Cache.h"
+#include "Graphics/BGLayer.h"
 
 struct Struct_ov023_021e7b34_2 {
     char unknown_0_[0x5dc];
@@ -7,12 +8,9 @@ struct Struct_ov023_021e7b34_2 {
 };
 
 struct BGLayer_0204af14;
-extern "C" void* GetBGScreenBlock_0204af14(BGLayer_0204af14*, unsigned int);
 
 struct Struct_0204ae44;
-extern "C" void func_0204ae44(Struct_0204ae44*, int);
 
-extern "C" int LoadToSubBG1ScreenData(int, int, unsigned int);
 
 struct Struct_ov023_021e7b34 {
     char unknown_0_[8];
@@ -26,13 +24,13 @@ extern "C" ARM int func_ov023_021e7b34(Struct_ov023_021e7b34_2* arg0, int arg1) 
     int var0 = (arg1 >= 0 && arg1 <= 3) ? 1 : 0;
     if (!var0) return 1;
     BGLayer_0204af14* var1 = (BGLayer_0204af14*)((char*)arg0 + 0x154);
-    void* var2 = GetBGScreenBlock_0204af14(var1, 0);
+    void* var2 = ((void*)((BGLayer*)(var1))->GetSprite(0));
     if (var2 == NULL) return 1;
-    func_0204ae44((Struct_0204ae44*)var2, (unsigned short)(arg1 + 0xc));
+    ((BGLayer::Sprite*)((Struct_0204ae44*)var2))->SwitchPalette((unsigned short)(arg1 + 0xc));
     Struct_ov023_021e7b34* var3 = (Struct_ov023_021e7b34*)var2;
     void* var4 = var3->unknown_c_;
     int var5 = var3->unknown_8_;
-    DC_FlushRange(var4, var5);
-    LoadToSubBG1ScreenData((int)var4, 0, var5);
+    CleanInvalidateCacheRange((const void*)(var4), var5);
+    LoadToSubBG1ScreenData((const void*)((int)var4), 0, var5);
     return 0;
 }

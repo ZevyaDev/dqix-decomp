@@ -2,6 +2,10 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_020da150 func_020dbb58
+#endif
+
 // USA: func_020da150
 // Duplicates a string into memory obtained from a SafeAllocator.
 extern "C" ARM char* func_020da150(SafeAllocator* arg0, const char* arg1) {

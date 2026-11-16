@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 struct Struct_020e28dc;
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
@@ -22,15 +23,10 @@ struct SpriteAnimation_0205a254_2 {
     unsigned char unknown_0_[0x15];
     unsigned char unknown_15_;
 };
-extern "C" struct SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index);
-extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254* animationList, int index);
 extern "C" void SetSpriteAnimationPosition_020e27ec(struct SpriteAnimationList_0205a254* animationList, int index, short x, short y);
-extern "C" void SetSpriteAnimationOAMIndex_0205a42c(struct SpriteAnimationList_0205a254* animationList, int index, int oamIndex);
 
 struct SpriteAnimationList_0205a330;
-extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330* animationList, int ticks);
 
-extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
 
 // USA: func_ov003_0215c32c
 extern "C" ARM void func_ov003_0215c32c(char* arg0) {
@@ -39,7 +35,7 @@ extern "C" ARM void func_ov003_0215c32c(char* arg0) {
 	if (*(unsigned char*)(arg0 + 0x59f) & 1) {
 		struct Struct_020e28dc* var1 = *(struct Struct_020e28dc**)(arg0 + 0x570);
 		if (var1 != NULL && func_020e28dc(var1)) {
-			DrawSpriteAnimations_0205ae8c(arg0 + 0x98);
+			((OBJSpriteSet*)(arg0 + 0x98))->DrawAll();
 			return;
 		}
 
@@ -54,23 +50,23 @@ extern "C" ARM void func_ov003_0215c32c(char* arg0) {
 		var4 += var2->unknown_be_;
 		struct SpriteAnimationList_0205a254* var5 = *(struct SpriteAnimationList_0205a254**)(arg0 + 0xd4);
 		if (var5 != NULL) {
-			PlaySpriteAnimation_0205a370(var5, 0);
-			var0 = FindSpriteAnimation_0205a3d0(var5, 0);
+			((OBJSpriteSet::List*)(var5))->PlaySpriteAnimation(0);
+			var0 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(var5))->GetSprite(0));
 			if (var0 != NULL) {
 				var0->unknown_15_ |= 8;
 			}
-			AdvanceSpriteAnimations_0205a330((struct SpriteAnimationList_0205a330*)var5, *(int*)(arg0 + 0x574));
+			((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a330*)var5))->UpdateAll(*(int*)(arg0 + 0x574));
 			SetSpriteAnimationPosition_020e27ec(var5, 0, var3 - 8, var4 - 2);
-			SetSpriteAnimationOAMIndex_0205a42c(var5, 0, 0);
+			((OBJSpriteSet::List*)(var5))->SetSpriteOBJIndex(0, 0);
 		}
-		DrawSpriteAnimations_0205ae8c(arg0 + 0x98);
+		((OBJSpriteSet*)(arg0 + 0x98))->DrawAll();
 		return;
 	}
 
 	{
 		struct SpriteAnimationList_0205a254* var6 = *(struct SpriteAnimationList_0205a254**)(arg0 + 0xd4);
 		if (var6 == NULL) return;
-		var0 = FindSpriteAnimation_0205a3d0(var6, 0);
+		var0 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(var6))->GetSprite(0));
 		if (var0 != NULL) {
 			var0->unknown_15_ &= ~8;
 		}

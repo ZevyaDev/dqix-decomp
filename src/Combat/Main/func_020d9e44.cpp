@@ -3,6 +3,10 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
 #define data_020f2838 data_020f2a30
 #define data_020ee678 data_020ee784
 #endif
@@ -13,7 +17,7 @@ extern "C" void func_020d9fc8(struct Struct_020d9e44* arg0);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 
 extern const char data_020f2838[];
@@ -40,7 +44,7 @@ extern "C" ARM void func_020d9e44(Struct_020d9e44_2* arg0) {
             return;
         }
         DisablePlayerControl_020397cc((struct Struct_02018300_3*)GameState::GetInstance()->GetUnknownGameObject(), 1);
-        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x1e);
+        SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 0x1e);
         if (arg0->unknown_8_ & 1) {
             arg0->unknown_c_[0] = var0->QueueLoadFile(data_020f2838, NULL);
         }

@@ -2,6 +2,10 @@
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 struct Struct_020d8484 {
     signed char unknown_0_;
     signed char unknown_1_;
@@ -24,7 +28,7 @@ struct Struct_020d80b0_3 {
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void EnableCameraTurning_020a27ac(void* camera);
 extern "C" void func_020727ec(struct StringList_020727d8* arg0);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern int gMainHeap_02114e20;
 
 // USA: func_020d8484
@@ -35,7 +39,7 @@ extern "C" ARM void func_020d8484(struct Struct_020d80b0_3* arg0) {
         arg0->unknown_14_.Reset();
         arg0->unknown_14_.Destroy();
         func_020727ec(&arg0->unknown_c_);
-        FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var0);
+        func_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var0);
     }
     arg0->unknown_0_.unknown_1_ = 1;
 }

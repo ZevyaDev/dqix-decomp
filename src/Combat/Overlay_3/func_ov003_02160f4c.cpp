@@ -1,4 +1,5 @@
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
 
 struct MessageWindow_020465c0;
 struct Struct_02046574_2;
@@ -15,7 +16,6 @@ extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0 *window, int index, int number);
 extern "C" void *__clear(void *arg0, int arg1);
 extern "C" void SetMessageString_02046574(Struct_02046574_2 *window, int index, char *text);
-extern "C" void *FindStringInTable_020e0434(Struct_0201099c_3 *stringTable, int stringId);
 extern "C" void InitPartyMemberNoun_020e4bf4(void *noun, int partyMemberIndex);
 extern "C" void *func_ov003_02160bf8(void *arg0, int arg1);
 extern "C" void func_02042764(void *arg0, void *arg1, int arg2);
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *arg0) {
             } else {
                 SetMessageString_02046574(
                     (Struct_02046574_2 *) var0, 0,
-                    (char *) FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 0x1c4), 0x7530));
+                    (char *) ((void*)((StringList*)((Struct_0201099c_3 *) (arg0 + 0x1c4)))->GetString(0x7530)));
             }
             *(unsigned int *) (arg0 + 0x28c) &= ~4u;
         }
@@ -67,12 +67,11 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *arg0) {
         short var4            = *(short *) (arg0 + 0x200 + 0xac);
         unsigned char var5 = 1;
         if (var4 == 8 || var4 == 0x3d) var5 = 0;
-        void *var6 = FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 0x1c4), var4);
+        void *var6 = ((void*)((StringList*)((Struct_0201099c_3 *) (arg0 + 0x1c4)))->GetString(var4));
         if (var6 == 0) {
             *(short *) (arg0 + 0x200 + 0xac) = *(short *) (arg0 + 0x200 + 0xae);
             *(short *) (arg0 + 0x200 + 0xae) = -1;
-            var6 = FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 0x1c4),
-                                                                 *(short *) (arg0 + 0x200 + 0xac));
+            var6 = ((void*)((StringList*)((Struct_0201099c_3 *) (arg0 + 0x1c4)))->GetString(*(short *) (arg0 + 0x200 + 0xac)));
         }
         StartMessage_0204500c(var0, var6, 0);
         *(int *) (var0 + 0x868) = 1;
@@ -136,7 +135,7 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *arg0) {
             } else {
                 SetMessageString_02046574(
                     (Struct_02046574_2 *) var7, 0,
-                    (char *) FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 0x2dc), 0x7530));
+                    (char *) ((void*)((StringList*)((Struct_0201099c_3 *) (arg0 + 0x2dc)))->GetString(0x7530)));
             }
             *(unsigned int *) (arg0 + 0x464) &= ~4u;
         }
@@ -159,12 +158,11 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *arg0) {
         short var14            = *(short *) (arg0 + 0x400 + 0x84);
         unsigned char var15 = 1;
         if (var14 == 8 || var14 == 0x3d) var15 = 0;
-        void *var16 = FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 0x2dc), var14);
+        void *var16 = ((void*)((StringList*)((Struct_0201099c_3 *) (arg0 + 0x2dc)))->GetString(var14));
         if (var16 == 0) {
             *(short *) (arg0 + 0x400 + 0x84) = *(short *) (arg0 + 0x400 + 0x86);
             *(short *) (arg0 + 0x400 + 0x86) = -1;
-            var16 = FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + 0x2dc),
-                                                                 *(short *) (arg0 + 0x400 + 0x84));
+            var16 = ((void*)((StringList*)((Struct_0201099c_3 *) (arg0 + 0x2dc)))->GetString(*(short *) (arg0 + 0x400 + 0x84)));
         }
         StartMessage_0204500c(var7, var16, 0, 0xe3);
         *(int *) (var7 + 0x998) = 1;

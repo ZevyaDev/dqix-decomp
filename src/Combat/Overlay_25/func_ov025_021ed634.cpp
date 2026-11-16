@@ -3,6 +3,10 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
 struct Struct_ov025_021ed634 { char unknown_0_[0xc]; short unknown_c_; };
 struct Struct_ov000_02159f7c;
 struct Struct_020e4e38;
@@ -123,7 +127,7 @@ extern "C" Struct_ov025_021ed634_7* GetEquippedWeaponItemData_02054000(PartyMemb
 extern "C" void InitNoun_020e46c4(void* noun);
 extern "C" void func_020dcf7c(int arg0, void* arg1);
 extern "C" unsigned char GetPartyOrder_020114ec(char*, void*);
-extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
+extern "C" void* func_ov017_021b8478(void* battleManager);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" char* func_ov000_0216fcfc(void* arg0, int arg1);
 extern "C" unsigned int strlen(const char* arg0);
@@ -540,7 +544,7 @@ found_entry:
         int var82 = GetPartyOrder_020114ec((char*)var0, var16);
         unsigned char var83 = 0;
         unsigned char var84 = 0;
-        unsigned char* var85 = (unsigned char*)GetBattleSetup_ov017_021b8478(GetGameResources()->unknown_ptr_3718);
+        unsigned char* var85 = (unsigned char*)func_ov017_021b8478(GetGameResources()->unknown_ptr_3718);
         char* var86 = GetBattleUI_ov000_02160f08(GetBattleScene_ov000_02160130());
         for (int var87 = 0; var87 < var82; var87++) {
             Struct_ov025_021ed634_5* var88 = (Struct_ov025_021ed634_5*)func_ov025_021dafd0(var86, (unsigned char)var16[var87]);

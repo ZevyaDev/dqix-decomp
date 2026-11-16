@@ -3,6 +3,14 @@
 #include "Resource/FontBankLoader.h"
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/PAC.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_020c54a4 func_020c6f70
+#endif
 
 #if defined(jpn)
 #define REGIONAL_OFFSET(jp, us) jp
@@ -39,11 +47,9 @@ extern char data_ov006_02160359[];
 extern "C" int GetResources_0200fb8c(int* gameState);
 struct Struct_0209c3b4_2;
 extern "C" int PlayMusic_0209c3b4(Struct_0209c3b4_2*, int);
-extern "C" void Set3DFog_020c54a4(int, unsigned int, unsigned int, unsigned short);
+extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
 extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
 struct StringTable_0201099c_14;
-extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14*);
-extern "C" void LoadStringTable_020dfec0(void*, void*, void*, unsigned int);
 struct Struct_02071be8;
 extern "C" void func_02071be8(Struct_02071be8*);
 struct Struct_02013fb4;
@@ -51,31 +57,19 @@ extern "C" void func_02071c00(int, int, Struct_02013fb4*, int);
 extern "C" void* GetSubBG0ScreenBase();
 extern "C" void* memset(void*, int, unsigned int);
 struct BGLayer_02020cb8;
-extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8*);
-extern "C" void SetBGScreenSize_0204b11c(unsigned char*, int);
-extern "C" void SetBGPriority_0204b5b4(void*, int);
 struct BGLayer_02020cb8_5;
-extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
 struct BGLayer_0204b12c;
-extern "C" void AllocateBGScreenData_0204b12c(BGLayer_0204b12c*, SafeAllocator*);
 struct BGLayer_0204af38;
 struct SafeAllocator;
-extern "C" void AllocateBGScreenBlocks_0204af38(BGLayer_0204af38*, int, SafeAllocator*);
 struct PacEntry_02020cb8_4;
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
 struct PacEntry_02020aec;
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
-extern "C" void LoadBGBlock_0204b174(void*, void*, void*, unsigned int);
 struct BGLayer_02020cb8_2;
-extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2*, void*);
 extern "C" void InitTextWindow_0204c684(void*);
 struct TextWindow_0204c7a8;
 extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8*, SafeAllocator*, int, unsigned int);
 extern "C" void func_ov023_021e20c0(void*);
 extern "C" void func_ov023_021e20f0(void*, void*, void*, unsigned int);
 extern "C" void* func_ov006_02157368(void*, int);
-extern "C" void LoadSpriteSetFile_0205a528(void*, void*, void*, void*);
-extern "C" void InitSpriteSet_0205a444(char*);
 extern "C" void InitNounTable_020e526c(void*);
 extern "C" void func_020e5604(void*, void*, void*, unsigned int);
 struct Struct_0207f914;
@@ -102,7 +96,6 @@ extern "C" void* func_02081da8(MenuLayout_0207fdcc_2*, int);
 extern "C" void __clear(void*, int);
 extern "C" void* GetMessageWindow_020421a0();
 struct Struct_0201099c_3;
-extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_02046608(void*, int, void*, void*, int, int, unsigned char);
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c*, int, int);
@@ -203,7 +196,7 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
         if ((arg0->unknown_394_ & 2) == 0) {
             PlayMusic_0209c3b4((Struct_0209c3b4_2*)&gMusicManager_02109bf4, 8);
         }
-        Set3DFog_020c54a4(0, 0, 0, 0);
+        func_020c54a4(0, 0, 0, 0);
         Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
         FontLoader_0208cb08* var3 = GetFontLoader_02094a00();
         ClearLoadedFontSets_02094b40(var3);
@@ -225,8 +218,8 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
             if (var0.unknown_40_ != 0) {
                 void* var4 = arg0->unknown_c_;
                 ((SafeAllocator*)((char*)var4 + 0x14))->Reset();
-                InitStringTable_020dfc40((StringTable_0201099c_14*)((char*)arg0 + REGIONAL_OFFSET(0x14c, 0x158)));
-                LoadStringTable_020dfec0((char*)arg0 + REGIONAL_OFFSET(0x14c, 0x158), (char*)var4 + 0x14, var0.unknown_40_, var0.unknown_3c_);
+                ((StringList*)((StringTable_0201099c_14*)((char*)arg0 + REGIONAL_OFFSET(0x14c, 0x158))))->Reset();
+                ((StringList*)((char*)arg0 + REGIONAL_OFFSET(0x14c, 0x158)))->LoadFromMemory((SafeAllocator*)((char*)var4 + 0x14), (const void*)(var0.unknown_40_), var0.unknown_3c_);
             }
             ((BackgroundLoader*)var1)->RemoveTask(arg0->unknown_354_);
             arg0->unknown_354_ = -1;
@@ -260,14 +253,14 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
         memset(GetSubBG0ScreenBase(), 0, 0x800);
         *(volatile unsigned int*)0x04001010 = 0;
         ((SafeAllocator*)((char*)arg0->unknown_c_ + 0x3c))->Reset();
-        InitBGLayer_0204af64((BGLayer_02020cb8*)((char*)arg0 + REGIONAL_OFFSET(0x4c, 0x54)));
-        SetBGScreenSize_0204b11c((unsigned char*)((char*)arg0 + REGIONAL_OFFSET(0x4c, 0x54)), 0);
+        ((BGLayer*)((BGLayer_02020cb8*)((char*)arg0 + REGIONAL_OFFSET(0x4c, 0x54))))->Reset();
+        ((BGLayer*)((unsigned char*)((char*)arg0 + REGIONAL_OFFSET(0x4c, 0x54))))->ConfigureTextMode(0);
         arg0->unknown_70_ = (unsigned char)((arg0->unknown_70_ & ~0xf) | 1);
         arg0->unknown_70_ = (unsigned char)((arg0->unknown_70_ & ~0xf0) | 0x30);
-        SetBGPriority_0204b5b4((char*)arg0 + REGIONAL_OFFSET(0x4c, 0x54), 3);
-        SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)((char*)arg0 + REGIONAL_OFFSET(0x4c, 0x54)), 0, 0);
-        AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)((char*)arg0 + REGIONAL_OFFSET(0x4c, 0x54)), (SafeAllocator*)((char*)arg0->unknown_c_ + 0x3c));
-        AllocateBGScreenBlocks_0204af38((BGLayer_0204af38*)((char*)arg0 + REGIONAL_OFFSET(0x4c, 0x54)), REGIONAL_OFFSET(3, 7), (SafeAllocator*)((char*)arg0->unknown_c_ + 0x3c));
+        ((BGLayer*)((char*)arg0 + REGIONAL_OFFSET(0x4c, 0x54)))->SetPriority(3);
+        ((BGLayer*)((BGLayer_02020cb8_5*)((char*)arg0 + REGIONAL_OFFSET(0x4c, 0x54))))->SetOffset(0, 0);
+        ((BGLayer*)((BGLayer_0204b12c*)((char*)arg0 + REGIONAL_OFFSET(0x4c, 0x54))))->AllocateIndexBuffer((SafeAllocator*)((SafeAllocator*)((char*)arg0->unknown_c_ + 0x3c)));
+        ((BGLayer*)((BGLayer_0204af38*)((char*)arg0 + REGIONAL_OFFSET(0x4c, 0x54))))->AllocateSprites(REGIONAL_OFFSET(3, 7), (SafeAllocator*)((SafeAllocator*)((char*)arg0->unknown_c_ + 0x3c)));
         arg0->unknown_354_ = ((BackgroundLoader*)var1)->QueueLoadFile(data_ov006_021602bb, (SafeAllocator*)0);
         arg0->unknown_390_ = arg0->unknown_390_ + 1;
     }
@@ -275,32 +268,32 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
         if (((BackgroundLoader*)var1)->GetTaskStatus(arg0->unknown_354_) != 0) {
             ((BackgroundLoader*)var1)->GetLoadedFileByID(arg0->unknown_354_, &var0.unknown_2c_, &var0.unknown_28_);
             void* var7;
-            int var8 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var0.unknown_2c_);
+            int var8 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var0.unknown_2c_));
             int var9;
             for (var9 = 0; var9 < var8; var9++) {
-                var7 = GetPacEntryData_020467f0((PacEntry_02020aec*)var0.unknown_2c_, var9, &var0.unknown_30_, &var0.unknown_24_);
+                var7 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var0.unknown_2c_), var9, (const char**)(&var0.unknown_30_), (unsigned int*)(&var0.unknown_24_));
                 if (var7 != 0) {
                 if (var9 == 0) {
                     int var10;
                     for (var10 = 0; var10 < 2; var10++) {
                         unsigned char* var11 = (unsigned char*)arg0->unknown_1c_ + (var10 << 5);
-                        InitBGLayer_0204af64((BGLayer_02020cb8*)var11);
-                        SetBGScreenSize_0204b11c((unsigned char*)var11, 0);
+                        ((BGLayer*)((BGLayer_02020cb8*)var11))->Reset();
+                        ((BGLayer*)((unsigned char*)var11))->ConfigureTextMode(0);
                         Struct_ov006_0215a5fc* var12 = (Struct_ov006_0215a5fc*)(var11 + 0x1c);
                         var12->unknown_0_0_ = 1;
                         var12->unknown_0_4_ = (unsigned char)(var10 + 1);
-                        SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)var11, 0, 0);
-                        SetBGPriority_0204b5b4(var11, var10 + 1);
-                        AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)var11, (SafeAllocator*)((char*)arg0->unknown_c_ + 0x3c));
-                        LoadBGBlock_0204b174(var11, var7, (char*)arg0->unknown_c_ + 0x3c, var0.unknown_24_);
+                        ((BGLayer*)((BGLayer_02020cb8_5*)var11))->SetOffset(0, 0);
+                        ((BGLayer*)(var11))->SetPriority(var10 + 1);
+                        ((BGLayer*)((BGLayer_0204b12c*)var11))->AllocateIndexBuffer((SafeAllocator*)((SafeAllocator*)((char*)arg0->unknown_c_ + 0x3c)));
+                        ((BGLayer*)var11)->ProcessGraphicsFile((const void*)var7, (SafeAllocator*)((char*)arg0->unknown_c_ + 0x3c), var0.unknown_24_);
                     }
                 }
                 else {
-                    LoadBGBlock_0204b174((char*)arg0 + REGIONAL_OFFSET(0x4c, 0x54), var7, (char*)arg0->unknown_c_ + 0x3c, var0.unknown_24_);
+                    ((BGLayer*)((char*)arg0 + REGIONAL_OFFSET(0x4c, 0x54)))->ProcessGraphicsFile((const void*)var7, (SafeAllocator*)((char*)arg0->unknown_c_ + 0x3c), var0.unknown_24_);
                 }
                 }
             }
-            LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)((char*)arg0 + REGIONAL_OFFSET(0x4c, 0x54)), 0);
+            ((BGLayer*)((BGLayer_02020cb8_2*)((char*)arg0 + REGIONAL_OFFSET(0x4c, 0x54))))->CleanCacheAndUploadIndexBuffer((const void*)(0));
             ((BackgroundLoader*)var1)->RemoveTask(arg0->unknown_354_);
             arg0->unknown_354_ = -1;
             arg0->unknown_390_ = arg0->unknown_390_ + 1;
@@ -346,7 +339,7 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
         }
     }
     else if (var2 == 0xa) {
-        InitSpriteSet_0205a444((char*)((char*)arg0 + REGIONAL_OFFSET(0xa4, 0xac)));
+        ((OBJSpriteSet*)((char*)((char*)arg0 + REGIONAL_OFFSET(0xa4, 0xac))))->Reset();
         arg0->unknown_fc_ = 1;
         arg0->unknown_ec_ = (int)arg0->unknown_24_;
         arg0->unknown_f8_ = 0x1d;
@@ -358,14 +351,14 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
         if (((BackgroundLoader*)var1)->GetTaskStatus(arg0->unknown_354_) != 0) {
             ((BackgroundLoader*)var1)->GetLoadedFileByID(arg0->unknown_354_, &var0.unknown_14_, &var0.unknown_10_);
             void* var18;
-            int var19 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var0.unknown_14_);
+            int var19 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var0.unknown_14_));
             var18 = arg0->unknown_c_;
             ((SafeAllocator*)((char*)var18 + 0x8c))->Reset();
             int var20;
             for (var20 = 0; var20 < var19; var20++) {
-                void* var21 = GetPacEntryData_020467f0((PacEntry_02020aec*)var0.unknown_14_, var20, &var0.unknown_18_, &var0.unknown_c_);
+                void* var21 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var0.unknown_14_), var20, (const char**)(&var0.unknown_18_), (unsigned int*)(&var0.unknown_c_));
                 if (var21 != 0) {
-                LoadSpriteSetFile_0205a528((char*)arg0 + REGIONAL_OFFSET(0xa4, 0xac), var21, (void*)var0.unknown_c_, (char*)var18 + 0x8c);
+                ((OBJSpriteSet*)((char*)arg0 + REGIONAL_OFFSET(0xa4, 0xac)))->LoadFromNitroFile((void*)(var21), (unsigned int)((void*)var0.unknown_c_), (SafeAllocator*)((char*)var18 + 0x8c));
                 }
             }
             ((BackgroundLoader*)var1)->RemoveTask(arg0->unknown_354_);
@@ -388,8 +381,8 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
                 void* var23 = arg0->unknown_c_;
                 ((SafeAllocator*)((char*)var23 + 0x28))->Reset();
 #if defined(jpn)
-                InitStringTable_020dfc40((StringTable_0201099c_14*)((char*)arg0 + REGIONAL_OFFSET(0x164, 0x170)));
-                LoadStringTable_020dfec0((char*)arg0 + REGIONAL_OFFSET(0x164, 0x170), (char*)var23 + 0x28, var0.unknown_8_, var0.unknown_4_);
+                ((StringList*)((StringTable_0201099c_14*)((char*)arg0 + REGIONAL_OFFSET(0x164, 0x170))))->Reset();
+                ((StringList*)((char*)arg0 + REGIONAL_OFFSET(0x164, 0x170)))->LoadFromMemory((SafeAllocator*)((char*)var23 + 0x28), (const void*)(var0.unknown_8_), var0.unknown_4_);
 #else
                 InitNounTable_020e526c((char*)arg0 + REGIONAL_OFFSET(0x164, 0x170));
                 func_020e5604((char*)arg0 + REGIONAL_OFFSET(0x164, 0x170), (char*)var23 + 0x28, var0.unknown_8_, var0.unknown_4_);
@@ -464,12 +457,12 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
                 var29->unknown_ba_ = 0x10;
             }
 #if defined(jpn)
-            void* var30 = FindStringInTable_020e0434((Struct_0201099c_3*)((char*)arg0 + REGIONAL_OFFSET(0x14c, 0x158)), 0);
+            void* var30 = ((void*)((StringList*)((Struct_0201099c_3*)((char*)arg0 + REGIONAL_OFFSET(0x14c, 0x158))))->GetString(0));
             SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)arg0->unknown_14_, 1, (int)var30);
 #else
             __clear(var0.unknown_44_, 0x400);
             void* var31 = GetMessageWindow_020421a0();
-            void* var32 = FindStringInTable_020e0434((Struct_0201099c_3*)((char*)arg0 + REGIONAL_OFFSET(0x14c, 0x158)), 0);
+            void* var32 = ((void*)((StringList*)((Struct_0201099c_3*)((char*)arg0 + REGIONAL_OFFSET(0x14c, 0x158))))->GetString(0));
             func_02046608(var31, 0xc, var32, var0.unknown_44_, 0xe3, 0, 1);
             SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)arg0->unknown_14_, 1, (int)var0.unknown_44_);
 #endif

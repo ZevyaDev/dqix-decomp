@@ -1,7 +1,7 @@
 #include <globaldefs.h>
+#include "std_library_functions.h"
 
 extern int data_0210782c[];
-extern "C" int CompareBytes_02001aec(int left, int right, int count);
 
 struct FontGlyph_0204254c {
     int unknown_0_;
@@ -21,7 +21,7 @@ extern "C" ARM struct FontGlyph_0204254c* FindFontGlyph_0204254c(int text, int f
     fontInfo = (char*)data_0210782c[font];
     for (i = 0; i < *(unsigned int*)(fontInfo + 4); i++) {
         struct FontGlyph_0204254c* glyph = *(struct FontGlyph_0204254c**)(fontInfo + 0x10) + i;
-        if (CompareBytes_02001aec(glyph->unknown_0_, text, glyph->codeLength_5_0_) == 0) {
+        if (memcmp((const void*)(glyph->unknown_0_), (const void*)(text), glyph->codeLength_5_0_) == 0) {
             return glyph;
         }
     }

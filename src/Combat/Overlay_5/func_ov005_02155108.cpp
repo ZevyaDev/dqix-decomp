@@ -14,11 +14,11 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
 
 struct TextWindowManager_0205d2bc;
 extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(struct TextWindowManager_0205d2bc* windowManager);
 extern "C" void func_ov005_0215a620(void* arg0);
-extern "C" void CopyBGScreenDataToVRAM_0204b088(void* layer, int screenData);
 struct DisplayWindow_020439b0;
 extern "C" void SetDisplayWindowInsideLayers_020e2d24(int* displayWindow, int layers, int isEffectEnabled);
 extern "C" void func_ov005_0215ae7c(void* arg0);
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov005_02155108(void* arg0) {
     func_ov005_0215a620(arg0);
 
     if (*(int*)(var0 + 0x3000 + R(0xd44, 0xdcc)) & 0x100) {
-        CopyBGScreenDataToVRAM_0204b088(var0 + R(0xea0, 0x2a4 + 0xc00), 0);
+        ((BGLayer*)(var0 + R(0xea0, 0x2a4 + 0xc00)))->UploadIndexBuffer((const void*)(0));
         *(int*)(var0 + 0x3000 + R(0xd44, 0xdcc)) &= ~0x100;
     }
 

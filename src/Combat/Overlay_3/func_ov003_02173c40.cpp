@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 #include "Memory/SafeAllocator.h"
+#include "Graphics/OBJSpriteSet.h"
 
 #if defined(jpn)
 enum { Enum_ov003_02173c40_68 = 0x42 };
@@ -80,7 +81,6 @@ enum { Enum_ov003_02173c40_836 = 0x344 };
 
 struct Struct_020a64bc;
 extern "C" void func_020a64bc(Struct_020a64bc* arg0);
-extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 struct StringList_020727d8;
 extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 struct Struct_ov003_02173c40;
@@ -133,7 +133,7 @@ extern "C" ARM void func_ov003_02173c40(char* arg0) {
     *(int*)(arg0 + Enum_ov003_02173c40_292) = 0;
     *(int*)(arg0 + Enum_ov003_02173c40_296) = 0;
     *(int*)(arg0 + Enum_ov003_02173c40_300) = 0;
-    InitSpriteSet_0205a444(arg0 + Enum_ov003_02173c40_304);
+    ((OBJSpriteSet*)(arg0 + Enum_ov003_02173c40_304))->Reset();
 
     ((SafeAllocator*)(arg0 + Enum_ov003_02173c40_388))->ResetAllocatorPointer();
     ((SafeAllocator*)(arg0 + Enum_ov003_02173c40_408))->ResetAllocatorPointer();

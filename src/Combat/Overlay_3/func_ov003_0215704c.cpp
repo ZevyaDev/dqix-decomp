@@ -3,6 +3,14 @@
 #include <globaldefs.h>
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 extern "C" {
 int func_02080468(void *, int);
 void func_ov003_0215385c(void *);
@@ -20,7 +28,7 @@ int func_ov003_02155208(void *);
 void func_ov003_02153874(void *);
 void func_ov003_02155580(void *, int);
 int func_ov003_02155618(void *);
-void *GetPartyMemberData_02053c6c(void *);
+void *func_02053c6c(void *);
 void *func_ov003_02155e14(void *, int);
 void LoadItemTableByIds_020de9a4(void *, void *, void *, unsigned int, void *, int);
 void _ZN13SafeAllocator5ResetEv(void *);
@@ -32,7 +40,7 @@ void QueueJingle_0209c830(void *, int);
 void func_ov003_0215582c(void *);
 int GetQueueHeadType_02046b24(void *);
 int _ZNK8Object3D19HasAnimationStoppedEv(void *);
-int GetLocalWireless_0202ae18(void);
+int func_0202ae18(void);
 int IsLocalWirelessOn_0202b7d8(int);
 void SendPartyMemberEquippedItems_ov017_021c3fb4(int, int);
 void SendPartyMemberBodyAppearance_ov017_021c4418(int, int);
@@ -216,7 +224,7 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
             _ZN13SafeAllocator5ResetEv((char *) arg0->unknown_0_ + 0x78);
             void *var11 = GameState::GetInstance()->GetPartyMemberByIndex(arg0->unknown_1f7_);
             if (var11 != 0) {
-                char *var12 = (char *) GetPartyMemberData_02053c6c(var11);
+                char *var12 = (char *) func_02053c6c(var11);
                 if (var12 != 0) {
                     void *var13 =
                         func_ov003_02155e14(var12 + 0xa4 + 0x400, func_ov003_02156034(arg0));
@@ -252,7 +260,7 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
             return;
         }
         arg0->unknown_32c_ = 0;
-        if (IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18()) != 0) {
+        if (IsLocalWirelessOn_0202b7d8(func_0202ae18()) != 0) {
             SendPartyMemberEquippedItems_ov017_021c3fb4(arg0->unknown_1f7_, 0);
             SendPartyMemberBodyAppearance_ov017_021c4418(arg0->unknown_1f7_, -1);
             func_ov017_021cf078(arg0->unknown_1f7_, (unsigned char) func_ov003_02156034(arg0), 0);

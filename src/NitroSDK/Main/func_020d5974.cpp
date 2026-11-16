@@ -1,8 +1,12 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca3ec func_020cbeb8
+#endif
+
 extern "C" int func_020d5900(int, void*);
 
-extern "C" void Memset32BitByWord_020ca3ec(int arg0, void* arg1, int arg2);
+extern "C" void func_020ca3ec(int arg0, void* arg1, int arg2);
 
 struct Struct_020d5974 {
     unsigned int unknown_0_;
@@ -15,7 +19,7 @@ struct Struct_020d5974 {
 // USA: func_020d5974
 extern "C" ARM int func_020d5974(void* arg0, int arg1, int arg2) {
     Struct_020d5974 var0;
-    Memset32BitByWord_020ca3ec(0, &var0, 0x1c);
+    func_020ca3ec(0, &var0, 0x1c);
     var0.unknown_0_ = 0x180;
     var0.unknown_12_ = arg1;
     var0.unknown_14_ = arg2;

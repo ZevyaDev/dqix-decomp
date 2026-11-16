@@ -1,8 +1,16 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
+extern "C" void* func_ov017_021b8478(void* battleManager);
+extern "C" void* func_ov017_021b8468(void* battleManager);
 extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 struct Vector3i;
 
@@ -27,9 +35,9 @@ extern "C" ARM void func_ov017_021c88cc(int arg0, Struct_ov017_021c88cc_2* arg1,
 #endif
 	unsigned char* var0 = arg3 + 0x3000;
 	void* var1 = *(void**)(var0 + Enum_ov017_021c88cc_1816);
-	Struct_ov017_021c88cc* var2 = (Struct_ov017_021c88cc*)GetBattleSetup_ov017_021b8478(var1);
+	Struct_ov017_021c88cc* var2 = (Struct_ov017_021c88cc*)func_ov017_021b8478(var1);
 	if (!var2) return;
-	if (!GetBattleScene_ov017_021b8468(var1)) return;
+	if (!func_ov017_021b8468(var1)) return;
 	if (!GetBattle_ov017_021b8470(var1)) return;
 	if (var2->unknown_8_ != arg1->unknown_12_) return;
 	GameObject* var3 = arg2->GetCombatantByIndex(arg1->unknown_10_);
@@ -37,4 +45,9 @@ extern "C" ARM void func_ov017_021c88cc(int arg0, Struct_ov017_021c88cc_2* arg1,
 	int* var4 = *(int**)((unsigned char*)var3 + 0x13c);
 	if (!var4) return;
 	*(Vector3i*)((int*)((unsigned char*)var4 + 0x10)) = *(Vector3i const*)arg1->unknown_4_;
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

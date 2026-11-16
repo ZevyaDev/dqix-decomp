@@ -9,6 +9,18 @@
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/Brightness.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/PAC.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
 
 #define REG_DISPCNT (*(volatile unsigned int*)0x04000000)
 #define REG_BG0CNT (*(volatile unsigned short*)0x04000008)
@@ -117,32 +129,18 @@ struct Struct_ov008_021895a8
 };
 
 extern "C" void LoadStringList_020728ac(void* stringList, SafeAllocator* allocator, void* scriptData, unsigned int scriptSize, int, int, int);
-extern "C" void LoadStringTable_020dfec0(void* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
-extern "C" void SetBGPriority_0204b5b4(Struct_ov003_021594c4* layer, int);
-extern "C" void LoadBGBlock_0204b174(Struct_ov003_021594c4* layer, void* block, SafeAllocator* allocator, unsigned int arg3);
-extern "C" void FillBGScreenRect_0204bc74(Struct_ov003_021594c4* layer, int, int, int, int, int, int);
-extern "C" void LoadSpriteSetFile_0205a528(Struct_ov008_02188d74* spriteSet, void* fileData, unsigned int size, SafeAllocator* allocator);
 extern "C" void ColorEffect_ConfigureAlphaBlend(void* reg, int a, int b, int c, int d);
 extern "C" void func_ov008_0218b240(void* arg0);
 extern "C" void func_ov008_0218aa24(void* arg0);
 
 extern "C" char* GetResources_0200fb8c(int* gameState);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
-extern "C" unsigned int* GetGlobalFlags_020d6c00();
+extern "C" unsigned int* func_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
-extern "C" Struct_ov005_0215840c_2* GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int);
-extern "C" void AllocateBGScreenData_0204b12c(BGLayer_0204b12c* layer, SafeAllocator* allocator);
-extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5* layer, int, int);
-extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void*);
+extern "C" Struct_ov005_0215840c_2* func_02053c6c(unsigned char* gameObject);
 extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
 extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78* windowManager, TextWindow_0205cf78_2* textWindows, unsigned char textWindowCapacity);
-extern "C" void InitSprite_0205a198(Sprite_02043368_2* sprite);
-extern "C" void InitSpriteAnimationList_0205a234(SpriteAnimationList_02043368* animationList);
-extern "C" void InitSpriteSet_0205a444(char* spriteSet);
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
 extern char data_ov008_0218b4c8[];
 extern char data_ov008_0218b4df[];
@@ -231,7 +229,7 @@ extern "C" ARM void func_ov008_021895a8(Struct_ov008_02188f5c_3* arg0)
 #endif
             return;
         SetFlags00(GetGameResources(), 0x10);
-        SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 0xd);
+        SetGlobalFlags_020466e4(func_020d6c00(), 0xd);
         unsigned int var4;
         arg0->unknown_2a0_ = (char*)GetMessageWindow_020421a0()->unknown_5c_;
         var4 = 0;
@@ -244,7 +242,7 @@ extern "C" ARM void func_ov008_021895a8(Struct_ov008_02188f5c_3* arg0)
                 func_ov008_0218b240(arg0);
                 return;
             }
-            Struct_ov005_0215840c_2* var7 = GetPartyMemberData_02053c6c((unsigned char*)var6);
+            Struct_ov005_0215840c_2* var7 = func_02053c6c((unsigned char*)var6);
             if (var7 != NULL)
                 var4 = var7->unknown_49c_0_;
         }
@@ -291,7 +289,7 @@ extern "C" ARM void func_ov008_021895a8(Struct_ov008_02188f5c_3* arg0)
             unsigned int var14;
             var2->GetLoadedFileByID(arg0->unknown_eb4_, &var13, &var14);
             arg0->unknown_264_.Reset();
-            LoadStringTable_020dfec0(&arg0->unknown_288_, &arg0->unknown_264_, var13, var14);
+            ((StringList*)(&arg0->unknown_288_))->LoadFromMemory((SafeAllocator*)(&arg0->unknown_264_), (const void*)(var13), var14);
             arg0->unknown_ec0_2_ = 1;
             var2->RemoveTask(arg0->unknown_eb4_);
             arg0->unknown_eb4_ = -1;
@@ -304,12 +302,12 @@ extern "C" ARM void func_ov008_021895a8(Struct_ov008_02188f5c_3* arg0)
             for (int var18 = 0; var18 < 2; var18++)
             {
                 var17 = &arg0->unknown_d4_[var18];
-                SetBGScreenSize_0204b11c((unsigned char*)var17, 0);
+                ((BGLayer*)((unsigned char*)var17))->ConfigureTextMode(0);
                 var17->unknown_1c_0_ = 0;
                 var17->unknown_1c_4_ = var15[var18];
-                SetBGPriority_0204b5b4(var17, var16[var18]);
-                AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)var17, &arg0->unknown_200_);
-                SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)var17, 0, 0);
+                ((BGLayer*)(var17))->SetPriority(var16[var18]);
+                ((BGLayer*)((BGLayer_0204b12c*)var17))->AllocateIndexBuffer((SafeAllocator*)(&arg0->unknown_200_));
+                ((BGLayer*)((BGLayer_02020cb8_5*)var17))->SetOffset(0, 0);
             }
             REG_BG1CNT = (REG_BG1CNT & 0x43) | 0x1d00;
             REG_BG2CNT = (REG_BG2CNT & 0x43) | 0x1e00;
@@ -325,13 +323,13 @@ extern "C" ARM void func_ov008_021895a8(Struct_ov008_02188f5c_3* arg0)
             void* var20;
             unsigned int var21;
             var2->GetLoadedFileByID(arg0->unknown_ea4_, &var20, &var21);
-            int var22 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var20);
+            int var22 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var20));
             for (int var23 = 0; var23 < var22; var23++)
             {
                 unsigned int var24;
-                void* var25 = GetPacEntryData_020467f0((PacEntry_02020aec*)var20, var23, (void**)var19, (int*)&var24);
+                void* var25 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var20), var23, (const char**)((void**)var19), (unsigned int*)((int*)&var24));
                 if (var25 != NULL)
-                    LoadBGBlock_0204b174(&arg0->unknown_d4_[1], var25, &arg0->unknown_200_, var24);
+                    ((BGLayer*)(&arg0->unknown_d4_[1]))->ProcessGraphicsFile((const void*)var25, (SafeAllocator*)(&arg0->unknown_200_), var24);
             }
             var2->RemoveTask(arg0->unknown_ea4_);
             arg0->unknown_ea4_ = -1;
@@ -339,8 +337,8 @@ extern "C" ARM void func_ov008_021895a8(Struct_ov008_02188f5c_3* arg0)
             for (int var27 = 0; var27 < 2; var27++)
             {
                 var26 = &arg0->unknown_d4_[var27];
-                FillBGScreenRect_0204bc74(var26, 0, 0, 0, 0x20, 0x19, 0);
-                LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)var26, 0);
+                ((BGLayer*)(var26))->SetTileInRectangle(0, 0, 0, 0x20, 0x19, 0);
+                ((BGLayer*)((BGLayer_02020cb8_2*)var26))->CleanCacheAndUploadIndexBuffer((const void*)(0));
             }
             arg0->unknown_2a4_ = arg0->unknown_200_.Allocate(0x800);
             SetTextWindowBuffers_0204c7a8((TextWindow_0204c7a8*)&arg0->unknown_114_, &arg0->unknown_200_, (int)arg0->unknown_2a4_, 0x100);
@@ -351,11 +349,11 @@ extern "C" ARM void func_ov008_021895a8(Struct_ov008_02188f5c_3* arg0)
             for (unsigned char var28 = 0; var28 < 8; var28++)
             {
                 int var29 = var28 * sizeof(Struct_ov006_021580b8);
-                InitSprite_0205a198((Sprite_02043368_2*)((char*)arg0->unknown_1f8_ + var29));
+                ((OBJSpriteSet::Metatile*)((Sprite_02043368_2*)((char*)arg0->unknown_1f8_ + var29)))->Reset();
                 ((Struct_ov006_021580b8*)((char*)arg0->unknown_1f8_ + var29))->unknown_22_ = var28 + 4;
             }
-            InitSpriteAnimationList_0205a234((SpriteAnimationList_02043368*)arg0->unknown_1fc_);
-            InitSpriteSet_0205a444((char*)arg0->unknown_1f4_);
+            ((OBJSpriteSet::List*)((SpriteAnimationList_02043368*)arg0->unknown_1fc_))->Reset();
+            ((OBJSpriteSet*)((char*)arg0->unknown_1f4_))->Reset();
             arg0->unknown_1f4_->unknown_50_ = 0;
             Struct_ov008_02188d74* var30 = arg0->unknown_1f4_;
             var30->inline_ov008_02188d74(arg0->unknown_1f8_, 8);
@@ -371,12 +369,12 @@ extern "C" ARM void func_ov008_021895a8(Struct_ov008_02188f5c_3* arg0)
             void* var32;
             unsigned int var33;
             var2->GetLoadedFileByID(arg0->unknown_ea8_, &var32, &var33);
-            int var34 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var32);
+            int var34 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var32));
             arg0->unknown_23c_.Reset();
             for (int var35 = 0; var35 < var34; var35++)
             {
                 unsigned int var36;
-                LoadSpriteSetFile_0205a528(arg0->unknown_1f4_, GetPacEntryData_020467f0((PacEntry_02020aec*)var32, var35, (void**)var31, (int*)&var36), var36, &arg0->unknown_23c_);
+                ((OBJSpriteSet*)(arg0->unknown_1f4_))->LoadFromNitroFile((void*)(GetFileInPACByIndex((void*)((PacEntry_02020aec*)var32), var35, (const char**)((void**)var31), (unsigned int*)((int*)&var36))), var36, (SafeAllocator*)(&arg0->unknown_23c_));
             }
             var2->RemoveTask(arg0->unknown_ea8_);
             arg0->unknown_ea8_ = -1;

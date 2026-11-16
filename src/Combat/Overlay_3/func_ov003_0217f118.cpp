@@ -2,13 +2,25 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
+#if defined(jpn)
+#define func_020ca458 func_020cbf24
+#endif
+
+#if defined(jpn)
+#define func_020a1e54 func_020a3bcc
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 extern "C" void func_ov003_0216d77c(void* arg0);
-extern "C" void PopOverlay_020a1e54(int isPreviousReloaded);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_020a1e54(int isPreviousReloaded);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 struct BGControlSave_02074bd0;
 extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
 extern "C" int GetMainBGAssignedVRAMSize(void);
-extern "C" void Memset32Bit_020ca458(int a, int b, int c);
+extern "C" void func_020ca458(int a, int b, int c);
 extern "C" void LoadFileTables_020a0c0c(void);
 extern AllocatorUnion gMainHeap_02114e20;
 
@@ -17,17 +29,17 @@ extern "C" ARM void func_ov003_0217f118(char* arg0) {
     if (*(void**)(arg0 + 0xc) != 0) {
         func_ov003_0216d77c(*(void**)(arg0 + 0xc));
         *(void**)(arg0 + 0xc) = 0;
-        PopOverlay_020a1e54(1);
+        func_020a1e54(1);
     }
     SafeAllocator* var0 = (SafeAllocator*)(arg0 + 0x14);
     void* var1 = var0->GetSignedAllocator();
     if (var1 != 0) {
         var0->Destroy();
-        FreeMemory_02012da4(&gMainHeap_02114e20, var1);
+        func_02012da4(&gMainHeap_02114e20, var1);
     }
     RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)(arg0 + 0x2a));
     int var2 = GetMainBGAssignedVRAMSize();
-    Memset32Bit_020ca458(0, 0x6000000, var2);
+    func_020ca458(0, 0x6000000, var2);
     LoadFileTables_020a0c0c();
     arg0[1] = 1;
 }

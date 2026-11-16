@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "World/Object3D.h"
+#include "Graphics/BGLayer.h"
 
 struct BGLayer_02020cb8;
-extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 
 struct Struct_ov003_02173c40 {
     int unknown_0_;
@@ -33,8 +33,8 @@ extern "C" ARM void func_ov003_0217bcb8(Struct_ov003_02173c40* arg0) {
     arg0->unknown_4_.ResetAllocatorPointer();
     arg0->unknown_18_.ResetAllocatorPointer();
     arg0->unknown_2c_.ResetAllocatorPointer();
-    InitBGLayer_0204af64((BGLayer_02020cb8*)arg0->unknown_40_);
-    InitBGLayer_0204af64((BGLayer_02020cb8*)arg0->unknown_60_);
+    ((BGLayer*)((BGLayer_02020cb8*)arg0->unknown_40_))->Reset();
+    ((BGLayer*)((BGLayer_02020cb8*)arg0->unknown_60_))->Reset();
     ((Object3D*)arg0->unknown_80_)->Initialize();
     arg0->unknown_12c_ = 0;
     int var0 = arg0->unknown_12c_ - 1;

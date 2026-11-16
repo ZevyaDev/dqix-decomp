@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "Combat/Main/CopyRecord0200fbb4.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_0208fa8c { unsigned short unknown_0_; unsigned short unknown_2_; };
 struct Struct_02097cac {
     unsigned short unknown_0_;
@@ -13,7 +17,7 @@ struct Struct_02097cac_2 {
     unsigned int unknown_1b3c_;
 };
 
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0202ae18();
 extern "C" Struct_0208fa8c* GetZone3D_02012fe4();
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
@@ -28,7 +32,7 @@ extern "C" void func_ov017_021d3e3c(unsigned char arg0);
 
 // USA: func_02097cac
 extern "C" ARM void func_02097cac(Struct_02097cac_2* arg0) {
-    void* var0 = GetLocalWireless_0202ae18();
+    void* var0 = func_0202ae18();
     GameState* var1 = GameState::GetInstance();
     Struct_02097cac* var2 = (Struct_02097cac*)GetZoneEntry_0200fd0c(var1);
     Struct_0208fa8c* var3 = GetZone3D_02012fe4();

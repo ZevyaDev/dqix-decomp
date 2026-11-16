@@ -1,6 +1,14 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 struct Struct_ov004_021557ac_2 { unsigned int unknown_0_; SafeAllocator unknown_4_; };
 struct Struct_ov004_021557ac_3 { short unknown_0_; short unknown_2_; unsigned char unknown_4_; unsigned char unknown_5_; };
@@ -13,10 +21,10 @@ extern "C" Struct_ov004_021557ac_2* func_ov011_021845f8(void*, int);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
-extern "C" Struct_ov004_021557ac_5* GetFlagManager_0205ec34();
+extern "C" Struct_ov004_021557ac_5* func_0205ec34();
 extern "C" int func_020deb58(ItemTable_0201099c_10*, int, int, int, int);
 extern "C" Struct_ov004_021557ac_6* func_020dec30(ItemTable_0201099c_10*, int, int, int, int, int);
-extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" void func_ov023_021e1518(void*);
 extern "C" void func_ov023_021e1474(Struct_ov002_0215b2c8*, ItemTable_0201099c_10*);
 extern Struct_ov004_021557ac_4* data_ov004_021707c4;
@@ -67,14 +75,14 @@ extern "C" ARM int func_ov004_021557ac(void* arg0) {
         Struct_ov004_021557ac* var8 = (Struct_ov004_021557ac*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x2d);
         if (var8 && func_ov023_021f6f10(var8) == 0x11) {
             ItemTable_0201099c_10* var9 = var8->inline_ov004_021557ac_59();
-            Struct_ov004_021557ac_5* var10 = GetFlagManager_0205ec34();
+            Struct_ov004_021557ac_5* var10 = func_0205ec34();
             var7 = func_020deb58(var9, 0, -1, (signed char)var4, -1);
             var6 = 0;
             for (var5 = 0; var5 < var7; var5++) {
                 Struct_ov004_021557ac_6* var11 = func_020dec30(var9, var5, 0, -1, (signed char)var4, -1);
                 if (var11) {
                     int var12 = (unsigned short)((var11->unknown_c_ << 9) >> 21);
-                    if (var12 > 0 && IsFlagSet_0206dfb0((int)var10, var10->unknown_8c_, var12 + 0x76 + 0xc00)) var6++;
+                    if (var12 > 0 && func_0206dfb0((int)var10, var10->unknown_8c_, var12 + 0x76 + 0xc00)) var6++;
                 }
             }
         }

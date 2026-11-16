@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "World/ZoneTerrain.h"
 #include "World/Bounds3D.h"
 #include "Graphics/Vector.h"

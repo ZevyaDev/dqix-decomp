@@ -74,3 +74,8 @@ extern "C" ARM void func_ov023_021fa108(void* arg0, void* arg1, struct Struct_ov
         func_ov023_021f9eb4((struct Struct_ov023_021f9eb4*)arg2);
     }
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

@@ -1,8 +1,12 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
-extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" void* func_02053c6c(unsigned char* gameObject);
 extern "C" ARM void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 
 struct Struct_ov000_0217f990 {
@@ -46,7 +50,7 @@ extern "C" ARM int func_ov000_0217f990(char* arg0) {
 #else
         enum { Enum_ov000_0217f990_2380 = 0x94c };
 #endif
-        if (var8 != 0 && (signed char)(*(int*)((char*)GetPartyMemberData_02053c6c((unsigned char*)var8) + Enum_ov000_0217f990_2380)) != 5) continue;
+        if (var8 != 0 && (signed char)(*(int*)((char*)func_02053c6c((unsigned char*)var8) + Enum_ov000_0217f990_2380)) != 5) continue;
         *(int*)(arg0 + 0x17c) = var5;
         var3 = 1;
         break;

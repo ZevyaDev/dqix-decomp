@@ -74,11 +74,11 @@ extern "C" ARM void func_ov015_0218c3a4(Struct_ov015_0218c03c_2* arg0, int arg1)
         if (var2 == 0)
             return;
         var2 *= 2;
-        NSBXXTex* var3 = arg0->unknown_24_[arg1].pModel_->GetTEX0();
+        Nitro3DTextureSet* var3 = arg0->unknown_24_[arg1].pModel_->GetTEX0();
         if (var3 == NULL)
             return;
         int var4 = 0x30;
-        unsigned short var5 = ((unsigned short)(var3->block4NumEightBytes_ << 3) + 0x1f) & ~0x1f;
+        unsigned short var5 = ((unsigned short)(var3->block4NumEightBytes << 3) + 0x1f) & ~0x1f;
         int var6 = 0x20;
         if (arg1 == 0)
             var6 = 0x200;
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov015_0218c3a4(Struct_ov015_0218c03c_2* arg0, int arg1)
         if (var10 != 0 && var9 != 0)
         {
             LockStagedTextureVRAMCopying();
-            DC_FlushRange(var8, var9);
+            CleanInvalidateCacheRange((const void*)(var8), var9);
             MemoryMapTexturePalette();
             LoadToTexturePalette(var8, var10 + var4, var9);
             MemoryUnmapTexturePalette();

@@ -2,10 +2,14 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
 extern int data_ov023_021fdd6c;
 extern "C" void* __clear(void* arg0, int arg1);
-extern "C" int ConvertTextToGlyphIndices_020426bc(void* text, void* outGlyphIndices, int font);
-extern "C" int GetStringLength_020d2ff0(const char* string);
+extern "C" int func_020426bc(void* text, void* outGlyphIndices, int font);
+extern "C" int func_020d2ff0(const char* string);
 extern "C" int FindFontGlyphIndex_020424e4(int text, int font);
 extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
 
@@ -63,9 +67,9 @@ extern "C" ARM void func_ov023_021e8cdc(char* arg0) {
 
     char* var7 = *(char**)(arg0 + 0x600);
     if (var7 != 0) {
-        var0 = ConvertTextToGlyphIndices_020426bc(var7, var6, 1);
+        var0 = func_020426bc(var7, var6, 1);
     } else {
-        var0 = GetStringLength_020d2ff0(var5 + 8);
+        var0 = func_020d2ff0(var5 + 8);
         memcpy(var6, var5 + 8, var0);
     }
 

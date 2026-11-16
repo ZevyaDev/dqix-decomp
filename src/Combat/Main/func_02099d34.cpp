@@ -16,7 +16,7 @@ extern unsigned short data_02109928[10][2] __attribute__((aligned(4)));
 
 // USA: func_02099d34
 extern "C" ARM void func_02099d34(Model3D* arg0, int arg1, unsigned int arg2, int arg3) {
-    NSBXXTex* var0;
+    Nitro3DTextureSet* var0;
     unsigned char* var1;
     int var2;
     int var3;
@@ -54,8 +54,8 @@ extern "C" ARM void func_02099d34(Model3D* arg0, int arg1, unsigned int arg2, in
         break;
     }
 var3 = var2 * 2;
-    var5 = (unsigned char*)var0 + var0->block4Offset_;
-    var6 = var0->block4NumEightBytes_ << 3;
+    var5 = (unsigned char*)var0 + var0->block4Offset;
+    var6 = var0->block4NumEightBytes << 3;
     if ((unsigned int)var6 > 0x20) {
         int var7 = var6 & 0x1f;
         var5 += var7;
@@ -67,8 +67,8 @@ var3 = var2 * 2;
         var6 -= 0x20;
     }
 
-    unsigned int var8 = var0->block4Offset_;
-    unsigned int var9 = var0->block4NumEightBytes_ << 3;
-    DC_FlushRange((const void*)((unsigned char*)var0 + var8), var9);
+    unsigned int var8 = var0->block4Offset;
+    unsigned int var9 = var0->block4NumEightBytes << 3;
+    CleanInvalidateCacheRange((const void*)((const void*)((unsigned char*)var0 + var8)), var9);
     StageTexFilePaletteData(var0, true);
 }

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "std_library_functions.h"
 
-extern "C" int CompareBytes_02001aec(unsigned char* left, unsigned char* right, int count);
 extern "C" void func_ov031_0221b19c(int arg0, unsigned char* arg1);
 
 struct Struct_ov031_02236094 {
@@ -32,14 +32,14 @@ extern "C" ARM void func_ov031_02236094(unsigned char arg0) {
     var0->unknown_400_ = var0->unknown_0_[arg0].unknown_0_;
     var0->unknown_4f4_ = arg0;
 
-    if (CompareBytes_02001aec(var1 + 0xc0, &data_ov031_02249248, 4) != 0) {
+    if (memcmp(var1 + 0xc0, &data_ov031_02249248, 4) != 0) {
         gConnectionSettings_ov031_02290cfc->unknown_4f5_ = 0;
     } else {
         gConnectionSettings_ov031_02290cfc->unknown_4f5_ = 1;
     }
 
-    if (CompareBytes_02001aec(var1 + 0xc8, &data_ov031_02249248, 4) != 0 ||
-        CompareBytes_02001aec(var1 + 0xcc, &data_ov031_02249248, 4) != 0) {
+    if (memcmp(var1 + 0xc8, &data_ov031_02249248, 4) != 0 ||
+        memcmp(var1 + 0xcc, &data_ov031_02249248, 4) != 0) {
         gConnectionSettings_ov031_02290cfc->unknown_4f6_ = 0;
     } else {
         gConnectionSettings_ov031_02290cfc->unknown_4f6_ = 1;

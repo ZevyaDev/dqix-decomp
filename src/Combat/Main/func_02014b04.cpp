@@ -3,6 +3,7 @@
 #include "Grotto/Main/ActiveGrottoClass.h"
 #include "std_library_functions.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 
 #if defined(jpn)
 #define data_020ef19f data_020ef0db
@@ -45,7 +46,7 @@ extern "C" ARM void _ZN6Zone3D13func_02014b04Ev(void* arg0) {
     }
 
     if (strlen(var0 + 0xc) == 0) {
-        ((Zone3D*)arg0)->func_020145a8();
+        func_020145a8((Zone3D*)arg0);
         return;
     }
 

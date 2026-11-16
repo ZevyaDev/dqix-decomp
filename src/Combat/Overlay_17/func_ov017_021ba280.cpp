@@ -2,8 +2,12 @@
 #include "GameState/GameState.h"
 #include "Resource/Script.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct LocalWireless_0202c1a4;
-extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18(void);
+extern "C" LocalWireless_0202c1a4* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 
@@ -34,7 +38,7 @@ extern "C" ARM int func_ov017_021ba280(Script::Parameter* arg0, int arg1) {
     if (data_ov017_021d7c54.unknown_1_ > -1) return 1;
 
     GameState::GetInstance();
-    LocalWireless_0202c1a4* var0 = GetLocalWireless_0202ae18();
+    LocalWireless_0202c1a4* var0 = func_0202ae18();
     if (!IsLocalWirelessOn_0202b7d8((int*)var0)) return 1;
     if (GetOwnProtagonistObjectIndex_0202c1a4(var0) == 0) return 1;
 

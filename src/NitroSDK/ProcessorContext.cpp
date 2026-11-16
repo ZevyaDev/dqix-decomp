@@ -5,6 +5,14 @@
 #include <globaldefs.h>
 #include <asmhacks.h>
 
+#if defined(jpn)
+#define func_020ca3ec func_020cbeb8
+#endif
+
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 #pragma dont_inline on
 
 #if defined(jpn)
@@ -17,10 +25,10 @@ extern "C"
     void func_020c9bf0();
 
     // something like abort()
-    void HaltForever_020c9be0();
+    void func_020c9be0();
 
     // memset with silly signature and assuming alignment
-    void Memset32BitByWord_020ca3ec(int value, void* dst, unsigned len);
+    void func_020ca3ec(int value, void* dst, unsigned len);
 }
 
 void PopulateContext(ProcessorContext *context, unsigned int startAddress,
@@ -47,7 +55,7 @@ void PopulateContext(ProcessorContext *context, unsigned int startAddress,
     // when the function at startAddress returns, go here
     context->userModeRegisters[14] = (unsigned int)&ContextExecutionReturnProc;
 
-    Memset32BitByWord_020ca3ec(0, (void*)(stackBottom - stackSize + 4), stackSize - 8);
+    func_020ca3ec(0, (void*)(stackBottom - stackSize + 4), stackSize - 8);
     context->blockingMutex = NULL;
     context->lockedMutexes.pFirst = NULL;
     context->lockedMutexes.pLast = NULL;
@@ -56,7 +64,7 @@ void PopulateContext(ProcessorContext *context, unsigned int startAddress,
     context->containerBlockedQueue = NULL;
     context->pNextBlocked = NULL;
     context->pPrevBlocked = NULL;
-    Memset32BitByWord_020ca3ec(0, &context->unknown_A4, 12);
+    func_020ca3ec(0, &context->unknown_A4, 12);
     context->sleepAlarm = NULL;
 
     SetIRQInterruptState(priorState);
@@ -112,7 +120,7 @@ void ShutdownCurrentContext()
     UnblockContexts(&context->contextsAwaitingThisCompletion);
     RemoveContextSwitchLock();
     SwitchContextUninterrupted();
-    HaltForever_020c9be0();
+    func_020c9be0();
 }
 
 void ShutdownContext(ProcessorContext* context)

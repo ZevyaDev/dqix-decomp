@@ -1,5 +1,6 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 #if defined(jpn)
 #define LOW_REGION(j,u) (j)
 #else
@@ -60,7 +61,6 @@ struct Struct_ov003_021552b8 {
 extern "C" Struct_ov003_021552b8_2 *GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(Struct_ov003_021552b8_2 *);
 extern "C" int func_ov003_02156034(void *);
-extern "C" void * FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void InitPartyMemberNoun_020e4bf4(void *, int);
 extern "C" void SetNoun_020e4b34(void *, void *, int, int, int, int, int, int, int, int, int, int);
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
@@ -111,18 +111,18 @@ extern "C" ARM void func_ov003_021552b8(Struct_ov003_021552b8_5 *arg0) {
         }
         SetMessageString_02046574((Struct_02046574_2*)var0, 0, (char*)var4);
         short var6 = func_ov003_02156034(arg0) + 0x23;
-        SetMessageString_02046574((Struct_02046574_2*)var0, 1, (char*)(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, var6)));
-        SetMessageString_02046574((Struct_02046574_2*)var0, 2, (char*)(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, (short)(var5 + 0x23))));
-        SetMessageString_02046574((Struct_02046574_2*)var0, 3, (char*)(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, (short)(var5 + 0x34))));
-        StartMessage_0204500c(var0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, arg0->unknown_1ec_), 0);
+        SetMessageString_02046574((Struct_02046574_2*)var0, 1, (char*)(((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_e4_))->GetString(var6))));
+        SetMessageString_02046574((Struct_02046574_2*)var0, 2, (char*)(((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_e4_))->GetString((short)(var5 + 0x23)))));
+        SetMessageString_02046574((Struct_02046574_2*)var0, 3, (char*)(((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_e4_))->GetString((short)(var5 + 0x34)))));
+        StartMessage_0204500c(var0, ((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_e4_))->GetString(arg0->unknown_1ec_)), 0);
 #else
         int var7            = 0;
         if (var3) {
             var7 = var3->unknown_150_->unknown_950_;
         }
         short var8 = func_ov003_02156034(arg0) + 0x23;
-        void *var9   = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, var8);
-        void *var10   = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, (short) (var7 + 0x23));
+        void *var9   = ((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_e4_))->GetString(var8));
+        void *var10   = ((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_e4_))->GetString((short) (var7 + 0x23)));
         Struct_ov003_021552b8 var11;
         InitPartyMemberNoun_020e4bf4(&var11, arg0->unknown_1f7_);
         var0->unknown_0_  = &var11;
@@ -136,8 +136,8 @@ extern "C" ARM void func_ov003_021552b8(Struct_ov003_021552b8_5 *arg0) {
         var0->unknown_28_ = &var12;
         SetMessageString_02046574((Struct_02046574_2*)var0, 1, (char*)var9);
         SetMessageString_02046574((Struct_02046574_2*)var0, 2, (char*)var10);
-        SetMessageString_02046574((Struct_02046574_2*)var0, 3, (char*)(FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, (short) (var7 + 0x34))));
-        StartMessage_0204500c(var0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, var1), 0, 0xe3);
+        SetMessageString_02046574((Struct_02046574_2*)var0, 3, (char*)(((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_e4_))->GetString((short) (var7 + 0x34)))));
+        StartMessage_0204500c(var0, ((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_e4_))->GetString(var1)), 0, 0xe3);
 #endif
         var0->unknown_998_  = 1;
         var0->unknown_99c_ = 1;

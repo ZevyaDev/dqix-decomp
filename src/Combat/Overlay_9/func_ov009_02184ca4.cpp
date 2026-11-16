@@ -1,10 +1,10 @@
 // USA: func_ov009_02184ca4
 #include <globaldefs.h>
 #include "Resource/CharacterCreationUI.h"
+#include "Graphics/BGLayer.h"
 
 struct TextWindowManager_0205d2bc;
 extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(TextWindowManager_0205d2bc*);
-extern "C" void CopyBGScreenDataToVRAM_0204b088(Struct_02000c9c_7*, void*);
 #if defined(jpn)
 extern "C" void func_ov009_02184e58(unsigned char*);
 extern "C" void func_ov023_021d9a6c(char*);
@@ -34,18 +34,18 @@ extern "C" ARM void func_ov009_02184ca4(unsigned char* arg0) {
     CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((TextWindowManager_0205d2bc*)&var0->unknown_1f8_[0]);
     CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc((TextWindowManager_0205d2bc*)&var0->unknown_1f8_[1]);
     if (var0->unknown_d9c_ & 0x1000) {
-        CopyBGScreenDataToVRAM_0204b088(&var0->unknown_158_[0], 0);
+        ((BGLayer*)(&var0->unknown_158_[0]))->UploadIndexBuffer((const void*)(0));
         var0->unknown_d9c_ &= ~0x1000;
     }
     if (var0->unknown_d9c_ & 0x2000) {
-        CopyBGScreenDataToVRAM_0204b088(&var0->unknown_158_[3], 0);
+        ((BGLayer*)(&var0->unknown_158_[3]))->UploadIndexBuffer((const void*)(0));
 #if defined(jpn)
         if (var0->unknown_c58_ == 8 || var0->unknown_c58_ == 9)
 #else
         signed char var2 = var1 - 8;
         if ((unsigned char)var2 <= 1)
 #endif
-            CopyBGScreenDataToVRAM_0204b088(&var0->unknown_158_[2], 0);
+            ((BGLayer*)(&var0->unknown_158_[2]))->UploadIndexBuffer((const void*)(0));
         var0->unknown_d9c_ &= ~0x2000;
     }
 #if defined(jpn)

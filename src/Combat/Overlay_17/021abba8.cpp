@@ -13,6 +13,15 @@ enum { Enum_ov017_021abba8_340 = 0x154 };
 #include "NitroSDK/OverlayId.h"
 #include "World/Object3D.h"
 #include "Resource/Brightness.h"
+#include "Graphics/TextureArena.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 
 
@@ -70,7 +79,7 @@ struct Struct_ov017_021abba8 {
     int unknown_24_;
 };
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
@@ -81,7 +90,6 @@ extern "C" int GetFontLoader_02094a00(void);
 extern "C" void CancelFontLoad_02094ab0(int loader);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" int AddEffectResource_02057e6c(void* effectManager, int effectId, SafeAllocator* allocator, void* fileData, unsigned int fileSize, TextureVRAMArea_0203d028* textureVRAMArea);
 extern "C" void func_02010834(Struct_02010834* arg0, int arg1, int* arg2, int* arg3);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
@@ -93,7 +101,7 @@ int IsBrightnessTransitionActive(GameResources* resources);
 extern "C" void func_ov017_02197528(void);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" int func_02011b50(void* arg0, int arg1);
 extern "C" void ResetMenuTask_ov017_021b2174(unsigned char* node);
@@ -113,7 +121,7 @@ extern AllocatorUnion gMainHeap_02114e20;
 // USA: func_ov017_021abba8
 extern "C" ARM void func_ov017_021abba8(Struct_ov017_021abba8* arg0, Queue_02038598_5* arg1) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     GameResources* var2 = GetGameResources();
     GameObject* var3 = var0->GetUnknownGameObject();
     void* var4 = GetEffectManager_02057924();
@@ -147,7 +155,7 @@ extern "C" ARM void func_ov017_021abba8(Struct_ov017_021abba8* arg0, Queue_02038
             arg0->unknown_10_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x2800), 0x2800);
             arg0->unknown_10_.Reset();
             TextureVRAMArea_0203d028* var9 = (TextureVRAMArea_0203d028*)(*(char**)((char*)var0->GetUnknownGameObject() + Enum_ov017_021abba8_340) + 0x568);
-            ResetTextureVRAMState_0207df50(var9);
+            ((TextureArena*)(var9))->Reset();
             void* var10 = arg0->unknown_10_.Allocate(var7);
             memcpy(var10, var8, var7);
             AddEffectResource_02057e6c(var4, 5, &arg0->unknown_10_, var10, var7, var9);
@@ -159,7 +167,7 @@ extern "C" ARM void func_ov017_021abba8(Struct_ov017_021abba8* arg0, Queue_02038
         int var12[5];
         Struct_ov017_021abba8_2 var13[5];
         if (arg0->unknown_c_ != 0) {
-            func_02010834((Struct_02010834*)var0, var3->obj3D_.objectIndex_4_, var12, &var11);
+            func_02010834((Struct_02010834*)var0, var3->obj3D_.unknown_4_, var12, &var11);
             for (int var14 = 0; var14 < var11; var14++) {
                 arg0->unknown_d_ |= 1 << var12[var14];
             }
@@ -261,7 +269,7 @@ extern "C" ARM void func_ov017_021abba8(Struct_ov017_021abba8* arg0, Queue_02038
             func_ov017_021ac2a8(arg0);
             UnloadExtraSoundSet_0205ebec(&gSoundEffectManager_02108760);
             if (IsNotLocalWirelessGuest_0202c508(var1)) {
-                unsigned char* var22 = (unsigned char*)GetFlagManager_0205ec34();
+                unsigned char* var22 = (unsigned char*)func_0205ec34();
                 SetFlag_0206df6c(var22, var22 + 0x8c, 0x113d, 1);
             }
             if (func_02011b50(var0, 1) && arg0->unknown_c_ != 0) {

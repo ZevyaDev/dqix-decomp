@@ -6,6 +6,7 @@
 #include "NitroSDK/Filesystem/FileAccessor.h"
 #include "NitroSDK/Filesystem/LowNitroHandle.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 extern "C" char* strcpy(char*, const char*);
 extern "C" int sprintf(char*, const char*, ...);
 extern "C" char* strstr(const char*, const char*);
@@ -47,7 +48,6 @@ extern "C" void* GetZone3D_02012fe4();
 extern "C" Struct_ov017_021a2c14_2* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
 extern "C" int GetGroundHeight_02018fbc(void*, Vector3i*);
 extern char data_ov017_021d76a6[];
-extern unsigned char gFileScratchSpace_0211e33c[];
 extern char data_ov017_021d76bb[];
 extern char data_ov017_021d76bf[];
 extern char data_ov017_021d76c9[];
@@ -79,12 +79,12 @@ extern "C" ARM int func_ov017_021a2c14(GameResources* arg0, Zone3D_StructPtr_8* 
     if (var14[0] == 'F') var14[1] = 0;
     BackgroundLoader::AddLockGlobal();
     sprintf(var9, data_ov017_021d76a6, var14);
-    if (!LoadFileIntoMemory(var9, gFileScratchSpace_0211e33c, &var15)) {
+    if (!LoadFileIntoMemory(var9, g_fileScratchSpace, &var15)) {
         func_020401fc(func_0203d004(var2), 12, var3);
         BackgroundLoader::RemoveLockGlobal();
         return 0;
     }
-    if (!var10.Initialize(data_ov017_021d76bb, gFileScratchSpace_0211e33c)) {
+    if (!var10.Initialize(data_ov017_021d76bb, g_fileScratchSpace)) {
         BackgroundLoader::RemoveLockGlobal();
         return 0;
     }
@@ -98,7 +98,7 @@ extern "C" ARM int func_ov017_021a2c14(GameResources* arg0, Zone3D_StructPtr_8* 
     while (PrepareReadFileInNARCByID(&var11, &var10, var16)) {
         NitroVM_WriteOutFilePath(&var11, var12, 0x50);
         const void* var20 = var10.GetFileByIndex(var16);
-        var18 = var11.fileInfo.unknown_8_ - var11.fileInfo.unknown_4_;
+        var18 = var11.fileInfo.endOffset - var11.fileInfo.startOffset;
         if (strstr(var12, data_ov017_021d76bf)) {
             func_0206da80(var19, var6, var7, var8, var5, var3, var20, var18);
         }
@@ -111,7 +111,7 @@ extern "C" ARM int func_ov017_021a2c14(GameResources* arg0, Zone3D_StructPtr_8* 
     while (PrepareReadFileInNARCByID(&var11, &var10, var17)) {
         NitroVM_WriteOutFilePath(&var11, var13, 0x50);
         const void* var22 = var10.GetFileByIndex(var17);
-        var18 = var11.fileInfo.unknown_8_ - var11.fileInfo.unknown_4_;
+        var18 = var11.fileInfo.endOffset - var11.fileInfo.startOffset;
         if (strstr(var13, data_ov017_021d76c9)) {
             func_02064e2c((int)var21, (int)var19, (int)var3, (Struct_02013fb4*)var22, var18);
             if (strstr(var13, data_ov017_021d76d1) && !strstr(var13, data_ov017_021d76d4)) {

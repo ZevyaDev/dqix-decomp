@@ -1,9 +1,13 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 
-extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
+extern "C" void* func_ov017_021b8478(void* battleManager);
 extern "C" void func_ov017_021b8b6c(char* arg0);
 extern "C" void func_ov017_021a23b0(void* arg0, int arg1);
 
@@ -28,7 +32,7 @@ extern "C" ARM void func_ov017_021c5e80(int arg0, Struct_ov017_021c5e80* arg1, i
 	signed char var3 = GetOwnProtagonistObjectIndex_0202c1a4(arg4);
 	if (var0 != var3) {
 		if (*((unsigned char*)var2 + 2) == 0) return;
-		void* var4 = GetBattleSetup_ov017_021b8478(var2);
+		void* var4 = func_ov017_021b8478(var2);
 		if (!var4) return;
 		if (*(unsigned short*)((char*)var4 + 8) != var1) return;
 		func_ov017_021b8b6c((char*)var2);

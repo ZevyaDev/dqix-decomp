@@ -2,14 +2,22 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct LocalWireless_0202c1a4;
 extern "C" int rand();
 extern "C" void* __clear(void*, int);
 struct FieldMonster_02076ccc;
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" int func_02053c6c(unsigned char*);
 extern "C" bool SetFieldMonsterState_02076ccc(void*, int);
 struct Struct_ov017_021c95ec { int unknown_0_, unknown_4_, unknown_8_; };
 extern "C" void func_ov017_021c95ec(int, int, int, int, int, Struct_ov017_021c95ec, int, unsigned char, unsigned char);
@@ -60,11 +68,11 @@ extern "C" ARM void func_02078998(Struct_02078998_2* arg0) {
     }
     if (arg0->unknown_14c_ <= 225) return;
     arg0->unknown_17a_ = 0;
-    int* var3 = (int*)GetLocalWireless_0202ae18();
+    int* var3 = (int*)func_0202ae18();
     if (IsLocalWirelessOn_0202b7d8(var3) && GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var3)) return;
     GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0->unknown_166_);
     if (var4 == NULL) return;
-    GetPartyMemberData_02053c6c((unsigned char*)var4);
+    func_02053c6c((unsigned char*)var4);
     int var5 = 0;
     int var6 = 0;
     int var7 = var4->baseStats_->primaryStats.attack;
@@ -122,7 +130,7 @@ extern "C" ARM void func_02078998(Struct_02078998_2* arg0) {
     if (!IsLocalWirelessOn_0202b7d8(var3) || GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var3)) return;
     unsigned short var10 = arg0->unknown_0_.GetField06();
     int var11 = arg0->unknown_0_.unknown_2_;
-    int var12 = (arg0->unknown_0_.objectIndex_4_ - 112) % 12;
+    int var12 = (arg0->unknown_0_.unknown_4_ - 112) % 12;
     if (var12 >= 0 && var12 < 12) {
         inline_02078998(var10, var12, var11, var9, arg0);
     }

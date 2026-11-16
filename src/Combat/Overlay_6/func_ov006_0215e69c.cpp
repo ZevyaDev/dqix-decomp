@@ -1,5 +1,15 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
+#include "Resource/StringList.h"
+#include "Filesystem/FileIO.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct Struct_ov006_0215e69c_4 {
     short unknown_0_;
@@ -101,11 +111,11 @@ extern "C" int func_ov006_02158c70(Struct_ov006_0215e69c_3* arg0);
 extern "C" void func_ov006_02153cbc(void* arg0, int arg1, int arg2, void* arg3);
 extern "C" void func_ov006_0215759c(void* arg0, Struct_ov006_0215e69c_4* arg1, int arg2);
 extern "C" void func_ov006_02158de0(Struct_ov006_0215e69c_3* arg0);
-extern "C" unsigned int* GetGlobalFlags_020d6c00(void);
+extern "C" unsigned int* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 struct SaveProgress_020a9ea4;
 extern "C" void ResetSaveProgress_020a9ea4(SaveProgress_020a9ea4*);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_020aad1c(void* arg0, void* arg1, int arg2, int arg3);
 struct GlobalFlags_02038598_4;
@@ -113,7 +123,6 @@ extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int)
 extern "C" void** FindNounInTable_020e5294(void* nounTable, int nounId);
 #if defined(jpn)
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 #endif
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void ExpandInflectionTags_020e4864(void* text, void* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
@@ -135,7 +144,6 @@ static inline short* inline_ov006_0215cc70_3(Struct_ov006_0215e69c_3* arg0) { re
 
 static inline int inline_01ff91ac_4(Struct_ov006_0215e69c* arg0) { return arg0 != 0 && arg0->unknown_14_ != 0; }
 
-extern int gFileScratchSpace_0211e33c;
 extern int gMusicManager_02109bf4;
 
 // USA: func_ov006_0215e69c
@@ -265,7 +273,7 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
     } else if (arg0->unknown_390_ == 0xa) {
         arg0->unknown_394_ |= 0x200;
         if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() <= 0) {
-            SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 0x80);
+            SetGlobalFlags_020466e4(func_020d6c00(), 0x80);
             ResetSaveProgress_020a9ea4((SaveProgress_020a9ea4*)arg0->unknown_3c_);
             arg0->unknown_390_++;
         }
@@ -274,11 +282,11 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
         BackgroundLoader::AddLockGlobal();
         BackgroundLoader::FreeAllocationsGlobal();
         var6 = 8;
-        if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18())) {
+        if (IsLocalWirelessGuest_0202c540(func_0202ae18())) {
             var6 = 0x14;
         }
-        if (func_020aad1c(arg0->unknown_3c_, &gFileScratchSpace_0211e33c, var6, 0) == 1) {
-            ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x80);
+        if (func_020aad1c(arg0->unknown_3c_, &g_fileScratchSpace, var6, 0) == 1) {
+            ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)func_020d6c00(), 0x80);
             arg0->unknown_390_++;
             arg0->unknown_394_ &= ~0x200;
         }
@@ -315,7 +323,7 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
         arg0->unknown_3b4_ = 1;
 #if defined(jpn)
         SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)arg0->unknown_14_, 0x7f,
-            FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_164_, arg0->unknown_1ec_));
+            ((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_164_))->GetString(arg0->unknown_1ec_)));
 #else
         var7 = FindNounInTable_020e5294(arg0->unknown_170_, arg0->unknown_1ec_);
         if (var7 != 0) {
@@ -392,7 +400,7 @@ extern "C" ARM void func_ov006_0215e69c(Struct_ov006_0215e69c_3* arg0) {
         arg0->unknown_3b4_ = 1;
 #if defined(jpn)
         SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)arg0->unknown_14_, 0x7f,
-            FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_164_, arg0->unknown_1ec_));
+            ((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_164_))->GetString(arg0->unknown_1ec_)));
 #else
         var11 = FindNounInTable_020e5294(arg0->unknown_170_, arg0->unknown_1ec_);
         if (var11 != 0) {

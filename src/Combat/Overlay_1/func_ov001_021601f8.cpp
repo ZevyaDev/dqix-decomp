@@ -33,7 +33,7 @@ extern "C" struct Struct_0201f170* func_0201f170(struct Struct_0201ec00* arg0, i
 
 struct Struct_ov001_021601f8_3 {
     char unknown_0_[0x54];
-    NSBXXInternalModel* unknown_54_;
+    Nitro3DModel* unknown_54_;
 };
 
 struct Struct_ov001_021601f8_4 {

@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 
 struct Struct_ov009_0218aa28 {
     int unknown_0_;
@@ -8,7 +9,6 @@ struct Struct_ov009_0218aa28 {
 
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" float _ffltu(unsigned int v);
-extern "C" void Vector3fix_Normalize(struct Struct_ov009_0218aa28* arg0, struct Struct_ov009_0218aa28* arg1);
 extern "C" int fix32_Atan2(int arg0, int arg1);
 int fix32ReduceAngle0To2Pi(int angle);
 short fix32sin(int x);
@@ -27,7 +27,6 @@ struct Struct_02096a20 {
     short unknown_22e_;
 };
 
-extern const int data_0210a05c[256];
 
 // USA: func_02096a20
 extern "C" ARM void func_02096a20(struct Struct_02096a20* arg0) {
@@ -41,13 +40,13 @@ extern "C" ARM void func_02096a20(struct Struct_02096a20* arg0) {
     var0.unknown_8_ = (int)(((float)arg0->unknown_223_ - (float)arg0->unknown_221_ > 0.0f)
                     ? 0.5f + 4096.0f * ((float)arg0->unknown_223_ - (float)arg0->unknown_221_)
                     : 4096.0f * ((float)arg0->unknown_223_ - (float)arg0->unknown_221_) - 0.5f);
-    Vector3fix_Normalize(&var0, &var0);
+    Vector3fix_Normalize((const Vector3i*)(&var0), (Vector3i*)(&var0));
 
-    const int* var2 = (const int*)&data_0210a05c;
+    const int* var2 = (const int*)&g_nitro3DRenderConfig.viewMatrix;
     __clear(&var1, 0xc);
     var1.unknown_0_ = var2[6];
     var1.unknown_8_ = var2[8];
-    Vector3fix_Normalize(&var1, &var1);
+    Vector3fix_Normalize((const Vector3i*)(&var1), (Vector3i*)(&var1));
 
     short var3 = (short)fix32ReduceAngle0To2Pi(fix32_Atan2(var0.unknown_0_, var0.unknown_8_));
     short var4 = (short)fix32ReduceAngle0To2Pi(-fix32_Atan2(var1.unknown_0_, var1.unknown_8_));

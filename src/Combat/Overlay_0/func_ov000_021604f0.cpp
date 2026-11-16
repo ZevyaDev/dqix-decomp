@@ -25,6 +25,10 @@
 
 #include "Memory/SafeAllocator.h"
 
+#if defined(jpn)
+#define func_02013750 func_02013518
+#endif
+
 extern "C" void UnloadExtraSoundSet_0205eb80(void* manager);
 extern "C" void func_02013750(void* arg0, int arg1);
 extern "C" void func_ov000_02172720(void* arg0);

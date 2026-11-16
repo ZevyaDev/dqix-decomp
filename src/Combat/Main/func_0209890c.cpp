@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "std_library_functions.h"
 
-extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
 
 struct Struct_0209890c {
     unsigned char unknown_0_[0x14];
@@ -21,7 +21,7 @@ extern "C" ARM int func_0209890c(void* arg0, void* arg1) {
         return 0;
     }
     for (var2 = 0; var2 < 30; var2++) {
-        if (CompareBytes_02001aec(var0[var2].unknown_14_, var1->unknown_14_, sizeof(var1->unknown_14_)) == 0) {
+        if (memcmp(var0[var2].unknown_14_, var1->unknown_14_, sizeof(var1->unknown_14_)) == 0) {
             return 0;
         }
     }

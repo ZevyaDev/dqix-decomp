@@ -1,5 +1,10 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
 
 struct ItemTable_0201099c_10;
 struct Struct_0201099c_3;
@@ -33,14 +38,13 @@ struct Struct_ov002_0215d214_3 {
     unsigned int unknown_b_2_ : 6;
 };
 
-extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" void *func_02053c6c(unsigned char *gameObject);
 extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" void InitPartyMemberNoun_020e4bf4(void *noun, int partyMemberIndex);
 extern "C" int func_ov002_02159774(void *arg0, int arg1, int arg2, int arg3, int arg4);
-extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8 *gameState);
-extern "C" char *FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
+extern "C" int func_0200fb08(Struct_02000c9c_8 *gameState);
 extern "C" int sprintf(char *arg0, const char *arg1, ...);
 extern "C" char *strstr(const char *arg0, const char *arg1);
 extern "C" void *memcpy(void *arg0, const void *arg1, unsigned int arg2);
@@ -73,7 +77,7 @@ extern "C" ARM void func_ov002_0215d214(char *arg0, char *arg1, int arg2) {
     int var6 = var4[*(short *) (arg0 + 0x1bec)];
     char *var7 = (char *) GetPartyMemberBaseByIndex_0200ff1c(var3, var6);
     if (var7 == 0) return;
-    Struct_ov002_0215d214_2 *var8 = (Struct_ov002_0215d214_2 *) GetPartyMemberData_02053c6c((unsigned char *) var7);
+    Struct_ov002_0215d214_2 *var8 = (Struct_ov002_0215d214_2 *) func_02053c6c((unsigned char *) var7);
     if (var8 == 0) return;
     char *var9 = 0;
     if (*(short *) (arg0 + 0x1c26) < 0) {
@@ -160,7 +164,7 @@ extern "C" ARM void func_ov002_0215d214(char *arg0, char *arg1, int arg2) {
             var20 = 1;
         }
         if (var20 >= 0) {
-            int var22 = GetGameLanguage_0200fb08((Struct_02000c9c_8 *) GameState::GetInstance());
+            int var22 = func_0200fb08((Struct_02000c9c_8 *) GameState::GetInstance());
             for (int var23 = 0; var23 < 5; var23++) {
                 if (var22 == data_ov002_0216cac4[var23 * 7]) {
                     var19 = (data_ov002_0216cac5 + var23 * 7 + var1.unknown_b_0_)[var20 * 2];
@@ -172,7 +176,7 @@ extern "C" ARM void func_ov002_0215d214(char *arg0, char *arg1, int arg2) {
     if (var17 == 3) {
         var18 = 3;
     }
-    sprintf(var2, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), var11), var18, var17);
+    sprintf(var2, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(var11)), var18, var17);
     if (var19 != 0) {
         char *var24 = strstr(var2, data_ov002_0216d280);
         if (var24 != 0) {

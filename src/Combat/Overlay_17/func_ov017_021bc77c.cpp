@@ -12,17 +12,41 @@ enum { Enum_ov017_021bc77c_29156 = 0x71e4, Enum_ov017_021bc77c_29168 = 0x71f0, E
 #include "Graphics/LightingManager.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 
 
 enum { Enum_ov017_021bc77c_m1 = -1 };
 
 struct AllocatorUnion;
 
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0202ae18();
 extern "C" void* GetFollowCamera_020100f8(char*);
 extern "C" unsigned short* GetZone3D_02012fe4();
-extern "C" unsigned char* GetFlagManager_0205ec34();
-extern "C" unsigned int* GetGlobalFlags_020d6c00();
+extern "C" unsigned char* func_0205ec34();
+extern "C" unsigned int* func_020d6c00();
 extern "C" void func_02019678(unsigned short* arg0, int arg1);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 extern "C" Object3D* func_ov017_021bdbc0(unsigned char*);
@@ -32,7 +56,7 @@ extern "C" void EnableCameraFollow_020a2794(void* camera);
 extern "C" void func_020a2744(char*);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void func_ov017_0219b624(void* arg0);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_ov017_021a2fa0(void* arg0);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
@@ -44,8 +68,8 @@ extern "C" void func_ov017_021bb0c4(unsigned char*);
 extern "C" int RunTrigger_020649b0(void*, int, void*);
 extern "C" void func_0206f81c(void* arg0);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
-extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
-extern "C" unsigned char* GetBattleSetup_ov017_021b8478(unsigned char* battleManager);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
+extern "C" unsigned char* func_ov017_021b8478(unsigned char* battleManager);
 extern "C" void RemoveFromQueue_02046a8c(void* queue, unsigned char* node);
 extern "C" int func_0209ca68(char*);
 extern "C" void func_0209c530(void* arg0);
@@ -209,7 +233,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
     }
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
-    void* var2 = GetLocalWireless_0202ae18();
+    void* var2 = func_0202ae18();
     GameObject* var3 = var0->GetUnknownGameObject();
     GameObject* var4 = var0->GetPartyMemberByIndex(0);
     void* var5 = GetFollowCamera_020100f8((char*)var0);
@@ -220,18 +244,18 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
     unsigned char* var10;
     unsigned char* var11;
     unsigned short* var12 = GetZone3D_02012fe4();
-    unsigned char* var13 = GetFlagManager_0205ec34();
+    unsigned char* var13 = func_0205ec34();
     var10 = RES_PTR(var1, 710);
     unsigned char* var14 = RES_PTR(var1, 718);
     var11 = RES_PTR(var1, b58);
-    GetGlobalFlags_020d6c00();
+    func_020d6c00();
     {
         Struct_ov017_021bc77c var15 = arg0->unknown_c_;
         unsigned char var16 = arg0->unknown_9c_;
         var7 = GameState::GetInstance();
         GameResources* var17 = GetGameResources();
         var6 = GetZone3D_02012fe4();
-        GetLocalWireless_0202ae18();
+        func_0202ae18();
         if (!(var15.unknown_44_ & 0x400)) {
             func_02019678(var6, var16);
         }
@@ -266,7 +290,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
         SignedAllocatorHeader* var21 = arg0->unknown_138_->GetSignedAllocator();
         if (var21) {
             arg0->unknown_138_->Destroy();
-            FreeMemory_02012da4(&gMainHeap_02114e20, var21);
+            func_02012da4(&gMainHeap_02114e20, var21);
         }
         arg0->unknown_138_ = 0;
     }
@@ -306,7 +330,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
             if (arg0->unknown_13c_ == 2) {
                 if (var14[2]) var25 = 1;
             } else if (arg0->unknown_13c_ == 1) {
-                if (var14[2] && !IsFlagSet_0206dfb0((int)var13, var13 + 0x8c, arg0->unknown_148_ + 0x38e)) {
+                if (var14[2] && !func_0206dfb0((int)var13, var13 + 0x8c, arg0->unknown_148_ + 0x38e)) {
                     if (arg0->unknown_148_ == 0xffff) {
                         if (arg0->unknown_14c_ != *(unsigned short*)((unsigned char*)arg0 + 0x18)) var25 = 1;
                     } else {
@@ -315,7 +339,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
                 }
             } else if (arg0->unknown_13c_ == 0) {
                 if (var14[2]) {
-                    int var26 = *(int*)(GetBattleSetup_ov017_021b8478(var14) + 0xc);
+                    int var26 = *(int*)(func_ov017_021b8478(var14) + 0xc);
                     if (var26 != (short)arg0->unknown_146_) var25 = 1;
                 }
             }
@@ -363,7 +387,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
         SetBrightness(var1, -16, 0);
         *(unsigned short*)(var14 + 0x6c4) = arg0->unknown_184_;
         if (IsLocalWirelessGuest_0202c540(var2)) {
-            arg0->unknown_14e_ = *(int*)(GetBattleSetup_ov017_021b8478(*(unsigned char**)((unsigned char*)var1 + Enum_ov017_021bc77c_14104)) + 0xc);
+            arg0->unknown_14e_ = *(int*)(func_ov017_021b8478(*(unsigned char**)((unsigned char*)var1 + Enum_ov017_021bc77c_14104)) + 0xc);
             func_ov017_021cdd70(arg0->unknown_14e_, 0, 0, 0, 0, 0, 0);
             unsigned char* var31 = RES_PTR(var1, 70c);
             if (var31[2]) {
@@ -389,9 +413,9 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
         {
             unsigned short* var34;
             unsigned short var35 = arg0->unknown_8_;
-            void* var36 = GetLocalWireless_0202ae18();
+            void* var36 = func_0202ae18();
             var34 = GetZone3D_02012fe4();
-            var9 = GetFlagManager_0205ec34();
+            var9 = func_0205ec34();
             var8 = GetGameResources();
             unsigned char* var37 = RES_PTR(var8, 734);
             unsigned char var38 = 0;
@@ -400,7 +424,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
             if (arg0->unknown_13c_ != 1) { var32 = 0; goto checked; }
             if (arg0->unknown_140_ != var39 && arg0->unknown_142_ != var39) { var32 = 0; goto checked; }
             if (!arg0->unknown_144_) { var32 = 0; goto checked; }
-            if (IsFlagSet_0206dfb0((int)var9, var9 + 0x8c, arg0->unknown_148_ + 0x38e)) { var32 = 0; goto checked; }
+            if (func_0206dfb0((int)var9, var9 + 0x8c, arg0->unknown_148_ + 0x38e)) { var32 = 0; goto checked; }
             unsigned short var40 = arg0->unknown_146_;
             if (var40 == var35) { var32 = 0; goto checked; }
             if (var35 == 0x733c || var35 == 0x733f || var35 == 0x7342 || var35 == 0x7345 || var35 == 0x7348) {

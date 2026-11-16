@@ -1,9 +1,13 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 struct GameState;
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void ClearSpellTable_0209a804(int* table);
 struct Struct_0201099c_18 { void* unknown_0_; };
 extern "C" void func_0209a810(Struct_0201099c_18* arg0, void* arg1);
@@ -123,7 +127,7 @@ extern "C" ARM int func_ov004_02161514(void* arg0) {
     if (var5 != 1 && var5 != 4 && var5 != 7) {
         unsigned char* var16 = (unsigned char*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)(void*)GameState::GetInstance(), data_ov004_021707e8.unknown_1c_);
         if (!var16) return 0;
-        var6 = (unsigned char*)GetPartyMemberData_02053c6c(var16);
+        var6 = (unsigned char*)func_02053c6c(var16);
         if (!var6) return 0;
         var7 = *(unsigned short*)(var6 + data_ov004_02170854[data_ov004_021707e8.unknown_8_] * 2 + 0x16c);
         ClearSpellTable_0209a804((int*)&var0);

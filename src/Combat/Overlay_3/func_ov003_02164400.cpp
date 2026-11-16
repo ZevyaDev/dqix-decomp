@@ -3,6 +3,15 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 #include "Input/Input.h"
+#include "Filesystem/FileIO.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 #if defined(jpn)
 #define REGIONAL_OFFSET(jp, us) jp
@@ -29,9 +38,9 @@ struct Struct_0202bad4;
 struct Random;
 struct SoundEffectManager_02108760;
 
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 extern "C" int* func_020936f8(void);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 
 extern "C" void func_ov003_021612c0(void* arg0);
 extern "C" int func_ov003_02161344(void* arg0);
@@ -68,7 +77,6 @@ extern "C" void func_02081198(struct Struct_02081198* arg0, int arg1, int arg2);
 extern "C" void SetMenuLayoutWindowFrameless_02081164(struct MenuLayout_02081164* menuLayout, int windowId, int isFrameless);
 extern "C" int func_0202bae4(void* arg0);
 extern "C" struct Struct_0202bad4* func_0202bad4(struct Struct_0202bad4_2* arg0, int arg1);
-extern "C" int CompareBytes_02001aec(int left, int right, int count);
 struct Random* GetBTRandom(void);
 int NextRandomMax(struct Random* random, int maximum);
 extern "C" void func_02080b54(void* arg0, int arg1);
@@ -76,7 +84,6 @@ extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
 extern "C" struct TextWindow_0207fdcc* func_02081da8(struct MenuLayout_0207fdcc_2*, int);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 
-extern int gFileScratchSpace_0211e33c;
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 struct Struct_ov003_02164400_3 { char unknown_0_[REGIONAL_OFFSET(0x7fb, 0x9ca)]; unsigned char unknown_9ca_; };
@@ -110,9 +117,9 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
     short* var5;
     unsigned char var6;
     int var7;
-    var1 = GetGlobalFlags_020d6c00();
+    var1 = func_020d6c00();
     var2 = func_020936f8();
-    var3 = GetLocalWireless_0202ae18();
+    var3 = func_0202ae18();
     var6 = arg0[HI(0x4a4)];
     var4 = *(struct MenuLayout_0207fdcc_2**)(arg0 + LO(0x324));
     var5 = (short*)(arg0 + HI(0x484));
@@ -171,7 +178,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
     }
     if (var6 == 0xb) {
         if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() != 0) return;
-        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x80);
+        SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 0x80);
         ResetSaveProgress_020a9ea4((struct SaveProgress_020a9ea4*)(arg0 + HI(0x4b4)));
         arg0[HI(0x4a4)] = 0xc;
         return;
@@ -180,13 +187,13 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         *(unsigned int*)(arg0 + HI(0x464)) |= 0x2000000;
         BackgroundLoader::AddLockGlobal();
         BackgroundLoader::FreeAllocationsGlobal();
-        if (func_020aad1c((int)(arg0 + HI(0x4b4)), (int)&gFileScratchSpace_0211e33c, 0xa, 0) == 1) {
+        if (func_020aad1c((int)(arg0 + HI(0x4b4)), (int)&g_fileScratchSpace, 0xa, 0) == 1) {
             arg0[HI(0x4be)] = 1;
             *(unsigned int*)(arg0 + HI(0x464)) &= ~0x2000000u;
             *(short*)(arg0 + HI(0x484)) = 0x30;
             *(short*)(arg0 + HI(0x486)) = 6;
             arg0[HI(0x4a4)] = 5;
-            ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x80);
+            ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)func_020d6c00(), 0x80);
         }
         BackgroundLoader::RemoveLockGlobal();
         return;
@@ -435,11 +442,11 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         int var31;
         int var32;
         var0 = arg0 + (*(short*)(arg0 + HI(0x498))) * Enum_ov003_02164400_55;
-        var30 = GetLocalWireless_0202ae18();
+        var30 = func_0202ae18();
         var32 = func_0202bae4(var30);
         for (var31 = 0; var31 < var32; var31++) {
             struct Struct_0202bad4* var33 = func_0202bad4((struct Struct_0202bad4_2*)var30, var31);
-            if (CompareBytes_02001aec((int)(var0 + REGIONAL_OFFSET(0x15, 0x31)), (int)((char*)var33 + 4), 6) == 0) goto var28;
+            if (memcmp((const void*)((int)(var0 + REGIONAL_OFFSET(0x15, 0x31))), (const void*)((int)((char*)var33 + 4)), 6) == 0) goto var28;
         }
         var31 = -1;
     var28:
@@ -460,7 +467,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         }
 
         *(int*)(arg0 + HI(0x4b0)) = 0;
-        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x80000);
+        SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 0x80000);
         {
             char* var34 = (char*)GetGameResources() + 0x3000;
             struct Struct_ov003_02164400* var35 = *(struct Struct_ov003_02164400**)(var34 + REGIONAL_OFFSET(0x90c, 0xb2c));

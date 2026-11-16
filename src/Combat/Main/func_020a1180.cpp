@@ -3,6 +3,10 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
 
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
 struct Struct_020a1180 {
     unsigned int unknown_0_0_ : 9;
     unsigned int unknown_1_1_ : 9;
@@ -14,7 +18,7 @@ struct Struct_020a1180 {
 };
 extern "C" void func_020a1380(struct Struct_020a1180* arg0);
 
-extern "C" int GetStringLength_020d2ff0(const char* string);
+extern "C" int func_020d2ff0(const char* string);
 
 struct Struct_020a1180_2;
 struct Struct_020a1568;
@@ -69,7 +73,7 @@ extern "C" ARM int func_020a1180(Script::Parameter* arg0, int arg1) {
     var0.unknown_3_6_ = arg0[4].ToInt();
 
     const char* var3 = arg0[5].ToString();
-    int var4 = GetStringLength_020d2ff0(var3);
+    int var4 = func_020d2ff0(var3);
     var0.unknown_4_ = (int)data_02109d9c->Allocate(var4 + 1);
     sprintf((char*)var0.unknown_4_, data_020f1914, var3);
     ((char*)var0.unknown_4_)[var4] = 0;

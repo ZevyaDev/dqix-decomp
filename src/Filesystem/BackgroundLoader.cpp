@@ -4,6 +4,10 @@
 #include "Filesystem/FileIO.h"
 #include "Resource/ResourceMutex.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 
 #pragma dont_inline on
 
@@ -22,9 +26,9 @@ struct Struct_02104304
 
 extern "C"
 {
-    int GetGameLanguage_0200fb08(GameState*);
+    int func_0200fb08(GameState*);
 
-    void HaltForever_020c9be0();
+    void func_020c9be0();
 
     char* data_020ef8a4[];
 
@@ -183,7 +187,7 @@ int BackgroundLoader::QueueFileTask(const char* filename, int type, const char* 
     int newID = -1;
     LockResourceMutex();
 #if defined(usa)
-    int language = GetGameLanguage_0200fb08(GameState::GetInstance());
+    int language = func_0200fb08(GameState::GetInstance());
     char replacedFilename[80] = { 0 };
     StringReplaceLanguageTag(filename, replacedFilename, language);
 #endif
@@ -191,7 +195,7 @@ int BackgroundLoader::QueueFileTask(const char* filename, int type, const char* 
     if (filename != NULL)
     {
         if (numPendingTasks_ >= 24)
-            HaltForever_020c9be0();
+            func_020c9be0();
         else
         {
             BackgroundLoader::Task* entry = &queuedTasks_[numPendingTasks_];
@@ -236,7 +240,7 @@ int BackgroundLoader::QueueFileTask(const char* filename, int type, const char* 
                         unsigned int subdirLength = strlen(candidateSubdir);
                         unsigned int filenameLength = strlen(innerDirPtr + subdirLength);
                         if (filenameLength + 1 > 0x18)
-                            HaltForever_020c9be0();
+                            func_020c9be0();
                         entry->containerDirectoryIndex_ = subdirIdx;
                         strcpy(entry->outerFilename_, innerDirPtr + subdirLength);
                         success = true;
@@ -264,7 +268,7 @@ int BackgroundLoader::QueueOverlayTask(unsigned int id, bool load)
     int newID = -1;
     LockResourceMutex();
     if (numPendingTasks_ >= 24)
-        HaltForever_020c9be0();
+        func_020c9be0();
     else
     {
         BackgroundLoader::Task* entry = &queuedTasks_[numPendingTasks_];
@@ -308,7 +312,7 @@ void BackgroundLoader::AddFence()
     if (numPendingTasks_ > 0)
     {
         if (numPendingTasks_ >= 24)
-            HaltForever_020c9be0();
+            func_020c9be0();
         else
         {
             BackgroundLoader::Task* task = &queuedTasks_[numPendingTasks_];

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Graphics/SpriteAffineTransform.h"
+#include "NitroSDK/Matrix.h"
 
-extern const fix16_t data_020e9450[4096 * 2];
 
 struct Struct_02075df4 {
     unsigned int unknown_0_;
@@ -34,11 +34,11 @@ struct Struct_02075df4_3 {
 };
 
 static inline fix32_t inline_0205b0d8(int arg0) {
-    return data_020e9450[arg0 * 2];
+    return g_fixSinCosTable[arg0 * 2];
 }
 
 static inline fix32_t inline_0205b0d8_2(int arg0) {
-    return data_020e9450[arg0 * 2 + 1];
+    return g_fixSinCosTable[arg0 * 2 + 1];
 }
 
 static inline bool inline_02075df4(int arg0) {
@@ -65,10 +65,9 @@ extern "C" ARM int func_02075df4(Struct_02075df4_3* arg0, int arg1, int arg2, in
         unsigned short var10 = arg0->unknown_30_;
         Struct_02075df4_2 var11 = arg0->unknown_28_;
         fix32_t var12 = inline_0205b0d8_2(var10 >> 4);
-        func_020c111c(&var8, inline_0205b0d8(var10 >> 4), var12);
-        func_020c1128(&var8, &var6, var11.unknown_0_, var11.unknown_4_);
-        func_020c1128(&var8, &var7, fix32_Divide(0x1000, var11.unknown_0_),
-                                        fix32_Divide(0x1000, var11.unknown_4_));
+        Mat2x2_WriteRotation((Matrix2x2*)(&var8), inline_0205b0d8(var10 >> 4), var12);
+        Mat2x2_ApplyScale((const Matrix2x2*)(&var8), (Matrix2x2*)(&var6), var11.unknown_0_, var11.unknown_4_);
+        Mat2x2_ApplyScale((const Matrix2x2*)(&var8), (Matrix2x2*)(&var7), fix32_Divide(0x1000, var11.unknown_0_), fix32_Divide(0x1000, var11.unknown_4_));
         var5 = &var6;
     }
     if (var5 != NULL) {

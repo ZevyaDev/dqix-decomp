@@ -5,6 +5,10 @@
 #include "World/Object3D.h"
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
@@ -15,7 +19,7 @@ extern "C" void StopGesture_020531f0(void* arg0);
 struct ObjectArchiveLoadInfo;
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_0205308c(void* arg0, int arg1);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" void func_0206f81c(void* arg0);
 
 struct SoundEffectManager_02108760;
@@ -189,7 +193,7 @@ extern "C" ARM void func_02053634(void* arg0) {
                 }
                 short var20 = *(short*)(var0 + 4);
                 if (var20 == GetOwnPartyLeaderObjectIndex_020100b0(var1)) {
-                    void* var21 = GetFlagManager_0205ec34();
+                    void* var21 = func_0205ec34();
                     unsigned char var22[0x34];
                     for (int var23 = 0; var23 < 4; var23++) {
                         char* var24 = var0 + var23 + 0x100;
@@ -278,7 +282,7 @@ extern "C" ARM void func_02053634(void* arg0) {
             }
             short var33 = *(short*)(var0 + 4);
             if (var33 == GetOwnPartyLeaderObjectIndex_020100b0(var1)) {
-                void* var34 = GetFlagManager_0205ec34();
+                void* var34 = func_0205ec34();
                 unsigned char var35[0x34];
                 for (int var36 = 0; var36 < 4; var36++) {
                     char* var37 = var0 + var36 + 0x100;

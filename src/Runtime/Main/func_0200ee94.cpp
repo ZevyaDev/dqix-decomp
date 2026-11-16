@@ -3,8 +3,8 @@
 typedef void (*Type_0200ee94)(void*);
 extern "C" void func_0200ee38(void*, void*, unsigned int, Type_0200ee94);
 
-// USA: func_0200ee94
-extern "C" ARM void func_0200ee94(void* arg0, unsigned int arg1, unsigned int arg2, Type_0200ee94 arg3, Type_0200ee94 arg4) {
+// USA: __cxa_vec_ctor
+extern "C" ARM void __cxa_vec_ctor(void* arg0, unsigned int arg1, unsigned int arg2, Type_0200ee94 arg3, Type_0200ee94 arg4) {
     if (arg3) {
         if (arg4) {
             unsigned char* var0 = static_cast<unsigned char*>(arg0);

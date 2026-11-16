@@ -3,6 +3,14 @@
 #include "Memory/SafeAllocator.h"
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct ItemData_0201099c_9;
 struct ItemTable_0201099c_10 {
     unsigned short unknown_0_;
@@ -74,7 +82,7 @@ struct Struct_ov003_0217599c_2 {
     signed char unknown_1043_;
 };
 
-extern "C" int *GetLocalWireless_0202ae18();
+extern "C" int *func_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int *);
 extern "C" short *GetAppearance_02052e2c(Struct_02052e2c *);
 extern "C" Struct_ov003_0217599c_4 *FindItemData_020dedd0(ItemTable_0201099c_10 *, int);
@@ -85,7 +93,7 @@ extern "C" void func_0207cc0c(char *);
 extern "C" int GetEquipRestrictions_020dd4c4(int, void *);
 extern "C" int GetEquippedItem_02052df8(Struct_02052df8 *, int);
 extern "C" void SetEquippedItem_02052d7c(Struct_ov003_0217599c *, int, short);
-extern "C" void *GetPartyMemberData_02053c6c(unsigned char *);
+extern "C" void *func_02053c6c(unsigned char *);
 extern "C" void func_0208358c(void *, Struct_ov003_0217599c_4 *, int);
 extern "C" void AddEquipmentToBag_0207c378(char *, int, int, int);
 static inline int inline_ov003_0217599c(unsigned int arg0) {
@@ -108,7 +116,7 @@ extern Struct_ov003_0217e33c data_ov003_0217faac;
 // USA: func_ov003_0217599c
 extern "C" ARM int func_ov003_0217599c(Struct_ov003_0217599c_2 *arg0) {
     GameState *var0        = GameState::GetInstance();
-    int *var1          = GetLocalWireless_0202ae18();
+    int *var1          = func_0202ae18();
     Struct_ov003_0217599c *var2 = (Struct_ov003_0217599c *) GetPartyMemberBaseByIndex_0200ff1c(var0, arg0->unknown_1043_);
     if (!var2) return 0;
     if (!GetAppearance_02052e2c((Struct_02052e2c *) var2)) return 0;
@@ -117,7 +125,6 @@ extern "C" ARM int func_ov003_0217599c(Struct_ov003_0217599c_2 *arg0) {
     if (!var3) return 0;
     unsigned int var4 = var3->unknown_8_0_;
     Struct_0206b37c var5;
-    var5.unknown_0_.ResetAllocatorPointer();
     InitItemTable_020de824(var5.unknown_14_);
     func_0207cbe8((char *) &var5);
     func_0207cbe8((char *) &var5);
@@ -137,7 +144,7 @@ extern "C" ARM int func_ov003_0217599c(Struct_ov003_0217599c_2 *arg0) {
     int var9       = arg0->unknown_103a_ == var8;
     if (!var9) {
         SetEquippedItem_02052d7c(var2, var6, arg0->unknown_103a_);
-        func_0208358c(GetPartyMemberData_02053c6c((unsigned char *) var2), var3, -1);
+        func_0208358c(func_02053c6c((unsigned char *) var2), var3, -1);
     }
     if (FindItemData_020dedd0(&arg0->unknown_874_, var8)) {
         AddEquipmentToBag_0207c378(var7 + 0x1d4, var8, 1, var4);

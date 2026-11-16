@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 #define PANEL_SHIFT 4
@@ -33,7 +34,6 @@ extern "C" void func_02041f24(char* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_02041d9c(char* arg0, int arg1);
 extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" void AppendXPositionTag_02041a28(char* buffer, int x);
-extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 
 extern "C" const char data_ov003_02180137[];
 extern "C" const char data_ov003_02180145[];
@@ -84,5 +84,5 @@ extern "C" ARM void func_ov003_02169d10(Struct_ov003_02169d10* arg0, char* arg1,
 #if !defined(jpn)
     AppendXPositionTag_02041a28(arg1, 0x5c);
 #endif
-    AppendText_02042058(arg1, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, 0x66));
+    AppendText_02042058(arg1, ((StringList*)((Struct_0201099c_3*)arg0->unknown_64_))->GetString(0x66));
 }

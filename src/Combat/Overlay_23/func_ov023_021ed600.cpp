@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "Resource/StringList.h"
 
 struct TextWindowManager_0205de24_2;
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov023_021ed600(char* arg0) {
     memset(*(void**)(arg0 + 0x1c), var1, 0x960);
 #endif
 
-    int var2 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0x4), 0x3e8);
+    int var2 = ((int)((StringList*)((struct Struct_0201099c_3*)(arg0 + 0x4)))->GetString(0x3e8));
     AppendText_02042058(*(char**)(arg0 + 0x1c), (const char*)(long)var2);
 
 #if defined(jpn)

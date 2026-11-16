@@ -50,3 +50,8 @@ extern "C" ARM void func_ov017_021c9334(int arg0, Struct_ov017_021c9334* arg1) {
     SetFacing_02033834((struct Struct_02033834_2*)var0[2], var2);
     SetFieldMonsterState_02076ccc((void*)var0[2], var3);
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

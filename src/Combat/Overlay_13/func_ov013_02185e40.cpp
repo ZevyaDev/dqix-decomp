@@ -4,6 +4,8 @@
 #define func_ov013_02185e40 func_ov013_02186f4c
 #endif
 #include "GameState/GameState.h"
+#include "Resource/GameStrings.h"
+#include "Resource/StringList.h"
 
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int func_020420e8(void* arg0, int arg1);
@@ -51,13 +53,11 @@ struct Struct_ov013_021846a0_2 {
 };
 
 struct Struct_0201099c_3;
-extern "C" ARM int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" ARM int func_02041a5c(char* arg0, int arg1);
 extern "C" ARM int AppendXPositionTag_02041a28(char* buffer, int x);
 extern "C" ARM int func_02041acc(char* arg0, int arg1);
 extern "C" ARM int AppendTextColorTag_02041e70(char* buffer, int colorIndex);
 extern "C" ARM int AppendText_02042058(char* buffer, const char* text);
-extern "C" ARM int GetStandardString_020e51cc(int stringId);
 extern "C" ARM int func_02041fac(char* arg0, int arg1, int arg2);
 extern "C" void* GetMessageWindow_020421a0(void);
 
@@ -96,8 +96,8 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
     var5 = 5;
     if (var6 == 0xa) var5 = 0xd;
     int var7 = 0x31 - (int)(((float)var2 / 4.0f) * 10.0f);
-    int var8 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, (short)(var6 + 0x12c));
-    int var9 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, (short)(arg0->unknown_6a8_ + 0xc8));
+    int var8 = ((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_620_))->GetString((short)(var6 + 0x12c)));
+    int var9 = ((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_620_))->GetString((short)(arg0->unknown_6a8_ + 0xc8)));
     sprintf(arg1, data_ov013_02188d4c, var7, arg0->unknown_6a4_, var9, var3, var5, var8, var4, arg0->unknown_6b0_);
 #else
     char var10[0x200];
@@ -106,7 +106,7 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
     int var11 = func_020420e8((void*)arg0->unknown_6a4_, 0);
     if (arg0->unknown_6b8_ != 0) {
         int var12 = (short)(arg0->unknown_6b8_ + 0x12c);
-        int var13 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, var12);
+        int var13 = ((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_620_))->GetString(var12));
         int var14 = 5;
         if (arg0->unknown_6b8_ == 0xa) var14 = 0xd;
 
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
         AppendText_02042058(var10, (const char*)var13);
         func_02041acc(var10, 4);
         AppendTextColorTag_02041e70(var10, 0xf);
-        int var15 = GetStandardString_020e51cc(0x3f3);
+        int var15 = ((int)GetGameString((eGameString)(0x3f3)));
         AppendText_02042058(var10, (const char*)var15);
 
         char var16[0x10];
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
         func_02041a5c(var10, 4);
         AppendText_02042058(var10, arg0->unknown_6a4_);
         func_02041acc(var10, 0x12);
-        int var17 = GetStandardString_020e51cc(0x3f3);
+        int var17 = ((int)GetGameString((eGameString)(0x3f3)));
         AppendText_02042058(var10, (const char*)var17);
 
         char var18[0x10];
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
 
     char var19[0x100];
     __clear(var19, 0x100);
-    int var20 = GetStandardString_020e51cc(0x3f3);
+    int var20 = ((int)GetGameString((eGameString)(0x3f3)));
     sprintf(var19, &data_ov013_02187e3f, var20, arg0->unknown_6b0_);
     int var21 = func_020420e8(var19, 0);
 
@@ -177,13 +177,13 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
     }
 
     for (int var26 = 0; var26 < 5; var26++) {
-        int var27 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, var0++);
+        int var27 = ((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_620_))->GetString(var0++));
         AppendText_02042058(arg1, (const char*)var27);
 
         short var28 = data_ov013_02187dac[var26];
         AppendXPositionTag_02041a28(arg1, var28);
 
-        int var29 = FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, var1++);
+        int var29 = ((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_620_))->GetString(var1++));
         AppendText_02042058(arg1, (const char*)var29);
 
         if (var26 != 4) {

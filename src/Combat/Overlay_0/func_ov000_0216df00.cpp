@@ -65,3 +65,8 @@ extern "C" ARM void func_ov000_0216df00(Struct_ov000_0216df00* arg0,int arg1,int
         var0->obj3D_.position_=var15;
     }
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

@@ -3,6 +3,10 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
 #define RG(u, j) (j)
 #define K(u, j) (j)
 #define func_ov002_0215b6c0 func_ov002_0215c914
@@ -19,7 +23,7 @@ extern "C" GameState* _ZN9GameState11GetInstanceEv(void);
 extern "C" unsigned int _ZNK9GameState21GetEffectiveDeltaTimeEv(GameState* arg0);
 extern "C" int _ZNK9GameState12GetTickCountEv(GameState* arg0);
 extern "C" char* GetMessageWindow_020421a0(void);
-extern "C" Struct_ov002_0216acf0_4* GetLocalWireless_0202ae18(void);
+extern "C" Struct_ov002_0216acf0_4* func_0202ae18(void);
 extern "C" char* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void _ZN8Vector3iaSERKS_(int* arg0, const void* arg1);
 extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(Struct_ov002_0216acf0_4* wireless, int protagonistObjectIndex);
@@ -111,7 +115,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
 
     GameState* var0 = _ZN9GameState11GetInstanceEv();
     char* var1 = GetMessageWindow_020421a0();
-    Struct_ov002_0216acf0_4* var2 = GetLocalWireless_0202ae18();
+    Struct_ov002_0216acf0_4* var2 = func_0202ae18();
 
     int var3 = 0;
     int var4 = 0;

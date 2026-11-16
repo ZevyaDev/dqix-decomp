@@ -6,6 +6,11 @@
 #include "NitroSDK/Graphics.h"
 #include "std_library_functions.h"
 #include "Input/Input.h"
+#include "Filesystem/FileIO.h"
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
 
 #if defined(jpn)
 #define func_ov016_0218d2f4 func_ov016_0218d9f8
@@ -99,7 +104,6 @@ extern "C" void Swap3DBuffers_020d86d0(int keepTranslucentOrder, int useWDepth);
 extern "C" void func_020bbcb4();
 extern "C" void func_020290ac(int arg0);
 extern "C" void func_020e57e0(Struct_020e57e0* arg0);
-extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 extern "C" void func_020e57f4(int, int, Struct_02013fb4*, int);
 extern "C" int GetTitleState_0201201c(void* arg0);
 struct Struct_ov016_0218b5c4_6;
@@ -114,7 +118,7 @@ extern "C" void func_0209c174(Struct_02000c9c_16* arg0);
 extern "C" void func_0209c2b8(void* arg0);
 extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
 extern "C" void OpenMusicArchive_0209c290(void* manager);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void LoadFileTables_020a0c0c();
 #if defined(jpn)
 extern "C" void func_ov016_0218d2f4(char* arg0, char* arg1, Struct_ov016_0218b5c4* arg2, Struct_ov016_0218b5c4_2* arg3, int arg4);
@@ -250,10 +254,10 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
         void* var17 = 0;
         switch (var15) {
         case 4:
-            var17 = ExtractFileFromGP2(data_ov016_0219cfcc, data_ov016_0219cfe6, &var7);
+            var17 = ExtractFileFromGP2((const char*)(data_ov016_0219cfcc), (const char*)(data_ov016_0219cfe6), (unsigned int*)(&var7));
             break;
         case 8:
-            var17 = ExtractFileFromGP2(data_ov016_0219cff7, data_ov016_0219d011, &var7);
+            var17 = ExtractFileFromGP2((const char*)(data_ov016_0219cff7), (const char*)(data_ov016_0219d011), (unsigned int*)(&var7));
             break;
         }
         if (var17 != 0) {
@@ -321,7 +325,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
     WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
     SignedAllocatorHeader* var20 = arg0->unknown_0_.GetSignedAllocator();
     arg0->unknown_0_.Destroy();
-    FreeMemory_02012da4(&gMainHeap_02114e20, var20);
+    func_02012da4(&gMainHeap_02114e20, var20);
     LoadFileTables_020a0c0c();
     func_02028ddc(0);
 }

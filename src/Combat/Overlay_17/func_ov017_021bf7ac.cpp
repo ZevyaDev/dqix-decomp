@@ -6,6 +6,15 @@
 #include "World/LootableContainer.h"
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
+#include "Graphics/SPRSprite.h"
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 
 struct ItemData_02015ef4_4 {
@@ -24,10 +33,9 @@ struct Struct_02012fa4;
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_0201ba1c(struct Struct_02019508_3* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021cfe40(unsigned short arg0, unsigned short arg1, unsigned short arg2);
-extern "C" unsigned char* GetFlagManager_0205ec34(void);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" unsigned char* func_0205ec34(void);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" void func_02047230(struct Struct_02012fa4* arg0);
 extern "C" ItemData_02015ef4_4* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_ov017_0218d510(int arg0, void* arg1);
@@ -79,18 +87,18 @@ extern "C" ARM int func_ov017_021bf7ac(struct Struct_ov017_021bf7ac_2* arg0) {
     func_ov017_021cfe40(*var1, var4, var5);
 
     LootableContainerManager* var6 = LootableContainerManager::GetMainInstance();
-    unsigned char* var7 = GetFlagManager_0205ec34();
+    unsigned char* var7 = func_0205ec34();
     if (var6 == 0 || var7 == 0) {
         return 3;
     }
 
     unsigned short var8 = 0;
     LootableContainerManager::Container* var9 = var6->GetContainerByID(var2->unknown_30_, &var8);
-    if (var9 != 0 && !IsFlagSet_0206dfb0((int)var7, var7 + 0x8c, var9->uniqueID + 0x79e)) {
+    if (var9 != 0 && !func_0206dfb0((int)var7, var7 + 0x8c, var9->uniqueID + 0x79e)) {
         char* var10 = (char*)GetZone3D_02012fe4();
         char* var11 = var10 + Enum_ov017_021bf7ac_852;
         arg0->unknown_10_ = (struct Struct_02012fa4*)(var10 + Enum_ov017_021bf7ac_1536 + GetProtagonistObjectIndex_020100a8(var0) * 0x88);
-        func_02047230(arg0->unknown_10_);
+        ((SPRSprite*)(arg0->unknown_10_))->Release();
         if (var9->lootType == 1) {
             Struct_ov017_021d6ca4 var12 = data_ov017_021d6ca4;
             arg0->unknown_14_ = var3->QueueLoadFile(var12.unknown_0_, 0);

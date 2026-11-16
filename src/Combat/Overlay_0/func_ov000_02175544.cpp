@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0 {
@@ -25,14 +26,9 @@ struct SpriteAnimation_0205a254_2 {
 };
 
 struct SpriteAnimationList_0205a254;
-extern "C" void PlaySpriteAnimation_0205a370(SpriteAnimationList_0205a254*, int);
-extern "C" SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(SpriteAnimationList_0205a254*, int);
-extern "C" void SetSpriteAnimationOAMIndex_0205a42c(SpriteAnimationList_0205a254*, int, int);
 
 struct SpriteAnimationList_0205a330;
-extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330*, int);
 
-extern "C" void DrawSpriteAnimations_0205ae8c(void*);
 
 // USA: func_ov000_02175544
 extern "C" ARM void func_ov000_02175544(unsigned char* arg0) {
@@ -54,18 +50,18 @@ extern "C" ARM void func_ov000_02175544(unsigned char* arg0) {
     var2 += var0->unknown_be_;
 
     SpriteAnimationList_0205a254* var3 = *(SpriteAnimationList_0205a254**)(arg0 + 0x174);
-    PlaySpriteAnimation_0205a370(var3, 0);
-    SpriteAnimation_0205a254_2* var4 = FindSpriteAnimation_0205a3d0(var3, 0);
+    ((OBJSpriteSet::List*)(var3))->PlaySpriteAnimation(0);
+    SpriteAnimation_0205a254_2* var4 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(var3))->GetSprite(0));
     if (var4 != NULL) var4->unknown_15_ |= 8;
 
-    AdvanceSpriteAnimations_0205a330((SpriteAnimationList_0205a330*)var3, *(int*)(arg0 + 0x94c));
+    ((OBJSpriteSet::List*)((SpriteAnimationList_0205a330*)var3))->UpdateAll(*(int*)(arg0 + 0x94c));
 
-    var4 = FindSpriteAnimation_0205a3d0(var3, 0);
+    var4 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(var3))->GetSprite(0));
     if (var4 != NULL) {
         var4->unknown_4_ = var1 - 8;
         var4->unknown_6_ = var2 - 2;
     }
 
-    SetSpriteAnimationOAMIndex_0205a42c(var3, 0, Enum_ov000_02175544_80);
-    DrawSpriteAnimations_0205ae8c(arg0 + 0x11c);
+    ((OBJSpriteSet::List*)(var3))->SetSpriteOBJIndex(0, Enum_ov000_02175544_80);
+    ((OBJSpriteSet*)(arg0 + 0x11c))->DrawAll();
 }

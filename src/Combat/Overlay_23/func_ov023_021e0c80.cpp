@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
+#include "Resource/StringList.h"
 
 extern "C" int ParseDecimal_02005a94(signed char* string);
 extern "C" void func_ov023_021e0f44(void* arg0);
 
 struct Struct_020534ac;
-extern "C" int func_020e0028(void* arg0, void* arg1, int arg2, int arg3, void* arg4, int arg5);
 
 extern "C" int func_020ac020(void* arg0, short* arg1, int* arg2, int arg3);
 
@@ -115,7 +115,7 @@ extern "C" ARM int func_ov023_021e0c80(void* arg0) {
 #endif
 
         unsigned short var18 = *(unsigned short*)((char*)arg0 + 0xc2);
-        func_020e0028((char*)arg0 + 0xa4, (char*)arg0 + 0x28, var3, var4, (char*)arg0 + 0xbc, var18);
+        ((StringList*)((char*)arg0 + 0xa4))->LoadSubsetFromMemory((SafeAllocator*)((char*)arg0 + 0x28), (void*)(var3), var4, (const short*)((char*)arg0 + 0xbc), var18);
     }
 
     ((BackgroundLoader*)(var17))->RemoveTask((int)(*(int*)((char*)arg0 + Enum_ov023_021e0c80_1872)));

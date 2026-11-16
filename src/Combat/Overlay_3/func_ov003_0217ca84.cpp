@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
+#include "NitroSDK/Cache.h"
 
 extern "C" void MemoryMapTexturePalette(void);
 extern "C" void LoadToTexturePalette(void* ptr, int a, unsigned int b);
 extern "C" void MemoryUnmapTexturePalette(void);
 void LockStagedTextureVRAMCopying(void);
-extern "C" void DC_FlushRange(const void* addr, unsigned int size);
 void UnlockStagedTextureVRAMCopying(void);
 
 struct Struct_ov003_0217ca84 {
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov003_0217ca84(Struct_ov003_0217ca84* arg0, unsigned sh
                 for (var6 = 0; var6 < var4 / 2; var6++) {
                     ((unsigned short*)var3)[var6] = arg1;
                 }
-                DC_FlushRange(var3, var4);
+                CleanInvalidateCacheRange((const void*)(var3), var4);
                 LoadToTexturePalette(var3, var5, var4);
             }
         }

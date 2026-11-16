@@ -1,11 +1,10 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
+#include "Graphics/TextureArena.h"
+#include "NitroSDK/VRAMAllocation.h"
 
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" ARM void func_020bb740(int* arg0);
-extern "C" ARM void func_020bb92c(int* arg0);
-extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 
 extern AllocatorUnion gMainHeap_02114e20;
 
@@ -40,19 +39,19 @@ extern "C" ARM void func_ov017_021a0c0c(char* arg0) {
         var3->CreateTypeA(var2, var1);
     }
 
-    func_020bb740((int*)(arg0 + Enum_ov017_021a0c0c_10872));
-    func_020bb92c((int*)(arg0 + Enum_ov017_021a0c0c_10960));
+    RestoreTextureImageAllocationState((const unsigned int*)((int*)(arg0 + Enum_ov017_021a0c0c_10872)));
+    RestoreTexturePaletteAllocationState((const unsigned int*)((int*)(arg0 + Enum_ov017_021a0c0c_10960)));
 
     for (var0 = 0; data_ov017_021d66fc[var0].unknown_0_ != 0; var0++) {
-        InitTextureVRAMArea_0207de48(arg0 + Enum_ov017_021a0c0c_716 + data_ov017_021d66f8[var0].unknown_0_ * 0x70, data_ov017_021d66fc[var0].unknown_0_, data_ov017_021d6700[var0].unknown_0_);
+        ((TextureArena*)(arg0 + Enum_ov017_021a0c0c_716 + data_ov017_021d66f8[var0].unknown_0_ * 0x70))->Initialize(data_ov017_021d66fc[var0].unknown_0_, data_ov017_021d6700[var0].unknown_0_);
     }
 
-    func_020bb740((int*)(arg0 + Enum_ov017_021a0c0c_10920));
+    RestoreTextureImageAllocationState((const unsigned int*)((int*)(arg0 + Enum_ov017_021a0c0c_10920)));
 
     for (var0 = 0; data_ov017_021d6744[var0].unknown_0_ != 0; var0++) {
-        InitTextureVRAMArea_0207de48(arg0 + Enum_ov017_021a0c0c_716 + data_ov017_021d6740[var0].unknown_0_ * 0x70, data_ov017_021d6744[var0].unknown_0_, data_ov017_021d6748[var0].unknown_0_);
+        ((TextureArena*)(arg0 + Enum_ov017_021a0c0c_716 + data_ov017_021d6740[var0].unknown_0_ * 0x70))->Initialize(data_ov017_021d6744[var0].unknown_0_, data_ov017_021d6748[var0].unknown_0_);
     }
 
-    InitTextureVRAMArea_0207de48(arg0 + Enum_ov017_021a0c0c_3740, 0x8000, 0x400);
-    InitTextureVRAMArea_0207de48(arg0 + Enum_ov017_021a0c0c_3852, 0x4000, 0x400);
+    ((TextureArena*)(arg0 + Enum_ov017_021a0c0c_3740))->Initialize(0x8000, 0x400);
+    ((TextureArena*)(arg0 + Enum_ov017_021a0c0c_3852))->Initialize(0x4000, 0x400);
 }

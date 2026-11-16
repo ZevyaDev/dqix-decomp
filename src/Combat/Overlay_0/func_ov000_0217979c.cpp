@@ -1,9 +1,9 @@
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 struct MenuCursor_0205c508;
 extern "C" void GetMenuCursorPageRange_0205c508(struct MenuCursor_0205c508* cursor, int* outPageStartIndex, int* outPageEndIndex);
 struct Struct_0201099c_3;
-extern "C" char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_ov000_0217542c(void* arg0);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
@@ -47,8 +47,8 @@ extern "C" ARM void func_ov000_0217979c(char* arg0, struct Struct_ov000_0217979c
     signed char var3 = var1;
     signed char var4 = arg1->unknown_22_;
 #if !defined(jpn)
-    char* var5 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0x13);
-    char* var6 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0);
+    char* var5 = ((char*)((StringList*)((struct Struct_0201099c_3*)(arg0 + 0xb8)))->GetString(0x13));
+    char* var6 = ((char*)((StringList*)((struct Struct_0201099c_3*)(arg0 + 0xb8)))->GetString(0));
 #endif
     if (func_ov000_0217542c(arg0)) {
         AppendFrameTag_02041c08(arg2, var4 - var2, 8, 5, 5, 5);
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov000_0217979c(char* arg0, struct Struct_ov000_0217979c
         int var10 = var8->unknown_8_0_ <= 7;
         if (var10) {
 #if defined(jpn)
-            AppendText_02042058(var9, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0x13));
+            AppendText_02042058(var9, ((char*)((StringList*)((struct Struct_0201099c_3*)(arg0 + 0xb8)))->GetString(0x13)));
 #else
             AppendText_02042058(var9, var5);
             func_02041acc(var9, 3);
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov000_0217979c(char* arg0, struct Struct_ov000_0217979c
         AppendMenuEntry_02041b70(arg2, var7 - var2, var9);
         if (var7 != var3 - 1) {
 #if defined(jpn)
-            AppendText_02042058(arg2, FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0));
+            AppendText_02042058(arg2, ((char*)((StringList*)((struct Struct_0201099c_3*)(arg0 + 0xb8)))->GetString(0)));
 #else
             AppendText_02042058(arg2, var6);
 #endif

@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca458 func_020cbf24
+#endif
+
 struct Struct_020b1938 {
     char* unknown_0_;
     int unknown_4_;
@@ -8,7 +12,7 @@ struct Struct_020b1938 {
     int unknown_10_;
 };
 
-extern "C" void Memset32Bit_020ca458(unsigned int value, void* dest, int count);
+extern "C" void func_020ca458(unsigned int value, void* dest, int count);
 
 // USA: func_020b1938
 extern "C" ARM void func_020b1938(struct Struct_020b1938* arg0, unsigned int arg1) {
@@ -32,7 +36,7 @@ extern "C" ARM void func_020b1938(struct Struct_020b1938* arg0, unsigned int arg
             return;
         }
         do {
-            Memset32Bit_020ca458(arg1, var2, var3);
+            func_020ca458(arg1, var2, var3);
             var2 += var4;
             var1++;
         } while (var1 < arg0->unknown_8_);

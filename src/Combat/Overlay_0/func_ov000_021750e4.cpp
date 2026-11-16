@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "Graphics/BGLayer.h"
 
 extern "C" int func_ov000_02170c7c(void* arg0);
-extern "C" void func_0204bc08(void* arg0, int arg1, int arg2, void* arg3, int arg4);
 extern short data_ov000_021833a0[];
 
 // USA: func_ov000_021750e4
@@ -29,6 +29,6 @@ extern "C" ARM void func_ov000_021750e4(char* arg0) {
         case 6: var2 = 3; break;
         }
         memcpy(*(void**)(arg0 + 0x178), &data_ov000_021833a0[var2], 2);
-        func_0204bc08(arg0 + 0x8c4, var4 + 2, 0xa, *(void**)(arg0 + 0x178), 2);
+        ((BGLayer*)(arg0 + 0x8c4))->UploadPaletteData(var4 + 2, 0xa, (const void*)(*(void**)(arg0 + 0x178)), 2);
     }
 }

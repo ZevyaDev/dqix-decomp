@@ -3,6 +3,6 @@
 #include "NitroSDK/Memory.h"
 
 // USA: func_0201e248
-ARM void Struct_020134e0::func_0201e248() {
-    VectorizedMemset(this, 0, sizeof(*this));
+extern "C" ARM void func_0201e248(Struct_020134e0* arg0) {
+    VectorizedMemset(arg0, 0, sizeof(*arg0));
 }

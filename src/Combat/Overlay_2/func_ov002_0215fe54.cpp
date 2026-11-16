@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
@@ -8,7 +9,6 @@ extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void SetMessageNumber_020465c0(void* window, int index, int number);
 extern "C" void SetMessageNumberAlignment_020465d8(void* window, int index, unsigned char alignment);
 extern "C" void SetMessageNumberWidth_020465f0(void* window, int index, unsigned char width);
-extern "C" const char* FindStringInTable_020e0434(char* stringTable, int stringId);
 extern "C" void func_020474a8(void* arg0, int arg1, const char* arg2, char* arg3);
 
 // JPN: func_ov002_0215fe54
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov002_0215fe54(void* arg0, char* arg1, int arg2, int ar
         SetMessageNumberAlignment_020465d8(var10, 1, 0);
         AppendPositionTag_02041a90(arg1, 0x20, 0x74);
         char var11[0x40] = {};
-        func_020474a8(var10, 8, FindStringInTable_020e0434(var0 + 8, 9), var11);
+        func_020474a8(var10, 8, ((StringList*)(var0 + 8))->GetString(9), var11);
         AppendText_02042058(arg1, var11);
     }
 }

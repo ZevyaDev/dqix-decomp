@@ -7,6 +7,16 @@
 #include "World/Object3D.h"
 #include "Input/Input.h"
 #include "Resource/Brightness.h"
+#include "Graphics/TextureArena.h"
+#include "Resource/GameStrings.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 
 
@@ -91,7 +101,7 @@ struct Struct_ov017_021acdf4 {
     unsigned char unknown_282_;
 };
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
@@ -103,7 +113,6 @@ extern "C" void func_ov017_021adb50(char* arg0);
 extern "C" unsigned char* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void InitZoneEntry_02070378(char* zoneEntry);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void func_0205ce94(unsigned char* arg0);
 extern "C" int AddEffectResource_02057e6c(void* effectManager, int effectId, SafeAllocator* allocator, void* fileData, unsigned int fileSize, TextureVRAMArea_0203d028* textureVRAMArea);
 extern "C" void func_02010834(Struct_02010834* arg0, int arg1, int* arg2, int* arg3);
@@ -126,7 +135,7 @@ extern "C" void func_ov017_021b2bf4(Struct_0206f81c_3* arg0, unsigned int arg1);
 extern "C" void func_ov017_021b2c0c(Struct_0206f81c_4* arg0, unsigned int arg1);
 extern "C" void func_ov017_021b2bdc(Struct_0206f81c_5* arg0, unsigned int arg1);
 extern "C" void func_ov004_021689d8(SafeAllocator* arg0, void* arg1);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 int IsBrightnessTransitionActive(GameResources* resources);
 extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId);
@@ -139,7 +148,6 @@ extern "C" void func_ov017_021b11b0(Struct_ov003_021638e4_2* arg0);
 extern "C" void PrependToQueue_020469f8(Queue_020469f8* queue, QueueNode_020469f8_2* node);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_020e4c74(void* arg0, GameObject* arg1);
-extern "C" int GetStandardString_020e51cc(int stringId);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, int text, int arg2, int arg3);
 #endif
@@ -224,7 +232,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Queue_02046
             }
         }
         TextureVRAMArea_0203d028* var7 = (TextureVRAMArea_0203d028*)((char (*)[0x70])var1->unknown_2cc_)[0x1c];
-        ResetTextureVRAMState_0207df50(var7);
+        ((TextureArena*)(var7))->Reset();
         unsigned int var8;
         void* var9;
         var4->GetLoadedFileByID(arg0->unknown_40_, &var9, &var8);
@@ -246,7 +254,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Queue_02046
         int var11[5];
         Struct_ov017_021abba8_2 var12[5];
         Vector3i var13;
-        void* var14 = GetLocalWireless_0202ae18();
+        void* var14 = func_0202ae18();
         func_02010834((Struct_02010834*)var0, *(short*)((char*)var2 + 4), var11, &var10);
         for (int var15 = 0; var15 < var10; var15++) {
             arg0->unknown_1e_ |= 1 << var11[var15];
@@ -301,7 +309,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Queue_02046
         }
         int var20;
         unsigned char var21;
-        if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18()) && (var21 = arg0->unknown_1e_) != 0) {
+        if (IsLocalWirelessOn_0202b7d8((int*)func_0202ae18()) && (var21 = arg0->unknown_1e_) != 0) {
             var20 = *(short*)((char*)var2 + 4);
             func_ov017_021ce014(var20, 3, (int)((Object3D*)var2)->GetField06(), var21);
         }
@@ -404,8 +412,8 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Queue_02046
                 func_ov017_021b2bdc((Struct_0206f81c_5*)var32, 0);
                 AppendToQueue_020469b4(var31, (QueueNode_0201bdac*)var32);
             }
-            if (IsNotLocalWirelessGuest_0202c508(GetLocalWireless_0202ae18())) {
-                unsigned char* var33 = (unsigned char*)GetFlagManager_0205ec34();
+            if (IsNotLocalWirelessGuest_0202c508(func_0202ae18())) {
+                unsigned char* var33 = (unsigned char*)func_0205ec34();
                 SetFlag_0206df6c(var33, var33 + 0x8c, 0x113d, 1);
             }
             if (arg0->unknown_27f_) {
@@ -462,7 +470,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Queue_02046
             char var38[0xc];
             func_020e4c74(var38, var0->GetUnknownGameObject());
             *(char**)var37 = var38;
-            StartMessage_0204500c(var37, GetStandardString_020e51cc(0x39), 0, 0xe3);
+            StartMessage_0204500c(var37, ((int)GetGameString((eGameString)(0x39))), 0, 0xe3);
 #endif
             var37[Enum_ov017_021acdf4_6578] = 0;
             *(int*)(var37 + Enum_ov017_021acdf4_2456) = 1;

@@ -2,17 +2,25 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 extern "C" void ClearMessageParams_02046380(void);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, char* text, int arg2, int arg3);
 #endif
 extern "C" int func_ov023_021f4438(void* arg0);
 extern "C" int func_ov023_021f4fc8(void);
 extern "C" int func_ov023_021f5228(int arg0);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 
 struct Party_02048150;
 extern "C" int IsInParty_02086ef0(struct Party_02048150* party, int objectIndex);
@@ -93,8 +101,8 @@ extern "C" ARM int func_ov023_021f288c(unsigned char* arg0) {
         if (IsInParty_02086ef0((struct Party_02048150*)var11, var3)) {
             if (func_ov023_021f5228(var3)) {
                 var6 = 1;
-                void* var12 = GetFlagManager_0205ec34();
-                if (IsFlagSet_0206dfb0((int)var12, (unsigned char*)var12 + 0x8c, 0x119c)) {
+                void* var12 = func_0205ec34();
+                if (func_0206dfb0((int)var12, (unsigned char*)var12 + 0x8c, 0x119c)) {
                     var5[Enum_ov023_021f288c_6602] = 0;
                 }
             }

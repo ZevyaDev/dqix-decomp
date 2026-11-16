@@ -1,10 +1,14 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 
 struct LocalWireless_0202c1a4;
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4*);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" void func_0201bf84(unsigned char* arg0, int arg1);
@@ -23,7 +27,7 @@ extern "C" ARM void func_ov017_021cdb4c(void* arg0, struct Struct_ov017_021cdb4c
         return;
     }
 
-    unsigned char* var0 = (unsigned char*)GetFlagManager_0205ec34();
+    unsigned char* var0 = (unsigned char*)func_0205ec34();
     unsigned char* var1 = (unsigned char*)GetZone3D_02012fe4();
 
     switch (arg1->unknown_5_) {

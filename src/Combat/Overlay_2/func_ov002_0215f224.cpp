@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include "Combat/Main/BattleList.h"
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 #define func_02041fac func_02042638
 #endif
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov002_0215f224(char* arg0, char* arg1, int arg2) {
     int var2, var3;
     GetMenuCursorPageRange_0205c508((struct Struct_ov002_0215f224*)(var1 + 0x54), &var2, &var3);
 
-    int var4 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + RG(0x20, 8)), 0x578);
+    int var4 = ((int)((StringList*)((struct Struct_0201099c_3*)(arg0 + RG(0x20, 8))))->GetString(0x578));
     func_02041fac(arg1, var4, 0x10);
 
     int var5;
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov002_0215f224(char* arg0, char* arg1, int arg2) {
         SetMessageNumberWidth_020465f0((unsigned char*)var9, 1, 1);
         SetMessageNumberAlignment_020465d8((unsigned char*)var9, 0, 1);
         SetMessageNumberAlignment_020465d8((unsigned char*)var9, 1, 0);
-        AppendText_02042058(arg1, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 8), 0x579));
+        AppendText_02042058(arg1, (const char*)((int)((StringList*)((struct Struct_0201099c_3*)(arg0 + 8)))->GetString(0x579)));
     }
 #else
     int var10 = *(int*)(var1 + 0x58);

@@ -5,6 +5,18 @@
 #include <GameState/GameState.h>
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 
 
 struct GameResources;
@@ -131,7 +143,7 @@ extern "C" Struct_ov023_021f1234_4* GetMessageWindow_020421a0();
 extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 extern "C" void func_ov023_021d8b6c(void* arg0);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void ResetMessageWindow_02043204(char* window);
@@ -140,11 +152,11 @@ int IsMainBrightnessTransitionActive(GameResources* resources);
 extern "C" void func_020de868(void* arg0);
 extern "C" void func_ov013_02186e74(Struct_ov002_021682c0* arg0, SafeAllocator* arg1);
 extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
-extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" unsigned char* func_02053c6c(unsigned char* gameObject);
 extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2* arg0);
 
 extern "C" {
-void* GetFlagManager_0205ec34();
+void* func_0205ec34();
 void func_ov023_021f1818(void* arg0, int arg1);
 void func_ov023_021d8af8(void* arg0);
 void func_ov013_02184360(Struct_ov023_021f1234_5* arg0, void* arg1);
@@ -178,7 +190,7 @@ extern "C" ARM int func_ov023_021f1234(Struct_ov023_021f1234_3* arg0)
     Struct_ov023_021f1234_2* var1 = _ZZ21inline_ov023_021f4c04vE1s;
     GameResources* var2 = GetGameResources();
     BackgroundLoader* var3 = BackgroundLoader::GetInstance();
-    void* var4 = GetFlagManager_0205ec34();
+    void* var4 = func_0205ec34();
     Struct_ov023_021f1234_4* var5 = GetMessageWindow_020421a0();
     int var6 = var1->unknown_18_;
     int var7 = IsInParty_02086ef0((Party_02048150*)GetParty_02010828(var0), var6);
@@ -209,7 +221,7 @@ extern "C" ARM int func_ov023_021f1234(Struct_ov023_021f1234_3* arg0)
     {
         if (var1->unknown_0_ == 0)
         {
-            if (!IsFlagSet_0206dfb0((int)var4, (unsigned char*)var4 + 0x8c, 0x119c))
+            if (!func_0206dfb0((int)var4, (unsigned char*)var4 + 0x8c, 0x119c))
             {
                 SetFlag_0206df6c(var4, (unsigned char*)var4 + 0x8c, 0x119c, 1);
                 if (var7)
@@ -264,7 +276,7 @@ extern "C" ARM int func_ov023_021f1234(Struct_ov023_021f1234_3* arg0)
                 if (var10 != NULL)
                 {
                     func_ov013_02184b4c(arg0->unknown_5574_, var10);
-                    arg0->unknown_5578_->unknown_67_ = var10->obj3D_.objectIndex_4_;
+                    arg0->unknown_5578_->unknown_67_ = var10->obj3D_.unknown_4_;
                 }
             }
         }
@@ -298,7 +310,7 @@ extern "C" ARM int func_ov023_021f1234(Struct_ov023_021f1234_3* arg0)
             }
             int var12 = arg0->unknown_5574_->unknown_65c_;
             if (var11 != NULL)
-                func_ov013_0218782c(arg0->unknown_5578_, (signed char)var11->obj3D_.objectIndex_4_, (unsigned char)var12);
+                func_ov013_0218782c(arg0->unknown_5578_, (signed char)var11->obj3D_.unknown_4_, (unsigned char)var12);
         }
         else if (var1->unknown_0_ == 6)
         {
@@ -332,7 +344,7 @@ extern "C" ARM int func_ov023_021f1234(Struct_ov023_021f1234_3* arg0)
                 {
                     func_ov013_02184c8c(arg0->unknown_5574_, var13);
                     var1->unknown_e2_ = func_0209a678(var1->unknown_e8_, var13, var1->unknown_74_);
-                    func_02083e28(GetPartyMemberData_02053c6c((unsigned char*)var13), 0);
+                    func_02083e28(func_02053c6c((unsigned char*)var13), 0);
                 }
                 func_ov017_021cc730(var6, 0, 0, 1);
                 func_ov017_021ccc34(var6);

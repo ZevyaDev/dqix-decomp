@@ -2,6 +2,7 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 #include "Resource/CharacterCreationUI.h"
+#include "Resource/StringList.h"
 
 struct MenuLayout_0207fdcc_2;
 struct MenuLayout_02080f8c;
@@ -78,7 +79,6 @@ struct Struct_ov006_0215a00c_5 {
 
 extern "C" void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2*, int);
 extern "C" void OpenMenuLayoutWindow_020813ec(void*, int);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3*, int);
 extern "C" struct MessageWindow_020465c0* GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(struct MessageWindow_020465c0*);
 extern "C" void* FindNounInTable_020e5294(void*, int);
@@ -112,7 +112,7 @@ extern "C" ARM void func_ov006_0215a00c(struct Struct_ov006_0215a00c_5* arg0) {
         }
         arg0->unknown_300_.unknown_94_ &= ~0x20;
         arg0->unknown_300_.unknown_80_ = 0;
-        if (FindStringInTable_020e0434(&arg0->unknown_158_, arg0->unknown_300_.unknown_7e_) == 0) {
+        if (((int)((StringList*)(&arg0->unknown_158_))->GetString(arg0->unknown_300_.unknown_7e_)) == 0) {
             arg0->unknown_300_.unknown_7e_ = -1;
         }
         arg0->unknown_3b0_ = -1;
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov006_0215a00c(struct Struct_ov006_0215a00c_5* arg0) {
         unsigned short var6 = 0;
         if (arg0->unknown_34_ != 0) {
 #if defined(jpn)
-            SetMessageString_02046574(var4, 0, (char*)FindStringInTable_020e0434(&arg0->unknown_170_, arg0->unknown_1ec_));
+            SetMessageString_02046574(var4, 0, (char*)((int)((StringList*)(&arg0->unknown_170_))->GetString(arg0->unknown_1ec_)));
 #else
             void* var7 = FindNounInTable_020e5294(&arg0->unknown_170_, arg0->unknown_1ec_);
             if (var7 != 0) {
@@ -155,9 +155,9 @@ extern "C" ARM void func_ov006_0215a00c(struct Struct_ov006_0215a00c_5* arg0) {
         }
 
 #if defined(jpn)
-        SetMessageString_02046574(var4, 2, (char*)FindStringInTable_020e0434(&arg0->unknown_170_, arg0->unknown_300_.unknown_78_[0]));
-        SetMessageString_02046574(var4, 3, (char*)FindStringInTable_020e0434(&arg0->unknown_170_, arg0->unknown_300_.unknown_78_[1]));
-        SetMessageString_02046574(var4, 4, (char*)FindStringInTable_020e0434(&arg0->unknown_170_, arg0->unknown_300_.unknown_78_[2]));
+        SetMessageString_02046574(var4, 2, (char*)((int)((StringList*)(&arg0->unknown_170_))->GetString(arg0->unknown_300_.unknown_78_[0])));
+        SetMessageString_02046574(var4, 3, (char*)((int)((StringList*)(&arg0->unknown_170_))->GetString(arg0->unknown_300_.unknown_78_[1])));
+        SetMessageString_02046574(var4, 4, (char*)((int)((StringList*)(&arg0->unknown_170_))->GetString(arg0->unknown_300_.unknown_78_[2])));
 #else
         short* var9 = (short*)data_ov006_0215ffd2;
         for (var2 = 0; ; var2++) {
@@ -174,7 +174,7 @@ extern "C" ARM void func_ov006_0215a00c(struct Struct_ov006_0215a00c_5* arg0) {
         }
 #endif
 
-        const char* var12 = (const char*)FindStringInTable_020e0434(&arg0->unknown_158_, arg0->unknown_300_.unknown_7e_);
+        const char* var12 = (const char*)((int)((StringList*)(&arg0->unknown_158_))->GetString(arg0->unknown_300_.unknown_7e_));
 #if defined(jpn)
         func_020474a8(var4, 0xc, var12, var5);
 #else

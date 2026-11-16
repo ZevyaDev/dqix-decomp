@@ -5,6 +5,7 @@
 #define LOW_REGION(j, u) (u)
 #endif
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 #define func_ov013_02185990 func_ov013_02186b88
@@ -17,7 +18,6 @@ struct MenuCursor_0205bacc;
 extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 extern "C" void func_0205cb74(char* arg0, int arg1);
 
@@ -54,10 +54,10 @@ extern "C" ARM void func_ov013_02185990(unsigned char* arg0) {
     SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(var0 + LOW_REGION(0x3f0, 0x20)), 2);
     SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(var0 + LOW_REGION(0x440, 0x70)), 2);
 
-    int var1 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + LOW_REGION(0x5ac, 0x620)), 0xa);
+    int var1 = ((int)((StringList*)((struct Struct_0201099c_3*)(arg0 + LOW_REGION(0x5ac, 0x620))))->GetString(0xa));
     func_0205cb74((char*)(var0 + LOW_REGION(0x3d0, 0)), var1);
 
-    int var2 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + LOW_REGION(0x5ac, 0x620)), 0xb);
+    int var2 = ((int)((StringList*)((struct Struct_0201099c_3*)(arg0 + LOW_REGION(0x5ac, 0x620))))->GetString(0xb));
     func_0205cb74((char*)(var0 + LOW_REGION(0x3d0, 0)), var2);
 
     *(unsigned short*)(var0 + LOW_REGION(0x484, 0xb4)) = 0xc2;

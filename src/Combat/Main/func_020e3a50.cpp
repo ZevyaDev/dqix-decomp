@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_020e385c {
     unsigned int unknown_0_;
     unsigned char unknown_4_;
@@ -12,13 +16,13 @@ struct Struct_020e3a50 {
 };
 
 extern "C" struct Struct_020e385c* func_020e385c(struct Struct_020e385c* arg0, int arg1, int arg2);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void func_ov017_021cebcc(int, int, int);
 
 // USA: func_020e3a50
 extern "C" ARM void func_020e3a50(struct Struct_020e385c* arg0, int arg1, int arg2, int arg3) {
-    if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18())) {
+    if (IsLocalWirelessGuest_0202c540(func_0202ae18())) {
         func_ov017_021cebcc(1, arg2 & 0xff, arg3);
         return;
     }

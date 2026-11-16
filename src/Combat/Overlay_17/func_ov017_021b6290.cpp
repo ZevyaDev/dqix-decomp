@@ -5,6 +5,14 @@
 #include "Combat/BufferedScriptResult.h"
 
 #if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
 #define data_ov017_021d7c10 data_ov017_021d832c
 #endif
 struct Struct_02018300_3 { char unknown_0_[0xb2]; short unknown_b2_; };
@@ -26,7 +34,7 @@ extern "C" unsigned char* GetColorFade_020704fc();
 extern "C" void func_02017c58(void*);
 extern "C" int func_02046cc8(Struct_02046f84*);
 extern "C" int func_0204700c(Struct_02046f84*);
-extern "C" void* GetBattleSetup_ov017_021b8478(void*);
+extern "C" void* func_ov017_021b8478(void*);
 extern "C" void func_0209c480(MusicManager_02109bf4_4*, int);
 extern "C" void SetMusicVolume_0209c2e0(MusicManager_02109bf4_4*, int, int);
 extern "C" void func_0205e944(void*, int);
@@ -39,7 +47,7 @@ extern "C" void* GetMessageWindow_020421a0();
 extern "C" Struct_0203e5d8* GetNPCManager_0203cf4c();
 extern "C" void func_0203e5d8(Struct_0203e5d8*, int);
 extern "C" float func_020709ac(unsigned char*);
-extern "C" unsigned int* GetGlobalFlags_020d6c00();
+extern "C" unsigned int* func_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void func_02047198(Struct_02046f84*);
 extern "C" void func_02046f84(Struct_02046f84*);
@@ -83,7 +91,7 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
                 Struct_02074060 var9;
                 Struct_02074060* var10 = &var9;
                 if (IsTypeInQueue_02046b60((Queue_02038598_5*)var1->unknown_ptr_array_36fc[0], 10)) {
-                    void* var11 = GetBattleSetup_ov017_021b8478(var5);
+                    void* var11 = func_ov017_021b8478(var5);
                     if (var11) var10 = (Struct_02074060*)((char*)var11 + 0x10);
                 }
                 if (func_0207416c(var10, arg0->unknown_fe_, var7, var8)) var6 = var10->unknown_e_;
@@ -112,7 +120,7 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
             SetFlags04(var1, 16);
             SetFlags04(var1, 2);
             SetFlags00(var1, 4);
-            SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 1);
+            SetGlobalFlags_020466e4(func_020d6c00(), 1);
             func_02047198(&arg0->unknown_c_);
             func_02046f84(&arg0->unknown_c_);
             func_ov017_0218d274(var1);

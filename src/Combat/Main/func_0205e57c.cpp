@@ -1,6 +1,14 @@
 #include <globaldefs.h>
 #include "Combat/SearchEntry.h"
 
+#if defined(jpn)
+#define func_0205e57c func_0205f868
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_0205e3ec { unsigned int unknown_0_[4]; };
 struct LocalWirelessPacket_0205e330_3 { unsigned char unknown_0_; unsigned char unknown_1_; unsigned char unknown_2_[2]; struct Struct_0205e3ec unknown_4_; };
 extern "C" struct LocalWirelessPacket_0205e330_3* func_0205e3ec(struct LocalWirelessPacket_0205e330_3* arg0, struct LocalWirelessPacket_0205e330_3* arg1);
@@ -31,7 +39,7 @@ struct Struct_0205e57c_6;
 extern "C" int func_0205e830(struct Struct_0205e57c_6* arg0, int arg1);
 
 struct LocalWireless_0202c1a4;
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void* func_0202c19c(void* arg0);
 extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
@@ -73,7 +81,7 @@ static int data_02108750;
 extern "C" ARM void func_0205e57c(struct Struct_0205e57c_5* arg0) {
     static unsigned char sSeq;
 
-    LocalWireless_0202b2f0* var0 = (LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* var0 = (LocalWireless_0202b2f0*)func_0202ae18();
     if (sSeq >= 0xfa) {
         sSeq = 0;
     }
@@ -96,7 +104,7 @@ extern "C" ARM void func_0205e57c(struct Struct_0205e57c_5* arg0) {
         if (var5 == NULL) continue;
         if (var5->unknown_16_ & 1) {
             var4 = 1;
-            struct Struct_0205e57c_2* var6 = (struct Struct_0205e57c_2*)func_0202c19c(GetLocalWireless_0202ae18());
+            struct Struct_0205e57c_2* var6 = (struct Struct_0205e57c_2*)func_0202c19c(func_0202ae18());
             for (int var7 = 0; var7 < 5; var7++) {
                 if (var6->unknown_10_[var7].unknown_0_ != 0xff) {
                     var4 = 0;

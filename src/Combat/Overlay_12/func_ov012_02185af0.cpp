@@ -13,6 +13,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
+#include "NitroSDK/Cache.h"
 
 extern "C" int GetFontLoader_02094a00(void);
 struct FontLoader_02094ab0;
@@ -29,7 +30,6 @@ struct TextWindowManager_0205d2bc;
 extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(struct TextWindowManager_0205d2bc*);
 extern "C" void ResetTextWindowManager_0205d048(void*);
 
-extern "C" void DC_FlushRange(const void*, unsigned int);
 extern "C" void LoadToMainBG1CharacterData(int, int, unsigned int);
 
 // USA: func_ov012_02185af0
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov012_02185af0(unsigned char* arg0) {
     ResetTextWindowManager_0205d048((void*)(arg0 + R(0x90,0xac)));
 
     memset(*(void**)(arg0 + R(0x134c,0x137c)), 0, 0x20);
-    DC_FlushRange(*(void**)(arg0 + R(0x134c,0x137c)), 0x20);
+    CleanInvalidateCacheRange((const void*)(*(void**)(arg0 + R(0x134c,0x137c))), 0x20);
     LoadToMainBG1CharacterData((int)*(void**)(arg0 + R(0x134c,0x137c)), 0, 0x20);
 
     *(int*)(arg0 + R(0x1344,0x1374)) = 0;

@@ -1,4 +1,8 @@
 #if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
@@ -33,7 +37,7 @@ extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" int func_ov023_021e6448(void*);
 extern "C" int func_ov023_021e7148(void*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
-extern "C" void GetLocalWireless_0202ae18();
+extern "C" void func_0202ae18();
 extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void func_ov012_0218bba0(void*, int, int);
@@ -70,7 +74,7 @@ extern "C" ARM void func_ov012_02188640(char* arg0) {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             Struct_ov012_02188640* var3 = inline_ov012_02188640(GameState::GetInstance());
             GameState* var4 = GameState::GetInstance();
-            GetLocalWireless_0202ae18();
+            func_0202ae18();
             if (*(int*)(arg0 + 0x1444) == 0) {
                 char* var5 = *(char**)((char*)var4->GetProtagonist() + 0x144);
                 int var6 = *(int*)(var5 + 0x8b8);
@@ -172,7 +176,7 @@ extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
 extern "C" int func_ov023_021e6448(Struct_ov012_02188640_6* arg0);
 extern "C" int func_ov023_021e6de4(Struct_ov012_02188640_6* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" void GetLocalWireless_0202ae18();
+extern "C" void func_0202ae18();
 extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_ov012_0218adac(Struct_ov012_02188640_6* arg0, int arg1, int arg2, int arg3);
@@ -228,7 +232,7 @@ extern "C" ARM void func_ov012_02188640(Struct_ov012_02188640_6* arg0)
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             Struct_ov012_02188640_2* var11 = inline_ov012_02188640_2(GameState::GetInstance());
             GameState* var12 = GameState::GetInstance();
-            GetLocalWireless_0202ae18();
+            func_0202ae18();
             Struct_ov012_02188640_5* var13 = (Struct_ov012_02188640_5*)var12->GetProtagonist();
             if (arg0->unknown_13d8_[5] == 0)
             {

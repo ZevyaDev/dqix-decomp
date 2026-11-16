@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "NitroSDK/Interrupts.h"
+#include "std_library_functions.h"
 
 struct Struct_ov031_0224e3b8_4 {
 	char unknown_0_[0x5a];
@@ -9,7 +10,6 @@ struct Struct_ov031_0224e3b8_4 {
 
 extern Struct_ov031_0224e3b8_4 data_ov031_0224e3b8[4];
 
-extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
 
 // USA: func_ov031_02207c30
 extern "C" ARM void func_ov031_02207c30(void* arg0) {
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov031_02207c30(void* arg0) {
 	var0 = 0;
 	do {
 		if (var2->unknown_5a_ != 0) {
-			if (CompareBytes_02001aec(var2, (char*)arg0 + 0x74, 0x20) == 0) {
+			if (memcmp(var2, (char*)arg0 + 0x74, 0x20) == 0) {
 				var2->unknown_5a_ = 0;
 				break;
 			}

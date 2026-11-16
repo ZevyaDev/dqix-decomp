@@ -2,7 +2,7 @@
 
 #include "NitroSDK/Matrix.h"
 #include "GameState/GameState.h"
-#include "NitroSDK/Graphics3D/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 #include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "World/Object3D.h"
 
@@ -62,7 +62,7 @@ extern "C" ARM void func_02057ab8(struct Struct_02057ab8_3* arg0, int arg1) {
             var2->unknown_b2_ = -1;
             continue;
         }
-        ModelRenderContext* var5 = (ModelRenderContext*)GetModel3DContext((Model3D*)var4);
+        Nitro3DRenderContext* var5 = (Nitro3DRenderContext*)GetModel3DContext((Model3D*)var4);
         if (var5 == 0) {
             var2->unknown_b2_ = -1;
             continue;
@@ -75,9 +75,9 @@ extern "C" ARM void func_02057ab8(struct Struct_02057ab8_3* arg0, int arg1) {
         Vector3fix var9 = ((Object3D*)var3)->GetScale();
         int var10 = 0;
         if (var2->unknown_b4_ > -1) {
-            if (GetModelBonePositionAndDirectionMatrices(var5, (Matrix4x3*)var10, (Matrix3x3*)var10, (unsigned int)var2->unknown_b4_)) {
-                const Matrix4x3* var11 = RenderConfig::GetInverseViewMatrix();
-                GetCurrentPositionAndDirectionMatrices(&var6, (Matrix3x3*)var10);
+            if (Nitro3D_GetBonePosDirMatrices(var5, (Matrix4x3*)var10, (Matrix3x3*)var10, (unsigned int)var2->unknown_b4_)) {
+                const Matrix4x3* var11 = Nitro3DRenderConfig::GetInverseViewMatrix();
+                Nitro3D_GetCurrentPosDirMatrices(&var6, (Matrix3x3*)var10);
                 Mat4x3_Multiply(&var6, var11, &var6);
                 var10 = 1;
             }

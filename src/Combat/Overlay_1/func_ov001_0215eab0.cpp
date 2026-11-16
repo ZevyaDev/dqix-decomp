@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Graphics/TextureArena.h"
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" int GetResources_0200fb8c(int* gameState);
@@ -14,8 +15,6 @@ struct TextureVRAMArea_0203d028 {
     struct TexturePaletteVRAMState_0207df50_2 basePaletteState_58_;
     struct TexturePaletteVRAMState_0207df50_2 savedPaletteState_60_;
 };
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 
 // USA: func_ov001_0215eab0
 extern "C" ARM int func_ov001_0215eab0(void* arg0, int arg1) {
@@ -48,8 +47,8 @@ extern "C" ARM int func_ov001_0215eab0(void* arg0, int arg1) {
         var4 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x8);
     }
     if (var4 != 0) {
-        ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)var3);
+        ((TextureArena*)((struct TextureVRAMArea_0203d028*)var3))->Reset();
     }
-    RestoreTextureVRAMState_0207df90((char*)var3);
+    ((TextureArena*)((char*)var3))->Restore();
     return 1;
 }

@@ -3,7 +3,7 @@
 
 #pragma define_section initcode ".init" RX
 
-extern "C" void func_0200ee94(void* arg0, int arg1, int arg2, void* arg3, void* arg4);
+extern "C" void __cxa_vec_ctor(void* arg0, int arg1, int arg2, void* arg3, void* arg4);
 extern "C" char* func_020a1ffc(char* arg0);
 
 extern char data_01ffd364[8][6];
@@ -32,7 +32,7 @@ extern struct Struct_020f1940 data_020f1940;
 // KEEP-NAME: the ROM symbol here is the mangled C++ name, not a func_ tag.
 // USA: func_020e6420
 extern "C" __declspec(initcode) ARM void __sinit_020e6420(void) {
-    func_0200ee94(data_01ffd364, 8, 6, (void*)func_020a1ffc, 0);
+    __cxa_vec_ctor(data_01ffd364, 8, 6, (void*)func_020a1ffc, 0);
     data_020f1940.unknown_22_ = OVERLAY_ID(0);
     data_020f1940.unknown_23_ = OVERLAY_ID(1);
     data_020f1940.unknown_24_ = OVERLAY_ID(2);

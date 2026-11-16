@@ -88,3 +88,8 @@ extern "C" ARM void func_ov000_0216e678(Struct_ov000_0216e678* arg0, int arg1, i
         arg0->unknown_258_ = func_ov000_0216f210(arg0, &var17);
     } else arg0->unknown_25c_++;
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

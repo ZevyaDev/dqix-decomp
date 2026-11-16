@@ -7,13 +7,26 @@
 #include "World/Object3D.h"
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
+#include "Filesystem/FileIO.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_020de848 func_020e01c4
+#endif
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 
 #if defined(jpn)
 #define data_ov003_0217fdbb data_ov003_0217e5e3
 #define data_ov003_0217f2e8 data_ov003_0217dfe8
 #define data_ov003_0217f2ce data_ov003_0217dfce
-extern "C" int func_020e2168(char* arg0, const char* arg1, int arg2, int arg3, bool arg4);
 extern char data_ov003_0217e5f8;
 #endif
 
@@ -128,8 +141,8 @@ struct Struct_ov003_021575dc_2;
 extern "C" void func_ov003_02158140(Struct_ov003_021575dc_2*, int);
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
-extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
-extern "C" void ClearItemTable_020de848(void* itemTable);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
+extern "C" void func_020de848(void* itemTable);
 extern "C" ARM int func_020de980(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
@@ -139,11 +152,9 @@ ARM int IsBrightnessTransitionActive(GameResources*);
 extern "C" ARM void* func_0208247c(void* arg0);
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 extern "C" ARM int OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" void AddItem_0207d300(void* itemContext, int itemId, int count, int isAliveRequired);
-extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" void CopyStringFromTableFile_020e046c(void* buffer, void* fileData, int fileSize, int stringId);
+extern "C" void* func_0205ec34(void);
 extern "C" void func_02082490(void* arg0, void* arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov003_02158334(void* arg0);
 extern "C" int func_ov003_021550dc(void* arg0);
@@ -309,7 +320,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
             var24->RemoveTask(var0->unknown_1d0_);
             var0->unknown_1d0_ = -1;
             short var31 = var0->unknown_1f0_;
-            ClearItemTable_020de848(var0->unknown_178_);
+            func_020de848(var0->unknown_178_);
             func_020de980(var0->unknown_178_, var0->unknown_0_ + 0x78, var25, var26, var31);
             var0->unknown_338_ = 1;
             func_ov003_0215873c(arg0);
@@ -337,8 +348,8 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
             var34 = var35->unknown_950_;
         }
         if (var34 > 0) {
-            void* var36 = GetFlagManager_0205ec34();
-            if (IsFlagSet_0206dfb0((int)var36, (unsigned char*)var36 + 0x8c, var34 + 0x8b + 0x1100) == 0) {
+            void* var36 = func_0205ec34();
+            if (func_0206dfb0((int)var36, (unsigned char*)var36 + 0x8c, var34 + 0x8b + 0x1100) == 0) {
                 SetFlag_0206df6c(var36, (unsigned char*)var36 + 0x8c, var34 + 0x8b + 0x1100, 1);
                 var5[0] = 0x16;
                 var5[1] = 0x17;
@@ -407,7 +418,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
                     char var53[0x38];
                     __clear(var53, 0x38);
 #if defined(jpn)
-                    func_020e2168(var53, &data_ov003_0217e5f8, var38[var50], var41->unknown_150_->unknown_49c_.unknown_0_0_, true);
+                    GetStringFromNAT(var53, &data_ov003_0217e5f8, var38[var50], var41->unknown_150_->unknown_49c_.unknown_0_0_, true);
 #else
                     BackgroundLoader::AddLockGlobal();
                     unsigned int var54 = 0;
@@ -419,9 +430,9 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
                     sprintf(var55, &data_ov003_0217fdd0, var57);
                     int var58 = var41->unknown_150_->unknown_49c_.unknown_0_0_;
                     sprintf(var56, &data_ov003_0217fde7, var58);
-                    void* var59 = ExtractFileFromGP2(var55, var56, &var54);
+                    void* var59 = ExtractFileFromGP2((const char*)(var55), (const char*)(var56), (unsigned int*)(&var54));
                     if (var59 != 0) {
-                        CopyStringFromTableFile_020e046c(var53, var59, var54, var38[var50]);
+                        GetStringFromNAT((char*)(var53), (void*)(var59), var54, var38[var50]);
                     }
                     BackgroundLoader::RemoveLockGlobal();
 #endif

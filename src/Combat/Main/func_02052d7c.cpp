@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 #if defined(jpn)
 enum { Enum_02052d7c_336 = 0x144 };
@@ -8,7 +12,7 @@ enum { Enum_02052d7c_336 = 0x150 };
 #endif
 
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 
 struct Struct_02052d7c {
     unsigned char unknown_0_[Enum_02052d7c_336];
@@ -23,7 +27,7 @@ extern "C" ARM void SetEquippedItem_02052d7c(struct Struct_02052d7c* gameObject,
     if (itemId == currentItemId) return;
 
     if (slot != 7 && slot != 8) {
-        void* flagManager = GetFlagManager_0205ec34();
+        void* flagManager = func_0205ec34();
         SetFlag_0206df6c(flagManager, (unsigned char*)flagManager + 0x8c, 0x113f, 1);
     }
 

@@ -1,10 +1,18 @@
 #include <globaldefs.h>
 #include "NitroSDK/Filesystem/NitroVM.h"
 
+#if defined(jpn)
+#define func_020ca458 func_020cbf24
+#endif
+
+#if defined(jpn)
+#define func_020ca390 func_020cbe5c
+#endif
 
 
-extern "C" void Memset16Bit_020ca390(int val, void* dst, unsigned int size);
-extern "C" void Memset32Bit_020ca458(unsigned int value, void* dest, int count);
+
+extern "C" void func_020ca390(int val, void* dst, unsigned int size);
+extern "C" void func_020ca458(unsigned int value, void* dest, int count);
 extern "C" int Memcpy16Bit_020ca3b8(int src, int dst, int size);
 extern "C" CBool func_ov027_021dac74(const char* arg0, void* arg1, int arg2);
 extern "C" int func_ov027_021dad84(unsigned short* arg0);
@@ -21,14 +29,14 @@ struct Struct_ov027_021dab84 {
 
 // USA: func_ov027_021dab84
 extern "C" ARM void func_ov027_021dab84(void* arg0, Struct_ov027_021dab84* arg1, int arg2) {
-    Memset16Bit_020ca390(0, arg0, 0x4c0);
+    func_020ca390(0, arg0, 0x4c0);
     *((unsigned char*)arg0 + 0x4b2) = 0;
 
     unsigned int var0 = func_ov027_021dac74(arg1->unknown_c_, arg0, 1) == 0;
     unsigned int var1 = func_ov027_021dac74(arg1->unknown_10_, arg0, 0) == 0;
     if (var0 | var1) {
         *((unsigned char*)arg0 + 0x4b2) = 1;
-        Memset32Bit_020ca458(0, arg0, 0x220);
+        func_020ca458(0, arg0, 0x220);
     }
 
     *(unsigned int*)((char*)arg0 + 0x4b8) = arg1->unknown_14_;

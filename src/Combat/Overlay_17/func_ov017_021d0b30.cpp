@@ -2,7 +2,11 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02042764(char* arg0, void* arg1, int arg2);
@@ -25,7 +29,7 @@ extern "C" ARM void func_ov017_021d0b30(unsigned short arg0, unsigned short arg1
 #else
  enum {Enum_ov017_021d0b30_860=0x35c, Enum_ov017_021d0b30_48=0x30};
 #endif
-    void* var0 = GetLocalWirelessPacketQueue_0202ae24();
+    void* var0 = func_0202ae24();
     struct Struct_ov017_021d0b30_2 var1;
     struct Struct_ov017_021d0b30* var2 = &var1.unknown_4_;
 

@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
+#include "Graphics/BGLayer.h"
 
 extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
-extern "C" void func_0204bc08(void* arg0, int arg1, int arg2, void* arg3, int arg4);
 extern "C" double func_02009424(double arg0);
 
 struct Struct_ov000_02174e50 {
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov000_02174e50(char* arg0, int arg1) {
         if (3.14f <= var1) {
             unsigned short var2 = 0x7fff;
             memcpy(*(void**)(arg0 + 0x178), &var2, 2);
-            func_0204bc08(arg0 + 0x8c4, arg1 + 2, 0xf, *(void**)(arg0 + 0x178), 2);
+            ((BGLayer*)(arg0 + 0x8c4))->UploadPaletteData(arg1 + 2, 0xf, (const void*)(*(void**)(arg0 + 0x178)), 2);
             var0->unknown_24_ &= ~8;
             var0->unknown_40_ = 0.0f;
             var0->unknown_80_ = 0x7fff;
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov000_02174e50(char* arg0, int arg1) {
             if (var5 > 31) var5 = 31;
             unsigned short var6 = 0x1f | (var4 << 5) | (var5 << 10);
             memcpy(*(void**)(arg0 + 0x178), &var6, 2);
-            func_0204bc08(arg0 + 0x8c4, arg1 + 2, 0xf, *(void**)(arg0 + 0x178), 2);
+            ((BGLayer*)(arg0 + 0x8c4))->UploadPaletteData(arg1 + 2, 0xf, (const void*)(*(void**)(arg0 + 0x178)), 2);
             var0->unknown_80_ = var6;
         }
     }

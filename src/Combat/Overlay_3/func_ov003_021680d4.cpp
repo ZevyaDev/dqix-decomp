@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
+#include "Graphics/OBJSpriteSet.h"
 
 #if defined(jpn)
 enum { Enum_ov003_021680d4_1236 = 0x4d0 };
@@ -16,9 +17,7 @@ enum { Enum_ov003_021680d4_92 = 0x5c };
 #endif
 
 struct Sprite_02043368_2;
-extern "C" void InitSprite_0205a198(Sprite_02043368_2*);
 struct SpriteAnimationList_02043368;
-extern "C" void InitSpriteAnimationList_0205a234(SpriteAnimationList_02043368*);
 extern "C" int GetMessageWindow_020421a0();
 
 struct Struct_ov003_021680d4 {
@@ -56,12 +55,12 @@ extern "C" ARM void func_ov003_021680d4(struct Struct_ov003_021680d4* arg0, Safe
 #else
     for (var6 = 0; var6 < 0x10; var6++) {
 #endif
-        InitSprite_0205a198((Sprite_02043368_2*)((char*)arg0->unknown_4d4_ + var6 * 0x28));
+        ((OBJSpriteSet::Metatile*)((Sprite_02043368_2*)((char*)arg0->unknown_4d4_ + var6 * 0x28)))->Reset();
     }
 
     void* var7 = arg1->Allocate(8);
     arg0->unknown_4d8_ = var7;
-    InitSpriteAnimationList_0205a234((SpriteAnimationList_02043368*)var7);
+    ((OBJSpriteSet::List*)((SpriteAnimationList_02043368*)var7))->Reset();
 
     arg0->unknown_7c_ = *(int*)(GetMessageWindow_020421a0() + Enum_ov003_021680d4_92);
 }

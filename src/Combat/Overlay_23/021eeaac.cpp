@@ -5,6 +5,14 @@
 #include "Resource/GameResources.h"
 #include "NitroSDK/OverlayId.h"
 
+#if defined(jpn)
+#define func_020de848 func_020e01c4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct StringList_020727d8;
 struct LocalWireless_0202b2f0;
 struct SkillTable_0200f3a4_8;
@@ -18,7 +26,7 @@ extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, int scriptData, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 extern "C" void func_ov000_0215fa84(void* arg0, short* arg1, short* arg2, short* arg3);
 extern "C" int func_ov023_021ed92c();
-extern "C" void ClearItemTable_020de848(void* itemTable);
+extern "C" void func_020de848(void* itemTable);
 extern "C" int LoadItemTableByIds_020de9a4(void* itemTable, void* allocator, void* fileData, unsigned int fileSize, void* itemIds, unsigned short itemIdCount);
 extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void func_0207cbe8(char* arg0);
@@ -26,7 +34,7 @@ extern "C" int AddItem_0207d300(void* itemContext, int itemId, int count, int is
 extern "C" int func_0207ccf0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
+extern "C" LocalWireless_0202b2f0* func_0202ae18(void);
 extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8* table);
 extern "C" void func_0209a470(Struct_0209a470* arg0, SafeAllocator* arg1, Struct_02013fb4* arg2, int arg3);
@@ -141,7 +149,7 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
             }
         }
         *(void**)(arg0 + Enum_ov023_021eeaac_22796) = var3->Allocate(0x18);
-        ClearItemTable_020de848(*(void**)(arg0 + Enum_ov023_021eeaac_22796));
+        func_020de848(*(void**)(arg0 + Enum_ov023_021eeaac_22796));
         LoadItemTableByIds_020de9a4(*(void**)(arg0 + Enum_ov023_021eeaac_22796), var3, var8, var7, var10, var9);
         var1->RemoveTask(var2[1]);
         if (*(short*)(*(char**)(arg0 + Enum_ov023_021eeaac_668) + 0x8e4a) > 0) {
@@ -177,7 +185,7 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
                 if (var6 < 0) {
                     var26 = AddItem_0207d300(var25, var20->unknown_0_, 1, 1);
                 } else {
-                    if (var28 != var6 && (IsLocalWirelessPlayerJoined_0202c1c0(GetLocalWireless_0202ae18(), var6) != 0 || var28 != 0)) {
+                    if (var28 != var6 && (IsLocalWirelessPlayerJoined_0202c1c0(func_0202ae18(), var6) != 0 || var28 != 0)) {
                         if (var21 & (1 << var28)) {
                             var6 = var28;
                         }

@@ -1,6 +1,8 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
+#include "Graphics/TextureArena.h"
+#include "NitroSDK/VRAMAllocation.h"
 
 #if defined(jpn)
 enum { Enum_ov017_021a09c8_10872 = 0x2868, Enum_ov017_021a09c8_10960 = 0x28c0, Enum_ov017_021a09c8_10920 = 0x2898, Enum_ov017_021a09c8_716 = 0x27c, Enum_ov017_021a09c8_3852 = 0xebc, Enum_ov017_021a09c8_3068 = 0xbac, Enum_ov017_021a09c8_3892 = 0xee4, Enum_ov017_021a09c8_3108 = 0xbd4, Enum_ov017_021a09c8_3932 = 0xf0c, Enum_ov017_021a09c8_3148 = 0xbfc, Enum_ov017_021a09c8_3936 = 0xf10, Enum_ov017_021a09c8_3152 = 0xc00, Enum_ov017_021a09c8_3940 = 0xf14, Enum_ov017_021a09c8_3156 = 0xc04, Enum_ov017_021a09c8_3948 = 0xf1c, Enum_ov017_021a09c8_3164 = 0xc0c, Enum_ov017_021a09c8_3956 = 0xf24, Enum_ov017_021a09c8_3172 = 0xc14, Enum_ov017_021a09c8_3960 = 0xf28, Enum_ov017_021a09c8_3176 = 0xc18 };
@@ -9,10 +11,6 @@ enum { Enum_ov017_021a09c8_10872 = 0x2a78, Enum_ov017_021a09c8_10960 = 0x2ad0, E
 #endif
 
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
-extern "C" void func_020bb740(int* arg0);
-extern "C" void func_020bb92c(int* arg0);
-extern "C" int func_020bb588(unsigned int arg0, int arg1, int arg2);
 
 extern AllocatorUnion gMainHeap_02114e20;
 
@@ -39,23 +37,23 @@ extern "C" ARM void func_ov017_021a09c8(char* arg0) {
         ((SafeAllocator*)((arg0 + 0x38) + var3 * 0x14))->CreateTypeA(var2, var0);
     }
 
-    func_020bb740((int*)(arg0 + Enum_ov017_021a09c8_10872));
-    func_020bb92c((int*)(arg0 + Enum_ov017_021a09c8_10960));
-    func_020bb588(0x20000, 0, 0);
+    RestoreTextureImageAllocationState((const unsigned int*)((int*)(arg0 + Enum_ov017_021a09c8_10872)));
+    RestoreTexturePaletteAllocationState((const unsigned int*)((int*)(arg0 + Enum_ov017_021a09c8_10960)));
+    FrameAllocateTextureImageVRAM(0x20000, 0, 0);
 
     {
         int var4;
         for (int var5 = 0; (var4 = data_ov017_021d675c[var5].unknown_0_) != 0; var5++) {
-            InitTextureVRAMArea_0207de48((arg0 + Enum_ov017_021a09c8_716) + data_ov017_021d6758[var5].unknown_0_ * 0x70, var4, data_ov017_021d6760[var5].unknown_0_);
+            ((TextureArena*)((arg0 + Enum_ov017_021a09c8_716) + data_ov017_021d6758[var5].unknown_0_ * 0x70))->Initialize(var4, data_ov017_021d6760[var5].unknown_0_);
         }
     }
 
-    func_020bb740((int*)(arg0 + Enum_ov017_021a09c8_10920));
+    RestoreTextureImageAllocationState((const unsigned int*)((int*)(arg0 + Enum_ov017_021a09c8_10920)));
 
     {
         int var6;
         for (int var7 = 0; (var6 = data_ov017_021d6854[var7].unknown_0_) != 0; var7++) {
-            InitTextureVRAMArea_0207de48((arg0 + Enum_ov017_021a09c8_716) + data_ov017_021d6850[var7].unknown_0_ * 0x70, var6, data_ov017_021d6858[var7].unknown_0_);
+            ((TextureArena*)((arg0 + Enum_ov017_021a09c8_716) + data_ov017_021d6850[var7].unknown_0_ * 0x70))->Initialize(var6, data_ov017_021d6858[var7].unknown_0_);
         }
     }
 

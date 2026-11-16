@@ -16,6 +16,12 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/MessageSystem.h"
 #include "Input/Input.h"
+#include "Filesystem/FileIO.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct Struct_01ff8b48_26 {
     unsigned short unknown_0_;
@@ -128,7 +134,6 @@ struct MenuCursor_0205bb84;
 struct SoundEffectManager_02108760;
 
 extern char data_ov008_0218b400[] __attribute__((aligned(4)));
-extern unsigned char gFileScratchSpace_0211e33c[];
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 extern "C" GameResources* GetResources_0200fb8c(int* gameState);
@@ -142,16 +147,14 @@ void* LoadFileIntoMemory(const char* path, void* archive, unsigned int* size);
 extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3, void* arg4, int arg5);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84* cursor);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 extern "C" {
-void* ExtractFileFromGP2(char* arg0, char* arg1, unsigned int* arg2);
 void func_ov008_02186964(Struct_ov008_021842a0_2* arg0);
 int func_ov008_02186a30(Struct_ov008_021842a0_2* arg0, int arg1);
-void* GetLocalWireless_0202ae18();
+void* func_0202ae18();
 int IsLocalWirelessGuest_0202c540(void* wireless);
 }
 
@@ -230,7 +233,7 @@ extern "C" ARM void func_ov008_02185dc0(Struct_ov008_021842a0_2* arg0, unsigned 
                     BackgroundLoader::AddLockGlobal();
                     Struct_ov008_02185dc0 var13;
                     unsigned int var14;
-                    void* var15 = LoadFileIntoMemory(data_ov008_0218b400, gFileScratchSpace_0211e33c, &var14);
+                    void* var15 = LoadFileIntoMemory(data_ov008_0218b400, g_fileScratchSpace, &var14);
                     if (var15 != NULL)
                     {
                         ResetStringList_020727d8((StringList_020727d8*)&var13);
@@ -238,7 +241,7 @@ extern "C" ARM void func_ov008_02185dc0(Struct_ov008_021842a0_2* arg0, unsigned 
                         ResetStringList_020727d8((StringList_020727d8*)&var13);
                         func_02072928(&var13, (Struct_02013fb4*)var15, var14, arg0->unknown_b16_, var11, 1);
                     }
-                    var15 = ExtractFileFromGP2(var10, var11, &var14);
+                    var15 = ExtractFileFromGP2((const char*)(var10), (const char*)(var11), (unsigned int*)(&var14));
                     if (var15 != NULL)
                     {
                         Struct_ov000_02179cdc_4* var16 = (Struct_ov000_02179cdc_4*)GetPartyMemberBaseByIndex_0200ff1c(var0, GetProtagonistObjectIndex_020100a8(var0));
@@ -248,7 +251,7 @@ extern "C" ARM void func_ov008_02185dc0(Struct_ov008_021842a0_2* arg0, unsigned 
                     }
                     BackgroundLoader::RemoveLockGlobal();
 #endif
-                    AppendText_02042058(var12, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 1000));
+                    AppendText_02042058(var12, ((StringList*)((Struct_0201099c_3*)&arg0->unknown_a0_))->GetString(1000));
 #if defined(jpn)
                     StartMessage_0204500c(var2, var12, 0);
 #else
@@ -275,9 +278,9 @@ extern "C" ARM void func_ov008_02185dc0(Struct_ov008_021842a0_2* arg0, unsigned 
                 if (REGION_MESSAGE(arg0, var4))
                 {
 #if defined(jpn)
-                    StartMessage_0204500c(var2, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 10000), 0);
+                    StartMessage_0204500c(var2, ((StringList*)((Struct_0201099c_3*)&arg0->unknown_a0_))->GetString(10000), 0);
 #else
-                    StartMessage_0204500c(var2, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 10000), 0, 0xe3);
+                    StartMessage_0204500c(var2, ((StringList*)((Struct_0201099c_3*)&arg0->unknown_a0_))->GetString(10000), 0, 0xe3);
 #endif
                     var2->unknown_19b2_ = 1;
                     var2->unknown_19c8_ = 1;
@@ -318,7 +321,7 @@ extern "C" ARM void func_ov008_02185dc0(Struct_ov008_021842a0_2* arg0, unsigned 
         unsigned char var22 = arg0->unknown_744_[var19];
         if (g_keyManager.TestKeysPressed(0x401) || var18 == 1)
         {
-            if (!IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) || var22 != 5)
+            if (!IsLocalWirelessGuest_0202c540(func_0202ae18()) || var22 != 5)
             {
                 PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
                 arg0->unknown_b10_ = var22 + 5;

@@ -16,7 +16,7 @@ extern "C" ARM void func_02028e90(void) {
         memset(glyphBitmapContext.unknown_0_, 0, 256 * 192 / 2);
     }
     int var0 = data_020ef74c.unknown_c_;
-    DC_FlushRange(glyphBitmapContext.unknown_0_, 256 * 192 / 2);
+    CleanInvalidateCacheRange((const void*)(glyphBitmapContext.unknown_0_), 256 * 192 / 2);
     if (var0 == 3) {
         LoadToMainBG1CharacterData(glyphBitmapContext.unknown_0_, 0, 256 * 192 / 2);
         return;

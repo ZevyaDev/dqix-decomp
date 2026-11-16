@@ -23,3 +23,8 @@ extern "C" ARM void func_ov004_0215e574(void* arg0, int arg1, int arg2, int arg3
     var2.x = (arg3 + ((arg2 - var0) >> 1)) << 12;
     var1->inline_ov004_0215e574_8(var2);
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

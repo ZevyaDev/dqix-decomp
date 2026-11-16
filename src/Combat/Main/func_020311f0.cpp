@@ -2,6 +2,10 @@
 #include "NitroSDK/Matrix.h"
 
 #if defined(jpn)
+#define func_020311f0 func_02030d28
+#endif
+
+#if defined(jpn)
 #define func_020c51a4 func_020c6c70
 #endif
 

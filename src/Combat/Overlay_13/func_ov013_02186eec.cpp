@@ -1,11 +1,11 @@
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
 
 struct Struct_0208df10;
 extern "C" void func_0208df10(struct Struct_0208df10* arg0);
 struct StringList_020727d8;
 extern "C" void ResetStringList_020727d8(struct StringList_020727d8* stringList);
 struct BGLayer_02020cb8;
-extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 struct BGControlSave_02074af4;
 extern "C" void SaveMainBGControl_02074af4(struct BGControlSave_02074af4* save);
 struct BGControlSave_02074b64;
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov013_02186eec(void* arg0, unsigned char arg1) {
     ResetStringList_020727d8((struct StringList_020727d8*)(var0 + 0x4));
     var0[0x24] = 0;
     var0[0x25] = 0;
-    InitBGLayer_0204af64((struct BGLayer_02020cb8*)(var0 + 0x28));
+    ((BGLayer*)((struct BGLayer_02020cb8*)(var0 + 0x28)))->Reset();
     *(int*)(var0 + Enum_ov013_02186eec_92) = -1;
     var0[Enum_ov013_02186eec_100] = arg1;
     var0[Enum_ov013_02186eec_100 + 1] = 0;

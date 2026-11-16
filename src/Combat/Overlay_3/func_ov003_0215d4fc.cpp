@@ -3,6 +3,11 @@
 #include <globaldefs.h>
 #include "Combat/EntryGetterTypes.h"
 #include "Resource/GameResources.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 #if defined(jpn)
 enum { Enum_ov003_0215d4fc_0 = 0x18, Enum_ov003_0215d4fc_0_2 = -0x130, Enum_ov003_0215d4fc_1808 = 0x500 };
@@ -54,7 +59,7 @@ struct Struct_ov003_0215d4fc {
 extern int gMusicManager_02109bf4;
 extern int gSoundEffectManager_02108760;
 
-extern "C" int *GetLocalWireless_0202ae18();
+extern "C" int *func_0202ae18();
 extern "C" void * GetResources_0200fb8c(int*);
 extern "C" Struct_ov003_0215d150_2 *GetMessageWindow_020421a0();
 extern "C" void *GetNPCManager_0203cf4c();
@@ -62,7 +67,6 @@ extern "C" unsigned char *func_020e2ff8();
 extern "C" int IsNotLocalWirelessGuest_0202c508(int *);
 extern "C" void ResetMessageWindow_02043204(char*);
 struct Struct_0201099c_3;
-extern "C" void * FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_ov003_0215cab0(Struct_ov003_02154af4_3 *, void *);
 extern "C" void *FindNPCById_0203df78(void *, int);
 struct TextWindowManager_0205d6a0;
@@ -100,7 +104,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
     GameState *var0    = GameState::GetInstance();
     void *var1        = GetResources_0200fb8c((int*)var0);
     Struct_ov003_0215d150_2 *var2         = GetMessageWindow_020421a0();
-    int *var3           = GetLocalWireless_0202ae18();
+    int *var3           = func_0202ae18();
     void *var4          = GetNPCManager_0203cf4c();
     GameObject *var5    = var0->GetUnknownGameObject();
     unsigned char *var6 = func_020e2ff8();
@@ -132,14 +136,14 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
                     var10 = 0x72;
                 }
             }
-            func_ov003_0215cab0(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, var10));
+            func_ov003_0215cab0(arg0, ((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_64_))->GetString(var10)));
             arg0->unknown_3b8_ = 8;
             return;
         }
         if (arg0->unknown_3f0_ != 0) {
             var10 = 0x6a;
         }
-        func_ov003_0215cab0(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, var10));
+        func_ov003_0215cab0(arg0, ((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_64_))->GetString(var10)));
         arg0->unknown_3bb_ = 2;
         void *var11 = FindNPCById_0203df78(var4, (*(Struct_ov003_0215d4fc **) ((char *) GetGameResources() + 0x3000 + Enum_ov003_0215d4fc_1808))->unknown_12c_);
         if (var11 != 0) {
@@ -247,7 +251,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
                 var16 = 0x6d;
             }
         }
-        func_ov003_0215cab0(arg0, FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_64_, var16));
+        func_ov003_0215cab0(arg0, ((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_64_))->GetString(var16)));
         arg0->unknown_3b8_ = arg0->unknown_3b8_ + 1;
     }
     if (arg0->unknown_3b8_ == 8 && var2->unknown_998_ == 0) {

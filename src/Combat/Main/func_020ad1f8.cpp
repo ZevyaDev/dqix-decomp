@@ -3,7 +3,11 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void GetLocalWireless_0202ae18();
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void func_0202ae18();
 extern "C" void func_0201bd04(void* arg0, int arg1, int arg2);
 extern "C" void func_0201bd3c(void* arg0, int arg1, int arg2);
 extern "C" int GetStoryChapter_0201079c(char* gameState);
@@ -29,7 +33,7 @@ struct Struct_020ad1f8_2 {
 extern "C" ARM void func_020ad1f8(struct Struct_020ad1f8_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     GetGameResources();
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     var0->GetPartyMemberByIndex(0);
     GameObject* var1 = var0->GetUnknownGameObject();
     Vector3i var2 = var1->obj3D_.position_;

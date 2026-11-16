@@ -3,6 +3,7 @@
 extern "C" void func_020474a8(void*, int, int, char*);
 #endif
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
 
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void* window);
@@ -12,7 +13,6 @@ extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index,
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov003_0216abd8(struct Struct_ov003_0216abd8_3* arg0, ch
     if (var3->unknown_f68_ != 0) {
         SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var2, 0, var3->unknown_f68_);
         SetMessageNumberWidth_020465f0((unsigned char*)var2, 0, 0);
-        int var5 = FindStringInTable_020e0434((struct Struct_0201099c_3*)var0->unknown_64_, 0x443);
+        int var5 = ((int)((StringList*)((struct Struct_0201099c_3*)var0->unknown_64_))->GetString(0x443));
 #if defined(jpn)
         func_020474a8(var2, 0xc, var5, var4->unknown_600_);
 #else
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov003_0216abd8(struct Struct_ov003_0216abd8_3* arg0, ch
     } else {
         char* var6 = (char*)var1->GetProtagonist()->baseStats_;
         SetMessageString_02046574((struct Struct_02046574_2*)var2, 0, var6);
-        int var7 = FindStringInTable_020e0434((struct Struct_0201099c_3*)var0->unknown_64_, 0x442);
+        int var7 = ((int)((StringList*)((struct Struct_0201099c_3*)var0->unknown_64_))->GetString(0x442));
 #if defined(jpn)
         func_020474a8(var2, 0xc, var7, var4->unknown_600_);
 #else

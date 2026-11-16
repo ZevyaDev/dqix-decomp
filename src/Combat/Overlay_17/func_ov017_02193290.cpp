@@ -75,3 +75,8 @@ extern "C" ARM int func_ov017_02193290(int arg0, int arg1, int arg2, Vector3i* a
     }
     return var1;
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

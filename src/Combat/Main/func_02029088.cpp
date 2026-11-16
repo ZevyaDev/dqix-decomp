@@ -4,6 +4,10 @@
 #include "NitroSDK/Cache.h"
 
 #if defined(jpn)
+#define func_020429d4 func_02042e94
+#endif
+
+#if defined(jpn)
 extern "C" int func_020429d4(void);
 
 typedef unsigned char Type_02029088[4];
@@ -41,5 +45,5 @@ extern "C" ARM void func_02029088() {
         memcpy(var1 + var8, var0, sizeof(Type_02029088_3));
     }
 #endif
-    DC_FlushRange(glyphBitmapContext.unknown_0_, 256 * 192 / 2);
+    CleanInvalidateCacheRange((const void*)(glyphBitmapContext.unknown_0_), 256 * 192 / 2);
 }

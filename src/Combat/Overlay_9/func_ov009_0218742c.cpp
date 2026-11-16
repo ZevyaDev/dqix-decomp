@@ -5,6 +5,12 @@
 #include "Util/Random.h"
 #include "std_library_functions.h"
 #include "Input/Input.h"
+#include "Graphics/BGLayer.h"
+#include "Filesystem/FileIO.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
 
 struct Struct_ov009_0218742c_7 {
     unsigned int unknown_0_0_ : 10;
@@ -80,17 +86,13 @@ struct Struct_ov009_0218aac8 { unsigned char unknown_0_; unsigned char unknown_1
 struct TextWindowManager_0205d81c; struct SoundEffectManager_02108760; struct Struct_0205c570; struct TextWindowManager_0205da38;
 struct TextWindowManager_0205d6a0; struct BGLayer_0204b010; struct TextWindowManager_0205d1e0; struct TextWindowManager_0205d228;
 struct TextWindowManager_0205d274; struct TextWindowManager_0205d2bc; struct ItemTable_0201099c_10; struct Struct_0201099c_18;
-extern "C" void* GetGlobalFlags_020d6c00();
+extern "C" void* func_020d6c00();
 extern "C" void func_ov023_021d9f88(Struct_ov009_0218742c_6*);
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" int IsEntryTouchedAgain_0205da38(TextWindowManager_0205da38*, int);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
-extern "C" void ClearBGScreenData_0204b010(BGLayer_0204b010*, void*);
-extern "C" void FillBGScreenRect_0204bc74(void*, int, int, int, int, int, int);
-extern "C" void FlushBGScreenData_0204b04c(void*, int);
-extern "C" void CopyBGScreenDataToVRAM_0204b088(void*, int);
 extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(TextWindowManager_0205d1e0*);
 extern "C" void DrawTextWindows_0205d228(TextWindowManager_0205d228*);
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274*);
@@ -115,7 +117,6 @@ extern "C" void* func_ov003_0215f4fc(void*, const char*);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern unsigned char data_ov009_0218a9b4[];
 extern char data_ov009_0218ad2c[];
-extern char gFileScratchSpace_0211e33c[] __attribute__((aligned(4)));
 extern Struct_ov009_0218aac8 data_ov009_0218aac8[];
 extern char data_ov009_0218ad26[];
 
@@ -124,7 +125,7 @@ inline Struct_ov009_0218742c_7* inline_ov009_0218742c_4(Struct_ov009_0218742c* a
 // USA: func_ov009_0218742c
 extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
     GameState* var0 = GameState::GetInstance();
-    GetGlobalFlags_020d6c00();
+    func_020d6c00();
     unsigned int var1 = arg0->unknown_c59_;
     if (var1 == 0) {
         func_ov023_021d9f88(arg0);
@@ -169,10 +170,10 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             arg0->unknown_c59_ = 255;
         }
     } else if (var1 == 3) {
-        ClearBGScreenData_0204b010((BGLayer_0204b010*)arg0->unknown_1b8_, 0);
-        FillBGScreenRect_0204bc74(arg0->unknown_1b8_, 0, 0, 0, 32, 25, 0);
-        FlushBGScreenData_0204b04c(arg0->unknown_1b8_, 0);
-        CopyBGScreenDataToVRAM_0204b088(arg0->unknown_1b8_, 0);
+        ((BGLayer*)((BGLayer_0204b010*)arg0->unknown_1b8_))->PrepareIndexBuffer((void*)(0));
+        ((BGLayer*)(arg0->unknown_1b8_))->SetTileInRectangle(0, 0, 0, 32, 25, 0);
+        ((BGLayer*)(arg0->unknown_1b8_))->CleanIndexBufferCache((const void*)(0));
+        ((BGLayer*)(arg0->unknown_1b8_))->UploadIndexBuffer((const void*)(0));
         if (arg0->unknown_d95_ == 0) {
             Struct_ov009_0218742c_9* var6 = arg0->unknown_d88_;
             var6->unknown_56a_ = data_ov009_0218a9b4[arg0->unknown_da8_[arg0->unknown_da3_]];
@@ -200,7 +201,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             func_0208247c(&var11);
             BackgroundLoader::AddLockGlobal();
             unsigned int var12;
-            void* var13 = LoadFileIntoMemory(var9, gFileScratchSpace_0211e33c, &var12);
+            void* var13 = LoadFileIntoMemory(var9, g_fileScratchSpace, &var12);
             if (var13) func_02082490(&var11, var13, var12, arg0->unknown_d88_->unknown_16c_[arg0->unknown_da2_], 0);
             func_02083cbc(arg0->unknown_d88_, &var11, var11.unknown_3c_);
             BackgroundLoader::RemoveLockGlobal();
@@ -260,7 +261,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             func_0208247c(&var30);
             BackgroundLoader::AddLockGlobal();
             unsigned int var31;
-            void* var32 = LoadFileIntoMemory(var28, gFileScratchSpace_0211e33c, &var31);
+            void* var32 = LoadFileIntoMemory(var28, g_fileScratchSpace, &var31);
             if (var32) func_02082490(&var30, var32, var31, var25->unknown_16c_[arg0->unknown_da2_], 0);
             func_02083cbc(var25, &var30, var30.unknown_3c_);
             BackgroundLoader::RemoveLockGlobal();
@@ -304,10 +305,10 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
         }
 #endif
     } else if (var1 == 255) {
-        ClearBGScreenData_0204b010((BGLayer_0204b010*)arg0->unknown_1b8_, 0);
-        FillBGScreenRect_0204bc74(arg0->unknown_1b8_, 0, 0, 0, 32, 25, 0);
-        FlushBGScreenData_0204b04c(arg0->unknown_1b8_, 0);
-        CopyBGScreenDataToVRAM_0204b088(arg0->unknown_1b8_, 0);
+        ((BGLayer*)((BGLayer_0204b010*)arg0->unknown_1b8_))->PrepareIndexBuffer((void*)(0));
+        ((BGLayer*)(arg0->unknown_1b8_))->SetTileInRectangle(0, 0, 0, 32, 25, 0);
+        ((BGLayer*)(arg0->unknown_1b8_))->CleanIndexBufferCache((const void*)(0));
+        ((BGLayer*)(arg0->unknown_1b8_))->UploadIndexBuffer((const void*)(0));
         ColorEffect_ConfigureBrightnessAdjust(0x04001050, 1, 0);
         SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)arg0->unknown_2b4_, 3, 0);
         SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)arg0->unknown_2b4_, 2, 0);

@@ -7,6 +7,10 @@
 #include "NitroSDK/Graphics.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_020a1df8 func_020a3b70
+#endif
+
 struct Struct_02018300_3;
 struct Struct_ov017_021b2c88;
 
@@ -16,7 +20,7 @@ extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void SetCameraFlags_020a28a0(unsigned char* camera, unsigned char flags);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void PushOverlay_020a1df8(int overlayEntry);
+extern "C" void func_020a1df8(int overlayEntry);
 extern "C" void PushSubOverlay_020a1ef0(int subOverlayEntry);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize, int arg1);
@@ -71,7 +75,7 @@ extern "C" ARM void func_ov017_021b2ce8(Struct_ov017_021b2ce8* arg0) {
             arg0->unknown_1_ = 1;
             return;
         }
-        PushOverlay_020a1df8(3);
+        func_020a1df8(3);
         PushSubOverlay_020a1ef0(1);
         func_ov003_02174114(data_ov017_021d840c);
         func_ov003_02173f70(data_ov017_021d840c, &arg0->unknown_c_);

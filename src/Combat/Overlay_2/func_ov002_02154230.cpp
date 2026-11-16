@@ -3,12 +3,16 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Party_02048150;
 extern "C" int IsInParty_02086ef0(Party_02048150 *party, int objectIndex);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" int func_ov002_02154b94(void *arg0, int arg1);
 extern "C" int func_ov002_02154a34(void *arg0, int arg1);
-extern "C" int *GetLocalWireless_0202ae18(void);
+extern "C" int *func_0202ae18(void);
 extern "C" void func_ov002_02153e90(char *arg0);
 extern "C" int func_ov002_02154a6c(char *arg0, int arg1, int arg2);
 extern "C" int func_ov002_02153be0(char *arg0, int arg1, int arg2);
@@ -38,7 +42,7 @@ extern "C" ARM int func_ov002_02154230(char *arg0, struct Struct_ov002_02154230 
     GameState *var0                  = GameState::GetInstance();
     GameResources *var1             = GetGameResources();
     Party_02048150 *var2 = (Party_02048150 *) GetParty_02010828(var0);
-    int *var3                       = GetLocalWireless_0202ae18();
+    int *var3                       = func_0202ae18();
     struct Struct_ov002_02154230_2 *var4       = (struct Struct_ov002_02154230_2 *) ((char *) arg1 + 8);
     unsigned char var5              = 0;
     if (arg3) var4 = (struct Struct_ov002_02154230_2 *) ((char *) arg1 + 0x20);

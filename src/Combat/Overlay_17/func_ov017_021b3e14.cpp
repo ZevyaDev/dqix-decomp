@@ -3,6 +3,20 @@
 #include "Filesystem/FileIO.h"
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
+#include "Graphics/TextureArena.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
+
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct Struct_02072e34 {
     int unknown_0_[11];
@@ -10,13 +24,9 @@ struct Struct_02072e34 {
 extern "C" void func_02072e34(int arg0, struct Struct_02072e34* arg1);
 
 struct TextureVRAMArea_0203d028;
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_020730e0(int arg0, int arg1);
-extern "C" int NSBXX_Model_GetMaterialPolygonID(NSBXXInternalModel* model, unsigned int materialIndex);
 extern "C" int GetBattle_ov017_021b8470(void* battleManager);
-extern "C" unsigned char* GetBattleSetup_ov017_021b8478(void* battleManager);
+extern "C" unsigned char* func_ov017_021b8478(void* battleManager);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 
 struct ObjectArchiveLoadInfo_0203d028_11;
@@ -33,13 +43,13 @@ extern "C" void func_02026bc8(unsigned char* arg0, int arg1);
 struct Struct_02010604;
 extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
 struct LocalWireless_0202b2f0;
-extern "C" struct LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
+extern "C" struct LocalWireless_0202b2f0* func_0202ae18(void);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" int func_0202be08(struct LocalWireless_0202b2f0* arg0, int arg1);
 struct PartyMember_02054000;
 extern "C" void* GetEquippedWeaponItemData_02054000(struct PartyMember_02054000* gameObject);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" int func_020483f0(unsigned char* arg0, unsigned short arg1);
 extern "C" void func_02083e28(void* arg0, int arg1);
 void ApplyCombatantBuffs(int world, int id);
@@ -162,10 +172,10 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
         var9->GetLoadedFileByID(arg0->unknown_10_[var7], &var12, &var13);
         SafeAllocator* var14 = &var5->allocator_array_4[var7];
         char* var15 = var5->unknown_cc_ + var7 * 0x70;
-        ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)var15);
-        RestoreTextureVRAMState_0207df90(var15);
+        ((TextureArena*)((struct TextureVRAMArea_0203d028*)var15))->Reset();
+        ((TextureArena*)(var15))->Restore();
         var2->obj3D_.SetModelFromFile(var14, var12, var13, (Model3D::TextureStagingMode)arg0->unknown_c_);
-        SaveTextureVRAMState_0207dfac(var15);
+        ((TextureArena*)(var15))->Save();
         var6 = var2->obj3D_.pModel_;
         if (var7 == 0) {
             var6->CreateBoneMatrixAndMaterialArrays(var14, 7);
@@ -196,7 +206,7 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
             GameObject* var19 = var8->GetGameObjectByIndex(var11.unknown_0_[var7]);
             if (var19 != NULL && var19->obj3D_.pModel_ != NULL && var19->obj3D_.pModel_->rawInternalModel_ != NULL) {
                 (*(Type_ov017_021b3e14*)((unsigned char*)var0 + arg0->unknown_8_ * 11 + POLYGON_ID_ROWS_021b3e14))[var7] =
-                    NSBXX_Model_GetMaterialPolygonID(var19->obj3D_.pModel_->rawInternalModel_, 0);
+                    Nitro3D_GetModelMaterialPolygonID((Nitro3DModel*)(var19->obj3D_.pModel_->rawInternalModel_), 0);
             }
         }
     }
@@ -204,7 +214,7 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
     int var20 = 0;
     void* var21 = var0->unknown_ptr_3718;
     var3 = GetBattle_ov017_021b8470(var21);
-    unsigned char* var22 = GetBattleSetup_ov017_021b8478(var21);
+    unsigned char* var22 = func_ov017_021b8478(var21);
     if (((unsigned char*)var21)[2] != 0 && var22 != NULL) {
         if (IsPartyMemberInBattle_020a35e0(var22, arg0->unknown_8_)) {
             var20 = 1;
@@ -290,8 +300,8 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
         var10->unknown_0_.EnableFlag(4);
 
         if (var3 == 0) {
-            struct LocalWireless_0202b2f0* var37 = GetLocalWireless_0202ae18();
-            int var38 = var10->unknown_0_.objectIndex_4_;
+            struct LocalWireless_0202b2f0* var37 = func_0202ae18();
+            int var38 = var10->unknown_0_.unknown_4_;
             GameObject* var39 = GetCompanionByIndex_0200ff58(var8, var38);
             if (var39 != NULL) {
                 var38 = GetLeaderObjectIndex_020546a8(var39);
@@ -317,7 +327,7 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
                 if (var41 != NULL) {
                     struct Struct_ov017_021b3e14_4* var42 = (struct Struct_ov017_021b3e14_4*)GetEquippedWeaponItemData_02054000((struct PartyMember_02054000*)var41);
                     if (var42 != NULL && var42->unknown_18_ > 0 && var42->unknown_a_2_) {
-                        int* var43 = (int*)GetPartyMemberData_02053c6c((unsigned char*)var41);
+                        int* var43 = (int*)func_02053c6c((unsigned char*)var41);
                         if (var43 != NULL) {
                             func_020483f0((unsigned char*)var41, 4);
                             var43[0xa8 / 4] |= 4;

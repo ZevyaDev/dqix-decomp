@@ -12,6 +12,7 @@ enum { Enum_ov003_0215a5b4_2144 = 0x860 };
 #endif
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
 
 struct Struct_ov003_0215a5b4 {
     char unknown_0_[0x56b];
@@ -44,7 +45,6 @@ struct TextWindowManager_0205d81c;
 
 extern "C" struct Struct_ov003_0215a5b4_3* GetMessageWindow_020421a0();
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c* windowManager, int windowId, int palette);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov003_0215a5b4(struct Struct_ov003_0215a5b4_4* arg0) {
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c*)arg0->unknown_f4_, 2, 1);
         memset(arg0->unknown_7c_, 0, Enum_ov003_0215a5b4_2400);
         AppendText_02042058(arg0->unknown_7c_,
-                             (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, 0x3fc));
+                             (const char*)((int)((StringList*)((struct Struct_0201099c_3*)arg0->unknown_64_))->GetString(0x3fc)));
         unsigned char var3[4];
         char* var4 = arg0->unknown_7c_ + Enum_ov003_0215a5b4_2144;
         __clear(var3, sizeof(var3));
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov003_0215a5b4(struct Struct_ov003_0215a5b4_4* arg0) {
             AppendText_02042058(arg0->unknown_7c_, var4);
         }
         AppendText_02042058(arg0->unknown_7c_,
-                             (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, 0x42e));
+                             (const char*)((int)((StringList*)((struct Struct_0201099c_3*)arg0->unknown_64_))->GetString(0x42e)));
         func_ov003_02159250(arg0, arg0->unknown_7c_);
         arg0->unknown_580_++;
     }

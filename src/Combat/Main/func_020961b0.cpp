@@ -1,9 +1,13 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct LocalWireless_0202c1a4;
 
-extern "C" void *GetLocalWireless_0202ae18(int arg0);
+extern "C" void *func_0202ae18(int arg0);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4 *wireless);
 extern "C" void func_020962f4(void *arg0, struct Struct_020961b0 arg1);
@@ -39,7 +43,7 @@ extern "C" ARM int func_020961b0(void *arg0, int arg1) {
     if (var0 >= 8) {
         return 0;
     }
-    void *var1 = GetLocalWireless_0202ae18(var0);
+    void *var1 = func_0202ae18(var0);
     struct Struct_020961b0_2 *var2;
     for (var2 = (struct Struct_020961b0_2 *)*(void **)((char *)arg0 + 0xa0); var2 != 0; var2 = var2->unknown_c_) {
         if (var2->unknown_2_0_ != arg1) {

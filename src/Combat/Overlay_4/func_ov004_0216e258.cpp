@@ -2,9 +2,13 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
 extern "C" int func_020ab7a8(void* arg0, int arg1);
 extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
@@ -43,7 +47,7 @@ extern "C" ARM int func_ov004_0216e258(void* arg0) {
     int var2 = 1;
     if (var1 == 5) {
         SetGameMode_0200fb94((char*)var0, 5);
-        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x80);
+        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)func_020d6c00(), 0x80);
         data_ov004_02171034.unknown_2_ = 0;
         data_ov004_02171034.unknown_10_[1] = 0;
         QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3e7);
@@ -52,7 +56,7 @@ extern "C" ARM int func_ov004_0216e258(void* arg0) {
         char* var3 = (char*)GetMessageWindow_020421a0();
         ResetMessageWindow_02043204(var3);
         CloseMessageWindow_02043124(var3);
-        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x80);
+        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)func_020d6c00(), 0x80);
         void* var4 = func_ov004_0216ae9c(arg0, 0xd4);
         func_ov023_021f8960((char*)var4, 0, 7);
         data_ov004_02171034.unknown_10_[1] = 0;
@@ -62,7 +66,7 @@ extern "C" ARM int func_ov004_0216e258(void* arg0) {
         char* var5 = (char*)GetMessageWindow_020421a0();
         ResetMessageWindow_02043204(var5);
         CloseMessageWindow_02043124(var5);
-        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x80);
+        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)func_020d6c00(), 0x80);
         void* var6 = func_ov004_0216ae9c(arg0, 0xd4);
         func_ov023_021f8960((char*)var6, 0, 7);
         data_ov004_02171034.unknown_10_[1] = 0;
@@ -74,7 +78,7 @@ extern "C" ARM int func_ov004_0216e258(void* arg0) {
         CloseMessageWindow_02043124(var7);
         data_ov004_02171034.unknown_3_ = 4;
         data_ov004_02171034.unknown_10_[1] = 0;
-        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x80);
+        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)func_020d6c00(), 0x80);
         QueueMenuScriptEntry_ov011_021848a0(arg0, 0x190);
         var2 = 0;
     }

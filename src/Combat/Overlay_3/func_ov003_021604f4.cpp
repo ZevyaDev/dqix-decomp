@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 #if defined(jpn)
 enum { Enum_ov003_021604f4_904 = 0x270 };
 enum { Enum_ov003_021604f4_820 = 0x21c };
@@ -15,7 +16,6 @@ struct Struct_ov003_021604f4 {
     unsigned char unknown_22_;
 };
 
-extern "C" void DrawSprite_0205ac40(void* spriteSet, struct Struct_ov003_021604f4* sprite);
 
 // USA: func_ov003_021604f4
 extern "C" ARM void func_ov003_021604f4(char* arg0, int arg1, int arg2, short arg3, unsigned char arg4) {
@@ -23,5 +23,5 @@ extern "C" ARM void func_ov003_021604f4(char* arg0, int arg1, int arg2, short ar
     var0->unknown_14_ = arg1 << 12;
     var0->unknown_18_ = arg2 << 12;
     var0->unknown_22_ = arg4;
-    DrawSprite_0205ac40((void*)(arg0 + Enum_ov003_021604f4_820), var0);
+    ((OBJSpriteSet*)((void*)(arg0 + Enum_ov003_021604f4_820)))->DrawMetatile((OBJSpriteSet::Metatile*)(var0));
 }

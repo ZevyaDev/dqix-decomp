@@ -2,6 +2,18 @@
 #include "Resource/FontBankLoader.h"
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_020a1df8 func_020a3b70
+#endif
+
+#if defined(jpn)
+#define func_02046708 func_02047528
+#endif
 #define REG_DISPCNT (*(volatile unsigned int*)0x04000000)
 struct Struct_02018300_3 { char unknown_0_[0xb2]; short unknown_b2_; };
 struct GlobalFlags_02012de8;
@@ -37,20 +49,20 @@ extern "C" int func_ov002_02155960(char*, int);
 extern "C" void func_ov002_021556fc(char*);
 extern "C" void func_ov017_021a55b0(Struct_ov017_021a5600_2*);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(GameResources*, int, int, int, int);
-extern "C" GlobalFlags_02012de8* GetGlobalFlags_020d6c00();
+extern "C" GlobalFlags_02012de8* func_020d6c00();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" unsigned char* GetFollowCamera_020100f8(char*);
 extern "C" void SetCameraFlags_020a28a0(unsigned char*, unsigned char);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char*, int);
 extern "C" void func_02027288(unsigned char*, int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void PushOverlay_020a1df8(int);
+extern "C" void func_020a1df8(int);
 extern "C" void PushSubOverlay_020a1ef0(int);
 extern "C" void func_ov002_021556ec(void*, int, int);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" void func_0202ac74();
-extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8*, unsigned int);
+extern "C" int func_02046708(GlobalFlags_02012de8*, unsigned int);
 extern "C" void func_ov017_021a01bc(unsigned char*);
 extern "C" void func_02039830(void*);
 extern "C" void func_ov017_021a5974(char*);
@@ -61,7 +73,7 @@ extern "C" ARM void func_ov017_021a5600(Struct_ov017_021a5600_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     Struct_02018300_3* var2 = (Struct_02018300_3*)var0->GetUnknownGameObject();
-    GlobalFlags_02012de8* var3 = GetGlobalFlags_020d6c00();
+    GlobalFlags_02012de8* var3 = func_020d6c00();
     DisablePlayerControl_020397cc(var2, 1);
     var2->unknown_b2_ = 0;
     SetFlags04(var1, 0xc0);
@@ -81,7 +93,7 @@ extern "C" ARM void func_ov017_021a5600(Struct_ov017_021a5600_2* arg0) {
         } else {
             arg0->unknown_c_.CreateTypeA(var7, Enum_ov017_021a5600_173456);
             arg0->unknown_c_.Reset();
-            PushOverlay_020a1df8(2);
+            func_020a1df8(2);
             PushSubOverlay_020a1ef0(1);
             data_ov017_021d83ac = (char*)arg0->unknown_c_.Allocate(Enum_ov017_021a5600_9552);
             func_ov002_0215505c(data_ov017_021d83ac);
@@ -119,7 +131,7 @@ extern "C" ARM void func_ov017_021a5600(Struct_ov017_021a5600_2* arg0) {
         RebuildFieldPartyOrder_ov017_02191108(var1, 1, 1, 0, 1);
         func_0202ac74();
         LoadFileTables_020a0c0c();
-        if (!TestGlobalFlags_02046708(var3, 0x100000)) {
+        if (!func_02046708(var3, 0x100000)) {
             unsigned char* var14 = (unsigned char*)var1->unknown_ptr_36d0;
             func_0202738c(var14, 0, 2, -1);
             func_02027304(var14, -1);

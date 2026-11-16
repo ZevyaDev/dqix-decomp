@@ -6,6 +6,10 @@
 #include "Resource/Brightness.h"
 
 #if defined(jpn)
+#define func_020a1df8 func_020a3b70
+#endif
+
+#if defined(jpn)
 enum { Enum_ov017_021c17fc_189632 = 0x2d0fc, Enum_ov017_021c17fc_28 = 0x14, Enum_ov017_021c17fc_5308 = 0x14f8, Enum_ov017_021c17fc_5312 = 0x14fc };
 #else
 enum { Enum_ov017_021c17fc_189632 = 0x2e4c0, Enum_ov017_021c17fc_28 = 0x1c, Enum_ov017_021c17fc_5308 = 0x14bc, Enum_ov017_021c17fc_5312 = 0x14c0 };
@@ -23,7 +27,7 @@ extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
-extern "C" void PushOverlay_020a1df8(int overlayEntry);
+extern "C" void func_020a1df8(int overlayEntry);
 extern "C" void PushSubOverlay_020a1ef0(int subOverlayEntry);
 extern "C" void func_ov012_021843d4(void* arg0);
 extern "C" void func_ov012_02184884(void* arg0, SafeAllocator* arg1);
@@ -75,7 +79,7 @@ extern "C" ARM void func_ov017_021c17fc(Struct_ov017_021c17fc_2* arg0) {
         arg0->unknown_8_.Reset();
 #if !defined(jpn)
         if (arg0->unknown_1d_) {
-            PushOverlay_020a1df8(3);
+            func_020a1df8(3);
         }
 #endif
         LoadOverlay_020a1940(OVERLAY_ID(12));

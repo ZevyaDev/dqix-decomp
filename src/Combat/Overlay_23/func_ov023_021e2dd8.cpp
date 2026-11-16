@@ -3,9 +3,17 @@
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 
-extern "C" void* GetGlobalFlags_020d6c00(void);
+#if defined(jpn)
+#define func_020de848 func_020e01c4
+#endif
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
-extern "C" void ClearItemTable_020de848(void* itemTable);
+extern "C" void func_020de848(void* itemTable);
 extern "C" void func_ov023_021e20c0(void* arg0);
 extern "C" void func_020dc4d0(signed char* arg0, signed char* arg1);
 
@@ -23,7 +31,7 @@ extern "C" ARM void func_ov023_021e2dd8(unsigned char* arg0) {
     int var4;
     int var5;
 
-    var0 = GetGlobalFlags_020d6c00();
+    var0 = func_020d6c00();
     SetGlobalFlags_020466e4((unsigned int*)var0, 0xf);
 
     *(unsigned int*)(arg0 + 0x0) = 0;
@@ -39,7 +47,7 @@ extern "C" ARM void func_ov023_021e2dd8(unsigned char* arg0) {
     ((SafeAllocator*)(arg0 + 0x7c))->ResetAllocatorPointer();
     ((SafeAllocator*)(arg0 + 0x90))->ResetAllocatorPointer();
 
-    ClearItemTable_020de848(arg0 + 0xa4);
+    func_020de848(arg0 + 0xa4);
 
     *(unsigned short*)(arg0 + 0xbc) = 0;
     *(unsigned short*)(arg0 + 0xbe) = 0;

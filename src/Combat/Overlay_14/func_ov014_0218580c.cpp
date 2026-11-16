@@ -10,6 +10,12 @@
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
 #include "Resource/Brightness.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/PAC.h"
+
+#if defined(jpn)
+#define func_020c54a4 func_020c6f70
+#endif
 
 #define BG0CNT (*(volatile unsigned short*)(0x04000008))
 #define BG1CNT (*(volatile unsigned short*)(0x0400000a))
@@ -84,9 +90,6 @@ extern char data_ov014_021896a7[];
 extern "C" void func_ov023_021e20c0(void* arg0);
 extern "C" int func_ov023_021e20f0(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
 extern "C" Struct_ov006_0215b7e8* func_ov014_021842a0(void* arg0, short arg1);
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void LoadSpriteSetFile_0205a528(Struct_ov008_02188d74* spriteSet, void* fileData, unsigned int size, SafeAllocator* allocator);
 extern "C" void func_ov023_021e2bdc(void* arg0, int arg1, short* arg2, short* arg3);
 extern "C" void* GetFollowCamera_020100f8(char* gameState);
 extern "C" void InitFollowCamera_020a2010(void* storage);
@@ -95,7 +98,7 @@ extern "C" void SetCameraOrbit_0202e5d8(void* camera, int angle, int height, int
 extern "C" void UpdateCamera_0202e0a4(void* camera);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
-extern "C" void Set3DFog_020c54a4(int, unsigned int, unsigned int, unsigned short);
+extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
 extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
 
 #define HIDE_ELEMENT(layout, id)                                        \
@@ -142,12 +145,12 @@ extern "C" ARM void func_ov014_0218580c(Struct_ov014_02184dcc* arg0) {
         unsigned int var6;
         int var7;
         var0->GetLoadedFileByID(arg0->unknown_6c_, &var5, &var6);
-        int var8 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var5);
+        int var8 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var5));
         arg0->unknown_3c_[5].Reset();
         for (int var9 = 0; var9 < var8; var9++) {
-            void* var10 = GetPacEntryData_020467f0((PacEntry_02020aec*)var5, var9, &var4, &var7);
+            void* var10 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var5), var9, (const char**)(&var4), (unsigned int*)(&var7));
             if (var10 != NULL)
-                LoadSpriteSetFile_0205a528(arg0->unknown_4_, var10, var7, &arg0->unknown_3c_[5]);
+                ((OBJSpriteSet*)(arg0->unknown_4_))->LoadFromNitroFile((void*)(var10), var7, (SafeAllocator*)(&arg0->unknown_3c_[5]));
         }
 
         short var11 = 0;
@@ -195,7 +198,7 @@ extern "C" ARM void func_ov014_0218580c(Struct_ov014_02184dcc* arg0) {
         GameResources* var15 = GetGameResources();
         SetFlags04(var15, 0x6093e);
         ClearFlags04(var15, 0x20);
-        Set3DFog_020c54a4(0, 0, 0, 0);
+        func_020c54a4(0, 0, 0, 0);
         Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
         LightingManager::GetInstance()->fogEnabled_ = false;
         arg0->unknown_7c_ = 1;

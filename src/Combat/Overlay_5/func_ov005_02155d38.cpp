@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "World/ZoneLootableRecord.h"
+#include "Graphics/SPRSprite.h"
+#include "Graphics/TextureArena.h"
 
 struct TextureVRAMArea_0203d028;
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
 struct Struct_02012fa4;
-extern "C" void func_02047230(struct Struct_02012fa4* arg0);
 
 struct Struct_ov005_021556e4_2 {
 	char unknown_0_[4];
@@ -16,7 +16,7 @@ struct Struct_ov005_021556e4_2 {
 
 // USA: func_ov005_02155d38
 extern "C" ARM void func_ov005_02155d38(Struct_ov005_021556e4_2* arg0) {
-	if (arg0->unknown_4_) ResetTextureVRAMState_0207df50(arg0->unknown_4_);
-	if (arg0->unknown_8_) func_02047230(arg0->unknown_8_);
+	if (arg0->unknown_4_) ((TextureArena*)(arg0->unknown_4_))->Reset();
+	if (arg0->unknown_8_) ((SPRSprite*)(arg0->unknown_8_))->Release();
 	arg0->unknown_18_ = -1;
 }

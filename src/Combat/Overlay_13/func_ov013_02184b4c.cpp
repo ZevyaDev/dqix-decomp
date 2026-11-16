@@ -12,9 +12,13 @@
 #endif
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 #pragma opt_arithtransformation off
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" int GetVocationSkill_020dd11c(unsigned int vocation, unsigned int index);
 
 // USA: func_ov013_02184b4c
@@ -28,7 +32,7 @@ extern "C" ARM void func_ov013_02184b4c(void* arg0, void* arg1) {
 
     if (arg1 == 0) return;
 
-    var2 = (unsigned char*)GetPartyMemberData_02053c6c(var1);
+    var2 = (unsigned char*)func_02053c6c(var1);
     *(void**)(var0 + R(0x62c,0x6a4)) = *(void**)(var1 + 0x134);
 
     var3 = *(unsigned short*)(var2 + 0x564);

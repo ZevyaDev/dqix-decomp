@@ -83,3 +83,8 @@ extern "C" ARM int func_ov025_021e2ca4(Struct_ov025_021e2ca4* arg0, BattleAction
     }
     return 1;
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

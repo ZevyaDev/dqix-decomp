@@ -4,6 +4,10 @@
 #include "Memory/SafeAllocator.h"
 #include "Util/Random.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_02052df8;
 struct Struct_020a0720;
 struct Struct_0209fffc;
@@ -91,7 +95,7 @@ struct Struct_ov024_021df924_6 {
 extern float data_ov024_021fe860[];
 
 extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int func_ov000_0215fd24(int arg0, int arg1);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
@@ -139,7 +143,6 @@ extern "C" ARM void* func_ov024_021df924(Struct_ov024_021df924_2* arg0, short ar
     unsigned short var11;
     unsigned short var12;
     Struct_ov024_021df924_5 var13;
-    Struct_ov024_021df924_6 var14;
     int var15;
     for (var15 = 0; var15 < 2; var15++, var4++, var5++) {
         if (*var4 == 0) continue;
@@ -147,7 +150,7 @@ extern "C" ARM void* func_ov024_021df924(Struct_ov024_021df924_2* arg0, short ar
         var11 = 0;
         var12 = 0;
         int var16 = 0;
-        void* var17 = GetLocalWireless_0202ae18();
+        void* var17 = func_0202ae18();
         if (arg0->unknown_10_->unknown_8e4a_ == 0 && IsNotLocalWirelessGuest_0202c508(var17) && func_ov000_0215fd24((int)arg0->unknown_10_, arg1)) {
             var16 = func_ov024_021df71c(var1, inline_ov024_021df924(), var15 != 0, &var10, &var12, &var11);
         }
@@ -173,7 +176,7 @@ extern "C" ARM void* func_ov024_021df924(Struct_ov024_021df924_2* arg0, short ar
             char* var20 = GetBattleUI_ov000_02160f08(GetBattleScene_ov000_02160130());
             char* var21 = var20 + 0xd0;
             char* var22 = var20 + 0xe8;
-            var14.unknown_0_.ResetAllocatorPointer();
+            Struct_ov024_021df924_6 var14;
             InitItemTable_020de824(var14.unknown_14_);
             func_0207cbe8((char*)&var14);
             func_0207cbe8((char*)&var14);

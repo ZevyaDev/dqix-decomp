@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "World/ZoneTerrain.h"
 #include "World/Bounds3D.h"
 #include "Graphics/Vector.h"
@@ -81,4 +82,9 @@ extern "C" ARM Vector3fix func_02019210(Zone3D* arg0, const Vector3fix* arg1,
         }
     }
     return var0;
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

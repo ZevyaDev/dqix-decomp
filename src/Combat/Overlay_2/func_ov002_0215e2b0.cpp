@@ -1,5 +1,10 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
 
 #if defined(jpn)
 struct ItemTable_0201099c_10;
@@ -25,14 +30,13 @@ struct Struct_ov002_0215e2b0_2 {
     unsigned int unknown_9_2_ : 22;
 };
 
-extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" void *func_02053c6c(unsigned char *gameObject);
 extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char *window, int index, unsigned char width);
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char *window, int index, unsigned char alignment);
 extern "C" int func_ov002_02159774(void *arg0, int arg1, int arg2, int arg3, int arg4);
-extern "C" char *FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0 *window, int index, int number);
 extern "C" void func_020474a8(void *arg0, int arg1, const char *arg2, char *arg3);
 
@@ -54,7 +58,7 @@ extern "C" ARM void func_ov002_0215e2b0(char *arg0, char *arg1) {
     int var6 = var4[*(short *) (arg0 + 0x1a00 + 0xb4)];
     char *var7 = (char *) GetPartyMemberBaseByIndex_0200ff1c(var3, var6);
     if (var7 == 0) return;
-    Struct_ov002_0215e2b0_2 *var8 = (Struct_ov002_0215e2b0_2 *) GetPartyMemberData_02053c6c((unsigned char *) var7);
+    Struct_ov002_0215e2b0_2 *var8 = (Struct_ov002_0215e2b0_2 *) func_02053c6c((unsigned char *) var7);
     if (var8 == 0) return;
     char *var9 = 0;
     if (*(short *) (arg0 + 0x1a00 + 0xee) < 0) {
@@ -144,6 +148,6 @@ extern "C" ARM void func_ov002_0215e2b0(char *arg0, char *arg1) {
     SetMessageNumber_020465c0((MessageWindow_020465c0 *) var10, 0, var14);
     SetMessageNumber_020465c0((MessageWindow_020465c0 *) var10, 1, var15);
     SetMessageNumber_020465c0((MessageWindow_020465c0 *) var10, 2, var17);
-    func_020474a8(var10, 10, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), var11), arg1);
+    func_020474a8(var10, 10, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString(var11)), arg1);
 }
 #endif

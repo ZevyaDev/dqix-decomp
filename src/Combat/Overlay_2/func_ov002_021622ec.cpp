@@ -4,6 +4,14 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
 #define RG(u, j) (j)
 #else
 #define RG(u, j) (u)
@@ -22,8 +30,8 @@ extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllow
 extern "C" void func_ov002_0215bf34(char *arg0);
 extern "C" int GetResources_0200fb8c(int *gameState);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char *flags, int flagIndex);
-extern "C" char *GetFlagManager_0205ec34(void);
+extern "C" int func_0206dfb0(int flagManager, unsigned char *flags, int flagIndex);
+extern "C" char *func_0205ec34(void);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(void *menu);
 extern "C" void func_ov002_0215c0f8(void *arg0);
 extern "C" void func_ov002_02161a8c(int arg0);
@@ -87,8 +95,8 @@ extern "C" ARM void func_ov002_021622ec(char *arg0) {
                     *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) = 0;
                     break;
                 case 4: {
-                    char *var4 = GetFlagManager_0205ec34();
-                    if (!IsFlagSet_0206dfb0((int) var4, (unsigned char *) var4 + 0x8c, 0x119a)) return;
+                    char *var4 = func_0205ec34();
+                    if (!func_0206dfb0((int) var4, (unsigned char *) var4 + 0x8c, 0x119a)) return;
                     func_ov017_021c05f4(var3, 1, 0, 0);
                     *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) = RG(0x2b, 0x2e);
                     *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) = 0;

@@ -3,6 +3,14 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct LocalWireless_0202c1a4;
 struct Struct_0205e854;
 
@@ -24,7 +32,7 @@ struct Struct_ov017_021b0288_2 {
     unsigned char unknown_47_;
 };
 
-extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18(void);
+extern "C" LocalWireless_0202c1a4* func_0202ae18(void);
 extern "C" unsigned char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" void func_020546a0(void* arg0, int arg1);
@@ -33,7 +41,7 @@ extern "C" void func_020100a0(GameState* arg0, int arg1);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(void* gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 extern "C" void func_ov017_021b0a7c(Struct_ov017_021b0288_2* arg0);
 extern "C" void func_ov017_021d0b30(int arg0, int arg1, int arg2);
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void* func_0202ae24(void);
 extern "C" void* func_0205e854(struct Struct_0205e854* arg0);
 
 // USA: func_ov017_021b0288
@@ -50,7 +58,7 @@ extern "C" ARM int func_ov017_021b0288(Struct_ov017_021b0288_2* arg0) {
             unsigned char var7[4];
             Struct_ov017_021b0288 var8[4];
             var6 = GameState::GetInstance();
-            var5 = GetLocalWireless_0202ae18();
+            var5 = func_0202ae18();
             var4 = GetGameResources();
             var3 = 0;
             var8[var3].unknown_0_ = 0;
@@ -84,7 +92,7 @@ extern "C" ARM int func_ov017_021b0288(Struct_ov017_021b0288_2* arg0) {
         func_ov017_021b0a7c(arg0);
         func_ov017_021d0b30(2, 0, 0);
         if (arg0->unknown_9_ != 2) return 0xb;
-        func_0205e854((Struct_0205e854*)GetLocalWirelessPacketQueue_0202ae24());
+        func_0205e854((Struct_0205e854*)func_0202ae24());
         return 6;
     }
     return arg0->unknown_a_;

@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include <NitroSDK/Matrix.h>
 
+#if defined(jpn)
+#define func_020ca528 func_020cbff4
+#endif
+
 extern "C" void func_020ca528(const void* pSrc, void* pDest);
 
 // KEEP-NAME: the ROM symbol here is the mangled C++ name, not a func_ tag.

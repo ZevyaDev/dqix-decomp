@@ -1,5 +1,6 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 #if defined(jpn)
 #define REGION_LAYOUT(j,u) j
 #define func_020dcf7c func_020de968
@@ -28,7 +29,6 @@ extern "C" void func_020dcf7c(int arg0, void *arg1);
 #endif
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char *window, int index, unsigned char width);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0 *window, int index, int number);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" void func_02046608(void *arg0, int arg1, int arg2, void *arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void func_ov016_0218b5c0(int arg0, int arg1);
@@ -39,7 +39,7 @@ struct Struct_ov002_02159900 {
     int unknown_8_;
 };
 
-#define TXT(k) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + REGION_LAYOUT(8, 0x20)), (k))
+#define TXT(k) ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + REGION_LAYOUT(8, 0x20))))->GetString((k)))
 #define BD0 (*(char **) (arg0 + REGION_LAYOUT(0x1a98, 0x1000 + 0xbd0)))
 
 // USA: func_ov002_02159900

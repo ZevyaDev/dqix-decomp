@@ -5,6 +5,14 @@
 #include "NitroSDK/Memory.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_020a1e54 func_020a3bcc
+#endif
+
+#if defined(jpn)
+#define func_020a1df8 func_020a3b70
+#endif
+
 #ifdef jpn
 #define _ZN23DetailedTreasureMapData19LoadLegacyBossStatsEbPKh func_020a7588
 #define _ZN23DetailedTreasureMapData13LoadTreasuresEv func_020a78c0
@@ -12,8 +20,8 @@
 
 extern "C"
 {
-    extern "C" void PushOverlay_020a1df8(unsigned int);
-    extern "C" void PopOverlay_020a1e54(int);
+    extern "C" void func_020a1df8(unsigned int);
+    extern "C" void func_020a1e54(int);
 }
 
 #define TMAPLANGDATA_READ(offset, into, len) \
@@ -87,10 +95,10 @@ bool ExportDetailedTreasureMapData(const TreasureMapMetadata* from,
         to->legacy_.Populate(from->QualityOrLegacyBossID, from->LegacyBossLevel, from->SeedOrMinTurns);
     }
 
-    PushOverlay_020a1df8(4);
+    func_020a1df8(4);
     to->LoadLegacyBossStats(computeLegacyStats, legacyStatsData);
     to->LoadTreasures();
-    PopOverlay_020a1e54(1);
+    func_020a1e54(1);
 
     for (int i = 0; i < 3; i++)
         to->discoveredTreasures_[i] = false;

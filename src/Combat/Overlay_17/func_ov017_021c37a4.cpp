@@ -3,6 +3,22 @@
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 
 struct Struct_ov017_021c37a4_6 {
     char unknown_0_[0x100d];
@@ -117,12 +133,12 @@ struct MusicManager_02109bf4_4;
 struct Struct_02109bf4_3;
 struct GlobalFlags_02038598_4;
 
-extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void* func_0202ae18(void);
+extern "C" void* func_0202ae24(void);
 extern "C" void* func_020e2ff8(void);
 extern "C" void* func_020e3580(void);
 extern "C" void* func_020e3808(void);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int GetLocalWirelessState_0202ba00(int* wireless);
 extern "C" void func_020ac4f8(int arg0);
@@ -151,7 +167,7 @@ extern "C" void func_02039858(unsigned char* arg0, int arg1);
 extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 extern "C" void* GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a2770(void* arg0, short arg1);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" int IsQuestUnlocked_0206e2dc(FlagManager_0205faf4_13* flagManager, int questId);
 extern "C" void func_020abd20(int arg0);
 extern "C" void func_0206e2a0(Struct_0206e2a0* arg0, int arg1);
@@ -187,13 +203,13 @@ extern Struct_02109bf4_11 gMusicManager_02109bf4;
 extern "C" ARM void func_ov017_021c37a4(void) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov017_021c37a4_10* var1 = (Struct_ov017_021c37a4_10*)var0;
-    Struct_ov017_021c37a4_6* var2 = (Struct_ov017_021c37a4_6*)GetLocalWireless_0202ae18();
+    Struct_ov017_021c37a4_6* var2 = (Struct_ov017_021c37a4_6*)func_0202ae18();
     GameResources* var3 = GetGameResources();
-    void* var4 = GetLocalWirelessPacketQueue_0202ae24();
+    void* var4 = func_0202ae24();
     void* var5 = func_020e2ff8();
     void* var6 = func_020e3580();
     void* var7 = func_020e3808();
-    void* var8 = GetGlobalFlags_020d6c00();
+    void* var8 = func_020d6c00();
     int var9 = IsLocalWirelessGuest_0202c540(var2);
     int var10 = GetLocalWirelessState_0202ba00((int*)var2);
     int var11 = var2->unknown_100d_;
@@ -258,7 +274,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
 
     for (int var21 = 3; var21 >= 0; var21--) {
         GameObject* var22 = var0->GetGameObjectByIndex(var21);
-        if (var22 && (var22->obj3D_.classFlags_0_ & 0x1000)) {
+        if (var22 && (var22->obj3D_.unknown_0_ & 0x1000)) {
             int var23 = -1;
             for (int var24 = 3; var21 < var24; var24--) {
                 if (var0->GetGameObjectByIndex(var24) == NULL) {
@@ -305,7 +321,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
 
     Struct_ov017_021c37a4* var28 = (Struct_ov017_021c37a4*)GetParty_02010828(var0);
     if (var9) {
-        void* var29 = GetFlagManager_0205ec34();
+        void* var29 = func_0205ec34();
         memset(var13, 0, 0x1a);
         unsigned char* var30 = var13;
         unsigned char var31 = 0;

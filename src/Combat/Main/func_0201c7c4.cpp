@@ -36,3 +36,8 @@ extern "C" ARM int func_0201c7c4(Script::Parameter *arg0, int arg1) {
     }
     return 1;
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

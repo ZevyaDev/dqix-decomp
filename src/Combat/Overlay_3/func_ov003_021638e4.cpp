@@ -4,6 +4,18 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_ov003_02154af4_3 {
 #if defined(jpn)
     char unknown_0_[0x28c];
@@ -62,12 +74,12 @@ struct QueueNode_020469f8_2;
 extern "C" void PrependToQueue_020469f8(Queue_020469f8*, QueueNode_020469f8_2*);
 struct Struct_ov003_021638e4_2;
 extern "C" void func_ov017_021b11b0(Struct_ov003_021638e4_2*);
-extern "C" int *GetLocalWireless_0202ae18();
+extern "C" int *func_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int *);
 extern "C" void func_ov017_021d1810(int, int, signed char);
 extern "C" void *func_020936f8();
 extern "C" void QueueNotice_02094030(void *, int, int, int);
-extern "C" unsigned int *GetGlobalFlags_020d6c00();
+extern "C" unsigned int *func_020d6c00();
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState *);
@@ -86,7 +98,7 @@ extern "C" int *GetZoneEntry_0200fd0c(GameState *);
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char *);
 extern "C" void CloseMessageWindow_02043124(char *);
-extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *);
+extern "C" unsigned char *func_02053c6c(unsigned char *);
 extern "C" void func_02086380(unsigned char *);
 struct Struct_ov003_021638e4;
 extern "C" void func_ov017_021b6b8c(Struct_ov003_021638e4*);
@@ -169,7 +181,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
                     var14->obj3D_.MakeVisible();
                 }
             }
-            if (IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18()) != 0) {
+            if (IsLocalWirelessOn_0202b7d8(func_0202ae18()) != 0) {
                 func_ov017_021d1810(0, -1, (signed char) GetProtagonistObjectIndex_020100a8(var1));
                 QueueNotice_02094030(func_020936f8(), 1, -1, 0);
             }
@@ -194,7 +206,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
         arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
     } else if (var5 == 4) {
         if (IsBrightnessTransitionActive((GameResources*)var0) == 0) {
-            ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x80000);
+            ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)func_020d6c00(), 0x80000);
             Struct_020bc1ec *var19   = GetZone3D_02012fe4();
             Struct_ov000_0215b278 *var20     = *(Struct_ov000_0215b278 **) (var0 + 0x3000 + RES_NODE_C_021638e4);
             Struct_0209a678_2 *var21 = GetAppearance_02052e2c((Struct_02052e2c*)(var1->GetGameObjectByIndex(GetOwnPartyLeaderObjectIndex_020100b0(var1))));
@@ -203,7 +215,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
             var20->unknown_ce_ = var21->unknown_14_0_;
             if (arg0->unknown_464_ & 0x40) {
                 arg0->unknown_464_ &= ~0x40;
-                if (IsLocalWirelessOn_0202b7d8(GetLocalWireless_0202ae18()) != 0) {
+                if (IsLocalWirelessOn_0202b7d8(func_0202ae18()) != 0) {
                     var20->unknown_cf_ = 2;
                     AppendToQueue_020469b4((Queue_0201bdac_2*)var3, (QueueNode_0201bdac*)var20);
                 }
@@ -230,7 +242,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
             for (signed char var24 = 0; var24 < 4; var24++) {
                 GameObject *var25 = var1->GetPartyMemberByIndex(var24);
                 if (var25 != 0) {
-                    unsigned char *var26 = GetPartyMemberData_02053c6c((unsigned char *) var25);
+                    unsigned char *var26 = func_02053c6c((unsigned char *) var25);
                     if (var26 != 0) {
                         func_02086380(var26);
                     }

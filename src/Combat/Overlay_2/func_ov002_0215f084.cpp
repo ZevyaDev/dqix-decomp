@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
 
 extern "C" int func_020dd290(void *arg0, unsigned int arg1);
 extern "C" void *GetMessageWindow_020421a0();
@@ -7,7 +8,6 @@ extern "C" void ClearMessageParams_02046380();
 struct Struct_ov002_02157d40_2;
 extern "C" void SetMessageNumber_020465c0(Struct_ov002_02157d40_2*, int, int);
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_02046608(void *arg0, int arg1, int arg2, int arg3, int arg4, int arg5, unsigned char arg6);
 
 #if defined(jpn)
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov002_0215f084(void *arg0, int arg1) {
     SetMessageNumberWidth_020465f0((Struct_ov002_02157d40_2*)var10, 1, 3);
     SetMessageNumberAlignment_020465d8((Struct_ov002_02157d40_2*)var10, 1, 0);
 #endif
-    int var11 = FindStringInTable_020e0434((Struct_0201099c_3*)(var0 + RG(0x20, 0x8)), 0xbb8);
+    int var11 = ((int)((StringList*)((Struct_0201099c_3*)(var0 + RG(0x20, 0x8))))->GetString(0xbb8));
 #if defined(jpn)
     func_020474a8(var10, 0xa, var11, arg1);
 #else

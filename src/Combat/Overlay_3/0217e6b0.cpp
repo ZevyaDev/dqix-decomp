@@ -9,6 +9,28 @@
 #include "NitroSDK/OverlayId.h"
 #include "NitroSDK/VRAM.h"
 #include "Resource/Brightness.h"
+#include "Graphics/TextureArena.h"
+#include "NitroSDK/VRAMAllocation.h"
+
+#if defined(jpn)
+#define func_020c54a4 func_020c6f70
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0203be4c func_0203b8a4
+#endif
+
+#if defined(jpn)
+#define func_0203bd08 func_0203b760
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 #if defined(jpn)
 enum { Enum_ov003_0217e6b0_108 = 0x8c };
@@ -89,13 +111,9 @@ void SetMainBrightness(GameResources* resources, int brightness, int duration);
 int IsBrightnessTransitionActive(GameResources* resources);
 extern "C" void SaveMainBGControl_02074af4(void* save);
 extern "C" void SaveSubBGControl_02074b64(BGControlSave_02074b64* save);
-extern "C" void func_020bb700(int* arg0);
-extern "C" void func_020bb740(int* arg0);
-extern "C" void func_020bb910(int* arg0);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" unsigned short func_0201e830(Struct_0201e830* arg0);
 extern "C" void func_ov017_0219bf74(void);
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" void PushSubOverlay_020a1ef0(int subOverlayEntry);
 extern "C" void func_ov009_0218454c(void* arg0, int arg1, int arg2);
@@ -106,20 +124,19 @@ extern "C" void func_ov003_0217eea8(int arg0);
 void LockStagedTextureVRAMCopying(void);
 void UnlockStagedTextureVRAMCopying(void);
 void UpdateVRAMStagingVRAMBanks(void);
-extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install);
 extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, int isBG03D);
 extern "C" void SetSubBGMode_020c3984(unsigned int bgMode);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
-extern "C" void Set3DFog_020c54a4(int isEnabled, unsigned int type, unsigned int depthShift, unsigned short offset);
-extern "C" void* GetOAMManager_0203bd08(void);
+extern "C" void func_020c54a4(int isEnabled, unsigned int type, unsigned int depthShift, unsigned short offset);
+extern "C" void* func_0203bd08(void);
 extern "C" void ResetOAMManager_0203bd24(char* oamManager);
 extern "C" int* GetSpriteTextManager_0203bd14(void);
-extern "C" int GetSubOAMBuffer_0203be4c(void* arg0);
+extern "C" int func_0203be4c(void* arg0);
 extern "C" void func_0203c35c(int* arg0);
 extern "C" int func_ov009_02184a18(void* arg0);
 extern "C" void RestoreMainBGControl_02074bd0(BGControlSave_02074bd0* save);
 extern "C" void RestoreSubBGControl_02074bf4(BGControlSave_02074bf4* save);
-extern "C" void GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" void func_02053c6c(unsigned char* gameObject);
 extern "C" void func_ov017_0218f79c(void* arg0);
 extern "C" void func_ov017_021a2840(GameResources* arg0);
 extern "C" void* GetEffectManager_02057924(void);
@@ -127,8 +144,6 @@ extern "C" void func_02058564(Struct_02058564_2* arg0);
 extern "C" void func_ov017_0219b624(GameResources* arg0);
 extern "C" void func_ov017_0219ba0c(GameResources* arg0, int arg1);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void InitMessageGlyphs_020432c4(void* window);
 extern "C" void func_ov017_021b66b8(char* arg0);
 extern "C" void func_ov017_021b66f0(unsigned char* arg0);
@@ -187,8 +202,8 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         arg0->unknown_54_ = GetTexturePaletteVRAMBanks();
         arg0->unknown_98_ = GetTextureImageAssignedVRAMSize();
         arg0->unknown_9c_ = GetTexturePaletteAssignedVRAMSize();
-        func_020bb700(arg0->unknown_68_);
-        func_020bb910(arg0->unknown_90_);
+        SaveTextureImageAllocationState((unsigned int*)(arg0->unknown_68_));
+        SaveTexturePaletteAllocationState((unsigned int*)(arg0->unknown_90_));
         Struct_ov003_0217e6b0 var3 = inline_ov003_0217e6b0();
         arg0->unknown_58_ = var3.unknown_3_3_;
         arg0->unknown_5c_ = var3.unknown_3_0_;
@@ -202,7 +217,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         SetFlags04(var1, 0x8de);
         func_ov017_0219bf74();
         var1->allocator_array_38[0].Reset();
-        ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)var1->unknown_2cc_);
+        ((TextureArena*)((TextureVRAMArea_0203d028*)var1->unknown_2cc_))->Reset();
         arg0->unknown_8_.CreateTypeA(var1->allocator_array_38[0].Allocate(Enum_ov003_0217e6b0_238492), Enum_ov003_0217e6b0_238492);
         arg0->unknown_8_.Reset();
         arg0->unknown_1c_ = arg0->unknown_8_.Allocate(Enum_ov003_0217e6b0_3512);
@@ -215,7 +230,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
             InitPartyMemberData_02082828(var4);
             *(void**)((char*)arg0->unknown_1c_ + Enum_ov003_0217e6b0_3464) = var4;
         }
-        arg0->unknown_b0_ = GetCamera_020100bc(var0);
+        arg0->unknown_b0_ = func_020100bc(var0);
         func_ov003_0217eea8(1);
         arg0->unknown_20_++;
     } else if (arg0->unknown_20_ == 2) {
@@ -225,7 +240,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         DisableSubObjVRAMBanks();
         DisableTextureImageVRAMBanks();
         MapVRAMBanksToTextureImage(1);
-        InitTextureImageVRAMAllocator_020bb48c(1, 1);
+        InitializeTextureImageAllocation(1, 1);
         MapVRAMBanksToSubBG(4);
         MapVRAMBanksToMainObj(0x20);
         DISPCNT = (DISPCNT & 0xffcfffef) | 0x10;
@@ -251,12 +266,12 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         BG1CNTSUB = (BG1CNTSUB & ~3) | 1;
         BG2CNTSUB = BG2CNTSUB & ~3;
         Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
-        Set3DFog_020c54a4(0, 0, 0, 0);
-        char* var5 = (char*)GetOAMManager_0203bd08();
+        func_020c54a4(0, 0, 0, 0);
+        char* var5 = (char*)func_0203bd08();
         ResetOAMManager_0203bd24(var5);
         *(int*)var5 = 0;
         int* var6 = GetSpriteTextManager_0203bd14();
-        *var6 = GetSubOAMBuffer_0203be4c(var5) + 0x200;
+        *var6 = func_0203be4c(var5) + 0x200;
         func_0203c35c(var6);
         var6[Enum_ov003_0217e6b0_1288 / 4] = 0x7000;
         arg0->unknown_20_++;
@@ -274,8 +289,8 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         MapVRAMBanksToMainObj(arg0->unknown_48_);
         MapVRAMBanksToSubObj(arg0->unknown_4c_);
         MapVRAMBanksToTextureImage(arg0->unknown_50_);
-        InitTextureImageVRAMAllocator_020bb48c((unsigned short)(arg0->unknown_98_ >> 17), 1);
-        func_020bb740(arg0->unknown_68_);
+        InitializeTextureImageAllocation((unsigned short)(arg0->unknown_98_ >> 17), 1);
+        RestoreTextureImageAllocationState((const unsigned int*)(arg0->unknown_68_));
         inline_ov003_0217e6b0_2((Enum_ov003_0217e6b0)arg0->unknown_60_);
         inline_ov003_0217e6b0_3((Enum_ov003_0217e6b0)arg0->unknown_64_);
         DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_38_ << 8);
@@ -285,7 +300,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         Set3DClearColorAndDepth_020c5588(arg0->unknown_a0_, 0x10, 0x7fff, 0, 0);
         char var7[0x20];
         memset(var7, 0, 0x20);
-        DC_FlushRange(var7, 0x20);
+        CleanInvalidateCacheRange((const void*)(var7), 0x20);
         LoadToMainBG1CharacterData(var7, 0, 0x20);
         ClearFlags00(var1, -1);
         ClearFlags04(var1, -1);
@@ -295,7 +310,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         SetFlags08(var1, arg0->unknown_ac_);
         SetFlags00(var1, 4);
         SetFlags04(var1, 2);
-        GetPartyMemberData_02053c6c((unsigned char*)var0->GetProtagonist());
+        func_02053c6c((unsigned char*)var0->GetProtagonist());
         func_ov017_0218f79c(var1);
         func_ov017_021a2840(var1);
         func_02058564((Struct_02058564_2*)GetEffectManager_02057924());
@@ -304,10 +319,10 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         func_ov017_0219ba0c(var1, 0);
         char* var8 = var1->unknown_2cc_;
         void* var9 = (void*)GetMessageWindow_020421a0();
-        ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)(var8 + 0x5b0));
-        RestoreTextureVRAMState_0207df90(var8 + 0x5b0);
+        ((TextureArena*)((TextureVRAMArea_0203d028*)(var8 + 0x5b0)))->Reset();
+        ((TextureArena*)(var8 + 0x5b0))->Restore();
         InitMessageGlyphs_020432c4(var9);
-        SaveTextureVRAMState_0207dfac(var8 + 0x5b0);
+        ((TextureArena*)(var8 + 0x5b0))->Save();
         arg0->unknown_20_++;
     } else if (arg0->unknown_20_ == 5) {
         if (*(int*)((char*)arg0->unknown_1c_ + Enum_ov003_0217e6b0_3484) & 0x400) {

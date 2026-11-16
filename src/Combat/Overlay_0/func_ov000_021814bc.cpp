@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
 
 extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
 extern "C" void __clear(void* arg0, int arg1);
 #if defined(jpn)
 extern "C" int func_ov000_02171a74(void* arg0);
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 #else
 extern "C" int func_ov000_02171a74(void* arg0, char* arg1);
 #endif
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov000_021814bc(char* arg0) {
 #if defined(jpn)
         int var3 = func_ov000_02171a74(var1);
         if (var3 < 0) continue;
-        char* var0 = (char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), var3);
+        char* var0 = (char*)((int)((StringList*)((struct Struct_0201099c_3*)(arg0 + 0xb8)))->GetString(var3));
 #else
         __clear(var0, 0x80);
         if (func_ov000_02171a74(var1, var0) < 0) continue;

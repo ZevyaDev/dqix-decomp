@@ -104,3 +104,8 @@ extern "C" ARM void func_ov002_0216c42c(char* arg0, Struct_ov002_0216c42c_5* arg
     var2.unknown_e_ = GetProtagonistObjectIndex_020100a8(var0);
     func_ov017_021d2cc0(&var2);
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

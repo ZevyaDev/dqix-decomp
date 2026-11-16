@@ -4,6 +4,9 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/PAC.h"
+#include "Resource/StringList.h"
 
 extern "C" int GetResources_0200fb8c(int* gameState);
 
@@ -18,11 +21,7 @@ extern "C" void SaveMainBGControl_02074af4(void* save);
 
 struct Struct_020534ac;
 struct PacEntry_02020cb8_4;
-extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
-extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, void* allocator);
-extern "C" void LoadStringTable_020dfec0(void* stringTable, void* allocator, void* fileData, unsigned int fileSize);
 
 extern "C" void func_ov023_021dcc58(void* arg0);
 extern "C" ARM void func_ov023_021db2e4(volatile int* arg0);
@@ -126,10 +125,10 @@ extern "C" ARM void func_ov023_021dd59c(void* arg0) {
             if (var4 != 0 && var5 != 0) {
 #endif
 
-                int var7 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var4);
+                int var7 = GetNumFilesInPAC((const void*)((struct PacEntry_02020cb8_4*)var4));
                 for (int var8 = 0; var8 < var7; var8++) {
-                    void* var9 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var4, var8, &var3, &var6);
-                    LoadSpriteSetFile_0205a528(var0 + Enum_ov023_021dd59c_300, var9, var6, *(void**)(var0 + 0x44));
+                    void* var9 = GetFileInPACByIndex((void*)((struct PacEntry_02020aec*)var4), var8, (const char**)(&var3), (unsigned int*)(&var6));
+                    ((OBJSpriteSet*)(var0 + Enum_ov023_021dd59c_300))->LoadFromNitroFile((void*)(var9), var6, (SafeAllocator*)(*(void**)(var0 + 0x44)));
                 }
             }
             *(signed char*)(var0 + Enum_ov023_021dd59c_1917) = 1;
@@ -158,7 +157,7 @@ extern "C" ARM void func_ov023_021dd59c(void* arg0) {
             if (var10 != 0 && var11 != 0) {
 #endif
 
-                LoadStringTable_020dfec0(var0 + 0x54, var0 + 0x14, (void*)var10, (unsigned int)var11);
+                ((StringList*)(var0 + 0x54))->LoadFromMemory((SafeAllocator*)(var0 + 0x14), (const void*)((void*)var10), (unsigned int)var11);
             }
             ((BackgroundLoader*)(var1))->RemoveTask((int)(*(int*)(var0 + Enum_ov023_021dd59c_1844)));
             *(int*)(var0 + Enum_ov023_021dd59c_1844) = -1;

@@ -1,9 +1,13 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
 
 struct Struct_0201099c_3;
 struct Struct_02000c9c_8;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
 extern "C" int func_02041fac(char *arg0, int arg1, int arg2);
@@ -14,9 +18,9 @@ extern "C" int func_02041cc0(char *arg0, int arg1);
 extern "C" int AppendTextColorTag_02041e70(char *buffer, int colorIndex);
 extern "C" int AppendMenuEntry_02041b70(char *buffer, int entryIndex, const char *text);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
-extern "C" int GetGameLanguage_0200fb08(struct Struct_02000c9c_8 *gameState);
+extern "C" int func_0200fb08(struct Struct_02000c9c_8 *gameState);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
-extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 extern "C" int func_020420e8(int arg0, int arg1);
 extern "C" void *__clear(void *arg0, int arg1);
 extern "C" int func_ov002_02159774(void *arg0, int arg1, int arg2, int arg3, int arg4);
@@ -44,7 +48,7 @@ extern "C" ARM void func_ov002_0215f8b8(unsigned char *arg0, char *arg1, int arg
         AppendFrameTag_02041c08(arg1, var2, 8, 5, 5, 5);
     }
     AppendCursorTag_02041ea4(arg1, var2);
-    int var3 = FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), 0xfa2);
+    int var3 = ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(0xfa2));
     AppendXPositionTag_02041a28(arg1, (0xf0 - func_020420e8(var3, 0)) >> 1);
     func_02041fac(arg1, var3, 0xf);
 
@@ -52,7 +56,7 @@ extern "C" ARM void func_ov002_0215f8b8(unsigned char *arg0, char *arg1, int arg
     GameState *var5            = GameState::GetInstance();
     unsigned char var6      = *(arg0 + 0x1000 + 0xc73);
     signed char *var7         = (signed char *) (arg0 + 0x1c00 + 0x6e);
-    int var8                 = GetGameLanguage_0200fb08((struct Struct_02000c9c_8 *) var5);
+    int var8                 = func_0200fb08((struct Struct_02000c9c_8 *) var5);
     struct Struct_ov002_0216ca70 *var9 = &data_ov002_0216ca70[var8];
     signed char *var10          = &data_ov002_0216ca10[var8 * 2];
     __clear(var0, 8);
@@ -71,11 +75,11 @@ extern "C" ARM void func_ov002_0215f8b8(unsigned char *arg0, char *arg1, int arg
         AppendText_02042058(arg1, (const char *) var3);
         AppendXPositionTag_02041a28(arg1, 0x4a);
         AppendTextColorTag_02041e70(arg1, 0xf);
-        short var17 = (signed char) *(int *) (GetPartyMemberData_02053c6c((unsigned char *) var16) + 0x94c) + 0x109c;
+        short var17 = (signed char) *(int *) (func_02053c6c((unsigned char *) var16) + 0x94c) + 0x109c;
         if (var15 == var11) var17 = 0x109b;
         AppendMenuEntry_02041b70(
             arg1, var4,
-            (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), var17));
+            (const char *) ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(var17)));
         AppendXPositionTag_02041a28(arg1, var9->unknown_0_);
         AppendMenuEntry_02041b70(arg1, var12, var0);
         AppendXPositionTag_02041a28(arg1, var9->unknown_2_);
@@ -88,6 +92,6 @@ extern "C" ARM void func_ov002_0215f8b8(unsigned char *arg0, char *arg1, int arg
     AppendPositionTag_02041a90(arg1, 0x4a, data_ov002_0216ca44[var6]);
     AppendMenuEntry_02041b70(
         arg1, var4,
-        (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), 0x11fa));
+        (const char *) ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(0x11fa)));
     func_02041cc0(arg1, data_ov002_0216ca1c[var6]);
 }

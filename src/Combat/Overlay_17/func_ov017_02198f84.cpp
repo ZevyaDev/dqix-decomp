@@ -3,6 +3,10 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 struct Struct_ov017_02198f84 {
     unsigned short unknown_0_;
@@ -48,7 +52,7 @@ struct Struct_ov017_02198f84_3 {
 };
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
 extern "C" void func_0206f81c(void* arg0);
 extern "C" void func_ov017_021ab250(struct Struct_ov017_021ab250* arg0);
@@ -66,7 +70,7 @@ extern "C" ARM void func_ov017_02198f84(Struct_ov017_02198f84_3* arg0) {
             continue;
         }
         int var3 = 0;
-        void* var4 = GetFlagManager_0205ec34();
+        void* var4 = func_0205ec34();
         Struct_ov017_02198f84_2 var5;
         var5.unknown_28_ = var2->unknown_20_;
         var5.unknown_1e_ = var2->unknown_2c_.unknown1_0_.unknown_1_;

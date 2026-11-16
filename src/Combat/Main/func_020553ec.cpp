@@ -60,7 +60,7 @@ extern "C" ARM int func_020553ec(void* arg0, int arg1, void* arg2, void* arg3, u
             NitroVM_WriteOutFilePath(&var3, var4, sizeof(var4));
             if (strstr(var4, data_020f04b8)) {
                 const void* var6 = var2.GetFileByIndex(var5);
-                unsigned int var7 = var3.fileInfo.unknown_8_ - var3.fileInfo.unknown_4_;
+                unsigned int var7 = var3.fileInfo.endOffset - var3.fileInfo.startOffset;
                 unsigned int var8 = var7;
                 func_02055180((void*)&var0->unknown_c0_, arg2, (void*)var6, (void*)var8);
                 var0->unknown_1e8_ = 1;

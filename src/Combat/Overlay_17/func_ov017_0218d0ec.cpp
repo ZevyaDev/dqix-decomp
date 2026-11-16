@@ -8,12 +8,20 @@ enum { Enum_ov017_0218d0ec_1788 = 0x6fc, Enum_ov017_0218d0ec_1816 = 0x718 };
 #include "Graphics/LightingManager.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 
 struct QueueNode_02015438;
@@ -35,7 +43,7 @@ struct Struct_ov017_0218d0ec_2 { unsigned char unknown_0_0_ : 4; unsigned char u
 extern "C" ARM void func_ov017_0218d0ec(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov017_0218d0ec* var1 = (Struct_ov017_0218d0ec*)GetZone3D_02012fe4();
-    void* var2 = GetLocalWireless_0202ae18();
+    void* var2 = func_0202ae18();
 
     if (GetQueueHeadType_02046b24(*(struct QueueNode_02015438***)(arg0 + 0x3000 + Enum_ov017_0218d0ec_1788)) == 3) return;
     if (GetGameMode_0200fb9c((char*)var0) == 6) return;
@@ -66,7 +74,7 @@ extern "C" ARM void func_ov017_0218d0ec(unsigned char* arg0) {
     int var9 = var8->unknown_98_;
     if (var9 != var0->GetTimeOfDay()) {
         if (var0->GetTimeOfDay() == 1 || var0->GetTimeOfDay() == 0) {
-            void* var10 = GetFlagManager_0205ec34();
+            void* var10 = func_0205ec34();
             SetFlag_0206df6c(var10, (unsigned char*)var10 + 0x8c, 0x1140, 1);
         }
     }

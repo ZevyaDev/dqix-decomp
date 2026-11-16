@@ -5,6 +5,8 @@
 #endif
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/SPRSprite.h"
 
 extern "C" void func_ov015_0218b5a0(void);
 struct GameResources;
@@ -12,12 +14,10 @@ void InitializeBrightnessState(GameResources*);
 unsigned int EnableSpecificInterrupts(unsigned int mask);
 struct Struct_02054280;
 extern "C" void func_02054280(Struct_02054280*);
-extern "C" void func_0204719c(void* arg0);
 extern "C" void func_ov017_0219a674(unsigned char*);
 extern "C" void func_02020554(void* arg0);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int length);
 struct BGLayer_02020cb8;
-extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8*);
 extern "C" void func_ov017_0218b664(char* arg0);
 struct Struct_02046958;
 extern "C" void func_02046958(Struct_02046958*);
@@ -151,10 +151,10 @@ extern "C" ARM void func_ov030_021d9340(GameResources* arg0) {
     ((SafeAllocator*)(var0 + R(0x28fc, (0x2000 + 0xb0c))))->ResetAllocatorPointer();
 
     for (int var8 = 0; var8 < 0x12; var8++) {
-        func_0204719c(var0 + R(0x2980, (0x2000 + 0xb90)) + var8 * 0x88);
+        ((SPRSprite*)(var0 + R(0x2980, (0x2000 + 0xb90)) + var8 * 0x88))->Reset();
     }
-    func_0204719c(var0 + R(0x3310, (0x3000 + 0x520)));
-    func_0204719c(var0 + R(0x3398, (0x3400 + 0x1a8)));
+    ((SPRSprite*)(var0 + R(0x3310, (0x3000 + 0x520))))->Reset();
+    ((SPRSprite*)(var0 + R(0x3398, (0x3400 + 0x1a8))))->Reset();
 
     *(int*)(var0 + R(0x3420, (0x3000 + 0x630))) = 0;
     for (int var9 = 0; var9 < 0x12; var9++) {
@@ -179,7 +179,7 @@ extern "C" ARM void func_ov030_021d9340(GameResources* arg0) {
 
     VectorizedMemset(var0 + R(0x34cc, (0x3400 + 0x2dc)), 0, 5);
     VectorizedMemset(var0 + R(0x34d1, (0x3600 + 0xe1)), 0, 9);
-    InitBGLayer_0204af64((BGLayer_02020cb8*)(*(void**)(var0 + R(0x34c8, (0x3000 + 0x6d8)))));
+    ((BGLayer*)((BGLayer_02020cb8*)(*(void**)(var0 + R(0x34c8, (0x3000 + 0x6d8))))))->Reset();
 
     *(int*)(var0 + R(0x34dc, (0x3000 + 0x6ec))) = -1;
     *(int*)(var0 + R(0x34e0, (0x3000 + 0x6f0))) = 0;

@@ -1,5 +1,6 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 struct StringList_02072a68_2;
 struct Struct_02046574_2;
@@ -10,7 +11,6 @@ extern "C" void *FindStringInList_02072a68(struct StringList_02072a68_2 *stringL
 extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *gameState, int index);
 extern "C" void *GetMessageWindow_020421a0();
 extern "C" int AppendText_02042058(char *buffer, const char *text);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2 *window, int index, char *text);
 extern "C" void InitPartyMemberNoun_020e4bf4(void *noun, int partyMemberIndex);
 extern "C" void *FindNounInTable_020e5294(void *nounTable, int nounId);
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov002_021685bc(unsigned char *arg0) {
                 memset(*(char **) (arg0 + 0x1000 + 0xa98), 0, 0x800);
                 AppendText_02042058(*(char **) (arg0 + 0x1000 + 0xa98), var1);
                 AppendText_02042058(*(char **) (arg0 + 0x1000 + 0xa98),
-                              (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 7));
+                              (const char *) ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString(7)));
                 ClearMessageParams_02046380(var7);
                 SetMessageString_02046574((struct Struct_02046574_2 *) var7, 0, *(char **) ((char *) var4 + 0x134));
                 func_020466c8((struct Struct_020466c8 *) var7, (*(int **) arg0)[4]);
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov002_021685bc(unsigned char *arg0) {
                 memset(*(char **) (arg0 + 0x1000 + 0xbd0), 0, 0x960);
                 AppendText_02042058(*(char **) (arg0 + 0x1000 + 0xbd0), var1);
                 AppendText_02042058(*(char **) (arg0 + 0x1000 + 0xbd0),
-                                     (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), 7));
+                                     (const char *) ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(7)));
                 ClearMessageParams_02046380(var7);
                 SetMessageString_02046574((struct Struct_02046574_2 *) var7, 0, *(char **) ((char *) var4 + 0x134));
                 InitPartyMemberNoun_020e4bf4(var5, var3);

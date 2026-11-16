@@ -1,4 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/GameStrings.h"
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 enum { Enum_ov002_0215f4e8_7166 = 0x1ac6, Enum_ov002_0215f4e8_3036 = 0xaa4, Enum_ov002_0215f4e8_32 = 0x8 };
@@ -8,10 +10,8 @@ enum { Enum_ov002_0215f4e8_7166 = 0x1bfe, Enum_ov002_0215f4e8_3036 = 0xbdc, Enum
 #endif
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
-extern "C" const char *GetStandardString_020e51cc(int stringId);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 #if defined(jpn)
 extern "C" int func_0204234c(char *arg0, int arg1);
@@ -34,9 +34,9 @@ extern "C" ARM void func_ov002_0215f4e8(unsigned char *arg0, char *arg1, int arg
     }
     AppendCursorTag_02041ea4(arg1, var0);
 #if defined(jpn)
-    AppendText_02042058(arg1, (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + Enum_ov002_0215f4e8_32), 0xfa0));
+    AppendText_02042058(arg1, (const char *) ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + Enum_ov002_0215f4e8_32)))->GetString(0xfa0)));
 #else
-    AppendText_02042058(arg1, GetStandardString_020e51cc(0x16));
+    AppendText_02042058(arg1, GetGameString((eGameString)(0x16)));
 #endif
     AppendText_02042058(arg1, *(const char **) (arg0 + 0x1000 + Enum_ov002_0215f4e8_3036));
     func_02041cc0(arg1, 0x18);
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov002_0215f4e8(unsigned char *arg0, char *arg1, int arg
             AppendTextColorTag_02041e70(arg1, 3);
         }
         AppendMenuEntry_02041b70(arg1, var4,
-                      (const char *) FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + Enum_ov002_0215f4e8_32), (short) (var5 + 0xfa1)));
+                      (const char *) ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + Enum_ov002_0215f4e8_32)))->GetString((short) (var5 + 0xfa1))));
         if (var4 != var1 - 1) {
             AppendText_02042058(arg1, *(const char **) (arg0 + 0x1000 + Enum_ov002_0215f4e8_3036));
         }

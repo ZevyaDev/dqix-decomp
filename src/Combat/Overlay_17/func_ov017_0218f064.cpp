@@ -1,6 +1,16 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 #include <World/Zone3D.h>
+#include "World/Zone3DTypes.h"
+#include "Graphics/TextureArena.h"
+
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 
 struct TextureVRAMArea_0203d028;
@@ -54,8 +64,7 @@ enum { Enum_ov017_0218f064_720 = 0x2d0, Enum_ov017_0218f064_724 = 0x2d4, Enum_ov
 #endif
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" Zone3D* GetZone3D_02012fe4();
-extern "C" void GetLocalWireless_0202ae18();
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
+extern "C" void func_0202ae18();
 extern "C" void func_020545b8(Struct_020545b8*);
 extern "C" void func_020542b4(Struct_020545b8*, SafeAllocator*, Struct_ov017_0218f064_8*);
 extern "C" int func_ov017_021925e0();
@@ -66,7 +75,7 @@ extern "C" void func_02048104(Struct_02048104*);
 extern "C" void func_02054664(Struct_02054664*);
 extern "C" int func_ov017_02192548();
 extern "C" void func_020415d8(Struct_020415d8*);
-extern "C" void HaltForever_020c9be0();
+extern "C" void func_020c9be0();
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" void SetObject3DRotation_0203db34(unsigned char*, int, int, int);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
@@ -94,7 +103,7 @@ extern "C" ARM void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2,
 #else
     var1 = GetZone3D_02012fe4();
 #endif
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     int var4 = 1;
     SafeAllocator* var5;
     Struct_020545b8* var6;
@@ -111,7 +120,7 @@ extern "C" ARM void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2,
         Struct_ov017_0218f064_8* var9 = inline_ov017_0218f064_2(arg0);
         var8->Reset();
         Struct_ov017_0218f064_8* var10 = &var9[21];
-        ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)var10);
+        ((TextureArena*)((TextureVRAMArea_0203d028*)var10))->Reset();
         func_020545b8(var6);
         func_020542b4(var6, var8, var10);
     } else {
@@ -156,14 +165,14 @@ extern "C" ARM void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2,
         if (var16) var16->unknown_2d2_ = func_ov017_02192548();
         var4 = 0;
     }
-    if (!var16) HaltForever_020c9be0();
-    var16->unknown_0_.objectIndex_4_ = (short)arg1;
+    if (!var16) func_020c9be0();
+    var16->unknown_0_.unknown_4_ = (short)arg1;
     var16->unknown_154_ = var6;
     var6->unknown_0_ = (short)arg1;
     SetGameObjectByIndex_0200fd38(var0, arg1, (GameObject*)var16);
     if (var4) {
         Struct_ov017_0218f064_7* var17 = (Struct_ov017_0218f064_7*)var5->Allocate(0x764);
-        if (!var17) HaltForever_020c9be0();
+        if (!var17) func_020c9be0();
         var17->unknown_0_[0].Initialize();
         var17->unknown_0_[2].Initialize();
         var17->unknown_0_[1].Initialize();
@@ -215,3 +224,8 @@ extern "C" ARM void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2,
 #if defined(jpn)
 #undef data_ov017_021d73a4
 #endif
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

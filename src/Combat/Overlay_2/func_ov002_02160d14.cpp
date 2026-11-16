@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 #include "GameState/GameState.h"
@@ -26,7 +27,6 @@ struct Struct_ov002_0216d088 {
     int unknown_0_[5];
 };
 
-extern "C" const char *FindStringInTable_020e0434(char *stringTable, int stringId);
 extern "C" int AppendXPositionTag_02041a28(char *buffer, int x);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int func_02042638(char *arg0, const char *arg1, int arg2);
@@ -56,11 +56,11 @@ extern "C" ARM void func_ov002_02160d14(Struct_ov002_02160d14 *arg0, char *arg1)
     const char *var3;
     switch (GetHaloObject_ov017_021bdbcc(GetGameResources())) {
     default:
-        var3 = FindStringInTable_020e0434(arg0->unknown_8_, 0x898);
+        var3 = ((StringList*)(arg0->unknown_8_))->GetString(0x898);
         break;
     case 0: {
         Struct_ov002_02160d14_2 *var4 = ((Struct_ov002_02160d14_3 *) var2)->unknown_144_;
-        var3 = FindStringInTable_020e0434(arg0->unknown_8_, (short) (var4->unknown_8b8_ + 0x898));
+        var3 = ((StringList*)(arg0->unknown_8_))->GetString((short) (var4->unknown_8b8_ + 0x898));
         break;
     }
     }
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov002_02160d14(Struct_ov002_02160d14 *arg0, char *arg1)
     int var15 = 50 - (int) (10.0f * ((float) var5 / 4.0f));
     if (func_ov002_02160fd8(var2)) {
         short var16 = func_ov002_02160fd8(var2) + 0x8fc;
-        const char *var6 = FindStringInTable_020e0434(arg0->unknown_8_, var16);
+        const char *var6 = ((StringList*)(arg0->unknown_8_))->GetString(var16);
         char *var14 = var2->baseStats_->unk;
         sprintf(arg1, data_ov002_0216d94c, var15, var14, var3, var6, GetLevel_0202053c(var2));
     } else {
@@ -97,9 +97,9 @@ extern "C" ARM void func_ov002_02160d14(Struct_ov002_02160d14 *arg0, char *arg1)
         SetMessageNumber_020465c0(var7, var11, var10[var11]);
     }
     for (int var12 = 0; var12 < 5; var12++) {
-        AppendText_02042058(arg1, FindStringInTable_020e0434(arg0->unknown_8_, var0++));
+        AppendText_02042058(arg1, ((StringList*)(arg0->unknown_8_))->GetString(var0++));
         AppendXPositionTag_02041a28(arg1, var8.unknown_0_[var12]);
-        AppendText_02042058(arg1, FindStringInTable_020e0434(arg0->unknown_8_, var1++));
+        AppendText_02042058(arg1, ((StringList*)(arg0->unknown_8_))->GetString(var1++));
         if (var12 != 4) {
             AppendText_02042058(arg1, arg0->unknown_1aa4_);
         }

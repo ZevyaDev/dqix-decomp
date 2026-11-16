@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 #include <Resource/CharacterCreationUI.h>
+#include "Resource/StringList.h"
 
 struct Struct_020200c0_5 { char* unknown_0_; char* unknown_4_; unsigned int unknown_8_; };
 struct MessageWindow_020465c0 { char unknown_0_[0x20]; Struct_020200c0_5* unknown_20_; };
@@ -21,7 +22,6 @@ struct Struct_ov000_02178938 {
 
 extern "C" int func_ov000_02175348(void*, int);
 extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0();
-extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_ov000_0217542c(void*);
 extern "C" int AppendFrameTag_02041c08(char*, int, int, int, int, int);
 extern "C" int AppendCursorTag_02041ea4(char*, int);
@@ -71,8 +71,8 @@ extern "C" ARM void func_ov000_0217a688(Struct_ov000_02178938* arg0, void* arg1,
     MessageWindow_020465c0* var7 = GetMessageWindow_020421a0();
 #if !defined(jpn)
     GameState* var8 = GameState::GetInstance();
-    const char* var9 = (const char*)FindStringInTable_020e0434(&arg0->unknown_b8_, 0);
-    const char* var10 = (const char*)FindStringInTable_020e0434(&arg0->unknown_b8_, 0x754f);
+    const char* var9 = (const char*)((int)((StringList*)(&arg0->unknown_b8_))->GetString(0));
+    const char* var10 = (const char*)((int)((StringList*)(&arg0->unknown_b8_))->GetString(0x754f));
 #endif
     var1 = -1;
 #if defined(jpn)
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov000_0217a688(Struct_ov000_02178938* arg0, void* arg1,
         int var14 = func_ov000_02175348(arg0, var13);
         if (!var14) continue;
 #if defined(jpn)
-        if (var2) AppendText_02042058(arg3, (const char*)FindStringInTable_020e0434(&arg0->unknown_b8_, 0));
+        if (var2) AppendText_02042058(arg3, (const char*)((int)((StringList*)(&arg0->unknown_b8_))->GetString(0)));
 #else
         if (var2) AppendText_02042058(arg3, var9);
 #endif
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov000_0217a688(Struct_ov000_02178938* arg0, void* arg1,
         ClearMessageParams_02046380(var7);
         SetMessageString_02046574(var7, 0, var15);
         SetMessageNumber_020465c0(var7, 0, var14);
-        func_020474a8(var7, 10, (const char*)FindStringInTable_020e0434(&arg0->unknown_b8_, 0x754f), var16);
+        func_020474a8(var7, 10, (const char*)((int)((StringList*)(&arg0->unknown_b8_))->GetString(0x754f)), var16);
 #else
         ClearMessageParams_02046380(var7);
         Struct_020200c0_5 var19;

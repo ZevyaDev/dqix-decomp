@@ -23,12 +23,11 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
 #include "NitroSDK/Graphics3D/Animation.h"
+#include "Graphics/TextureArena.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 
 extern "C" void __clear(void*, unsigned long);
 struct TextureVRAMArea_0203d028;
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
-extern "C" void RestoreTextureVRAMState_0207df90(char*);
-extern "C" void SaveTextureVRAMState_0207dfac(char*);
 struct ObjectArchiveLoadInfo_0203d028_11;
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d028_11*);
 struct Struct_0204a120_2;
@@ -36,8 +35,8 @@ struct Struct_020a3568;
 extern "C" Struct_0204a120_2* func_020100cc(char*);
 extern "C" void InitKeyControlledCamera_020a2cf0(Struct_0204a120_2*);
 extern "C" void func_020a3568(Struct_020a3568*, int);
-ModelRenderContext* GetModel3DContext(Model3D*);
-extern "C" void func_ov015_0218bb3c(RenderCommandHandler*);
+Nitro3DRenderContext* GetModel3DContext(Model3D*);
+extern "C" void func_ov015_0218bb3c(Nitro3DRenderCommandHandler*);
 extern char data_ov015_02194078[];
 extern char data_ov015_02194052[];
 extern char data_ov015_0219415c[];
@@ -73,19 +72,19 @@ extern "C" ARM int func_ov015_0218e2a4(Struct_ov015_0218e2a4_2* arg0, Struct_ov0
     arg0->unknown_8_->Reset();
     int var1 = 1;
     TextureVRAMArea_0203d028* var2 = arg0->unknown_4_->unknown_0_;
-    ResetTextureVRAMState_0207df50(var2);
-    RestoreTextureVRAMState_0207df90((char*)var2);
+    ((TextureArena*)(var2))->Reset();
+    ((TextureArena*)((char*)var2))->Restore();
     if (arg0->unknown_1c_ == 5) sprintf(var0, data_ov015_02194078, arg1->unknown_4_);
     else sprintf(var0, data_ov015_02194052, arg1->unknown_4_);
     BackgroundLoader::AddLockGlobal();
     unsigned int var3 = 0;
-    if (!LoadFileIntoMemory(var0, gFileScratchSpace_0211e33c, &var3)) var1 = 0;
+    if (!LoadFileIntoMemory(var0, g_fileScratchSpace, &var3)) var1 = 0;
     else {
         ObjectArchiveLoadInfo var4;
         ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var4);
         SafeAllocator* var5 = arg0->unknown_8_;
+        const void* var7 = g_fileScratchSpace;
         unsigned int var6 = var3;
-        const void* var7 = gFileScratchSpace_0211e33c;
         int var8 = 1;
         var4.allocator = var5;
         var4.fileData = var7;
@@ -96,15 +95,15 @@ extern "C" ARM int func_ov015_0218e2a4(Struct_ov015_0218e2a4_2* arg0, Struct_ov0
         data_ov015_02193fe0.unknown_1_ = var9->GetBoneIndex(data_ov015_0219415c);
         data_ov015_02193fe0.unknown_2_ = var9->GetBoneIndex(data_ov015_02194160);
         data_ov015_02193fe0.unknown_0_ = var9->GetBoneIndex(data_ov015_02194167);
-        ModelRenderContext* var10 = GetModel3DContext(var9);
-        SetModelRenderContextRenderCommandHook(var10, func_ov015_0218bb3c, 0, 6, 3);
-        var10->flags_ |= 4;
+        Nitro3DRenderContext* var10 = GetModel3DContext(var9);
+        Nitro3D_SetRenderHook(var10, func_ov015_0218bb3c, 0, 6, 3);
+        var10->flags |= 4;
         Vector3i var11 = data_ov015_02193d20;
         arg0->unknown_24_->SetScale(&var11);
         arg0->unknown_24_->MaybeSetBCFGAnimation(0, arg0->unknown_44_);
     }
     BackgroundLoader::RemoveLockGlobal();
-    SaveTextureVRAMState_0207dfac((char*)var2);
+    ((TextureArena*)((char*)var2))->Save();
     if (!var1) return 0;
     GameState* var12 = GameState::GetInstance();
     if (!var12) return 0;

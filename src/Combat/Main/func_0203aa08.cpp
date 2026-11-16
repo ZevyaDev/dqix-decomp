@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
+#define func_0203ac40 func_0203a698
+#endif
+
+#if defined(jpn)
 #endif
 
 extern "C" void func_0203ac40(void* arg0, int arg1, int arg2, int arg3);

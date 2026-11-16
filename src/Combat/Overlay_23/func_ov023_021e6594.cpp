@@ -2,7 +2,11 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
 extern "C" int GetStoryChapter_0201079c(char* gameState);
 struct StringList_02072a68_2;
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
@@ -43,7 +47,7 @@ extern "C" ARM void func_ov023_021e6594(char* arg0) {
         if (GetStoryChapter_0201079c((char*)var0) == 1) {
             var2 = FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + Enum_ov023_021e6594_4924), 0x50e9);
         } else {
-            GetLocalWireless_0202ae18();
+            func_0202ae18();
             GameObject* var3 = var0->GetProtagonist();
             struct Struct_ov023_021e6594_2* var4 = *(struct Struct_ov023_021e6594_2**)((char*)var3 + Enum_ov023_021e6594_336);
 #if defined(jpn)

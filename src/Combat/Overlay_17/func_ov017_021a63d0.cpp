@@ -3,15 +3,19 @@
 #include "Combat/BattleSkillEligibility.h"
 #include "GameState/GameState.h"
 #include "Grotto/Main/GrottoStruct.h"
+#include "Graphics/OBJSpriteSet.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 #if defined(jpn)
 #define func_020daf90 func_020dc998
 #endif
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
-extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 extern "C" int func_02039750(void* arg0);
 extern "C" int GetMessageWindow_020421a0();
@@ -28,7 +32,7 @@ extern "C" void func_ov017_021a5ad0(struct Struct_ov017_021a5ad0* arg0, int arg1
 extern "C" void func_ov017_021a5b08(struct Struct_ov017_021a5ad0* arg0, int arg1);
 
 struct Struct_02000c9c_8;
-extern "C" unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8* gameState);
+extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8* gameState);
 
 struct TextWindowManager_0205d1e0;
 struct TextWindowManager_0205d228;
@@ -73,7 +77,7 @@ extern "C" ARM void func_ov017_021a63d0(unsigned char* arg0) {
     if (*(int*)(arg0 + OFF_41c0) == 0) return;
     if (*(int*)(arg0 + OFF_41b4) == 0) return;
 
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     int var2 = func_02039750(GameState::GetInstance()->GetProtagonist());
     int var3 = GetMessageWindow_020421a0();
     void* var4 = GetZone3D_02012fe4();
@@ -107,7 +111,7 @@ extern "C" ARM void func_ov017_021a63d0(unsigned char* arg0) {
         } while (--var9);
     }
 
-    unsigned char var12 = GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance());
+    unsigned char var12 = func_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance());
 
  #endif
 
@@ -141,7 +145,7 @@ extern "C" ARM void func_ov017_021a63d0(unsigned char* arg0) {
             *(int*)(var16 + 0xc) = 0x1000;
             *(int*)(var16 + 0x10) = 0x1000;
             void* var18 = *(void**)(arg0 + OFF_41c4);
-            DrawSprite_0205ac40(var18, var16);
+            ((OBJSpriteSet*)(var18))->DrawMetatile((OBJSpriteSet::Metatile*)(var16));
         }
     }
 

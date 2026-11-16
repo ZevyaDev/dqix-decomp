@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 #include <Combat/Main/BattleList.h>
+#include "Resource/StringList.h"
 
 struct MenuCursor_0205c508;
 struct Struct_0201099c_3;
@@ -32,7 +33,6 @@ struct Struct_ov000_0217831c_3 {
 };
 
 extern "C" void GetMenuCursorPageRange_0205c508(struct MenuCursor_0205c508* cursor, int* outPageStartIndex, int* outPageEndIndex);
-extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" struct Struct_ov000_0217831c_2* GetEquippedWeaponItemData_02054000(struct PartyMember_02054000* gameObject);
 extern "C" int func_ov000_0217542c(void* arg0);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
@@ -58,9 +58,9 @@ extern "C" ARM void func_ov000_0217831c(Struct_ov000_0217831c_3* arg0, char* arg
     signed char var2 = var0;
     signed char var3 = var1;
     struct Struct_0201099c_3* var4 = (struct Struct_0201099c_3*)arg0->unknown_b8_;
-    const char* var5 = FindStringInTable_020e0434(var4, 0);
+    const char* var5 = ((StringList*)(var4))->GetString(0);
     signed char var6 = arg0->unknown_1d6f_;
-    const char* var7 = FindStringInTable_020e0434(var4, 5);
+    const char* var7 = ((StringList*)(var4))->GetString(5);
     int var8 = 0;
     signed char var9 = arg0->unknown_70_[arg0->unknown_1d6b_];
     int var10 = -1;
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov000_0217831c(Struct_ov000_0217831c_3* arg0, char* arg
 #endif
         }
         if (var10 == var16) {
-            AppendText_02042058(var15, FindStringInTable_020e0434(var4, 0x13));
+            AppendText_02042058(var15, ((StringList*)(var4))->GetString(0x13));
 #if !defined(jpn)
             func_02041acc(var15, 3);
 #endif

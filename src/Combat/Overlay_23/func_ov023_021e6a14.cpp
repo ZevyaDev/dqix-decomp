@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 #if defined(jpn)
 enum { Enum_ov023_021e6a14_881 = 0x341, Enum_ov023_021e6a14_172 = 0x90, Enum_ov023_021e6a14_868 = 0x33c, Enum_ov023_021e6a14_860 = 0x334 };
@@ -9,7 +10,6 @@ enum { Enum_ov023_021e6a14_881 = 0x371, Enum_ov023_021e6a14_172 = 0xac, Enum_ov0
 struct TextWindowManager_0205d81c;
 
 extern "C" void* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
-extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 // USA: func_ov023_021e6a14
 extern "C" ARM void func_ov023_021e6a14(void* arg0) {
@@ -23,5 +23,5 @@ extern "C" ARM void func_ov023_021e6a14(void* arg0) {
     *(int*)(var4 + 0x1cc) = ((short)(var2 << 3) + 5) << 0xc;
     *(int*)(var4 + 0x1d0) = ((short)(var3 << 3) + 3) << 0xc;
     void* var5 = *(void**)((char*)arg0 + 0x1000 + Enum_ov023_021e6a14_860);
-    DrawSprite_0205ac40(var5, var4 + 0x1b8);
+    ((OBJSpriteSet*)(var5))->DrawMetatile((OBJSpriteSet::Metatile*)(var4 + 0x1b8));
 }

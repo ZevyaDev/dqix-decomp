@@ -1,6 +1,15 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Input/Input.h"
+#include "Graphics/OBJSpriteSet.h"
+
+#if defined(jpn)
+#define func_0203be40 func_0203b898
+#endif
+
+#if defined(jpn)
+#define func_0203bd08 func_0203b760
+#endif
 
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
@@ -10,7 +19,6 @@ extern "C" void* func_ov023_021fad18(void* arg0);
 struct Struct_ov023_021faed0;
 extern "C" ARM void* func_ov023_021fa854(char* arg0, unsigned int arg1);
 
-extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -19,7 +27,7 @@ extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" void func_ov011_02184a40(void* arg0, int arg1);
 
 #if defined(jpn)
-extern "C" void* GetOAMManager_0203bd08(void);
+extern "C" void* func_0203bd08(void);
 extern "C" void* func_0203be40(void);
 #endif
 
@@ -100,7 +108,7 @@ extern "C" ARM void func_ov023_021faed0(struct Struct_ov023_021faed0_2* arg0, vo
             if (var8 >= 0) var3->unknown_25_ = var8 & 0xf;
             signed char var9 = arg0->unknown_39_;
             if (var9 >= 0) var3->unknown_26_ = var9 & 3;
-            DrawSprite_0205ac40(var2, var3);
+            ((OBJSpriteSet*)(var2))->DrawMetatile((OBJSpriteSet::Metatile*)(var3));
             var3->unknown_14_ = arg0->unknown_28_;
             var3->unknown_18_ = arg0->unknown_2c_;
             arg0->unknown_4e_ = 0;
@@ -112,7 +120,7 @@ extern "C" ARM void func_ov023_021faed0(struct Struct_ov023_021faed0_2* arg0, vo
                 if (var11) var10 = arg0->unknown_48_;
             }
             if (var10 >= 0) {
-                GetOAMManager_0203bd08();
+                func_0203bd08();
                 struct Struct_ov000_021700dc { unsigned int unknown_0_; unsigned int unknown_4_; };
                 Struct_ov000_021700dc* var12 = (Struct_ov000_021700dc*)func_0203be40();
                 unsigned int var13 = var12[arg0->unknown_24_].unknown_0_ & 0x3fff3fff;
@@ -152,11 +160,11 @@ extern "C" ARM void func_ov023_021faed0(struct Struct_ov023_021faed0_2* arg0, vo
                 unsigned short var23 = var3->unknown_0_;
                 if (var23 > 2) {
                     var3->unknown_0_ = var23 - 2;
-                    DrawSprite_0205ac40(var2, var3);
+                    ((OBJSpriteSet*)(var2))->DrawMetatile((OBJSpriteSet::Metatile*)(var3));
                     var3->unknown_0_ = var23;
                 }
             } else {
-                DrawSprite_0205ac40(var2, var3);
+                ((OBJSpriteSet*)(var2))->DrawMetatile((OBJSpriteSet::Metatile*)(var3));
             }
 
             var3->unknown_14_ = arg0->unknown_28_;

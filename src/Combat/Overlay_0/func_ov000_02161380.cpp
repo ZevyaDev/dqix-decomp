@@ -6,6 +6,10 @@
 #endif
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_02070b6c_3;
 struct Struct_0206f01c_2;
 struct Struct_02010088;
@@ -15,7 +19,7 @@ struct Struct_02048850;
 struct Struct_02048850_2;
 struct LocalWireless_0202c1a4;
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" unsigned char* FindMonsterBattleData_02070fd0(Struct_02070b6c_3* table, int monsterId);
@@ -164,7 +168,7 @@ extern "C" ARM int func_ov000_02161380(Struct_ov000_02161380_10* arg0, int arg1,
     if (!var18) return -1;
 
     var1 = GameState::GetInstance();
-    var2 = GetLocalWireless_0202ae18();
+    var2 = func_0202ae18();
     var0 = (Struct_02070b6c_3*)((unsigned char*)arg0->unknown_2a0_ + 0x684);
     var3 = (Struct_0206f01c_2*)((unsigned char*)arg0->unknown_2a0_ + 0x678);
     var4 = -1;

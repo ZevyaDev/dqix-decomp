@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_02094d00 func_02096950
+#endif
+
 struct Struct_020134e0_2 {
     int unknown_0_;
     int unknown_4_;

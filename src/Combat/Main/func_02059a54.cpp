@@ -1,6 +1,20 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 #include <NitroSDK/Graphics3D/RenderConfig.h>
+#include "NitroSDK/Graphics3D/Graphics3D.h"
+
+#if defined(jpn)
+#define func_020ca528 func_020cbff4
+#endif
+
+#if defined(jpn)
+#define func_0202ed74 func_0202e8e4
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+void Nitro3D_SetModelPolygonID(Nitro3DModel* model, int id);
 
 struct Struct_02059720;
 struct Struct_020546c8;
@@ -26,13 +40,11 @@ struct Struct_02059a54_2 {
 };
 extern "C" int func_02059a2c(Struct_02059720*);
 extern "C" Struct_02059a54* func_02055108(Struct_020546c8*);
-extern "C" void* GetCamera_020100bc(GameState*);
+extern "C" void* func_020100bc(GameState*);
 extern "C" void* func_0202ed74(void*);
 extern "C" void func_020ca528(void*, const void*);
-extern "C" void NSBXX_Model_SetPolygonID(void*, int);
-extern int data_0210a0cc;
 extern Vector3fix data_020e7da4;
-static inline NSBXXInternalModel* inline_02059a54(Struct_02059a54_2* arg0) { return arg0->unknown_7c_.pModel_->rawInternalModel_; }
+static inline Nitro3DModel* inline_02059a54(Struct_02059a54_2* arg0) { return arg0->unknown_7c_.pModel_->rawInternalModel_; }
 
 // USA: func_02059a54
 extern "C" ARM void func_02059a54(Struct_02059a54_2* arg0) {
@@ -49,23 +61,23 @@ extern "C" ARM void func_02059a54(Struct_02059a54_2* arg0) {
         arg0->unknown_7c_.position_.y = var2;
         arg0->unknown_7c_.position_.z = var4;
         if (!var0->unknown_5_) {
-            NSBXXInternalModel* var5 = inline_02059a54(arg0);
+            Nitro3DModel* var5 = inline_02059a54(arg0);
             int var6 = (int)arg0->unknown_134_;
             int var7 = (int)arg0->unknown_12c_;
             int var8 = (int)arg0->unknown_130_;
-            NSBXX_Model_SetDiffuseReflectionColor(var5, (unsigned short)(var7 | (var8 << 5) | (var6 << 10)));
-            NSBXX_Model_SetPolygonID(arg0->unknown_7c_.pModel_->rawInternalModel_, arg0->unknown_128_);
+            Nitro3D_SetModelDiffuseColor((Nitro3DModel*)(var5), (unsigned short)(var7 | (var8 << 5) | (var6 << 10)));
+            Nitro3D_SetModelPolygonID((Nitro3DModel*)(arg0->unknown_7c_.pModel_->rawInternalModel_), arg0->unknown_128_);
             Vector3fix var9 = arg0->unknown_7c_.position_;
-            RenderConfig::SetObjectPosition(&var9);
-            void* var10 = GetCamera_020100bc(GameState::GetInstance());
+            Nitro3DRenderConfig::SetObjectPosition(&var9);
+            void* var10 = func_020100bc(GameState::GetInstance());
             if (var10) {
-                func_020ca528(func_0202ed74(var10), &data_0210a0cc);
-                gRenderConfig_0210a010.flags &= ~0xa4;
+                func_020ca528(func_0202ed74(var10), &g_nitro3DRenderConfig.objectRotationPosition);
+                g_nitro3DRenderConfig.flags &= ~0xa4;
             }
             Vector3fix var11 = data_020e7da4;
             var11.x = (int)((float)(int)(4096.0f * arg0->unknown_13c_) * arg0->unknown_50_);
             var11.y = (int)((float)(int)(4096.0f * arg0->unknown_140_) * arg0->unknown_54_);
-            RenderConfig::SetObjectScale(&var11);
+            Nitro3DRenderConfig::SetObjectScale(&var11);
             arg0->unknown_7c_.SetInheritedAlpha((int)arg0->unknown_138_);
             arg0->unknown_7c_.DrawSimple(true);
         } else {

@@ -4,6 +4,10 @@
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 struct Struct_02040774_2;
 struct Struct_02033834;
 struct Struct_02038138;
@@ -33,7 +37,7 @@ struct Struct_020adaac {
     char unknown_19d_[3];
     unsigned char unknown_1a0_;
 };
-extern "C" void* GetCamera_020100bc(GameState*);
+extern "C" void* func_020100bc(GameState*);
 extern "C" void GetZone3D_02012fe4();
 extern "C" void SetObject3DPosition_020407b4(Struct_02040774_2*, int, int, int);
 extern "C" void* func_ov017_0218d268(void*);
@@ -47,7 +51,7 @@ extern const int data_020e9118[8];
 
 // USA: func_020adaac
 extern "C" ARM void func_020adaac(Struct_020adaac* arg0) {
-    void* var0 = GetCamera_020100bc(GameState::GetInstance());
+    void* var0 = func_020100bc(GameState::GetInstance());
     void* var1 = GetGameResources();
     int var2;
     GetZone3D_02012fe4();

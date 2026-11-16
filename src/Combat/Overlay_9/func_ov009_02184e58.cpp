@@ -3,6 +3,8 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "NitroSDK/Graphics.h"
+#include "Graphics/BGLayer.h"
+#include "Resource/PAC.h"
 
 struct Struct_ov003_021594c4 {
     char unknown_0_[0x1c];
@@ -29,26 +31,7 @@ struct BGLayer_02020cb8_6;
 struct BGLayer_0204af14;
 struct Struct_02000c9c_8;
 
-extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
-extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
-extern "C" void SetBGPriority_0204b5b4(Struct_ov003_021594c4* layer, int priority);
-extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
-extern "C" void AllocateBGScreenData_0204b12c(BGLayer_0204b12c* layer, SafeAllocator* allocator);
-extern "C" void AllocateBGScreenBlocks_0204af38(BGLayer_0204af38* layer, int capacity, SafeAllocator* allocator);
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void LoadBGBlock_0204b174(Struct_ov003_021594c4* layer, void* block, SafeAllocator* allocator, unsigned int arg3);
-extern "C" void CopyBGScreenBlockRect_0204b8d0(BGLayer_0204b8d0* layer, unsigned int screenBlockIndex, int srcX, int srcY, short destX, short destY, short width, short height,
-                           unsigned short palette);
-extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
-extern "C" void FillBGScreenRect_0204bc74(Struct_ov003_021594c4* layer, int screenEntry, int x, int y, int width, int height, int palette);
-extern "C" int CompareBytes_02001aec(const void* left, const void* right, unsigned int count);
-extern "C" void FlushBGBlock_0204b2e0(void* layer, char* block);
-extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6* layer, char* block);
-extern "C" void* GetBGScreenBlock_0204af14(BGLayer_0204af14* layer, unsigned int screenBlockIndex);
-extern "C" void func_0204b620(Struct_ov003_021594c4* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8,
-                              int arg9);
-extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
+extern "C" int func_0200fb08(Struct_02000c9c_8* gameState);
 extern "C" void func_ov023_021da274(void* arg0);
 extern "C" void func_ov023_021d9d34(char* arg0);
 extern "C" void func_ov023_021d9e60(char* arg0);
@@ -122,48 +105,48 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_02184e58_2* arg0)
         for (int var4 = 0; var4 < 3; var4++)
         {
             Struct_ov003_021594c4* var5 = var3[var4];
-            InitBGLayer_0204af64((BGLayer_02020cb8*)var5);
-            SetBGScreenSize_0204b11c((unsigned char*)var5, 0);
+            ((BGLayer*)((BGLayer_02020cb8*)var5))->Reset();
+            ((BGLayer*)((unsigned char*)var5))->ConfigureTextMode(0);
             var5->unknown_1c_0_ = 0;
             var5->unknown_1c_4_ = data_ov009_0218b93d[var4];
-            SetBGPriority_0204b5b4(var5, data_ov009_0218b946[var4]);
-            SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)var5, 0, 0);
-            AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)var5, &arg0->unknown_0_[0]);
+            ((BGLayer*)(var5))->SetPriority(data_ov009_0218b946[var4]);
+            ((BGLayer*)((BGLayer_02020cb8_5*)var5))->SetOffset(0, 0);
+            ((BGLayer*)((BGLayer_0204b12c*)var5))->AllocateIndexBuffer((SafeAllocator*)(&arg0->unknown_0_[0]));
             if (data_ov009_0218b943[var4] > 0)
-                AllocateBGScreenBlocks_0204af38((BGLayer_0204af38*)var5, (unsigned char)data_ov009_0218b943[var4], &arg0->unknown_0_[0]);
+                ((BGLayer*)((BGLayer_0204af38*)var5))->AllocateSprites((unsigned char)data_ov009_0218b943[var4], (SafeAllocator*)(&arg0->unknown_0_[0]));
         }
         char var6[4];
         void* var7;
         unsigned int var8;
         var2->GetLoadedFileByID(arg0->unknown_d54_, &var7, &var8);
-        int var9 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var7);
+        int var9 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var7));
         if (arg0->unknown_d59_ == 1)
             var9--;
         for (int var10 = 0; var10 < var9; var10++)
         {
             unsigned int var11;
-            void* var12 = GetPacEntryData_020467f0((PacEntry_02020aec*)var7, var10, (void**)var6, (int*)&var11);
+            void* var12 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var7), var10, (const char**)((void**)var6), (unsigned int*)((int*)&var11));
             if (var12 != NULL)
             {
                 if (var10 == 2)
                 {
-                    LoadBGBlock_0204b174(&arg0->unknown_fc_[1], var12, &arg0->unknown_0_[0], var11);
-                    LoadBGBlock_0204b174(&arg0->unknown_fc_[2], var12, &arg0->unknown_0_[0], var11);
+                    ((BGLayer*)(&arg0->unknown_fc_[1]))->ProcessGraphicsFile((const void*)var12, (SafeAllocator*)(&arg0->unknown_0_[0]), var11);
+                    ((BGLayer*)(&arg0->unknown_fc_[2]))->ProcessGraphicsFile((const void*)var12, (SafeAllocator*)(&arg0->unknown_0_[0]), var11);
                 }
                 else
                 {
-                    LoadBGBlock_0204b174(&arg0->unknown_fc_[0], var12, &arg0->unknown_0_[0], var11);
+                    ((BGLayer*)(&arg0->unknown_fc_[0]))->ProcessGraphicsFile((const void*)var12, (SafeAllocator*)(&arg0->unknown_0_[0]), var11);
                 }
             }
         }
         var2->RemoveTask(arg0->unknown_d54_);
         arg0->unknown_d54_ = -1;
-        CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&arg0->unknown_fc_[0], 0, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
-        LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&arg0->unknown_fc_[0], 0);
-        FillBGScreenRect_0204bc74(&arg0->unknown_fc_[1], 0, 0, 0, 0x20, 0x19, 0);
-        LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&arg0->unknown_fc_[1], 0);
-        FillBGScreenRect_0204bc74(&arg0->unknown_fc_[2], 0, 0, 0, 0x20, 0x19, 0);
-        LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&arg0->unknown_fc_[2], 0);
+        ((BGLayer*)((BGLayer_0204b8d0*)&arg0->unknown_fc_[0]))->BlitSpriteByIndex(0, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
+        ((BGLayer*)((BGLayer_02020cb8_2*)&arg0->unknown_fc_[0]))->CleanCacheAndUploadIndexBuffer((const void*)(0));
+        ((BGLayer*)(&arg0->unknown_fc_[1]))->SetTileInRectangle(0, 0, 0, 0x20, 0x19, 0);
+        ((BGLayer*)((BGLayer_02020cb8_2*)&arg0->unknown_fc_[1]))->CleanCacheAndUploadIndexBuffer((const void*)(0));
+        ((BGLayer*)(&arg0->unknown_fc_[2]))->SetTileInRectangle(0, 0, 0, 0x20, 0x19, 0);
+        ((BGLayer*)((BGLayer_02020cb8_2*)&arg0->unknown_fc_[2]))->CleanCacheAndUploadIndexBuffer((const void*)(0));
         arg0->unknown_d60_ &= ~0x80;
         arg0->unknown_d58_ = 0;
         return;
@@ -176,13 +159,13 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_02184e58_2* arg0)
     for (int var14 = 0; var14 < 2; var14++)
     {
         Struct_ov003_021594c4* var15 = var13[var14];
-        InitBGLayer_0204af64((BGLayer_02020cb8*)var15);
-        SetBGScreenSize_0204b11c((unsigned char*)var15, 0);
+        ((BGLayer*)((BGLayer_02020cb8*)var15))->Reset();
+        ((BGLayer*)((unsigned char*)var15))->ConfigureTextMode(0);
         var15->unknown_1c_0_ = 1;
         var15->unknown_1c_4_ = data_ov009_0218b93b[var14];
-        SetBGPriority_0204b5b4(var15, data_ov009_0218b939[var14]);
-        SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)var15, 0, 0);
-        AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)var15, &arg0->unknown_0_[1]);
+        ((BGLayer*)(var15))->SetPriority(data_ov009_0218b939[var14]);
+        ((BGLayer*)((BGLayer_02020cb8_5*)var15))->SetOffset(0, 0);
+        ((BGLayer*)((BGLayer_0204b12c*)var15))->AllocateIndexBuffer((SafeAllocator*)(&arg0->unknown_0_[1]));
         unsigned char var16 = 0;
         for (int var17 = 0; data_ov009_0218ba30[var17] >= 0; var17 += 3)
         {
@@ -195,7 +178,7 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_02184e58_2* arg0)
             }
         }
         if (var16 != 0)
-            AllocateBGScreenBlocks_0204af38((BGLayer_0204af38*)var15, var16, &arg0->unknown_0_[1]);
+            ((BGLayer*)((BGLayer_0204af38*)var15))->AllocateSprites(var16, (SafeAllocator*)(&arg0->unknown_0_[1]));
     }
 
     char var18[4];
@@ -204,7 +187,7 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_02184e58_2* arg0)
     unsigned int var21;
     var2->GetLoadedFileByID(arg0->unknown_d54_, &var19, &var20);
     void* var22;
-    int var23 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var19);
+    int var23 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var19));
     if (arg0->unknown_c1c_ == 8)
     {
         if (arg0->unknown_d8f_ != 0)
@@ -218,7 +201,7 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_02184e58_2* arg0)
     var1 = var0 + 1;
     for (int var25 = 0; var25 < var23; var25++)
     {
-        var22 = GetPacEntryData_020467f0((PacEntry_02020aec*)var19, var25, (void**)var18, (int*)&var21);
+        var22 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var19), var25, (const char**)((void**)var18), (unsigned int*)((int*)&var21));
         if (var22 == NULL)
             continue;
         if (arg0->unknown_c1c_ == 8)
@@ -239,24 +222,24 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_02184e58_2* arg0)
             }
             if (arg0->unknown_d8f_ != 0)
             {
-                FlushBGBlock_0204b2e0(var26, (char*)var22);
+                ((BGLayer*)(var26))->ProcessGraphicsFileMetadata((const void*)((char*)var22));
             }
             else
             {
                 char var27[5] = {};
                 memcpy(var27, var22, 4);
-                CopyBGBlockToVRAM_0204b3a0((BGLayer_02020cb8_6*)var26, (char*)var22);
-                if (CompareBytes_02001aec(var27, data_ov009_0218bc20, 4) == 0)
-                    LoadBGBlock_0204b174(var26, var22, &arg0->unknown_0_[1], var21);
+                ((BGLayer*)((BGLayer_02020cb8_6*)var26))->StageGraphicsFileBuffer((const void*)((char*)var22));
+                if (memcmp(var27, data_ov009_0218bc20, 4) == 0)
+                    ((BGLayer*)var26)->ProcessGraphicsFile((const void*)var22, (SafeAllocator*)(&arg0->unknown_0_[1]), var21);
             }
         }
         else if (var25 < var1)
         {
-            LoadBGBlock_0204b174(&arg0->unknown_fc_[3], var22, &arg0->unknown_0_[1], var21);
+            ((BGLayer*)(&arg0->unknown_fc_[3]))->ProcessGraphicsFile((const void*)var22, (SafeAllocator*)(&arg0->unknown_0_[1]), var21);
         }
         else
         {
-            LoadBGBlock_0204b174(&arg0->unknown_fc_[4], var22, &arg0->unknown_0_[1], var21);
+            ((BGLayer*)(&arg0->unknown_fc_[4]))->ProcessGraphicsFile((const void*)var22, (SafeAllocator*)(&arg0->unknown_0_[1]), var21);
         }
     }
 
@@ -267,14 +250,14 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_02184e58_2* arg0)
     int var28 = 0;
     if (arg0->unknown_d59_ == 0 && arg0->unknown_c1c_ == 1)
         var28 = 1;
-    CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&arg0->unknown_fc_[3], var28, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
-    FillBGScreenRect_0204bc74(&arg0->unknown_fc_[4], 0, 0, 0, 0x20, 0x19, 0);
+    ((BGLayer*)((BGLayer_0204b8d0*)&arg0->unknown_fc_[3]))->BlitSpriteByIndex(var28, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
+    ((BGLayer*)(&arg0->unknown_fc_[4]))->SetTileInRectangle(0, 0, 0, 0x20, 0x19, 0);
     arg0->unknown_d60_ |= 0x2000;
     if (arg0->unknown_fc_[4].unknown_1d_ != 0)
         func_ov023_021da274(arg0);
     arg0->unknown_d60_ &= ~0x2000;
-    LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&arg0->unknown_fc_[3], 0);
-    LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&arg0->unknown_fc_[4], 0);
+    ((BGLayer*)((BGLayer_02020cb8_2*)&arg0->unknown_fc_[3]))->CleanCacheAndUploadIndexBuffer((const void*)(0));
+    ((BGLayer*)((BGLayer_02020cb8_2*)&arg0->unknown_fc_[4]))->CleanCacheAndUploadIndexBuffer((const void*)(0));
     arg0->unknown_d60_ |= 0x4000;
     func_ov023_021d9d34((char*)arg0);
     arg0->unknown_d60_ &= ~0x4000;
@@ -304,48 +287,48 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_021842a0_2* arg0)
         for (int var35 = 0; var35 < 3; var35++)
         {
             Struct_ov003_021594c4* var36 = var34[var35];
-            InitBGLayer_0204af64((BGLayer_02020cb8*)var36);
-            SetBGScreenSize_0204b11c((unsigned char*)var36, 0);
+            ((BGLayer*)((BGLayer_02020cb8*)var36))->Reset();
+            ((BGLayer*)((unsigned char*)var36))->ConfigureTextMode(0);
             var36->unknown_1c_0_ = 0;
             var36->unknown_1c_4_ = data_ov009_0218a963[var35];
-            SetBGPriority_0204b5b4(var36, data_ov009_0218a969[var35]);
-            SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)var36, 0, 0);
-            AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)var36, &arg0->unknown_0_[0]);
+            ((BGLayer*)(var36))->SetPriority(data_ov009_0218a969[var35]);
+            ((BGLayer*)((BGLayer_02020cb8_5*)var36))->SetOffset(0, 0);
+            ((BGLayer*)((BGLayer_0204b12c*)var36))->AllocateIndexBuffer((SafeAllocator*)(&arg0->unknown_0_[0]));
             if (data_ov009_0218a966[var35] > 0)
-                AllocateBGScreenBlocks_0204af38((BGLayer_0204af38*)var36, (unsigned char)data_ov009_0218a966[var35], &arg0->unknown_0_[0]);
+                ((BGLayer*)((BGLayer_0204af38*)var36))->AllocateSprites((unsigned char)data_ov009_0218a966[var35], (SafeAllocator*)(&arg0->unknown_0_[0]));
         }
         char var37[4];
         void* var38;
         unsigned int var39;
         var30->GetLoadedFileByID(arg0->unknown_d90_, &var38, &var39);
-        int var40 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var38);
+        int var40 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var38));
         if (arg0->unknown_d95_ == 1)
             var40--;
         for (int var41 = 0; var41 < var40; var41++)
         {
             unsigned int var42;
-            void* var43 = GetPacEntryData_020467f0((PacEntry_02020aec*)var38, var41, (void**)var37, (int*)&var42);
+            void* var43 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var38), var41, (const char**)((void**)var37), (unsigned int*)((int*)&var42));
             if (var43 != NULL)
             {
                 if (var41 == 2)
                 {
-                    LoadBGBlock_0204b174(&arg0->unknown_138_[1], var43, &arg0->unknown_0_[0], var42);
-                    LoadBGBlock_0204b174(&arg0->unknown_138_[2], var43, &arg0->unknown_0_[0], var42);
+                    ((BGLayer*)(&arg0->unknown_138_[1]))->ProcessGraphicsFile((const void*)var43, (SafeAllocator*)(&arg0->unknown_0_[0]), var42);
+                    ((BGLayer*)(&arg0->unknown_138_[2]))->ProcessGraphicsFile((const void*)var43, (SafeAllocator*)(&arg0->unknown_0_[0]), var42);
                 }
                 else
                 {
-                    LoadBGBlock_0204b174(&arg0->unknown_138_[0], var43, &arg0->unknown_0_[0], var42);
+                    ((BGLayer*)(&arg0->unknown_138_[0]))->ProcessGraphicsFile((const void*)var43, (SafeAllocator*)(&arg0->unknown_0_[0]), var42);
                 }
             }
         }
         var30->RemoveTask(arg0->unknown_d90_);
         arg0->unknown_d90_ = -1;
-        CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&arg0->unknown_138_[0], 0, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
-        LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&arg0->unknown_138_[0], 0);
-        FillBGScreenRect_0204bc74(&arg0->unknown_138_[1], 0, 0, 0, 0x20, 0x19, 0);
-        LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&arg0->unknown_138_[1], 0);
-        FillBGScreenRect_0204bc74(&arg0->unknown_138_[2], 0, 0, 0, 0x20, 0x19, 0);
-        LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&arg0->unknown_138_[2], 0);
+        ((BGLayer*)((BGLayer_0204b8d0*)&arg0->unknown_138_[0]))->BlitSpriteByIndex(0, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
+        ((BGLayer*)((BGLayer_02020cb8_2*)&arg0->unknown_138_[0]))->CleanCacheAndUploadIndexBuffer((const void*)(0));
+        ((BGLayer*)(&arg0->unknown_138_[1]))->SetTileInRectangle(0, 0, 0, 0x20, 0x19, 0);
+        ((BGLayer*)((BGLayer_02020cb8_2*)&arg0->unknown_138_[1]))->CleanCacheAndUploadIndexBuffer((const void*)(0));
+        ((BGLayer*)(&arg0->unknown_138_[2]))->SetTileInRectangle(0, 0, 0, 0x20, 0x19, 0);
+        ((BGLayer*)((BGLayer_02020cb8_2*)&arg0->unknown_138_[2]))->CleanCacheAndUploadIndexBuffer((const void*)(0));
         arg0->unknown_d9c_ &= ~0x80;
         arg0->unknown_d94_ = 0;
         return;
@@ -358,13 +341,13 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_021842a0_2* arg0)
     for (int var45 = 0; var45 < 2; var45++)
     {
         Struct_ov003_021594c4* var46 = var44[var45];
-        InitBGLayer_0204af64((BGLayer_02020cb8*)var46);
-        SetBGScreenSize_0204b11c((unsigned char*)var46, 0);
+        ((BGLayer*)((BGLayer_02020cb8*)var46))->Reset();
+        ((BGLayer*)((unsigned char*)var46))->ConfigureTextMode(0);
         var46->unknown_1c_0_ = 1;
         var46->unknown_1c_4_ = data_ov009_0218a95f[var45];
-        SetBGPriority_0204b5b4(var46, data_ov009_0218a961[var45]);
-        SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)var46, 0, 0);
-        AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)var46, &arg0->unknown_0_[1]);
+        ((BGLayer*)(var46))->SetPriority(data_ov009_0218a961[var45]);
+        ((BGLayer*)((BGLayer_02020cb8_5*)var46))->SetOffset(0, 0);
+        ((BGLayer*)((BGLayer_0204b12c*)var46))->AllocateIndexBuffer((SafeAllocator*)(&arg0->unknown_0_[1]));
         unsigned char var47 = 0;
         for (int var48 = 0; data_ov009_0218aa54[var48] >= 0; var48 += 3)
         {
@@ -377,7 +360,7 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_021842a0_2* arg0)
             }
         }
         if (var47 != 0)
-            AllocateBGScreenBlocks_0204af38((BGLayer_0204af38*)var46, var47, &arg0->unknown_0_[1]);
+            ((BGLayer*)((BGLayer_0204af38*)var46))->AllocateSprites(var47, (SafeAllocator*)(&arg0->unknown_0_[1]));
     }
 
     char var49[4];
@@ -385,7 +368,7 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_021842a0_2* arg0)
     unsigned int var51;
     unsigned int var52;
     var30->GetLoadedFileByID(arg0->unknown_d90_, &var50, &var51);
-    int var53 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var50);
+    int var53 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var50));
     if (var33 == 8)
         arg0->unknown_db6_ = arg0->unknown_db6_ == 0 ? 1 : 0;
     unsigned char var54 = 0;
@@ -394,12 +377,12 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_021842a0_2* arg0)
     void* var55;
     for (int var56 = 0; var56 < var53; var56++)
     {
-        var55 = GetPacEntryData_020467f0((PacEntry_02020aec*)var50, var56, (void**)var49, (int*)&var52);
+        var55 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var50), var56, (const char**)((void**)var49), (unsigned int*)((int*)&var52));
         if (var55 == NULL)
             continue;
         char var57[5] = {};
         memcpy(var57, var55, 4);
-        if (CompareBytes_02001aec(var57, data_ov009_0218aca6, 4) == 0 && data_ov009_0218a95d[var54++] == arg0->unknown_d95_)
+        if (memcmp(var57, data_ov009_0218aca6, 4) == 0 && data_ov009_0218a95d[var54++] == arg0->unknown_d95_)
             continue;
         if (var33 == 8)
         {
@@ -411,23 +394,23 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_021842a0_2* arg0)
             if (arg0->unknown_db6_ != 0)
             {
                 if (var56 != var32)
-                    FlushBGBlock_0204b2e0(var58, (char*)var55);
+                    ((BGLayer*)(var58))->ProcessGraphicsFileMetadata((const void*)((char*)var55));
             }
             else
             {
                 if (var56 != var32)
-                    CopyBGBlockToVRAM_0204b3a0((BGLayer_02020cb8_6*)var58, (char*)var55);
-                if (CompareBytes_02001aec(var57, data_ov009_0218acab, 4) == 0)
-                    LoadBGBlock_0204b174(var58, var55, &arg0->unknown_0_[1], var52);
+                    ((BGLayer*)((BGLayer_02020cb8_6*)var58))->StageGraphicsFileBuffer((const void*)((char*)var55));
+                if (memcmp(var57, data_ov009_0218acab, 4) == 0)
+                    ((BGLayer*)var58)->ProcessGraphicsFile((const void*)var55, (SafeAllocator*)(&arg0->unknown_0_[1]), var52);
             }
         }
         else if (var56 < var29)
         {
-            LoadBGBlock_0204b174(&arg0->unknown_138_[3], var55, &arg0->unknown_0_[1], var52);
+            ((BGLayer*)(&arg0->unknown_138_[3]))->ProcessGraphicsFile((const void*)var55, (SafeAllocator*)(&arg0->unknown_0_[1]), var52);
         }
         else
         {
-            LoadBGBlock_0204b174(&arg0->unknown_138_[4], var55, &arg0->unknown_0_[1], var52);
+            ((BGLayer*)(&arg0->unknown_138_[4]))->ProcessGraphicsFile((const void*)var55, (SafeAllocator*)(&arg0->unknown_0_[1]), var52);
         }
     }
 
@@ -440,19 +423,19 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_021842a0_2* arg0)
         var59 = 1;
     if (var33 == 8 && arg0->unknown_d95_ == 1)
     {
-        void* var60 = GetBGScreenBlock_0204af14((BGLayer_0204af14*)&arg0->unknown_138_[3], 4);
+        void* var60 = ((void*)((BGLayer*)((BGLayer_0204af14*)&arg0->unknown_138_[3]))->GetSprite(4));
         for (int var61 = 0; var61 < 4; var61++)
         {
-            Struct_ov009_02184e58* var62 = (Struct_ov009_02184e58*)GetBGScreenBlock_0204af14((BGLayer_0204af14*)&arg0->unknown_138_[3], (unsigned char)var61);
+            Struct_ov009_02184e58* var62 = (Struct_ov009_02184e58*)((void*)((BGLayer*)((BGLayer_0204af14*)&arg0->unknown_138_[3]))->GetSprite((unsigned char)var61));
             Struct_ov003_021594c4 var63;
-            InitBGLayer_0204af64((BGLayer_02020cb8*)&var63);
-            func_0204b620(&var63, var62->unknown_c_, var60, 0, 0, 0x13, 0x11, 4, 2, 1);
+            ((BGLayer*)((BGLayer_02020cb8*)&var63))->Reset();
+            ((BGLayer*)(&var63))->BlitSpriteToBuffer((unsigned short*)(var62->unknown_c_), (const BGLayer::Sprite*)(var60), 0, 0, 0x13, 0x11, 4, 2, 1);
         }
     }
-    CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&arg0->unknown_138_[3], var59, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
+    ((BGLayer*)((BGLayer_0204b8d0*)&arg0->unknown_138_[3]))->BlitSpriteByIndex(var59, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
     if (arg0->unknown_138_[3].unknown_1d_ == 5)
     {
-        int var64 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
+        int var64 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
         int var65 = 0;
         switch (var64)
         {
@@ -470,15 +453,15 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_021842a0_2* arg0)
             break;
         }
         if (var65 != 0)
-            CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&arg0->unknown_138_[3], var65, 0, 0, 1, 1, 0xd, 3, 0xffff);
+            ((BGLayer*)((BGLayer_0204b8d0*)&arg0->unknown_138_[3]))->BlitSpriteByIndex(var65, 0, 0, 1, 1, 0xd, 3, 0xffff);
     }
-    FillBGScreenRect_0204bc74(&arg0->unknown_138_[4], 0, 0, 0, 0x20, 0x19, 0);
+    ((BGLayer*)(&arg0->unknown_138_[4]))->SetTileInRectangle(0, 0, 0, 0x20, 0x19, 0);
     arg0->unknown_d9c_ |= 0x2000;
     if (arg0->unknown_138_[4].unknown_1d_ != 0)
         func_ov023_021da274(arg0);
     arg0->unknown_d9c_ &= ~0x2000;
-    LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&arg0->unknown_138_[3], 0);
-    LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&arg0->unknown_138_[4], 0);
+    ((BGLayer*)((BGLayer_02020cb8_2*)&arg0->unknown_138_[3]))->CleanCacheAndUploadIndexBuffer((const void*)(0));
+    ((BGLayer*)((BGLayer_02020cb8_2*)&arg0->unknown_138_[4]))->CleanCacheAndUploadIndexBuffer((const void*)(0));
     arg0->unknown_d9c_ |= 0x4000;
     func_ov023_021d9d34((char*)arg0);
     arg0->unknown_d9c_ &= ~0x4000;

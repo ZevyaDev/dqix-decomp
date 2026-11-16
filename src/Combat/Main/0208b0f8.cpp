@@ -2,14 +2,22 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 
 struct Struct_02010834;
 struct Struct_0208ab34;
 struct Struct_0208ab34_2;
 struct Struct_02048228;
 struct Struct_02048284;
-extern "C" void* GetFlagManager_0205ec34();
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0205ec34();
+extern "C" void* func_0202ae18();
 extern "C" void* GetZone3D_02012fe4();
 extern "C" void* __clear(void*, int);
 extern "C" void func_0206f81c(void*);
@@ -82,9 +90,9 @@ extern "C" ARM void func_0208b0f8(void* arg0) {
     var1 = GameState::GetInstance();
     var3 = GetGameResources();
     var12 = (Struct_0208b0f8*)var1->GetUnknownGameObject();
-    var2 = GetFlagManager_0205ec34();
+    var2 = func_0205ec34();
     GetParty_02010828(var1);
-    var4 = (int*)GetLocalWireless_0202ae18();
+    var4 = (int*)func_0202ae18();
     var5 = (unsigned char*)var3->unknown_ptr_36d0;
     var8 = (void**)var3->unknown_ptr_array_36fc[0];
     if (var12 == NULL) return;

@@ -5,6 +5,14 @@
 #include "Resource/GameResources.h"
 #include "NitroSDK/OverlayId.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
+#if defined(jpn)
+#define func_020a1df8 func_020a3b70
+#endif
+
 
 #if defined(jpn)
 enum { Enum_ov017_021b24d0_261 = 0x125, Enum_ov017_021b24d0_716 = 0x27c };
@@ -12,11 +20,11 @@ enum { Enum_ov017_021b24d0_261 = 0x125, Enum_ov017_021b24d0_716 = 0x27c };
 enum { Enum_ov017_021b24d0_261 = 0x105, Enum_ov017_021b24d0_716 = 0x2cc };
 #endif
 
-extern "C" void HaltForever_020c9be0(void);
+extern "C" void func_020c9be0(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" void PushSubOverlay_020a1ef0(int subOverlayEntry);
-extern "C" void PushOverlay_020a1df8(int overlayEntry);
+extern "C" void func_020a1df8(int overlayEntry);
 extern "C" void func_ov011_0218438c(char* arg0);
 extern "C" void func_ov011_02184550(char* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
 extern "C" void func_ov011_021845c8(char* arg0, void* arg1, unsigned int arg2);
@@ -64,7 +72,7 @@ extern "C" ARM int func_ov017_021b24d0(Struct_ov017_021b24d0_3* arg0) {
         return arg0->unknown_8_;
     }
     if (var1->GetDetailedTaskStatus(arg0->unknown_c_) != 2) {
-        HaltForever_020c9be0();
+        func_020c9be0();
     }
     Struct_ov017_021b24d0* var2 = (Struct_ov017_021b24d0*)GetZone3D_02012fe4();
     if (var2 != NULL) {
@@ -74,14 +82,14 @@ extern "C" ARM int func_ov017_021b24d0(Struct_ov017_021b24d0_3* arg0) {
     void* var4;
     var1->GetLoadedFileByID(arg0->unknown_c_, &var4, &var3);
     if (var4 == NULL || var3 == 0) {
-        HaltForever_020c9be0();
+        func_020c9be0();
     }
     LoadOverlay_020a1940(OVERLAY_ID(11));
     PushSubOverlay_020a1ef0(1);
-    PushOverlay_020a1df8(4);
+    func_020a1df8(4);
     data_ov017_021d83f0.unknown_4_ = (char*)arg0->unknown_10_.Allocate(0x1e0);
     if (data_ov017_021d83f0.unknown_4_ == NULL) {
-        HaltForever_020c9be0();
+        func_020c9be0();
     }
     func_ov011_0218438c(data_ov017_021d83f0.unknown_4_);
     func_ov011_02184550(data_ov017_021d83f0.unknown_4_, &arg0->unknown_10_, var4, var3);

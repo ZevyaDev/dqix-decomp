@@ -1,6 +1,7 @@
 #include "Combat/TryApplyElemFields.h"
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "Resource/StringList.h"
 
 struct Struct_0201099c_3;
 struct TextWindowManager_0205d81c;
@@ -28,7 +29,6 @@ struct Struct_ov000_02170cf8 {
 extern "C" int GetMessageWindow_020421a0();
 extern "C" struct Struct_ov000_02170cf8* func_ov000_02170cf8(char* arg0, int arg1);
 extern "C" void func_020dd040(int arg0, char* arg1);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_02046608(int arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 #if defined(jpn)
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov000_0217a19c(char* arg0, char* arg1) {
     if (var4 != 0) {
         func_020dd040(var4->unknown_4_0_, var2);
     } else {
-        var2 = (char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0x20);
+        var2 = (char*)((int)((StringList*)((struct Struct_0201099c_3*)(arg0 + 0xb8)))->GetString(0x20));
     }
 #if !defined(jpn)
     func_02046608(GetMessageWindow_020421a0(), 0xa, var2, var1, 0x98, 0, 0);

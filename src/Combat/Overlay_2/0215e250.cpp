@@ -1,5 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameStrings.h"
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -14,14 +16,12 @@ struct PartyMember_0205faf4_11;
 extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" int func_02041fac(char* arg0, int arg1, int arg2);
 extern "C" int AppendTextColorTag_02041e70(char* buffer, int colorIndex);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
-extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" int func_ov002_02159774(void* arg0, int arg1, int arg2, int arg3, int arg4);
 
 // USA: func_ov002_0215e250
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov002_0215e250(unsigned char* arg0, char* arg1, int arg
     }
     AppendCursorTag_02041ea4(arg1, var1);
 
-    int var8 = FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + RG(0x20, 0x8)), 2);
+    int var8 = ((int)((StringList*)((struct Struct_0201099c_3*)(arg0 + RG(0x20, 0x8))))->GetString(2));
     func_02041fac(arg1, var8, 0x16);
 
     for (int var9 = 0; var9 < var3; var9++) {
@@ -82,8 +82,8 @@ extern "C" ARM void func_ov002_0215e250(unsigned char* arg0, char* arg1, int arg
     }
 
 #if defined(jpn)
-    AppendMenuEntry_02041b70(arg1, var3, (const char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)(arg0 + 0x8), 0x76d));
+    AppendMenuEntry_02041b70(arg1, var3, (const char*)((int)((StringList*)((struct Struct_0201099c_3*)(arg0 + 0x8)))->GetString(0x76d)));
 #else
-    AppendMenuEntry_02041b70(arg1, var3, (const char*)GetStandardString_020e51cc(0x1a));
+    AppendMenuEntry_02041b70(arg1, var3, (const char*)((int)GetGameString((eGameString)(0x1a))));
 #endif
 }

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 
 struct Struct_02019728 {
     unsigned char unknown_0_;
@@ -38,7 +39,7 @@ static inline Struct_02019728 inline_02019728(const FloorMap* arg0, int arg1, in
 extern "C" ARM int func_02019728(Zone3D* arg0, int arg1, Struct_020134e0* arg2, TileFeaturePlacementData* arg3, FloorMap* arg4)
 {
     char var0[8];
-    Struct_020134e0* var1 = arg2 ? arg2 : &arg0->substruct_6c_;
+    Struct_020134e0* var1 = arg2 ? arg2 : ((Struct_020134e0*)arg0->substruct_6c_);
     FloorMap* var2 = arg4 ? arg4 : &arg0->grotto_.floorMap_;
     int var3;
     int var4;
@@ -57,7 +58,7 @@ extern "C" ARM int func_02019728(Zone3D* arg0, int arg1, Struct_020134e0* arg2, 
             int var11;
 
             var6 = inline_02019728(var2, var5, var4);
-            var8 = &arg0->grottoTileMapData_420_[var4 * 16];
+            var8 = &((Struct_02013490*)arg0->grottoTileMapData_420_)[var4 * 16];
             var8 = &var8[var5];
             Mat3x3_WriteIdentity(&var7);
 

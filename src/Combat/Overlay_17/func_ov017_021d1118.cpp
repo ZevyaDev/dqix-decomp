@@ -4,9 +4,17 @@
 #include "GameState/BattleRecordSnapshot.h"
 #include "NitroSDK/Memory.h"
 
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae24();
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int GetLocalWirelessState_0202ba00(int* wireless);
 extern "C" int func_020ac4f8(int arg0);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
@@ -126,7 +134,7 @@ extern "C" ARM void func_ov017_021d1118(int arg0, int arg1, bool arg2, unsigned 
     int var13;
     Struct_ov017_021d1118_3* var14;
     var0 = GameState::GetInstance();
-    var1 = GetLocalWirelessPacketQueue_0202ae24();
+    var1 = func_0202ae24();
     Struct_ov017_021d1118 var15;
     var2 = &var15.unknown_4_;
     var15.unknown_0_ = 0x1a;
@@ -142,7 +150,7 @@ extern "C" ARM void func_ov017_021d1118(int arg0, int arg1, bool arg2, unsigned 
         QueueOutgoingPacket_0205e330(var1, &var15, 0);
     }
     if (arg1 & 1) {
-        var4 = (Struct_ov017_021d1118_7*)GetLocalWireless_0202ae18();
+        var4 = (Struct_ov017_021d1118_7*)func_0202ae18();
         var5 = GetLocalWirelessState_0202ba00((int*)var4);
         var6 = var4->unknown_100d_;
         var7 = 0;

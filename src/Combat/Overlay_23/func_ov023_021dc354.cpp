@@ -2,6 +2,10 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 extern "C" void func_ov023_021db2e4(volatile int* arg0);
 extern "C" int GetFontLoader_02094a00(void);
 extern "C" void CancelFontLoad_02094ab0(void* loader);
@@ -9,7 +13,7 @@ struct Struct_02075cdc;
 extern "C" void func_02075d58(struct Struct_02075cdc* arg0);
 extern "C" void func_ov023_021dcd18(void* arg0);
 extern "C" void InitItemInfoPanel_ov023_021dc134(void* panel, int itemId, int isEmbedded);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 
 extern AllocatorUnion gMainHeap_02114e20;
 
@@ -91,7 +95,7 @@ extern "C" ARM void func_ov023_021dc354(struct Struct_ov023_021dc354* arg0) {
 
     if (data_ov023_021ff9e0.unknown_4_) {
         if (!arg0->unknown_79b_0_) {
-            FreeMemory_02012da4(&gMainHeap_02114e20, data_ov023_021ff9e0.unknown_4_);
+            func_02012da4(&gMainHeap_02114e20, data_ov023_021ff9e0.unknown_4_);
         }
         data_ov023_021ff9e0.unknown_4_ = 0;
     }

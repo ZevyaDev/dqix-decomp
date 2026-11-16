@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
 struct Struct_ov017_0218e8c8 {
     unsigned char unknown_0_[2];
     unsigned char unknown_2_;
@@ -28,7 +32,7 @@ struct Struct_ov017_0218e8c8_2 {
 extern "C" char* GetZone3D_02012fe4(void);
 extern "C" int func_020981e4(int, int);
 extern "C" unsigned short func_ov017_021b8480(void* arg0);
-extern "C" unsigned char* GetBattleSetup_ov017_021b8478(void* battleManager);
+extern "C" unsigned char* func_ov017_021b8478(void* battleManager);
 extern "C" int func_ov017_02191b58(void*, int);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" void func_ov017_0218eafc(Struct_ov017_0218e8c8_2* arg0, int arg1);
@@ -53,7 +57,7 @@ extern "C" ARM void func_ov017_0218e8c8(Struct_ov017_0218e8c8_2* arg0, int arg1,
     unsigned char* var3 = NULL;
     if ((arg0->unknown_3718_->unknown_3_ != 0 && func_ov017_021b8480(arg0->unknown_3718_) == 0) ||
         (arg0->unknown_3b30_->unknown_3_ != 0 && arg0->unknown_3718_->unknown_2_ != 0)) {
-        var3 = GetBattleSetup_ov017_021b8478(arg0->unknown_3718_);
+        var3 = func_ov017_021b8478(arg0->unknown_3718_);
     }
 
     for (int var4 = 0; var4 < 4; var4++) {

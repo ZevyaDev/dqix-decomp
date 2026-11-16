@@ -8,6 +8,10 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
 #define REGION_VALUE(j, u) (j)
 #define func_ov002_02168354 func_ov002_02168de4
 #define data_ov002_0216d350 data_ov002_0216dacf
@@ -30,7 +34,7 @@ extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" void func_ov002_021682c0(char* arg0);
 void SetSubBrightness(GameResources* resources, int brightness, int duration);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_020dc2bc(void);
 extern "C" void ClearSkillTable_0209a338(Struct_ov002_02168d54_2* table);
@@ -93,7 +97,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
         SetSubBrightness(var1, -0x10, 0xf);
         *(int*)(arg0 + REGION_VALUE(0x228c, 0x2458)) = var2->QueueLoadFile(&data_ov002_0216d350, NULL);
 #if !defined(jpn)
-        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 1);
+        SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 1);
         func_020dc2bc();
 #endif
     } else if (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)) == 1) {
@@ -109,7 +113,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
             }
         } else if (!IsSubBrightnessTransitionActive(var1)) {
 #if defined(jpn)
-            SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 1);
+            SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 1);
             func_020dc2bc();
 #endif
             (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)))++;
@@ -260,7 +264,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
             ColorEffect_ConfigureAlphaBlend(0x04000050, 2, 1, 10, 6);
         }
     } else if (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)) == 100) {
-        ClearGlobalFlags_020466f4((Struct_ov002_02168d54_9*)GetGlobalFlags_020d6c00(), 1);
+        ClearGlobalFlags_020466f4((Struct_ov002_02168d54_9*)func_020d6c00(), 1);
         PopSubOverlay_020a1f4c(1);
         arg0[REGION_VALUE(0x1afb, 0x1c33)] = 0;
         arg0[REGION_VALUE(0x22bf, 0x248f)] = 0;

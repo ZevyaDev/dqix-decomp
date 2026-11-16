@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 #include "Resource/AlchemyPot.h"
+#include "Resource/StringList.h"
 
 struct Struct_ov006_021553bc;
 struct Struct_0201099c_3;
 
 #if defined(jpn)
-extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 #else
 extern "C" const char** FindNounInTable_020e5294(void* nounTable, int nounId);
 extern "C" void ExpandInflectionTags_020e4864(const char*, char*, int, int, int, int);
@@ -20,7 +20,7 @@ extern "C" ARM void func_ov006_021553bc(Struct_ov006_02154614* arg0, short* arg1
     for (unsigned char var1 = 0; var1 < 3; var1++) {
         if (arg0->unknown_1ac_ != 0) {
 #if defined(jpn)
-            var0[var1] = (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_1ac_, arg1[var1]);
+            var0[var1] = (const char*)((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_1ac_))->GetString(arg1[var1]));
 #else
             const char** var2 = FindNounInTable_020e5294(arg0->unknown_1ac_, arg1[var1]);
             if (var2 != 0) {

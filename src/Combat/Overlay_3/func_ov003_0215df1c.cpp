@@ -1,17 +1,20 @@
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct Struct_0201099c_3;
 struct TextWindowManager_0205de24_2;
 struct BGLayer_02020cb8_5;
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_020420e8(char* arg0, int arg1);
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" char* GetMessageWindow_020421a0(void);
-extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
-extern "C" void memset(void* arg0, int arg1, int arg2);
 extern "C" void func_ov003_0215e13c(char* arg0, char* arg1, int arg2);
 #if defined(jpn)
 extern "C" void OpenTextWindow_0205d304(void* windowManager, char* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
@@ -57,7 +60,7 @@ struct Struct_ov003_0215df1c {
 
 // USA: func_ov003_0215df1c
 extern "C" ARM void func_ov003_0215df1c(struct Struct_ov003_0215df1c* arg0) {
-    void* var0 = GetLocalWireless_0202ae18();
+    void* var0 = func_0202ae18();
     arg0->unknown_3c0_ = 3;
     arg0->unknown_3bd_[0] = 0;
     arg0->unknown_3bd_[1] = 1;
@@ -80,7 +83,7 @@ extern "C" ARM void func_ov003_0215df1c(struct Struct_ov003_0215df1c* arg0) {
 #else
     int var2 = 0;
     for (int var3 = 0; var3 < arg0->unknown_3c0_; var3++) {
-        short var4 = func_020420e8((char*)FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, arg0->unknown_3bd_[var3]), 0);
+        short var4 = func_020420e8((char*)((int)((StringList*)((struct Struct_0201099c_3*)arg0->unknown_64_))->GetString(arg0->unknown_3bd_[var3])), 0);
         if (var2 < var4) {
             var2 = var4;
         }
@@ -112,7 +115,7 @@ extern "C" ARM void func_ov003_0215df1c(struct Struct_ov003_0215df1c* arg0) {
         arg0->unknown_13c_ = 0x20 - var5;
         arg0->unknown_13e_ = var7 - var1;
         for (int var9 = 0; var9 < 2; var9++) {
-            SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)arg0->unknown_154_[var9], 2, -var8);
+            ((BGLayer*)((struct BGLayer_02020cb8_5*)arg0->unknown_154_[var9]))->SetOffset(2, -var8);
         }
     }
 

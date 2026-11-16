@@ -3,7 +3,11 @@
 #include "Combat/FieldActorState.h"
 #include "Graphics/Vector.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
@@ -28,7 +32,7 @@ extern "C" ARM int func_02077e80(FieldMonster_02076a8c* arg0) {
 
     arg0->unknown_17d_ |= 0x40;
     int var2 = 0;
-    void* var3 = GetLocalWireless_0202ae18();
+    void* var3 = func_0202ae18();
     if (IsNotLocalWirelessGuest_0202c508(var3)) {
         Vector3fix var4 = func_02034104(var1);
         Vector3fix var5;
@@ -61,7 +65,7 @@ extern "C" ARM int func_02077e80(FieldMonster_02076a8c* arg0) {
             int var9 = arg0->unknown_0_.unknown_0_.unknown_0_.GetField06();
             int var10 = arg0->unknown_0_.unknown_0_.unknown_0_.unknown_2_;
             Vector3fix* var11 = &arg0->unknown_158_;
-            int var12 = (arg0->unknown_0_.unknown_0_.unknown_0_.objectIndex_4_ - 0x70) % 0xc;
+            int var12 = (arg0->unknown_0_.unknown_0_.unknown_0_.unknown_4_ - 0x70) % 0xc;
             if (var12 >= 0 && var12 < 0xc) {
                 Vector3fix var13 = *var11;
                 func_ov017_021c927c(var9, var12, var10, var13, var2, 6, arg0->unknown_166_);

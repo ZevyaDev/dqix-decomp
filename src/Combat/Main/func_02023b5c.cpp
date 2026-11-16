@@ -4,8 +4,12 @@
 #include "NitroSDK/ColorEffects.h"
 #include "NitroSDK/Matrix.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 extern "C" void GetZone3D_02012fe4();
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0202ae18();
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_02023a9c(char* arg0, int arg1);
 extern "C" void func_0202756c(void *arg0, int arg1, int arg2, int arg3, unsigned char arg4, unsigned char arg5,
@@ -40,7 +44,7 @@ extern "C" ARM void func_02023b5c(void *arg0, int arg1, int arg2, int arg3, int 
     Struct_02023b5c_2 *var0 = static_cast<Struct_02023b5c_2 *>(arg0);
     GetZone3D_02012fe4();
     if (!var0->unknown_77c_) return;
-    if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18())) return;
+    if (IsLocalWirelessGuest_0202c540(func_0202ae18())) return;
     var0->unknown_9b4_ = (var0->unknown_9b4_ + GameState::GetInstance()->GetEffectiveDeltaTime()) % 0x300;
     int var1 = abs((var0->unknown_9b4_ - 0x180) / 0x18) + 2;
     if (var1 > 16) var1 = 16;
@@ -61,4 +65,9 @@ extern "C" ARM void func_02023b5c(void *arg0, int arg1, int arg2, int arg3, int 
         func_0202756c(arg0, (var7 + arg3) << 12, (var8 + arg4) << 12, 0x17,
                                  static_cast<unsigned char>(var4 + 0x60), 1, 0xff, 0xff, 0x1000, 0x1000);
     }
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

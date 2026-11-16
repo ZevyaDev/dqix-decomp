@@ -2,6 +2,7 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
+#include "Resource/GameStrings.h"
 
 #if defined(jpn)
 enum { Enum_ov017_021c3194_92 = 0x28, Enum_ov017_021c3194_6578 = 0x17e2, Enum_ov017_021c3194_2456 = 0x868 };
@@ -25,7 +26,6 @@ extern "C" void StopGesture_020531f0(void* arg0);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 #if !defined(jpn)
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov017_021c3194(Struct_ov017_021c3194* arg0) {
         StartMessage_0204500c(var3, var5, 0);
 
 #else
-        sprintf(var5, (const char*)GetStandardString_020e51cc(0x25));
+        sprintf(var5, (const char*)((int)GetGameString((eGameString)(0x25))));
         char var6[0xc];
         InitPartyMemberNoun_020e4bf4(var6, arg0->unknown_9_);
         var3->unknown_10_ = var6;

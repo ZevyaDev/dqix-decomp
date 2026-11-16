@@ -14,7 +14,7 @@ extern "C" ARM GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int in
     if (object == 0) {
         return 0;
     }
-    if ((object->obj3D_.classFlags_0_ & 0x400) == 0) {
+    if ((object->obj3D_.unknown_0_ & 0x400) == 0) {
         object = 0;
     }
     return object;

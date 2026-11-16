@@ -7,6 +7,14 @@ enum { Enum_ov017_021b05c4_2384 = 0x950 };
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
 struct Struct_ov017_021b05c4 {
     char unknown_0_[0xa];
     unsigned char unknown_a_;
@@ -21,8 +29,8 @@ struct Struct_ov017_021b05c4 {
 };
 
 extern "C" void func_ov017_021d0d58(void);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" int func_02053c6c(unsigned char* gameObject);
+extern "C" void* func_0202ae24(void);
 extern "C" int func_0205e488(void* arg0);
 extern "C" void* func_ov017_021b0fe0(int arg0, int arg1);
 
@@ -52,12 +60,12 @@ extern "C" ARM unsigned char func_ov017_021b05c4(struct Struct_ov017_021b05c4* a
         if (var3 == 0) {
             return arg0->unknown_a_;
         }
-        int var4 = GetPartyMemberData_02053c6c((unsigned char*)var3);
+        int var4 = func_02053c6c((unsigned char*)var3);
         int var5 = *(int*)((char*)var4 + Enum_ov017_021b05c4_2384) & 0xff;
         func_ov017_021b0fe0(var1, var5);
         arg0->unknown_23_ = arg0->unknown_23_ + 1;
     } else if (arg0->unknown_23_ == 1) {
-        void* var6 = GetLocalWirelessPacketQueue_0202ae24();
+        void* var6 = func_0202ae24();
         if (func_0205e488(var6) != 0) {
             arg0->unknown_23_ = 0;
         }

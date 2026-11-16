@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "World/ZoneFeatures.h"
 #include "Filesystem/FileIO.h"
 
@@ -17,11 +18,16 @@ extern "C" ARM int _ZN6Zone3D13func_02014900EPKvjPN12ZoneFeatures13Opcode64Entry
     var1->unknown_0_ = arg3->unknown_0_;
     var1->unknown_48_ = arg3->unknown_4_.unknown1_0_;
     unsigned int var2;
-    void* var3 = DecompressLZ77FileIntoScratchSpace(*var0, arg1, var2);
+    void* var3 = DecompressLZ77FileIntoScratchSpace(&(*var0), arg1, &var2);
     if (var3 == NULL) return 0;
     func_0201f040(&var1->unknown_4_, var0,
                                         (Struct_02013fb4*)var3, var2);
-    var1->unknown_54_ = arg0->firstBMDJStruct_41c_;
+    var1->unknown_54_ = (Struct_02013454*)(arg0->firstBMDJStruct_41c_);
     arg0->firstBMDJStruct_41c_ = var1;
     return 1;
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

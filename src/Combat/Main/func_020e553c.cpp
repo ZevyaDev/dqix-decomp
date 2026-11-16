@@ -1,11 +1,10 @@
 #include <globaldefs.h>
+#include "Filesystem/FileIO.h"
 
 extern "C" int func_020e55c0(char* arg0, const char* arg1);
 typedef int (*Type_020e0574)(char*, const char*, int);
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);
-extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 
-extern char gFileScratchSpace_0211e33c[];
 
 // USA: func_020e553c
 extern "C" ARM int func_020e553c(void* arg0, int* arg1, int arg2, int arg3) {
@@ -16,12 +15,12 @@ extern "C" ARM int func_020e553c(void* arg0, int* arg1, int arg2, int arg3) {
     *arg1 = 0;
     ((Type_020e0574)func_020e55c0)(var0, (char*)arg0, arg2);
     if (arg3 == 0) {
-        LoadFileIntoMemory(var0, gFileScratchSpace_0211e33c, (unsigned int*)arg1);
+        LoadFileIntoMemory(var0, g_fileScratchSpace, (unsigned int*)arg1);
         if (*arg1 != 0) {
-            return (int)gFileScratchSpace_0211e33c;
+            return (int)g_fileScratchSpace;
         }
     } else {
-        void* var1 = ExtractFileFromGP2((const char*)arg3, var0, (unsigned int*)arg1);
+        void* var1 = ExtractFileFromGP2((const char*)((const char*)arg3), (const char*)(var0), (unsigned int*)((unsigned int*)arg1));
         if (var1 != 0) {
             return (int)var1;
         }

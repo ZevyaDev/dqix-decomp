@@ -9,6 +9,10 @@ enum { Enum_ov025_021e5a2c_24576 = 0x6000, Enum_ov025_021e5a2c_4053 = 0xfd5 };
 #include "GameState/GameState.h"
 #include "GameState/Field3b0.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 struct Struct_ov025_021e5a2c {
     char unknown_0_[Enum_ov025_021e5a2c_24576 + Enum_ov025_021e5a2c_4053];
     unsigned char unknown_6fd5_;
@@ -26,7 +30,7 @@ extern "C" Struct_ov025_021e5a2c* GetBattleScene_ov000_02160130(void);
 // USA: func_ov025_021e5a2c
 extern "C" ARM int func_ov025_021e5a2c(Struct_ov025_021e5a2c_2* arg0) {
     GameState* var0 = GameState::GetInstance();
-    Struct_ov001_02158ae4_3* var1 = (Struct_ov001_02158ae4_3*)GetCamera_020100bc(var0);
+    Struct_ov001_02158ae4_3* var1 = (Struct_ov001_02158ae4_3*)func_020100bc(var0);
     if (var1 != 0) {
         var1->unknown_4_ = arg0->unknown_8_;
     }
@@ -35,4 +39,9 @@ extern "C" ARM int func_ov025_021e5a2c(Struct_ov025_021e5a2c_2* arg0) {
         var2->unknown_6fd5_ = 1;
     }
     return 1;
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

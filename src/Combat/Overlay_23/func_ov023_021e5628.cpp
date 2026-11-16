@@ -1,9 +1,17 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
-#include "NitroSDK/Graphics3D/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
+
+#if defined(jpn)
+#define func_02031234 func_02030d6c
+#endif
+
+#if defined(jpn)
+#define func_020c555c func_020c7028
+#endif
 
 extern "C" unsigned short (*func_02099cac(void))[2];
-extern "C" int Set3DEdgeColors_020c555c(int edgeColors);
+extern "C" int func_020c555c(int edgeColors);
 extern "C" void func_02031234(int arg0);
 
 extern char data_ov023_021fdcef;
@@ -47,7 +55,7 @@ extern "C" ARM void func_ov023_021e5628(Struct_ov023_021e5628* arg0, Struct_ov02
 
     unsigned short var1 = *(unsigned short*)((char*)var0 + 0x128);
     unsigned short var2[8] = {var1, var1, var1, var1, var1, var1, var1, var1};
-    Set3DEdgeColors_020c555c((int)var2);
+    func_020c555c((int)var2);
 
     if (arg0->unknown_0_.unknown_2_ >= 0) {
         arg0->unknown_0_.AdvanceEffects();
@@ -72,7 +80,7 @@ extern "C" ARM void func_ov023_021e5628(Struct_ov023_021e5628* arg0, Struct_ov02
 
         int var6 = var4->GetBoneIndex(&data_ov023_021fdcef);
         if (var6 > -1) {
-            GetModelBonePositionAndDirectionMatrices(&var5->renderContext_, 0, 0, var6);
+            Nitro3D_GetBonePosDirMatrices(&var5->renderContext_, 0, 0, var6);
             if (arg1 != 0 && arg1->unknown_4_ != 0) {
                 arg1->unknown_4_->DrawSimple2(false);
             }
@@ -84,33 +92,33 @@ extern "C" ARM void func_ov023_021e5628(Struct_ov023_021e5628* arg0, Struct_ov02
             if (arg0->unknown_c10_ != 0) {
                 var6 = var4->GetBoneIndex(&data_ov023_021fdcf4);
                 if (var6 > -1 && arg0->unknown_560_.unknown_2_ > -1) {
-                    GetModelBonePositionAndDirectionMatrices(&var5->renderContext_, 0, 0, var6);
+                    Nitro3D_GetBonePosDirMatrices(&var5->renderContext_, 0, 0, var6);
                     arg0->unknown_560_.DrawSimple2(false);
                 }
                 var6 = var4->GetBoneIndex(&data_ov023_021fdcfa);
                 if (var6 > -1 && arg0->unknown_560_.unknown_2_ > -1) {
-                    GetModelBonePositionAndDirectionMatrices(&var5->renderContext_, 0, 0, var6);
+                    Nitro3D_GetBonePosDirMatrices(&var5->renderContext_, 0, 0, var6);
                     func_02031234(0x3244);
                     arg0->unknown_560_.DrawSimple2(false);
                 }
             } else {
                 var6 = var4->GetBoneIndex(&data_ov023_021fdd00);
                 if (var6 > -1 && arg0->unknown_560_.unknown_2_ > -1) {
-                    GetModelBonePositionAndDirectionMatrices(&var5->renderContext_, 0, 0, var6);
+                    Nitro3D_GetBonePosDirMatrices(&var5->renderContext_, 0, 0, var6);
                     arg0->unknown_560_.DrawSimple2(false);
                 }
             }
 
             var6 = var4->GetBoneIndex(&data_ov023_021fdd08);
             if (var6 > -1 && arg0->unknown_60c_.unknown_2_ > -1) {
-                GetModelBonePositionAndDirectionMatrices(&var5->renderContext_, 0, 0, var6);
+                Nitro3D_GetBonePosDirMatrices(&var5->renderContext_, 0, 0, var6);
                 arg0->unknown_60c_.DrawSimple2(false);
             }
 
             if (arg1 != 0 && arg1->unknown_0_ != 0) {
                 var6 = var4->GetBoneIndex(&data_ov023_021fdd10);
                 if (var6 > -1) {
-                    GetModelBonePositionAndDirectionMatrices(&var5->renderContext_, 0, 0, var6);
+                    Nitro3D_GetBonePosDirMatrices(&var5->renderContext_, 0, 0, var6);
                     arg1->unknown_0_->DrawSimple2(false);
                 }
             }

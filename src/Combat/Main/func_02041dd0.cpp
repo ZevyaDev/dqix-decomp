@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 
-extern "C" int GetStringLength_020d2ff0(const char* string);
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
+extern "C" int func_020d2ff0(const char* string);
 extern "C" int sprintf(void* arg0, const void* arg1);
 
 extern char data_020eff4d;
@@ -10,7 +14,7 @@ extern char data_020eff6b;
 
 // USA: func_02041dd0
 extern "C" ARM int func_02041dd0(char* arg0, int arg1) {
-    char* var0 = arg0 + GetStringLength_020d2ff0(arg0);
+    char* var0 = arg0 + func_020d2ff0(arg0);
     switch (arg1) {
         case 0:
             var0 += sprintf(var0, &data_020eff4d);

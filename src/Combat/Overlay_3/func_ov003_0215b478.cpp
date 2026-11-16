@@ -15,13 +15,13 @@ extern char data_ov003_0217e68e[], data_ov003_0217e696[];
 #endif
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
+#include "Resource/GameStrings.h"
 
 struct TextWindowManager_0205de24_2;
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void* window);
-extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 struct MessageWindow_020465c0;
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov003_0215b478(unsigned char* arg0) {
     func_02042158(*(void**)(arg0 + 0x7c), 2);
     AppendText_02042058(*(char**)(arg0 + 0x7c), data_ov003_0217e696);
 #else
-    int var2 = GetStandardString_020e51cc(0x3f1);
+    int var2 = ((int)GetGameString((eGameString)(0x3f1)));
     AppendText_02042058((char*)*(void**)(arg0 + 0x7c), (const char*)var2);
 #endif
 

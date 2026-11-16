@@ -1,10 +1,9 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "Combat/MapDisplay.h"
+#include "Graphics/OBJSpriteSet.h"
 
-extern "C" void InitSprite_0205a198(struct Sprite_02043368_2*);
 struct SpriteAnimationList_02043368;
-extern "C" void InitSpriteAnimationList_0205a234(struct SpriteAnimationList_02043368*);
 
 struct Struct_ov000_02172128 {
     char unknown_0_[0x170];
@@ -45,10 +44,10 @@ extern "C" ARM void func_ov000_02172128(Struct_ov000_02172128* arg0, SafeAllocat
 #endif
     arg0->unknown_170_ = (Sprite_02043368_2*)arg1->Allocate(Enum_ov000_02172128_40 * sizeof(Sprite_02043368_2));
     for (unsigned char var0 = 0; var0 < Enum_ov000_02172128_40; var0++) {
-        InitSprite_0205a198(&arg0->unknown_170_[var0]);
+        ((OBJSpriteSet::Metatile*)(&arg0->unknown_170_[var0]))->Reset();
     }
     arg0->unknown_174_ = (SpriteAnimationList_02043368*)arg1->Allocate(8);
-    InitSpriteAnimationList_0205a234(arg0->unknown_174_);
+    ((OBJSpriteSet::List*)(arg0->unknown_174_))->Reset();
     unsigned int var1 = arg1->GetMaxPossibleAllocation();
     arg0->unknown_1af8_.CreateTypeA(arg1->Allocate(var1), var1);
 }

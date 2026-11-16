@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
+#include "Graphics/OBJSpriteSet.h"
 
 #if defined(jpn)
 enum { Enum_ov003_021726f8_448 = 0x1cc };
@@ -25,10 +26,8 @@ enum { Enum_ov003_021726f8_408 = 0x198 };
 
 
 struct Sprite_02043368_2;
-extern "C" void InitSprite_0205a198(struct Sprite_02043368_2* sprite);
 
 struct SpriteAnimationList_02043368;
-extern "C" void InitSpriteAnimationList_0205a234(struct SpriteAnimationList_02043368* animationList);
 
 // USA: func_ov003_021726f8
 extern "C" ARM void func_ov003_021726f8(char* arg0, SafeAllocator* arg1) {
@@ -41,10 +40,10 @@ extern "C" ARM void func_ov003_021726f8(char* arg0, SafeAllocator* arg1) {
     *(void**)(arg0 + Enum_ov003_021726f8_300) = (*(SafeAllocator**)(arg0 + Enum_ov003_021726f8_448))->Allocate(8);
 
     for (var0 = 0; var0 < Enum_ov003_021726f8_13; var0++) {
-        InitSprite_0205a198((struct Sprite_02043368_2*)(*(char**)(arg0 + Enum_ov003_021726f8_296) + var0 * 0x28));
+        ((OBJSpriteSet::Metatile*)((struct Sprite_02043368_2*)(*(char**)(arg0 + Enum_ov003_021726f8_296) + var0 * 0x28)))->Reset();
     }
 
-    InitSpriteAnimationList_0205a234((struct SpriteAnimationList_02043368*)*(void**)(arg0 + Enum_ov003_021726f8_300));
+    ((OBJSpriteSet::List*)((struct SpriteAnimationList_02043368*)*(void**)(arg0 + Enum_ov003_021726f8_300)))->Reset();
 
     void* var1 = (*(SafeAllocator**)(arg0 + Enum_ov003_021726f8_448))->Allocate(0x1000);
     ((SafeAllocator*)(arg0 + Enum_ov003_021726f8_428))->CreateTypeA(var1, 0x1000);

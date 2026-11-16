@@ -2,13 +2,17 @@
 #include "Combat/SearchEntry.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void* arg0);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void* arg0);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 struct LocalWireless_0202b2f0;
 
 // USA: func_02034340
 extern "C" ARM int func_02034340(void* arg0) {
-    void* var0 = GetLocalWireless_0202ae18(arg0);
+    void* var0 = func_0202ae18(arg0);
     GetGameResources();
     int var1 = 0;
     if (IsLocalWirelessOn_0202b7d8((int*)var0)) {

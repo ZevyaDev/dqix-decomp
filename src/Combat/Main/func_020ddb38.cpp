@@ -8,6 +8,10 @@ enum { Enum_020ddb38_336 = 0x150 };
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_020ddb38 { unsigned int unknown_0_[8]; };
 struct Struct_020ddb38_2 {
     unsigned int unknown_0_0_ : 4;
@@ -24,7 +28,7 @@ struct Struct_020a0504;
 extern "C" int func_020ddb20(unsigned int* arg0);
 extern "C" void func_0208386c(struct Struct_02061c04_22* arg0, int arg1);
 extern "C" void* func_ov000_02171b9c(void* arg0, int arg1);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" void func_020a0504(struct Struct_020a0504* arg0, unsigned int arg1);
 extern "C" int SetBattleRecords_020ac494(void* records);
@@ -64,7 +68,7 @@ extern "C" ARM int func_020ddb38(int arg0, int arg1, struct Struct_020ddb38_3* a
         if (*(short*)((char*)var2 + 0x18) == 0x4667) {
             if (arg3 == 0) arg3 = GetBTRandom();
             if (NextRandomMax(arg3, 100) < 0x19) {
-                func_02083738((void*)(int)GetPartyMemberData_02053c6c((unsigned char*)var1), 7);
+                func_02083738((void*)(int)func_02053c6c((unsigned char*)var1), 7);
                 return 2;
             }
         }

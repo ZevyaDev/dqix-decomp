@@ -3,6 +3,8 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Graphics.h"
 #include "World/Object3D.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 enum { Enum_ov003_0216d63c_1040 = 0x428 };
@@ -33,8 +35,6 @@ struct SaveProgress_020a9ea4 {
 	char unknown_0_[8];
 };
 
-extern "C" void InitSpriteSet_0205a444(char* spriteSet);
-extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
 extern "C" void ResetSaveProgress_020a9ea4(struct SaveProgress_020a9ea4* progress);
 extern "C" void func_ov003_0215c650(void* arg0);
 extern "C" void func_ov003_0216ffbc(void* arg0);
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov003_0216d63c(struct Struct_ov003_0216d63c* arg0) {
 	arg0->unknown_f08_ = arg0->unknown_410_;
 	arg0->unknown_1264_ = 0;
 	arg0->unknown_1268_ = 0;
-	InitSpriteSet_0205a444(arg0->unknown_126c_);
+	((OBJSpriteSet*)(arg0->unknown_126c_))->Reset();
 	arg0->unknown_12c0_ = 0;
 	arg0->unknown_12c4_ = 0;
 	arg0->unknown_12c8_ = 0;
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov003_0216d63c(struct Struct_ov003_0216d63c* arg0) {
 	arg0->unknown_12d4_[1].ResetAllocatorPointer();
 	arg0->unknown_12d4_[2].ResetAllocatorPointer();
 	arg0->unknown_12d4_[3].ResetAllocatorPointer();
-	InitStringTable_020dfc40(&arg0->unknown_1324_);
+	((StringList*)(&arg0->unknown_1324_))->Reset();
 	arg0->unknown_133c_.Initialize();
 	arg0->unknown_13e8_ = 0;
 	arg0->unknown_13e9_ = 0;

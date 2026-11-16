@@ -6,8 +6,12 @@
 #endif
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 
 struct Struct_ov002_0215707c {
     char unknown_0_[0xc];
@@ -49,5 +53,5 @@ extern "C" ARM int GetInventoryItemByID(void* arg0, int arg1, int arg2) {
     if (var4 == 0) {
         return -1;
     }
-    return *(short*)((char*)GetPartyMemberData_02053c6c((unsigned char*)var4) + 0x454 + arg1 * 2);
+    return *(short*)((char*)func_02053c6c((unsigned char*)var4) + 0x454 + arg1 * 2);
 }

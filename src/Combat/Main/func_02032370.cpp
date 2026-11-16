@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_02032370 func_02031ea8
+#endif
+
 extern "C" double _dflt(int);
 extern "C" double _ddiv(double, double);
 extern "C" int _dfix(double);

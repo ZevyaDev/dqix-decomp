@@ -1,5 +1,13 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 struct Struct_020deb08;
 extern "C" short func_020deb08(struct Struct_020deb08* arg0);
@@ -8,8 +16,8 @@ struct ItemTable_0201099c_10;
 struct ItemData_0201099c_9;
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 
-extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" void* func_0205ec34(void);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 
 struct Struct_ov023_021e1474 {
     char unknown_0_[0xc];
@@ -49,10 +57,10 @@ extern "C" ARM void func_ov023_021e1474(Struct_ov002_0215b2c8* arg0, struct Item
         int var5 = (unsigned short)((unsigned int)(var4->unknown_c_ << 9) >> 21);
         if (var5 <= 0) continue;
 
-        void* var6 = GetFlagManager_0205ec34();
+        void* var6 = func_0205ec34();
         int var7 = var5 + 0x76;
         unsigned char* var8 = (unsigned char*)var6 + 0x8c;
-        if (IsFlagSet_0206dfb0((int)var6, var8, var7 + 0xc00)) {
+        if (func_0206dfb0((int)var6, var8, var7 + 0xc00)) {
             var0->unknown_e_ |= 0x2;
         }
     }

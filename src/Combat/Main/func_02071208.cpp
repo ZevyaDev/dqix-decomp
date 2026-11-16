@@ -2,9 +2,13 @@
 #include "std_library_functions.h"
 #include "Resource/Script.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 extern "C" float _fmul(float a, float b);
 extern "C" int _ffix(float value);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 
 struct Struct_02071208 {
@@ -105,7 +109,7 @@ extern "C" ARM int func_02071208(Script::Parameter* arg0) {
         }
 
         data_02108d70.unknown_20_->unknown_44_ = arg0[6].ToInt();
-        if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18())) {
+        if (IsLocalWirelessGuest_0202c540(func_0202ae18())) {
             data_02108d70.unknown_20_->unknown_44_ = data_02108d70.unknown_20_->unknown_44_ & ~8;
         }
 

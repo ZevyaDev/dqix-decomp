@@ -30,3 +30,8 @@ extern "C" ARM void func_ov017_021c91f4(int arg0, Struct_ov017_021c91f4* arg1) {
     *(unsigned short*)((char*)var0[2] + 0x100 + 0x64) = var3;
     SetFieldMonsterState_02076ccc((void*)var0[2], 2);
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

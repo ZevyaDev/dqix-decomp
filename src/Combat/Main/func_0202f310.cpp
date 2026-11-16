@@ -1,8 +1,6 @@
 #include <globaldefs.h>
+#include "Graphics/SPRSprite.h"
 
-extern "C" void sprintf(void* arg0, void* arg1, int arg2);
-extern "C" void func_0204719c(void* arg0);
-extern "C" void func_02047b40(void* arg0, int arg1, void* arg2);
 
 extern int GetFileFromNARCInMemory(const char* filename);
 
@@ -18,10 +16,10 @@ extern "C" ARM void func_0202f310(char* arg0, void* arg1, void* arg2) {
     var1 = arg0;
     for (var2 = 0; var2 < 8; var2++) {
         int var3;
-        sprintf(&var0, &data_020ef7c4, var2);
+        sprintf((char*)(&var0), (const char*)(&data_020ef7c4), var2);
         var3 = GetFileFromNARCInMemory((const char*)&var0);
-        func_0204719c(var1);
-        func_02047b40(var1, var3, arg1);
+        ((SPRSprite*)(var1))->Reset();
+        ((SPRSprite*)(var1))->LoadFromSPR((const void*)(var3), (SafeAllocator*)(arg1));
         var1 += 0x88;
     }
 }

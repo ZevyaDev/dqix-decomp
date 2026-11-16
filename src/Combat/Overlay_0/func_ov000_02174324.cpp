@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 #if defined(jpn)
 #define data_ov000_02183460 data_ov000_021844e8
@@ -31,7 +32,6 @@ struct Struct_ov000_02174324_3 {
 };
 
 extern "C" struct Struct_ov000_02174324* FindPartyMemberPanel_ov000_02161318(struct Struct_ov000_02174324_3* battleUI, int memberIndex);
-extern "C" int DrawSprite_0205ac40(void* spriteSet, struct Struct_ov000_02174324_2* sprite, int arg2);
 
 extern unsigned int data_ov000_02183460[];
 extern unsigned char data_ov000_021833b0[];
@@ -82,6 +82,6 @@ extern "C" ARM int func_ov000_02174324(struct Struct_ov000_02174324_3* arg0, int
     var7->unknown_18_ = arg3 << 12;
     var7->unknown_22_ = var5;
     var7->unknown_26_ = 1;
-    DrawSprite_0205ac40(arg0->unknown_11c_, var7, 1);
+    ((OBJSpriteSet*)(arg0->unknown_11c_))->DrawMetatile((OBJSpriteSet::Metatile*)(var7));
     return 1;
 }

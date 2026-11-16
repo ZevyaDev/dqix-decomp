@@ -9,7 +9,15 @@
 #include "Memory/SafeAllocator.h"
 #include "World/ZoneFeatures.h"
 
-extern "C" void ClearItemTable_020de848(void* itemTable);
+#if defined(jpn)
+#define func_02013750 func_02013518
+#endif
+
+#if defined(jpn)
+#define func_020de848 func_020e01c4
+#endif
+
+extern "C" void func_020de848(void* itemTable);
 struct Struct_02013750;
 extern "C" void func_02012fa4(char* arg0);
 
@@ -48,8 +56,8 @@ extern "C" ARM void func_02013750(void* arg0, int arg1) {
     *(unsigned char*)((char*)arg0 + 0x2000 + (IS_JPN ? 0x3dc : 0x3bc)) = 0;
     *(unsigned char*)((char*)arg0 + 0x2000 + (IS_JPN ? 0x3dd : 0x3bd)) = 0;
     *(unsigned char*)((char*)arg0 + (IS_JPN ? 0x854 : 0x834)) = 0;
-    ((Struct_020134e0*)((char*)arg0 + (IS_JPN ? 0x8c : 0x6c)))->func_0201e248();
-    ClearItemTable_020de848((char*)arg0 + (IS_JPN ? 0x394 : 0x354) + 0x2400);
+    func_0201e248((Struct_020134e0*)((char*)arg0 + (IS_JPN ? 0x8c : 0x6c)));
+    func_020de848((char*)arg0 + (IS_JPN ? 0x394 : 0x354) + 0x2400);
     ((AtmosphericEffectSet*)((struct Struct_02013750*)((char*)arg0 + (IS_JPN ? 0x114 : 0xf4))))->Reset();
     func_02012fa4((char*)arg0 + (IS_JPN ? 0x620 : 0x600));
     if (!arg1) {

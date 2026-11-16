@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Graphics/OBJSpriteSet.h"
 
 #if defined(jpn)
 enum { Enum_ov003_0215e2a8_962 = 0x3da };
@@ -27,14 +28,9 @@ extern "C" int GetMessageWindow_020421a0(void);
 
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimation_0205a254_2;
-extern "C" void PlaySpriteAnimation_0205a370(SpriteAnimationList_0205a254*, int);
-extern "C" SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(SpriteAnimationList_0205a254*, int);
 
 struct SpriteAnimationList_0205a330;
-extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330*, int);
 
-extern "C" void SetSpriteAnimationOAMIndex_0205a42c(SpriteAnimationList_0205a254*, int, int);
-extern "C" void DrawSpriteAnimations_0205ae8c(void*);
 
 // USA: func_ov003_0215e2a8
 extern "C" ARM void func_ov003_0215e2a8(char* arg0) {
@@ -67,21 +63,21 @@ extern "C" ARM void func_ov003_0215e2a8(char* arg0) {
     SpriteAnimationList_0205a254* var10 = *(SpriteAnimationList_0205a254**)(arg0 + Enum_ov003_0215e2a8_916);
     if (var10 == NULL) return;
 
-    PlaySpriteAnimation_0205a370(var10, 0);
-    SpriteAnimation_0205a254_2* var11 = FindSpriteAnimation_0205a3d0(var10, 0);
+    ((OBJSpriteSet::List*)(var10))->PlaySpriteAnimation(0);
+    SpriteAnimation_0205a254_2* var11 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(var10))->GetSprite(0));
     if (var11 != NULL) {
         *(unsigned char*)((char*)var11 + 0x15) |= 8;
     }
 
     int var12 = (int)var9->GetTickCount();
-    AdvanceSpriteAnimations_0205a330((SpriteAnimationList_0205a330*)var10, var12);
+    ((OBJSpriteSet::List*)((SpriteAnimationList_0205a330*)var10))->UpdateAll(var12);
 
-    var11 = FindSpriteAnimation_0205a3d0(var10, 0);
+    var11 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(var10))->GetSprite(0));
     if (var11 != NULL) {
         *(short*)((char*)var11 + 0x4) = var5;
         *(short*)((char*)var11 + 0x6) = var6;
     }
 
-    SetSpriteAnimationOAMIndex_0205a42c(var10, 0, 0x3f);
-    DrawSpriteAnimations_0205ae8c(arg0 + Enum_ov003_0215e2a8_856);
+    ((OBJSpriteSet::List*)(var10))->SetSpriteOBJIndex(0, 0x3f);
+    ((OBJSpriteSet*)(arg0 + Enum_ov003_0215e2a8_856))->DrawAll();
 }

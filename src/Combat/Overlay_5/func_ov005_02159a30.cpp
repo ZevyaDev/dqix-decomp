@@ -5,6 +5,7 @@
 #endif
 #include <globaldefs.h>
 #include "Resource/CharacterCreationUI.h"
+#include "Resource/StringList.h"
 
 struct Struct_ov005_02153954 {
     char unknown_0_[0xdf8];
@@ -25,7 +26,6 @@ struct Struct_ov005_02153954 {
 
 extern "C" void AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" void AppendCursorTag_02041ea4(char* buffer, int entryIndex);
-extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
@@ -48,18 +48,18 @@ extern "C" ARM void func_ov005_02159a30(Struct_ov005_02153954* arg0, char* arg1,
     for (int var3 = 0; var3 < var1; var3++) {
         if (var2) {
             if (var3 == 0)
-                AppendMenuEntry_02041b70(arg1, var3, FindStringInTable_020e0434(&arg0->unknown_df8_, 4));
+                AppendMenuEntry_02041b70(arg1, var3, ((StringList*)(&arg0->unknown_df8_))->GetString(4));
             else
-                AppendMenuEntry_02041b70(arg1, var3, FindStringInTable_020e0434(&arg0->unknown_df8_, (short)(var3 + 1)));
+                AppendMenuEntry_02041b70(arg1, var3, ((StringList*)(&arg0->unknown_df8_))->GetString((short)(var3 + 1)));
         } else {
-            AppendMenuEntry_02041b70(arg1, var3, FindStringInTable_020e0434(&arg0->unknown_df8_, (short)var3));
+            AppendMenuEntry_02041b70(arg1, var3, ((StringList*)(&arg0->unknown_df8_))->GetString((short)var3));
         }
         if (var3 != var1 - 1)
-            AppendText_02042058(arg1, FindStringInTable_020e0434(&arg0->unknown_df8_, 0x64));
+            AppendText_02042058(arg1, ((StringList*)(&arg0->unknown_df8_))->GetString(0x64));
     }
 #else
     Struct_0201099c_3* var4 = &arg0->unknown_df8_;
-    const char* var5 = FindStringInTable_020e0434(var4, 0x64);
+    const char* var5 = ((StringList*)(var4))->GetString(0x64);
     int var6 = 0;
     for (int var7 = 0; var7 < var1; var7++) {
         short var8 = var7;
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov005_02159a30(Struct_ov005_02153954* arg0, char* arg1,
             if (var7 == 0)
                 var8 = 4;
         }
-        const char* var9 = FindStringInTable_020e0434(var4, var8);
+        const char* var9 = ((StringList*)(var4))->GetString(var8);
         int var10 = func_020420e8(var9, 0);
         if (var6 < var10)
             var6 = var10;

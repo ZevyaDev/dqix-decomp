@@ -1,9 +1,13 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct ActiveZone_020fdd44;
 extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
@@ -15,7 +19,7 @@ struct Struct_ov017_0219d250_8 { unsigned char unknown_0_[2]; unsigned short unk
 extern "C" ARM void func_ov017_0219e014(unsigned char* arg0, Struct_ov017_0219d250_8* arg1) {
 	GameState* var0 = GameState::GetInstance();
 	GetActiveZones_02027ca4();
-	void* var1 = GetLocalWireless_0202ae18();
+	void* var1 = func_0202ae18();
 
 	if (arg1) {
 		for (int var2 = 0; var2 < 0xc; var2++) {

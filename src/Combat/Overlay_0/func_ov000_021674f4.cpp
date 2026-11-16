@@ -1,10 +1,14 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 struct Party_02048150;
 extern "C" int IsInParty_02086ef0(struct Party_02048150* party, int objectIndex);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void func_02083c48(void* arg0, int arg1, int arg2);
 
 // USA: func_ov000_021674f4
@@ -24,7 +28,7 @@ extern "C" ARM void func_ov000_021674f4(unsigned char* arg0, int arg1) {
         }
         GameObject* var4 = var0->GetPartyMemberByIndex(var3);
         if (!var4) continue;
-        int var5 = GetPartyMemberData_02053c6c((unsigned char*)var4);
+        int var5 = func_02053c6c((unsigned char*)var4);
         int var6 = IsInParty_02086ef0(var1, var3);
         func_02083c48((void*)var5, var6, 1);
     }

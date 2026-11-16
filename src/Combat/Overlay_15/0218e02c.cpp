@@ -9,13 +9,11 @@
 #include "NitroSDK/Filesystem/NitroVM.h"
 #include "NitroSDK/Filesystem/LowNitroHandle.h"
 #include "NitroSDK/Filesystem/FileAccessor.h"
+#include "Graphics/TextureArena.h"
 
 extern "C" void* __clear(void* arg0, int arg1);
 
 struct TextureVRAMArea_0203d028;
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
 struct ObjectArchiveLoadInfo_0203d028_11;
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo);
@@ -64,23 +62,23 @@ extern "C" ARM int func_ov015_0218e02c(void* arg0, int* arg1) {
 
     int var4 = 1;
     struct TextureVRAMArea_0203d028* var5 = *(struct TextureVRAMArea_0203d028**)*(void**)((char*)arg0 + 4);
-    ResetTextureVRAMState_0207df50(var5);
-    RestoreTextureVRAMState_0207df90((char*)var5);
+    ((TextureArena*)(var5))->Reset();
+    ((TextureArena*)((char*)var5))->Restore();
 
     sprintf(var3, data_ov015_0219413f, arg1[1]);
 
     BackgroundLoader::AddLockGlobal();
 
     unsigned int var6 = 0;
-    if (LoadFileIntoMemory(var3, gFileScratchSpace_0211e33c, &var6) != 0) {
-        if (var0.Initialize(data_ov015_02194152, gFileScratchSpace_0211e33c)) {
+    if (LoadFileIntoMemory(var3, g_fileScratchSpace, &var6) != 0) {
+        if (var0.Initialize(data_ov015_02194152, g_fileScratchSpace)) {
             NitroVM_Initialize(&var1);
             for (unsigned int var7 = 0; PrepareReadFileInNARCByID(&var1, &var0, var7); ++var7) {
                 __clear(var2, 0x50);
                 NitroVM_WriteOutFilePath(&var1, var2, 0x50);
                 if (strstr(var2, data_ov015_02194156) != 0) {
                     const void* var8 = var0.GetFileByIndex(var7);
-                    unsigned int var9 = var1.fileInfo.unknown_8_ - var1.fileInfo.unknown_4_;
+                    unsigned int var9 = var1.fileInfo.endOffset - var1.fileInfo.startOffset;
                     unsigned int var10 = var6;
                     if (var10 & 3) {
                         var10 += 4 - (var10 & 3);
@@ -112,7 +110,7 @@ extern "C" ARM int func_ov015_0218e02c(void* arg0, int* arg1) {
         Struct_02053634 var12;
         ClearObjectArchiveLoadInfo_0203dafc((struct ObjectArchiveLoadInfo_0203d028_11*)&var12);
         void* var13 = *(void**)((char*)arg0 + 8);
-        void* var14 = &gFileScratchSpace_0211e33c;
+        void* var14 = &g_fileScratchSpace;
         unsigned int var15 = var6;
         int var16 = 1;
         var12.unknown_c_ = var13;
@@ -132,7 +130,7 @@ extern "C" ARM int func_ov015_0218e02c(void* arg0, int* arg1) {
     }
 
     BackgroundLoader::RemoveLockGlobal();
-    SaveTextureVRAMState_0207dfac((char*)var5);
+    ((TextureArena*)((char*)var5))->Save();
 
     if (var4 == 0) {
         return 0;

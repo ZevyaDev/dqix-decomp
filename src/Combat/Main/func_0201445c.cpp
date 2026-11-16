@@ -1,17 +1,18 @@
 #include <globaldefs.h>
 
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "Filesystem/FileIO.h"
 #include "std_library_functions.h"
+#include "Graphics/TextureArena.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 
-extern "C" void RestoreTextureVRAMState_0207df90(char*);
-extern "C" void SaveTextureVRAMState_0207dfac(char*);
 
 // USA: func_0201445c
-ARM bool Zone3D::func_0201445c(const void* arg0, unsigned int arg1, const char* arg2)
+extern "C" ARM bool func_0201445c(Zone3D* arg0, const void* arg1, unsigned int arg2, const char* arg3)
 {
-    SafeAllocator* var0 = pAllocator_68_;
-    char* var1 = (char*)unknown_ptr_50_;
+    SafeAllocator* var0 = arg0->pAllocator_68_;
+    char* var1 = (char*)arg0->textureArena_50_;
     unsigned int var2;
     void* var3;
     Zone3D::Model3DListNode* var4 =
@@ -23,31 +24,31 @@ ARM bool Zone3D::func_0201445c(const void* arg0, unsigned int arg1, const char* 
         var5->Clear();
         var4->filename_ = 0;
         var4->pNext_ = 0;
-        var4->filename_ = (char*)var0->Allocate(strlen(arg2) + 1);
+        var4->filename_ = (char*)var0->Allocate(strlen(arg3) + 1);
         if (var4->filename_) {
-            strcpy((char*)var4->filename_, arg2);
-            var4->pNext_ = firstModel_418_;
-            firstModel_418_ = var4;
-            var3 = DecompressLZ77FileIntoScratchSpace(*var0, arg0, var2);
+            strcpy((char*)var4->filename_, arg3);
+            var4->pNext_ = arg0->firstModel_418_;
+            arg0->firstModel_418_ = var4;
+            var3 = DecompressLZ77FileIntoScratchSpace(&(*var0), arg1, &var2);
             if (var3) {
-                RestoreTextureVRAMState_0207df90(var1);
+                ((TextureArena*)(var1))->Restore();
                 var5->SetRawFile(var3, var2);
                 var5->ClearRawFileCache();
                 var5->ProcessRawFile(Model3D::TextureStagingMode_Immediate);
-                SaveTextureVRAMState_0207dfac(var1);
+                ((TextureArena*)(var1))->Save();
 
-                NSBXXTex* var6 = var5->GetTEX0();
+                Nitro3DTextureSet* var6 = var5->GetTEX0();
                 if (var6) {
-                    textureImageMemory_ += NSBXX_Tex_GetBlock1Length(var6);
-                    texturePaletteMemory_ += NSBXX_Tex_GetBlock4Length(var6);
+                    arg0->textureImageMemory_ += Nitro3D_GetTextureBlock1Length((const Nitro3DTextureSet*)(var6));
+                    arg0->texturePaletteMemory_ += Nitro3D_GetTextureBlock4Length((const Nitro3DTextureSet*)(var6));
                 }
                 bool var7 = false;
                 if (var6) {
-                    unsigned int var8 = var6->block1Offset_;
+                    unsigned int var8 = var6->block1Offset;
                     void* var9 = var0->Allocate(var8);
                     if (var9) {
                         memcpy(var9, var6, var8);
-                        var5->SetTEX0((NSBXXTex*)var9);
+                        var5->SetTEX0((Nitro3DTextureSet*)var9);
                         var7 = true;
                     }
                 }

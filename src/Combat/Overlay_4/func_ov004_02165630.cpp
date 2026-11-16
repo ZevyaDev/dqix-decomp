@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "Grotto/Main/TreasureMapMetadata.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_ov004_021549e4_2;
 struct Struct_02011930;
 
@@ -13,7 +17,7 @@ extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern "C" void func_ov004_02165a1c(void* arg0);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" unsigned char func_02011930(void* arg0, struct Struct_02011930* arg1, void* arg2, void* arg3);
@@ -71,7 +75,7 @@ extern "C" ARM int func_ov004_02165630(void* arg0) {
             func_ov004_02165a1c(arg0);
         }
     } else {
-        void* var5 = GetLocalWireless_0202ae18();
+        void* var5 = func_0202ae18();
         GetZone3D_02012fe4();
         if (IsLocalWirelessGuest_0202c540(var5)) {
             QueueMenuScriptEntry_ov011_021848a0(arg0, 0x6e);

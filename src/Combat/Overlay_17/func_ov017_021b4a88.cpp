@@ -8,15 +8,24 @@
 #include "Grotto/Main/ActiveGrottoClass.h"
 #include "World/ZoneFeatures.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "std_library_functions.h"
 #include "World/GrottoTileGraph.h"
+
+#if defined(jpn)
+#define func_0201b5b0 func_0201b328
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
 
 extern "C" Zone3D* GetZone3D_02012fe4(void);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" int func_0201b5b0(int arg0);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 
 extern AllocatorUnion gMainHeap_02114e20;
 #if defined(jpn)
@@ -41,7 +50,7 @@ extern "C" ARM void func_ov017_021b4a88(Struct_ov017_021b4a88* arg0) {
     Zone3D* var1 = GetZone3D_02012fe4();
     ActiveGrottoClass* var2 = &var1->grotto_;
     Struct_020134e0 var3;
-    var3.func_0201e248();
+    func_0201e248(&var3);
 
     if (var0->GetTaskStatus(arg0->unknown_c_)) {
         if (var0->GetDetailedTaskStatus(arg0->unknown_c_) == BackgroundLoader::TaskStatus_Complete) {
@@ -51,7 +60,6 @@ extern "C" ARM void func_ov017_021b4a88(Struct_ov017_021b4a88* arg0) {
             ReleaseFileTablesForSpace_020a0cc4(0x2800);
 
             SafeAllocator var6;
-            var6.ResetAllocatorPointer();
             var6.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x800), 0x800);
             var6.Reset();
 
@@ -73,8 +81,8 @@ extern "C" ARM void func_ov017_021b4a88(Struct_ov017_021b4a88* arg0) {
                     const void* var12 = var7.GetFileByIndex(var10);
                     if (strcmp(data_ov017_021d7b57, var11) == 0) {
                         unsigned int var13;
-                        void* var14 = DecompressLZ77FileIntoScratchSpace(var6, var12, var13);
-                        var3.func_0201e248();
+                        void* var14 = DecompressLZ77FileIntoScratchSpace(&var6, var12, &var13);
+                        func_0201e248(&var3);
                         var3.func_0201e2b4(&var6, var14, var13);
                     }
                     var10++;
@@ -86,7 +94,6 @@ extern "C" ARM void func_ov017_021b4a88(Struct_ov017_021b4a88* arg0) {
             arg0->unknown_8_->unknown_c_ = 1;
             int var16 = var15 % 20;
             SafeAllocator var17;
-            var17.ResetAllocatorPointer();
             var17.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x600), 0x600);
             var17.Reset();
             if (func_0201b5b0(var15)) {
@@ -103,15 +110,15 @@ extern "C" ARM void func_ov017_021b4a88(Struct_ov017_021b4a88* arg0) {
                 var20->CalculateFloorMap(var16, var18, var19, &var21);
                 func_02019728(var1, var16, &var3, var22, &var21);
                 func_0201a300(var1, var16, arg0->unknown_8_, var22, &var21);
-                FreeMemory_02012da4(&gMainHeap_02114e20, var22);
+                func_02012da4(&gMainHeap_02114e20, var22);
                 var21.Clear2();
             }
             void* var23 = var6.GetSignedAllocator();
             var6.Destroy();
-            FreeMemory_02012da4(&gMainHeap_02114e20, var23);
+            func_02012da4(&gMainHeap_02114e20, var23);
             void* var24 = var17.GetSignedAllocator();
             var17.Destroy();
-            FreeMemory_02012da4(&gMainHeap_02114e20, var24);
+            func_02012da4(&gMainHeap_02114e20, var24);
             LoadFileTables_020a0c0c();
         }
         var0->RemoveTask(arg0->unknown_c_);
@@ -119,5 +126,5 @@ extern "C" ARM void func_ov017_021b4a88(Struct_ov017_021b4a88* arg0) {
         arg0->unknown_c_ = var0->QueueLoadFile(data_ov017_021d7b3a, 0);
         arg0->unknown_10_ = 3;
     }
-    var3.func_0201e248();
+    func_0201e248(&var3);
 }

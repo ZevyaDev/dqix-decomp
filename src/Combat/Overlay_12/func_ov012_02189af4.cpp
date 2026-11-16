@@ -1,4 +1,8 @@
 #if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
@@ -33,7 +37,7 @@ extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char*, int, unsigned char);
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char*, int, unsigned char);
 extern "C" void func_02042428(char*, int);
-extern "C" void GetLocalWireless_0202ae18();
+extern "C" void func_0202ae18();
 
 extern "C" ARM void func_ov012_02189af4(char* arg0, char* arg1, int arg2) {
     if (!arg1) return;

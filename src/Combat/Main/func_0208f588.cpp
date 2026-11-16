@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
 #include "Filesystem/FileIO.h"
+#include "Graphics/TextureArena.h"
 #if defined(jpn)
 #define data_020e8d54 data_020e8e70
 #endif
@@ -48,8 +49,6 @@ extern const struct Struct_020e8d54 data_020e8d54;
 extern "C" struct Struct_0208f588_3* GetZone3D_02012fe4(void);
 struct ObjectArchiveLoadInfo;
 
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
 // USA: func_0208f588
 extern "C" ARM int func_0208f588(struct Struct_0208f588_4* arg0, SafeAllocator* arg1, char* arg2) {
@@ -66,7 +65,7 @@ extern "C" ARM int func_0208f588(struct Struct_0208f588_4* arg0, SafeAllocator* 
     }
 
     var1 = data_020e8d54;
-    var3 = LoadFileIntoNewAllocation(var1.unknown_0_, *arg1, &var0);
+    var3 = LoadFileIntoNewAllocation(var1.unknown_0_, &(*arg1), &var0);
     if (var3 == 0) {
         return 0;
     }
@@ -87,10 +86,10 @@ extern "C" ARM int func_0208f588(struct Struct_0208f588_4* arg0, SafeAllocator* 
     var2.unknown_4_ = arg0->unknown_0_;
     var2.unknown_8_ = arg0->unknown_4_;
 
-    RestoreTextureVRAMState_0207df90(arg2);
+    ((TextureArena*)(arg2))->Restore();
     ((Object3D*)&arg0->unknown_8_)->Initialize();
     ((Object3D*)&arg0->unknown_8_)->LoadFromCHRArchive((ObjectArchiveLoadInfo*)&var2);
     ((Object3D*)&arg0->unknown_8_)->MakeHidden();
-    SaveTextureVRAMState_0207dfac(arg2);
+    ((TextureArena*)(arg2))->Save();
     return 1;
 }

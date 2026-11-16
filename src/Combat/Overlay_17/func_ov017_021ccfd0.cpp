@@ -1,10 +1,18 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+extern "C" int func_02053c6c(unsigned char* gameObject);
 struct Struct_02083a50;
 extern "C" int func_02083a50(struct Struct_02083a50* arg0, short* arg1, int arg2);
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021ccfd0 {
@@ -24,7 +32,7 @@ extern "C" ARM void func_ov017_021ccfd0(int arg0) {
     if (!var1) {
         return;
     }
-    int var2 = GetPartyMemberData_02053c6c((unsigned char*)var1);
+    int var2 = func_02053c6c((unsigned char*)var1);
     if (!var2) {
         return;
     }
@@ -36,7 +44,7 @@ extern "C" ARM void func_ov017_021ccfd0(int arg0) {
     int var7;
 
     var7 = (unsigned short)func_02083a50((struct Struct_02083a50*)var2, (short*)var3, 0x11f);
-    var4 = GetLocalWirelessPacketQueue_0202ae24();
+    var4 = func_0202ae24();
     var5 = 0;
     var6 = 0;
     struct Struct_ov017_021ccfd0 var8;

@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
+#if defined(jpn)
+#define func_ov017_021901ac func_ov017_02190d90
+#endif
+
 struct Struct_02072e34;
 extern "C" void func_02072e34(int arg0, struct Struct_02072e34* arg1);
 

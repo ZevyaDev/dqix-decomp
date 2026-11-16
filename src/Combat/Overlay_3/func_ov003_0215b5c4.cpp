@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 #if defined(jpn)
 enum { Enum_ov003_0215b5c4_2400 = 0x800 };
 #else
@@ -13,7 +14,6 @@ struct Struct_0201099c_3;
 struct TextWindowManager_0205de24_2;
 
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
-extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void func_ov003_0215b6f0(char* arg0, char* arg1, int arg2);
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov003_0215b5c4(Struct_ov003_0215b5c4* arg0) {
 #else
     int var1 = 0;
     for (int var2 = 0; var2 < arg0->unknown_589_; var2++) {
-        short var3 = func_020420e8(FindStringInTable_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, arg0->unknown_58a_[var2]), 0);
+        short var3 = func_020420e8(((StringList*)((struct Struct_0201099c_3*)arg0->unknown_64_))->GetString(arg0->unknown_58a_[var2]), 0);
         if (var1 < var3) {
             var1 = var3;
         }

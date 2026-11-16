@@ -1,15 +1,27 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 
-extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" void* func_ov017_021b8478(void* battleManager);
+extern "C" void* func_ov017_021b8468(void* battleManager);
 extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" void func_ov000_02162b70(void* arg0, int arg1, unsigned char arg2);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void func_ov000_02162c90(char* arg0, int arg1, int arg2);
 
 struct Struct_ov000_02162aac {
@@ -54,9 +66,9 @@ extern "C" ARM void func_ov017_021c68e8(int arg0, Struct_ov017_021c68e8_2* arg1,
 #else
     void* var0 = *(void**)(arg3 + 0x3000 + 0x718);
 #endif
-    Struct_ov017_021c68e8* var1 = (Struct_ov017_021c68e8*)GetBattleSetup_ov017_021b8478(var0);
+    Struct_ov017_021c68e8* var1 = (Struct_ov017_021c68e8*)func_ov017_021b8478(var0);
     if (!var1) return;
-    void* var2 = GetBattleScene_ov017_021b8468(var0);
+    void* var2 = func_ov017_021b8468(var0);
     if (!var2) return;
     void* var3 = GetBattle_ov017_021b8470(var0);
     if (!var3) return;
@@ -83,7 +95,7 @@ extern "C" ARM void func_ov017_021c68e8(int arg0, Struct_ov017_021c68e8_2* arg1,
         if (GetCompanionByIndex_0200ff58(arg2, arg1->unknown_6_) != NULL) {
             GameObject* var6 = GetPartyMemberBaseByIndex_0200ff1c(arg2, arg1->unknown_6_);
             if (var6 != NULL) {
-                int var7 = GetPartyMemberData_02053c6c((unsigned char*)var6);
+                int var7 = func_02053c6c((unsigned char*)var6);
                 if (var7 != 0) {
 #if defined(jpn)
                     var5 = (signed char)*(int*)(var7 + 0x8b4) == 5;

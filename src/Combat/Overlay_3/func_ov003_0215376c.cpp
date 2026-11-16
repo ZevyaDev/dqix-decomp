@@ -1,7 +1,7 @@
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
 
 struct BGLayer_02020cb8;
-extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
 struct BGControlSave_02074b64;
 extern "C" void SaveSubBGControl_02074b64(struct BGControlSave_02074b64* save);
 
@@ -13,7 +13,7 @@ extern "C" ARM void func_ov003_0215376c(char* arg0) {
     *(int*)(arg0 + 0xc) = 0;
     *(int*)(arg0 + 0x14) = 0;
     *(int*)(arg0 + 0x10) = 0;
-    InitBGLayer_0204af64((struct BGLayer_02020cb8*)(arg0 + 0x18));
+    ((BGLayer*)((struct BGLayer_02020cb8*)(arg0 + 0x18)))->Reset();
     int var0;
     *(unsigned char*)(arg0 + 0x48) = 0;
     *(unsigned char*)(arg0 + 0x49) = 0;

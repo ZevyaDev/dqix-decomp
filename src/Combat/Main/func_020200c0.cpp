@@ -2,6 +2,12 @@
 #include <GameState/GameState.h>
 #include "Combat/CombatantRecovery.h"
 #include "Resource/GameResources.h"
+#include "NitroSDK/Cache.h"
+#include "Resource/GameStrings.h"
+
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
 
 struct Struct_020200c0_3 {
     int unknown_0_;
@@ -67,11 +73,10 @@ extern "C" void func_0205b234(struct Canvas_020200c0_4* arg0, short arg1, short 
 extern "C" int GetHaloObject_ov017_021bdbcc(GameResources* gameResources);
 extern "C" unsigned short GetLevel_0202053c(void* gameObject);
 extern "C" void WaitForVBlank_020c9820(void);
-extern "C" void DC_FlushRange(const void* arg0, unsigned int arg1);
 extern "C" void LoadToSubObjVRAM(const void* src, unsigned int offset, unsigned int size);
 
 #if defined(jpn)
-extern "C" int GetStringLength_020d2ff0(const char* string);
+extern "C" int func_020d2ff0(const char* string);
 extern "C" void func_0205c9ac(struct Canvas_020200c0_4* arg0, short arg1, short arg2, int arg3, int arg4, int arg5,
                               unsigned char arg6, unsigned char arg7);
 extern char data_020ef464[];
@@ -79,7 +84,6 @@ extern char data_020ef469[];
 extern char data_020ef46e[];
 extern char data_020ef475[];
 extern char data_020e795c[][5];
-extern const unsigned char data_020e78c0 = 10;
 
 // JPN: func_020200c0
 extern "C" ARM void func_020200c0(int arg0, int arg1) {
@@ -107,7 +111,7 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
     Struct_020200c0_8* var8 = (Struct_020200c0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg0);
     if (var8 == NULL) return;
     char* var9 = var8->baseStats_->unk;
-    int var10 = GetStringLength_020d2ff0(var9) >> 1;
+    int var10 = func_020d2ff0(var9) >> 1;
     func_0205b234(&var7, (short)((0x40 - var10 * 10) >> 1), 3, var9, 10, 0xf);
 
     unsigned char var11;
@@ -127,6 +131,7 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
         func_0205b234(&var7, 0x11, 0x2b, data_020ef46e, 10, 0xf);
     } else {
         if (var14 != 0) {
+            static const unsigned char data_020e78c0 = 10;
             var12 = 5;
             var13 = 1;
             if (var14 == data_020e78c0) {
@@ -146,14 +151,13 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
         }
     }
     WaitForVBlank_020c9820();
-    DC_FlushRange(var5, 0x800);
+    CleanInvalidateCacheRange((const void*)(var5), 0x800);
     LoadToSubObjVRAM(var5, var3, 0x800);
 }
 #else
 struct Struct_020200c0_2;
 
 extern "C" void func_0205b734(struct Canvas_020200c0_4* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" const char* GetStandardString_020e51cc(int stringId);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" void* GetWindowTile_020421b0(int tileIndex);
 extern "C" void func_0205b530(struct Canvas_020200c0_4* arg0, void* arg1, short arg2, short arg3, int arg4, int arg5);
@@ -189,9 +193,9 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
     SetCanvasCharacterData_0205b220(&var7, (int)var5);
     SetCanvasRects_0205b228(&var7, (int)&var6, 1);
     func_0205b734(&var7, 7, 0x10, 0x17, 0x18, 1);
-    func_0205b234(&var7, 7, 0xe, GetStandardString_020e51cc(0xc9), 0xf, 0);
+    func_0205b234(&var7, 7, 0xe, GetGameString((eGameString)(0xc9)), 0xf, 0);
     func_0205b734(&var7, 7, 0x1c, 0x17, 0x24, 1);
-    func_0205b234(&var7, 7, 0x1a, GetStandardString_020e51cc(0xca), 0xf, 0);
+    func_0205b234(&var7, 7, 0x1a, GetGameString((eGameString)(0xca)), 0xf, 0);
 
     Struct_020200c0_8* var8 = (Struct_020200c0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg0);
     if (var8 == NULL) return;
@@ -224,7 +228,7 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
     } else {
         int var18 = 5;
         if (var15 == 10) var18 = 0xd;
-        const char* var19 = GetStandardString_020e51cc(0x3f3);
+        const char* var19 = GetGameString((eGameString)(0x3f3));
         int var20 = func_020420e8(var19, 0);
         if (var12 >= 0) {
             char* var21 = (char*)GetWindowTile_020421b0((unsigned char)(var12 * 4 + 0x28));
@@ -248,7 +252,7 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
         Struct_020200c0_5 var23;
         InitNoun_020e46c4(&var23);
         InitPartyMemberNoun_020e4bf4(&var23, arg0);
-        const char* var24 = GetStandardString_020e51cc(var11);
+        const char* var24 = GetGameString((eGameString)(var11));
         char var25[0x80];
         __clear(var25, 0x80);
         var4->unknown_0_ = &var23;
@@ -256,7 +260,7 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
         func_0205b234(&var7, (short)((0x40 - func_020420e8(var25, 0)) >> 1), 0x2b, var25, var10, 0);
     }
     WaitForVBlank_020c9820();
-    DC_FlushRange(var5, 0x800);
+    CleanInvalidateCacheRange((const void*)(var5), 0x800);
     LoadToSubObjVRAM(var5, var3, 0x800);
 }
 #endif

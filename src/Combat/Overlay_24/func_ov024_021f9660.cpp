@@ -2,6 +2,10 @@
 #include "Resource/ActionDataTables.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_ov024_021f9660 {
     char unknown_0_[8];
     unsigned int unknown_8_0_ : 28;
@@ -43,14 +47,14 @@ struct Struct_ov024_021ffeac { Type_ov024_021f9660 unknown_0_[79]; };
 extern Struct_ov024_021ffeac data_ov024_021ffeac;
 extern unsigned int data_ov024_02200150;
 extern Type_ov024_021f9660 gNullMemberFunctionPointer_020e6d5c;
-extern "C" void* GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" void* func_02053c6c(unsigned char*);
 extern "C" Struct_ov024_021f9660* FindActionData_02079e2c(char*, int);
 extern "C" int func_ov024_021f8874(Struct_ov024_021f9660_3*, Struct_ov024_021f9660*, GameObject*, int*);
 
 // USA: func_ov024_021f9660
 extern "C" ARM void func_ov024_021f9660(Struct_ov024_021f9660_3* arg0) {
     GameObject* var0 = arg0->unknown_8_;
-    GetPartyMemberData_02053c6c((unsigned char*)var0);
+    func_02053c6c((unsigned char*)var0);
     ActionTables_02108e10* var1 = GetActionTables_020797dc();
     if (!(data_ov024_02200150 & 1)) {
         Type_ov024_021f9660 var2 = gNullMemberFunctionPointer_020e6d5c;

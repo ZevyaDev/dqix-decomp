@@ -2,6 +2,11 @@
 #include <GameState/GameState.h>
 #include <NitroSDK/Cache.h>
 #include <NitroSDK/LoadToVRAM.h>
+#include "Graphics/OBJSpriteSet.h"
+
+#if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
 
 struct TextWindowManager_0205d81c;
 struct Struct_0204c610;
@@ -64,9 +69,8 @@ extern "C" void* GetBattleUI_ov000_02160f08(void*);
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char*);
 extern "C" void func_0204c610(Struct_0204c610*, int, short*, short*, short*, short*);
-extern "C" void* GetBattleScene_ov017_021b8468(void*);
+extern "C" void* func_ov017_021b8468(void*);
 extern "C" double func_02009424(double);
-extern "C" void DrawSprite_0205ac40(void*, void*);
 struct Struct_ov000_02183488 {
     short unknown_0_;
     short unknown_2_[2];
@@ -91,7 +95,7 @@ extern "C" ARM void func_ov000_021707f0(Struct_ov000_021707f0* arg0) {
     if (!var2 || !var2->unknown_ptr_3718) {
         return;
     }
-    void* var3 = GetBattleScene_ov017_021b8468(var2->unknown_ptr_3718);
+    void* var3 = func_ov017_021b8468(var2->unknown_ptr_3718);
     if (!var3) {
         return;
     }
@@ -172,7 +176,7 @@ extern "C" ARM void func_ov000_021707f0(Struct_ov000_021707f0* arg0) {
             arg0->unknown_430_[var13] = var23 | (var24 << 5) | (var25 << 10);
         }
     }
-    DC_FlushRange(arg0->unknown_430_, 4);
+    CleanInvalidateCacheRange((const void*)(arg0->unknown_430_), 4);
     LoadToSubObjStandardPalette(arg0->unknown_430_, 0x142, 4);
-    DrawSprite_0205ac40(var5, var6->unknown_320_);
+    ((OBJSpriteSet*)(var5))->DrawMetatile((OBJSpriteSet::Metatile*)(var6->unknown_320_));
 }

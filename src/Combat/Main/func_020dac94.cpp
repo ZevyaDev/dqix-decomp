@@ -10,6 +10,10 @@ enum { Enum_020dac94_228 = 0xe4 };
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_020a1df8 func_020a3b70
+#endif
+
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" int func_ov003_0217ce3c(void*);
@@ -28,7 +32,7 @@ extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
 extern "C" void EnableCameraTurning_020a27ac(void* camera);
 extern "C" void EnablePlayerControl_020397c0(void* object);
-extern "C" void PushOverlay_020a1df8(int overlayEntry);
+extern "C" void func_020a1df8(int overlayEntry);
 extern "C" void func_020daeb0(void* arg0);
 
 struct Struct_02018300_3;
@@ -69,7 +73,7 @@ extern "C" ARM void func_020dac94(void* arg0, void*) {
             var0->unknown_1_ = 1;
             return;
         }
-        PushOverlay_020a1df8(3);
+        func_020a1df8(3);
         func_ov003_0217daf0(var0->unknown_c_);
         func_ov003_0217cd24(var0->unknown_c_, &var0->unknown_14_);
         GameObject* var6 = var1->GetUnknownGameObject();

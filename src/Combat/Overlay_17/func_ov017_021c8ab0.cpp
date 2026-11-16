@@ -1,8 +1,16 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
+extern "C" void* func_ov017_021b8478(void* battleManager);
+extern "C" void* func_ov017_021b8468(void* battleManager);
 extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" void SetCombatantCell_02049390(unsigned char* combatant, unsigned char cell);
 
@@ -30,9 +38,9 @@ extern "C" ARM void func_ov017_021c8ab0(int arg0, struct Struct_ov017_021c8ab0_3
  enum {Enum_ov017_021c8ab0_1816=0x718};
 #endif
     void* var0 = *(void**)(arg3 + 0x3000 + Enum_ov017_021c8ab0_1816);
-    Struct_ov017_021c8ab0* var1 = (Struct_ov017_021c8ab0*)GetBattleSetup_ov017_021b8478(var0);
+    Struct_ov017_021c8ab0* var1 = (Struct_ov017_021c8ab0*)func_ov017_021b8478(var0);
     if (var1 == NULL) return;
-    if (!GetBattleScene_ov017_021b8468(var0)) return;
+    if (!func_ov017_021b8468(var0)) return;
     if (!GetBattle_ov017_021b8470(var0)) return;
 
     struct Struct_ov017_021c8ab0_2* var2 = &arg1->unknown_4_;

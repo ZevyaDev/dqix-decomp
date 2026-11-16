@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
 
 struct Struct_0205d304_3 {
     short unknown_0_;
@@ -19,7 +20,6 @@ extern "C" void func_0204d790(void* arg0, const char* arg1, unsigned int arg2, i
 #else
 extern "C" void func_0204c980(void* arg0, const char* arg1, unsigned int arg2, int arg3, unsigned char arg4, unsigned char arg5, unsigned char arg6);
 #endif
-extern "C" unsigned int func_0204aa28(struct Struct_0204aa28*);
 extern "C" void func_0205bf3c(struct KeyMenuCursor_0205bf3c*);
 extern "C" void func_0205d904(unsigned char*);
 
@@ -117,7 +117,7 @@ extern "C" ARM void OpenTextWindow_0205d304(struct TextWindowManager_0205d304* w
             }
         }
         if (!hasSameLayerWindow) {
-            characterDataOffset = func_0204aa28((struct Struct_0204aa28*)textWindow->pBGLayer_4_);
+            characterDataOffset = ((BGLayer::CharacterData*)((struct Struct_0204aa28*)textWindow->pBGLayer_4_))->GetEndVRAMOffset();
 #if defined(jpn)
             func_0204d790(textWindow, text, characterDataOffset, arg2, isVerticallyCentered, isSizedToText);
 #else
@@ -130,7 +130,7 @@ extern "C" ARM void OpenTextWindow_0205d304(struct TextWindowManager_0205d304* w
             earlierWindow->palette_c2_ = 1;
         }
     } else {
-        characterDataOffset = func_0204aa28((struct Struct_0204aa28*)textWindow->pBGLayer_4_);
+        characterDataOffset = ((BGLayer::CharacterData*)((struct Struct_0204aa28*)textWindow->pBGLayer_4_))->GetEndVRAMOffset();
 #if defined(jpn)
         func_0204d790(textWindow, text, characterDataOffset, arg2, isVerticallyCentered, isSizedToText);
 #else

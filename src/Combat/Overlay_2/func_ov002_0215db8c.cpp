@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -15,7 +16,6 @@ extern "C" void func_ov002_02157424(void *arg0, int *arg1);
 extern "C" int func_ov002_02159774(void *arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" void AppendCursorTag_02041ea4(char *buffer, int entryIndex);
-extern "C" const char *FindStringInTable_020e0434(Struct_0201099c_3 *stringTable, int stringId);
 extern "C" void func_02041fac(char *arg0, int arg1, int arg2);
 extern "C" void AppendTextColorTag_02041e70(char *buffer, int colorIndex);
 extern "C" void AppendMenuEntry_02041b70(char *buffer, int entryIndex, const char *text);
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov002_0215db8c(char *arg0, char *arg1, int arg2) {
     if (arg2) AppendFrameTag_02041c08(arg1, var2, 8, 5, 5, 5);
     AppendCursorTag_02041ea4(arg1, var2);
     func_02041fac(
-        arg1, (int) FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + RG(0x20, 0x8)), 0x76c), 0x10);
+        arg1, (int) ((StringList*)((Struct_0201099c_3 *) (arg0 + RG(0x20, 0x8))))->GetString(0x76c), 0x10);
     int var4;
     int var5 = *(int *) (arg0 + RG(0x1c38, 0x1afc)) + 1;
     int var6;
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov002_0215db8c(char *arg0, char *arg1, int arg2) {
                 AppendTextColorTag_02041e70(arg1, 0xf);
             }
         } else {
-            AppendMenuEntry_02041b70(arg1, var6, FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0 + RG(0x20, 0x8)), var3++));
+            AppendMenuEntry_02041b70(arg1, var6, ((StringList*)((Struct_0201099c_3 *) (arg0 + RG(0x20, 0x8))))->GetString(var3++));
         }
         if (var6 != var5 - 1) AppendText_02042058(arg1, *(const char **) (arg0 + RG(0x1bdc, 0x1aa4)));
     }

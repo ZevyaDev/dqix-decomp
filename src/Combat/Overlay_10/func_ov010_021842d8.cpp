@@ -3,9 +3,13 @@
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 extern AllocatorUnion gMainHeap_02114e20;
 
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 
 extern "C" void* GetEffectManager_02057924();
@@ -25,7 +29,7 @@ extern "C" ARM void func_ov010_021842d8(struct Struct_ov010_021842d8* arg0) {
     void* var0 = arg0->unknown_14_.GetSignedAllocator();
     if (var0 != NULL) {
         arg0->unknown_14_.Destroy();
-        FreeMemory_02012da4(&gMainHeap_02114e20, var0);
+        func_02012da4(&gMainHeap_02114e20, var0);
     }
     if (arg0->unknown_4_ >= 0) {
         int var1 = (int)BackgroundLoader::GetInstance();

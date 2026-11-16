@@ -5,6 +5,7 @@
 #endif
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
 
 struct Struct_0201099c_3;
 struct Struct_0203c108_3;
@@ -50,7 +51,6 @@ struct Struct_ov000_021716d0_4 {
     Struct_ov000_021716d0* unknown_1a4_[1];
 };
 
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
 extern "C" int func_ov000_02153a8c(GameObject* arg0);
 extern "C" int func_020dd290(void* arg0, unsigned int arg1);
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov000_021716d0(Struct_ov000_021716d0_4* arg0) {
         var0->unknown_10_++;
         var0->unknown_8_[arg0->unknown_8_.unknown_10_] = 0xe;
         var0->unknown_15_ = 0;
-        func_0203c108((struct Struct_0203c108_3*)arg0->unknown_50_, (char*)FindStringInTable_020e0434(arg0->unknown_4_, 5));
+        func_0203c108((struct Struct_0203c108_3*)arg0->unknown_50_, (char*)((int)((StringList*)(arg0->unknown_4_))->GetString(5)));
         return;
     }
 

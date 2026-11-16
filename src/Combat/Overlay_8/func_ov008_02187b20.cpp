@@ -12,6 +12,15 @@
 #include <Memory/SafeAllocator.h>
 #include <World/Object3D.h>
 #include <GameState/GameState.h>
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 
 struct Struct_01ff8b48_26 {
@@ -173,15 +182,14 @@ extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int in
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char* window, int index, unsigned char alignment);
 extern "C" void AppendTextColorTag_02041e70(char* buffer, int colorIndex);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void AppendPositionTag_02041a90(char* buffer, int x, int y);
-extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 
 extern "C" {
 void __clear(void* arg0, unsigned long arg1);
 void ClearMessageParams_02046380(unsigned char* window);
-char* GetFlagManager_0205ec34();
+char* func_0205ec34();
 }
 
 // USA: func_ov008_02187b20
@@ -264,7 +272,7 @@ extern "C" ARM void func_ov008_02187b20(Struct_ov008_021842a0_2* arg0, char* arg
     SetMessageNumberWidth_020465f0(var2, 5, LOW_REGION(4, 5));
     SetMessageNumberAlignment_020465d8(var2, 5, 1);
     AppendTextColorTag_02041e70(arg1, 0xe);
-    var11 = GetFlagManager_0205ec34();
+    var11 = func_0205ec34();
     var5 = 0;
     if (arg2 != NULL)
     {
@@ -274,14 +282,14 @@ extern "C" ARM void func_ov008_02187b20(Struct_ov008_021842a0_2* arg0, char* arg
     else
     {
         var5 += 1;
-        if (IsFlagSet_0206dfb0((int)var11, (unsigned char*)(var11 + 0x8c), 0x1198))
+        if (func_0206dfb0((int)var11, (unsigned char*)(var11 + 0x8c), 0x1198))
             var5 += 2;
         var5 += 4;
         if (var0->unknown_3c_.unknown_b_0_ != 0)
             var5 += 8;
         if (var0->unknown_3c_.unknown_d_6_ != 0)
             var5 += 0x10;
-        if (IsFlagSet_0206dfb0((int)var11, (unsigned char*)(var11 + 0x8c), 0x1199))
+        if (func_0206dfb0((int)var11, (unsigned char*)(var11 + 0x8c), 0x1199))
             var5 += 0x20;
     }
     int var13 = 0;
@@ -291,20 +299,20 @@ extern "C" ARM void func_ov008_02187b20(Struct_ov008_021842a0_2* arg0, char* arg
         {
 #if defined(jpn)
             AppendPositionTag_02041a90(arg1, 2, var13 * 15 + 1);
-            AppendText_02042058(arg1, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var14 + 0x78)));
+            AppendText_02042058(arg1, ((StringList*)((Struct_0201099c_3*)&arg0->unknown_a0_))->GetString((short)(var14 + 0x78)));
 #else
             char var15[0x40];
             var1 = var13 * 14;
             AppendPositionTag_02041a90(arg1, 2, var1 + 7);
             __clear(var15, sizeof(var15));
-            const char* var16 = FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var14 + 0x78));
+            const char* var16 = ((StringList*)((Struct_0201099c_3*)&arg0->unknown_a0_))->GetString((short)(var14 + 0x78));
             memcpy(var15, var16, strlen(var16));
             char* var17 = strstr(var15, data_ov008_0218b4c3);
             if (var17 != NULL)
                 *var17 = 0;
             AppendText_02042058(arg1, var15);
             AppendPositionTag_02041a90(arg1, 0x62, var1 + 7);
-            AppendText_02042058(arg1, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var14 + 500)));
+            AppendText_02042058(arg1, ((StringList*)((Struct_0201099c_3*)&arg0->unknown_a0_))->GetString((short)(var14 + 500)));
 #endif
             var13++;
         }

@@ -4,8 +4,21 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "Resource/Brightness.h"
 #include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 
 
@@ -25,9 +38,9 @@ extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern AllocatorUnion gMainHeap_02114e20;
 extern char data_020f235c[];
 extern char data_020f2371[];
-extern "C" void GetLocalWireless_0202ae18(GameState*);
+extern "C" void func_0202ae18(GameState*);
 extern "C" Zone3D* GetZone3D_02012fe4();
-extern "C" void* GetFlagManager_0205ec34();
+extern "C" void* func_0205ec34();
 extern "C" int GetMessageWindow_020421a0();
 extern "C" int GetFollowCamera_020100f8(char*);
 extern "C" void func_020d8484(Struct_020d80b0_3*);
@@ -36,7 +49,7 @@ extern "C" void DisableCameraTurning_020a27b8(unsigned char*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void LoadStringList_020728ac(StringList_02072a68_2*, SafeAllocator*, void*, unsigned int, int, int, int);
 extern "C" void ClearMessageParams_02046380(void*);
-extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 #if defined(jpn)
@@ -71,7 +84,7 @@ struct Struct_020d80b0_2 { unsigned char unknown_0_[0x8c]; unsigned char unknown
 // USA: func_020d80b0
 extern "C" ARM void func_020d80b0(Struct_020d80b0_3* arg0) {
     GameState* var0 = GameState::GetInstance();
-    GetLocalWireless_0202ae18(var0);
+    func_0202ae18(var0);
     GameResources* var1 = GetGameResources();
     Struct_020d80b0* var2 = (Struct_020d80b0*)GetMessageWindow_020421a0();
     GameObject* var3;
@@ -79,7 +92,7 @@ extern "C" ARM void func_020d80b0(Struct_020d80b0_3* arg0) {
     Zone3D_StructPtr_8* var5 = GetZone3D_02012fe4()->pUnknownStruct_8_;
     GrottoStruct* var6 = var0->GetGrottoStruct();
     var3 = var0->GetUnknownGameObject();
-    var4 = (Struct_020d80b0_2*)GetFlagManager_0205ec34();
+    var4 = (Struct_020d80b0_2*)func_0205ec34();
     unsigned char* var7 = (unsigned char*)GetFollowCamera_020100f8((char*)var0);
     if (var6->activeMapData.GetDiscoveryState() != 1) {
         arg0->unknown_8_ = 7;
@@ -110,7 +123,7 @@ extern "C" ARM void func_020d80b0(Struct_020d80b0_3* arg0) {
         }
     } else if (arg0->unknown_8_ == 2) {
         if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00())) {
-            if (IsFlagSet_0206dfb0((int)var4, var4->unknown_8c_, 0x119e)) arg0->unknown_8_ = 5;
+            if (func_0206dfb0((int)var4, var4->unknown_8c_, 0x119e)) arg0->unknown_8_ = 5;
             else {
                 arg0->unknown_8_ = 3;
                 SetFlag_0206df6c(var4, var4->unknown_8c_, 0x119e, 1);

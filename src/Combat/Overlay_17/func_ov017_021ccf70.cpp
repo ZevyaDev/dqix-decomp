@@ -2,8 +2,12 @@
 
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void LearnSpell_02083b60(unsigned char* memberData, int spellId);
 
 struct Struct_ov017_021ccf70 {
@@ -29,7 +33,7 @@ extern "C" ARM void func_ov017_021ccf70(int arg0, unsigned char* arg1, GameState
 	GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var1->unknown_0_0_);
 	if (!var2) return;
 
-	unsigned char* var3 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var2);
+	unsigned char* var3 = (unsigned char*)func_02053c6c((unsigned char*)var2);
 	if (!var3) return;
 
 	for (int var4 = 0; var4 < var1->unknown_0_3_; var4++) {

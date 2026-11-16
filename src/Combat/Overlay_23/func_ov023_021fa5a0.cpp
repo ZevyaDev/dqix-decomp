@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
 #include "Filesystem/BackgroundLoader.h"
+#include "Resource/PAC.h"
 
 extern "C" int func_ov011_021849d8(void* arg0);
 
-extern "C" char* func_020467c0(void* arg0, char* arg1, unsigned int* arg2);
 extern "C" void func_ov023_021fa644(void* arg0, void* arg1, char* arg2, int arg3);
 
 struct Struct_ov023_021fa5a0 {
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov023_021fa5a0(struct Struct_ov023_021fa5a0* arg0, void
     }
 
     unsigned int var4;
-    char* var5 = func_020467c0(var2, arg0->unknown_10_, &var4);
+    char* var5 = (char*)(GetFileInPAC((void*)(var2), (const char*)(arg0->unknown_10_), (unsigned int*)(&var4)));
     if (var5 == NULL) {
         return;
     }

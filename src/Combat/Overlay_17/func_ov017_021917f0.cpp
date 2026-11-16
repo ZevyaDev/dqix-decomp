@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_02040774_2;
 
 struct PartyMemberData_ov017_021917f0_2 {
@@ -21,7 +25,7 @@ struct WeaponPlacement_ov017_021917f0 {
 };
 
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-extern "C" PartyMemberData_ov017_021917f0_2* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" PartyMemberData_ov017_021917f0_2* func_02053c6c(unsigned char* gameObject);
 extern "C" WeaponPlacement_ov017_021917f0* func_02099f60(void);
 extern "C" int func_02053eb4(void*, int);
 extern "C" void func_02053ec0(unsigned char*, int);
@@ -40,7 +44,7 @@ extern "C" ARM void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int 
     GameObject* partyMemberBase = GetPartyMemberBaseByIndex_0200ff1c(gameState, memberIndex);
     GameObject* weaponObject = gameState->GetGameObjectByIndex(memberIndex * 12 + 0x1c);
     if (partyMemberBase == NULL || weaponObject == NULL) return;
-    memberData = GetPartyMemberData_02053c6c((unsigned char*)partyMemberBase);
+    memberData = func_02053c6c((unsigned char*)partyMemberBase);
     if (memberData == NULL) return;
     WeaponPlacement_ov017_021917f0* placement = &func_02099f60()[memberData->weaponType_29c_4_];
     if (isHeld == 1) {

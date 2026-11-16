@@ -2,11 +2,19 @@
 #include "NitroSDK/Cache.h"
 #include "NitroSDK/Memory.h"
 
+#if defined(jpn)
+#define func_020ca390 func_020cbe5c
+#endif
+
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
 
 
 
-extern "C" void HaltForever_020c9be0();
-extern "C" void Memset16Bit_020ca390(unsigned short value, void* dst, unsigned long size);
+
+extern "C" void func_020c9be0();
+extern "C" void func_020ca390(unsigned short value, void* dst, unsigned long size);
 extern "C" void Memcpy16Bit_020ca3b8(const void* src, void* dst, unsigned long size);
 extern "C" int func_020d3fdc();
 extern "C" void func_020d468c();
@@ -159,7 +167,7 @@ extern "C" ARM void func_020d42e0(unsigned int arg0, unsigned int arg1, unsigned
         if (var0->unknown_0_ == 0x80)
         {
             if (var0->unknown_2_ == 19)
-                HaltForever_020c9be0();
+                func_020c9be0();
             if (var1->unknown_c8_ != NULL)
                 var1->unknown_c8_(var0);
         }
@@ -261,7 +269,7 @@ extern "C" ARM void func_020d42e0(unsigned int arg0, unsigned int arg1, unsigned
                 if (var11 != NULL)
                     Memcpy16Bit_020ca3b8(var11, data_02114354, sizeof(data_02114354));
                 else
-                    Memset16Bit_020ca390(0, data_02114354, sizeof(data_02114354));
+                    func_020ca390(0, data_02114354, sizeof(data_02114354));
                 data_021142e0.unknown_50_.unknown_40_ = var8 == 0 ? var12 : var13;
                 data_021142e0.unknown_50_.unknown_42_ = var8 == 0 ? var13 : var12;
                 for (unsigned short var16 = 0; var16 < 16; var16++)

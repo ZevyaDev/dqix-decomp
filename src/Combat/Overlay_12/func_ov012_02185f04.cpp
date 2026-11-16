@@ -2,6 +2,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 enum { Enum_ov012_02185f04_5000 = 0x1354, Enum_ov012_02185f04_132 = 0x7c, Enum_ov012_02185f04_4932 = 0x131c };
@@ -10,7 +11,6 @@ enum { Enum_ov012_02185f04_5000 = 0x1388, Enum_ov012_02185f04_132 = 0x84, Enum_o
 #endif
 
 struct StringTable_020dfec0;
-extern "C" int LoadStringTable_020dfec0(StringTable_020dfec0*, SafeAllocator*, void*, unsigned int);
 
 // USA: func_ov012_02185f04
 extern "C" ARM void func_ov012_02185f04(char* arg0) {
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov012_02185f04(char* arg0) {
     unsigned int var3;
     var0->GetLoadedFileByID(var1, &var2, &var3);
     ((SafeAllocator*)(arg0 + Enum_ov012_02185f04_132))->Reset();
-    LoadStringTable_020dfec0((StringTable_020dfec0*)(arg0 + Enum_ov012_02185f04_4932), (SafeAllocator*)(arg0 + Enum_ov012_02185f04_132), var2, var3);
+    ((StringList*)((StringTable_020dfec0*)(arg0 + Enum_ov012_02185f04_4932)))->LoadFromMemory((SafeAllocator*)((SafeAllocator*)(arg0 + Enum_ov012_02185f04_132)), (const void*)(var2), var3);
     var0->RemoveTask(*(int*)(arg0 + Enum_ov012_02185f04_5000));
     *(int*)(arg0 + Enum_ov012_02185f04_5000) = -1;
 }

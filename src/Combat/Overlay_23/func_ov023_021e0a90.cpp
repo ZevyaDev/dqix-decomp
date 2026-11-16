@@ -1,11 +1,9 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
+#include "Resource/StringList.h"
 
 struct Struct_020534ac;
-extern "C" {
-}
 extern "C" void func_ov023_021db314(void* arg0, short* arg1, short* arg2);
-extern "C" int func_020e0028(void* arg0, void* arg1, int arg2, int arg3, void* arg4, int arg5);
 extern "C" void func_ov023_021e0eb8(void* arg0);
 
 // USA: func_ov023_021e0a90
@@ -33,7 +31,7 @@ extern "C" ARM int func_ov023_021e0a90(void* arg0) {
             short var3[12];
             short var4;
             func_ov023_021db314((char*)arg0 + 0x6c, var3, &var4);
-            func_020e0028((char*)arg0 + 0x8c, (char*)arg0 + 0x28, var1, var2, var3, (unsigned short)var4);
+            ((StringList*)((char*)arg0 + 0x8c))->LoadSubsetFromMemory((SafeAllocator*)((char*)arg0 + 0x28), (void*)(var1), var2, (const short*)(var3), (unsigned short)var4);
         }
 
         ((BackgroundLoader*)(var0))->RemoveTask((int)(*(int*)((char*)arg0 + Enum_ov023_021e0a90_1864)));

@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c5574 func_020c7040
+#endif
+
 extern "C" int func_020ca50c(int, int);
 
 // USA: func_020c5574

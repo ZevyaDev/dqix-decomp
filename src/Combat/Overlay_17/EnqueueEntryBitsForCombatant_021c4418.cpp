@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+extern "C" void* func_0202ae24(void);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 struct Struct_02052e2c;
 extern "C" short* GetAppearance_02052e2c(struct Struct_02052e2c* gameObject);
@@ -37,7 +41,7 @@ struct BodyAppearancePacket_ov017_021c4418_2 {
 // USA: SendPartyMemberBodyAppearance_ov017_021c4418
 extern "C" ARM void SendPartyMemberBodyAppearance_ov017_021c4418(int memberIndex, signed char recipientIndex) {
     GameState* gameState = GameState::GetInstance();
-    void* packetQueue = GetLocalWirelessPacketQueue_0202ae24();
+    void* packetQueue = func_0202ae24();
     GameObject* partyMemberBase = GetPartyMemberBaseByIndex_0200ff1c(gameState, memberIndex);
     if (!partyMemberBase) return;
     struct Appearance_ov017_021c4418* appearance = (struct Appearance_ov017_021c4418*)GetAppearance_02052e2c((struct Struct_02052e2c*)partyMemberBase);

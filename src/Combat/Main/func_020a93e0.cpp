@@ -2,6 +2,10 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 struct Struct_0201099c_6 {
     int unknown_0_;
     short unknown_4_;
@@ -28,10 +32,10 @@ struct Struct_02086f24_5 {
 };
 extern "C" struct Struct_02089fb0* func_02089fb0(struct Struct_02086f24_5* arg0, int arg1);
 
-extern "C" int ConvertTextToGlyphIndices_020426bc(char* text, unsigned char* outGlyphIndices, int font);
+extern "C" int func_020426bc(char* text, unsigned char* outGlyphIndices, int font);
 
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern AllocatorUnion gMainHeap_02114e20;
 
 struct Struct_020a93e0 {
@@ -50,7 +54,6 @@ extern "C" ARM void func_020a93e0(char* arg0) {
             struct Struct_0201099c_6 var4;
             SafeAllocator var5;
             var5.ResetAllocatorPointer();
-            var5.ResetAllocatorPointer();
             void* var6 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x800);
             var5.CreateTypeA(var6, 0x800);
             func_02089db4(&var4);
@@ -63,13 +66,13 @@ extern "C" ARM void func_020a93e0(char* arg0) {
                     struct Struct_02089fb0* var8 = func_02089fb0(
                         (struct Struct_02086f24_5*)&var4, (short)(var7 + 7));
                     char* var9 = *(char**)((char*)var8 + 4);
-                    ConvertTextToGlyphIndices_020426bc(var9, (unsigned char*)(var0 + 0x140), 1);
+                    func_020426bc(var9, (unsigned char*)(var0 + 0x140), 1);
                 }
             }
             SignedAllocatorHeader* var10 = var5.GetSignedAllocator();
             func_02089ddc(&var4);
             var5.Destroy();
-            FreeMemory_02012da4(&gMainHeap_02114e20, var10);
+            func_02012da4(&gMainHeap_02114e20, var10);
             return;
         }
     }

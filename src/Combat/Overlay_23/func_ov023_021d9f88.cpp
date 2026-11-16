@@ -11,7 +11,7 @@ struct MenuCursor_0205bcdc;
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc*, int);
 extern "C" void SetMenuCursorIndex_0205bb04(void*, int);
 struct Struct_02000c9c_8;
-extern "C" unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8*);
+extern "C" unsigned char func_0200fb08(Struct_02000c9c_8*);
 extern "C" void func_ov023_021da100(char*, char*, int);
 #if defined(jpn)
 extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int);
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov023_021d9f88(void* arg0) {
     OpenTextWindow_0205d304(&var0->unknown_1f8_[1], var0->unknown_f8_, 0, 0, 0, 0, 0);
 #else
     int var4 = 0x10;
-    unsigned char var5 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
+    unsigned char var5 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
     switch (var5) {
         case 2: var4 = 0xe; break;
         case 4: var4 = 0x15; break;

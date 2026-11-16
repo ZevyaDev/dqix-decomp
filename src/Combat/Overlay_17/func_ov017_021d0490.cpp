@@ -3,10 +3,22 @@
 #include "Resource/GameResources.h"
 #include "World/ZoneResourceTree.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" int func_020107d0(char* arg0);
@@ -90,13 +102,13 @@ static inline Struct_ov017_021d0490* inline_ov017_021d0490_3(GameResources* arg0
 // USA: func_ov017_021d0490
 extern "C" ARM void func_ov017_021d0490(int arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     unsigned short* var2 = (unsigned short*)GetZone3D_02012fe4();
     GameResources* var3 = GetGameResources();
     Struct_ov017_021d0490_7* var4 = inline_ov017_021d0490(var3);
     Struct_ov017_021d0490* var5 = inline_ov017_021d0490_2(var3);
     Struct_ov017_021d0490* var6 = inline_ov017_021d0490_3(var3);
-    void* var7 = GetLocalWirelessPacketQueue_0202ae24();
+    void* var7 = func_0202ae24();
     Struct_ov017_021d0490_6 var8;
     var8.unknown_0_ = 0x97;
     Struct_ov017_021d0490_5* var9 = &var8.unknown_4_;
@@ -119,7 +131,7 @@ extern "C" ARM void func_ov017_021d0490(int arg0) {
             var9->unknown_3_5_ = var4->unknown_12_;
         } else if ((var5->unknown_3_ != 0 || (var6->unknown_3_ != 0 && var5->unknown_2_ != 0)) && var10 != NULL &&
                    var10->unknown_8e14_ == 0) {
-            Struct_ov017_021d0490_2* var11 = (Struct_ov017_021d0490_2*)GetBattleSetup_ov017_021b8478(var5);
+            Struct_ov017_021d0490_2* var11 = (Struct_ov017_021d0490_2*)func_ov017_021b8478(var5);
             var9->unknown_3_3_ = 0;
             var9->unknown_8_ = var11->unknown_c_;
             var9->unknown_a_ = var11->unknown_2_;

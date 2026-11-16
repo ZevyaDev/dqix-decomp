@@ -2,6 +2,10 @@
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 struct Struct_0202df68;
 extern "C" void SetCameraFieldOfView_0202e9a4(struct Struct_0202df68* camera, int halfAngle);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
@@ -12,7 +16,7 @@ struct Struct_ov001_0215f968 { int unknown_0_; };
 // USA: func_ov001_0215f968
 extern "C" ARM int func_ov001_0215f968(Struct_ov001_0215f968* arg0) {
 	GameState* var0 = GameState::GetInstance();
-	struct Struct_0202df68* var1 = (struct Struct_0202df68*)GetCamera_020100bc(var0);
+	struct Struct_0202df68* var1 = (struct Struct_0202df68*)func_020100bc(var0);
 	if (arg0->unknown_0_ == 0) {
 		int var2 = GetScriptValueAsInt_ov017_021d60f4(arg0);
 		SetCameraFieldOfView_0202e9a4(var1, var2 << 0xc);

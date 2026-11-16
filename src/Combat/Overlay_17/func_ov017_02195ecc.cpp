@@ -1,8 +1,12 @@
 #include <globaldefs.h>
 #include "NitroSDK/Matrix.h"
 #include "NitroSDK/Graphics3D/RenderConfig.h"
-#include "NitroSDK/Graphics3D/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 #include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_020ca4b4 func_020cbf80
+#endif
 
 
 struct Struct_02057a6c;
@@ -10,7 +14,7 @@ struct Struct_02057a6c;
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_ov017_02196048(int*, int*, int*);
 extern "C" Struct_02057a6c* GetEffectManager_02057924(void);
-extern "C" int Memcpy32BitByBlock_020ca4b4(const void* arg0, void* arg1, int arg2);
+extern "C" int func_020ca4b4(const void* arg0, void* arg1, int arg2);
 extern "C" void func_02057a6c(Struct_02057a6c* arg0);
 extern "C" void func_ov017_021a3af0(int arg0);
 
@@ -33,21 +37,21 @@ extern "C" ARM void func_ov017_02195ecc(Struct_ov017_02195ecc* arg0, unsigned in
         return;
     }
 
-    Vector3fix var0 = gRenderConfig_0210a010.eyeVector;
-    Vector3fix var1 = gRenderConfig_0210a010.upVector;
-    Vector3fix var2 = gRenderConfig_0210a010.targetVector;
-    Matrix4x4 var3 = gRenderConfig_0210a010.projectionMatrix;
+    Vector3fix var0 = g_nitro3DRenderConfig.eyeVector;
+    Vector3fix var1 = g_nitro3DRenderConfig.upVector;
+    Vector3fix var2 = g_nitro3DRenderConfig.targetVector;
+    Matrix4x4 var3 = g_nitro3DRenderConfig.projectionMatrix;
     Vector3fix var4 = data_ov017_021d6420;
     Vector3fix var5;
     __clear(&var5, sizeof(var5));
     Vector3fix var6 = data_ov017_021d642c;
 
     Mat4x4_WriteProjectionUnknown(0xe000, -0x22000, -0x20000, 0x20000, 0x1000, 0x190000, 0x1000,
-                                  &gRenderConfig_0210a010.projectionMatrix);
-    gRenderConfig_0210a010.flags &= ~((1 << RENDER_CONFIG_FLAG_4) | (1 << RENDER_CONFIG_FLAG_6));
+                                  &g_nitro3DRenderConfig.projectionMatrix);
+    g_nitro3DRenderConfig.flags &= ~((1 << RENDER_CONFIG_FLAG_4) | (1 << RENDER_CONFIG_FLAG_6));
     func_ov017_02196048((int*)&var4, (int*)&var6, (int*)&var5);
-    RenderConfig::SubmitToFifo();
-    SendQueuedDataToGeometryFifo();
+    Nitro3DRenderConfig::SubmitToFifo();
+    Nitro3D_FlushFifoQueue();
 
     if (arg1 & 1) {
         Struct_02057a6c* var7 = GetEffectManager_02057924();
@@ -60,8 +64,8 @@ extern "C" ARM void func_ov017_02195ecc(Struct_ov017_02195ecc* arg0, unsigned in
     }
 
     func_ov017_02196048((int*)&var0, (int*)&var1, (int*)&var2);
-    Memcpy32BitByBlock_020ca4b4(&var3, &gRenderConfig_0210a010.projectionMatrix, sizeof(Matrix4x4));
-    gRenderConfig_0210a010.flags &= ~((1 << RENDER_CONFIG_FLAG_4) | (1 << RENDER_CONFIG_FLAG_6));
-    RenderConfig::SubmitToFifo();
-    SendQueuedDataToGeometryFifo();
+    func_020ca4b4(&var3, &g_nitro3DRenderConfig.projectionMatrix, sizeof(Matrix4x4));
+    g_nitro3DRenderConfig.flags &= ~((1 << RENDER_CONFIG_FLAG_4) | (1 << RENDER_CONFIG_FLAG_6));
+    Nitro3DRenderConfig::SubmitToFifo();
+    Nitro3D_FlushFifoQueue();
 }

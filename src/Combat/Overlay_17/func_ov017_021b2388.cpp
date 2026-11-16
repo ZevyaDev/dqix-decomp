@@ -12,6 +12,10 @@ enum { Enum_ov017_021b2388_14080 = 0x3700 };
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 struct Struct_02018300_3;
@@ -21,7 +25,7 @@ extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void HaltForever_020c9be0(void);
+extern "C" void func_020c9be0(void);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 struct Struct_0214e34c;
@@ -82,7 +86,7 @@ extern "C" ARM int func_ov017_021b2388(struct Struct_ov017_021b2388_2* arg0) {
     ReleaseFileTablesForSpace_020a0cc4(0x2f800);
     void* var7 = AllocateRoundedSize_02012d88((AllocatorUnion*)&gMainHeap_02114e20, 0x2f800);
     if (!var7) {
-        HaltForever_020c9be0();
+        func_020c9be0();
     }
     arg0->unknown_10_.CreateTypeA(var7, 0x2f800);
 

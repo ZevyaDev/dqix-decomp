@@ -10,6 +10,10 @@ enum { Enum_ov003_0217ef58_5140 = 0x1414 };
 #include "Resource/GameResources.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_020a1df8 func_020a3b70
+#endif
+
 struct Struct_02018300_3;
 
 struct Struct_ov003_0217ef58 {
@@ -36,7 +40,7 @@ extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void VectorizedMemset(void* dst, int val, unsigned int len);
-extern "C" void PushOverlay_020a1df8(int overlayEntry);
+extern "C" void func_020a1df8(int overlayEntry);
 extern "C" void func_ov003_0216d63c(Struct_ov003_0217ef58* arg0);
 extern "C" void func_ov003_0216ae0c(Struct_ov003_0217ef58* arg0, SafeAllocator* arg1);
 extern "C" int func_ov003_0216af14(Struct_ov003_0217ef58* arg0);
@@ -75,7 +79,7 @@ extern "C" ARM void func_ov003_0217ef58(Struct_ov003_0217ef58_2* arg0) {
             arg0->unknown_1_ = 1;
             return;
         }
-        PushOverlay_020a1df8(3);
+        func_020a1df8(3);
         func_ov003_0216d63c(arg0->unknown_c_);
         func_ov003_0216ae0c(arg0->unknown_c_, &arg0->unknown_14_);
         arg0->unknown_c_->unknown_a_ = arg0->unknown_8_;

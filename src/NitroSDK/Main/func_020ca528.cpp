@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca528 func_020cbff4
+#endif
+
 // USA: func_020ca528
 // PROVENANCE: SonicRushAdventure-Decomp/lib/NitroSDK/src/mi/mi_memory.c — MI_Copy36B. Fixed
 // 36-byte block copy, fully unrolled (9 words via ldmia/stmia).

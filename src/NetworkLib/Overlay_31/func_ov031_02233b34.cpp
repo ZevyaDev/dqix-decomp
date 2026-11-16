@@ -1,8 +1,12 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca408 func_020cbed4
+#endif
+
 
 extern "C" char* func_ov031_02235c70(void);
-extern "C" void Memcpy32Bit_020ca408(void* src, void* dst, int size);
+extern "C" void func_020ca408(void* src, void* dst, int size);
 extern "C" void func_ov031_02227520(int* arg0, int* arg1);
 extern "C" int func_ov031_02212d40(void* arg0);
 extern "C" void func_ov031_02213204(int arg0, void* arg1);
@@ -22,7 +26,7 @@ extern Struct_ov031_02290cd0_2 data_ov031_02290cd0;
 extern "C" ARM void func_ov031_02233b34(void) {
 	unsigned char* var0 = (unsigned char*)func_ov031_02235c70();
 	unsigned char var1[0xc];
-	Memcpy32Bit_020ca408(data_ov031_022491d8, var1, 0xc);
+	func_020ca408(data_ov031_022491d8, var1, 0xc);
 
 	int var2;
 	func_ov031_02227520(0, &var2);

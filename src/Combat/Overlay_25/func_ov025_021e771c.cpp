@@ -1,9 +1,15 @@
+extern unsigned char g_fileScratchSpace[0x30000];
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/GPC.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
+#include "Filesystem/FileIO.h"
+
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
 
 struct Struct_ov025_021e771c {
     unsigned char unknown_0_[0xc];
@@ -21,11 +27,10 @@ struct Struct_ov025_021e771c_3 {
     SafeAllocator* inline_ov025_021e771c(int arg0) { return &unknown_30_[arg0]; }
 };
 
-extern "C" Struct_ov025_021e771c_2* GetBattleSetup_ov017_021b8478(void* battleManager);
+extern "C" Struct_ov025_021e771c_2* func_ov017_021b8478(void* battleManager);
 extern "C" Struct_ov025_021e771c_3* GetBattleScene_ov000_02160130(void);
 extern "C" void func_ov000_02166804(Struct_ov025_021e771c_3* arg0);
 void* LoadFileIntoMemory(const char* path, void* dst, unsigned int* outSize);
-extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 extern "C" void* func_020709d8(void* arg0);
 extern "C" void* ClearMonsterTable_0206efc4(void* monsterTable);
 extern "C" void func_02070b6c(void* arg0, void* arg1, void* arg2, unsigned int arg3, int arg4, int arg5);
@@ -44,7 +49,6 @@ extern char data_ov025_021efb1e[];
 extern char data_ov025_021efb3a[];
 #endif
 extern char data_ov025_021ef83e[];
-extern char gFileScratchSpace_0211e33c[];
 extern char data_ov025_021ef857[];
 extern char data_ov025_021ef86d[];
 
@@ -52,7 +56,7 @@ extern char data_ov025_021ef86d[];
 extern "C" ARM int func_ov025_021e771c(short* arg0, int arg1, int arg2, int arg3) {
     GameResources* var0 = GetGameResources();
     GameState::GetInstance();
-    Struct_ov025_021e771c_2* var1 = GetBattleSetup_ov017_021b8478(var0->unknown_ptr_3718);
+    Struct_ov025_021e771c_2* var1 = func_ov017_021b8478(var0->unknown_ptr_3718);
     Struct_ov025_021e771c_3* var2 = GetBattleScene_ov000_02160130();
     func_ov000_02166804(var2);
     Struct_ov025_021e771c* var3 = &var1->unknown_678_;
@@ -61,18 +65,18 @@ extern "C" ARM int func_ov025_021e771c(short* arg0, int arg1, int arg2, int arg3
     BackgroundLoader::AddLockGlobal();
     unsigned int var6;
 #if defined(jpn)
-    void* var7 = LoadFileIntoMemory(data_ov025_021efb1e, gFileScratchSpace_0211e33c, &var6);
+    void* var7 = LoadFileIntoMemory(data_ov025_021efb1e, g_fileScratchSpace, &var6);
 #else
-    void* var7 = LoadFileIntoMemory(data_ov025_021ef83e, gFileScratchSpace_0211e33c, &var6);
+    void* var7 = LoadFileIntoMemory(data_ov025_021ef83e, g_fileScratchSpace, &var6);
 #endif
 
     if (var7 != 0) {
         func_020709d8(var4);
         func_02070b6c(var4, var5, var7, var6, arg2, arg3);
 #if defined(jpn)
-        void* var8 = LoadFileIntoMemory(data_ov025_021efb3a, gFileScratchSpace_0211e33c, &var6);
+        void* var8 = LoadFileIntoMemory(data_ov025_021efb3a, g_fileScratchSpace, &var6);
 #else
-        void* var8 = ExtractFileFromGP2(data_ov025_021ef857, data_ov025_021ef86d, &var6);
+        void* var8 = ExtractFileFromGP2((const char*)(data_ov025_021ef857), (const char*)(data_ov025_021ef86d), (unsigned int*)(&var6));
 #endif
 
         if (var8 != 0) {

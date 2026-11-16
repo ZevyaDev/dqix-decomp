@@ -2,6 +2,16 @@
 #include <std_library_functions.h>
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
+#include "Graphics/BGLayer.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 #define REG_DISPCNT (*(volatile unsigned int*)0x04000000)
 
@@ -55,19 +65,17 @@ struct Struct_ov008_02188f5c_2
 };
 
 extern "C" void __clear(void* arg0, unsigned long arg1);
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0202ae18();
 extern "C" void SaveMainBGControl_02074af4(void* save);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
-extern "C" void ConvertTextToGlyphIndices_020426bc(const char* text, char* outGlyphIndices, int);
+extern "C" void func_020426bc(const char* text, char* outGlyphIndices, int);
 extern "C" void func_ov008_021843f8(void* arg0);
 extern "C" void func_ov017_021d1014(signed char arg0, int, int);
 extern "C" void func_ov017_021d1118(signed char arg0, int, int, int);
 extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
-extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
-extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
 extern "C" void func_ov008_02189228(void* arg0);
-extern "C" Struct_ov005_0215840c_2* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" Struct_ov005_0215840c_2* func_02053c6c(unsigned char* gameObject);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 
 struct Struct_ov008_02188f5c_3
@@ -133,19 +141,19 @@ struct Struct_ov008_02188f5c_3
 extern "C" ARM void func_ov008_02188f5c(Struct_ov008_02188f5c_3* arg0, signed char arg1, Struct_ov008_02188f5c_2* arg2)
 {
     GameState* var0 = GameState::GetInstance();
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     arg0->unknown_10_ = 0;
     arg0->unknown_11_ = 0;
     SaveMainBGControl_02074af4(arg0);
     arg0->unknown_14_ = (REG_DISPCNT & 0x1f00) >> 8;
     REG_DISPCNT = (REG_DISPCNT & ~0x1f00) | 0x100;
     InitTextWindowManager_0205cfd4((TextWindowManager_0205cfd4*)&arg0->unknown_18_);
-    InitBGLayer_0204af64((BGLayer_02020cb8*)&arg0->unknown_d4_[0]);
-    InitBGLayer_0204af64((BGLayer_02020cb8*)&arg0->unknown_d4_[1]);
+    ((BGLayer*)((BGLayer_02020cb8*)&arg0->unknown_d4_[0]))->Reset();
+    ((BGLayer*)((BGLayer_02020cb8*)&arg0->unknown_d4_[1]))->Reset();
     InitTextWindow_0204c684(&arg0->unknown_114_);
     ResetStringList_020727d8((StringList_020727d8*)&arg0->unknown_278_);
     ResetStringList_020727d8((StringList_020727d8*)&arg0->unknown_280_);
-    InitStringTable_020dfc40((StringTable_0201099c_14*)&arg0->unknown_288_);
+    ((StringList*)((StringTable_0201099c_14*)&arg0->unknown_288_))->Reset();
     arg0->unknown_1f4_ = NULL;
     arg0->unknown_1f8_ = NULL;
     arg0->unknown_1fc_ = NULL;
@@ -210,7 +218,7 @@ extern "C" ARM void func_ov008_02188f5c(Struct_ov008_02188f5c_3* arg0, signed ch
         GameObject* var1 = var0->GetPartyMemberByIndex(arg1);
         if (var1 != NULL)
         {
-            Struct_ov005_0215840c_2* var2 = GetPartyMemberData_02053c6c((unsigned char*)var1);
+            Struct_ov005_0215840c_2* var2 = func_02053c6c((unsigned char*)var1);
             if (var2 != NULL)
             {
                 func_ov008_02189228(&arg0->unknown_df0_);
@@ -219,11 +227,11 @@ extern "C" ARM void func_ov008_02188f5c(Struct_ov008_02188f5c_3* arg0, signed ch
 #else
                 char var3[0xc];
                 __clear(var3, sizeof(var3));
-                ConvertTextToGlyphIndices_020426bc(var2->unknown_3c_, var3, 1);
+                func_020426bc(var2->unknown_3c_, var3, 1);
                 memcpy(arg0->unknown_df0_.unknown_6_, var3, sizeof(arg0->unknown_df0_.unknown_6_));
 #endif
                 arg0->unknown_df0_.unknown_13_6_ = 1;
-                if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18()))
+                if (IsLocalWirelessOn_0202b7d8((int*)func_0202ae18()))
                 {
                     func_ov017_021d1014(arg1, 0, 0);
                     func_ov017_021d1118(arg1, 1, 1, 0);

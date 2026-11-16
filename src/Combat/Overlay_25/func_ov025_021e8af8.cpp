@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
+#include "Graphics/TextureArena.h"
 
 struct SafeAllocator;
 struct TextureVRAMArea_0203d028;
@@ -11,7 +12,6 @@ struct Struct_ov025_021e8af8 {
     unsigned char unknown_30_;
 };
 
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" void _ZN13SafeAllocator7DestroyEv(SafeAllocator*, unsigned int);
 extern "C" void func_ov025_021e8bc4(Struct_ov025_021e8af8*, unsigned int);
 
@@ -24,6 +24,6 @@ extern "C" ARM void func_ov025_021e8af8(Struct_ov025_021e8af8* arg0) {
     void* var0 = arg0->unknown_10_[arg0->unknown_30_]->GetSignedAllocator();
     _ZN13SafeAllocator7DestroyEv(arg0->unknown_10_[arg0->unknown_30_], arg0->unknown_30_);
     arg0->unknown_10_[arg0->unknown_30_ - 1]->Free(var0);
-    ResetTextureVRAMState_0207df50(arg0->unknown_20_[arg0->unknown_30_]);
+    ((TextureArena*)(arg0->unknown_20_[arg0->unknown_30_]))->Reset();
     arg0->unknown_30_--;
 }

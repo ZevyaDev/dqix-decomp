@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 struct Struct_0201b678 {
     int unknown_0_;
     int unknown_4_;

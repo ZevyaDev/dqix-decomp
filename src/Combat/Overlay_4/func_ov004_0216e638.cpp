@@ -5,6 +5,7 @@ enum { Enum_ov004_0216e638_2506 = 0x7fb, Enum_ov004_0216e638_16 = 0xc, Enum_ov00
 enum { Enum_ov004_0216e638_2506 = 0x9ca, Enum_ov004_0216e638_16 = 0x10, Enum_ov004_0216e638_2 = 2 };
 #endif
 #include "GameState/GameState.h"
+#include "Graphics/BGLayer.h"
 
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
@@ -26,7 +27,6 @@ extern "C" int func_ov024_021f6f10(void* arg0);
 #endif
 extern "C" void* func_ov023_021f79e4(void* arg0);
 struct BGLayer_02020cb8_5;
-extern "C" int SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 
 struct Struct_ov004_0216e638 { int unknown_0_, unknown_4_, unknown_8_; };
 class Struct_ov004_0216e638_2 {
@@ -78,7 +78,7 @@ extern "C" ARM int func_ov004_0216e638(void* arg0) {
 #else
         if (func_ov024_021f6f10(var4) != 2) continue;
 #endif
-        SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)func_ov023_021f79e4(var4), 2, 4);
+        ((BGLayer*)((struct BGLayer_02020cb8_5*)func_ov023_021f79e4(var4)))->SetOffset(2, 4);
 
         void* var5 = FindMenuObjectById_ov023_021f6880(var2, var3 + 0x4b0);
         if (!var5) continue;

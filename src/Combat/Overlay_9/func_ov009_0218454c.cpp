@@ -3,6 +3,16 @@
 #include "Memory/SafeAllocator.h"
 #include "Combat/MapDisplay.h"
 #include "World/Object3D.h"
+#include "Graphics/BGLayer.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_020de848 func_020e01c4
+#endif
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
 
 struct StringTable_0201099c_14 {
     char unknown_0_[0x18];
@@ -31,15 +41,13 @@ struct Struct_ov009_021847c4 {
     int unknown_1c_;
 };
 
-extern "C" unsigned int* GetGlobalFlags_020d6c00();
+extern "C" unsigned int* func_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
-extern "C" void ClearItemTable_020de848(void* itemTable);
-extern "C" void InitStringTable_020dfc40(StringTable_0201099c_14* stringTable);
+extern "C" void func_020de848(void* itemTable);
 #if defined(jpn)
 #define func_ov009_021847ec func_ov009_02185850
 #endif
 extern "C" void func_ov009_021847ec(void* arg0);
-extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8* layer);
 extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
 extern "C" void InitTextWindow_0204c684(Struct_ov006_02158478* textWindow);
 extern "C" void InitKeyMenuCursor_0205bef8(KeyMenuCursor_0205bef8* cursor);
@@ -145,7 +153,7 @@ extern "C" ARM void func_ov009_0218454c(Struct_ov009_021842a0_2* arg0, int arg1,
 {
     arg0->unknown_d95_ = arg2;
     if (arg0->unknown_d95_ == 1)
-        SetGlobalFlags_020466e4(GetGlobalFlags_020d6c00(), 0xf);
+        SetGlobalFlags_020466e4(func_020d6c00(), 0xf);
     arg0->unknown_0_[0].ResetAllocatorPointer();
     arg0->unknown_0_[1].ResetAllocatorPointer();
     arg0->unknown_0_[2].ResetAllocatorPointer();
@@ -163,16 +171,16 @@ extern "C" ARM void func_ov009_0218454c(Struct_ov009_021842a0_2* arg0, int arg1,
     arg0->unknown_c0_ = NULL;
     arg0->unknown_c4_ = NULL;
 #endif
-    ClearItemTable_020de848(&arg0->unknown_c8_);
-    InitStringTable_020dfc40(&arg0->unknown_e0_);
+    func_020de848(&arg0->unknown_c8_);
+    ((StringList*)(&arg0->unknown_e0_))->Reset();
     arg0->unknown_f8_ = NULL;
     func_ov009_021847ec(&arg0->unknown_fc_);
-    InitBGLayer_0204af64(&arg0->unknown_138_[0]);
-    InitBGLayer_0204af64(&arg0->unknown_138_[1]);
-    InitBGLayer_0204af64(&arg0->unknown_138_[2]);
-    InitBGLayer_0204af64(&arg0->unknown_138_[3]);
-    InitBGLayer_0204af64(&arg0->unknown_138_[4]);
-    InitBGLayer_0204af64(&arg0->unknown_138_[5]);
+    ((BGLayer*)(&arg0->unknown_138_[0]))->Reset();
+    ((BGLayer*)(&arg0->unknown_138_[1]))->Reset();
+    ((BGLayer*)(&arg0->unknown_138_[2]))->Reset();
+    ((BGLayer*)(&arg0->unknown_138_[3]))->Reset();
+    ((BGLayer*)(&arg0->unknown_138_[4]))->Reset();
+    ((BGLayer*)(&arg0->unknown_138_[5]))->Reset();
     InitTextWindowManager_0205cfd4(&arg0->unknown_1f8_[0]);
     InitTextWindowManager_0205cfd4(&arg0->unknown_1f8_[1]);
     for (int var0 = 0; var0 < 1; var0++)

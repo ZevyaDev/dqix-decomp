@@ -1,9 +1,17 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
+#include "Filesystem/FileIO.h"
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
+#include "Graphics/TextureArena.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+void Nitro3D_SetModelPolygonID(Nitro3DModel* model, int id);
 
 struct Struct_ov001_021539d8_7 {
     char unknown_0_[0x70];
@@ -26,7 +34,7 @@ struct Struct_ov001_021539d8_9 {
 
 struct Struct_ov001_021539d8_10 {
     char unknown_0_[0x54];
-    NSBXXInternalModel* unknown_54_;
+    Nitro3DModel* unknown_54_;
 };
 
 struct Struct_ov001_021539d8_11 {
@@ -139,13 +147,10 @@ extern char data_ov001_02164bcb[];
 extern "C" {
 struct Struct_ov001_021539d8_5* GetNPCManager_0203cf4c(void);
 
-void* GetLocalWireless_0202ae18(void);
+void* func_0202ae18(void);
 int IsNotLocalWirelessGuest_0202c508(void* wireless);
 unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-void ResetTextureVRAMState_0207df50(struct Struct_ov001_021539d8_7* area);
-void RestoreTextureVRAMState_0207df90(struct Struct_ov001_021539d8_7* area);
-void SaveTextureVRAMState_0207dfac(struct Struct_ov001_021539d8_7* area);
 void func_ov001_0215ab54(int arg0, int arg1, int arg2);
 struct Struct_ov001_021539d8* FindNPCById_0203df78(void* npcManager, int id);
 int func_0203dfdc(void* arg0, int arg1);
@@ -175,8 +180,6 @@ void func_020408c8(struct Struct_ov001_021539d8* arg0, int arg1, int arg2, int a
 int func_0203e03c(void* arg0);
 void func_0203dd10(void* arg0, int arg1, struct Struct_ov001_021539d8* arg2);
 int _Z26FindFilesInNarcBySubstringPKvPKcPS0_Pjj(void* arg0, const char* arg1, void** arg2, unsigned int* arg3, unsigned int arg4);
-void* _Z36DecompressLZ77FileIntoAllocatedSpaceR13SafeAllocatorPKvRj(SafeAllocator* arg0, void* arg1, unsigned int* arg2);
-void NSBXX_Model_SetPolygonID(NSBXXInternalModel* model, int id);
 void __clear(unsigned char* arg0, int arg1);
 }
 
@@ -201,7 +204,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     struct Struct_ov001_021539d8_5* var2 = GetNPCManager_0203cf4c();
     char* var3 = (char*)GetGameResources();
-    void* var4 = GetLocalWireless_0202ae18();
+    void* var4 = func_0202ae18();
     struct Struct_ov001_021539d8_3* var5;
     struct Struct_ov001_021539d8_4* var6;
     bool var7;
@@ -214,8 +217,8 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
     SafeAllocator* var14;
     void* var15;
     unsigned char var16;
-    NSBXXMesh* var17;
-    NSBXXInternalModel* var18;
+    Nitro3DMesh* var17;
+    Nitro3DModel* var18;
     struct Struct_ov001_021539d8* var19;
     struct Struct_ov001_021539d8_2* var20;
     struct Struct_ov001_021539d8_7* var21;
@@ -253,7 +256,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             var21 = &((struct Struct_ov001_021539d8_7*)(var3 + PAIR_TABLES_021539d8))[7];
             if (!var7) {
                 if ((arg0->unknown_50_ & 4) || (arg0->unknown_50_ & 1)) {
-                    ResetTextureVRAMState_0207df50(var21);
+                    ((TextureArena*)(var21))->Reset();
                     var7 = true;
                 }
             }
@@ -335,7 +338,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
                 var1->RemoveTask(var5->unknown_2c_);
                 break;
             }
-            RestoreTextureVRAMState_0207df90(var21);
+            ((TextureArena*)(var21))->Restore();
             _ZN8Object3D10InitializeEv(var34);
             var29.unknown_c_ = var33;
             var29.unknown_4_ = var30;
@@ -346,7 +349,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             } else if (var32 == 1) {
                 _ZN8Object3D25LoadFromCCHROrCMOTArchiveEP21ObjectArchiveLoadInfoPFiPN4BCFG15AnimationRecordEE(var34, &var29, 0);
             }
-            SaveTextureVRAMState_0207dfac(var21);
+            ((TextureArena*)(var21))->Save();
             _ZN8Object3D8SetScaleEiii(var34, 0x10a, 0x10a, 0x10a);
             _ZN8Object3D21MaybeSetBCFGAnimationEii(var34, 0, 0);
             SetGameObjectByIndex_0200fd38(var0, var5->unknown_2_, var34);
@@ -354,26 +357,26 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
                 GetZone3D_02012fe4();
                 var8 = LightingManager::GetInstance();
                 var18 = var34->unknown_8_->unknown_54_;
-                NSBXXNameList* var35 = var18->GetMeshListSafe();
+                Nitro3DNameList* var35 = var18->GetMeshListSafe();
                 unsigned int var36;
                 unsigned int* var37;
                 int var38;
 
-                for (var9 = 0; var9 < var18->numMeshes_; var9++) {
+                for (var9 = 0; var9 < var18->numMeshes; var9++) {
                     unsigned char var39;
-                    void* var40;
+                    uint32_t* var40;
 
-                    if (var35 != NULL && (var40 = var35->GetEntryv3Safe(var9)))
-                        var17 = (NSBXXMesh*)var35->GetEntryFromPtrOffset(var40);
+                    if (var35 != NULL && (var40 = var35->GetEntryByIndex<uint32_t>(var9)))
+                        var17 = (Nitro3DMesh*)((const char*)var35 + *var40);
                     else
                         var17 = NULL;
 
-                    if (!(var17->unk_4 & 2))
+                    if (!(var17->flags & 2))
                         continue;
 
-                    var10 = (unsigned char*)var17 + var17->gpuCommandsOffset_;
+                    var10 = (unsigned char*)var17 + var17->gpuCommandsOffset;
                     var36 = 0;
-                    while (var36 < var17->gpuCommandsLength_) {
+                    while (var36 < var17->gpuCommandsLength) {
                         var39 = var10[var36];
                         var11 = var10[var36 + 1];
                         var12 = var10[var36 + 2];
@@ -508,11 +511,11 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             if (_Z26FindFilesInNarcBySubstringPKvPKcPS0_Pjj(var49, data_ov001_02164bcb, &var52, &var51, 1) == 0) {
                 break;
             }
-            var56 = _Z36DecompressLZ77FileIntoAllocatedSpaceR13SafeAllocatorPKvRj(var54, var52, &var53);
+            var56 = DecompressLZ77FileIntoAllocatedSpace(var54, var52, &var53);
             if (var56 == 0) {
                 break;
             }
-            RestoreTextureVRAMState_0207df90(var21);
+            ((TextureArena*)(var21))->Restore();
             _ZN8Object3D10InitializeEv(var55);
             var48.unknown_4_ = var56;
             var48.unknown_c_ = var54;
@@ -523,7 +526,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             } else if (var57 == 1) {
                 _ZN8Object3D25LoadFromCCHROrCMOTArchiveEP21ObjectArchiveLoadInfoPFiPN4BCFG15AnimationRecordEE(var55, &var48, 0);
             }
-            SaveTextureVRAMState_0207dfac(var21);
+            ((TextureArena*)(var21))->Save();
             _ZN8Object3D8SetScaleEiii(var55, 0x10a, 0x10a, 0x10a);
             _ZN8Object3D21MaybeSetBCFGAnimationEii(var55, 0, 0);
             SetGameObjectByIndex_0200fd38(var0, var5->unknown_2_, var55);
@@ -551,10 +554,10 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             }
             var61 = var60->Allocate(var59);
             memcpy(var61, var58, var59);
-            RestoreTextureVRAMState_0207df90(var21);
+            ((TextureArena*)(var21))->Restore();
             _ZN8Object3D10InitializeEv(var62);
             _ZN8Object3D16SetModelFromFileEP13SafeAllocatorPvjN7Model3D18TextureStagingModeE(var62, var60, var61, var59, 0);
-            SaveTextureVRAMState_0207dfac(var21);
+            ((TextureArena*)(var21))->Save();
             _ZN8Object3D8SetScaleEiii(var62, 0x10a, 0x10a, 0x10a);
             _ZN8Object3D21MaybeSetBCFGAnimationEii(var62, 0, 0);
             SetGameObjectByIndex_0200fd38(var0, var5->unknown_2_, var62);
@@ -580,15 +583,15 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
                 var1->RemoveTask(var5->unknown_2c_);
                 break;
             }
-            RestoreTextureVRAMState_0207df90(var21);
+            ((TextureArena*)(var21))->Restore();
             _ZN8Object3D10InitializeEv(var67);
             var63.unknown_4_ = var64;
             var63.unknown_8_ = var65;
             var63.unknown_10_ = 1;
             var63.unknown_c_ = var66;
             _ZN8Object3D18LoadFromCHRArchiveEP21ObjectArchiveLoadInfo(var67, &var63);
-            SaveTextureVRAMState_0207dfac(var21);
-            NSBXX_Model_SetPolygonID(var67->unknown_8_->unknown_54_, 0x3d);
+            ((TextureArena*)(var21))->Save();
+            Nitro3D_SetModelPolygonID((Nitro3DModel*)(var67->unknown_8_->unknown_54_), 0x3d);
             var67->unknown_44_ = 0;
             var67->unknown_48_ = -0xa000;
             var67->unknown_4c_ = 0x1000;

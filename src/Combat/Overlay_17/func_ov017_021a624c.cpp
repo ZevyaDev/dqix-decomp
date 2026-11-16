@@ -5,6 +5,11 @@
 #include "Grotto/Main/GrottoStruct.h"
 #include "Resource/GameResources.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 #if defined(jpn)
 #define GLOB1C_FLAG_021a624c 0x868
@@ -16,7 +21,7 @@
 #define func_020daf90 func_020dc998
 #endif
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" Zone3D* GetZone3D_02012fe4(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 
@@ -58,7 +63,7 @@ static inline Struct_ov017_021a624c inline_ov017_021a624c_2() {
 
 // USA: func_ov017_021a624c
 extern "C" ARM void func_ov017_021a624c(GameResources* arg0) {
-    void* var0 = GetLocalWireless_0202ae18();
+    void* var0 = func_0202ae18();
     GameState* var1 = GameState::GetInstance();
     GameObject* var2 = var1->GetProtagonist();
     if (var2 == 0) return;

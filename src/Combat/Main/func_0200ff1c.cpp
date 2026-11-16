@@ -14,7 +14,7 @@ extern "C" ARM GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameSta
     if (object == 0) {
         return 0;
     }
-    if ((object->obj3D_.classFlags_0_ & 0x100) == 0) {
+    if ((object->obj3D_.unknown_0_ & 0x100) == 0) {
         object = 0;
     }
     return object;

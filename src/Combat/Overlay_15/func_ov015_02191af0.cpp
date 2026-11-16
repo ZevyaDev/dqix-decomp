@@ -6,9 +6,13 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 extern "C" void func_ov015_0218f0c4(void* arg0);
 extern "C" void func_ov015_02192700(void* arg0, int arg1);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern AllocatorUnion gMainHeap_02114e20;
 
 struct Struct_ov015_02191af0 { void* unknown_0_; Struct_ov015_02191af0* unknown_4_; };
@@ -38,8 +42,8 @@ extern "C" ARM void func_ov015_02191af0(Struct_ov015_02191af0_2* arg0, int arg1)
         var1++;
     }
     func_ov015_0218f0c4(var0->unknown_0_);
-    FreeMemory_02012da4(&gMainHeap_02114e20, var0->unknown_0_);
-    FreeMemory_02012da4(&gMainHeap_02114e20, var0);
+    func_02012da4(&gMainHeap_02114e20, var0->unknown_0_);
+    func_02012da4(&gMainHeap_02114e20, var0);
     if (var2 != 0) {
         var2->unknown_4_ = var3;
     } else {

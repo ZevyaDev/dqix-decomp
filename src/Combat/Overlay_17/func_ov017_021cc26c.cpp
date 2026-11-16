@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+extern "C" void* func_ov017_021b8478(void* battleManager);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" void StopGesture_020531f0(void* arg0);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
@@ -36,7 +40,7 @@ extern "C" ARM void func_ov017_021cc26c(int arg0, Struct_ov017_021cc26c* arg1, G
     }
 
     void* var3 = *(void**)(arg3 + 0x3000 + Enum_ov017_021cc26c_1816);
-    void* var4 = GetBattleSetup_ov017_021b8478(var3);
+    void* var4 = func_ov017_021b8478(var3);
     if (var4 != NULL) {
         if (IsPartyMemberInBattle_020a35e0((unsigned char*)var4, var0 & 0xff) != 0) return;
     }

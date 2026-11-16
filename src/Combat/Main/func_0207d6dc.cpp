@@ -4,8 +4,12 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Filesystem/FileIO.h"
 
+#if defined(jpn)
+#define func_020de848 func_020e01c4
+#endif
+
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void ClearItemTable_020de848(void* itemTable);
+extern "C" void func_020de848(void* itemTable);
 
 extern "C" void* LoadItemTableByIds_020de9a4(void* itemTable, void* allocator, void* fileData, unsigned int fileSize, int itemIds, unsigned int itemIdCount);
 
@@ -22,13 +26,13 @@ extern "C" ARM void* func_0207d6dc(SafeAllocator* arg0, int arg1, int arg2) {
     void* var1 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var0);
     arg0->CreateTypeA(var1, var0);
     arg0->Reset();
-    ClearItemTable_020de848((char*)arg0 + 0x14);
+    func_020de848((char*)arg0 + 0x14);
 #if defined(jpn)
     func_020e0484((char*)arg0 + 0x14, arg0, gItemDataPath_020f2a38, arg1, (unsigned int)arg2 & 0xffff, 1);
 #else
     BackgroundLoader::AddLockGlobal();
     unsigned int var2 = 0;
-    void* var3 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var2);
+    void* var3 = ExtractFileFromGP2((const char*)(gItemDataPath_020f2a38), (const char*)(data_020f2a30), (unsigned int*)(&var2));
     if (var3 != NULL) {
         LoadItemTableByIds_020de9a4((char*)arg0 + 0x14, arg0, var3, var2, arg1, (unsigned int)arg2 & 0xffff);
     }

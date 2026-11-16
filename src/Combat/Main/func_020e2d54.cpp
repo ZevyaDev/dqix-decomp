@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Graphics/Vector.h"
 #include "NitroSDK/Graphics3D/RenderCommandCallbacks.h"
-#include "NitroSDK/Graphics3D/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 #include "NitroSDK/Graphics3D/Internal.h"
 
 #if defined(jpn)
@@ -27,12 +27,12 @@ static inline int inline_020e2d54_2(Vector3fix* arg0) { SDK_NULL_ASSERT(arg0); r
 static inline int inline_020e2d54_3(int arg0, int arg1) { int var0 = fix32_Divide(arg0, arg1); return var0; }
 
 // USA: func_020e2d54
-extern "C" ARM void func_020e2d54(int arg0, RenderCommandHandler* arg1, Struct_020f2c14* arg2) {
+extern "C" ARM void func_020e2d54(int arg0, Nitro3DRenderCommandHandler* arg1, Struct_020f2c14* arg2) {
     Matrix4x4 var0;
     Vector3fix var1;
     Vector3fix var2;
-    if (!(arg1->flags_ & 0x100)) {
-        SendQueuedDataToGeometryFifo();
+    if (!(arg1->flags & 0x100)) {
+        Nitro3D_FlushFifoQueue();
         REG_GXFIFO = 0x151110;
         REG_GXFIFO = 0;
         while (func_020c54fc(&var0)) {}
@@ -45,17 +45,17 @@ extern "C" ARM void func_020e2d54(int arg0, RenderCommandHandler* arg1, Struct_0
         }
         if (arg0 == 1) {
             func_020e2fa8(&var2.x, 0, 0, 0);
-            NSBXXInternalModel* var4 = arg1->modelContext_->internalModel_;
-            NSBXXNameList* var5 = (NSBXXNameList*)func_020e2fb0(var4);
-            int var6 = var5 ? NSBXXNameList_SearchIndex(var5, data_020ee9b8) : -1;
+            Nitro3DModel* var4 = arg1->context->model;
+            Nitro3DNameList* var5 = (Nitro3DNameList*)func_020e2fb0(var4);
+            int var6 = var5 ? Nitro3D_GetNameListIndex((const Nitro3DNameList*)(var5), (const char*)(data_020ee9b8)) : -1;
             if (var6 >= 0) {
-                var5 = (NSBXXNameList*)func_020e2fb0(var4);
+                var5 = (Nitro3DNameList*)func_020e2fb0(var4);
                 Struct_020e2d54* var7;
                 if (!var5) goto missingBone;
                 {
                     unsigned int* var8;
-                    if (var5 && (unsigned int)var6 < var5->numEntries_) {
-                        unsigned char* var9 = (unsigned char*)var5 + var5->offsetToDataStart_;
+                    if (var5 && (unsigned int)var6 < var5->numEntries) {
+                        unsigned char* var9 = (unsigned char*)var5 + var5->offsetToDataStart;
                         unsigned short var10 = *(unsigned short*)var9;
                         var8 = (unsigned int*)(var9 + 4 + var10 * var6);
                     } else var8 = 0;
@@ -91,5 +91,5 @@ extern "C" ARM void func_020e2d54(int arg0, RenderCommandHandler* arg1, Struct_0
         }
         func_020ca430(arg2, (void*)0x04000400, 0x48);
     }
-    arg1->flags_ |= 0x40;
+    arg1->flags |= 0x40;
 }

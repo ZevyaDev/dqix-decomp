@@ -2,7 +2,11 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
+extern "C" void func_02012da4(AllocatorUnion*, void*);
 extern AllocatorUnion gMainHeap_02114e20;
 
 struct Struct_02000c9c_10 {
@@ -16,6 +20,6 @@ struct Struct_02000c9c_10 {
 extern "C" ARM void func_ov021_0218b5c4(struct Struct_02000c9c_10* arg0) {
     void* var0 = arg0->unknown_2c_.GetSignedAllocator();
     arg0->unknown_2c_.Destroy();
-    FreeMemory_02012da4(&gMainHeap_02114e20, var0);
+    func_02012da4(&gMainHeap_02114e20, var0);
     arg0->unknown1_40_ = 0;
 }

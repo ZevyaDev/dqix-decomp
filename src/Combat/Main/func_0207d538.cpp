@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
+#include "Resource/GameStrings.h"
 
 struct Struct_0207d538 { int unknown_0_[3]; };
 struct Struct_0207d538_2 { char* unknown_0_; char* unknown_4_; int unknown_8_; };
@@ -18,7 +19,6 @@ extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
 extern "C" void* InitNoun_020e46c4(void*);
 extern "C" void func_020dcf7c(int, void*);
-extern "C" char* GetStandardString_020e51cc(int);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 
 #if defined(jpn)
@@ -72,7 +72,7 @@ extern "C" ARM int func_0207d538(void* arg0, int arg1, int arg2, char* arg3) {
             var7.unknown_4_ = var6;
             func_020dcf7c(var0, &var7);
             var3->unknown_18_ = &var7;
-            char* var8 = GetStandardString_020e51cc(0x54);
+            char* var8 = ((char*)GetGameString((eGameString)(0x54)));
             func_02046608(var3, 12, var8, arg3, 0xe3, 0, 1);
 #endif
             break;
@@ -88,7 +88,7 @@ extern "C" ARM int func_0207d538(void* arg0, int arg1, int arg2, char* arg3) {
         MessageWindow_020465c0* var9 = GetMessageWindow_020421a0();
         ClearMessageParams_02046380(var9);
         SetMessageNumber_020465c0(var9, 0, arg2);
-        char* var10 = GetStandardString_020e51cc(0x3f4);
+        char* var10 = ((char*)GetGameString((eGameString)(0x3f4)));
         func_02046608(var9, 12, var10, arg3, 0xe3, 0, 1);
 #endif
         return 1;
@@ -96,7 +96,7 @@ extern "C" ARM int func_0207d538(void* arg0, int arg1, int arg2, char* arg3) {
 #if defined(jpn)
         sprintf(arg3, &data_020f1094);
 #else
-        sprintf(arg3, GetStandardString_020e51cc(0x2d));
+        sprintf(arg3, ((char*)GetGameString((eGameString)(0x2d))));
 #endif
         return 0;
     }

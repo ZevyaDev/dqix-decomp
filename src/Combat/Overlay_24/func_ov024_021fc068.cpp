@@ -2,8 +2,12 @@
 #include "Resource/ActionDataTables.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_02010088;
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
 struct Struct_ov024_021f6a1c;
@@ -72,7 +76,7 @@ struct Struct_ov024_021fc068_4 {
 // USA: func_ov024_021fc068
 extern "C" ARM void func_ov024_021fc068(struct Struct_ov024_021fc068_2* arg0) {
 	struct Struct_ov024_021fc068_6* var0 = arg0->unknown_8_;
-	GetPartyMemberData_02053c6c((unsigned char*)var0);
+	func_02053c6c((unsigned char*)var0);
 	GetActionTables_020797dc();
 	struct Struct_ov024_021fc068_7* var1 = arg0->unknown_64c_;
 	if (var1->unknown_9_0_ == 1) return;

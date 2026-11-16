@@ -2,6 +2,11 @@
 #include <std_library_functions.h>
 #include "GameState/GameState.h"
 #include "Resource/MessageSystem.h"
+#include "Graphics/TextureArena.h"
+
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
 
 #if defined(jpn)
 
@@ -22,7 +27,6 @@ extern "C" void func_020e2110(void*);
 extern "C" void func_020e23f4(void*);
 extern "C" void func_020e2478(int*);
 extern "C" void SetDisplayWindowEnabled_020e2cc4(DisplayWindow_020439b0*, int);
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern int gSoundEffectManager_02108760;
 
 #else
@@ -32,7 +36,7 @@ extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void* InitNoun_020e46c4(void*);
 extern "C" void func_020dcf7c(int, void*);
-extern "C" int GetStringLength_020d2ff0(const char*);
+extern "C" int func_020d2ff0(const char*);
 extern "C" void func_02044f3c(struct MessageWindow_02021b84* arg0, const char* arg1, int arg2);
 extern "C" void func_0206b198(struct Struct_0204500c_4*, unsigned short);
 extern "C" void func_0205e944(void* arg0, int arg1);
@@ -56,7 +60,6 @@ extern "C" void func_020e2110(void*);
 extern "C" void func_020e23f4(void*);
 extern "C" void func_020e2478(int*);
 extern "C" void SetDisplayWindowEnabled_020e2cc4(struct DisplayWindow_020439b0*, int);
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028*);
 
 extern int gSoundEffectManager_02108760;
 
@@ -195,7 +198,7 @@ extern "C" ARM void StartMessage_0204500c(MessageWindow_02021b84* window, const 
         for (int var7 = 0; var7 < 2; var7++) {
             SetDisplayWindowEnabled_020e2cc4(&window->unknown_1964_[var7].unknown_0_, 0);
         }
-        if (window->unknown_1e28_ != 0) ResetTextureVRAMState_0207df50(window->unknown_1e28_);
+        if (window->unknown_1e28_ != 0) ((TextureArena*)(window->unknown_1e28_))->Reset();
     }
 }
 #else
@@ -219,7 +222,7 @@ extern "C" ARM void StartMessage_0204500c(struct MessageWindow_02021b84* window,
         return;
     }
 
-    int var13 = GetStringLength_020d2ff0(text);
+    int var13 = func_020d2ff0(text);
     for (int var14 = 0; var14 < var13;) {
         int var15 = 0x40;
         char var16[0x43] = {};
@@ -367,7 +370,7 @@ extern "C" ARM void StartMessage_0204500c(struct MessageWindow_02021b84* window,
             SetDisplayWindowEnabled_020e2cc4(&window->unknown_1964_[var24], 0);
         }
         if (window->unknown_1e28_ != 0) {
-            ResetTextureVRAMState_0207df50(window->unknown_1e28_);
+            ((TextureArena*)(window->unknown_1e28_))->Reset();
         }
     }
     window->unknown_30_ = -1;

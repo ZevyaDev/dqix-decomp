@@ -2,6 +2,8 @@
 #include "Filesystem/GPC.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "World/Object3D.h"
+#include "Graphics/TextureArena.h"
+#include "Filesystem/FileIO.h"
 
 static inline int inline_02061c04_5(int arg0, int arg1) { return (int)(((long long)arg0 * arg1 + 0x800) >> 12); }
 
@@ -39,9 +41,6 @@ struct Vector3i;
 extern "C" void WaitForVBlank_020c9820();
 extern "C" void func_02079a3c(void*);
 struct TextureVRAMArea_0203d028;
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
-extern "C" void RestoreTextureVRAMState_0207df90(char*);
-extern "C" void SaveTextureVRAMState_0207dfac(char*);
 struct ItemTable_0201099c_10;
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" int func_ov015_0218c03c(void* arg0, char* arg1, int arg2, int arg3);
@@ -52,7 +51,6 @@ struct Struct_02040774_2;
 extern "C" void SetObject3DPosition_020407b4(Struct_02040774_2*, int, int, int);
 extern "C" int fix32_Divide(int, int);
 
-extern int gFileScratchSpace_0211e33c __attribute__((aligned(4)));
 extern char data_ov015_021940c0;
 extern char data_ov015_021940db;
 extern char data_ov015_021940e1;
@@ -90,13 +88,12 @@ extern "C" ARM int func_ov015_0218cc24(Struct_ov015_0218cc24_2* arg0) {
     BackgroundLoader::FreeAllocationsGlobal();
 
     unsigned int var6 = 0;
-    char* var7 = (char*)&gFileScratchSpace_0211e33c;
+    char* var7 = (char*)&g_fileScratchSpace;
     unsigned int var8 = 0x30000;
     GPCReadPair var9;
     char var10[0x80];
     func_02079a3c(&var9);
-    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var9.pGPCFile, var9.machine, &data_ov015_021940c0,
-                                                   var7, var6, var8, false, 0)) {
+    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var9.pGPCFile, &var9.machine, &data_ov015_021940c0, var7, &var6, var8, false, 0)) {
         var7 += var6;
         var8 -= var6;
         for (int var11 = 0; var11 < 10; var11++) {
@@ -109,7 +106,7 @@ extern "C" ARM int func_ov015_0218cc24(Struct_ov015_0218cc24_2* arg0) {
             var4 = arg0->unknown_8_;
             var3 = var11 * 0x14;
             ((SafeAllocator*)((char*)var4 + var3))->Reset();
-            ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)(var1 + var0));
+            ((TextureArena*)((TextureVRAMArea_0203d028*)(var1 + var0)))->Reset();
             arg0->unknown_24_[var11].Initialize();
             arg0->unknown_24_[var11].position_ = var12;
             arg0->unknown_24_[var11].unknown_2_ = arg0->unknown_20_[var11];
@@ -179,12 +176,12 @@ extern "C" ARM int func_ov015_0218cc24(Struct_ov015_0218cc24_2* arg0) {
                     SetObject3DPosition_020407b4((Struct_02040774_2*)&arg0->unknown_24_[var11], (int)(((long long)var27 * 0x2000LL + 0x800) >> 12), 0, 0);
                 }
             }
-            RestoreTextureVRAMState_0207df90(var1 + var0);
-            DecompressFileFromGPCByName(var9.pGPCFile, var9.machine, var7, var6, var8, var10);
+            ((TextureArena*)(var1 + var0))->Restore();
+            DecompressFileFromGPCByName(&var9.pGPCFile, &var9.machine, var7, &var6, var8, var10);
             arg0->unknown_24_[var11].SetModelFromFileCopy((SafeAllocator*)((char*)var4 + var3), var7, var6, Model3D::TextureStagingMode_Normal);
             var7 += var6;
             var8 -= var6;
-            SaveTextureVRAMState_0207dfac(var1 + var0);
+            ((TextureArena*)(var1 + var0))->Save();
             if (var11 == 4 && arg0->inline_ov015_0218cc24(3)->pModel_ != 0) {
                 ((Model3D*)arg0->inline_ov015_0218cc24(3)->pModel_)->ApplyTexturesFromModel((Model3D*)arg0->unknown_24_[var11].pModel_);
             }
@@ -232,4 +229,9 @@ extern "C" ARM int func_ov015_0218cc24(Struct_ov015_0218cc24_2* arg0) {
     var9.Reset();
     ZeroDestroyGPCPointer(&var9.pGPCFile);
     return var32;
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

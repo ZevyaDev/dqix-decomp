@@ -2,6 +2,7 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 #include "Resource/CharacterCreationUI.h"
+#include "Resource/StringList.h"
 
 struct Struct_02080cc0;
 struct MenuLayout_02080f8c;
@@ -32,7 +33,6 @@ extern "C" void SetMenuLayoutTextStringId_0208103c(void*, int, int);
 extern "C" void func_02080828(void*, int, short*, short*);
 extern "C" void func_020808c8(void*, short, short*, short*);
 extern "C" void func_02080854(void*, int, int, int);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3*, int);
 extern "C" void func_ov003_0215f5e8(void* arg0, int arg1, int arg2);
 extern "C" void func_ov003_02160c58(void* arg0, short* arg1, short* arg2);
 extern "C" void func_02081198(struct Struct_02081198* arg0, int arg1, int arg2);
@@ -203,7 +203,7 @@ extern "C" ARM void func_ov003_02166220(Struct_ov003_02166220_4* arg0) {
         } else {
             func_02080cc0(var0, var8, var9);
             ShowMenuLayoutText_02080b40(var0, var8);
-            SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var0, var8, (int)FindStringInTable_020e0434(&arg0->unknown_2dc_, 0x7530));
+            SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var0, var8, (int)((int)((StringList*)(&arg0->unknown_2dc_))->GetString(0x7530)));
         }
         var7++;
         var8 = (short)(var8 + 1);

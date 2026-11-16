@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
+#include "Resource/PAC.h"
 
 extern "C" int func_ov011_021849d8(void* arg0);
 
@@ -8,7 +9,6 @@ struct Struct_020534ac_2;
 
 struct Struct_020534ac;
 
-extern "C" char* func_020467c0(void* arg0, char* arg1, unsigned int* arg2);
 
 extern "C" void func_ov023_021fb9c4(void* arg0, void* arg1, int arg2, int arg3);
 
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov023_021fb8dc(struct Struct_ov023_021fb534* arg0, void
         return;
     }
 
-    var4 = func_020467c0((void*)var2, arg0->unknown_10_, &var5);
+    var4 = GetFileInPAC((void*)((void*)var2), (const char*)(arg0->unknown_10_), (unsigned int*)(&var5));
     if (var4 == NULL) {
         return;
     }

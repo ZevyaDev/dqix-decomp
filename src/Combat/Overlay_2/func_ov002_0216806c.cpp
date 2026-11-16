@@ -3,6 +3,14 @@
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_0205c570;
 struct SoundEffectManager_02108760;
 
@@ -10,7 +18,7 @@ extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 struct TextWindowManager_0205da38;
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
-extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" void *func_02053c6c(unsigned char *gameObject);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" void func_ov002_0215af64(char *arg0);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
@@ -19,7 +27,7 @@ extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void *gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 extern "C" void func_ov002_02161a8c();
 extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
-extern "C" int *GetLocalWireless_0202ae18();
+extern "C" int *func_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" void func_ov017_021d0dbc();
 extern "C" void func_ov002_02156e90(char *arg0);
@@ -53,7 +61,7 @@ extern "C" ARM void func_ov002_0216806c(char *arg0) {
             int var5             = *(signed char *) (arg0 + 0x1ae8);
             GameObject *var6 = GameState::GetInstance()->GetPartyMemberByIndex(var5);
             if (var6 == 0) return;
-            unsigned char *var7 = (unsigned char *) GetPartyMemberData_02053c6c((unsigned char *) var6);
+            unsigned char *var7 = (unsigned char *) func_02053c6c((unsigned char *) var6);
             if (var7[0x56a] != *(short *) (arg0 + 0x1ace) && *(short *) (var7 + 0x488) < 0) {
                 var6->obj3D_.unknown_2_ = -1;
                 QueuePartyMemberModelLoad_ov017_0218f5a4(GetGameResources(), var5, 0, 0, 0);
@@ -64,7 +72,7 @@ extern "C" ARM void func_ov002_0216806c(char *arg0) {
             LoadPartyMemberColors_020dc7e8(8, -1);
             LoadPartyMemberColors_020dc7e8(6, -1);
             LoadPartyMemberColors_020dc7e8(7, -1);
-            int *var8 = GetLocalWireless_0202ae18();
+            int *var8 = func_0202ae18();
             if (var8 != 0 && IsLocalWirelessOn_0202b7d8(var8)) {
                 func_ov017_021d0dbc();
             }
@@ -106,7 +114,7 @@ extern "C" ARM void func_ov002_0216806c(char *arg0) {
             int var14             = *(signed char *) (arg0 + 0x1c20);
             GameObject *var15 = GameState::GetInstance()->GetPartyMemberByIndex(var14);
             if (var15 == 0) return;
-            unsigned char *var16 = (unsigned char *) GetPartyMemberData_02053c6c((unsigned char *) var15);
+            unsigned char *var16 = (unsigned char *) func_02053c6c((unsigned char *) var15);
             if (var16[0x56a] != *(short *) (arg0 + 0x1c06) && *(short *) (var16 + 0x488) < 0) {
                 var15->obj3D_.unknown_2_ = -1;
                 QueuePartyMemberModelLoad_ov017_0218f5a4(GetGameResources(), var14, 0, 0, 0);
@@ -117,7 +125,7 @@ extern "C" ARM void func_ov002_0216806c(char *arg0) {
             LoadPartyMemberColors_020dc7e8(8, -1);
             LoadPartyMemberColors_020dc7e8(6, -1);
             LoadPartyMemberColors_020dc7e8(7, -1);
-            int *var17 = GetLocalWireless_0202ae18();
+            int *var17 = func_0202ae18();
             if (var17 != 0 && IsLocalWirelessOn_0202b7d8(var17)) {
                 func_ov017_021d0dbc();
             }

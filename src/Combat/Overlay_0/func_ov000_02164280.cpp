@@ -1,6 +1,12 @@
 #include <globaldefs.h>
 #include "Graphics/VRAMStaging.h"
 #include "Resource/GameResources.h"
+#include "Graphics/TextureArena.h"
+#include "NitroSDK/VRAMAllocation.h"
+
+#if defined(jpn)
+#define func_0203bd08 func_0203b760
+#endif
 
 struct TextureImageVRAMState_0207df50 {
     unsigned int unknown_0_[10];
@@ -45,28 +51,23 @@ struct Struct_ov000_02164280 {
     char unknown_36f0_[0x800];
 };
 
-extern "C" char* GetOAMManager_0203bd08(void);
+extern "C" char* func_0203bd08(void);
 extern "C" int* GetSpriteTextManager_0203bd14();
 extern "C" void MapVRAMBanksToTextureImage(int handle);
-extern "C" void InitTextureImageVRAMAllocator_020bb48c(unsigned int bankCount, int install);
 extern "C" void MapVRAMBanksToSubObj(int value);
 extern "C" void MapVRAMBanksToSubBG(int value);
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
 extern "C" void ResetOAMManager_0203bd24(char* oamManager);
 extern "C" void func_0203c35c(int* arg0);
 extern "C" void func_ov017_02195540(unsigned char* arg0);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
 // USA: func_ov000_02164280
 extern "C" ARM void func_ov000_02164280(Struct_ov000_02164280* arg0) {
     Struct_ov000_02161e30_6* var0 = (Struct_ov000_02161e30_6*)GetGameResources();
-    char* var1 = GetOAMManager_0203bd08();
+    char* var1 = func_0203bd08();
     int* var2 = GetSpriteTextManager_0203bd14();
     LockStagedTextureVRAMCopying();
     MapVRAMBanksToTextureImage(7);
-    InitTextureImageVRAMAllocator_020bb48c(3, 1);
+    InitializeTextureImageAllocation(3, 1);
     MapVRAMBanksToSubObj(8);
     *(volatile unsigned int*)0x4001000 = (*(volatile unsigned int*)0x4001000 & 0xffcfffef) | 0x10 | 0x200000;
     MapVRAMBanksToSubBG(0x180);
@@ -79,15 +80,15 @@ extern "C" ARM void func_ov000_02164280(Struct_ov000_02164280* arg0) {
     arg0->unknown_14c_.savedPaletteState_60_ = var0->unknown_2cc_[27].savedPaletteState_60_;
     arg0->unknown_14c_.unknown_68_ = var0->unknown_2cc_[27].unknown_68_;
     arg0->unknown_14c_.unknown_6c_ = var0->unknown_2cc_[27].unknown_6c_;
-    ResetTextureVRAMState_0207df50(&arg0->unknown_14c_);
+    ((TextureArena*)(&arg0->unknown_14c_))->Reset();
 
     ResetOAMManager_0203bd24(var1);
     func_0203c35c(var2);
     func_ov017_02195540((unsigned char*)var0);
-    ResetTextureVRAMState_0207df50(var0->unknown_2cc_);
-    RestoreTextureVRAMState_0207df90((char*)var0->unknown_2cc_);
-    InitTextureVRAMArea_0207de48(arg0->unknown_36f0_, 0x18000, 0x800);
-    SaveTextureVRAMState_0207dfac((char*)var0->unknown_2cc_);
+    ((TextureArena*)(var0->unknown_2cc_))->Reset();
+    ((TextureArena*)((char*)var0->unknown_2cc_))->Restore();
+    ((TextureArena*)(arg0->unknown_36f0_))->Initialize(0x18000, 0x800);
+    ((TextureArena*)((char*)var0->unknown_2cc_))->Save();
     UpdateVRAMStagingVRAMBanks();
     UnlockStagedTextureVRAMCopying();
 }

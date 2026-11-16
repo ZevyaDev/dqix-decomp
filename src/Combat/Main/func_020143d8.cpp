@@ -1,16 +1,17 @@
 #include <globaldefs.h>
+#include "Filesystem/FileIO.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "World/ZoneFeatures.h"
 
-void* DecompressLZ77FileIntoScratchSpace(SafeAllocator& allocator, const void* source, unsigned int& size);
 
 // USA: func_020143d8
-ARM int Zone3D::func_020143d8(const void* arg0, unsigned int arg1) {
-    SafeAllocator* var0 = pAllocator_68_;
+extern "C" ARM int func_020143d8(Zone3D* arg0, const void* arg1, unsigned int arg2) {
+    SafeAllocator* var0 = arg0->pAllocator_68_;
     unsigned int var1;
-    void* var2 = DecompressLZ77FileIntoScratchSpace(*var0, arg0, var1);
-    Zone3D_StructPtr_8* var3 = pUnknownStruct_8_;
-    substruct_6c_.func_0201e2b4(var0, var2, var1);
-    pUnknownStruct_8_ = var3;
+    void* var2 = DecompressLZ77FileIntoScratchSpace(var0, arg1, &var1);
+    Zone3D_StructPtr_8* var3 = arg0->pUnknownStruct_8_;
+    ((Struct_020134e0*)arg0->substruct_6c_)->func_0201e2b4(var0, var2, var1);
+    arg0->pUnknownStruct_8_ = var3;
     return 1;
 }

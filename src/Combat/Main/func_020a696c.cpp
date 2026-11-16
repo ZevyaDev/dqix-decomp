@@ -52,3 +52,8 @@ extern "C" ARM void func_020a696c(void* arg0, int arg1, int arg2) {
         *(int*)((char*)var1 + Enum_020a696c_10128) = *(int*)((char*)var1 + Enum_020a696c_72);
     }
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

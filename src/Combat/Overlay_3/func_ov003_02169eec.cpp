@@ -52,7 +52,7 @@ extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
 extern "C" void func_ov003_021694b8(void* arg0, int arg1);
 extern "C" void func_0205bf3c(KeyMenuCursor_0205bf3c* arg0);
 extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84* cursor);
-extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
+extern "C" int func_0200fb08(Struct_02000c9c_8* gameState);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void DisableTouchMenuCursor_0205cf10(void* windowManager);
 extern "C" void DisableKeyMenuCursor_0205cf1c(TextWindowManager_0205cf1c* windowManager);
@@ -339,7 +339,7 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
                 short var39 = 0xc8;
                 short var40 = 0xec;
 #else
-                int var36 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
+                int var36 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
                 short var37 = 0x8f;
                 short var38 = 0xba;
                 short var39 = 0xc5;

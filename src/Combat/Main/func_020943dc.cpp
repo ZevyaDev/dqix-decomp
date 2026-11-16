@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 struct MessageString_02046574 { char text_0_[0x40]; };
@@ -24,7 +25,6 @@ struct Struct_020943dc {
 };
 extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
-extern "C" void CopyStringFromTableFile_020e046c(char*, void*, unsigned int, int);
 extern "C" void func_020474a8(Struct_02046574_2*, int, char*, char*);
 extern const char data_020f146e[];
 
@@ -45,7 +45,7 @@ extern "C" ARM int func_020943dc(Struct_020943dc* arg0) {
             var0->GetLoadedFileByID(arg0->unknown_100_, &var1, &var2);
             if (var1) {
                 char var3[0x40] = {};
-                CopyStringFromTableFile_020e046c(var3, var1, var2, arg0->unknown_c_);
+                GetStringFromNAT((char*)(var3), (void*)(var1), var2, arg0->unknown_c_);
                 Struct_02046574_2* var4 = GetMessageWindow_020421a0();
                 char* var5 = var4->unknown_37c_[0].text_0_;
                 char var6[0x40] = {};
@@ -88,7 +88,6 @@ struct Struct_020943dc {
 };
 extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
-extern "C" void CopyStringFromTableFile_020e046c(char*, void*, unsigned int, int);
 extern "C" void func_02046608(Struct_02046574_2*, int, char*, char*, int, int, unsigned char);
 extern const char data_020f13aa[];
 extern const char data_020f13c5[];
@@ -111,7 +110,7 @@ extern "C" ARM int func_020943dc(Struct_020943dc* arg0) {
             var7->GetLoadedFileByID(arg0->unknown_340_, &var8, &var9);
             if (var8) {
                 char var10[0x40] = {};
-                CopyStringFromTableFile_020e046c(var10, var8, var9, arg0->unknown_30_);
+                GetStringFromNAT((char*)(var10), (void*)(var8), var9, arg0->unknown_30_);
                 Struct_02046574_2* var11 = GetMessageWindow_020421a0();
                 char* var12 = var11->unknown_4ac_[0].text_0_;
                 char var13[0x40] = {};

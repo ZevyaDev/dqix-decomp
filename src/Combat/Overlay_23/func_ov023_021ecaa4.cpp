@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
 struct GameResources;
 void SetMainBrightness(GameResources*, int, int);
 void SetSubBrightness(GameResources*, int, int);
@@ -11,7 +15,7 @@ struct TextWindowManager_0205d6a0;
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 extern int gMusicManager_02109bf4;
 
 struct Struct_ov023_021ecaa4 {
@@ -58,6 +62,6 @@ extern "C" ARM void func_ov023_021ecaa4(Struct_ov023_021ecaa4* arg0) {
     CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)((char*)arg0 + 0xc4), 1);
     arg0->unknown_438_ |= 4;
     if (arg0->unknown_438_ & 0x10)
-        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 1);
+        ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)func_020d6c00(), 1);
     arg0->unknown_432_++;
 }

@@ -7,13 +7,21 @@ enum { Enum_ov017_021cd608_1816 = 0x718 };
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
 struct Struct_ov017_021cd608_3 {
     char unknown_0_[8];
     unsigned short unknown_8_;
 };
 
-extern "C" struct Struct_ov017_021cd608_3* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" struct Struct_ov017_021cd608_3* func_ov017_021b8478(void* battleManager);
+extern "C" void* func_ov017_021b8468(void* battleManager);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" int SetBattleRecords_020ac494(void* records);
@@ -62,11 +70,11 @@ extern "C" ARM void func_ov017_021cd608(int arg0, struct Struct_ov017_021cd608_2
     int var3[4];
     struct Struct_ov017_021cd608_4 var4;
 
-    struct Struct_ov017_021cd608_3* var5 = GetBattleSetup_ov017_021b8478(var1);
+    struct Struct_ov017_021cd608_3* var5 = func_ov017_021b8478(var1);
     if (var5->unknown_8_ != var2->unknown_0_) {
         return;
     }
-    void* var6 = GetBattleScene_ov017_021b8468(var1);
+    void* var6 = func_ov017_021b8468(var1);
     if (var6 == 0) {
         return;
     }

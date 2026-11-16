@@ -6,6 +6,14 @@
 #include <GameState/GameState.h>
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_0206f01c_2;
 struct StringList_02072a68_2;
 struct Struct_ov023_021edc08_5;
@@ -165,17 +173,17 @@ extern "C" void func_020117cc(char* arg0, DetailedTreasureMapData* arg1);
 
 extern "C" {
 void __clear(void* arg0, unsigned long arg1);
-Struct_ov023_021eefd0_3* GetBattleSetup_ov017_021b8478(void* battleManager);
+Struct_ov023_021eefd0_3* func_ov017_021b8478(void* battleManager);
 Struct_ov023_021eefd0_8 func_ov023_021ed804(Struct_ov023_021eefd0_8 arg0, void* arg1);
 #if !defined(jpn)
 void StartMessage_0204500c(Struct_ov023_021eefd0_9* window, const char* text, int arg2, int arg3);
 #endif
-void* GetLocalWireless_0202ae18();
+void* func_0202ae18();
 int IsNotLocalWirelessGuest_0202c508(void* wireless);
 int IsLocalWirelessGuest_0202c540(void* wireless);
 int func_ov023_021f4fc8();
 Struct_ov023_021eefd0_2* GetZone3D_02012fe4();
-void ConvertTextToGlyphIndices_020426bc(void* text, char* outGlyphIndices, int font);
+void func_020426bc(void* text, char* outGlyphIndices, int font);
 void VectorizedMemset(void* dst, int value, unsigned int size);
 void VectorizedInvertedMemcpy(const void* src, void* dst, unsigned int size);
 void func_02011744(GameState* arg0);
@@ -235,7 +243,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
         if (var7 != NULL)
             var8 = var7->unknown_ptr_3718;
         if (var8 != NULL)
-            var9 = GetBattleSetup_ov017_021b8478(var8);
+            var9 = func_ov017_021b8478(var8);
 #if defined(jpn)
         char var11[40];
         if (var9 != NULL)
@@ -388,7 +396,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
             func_020a0110((Struct_020a0110*)var21.unknown_68_, 1);
             SetBattleRecords_020ac494(&var21);
         }
-        if (!IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) || arg0->unknown_2a0_->unknown_25_ == 0)
+        if (!IsLocalWirelessGuest_0202c540(func_0202ae18()) || arg0->unknown_2a0_->unknown_25_ == 0)
             PlayJingle_0209c6d8(gMusicManager_02109bf4, 0x36);
         var0->unknown_0_++;
         if (arg0->unknown_2a0_->unknown_24_ != 0 || arg0->unknown_2a0_->unknown_25_ != 0)
@@ -417,7 +425,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
     else if (var0->unknown_0_ == 2)
     {
         func_ov023_021eefac((Struct_ov023_021eeaac_2*)var0);
-        void* var23 = GetLocalWireless_0202ae18();
+        void* var23 = func_0202ae18();
         Struct_ov023_021eefd0_2* var24 = GetZone3D_02012fe4();
         DetailedTreasureMapData* var25 = var24->unknown_23ec_.GetDetailedData();
         if (arg0->unknown_2a0_->unknown_25_ != 0)
@@ -445,7 +453,7 @@ extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
 #else
                 char var30[0xa];
                 __clear(var30, sizeof(var30));
-                ConvertTextToGlyphIndices_020426bc(var29, var30, 1);
+                func_020426bc(var29, var30, 1);
 #endif
 
                 var27->discoveryState_ = 3;

@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
 
 #if defined(jpn)
 enum { Enum_ov005_0215a620_3716 = 0xe80, Enum_ov005_0215a620_15768 = 0x3d10, Enum_ov005_0215a620_22 = 24, Enum_ov005_0215a620_10 = 8 };
@@ -14,10 +15,8 @@ struct BGLayer_0204b8d0 {
     char unknown_18_[5];
     unsigned char screenBlockCount_1d_;
 };
-extern "C" void CopyBGScreenBlockRect_0204b8d0(struct BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 
 struct BGLayer_02020cb8_2;
-extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2*, void*);
 
 struct Struct_ov005_0215c530
 {
@@ -78,7 +77,7 @@ extern "C" ARM void func_ov005_0215a620(Struct_ov005_0215a620* arg0) {
 
     unsigned char var0 = arg0->unknown_3db8_;
     if (!(var0 != 0 && var0 != 1)) {
-        CopyBGScreenBlockRect_0204b8d0(&arg0->unknown_244_.unknown_c40_[0], 0, Enum_ov005_0215a620_22, 22, Enum_ov005_0215a620_22, 22, Enum_ov005_0215a620_10, 2, 0xffff);
+        ((BGLayer*)(&arg0->unknown_244_.unknown_c40_[0]))->BlitSpriteByIndex(0, Enum_ov005_0215a620_22, 22, Enum_ov005_0215a620_22, 22, Enum_ov005_0215a620_10, 2, 0xffff);
     } else {
         unsigned char var1 = arg0->unknown_3dbc_;
         unsigned char* var2 = arg0->inline_ov005_0215a620();
@@ -87,8 +86,8 @@ extern "C" ARM void func_ov005_0215a620(Struct_ov005_0215a620* arg0) {
         if (var3 == 1) var4 = 4;
         else if (var3 == 2) var4 = 2;
         else if (var3 == 3) var4 = 3;
-        CopyBGScreenBlockRect_0204b8d0(&arg0->unknown_244_.unknown_c40_[0], var4, 0, 0, Enum_ov005_0215a620_22, 22, Enum_ov005_0215a620_10, 2, 0xffff);
+        ((BGLayer*)(&arg0->unknown_244_.unknown_c40_[0]))->BlitSpriteByIndex(var4, 0, 0, Enum_ov005_0215a620_22, 22, Enum_ov005_0215a620_10, 2, 0xffff);
     }
-    LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&arg0->unknown_244_.unknown_c40_[0], 0);
+    ((BGLayer*)((BGLayer_02020cb8_2*)&arg0->unknown_244_.unknown_c40_[0]))->CleanCacheAndUploadIndexBuffer((const void*)(0));
     arg0->unknown_3dcc_ &= ~0x800;
 }

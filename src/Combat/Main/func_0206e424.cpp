@@ -1,6 +1,14 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 
 struct Struct_0206e424 {
     unsigned int unknown_0_;
@@ -31,8 +39,8 @@ struct Struct_0206e424_4 {
     unsigned char unknown_18_[0xb0 - 0x18];
 };
 extern Struct_020e87b4 data_020e87b4;
-extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
-extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
+extern "C" int func_02053c6c(unsigned char*);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void GetBattleRecords_020ac4c0(void*);
 extern "C" void func_020a04c8(Struct_0206e424_4*, unsigned int);
@@ -50,7 +58,7 @@ extern "C" ARM void func_0206e424(Struct_0206e424_3* arg0, int arg1) {
     if (!var0) return;
     GameObject* var1 = GameState::GetInstance()->GetPartyMemberByIndex(arg1);
     if (!var1) return;
-    Struct_0206e424_2* var2 = (Struct_0206e424_2*)GetPartyMemberData_02053c6c((unsigned char*)var1);
+    Struct_0206e424_2* var2 = (Struct_0206e424_2*)func_02053c6c((unsigned char*)var1);
     if (!var2) return;
     Struct_020e87b4 var3 = data_020e87b4;
     Struct_0206e424* var4 = var2->unknown_194_;
@@ -61,7 +69,7 @@ extern "C" ARM void func_0206e424(Struct_0206e424_3* arg0, int arg1) {
         if (inline_0206e424(var7)) {
             unsigned short var8 = var7->unknown_d_4_;
             if (var8) {
-                if (!IsFlagSet_0206dfb0((int)arg0, arg0->unknown_8c_, var8 + 0xc76)) {
+                if (!func_0206dfb0((int)arg0, arg0->unknown_8c_, var8 + 0xc76)) {
                     SetFlag_0206df6c(arg0, arg0->unknown_8c_, var8 + 0xc76, 1);
                     var5++;
                 }

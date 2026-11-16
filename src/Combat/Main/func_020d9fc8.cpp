@@ -2,8 +2,12 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
 extern "C" void EnablePlayerControl_020397c0(void* object);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 struct GlobalFlags_02038598_4 {
     unsigned int bits_0_;
 };
@@ -25,6 +29,6 @@ extern "C" ARM void func_020d9fc8(struct Struct_020d9e44* arg0) {
         }
     }
     EnablePlayerControl_020397c0(GameState::GetInstance()->GetUnknownGameObject());
-    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0x1e);
+    ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)func_020d6c00(), 0x1e);
     *((unsigned char*)arg0 + 1) = 1;
 }

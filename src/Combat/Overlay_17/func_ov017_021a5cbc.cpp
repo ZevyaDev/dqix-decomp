@@ -2,6 +2,9 @@
 #include <GameState/GameState.h>
 #include <Filesystem/BackgroundLoader.h>
 #include <Combat/MapDisplay.h>
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/PAC.h"
 
 struct Struct_ov017_021a5cbc { unsigned char unknown_0_[2]; };
 struct Struct_ov017_021a5ad0 {
@@ -51,23 +54,12 @@ extern const char data_ov017_021d7b3b[];
 #else
 enum { Enum_ov017_021a5cbc_1280 = 0x500 };
 #endif
-extern "C" void SetBGScreenSize_0204b11c(unsigned char*, int);
-extern "C" void SetBGPriority_0204b5b4(Struct_ov017_021a5ad0*, unsigned char);
-extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
 extern "C" void ColorEffect_ConfigureAlphaBlend(void*, int, int, int, int);
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
-extern "C" void LoadBGBlock_0204b174(Struct_ov017_021a5ad0*, void*, SafeAllocator*, int);
-extern "C" void InitSprite_0205a198(Sprite_02043368_2*);
-extern "C" void InitSpriteSet_0205a444(char*);
-extern "C" int LoadSpriteSetFile_0205a528(Struct_02021578*, void*, int, SafeAllocator*);
 extern "C" void func_ov017_021a5ad0(Struct_ov017_021a5ad0*, int, int);
-extern "C" void FillBGScreenRect_0204bc74(Struct_ov017_021a5ad0*, int, int, int, int, int, int);
-extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2*, void*);
 extern "C" void func_ov017_021a5b08(Struct_ov017_021a5ad0*, int);
 extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8*, SafeAllocator*, int, unsigned int);
 extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78*, TextWindow_0205cf78_2*, unsigned char);
-extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
+extern "C" int func_0200fb08(Struct_02000c9c_8*);
 extern "C" void OpenTextWindow_0205d304(Struct_ov017_021a5cbc_3*, const char*, int, unsigned char, unsigned char, unsigned char, void*
 #if !defined(jpn)
     , unsigned char
@@ -95,11 +87,11 @@ extern "C" ARM void func_ov017_021a5cbc(GameResources* arg0) {
         Struct_ov017_021a5cbc var1 = *(const Struct_ov017_021a5cbc*)data_ov017_021d6a8c;
         for (int var2 = 0; var2 < 2; ++var2) {
             Struct_ov017_021a5ad0* var3 = &reinterpret_cast<Struct_ov017_021a5ad0*>(arg0->unknown_4094)[var2];
-            SetBGScreenSize_0204b11c((unsigned char*)var3, 0);
+            ((BGLayer*)((unsigned char*)var3))->ConfigureTextMode(0);
             var3->unknown_1c_0_ = 0;
             var3->unknown_1c_4_ = var0.unknown_0_[var2];
-            SetBGPriority_0204b5b4(var3, var1.unknown_0_[var2]);
-            SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)var3, 0, 0);
+            ((BGLayer*)(var3))->SetPriority(var1.unknown_0_[var2]);
+            ((BGLayer*)((BGLayer_02020cb8_5*)var3))->SetOffset(0, 0);
         }
         REG_DISPLAY_CONTROL = (REG_DISPLAY_CONTROL & ~0x1f00) | 0x100;
         REG_BACKGROUND_1 = (REG_BACKGROUND_1 & 0x43) | 0x1d00;
@@ -114,17 +106,17 @@ extern "C" ARM void func_ov017_021a5cbc(GameResources* arg0) {
         void* var6;
         unsigned int var7;
         var4->GetLoadedFileByID((*reinterpret_cast<int*>(arg0->unknown_4094 + 0x128)), &var6, &var7);
-        int var8 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var6);
+        int var8 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var6));
         void* var9[4];
         int var10[4];
-        for (int var11 = 0; var11 < var8; ++var11) var9[var11] = GetPacEntryData_020467f0((PacEntry_02020aec*)var6, var11, &var5, &var10[var11]);
+        for (int var11 = 0; var11 < var8; ++var11) var9[var11] = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var6), var11, (const char**)(&var5), (unsigned int*)(&var10[var11]));
         for (int var12 = 0; var12 < var8; ++var12) {
-            if (var9[var12]) LoadBGBlock_0204b174(reinterpret_cast<Struct_ov017_021a5ad0*>(arg0->unknown_4094 + sizeof(Struct_ov017_021a5ad0)), var9[var12], &arg0->allocator_array_38[16], var10[var12]);
+            if (var9[var12]) ((BGLayer*)(reinterpret_cast<Struct_ov017_021a5ad0*>(arg0->unknown_4094 + sizeof(Struct_ov017_021a5ad0))))->ProcessGraphicsFile((const void*)var9[var12], (SafeAllocator*)(&arg0->allocator_array_38[16]), var10[var12]);
         }
         var4->RemoveTask((*reinterpret_cast<int*>(arg0->unknown_4094 + 0x128)));
         (*reinterpret_cast<int*>(arg0->unknown_4094 + 0x128)) = -1;
-        for (int var13 = 0; var13 < 7; ++var13) InitSprite_0205a198(&reinterpret_cast<Sprite_02043368_2*>(arg0->unknown_41c8)[var13]);
-        InitSpriteSet_0205a444((char*)static_cast<Struct_02021578*>(arg0->unknown_ptr_41c4));
+        for (int var13 = 0; var13 < 7; ++var13) ((OBJSpriteSet::Metatile*)(&reinterpret_cast<Sprite_02043368_2*>(arg0->unknown_41c8)[var13]))->Reset();
+        ((OBJSpriteSet*)((char*)static_cast<Struct_02021578*>(arg0->unknown_ptr_41c4)))->Reset();
         static_cast<Struct_02021578*>(arg0->unknown_ptr_41c4)->unknown_50_ = 0;
         Struct_02021578* var14 = static_cast<Struct_02021578*>(arg0->unknown_ptr_41c4);
         var14->unknown_40_ = reinterpret_cast<Sprite_02043368_2*>(arg0->unknown_41c8);
@@ -142,19 +134,19 @@ extern "C" ARM void func_ov017_021a5cbc(GameResources* arg0) {
         void* var17;
         unsigned int var18;
         var15->GetLoadedFileByID((*reinterpret_cast<int*>(arg0->unknown_4094 + 0x128)), &var17, &var18);
-        int var19 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var17);
+        int var19 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var17));
         int var20;
         for (int var21 = 0; var21 < var19; ++var21) {
-            void* var22 = GetPacEntryData_020467f0((PacEntry_02020aec*)var17, var21, &var16, &var20);
-            LoadSpriteSetFile_0205a528(static_cast<Struct_02021578*>(arg0->unknown_ptr_41c4), var22, var20, &arg0->allocator_array_38[16]);
+            void* var22 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var17), var21, (const char**)(&var16), (unsigned int*)(&var20));
+            ((OBJSpriteSet*)(static_cast<Struct_02021578*>(arg0->unknown_ptr_41c4)))->LoadFromNitroFile((void*)(var22), var20, (SafeAllocator*)(&arg0->allocator_array_38[16]));
         }
         var15->RemoveTask((*reinterpret_cast<int*>(arg0->unknown_4094 + 0x128)));
         (*reinterpret_cast<int*>(arg0->unknown_4094 + 0x128)) = -1;
         func_ov017_021a5ad0(reinterpret_cast<Struct_ov017_021a5ad0*>(arg0->unknown_4094), 2, 0x800);
         for (int var23 = 0; var23 < 2; ++var23) {
             Struct_ov017_021a5ad0* var24 = &reinterpret_cast<Struct_ov017_021a5ad0*>(arg0->unknown_4094)[var23];
-            FillBGScreenRect_0204bc74(var24, 0, 0, 0, 0x20, 0x19, 0);
-            LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)var24, 0);
+            ((BGLayer*)(var24))->SetTileInRectangle(0, 0, 0, 0x20, 0x19, 0);
+            ((BGLayer*)((BGLayer_02020cb8_2*)var24))->CleanCacheAndUploadIndexBuffer((const void*)(0));
         }
         func_ov017_021a5b08(reinterpret_cast<Struct_ov017_021a5ad0*>(arg0->unknown_4094), 2);
         (*reinterpret_cast<void**>(arg0->unknown_4094 + 0x120)) = arg0->allocator_array_38[16].Allocate(Enum_ov017_021a5cbc_1280);
@@ -174,7 +166,7 @@ extern "C" ARM void func_ov017_021a5cbc(GameResources* arg0) {
         int var29 = 9;
 #else
         Struct_ov017_021a5cbc_2 var27 = *(const Struct_ov017_021a5cbc_2*)data_ov017_021d6a94;
-        int var28 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
+        int var28 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
         int var29 = var27.unknown_0_[var28 - 1];
 #endif
         var26->unknown_a0_ = var29;

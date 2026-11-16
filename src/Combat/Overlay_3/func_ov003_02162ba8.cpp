@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "Combat/CombatantRecovery.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_02081198;
 struct MenuLayout_02081164;
 struct KeyRepeat_02081f20_2;
@@ -42,7 +46,7 @@ extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *, int, int
 extern "C" int func_ov003_02161544(void *);
 extern "C" void CloseMenuLayoutWindows_0207fe44(MenuLayout_0207fe44 *);
 extern "C" int func_ov003_02160a68(unsigned char *);
-extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *);
+extern "C" unsigned char *func_02053c6c(unsigned char *);
 extern "C" void func_ov003_02161480(unsigned char *);
 extern "C" void func_ov003_02166f40(unsigned char *);
 
@@ -124,7 +128,7 @@ extern "C" ARM void func_ov003_02162ba8(unsigned char *arg0) {
         arg0[RO(0x4a3)]         = 0x10;
         GameObject *var6       = GetPartyMemberBaseByIndex_0200ff1c(var0, *(short *) (arg0 + RO(0x482)));
         if (var6 == 0) return;
-        unsigned char *var7 = GetPartyMemberData_02053c6c((unsigned char *) var6);
+        unsigned char *var7 = func_02053c6c((unsigned char *) var6);
         arg0[RO(0x4a3)]      = var5;
         int var8            = (*(short *) (var7 + 0x454) > 0);
         if (var6->unknown_ac_.unknown_84_->unknown_0_ & 1) {

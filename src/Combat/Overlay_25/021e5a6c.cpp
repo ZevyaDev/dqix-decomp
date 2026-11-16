@@ -3,6 +3,10 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
+#if defined(jpn)
 enum { Enum_ov025_021e5a6c_28629 = 0x71c5 };
 #else
 enum { Enum_ov025_021e5a6c_28629 = 0x6fd5 };
@@ -26,7 +30,7 @@ extern "C" void* GetBattleScene_ov000_02160130(void);
 // USA: func_ov025_021e5a6c
 extern "C" ARM int func_ov025_021e5a6c(struct Struct_ov025_021e5a6c* arg0, struct BattleAction_ov000_0215440c* arg1) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetCamera_020100bc(var0);
+    void* var1 = func_020100bc(var0);
     unsigned char var2 = arg0->unknown_14_;
     if (var2 == 0) {
         if (var1 != 0) {

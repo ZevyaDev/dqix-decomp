@@ -50,3 +50,8 @@ extern "C" ARM int func_ov025_021e87f4(struct Struct_ov025_021e87f4* arg0, int a
     }
     return 1;
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

@@ -3,6 +3,7 @@
 #include "Combat/Main/BattleList.h"
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
+#include "Graphics/BGLayer.h"
 
 extern "C" void func_020534ac(char* arg0);
 extern "C" int func_02039750(void* arg0);
@@ -34,7 +35,6 @@ struct TextWindowManager_0205d81c;
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
 
 struct BGLayer_0204bc74;
-extern "C" void FillBGScreenRect_0204bc74(BGLayer_0204bc74* layer, unsigned short screenEntry, int x, int y, int width, int height, unsigned short palette);
 
 // USA: func_ov017_0219a18c
 extern "C" ARM void func_ov017_0219a18c(unsigned char* arg0) {
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov017_0219a18c(unsigned char* arg0) {
     if (var5 && var8 >= 0) {
         TextWindow_0205d0e0* var9 = FindTextWindow_0205d81c(*(TextWindowManager_0205d81c**)(arg0 + 0x3000 + Enum_ov017_0219a18c_3248), var6);
         if (var9 != 0) {
-            FillBGScreenRect_0204bc74((BGLayer_0204bc74*)(arg0 + Enum_ov017_0219a18c_180 + Enum_ov017_0219a18c_15360), 1, var9->tileX_ac_, var9->tileY_ae_, var9->width_a8_, var9->unknown_aa_, 0xf);
+            ((BGLayer*)((BGLayer_0204bc74*)(arg0 + Enum_ov017_0219a18c_180 + Enum_ov017_0219a18c_15360)))->SetTileInRectangle(1, var9->tileX_ac_, var9->tileY_ae_, var9->width_a8_, var9->unknown_aa_, 0xf);
         }
     }
 

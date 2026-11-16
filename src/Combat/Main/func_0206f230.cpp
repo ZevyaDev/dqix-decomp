@@ -3,6 +3,10 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/MonsterDefinition.h"
 
+#if defined(jpn)
+#define func_020da150 func_020dbb58
+#endif
+
 extern "C" char* func_020da150(SafeAllocator* arg0, const char* arg1);
 
 extern Struct_0206f01c_2* data_02108d14;

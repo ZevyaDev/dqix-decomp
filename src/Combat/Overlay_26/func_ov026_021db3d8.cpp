@@ -2,6 +2,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Matrix.h"
+#include "Graphics/TextureArena.h"
 
 struct TextureVRAMArea_0203d028 {
     unsigned int unknown_0_[10];
@@ -79,7 +80,6 @@ struct BattleScene_ov000_02160da0 {
 };
 
 extern "C" Struct_ov023_021f4c04* GetMessageWindow_020421a0();
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
 extern "C" void InitEffectParams_02078484(EffectParams_02078398_2* params);
 extern "C" int PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov026_021db3d8(BattleScene_ov000_02160da0* arg0) {
 
         if (arg0->unknown_7728_ == 0) {
             arg0->unknown_774c_.Reset();
-            ResetTextureVRAMState_0207df50(&arg0->unknown_7760_);
+            ((TextureArena*)(&arg0->unknown_7760_))->Reset();
             arg0->unknown_772a_ = var0->QueueLoadFile(data_ov026_021dedf0, &arg0->unknown_774c_);
             arg0->unknown_7728_ = 1;
         } else if (arg0->unknown_7728_ == 1) {

@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_0205c570;
 struct TextWindowManager_0205def8;
 struct SoundEffectManager_02108760;
@@ -13,7 +17,7 @@ extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* w
 extern "C" int func_ov000_0217c4e8(void* arg0, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_ov000_021716d0(void* arg0);
-extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" void* func_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov000_0217ab48(void* arg0);
 extern "C" void func_ov000_0217629c(void* arg0);
 extern "C" void func_ov000_0217ab8c(void* arg0, int arg1, int arg2);
@@ -114,7 +118,7 @@ extern "C" ARM int func_ov000_0217b6d0(Struct_ov000_0217b6d0_3* arg0, int arg1, 
         func_ov000_021716d0(arg0);
         GameObject* var5 = GameState::GetInstance()->GetPartyMemberByIndex(arg0->unknown_4c_);
         if (var5 != NULL) {
-            Struct_ov000_0217b6d0* var6 = (Struct_ov000_0217b6d0*)GetPartyMemberData_02053c6c((unsigned char*)var5);
+            Struct_ov000_0217b6d0* var6 = (Struct_ov000_0217b6d0*)func_02053c6c((unsigned char*)var5);
             if (var6 != NULL) {
                 var6->unknown_962_ = arg0->unknown_26_;
             }
@@ -161,7 +165,7 @@ extern "C" ARM int func_ov000_0217b6d0(Struct_ov000_0217b6d0_3* arg0, int arg1, 
         func_ov000_021716d0(arg0);
         GameObject* var12 = GameState::GetInstance()->GetPartyMemberByIndex(arg0->unknown_4c_);
         if (var12 != NULL) {
-            Struct_ov000_0217b6d0* var13 = (Struct_ov000_0217b6d0*)GetPartyMemberData_02053c6c((unsigned char*)var12);
+            Struct_ov000_0217b6d0* var13 = (Struct_ov000_0217b6d0*)func_02053c6c((unsigned char*)var12);
             if (var13 != NULL) {
                 var13->unknown_962_ = arg0->unknown_26_;
             }

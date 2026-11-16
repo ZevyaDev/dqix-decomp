@@ -2,6 +2,14 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_ov000_02160fd4 func_ov000_02162740
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct BattleScene_ov000_02160da0;
 struct Struct_020a36a8;
 struct Struct_ov026_021d8ba0_4;
@@ -92,7 +100,7 @@ struct Struct_ov023_021f2a48_2 {
 };
 
 extern "C" int func_020a36a8(Struct_020a36a8*);
-extern "C" int TestBattleSceneFlags_ov000_02160fd4(void*, int);
+extern "C" int func_ov000_02160fd4(void*, int);
 extern "C" void func_ov000_02160fbc(void*, int);
 extern "C" void func_020a35cc(unsigned char*, unsigned char);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
@@ -118,7 +126,7 @@ extern "C" void func_ov000_02181694(void*, int);
 extern "C" void func_ov000_0217f5d0(void*);
 
 extern "C" {
-int* GetLocalWireless_0202ae18();
+int* func_0202ae18();
 int func_ov000_0215fad4(Struct_ov000_02161e30*);
 int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
 void func_ov000_02174738(void*, int);
@@ -148,8 +156,8 @@ extern "C" ARM void func_ov026_021dce34(int arg0, BattleScene_ov000_02160da0* ar
     short var2[4];
     GameState* var3 = GameState::GetInstance();
     GetGameResources();
-    int* var4 = GetLocalWireless_0202ae18();
-    if (!func_020a36a8((Struct_020a36a8*)arg3) && !TestBattleSceneFlags_ov000_02160fd4(arg1, 0x80000000)) {
+    int* var4 = func_0202ae18();
+    if (!func_020a36a8((Struct_020a36a8*)arg3) && !func_ov000_02160fd4(arg1, 0x80000000)) {
         return;
     }
     func_ov000_02160fbc(arg1, 0x80000000);
@@ -208,7 +216,7 @@ extern "C" ARM void func_ov026_021dce34(int arg0, BattleScene_ov000_02160da0* ar
             func_ov000_02168644((char*)arg1, var6);
             func_02039894((unsigned char*)var11);
             func_ov000_02167fb0(arg1, var11);
-            if (var11->obj3D_.objectIndex_4_ == 0 && IsLocalWirelessGuest_0202c540(var4)) {
+            if (var11->obj3D_.unknown_4_ == 0 && IsLocalWirelessGuest_0202c540(var4)) {
                 func_ov017_0219c774(arg5->unknown_8_, 0, 0);
             }
         }
@@ -267,7 +275,7 @@ extern "C" ARM void func_ov026_021dce34(int arg0, BattleScene_ov000_02160da0* ar
         }
     }
     if (func_ov000_0215fc60((char*)arg2) != 0) {
-        if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) != 0) {
+        if (IsLocalWirelessGuest_0202c540(func_0202ae18()) != 0) {
             func_ov000_02181364(arg4);
             func_ov000_0217fcc4(arg4, -1);
             func_ov000_021816e8(arg4, -1);
@@ -282,4 +290,9 @@ extern "C" ARM void func_ov026_021dce34(int arg0, BattleScene_ov000_02160da0* ar
             }
         }
     }
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

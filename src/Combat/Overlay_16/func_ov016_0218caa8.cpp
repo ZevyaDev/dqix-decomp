@@ -5,6 +5,16 @@
 #include "NitroSDK/Graphics.h"
 #include "NitroSDK/Interrupts.h"
 #include "NitroSDK/VRAM.h"
+#include "Graphics/BGLayer.h"
+#include "Resource/PAC.h"
+
+#if defined(jpn)
+#define func_020ca458 func_020cbf24
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
 
 
 #define IRQ_MASTER_ENABLE (*(volatile unsigned short*)0x04000208)
@@ -60,20 +70,10 @@ extern "C" int func_020c3864(int);
 extern "C" int GetTitleState_0201201c(void*);
 extern "C" void SetSubBGMode_020c3984(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void FreeMemory_02012da4(AllocatorUnion*, void*);
-extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8*);
-extern "C" void SetBGScreenSize_0204b11c(unsigned char*, int);
-extern "C" void AllocateBGScreenData_0204b12c(BGLayer_0204b12c*, SafeAllocator*);
-extern "C" void AllocateBGScreenBlocks_0204af38(BGLayer_0204af38*, int, SafeAllocator*);
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
-extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
-extern "C" void CopyBGScreenBlockRect_0204b8d0(BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
-extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2*, void*);
+extern "C" void func_02012da4(AllocatorUnion*, void*);
+extern "C" int func_0200fb08(Struct_02000c9c_8*);
 extern "C" void WaitForVBlank_020c9820();
-extern "C" void Memset32Bit_020ca458(unsigned int, void*, unsigned int);
-extern "C" void SetBGPriority_0204b5b4(Struct_ov003_021594c4*, int);
-extern "C" void LoadBGBlock_0204b174(Struct_ov003_021594c4*, void*, SafeAllocator*, unsigned int);
+extern "C" void func_020ca458(unsigned int, void*, unsigned int);
 extern "C" void func_ov016_0218c04c(char*, void*);
 
 #if !defined(jpn)
@@ -105,8 +105,6 @@ struct Struct_ov016_0219d0c0_8 {
 };
 
 struct BGLayer_02020cb8_6;
-extern "C" void FlushBGBlock_0204b2e0(void*, char*);
-extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6*, char*);
 extern "C" void func_ov016_0218ca98(char*);
 extern const char data_ov016_0219cf00[];
 extern Struct_ov016_0219d0c0_8 data_ov016_0219d0c0;
@@ -130,11 +128,11 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
     if (GetTitleState_0201201c(var1) == 5)
     {
         MapVRAMBanksToLCDC(0x1ff);
-        Memset32Bit_020ca458(0, (void*)0x06800000, 0xa4000);
-        Memset32Bit_020ca458(0xc0, (void*)0x07000000, 0x400);
-        Memset32Bit_020ca458(0, (void*)0x05000000, 0x400);
-        Memset32Bit_020ca458(0xc0, (void*)0x07000400, 0x400);
-        Memset32Bit_020ca458(0, (void*)0x05000400, 0x400);
+        func_020ca458(0, (void*)0x06800000, 0xa4000);
+        func_020ca458(0xc0, (void*)0x07000000, 0x400);
+        func_020ca458(0, (void*)0x05000000, 0x400);
+        func_020ca458(0xc0, (void*)0x07000400, 0x400);
+        func_020ca458(0, (void*)0x05000400, 0x400);
         MapVRAMBanksToLCDC(3);
         MapVRAMBanksToSubBG(0x80);
         SetSubBGMode_020c3984(0);
@@ -158,21 +156,21 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
             if (var4->GetTaskStatus(var3) != 0)
             {
                 var4->GetLoadedFileByID(var3, &var6, &var7);
-                int var8 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var6);
+                int var8 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var6));
                 Struct_ov003_021594c4 var9;
-                InitBGLayer_0204af64((BGLayer_02020cb8*)&var9);
+                ((BGLayer*)((BGLayer_02020cb8*)&var9))->Reset();
                 var9.unknown_1c_0_ = 1;
                 var9.unknown_1c_4_ = 0;
-                SetBGPriority_0204b5b4(&var9, 0);
-                SetBGScreenSize_0204b11c((unsigned char*)&var9, 0);
+                ((BGLayer*)(&var9))->SetPriority(0);
+                ((BGLayer*)((unsigned char*)&var9))->ConfigureTextMode(0);
                 for (int var10 = 0; var10 < var8; var10++)
                 {
                     int var11;
-                    char* var12 = (char*)GetPacEntryData_020467f0((PacEntry_02020aec*)var6, var10, &var5, &var11);
+                    char* var12 = (char*)GetFileInPACByIndex((void*)((PacEntry_02020aec*)var6), var10, (const char**)(&var5), (unsigned int*)(&var11));
                     if (var12 != NULL)
                     {
-                        FlushBGBlock_0204b2e0(&var9, var12);
-                        CopyBGBlockToVRAM_0204b3a0((BGLayer_02020cb8_6*)&var9, var12);
+                        ((BGLayer*)(&var9))->ProcessGraphicsFileMetadata((const void*)(var12));
+                        ((BGLayer*)((BGLayer_02020cb8_6*)&var9))->StageGraphicsFileBuffer((const void*)(var12));
                     }
                 }
                 var4->RemoveTask(var3);
@@ -184,12 +182,12 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
     else
     {
         MapVRAMBanksToLCDC(0x1ff);
-        Memset32Bit_020ca458(0, (void*)0x06800000, 0xa4000);
+        func_020ca458(0, (void*)0x06800000, 0xa4000);
         DisableLCDCMappedVRAMBanks();
-        Memset32Bit_020ca458(0xc0, (void*)0x07000000, 0x400);
-        Memset32Bit_020ca458(0, (void*)0x05000000, 0x400);
-        Memset32Bit_020ca458(0xc0, (void*)0x07000400, 0x400);
-        Memset32Bit_020ca458(0, (void*)0x05000400, 0x400);
+        func_020ca458(0xc0, (void*)0x07000000, 0x400);
+        func_020ca458(0, (void*)0x05000000, 0x400);
+        func_020ca458(0xc0, (void*)0x07000400, 0x400);
+        func_020ca458(0, (void*)0x05000400, 0x400);
         MapVRAMBanksToLCDC(0x1ff);
     }
     WaitForVBlank_020c9820();
@@ -225,11 +223,11 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
     if (GetTitleState_0201201c(var14) == 5)
     {
         MapVRAMBanksToLCDC(0x1ff);
-        Memset32Bit_020ca458(0, (void*)0x06800000, 0xa4000);
-        Memset32Bit_020ca458(0xc0, (void*)0x07000000, 0x400);
-        Memset32Bit_020ca458(0, (void*)0x05000000, 0x400);
-        Memset32Bit_020ca458(0xc0, (void*)0x07000400, 0x400);
-        Memset32Bit_020ca458(0, (void*)0x05000400, 0x400);
+        func_020ca458(0, (void*)0x06800000, 0xa4000);
+        func_020ca458(0xc0, (void*)0x07000000, 0x400);
+        func_020ca458(0, (void*)0x05000000, 0x400);
+        func_020ca458(0xc0, (void*)0x07000400, 0x400);
+        func_020ca458(0, (void*)0x05000400, 0x400);
         MapVRAMBanksToLCDC(3);
         MapVRAMBanksToSubBG(0x80);
         SetSubBGMode_020c3984(0);
@@ -244,16 +242,15 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
         void* var16 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x2000);
         SafeAllocator var17;
         var17.ResetAllocatorPointer();
-        var17.ResetAllocatorPointer();
         var17.CreateTypeA(var16, 0x2000);
         Struct_ov003_021594c4 var18;
-        InitBGLayer_0204af64((BGLayer_02020cb8*)&var18);
+        ((BGLayer*)((BGLayer_02020cb8*)&var18))->Reset();
         var18.unknown_1c_0_ = 1;
         var18.unknown_1c_4_ = 0;
-        SetBGPriority_0204b5b4(&var18, 0);
-        SetBGScreenSize_0204b11c((unsigned char*)&var18, 0);
-        AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)&var18, &var17);
-        AllocateBGScreenBlocks_0204af38((BGLayer_0204af38*)&var18, 5, &var17);
+        ((BGLayer*)(&var18))->SetPriority(0);
+        ((BGLayer*)((unsigned char*)&var18))->ConfigureTextMode(0);
+        ((BGLayer*)((BGLayer_0204b12c*)&var18))->AllocateIndexBuffer((SafeAllocator*)(&var17));
+        ((BGLayer*)((BGLayer_0204af38*)&var18))->AllocateSprites(5, (SafeAllocator*)(&var17));
         int var19;
         BackgroundLoader* var20 = BackgroundLoader::GetInstance();
         var20->MaybeReset();
@@ -266,19 +263,19 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
             if (var20->GetTaskStatus(var19) != 0)
             {
                 var20->GetLoadedFileByID(var19, &var22, &var23);
-                int var24 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var22);
+                int var24 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var22));
                 for (int var25 = 0; var25 < var24; var25++)
                 {
                     int var26;
-                    void* var27 = GetPacEntryData_020467f0((PacEntry_02020aec*)var22, var25, &var21, &var26);
+                    void* var27 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var22), var25, (const char**)(&var21), (unsigned int*)(&var26));
                     if (var27 != NULL)
                     {
-                        LoadBGBlock_0204b174(&var18, var27, &var17, var26);
+                        ((BGLayer*)(&var18))->ProcessGraphicsFile((const void*)var27, (SafeAllocator*)(&var17), var26);
                     }
                 }
                 var20->RemoveTask(var19);
                 int var28 = 0;
-                switch (GetGameLanguage_0200fb08((Struct_02000c9c_8*)var14))
+                switch (func_0200fb08((Struct_02000c9c_8*)var14))
                 {
                 case 2:
                     var28 = 1;
@@ -293,12 +290,12 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
                     var28 = 4;
                     break;
                 }
-                CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&var18, 0, 0, 0, 0, 0, 32, 25, 0xffff);
+                ((BGLayer*)((BGLayer_0204b8d0*)&var18))->BlitSpriteByIndex(0, 0, 0, 0, 0, 32, 25, 0xffff);
                 if (var28 > 0)
                 {
-                    CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)&var18, (unsigned char)var28, 0, 0, 0, 17, 32, 25, 0xffff);
+                    ((BGLayer*)((BGLayer_0204b8d0*)&var18))->BlitSpriteByIndex((unsigned char)var28, 0, 0, 0, 17, 32, 25, 0xffff);
                 }
-                LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)&var18, NULL);
+                ((BGLayer*)((BGLayer_02020cb8_2*)&var18))->CleanCacheAndUploadIndexBuffer((const void*)(NULL));
                 break;
             }
             var20->RemoveAllLocks();
@@ -309,18 +306,18 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
         }
         if (var16 != NULL)
         {
-            FreeMemory_02012da4(&gMainHeap_02114e20, var16);
+            func_02012da4(&gMainHeap_02114e20, var16);
         }
     }
     else
     {
         MapVRAMBanksToLCDC(0x1ff);
-        Memset32Bit_020ca458(0, (void*)0x06800000, 0xa4000);
+        func_020ca458(0, (void*)0x06800000, 0xa4000);
         DisableLCDCMappedVRAMBanks();
-        Memset32Bit_020ca458(0xc0, (void*)0x07000000, 0x400);
-        Memset32Bit_020ca458(0, (void*)0x05000000, 0x400);
-        Memset32Bit_020ca458(0xc0, (void*)0x07000400, 0x400);
-        Memset32Bit_020ca458(0, (void*)0x05000400, 0x400);
+        func_020ca458(0xc0, (void*)0x07000000, 0x400);
+        func_020ca458(0, (void*)0x05000000, 0x400);
+        func_020ca458(0xc0, (void*)0x07000400, 0x400);
+        func_020ca458(0, (void*)0x05000400, 0x400);
         MapVRAMBanksToLCDC(0x1ff);
     }
     WaitForVBlank_020c9820();

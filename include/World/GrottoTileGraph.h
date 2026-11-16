@@ -1,6 +1,7 @@
 #pragma once
 
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 
 struct Struct_0201a300_3 {
     unsigned char unknown_0_;

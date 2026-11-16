@@ -77,3 +77,8 @@ extern "C" ARM void func_ov000_0216dbf0(char* arg0, int* arg1, int arg2, short a
     *(int*)(arg0 + 0x238) = 0x1c;
     *(int*)(arg0 + 0x23c) = 0x14;
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

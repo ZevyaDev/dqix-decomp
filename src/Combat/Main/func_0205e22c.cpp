@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "Combat/SearchEntry.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 
 struct Struct_0202c7bc_2;
@@ -17,7 +21,7 @@ struct Struct_0205e18c {
 };
 extern "C" void func_0205e18c(struct Struct_0205e18c* arg0, struct Struct_0205e18c_2* arg1);
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void UpdateLocalWirelessPlayerCount_0202c288(void);
 extern "C" void* func_0202c19c(void* arg0);
 
@@ -42,7 +46,7 @@ extern "C" ARM void func_0205e22c(void* arg0) {
         func_0205e18c((struct Struct_0205e18c*)((char*)arg0 + 0x1500), &var0[var1]);
     }
 
-    void* var2 = GetLocalWireless_0202ae18();
+    void* var2 = func_0202ae18();
     UpdateLocalWirelessPlayerCount_0202c288();
 
     struct Struct_0205e22c* var3 = (struct Struct_0205e22c*)func_0202c19c(var2);

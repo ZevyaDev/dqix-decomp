@@ -1,6 +1,11 @@
 #include <globaldefs.h>
 #include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "World/Object3D.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
+
+#if defined(jpn)
+#define func_02033fa0 func_02033ad8
+#endif
 
 struct Struct_02040774_2 {
     char unknown_0_[0x44];
@@ -28,25 +33,25 @@ extern "C" ARM void func_020ae20c(void* arg0, struct Struct_02040774_2* arg1, in
             var0 = 0x14;
     }
 
-    RenderConfig::SetPolygonAttributes(1, 3, 1, 0, var0, 0x8000);
+    Nitro3DRenderConfig::SetPolygonAttributes(1, 3, 1, 0, var0, 0x8000);
     {
-        NSBXXInternalModel* var2 = ((Object3D*)arg1)->pModel_->rawInternalModel_;
-        NSBXX_Model_AdjustPolygonAttrMask(var2, 0, 0x30);
-        NSBXX_Model_AdjustPolygonAttrMask(var2, 0, 0xc0);
-        NSBXX_Model_AdjustPolygonAttrMask(var2, 0, 0x3f000000);
-        NSBXX_Model_AdjustPolygonAttrMask(var2, 0, 0x1f0000);
-        NSBXX_Model_AdjustPolygonAttrMask(var2, 0, 0x8000);
+        Nitro3DModel* var2 = ((Object3D*)arg1)->pModel_->rawInternalModel_;
+        Nitro3D_ConfigureModelPolygonAttrMask((Nitro3DModel*)(var2), 0, 0x30);
+        Nitro3D_ConfigureModelPolygonAttrMask((Nitro3DModel*)(var2), 0, 0xc0);
+        Nitro3D_ConfigureModelPolygonAttrMask((Nitro3DModel*)(var2), 0, 0x3f000000);
+        Nitro3D_ConfigureModelPolygonAttrMask((Nitro3DModel*)(var2), 0, 0x1f0000);
+        Nitro3D_ConfigureModelPolygonAttrMask((Nitro3DModel*)(var2), 0, 0x8000);
     }
     ((Object3D*)arg1)->Draw(true);
 
-    RenderConfig::SetPolygonAttributes(1, 3, 3, 0x3c, var0, 0x8000);
+    Nitro3DRenderConfig::SetPolygonAttributes(1, 3, 3, 0x3c, var0, 0x8000);
     {
-        NSBXXInternalModel* var3 = ((Object3D*)arg1)->pModel_->rawInternalModel_;
-        NSBXX_Model_AdjustPolygonAttrMask(var3, 0, 0x30);
-        NSBXX_Model_AdjustPolygonAttrMask(var3, 0, 0xc0);
-        NSBXX_Model_AdjustPolygonAttrMask(var3, 0, 0x3f000000);
-        NSBXX_Model_AdjustPolygonAttrMask(var3, 0, 0x1f0000);
-        NSBXX_Model_AdjustPolygonAttrMask(var3, 0, 0x8000);
+        Nitro3DModel* var3 = ((Object3D*)arg1)->pModel_->rawInternalModel_;
+        Nitro3D_ConfigureModelPolygonAttrMask((Nitro3DModel*)(var3), 0, 0x30);
+        Nitro3D_ConfigureModelPolygonAttrMask((Nitro3DModel*)(var3), 0, 0xc0);
+        Nitro3D_ConfigureModelPolygonAttrMask((Nitro3DModel*)(var3), 0, 0x3f000000);
+        Nitro3D_ConfigureModelPolygonAttrMask((Nitro3DModel*)(var3), 0, 0x1f0000);
+        Nitro3D_ConfigureModelPolygonAttrMask((Nitro3DModel*)(var3), 0, 0x8000);
     }
     ((Object3D*)arg1)->Draw(true);
 }

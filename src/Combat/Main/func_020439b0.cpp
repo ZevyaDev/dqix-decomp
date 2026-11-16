@@ -20,6 +20,7 @@ extern "C" void SetMessageWindowRect_02042b98(void* window, int x, int y, int wi
 extern "C" void func_0204408c(struct Struct_020439b0_7* arg0, short arg1, short arg2, short arg3, short arg4);
 extern "C" void func_02043600(void* arg0, void* arg1);
 #include "Resource/MessageUpdate.h"
+#include "Graphics/TextureArena.h"
 extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" void func_020437bc(void* arg0, void* arg1, int arg2);
 
@@ -32,10 +33,8 @@ extern "C" void func_0204394c(struct Struct_0204394c* arg0);
 struct DisplayWindow_020439b0;
 extern "C" void SetDisplayWindowEnabled_020e2cc4(struct DisplayWindow_020439b0* displayWindow, int isEnabled);
 
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
 struct Struct_0200f3a4_13;
 extern "C" void func_02041754(Struct_0204166c* arg0);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_02042af4(int arg0, unsigned char* arg1, int arg2);
 
 struct Struct_020439b0_3;
@@ -263,9 +262,9 @@ extern "C" ARM void func_020439b0(char* arg0, int arg1) {
         ) != 0) {
                             var31->unknown_16_0_ = 0;
                         } else {
-                            RestoreTextureVRAMState_0207df90((char*)var0->unknown_1e28_);
+                            ((TextureArena*)((char*)var0->unknown_1e28_))->Restore();
                             func_02041754(var31);
-                            SaveTextureVRAMState_0207dfac((char*)var0->unknown_1e28_);
+                            ((TextureArena*)((char*)var0->unknown_1e28_))->Save();
                         }
                         func_02042af4((int)arg0, var0->unknown_2cc_, var31->unknown_8_);
                     }

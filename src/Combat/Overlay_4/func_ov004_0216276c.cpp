@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 class Struct_ov004_0216276c_2 {
 public:
     virtual void inline_ov004_0216276c_19(); virtual void inline_ov004_0216276c_20(); virtual void inline_ov004_0216276c_21(); virtual void inline_ov004_0216276c_22();
@@ -47,7 +51,7 @@ extern unsigned char data_ov004_021710d5[];
 extern int data_ov004_0216fe5c[];
 extern unsigned char data_ov004_02170845[];
 #endif
-extern "C" Struct_ov004_0216276c* GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" Struct_ov004_0216276c* func_02053c6c(unsigned char*);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void func_ov004_0215e574(void*, int, int, int, int);
 extern "C" Struct_ov004_0216276c_2* FindMenuObjectById_ov023_021f6880(void*, int);
@@ -62,7 +66,7 @@ extern "C" ARM int func_ov004_0216276c(void* arg0) {
     data_ov004_021707e8.unknown1_7_ = 0x68;
     GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), data_ov004_021707e8.unknown_1c_);
     if (!var0) return 0;
-    Struct_ov004_0216276c* var1 = GetPartyMemberData_02053c6c(((unsigned char*)(var0)));
+    Struct_ov004_0216276c* var1 = func_02053c6c(((unsigned char*)(var0)));
     if (!var1) return 0;
     void* var2 = GetMenuObjectList_ov011_021849c8(arg0);
 #if !defined(jpn)
@@ -140,4 +144,9 @@ extern "C" ARM int func_ov004_0216276c(void* arg0) {
         ++var5;
     }
     return 0;
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

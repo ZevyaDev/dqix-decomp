@@ -34,3 +34,8 @@ extern "C" ARM void func_ov000_0216f0d0(Struct_ov000_0216f0d0* arg0) {
     }
     SetCameraOrbitFromArray_0202e694(arg0, (int*)&var0);
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

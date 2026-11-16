@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 
 struct Struct_02000c9c_19;
 struct Struct_02013fb4;
@@ -24,6 +25,6 @@ extern "C" ARM int func_02013fb4(Zone3D* arg0) {
                  static_cast<Struct_02013fb4*>(var2), var3);
     var1->RemoveTask(var0->mapListLoadHandle_);
     var0->mapListLoadHandle_ = -1;
-    var0->func_0201403c();
+    func_0201403c(var0);
     return 1;
 }

@@ -1,6 +1,11 @@
 #include "GameState/GameState.h"
 #include "Resource/CharacterCreationUI.h"
 #include <globaldefs.h>
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct Struct_0205c570;
 struct TextWindowManager_0205cf1c;
@@ -60,7 +65,7 @@ static inline Struct_01ff91ac_29 *inline_ov003_0215d150(Struct_ov003_0215d150 *a
 static inline int inline_ov003_0215d150_2(Struct_01ff91ac_29 *arg0) { return arg0->unknown_b3c_; }
 
 extern "C" Struct_ov003_0215d150_2 *GetMessageWindow_020421a0();
-extern "C" int *GetLocalWireless_0202ae18();
+extern "C" int *func_0202ae18();
 extern "C" Struct_ov003_0215d150 *GetZone3D_02012fe4();
 extern "C" void ClearMessageParams_02046380(void *window);
 struct MessageWindow_020465c0;
@@ -71,7 +76,6 @@ extern "C" int IsLocalWirelessGuest_0202c540(int *wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(int *wireless);
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
-extern "C" const char * FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" void func_ov003_0215cab0(char *arg0, void *arg1);
 extern "C" void func_ov003_0215ddc0(char *arg0);
@@ -96,7 +100,7 @@ extern int gSoundEffectManager_02108760;
 extern "C" ARM void func_ov003_0215d150(Struct_ov003_02154af4_3 *arg0) {
     GameState *var0 = GameState::GetInstance();
     Struct_ov003_0215d150_2 *var1       = GetMessageWindow_020421a0();
-    int *var2       = GetLocalWireless_0202ae18();
+    int *var2       = func_0202ae18();
     Struct_ov003_0215d150 *var3      = GetZone3D_02012fe4();
 
     if (var1->unknown_9a0_ == 3) {
@@ -132,7 +136,7 @@ extern "C" ARM void func_ov003_0215d150(Struct_ov003_02154af4_3 *arg0) {
             }
 
             if (var8 != 0) {
-                AppendText_02042058(var7, FindStringInTable_020e0434(&arg0->unknown_64_, (short)0x64));
+                AppendText_02042058(var7, ((StringList*)(&arg0->unknown_64_))->GetString((short)0x64));
             }
 
             if (inline_ov003_0215d150_2(inline_ov003_0215d150(var3)) == 6) {
@@ -142,18 +146,18 @@ extern "C" ARM void func_ov003_0215d150(Struct_ov003_02154af4_3 *arg0) {
             } else {
                 var5 = 0x68;
             }
-            AppendText_02042058(var7, FindStringInTable_020e0434(&arg0->unknown_64_, (short)var5));
+            AppendText_02042058(var7, ((StringList*)(&arg0->unknown_64_))->GetString((short)var5));
 
             if (var8 == 0) {
-                AppendText_02042058(var7, FindStringInTable_020e0434(&arg0->unknown_64_, (short)0x6f));
+                AppendText_02042058(var7, ((StringList*)(&arg0->unknown_64_))->GetString((short)0x6f));
             } else {
                 int var9;
                 var9 = (arg0->unknown_3d0_ != 0) ? 0x66 : 0x69;
-                AppendText_02042058(var7, FindStringInTable_020e0434(&arg0->unknown_64_, (short)var9));
+                AppendText_02042058(var7, ((StringList*)(&arg0->unknown_64_))->GetString((short)var9));
             }
         } else {
             int var10 = var6 + 0x3e8;
-            AppendText_02042058(var7, FindStringInTable_020e0434(&arg0->unknown_64_, (short)var10));
+            AppendText_02042058(var7, ((StringList*)(&arg0->unknown_64_))->GetString((short)var10));
         }
 
         func_ov003_0215cab0((char *) arg0, var7);

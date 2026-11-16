@@ -72,3 +72,8 @@ extern "C" ARM void func_02048cf0(struct Struct_02048cf0_3* arg0, int arg1) {
     ((Object3D*)arg0)->SetAnimationPlaybackSpeed(0x1000, 0);
     func_02048c90((Struct_02048c90*)arg0);
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

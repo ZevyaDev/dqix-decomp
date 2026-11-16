@@ -2,6 +2,10 @@
 #include "std_library_functions.h"
 #include "Combat/Main/BattleList.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_ov024_021fdf04 {
     PrimaryCombatStats unknown_0_;
     unsigned int unknown_14_;
@@ -92,7 +96,7 @@ struct Struct_ov024_021fdf04_6 { unsigned int unknown_0_0_ : 1; unsigned int unk
 struct Struct_ov024_021fefea { unsigned char unknown_0_; unsigned char unknown_1_; };
 extern const Struct_ov024_021fefea data_ov024_021fefea[];
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" int func_02053c6c(unsigned char*);
 extern "C" void* GetActionTables_020797dc();
 extern "C" void func_ov024_021f8bd8(Struct_ov024_021fdf04_5*, float*, Struct_ov024_021fdf04_8*, Struct_ov024_021fdf04_2*);
 extern "C" void __clear(void*, int);
@@ -122,7 +126,7 @@ extern "C" void func_ov024_021f9874(Struct_ov024_021fdf04_5*, Struct_ov024_021f6
 // USA: func_ov024_021fdf04
 extern "C" ARM void func_ov024_021fdf04(Struct_ov024_021fdf04_5* arg0, int arg1) {
     Struct_ov024_021fdf04_8* var0 = arg0->unknown_8_;
-    GetPartyMemberData_02053c6c((unsigned char*)var0);
+    func_02053c6c((unsigned char*)var0);
     GetActionTables_020797dc();
 
     Struct_ov024_021fdf04_2* var1 = arg0->unknown_64c_;

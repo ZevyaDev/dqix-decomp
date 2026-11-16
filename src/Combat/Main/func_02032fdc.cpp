@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
 
@@ -17,7 +18,6 @@ struct Struct_02032fdc : Object3D {
     int unknown_124_;
 };
 
-extern int data_0210a05c[];
 
 // USA: func_02032fdc
 extern "C" ARM bool func_02032fdc(Struct_02032fdc* arg0, bool arg1, Vector3fix* arg2) {
@@ -48,7 +48,8 @@ extern "C" ARM bool func_02032fdc(Struct_02032fdc* arg0, bool arg1, Vector3fix* 
     if (arg0->unknown_bc_ != 0) {
         GameState* var8 = GameState::GetInstance();
         unsigned int var9 = var8->GetEffectiveDeltaTime();
-        Vector3fix var10 = {data_0210a05c[0], data_0210a05c[3], data_0210a05c[6]};
+        const Matrix4x3& var12 = g_nitro3DRenderConfig.viewMatrix;
+        Vector3fix var10 = {var12.rows[0].x, var12.rows[1].x, var12.rows[2].x};
         Vector3fixMultiplyScalar(&var10, arg0->unknown_ba_, &var10);
         Vector3fix var11;
         Vector3fix_Add(&arg0->position_, &var10, &var11);

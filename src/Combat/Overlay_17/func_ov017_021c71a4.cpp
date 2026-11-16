@@ -2,6 +2,14 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
 struct Struct_ov017_021c6d50 {
     unsigned char unknown_0_0_ : 1;
     unsigned char unknown_0_1_ : 1;
@@ -32,8 +40,8 @@ static inline unsigned int inline_ov017_021c71a4_3(Struct_ov017_021c71a4* arg0) 
 static inline unsigned int inline_ov017_021c71a4_4(Struct_ov017_021c71a4* arg0) { return arg0->unknown_3b_.unknown_0_2_; }
 static inline unsigned int inline_ov017_021c71a4(Struct_ov017_021c71a4* arg0) { return arg0->unknown_3b_.unknown_0_3_; }
 static inline unsigned int inline_ov003_0216e714(Struct_ov017_021c71a4* arg0) { return arg0->unknown_3b_.unknown_0_4_; }
-extern "C" Struct_ov017_021c71a4_4* GetBattleSetup_ov017_021b8478(void*);
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
+extern "C" Struct_ov017_021c71a4_4* func_ov017_021b8478(void*);
+extern "C" void* func_0202ae24();
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" void QueueOutgoingPacket_0205e330(void*, void*, int);
 
@@ -41,11 +49,11 @@ extern "C" void QueueOutgoingPacket_0205e330(void*, void*, int);
 extern "C" ARM void func_ov017_021c71a4() {
     GameState* var0 = GameState::GetInstance();
 #if defined(jpn)
-    Struct_ov017_021c71a4_4* var1 = GetBattleSetup_ov017_021b8478(*(void**)((char*)GetGameResources() + 0x3508));
+    Struct_ov017_021c71a4_4* var1 = func_ov017_021b8478(*(void**)((char*)GetGameResources() + 0x3508));
 #else
-    Struct_ov017_021c71a4_4* var1 = GetBattleSetup_ov017_021b8478(GetGameResources()->unknown_ptr_3718);
+    Struct_ov017_021c71a4_4* var1 = func_ov017_021b8478(GetGameResources()->unknown_ptr_3718);
 #endif
-    void* var2 = GetLocalWirelessPacketQueue_0202ae24();
+    void* var2 = func_0202ae24();
     Struct_ov017_021c71a4_3 var3;
     var3.unknown_0_ = 0x71;
     Struct_ov017_021c71a4_2* var4 = (Struct_ov017_021c71a4_2*)var3.unknown_4_;

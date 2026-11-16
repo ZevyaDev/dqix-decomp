@@ -26,16 +26,17 @@
 #include "GameState/GameState.h"
 #include "World/Object3D.h"
 #include "Resource/GameResources.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Graphics/TextureArena.h"
+#include "Resource/PAC.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 
-extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 struct PacEntry_02020cb8_4;
-extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
-extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, void* allocator);
 
 struct BGLayer_02020cb8 {
     unsigned char unknown_0_[0x1c];
@@ -43,16 +44,9 @@ struct BGLayer_02020cb8 {
     unsigned char bgIndex_1c_4_ : 4;
     unsigned char unknown_1d_[3];
 };
-extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
-extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
-extern "C" void SetBGPriority_0204b5b4(void* layer, int priority);
 struct BGLayer_0204b12c;
-extern "C" void AllocateBGScreenData_0204b12c(struct BGLayer_0204b12c* layer, SafeAllocator* allocator);
 struct BGLayer_02020cb8_5;
-extern "C" void SetBGScroll_0204b5e8(struct BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
 struct BGLayer_0204b010;
-extern "C" void ClearBGScreenData_0204b010(struct BGLayer_0204b010* layer, void* screenData);
-extern "C" void LoadBGBlock_0204b174(void* layer, void* block, void* allocator, int arg3);
 
 struct TextWindow_0204c7a8 {
     int unknown_0_;
@@ -100,9 +94,6 @@ extern "C" char* GetResources_0200fb8c(int* gameState);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 struct TextureVRAMArea_0203d028;
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 struct Struct_02040774_2;
 extern "C" void SetObject3DPosition_020407b4(struct Struct_02040774_2* object, int x, int y, int z);
 struct Struct_02059cfc_2;
@@ -111,7 +102,6 @@ extern "C" void SetObject3DPositionFromVector_02059f38(struct Struct_02059cfc_2*
 extern "C" void func_ov006_021542f4(void* arg0);
 struct Struct_ov006_0215426c;
 extern "C" void func_ov006_0215426c(struct Struct_ov006_0215426c* arg0);
-void SetModelRenderContextRenderCommandHook(ModelRenderContext* context, void (*hook)(RenderCommandHandler*), int a, int b, int c);
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int* reg, int planeA, int planeB, int evA, int evB);
 struct Struct_020dbf18 {
     unsigned char unknown_0_[0x10];
@@ -192,7 +182,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
     unsigned char var1 = arg0->unknown_add_;
 
     if (var1 == 0) {
-        InitSpriteSet_0205a444((char*)&arg0->unknown_1e4_);
+        ((OBJSpriteSet*)((char*)&arg0->unknown_1e4_))->Reset();
         arg0->unknown_1e4_.unknown_50_ = 0;
         arg0->unknown_1e4_.unknown_40_ = arg0->unknown_1e0_;
         arg0->unknown_1e4_.unknown_4c_ = 0x11;
@@ -205,13 +195,13 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         unsigned int var4;
         int var5;
         var0->GetLoadedFileByID(arg0->unknown_ad4_, &var3, &var4);
-        int var6 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var3);
+        int var6 = GetNumFilesInPAC((const void*)((struct PacEntry_02020cb8_4*)var3));
         SafeAllocator* var7 = arg0->unknown_180_;
         var7->Reset();
         for (int var8 = 0; var8 < var6; var8++) {
-            void* var9 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var3, var8, &var2, &var5);
+            void* var9 = GetFileInPACByIndex((void*)((struct PacEntry_02020aec*)var3), var8, (const char**)(&var2), (unsigned int*)(&var5));
             if (var9 != NULL) {
-                LoadSpriteSetFile_0205a528(&arg0->unknown_1e4_, var9, var5, var7);
+                ((OBJSpriteSet*)(&arg0->unknown_1e4_))->LoadFromNitroFile((void*)(var9), var5, (SafeAllocator*)(var7));
             }
         }
         var0->RemoveTask(arg0->unknown_ad4_);
@@ -227,16 +217,16 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         struct Struct_ov006_0215ff54 var12 = data_ov006_0215ff54;
         for (unsigned char var13 = 0; var13 < 2; var13++) {
             struct BGLayer_02020cb8* var14 = &arg0->unknown_1cc_[var13];
-            InitBGLayer_0204af64(var14);
+            ((BGLayer*)(var14))->Reset();
             var14->isSubScreen_1c_0_ = 0;
             var14->bgIndex_1c_4_ = var13 + 1;
-            SetBGScreenSize_0204b11c((unsigned char*)var14, 0);
-            SetBGPriority_0204b5b4(var14, var12.unknown_0_[var13]);
-            AllocateBGScreenData_0204b12c((struct BGLayer_0204b12c*)var14, var11);
-            SetBGScroll_0204b5e8((struct BGLayer_02020cb8_5*)var14, 0, 0);
+            ((BGLayer*)((unsigned char*)var14))->ConfigureTextMode(0);
+            ((BGLayer*)(var14))->SetPriority(var12.unknown_0_[var13]);
+            ((BGLayer*)((struct BGLayer_0204b12c*)var14))->AllocateIndexBuffer((SafeAllocator*)(var11));
+            ((BGLayer*)((struct BGLayer_02020cb8_5*)var14))->SetOffset(0, 0);
         }
-        ClearBGScreenData_0204b010((struct BGLayer_0204b010*)&arg0->unknown_1cc_[0], NULL);
-        ClearBGScreenData_0204b010((struct BGLayer_0204b010*)&arg0->unknown_1cc_[1], NULL);
+        ((BGLayer*)((struct BGLayer_0204b010*)&arg0->unknown_1cc_[0]))->PrepareIndexBuffer((void*)(NULL));
+        ((BGLayer*)((struct BGLayer_0204b010*)&arg0->unknown_1cc_[1]))->PrepareIndexBuffer((void*)(NULL));
         SafeAllocator* var15 = arg0->unknown_180_;
         var15[3].Reset();
         for (unsigned char var16 = 0; var16 < 1; var16++) {
@@ -254,12 +244,12 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         unsigned int var20;
         int var21;
         var0->GetLoadedFileByID(arg0->unknown_ad4_, &var19, &var20);
-        int var22 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var19);
+        int var22 = GetNumFilesInPAC((const void*)((struct PacEntry_02020cb8_4*)var19));
         SafeAllocator* var23 = arg0->unknown_180_;
         for (int var24 = 0; var24 < var22; var24++) {
-            void* var25 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var19, var24, &var18, &var21);
+            void* var25 = GetFileInPACByIndex((void*)((struct PacEntry_02020aec*)var19), var24, (const char**)(&var18), (unsigned int*)(&var21));
             if (var25 != NULL) {
-                LoadBGBlock_0204b174(arg0->unknown_1cc_, var25, &var23[2], var21);
+                ((BGLayer*)arg0->unknown_1cc_)->ProcessGraphicsFile((const void*)var25, (SafeAllocator*)(&var23[2]), var21);
             }
         }
         var0->RemoveTask(arg0->unknown_ad4_);
@@ -355,8 +345,8 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
             GameResources* var41 = (GameResources*)GetResources_0200fb8c((int*)GameState::GetInstance());
             SafeAllocator* var42 = inline_ov000_02166804(var41, 0);
             var42->Reset();
-            ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)var41->unknown_2cc_);
-            RestoreTextureVRAMState_0207df90(var41->unknown_2cc_);
+            ((TextureArena*)((struct TextureVRAMArea_0203d028*)var41->unknown_2cc_))->Reset();
+            ((TextureArena*)(var41->unknown_2cc_))->Restore();
             ObjectArchiveLoadInfo var43;
             var43.fileData = var39;
             var43.unk_8 = var40;
@@ -364,7 +354,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
             var43.unk_10 = 1;
             arg0->unknown_238_[0].LoadFromCHRArchive(&var43);
             arg0->unknown_238_[0].MaybeSetBCFGAnimation(0, 0);
-            SaveTextureVRAMState_0207dfac(var41->unknown_2cc_);
+            ((TextureArena*)(var41->unknown_2cc_))->Save();
             SetObject3DPosition_020407b4((struct Struct_02040774_2*)&arg0->unknown_238_[0], -0x3800, -0xb3b, 0x60a3);
         }
         var0->RemoveTask(arg0->unknown_ad4_);
@@ -381,7 +371,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         if (var44 != NULL) {
             GameResources* var46 = (GameResources*)GetResources_0200fb8c((int*)GameState::GetInstance());
             SafeAllocator* var47 = inline_ov000_02166804(var46, 0);
-            RestoreTextureVRAMState_0207df90(var46->unknown_2cc_);
+            ((TextureArena*)(var46->unknown_2cc_))->Restore();
             ObjectArchiveLoadInfo var48;
             var48.fileData = var44;
             var48.unk_8 = var45;
@@ -389,7 +379,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
             var48.unk_10 = 1;
             arg0->unknown_238_[1].LoadFromCCHROrCMOTArchive(&var48, NULL);
             arg0->unknown_238_[1].MaybeSetBCFGAnimation(0, 0);
-            SaveTextureVRAMState_0207dfac(var46->unknown_2cc_);
+            ((TextureArena*)(var46->unknown_2cc_))->Save();
             arg0->unknown_238_[1].SetScale(0x10a, 0x10a, 0x10a);
             SetObject3DPosition_020407b4((struct Struct_02040774_2*)&arg0->unknown_238_[1], -0x41, -0xaac, 0x61f3);
         }
@@ -407,7 +397,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         if (var49 != NULL) {
             GameResources* var51 = (GameResources*)GetResources_0200fb8c((int*)GameState::GetInstance());
             SafeAllocator* var52 = inline_ov000_02166804(var51, 0);
-            RestoreTextureVRAMState_0207df90(var51->unknown_2cc_);
+            ((TextureArena*)(var51->unknown_2cc_))->Restore();
             ObjectArchiveLoadInfo var53;
             var53.fileData = var49;
             var53.unk_8 = var50;
@@ -415,7 +405,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
             var53.unk_10 = 1;
             arg0->unknown_238_[2].LoadFromCCHROrCMOTArchive(&var53, NULL);
             arg0->unknown_238_[2].MaybeSetBCFGAnimation(0, 0);
-            SaveTextureVRAMState_0207dfac(var51->unknown_2cc_);
+            ((TextureArena*)(var51->unknown_2cc_))->Save();
             arg0->unknown_238_[2].SetScale(0x10a, 0x10a, 0x10a);
             SetObject3DPositionFromVector_02059f38((struct Struct_02059cfc_2*)&arg0->unknown_238_[2], (struct Struct_02059cfc_3*)&arg0->unknown_238_[1].position_);
         }
@@ -430,7 +420,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         GameResources* var54 = GetGameResources();
         arg0->unknown_18c_.CreateTypeA(var54->allocator_array_38[0].Allocate(0x8000), 0x8000);
         arg0->unknown_18c_.Reset();
-        RestoreTextureVRAMState_0207df90(var54->unknown_2cc_);
+        ((TextureArena*)(var54->unknown_2cc_))->Restore();
         void* var55;
         unsigned int var56;
         var0->GetLoadedFileByID(arg0->unknown_ad4_, &var55, &var56);
@@ -446,7 +436,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
             SetObject3DPositionFromVector_02059f38((struct Struct_02059cfc_2*)&arg0->unknown_238_[3], (struct Struct_02059cfc_3*)&arg0->unknown_238_[1].position_);
             arg0->unknown_238_[3].StopCurrentAnimation();
         }
-        SaveTextureVRAMState_0207dfac(var54->unknown_2cc_);
+        ((TextureArena*)(var54->unknown_2cc_))->Save();
         var0->RemoveTask(arg0->unknown_ad4_);
         arg0->unknown_ad4_ = -1;
         arg0->unknown_add_++;
@@ -461,7 +451,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         if (var58 != NULL) {
             GameResources* var60 = (GameResources*)GetResources_0200fb8c((int*)GameState::GetInstance());
             SafeAllocator* var61 = inline_ov000_02166804(var60, 0);
-            RestoreTextureVRAMState_0207df90(var60->unknown_2cc_);
+            ((TextureArena*)(var60->unknown_2cc_))->Restore();
             ObjectArchiveLoadInfo var62;
             var62.fileData = var58;
             var62.unk_8 = var59;
@@ -470,7 +460,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
             Object3D* var63 = &arg0->unknown_238_[4];
             var63->LoadFromCCHROrCMOTArchive(&var62, NULL);
             var63->MaybeSetBCFGAnimation(0, 0);
-            SaveTextureVRAMState_0207dfac(var60->unknown_2cc_);
+            ((TextureArena*)(var60->unknown_2cc_))->Save();
             var63->SetScale(0x10a, 0x10a, 0x10a);
             SetObject3DPositionFromVector_02059f38((struct Struct_02059cfc_2*)var63, (struct Struct_02059cfc_3*)&arg0->unknown_238_[1].position_);
             var63->StopCurrentAnimation();
@@ -484,14 +474,14 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
                 data_ov006_02160380_dup[0] = var65->GetBoneIndex(data_ov006_0216018b);
                 data_ov006_02160380_dup[1] = var65->GetBoneIndex(data_ov006_02160190);
                 data_ov006_02160380_dup[2] = var65->GetBoneIndex(data_ov006_02160195);
-                ModelRenderContext* var66;
+                Nitro3DRenderContext* var66;
                 if (!var65->unknown_flags_a8_0_) {
                     var66 = NULL;
                 } else {
                     var66 = &var65->renderContext_;
                 }
                 if (var66 != NULL) {
-                    SetModelRenderContextRenderCommandHook(var66, (void (*)(RenderCommandHandler*))func_ov006_0215426c, 0, 6, 3);
+                    Nitro3D_SetRenderHook(var66, (void (*)(Nitro3DRenderCommandHandler*))func_ov006_0215426c, 0, 6, 3);
                 }
             }
         }

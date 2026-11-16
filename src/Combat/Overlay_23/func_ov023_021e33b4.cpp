@@ -5,6 +5,30 @@
 #include <Memory/SafeAllocator.h>
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Graphics/TextureArena.h"
+#include "Resource/PAC.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_020de848 func_020e01c4
+#endif
+
+#if defined(jpn)
+#define func_020c555c func_020c7028
+#endif
+
+#if defined(jpn)
+#define func_020c54a4 func_020c6f70
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 struct GameResources;
 struct Struct_020deb08;
@@ -134,10 +158,7 @@ extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 
 int IsMainBrightnessTransitionActive(GameResources* resources);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
-extern "C" void ClearItemTable_020de848(void* itemTable);
+extern "C" void func_020de848(void* itemTable);
 extern "C" void func_020dea40(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
 extern "C" int func_020deb08(Struct_020deb08* arg0);
 extern "C" void func_020deb24(Struct_0205faf4_9* arg0, int arg1);
@@ -155,17 +176,12 @@ extern "C" void InitFollowCamera_020a2010(void* storage);
 extern "C" void SetCameraEye_0202e5c0(Camera_0202e5c0* camera, int x, int y, int z);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
-extern "C" void Set3DFog_020c54a4(int isEnabled, unsigned int type, unsigned int depthShift, unsigned short offset);
-extern "C" void InitSpriteSet_0205a444(char* spriteSet);
-extern "C" void InitSprite_0205a198(Sprite_02043368_2* sprite);
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
+extern "C" void func_020c54a4(int isEnabled, unsigned int type, unsigned int depthShift, unsigned short offset);
 extern "C" void InitNoun_020e46c4(void* noun);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
-extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void func_ov023_021e20c0(void* arg0);
-extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
-extern "C" void Set3DEdgeColors_020c555c(int edgeColors);
+extern "C" void* func_02053c6c(unsigned char* gameObject);
+extern "C" void func_020c555c(int edgeColors);
 extern "C" void func_ov023_021e33a0(char* arg0, signed char arg1);
 extern "C" void func_ov005_02159c24(Struct_ov005_02159c24*, void*, void*);
 
@@ -179,9 +195,7 @@ int func_ov005_0215436c(void* arg0);
 void func_ov005_0215a960(void* arg0);
 void func_ov005_0215ae7c(void* arg0);
 void LoadItemTableByCategories_020dea64(void* itemTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize, const void* categories, int categoryCount);
-void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 void InitMessageGlyphs_020432c4(void* window);
-void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, SafeAllocator* allocator);
 void ClearMessageParams_02046380(void* window);
 void func_02046608(void* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
 void func_ov023_021e20f0(void* arg0, void* arg1, void* arg2, unsigned int arg3);
@@ -232,9 +246,9 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             unsigned int var5;
             var2->GetLoadedFileByID(arg0->unknown_630_, &var4, &var5);
             SetFlags04(var1, 0x601fe);
-            RestoreTextureVRAMState_0207df90(arg0->unknown_8_);
+            ((TextureArena*)(arg0->unknown_8_))->Restore();
             arg0->unknown_14_->Reset();
-            ClearItemTable_020de848(arg0->unknown_a4_);
+            func_020de848(arg0->unknown_a4_);
             func_020dea40(arg0->unknown_a4_, arg0->unknown_14_, var4, var5, 0xb);
             arg0->unknown_be_ = func_020deb08((Struct_020deb08*)arg0->unknown_a4_);
             arg0->unknown_bc_ = arg0->unknown_be_ + 0x31;
@@ -291,7 +305,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             func_ov023_021e6150(arg0->unknown_120_[1], 1);
 
             arg0->unknown_14_->Reset();
-            ClearItemTable_020de848(arg0->unknown_a4_);
+            func_020de848(arg0->unknown_a4_);
             LoadItemTableByCategories_020dea64(arg0->unknown_a4_, arg0->unknown_14_, var4, var5, data_ov023_021fd66c, 9);
 
             arg0->unknown_638_ = arg0->unknown_2c_.Allocate(0x2a0);
@@ -302,27 +316,27 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             if (arg0->unknown_0_ != NULL)
                 *(void**)((char*)arg0->unknown_0_ + 0xdf4) = arg0->unknown_a4_;
 
-            InitTextureVRAMArea_0207de48(arg0->unknown_474_, 0x4000, 0x40);
-            ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)arg0->unknown_474_);
+            ((TextureArena*)(arg0->unknown_474_))->Initialize(0x4000, 0x40);
+            ((TextureArena*)((TextureVRAMArea_0203d028*)arg0->unknown_474_))->Reset();
             if (arg0->unknown_4e5_ == 3 && arg0->unknown_0_ != NULL)
                 func_ov005_02153b20(arg0->unknown_0_);
 
-            InitTextureVRAMArea_0207de48(arg0->unknown_404_, 0, 0);
-            ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)arg0->unknown_404_);
+            ((TextureArena*)(arg0->unknown_404_))->Initialize(0, 0);
+            ((TextureArena*)((TextureVRAMArea_0203d028*)arg0->unknown_404_))->Reset();
 
             void* var8 = GetMessageWindow_020421a0();
             func_02042b30(var8, arg0->unknown_474_);
-            RestoreTextureVRAMState_0207df90(arg0->unknown_474_);
+            ((TextureArena*)(arg0->unknown_474_))->Restore();
             InitMessageGlyphs_020432c4(var8);
-            SaveTextureVRAMState_0207dfac(arg0->unknown_474_);
+            ((TextureArena*)(arg0->unknown_474_))->Save();
 
-            arg0->unknown_138_ = GetCamera_020100bc(var0);
+            arg0->unknown_138_ = func_020100bc(var0);
             InitFollowCamera_020a2010(arg0->unknown_13c_);
             SetCameraEye_0202e5c0((Camera_0202e5c0*)arg0->unknown_13c_, 0xb666, 0xa800, 0x42ccc);
             SetCameraTarget_0202e5c8((unsigned char*)arg0->unknown_13c_, 0xb666, 0xa800, 0);
             DisableCameraFollow_020a27a0(arg0->unknown_13c_);
             SetCamera_020100c4(var0, (int)arg0->unknown_13c_);
-            Set3DFog_020c54a4(0, 0, 0, 0);
+            func_020c54a4(0, 0, 0, 0);
 
             var2->RemoveTask(arg0->unknown_630_);
             arg0->unknown_630_ = -1;
@@ -343,12 +357,12 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             var2->RemoveTask(arg0->unknown_630_);
             arg0->unknown_630_ = -1;
 
-            InitSpriteSet_0205a444((char*)arg0->unknown_c8_);
+            ((OBJSpriteSet*)((char*)arg0->unknown_c8_))->Reset();
             arg0->unknown_c8_->unknown_50_ = 0;
             arg0->unknown_c8_->inline_ov023_021e33b4(arg0->unknown_cc_, SPRITE_COUNT_021e33b4);
             arg0->unknown_c8_->unknown_3c_ = arg0->unknown_d0_;
             for (int var11 = 0; var11 < SPRITE_COUNT_021e33b4; var11++)
-                InitSprite_0205a198((Sprite_02043368_2*)(arg0->unknown_cc_ + var11 * 0x28));
+                ((OBJSpriteSet::Metatile*)((Sprite_02043368_2*)(arg0->unknown_cc_ + var11 * 0x28)))->Reset();
 
 #if defined(jpn)
             arg0->unknown_630_ = var2->QueueLoadFile(data_ov023_021fdca4, NULL);
@@ -367,13 +381,13 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             void* var13;
             unsigned int var14;
             var2->GetLoadedFileByID(arg0->unknown_630_, &var13, &var14);
-            int var15 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var13);
+            int var15 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var13));
             for (int var16 = 0; var16 < var15; var16++)
             {
                 int var17;
-                void* var18 = GetPacEntryData_020467f0((PacEntry_02020aec*)var13, var16, &var12, &var17);
+                void* var18 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var13), var16, (const char**)(&var12), (unsigned int*)(&var17));
                 if (var18 != NULL)
-                    LoadSpriteSetFile_0205a528(arg0->unknown_c8_, var18, var17, &arg0->unknown_68_);
+                    ((OBJSpriteSet*)(arg0->unknown_c8_))->LoadFromNitroFile((void*)(var18), var17, (SafeAllocator*)(&arg0->unknown_68_));
             }
             var2->RemoveTask(arg0->unknown_630_);
             arg0->unknown_630_ = -1;
@@ -401,7 +415,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             var19.unknown_b_0_ = var22;
             ClearMessageParams_02046380(var20);
             *(Struct_ov023_021e33b4_4**)var20 = &var19;
-            func_02046608(var20, 8, FindStringInTable_020e0434(var21, 0x226), arg0->unknown_640_[var22], 0x100, 0, 0);
+            func_02046608(var20, 8, ((void*)((StringList*)(var21))->GetString(0x226)), arg0->unknown_640_[var22], 0x100, 0, 0);
         }
 #endif
         arg0->unknown_630_ = var2->QueueLoadFile(data_ov023_021fdcc4, NULL);
@@ -432,7 +446,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
         if (var25 != NULL)
         {
             func_ov023_021e60e0(arg0->unknown_120_[0], 0x1eb);
-            func_ov023_021e5974(arg0->unknown_120_[0], GetPartyMemberData_02053c6c((unsigned char*)var25), arg0->unknown_4fc_, 0, 0);
+            func_ov023_021e5974(arg0->unknown_120_[0], func_02053c6c((unsigned char*)var25), arg0->unknown_4fc_, 0, 0);
         }
         arg0->unknown_128_[0] = arg0->unknown_120_[0];
         arg0->unknown_128_[1] = arg0->unknown_120_[1];
@@ -443,7 +457,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             func_ov005_0215a960(arg0->unknown_0_);
             func_ov005_0215ae7c(arg0->unknown_0_);
         }
-        Set3DEdgeColors_020c555c((int)data_ov023_021fdc94);
+        func_020c555c((int)data_ov023_021fdc94);
         func_ov023_021e3d3c(arg0->unknown_d4_, 0x11, 1);
         func_ov023_021e3d3c(arg0->unknown_d4_, 0x12, 1);
         func_ov023_021e3d3c(arg0->unknown_d4_, 0x1b, 1);

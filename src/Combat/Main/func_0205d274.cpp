@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
 
-extern "C" void FlushBGScreenData_0204b04c(void* layer, int screenData);
 
 struct Struct_0204b04c_2 { char unknown_0_[0x20]; };
 
@@ -16,6 +16,6 @@ extern "C" ARM void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManage
     unsigned char i;
     if (windowManager->pBGLayers_98_ == NULL) return;
     for (i = 0; i < windowManager->bgLayerCount_b2_; i++) {
-        FlushBGScreenData_0204b04c(&windowManager->pBGLayers_98_[i], 0);
+        ((BGLayer*)(&windowManager->pBGLayers_98_[i]))->CleanIndexBufferCache((const void*)(0));
     }
 }

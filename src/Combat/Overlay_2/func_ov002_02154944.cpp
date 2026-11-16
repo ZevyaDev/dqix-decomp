@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+extern "C" int func_02053c6c(unsigned char* gameObject);
 
 struct Struct_ov002_02154944 {
     char unknown_0_[6];
@@ -15,7 +19,7 @@ extern "C" ARM short func_ov002_02154944(void* arg0, int arg1, int arg2, unsigne
         return 0;
     }
 
-    GetPartyMemberData_02053c6c((unsigned char*)var0);
+    func_02053c6c((unsigned char*)var0);
 
     unsigned short var1 = var0->baseStats_->primaryStats.maxMP;
     unsigned short var2 = (*(struct Struct_ov002_02154944**)((char*)var0 + 0x130))->unknown_6_;

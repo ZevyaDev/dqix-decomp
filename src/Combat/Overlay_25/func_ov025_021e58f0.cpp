@@ -2,7 +2,16 @@
 #include "GameState/GameState.h"
 #include "Combat/Main/ElementLookup.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_02011584 func_020112f4
+#endif
 
 struct Struct_ov025_021e58f0 {
 #if defined(jpn)
@@ -32,7 +41,7 @@ struct Struct_ov025_021ef988_15 {
 struct Struct_ov025_021ef9a8;
 
 extern "C" Struct_ov025_021e58f0* GetBattleScene_ov000_02160130(void);
-extern "C" Struct_ov025_021e58f0_2* GetBattleSetup_ov017_021b8478(void* battleManager);
+extern "C" Struct_ov025_021e58f0_2* func_ov017_021b8478(void* battleManager);
 struct Struct_02018f6c_2;
 extern "C" void func_02018f6c(Struct_02018f6c_2*, short);
 extern "C" void func_ov025_021e3158(Struct_ov025_021ef9a8* arg0);
@@ -44,11 +53,11 @@ extern Struct_ov025_021ef9a8 data_ov025_021ef9a8;
 extern "C" ARM int func_ov025_021e58f0(Struct_ov025_021e58f0_3* arg0) {
     Struct_ov025_021e58f0* var0 = GetBattleScene_ov000_02160130();
     Zone3D* var1 = &var0->unknown_ec8_;
-    Struct_ov025_021e58f0_2* var2 = GetBattleSetup_ov017_021b8478(GetGameResources()->unknown_ptr_3718);
+    Struct_ov025_021e58f0_2* var2 = func_ov017_021b8478(GetGameResources()->unknown_ptr_3718);
     if (data_ov025_021ef988.unknown_20_ == 0) {
         unsigned short var3 = var2->unknown_2_;
         if (arg0->unknown_8_ != 0) {
-            Struct_0201cb60_2* var4 = (Struct_0201cb60_2*)GetZoneList_02011584(GameState::GetInstance());
+            Struct_0201cb60_2* var4 = (Struct_0201cb60_2*)func_02011584(GameState::GetInstance());
             Struct_0201cb60* var5 = func_0209998c(var4, arg0->unknown_8_);
             if (var5 == 0) {
                 return 1;

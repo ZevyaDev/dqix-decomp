@@ -47,7 +47,7 @@ extern "C" ARM void func_ov000_0216e250(struct Struct_ov000_0216e250_2* arg0, in
     var1.y += 0x18cc;
 
     int var5 = 0;
-    if (var0->GetCombatantByIndex(arg1[0])->obj3D_.classFlags_0_ & 0x400) var5 = 1;
+    if (var0->GetCombatantByIndex(arg1[0])->obj3D_.unknown_0_ & 0x400) var5 = 1;
     int var6;
     int var7;
     if (var5 == 0) {
@@ -66,4 +66,9 @@ extern "C" ARM void func_ov000_0216e250(struct Struct_ov000_0216e250_2* arg0, in
     arg0->unknown_10_ = var1;
     SetCameraOrbitFromArray_0202e694(arg0, var10);
     arg0->unknown_238_ = var7;
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

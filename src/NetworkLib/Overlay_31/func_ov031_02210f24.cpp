@@ -1,11 +1,15 @@
 #include <globaldefs.h>
 
-extern "C" int GetStringLength_020d2ff0(const char* string);
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
+extern "C" int func_020d2ff0(const char* string);
 
 // USA: func_ov031_02210f24
 extern "C" ARM int func_ov031_02210f24(const char* arg0) {
     if (arg0 != NULL) {
-        int var0 = GetStringLength_020d2ff0(arg0);
+        int var0 = func_020d2ff0(arg0);
         if (var0 > 2) {
             if (var0 <= 0x40) {
                 int var1 = var0 - 1;

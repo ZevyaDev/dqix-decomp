@@ -1,14 +1,12 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
+#include "Resource/StringList.h"
 
 struct Struct_020534ac;
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3*, int);
-extern "C" char* CopyStringFromTableFile_020e046c(char* buffer, void* fileData, void* fileSize, int stringId);
 extern "C" void func_020df83c(void* arg0);
 struct StringTable_0201099c_14;
-extern "C" void func_020dfc6c(struct StringTable_0201099c_14* arg0);
 
 extern "C" {
     void func_ov023_021ddf5c(void* arg0);
@@ -52,7 +50,7 @@ extern "C" ARM int func_ov023_021e0690(void* arg0) {
 #if defined(jpn)
             strcpy(var0 + Enum_ov023_021e0690_1584, data_ov023_021fcf09);
 #else
-            char* var3 = (char*)FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x29);
+            char* var3 = (char*)((int)((StringList*)(data_ov023_021ff9e0.unknown_14_))->GetString(0x29));
             strcpy(var0 + Enum_ov023_021e0690_1584, var3);
 #endif
 
@@ -66,16 +64,16 @@ extern "C" ARM int func_ov023_021e0690(void* arg0) {
 #endif
 
                 int var6 = *(short*)(var0 + Enum_ov023_021e0690_1904);
-                CopyStringFromTableFile_020e046c(var0 + Enum_ov023_021e0690_1584, (void*)var4, (void*)var5, var6);
+                GetStringFromNAT((char*)(var0 + Enum_ov023_021e0690_1584), (void*)((void*)var4), (unsigned int)var5, var6);
             }
             ((BackgroundLoader*)(var1))->RemoveTask((int)(*(int*)(var0 + Enum_ov023_021e0690_1856)));
             *(int*)(var0 + Enum_ov023_021e0690_1856) = -1;
         }
 
         func_020df83c(var0 + 0x6c);
-        func_020dfc6c((struct StringTable_0201099c_14*)(var0 + 0x8c));
+        ((StringList*)((struct StringTable_0201099c_14*)(var0 + 0x8c)))->Destroy();
         func_020df83c(var0 + 0x7c);
-        func_020dfc6c((struct StringTable_0201099c_14*)(var0 + 0xa4));
+        ((StringList*)((struct StringTable_0201099c_14*)(var0 + 0xa4)))->Destroy();
 
         void* var7 = *(void**)(var0 + 0x4c);
         if (var7 == NULL) {

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "NitroSDK/Graphics3D/RenderConfig.h"
-#include "NitroSDK/Graphics3D/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 #include "NitroSDK/Matrix.h"
 #include "NitroSDK/VRAM.h"
 #include "NitroSDK/LoadToVRAM.h"
@@ -14,6 +14,11 @@
 #include "Resource/Brightness.h"
 #include "World/Object3D.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
+
+#if defined(jpn)
+#define func_020c555c func_020c7028
+#endif
 
 #if defined(jpn)
 #define func_0203e8f8 func_0203edf4
@@ -105,7 +110,7 @@ struct Struct_0203e624 {
 };
 
 extern "C" Struct_0203e8f8_2* func_0203f008(Struct_0203f008* arg0);
-extern "C" void Set3DEdgeColors_020c555c(const unsigned short* edgeColors);
+extern "C" void func_020c555c(const unsigned short* edgeColors);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void Swap3DBuffers_020d86d0(int keepTranslucentOrder, int useWDepth);
 extern "C" void WaitForVBlank_020c9820(void);
@@ -204,7 +209,7 @@ extern "C" ARM int func_0203e8f8(void* arg0, Struct_0203e8f8* arg1, SafeAllocato
     var8 = GetGameResources();
     GetCurrentTimestamp();
     var0 = data_020e7980;
-    Set3DEdgeColors_020c555c(var0.unknown_0_);
+    func_020c555c(var0.unknown_0_);
     Set3DClearColorAndDepth_020c5588(0x7c00, 0, 0x7fff, 0, 0);
     Swap3DBuffers_020d86d0(0, 0);
     WaitForVBlank_020c9820();
@@ -219,8 +224,8 @@ extern "C" ARM int func_0203e8f8(void* arg0, Struct_0203e8f8* arg1, SafeAllocato
     ResetMatrixStacks_020c5414();
     static const int var39 = data_020e9a50[0x32];
     static const int var40 = data_020e9a50[0x33];
-    RenderConfig::Reset();
-    RenderConfig::SetDiffuseAmbientColors(LightingManager::GetInstance()->modelDiffuseColor_, 0, 0);
+    Nitro3DRenderConfig::Reset();
+    Nitro3DRenderConfig::SetDiffuseAmbientColors(LightingManager::GetInstance()->modelDiffuseColor_, 0, 0);
     {
         Object3D* var17 = arg1->unknown_1c_;
         var17->position_.x = 0x64000;
@@ -228,11 +233,11 @@ extern "C" ARM int func_0203e8f8(void* arg0, Struct_0203e8f8* arg1, SafeAllocato
         var17->position_.z = 0;
     }
     SetFlags04(var8, 0x1000);
-    func_ov017_0218eafc(var8, arg1->unknown_1c_->objectIndex_4_);
+    func_ov017_0218eafc(var8, arg1->unknown_1c_->unknown_4_);
     ClearFlags04(var8, 0x1000);
     arg1->unknown_1c_->position_ = data_020e7968;
     arg1->unknown_1c_->rotation_ = data_020e7968;
-    RenderConfig::SubmitToFifo();
+    Nitro3DRenderConfig::SubmitToFifo();
     Vector3i var3;
     {
         const Struct_020e7990* var18 = data_020e7990;
@@ -250,23 +255,23 @@ extern "C" ARM int func_0203e8f8(void* arg0, Struct_0203e8f8* arg1, SafeAllocato
             var3.x = inline_0203e8f8(var40, var15);
             var3.y = inline_0203e8f8(var39, var20);
             var3.z = inline_0203e8f8(var40, var16);
-            Mat4x4_WriteProjectionUnknown((-(var18->unknown_8_ - 0x60)) * 0x78, (-(var18->unknown_8_ + 0x60)) * 0x78, (var18->unknown_6_ - 0x80) * 0x78, (var18->unknown_6_ + 0x80) * 0x78, 0x1000, 0x64000, 0x1000, &gRenderConfig_0210a010.projectionMatrix);
-            gRenderConfig_0210a010.flags &= ~0x50;
-            gRenderConfig_0210a010.eyeVector = var3;
-            gRenderConfig_0210a010.upVector = data_020e7974;
-            gRenderConfig_0210a010.targetVector = data_020e7968;
-            Mat4x3_WriteViewMatrix(&var3, &data_020e7974, &data_020e7968, &gRenderConfig_0210a010.viewMatrix);
-            gRenderConfig_0210a010.flags &= ~0xe8;
-            RenderConfig::SubmitToFifo();
-            func_ov017_0218eafc(var8, arg1->unknown_1c_->objectIndex_4_);
+            Mat4x4_WriteProjectionUnknown((-(var18->unknown_8_ - 0x60)) * 0x78, (-(var18->unknown_8_ + 0x60)) * 0x78, (var18->unknown_6_ - 0x80) * 0x78, (var18->unknown_6_ + 0x80) * 0x78, 0x1000, 0x64000, 0x1000, &g_nitro3DRenderConfig.projectionMatrix);
+            g_nitro3DRenderConfig.flags &= ~0x50;
+            g_nitro3DRenderConfig.eyeVector = var3;
+            g_nitro3DRenderConfig.upVector = data_020e7974;
+            g_nitro3DRenderConfig.targetVector = data_020e7968;
+            Mat4x3_WriteViewMatrix(&var3, &data_020e7974, &data_020e7968, &g_nitro3DRenderConfig.viewMatrix);
+            g_nitro3DRenderConfig.flags &= ~0xe8;
+            Nitro3DRenderConfig::SubmitToFifo();
+            func_ov017_0218eafc(var8, arg1->unknown_1c_->unknown_4_);
         }
     }
-    SendQueuedDataToGeometryFifo();
+    Nitro3D_FlushFifoQueue();
     Swap3DBuffers_020d86d0(0, 0);
     WaitForVBlank_020c9820();
     *(volatile unsigned int*)0x4000064 = 0x812b0010;
     WaitForVBlank_020c9820();
-    DC_FlushRange((void*)0x06870000, 0x10000);
+    CleanInvalidateCacheRange((const void*)((void*)0x06870000), 0x10000);
     Struct_0203e624 var4;
     {
         void* var23 = arg2->Allocate(var14->unknown_1c_ * 2);
@@ -275,11 +280,11 @@ extern "C" ARM int func_0203e8f8(void* arg0, Struct_0203e8f8* arg1, SafeAllocato
         {
             const Struct_020e7990* var25;
             unsigned int var26;
-            DC_FlushRange(var23, var14->unknown_1c_ * 2);
+            CleanInvalidateCacheRange((const void*)(var23), var14->unknown_1c_ * 2);
             MemoryMapTexturePalette();
             LoadToTexturePalette(var23, var14->unknown_24_, var14->unknown_1c_ * 2);
             MemoryUnmapTexturePalette();
-            DC_FlushRange(var24, 0x8000);
+            CleanInvalidateCacheRange((const void*)(var24), 0x8000);
             var25 = data_020e7990;
             for (var26 = 0; var26 < 3; var26++, var25++)
             {

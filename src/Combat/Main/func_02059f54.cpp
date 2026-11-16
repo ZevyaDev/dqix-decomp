@@ -44,7 +44,7 @@ extern "C" ARM void func_02059f54(unsigned char* arg0, int arg1) {
 
     if (var3->unknown_cc_3_) {
         struct Struct_02059f54 var4 = *(struct Struct_02059f54*)(arg0 + 0x44);
-        void* var5 = (void*)RenderConfig::GetInverseViewMatrix();
+        void* var5 = (void*)Nitro3DRenderConfig::GetInverseViewMatrix();
         Mat4x3_ApplyToVector((const Vector3fix*)((struct Struct_0202e5d8_2*)&var4), (const Matrix4x3*)((struct Struct_0202e5d8_3*)var5), (Vector3fix*)((struct Struct_0202e5d8_2*)&var4));
         SetObject3DPositionFromVector_02059f38((struct Struct_02059cfc_2*)arg0, (struct Struct_02059cfc_3*)&var4);
     }

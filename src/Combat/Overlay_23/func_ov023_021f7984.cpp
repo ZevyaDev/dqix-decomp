@@ -1,10 +1,10 @@
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
 
 extern "C" int func_ov023_021f6f18(void* arg0);
 extern "C" unsigned int func_ov023_021f6f10(void* arg0);
 
 struct BGLayer_02020cb8_3;
-extern "C" void ResetBGLayerData_0204afb4(struct BGLayer_02020cb8_3* layer);
 
 struct Struct_ov023_021f7984 {
     char unknown_0_[4];
@@ -30,5 +30,5 @@ extern "C" ARM void func_ov023_021f7984(void* arg0, void** arg1) {
         }
         var0 = var1;
     }
-    ResetBGLayerData_0204afb4((struct BGLayer_02020cb8_3*)((char*)arg0 + Enum_ov023_021f7984_40));
+    ((BGLayer*)((struct BGLayer_02020cb8_3*)((char*)arg0 + Enum_ov023_021f7984_40)))->MaybeDestroy();
 }

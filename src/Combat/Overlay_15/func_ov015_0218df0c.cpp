@@ -15,14 +15,13 @@
 #include "std_library_functions.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "World/Object3D.h"
+#include "Graphics/TextureArena.h"
+extern unsigned char g_fileScratchSpace[0x30000];
 
 extern "C" void* __clear(void* arg0, int arg1);
 void* LoadFileIntoMemory(const char* path, void* buf, unsigned int* outLen);
 
 struct TextureVRAMArea_0203d028;
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 struct Vector3i;
 
 struct ObjectArchiveLoadInfo_0203d028_11;
@@ -32,7 +31,6 @@ struct Struct_ov015_02193cfc { unsigned int unknown_0_[3]; };
 
 extern char data_ov015_02194129;
 extern struct Struct_ov015_02193cfc data_ov015_02193cfc;
-extern int gFileScratchSpace_0211e33c;
 
 // USA: func_ov015_0218df0c
 extern "C" ARM int func_ov015_0218df0c(void* arg0, int* arg1) {
@@ -47,15 +45,15 @@ extern "C" ARM int func_ov015_0218df0c(void* arg0, int* arg1) {
 
     int var1 = 1;
     struct TextureVRAMArea_0203d028* var2 = *(struct TextureVRAMArea_0203d028**)*(void**)((char*)arg0 + 4);
-    ResetTextureVRAMState_0207df50(var2);
-    RestoreTextureVRAMState_0207df90((char*)var2);
+    ((TextureArena*)(var2))->Reset();
+    ((TextureArena*)((char*)var2))->Restore();
 
     sprintf(var0, &data_ov015_02194129, arg1[1]);
 
     BackgroundLoader::AddLockGlobal();
 
     unsigned int var3 = 0;
-    void* var4 = LoadFileIntoMemory(var0, &gFileScratchSpace_0211e33c, &var3);
+    void* var4 = LoadFileIntoMemory(var0, &g_fileScratchSpace, &var3);
 
     if (var4 == 0) {
         var1 = 0;
@@ -64,7 +62,7 @@ extern "C" ARM int func_ov015_0218df0c(void* arg0, int* arg1) {
         ClearObjectArchiveLoadInfo_0203dafc((struct ObjectArchiveLoadInfo_0203d028_11*)&var5);
         SafeAllocator* var6 = *(SafeAllocator**)((char*)arg0 + 8);
         unsigned int var7 = var3;
-        void* var8 = &gFileScratchSpace_0211e33c;
+        void* var8 = &g_fileScratchSpace;
         int var9 = var1;
         var5.fileData = var8;
         var5.unk_8 = var7;
@@ -79,7 +77,7 @@ extern "C" ARM int func_ov015_0218df0c(void* arg0, int* arg1) {
     }
 
     BackgroundLoader::RemoveLockGlobal();
-    SaveTextureVRAMState_0207dfac((char*)var2);
+    ((TextureArena*)((char*)var2))->Save();
 
     int var11;
     if (var1 == 0) {

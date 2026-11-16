@@ -6,6 +6,7 @@
 #include "Graphics/VRAMStaging.h"
 #include "NitroSDK/LoadToVRAM.h"
 #include "NitroSDK/Cache.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 
 struct Struct_0203db44 {
     Struct_0203e0a0 unknown_0_;
@@ -36,17 +37,17 @@ extern "C" ARM void func_0203db44(void*, Struct_0203db44* arg1, SafeAllocator* a
     LockStagedTextureVRAMCopying();
     MemoryMapTexturePalette();
     if (var4->pModel_ != NULL) {
-        NSBXXTex* var10 = var4->pModel_->GetTEX0();
+        Nitro3DTextureSet* var10 = var4->pModel_->GetTEX0();
         if (var10 != NULL) {
             if (var6 == 0 && var4->GetTexturePaletteOffset() == 0) {
-                NSBXX_Tex_LoadPaletteToVRAM(var10, false);
+                Nitro3D_LoadTexturePaletteToVRAM((Nitro3DTextureSet*)(var10), false);
             } else {
-                var3 = var10->block4VRAMLoadOffset_;
+                var3 = var10->block4VRAMLoadOffset;
                 if (var4->GetTexturePaletteOffset() != 0)
                     var3 = var4->GetTexturePaletteOffset();
-                var2 = var10->block4NumEightBytes_ << 3;
+                var2 = var10->block4NumEightBytes << 3;
                 var3 = (var3 & 0xffff) << 3;
-                var1 = (unsigned short*)((char*)var10 + var10->block4Offset_);
+                var1 = (unsigned short*)((char*)var10 + var10->block4Offset);
                 var0 = (unsigned short*)arg2->Allocate(var2);
                 if (var0 != NULL) {
                     for (unsigned int var11 = 0; var11 < var2 / 2; var11++) {
@@ -61,7 +62,7 @@ extern "C" ARM void func_0203db44(void*, Struct_0203db44* arg1, SafeAllocator* a
                         if (var14 > 31) var14 = 31;
                         var0[var11] = var12 | (var13 << 5) | (var14 << 10);
                     }
-                    DC_FlushRange(var0, var2);
+                    CleanInvalidateCacheRange((const void*)(var0), var2);
                     LoadToTexturePalette(var0, var3, var2);
                 }
             }

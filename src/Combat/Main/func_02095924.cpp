@@ -1,5 +1,13 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 
 struct FlagManager_0205faf4_3;
 struct FlagManager_0205faf4_13;
@@ -19,8 +27,8 @@ struct Struct_02095924 {
 };
 struct Struct_02095924_2 { char unknown_0_[0xa0]; Struct_02095924* unknown_a0_; };
 struct Struct_02095924_3 { int unknown_0_; char unknown_4_[0x30]; };
-extern "C" FlagManager_0205faf4_3* GetFlagManager_0205ec34();
-extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18();
+extern "C" FlagManager_0205faf4_3* func_0205ec34();
+extern "C" LocalWireless_0202c1a4* func_0202ae18();
 extern "C" int IsQuestUnlocked_0206e2dc(FlagManager_0205faf4_13*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
@@ -35,8 +43,8 @@ static inline int inline_02095924(FlagManager_0205faf4_3* arg0, int arg1, int ar
 
 // USA: func_02095924
 extern "C" ARM int func_02095924(Struct_02095924_2* arg0, int arg1) {
-    FlagManager_0205faf4_3* var0 = GetFlagManager_0205ec34();
-    LocalWireless_0202c1a4* var1 = GetLocalWireless_0202ae18();
+    FlagManager_0205faf4_3* var0 = func_0205ec34();
+    LocalWireless_0202c1a4* var1 = func_0202ae18();
     Struct_02095924_3 var2;
     for (Struct_02095924* var3 = arg0->unknown_a0_; var3; var3 = var3->unknown_c_) {
         if (var3->unknown_4_0_ != arg1) continue;

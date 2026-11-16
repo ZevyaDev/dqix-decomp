@@ -9,8 +9,16 @@ enum { Enum_ov017_021ca81c_1816 = 0x718 };
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+extern "C" void* func_ov017_021b8478(void* battleManager);
+extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
 struct Struct_ov017_021ca81c_2 {
@@ -58,8 +66,8 @@ struct Struct_ov017_021ca81c {
 extern "C" ARM void func_ov017_021ca81c(struct Struct_ov017_021ca81c_3* arg0) {
     GameState::GetInstance();
     unsigned char* var0 = *(unsigned char**)((char*)GetGameResources() + 0x3000 + Enum_ov017_021ca81c_1816);
-    unsigned char* var1 = (unsigned char*)GetBattleSetup_ov017_021b8478(var0);
-    void* var2 = GetLocalWirelessPacketQueue_0202ae24();
+    unsigned char* var1 = (unsigned char*)func_ov017_021b8478(var0);
+    void* var2 = func_0202ae24();
 
     for (int var3 = 0; var3 < arg0->unknown_1_4_; var3++) {
         struct Struct_ov017_021ca81c_2* var4 = &arg0->unknown_4_[var3];

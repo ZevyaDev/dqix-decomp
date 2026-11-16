@@ -3,6 +3,9 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
+#include "Graphics/BGLayer.h"
+#include "NitroSDK/Cache.h"
+#include "Resource/PAC.h"
 
 struct Struct_ov003_0216759c {
     int unknown_0_; SafeAllocator* unknown_4_; BGLayer_02020cb8* unknown_8_; Struct_0207f7f0_2* unknown_c_; MenuLayout_0207f7f0* unknown_10_;
@@ -16,22 +19,8 @@ struct Struct_ov003_0216759c {
 struct Struct_ov003_0216759c_2 { char unknown_0_[8]; unsigned int unknown_8_; void* unknown_c_; };
 extern "C" {
 void* __clear(void*, int);
-void InitBGLayer_0204af64(void*);
-void SetBGScreenSize_0204b11c(void*, int);
-void SetBGPriority_0204b5b4(void*, int);
-void AllocateBGScreenData_0204b12c(void*,SafeAllocator*);
-void SetBGScroll_0204b5e8(void*,int,int);
-void AllocateBGScreenBlocks_0204af38(void*,int,SafeAllocator*);
 void DisableSubBGVRAMBanks();
 void MapVRAMBanksToSubBG(int);
-int CountPacEntries_02046900(void*);
-void* GetPacEntryData_020467f0(void*,int,void**,int*);
-void LoadBGBlock_0204b174(void*,void*,SafeAllocator*,int);
-void FillBGScreenRect_0204bc74(void*,int,int,int,int,int,int);
-void LoadBGScreenData_0204b0e8(void*,void*);
-Struct_ov003_0216759c_2* GetBGScreenBlock_0204af14(void*,unsigned int);
-extern "C" void DC_FlushRange(const void*,unsigned int);
-void LoadToSubBG1ScreenData(void*,int,unsigned int);
 void InitTextWindow_0204c684(void*);
 void SetTextWindowBuffers_0204c7a8(void*,SafeAllocator*,int,unsigned int);
 #if defined(jpn)
@@ -69,15 +58,15 @@ extern "C" ARM int func_ov003_0216759c(Struct_ov003_0216759c* arg0) {
         BGLayer_02020cb8* var4;
         for (int var5=0; var5<2; var5++) {
             var4 = arg0->unknown_8_+var5;
-            InitBGLayer_0204af64(var4);
-            SetBGScreenSize_0204b11c(var4, var3[var5]);
+            ((BGLayer*)(var4))->Reset();
+            ((BGLayer*)(var4))->ConfigureTextMode(var3[var5]);
             var4->isSubScreen_1c_0_=1;
             var4->bgIndex_1c_4_=var5;
-            SetBGPriority_0204b5b4(var4,var5);
-            AllocateBGScreenData_0204b12c(var4,var2);
-            SetBGScroll_0204b5e8(var4,0,0);
+            ((BGLayer*)(var4))->SetPriority(var5);
+            ((BGLayer*)(var4))->AllocateIndexBuffer((SafeAllocator*)(var2));
+            ((BGLayer*)(var4))->SetOffset(0, 0);
         }
-        AllocateBGScreenBlocks_0204af38(arg0->unknown_8_+1,1,var2);
+        ((BGLayer*)(arg0->unknown_8_+1))->AllocateSprites(1, (SafeAllocator*)(var2));
         DisableSubBGVRAMBanks();
         MapVRAMBanksToSubBG(0x80);
         *(volatile unsigned short*)0x4001008 = (*(volatile unsigned short*)0x4001008 & 0x43) | 0xe00;
@@ -91,25 +80,25 @@ extern "C" ARM int func_ov003_0216759c(Struct_ov003_0216759c* arg0) {
         if (var1->GetTaskStatus(arg0->unknown_64_) != 0) {
             void* var6; void* var7; unsigned int var8; int var9;
             var1->GetLoadedFileByID(arg0->unknown_64_,&var7,&var8);
-            int var10 = CountPacEntries_02046900(var7);
+            int var10 = GetNumFilesInPAC((const void*)(var7));
             SafeAllocator* var11=arg0->unknown_4_;
             BGLayer_02020cb8* var12=arg0->unknown_8_;
             for (int var13=0;var13<var10;var13++) {
-                void* var14=GetPacEntryData_020467f0(var7,var13,&var6,&var9);
+                void* var14=GetFileInPACByIndex((void*)(var7), var13, (const char**)(&var6), (unsigned int*)(&var9));
                 if (var14) {
-                    LoadBGBlock_0204b174(var12,var14,var11,var9);
+                    ((BGLayer*)var12)->ProcessGraphicsFile((const void*)var14, (SafeAllocator*)var11, var9);
                     var12=arg0->unknown_8_+1;
                 }
             }
             var1->RemoveTask(arg0->unknown_64_);
             arg0->unknown_64_=-1;
             var12=arg0->unknown_8_;
-            FillBGScreenRect_0204bc74(var12,0,0,0,0x20,0x19,0);
-            LoadBGScreenData_0204b0e8(var12,0);
-            Struct_ov003_0216759c_2* var15=GetBGScreenBlock_0204af14(arg0->unknown_8_+1,0);
+            ((BGLayer*)(var12))->SetTileInRectangle(0, 0, 0, 0x20, 0x19, 0);
+            ((BGLayer*)(var12))->CleanCacheAndUploadIndexBuffer((const void*)(0));
+            Struct_ov003_0216759c_2* var15=((Struct_ov003_0216759c_2*)((BGLayer*)(arg0->unknown_8_+1))->GetSprite(0));
             if (var15) {
                 void* var16; unsigned int var17=var15->unknown_8_; var16=var15->unknown_c_;
-                DC_FlushRange(var16,var17);
+                CleanInvalidateCacheRange((const void*)(var16), var17);
                 LoadToSubBG1ScreenData(var16,0,var17);
             }
             var11=arg0->unknown_4_;
@@ -151,10 +140,10 @@ extern "C" ARM int func_ov003_0216759c(Struct_ov003_0216759c* arg0) {
         *(volatile unsigned short*)0x400100c = (*(volatile unsigned short*)0x400100c & ~3) | 2;
         *(volatile unsigned short*)0x400100e = (*(volatile unsigned short*)0x400100e & ~3) | 3;
         *(volatile unsigned int*)0x4001000 = (*(volatile unsigned int*)0x4001000 & ~0x1f00) | 0x1300;
-        DC_FlushRange(data_ov003_0217f4dc,2);
+        CleanInvalidateCacheRange((const void*)(data_ov003_0217f4dc), 2);
         LoadToSubBGStandardPalette(data_ov003_0217f4dc,2,2);
         _Z15CleanCacheRangePKvj(data_ov003_0217f4dc,2);
-        DC_FlushRange(data_ov003_0217f4dc,2);
+        CleanInvalidateCacheRange((const void*)(data_ov003_0217f4dc), 2);
         LoadToSubBGStandardPalette(data_ov003_0217f4dc,0x22,2);
         _Z15CleanCacheRangePKvj(data_ov003_0217f4dc,2);
         func_0207f7f0(arg0->unknown_10_,arg0->unknown_c_,4);

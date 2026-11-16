@@ -22,7 +22,6 @@ extern "C" int rand(void);
 extern "C" long long func_020c3260(int arg0);
 extern "C" long long func_020c32f8(int arg0);
 extern "C" float func_0200c700(long long);
-extern "C" void Vector3fix_Add(struct Struct_ov009_0218aa28* arg0, struct Struct_ov009_0218aa28* arg1, struct Struct_ov009_0218aa28* arg2);
 extern "C" struct NPCManager_0203dce4_2* GetNPCManager_0203cf4c();
 extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438**);
 extern "C" struct Struct_02017a94* func_0201b600(Struct_02017a94*, int, unsigned short);
@@ -108,7 +107,7 @@ extern "C" ARM void func_020aeb34(void) {
         var13.unknown_8_ = -0x970;
         var13.unknown_4_ = var15.unknown_4_;
 
-        Vector3fix_Add(&var13, &var12, &var14);
+        Vector3fix_Add((const Vector3i*)(&var13), (const Vector3i*)(&var12), (Vector3i*)(&var14));
 
         if ((var16->unknown_14_) != NULL) func_0203cec4((struct Struct_0203cec4*)(var16->unknown_14_), 1);
         if ((var16->unknown_14_) != NULL) func_0203fc5c((struct Struct_0203fc5c*)(var16->unknown_14_), 0.8f);

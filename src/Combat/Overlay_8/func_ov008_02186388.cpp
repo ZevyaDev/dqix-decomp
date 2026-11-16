@@ -14,6 +14,8 @@
 #include <Filesystem/BackgroundLoader.h>
 #include <Resource/MessageSystem.h>
 #include "Input/Input.h"
+#include "Filesystem/FileIO.h"
+#include "Resource/StringList.h"
 
 struct Struct_01ff8b48_26 {
     unsigned short unknown_0_;
@@ -159,7 +161,6 @@ struct TextWindowManager_0205d81c;
 struct SoundEffectManager_02108760;
 
 extern char data_ov008_0218b400[] __attribute__((aligned(4)));
-extern unsigned char gFileScratchSpace_0211e33c[];
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 extern "C" GameResources* GetResources_0200fb8c(int* gameState);
@@ -170,7 +171,6 @@ void* LoadFileIntoMemory(const char* path, void* archive, unsigned int* size);
 extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3, void* arg4, unsigned char arg5);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" Struct_ov006_02158478* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
 struct Struct_ov008_02184a4c_13;
@@ -181,7 +181,6 @@ extern "C" void func_020727f8(void* arg0, const char* arg1, int arg2, void* arg3
 #endif
 
 extern "C" {
-void* ExtractFileFromGP2(char* arg0, char* arg1, unsigned int* arg2);
 void SetMenuCursorIndex_0205bb04(Struct_ov009_02186e00_2* cursor, int index);
 int func_ov008_02188a54(Struct_ov008_021842a0_2* arg0, int arg1);
 void func_ov008_0218712c(Struct_ov008_021842a0_2* arg0, Struct_ov008_021843f8_2* arg1);
@@ -272,7 +271,7 @@ extern "C" ARM void func_ov008_02186388(Struct_ov008_021842a0_2* arg0)
             BackgroundLoader::AddLockGlobal();
             Struct_ov008_02185dc0 var15;
             unsigned int var16;
-            void* var17 = LoadFileIntoMemory(data_ov008_0218b400, gFileScratchSpace_0211e33c, &var16);
+            void* var17 = LoadFileIntoMemory(data_ov008_0218b400, g_fileScratchSpace, &var16);
             if (var17 != NULL)
             {
                 ResetStringList_020727d8((StringList_020727d8*)&var15);
@@ -280,7 +279,7 @@ extern "C" ARM void func_ov008_02186388(Struct_ov008_021842a0_2* arg0)
                 ResetStringList_020727d8((StringList_020727d8*)&var15);
                 func_02072928(&var15, (Struct_02013fb4*)var17, var16, 1001, var13, 1);
             }
-            var17 = ExtractFileFromGP2(var12, var13, &var16);
+            var17 = ExtractFileFromGP2((const char*)(var12), (const char*)(var13), (unsigned int*)(&var16));
             if (var17 != NULL)
             {
                 Struct_ov000_02179cdc_4* var18 = (Struct_ov000_02179cdc_4*)GetPartyMemberBaseByIndex_0200ff1c(var1, GetProtagonistObjectIndex_020100a8(var1));
@@ -290,7 +289,7 @@ extern "C" ARM void func_ov008_02186388(Struct_ov008_021842a0_2* arg0)
             }
             BackgroundLoader::RemoveLockGlobal();
 #endif
-            AppendText_02042058(var14, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, 1000));
+            AppendText_02042058(var14, ((StringList*)((Struct_0201099c_3*)&arg0->unknown_a0_))->GetString(1000));
 #if defined(jpn)
             StartMessage_0204500c(var3, var14, 0);
 #else

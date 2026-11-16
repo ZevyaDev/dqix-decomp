@@ -192,7 +192,7 @@ extern "C" bool TryReadViaDMA(Struct_02111f20* handler)
     {
         int oldState = DisableIRQInterrupts();
         if (length < readManager->instructionCacheCleanThreshold)
-            IC_InvalidateRange((void*)destination, length);
+            InvalidateInstructionCacheRange((const void*)((void*)destination), length);
         else
             InvalidateInstructionCache();
 

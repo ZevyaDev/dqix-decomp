@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "World/LootableContainer.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "NitroSDK/Matrix.h"
 
 extern "C" void ResetGeometryEngine_020c52e8();

@@ -2,6 +2,10 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct TextWindowManager_0205da38;
@@ -15,7 +19,7 @@ extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* w
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
-extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 extern "C" void func_ov002_0215ccc4(char *arg0);
 extern "C" int func_ov002_0216364c(void *arg0);
 extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
@@ -48,7 +52,7 @@ extern "C" ARM void func_ov002_021631e8(char *arg0) {
         if (var1 == NULL) {
             *(short *) (arg0 + RG(0x1b00 + 0xea, 0x1ab2)) = 0;
         } else {
-            *(short *) (arg0 + RG(0x1b00 + 0xea, 0x1ab2)) = *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var1) + RG(0x900 + 0x5c, 0x8c4));
+            *(short *) (arg0 + RG(0x1b00 + 0xea, 0x1ab2)) = *(short *) (func_02053c6c((unsigned char *) var1) + RG(0x900 + 0x5c, 0x8c4));
         }
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0, 2);
         ConfigureMenuCursors_ov002_02161cf0(arg0);
@@ -69,7 +73,7 @@ extern "C" ARM void func_ov002_021631e8(char *arg0) {
             GameObject *var5 = GameState::GetInstance()->GetProtagonist();
             if (var5 != NULL) {
                 short var6                                                        = *(short *) (arg0 + RG(0x1b00 + 0xea, 0x1ab2));
-                *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var5) + RG(0x900 + 0x5c, 0x8c4)) = var6;
+                *(short *) (func_02053c6c((unsigned char *) var5) + RG(0x900 + 0x5c, 0x8c4)) = var6;
             }
             switch (*(short *) (arg0 + RG(0x1b00 + 0xea, 0x1ab2))) {
                 case 0:

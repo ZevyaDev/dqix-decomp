@@ -2,6 +2,10 @@
 #include "Resource/Brightness.h"
 
 #if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
 enum { Enum_ov003_021728fc_236 = 0xe8 };
 enum { Enum_ov003_021728fc_288 = 0x12c };
 enum { Enum_ov003_021728fc_239 = 0xeb };
@@ -24,7 +28,7 @@ extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth
 extern "C" int* func_020936f8(void);
 extern "C" void func_020941b0(struct Struct_02093b90_2* arg0);
 extern "C" void func_020939dc(void* arg0);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 
 struct Struct_ov003_021728fc {
@@ -70,7 +74,7 @@ extern "C" ARM void func_ov003_021728fc(Struct_ov003_021728fc* arg0) {
     ((unsigned char*)var5)[Enum_ov003_021728fc_969] = (((unsigned char*)var5)[Enum_ov003_021728fc_969] & ~1) | 1;
     func_020939dc(var5);
 
-    SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x1000);
+    SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 0x1000);
 
     arg0->unknown_ec_ = 1;
     arg0->unknown_ee_ = 0;

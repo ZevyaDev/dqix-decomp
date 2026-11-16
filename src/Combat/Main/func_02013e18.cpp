@@ -7,11 +7,16 @@ enum { Enum_02013e18_956 = 0x3bc };
 #endif
 
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "World/ZoneChest.h"
 #include "Graphics/LightingManager.h"
 #include "Resource/GameResources.h"
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0201b5b0 func_0201b328
+#endif
 
 extern "C" {
     int func_02013fb4(void*);
@@ -36,13 +41,13 @@ extern "C" ARM int func_02013e18(Zone3D* arg0)
     if (!func_02013fb4(arg0))
         return 0;
 
-    if (!arg0->func_02014108())
+    if (!func_02014108(arg0))
         return 0;
 
-    if (!arg0->func_02014c04())
+    if (!func_02014c04(arg0))
         return 0;
 
-    if (!_ZN6Zone3D13func_020146fcEv(arg0))
+    if (!func_020146fc(arg0))
         return 0;
 
     if (!func_0201498c(arg0))

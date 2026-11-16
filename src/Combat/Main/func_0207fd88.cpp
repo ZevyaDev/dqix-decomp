@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
 
-extern "C" void CopyBGScreenDataToVRAM_0204b088(void* layer, int screenData);
 
 struct BGLayer_0207fd88_2 { char unknown_0_[0x20]; };
 
@@ -23,7 +23,7 @@ extern "C" ARM void CopyMenuLayoutBGScreenDataToVRAM_0207fd88(MenuLayout_0207fd8
     if (layer == NULL) return;
     bgLayerCount = menuLayout->bgLayerCount_38_;
     for (i = 0; i < bgLayerCount; i++) {
-        CopyBGScreenDataToVRAM_0204b088(layer, 0);
+        ((BGLayer*)(layer))->UploadIndexBuffer((const void*)(0));
         layer++;
     }
 }

@@ -2,8 +2,12 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_020534ac;
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 struct Struct_02082828_2;
 extern "C" void func_02083508(struct Struct_02082828_2* arg0);
 extern "C" int func_020deef4(int arg0, int arg1, int arg2, short* arg3, short arg4);
@@ -37,7 +41,7 @@ extern "C" ARM int func_ov017_021b3560(struct Struct_ov017_021b3560* arg0) {
         return 0;
     }
 
-    void* var3 = (void*)GetPartyMemberData_02053c6c((unsigned char*)var2);
+    void* var3 = (void*)func_02053c6c((unsigned char*)var2);
     if (!var3) {
         return 0;
     }

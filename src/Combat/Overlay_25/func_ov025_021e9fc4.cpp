@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
+#include "Resource/StringList.h"
 
 struct Struct_ov000_0216fd38;
 struct Struct_ov000_0216fdf8;
@@ -31,7 +32,6 @@ extern "C" Struct_ov000_0215feb4* func_ov000_0215feb4(char*, int, int);
 extern "C" void* func_ov000_0215fe2c(void*, int);
 extern "C" void* func_ov000_0215fff4(void*, int, int);
 extern "C" void func_ov025_021ed324(void*, const char*);
-extern "C" char* CopyStringFromTableFile_020e046c(char*, void*, void*, int);
 extern "C" void func_ov025_021ed634(Struct_ov025_021e9fc4*);
 
 static inline unsigned char* inline_ov025_021e9fc4(ActionTarget_ov000_021600f8* arg0) { return arg0->unknown_14_; }
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov025_021e9fc4(char* arg0) {
                 unsigned int var2 = 0;
                 var0->GetLoadedFileByID((*(int*)(arg0 + 0x880)), &var1, &var2);
                 if (var1 != 0) {
-                    CopyStringFromTableFile_020e046c((arg0 + 0x83c), var1, (void*)var2, (short)(*(int*)(arg0 + 0x884)));
+                    GetStringFromNAT((char*)((arg0 + 0x83c)), (void*)(var1), (unsigned int)var2, (short)(*(int*)(arg0 + 0x884)));
                 }
                 func_ov025_021ed324((arg0 + 0x5e8), (arg0 + 0x83c));
 #if !defined(jpn)

@@ -2,10 +2,10 @@
 
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
+#include "Resource/PAC.h"
 
 extern "C" int func_ov011_021849d8(void* arg0);
 
-extern "C" char* func_020467c0(void* arg0, char* arg1, unsigned int* arg2);
 
 extern "C" void func_ov023_021fab48(void* arg0, void* arg1, const void* arg2, int arg3);
 
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov023_021faa60(struct Struct_ov023_021faa60* arg0, void
         return;
     }
 
-    var4 = func_020467c0(var2, arg0->unknown_10_, &var5);
+    var4 = GetFileInPAC((void*)(var2), (const char*)(arg0->unknown_10_), (unsigned int*)(&var5));
     if (var4 == NULL) {
         return;
     }

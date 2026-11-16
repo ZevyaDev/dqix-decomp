@@ -1,7 +1,11 @@
 #include <globaldefs.h>
+#include "std_library_functions.h"
 
-extern "C" int GetStringLength_020d2ff0(const char* string);
-extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
+extern "C" int func_020d2ff0(const char* string);
 extern "C" int ParseDecimal_02005a94(void* string);
 
 extern char* data_020f0afc[];
@@ -33,8 +37,8 @@ extern "C" ARM int func_0206f550(struct Struct_0206f550* arg0, char* arg1, char*
                 var6 = data_020f0afc;
                 while (var4 < 13) {
                     var2 = var6[var4];
-                    var3 = GetStringLength_020d2ff0(var2);
-                    if (CompareBytes_02001aec(var0, var2, var3) == 0) {
+                    var3 = func_020d2ff0(var2);
+                    if (memcmp(var0, var2, var3) == 0) {
                         if (var4 == 4 || (unsigned char)(var4 + 0xff) <= 1) {
                             var0 += var3;
                             arg0->unknown_8_[arg0->unknown_4_] = (short)ParseDecimal_02005a94(var0);

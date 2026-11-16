@@ -2,6 +2,10 @@
 #include "Resource/ActionDataTables.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
 struct Struct_0205c570 { unsigned char unknown_0_[0x7cc]; };
 struct TextWindowManager_0205def8 { unsigned char unknown_0_[0x7cc]; };
 struct TextWindowManager_0205d81c { unsigned char unknown_0_[0x7cc]; };
@@ -57,7 +61,7 @@ extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" void SetTextWindowVisible_0205def8(TextWindowManager_0205def8*, int, int);
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
 extern "C" GameResources* GetResources_0200fb8c(int*);
-extern "C" Struct_ov000_0217e558_2* GetBattleScene_ov017_021b8468(void*);
+extern "C" Struct_ov000_0217e558_2* func_ov017_021b8468(void*);
 extern "C" int func_ov000_0217c594(Struct_ov000_0217e558*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" Struct_ov000_0217e558_5* FindPartyMemberPanel_ov000_02161318(Struct_ov000_0217e558*, int);
@@ -87,7 +91,7 @@ extern "C" ARM void func_ov000_0217e558(Struct_ov000_0217e558* arg0, int arg1, i
     SetTextWindowPalette_0205deb4(&arg0->unknown_188_.unknown2_0_, 0x18, 0);
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetResources_0200fb8c((int*)var0);
-    if (GetBattleScene_ov017_021b8468(PTR3718(var1))->unknown_7712_ != -1 || !func_ov000_0217c594(arg0, 5)) return;
+    if (func_ov017_021b8468(PTR3718(var1))->unknown_7712_ != -1 || !func_ov000_0217c594(arg0, 5)) return;
     arg0->unknown_956_ = 0;
     PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
     if ((unsigned short)arg0->unknown_10_[arg0->unknown_1d6d_] == 0) {

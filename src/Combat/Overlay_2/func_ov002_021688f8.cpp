@@ -2,6 +2,8 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include <globaldefs.h>
+#include "Filesystem/FileIO.h"
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 #define REGION_VALUE(j, u) (j)
@@ -11,7 +13,6 @@
 
 struct Struct_020a13c4;
 struct Struct_020a15bc;
-struct StringTable_0201099c_14;
 struct Struct_ov002_021688f8 {
     unsigned int unknown_0_;
     void* unknown_4_;
@@ -23,19 +24,13 @@ struct Struct_ov002_021688f8_2 {
     unsigned char unknown_0_[0x49c];
     unsigned char unknown_49c_0_ : 1;
 };
-struct Struct_0201099c_3;
 extern "C" int func_ov002_02168c00(unsigned char *arg0);
 extern "C" void ClearAccoladeTable_020a13c4(struct Struct_020a13c4 *table);
 extern "C" void func_020a13e4(void *arg0, void *arg1, int arg2, unsigned short arg3, unsigned char arg4);
 extern "C" void *func_020a15bc(struct Struct_020a15bc *arg0, int arg1);
-extern "C" void *ConstructStringTable_020dfc2c(void *stringTable);
-extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14 *stringTable);
 extern "C" void func_ov002_02168c38(struct Struct_ov002_021688f8 *arg0);
 extern "C" void func_ov002_02168d10(unsigned char *arg0, int arg1);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
-extern "C" void *ExtractFileFromGP2(const char *arg0, const char *arg1, unsigned int *arg2);
 extern "C" int func_ov023_021ed724(void *arg0, short *arg1, int arg2);
-extern "C" void func_020e0028(void *arg0, void *arg1, void *arg2, unsigned int arg3, short *arg4, unsigned short arg5);
 extern "C" void func_ov002_02168ca8(unsigned char *arg0, void *arg1);
 extern "C" int sprintf(char *arg0, const char *arg1, ...);
 extern "C" void *__clear(void *arg0, int arg1);
@@ -44,18 +39,10 @@ extern "C" char data_ov002_0216d33d[];
 
 #if defined(jpn)
 extern "C" const char data_ov002_0216dab4[];
-extern "C" int func_020e1fc4(void* arg0, SafeAllocator* arg1, const char* arg2,
-    short* arg3, unsigned short arg4, short arg5, bool arg6);
 #endif
 
 // USA: func_ov002_021688f8; JPN: func_ov002_021691dc
 extern "C" ARM void func_ov002_021688f8(char *arg0) {
-    char var0[0x18];
-#if !defined(jpn)
-    char var1[0x40];
-    char var2[0x20];
-    unsigned int var3;
-#endif
     short *var4;
     unsigned char *var5;
     int var6;
@@ -77,21 +64,23 @@ extern "C" ARM void func_ov002_021688f8(char *arg0) {
         *(unsigned char *) (arg0 + 0x2000 + REGION_VALUE(0x2a1, 0x471)) =
             (func_ov023_021ed724(*(void **) (arg0 + 0x2000 + REGION_VALUE(0x294, 0x464)), var4, var7) & 1) ? 1 : 0;
         char *var10 = (char *) var8->GetProtagonist();
-        ConstructStringTable_020dfc2c(var0);
-        InitStringTable_020dfc40((struct StringTable_0201099c_14 *) var0);
+        StringList var0;
+        var0.Reset();
 #if defined(jpn)
-        func_020e1fc4(var0, (SafeAllocator*)(arg0 + 0x78c), data_ov002_0216dab4, var4,
-            (unsigned short)var7, (*(struct Struct_ov002_021688f8_2**)(var10 + 0x144))->unknown_49c_0_, true);
+        var0.LoadSubsetFromFile((SafeAllocator*)(arg0 + 0x78c), data_ov002_0216dab4, var4, (unsigned short)var7, (*(struct Struct_ov002_021688f8_2**)(var10 + 0x144))->unknown_49c_0_, true);
 #else
+        char var1[0x40];
+        char var2[0x20];
+        unsigned int var3;
         BackgroundLoader::AddLockGlobal();
         var3 = 0;
         __clear(var1, 0x40);
         __clear(var2, 0x20);
         sprintf(var1, data_ov002_0216d326, (*(struct Struct_ov002_021688f8_2 **) (var10 + 0x150))->unknown_49c_0_);
         sprintf(var2, data_ov002_0216d33d, (*(struct Struct_ov002_021688f8_2 **) (var10 + 0x150))->unknown_49c_0_);
-        void *var11 = ExtractFileFromGP2(var1, var2, &var3);
+        void *var11 = ExtractFileFromGP2((const char*)(var1), (const char*)(var2), (unsigned int*)(&var3));
         if (var11 != NULL) {
-            func_020e0028(var0, arg0 + REGION_VALUE(0x38c, 0x28) + REGION_VALUE(0x400, 0x800), var11, var3, var4, var7);
+            var0.LoadSubsetFromMemory((SafeAllocator*)(arg0 + REGION_VALUE(0x38c, 0x28) + REGION_VALUE(0x400, 0x800)), (void*)(var11), var3, (const short*)(var4), var7);
         }
         BackgroundLoader::RemoveLockGlobal();
 #endif
@@ -101,7 +90,7 @@ extern "C" ARM void func_ov002_021688f8(char *arg0) {
             void *var12 =
                 func_020a15bc(*(struct Struct_020a15bc **) (arg0 + 0x2000 + REGION_VALUE(0x294, 0x464)), var4[var6]);
             if (var12 == NULL) continue;
-            int var13 = FindStringInTable_020e0434((struct Struct_0201099c_3 *) var0, var4[var6]);
+            int var13 = ((int)var0.GetString(var4[var6]));
             if (var13 == 0) continue;
             func_ov002_02168ca8(var5 + var6 * sizeof(Struct_ov002_021688f8), var12);
             func_ov002_02168d10(var5 + var6 * sizeof(Struct_ov002_021688f8), var13);

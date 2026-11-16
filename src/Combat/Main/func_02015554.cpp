@@ -99,3 +99,8 @@ extern "C" ARM void func_02015554(void *arg0, void *arg1) {
         }
     }
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

@@ -1,6 +1,14 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
 struct Struct_ov017_021ce704_3 {
     unsigned int unknown_0_0_ : 10;
     unsigned int unknown_1_2_ : 10;
@@ -30,16 +38,16 @@ struct Struct_ov017_021ce704_4 {
     unsigned int unknown_d_2_ : 3;
 };
 struct Struct_ov017_021ce704_5 { unsigned char unknown_0_; unsigned char unknown_1_[3]; unsigned int unknown_4_[4]; };
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
-extern "C" Struct_ov000_02179cdc_3* GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" void* func_0202ae24();
+extern "C" Struct_ov000_02179cdc_3* func_02053c6c(unsigned char*);
 extern "C" void QueueOutgoingPacket_0205e330(void*, void*, int);
 
 // USA: func_ov017_021ce704
 extern "C" ARM void func_ov017_021ce704(int arg0) {
-    void* var0 = GetLocalWirelessPacketQueue_0202ae24();
+    void* var0 = func_0202ae24();
     GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0);
     if (!var1) return;
-    Struct_ov000_02179cdc_3* var2 = GetPartyMemberData_02053c6c((unsigned char*)var1);
+    Struct_ov000_02179cdc_3* var2 = func_02053c6c((unsigned char*)var1);
     if (!var2) return;
     Struct_ov017_021ce704_5 var3;
     var3.unknown_0_ = 0x12;

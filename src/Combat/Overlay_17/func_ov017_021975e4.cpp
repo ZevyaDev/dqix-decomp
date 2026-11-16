@@ -3,8 +3,13 @@
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
 
 typedef Struct_020134e0::Struct_02018300 Struct_02018300;
 
@@ -12,7 +17,7 @@ struct Struct_0203402c;
 struct Queue_02038598_5;
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" unsigned int* GetGlobalFlags_020d6c00();
+extern "C" unsigned int* func_020d6c00();
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int func_0203402c(Struct_0203402c* arg0);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
@@ -24,7 +29,7 @@ extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int 
 extern "C" ARM void func_ov017_021975e4(GameResources* arg0) {
     GameState* var0 = GameState::GetInstance();
     Zone3D* var1 = (Zone3D*)GetZone3D_02012fe4();
-    unsigned int* var2 = GetGlobalFlags_020d6c00();
+    unsigned int* var2 = func_020d6c00();
     GameObject* var3 = var0->GetUnknownGameObject();
     Vector3i var4 = var3->obj3D_.position_;
     Struct_02037d10* var5 = func_020399a8(var3);
@@ -95,7 +100,7 @@ extern "C" ARM void func_ov017_021975e4(GameResources* arg0) {
                 continue;
             }
 
-            Struct_02018300* var20 = func_0201e6d4(&var1->substruct_6c_, var9->unknown_2c_.unknown5_0_.unknown_2_);
+            Struct_02018300* var20 = func_0201e6d4((Struct_020134e0*)(&var1->substruct_6c_), var9->unknown_2c_.unknown5_0_.unknown_2_);
             if (!var20) return;
 
             var10.unknown_0_ = 1;

@@ -3,7 +3,13 @@
 #include "Graphics/LightingManager.h"
 #include "NitroSDK/Graphics.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "Resource/Brightness.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct Struct_0203dde0_2;
 struct Struct_02057a10;
@@ -23,8 +29,7 @@ extern "C" void func_0202343c(void* arg0);
 extern "C" Struct_0203dde0_2* GetNPCManager_0203cf4c();
 extern "C" void func_0203de84(void* arg0);
 extern "C" void func_0203dde0(Struct_0203dde0_2* arg0);
-extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" int NSBXX_Model_GetMaterialPolygonID(NSBXXInternalModel* model, unsigned int materialIndex);
+extern "C" void* func_0202ae18(void);
 extern "C" void func_0208f87c(const void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_02057a10(Struct_02057a10* arg0);
 extern "C" void func_ov017_02196398(unsigned int* arg0);
@@ -118,7 +123,7 @@ extern "C" ARM void func_ov017_02195bbc(Struct_ov017_02195bbc* arg0) {
 
     if (TestFlags04((GameResources*)(arg0->unknown_0_), 0x100) == 0) {
         var10 = GameState::GetInstance();
-        GetLocalWireless_0202ae18();
+        func_0202ae18();
         var0 = GetZone3D_02012fe4();
         var9 = var0->substruct_c_.unknown_2c_;
         for (var8 = 0xa0; var8 <= 0xbf; var8++) {
@@ -129,7 +134,7 @@ extern "C" ARM void func_ov017_02195bbc(Struct_ov017_02195bbc* arg0) {
             var6 = 1;
             Model3D* var11 = var7->obj3D_.pModel_;
             if (var11 != NULL && var11->rawInternalModel_ != NULL) {
-                var6 = NSBXX_Model_GetMaterialPolygonID(var11->rawInternalModel_, 0);
+                var6 = Nitro3D_GetModelMaterialPolygonID((Nitro3DModel*)(var11->rawInternalModel_), 0);
             }
             const Vector3fix& var12 = var7->obj3D_.MaybeGetShadowSource();
             func_0208f87c(&var12, var9, 0x1000, var0->substruct_c_.unknown_30_, var6);

@@ -2,11 +2,11 @@
 #include "World/ZoneLootableRecord.h"
 #include "Filesystem/FileIO.h"
 #include "GameState/GameState.h"
+#include "Graphics/SPRSprite.h"
 
 struct Struct_02000c9c_8;
-extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
+extern "C" int func_0200fb08(Struct_02000c9c_8*);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
-extern "C" void func_02047b40(Struct_02012fa4* arg0, const void* arg1, SafeAllocator* arg2);
 
 extern const char data_ov000_02184184[];
 extern const char data_ov000_02184186[];
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov000_0218214c(Struct_02012fa4* arg0, SafeAllocator* ar
         unsigned int var3 = 0;
         const void* var4 = 0;
         GetFileInNarc(arg2, var0, &var4, &var3, 0);
-        func_02047b40(var1[var2].unknown_4_, var4, arg1);
+        ((SPRSprite*)(var1[var2].unknown_4_))->LoadFromSPR((const void*)(var4), (SafeAllocator*)(arg1));
     }
     var1[0].unknown_4_->unknown_0_ = 0x3e;
     var1[1].unknown_4_->unknown_0_ = 0x3e;
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov000_0218214c(Struct_02012fa4* arg0, SafeAllocator* ar
     int var7;
     int var8;
     int var9;
-    int var10 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
+    int var10 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
     int var11;
 
     var9 = 2;
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov000_0218214c(Struct_02012fa4* arg0, SafeAllocator* ar
         unsigned int var12 = 0;
         const void* var13 = 0;
         GetFileInNarc(arg2, var5, &var13, &var12, 0);
-        func_02047b40(var6[var8].unknown_4_, var13, arg1);
+        ((SPRSprite*)(var6[var8].unknown_4_))->LoadFromSPR((const void*)(var13), (SafeAllocator*)(arg1));
     }
 
     var6[0].unknown_4_->unknown_0_ = 0x3e;

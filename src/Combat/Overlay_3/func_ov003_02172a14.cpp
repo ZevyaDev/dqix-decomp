@@ -4,6 +4,9 @@
 #include <globaldefs.h>
 #include "Resource/FontBankLoader.h"
 #include "Resource/GameResources.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/PAC.h"
 #if defined(jpn)
 #include "NitroSDK/Cache.h"
 #include "NitroSDK/LoadToVRAM.h"
@@ -17,9 +20,6 @@ struct BGLayer_02020cb8_5;
 struct BGLayer_02020cb8_6;
 struct Struct_ov003_02172a14;
 
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4 *pac);
-extern "C" void *GetPacEntryData_020467f0(PacEntry_02020aec *pac, int index, void **outEntry, int *outSize);
-extern "C" void LoadSpriteSetFile_0205a528(void *spriteSet, void *fileData, unsigned int size, void *allocator);
 extern "C" void InitTextWindow_0204c684(void *textWindow);
 #if defined(jpn)
 struct Struct_ov003_02172a14_5;
@@ -33,16 +33,8 @@ extern "C" void func_02050678(void *arg0, int arg1, int arg2, char *arg3, int ar
 #else
 extern "C" void func_0204f41c(void *arg0, int arg1, int arg2, char *arg3, int arg4, int arg5, short *arg6, short *arg7, int arg8);
 #endif
-extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8 *layer);
-extern "C" void SetBGScreenSize_0204b11c(unsigned char *layer, int screenSize);
-extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5 *layer, int scrollX, int scrollY);
 #if defined(jpn)
-extern "C" void LoadBGBlock_0204b174(void *layer, void *block, SafeAllocator *allocator, int arg3);
-extern "C" void LoadBGScreenData_0204b0e8(void *layer, void *screenData);
-extern "C" void ResetBGLayerData_0204afb4(void *layer);
 #else
-extern "C" void FlushBGBlock_0204b2e0(void *layer, char *block);
-extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6 *layer, char *block);
 #endif
 extern "C" void ColorEffect_ConfigureAlphaBlend(int control, int a, int b, int c, int d);
 void SetMainBrightness(GameResources *resources, int a, int b);
@@ -175,10 +167,10 @@ extern "C" ARM void func_ov003_02172a14(Struct_ov003_02172a14_4 *arg0) {
         unsigned int var5;
         int var6;
         var1->GetLoadedFileByID(arg0->unknown_f0_, &var4, &var5);
-        int var7 = CountPacEntries_02046900((PacEntry_02020cb8_4 *) var4);
+        int var7 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4 *) var4));
         for (int var8 = 0; var8 < var7; var8++) {
-            void *var9 = GetPacEntryData_020467f0((PacEntry_02020aec *) var4, var8, &var3, &var6);
-            LoadSpriteSetFile_0205a528(arg0->unknown_130_, var9, var6, arg0->unknown_1ac_);
+            void *var9 = GetFileInPACByIndex((void*)((PacEntry_02020aec *) var4), var8, (const char**)(&var3), (unsigned int*)(&var6));
+            ((OBJSpriteSet*)(arg0->unknown_130_))->LoadFromNitroFile((void*)(var9), var6, (SafeAllocator*)(arg0->unknown_1ac_));
         }
         var1->RemoveTask(arg0->unknown_f0_);
         arg0->unknown_f0_ = -1;
@@ -202,9 +194,9 @@ extern "C" ARM void func_ov003_02172a14(Struct_ov003_02172a14_4 *arg0) {
         short var18;
         short var19;
         var1->GetLoadedFileByID(arg0->unknown_f0_, &var11, &var12);
-        int var20 = CountPacEntries_02046900((PacEntry_02020cb8_4 *) var11);
+        int var20 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4 *) var11));
         for (int var21 = 0; var21 < var20; var21++) {
-            var13[var21] = GetPacEntryData_020467f0((PacEntry_02020aec *) var11, var21, &var10, &var14[var21]);
+            var13[var21] = GetFileInPACByIndex((void*)((PacEntry_02020aec *) var11), var21, (const char**)(&var10), (unsigned int*)(&var14[var21]));
         }
         InitTextWindow_0204c684(&var15);
         var15.unknown_8_ = (char *) var13[0] + 0x10;
@@ -226,28 +218,28 @@ extern "C" ARM void func_ov003_02172a14(Struct_ov003_02172a14_4 *arg0) {
 #else
         func_0204f41c(&var15, 0xb0, 0x48, var16, 8, 1, &var18, &var19, 0);
 #endif
-        InitBGLayer_0204af64((BGLayer_02020cb8 *) &var17);
+        ((BGLayer*)((BGLayer_02020cb8 *) &var17))->Reset();
         var17.unknown_1c_0_ = 0;
         var17.unknown_1c_4_ = 1;
-        SetBGScreenSize_0204b11c((unsigned char *) &var17, 0);
-        SetBGScroll_0204b5e8((BGLayer_02020cb8_5 *) &var17, 0, 0);
+        ((BGLayer*)((unsigned char *) &var17))->ConfigureTextMode(0);
+        ((BGLayer*)((BGLayer_02020cb8_5 *) &var17))->SetOffset(0, 0);
 #if defined(jpn)
         for (int var24 = 0; var24 < var20; var24++) {
             if (var24 == 2) {
                 char *var29 = (char *) var13[var24];
                 unsigned int var30 = *(unsigned int *) (var29 + 0xc);
-                DC_FlushRange(var29 + 0x10, var30);
+                CleanInvalidateCacheRange((const void*)(var29 + 0x10), var30);
                 LoadToMainBG1ScreenData(var29 + 0x10, 0, var30);
             } else {
-                LoadBGBlock_0204b174(&var17, var13[var24], 0, var14[var24]);
+                ((BGLayer*)(&var17))->ProcessGraphicsFile((const void*)var13[var24], (SafeAllocator*)0, var14[var24]);
             }
         }
-        LoadBGScreenData_0204b0e8(&var17, 0);
-        ResetBGLayerData_0204afb4(&var17);
+        ((BGLayer*)(&var17))->CleanCacheAndUploadIndexBuffer((const void*)(0));
+        ((BGLayer*)(&var17))->MaybeDestroy();
 #else
         for (int var24 = 0; var24 < var20; var24++) {
-            FlushBGBlock_0204b2e0(&var17, (char *) var13[var24]);
-            CopyBGBlockToVRAM_0204b3a0((BGLayer_02020cb8_6 *) &var17, (char *) var13[var24]);
+            ((BGLayer*)(&var17))->ProcessGraphicsFileMetadata((const void*)((char *) var13[var24]));
+            ((BGLayer*)((BGLayer_02020cb8_6 *) &var17))->StageGraphicsFileBuffer((const void*)((char *) var13[var24]));
         }
 #endif
         ColorEffect_ConfigureAlphaBlend(0x04000050, 1, 0x12, 0x1f, 0x1f);

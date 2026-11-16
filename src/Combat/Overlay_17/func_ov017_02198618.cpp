@@ -7,6 +7,10 @@ enum {Enum_ov017_02198618_108=0x6c, Enum_ov017_02198618_132=0x84, Enum_ov017_021
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 struct Struct_0203402c {
     char unknown_0_[0xc4];
     unsigned short unknown_c4_0_ : 15;
@@ -44,7 +48,7 @@ extern "C" ARM void func_ov017_02198618(void* arg0) {
     if (func_0203402c((struct Struct_0203402c*)var1) != 0) return;
 
     unsigned char* var2 = (unsigned char*)GetZone3D_02012fe4();
-    GetCamera_020100bc(var0);
+    func_020100bc(var0);
     unsigned char* var3 = (unsigned char*)GetFirstZoneFeatureOfType_0201e838(var2 + Enum_ov017_02198618_108, 10);
     struct Struct_ov017_02198618 var4 = *(struct Struct_ov017_02198618*)((char*)var1 + 0x44);
 

@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 #if defined(jpn)
 #define R(j,u) (j)
 #else
@@ -6,8 +7,6 @@
 #endif
 
 
-extern "C" void func_0205af84(int arg0, void* arg1, int arg2);
-extern "C" void DrawSprite_0205ac40(int spriteSet, void* sprite);
 
 struct Struct_ov008_021889f8 { char unknown_0_[0x2bc]; int unknown_2bc_; int unknown_2c0_; };
 
@@ -26,6 +25,6 @@ extern "C" ARM void func_ov008_021889f8(struct Struct_ov008_02184878* arg0) {
     struct Struct_ov008_021889f8* var0 = arg0->unknown_734_;
     var0->unknown_2bc_ = R(0xd0000, 0xc8000);
     var0->unknown_2c0_ = 0x62000;
-    func_0205af84(arg0->unknown_730_, (char*)arg0->unknown_734_ + 0x2a8, 1);
-    DrawSprite_0205ac40(arg0->unknown_730_, (char*)arg0->unknown_734_ + 0x2a8);
+    ((OBJSpriteSet*)(arg0->unknown_730_))->SetMetatilePriority((OBJSpriteSet::Metatile*)((char*)arg0->unknown_734_ + 0x2a8), 1);
+    ((OBJSpriteSet*)(arg0->unknown_730_))->DrawMetatile((OBJSpriteSet::Metatile*)((char*)arg0->unknown_734_ + 0x2a8));
 }

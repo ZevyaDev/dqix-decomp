@@ -1,8 +1,8 @@
 #include <globaldefs.h>
+#include "Graphics/SPRSprite.h"
 #include "std_library_functions.h"
 #include "NitroSDK/Graphics.h"
 
-extern "C" void func_02047554(void* arg0, int arg1, int arg2, int arg3);
 
 struct Struct_020e73fc {
     int unknown_0_[8][2];
@@ -85,7 +85,7 @@ extern "C" ARM void func_0202f45c(void* arg0, int arg1, int arg2, int arg3, int 
         Struct_0202f45c* var10 = *(Struct_0202f45c**)((char*)arg0 + 0x440);
         unsigned short var11 = var10->unknown_18_;
         *(unsigned short*)(var4 + 0x80) = var11;
-        func_02047554(var4, 0, 1, var11);
+        ((SPRSprite*)(var4))->DrawTextureScaleTranslate(0, 1);
         GXFIFO_MATRIX_POP = 1;
         var4 += 0x88;
     }

@@ -1,8 +1,8 @@
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 struct Struct_0201099c_3;
 
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 
 struct Struct_ov002_02160004 {
@@ -31,6 +31,6 @@ extern "C" ARM void func_ov002_02160004(char *arg0, char *arg1) {
         return;
     }
 
-    int var4 = FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + RG(0x20, 8)), (short) (var3 + 0xfbe));
+    int var4 = ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + RG(0x20, 8))))->GetString((short) (var3 + 0xfbe)));
     AppendText_02042058(arg1, (const char *) var4);
 }

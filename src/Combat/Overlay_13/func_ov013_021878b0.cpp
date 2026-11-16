@@ -4,25 +4,20 @@
 #define func_ov013_021878b0 func_ov013_021888c0
 #endif
 #include "Filesystem/BackgroundLoader.h"
+#include "Graphics/BGLayer.h"
+#include "Resource/PAC.h"
 
 struct Struct_020534ac;
 struct PacEntry_02020cb8_4;
-extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
 struct PacEntry_02020aec;
-extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" void func_ov013_02187a58(void* arg0, void* arg1);
-extern "C" void LoadBGBlock_0204b174(void* layer, void* block, int allocator, int arg3);
 
 struct BGLayer_0204af14;
-extern "C" void* GetBGScreenBlock_0204af14(struct BGLayer_0204af14* layer, unsigned int screenBlockIndex);
 struct Struct_0204ae44;
-extern "C" void func_0204ae44(struct Struct_0204ae44* arg0, int arg1);
 struct BGLayer_0204b988;
-extern "C" void CopyBGScreenBlock_0204b988(struct BGLayer_0204b988* layer, unsigned int screenBlockIndex, int destX, int destY, unsigned short palette);
 struct BGLayer_02020cb8_2;
-extern "C" void LoadBGScreenData_0204b0e8(struct BGLayer_02020cb8_2* layer, void* screenData);
 
 extern const char data_ov013_02187eaf[];
 
@@ -83,8 +78,8 @@ extern "C" ARM void func_ov013_021878b0(Struct_ov013_021878b0* arg0) {
             unsigned int var5;
             int var6;
             var0->GetLoadedFileByID(arg0->unknown_5c_, &var4, &var5);
-            CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var4);
-            void* var7 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var4, 0, &var3, &var6);
+            GetNumFilesInPAC((const void*)((struct PacEntry_02020cb8_4*)var4));
+            void* var7 = GetFileInPACByIndex((void*)((struct PacEntry_02020aec*)var4), 0, (const char**)(&var3), (unsigned int*)(&var6));
             if (var7 != 0) {
                 Struct_ov013_021878b0_2 var8;
                 InitTextWindow_0204c684(&var8);
@@ -94,16 +89,16 @@ extern "C" ARM void func_ov013_021878b0(Struct_ov013_021878b0* arg0) {
                 var8.unknown_a8_ = 0x20;
                 var8.unknown_aa_ = 0x18;
                 func_ov013_02187a58(arg0, &var8);
-                LoadBGBlock_0204b174(arg0->unknown_28_, var7, 0, var6);
+                ((BGLayer*)arg0->unknown_28_)->ProcessGraphicsFile((const void*)var7, (SafeAllocator*)0, var6);
             }
             var0->RemoveTask(arg0->unknown_5c_);
             arg0->unknown_5c_ = -1;
-            void* var9 = GetBGScreenBlock_0204af14((struct BGLayer_0204af14*)arg0->unknown_28_, 0);
+            void* var9 = ((void*)((BGLayer*)((struct BGLayer_0204af14*)arg0->unknown_28_))->GetSprite(0));
             if (var9 != 0) {
-                func_0204ae44((struct Struct_0204ae44*)var9, arg0->unknown_67_);
+                ((BGLayer::Sprite*)((struct Struct_0204ae44*)var9))->SwitchPalette(arg0->unknown_67_);
             }
-            CopyBGScreenBlock_0204b988((struct BGLayer_0204b988*)arg0->unknown_28_, 0, 0, 0, 0xffff);
-            LoadBGScreenData_0204b0e8((struct BGLayer_02020cb8_2*)arg0->unknown_28_, 0);
+            ((BGLayer*)((struct BGLayer_0204b988*)arg0->unknown_28_))->BlitSpriteByIndex(0, 0, 0, 0xffff);
+            ((BGLayer*)((struct BGLayer_02020cb8_2*)arg0->unknown_28_))->CleanCacheAndUploadIndexBuffer((const void*)(0));
             arg0->unknown_66_ = 0;
             arg0->unknown_69_ &= ~1;
         }

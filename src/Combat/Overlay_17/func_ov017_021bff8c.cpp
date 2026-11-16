@@ -2,10 +2,14 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
+
 struct Party_02048150;
 extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 extern "C" void* GetMessageWindow_020421a0(void);
-extern "C" void* GetBattleSetup_ov017_021b8478(void* battleManager);
+extern "C" void* func_ov017_021b8478(void* battleManager);
 struct Queue_02038598_5;
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
@@ -59,7 +63,7 @@ extern "C" ARM void func_ov017_021bff8c(Struct_ov017_021bff8c* arg0, unsigned ch
             var7 = var6->unknown_3718_;
         }
         if (var7 != NULL) {
-            GetBattleSetup_ov017_021b8478(var7);
+            func_ov017_021b8478(var7);
         }
         unsigned short var8 = *(unsigned short*)((char*)var4 + Enum_ov017_021bff8c_434);
         if (var8 != 0) {
@@ -82,7 +86,7 @@ extern "C" ARM void func_ov017_021bff8c(Struct_ov017_021bff8c* arg0, unsigned ch
         } else if (IsOnLadder_02039d7c((char*)var4) != 0) {
             var1 = 1;
         }
-        unsigned char var9 = var4->obj3D_.objectIndex_4_;
+        unsigned char var9 = var4->obj3D_.unknown_4_;
         if (var0) {
             func_ov017_021cf4b0(var9, 5);
             func_0200fb40(var2);

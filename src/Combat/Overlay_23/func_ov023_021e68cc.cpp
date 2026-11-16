@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 struct TextWindowManager_0205d81c;
 
@@ -56,7 +57,6 @@ struct Struct_ov023_021e68cc_2 {
 };
 
 extern "C" Struct_ov023_021e68cc_3* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
-extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 // USA: func_ov023_021e68cc
 extern "C" ARM void func_ov023_021e68cc(Struct_ov023_021e68cc_2* arg0) {
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov023_021e68cc(Struct_ov023_021e68cc_2* arg0) {
             }
             if (!(arg0->unknown_13ab_ & (1 << var2)))
                 var11->unknown_25_ = 0xd;
-            DrawSprite_0205ac40(arg0->unknown_135c_, var11);
+            ((OBJSpriteSet*)(arg0->unknown_135c_))->DrawMetatile((OBJSpriteSet::Metatile*)(var11));
             var2++;
         }
     }

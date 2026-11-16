@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Random;
 struct Struct_02088514;
 
@@ -44,7 +48,7 @@ void func_ov000_0215c758(void* arg0, short* arg1, int arg2, int arg3, short* arg
 short func_ov000_0215a004(void* arg0, int arg1, int arg2, int arg3, unsigned long long* arg4, int arg5, int arg6, int arg7);
 int GetEnemyLevel_ov000_02159dbc(void* battle, int combatantIndex);
 Struct_ov000_0215a23c_3* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
-Struct_ov000_0215a23c_2* GetPartyMemberData_02053c6c(Struct_ov000_0215a23c_3* gameObject);
+Struct_ov000_0215a23c_2* func_02053c6c(Struct_ov000_0215a23c_3* gameObject);
 }
 
 extern "C" int func_ov000_0215fc60(char* arg0);
@@ -126,7 +130,7 @@ extern "C" ARM void func_ov000_0215a23c(void* arg0) {
         if (var19 == 0) {
             continue;
         }
-        Struct_ov000_0215a23c_2* var20 = GetPartyMemberData_02053c6c(var19);
+        Struct_ov000_0215a23c_2* var20 = func_02053c6c(var19);
         if (var20 == 0) {
             continue;
         }

@@ -1,9 +1,13 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Party_02048150;
 
-extern "C" int *GetLocalWireless_0202ae18(void);
+extern "C" int *func_0202ae18(void);
 extern "C" int IsInParty_02086ef0(Party_02048150 *party, int objectIndex);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" int func_ov002_02154a34(void *arg0, int arg1);
@@ -36,7 +40,7 @@ extern "C" ARM int func_ov002_02153ea4(void *arg0, Struct_ov002_02153ea4_2 *arg1
     if (arg1 == 0) return 0;
     if (arg2 == 0) return 0;
     Party_02048150 *var0 = (Party_02048150 *)GetParty_02010828(GameState::GetInstance());
-    int *var1                         = GetLocalWireless_0202ae18();
+    int *var1                         = func_0202ae18();
     int var2                    = 0;
     Struct_ov002_02153ea4 *var3         = arg1->unknown_8_;
     if (arg3) var3 = arg1->unknown_20_;

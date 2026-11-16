@@ -15,9 +15,18 @@ extern char data_020ef4b1[], data_020ef4c9[], data_020ef4d0[];
 #endif
 #include "Resource/GameResources.h"
 #include "Resource/Brightness.h"
+#include "Graphics/OBJSpriteSet.h"
+
+#if defined(jpn)
+#define func_0203be4c func_0203b8a4
+#endif
+
+#if defined(jpn)
+#define func_0203bd08 func_0203b760
+#endif
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* GetOAMManager_0203bd08(void);
+extern "C" void* func_0203bd08(void);
 extern "C" void* GetBGVRAMManager_0203b628(void);
 extern "C" void func_02021428(void* arg0, int arg1);
 
@@ -38,14 +47,10 @@ extern "C" void func_02020e58(void* arg0, int* arg1);
 extern "C" void func_02026428(void* arg0, const char* arg1);
 extern "C" void func_02026470(void* arg0, int arg1);
 struct Sprite_02043368_2;
-extern "C" void InitSprite_0205a198(struct Sprite_02043368_2* sprite);
-extern "C" void InitSpriteSet_0205a444(char* spriteSet);
 struct PacEntry_02020aec;
-extern "C" int func_0205a498(void* arg0, struct PacEntry_02020aec* arg1, int arg2, void* arg3);
-extern "C" void func_0205af38(int arg0, char* arg1, int arg2, int arg3);
 extern "C" void* GetSpriteTextManager_0203bd14();
 extern "C" int func_020233b8(void* arg0, int arg1);
-extern "C" void* GetSubOAMBuffer_0203be4c(void);
+extern "C" void* func_0203be4c(void);
 extern "C" void func_02020aa0(void* arg0);
 #if defined(jpn)
 extern "C" void func_02026898(void* arg0);
@@ -86,7 +91,7 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
     var4 = BackgroundLoader::GetInstance();
     GetZone3D_02012fe4();
     var5 = GetGameResources();
-    var6 = (char*)GetOAMManager_0203bd08();
+    var6 = (char*)func_0203bd08();
     var7 = (char*)GetBGVRAMManager_0203b628();
     var8 = inline_02021b84(var5, 12);
     var9 = var3->GetGrottoStruct();
@@ -186,15 +191,15 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
         var2 = 0;
         var4->GetLoadedFileByID(arg0->unknown_a04_, &var1, &var2);
         for (int var12 = 0; var12 < 0x1c; var12++) {
-            InitSprite_0205a198(&arg0->unknown_e8_[var12]);
+            ((OBJSpriteSet::Metatile*)(&arg0->unknown_e8_[var12]))->Reset();
         }
-        InitSpriteSet_0205a444((char*)&arg0->unknown_94_);
+        ((OBJSpriteSet*)((char*)&arg0->unknown_94_))->Reset();
         arg0->unknown_94_.unknown_50_ = 1;
         arg0->unknown_94_.unknown_40_ = arg0->unknown_e8_;
         arg0->unknown_94_.unknown_4c_ = 0x18;
-        func_0205a498((char*)&arg0->unknown_94_, (struct PacEntry_02020aec*)var1, var2, var8);
-        func_0205af38((int)((char*)&arg0->unknown_94_), (char*)&arg0->unknown_e8_[9], 1, 1);
-        func_0205af38((int)((char*)&arg0->unknown_94_), (char*)&arg0->unknown_e8_[11], 1, 1);
+        ((OBJSpriteSet*)((char*)&arg0->unknown_94_))->LoadFromPAC((void*)((struct PacEntry_02020aec*)var1), var2, (SafeAllocator*)(var8));
+        ((OBJSpriteSet*)((int)((char*)&arg0->unknown_94_)))->SetMetatileTransformFlags((OBJSpriteSet::Metatile*)((char*)&arg0->unknown_e8_[9]), 1, 1);
+        ((OBJSpriteSet*)((int)((char*)&arg0->unknown_94_)))->SetMetatileTransformFlags((OBJSpriteSet::Metatile*)((char*)&arg0->unknown_e8_[11]), 1, 1);
         *(int*)((char*)GetSpriteTextManager_0203bd14() +
 #if defined(jpn)
                 0x608
@@ -209,15 +214,15 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
         VectorizedInvertedMemcpy(var15 + 0x2bc0, var14, 0x540);
         func_02023218(arg0, var14, 0, 0x540);
         WaitForVBlank_020c9820();
-        DC_FlushRange(var14, 0x540);
+        CleanInvalidateCacheRange((const void*)(var14), 0x540);
         LoadToSubObjVRAM(var14, 0x2bc0, 0x540);
 #else
         char* var16 = (char*)0x06600000;
         memcpy(arg0->unknown_bf0_, var16 + 0x2c00, 0x40);
         func_020233b8(arg0, 1);
 #endif
-        GetOAMManager_0203bd08();
-        char* var17 = (char*)GetSubOAMBuffer_0203be4c() + 0x2e8;
+        func_0203bd08();
+        char* var17 = (char*)func_0203be4c() + 0x2e8;
         *(char**)GetSpriteTextManager_0203bd14() = var17;
         BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_a04_);
         arg0->unknown_a04_ = -1;

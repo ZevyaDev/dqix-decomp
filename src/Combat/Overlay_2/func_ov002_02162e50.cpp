@@ -3,6 +3,14 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct TextWindowManager_0205da38;
@@ -17,9 +25,9 @@ extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *man
 extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" void SetCursorTextWindow_0205dee8(struct TextWindowManager_0205dee8 *windowManager, int windowId);
-extern "C" void *GetGlobalFlags_020d6c00();
+extern "C" void *func_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int *globalFlags, unsigned int mask);
-extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 extern "C" int GetInventoryItemByID(char *arg0, int arg1, int arg2);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(void *menu);
 extern "C" void func_ov002_02161b98(char *arg0);
@@ -54,7 +62,7 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xe20), 5, 0);
         SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8 *) (arg0 + 0xe20), 5);
         int var2 = GetInventoryItemByID(arg0, *(short *) (arg0 + 0x1ab0), *(signed char *) (arg0 + 0x1ae8));
-        SetGlobalFlags_020466e4((unsigned int *) GetGlobalFlags_020d6c00(), 1);
+        SetGlobalFlags_020466e4((unsigned int *) func_020d6c00(), 1);
         if (*(unsigned int *) (arg0 + 0x22ac) & 1) {
             ((SafeAllocator *) (arg0 + 0x7c8))->Reset();
             func_ov023_021dc9e8(var1, (SafeAllocator *) (arg0 + 0x7c8), var2, arg0 + 0x750, 0x50);
@@ -106,7 +114,7 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
             if (var6) return;
             GameObject *var8 = GameState::GetInstance()->GetProtagonist();
             if (var8 == NULL) return;
-            *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var8) + 0x800 + 0xc0) = *(short *) (arg0 + 0x1aea);
+            *(short *) (func_02053c6c((unsigned char *) var8) + 0x800 + 0xc0) = *(short *) (arg0 + 0x1aea);
         } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + 0x1aea) = -1;
             *(short *) (arg0 + 0x1ab0) = -1;
@@ -132,7 +140,7 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0x2c8 + 0xc00), 5, 0);
         SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8 *) (arg0 + 0x2c8 + 0xc00), 5);
         int var10 = GetInventoryItemByID(arg0, *(short *) (arg0 + 0x1b00 + 0xe8), *(signed char *) (arg0 + 0x1c00 + 0x20));
-        SetGlobalFlags_020466e4((unsigned int *) GetGlobalFlags_020d6c00(), 1);
+        SetGlobalFlags_020466e4((unsigned int *) func_020d6c00(), 1);
         if (*(unsigned int *) (arg0 + 0x2000 + 0x47c) & 1) {
             ((SafeAllocator *) (arg0 + 0x64 + 0x800))->Reset();
             func_ov023_021dc9e8(arg0 + 0x50, (SafeAllocator *) (arg0 + 0x64 + 0x800), var10, arg0 + 0x3ec + 0x400, 0x50);
@@ -184,7 +192,7 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
             if (var14) return;
             GameObject *var16 = GameState::GetInstance()->GetProtagonist();
             if (var16 == NULL) return;
-            *(short *) (GetPartyMemberData_02053c6c((unsigned char *) var16) + 0x900 + 0x58) = *(short *) (arg0 + 0x1c00 + 0x22);
+            *(short *) (func_02053c6c((unsigned char *) var16) + 0x900 + 0x58) = *(short *) (arg0 + 0x1c00 + 0x22);
         } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + 0x1c00 + 0x22) = -1;
             *(short *) (arg0 + 0x1b00 + 0xe8) = -1;

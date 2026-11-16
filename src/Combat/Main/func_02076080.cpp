@@ -3,12 +3,12 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Graphics.h"
 #include "NitroSDK/LoadToVRAM.h"
+#include "Graphics/SPRSprite.h"
 
 struct Struct_02047b40_5 {
     int unknown_0_;
     void* unknown_4_;
 };
-extern "C" void func_02048090(struct Struct_02047b40_5* arg0, int arg1, SafeAllocator* arg2);
 
 struct Struct_02076080;
 extern "C" void func_02076928(struct Struct_02076080* arg0, int arg1);
@@ -174,7 +174,7 @@ extern "C" ARM int func_02076080(struct Struct_02076080_2* arg0, SafeAllocator* 
     arg2 += var18 * 2;
     memcpy(&arg0->unknown_54_.unknown_0_, arg2 + 0x1e, 4);
     arg2 += 0x22;
-    func_02048090(&arg0->unknown_54_, arg0->unknown_54_.unknown_0_, arg1);
+    ((SPRSprite::Names*)(&arg0->unknown_54_))->Allocate(arg0->unknown_54_.unknown_0_, (SafeAllocator*)(arg1));
 
     int var21 = arg0->unknown_54_.unknown_0_;
     if (arg0->unknown_54_.unknown_0_ > 0) {

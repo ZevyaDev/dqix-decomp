@@ -2,10 +2,14 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 struct Struct_02114e20;
 extern "C" unsigned int func_02012dd0(struct Struct_02114e20* arg0);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 unsigned int LoadROMFilesystemFileTables(void* where, unsigned int capacity);
 void CacheMainFileAccessors();
 
@@ -33,7 +37,7 @@ extern "C" ARM void LoadFileTables_020a0c0c() {
 
     padding = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, maxAllocation - (tablesSize + 0x10));
     data_02109d90 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, tablesSize);
-    FreeMemory_02012da4(&gMainHeap_02114e20, padding);
+    func_02012da4(&gMainHeap_02114e20, padding);
 
     if (data_02109d90 != NULL)
         LoadROMFilesystemFileTables(data_02109d90, tablesSize);

@@ -8,7 +8,11 @@ enum { Enum_ov017_021c41fc_348 = 0x15c };
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+extern "C" void* func_0202ae24(void);
 struct Struct_02039df4;
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
@@ -34,7 +38,7 @@ extern "C" ARM void func_ov017_021c41fc(int arg0, int arg1) {
     GameObject* var1 = var0->GetPartyMemberByIndex(arg0);
     if (var1 == NULL) return;
 
-    void* var2 = GetLocalWirelessPacketQueue_0202ae24();
+    void* var2 = func_0202ae24();
 
     struct Struct_ov017_021c41fc_2 var3;
     struct Struct_ov017_021c41fc* var4 = &var3.unknown_4_;
@@ -58,7 +62,7 @@ extern "C" ARM void func_ov017_021c41fc(int arg0, int arg1) {
     }
 
     GameObject* var6 = var0->GetUnknownGameObject();
-    if (var6 != NULL && arg0 == var6->obj3D_.objectIndex_4_) {
+    if (var6 != NULL && arg0 == var6->obj3D_.unknown_4_) {
         if (var4->unknown_2_ == 0x2710) {
             var4->unknown_2_ = 0x170c;
         } else if (var4->unknown_2_ == 0x2710 + 0x64) {

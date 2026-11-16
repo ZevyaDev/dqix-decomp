@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Resource/CharacterCreationUI.h"
+#include "Graphics/OBJSpriteSet.h"
 
 namespace {
 struct Struct_ov023_021e761c {
@@ -19,7 +20,6 @@ extern "C" void DrawTextWindows_0205d228(TextWindowManager_0205d228*);
 struct TextWindowManager_0205d274;
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274*);
 
-extern "C" int DrawSprite_0205ac40(void*, void*);
 
 #if defined(jpn)
 #define func_ov023_021e761c func_ov023_021e7868
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov023_021e761c(void *arg0) {
 	*(int*)(var2 + 0x14) = 0xd0000;
 	*(int*)(var2 + 0x18) = 0x10000;
 
-	DrawSprite_0205ac40(*(void**)(var1 + 0x604), var2);
+	((OBJSpriteSet*)(*(void**)(var1 + 0x604)))->DrawMetatile((OBJSpriteSet::Metatile*)(var2));
 #endif
 }
 

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
+#include "Resource/StringList.h"
 
 struct Struct_0201099c_3;
 struct Struct_ov000_02178938_3 { char* unknown_0_; char* unknown_4_; unsigned int unknown_8_; };
@@ -13,7 +14,6 @@ struct Struct_ov000_02178938_2 { char unknown_0_[0x1d]; signed char unknown_1d_;
 extern "C" int func_ov000_02175348(void*, int);
 extern "C" int func_ov000_0217542c(void*);
 extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0();
-extern "C" int FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void AppendFrameTag_02041c08(char*, int, int, int, int, int);
 extern "C" void AppendCursorTag_02041ea4(char*, int);
 extern "C" void AppendText_02042058(char*, const char*);
@@ -61,8 +61,8 @@ extern "C" ARM void func_ov000_02178938(Struct_ov000_02178938* arg0, Struct_ov00
     MessageWindow_020465c0* var8 = GetMessageWindow_020421a0();
 #if !defined(jpn)
     GameState* var9 = GameState::GetInstance();
-    const char* var10 = (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0);
-    const char* var11 = (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x754f);
+    const char* var10 = (const char*)((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0));
+    const char* var11 = (const char*)((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x754f));
 #endif
     var0 = -1;
     if (var7) {
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov000_02178938(Struct_ov000_02178938* arg0, Struct_ov00
             int var14 = func_ov000_02175348(arg0, var13);
             if (var14) {
 #if defined(jpn)
-                if (var2) AppendText_02042058(arg3, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0));
+                if (var2) AppendText_02042058(arg3, (const char*)((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0)));
 #else
                 if (var2) AppendText_02042058(arg3, var10);
 #endif
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov000_02178938(Struct_ov000_02178938* arg0, Struct_ov00
                 ClearMessageParams_02046380(var8);
                 SetMessageString_02046574(var8, 0, var15);
                 SetMessageNumber_020465c0(var8, 0, var14);
-                func_020474a8(var8, 10, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_b8_, 0x754f), var16);
+                func_020474a8(var8, 10, (const char*)((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x754f)), var16);
 #else
                 ClearMessageParams_02046380(var8);
                 Struct_ov000_02178938_3 var19;

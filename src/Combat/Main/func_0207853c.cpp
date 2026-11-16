@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void __clear(void* arg0, int arg1);
 
@@ -61,7 +65,7 @@ struct Struct_0207853c_2 {
 
 // USA: func_0207853c
 extern "C" ARM int func_0207853c(struct Struct_0207853c_2* arg0) {
-    void* var0 = GetLocalWireless_0202ae18();
+    void* var0 = func_0202ae18();
     arg0->unknown_b2_ = 0;
     ((Object3D*)((struct Struct_02037d88_9*)arg0))->TransitionInheritedAlpha(0, 0x7d);
 

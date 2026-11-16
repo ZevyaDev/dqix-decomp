@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0 {
@@ -13,13 +14,9 @@ extern "C" TextWindow_0205d0e0* GetCursorTextWindow_0205d8c4(TextWindowManager_0
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char*);
 
 struct SpriteAnimationList_0205a254;
-extern "C" void PlaySpriteAnimation_0205a370(SpriteAnimationList_0205a254*, int);
-extern "C" unsigned char* FindSpriteAnimation_0205a3d0(SpriteAnimationList_0205a254*, int);
 
 struct SpriteAnimationList_0205a330;
-extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330*, int);
 
-extern "C" void DrawSpriteAnimations_0205ae8c(void*);
 
 struct Struct_ov013_02186cac {
     char unknown_0_[0x3c];
@@ -65,17 +62,17 @@ extern "C" ARM void func_ov013_02186cac(void* arg0) {
     var6 = (SpriteAnimationList_0205a254*)var5->unknown_3c_;
     if (var6 == 0) return;
 
-    PlaySpriteAnimation_0205a370(var6, *(unsigned short*)(var0 + 0x1c));
-    var7 = FindSpriteAnimation_0205a3d0(var6, *(unsigned short*)(var0 + 0x1c));
+    ((OBJSpriteSet::List*)(var6))->PlaySpriteAnimation(*(unsigned short*)(var0 + 0x1c));
+    var7 = ((unsigned char*)((OBJSpriteSet::List*)(var6))->GetSprite(*(unsigned short*)(var0 + 0x1c)));
     if (var7 != 0) var7[0x15] |= 8;
 
-    AdvanceSpriteAnimations_0205a330((SpriteAnimationList_0205a330*)var6, *(int*)(var0 + 0x14));
+    ((OBJSpriteSet::List*)((SpriteAnimationList_0205a330*)var6))->UpdateAll(*(int*)(var0 + 0x14));
 
-    var7 = FindSpriteAnimation_0205a3d0(var6, *(unsigned short*)(var0 + 0x1c));
+    var7 = ((unsigned char*)((OBJSpriteSet::List*)(var6))->GetSprite(*(unsigned short*)(var0 + 0x1c)));
     if (var7 != 0) {
         *(short*)(var7 + 4) = var2;
         *(short*)(var7 + 6) = var3;
     }
 
-    DrawSpriteAnimations_0205ae8c(*(void**)(var0 + 0x18));
+    ((OBJSpriteSet*)(*(void**)(var0 + 0x18)))->DrawAll();
 }

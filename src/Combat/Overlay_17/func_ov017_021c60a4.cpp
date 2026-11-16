@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 struct Struct_02053f7c_3;
 extern "C" void func_02053f7c(struct Struct_02053f7c_3* arg0, unsigned short arg1, int arg2);
@@ -30,7 +34,7 @@ struct Struct_ov017_021c60a4 {
 
 // USA: func_ov017_021c60a4
 extern "C" ARM void func_ov017_021c60a4(struct Struct_0207dcf0* arg0) {
-    void* var0 = GetLocalWirelessPacketQueue_0202ae24();
+    void* var0 = func_0202ae24();
 
     struct Struct_ov017_021c60a4 var1;
     var1.unknown_0_ = 0x65;

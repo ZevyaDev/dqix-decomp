@@ -8,6 +8,28 @@
 #include "Util/Random.h"
 #include "Resource/CharacterCreationUI.h"
 #include "Resource/Brightness.h"
+#include "Graphics/TextureArena.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_ov000_02160fd4 func_ov000_02162740
+#endif
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02046708 func_02047528
+#endif
+
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 #if defined(jpn)
 #define data_ov026_021dedbc data_ov026_021df390
@@ -104,14 +126,14 @@ struct Struct_ov000_0215440c_6 {
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" Struct_ov026_021d8ba0_6* func_ov026_021dae60(Struct_ov026_021d8ba0_4*, int);
 extern "C" Struct_ov023_021f4c04* GetMessageWindow_020421a0();
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24();
-extern "C" void* GetGlobalFlags_020d6c00();
+extern "C" void* func_0202ae24();
+extern "C" void* func_020d6c00();
 extern "C" unsigned char* func_020e3580();
 extern "C" int func_ov000_0215fc60(char*);
 extern "C" void func_ov000_02160d80(void*, int);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 extern "C" void func_ov000_02160fbc(void*, int);
-extern "C" int TestBattleSceneFlags_ov000_02160fd4(void*, int);
+extern "C" int func_ov000_02160fd4(void*, int);
 extern "C" void func_ov000_0218173c(void*);
 extern "C" int func_02012060(void*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
@@ -151,7 +173,6 @@ extern "C" void func_ov000_02181364(void*);
 extern "C" void func_ov000_021816e8(void*, int);
 extern "C" void func_ov000_02181694(void*, int);
 extern "C" void func_ov000_0217f5d0(void*);
-extern "C" void InitTextureVRAMAreaFromSaved_0207dfc8(TextureVRAMArea_02015ef4_5*, TextureVRAMArea_02015ef4_5*);
 extern "C" void func_ov017_021ca174(unsigned short);
 extern "C" Struct_020e385c* func_020e3808();
 extern "C" int func_020e3ad0(Struct_020e385c*, int, int);
@@ -161,9 +182,8 @@ void SetBrightness(GameResources*, int, int);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_ov000_02174514(void*);
 extern "C" void func_02088e64(unsigned char*);
-extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, int);
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
-extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8*, unsigned int);
+extern "C" int func_02046708(GlobalFlags_02012de8*, unsigned int);
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" int func_020e37e8(unsigned char*);
@@ -183,7 +203,7 @@ extern "C" void func_02053dd0(Struct_02053dd0*);
 extern "C" void func_ov000_021637c8(void*);
 
 extern "C" {
-int* GetLocalWireless_0202ae18();
+int* func_0202ae18();
 void func_ov026_021d8aac( BattleScene_ov000_02160da0*, int arg1, int arg2);
 void func_ov000_02181608(void*);
 void func_ov000_0218048c(void*);
@@ -504,13 +524,13 @@ extern "C" ARM void func_ov026_021d8ba0(BattleScene_ov000_02160da0* arg0) {
 
     var17 = GameState::GetInstance();
     var18 = GetGameResources();
-    var22 = GetLocalWireless_0202ae18();
+    var22 = func_0202ae18();
     var19 = arg0->pBattle_29c_;
     var20 = func_ov026_021dae60((Struct_ov026_021d8ba0_4*)arg0->unknown_3760_, GetProtagonistObjectIndex_020100a8(var17));
     var21 = GetMessageWindow_020421a0();
     var23 = BackgroundLoader::GetInstance();
-    var24 = GetLocalWirelessPacketQueue_0202ae24();
-    var25 = GetGlobalFlags_020d6c00();
+    var24 = func_0202ae24();
+    var25 = func_020d6c00();
     var47 = (void**)var18->unknown_ptr_array_36fc[2];
     var26 = func_020e3580();
 
@@ -584,7 +604,7 @@ state1:
         }
         arg0->unknown_7734_ = arg0->unknown_55f4_;
         arg0->unknown_7710_ = 0;
-        arg0->unknown_7738_ = func_0204671c((Struct_0204671c*)GetGlobalFlags_020d6c00());
+        arg0->unknown_7738_ = func_0204671c((Struct_0204671c*)func_020d6c00());
         arg0->unknown_eb4_ = 0;
         SetBattleSceneFlags_ov000_02160fa8(arg0, 0x80000);
         ClearFlags00(var18, 0x10);
@@ -839,7 +859,7 @@ state1:
         }
         if (((SafeAllocator*)arg0->unknown_774c_)->GetSignedAllocator() == 0) {
             ((SafeAllocator*)arg0->unknown_774c_)->CreateTypeA(((SafeAllocator*)(arg0->unknown_30_))->Allocate(0x16000), 0x16000);
-            InitTextureVRAMAreaFromSaved_0207dfc8((TextureVRAMArea_02015ef4_5*)(arg0->unknown_14c_), (TextureVRAMArea_02015ef4_5*)(arg0->unknown_7760_));
+            ((TextureArena*)((TextureVRAMArea_02015ef4_5*)(arg0->unknown_14c_)))->CreateDescendant((TextureArena*)((TextureVRAMArea_02015ef4_5*)(arg0->unknown_7760_)));
         }
         arg0->unknown_eac_ = 0xe;
         {
@@ -861,7 +881,7 @@ state1:
         if (func_ov026_021ddd84(var18, arg0, arg0->pBattle_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 1) != 0) {
             return;
         }
-        if (TestBattleSceneFlags_ov000_02160fd4(arg0, 0x40000000) != 0) {
+        if (func_ov000_02160fd4(arg0, 0x40000000) != 0) {
             if (arg0->unknown_774a_ != 0) {
                 int var83;
                 for (var83 = 0; var83 < 4; var83++) {
@@ -971,7 +991,7 @@ state1:
             Struct_ov023_021f4c04* var99 = GetMessageWindow_020421a0();
             Struct_0201099c_3* var100 = arg0->inline_ov026_021d8ba0();
             GameObject* var101 = GetEnemyByIndex_0200fea4(var17, var28);
-            void* var102 = FindStringInTable_020e0434(var100, 0x28);
+            void* var102 = ((void*)((StringList*)(var100))->GetString(0x28));
             if (var102 != 0 && var101 != 0) {
                 ClearMessageParams_02046380(var99);
                 SetMessageString_02046574((Struct_02046574_2*)var99, 0, (char*)var101 + 0x14c);
@@ -991,7 +1011,7 @@ state1:
             func_ov026_021dce34(-1, arg0, arg0->pBattle_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, arg0->unknown_ec8_, arg0->unknown_5c3c_, arg0->unknown_5728_, arg0->unknown_e98_, arg0->unknown_ea0_, arg0->unknown_5910_, arg0->unknown_c18_);
         }
         if (var19->unknown_8e47_ == 0) {
-            if (TestGlobalFlags_02046708((GlobalFlags_02012de8*)var25, 0x200) == 0) {
+            if (func_02046708((GlobalFlags_02012de8*)var25, 0x200) == 0) {
                 int var103 = var19->unknown_8e20_;
                 int var104 = var19->unknown_8e49_;
                 int var105 = 1;
@@ -1027,7 +1047,7 @@ state1:
             if (func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
                 var45 = arg0->unknown_2a0_;
                 var107 = 1;
-                var46 = GetLocalWireless_0202ae18();
+                var46 = func_0202ae18();
                 if (IsLocalWirelessOn_0202b7d8(var46)) {
                     for (var92 = 0; var92 < 4; var92++) {
                         if (IsPartyMemberInBattle_020a35e0((unsigned char*)var45, var92) && IsLocalWirelessPlayerJoined_0202c1c0((LocalWireless_0202b2f0*)var46, var92)) {
@@ -1154,7 +1174,7 @@ state1:
                         func_ov017_021cefe0(arg0->unknown_2a0_->unknown_8_, arg0->unknown_5950_, arg0->unknown_7748_);
                         SetBattleSceneFlags_ov000_02160fa8(arg0, 0x800000);
                     }
-                    if (TestGlobalFlags_02046708((GlobalFlags_02012de8*)var25, 0x200)) {
+                    if (func_02046708((GlobalFlags_02012de8*)var25, 0x200)) {
                         func_020e36f0(var26);
                     }
                     arg0->unknown_eac_ = 0x12;
@@ -1182,7 +1202,7 @@ state1:
         if (func_ov026_021ddd84(var18, arg0, arg0->pBattle_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 0) != 0) {
             return;
         }
-        if (func_020e37e8(var26) != 0 || TestGlobalFlags_02046708((GlobalFlags_02012de8*)var25, 0x200) == 0) {
+        if (func_020e37e8(var26) != 0 || func_02046708((GlobalFlags_02012de8*)var25, 0x200) == 0) {
             ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var25, 0x200);
             if (func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
                 arg0->unknown_eac_ = 8;
@@ -1226,7 +1246,7 @@ state1:
         if (func_ov026_021ddd84(var18, arg0, arg0->pBattle_29c_, arg0->unknown_2a0_, arg0->unknown_3760_, &arg0->unknown_7748_, 0) != 0) {
             return;
         }
-        if (TestBattleSceneFlags_ov000_02160fd4(arg0, 0x20000)) {
+        if (func_ov000_02160fd4(arg0, 0x20000)) {
             arg0->unknown_eac_ = 5;
         }
     } else if (arg0->unknown_eac_ == 5) {

@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct LocalWireless_0202c1a4;
 struct Queue_0201bdac_2;
 
@@ -70,7 +74,7 @@ struct Struct_ov017_0219dc90 {
     Struct_ov017_0219dc90_6 unknown_44b4_;
 };
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" Struct_ov017_0219dc90_2* GetActiveZones_02027ca4(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
@@ -93,7 +97,7 @@ extern "C" void RemoveFromQueue_02046a8c(Queue_0201bdac_2* queue, Struct_ov017_0
 // USA: func_ov017_0219dc90
 extern "C" ARM void func_ov017_0219dc90(Struct_ov017_0219dc90* arg0, int arg1, int arg2, unsigned char arg3, unsigned short arg4) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     Struct_ov017_0219dc90_2* var2 = GetActiveZones_02027ca4();
     GetZone3D_02012fe4();
     Struct_ov017_0219dc90_7* var3 = (Struct_ov017_0219dc90_7*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg1);

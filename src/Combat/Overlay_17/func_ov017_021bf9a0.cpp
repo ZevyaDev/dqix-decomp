@@ -6,6 +6,16 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "World/LootableContainer.h"
 #include "Resource/GameResources.h"
+#include "Graphics/SPRSprite.h"
+#include "Graphics/TextureArena.h"
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 
 
@@ -32,15 +42,10 @@ struct Struct_ov017_021a7e14_4 {
 };
 extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0();
 extern "C" Struct_ov017_021bf9a0_3* GetZone3D_02012fe4();
-extern "C" unsigned char* GetFlagManager_0205ec34();
+extern "C" unsigned char* func_0205ec34();
 extern "C" int func_ov017_0218d618(Struct_ov017_0218d618_2*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void func_02047230(Struct_02012fa4*);
-extern "C" void InitTextureVRAMAreaFromSaved_0207dfc8(TextureVRAMArea_02015ef4_5*, TextureVRAMArea_02015ef4_5*);
-extern "C" void RestoreTextureVRAMState_0207df90(char*);
-extern "C" void SaveTextureVRAMState_0207dfac(char*);
-extern "C" void func_02047b30(void*, int, int, int);
-extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void func_ov017_021cdb00(int, int, int, int);
 extern "C" void __clear(void*, int);
@@ -67,7 +72,7 @@ extern "C" ARM int func_ov017_021bf9a0(Struct_ov017_021bf9a0_2* arg0) {
     GetZone3D_02012fe4();
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
     LootableContainerManager* var3 = LootableContainerManager::GetMainInstance();
-    unsigned char* var4 = GetFlagManager_0205ec34();
+    unsigned char* var4 = func_0205ec34();
     if (!var3 || !var4) return 3;
     if (arg0->unknown_48_) {
         if (!func_ov017_0218d618((Struct_ov017_0218d618_2*)GetGameResources())) return 5;
@@ -79,13 +84,13 @@ extern "C" ARM int func_ov017_021bf9a0(Struct_ov017_021bf9a0_2* arg0) {
             void* var7 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 256);
             if (var5 && var7) {
                 arg0->unknown_34_.CreateTypeA(var7, 256);
-                func_02047230(arg0->unknown_10_);
-                func_0204719c(arg0->unknown_10_);
+                ((SPRSprite*)(arg0->unknown_10_))->Release();
+                ((SPRSprite*)(arg0->unknown_10_))->Reset();
                 TextureVRAMArea_02015ef4_5 var8;
-                InitTextureVRAMAreaFromSaved_0207dfc8((TextureVRAMArea_02015ef4_5*)&inline_ov017_021bf9a0(GetGameResources(), 0x230), &var8);
-                RestoreTextureVRAMState_0207df90((char*)&var8);
-                func_02047b30(arg0->unknown_10_, (int)var5, var6, (int)&arg0->unknown_34_);
-                SaveTextureVRAMState_0207dfac((char*)&var8);
+                ((TextureArena*)((TextureVRAMArea_02015ef4_5*)&inline_ov017_021bf9a0(GetGameResources(), 0x230)))->CreateDescendant((TextureArena*)(&var8));
+                ((TextureArena*)((char*)&var8))->Restore();
+                ((SPRSprite*)(arg0->unknown_10_))->LoadFromSPR((const void*)((int)var5), var6, (SafeAllocator*)((int)&arg0->unknown_34_));
+                ((TextureArena*)((char*)&var8))->Save();
             }
             var2->RemoveTask(arg0->unknown_14_);
             arg0->unknown_14_ = -1;
@@ -97,13 +102,12 @@ extern "C" ARM int func_ov017_021bf9a0(Struct_ov017_021bf9a0_2* arg0) {
     if (var10) {
         int var11 = var10->uniqueID;
         int var12 = var11 + 0x79e;
-        if (!IsFlagSet_0206dfb0((int)var4, var4 + 0x8c, var12)) {
+        if (!func_0206dfb0((int)var4, var4 + 0x8c, var12)) {
             SetFlag_0206df6c(var4, var4 + 0x8c, var12, 1);
             func_ov017_021cdb00(8, var11, 1, -1);
             char var13[128] = {};
             Struct_ov017_021bf9a0_3* var14 = GetZone3D_02012fe4();
             Struct_ov017_021a7e14_4 var15;
-            var15.unknown_0_.ResetAllocatorPointer();
             InitItemTable_020de824(var15.unknown_14_);
             func_0207cbe8((char*)&var15);
             func_0207cbe8((char*)&var15);

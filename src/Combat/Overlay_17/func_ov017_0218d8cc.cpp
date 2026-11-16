@@ -4,6 +4,10 @@
 #include "NitroSDK/Matrix.h"
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 extern "C" void func_020968a4(unsigned char* arg0, int* arg1);
 
 struct Struct_ov017_0218d8cc {
@@ -35,7 +39,7 @@ struct Struct_ov017_0218d8cc_3 {
 extern "C" ARM void func_ov017_0218d8cc(Struct_ov017_0218d8cc_3* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = var0->GetUnknownGameObject();
-    Struct_ov017_0218d8cc* var2 = (Struct_ov017_0218d8cc*)GetCamera_020100bc(var0);
+    Struct_ov017_0218d8cc* var2 = (Struct_ov017_0218d8cc*)func_020100bc(var0);
     if (var1 == 0 || var2 == 0) {
         return;
     }

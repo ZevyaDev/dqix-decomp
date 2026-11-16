@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
 #include "World/Object3D.h"
-#include "NitroSDK/Graphics3D/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
+
+#if defined(jpn)
+#define func_020c555c func_020c7028
+#endif
 
 extern "C" void __clear(void* arg0, unsigned long arg1);
 
@@ -35,8 +39,8 @@ struct Struct_ov015_02193ee8
 };
 
 extern "C" Struct_02099d34* func_02099cac();
-extern "C" int Set3DEdgeColors_020c555c(int edgeColors);
-ModelRenderContext* GetModel3DContext(Model3D* model);
+extern "C" int func_020c555c(int edgeColors);
+Nitro3DRenderContext* GetModel3DContext(Model3D* model);
 
 extern const Struct_ov015_02193ee8 data_ov015_02193ee8;
 extern const Struct_ov015_02193d9c data_ov015_02193d9c;
@@ -46,13 +50,13 @@ extern "C" ARM void func_ov015_0218eb04(Struct_ov015_0218c03c_2* arg0)
 {
     unsigned short var0 = func_02099cac()->unknown_128_;
     unsigned short var1[8] = {var0, var0, var0, var0, var0, var0, var0, var0};
-    Set3DEdgeColors_020c555c((int)var1);
+    func_020c555c((int)var1);
     arg0->unknown_36_ = 0;
     arg0->unknown_34_ = 0;
     Model3D* var2 = arg0->unknown_24_->pModel_;
     if (var2 == NULL)
         return;
-    ModelRenderContext* var3 = GetModel3DContext(var2);
+    Nitro3DRenderContext* var3 = GetModel3DContext(var2);
     if (var3 == NULL)
         return;
     Object3D* var4[10];
@@ -75,7 +79,7 @@ extern "C" ARM void func_ov015_0218eb04(Struct_ov015_0218c03c_2* arg0)
         {
             if (strlen(var5.unknown_0_[var7]) != 0)
             {
-                GetModelBonePositionAndDirectionMatrices(var3, NULL, NULL, var2->GetBoneIndex(var5.unknown_0_[var7]));
+                Nitro3D_GetBonePosDirMatrices(var3, NULL, NULL, var2->GetBoneIndex(var5.unknown_0_[var7]));
                 var8->EnableFlag(0x4000);
             }
             if (var6.unknown_0_[var7])

@@ -4,6 +4,8 @@
 #endif
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
 struct Struct_0203c1c8  {
 #if defined(jpn)
     char unknown_0_[0x14];
@@ -104,7 +106,6 @@ struct Struct_ov000_02180ca8_3  {
     unsigned char unknown_1d5c_;
 };
 extern "C" int func_ov000_0217fe30(Struct_ov000_02180ca8_3*);
-extern "C" void DrawSprite_0205ac40(void*, void*);
 extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int*);
 extern "C" int func_ov000_02174e34(int, int);
 extern "C" Struct_0203c1c8* func_ov000_02174e1c(void*, int);
@@ -114,8 +115,6 @@ extern "C" void func_0203c1c8(Struct_0203c1c8*, int);
 #else
 extern "C" void func_0203c1c8(Struct_0203c1c8*);
 #endif
-extern "C" void* GetBGScreenBlock_0204af14(BGLayer_0204af14*, unsigned int);
-extern "C" void func_0204b878(Struct_0204b878*, int, int, int, short, short, short, short, unsigned short);
 extern const int data_ov000_02183674[11];
 static inline int inline_ov000_02180ca8(int arg0)  { return arg0 >= 0 && arg0 <= 3; }
 // USA: func_ov000_02180ca8
@@ -148,7 +147,7 @@ extern "C" ARM void func_ov000_02180ca8(Struct_ov000_02180ca8_3* arg0, Struct_ov
         var9->unknown_22_ = arg1->unknown_4c_ + 0x44;
 #endif
         var9->unknown_26_ = 0;
-        DrawSprite_0205ac40(arg0->unknown_11c_, var9);
+        ((OBJSpriteSet*)(arg0->unknown_11c_))->DrawMetatile((OBJSpriteSet::Metatile*)(var9));
     }
     signed char var10 = arg1->unknown_10_[arg1->unknown_18_];
     if (var10 == 0x67)  {
@@ -165,7 +164,7 @@ extern "C" ARM void func_ov000_02180ca8(Struct_ov000_02180ca8_3* arg0, Struct_ov
             var11->unknown_22_ = arg1->unknown_4c_;
 #endif
             var11->unknown_26_ = 1;
-            DrawSprite_0205ac40(arg0->unknown_11c_, var11);
+            ((OBJSpriteSet*)(arg0->unknown_11c_))->DrawMetatile((OBJSpriteSet::Metatile*)(var11));
         }
         if (arg1->unknown_1c_ == 6 || arg1->unknown_c_ == 0 || IsPanelMemberIncapacitated_ov000_021719f8(arg1->unknown_0_) || arg1->unknown_1c_ == 2 || arg1->unknown_443_ != 5)  {
             return;
@@ -257,8 +256,8 @@ extern "C" ARM void func_ov000_02180ca8(Struct_ov000_02180ca8_3* arg0, Struct_ov
             var13->unknown_10_ = 1;
         }
         var13->unknown_8_ = 0;
-        void* var29 = GetBGScreenBlock_0204af14((BGLayer_0204af14*)arg0->unknown_8c4_, 3);
-        func_0204b878(arg2, (int)var29, 0, 0,
+        void* var29 = ((void*)((BGLayer*)((BGLayer_0204af14*)arg0->unknown_8c4_))->GetSprite(3));
+        ((BGLayer*)(arg2))->BlitSprite((const BGLayer::Sprite*)(var29), 0, 0,
 #if defined(jpn)
             var4 + 16,
 #else

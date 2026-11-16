@@ -4,6 +4,10 @@
 #include "Grotto/Main/DetailedTreasureMapData.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_0208fa8c { unsigned short unknown_0_; };
 struct Struct_0208fa8c_2 {
 #if defined(jpn)
@@ -18,7 +22,7 @@ extern "C" int func_0201b588(int);
 extern "C" void func_02027ad8(int, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" {
-int* GetLocalWireless_0202ae18();
+int* func_0202ae18();
 Struct_0208fa8c* GetZone3D_02012fe4();
 void ReleaseFileTablesForSpace_020a0cc4(int);
 void func_020a3720();
@@ -33,7 +37,7 @@ extern "C" ARM void func_0208fa8c(DetailedTreasureMapData* arg0) {
     Struct_0208fa8c* var0;
     GameState* var1 = GameState::GetInstance();
     GameResources* var2 = GetGameResources();
-    int* var3 = GetLocalWireless_0202ae18();
+    int* var3 = func_0202ae18();
     var0 = (Struct_0208fa8c*)GetZoneEntry_0200fd0c(var1);
     GrottoStruct* var4 = var1->GetGrottoStruct();
     int var5;

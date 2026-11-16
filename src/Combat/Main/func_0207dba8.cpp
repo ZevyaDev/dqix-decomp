@@ -1,14 +1,18 @@
 #include <globaldefs.h>
 
 #include "GameState/GameState.h"
+#include "std_library_functions.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct LocalWireless_0202b2f0;
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void);
 extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" void func_0207dcf0(int arg0);
-extern "C" int CompareBytes_02001aec(void* left, void* right, int count);
 extern "C" void func_ov017_021c9c64(int arg0, int arg1);
 
 struct Struct_0207d798 {
@@ -38,7 +42,7 @@ extern "C" ARM void func_0207dba8(struct Struct_0207d798* arg0) {
             if (var1->unknown_6_ < 0x3e8) {
                 var1->unknown_6_ = var1->unknown_6_ + var0->GetEffectiveDeltaTime();
             } else {
-                int var8 = (CompareBytes_02001aec(var1->unknown_8_, &data_020e8a4c, 4) == 0);
+                int var8 = (memcmp(var1->unknown_8_, &data_020e8a4c, 4) == 0);
                 if (var8) {
                     func_ov017_021c9c64(var7, 0);
                     func_0207d7c0(var1);
@@ -48,7 +52,7 @@ extern "C" ARM void func_0207dba8(struct Struct_0207d798* arg0) {
             var1->unknown_6_ = (unsigned short)var3;
         }
     }
-    struct LocalWireless_0202b2f0* var9 = (struct LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
+    struct LocalWireless_0202b2f0* var9 = (struct LocalWireless_0202b2f0*)func_0202ae18();
     if (IsNotLocalWirelessGuest_0202c508() == 0) return;
     int var10;
     for (var10 = var4; var10 < 4; var10++) {

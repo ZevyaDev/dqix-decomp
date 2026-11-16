@@ -1,11 +1,11 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 #if defined(jpn)
 #include "Resource/CharacterCreationUI.h"
 #include "Graphics/SpriteAffineTransform.h"
 
 extern "C" int GetMenuCursorItemCount_0205bafc(void*);
-extern "C" void DrawSprite_0205ac40(SpriteSet_0205ac40*, Sprite_0205ac40_2*);
 
 extern "C" ARM void func_ov023_021dab5c(Struct_ov009_021842a0* arg0, int arg1, int arg2, int arg3, int arg4) {
     int var0 = arg4 << 12;
@@ -46,11 +46,10 @@ extern "C" ARM void func_ov023_021dab5c(Struct_ov009_021842a0* arg0, int arg1, i
     var11[0] = var4;
     var11[1] = var6;
     for (int var12 = 0; var12 < 4; ++var12)
-        DrawSprite_0205ac40(arg0->unknown_7e4_, &arg0->unknown_7e8_[var12 + 21]);
+        ((OBJSpriteSet*)(arg0->unknown_7e4_))->DrawMetatile((OBJSpriteSet::Metatile*)(&arg0->unknown_7e8_[var12 + 21]));
 }
 #else
 extern "C" int GetMenuCursorItemCount_0205bafc(void* cursor);
-extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 // USA: func_ov023_021dab5c
 extern "C" ARM void func_ov023_021dab5c(void* arg0, int arg1, int arg2, int arg3, int arg4) {
@@ -94,7 +93,7 @@ extern "C" ARM void func_ov023_021dab5c(void* arg0, int arg1, int arg2, int arg3
 
     int var26;
     for (var26 = 0; var26 < 4; var26++) {
-        DrawSprite_0205ac40(*(void**)(var13 + 0x7e4), var25 + (var26 + 0x15) * 0x28);
+        ((OBJSpriteSet*)(*(void**)(var13 + 0x7e4)))->DrawMetatile((OBJSpriteSet::Metatile*)(var25 + (var26 + 0x15) * 0x28));
     }
 }
 #endif

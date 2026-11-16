@@ -15,7 +15,7 @@
 #endif
 #include <globaldefs.h>
 #include "NitroSDK/Matrix.h"
-#include "NitroSDK/Graphics3D/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 #include "NitroSDK/Graphics3D/RenderConfig.h"
 
 struct Struct_ov015_0218bb3c_2;
@@ -54,21 +54,21 @@ extern "C" ARM void func_ov015_0218bb3c(Struct_ov015_0218bb3c* arg0)
         return;
     if (data_ov015_02193fe0[1] == func_ov015_0218bc9c((Struct_ov015_0218bb3c_2*)arg0) && data_ov015_02194564.unknown_8_ != NULL)
     {
-        GetCurrentPositionAndDirectionMatrices(data_ov015_02194564.unknown_8_, NULL);
+        Nitro3D_GetCurrentPosDirMatrices(data_ov015_02194564.unknown_8_, NULL);
         data_ov015_02194564.unknown_c_ = *data_ov015_02194564.unknown_8_;
-        Mat4x3_Multiply(data_ov015_02194564.unknown_8_, RenderConfig::GetInverseViewMatrix(), data_ov015_02194564.unknown_8_);
+        Mat4x3_Multiply(data_ov015_02194564.unknown_8_, Nitro3DRenderConfig::GetInverseViewMatrix(), data_ov015_02194564.unknown_8_);
     }
     if (data_ov015_02193fe0[R(0, 2)] == func_ov015_0218bc9c((Struct_ov015_0218bb3c_2*)arg0) && data_ov015_02194564.unknown_0_ != NULL)
     {
-        GetCurrentPositionAndDirectionMatrices(data_ov015_02194564.unknown_0_, NULL);
+        Nitro3D_GetCurrentPosDirMatrices(data_ov015_02194564.unknown_0_, NULL);
         data_ov015_02194564.unknown_3c_ = *data_ov015_02194564.unknown_0_;
-        Mat4x3_Multiply(data_ov015_02194564.unknown_0_, RenderConfig::GetInverseViewMatrix(), data_ov015_02194564.unknown_0_);
+        Mat4x3_Multiply(data_ov015_02194564.unknown_0_, Nitro3DRenderConfig::GetInverseViewMatrix(), data_ov015_02194564.unknown_0_);
     }
     if (data_ov015_02193fe0[R(2, 0)] != func_ov015_0218bc9c((Struct_ov015_0218bb3c_2*)arg0))
         return;
     if (data_ov015_02194564.unknown_4_ == NULL)
         return;
-    GetCurrentPositionAndDirectionMatrices(data_ov015_02194564.unknown_4_, NULL);
+    Nitro3D_GetCurrentPosDirMatrices(data_ov015_02194564.unknown_4_, NULL);
     data_ov015_02194564.unknown_6c_ = *data_ov015_02194564.unknown_4_;
-    Mat4x3_Multiply(data_ov015_02194564.unknown_4_, RenderConfig::GetInverseViewMatrix(), data_ov015_02194564.unknown_4_);
+    Mat4x3_Multiply(data_ov015_02194564.unknown_4_, Nitro3DRenderConfig::GetInverseViewMatrix(), data_ov015_02194564.unknown_4_);
 }

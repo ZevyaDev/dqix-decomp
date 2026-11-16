@@ -1,9 +1,17 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* GetLocalWirelessPacketQueue_0202ae24(void);
+#if defined(jpn)
+#define func_0202ae24 func_0202a9dc
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 
 struct Struct_ov017_021ce494 {
@@ -13,7 +21,7 @@ struct Struct_ov017_021ce494 {
 
 // USA: func_ov017_021ce494
 extern "C" ARM void func_ov017_021ce494(void) {
-	void* var0 = GetLocalWireless_0202ae18();
+	void* var0 = func_0202ae18();
 	if (IsNotLocalWirelessGuest_0202c508(var0) != 0) {
 		return;
 	}
@@ -21,7 +29,7 @@ extern "C" ARM void func_ov017_021ce494(void) {
 		return;
 	}
 	Struct_ov017_021ce494 var1;
-	void* var2 = GetLocalWirelessPacketQueue_0202ae24();
+	void* var2 = func_0202ae24();
 	var1.unknown_0_ = 0x28;
 	QueueOutgoingPacket_0205e330(var2, &var1, 0);
 }

@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
 struct LocalWireless_0202c1a4;
@@ -61,7 +65,7 @@ extern "C" ARM int func_020781e8(struct Struct_020781e8* arg0) {
     }
 
     int var2 = 0;
-    void* var3 = GetLocalWireless_0202ae18();
+    void* var3 = func_0202ae18();
     if (!IsLocalWirelessOn_0202b7d8((int*)var3) || GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var3) == 0) {
         struct Struct_ov009_0218aa28 var4 = func_02034104(var1);
         struct Struct_ov009_0218aa28 var5;

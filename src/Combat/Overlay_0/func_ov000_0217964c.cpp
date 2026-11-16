@@ -4,6 +4,10 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
 enum { Enum_ov000_0217964c_92=0x28, Enum_ov000_0217964c_2400=0x800, Enum_ov000_0217964c_16=12, Enum_ov000_0217964c_8=7, Enum_ov000_0217964c_16_2=0x17, Enum_ov000_0217964c_5=8 };
 #else
 enum { Enum_ov000_0217964c_92=0x5c, Enum_ov000_0217964c_2400=0x960, Enum_ov000_0217964c_16=16, Enum_ov000_0217964c_8=8, Enum_ov000_0217964c_16_2=0x10, Enum_ov000_0217964c_5=5 };
@@ -51,7 +55,7 @@ struct Struct_ov000_02176e3c {
 };
 
 extern "C" Struct_ov000_0217964c* GetMessageWindow_020421a0();
-extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" void* func_02053c6c(unsigned char* gameObject);
 extern "C" Struct_ov000_02171ffc_5* func_ov000_02171b9c(void* arg0, int arg1);
 extern "C" void func_02046608(Struct_ov000_0217964c* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
@@ -81,7 +85,7 @@ extern "C" ARM void func_ov000_0217964c(Struct_ov000_02176e3c* arg0, Struct_ov00
     if (var4 == NULL) {
         return;
     }
-    GetPartyMemberData_02053c6c((unsigned char*)var4);
+    func_02053c6c((unsigned char*)var4);
     Struct_ov000_02171ffc_5* var5 = func_ov000_02171b9c(arg1, arg1->unknown_22_);
     if (var5 == NULL) {
         return;

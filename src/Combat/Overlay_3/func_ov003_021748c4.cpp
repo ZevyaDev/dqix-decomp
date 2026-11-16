@@ -13,7 +13,11 @@ enum { Enum_ov003_021748c4_1968 = 0x7b0 };
 
 #include "Memory/SafeAllocator.h"
 
-extern "C" void* GetGlobalFlags_020d6c00(void);
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 
 extern "C" void func_ov023_021dc9e8(void* arg0, void* arg1, int arg2, void* arg3, int arg4);
@@ -22,7 +26,7 @@ extern "C" void AllocateItemInfoPanelBuffers_ov023_021dbfd0(void* panel, void* a
 
 // USA: func_ov003_021748c4
 extern "C" ARM void func_ov003_021748c4(unsigned char* arg0) {
-    SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 1);
+    SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 1);
     unsigned char* var0 = *(unsigned char**)(arg0 + 0x4);
     unsigned short var1 = *(unsigned short*)(arg0 + Enum_ov003_021748c4_4166);
     if (var1 & 0x800) {

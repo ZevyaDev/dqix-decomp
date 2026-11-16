@@ -49,6 +49,11 @@ extern const char data_ov015_021950f0[];
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "std_library_functions.h"
 #include "Resource/BCFG.h"
+#include "Resource/GameStrings.h"
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
 
 struct Struct_ov015_02192700 { char unknown_0_[0x40]; };
 
@@ -123,14 +128,13 @@ struct Struct_ov015_02192700_8 {
 };
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 struct Struct_02029634_3;
 extern "C" void func_0202a91c(Struct_02029634_3*);
 extern "C" void func_02029568(struct Struct_ov015_02192700_2* arg0);
 extern "C" void func_020294cc(void* arg0, const char* arg1);
 extern "C" void func_0202949c(char*);
-extern "C" const char* GetStandardString_020e51cc(int stringId);
 struct Struct_0202a944_2;
 struct Struct_0202a944;
 extern "C" void func_0202a944(Struct_0202a944_2*, Struct_0202a944*);
@@ -206,7 +210,7 @@ extern "C" ARM void func_ov015_02192700(struct Struct_ov015_02192700_8* arg0, in
     int var4;
 
     if (arg0->unknown_344_ != 0) {
-        FreeMemory_02012da4(&gMainHeap_02114e20, arg0->unknown_344_);
+        func_02012da4(&gMainHeap_02114e20, arg0->unknown_344_);
         arg0->unknown_344_ = 0;
     }
     arg0->unknown_354_ = arg1;
@@ -363,7 +367,7 @@ extern "C" ARM void func_ov015_02192700(struct Struct_ov015_02192700_8* arg0, in
 #if defined(jpn)
                 func_020294cc(arg0->unknown_344_, data_ov015_021950f0);
 #else
-                func_020294cc(arg0->unknown_344_, GetStandardString_020e51cc(1000));
+                func_020294cc(arg0->unknown_344_, GetGameString((eGameString)(1000)));
 #endif
                 func_0202a944((Struct_0202a944_2*)&arg0->unknown_2c4_, (Struct_0202a944*)arg0->unknown_344_);
                 var4 = 1;

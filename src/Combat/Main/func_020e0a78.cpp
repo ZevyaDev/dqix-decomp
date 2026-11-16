@@ -1,6 +1,15 @@
 #include <globaldefs.h>
 
 #include "Memory/SafeAllocator.h"
+#include "NitroSDK/Cache.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02046708 func_02047528
+#endif
 
 struct GlobalFlags_02012de8;
 
@@ -15,15 +24,14 @@ struct Struct_020e0a78 {
     unsigned int unknown_774_;
 };
 
-extern "C" void *GetGlobalFlags_020d6c00();
-extern "C" int TestGlobalFlags_02046708(GlobalFlags_02012de8 *globalFlags, unsigned int mask);
+extern "C" void *func_020d6c00();
+extern "C" int func_02046708(GlobalFlags_02012de8 *globalFlags, unsigned int mask);
 extern "C" void VectorizedInvertedMemcpy(void *dst, void *src, unsigned int size);
 extern "C" void func_020e0df8(void*, int, int, int);
 extern "C" void func_020e0cfc(void*, int, int, int);
 extern "C" void func_020e0b4c(void *arg0, void *arg1, int arg2, int arg3);
 extern "C" void func_020e0ec4(void *arg0, void *arg1, int arg2, int arg3);
 extern "C" void WaitForVBlank_020c9820();
-extern "C" void DC_FlushRange(const void *addr, unsigned int size);
 extern "C" int LoadToSubObjVRAM(void *dst, int mode, unsigned int size);
 
 // JPN: func_020e26ac
@@ -34,7 +42,7 @@ extern "C" ARM int func_020e0a78(void *arg0) {
     if (var0->unknown_76c_ == 0) {
         return 0;
     }
-    if (TestGlobalFlags_02046708(static_cast<GlobalFlags_02012de8 *>(GetGlobalFlags_020d6c00()), 0x41)) {
+    if (func_02046708(static_cast<GlobalFlags_02012de8 *>(func_020d6c00()), 0x41)) {
         return 0;
     }
 
@@ -52,7 +60,7 @@ extern "C" ARM int func_020e0a78(void *arg0) {
     func_020e0cfc(arg0, (int)var1, 0x2080, 0xd00);
 #endif
     WaitForVBlank_020c9820();
-    DC_FlushRange(var1, var0->unknown_774_);
+    CleanInvalidateCacheRange((const void*)(var1), var0->unknown_774_);
     LoadToSubObjVRAM(var1, 0, var0->unknown_774_);
     var0->unknown_76c_->Free(var1);
 

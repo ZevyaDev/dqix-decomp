@@ -6,6 +6,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
+#include "Graphics/SPRSprite.h"
 
 struct ScriptValue_ov011_02184c30 {
     int type_0_;
@@ -40,7 +41,6 @@ extern "C" ARM int func_ov023_021f6f20(void* arg0, int arg1, int arg2, int arg3,
 extern "C" ARM void* func_ov023_021f7318(void* arg0);
 
 struct Struct_02012fa4;
-extern "C" ARM void func_02048004(struct Struct_02012fa4* arg0, struct Struct_02012fa4* arg1);
 extern "C" ARM void func_ov023_021f7320(void* arg0);
 
 struct MenuObjectList_ov004_0215c30c;
@@ -80,7 +80,7 @@ extern "C" ARM int func_ov011_02187a14(struct Struct_ov011_02187a14_2* arg0) {
 
     void* var9 = func_ov023_021f7318(var5);
     void* var10 = func_ov023_021f7318(var7);
-    func_02048004((struct Struct_02012fa4*)var9, (struct Struct_02012fa4*)var10);
+    ((SPRSprite*)((struct Struct_02012fa4*)var9))->CloneTo((SPRSprite*)((struct Struct_02012fa4*)var10));
     func_ov023_021f7320(var7);
     AppendMenuObject_ov023_021f67ac((struct MenuObjectList_ov004_0215c30c*)var4, (struct MenuObject_ov004_0215c30c_2*)var7);
     func_ov011_0218513c(&var8);

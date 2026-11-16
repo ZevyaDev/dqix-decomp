@@ -7,6 +7,10 @@
 #define WORK_STRIDE_021eb5d0 0x448
 #endif
 #include "Combat/Overlay_0/GetCombatantByID.h"
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
 struct Struct_0203d028_3 {
     unsigned short unknown_0_;
     char unknown_2_[0x132];
@@ -319,7 +323,7 @@ extern "C" int func_ov000_02156648(void* arg0, int arg1, int arg2, struct Struct
 int GetAttackBaseDamage(int*, int, int, int*, int*);
 extern "C" void func_ov024_021da550(int* arg0);
 extern "C" int func_ov024_021da55c(int* arg0, void* arg1, unsigned short arg2, unsigned short arg3, int arg4, struct Struct_ov024_021eaa50_2* arg5, int arg6);
-extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" unsigned char* func_02053c6c(unsigned char*);
 extern "C" float func_02074948(int arg0);
 extern "C" int func_ov024_021e67c8(struct Struct_ov024_021ea4d0* arg0, int arg1, int arg2);
 extern "C" int func_ov024_021e6948(struct Struct_ov024_021ea4d0* arg0, int arg1, int arg2, int arg3);
@@ -712,7 +716,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                     arg0->unknown_c_->unknown_1c_.unknown_0_7_ = 1;
                     if (IN_RANGE_021eb5d0(var4)) {
                         struct Struct_ov024_021eb5d0_12* var55 = (struct Struct_ov024_021eb5d0_12*)(void*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var13, var4);
-                        unsigned char* var56 = GetPartyMemberData_02053c6c((unsigned char*)var55);
+                        unsigned char* var56 = func_02053c6c((unsigned char*)var55);
                         if (var55 != 0 && var56 != 0) {
                             if (*(short*)(var56 + 0x2cc) > 0) {
                                 if (HasLearnedSkillEntry_02083b00(var55->unknown_150_, 0x28) != 0) {

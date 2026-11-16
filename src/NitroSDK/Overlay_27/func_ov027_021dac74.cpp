@@ -20,7 +20,7 @@ extern "C" ARM CBool func_ov027_021dac74(const char* arg0, void* arg1, int arg2)
     if (!NitroVM_PrepareReadFileByPath(&var2, arg0))
         return false;
 
-    unsigned int var3 = var2.fileInfo.unknown_8_ - var2.fileInfo.unknown_4_;
+    unsigned int var3 = var2.fileInfo.endOffset - var2.fileInfo.startOffset;
     if (var0 != var3)
     {
         NitroVM_FinishRead(&var2);

@@ -2,6 +2,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
+#include "Resource/GameStrings.h"
 
 struct Struct_ov000_02179194 {
     unsigned int unknown_0_;
@@ -56,7 +57,6 @@ extern "C" void ClearMessageParams_02046380(Struct_ov000_02179194_5*);
 extern "C" int func_ov000_02153a8c(GameObject*);
 extern "C" unsigned int func_020dd290(void*, unsigned int);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
-extern "C" const char* GetStandardString_020e51cc(int);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" void* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 #if defined(jpn)
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov000_02179194(Struct_ov000_02179194_4* arg0, Struct_ov
     SetMessageNumberAlignment_020465d8((unsigned char*)var1, 1, 1);
     AppendText_02042058(var0, data_ov000_02185169);
 #else
-    AppendText_02042058(var0, GetStandardString_020e51cc(0x3ec));
+    AppendText_02042058(var0, GetGameString((eGameString)(0x3ec)));
 #endif
     Struct_ov000_02179194_3* var11 = &arg0->unknown_188_;
     if (FindTextWindow_0205d81c((TextWindowManager_0205d81c*)var11, 0x23)) {

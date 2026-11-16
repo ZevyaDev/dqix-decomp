@@ -64,3 +64,8 @@ extern "C" ARM int func_ov001_02161f80(void* arg0, int arg1) {
     SetZoneEntry_0200fcfc(var1, var2);
     return 1;
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

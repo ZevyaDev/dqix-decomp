@@ -2,6 +2,10 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov000_0217c638(void* arg0, int arg1, int arg2);
 extern "C" void func_ov000_021775a4(void* arg0, void* arg1);
@@ -10,7 +14,7 @@ extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg
 #else
 extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins, int font);
 #endif
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
@@ -38,7 +42,7 @@ extern "C" ARM void func_ov000_02177454(void* arg0, struct Struct_ov000_02177454
     *(short*)(var3 + 0xaa) = 7;
     *(short*)(var3 + 0xac) = 0xa;
     *(short*)(var3 + 0xae) = 0xd;
-    if (IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18())) {
+    if (IsLocalWirelessOn_0202b7d8((int*)func_0202ae18())) {
         if (GetProtagonistObjectIndex_020100a8(GameState::GetInstance()) == 0) {
             *(short*)(var3 + 0xa8) = 0xc;
             *(short*)(var3 + 0xaa) = 4;

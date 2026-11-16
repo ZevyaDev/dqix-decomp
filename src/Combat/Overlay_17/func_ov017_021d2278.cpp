@@ -1,13 +1,17 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 struct LocalWireless_0202c1a4 {
 	char unknown_0_[0x1038];
 	signed char protagonistObjectIndexByConsole_1038_[16];
 };
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
-extern "C" void* GetFlagManager_0205ec34(void* arg0);
+extern "C" void* func_0205ec34(void* arg0);
 
 struct Struct_ov017_021d2278 {
 	unsigned short unknown_0_0_ : 4;
@@ -22,6 +26,6 @@ extern "C" ARM void func_ov017_021d2278(void* arg0, char* arg1, int arg2, int ar
 	if (var0 != var1->unknown_0_4_) return;
 	int var2 = var1->unknown_0_6_ * 14;
 	unsigned char var3 = var1->unknown_0_0_;
-	char* var4 = (char*)GetFlagManager_0205ec34((void*)(int)var1->unknown_0_0_);
+	char* var4 = (char*)func_0205ec34((void*)(int)var1->unknown_0_0_);
 	memcpy(var4 + 0x2cc + (unsigned char)var2, arg1 + 4, var3);
 }

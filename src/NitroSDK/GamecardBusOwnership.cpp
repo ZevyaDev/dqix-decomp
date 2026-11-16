@@ -4,6 +4,10 @@
 #include <asmhacks.h>
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_020ca3ec func_020cbeb8
+#endif
+
 extern int data_021112dc;
 
 #define REG_EXTMEMCTRL (*(volatile unsigned short*)0x04000204)
@@ -27,7 +31,7 @@ extern "C"
     void WaitByLoop(int);
 
     // aligned memset clone
-    void Memset32BitByWord_020ca3ec(int val, void* dst, unsigned len);
+    void func_020ca3ec(int val, void* dst, unsigned len);
 
     // Performs an atomic swap
     unsigned int func_020ca7e0(unsigned int newValue, volatile unsigned int* atomic);
@@ -69,7 +73,7 @@ void InitializeGamecardBusOwnership()
     REGISTERED_OWNER_FLAGS[0] = 0xffffffff;
     REGISTERED_OWNER_FLAGS[1] = 0xffff0000;
 
-    Memset32BitByWord_020ca3ec(0, (void*)0x027fffc0, 0x28);
+    func_020ca3ec(0, (void*)0x027fffc0, 0x28);
     REG_EXTMEMCTRL |= EXTMEMCTRL_FLAG_RELINQUISH_NDS_BUS;
     REG_EXTMEMCTRL |= EXTMEMCTRL_FLAG_RELINQUISH_GBA_BUS;
 

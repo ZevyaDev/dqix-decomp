@@ -4,6 +4,11 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
 
 struct Struct_0201099c_3;
 struct Struct_02046574_2;
@@ -22,7 +27,6 @@ struct Struct_ov002_02161234_2 {
     int unknown_8_;
 };
 
-extern "C" char *FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2 *window, int index, char *text);
@@ -39,7 +43,7 @@ extern "C" void *FindNounInTable_020e5294(void *nounTable, int nounId);
 extern "C" void func_020e4f18(void *arg0, void *arg1, int arg2);
 extern "C" void func_02046608(void *arg0, int arg1, const char *arg2, char *arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
-extern "C" int GetStringLength_020d2ff0(const char *string);
+extern "C" int func_020d2ff0(const char *string);
 
 extern "C" char data_ov002_0216d2bc[];
 extern "C" char data_ov002_0216d2d2[];
@@ -66,7 +70,7 @@ extern "C" ARM void func_ov002_02161234(char *arg0, char *arg1) {
     if (arg1 == 0) {
         return;
     }
-    FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), 0x270e);
+    ((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(0x270e);
     GameState *var11 = GameState::GetInstance();
     char *var12    = GetMessageWindow_020421a0();
     GetGameResources();
@@ -138,7 +142,7 @@ extern "C" ARM void func_ov002_02161234(char *arg0, char *arg1) {
             InitPartyMemberNoun_020e4bf4(&var4, GetOwnPartyLeaderObjectIndex_020100b0(var11));
         }
         BackgroundLoader::AddLockGlobal();
-        void *var23 = ExtractFileFromGP2(data_ov002_0216d2bc, data_ov002_0216d2d2, &var10);
+        void *var23 = ExtractFileFromGP2((const char*)(data_ov002_0216d2bc), (const char*)(data_ov002_0216d2d2), (unsigned int*)(&var10));
         InitNounTable_020e526c(&var9);
         func_020e56fc(&var9, (int) var23, var10);
         void *var24 = FindNounInTable_020e5294(&var9, *(short *) (arg0 + 0x1c22));
@@ -156,15 +160,15 @@ extern "C" ARM void func_ov002_02161234(char *arg0, char *arg1) {
         }
         BackgroundLoader::RemoveLockGlobal();
     }
-    func_02046608(var12, 0xc, FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), *(short *) (arg0 + 0x1c28)),
+    func_02046608(var12, 0xc, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(*(short *) (arg0 + 0x1c28))),
                   arg1, 0xe3, 0, 1);
     AppendText_02042058(arg1, *(char **) (arg0 + 0x1bdc));
-    int var26   = GetStringLength_020d2ff0(arg1);
-    char *var27 = FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), *(short *) (arg0 + 0x1c2a));
+    int var26   = func_020d2ff0(arg1);
+    char *var27 = ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(*(short *) (arg0 + 0x1c2a)));
     if (var27 != 0) {
         func_02046608(var12, 0xc, var27, arg1 + var26, 0xe3, 0, 1);
     }
-    *(short *) (arg0 + 0x1c18) = GetStringLength_020d2ff0(arg1);
+    *(short *) (arg0 + 0x1c18) = func_020d2ff0(arg1);
     int var28                   = 1;
     if (*(int *) (arg0 + 0x1bbc) == 0x11 && var15 == 0x232b) {
         var28 = 0;

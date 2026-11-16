@@ -1,8 +1,8 @@
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
 
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 extern "C" int func_0204fd00(void* arg0, int arg1);
-extern "C" void FillBGScreenRect_0204bc74(void* layer, int screenEntry, short x, short y, short width, short height, int palette);
 
 struct BGLayer_0205da88 {
     char unknown_0_[0x1c];
@@ -68,16 +68,16 @@ extern "C" ARM void FillBGUnderTextWindows_0205da88(struct TextWindowManager_020
             short y = textWindow->tileY_ae_;
             short width = textWindow->width_a8_;
             short height = textWindow->shownRows_c0_;
-            FillBGScreenRect_0204bc74(fillLayer, screenEntry, x, y, width, height, 0);
+            ((BGLayer*)(fillLayer))->SetTileInRectangle(screenEntry, x, y, width, height, 0);
             if (height == 0 || screenEntry == 0) continue;
             if (!func_0204fd00(textWindow, 1))
-                FillBGScreenRect_0204bc74(fillLayer, 2, x, y, 1, 1, 0);
+                ((BGLayer*)(fillLayer))->SetTileInRectangle(2, x, y, 1, 1, 0);
             if (!func_0204fd00(textWindow, 2))
-                FillBGScreenRect_0204bc74(fillLayer, 0x402, (short)(x + width - 1), y, 1, 1, 0);
+                ((BGLayer*)(fillLayer))->SetTileInRectangle(0x402, (short)(x + width - 1), y, 1, 1, 0);
             if (!func_0204fd00(textWindow, 4))
-                FillBGScreenRect_0204bc74(fillLayer, 0x802, x, (short)(y + height - 1), 1, 1, 0);
+                ((BGLayer*)(fillLayer))->SetTileInRectangle(0x802, x, (short)(y + height - 1), 1, 1, 0);
             if (!func_0204fd00(textWindow, 8))
-                FillBGScreenRect_0204bc74(fillLayer, 0xc02, (short)(x + width - 1), (short)(y + height - 1), 1, 1, 0);
+                ((BGLayer*)(fillLayer))->SetTileInRectangle(0xc02, (short)(x + width - 1), (short)(y + height - 1), 1, 1, 0);
         }
     }
 }

@@ -6,6 +6,8 @@
 #include "NitroSDK/Cache.h"
 #include "NitroSDK/LoadToVRAM.h"
 #include "std_library_functions.h"
+#include "Graphics/BGLayer.h"
+#include "Filesystem/FileIO.h"
 
 struct Struct_ov001_0215e5b0 {
     char unknown_0_[0x2c];
@@ -15,10 +17,7 @@ struct Struct_ov001_0215e5b0 {
 extern "C" struct Struct_ov001_0215e5b0* GetResources_0200fb8c(int* gameState);
 extern "C" void func_ov001_0215e758(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov001_0215e78c(int arg0, int arg1, int arg2, int arg3, int arg4);
-extern "C" void InitBGLayer_0204af64(struct BGLayer_02020cb8* layer);
-extern "C" void LoadBGBlock_0204b174(void* layer, void* block, void* allocator, int arg3);
 
-extern char gFileScratchSpace_0211e33c[] __attribute__((aligned(4)));
 
 // USA: func_ov001_0215e5b0
 extern "C" ARM int func_ov001_0215e5b0(void) {
@@ -26,7 +25,7 @@ extern "C" ARM int func_ov001_0215e5b0(void) {
     BackgroundLoader::FreeAllocationsGlobal();
     struct Struct_ov001_0215e5b0* var0 = GetResources_0200fb8c((int*)GameState::GetInstance());
 
-    char* var1 = gFileScratchSpace_0211e33c;
+    char* var1 = (char*)(g_fileScratchSpace);
     volatile unsigned int* var2 = (volatile unsigned int*)0x4001000;
     *var2 = (*var2 & ~0x1f00) | 0x300;
     func_ov001_0215e758(0, 0, 0xe, 0, 0);
@@ -43,14 +42,14 @@ extern "C" ARM int func_ov001_0215e5b0(void) {
     *(volatile unsigned short*)0x4001050 = 0;
 
     struct BGLayer_02020cb8 var4;
-    InitBGLayer_0204af64(&var4);
+    ((BGLayer*)(&var4))->Reset();
     var4.isSubScreen_1c_0_ = 1;
-    LoadBGBlock_0204b174(&var4, var0->unknown_2c_, 0, 0);
+    ((BGLayer*)(&var4))->ProcessGraphicsFile((const void*)var0->unknown_2c_, (SafeAllocator*)0, 0);
 
     unsigned int var5 = 0x6400;
     memset(var1, 0, var5);
     memset(var1 + 0x20, 0x11111111, 0x20);
-    DC_FlushRange(var1, var5);
+    CleanInvalidateCacheRange((const void*)(var1), var5);
     LoadToSubBG0CharacterData(var1, 0, var5);
 
     unsigned short* var6 = (unsigned short*)GetSubBG0ScreenBase();

@@ -7,6 +7,15 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
 #include "Resource/GameResources.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
 
 struct Struct_ov009_0218aa28 {
     int unknown_0_;
@@ -88,11 +97,6 @@ struct Struct_020e3f1c_4 {
     unsigned char unknown_e_;
 };
 
-struct StringTable_0201099c_14 {
-    unsigned char unknown_0_[0x14];
-    int unknown_14_;
-};
-
 struct FieldMonster_02076a8c_2;
 struct Struct_02010604;
 struct Struct_02018300_3;
@@ -111,7 +115,7 @@ extern "C" int func_ov017_021959b4();
 extern "C" void func_020e4524(char* arg0);
 extern "C" void func_ov004_0216fa48(void* arg0);
 extern "C" void func_02076b58(struct FieldMonster_02076a8c_2* arg0);
-extern "C" void* GetGlobalFlags_020d6c00();
+extern "C" void* func_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void SetMotion_02033b88(struct Struct_02010604* object, int motion);
 extern "C" void func_02037d88(GameObject* arg0);
@@ -132,11 +136,7 @@ extern "C" void ClearTimedMessageQueue_020d7aa0(struct TimedMessageQueue_020d7aa
 extern "C" void func_ov017_021c3e18(int arg0);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void* ConstructStringTable_020dfc2c(void* stringTable);
-extern "C" void InitStringTable_020dfc40(struct StringTable_0201099c_14* stringTable);
-extern "C" void LoadStringTable_020dfec0(void* stringTable, void* allocator, void* fileData, unsigned int fileSize);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, void* text, int arg2);
@@ -203,7 +203,7 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
         return;
     }
     func_02076b58((struct FieldMonster_02076a8c_2*)var10);
-    SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 2);
+    SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 2);
 
     int var11;
     for (var11 = 0; var11 < 4; var11++) {
@@ -328,7 +328,6 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
             return;
         }
         SafeAllocator var31;
-        var31.ResetAllocatorPointer();
         var31.CreateTypeA(var30, 0x400);
         struct StringList_020727d8 var29;
         ResetStringList_020727d8(&var29);
@@ -343,19 +342,17 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
             return;
         }
         SafeAllocator var31;
-        var31.ResetAllocatorPointer();
         var31.CreateTypeA(var30, 0x500);
-        struct StringTable_0201099c_14 var32;
-        ConstructStringTable_020dfc2c(&var32);
-        InitStringTable_020dfc40(&var32);
-        LoadStringTable_020dfec0(&var32, &var31, var24, var25);
+        StringList var32;
+        var32.Reset();
+        var32.LoadFromMemory((SafeAllocator*)(&var31), (const void*)(var24), var25);
         var0->RemoveTask(arg0->unknown_c_);
         arg0->unknown_c_ = -1;
-        void* var33 = (void*)FindStringInTable_020e0434((struct Struct_0201099c_3*)&var32, var8);
+        void* var33 = (void*)((int)var32.GetString(var8));
 #endif
         if (var33 == NULL) {
             var31.Destroy();
-            FreeMemory_02012da4(&gMainHeap_02114e20, var30);
+            func_02012da4(&gMainHeap_02114e20, var30);
             func_ov004_0216fa48(arg0);
             return;
         }
@@ -369,7 +366,7 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
 #endif
         var2->unknown_998_ = 1;
         var31.Destroy();
-        FreeMemory_02012da4(&gMainHeap_02114e20, var30);
+        func_02012da4(&gMainHeap_02114e20, var30);
         arg0->unknown_a_ = 5;
     } else if (arg0->unknown_a_ == 5) {
         var2->unknown_99c_ = 1;

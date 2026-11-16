@@ -2,7 +2,16 @@
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 
 #if defined(jpn)
@@ -10,8 +19,8 @@
 #endif
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0202ae18(void);
+extern "C" void* func_0205ec34(void);
 extern "C" void* GetFollowCamera_020100f8(char* gameState);
 
 struct Struct_0200ffc0
@@ -108,6 +117,8 @@ struct Struct_020a6aac_6
     unsigned char unknown_4_;
 };
 
+static inline Struct_020236dc_3* inline_020a6728(Zone3D* arg0) { return (Struct_020236dc_3*)(arg0->unk_276c + 8); }
+
 // JPN: func_020a8850
 // USA: func_020a6aac
 extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
@@ -115,8 +126,8 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
     GameState* var0 = GameState::GetInstance();
     Zone3D* var1 = (Zone3D*)GetZone3D_02012fe4();
     LightingManager::GetInstance();
-    void* var2 = GetLocalWireless_0202ae18();
-    GetFlagManager_0205ec34();
+    void* var2 = func_0202ae18();
+    func_0205ec34();
     Struct_020a6aac_2* var3 = (Struct_020a6aac_2*)GetFollowCamera_020100f8((char*)var0);
     Struct_020a6aac_3* var4 = (Struct_020a6aac_3*)func_0200ffc0((struct Struct_0200ffc0*)var0);
     GameObject* var5 = var0->GetUnknownGameObject();
@@ -153,14 +164,14 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
         var4->unknown_154_ = 1;
         var4->unknown_0_.SetScale(0xa0, 0xa0, 0xa0);
         SetFlags04((GameResources*)arg0, 0x10004);
-        Struct_020236dc_3* var10 = var1->inline_020a6728();
+        Struct_020236dc_3* var10 = inline_020a6728(var1);
         var4->unknown_0_.position_ = var10->unknown_0_;
-        var10 = var1->inline_020a6728();
+        var10 = inline_020a6728(var1);
         var4->unknown_144_ = var10->unknown_0_;
-        int var11 = var1->unknown_2774_.unknown_c_;
+        int var11 = (*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_c_;
         SetObject3DRotation_0203db34((unsigned char*)var4, 0, var11, 0);
         if (IsNotLocalWirelessGuest_0202c508(var2) != 0 && var8 == 0) {
-            var1->unknown_2774_.unknown_14_ = 1;
+            (*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_14_ = 1;
             func_ov017_021d1a18(1, -1, 1, 0);
         }
         if (IsLocalWirelessGuest_0202c540(var2) != 0) {
@@ -181,7 +192,7 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
             var4->unknown_154_ = 0;
             var4->unknown_0_.SetScale(0x180, 0x180, 0x180);
             if (arg2 == 0x2710) {
-                Struct_020a6aac_5* var12 = (Struct_020a6aac_5*)func_0201b678(var1, &var1->unknown_2774_.unknown_0_);
+                Struct_020a6aac_5* var12 = (Struct_020a6aac_5*)func_0201b678(var1, &(*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_0_);
                 if (var12 != 0) {
                     Vector3i var13 = var12->unknown_30_;
                     var13.y = GetGroundHeight_02018fbc((Struct_020a6aac*)var1, &var13);
@@ -190,17 +201,17 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
                         SetObject3DRotation_0203db34((unsigned char*)var5, 0, var12->unknown_2e_, 0);
                         func_ov017_0219c598(&var13.x, &var12->unknown_2e_, 0);
                     }
-                    var1->unknown_2774_.unknown_10_ = var12->unknown_2c_;
-                    var1->unknown_2774_.unknown_12_ = (unsigned short)arg1;
+                    (*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_10_ = var12->unknown_2c_;
+                    (*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_12_ = (unsigned short)arg1;
                 }
-                func_020a2770(var3, var5->obj3D_.objectIndex_4_);
+                func_020a2770(var3, var5->obj3D_.unknown_4_);
                 ClearFlags04((GameResources*)arg0, 0x10004);
-                var1->unknown_2774_.unknown_14_ = 0;
-                short var14 = (short)var1->unknown_2774_.unknown_12_;
-                short var15 = var1->unknown_2774_.unknown_10_;
+                (*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_14_ = 0;
+                short var14 = (short)(*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_12_;
+                short var15 = (*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_10_;
                 func_ov017_021d1a18(var14, var15, 0, 0);
             } else if (arg2 == 0x170c) {
-                short var16 = var1->unknown_2774_.unknown_10_;
+                short var16 = (*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_10_;
                 Struct_020a6aac_5* var17 = (Struct_020a6aac_5*)func_0201b754(var1, var16);
                 if (var17 != 0) {
                     Vector3i var18 = var17->unknown_30_;
@@ -210,12 +221,12 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
                         func_ov017_0219c598(&var18.x, &var17->unknown_2e_, 0);
                     }
                 }
-                func_020a2770(var3, var5->obj3D_.objectIndex_4_);
+                func_020a2770(var3, var5->obj3D_.unknown_4_);
                 ClearFlags04((GameResources*)arg0, 0x10004);
             }
-            unsigned short var19 = var1->unknown_2774_.unknown_12_;
+            unsigned short var19 = (*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_12_;
             if (arg1 == var19) {
-                short var20 = var1->unknown_2774_.unknown_10_;
+                short var20 = (*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_10_;
                 Struct_020a6aac_5* var21 = (Struct_020a6aac_5*)func_0201b754(var1, var20);
                 if (var21 != 0) {
                     var4->unknown_0_.EnableFlag(0x100);
@@ -223,7 +234,7 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
                     var4->unknown_144_ = var21->unknown_8_;
                     SetFacingInstantly_02033874((struct Struct_02033834*)var4, var21->unknown_20_);
                     Vector3i var22 = var21->unknown_40_;
-                    var1->unknown_2774_.unknown_0_ = var22;
+                    (*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_0_ = var22;
                 }
                 var4->unknown_0_.MakeVisible();
             } else {
@@ -233,28 +244,28 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
     } else if (arg1 == 0x170c) {
         if (arg2 == 0x2710) {
             GameObject* var23 = var0->GetUnknownGameObject();
-            func_020a2770(var3, var23->obj3D_.objectIndex_4_);
+            func_020a2770(var3, var23->obj3D_.unknown_4_);
             ClearFlags04((GameResources*)arg0, 0x10004);
             ClearGameObjectByIndex_0200fd48(var0, 0xc9);
             if (IsLocalWirelessGuest_0202c540(var2) != 0) {
-                if (var1->unknown_2774_.unknown_14_ == 0) {
+                if ((*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_14_ == 0) {
                     func_0201b8c8((struct Struct_02017a94*)var1, 0, 1, 0);
                 } else {
                     func_0201b8c8((struct Struct_02017a94*)var1, 1, 0, 1);
                 }
             } else {
                 func_0201b8c8((struct Struct_02017a94*)var1, 1, 0, 1);
-                var1->unknown_2774_.unknown_14_ = 1;
+                (*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_14_ = 1;
                 func_ov017_021d1a18(1, -1, 1, 0);
             }
         } else {
-            if (var1->unknown_2774_.unknown_14_ != 0) {
+            if ((*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_14_ != 0) {
                 func_0201b8c8((struct Struct_02017a94*)var1, 1, 0, 1);
                 func_ov017_021d1a18(1, -1, 1, 0);
             } else {
                 func_0201b8c8((struct Struct_02017a94*)var1, 0, 1, 0);
-                short var24 = (short)var1->unknown_2774_.unknown_12_;
-                short var25 = var1->unknown_2774_.unknown_10_;
+                short var24 = (short)(*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_12_;
+                short var25 = (*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_10_;
                 func_ov017_021d1a18(var24, var25, 0, 0);
             }
         }
@@ -267,11 +278,11 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
             var27->obj3D_.position_ = var28;
             SetFacingInstantly_02033874((struct Struct_02033834*)var27, var29);
             func_ov017_0219c598(&var28.x, &var29, 0);
-            var26->unknown_2774_.unknown_14_ = 0;
+            (*(Struct_020236dc_3*)(var26->unk_276c + 8)).unknown_14_ = 0;
             func_ov017_021d1a18((short)arg1, -1, 0, 0);
-            var26->unknown_2774_.unknown_10_ = 0;
-            var26->unknown_2774_.unknown_12_ = (unsigned short)arg1;
-            short var30 = var0->GetUnknownGameObject()->obj3D_.objectIndex_4_;
+            (*(Struct_020236dc_3*)(var26->unk_276c + 8)).unknown_10_ = 0;
+            (*(Struct_020236dc_3*)(var26->unk_276c + 8)).unknown_12_ = (unsigned short)arg1;
+            short var30 = var0->GetUnknownGameObject()->obj3D_.unknown_4_;
             func_020a2770(var3, var30);
             ClearFlags04((GameResources*)arg0, 0x10004);
             struct Struct_0201b600* var31 = func_0201b600((struct Struct_02017a94*)var26, 0, 4);
@@ -285,7 +296,7 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
                 func_02013380((struct Struct_02013380*)var32, 0, 1);
             }
         } else {
-            unsigned short var33 = var26->unknown_2774_.unknown_12_;
+            unsigned short var33 = (*(Struct_020236dc_3*)(var26->unk_276c + 8)).unknown_12_;
             if (var33 == 0x76c) {
                 struct Struct_0201b600* var34 = func_0201b600((struct Struct_02017a94*)var26, 0, 4);
                 if (var34 != 0)
@@ -315,11 +326,11 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
         if (arg2 == 0x2710) {
             ClearFlags04((GameResources*)arg0, 0x10004);
             ClearGameObjectByIndex_0200fd48(var0, 0xc9);
-            short var38 = var0->GetUnknownGameObject()->obj3D_.objectIndex_4_;
+            short var38 = var0->GetUnknownGameObject()->obj3D_.unknown_4_;
             func_020a2770(var3, var38);
-            short var39 = (short)var1->unknown_2774_.unknown_12_;
-            short var40 = var1->unknown_2774_.unknown_10_;
-            unsigned char var41 = var1->unknown_2774_.unknown_14_;
+            short var39 = (short)(*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_12_;
+            short var40 = (*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_10_;
+            unsigned char var41 = (*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_14_;
             func_ov017_021d1a18(var39, var40, var41, 1);
             unsigned char var42 = data_ov017_021d82fc.unknown_e_;
             if (!(var42 != 1 && var42 != 2)) {
@@ -328,9 +339,9 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
         }
     }
 
-    Vector3i var43 = var1->unknown_2774_.unknown_0_;
+    Vector3i var43 = (*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_0_;
     if (var43.x == 0 && var43.z == 0) {
         func_020a6aa4(&var43, 0x19000, 0x199, 0x38ccc);
-        var1->unknown_2774_.unknown_0_ = var43;
+        (*(Struct_020236dc_3*)(var1->unk_276c + 8)).unknown_0_ = var43;
     }
 }

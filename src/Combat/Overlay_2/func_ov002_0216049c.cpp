@@ -1,8 +1,8 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3 *stringTable, int stringId);
 extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
 extern "C" int func_02041fac(char *arg0, int arg1, int arg2);
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov002_0216049c(unsigned char *arg0, char *arg1, int arg
 #if defined(jpn)
     func_02042638(arg1, data_ov002_0216da1d, 0x10);
 #else
-    int var5 = FindStringInTable_020e0434((struct Struct_0201099c_3 *) (arg0 + 0x20), 0x1004);
+    int var5 = ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(0x1004));
     func_02041fac(arg1, var5, 0x10);
 #endif
 

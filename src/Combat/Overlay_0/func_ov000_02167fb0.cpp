@@ -38,12 +38,12 @@ extern "C" ARM void func_ov000_02167fb0(struct Struct_ov000_02167fb0* arg0, Game
     int var2 = func_ov000_02153e40(arg0->unknown_29c_, var1, 0x10, 0);
     int var3[3];
     int* var4;
-    int var5 = (arg1->obj3D_.objectIndex_4_ >= 0 && arg1->obj3D_.objectIndex_4_ <= 3) ? 1 : 0;
+    int var5 = (arg1->obj3D_.unknown_4_ >= 0 && arg1->obj3D_.unknown_4_ <= 3) ? 1 : 0;
     if (var5) {
         var4 = data_ov000_02183198;
         func_ov000_02167b54(var3, 0, 0x3244, 0);
     } else {
-        int var6 = (arg1->obj3D_.objectIndex_4_ >= 0xc0 && arg1->obj3D_.objectIndex_4_ <= 0xc7) ? 1 : 0;
+        int var6 = (arg1->obj3D_.unknown_4_ >= 0xc0 && arg1->obj3D_.unknown_4_ <= 0xc7) ? 1 : 0;
         if (!var6) {
             return;
         }

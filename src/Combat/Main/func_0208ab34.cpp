@@ -5,6 +5,10 @@
 #endif
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_0208ab34;
 struct Struct_0208ab34_2;
 struct Struct_0208ab34_3 {
@@ -21,7 +25,7 @@ public:
     unsigned char unknown_7_[17];
     unsigned char unknown_18_[17];
 };
-extern "C" int* GetLocalWireless_0202ae18();
+extern "C" int* func_0202ae18();
 extern "C" Struct_0208ab34* func_020e2ff8();
 extern "C" int func_020e34bc(Struct_0208ab34*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
@@ -35,7 +39,7 @@ extern unsigned char data_020e8cc5[];
 // USA: func_0208ab34
 extern "C" ARM void func_0208ab34(Struct_0208ab34_4* arg0, void* arg1) {
     Struct_0208ab34_3* var0 = (Struct_0208ab34_3*)GetParty_02010828(GameState::GetInstance());
-    int* var1 = GetLocalWireless_0202ae18();
+    int* var1 = func_0202ae18();
     int var2 = 0;
     int var3 = 0;
     Struct_0208ab34* var4 = func_020e2ff8();

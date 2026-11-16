@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Resource/Script.h"
+#include "std_library_functions.h"
 
 struct Struct_ov031_02243144_2 { unsigned char unknown_0_[6]; unsigned char unknown_6_; unsigned char unknown_7_; };
 struct Struct_ov031_02243144 { int unknown_0_; unsigned char unknown_4_[6]; };
@@ -18,7 +19,6 @@ struct Struct_ov031_02291e04 {
 };
 #endif
 extern Struct_ov031_02291e04 data_ov031_02291e04;
-extern "C" int CompareBytes_02001aec(const void*,const void*,unsigned int);
 
 // USA: func_ov031_02243144
 extern "C" ARM int func_ov031_02243144(Script::Parameter* arg0) {
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov031_02243144(Script::Parameter* arg0) {
     arg0++->ToInt();
     unsigned char var0[6];
     for(int var1=0;var1<6;++var1) var0[var1]=(arg0++)->ToInt();
-    if(!CompareBytes_02001aec(var0,data_ov031_02291e04.unknown_18_->unknown_4_,6)) {
+    if(!memcmp(var0, data_ov031_02291e04.unknown_18_->unknown_4_, 6)) {
         data_ov031_02291e04.unknown_6_=1;
         int var2=-1;
         int var3=-1;
@@ -38,7 +38,7 @@ extern "C" ARM int func_ov031_02243144(Script::Parameter* arg0) {
 #endif
         Struct_ov031_02243144_2* var5=var4;
         for(int var6=0;var6<8;++var6,++var5) {
-            if(!CompareBytes_02001aec(var5,var0,6)) {
+            if(!memcmp(var5, var0, 6)) {
                 var2=var6;
                 if(var5->unknown_6_!=255 && !data_ov031_02291e04.unknown1_7_) {
                     data_ov031_02291e04.unknown1_4_=var5->unknown_6_;

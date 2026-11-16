@@ -4,12 +4,13 @@
 #include "Memory/SafeAllocator.h"
 #include "World/Object3D.h"
 #include "std_library_functions.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
+void Nitro3D_SetModelPolygonID(Nitro3DModel* model, int id);
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" int func_ov001_0215ad2c(int arg0);
 extern "C" unsigned int func_ov001_0215a750(const char* arg0, void** arg1);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState* gameState, int index, GameObject* object);
-extern "C" void NSBXX_Model_SetPolygonID(NSBXXInternalModel* model, int id);
 
 extern SafeAllocator* data_ov001_021658b8[8];
 extern const char data_ov001_02165775[];
@@ -59,7 +60,7 @@ extern "C" ARM int func_ov001_0215ce4c(char* arg0, int arg1) {
     if (var8 != 0) {
         BackgroundLoader::RemoveLockGlobal();
     }
-    NSBXX_Model_SetPolygonID(var9->pModel_->rawInternalModel_, 0x3d);
+    Nitro3D_SetModelPolygonID((Nitro3DModel*)(var9->pModel_->rawInternalModel_), 0x3d);
     var9->position_.x = 0;
     var9->position_.y = -0xa000;
     var9->position_.z = 0x1000;

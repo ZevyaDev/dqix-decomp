@@ -135,3 +135,8 @@ extern "C" ARM void func_0208f168(struct Struct_0208f168* arg0, void* arg1) {
         return;
     }
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

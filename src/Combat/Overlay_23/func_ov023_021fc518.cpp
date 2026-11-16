@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
+#include "Graphics/TextureArena.h"
 
 struct Struct_02000c9c_75 {
     char unknown_0_[0xc20];
@@ -108,9 +109,6 @@ extern "C" void func_ov023_021f6ed8(Struct_ov023_021f6ed8* arg0);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" Struct_ov023_021fc518_3* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" Struct_ov023_021fc518_2* func_ov011_021845f8(void* arg0, int arg1);
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028* area);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 extern "C" void func_ov023_021e4e8c(void* arg0);
 extern "C" void func_ov023_021e4f64(void* arg0, SafeAllocator* arg1);
 extern "C" void func_ov023_021e4fd8(void* arg0);
@@ -150,8 +148,8 @@ extern "C" ARM int func_ov023_021fc518(Struct_ov023_021fc518* arg0, void* arg1, 
 #else
     char* var3 = GetGameResources()->unknown_2cc_;
 #endif
-    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)var3);
-    RestoreTextureVRAMState_0207df90(var3);
+    ((TextureArena*)((TextureVRAMArea_0203d028*)var3))->Reset();
+    ((TextureArena*)(var3))->Restore();
     for (int var4 = 0; var4 < 2; var4++) {
         func_ov023_021e4e8c(&arg0->unknown_20_[var4]);
         func_ov023_021e4f64(&arg0->unknown_20_[var4], &var1->unknown_4_);
@@ -159,7 +157,7 @@ extern "C" ARM int func_ov023_021fc518(Struct_ov023_021fc518* arg0, void* arg1, 
         func_ov023_021e6198(&arg0->unknown_20_[var4], var2);
         func_ov023_021e6150(&arg0->unknown_20_[var4], 1);
     }
-    SaveTextureVRAMState_0207dfac(var3);
+    ((TextureArena*)(var3))->Save();
 
     func_ov023_021e60e0(&arg0->unknown_20_[0], 0x1eb);
     func_ov023_021e60e0(&arg0->unknown_20_[1], 0x1eb);

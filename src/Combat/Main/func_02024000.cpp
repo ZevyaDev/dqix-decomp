@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0201b5b0 func_0201b328
+#endif
+
 extern "C" void *GetZone3D_02012fe4(void);
 extern "C" int func_0201b588(int arg0);
 extern "C" int func_0201b5b0(int arg0);

@@ -5,6 +5,10 @@
 #include "Grotto/Main/ActiveGrottoClass.h"
 #include "World/Object3D.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_ov023_021eeaac_2 { int unknown_0_; };
 struct LocalWireless_0202c1a4;
 struct Struct_02049b54_2;
@@ -56,7 +60,7 @@ extern "C" void func_ov023_021ed988(char*, int);
 extern "C" Struct_ov023_021ef6f4_2* FindActionData_02079e2c(char*, int);
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" {
-void* GetLocalWireless_0202ae18();
+void* func_0202ae18();
 Struct_ov023_021ef6f4* GetZone3D_02012fe4();
 void __clear(void*, unsigned int);
 void func_020e4ce8(void*, Struct_ov000_0217964c_2*, int);
@@ -73,7 +77,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
     GameState* var0 = GameState::GetInstance();
     Struct_ov023_021eeaac_2* var1 = _ZZ21inline_ov023_021f4c04vE1s;
     MessageWindow_020465c0* var2 = GetMessageWindow_020421a0();
-    void* var3 = GetLocalWireless_0202ae18();
+    void* var3 = func_0202ae18();
     DetailedTreasureMapData* var4 = GetZone3D_02012fe4()->unknown_23ec_.GetDetailedData();
     char var5[0x300];
     __clear(var5, sizeof(var5));
@@ -89,7 +93,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
         for (int var8 = 0; var8 < var7; ++var8) {
             Struct_ov000_0217964c_2* var9 = GetEnemyByIndex_0200fea4(var0, var8 + 0xc0);
             if (var9 && var9->unknown_138_) {
-                arg0->unknown_6e30_[arg0->unknown_6e2e_] = var9->objectIndex_4_;
+                arg0->unknown_6e30_[arg0->unknown_6e2e_] = var9->unknown_4_;
                 ++arg0->unknown_6e2e_;
             }
         }

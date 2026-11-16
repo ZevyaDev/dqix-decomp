@@ -4,6 +4,9 @@
 #include "World/ZoneObjectResourceLoading.h"
 #include "Filesystem/FileIO.h"
 #include "NitroSDK/Filesystem/NarcHandle.h"
+#include "Graphics/TextureArena.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
+#include "World/Zone3DTypes.h"
 
 struct Struct_02014d80_2 {
     short unknown_0_, unknown_2_;
@@ -30,7 +33,7 @@ struct Struct_020e6fa8 { Struct_02014d80_5 unknown_0_[5]; };
 #endif
 extern const Struct_020e6fa8 data_020e6fa8;
 extern "C" const char* func_0201f368(Struct_0201f368*, int);
-extern "C" void func_020e2fc0(RenderCommandHandler*);
+extern "C" void func_020e2fc0(Nitro3DRenderCommandHandler*);
 
 // USA: func_02014d80
 extern "C" ARM int func_02014d80(Zone3D* arg0, void* arg1, Struct_02012ff0* arg2, Struct_02014a24* arg3) {
@@ -38,7 +41,7 @@ extern "C" ARM int func_02014d80(Zone3D* arg0, void* arg1, Struct_02012ff0* arg2
     Struct_02014d80_2* var1 = (Struct_02014d80_2*)arg2;
     Struct_02014d80_3* var2 = (Struct_02014d80_3*)arg3;
     GameState* var3 = GameState::GetInstance();
-    char* var4 = (char*)arg0->unknown_ptr_50_;
+    char* var4 = (char*)arg0->textureArena_50_;
     SafeAllocator* var5 = arg0->pAllocator_68_;
     LightingManager* var6 = LightingManager::GetInstance();
     int var7 = var6->timeOfDayIndex_;
@@ -54,19 +57,19 @@ extern "C" ARM int func_02014d80(Zone3D* arg0, void* arg1, Struct_02012ff0* arg2
     const void* var13 = GetFileFromNARCInMemory(var11);
     if (var13) {
         var1->unknown_4_ = static_cast<Model3D*>(var5->Allocate(sizeof(Model3D)));
-        void* var14 = DecompressLZ77FileIntoAllocatedSpace(*var5, var13, var12);
+        void* var14 = DecompressLZ77FileIntoAllocatedSpace(&(*var5), var13, &var12);
         if (var14 && var1->unknown_4_) {
             var1->unknown_4_->Clear();
-            RestoreTextureVRAMState_0207df90(var4);
+            ((TextureArena*)(var4))->Restore();
             var1->unknown_4_->SetAndProcessRawFile(var14, var12, Model3D::TextureStagingMode_Normal);
-            SaveTextureVRAMState_0207dfac(var4);
-            NSBXXTex* var15 = var1->unknown_4_->GetTEX0();
+            ((TextureArena*)(var4))->Save();
+            Nitro3DTextureSet* var15 = var1->unknown_4_->GetTEX0();
             if (var15) {
-                arg0->textureImageMemory_ += NSBXX_Tex_GetBlock1Length(var15);
-                arg0->texturePaletteMemory_ += NSBXX_Tex_GetBlock4Length(var15);
+                arg0->textureImageMemory_ += Nitro3D_GetTextureBlock1Length((const Nitro3DTextureSet*)(var15));
+                arg0->texturePaletteMemory_ += Nitro3D_GetTextureBlock4Length((const Nitro3DTextureSet*)(var15));
             }
-            ModelRenderContext* var16 = var1->unknown_4_->unknown_flags_a8_0_ ? &var1->unknown_4_->renderContext_ : 0;
-            if (var16) SetModelRenderContextRenderCommandHook(var16, func_020e2fc0, 0, 8, 1);
+            Nitro3DRenderContext* var16 = var1->unknown_4_->unknown_flags_a8_0_ ? &var1->unknown_4_->renderContext_ : 0;
+            if (var16) Nitro3D_SetRenderHook(var16, func_020e2fc0, 0, 8, 1);
             if (!(var2->unknown_2_ & 0x20) && var9) var6->ModelTransformTintBrightnessContrast(var1->unknown_4_->rawInternalModel_);
             for (Zone3D::Model3DListNode* var17 = arg0->firstModel_418_; var17; var17 = var17->pNext_) {
                 var1->unknown_4_->ApplyTexturesFromModel(&var17->model_);
@@ -109,10 +112,10 @@ extern "C" ARM int func_02014d80(Zone3D* arg0, void* arg1, Struct_02012ff0* arg2
                 var13 = GetFileFromNARCInMemory(var11);
                 if (var13) {
                     Animation3D* var24 = static_cast<Animation3D*>(var5->Allocate(sizeof(Animation3D)));
-                    void* var25 = DecompressLZ77FileIntoAllocatedSpace(*var5, var13, var12);
+                    void* var25 = DecompressLZ77FileIntoAllocatedSpace(&(*var5), var13, &var12);
                     if (var25 && var24) {
                         var24->DefaultInitialize();
-                        var24->SetRawFile((NSBXXContainer*)var25);
+                        var24->SetRawFile((Nitro3DFileHeader*)var25);
                         if (var8) {
                             var24->CreateData(var1->unknown_4_, var5, &var8->model_);
                             var1->unknown_4_->AddAnimation(var24);

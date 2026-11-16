@@ -9,6 +9,7 @@
 #include <GameState/GameState.h>
 #include "Resource/GameResources.h"
 #include "Input/Input.h"
+#include "Graphics/SPRSprite.h"
 
 struct SoundEffectManager_02108760;
 struct Struct_02012fa4;
@@ -67,7 +68,6 @@ extern "C" void func_ov005_02156658(Struct_ov005_02153954* arg0, int arg1, int a
 extern "C" void func_ov005_021567ac(Struct_ov005_02153954* arg0, int arg1, int arg2);
 extern "C" void func_ov005_0215690c(Struct_ov005_02153954* arg0, int arg1, int arg2);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
-extern "C" void func_02047230(Struct_02012fa4* arg0);
 extern "C" void func_ov005_02156e1c(Struct_ov005_02153954* arg0, int arg1, int arg2);
 extern "C" void func_ov005_02156ecc(Struct_ov005_02153954* arg0, int arg1, int arg2);
 
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov005_021562b8(Struct_ov005_02153954* arg0) {
                     var3->unknown_634_ &= ~1;
                     var3->unknown_634_ &= ~0x80;
                 }
-                func_02047230((Struct_02012fa4*)arg0->unknown_3cf0_);
+                ((SPRSprite*)((Struct_02012fa4*)arg0->unknown_3cf0_))->Release();
                 arg0->unknown_3d78_ = -1;
                 arg0->unknown_3dc0_ = -1;
                 arg0->unknown_3e05_ = 0;
@@ -150,7 +150,7 @@ extern "C" ARM void func_ov005_021562b8(Struct_ov005_02153954* arg0) {
             arg0->unknown_3e0a_ = -1;
         }
         func_ov005_02156ecc(arg0, var0, var1);
-        func_02047230((Struct_02012fa4*)arg0->unknown_3cf0_);
+        ((SPRSprite*)((Struct_02012fa4*)arg0->unknown_3cf0_))->Release();
         arg0->unknown_3d78_ = -1;
         arg0->unknown_3dc0_ = -1;
     }

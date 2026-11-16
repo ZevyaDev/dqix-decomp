@@ -1,15 +1,20 @@
 #include "World/ZoneWarpScript.h"
 #include "World/ZoneFeatures.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "Resource/Script.h"
 #include "GameState/GameState.h"
 #include "NitroSDK/Memory.h"
+
+#if defined(jpn)
+#define func_02011584 func_020112f4
+#endif
 
 extern Script::OpcodeLookupEntry data_020ef388[];
 
 extern "C"
 {
-    extern "C" void* GetZoneList_02011584(GameState*);
+    extern "C" void* func_02011584(GameState*);
     void _ZN15Struct_020134e017Struct_0201cb60_313func_0201ce10Ev(void*);
 
     Matrix4x3 _Z15RotationMatrixYi(fix32_t);
@@ -324,7 +329,7 @@ extern "C" int func_0201d638(Script::Parameter* arg0, int arg1)
 {
     if (data_020fdc20.unknown_0_ == NULL)
         return 0;
-    void* var0 = GetZoneList_02011584(GameState::GetInstance());
+    void* var0 = func_02011584(GameState::GetInstance());
     switch (data_020fdc20.unknown_0_->unknown_4_)
     {
     case 0:
@@ -643,9 +648,9 @@ extern "C" void func_0201e1d0(const void* arg0, unsigned int arg1, Struct_020134
     data_020fdc20.unknown_0_ = NULL;
 }
 
-void Struct_020134e0::func_0201e248()
+extern "C" void func_0201e248(Struct_020134e0* arg0)
 {
-    VectorizedMemset(this, 0, sizeof(Struct_020134e0));
+    VectorizedMemset(arg0, 0, sizeof(Struct_020134e0));
 }
 
 void Struct_020134e0::func_0201e25c(int arg0, SafeAllocator *arg1)

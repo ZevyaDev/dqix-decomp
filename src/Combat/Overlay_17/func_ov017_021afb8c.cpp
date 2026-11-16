@@ -1,11 +1,15 @@
 #include <globaldefs.h>
+#include "Resource/GameStrings.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
 
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02042764(char* arg0, void* arg1, int arg2);
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
-extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void InitChoiceList_0205c790(char* choiceList);
 struct MenuCursor_0205ba68;
@@ -23,7 +27,7 @@ extern char data_ov017_021d8104[];
 struct Struct_0205c77c;
 extern "C" void func_0205c77c(struct Struct_0205c77c* arg0, int arg1);
 extern "C" void func_0205cd28(unsigned char* arg0);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 
 // USA: func_ov017_021afb8c
@@ -45,7 +49,7 @@ extern "C" ARM void func_ov017_021afb8c(char* arg0, char* arg1) {
         func_02042764(arg1, var1, 1);
         SetMessageString_02046574((struct Struct_02046574_2*)var0, 0, var1);
 
-        int var2 = GetStandardString_020e51cc(0x24);
+        int var2 = ((int)GetGameString((eGameString)(0x24)));
         char var3[0x64];
         func_02046608(var0, 0xc, var2, var3, 0x100, 0, 1);
 
@@ -77,6 +81,6 @@ extern "C" ARM void func_ov017_021afb8c(char* arg0, char* arg1) {
         *(short*)(arg0 + 0xfe) = 0x40;
 
         func_0205cd28((unsigned char*)(arg0 + 0x48));
-        SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x800000);
+        SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 0x800000);
     }
 }

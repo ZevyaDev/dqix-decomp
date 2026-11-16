@@ -5,6 +5,23 @@
 #include "Graphics/LightingManager.h"
 #include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "NitroSDK/Graphics.h"
+#include "Graphics/SPRSprite.h"
+
+#if defined(jpn)
+#define func_020c56b0 func_020c717c
+#endif
+
+#if defined(jpn)
+#define func_0202ed74 func_0202e8e4
+#endif
+
+#if defined(jpn)
+#define func_02016d8c func_02016b2c
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 struct Struct_0201730c;
 struct Struct_0201730c_2;
@@ -62,9 +79,6 @@ struct Struct_02016874_3 {
 extern "C" void* func_0202ed74(void* arg0);
 extern "C" void func_02016d8c(void* arg0);
 extern "C" int func_020c56b0(int* arg0);
-extern "C" void func_02047648(unsigned char* arg0, int arg1, int arg2);
-extern "C" void func_0204724c(Struct_0201730c* arg0);
-extern "C" void func_020472e4(Struct_0201730c_2* arg0, int arg1);
 
 extern Vector3i data_020e6e20;
 extern int data_020e6e64[4];
@@ -74,7 +88,7 @@ extern "C" ARM void func_0201730c(Struct_02016874_3* arg0) {
     if (arg0->unknown_2750_ == NULL) return;
 
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetCamera_020100bc(var0);
+    void* var1 = func_020100bc(var0);
     if (var1 == NULL) return;
     var0->GetTickCount();
     unsigned short var2 = LightingManager::GetInstance()->maybePotBarrelDiffuseColor_;
@@ -84,11 +98,11 @@ extern "C" ARM void func_0201730c(Struct_02016874_3* arg0) {
         Struct_0201730c_4* var4 = &arg0->unknown_478_[var3];
         if (var4->unknown_2_ == -1) continue;
 
-        RenderConfig::SetObjectPosition(&var4->unknown_8_.unknown_1c_);
+        Nitro3DRenderConfig::SetObjectPosition(&var4->unknown_8_.unknown_1c_);
 
         Vector3i var5 = data_020e6e20;
-        RenderConfig::SetObjectScale(&var5);
-        RenderConfig::SubmitToFifo();
+        Nitro3DRenderConfig::SetObjectScale(&var5);
+        Nitro3DRenderConfig::SubmitToFifo();
 
         union {
             struct {
@@ -120,23 +134,23 @@ extern "C" ARM void func_0201730c(Struct_02016874_3* arg0) {
         if (var7 == 0) continue;
 
         var5 = var4->unknown_8_.unknown_34_;
-        RenderConfig::SetObjectScale(&var5);
-        RenderConfig::SubmitToFifo();
+        Nitro3DRenderConfig::SetObjectScale(&var5);
+        Nitro3DRenderConfig::SubmitToFifo();
 
         var4->unknown_8_.unknown_80_ = var2;
         var4->unknown_90_.unknown_80_ = var2;
         for (int var8 = 0; var8 < 4; var8++) var4->unknown_118_[var8].unknown_80_ = var2;
 
         if (var4->unknown_2_ != 3) {
-            func_02047648((unsigned char*)&var4->unknown_8_, 0, 1);
+            ((SPRSprite*)((unsigned char*)&var4->unknown_8_))->DrawTextureStatic(0, 1);
         } else if (var4->unknown_2_ == 3) {
             if (var4->unknown_4_ < 12) {
-                func_0204724c((Struct_0201730c*)&var4->unknown_90_);
-                func_020472e4(&var4->unknown_90_, 1);
+                ((SPRSprite*)((Struct_0201730c*)&var4->unknown_90_))->Update();
+                ((SPRSprite*)(&var4->unknown_90_))->DrawAnimatedWithRotation(1);
             }
             for (int var9 = 0; var9 < 4; var9++) {
                 Struct_0201730c_3* var10 = &var4->unknown_118_[var9];
-                RenderConfig::SetObjectPosition(&var10->unknown_1c_);
+                Nitro3DRenderConfig::SetObjectPosition(&var10->unknown_1c_);
                 Matrix3x3* var11 = (Matrix3x3*)func_0202ed74(var1);
                 Matrix3x3 var12;
                 Matrix3x3 var13;
@@ -146,9 +160,14 @@ extern "C" ARM void func_0201730c(Struct_02016874_3* arg0) {
                 Mat3x3_WriteRotationY(&var12, var16, var15);
                 Mat3x3_Multiply(var11, &var12, &var13);
                 func_02016d8c(&var13);
-                RenderConfig::SubmitToFifo();
-                func_02047648((unsigned char*)var10, 0, 1);
+                Nitro3DRenderConfig::SubmitToFifo();
+                ((SPRSprite*)((unsigned char*)var10))->DrawTextureStatic(0, 1);
             }
         }
     }
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

@@ -1,5 +1,8 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 enum { Enum_ov003_0217db88_144 = 0x8c };
@@ -24,14 +27,10 @@ enum { Enum_ov003_0217db88_204 = 0xcc };
 
 extern "C" void ResetTextWindowManager_0205d048(void* windowManager);
 struct BGLayer_02020cb8_3;
-extern "C" void ResetBGLayerData_0204afb4(struct BGLayer_02020cb8_3* layer);
 struct Struct_0204c754;
 extern "C" void func_0204c754(struct Struct_0204c754* arg0);
 struct Struct_0205a244;
-extern "C" void func_0205a244(struct Struct_0205a244* arg0);
-extern "C" void DestroySpriteSet_0205a494(void* spriteSet);
 struct StringTable_0201099c_14;
-extern "C" void func_020dfc6c(struct StringTable_0201099c_14* arg0);
 
 // USA: func_ov003_0217db88
 extern "C" ARM void func_ov003_0217db88(void* arg0) {
@@ -41,7 +40,7 @@ extern "C" ARM void func_ov003_0217db88(void* arg0) {
 
     int var1;
     for (var1 = 0; var1 < 2; var1++) {
-        ResetBGLayerData_0204afb4((struct BGLayer_02020cb8_3*)(*(char**)(var0 + Enum_ov003_0217db88_148) + var1 * 0x20));
+        ((BGLayer*)((struct BGLayer_02020cb8_3*)(*(char**)(var0 + Enum_ov003_0217db88_148) + var1 * 0x20)))->MaybeDestroy();
     }
 
     int var2;
@@ -49,7 +48,7 @@ extern "C" ARM void func_ov003_0217db88(void* arg0) {
         func_0204c754((struct Struct_0204c754*)(*(char**)(var0 + Enum_ov003_0217db88_152) + var2 * 0xe0));
     }
 
-    func_0205a244((struct Struct_0205a244*)(*(void**)(var0 + Enum_ov003_0217db88_56)));
+    ((OBJSpriteSet::List*)((struct Struct_0205a244*)(*(void**)(var0 + Enum_ov003_0217db88_56))))->Destroy();
 
     if (((SafeAllocator*)(var0 + Enum_ov003_0217db88_164))->GetSignedAllocator() != NULL) {
         ((SafeAllocator*)(var0 + Enum_ov003_0217db88_164))->Destroy();
@@ -57,8 +56,8 @@ extern "C" ARM void func_ov003_0217db88(void* arg0) {
     if (((SafeAllocator*)(var0 + Enum_ov003_0217db88_184))->GetSignedAllocator() != NULL) {
         ((SafeAllocator*)(var0 + Enum_ov003_0217db88_184))->Destroy();
     }
-    DestroySpriteSet_0205a494(var0 + Enum_ov003_0217db88_60);
-    func_020dfc6c((struct StringTable_0201099c_14*)(var0 + Enum_ov003_0217db88_204));
+    ((OBJSpriteSet*)(var0 + Enum_ov003_0217db88_60))->Destroy();
+    ((StringList*)((struct StringTable_0201099c_14*)(var0 + Enum_ov003_0217db88_204)))->Destroy();
 
     volatile unsigned int* var3 = (volatile unsigned int*)0x4000000;
     *var3 = (*var3 & ~0x1f00) | ((unsigned int)*(int*)var0 << 8);

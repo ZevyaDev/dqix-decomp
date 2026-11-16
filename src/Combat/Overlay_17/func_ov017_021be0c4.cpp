@@ -5,6 +5,11 @@
 #include "Resource/MessageSystem.h"
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
+#include "Resource/GameStrings.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct Struct_ov017_021be0c4 { unsigned char unknown_0_, unknown_1_; char unknown_2_[6]; int unknown_8_, unknown_c_; };
 struct Struct_02046574_2 {
@@ -41,7 +46,7 @@ struct Struct_ov017_021be0c4_2 {
 };
 struct Struct_02018300_3;
 extern "C" Struct_ov017_021be0c4_2* GetZone3D_02012fe4();
-extern "C" int* GetLocalWireless_0202ae18();
+extern "C" int* func_0202ae18();
 extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void LoadExtraSoundSet_0205ebc0(void*, int, int);
@@ -50,10 +55,9 @@ extern "C" void UnloadExtraSoundSet_0205ebec(void*);
 extern char gSoundEffectManager_02108760[];
 extern "C" int func_0208f748(void*, int*);
 extern "C" void __clear(void*, unsigned int);
-extern "C" void ConvertTextToGlyphIndices_020426bc(BaseCombatStats*, char*, int);
+extern "C" void func_020426bc(BaseCombatStats*, char*, int);
 extern "C" void VectorizedInvertedMemcpy(const void*, void*, unsigned int);
 extern "C" void func_02011744(GameState*);
-extern "C" const char* GetStandardString_020e51cc(int);
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 #if defined(jpn)
 extern char data_ov017_021d8658[];
@@ -72,7 +76,7 @@ extern "C" void EnablePlayerControl_020397c0(void*);
 // JPN: func_ov017_021be6bc
 extern "C" ARM void func_ov017_021be0c4(Struct_ov017_021be0c4* arg0) {
     GameState* var0 = GameState::GetInstance();
-    GetLocalWireless_0202ae18();
+    func_0202ae18();
     GameResources* var1 = GetGameResources();
     Struct_02046574_2* var2 = GetMessageWindow_020421a0();
     GetZone3D_02012fe4();
@@ -97,7 +101,7 @@ extern "C" ARM void func_ov017_021be0c4(Struct_ov017_021be0c4* arg0) {
 #else
                     char var5[10];
                     __clear(var5, 10);
-                    ConvertTextToGlyphIndices_020426bc(var0->GetProtagonist()->baseStats_, var5, 1);
+                    func_020426bc(var0->GetProtagonist()->baseStats_, var5, 1);
                     VectorizedInvertedMemcpy(var5, var3->activeMapData.DiscoveredBy, 10);
 #endif
                 }
@@ -117,13 +121,13 @@ extern "C" ARM void func_ov017_021be0c4(Struct_ov017_021be0c4* arg0) {
             sprintf(var6, data_ov017_021d8658, var0->GetUnknownGameObject()->baseStats_->unk);
             StartMessage_0204500c((MessageWindow_02021b84*)var2, var6, 0);
 #else
-            sprintf(var6, GetStandardString_020e51cc(0x3f));
+            sprintf(var6, GetGameString((eGameString)(0x3f)));
             SetMessageString_02046574(var2, 0, (char*)var0->GetUnknownGameObject()->baseStats_);
             StartMessage_0204500c((MessageWindow_02021b84*)var2, var6, 0, 0xe3);
 #endif
             var2->unknown_19b2_ = 0;
             var2->unknown_998_ = 1;
-            int* var7 = GetLocalWireless_0202ae18();
+            int* var7 = func_0202ae18();
             if (IsLocalWirelessOn_0202b7d8(var7) && IsNotLocalWirelessGuest_0202c508(var7)) {
                 func_ov017_021cf730(-1, 0);
                 func_ov017_021d1810(0x2713, -1, GetProtagonistObjectIndex_020100a8(var0));

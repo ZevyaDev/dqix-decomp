@@ -7,22 +7,27 @@
 
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
+#include "Graphics/SPRSprite.h"
+#include "Graphics/TextureArena.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02046708 func_02047528
+#endif
 
 struct GlobalFlags_02012de8;
-extern "C" void* GetGlobalFlags_020d6c00(void);
-extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
+extern "C" void* func_020d6c00(void);
+extern "C" int func_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 
 struct Struct_020534ac_2;
 
 struct Struct_020534ac;
 
 struct TextureVRAMArea_0203d028;
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
-extern "C" void func_0204719c(void);
-extern "C" void func_02047b40(void* arg0, int arg1, void* arg2);
 extern "C" void func_0205308c(void* arg0, int arg1);
 
 // USA: func_020534ac
@@ -35,7 +40,7 @@ extern "C" ARM void func_020534ac(char* arg0) {
     int var5;
     int var6;
 
-    if (TestGlobalFlags_02046708((struct GlobalFlags_02012de8*)GetGlobalFlags_020d6c00(), 2)) {
+    if (func_02046708((struct GlobalFlags_02012de8*)func_020d6c00(), 2)) {
         return;
     }
     if (*(unsigned char*)(arg0 + (IS_JPN ? 0x179 : 0x185)) == 0) {
@@ -50,16 +55,16 @@ extern "C" ARM void func_020534ac(char* arg0) {
             var0 = *(int*)(arg0 + (IS_JPN ? 0x148 : 0x154));
             var1 = (char*)(var0 + 0x168);
             var2 = (char*)(var0 + 0x154);
-            ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)(var1 + 0x400));
-            RestoreTextureVRAMState_0207df90(var1 + 0x400);
+            ((TextureArena*)((struct TextureVRAMArea_0203d028*)(var1 + 0x400)))->Reset();
+            ((TextureArena*)(var1 + 0x400))->Restore();
             var4 = ((SafeAllocator*)(var2 + 0x400))->Allocate(0x88);
             *(void**)(arg0 + (IS_JPN ? 0x184 : 0x190)) = var4;
             if (var4 != NULL) {
-                func_0204719c();
+                ((SPRSprite*)(var4))->Reset();
                 *(unsigned char*)((char*)(*(void**)(arg0 + (IS_JPN ? 0x184 : 0x190))) + 0x84) |= 4;
-                func_02047b40(*(void**)(arg0 + (IS_JPN ? 0x184 : 0x190)), var5, var2 + 0x400);
+                ((SPRSprite*)(*(void**)(arg0 + (IS_JPN ? 0x184 : 0x190))))->LoadFromSPR((const void*)(var5), (SafeAllocator*)(var2 + 0x400));
             }
-            SaveTextureVRAMState_0207dfac(var1 + 0x400);
+            ((TextureArena*)(var1 + 0x400))->Save();
         }
     }
 

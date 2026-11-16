@@ -3,10 +3,14 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct LocalWireless_0202c1a4;
 struct Struct_02033b58;
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" int func_02048418(unsigned char* arg0, unsigned short arg1);
@@ -24,7 +28,7 @@ static inline unsigned short inline_ov017_021bd5d0_5(const BaseCombatStats* arg0
 // USA: func_ov017_021bd5d0
 extern "C" ARM void func_ov017_021bd5d0(void) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     GameObject* var2 = var0->GetGameObjectByIndex(0);
     void* var3 = GetGameResources();
     struct Struct_020200c0* var4 = var2->unknown_ac_.unknown_84_;
@@ -41,7 +45,7 @@ extern "C" ARM void func_ov017_021bd5d0(void) {
             unsigned short var8 = inline_ov017_021bd5d0_4(var5);
             unsigned short var9 = inline_ov017_021bd5d0_5(var5);
             unsigned short var10 = var4->inline_ov017_021bd5d0_2();
-            func_ov017_021c9d2c(var2->obj3D_.objectIndex_4_, 1, var9, var10, var8, var7, var6, 1, 0);
+            func_ov017_021c9d2c(var2->obj3D_.unknown_4_, 1, var9, var10, var8, var7, var6, 1, 0);
 
             SetMotionKeepingAnimation_02033b58((struct Struct_02033b58*)var2, 0);
             var2->unknown_ac_.unknown_b2_ = 0;

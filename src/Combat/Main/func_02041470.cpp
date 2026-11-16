@@ -43,3 +43,8 @@ extern "C" ARM void func_02041470(struct Struct_02041470* arg0, Vector3i* arg1) 
         arg0->unknown_b0_ = fix32ReduceAngle0To2Pi(var4);
     }
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

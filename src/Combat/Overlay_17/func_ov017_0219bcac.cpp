@@ -22,3 +22,8 @@ extern "C" ARM void func_ov017_0219bcac(unsigned char arg0) {
     *(unsigned char*)(var1 + 0xa) = 1;
     *(unsigned char*)(var1 + 0x65) = arg0;
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

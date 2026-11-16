@@ -1,5 +1,15 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameStrings.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 #if defined(jpn)
 extern "C" const char data_ov023_021fcdef[];
@@ -84,8 +94,6 @@ struct Struct_ov023_021ff9e0 {
 extern "C" Struct_ov023_021ff9e0 data_ov023_021ff9e0;
 extern "C" const short data_ov023_021fd5b8[3];
 
-extern "C" const char* FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
-extern "C" const char* GetStandardString_020e51cc(int stringId);
 extern "C" Struct_ov023_021db634_2* func_ov023_021db4e4(Struct_ov023_021db634_3* arg0, int arg1);
 extern "C" void func_ov023_021e23d0(void* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
@@ -95,8 +103,8 @@ extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" long ParseDecimal_02005a94(const char* string);
 extern "C" void* GetZone3D_02012fe4();
 extern "C" int func_0201bb78(struct Struct_0201bb78* arg0, unsigned int arg1);
-extern "C" void* GetFlagManager_0205ec34();
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" void* func_0205ec34();
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void func_020ac2d4(int, short* arg1, void* arg2, int arg3);
 extern "C" int func_0206e384(unsigned char* arg0);
 extern "C" int func_0206e3d4(int arg0, int arg1);
@@ -139,14 +147,14 @@ extern "C" ARM void func_ov023_021db634(Struct_ov023_021db634_3* arg0, Struct_ov
     int var12;
     unsigned char var13;
     int var14;
-    var0 = FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1f);
-    var1 = FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x1e);
+    var0 = ((StringList*)(data_ov023_021ff9e0.unknown_14_))->GetString(0x1f);
+    var1 = ((StringList*)(data_ov023_021ff9e0.unknown_14_))->GetString(0x1e);
 #if defined(jpn)
     var2 = data_ov023_021fcdef;
     var3 = data_ov023_021fcdfe;
 #else
-    var2 = FindStringInTable_020e0434(data_ov023_021ff9e0.unknown_14_, 0x2a);
-    var3 = GetStandardString_020e51cc(0x56);
+    var2 = ((StringList*)(data_ov023_021ff9e0.unknown_14_))->GetString(0x2a);
+    var3 = GetGameString((eGameString)(0x56));
 #endif
 
     SHOW_ELEMENT(arg0, 0xf);
@@ -183,15 +191,15 @@ extern "C" ARM void func_ov023_021db634(Struct_ov023_021db634_3* arg0, Struct_ov
                     short var19 = ParseDecimal_02005a94(var18);
                     if (!func_0201bb78((Struct_0201bb78*)GetZone3D_02012fe4(), (unsigned short)(var19 + 20000)))
                         continue;
-                    var16 = FindStringInTable_020e0434(data_ov023_021ff9e0.unknown1_8_, (short)ParseDecimal_02005a94(var6->unknown_4_ + 5));
+                    var16 = ((StringList*)(data_ov023_021ff9e0.unknown1_8_))->GetString((short)ParseDecimal_02005a94(var6->unknown_4_ + 5));
                     var15.unknown_4_ = 2;
                 }
             }
             else if (var17 == 'a')
             {
                 short var20 = ParseDecimal_02005a94(var16 + 1);
-                void* var21 = GetFlagManager_0205ec34();
-                if (!IsFlagSet_0206dfb0((int)var21, (unsigned char*)var21 + 0x8c, 0x1198))
+                void* var21 = func_0205ec34();
+                if (!func_0206dfb0((int)var21, (unsigned char*)var21 + 0x8c, 0x1198))
                     continue;
                 struct
                 {
@@ -207,7 +215,7 @@ extern "C" ARM void func_ov023_021db634(Struct_ov023_021db634_3* arg0, Struct_ov
             }
             else if (var17 == 'b')
             {
-                void* var23 = GetFlagManager_0205ec34();
+                void* var23 = func_0205ec34();
                 int var24 = func_0206e384((unsigned char*)var23);
                 if (!((1 << (func_0206e3d4((int)var23, 0x17) - 1)) & (var24 << 0x10)))
                     continue;
@@ -222,7 +230,7 @@ extern "C" ARM void func_ov023_021db634(Struct_ov023_021db634_3* arg0, Struct_ov
                     continue;
                 if (!func_0201bb78((Struct_0201bb78*)var25, var26))
                     continue;
-                var16 = FindStringInTable_020e0434(data_ov023_021ff9e0.unknown1_8_, (short)var26);
+                var16 = ((StringList*)(data_ov023_021ff9e0.unknown1_8_))->GetString((short)var26);
                 var15.unknown_4_ = 4;
             }
             }

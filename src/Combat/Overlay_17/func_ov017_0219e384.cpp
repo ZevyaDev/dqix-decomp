@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+extern unsigned char g_fileScratchSpace[0x30000];
 #include "Resource/FontBankLoader.h"
 #include "World/ZoneChest.h"
 #include "Combat/ActorAction.h"
@@ -8,6 +9,35 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 #include "NitroSDK/Memory.h"
+#include "Filesystem/FileIO.h"
+
+#if defined(jpn)
+#define func_ov017_021901ac func_ov017_02190d90
+#endif
+
+#if defined(jpn)
+#define func_02099950 func_0209b684
+#endif
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_02011584 func_020112f4
+#endif
 
 
 #if defined(jpn)
@@ -244,11 +274,11 @@ struct Struct_01ff91ac_20 { unsigned short unknown_0_; unsigned short unknown_2_
 
 extern "C" struct Struct_ov017_0219e384* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* GetZoneList_02011584(void* gameState);
+extern "C" void* func_02011584(void* gameState);
 extern "C" struct Struct_ov017_0219dc90_2* GetActiveZones_02027ca4(void);
-extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" struct LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_0205ec34(void);
+extern "C" struct LocalWireless_0202b2f0* func_0202ae18(void);
+extern "C" void* func_020d6c00(void);
 extern "C" int IsOnLadder_02039d7c(char* object);
 struct Vector3i;
 extern "C" void func_02097cac(void* arg0);
@@ -349,10 +379,9 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void func_ov017_021b6e70(struct Struct_ov017_0219e384_7* arg0, int arg1);
 extern "C" void func_ov017_021b7104(void* arg0, struct Struct_ov017_0219e384_7* arg1);
 extern "C" int func_020649f4(void* arg0, void* arg1);
-int LoadFileIntoMemory(const char* name, void* dst, unsigned int* size);
 struct Struct_02013fb4;
 extern "C" int func_0208dc00(Struct_02013fb4*, int, int);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void func_ov017_021bba08(struct Struct_ov017_0219e384_11* arg0, void* arg1);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" void func_ov017_021d23bc(unsigned short arg0);
@@ -392,7 +421,6 @@ extern int gSoundEffectManager_02108760;
 extern const char data_ov017_021d75fc[];
 extern const char data_ov017_021d7619[];
 extern const char data_ov017_021d761e[];
-extern char gFileScratchSpace_0211e33c[];
 
 // USA: func_ov017_0219e384
 extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, void* arg1) {
@@ -405,13 +433,13 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 	Zone3D* var6 = (Zone3D*)GetZone3D_02012fe4();
 	char* var7 = (char*)var6 + Enum_ov017_0219e384_9196;
 	int var8 = (int)var6 + Enum_ov017_0219e384_2112;
-	void* var9 = GetZoneList_02011584(var0);
+	void* var9 = func_02011584(var0);
 	struct Struct_ov017_0219dc90_2* var10 = GetActiveZones_02027ca4();
-	void* var11 = GetFlagManager_0205ec34();
+	void* var11 = func_0205ec34();
 	struct Struct_ov017_0219e384_6* var12 = (struct Struct_ov017_0219e384_6*)GetParty_02010828(var0);
-	struct LocalWireless_0202b2f0* var13 = GetLocalWireless_0202ae18();
+	struct LocalWireless_0202b2f0* var13 = func_0202ae18();
 	char* var14 = (char*)LootableContainerManager::GetMainInstance();
-	void* var15 = GetGlobalFlags_020d6c00();
+	void* var15 = func_020d6c00();
 	int* var16 = (int*)LightingManager::GetInstance();
 	struct Struct_ov017_0219e384_10 var17;
 	struct Struct_ov017_0219e384_9 var18;
@@ -507,7 +535,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			if (*(unsigned char*)(var1 + Enum_ov017_0219e384_17129) != 0) {
 				var4->unknown_a_ = 0;
 			}
-			var23 = GetFlagManager_0205ec34();
+			var23 = func_0205ec34();
 			var17.unknown_ac_.unknown_c_ = var6->currentZoneID_;
 			if (var4->unknown_a_ == 0 && RunTrigger_020649b0(var23, 0x1e, &var17.unknown_ac_) != 0) {
 				func_0206f81c(&var17.unknown_ac_);
@@ -871,7 +899,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 		} else if (var4->unknown_24_ >= 0) {
 			func_ov017_0219fc88(arg0, var4->unknown_24_);
 		} else {
-			void* var70 = GetFlagManager_0205ec34();
+			void* var70 = func_0205ec34();
 			int var71;
 			var17.unknown_38_.unknown_c_ = var58;
 			if (var4->unknown_a_ == 0 && func_020649f4(var70, &var17.unknown_38_) != 0) {
@@ -880,9 +908,9 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			var71 = IsTypeInQueue_02046b60((Queue_02038598_5*)var56, 4);
 			if (IsLocalWirelessOn_0202b7d8((int*)var13) == 0 || IsNotLocalWirelessGuest_0202c508(var13) != 0) {
 				BackgroundLoader::AddLockGlobal();
-				if (LoadFileIntoMemory(data_ov017_021d761e, gFileScratchSpace_0211e33c, &var18.unknown_0_) != 0 &&
-				    func_0208dc00((Struct_02013fb4*)gFileScratchSpace_0211e33c, var18.unknown_0_, (int)&var17.unknown_c_) != 0 &&
-				    IsFlagSet_0206dfb0((int)var70, (unsigned char*)var70 + 0x8c, var17.unknown_c_ + 0xea + 0xb00) == 0) {
+				if (LoadFileIntoMemory(data_ov017_021d761e, g_fileScratchSpace, &var18.unknown_0_) != 0 &&
+				    func_0208dc00((Struct_02013fb4*)g_fileScratchSpace, var18.unknown_0_, (int)&var17.unknown_c_) != 0 &&
+				    func_0206dfb0((int)var70, (unsigned char*)var70 + 0x8c, var17.unknown_c_ + 0xea + 0xb00) == 0) {
 					if (var71 == 0) {
 						struct Struct_ov017_0219e384_11* var72 = *(struct Struct_ov017_0219e384_11**)(var1 + Enum_ov017_0219e384_14132);
 						func_ov017_021bba08(var72, (unsigned char*)var6->pUnknownStruct_8_);

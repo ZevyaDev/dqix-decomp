@@ -8,9 +8,17 @@ enum { Enum_ov017_0219bddc_2112 = 0x840 };
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
-extern "C" void* GetLocalWireless_0202ae18(void);
-extern "C" void* GetFlagManager_0205ec34(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+
+extern "C" void* func_0202ae18(void);
+extern "C" void* func_0205ec34(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 struct Struct_020ad4c4;
@@ -24,8 +32,8 @@ extern "C" int func_ov017_0219c774(int arg0, int arg1, int arg2);
 extern "C" ARM int func_ov017_0219bddc(unsigned char* arg0) {
     GetGameResources();
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetLocalWireless_0202ae18();
-    void* var2 = GetFlagManager_0205ec34();
+    void* var1 = func_0202ae18();
+    void* var2 = func_0205ec34();
     void* var3 = GetZone3D_02012fe4();
     GameObject* var4 = var0->GetGameObjectByIndex(0);
     GameObject* var5 = var0->GetProtagonist();

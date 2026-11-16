@@ -3,19 +3,23 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 #include <globaldefs.h>
+#include "Filesystem/FileIO.h"
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
 
 struct Struct_020a0b8c;
 struct Struct_ov002_0215505c_2;
 struct Struct_ov002_0215b2c8;
 struct ItemTable_0201099c_10;
 extern "C" short func_020a0b8c(struct Struct_020a0b8c *arg0);
-extern "C" unsigned char *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 extern "C" void func_ov023_021e1318(struct Struct_ov002_0215505c_2 *arg0);
 extern "C" void func_ov023_021e133c(void *arg0, void *arg1, int arg2, int arg3, int arg4, short arg5);
 extern "C" void func_ov023_021e1518(void *arg0);
 extern "C" void func_ov023_021e1474(struct Struct_ov002_0215b2c8 *arg0,
                                                                                               struct ItemTable_0201099c_10 *arg1);
-extern "C" void *ExtractFileFromGP2(const char *arg0, const char *arg1, unsigned int *arg2);
 extern "C" char data_ov002_0216cf83[];
 extern "C" char data_ov002_0216cf99[];
 
@@ -42,7 +46,7 @@ extern "C" ARM void func_ov002_0215b2c8(char *arg0) {
     for (var5 = 0; var5 < *(unsigned char *) (var3 + 0xf7c); var5++) {
         var8 = var2->GetPartyMemberByIndex(*(signed char *) (var3 + 0xf78 + var5));
         if (var8 == NULL) continue;
-        var9 = GetPartyMemberData_02053c6c((unsigned char *) var8);
+        var9 = func_02053c6c((unsigned char *) var8);
         for (var6 = 0; var6 < 8; var6++) {
             var10 = ((short *) (var9 + 0x454))[var6];
             if (var10 > 0) {
@@ -56,7 +60,7 @@ extern "C" ARM void func_ov002_0215b2c8(char *arg0) {
     func_ov023_021e1318((struct Struct_ov002_0215505c_2 *) (var7 + 0x800));
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
-    void *var12 = ExtractFileFromGP2(data_ov002_0216cf83, data_ov002_0216cf99, &var0);
+    void *var12 = ExtractFileFromGP2((const char*)(data_ov002_0216cf83), (const char*)(data_ov002_0216cf99), (unsigned int*)(&var0));
     if (var12 != NULL) {
         func_ov023_021e133c(var7 + 0x800, arg0 + 0x850, (int) var12, var0, (int) var1, var11);
     }

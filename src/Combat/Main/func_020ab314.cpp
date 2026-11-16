@@ -3,6 +3,11 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
+#include "Filesystem/FileIO.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -57,14 +62,14 @@ struct Struct_020ab314_2 {
 };
 struct Struct_020ab314_3 { char unknown_0_[0xa0]; char unknown_a0_[0xd8]; char unknown_178_[0x330]; };
 struct Struct_02011544;
-extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char g_fileScratchSpace[0x30000] __attribute__((aligned(4)));
 extern const char data_020f1bf0[];
 extern "C" int func_02075910(int, void*, unsigned int, int);
 extern "C" int func_020a94f8(Struct_020a94f8_2*, int);
 extern "C" int func_020ac864(int);
 extern "C" void func_02011544(Struct_02011544*);
 extern "C" int func_01ff85b8(void*, int);
-extern "C" void* GetFlagManager_0205ec34();
+extern "C" void* func_0205ec34();
 extern "C" Struct_020ab314_3* GetQuestManager_02094d6c();
 extern "C" void* func_020108d8(char*, int);
 #if defined(jpn)
@@ -93,7 +98,7 @@ extern "C" ARM int func_020ab314(int* arg0, int arg1, int arg2) {
     var2 = 1;
     if (arg2) var3 = 0x8084;
     else var3 = 0x84;
-    var4 = &((Struct_020ab314*)gFileScratchSpace_0211e33c)->unknown_28000_;
+    var4 = &((Struct_020ab314*)g_fileScratchSpace)->unknown_28000_;
     VectorizedMemset(var4, 0, 0x8000);
     if (!func_02075910(0, var4, 0x10, 0)) var2 = 0;
     Struct_020a94f8_2 var5;
@@ -114,7 +119,7 @@ extern "C" ARM int func_020ab314(int* arg0, int arg1, int arg2) {
         BackgroundLoader::RemoveLockGlobal();
         return 0;
     }
-    void* var7 = GetFlagManager_0205ec34();
+    void* var7 = func_0205ec34();
     Struct_020ab314_3* var8 = GetQuestManager_02094d6c();
 #if defined(jpn)
     func_020a95a4(var6->unknown_4_, func_020108d8((char*)var0, 0));

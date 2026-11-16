@@ -2,8 +2,8 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Cache.h"
 #include "std_library_functions.h"
+#include "Graphics/OBJSpriteSet.h"
 
-extern "C" void DestroySpriteSet_0205a494(void* spriteSet);
 
 struct BGControlSave_02074bd0;
 extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
@@ -26,7 +26,7 @@ extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2)
 
 // USA: func_ov003_021700dc
 extern "C" ARM void func_ov003_021700dc(void* arg0) {
-    DestroySpriteSet_0205a494((char*)arg0 + 0x68);
+    ((OBJSpriteSet*)((char*)arg0 + 0x68))->Destroy();
     if (((SafeAllocator*)((char*)arg0 + 0xbc))->GetSignedAllocator() != 0) {
         ((SafeAllocator*)((char*)arg0 + 0xbc))->Destroy();
     }
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov003_021700dc(void* arg0) {
     void* var2 = *(void**)((char*)arg0 + 0x14);
     memset(var2, 0, 0x20);
     var2 = *(void**)((char*)arg0 + 0x14);
-    DC_FlushRange(var2, 0x20);
+    CleanInvalidateCacheRange((const void*)(var2), 0x20);
     var2 = *(void**)((char*)arg0 + 0x14);
     LoadToMainBG1CharacterData((int)var2, 0, 0x20);
     *(unsigned short*)0x4000050 = 0;

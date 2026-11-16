@@ -4,6 +4,14 @@
 #include "NitroSDK/Memory/SignedAllocator.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 struct ItemTable_0201099c_10;
 struct ItemData_0201099c_9;
 struct PartyMember_0205faf4_11;
@@ -13,12 +21,12 @@ extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_02
 extern "C" void* func_0207d6dc(SafeAllocator* arg0, int arg1, int arg2);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
-extern "C" unsigned char* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" unsigned char* func_02053c6c(unsigned char* gameObject);
 extern "C" int func_0207cf30(void* arg0, short arg1, int arg2, unsigned char arg3);
 extern "C" void func_0207cc18(void* arg0, struct ItemData_0201099c_9* arg1);
 extern "C" int func_0207d134(void* arg0, short arg1, int arg2);
 extern "C" int func_0207d200(struct Struct_0207ccf0_4* arg0, short arg1, int arg2);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern AllocatorUnion gMainHeap_02114e20;
 
 struct Struct_0207ccf0 {
@@ -54,7 +62,7 @@ extern "C" ARM int func_0207ccf0(struct Struct_0207ccf0* arg0, short arg1, int a
         struct Struct_0207ccf0_3* var3 = (struct Struct_0207ccf0_3*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg3);
         if (var3 == NULL) return -1;
         if (IsNPCCompanion_02061bd8((struct PartyMember_0205faf4_11*)var3)) return -1;
-        short* var4 = (short*)(GetPartyMemberData_02053c6c((unsigned char*)var3) + 0x454);
+        short* var4 = (short*)(func_02053c6c((unsigned char*)var3) + 0x454);
         int var5 = 0;
         if (arg4 && arg6 && var2->unknown_b_1_) {
             if (func_0207cf30(arg0, arg1, arg2, arg5)) {
@@ -91,7 +99,7 @@ extern "C" ARM int func_0207ccf0(struct Struct_0207ccf0* arg0, short arg1, int a
         SafeAllocator* var8 = (SafeAllocator*)arg0;
         SignedAllocatorHeader* var9 = var8->GetSignedAllocator();
         var8->Destroy();
-        FreeMemory_02012da4(&gMainHeap_02114e20, var9);
+        func_02012da4(&gMainHeap_02114e20, var9);
         arg0->unknown_2c_ = NULL;
     }
     return var1;

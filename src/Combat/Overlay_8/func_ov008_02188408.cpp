@@ -3,16 +3,28 @@
 #include <std_library_functions.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Filesystem/FileIO.h"
+#include "Resource/StringList.h"
+
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 struct Struct_0201099c_3;
 struct MessageWindow_02021b84;
 struct MessageWindow_020465c0;
 
 extern "C" void __clear(void* arg0, unsigned long arg1);
-extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
-extern "C" const char* CopyStringFromTableFile_020e046c(char* buffer, void* fileData, unsigned int fileSize, short stringId);
 extern "C" int func_020420e8(const char* arg0, int arg1);
-extern "C" char* GetFlagManager_0205ec34();
+extern "C" char* func_0205ec34();
 extern "C" void ClearMessageParams_02046380(MessageWindow_02021b84* window);
 
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
@@ -20,8 +32,7 @@ extern "C" void AppendPositionTag_02041a90(char* buffer, int x, int y);
 extern "C" void func_02041a5c(char* arg0, int arg1);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void func_0204201c(char* arg0, int arg1, int);
-extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
-extern "C" const char* FindStringInTable_020e0434(Struct_0201099c_3* stringTable, int stringId);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" int GetDefeatedMonsterListCompletion_020a0870(BattleRecords_02061c04* records);
 extern "C" int GetWardrobeCompletion_020a08d8(BattleRecords_02061c04* records);
 extern "C" int GetItemListCompletion_020a08a4(BattleRecords_02061c04* records);
@@ -30,9 +41,8 @@ extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int in
 
 #if defined(jpn)
 extern char data_ov008_0218c0d5[];
-extern "C" int func_020e2168(char*, const char*, int, int, bool);
 extern "C" void func_02041f50(char*, char*);
-extern "C" int GetStringLength_020d2ff0(const char*);
+extern "C" int func_020d2ff0(const char*);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char*, int, unsigned char);
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char*, int, unsigned char);
 #endif
@@ -116,14 +126,14 @@ extern "C" ARM void func_ov008_02188408(Struct_ov008_021842a0_2* arg0, char* arg
         Struct_ov008_02187f6c_3* var1 = (Struct_ov008_02187f6c_3*)GameState::GetInstance()->GetProtagonist();
 #if defined(jpn)
         char* var2 = arg0->unknown_b8_ + 0x780;
-        func_020e2168(var2, data_ov008_0218c0d5, arg3->unknown_12_7_, var1->unknown_150_->unknown_49c_.unknown_0_0_, 1);
+        GetStringFromNAT(var2, data_ov008_0218c0d5, arg3->unknown_12_7_, var1->unknown_150_->unknown_49c_.unknown_0_0_, 1);
         char var3[0x80];
         __clear(var3, sizeof(var3));
         func_02041f50(var2, var3);
-        int var4 = GetStringLength_020d2ff0(var3);
+        int var4 = func_020d2ff0(var3);
         int var5 = (0x80 - (var4 / 2) * 12) / 2;
         int var6 = 6;
-        if (var4 != GetStringLength_020d2ff0(var2)) var6 = 8;
+        if (var4 != func_020d2ff0(var2)) var6 = 8;
         AppendPositionTag_02041a90(arg1, var5, var6);
         AppendText_02042058(arg1, var2);
 #else
@@ -136,9 +146,9 @@ extern "C" ARM void func_ov008_02188408(Struct_ov008_021842a0_2* arg0, char* arg
         __clear(var10, sizeof(var10));
         sprintf(var9, data_ov008_0218b465, var1->unknown_150_->unknown_49c_.unknown_0_0_);
         sprintf(var10, data_ov008_0218b47c, var1->unknown_150_->unknown_49c_.unknown_0_0_);
-        void* var11 = ExtractFileFromGP2(var9, var10, &var8);
+        void* var11 = ExtractFileFromGP2((const char*)(var9), (const char*)(var10), (unsigned int*)(&var8));
         if (var11 != NULL)
-            CopyStringFromTableFile_020e046c(var7, var11, var8, (short)arg3->unknown_12_7_);
+            GetStringFromNAT((char*)(var7), (void*)(var11), var8, (short)arg3->unknown_12_7_);
         BackgroundLoader::RemoveLockGlobal();
         int var12 = (0xa0 - func_020420e8(var7, 1)) / 2;
         if (var12 < 0)
@@ -150,15 +160,15 @@ extern "C" ARM void func_ov008_02188408(Struct_ov008_021842a0_2* arg0, char* arg
         return;
     }
     int var13 = 3;
-    char* var14 = GetFlagManager_0205ec34();
-    if (IsFlagSet_0206dfb0((int)var14, (unsigned char*)var14 + 0x8c, 0x1198))
+    char* var14 = func_0205ec34();
+    if (func_0206dfb0((int)var14, (unsigned char*)var14 + 0x8c, 0x1198))
         var13 = 4;
     if (arg2 == 0)
     {
         for (int var15 = 0; var15 < var13; var15++)
         {
             AppendPositionTag_02041a90(arg1, 4, var15 * 15 + 4);
-            AppendText_02042058(arg1, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var15 + 0x82)));
+            AppendText_02042058(arg1, ((StringList*)((Struct_0201099c_3*)&arg0->unknown_a0_))->GetString((short)(var15 + 0x82)));
         }
     }
     else if (arg2 == 1)
@@ -220,10 +230,10 @@ extern "C" ARM void func_ov008_02188408(Struct_ov008_021842a0_2* arg0, char* arg
         for (int var26 = 0; var26 < var13; var26++)
         {
 #if defined(jpn)
-            AppendText_02042058(arg1, FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var26 + 0x8c)));
+            AppendText_02042058(arg1, ((StringList*)((Struct_0201099c_3*)&arg0->unknown_a0_))->GetString((short)(var26 + 0x8c)));
 #else
             func_02041a5c(arg1, var26 * 15 + 4);
-            func_0204201c(arg1, (int)FindStringInTable_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var26 + 0x8c)), 0x18);
+            func_0204201c(arg1, (int)((StringList*)((Struct_0201099c_3*)&arg0->unknown_a0_))->GetString((short)(var26 + 0x8c)), 0x18);
 #endif
         }
     }

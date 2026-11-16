@@ -8,6 +8,10 @@
 #include "Resource/Brightness.h"
 
 #if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
 #define data_ov017_021d7c90 data_ov017_021d846c
 #define data_ov017_021d7c95 data_ov017_021d8471
 enum {
@@ -90,7 +94,7 @@ extern "C" void func_ov017_021b8d80(Struct_ov017_021b8e8c_5* arg0);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void* GetNPCManager_0203cf4c(void);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
@@ -163,7 +167,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_020
     char* var4 = GetMessageWindow_020421a0();
     void* var5 = GetNPCManager_0203cf4c();
     GameObject* var6 = var0->GetUnknownGameObject();
-    void* var7 = GetFlagManager_0205ec34();
+    void* var7 = func_0205ec34();
     void* var8;
     unsigned short var9 = *var3;
     var8 = (void*)GetFollowCamera_020100f8((char*)var0);

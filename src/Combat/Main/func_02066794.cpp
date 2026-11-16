@@ -1,4 +1,3 @@
-#pragma ipa file
 #include <globaldefs.h>
 #include "Resource/FontGlyphTable.h"
 #include "Resource/MessageSystem.h"
@@ -9,6 +8,21 @@
 #include "Resource/GameResources.h"
 #include "std_library_functions.h"
 #include "Graphics/VRAMStaging.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Graphics/SPRSprite.h"
+#include "Resource/GameStrings.h"
+
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
+#if defined(jpn)
+#define func_0202ec84 func_0202e7f4
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 #if defined(jpn)
 
@@ -512,8 +526,6 @@ extern "C" NPC_0203dce4* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2* npcManage
 extern "C" void func_0206b104(struct Struct_0206b104* arg0);
 extern "C" void func_0206cba0(struct Struct_0206b224* arg0);
 extern "C" void func_020665bc(char*, int, const char*, const char*);
-extern "C" void SetSpriteAnimationOAMIndex_0205a42c(SpriteAnimationList_0205a254*, int, int);
-extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330*, int);
 extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" int func_02065758(Struct_02065758* arg0, int arg1);
 extern "C" void func_0202f380(void* arg0, int arg1);
@@ -537,7 +549,6 @@ extern "C" void GetNPCPosition_020406f8(Struct_0203de84*, NPC_0203de84_2*);
 extern "C" int fix32_Atan2(int arg0, int arg1);
 int fix32ReduceAngle0To2Pi(int angle);
 extern "C" void func_02065418(int arg0);
-extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void func_020652d0(char* arg0, int arg1, int arg2, int arg3);
 extern "C" unsigned char* GetResources_0200fb8c(int* gameState);
 extern "C" void func_0208bf28(Struct_02065990_2*, int, unsigned char);
@@ -572,9 +583,8 @@ extern "C" int func_02067ea0(Struct_02067ea0* arg0, int arg1, int arg2, unsigned
                                  int arg5, int arg6);
 extern "C" void func_0204459c(void* arg0, int arg1);
 extern "C" void func_020653e4(int arg0, int arg1);
-extern "C" void* GetCamera_020100bc(GameState*);
-extern "C" int ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
-extern "C" void func_020473c8(Struct_02015ef4_2*, int);
+extern "C" void* func_020100bc(GameState*);
+extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" void func_0205c904(unsigned char*, int);
 extern "C" int func_0205cde8(unsigned char*);
 extern "C" void func_0205cd94(unsigned char*);
@@ -589,13 +599,12 @@ extern "C" void func_0205c840(void* arg0);
 extern "C" int func_02043014(int, unsigned short*);
 extern "C" int func_02045c00(Struct_02045c00_2*, const char*, int);
 extern "C" int func_02046530(void*, unsigned short*, int, int);
-extern "C" int CompareBytes_02001aec(const void* left, const void* right, unsigned int count);
 extern "C" void func_02067b28(Struct_02067b28* arg0);
 extern "C" void func_020698d8(Struct_020698d8* arg0, int arg1, signed char* arg2, char* arg3);
 extern "C" void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2);
 extern "C" void func_0206c570(void* arg0, const char* arg1);
 extern "C" int func_020d857c(const char* arg0, const char* arg1);
-extern "C" int GetStringLength_020d2ff0(const char* string);
+extern "C" int func_020d2ff0(const char* string);
 extern "C" int ParseDecimal_02005a94(const char* string);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
@@ -935,9 +944,9 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
 
     if (*(void**)(var0 + 0x230) != 0 && var0[0x236] != 0 && arg0->unknown_9a0_ == 6) {
         if ((*(unsigned short*)0x4000304 & 0x8000) >> 15 == 1) {
-            SetSpriteAnimationOAMIndex_0205a42c((SpriteAnimationList_0205a254*)(*(void**)(var0 + 0x230)), 0, 0x1e);
+            ((OBJSpriteSet::List*)((SpriteAnimationList_0205a254*)(*(void**)(var0 + 0x230))))->SetSpriteOBJIndex(0, 0x1e);
         }
-        AdvanceSpriteAnimations_0205a330((SpriteAnimationList_0205a330*)(*(void**)(var0 + 0x230)), var9);
+        ((OBJSpriteSet::List*)((SpriteAnimationList_0205a330*)(*(void**)(var0 + 0x230))))->UpdateAll(var9);
     }
 
     if (arg0->unknown_998_ == 0) return;
@@ -1746,14 +1755,14 @@ extern "C" ARM void func_020675fc(Struct_020675fc_2* arg0) {
     NPC_0203dce4* var0 = GetNPCByIndex_0203dce4(GetNPCManager_0203cf4c(), arg0->unknown_1838_);
     if (var0 && arg0->unknown_19b7_) {
         GameResources* var1 = GetGameResources();
-        void* var2 = GetCamera_020100bc(GameState::GetInstance());
+        void* var2 = func_020100bc(GameState::GetInstance());
         int var3;
         int var4;
         Struct_02015ef4 var5;
         Struct_020675fc var6;
         GetNPCPosition_020406f8(&var6.unknown_0_, (NPC_0203de84_2*)var0);
         var5 = var6.unknown1_0_;
-        ConvertWorldToScreen_0202ec84(var2, &var5, &var3, &var4);
+        func_0202ec84(var2, &var5, &var3, &var4);
         var3 -= 12;
         var4 -= 62;
         int var7 = var3 << 12;
@@ -1762,7 +1771,7 @@ extern "C" ARM void func_020675fc(Struct_020675fc_2* arg0) {
         var8->unknown_1c_[0] = var7;
         var8->unknown_1c_[1] = var9;
         var8->unknown_1c_[2] = 0;
-        func_020473c8((Struct_02015ef4_2*)var8, 1);
+        ((SPRSprite*)((Struct_02015ef4_2*)var8))->DrawAnimatedNoRotation(1);
     }
 }
 
@@ -1956,7 +1965,7 @@ extern "C" ARM void func_02067b28(Struct_02067b28* arg0) {
             arg0->unknown_19c4_ = 1;
             if (arg0->unknown_1946_ <= 0) arg0->unknown_19c4_ = 0;
             var4 = 10;
-            if (!CompareBytes_02001aec(var0, data_020f07ce, 2)) {
+            if (!memcmp(var0, data_020f07ce, 2)) {
                 if (arg0->unknown_1942_ == 0) arg0->unknown_19c4_ = 0;
                 else {
                     int var6 = arg0->unknown_1942_ * var4;
@@ -2051,7 +2060,7 @@ extern "C" ARM void func_020698d8(Struct_020698d8* arg0, int arg1, signed char* 
                 if (func_020d857c((char*)arg2 + 2, (char*)*var5 + 2)) {
                     Struct_020698d8_2* var6 = (Struct_020698d8_2*)var1->GetPartyMemberByIndex(var2[var3]);
                     if (var6 != 0) {
-                        arg2 += GetStringLength_020d2ff0((char*)*var5);
+                        arg2 += func_020d2ff0((char*)*var5);
                         arg3 += sprintf(arg3, var6->unknown_134_);
                         var4 = 1;
                     }
@@ -2065,7 +2074,7 @@ extern "C" ARM void func_020698d8(Struct_020698d8* arg0, int arg1, signed char* 
         signed char var7 = *arg2;
         if (var7 == '[') {
             int var8 = 0;
-            if (CompareBytes_02001aec(arg2, data_020f07d4, 4) == 0) {
+            if (memcmp(arg2, data_020f07d4, 4) == 0) {
                 arg2 += 4;
                 Struct_020698d8_5* var9 = (Struct_020698d8_5*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0->unknown_1750_);
                 if (var9 != 0) {
@@ -2074,25 +2083,25 @@ extern "C" ARM void func_020698d8(Struct_020698d8* arg0, int arg1, signed char* 
                         arg3 += sprintf(arg3, var10->unknown_4_);
                     }
                 }
-            } else if (CompareBytes_02001aec(arg2, data_020f07d9, 6) == 0) {
+            } else if (memcmp(arg2, data_020f07d9, 6) == 0) {
                 arg2 += 6;
                 arg3 += sprintf(arg3, arg0->unknown_23c_);
-            } else if (CompareBytes_02001aec(arg2, data_020f07e0, 4) == 0) {
+            } else if (memcmp(arg2, data_020f07e0, 4) == 0) {
                 arg2 += 4;
                 arg3 += sprintf(arg3, arg0->unknown_27c_);
-            } else if (CompareBytes_02001aec(arg2, data_020f07e5, 7) == 0) {
+            } else if (memcmp(arg2, data_020f07e5, 7) == 0) {
                 arg2 += 7;
                 arg3 += sprintf(arg3, arg0->unknown_2bc_);
-            } else if (CompareBytes_02001aec(arg2, data_020f07ed, 7) == 0) {
+            } else if (memcmp(arg2, data_020f07ed, 7) == 0) {
                 arg2 += 7;
                 arg3 += sprintf(arg3, arg0->unknown_2fc_);
-            } else if (CompareBytes_02001aec(arg2, data_020f07f5, 7) == 0) {
+            } else if (memcmp(arg2, data_020f07f5, 7) == 0) {
                 arg2 += 7;
                 arg3 += sprintf(arg3, arg0->unknown_33c_);
-            } else if (CompareBytes_02001aec(arg2, data_020f07fd, 4) == 0) {
+            } else if (memcmp(arg2, data_020f07fd, 4) == 0) {
                 arg2 += 4;
                 arg3 += sprintf(arg3, data_020f0802, arg0->unknown_77c_);
-            } else if (CompareBytes_02001aec(arg2, data_020f0805, 7) == 0) {
+            } else if (memcmp(arg2, data_020f0805, 7) == 0) {
                 arg2 += 7;
                 int var11 = ParseDecimal_02005a94((char*)arg2) - 1;
                 if (var11 >= 0 && var11 < 16) {
@@ -2100,11 +2109,11 @@ extern "C" ARM void func_020698d8(Struct_020698d8* arg0, int arg1, signed char* 
                 } else {
                     var8 = 1;
                 }
-            } else if (CompareBytes_02001aec(arg2, data_020f080d, 9) == 0) {
+            } else if (memcmp(arg2, data_020f080d, 9) == 0) {
                 arg2 += 9;
-            } else if (CompareBytes_02001aec(arg2, data_020f0817, 8) == 0 || CompareBytes_02001aec(arg2, data_020f0820, 8) == 0) {
+            } else if (memcmp(arg2, data_020f0817, 8) == 0 || memcmp(arg2, data_020f0820, 8) == 0) {
                 arg2 += 8;
-            } else if (CompareBytes_02001aec(arg2, data_020f0829, 5) == 0) {
+            } else if (memcmp(arg2, data_020f0829, 5) == 0) {
                 arg2 += 5;
                 int var12 = ParseDecimal_02005a94((char*)arg2) - 1;
                 if (var12 >= 0 && var12 < 16) {
@@ -2149,7 +2158,7 @@ extern "C" ARM void func_020698d8(Struct_020698d8* arg0, int arg1, signed char* 
             continue;
         }
         if (var7 == '<') {
-            if (CompareBytes_02001aec(arg2, data_020f0848, 6) == 0) {
+            if (memcmp(arg2, data_020f0848, 6) == 0) {
                 switch ((unsigned char)ParseDecimal_02005a94((char*)arg2 + 6)) {
                     case 8:
                         var0 = 8;
@@ -2165,13 +2174,13 @@ extern "C" ARM void func_020698d8(Struct_020698d8* arg0, int arg1, signed char* 
                         break;
                 }
             }
-            if (CompareBytes_02001aec(arg2, data_020f084f, 13) == 0) {
+            if (memcmp(arg2, data_020f084f, 13) == 0) {
                 arg2 += 13;
                 GameState* var16 = GameState::GetInstance();
                 char var17[0x30];
                 __clear(var17, 0x30);
                 func_020de968(((Struct_020698d8_6*)var16)->unknown_6f9c_, var17);
-                if (GetStringLength_020d2ff0(var17) != 0) {
+                if (func_020d2ff0(var17) != 0) {
                     arg3 += sprintf(arg3, var17);
                 }
             }
@@ -3191,7 +3200,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
             signed char var23 = 0;
             memcpy(var22, arg1 + 7, 2);
             for (; data_020e88a5[var23][0]; var23++) {
-                if (CompareBytes_02001aec(var22, data_020e88a5[var23], 2) == 0) {
+                if (memcmp(var22, data_020e88a5[var23], 2) == 0) {
                     arg0->unknown_1000_.unknown_87c_ = data_020e884a[var23];
                     arg1 += var20 + 1;
                     var21 = 1;
@@ -3248,7 +3257,7 @@ extern "C" ARM void func_0206c520(void* arg0, const char** arg1, const char* arg
     if (!arg1 || !arg2) return;
     const char* var0 = *arg1;
     while (*var0) {
-        if (!CompareBytes_02001aec(var0, arg2, arg3)) break;
+        if (!memcmp(var0, arg2, arg3)) break;
         var0++;
     }
     *arg1 = var0;
@@ -3259,7 +3268,7 @@ extern "C" ARM void func_0206c570(void* arg0, const char* arg1) {
     if (arg1 == NULL) return;
     {
         void* var1 = var0->unknown_14_;
-        memcpy(var1, arg1, (var0->unknown_34_ = GetStringLength_020d2ff0(arg1)));
+        memcpy(var1, arg1, (var0->unknown_34_ = func_020d2ff0(arg1)));
     }
     {
         unsigned short* var2 = static_cast<unsigned short*>(var0->unknown_14_);
@@ -3352,7 +3361,7 @@ extern "C" ARM void func_0206c794(void* arg0) {
             break;
         }
         if (!func_02069430(var0, *var3)) {
-            if (CompareBytes_02001aec(var3, data_020f07ce, 2) == 0) {
+            if (memcmp(var3, data_020f07ce, 2) == 0) {
                 var0->unknown_17f3_ = 0;
                 break;
             }
@@ -3366,7 +3375,7 @@ extern "C" ARM void func_0206c794(void* arg0) {
     for (;;) {
         if (func_02069408(var0, *var3)) break;
         if (!func_02069430(var0, *var3)) {
-            if (CompareBytes_02001aec(var3, data_020f0aeb, 2) == 0) {
+            if (memcmp(var3, data_020f0aeb, 2) == 0) {
                 var2 = 0;
                 var0->unknown_1774_ = -1;
                 var0->unknown_1772_ = 0;
@@ -3375,7 +3384,7 @@ extern "C" ARM void func_0206c794(void* arg0) {
                 var4 = 1;
                 break;
             }
-            if (CompareBytes_02001aec(var3, data_020f07ce, 2) == 0) break;
+            if (memcmp(var3, data_020f07ce, 2) == 0) break;
         }
         var3++;
     }

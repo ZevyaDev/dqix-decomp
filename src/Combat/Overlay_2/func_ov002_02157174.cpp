@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_020839dc;
 struct Struct_0209a9dc_2;
 
@@ -33,7 +37,7 @@ extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" int func_0209ab7c(void *arg0, void *arg1, unsigned char *arg2);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char *memberData, int skillEntryId);
 extern "C" Struct_ov002_02157174_2 *func_0209a594(void *arg0, int arg1);
-extern "C" void *GetPartyMemberData_02053c6c(unsigned char *gameObject);
+extern "C" void *func_02053c6c(unsigned char *gameObject);
 
 // USA: func_ov002_02157174
 extern "C" ARM void func_ov002_02157174(char *arg0, int arg1) {
@@ -63,7 +67,7 @@ extern "C" ARM void func_ov002_02157174(char *arg0, int arg1) {
     if (var4 == 0) {
         return;
     }
-    var5 = (unsigned char *) GetPartyMemberData_02053c6c(var4);
+    var5 = (unsigned char *) func_02053c6c(var4);
     if (var5 == 0) {
         return;
     }

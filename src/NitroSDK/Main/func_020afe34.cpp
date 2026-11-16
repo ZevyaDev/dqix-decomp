@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020afe34 func_020b1900
+#endif
+
 extern "C" int func_020c8854(int arg0, int arg1, int arg2, void* arg3);
 
 // USA: func_020afe34

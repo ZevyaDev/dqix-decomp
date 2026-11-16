@@ -1,13 +1,17 @@
 #include "NitroSDK/Memory/HPXEAllocator.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_020ca3ec func_020cbeb8
+#endif
+
 #define BLOCKSIGNATURE_FREE 0x4652 // looks like "RF" in memory
 #define BLOCKSIGNATURE_USED 0x5544 // looks like "DU" in memory
 
 
 extern "C"
 {
-    void Memset32BitByWord_020ca3ec(int val, void* dst, unsigned int len);
+    void func_020ca3ec(int val, void* dst, unsigned int len);
 }
 
 // USA: func_020af20c
@@ -140,7 +144,7 @@ void* HPXEAllocator::BlockManager::AllocateFromFreeBlock(
     unsigned int clearLength = pieceAfter.beginAddr - pieceBefore.endAddr;
     
     if (clearFlags & 1)
-        Memset32BitByWord_020ca3ec(0, (void*)pieceBefore.endAddr, clearLength);
+        func_020ca3ec(0, (void*)pieceBefore.endAddr, clearLength);
     
     MemoryRangeDescription thisPiece;
     thisPiece.beginAddr = trueStart;

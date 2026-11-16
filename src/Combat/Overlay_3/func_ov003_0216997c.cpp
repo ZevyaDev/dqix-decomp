@@ -33,12 +33,12 @@ enum { Enum_ov003_0216997c_2400 = 0x960 };
 extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int);
 #endif
 #include "std_library_functions.h"
+#include "Resource/StringList.h"
 
 struct TextWindowManager_0205de24_2;
 extern "C" ARM void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int func_020420e8(char* arg0, int arg1);
 extern "C" void func_ov003_02169a84(char* arg0, char* arg1, int arg2);
 #if !defined(jpn)
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov003_0216997c(void* arg0) {
     struct Struct_0201099c_3* var1 = (struct Struct_0201099c_3*)(var0 + 0x64);
     short var2 = 0;
     for (int var3 = 0; var3 < 3; var3++) {
-        int var4 = FindStringInTable_020e0434(var1, (short)var3);
+        int var4 = ((int)((StringList*)(var1))->GetString((short)var3));
         short var5 = (short)func_020420e8((char*)var4, 0);
         if (var2 < var5) var2 = var5;
     }

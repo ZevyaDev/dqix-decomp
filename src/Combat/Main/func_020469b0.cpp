@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Resource/MessageGlyphSlot.h"
+#include "Graphics/TextureArena.h"
 #if defined(jpn)
 #include <std_library_functions.h>
 
@@ -22,8 +23,6 @@ struct Struct_020469b0_3 {
 };
 extern "C" void __clear(void*, unsigned int);
 extern "C" void func_02044f68(Struct_020469b0_3*, const char*, char*);
-extern "C" void RestoreTextureVRAMState_0207df90(char*);
-extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" int func_02043014(int, void*);
 extern "C" int func_02045c00(Struct_020469b0_3*, void*, int);
 extern "C" unsigned short func_02046530(Struct_020469b0_3*, void*, int, int);
@@ -41,7 +40,7 @@ extern "C" ARM unsigned short func_020469b0(Struct_020469b0_3* arg0, const char*
     var0 = 0;
     var1 = 0;
     var2 = 0;
-    if (arg0->unknown_1c4c_) RestoreTextureVRAMState_0207df90(arg0->unknown_1c4c_);
+    if (arg0->unknown_1c4c_) ((TextureArena*)(arg0->unknown_1c4c_))->Restore();
     while (1) {
         if (var2 > 0 && arg2[var2 - 1] == 0xff01) break;
         memcpy(&var3.unknown_0_, var3.unknown_2_ + var1, 2);
@@ -83,7 +82,7 @@ extern "C" ARM unsigned short func_020469b0(Struct_020469b0_3* arg0, const char*
             ++var0;
         }
     }
-    if (arg0->unknown_1c4c_) SaveTextureVRAMState_0207dfac(arg0->unknown_1c4c_);
+    if (arg0->unknown_1c4c_) ((TextureArena*)(arg0->unknown_1c4c_))->Save();
     return var0;
 }
 

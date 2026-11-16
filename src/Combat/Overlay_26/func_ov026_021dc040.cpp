@@ -5,6 +5,10 @@
 #include <Memory/SafeAllocator.h>
 #include <std_library_functions.h>
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 struct Struct_ov000_02161e30;
 struct Struct_ov000_0217e870_2;
 struct Struct_0204a438;
@@ -49,7 +53,7 @@ extern const char data_ov026_021dee57[];
 // USA: func_ov026_021dc040
 extern "C" ARM int func_ov026_021dc040(SafeAllocator* arg0, BattleScene_ov000_02160da0* arg1, Struct_ov000_02161e30* arg2, Struct_ov000_0217e870_2* arg3) {
     GameState* var0 = GameState::GetInstance();
-    Struct_0204a438* var1 = (Struct_0204a438*)GetCamera_020100bc(var0);
+    Struct_0204a438* var1 = (Struct_0204a438*)func_020100bc(var0);
     if (!var1) return 1;
     Object3D* var2 = func_0204a438(var1);
     if (!var2) return 1;

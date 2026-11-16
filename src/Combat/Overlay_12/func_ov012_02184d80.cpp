@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
-extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char g_fileScratchSpace[0x30000] __attribute__((aligned(4)));
 #include "Filesystem/FileIO.h"
 
 struct Struct_ov009_02189a4c_2;
@@ -65,7 +65,7 @@ extern "C" void __clear(void*, unsigned int);
 extern "C" void func_ov012_021855f0(void*, char*, char*);
 extern "C" int FindFontGlyphIndex_020424e4(int, int);
 extern "C" Struct_ov009_02186e00* GetFontGlyph_020425b4(int, int);
-extern "C" int ConvertTextToGlyphIndices_020426bc(const char*, unsigned char*, int);
+extern "C" int func_020426bc(const char*, unsigned char*, int);
 extern "C" int func_ov012_02185634(void*, void*, int, int, int);
 extern "C" int func_ov012_02185684(void*, unsigned char*, unsigned char*, int, int);
 
@@ -101,13 +101,13 @@ extern "C" ARM int func_ov012_02184d80(Struct_ov012_02184d80* arg0, char* arg1, 
     Struct_ov012_02184d80_2 var18;
     unsigned short var19 = 0;
     var18.unknown_0_ = 0;
-    LoadFileIntoMemory(data_020f285c, gFileScratchSpace_0211e33c, &var18.unknown_0_);
+    LoadFileIntoMemory(data_020f285c, g_fileScratchSpace, &var18.unknown_0_);
     memset(&arg0->unknown_18_, 0, 12);
-    unsigned char* var20 = gFileScratchSpace_0211e33c;
+    unsigned char* var20 = g_fileScratchSpace;
     if (var20) {
-        memcpy(&arg0->unknown_18_, gFileScratchSpace_0211e33c, 4);
+        memcpy(&arg0->unknown_18_, g_fileScratchSpace, 4);
         unsigned int var21 = inline_ov009_02189a4c_4(sizeof(Struct_ov009_02189a4c_4), 4);
-        unsigned char* var22 = gFileScratchSpace_0211e33c;
+        unsigned char* var22 = g_fileScratchSpace;
         arg0->unknown_18_.unknown_4_ = (Struct_ov009_02189a4c_3*)(var22 + var21);
         unsigned int var23 = inline_ov009_02189a4c_3(0, arg0->unknown_18_.unknown_0_.unknown_0_0_, sizeof(Struct_ov009_02189a4c_3), 4);
         arg0->unknown_18_.unknown_8_ = (char*)(var22 + (var21 + var23));
@@ -123,13 +123,13 @@ extern "C" ARM int func_ov012_02184d80(Struct_ov012_02184d80* arg0, char* arg1, 
                 }
             }
             arg0->unknown_18_.unknown_0_.unknown_3_7_ = 1;
-            ((Struct_ov009_02189a4c_4*)gFileScratchSpace_0211e33c)->unknown_3_7_ = 1;
+            ((Struct_ov009_02189a4c_4*)g_fileScratchSpace)->unknown_3_7_ = 1;
         }
     }
     arg0->unknown_24_ = 0;
     arg0->unknown_28_ = 0;
     if (var19) {
-        arg0->unknown_24_ = gFileScratchSpace_0211e33c + var19;
+        arg0->unknown_24_ = g_fileScratchSpace + var19;
         arg0->unknown_28_ = var19;
     }
     __clear(var17, 180);
@@ -214,7 +214,7 @@ extern "C" ARM int func_ov012_02184d80(Struct_ov012_02184d80* arg0, char* arg1, 
     short var52;
     int var53;
     unsigned int var54;
-    ConvertTextToGlyphIndices_020426bc(var16, var15, 1);
+    func_020426bc(var16, var15, 1);
     var49 = 0;
     var48 = var17;
     var45 = arg0->unknown_36_;
@@ -273,7 +273,7 @@ extern "C" ARM int func_ov012_02184d80(Struct_ov012_02184d80* arg0, char* arg1, 
         var9 = var17;
         __clear(var14, 320);
         for (var37 = 0; var37 < var51->unknown_1e_; ++var37) {
-            ConvertTextToGlyphIndices_020426bc(var51->unknown_0_[var37], var14[var37], 1);
+            func_020426bc(var51->unknown_0_[var37], var14[var37], 1);
             var51->unknown_0_[var37] = (char*)var14[var37];
         }
         var8 = var53 - var51->unknown_1e_ + 1;

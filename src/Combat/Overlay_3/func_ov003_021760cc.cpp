@@ -3,6 +3,7 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 struct ItemTable_0201099c_10;
 struct Struct_0201099c_3;
@@ -75,7 +76,6 @@ extern "C" Struct_ov003_021760cc *FindItemData_020dedd0(ItemTable_0201099c_10 *,
 extern "C" int func_ov003_02175898(char *, void *);
 struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0 *, int, int);
-extern "C" const char *FindStringInTable_020e0434(Struct_0201099c_3 *, int);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_ov003_021760cc_4 *, const char *, int);
 #else
@@ -116,7 +116,6 @@ struct Struct_ov003_021760cc_2 {
 };
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2 *, int, char *);
-extern "C" char *CopyStringFromTableFile_020e046c(char *buffer, void *fileData, unsigned int fileSize, int stringId);
 extern const char data_ov003_0217eddd[];
 extern const unsigned char data_ov003_0217e326[];
 extern const unsigned char data_ov003_0217e320[];
@@ -141,9 +140,9 @@ extern "C" ARM void func_ov003_021760cc(Struct_ov003_021760cc_2 *arg0) {
             var0->GetLoadedFileByID(arg0->unknown_f68_, &var3, &var4);
             if (var3) {
                 if (arg0->unknown_fb2_ == 0x1e && arg0->unknown_fc4_ != -1) {
-                    CopyStringFromTableFile_020e046c(var2, var3, var4, arg0->unknown_fc4_);
+                    GetStringFromNAT((char*)(var2), (void*)(var3), var4, arg0->unknown_fc4_);
                 } else {
-                    CopyStringFromTableFile_020e046c(var2, var3, var4, arg0->unknown_fb6_);
+                    GetStringFromNAT((char*)(var2), (void*)(var3), var4, arg0->unknown_fb6_);
                 }
             }
             var0->RemoveTask(arg0->unknown_f68_);
@@ -167,20 +166,20 @@ extern "C" ARM void func_ov003_021760cc(Struct_ov003_021760cc_2 *arg0) {
                 SetMessageNumber_020465c0((MessageWindow_020465c0 *) var1, 1, arg0->unknown_fb8_);
             }
             unsigned char var9 = arg0->unknown_7ec_;
-            char *var10  = (char *) FindStringInTable_020e0434((Struct_0201099c_3 *) arg0->unknown_c_, (short) (data_ov003_0217e326[var9] + 0x25));
-            char *var11 = (char *) FindStringInTable_020e0434((Struct_0201099c_3 *) arg0->unknown_c_, (short) (data_ov003_0217e320[var9] + 0x25));
+            char *var10  = (char *) ((StringList*)((Struct_0201099c_3 *) arg0->unknown_c_))->GetString((short) (data_ov003_0217e326[var9] + 0x25));
+            char *var11 = (char *) ((StringList*)((Struct_0201099c_3 *) arg0->unknown_c_))->GetString((short) (data_ov003_0217e320[var9] + 0x25));
             SetMessageString_02046574((Struct_02046574_2 *) var1, 2, var10);
             SetMessageString_02046574((Struct_02046574_2 *) var1, 3, var11);
             if (arg0->unknown_fc2_ & 0x200) {
                 char *var12 = var1->unknown_2c_;
-                AppendText_02042058(var12, FindStringInTable_020e0434((Struct_0201099c_3 *) arg0->unknown_c_, var5));
+                AppendText_02042058(var12, ((StringList*)((Struct_0201099c_3 *) arg0->unknown_c_))->GetString(var5));
                 char *var13 = var1->unknown_30_;
                 memset(var13, 0, 0x800);
                 memcpy(var13, var12, 0x800);
                 StartMessage_0204500c(var1, var13, 0);
                 arg0->unknown_fc2_ &= ~0x200;
             } else {
-                StartMessage_0204500c(var1, FindStringInTable_020e0434((Struct_0201099c_3 *) arg0->unknown_c_, var5), 0);
+                StartMessage_0204500c(var1, ((StringList*)((Struct_0201099c_3 *) arg0->unknown_c_))->GetString(var5), 0);
             }
             var1->unknown_86c_ = arg0->unknown_f6c_;
             var1->unknown_868_     = 1;
@@ -268,7 +267,7 @@ extern "C" ARM void func_ov003_021760cc(Struct_ov003_021760cc_5 *arg0) {
             if (arg0->unknown_1046_ & 0x200) {
                 char *var25 = var15->unknown_60_;
                 AppendText_02042058(
-                    var25, FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0->unknown_c_), var22));
+                    var25, ((StringList*)((Struct_0201099c_3 *) (arg0->unknown_c_)))->GetString(var22));
                 char *var26 = var15->unknown_64_;
                 memset(var26, 0, 0x960);
                 memcpy(var26, var25, 0x960);
@@ -276,7 +275,7 @@ extern "C" ARM void func_ov003_021760cc(Struct_ov003_021760cc_5 *arg0) {
                 arg0->unknown_1046_ &= ~0x200;
             } else {
                 StartMessage_0204500c(var15,
-                              FindStringInTable_020e0434((Struct_0201099c_3 *) (arg0->unknown_c_), var22), 0,
+                              ((StringList*)((Struct_0201099c_3 *) (arg0->unknown_c_)))->GetString(var22), 0,
                               0xe3);
             }
             var15->unknown_99c_ = arg0->unknown_ff0_;

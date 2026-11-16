@@ -12,7 +12,11 @@ enum { Enum_0201c014_84 = 0x54, Enum_0201c014_108 = 0x6c, Enum_0201c014_244 = 0x
 #include "Grotto/Main/ActiveGrottoClass.h"
 #include "World/ZoneFeatures.h"
 
-extern "C" void func_0200ee94(void* arg0, int arg1, int arg2, void* arg3, void* arg4);
+#if defined(jpn)
+#define func_02094d00 func_02096950
+#endif
+
+extern "C" void __cxa_vec_ctor(void* arg0, int arg1, int arg2, void* arg3, void* arg4);
 extern "C" void* _ZN7Model3DC1Ev(void* arg0);
 extern "C" void* _ZN7Model3DD1Ev(void* arg0);
 extern "C" void* func_0201c108(void* arg0);
@@ -33,11 +37,11 @@ extern "C" void func_020134e0(void* arg0);
 // USA: func_0201c014
 extern "C" ARM void* func_0201c014(void* arg0) {
     ((SafeAllocator*)((char*)arg0 + Enum_0201c014_84))->ResetAllocatorPointer();
-    ((Struct_020134e0*)((char*)arg0 + Enum_0201c014_108))->func_0201e248();
+    func_0201e248((Struct_020134e0*)((char*)arg0 + Enum_0201c014_108));
     *(int*)((char*)arg0 + Enum_0201c014_244) = 0;
     ((LightingInfo*)((char*)arg0 + Enum_0201c014_268))->Initialize();
-    func_0200ee94((char*)arg0 + Enum_0201c014_1176, 2, 0xac, (void*)_ZN7Model3DC1Ev, (void*)_ZN7Model3DD1Ev);
-    func_0200ee94((char*)arg0 + Enum_0201c014_1536, 4, 0x88, (void*)func_0201c0e8, (void*)func_0201c108);
+    __cxa_vec_ctor((char*)arg0 + Enum_0201c014_1176, 2, 0xac, (void*)_ZN7Model3DC1Ev, (void*)_ZN7Model3DD1Ev);
+    __cxa_vec_ctor((char*)arg0 + Enum_0201c014_1536, 4, 0x88, (void*)func_0201c0e8, (void*)func_0201c108);
     func_020982b4((char*)arg0 + Enum_0201c014_2112);
     ActiveGrottoClass* var0 = (ActiveGrottoClass*)((char*)arg0 + Enum_0201c014_1004 + Enum_0201c014_8192);
     ((FloorMap*)((char*)var0 + Enum_0201c014_456))->Clear();

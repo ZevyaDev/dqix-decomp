@@ -29,7 +29,7 @@ extern "C" ARM int func_020233b8(void* arg0, int arg1)
         WaitForVBlank_020c9820();
     }
 
-    DC_FlushRange(var3, 0x4c0);
+    CleanInvalidateCacheRange((const void*)(var3), 0x4c0);
     LoadToSubObjVRAM(var3, 0x2c00, 0x4c0);
 
     return 1;

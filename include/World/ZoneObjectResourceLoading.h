@@ -5,6 +5,7 @@
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
 #include "World/ZoneResourceInitialization.h"
+#include "Graphics/TextureArena.h"
 
 struct Struct_020151cc {
     unsigned int unknown_0_;
@@ -23,7 +24,5 @@ struct Struct_02014d80 {
 
 extern "C" void *GetZoneEntry_0200fd0c(GameState *gameState);
 extern "C" void func_02014d18(int arg0, char *arg1, char *arg2);
-extern "C" void RestoreTextureVRAMState_0207df90(char *area);
-extern "C" void SaveTextureVRAMState_0207dfac(char *area);
 extern char data_020ef1e8[];
 extern const Struct_020e6f48 data_020e6f48;

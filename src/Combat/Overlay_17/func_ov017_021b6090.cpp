@@ -2,12 +2,20 @@
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
+#include "Graphics/SPRSprite.h"
+
+#if defined(jpn)
+#define func_0202ec84 func_0202e7f4
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 struct Struct_02015ef4 { unsigned int unknown_0_[3]; };
-extern "C" int ConvertWorldToScreen_0202ec84(void* camera, struct Struct_02015ef4* worldPosition, int* outX, int* outY);
+extern "C" int func_0202ec84(void* camera, struct Struct_02015ef4* worldPosition, int* outX, int* outY);
 
 struct Struct_02015ef4_2;
-extern "C" void func_020473c8(struct Struct_02015ef4_2* arg0, int arg1);
 
 struct Struct_ov017_021b6090 {
     char unknown_0_[0x16];
@@ -22,7 +30,7 @@ struct Struct_ov017_021b6090 {
 // USA: func_ov017_021b6090
 extern "C" ARM void func_ov017_021b6090(struct Struct_ov017_021b6090* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetCamera_020100bc(var0);
+    void* var1 = func_020100bc(var0);
     struct Struct_02015ef4 var2 = arg0->unknown_2c_;
 
     if (arg0->unknown_38_ < 0x191e) {
@@ -33,7 +41,7 @@ extern "C" ARM void func_ov017_021b6090(struct Struct_ov017_021b6090* arg0) {
 
     int var3, var4;
     if (var1 != NULL) {
-        ConvertWorldToScreen_0202ec84(var1, &var2, &var3, &var4);
+        func_0202ec84(var1, &var2, &var3, &var4);
     }
 
     unsigned char* var5 = (unsigned char*)arg0->unknown_20_;
@@ -44,7 +52,7 @@ extern "C" ARM void func_ov017_021b6090(struct Struct_ov017_021b6090* arg0) {
     *(int*)(var5 + 0x1c) = var6;
     *(int*)(var5 + 0x20) = var7;
     *(int*)(var5 + 0x24) = 0;
-    func_020473c8((struct Struct_02015ef4_2*)var5, 1);
+    ((SPRSprite*)((struct Struct_02015ef4_2*)var5))->DrawAnimatedNoRotation(1);
 
     unsigned char var8 = arg0->unknown_16_;
     unsigned short var9 = (var8 > 0x1f) ? 0x1f : var8;

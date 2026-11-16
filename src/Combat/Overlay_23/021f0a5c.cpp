@@ -3,6 +3,18 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 
 struct GameState {
     static GameState* GetInstance();
@@ -89,7 +101,7 @@ extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2*);
 extern "C" Struct_ov023_021f03a0* func_ov023_021f0360(void*, int);
 extern "C" int func_02082490(Struct_ov023_021f0a5c_3*, void*, unsigned int, unsigned char, unsigned int);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
-extern "C" Struct_ov000_0215d63c_2* GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" Struct_ov000_0215d63c_2* func_02053c6c(unsigned char*);
 extern "C" void func_02083cbc(Struct_ov000_0215d63c_2*, Struct_ov023_021f0a5c_2*, Struct_ov023_021f0a5c_2*);
 extern "C" void func_02083e28(Struct_ov000_0215d63c_2*, int);
 extern "C" unsigned char func_0209aa54(void*, GameObject*, unsigned char*, int);
@@ -115,8 +127,8 @@ extern "C" void func_ov017_021cc730(int, int, int, int);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
 extern "C" int func_ov023_021f4fc8();
 extern "C" int func_ov023_021f5228(int);
-extern "C" void* GetFlagManager_0205ec34();
-extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
+extern "C" void* func_0205ec34();
+extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" int func_0209ca2c(void*);
 
 static inline int inline_ov023_021f0a5c(Struct_ov000_0215d63c_2* arg0) { return arg0->unknown1_16c_[arg0->unknown_950_]; }
@@ -168,7 +180,7 @@ extern "C" ARM int func_ov023_021f0a5c(BattleScene_ov000_02160da0* arg0) {
             if (var10) {
                 GameObject* var21 = GetPartyMemberBaseByIndex_0200ff1c(var5, var14);
                 if (var21) {
-                    Struct_ov000_0215d63c_2* var22 = GetPartyMemberData_02053c6c((unsigned char*)var21);
+                    Struct_ov000_0215d63c_2* var22 = func_02053c6c((unsigned char*)var21);
                     var22->unknown1_16c_[var22->unknown_950_] = var19;
                     unsigned short var23 = 0xa28 - var22->unknown_564_;
                     if (var23 < var17->unknown_4_7_) var17->unknown_4_7_ = var23;
@@ -185,7 +197,7 @@ extern "C" ARM int func_ov023_021f0a5c(BattleScene_ov000_02160da0* arg0) {
         if (var10) {
             GameObject* var24 = GetPartyMemberBaseByIndex_0200ff1c(var5, var14);
             if (var24) {
-                Struct_ov000_0215d63c_2* var25 = GetPartyMemberData_02053c6c((unsigned char*)var24);
+                Struct_ov000_0215d63c_2* var25 = func_02053c6c((unsigned char*)var24);
                 if (inline_ov023_021f0a5c(var25) >= 99) {
                     unsigned int var26 = arg0->unknown_5770_[var14].unknown_0_.unknown_0_;
                     if (var15) var26 = arg0->unknown_5770_[var14].unknown_14_.unknown_0_;
@@ -305,7 +317,7 @@ extern "C" ARM int func_ov023_021f0a5c(BattleScene_ov000_02160da0* arg0) {
             unsigned short var40 = 0;
             GameObject* var41 = GetPartyMemberBaseByIndex_0200ff1c(var5, var38);
             if (var41) {
-                Struct_ov000_0215d63c_2* var42 = GetPartyMemberData_02053c6c((unsigned char*)var41);
+                Struct_ov000_0215d63c_2* var42 = func_02053c6c((unsigned char*)var41);
                 if (var42) var40 = var42->unknown_564_;
             }
             GetParty_02010828(var5);
@@ -315,8 +327,8 @@ extern "C" ARM int func_ov023_021f0a5c(BattleScene_ov000_02160da0* arg0) {
                 var6->unknown_e5_ = 12;
             } else if (var40 && func_ov023_021f5228(var38)) {
                 var6->unknown_e5_ = 8;
-                void* var43 = GetFlagManager_0205ec34();
-                if (IsFlagSet_0206dfb0((int)var43, (unsigned char*)var43 + 0x8c, 0x119c)) var7->unknown_19ca_ = 0;
+                void* var43 = func_0205ec34();
+                if (func_0206dfb0((int)var43, (unsigned char*)var43 + 0x8c, 0x119c)) var7->unknown_19ca_ = 0;
             }
         }
         var6->unknown_0_++;

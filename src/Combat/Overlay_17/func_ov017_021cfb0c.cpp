@@ -106,3 +106,8 @@ extern "C" ARM void func_ov017_021cfb0c(int arg0, void* arg1, GameState* arg2, s
     var6->unknown_1c_ = var2->unknown_c_;
     AppendToQueue_020469b4((Queue_0201bdac_2*)var4, (QueueNode_0201bdac*)var6);
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

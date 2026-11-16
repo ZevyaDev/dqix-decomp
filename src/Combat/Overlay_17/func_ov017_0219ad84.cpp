@@ -5,6 +5,19 @@
 #include "NitroSDK/Graphics.h"
 #include "World/ZoneLootableRecord.h"
 #include "Resource/Brightness.h"
+#include "Graphics/SPRSprite.h"
+
+#if defined(jpn)
+#define func_0202ec84 func_0202e7f4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 struct QueueNode_02015438;
 struct Struct_0201730c;
@@ -38,20 +51,16 @@ struct Struct_ov017_0219ad84_4 {
 extern "C" Struct_ov017_0219ad84* GetZone3D_02012fe4();
 extern "C" Struct_ov017_0219ad84_2* GetMessageWindow_020421a0();
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
-extern "C" void func_0204724c(Struct_0201730c*);
-extern "C" void func_020473c8(Struct_02015ef4_2*, int);
 extern "C" unsigned char IsOnLadder_02039d7c(char*);
 extern "C" int func_0203402c(Struct_0203402c*);
 extern "C" void func_0203a46c(Struct_0203a46c*, int, int, int);
-extern "C" void func_020478bc(Struct_02017098_3*, int);
-extern "C" void func_02047554(Struct_02012fa4*, int, int);
 extern "C" int IsPerformingGesture_020535c8(signed char*);
 extern "C" int IsQueueEmpty_02046b08(void**);
-extern "C" LocalWireless_0202c1a4* GetLocalWireless_0202ae18();
+extern "C" LocalWireless_0202c1a4* func_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
-extern "C" void ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
+extern "C" void func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" int func_ov017_0218d4ec(void*, int);
 
 static inline Struct_02012fa4* inline_ov017_0219ad84(GameResources* arg0) {
@@ -67,7 +76,7 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
     if (TestFlags04(arg0, 0x40)) return;
     GameState* var0 = GameState::GetInstance();
     Struct_ov017_0219ad84* var1 = GetZone3D_02012fe4();
-    void* var2 = GetCamera_020100bc(var0);
+    void* var2 = func_020100bc(var0);
     Struct_ov017_0219ad84_2* var3 = GetMessageWindow_020421a0();
     Struct_ov017_0219ad84_3* var4 = (Struct_ov017_0219ad84_3*)GetZoneEntry_0200fd0c(var0);
     GameObject* var5 = var0->GetUnknownGameObject();
@@ -79,10 +88,10 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
         if (inline_ov017_0219ad84(arg0) != &arg0->substruct_array_2b90[12] &&
             inline_ov017_0219ad84(arg0) != &arg0->substruct_array_2b90[13] &&
             inline_ov017_0219ad84(arg0) != &arg0->substruct_array_2b90[14]) {
-            func_0204724c((Struct_0201730c*)inline_ov017_0219ad84(arg0));
-            func_020473c8((Struct_02015ef4_2*)inline_ov017_0219ad84(arg0), 1);
+            ((SPRSprite*)((Struct_0201730c*)inline_ov017_0219ad84(arg0)))->Update();
+            ((SPRSprite*)((Struct_02015ef4_2*)inline_ov017_0219ad84(arg0)))->DrawAnimatedNoRotation(1);
         } else {
-            func_020473c8((Struct_02015ef4_2*)inline_ov017_0219ad84(arg0), 1);
+            ((SPRSprite*)((Struct_02015ef4_2*)inline_ov017_0219ad84(arg0)))->DrawAnimatedNoRotation(1);
         }
         GXFIFO_MATRIX_POP = 1;
         return;
@@ -114,9 +123,9 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
     if (var7 | var8 | inline_ov017_0219ad84_2(var4)) var6 = 0;
     if (var6) {
         func_0203a46c((Struct_0203a46c*)&arg0->substruct_array_2b90[0], arg0->unknown_3634_[0] << 12, arg0->unknown_3646_[0] << 12, -0x1000);
-        func_020478bc((Struct_02017098_3*)&arg0->substruct_array_2b90[0], 1);
+        ((SPRSprite*)((Struct_02017098_3*)&arg0->substruct_array_2b90[0]))->SetAnimation(1);
         GXFIFO_MATRIX_PUSH = 0;
-        func_02047554(&arg0->substruct_array_2b90[0], 0, 1);
+        ((SPRSprite*)(&arg0->substruct_array_2b90[0]))->DrawTextureScaleTranslate(0, 1);
         GXFIFO_MATRIX_POP = 1;
     }
 
@@ -129,13 +138,13 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
             int var10 = arg0->unknown_36b4_[1];
             Struct_02012fa4* var11 = arg0->substruct_array_2b90;
             GXFIFO_MATRIX_PUSH = 0;
-            func_0204724c((Struct_0201730c*)&var11[var10]);
-            func_020473c8((Struct_02015ef4_2*)&var11[var10], 1);
+            ((SPRSprite*)((Struct_0201730c*)&var11[var10]))->Update();
+            ((SPRSprite*)((Struct_02015ef4_2*)&var11[var10]))->DrawAnimatedNoRotation(1);
             GXFIFO_MATRIX_POP = 1;
         }
     }
 
-    LocalWireless_0202c1a4* var12 = GetLocalWireless_0202ae18();
+    LocalWireless_0202c1a4* var12 = func_0202ae18();
     if (!IsLocalWirelessOn_0202b7d8((int*)var12) || !var2) return;
     if (IsPerformingGesture_020535c8((signed char*)var5)) return;
     int var13 = GetOwnProtagonistObjectIndex_0202c1a4(var12);
@@ -154,16 +163,16 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
         Vector3fix var20 = var16->unknown_0_.position_;
         var20.y += var16->unknown_0_.GetHeight();
         int var21, var22;
-        ConvertWorldToScreen_0202ec84(var2, (Struct_02015ef4*)&var20, &var21, &var22);
+        func_0202ec84(var2, (Struct_02015ef4*)&var20, &var21, &var22);
         var21 -= 12;
         var22 -= 24;
         if (var16->unknown_0_.GetFlag(0x400)) {
             Struct_02012fa4* var23 = &arg0->unknown_3520;
             func_0203a46c((Struct_0203a46c*)var23, var21 << 12, var22 << 12, -0xa000);
-            func_020478bc((Struct_02017098_3*)var23, 1);
-            func_0204724c((Struct_0201730c*)var23);
+            ((SPRSprite*)((Struct_02017098_3*)var23))->SetAnimation(1);
+            ((SPRSprite*)((Struct_0201730c*)var23))->Update();
             GXFIFO_MATRIX_PUSH = 0;
-            func_020473c8((Struct_02015ef4_2*)var23, 1);
+            ((SPRSprite*)((Struct_02015ef4_2*)var23))->DrawAnimatedNoRotation(1);
             var14++;
             GXFIFO_MATRIX_POP = 1;
             if (var14 >= 3) break;
@@ -171,17 +180,17 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
             Struct_02012fa4* var24 = (Struct_02012fa4*)arg0->unknown_35a8;
             func_0203a46c((Struct_0203a46c*)var24, var21 << 12, var22 << 12, -0xa000);
             GXFIFO_MATRIX_PUSH = 0;
-            func_0204724c((Struct_0201730c*)var24);
-            func_020473c8((Struct_02015ef4_2*)var24, 1);
+            ((SPRSprite*)((Struct_0201730c*)var24))->Update();
+            ((SPRSprite*)((Struct_02015ef4_2*)var24))->DrawAnimatedNoRotation(1);
             var14++;
             GXFIFO_MATRIX_POP = 1;
             if (var14 >= 3) break;
-        } else if (func_ov017_0218d4ec(arg0, var16->unknown_0_.objectIndex_4_)) {
+        } else if (func_ov017_0218d4ec(arg0, var16->unknown_0_.unknown_4_)) {
             Struct_02012fa4* var25 = &arg0->substruct_array_2b90[17];
             func_0203a46c((Struct_0203a46c*)var25, var21 << 12, var22 << 12, -0xa000);
             GXFIFO_MATRIX_PUSH = 0;
-            func_0204724c((Struct_0201730c*)var25);
-            func_020473c8((Struct_02015ef4_2*)var25, 1);
+            ((SPRSprite*)((Struct_0201730c*)var25))->Update();
+            ((SPRSprite*)((Struct_02015ef4_2*)var25))->DrawAnimatedNoRotation(1);
             GXFIFO_MATRIX_POP = 1;
         }
     }

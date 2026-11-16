@@ -1,11 +1,11 @@
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
 
 struct Struct_0205c53c;
 extern "C" void func_0205c564(struct Struct_0205c53c* arg0);
 struct Struct_0204c754;
 extern "C" void func_0204c754(struct Struct_0204c754* arg0);
 struct BGLayer_02020cb8_3;
-extern "C" void ResetBGLayerData_0204afb4(struct BGLayer_02020cb8_3* layer);
 
 struct TextWindowManager_0205d048 {
     char unknown_0_[0x98];
@@ -29,7 +29,7 @@ extern "C" ARM void ResetTextWindowManager_0205d048(struct TextWindowManager_020
     if (windowManager->pBGLayers_98_ != 0) {
         unsigned char i;
         for (i = 0; i < windowManager->bgLayerCount_b2_; i++) {
-            ResetBGLayerData_0204afb4((struct BGLayer_02020cb8_3*)(windowManager->pBGLayers_98_ + i * 0x20));
+            ((BGLayer*)((struct BGLayer_02020cb8_3*)(windowManager->pBGLayers_98_ + i * 0x20)))->MaybeDestroy();
         }
     }
     windowManager->pBGLayers_98_ = 0;

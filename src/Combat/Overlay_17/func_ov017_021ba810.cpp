@@ -53,7 +53,7 @@ extern "C" ARM int func_ov017_021ba810(const void* arg0, unsigned int arg1, int 
     var6 = false;
     while (PrepareReadFileInNARCByID(&var1, &var0, var7)) {
         NitroVM_WriteOutFilePath(&var1, var2, sizeof(var2));
-        var5 = var1.fileInfo.unknown_8_ - var1.fileInfo.unknown_4_;
+        var5 = var1.fileInfo.endOffset - var1.fileInfo.startOffset;
         NitroVM_FinishRead(&var1);
         if (strstr(var2, var4)) {
             var6 = true;

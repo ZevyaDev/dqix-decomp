@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 
 
 enum Enum_ov027_021dbdec { Enum_ov027_021dbdec_0 = 0, Enum_ov027_021dbdec_1 = 1 };
@@ -94,7 +98,7 @@ extern "C" void func_ov027_021dd0cc(int arg0, int arg1);
 extern "C" int func_020d4770(int arg0, int arg1, int arg2);
 extern "C" int func_020d54d0(void* arg0, void* arg1, void* arg2, int arg3, unsigned short arg4);
 extern "C" void Memcpy16Bit_020ca3b8(const void* src, void* dst, unsigned int len);
-extern "C" void HaltForever_020c9be0(void);
+extern "C" void func_020c9be0(void);
 
 extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 void DMAMemcpySynchronous16Bit(int chan, unsigned int src, unsigned int dst, unsigned int len);
@@ -336,7 +340,7 @@ extern "C" ARM void func_ov027_021dbdec(void* arg0) {
     case 0x80:
         switch (var0->unknown_4_) {
         case 0x16:
-            HaltForever_020c9be0();
+            func_020c9be0();
             return;
         case 0x17:
             return;

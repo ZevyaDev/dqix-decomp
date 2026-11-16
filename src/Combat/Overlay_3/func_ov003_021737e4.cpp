@@ -8,6 +8,7 @@
 #include "NitroSDK/BGBases.h"
 #include "NitroSDK/Memory.h"
 #include "Resource/GameResources.h"
+#include "Resource/PAC.h"
 
 struct StringList_02072a68_2 {
     struct StringListEntry_02072a68* unknown_0_;
@@ -50,8 +51,6 @@ struct Struct_ov003_021737e4_2 {
 };
 
 extern "C" void func_020a620c(void* arg0);
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void __clear(void*, unsigned int);
@@ -85,9 +84,9 @@ extern "C" ARM void func_ov003_021737e4(Struct_ov003_021737e4_2* arg0) {
         void* var4[3];
         int var5[3];
         var0->GetLoadedFileByID(arg0->unknown_f8_, &var2, &var3);
-        int var6 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var2);
+        int var6 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var2));
         for (int var7 = 0; var7 < var6; var7++) {
-            var4[var7] = GetPacEntryData_020467f0((PacEntry_02020aec*)var2, var7, &var1, &var5[var7]);
+            var4[var7] = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var2), var7, (const char**)(&var1), (unsigned int*)(&var5[var7]));
         }
         void* var8 = arg0->unknown_1_ ? var4[1] : var4[0];
         Struct_ov003_021737e4 var9;
@@ -140,7 +139,7 @@ extern "C" ARM void func_ov003_021737e4(Struct_ov003_021737e4_2* arg0) {
             func_02050678(&var9, var15, 0x25, var12, 0xc, 0xf, &var13, &var14);
         }
         int var17 = (arg0->unknown_d0_ - 1) * 0x2000 + 0x1000;
-        DC_FlushRange((char*)var8 + 0x10, 0x2000);
+        CleanInvalidateCacheRange((const void*)((char*)var8 + 0x10), 0x2000);
         LoadToSubBG0CharacterData((char*)var8 + 0x10, var17, 0x2000);
         int var18;
         if (arg0->unknown_1_) {
@@ -197,8 +196,6 @@ struct Struct_ov003_021737e4_2 {
 };
 
 extern "C" void func_020a620c(void* arg0);
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
@@ -224,9 +221,9 @@ extern "C" ARM void func_ov003_021737e4(Struct_ov003_021737e4_2* arg0) {
         void* var25[3];
         int var26[3];
         var21->GetLoadedFileByID(arg0->unknown_f4_, &var23, &var24);
-        int var27 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var23);
+        int var27 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var23));
         for (int var28 = 0; var28 < var27; var28++) {
-            var25[var28] = GetPacEntryData_020467f0((PacEntry_02020aec*)var23, var28, &var22, &var26[var28]);
+            var25[var28] = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var23), var28, (const char**)(&var22), (unsigned int*)(&var26[var28]));
         }
         void* var29 = arg0->unknown_1_ ? var25[1] : var25[0];
         Struct_ov003_021737e4 var30;
@@ -254,7 +251,7 @@ extern "C" ARM void func_ov003_021737e4(Struct_ov003_021737e4_2* arg0) {
             func_ov003_02172618(&var30, 0xf, var33);
         }
         int var34 = (arg0->unknown_d4_ - 1) * 0x2000 + 0x1000;
-        DC_FlushRange((char*)var29 + 0x10, 0x2000);
+        CleanInvalidateCacheRange((const void*)((char*)var29 + 0x10), 0x2000);
         LoadToSubBG0CharacterData((char*)var29 + 0x10, var34, 0x2000);
         int var35 = 2;
         if (arg0->unknown_1_) {

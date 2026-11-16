@@ -37,7 +37,6 @@ extern "C" ARM void func_ov015_0218c538(Struct_ov015_0218bcb0* arg0, char* arg1)
     arg0->unknown_24_[1].RemoveAllAnimationPackages();
 
     SafeAllocator var0;
-    var0.ResetAllocatorPointer();
     var0.CreateTypeA(arg0->unknown_14_, arg0->unknown_18_);
     var0.Reset();
 
@@ -50,19 +49,18 @@ extern "C" ARM void func_ov015_0218c538(Struct_ov015_0218bcb0* arg0, char* arg1)
     __clear(var2, 0x80);
 
     unsigned int var3 = 0;
-    unsigned char* var4 = gFileScratchSpace_0211e33c;
+    unsigned char* var4 = g_fileScratchSpace;
     unsigned int var5 = 0x30000;
     GPCReadPair var6;
     func_02079a3c(&var6);
 
-    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var6.pGPCFile, var6.machine,
-            data_ov015_02194020, var4, var3, var5, false, 0)) {
+    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var6.pGPCFile, &var6.machine, data_ov015_02194020, var4, &var3, var5, false, 0)) {
         var4 += var3;
         var5 -= var3;
 
         func_ov015_0218c274(arg0, var1, 0);
         sprintf(var2, data_ov015_0219403b, var1);
-        if (DecompressFileFromGPCByName(var6.pGPCFile, var6.machine, var4, var3, var5, var2)) {
+        if (DecompressFileFromGPCByName(&var6.pGPCFile, &var6.machine, var4, &var3, var5, var2)) {
             ObjectArchiveLoadInfo var7;
             ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var7);
             var7.allocator = &var0;
@@ -76,7 +74,7 @@ extern "C" ARM void func_ov015_0218c538(Struct_ov015_0218bcb0* arg0, char* arg1)
 
         if (arg0->unknown_48_ == 1) {
             sprintf(var2, data_ov015_02194042, var1);
-            if (DecompressFileFromGPCByName(var6.pGPCFile, var6.machine, var4, var3, var5, var2)) {
+            if (DecompressFileFromGPCByName(&var6.pGPCFile, &var6.machine, var4, &var3, var5, var2)) {
                 ObjectArchiveLoadInfo var8;
                 ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var8);
 var8.allocator = &var0;
@@ -88,7 +86,7 @@ var8.allocator = &var0;
                 var5 -= var3;
             }
             sprintf(var2, data_ov015_0219404a, var1);
-            if (DecompressFileFromGPCByName(var6.pGPCFile, var6.machine, var4, var3, var5, var2)) {
+            if (DecompressFileFromGPCByName(&var6.pGPCFile, &var6.machine, var4, &var3, var5, var2)) {
                 ObjectArchiveLoadInfo var9;
                 ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var9);
 var9.allocator = &var0;
@@ -107,7 +105,7 @@ var9.allocator = &var0;
         } else {
             sprintf(var2, data_ov015_0219403b, var1);
         }
-        if (DecompressFileFromGPCByName(var6.pGPCFile, var6.machine, var4, var3, var5, var2)) {
+        if (DecompressFileFromGPCByName(&var6.pGPCFile, &var6.machine, var4, &var3, var5, var2)) {
             ObjectArchiveLoadInfo var10;
             ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var10);
             var10.allocator = &var0;
@@ -131,11 +129,11 @@ var9.allocator = &var0;
         } else {
             sprintf(var2, data_ov015_02194078, arg1);
         }
-        if (LoadFileIntoMemory(var2, gFileScratchSpace_0211e33c, &var3)) {
+        if (LoadFileIntoMemory(var2, g_fileScratchSpace, &var3)) {
             ObjectArchiveLoadInfo var12;
             ClearObjectArchiveLoadInfo_0203dafc((ObjectArchiveLoadInfo_0203d028_11*)&var12);
             var12.allocator = &var0;
-            var12.fileData = gFileScratchSpace_0211e33c;
+            var12.fileData = g_fileScratchSpace;
             var12.unk_8 = var3;
             var12.unk_10 = 1;
             var12.packageID = 4;

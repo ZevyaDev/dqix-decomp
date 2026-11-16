@@ -1,5 +1,8 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
+#include "Graphics/BGLayer.h"
+#include "Resource/PAC.h"
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 
@@ -89,16 +92,13 @@ struct Struct_ov014_02185c90 {
 };
 
 struct PacEntry_02020cb8_4;
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4*);
 struct PacEntry_02020aec;
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec*, int, void**, int*);
 extern "C" void InitTextWindow_0204c684(void*);
 struct Struct_02097054_5;
 extern "C" int func_02097224(Struct_02097054_5*, int);
 extern "C" void func_ov023_021e24b0(void*, int, int, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);
 extern "C" void func_ov023_021e23d0(void*, int, int, unsigned char, unsigned char);
 struct Struct_0201099c_3;
-extern "C" void* FindStringInTable_020e0434(Struct_0201099c_3*, unsigned short);
 extern "C" struct Struct_ov003_0215d4fc* func_ov014_021842a0(void*, short);
 struct Struct_ov014_02185c90_3;
 extern "C" void* func_ov014_021893c4(Struct_ov014_02185c90_3*, int);
@@ -106,15 +106,8 @@ extern "C" struct Struct_ov000_021700dc* func_ov014_0218940c(void*, int, void*);
 extern "C" int* func_ov014_02189430(void*, int, void*);
 extern "C" void func_ov023_021e257c(void*);
 struct BGLayer_02020cb8;
-extern "C" void InitBGLayer_0204af64(BGLayer_02020cb8*);
-extern "C" void SetBGScreenSize_0204b11c(unsigned char*, int);
-extern "C" void SetBGPriority_0204b5b4(void*, int);
 struct BGLayer_02020cb8_5;
-extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5*, int, int);
-extern "C" void func_0204b4c0(void*, void*);
-extern "C" void FlushBGBlock_0204b2e0(void*, char*);
 struct BGLayer_02020cb8_6;
-extern "C" void CopyBGBlockToVRAM_0204b3a0(BGLayer_02020cb8_6*, char*);
 
 #define FLAGOP(e, id, stmt) do { struct Struct_ov003_0215d4fc* p = func_ov014_021842a0(e, id); if (p) { stmt; } } while (0)
 #define SetBit0(e, id) FLAGOP(e, id, p->unknown_16_ |= 1)
@@ -132,9 +125,9 @@ extern "C" ARM void func_ov014_02186d00(struct Struct_ov000_0217c638_2* arg0) {
         struct Struct_ov014_02185c90_6 var11;
         int var12;
         var0->GetLoadedFileByID(arg0->unknown_8c_, &var2, &var3);
-        var12 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var2);
+        var12 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var2));
         if (var12 != 0) {
-            char* var13 = (char*)GetPacEntryData_020467f0((PacEntry_02020aec*)var2, 0, &var1, &var4);
+            char* var13 = (char*)GetFileInPACByIndex((void*)((PacEntry_02020aec*)var2), 0, (const char**)(&var1), (unsigned int*)(&var4));
             if (var13 != 0) {
                 InitTextWindow_0204c684(&var5);
                 var5.unknown_a8_ = 0x20;
@@ -163,7 +156,7 @@ extern "C" ARM void func_ov014_02186d00(struct Struct_ov000_0217c638_2* arg0) {
                 if (var18 && var21 && var19 && var20 && var20->unknown_0_0_) {
                     func_ov023_021e24b0(var18, 2, var21->unknown_1a_, 8, 0xf, 1, 3, 0, 1);
                     func_ov023_021e23d0(var18, 3, var21->unknown_8_, 0xa, 0xf);
-                    func_ov023_021e23d0(var18, 4, (int)(FindStringInTable_020e0434((Struct_0201099c_3*)var19, var21->unknown_12_)), 0xa, 0xf);
+                    func_ov023_021e23d0(var18, 4, (int)(((void*)((StringList*)((Struct_0201099c_3*)var19))->GetString((unsigned short)var21->unknown_12_))), 0xa, 0xf);
                     if (&arg0->unknown_9c_ && arg0->unknown_9c_.unknown_4_ > 0) {
                         func_ov023_021e24b0(var18, 5, arg0->unknown_9c_.unknown_0_, 8, 0xf, 1, 6, 0, 0);
                         func_ov023_021e24b0(var18, 6, arg0->unknown_9c_.unknown_6_, 8, 0xf, 1, 6, 0, 0);
@@ -195,7 +188,7 @@ extern "C" ARM void func_ov014_02186d00(struct Struct_ov000_0217c638_2* arg0) {
                             SetBit0(var18, 0xc);
                             func_ov023_021e23d0(var18, 8, (int)var14, 0xa, 0xf);
                             func_ov023_021e24b0(var18, 0xa, var20->unknown_1_3_, 8, 0xf, 1, 3, 0, 0);
-                            func_ov023_021e23d0(var18, 0xc, (int)(FindStringInTable_020e0434((Struct_0201099c_3*)var19, 0xf)), 0xa, 0xf);
+                            func_ov023_021e23d0(var18, 0xc, (int)(((void*)((StringList*)((Struct_0201099c_3*)var19))->GetString(0xf))), 0xa, 0xf);
                             var25 = 9;
                             var24 = 0xb;
                             var23 = 0xd;
@@ -209,18 +202,18 @@ extern "C" ARM void func_ov014_02186d00(struct Struct_ov000_0217c638_2* arg0) {
                             SetBit0(var18, var23);
                             func_ov023_021e23d0(var18, var25, (int)var15, 0xa, 0xf);
                             func_ov023_021e24b0(var18, var24, var20->unknown_2_2_, 8, 0xf, 1, 3, 0, 0);
-                            func_ov023_021e23d0(var18, var23, (int)(FindStringInTable_020e0434((Struct_0201099c_3*)var19, 0xf)), 0xa, 0xf);
+                            func_ov023_021e23d0(var18, var23, (int)(((void*)((StringList*)((Struct_0201099c_3*)var19))->GetString(0xf))), 0xa, 0xf);
                         }
                     }
                     if (var26 == 0) {
                         SetBit0(var18, 0x16);
-                        func_ov023_021e23d0(var18, 0x16, (int)(FindStringInTable_020e0434((Struct_0201099c_3*)var19, 0xe)), 0xa, 0xf);
+                        func_ov023_021e23d0(var18, 0x16, (int)(((void*)((StringList*)((Struct_0201099c_3*)var19))->GetString(0xe))), 0xa, 0xf);
                     }
                     func_ov023_021e23d0(var18, 0x13, (int)var16, 0xa, 0xf);
                     if (var20->unknown_1_2_) {
                         ClrBit0(var18, 0x14);
                         SetBit0(var18, 0x17);
-                        func_ov023_021e23d0(var18, 0x17, (int)(FindStringInTable_020e0434((Struct_0201099c_3*)var19, 0x1c)), 8, 0xf);
+                        func_ov023_021e23d0(var18, 0x17, (int)(((void*)((StringList*)((Struct_0201099c_3*)var19))->GetString(0x1c))), 8, 0xf);
                         SetBit0(var18, 0x18);
                         func_ov023_021e24b0(var18, 0x18, var22 + 1, 8, 0xf, 1, 1, 0, 0);
                         SetBit0(var18, 0x19);
@@ -242,7 +235,7 @@ extern "C" ARM void func_ov014_02186d00(struct Struct_ov000_0217c638_2* arg0) {
                                 if (var30->unknown_2_0_) {
                                     func_ov023_021e23d0(var18, var28, (int)((void*)*var31), 0xa, 0xf);
                                 } else {
-                                    func_ov023_021e23d0(var18, var28, (int)(FindStringInTable_020e0434((Struct_0201099c_3*)var19, 0x15)), 0xa, 0xf);
+                                    func_ov023_021e23d0(var18, var28, (int)(((void*)((StringList*)((Struct_0201099c_3*)var19))->GetString(0x15))), 0xa, 0xf);
                                 }
                                 var28++;
                             }
@@ -250,7 +243,7 @@ extern "C" ARM void func_ov014_02186d00(struct Struct_ov000_0217c638_2* arg0) {
                         if (var29->unknown_3_4_ >= 3) {
                             if (func_ov014_0218940c(arg0->unknown_1c_, 2, var29)->unknown_2_0_) {
                                 SetBit0(var18, 0x10);
-                                func_ov023_021e23d0(var18, 0x10, (int)(FindStringInTable_020e0434((Struct_0201099c_3*)var19, 0x10)), 0xa, 0xf);
+                                func_ov023_021e23d0(var18, 0x10, (int)(((void*)((StringList*)((Struct_0201099c_3*)var19))->GetString(0x10))), 0xa, 0xf);
                             }
                         }
                     }
@@ -259,17 +252,17 @@ extern "C" ARM void func_ov014_02186d00(struct Struct_ov000_0217c638_2* arg0) {
                 var32->unknown_4_ = &var5;
                 var32->unknown_12_ = 1;
                 func_ov023_021e257c(arg0->unknown_58_);
-                InitBGLayer_0204af64((BGLayer_02020cb8*)&var11);
-                SetBGScreenSize_0204b11c((unsigned char*)&var11, 0);
+                ((BGLayer*)((BGLayer_02020cb8*)&var11))->Reset();
+                ((BGLayer*)((unsigned char*)&var11))->ConfigureTextMode(0);
                 var11.unknown_1c_0_ = 0;
                 var11.unknown_1c_4_ = 1;
-                SetBGPriority_0204b5b4(&var11, 1);
-                SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)&var11, 0, 0);
+                ((BGLayer*)(&var11))->SetPriority(1);
+                ((BGLayer*)((BGLayer_02020cb8_5*)&var11))->SetOffset(0, 0);
                 for (int var33 = 0; var33 < var12; var33++) {
-                    void* var34 = GetPacEntryData_020467f0((PacEntry_02020aec*)var2, var33, &var1, &var4);
+                    void* var34 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var2), var33, (const char**)(&var1), (unsigned int*)(&var4));
                     if (var34) {
                         memcpy(arg0->unknown_0_[var33], var34, var4);
-                        func_0204b4c0(&var11, arg0->unknown_0_[var33]);
+                        ((BGLayer*)(&var11))->StageGraphicsFileBuffer2((const void*)(arg0->unknown_0_[var33]));
                     }
                 }
                 arg0->unknown_81_ &= ~0x20;
@@ -286,18 +279,18 @@ extern "C" ARM void func_ov014_02186d00(struct Struct_ov000_0217c638_2* arg0) {
         int var38;
         struct Struct_ov014_02185c90_6 var39;
         var0->GetLoadedFileByID(arg0->unknown_70_, &var36, &var37);
-        int var40 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var36);
-        InitBGLayer_0204af64((BGLayer_02020cb8*)&var39);
-        SetBGScreenSize_0204b11c((unsigned char*)&var39, 0);
+        int var40 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var36));
+        ((BGLayer*)((BGLayer_02020cb8*)&var39))->Reset();
+        ((BGLayer*)((unsigned char*)&var39))->ConfigureTextMode(0);
         var39.unknown_1c_0_ = 0;
         var39.unknown_1c_4_ = 1;
-        SetBGPriority_0204b5b4(&var39, 1);
-        SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)&var39, 0, 0);
+        ((BGLayer*)(&var39))->SetPriority(1);
+        ((BGLayer*)((BGLayer_02020cb8_5*)&var39))->SetOffset(0, 0);
         for (int var41 = 0; var41 < var40; var41++) {
-            void* var42 = GetPacEntryData_020467f0((PacEntry_02020aec*)var36, var41, &var35, &var38);
+            void* var42 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var36), var41, (const char**)(&var35), (unsigned int*)(&var38));
             if (var42) {
-                FlushBGBlock_0204b2e0(&var39, (char*)var42);
-                CopyBGBlockToVRAM_0204b3a0((BGLayer_02020cb8_6*)&var39, (char*)var42);
+                ((BGLayer*)(&var39))->ProcessGraphicsFileMetadata((const void*)((char*)var42));
+                ((BGLayer*)((BGLayer_02020cb8_6*)&var39))->StageGraphicsFileBuffer((const void*)((char*)var42));
             }
         }
         var0->RemoveTask(arg0->unknown_70_);

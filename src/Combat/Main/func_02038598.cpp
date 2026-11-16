@@ -4,9 +4,14 @@
 #include "Combat/Main/CopyRecord0200fbb4.h"
 #include "World/ZoneObjectResourceLoading.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
 #include "NitroSDK/Memory.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
 
 #if defined(jpn)
 #define data_020efb44 data_020efa34
@@ -86,7 +91,7 @@ struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(void*, int, int, int, int);
-extern "C" void* GetGlobalFlags_020d6c00();
+extern "C" void* func_020d6c00();
 extern "C" void SetFacing_02033834(Struct_02033834_2*, int);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
@@ -120,9 +125,9 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
     var1 = GetZone3D_02012fe4();
     var2 = (Struct_02038598_7*)arg0->unknown_0_.unk_ac;
     var3 = &arg0->unknown_26c_;
-    var4 = (unsigned int*)GetGlobalFlags_020d6c00();
+    var4 = (unsigned int*)func_020d6c00();
 
-    if (arg0->unknown_0_.obj3D_.objectIndex_4_ != arg0->unknown_1ca_) return;
+    if (arg0->unknown_0_.obj3D_.unknown_4_ != arg0->unknown_1ca_) return;
     if (var3->unknown_0_ == 0) return;
 
     unsigned char var7 = var3->unknown_1_;

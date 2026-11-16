@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 
-extern "C" int GetBattleScene_ov017_021b8468(void* battleManager);
+#if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
+extern "C" int func_ov017_021b8468(void* battleManager);
 extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 
 // USA: func_ov017_021c86f4
@@ -15,7 +19,7 @@ extern "C" ARM void func_ov017_021c86f4(int arg0, int* arg1, int arg2, unsigned 
     int var2;
     unsigned char* var3 = *(unsigned char**)(arg3 + 0x3000 + Enum_ov017_021c86f4_1816);
 
-	if (!GetBattleScene_ov017_021b8468(var3)) {
+	if (!func_ov017_021b8468(var3)) {
 		return;
 	}
 	var0 = (char*)GetBattle_ov017_021b8470(var3);

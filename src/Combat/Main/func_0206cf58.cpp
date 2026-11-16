@@ -5,6 +5,10 @@
 #include "Combat/NodeLookup.h"
 #include "Memory/SafeAllocator.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 struct FlagManager_0205faf4_3;
 struct Struct_0205faf4_4;
@@ -12,7 +16,7 @@ struct FlagManager_0205faf4_13;
 extern "C" int GetQuestState_0206e120(FlagManager_0205faf4_3*, int);
 extern "C" int func_0206e260(Struct_0205faf4_4*, int);
 extern "C" int IsQuestUnlocked_0206e2dc(FlagManager_0205faf4_13*, int);
-extern "C" FlagManager_0205faf4_3* GetFlagManager_0205ec34();
+extern "C" FlagManager_0205faf4_3* func_0205ec34();
 static inline int inline_0206cf58(FlagManager_0205faf4_3* arg0, int arg1, int arg2)
 {
     return GetQuestState_0206e120(arg0, arg1) == arg2;
@@ -57,7 +61,7 @@ extern "C" ARM int func_0206cf58(Script::Parameter* arg0, int arg1)
         data_02108cec.unknown_8_ = -1;
         data_02108cec.unknown_4_ = -1;
     }
-    var0 = GetFlagManager_0205ec34();
+    var0 = func_0205ec34();
     if (data_02108cec.unknown_4_ != var2 && data_02108cec.unknown_4_ > -1)
     {
         if (inline_0206cf58(var0, var2, 1) || inline_0206cf58(var0, var2, 2))

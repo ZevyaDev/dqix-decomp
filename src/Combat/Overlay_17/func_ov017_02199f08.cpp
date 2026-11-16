@@ -2,6 +2,15 @@
 
 #include "GameState/GameState.h"
 #include "Input/Input.h"
+#include "Graphics/BGLayer.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_02046708 func_02047528
+#endif
 
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" void func_ov017_02199e98(void* arg0);
@@ -11,11 +20,11 @@ extern "C" int func_0203402c(struct Struct_0203402c* arg0);
 extern "C" unsigned char func_02039820(void* arg0);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
-extern "C" void* GetGlobalFlags_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_ov017_021a5bac(unsigned char* arg0);
 extern "C" void func_ov017_021996fc(unsigned char* arg0);
-extern "C" int TestGlobalFlags_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
+extern "C" int func_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
 extern "C" void func_ov017_021999fc(unsigned char* arg0);
 
 struct Struct_ov017_02199684 { unsigned char unknown_0_[0x14]; int unknown_14_; unsigned char unknown_18_[0x20 - 0x18]; };
@@ -23,9 +32,7 @@ extern "C" void func_ov017_02199684(Struct_ov017_02199684* arg0, int arg1, int a
 extern "C" void func_ov017_021996bc(Struct_ov017_02199684* arg0, int arg1);
 
 struct BGLayer_0204bc74;
-extern "C" void FillBGScreenRect_0204bc74(BGLayer_0204bc74* layer, unsigned short screenEntry, int x, int y, int width, int height, unsigned short palette);
 struct BGLayer_02020cb8_2;
-extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
 
 struct Struct_ov017_02199780 {
     unsigned short unknown_0_0_ : 2;
@@ -67,7 +74,7 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* arg0) {
                 *(short*)((char*)var1 + 0xac) == 0) {
                 DisablePlayerControl_020397cc((Struct_02018300_3*)var1, 1);
                 *(unsigned short*)((char*)var1 + 0xb2) = 0;
-                SetGlobalFlags_020466e4((unsigned int*)GetGlobalFlags_020d6c00(), 0x400);
+                SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 0x400);
                 func_ov017_021a5bac(arg0);
 
                 volatile unsigned short* var4 = (volatile unsigned short*)0x400000a;
@@ -109,7 +116,7 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* arg0) {
         }
     }
 
-    if (TestGlobalFlags_02046708((GlobalFlags_02012de8*)GetGlobalFlags_020d6c00(), 4) != 0) {
+    if (func_02046708((GlobalFlags_02012de8*)func_020d6c00(), 4) != 0) {
         func_ov017_02199e98(arg0);
         return;
     }
@@ -122,8 +129,8 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* arg0) {
         func_ov017_02199684((Struct_ov017_02199684*)(arg0 + Enum_ov017_02199f08_180 + Enum_ov017_02199f08_15360), 2, 0x800);
         for (var13 = 0; var13 < 2; var13++) {
             var12 = (Struct_ov017_02199684*)(arg0 + Enum_ov017_02199f08_180 + Enum_ov017_02199f08_15360) + var13;
-            FillBGScreenRect_0204bc74((BGLayer_0204bc74*)var12, 0, 0, 0, 0x20, 0x19, 0);
-            LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)var12, 0);
+            ((BGLayer*)((BGLayer_0204bc74*)var12))->SetTileInRectangle(0, 0, 0, 0x20, 0x19, 0);
+            ((BGLayer*)((BGLayer_02020cb8_2*)var12))->CleanCacheAndUploadIndexBuffer((const void*)(0));
         }
         func_ov017_021996bc((Struct_ov017_02199684*)(arg0 + Enum_ov017_02199f08_180 + Enum_ov017_02199f08_15360), 2);
     }

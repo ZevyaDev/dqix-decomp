@@ -4,6 +4,27 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
+#include "Filesystem/FileIO.h"
+
+#if defined(jpn)
+#define func_020de848 func_020e01c4
+#endif
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
 #if defined(jpn)
 #define REGION_VALUE(jpnValue, usaValue) jpnValue
 extern "C" int func_020e0484(void* arg0, void* arg1, const char* arg2, void* arg3, unsigned short arg4, bool arg5);
@@ -38,7 +59,7 @@ struct Struct_0205faf4_20 {
     struct Struct_0205faf4_20* unknown_c_;
 };
 
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void func_02010890(GameState*, int*, int*);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int GetMessageChoice_020457e0(int);
@@ -51,7 +72,7 @@ extern "C" int GetQuestState_0206e120(struct FlagManager_0205faf4_3* flagManager
 extern "C" int func_0206e31c(int arg0, int arg1);
 struct Struct_0205faf4_4;
 extern "C" int func_0206e260(struct Struct_0205faf4_4* arg0, int arg1);
-extern "C" void* GetLocalWireless_0202ae18(void* arg0);
+extern "C" void* func_0202ae18(void* arg0);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
@@ -76,7 +97,7 @@ struct Struct_0205faf4_5 {
     unsigned int unknown_10_0_:10, unknown_11_2_:10, unknown_12_4_:10;
     unsigned int unknown_14_0_:10;
 };
-extern "C" void* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" void* func_02053c6c(unsigned char* gameObject);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 struct Struct_0205faf4_6 { char unknown_0_[8]; unsigned int unknown_8_0_:18, unknown_a_2_:1; };
 struct QuestManager_0205faf4_7;
@@ -86,15 +107,14 @@ extern "C" int func_0206474c(struct Struct_0203d028_2* arg0, int arg1, int arg2)
 extern "C" int func_0206483c(struct Struct_0203d028_2* arg0, char* arg1);
 extern "C" void* func_02064904(void* arg0, int arg1, unsigned int arg2);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
 extern "C" short func_0207c638(void* arg0, unsigned int arg1);
 struct Struct_0205faf4_9 { int unknown_0_[6]; };
 struct Struct_0205faf4_10 { int unknown_0_; int unknown_4_; unsigned int unknown_8_0_:9, unknown_9_1_:3; };
 extern "C" void* InitItemTable_020de824(void* itemTable);
-extern "C" void ClearItemTable_020de848(void* itemTable);
+extern "C" void func_020de848(void* itemTable);
 extern "C" struct Struct_0205faf4_10* func_020deb24(struct Struct_0205faf4_9* arg0, int arg1);
-extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 extern "C" int LoadItemTableByIds_020de9a4(void* itemTable, void* allocator, void* fileData, unsigned int fileSize, void* itemIds, unsigned short itemIdCount);
 struct PartyMember_0205faf4_11;
 extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
@@ -153,24 +173,24 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     unsigned short var0 = *(unsigned short*)arg1;
     switch (var0) {
     case 0:
-        return IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2));
+        return func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2));
     case 1:
-        return !IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2));
+        return !func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2));
     case 2: {
         unsigned char var1 = *(OBJB + 0x332);
-        return IsFlagSet_0206dfb0((int)arg0, OBJB + var1 * 0x1c + 3, CU16(2));
+        return func_0206dfb0((int)arg0, OBJB + var1 * 0x1c + 3, CU16(2));
     }
     case 3: {
         unsigned char var2 = *(OBJB + 0x332);
-        return !IsFlagSet_0206dfb0((int)arg0, OBJB + var2 * 0x1c + 3, CU16(2));
+        return !func_0206dfb0((int)arg0, OBJB + var2 * 0x1c + 3, CU16(2));
     }
     case 4: {
         unsigned char var3 = *(OBJB + 0x332);
-        return IsFlagSet_0206dfb0((int)arg0, OBJB + var3 * 0x1c + 0x10, CU16(2));
+        return func_0206dfb0((int)arg0, OBJB + var3 * 0x1c + 0x10, CU16(2));
     }
     case 5: {
         unsigned char var4 = *(OBJB + 0x332);
-        return !IsFlagSet_0206dfb0((int)arg0, OBJB + var4 * 0x1c + 0x10, CU16(2));
+        return !func_0206dfb0((int)arg0, OBJB + var4 * 0x1c + 0x10, CU16(2));
     }
     case 6:
         return CU16(2) == EW(0);
@@ -237,7 +257,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return var14;
     }
     case 23: {
-        void* var16 = GetLocalWireless_0202ae18((void*)GameState::GetInstance());
+        void* var16 = func_0202ae18((void*)GameState::GetInstance());
         int var17 = 0;
         switch (CU16(2)) {
         case 1:
@@ -346,9 +366,9 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return 0;
     }
     case 39:
-        return IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x776);
+        return func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x776);
     case 40:
-        return !IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x776);
+        return !func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x776);
     case 41: {
         struct Struct_0205faf4_2 { int unknown_0_; int unknown_4_; int unknown_8_; };
         void* var33 = FindNPCById_0203df78(GetNPCManager_0203cf4c(), EW(0));
@@ -463,7 +483,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
             if (*(int*)var66 & 1) continue;
             if (CU16(2) != inline_0205faf4_6(var65)) continue;
             if (inline_0205faf4_2(var66) <= 0) continue;
-            void* var67 = GetPartyMemberData_02053c6c((unsigned char*)var65);
+            void* var67 = func_02053c6c((unsigned char*)var65);
             if (!var67) continue;
             if (*(unsigned short*)((char*)var67 + CU16(2) * 2 + 0x16c) >= CU16(4)) return 1;
         }
@@ -635,9 +655,9 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return var92 == 0;
     }
     case 67:
-        return IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x1136);
+        return func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x1136);
     case 68:
-        return !IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x1136);
+        return !func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x1136);
     case 69: {
         int var93 = func_0206483c(arg0, *(char**)((char*)arg1 + 4));
         if (CU16(2) != 0) return var93;
@@ -677,8 +697,8 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     }
     case 77: {
         int var99 = 0;
-        if (IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, 0x364)) {
-            if (IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, 0x365)) var99 = 1;
+        if (func_0206dfb0((int)arg0, OBJB + 0x8c, 0x364)) {
+            if (func_0206dfb0((int)arg0, OBJB + 0x8c, 0x365)) var99 = 1;
         }
         return var99;
     }
@@ -715,7 +735,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return 0;
     }
     case 81: {
-        int var109 = IsLocalWirelessOn_0202b7d8((int*)GetLocalWireless_0202ae18((void*)GameState::GetInstance()));
+        int var109 = IsLocalWirelessOn_0202b7d8((int*)func_0202ae18((void*)GameState::GetInstance()));
         if (CU16(2) != 0) return var109;
         return var109 == 0;
     }
@@ -726,19 +746,18 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         struct Struct_0205faf4_9 var112;
         unsigned int var113;
         var111.ResetAllocatorPointer();
-        var111.ResetAllocatorPointer();
         var111.CreateTypeA(var110, 0xc000);
         unsigned char* var114 = (unsigned char*)GetParty_02010828((GameState*)(void*)GameState::GetInstance());
         void* var115 = GetEquipmentBagItemIds_0207c5f8(var114 + 0x1d4, CU16(2));
         short var116 = func_0207c638(var114 + 0x1d4, CU16(2));
         InitItemTable_020de824(&var112);
-        ClearItemTable_020de848(&var112);
+        func_020de848(&var112);
 #if defined(jpn)
         func_020e0484(&var112, &var111, gItemDataPath_020f2a38, var115, var116, true);
 #else
         BackgroundLoader::AddLockGlobal();
         var113 = 0;
-        void* var117 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var113);
+        void* var117 = ExtractFileFromGP2((const char*)(gItemDataPath_020f2a38), (const char*)(data_020f2a30), (unsigned int*)(&var113));
         if (var117 != NULL) {
             LoadItemTableByIds_020de9a4(&var112, &var111, var117, var113, var115, var116);
         }
@@ -757,7 +776,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         SignedAllocatorHeader* var121 = var111.GetSignedAllocator();
         if (var121 != NULL) {
             var111.Destroy();
-            FreeMemory_02012da4(&gMainHeap_02114e20, var121);
+            func_02012da4(&gMainHeap_02114e20, var121);
         }
         return var118;
     }
@@ -791,9 +810,9 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     }
     case 88:
         if (CU16(2) >= 0x49) return 0;
-        return IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x33e);
+        return func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x33e);
     case 89:
-        if (CU16(2) < 0x49) return !IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x33e);
+        if (CU16(2) < 0x49) return !func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x33e);
         return 1;
     case 90: {
         struct Struct_0205faf4_15 var128;
@@ -860,8 +879,8 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     case 502:
         return func_02098ee8((struct Struct_0205faf4_12*)((char*)GetZone3D_02012fe4() + REGION_VALUE(0x860, 0x840)));
     case 503:
-        if (CU16(2) != 0) return IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, 0x798);
-        return !IsFlagSet_0206dfb0((int)arg0, OBJB + 0x8c, 0x798);
+        if (CU16(2) != 0) return func_0206dfb0((int)arg0, OBJB + 0x8c, 0x798);
+        return !func_0206dfb0((int)arg0, OBJB + 0x8c, 0x798);
     case 504: {
         char* var141 = (char*)(void*)GameState::GetInstance();
         struct Struct_0205faf4_15 var142;

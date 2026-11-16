@@ -1,8 +1,16 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
 
-extern "C" void* GetFlagManager_0205ec34(void);
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+
+extern "C" void* func_0205ec34(void);
 extern "C" void* GetBGVRAMManager_0203b628(void);
 extern "C" void* GetZone3D_02012fe4(void);
 
@@ -15,7 +23,7 @@ extern "C" int func_0201bb78(struct Struct_0201bb78* arg0, unsigned int arg1);
 extern "C" void func_0202756c(void* arg0, int arg1, int arg2, int arg3,
         unsigned char arg4, unsigned char arg5, unsigned short arg6, unsigned char arg7, int arg8, int arg9);
 
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void func_0202630c(void* arg0, int* arg1, int arg2);
 
 extern "C" int _u32_div_f(int arg0, int arg1);
@@ -44,7 +52,7 @@ struct Struct_02025f28_2 {
 // USA: func_02025f28
 extern "C" ARM void func_02025f28(unsigned char* arg0) {
     GameState* var0 = GameState::GetInstance();
-    unsigned char* var1 = (unsigned char*)GetFlagManager_0205ec34();
+    unsigned char* var1 = (unsigned char*)func_0205ec34();
     GetBGVRAMManager_0203b628();
     void* var2 = GetZone3D_02012fe4();
     unsigned short var3 = *(unsigned short*)var2;
@@ -73,7 +81,7 @@ extern "C" ARM void func_02025f28(unsigned char* arg0) {
         }
     }
 
-    int var12 = (var3 != 10000) && (IsFlagSet_0206dfb0((int)var1, var1 + 0x8c, 0x2b) != 0);
+    int var12 = (var3 != 10000) && (func_0206dfb0((int)var1, var1 + 0x8c, 0x2b) != 0);
     int var13[3];
     int var14 = 1;
     if (var3 == 10000 || var3 == 10100) {
@@ -119,7 +127,7 @@ extern "C" ARM void func_02025f28(unsigned char* arg0) {
     var13[2] -= 0x4000;
 
     if (var14) {
-        short var25 = var5->obj3D_.objectIndex_4_;
+        short var25 = var5->obj3D_.unknown_4_;
         unsigned char var26 = (unsigned char)(var25 + 0x44);
         unsigned short var27 = (unsigned short)(var25 + 4);
         func_0202756c(arg0, var13[0], var13[2], 5, var26, 0, var27, 0xff, 0x1000, 0x1000);

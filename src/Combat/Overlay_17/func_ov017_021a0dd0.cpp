@@ -1,12 +1,10 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Memory/SafeAllocator.h"
+#include "Graphics/TextureArena.h"
+#include "NitroSDK/VRAMAllocation.h"
 
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void func_020bb740(int* arg0);
-extern "C" void func_020bb92c(int* arg0);
-extern "C" int func_020bb588(unsigned int arg0, int arg1, int arg2);
-extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 
 extern AllocatorUnion gMainHeap_02114e20;
 
@@ -40,25 +38,25 @@ extern "C" ARM void func_ov017_021a0dd0(char* arg0) {
         var4->CreateTypeA(var2, var1);
     }
 
-    func_020bb740((int*)(arg0 + Enum_ov017_021a0dd0_10872));
-    func_020bb92c((int*)(arg0 + Enum_ov017_021a0dd0_10960));
-    func_020bb588(0x20000, 0, 0);
+    RestoreTextureImageAllocationState((const unsigned int*)((int*)(arg0 + Enum_ov017_021a0dd0_10872)));
+    RestoreTexturePaletteAllocationState((const unsigned int*)((int*)(arg0 + Enum_ov017_021a0dd0_10960)));
+    FrameAllocateTextureImageVRAM(0x20000, 0, 0);
 
     int var5;
     for (var0 = 0; (var5 = data_ov017_021d66b4[var0].unknown_0_) != 0; var0++) {
         int var6 = data_ov017_021d66b0[var0].unknown_0_;
         int var7 = data_ov017_021d66b8[var0].unknown_0_;
-        InitTextureVRAMArea_0207de48((arg0 + Enum_ov017_021a0dd0_716) + var6 * 0x70, var5, var7);
+        ((TextureArena*)((arg0 + Enum_ov017_021a0dd0_716) + var6 * 0x70))->Initialize(var5, var7);
     }
 
-    func_020bb740((int*)(arg0 + Enum_ov017_021a0dd0_10920));
+    RestoreTextureImageAllocationState((const unsigned int*)((int*)(arg0 + Enum_ov017_021a0dd0_10920)));
 
     for (var0 = 0; (var5 = data_ov017_021d672c[var0].unknown_0_) != 0; var0++) {
         int var8 = data_ov017_021d6728[var0].unknown_0_;
         int var9 = data_ov017_021d6730[var0].unknown_0_;
-        InitTextureVRAMArea_0207de48((arg0 + Enum_ov017_021a0dd0_716) + var8 * 0x70, var5, var9);
+        ((TextureArena*)((arg0 + Enum_ov017_021a0dd0_716) + var8 * 0x70))->Initialize(var5, var9);
     }
 
-    InitTextureVRAMArea_0207de48(arg0 + Enum_ov017_021a0dd0_3740, 0x8000, 0x400);
-    InitTextureVRAMArea_0207de48(arg0 + Enum_ov017_021a0dd0_3852, 0x4000, 0x400);
+    ((TextureArena*)(arg0 + Enum_ov017_021a0dd0_3740))->Initialize(0x8000, 0x400);
+    ((TextureArena*)(arg0 + Enum_ov017_021a0dd0_3852))->Initialize(0x4000, 0x400);
 }

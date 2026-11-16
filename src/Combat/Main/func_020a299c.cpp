@@ -45,12 +45,6 @@ static inline int inline_02061c04_5(int arg0, int arg1) {
     return (int)(((long long)arg0 * arg1 + 0x800) >> 12);
 }
 
-static inline int inline_020a299c(int arg0, int arg1, int arg2) {
-    int var0 = inline_02061c04_5(arg0, arg2);
-    int var1 = inline_02061c04_5(arg1, 0x1000 - arg2);
-    return var1 + var0;
-}
-
 // USA: func_020a299c
 extern "C" ARM int func_020a299c(struct Struct_020a299c* arg0, const struct Struct_ov009_0218aa28* arg1, const struct Struct_020a299c_2* arg2) {
     if ((arg0->unknown_245_ & 4) == 0 && (arg0->unknown_245_ & 8) == 0) {
@@ -70,8 +64,8 @@ extern "C" ARM int func_020a299c(struct Struct_020a299c* arg0, const struct Stru
         } else if (arg0->unknown_245_ & 8) {
             var1.unknown_0_ = arg0->unknown_220_.unknown_0_;
         }
-        var1.unknown_4_ = inline_020a299c(arg0->unknown_298_.unknown_14_.unknown_4_, arg0->unknown_220_.unknown_4_, var3);
-        var1.unknown_8_ = inline_020a299c(arg0->unknown_298_.unknown_14_.unknown_8_, arg0->unknown_220_.unknown_8_, var3);
+        var1.unknown_4_ = inline_02061c04_5(arg0->unknown_220_.unknown_4_, 0x1000 - var3) + inline_02061c04_5(arg0->unknown_298_.unknown_14_.unknown_4_, var3);
+        var1.unknown_8_ = inline_02061c04_5(arg0->unknown_220_.unknown_8_, 0x1000 - var3) + inline_02061c04_5(arg0->unknown_298_.unknown_14_.unknown_8_, var3);
         struct Struct_ov009_0218aa28 var4;
         struct Struct_ov009_0218aa28 var5;
         struct Struct_ov009_0218aa28 var6;

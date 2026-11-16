@@ -7,6 +7,18 @@
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0202ec84 func_0202e7f4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 struct Struct_0203402c;
 struct Struct_02015ef4;
 struct Queue_0201bdac_2;
@@ -15,9 +27,9 @@ struct Struct_ov017_02198aa0 { int unknown_0_,unknown_4_,unknown_8_; };
 struct Struct_ov017_02198aa0_2 { unsigned char unknown_0_[8]; signed char unknown_8_; unsigned char unknown_9_[3]; int unknown_c_; Struct_ov017_02198aa0 unknown_10_; };
 struct Struct_ov017_02198aa0_3 { unsigned char unknown_0_; unsigned char unknown_1_[19]; };
 struct Struct_ov017_02198aa0_4 { unsigned short unknown_0_; unsigned char unknown_2_[5]; unsigned char unknown_7_; unsigned char unknown_8_[4]; unsigned char unknown_c_; unsigned char unknown_d_[15]; unsigned short unknown_1c_; };
-extern "C" void* GetCamera_020100bc(GameState*);
+extern "C" void* func_020100bc(GameState*);
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void* GetLocalWireless_0202ae18();
+extern "C" void* func_0202ae18();
 extern "C" void* GetZone3D_02012fe4();
 extern "C" int IsPerformingGesture_020535c8(signed char*);
 extern "C" int func_0203402c(Struct_0203402c*);
@@ -25,7 +37,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void func_ov017_0219a674(unsigned char*);
 extern "C" void func_ov017_0219b33c(void*, Struct_ov017_02198aa0_3*);
-extern "C" int ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
+extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void InitZoneEntry_02070378(char*);
 extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char*, int);
@@ -36,10 +48,10 @@ extern "C" void func_ov017_021be0a0(unsigned char*);
 extern "C" ARM void func_ov017_02198aa0(GameResources* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = var0->GetUnknownGameObject();
-    void* var2 = GetCamera_020100bc(var0);
+    void* var2 = func_020100bc(var0);
     GameResources* var3 = GetGameResources();
     MessageWindow_02021b84* var4 = (MessageWindow_02021b84*)GetMessageWindow_020421a0();
-    void* var5 = GetLocalWireless_0202ae18();
+    void* var5 = func_0202ae18();
     void* var6 = GetZone3D_02012fe4();
     GrottoStruct* var7 = var0->GetGrottoStruct();
     unsigned char var8 = var7->activeMapData.GetDiscoveryState();
@@ -67,7 +79,7 @@ extern "C" ARM void func_ov017_02198aa0(GameResources* arg0) {
     if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 10) { var15 = g_touchInput.prevX_; var16 = g_touchInput.prevY_; }
     {
         int var17, var18;
-        ConvertWorldToScreen_0202ec84(var2, (Struct_02015ef4*)&var1->obj3D_.position_, &var17, &var18);
+        func_0202ec84(var2, (Struct_02015ef4*)&var1->obj3D_.position_, &var17, &var18);
         if (var15 > 0x70 && var15 < 0x90 && var16 > 0x28 && var16 < 0x60) var14 = 1;
         else if (var17 - 12 < var15 && var15 < var17 + 12 && var18 - 12 < var16 && var16 < var18 + 12) var14 = 0;
     }

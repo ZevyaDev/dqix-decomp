@@ -4,6 +4,10 @@
 #include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_ov024_021fb91c_4 {
     unsigned int unknown_0_;
     unsigned int unknown_4_0_ : 12;
@@ -67,7 +71,7 @@ struct Struct_ov024_021fb91c_3 {
 struct Struct_ov024_021da670_6;
 struct Struct_ov024_021dd028_5;
 struct Struct_02010088;
-extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" int func_02053c6c(unsigned char*);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" int func_ov024_021da998(Struct_ov024_021da670_6*);
@@ -90,7 +94,7 @@ extern "C" ARM void func_ov024_021fb91c(Struct_ov024_021fb91c_2* arg0) {
     if (arg0->unknown_114_[arg0->unknown_128_] >= var1) var2 = 0;
     if (!var2 && var0->unknown_18_0_ == 0) return;
     GameObject* var3 = arg0->unknown_8_;
-    GetPartyMemberData_02053c6c((unsigned char*)var3);
+    func_02053c6c((unsigned char*)var3);
     GetActionTables_020797dc();
     int var4 = arg0->unknown_25c_.unknown_3ec_;
     float var5 = 0;
@@ -149,13 +153,13 @@ extern "C" ARM void func_ov024_021fb91c(Struct_ov024_021fb91c_2* arg0) {
             func_ov024_021fd858(arg0);
         }
         if (var0->unknown_17_4_ == 2 || var0->unknown_17_4_ == 1 || var0->unknown_17_4_ == 8) {
-            func_ov024_021f9874(arg0, &var8, 0, (unsigned char)var10->obj3D_.objectIndex_4_);
+            func_ov024_021f9874(arg0, &var8, 0, (unsigned char)var10->obj3D_.unknown_4_);
             memset(&var8, 0, sizeof(var8));
         }
     }
     if (var0->unknown_17_4_ == 4 || var0->unknown_17_4_ == 3) {
         GetCombatantByID((int)arg0->unknown_0_, 0);
-        int var18 = (unsigned char)var3->obj3D_.objectIndex_4_;
+        int var18 = (unsigned char)var3->obj3D_.unknown_4_;
         if (var0->unknown_17_4_ == 3) var18 = 0xff;
         func_ov024_021f9874(arg0, &var8, 0, var18);
     }

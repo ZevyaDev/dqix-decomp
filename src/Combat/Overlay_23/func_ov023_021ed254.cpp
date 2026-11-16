@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020d2ff0 func_020d4a54
+#endif
+
 extern "C" int func_020420e8(void* arg0, int arg1);
 extern "C" int AppendPositionTag_02041a90(char* buffer, int x, int y);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
@@ -8,7 +12,7 @@ extern "C" int func_02041bac(char* arg0, int arg1, int arg2, int arg3, int arg4,
 #if defined(jpn)
 extern "C" void __clear(void*, int);
 extern "C" void func_02041f50(const char*, char*);
-extern "C" int GetStringLength_020d2ff0(const char*);
+extern "C" int func_020d2ff0(const char*);
 #endif
 
 // USA: func_ov023_021ed254
@@ -22,10 +26,10 @@ extern "C" ARM void func_ov023_021ed254(char* arg0, char* arg1) {
     char var3[0x80];
     __clear(var3, 0x80);
     func_02041f50(var2 + 0xc, var3);
-    int var4 = GetStringLength_020d2ff0(var3);
+    int var4 = func_020d2ff0(var3);
     int var5 = (0x80 - (var4 / 2) * 12) / 2;
     int var6 = 6;
-    if (var4 != GetStringLength_020d2ff0(var2 + 0xc)) var6 = 8;
+    if (var4 != func_020d2ff0(var2 + 0xc)) var6 = 8;
     AppendPositionTag_02041a90(arg1, var5, var6);
     AppendText_02042058(arg1, var2 + 0xc);
 #else

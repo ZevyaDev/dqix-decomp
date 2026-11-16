@@ -1,21 +1,20 @@
 #include <globaldefs.h>
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
 
 #if defined(jpn)
-extern "C" void* GetBGScreenBlock_0204af14(void* layer, unsigned int screenBlockIndex);
-extern "C" void func_0204b938(void* arg0, void* arg1, int arg2, int arg3, unsigned short arg4);
 
 // JPN: func_ov000_021811f4
-extern "C" ARM void func_ov000_021811f4(char* arg0, int arg1, void* arg2, int arg3, short arg4, int arg5) {
+extern "C" ARM void func_ov000_021811f4(char* arg0, int arg1, void* arg2, int arg3, short arg4, short arg5) {
     do {
-        void* var1 = GetBGScreenBlock_0204af14(arg0 + 0xc4 + 0x800, (unsigned char)(arg3 % 10 + 5));
-        func_0204b938(arg2, var1, arg4, arg5, (unsigned short)(arg1 + 2));
+        void* var1 = ((void*)((BGLayer*)(arg0 + 0xc4 + 0x800))->GetSprite((unsigned char)(arg3 % 10 + 5)));
+        ((BGLayer*)(arg2))->BlitSprite((const BGLayer::Sprite*)(var1), arg4, arg5, (unsigned short)(arg1 + 2));
         arg4 = arg4 - 1;
         arg3 = arg3 / 10;
     } while (arg3 != 0);
 }
 #else
 extern "C" int func_ov000_02174e34(int arg0, int arg1);
-extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 struct Struct_ov000_021811f4 {
     char unknown_0_[0x14];
@@ -37,6 +36,6 @@ extern "C" ARM void func_ov000_021811f4(void* arg0, int arg1, short arg2, int ar
     var1->unknown_22_ = (unsigned char)(arg1 + 0x48);
     var1->unknown_26_ = 1;
     var1->unknown_25_ = (unsigned char)func_ov000_02174e34((int)arg0, (signed char)arg1);
-    DrawSprite_0205ac40((char*)arg0 + 0x11c, var1);
+    ((OBJSpriteSet*)((char*)arg0 + 0x11c))->DrawMetatile((OBJSpriteSet::Metatile*)(var1));
 }
 #endif

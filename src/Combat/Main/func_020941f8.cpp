@@ -1,5 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
+#include "Graphics/OBJSpriteSet.h"
+#include "Resource/PAC.h"
 
 struct Struct_020941f8_2 {
 #if defined(jpn)
@@ -31,12 +33,7 @@ struct Struct_020941f8 {
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 
-extern "C" int CountPacEntries_02046900(struct PacEntry_02020cb8_4* pac);
-extern "C" void* GetPacEntryData_020467f0(struct PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
 extern "C" unsigned char func_020938cc();
-extern "C" ARM void InitSpriteSet_0205a444(char* spriteSet);
-extern "C" ARM void DestroySpriteSet_0205a494(void* spriteSet);
-extern "C" ARM int LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, int allocator);
 extern "C" int func_020937f0(int arg0);
 extern const char data_020f1394[];
 
@@ -63,23 +60,23 @@ extern "C" ARM int func_020941f8(struct Struct_020941f8_2* arg0) {
         int var5;
         if (var1 == 1 && var0->GetTaskStatus(arg0->unknown_340_) != 0) {
             var0->GetLoadedFileByID(arg0->unknown_340_, &var3, &var4);
-            int var6 = CountPacEntries_02046900((struct PacEntry_02020cb8_4*)var3);
+            int var6 = GetNumFilesInPAC((const void*)((struct PacEntry_02020cb8_4*)var3));
             arg0->unknown_3c8_7_ = func_020938cc();
             int var7 = func_020937f0(arg0->unknown_3c8_7_);
             if (var7 != 0) {
                 struct Struct_020941f8 var8;
                 int var9;
-                InitSpriteSet_0205a444((char*)&var8);
-                InitSpriteSet_0205a444((char*)&var8);
+                ((OBJSpriteSet*)((char*)&var8))->Reset();
+                ((OBJSpriteSet*)((char*)&var8))->Reset();
                 var8.unknown_50_ = (unsigned char)arg0->unknown_3c8_7_;
                 var8.unknown_44_ = var7 - 0xa00;
                 for (var9 = 0; var9 < var6; var9++) {
                     void* var10;
                     var5 = 0;
-                    var10 = GetPacEntryData_020467f0((struct PacEntry_02020aec*)var3, var9, &var2, &var5);
-                    LoadSpriteSetFile_0205a528(&var8, var10, var5, 0);
+                    var10 = GetFileInPACByIndex((void*)((struct PacEntry_02020aec*)var3), var9, (const char**)(&var2), (unsigned int*)(&var5));
+                    ((OBJSpriteSet*)(&var8))->LoadFromNitroFile((void*)(var10), var5, (SafeAllocator*)(0));
                 }
-                DestroySpriteSet_0205a494(&var8);
+                ((OBJSpriteSet*)(&var8))->Destroy();
             }
             var0->RemoveTask(arg0->unknown_340_);
             arg0->unknown_340_ = -1;

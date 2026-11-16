@@ -2,6 +2,10 @@
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void ResetBattleCamera_ov000_0216d370(int camera, int resetRoll, int resetFieldOfView, int resetTurns);
@@ -17,7 +21,7 @@ struct Struct_ov025_021e9778_5 {
 // USA: func_ov025_021e9a94
 extern "C" ARM void func_ov025_021e9a94(struct Struct_ov025_021e9778_5* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetCamera_020100bc(var0);
+    void* var1 = func_020100bc(var0);
     GetResources_0200fb8c((int*)var0);
     GetBattleScene_ov000_02160130();
     if (data_ov025_021ef9a4 & 1) {

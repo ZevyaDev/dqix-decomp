@@ -1,11 +1,8 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
+#include "Graphics/TextureArena.h"
 
 struct TextureVRAMArea_0203d028;
-extern "C" ARM void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
-extern "C" ARM void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" ARM void SaveTextureVRAMState_0207dfac(char* area);
-extern "C" void InitTextureVRAMArea_0207de48(void* area, int imageSize, int paletteSize);
 
 struct Struct_020e7d30 { int unknown_0_; int unknown_4_; };
 extern unsigned int data_020e7c18[];
@@ -19,22 +16,22 @@ extern "C" ARM int func_02054464(char* arg0, SafeAllocator* arg1, char* arg2) {
     void* var2;
 
     arg1->Reset();
-    ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)arg2);
-    RestoreTextureVRAMState_0207df90(arg2);
+    ((TextureArena*)((struct TextureVRAMArea_0203d028*)arg2))->Reset();
+    ((TextureArena*)(arg2))->Restore();
 
     for (var0 = 0; var0 < 10; var0++) {
         var1 = data_020e7c18[var0];
         if (var1 != 0) {
             var2 = arg1->Allocate(var1);
             ((SafeAllocator*)(arg0 + 4 + var0 * 0x14))->CreateTypeA(var2, var1);
-            InitTextureVRAMArea_0207de48(arg0 + 0xcc + var0 * 0x70, data_020e7d30[var0].unknown_0_, data_020e7d34[var0].unknown_0_);
+            ((TextureArena*)(arg0 + 0xcc + var0 * 0x70))->Initialize(data_020e7d30[var0].unknown_0_, data_020e7d34[var0].unknown_0_);
         } else {
             ((SafeAllocator*)(arg0 + 4 + var0 * 0x14))->ResetAllocatorPointer();
         }
     }
 
-    InitTextureVRAMArea_0207de48(arg0 + 0x168 + 0x400, 0x240, 0x20);
-    SaveTextureVRAMState_0207dfac(arg2);
+    ((TextureArena*)(arg0 + 0x168 + 0x400))->Initialize(0x240, 0x20);
+    ((TextureArena*)(arg2))->Save();
 
     var2 = arg1->Allocate(0x2000);
     ((SafeAllocator*)(arg0 + 0x12c + 0x400))->CreateTypeA(var2, 0x2000);

@@ -22,7 +22,11 @@
 
 #include "GameState/GameState.h"
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+extern "C" int func_02053c6c(unsigned char* gameObject);
 
 struct Struct_0203c108_3;
 extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
@@ -44,7 +48,7 @@ extern "C" ARM void func_ov000_02171138(void* arg0) {
     if (!var3) {
         return;
     }
-    char* var4 = (char*)(int)GetPartyMemberData_02053c6c((unsigned char*)var3);
+    char* var4 = (char*)(int)func_02053c6c((unsigned char*)var3);
     if (!var4) {
         return;
     }

@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 #if defined(jpn)
 #define LOW_REGION(j, u) (j)
@@ -42,7 +43,6 @@ struct Struct_ov008_0218aee4_3 {
 };
 
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
-extern "C" void DrawSprite_0205ac40(void* spriteSet, Struct_ov008_0218aee4* sprite);
 
 // USA: func_ov008_0218aee4
 extern "C" ARM void func_ov008_0218aee4(Struct_ov008_0218aee4_3* arg0) {
@@ -60,9 +60,9 @@ extern "C" ARM void func_ov008_0218aee4(Struct_ov008_0218aee4_3* arg0) {
     var3->unknown_f0_[0].unknown_14_ = (var1 - 1) << 12;
     short var5 = var2 * 8;
     var3->unknown_f0_[0].unknown_18_ = (var5 - 1) << 12;
-    DrawSprite_0205ac40(arg0->unknown_1f4_, &var3->unknown_f0_[0]);
+    ((OBJSpriteSet*)(arg0->unknown_1f4_))->DrawMetatile((OBJSpriteSet::Metatile*)(&var3->unknown_f0_[0]));
     var3 = arg0->unknown_1f8_;
     var3->unknown_f0_[1].unknown_14_ = LOW_REGION((var1 + 0x50), (var1 + (short)(var4 * 8) - 8)) << 12;
     var3->unknown_f0_[1].unknown_18_ = (var5 - 1) << 12;
-    DrawSprite_0205ac40(arg0->unknown_1f4_, &var3->unknown_f0_[1]);
+    ((OBJSpriteSet*)(arg0->unknown_1f4_))->DrawMetatile((OBJSpriteSet::Metatile*)(&var3->unknown_f0_[1]));
 }

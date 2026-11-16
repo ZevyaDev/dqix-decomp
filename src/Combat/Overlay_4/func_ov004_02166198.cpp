@@ -2,6 +2,10 @@
 #include <Memory/SafeAllocator.h>
 #include <std_library_functions.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 
 struct Struct_ov004_02166198 {
     unsigned short unknown_0_0_ : 9;
@@ -41,7 +45,7 @@ struct Struct_ov004_02166198_2 {
     short unknown_4e_;
 };
 extern "C" int* GetQuestManager_02094d6c();
-extern "C" void* GetFlagManager_0205ec34();
+extern "C" void* func_0205ec34();
 extern "C" unsigned char func_020965ac(Struct_02065990_3*, unsigned char);
 extern "C" int GetQuestState_0206e120(FlagManager_0205faf4_3*, int);
 extern "C" int IsQuestUnlocked_0206e2dc(FlagManager_0205faf4_13*, int);
@@ -73,7 +77,7 @@ extern "C" ARM void func_ov004_02166198() {
     short var4 = var3->unknown_4e_;
     Struct_02065990_3* var5 = (Struct_02065990_3*)(GetQuestManager_02094d6c());
     var2 = var5->unknown_a8_;
-    void* var6 = GetFlagManager_0205ec34();
+    void* var6 = func_0205ec34();
     short var7 = 0;
     short var8 = 0;
     Struct_ov004_02166198* var9;

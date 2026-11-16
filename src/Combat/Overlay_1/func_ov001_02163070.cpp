@@ -5,7 +5,11 @@
 #endif
 #include <globaldefs.h>
 
-extern "C" void* GetGlobalFlags_020d6c00(void);
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" int func_020aad1c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void SetScriptRefInt_ov017_021d6134(void* value, int number);
@@ -20,7 +24,7 @@ extern "C" ARM int func_ov001_02163070(void* arg0) {
     if (data_ov001_021658b8.unknown_4b4_ == 0) {
         return 0;
     }
-    unsigned int* var0 = (unsigned int*)GetGlobalFlags_020d6c00();
+    unsigned int* var0 = (unsigned int*)func_020d6c00();
     SetGlobalFlags_020466e4(var0, 0x80);
     int var1 = func_020aad1c(data_ov001_021658b8.unknown_4b4_, data_ov001_021658b8.unknown_4b8_, 0xa, 0);
     int var2 = (var1 != 0);

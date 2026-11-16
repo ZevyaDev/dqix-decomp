@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Graphics/OBJSpriteSet.h"
 
 #if defined(jpn)
 #include "Resource/CharacterCreationUI.h"
@@ -23,12 +24,7 @@ struct TextWindow_0205d0e0 {
 };
 struct TextWindowManager_0205d81c;
 struct SpriteAnimationList_0205a330;
-extern "C" void SetSpriteAnimationOAMIndex_0205a42c(SpriteAnimationList_0205a254*, int, int);
-extern "C" void PlaySpriteAnimation_0205a370(SpriteAnimationList_0205a254*, int);
-extern "C" SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(SpriteAnimationList_0205a254*, int);
 extern "C" void SetSpriteAnimationPosition_020e27ec(SpriteAnimationList_0205a254*, int, short, short);
-extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330*, int);
-extern "C" void DrawSpriteAnimations_0205ae8c(void*);
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char*);
 
@@ -38,14 +34,14 @@ extern "C" ARM void func_ov023_021da9b4(Struct_ov009_021842a0* arg0) {
         signed char var1 = arg0->unknown_c58_;
         if (var1 >= 1 && var1 <= 8) {
             short var2 = (short)(((var1 - 1) << 4) + 0x2b);
-            SetSpriteAnimationOAMIndex_0205a42c(arg0->unknown_7e0_, 0, 0x78);
-            PlaySpriteAnimation_0205a370(arg0->unknown_7e0_, 0);
-            SpriteAnimation_0205a254_2* var3 = FindSpriteAnimation_0205a3d0(arg0->unknown_7e0_, 0);
+            ((OBJSpriteSet::List*)(arg0->unknown_7e0_))->SetSpriteOBJIndex(0, 0x78);
+            ((OBJSpriteSet::List*)(arg0->unknown_7e0_))->PlaySpriteAnimation(0);
+            SpriteAnimation_0205a254_2* var3 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(arg0->unknown_7e0_))->GetSprite(0));
             if (var3 != NULL) var3->unknown_15_ |= 8;
             unsigned int var4 = var0->GetTickCount();
-            AdvanceSpriteAnimations_0205a330((SpriteAnimationList_0205a330*)arg0->unknown_7e0_, var4);
+            ((OBJSpriteSet::List*)((SpriteAnimationList_0205a330*)arg0->unknown_7e0_))->UpdateAll(var4);
             SetSpriteAnimationPosition_020e27ec(arg0->unknown_7e0_, 0, 0x6c, var2);
-            DrawSpriteAnimations_0205ae8c(arg0->unknown_7d8_);
+            ((OBJSpriteSet*)(arg0->unknown_7d8_))->DrawAll();
         }
     }
     if (arg0->unknown_7e4_ == NULL) return;
@@ -56,30 +52,25 @@ extern "C" ARM void func_ov023_021da9b4(Struct_ov009_021842a0* arg0) {
     short var7 = (short)(var5->tileY_ae_ << 3);
     var6 = (short)(var6 + var5->unknown_bc_);
     var7 = (short)(var7 + var5->unknown_be_);
-    SetSpriteAnimationOAMIndex_0205a42c(arg0->unknown_7ec_, 0, 0x3f);
-    PlaySpriteAnimation_0205a370(arg0->unknown_7ec_, 0);
-    SpriteAnimation_0205a254_2* var8 = FindSpriteAnimation_0205a3d0(arg0->unknown_7ec_, 0);
+    ((OBJSpriteSet::List*)(arg0->unknown_7ec_))->SetSpriteOBJIndex(0, 0x3f);
+    ((OBJSpriteSet::List*)(arg0->unknown_7ec_))->PlaySpriteAnimation(0);
+    SpriteAnimation_0205a254_2* var8 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(arg0->unknown_7ec_))->GetSprite(0));
     if (var8 != NULL) var8->unknown_15_ |= 8;
     unsigned int var9 = var0->GetTickCount();
-    AdvanceSpriteAnimations_0205a330((SpriteAnimationList_0205a330*)arg0->unknown_7ec_, var9);
+    ((OBJSpriteSet::List*)((SpriteAnimationList_0205a330*)arg0->unknown_7ec_))->UpdateAll(var9);
     SetSpriteAnimationPosition_020e27ec(arg0->unknown_7ec_, 0, (short)(var6 - 8), (short)(var7 - 2));
-    DrawSpriteAnimations_0205ae8c(arg0->unknown_7e4_);
+    ((OBJSpriteSet*)(arg0->unknown_7e4_))->DrawAll();
 }
 #else
 struct Struct_02000c9c_8;
-extern "C" ARM unsigned char GetGameLanguage_0200fb08(struct Struct_02000c9c_8* gameState);
+extern "C" ARM unsigned char func_0200fb08(struct Struct_02000c9c_8* gameState);
 
 struct SpriteAnimationList_0205a254;
-extern "C" void SetSpriteAnimationOAMIndex_0205a42c(struct SpriteAnimationList_0205a254* animationList, int index, int oamIndex);
-extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254* animationList, int index);
 struct SpriteAnimation_0205a254_2;
-extern "C" struct SpriteAnimation_0205a254_2* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index);
 extern "C" ARM void SetSpriteAnimationPosition_020e27ec(struct SpriteAnimationList_0205a254* animationList, int index, short x, short y);
 
 struct SpriteAnimationList_0205a330;
-extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330* animationList, int ticks);
 
-extern "C" void DrawSpriteAnimations_0205ae8c(void* spriteSet);
 
 struct TextWindowManager_0205d81c;
 struct Struct_ov023_021da9b4 {
@@ -103,19 +94,19 @@ extern "C" ARM void func_ov023_021da9b4(void* arg0) {
             short var12 = 0x6c;
             short var13 = (short)(((var11 - 1) << 4) + 0x2b);
             GameState* var14 = GameState::GetInstance();
-            int var15 = GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)var14);
+            int var15 = func_0200fb08((struct Struct_02000c9c_8*)var14);
             struct SpriteAnimationList_0205a254* var16 = *(struct SpriteAnimationList_0205a254**)((char*)arg0 + 0x7e0);
             if (var15 == 4) var12 = 0x64;
-            SetSpriteAnimationOAMIndex_0205a42c(var16, 0, 0x78);
-            PlaySpriteAnimation_0205a370(var16, 0);
-            struct SpriteAnimation_0205a254_2* var17 = FindSpriteAnimation_0205a3d0(var16, 0);
+            ((OBJSpriteSet::List*)(var16))->SetSpriteOBJIndex(0, 0x78);
+            ((OBJSpriteSet::List*)(var16))->PlaySpriteAnimation(0);
+            struct SpriteAnimation_0205a254_2* var17 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(var16))->GetSprite(0));
             if (var17 != NULL) {
                 *(unsigned char*)((char*)var17 + 0x15) |= 8;
             }
             unsigned int var18 = var14->GetTickCount();
-            AdvanceSpriteAnimations_0205a330((struct SpriteAnimationList_0205a330*)var16, var18);
+            ((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a330*)var16))->UpdateAll(var18);
             SetSpriteAnimationPosition_020e27ec(var16, 0, var12, var13);
-            DrawSpriteAnimations_0205ae8c(*(void**)((char*)arg0 + 0x7d8));
+            ((OBJSpriteSet*)(*(void**)((char*)arg0 + 0x7d8)))->DrawAll();
         }
     }
 
@@ -135,15 +126,15 @@ extern "C" ARM void func_ov023_021da9b4(void* arg0) {
     var21 = (short)(var21 + var19->unknown_be_);
 
     struct SpriteAnimationList_0205a254* var22 = *(struct SpriteAnimationList_0205a254**)((char*)arg0 + 0x7ec);
-    SetSpriteAnimationOAMIndex_0205a42c(var22, 0, 0x78);
-    PlaySpriteAnimation_0205a370(var22, 0);
-    struct SpriteAnimation_0205a254_2* var23 = FindSpriteAnimation_0205a3d0(var22, 0);
+    ((OBJSpriteSet::List*)(var22))->SetSpriteOBJIndex(0, 0x78);
+    ((OBJSpriteSet::List*)(var22))->PlaySpriteAnimation(0);
+    struct SpriteAnimation_0205a254_2* var23 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(var22))->GetSprite(0));
     if (var23 != NULL) {
         *(unsigned char*)((char*)var23 + 0x15) |= 8;
     }
     unsigned int var24 = var10->GetTickCount();
-    AdvanceSpriteAnimations_0205a330((struct SpriteAnimationList_0205a330*)var22, var24);
+    ((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a330*)var22))->UpdateAll(var24);
     SetSpriteAnimationPosition_020e27ec(var22, 0, (short)(var20 - 8), (short)(var21 - 2));
-    DrawSpriteAnimations_0205ae8c(*(void**)((char*)arg0 + 0x7e4));
+    ((OBJSpriteSet*)(*(void**)((char*)arg0 + 0x7e4)))->DrawAll();
 }
 #endif

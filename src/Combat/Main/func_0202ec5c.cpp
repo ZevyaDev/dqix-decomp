@@ -8,3 +8,8 @@ extern "C" ARM void func_0202ec5c(char* arg0, int* arg1) {
     *(Vector3i*)(arg0 + 0x10) = *(Vector3i*)arg1;
     SetCameraOrbit_0202e5d8(arg0, *(int*)(arg0 + 0x70), *(int*)(arg0 + 0x74), *(int*)(arg0 + 0x78));
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

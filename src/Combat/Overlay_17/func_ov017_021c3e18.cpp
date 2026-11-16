@@ -8,6 +8,14 @@ enum { Enum_ov017_021c3e18_32608 = 0x7f60 };
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_ov017_021b8468 func_ov017_021b8978
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_ov017_021c3e18 {
     int unknown_0_;
     int unknown_4_;
@@ -26,10 +34,10 @@ struct Struct_ov017_021c3e18_3 {
 };
 
 extern "C" unsigned short* GetZone3D_02012fe4(void);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void func_ov017_021c3f68(struct Struct_ov017_021c3e18* arg0, int arg1, int arg2, int arg3);
-extern "C" void* GetBattleScene_ov017_021b8468(void* battleManager);
+extern "C" void* func_ov017_021b8468(void* battleManager);
 extern "C" void* func_ov000_021677d8(void* arg0, int arg1);
 extern "C" void func_ov017_021d2ad0(short, int, int, int, unsigned char);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
@@ -41,7 +49,7 @@ extern "C" ARM void func_ov017_021c3e18(unsigned char arg0) {
     GameResources* var2 = GetGameResources();
     Struct_ov017_021c3e18_2* var3 = (Struct_ov017_021c3e18_2*)GetParty_02010828(var1);
     Struct_ov017_021c3e18_3* var4 = (Struct_ov017_021c3e18_3*)var2->unknown_ptr_3718;
-    void* var5 = GetLocalWireless_0202ae18();
+    void* var5 = func_0202ae18();
     unsigned char var6 = GetOwnPartyLeaderObjectIndex_020100b0(var1);
     for (int var7 = 0; var7 < var3->unknown_f7c_; var7++) {
         unsigned char var8 = var3->unknown_f78_[var7];
@@ -57,15 +65,20 @@ extern "C" ARM void func_ov017_021c3e18(unsigned char arg0) {
             func_ov017_021c3f68((Struct_ov017_021c3e18*)&var10, 0xff000, 0, 0xff000);
         }
         if (var4->unknown_3_ != 0) {
-            void* var11 = GetBattleScene_ov017_021b8468(var4);
+            void* var11 = func_ov017_021b8468(var4);
             if (var11 != NULL) {
                 var10 = *(Vector3i*)func_ov000_021677d8(var11, var8);
             }
         }
-        func_ov017_021d2ad0(var9->obj3D_.objectIndex_4_, var10.x, var10.y, var10.z, arg0);
+        func_ov017_021d2ad0(var9->obj3D_.unknown_4_, var10.x, var10.y, var10.z, arg0);
     }
     if (IsNotLocalWirelessGuest_0202c508(var5)) {
         Vector3i var12 = *(Vector3i*)((char*)var1 + Enum_ov017_021c3e18_32608);
         func_ov017_021d2ad0(0xce, var12.x, var12.y, var12.z, arg0);
     }
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

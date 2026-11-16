@@ -2,9 +2,17 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-extern "C" void PopOverlay_020a1e54(int isPreviousReloaded);
+#if defined(jpn)
+#define func_020a1e54 func_020a3bcc
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
+extern "C" void func_020a1e54(int isPreviousReloaded);
 extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 
 extern int gMainHeap_02114e20;
 
@@ -23,7 +31,7 @@ extern "C" ARM void func_ov017_021c1a24(struct Struct_ov017_021c1a24* arg0) {
 		arg0->unknown_20_ = 0;
 		#if !defined(jpn)
 		if (arg0->unknown_1d_ != 0) {
-			PopOverlay_020a1e54(1);
+			func_020a1e54(1);
 		}
 		#endif
 		PopSubOverlay_020a1f4c(1);
@@ -32,7 +40,7 @@ extern "C" ARM void func_ov017_021c1a24(struct Struct_ov017_021c1a24* arg0) {
 	void* var0 = arg0->unknown_8_.GetSignedAllocator();
 	if (var0 != NULL) {
 		arg0->unknown_8_.Destroy();
-		FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var0);
+		func_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var0);
 	}
 
 	arg0->unknown_8_.ResetAllocatorPointer();

@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 
 struct Struct_ov017_021d0e64 {
@@ -19,7 +23,7 @@ extern "C" ARM void func_ov017_021d0e64(void* arg0, Struct_ov017_021d0e64* arg1,
 #endif
     GameObject* var0 = arg2->GetPartyMemberByIndex(arg1->unknown_4_);
     if (!var0) return;
-    int var1 = GetPartyMemberData_02053c6c((unsigned char*)var0);
+    int var1 = func_02053c6c((unsigned char*)var0);
     if (!var1) return;
 
     unsigned char* var2 = (unsigned char*)var1;

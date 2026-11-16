@@ -1,11 +1,20 @@
 #include <globaldefs.h>
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/Brightness.h"
 #include "NitroSDK/Graphics.h"
 #include "World/Object3D.h"
 #include "std_library_functions.h"
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 
 struct Struct_02000c9c_36;
@@ -45,8 +54,8 @@ extern "C" void OpenMusicArchive_0209c290(void* manager);
 extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
 extern "C" void func_ov028_021d9714();
 extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
-extern "C" void* GetFlagManager_0205ec34();
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" void* func_0205ec34();
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 struct Struct_02010604;
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
@@ -165,14 +174,14 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
 
     DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
 
-    void* var21 = GetFlagManager_0205ec34();
+    void* var21 = func_0205ec34();
     Struct_02013454* var22 = func_020196fc((Zone3D*)GetZone3D_02012fe4(), 0);
     Struct_02016874_2* var23;
     int var24 = var22->unknown_4_.unknown_10_;
     if (var22 != 0) {
         for (int var25 = 0; var25 < var24; var25++) {
             var23 = &var22->unknown_44_[var25];
-            if (IsFlagSet_0206dfb0((int)var21, (unsigned char*)((char*)var21 + 0x45b), var25 & 0xff) != 0) {
+            if (func_0206dfb0((int)var21, (unsigned char*)((char*)var21 + 0x45b), var25 & 0xff) != 0) {
                 if (var23 != 0) {
                     var23->unknown_2_ &= ~4;
                 }

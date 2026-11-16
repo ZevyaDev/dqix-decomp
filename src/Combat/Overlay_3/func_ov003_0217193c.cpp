@@ -10,10 +10,14 @@ enum { Enum_ov003_0217193c_1848 = 0x738 };
 #endif
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_0202bad4;
 struct Struct_0202bad4_2;
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void StopLocalWireless_0202b0f4(void* wireless);
 extern "C" int func_ov003_02171d78(void* arg0, unsigned char* arg1);
 extern "C" int func_0202bae4(void* arg0);
@@ -75,7 +79,7 @@ extern "C" ARM void func_ov003_0217193c(struct Struct_ov003_0217193c* arg0) {
     unsigned int var6;
 
     var1 = GameState::GetInstance();
-    var2 = GetLocalWireless_0202ae18();
+    var2 = func_0202ae18();
     var3 = var1->GetEffectiveDeltaTime();
 
     if (var3 < arg0->unknown_4_ && arg0->unknown_732_ > 0) {

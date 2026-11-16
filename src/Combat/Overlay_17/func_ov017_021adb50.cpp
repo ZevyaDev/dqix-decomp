@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/GameStrings.h"
 
 struct Struct_0214e34c;
 extern "C" struct Struct_0214e34c* func_020d7a50();
@@ -12,7 +13,6 @@ struct MenuCursor_0205ba68;
 extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
 struct MenuCursor_0205bacc;
 extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
-extern "C" int GetStandardString_020e51cc(int stringId);
 extern "C" void func_0205cb74(char* arg0, int arg1);
 extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
 #if defined(jpn)
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov017_021adb50(char* arg0) {
 #if defined(jpn)
     int var0 = (int)data_ov017_021d7f74;
 #else
-    int var0 = GetStandardString_020e51cc(0x1f);
+    int var0 = ((int)GetGameString((eGameString)(0x1f)));
 #endif
 
     func_0205cb74(arg0 + 0x44, var0);

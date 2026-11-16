@@ -2,9 +2,13 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct LocalWireless_0202b2f0;
 extern "C" void func_0202c1e8(struct LocalWireless_0202b2f0* arg0, int arg1);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2, int arg3, int arg4);
 
 // USA: func_ov017_021b0a7c
@@ -27,7 +31,7 @@ extern "C" ARM void func_ov017_021b0a7c(unsigned char* arg0) {
             }
         }
     }
-    struct LocalWireless_0202b2f0* var4 = (struct LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
+    struct LocalWireless_0202b2f0* var4 = (struct LocalWireless_0202b2f0*)func_0202ae18();
     int var5;
     for (var5 = 0; var5 < 4; var5++) {
         if ((arg0 + var5)[0x1b] == 1) {

@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct LocalWireless_0202b2f0;
 struct Struct_0207d798;
 
@@ -16,7 +20,7 @@ struct Struct_0207d7f4 {
 extern "C" void* func_0207d9f4(unsigned char* arg0, int arg1);
 extern "C" void func_0207d7c0(struct Struct_0207d798* arg0);
 extern "C" struct Struct_0207d7f4* func_0207d9bc(struct Struct_0207d7f4* arg0, unsigned short arg1);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" int func_0207d978(struct Struct_0207d7f4* arg0, unsigned short arg1);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
@@ -44,7 +48,7 @@ extern "C" ARM int func_0207d7f4(struct Struct_0207d7f4* arg0, unsigned short ar
         if (var2 == NULL) return 0;
         func_0207d7c0((struct Struct_0207d798*)var2);
         var2->unknown_0_ = arg1;
-        var3 = (struct LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
+        var3 = (struct LocalWireless_0202b2f0*)func_0202ae18();
         for (var5 = 0; var5 < 4; var5++) {
             if (!IsLocalWirelessPlayerJoined_0202c1c0(var3, var5) || var1->GetPartyMemberByIndex(var5) == NULL)
                 var2->unknown_8_[var5] = 0;

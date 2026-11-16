@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define data_020ef02c data_020eef8c
+#endif
+
 union Struct_020026b4 {
     struct {
         unsigned char unknown1_0_;

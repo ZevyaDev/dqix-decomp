@@ -2,6 +2,10 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_020da150 func_020dbb58
+#endif
+
 struct Struct_02097054 {
     char unknown_0_[0xc];
     unsigned char unknown_c_;

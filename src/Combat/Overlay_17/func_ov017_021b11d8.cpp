@@ -3,6 +3,10 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct LocalWireless_0202b2f0;
 struct LocalWireless_0202c1a4;
 
@@ -30,7 +34,7 @@ struct Struct_ov017_021b11d8_2 {
     unsigned short unknown_c_;
 };
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void func_ov017_021c37a4(void);
 extern "C" void func_ov017_021d1118(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_021d1014(int arg0, int arg1, int arg2);
@@ -49,7 +53,7 @@ extern "C" ARM void func_ov017_021b11d8(void* arg0, void* arg1) {
     Struct_ov017_021b11d8_2* var0 = (Struct_ov017_021b11d8_2*)arg0;
     GameState* var1 = GameState::GetInstance();
     GameResources* var2 = GetGameResources();
-    LocalWireless_0202b2f0* var3 = (LocalWireless_0202b2f0*)GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* var3 = (LocalWireless_0202b2f0*)func_0202ae18();
     unsigned char var4 = var0->unknown_8_;
     if (var4 == 0) {
         var0->unknown_9_ = (unsigned char)GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var3);

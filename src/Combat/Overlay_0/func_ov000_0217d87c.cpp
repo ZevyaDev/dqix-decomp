@@ -1,6 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Filesystem/FileIO.h"
+
+#if defined(jpn)
+#define func_020de848 func_020e01c4
+#endif
 
 #if defined(jpn)
 extern "C" void* func_020e08f0(int arg0, unsigned int* arg1);
@@ -69,8 +74,7 @@ extern "C" void func_ov000_0217a9d0(int, int, int, TextWindowManager_0205d81c*);
 extern "C" void SetTextWindowVisible_0205def8(TextWindowManager_0205def8*, int, int);
 extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int*);
 extern "C" int func_ov000_0218158c(void* arg0, int arg1);
-extern "C" void ClearItemTable_020de848(void* itemTable);
-extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
+extern "C" void func_020de848(void* itemTable);
 extern "C" int LoadItemTableByIds_020de9a4(void* itemTable, void* allocator, void* fileData, unsigned int fileSize, void* itemIds, unsigned short itemIdCount);
 extern "C" int func_0207c984(void* arg0, int arg1, int arg2, void* arg3, void* arg4);
 extern "C" int func_ov000_0217c594(Struct_ov000_02178d28_2* arg0, int arg1);
@@ -105,12 +109,12 @@ extern "C" ARM void func_ov000_0217d87c(Struct_ov000_02178d28_2* arg0, int arg1,
 #else
         ((SafeAllocator*)((char*)arg0 + 0x1af8))->Reset();
 #endif
-        ClearItemTable_020de848((char*)arg0 + 0x100);
+        func_020de848((char*)arg0 + 0x100);
         unsigned int var6;
 #if defined(jpn)
         void* var7 = func_020e08f0(0, &var6);
 #else
-        void* var7 = ExtractFileFromGP2(data_020f2a34, data_020f2a2c, &var6);
+        void* var7 = ExtractFileFromGP2((const char*)(data_020f2a34), (const char*)(data_020f2a2c), (unsigned int*)(&var6));
 #endif
         if (var7 != NULL) {
 #if defined(jpn)

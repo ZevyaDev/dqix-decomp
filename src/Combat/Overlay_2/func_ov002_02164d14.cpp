@@ -5,6 +5,10 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
 #endif
 
 struct TextWindowManager_0205de24_2;
@@ -22,7 +26,7 @@ extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *gameState, 
 extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11 *partyMember);
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
-extern "C" int GetGlobalFlags_020d6c00(void);
+extern "C" int func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int *globalFlags, unsigned int mask);
 extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void func_ov002_0215b814(char *arg0);
@@ -116,14 +120,14 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
                 *(int *) (arg0 + OFF_STATE_02164d14) = 0;
                 for (int var12 = 0; var12 < 4; var12++) {
                     unsigned short var13 = data_ov002_0216cca4[var12] * 0x20;
-                    DC_FlushRange(data_ov002_0216cc86, 2);
+                    CleanInvalidateCacheRange((const void*)(data_ov002_0216cc86), 2);
                     LoadToMainBGStandardPalette(data_ov002_0216cc86, (unsigned short) (var13 + 2), 2);
                     CleanCacheRange(data_ov002_0216cc86, 2);
                 }
                 return;
             }
             if (var3[*(short *) (arg0 + OFF_SEL_02164d14)] < 0) return;
-            SetGlobalFlags_020466e4((unsigned int *) GetGlobalFlags_020d6c00(), 1);
+            SetGlobalFlags_020466e4((unsigned int *) func_020d6c00(), 1);
             if (IsNPCCompanion_02061bd8(
                     (struct PartyMember_0205faf4_11 *) GetPartyMemberBaseByIndex_0200ff1c(var1, var3[*(short *) (arg0 + OFF_SEL_02164d14)])))
             {

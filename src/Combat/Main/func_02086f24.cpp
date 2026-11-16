@@ -1,10 +1,15 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
+extern unsigned char g_fileScratchSpace[0x30000];
 #include "Filesystem/FileIO.h"
 #include "Combat/ResourceScriptEntry.h"
 #include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
+
+#if defined(jpn)
+#define func_020de848 func_020e01c4
+#endif
 
 struct Struct_02086f24_3 {
     unsigned int unknown_0_0_ : 10;
@@ -137,12 +142,12 @@ extern "C" void func_02089de8(void* arg0, void* arg1, const char* arg2);
 extern "C" Struct_02086f24* func_02089fb0(Struct_02086f24_5* arg0, int arg1);
 extern "C" void func_02086404(Struct_0201099c_20* arg0);
 extern "C" void __clear(void* arg0, unsigned int arg1);
-extern "C" int ConvertTextToGlyphIndices_020426bc(const void* text, void* outGlyphIndices, int font);
+extern "C" int func_020426bc(const void* text, void* outGlyphIndices, int font);
 extern "C" void InitPartyMemberData_02082828(Struct_02086f24_2* memberData);
 extern "C" void func_02082d6c(Struct_02086f24_2* arg0, Struct_0201099c_20* arg1);
 extern "C" void func_02082fc4(void* arg0, void* arg1);
 extern "C" void InitItemTable_020de824(void* itemTable);
-extern "C" void ClearItemTable_020de848(void* itemTable);
+extern "C" void func_020de848(void* itemTable);
 extern "C" int func_020def44(int arg0, int arg1, int arg2, short arg3);
 extern "C" void func_02083e28(void* arg0, int arg1);
 extern "C" void ClearSpellTable_0209a804(int* table);
@@ -154,7 +159,6 @@ extern const char* gItemDataPath_020f2a38;
 extern const char* data_020f2a30;
 extern const signed char data_020e8a94[10];
 extern const char data_020f102e[];
-extern unsigned char gFileScratchSpace_0211e33c[];
 #if defined(jpn)
 extern "C" void* func_020e0968(const char* arg0, unsigned int* arg1);
 extern const char data_020f1150[];
@@ -190,6 +194,10 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
     Struct_0201099c_2 var1;
     Struct_02086f24_2 var2;
     Struct_0201099c_6 var3;
+
+    if (arg2->GetMaxPossibleAllocation() < HEAP_SIZE_02086f24) {
+        return 0;
+    }
     SafeAllocator var4;
 #if !defined(jpn)
     unsigned char var5[12];
@@ -199,11 +207,6 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
     unsigned int var8;
     unsigned int var9;
     Struct_02086f24_6 var10;
-
-    if (arg2->GetMaxPossibleAllocation() < HEAP_SIZE_02086f24) {
-        return 0;
-    }
-    var4.ResetAllocatorPointer();
     var4.ResetAllocatorPointer();
     var4.CreateTypeA(arg2->Allocate(HEAP_SIZE_02086f24), HEAP_SIZE_02086f24);
     var4.Reset();
@@ -222,7 +225,7 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
         sprintf((char*)var0.unknown_140_, data_020f1150, var11->unknown_4_);
 #else
         __clear(var5, sizeof(var5));
-        ConvertTextToGlyphIndices_020426bc(var11->unknown_4_, var5, 1);
+        func_020426bc(var11->unknown_4_, var5, 1);
         memcpy(var0.unknown_140_, var5, sizeof(var5));
 #endif
         VectorizedInvertedMemcpy(var11->unknown_30_, var0.unknown_2_, sizeof(var0.unknown_2_));
@@ -241,16 +244,16 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
         BackgroundLoader::AddLockGlobal();
         var8 = 0;
         InitItemTable_020de824(&var6);
-        ClearItemTable_020de848(&var6);
+        func_020de848(&var6);
 #if defined(jpn)
         func_020e0968(gItemDataPath_020f2a38, &var8);
 #else
-        void* var15 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var8);
+        void* var15 = ExtractFileFromGP2((const char*)(gItemDataPath_020f2a38), (const char*)(data_020f2a30), (unsigned int*)(&var8));
 #endif
         for (int var16 = 0; var16 < 10; var16++) {
             short var17 = inline_02086f24_4(var11, var16);
 #if defined(jpn)
-            func_020def44((int)&var2.unknown_194_[data_020e8a94[var16]], (int)gFileScratchSpace_0211e33c, var8, var17);
+            func_020def44((int)&var2.unknown_194_[data_020e8a94[var16]], (int)g_fileScratchSpace, var8, var17);
 #else
             func_020def44((int)&var2.unknown_194_[data_020e8a94[var16]], (int)var15, var8, var17);
 #endif
@@ -280,7 +283,7 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
     func_02089ddc(&var3);
     var4.Reset();
     if (var13) {
-        void* var18 = LoadFileIntoMemory(data_020f102e, gFileScratchSpace_0211e33c, &var9);
+        void* var18 = LoadFileIntoMemory(data_020f102e, g_fileScratchSpace, &var9);
         if (var18 != NULL) {
             ClearSpellTable_0209a804((int*)&var10);
             func_0209a8b4(&var10, &var4, (Struct_02013fb4*)var18, var9);

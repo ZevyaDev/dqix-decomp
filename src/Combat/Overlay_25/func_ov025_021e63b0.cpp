@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/GameResources.h"
+#include "Graphics/TextureArena.h"
 
 struct Struct_ov025_021e63b0_2 { unsigned char unknown_0_[0x20]; unsigned short unknown_20_; };
 struct Struct_ov025_021e63b0_3 { unsigned char unknown_0_[0x10]; Struct_ov025_021e63b0_2* unknown_10_; };
@@ -49,8 +50,6 @@ extern "C" int func_ov025_021e2628(int, int);
 extern "C" SafeAllocator* func_ov025_021e8a54(char*);
 extern "C" char* func_ov025_021e8a64(char*);
 extern "C" void func_ov025_021e8bac(Struct_ov025_021e267c_2*, Struct_ov025_021e267c_3*);
-extern "C" void RestoreTextureVRAMState_0207df90(char*);
-extern "C" void SaveTextureVRAMState_0207dfac(char*);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" Struct_ov025_021e63b0_4* GetBattleScene_ov000_02160130();
 extern "C" void SetCombatantAppearanceFlags_ov017_02191aac(GameResources*, int, int, int);
@@ -111,9 +110,9 @@ extern "C" ARM int func_ov025_021e63b0(void* arg0, Struct_ov025_021e63b0_3* arg1
         var13->unknown_2_ = 0xc8;
         func_ov025_021e8bac((Struct_ov025_021e267c_2*)data_ov025_021ef988.unknown_c_, var13);
         var12->Initialize();
-        RestoreTextureVRAMState_0207df90(var11);
+        ((TextureArena*)(var11))->Restore();
         var12->SetModelFromFileCopy(var10, var9, var8, Model3D::TextureStagingMode_Normal);
-        SaveTextureVRAMState_0207dfac(var11);
+        ((TextureArena*)(var11))->Save();
         SetGameObjectByIndex_0200fd38(var0, 0xc8, (GameObject*)var12);
         var12->MakeHidden();
         int var14 = arg1->unknown_10_->unknown_20_;

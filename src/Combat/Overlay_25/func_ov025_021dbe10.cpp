@@ -2,6 +2,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Graphics/TextureArena.h"
 
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -65,7 +66,6 @@ extern char data_ov025_021ef40c[];
 extern char data_ov025_021ef424[];
 extern char data_ov025_021ef43c[];
 extern int data_ov025_021ef404;
-extern "C" void ResetTextureVRAMState_0207df50(TextureVRAMArea_0203d028*);
 extern "C" void func_ov025_021dee20(Struct_ov025_021dbe10_4*);
 extern "C" BattleAction_ov000_0215440c_2* GetCurrentBattleAction_ov000_02160f20(void*);
 extern "C" Struct_ov025_021dbe10_2* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov025_021dbe10(Struct_ov025_021dbe10_4* arg0) {
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     char* var2 = arg0->unknown_29c_;
     arg0->unknown_30_.Reset();
-    ResetTextureVRAMState_0207df50((TextureVRAMArea_0203d028*)arg0->unknown_14c_);
+    ((TextureArena*)((TextureVRAMArea_0203d028*)arg0->unknown_14c_))->Reset();
     func_ov025_021dee20(arg0);
     BattleAction_ov000_0215440c_2* var3 = GetCurrentBattleAction_ov000_02160f20(arg0);
     if (!var3) return;

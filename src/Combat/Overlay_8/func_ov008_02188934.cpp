@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 struct Struct_ov006_021580b8
 {
@@ -10,8 +11,6 @@ struct Struct_ov006_021580b8
 
 struct Struct_ov008_02188d74;
 
-extern "C" void func_0205af84(int arg0, void* arg1, int);
-extern "C" void DrawSprite_0205ac40(Struct_ov008_02188d74* spriteSet, Struct_ov006_021580b8* sprite);
 
 extern const signed char data_ov008_0218b300[2];
 extern const unsigned char data_ov008_0218b30c[4][2];
@@ -50,8 +49,8 @@ extern "C" ARM void func_ov008_02188934(Struct_ov008_021842a0_2* arg0)
             Struct_ov006_021580b8* var3 = &arg0->unknown_734_[data_ov008_0218b300[var1]];
             var3->unknown_14_ = 0x46000;
             var3->unknown_18_ = data_ov008_0218b314[var1];
-            func_0205af84((int)arg0->unknown_730_, &arg0->unknown_734_[data_ov008_0218b300[var1]], 1);
-            DrawSprite_0205ac40(arg0->unknown_730_, &arg0->unknown_734_[data_ov008_0218b300[var1]]);
+            ((OBJSpriteSet*)((int)arg0->unknown_730_))->SetMetatilePriority((OBJSpriteSet::Metatile*)(&arg0->unknown_734_[data_ov008_0218b300[var1]]), 1);
+            ((OBJSpriteSet*)(arg0->unknown_730_))->DrawMetatile((OBJSpriteSet::Metatile*)(&arg0->unknown_734_[data_ov008_0218b300[var1]]));
         }
     }
 }

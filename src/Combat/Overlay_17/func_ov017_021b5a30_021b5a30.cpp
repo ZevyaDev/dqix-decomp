@@ -4,8 +4,12 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 extern "C" void func_ov017_0218d5c8(unsigned char* arg0);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void EnableCameraFollow_020a2794(void* camera);
@@ -31,13 +35,13 @@ extern "C" ARM void func_ov017_021b5a30(struct Struct_ov017_021b5a30* arg0) {
 	void* var1 = arg0->unknown_40_.GetSignedAllocator();
 	if (var1 != NULL) {
 		arg0->unknown_40_.Destroy();
-		FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var1);
+		func_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var1);
 	}
 
 	void* var2 = arg0->unknown_58_.GetSignedAllocator();
 	if (var2 != NULL) {
 		arg0->unknown_58_.Destroy();
-		FreeMemory_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var2);
+		func_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var2);
 	}
 
 	GameState* var3 = GameState::GetInstance();

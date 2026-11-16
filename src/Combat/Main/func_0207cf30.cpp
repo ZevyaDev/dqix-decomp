@@ -4,6 +4,14 @@
 #include "NitroSDK/Memory/SignedAllocator.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 struct ItemTable_0201099c_10;
 struct ItemData_0201099c_9;
 struct ItemBag_0207cf30_3;
@@ -17,12 +25,12 @@ extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int GetBagItemCount_020a0b3c(struct ItemBag_0207cf30_3* bag, int itemId);
 extern "C" int func_020a095c(struct Struct_0207cf30_4* arg0, int arg1, int arg2);
 extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
-extern "C" struct Struct_0207cf30* GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" struct Struct_0207cf30* func_02053c6c(unsigned char* gameObject);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 
 extern "C" void func_0207cc18(void* arg0, struct ItemData_0201099c_9* arg1);
 
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 
 extern AllocatorUnion gMainHeap_02114e20 __attribute__((aligned(4)));
 
@@ -74,7 +82,7 @@ extern "C" ARM int func_0207cf30(struct Struct_0207cf30_2* arg0, short arg1, int
                     continue;
                 if (IsNPCCompanion_02061bd8((struct PartyMember_0205faf4_11*)var10) != 0)
                     continue;
-                struct Struct_0207cf30* var11 = GetPartyMemberData_02053c6c((unsigned char*)var10);
+                struct Struct_0207cf30* var11 = func_02053c6c((unsigned char*)var10);
                 if (var11 == NULL)
                     continue;
                 for (int var12 = 0; var12 < 8; var12++) {
@@ -95,7 +103,7 @@ extern "C" ARM int func_0207cf30(struct Struct_0207cf30_2* arg0, short arg1, int
         SafeAllocator* var13 = (SafeAllocator*)arg0;
         SignedAllocatorHeader* var14 = var13->GetSignedAllocator();
         var13->Destroy();
-        FreeMemory_02012da4(&gMainHeap_02114e20, var14);
+        func_02012da4(&gMainHeap_02114e20, var14);
         arg0->unknown_2c_ = NULL;
     }
     return var1;

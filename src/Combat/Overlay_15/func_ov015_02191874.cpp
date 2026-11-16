@@ -40,7 +40,7 @@ extern "C" ARM void func_ov015_02191874(Struct_ov015_02190acc* arg0)
         var0.x = 0x199;
     if (g_keyManager.TestKeysHeld(0x20))
         var0.x = -0x199;
-    memcpy(&var1, RenderConfig::GetInverseViewMatrix(), sizeof(var1));
+    memcpy(&var1, Nitro3DRenderConfig::GetInverseViewMatrix(), sizeof(var1));
     Mat3x3_ApplyToVector(&var0, &var1, &var0);
     var0.y = 0;
     Vector3fix_Normalize(&var0, &var0);

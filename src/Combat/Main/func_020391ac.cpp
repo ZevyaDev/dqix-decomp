@@ -74,13 +74,13 @@ extern "C" ARM void func_020391ac(Struct_020391ac_3* arg0) {
         return;
     if (var1->unknown_be_ == 2) {
         if (arg0->unknown_be_ != 2) {
-            AttachPartyMemberWeapon_ov017_021917f0(arg0->unknown_0_.objectIndex_4_, 1);
+            AttachPartyMemberWeapon_ov017_021917f0(arg0->unknown_0_.unknown_4_, 1);
         }
         SetMotionIfDifferent_02033b68((Struct_02033b68*)arg0, 2);
         return;
     }
     if (arg0->unknown_be_ == 2) {
-        AttachPartyMemberWeapon_ov017_021917f0(arg0->unknown_0_.objectIndex_4_, 0);
+        AttachPartyMemberWeapon_ov017_021917f0(arg0->unknown_0_.unknown_4_, 0);
         SetMotionIfDifferent_02033b68((Struct_02033b68*)arg0, 0);
     }
     if (var2->unknown_26c_) {
@@ -198,4 +198,9 @@ extern "C" ARM void func_020391ac(Struct_020391ac_3* arg0) {
             SetMotionIfDifferent_02033b68((Struct_02033b68*)arg0, 1);
     } else if (arg0->unknown_be_ != 0)
         SetMotionIfDifferent_02033b68((Struct_02033b68*)arg0, 0);
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

@@ -3,6 +3,8 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "NitroSDK/Graphics.h"
 #include "NitroSDK/ColorEffects.h"
+#include "Graphics/BGLayer.h"
+#include "Resource/PAC.h"
 
 #if defined(jpn)
 #define data_ov012_0218af75 data_ov012_0218bcec
@@ -100,15 +102,6 @@ struct TextWindow_0204c7a8;
 struct TextWindowManager_0205cf78;
 struct TextWindow_0205cf78_2;
 
-extern "C" void SetBGScreenSize_0204b11c(unsigned char* layer, int screenSize);
-extern "C" void SetBGPriority_0204b5b4(Struct_ov012_02185f74_3* layer, int priority);
-extern "C" void AllocateBGScreenData_0204b12c(BGLayer_0204b12c* layer, SafeAllocator* allocator);
-extern "C" void SetBGScroll_0204b5e8(BGLayer_02020cb8_5* layer, int scrollX, int scrollY);
-extern "C" int CountPacEntries_02046900(PacEntry_02020cb8_4* pac);
-extern "C" void* GetPacEntryData_020467f0(PacEntry_02020aec* pac, int index, void** outEntry, int* outSize);
-extern "C" void LoadBGBlock_0204b174(Struct_ov012_02185f74_3* layer, void* block, SafeAllocator* allocator, unsigned int arg3);
-extern "C" void FillBGScreenRect_0204bc74(Struct_ov012_02185f74_3* layer, int screenEntry, int x, int y, int width, int height, int palette);
-extern "C" void LoadBGScreenData_0204b0e8(BGLayer_02020cb8_2* layer, void* screenData);
 extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
 extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78* windowManager, TextWindow_0205cf78_2* textWindows, unsigned char textWindowCapacity);
 
@@ -131,12 +124,12 @@ extern "C" ARM void func_ov012_02185f74(Struct_ov012_02185f74_2* arg0)
     for (int var8 = 0; var8 < 3; var8++)
     {
         var0 = &arg0->unknown_168_[var8];
-        SetBGScreenSize_0204b11c((unsigned char*)var0, 0);
+        ((BGLayer*)((unsigned char*)var0))->ConfigureTextMode(0);
         var0->unknown_1c_0_ = 0;
         var0->unknown_1c_4_ = data_ov012_0218af75[var8];
-        SetBGPriority_0204b5b4(var0, data_ov012_0218af78[var8]);
-        AllocateBGScreenData_0204b12c((BGLayer_0204b12c*)var0, &arg0->unknown_20_[0]);
-        SetBGScroll_0204b5e8((BGLayer_02020cb8_5*)var0, 0, 0);
+        ((BGLayer*)(var0))->SetPriority(data_ov012_0218af78[var8]);
+        ((BGLayer*)((BGLayer_0204b12c*)var0))->AllocateIndexBuffer((SafeAllocator*)(&arg0->unknown_20_[0]));
+        ((BGLayer*)((BGLayer_02020cb8_5*)var0))->SetOffset(0, 0);
     }
     BG1CNT = (BG1CNT & 0x43) | 0x1d00;
     BG2CNT = (BG2CNT & 0x43) | 0x1e00;
@@ -144,21 +137,21 @@ extern "C" ARM void func_ov012_02185f74(Struct_ov012_02185f74_2* arg0)
     ColorEffect_ConfigureAlphaBlend(0x4000050, 2, 1, 10, 6);
 
     var2->GetLoadedFileByID(*(int*)((char*)arg0 + Enum_ov012_02185f74_5004), &var5, &var6);
-    var1 = CountPacEntries_02046900((PacEntry_02020cb8_4*)var5);
+    var1 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var5));
     for (int var9 = 0; var9 < var1; var9++)
     {
-        void* var10 = GetPacEntryData_020467f0((PacEntry_02020aec*)var5, var9, &var4, &var7);
+        void* var10 = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var5), var9, (const char**)(&var4), (unsigned int*)(&var7));
         if (var10 != 0)
         {
-            LoadBGBlock_0204b174(&arg0->unknown_168_[1], var10, &arg0->unknown_20_[0], var7);
-            LoadBGBlock_0204b174(&arg0->unknown_168_[2], var10, &arg0->unknown_20_[0], var7);
+            ((BGLayer*)(&arg0->unknown_168_[1]))->ProcessGraphicsFile((const void*)var10, (SafeAllocator*)(&arg0->unknown_20_[0]), var7);
+            ((BGLayer*)(&arg0->unknown_168_[2]))->ProcessGraphicsFile((const void*)var10, (SafeAllocator*)(&arg0->unknown_20_[0]), var7);
         }
     }
     for (int var11 = 0; var11 < 3; var11++)
     {
         var0 = &arg0->unknown_168_[var11];
-        FillBGScreenRect_0204bc74(var0, 0, 0, 0, 0x20, 0x19, 0);
-        LoadBGScreenData_0204b0e8((BGLayer_02020cb8_2*)var0, 0);
+        ((BGLayer*)(var0))->SetTileInRectangle(0, 0, 0, 0x20, 0x19, 0);
+        ((BGLayer*)((BGLayer_02020cb8_2*)var0))->CleanCacheAndUploadIndexBuffer((const void*)(0));
     }
     char* var12 = (char*)arg0;
     *(void**)(var12 + Enum_ov012_02185f74_4988) = arg0->unknown_20_[0].Allocate(0x7800);

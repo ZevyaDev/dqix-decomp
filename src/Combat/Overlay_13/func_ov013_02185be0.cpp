@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 #define func_02041d9c func_02042428
@@ -47,7 +48,6 @@ extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMar
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" int func_02041d9c(char* arg0, int arg1);
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 
@@ -64,10 +64,10 @@ extern "C" ARM void func_ov013_02185be0(Struct_ov013_021846a0_2* arg0, char* arg
     for (var1 = 0; var1 < 2; var1++) {
         __clear(var0, 0x20);
         func_02041d9c(var0, 0xc);
-        AppendText_02042058(var0, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, (short)(var1 + 0xa)));
+        AppendText_02042058(var0, (const char*)((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_620_))->GetString((short)(var1 + 0xa))));
         AppendMenuEntry_02041b70(arg1, var1, var0);
         if (var1 < 1) {
-            AppendText_02042058(arg1, (const char*)FindStringInTable_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0));
+            AppendText_02042058(arg1, (const char*)((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_620_))->GetString(0)));
         }
     }
 }

@@ -5,6 +5,10 @@
 #include "../NitroSDK/Memory.h"
 #include "../Grotto/Main/TileFeatures.h"
 
+#if defined(jpn)
+#define func_0201e248 func_0201dfd4
+#endif
+
 union Struct_02014900
 {
     fix32_t unknown_0_[3];
@@ -220,8 +224,6 @@ public:
     unsigned short unknown_82_;
     Struct_0201dfcc* unknown_84_;
 
-    void func_0201e248();
-
     void func_0201e25c(int arg0, SafeAllocator* arg1);
     void func_0201e288(int arg0, SafeAllocator* arg1);
 
@@ -246,6 +248,7 @@ public:
     void func_0201e88c(const Struct_0201dfcc& arg0);
 };
 
+extern "C" void func_0201e248(Struct_020134e0* arg0);
 extern "C" Struct_020134e0::Struct_02018300* func_0201e6d4(Struct_020134e0* arg0, int arg1);
 extern "C" Struct_020134e0::Struct_02018300* func_0201e664(Struct_020134e0* arg0, int arg1);
 extern "C" void* func_0201e548(Struct_020134e0* arg0, int arg1);

@@ -21,6 +21,16 @@
 #include <Memory/SafeAllocator.h>
 #include <World/Object3D.h>
 #include <Filesystem/BackgroundLoader.h>
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
+
+#if defined(jpn)
+#define func_020ca458 func_020cbf24
+#endif
 
 struct Struct_01ff8b48_26 {
     unsigned short unknown_0_;
@@ -110,23 +120,18 @@ struct BGLayer_0204b010;
 struct BGLayer_02020cb8_3;
 struct GlobalFlags_02038598_4;
 
-extern "C" void DestroySpriteSet_0205a494(void* spriteSet);
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void func_02045cac(Struct_02045cac* arg0);
 extern "C" void ResetMessageWindow_02043204(char* window);
-extern "C" void ClearBGScreenData_0204b010(BGLayer_0204b010* layer, void* screenData);
-extern "C" void ResetBGLayerData_0204afb4(BGLayer_02020cb8_3* layer);
 extern "C" void func_02017d68(void* arg0);
-extern "C" void* GetGlobalFlags_020d6c00();
+extern "C" void* func_020d6c00();
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 
 extern "C" {
 void func_ov023_021eb26c(void* arg0);
 void CloseMessageWindow_02043124(MessageWindow_02021b84* window);
-void FlushBGScreenData_0204b04c(Struct_ov003_021594c4* layer, int screenData);
-void CopyBGScreenDataToVRAM_0204b088(Struct_ov003_021594c4* layer, int screenData);
 unsigned int GetMainBGAssignedVRAMSize();
-void Memset32Bit_020ca458(int value, void* destination, unsigned int size);
+void func_020ca458(int value, void* destination, unsigned int size);
 void ResetTextWindowManager_0205d048(Struct_02081870_2* windowManager);
 void* GetZone3D_02012fe4();
 }
@@ -141,9 +146,9 @@ extern "C" ARM void func_ov008_021845ac(Struct_ov008_021842a0_2* arg0)
         arg0->unknown_b20_ = -1;
     }
     if (arg0->unknown_730_ != NULL)
-        DestroySpriteSet_0205a494(arg0->unknown_730_);
+        ((OBJSpriteSet*)(arg0->unknown_730_))->Destroy();
     if (arg0->unknown_73c_ != NULL)
-        DestroySpriteSet_0205a494(arg0->unknown_73c_);
+        ((OBJSpriteSet*)(arg0->unknown_73c_))->Destroy();
     if (arg0->unknown_b08_ != NULL)
         func_ov023_021eb26c(arg0->unknown_b08_);
     MessageWindow_02021b84* var1 = GetMessageWindow_020421a0();
@@ -157,12 +162,12 @@ extern "C" ARM void func_ov008_021845ac(Struct_ov008_021842a0_2* arg0)
     for (int var3 = 0; var3 < 3; var3++)
     {
         Struct_ov003_021594c4* var4 = var2[var3];
-        ClearBGScreenData_0204b010((BGLayer_0204b010*)var4, 0);
-        FlushBGScreenData_0204b04c(var4, 0);
-        CopyBGScreenDataToVRAM_0204b088(var4, 0);
-        ResetBGLayerData_0204afb4((BGLayer_02020cb8_3*)var4);
+        ((BGLayer*)((BGLayer_0204b010*)var4))->PrepareIndexBuffer((void*)(0));
+        ((BGLayer*)(var4))->CleanIndexBufferCache((const void*)(0));
+        ((BGLayer*)(var4))->UploadIndexBuffer((const void*)(0));
+        ((BGLayer*)((BGLayer_02020cb8_3*)var4))->MaybeDestroy();
     }
-    Memset32Bit_020ca458(0, (void*)0x06000000, GetMainBGAssignedVRAMSize());
+    func_020ca458(0, (void*)0x06000000, GetMainBGAssignedVRAMSize());
     ResetTextWindowManager_0205d048(&arg0->unknown_130_);
     arg0->unknown_790_.Destroy();
     arg0->unknown_b8_ = NULL;
@@ -178,6 +183,6 @@ extern "C" ARM void func_ov008_021845ac(Struct_ov008_021842a0_2* arg0)
         {
             func_02017d68(GetZone3D_02012fe4());
         }
-        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)GetGlobalFlags_020d6c00(), 0xf);
+        ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)func_020d6c00(), 0xf);
     }
 }

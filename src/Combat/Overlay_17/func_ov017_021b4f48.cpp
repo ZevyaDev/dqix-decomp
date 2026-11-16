@@ -9,6 +9,10 @@ enum { Enum_ov017_021b4f48_9196 = 0x23ec, Enum_ov017_021b4f48_96 = 0x60 };
 #include "Filesystem/BackgroundLoader.h"
 #include "Grotto/Main/ActiveGrottoClass.h"
 
+#if defined(jpn)
+#define func_0201b5b0 func_0201b328
+#endif
+
 struct Struct_02013fb4;
 
 extern "C" char* GetZone3D_02012fe4(void);

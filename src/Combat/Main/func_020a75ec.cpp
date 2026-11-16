@@ -1,8 +1,26 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
+#include "NitroSDK/Matrix.h"
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ec84 func_0202e7f4
+#endif
+
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
 
 
 struct Struct_020a75ec {
@@ -28,17 +46,16 @@ struct Struct_020a75ec_2 { Object3D unknown_0_; unsigned short unknown_ac_; };
 struct Queue_02038598_5;
 struct Struct_02010604;
 struct Struct_02015ef4;
-extern short data_020e9450[];
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void func_020332ac(Struct_020a75ec*);
 extern "C" void func_020a78dc(Struct_020a75ec*);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void* GetParty_02010828(GameState*);
-extern "C" void* GetCamera_020100bc(GameState*);
-extern "C" int ConvertWorldToScreen_0202ec84(void*, Struct_02015ef4*, int*, int*);
-extern "C" void* GetFlagManager_0205ec34();
+extern "C" void* func_020100bc(GameState*);
+extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
+extern "C" void* func_0205ec34();
 extern "C" int IsQueueEmpty_02046b08(void**);
-extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" int SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_ov017_021a93f0(GameResources*, int, int);
 
@@ -57,7 +74,7 @@ extern "C" ARM void func_020a75ec(Struct_020a75ec* arg0) {
     arg0->unknown_b4_ = var2;
     func_020a78dc(arg0);
     arg0->unknown_13c_ += var0->GetTickCount() * 364;
-    arg0->unknown_140_ = data_020e9450[((arg0->unknown_13c_ >> 4) * 2 + 1)] >> 4;
+    arg0->unknown_140_ = g_fixSinCosTable[((arg0->unknown_13c_ >> 4) * 2 + 1)] >> 4;
     if (var1->currentZoneID_ != 10000) return;
     Vector3i var3;
     int var4 = 0;
@@ -101,9 +118,9 @@ extern "C" ARM void func_020a75ec(Struct_020a75ec* arg0) {
     }
     int var10;
     int var11;
-    void* var12 = GetCamera_020100bc(var0);
+    void* var12 = func_020100bc(var0);
     int var13 = 0;
-    if (ConvertWorldToScreen_0202ec84(var12, (Struct_02015ef4*)&arg0->unknown_0_.position_, &var10, &var11) == 0) {
+    if (func_0202ec84(var12, (Struct_02015ef4*)&arg0->unknown_0_.position_, &var10, &var11) == 0) {
         int var14;
         int var15;
         if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 10) {
@@ -113,12 +130,12 @@ extern "C" ARM void func_020a75ec(Struct_020a75ec* arg0) {
         if (var10 - 16 < var14 && var14 < var10 + 16 && var11 - 20 < var15 && var15 < var11 + 8) var13 = 1;
     }
 #if !defined(jpn)
-    unsigned char* var16 = (unsigned char*)GetFlagManager_0205ec34();
+    unsigned char* var16 = (unsigned char*)func_0205ec34();
 #endif
     if (g_keyManager.TestKeysPressed(2) || var13) {
         if (IsQueueEmpty_02046b08((void**)var6)
 #if !defined(jpn)
-            && IsFlagSet_0206dfb0((int)var16, var16 + 0x8c, 43)
+            && func_0206dfb0((int)var16, var16 + 0x8c, 43)
 #endif
         ) {
             arg0->unknown_15a_ = 0;

@@ -16,6 +16,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "World/Object3D.h"
+#include "Filesystem/FileIO.h"
 
 struct Struct_ov001_0215bcc0;
 
@@ -26,7 +27,6 @@ struct ObjectArchiveLoadInfo_0203d028_11;
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo);
 
 extern char data_ov015_02194078;
-extern int gFileScratchSpace_0211e33c;
 
 // USA: func_ov015_0218cb2c
 extern "C" ARM void func_ov015_0218cb2c(void* arg0, int arg1) {
@@ -34,7 +34,6 @@ extern "C" ARM void func_ov015_0218cb2c(void* arg0, int arg1) {
     ((Object3D*)((struct Struct_ov001_0215bcc0*)*(void**)(var0 + 0x24)))->RemoveAnimationPackageByID(3);
     if (arg1 != 0) {
         SafeAllocator var1;
-        var1.ResetAllocatorPointer();
         var1.CreateTypeA(*(void**)(var0 + 0x14), *(unsigned int*)(var0 + 0x18));
         var1.Reset();
 
@@ -45,13 +44,13 @@ extern "C" ARM void func_ov015_0218cb2c(void* arg0, int arg1) {
 
         unsigned int var3 = 0;
         sprintf(var2, &data_ov015_02194078, arg1);
-        void* var4 = LoadFileIntoMemory(var2, &gFileScratchSpace_0211e33c, &var3);
+        void* var4 = LoadFileIntoMemory(var2, &g_fileScratchSpace, &var3);
 
         if (var4 != 0) {
             ObjectArchiveLoadInfo var5;
             ClearObjectArchiveLoadInfo_0203dafc((struct ObjectArchiveLoadInfo_0203d028_11*)&var5);
             var5.allocator = &var1;
-            var5.fileData = &gFileScratchSpace_0211e33c;
+            var5.fileData = &g_fileScratchSpace;
             var5.unk_8 = var3;
             var5.unk_10 = 1;
             var5.packageID = 3;

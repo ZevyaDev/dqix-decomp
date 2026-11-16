@@ -2,6 +2,15 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/GameResources.h"
+#include "Resource/GameStrings.h"
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 #if defined(jpn)
 #include <std_library_functions.h>
@@ -53,12 +62,11 @@ struct Struct_02070900_2;
 struct Struct_020707c8;
 struct Struct_ov001_0215657c { char unknown_0_[0x8c]; unsigned char unknown_8c_[1]; };
 extern "C" char* GetFollowCamera_020100f8(char*);
-extern "C" Struct_ov001_0215657c* GetFlagManager_0205ec34();
-extern "C" int IsFlagSet_0206dfb0(int, unsigned char*, int);
+extern "C" Struct_ov001_0215657c* func_0205ec34();
+extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" unsigned short* GetZone3D_02012fe4();
 extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
-extern "C" int GetStandardString_020e51cc(int);
 extern "C" void func_02046608(Struct_02046574_2*, int, int, char*, int, int, unsigned char);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_02046574_2*, char*, int);
@@ -91,8 +99,8 @@ extern "C" ARM int func_ov001_0215657c(Struct_ov001_0215657c_2* arg0, void* arg1
     if (arg0->unknown_16_ == arg0->unknown_152_) var3 = 1;
     else if (arg0->unknown_18_ == arg0->unknown_158_) var3 = 1;
     else {
-        Struct_ov001_0215657c* var6 = GetFlagManager_0205ec34();
-        if (IsFlagSet_0206dfb0((int)var6, var6->unknown_8c_, arg0->unknown_154_ + 0x38e)) var3 = 1;
+        Struct_ov001_0215657c* var6 = func_0205ec34();
+        if (func_0206dfb0((int)var6, var6->unknown_8c_, arg0->unknown_154_ + 0x38e)) var3 = 1;
         else if (arg0->unknown_156_ == *GetZone3D_02012fe4()) var4 = 1;
     }
     if (var3) {
@@ -109,7 +117,7 @@ extern "C" ARM int func_ov001_0215657c(Struct_ov001_0215657c_2* arg0, void* arg1
 #else
             SetMessageString_02046574(var9, 0, var11);
             char var13[0x100];
-            int var14 = GetStandardString_020e51cc(0x34);
+            int var14 = ((int)GetGameString((eGameString)(0x34)));
             func_02046608(var9, 12, var14, var13, 0xe3, 0, 1);
             StartMessage_0204500c(var9, var13, 0, 0xe3);
 #endif

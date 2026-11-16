@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+extern unsigned char g_fileScratchSpace[0x30000];
 
 #if defined(jpn)
 enum { Enum_ov017_0219bfb4_9196 = 0x240c, Enum_ov017_0219bfb4_610 = 0x282, Enum_ov017_0219bfb4_10118 = 0x27c6, Enum_ov017_0219bfb4_10116 = 0x27c4, Enum_ov017_0219bfb4_10120 = 0x27c8, Enum_ov017_0219bfb4_10100 = 0x27b4, Enum_ov017_0219bfb4_10164 = 0x27f4, Enum_ov017_0219bfb4_10166 = 0x27f6, Enum_ov017_0219bfb4_92 = 0x28, Enum_ov017_0219bfb4_2400 = 0x800 };
@@ -12,6 +13,19 @@ enum { Enum_ov017_0219bfb4_9196 = 0x23ec, Enum_ov017_0219bfb4_610 = 0x262, Enum_
 #include "Resource/GameResources.h"
 #include "NitroSDK/OverlayId.h"
 #include "World/Object3D.h"
+#include "Filesystem/FileIO.h"
+
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 
 struct Struct_02013fb4;
@@ -35,15 +49,15 @@ struct Struct_020a83fc_2 {
     int unknown_24_;
 };
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* GetFlagManager_0205ec34(void);
+extern "C" void* func_0205ec34(void);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_0206e558(void* arg0);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void __clear(void* arg0, unsigned int arg1);
 extern "C" void func_020a8170(Struct_020a8170* arg0);
 extern "C" void func_020a818c(void* arg0, SafeAllocator* arg1);
@@ -66,7 +80,6 @@ extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021b2bf4(Struct_0206f81c_3* arg0, unsigned int arg1);
 extern "C" void func_ov017_021b2c0c(Struct_0206f81c_4* arg0, unsigned int arg1);
 extern "C" void func_ov017_021b2bdc(Struct_0206f81c_5* arg0, unsigned int arg1);
-int LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
 extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3, void* arg4, unsigned char arg5);
@@ -78,7 +91,6 @@ extern "C" void func_ov004_021689d8(SafeAllocator* arg0, void* arg1);
 extern char data_ov017_021d75d0;
 extern char data_ov017_021d75dc;
 extern char data_ov017_021d75fa;
-extern char gFileScratchSpace_0211e33c;
 
 static inline unsigned char inline_ov017_0219bfb4(int arg0, int arg1) {
     return arg0 * 4 + arg1;
@@ -90,9 +102,9 @@ extern "C" ARM void func_ov017_0219bfb4(int arg0, unsigned short arg1) {
     GameState* var1 = GameState::GetInstance();
     char* var2 = (char*)GetParty_02010828(var1);
     char* var3 = (char*)GetZoneEntry_0200fd0c(var1);
-    void* var4 = GetLocalWireless_0202ae18();
+    void* var4 = func_0202ae18();
     char* var5 = (char*)GetZone3D_02012fe4();
-    unsigned char* var6 = (unsigned char*)GetFlagManager_0205ec34();
+    unsigned char* var6 = (unsigned char*)func_0205ec34();
     char* var7 = var5 + Enum_ov017_0219bfb4_9196;
     Queue_0201bdac_2* var8 = (Queue_0201bdac_2*)var0->unknown_ptr_array_36fc[0];
     unsigned char* var9 = (unsigned char*)var0->unknown_ptr_array_36fc[4];
@@ -111,11 +123,10 @@ extern "C" ARM void func_ov017_0219bfb4(int arg0, unsigned short arg1) {
         var7[Enum_ov017_0219bfb4_610] = 0;
     }
     if (arg0 == 2 && IsNotLocalWirelessGuest_0202c508(var4)) {
-        if (IsFlagSet_0206dfb0((int)var6, var6 + 0x8c, 0x2b)) {
+        if (func_0206dfb0((int)var6, var6 + 0x8c, 0x2b)) {
             char var12[0x533];
             __clear(var12, 0x533);
             SafeAllocator var13;
-            var13.ResetAllocatorPointer();
             var13.ResetAllocatorPointer();
             var13.CreateTypeA(var12, 0x533);
             char var14[0x10];
@@ -190,7 +201,7 @@ extern "C" ARM void func_ov017_0219bfb4(int arg0, unsigned short arg1) {
 
     BackgroundLoader::AddLockGlobal();
     unsigned int var21 = 0;
-    LoadFileIntoMemory(&data_ov017_021d75dc, &gFileScratchSpace_0211e33c, &var21);
+    LoadFileIntoMemory(&data_ov017_021d75dc, &g_fileScratchSpace, &var21);
     if (var21 == 0) {
         BackgroundLoader::RemoveLockGlobal();
         return;
@@ -212,8 +223,8 @@ extern "C" ARM void func_ov017_0219bfb4(int arg0, unsigned short arg1) {
         __clear(var29, 8);
         char var30[8];
         __clear(var30, 8);
-        func_02072928(var22, (Struct_02013fb4*)&gFileScratchSpace_0211e33c, var21, var24, var29, var27);
-        func_02072928(var22, (Struct_02013fb4*)&gFileScratchSpace_0211e33c, var21, var24, var30, var28);
+        func_02072928(var22, (Struct_02013fb4*)&g_fileScratchSpace, var21, var24, var29, var27);
+        func_02072928(var22, (Struct_02013fb4*)&g_fileScratchSpace, var21, var24, var30, var28);
         int var31 = 0;
         int var32 = 0;
         if (func_020d3018(var29, &data_ov017_021d75fa)) {
@@ -235,7 +246,7 @@ extern "C" ARM void func_ov017_0219bfb4(int arg0, unsigned short arg1) {
             } else {
                 var34 = (unsigned int)var26 * 4 + 3;
             }
-            func_02072928(var22, (Struct_02013fb4*)&gFileScratchSpace_0211e33c, var21, var24, var23, var34);
+            func_02072928(var22, (Struct_02013fb4*)&g_fileScratchSpace, var21, var24, var23, var34);
             break;
         }
     }
@@ -251,4 +262,9 @@ extern "C" ARM void func_ov017_0219bfb4(int arg0, unsigned short arg1) {
         var10[0x21] = var35;
         AppendToQueue_020469b4(var8, (QueueNode_0201bdac*)var10);
     }
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

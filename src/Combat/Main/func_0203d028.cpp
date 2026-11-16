@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(4)));
+extern unsigned char g_fileScratchSpace[0x30000] __attribute__((aligned(4)));
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
 #include "Combat/Main/BattleList.h"
@@ -12,6 +12,11 @@ extern unsigned char gFileScratchSpace_0211e33c[0x30000] __attribute__((aligned(
 #include "std_library_functions.h"
 #include "World/Object3D.h"
 #include "GameState/GameState.h"
+#include "Graphics/TextureArena.h"
+
+#if defined(jpn)
+#define func_020d6c00 func_020d8608
+#endif
 
 #if defined(jpn)
 #define func_020daf90 func_020dc998
@@ -70,7 +75,7 @@ struct Struct_0203d028_8 {
     struct Struct_0203d028_7* inline_0203d028_2() { return &unknown_1840_; }
 };
 extern "C" struct Struct_0203d028_8* GetZone3D_02012fe4(void);
-extern "C" unsigned int* GetGlobalFlags_020d6c00(void);
+extern "C" unsigned int* func_020d6c00(void);
 
 extern "C" int func_020981e4(int arg0, int arg1);
 extern "C" int func_02098210(int arg0, int arg1);
@@ -129,8 +134,6 @@ struct ObjectArchiveLoadInfo_0203d028_11 {
 };
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo);
 
-extern "C" void RestoreTextureVRAMState_0207df90(char* area);
-extern "C" void SaveTextureVRAMState_0207dfac(char* area);
 
 struct Struct_0203d028_12;
 extern "C" struct Struct_0203d028_12* func_0209854c(struct Struct_0203d028_12* arg0, int arg1);
@@ -170,7 +173,6 @@ extern "C" void func_0203f138(void* arg0, int arg1);
 extern "C" void func_0203e8f8(void* arg0, void* arg1, void* arg2);
 
 struct TextureVRAMArea_0203d028;
-extern "C" void ResetTextureVRAMState_0207df50(struct TextureVRAMArea_0203d028* area);
 
 struct GameState;
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState*, int);
@@ -342,7 +344,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
 #else
 #define GLOBAL_SUB ((char*)var3 + 0x840)
 #endif
-    unsigned int* var5 = GetGlobalFlags_020d6c00();
+    unsigned int* var5 = func_020d6c00();
     unsigned int var6 = *(unsigned short*)var3;
     void* var7 = 0;
     unsigned int var8 = 0;
@@ -390,16 +392,16 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
             func_02041244(var10->unknown_18_);
             char var24[40];
             sprintf(var24, &data_020efdc4, var2->unknown1_4_);
-            void* var25 = LoadFileIntoNewAllocation(var24, *arg2, &var13);
+            void* var25 = LoadFileIntoNewAllocation(var24, &(*arg2), &var13);
             if (var25 == 0) goto abort_unlock;
             struct ObjectArchiveLoadInfo_0203d028_11 var26;
             ClearObjectArchiveLoadInfo_0203dafc(&var26);
-            RestoreTextureVRAMState_0207df90(arg3);
+            ((TextureArena*)(arg3))->Restore();
             var26.unknown_c_ = (int)arg2;
             var26.unknown_4_ = (int)var25;
             var26.unknown_8_ = (int)var13;
             ((Object3D*)var10->unknown_18_)->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&var26, 0);
-            SaveTextureVRAMState_0207dfac(arg3);
+            ((TextureArena*)(arg3))->Save();
         }
         else if (var2->unknown_2_ == 4) {
 #if defined(jpn)
@@ -476,7 +478,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
                     char* var38 = &inline_0203d028_5(var1, 0x930);
                     var2->unknown_2_ = 0;
                     var37->Reset();
-                    ResetTextureVRAMState_0207df50((struct TextureVRAMArea_0203d028*)var38);
+                    ((TextureArena*)((struct TextureVRAMArea_0203d028*)var38))->Reset();
                     ClearGameObjectByIndex_0200fd48((GameState*)var0, 5);
                     ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var5, 0x400000);
                 }
@@ -501,17 +503,15 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
             char var41[16];
             sprintf(var41, &data_020efde9, var2->unknown1_4_);
 
-            if (!LoadAndDecompressGPCHeaderAndInnerFileInfo(&PAIR.pGPCFile, var39.machine,
-                    &data_020efdf0, gFileScratchSpace_0211e33c, var14, 0x30000, false, NULL))
+            if (!LoadAndDecompressGPCHeaderAndInnerFileInfo(&PAIR.pGPCFile, &var39.machine, &data_020efdf0, g_fileScratchSpace, &var14, 0x30000, false, NULL))
             {
                 PAIR.Reset();
                 ZeroDestroyGPCPointer(&PAIR.pGPCFile);
                 goto abort_unlock;
             }
 
-            unsigned char* var42 = gFileScratchSpace_0211e33c + var14;
-            if (!DecompressFileFromGPCByName(var39.pGPCFile, var39.machine,
-                    var42, var15, 0x30000 - var14, var41))
+            unsigned char* var42 = g_fileScratchSpace + var14;
+            if (!DecompressFileFromGPCByName(&var39.pGPCFile, &var39.machine, var42, &var15, 0x30000 - var14, var41))
             {
                 var39.Reset();
                 var39.Reset();
@@ -526,16 +526,16 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
                 goto abort_unlock;
             }
 
-            var23 = DecompressLZ77FileIntoAllocatedSpace(*arg2, var17, var18);
+            var23 = DecompressLZ77FileIntoAllocatedSpace(&(*arg2), var17, &var18);
 
             struct ObjectArchiveLoadInfo_0203d028_11 var43;
             ClearObjectArchiveLoadInfo_0203dafc(&var43);
-            RestoreTextureVRAMState_0207df90(arg3);
+            ((TextureArena*)(arg3))->Restore();
             var43.unknown_c_ = (int)arg2;
             var43.unknown_4_ = (int)var23;
             var43.unknown_8_ = (int)var18;
             ((Object3D*)var10->unknown_18_)->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&var43, 0);
-            SaveTextureVRAMState_0207dfac(arg3);
+            ((TextureArena*)(arg3))->Save();
 
             var10->unknown_18_->unknown_d4_ |= 2;
             var39.Reset();
@@ -588,7 +588,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
             if (var12 == 0 && var11->unknown_54_ != 0) {
                 char var47[60];
                 sprintf(var47, &data_020efe30, var11->unknown_54_);
-                void* var48 = LoadFileIntoNewAllocation(var47, *arg2, &var19);
+                void* var48 = LoadFileIntoNewAllocation(var47, &(*arg2), &var19);
                 if (var48 != 0) {
                     int var49 = 0;
                     struct Struct_0203d028_26* var50 = 0;
@@ -615,16 +615,16 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
                     var7 = arg2->Allocate(0xac);
                     if (var7 == 0) goto abort_unlock;
                     ((Object3D*)var7)->Initialize();
-                    var22 = LoadFileIntoNewAllocation(&data_020efe38, *arg2, &var20);
+                    var22 = LoadFileIntoNewAllocation(&data_020efe38, &(*arg2), &var20);
                     if (var22 != 0) {
                         struct ObjectArchiveLoadInfo_0203d028_11 var52;
                         ClearObjectArchiveLoadInfo_0203dafc(&var52);
-                        RestoreTextureVRAMState_0207df90(arg3);
+                        ((TextureArena*)(arg3))->Restore();
                         var52.unknown_4_ = (int)var22;
                         var52.unknown_8_ = (int)var20;
                         var52.unknown_c_ = (int)arg2;
                         ((Object3D*)((int)var7))->LoadFromCHRArchive((ObjectArchiveLoadInfo*)((int)&var52));
-                        SaveTextureVRAMState_0207dfac(arg3);
+                        ((TextureArena*)(arg3))->Save();
                     }
                     ((Object3D*)((struct Struct_0203d028_18*)var7))->SetScale(0x10a, 0x10a, 0x10a);
                     ((Object3D*)((unsigned char*)var7))->SetFlag16();

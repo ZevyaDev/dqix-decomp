@@ -1,20 +1,18 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
+#include "Graphics/OBJSpriteSet.h"
 
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 
 struct Struct_0205af18;
-extern "C" int func_0205af18(int arg0, struct Struct_0205af18* arg1);
 extern "C" void* func_ov023_021fa854(char* arg0, unsigned int arg1);
 extern "C" void func_ov023_021f6e10(void* arg0, int arg1, unsigned int arg2);
 extern "C" int GetMessageWindow_020421a0();
 
 extern "C" int func_ov023_021fad20(const void* arg0, const char* arg1, const void** arg2, unsigned int* arg3);
-extern "C" void LoadSpriteSetFile_0205a528(void* spriteSet, void* fileData, int size, void* allocator);
 
 struct SpriteAnimationList_02043368;
-extern "C" void InitSpriteAnimationList_0205a234(struct SpriteAnimationList_02043368* animationList);
 
 struct Struct_ov023_021f6d14_2 { unsigned int unknown_0_; int unknown_4_; void* unknown_8_; void* unknown_c_; };
 struct Struct_ov023_021f6d14;
@@ -40,20 +38,20 @@ extern "C" ARM void func_ov023_021fab48(void* arg0, void* arg1, const void* arg2
     const void* var1;
     unsigned int var2;
     if (func_ov023_021fad20(arg2, data_ov023_021fec44, &var1, &var2) != 0) {
-        LoadSpriteSetFile_0205a528((char*)arg0 + Enum_ov023_021fab48_36, (void*)var1, (int)var2, (char*)var0 + 4);
+        ((OBJSpriteSet*)((char*)arg0 + Enum_ov023_021fab48_36))->LoadFromNitroFile((void*)((void*)var1), (int)var2, (SafeAllocator*)((char*)var0 + 4));
     }
     if (func_ov023_021fad20(arg2, data_ov023_021fec49, &var1, &var2) != 0) {
-        LoadSpriteSetFile_0205a528((char*)arg0 + Enum_ov023_021fab48_36, (void*)var1, (int)var2, (char*)var0 + 4);
+        ((OBJSpriteSet*)((char*)arg0 + Enum_ov023_021fab48_36))->LoadFromNitroFile((void*)((void*)var1), (int)var2, (SafeAllocator*)((char*)var0 + 4));
     }
     if (func_ov023_021fad20(arg2, data_ov023_021fec4e, &var1, &var2) != 0) {
-        LoadSpriteSetFile_0205a528((char*)arg0 + Enum_ov023_021fab48_36, (void*)var1, (int)var2, (char*)var0 + 4);
+        ((OBJSpriteSet*)((char*)arg0 + Enum_ov023_021fab48_36))->LoadFromNitroFile((void*)((void*)var1), (int)var2, (SafeAllocator*)((char*)var0 + 4));
     }
     if (func_ov023_021fad20(arg2, data_ov023_021fec53, &var1, &var2) != 0) {
         void* var3 = ((SafeAllocator*)((char*)var0 + 4))->Allocate(8);
         if (var3 != 0) {
-            InitSpriteAnimationList_0205a234((struct SpriteAnimationList_02043368*)var3);
+            ((OBJSpriteSet::List*)((struct SpriteAnimationList_02043368*)var3))->Reset();
             *(void**)((char*)arg0 + Enum_ov023_021fab48_96) = var3;
-            LoadSpriteSetFile_0205a528((char*)arg0 + Enum_ov023_021fab48_36, (void*)var1, (int)var2, (char*)var0 + 4);
+            ((OBJSpriteSet*)((char*)arg0 + Enum_ov023_021fab48_36))->LoadFromNitroFile((void*)((void*)var1), (int)var2, (SafeAllocator*)((char*)var0 + 4));
         }
     }
 
@@ -68,7 +66,7 @@ extern "C" ARM void func_ov023_021fab48(void* arg0, void* arg1, const void* arg2
     for (unsigned int var6 = 0; var6 < *(unsigned short*)((char*)arg0 + Enum_ov023_021fab48_114); var6++) {
         void* var7 = func_ov023_021fa854((char*)arg0 + Enum_ov023_021fab48_36, (unsigned short)var6);
         if (var7 != 0) {
-            int var8 = func_0205af18((int)((char*)arg0 + Enum_ov023_021fab48_36), (struct Struct_0205af18*)var7);
+            int var8 = ((int)((OBJSpriteSet*)((int)((char*)arg0 + Enum_ov023_021fab48_36)))->GetMetatilePalette((const OBJSpriteSet::Metatile*)((struct Struct_0205af18*)var7)));
             unsigned char var9 = *(unsigned char*)((char*)arg0 + Enum_ov023_021fab48_116);
             func_ov023_021f6e10(var4, var9, (unsigned int)var8);
         }

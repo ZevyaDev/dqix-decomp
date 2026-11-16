@@ -84,3 +84,8 @@ extern "C" ARM int func_ov017_0218dd18(Object3D* arg0, Struct_ov017_0218dd18_2* 
     }
     return 1;
 }
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
+}

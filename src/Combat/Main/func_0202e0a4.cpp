@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "Graphics/Vector.h"
+#include "NitroSDK/Matrix.h"
 
 struct Camera_0202e0a4 {
     unsigned int unknown_0_;
@@ -37,7 +38,6 @@ struct Camera_0202e0a4 {
 extern "C" void func_0202ef14(Camera_0202e0a4*);
 extern "C" void func_0202f0e0(Camera_0202e0a4*);
 extern const Vector3i data_020e73c0;
-extern const short data_020e9450[];
 
 static inline void inline_0202e0a4(Vector3i& arg0, Vector3i& arg1, short arg2) {
     Vector3i var0;
@@ -58,8 +58,8 @@ extern "C" ARM void UpdateCamera_0202e0a4(Camera_0202e0a4* camera) {
         Mat4x3_ApplyToVector(&camera->transformedEye_120_, &camera->transform_f0_, &camera->transformedEye_120_);
         Mat4x3_ApplyToVector(&camera->transformedTarget_12c_, &camera->transform_f0_, &camera->transformedTarget_12c_);
     }
-    Mat4x4_MaybeWriteFrustum(camera->projectionParams_5c_[0], camera->projectionParams_5c_[1], camera->projectionParams_5c_[2], camera->projectionParams_5c_[3], camera->projectionParams_5c_[4], 0x1000, &gRenderConfig_0210a010.projectionMatrix);
-    gRenderConfig_0210a010.flags &= ~0x50;
+    Mat4x4_MaybeWriteFrustum(camera->projectionParams_5c_[0], camera->projectionParams_5c_[1], camera->projectionParams_5c_[2], camera->projectionParams_5c_[3], camera->projectionParams_5c_[4], 0x1000, &g_nitro3DRenderConfig.projectionMatrix);
+    g_nitro3DRenderConfig.flags &= ~0x50;
     if (camera->roll_7c_ == 0) {
         camera->up_1c_.x = 0;
         camera->up_1c_.y = 0x1000;
@@ -89,7 +89,7 @@ extern "C" ARM void UpdateCamera_0202e0a4(Camera_0202e0a4* camera) {
         }
     }
     if (camera->shakeAmplitude_1e4_ > 0) {
-        const Matrix4x3& viewMatrix = gRenderConfig_0210a010.viewMatrix;
+        const Matrix4x3& viewMatrix = g_nitro3DRenderConfig.viewMatrix;
         Vector3i viewRow0 = { viewMatrix.rows[0].x, viewMatrix.rows[0].y, viewMatrix.rows[0].z };
         Vector3i viewRow1 = { viewMatrix.rows[1].x, viewMatrix.rows[1].y, viewMatrix.rows[1].z };
         switch (rand() % 4) {
@@ -118,7 +118,7 @@ extern "C" ARM void UpdateCamera_0202e0a4(Camera_0202e0a4* camera) {
     if (camera->isSwaying_1f8_) {
         unsigned int tickCount = GameState::GetInstance()->GetTickCount();
         camera->swayAngle_1fa_ += (int)(camera->swaySpeed_200_ * (float)(tickCount * 182));
-        camera->swayOffset_1fc_ = data_020e9450[(camera->swayAngle_1fa_ >> 4) * 2 + 1] >> 3;
+        camera->swayOffset_1fc_ = g_fixSinCosTable[(camera->swayAngle_1fa_ >> 4) * 2 + 1] >> 3;
         camera->swayOffset_1fc_ = FIX32_MULTIPLY(camera->swayOffset_1fc_, camera->swayAmplitude_204_);
         eye.y += camera->swayOffset_1fc_;
         target.y += camera->swayOffset_1fc_;
@@ -130,14 +130,14 @@ extern "C" ARM void UpdateCamera_0202e0a4(Camera_0202e0a4* camera) {
     if (panAngle) {
         inline_0202e0a4(eye, target, panAngle);
     }
-    gRenderConfig_0210a010.eyeVector = eye;
-    gRenderConfig_0210a010.upVector = camera->up_1c_;
-    gRenderConfig_0210a010.targetVector = target;
-    Mat4x3_WriteViewMatrix(&eye, &camera->up_1c_, &target, &gRenderConfig_0210a010.viewMatrix);
-    gRenderConfig_0210a010.flags &= ~0xe8;
+    g_nitro3DRenderConfig.eyeVector = eye;
+    g_nitro3DRenderConfig.upVector = camera->up_1c_;
+    g_nitro3DRenderConfig.targetVector = target;
+    Mat4x3_WriteViewMatrix(&eye, &camera->up_1c_, &target, &g_nitro3DRenderConfig.viewMatrix);
+    g_nitro3DRenderConfig.flags &= ~0xe8;
     Vector3fix_Subtract(&camera->transformedTarget_12c_, &camera->transformedEye_120_, &camera->viewDirection_138_);
     Vector3fix_Normalize(&camera->viewDirection_138_, &camera->viewDirection_138_);
-    const Matrix4x3* inverseViewMatrix = RenderConfig::GetInverseViewMatrix();
+    const Matrix4x3* inverseViewMatrix = Nitro3DRenderConfig::GetInverseViewMatrix();
     camera->inverseViewRotation_144_.entries[0] = inverseViewMatrix->entries[0];
     camera->inverseViewRotation_144_.entries[1] = inverseViewMatrix->entries[1];
     camera->inverseViewRotation_144_.entries[2] = inverseViewMatrix->entries[2];

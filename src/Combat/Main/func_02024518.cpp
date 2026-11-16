@@ -2,8 +2,13 @@
 #include "Combat/ActionDisplay.h"
 #include "GameState/GameState.h"
 #include "World/Zone3D.h"
+#include "World/Zone3DTypes.h"
 #include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
+
+#if defined(jpn)
+#define func_0201b5b0 func_0201b328
+#endif
 
 #if defined(jpn)
 enum { Enum_02024518_2496 = 0x914, Enum_02024518_12 = 0x4c };
@@ -74,6 +79,8 @@ extern "C" int func_020243b8(void *arg0, int arg1);
 extern "C" int func_02024d48(Struct_020236dc* arg0, int arg1);
 extern "C" void func_0202756c(void *arg0, int arg1, int arg2, int arg3, unsigned char arg4, unsigned char arg5,
                               unsigned short arg6, unsigned char arg7, int arg8, int arg9);
+
+static inline ActiveGrottoClass* inline_02024518_2(Zone3D* arg0) { return &arg0->grotto_; }
 
 // USA: func_02024518
 // JPN: func_02023eec
@@ -156,7 +163,7 @@ extern "C" ARM void func_02024518(Struct_02024518_4 *arg0) {
             } else {
                 var20[var25 * 2 + 1] |= 1U << (var24 - 8);
             }
-            ActiveGrottoClass* var26 = var5->inline_02024518_2();
+            ActiveGrottoClass* var26 = inline_02024518_2(var5);
             func_02027974(arg0, var26->floorMap_.pMapAdjacencyData, arg0->unknown_6c_);
         }
         arg0->unknown_55c_ = 0;

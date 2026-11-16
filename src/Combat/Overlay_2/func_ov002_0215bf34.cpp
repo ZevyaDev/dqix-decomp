@@ -3,6 +3,7 @@
 #include "GameState/GameState.h"
 #include "Combat/Main/BattleList.h"
 #include "Resource/CharacterCreationUI.h"
+#include "Resource/GameStrings.h"
 
 #if defined(jpn)
 enum { Enum_ov002_0215bf34_3784 = 0xe20, Enum_ov002_0215bf34_7120 = 0x1a98, Enum_ov002_0215bf34_2400 = 0x800, Enum_ov002_0215bf34_41 = 44 };
@@ -29,7 +30,6 @@ extern "C" int GetMessageWindow_020421a0();
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char*, int, unsigned char);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char*, int, unsigned char);
-extern "C" int GetStandardString_020e51cc(int);
 extern "C" void SetNextTextWindow_ov002_0215be00(void*, int, short, short);
 extern "C" void ClearMessageParams_02046380(void*);
 extern "C" void UpdateTextWindowManager_0205d0e0(void*, int);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov002_0215bf34(char* arg0) {
 #if defined(jpn)
     func_020474a8(var2, 8, data_ov002_0216d908, var0->unknown_1bd0_);
 #else
-    int var4 = GetStandardString_020e51cc(0x3f1);
+    int var4 = ((int)GetGameString((eGameString)(0x3f1)));
     func_02046608(var2, 8, var4, ((int)(var0->unknown_1bd0_)), 0x100, 0, 0);
 #endif
     OpenTextWindow_0205d304(&var0->unknown_ec8_, var0->unknown_1bd0_, 0, 0, 0,

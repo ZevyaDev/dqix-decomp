@@ -3,6 +3,10 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#endif
+
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" int CollectAllEnemyCombatantIndices_ov000_0215ec1c(int battle, short* indices, int maxCount, int arg3);
 extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
@@ -36,7 +40,7 @@ struct Struct_ov025_021dc168_3 {
 extern "C" ARM void func_ov025_021dc168(struct Struct_ov025_021dc168_3* arg0) {
     GameState* var0 = GameState::GetInstance();
     int var1 = arg0->unknown_29c_;
-    GetCamera_020100bc(var0);
+    func_020100bc(var0);
     GetGameResources();
 
     short var2[12];

@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Graphics/SpriteAffineTransform.h"
 #include "Resource/CharacterCreationUI.h"
+#include "Graphics/OBJSpriteSet.h"
 
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0 {
@@ -8,7 +9,6 @@ struct TextWindow_0205d0e0 {
     short tileX_ac_, tileY_ae_;
 };
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
-extern "C" void DrawSprite_0205ac40(SpriteSet_0205ac40*, Sprite_0205ac40_2*);
 
 #if defined(jpn)
 enum { Enum_ov023_021e6b04_4928 = 0x1340, Enum_ov023_021e6b04_172 = 0x90, Enum_ov023_021e6b04_4956 = 0x1334, Enum_ov023_021e6b04_4964 = 0x133c };
@@ -88,5 +88,5 @@ extern "C" ARM void func_ov023_021e6b04(char* arg0) {
     var16->position_14_[1] = var18 << 12;
     var16->priorityOverride_26_ = 0;
 #endif
-    DrawSprite_0205ac40(var0->unknown_135c_, var16);
+    ((OBJSpriteSet*)(var0->unknown_135c_))->DrawMetatile((OBJSpriteSet::Metatile*)(var16));
 }

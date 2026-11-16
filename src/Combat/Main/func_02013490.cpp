@@ -2,6 +2,10 @@
 #include "World/BmdjScriptNode.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_02013490 func_02013258
+#endif
+
 // USA: func_02013490
 extern "C" ARM void func_02013490(Struct_02013490* arg0) {
     arg0->unknown_0_ = NULL;

@@ -1,5 +1,15 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Graphics/BGLayer.h"
+#include "Graphics/OBJSpriteSet.h"
+
+#if defined(jpn)
+#define func_0203be4c func_0203b8a4
+#endif
+
+#if defined(jpn)
+#define func_0203bd08 func_0203b760
+#endif
 
 #if defined(jpn)
 #define func_ov006_021580b8 func_ov006_02159668
@@ -58,20 +68,11 @@ struct Struct_ov006_02156e54_2 {
 extern "C" int func_ov006_02158080(MenuLayout_0207fdcc_2*, int);
 extern "C" void func_ov006_02158054(void*, Struct_ov006_02158054*, int, int, unsigned char, unsigned char);
 extern "C" void func_ov006_02154a60(Struct_ov006_02154614*);
-extern "C" void ClearBGScreenData_0204b010(BGLayer_0204b010*, void*);
-extern "C" void* GetBGScreenBlock_0204af14(BGLayer_0204af14*, unsigned int);
-extern "C" void func_0204b938(void*, void*, int, int, unsigned short);
-extern "C" int GetGameLanguage_0200fb08(Struct_02000c9c_8*);
-extern "C" void CopyBGScreenBlockRect_0204b8d0(BGLayer_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+extern "C" int func_0200fb08(Struct_02000c9c_8*);
 extern "C" void ClearMenuLayoutBGScreenData_0207fcb8(MenuLayout_0207fcb8*);
 extern "C" void func_0207fd00(Struct_0207fd00*);
 extern "C" void func_0207fe80(void*, int, int, int);
-extern "C" void FlushBGScreenData_0204b04c(void*, int);
 extern "C" void FlushMenuLayoutBGScreenData_0207fd44(MenuLayout_0207fd44_2*);
-extern "C" void PlaySpriteAnimation_0205a370(SpriteAnimationList_0205a254*, int);
-extern "C" Struct_ov006_021580b8_2* FindSpriteAnimation_0205a3d0(SpriteAnimationList_0205a254*, int);
-extern "C" void AdvanceSpriteAnimations_0205a330(SpriteAnimationList_0205a330*, int);
-extern "C" void DrawSpriteAnimations_0205ae8c(void*);
 extern "C" int func_020e28dc(Struct_020e28dc*);
 extern "C" void func_020e2794(Struct_020e2794_2*, void*);
 extern "C" void func_ov006_021585c4(Struct_ov006_02157a60*);
@@ -79,9 +80,8 @@ extern "C" void func_ov006_0215868c(Struct_ov006_02157a60*);
 extern "C" void func_ov006_021587d0(Struct_ov006_02157a60*);
 extern "C" void func_ov006_02158914(Struct_ov006_02157a60*);
 extern "C" void func_020807c4(void*, int, short*, short*);
-extern "C" void DrawSprite_0205ac40(void*, Struct_ov006_021580b8*);
-extern "C" void* GetOAMManager_0203bd08();
-extern "C" unsigned int GetSubOAMBuffer_0203be4c(void*);
+extern "C" void* func_0203bd08();
+extern "C" unsigned int func_0203be4c(void*);
 extern "C" void func_02076988(int*, int, int);
 extern "C" void func_02075db0(Struct_02075db0*, int, int);
 
@@ -195,14 +195,14 @@ extern "C" ARM void func_ov006_021580b8(Struct_ov006_02157a60* arg0)
             arg0->unknown_42c_ = 0;
         }
         func_ov006_02154a60(arg0->unknown_10_);
-        ClearBGScreenData_0204b010((BGLayer_0204b010*)arg0->unknown_54_, 0);
-        void* var0 = GetBGScreenBlock_0204af14((BGLayer_0204af14*)arg0->unknown_54_, arg0->unknown_397_);
+        ((BGLayer*)((BGLayer_0204b010*)arg0->unknown_54_))->PrepareIndexBuffer((void*)(0));
+        void* var0 = ((void*)((BGLayer*)((BGLayer_0204af14*)arg0->unknown_54_))->GetSprite(arg0->unknown_397_));
         if (var0 != 0)
-            func_0204b938(arg0->unknown_54_, var0, 0, 0, 0xffff);
+            ((BGLayer*)(arg0->unknown_54_))->BlitSprite((const BGLayer::Sprite*)(var0), 0, 0, 0xffff);
 #if !defined(jpn)
         if (arg0->unknown_397_ == 1)
         {
-            unsigned int var1 = GetGameLanguage_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
+            unsigned int var1 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
             unsigned char var2 = 1;
             switch (var1)
             {
@@ -220,37 +220,37 @@ extern "C" ARM void func_ov006_021580b8(Struct_ov006_02157a60* arg0)
                 break;
             }
             if (var2 > 1)
-                CopyBGScreenBlockRect_0204b8d0((BGLayer_0204b8d0*)arg0->unknown_54_, var2, 0, 0, 0x16, 2, 9, 2, 0xffff);
+                ((BGLayer*)((BGLayer_0204b8d0*)arg0->unknown_54_))->BlitSpriteByIndex(var2, 0, 0, 0x16, 2, 9, 2, 0xffff);
         }
 #endif
         void* var3 = arg0->unknown_14_;
         ClearMenuLayoutBGScreenData_0207fcb8((MenuLayout_0207fcb8*)var3);
         func_0207fd00((Struct_0207fd00*)var3);
         func_0207fe80(var3, 2, 1, 1);
-        FlushBGScreenData_0204b04c(arg0->unknown_54_, 0);
+        ((BGLayer*)(arg0->unknown_54_))->CleanIndexBufferCache((const void*)(0));
         FlushMenuLayoutBGScreenData_0207fd44((MenuLayout_0207fd44_2*)var3);
         if (arg0->unknown_394_ & 0x200)
         {
             arg0->unknown_42c_ = 0;
-            PlaySpriteAnimation_0205a370((SpriteAnimationList_0205a254*)arg0->unknown_28_, 1);
-            Struct_ov006_021580b8_2* var4 = FindSpriteAnimation_0205a3d0((SpriteAnimationList_0205a254*)arg0->unknown_28_, 0);
+            ((OBJSpriteSet::List*)((SpriteAnimationList_0205a254*)arg0->unknown_28_))->PlaySpriteAnimation(1);
+            Struct_ov006_021580b8_2* var4 = ((Struct_ov006_021580b8_2*)((OBJSpriteSet::List*)((SpriteAnimationList_0205a254*)arg0->unknown_28_))->GetSprite(0));
             if (var4 != 0)
                 var4->unknown_15_ &= ~8;
-            var4 = FindSpriteAnimation_0205a3d0((SpriteAnimationList_0205a254*)arg0->unknown_28_, 1);
+            var4 = ((Struct_ov006_021580b8_2*)((OBJSpriteSet::List*)((SpriteAnimationList_0205a254*)arg0->unknown_28_))->GetSprite(1));
             if (var4 != 0)
                 var4->unknown_15_ |= 8;
-            AdvanceSpriteAnimations_0205a330((SpriteAnimationList_0205a330*)arg0->unknown_28_, arg0->unknown_34c_);
-            var4 = FindSpriteAnimation_0205a3d0((SpriteAnimationList_0205a254*)arg0->unknown_28_, 1);
+            ((OBJSpriteSet::List*)((SpriteAnimationList_0205a330*)arg0->unknown_28_))->UpdateAll(arg0->unknown_34c_);
+            var4 = ((Struct_ov006_021580b8_2*)((OBJSpriteSet::List*)((SpriteAnimationList_0205a254*)arg0->unknown_28_))->GetSprite(1));
             if (var4 != 0)
             {
                 var4->unknown_4_ = 0xd7;
                 var4->unknown_6_ = 0x96;
             }
-            DrawSpriteAnimations_0205ae8c(arg0->unknown_ac_);
+            ((OBJSpriteSet*)(arg0->unknown_ac_))->DrawAll();
         }
         else
         {
-            Struct_ov006_021580b8_2* var5 = FindSpriteAnimation_0205a3d0((SpriteAnimationList_0205a254*)arg0->unknown_28_, 1);
+            Struct_ov006_021580b8_2* var5 = ((Struct_ov006_021580b8_2*)((OBJSpriteSet::List*)((SpriteAnimationList_0205a254*)arg0->unknown_28_))->GetSprite(1));
             if (var5 != 0)
                 var5->unknown_15_ &= ~8;
         }
@@ -282,9 +282,9 @@ extern "C" ARM void func_ov006_021580b8(Struct_ov006_02157a60* arg0)
             var9->unknown_18_ = (var8 + 4) << 12;
             var9->unknown_22_ = 0x32;
             var9->unknown_26_ = 1;
-            DrawSprite_0205ac40(arg0->unknown_ac_, var9);
+            ((OBJSpriteSet*)(arg0->unknown_ac_))->DrawMetatile((OBJSpriteSet::Metatile*)(var9));
         }
-        unsigned int var10 = GetSubOAMBuffer_0203be4c(GetOAMManager_0203bd08());
+        unsigned int var10 = func_0203be4c(func_0203bd08());
         arg0->unknown_3b8_.unknown_4c_ = 0;
         arg0->unknown_3b8_.unknown_14_ = var10 + 0x1b8;
         arg0->unknown_3b8_.unknown_44_ = 0x37;

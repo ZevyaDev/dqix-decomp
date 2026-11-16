@@ -3,6 +3,10 @@
 #include "Combat/FieldActorState.h"
 #include "Graphics/Vector.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_02077788_2;
 extern "C" int func_02077a20(struct Struct_02077788_2* arg0);
 
@@ -17,7 +21,7 @@ extern "C" void func_020794f8(void* arg0, int arg1, int arg2);
 
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int func_020322c0(void* arg0, int* arg1);
 extern "C" Vector3fix func_02034104(void* arg0);
@@ -31,7 +35,7 @@ extern "C" void SetMotionIfDifferent_02033b68(struct Struct_02033b68* object, in
 // USA: func_02077be0
 extern "C" ARM void func_02077be0(FieldMonster_02076a8c* arg0) {
     GameState* var0 = GameState::GetInstance();
-    void* var1 = GetLocalWireless_0202ae18();
+    void* var1 = func_0202ae18();
     GameObject* var2 = var0->GetPartyMemberByIndex(arg0->unknown_166_);
     if (var2 == NULL) {
         return;
@@ -71,7 +75,7 @@ extern "C" ARM void func_02077be0(FieldMonster_02076a8c* arg0) {
 
     int var10 = Vector3fix_Distance(&var3, &var5);
     unsigned short var11 = arg0->unknown_166_;
-    if (var2->obj3D_.classFlags_0_ & 0x1000) {
+    if (var2->obj3D_.unknown_0_ & 0x1000) {
         var11 = 0;
     }
 

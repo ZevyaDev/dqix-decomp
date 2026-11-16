@@ -5,9 +5,13 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "NitroSDK/Cache.h"
 
+#if defined(jpn)
+#define func_02012da4 func_02012b6c
+#endif
+
 extern "C" GameObject* func_ov017_021bdbc0(unsigned char* arg0);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void FreeMemory_02012da4(AllocatorUnion* allocator, void* block);
+extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 
 struct Struct_ov017_021d6260 {
     int unknown_0_[14];
@@ -27,8 +31,8 @@ static inline unsigned short inline_ov017_0218f968_3(unsigned short arg0) {
     return (arg0 & 0x7c00) >> 10;
 }
 
-static inline unsigned int inline_ov017_0218fd34(NSBXXTex* arg0) {
-    return (arg0->block4VRAMLoadOffset_ & 0xffff) << 3;
+static inline unsigned int inline_ov017_0218fd34(Nitro3DTextureSet* arg0) {
+    return (arg0->block4VRAMLoadOffset & 0xffff) << 3;
 }
 
 // USA: func_ov017_0218fd34
@@ -81,7 +85,7 @@ extern "C" ARM void func_ov017_0218fd34(unsigned char* arg0, int arg1, unsigned 
         if (var12 == NULL) {
             continue;
         }
-        NSBXXTex* var13 = var12->GetTEX0();
+        Nitro3DTextureSet* var13 = var12->GetTEX0();
         if (var13 == NULL) {
             continue;
         }
@@ -89,8 +93,8 @@ extern "C" ARM void func_ov017_0218fd34(unsigned char* arg0, int arg1, unsigned 
         unsigned int var15;
         unsigned int var16;
         var16 = inline_ov017_0218fd34(var13);
-        var14 = (unsigned short*)((char*)var13 + var13->block4Offset_);
-        var15 = var13->block4NumEightBytes_ << 3;
+        var14 = (unsigned short*)((char*)var13 + var13->block4Offset);
+        var15 = var13->block4NumEightBytes << 3;
 
         if (var7 == 0) {
             var6[var9] = (unsigned short*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var15);
@@ -116,7 +120,7 @@ extern "C" ARM void func_ov017_0218fd34(unsigned char* arg0, int arg1, unsigned 
                 }
                 var6[var9][var17] = var19 | (var20 << 5) | (var21 << 10);
             }
-            DC_FlushRange(var6[var9], var15);
+            CleanInvalidateCacheRange((const void*)(var6[var9]), var15);
             StageMemoryToVRAM(VRAMSubregion_TexturePalette, var6[var9], var16, var15, false, true);
         } else if (var7 == 1) {
             var6[var9] = (unsigned short*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var15);
@@ -126,7 +130,7 @@ extern "C" ARM void func_ov017_0218fd34(unsigned char* arg0, int arg1, unsigned 
             for (unsigned int var22 = 0; var22 < var15 / 2; var22++) {
                 var6[var9][var22] = arg2;
             }
-            DC_FlushRange(var6[var9], var15);
+            CleanInvalidateCacheRange((const void*)(var6[var9]), var15);
             StageMemoryToVRAM(VRAMSubregion_TexturePalette, var6[var9], var16, var15, false, true);
         } else if (var7 == 2) {
             var6[var9] = (unsigned short*)AllocateRoundedSize_02012d88(&gMainHeap_02114e20, var15);
@@ -146,7 +150,7 @@ extern "C" ARM void func_ov017_0218fd34(unsigned char* arg0, int arg1, unsigned 
                 unsigned short var33 = var30 * var25;
                 var6[var9][var26] = var31 | (var32 << 5) | (var33 << 10);
             }
-            DC_FlushRange(var6[var9], var15);
+            CleanInvalidateCacheRange((const void*)(var6[var9]), var15);
             StageMemoryToVRAM(VRAMSubregion_TexturePalette, var6[var9], var16, var15, false, true);
         }
     }
@@ -154,7 +158,7 @@ extern "C" ARM void func_ov017_0218fd34(unsigned char* arg0, int arg1, unsigned 
 
     for (unsigned int var34 = 0; var34 < 13; var34++) {
         if (var6[var34] != NULL) {
-            FreeMemory_02012da4(&gMainHeap_02114e20, var6[var34]);
+            func_02012da4(&gMainHeap_02114e20, var6[var34]);
         }
     }
 }

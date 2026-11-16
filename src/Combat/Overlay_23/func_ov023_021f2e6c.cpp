@@ -3,6 +3,11 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
+#include "Filesystem/FileIO.h"
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
 
 struct Struct_ov023_021f2e6c {
     unsigned int unknown_0_0_ : 9;
@@ -60,7 +65,7 @@ extern "C" void PlayJingle_0209c6d8(void* manager, int jingleIndex);
 extern "C" void StartMessage_0204500c(void* window, char* text, int arg2, int arg3);
 #endif
 extern "C" void func_ov000_0215fa70(void* arg0, short arg1, short arg2, short arg3);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_ov023_021ed92c(void);
 struct Struct_ov023_021eeaac_2;
@@ -73,7 +78,6 @@ extern "C" void func_020d7870(void*, void*, Struct_02013fb4*, int, unsigned char
 struct Struct_020deb08;
 extern "C" short func_020deb08(Struct_020deb08*);
 extern "C" void func_020de868(void* arg0);
-extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 extern "C" int LoadItemTableByCategories_020dea64(void* itemTable, void* allocator, void* fileData, int fileSize, void* categories, int categoryCount);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
@@ -222,7 +226,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                 return *(int*)(arg0 + Enum_ov023_021f2e6c_3756);
             }
         }
-        if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) != 0) {
+        if (IsLocalWirelessGuest_0202c540(func_0202ae18()) != 0) {
             return 0xf;
         }
         if (func_ov023_021ed92c() != 0 && *(short*)(*(char**)(arg0 + Enum_ov023_021f2e6c_668) + 0x8e4a) == 0) {
@@ -313,7 +317,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
 #else
                 BackgroundLoader::AddLockGlobal();
                 unsigned int var38;
-                void* var39 = ExtractFileFromGP2(gItemDataPath_020f2a38, data_020f2a30, &var38);
+                void* var39 = ExtractFileFromGP2((const char*)(gItemDataPath_020f2a38), (const char*)(data_020f2a30), (unsigned int*)(&var38));
                 if (var39 != 0) {
                     LoadItemTableByCategories_020dea64(var37 + 0x3000, var35 + 0x5000, var39, var38, &data_ov023_021fd862, 3);
 
@@ -329,7 +333,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
         int var40 = var3->unknown_0_;
         int var41 = 0;
         for (short var42 = *(short*)(arg0 + Enum_ov023_021f2e6c_21900) + 1; var42 < var40; var42++) {
-            if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) != 0 || func_ov023_021ed92c() != 0) {
+            if (IsLocalWirelessGuest_0202c540(func_0202ae18()) != 0 || func_ov023_021ed92c() != 0) {
                 if (*(short*)(*(char**)(arg0 + Enum_ov023_021f2e6c_668) + 0x8e4a) != var4[var42].unknown_0_.unknown_0_0_) {
                     continue;
                 }

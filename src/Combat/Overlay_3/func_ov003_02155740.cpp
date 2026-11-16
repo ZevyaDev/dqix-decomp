@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+#if defined(jpn)
 enum { Enum_ov003_02155740_503 = 0x1f3 };
 enum { Enum_ov003_02155740_508 = 0x1f8 };
 enum { Enum_ov003_02155740_816 = 0x32c };
@@ -16,7 +20,7 @@ enum { Enum_ov003_02155740_820 = 0x334 };
 extern "C" float _fflt(int v);
 extern "C" float _fmul(float a, float b);
 extern "C" int _ffix(float v);
-extern "C" void* GetLocalWireless_0202ae18(void);
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 
@@ -47,7 +51,7 @@ extern "C" ARM void func_ov003_02155740(char* arg0) {
         *(unsigned short*)(*(char**)((char*)var2 + 0x130) + 6) = *(unsigned short*)(*(char**)((char*)var2 + 0x134) + 0x32);
     }
 
-    void* var8 = GetLocalWireless_0202ae18();
+    void* var8 = func_0202ae18();
     if (IsLocalWirelessOn_0202b7d8((int*)var8) == 0) {
         return;
     }

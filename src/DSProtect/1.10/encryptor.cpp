@@ -1,7 +1,10 @@
+extern "C" {
 #include "encryptor.h"
 
 #include "nitro_os.h"
 #include "rc4.h"
+}
+#include "NitroSDK/Cache.h"
 
 
 void Encryptor_StartRange(u32* addr) {
@@ -31,8 +34,8 @@ void Encryptor_StartRange(u32* addr) {
 		RC4_InitAndDecryptInstructions(&key[0], addr, addr, size * 4);
 	}
 	
-	DC_FlushRange(addr, size * 4);
-	IC_InvalidateRange(addr, size * 4);
+	CleanInvalidateCacheRange(addr, size * 4);
+	InvalidateInstructionCacheRange(addr, size * 4);
 }
 
 
@@ -71,6 +74,6 @@ void Encryptor_EndRange(u32* addr) {
 		RC4_InitAndEncryptInstructions(&key[0], addr, addr, size * 4);
 	}
 	
-	DC_FlushRange(addr, size * 4);
-	IC_InvalidateRange(addr, size * 4);
+	CleanInvalidateCacheRange(addr, size * 4);
+	InvalidateInstructionCacheRange(addr, size * 4);
 }

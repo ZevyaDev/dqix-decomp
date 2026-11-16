@@ -85,7 +85,7 @@ extern "C" ARM int func_ov004_02163944(void* arg0) {
     InitNounTable_020e526c(gTreasureMapScreen_ov004_02171010.unknown_8_);
     BackgroundLoader::AddLockGlobal();
     unsigned int var8 = 0;
-    void* var9 = ExtractFileFromGP2(data_ov004_0217055c, data_ov004_02170572, &var8);
+    void* var9 = ExtractFileFromGP2((const char*)(data_ov004_0217055c), (const char*)(data_ov004_02170572), (unsigned int*)(&var8));
     func_020e5604(gTreasureMapScreen_ov004_02171010.unknown_8_, &var7->unknown_4_, var9, var8);
     BackgroundLoader::RemoveLockGlobal();
 #endif

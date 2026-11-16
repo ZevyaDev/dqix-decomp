@@ -2,7 +2,11 @@
 #include "GameState/GameState.h"
 #include "Resource/Script.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_ov017_021b9bcc(int arg0, const char* arg1);
 
@@ -34,7 +38,7 @@ extern "C" ARM int func_ov017_021ba3dc(Script::Parameter* arg0, int arg1) {
     if (data_ov017_021d7c54.unknown_1_ > -1) return 1;
 
     GameState* var0 = GameState::GetInstance();
-    if (IsLocalWirelessGuest_0202c540(GetLocalWireless_0202ae18()) != 0) return 1;
+    if (IsLocalWirelessGuest_0202c540(func_0202ae18()) != 0) return 1;
 
     GameObject* var1 = var0->GetGameObjectByIndex(0);
     struct Struct_ov017_021ba3dc* var2 = *(struct Struct_ov017_021ba3dc**)((char*)var1 + 0x130);

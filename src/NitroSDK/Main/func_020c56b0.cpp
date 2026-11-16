@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c56b0 func_020c717c
+#endif
+
 
 // USA: func_020c56b0
 extern "C" ARM int func_020c56b0(int* arg0) {

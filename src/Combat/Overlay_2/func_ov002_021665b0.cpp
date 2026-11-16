@@ -3,6 +3,10 @@
 #include "GameState/GameState.h"
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_ov002_021665b0_3 {
     int unknown_0_;
     unsigned short unknown_4_;
@@ -123,7 +127,7 @@ struct Struct_ov002_021665b0_6 {
 extern "C" void func_ov002_02157ce0(char*);
 extern "C" void func_ov002_0215b814(Struct_ov002_021665b0_2* arg0);
 extern "C" Struct_ov002_021665b0_8* GetGameObjectByIndex_0200ff94(GameState* gameState, int index);
-extern "C" Struct_ov002_021665b0_9* GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" Struct_ov002_021665b0_9* func_02053c6c(unsigned char*);
 extern "C" int func_02083bc0(unsigned char*, int);
 extern "C" int func_0209ac28(char* arg0, Struct_ov002_021665b0_8* arg1, int arg2);
 extern "C" Struct_ov002_021665b0_10* FindActionData_02079e2c(char*, int);
@@ -210,7 +214,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             if (var11 == NULL) {
                 continue;
             }
-            var2 = GetPartyMemberData_02053c6c((unsigned char*)var11);
+            var2 = func_02053c6c((unsigned char*)var11);
             if (var2 == NULL) {
                 continue;
             }
@@ -260,7 +264,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
                     if (var24 == NULL) {
                         continue;
                     }
-                    Struct_ov002_021665b0_9* var25 = GetPartyMemberData_02053c6c((unsigned char*)var24);
+                    Struct_ov002_021665b0_9* var25 = func_02053c6c((unsigned char*)var24);
                     if (var25 == NULL) {
                         continue;
                     }
@@ -307,7 +311,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             if (var11 == NULL) {
                 continue;
             }
-            var2 = GetPartyMemberData_02053c6c((unsigned char*)var11);
+            var2 = func_02053c6c((unsigned char*)var11);
             if (var2 == NULL) {
                 continue;
             }
@@ -417,7 +421,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
         for (var47 = 0, var46 = 0x1a; var47 < 5; var47++, var46++) {
             arg0->unknown_1c96_[var47].unknown_0_ = 0;
             arg0->unknown_1c96_[var47].unknown_2_ = 0;
-            if (!func_02083bc0((unsigned char*)(GetPartyMemberData_02053c6c((unsigned char*)var44)), var46)) {
+            if (!func_02083bc0((unsigned char*)(func_02053c6c((unsigned char*)var44)), var46)) {
                 continue;
             }
             if (!func_0209ac28((char*)arg0 + SPELLS_021665b0, var44, var46)) {
@@ -461,7 +465,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
                     var60++;
                     continue;
                 }
-                Struct_ov002_021665b0_9* var62 = GetPartyMemberData_02053c6c((unsigned char*)var61);
+                Struct_ov002_021665b0_9* var62 = func_02053c6c((unsigned char*)var61);
                 if (var62 == NULL) {
                     var60++;
                     continue;
@@ -547,7 +551,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             return;
         }
         Struct_ov002_021665b0_8* var69 = (Struct_ov002_021665b0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, var53);
-        if (func_02083bc0((unsigned char*)(GetPartyMemberData_02053c6c((unsigned char*)var69)), 0x1e) && arg0->unknown_1c96_[4].unknown_2_ > 0) {
+        if (func_02083bc0((unsigned char*)(func_02053c6c((unsigned char*)var69)), 0x1e) && arg0->unknown_1c96_[4].unknown_2_ > 0) {
             var1.unknown_0_ = 0x22;
             if (func_02048448((Struct_02048448_2*)var69, (unsigned short)FindActionData_02079e2c((char*)var4, (short)0x22)->unknown_8_0_)) {
                 var50 = arg0->unknown_1c96_[0].unknown_0_;

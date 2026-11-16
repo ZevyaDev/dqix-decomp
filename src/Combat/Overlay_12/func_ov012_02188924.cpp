@@ -13,6 +13,7 @@
 #endif
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
+#include "Resource/StringList.h"
 
 extern "C" int func_ov012_02184384(void* arg0, int arg1);
 extern "C" void func_ov023_021e6e60(void* arg0);
@@ -41,7 +42,6 @@ struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern int gSoundEffectManager_02108760;
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 struct Struct_ov012_02188924 { unsigned short unknown_0_0_ : 5; unsigned short unknown_0_5_ : 11; };
 
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov012_02188924(char* arg0) {
         int var5 = *(int*)(arg0 + 0x1000 + R(0x448,0x3f0));
         short var6 = var4[var5];
         struct Struct_0201099c_3* var7 = (struct Struct_0201099c_3*)(arg0 + R(0x131c,0x1344));
-        char* var8 = (char*)FindStringInTable_020e0434(var7, var6);
+        char* var8 = (char*)((int)((StringList*)(var7))->GetString(var6));
         if (!var8) return;
         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
         memset(arg0 + R(0x1458,0x1400), 0, 0x40);

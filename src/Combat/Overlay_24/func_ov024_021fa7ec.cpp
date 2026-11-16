@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 struct Struct_ov024_021fa7ec_4 {
     char unknown_0_[0x21];
     unsigned char unknown_21_;
@@ -110,7 +114,7 @@ struct Struct_ov024_021f736c {
     float unknown_24_;
 };
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" int func_02053c6c(unsigned char*);
 extern "C" struct Struct_ov024_021fa7ec_10* func_ov000_02153758(void*, int);
 extern "C" int func_ov024_021f736c(struct Struct_ov024_021f736c* arg0);
 struct Struct_ov024_021da670_6;
@@ -183,7 +187,7 @@ extern "C" ARM void func_ov024_021fa7ec(struct Struct_ov024_021fa7ec_3* arg0, fl
     float var8;
     struct Struct_ov024_021fa7ec_11* var9;
     var9 = arg0->unknown_8_;
-    GetPartyMemberData_02053c6c((unsigned char*)var9);
+    func_02053c6c((unsigned char*)var9);
     var0 = arg0->unknown_64c_;
     float var10 = arg0->unknown_170_;
     var1 = arg0->unknown_9c_;

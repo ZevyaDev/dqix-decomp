@@ -11,6 +11,7 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 struct Struct_ov006_021580b8 {
     char unknown_0_[0x14];
@@ -38,7 +39,6 @@ extern const unsigned char data_ov006_0215ffc0[];
 }
 
 extern "C" void func_ov023_021e2bdc(void*, int, short*, short*);
-extern "C" void DrawSprite_0205ac40(void*, Struct_ov006_021580b8*);
 
 struct Struct_ov006_02157a60 {
 #if !defined(jpn)
@@ -169,6 +169,6 @@ extern "C" ARM void func_ov006_021587d0(Struct_ov006_02157a60* arg0)
         var5->unknown_14_ = var2 << 12;
         var5->unknown_18_ = var3 << 12;
         var5->unknown_22_ = data_ov006_0215ffc0[var1];
-        DrawSprite_0205ac40(arg0->unknown_ac_, var5);
+        ((OBJSpriteSet*)(arg0->unknown_ac_))->DrawMetatile((OBJSpriteSet::Metatile*)(var5));
     }
 }

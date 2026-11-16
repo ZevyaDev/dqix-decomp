@@ -2,6 +2,7 @@
 
 #include <globaldefs.h>
 #include "NitroSDK/Matrix.h"
+#include "Graphics/OBJSpriteSet.h"
 
 struct Matrix2x2_0205ac40_3 {
     fix32_t unknown_0_[4];
@@ -35,9 +36,3 @@ struct Sprite_0205ac40_2 {
 };
 
 
-extern "C" void func_020c111c(Matrix2x2_0205ac40_3* arg0, fix32_t arg1, fix32_t arg2);
-extern "C" void func_020c1128(const Matrix2x2_0205ac40_3* arg0, Matrix2x2_0205ac40_3* arg1,
-                           fix32_t arg2, fix32_t arg3);
-extern "C" void func_0205b0d8(SpriteSet_0205ac40* arg0, Matrix2x2_0205ac40_3* arg1,
-                             Matrix2x2_0205ac40_3* arg2, Sprite_0205ac40_2* arg3);
-extern "C" int func_0205b174(SpriteSet_0205ac40* arg0, Sprite_0205ac40_2* arg1);

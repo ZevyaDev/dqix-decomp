@@ -2,6 +2,7 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 #include "Resource/CharacterCreationUI.h"
+#include "Resource/StringList.h"
 
 #if defined(jpn)
 enum { Enum_ov023_021e83c8_1550 = 0x604, Enum_ov023_021e83c8_56 = 0x14 };
@@ -33,7 +34,6 @@ extern "C" void SetMessageNumberAlignment_020465d8(unsigned char* window, int in
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 
 struct Struct_0201099c_3;
-extern "C" int FindStringInTable_020e0434(struct Struct_0201099c_3* stringTable, int stringId);
 
 #if defined(jpn)
 extern "C" void func_020474a8(void* arg0, unsigned char arg1, const char* arg2, char* arg3);
@@ -42,7 +42,7 @@ extern "C" ARM void func_02046608(void* arg0, int arg1, void* arg2, void* arg3, 
 #endif
 
 struct Struct_02000c9c_8;
-extern "C" ARM unsigned char GetGameLanguage_0200fb08(Struct_02000c9c_8* gameState);
+extern "C" ARM unsigned char func_0200fb08(Struct_02000c9c_8* gameState);
 
 #if defined(jpn)
 #define data_ov023_021fd75c data_ov023_021fd760
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov023_021e83c8(void* arg0) {
         SetMessageNumberWidth_020465f0((unsigned char*)var1, var3, var2[var3] & 0xff);
     }
 
-    int var6 = FindStringInTable_020e0434(&var0->unknown_4c_, 0);
+    int var6 = ((int)((StringList*)(&var0->unknown_4c_))->GetString(0));
 #if defined(jpn)
     func_020474a8(((void*)(var1)), 0xa, ((const char*)(var6)), var0->unknown_5d8_);
 #else
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov023_021e83c8(void* arg0) {
     char* var9 = strstr(var0->unknown_5d8_, &data_ov023_021fddb0);
     char* var10 = strstr(var9 + 1, &data_ov023_021fddb0);
     var7 = 0x82; var8 = 0xb4;
-    int var11 = GetGameLanguage_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance());
+    int var11 = func_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance());
     switch (var11) {
     case 2:
     case 5:

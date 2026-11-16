@@ -2,6 +2,14 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct Struct_0200f3a4_7 { char unknown_0_[0x568]; short unknown_568_; };
 struct Struct_ov017_02190264 {
     GameObject unknown_0_;
@@ -19,9 +27,9 @@ struct Struct_ov017_021d622c { int unknown_0_[13]; };
 struct Struct_ov017_02190264_2 { int unknown_0_[4]; };
 struct Struct_02000c9c_12;
 struct LocalWireless_0202c1a4;
-extern "C" int* GetLocalWireless_0202ae18();
+extern "C" int* func_0202ae18();
 extern "C" int func_ov017_021925e0();
-extern "C" Struct_0200f3a4_7* GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" Struct_0200f3a4_7* func_02053c6c(unsigned char*);
 extern "C" void InitPartyMemberData_02082828(Struct_0200f3a4_7*);
 extern "C" void func_ov017_021bd3d4(void*, int);
 extern "C" Struct_ov000_02161e30_4* func_ov017_021a4658(GameResources*, int);
@@ -50,12 +58,12 @@ extern "C" ARM void func_ov017_02190264(GameResources* arg0, int arg1) {
     int var0 = inline_020dc548(arg1);
     if (!var0) return;
     GameState* var1 = GameState::GetInstance();
-    int* var2 = GetLocalWireless_0202ae18();
+    int* var2 = func_0202ae18();
     void* var3 = arg0->unknown_ptr_array_371c[6];
     if (func_ov017_021925e0()) {
         GameObject* var4 = var1->GetPartyMemberByIndex(arg1);
-        if (var4 && (var4->obj3D_.classFlags_0_ & 0x1000)) {
-            Struct_0200f3a4_7* var5 = GetPartyMemberData_02053c6c((unsigned char*)var4);
+        if (var4 && (var4->obj3D_.unknown_0_ & 0x1000)) {
+            Struct_0200f3a4_7* var5 = func_02053c6c((unsigned char*)var4);
             if (var5) {
                 short var6 = var5->unknown_568_;
                 InitPartyMemberData_02082828(var5);
@@ -72,7 +80,7 @@ extern "C" ARM void func_ov017_02190264(GameResources* arg0, int arg1) {
     }
     GameObject* var8 = GetPartyMemberBaseByIndex_0200ff1c(var1, arg1);
     if (var8) {
-        if (IsLocalWirelessOn_0202b7d8(var2) && (var8->obj3D_.classFlags_0_ & 0x200)) {
+        if (IsLocalWirelessOn_0202b7d8(var2) && (var8->obj3D_.unknown_0_ & 0x200)) {
             short* var9 = (short*)func_020120a0((char*)var1, arg1);
             if (var9) *var9 = 0;
         }
@@ -81,7 +89,7 @@ extern "C" ARM void func_ov017_02190264(GameResources* arg0, int arg1) {
         short* var10 = ((Struct_ov017_02190264*)var8)->unknown_154_;
         if (var10) func_020545ac(var10);
         if (!func_020115a8((Struct_02000c9c_12*)var1)) {
-            Struct_0200f3a4_7* var11 = GetPartyMemberData_02053c6c((unsigned char*)var8);
+            Struct_0200f3a4_7* var11 = func_02053c6c((unsigned char*)var8);
             if (var11) InitPartyMemberData_02082828(var11);
         }
     }

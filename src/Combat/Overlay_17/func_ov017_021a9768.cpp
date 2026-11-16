@@ -5,6 +5,10 @@
 #include "NitroSDK/OverlayId.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct AllocatorUnion;
 struct Struct_02018300_3;
 struct TimedMessageQueue_020d7aa0_2;
@@ -12,7 +16,7 @@ struct LocalWireless_0202b2f0;
 struct Struct_ov008_02189284;
 struct Struct_ov008_0218936c;
 
-extern "C" LocalWireless_0202b2f0* GetLocalWireless_0202ae18(void);
+extern "C" LocalWireless_0202b2f0* func_0202ae18(void);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void LoadFileTables_020a0c0c(void);
@@ -56,7 +60,7 @@ extern "C" ARM void func_ov017_021a9768(Struct_ov017_021a9768_2* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     GameObject* var2 = var0->GetUnknownGameObject();
-    LocalWireless_0202b2f0* var3 = GetLocalWireless_0202ae18();
+    LocalWireless_0202b2f0* var3 = func_0202ae18();
     DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
     SetFlags04((GameResources*)var1, 0xc0);
     if (arg0->unknown_8_ == 0) {

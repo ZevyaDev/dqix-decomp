@@ -1,19 +1,17 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimationList_0205a330;
 struct Struct_020e2604;
 
 extern "C" void func_020e269c(void* arg0);
-extern "C" void PlaySpriteAnimation_0205a370(struct SpriteAnimationList_0205a254* animationList, int index);
-extern "C" void AdvanceSpriteAnimations_0205a330(struct SpriteAnimationList_0205a330* animationList, int ticks);
 extern "C" void func_020e2604(struct Struct_020e2604* arg0);
 
 struct SpriteAnimation_020e263c {
     char unknown_0_[0x15];
     unsigned char flags_15_;
 };
-extern "C" struct SpriteAnimation_020e263c* FindSpriteAnimation_0205a3d0(struct SpriteAnimationList_0205a254* animationList, int index);
 
 struct YesNoWindow_020e263c_2 {
     char unknown_0_[0x1c];
@@ -29,12 +27,12 @@ extern "C" ARM void UpdateYesNoWindow_020e263c(struct YesNoWindow_020e263c_2* ye
         return;
     }
     func_020e269c(yesNoWindow);
-    PlaySpriteAnimation_0205a370(yesNoWindow->pCursorAnimationList_20_, yesNoWindow->cursorAnimationIndex_1c_);
+    ((OBJSpriteSet::List*)(yesNoWindow->pCursorAnimationList_20_))->PlaySpriteAnimation(yesNoWindow->cursorAnimationIndex_1c_);
     unsigned char animationFlags = yesNoWindow->cursorAnimationFlags_1e_;
-    struct SpriteAnimation_020e263c* animation = FindSpriteAnimation_0205a3d0(yesNoWindow->pCursorAnimationList_20_, yesNoWindow->cursorAnimationIndex_1c_);
+    struct SpriteAnimation_020e263c* animation = ((SpriteAnimation_020e263c*)((OBJSpriteSet::List*)(yesNoWindow->pCursorAnimationList_20_))->GetSprite(yesNoWindow->cursorAnimationIndex_1c_));
     if (animation != NULL) {
         animation->flags_15_ |= animationFlags;
     }
-    AdvanceSpriteAnimations_0205a330((struct SpriteAnimationList_0205a330*)yesNoWindow->pCursorAnimationList_20_, ticks);
+    ((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a330*)yesNoWindow->pCursorAnimationList_20_))->UpdateAll(ticks);
     func_020e2604((struct Struct_020e2604*)yesNoWindow);
 }

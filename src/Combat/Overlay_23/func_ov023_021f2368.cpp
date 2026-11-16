@@ -4,6 +4,18 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0206dfb0 func_0206f104
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
 
 extern "C" int GetMessageWindow_020421a0(void);
 struct Party_02048150;
@@ -23,10 +35,10 @@ extern "C" void StartMessage_0204500c(void* window, char* text, int arg2);
 extern "C" void StartMessage_0204500c(void* window, char* text, int arg2, int arg3);
 #endif
 
-extern "C" int GetPartyMemberData_02053c6c(unsigned char* gameObject);
+extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov023_021f5228(int arg0);
-extern "C" void* GetFlagManager_0205ec34(void);
-extern "C" int IsFlagSet_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
+extern "C" void* func_0205ec34(void);
+extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int func_ov023_021f4438(void* arg0);
 extern "C" int func_ov023_021f4fc8(void);
 struct Struct_ov023_021eeaac_2;
@@ -114,7 +126,7 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* arg0) {
         if (var1->unknown_6c_[var4] <= var1->unknown_70_) {
             void* var20 = GetParty_02010828(var0);
             GameObject* var21 = GetPartyMemberBaseByIndex_0200ff1c(var0, var4);
-            unsigned char* var22 = (unsigned char*)GetPartyMemberData_02053c6c((unsigned char*)var21);
+            unsigned char* var22 = (unsigned char*)func_02053c6c((unsigned char*)var21);
             struct Struct_ov023_021f2368_3* var23 = (struct Struct_ov023_021f2368_3*)(arg0 + var4 * 0x54 + Enum_ov023_021f2368_22272 + Enum_ov023_021f2368_156);
             if (var23->unknown_0_7_ != 0) {
                 var1->unknown_e5_ = 0xc;
@@ -122,8 +134,8 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* arg0) {
                        func_ov023_021f5228(var4) != 0 &&
                        *(unsigned short*)(var22 + 0x564) != 0) {
                 var1->unknown_e5_ = 8;
-                void* var24 = GetFlagManager_0205ec34();
-                if (IsFlagSet_0206dfb0((int)var24, (unsigned char*)var24 + 0x8c, 0x119c)) {
+                void* var24 = func_0205ec34();
+                if (func_0206dfb0((int)var24, (unsigned char*)var24 + 0x8c, 0x119c)) {
                     var3[Enum_ov023_021f2368_6602] = 0;
                 }
             } else {

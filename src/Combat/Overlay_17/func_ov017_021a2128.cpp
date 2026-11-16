@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
 struct ActiveZone_020fdd44;
 struct Struct_02073ec4_2;
 struct Struct_0206f01c_2;
@@ -53,7 +57,7 @@ extern "C" Struct_ov017_021a2128_3* FindMonsterData_0206f4f0(Struct_0206f01c_2*,
 extern "C" void* func_0206ef18(void*, int);
 extern "C" int func_ov017_021a20c0(int, int, int);
 extern "C" unsigned short* GetZone3D_02012fe4();
-extern "C" int* GetLocalWireless_0202ae18();
+extern "C" int* func_0202ae18();
 extern "C" void InitFieldMonster_02076a8c(void*);
 extern "C" Struct_02072adc* func_ov017_021a2738(void*, int);
 extern "C" void func_02072adc(Struct_02072adc*, Struct_02072adc*);
@@ -79,7 +83,7 @@ extern "C" ARM int func_ov017_021a2128(Struct_ov017_021a2128* arg0, unsigned sho
     if (!var2) return 0;
     GameState* var3 = GameState::GetInstance();
     unsigned short* var4 = GetZone3D_02012fe4();
-    int* var5 = GetLocalWireless_0202ae18();
+    int* var5 = func_0202ae18();
     int var6 = func_ov017_021a20c0((int)arg0, var0->unknown_2_0_, 12);
     if (var6 < 0) return 0;
     Struct_ov017_021a2128_5* var7 = (Struct_ov017_021a2128_5*)var3->GetMaybeFieldMonsterByIndex(var6);
@@ -93,7 +97,7 @@ extern "C" ARM int func_ov017_021a2128(Struct_ov017_021a2128* arg0, unsigned sho
     Vector3fix var11 __attribute__((aligned(4))) = *arg4;
     if (arg1 == *var4) var11.y = GetGroundHeight_02018fbc(var4, &var11);
     var7->unknown_0_.unknown_2_ = arg2;
-    var7->unknown_0_.objectIndex_4_ = var6;
+    var7->unknown_0_.unknown_4_ = var6;
     var7->unknown_0_.SetField06(arg1);
     var7->unknown_168_ = arg3;
     var7->unknown_180_ = var1;
@@ -116,4 +120,9 @@ extern "C" ARM int func_ov017_021a2128(Struct_ov017_021a2128* arg0, unsigned sho
     ++var0->unknown_6_;
     if (IsLocalWirelessOn_0202b7d8(var5)) func_ov017_021c8f3c(var6, -1);
     return var6;
+}
+
+void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
+{
+    *a = *a;
 }

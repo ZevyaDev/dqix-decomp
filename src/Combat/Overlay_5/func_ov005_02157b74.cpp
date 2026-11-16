@@ -2,6 +2,10 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
+#define func_02053c6c func_02054fe4
+#endif
+
+#if defined(jpn)
 #define func_ov005_02157b74 func_ov005_0215916c
 #endif
 
@@ -93,7 +97,7 @@ extern "C" short GetEquippedItem_02052df8(Struct_02052df8*, int);
 struct ItemTable_0201099c_10;
 extern "C" Struct_ov005_02157b74_5* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" void SetEquippedItem_02052d7c(Struct_ov005_02157b74_8* gameObject, int slot, short itemId);
-extern "C" void* GetPartyMemberData_02053c6c(unsigned char*);
+extern "C" void* func_02053c6c(unsigned char*);
 extern "C" void func_0208358c(void* arg0, Struct_ov005_02157b74_5* arg1, int arg2);
 extern "C" void func_02083738(void* arg0, int arg1);
 struct Struct_ov005_02157b74_3;
@@ -158,7 +162,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
             var9 = 0x3e8;
         }
         SetEquippedItem_02052d7c(var5, var6, -1);
-        void* var10 = GetPartyMemberData_02053c6c((unsigned char*)var5);
+        void* var10 = func_02053c6c((unsigned char*)var5);
         Struct_ov005_02157b74_5* var11 = FindItemData_020dedd0((ItemTable_0201099c_10*)arg0->unknown_df4_, (short)var9);
         if (var11 != 0) {
             func_0208358c(var10, var11, var3);
@@ -273,7 +277,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
             }
         }
         SetEquippedItem_02052d7c(var5, var15, (unsigned short)arg1);
-        void* var19 = GetPartyMemberData_02053c6c((unsigned char*)var5);
+        void* var19 = func_02053c6c((unsigned char*)var5);
         func_0208358c(var19, var13, -1);
         func_02083e28(var19, 0);
         func_ov017_021c9e00(var5->unknown_4_, 0, 0, 1);

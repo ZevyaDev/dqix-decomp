@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Graphics/OBJSpriteSet.h"
 
-extern "C" void DrawSprite_0205ac40(void* spriteSet, void* sprite);
 
 // USA: func_ov002_02154bcc
 extern "C" ARM void func_ov002_02154bcc(int arg0, int arg1, void* arg2, int arg3, unsigned char arg4, unsigned char arg5) {
@@ -23,5 +23,5 @@ extern "C" ARM void func_ov002_02154bcc(int arg0, int arg1, void* arg2, int arg3
     if (arg4 != 0xff) {
         var1[0x22] = arg4;
     }
-    DrawSprite_0205ac40(arg2, var1);
+    ((OBJSpriteSet*)(arg2))->DrawMetatile((OBJSpriteSet::Metatile*)(var1));
 }

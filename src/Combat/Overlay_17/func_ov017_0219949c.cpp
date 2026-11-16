@@ -8,7 +8,11 @@ enum { Enum_ov017_0219949c_17479 = 0x4447 };
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* GetLocalWireless_0202ae18(void);
+#if defined(jpn)
+#define func_0202ae18 func_0202a9d0
+#endif
+
+extern "C" void* func_0202ae18(void);
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 struct Struct_02039df4;
@@ -16,7 +20,7 @@ extern "C" void func_ov017_021d0860(int arg0, int arg1, int arg2);
 
 // USA: func_ov017_0219949c
 extern "C" ARM void func_ov017_0219949c(void* arg0, int arg1, int arg2, unsigned char arg3, signed char arg4) {
-    struct LocalWireless_0202c1a4* var0 = (struct LocalWireless_0202c1a4*)GetLocalWireless_0202ae18();
+    struct LocalWireless_0202c1a4* var0 = (struct LocalWireless_0202c1a4*)func_0202ae18();
     signed char var1 = GetOwnProtagonistObjectIndex_0202c1a4(var0);
 
     if (arg2 != var1 && arg2 != 4) {

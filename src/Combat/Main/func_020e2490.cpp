@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
+#include "Graphics/OBJSpriteSet.h"
 
 extern "C" void func_020e25cc(signed char* arg0);
 struct Struct_020200c0_3;
@@ -9,7 +10,6 @@ extern "C" void func_020e1568(struct Struct_020e1568* arg0);
 extern "C" void func_020e1588(unsigned char* arg0);
 extern "C" void func_020e15f8(char* arg0, int arg1, int arg2);
 struct SpriteAnimationList_02043368;
-extern "C" void InitSpriteAnimationList_0205a234(struct SpriteAnimationList_02043368* animationList);
 
 struct Struct_020e2490 {
     void* unknown_0_;
@@ -62,6 +62,6 @@ extern "C" ARM void func_020e2490(struct Struct_020e2490* arg0, int arg1, int ar
     *(void**)(arg0->unknown_10_ + 0x4) = arg0->unknown_c_;
 
     if (arg0->unknown_20_ != NULL) {
-        InitSpriteAnimationList_0205a234((struct SpriteAnimationList_02043368*)arg0->unknown_20_);
+        ((OBJSpriteSet::List*)((struct SpriteAnimationList_02043368*)arg0->unknown_20_))->Reset();
     }
 }

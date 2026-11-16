@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
+#include "Resource/StringList.h"
 
 struct StringTable_020dfec0 {
     unsigned int unknown_0_0_ : 12;
@@ -10,7 +11,6 @@ struct StringTable_020dfec0 {
     void* pText_8_;
 };
 
-extern "C" int LoadStringTable_020dfec0(StringTable_020dfec0* stringTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 
 #if defined(jpn)
 extern const char data_020f143c[];
@@ -48,7 +48,7 @@ extern "C" ARM void func_02092f80(Struct_02092f80* arg0) {
             unsigned int var3;
             var0->GetLoadedFileByID(arg0->unknown_2c_, &var2, &var3);
             arg0->unknown_0_.Reset();
-            LoadStringTable_020dfec0(&arg0->unknown_14_, &arg0->unknown_0_, var2, var3);
+            ((StringList*)(&arg0->unknown_14_))->LoadFromMemory((SafeAllocator*)(&arg0->unknown_0_), (const void*)(var2), var3);
             var0->RemoveTask(arg0->unknown_2c_);
             arg0->unknown_2c_ = -1;
             arg0->unknown_35_++;
