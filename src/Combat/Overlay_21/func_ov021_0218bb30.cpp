@@ -9,8 +9,8 @@
 #endif
 #include "GameState/GameState.h"
 #include "GameState/Field3b0.h"
-#include "NitroSDK/NSBXX/GeometryFifo.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "NitroSDK/Graphics.h"
 
 struct Struct_ov021_0218bb30

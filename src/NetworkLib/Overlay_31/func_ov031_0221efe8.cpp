@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include <Combat/Overlay31EntryLookup.h>
-#include <NitroSDK/NSBXX/RenderCommands_Common.h>
+#include <NitroSDK/Graphics3D/Internal.h>
 
 
 extern "C" int func_ov031_0220eb88(int);

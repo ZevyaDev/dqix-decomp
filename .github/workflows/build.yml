@@ -90,7 +90,7 @@ jobs:
           BASEROM_REPO: ${{ secrets.BASEROM_REPO }}
           BASEROM_TAG: ${{ vars.BASEROM_TAG }}
         run: |
-          gh release download "$BASEROM_TAG" -R "$BASEROM_REPO" -p 'baserom_dqix_${{ inputs.version }}.nds' -D extract/
+          gh release download "$BASEROM_TAG" -R "$BASEROM_REPO" -p 'baserom_dqix_${{ inputs.version }}.nds' -p 'baserom_dqix_usa.nds' -D extract/
           gh release download "$BASEROM_TAG" -R "$BASEROM_REPO" -p 'arm7_bios.bin' -D .
 
       - run: sha1sum -c ci/baseroms_${{ inputs.version }}.sha1

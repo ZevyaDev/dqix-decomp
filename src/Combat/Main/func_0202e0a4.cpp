@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "Graphics/Vector.h"
 
 struct Camera_0202e0a4 {

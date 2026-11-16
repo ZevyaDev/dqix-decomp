@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "NitroSDK/Matrix.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
-#include "NitroSDK/NSBXX/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
+#include "NitroSDK/Graphics3D/GeometryFifo.h"
 #include "Resource/Brightness.h"
 
 

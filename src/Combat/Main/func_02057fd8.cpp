@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "NitroSDK/NSBXX/Animation.h"
+#include "NitroSDK/Graphics3D/Animation.h"
 
 struct Struct_0205563c { int unknown_0_[7]; };
 struct Struct_02057fd8_4 {

@@ -1,6 +1,5 @@
 build/
-.vscode/*
-!.vscode/launch.json
+.vscode/
 dqix_*/
 *.nds
 *bios.bin
@@ -19,7 +18,4 @@ build.ninja
 /wibo
 /wibo-link
 ninja.exe
-# build artifacts
-*.o
-/.idea/*
-/cmake-build-*/
+.clang-format

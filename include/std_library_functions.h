@@ -11,13 +11,12 @@ long labs(long); // identical to abs() but also used
 int rand();
 void srand(int seed);
 
-int abs(int);
-long labs(long); // identical to abs() but also used
-
 // string.h
 void* memcpy(void* dst, const void* src, unsigned int length);
 void* memmove(void* dst, const void* src, unsigned int length);
 void* memset(void* dst, int value, unsigned int length);
+void* memchr(const void* ptr, int ch, unsigned int length);
+int memcmp(const void* lhs, const void* rhs, unsigned int length);
 
 unsigned int strlen(const char* str);
 // The implementation for this is vectorized (when dst % 4 == src % 4),

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "Graphics/Vector.h"
 
 #if defined(jpn)

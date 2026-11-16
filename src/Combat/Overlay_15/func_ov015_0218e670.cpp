@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
 #include "GameState/GameState.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "Graphics/Vector.h"
 #include "Input/Input.h"
 

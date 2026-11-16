@@ -25,13 +25,14 @@ args = parser.parse_args()
 # Config
 GAME = "dqix"
 DSD_VERSION = 'v0.10.2'
-WIBO_VERSION = 'sha256:bab06c516326680535fe1d35594a1b4640ea9da4663affd874d5cbe76463d42f' # wibo master 355e082: 53-bit x87 (#137) is in no release yet
+WIBO_VERSION = 'temp'
 LINK_WIBO_VERSION = '0.6.16' # mwldarm runs ~15x slower under wibo master; linking needs no x87 fix
 OBJDIFF_VERSION = 'v3.8.1'
 CC_OVERRIDES_PATH = "tools/cc_overrides.txt"
 MWCC_VERSION = os.environ.get("DQIX_MWCC", "2.0/sp2p2") # minimum version required to match fixed point s64 arithmetic around 0x02030f30 (not sdk code). might need p3 or p4?
 SDK_MWCC_VERSION = "2.0/sp1p2" # OS_VSNPrintf (0x020d3160) overgenerates on sp1p5 and later
 SDK_OPT_LEVEL = "-O4,p"
+GAME_FLAGS = ["-ipa", "file"]
 LIBRARY_BUILDS = {
     "sdk": ("NitroSDK", SDK_MWCC_VERSION, [SDK_OPT_LEVEL]),
     "msl": ("MSL", MWCC_VERSION, ["-O4,p", "-ipa", "file", "-str", "nopool"]),
@@ -48,7 +49,6 @@ CC_FLAGS = " ".join([
     "-O2",                  # Optimize maximally, omit p: it optimizes out things that the game doesn't normally
     "-enum int",            # Use int-sized enums
     "-char signed",         # Char type is signed
-    "-str noreuse",         # Equivalent strings are different objects
     "-proc arm946e",        # Target processor
     "-gccext,on",           # Enable GCC extensions
     "-fp soft",             # Compute float operations in software
@@ -539,6 +539,8 @@ def add_mwcc_builds(n: ninja_syntax.Writer, project: Project, mwcc_implicit: lis
             _cc_exe = os.path.join('.', str(mwcc_root / library[1] / "mwccarm.exe"))
             cc_flags.extend(library[2])
             implicit = mwcc_implicit + [_cc_exe]
+        else:
+            cc_flags.extend(GAME_FLAGS)
         _ovr = CC_OVERRIDES.get(str(source_file).replace("\\", "/"))
         if _ovr:
             _cc_exe = os.path.join(".", str(mwcc_root / _ovr / "mwccarm.exe"))

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "World/Object3D.h"
 
 struct Struct_02040774_2 {

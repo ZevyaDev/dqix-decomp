@@ -2,8 +2,8 @@
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 #include "Combat/CombatantRecovery.h"
-#include "NitroSDK/NSBXX/GeometryFifo.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "NitroSDK/Graphics.h"
 #include "Resource/Brightness.h"
 

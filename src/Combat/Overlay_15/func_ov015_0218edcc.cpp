@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "NitroSDK/Graphics.h"
 
 struct Struct_ov015_0218c03c_2

@@ -7,7 +7,7 @@ enum { Enum_ov017_0218dba0_14076 = 0x36fc, Enum_ov017_0218dba0_56 = 0x38, Enum_o
 #include <globaldefs.h>
 #include "Combat/ActorAction.h"
 #include "GameState/GameState.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "Resource/GameResources.h"
 
 extern "C" void* GetZone3D_02012fe4(void);

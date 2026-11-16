@@ -1,11 +1,9 @@
 #include "World/Object3D.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 #include "NitroSDK/Graphics.h"
-#include "NitroSDK/Memory.h"
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
-#include "NitroSDK/NSBXX/GeometryFifo.h"
 #include "NitroSDK/Filesystem/NarcHandle.h"
 #include "NitroSDK/Filesystem/LowNitroHandle.h"
 #include "NitroSDK/Filesystem/FileAccessor.h"
@@ -13,10 +11,23 @@
 #include "Graphics/VRAMStaging.h"
 
 #if defined(jpn)
+#define func_020100bc func_0200ff18
+#define func_02016d8c func_02016b2c
+#define func_0202ed74 func_0202e8e4
+#define func_02030e2c func_02030964
+#define func_02030e88 func_020309c0
+#define func_020311f0 func_02030d28
+#define func_02031234 func_02030d6c
+#define func_02031278 func_02030db0
+#define func_0203ac40 func_0203a698
+#define func_020ca528 func_020cbff4
 #define func_020d8524 func_020d9e88
+#define func_020d1d1c func_020d37e8
+
+#define data_02108760 data_021086a4
 #endif
 
-ModelRenderContext* GetModel3DContext(Model3D* model);
+Nitro3DRenderContext* GetModel3DContext(Model3D* model);
 void AnimationPackageListInsert(AnimationPackage** pListStart, AnimationPackage* entry);
 
 void CreateRotationX(Matrix3x3* out, fix32_t s, fix32_t c);
@@ -25,57 +36,81 @@ void CreateRotationZ(Matrix3x3* out, fix32_t s, fix32_t c);
 
 extern "C"
 {
-    void* GetCamera_020100bc(GameState*);
-    void func_02016d8c(void* rotation);
+    void* func_020100bc(GameState*);
+    // update world matrix rotation
+    void func_02016d8c(const Matrix3x3* rotation);
 
     const Matrix3x3* func_0202ed74(void*);
 
-    void func_020311f0(fix32_t);
-    void func_02031234(fix32_t);
-    void func_02031278(fix32_t);
+    void func_020311f0(fix32_t); // send x-rotation to fifo
+    void func_02031234(fix32_t); // send y-rotation to fifo
+    void func_02031278(fix32_t); // send z-rotation to fifo
 
+    // based on testing, this is responsible for playing sound effects
     void func_0203ac40(void*, int, int, int);
 
+    // copy 3x3 matrix
     void func_020ca528(const void*, void*);
 
+    // compute a checksum for a string
     void func_020d1d1c(unsigned short* out, const void* data, unsigned int length);
 
+    // memcpy and flush cache
+    void func_020d8524(void*, const void*, unsigned);
 }
 
+// if set, drawing doesn't take place. Also does something with
+// collision detection against monsters
 #define OBJECT3D_FLAG_HIDDEN 0
 #define OBJECT3D_FLAG_UNUSED_1 1
+// has a shadow?
 #define OBJECT3D_FLAG_HAS_SHADOW 2
 #define OBJECT3D_FLAG_3 3
 #define OBJECT3D_FLAG_4 4
 #define OBJECT3D_FLAG_5 5
+// maybe 'no sound effects on animations'
 #define OBJECT3D_FLAG_6 6
 #define OBJECT3D_FLAG_UNUSED_7 7
 #define OBJECT3D_FLAG_UNUSED_8 8
 #define OBJECT3D_FLAG_UNUSED_9 9
 #define OBJECT3D_FLAG_UNUSED_10 10
+// never clip this object
 #define OBJECT3D_FLAG_NEVER_CLIP 11
+// if set, animations won't advance - paused?
 #define OBJECT3D_FLAG_12 12
+// if set, drawing is more basic: no animations applied and use DrawMeshWithMaterial
+// with material 0 and mesh 0
 #define OBJECT3D_FLAG_13 13
+// if set, then we compose our translation/rotation/scaling with whatever
+// the fifo has stored in its worldview matrix
 #define OBJECT3D_FLAG_COMPOSE_TRANSFORM 14
+// if set, then the fifo is up to date
 #define OBJECT3D_FLAG_DONT_UPDATE_TRANSFORM 15
 #define OBJECT3D_FLAG_16 16
 #define OBJECT3D_FLAG_HIDE_CHILDREN 17
 #define OBJECT3D_FLAG_18 18
 #define OBJECT3D_FLAG_19 19
+// flickering effect
 #define OBJECT3D_FLAG_FLICKER 20
+// if flickering is enabled, this flips every frame
 #define OBJECT3D_FLAG_FLICKER_PARITY 21
+// if set, you can't apply type 1 animations
 #define OBJECT3D_FLAG_22 22
 #define OBJECT3D_FLAG_UNUSED_23 23
 #define OBJECT3D_FLAG_UNUSED_24 24
+// if set, rotations are applied x->y->z instead of z->y->x
+// but a bug means this applies everywhere on all models afterward.
+// in practice this flag is never used
 #define OBJECT3D_FLAG_REVERSE_ROTATION_ORDER 25
 #define OBJECT3D_FLAG_UNUSED_26 26
 #define OBJECT3D_FLAG_UNUSED_27 27
 #define OBJECT3D_FLAG_28 28
+// don't use own alpha, just stick with model's intrinsic/pre-set value
 #define OBJECT3D_FLAG_29 29
 
 struct Object3DStaticData
 {
-    float unk_0[4];
+    float unk_0[4]; // holds 30.0f, 30.0f, 180.0f, 180.0f
     char materialAnimExtension[6];
     char paletteAnimExtension[6];
     char textureAnimExtension[6];
@@ -93,7 +128,7 @@ struct Object3DStaticData
     { &CreateRotationZ, &CreateRotationY, &CreateRotationX },
     { &CreateRotationZ, &CreateRotationY, &CreateRotationX },
     { &Object3D::AdvanceAnimations_v0, &Object3D::AdvanceAnimations_v1 },
-    { object3DsData.jointAnimExtension, object3DsData.materialAnimExtension,
+    { object3DsData.jointAnimExtension, object3DsData.materialAnimExtension, 
       object3DsData.paletteAnimExtension, object3DsData.textureAnimExtension }
 };
 
@@ -104,13 +139,13 @@ struct Struct_02104b18
     Matrix4x3 boneMatrixWithView;
 } boneTracking;
 
-extern char gSoundEffectManager_02108760[];
+extern char data_02108760[];
 
 void Object3D::Initialize()
 {
-    classFlags_0_ = 1;
+    unknown_0_ = 1;
     unknown_2_ = -1;
-    objectIndex_4_ = -1;
+    unknown_4_ = -1;
     unknown_6_ = -1;
     activeAnimationIndex_ = -1;
     animationFlags_ = 0;
@@ -194,6 +229,8 @@ void Object3D::AdvanceEffects()
     {
         if (deltaTimeTicks < animationPlaybackSpeedTransitionRemainingTicks_)
         {
+            // subtracting deltaTime and then dividing by the new value, isn't
+            // this a bug? we divide by 0 in the last frame
             animationPlaybackSpeedTransitionRemainingTicks_ -= deltaTimeTicks;
             fix32_t rateOfChange = fix32_Divide(
                 targetAnimationPlaybackSpeed_ - animationPlaybackSpeed_,
@@ -293,21 +330,21 @@ void Object3D::AdvanceAnimations_v0()
 
     if ((flags_ & (1 << OBJECT3D_FLAG_6)) || unknown_78_ == 0xffff)
         return;
-
+    
     for (BCFG::AltSizeCEntry* loopEntry = record->firstAlt; loopEntry != NULL; loopEntry = loopEntry->pNext)
     {
         if (loopEntry->triggerTime == 0)
         {
             if (unknown_40_bit_1_ || (animationReachedEnd_ && !(animationFlags_ & OBJECT_ANIMATION_DONT_LOOP)))
-                func_0203ac40(gSoundEffectManager_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
+                func_0203ac40(data_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
         }
-        else if (loopEntry->triggerTime == 1.0)
+        else if (loopEntry->triggerTime == 1.0) // why use a double?!
         {
             if (animationEnded_)
-                func_0203ac40(gSoundEffectManager_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
-        }
+                func_0203ac40(data_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
+        }  
         else if (prevFrameNormalizedAnimationTime_ < loopEntry->triggerTime && loopEntry->triggerTime <= normalizedAnimationTime_)
-            func_0203ac40(gSoundEffectManager_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
+            func_0203ac40(data_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
     }
 }
 
@@ -315,13 +352,13 @@ void Object3D::AdvanceAnimations_v1()
 {
     GameState* gameState = GameState::GetInstance();
     fix16_t deltaTime = gameState->GetAnimationDeltaTime();
-    if (activeAnimationIndex_ < 0 || activeAnimationPackage_->pAnim3Ds == NULL
+    if (activeAnimationIndex_ < 0 || activeAnimationPackage_->pAnim3Ds == NULL 
         || activeAnimationPackage_->pAnim3Ds[activeAnimationIndex_].data == NULL)
         return;
     Animation3D* anim3D = activeAnimationPackage_->pAnim3Ds[activeAnimationIndex_].data;
     if (anim3D->GetBasicAnimationData() == NULL || (flags_ & (1 << OBJECT3D_FLAG_12)))
         return;
-
+    
     BCFG::AnimationRecord* record = activeAnimationPackage_->bcfgData.GetAnimationRecord(activeAnimationIndex_);
     if (record == NULL)
         return;
@@ -338,7 +375,7 @@ void Object3D::AdvanceAnimations_v1()
         {
             float dt = blendDeltaTime;
             float blendWeightCurrent = priorAnimationBlend_.blendWeight / 4096.0f;
-            float dw_dt = blendWeightCurrent / priorAnimationBlend_.blendTimeRemaining;
+            float dw_dt = blendWeightCurrent / priorAnimationBlend_.blendTimeRemaining; // constant
             fix32_t deltaWeight = 4096.0f * (dt * dw_dt);
             priorAnimationBlend_.blendWeight -= deltaWeight;
             newTimeRemaining = priorAnimationBlend_.blendTimeRemaining - blendDeltaTime;
@@ -405,28 +442,29 @@ void Object3D::AdvanceAnimations_v1()
 
         if ((flags_ & (1 << OBJECT3D_FLAG_6)) || unknown_78_ == 0xffff)
             return;
-
+        
         for (BCFG::AltSizeCEntry* loopEntry = record->firstAlt; loopEntry != NULL; loopEntry = loopEntry->pNext)
         {
             if (loopEntry->triggerTime == 0)
             {
                 if (unknown_40_bit_1_ || (animationReachedEnd_ && !(animationFlags_ & OBJECT_ANIMATION_DONT_LOOP)))
-                    func_0203ac40(gSoundEffectManager_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
+                    func_0203ac40(data_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
             }
-            else if (loopEntry->triggerTime == 1.0)
+            else if (loopEntry->triggerTime == 1.0) // why use a double?!
             {
                 if (animationEnded_)
-                    func_0203ac40(gSoundEffectManager_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
-            }
+                    func_0203ac40(data_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
+            }  
             else if (prevFrameNormalizedAnimationTime_ < loopEntry->triggerTime && loopEntry->triggerTime <= normalizedAnimationTime_)
-                func_0203ac40(gSoundEffectManager_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
+                func_0203ac40(data_02108760, unknown_7a_, loopEntry->maybeSoundEffect, 0);
         }
     }
 }
 
-fix32_t GetAnimationFrameCountFix32(AnimationData* data)
+fix32_t GetAnimationFrameCountFix32(Nitro3DAnimation* data)
 {
-    return *(uint16_t*)((intptr_t)data->pRawData_ + 4) << 12;
+    // bit ugly but we have to go into the raw data for this
+    return *(uint16_t*)((intptr_t)data->pRawData + 4) << 12;
 }
 
 void Object3D::ApplyAnimations(Object3D* otherObj)
@@ -457,12 +495,14 @@ void Object3D::ApplyAnimations(Object3D* otherObj)
         if (priorAnimationBlend_.source != NULL)
         {
             AnimationPackage::Reference* anim = &priorAnimationBlend_.source->pAnim3Ds[priorAnimationBlend_.unk_8];
+            // Why bother with this loop? as animationType == 1, anim->data is
+            // a single entry and not an array - everywhere else treats it as such
             for (unsigned int i = 0; i < anim->count; i++)
             {
                 model->AddAnimation(&anim->data[i]);
                 anim->data[i].SetAnimationTime(priorAnimationBlend_.sourceTime);
                 fix32_t thisWeight = priorAnimationBlend_.blendWeight;
-                anim->data[i].GetBasicAnimationData()->weight_ = thisWeight;
+                anim->data[i].GetBasicAnimationData()->weight = thisWeight;
             }
             weight -= priorAnimationBlend_.blendWeight;
         }
@@ -471,7 +511,7 @@ void Object3D::ApplyAnimations(Object3D* otherObj)
         {
             model->AddAnimation(&anim->data[i]);
             anim->data[i].SetAnimationTime(animationTime_);
-            anim->data[i].GetBasicAnimationData()->weight_ = weight;
+            anim->data[i].GetBasicAnimationData()->weight = weight;
         }
     }
 }
@@ -507,7 +547,7 @@ void Object3D::PopulateRenderConfigWorld()
     if (pPrevChild_ ? 1 : 0)
     {
         Matrix3x3 worldRotation;
-        func_020ca528(&gRenderConfig_0210a010.objectRotationPosition, &worldRotation);
+        func_020ca528(&g_nitro3DRenderConfig.objectRotationPosition, &worldRotation);
         Matrix3x3 axisRotation;
         fix32_t rotationComponents[3];
         rotationComponents[0] = rotation_.z;
@@ -538,21 +578,21 @@ void Object3D::PopulateRenderConfigWorld()
         ownScale.x = scale_[0];
         ownScale.y = scale_[1];
         ownScale.z = scale_[2];
-        Vector3fixMultiply(&gRenderConfig_0210a010.objectScale, &ownScale, &multipliedScale);
-        RenderConfig::SetObjectScale(&multipliedScale);
+        Vector3fixMultiply(&g_nitro3DRenderConfig.objectScale, &ownScale, &multipliedScale);
+        Nitro3DRenderConfig::SetObjectScale(&multipliedScale);
         Vector3fix multipliedPosition;
         Vector3fixMultiply(&position_, &multipliedScale, &multipliedPosition);
-        Vector3fix_Add(&gRenderConfig_0210a010.objectRotationPosition.translation, &multipliedPosition, &multipliedPosition);
-        RenderConfig::SetObjectPosition(&multipliedPosition);
+        Vector3fix_Add(&g_nitro3DRenderConfig.objectRotationPosition.translation, &multipliedPosition, &multipliedPosition);
+        Nitro3DRenderConfig::SetObjectPosition(&multipliedPosition);
     }
     else
     {
-        RenderConfig::SetObjectPosition(&position_);
+        Nitro3DRenderConfig::SetObjectPosition(&position_);
         if (flags_ & (1 << OBJECT3D_FLAG_19))
         {
-            const Matrix3x3* rotation = func_0202ed74(GetCamera_020100bc(GameState::GetInstance()));
-            func_020ca528(rotation, &gRenderConfig_0210a010.objectRotationPosition.rotation);
-            gRenderConfig_0210a010.flags &= ~((1 << RENDER_CONFIG_FLAG_WORLDVIEW_CACHE_VALID) | (1 << RENDER_CONFIG_FLAG_5) | (1 << RENDER_CONFIG_FLAG_2));
+            const Matrix3x3* rotation = func_0202ed74(func_020100bc(GameState::GetInstance()));
+            func_020ca528(rotation, &g_nitro3DRenderConfig.objectRotationPosition.rotation);
+            g_nitro3DRenderConfig.flags &= ~((1 << RENDER_CONFIG_FLAG_WORLDVIEW_CACHE_VALID) | (1 << RENDER_CONFIG_FLAG_5) | (1 << RENDER_CONFIG_FLAG_2));
         }
         else
         {
@@ -588,7 +628,7 @@ void Object3D::PopulateRenderConfigWorld()
         scaling.x = scale_[0];
         scaling.y = scale_[1];
         scaling.z = scale_[2];
-        RenderConfig::SetObjectScale(&scaling);
+        Nitro3DRenderConfig::SetObjectScale(&scaling);
     }
 }
 
@@ -648,18 +688,18 @@ bool Object3D::Draw(bool applyClipping)
         else
         {
             PopulateRenderConfigWorld();
-            RenderConfig::SubmitToFifo();
+            Nitro3DRenderConfig::SubmitToFifo();
         }
     }
 
     if (alternativeTexturePaletteOffset_ != 0)
     {
-        NSBXXTex* tex0 = pModel_->GetTEX0();
+        Nitro3DTextureSet* tex0 = pModel_->GetTEX0();
         if (tex0 != NULL)
         {
-            NSBXX_Tex_WritePaletteVRAMOffset(tex0, alternativeTexturePaletteOffset_);
-            NSBXX_DetachTexturePaletteFromModel(pModel_->rawInternalModel_);
-            NSBXX_AttachTexturePaletteToModel(pModel_->rawInternalModel_, tex0);
+            Nitro3D_StoreTexturePaletteVRAMOffsets(tex0, alternativeTexturePaletteOffset_);
+            Nitro3D_DetachTexturePalette(pModel_->rawInternalModel_);
+            Nitro3D_AttachTexturePalette(pModel_->rawInternalModel_, tex0);
         }
     }
 
@@ -705,7 +745,7 @@ bool Object3D::DrawSimple(bool applyClipping)
         pModel_->SetAlpha(ownAlpha);
 
     ApplyTextures();
-    RenderConfig::SubmitToFifo();
+    Nitro3DRenderConfig::SubmitToFifo();
 
     bool success = pModel_->Draw(applyClipping);
     drawSuccessful_ = (int)success;
@@ -752,7 +792,7 @@ bool Object3D::DrawMeshWithMaterial(bool applyClipping, int material, int mesh, 
 
     ApplyTextures();
     PopulateRenderConfigWorld();
-    RenderConfig::SubmitToFifo();
+    Nitro3DRenderConfig::SubmitToFifo();
     return pModel_->DrawMeshWithMaterial(applyClipping, material, mesh, bind);
 }
 
@@ -802,7 +842,7 @@ void Object3D::MaybeUpdateBonePositions()
     flags_ |= (1 << OBJECT3D_FLAG_5);
     ApplyAnimations(NULL);
     Vector3fix position = { 0 };
-    RenderConfig::SetObjectPosition(&position);
+    Nitro3DRenderConfig::SetObjectPosition(&position);
     fix32_t cosine = fix32cos(rotation_.y);
     fix32_t sine = fix32sin(rotation_.y);
 
@@ -810,8 +850,8 @@ void Object3D::MaybeUpdateBonePositions()
     Mat3x3_WriteRotationY(&rotationMatrix, sine, cosine);
     func_02016d8c(&rotationMatrix);
     Vector3fix scale = { 0x1000, 0x1000, 0x1000 };
-    RenderConfig::SetObjectScale(&scale);
-    RenderConfig::SubmitToFifo();
+    Nitro3DRenderConfig::SetObjectScale(&scale);
+    Nitro3DRenderConfig::SubmitToFifo();
 
     boneTracking.boneMatrixList = trackedBoneMatrixList_;
     pModel_->Draw(false);
@@ -877,19 +917,19 @@ bool Object3D::SetModelFromFile(SafeAllocator* alloc, void* modelFile,
     return true;
 }
 
-void Object3D::LoadType0AnimationFromFile(int slot, const char* filename, SafeAllocator* alloc)
+void Object3D::LoadType0AnimationFromFile(int slot, const char* filename, SafeAllocator* alloc) 
 {
     if (filename != NULL)
     {
         BackgroundLoader::AddLockGlobal();
         unsigned int length;
-        if (LoadFileIntoMemory(filename, gFileScratchSpace_0211e33c, &length))
+        if (LoadFileIntoMemory(filename, g_fileScratchSpace, &length))
         {
             unsigned int lengthAgain = length;
             void* allocation = alloc->Allocate(lengthAgain);
             if (allocation != NULL)
             {
-                memcpy(allocation, gFileScratchSpace_0211e33c, lengthAgain);
+                memcpy(allocation, g_fileScratchSpace, lengthAgain);
                 LoadType0AnimationFromPersistentMemory(slot, alloc, allocation, lengthAgain);
             }
         }
@@ -921,7 +961,7 @@ void Object3D::LoadType0AnimationFromPersistentMemory(int slot, SafeAllocator* a
     Animation3D* anim3d = &loadedAnimationPackageList_->pAnim3Ds->data[slot];
     StopCurrentAnimation();
     anim3d->DefaultInitialize();
-    if (!anim3d->SetRawFile((NSBXXContainer*)rawData))
+    if (!anim3d->SetRawFile((Nitro3DFileHeader*)rawData))
         return;
     if (!anim3d->CreateData(pModel_, alloc, NULL))
         return;
@@ -931,7 +971,7 @@ void Object3D::LoadType0AnimationPackageFromBCFGScript(const char *filename, Saf
 {
     BackgroundLoader::AddLockGlobal();
     unsigned int length;
-    const void* data = LoadFileIntoMemory(filename, gFileScratchSpace_0211e33c, &length);
+    const void* data = LoadFileIntoMemory(filename, g_fileScratchSpace, &length);
     if (data != NULL)
         LoadType0AnimationPackageFromBCFGScript(alloc, data, length);
     BackgroundLoader::RemoveLockGlobal();
@@ -942,7 +982,7 @@ AnimationPackage* Object3D::CreateType0AnimationPackage(SafeAllocator* alloc)
     AnimationPackage* package = (AnimationPackage*)alloc->Allocate(sizeof(AnimationPackage));
     if (package == NULL)
         return NULL;
-    package->Reset();
+    package->Reset(); // package is type 0 by default
     package->pAnim3Ds = (AnimationPackage::Reference*)alloc->Allocate(sizeof(AnimationPackage::Reference));
     if (package->pAnim3Ds == NULL)
         return NULL;
@@ -998,6 +1038,7 @@ bool Object3D::InternalLoadFromCHRArchive(ObjectArchiveLoadInfo* loadInfo)
     NitroVM machine;
     SafeAllocator* allocator = loadInfo->allocator;
     NitroVM_Initialize(&machine);
+    // Search the archive for an nsbmd file
     unsigned int fileID;
     for (fileID = 0; PrepareReadFileInNARCByID(&machine, &narc, fileID); fileID++)
     {
@@ -1007,7 +1048,7 @@ bool Object3D::InternalLoadFromCHRArchive(ObjectArchiveLoadInfo* loadInfo)
         {
             unsigned int allocSize;
             const void* fileBytes = narc.GetFileByIndex(fileID);
-            unsigned int fileLength = machine.fileInfo.unknown_8_ - machine.fileInfo.unknown_4_;
+            unsigned int fileLength = machine.fileInfo.endOffset - machine.fileInfo.startOffset;
 
             if (loadInfo->unk_10 != 0)
             {
@@ -1024,6 +1065,9 @@ bool Object3D::InternalLoadFromCHRArchive(ObjectArchiveLoadInfo* loadInfo)
                 func_020d8524(allocation, fileBytes, allocSize);
                 fileBytes = allocation;
             }
+            // the pointer is either allocated by us or we're promised it'll stick 
+            // around as long as we need it, so casting away const is just scary
+            // rather than actually dangerous
             if (!SetModelFromFile(allocator, const_cast<void*>(fileBytes), fileLength, Model3D::TextureStagingMode_Normal))
             {
                 NitroVM_FinishRead(&machine);
@@ -1044,15 +1088,16 @@ bool Object3D::InternalLoadFromCHRArchive(ObjectArchiveLoadInfo* loadInfo)
         narc.Destroy();
         return false;
     }
-
+    
     animPackage->packageID = loadInfo->packageID;
-
+     
     for (fileID = 0; PrepareReadFileInNARCByID(&machine, &narc, fileID); fileID++)
     {
         char filename[80];
         NitroVM_WriteOutFilePath(&machine, filename, sizeof(filename));
-
+        
         int fileType = -1;
+        // check for various animation file types
         if (strstr(filename, ".nsbca"))
             fileType = 0;
         else if (strstr(filename, ".nsbma"))
@@ -1061,13 +1106,14 @@ bool Object3D::InternalLoadFromCHRArchive(ObjectArchiveLoadInfo* loadInfo)
             fileType = 3;
         else if (strstr(filename, ".nsbtp"))
             fileType = 2;
-
+        
         if (fileType != -1)
         {
             fileBytes = narc.GetFileByIndex(fileID);
-            fileLength = machine.fileInfo.unknown_8_ - machine.fileInfo.unknown_4_;
+            fileLength = machine.fileInfo.endOffset - machine.fileInfo.startOffset;
             if (loadInfo->unk_10 != 0)
             {
+                // no faffing with alignment?!
                 void* allocation = allocator->Allocate(fileLength);
                 if (allocation == NULL)
                 {
@@ -1081,7 +1127,8 @@ bool Object3D::InternalLoadFromCHRArchive(ObjectArchiveLoadInfo* loadInfo)
             Animation3D* anim3D = &animPackage->pAnim3Ds->data[fileType];
             StopCurrentAnimation();
             anim3D->DefaultInitialize();
-            if (!anim3D->SetRawFile(const_cast<NSBXXContainer*>((const NSBXXContainer*)fileBytes)))
+            // see comments on earlier const casts for why this is not totally evil
+            if (!anim3D->SetRawFile(const_cast<Nitro3DFileHeader*>((const Nitro3DFileHeader*)fileBytes)))
             {
                 NitroVM_FinishRead(&machine);
                 narc.Destroy();
@@ -1097,7 +1144,7 @@ bool Object3D::InternalLoadFromCHRArchive(ObjectArchiveLoadInfo* loadInfo)
         else if (strstr(filename, ".bcfg"))
         {
             const void* scriptData = narc.GetFileByIndex(fileID);
-            unsigned int fileLength = machine.fileInfo.unknown_8_ - machine.fileInfo.unknown_4_;
+            unsigned int fileLength = machine.fileInfo.endOffset - machine.fileInfo.startOffset;
             animPackage->bcfgData.Reset();
             animPackage->bcfgData.LoadFromScript(allocator, scriptData, fileLength);
         }
@@ -1111,7 +1158,7 @@ bool Object3D::InternalLoadFromCHRArchive(ObjectArchiveLoadInfo* loadInfo)
 bool Object3D::LoadFromCCHROrCMOTArchive(ObjectArchiveLoadInfo *loadInfo, int (*animCallback)(BCFG::AnimationRecord*))
 {
     SafeAllocator* allocator = loadInfo->allocator;
-
+    
     unsigned int fileLength;
     const void* fileBytes;
     if (FindFilesInNarcBySubstring(loadInfo->fileData, ".nsbmd", &fileBytes, &fileLength, 1) != 0)
@@ -1183,7 +1230,7 @@ bool Object3D::LoadFromCCHROrCMOTArchive(ObjectArchiveLoadInfo *loadInfo, int (*
                 lookup.valid = false;
                 break;
             }
-            int reducedNameLength = strlen(filename) - 5;
+            int reducedNameLength = strlen(filename) - 5;            
             entry->length = reducedNameLength;
             unsigned short invChecksum = 0;
             func_020d1d1c(&invChecksum, filename + 5, reducedNameLength);
@@ -1247,12 +1294,12 @@ bool Object3D::LoadFromCCHROrCMOTArchive(ObjectArchiveLoadInfo *loadInfo, int (*
                         {
                             NitroVM_Initialize(&machine);
                             PrepareReadFileInNARCByID(&machine, &narc, k);
-
+                            
                             NitroVM_WriteOutFilePath(&machine, filename, sizeof(filename));
                             if (strcmp(filename + 5, candidateName) == 0)
                             {
                                 foundFile = narc.GetFileByIndex(k);
-                                foundFileLength = machine.fileInfo.unknown_8_ - machine.fileInfo.unknown_4_;
+                                foundFileLength = machine.fileInfo.endOffset - machine.fileInfo.startOffset;
                                 foundInLookup_inner = true;
                             }
                             NitroVM_FinishRead(&machine);
@@ -1298,7 +1345,7 @@ bool Object3D::LoadFromCCHROrCMOTArchive(ObjectArchiveLoadInfo *loadInfo, int (*
                 {
                     Animation3D* anim = &ref->data[j];
                     anim->DefaultInitialize();
-                    anim->SetRawFile(static_cast<NSBXXContainer*>(rawAnimFilePointers[j]));
+                    anim->SetRawFile(static_cast<Nitro3DFileHeader*>(rawAnimFilePointers[j]));
                     anim->CreateData(pModel_, allocator, NULL);
                 }
             }
@@ -1336,7 +1383,7 @@ bool Object3D::MaybeSetRegularAnimation(const char *animName, int flags)
 {
     if (pModel_ == NULL || animName == NULL || (flags_ & (1 << OBJECT3D_FLAG_22)) || animName[0] == '\0')
         return false;
-
+    
     AnimationPackage* package;
     BCFG* bcfg = NULL;
     int index = -1;
@@ -1442,13 +1489,13 @@ bool Object3D::MaybeSetBCFGAnimation(int index, int flags)
     BCFG::AnimationRecord* record = loadedAnimationPackageList_->bcfgData.GetAnimationRecord(index);
     if (record == NULL)
         return false;
-
+    
     fix32_t time;
     if (flags & OBJECT_ANIMATION_REVERSE)
         time = record->endTime;
     else
         time = record->startTime;
-
+    
     activeAnimationIndex_ = index;
     animationTime_ = time;
     prevFrameAnimationTime_ = time;
@@ -1479,6 +1526,7 @@ int Object3D::GetOffset40Bit1() const { return unknown_40_bit_1_; }
 
 void Object3D::SetCurrentAnimationTime(fix32_t time)
 {
+    // extra assignment prevents other functions from inlining calls to this
     fix32_t newTime = time;
     prevFrameAnimationTime_ = animationTime_;
     animationTime_ = newTime;
@@ -1561,7 +1609,7 @@ void Object3D::RemoveAnimationPackageByID(int id)
         loadedAnimationPackageList_ = loadedAnimationPackageList_->pNext;
         return;
     }
-
+    
     AnimationPackage* package = loadedAnimationPackageList_->pNext;
     AnimationPackage* prevPackage = loadedAnimationPackageList_;
     while (package != NULL)
@@ -1717,7 +1765,7 @@ void Object3D::StageTextureData()
 {
     if (pModel_ == NULL)
         return;
-    NSBXXTex* tex0 = pModel_->GetTEX0();
+    Nitro3DTextureSet* tex0 = pModel_->GetTEX0();
     if (tex0 != NULL)
     {
         StageTexFilePaletteData(tex0, false);
@@ -1726,13 +1774,13 @@ void Object3D::StageTextureData()
 }
 
 void Object3D::ComputeShadowPosition()
-{
+{    
     if (pModel_ == NULL)
         return;
     AnimationPackage* package;
-    ModelRenderContext* context;
+    Nitro3DRenderContext* context;
     Model3D* model = pModel_;
-
+    
     if (!(context = GetModel3DContext(pModel_)))
         return;
     if (shadowBoneIndex_ < 0)
@@ -1748,12 +1796,13 @@ void Object3D::ComputeShadowPosition()
     }
     else
     {
-        if (GetModelBonePositionAndDirectionMatrices(context, NULL, NULL, shadowBoneIndex_))
+        if (Nitro3D_GetBonePosDirMatrices(context, NULL, NULL, shadowBoneIndex_))
         {
             Matrix4x3 boneWorldTransform;
             Mat4x3_WriteIdentity(&boneWorldTransform);
-            const Matrix4x3* inverseView = RenderConfig::GetInverseViewMatrix();
-            GetCurrentPositionAndDirectionMatrices(&boneWorldTransform, NULL);
+            const Matrix4x3* inverseView = Nitro3DRenderConfig::GetInverseViewMatrix();
+            // fix this cast later
+            Nitro3D_GetCurrentPosDirMatrices(&boneWorldTransform, NULL);
             Mat4x3_Multiply(&boneWorldTransform, inverseView, &boneWorldTransform);
             fix32_t z = boneWorldTransform.translation.z;
             fix32_t y = boneWorldTransform.translation.y;
@@ -1765,7 +1814,7 @@ void Object3D::ComputeShadowPosition()
     }
 }
 
-ModelRenderContext* GetModel3DContext(Model3D* model)
+Nitro3DRenderContext* GetModel3DContext(Model3D* model)
 {
     if (!model->unknown_flags_a8_0_)
         return NULL;
@@ -1813,7 +1862,7 @@ void AnimationPackageListInsert(AnimationPackage** pListStart, AnimationPackage*
     }
 }
 
-void Object3D::ClearChildListData()
+void Object3D::ClearChildListData() 
 {
     pPrevChild_ = NULL;
     pNextChild_ = NULL;
@@ -1822,6 +1871,7 @@ void Object3D::ClearChildListData()
 
 void Object3D::Attach(Object3D *parent, short boneIndex)
 {
+    // can't attach this if it's already attached elsewhere
     if (pPrevChild_ != NULL)
         return;
 
@@ -1889,10 +1939,11 @@ void Object3D::DrawChildren(Object3D *topLevelObject)
         {
             Matrix4x3 positionMatrix;
             Matrix3x3 directionMatrix;
-            ModelRenderContext* context = GetModel3DContext(topLevelObject->pModel_);
-            if (context != NULL && GetModelBonePositionAndDirectionMatrices(context,
+            Nitro3DRenderContext* context = GetModel3DContext(topLevelObject->pModel_);
+            if (context != NULL && Nitro3D_GetBonePosDirMatrices(context,
                 &positionMatrix, &directionMatrix, pNextChild_->attachmentBoneIndex_))
             {
+                // bug? flags is 32-bit, we lose upper 16 bits...
                 unsigned short oldFlags = pNextChild_->flags_;
                 pNextChild_->flags_ |= (1 << OBJECT3D_FLAG_NEVER_CLIP) | (1 << OBJECT3D_FLAG_COMPOSE_TRANSFORM);
                 unsigned char combinedAlpha = (inheritedAlpha_ * ownAlpha_) / 31;
@@ -1915,7 +1966,9 @@ bool Object3D::IsChild() const
 
 bool Object3D::IsParent() const
 {
-    return pNextChild_ != NULL && pPrevChild_ == NULL;
+    if (pNextChild_ != NULL && pPrevChild_ == NULL)
+        return true;
+    return false;
 }
 
 int Object3D::GetFlag(int mask) const { return flags_ & mask; }
@@ -1978,30 +2031,30 @@ Object3D::TrackedBoneMatrix* Object3D::GetTrackedBoneMatrix(int idx)
     return NULL;
 }
 
-void BoneTrackingRenderCommandHook(RenderCommandHandler*);
+void BoneTrackingRenderCommandHook(Nitro3DRenderCommandHandler*);
 
 void Object3D::EnableBoneTracking()
 {
     if (pModel_ == NULL)
         return;
 
-    ModelRenderContext* context = GetModel3DContext(pModel_);
+    Nitro3DRenderContext* context = GetModel3DContext(pModel_);
     if (context == NULL)
         return;
-    SetModelRenderContextRenderCommandHook(context, &BoneTrackingRenderCommandHook, 0, 6, 3);
+    Nitro3D_SetRenderHook(context, &BoneTrackingRenderCommandHook, 0, 6, 3);
 }
 
-void BoneTrackingRenderCommandHook(RenderCommandHandler* handler)
+void BoneTrackingRenderCommandHook(Nitro3DRenderCommandHandler* handler)
 {
     for (Object3D::TrackedBoneMatrix* tracker = boneTracking.boneMatrixList;
         tracker != NULL; tracker = tracker->pNext)
     {
-        if (!(handler->flags_ & (1 << RCH_FLAG_4)) || handler->currentBoneMatrix_ != tracker->boneIndex)
+        if (!(handler->flags & (1 << RCH_FLAG_4)) || handler->currentBoneMatrix != tracker->boneIndex)
             continue;
-
-        GetCurrentPositionAndDirectionMatrices(&tracker->matrix, NULL);
+        
+        Nitro3D_GetCurrentPosDirMatrices(&tracker->matrix, NULL);
         boneTracking.boneMatrixWithView = tracker->matrix;
-        Mat4x3_Multiply(&tracker->matrix, RenderConfig::GetInverseViewMatrix(), &tracker->matrix);
+        Mat4x3_Multiply(&tracker->matrix, Nitro3DRenderConfig::GetInverseViewMatrix(), &tracker->matrix);
     }
 }
 

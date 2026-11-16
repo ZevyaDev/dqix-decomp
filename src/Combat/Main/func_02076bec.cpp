@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "GameState/Field3b0.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 
 extern "C" int func_02032fdc(void* arg0, void* arg1, int arg2);
 extern "C" void* func_0202ed74(void* arg0);

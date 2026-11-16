@@ -5,40 +5,56 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_020100bc func_0200ff18
+#define func_0202ec84 func_0202e7f4
+#define func_0205ec34 func_0205ff20
+#define func_0206dfb0 func_0206f104
+#define func_0207ba28 func_0207c860
+#define func_020c54a4 func_020c6f70
+#define func_020c555c func_020c7028
+#define func_020c5574 func_020c7040
+
+#define func_ov000_02160fd4 func_ov000_02162740
+
+#define func_ov017_021901ac func_ov017_02190d90
+#define func_ov017_021b8468 func_ov017_021b8978
+#define func_ov017_021b8478 func_ov017_021b8988
+#endif
 
 struct FifoCommandInfo
 {
     unsigned char numOperands;
     bool hasColor;
 } static s_commandColorInfo[8][16] = {
-    {
+    { // Commands 0x00-0x0F: no operands, no color
         0
     },
-    {
+    { // Commands 0x10-0x1c
         { 1, false }, { 0, false }, { 1, false }, { 1, false },
         { 1, false }, { 0, false }, { 16, false }, { 12, false },
         { 16, false }, { 12, false }, { 9, false }, { 3, false },
         { 3, false },
     },
-    {
+    { // Commands 0x20-0x2b
         { 1, true }, { 1, false }, { 1, false }, { 2, false },
         { 1, false }, { 1, false }, { 1, false }, { 1, false },
         { 1, false }, { 1, false }, { 1, false }, { 1, false },
     },
-    {
+    { // Commands 0x30-0x34
         { 1, false }, { 1, false }, { 1, false }, { 1, false },
         { 32, false },
     },
-    {
+    { // Command 0x40
         { 1, false },
     },
-    {
+    { // Command 0x50
         { 1, false },
     },
-    {
+    { // Command 0x60
         { 1, false },
     },
-    {
+    { // Commands 0x70-0x72
         { 3, false }, { 2, false }, { 1, false },
     }
 };
@@ -52,31 +68,35 @@ static float s_eveningLength = 30.0f;
 #define DECLARE_SUM_ARRAY(name, a, b, c, d) static float name[5] = { (name[4] = a + (b + (d + c)), \
     (name[2] = name[3] + d), \
     (name[1] = name[2] + c), \
-     name[1] + b) }
+    /* name[0] = */ name[1] + b) }
 DECLARE_SUM_ARRAY(s_dayThresholds, s_eveningLength, s_dayLength, s_morningLength, s_nightLength);
 static LightingManager s_lightingManager;
 
 extern "C"
 {
-    void* GetCamera_020100bc(GameState*);
+    // camera data?
+    void* func_020100bc(GameState*);
 
-    void ConvertWorldToScreen_0202ec84(void*, const Vector3fix*, int*, int*);
+    void func_0202ec84(void*, const Vector3fix*, int*, int*);
 
-    bool IsFlagSet_0206dfb0(void*, void*, int);
+    bool func_0206dfb0(void*, void*, int);
 
-    char* GetFlagManager_0205ec34();
+    char* func_0205ec34(); 
 
     void func_0207ba28(LightingInfo*, int, float*, float*, float*);
 
-    void Set3DFog_020c54a4(int, int, int, int);
-    void Set3DEdgeColors_020c555c(unsigned short*);
+    void func_020c54a4(int, int, int, int);
+    // set edge colors
+    void func_020c555c(unsigned short*);
+    // set fog table
     void func_020c5574(void*);
 
-    extern "C" int TestBattleSceneFlags_ov000_02160fd4(void*, int);
+    // do bitmask of something
+    int func_ov000_02160fd4(void*, int);
 
-    void* GetBattleScene_ov017_021b8468(void*);
-    extern "C" void func_ov017_021901ac(GameResources*);
-    void* GetBattleSetup_ov017_021b8478(void*);
+    void* func_ov017_021b8468(void*);
+    void func_ov017_021901ac(GameResources*);
+    void* func_ov017_021b8478(void*);
 }
 
 void SetVector3fixComponents(Vector3fix*, fix32_t, fix32_t, fix32_t);
@@ -95,11 +115,12 @@ void GetDayThresholds(float *outNightToMorning, float *outMorningToDay,
 
 void LightingManager::AdvancedLighting::FillMissingEntries()
 {
+    // First pass: handle light 0 and colors
     for (int index = 0; index < 4; index++)
     {
         if (light0[index].maybeEnabled == true)
             continue;
-
+        
         int sourceIndex = index;
         for (int tryCounter = 0; tryCounter < 3; tryCounter++)
         {
@@ -133,9 +154,10 @@ void LightingManager::AdvancedLighting::FillMissingEntries()
         unk_142[index] = unk_142[sourceIndex];
         spriteDiffuseColor[index] = spriteDiffuseColor[sourceIndex];
         modelDiffuseColor[index] = modelDiffuseColor[sourceIndex];
-        edgeColor[index] = edgeColor[sourceIndex];
+        edgeColor[index] = edgeColor[sourceIndex];        
     }
 
+    // Second pass for light 1 specifically
     for (int index = 0; index < 4; index++)
     {
         if (light1[index].maybeEnabled == true)
@@ -183,6 +205,7 @@ void LightingManager::BasicLighting::FillMissingEntries()
                 sourceIndex = 3;
             if (unk_e0[sourceIndex] == 1)
                 break;
+            // nice try but this never runs, the loop stops before this
             if (tryCounter == 3)
             {
                 for (int i = 0; i < 4; i++)
@@ -232,6 +255,7 @@ void LightingManager::FogList::FillMissingEntries()
                 sourceIndex = 3;
             if (entries[sourceIndex].unk_0 == 1)
                 break;
+            // nice try but this never runs, the loop stops before this
             if (tryCounter == 3)
             {
                 for (int i = 0; i < 4; i++)
@@ -252,8 +276,8 @@ void LightingManager::FogList::FillMissingEntries()
 
 bool LightingManager::GetFifoCommandData(int opcode, int* outNumArgs)
 {
-    int high = opcode >> 4;
-    int low = opcode ^ (high << 4);
+    int high = opcode >> 4; // 0 to 7
+    int low = opcode ^ (high << 4); // 0 to 15
     *outNumArgs = s_commandColorInfo[high][low].numOperands;
     return s_commandColorInfo[high][low].hasColor;
 }
@@ -261,7 +285,7 @@ bool LightingManager::GetFifoCommandData(int opcode, int* outNumArgs)
 unsigned short LightingManager::ColorTransformTintBrightnessContrast(unsigned int inColor)
 {
     (void)GameState::GetInstance();
-
+    
     int inRed = inColor & 0x1f;
     int inGreen = (inColor & 0x3e0) >> 5;
     int inBlue = (inColor & 0x7c00) >> 10;
@@ -284,12 +308,12 @@ unsigned short LightingManager::ColorTransformTintBrightnessContrast(unsigned in
         normalizedRed = 0.0f;
     if (normalizedRed > 1.0f)
         normalizedRed = 1.0f;
-
+    
     if (normalizedGreen < 0.0f)
         normalizedGreen = 0.0f;
     if (normalizedGreen > 1.0f)
         normalizedGreen = 1.0f;
-
+    
     if (normalizedBlue < 0.0f)
         normalizedBlue = 0.0f;
     if (normalizedBlue > 1.0f)
@@ -338,12 +362,12 @@ unsigned short LightingManager::ColorTransformTintBrightnessContrast(unsigned in
         normalizedRed = 0.0f;
     if (normalizedRed > 1.0f)
         normalizedRed = 1.0f;
-
+    
     if (normalizedGreen < 0.0f)
         normalizedGreen = 0.0f;
     if (normalizedGreen > 1.0f)
         normalizedGreen = 1.0f;
-
+    
     if (normalizedBlue < 0.0f)
         normalizedBlue = 0.0f;
     if (normalizedBlue > 1.0f)
@@ -405,10 +429,10 @@ void LightingManager::GetCurrentAdvancedLightingValues(unsigned short *outMaybeA
         void* ov17thing = GetGameResources()->unknown_ptr_3718;
         if (ov17thing != NULL)
         {
-            void* ov0thing = GetBattleScene_ov017_021b8468(ov17thing);
-            if (ov0thing != NULL && TestBattleSceneFlags_ov000_02160fd4(ov0thing, 1 << 9))
+            void* ov0thing = func_ov017_021b8468(ov17thing);
+            if (ov0thing != NULL && func_ov000_02160fd4(ov0thing, 1 << 9))
             {
-                unsigned char* overrideData = (unsigned char*)GetBattleSetup_ov017_021b8478(ov17thing);
+                unsigned char* overrideData = (unsigned char*)func_ov017_021b8478(ov17thing);
                 currentTimeType = overrideData[5];
                 lerpFactor = 0.0f;
                 nextTimeType = currentTimeType + 1;
@@ -494,7 +518,7 @@ unsigned short LightingManager::InterpolateColors(int col0, int col1, float lerp
     int red0 = col0 & 0x1f;
     char redDiff = (col1 & 0x1f) - (col0 & 0x1f);
     char redLerp = red0 + redDiff * lerpFactor;
-
+    
     int green0 = (col0 & 0x3e0) >> 5;
     char greenDiff = ((col1 & 0x3e0) >> 5) - ((col0 & 0x3e0) >> 5);
     char greenLerp = green0 + greenDiff * lerpFactor;
@@ -540,7 +564,7 @@ void LightingManager::ComputeFogInfo(FogInfo *outFog)
             lerpFactor = 0.0f;
         else
             lerpFactor = transitionTime / s_dayTransitionLength;
-
+        
         FogInfo oldFog;
         FogInfo newFog;
         memcpy(&oldFog, &zone->lighting_.fogList.entries[currentTimeType], sizeof(FogInfo));
@@ -549,7 +573,7 @@ void LightingManager::ComputeFogInfo(FogInfo *outFog)
         int red0 = oldFog.color & 0x1f;
         char redDiff = (newFog.color & 0x1f) - (oldFog.color & 0x1f);
         char redLerp = red0 + redDiff * lerpFactor;
-
+        
         int green0 = (oldFog.color & 0x3e0) >> 5;
         char greenDiff = ((newFog.color & 0x3e0) >> 5) - ((oldFog.color & 0x3e0) >> 5);
         char greenLerp = green0 + greenDiff * lerpFactor;
@@ -596,14 +620,14 @@ void LightingManager::Initialize()
     unknown_84 = 1;
     fogEnabled_ = true;
 
-    RenderConfig::SetLightVector(0, 0, 0, 0);
-    RenderConfig::SetLightVector(1, 0, 0, 0);
-    RenderConfig::SetLightVector(2, 0, 0, 0);
-    RenderConfig::SetLightVector(3, 0, 0, 0);
-    RenderConfig::SetLightColor(0, 0);
-    RenderConfig::SetLightColor(1, 0);
-    RenderConfig::SetLightColor(2, 0);
-    RenderConfig::SetLightColor(3, 0);
+    Nitro3DRenderConfig::SetLightVector(0, 0, 0, 0);
+    Nitro3DRenderConfig::SetLightVector(1, 0, 0, 0);
+    Nitro3DRenderConfig::SetLightVector(2, 0, 0, 0);
+    Nitro3DRenderConfig::SetLightVector(3, 0, 0, 0);
+    Nitro3DRenderConfig::SetLightColor(0, 0);
+    Nitro3DRenderConfig::SetLightColor(1, 0);
+    Nitro3DRenderConfig::SetLightColor(2, 0);
+    Nitro3DRenderConfig::SetLightColor(3, 0);
 
     lightRGBScale_ = 1 << 12;
     lightRGBScaleInitial_ = 1 << 12;
@@ -614,11 +638,11 @@ void LightingManager::Initialize()
 
 void LightingManager::SetZone(Zone3D *zone) { pZone_ = zone; }
 
-void LightingManager::ModelTransformTintBrightnessContrast(NSBXXInternalModel *model)
+void LightingManager::ModelTransformTintBrightnessContrast(Nitro3DModel *model)
 {
     GameState* gameState = GameState::GetInstance();
     (void)GetGameResources();
-
+    
     if (pZone_ == NULL)
         return;
     Zone3D* zone = pZone_;
@@ -629,15 +653,15 @@ void LightingManager::ModelTransformTintBrightnessContrast(NSBXXInternalModel *m
     uintptr_t readPos;
     uint32_t* operandPtr;
     int totalNumOperands;
-    readPos = (uintptr_t)lightingInfo;
-
-    char* struct0205ec34 = GetFlagManager_0205ec34();
+    readPos = (uintptr_t)lightingInfo; // cursed dont look
+    
+    char* struct0205ec34 = func_0205ec34();
 
     if (((LightingInfo*)readPos)->maybeMode_ != 1)
         return;
 
     int index;
-    if (zone->currentZoneID_ == 6401 && IsFlagSet_0206dfb0(struct0205ec34, struct0205ec34 + 0x8c, 0x2a))
+    if (zone->currentZoneID_ == 6401 && func_0206dfb0(struct0205ec34, struct0205ec34 + 0x8c, 0x2a))
         index = 4;
     else
     {
@@ -663,8 +687,8 @@ void LightingManager::ModelTransformTintBrightnessContrast(NSBXXInternalModel *m
         }
     }
 
-    NSBXXNameList* meshList = model->GetMeshListSafe();
-
+    Nitro3DNameList* meshList = model->GetMeshListSafe();
+    
     lightingInfo->basic_.FillMissingEntries();
     func_0207ba28(lightingInfo, index, &redMix_2c_, &greenMix_30_, &blueMix_34_);
     mixBrightness_ = lightingInfo->basic_.unk_70[index];
@@ -675,30 +699,26 @@ void LightingManager::ModelTransformTintBrightnessContrast(NSBXXInternalModel *m
     spriteDiffuseColor_ = lightingInfo->basic_.spriteDiffuseColor[index];
     modelDiffuseColor_ = lightingInfo->basic_.modelDiffuseColor[index];
     edgeColor_ = lightingInfo->basic_.edgeColor[index];
-    RenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
+    Nitro3DRenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
     func_ov017_021901ac(GetGameResources());
     tint_4a_ = modelDiffuseColor_;
 
-    for (meshIndex = 0; meshIndex < model->numMeshes_; meshIndex++)
+    
+    for (meshIndex = 0; meshIndex < model->numMeshes; meshIndex++)
     {
         unsigned char opcode0;
         unsigned char opcode1;
         unsigned char opcode2;
         unsigned char opcode3;
 
-        NSBXXMesh* mesh;
-        void* pOffset;
-        if (meshList != NULL && (pOffset = meshList->GetEntryv3Safe(meshIndex)))
-            mesh = (NSBXXMesh*)meshList->GetEntryFromPtrOffset(pOffset);
-        else
-            mesh = NULL;
-
-        if (!(mesh->unk_4 & 2))
+        Nitro3DMesh* mesh = meshList->GetEntryFromu32Offset<Nitro3DMesh>(meshIndex);
+        
+        if (!(mesh->flags & 2))
             continue;
 
-        fifoBlob = (unsigned char*)mesh + mesh->gpuCommandsOffset_;
+        fifoBlob = (unsigned char*)mesh + mesh->gpuCommandsOffset;
         readPos = 0;
-        while (readPos < mesh->gpuCommandsLength_)
+        while (readPos < mesh->gpuCommandsLength)
         {
             opcode0 = fifoBlob[readPos];
             opcode1 = fifoBlob[readPos + 1];
@@ -708,7 +728,7 @@ void LightingManager::ModelTransformTintBrightnessContrast(NSBXXInternalModel *m
 
             int oneCommandNumOperands = 0;
             operandPtr = (uint32_t*)(fifoBlob + readPos);
-
+            
             totalNumOperands = 0;
 
             if (GetFifoCommandData(opcode0, &oneCommandNumOperands))
@@ -735,27 +755,28 @@ void LightingManager::ModelTransformTintBrightnessContrast(NSBXXInternalModel *m
 void LightingManager::ProcessZoneChange(Zone3D *newZone)
 {
     pZone_ = newZone;
-    Zone3D* zone = pZone_;
+    Zone3D* zone = pZone_; // why make this copy? but we have to!
     GameState* gameState;
     int index;
-    LightingInfo* info = &zone->lighting_;
+    LightingInfo* info = &zone->lighting_;    
     gameState = GameState::GetInstance();
     GetGameResources();
-    char* struct0205ec34 = GetFlagManager_0205ec34();
+    char* struct0205ec34 = func_0205ec34();
 
     if (info->maybeMode_ == 2)
     {
         info->advanced_.FillMissingEntries();
         info->fogList.FillMissingEntries();
-        RenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
+        Nitro3DRenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
         func_ov017_021901ac(GetGameResources());
         tint_4a_ = modelDiffuseColor_;
     }
     else if (info->maybeMode_ == 1)
     {
         info->basic_.FillMissingEntries();
-
-        if (zone->currentZoneID_ == 6401 && IsFlagSet_0206dfb0(struct0205ec34, struct0205ec34 + 0x8c, 0x2a))
+        
+        // 6401 = id of front of starflight express
+        if (zone->currentZoneID_ == 6401 && func_0206dfb0(struct0205ec34, struct0205ec34 + 0x8c, 0x2a))
         {
             index = 4;
         }
@@ -789,21 +810,21 @@ void LightingManager::ProcessZoneChange(Zone3D *newZone)
         spriteDiffuseColor_ = info->basic_.spriteDiffuseColor[index];
         modelDiffuseColor_ = info->basic_.modelDiffuseColor[index];
         edgeColor_ = info->basic_.edgeColor[index];
-        Set3DFog_020c54a4(true, fog->type, fog->depthShift, fog->offset);
+        func_020c54a4(true, fog->type, fog->depthShift, fog->offset);
         GX_FOG_COLOR = fog->color | (fog->alpha << 16);
         func_020c5574(fog->densityTable);
         unsigned short edgeColors[8] = {
             edgeColor_, edgeColor_, edgeColor_, edgeColor_,
             edgeColor_, edgeColor_, edgeColor_, edgeColor_
         };
-        Set3DEdgeColors_020c555c(edgeColors);
-        RenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
+        func_020c555c(edgeColors);
+        Nitro3DRenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
         func_ov017_021901ac(GetGameResources());
         tint_4a_ = modelDiffuseColor_;
     }
-    else
+    else // lighting mode is not 1 or 2
     {
-        Set3DFog_020c54a4(0, 0, 1, 0x5800);
+        func_020c54a4(0, 0, 1, 0x5800);
         maybePotBarrelDiffuseColor_ = 0x7fff;
         spriteDiffuseColor_ = 0x7fff;
         modelDiffuseColor_ = 0x7fff;
@@ -812,19 +833,19 @@ void LightingManager::ProcessZoneChange(Zone3D *newZone)
             edgeColor_, edgeColor_, edgeColor_, edgeColor_,
             edgeColor_, edgeColor_, edgeColor_, edgeColor_
         };
-        Set3DEdgeColors_020c555c(edgeColors);
-        RenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
+        func_020c555c(edgeColors);
+        Nitro3DRenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
         func_ov017_021901ac(GetGameResources());
         tint_4a_ = modelDiffuseColor_;
     }
-    RenderConfig::SetLightVector(0, 0, 0, 0);
-    RenderConfig::SetLightVector(1, 0, 0, 0);
-    RenderConfig::SetLightVector(2, 0, 0, 0);
-    RenderConfig::SetLightVector(3, 0, 0, 0);
-    RenderConfig::SetLightColor(0, 0);
-    RenderConfig::SetLightColor(1, 0);
-    RenderConfig::SetLightColor(2, 0);
-    RenderConfig::SetLightColor(3, 0);
+    Nitro3DRenderConfig::SetLightVector(0, 0, 0, 0);
+    Nitro3DRenderConfig::SetLightVector(1, 0, 0, 0);
+    Nitro3DRenderConfig::SetLightVector(2, 0, 0, 0);
+    Nitro3DRenderConfig::SetLightVector(3, 0, 0, 0);
+    Nitro3DRenderConfig::SetLightColor(0, 0);
+    Nitro3DRenderConfig::SetLightColor(1, 0);
+    Nitro3DRenderConfig::SetLightColor(2, 0);
+    Nitro3DRenderConfig::SetLightColor(3, 0);
 }
 
 void LightingManager::RecomputeAdvancedLighting()
@@ -844,13 +865,14 @@ void LightingManager::RecomputeAdvancedLighting()
         &maybePotBarrelDiffuseColor_, &spriteDiffuseColor_, &modelDiffuseColor_, &edgeColor_,
         &light0, &light1);
 
-    float lightZFix = (light0.direction[2] > 0.0f) ?
+    // this is needlessly fiddly to get the rounding right, but ok
+    float lightZFix = (light0.direction[2] > 0.0f) ? 
         (4096.0f * light0.direction[2] + 0.5f) :
         (4096.0f * light0.direction[2] - 0.5f);
-    float lightYFix = (light0.direction[1] > 0.0f) ?
+    float lightYFix = (light0.direction[1] > 0.0f) ? 
         (4096.0f * light0.direction[1] + 0.5f) :
         (4096.0f * light0.direction[1] - 0.5f);
-    float lightXFix = (light0.direction[0] > 0.0f) ?
+    float lightXFix = (light0.direction[0] > 0.0f) ? 
         (4096.0f * light0.direction[0] + 0.5f) :
         (4096.0f * light0.direction[0] - 0.5f);
     SetVector3fixComponents(&lightVectors_[0], lightXFix, lightYFix, lightZFix);
@@ -863,13 +885,13 @@ void LightingManager::RecomputeAdvancedLighting()
         lightVectors_[0].z = 0xff7;
     lightColors_[0] = light0.color;
 
-    lightZFix = (light1.direction[2] > 0.0f) ?
+    lightZFix = (light1.direction[2] > 0.0f) ? 
         (4096.0f * light1.direction[2] + 0.5f) :
         (4096.0f * light1.direction[2] - 0.5f);
-    lightYFix = (light1.direction[1] > 0.0f) ?
+    lightYFix = (light1.direction[1] > 0.0f) ? 
         (4096.0f * light1.direction[1] + 0.5f) :
         (4096.0f * light1.direction[1] - 0.5f);
-    lightXFix = (light1.direction[0] > 0.0f) ?
+    lightXFix = (light1.direction[0] > 0.0f) ? 
         (4096.0f * light1.direction[0] + 0.5f) :
         (4096.0f * light1.direction[0] - 0.5f);
     SetVector3fixComponents(&lightVectors_[1], lightXFix, lightYFix, lightZFix);
@@ -927,7 +949,7 @@ void LightingManager::RecomputeAdvancedLighting()
     ComputeFogInfo(&fogInfo_);
     if (fogEnabled_)
     {
-        Set3DFog_020c54a4(true, fogInfo_.type, fogInfo_.depthShift, fogInfo_.offset);
+        func_020c54a4(true, fogInfo_.type, fogInfo_.depthShift, fogInfo_.offset);
         GX_FOG_COLOR = (fogInfo_.color) | (fogInfo_.alpha << 16);
         func_020c5574(fogInfo_.densityTable);
     }
@@ -935,9 +957,8 @@ void LightingManager::RecomputeAdvancedLighting()
 
 void SetVector3fixComponents(Vector3fix* vec, fix32_t x, fix32_t y, fix32_t z)
 {
-    vec->x = x;
-    vec->y = y;
-    vec->z = z;
+    Vector3fix copy = { x, y, z };
+    *vec = copy;
 }
 
 void LightingManager::SubmitToRenderConfig()
@@ -946,29 +967,29 @@ void LightingManager::SubmitToRenderConfig()
     if (zone == NULL)
         return;
     (void)GetGameResources();
-    RenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
+    Nitro3DRenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
     if (zone->lighting_.maybeMode_ == 2)
     {
-        RenderConfig::SetLightVector(0, lightVectors_[0].x, lightVectors_[0].y, lightVectors_[0].z);
-        RenderConfig::SetLightColor(0, lightColors_[0]);
-        RenderConfig::SetLightVector(1, lightVectors_[1].x, lightVectors_[1].y, lightVectors_[1].z);
-        RenderConfig::SetLightColor(1, lightColors_[1]);
+        Nitro3DRenderConfig::SetLightVector(0, lightVectors_[0].x, lightVectors_[0].y, lightVectors_[0].z);
+        Nitro3DRenderConfig::SetLightColor(0, lightColors_[0]);
+        Nitro3DRenderConfig::SetLightVector(1, lightVectors_[1].x, lightVectors_[1].y, lightVectors_[1].z);
+        Nitro3DRenderConfig::SetLightColor(1, lightColors_[1]);
         unsigned short edgeColors[8] = {
             edgeColor_, edgeColor_, edgeColor_, edgeColor_,
             edgeColor_, edgeColor_, edgeColor_, edgeColor_
         };
-        Set3DEdgeColors_020c555c(edgeColors);
+        func_020c555c(edgeColors);
     }
 }
 
-void LightingManager::ApplyAmbientColorToModel(NSBXXInternalModel* model)
+void LightingManager::ApplyAmbientColorToModel(Nitro3DModel* model)
 {
-    NSBXX_Model_SetAmbientReflectionColor(model, ambientColor_);
+    Nitro3D_SetModelAmbientColor(model, ambientColor_);
 }
 
 void LightingManager::MaybeComputeHorizonPosition()
 {
-    void* maybeCameraData = GetCamera_020100bc(GameState::GetInstance());
+    void* maybeCameraData = func_020100bc(GameState::GetInstance());
     Vector3fix* maybeCameraTarget = (Vector3fix*)((char*)maybeCameraData + 0x12c);
     Vector3fix* maybeCameraEye = (Vector3fix*)((char*)maybeCameraData + 0x120);
 
@@ -979,16 +1000,19 @@ void LightingManager::MaybeComputeHorizonPosition()
     Vector3fix_Normalize(&cameraRay, &cameraRay);
     Vector3fixMultiplyScalar(&cameraRay, 2048 << 12, &cameraRay);
     int pixelX, pixelY;
-    ConvertWorldToScreen_0202ec84(maybeCameraData, &cameraRay, &pixelX, &pixelY);
+    // convert world coordinates to pixel value
+    func_0202ec84(maybeCameraData, &cameraRay, &pixelX, &pixelY);
     if (pixelY < 192 && pixelY > 0)
     {
         gradientCenterNorm_ = fix32_Divide(pixelY << 12, 191 << 12);
+        // why do this?
         if (gradientCenterNorm_ < 0)
             gradientCenterNorm_ = -gradientCenterNorm_;
         gradientCenterPixel_ = pixelY;
     }
     else
     {
+        // y >= 0: camera is pointing up, horizon is far down
         if (rayY >= 0)
             gradientCenterNorm_ = 1 << 12;
         else
@@ -1004,6 +1028,7 @@ void LightingManager::DrawBackgroundGradient()
     GXFIFO_DIFFUSE_AMBIENT = 0;
     GXFIFO_SPECULAR_EMISSION = 0;
     GXFIFO_TEXIMAGE_PARAMS = 0;
+    // alpha = 31, enable front-face rendering and back-face rendering
     GXFIFO_POLYGON_ATTRIBUTES = (0x1f << 16) | (1 << 7) | (1 << 6);
     (void*)GameState::GetInstance();
     unsigned short outerColor;
@@ -1027,19 +1052,19 @@ void LightingManager::DrawBackgroundGradient()
         void* ov17inner = resources->unknown_ptr_3718;
         if (ov17inner != NULL)
         {
-            void* ov0thing = GetBattleScene_ov017_021b8468(ov17inner);
-            if (ov0thing != NULL && TestBattleSceneFlags_ov000_02160fd4(ov0thing, 1 << 9))
+            void* ov0thing = func_ov017_021b8468(ov17inner);
+            if (ov0thing != NULL && func_ov000_02160fd4(ov0thing, 1 << 9))
             {
-                unsigned char* overrideData = (unsigned char*)GetBattleSetup_ov017_021b8478(ov17inner);
+                unsigned char* overrideData = (unsigned char*)func_ov017_021b8478(ov17inner);
                 int index = overrideData[5];
                 outerColor = lightingInfo->advanced_.backgroundColor[index];
                 innerColor = lightingInfo->advanced_.backgroundSecondColor[index];
             }
         }
     }
-
+        
     fix16_t yExtra = 4096.0f * lightingInfo->gradientCenterOffset_;
-
+    
     int outerRed, outerGreen, outerBlue;
     int innerRed, innerGreen, innerBlue;
 
@@ -1070,7 +1095,7 @@ void LightingManager::DrawBackgroundGradient()
     unsigned short bottomColor = (outerRed) | (outerGreen << 5) | (outerBlue << 10);
     unsigned short topColor = bottomColor;
     unsigned short middleColor = innerRed | (innerGreen << 5) | (innerBlue << 10);
-
+    
     fix32_t center = gradientCenterNorm_ + yExtra;
     if (center >= 0x800)
     {
@@ -1098,24 +1123,32 @@ void LightingManager::DrawBackgroundGradient()
     GXFIFO_POLYGON_BEGIN = 1;
     GXFIFO_VERTEX_COLOR = bottomColor;
 
+    // bottom left vertex
     GXFIFO_VERTEX_16 = ((1 << 12) << 16) | 0;
     GXFIFO_VERTEX_16 = 1 << 12;
+    // bottom right vertex
     GXFIFO_VERTEX_16 = ((1 << 12) << 16) | (1 << 12);
     GXFIFO_VERTEX_16 = 1 << 12;
 
     GXFIFO_VERTEX_COLOR = middleColor;
+    // middle right
     GXFIFO_VERTEX_16 = ((unsigned short)(short)(gradientCenterNorm_ + yExtra)) << 16 | (1 << 12);
     GXFIFO_VERTEX_16 = 1 << 12;
+    // middle left
     GXFIFO_VERTEX_16 = ((unsigned short)(short)(gradientCenterNorm_ + yExtra)) << 16;
     GXFIFO_VERTEX_16 = 1 << 12;
+    // middle left again
     GXFIFO_VERTEX_16 = ((unsigned short)(short)(gradientCenterNorm_ + yExtra)) << 16;
     GXFIFO_VERTEX_16 = 1 << 12;
+    // middle right again
     GXFIFO_VERTEX_16 = ((unsigned short)(short)(gradientCenterNorm_ + yExtra)) << 16 | (1 << 12);
     GXFIFO_VERTEX_16 = 1 << 12;
 
     GXFIFO_VERTEX_COLOR = topColor;
+    // top right
     GXFIFO_VERTEX_16 = (0 << 16) | (1 << 12);
     GXFIFO_VERTEX_16 = 1 << 12;
+    // top left
     GXFIFO_VERTEX_16 = (0 << 16) | 0;
     GXFIFO_VERTEX_16 = 1 << 12;
 
@@ -1146,7 +1179,7 @@ TimeOfDay ConvertToTimeOfDay(float time)
 {
     if (time < 0.0f || s_dayThresholds[4] < time)
         return TimeOfDay_Invalid;
-
+    
     if (time >= s_dayThresholds[0])
         return TimeOfDay_Evening;
     if (time >= s_dayThresholds[1])
@@ -1156,8 +1189,7 @@ TimeOfDay ConvertToTimeOfDay(float time)
     return TimeOfDay_Night;
 }
 
-extern "C" LightingManager* _ZN15LightingManagerC1Ev(LightingManager* arg0)
+LightingManager::LightingManager()
 {
-    arg0->Initialize();
-    return arg0;
+    Initialize();
 }

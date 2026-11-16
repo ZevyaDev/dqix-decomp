@@ -22,7 +22,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
-#include "NitroSDK/NSBXX/Animation.h"
+#include "NitroSDK/Graphics3D/Animation.h"
 
 extern "C" void __clear(void*, unsigned long);
 struct TextureVRAMArea_0203d028;

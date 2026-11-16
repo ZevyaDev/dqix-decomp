@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
 #include "Graphics/Model3D.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "Graphics/Vector.h"
 #include "NitroSDK/Matrix.h"
 #include "NitroSDK/Graphics.h"

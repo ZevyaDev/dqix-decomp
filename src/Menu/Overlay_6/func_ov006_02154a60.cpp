@@ -11,7 +11,7 @@
 #endif
 #include <globaldefs.h>
 #include "World/Object3D.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "GameState/GameState.h"
 
 struct Struct_ov006_02154a60 {

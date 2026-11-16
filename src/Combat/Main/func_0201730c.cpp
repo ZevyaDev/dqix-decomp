@@ -3,7 +3,7 @@
 
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "NitroSDK/Graphics.h"
 
 struct Struct_0201730c;

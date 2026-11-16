@@ -4,7 +4,6 @@
     .ctor       start:0x020eea98 end:0x020eeb40 kind:rodata align:4
     .data       start:0x020eeb40 end:0x020f2e60 kind:data align:32
     .bss        start:0x020f2e60 end:0x02154e60 kind:bss align:32
-
 src/Combat/Main/GetCRC16_0200006a.s:
     complete
     .text start:0x02000338 end:0x0200033c
@@ -5187,25 +5186,9 @@ src/Combat/Main/func_02046730.cpp:
     complete
     .text start:0x02047550 end:0x0204755c
 
-src/Combat/Main/func_0204673c.cpp:
+src/Resource/PAC.cpp:
     complete
-    .text start:0x0204755c end:0x020475e0
-
-src/Combat/Main/func_020467c0.cpp:
-    complete
-    .text start:0x020475e0 end:0x02047610
-
-src/Combat/Main/func_020467f0.cpp:
-    complete
-    .text start:0x02047610 end:0x0204766c
-
-src/Combat/Main/func_0204684c.cpp:
-    complete
-    .text start:0x0204766c end:0x02047720
-
-src/Combat/Main/func_02046900.cpp:
-    complete
-    .text start:0x02047720 end:0x0204775c
+    .text start:0x0204755c end:0x0204775c
 
 src/Combat/Main/func_0204693c.cpp:
     complete
@@ -5295,105 +5278,10 @@ src/Combat/Main/func_02047198.cpp:
     complete
     .text start:0x02047fb8 end:0x02047fbc
 
-src/Combat/Main/func_0204719c.cpp:
+src/Graphics/SPRSprite.cpp:
     complete
-    .text start:0x02047fbc end:0x02048050
-
-src/Combat/Main/func_02047230.cpp:
-    complete
-    .text start:0x02048050 end:0x0204806c
-
-src/Combat/Main/func_0204724c.cpp:
-    complete
-    .text start:0x0204806c end:0x02048104
-
-src/Combat/Main/func_020472e4.cpp:
-    complete
-    .text start:0x02048104 end:0x020481e8
-
-src/Combat/Main/func_020473c8.cpp:
-    complete
-    .text start:0x020481e8 end:0x02048268
-
-src/Combat/Main/func_02047448.cpp:
-    complete
-    .text start:0x02048268 end:0x02048374
-
-src/Combat/Main/func_02047554.cpp:
-    complete
-    .text start:0x02048374 end:0x02048468
-
-src/Combat/Main/func_02047648.cpp:
-    complete
-    .text start:0x02048468 end:0x02048538
-
-src/Combat/Main/func_02047718.cpp:
-    complete
-    .text start:0x02048538 end:0x020486a8
-
-src/Combat/Main/func_02047888.cpp:
-    complete
-    .text start:0x020486a8 end:0x020486dc
-
-src/Combat/Main/func_020478bc.cpp:
-    complete
-    .text start:0x020486dc end:0x0204874c
-
-src/Combat/Main/func_0204792c.cpp:
-    complete
-    .text start:0x0204874c end:0x020487d8
-
-src/Combat/Main/func_020479b8.cpp:
-    complete
-    .text start:0x020487d8 end:0x0204881c
-
-src/Combat/Main/func_020479fc.cpp:
-    complete
-    .text start:0x0204881c end:0x0204885c
-
-src/Combat/Main/func_02047a3c.cpp:
-    complete
-    .text start:0x0204885c end:0x0204887c
-
-src/Combat/Main/func_02047a5c.cpp:
-    complete
-    .text start:0x0204887c end:0x02048898
-
-src/Combat/Main/func_02047a78.cpp:
-    complete
-    .text start:0x02048898 end:0x02048950
-
-src/Combat/Main/func_02047b30.cpp:
-    complete
-    .text start:0x02048950 end:0x02048960
-
-src/Combat/Main/func_02047b40.cpp:
-    complete
-    .text start:0x02048960 end:0x02048cf4
-
-src/Combat/Main/func_02047ed4.cpp:
-    complete
-    .text start:0x02048cf4 end:0x02048d90
-
-src/Combat/Main/func_02047f70.cpp:
-    complete
-    .text start:0x02048d90 end:0x02048e24
-
-src/Combat/Main/func_02048004.cpp:
-    complete
-    .text start:0x02048e24 end:0x02048ea0
-
-src/Combat/Main/func_02048080.cpp:
-    complete
-    .text start:0x02048ea0 end:0x02048eb0
-
-src/Combat/Main/func_02048090.cpp:
-    complete
-    .text start:0x02048eb0 end:0x02048ed8
-
-src/Combat/Main/func_020480b8.cpp:
-    complete
-    .text start:0x02048ed8 end:0x02048f24
+    .text start:0x02047fbc end:0x02048f24
+    .data start:0x020f0140 end:0x020f0150
 
 src/Combat/Main/func_02048104.cpp:
     complete
@@ -5803,257 +5691,11 @@ src/Combat/Main/func_0204a5dc.cpp:
     complete
     .text start:0x0204b3fc end:0x0204b404
 
-src/Combat/Main/func_0204a5e4.cpp:
+src/Graphics/BGLayer.cpp:
     complete
-    .text start:0x0204b404 end:0x0204b418
-
-src/Combat/Main/func_0204a5f8.cpp:
-    complete
-    .text start:0x0204b418 end:0x0204b42c
-
-src/Combat/Main/func_0204a60c.cpp:
-    complete
-    .text start:0x0204b42c end:0x0204b448
-
-src/Combat/Main/func_0204a628.cpp:
-    complete
-    .text start:0x0204b448 end:0x0204b464
-
-src/Combat/Main/func_0204a644.cpp:
-    complete
-    .text start:0x0204b464 end:0x0204b480
-
-src/Combat/Main/func_0204a660.cpp:
-    complete
-    .text start:0x0204b480 end:0x0204b49c
-
-src/Combat/Main/func_0204a67c.cpp:
-    complete
-    .text start:0x0204b49c end:0x0204b4b8
-
-src/Combat/Main/func_0204a698.cpp:
-    complete
-    .text start:0x0204b4b8 end:0x0204b4d4
-
-src/Combat/Main/func_0204a6b4.cpp:
-    complete
-    .text start:0x0204b4d4 end:0x0204b4f0
-
-src/Combat/Main/func_0204a6d0.cpp:
-    complete
-    .text start:0x0204b4f0 end:0x0204b50c
-
-src/Combat/Main/func_0204a6ec.cpp:
-    complete
-    .text start:0x0204b50c end:0x0204b534
-
-src/Combat/Main/func_0204a714.cpp:
-    complete
-    .text start:0x0204b534 end:0x0204b55c
-
-src/Combat/Main/func_0204a73c.cpp:
-    complete
-    .text start:0x0204b55c end:0x0204b584
-
-src/Combat/Main/func_0204a764.cpp:
-    complete
-    .text start:0x0204b584 end:0x0204b5ac
-
-src/Combat/Main/func_0204a78c.cpp:
-    complete
-    .text start:0x0204b5ac end:0x0204b5d4
-
-src/Combat/Main/func_0204a7b4.cpp:
-    complete
-    .text start:0x0204b5d4 end:0x0204b5fc
-
-src/Combat/Main/func_0204a7dc.cpp:
-    complete
-    .text start:0x0204b5fc end:0x0204b624
-
-src/Combat/Main/func_0204a804.cpp:
-    complete
-    .text start:0x0204b624 end:0x0204b64c
-
-src/Combat/Main/func_0204a82c.cpp:
-    complete
-    .text start:0x0204b64c end:0x0204b668
-
-src/Combat/Main/func_0204a848.cpp:
-    complete
-    .text start:0x0204b668 end:0x0204b714
-
-src/Combat/Main/func_0204a8f4.cpp:
-    complete
-    .text start:0x0204b714 end:0x0204b7a4
-
-src/Combat/Main/func_0204a984.cpp:
-    complete
-    .text start:0x0204b7a4 end:0x0204b7e4
-
-src/Combat/Main/func_0204a9c4.cpp:
-    complete
-    .text start:0x0204b7e4 end:0x0204b848
-
-src/Combat/Main/func_0204aa28.cpp:
-    complete
-    .text start:0x0204b848 end:0x0204b868
-
-src/Combat/Main/func_0204aa48.cpp:
-    complete
-    .text start:0x0204b868 end:0x0204b884
-
-src/Combat/Main/func_0204aa64.cpp:
-    complete
-    .text start:0x0204b884 end:0x0204b96c
-
-src/Combat/Main/func_0204ab4c.cpp:
-    complete
-    .text start:0x0204b96c end:0x0204b9ec
-
-src/Combat/Main/func_0204abcc.cpp:
-    complete
-    .text start:0x0204b9ec end:0x0204ba80
-
-src/Combat/Main/func_0204ac60.cpp:
-    complete
-    .text start:0x0204ba80 end:0x0204bad0
-
-src/Combat/Main/func_0204acb0.cpp:
-    complete
-    .text start:0x0204bad0 end:0x0204baf0
-
-src/Combat/Main/func_0204acd0.cpp:
-    complete
-    .text start:0x0204baf0 end:0x0204bafc
-
-src/Combat/Main/func_0204acdc.cpp:
-    complete
-    .text start:0x0204bafc end:0x0204bba8
-
-src/Combat/Main/func_0204ad88.cpp:
-    complete
-    .text start:0x0204bba8 end:0x0204bbd4
-
-src/Combat/Main/func_0204adb4.cpp:
-    complete
-    .text start:0x0204bbd4 end:0x0204bc08
-
-src/Combat/Main/func_0204ade8.cpp:
-    complete
-    .text start:0x0204bc08 end:0x0204bc64
-
-src/Combat/Main/func_0204ae44.cpp:
-    complete
-    .text start:0x0204bc64 end:0x0204bc9c
-
-src/Combat/Main/func_0204ae7c.cpp:
-    complete
-    .text start:0x0204bc9c end:0x0204bd34
-
-src/Combat/Main/func_0204af14.cpp:
-    complete
-    .text start:0x0204bd34 end:0x0204bd58
-
-src/Combat/Main/func_0204af38.cpp:
-    complete
-    .text start:0x0204bd58 end:0x0204bd84
-
-src/Combat/Main/func_0204af64.cpp:
-    complete
-    .text start:0x0204bd84 end:0x0204bdd4
-
-src/Combat/Main/func_0204afb4.cpp:
-    complete
-    .text start:0x0204bdd4 end:0x0204be30
-
-src/Combat/Main/func_0204b010.cpp:
-    complete
-    .text start:0x0204be30 end:0x0204be6c
-
-src/Combat/Main/func_0204b04c.cpp:
-    complete
-    .text start:0x0204be6c end:0x0204bea8
-
-src/Combat/Main/func_0204b088.cpp:
-    complete
-    .text start:0x0204bea8 end:0x0204bf08
-
-src/Combat/Main/func_0204b0e8.cpp:
-    complete
-    .text start:0x0204bf08 end:0x0204bf3c
-
-src/Combat/Main/func_0204b11c.cpp:
-    complete
-    .text start:0x0204bf3c end:0x0204bf4c
-
-src/Combat/Main/func_0204b12c.cpp:
-    complete
-    .text start:0x0204bf4c end:0x0204bf94
-
-src/Combat/Main/func_0204b174.cpp:
-    complete
-    .text start:0x0204bf94 end:0x0204c100
-
-src/Combat/Main/func_0204b2e0.cpp:
-    complete
-    .text start:0x0204c100 end:0x0204c1c0
-
-src/Combat/Main/func_0204b3a0.cpp:
-    complete
-    .text start:0x0204c1c0 end:0x0204c2e0
-
-src/Combat/Main/func_0204b4c0.cpp:
-    complete
-    .text start:0x0204c2e0 end:0x0204c3d4
-
-src/Combat/Main/func_0204b5b4.cpp:
-    complete
-    .text start:0x0204c3d4 end:0x0204c408
-
-src/Combat/Main/func_0204b5e8.cpp:
-    complete
-    .text start:0x0204c408 end:0x0204c440
-
-src/Combat/Main/func_0204b620.cpp:
-    complete
-    .text start:0x0204c440 end:0x0204c698
-
-src/Combat/Main/func_0204b878.cpp:
-    complete
-    .text start:0x0204c698 end:0x0204c6f0
-
-src/Combat/Main/func_0204b8d0.cpp:
-    complete
-    .text start:0x0204c6f0 end:0x0204c758
-
-src/Combat/Main/func_0204b938.cpp:
-    complete
-    .text start:0x0204c758 end:0x0204c7a8
-
-src/Combat/Main/func_0204b988.cpp:
-    complete
-    .text start:0x0204c7a8 end:0x0204c7d8
-
-src/Combat/Main/func_0204b9b8.cpp:
-    complete
-    .text start:0x0204c7d8 end:0x0204c8d4
-
-src/Combat/Main/func_0204bab4.cpp:
-    complete
-    .text start:0x0204c8d4 end:0x0204c9d4
-
-src/Combat/Main/func_0204bbb4.cpp:
-    complete
-    .text start:0x0204c9d4 end:0x0204ca28
-
-src/Combat/Main/func_0204bc08.cpp:
-    complete
-    .text start:0x0204ca28 end:0x0204ca94
-
-src/Combat/Main/func_0204bc74.cpp:
-    complete
-    .text start:0x0204ca94 end:0x0204cb9c
+    .text start:0x0204b404 end:0x0204cb9c
+    .rodata start:0x020e855c end:0x020e85b4
+    .data start:0x020f01d8 end:0x020f0270
 
 src/Combat/Main/func_0204bd7c.cpp:
     complete
@@ -6843,125 +6485,10 @@ src/Combat/Main/func_0205a180.cpp:
     complete
     .text start:0x0205b4f8 end:0x0205b510
 
-src/Combat/Main/func_0205a198.cpp:
+src/Graphics/OBJSpriteSet.cpp:
     complete
-    .text start:0x0205b510 end:0x0205b568
-
-src/Combat/Main/func_0205a1f0.cpp:
-    complete
-    .text start:0x0205b568 end:0x0205b5ac
-
-src/Combat/Main/func_0205a234.cpp:
-    complete
-    .text start:0x0205b5ac end:0x0205b5bc
-
-src/Combat/Main/func_0205a244.cpp:
-    complete
-    .text start:0x0205b5bc end:0x0205b5cc
-
-src/Combat/Main/func_0205a330.cpp:
-    complete
-    .text start:0x0205b6a8 end:0x0205b6e8
-
-src/Combat/Main/func_0205a370.cpp:
-    complete
-    .text start:0x0205b6e8 end:0x0205b724
-
-src/Combat/Main/func_0205a3ac.cpp:
-    complete
-    .text start:0x0205b748 end:0x0205b76c
-
-src/Combat/Main/func_0205a3d0.cpp:
-    complete
-    .text start:0x0205b76c end:0x0205b7c8
-
-src/Combat/Main/func_0205a42c.cpp:
-    complete
-    .text start:0x0205b7c8 end:0x0205b7e0
-
-src/Combat/Main/func_0205a444.cpp:
-    complete
-    .text start:0x0205b7e0 end:0x0205b830
-
-src/Combat/Main/func_0205a494.cpp:
-    complete
-    .text start:0x0205b830 end:0x0205b834
-
-src/Combat/Main/func_0205a498.cpp:
-    complete
-    .text start:0x0205b834 end:0x0205b8c4
-
-src/Combat/Main/func_0205a528.cpp:
-    complete
-    .text start:0x0205b8c4 end:0x0205b9f4
-
-src/Combat/Main/func_0205a658.cpp:
-    complete
-    .text start:0x0205b9f4 end:0x0205bd20
-
-src/Combat/Main/func_0205a984.cpp:
-    complete
-    .text start:0x0205bd20 end:0x0205be94
-
-src/Combat/Main/func_0205aaf8.cpp:
-    complete
-    .text start:0x0205be94 end:0x0205bf14
-
-src/Combat/Main/func_0205ab78.cpp:
-    complete
-    .text start:0x0205bf14 end:0x0205bfdc
-
-src/Combat/Main/func_0205ac40.cpp:
-    complete
-    .text start:0x0205bfdc end:0x0205c178
-
-src/Combat/Main/func_0205addc.cpp:
-    complete
-    .text start:0x0205c178 end:0x0205c228
-
-src/Combat/Main/func_0205ae8c.cpp:
-    complete
-    .text start:0x0205c228 end:0x0205c26c
-
-src/Combat/Main/func_0205aed0.cpp:
-    complete
-    .text start:0x0205c26c end:0x0205c2b4
-
-src/Combat/Main/func_0205af18.cpp:
-    complete
-    .text start:0x0205c2b4 end:0x0205c2d4
-
-src/Combat/Main/func_0205af38.cpp:
-    complete
-    .text start:0x0205c2d4 end:0x0205c320
-
-src/Combat/Main/func_0205af84.cpp:
-    complete
-    .text start:0x0205c320 end:0x0205c34c
-
-src/Combat/Main/func_0205afb0.cpp:
-    complete
-    .text start:0x0205c34c end:0x0205c378
-
-src/Combat/Main/func_0205afdc.cpp:
-    complete
-    .text start:0x0205c378 end:0x0205c3a4
-
-src/Combat/Main/func_0205b008.cpp:
-    complete
-    .text start:0x0205c3a4 end:0x0205c474
-
-src/Combat/Main/func_0205b0d8.cpp:
-    complete
-    .text start:0x0205c474 end:0x0205c510
-
-src/Combat/Main/func_0205b174.cpp:
-    complete
-    .text start:0x0205c510 end:0x0205c52c
-
-src/Combat/Main/func_0205b190.cpp:
-    complete
-    .text start:0x0205c52c end:0x0205c548
+    .text start:0x0205b510 end:0x0205c548
+    .data start:0x020f0570 end:0x020f0584
 
 src/Combat/Main/func_0205b1ac.cpp:
     complete
@@ -9048,25 +8575,9 @@ src/Combat/Main/func_0207de1c.cpp:
     complete
     .text start:0x0207eb9c end:0x0207ebc8
 
-src/Combat/Main/func_0207de48.cpp:
+src/Graphics/TextureArena.cpp:
     complete
-    .text start:0x0207ebc8 end:0x0207ecd0
-
-src/Combat/Main/func_0207df50.cpp:
-    complete
-    .text start:0x0207ecd0 end:0x0207ed10
-
-src/Combat/Main/func_0207df90.cpp:
-    complete
-    .text start:0x0207ed10 end:0x0207ed2c
-
-src/Combat/Main/func_0207dfac.cpp:
-    complete
-    .text start:0x0207ed2c end:0x0207ed48
-
-src/Combat/Main/func_0207dfc8.cpp:
-    complete
-    .text start:0x0207ed48 end:0x0207ede0
+    .text start:0x0207ebc8 end:0x0207ede0
 
 src/Graphics/Animation3D.cpp:
     complete
@@ -12099,10 +11610,6 @@ src/Combat/Main/func_0201c1f8.cpp:
     complete
     .text start:0x0201bf70 end:0x0201c11c
 
-src/Combat/Main/func_0205a254.cpp:
-    complete
-    .text start:0x0205b5cc end:0x0205b6a8
-
 src/Combat/Main/func_020a57e4.cpp:
     complete
     .text start:0x020a7588 end:0x020a78c0
@@ -13903,7 +13410,7 @@ src/NitroSDK/Filesystem/NarcHandle.cpp:
 
 src/NitroSDK/Memory/AllocatorTypes.cpp:
     complete
-    .rodata start:0x020e926c end:0x020e9284
+    .rodata start:0x020e926c end:0x020e928c
     .text start:0x020b1894 end:0x020b1900
 
 src/NitroSDK/Main/func_020afe34.cpp:
@@ -13918,109 +13425,10 @@ src/NitroSDK/Memory/AllocatorUnion.cpp:
     complete
     .text start:0x020b1938 end:0x020b1990
 
-src/NitroSDK/Main/func_020afec4.cpp:
+src/NitroSDK/Graphics2D/Graphics2D.cpp:
     complete
-    .text start:0x020b1990 end:0x020b19cc
-
-src/NitroSDK/Main/func_020aff00.cpp:
-    complete
-    .text start:0x020b19cc end:0x020b19d8
-
-src/NitroSDK/Main/func_020aff0c.cpp:
-    complete
-    .text start:0x020b19d8 end:0x020b1b28
-
-src/NitroSDK/Main/func_020b005c.cpp:
-    complete
-    .text start:0x020b1b28 end:0x020b1b40
-
-src/NitroSDK/Main/func_020b0074.cpp:
-    complete
-    .text start:0x020b1b40 end:0x020b1b60
-
-src/NitroSDK/Main/func_020b0094.cpp:
-    complete
-    .text start:0x020b1b60 end:0x020b1b70
-
-src/NitroSDK/Main/func_020b00a4.cpp:
-    complete
-    .text start:0x020b1b70 end:0x020b1bac
-
-src/NitroSDK/Main/func_020b00e0.cpp:
-    complete
-    .text start:0x020b1bac end:0x020b1bd4
-
-src/NitroSDK/Main/func_020b0108.cpp:
-    complete
-    .text start:0x020b1bd4 end:0x020b1c70
-
-src/NitroSDK/Main/func_020b01a4.cpp:
-    complete
-    .text start:0x020b1c70 end:0x020b1cac
-
-src/NitroSDK/Main/func_020b01e0.cpp:
-    complete
-    .text start:0x020b1cac end:0x020b1cbc
-
-src/NitroSDK/Main/func_020b01f0.cpp:
-    complete
-    .text start:0x020b1cbc end:0x020b1cf8
-
-src/NitroSDK/Main/func_020b022c.cpp:
-    complete
-    .text start:0x020b1cf8 end:0x020b1d34
-
-src/NitroSDK/Main/func_020b0268.cpp:
-    complete
-    .text start:0x020b1d34 end:0x020b1d44
-
-src/NitroSDK/Main/func_020b0278.cpp:
-    complete
-    .text start:0x020b1d44 end:0x020b1d54
-
-src/NitroSDK/Main/func_020b0288.cpp:
-    complete
-    .text start:0x020b1d54 end:0x020b1d9c
-
-src/NitroSDK/Main/func_020b02d0.cpp:
-    complete
-    .text start:0x020b1d9c end:0x020b1de4
-
-src/NitroSDK/Main/func_020b0318.cpp:
-    complete
-    .text start:0x020b1de4 end:0x020b1e00
-
-src/NitroSDK/Main/func_020b0334.cpp:
-    complete
-    .text start:0x020b1e00 end:0x020b1e08
-
-src/NitroSDK/Main/func_020b033c.cpp:
-    complete
-    .text start:0x020b1e08 end:0x020b1e28
-
-src/NitroSDK/Main/func_020b035c.cpp:
-    complete
-    .text start:0x020b1e28 end:0x020b1e34
-
-src/NitroSDK/Main/020b0368.cpp:
-    complete
-    .text start:0x020b1e34 end:0x020b2060
-
-src/NitroSDK/Main/func_020b0594.cpp:
-    complete
-    .text start:0x020b2060 end:0x020b228c
-
-src/NitroSDK/Main/func_020b07c0.cpp:
-    complete
-    .text start:0x020b228c end:0x020b2384
-
-src/NitroSDK/Main/func_020b08b8.cpp:
-    complete
-    .text start:0x020b2384 end:0x020b24e8
-
-src/NitroSDK/Main/func_020b0a1c.cpp:
-    complete
-    .text start:0x020b24e8 end:0x020b284c
+    .text start:0x020b1990 end:0x020b284c
+    .rodata start:0x020e928c end:0x020e92bc
 
 src/NitroSDK/Main/func_020b0d80.cpp:
     complete
@@ -14146,87 +13554,23 @@ src/NitroSDK/Main/func_020b2a58.cpp:
     complete
     .text start:0x020b4524 end:0x020b4538
 
-src/NitroSDK/Main/func_020b2a6c.cpp:
+src/NitroSDK/Graphics3D/AnimationInit.cpp:
     complete
-    .text start:0x020b4538 end:0x020b4598
+    .text start:0x020b4538 end:0x020b4638
+    .data start:0x020f1dd8 end:0x020f1e4c
 
-src/NitroSDK/NSBXX/Animation.cpp:
+src/NitroSDK/VRAMAllocationBase.cpp:
     complete
-    .text start:0x020b4598 end:0x020b4908
+    .text start:0x020bcef0 end:0x020bcf10
+    .data start:0x020f2054 end:0x020f2064
 
-src/NitroSDK/NSBXX/TEX.cpp:
-    complete
-    .text start:0x020b4908 end:0x020b518c
-
-src/NitroSDK/NSBXX/RenderConfig.cpp:
-    complete
-    .text start:0x020b518c end:0x020b559c
-
-src/NitroSDK/NSBXX/AnimationProcessing.cpp:
-    complete
-    .text start:0x020b559c end:0x020b5aec
-
-src/NitroSDK/NSBXX/RenderCommands.cpp:
-    complete
-    .text start:0x020b5aec end:0x020b8464
-
-src/NitroSDK/NSBXX/GeometryFifo.cpp:
-    complete
-    .text start:0x020b8464 end:0x020b8964
-
-src/NitroSDK/NSBXX/NSBXX.cpp:
-    complete
-    .text start:0x020b8964 end:0x020b8e38
-
-src/NitroSDK/NSBXX/NameList.cpp:
-    complete
-    .text start:0x020b8e38 end:0x020b9160
-
-src/NitroSDK/NSBXX/PatternAnimation.cpp:
-    complete
-    .text start:0x020b9160 end:0x020b930c
-
-src/NitroSDK/NSBXX/JAC.cpp:
-    complete
-    .text start:0x020b930c end:0x020ba92c
-
-src/NitroSDK/NSBXX/MAM.cpp:
-    complete
-    .text start:0x020ba92c end:0x020bad44
-
-src/NitroSDK/NSBXX/MAT.cpp:
-    complete
-    .text start:0x020bad44 end:0x020bb168
-
-src/NitroSDK/NSBXX/MPT.cpp:
-    complete
-    .text start:0x020bb168 end:0x020bb3f8
-
-src/NitroSDK/NSBXX/VAV.cpp:
-    complete
-    .text start:0x020bb3f8 end:0x020bb47c
-
-src/NitroSDK/NSBXX/RenderCommandProcs.cpp:
-    complete
-    .text start:0x020bb47c end:0x020bcef0
-
-src/NitroSDK/Main/020bb424.cpp:
-    complete
-    .text start:0x020bcef0 end:0x020bcf00
-    .data start:0x020f2054 end:0x020f205c
-
-src/NitroSDK/Main/020bb434.cpp:
-    complete
-    .text start:0x020bcf00 end:0x020bcf10
-    .data start:0x020f205c end:0x020f2064
-
-src/NitroSDK/Main/020bb444.cpp:
+src/NitroSDK/TextureVRAMAllocation.cpp:
     complete
     .text start:0x020bcf10 end:0x020bd24c
     .data start:0x020f2064 end:0x020f20f8
     .bss start:0x0210cc3c end:0x0210cc40
 
-src/NitroSDK/Main/020bb780.cpp:
+src/NitroSDK/PaletteVRAMAllocation.cpp:
     complete
     .text start:0x020bd24c end:0x020bd430
     .bss start:0x0210cc40 end:0x0210cc4c
@@ -17135,6 +16479,9 @@ src/Filesystem/ExtendedNitroVM.cpp:
 src/Filesystem/GPC.cpp:
     complete
     .text start:0x020da9d8 end:0x020db0bc
+    .init start:0x020e6ff0 end:0x020e705c
+    .ctor start:0x020eeb30 end:0x020eeb34
+    .data start:0x020f297c end:0x020f2990
 
 src/Resource/ResourceMutex.cpp:
     complete
@@ -17930,109 +17277,10 @@ src/Combat/Main/func_020dfbc0.cpp:
     complete
     .text start:0x020e1794 end:0x020e17a8
 
-src/Combat/Main/func_020dfbd4.cpp:
+src/Resource/StringList.cpp:
     complete
-    .text start:0x020e17a8 end:0x020e17b0
-
-src/Combat/Main/func_020dfbdc.cpp:
-    complete
-    .text start:0x020e17b0 end:0x020e17d0
-
-src/Combat/Main/func_020dfbfc.cpp:
-    complete
-    .text start:0x020e17d0 end:0x020e1800
-
-src/Combat/Main/func_020dfc2c.cpp:
-    complete
-    .text start:0x020e1800 end:0x020e1814
-
-src/Combat/Main/func_020dfc40.cpp:
-    complete
-    .text start:0x020e1814 end:0x020e1840
-
-src/Combat/Main/func_020dfc6c.cpp:
-    complete
-    .text start:0x020e1840 end:0x020e1858
-
-src/Combat/Main/func_020dfc84.cpp:
-    complete
-    .text start:0x020e1858 end:0x020e1914
-
-src/Combat/Main/func_020dfd40.cpp:
-    complete
-    .text start:0x020e1914 end:0x020e1a5c
-
-src/Combat/Main/func_020dfe88.cpp:
-    complete
-    .text start:0x020e1a5c end:0x020e1a94
-
-src/Combat/Main/func_020dfec0.cpp:
-    complete
-    .text start:0x020e1a94 end:0x020e1b8c
-
-src/Combat/Main/func_020dffb8.cpp:
-    complete
-    .text start:0x020e1b8c end:0x020e1b9c
-
-src/Combat/Main/func_020dffc8.cpp:
-    complete
-    .text start:0x020e1b9c end:0x020e1bfc
-
-src/Combat/Main/func_020e0028.cpp:
-    complete
-    .text start:0x020e1bfc end:0x020e1e54
-
-src/Combat/Main/func_020e0280.cpp:
-    complete
-    .text start:0x020e1e54 end:0x020e1ee4
-
-src/Combat/Main/func_020e0310.cpp:
-    complete
-    .text start:0x020e1ee4 end:0x020e1f60
-
-src/Combat/Main/func_020e038c.cpp:
-    complete
-    .text start:0x020e1f60 end:0x020e1f8c
-
-src/Combat/Main/func_020e03b8.cpp:
-    complete
-    .text start:0x020e1f8c end:0x020e1fc4
-
-src/Filesystem/func_020e1fc4.cpp:
-    complete
-    .text start:0x020e1fc4 end:0x020e203c
-
-src/Combat/Main/func_020e03f0.cpp:
-    complete
-    .text start:0x020e203c end:0x020e2070
-
-src/Combat/Main/func_020e0434.cpp:
-    complete
-    .text start:0x020e2070 end:0x020e207c
-
-src/Combat/Main/func_020e5294.cpp:
-    complete
-    .text start:0x020e207c end:0x020e20b4
-
-src/Combat/Main/func_020e0440.cpp:
-    complete
-    .text start:0x020e20b4 end:0x020e20e0
-
-src/Combat/Main/func_020e046c.cpp:
-    complete
-    .text start:0x020e20e0 end:0x020e2168
-
-src/Combat/Main/func_020e04f4.cpp:
-    complete
-    .text start:0x020e2168 end:0x020e21e8
-
-src/Combat/Main/func_020e0574.cpp:
-    complete
-    .text start:0x020e21e8 end:0x020e2240
-
-src/Combat/Main/func_020e05f8.cpp:
-    complete
-    .text start:0x020e2240 end:0x020e2284
+    .text start:0x020e17a8 end:0x020e2284
+    .data start:0x020f2cc4 end:0x020f2cd0
 
 src/Combat/Main/func_020e063c.cpp:
     complete
@@ -18649,10 +17897,6 @@ src/Combat/Main/data_020e5ce8.cpp:
 src/Combat/Main/data_020e60e0.cpp:
     complete
     .init start:0x020e69c0 end:0x020e69d8
-
-src/Combat/Main/data_020e6710.cpp:
-    complete
-    .init start:0x020e6ff0 end:0x020e705c
 
 src/Combat/Main/__sinit_020e59c8.cpp:
     complete
@@ -19438,10 +18682,6 @@ src/Combat/Main/func_0207a6fc.cpp:
     complete
     .text start:0x0207a6fc end:0x0207a738
 
-src/Combat/Main/func_0205b724.cpp:
-    complete
-    .text start:0x0205b724 end:0x0205b748
-
 src/Combat/Main/func_020474b4.cpp:
     complete
     .text start:0x020474b4 end:0x020474e8
@@ -19634,3 +18874,82 @@ src/Combat/Main/func_02028a20.cpp:
 src/Combat/Main/func_0203cb58.cpp:
     complete
     .text start:0x0203cb58 end:0x0203cbe4
+
+src/NitroSDK/Graphics3D/Animation.cpp:
+    complete
+    .text start:0x020b4638 end:0x020b4908
+
+src/NitroSDK/Graphics3D/Texture.cpp:
+    complete
+    .text start:0x020b4908 end:0x020b518c
+
+src/NitroSDK/Graphics3D/RenderConfig.cpp:
+    complete
+    .text start:0x020b518c end:0x020b559c
+    .bss start:0x02109cc8 end:0x02109f2c
+
+src/NitroSDK/Graphics3D/AnimationProcessing.cpp:
+    complete
+    .text start:0x020b559c end:0x020b5aec
+
+src/NitroSDK/Graphics3D/RenderCommandProcLookup.cpp:
+    complete
+    .data start:0x020f1e4c end:0x020f1e74
+
+src/NitroSDK/Graphics3D/RenderCommands.cpp:
+    complete
+    .text start:0x020b5aec end:0x020b8464
+    .rodata start:0x020e934c end:0x020e9390
+    .data start:0x020f1e74 end:0x020f1ff4
+    .bss start:0x02109f2c end:0x0210cc30
+
+src/NitroSDK/Graphics3D/GeometryFifo.cpp:
+    complete
+    .text start:0x020b8464 end:0x020b8964
+    .bss start:0x0210cc30 end:0x0210cc3c
+
+src/NitroSDK/Graphics3D/Model.cpp:
+    complete
+    .text start:0x020b8964 end:0x020b8e38
+
+src/NitroSDK/Graphics3D/Search.cpp:
+    complete
+    .text start:0x020b8e38 end:0x020b920c
+
+src/NitroSDK/Graphics3D/PatternAnimation.cpp:
+    complete
+    .text start:0x020b920c end:0x020b930c
+
+src/NitroSDK/Graphics3D/JAC.cpp:
+    complete
+    .text start:0x020b930c end:0x020ba92c
+    .rodata start:0x020e9390 end:0x020e93b4
+
+src/NitroSDK/Graphics3D/MAM.cpp:
+    complete
+    .text start:0x020ba92c end:0x020bad44
+
+src/NitroSDK/Graphics3D/MAT.cpp:
+    complete
+    .text start:0x020bad44 end:0x020bb168
+
+src/NitroSDK/Graphics3D/MPT.cpp:
+    complete
+    .text start:0x020bb168 end:0x020bb3f8
+
+src/NitroSDK/Graphics3D/VAV.cpp:
+    complete
+    .text start:0x020bb3f8 end:0x020bb47c
+
+src/NitroSDK/Graphics3D/RenderCommandProcs.cpp:
+    complete
+    .text start:0x020bb47c end:0x020bcef0
+    .data start:0x020f1ff4 end:0x020f2054
+
+src/Filesystem/GPCVersion.cpp:
+    complete
+    .data start:0x020f2990 end:0x020f29a4
+
+src/Filesystem/GPCSignatures.cpp:
+    complete
+    .data start:0x020f29a4 end:0x020f29bc

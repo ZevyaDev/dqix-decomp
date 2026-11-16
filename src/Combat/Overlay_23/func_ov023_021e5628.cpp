@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
-#include "NitroSDK/NSBXX/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/GeometryFifo.h"
 
 extern "C" unsigned short (*func_02099cac(void))[2];
 extern "C" int Set3DEdgeColors_020c555c(int edgeColors);

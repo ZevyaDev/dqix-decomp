@@ -6,7 +6,7 @@ enum { Enum_ov000_02160b54_22004 = 0x57e4, Enum_ov000_02160b54_3784 = 0xe44, Enu
 enum { Enum_ov000_02160b54_22004 = 0x55f4, Enum_ov000_02160b54_3784 = 0xec8, Enum_ov000_02160b54_28630 = 0x6fd6, Enum_ov000_02160b54_3752 = 0xea8, Enum_ov000_02160b54_23216 = 0x5ab0 };
 #endif
 #include "GameState/GameState.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "Resource/Brightness.h"
 
 extern "C" void func_02016874(void* arg0);

@@ -5,28 +5,35 @@
 #include "Filesystem/FileIO.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "NitroSDK/Memory.h"
+#include "Resource/GameStrings.h"
 #include "std_library_functions.h"
 #include <asmhacks.h>
 
 #ifdef jpn
+#define func_020a1df8 func_020a3b70
+#define func_020a1e54 func_020a3bcc
 
-#define _Z18LoadFileIntoMemoryPKcPvPj func_02076224
-#define _Z13GetFileInNarcPKvPKcPS0_Pjj func_02076378
+#define func_02075098 func_02076224
+#define func_02075248 func_02076378
 
 #define data_020f1ae4 data_020f1c5c
 #define data_020f1af8 data_020f1c70
+#define data_0211e33c data_0211fb64
 #endif
 
 extern "C"
 {
-    void PushOverlay_020a1df8(unsigned int);
-    void PopOverlay_020a1e54(unsigned int);
+    void func_020a1df8(unsigned int);
+    void func_020a1e54(unsigned int);
 
-    void ConvertTextToGlyphIndices_020426bc(void*, char* buffer, int);
+    // copies character name into the buffer? (not used in jpn version)
+    void func_020426bc(void*, char* buffer, int);
 
-    const char* GetStandardString_020e51cc(int);
-
-    int GetGameLanguage_0200fb08(GameState*);
+    // seems to get the game language. In the USA version, if it would
+    // return a value other than 2 or 5, it returns 1, which seems to reflect
+    // lack of support for German & Italian.
+    // not used in jpn version
+    int func_0200fb08(GameState*);
 }
 
 #define BINARY_READ_AND_ADVANCE(buffer, offset, dst, len) \
@@ -38,62 +45,64 @@ extern "C"
 #ifdef jpn
 
 // JPN: func_020a5c20
-void RemoveFurigana(const char* arg0, char* arg1)
-{
-    if (arg1 == NULL)
+void RemoveFurigana(const char* src, char* dst)
+{  
+    if (dst == NULL)
         return;
 
-    VectorizedMemset(arg1, 0, 4);
+    VectorizedMemset(dst, 0, 4);
 
-    unsigned int var0 = 0;
-    int var1;
-    int var2 = 0;
-
-    for (var1 = 0; arg0[var1] != '\0'; var1++)
+    unsigned int mode = 0;
+    int srcIndex;
+    int dstIndex = 0;
+    
+    for (srcIndex = 0; src[srcIndex] != '\0'; srcIndex++)
     {
-        int var3 = arg0[var1];
+        int inChar = src[srcIndex];
 
-        if (var3 == '[')
+        if (inChar == '[')
         {
-            var0 = 1;
+            mode = 1;
             continue;
         }
-
-        if (var3 == '/')
+        
+        if (inChar == '/')
         {
-            var0 = 2;
+            mode = 2;
             continue;
         }
-
-        if (var3 == ']')
+        
+        if (inChar == ']')
         {
-            var0 = 0;
+            mode = 0;
             continue;
         }
-
-        if (var0 <= 1)
+        
+        if (mode <= 1)
         {
-            unsigned char var4 = var3;
-            bool var5;
-            if ((var4 >= 0x81 && var4 <= 0x9F) || (var4 >= 0xE0 && var4 <= 0xFC))
-                var5 = true;
+            unsigned char castChar = inChar;
+            bool twoBytes;
+            if ((castChar >= 0x81 && castChar <= 0x9F) || (castChar >= 0xE0 && castChar <= 0xFC))
+                twoBytes = true;
             else
-                var5 = false;
+                twoBytes = false;
 
-            if (var5)
+            if (twoBytes)
             {
-                int var6 = var1 + 1;
-                arg1[var2] = arg0[var6 - 1];
-                var1++;
-                var2++;
+                // totally normal code, nothing to see here
+                // (we need it to force some register placements)
+                int srcIndexPlusOne = srcIndex + 1;
+                dst[dstIndex] = src[srcIndexPlusOne - 1];
+                srcIndex++; // note srcIndex = srcIndexPlusOne doesn't work
+                dstIndex++;
             }
 
-            arg1[var2] = arg0[var1];
-            var2++;
+            dst[dstIndex] = src[srcIndex];
+            dstIndex++;
         }
     }
-
-    arg1[var2] = 0;
+    
+    dst[dstIndex] = 0;
 }
 
 #endif
@@ -102,15 +111,19 @@ void RemoveFurigana(const char* arg0, char* arg1)
 // JPN: func_020a5cfc
 bool IsMonsterIDLegacyBoss(unsigned short id)
 {
+    // v1 form of Dragonlord (500) through Mortamor (508)
     if (id >= 500 && id <= 508)
         return true;
 
+    // v1 form of Orgodemir, Dhoulmagus, Rhapthorne, Nokturnus
     if (id >= 511 && id <= 514)
         return true;
 
+    // alternate patterns for all bosses except Nokturnus
     if (id >= 600 && id <= 660)
         return true;
 
+    // alternate patterns for Nokturnus
     if (id >= 769 && id <= 775)
         return true;
 
@@ -126,20 +139,20 @@ struct MapTypeEntry
 
 extern const MapTypeEntry treasureMapItemIDs[];
 const MapTypeEntry treasureMapItemIDs[] = {
-    { 1000, 0, false },
-    { 1001, 1, true },
-    { 1002, 2, true },
-    { 1003, 3, true },
-    { 1004, 4, true },
-    { 1005, 5, true },
-    { 1006, 6, true },
-    { 1007, 7, true },
-    { 1008, 8, true },
-    { 1009, 9, true },
-    { 1010, 10, true },
-    { 1011, 11, true },
-    { 1012, 12, true },
-    { 1013, 13, true },
+    { 1000, 0, false },  // regular map
+    { 1001, 1, true },   // Dragonlord
+    { 1002, 2, true },   // Malroth
+    { 1003, 3, true },   // Baramos
+    { 1004, 4, true },   // Zoma
+    { 1005, 5, true },   // Psaro (comes before Estark here)
+    { 1006, 6, true },   // Estark
+    { 1007, 7, true },   // Nimzo
+    { 1008, 8, true },   // Murdaw
+    { 1009, 9, true },   // Mortamor
+    { 1010, 10, true },  // Nokturnus (this time he's not at the end)
+    { 1011, 11, true },  // Orgodemir
+    { 1012, 12, true },  // Dhoulmagus
+    { 1013, 13, true },  // Rhapthorne
     { 0 }
 };
 
@@ -153,11 +166,11 @@ bool GetTreasureMapTypeFromItemID(unsigned short itemID, unsigned char* out)
     for (int i = 0; treasureMapItemIDs[i].itemID != 0; i++)
     {
         const MapTypeEntry* entry = &treasureMapItemIDs[i];
-
+        
         unsigned short thisID = entry->itemID;
         if (thisID == 0 || itemID != thisID)
             continue;
-
+        
         unsigned char mapType;
         unsigned char thisLegacyBossID;
         unsigned short isLegacy;
@@ -178,10 +191,10 @@ bool GetTreasureMapTypeFromItemID(unsigned short itemID, unsigned char* out)
         out[0] = mapType;
         out[1] = thisLegacyBossID;
         *(unsigned short*)(out + 2) = isLegacy;
-
+        
         return true;
     }
-
+    
     return false;
 }
 
@@ -191,7 +204,7 @@ void DetailedTreasureMapData::RegularMapData::Populate(unsigned short newseed, u
     seed_ = newseed;
     srand(seed_);
     quality_ = newquality;
-    PushOverlay_020a1df8(4);
+    func_020a1df8(4);
 
     GenerateUnknownData();
     GenerateEnviron();
@@ -214,8 +227,8 @@ void DetailedTreasureMapData::RegularMapData::Populate(unsigned short newseed, u
 
     GenerateNameBuffers();
     GeneratePopupName();
-
-    PopOverlay_020a1e54(1);
+    
+    func_020a1e54(1);
 }
 
 unsigned short DetailedTreasureMapData::LegacyBossMapData::MaybeGetCurrentAlternateID() const
@@ -238,11 +251,15 @@ bool DetailedTreasureMapData::UpdateFollowingCompletion(bool levelledUp, unsigne
     if (mapType_ != TreasureMapType_Legacy)
         return false;
 
+    // Retrieving the name of the player character I guess?
 #ifndef jpn
+    // Based on how the jpn version works, I would guess this is undoing the
+    // custom text encoding (e.g. lowercase a is 0x2A vs ascii 0x61)
     void* playerRelatedPtr = *(void**)((intptr_t)GameState::GetInstance()->GetProtagonist() + 0x134);
     char asciiName[10] = { 0 };
-    ConvertTextToGlyphIndices_020426bc(playerRelatedPtr, asciiName, 1);
+    func_020426bc(playerRelatedPtr, asciiName, 1);
 #else
+    // 0200fc28 is the address in the japanese version
     char* asciiName = *(char**)((intptr_t)GameState::GetInstance()->GetProtagonist() + 0x134);
 #endif
 
@@ -263,7 +280,7 @@ bool DetailedTreasureMapData::UpdateFollowingCompletion(bool levelledUp, unsigne
         legacy_.level_++;
         if (legacy_.level_ > 99)
             legacy_.level_ = 99;
-        legacy_.minTurns_ = 0;
+        legacy_.minTurns_ = 0;   
     }
     else
     {
@@ -298,20 +315,20 @@ void GrottoStruct::LoadActiveMetadataFromDetailed(DetailedTreasureMapData* from)
 
 #if defined(usa)
 
-extern const char data_020f1ac0[];
-extern const char data_020f1ac3[];
-extern const char data_020f1ac4[];
-extern const char data_020f1ac9[];
+extern const char data_020f1ac0[]; // "%s"
+extern const char data_020f1ac3[]; // ""
+extern const char data_020f1ac4[]; // "%s%d"
+extern const char data_020f1ac9[]; // "%s %s"
 
 #elif defined(jpn)
 
-extern const char data_020f1c0c[];
-extern const char data_020f1c15[];
-extern const char data_020f1c1a[];
-extern const char data_020f1c26[];
-extern const char data_020f1c27[];
-extern const char data_020f1c2c[];
-extern const char data_020f1c36[];
+extern const char data_020f1c0c[]; // "%s no chizu"
+extern const char data_020f1c15[]; // "%s no"
+extern const char data_020f1c1a[]; // "[chizu/chizu]" (second is Furigana)
+extern const char data_020f1c26[]; // ""
+extern const char data_020f1c27[]; // "Lv %d"
+extern const char data_020f1c2c[]; // "%s<W=3>%s"
+extern const char data_020f1c36[]; // "%s Lv %d no [ma/ma]"
 
 #endif
 
@@ -333,14 +350,14 @@ void DetailedTreasureMapData::LegacyBossMapData::Populate(
     unsigned char readBossID = 0;
     unsigned short readMonsterID = 0;
     unsigned short readAlternates[3];
-    unsigned short readUnknown = 0;
+    unsigned short readUnknown = 0; // seems to precede every string and always = 8
     unsigned short readStringLen = 0;
 
     TreasureMapLanguageDataOffsets* langData = GetGameResources()->pTMapLanguageOffsets;
     unsigned char* dataPtr = GameState::GetInstance()->GetTreasureMapLanguageData();
 
     int readOffset = langData->legacyBossData;
-
+    
     TMAPLANGDATA_READ(readOffset, &numEntries, 2);
     for (int i = 0; i < numEntries; i++)
     {
@@ -367,7 +384,10 @@ void DetailedTreasureMapData::LegacyBossMapData::Populate(
         }
 
         readOffset += readStringLen;
-#if defined(usa)
+// in international versions, the binary file also stores strings such as
+// "Baramos's Map", presumably because grammatical differences between multiple
+// languages would be painful to implement in code
+#if defined(usa) 
         TMAPLANGDATA_READ(readOffset, &readUnknown, 2);
         TMAPLANGDATA_READ(readOffset, &readStringLen, 2);
 
@@ -390,7 +410,7 @@ void DetailedTreasureMapData::LegacyBossMapData::Populate(
 #if defined(usa)
     sprintf(mapNameNoLevel_v2_, data_020f1ac0, mapNameNoLevel_);
     strcpy(seeminglyEmptyBuffer_, data_020f1ac3);
-    sprintf(mapLevelString_, data_020f1ac4, GetStandardString_020e51cc(1011), level_);
+    sprintf(mapLevelString_, data_020f1ac4, GetGameString(GameString_Lv), level_);
     sprintf(topScreenName_, data_020f1ac9, mapNameNoLevel_, mapLevelString_);
     sprintf(popupName_, data_020f1ac9, bossName_, mapLevelString_);
 #elif defined(jpn)
@@ -398,8 +418,8 @@ void DetailedTreasureMapData::LegacyBossMapData::Populate(
 
     RemoveFurigana(bossName_, bossNameUndecorated);
     sprintf(mapNameNoLevel_, data_020f1c0c, bossNameUndecorated);
-    sprintf(unknown_90_, data_020f1c15, bossName_);
-    strcpy(unknown_b0_, data_020f1c1a);
+    sprintf(bossNameGenitive_, data_020f1c15, bossName_);
+    strcpy(fixedStringChizu_, data_020f1c1a);
     strcpy(mapLevelString_, data_020f1c26);
     sprintf(mapLevelString_, data_020f1c27, level_);
     sprintf(topScreenName_, data_020f1c2c, mapNameNoLevel_, mapLevelString_);
@@ -412,9 +432,11 @@ void DetailedTreasureMapData::LegacyBossMapData::Populate(
 void DetailedTreasureMapData::LegacyBossMapData::WriteMapLevelString()
 {
 #if defined(usa)
-    const char* lvlPrefix = GetStandardString_020e51cc(1011);
+    const char* lvlPrefix = GetGameString(GameString_Lv);
     sprintf(mapLevelString_, data_020f1ac4, lvlPrefix, level_);
 #elif defined(jpn)
+    if (ALWAYS_FALSE())
+        return;
     sprintf(mapLevelString_, data_020f1c27, level_);
 #endif
 }
@@ -430,6 +452,7 @@ bool DetailedTreasureMapData::LegacyBossMapData::CanUseLevelUpMove(unsigned shor
             return move->level <= this->level_;
     }
 
+    // If not a level up move, treat as having it by default
     return true;
 }
 
@@ -478,11 +501,14 @@ void DetailedTreasureMapData::RegularMapData::GenerateUnknownData()
 
     int readOffset = GetGameResources()->pTMapLanguageOffsets->unknown_18;
 
-    TMAPLANGDATA_READ(readOffset, &numValues, 2);
+    TMAPLANGDATA_READ(readOffset, &numValues, 2); // numValues = 12
     for (unsigned short i = 0; i < numValues; i++)
     {
+        // index = 1, 2, ..., 12
         TMAPLANGDATA_READ(readOffset, &index, 1);
+        // values seem to be: 5,5,3,2,3,3,2,2,3,2,2,2
         TMAPLANGDATA_READ(readOffset, &value, 1);
+        // all zero
         TMAPLANGDATA_READ(readOffset, &chance, 1);
 
         if (rand() % 100 < (int)chance)
@@ -779,15 +805,15 @@ void DetailedTreasureMapData::RegularMapData::GenerateLocaleRank()
 
 #if defined(usa)
 
-extern char data_020f1ad0[];
-extern char data_020f1ad5[];
+extern char data_020f1ad0[]; // "%s%d"
+extern char data_020f1ad5[]; // "%s %s"
 
-extern const unsigned char data_020e9074[];
-extern const unsigned char data_020e9077[];
+extern const unsigned char data_020e9074[]; // { 4, 13, 11 }
+extern const unsigned char data_020e9077[]; // { 4, 13, 11 }
 
 // USA: func_020a51b0
 void DetailedTreasureMapData::RegularMapData::GenerateNameBuffers()
-{
+{    
     if (prefix_ == 0 || suffix_ == 0 || localeRank_ == 0 || level_ == 0)
         return;
 
@@ -796,26 +822,33 @@ void DetailedTreasureMapData::RegularMapData::GenerateNameBuffers()
 
     nameNoLevel_[0] = '\0';
 
+    // quantities read repeatedly from the binary file
     unsigned short numEntries = 0;
     unsigned char readIndex = 0;
     unsigned short stringUnknown = 0;
     unsigned short stringLength = 0;
 
+    // Important for register nonsense to declare these here
     int nameIdx;
     int readOffset;
-
+    
     unsigned char* langData = GameState::GetInstance()->GetTreasureMapLanguageData();
-    int* offsetArray = (int*)(GetGameResources()->pTMapLanguageOffsets);
+    int* offsetArray = (int*)(GetGameResources()->pTMapLanguageOffsets);   
 
-    unsigned char partOrder[3];
-    switch (GetGameLanguage_0200fb08(GameState::GetInstance()))
+    // choose the order of the words based on the language
+    unsigned char partOrder[3]; 
+    switch (func_0200fb08(GameState::GetInstance()))
     {
+    // English & German
+    // e.g. Granite (0) Tunnel (2) of Woe (1)
     case 1:
     case 3:
         partOrder[0] = 0;
         partOrder[1] = 2;
         partOrder[2] = 1;
         break;
+    // French, Italian, Spanish
+    // e.g. Tunnel (2) of Granite (0) of Woe (1)
     case 2:
     case 4:
     case 5:
@@ -830,23 +863,23 @@ void DetailedTreasureMapData::RegularMapData::GenerateNameBuffers()
         partOrder[2] = 1;
         break;
     }
-
+    
     unsigned char indices[3];
     indices[0] = prefix_;
     indices[1] = suffix_;
     indices[2] = localeRank_;
 
     char tempBuffer[256];
-
+    
     for (int i = 0; i < 3; i++)
     {
         int currentNamePart = partOrder[i];
         int ptrListIndex = data_020e9074[currentNamePart];
-
+        
         readOffset = offsetArray[ptrListIndex];
-
+        
         TMAPLANGDATA_READ(readOffset, &numEntries, 2);
-
+         
         for (unsigned short entryLoop = 0; entryLoop < numEntries; entryLoop++)
         {
             nameIdx = indices[currentNamePart];
@@ -862,7 +895,7 @@ void DetailedTreasureMapData::RegularMapData::GenerateNameBuffers()
                         VectorizedInvertedMemcpy(langData + readOffset, tempBuffer, stringLength);
                         tempBuffer[stringLength] = '\0';
                         strcat(nameNoLevel_, tempBuffer);
-                        entryLoop = numEntries;
+                        entryLoop = numEntries; // hack to escape the j-level loop
                         break;
                     }
                     readOffset += stringLength;
@@ -885,15 +918,15 @@ void DetailedTreasureMapData::RegularMapData::GenerateNameBuffers()
         }
     }
 
-    sprintf(levelString_, data_020f1ad0, GetStandardString_020e51cc(1011), level_);
+    sprintf(levelString_, data_020f1ad0, GetGameString(GameString_Lv), level_);
     sprintf(topScreenName_, data_020f1ad5, nameNoLevel_, levelString_);
 }
 
-extern char data_020f1adb[];
+extern char data_020f1adb[]; // "%s%d"
 
 // USA: func_020a54d0
 void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
-{
+{    
     if (prefix_ == 0 || suffix_ == 0 || localeRank_ == 0 || level_ == 0)
         return;
 
@@ -902,26 +935,33 @@ void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
 
     popupName_[0] = '\0';
 
+    // quantities read repeatedly from the binary file
     unsigned short numEntries = 0;
     unsigned char readIndex = 0;
     unsigned short stringUnknown = 0;
     unsigned short stringLength = 0;
 
+    // Important for register nonsense to declare these here
     int nameIdx;
     int readOffset;
-
+    
     unsigned char* langData = GameState::GetInstance()->GetTreasureMapLanguageData();
-    int* offsetArray = (int*)(GetGameResources()->pTMapLanguageOffsets);
+    int* offsetArray = (int*)(GetGameResources()->pTMapLanguageOffsets);   
 
-    unsigned char partOrder[3];
-    switch (GetGameLanguage_0200fb08(GameState::GetInstance()))
+    // choose the order of the words based on the language
+    unsigned char partOrder[3]; 
+    switch (func_0200fb08(GameState::GetInstance()))
     {
+    // English & German
+    // e.g. Granite (0) Tunnel (2) of Woe (1)
     case 1:
     case 3:
         partOrder[0] = 0;
         partOrder[1] = 2;
         partOrder[2] = 1;
         break;
+    // French, Italian, Spanish
+    // e.g. Tunnel (2) of Granite (0) of Woe (1)
     case 2:
     case 4:
     case 5:
@@ -936,27 +976,27 @@ void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
         partOrder[2] = 1;
         break;
     }
-
+    
     unsigned char indices[3];
     indices[0] = prefix_;
     indices[1] = suffix_;
     indices[2] = localeRank_;
 
     char tempBuffer[64];
-
+    
     for (int i = 0; i < 3; i++)
     {
         int currentNamePart = partOrder[i];
         int ptrListIndex = data_020e9077[currentNamePart];
-
+        
         readOffset = offsetArray[ptrListIndex];
-
+        
         TMAPLANGDATA_READ(readOffset, &numEntries, 2);
-
+         
         for (unsigned short entryLoop = 0; entryLoop < numEntries; entryLoop++)
         {
             nameIdx = indices[currentNamePart];
-            if (ptrListIndex == 11)
+            if (ptrListIndex == 11) // locale
             {
                 TMAPLANGDATA_READ(readOffset, &readIndex, 1);
                 for (unsigned short loopEnviron = 1; loopEnviron <= 5; loopEnviron++)
@@ -968,7 +1008,7 @@ void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
                         VectorizedInvertedMemcpy(langData + readOffset, tempBuffer, stringLength);
                         tempBuffer[stringLength] = '\0';
                         strcat(popupName_, tempBuffer);
-                        entryLoop = numEntries;
+                        entryLoop = numEntries; // hack to escape the j-level loop
                         break;
                     }
                     readOffset += stringLength;
@@ -991,7 +1031,7 @@ void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
         }
     }
 
-    sprintf(tempBuffer, data_020f1adb, GetStandardString_020e51cc(1011), level_);
+    sprintf(tempBuffer, data_020f1adb, GetGameString(GameString_Lv), level_);
     strcat(popupName_, tempBuffer);
 }
 
@@ -1003,7 +1043,7 @@ extern char data_020f1c52[];
 
 // JPN: func_020a6f48
 void DetailedTreasureMapData::RegularMapData::GenerateNameBuffers()
-{
+{    
     if (prefix_ == 0 || suffix_ == 0 || localeRank_ == 0 || level_ == 0)
         return;
 
@@ -1013,16 +1053,17 @@ void DetailedTreasureMapData::RegularMapData::GenerateNameBuffers()
     nameNoLevel_[0] = '\0';
 
     int readOffset;
-
+    
+    // quantities read repeatedly from the binary file
     unsigned short numEntries = 0;
     unsigned char readIndex = 0;
     unsigned short stringUnknown = 0;
     unsigned short stringLength = 0;
     char tempBuffer[256];
-
+    
     unsigned char* langData = GameState::GetInstance()->GetTreasureMapLanguageData();
     TreasureMapLanguageDataOffsets* offsetArray = GetGameResources()->pTMapLanguageOffsets;
-
+    
     readOffset = offsetArray->prefixNames;
     TMAPLANGDATA_READ(readOffset, &numEntries, 2);
     for (unsigned short i = 0; i < numEntries; i++)
@@ -1035,7 +1076,7 @@ void DetailedTreasureMapData::RegularMapData::GenerateNameBuffers()
             VectorizedInvertedMemcpy(langData + readOffset, tempBuffer, stringLength);
             tempBuffer[stringLength] = '\0';
             strcat(nameNoLevel_, tempBuffer);
-            strcpy(unknown_3b_, tempBuffer);
+            strcpy(prefixString_, tempBuffer);
             break;
         }
         readOffset += stringLength;
@@ -1053,7 +1094,7 @@ void DetailedTreasureMapData::RegularMapData::GenerateNameBuffers()
             VectorizedInvertedMemcpy(langData + readOffset, tempBuffer, stringLength);
             tempBuffer[stringLength] = '\0';
             strcat(nameNoLevel_, tempBuffer);
-            strcpy(unknown_5b_, tempBuffer);
+            strcpy(suffixString_, tempBuffer);
             break;
         }
         readOffset += stringLength;
@@ -1069,7 +1110,7 @@ void DetailedTreasureMapData::RegularMapData::GenerateNameBuffers()
 
 // JPN: func_020a71f8
 void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
-{
+{    
     if (prefix_ == 0 || suffix_ == 0 || localeRank_ == 0 || level_ == 0)
         return;
 
@@ -1079,13 +1120,14 @@ void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
     popupName_[0] = '\0';
 
     int readOffset;
-
+    
+    // quantities read repeatedly from the binary file
     unsigned short numEntries = 0;
     unsigned char readIndex = 0;
     unsigned short stringUnknown = 0;
     unsigned short stringLength = 0;
     char tempBuffer[64];
-
+    
     unsigned char* langData = GameState::GetInstance()->GetTreasureMapLanguageData();
     TreasureMapLanguageDataOffsets* offsetArray = GetGameResources()->pTMapLanguageOffsets;
 
@@ -1101,7 +1143,7 @@ void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
             VectorizedInvertedMemcpy(langData + readOffset, tempBuffer, stringLength);
             tempBuffer[stringLength] = '\0';
             strcat(popupName_, tempBuffer);
-            strcpy(unknown_3b_, tempBuffer);
+            strcpy(prefixString_, tempBuffer);
             break;
         }
         readOffset += stringLength;
@@ -1119,7 +1161,7 @@ void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
             VectorizedInvertedMemcpy(langData + readOffset, tempBuffer, stringLength);
             tempBuffer[stringLength] = '\0';
             strcat(popupName_, tempBuffer);
-            strcpy(unknown_5b_, tempBuffer);
+            strcpy(suffixString_, tempBuffer);
             break;
         }
         readOffset += stringLength;
@@ -1139,8 +1181,8 @@ void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
                 VectorizedInvertedMemcpy(langData + readOffset, tempBuffer, stringLength);
                 tempBuffer[stringLength] = '\0';
                 strcat(popupName_, tempBuffer);
-                strcpy(unknown_7b_, tempBuffer);
-                i = numEntries;
+                strcpy(localeString_, tempBuffer);
+                i = numEntries; // hack to escape the outer loop
                 break;
             }
             readOffset += stringLength;
@@ -1156,4 +1198,156 @@ void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
 extern char data_020f1ae4[];
 extern char data_020f1af8[];
 
-extern unsigned char gFileScratchSpace_0211e33c[];
+extern unsigned char data_0211e33c[];
+
+void DetailedTreasureMapData::LoadLegacyBossStats(bool compute, const unsigned char* providedArchive)
+{
+    if (mapType_ != TreasureMapType_Legacy)
+        return;
+
+    if (!compute)
+    {
+        legacy_.stats_.dropListIndex = 0;
+        legacy_.stats_.newDropListAtNextLevel = false;
+        return;
+    }
+    
+    BackgroundLoader::AddLockGlobal();
+    unsigned int archiveSize = 0;
+    const unsigned char* usedArchive = g_fileScratchSpace;
+    
+    if (providedArchive)
+        usedArchive = providedArchive;
+    else
+    {
+        if (!LoadFileIntoMemory(data_020f1ae4, const_cast<unsigned char*>(usedArchive), &archiveSize))
+        {
+            BackgroundLoader::RemoveLockGlobal();
+            return;
+        }
+    }
+
+    char innerFileName[256];
+    sprintf(innerFileName, data_020f1af8, legacy_.bossMonsterID_);
+    const unsigned char* innerFileData;
+    unsigned int innerFileSize;
+    if (!GetFileInNarc(usedArchive, innerFileName, reinterpret_cast<const void**>(&innerFileData), &innerFileSize, 0))
+    {
+        BackgroundLoader::RemoveLockGlobal();
+        return;
+    }
+
+    BackgroundLoader::RemoveLockGlobal();
+
+    const unsigned char* copyOfInnerFilePtr;
+    unsigned int loadlevel = legacy_.level_;
+    // I would very much like to see this horrible hack removed, but it does the trick
+    // and without it, the compiler optimises out the constant 0x18. This way it gets
+    // kept in a register until the end.
+    unsigned int stride;
+    __asm("mov stride, 0x18");
+    copyOfInnerFilePtr = innerFileData; // forces innerFileData to get loaded into a register here
+    __asm("sub loadlevel, loadlevel, 1");
+    DECLARE_ASM_NOP();
+    
+    unsigned int offset = stride * loadlevel;
+    
+    BINARY_READ_AND_ADVANCE(innerFileData, offset, &legacy_.stats_.maxHP, 4);
+    BINARY_READ_AND_ADVANCE(innerFileData, offset, &legacy_.stats_.maxMP, 4);
+    BINARY_READ_AND_ADVANCE(innerFileData, offset, &legacy_.stats_.agility, 2);
+    BINARY_READ_AND_ADVANCE(innerFileData, offset, &legacy_.stats_.attack, 2);
+    BINARY_READ_AND_ADVANCE(innerFileData, offset, &legacy_.stats_.defense, 2);
+    BINARY_READ_AND_ADVANCE(innerFileData, offset, &legacy_.stats_.alternateVersion, 1);
+    BINARY_READ_AND_ADVANCE(innerFileData, offset, &legacy_.stats_.rewardExp, 4);
+    BINARY_READ_AND_ADVANCE(innerFileData, offset, &legacy_.stats_.rewardGold, 4);
+    BINARY_READ_AND_ADVANCE(innerFileData, offset, &legacy_.stats_.dropListIndex, 1);
+    
+    legacy_.stats_.newDropListAtNextLevel = false;
+    if (legacy_.level_ < 99)
+    {
+        LegacyBossStats next;
+        offset = stride * legacy_.level_;
+        BINARY_READ_AND_ADVANCE(innerFileData, offset, &next.maxHP, 4);
+        BINARY_READ_AND_ADVANCE(innerFileData, offset, &next.maxMP, 4);
+        BINARY_READ_AND_ADVANCE(innerFileData, offset, &next.agility, 2);
+        BINARY_READ_AND_ADVANCE(innerFileData, offset, &next.attack, 2);
+        BINARY_READ_AND_ADVANCE(innerFileData, offset, &next.defense, 2);
+        BINARY_READ_AND_ADVANCE(innerFileData, offset, &next.alternateVersion, 1);
+        BINARY_READ_AND_ADVANCE(innerFileData, offset, &next.rewardExp, 4);
+        BINARY_READ_AND_ADVANCE(innerFileData, offset, &next.rewardGold, 4);
+        BINARY_READ_AND_ADVANCE(innerFileData, offset, &next.dropListIndex, 1);
+        
+        if (legacy_.stats_.dropListIndex < next.dropListIndex)
+            legacy_.stats_.newDropListAtNextLevel = true;
+    }
+
+    offset = stride * 99;
+    BINARY_READ_AND_ADVANCE(innerFileData, offset, &legacy_.stats_.numLevelUpMoves, 1);
+    for (int i = 0; i < legacy_.stats_.numLevelUpMoves; i++)
+    {
+        LegacyBossStats::LevelUpMove* dst = &legacy_.stats_.levelUpMoves[i];
+        BINARY_READ_AND_ADVANCE(innerFileData, offset, &dst->moveID, 2);
+        BINARY_READ_AND_ADVANCE(innerFileData, offset, &dst->level, 1);
+        BINARY_READ_AND_ADVANCE(innerFileData, offset, &dst->announceLearn, 1);
+    }
+}
+
+void DetailedTreasureMapData::LoadTreasures()
+{
+    if (GameState::GetInstance()->GetTreasureMapLanguageData() == NULL)
+        return;
+
+    TreasureMapLanguageDataOffsets* offsets = GetGameResources()->pTMapLanguageOffsets;
+    unsigned int offset;
+    bool foundBoss = false;
+
+    if (mapType_ == TreasureMapType_Regular)
+    {
+        if (treasureItemIDs_[0] != 0 && treasureItemIDs_[1] != 0 && treasureItemIDs_[2] != 0)
+            return;
+        offset = offsets->grottoBossDrops;
+        do
+        {
+            unsigned char bossIndex;
+            unsigned short regularID;
+            unsigned int innerOffset = offset;
+            TMAPLANGDATA_READ(innerOffset, &bossIndex, 1);
+            TMAPLANGDATA_READ(innerOffset, &regularID, 2);
+            if (regularID == regular_.bossMonsterID_)
+            {
+                rand();
+                foundBoss = true;
+                offset = innerOffset;
+                break;
+            }
+            else
+                offset += 12;
+        } while (offset < offsets->legacyBossDrops);
+    }
+    else
+    {
+        offset = offsets->legacyBossDrops;
+        do
+        {
+            unsigned short legacyID;
+            TMAPLANGDATA_READ(offset, &legacyID, 2);
+            if (legacyID == legacy_.bossMonsterID_)
+            {
+                foundBoss = true;
+                offset += (legacy_.stats_.dropListIndex - 1) * 9;
+                break;
+            }
+            else
+                offset += 90;
+        } while (offset < offsets->legacyBossData);
+    }
+
+    if (foundBoss)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            TMAPLANGDATA_READ(offset, &treasureItemIDs_[i], 2);
+            TMAPLANGDATA_READ(offset, &treasureDropRates_[i], 1);
+        }
+    }
+}

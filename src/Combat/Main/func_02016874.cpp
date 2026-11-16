@@ -2,7 +2,7 @@
 #include "World/Zone3D.h"
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 
 struct Struct_02016874_3;
 struct Struct_020ef0dc {

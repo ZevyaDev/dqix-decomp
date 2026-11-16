@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "NitroSDK/NSBXX/RenderCommands_Common.h"
+#include "NitroSDK/Graphics3D/Internal.h"
 
 extern "C" void func_020ca528(void* block, void* dst);
 

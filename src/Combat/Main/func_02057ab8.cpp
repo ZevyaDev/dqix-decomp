@@ -2,8 +2,8 @@
 
 #include "NitroSDK/Matrix.h"
 #include "GameState/GameState.h"
-#include "NitroSDK/NSBXX/GeometryFifo.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "World/Object3D.h"
 
 struct Model3D;

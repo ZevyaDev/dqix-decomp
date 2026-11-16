@@ -5,7 +5,7 @@
 #include "../Resource/BCFG.h"
 #include "../Graphics/AlphaTween.h"
 
-fix32_t GetAnimationFrameCountFix32(AnimationData*);
+fix32_t GetAnimationFrameCountFix32(Nitro3DAnimation*);
 
 struct AnimationPackage
 {
@@ -60,9 +60,9 @@ struct ObjectArchiveLoadInfo
 class Object3D
 {
 public:
-    unsigned short classFlags_0_;
+    unsigned short unknown_0_;
     short unknown_2_;
-    short objectIndex_4_;
+    short unknown_4_;
     unsigned short unknown_6_;
     Model3D* pModel_;
     AnimationPackage* loadedAnimationPackageList_;

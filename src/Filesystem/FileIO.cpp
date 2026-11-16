@@ -14,6 +14,7 @@
 #include <asmhacks.h>
 
 #ifdef jpn
+#define data_020e692c data_020e71d4
 
 #define data_020f0db8 data_020f0e84
 #define data_020f0dbc data_020f0e88
@@ -21,29 +22,36 @@
 
 extern "C"
 {
-    bool TestGlobalFlags_02046708(void*, unsigned int);
-    void* GetGlobalFlags_020d6c00();
+    // some sort of bit test of a struct member at offset 0
+    bool func_02046708(void*, unsigned int);
+    // returns pointer to some unknown struct (at 02114e04)
+    void* func_020d6c00();
 
-    int GetGameLanguage_0200fb08(GameState*);
+    // get system language?
+    int func_0200fb08(GameState*);
 
+    // Looks like a custom implementation of strstr
     char* func_020d2f88(char* searchString, const char* targetString);
-    int GetStringLength_020d2ff0(const char* str);
+    // Custom implementation of strlen
+    int func_020d2ff0(const char* str);
 
     void LZ77UnCompReadNormalWrite8bit(const void* src, void* dst);
 }
 
 int MakeCharUpperCase(char ch);
 
-extern unsigned char gFileScratchSpace_0211e33c[0x30000];
-
+// character to upper case lookup table
 extern const char data_020e692c[];
 
+// (USA only) array holding "ja", "en", "de", "it", "fr", "es"
 extern char* data_020f0da0[];
 
+// "ARC"
 extern char data_020f0db8[];
+// "arc:/"
 extern char data_020f0dbc[];
 
-extern char data_020f0dc2[];
+extern char data_020f0dc2[]; // "<LG>" (USA only)
 
 // JPN: func_02076224
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength)
@@ -53,25 +61,24 @@ void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength
 
 #if defined(usa)
     GameState* gameState = GameState::GetInstance();
-
+    
     char replacedPath[128] = { 0 };
-    int language = GetGameLanguage_0200fb08(gameState);
+    int language = func_0200fb08(gameState);
     StringReplaceLanguageTag(path, replacedPath, language);
 #elif defined(jpn)
     const char* replacedPath = path;
 #endif
 
     void* alwaysNull = NULL;
-
-    if (buffer >= gFileScratchSpace_0211e33c && buffer < &gFileScratchSpace_0211e33c[0x30000])
+    
+    if (buffer >= g_fileScratchSpace && buffer < g_fileScratchSpace + sizeof(g_fileScratchSpace))
         BackgroundLoader::FreeAllocationsGlobal();
 
     ExtendedNitroVM reader;
     reader.ZeroInitialize();
-
+    
     void* output = NULL;
     bool alwaysFalse = alwaysNull != NULL;
-    DECLARE_ASM_NOP();
 
     if (reader.Open(replacedPath, alwaysFalse))
     {
@@ -88,14 +95,14 @@ void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength
     return output;
 }
 
-void* LoadFileIntoNewAllocation(const char* path, SafeAllocator& alloc, unsigned int* outLength)
+void* LoadFileIntoNewAllocation(const char* path, SafeAllocator* alloc, unsigned int* outLength)
 {
 #if defined(usa)
     GameState* gameState = GameState::GetInstance();
 
     char replacedPath[128] = { 0 };
 
-    int language = GetGameLanguage_0200fb08(gameState);
+    int language = func_0200fb08(gameState);
     StringReplaceLanguageTag(path, replacedPath, language);
 #elif defined(jpn)
     const char* replacedPath = path;
@@ -111,7 +118,7 @@ void* LoadFileIntoNewAllocation(const char* path, SafeAllocator& alloc, unsigned
     if (reader.Open(replacedPath, 0))
     {
         unsigned int size = reader.GetFileSize();
-        copyDst = alloc.Allocate(size);
+        copyDst = alloc->Allocate(size);
         if (copyDst != NULL)
         {
             size = reader.Read(copyDst, size);
@@ -145,8 +152,8 @@ bool GetFileInNarc(const void *narcBuffer, const char *targetFilePath,
             if (strcmp(currentFilePath + prefixLength, targetFilePath) == 0)
             {
                 const void* pFile = handle.GetFileByIndex(idx);
-                unsigned int endOffset = machine.fileInfo.unknown_8_;
-                unsigned int startOffset = machine.fileInfo.unknown_4_;
+                unsigned int endOffset = machine.fileInfo.endOffset;
+                unsigned int startOffset = machine.fileInfo.startOffset;
                 *pOutFilePtr = pFile;
                 *pOutFileSize = endOffset - startOffset;
                 strrchr(targetFilePath, '/');
@@ -181,8 +188,9 @@ bool GetFileInNarcPermissive(const void *narcBuffer, const char *targetFilePath,
         int fileSearchMaxIdx = 1000;
         if (handle.pFATBSection != NULL)
             fileSearchMaxIdx = handle.pFATBSection->numFiles - 1;
-
-        VectorizedMemset(targetUpperCase, 0, 80);
+        
+        
+        VectorizedMemset(targetUpperCase, 0, sizeof(targetUpperCase));
         for (int i = 0; i < 80 && targetFilePath[i] != '.' && targetFilePath[i] != '\0'; i++)
         {
             targetUpperCase[i] = MakeCharUpperCase(targetFilePath[i]);
@@ -194,17 +202,17 @@ bool GetFileInNarcPermissive(const void *narcBuffer, const char *targetFilePath,
             unsigned int midpoint = (fileSearchMinIdx + fileSearchMaxIdx) / 2;
             if (PrepareReadFileInNARCByID(&machine, &handle, midpoint))
             {
-                NitroVM_WriteOutFilePath(&machine, loopFilePathOutput, 80);
-                VectorizedMemset(loopFilePathUpperCase, 0, 80);
+                NitroVM_WriteOutFilePath(&machine, loopFilePathOutput, sizeof(loopFilePathOutput));
+                VectorizedMemset(loopFilePathUpperCase, 0, sizeof(loopFilePathUpperCase));
                 for (i = 0; i < 80 && loopFilePathOutput[i] != '.' && loopFilePathOutput[i] != '\0'; i++)
                     loopFilePathUpperCase[i] = MakeCharUpperCase(loopFilePathOutput[i]);
-
+                
                 int comparison = strcmp(loopFilePathUpperCase + prefixLength, targetUpperCase);
                 if (comparison == 0)
                 {
                     const void* pFile = handle.GetFileByIndex(midpoint);
-                    unsigned int endOffset = machine.fileInfo.unknown_8_;
-                    unsigned int startOffset = machine.fileInfo.unknown_4_;
+                    unsigned int endOffset = machine.fileInfo.endOffset;
+                    unsigned int startOffset = machine.fileInfo.startOffset;
                     success = true;
                     *pOutFilePtr = pFile;
                     *pOutFileSize = endOffset - startOffset;
@@ -213,7 +221,7 @@ bool GetFileInNarcPermissive(const void *narcBuffer, const char *targetFilePath,
                     fileSearchMinIdx = midpoint + 1;
                 else
                     fileSearchMaxIdx = midpoint - 1;
-
+                
                 NitroVM_FinishRead(&machine);
             }
             else
@@ -241,7 +249,7 @@ unsigned int FindFilesInNarcBySubstring(const void* narcBuffer, const char* subs
 {
     int maxOutputs;
     char* pLoopFilename;
-    NitroVM* pMachine;
+    NitroVM* pMachine; // will point to a stack variable created shortly
     int numFound = 0;
 
     LockResourceMutex();
@@ -252,22 +260,23 @@ unsigned int FindFilesInNarcBySubstring(const void* narcBuffer, const char* subs
         NitroVM machine;
         char loopFilename[80];
         NitroVM_Initialize(&machine);
-        unsigned int idx = numFound;
+        unsigned int idx = numFound; // 0
         DECLARE_ASM_NOP();
         maxOutputs = maxOut;
-        pLoopFilename = loopFilename;
+        pLoopFilename = loopFilename;  
         pMachine = &machine;
-
+        
         while (PrepareReadFileInNARCByID(pMachine, &handle, idx))
         {
             NitroVM_WriteOutFilePath(pMachine, pLoopFilename, 80);
             if (strstr(pLoopFilename, substr))
             {
                 const void* pFile = handle.GetFileByIndex(idx);
-                unsigned int endOffset = machine.fileInfo.unknown_8_;
-                unsigned int startOffset = machine.fileInfo.unknown_4_;
+                unsigned int endOffset = machine.fileInfo.endOffset;
+                unsigned int startOffset = machine.fileInfo.startOffset;
                 pOutFilePtrs[numFound] = pFile;
                 pOutFileSizes[numFound] = endOffset - startOffset;
+                // unused?
                 strrchr(loopFilename, '/');
                 numFound++;
                 if (maxOutputs <= numFound)
@@ -285,25 +294,104 @@ unsigned int FindFilesInNarcBySubstring(const void* narcBuffer, const char* subs
     return numFound;
 }
 
-void* DecompressLZ77FileIntoScratchSpace(SafeAllocator& allocator,
-    const void* fileData, unsigned int& outDecompressedSize)
+void* DecompressLZ77FileIntoScratchSpace(SafeAllocator* allocator,
+    const void* fileData, unsigned int* outDecompressedSize)
 {
-    outDecompressedSize = *(const unsigned int*)fileData >> 8;
-    unsigned char* pAllocatorStart = reinterpret_cast<unsigned char*>(allocator.GetSignedAllocator());
-    unsigned int allocBufferSize = allocator.GetSize();
+    // First 4 bytes of fileData are a uint32, whose upper 24 bits
+    // store the file size
+    *outDecompressedSize = *(const unsigned int*)fileData >> 8;
+    unsigned char* pAllocatorStart = reinterpret_cast<unsigned char*>(allocator->GetSignedAllocator());
+    unsigned int allocBufferSize = allocator->GetSize();
 
-    unsigned char* writeDst = pAllocatorStart + allocBufferSize - outDecompressedSize;
+    unsigned char* writeDst = pAllocatorStart + allocBufferSize - *outDecompressedSize;
     LZ77UnCompReadNormalWrite8bit(fileData, writeDst);
     return writeDst;
 }
 
-void* DecompressLZ77FileIntoAllocatedSpace(SafeAllocator& allocator,
-    const void* fileData, unsigned int& outDecompressedSize)
+void* DecompressLZ77FileIntoAllocatedSpace(SafeAllocator* allocator,
+    const void* fileData, unsigned int* outDecompressedSize)
 {
-    outDecompressedSize = *(const unsigned int*)fileData >> 8;
-    void* writeDst = allocator.Allocate(outDecompressedSize);
+    *outDecompressedSize = *(const unsigned int*)fileData >> 8;
+    void* writeDst = allocator->Allocate(*outDecompressedSize);
     if (!writeDst)
         return NULL;
     LZ77UnCompReadNormalWrite8bit(fileData, writeDst);
     return writeDst;
 }
+
+#if !defined(jpn)
+
+void* ExtractFileFromGP2(const char* gp2Path, const char* innerFilePath, unsigned int* outSize)
+{
+    if (outSize != NULL)
+        *outSize = 0;
+
+    BackgroundLoader::FreeAllocationsGlobal();
+    GameState* gs = GameState::GetInstance();
+
+    char replacedInnerName[0x80] = {0};
+    StringReplaceLanguageTag(innerFilePath, replacedInnerName, func_0200fb08(gs));
+
+    unsigned int scratchOffset;
+    unsigned int headerLength = 0;
+    unsigned char* scratchSpace = g_fileScratchSpace;
+    unsigned int capacity = 0x30000;
+
+    if (func_02046708(func_020d6c00(), 0x02000000))
+        capacity -= 0x8000;
+
+    ScopedGPCReader reader;
+    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&reader.pGPCFile, &reader.machine,
+        gp2Path, scratchSpace, &headerLength, capacity, false, NULL))
+    {
+        scratchOffset = headerLength;
+        unsigned int fileDecompressedSize = 0;
+        DecompressFileFromGPCByName(&reader.pGPCFile, &reader.machine, 
+            scratchSpace + scratchOffset, &fileDecompressedSize, capacity - scratchOffset, replacedInnerName);
+        *outSize = fileDecompressedSize;
+        return scratchSpace + scratchOffset;
+    }
+    
+    return NULL;
+}
+
+char* StringReplaceLanguageTag(const char* input, char* output, int language)
+{
+    if (input == NULL || output == NULL)
+        return output;
+
+    const char* const searchTag = data_020f0dc2;
+
+    strcpy(output, input);
+
+    char* firstTagOccurrence = func_020d2f88(output, searchTag);
+    const char* replacement = data_020f0da0[language];
+
+    int replacementStringLength = func_020d2ff0(replacement);
+    // difference between length of e.g. "en" and "<LG>" (in practice always -2)
+    int lengthDifference = func_020d2ff0(replacement) - func_020d2ff0(searchTag);
+    while (firstTagOccurrence != NULL)
+    {
+        if (lengthDifference > 0)
+        {
+            int lengthRemaining = func_020d2ff0(firstTagOccurrence);
+            // difference > 0: replacing with a longer substring. Move everything
+            // to the right of the tag to the right. For convenience, we can also
+            // move the tag itself
+            memmove(firstTagOccurrence + lengthDifference, firstTagOccurrence, lengthRemaining + 1);
+        }
+        else if (lengthDifference < 0)
+        {
+            int lengthRemaining = func_020d2ff0(firstTagOccurrence);
+            // difference < 0: replacing with a shorter substring. Move everything
+            // to the left (including the later part of the tag)
+            memmove(firstTagOccurrence, firstTagOccurrence - lengthDifference, lengthDifference + lengthRemaining + 1);
+        }
+
+        memmove(firstTagOccurrence, replacement, replacementStringLength);
+        firstTagOccurrence = func_020d2f88(output, searchTag);
+    }
+    return output;
+}
+
+#endif

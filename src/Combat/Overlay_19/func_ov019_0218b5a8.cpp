@@ -6,7 +6,7 @@
 #include "NitroSDK/Filesystem/NarcHandle.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/MessageSystem.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "Combat/MapDisplay.h"
 
 #if defined(jpn)

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
-#include <NitroSDK/NSBXX/RenderConfig.h>
+#include <NitroSDK/Graphics3D/RenderConfig.h>
 
 struct Struct_02059720;
 struct Struct_020546c8;

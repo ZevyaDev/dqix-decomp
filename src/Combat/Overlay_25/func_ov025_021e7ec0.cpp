@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Graphics/Model3D.h"
-#include "NitroSDK/NSBXX/NSBXX.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 #include "Graphics/VRAMStaging.h"
 #include "NitroSDK/Cache.h"
 

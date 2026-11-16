@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Graphics/LightingManager.h"
-#include "NitroSDK/NSBXX/GeometryFifo.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "NitroSDK/Graphics.h"
 #include "Resource/Brightness.h"
 

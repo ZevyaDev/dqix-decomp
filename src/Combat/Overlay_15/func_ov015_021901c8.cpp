@@ -12,8 +12,8 @@
 #endif
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "NitroSDK/NSBXX/GeometryFifo.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "Resource/Brightness.h"
 #include "NitroSDK/Graphics.h"
 #include "NitroSDK/Matrix.h"

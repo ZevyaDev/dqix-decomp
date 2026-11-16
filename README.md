@@ -1,11 +1,11 @@
 # Dragon Quest IX: Sentinels of the Starry Skies Decompilation Project
 
-[![USA functions](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FZevyaDev%2Fdqix-decomp%2Fbadges-matching%2Fusa%2Ffunctions.json)](https://github.com/ZevyaDev/dqix-decomp/actions/workflows/match.yml)
-[![USA bytes](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FZevyaDev%2Fdqix-decomp%2Fbadges-matching%2Fusa%2Fbytes.json)](https://github.com/ZevyaDev/dqix-decomp/actions/workflows/match.yml)
-[![JPN functions](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FZevyaDev%2Fdqix-decomp%2Fbadges-matching%2Fjpn%2Ffunctions.json)](https://github.com/ZevyaDev/dqix-decomp/actions/workflows/match.yml)
-[![JPN bytes](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FZevyaDev%2Fdqix-decomp%2Fbadges-matching%2Fjpn%2Fbytes.json)](https://github.com/ZevyaDev/dqix-decomp/actions/workflows/match.yml)
-[![EUR functions](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FZevyaDev%2Fdqix-decomp%2Fbadges-matching%2Feur%2Ffunctions.json)](https://github.com/ZevyaDev/dqix-decomp/actions/workflows/match.yml)
-[![EUR bytes](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FZevyaDev%2Fdqix-decomp%2Fbadges-matching%2Feur%2Fbytes.json)](https://github.com/ZevyaDev/dqix-decomp/actions/workflows/match.yml)
+[![USA functions](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FDQIX%2Fdqix-decomp%2Fbadges%2Fusa%2Ffunctions.json)](https://github.com/DQIX/dqix-decomp/actions/workflows/match.yml)
+[![USA bytes](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FDQIX%2Fdqix-decomp%2Fbadges%2Fusa%2Fbytes.json)](https://github.com/DQIX/dqix-decomp/actions/workflows/match.yml)
+[![JPN functions](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FDQIX%2Fdqix-decomp%2Fbadges%2Fjpn%2Ffunctions.json)](https://github.com/DQIX/dqix-decomp/actions/workflows/match.yml)
+[![JPN bytes](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FDQIX%2Fdqix-decomp%2Fbadges%2Fjpn%2Fbytes.json)](https://github.com/DQIX/dqix-decomp/actions/workflows/match.yml)
+[![EUR functions](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FDQIX%2Fdqix-decomp%2Fbadges%2Feur%2Ffunctions.json)](https://github.com/DQIX/dqix-decomp/actions/workflows/match.yml)
+[![EUR bytes](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FDQIX%2Fdqix-decomp%2Fbadges%2Feur%2Fbytes.json)](https://github.com/DQIX/dqix-decomp/actions/workflows/match.yml)
 
 ## 📖 About
 This project aims to create a **1:1 disassembly and decompilation** of *Dragon Quest IX: Sentinels of the Starry Skies* for the Nintendo DS.  
@@ -26,7 +26,7 @@ GCC 9+ (available through installers like MINGW on windows, usually included on 
 #### Setup
 Place a clean ROM of the original game in the 'extract' folder and name it <baserom_dqix_(region).nds>, with (region) being the appropriate region identifier. ex: baserom_dqix_usa.nds
 
-(Note: currently only the usa and jpn roms are supported)
+(Note: currently only the usa, jpn and eur roms are supported. EUR builds from the USA sources. CI brings new USA matches into `config/jpn` and `config/eur` before building; to do the same locally, extract the USA ROM too and run `python tools/port_jpn_config.py --sync` or `python tools/port_eur_config.py --sync`)
 
 Install the Python dependencies with pip
 ```shell
@@ -34,7 +34,7 @@ python -m pip install -r tools/requirements.txt
 ```
 Run the script to configure Ninja (Do this any time a file is added or removed)
 ```shell
-python tools/configure.py <usa|jpn>
+python tools/configure.py <usa|jpn|eur>
 ```
 
 If using ghidra, be sure to create a successful build using ninja (see: [Building the Project](#-building-the-project)) at least once before loading the game's config.yaml with ghidra. (For more information see See [Decompiling.md](Decompiling.md))
@@ -68,6 +68,8 @@ We recommend joining the DQIX discord server **The Quester's Rest** (https://dis
 ### Decompiling code
 See [Decompiling.md](Decompiling.md)
 
+Matching source for every function is on the [`decomp-matching` branch of ZevyaDev/dqix-decomp](https://github.com/ZevyaDev/dqix-decomp/tree/decomp-matching). Start from it to save time, but it uses placeholder names and is mostly uncommented: see [Starting from a matching source](CONTRIBUTING.md#-starting-from-a-matching-source) for what it needs before it's merged.
+
 Contributions are welcome, though make sure you've read the pages linked above first. If you're new to decompilation, some possible tasks to get started with include:
 1. Find and decompile additional uses for [the game's scripting system](src/Resource/Script.cpp). Some existing uses can be found [here](src/World/LootableContainer.cpp) and [here](src/Graphics/AtmosphericEffect.cpp) as a guideline. (You don't need to worry about matching global variables, it's okay to mark everything as extern for the time being - just focus on matching the .text section). You may find [this script disassembler](https://github.com/DQIX/dqix-script-disasm) helpful.
 2. Help to match additional pieces of the Zone3D class. This is very experimental/WIP, so we have [a separate branch](https://github.com/DQIX/dqix-decomp/tree/zone3d-experimental) to work off of for this.
@@ -76,8 +78,6 @@ Contributions are welcome, though make sure you've read the pages linked above f
 ---
 
 ### 🔧 Useful Tools
-For CLion definition jumps and Find Usages without changing the ROM build, see [CLion navigation](docs/CLION.md).<br>
-To step through the source while the game runs in melonDS, from CLion or VS Code, see [Debugging](docs/DEBUGGING.md).<br>
 1. **Ghidra** (with the NTRGhidra plugin):  
    - A powerful reverse engineering tool for DS games and code.  
    - [Download Ghidra](https://github.com/NationalSecurityAgency/ghidra/releases/tag/Ghidra_11.2.1_build) 

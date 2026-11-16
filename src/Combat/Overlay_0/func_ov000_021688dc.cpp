@@ -7,7 +7,7 @@
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
 #include "Graphics/VRAMStaging.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 #include "NitroSDK/VRAM.h"
 #include "NitroSDK/Matrix.h"
 #include "Resource/Brightness.h"

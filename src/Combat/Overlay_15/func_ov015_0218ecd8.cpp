@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 
 struct Struct_0208b5b4 { int unknown_0_, unknown_4_, unknown_8_; };
 

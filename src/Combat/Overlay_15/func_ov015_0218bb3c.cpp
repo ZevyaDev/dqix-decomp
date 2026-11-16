@@ -15,8 +15,8 @@
 #endif
 #include <globaldefs.h>
 #include "NitroSDK/Matrix.h"
-#include "NitroSDK/NSBXX/GeometryFifo.h"
-#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics3D/GeometryFifo.h"
+#include "NitroSDK/Graphics3D/RenderConfig.h"
 
 struct Struct_ov015_0218bb3c_2;
 

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include <NitroSDK/Matrix.h>
-#include <NitroSDK/NSBXX/RenderConfig.h>
+#include <NitroSDK/Graphics3D/RenderConfig.h>
 
 #if defined(jpn)
 #define func_0208b610 func_0208bf04

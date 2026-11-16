@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "World/Zone3D.h"
-#include "NitroSDK/NSBXX/NSBXX.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 
 // USA: func_0201498c
 extern "C" ARM int func_0201498c(void* arg0) {

@@ -1,31 +1,22 @@
 #include "Graphics/Model3D.h"
-#include "NitroSDK/NSBXX/NSBXX.h"
-#include "NitroSDK/NSBXX/RenderCommands.h"
+#include "NitroSDK/Graphics3D/Graphics3D.h"
 #include "Graphics/Vector.h"
 #include "Graphics/VRAMStaging.h"
 #include "NitroSDK/Cache.h"
 #include "NitroSDK/Graphics.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
+#include "NitroSDK/VRAMAllocation.h"
 #include <globaldefs.h>
 
 #if defined(jpn)
-#define data_020f1ee8 data_020f2054
-#define data_020f1eec data_020f2058
-#define data_020f1ef0 data_020f205c
-#define data_020f1ef4 data_020f2060
-
+#define func_020c56b0 func_020c717c
 #endif
 
 extern "C"
 {
-    extern "C" int func_020c56b0(int*);
+    int func_020c56b0(int*);
 }
-
-extern unsigned int (*data_020f1ee8)(unsigned int, int, int);
-extern unsigned int (*data_020f1eec)(unsigned int);
-extern unsigned int (*data_020f1ef0)(unsigned int, int, int);
-extern unsigned int (*data_020f1ef4)(unsigned int);
 
 void Model3D::Clear()
 {
@@ -43,8 +34,8 @@ void Model3D::Clear()
     unknown_flags_a8_2_ = false;
     imageStagingTaskID_ = 0xffff;
     paletteStagingTaskID_ = 0xffff;
-    memset(this, 0, 0x54);
-    memset(&xMax_, 0, 6 * sizeof(fix32_t));
+    memset(this, 0, 0x54); // substruct
+    memset(&xMax_, 0, 6 * sizeof(fix32_t)); 
 }
 
 void Model3D::Func0207e2e0()
@@ -60,14 +51,14 @@ void Model3D::LoadFromFile(const char* path, AllocatorUnion* alloc, TextureStagi
         return;
     BackgroundLoader::AddLockGlobal();
     unsigned int length;
-    void* scratchData = LoadFileIntoMemory(path, &gFileScratchSpace_0211e33c, &length);
+    void* scratchData = LoadFileIntoMemory(path, &g_fileScratchSpace, &length);
     if (scratchData == NULL)
     {
         unknown_flags_a8_0_ = false;
     }
     else
     {
-        DC_FlushRange(scratchData, length);
+        CleanInvalidateCacheRange(scratchData, length);
         CopyAndProcessRawFile(alloc, scratchData, length, stagingMode);
     }
     BackgroundLoader::RemoveLockGlobal();
@@ -80,7 +71,7 @@ void Model3D::CopyAndProcessRawFile(AllocatorUnion* alloc, const void* data,
         return;
 
     CopyRawFile(alloc, data, length);
-    DC_FlushRange(rawBMD_, rawBMDFileSize_);
+    CleanInvalidateCacheRange(rawBMD_, rawBMDFileSize_);
     ProcessRawFile(stagingMode);
 }
 
@@ -88,7 +79,7 @@ void Model3D::SetAndProcessRawFile(void* data, unsigned int length, TextureStagi
 {
     rawBMD_ = data;
     rawBMDFileSize_ = length;
-    DC_FlushRange(rawBMD_, rawBMDFileSize_);
+    CleanInvalidateCacheRange(rawBMD_, rawBMDFileSize_);
     ProcessRawFile(stagingMode);
 }
 
@@ -114,17 +105,17 @@ void Model3D::SetRawFile(void* data, unsigned int length)
 
 void Model3D::ClearRawFileCache()
 {
-    DC_FlushRange(rawBMD_, rawBMDFileSize_);
+    CleanInvalidateCacheRange(rawBMD_, rawBMDFileSize_);
 }
 
 void Model3D::ProcessRawFile(TextureStagingMode stagingMode)
 {
     bool block4Succeeded, block23Succeeded, block1Succeeded;
-    NSBXXTex* tex0;
-    NSBXXContainer* data = (NSBXXContainer*)rawBMD_;
+    Nitro3DTextureSet* tex0;
+    Nitro3DFileHeader* data = (Nitro3DFileHeader*)rawBMD_;
     if (data == NULL)
         return;
-    switch (data->signature_)
+    switch (data->signature)
     {
     case SIGNATURE_NSBVA:
     case SIGNATURE_NSBTA:
@@ -138,19 +129,19 @@ void Model3D::ProcessRawFile(TextureStagingMode stagingMode)
         block1Succeeded = true;
         block23Succeeded = true;
         block4Succeeded = true;
-
-        tex0 = (NSBXXTex*)NSBXX_GetTEXFile(data);
+        
+        tex0 = (Nitro3DTextureSet*)Nitro3D_GetTexturesFromFile(data);
         if (tex0 != NULL)
         {
             unsigned int block4Alloc, block2Alloc, block1Alloc;
 
-            unsigned int block1Len = NSBXX_Tex_GetBlock1Length(tex0);
-            unsigned int block2Len = NSBXX_Tex_GetBlock2Length(tex0);
-            unsigned int block4Len = NSBXX_Tex_GetBlock4Length(tex0);
+            unsigned int block1Len = Nitro3D_GetTextureBlock1Length(tex0);
+            unsigned int block2Len = Nitro3D_GetTextureBlock2Length(tex0);
+            unsigned int block4Len = Nitro3D_GetTextureBlock4Length(tex0);            
 
             if (block1Len != 0)
             {
-                block1Alloc = data_020f1ee8(block1Len, 0, 0);
+                block1Alloc = g_pfnAllocTextureImage(block1Len, 0, 0);
                 if (block1Alloc == 0)
                     block1Succeeded = false;
             }
@@ -159,16 +150,16 @@ void Model3D::ProcessRawFile(TextureStagingMode stagingMode)
 
             if (block2Len != 0)
             {
-                block2Alloc = data_020f1ee8(block2Len, 1, 0);
+                block2Alloc = g_pfnAllocTextureImage(block2Len, 1, 0);
                 if (block2Alloc == 0)
                     block23Succeeded = false;
             }
             else
                 block2Alloc = 0;
-
+            
             if (block4Len != 0)
             {
-                block4Alloc = data_020f1ef0(block4Len, tex0->maybeBlock23Flags_20_ & 0x8000, 0);
+                block4Alloc = g_pfnAllocTexturePalette(block4Len, tex0->maybeBlock23Flags_20 & 0x8000, 0);
                 if (block4Alloc == 0)
                     block4Succeeded = false;
             }
@@ -178,36 +169,36 @@ void Model3D::ProcessRawFile(TextureStagingMode stagingMode)
             if (!block1Succeeded || !block23Succeeded || !block4Succeeded)
             {
                 if (block4Succeeded)
-                    data_020f1ef4(block4Alloc);
+                    g_pfnFreeTexturePalette(block4Alloc);
                 if (block23Succeeded)
-                    data_020f1eec(block2Alloc);
+                    g_pfnFreeTextureImage(block2Alloc);
                 if (block1Succeeded)
-                    data_020f1eec(block1Alloc);
-                break;
+                    g_pfnFreeTextureImage(block1Alloc);
+                break; // from switch statement
             }
             else
             {
-                NSBXX_Tex_WriteImageVRAMOffsets(tex0, block1Alloc, block2Alloc);
-                NSBXX_Tex_WritePaletteVRAMOffset(tex0, block4Alloc);
+                Nitro3D_StoreTextureImageVRAMOffsets(tex0, block1Alloc, block2Alloc);
+                Nitro3D_StoreTexturePaletteVRAMOffsets(tex0, block4Alloc);
             }
         }
-        if (data->signature_ == SIGNATURE_NSBMD)
+        if (data->signature == SIGNATURE_NSBMD)
         {
-            NSBXXMdl* mdl0 = (NSBXXMdl*)NSBXX_GetFirstSubfile(data);
+            Nitro3DModelSet* mdl0 = (Nitro3DModelSet*)Nitro3D_GetFirstSubfile(data);
             if (tex0 != NULL)
-                NSBXX_LinkTEX0ToMDL0(mdl0, tex0);
+                Nitro3D_LinkTexturesToModels(mdl0, tex0);
         }
         break;
     }
     }
-    NSBXXTex* tex = (NSBXXTex*)NSBXX_GetTEXFile((NSBXXContainer*)rawBMD_);
+    Nitro3DTextureSet* tex = (Nitro3DTextureSet*)Nitro3D_GetTexturesFromFile((Nitro3DFileHeader*)rawBMD_);
     if (tex != NULL)
     {
         if (stagingMode == TextureStagingMode_Immediate)
         {
             LockStagedTextureVRAMCopying();
-            NSBXX_Tex_LoadPaletteToVRAM(tex, true);
-            NSBXX_Tex_LoadImageToVRAM(tex, true);
+            Nitro3D_LoadTexturePaletteToVRAM(tex, true);
+            Nitro3D_LoadTextureImageToVRAM(tex, true);
             UnlockStagedTextureVRAMCopying();
         }
         else
@@ -217,23 +208,23 @@ void Model3D::ProcessRawFile(TextureStagingMode stagingMode)
         }
     }
 
-    NSBXXMdl* mdl0 = (NSBXXMdl*)NSBXX_GetFirstSubfile((NSBXXContainer*)rawBMD_);
-    NSBXXInternalModel* model;
+    Nitro3DModelSet* mdl0 = (Nitro3DModelSet*)Nitro3D_GetFirstSubfile((Nitro3DFileHeader*)rawBMD_);
+    Nitro3DModel* model;
     if (mdl0 != NULL)
     {
-        NSBXXNameList* nameList = &mdl0->nameList_;
+        Nitro3DNameList* nameList = &mdl0->nameList;
         intptr_t pModelOffset;
-        unsigned int zero = 0;
-        if (nameList != NULL && mdl0->nameList_.numEntries_ > zero)
+        unsigned int zero = 0; // prevents compiler from optimising > 0 to != 0
+        if (nameList != NULL && mdl0->nameList.numEntries > zero)
         {
-            pModelOffset = (intptr_t)nameList + mdl0->nameList_.offsetToDataStart_ + 4;
+            pModelOffset = (intptr_t)nameList + mdl0->nameList.offsetToDataStart + 4;
         }
         else
             pModelOffset = 0;
-
+        
         if (pModelOffset != NULL)
         {
-            model = (NSBXXInternalModel*)((intptr_t)mdl0 + *(int*)pModelOffset);
+            model = (Nitro3DModel*)((intptr_t)mdl0 + *(int*)pModelOffset);
             goto found_a_model;
         }
     }
@@ -241,21 +232,21 @@ void Model3D::ProcessRawFile(TextureStagingMode stagingMode)
     model = NULL;
 found_a_model:
     rawInternalModel_ = model;
-
-    PopulateModelRenderContext(&renderContext_, model);
-    rawTEX_ = (NSBXXTex*)NSBXX_GetTEXFile((NSBXXContainer*)rawBMD_);
-    if (((NSBXXContainer*)rawBMD_)->signature_ == SIGNATURE_NSBMD)
+    
+    Nitro3D_PopulateRenderContext(&renderContext_, model);
+    rawTEX_ = (Nitro3DTextureSet*)Nitro3D_GetTexturesFromFile((Nitro3DFileHeader*)rawBMD_);
+    if (((Nitro3DFileHeader*)rawBMD_)->signature == SIGNATURE_NSBMD)
     {
-        NSBXXInternalModel* model = rawInternalModel_;
-        int32_t scale = model->maybeScale_;
+        Nitro3DModel* model = rawInternalModel_;
+        int32_t scale = model->scale;
 
-        int32_t scaledXMin = FIX32_MULTIPLY(model->bounds_.xMin_, scale);
-        int32_t scaledYMin = FIX32_MULTIPLY(model->bounds_.yMin_, scale);
-        int32_t scaledZMin = FIX32_MULTIPLY(model->bounds_.zMin_, scale);
+        int32_t scaledXMin = FIX32_MULTIPLY(model->bounds.xMin, scale);
+        int32_t scaledYMin = FIX32_MULTIPLY(model->bounds.yMin, scale);
+        int32_t scaledZMin = FIX32_MULTIPLY(model->bounds.zMin, scale);
 
-        int32_t scaledXSize = FIX32_MULTIPLY(model->bounds_.xSize_, scale);
-        int32_t scaledYSize = FIX32_MULTIPLY(model->bounds_.ySize_, scale);
-        int32_t scaledZSize = FIX32_MULTIPLY(model->bounds_.zSize_, scale);
+        int32_t scaledXSize = FIX32_MULTIPLY(model->bounds.xSize, scale);
+        int32_t scaledYSize = FIX32_MULTIPLY(model->bounds.ySize, scale);
+        int32_t scaledZSize = FIX32_MULTIPLY(model->bounds.zSize, scale);
 
         xMax_ = scaledXMin + scaledXSize;
         yMax_ = scaledYMin + scaledYSize;
@@ -288,18 +279,18 @@ bool Model3D::Draw(bool applyClipping)
 
     if (unknown_flags_a8_2_)
     {
-        renderContext_.flags_ |= 1;
-        RenderModelFromRenderData(&renderContext_);
-        renderContext_.flags_ &= ~1;
+        renderContext_.flags |= 1;
+        Nitro3D_Render(&renderContext_);
+        renderContext_.flags &= ~1;
         unknown_flags_a8_2_ = false;
     }
     else if (unknown_flags_a8_1_)
     {
-        renderContext_.flags_ |= 1;
-        RenderModelFromRenderData(&renderContext_);
+        renderContext_.flags |= 1;
+        Nitro3D_Render(&renderContext_);
     }
     else
-        RenderModelFromRenderData(&renderContext_);
+        Nitro3D_Render(&renderContext_);
     return true;
 }
 
@@ -311,41 +302,50 @@ bool Model3D::DrawMeshWithMaterial(bool applyClipping, unsigned int material, un
     if (applyClipping && !TestVisible())
         return false;
 
-    RenderMeshWithMaterial(rawInternalModel_, material, mesh, bind);
+    Nitro3D_RenderMeshWithMaterial(rawInternalModel_, material, mesh, bind);
     return true;
 }
 
 int Model3D::TestVisible()
 {
     GXFIFO_MATRIX_PUSH = 0;
-    int scale = rawInternalModel_->maybeScale_;
+    int scale = rawInternalModel_->scale;
+    // presumably 3 times for each of the components
     GXFIFO_MATRIX_SCALE = scale;
     GXFIFO_MATRIX_SCALE = scale;
     GXFIFO_MATRIX_SCALE = scale;
+    // respectively, these mean
+    // render 1-dot polygons behind DISP_1DOT_DEPTH (?)
+    // render polygons intersecting the far-plane
+    // render front surface
+    // render back surface
+    // enable light 0 (but not 1, 2 or 3)
     GXFIFO_POLYGON_ATTRIBUTES = (1 << 13) | (1 << 12) | (1 << 7) | (1 << 6) | (1 << 0);
     GXFIFO_POLYGON_BEGIN = 0;
     GXFIFO_POLYGON_END = 0;
-    NSBXXInternalModel* model = rawInternalModel_;
+    Nitro3DModel* model = rawInternalModel_;
 
     union {
-        ModelBoundingBox unknown1_0_;
+        Nitro3DBoundingBox box;
         struct {
-            uint32_t unknown_0_;
-            uint32_t unknown_4_;
-            uint32_t unknown_8_;
-        } unknown_0_;
+            uint32_t a;
+            uint32_t b;
+            uint32_t c;
+        } u32s;
     } boxparams;
 
-    boxparams.unknown1_0_.xMin_ = model->bounds_.xMin_;
-    boxparams.unknown1_0_.yMin_ = model->bounds_.yMin_;
-    boxparams.unknown1_0_.zMin_ = model->bounds_.zMin_;
-    boxparams.unknown1_0_.xSize_ = model->bounds_.xSize_;
-    boxparams.unknown1_0_.ySize_ = model->bounds_.ySize_;
-    boxparams.unknown1_0_.zSize_ = model->bounds_.zSize_;
+    boxparams.box.xMin = model->bounds.xMin;
+    boxparams.box.yMin = model->bounds.yMin;
+    boxparams.box.zMin = model->bounds.zMin;
+    boxparams.box.xSize = model->bounds.xSize;
+    boxparams.box.ySize = model->bounds.ySize;
+    boxparams.box.zSize = model->bounds.zSize;
 
-    GXFIFO_TEST_BOX = boxparams.unknown_0_.unknown_0_;
-    GXFIFO_TEST_BOX = boxparams.unknown_0_.unknown_4_;
-    GXFIFO_TEST_BOX = boxparams.unknown_0_.unknown_8_;
+    // we pass two parameters at a time here
+    // (xmin, ymin), (zmin, xsize), (ysize, zsize)
+    GXFIFO_TEST_BOX = boxparams.u32s.a;
+    GXFIFO_TEST_BOX = boxparams.u32s.b;
+    GXFIFO_TEST_BOX = boxparams.u32s.c;
 
     int result;
     while (func_020c56b0(&result) != 0) {}
@@ -361,33 +361,33 @@ int Model3D::GetBoneIndex(const char *boneName)
     char zeroPaddedName[16];
     memset(zeroPaddedName, 0, sizeof(zeroPaddedName));
     strcpy(zeroPaddedName, boneName);
-    return NSBXXNameList_SearchIndex(&rawInternalModel_->boneList_, zeroPaddedName);
+    return Nitro3D_GetNameListIndex(&rawInternalModel_->boneList, zeroPaddedName);
 }
 
 void Model3D::ApplyTexturesFromModel(Model3D* otherModel)
 {
     if (!unknown_flags_a8_0_ || otherModel == NULL)
         return;
-    NSBXXMdl* mdl0 = GetMDL0();
-    NSBXXTex* tex0 = (NSBXXTex*)otherModel->rawTEX_;
+    Nitro3DModelSet* mdl0 = GetMDL0();
+    Nitro3DTextureSet* tex0 = (Nitro3DTextureSet*)otherModel->rawTEX_;
     if (mdl0 == NULL || tex0 == NULL)
         return;
-    NSBXX_LinkTEX0ToMDL0(mdl0, tex0);
+    Nitro3D_LinkTexturesToModels(mdl0, tex0);
 }
 
-NSBXXMdl* Model3D::GetMDL0()
+Nitro3DModelSet* Model3D::GetMDL0()
 {
     if (rawBMD_ == NULL)
         return NULL;
-    return (NSBXXMdl*)NSBXX_GetFirstSubfile((NSBXXContainer*)rawBMD_);
+    return (Nitro3DModelSet*)Nitro3D_GetFirstSubfile((Nitro3DFileHeader*)rawBMD_);
 }
 
 void Model3D::RemoveTextures()
 {
-    NSBXXMdl* mdl0 = GetMDL0();
+    Nitro3DModelSet* mdl0 = GetMDL0();
     if (mdl0 == NULL)
         return;
-    NSBXX_UnlinkTEX0FromMDL0(mdl0);
+    Nitro3D_UnlinkTexturesFromModels(mdl0);
 }
 
 void Model3D::CreateBoneMatrixAndMaterialArrays(SafeAllocator *alloc, int args)
@@ -395,18 +395,18 @@ void Model3D::CreateBoneMatrixAndMaterialArrays(SafeAllocator *alloc, int args)
     if (alloc != NULL)
     {
         if (pBoneMatrixRenderData_ == NULL && (args & 1))
-            pBoneMatrixRenderData_ = (BoneMatrixRenderData*)alloc->Allocate(renderContext_.internalModel_->numBoneMatrices_ * sizeof(BoneMatrixRenderData));
+            pBoneMatrixRenderData_ = (BoneMatrixRenderData*)alloc->Allocate(renderContext_.model->numBoneMatrices * sizeof(BoneMatrixRenderData));
 
         if (pMaterialRenderData_ == NULL && (args & 2))
-            pMaterialRenderData_ = (MaterialRenderData*)alloc->Allocate(renderContext_.internalModel_->numMaterials_ * sizeof(MaterialRenderData));
+            pMaterialRenderData_ = (MaterialRenderData*)alloc->Allocate(renderContext_.model->numMaterials * sizeof(MaterialRenderData));
     }
 
     if (!(args & 4))
     {
         if (pBoneMatrixRenderData_ != NULL)
-            renderContext_.boneMatrixRenderDataArray_ = pBoneMatrixRenderData_;
+            renderContext_.boneMatrixRenderDataArray = pBoneMatrixRenderData_;
         if (pMaterialRenderData_ != NULL)
-            renderContext_.materialRenderDataArray_ = pMaterialRenderData_;
+            renderContext_.materialRenderDataArray = pMaterialRenderData_;
 
         unknown_flags_a8_2_ = true;
     }
@@ -415,9 +415,9 @@ void Model3D::CreateBoneMatrixAndMaterialArrays(SafeAllocator *alloc, int args)
 void Model3D::StoreBoneMatrixAndMaterialArrayPointers()
 {
     if (pBoneMatrixRenderData_ != NULL)
-        renderContext_.boneMatrixRenderDataArray_ = pBoneMatrixRenderData_;
+        renderContext_.boneMatrixRenderDataArray = pBoneMatrixRenderData_;
     if (pMaterialRenderData_ != NULL)
-        renderContext_.materialRenderDataArray_ = pMaterialRenderData_;
+        renderContext_.materialRenderDataArray = pMaterialRenderData_;
     unknown_flags_a8_1_ = true;
 }
 
@@ -425,7 +425,7 @@ void Model3D::SetAlpha(int alpha)
 {
     if (rawInternalModel_ != NULL)
     {
-        NSBXX_Model_SetAlpha(rawInternalModel_, alpha);
+        Nitro3D_SetModelAlpha(rawInternalModel_, alpha);
         alpha_ = alpha;
     }
 }
@@ -437,19 +437,19 @@ void Model3D::AddAnimation(Animation3D* anim)
     if (anim == NULL || anim->GetBasicAnimationData() == NULL)
         return;
 
-    AddAnimationsToModelRenderContext(&renderContext_, anim->GetBasicAnimationData());
+    Nitro3D_AddAnimationToContext(&renderContext_, anim->GetBasicAnimationData());
 }
 
 void Model3D::RemoveAnimations()
 {
-    while (renderContext_.materialAnimations_ != NULL)
-        RemoveAnimationFromModelRenderContext(&renderContext_, renderContext_.materialAnimations_);
+    while (renderContext_.materialAnimations != NULL)
+        Nitro3D_RemoveAnimationFromContext(&renderContext_, renderContext_.materialAnimations);
 
-    while (renderContext_.jointAnimations_ != NULL)
-        RemoveAnimationFromModelRenderContext(&renderContext_, renderContext_.jointAnimations_);
+    while (renderContext_.jointAnimations != NULL)
+        Nitro3D_RemoveAnimationFromContext(&renderContext_, renderContext_.jointAnimations);
 
-    while (renderContext_.visibilityAnimations_ != NULL)
-        RemoveAnimationFromModelRenderContext(&renderContext_, renderContext_.visibilityAnimations_);
+    while (renderContext_.visibilityAnimations != NULL)
+        Nitro3D_RemoveAnimationFromContext(&renderContext_, renderContext_.visibilityAnimations);
 }
 
 void Model3D::SetBoneMatrixRenderData(BoneMatrixRenderData* data)
@@ -465,21 +465,21 @@ BoneMatrixRenderData* Model3D::GetBoneMatrixRenderData()
 void Model3D::ApplyRenderConfigMaterialDiffuseColor()
 {
     if (rawInternalModel_ != NULL)
-        NSBXX_Model_SetAllMaterialFlags(rawInternalModel_, false, 1 << 6);
+        Nitro3D_ConfigureModelMaterialFlags(rawInternalModel_, false, 1 << 6);
 }
 
 void Model3D::SetMaterialDiffuseColor(unsigned int rgb)
 {
     if (rawInternalModel_ != NULL)
-        NSBXX_Model_SetDiffuseReflectionColor(rawInternalModel_, rgb);
+        Nitro3D_SetModelDiffuseColor(rawInternalModel_, rgb);
 }
 
-NSBXXTex* Model3D::GetTEX0()
+Nitro3DTextureSet* Model3D::GetTEX0()
 {
     return rawTEX_;
 }
 
-void Model3D::SetTEX0(NSBXXTex* tex)
+void Model3D::SetTEX0(Nitro3DTextureSet* tex)
 {
     rawTEX_ = tex;
 }
