@@ -204,6 +204,11 @@ extern "C" ARM void func_020421c4(SafeAllocator* arg0) {
     var2.Reset();
     ZeroDestroyGPCPointer(&var2.pGPCFile);
 }
+
+void force_data_into_file_section(void)
+{
+    data_02107820 = 0;
+}
 #else
 struct Struct_020421c4_5 {
     char unknown_0_[0x34];

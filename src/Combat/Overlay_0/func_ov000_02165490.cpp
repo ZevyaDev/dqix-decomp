@@ -534,3 +534,10 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
     var0.Reset();
     ZeroDestroyGPCPointer(&var0.pGPCFile);
 }
+
+void force_data_into_file_section(void)
+{
+    data_ov000_02183010[0];
+    data_ov000_02183014[0];
+    data_ov000_02183018[0];
+}

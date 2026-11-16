@@ -393,4 +393,9 @@ checkProgress:
         return;
     }
 }
+
+void force_data_into_file_section(void)
+{
+    data_ov031_02291e04 = 0;
+}
 #endif

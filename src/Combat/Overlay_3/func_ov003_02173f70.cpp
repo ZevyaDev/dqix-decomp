@@ -57,3 +57,10 @@ extern "C" ARM void func_ov003_02173f70(Struct_ov003_02173f70* arg0, SafeAllocat
         arg0->unknown_814_ = arg0->unknown_82c_;
     }
 }
+
+#if defined(jpn)
+void force_data_into_file_section(void)
+{
+    data_ov003_0217ece0 = 0;
+}
+#endif

@@ -826,3 +826,14 @@ void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)
 {
     *a = *a;
 }
+
+void force_data_into_file_section(void)
+{
+#if !defined(jpn)
+    data_ov004_021707f4 = 0;
+#endif
+    data_ov004_021707fc = 0;
+    data_ov004_02170808 = 0;
+    data_ov004_0217080c = 0;
+    data_ov004_0217082c[0] = 0;
+}

@@ -50,3 +50,12 @@ extern "C" ARM void func_02020c18(Struct_02020554* arg0, Type_02020aec arg1, Saf
     *arg1 = -1;
 #endif
 }
+
+void force_data_into_file_section(void)
+{
+    data_020fdc4c.unknown_0_ = 0;
+#if !defined(jpn)
+    data_020fdc50 = 0;
+#endif
+    data_020fdc58 = 0;
+}
