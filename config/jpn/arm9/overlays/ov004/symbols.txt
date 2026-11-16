@@ -545,7 +545,8 @@ data_ov004_021705c4 kind:data(any) addr:0x021705c4
 data_ov004_0216fe90 kind:data(any) addr:0x021705f8
 data_ov004_02170660 kind:data(any) addr:0x02170660
 data_ov004_02170668 kind:data(any) addr:0x02170668
-data_ov004_021706f8 kind:data(byte[4]) addr:0x021706f8 local
+var2$10 kind:data(byte[2]) addr:0x021706f8 local
+var4$12 kind:data(byte[2]) addr:0x021706fa local
 @30 kind:data(byte[4]) addr:0x021706ff local
 data_ov004_02170708 kind:data(any) addr:0x02170708
 data_ov004_02170750 kind:data(any) addr:0x02170750

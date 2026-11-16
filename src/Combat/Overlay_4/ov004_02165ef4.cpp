@@ -34,14 +34,13 @@ struct Struct_ov004_0217101c_2 {
 };
 extern struct Struct_ov004_0217101c_2 data_ov004_0217101c;
 
-#if defined(jpn)
-static const short data_ov004_021706f8[2] = {8, 6};
-#else
-static const short data_ov004_0216ff98[3] = {6, 8, 10};
-#endif
-
 // USA: func_ov004_02165ef4
 extern "C" ARM void func_ov004_02165ef4(void* arg0) {
+    const short var2 = 8;
+#if !defined(jpn)
+    const short var3 = 10;
+#endif
+    const short var4 = 6;
     short var0 = data_ov004_0217101c.inline_ov004_02165f2c()->unknown_4c_;
     short var1 = (var0 + 7) / 8;
     func_ov023_021f65b4(arg0, (void*)0x5b, 0, var1);

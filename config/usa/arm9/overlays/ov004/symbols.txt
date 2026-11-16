@@ -560,7 +560,9 @@ data_ov004_0216fe5c kind:data(any) addr:0x0216fe5c
 data_ov004_0216fe90 kind:data(any) addr:0x0216fe90
 data_ov004_0216fef8 kind:data(any) addr:0x0216fef8
 data_ov004_0216ff00 kind:data(any) addr:0x0216ff00
-data_ov004_0216ff98 kind:data(byte[6]) addr:0x0216ff98 local
+var4$14 kind:data(byte[2]) addr:0x0216ff98 local
+var2$10 kind:data(byte[2]) addr:0x0216ff9a local
+var3$12 kind:data(byte[2]) addr:0x0216ff9c local
 data_ov004_0216ffac kind:data(any) addr:0x0216ffac
 data_ov004_0216fff8 kind:data(any) addr:0x0216fff8
 data_ov004_0216fffa kind:data(any) addr:0x0216fffa
