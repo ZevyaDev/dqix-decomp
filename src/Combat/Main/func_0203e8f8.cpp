@@ -28,15 +28,6 @@
 #define data_020e7980 data_020e82dc
 #define data_020e7990 data_020e82ec
 #define data_020e9a50 data_020e9b5c
-#define data_020e7948 data_020e82a4
-#define data_020e794a data_020e82a6
-#define data_020e794c data_020e82a8
-#define data_020e7950 data_020e82ac
-#define data_020e7954 data_020e82b0
-#define data_020e7958 data_020e82b4
-#define data_020e795c data_020e82b8
-#define data_020e7960 data_020e82bc
-#define data_020e7964 data_020e82c0
 #define data_020efda4 data_020efcbc
 #define data_020efdad data_020efcc5
 #define data_020efdb8 data_020efcd0
@@ -133,10 +124,10 @@ struct Struct_021075f4 {
     Struct_021075f4();
 };
 
-static float data_020efd94 = 180.0f;
 static float data_020efd90 = 30.0f;
-static float data_020efda0 = 30.0f;
 static float data_020efd8c = 180.0f;
+static float data_020efd94 = 180.0f;
+static float data_020efda0 = 30.0f;
 static float data_021075e0 = data_020efda0 + (data_020efd94 + (data_020efd8c + data_020efd90));
 extern float data_021075e4;
 static float data_021075d8 = data_021075e4 + data_020efd8c;
@@ -147,23 +138,14 @@ static char data_020efda4[] = "stand_up";
 static char data_020efdad[] = "stand_down";
 static char data_020efdb8[] = "stand_left";
 Struct_021075f4 data_021075f4;
-extern const int data_020e7950 = 0x50;
-extern const int data_020e7960 = 3;
-extern const unsigned short data_020e794a = 0x1999;
-extern const int data_020e795c = 0xc0;
-extern const int data_020e7958 = 0x40;
-extern const int data_020e794c = 0x8f;
-extern const int data_020e7954 = 0x50;
-extern const unsigned short data_020e7948 = 0x18c8;
-extern const int data_020e7964 = 0x78;
+const Vector3i data_020e7968 = { 0, 0, 0 };
 const Vector3i data_020e7974 = { 0, 0x1000, 0 };
+const Struct_020e7980 data_020e7980 = { { 0x18c8, 0x18c8, 0x18c8, 0x18c8, 0x18c8, 0x18c8, 0x18c8, 0x18c8 } };
 const Struct_020e7990 data_020e7990[] = {
     { data_020efdad, 0x00, 0x00, 0x60, 0x16, 0x40, 0x00 },
     { data_020efdb8, 0x40, 0x00, 0x20, 0x16, 0x20, 0x30 },
     { data_020efda4, 0x80, 0x00, -0x20, 0x16, -0x40, 0x00 },
 };
-const Vector3i data_020e7968 = { 0, 0, 0 };
-const Struct_020e7980 data_020e7980 = { { 0x18c8, 0x18c8, 0x18c8, 0x18c8, 0x18c8, 0x18c8, 0x18c8, 0x18c8 } };
 extern const short data_020e9a50[];
 
 static inline int inline_0203e8f8(int arg0, int arg1)
@@ -174,6 +156,15 @@ static inline int inline_0203e8f8(int arg0, int arg1)
 // USA: func_0203e8f8
 extern "C" ARM int func_0203e8f8(void* arg0, Struct_0203e8f8* arg1, SafeAllocator* arg2)
 {
+    const unsigned short var41 = 0x18c8;
+    const int var42 = 0x40;
+    const int var43 = 0x50;
+    const unsigned short var44 = 0x1999;
+    const int var45 = 0x78;
+    const int var46 = 3;
+    const int var47 = 0x50;
+    const int var48 = 0x8f;
+    const int var49 = 0xc0;
     Struct_020e7980 var0;
     int var7;
     GameResources* var8;

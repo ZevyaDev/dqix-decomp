@@ -6163,15 +6163,15 @@ data_020e7918 kind:data(any) addr:0x020e8274
 data_020e7920 kind:data(any) addr:0x020e827c
 data_020e7928 kind:data(any) addr:0x020e8284
 data_020e7938 kind:data(any) addr:0x020e8294
-data_020e82a4 kind:data(any) addr:0x020e82a4
-data_020e82a6 kind:data(any) addr:0x020e82a6
-data_020e82a8 kind:data(any) addr:0x020e82a8
-data_020e82ac kind:data(any) addr:0x020e82ac
-data_020e82b0 kind:data(any) addr:0x020e82b0
-data_020e82b4 kind:data(any) addr:0x020e82b4
-data_020e82b8 kind:data(any) addr:0x020e82b8
-data_020e82bc kind:data(any) addr:0x020e82bc
-data_020e82c0 kind:data(any) addr:0x020e82c0
+var41$1202 kind:data(any) addr:0x020e82a4 local
+var44$1208 kind:data(any) addr:0x020e82a6 local
+var48$1216 kind:data(any) addr:0x020e82a8 local
+var43$1206 kind:data(any) addr:0x020e82ac local
+var47$1214 kind:data(any) addr:0x020e82b0 local
+var42$1204 kind:data(any) addr:0x020e82b4 local
+var49$1218 kind:data(any) addr:0x020e82b8 local
+var46$1212 kind:data(any) addr:0x020e82bc local
+var45$1210 kind:data(any) addr:0x020e82c0 local
 data_020e82c4 kind:data(any) addr:0x020e82c4 local
 data_020e82d0 kind:data(any) addr:0x020e82d0 local
 data_020e82dc kind:data(any) addr:0x020e82dc local
@@ -6734,8 +6734,8 @@ data_020efd84 kind:data(any) addr:0x020efc9c
 data_020efd8c kind:data(any) addr:0x020efca4 local
 data_020efd90 kind:data(any) addr:0x020efca8 local
 data_020efd94 kind:data(any) addr:0x020efcac local
-var40$1276 kind:data(any) addr:0x020efcb0 local
-var39$1273 kind:data(any) addr:0x020efcb4 local
+var40$1245 kind:data(any) addr:0x020efcb0 local
+var39$1242 kind:data(any) addr:0x020efcb4 local
 data_020efda0 kind:data(any) addr:0x020efcb8 local
 data_020efcbc kind:data(any) addr:0x020efcbc local
 data_020efcc5 kind:data(any) addr:0x020efcc5 local
@@ -7538,10 +7538,10 @@ data_02105fd8 kind:bss addr:0x021057f4
 data_02105ab4 kind:bss addr:0x02105df4
 data_021065d8 kind:bss addr:0x02106518
 data_021075d8 kind:bss addr:0x02107518 local
-_ZGVvar39$1273 kind:bss addr:0x0210751c local
+_ZGVvar39$1242 kind:bss addr:0x0210751c local
 data_021075e0 kind:bss addr:0x02107520 local
 data_021075e4 kind:bss addr:0x02107524
-_ZGVvar40$1276 kind:bss addr:0x02107528 local
+_ZGVvar40$1245 kind:bss addr:0x02107528 local
 data_021075ec kind:bss addr:0x0210752c local
 data_021075f0 kind:bss addr:0x02107530 local
 data_021075f4 kind:bss addr:0x02107534
