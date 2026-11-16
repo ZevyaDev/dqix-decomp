@@ -81,6 +81,7 @@ def strip(path, dead=frozenset()):
 
     defined = {cstr(str_offset, s[0]) for s in symbols if 0 < s[5] < SHN_LORESERVE}
     stripped = []
+    emptied = set()
     for k, (st_name, _, st_size, st_info, _, st_shndx) in enumerate(symbols):
         if st_info & 0xF != STT_FUNC:
             continue
@@ -98,6 +99,11 @@ def strip(path, dead=frozenset()):
         if name in dead:
             struct.pack_into("<B", data, sym_offset + k * SYM_SIZE + 12, STB_MULTIDEF << 4 | STT_FUNC)
         stripped.append(name.decode())
+        emptied.add(st_shndx)
+
+    for k, (_, st_value, _, _, _, st_shndx) in enumerate(symbols):
+        if st_shndx in emptied and st_value:
+            struct.pack_into("<I", data, sym_offset + k * SYM_SIZE + 4, 0)
 
     dead_debug = {b".dwarf." + name.encode() for name in stripped if name.encode() in dead}
     for k, (st_name, _, _, st_info, _, st_shndx) in enumerate(symbols):
