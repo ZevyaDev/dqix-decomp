@@ -26,13 +26,17 @@ extern "C" void AppendMenuObject_ov023_021f67ac(struct MenuObjectList_ov004_0215
 
 extern int data_ov004_021705f8;
 
+struct Struct_ov011_02187e20_4 : OBJSpriteSet {
+    Struct_ov011_02187e20_4() { Reset(); }
+    ~Struct_ov011_02187e20_4() { Destroy(); }
+};
+
 struct Struct_ov011_02187e20_3 {
     char unknown_0_[4];
     StringList unknown_4_;
     char unknown_1c_[0x60 - 0x1c];
-    char unknown_60_[0x118 - 0x94];
-
-    Struct_ov011_02187e20_3() { ((OBJSpriteSet*)unknown_60_)->Reset(); }
+    Struct_ov011_02187e20_4 unknown_60_;
+    char unknown_b4_[0xe4 - 0xb4];
 };
 
 struct Struct_ov011_02187e20_2 {
@@ -60,13 +64,9 @@ extern "C" ARM int func_ov011_02187e20(struct Struct_ov011_02187e20* arg0) {
     struct Struct_ov011_02187e20_2 var5;
     memcpy(var4, &var5, sizeof(Struct_ov011_02187e20_2));
 
-    if (func_ov004_02167820(var4, var2, var0, var1) == 0) {
-        ((OBJSpriteSet*)(var5.unknown_34_.unknown_60_))->Destroy();
-        return 0;
-    }
+    if (func_ov004_02167820(var4, var2, var0, var1) == 0) return 0;
 
     void* var7 = GetMenuObjectList_ov011_021849c8(var2);
     AppendMenuObject_ov023_021f67ac((struct MenuObjectList_ov004_0215c30c*)var7, (struct MenuObject_ov004_0215c30c_2*)var4);
-    ((OBJSpriteSet*)(var5.unknown_34_.unknown_60_))->Destroy();
     return 1;
 }
