@@ -1744,7 +1744,7 @@ SetMessageNumberWidth_020465f0 kind:function(arm,size=0x18) addr:0x02047490
 func_020474a8 kind:function(arm,size=0xc) addr:0x020474a8
 func_020474b4 kind:function(arm,size=0x34) addr:0x020474b4
 func_020466c8 kind:function(arm,size=0x8) addr:0x020474e8
-func_020466d0 kind:function(arm,size=0x14) addr:0x020474f0
+_ZN13SafeAllocatorC1Ev kind:function(arm,size=0x14) addr:0x020474f0
 SetGlobalFlags_020466e4 kind:function(arm,size=0x10) addr:0x02047504
 ClearGlobalFlags_020466f4 kind:function(arm,size=0x14) addr:0x02047514
 func_02047528 kind:function(arm,size=0x14) addr:0x02047528
@@ -6041,7 +6041,7 @@ __sinit_020e5c2c kind:function(arm,size=0x2c) addr:0x020e650c
 __sinit_func_0203e8f8.cpp kind:function(arm,size=0x90) addr:0x020e6538 local
 __sinit_020e5ce8 kind:function(arm,size=0x14) addr:0x020e65c8
 __sinit_020e5cfc kind:function(arm,size=0x88) addr:0x020e65dc
-__sinit_020e5d84 kind:function(arm,size=0x14) addr:0x020e6664
+__sinit_func_020466d0.cpp kind:function(arm,size=0x14) addr:0x020e6664 local
 __sinit_LightingManager.cpp kind:function(arm,size=0x94) addr:0x020e6678 local
 __sinit_020e5e2c kind:function(arm,size=0x88) addr:0x020e670c
 __sinit_020e5eb4 kind:function(arm,size=0x2c) addr:0x020e6794
@@ -6414,7 +6414,7 @@ data_020ee9cc kind:data(any) addr:0x020eea90
 .p__sinit_func_0203e8f8.cpp kind:data(word) addr:0x020eeab8 local
 .p__sinit_020e65c8 kind:data(word) addr:0x020eeabc
 .p__sinit_020e65dc kind:data(word) addr:0x020eeac0
-.p__sinit_020e6664 kind:data(word) addr:0x020eeac4
+.p__sinit_func_020466d0.cpp kind:data(word) addr:0x020eeac4 local
 .p__sinit_LightingManager.cpp kind:data(word) addr:0x020eeac8 local
 .p__sinit_020e670c kind:data(word) addr:0x020eeacc
 .p__sinit_020e6794 kind:data(word) addr:0x020eead0

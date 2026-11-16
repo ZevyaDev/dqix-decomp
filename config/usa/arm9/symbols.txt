@@ -1758,7 +1758,7 @@ SetMessageNumberAlignment_020465d8 kind:function(arm,size=0x18) addr:0x020465d8
 SetMessageNumberWidth_020465f0 kind:function(arm,size=0x18) addr:0x020465f0
 func_02046608 kind:function(arm,size=0xc0) addr:0x02046608
 func_020466c8 kind:function(arm,size=0x8) addr:0x020466c8
-func_020466d0 kind:function(arm,size=0x14) addr:0x020466d0
+_ZN13SafeAllocatorC1Ev kind:function(arm,size=0x14) addr:0x020466d0
 SetGlobalFlags_020466e4 kind:function(arm,size=0x10) addr:0x020466e4
 ClearGlobalFlags_020466f4 kind:function(arm,size=0x14) addr:0x020466f4
 func_02046708 kind:function(arm,size=0x14) addr:0x02046708
@@ -6216,7 +6216,7 @@ __sinit_020e5c2c kind:function(arm,size=0x2c) addr:0x020e5c2c
 __sinit_func_0203e8f8.cpp kind:function(arm,size=0x90) addr:0x020e5c58 local
 __sinit_020e5ce8 kind:function(arm,size=0x14) addr:0x020e5ce8
 __sinit_020e5cfc kind:function(arm,size=0x88) addr:0x020e5cfc
-__sinit_020e5d84 kind:function(arm,size=0x14) addr:0x020e5d84
+__sinit_func_020466d0.cpp kind:function(arm,size=0x14) addr:0x020e5d84 local
 __sinit_LightingManager.cpp kind:function(arm,size=0x94) addr:0x020e5d98 local
 __sinit_020e5e2c kind:function(arm,size=0x88) addr:0x020e5e2c
 __sinit_020e5eb4 kind:function(arm,size=0x2c) addr:0x020e5eb4
@@ -6246,7 +6246,7 @@ __sinit_020e66fc kind:function(arm,size=0x14) addr:0x020e66fc
 __sinit_GPC.cpp kind:function(arm,size=0x6c) addr:0x020e6710 local
 __sinit_020e677c kind:function(arm,size=0x14) addr:0x020e677c
 __sinit_020e6790 kind:function(arm,size=0x164) addr:0x020e6790
-__sinit_020e68f4 kind:function(arm,size=0x38) addr:0x020e68f4
+__sinit_data_020e68f4.cpp kind:function(arm,size=0x38) addr:0x020e68f4 local
 data_020e692c kind:data(any) addr:0x020e692c
 data_020e69ac kind:data(any) addr:0x020e69ac
 @91 kind:data(any) addr:0x020e6aac local
@@ -6597,7 +6597,7 @@ data_020eeab0 kind:data(any) addr:0x020eeab0
 .p__sinit_func_0203e8f8.cpp kind:data(word) addr:0x020eeb38 local
 .p__sinit_020e5ce8 kind:data(word) addr:0x020eeb3c
 .p__sinit_020e5cfc kind:data(word) addr:0x020eeb40
-.p__sinit_020e5d84 kind:data(word) addr:0x020eeb44
+.p__sinit_func_020466d0.cpp kind:data(word) addr:0x020eeb44 local
 .p__sinit_LightingManager.cpp kind:data(word) addr:0x020eeb48 local
 .p__sinit_020e5e2c kind:data(word) addr:0x020eeb4c
 .p__sinit_020e5eb4 kind:data(word) addr:0x020eeb50
@@ -6627,7 +6627,7 @@ data_020eeab0 kind:data(any) addr:0x020eeab0
 .p__sinit_GPC.cpp kind:data(word) addr:0x020eebb0 local
 .p__sinit_020e677c kind:data(word) addr:0x020eebb4
 .p__sinit_020e6790 kind:data(word) addr:0x020eebb8
-.p__sinit_020e68f4 kind:data(word) addr:0x020eebbc
+.p__sinit_data_020e68f4.cpp kind:data(word) addr:0x020eebbc local
 data_020eebe0 kind:data(any) addr:0x020eebe0
 data_020eec2c kind:data(any) addr:0x020eec2c
 data_020eecc4 kind:data(any) addr:0x020eecc4

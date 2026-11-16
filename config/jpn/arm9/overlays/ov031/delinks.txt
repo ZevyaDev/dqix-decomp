@@ -3007,6 +3007,8 @@ src/NetworkLib/Overlay_31/func_ov031_02207168.cpp:
 src/Combat/Overlay_31/data_ov031_02249650.cpp:
     complete
     .init start:0x0224a264 end:0x0224a278
+    .ctor start:0x0224a278 end:0x0224a27c
+    .bss start:0x02292a3c end:0x02292a50
 
 src/NetworkLib/Overlay_31/func_ov031_022298d0.cpp:
     complete
