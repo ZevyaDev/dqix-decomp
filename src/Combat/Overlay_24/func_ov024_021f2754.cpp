@@ -2,10 +2,10 @@
 #include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
-extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
+extern "C" GameObject* GetEnemyByID_ov000_021536f8(int battle, int index);
 extern "C" float func_ov024_021db358(GameObject* arg0);
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
-extern "C" int func_ov024_021ed890(struct Random** arg0, int* arg1, short* arg2);
+extern "C" int PickRandomTarget_ov024_021ed890(struct Random** targetSelector, int* count, short* targetIndices);
 
 struct Struct_ov024_021f2754 { int unknown_0_; };
 struct Struct_ov024_021feccc { short unknown_0_[8]; };
@@ -13,7 +13,7 @@ extern struct Struct_ov024_021feccc data_ov024_021feccc;
 
 // USA: func_ov024_021f2754
 extern "C" ARM int func_ov024_021f2754(struct Struct_ov024_021f2754* arg0, int arg1, int arg2, int* arg3, short* arg4) {
-	GameObject* var0 = func_ov000_021536f8(arg0->unknown_0_, arg1);
+	GameObject* var0 = GetEnemyByID_ov000_021536f8(arg0->unknown_0_, arg1);
 	if (!var0) return 0;
 	if (func_ov024_021db358(var0) < 0.5f) return 0;
 	struct Struct_ov024_021feccc var1 = data_ov024_021feccc;
@@ -30,6 +30,6 @@ extern "C" ARM int func_ov024_021f2754(struct Struct_ov024_021f2754* arg0, int a
 		arg4[var5] = var1.unknown_0_[var3];
 	}
 	if (*arg3 <= 0) return 0;
-	func_ov024_021ed890((struct Random**)arg0, arg3, arg4);
+	PickRandomTarget_ov024_021ed890((struct Random**)arg0, arg3, arg4);
 	return 1;
 }

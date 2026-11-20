@@ -18,7 +18,7 @@ struct Struct_ov031_022048a8_2 {
     unsigned char unknown_8_[2];
 };
 struct Struct_ov031_0224c980_18 { unsigned char unknown_0_[0x48]; int (*unknown_48_)(); };
-extern Struct_ov031_0224c980_18 data_ov031_0224c980;
+extern Struct_ov031_0224c980_18 gIPStack_ov031_0224c980;
 extern "C" void func_ov031_02203a84(void*, int);
 extern "C" int func_ov031_02203b1c();
 extern "C" void func_ov031_02200264();
@@ -69,7 +69,7 @@ extern "C" ARM int func_ov031_022048a8(const unsigned char* arg0, unsigned int a
     func_ov031_02203a84(&var0, var4 + 5 - (unsigned char*)&var0);
     int var6 = 0;
     unsigned int var7 = GetCurrentTimestamp() >> 16;
-    while (data_ov031_0224c980.unknown_48_() && !var6 &&
+    while (gIPStack_ov031_0224c980.unknown_48_() && !var6 &&
            (int)((unsigned int)(GetCurrentTimestamp() >> 16) - var7) < 15) {
         if (!func_ov031_02203b1c()) func_ov031_02200264();
         else {

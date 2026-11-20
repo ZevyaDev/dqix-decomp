@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
 struct Struct_0203d028_16;
-struct Struct_0203e2c4_2;
+struct NPC_0203e2c4_2;
 extern "C" void SetObject3DRotation_0203db34(unsigned char* object, int x, int y, int z);
 extern "C" void func_0204085c(struct Struct_0203d028_16* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_02040b2c(struct Struct_0203e2c4_2* arg0, int arg1);
+extern "C" void SetNPCFacingInstantly_02040b2c(struct NPC_0203e2c4_2* npc, int angle);
 
 struct Struct_ov001_02164320 {
     int unknown_0_;
@@ -43,7 +43,7 @@ extern "C" ARM int func_ov001_02164320(struct Struct_ov001_02164320* arg0, int a
         var1 = var0->unknown_c_;
         if (var1 == NULL) return 0;
         func_0204085c((struct Struct_0203d028_16*)var1, arg2, arg3, arg4);
-        func_02040b2c((struct Struct_0203e2c4_2*)var0->unknown_c_, arg3);
+        SetNPCFacingInstantly_02040b2c((struct NPC_0203e2c4_2*)var0->unknown_c_, arg3);
         return 1;
     }
     return 0;

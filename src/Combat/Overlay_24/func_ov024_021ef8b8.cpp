@@ -4,8 +4,8 @@
 #include "Util/Random.h"
 
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
-extern "C" int func_ov024_021ed890(struct Random** arg0, int* arg1, short* arg2);
-extern "C" int func_ov024_021eda60(GameObject* arg0);
+extern "C" int PickRandomTarget_ov024_021ed890(struct Random** targetSelector, int* count, short* targetIndices);
+extern "C" int IsReflecting_ov024_021eda60(GameObject* combatant);
 
 struct Struct_ov024_021fed4c { short unknown_0_[8]; };
 extern struct Struct_ov024_021fed4c data_ov024_021fed4c;
@@ -23,13 +23,13 @@ extern "C" ARM int func_ov024_021ef8b8(int* arg0, int arg1, int arg2, int* arg3,
 		if (!var3) continue;
 		if (var3->currentStats_->primaryStats.agility >= 999) continue;
 		if (var3->currentStats_->agilityBuff >= 2) continue;
-		if (func_ov024_021eda60(var3)) continue;
+		if (IsReflecting_ov024_021eda60(var3)) continue;
 		int var4 = *arg3;
 		*arg3 = var4 + 1;
 		arg4[var4] = var0.unknown_0_[var2];
 	}
 	if (*arg3 > 0) {
-		func_ov024_021ed890((struct Random**)arg0, arg3, arg4);
+		PickRandomTarget_ov024_021ed890((struct Random**)arg0, arg3, arg4);
 		return 1;
 	}
 	return 0;

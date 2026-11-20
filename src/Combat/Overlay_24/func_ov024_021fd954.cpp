@@ -17,7 +17,7 @@ struct Struct_ov024_021da670_7;
 extern "C" int IsParalysed_ov024_021da9b0(struct Struct_ov024_021da670_7* combatant);
 extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
 struct Struct_ov024_021de124;
-extern "C" int func_ov024_021de25c(struct Struct_ov024_021de124* arg0);
+extern "C" int IsConfused_ov024_021de25c(struct Struct_ov024_021de124* combatant);
 struct Struct_02088660;
 extern "C" int func_02088660(struct Struct_02088660* arg0);
 struct Struct_ov024_021fa7ec_5;
@@ -134,7 +134,7 @@ extern "C" ARM void func_ov024_021fd954(struct Struct_ov024_021fbec4* arg0, int 
         } else if (arg1 == 4) {
             if (IsAsleep_020882f8((unsigned char*)var3->unknown_138_)) var7 = true;
         } else if (arg1 == 7) {
-            if (func_ov024_021de25c((struct Struct_ov024_021de124*)var3)) var7 = true;
+            if (IsConfused_ov024_021de25c((struct Struct_ov024_021de124*)var3)) var7 = true;
         } else if (arg1 == 0x11) {
             struct ModifiableCombatStats* var9 = var3->unknown_138_;
             if (var9->attackBuff <= 0) var7 = true;

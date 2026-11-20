@@ -4,7 +4,7 @@
 #include "Resource/CharacterCreationUI.h"
 #include "Resource/StringList.h"
 
-struct Struct_02080cc0;
+struct MenuLayout_02080cc0;
 struct MenuLayout_02080f8c;
 struct MenuLayout_02080fa8;
 struct Struct_02081198;
@@ -13,7 +13,7 @@ struct Struct_0201099c_16;
 struct Struct_ov003_0215f56c_3;
 struct Struct_ov003_02165c9c_5;
 
-extern "C" int func_02080b54(void* arg0, int arg1);
+extern "C" int HideMenuLayoutWindowTexts_02080b54(void* menuLayout, int windowId);
 extern "C" void* GetParty_02010828(GameState*);
 extern "C" void func_ov003_02166164(Struct_ov003_02165c9c_5*, int, int);
 extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
@@ -24,7 +24,7 @@ extern "C" int func_020865b0(Struct_0201099c_16*);
 #endif
 extern "C" int func_ov003_0215f56c(Struct_ov003_0215f56c_3*);
 extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
-extern "C" void func_02080cc0(struct Struct_02080cc0* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0* menuLayout, int textId, int color);
 extern "C" int ShowMenuLayoutText_02080b40(void*, int);
 extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c*, int, int);
 extern "C" void func_02080fe0(void*, int, int);
@@ -79,7 +79,7 @@ struct Struct_ov003_02166220_4 {
     char unknown_0_[0x1c4];
     Struct_0201099c_3 unknown_2dc_;
     char unknown_1cc_[0x20c - 0x1cc];
-    struct Struct_02080cc0* unknown_324_;
+    struct MenuLayout_02080cc0* unknown_324_;
     char unknown_210_[0x290 - 0x210];
     unsigned char unknown_468_[4];
     char unknown_294_[0x2c7 - 0x294];
@@ -90,7 +90,7 @@ struct Struct_ov003_02166220_4 {
     char unknown1_0_[0x2dc];
     Struct_0201099c_3 unknown_2dc_;
     char unknown_2e4_[0x324 - 0x2e4];
-    struct Struct_02080cc0* unknown_324_;
+    struct MenuLayout_02080cc0* unknown_324_;
     char unknown_328_[0x39c - 0x328];
     char unknown_39c_[4][0x30];
     char unknown_45c_[0x468 - 0x45c];
@@ -113,7 +113,7 @@ struct Struct_ov003_02166220_5 {
 
 // USA: func_ov003_02166220
 extern "C" ARM void func_ov003_02166220(Struct_ov003_02166220_4* arg0) {
-    struct Struct_02080cc0* var0 = arg0->unknown_324_;
+    struct MenuLayout_02080cc0* var0 = arg0->unknown_324_;
     Struct_ov003_02166220_2* var1;
     short var2;
     Struct_ov003_02166220* var3;
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov003_02166220(Struct_ov003_02166220_4* arg0) {
     short var20, var21;
     Struct_ov003_02166220_3 var22;
 
-    func_02080b54(var0, 6);
+    HideMenuLayoutWindowTexts_02080b54(var0, 6);
     var1 = (Struct_ov003_02166220_2*)GetParty_02010828(GameState::GetInstance());
     var2 = var1->unknown1_2c8c_;
     var8 = 0x15;
@@ -174,11 +174,11 @@ extern "C" ARM void func_ov003_02166220(Struct_ov003_02166220_4* arg0) {
         if (var7 < var2) {
             for (var13 = 0; var13 < 3; var13++) {
                 var6 = var8 + var13 * 4;
-                ((void (*)(struct Struct_02080cc0*, short, int))func_02080cc0)(var0, var6, var9);
+                ((void (*)(struct MenuLayout_02080cc0*, short, int))SetMenuLayoutTextColor_02080cc0)(var0, var6, var9);
                 ShowMenuLayoutText_02080b40(var0, (short)var6);
             }
 #if !defined(jpn)
-            func_02080cc0(var0, var4, var9);
+            SetMenuLayoutTextColor_02080cc0(var0, var4, var9);
             ShowMenuLayoutText_02080b40(var0, var4);
 #endif
             arg0->unknown_468_[var11] = var3->unknown_174_0_ + 1;
@@ -197,11 +197,11 @@ extern "C" ARM void func_ov003_02166220(Struct_ov003_02166220_4* arg0) {
 #else
                 func_02080854(var0, var10, (short)(var16 + var18 + 1), var17);
 #endif
-                func_02080cc0(var0, var10, var9);
+                SetMenuLayoutTextColor_02080cc0(var0, var10, var9);
                 ShowMenuLayoutText_02080b40(var0, var10);
             }
         } else {
-            func_02080cc0(var0, var8, var9);
+            SetMenuLayoutTextColor_02080cc0(var0, var8, var9);
             ShowMenuLayoutText_02080b40(var0, var8);
             SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var0, var8, (int)((int)((StringList*)(&arg0->unknown_2dc_))->GetString(0x7530)));
         }

@@ -33,14 +33,14 @@ extern "C" ARM void func_020341e0(Struct_020341e0_2* arg0, void* arg1) {
     (int)GetGameResources();
     if (IsLocalWirelessOn_0202b7d8((int*)var0)) {
         short var1 = *(short*)((char*)arg1 + 4);
-        if (func_0202c178((struct LocalWireless_0202b2f0*)var0, var1)) {
+        if (GetLocalWirelessPlayerRecord_0202c178((struct LocalWireless_0202b2f0*)var0, var1)) {
             var1 = *(short*)((char*)arg1 + 4);
             signed char var2 = GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var0);
             if (var2 != var1) {
                 Struct_020341e0_3* var3 = (Struct_020341e0_3*)((char*)arg1 + 0xc1);
                 if (var3->unknown_0_0_ & 1) {
                     var1 = *(short*)((char*)arg1 + 4);
-                    void* var4 = func_0202c178((struct LocalWireless_0202b2f0*)var0, var1);
+                    void* var4 = GetLocalWirelessPlayerRecord_0202c178((struct LocalWireless_0202b2f0*)var0, var1);
                     Struct_020341e0 var5;
                     Vector3fix16Copy((Vector3s*)&var5, (Vector3s const*)((char*)var4 + 8));
                     Struct_020341e0_2 var6;

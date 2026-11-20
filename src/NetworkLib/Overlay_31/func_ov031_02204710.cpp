@@ -15,7 +15,7 @@ struct Struct_ov031_0224c980_16 {
 	unsigned char unknown_3c_[0x4c - 0x3c];
 	unsigned int unknown_4c_;
 };
-extern Struct_ov031_0224c980_16 data_ov031_0224c980;
+extern Struct_ov031_0224c980_16 gIPStack_ov031_0224c980;
 
 // USA: func_ov031_02204710
 extern "C" ARM int func_ov031_02204710(int* arg0, int arg1) {
@@ -23,7 +23,7 @@ extern "C" ARM int func_ov031_02204710(int* arg0, int arg1) {
 	func_ov031_02203190();
 
 	if (arg1 == 1) {
-		func_ov031_022031bc(0x44, 0x43, data_ov031_0224c980.unknown_20_);
+		func_ov031_022031bc(0x44, 0x43, gIPStack_ov031_0224c980.unknown_20_);
 	} else {
 		func_ov031_022031bc(0x44, 0x43, 0x43 - 0x44);
 	}
@@ -39,20 +39,20 @@ extern "C" ARM int func_ov031_02204710(int* arg0, int arg1) {
 	func_ov031_02203250();
 
 	if (var0 == 2) {
-		*arg0 = data_ov031_0224c980.unknown_4c_ >> 1;
-		data_ov031_0224c980.unknown_38_ = (data_ov031_0224c980.unknown_4c_ + (data_ov031_0224c980.unknown_4c_ << 1)) >> 3;
+		*arg0 = gIPStack_ov031_0224c980.unknown_4c_ >> 1;
+		gIPStack_ov031_0224c980.unknown_38_ = (gIPStack_ov031_0224c980.unknown_4c_ + (gIPStack_ov031_0224c980.unknown_4c_ << 1)) >> 3;
 		return 1;
 	}
 
-	unsigned int var2 = data_ov031_0224c980.unknown_38_ >> 1;
-	data_ov031_0224c980.unknown_38_ = var2;
+	unsigned int var2 = gIPStack_ov031_0224c980.unknown_38_ >> 1;
+	gIPStack_ov031_0224c980.unknown_38_ = var2;
 	*arg0 = var2;
 
 	switch (arg1) {
 	case 1:
 		if (var2 < 0x3c) {
 			*arg0 = 1;
-			data_ov031_0224c980.unknown_38_ = data_ov031_0224c980.unknown_4c_ >> 3;
+			gIPStack_ov031_0224c980.unknown_38_ = gIPStack_ov031_0224c980.unknown_4c_ >> 3;
 		}
 		break;
 	case 2:

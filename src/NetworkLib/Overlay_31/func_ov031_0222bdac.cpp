@@ -16,7 +16,7 @@ struct Struct_ov031_0222bdac {
     unsigned char unknown_58_;
 };
 struct Struct_ov031_02290c8c_6 { unsigned char unknown_0_[2]; unsigned short unknown_2_; Struct_ov031_0222bdac* unknown_4_; };
-extern Struct_ov031_02290c8c_6 data_ov031_02290c8c;
+extern Struct_ov031_02290c8c_6 gAccessPointListPage_ov031_02290c8c;
 extern "C" unsigned char func_ov031_022351e4();
 extern "C" unsigned char func_ov031_022351d0();
 extern "C" void DisableButtonBarInput_ov031_02222e98();
@@ -33,62 +33,62 @@ extern "C" int FastIntModulus(int, int);
 
 // USA: func_ov031_0222bdac
 extern "C" ARM void func_ov031_0222bdac() {
-    if (data_ov031_02290c8c.unknown_4_->unknown_38_) return;
-    if (data_ov031_02290c8c.unknown_4_->unknown_55_) data_ov031_02290c8c.unknown_4_->unknown_55_--;
+    if (gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_38_) return;
+    if (gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_55_) gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_55_--;
     switch (func_ov031_022351e4()) {
     case 1:
-        data_ov031_02290c8c.unknown_4_->unknown_57_ = 1;
+        gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_57_ = 1;
         DisableButtonBarInput_ov031_02222e98();
         return;
     case 2:
-        if (data_ov031_02290c8c.unknown_4_->unknown_55_) return;
+        if (gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_55_) return;
         func_ov031_022238cc();
-        data_ov031_02290c8c.unknown_2_ = FastIntDivide(data_ov031_02290c8c.unknown_4_->unknown_40_ * func_ov031_022351d0(), data_ov031_02290c8c.unknown_4_->unknown_53_);
+        gAccessPointListPage_ov031_02290c8c.unknown_2_ = FastIntDivide(gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_40_ * func_ov031_022351d0(), gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_53_);
         func_ov031_0222c3b4();
-        data_ov031_02290c8c.unknown_4_->unknown_55_ = 4;
+        gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_55_ = 4;
         return;
     case 3: {
-        data_ov031_02290c8c.unknown_4_->unknown_57_ = 0;
+        gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_57_ = 0;
         EnableButtonBarInput_ov031_02222e80();
-        data_ov031_02290c8c.unknown_2_ = FastIntDivide(data_ov031_02290c8c.unknown_4_->unknown_40_ * func_ov031_022351d0(), data_ov031_02290c8c.unknown_4_->unknown_53_);
+        gAccessPointListPage_ov031_02290c8c.unknown_2_ = FastIntDivide(gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_40_ * func_ov031_022351d0(), gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_53_);
         PlayWifiSetupSoundEffect_ov031_02236878(0x13);
         func_ov031_0222c3b4();
-        int var0 = FastIntModulus(data_ov031_02290c8c.unknown_2_, 0x1c);
+        int var0 = FastIntModulus(gAccessPointListPage_ov031_02290c8c.unknown_2_, 0x1c);
         if (var0 == 0) {
             func_ov031_0222c8cc();
             return;
         }
         if (var0 < 0xe) {
-            data_ov031_02290c8c.unknown_4_->unknown_38_ = AddTask_ov031_0223e218(0, (void*)func_ov031_0222c71c, 0, 0x78);
+            gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_38_ = AddTask_ov031_0223e218(0, (void*)func_ov031_0222c71c, 0, 0x78);
             return;
         } else {
-            data_ov031_02290c8c.unknown_4_->unknown_38_ = AddTask_ov031_0223e218(0, (void*)func_ov031_0222c7d8, 0, 0x78);
+            gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_38_ = AddTask_ov031_0223e218(0, (void*)func_ov031_0222c7d8, 0, 0x78);
         }
         return;
     }
     case 4:
-        if (data_ov031_02290c8c.unknown_2_ == 0) {
-            if (data_ov031_02290c8c.unknown_4_->unknown_58_) return;
+        if (gAccessPointListPage_ov031_02290c8c.unknown_2_ == 0) {
+            if (gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_58_) return;
             PlayWifiSetupSoundEffect_ov031_02236878(9);
-            data_ov031_02290c8c.unknown_4_->unknown_58_ = 1;
+            gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_58_ = 1;
         } else {
             PlayWifiSetupSoundEffect_ov031_02236878(0x13);
-            data_ov031_02290c8c.unknown_4_->unknown_38_ = AddTask_ov031_0223e218(0, (void*)func_ov031_0222c71c, 0, 0x78);
+            gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_38_ = AddTask_ov031_0223e218(0, (void*)func_ov031_0222c71c, 0, 0x78);
         }
         return;
     case 6:
-        if (data_ov031_02290c8c.unknown_4_->unknown_51_ <= 4 || data_ov031_02290c8c.unknown_2_ == data_ov031_02290c8c.unknown_4_->unknown_40_) {
-            if (data_ov031_02290c8c.unknown_4_->unknown_58_) return;
+        if (gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_51_ <= 4 || gAccessPointListPage_ov031_02290c8c.unknown_2_ == gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_40_) {
+            if (gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_58_) return;
             PlayWifiSetupSoundEffect_ov031_02236878(9);
-            data_ov031_02290c8c.unknown_4_->unknown_58_ = 1;
+            gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_58_ = 1;
         } else {
             PlayWifiSetupSoundEffect_ov031_02236878(0x13);
-            data_ov031_02290c8c.unknown_4_->unknown_38_ = AddTask_ov031_0223e218(0, (void*)func_ov031_0222c7d8, 0, 0x78);
+            gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_38_ = AddTask_ov031_0223e218(0, (void*)func_ov031_0222c7d8, 0, 0x78);
         }
         return;
     case 5:
     case 7:
-        data_ov031_02290c8c.unknown_4_->unknown_58_ = 0;
+        gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_58_ = 0;
         return;
     }
 }

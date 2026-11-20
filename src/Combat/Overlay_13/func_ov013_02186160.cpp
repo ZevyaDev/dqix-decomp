@@ -56,7 +56,7 @@ struct TextWindowManager_0205dee8;
 extern "C" void SetCursorTextWindow_0205dee8(struct TextWindowManager_0205dee8* windowManager, int windowId);
 struct Struct_0205c570;
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
-extern "C" void func_0205d7a0(unsigned char* arg0, int arg1);
+extern "C" void SetCursorIndex_0205d7a0(unsigned char* windowManager, int index);
 struct TextWindowManager_0205d81c;
 extern "C" int HitTestCursorWindowTouch_0205d97c(TextWindowManager_0205d81c* windowManager);
 extern "C" int func_ov013_021842a0(void* arg0, int arg1);
@@ -242,7 +242,7 @@ extern "C" ARM void func_ov013_02186160(Struct_ov013_021846a0_2* arg0) {
         if (arg0->unknown_65c_ != 5) {
             if (arg0->unknown_66c_ == 0) {
                 arg0->unknown_65c_ = 5;
-                func_0205d7a0(arg0->unknown_38_, 5);
+                SetCursorIndex_0205d7a0(arg0->unknown_38_, 5);
                 arg0->unknown_64c_ = var11;
                 var11 = 1;
             }

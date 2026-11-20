@@ -13,7 +13,7 @@ extern char* data_ov017_021d87f4;
 
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
-extern "C" void* func_020d7a50(void);
+extern "C" void* GetTimedMessageQueue_020d7a50(void);
 struct Struct_0208b494;
 extern "C" Struct_0208b494* func_0208a9b4(void);
 extern "C" void func_0208b494(struct Struct_0208b494* arg0);
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov017_021c2ea4(unsigned char* arg0) {
     int var6 = ((int)GetGameString((eGameString)(0x31)));
     func_02046608(var4, 0xc, var6, var2, 0xe3, 0, 1);
 #endif
-    void* var7 = func_020d7a50();
+    void* var7 = GetTimedMessageQueue_020d7a50();
 #if defined(jpn)
     func_020d7e10(var7, var1, 0, 0, 1);
 #else

@@ -33,7 +33,7 @@ extern "C" void func_020a095c(struct Struct_ov002_02164748_5 *arg0, int arg1, in
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215bba8(char *arg0);
 extern "C" void func_ov002_0215a7b4(char *arg0, int arg1, short arg2, int arg3, int arg4);
-extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
+extern "C" void RebuildMenuWindowText_ov002_0215b9a4(char *menu, unsigned char windowId, int hasCursorMark);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" char gSoundEffectManager_02108760[];
 
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov002_02164748(char *arg0) {
                 }
             }
             *(unsigned int *) (arg0 + RG(0x2000 + 0x47c, 0x22ac)) &= ~4;
-            func_ov002_0215b9a4(arg0, *(int *) (arg0 + RG(0x1000 + 0xbb8, 0x1a80)) & 0xff, 1);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + RG(0x1000 + 0xbb8, 0x1a80)) & 0xff, 1);
             *(short *) (arg0 + RG(0x1c00 + 0x2a, 0x1af2))          = -1;
             *(int *) (arg0 + RG(0x1000 + 0xbb8, 0x1a80))           = RG(0x26, 0x29);
             *(int *) (arg0 + RG(0x1000 + 0xbbc, 0x1a84))           = 5;
@@ -172,7 +172,7 @@ extern "C" ARM void func_ov002_02164748(char *arg0) {
             SetCursorTextWindow_0205dee8((struct Struct_ov002_02164748_2 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), RG(9, 0xa));
             *(int *) (arg0 + RG(0x1000 + 0xbc8, 0x1a90)) = 1;
             *(int *) (arg0 + RG(0x1000 + 0xbcc, 0x1a94)) = 1;
-            func_ov002_0215b9a4(arg0, *(int *) (arg0 + RG(0x1000 + 0xbb8, 0x1a80)) & 0xff, 0);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + RG(0x1000 + 0xbb8, 0x1a80)) & 0xff, 0);
         }
     }
 }

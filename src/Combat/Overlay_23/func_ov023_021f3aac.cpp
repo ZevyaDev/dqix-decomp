@@ -12,7 +12,7 @@ struct Struct_0209ff64;
 struct Struct_0209ff6c;
 struct Struct_ov023_021f1868_10;
 struct Struct_020a13c4;
-struct Struct_020a15bc;
+struct AccoladeTable_020a15bc;
 struct Struct_ov023_021f1868_11;
 
 struct Struct_ov023_021f3aac_5 {
@@ -123,7 +123,7 @@ extern "C" void func_0209ff6c(Struct_0209ff6c* arg0);
 extern "C" int func_ov023_021f21f4(Struct_ov023_021f1868_10* arg0);
 extern "C" void ClearAccoladeTable_020a13c4(Struct_020a13c4* table);
 extern "C" void func_020a13e4(void* arg0, void* arg1, int arg2, unsigned short arg3, unsigned char arg4);
-extern "C" void* func_020a15bc(Struct_020a15bc* arg0, int arg1);
+extern "C" void* FindAccolade_020a15bc(AccoladeTable_020a15bc* table, int accoladeId);
 extern "C" void func_ov023_021f222c(Struct_ov023_021f1868_11* arg0);
 extern "C" void func_ov023_021f2304(void* arg0, char* arg1);
 extern "C" void func_ov023_021f2348(void* arg0, int arg1);
@@ -137,7 +137,7 @@ void func_ov023_021f229c(Struct_ov023_021f3aac_9* arg0, void* arg1);
 void func_ov023_021eb138(Struct_ov023_021f3aac* arg0, int arg1);
 void func_ov023_021eb080(Struct_ov023_021f3aac* arg0, SafeAllocator* arg1);
 void func_ov023_021eb564(Struct_ov023_021f3aac* arg0, Struct_ov023_021f3aac_9* arg1, int arg2);
-void func_ov023_021eb26c(Struct_ov023_021f3aac* arg0);
+void DestroyAccoladeDisplay_ov023_021eb26c(Struct_ov023_021f3aac* display);
 }
 
 // USA: func_ov023_021f3aac
@@ -217,7 +217,7 @@ extern "C" ARM int func_ov023_021f3aac(Struct_ov023_021f3aac_4* arg0)
             var8 = (Struct_ov023_021f3aac_9*)var11->Allocate(var10 * sizeof(void*));
             for (var9 = 0; var9 < var10; var9++)
             {
-                void* var15 = func_020a15bc((Struct_020a15bc*)arg0->unknown_55c8_, var7[var9]);
+                void* var15 = FindAccolade_020a15bc((AccoladeTable_020a15bc*)arg0->unknown_55c8_, var7[var9]);
                 if (var15 == NULL)
                     continue;
                 const char* var16 = var14.GetString(var7[var9]);
@@ -253,7 +253,7 @@ extern "C" ARM int func_ov023_021f3aac(Struct_ov023_021f3aac_4* arg0)
             arg0->unknown_55d0_ = (Struct_ov023_021f3aac_9*)arg0->unknown_30_.Allocate(var10 * sizeof(Struct_ov023_021f3aac_9));
             for (var9 = 0; var9 < var10; var9++)
             {
-                void* var21 = func_020a15bc((Struct_020a15bc*)arg0->unknown_55c8_, var7[var9]);
+                void* var21 = FindAccolade_020a15bc((AccoladeTable_020a15bc*)arg0->unknown_55c8_, var7[var9]);
                 if (var21 == NULL)
                     continue;
                 const char* var22 = var14.GetString(var7[var9]);
@@ -294,7 +294,7 @@ extern "C" ARM int func_ov023_021f3aac(Struct_ov023_021f3aac_4* arg0)
     }
     else if (var2 == 6)
     {
-        func_ov023_021eb26c(arg0->unknown_55cc_);
+        DestroyAccoladeDisplay_ov023_021eb26c(arg0->unknown_55cc_);
         arg0->unknown_30_.Reset();
         arg0->unknown_55cc_ = NULL;
         arg0->unknown_55d0_ = NULL;

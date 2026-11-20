@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
-extern "C" void SetTitleState_02012010(void* arg0, int state);
+extern "C" void SetTitleState_02012010(void* gameState, int state);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
 // USA: func_ov004_0216dc24

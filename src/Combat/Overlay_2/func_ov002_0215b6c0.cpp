@@ -13,21 +13,21 @@ struct Struct_ov002_0215b6c0 {
     int unknown_1bcc_;
 };
 
-extern "C" void func_ov002_0215b9a4(Struct_ov002_0215b6c0* arg0, unsigned char arg1, int arg2);
+extern "C" void RebuildMenuWindowText_ov002_0215b9a4(Struct_ov002_0215b6c0* menu, unsigned char windowId, int hasCursorMark);
 
 // USA: func_ov002_0215b6c0
 extern "C" ARM void func_ov002_0215b6c0(Struct_ov002_0215b6c0* arg0) {
     arg0->unknown_1bcc_ = 1;
 #if defined(jpn)
-    func_ov002_0215b9a4(arg0, 0x11, 1);
-    func_ov002_0215b9a4(arg0, 0x14, 0);
-    func_ov002_0215b9a4(arg0, 8, 1);
-    func_ov002_0215b9a4(arg0, 9, 0);
+    RebuildMenuWindowText_ov002_0215b9a4(arg0, 0x11, 1);
+    RebuildMenuWindowText_ov002_0215b9a4(arg0, 0x14, 0);
+    RebuildMenuWindowText_ov002_0215b9a4(arg0, 8, 1);
+    RebuildMenuWindowText_ov002_0215b9a4(arg0, 9, 0);
 #else
-    func_ov002_0215b9a4(arg0, 0x10, 1);
-    func_ov002_0215b9a4(arg0, 0x13, 0);
-    func_ov002_0215b9a4(arg0, 7, 1);
-    func_ov002_0215b9a4(arg0, 8, 0);
+    RebuildMenuWindowText_ov002_0215b9a4(arg0, 0x10, 1);
+    RebuildMenuWindowText_ov002_0215b9a4(arg0, 0x13, 0);
+    RebuildMenuWindowText_ov002_0215b9a4(arg0, 7, 1);
+    RebuildMenuWindowText_ov002_0215b9a4(arg0, 8, 0);
 #endif
-    func_ov002_0215b9a4(arg0, 4, 1);
+    RebuildMenuWindowText_ov002_0215b9a4(arg0, 4, 1);
 }

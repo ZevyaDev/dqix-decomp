@@ -51,7 +51,7 @@ extern "C" void func_0203ad14(void*, int, void*, int);
 struct Struct_0203aba8;
 extern "C" void func_0203aba8(Struct_0203aba8*, void*, void*);
 extern "C" void func_0203ae4c(void* arg0, int arg1, void* arg2);
-extern "C" void func_0203ad88(void* arg0, void* arg1, int arg2);
+extern "C" void StopStream_0203ad88(void* manager, void* handle, int fadeDuration);
 extern "C" void func_0203ac10(void* arg0, void* arg1, int arg2);
 struct Struct_02000c9c_8;
 extern "C" int func_0200fb08(Struct_02000c9c_8*);
@@ -409,13 +409,13 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 		NitroVM_FinishRead((NitroVM*)var0);
 #if defined(jpn)
 		if (data_ov016_0219d0f4->unknown_10_ > -1) {
-			func_0203ad88(&gMusicManager_02109bf4, 0, 0);
+			StopStream_0203ad88(&gMusicManager_02109bf4, 0, 0);
 			UpdateSound_020bbd9c();
 		}
 #else
 		if (data_ov016_0219d0f4->unknown_12_ > -1) {
 			if (data_ov016_0219d0f4->unknown_10_ != 0) {
-				func_0203ad88(&gMusicManager_02109bf4, 0, 0);
+				StopStream_0203ad88(&gMusicManager_02109bf4, 0, 0);
 			} else {
 				func_0203ac10(&gMusicManager_02109bf4, &data_ov016_0219d0cc, 0);
 			}

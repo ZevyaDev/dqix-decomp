@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" int func_02049ee8(unsigned char* arg0);
+extern "C" int IsCombatantOnBattlefield_02049ee8(unsigned char* combatant);
 extern "C" int func_ov000_021681f8(int arg0, int arg1);
 extern "C" int func_ov000_02167b5c(int arg0, int arg1);
 extern "C" void func_ov000_02167b54(int* arg0, int arg1, int arg2, int arg3);
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov000_021677fc(Struct_ov000_021677fc* arg0) {
         for (int var6 = 0; var6 < var0->unknown_e_0_; var6++) {
             int var7 = var0->unknown_6_[var6] + 0xc0;
             GameObject* var8 = var4->GetCombatantByIndex(var7);
-            if (var8 != 0 && func_02049ee8((unsigned char*)var8) != 0) {
+            if (var8 != 0 && IsCombatantOnBattlefield_02049ee8((unsigned char*)var8) != 0) {
                 int var9;
                 struct Struct_ov000_021677fc_4* var10 = arg0->unknown_29c_;
                 int var11 = 0;
@@ -91,7 +91,7 @@ done:
                     int var12 = -1;
                     for (int var13 = 0; var13 < 8; var13++) {
                         GameObject* var14 = var4->GetCombatantByIndex(arg0->unknown_29c_->unknown_8de0_[var13] & 0xff);
-                        if (var14 == 0 || func_02049ee8((unsigned char*)var14) == 0) {
+                        if (var14 == 0 || IsCombatantOnBattlefield_02049ee8((unsigned char*)var14) == 0) {
                             var12 = var13;
                             break;
                         }

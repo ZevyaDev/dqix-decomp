@@ -36,14 +36,14 @@ struct Struct_02108cec_5
     void* unknown_10_;
     SafeAllocator* unknown_14_;
 };
-extern Struct_02108cec_5 data_02108cec;
+extern Struct_02108cec_5 gNPCPlacementParseState_02108cec;
 
 // USA: func_0206cf58
 extern "C" ARM int func_0206cf58(Script::Parameter* arg0, int arg1)
 {
     FlagManager_0205faf4_3* var0;
     Struct_0206bf2c* var1;
-    data_02108cec.unknown_a_++;
+    gNPCPlacementParseState_02108cec.unknown_a_++;
     int var2 = arg0[0].ToInt();
     int var3 = arg0[1].ToInt();
     int var4 = arg0[2].ToInt();
@@ -55,21 +55,21 @@ extern "C" ARM int func_0206cf58(Script::Parameter* arg0, int arg1)
     int var10 = arg0[8].ToInt();
     int var11 = arg0[9].ToInt();
     int var12 = arg0[10].ToInt();
-    if (data_02108cec.unknown_6_ != var12)
+    if (gNPCPlacementParseState_02108cec.unknown_6_ != var12)
     {
-        data_02108cec.unknown_6_ = var12;
-        data_02108cec.unknown_8_ = -1;
-        data_02108cec.unknown_4_ = -1;
+        gNPCPlacementParseState_02108cec.unknown_6_ = var12;
+        gNPCPlacementParseState_02108cec.unknown_8_ = -1;
+        gNPCPlacementParseState_02108cec.unknown_4_ = -1;
     }
     var0 = func_0205ec34();
-    if (data_02108cec.unknown_4_ != var2 && data_02108cec.unknown_4_ > -1)
+    if (gNPCPlacementParseState_02108cec.unknown_4_ != var2 && gNPCPlacementParseState_02108cec.unknown_4_ > -1)
     {
         if (inline_0206cf58(var0, var2, 1) || inline_0206cf58(var0, var2, 2))
         {
         }
-        else if (inline_0206cf58(var0, data_02108cec.unknown_4_, 3) && inline_0206cf58(var0, var2, 3))
+        else if (inline_0206cf58(var0, gNPCPlacementParseState_02108cec.unknown_4_, 3) && inline_0206cf58(var0, var2, 3))
         {
-            if (data_02108cec.unknown_4_ > var2)
+            if (gNPCPlacementParseState_02108cec.unknown_4_ > var2)
                 return 1;
         }
     }
@@ -98,7 +98,7 @@ extern "C" ARM int func_0206cf58(Script::Parameter* arg0, int arg1)
         break;
     }
     int var13 = var9 + (var7 * 1000 + var8 * 10);
-    int var14 = data_02108cec.unknown_0_ + (data_02108cec.unknown_2_ * 1000 + (short)data_02108cec.unknown_1_ * (short)10);
+    int var14 = gNPCPlacementParseState_02108cec.unknown_0_ + (gNPCPlacementParseState_02108cec.unknown_2_ * 1000 + (short)gNPCPlacementParseState_02108cec.unknown_1_ * (short)10);
     int var15 = var6 + (var4 * 1000 + var5 * 10);
     if (var14 < var15 || var13 < var14)
         return 1;
@@ -113,12 +113,12 @@ extern "C" ARM int func_0206cf58(Script::Parameter* arg0, int arg1)
         if (!var16->IsMorningDayOrEvening())
             return 1;
     }
-    if (var11 != data_02108cec.unknown_c_)
+    if (var11 != gNPCPlacementParseState_02108cec.unknown_c_)
     {
-        func_0206dd68(data_02108cec.unknown_10_, var12);
+        func_0206dd68(gNPCPlacementParseState_02108cec.unknown_10_, var12);
         return 1;
     }
-    var1 = (Struct_0206bf2c*)data_02108cec.unknown_14_->Allocate(0x78);
+    var1 = (Struct_0206bf2c*)gNPCPlacementParseState_02108cec.unknown_14_->Allocate(0x78);
     if (var1 == NULL)
         return 0;
     func_0206bf2c(var1);
@@ -132,21 +132,21 @@ extern "C" ARM int func_0206cf58(Script::Parameter* arg0, int arg1)
     var1->unknown_a_0_ = (unsigned char)var10;
     var1->unknown_2_ = var11;
     var1->unknown_0_ = var12;
-    if (data_02108cec.unknown_6_ != var12)
-        data_02108cec.unknown_6_ = var12;
+    if (gNPCPlacementParseState_02108cec.unknown_6_ != var12)
+        gNPCPlacementParseState_02108cec.unknown_6_ = var12;
     if (arg1 < 12)
     {
-        func_0206dd68(data_02108cec.unknown_10_, var12);
-        data_02108cec.unknown_4_ = var2;
+        func_0206dd68(gNPCPlacementParseState_02108cec.unknown_10_, var12);
+        gNPCPlacementParseState_02108cec.unknown_4_ = var2;
         return 1;
     }
     Script::Parameter* var17 = arg0[11].ToVec3fix((Vector3fix*)var1->unknown1_10_);
     var1->unknown_1c_ = (int)(4096.0f * var17->ToFloat());
     if (arg1 > 15)
         var1->unknown_1e_ = var17[1].ToInt();
-    var1->unknown_44_ = data_02108cec.unknown_a_;
+    var1->unknown_44_ = gNPCPlacementParseState_02108cec.unknown_a_;
     var1->unknown_a_6_ = 1;
-    func_0206db48(data_02108cec.unknown_10_, var1);
-    data_02108cec.unknown_4_ = var2;
+    func_0206db48(gNPCPlacementParseState_02108cec.unknown_10_, var1);
+    gNPCPlacementParseState_02108cec.unknown_4_ = var2;
     return 1;
 }

@@ -18,7 +18,7 @@ struct Struct_ov024_021eda78_4 {
 
 struct Struct_ov024_021eda78_3* GetCombatantByID(int, int);
 struct GameObject;
-extern "C" int func_ov024_021eda60(GameObject*);
+extern "C" int IsReflecting_ov024_021eda60(GameObject*);
 extern "C" int func_ov024_021edbc0(GameObject*);
 extern "C" int func_ov024_021edbd8(GameObject*);
 extern "C" int func_ov024_021edbf0(GameObject*);
@@ -53,7 +53,7 @@ extern "C" ARM int func_ov024_021eda78(struct Struct_ov024_021eda78_4* arg0, int
     if (!var0) {
         return 0;
     }
-    if (func_ov024_021eda60((GameObject*)var0)) {
+    if (IsReflecting_ov024_021eda60((GameObject*)var0)) {
         return 1;
     }
     if (func_ov024_021edbc0((GameObject*)var0)) {

@@ -35,7 +35,7 @@ void SetSubBrightness(GameResources*, int, int);
 int IsSubBrightnessTransitionActive(GameResources*);
 extern "C" void func_ov023_021eb414(char* arg0);
 extern "C" void func_ov023_021eb43c(void* arg0);
-extern "C" void func_ov023_021eb26c(void* arg0);
+extern "C" void DestroyAccoladeDisplay_ov023_021eb26c(void* display);
 
 // USA: func_ov003_02158214
 extern "C" ARM void func_ov003_02158214(void* arg0) {
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov003_02158214(void* arg0) {
     if (var3 == 2) {
         func_ov023_021eb43c(*(void**)(var0 + Enum_ov003_02158214_516));
         if (*(unsigned short*)(*(char**)(var0 + Enum_ov003_02158214_516) + 0x438) & 4) {
-            func_ov023_021eb26c(*(void**)(var0 + Enum_ov003_02158214_516));
+            DestroyAccoladeDisplay_ov023_021eb26c(*(void**)(var0 + Enum_ov003_02158214_516));
             ((SafeAllocator*)(*(char**)(var0 + 0) + 0x64))->Reset();
             *(int*)(var0 + Enum_ov003_02158214_516) = 0;
             *(int*)(var0 + Enum_ov003_02158214_512) = 0;

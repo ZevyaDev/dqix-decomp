@@ -23,10 +23,10 @@ extern "C" struct LocalWireless_0202b2f0* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202b2f0* wireless);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
-extern "C" int func_ov017_021959b4(void);
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 extern "C" int func_ov017_021a23e4(char* arg0, int arg1, unsigned int arg2, unsigned int arg3);
 
-extern "C" void* func_020d7a50(void);
+extern "C" void* GetTimedMessageQueue_020d7a50(void);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
     GameState* var0 = GameState::GetInstance();
     GameResources* var1 = GetGameResources();
     struct LocalWireless_0202b2f0* var2 = func_0202ae18();
-    void* var3 = func_020d7a50();
+    void* var3 = GetTimedMessageQueue_020d7a50();
 
     GameObject* var4 = var0->GetPartyMemberByIndex(arg0->unknown_14_);
     int var5 = GetOwnPartyLeaderObjectIndex_020100b0(var0);
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov017_021c2784(Struct_ov017_021c2784* arg0) {
     if (!var4 || !var6) {
         arg0->unknown_1_ = 1;
     }
-    if (func_ov017_021959b4()) {
+    if (IsLocalWirelessHostDisconnected_ov017_021959b4()) {
         arg0->unknown_1_ = 1;
         return;
     }

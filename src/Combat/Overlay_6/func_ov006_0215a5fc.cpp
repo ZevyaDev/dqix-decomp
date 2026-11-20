@@ -74,11 +74,11 @@ extern "C" void InitNounTable_020e526c(void*);
 extern "C" void func_020e5604(void*, void*, void*, unsigned int);
 struct Struct_0207f914;
 extern "C" void func_0207f914(Struct_0207f914*, int, int, int);
-extern "C" int func_0207f9f4(void*);
+extern "C" int UpdateMenuLayoutLoad_0207f9f4(void*);
 extern "C" void func_020810a0(void*, int);
 struct MenuLayout_0207f7f0;
-struct Struct_0207f7f0_2;
-extern "C" void func_0207f7f0(MenuLayout_0207f7f0*, Struct_0207f7f0_2*, int);
+struct TextWindow_0207f7f0_2;
+extern "C" void SetMenuLayoutWindowArray_0207f7f0(MenuLayout_0207f7f0*, TextWindow_0207f7f0_2*, int);
 extern "C" void func_0208108c(void*, int);
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int*, int, int, int, int);
 extern "C" void func_ov006_02158de0(void*);
@@ -92,7 +92,7 @@ struct MenuLayout_02081164;
 extern "C" void SetMenuLayoutWindowFrameless_02081164(MenuLayout_02081164*, int, int);
 extern "C" void OpenMenuLayoutWindow_020813ec(void*, int);
 struct MenuLayout_0207fdcc_2;
-extern "C" void* func_02081da8(MenuLayout_0207fdcc_2*, int);
+extern "C" void* FindMenuLayoutWindow_02081da8(MenuLayout_0207fdcc_2*, int);
 extern "C" void __clear(void*, int);
 extern "C" void* GetMessageWindow_020421a0();
 struct Struct_0201099c_3;
@@ -121,7 +121,7 @@ struct Struct_ov003_02154af4_3 {
     MenuLayout_0207f7f0* unknown_14_;
     void* unknown_18_;
     BGLayer_02020cb8* unknown_1c_;
-    Struct_0207f7f0_2* unknown_20_;
+    TextWindow_0207f7f0_2* unknown_20_;
     void* unknown_24_;
     unsigned char unknown_28_[0x04];
     int unknown_2c_;
@@ -405,7 +405,7 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
         arg0->unknown_390_ = arg0->unknown_390_ + 1;
     }
     else if (var2 == 0xf) {
-        int var25 = func_0207f9f4(arg0->unknown_14_);
+        int var25 = UpdateMenuLayoutLoad_0207f9f4(arg0->unknown_14_);
         if (var25 == 0) {
             arg0->unknown_390_ = arg0->unknown_390_ + 1;
         }
@@ -420,7 +420,7 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
             var26->unknown_2c_ = arg0->unknown_1c_;
             var26->unknown_38_ = 2;
         }
-        func_0207f7f0(arg0->unknown_14_, arg0->unknown_20_, 7);
+        SetMenuLayoutWindowArray_0207f7f0(arg0->unknown_14_, arg0->unknown_20_, 7);
         arg0->unknown_14_->unknown_3a_ = 1;
 #if !defined(jpn)
         func_0208108c(arg0->unknown_14_, 0x20);
@@ -451,7 +451,7 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
             SetMenuLayoutWindowFrameless_02081164((MenuLayout_02081164*)arg0->unknown_14_, 1, 1);
             OpenMenuLayoutWindow_020813ec(arg0->unknown_14_, 0);
             OpenMenuLayoutWindow_020813ec(arg0->unknown_14_, 1);
-            Struct_ov006_02158478* var29 = (Struct_ov006_02158478*)func_02081da8((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 1);
+            Struct_ov006_02158478* var29 = (Struct_ov006_02158478*)FindMenuLayoutWindow_02081da8((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 1);
             if (var29 != 0) {
                 var29->unknown_b8_ = 0xc;
                 var29->unknown_ba_ = 0x10;

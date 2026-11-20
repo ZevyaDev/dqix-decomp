@@ -29,7 +29,7 @@ extern "C" void RestoreSubBGControl_02074bf4(struct BGControlSave_02074bf4* save
 // USA: func_ov013_02186fa0
 extern "C" ARM void func_ov013_02186fa0(unsigned char* arg0) {
     FontLoader_0208cb08* var0 = GetFontLoader_02094a00();
-    func_02094b38(var0, 0x68);
+    ClearLoadedFontSet_02094b38(var0, 0x68);
     CancelFontLoad_02094ab0(var0);
 
     if (arg0[R(0x50,0x64)] == 0) {

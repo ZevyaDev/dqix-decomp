@@ -3,7 +3,7 @@
 #include "std_library_functions.h"
 
 extern "C" void* GetMenuObjectList_ov011_021849c8(int menu);
-extern "C" int func_ov023_021f6bb8(void* arg0);
+extern "C" int GetMenuLoadTaskId_ov023_021f6bb8(void* objectList);
 extern "C" void func_ov023_021f6bb0(void* arg0, int arg1);
 extern char data_ov023_021fec3c;
 
@@ -13,7 +13,7 @@ extern char data_ov023_021fdef4;
 
 extern "C" ARM int func_ov023_021fa8fc(void* arg0, int arg1) {
     void* var0 = GetMenuObjectList_ov011_021849c8(arg1);
-    if (func_ov023_021f6bb8(var0) >= 0) {
+    if (GetMenuLoadTaskId_ov023_021f6bb8(var0) >= 0) {
         return *(int*)((char*)arg0 + 0x1c);
     }
     int var1 = (int)BackgroundLoader::GetInstance();
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov023_021fa8fc(void* arg0, int arg1) {
 #else
 extern "C" ARM int func_ov023_021fa8fc(void* arg0, int arg1) {
     void* var4 = GetMenuObjectList_ov011_021849c8(arg1);
-    int var5 = func_ov023_021f6bb8(var4);
+    int var5 = GetMenuLoadTaskId_ov023_021f6bb8(var4);
     if (var5 < 0) {
         int var6 = (int)BackgroundLoader::GetInstance();
         char var7[0x50];

@@ -13,7 +13,7 @@ struct Struct_ov031_02290ca0_10 {
 	struct Struct_ov031_0222fc48* unknown_8_;
 };
 
-extern struct Struct_ov031_02290ca0_10 data_ov031_02290ca0;
+extern struct Struct_ov031_02290ca0_10 gConnectionSettingsPage_ov031_02290ca0;
 
 extern "C" char* func_ov031_02235c70(void);
 extern "C" int func_ov031_0222fd9c(int arg0);
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov031_0222fc48(int arg0, int arg1) {
 			var1 = 2;
 			var4 = 3;
 		}
-		struct Struct_ov031_0222fc48* var5 = data_ov031_02290ca0.unknown_8_;
+		struct Struct_ov031_0222fc48* var5 = gConnectionSettingsPage_ov031_02290ca0.unknown_8_;
 		if (var5->unknown_4_ != 0) var2 = 1;
 		if (var5->unknown_5_ != 0) var3 = 1;
 		func_ov031_0222fe30(var4, var3, arg1);
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov031_0222fc48(int arg0, int arg1) {
 			var1 = 2;
 			var6 = 3;
 		}
-		struct Struct_ov031_0222fc48* var8 = data_ov031_02290ca0.unknown_8_;
+		struct Struct_ov031_0222fc48* var8 = gConnectionSettingsPage_ov031_02290ca0.unknown_8_;
 		if (var8->unknown_6_ != 0) var2 = 1;
 		if (var8->unknown_7_ != 0) var7 = 1;
 		func_ov031_0222fe30(var6, var7, arg1);

@@ -47,7 +47,7 @@ extern "C" ARM void func_ov003_02173f70(Struct_ov003_02173f70* arg0, SafeAllocat
         MenuLayout_0207f7f0* var3 = arg0->unknown_89c_;
         var3->unknown_2c_ = arg0->unknown_8a0_;
         var3->unknown_38_ = 2;
-        func_0207f7f0(arg0->unknown_89c_, arg0->unknown_8e0_, 8);
+        SetMenuLayoutWindowArray_0207f7f0(arg0->unknown_89c_, arg0->unknown_8e0_, 8);
         arg0->unknown_89c_->unknown_3a_ = 2;
         for (unsigned char var4 = 0; var4 < 0x21; ++var4)
             ((OBJSpriteSet::Metatile*)(&arg0->unknown_830_[var4]))->Reset();

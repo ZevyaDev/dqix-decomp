@@ -50,7 +50,7 @@ struct Struct_ov017_021a86d0 {
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" char* GetZone3D_02012fe4(void);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
-extern "C" void* func_020d7a50(void);
+extern "C" void* GetTimedMessageQueue_020d7a50(void);
 struct TimedMessageQueue_020d7aa0_2;
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2*);
 struct Struct_02018300_3;
@@ -115,7 +115,7 @@ extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" void func_ov017_021a65c4(void* arg0, unsigned char arg1, int arg2);
 extern "C" void ResetEventTask_ov017_021baedc(unsigned char* node, int isRestart);
 extern "C" int GetStoryChapter_0201079c(char*);
-extern "C" int func_020107d0(char*);
+extern "C" int GetStoryStep_020107d0(char*);
 extern "C" int func_02010804(char*);
 extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" int func_ov017_021a01b4(char* arg0, int arg1);
@@ -145,7 +145,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
     func_0205c904(arg0->unknown_2c_, var0->GetTickCount());
 
     if (arg0->unknown_8_ == 0) {
-        ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)func_020d7a50());
+        ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)GetTimedMessageQueue_020d7a50());
         arg0->unknown_24_ = inline_ov017_021a86d0();
         inline_ov017_021a86d0_2(0x11);
         DisablePlayerControl_020397cc((Struct_02018300_3*)var0->GetProtagonist(), 1);
@@ -436,7 +436,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
                 break;
             }
             var27 = GetStoryChapter_0201079c((char*)var0);
-            var28 = func_020107d0((char*)var0);
+            var28 = GetStoryStep_020107d0((char*)var0);
             int var39 = func_02010804((char*)var0);
             if (var27 == 10 && var28 == 8 && var39 == 1) {
                 if (arg0->unknown_14_ == 0 && arg0->unknown_10_ == 1 &&

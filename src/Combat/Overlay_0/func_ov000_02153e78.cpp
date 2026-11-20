@@ -3,7 +3,7 @@
 
 struct Struct_02010088;
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
-extern "C" int func_ov000_02153c0c(GameObject* arg0);
+extern "C" int HasLeftBattle_ov000_02153c0c(GameObject* combatant);
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 
 struct Struct_ov000_02153e78 {
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov000_02153e78(struct Struct_ov000_02153e78_3* arg0, sho
             GameObject* var6 = GetEnemyByIndex_0200fea4(var0, var4[var5] + 0xc0);
             if (var6 == NULL) continue;
             if (arg3 != ((struct Struct_ov000_02153e78*)var6)->unknown_17c_) continue;
-            if (!(arg4 & 0x10) && func_ov000_02153c0c(var6)) continue;
+            if (!(arg4 & 0x10) && HasLeftBattle_ov000_02153c0c(var6)) continue;
             if ((arg4 & 1) && IsDead_02010088((struct Struct_02010088*)var6)) continue;
             arg1[var1] = var4[var5] + 0xc0;
             var1++;

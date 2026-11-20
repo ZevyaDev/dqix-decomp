@@ -29,7 +29,7 @@ extern "C" void func_020e2794(struct Struct_020e2794_2 *arg0, void *arg1);
 extern "C" void FillBGUnderTextWindows_0205da88(void *windowManager, int fillBGIndex, int windowBGIndex, int screenEntry);
 extern "C" void func_ov002_0215aaa4(void *arg0);
 #if !defined(jpn)
-extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
+extern "C" void RebuildMenuWindowText_ov002_0215b9a4(void *menu, int windowId, int hasCursorMark);
 #endif
 #if !defined(jpn)
 extern "C" void func_ov002_021619b4(int arg0, int arg1, int arg2);
@@ -65,8 +65,8 @@ extern "C" ARM void func_ov002_02155dbc(char *arg0) {
         func_ov002_0215aaa4(arg0);
 #if !defined(jpn)
         if (*(unsigned char *) (arg0 + 0x1000 + 0xc34) != 0) {
-            func_ov002_0215b9a4(arg0, 0x1b, 0);
-            func_ov002_0215b9a4(arg0, 0x1a, 0);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, 0x1b, 0);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, 0x1a, 0);
             func_ov002_021619b4(*(signed char *) (arg0 + 0x1c00 + 0x20), *(int *) (arg0 + 0x1000 + LOW_REGION(0x9c0, 0xa68)),
                                 *(int *) (arg0 + 0x1000 + 0xbd8));
             *(unsigned char *) (arg0 + 0x1000 + 0xc34) = 0;

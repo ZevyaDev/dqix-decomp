@@ -9,11 +9,11 @@ extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_020e33b4(void*, int, int);
 
-// USA: func_020e3428
-extern "C" ARM void func_020e3428(void* arg0, int arg1) {
-    void* var0 = func_0202ae18();
-    if (IsLocalWirelessOn_0202b7d8((int*)var0)) {
-        int var1 = GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)(var0));
-        func_020e33b4(arg0, arg1, var1 & 0xff);
+// USA: ReleaseWirelessLock_020e3428
+extern "C" ARM void ReleaseWirelessLock_020e3428(void* lockTable, int lockId) {
+    void* wireless = func_0202ae18();
+    if (IsLocalWirelessOn_0202b7d8((int*)wireless)) {
+        int protagonistObjectIndex = GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)(wireless));
+        func_020e33b4(lockTable, lockId, protagonistObjectIndex & 0xff);
     }
 }

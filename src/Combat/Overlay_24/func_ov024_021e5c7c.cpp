@@ -28,12 +28,12 @@ struct Struct_ov024_021e5c7c_6 : GameObject {
     unsigned char unknown_13c_[0xc];
     Struct_ov024_021e5c7c_5* unknown_148_;
 };
-extern "C" GameObject* func_ov000_021536f8(int, int);
+extern "C" GameObject* GetEnemyByID_ov000_021536f8(int, int);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" int GetLatestTargetCombatantIndex_ov000_0215ffa0(void*);
 extern "C" int func_ov000_0215fd24(int, int);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
-extern "C" void func_ov000_0215cd44(void*, void*, GameObject*, int, int, int, int);
+extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void*, void*, GameObject*, int, int, int, int);
 extern "C" void func_ov000_0215fe84(void*, void*, int);
 static inline int inline_ov000_02169850(int arg0) { return arg0 >= 0 && arg0 <= 3; }
 
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov024_021e5c7c(Struct_ov024_021e5c7c_3* arg0, int arg1,
     if (inline_ov000_02169850(var3)) return;
     var4 = 0;
     if (inline_ov000_02169850(arg1)) {
-        Struct_ov024_021e5c7c_6* var6 = (Struct_ov024_021e5c7c_6*)func_ov000_021536f8((int)arg0->unknown_10_, var3);
+        Struct_ov024_021e5c7c_6* var6 = (Struct_ov024_021e5c7c_6*)GetEnemyByID_ov000_021536f8((int)arg0->unknown_10_, var3);
         if (var6) {
             var4 = (int)(0.1f * (float)(unsigned int)var6->unknown_148_->unknown_c_);
             if (var4 > 100) var4 = 100;
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov024_021e5c7c(Struct_ov024_021e5c7c_3* arg0, int arg1,
         }
     }
     if (var4 > 0) {
-        func_ov000_0215cd44(arg0->unknown_10_, var1, var0, (short)var4, 0, 0, 0);
+        SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var1, var0, (short)var4, 0, 0, 0);
         func_ov000_0215fe84(arg0->unknown_8_, var1, 2);
         arg0->unknown_10_->unknown_8e02_++;
     }

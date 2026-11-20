@@ -50,7 +50,7 @@ struct Struct_020e081c {
 extern "C" void* GetZone3D_02012fe4();
 extern "C" char* func_0203bd08();
 extern "C" char* GetBGVRAMManager_0203b628();
-extern "C" void func_020213fc(Struct_020213fc*, int);
+extern "C" void SetSubScreenFadeInHeld_020213fc(Struct_020213fc*, int);
 extern "C" void func_02021428(void*, int);
 extern "C" void func_020209d0(void* arg0);
 extern "C" void func_0203b66c(char*);
@@ -83,7 +83,7 @@ extern "C" ARM void func_020e081c(char* arg0) {
     char* var3 = GetBGVRAMManager_0203b628();
     SafeAllocator* var4 = inline_02021578(var1, 12);
     if (*(signed char*)(arg0 + Enum_020e081c_2498) == 0) {
-        func_020213fc((Struct_020213fc*)arg0, 0);
+        SetSubScreenFadeInHeld_020213fc((Struct_020213fc*)arg0, 0);
         func_02021428(arg0, 0x19);
         func_020209d0(arg0);
         var4->Reset();

@@ -13,7 +13,7 @@
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
-extern "C" void func_020dc2bc(void);
+extern "C" void SuspendMapDisplay_020dc2bc(void);
 struct BGLayer_02020cb8_5;
 struct BGLayer_0204af38;
 struct BGLayer_0204b12c;
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov003_021541b0(struct Struct_ov003_021541b0* arg0) {
     } else if (arg0->unknown_5b_ == 1) {
         if (IsSubBrightnessTransitionActive(var0) == 0) {
             SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 1);
-            func_020dc2bc();
+            SuspendMapDisplay_020dc2bc();
             arg0->unknown_5b_++;
         }
     } else if (arg0->unknown_5b_ == 2) {

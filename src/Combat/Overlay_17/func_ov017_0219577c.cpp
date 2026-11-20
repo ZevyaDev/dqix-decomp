@@ -14,7 +14,7 @@ extern "C" void VectorizedMemset(void* dst, int value, unsigned int length);
 struct Queue_02038598_5;
 extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
 extern "C" void RemoveFromQueue_02046a8c(void* queue, void* node);
-extern "C" int func_020ac4f8(int arg0);
+extern "C" int AddElapsedPlayTime_020ac4f8(int arg0);
 extern "C" void func_ov017_021d1118(int arg0, int arg1, int arg2, int arg3);
 
 struct Struct_ov017_0219577c_2 {
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov017_0219577c(unsigned char arg0, int arg1, int arg2) 
     if (IsTypeInQueue_02046b60((struct Queue_02038598_5*)var2, 0x40)) {
         RemoveFromQueue_02046a8c(var2, *(void**)(var1 + 0x3000 + Enum_ov017_0219577c_2968));
     }
-    func_020ac4f8(1);
+    AddElapsedPlayTime_020ac4f8(1);
     if (arg0) {
         func_ov017_021d1118(-1, 1, 1, 2);
     }

@@ -25,7 +25,7 @@ struct Struct_02013fb4;
 extern Struct_02108844 data_02108844;
 extern char data_020f05dc[] __attribute__((aligned(4)));
 extern "C" int GetStoryChapter_0201079c(char*);
-extern "C" int func_020107d0(char*);
+extern "C" int GetStoryStep_020107d0(char*);
 extern "C" void func_02064574(Struct_02108844*, int, Struct_02013fb4*, int, int, int, int);
 extern "C" void* GetQuestManager_02094d6c();
 extern "C" void func_02095578(void*);
@@ -44,7 +44,7 @@ extern "C" ARM int func_0206461c(Struct_0206461c* arg0, Struct_0206461c_2* arg1)
     char var4[4];
     char var5[64];
     int var6 = GetStoryChapter_0201079c((char*)var0);
-    int var7 = func_020107d0((char*)var0);
+    int var7 = GetStoryStep_020107d0((char*)var0);
     var2->Reset();
     arg0->unknown_47c_ = 0;
     arg0->unknown_494_ = 0;

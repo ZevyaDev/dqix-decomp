@@ -2,7 +2,7 @@
 
 struct Struct_ov014_02187228 { Struct_ov014_02187228* unknown_0_; };
 
-extern "C" int func_02080468(void* arg0, int arg1);
+extern "C" int GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
 
 // USA: func_ov014_02187228
 extern "C" ARM void func_ov014_02187228(char* arg0, Struct_ov014_02187228* arg1) {
@@ -10,7 +10,7 @@ extern "C" ARM void func_ov014_02187228(char* arg0, Struct_ov014_02187228* arg1)
     *(short*)(arg0 + 0x176) = 0x1b;
     void* var0 = *(void**)(arg0 + 0xc0);
     if (var0 != 0) {
-        *(short*)(arg0 + 0x176) = (short)func_02080468(var0, 5);
+        *(short*)(arg0 + 0x176) = (short)GetMenuLayoutWindowFirstSelectableTextId_02080468(var0, 5);
     }
     if (arg1 == 0) return;
 

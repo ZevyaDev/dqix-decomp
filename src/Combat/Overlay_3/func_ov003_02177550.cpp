@@ -24,8 +24,8 @@ struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c *menuLayout, int textId, int text);
 extern "C" void func_020805f4(void *arg0, int arg1);
 extern "C" void SetMenuLayoutTextStringId_0208103c(void *menuLayout, int textId, int stringId);
-struct Struct_02080cc0;
-extern "C" void func_02080cc0(struct Struct_02080cc0 *arg0, int arg1, int arg2);
+struct MenuLayout_02080cc0;
+extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0 *menuLayout, int textId, int color);
 extern "C" int func_02080b2c(void *arg0, int arg1);
 struct Struct_02052df8;
 extern "C" int GetEquippedItem_02052df8(Struct_02052df8 *gameObject, int slot);
@@ -94,14 +94,14 @@ extern "C" ARM void func_ov003_02177550(Struct_ov003_02177550_2 *arg0) {
 
     if (var4 != 0) {
         SetMenuLayoutTextStringId_0208103c(var2, 0x75, 0xb);
-        func_02080cc0((struct Struct_02080cc0 *) var2, 0x75, 3);
+        SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0 *) var2, 0x75, 3);
         func_02080b2c(var2, 0x72);
         func_02080b2c(var2, 0x73);
         func_02080b2c(var2, 0x74);
         func_02080b2c(var2, 0x159);
         func_02080b2c(var2, 0x15a);
     } else {
-        func_02080cc0((struct Struct_02080cc0 *) var2, 0x75, 0xf);
+        SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0 *) var2, 0x75, 0xf);
 #if defined(jpn)
         int var6 = data_ov003_0217e3ac[var3->unknown_8_0_];
 #else
@@ -130,7 +130,7 @@ extern "C" ARM void func_ov003_02177550(Struct_ov003_02177550_2 *arg0) {
                 } else if (var8 < var9) {
                     var10 = 5;
                 }
-                func_02080cc0((struct Struct_02080cc0 *) var2, 0x73, var10);
+                SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0 *) var2, 0x73, var10);
                 SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8 *) var2, 0x73, var9);
                 func_02080b2c(var2, 0x159);
                 func_02080b2c(var2, 0x15a);
@@ -145,7 +145,7 @@ extern "C" ARM void func_ov003_02177550(Struct_ov003_02177550_2 *arg0) {
                 } else if (var11 < var12) {
                     var13 = 5;
                 }
-                func_02080cc0((struct Struct_02080cc0 *) var2, 0x15a, var13);
+                SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0 *) var2, 0x15a, var13);
                 func_02080fc4((struct Struct_02080fc4 *) var2, 0x15a, *(int *) &var12);
                 func_02080b2c(var2, 0x72);
                 func_02080b2c(var2, 0x73);

@@ -11,7 +11,7 @@
 struct ItemTable_0201099c_10;
 struct ItemData_02015ef4_4;
 struct Struct_0201099c_3;
-struct Struct_0203a46c;
+struct SPRSprite_0203a46c;
 struct Struct_ov005_021556e4_2;
 
 struct Struct_ov005_021556e4 {
@@ -27,7 +27,7 @@ struct Struct_ov005_021556e4 {
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" Struct_ov005_021556e4* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" int GetItemGraphicNumber_020de234(ItemData_02015ef4_4* item, int gender);
-extern "C" void func_0203a46c(Struct_0203a46c* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetSPRSpritePosition_0203a46c(SPRSprite_0203a46c* sprite, int x, int y, int z);
 extern "C" void func_ov005_02155d38(Struct_ov005_021556e4_2* arg0);
 
 struct Struct_ov005_02153ba4 {
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov005_021556e4(Struct_ov005_02153954* arg0) {
                 int var4;
                 int var5;
                 func_ov005_021553b4(arg0, arg0->unknown_3d78_, &var4, &var5);
-                func_0203a46c((Struct_0203a46c*)arg0->unknown_3cf0_, var4 << 12, var5 << 12, 0x2000);
+                SetSPRSpritePosition_0203a46c((SPRSprite_0203a46c*)arg0->unknown_3cf0_, var4 << 12, var5 << 12, 0x2000);
                 arg0->unknown_3dab_++;
                 arg0->unknown_3db7_++;
             }

@@ -7,16 +7,16 @@
 
 extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
-extern "C" void* func_020e2ff8(void);
-struct Struct_0208ab34;
-extern "C" int func_020e34bc(struct Struct_0208ab34* arg0, int arg1);
+extern "C" void* GetWirelessLockTable_020e2ff8(void);
+struct WirelessLockTable_0208ab34;
+extern "C" int GetWirelessLockStatus_020e34bc(struct WirelessLockTable_0208ab34* lockTable, int lockId);
 extern "C" void func_ov017_021bd5d0(void);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
-extern "C" void func_020e3428(void* arg0, int arg1);
-struct Struct_0208ab34_2;
-extern "C" void func_020e3468(struct Struct_0208ab34_2* arg0, int arg1);
-extern "C" void func_020e3368(unsigned char* arg0, unsigned char arg1);
+extern "C" void ReleaseWirelessLock_020e3428(void* lockTable, int lockId);
+struct WirelessLock_0208ab34_2;
+extern "C" void func_020e3468(struct WirelessLock_0208ab34_2* arg0, int arg1);
+extern "C" void QueueWirelessLockRequest_020e3368(unsigned char* lockTable, unsigned char lockId);
 struct Struct_ov001_02154de4;
 extern "C" int func_ov001_02154de4(struct Struct_ov001_02154de4* arg0);
 
@@ -38,18 +38,18 @@ extern "C" ARM int func_ov001_02155ca8(struct Struct_ov001_02155ca8* arg0) {
     void* var1 = func_0202ae18();
     if (arg0->unknown_f8_0_ & 0x10) {
         if (IsNotLocalWirelessGuest_0202c508(var1) != 0) {
-            void* var2 = func_020e2ff8();
-            int var3 = func_020e34bc((struct Struct_0208ab34*)var2, 1);
+            void* var2 = GetWirelessLockTable_020e2ff8();
+            int var3 = GetWirelessLockStatus_020e34bc((struct WirelessLockTable_0208ab34*)var2, 1);
             if (var3 == 1) {
                 func_ov017_021bd5d0();
                 DisablePlayerControl_020397cc((struct Struct_02018300_3*)var0->GetUnknownGameObject(), 1);
-                func_020e3428(var2, 1);
+                ReleaseWirelessLock_020e3428(var2, 1);
             } else {
                 if ((unsigned int)(var3 - 3) > 2) {
                     return arg0->unknown_a_;
                 }
-                func_020e3468((struct Struct_0208ab34_2*)var2, 1);
-                func_020e3368((unsigned char*)var2, 1);
+                func_020e3468((struct WirelessLock_0208ab34_2*)var2, 1);
+                QueueWirelessLockRequest_020e3368((unsigned char*)var2, 1);
                 return arg0->unknown_a_;
             }
         }

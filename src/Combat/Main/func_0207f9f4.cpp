@@ -15,68 +15,68 @@ extern "C" void func_0207f524(void* arg0, void* arg1, Struct_02013fb4* arg2, int
 struct Struct_0207ed1c;
 extern "C" void func_0207ef74(Struct_0207ed1c*, SafeAllocator*, Struct_02013fb4*, int);
 
-struct Struct_0207f9f4 {
-    void* unknown_0_;
-    char unknown_4_[8];
-    char unknown_c_[8];
-    SafeAllocator* unknown_14_;
+struct MenuLayout_0207f9f4 {
+    void* pStringList_0_;
+    char textEntries_4_[8];
+    char windowEntries_c_[8];
+    SafeAllocator* pAllocator_14_;
     int unknown_18_;
-    int unknown_1c_;
+    int pacLoadTaskId_1c_;
 #ifndef jpn
-    int unknown_20_[3];
+    int loadTaskIds_20_[3];
 #endif
 };
 
-// USA: func_0207f9f4
-extern "C" ARM int func_0207f9f4(Struct_0207f9f4* arg0) {
-    if (arg0->unknown_1c_ < 0) {
+// USA: UpdateMenuLayoutLoad_0207f9f4
+extern "C" ARM int UpdateMenuLayoutLoad_0207f9f4(MenuLayout_0207f9f4* menuLayout) {
+    if (menuLayout->pacLoadTaskId_1c_ < 0) {
 #ifdef jpn
         return -1;
 #else
-        int* var0 = arg0->unknown_20_;
-        if (var0[0] < 0) {
-            if (var0[1] < 0) {
-                if (var0[2] < 0) {
+        int* taskIds = menuLayout->loadTaskIds_20_;
+        if (taskIds[0] < 0) {
+            if (taskIds[1] < 0) {
+                if (taskIds[2] < 0) {
                     return -1;
                 }
             }
         }
 
-        BackgroundLoader* var1 = BackgroundLoader::GetInstance();
-        int var2 = 1;
-        for (int var3 = 0; var3 < 3; var3++) {
-            if (var1->GetTaskStatus(var0[var3]) == 0) {
-                var2 = 0;
+        BackgroundLoader* backgroundLoader = BackgroundLoader::GetInstance();
+        int isFinished = 1;
+        for (int i = 0; i < 3; i++) {
+            if (backgroundLoader->GetTaskStatus(taskIds[i]) == 0) {
+                isFinished = 0;
             }
         }
 
-        if (var2 != 0) {
-            void* var4;
-            unsigned int var5;
-            var1->GetLoadedFileByID(var0[0], &var4, &var5);
-            arg0->unknown_0_ = arg0->unknown_14_->Allocate(8);
-            ResetStringList_020727d8((StringList_020727d8*)arg0->unknown_0_);
-            if (var4 != 0) {
-                LoadStringList_020728ac(arg0->unknown_0_, arg0->unknown_14_, var4, var5, 0, 0, 0);
+        if (isFinished != 0) {
+            void* fileData;
+            unsigned int fileSize;
+            backgroundLoader->GetLoadedFileByID(taskIds[0], &fileData, &fileSize);
+            menuLayout->pStringList_0_ = menuLayout->pAllocator_14_->Allocate(8);
+            ResetStringList_020727d8((StringList_020727d8*)menuLayout->pStringList_0_);
+            if (fileData != 0) {
+                LoadStringList_020728ac(menuLayout->pStringList_0_, menuLayout->pAllocator_14_, fileData, fileSize, 0, 0, 0);
             }
-            var1->GetLoadedFileByID(var0[1], &var4, &var5);
-            if (var4 != 0) {
-                func_0207f524(arg0->unknown_4_, arg0->unknown_14_, (Struct_02013fb4*)var4, var5);
+            backgroundLoader->GetLoadedFileByID(taskIds[1], &fileData, &fileSize);
+            if (fileData != 0) {
+                func_0207f524(menuLayout->textEntries_4_, menuLayout->pAllocator_14_, (Struct_02013fb4*)fileData, fileSize);
             }
-            var1->GetLoadedFileByID(var0[2], &var4, &var5);
-            if (var4 != 0) {
-                func_0207ef74((Struct_0207ed1c*)arg0->unknown_c_, (SafeAllocator*)arg0->unknown_14_, (Struct_02013fb4*)var4, var5);
+            backgroundLoader->GetLoadedFileByID(taskIds[2], &fileData, &fileSize);
+            if (fileData != 0) {
+                func_0207ef74((Struct_0207ed1c*)menuLayout->windowEntries_c_, (SafeAllocator*)menuLayout->pAllocator_14_, (Struct_02013fb4*)fileData, fileSize);
             }
 
-            for (int var6 = 0; var6 < 3; var6++) {
-                var1->RemoveTask(*var0);
-                *var0 = -1;
-                var0++;
+            for (int i = 0; i < 3; i++) {
+                backgroundLoader->RemoveTask(*taskIds);
+                *taskIds = -1;
+                taskIds++;
             }
     #ifdef jpn
-        arg0->field18 = *(int*)(GetMessageWindow_020421a0() + 0x28);
+        menuLayout->field18 = *(int*)(GetMessageWindow_020421a0() + 0x28);
 #else
-        arg0->unknown_18_ = *(int*)(GetMessageWindow_020421a0() + 0x5c);
+        menuLayout->unknown_18_ = *(int*)(GetMessageWindow_020421a0() + 0x5c);
 #endif
             return 0;
         }
@@ -84,29 +84,29 @@ extern "C" ARM int func_0207f9f4(Struct_0207f9f4* arg0) {
 #endif
     }
 
-    BackgroundLoader* var7 = BackgroundLoader::GetInstance();
-    if (var7->GetTaskStatus(arg0->unknown_1c_) != 0) {
-        void* var8;
-        void* var9;
-        unsigned int var10;
-        var7->GetLoadedFileByID(arg0->unknown_1c_, &var9, &var10);
-        int var11 = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)var9));
-        void* var12[3];
-        int var13[3];
-        for (int var14 = 0; var14 < var11; var14++) {
-            var12[var14] = GetFileInPACByIndex((void*)((PacEntry_02020aec*)var9), var14, (const char**)(&var8), (unsigned int*)(&var13[var14]));
+    BackgroundLoader* backgroundLoader = BackgroundLoader::GetInstance();
+    if (backgroundLoader->GetTaskStatus(menuLayout->pacLoadTaskId_1c_) != 0) {
+        void* innerName;
+        void* fileData;
+        unsigned int fileSize;
+        backgroundLoader->GetLoadedFileByID(menuLayout->pacLoadTaskId_1c_, &fileData, &fileSize);
+        int numFiles = GetNumFilesInPAC((const void*)((PacEntry_02020cb8_4*)fileData));
+        void* innerFiles[3];
+        int innerLengths[3];
+        for (int i = 0; i < numFiles; i++) {
+            innerFiles[i] = GetFileInPACByIndex((void*)((PacEntry_02020aec*)fileData), i, (const char**)(&innerName), (unsigned int*)(&innerLengths[i]));
         }
-        arg0->unknown_0_ = arg0->unknown_14_->Allocate(8);
-        ResetStringList_020727d8((StringList_020727d8*)arg0->unknown_0_);
-        LoadStringList_020728ac(arg0->unknown_0_, arg0->unknown_14_, var12[0], var13[0], 0, 0, 0);
-        func_0207f524(arg0->unknown_4_, arg0->unknown_14_, (Struct_02013fb4*)var12[1], var13[1]);
-        func_0207ef74((Struct_0207ed1c*)arg0->unknown_c_, (SafeAllocator*)arg0->unknown_14_, (Struct_02013fb4*)var12[2], var13[2]);
-        var7->RemoveTask(arg0->unknown_1c_);
-        arg0->unknown_1c_ = -1;
+        menuLayout->pStringList_0_ = menuLayout->pAllocator_14_->Allocate(8);
+        ResetStringList_020727d8((StringList_020727d8*)menuLayout->pStringList_0_);
+        LoadStringList_020728ac(menuLayout->pStringList_0_, menuLayout->pAllocator_14_, innerFiles[0], innerLengths[0], 0, 0, 0);
+        func_0207f524(menuLayout->textEntries_4_, menuLayout->pAllocator_14_, (Struct_02013fb4*)innerFiles[1], innerLengths[1]);
+        func_0207ef74((Struct_0207ed1c*)menuLayout->windowEntries_c_, (SafeAllocator*)menuLayout->pAllocator_14_, (Struct_02013fb4*)innerFiles[2], innerLengths[2]);
+        backgroundLoader->RemoveTask(menuLayout->pacLoadTaskId_1c_);
+        menuLayout->pacLoadTaskId_1c_ = -1;
 #ifdef jpn
-        arg0->unknown_18_ = *(int*)(GetMessageWindow_020421a0() + 0x28);
+        menuLayout->unknown_18_ = *(int*)(GetMessageWindow_020421a0() + 0x28);
 #else
-        arg0->unknown_18_ = *(int*)(GetMessageWindow_020421a0() + 0x5c);
+        menuLayout->unknown_18_ = *(int*)(GetMessageWindow_020421a0() + 0x5c);
 #endif
         return 0;
     }

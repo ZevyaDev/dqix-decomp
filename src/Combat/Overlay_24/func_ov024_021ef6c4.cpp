@@ -4,7 +4,7 @@
 #include "std_library_functions.h"
 
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
-extern "C" int func_ov024_021eda60(GameObject* arg0);
+extern "C" int IsReflecting_ov024_021eda60(GameObject* combatant);
 
 struct Struct_ov024_021ef6c4 { int unknown_0_; };
 struct Struct_ov024_021feab4 { short unknown_0_[4]; };
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov024_021ef6c4(struct Struct_ov024_021ef6c4* arg0, int a
         if (*(unsigned short*)((char*)var4->currentStats_ + 0xa) == 0) continue;
         struct Struct_ov024_021ef6c4_2* var5 = (struct Struct_ov024_021ef6c4_2*)((char*)var4->currentStats_ + 0x58);
         if (var5->unknown_0_3_ <= -2) continue;
-        if (func_ov024_021eda60(var4)) continue;
+        if (IsReflecting_ov024_021eda60(var4)) continue;
         int var6 = *(unsigned char*)((char*)var4->currentStats_ + 0x50);
         if (var6 > 0) var2++;
     }

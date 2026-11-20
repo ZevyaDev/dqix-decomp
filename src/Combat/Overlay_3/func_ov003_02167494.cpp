@@ -11,8 +11,8 @@ enum { Enum_ov003_02167494_112 = 0x70 };
 #endif
 
 
-struct Struct_0207fc6c;
-extern "C" void func_0207fc6c(struct Struct_0207fc6c* arg0, int arg1);
+struct MenuLayout_0207fc6c;
+extern "C" void UpdateMenuLayoutWindows_0207fc6c(struct MenuLayout_0207fc6c* menuLayout, int ticks);
 
 struct Struct_ov003_02167494 {
     char unknown_0_[0x10];
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov003_02167494(struct Struct_ov003_02167494* arg0, int 
     if (arg0->unknown_74_ == 0 || arg0->unknown_10_ == 0) return;
 
     if (arg1 == 0) arg1 = 1;
-    func_0207fc6c((struct Struct_0207fc6c*)arg0->unknown_10_, arg1);
+    UpdateMenuLayoutWindows_0207fc6c((struct MenuLayout_0207fc6c*)arg0->unknown_10_, arg1);
 
     *(volatile int*)0x4001010 = 0;
 

@@ -81,7 +81,7 @@ extern "C" ARM void func_ov017_021a624c(GameResources* arg0) {
         arg0->unknown_4080_ != 0 || var3 != -1 ||
         !IsQueueEmpty_02046b08((void**)arg0->unknown_ptr_array_36fc[0]) ||
         IsLocalWirelessGuest_0202c540(var0) ||
-        func_020117f0(GameState::GetInstance()) != 0 ||
+        IsInGrotto_020117f0(GameState::GetInstance()) != 0 ||
         *(int*)((char*)var4 + GLOB1C_FLAG_021a624c) != 0 ||
         func_02015a2c((struct Struct_02015a2c_2*)var7) ||
         var6 == 0 || var6->unknown_c_low_ != 0 ||

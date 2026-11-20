@@ -34,7 +34,7 @@ extern "C" void SetGlobalFlags_020466e4(unsigned int *globalFlags, unsigned int 
 struct Struct_ov002_0215624c_23;
 struct Struct_ov002_0215624c_24;
 extern "C" void ResetSaveProgress_020a9ea4(struct Struct_ov002_02169efc *progress);
-extern "C" int func_020aad1c(void *arg0, void *arg1, int arg2, int arg3);
+extern "C" int UpdateSaveProgress_020aad1c(void *progress, void *scratchBuffer, int saveOptions, int isQuickSave);
 extern "C" void ClearGlobalFlags_020466f4(Struct_ov002_02168d54_9 *globalFlags, unsigned int mask);
 extern "C" void SetGameMode_0200fb94(char *gameState, unsigned char mode);
 extern "C" void StopMusic_0209c678(Struct_ov002_02169efc_2 *manager, int fadeDuration);
@@ -127,7 +127,7 @@ extern "C" ARM void func_ov002_02169efc(char *arg0) {
         *(unsigned char *) (var4 + RG(0x19af, 0x17df)) = 0;
         BackgroundLoader::AddLockGlobal();
         BackgroundLoader::FreeAllocationsGlobal();
-        if (func_020aad1c(arg0 + RG(0x98 + 0x2400, 0x2c8 + 0x2000), &g_fileScratchSpace, 0, 1) == 1) {
+        if (UpdateSaveProgress_020aad1c(arg0 + RG(0x98 + 0x2400, 0x2c8 + 0x2000), &g_fileScratchSpace, 0, 1) == 1) {
             *(unsigned char *) (arg0 + RG(0x1cc2, 0x1b86)) = 1;
             *(int *) (arg0 + RG(0x1bc0, 0x1a88))           = 0x65;
         }

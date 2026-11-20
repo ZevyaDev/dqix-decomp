@@ -89,7 +89,7 @@ typedef void (*Type_ov003_02166a90)(void*, int);
 extern "C" int func_02053c6c(unsigned char*);
 extern "C" void func_02042764(unsigned char*, char*, int);
 extern "C" int func_020865b0(Struct_0201099c_16*);
-extern "C" void func_02083ca0(unsigned char*, int);
+extern "C" void SetVocation_02083ca0(unsigned char*, int);
 extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
@@ -188,7 +188,7 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
 #endif
         int var16 = func_020865b0((Struct_0201099c_16*)var0);
         var14->unknown_16c_[var16] = var0->unknown_2_[func_020865b0((Struct_0201099c_16*)var0)];
-        func_02083ca0((unsigned char*)var14, func_020865b0((Struct_0201099c_16*)var0));
+        SetVocation_02083ca0((unsigned char*)var14, func_020865b0((Struct_0201099c_16*)var0));
         arg0->unknown_4bc_++;
     }
     if (arg0->unknown_4bc_ == 2) {

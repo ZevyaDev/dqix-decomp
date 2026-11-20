@@ -11,7 +11,7 @@ enum { Enum_ov004_0216ecd0_108 = 0x6c, Enum_ov004_0216ecd0_3954 = 0xf72, Enum_ov
 extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_0201e828;
 extern "C" void func_0201e828(Struct_0201e828*, unsigned short);
-extern "C" void SetTitleState_02012010(void* arg0, int state);
+extern "C" void SetTitleState_02012010(void* gameState, int state);
 extern "C" void func_ov017_0218d258(void* arg0);
 
 struct Struct_ov004_02171048_2 { char unknown_0_[0x4]; char* unknown_4_; };

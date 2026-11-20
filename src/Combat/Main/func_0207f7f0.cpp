@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 #include "Combat/MenuNodeChain.h"
 
-// USA: func_0207f7f0
-extern "C" ARM void func_0207f7f0(MenuLayout_0207f7f0* arg0, Struct_0207f7f0_2* arg1, int arg2) {
-    unsigned char var0;
-    arg0->unknown_30_ = arg1;
-    arg0->unknown_39_ = (unsigned char)arg2;
-    if (arg0->unknown_30_ != NULL && arg0->unknown_39_ != 0) {
-        for (var0 = 1; var0 < arg0->unknown_39_; var0++)
-            arg0->unknown_30_[var0].unknown_0_ = &arg0->unknown_30_[var0 - 1];
+// USA: SetMenuLayoutWindowArray_0207f7f0
+extern "C" ARM void SetMenuLayoutWindowArray_0207f7f0(MenuLayout_0207f7f0* menuLayout, TextWindow_0207f7f0_2* windows, int windowCount) {
+    unsigned char i;
+    menuLayout->pWindows_30_ = windows;
+    menuLayout->windowCount_39_ = (unsigned char)windowCount;
+    if (menuLayout->pWindows_30_ != NULL && menuLayout->windowCount_39_ != 0) {
+        for (i = 1; i < menuLayout->windowCount_39_; i++)
+            menuLayout->pWindows_30_[i].pPreviousTextWindow_0_ = &menuLayout->pWindows_30_[i - 1];
     }
 }

@@ -54,7 +54,7 @@ extern unsigned char data_ov031_0224968c[8];
 extern unsigned char data_ov031_0224ce68[6];
 extern unsigned char data_ov031_0224ced6[0x12c] __attribute__((aligned(2)));
 
-unsigned char data_ov031_0224c980;
+unsigned char gIPStack_ov031_0224c980;
 static unsigned char data_ov031_0224c981;
 static unsigned short data_ov031_0224c986;
 static inline unsigned short inline_ov031_02201364(void) {
@@ -428,7 +428,7 @@ extern "C" int func_ov031_0220f104(void* arg0, void* arg1, unsigned int arg2, vo
 extern "C" ARM void func_ov031_02200850(void* arg0, unsigned int arg1, void* arg2, unsigned int arg3) {
 	VectorizedInvertedMemcpy(data_ov031_0224968c, (char*)arg0 + 6, 6);
 	int var0 = func_ov031_0220f104(arg0, (char*)arg0 + 6, arg1 - 6, arg2, arg3);
-	data_ov031_0224c980 = var0 < 0;
+	gIPStack_ov031_0224c980 = var0 < 0;
 }
 
 // USA: func_ov031_022008ac

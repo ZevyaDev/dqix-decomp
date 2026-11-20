@@ -111,7 +111,7 @@ struct Struct_0201099c_3;
 extern "C" struct Struct_020e3f1c_3* GetMessageWindow_020421a0();
 extern "C" struct Struct_020e3f1c_5* GetZone3D_02012fe4();
 extern "C" int GetFollowCamera_020100f8(char* gameState);
-extern "C" int func_ov017_021959b4();
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4();
 extern "C" void func_020e4524(char* arg0);
 extern "C" void func_ov004_0216fa48(void* arg0);
 extern "C" void func_02076b58(struct FieldMonster_02076a8c_2* arg0);
@@ -120,7 +120,7 @@ extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int 
 extern "C" void SetMotion_02033b88(struct Struct_02010604* object, int motion);
 extern "C" void func_02037d88(GameObject* arg0);
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
-extern "C" void StopGesture_020531f0(GameObject* arg0);
+extern "C" void StopGesture_020531f0(GameObject* gameObject);
 extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
 extern "C" int func_02039874(void* arg0);
 extern "C" void func_020338d4(struct Struct_020338d4* arg0, struct Struct_ov009_0218aa28* arg1);
@@ -131,7 +131,7 @@ extern "C" int func_0202e800(void* arg0);
 extern "C" void SetCameraEye_0202e5c0(struct Camera_0202e5c0* camera, int x, int y, int z);
 extern "C" void func_0202ea4c(struct Struct_0202ea4c* arg0);
 extern "C" void UpdateCamera_0202e0a4(struct Struct_020e3f1c_2* camera);
-extern "C" struct TimedMessageQueue_020d7aa0_2* func_020d7a50();
+extern "C" struct TimedMessageQueue_020d7aa0_2* GetTimedMessageQueue_020d7a50();
 extern "C" void ClearTimedMessageQueue_020d7aa0(struct TimedMessageQueue_020d7aa0_2* queue);
 extern "C" void func_ov017_021c3e18(int arg0);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
@@ -180,7 +180,7 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
     struct Struct_020e3f1c_8* var6 = (struct Struct_020e3f1c_8*)var1->GetUnknownGameObject();
     GameResources* var7 = GetGameResources();
 
-    if (func_ov017_021959b4()) {
+    if (IsLocalWirelessHostDisconnected_ov017_021959b4()) {
         func_020e4524((char*)arg0);
         return;
     }
@@ -277,7 +277,7 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
             func_0202ea4c((struct Struct_0202ea4c*)var5);
         }
         UpdateCamera_0202e0a4(var5);
-        ClearTimedMessageQueue_020d7aa0(func_020d7a50());
+        ClearTimedMessageQueue_020d7aa0(GetTimedMessageQueue_020d7a50());
         RequestFontLoad_02094b34(var3, 0x74, 0x20e, 0, 0);
         func_ov017_021c3e18(0);
         arg0->unknown_a_ = 2;

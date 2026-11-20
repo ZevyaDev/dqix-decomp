@@ -33,7 +33,7 @@ extern "C" void UpdateCamera_0202e0a4(void* camera);
 extern "C" void func_ov009_02184c30(void* arg0);
 extern "C" void func_ov009_02184bbc(void* arg0);
 extern "C" void* func_0203bd08();
-extern "C" void func_0203bd88(void* arg0);
+extern "C" void CleanInvalidateOAMBuffers_0203bd88(void* arg0);
 extern "C" void Swap3DBuffers_020d86d0(int keepTranslucentOrder, int useWDepth);
 
 // USA: func_ov021_0218bb30
@@ -52,6 +52,6 @@ extern "C" ARM void func_ov021_0218bb30(Struct_ov021_0218bb30* arg0)
     Nitro3D_FlushFifoQueue();
     func_ov009_02184c30(arg0->unknown_40_);
     func_ov009_02184bbc(arg0->unknown_40_);
-    func_0203bd88(func_0203bd08());
+    CleanInvalidateOAMBuffers_0203bd88(func_0203bd08());
     Swap3DBuffers_020d86d0(1, 0);
 }

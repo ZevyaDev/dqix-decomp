@@ -19,7 +19,7 @@
 struct LocalWireless_0202c1a4;
 struct Struct_02010088;
 struct Struct_ov023_021edf54;
-struct Struct_020e385c;
+struct EventSyncEntry_020e385c;
 struct Struct_020a0858;
 struct Struct_020a0300;
 
@@ -268,8 +268,8 @@ extern "C" int IsDead_02010088(Struct_02010088* object);
 extern "C" int func_ov023_021eea98(Struct_ov023_021edf54* arg0);
 extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
-extern "C" Struct_020e385c* func_020e3808();
-extern "C" void func_020e39d4(Struct_020e385c* arg0, int arg1, int arg2, int arg3);
+extern "C" EventSyncEntry_020e385c* GetEventSyncTable_020e3808();
+extern "C" void func_020e39d4(EventSyncEntry_020e385c* arg0, int arg1, int arg2, int arg3);
 
 static inline unsigned int inline_020417b0_2(float arg0, int arg1) {
     return arg1 * arg0;
@@ -518,6 +518,6 @@ extern "C" ARM int func_ov023_021edf54(Struct_ov023_021edf54_16* arg0) {
         _ZZ21inline_ov023_021f4c04vE1s.unknown_0_->unknown_10_ = func_ov023_021f5150(arg0, arg0->unknown_2a0_, arg0->unknown_5758_, &arg0->unknown_5768_, 0) ? 1 : 0;
 
     if (IsLocalWirelessGuest_0202c540(var0) && arg0->unknown_2a0_->unknown_c_ == 0x13)
-        func_020e39d4(func_020e3808(), 0, 1, 0x71e8);
+        func_020e39d4(GetEventSyncTable_020e3808(), 0, 1, 0x71e8);
     return 2;
 }

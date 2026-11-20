@@ -4,14 +4,14 @@
 #include "Util/Random.h"
 #include "std_library_functions.h"
 
-extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
+extern "C" GameObject* GetEnemyByID_ov000_021536f8(int battle, int index);
 struct Struct_ov024_021f0b84;
 extern "C" int func_ov024_021f0d0c(struct Struct_ov024_021f0b84* arg0);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
 struct Struct_ov024_021ed9dc;
 extern "C" int func_ov024_021ed9dc(struct Struct_ov024_021ed9dc* arg0, int arg1);
-extern "C" int func_ov024_021ed890(struct Random** arg0, int* arg1, short* arg2);
+extern "C" int PickRandomTarget_ov024_021ed890(struct Random** targetSelector, int* count, short* targetIndices);
 
 struct Struct_ov024_021f0b84_2 { int unknown_0_; };
 struct Struct_ov024_021fee7c { short unknown_0_[8]; };
@@ -19,7 +19,7 @@ extern struct Struct_ov024_021fee7c data_ov024_021fee7c;
 
 // USA: func_ov024_021f0b84
 extern "C" ARM int func_ov024_021f0b84(struct Struct_ov024_021f0b84_2* arg0, int arg1, int arg2, int* arg3, short* arg4) {
-    GameObject* var0 = func_ov000_021536f8(arg0->unknown_0_, arg1);
+    GameObject* var0 = GetEnemyByID_ov000_021536f8(arg0->unknown_0_, arg1);
     if (!var0) return 0;
     if (!func_ov024_021f0d0c((struct Struct_ov024_021f0b84*)var0)) return 0;
 
@@ -49,6 +49,6 @@ extern "C" ARM int func_ov024_021f0b84(struct Struct_ov024_021f0b84_2* arg0, int
         arg4[var7] = var2.unknown_0_[var5];
     }
     if (*arg3 <= 0) return 0;
-    func_ov024_021ed890((struct Random**)arg0, arg3, arg4);
+    PickRandomTarget_ov024_021ed890((struct Random**)arg0, arg3, arg4);
     return 1;
 }

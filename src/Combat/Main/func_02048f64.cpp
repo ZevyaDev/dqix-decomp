@@ -28,7 +28,7 @@ struct Struct_02048e2c {
     Struct_02048e2c_2* unknown_13c_;
 };
 
-extern "C" int func_02049ee8(unsigned char*);
+extern "C" int IsCombatantOnBattlefield_02049ee8(unsigned char*);
 struct Struct_02048f64_2;
 extern "C" void func_020494c0(Struct_02048f64_2*);
 struct Struct_02033b58;
@@ -117,14 +117,14 @@ extern "C" ARM void func_02048f64(Struct_02048e2c* arg0) {
     fix32_t var23 = FIX32_MULTIPLY((var20 << 12) - var5, 0x333);
     if (var23 < var21) {
         var21 = var23;
-        if (func_02049ee8((unsigned char*)arg0)) {
+        if (IsCombatantOnBattlefield_02049ee8((unsigned char*)arg0)) {
             if (arg0->unknown_be_ != 0) {
                 func_020494c0((Struct_02048f64_2*)arg0);
             }
             SetMotionKeepingAnimation_02033b58((Struct_02033b58*)arg0, 0);
             var22 = 0;
         }
-    } else if (func_02049ee8((unsigned char*)arg0)) {
+    } else if (IsCombatantOnBattlefield_02049ee8((unsigned char*)arg0)) {
         SetMotionIfDifferent_02033b68((Struct_02033b68*)arg0, 1);
     }
 
@@ -142,14 +142,14 @@ extern "C" ARM void func_02048f64(Struct_02048e2c* arg0) {
         var25 = func_ov025_021ee488(var6, var11, var5 + var21);
     } else {
         var25 = var6[var20];
-        if (func_02049ee8((unsigned char*)arg0) && (arg0->unknown_13c_->unknown_20_ & 0x40)) {
+        if (IsCombatantOnBattlefield_02049ee8((unsigned char*)arg0) && (arg0->unknown_13c_->unknown_20_ & 0x40)) {
             func_02049520((Struct_02048f64_3*)arg0);
             func_02049a74((Struct_02048f64*)arg0);
         }
         func_02048c90((Struct_02048c90*)arg0);
         ((Object3D*)arg0)->SetAnimationPlaybackSpeed(0x1000, 500);
         SetCombatantCell_02049390((unsigned char*)arg0, var2->unknown_1d_);
-        if (func_02049ee8((unsigned char*)arg0) && arg0->unknown_be_ == 1) {
+        if (IsCombatantOnBattlefield_02049ee8((unsigned char*)arg0) && arg0->unknown_be_ == 1) {
             SetMotion_02033b88((Struct_02010604*)arg0, 0);
         }
         func_020494c0((Struct_02048f64_2*)arg0);

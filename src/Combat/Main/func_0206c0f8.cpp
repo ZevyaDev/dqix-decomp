@@ -27,7 +27,7 @@ struct Struct_02108cec_2 {
     void* unknown_10_;
     void* unknown_14_;
 };
-extern struct Struct_02108cec_2 data_02108cec;
+extern struct Struct_02108cec_2 gNPCPlacementParseState_02108cec;
 
 // USA: func_0206c0f8
 extern "C" ARM int func_0206c0f8(void* arg0, int arg1) {
@@ -40,14 +40,14 @@ extern "C" ARM int func_0206c0f8(void* arg0, int arg1) {
     int var6;
     int var7;
 
-    data_02108cec.unknown_a_ = data_02108cec.unknown_a_ + 1;
+    gNPCPlacementParseState_02108cec.unknown_a_ = gNPCPlacementParseState_02108cec.unknown_a_ + 1;
 
     var2 = ((Script::Parameter*)((struct Struct_0201c1c8*)arg0))->ToInt();
-    if (var2 != data_02108cec.unknown_2_) return 1;
+    if (var2 != gNPCPlacementParseState_02108cec.unknown_2_) return 1;
     var3 = ((Script::Parameter*)((struct Struct_0201c1c8*)((char*)arg0 + 8)))->ToInt();
-    if (var3 != data_02108cec.unknown_1_) return 1;
+    if (var3 != gNPCPlacementParseState_02108cec.unknown_1_) return 1;
     var4 = ((Script::Parameter*)((struct Struct_0201c1c8*)((char*)arg0 + 0x10)))->ToInt();
-    if (var4 != data_02108cec.unknown_0_) return 1;
+    if (var4 != gNPCPlacementParseState_02108cec.unknown_0_) return 1;
     var5 = ((Script::Parameter*)((struct Struct_0201c1c8*)((char*)arg0 + 0x18)))->ToInt();
 
     {
@@ -62,12 +62,12 @@ extern "C" ARM int func_0206c0f8(void* arg0, int arg1) {
     var6 = ((Script::Parameter*)((struct Struct_0201c1c8*)((char*)arg0 + 0x20)))->ToInt();
     var7 = ((Script::Parameter*)((struct Struct_0201c1c8*)((char*)arg0 + 0x28)))->ToInt();
 
-    if (var6 != data_02108cec.unknown_c_) {
-        func_0206dd68(data_02108cec.unknown_10_, var7);
+    if (var6 != gNPCPlacementParseState_02108cec.unknown_c_) {
+        func_0206dd68(gNPCPlacementParseState_02108cec.unknown_10_, var7);
         return 1;
     }
 
-    var0 = (struct Struct_0206bf2c*)((SafeAllocator*)data_02108cec.unknown_14_)->Allocate(0x78);
+    var0 = (struct Struct_0206bf2c*)((SafeAllocator*)gNPCPlacementParseState_02108cec.unknown_14_)->Allocate(0x78);
     if (var0 == 0) return 0;
 
     func_0206bf2c(var0);
@@ -80,7 +80,7 @@ extern "C" ARM int func_0206c0f8(void* arg0, int arg1) {
     var0->unknown_0_ = var7;
 
     if (arg1 < 7) {
-        func_0206dd68(data_02108cec.unknown_10_, var7);
+        func_0206dd68(gNPCPlacementParseState_02108cec.unknown_10_, var7);
         return 1;
     }
 
@@ -91,7 +91,7 @@ extern "C" ARM int func_0206c0f8(void* arg0, int arg1) {
         var0->unknown_1e_ = ((Script::Parameter*)((struct Struct_0201c1c8*)((char*)var1 + 8)))->ToInt();
     }
 
-    var0->unknown_44_ = data_02108cec.unknown_a_;
-    func_0206db48(data_02108cec.unknown_10_, var0);
+    var0->unknown_44_ = gNPCPlacementParseState_02108cec.unknown_a_;
+    func_0206db48(gNPCPlacementParseState_02108cec.unknown_10_, var0);
     return 1;
 }

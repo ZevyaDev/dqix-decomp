@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-// USA: func_020107d0
-extern "C" ARM int func_020107d0(char* arg0) {
+// USA: GetStoryStep_020107d0
+extern "C" ARM int GetStoryStep_020107d0(char* gameState) {
 #if defined(jpn)
-    return *(int*)(arg0 + 0x5a54);
+    return *(int*)(gameState + 0x5a54);
 #else
-    return *(int*)(arg0 + 0x5cb4);
+    return *(int*)(gameState + 0x5cb4);
 #endif
 }

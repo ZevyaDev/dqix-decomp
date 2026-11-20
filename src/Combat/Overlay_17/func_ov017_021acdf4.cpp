@@ -105,7 +105,7 @@ extern "C" void* func_0202ae18(void);
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
-extern "C" Struct_0209494c* func_020936f8(void);
+extern "C" Struct_0209494c* GetNoticeQueue_020936f8(void);
 extern "C" int func_0209494c(Struct_0209494c* arg0);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void LoadFileTables_020a0c0c(void);
@@ -147,7 +147,7 @@ extern "C" void func_ov017_021c37a4(void);
 extern "C" void func_ov017_021b11b0(Struct_ov003_021638e4_2* arg0);
 extern "C" void PrependToQueue_020469f8(Queue_020469f8* queue, QueueNode_020469f8_2* node);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_020e4c74(void* arg0, GameObject* arg1);
+extern "C" void InitMemberNoun_020e4c74(void* noun, GameObject* member);
 #if !defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, int text, int arg2, int arg3);
 #endif
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Queue_02046
     *(short*)((char*)var2 + 0xb2) = 0;
 
     if (arg0->unknown1_1c_ == 0) {
-        if (arg0->unknown_280_ && !func_0209494c(func_020936f8())) {
+        if (arg0->unknown_280_ && !func_0209494c(GetNoticeQueue_020936f8())) {
             return;
         }
         ReleaseFileTablesForSpace_020a0cc4(0x7000);
@@ -468,7 +468,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Queue_02046
             StartMessage_0204500c(var37, &data_ov017_021d7f3b, 0);
 #else
             char var38[0xc];
-            func_020e4c74(var38, var0->GetUnknownGameObject());
+            InitMemberNoun_020e4c74(var38, var0->GetUnknownGameObject());
             *(char**)var37 = var38;
             StartMessage_0204500c(var37, ((int)GetGameString((eGameString)(0x39))), 0, 0xe3);
 #endif

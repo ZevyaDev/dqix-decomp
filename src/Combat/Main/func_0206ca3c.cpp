@@ -12,7 +12,7 @@ struct Struct_02108cec {
     unsigned char unknown_c_[0x10 - 0xc];
     void* unknown_10_;
 };
-extern struct Struct_02108cec data_02108cec;
+extern struct Struct_02108cec gNPCPlacementParseState_02108cec;
 
 struct Struct_0206ca3c {
     unsigned char unknown_0_[0xc];
@@ -30,12 +30,12 @@ extern "C" ARM int func_0206ca3c(void* arg0, int arg1) {
     int var2;
     arg0 = (char*)arg0 + 8;
     int var3 = ((Script::Parameter*)((struct Struct_0201c1c8*)var1))->ToInt();
-    var0 = (Struct_0206ca3c*)func_0206db20(data_02108cec.unknown_10_, var3);
+    var0 = (Struct_0206ca3c*)func_0206db20(gNPCPlacementParseState_02108cec.unknown_10_, var3);
     if (var0 == 0) {
         return 0;
     }
     while (var0 != 0) {
-        if (var0->unknown_44_ == data_02108cec.unknown_a_) {
+        if (var0->unknown_44_ == gNPCPlacementParseState_02108cec.unknown_a_) {
             break;
         }
         var0 = var0->unknown_70_;

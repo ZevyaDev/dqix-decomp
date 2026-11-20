@@ -48,9 +48,9 @@ struct Struct_ov023_021f7eb8_4 {
     signed char unknown_4_;
 };
 
-struct Struct_0204fbf8_2;
+struct TextWindow_0204fbf8_2;
 
-extern "C" void func_0204f160(unsigned char*, int, int);
+extern "C" void SetTextWindowCharacterDataOffsetAndId_0204f160(unsigned char*, int, int);
 extern "C" void func_0204f174(Struct_ov023_021f7eb8_2* arg0, short arg1, short arg2, short arg3, short arg4,
                               unsigned char arg5, unsigned char arg6, unsigned char arg7, int);
 extern "C" void func_0204fae8(Struct_ov023_021f7eb8_2* arg0);
@@ -60,7 +60,7 @@ extern "C" void func_0204f7e8(Struct_ov023_021f7eb8_2* arg0, short arg1, short a
 extern "C" void func_0204f41c(Struct_ov023_021f7eb8_2* arg0, short arg1, short arg2, const char* arg3, unsigned char arg4,
                               unsigned char arg5, unsigned short* arg6, unsigned short* arg7, int);
 extern "C" void func_ov023_021f8240(Struct_ov023_021f7eb8_3* arg0, void* arg1);
-extern "C" void func_0204fbf8(Struct_0204fbf8_2*);
+extern "C" void LoadTextWindowCharacterData_0204fbf8(TextWindow_0204fbf8_2*);
 
 extern const char data_ov023_021fd91c[];
 #if defined(jpn)
@@ -72,7 +72,7 @@ extern "C" void func_02050678(Struct_ov023_021f7eb8_2*, short, short, const char
 extern "C" ARM void func_ov023_021f7eb8(Struct_ov023_021f7eb8_3* arg0, void* arg1, int arg2, short arg3, short arg4,
                                         short arg5, short arg6, unsigned char arg7, unsigned char arg8,
                                         unsigned char arg9) {
-    func_0204f160((unsigned char*)&arg0->unknown_20_, arg2, arg0->unknown_6_);
+    SetTextWindowCharacterDataOffsetAndId_0204f160((unsigned char*)&arg0->unknown_20_, arg2, arg0->unknown_6_);
     func_0204f174(&arg0->unknown_20_, arg3, arg4, arg5, arg6, arg7, arg8, arg9, 0);
     if (arg0->unknown_c_ & 4) {
         if (arg0->unknown_106_ > 1)
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov023_021f7eb8(Struct_ov023_021f7eb8_3* arg0, void* arg
 #endif
     }
     func_ov023_021f8240(arg0, arg1);
-    func_0204fbf8((Struct_0204fbf8_2*)&arg0->unknown_20_);
+    LoadTextWindowCharacterData_0204fbf8((TextWindow_0204fbf8_2*)&arg0->unknown_20_);
     arg0->unknown_100_ = arg3 * 8;
     arg0->unknown_102_ = arg4 * 8;
 }

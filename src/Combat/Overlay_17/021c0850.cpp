@@ -148,7 +148,7 @@ extern "C" void ResetOAMManager_0203bd24(char* oamManager);
 extern "C" int* GetSpriteTextManager_0203bd14(void);
 extern "C" int func_0203be4c(void* arg0);
 extern "C" void func_0203c35c(int* arg0);
-extern "C" int func_ov017_021959b4(void);
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 extern "C" void func_ov008_02184a2c(char*);
 extern "C" int func_ov008_02184754(void* arg0);
 extern "C" void RestoreMainBGControl_02074bd0(BGControlSave_02074bd0* save);
@@ -329,7 +329,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         var8[Enum_ov017_021c0850_1288 / 4] = 0x7000;
         arg0->unknown_20_++;
     } else if (arg0->unknown_20_ == 3) {
-        if (func_ov017_021959b4()) {
+        if (IsLocalWirelessHostDisconnected_ov017_021959b4()) {
             func_ov008_02184a2c((char*)arg0->unknown_1c_);
         }
         if (func_ov008_02184754(arg0->unknown_1c_)) {

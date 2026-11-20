@@ -46,13 +46,13 @@ struct Struct_ov003_02165278_2 {
 };
 
 extern "C" void* func_020d6c00(void);
-extern "C" Struct_ov003_02165278* func_020936f8(void);
+extern "C" Struct_ov003_02165278* GetNoticeQueue_020936f8(void);
 extern "C" void func_ov003_021612c0(struct Struct_ov003_02165278_2* arg0);
 extern "C" int func_ov003_02161344(struct Struct_ov003_02165278_2* arg0);
 extern "C" void CloseMenuLayoutWindows_0207fe44(struct MenuLayout_0207fe44* menuLayout);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void ResetSaveProgress_020a9ea4(struct SaveProgress_020a9ea4* progress);
-extern "C" int func_020aad1c(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" int UpdateSaveProgress_020aad1c(void* progress, void* scratchBuffer, int saveOptions, int isQuickSave);
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void func_020939dc(void* arg0);
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
@@ -61,7 +61,7 @@ extern "C" void func_ov017_021c35ac(void);
 // USA: func_ov003_02165278
 extern "C" ARM void func_ov003_02165278(struct Struct_ov003_02165278_2* arg0) {
     void* var0 = func_020d6c00();
-    Struct_ov003_02165278* var1 = func_020936f8();
+    Struct_ov003_02165278* var1 = GetNoticeQueue_020936f8();
     unsigned char var2 = arg0->unknown_4a4_;
     struct MenuLayout_0207fe44* var3 = arg0->unknown_324_;
 
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov003_02165278(struct Struct_ov003_02165278_2* arg0) {
         arg0->unknown_464_ |= 0x2000000;
         BackgroundLoader::AddLockGlobal();
         BackgroundLoader::FreeAllocationsGlobal();
-        if (func_020aad1c((char*)arg0 + RG(0x4b4, 0x2dc), &g_fileScratchSpace, 10, 0) == 1) {
+        if (UpdateSaveProgress_020aad1c((char*)arg0 + RG(0x4b4, 0x2dc), &g_fileScratchSpace, 10, 0) == 1) {
             struct SpriteAnimation_0205a254_2* var5 = ((SpriteAnimation_0205a254_2*)((OBJSpriteSet::List*)(arg0->unknown_38c_))->GetSprite(0));
             if (var5 != NULL) {
                 var5->unknown_15_ |= 8;

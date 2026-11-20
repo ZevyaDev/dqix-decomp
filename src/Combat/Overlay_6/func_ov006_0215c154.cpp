@@ -124,7 +124,7 @@ struct Struct_ov006_0215951c;
 struct Struct_ov006_02159094;
 struct Struct_ov006_021596f0;
 extern "C" void CloseMenuLayoutWindow_0207fdcc(MenuLayout_0207fdcc_2*, int);
-extern "C" short func_02080468(void*, int);
+extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void*, int);
 extern "C" void func_02081ea4(MenuLayout_0207fdcc_2*, int, int);
 extern "C" void OpenMenuLayoutWindow_020813ec(void*, int);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void*, int, int);
@@ -133,7 +133,7 @@ extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void*, int);
 extern "C" void func_ov006_0215f4dc(Struct_ov006_02157a60*);
 extern "C" void func_ov006_021573c8(void*);
 extern "C" void func_ov006_021553bc(void*, short*, unsigned char*);
-extern "C" void func_0208203c(KeyRepeat_02081f20_2*);
+extern "C" void ResetKeyRepeat_0208203c(KeyRepeat_02081f20_2*);
 extern "C" void func_ov006_02155710(void*, int, int);
 extern "C" int func_ov006_021595b4(Struct_ov006_02157a60*);
 extern "C" unsigned char func_ov006_02158a28(Struct_ov006_02157a60*);
@@ -162,7 +162,7 @@ extern "C" ARM void func_ov006_0215c154(Struct_ov006_02157a60* arg0) {
         CloseMenuLayoutWindow_0207fdcc(var0, 1);
         arg0->unknown_36e_ = 0x10;
         if (arg0->unknown_362_ < 0)
-            arg0->unknown_362_ = func_02080468(var0, arg0->unknown_36e_);
+            arg0->unknown_362_ = GetMenuLayoutWindowFirstSelectableTextId_02080468(var0, arg0->unknown_36e_);
         func_02081ea4(var0, arg0->unknown_36e_, 0);
         OpenMenuLayoutWindow_020813ec(var0, arg0->unknown_36e_);
         SetMenuLayoutWindowPalette_02080c68(var0, arg0->unknown_36e_, 0);
@@ -176,7 +176,7 @@ extern "C" ARM void func_ov006_0215c154(Struct_ov006_02157a60* arg0) {
         SetMenuLayoutWindowPalette_02080c68(var0, 0x11, 1);
         func_ov006_021573c8(arg0->unknown_100_);
         func_ov006_021553bc(arg0->unknown_10_, arg0->unknown_378_, arg0->unknown_38c_);
-        func_0208203c(&arg0->unknown_9c_);
+        ResetKeyRepeat_0208203c(&arg0->unknown_9c_);
         arg0->unknown_44_ = 0;
         Struct_ov006_02154614* var1 = arg0->unknown_10_;
         func_ov006_02155710(var1, -1, 0);
@@ -191,7 +191,7 @@ extern "C" ARM void func_ov006_0215c154(Struct_ov006_02157a60* arg0) {
         }
         if (func_ov006_02158a28(arg0)) {
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-            func_0208203c(&arg0->unknown_9c_);
+            ResetKeyRepeat_0208203c(&arg0->unknown_9c_);
             arg0->unknown_44_ = 0;
             if (func_ov006_02159218(arg0)) {
                 SetMenuLayoutWindowPalette_02080c68(var0, arg0->unknown_36e_, 1);
@@ -202,7 +202,7 @@ extern "C" ARM void func_ov006_0215c154(Struct_ov006_02157a60* arg0) {
                 return;
             }
         } else if (func_ov006_02158b78(arg0)) {
-            func_0208203c(&arg0->unknown_9c_);
+            ResetKeyRepeat_0208203c(&arg0->unknown_9c_);
             arg0->unknown_44_ = 0;
             arg0->unknown_38f_ = 5;
             arg0->unknown_390_ = 0;
@@ -227,7 +227,7 @@ extern "C" ARM void func_ov006_0215c154(Struct_ov006_02157a60* arg0) {
             func_ov006_02159274(arg0, &var2, &var4, &var3);
             if (var3) {
                 PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-                func_0208203c(&arg0->unknown_9c_);
+                ResetKeyRepeat_0208203c(&arg0->unknown_9c_);
                 arg0->unknown_44_ = 0;
                 func_02081ea4(arg0->unknown_14_, 0x11, 1);
                 arg0->unknown_38a_ = var2;
@@ -241,7 +241,7 @@ extern "C" ARM void func_ov006_0215c154(Struct_ov006_02157a60* arg0) {
                 return;
             }
         } else if (func_ov006_02158b78(arg0)) {
-            func_0208203c(&arg0->unknown_9c_);
+            ResetKeyRepeat_0208203c(&arg0->unknown_9c_);
             arg0->unknown_44_ = 0;
             arg0->unknown_364_ = -1;
             arg0->unknown_390_ = 0;
@@ -258,7 +258,7 @@ extern "C" ARM void func_ov006_0215c154(Struct_ov006_02157a60* arg0) {
             return;
         if (g_keyManager.TestKeysPressed(1) || var5 == 2) {
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-            func_0208203c(&arg0->unknown_9c_);
+            ResetKeyRepeat_0208203c(&arg0->unknown_9c_);
             arg0->unknown_44_ = 0;
             arg0->unknown_394_ &= ~8;
             CloseMenuLayoutWindow_0207fdcc(var0, 6);
@@ -276,7 +276,7 @@ extern "C" ARM void func_ov006_0215c154(Struct_ov006_02157a60* arg0) {
             arg0->unknown_392_ = 0;
             arg0->unknown_394_ |= 0x120;
         } else if (func_ov006_02158b78(arg0) || var5 == 3) {
-            func_0208203c(&arg0->unknown_9c_);
+            ResetKeyRepeat_0208203c(&arg0->unknown_9c_);
             arg0->unknown_44_ = 0;
             arg0->unknown_394_ &= ~8;
             CloseMenuLayoutWindow_0207fdcc(var0, 6);

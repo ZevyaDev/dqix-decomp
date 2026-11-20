@@ -18,7 +18,7 @@ extern "C" void* GetMessageWindow_020421a0();
 extern "C" int IsPerformingGesture_020535c8(signed char*);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
-extern "C" int func_02048418(unsigned char*, unsigned short);
+extern "C" int ClearStatusFlags_02048418(unsigned char*, unsigned short);
 extern "C" void func_ov017_021d27a0(int, int, int);
 extern "C" void* FindActionData_02079e2c(char*, int);
 struct Struct_02048350_2;
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov017_021d27e4(void* arg0, Struct_ov017_021d27e4_2* arg
                     }
                 }
                 if (var13) {
-                    func_02048418((unsigned char*)var11, 4);
+                    ClearStatusFlags_02048418((unsigned char*)var11, 4);
                     func_ov017_021c9e00(var2, 0, 0, 1);
                     SendPartyMemberEquippedItems_ov017_021c3fb4(var2, 1);
                     SendPartyMemberBodyAppearance_ov017_021c4418(var2, -1);

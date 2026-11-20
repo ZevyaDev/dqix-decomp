@@ -10,7 +10,7 @@ struct Struct_ov000_0215b278_2 { char unknown_0_[0xe]; unsigned short unknown_e_
 struct Struct_ov000_0215b278_3 { char unknown_0_[0x20]; int unknown_20_; };
 extern "C" Struct_ov000_0215b278* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*,int);
 extern "C" void* func_ov000_0215e9d8(void*);
-extern "C" void func_ov000_02160030(void*);
+extern "C" void InitBattleAction_ov000_02160030(void*);
 extern "C" void* func_ov000_0215e918(void*);
 extern "C" void* func_ov000_0215e938(void*);
 extern "C" void func_ov000_02157cdc(void*);
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov000_0215bbbc(unsigned char* arg0,BattleAction_ov000_0
         if(var9<=0) continue;
 #define ALLOCATE() \
         var2=(Struct_ov000_021537b8*)func_ov000_0215e9d8(arg0); \
-        if(!var2) continue; func_ov000_02160030(var2); \
+        if(!var2) continue; InitBattleAction_ov000_02160030(var2); \
         var3=(Struct_ov000_0215b278*)func_ov000_0215e918(arg0); \
         if(!var3) continue; memset(var3,0,0x30); var3->unknown_1c_=-1; var3->unknown_30_=0; \
         var4=(Struct_ov000_0215b278_2*)func_ov000_0215e938(arg0); \

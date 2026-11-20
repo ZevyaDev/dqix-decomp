@@ -49,7 +49,7 @@ extern "C" Struct_ov000_0215767c_8* GetActionActor_ov000_02160094(BattleAction_o
 extern "C" Struct_ov000_0215767c_10* func_ov000_0215e9d8(void* arg0);
 extern "C" Struct_ov000_0215767c_8* func_ov000_0215e918(void* arg0);
 extern "C" Struct_ov000_0215767c_9* func_ov000_0215e938(void* arg0);
-extern "C" void func_ov000_02160030(void* arg0);
+extern "C" void InitBattleAction_ov000_02160030(void* action);
 extern "C" void func_ov000_02157cdc(void* arg0);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov000_0215c2d0(Struct_ov000_0215767c_2* arg0, Struct_ov
         if (var4 == 0) {
             continue;
         }
-        func_ov000_02160030(var4);
+        InitBattleAction_ov000_02160030(var4);
         Struct_ov000_0215767c_8* var5 = func_ov000_0215e918(arg0);
         if (var5 == 0) {
             continue;

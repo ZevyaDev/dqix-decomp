@@ -3,7 +3,7 @@
 #include "Graphics/BGLayer.h"
 
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
-extern "C" int func_ov023_021f6bb8(void* arg0);
+extern "C" int GetMenuLoadTaskId_ov023_021f6bb8(void* objectList);
 extern "C" void func_ov023_021f6bb0(void* arg0, int arg1);
 
 struct Struct_020534ac_2;
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov023_021f78a4(struct Struct_ov023_021f78a4* arg0) {
         void* var0 = arg0->unknown_20_;
         void* var1 = GetMenuObjectList_ov011_021849c8(var0);
         int var2 = (int)BackgroundLoader::GetInstance();
-        int var3 = func_ov023_021f6bb8(var1);
+        int var3 = GetMenuLoadTaskId_ov023_021f6bb8(var1);
         if (((BackgroundLoader*)(var2))->GetTaskStatus((int)(var3))) {
             if (((BackgroundLoader*)((struct Struct_020534ac_2*)var2))->GetDetailedTaskStatus((int)(var3)) == 2) {
                 int var4, var5;

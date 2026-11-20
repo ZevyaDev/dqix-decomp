@@ -2,7 +2,7 @@
 #include "Resource/StringList.h"
 
 #if defined(jpn)
-extern "C" int func_0204234c(char*, int);
+extern "C" int AppendHorizontalLineTag_02041cc0(char*, int);
 extern "C" int func_020423d4(char*, int, int, int, int);
 #endif
 
@@ -50,7 +50,7 @@ extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMar
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" int AppendTextColorTag_02041e70(char* buffer, int colorIndex);
 extern "C" int func_02041a5c(char* arg0, int arg1);
-extern "C" int func_02041cc0(char* arg0, int arg1);
+extern "C" int AppendHorizontalLineTag_02041cc0(char* buffer, int y);
 extern "C" int func_02041d48(char* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 
@@ -187,10 +187,10 @@ extern "C" ARM void func_ov013_02185424(Struct_ov013_021846a0_2* arg0, char* arg
 
 #endif
 #if defined(jpn)
-    func_0204234c(arg1, 0x57);
+    AppendHorizontalLineTag_02041cc0(arg1, 0x57);
     func_020423d4(arg1, 0x7fff, 0x4a, 0x10, 0x57);
 #else
-    func_02041cc0(arg1, 0x57);
+    AppendHorizontalLineTag_02041cc0(arg1, 0x57);
     func_02041d48(arg1, 0x7fff, 0x5a, 0x10, 0x57);
 #endif
 

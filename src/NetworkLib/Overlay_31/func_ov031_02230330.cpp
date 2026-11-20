@@ -15,7 +15,7 @@ extern "C" int func_ov031_0223d49c(Struct_ov031_02248f60* arg0);
 extern "C" int func_ov031_0223d634(Struct_ov031_02248f60* arg0);
 
 extern Struct_ov031_02248f60 data_ov031_022493b8;
-extern Struct_ov031_02290ca0_15 data_ov031_02290ca0;
+extern Struct_ov031_02290ca0_15 gConnectionSettingsPage_ov031_02290ca0;
 extern const unsigned char data_ov031_02248f5c[4] = {2, 3, 7, 8};
 extern const Struct_ov031_02248f60 data_ov031_02248f60 = {{204, 52}, {28, 24}};
 extern const Struct_ov031_02248f60 data_ov031_02248f68 = {{143, 52}, {44, 24}};
@@ -30,7 +30,7 @@ extern "C" ARM int func_ov031_02230330(void) {
 	if (!func_ov031_0223d49c(&data_ov031_022493b8)) return 0xe;
 
 	{
-		int var1 = FastIntDivide(data_ov031_02290ca0.unknown_4_, 0x1d);
+		int var1 = FastIntDivide(gConnectionSettingsPage_ov031_02290ca0.unknown_4_, 0x1d);
 		int var2 = 0;
 		var0 = data_ov031_02248f60;
 		do {
@@ -43,7 +43,7 @@ extern "C" ARM int func_ov031_02230330(void) {
 		} while (var2 < 4);
 	}
 	{
-		int var3 = FastIntDivide(data_ov031_02290ca0.unknown_4_, 0x1d);
+		int var3 = FastIntDivide(gConnectionSettingsPage_ov031_02290ca0.unknown_4_, 0x1d);
 		int var4 = 0;
 		do {
 			if (var3 == 2) {
@@ -61,7 +61,7 @@ extern "C" ARM int func_ov031_02230330(void) {
 		} while (var4 < 4);
 	}
 	{
-		int var6 = FastIntDivide(data_ov031_02290ca0.unknown_4_, 0x1d);
+		int var6 = FastIntDivide(gConnectionSettingsPage_ov031_02290ca0.unknown_4_, 0x1d);
 		int var7 = 0;
 		do {
 			if (var6 == 6) {

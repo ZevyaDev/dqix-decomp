@@ -13,7 +13,7 @@ extern "C" int LoadToMainObjStandardPalette(int, int, unsigned int);
 
 extern "C" void HideScreenLayers_ov031_0223cbbc(int, int);
 
-extern "C" void func_ov031_02227520(int*, int*);
+extern "C" void GetWifiSetupPageArguments_ov031_02227520(int*, int*);
 extern "C" ARM void SetStepIndicatorAndButtonBarModes_ov031_022274d0(int stepIndicatorMode, int buttonBarMode);
 extern "C" void func_ov031_0222750c(int, int);
 extern "C" ARM void SetWifiSetupFrameHandler_ov031_022274c0(int);
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov031_0222d1b8(void) {
     HideScreenLayers_ov031_0223cbbc(0, 0x15);
 
     int var0, var1;
-    func_ov031_02227520(&var0, &var1);
+    GetWifiSetupPageArguments_ov031_02227520(&var0, &var1);
     if (var1 == 0) {
         SetStepIndicatorAndButtonBarModes_ov031_022274d0(2, 1);
         func_ov031_0222750c(0, var0);

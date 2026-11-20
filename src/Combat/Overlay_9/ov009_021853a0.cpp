@@ -780,11 +780,11 @@ extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" int IsEntryTouchedAgain_0205da38(TextWindowManager_0205da38*, int);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 extern "C" void func_02086404(Struct_ov009_0218742c*);
-extern "C" void func_02083ca0(unsigned char*, int);
+extern "C" void SetVocation_02083ca0(unsigned char*, int);
 extern "C" int sprintf(char*, const char*, ...);
-extern "C" void func_0208247c(void*);
+extern "C" void ClearLevelEntries_0208247c(void*);
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);
-extern "C" void func_02082490(void*, void*, unsigned int, int, int);
+extern "C" void ReadLevelEntries_02082490(void*, void*, unsigned int, int, int);
 extern "C" void func_02083cbc(void*, void*, void*);
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" void func_02083e28(void*, int);
@@ -840,7 +840,7 @@ extern const char data_ov009_0218ad0d[];
 extern const char data_ov009_0218ad26[];
 extern const char data_ov009_0218ad28[];
 extern char data_ov009_0218bc59[];
-extern const char data_020ef078[];
+extern const char gStringFormat_020ef078[];
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern char data_ov009_0218ad2c[];
 extern char data_ov009_0218bc71[];
@@ -2291,7 +2291,7 @@ extern "C" ARM void func_ov009_02186e00(Struct_ov009_021842a0* arg0)
             if (var2 == -2)
                 arg0->unknown_d9c_ |= 0x1000000;
             Struct_ov005_0215840c_2* var3 = (Struct_ov005_0215840c_2*)arg0->unknown_d88_;
-            sprintf(var3->unknown_3c_, data_020ef078, arg0->unknown_d74_[arg0->unknown_da3_]);
+            sprintf(var3->unknown_3c_, gStringFormat_020ef078, arg0->unknown_d74_[arg0->unknown_da3_]);
             func_ov009_021867bc((unsigned char*)arg0, 9);
         }
     } else if (arg0->unknown_c59_ == 2) {
@@ -2366,7 +2366,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             void* var7 = GetParty_02010828(var0);
             Struct_ov009_0218742c var8;
             func_02086404(&var8);
-            func_02083ca0((unsigned char*)arg0->unknown_d88_, arg0->unknown_da2_);
+            SetVocation_02083ca0((unsigned char*)arg0->unknown_d88_, arg0->unknown_da2_);
             arg0->unknown_d88_->unknown_138_[arg0->unknown_da2_] = 0;
             arg0->unknown_d88_->unknown_16c_[arg0->unknown_da2_] = 1;
             arg0->unknown_d88_->unknown_56a_ = NextRandomMax(GetBTRandom(), 16);
@@ -2374,11 +2374,11 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             int var10 = arg0->unknown_d88_->unknown_950_;
             sprintf(var9, data_ov009_0218ad2c, var10);
             Struct_ov009_0218742c_2 var11;
-            func_0208247c(&var11);
+            ClearLevelEntries_0208247c(&var11);
             BackgroundLoader::AddLockGlobal();
             unsigned int var12;
             void* var13 = LoadFileIntoMemory(var9, g_fileScratchSpace, &var12);
-            if (var13) func_02082490(&var11, var13, var12, arg0->unknown_d88_->unknown_16c_[arg0->unknown_da2_], 0);
+            if (var13) ReadLevelEntries_02082490(&var11, var13, var12, arg0->unknown_d88_->unknown_16c_[arg0->unknown_da2_], 0);
             func_02083cbc(arg0->unknown_d88_, &var11, var11.unknown_3c_);
             BackgroundLoader::RemoveLockGlobal();
             short* var14 = arg0->unknown_d88_->unknown_488_;

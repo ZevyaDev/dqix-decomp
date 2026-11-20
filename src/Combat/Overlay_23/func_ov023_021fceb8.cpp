@@ -2,7 +2,7 @@
 #include "Filesystem/BackgroundLoader.h"
 
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
-extern "C" int func_ov023_021f6bb8(void*);
+extern "C" int GetMenuLoadTaskId_ov023_021f6bb8(void*);
 extern "C" void func_ov023_021f6bb0(void*, int);
 
 extern char data_ov023_021ff7b4;
@@ -10,7 +10,7 @@ extern char data_ov023_021ff7b4;
 // USA: func_ov023_021fceb8
 extern "C" ARM int func_ov023_021fceb8(void* arg0, void* arg1) {
     void* var0 = GetMenuObjectList_ov011_021849c8(arg1);
-    if (func_ov023_021f6bb8(var0) >= 0) {
+    if (GetMenuLoadTaskId_ov023_021f6bb8(var0) >= 0) {
         return *(int*)((char*)arg0 + 0x1c);
     }
     char var1[0x50];

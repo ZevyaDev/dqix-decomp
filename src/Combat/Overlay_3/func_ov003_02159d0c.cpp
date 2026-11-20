@@ -55,7 +55,7 @@ extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
 extern "C" int func_020bc0a4(int);
 struct SaveProgress_020a9ea4;
 extern "C" void ResetSaveProgress_020a9ea4(SaveProgress_020a9ea4*);
-extern "C" int func_020aad1c(void*, void*, int, int);
+extern "C" int UpdateSaveProgress_020aad1c(void*, void*, int, int);
 extern "C" void func_0209c7fc(void*);
 extern "C" void ClearMessageParams_02046380(void*);
 struct Struct_02046574_2;
@@ -187,7 +187,7 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
         if (IsLocalWirelessGuest_0202c540(var3)) var14 |= 0x14;
         BackgroundLoader::AddLockGlobal();
         BackgroundLoader::FreeAllocationsGlobal();
-        if (func_020aad1c(var0 + 0x1b8 + 0x400, &g_fileScratchSpace, var14, 0) == 1) {
+        if (UpdateSaveProgress_020aad1c(var0 + 0x1b8 + 0x400, &g_fileScratchSpace, var14, 0) == 1) {
             *(unsigned char*)(var0 + 0x580) = 3;
         }
         BackgroundLoader::RemoveLockGlobal();

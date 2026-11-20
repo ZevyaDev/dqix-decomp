@@ -11,7 +11,7 @@ struct Struct_ov031_022036a8 {
 	unsigned int unknown_34_;
 };
 
-extern Struct_ov031_0224c980_9 data_ov031_0224c980;
+extern Struct_ov031_0224c980_9 gIPStack_ov031_0224c980;
 
 extern "C" void func_ov031_02201550(unsigned char* arg0, unsigned int arg1, Struct_ov031_022036a8* arg2, int arg3, int arg4);
 void CycleCurrentPriorityContexts();
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov031_022036a8(unsigned char* arg0, unsigned int arg1, S
 		unsigned int var4;
 		var0 = arg2->unknown_2e_;
 		if (var0 >= var1) var0 = var1;
-		if (data_ov031_0224c980.unknown_2_ < var0) var0 = data_ov031_0224c980.unknown_2_;
+		if (gIPStack_ov031_0224c980.unknown_2_ < var0) var0 = gIPStack_ov031_0224c980.unknown_2_;
 		if (arg3 == 0) var0 &= ~1;
 		if (arg1 < var0) var0 = arg1;
 		var4 = arg2->unknown_34_;

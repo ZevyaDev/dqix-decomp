@@ -3,7 +3,7 @@
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" void SetScriptRefInt_ov017_021d6134(void* value, int number);
 extern "C" int* func_ov001_0215a818(int* arg0);
-extern "C" void func_0205eb90(void* arg0, int arg1, int arg2);
+extern "C" void PlayExtraSoundEffect_0205eb90(void* manager, int soundEffectIndex, int handle);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern int gSoundEffectManager_02108760;
@@ -15,7 +15,7 @@ extern "C" ARM int func_ov001_02163564(void* arg0, int arg1) {
 	if (arg1 >= 2) {
 		int* var2 = func_ov001_0215a818(&var1);
 		if (var2 != NULL) {
-			func_0205eb90(&gSoundEffectManager_02108760, var0, (int)var2);
+			PlayExtraSoundEffect_0205eb90(&gSoundEffectManager_02108760, var0, (int)var2);
 		}
 		SetScriptRefInt_ov017_021d6134((char*)arg0 + 8, var1);
 	} else {

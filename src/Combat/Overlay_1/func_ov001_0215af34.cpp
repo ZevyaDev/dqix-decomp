@@ -5,12 +5,12 @@ extern "C" void func_ov017_021d6148(Struct_ov001_0215af34* arg0, unsigned int ar
 typedef void (*Type_ov001_0215af34)(Struct_ov001_0215af34*, float);
 
 extern "C" float GetScriptValueAsFloat_ov017_021d6110(void*);
-extern "C" double func_02009424(double);
+extern "C" double ComputeSine_02009424(double);
 
 // USA: func_ov001_0215af34
 extern "C" ARM int func_ov001_0215af34(void* arg0) {
     float var0 = GetScriptValueAsFloat_ov017_021d6110(arg0);
-    float var1 = (float)func_02009424((double)(var0));
+    float var1 = (float)ComputeSine_02009424((double)(var0));
     ((Type_ov001_0215af34)func_ov017_021d6148)((Struct_ov001_0215af34*)((char*)arg0 + 0x8), var1);
     return 1;
 }

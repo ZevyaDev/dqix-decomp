@@ -250,8 +250,8 @@ struct Struct_020a13c4;
 extern "C" void ClearAccoladeTable_020a13c4(Struct_020a13c4*);
 extern "C" void func_020a13e4(void* arg0, void* arg1, int arg2, unsigned short arg3, unsigned char arg4);
 extern "C" int func_ov023_021ed724(void* arg0, short* arg1, int arg2);
-struct Struct_020a15bc;
-extern "C" Struct_ov008_02184a4c_6* func_020a15bc(Struct_020a15bc*, int);
+struct AccoladeTable_020a15bc;
+extern "C" Struct_ov008_02184a4c_6* FindAccolade_020a15bc(AccoladeTable_020a15bc*, int);
 extern "C" int func_0201081c(char*);
 extern "C" int func_020d3018(const char* arg0, const char* arg1);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
@@ -554,7 +554,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
                 memset(var45->unknown_c_, 0, 0x38);
                 memset(var45->unknown_44_, 0, REGION_VALUE(0x118, 0x200));
                 var45->unknown_4_ = var45->unknown_44_;
-                Struct_ov008_02184a4c_6* var46 = func_020a15bc((Struct_020a15bc*)arg0->unknown_bc_, var42[0]);
+                Struct_ov008_02184a4c_6* var46 = FindAccolade_020a15bc((AccoladeTable_020a15bc*)arg0->unknown_bc_, var42[0]);
                 var45 = arg0->unknown_b0c_;
                 if (var46 != NULL) {
                     *(unsigned int*)var45 = var46->unknown_0_;

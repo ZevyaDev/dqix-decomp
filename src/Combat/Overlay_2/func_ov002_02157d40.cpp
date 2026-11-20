@@ -70,20 +70,20 @@ struct Struct_02001a40;
 
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_020e2ff8(void);
+extern "C" void* GetWirelessLockTable_020e2ff8(void);
 extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" void* func_0202ae18(void);
 extern "C" int GetLevel_0202053c(void* gameObject);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 extern "C" void func_ov017_021c2b28(void* arg0, unsigned char arg1, unsigned char arg2);
-extern "C" void func_020e3428(void* arg0, int arg1);
+extern "C" void ReleaseWirelessLock_020e3428(void* lockTable, int lockId);
 extern "C" int func_0201b588(int arg0);
 extern "C" int func_0201b5b0(int arg0);
 extern "C" void func_020541a4(struct Struct_ov002_02157d40_5* arg0, unsigned char arg1);
 extern "C" void SetMessageNumber_020465c0(struct Struct_ov002_02157d40_2* window, int index, int number);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 void* LoadFileIntoMemory(const char* path, void* buf, unsigned int* outSize);
-extern "C" void func_02048418(unsigned char* arg0, unsigned short arg1);
+extern "C" void ClearStatusFlags_02048418(unsigned char* gameObject, unsigned short statusFlags);
 extern "C" void func_020a8170(struct Struct_ov002_02157634_6* arg0);
 extern "C" int GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" int func_0202663c(unsigned char* arg0);
@@ -91,7 +91,7 @@ extern "C" void func_02046a3c(struct Struct_ov002_02157d40_9* arg0, struct Struc
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void func_02026644(char* arg0);
 extern "C" void func_ov017_021c2744(struct Struct_ov002_02157d40_13* arg0);
-extern "C" void func_0208247c(void* arg0);
+extern "C" void ClearLevelEntries_0208247c(void* levelEntries);
 extern "C" void func_02048350(struct Struct_ov002_02157d40_8* arg0, int arg1);
 extern "C" void func_ov002_02157ce0(char* arg0);
 extern "C" void SetMessageString_02046574(struct Struct_ov002_02157d40_6* window, int index, char* text);
@@ -106,7 +106,7 @@ extern "C" void func_ov017_021acd30(char* arg0, unsigned char arg1, unsigned cha
 extern "C" int func_02026a78(char* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(struct Struct_ov002_02157d40_7* manager, int soundEffectIndex, int handle);
 struct GameObject;
-extern "C" void func_020e4c74(void*, GameObject*);
+extern "C" void InitMemberNoun_020e4c74(void*, GameObject*);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" int func_02048448(struct Struct_ov002_02157d40_3* arg0, int arg1);
 
@@ -473,7 +473,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     if (var31 != 0) {
                         SetMessageString_02046574((struct Struct_ov002_02157d40_6*)var26, 2, ((struct Struct_ov002_02157d40_17*)var31)->unknown_134_);
 #if !defined(jpn)
-                        func_020e4c74(arg0->unknown_14_, (GameObject*)(Struct_ov002_02157d40*)((GameState*)var2)->GetUnknownGameObject());
+                        InitMemberNoun_020e4c74(arg0->unknown_14_, (GameObject*)(Struct_ov002_02157d40*)((GameState*)var2)->GetUnknownGameObject());
                         *(void**)(var26 + 0x10) = arg0->unknown_14_;
 #endif
                     }
@@ -574,9 +574,9 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     var41 = var40->unknown_150_;
                     sprintf(var0.unknown_a0_, (const char*)&data_ov002_0216cf51, var41->unknown_950_);
                     void* var44 = LoadFileIntoMemory(var0.unknown_a0_, &g_fileScratchSpace, &var0.unknown_c_);
-                    func_0208247c(var0.unknown_104_);
+                    ClearLevelEntries_0208247c(var0.unknown_104_);
                     if (var44 != 0) {
-                        func_02082490(var0.unknown_104_, var44, var0.unknown_c_, GetLevel_0202053c((void*)var40) + 1, 0);
+                        ReadLevelEntries_02082490(var0.unknown_104_, var44, var0.unknown_c_, GetLevel_0202053c((void*)var40) + 1, 0);
                     }
                     BackgroundLoader::RemoveLockGlobal();
                     int var45 = *var38 - inline_ov002_02157d40_3(var40->unknown_150_);
@@ -828,7 +828,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     return;
                 }
             }
-            func_020e3428(func_020e2ff8(), 1);
+            ReleaseWirelessLock_020e3428(GetWirelessLockTable_020e2ff8(), 1);
             arg0->unknown_1c28_ = 0x7535;
             arg0->unknown_1c2a_ = -1;
             int var67 = 0;
@@ -838,7 +838,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
             }
             if (var67) {
                 int* var69 = (int*)func_0202ae18();
-                func_02048418((unsigned char*)var68, 4);
+                ClearStatusFlags_02048418((unsigned char*)var68, 4);
                 if (IsLocalWirelessOn_0202b7d8(var69) != 0) {
                     func_ov017_021c9e00(arg0->unknown_1c21_, 0, 0, 1);
                 }
@@ -878,7 +878,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 arg0->unknown_248a_ = 1;
             }
         } else {
-            func_020e3428(func_020e2ff8(), 1);
+            ReleaseWirelessLock_020e3428(GetWirelessLockTable_020e2ff8(), 1);
             struct Struct_ov002_02157d40_17* var75 = (struct Struct_ov002_02157d40_17*)(Struct_ov002_02157d40*)((GameState*)var2)->GetPartyMemberByIndex(arg0->unknown_1c21_);
             if (var57 != 0) {
                 if (arg0->unknown_1c26_ == 0x1e || arg0->unknown_1c26_ == 0x1f || arg0->unknown_1c26_ == 0x20 || arg0->unknown_1c26_ == 0x21) {

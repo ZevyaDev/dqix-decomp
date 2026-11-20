@@ -18,7 +18,7 @@ extern "C" int GetInventoryItemByID(char *arg0, int arg1, int arg2);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215d864(char *arg0);
 extern "C" void func_ov002_02161b98(char *arg0);
-extern "C" void func_ov002_02156e90(char *arg0);
+extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(char *menu);
 extern "C" void func_ov023_021dc9e8(char *arg0, SafeAllocator *arg1, int arg2, char *arg3, int arg4);
 extern "C" void InitItemInfoPanel_ov023_021dc134(char *panel, int itemId, int isEmbedded);
 extern "C" void AllocateItemInfoPanelBuffers_ov023_021dbfd0(char *panel, SafeAllocator *allocator);
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov002_021642e4(char *arg0) {
         if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + 0x1aea) = -1;
             *(short *) (arg0 + 0x1ab0) = -1;
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
             func_ov023_021dca88(var1);
         }
     }
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov002_021642e4(char *arg0) {
         if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + 0x1c22) = -1;
             *(short *) (arg0 + 0x1be8) = -1;
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
             func_ov023_021dca88(arg0 + 0x50);
         }
     }

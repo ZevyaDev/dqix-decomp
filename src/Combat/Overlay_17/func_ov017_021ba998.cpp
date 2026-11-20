@@ -30,7 +30,7 @@ extern "C" short func_0206f7f4(Struct_0206f7f4*, int);
 extern "C" void func_ov003_02158bb8(Struct_ov017_021ba998*);
 extern "C" void func_ov003_02159174(void*, unsigned char);
 extern "C" void func_ov003_02158a84(Struct_ov017_021ba998*, SafeAllocator*);
-extern "C" int func_ov017_021959b4();
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4();
 extern "C" void func_ov003_02159240(void*);
 extern "C" int func_ov003_02158e94(Struct_ov017_021ba998*, int);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(void*, int, int, int, int);
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov017_021ba998(Struct_ov017_021ba998_2* arg0) {
         func_ov003_02158a84(arg0->unknown_1c_, &arg0->unknown_8_);
         ++arg0->unknown_22_;
     } else if (arg0->unknown_22_ == 1) {
-        if (func_ov017_021959b4()) func_ov003_02159240(arg0->unknown_1c_);
+        if (IsLocalWirelessHostDisconnected_ov017_021959b4()) func_ov003_02159240(arg0->unknown_1c_);
         if (func_ov003_02158e94(arg0->unknown_1c_, var4)) ++arg0->unknown_22_;
     } else if (arg0->unknown_22_ == 2) {
         RebuildFieldPartyOrder_ov017_02191108(GetGameResources(), 1, 1, 1, 1);

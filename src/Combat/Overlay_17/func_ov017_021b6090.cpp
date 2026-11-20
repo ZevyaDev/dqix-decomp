@@ -15,7 +15,7 @@
 struct Struct_02015ef4 { unsigned int unknown_0_[3]; };
 extern "C" int func_0202ec84(void* camera, struct Struct_02015ef4* worldPosition, int* outX, int* outY);
 
-struct Struct_02015ef4_2;
+struct SPRSprite_02015ef4_2;
 
 struct Struct_ov017_021b6090 {
     char unknown_0_[0x16];
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov017_021b6090(struct Struct_ov017_021b6090* arg0) {
     *(int*)(var5 + 0x1c) = var6;
     *(int*)(var5 + 0x20) = var7;
     *(int*)(var5 + 0x24) = 0;
-    ((SPRSprite*)((struct Struct_02015ef4_2*)var5))->DrawAnimatedNoRotation(1);
+    ((SPRSprite*)((struct SPRSprite_02015ef4_2*)var5))->DrawAnimatedNoRotation(1);
 
     unsigned char var8 = arg0->unknown_16_;
     unsigned short var9 = (var8 > 0x1f) ? 0x1f : var8;

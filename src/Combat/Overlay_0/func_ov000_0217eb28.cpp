@@ -54,7 +54,7 @@ struct Struct_ov000_0217e870_2 {
     unsigned char unknown_f7c_;
 };
 extern Struct_02109bf4_5 gMusicManager_02109bf4;
-extern "C" int func_0209ca2c(void*);
+extern "C" int IsJinglePlaying_0209ca2c(void*);
 extern "C" void func_0209c73c(Struct_02109bf4_5*);
 extern "C" int HitTestCursorWindowTouch_0205d97c(void*);
 extern "C" int func_ov000_021815c8(void*);
@@ -73,7 +73,7 @@ extern "C" void SetTextWindowVisible_0205def8(TextWindowManager_0205def8*, int, 
 // USA: func_ov000_0217eb28
 extern "C" ARM void func_ov000_0217eb28(Struct_ov004_021707e8* arg0, int arg1, int arg2) {
     if (arg0->unknown_1d7a_) {
-        if (func_0209ca2c(&gMusicManager_02109bf4)) return;
+        if (IsJinglePlaying_0209ca2c(&gMusicManager_02109bf4)) return;
         func_0209c73c(&gMusicManager_02109bf4);
     }
     int var0 = g_keyManager.TestKeysPressed(0x601);

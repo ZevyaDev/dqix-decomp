@@ -2,7 +2,7 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-extern "C" int func_ov024_021edf00(int* arg0, int arg1, short* arg2);
+extern "C" int GetEnragedTarget_ov024_021edf00(int* targetSelector, int actorIndex, short* targetIndices);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" void ChooseEnemyActionTargets_ov024_021ed8c0(void* targetSelector, int actorIndex, int action, int* count, short* targetIndices);
 
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov024_021edfa0(int* arg0, int arg1, int arg2, int* arg3,
 		*var5 = *var3++;
 	} while (--var4);
 
-	int var6 = func_ov024_021edf00(arg0, arg1, var1);
+	int var6 = GetEnragedTarget_ov024_021edf00(arg0, arg1, var1);
 	if (var6 <= 0) {
 		var6 = CollectPartyCombatantIndices_ov000_0215e9fc(*arg0, var1, 4, 1);
 		if (var6 <= 0) return 0;

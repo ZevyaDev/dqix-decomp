@@ -2,12 +2,12 @@
 
 struct MenuLayout_0207fdcc_2;
 
-extern "C" unsigned char* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
+extern "C" unsigned char* FindMenuLayoutWindow_02081da8(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 
 // USA: func_020811e8
 extern "C" ARM int func_020811e8(struct MenuLayout_0207fdcc_2* arg0, int arg1) {
-    unsigned char* var0 = func_02081da8(arg0, arg1);
+    unsigned char* var0 = FindMenuLayoutWindow_02081da8(arg0, arg1);
     if (var0 != NULL) {
         return IsTextWindowOpen_0204c7e0(var0) != 0;
     }

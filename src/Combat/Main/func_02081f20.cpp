@@ -16,7 +16,7 @@ struct KeyRepeat_02081f20_2 {
     signed char unknown_8_;
 };
 
-extern "C" void func_0208203c(struct KeyRepeat_02081f20_2* arg0);
+extern "C" void ResetKeyRepeat_0208203c(struct KeyRepeat_02081f20_2* keyRepeat);
 
 // USA: UpdateKeyRepeat_02081f20
 extern "C" ARM unsigned short UpdateKeyRepeat_02081f20(struct KeyRepeat_02081f20_2* keyRepeat, int elapsedFrames) {
@@ -53,7 +53,7 @@ extern "C" ARM unsigned short UpdateKeyRepeat_02081f20(struct KeyRepeat_02081f20
             }
             goto end;
         }
-        func_0208203c(keyRepeat);
+        ResetKeyRepeat_0208203c(keyRepeat);
     }
 end:
     return keyRepeat->unknown_0_->event_2_;

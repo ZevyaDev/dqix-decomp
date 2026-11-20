@@ -42,7 +42,7 @@ extern "C" int ReadBrightnessRegister_020c39c8(volatile unsigned short* reg);
 struct SoundEffectManager_02108760;
 extern "C" int PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void ResetMessageWindow_02043204(char* window);
-extern "C" void* func_020d7a50(void);
+extern "C" void* GetTimedMessageQueue_020d7a50(void);
 struct TimedMessageQueue_020d7aa0_2;
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2* queue);
 extern "C" void* GetZone3D_02012fe4(void);
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov017_021c05f4(void* arg0, unsigned char arg1, unsigned
         if (*(int*)((char*)var0 + Enum_ov017_021c05f4_2456) != 0) ResetMessageWindow_02043204((char*)var0);
     }
 
-    void* var4 = func_020d7a50();
+    void* var4 = GetTimedMessageQueue_020d7a50();
     ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)var4);
     func_02017c58(GetZone3D_02012fe4());
 

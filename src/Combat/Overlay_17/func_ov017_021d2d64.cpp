@@ -76,7 +76,7 @@ extern "C" void func_ov017_021d35f8(Struct_ov017_021d2d64_2* arg0);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
-extern "C" void* func_020d7a50(void);
+extern "C" void* GetTimedMessageQueue_020d7a50(void);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int GetMessageWindow_020421a0(void);
@@ -85,7 +85,7 @@ extern "C" int func_ov017_0218b628(signed char);
 extern "C" void func_ov017_0218b5c0(int arg0, signed char arg1);
 extern "C" void func_ov017_02191ba0(char*, int, int);
 extern "C" void DisableInputForDuration_020e1154(void* durationMs);
-extern "C" int func_02048418(unsigned char* arg0, unsigned short arg1);
+extern "C" int ClearStatusFlags_02048418(unsigned char* gameObject, unsigned short statusFlags);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void __clear(void* arg0, unsigned int arg1);
 extern "C" void ClearMessageParams_02046380(void* window);
@@ -166,7 +166,7 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
         }
 
         if (var19) {
-            var3 = (Struct_ov017_021d2d64_7*)func_020d7a50();
+            var3 = (Struct_ov017_021d2d64_7*)GetTimedMessageQueue_020d7a50();
             var19 = 1;
             if (IsQueueEmpty_02046b08((void**)var5) == 0) var19 = 0;
             if (IsTypeInQueue_02046b60(var5, 0x1a)) var19 = 1;
@@ -245,7 +245,7 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
                         }
                     }
                 } else if (var8.unknown_1_ == 3) {
-                    if (func_02048418((unsigned char*)var24, 2) == 0) {
+                    if (ClearStatusFlags_02048418((unsigned char*)var24, 2) == 0) {
                         var25->unknown_0_0_ = 0;
                     } else {
                         var25->unknown_0_0_ = 1;
@@ -254,7 +254,7 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
                     }
                 }
                 if (var8.unknown_2_ == 3) {
-                    if (func_02048418((unsigned char*)var24, 2) == 0) {
+                    if (ClearStatusFlags_02048418((unsigned char*)var24, 2) == 0) {
                         var25->unknown_1_3_ = 0;
                     } else {
                         var25->unknown_1_3_ = 1;

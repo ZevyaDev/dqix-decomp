@@ -31,7 +31,7 @@ extern "C" int SelectPartyOrEnemyMessage_ov024_021da644(int, int, int);
 void ApplyCombatantBuffs(int, int);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
-extern "C" void func_ov000_0215cd44(void*, void*, GameObject*, int, int, int, int);
+extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void*, void*, GameObject*, int, int, int, int);
 
 struct Struct_ov024_021df454 {
     char unknown_0_[0x1c];
@@ -134,6 +134,6 @@ extern "C" ARM void* func_ov024_021df454(Struct_ov024_021df454_3* arg0, int arg1
     void* var3 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var3) return 0;
     AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var3, (unsigned short)var2);
-    func_ov000_0215cd44(arg0->unknown_10_, var3, var0, 0, 0, 0, arg0->unknown_c_->unknown_1c_7_ != 0);
+    SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var3, var0, 0, 0, 0, arg0->unknown_c_->unknown_1c_7_ != 0);
     return var3;
 }

@@ -60,8 +60,8 @@ extern "C" struct Struct_ov003_021592d8* func_02053c6c(unsigned char* gameObject
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2* window, int index, char* text);
-extern "C" void* func_0208247c(void* arg0);
-extern "C" int func_02082490(void* arg0, void* arg1, unsigned int arg2, int arg3, int arg4);
+extern "C" void* ClearLevelEntries_0208247c(void* levelEntries);
+extern "C" int ReadLevelEntries_02082490(void* destination, void* scriptData, unsigned int scriptSize, int level, int experience);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 extern "C" void func_02046608(void* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
@@ -97,9 +97,9 @@ extern "C" ARM void func_ov003_021592d8(struct Struct_ov003_021592d8_6* arg0, st
         BackgroundLoader::AddLockGlobal();
         void* var7 = LoadFileIntoMemory(var5, g_fileScratchSpace, &var6);
         struct Struct_ov003_021592d8_4 var8;
-        func_0208247c(&var8);
+        ClearLevelEntries_0208247c(&var8);
         if (var7 != NULL) {
-            func_02082490(&var8, var7, var6, var1->unknown_16c_[var2] + 1, 0);
+            ReadLevelEntries_02082490(&var8, var7, var6, var1->unknown_16c_[var2] + 1, 0);
         }
         struct Struct_ov003_021592d8_4* var9 = &var8;
         int var10 = 0;

@@ -19,8 +19,8 @@ struct Struct_0201099c {
     Struct_02082064 unknown_10_;
 };
 
-struct Struct_0201099c_2 {
-    Struct_0201099c unknown_0_;
+struct LevelEntries_0201099c_2 {
+    Struct_0201099c requestedLevelEntry_0_;
     Struct_0201099c reachedLevelEntry_14_;
     Struct_0201099c levelUpGains_28_;
     unsigned char unknown_3c_[0x16];
@@ -28,4 +28,4 @@ struct Struct_0201099c_2 {
 
 extern Script::OpcodeLookupEntry data_020f0ff8[];
 
-extern "C" int func_02082490(void *arg0, void *arg1, unsigned int arg2, int arg3, int arg4);
+extern "C" int ReadLevelEntries_02082490(void *destination, void *scriptData, unsigned int scriptSize, int level, int experience);

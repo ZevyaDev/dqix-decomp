@@ -8,11 +8,11 @@
 #define func_020c51a4 func_020c6c70
 #endif
 
-struct Struct_02015ef4_2 { char unknown_0_[0x88]; };
-struct Struct_0201730c_2 { char unknown_0_[0x88]; };
+struct SPRSprite_02015ef4_2 { char unknown_0_[0x88]; };
+struct SPRSprite_0201730c_2 { char unknown_0_[0x88]; };
 union Struct_02096c38 {
-    Struct_02015ef4_2 unknown_0_;
-    Struct_0201730c_2 unknown1_0_;
+    SPRSprite_02015ef4_2 unknown_0_;
+    SPRSprite_0201730c_2 unknown1_0_;
 };
 struct Struct_020968d0 {
     Struct_02096c38 unknown_0_[4];

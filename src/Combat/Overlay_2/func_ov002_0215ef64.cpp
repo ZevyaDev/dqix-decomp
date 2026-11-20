@@ -16,7 +16,7 @@ struct ItemTable_0201099c_10;
 struct Struct_0201099c_3;
 struct Struct_02046574_2;
 struct ItemBag_0207cf30_3;
-struct Struct_020a0b8c;
+struct ItemBag_020a0b8c;
 struct MessageWindow_020465c0;
 extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
@@ -33,7 +33,7 @@ extern "C" void SetMessageString_02046574(struct Struct_02046574_2 *window, int 
 extern "C" void func_020474a8(void *arg0, int arg1, const char *arg2, char *arg3);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int func_02042428(char *arg0, int arg1);
-extern "C" int func_020a0b8c(struct Struct_020a0b8c *arg0);
+extern "C" int CountUsedBagSlots_020a0b8c(struct ItemBag_020a0b8c *bag);
 extern "C" int GetBagItemCount_020a0b3c(ItemBag_0207cf30_3 *bag, int itemId);
 extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" int sprintf(char *arg0, const char *arg1, ...);
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov002_0215ef64(char *arg0, char *arg1, int arg2) {
         var18   = var19 + 8;
         int var20 = func_ov002_02157108(arg0, var7);
         if (var18 > var20) var18 = var20;
-        var12 = (func_020a0b8c((struct Struct_020a0b8c *) var6) + 7) / 8;
+        var12 = (CountUsedBagSlots_020a0b8c((struct ItemBag_020a0b8c *) var6) + 7) / 8;
         for (; var19 < var18; var19++) {
             ClearMessageParams_02046380(var5);
             SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var5, 0, var19);

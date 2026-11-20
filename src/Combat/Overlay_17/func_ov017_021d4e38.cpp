@@ -57,7 +57,7 @@ extern "C" void func_ov017_021d4ad8(Struct_ov017_021d4e38_2* arg0, float arg1);
 extern "C" void func_0200159c(int arg0) __attribute__((noreturn));
 extern "C" void func_02001878(void* arg0);
 extern "C" float _d2f(double v);
-extern "C" double func_02009424(double arg0);
+extern "C" double ComputeSine_02009424(double angle);
 extern "C" double func_02008dcc(double arg0);
 extern int data_020eec2c;
 
@@ -353,9 +353,9 @@ extern "C" ARM void func_ov017_021d4e38(Struct_ov017_021d4e38_2* arg0, Struct_ov
 		case 29:
 			var1 = inline_ov017_021d4e38(arg0);
 			if (var1.unknown_0_ == 0) {
-				PushFloat(arg0, _d2f(func_02009424((double)((float)var1.unknown_4_))));
+				PushFloat(arg0, _d2f(ComputeSine_02009424((double)((float)var1.unknown_4_))));
 			} else if (var1.unknown_0_ == 1) {
-				PushFloat(arg0, _d2f(func_02009424((double)(var1.unknown1_4_))));
+				PushFloat(arg0, _d2f(ComputeSine_02009424((double)(var1.unknown1_4_))));
 			} else {
 				func_0200159c(-1);
 			}

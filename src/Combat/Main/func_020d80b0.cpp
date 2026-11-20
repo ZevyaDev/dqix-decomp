@@ -156,7 +156,7 @@ extern "C" ARM void func_020d80b0(Struct_020d80b0_3* arg0) {
     } else if (arg0->unknown_8_ == 7) {
         EnablePlayerControl_020397c0(var3);
         FontLoader_0208cb08* var12 = GetFontLoader_02094a00();
-        func_02094b38(var12, 0x203);
+        ClearLoadedFontSet_02094b38(var12, 0x203);
         CancelFontLoad_02094ab0(var12);
         if (var5 && !var5->unknown_c_low_) func_020d8484(arg0);
         else {

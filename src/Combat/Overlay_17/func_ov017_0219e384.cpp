@@ -293,7 +293,7 @@ extern "C" int func_0209cae8(Struct_0209cae8*);
 struct MusicManager_02109bf4_4;
 extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4*, int);
 extern "C" int func_0203adfc(void* arg0, void* arg1);
-extern "C" void func_0203ad88(void* arg0, void* arg1, int arg2);
+extern "C" void StopStream_0203ad88(void* manager, void* handle, int fadeDuration);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 struct Struct_02018300_3;
@@ -307,7 +307,7 @@ extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* tri
 extern "C" void func_0206f81c(void* arg0);
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
-extern "C" void StopGesture_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* gameObject);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" void* func_020daf90(void);
 struct Queue_02038598_5;
@@ -341,7 +341,7 @@ extern "C" void* func_0208e0a8(void);
 extern "C" void func_0208e520(void* arg0, void* arg1);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" char* strcpy(char* arg0, const char* arg1);
-extern "C" int func_020981e4(int, int);
+extern "C" int IsQuestersRestZone_020981e4(int, int);
 extern "C" int func_02098210(int, int);
 extern "C" void* func_0208e9e8(void);
 extern "C" signed char* GetFollowCamera_020100f8(char*);
@@ -413,7 +413,7 @@ extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void func_ov017_021a7a74(void* arg0, struct Struct_ov017_0219e384_7* arg1);
 extern "C" int SetFieldMonsterState_02076ccc(void* monster, int state);
 extern "C" void func_020a72ac(void* arg0, unsigned char arg1);
-extern "C" void* func_020936f8(void);
+extern "C" void* GetNoticeQueue_020936f8(void);
 extern "C" void QueueNotice_02094030(void* noticeQueue, int noticeId, int arg2, int memberIndex);
 
 extern int gMusicManager_02109bf4;
@@ -482,7 +482,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 				StopMusic_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
 			}
 			if (func_0203adfc(&gSoundEffectManager_02108760, 0) != 0) {
-				func_0203ad88(&gMusicManager_02109bf4, 0, 0);
+				StopStream_0203ad88(&gMusicManager_02109bf4, 0, 0);
 				arg0->unknown_a_ = 1;
 			}
 			var25 = *(unsigned short*)((char*)var3->unknown_130_ + 4);
@@ -745,7 +745,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 		{
 			unsigned short var53 = var6->currentZoneID_;
 			data_ov017_021d75b8.unknown_4_ = -1;
-			if (func_020981e4((int)var8, var53) != 0 &&
+			if (IsQuestersRestZone_020981e4((int)var8, var53) != 0 &&
 			    func_02098210((int)var8, var53) == 0 &&
 			    IsLocalWirelessGuest_0202c540(var13) != 0) {
 				unsigned char* var54 = (unsigned char*)var8;
@@ -1160,7 +1160,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			VectorizedMemset(&arg0->unknown_12_, 0, 0xe);
 		}
 		if (*(short*)(var1 + Enum_ov017_0219e384_17586) >= 0) {
-			void* var100 = func_020936f8();
+			void* var100 = GetNoticeQueue_020936f8();
 			QueueNotice_02094030(var100, *(short*)(var1 + Enum_ov017_0219e384_17586), -1, 0);
 			*(short*)(var1 + Enum_ov017_0219e384_17586) = -1;
 		}

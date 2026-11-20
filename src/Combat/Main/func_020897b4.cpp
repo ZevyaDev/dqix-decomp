@@ -25,7 +25,7 @@ extern char data_020f1019[];
 extern char data_020f102e[];
 
 extern "C" int func_02053c6c(unsigned char* gameObject);
-extern "C" void* func_0208247c(void* arg0);
+extern "C" void* ClearLevelEntries_0208247c(void* levelEntries);
 extern "C" int func_0208274c(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3);
 extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
 extern "C" void func_02083e28(void* arg0, int arg1);
@@ -61,7 +61,7 @@ struct Struct_020897b4_3 {
 extern "C" ARM void func_020897b4(unsigned char arg0, unsigned char arg1, int arg2, unsigned char arg3,
                                  unsigned char arg4, void* arg5, unsigned int arg6, void* arg7, unsigned int arg8) {
     char var0[0x50];
-    Struct_0201099c_2 var1;
+    LevelEntries_0201099c_2 var1;
     char var2[0x600];
     unsigned int var5;
     Struct_02086f24_6 var6;
@@ -82,16 +82,16 @@ extern "C" ARM void func_020897b4(unsigned char arg0, unsigned char arg1, int ar
         arg6 = var5;
     }
 
-    func_0208247c(&var1);
+    ClearLevelEntries_0208247c(&var1);
     func_0208274c(&var1, (Struct_02013fb4*)arg5, arg6, arg1);
 
-    Struct_0201099c_2* const var8 = &var1;
+    LevelEntries_0201099c_2* const var8 = &var1;
     Struct_020897b4* var9 = reinterpret_cast<Struct_020897b4*>(func_02053c6c((unsigned char*)var7));
     var9->unknown_954_ |= 1 << arg2;
     var9->unknown_950_ = arg2;
     var9->unknown_16c_[arg2] = arg1;
-    var9->unknown_138_[arg2] = var8->unknown_0_.requiredExperience_0_0_;
-    var9->unknown_564_ = var8->unknown_0_.unknown_4_7_;
+    var9->unknown_138_[arg2] = var8->requestedLevelEntry_0_.requiredExperience_0_0_;
+    var9->unknown_564_ = var8->requestedLevelEntry_0_.unknown_4_7_;
     func_02083cbc(var9, var8, var1.unknown_3c_);
 
     if (arg4 != 0) {

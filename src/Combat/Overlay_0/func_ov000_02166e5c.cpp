@@ -130,7 +130,7 @@ extern "C" Struct_ov000_02166e5c_3* func_020d3d90(Struct_020d3d90*, int);
 extern "C" int sprintf(char*, const char*, ...);
 extern "C" void func_02083cbc(Struct_ov000_02166e5c_6*, Struct_ov000_02166e5c_5*, void*);
 extern "C" void func_02083e28(Struct_ov000_02166e5c_6*, int);
-extern "C" void func_02083ca0(unsigned char*, int);
+extern "C" void SetVocation_02083ca0(unsigned char*, int);
 extern "C" void func_02083c18(char*);
 extern "C" void LearnSpell_02083b60(unsigned char*, int);
 extern "C" void func_020a35cc(unsigned char*, unsigned char);
@@ -142,7 +142,7 @@ extern "C" void func_0208936c(char*, char*, char*);
 extern "C" void func_020114c0(char*, int, void*);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 extern const char data_ov000_02183aa5[], data_ov000_021839e2[], data_ov000_02183abe[];
-extern const char data_020ef078[];
+extern const char gStringFormat_020ef078[];
 extern const Struct_ov000_02183014 data_ov000_02183014;
 
 // USA: func_ov000_02166e5c
@@ -218,7 +218,7 @@ extern "C" ARM void func_ov000_02166e5c(Struct_ov000_02166e5c* arg0) {
     func_020d3c08((char*)&var12);
     func_020d3c28((Struct_02061c04_12*)&var12);
     Struct_ov000_02166e5c_3* var13 = func_020d3d90((Struct_020d3d90*)&var12, 1);
-    sprintf(var11->unknown_3c_, data_020ef078, var13);
+    sprintf(var11->unknown_3c_, gStringFormat_020ef078, var13);
     Struct_ov000_02166e5c_5 var14;
     var14.unknown_0_0_ = 0;
     var14.unknown_4_7_ = 0;
@@ -236,7 +236,7 @@ extern "C" ARM void func_ov000_02166e5c(Struct_ov000_02166e5c* arg0) {
     func_02083e28(var11, 0);
     var6->unknown_130_->maxHP = var6->unknown_134_->primaryStats.maxHP;
     var6->unknown_130_->maxMP = var6->unknown_134_->primaryStats.maxMP;
-    func_02083ca0((unsigned char*)var11, 0);
+    SetVocation_02083ca0((unsigned char*)var11, 0);
     func_02083c18((char*)var11);
     LearnSpell_02083b60((unsigned char*)var11, var13->unknown_13_);
     var11->unknown_16c_[0] = var13->unknown_12_;

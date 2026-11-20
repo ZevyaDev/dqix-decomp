@@ -15,7 +15,7 @@ struct Struct_02108760_2;
 extern "C" void func_0205e9f4(struct Struct_02108760_2* arg0, int arg1);
 extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
 extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
-extern "C" void SetTitleState_02012010(void* arg0, int state);
+extern "C" void SetTitleState_02012010(void* gameState, int state);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
 #if defined(jpn)

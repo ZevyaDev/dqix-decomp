@@ -62,7 +62,7 @@ struct Struct_ov017_021a9bf8 {
     unsigned short unknown_270_;
 };
 extern "C" unsigned char* GetFollowCamera_020100f8(char*);
-extern "C" int func_ov017_021959b4();
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4();
 extern "C" void func_ov017_021a9f58(int);
 extern "C" void DisableCameraTurning_020a27b8(unsigned char*);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
@@ -70,8 +70,8 @@ extern "C" void func_020e11a4();
 extern "C" char* GetMessageWindow_020421a0();
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" unsigned char func_02011804(GameState* arg0);
-extern "C" void func_020ac760(void*);
-extern "C" void func_020ac734(void*);
+extern "C" void GetTreasureMaps_020ac760(void*);
+extern "C" void SetTreasureMaps_020ac734(void*);
 extern "C" void StartMessage_0204500c(char*, char*, int
 #if !defined(jpn)
     , int
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
     Struct_ov017_021a9bf8_2 var2;
     Struct_02011818 var3;
     unsigned char var4[0x34];
-    if (func_ov017_021959b4()) { func_ov017_021a9f58((int)arg0); return; }
+    if (IsLocalWirelessHostDisconnected_ov017_021959b4()) { func_ov017_021a9f58((int)arg0); return; }
     GameObject* var5 = var0->GetUnknownGameObject();
     if (!var5) { arg0->unknown_1_ = 1; return; }
     if (arg0->unknown_8_ == 0) {
@@ -129,11 +129,11 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
 #endif
             arg0->unknown_8_ = 2;
         } else {
-            func_020ac760(&var2);
+            GetTreasureMaps_020ac760(&var2);
             VectorizedMemset(&var2.unknown_2_[var2.unknown_0_], 0, 0x1c);
             VectorizedInvertedMemcpy(&arg0->unknown_a_, &var2.unknown_2_[var2.unknown_0_], 0x1c);
             var2.unknown_0_++;
-            func_020ac734(&var2);
+            SetTreasureMaps_020ac734(&var2);
 #if defined(jpn)
             strcat(var8, data_ov017_021d7ccb);
 #else

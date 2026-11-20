@@ -11,57 +11,57 @@
 struct TextWindowManager_0205d0e0_2;
 struct TextWindowManager_0205d6a0;
 struct TextWindowManager_0205d81c;
-struct Struct_ov002_02156e90 {
+struct TextWindow_ov002_02156e90 {
     char unknown_0_[0xc4];
-    unsigned char unknown_c4_;
+    unsigned char id_c4_;
 };
-extern "C" struct Struct_ov002_02156e90 *GetLastOpenedTextWindow_0205d888(struct TextWindowManager_0205d0e0_2 *windowManager);
+extern "C" struct TextWindow_ov002_02156e90 *GetLastOpenedTextWindow_0205d888(struct TextWindowManager_0205d0e0_2 *windowManager);
 extern "C" void *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0 *windowManager, int isAll);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(void *menu);
-extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
+extern "C" void RebuildMenuWindowText_ov002_0215b9a4(void *menu, int windowId, int hasCursorMark);
 extern "C" const unsigned char data_ov002_0216c99d[];
 extern "C" const unsigned char data_ov002_0216c99e[];
 
-// USA: func_ov002_02156e90
-extern "C" ARM void func_ov002_02156e90(char *arg0) {
-    int var0              = 1;
-    struct Struct_ov002_02156e90 *var1 = GetLastOpenedTextWindow_0205d888((struct TextWindowManager_0205d0e0_2 *) (arg0 + RG(0xec8, 0xe20)));
-    if (var1 != NULL) {
-        for (int var2 = 0; var2 < 8; var2++) {
-            unsigned char var3 = var1->unknown_c4_;
-            unsigned char var4 = data_ov002_0216c99d[var2 * 2];
-            if (var4 == var3) {
-                var0 = 2;
+// USA: ReturnToPreviousMenuWindow_ov002_02156e90
+extern "C" ARM void ReturnToPreviousMenuWindow_ov002_02156e90(char *menu) {
+    int closeCount              = 1;
+    struct TextWindow_ov002_02156e90 *topWindow = GetLastOpenedTextWindow_0205d888((struct TextWindowManager_0205d0e0_2 *) (menu + RG(0xec8, 0xe20)));
+    if (topWindow != NULL) {
+        for (int i = 0; i < 8; i++) {
+            unsigned char topWindowId = topWindow->id_c4_;
+            unsigned char pairedWindowId = data_ov002_0216c99d[i * 2];
+            if (pairedWindowId == topWindowId) {
+                closeCount = 2;
                 break;
             }
-            if (var3 >= RG(0x2c, 0x2f) && var3 <= RG(0x2f, 0x32)) {
-                var0 = 0;
-                for (unsigned char var5 = RG(0x2c, 0x2f); var5 <= RG(0x2f, 0x32); var5++) {
-                    if (FindTextWindow_0205d81c((struct TextWindowManager_0205d81c *) (arg0 + RG(0xec8, 0xe20)), var5) != NULL) {
-                        var0++;
+            if (topWindowId >= RG(0x2c, 0x2f) && topWindowId <= RG(0x2f, 0x32)) {
+                closeCount = 0;
+                for (unsigned char groupWindowId = RG(0x2c, 0x2f); groupWindowId <= RG(0x2f, 0x32); groupWindowId++) {
+                    if (FindTextWindow_0205d81c((struct TextWindowManager_0205d81c *) (menu + RG(0xec8, 0xe20)), groupWindowId) != NULL) {
+                        closeCount++;
                     }
                 }
                 break;
             }
         }
     }
-    for (int var6 = 0; var6 < var0; var6++) {
-        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0 *) (arg0 + RG(0xec8, 0xe20)), 0);
+    for (int i = 0; i < closeCount; i++) {
+        CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0 *) (menu + RG(0xec8, 0xe20)), 0);
     }
-    var1 = GetLastOpenedTextWindow_0205d888((struct TextWindowManager_0205d0e0_2 *) (arg0 + RG(0xec8, 0xe20)));
-    if (var1 == NULL) return;
-    *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) = var1->unknown_c4_;
-    ConfigureMenuCursors_ov002_02161cf0(arg0);
-    for (int var7 = 0; var7 < 8; var7++) {
-        unsigned char var8 = data_ov002_0216c99d[var7 * 2];
-        if (var8 == var1->unknown_c4_) {
-            unsigned char var9 = data_ov002_0216c99e[var7 * 2];
-            FindTextWindow_0205d81c((struct TextWindowManager_0205d81c *) (arg0 + RG(0xec8, 0xe20)), var9);
-            SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + RG(0xec8, 0xe20)), var9, 0);
+    topWindow = GetLastOpenedTextWindow_0205d888((struct TextWindowManager_0205d0e0_2 *) (menu + RG(0xec8, 0xe20)));
+    if (topWindow == NULL) return;
+    *(int *) (menu + 0x1000 + RG(0xbb8, 0xa80)) = topWindow->id_c4_;
+    ConfigureMenuCursors_ov002_02161cf0(menu);
+    for (int i = 0; i < 8; i++) {
+        unsigned char pairedWindowId = data_ov002_0216c99d[i * 2];
+        if (pairedWindowId == topWindow->id_c4_) {
+            unsigned char companionWindowId = data_ov002_0216c99e[i * 2];
+            FindTextWindow_0205d81c((struct TextWindowManager_0205d81c *) (menu + RG(0xec8, 0xe20)), companionWindowId);
+            SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (menu + RG(0xec8, 0xe20)), companionWindowId, 0);
             break;
         }
     }
-    func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) & 0xff, 0);
+    RebuildMenuWindowText_ov002_0215b9a4(menu, *(int *) (menu + 0x1000 + RG(0xbb8, 0xa80)) & 0xff, 0);
 }

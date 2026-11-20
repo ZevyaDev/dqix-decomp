@@ -167,7 +167,7 @@ struct Struct_ov017_021941fc_3 {
 extern "C" struct LocalWireless_0202b2f0* func_0202ae18(void);
 extern "C" void* func_0205ec34(void);
 extern "C" void* func_020d6c00(void);
-extern "C" int* func_020936f8(void);
+extern "C" int* GetNoticeQueue_020936f8(void);
 extern "C" void* func_020e3580(void);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" void func_ov017_021cd6d8(struct Struct_02061c04_10* arg0);
@@ -228,7 +228,7 @@ struct Vector3i;
 extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
-extern "C" void StopGesture_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* gameObject);
 extern "C" GameObject* func_0200ffe0(GameState* arg0, int arg1);
 extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
 extern "C" void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int isHeld);
@@ -267,7 +267,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
     arg2 = *(void***)(arg0 + 0x3000 + Enum_ov017_021941fc_1788);
     var12 = func_0205ec34();
     var9 = func_020d6c00();
-    var13 = func_020936f8();
+    var13 = GetNoticeQueue_020936f8();
     arg1 = *(unsigned char**)(arg0 + 0x3000 + Enum_ov017_021941fc_1844);
     var14 = (unsigned char*)func_020e3580();
     if (IsQueueEmpty_02046b08(arg2) != 0 && *(unsigned short*)(arg0 + Enum_ov017_021941fc_17408 + Enum_ov017_021941fc_172) != 0) {
@@ -291,7 +291,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
                 func_ov017_0219577c(0, 0, 0);
             } else {
                 func_ov017_0219593c();
-                func_020939dc(func_020936f8());
+                func_020939dc(GetNoticeQueue_020936f8());
             }
             var15 = 1;
         } else if (IsQueueEmpty_02046b08(arg2) != 0 && *(unsigned char*)(arg0 + 0x4000 + Enum_ov017_021941fc_738) != 0) {
@@ -326,7 +326,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
         for (int var18 = 1; var18 < 4; var18++) {
             if (IsLocalWirelessPlayerDisconnected_0202c578(var7, var18) == 0) continue;
             if (func_0202c758(var7, var18) != 0) continue;
-            QueueNotice_02094030(func_020936f8(), 3, var17, var18);
+            QueueNotice_02094030(GetNoticeQueue_020936f8(), 3, var17, var18);
             func_ov017_021d1810(3, var17, var18);
             func_ov017_021cea34(var18);
             func_0202c6dc(var7, var18);
@@ -549,7 +549,7 @@ dispatched:
         if (var40 == 0 && TestFlags00((GameResources*)arg0, 0x200) != 0) continue;
         if (IsLocalWirelessPlayerJoined_0202c1c0(var7, var40) == 0) continue;
         if (var40 == GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var7)) continue;
-        Struct_0202b2f0_2* var41 = func_0202c178(var7, var40);
+        Struct_0202b2f0_2* var41 = GetLocalWirelessPlayerRecord_0202c178(var7, var40);
         if (var41 == NULL) continue;
         GameObject* var42 = var6->GetPartyMemberByIndex(var40);
         if (var42 == NULL) continue;

@@ -26,7 +26,7 @@ extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth
 extern "C" int* GetBGVRAMManager_0203b628();
 extern "C" void func_0203b678(int* arg0, int arg1, int arg2);
 extern "C" void func_0203b66c(char*);
-extern "C" void func_0203b634(char*);
+extern "C" void ResetBGVRAMManager_0203b634(char*);
 struct BGLayer_02020cb8_5;
 struct BGLayer_0204b12c;
 struct BGLayer_0204af38;
@@ -195,7 +195,7 @@ extern "C" ARM int func_ov005_0215436c(Struct_ov005_0215436c_3* arg0) {
         int* var16 = GetBGVRAMManager_0203b628();
         func_0203b678(var16, 0, 1);
         func_0203b66c((char*)var16);
-        func_0203b634((char*)var16);
+        ResetBGVRAMManager_0203b634((char*)var16);
 
         ((BGLayer*)((unsigned char*)&arg0->unknown_e84_[0]))->ConfigureTextMode(0);
         arg0->unknown_e84_[0].unknown_1c_0_ = 0;

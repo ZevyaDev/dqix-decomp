@@ -2,7 +2,7 @@
 #include "Resource/GameStrings.h"
 
 struct Struct_0214e34c;
-extern "C" struct Struct_0214e34c* func_020d7a50();
+extern "C" struct Struct_0214e34c* GetTimedMessageQueue_020d7a50();
 struct TimedMessageQueue_020d7aa0_2;
 extern "C" void ClearTimedMessageQueue_020d7aa0(struct TimedMessageQueue_020d7aa0_2* queue);
 extern "C" int GetMessageWindow_020421a0(void);
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov017_021adb50(char* arg0) {
 #else
  enum {Enum_ov017_021adb50_632=0x278, Enum_ov017_021adb50_631=0x277};
 #endif
-    ClearTimedMessageQueue_020d7aa0((struct TimedMessageQueue_020d7aa0_2*)func_020d7a50());
+    ClearTimedMessageQueue_020d7aa0((struct TimedMessageQueue_020d7aa0_2*)GetTimedMessageQueue_020d7a50());
     ResetMessageWindow_02043204((char*)GetMessageWindow_020421a0());
     InitChoiceList_0205c790(arg0 + 0x44);
     SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(arg0 + 0x64), 1, 1, 0);

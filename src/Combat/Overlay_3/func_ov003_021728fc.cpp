@@ -21,11 +21,11 @@ enum { Enum_ov003_021728fc_969 = 0x3c9 };
 
 extern "C" int GetMessageWindow_020421a0();
 
-extern "C" int func_020ac4f8(int arg0);
+extern "C" int AddElapsedPlayTime_020ac4f8(int arg0);
 struct BGControlSave_02074af4;
 extern "C" ARM void SaveMainBGControl_02074af4(struct BGControlSave_02074af4* save);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
-extern "C" int* func_020936f8(void);
+extern "C" int* GetNoticeQueue_020936f8(void);
 extern "C" void func_020941b0(struct Struct_02093b90_2* arg0);
 extern "C" void func_020939dc(void* arg0);
 extern "C" void* func_020d6c00(void);
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov003_021728fc(Struct_ov003_021728fc* arg0) {
     GameResources* var0 = GetGameResources();
     if (arg0->unknown_ee_ != 0) return;
 
-    func_020ac4f8(0);
+    AddElapsedPlayTime_020ac4f8(0);
 #if defined(jpn)
     *(int*)((char*)arg0 + 0xf0) = *(int*)(GetMessageWindow_020421a0() + 0x28);
 #endif
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov003_021728fc(Struct_ov003_021728fc* arg0) {
 
     Set3DClearColorAndDepth_020c5588(0, 0, 0x7fff, 0, 0);
 
-    int* var5 = func_020936f8();
+    int* var5 = GetNoticeQueue_020936f8();
     func_020941b0((struct Struct_02093b90_2*)var5);
     ((unsigned char*)var5)[Enum_ov003_021728fc_969] = (((unsigned char*)var5)[Enum_ov003_021728fc_969] & ~1) | 1;
     func_020939dc(var5);

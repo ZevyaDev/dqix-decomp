@@ -12,7 +12,7 @@
 
 struct Struct_ov006_021591ec;
 extern "C" unsigned short func_ov006_021591ec(Struct_ov006_021591ec* arg0);
-extern "C" short func_02080468(void* arg0, int arg1);
+extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
 extern "C" void func_ov006_0215f4dc(void* arg0);
 extern "C" void func_ov006_0215f740(void* arg0);
 
@@ -53,13 +53,13 @@ extern "C" ARM void func_ov006_0215f3d8(Struct_ov006_0215f3d8* arg0) {
         return;
     }
     unsigned short var1 = func_ov006_021591ec((Struct_ov006_021591ec*)arg0);
-    short var2 = arg0->unknown_364_ - func_02080468(*(void**)((char*)arg0 + LOW_REGION(0xc, 0x14)), 0x11);
+    short var2 = arg0->unknown_364_ - GetMenuLayoutWindowFirstSelectableTextId_02080468(*(void**)((char*)arg0 + LOW_REGION(0xc, 0x14)), 0x11);
     short var3 = var2 + arg0->unknown_388_ * 8;
     if (var3 >= var1) {
         var3 = var1 - 1;
     }
     var3 = var3 % 8;
-    arg0->unknown_364_ = func_02080468(*(void**)((char*)arg0 + LOW_REGION(0xc, 0x14)), 0x11) + var3;
+    arg0->unknown_364_ = GetMenuLayoutWindowFirstSelectableTextId_02080468(*(void**)((char*)arg0 + LOW_REGION(0xc, 0x14)), 0x11) + var3;
     func_ov006_0215f4dc(arg0);
     func_ov006_0215f740(arg0);
 }

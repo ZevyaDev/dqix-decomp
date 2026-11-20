@@ -17,7 +17,7 @@ extern "C" int func_02041c64(char *arg0, int arg1, int arg2, int arg3, int arg4,
 extern "C" int func_020420e8(const char *arg0, int arg1);
 extern "C" int AppendXPositionTag_02041a28(char *buffer, int x);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
-extern "C" int func_02041cc0(char *arg0, int arg1);
+extern "C" int AppendHorizontalLineTag_02041cc0(char *buffer, int y);
 extern "C" void *__clear(void *arg0, int arg1);
 extern "C" void AppendPositionTag_02041a90(char *buffer, int x, int y);
 extern "C" int func_02042084(char *arg0, char *arg1, int arg2, int arg3);
@@ -28,10 +28,9 @@ extern Struct_ov002_0216ca88 data_ov002_0216ca88;
 
 // USA: func_ov002_021607cc
 #if defined(jpn)
-extern "C" int func_0204234c(char *arg0, int arg1);
+extern "C" int AppendHorizontalLineTag_02041cc0(char *arg0, int arg1);
 extern Struct_ov002_0216caa4 data_ov002_0216d0d0;
 extern Struct_ov002_0216ca88 data_ov002_0216d0b4;
-#define func_02041cc0 func_0204234c
 #define data_ov002_0216caa4 data_ov002_0216d0d0
 #define data_ov002_0216ca88 data_ov002_0216d0b4
 extern "C" ARM void func_ov002_021607cc(unsigned char *arg0, char *arg1, int arg2) {
@@ -46,7 +45,7 @@ extern "C" ARM void func_ov002_021607cc(unsigned char *arg0, char *arg1, int arg
     func_02041c64(arg1, 0x64, 2, 2, 2, 2);
     char *var2 = ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString(0x1194));
     AppendText_02042058(arg1, var2);
-    func_02041cc0(arg1, 0x11);
+    AppendHorizontalLineTag_02041cc0(arg1, 0x11);
     Struct_ov002_0216ca88 var3 = data_ov002_0216ca88;
     char var4[0x40];
     int var5;
@@ -72,7 +71,7 @@ extern "C" ARM void func_ov002_021607cc(unsigned char *arg0, char *arg1, int arg
         AppendMenuEntry_02041b70(arg1, var5, var4);
     }
     func_02041c64(arg1, 0, 2, 2, 2, 2);
-    func_02041cc0(arg1, 0xa2);
+    AppendHorizontalLineTag_02041cc0(arg1, 0xa2);
     AppendPositionTag_02041a90(arg1, 0x2b, var1.unknown_0_[var5]);
     AppendMenuEntry_02041b70(arg1, var5, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString(0x11fa)));
 }
@@ -90,7 +89,7 @@ extern "C" ARM void func_ov002_021607cc(unsigned char *arg0, char *arg1, int arg
     char *var10 = ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(0x1194));
     AppendXPositionTag_02041a28(arg1, (0x98 - func_020420e8(var10, 0)) >> 1);
     AppendText_02042058(arg1, var10);
-    func_02041cc0(arg1, 0x11);
+    AppendHorizontalLineTag_02041cc0(arg1, 0x11);
     Struct_ov002_0216ca88 var11 = data_ov002_0216ca88;
     char var12[0x40];
     int var13;
@@ -116,7 +115,7 @@ extern "C" ARM void func_ov002_021607cc(unsigned char *arg0, char *arg1, int arg
         AppendMenuEntry_02041b70(arg1, var13, var12);
     }
     func_02041c64(arg1, 0, 2, 2, 2, 2);
-    func_02041cc0(arg1, 0xa2);
+    AppendHorizontalLineTag_02041cc0(arg1, 0xa2);
     AppendPositionTag_02041a90(arg1, 0x2b, var9.unknown_0_[var13]);
     AppendMenuEntry_02041b70(arg1, var13, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(0x11fa)));
 }

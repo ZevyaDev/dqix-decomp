@@ -21,7 +21,7 @@ extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215eadc(void *arg0, int arg1);
 extern "C" void SetCursorTextWindow_0205dee8(struct TextWindowManager_0205dee8 *windowManager, int windowId);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
-extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
+extern "C" void RebuildMenuWindowText_ov002_0215b9a4(void *menu, int windowId, int hasCursorMark);
 extern "C" void func_ov002_02161b98(char *arg0);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" int func_ov002_0216197c(int arg0, struct TextWindowManager_0205d81c *arg1);
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
         }
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x13, 0);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x14, 0);
-        func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 0);
+        RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 0);
         int var2  = g_keyManager.TestKeysPressed(0x601);
         int var3  = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)OBJ, 0x14);
         int var4 = (var2 | var3) ? 1 : 0;
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x11, 0);
             *(int *) (arg0 + 0x1a88) = 1;
             *(int *) (arg0 + 0x1a80) = 0x11;
-            func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 0);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 0);
             ConfigureMenuCursors_ov002_02161cf0(arg0);
         }
         return;
@@ -145,7 +145,7 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
         func_ov002_0215eadc(arg0, 0);
         SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8 *) OBJ, 0x11);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x11, 0);
-        func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8) & 0xff, 0);
+        RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8) & 0xff, 0);
         *(int *) (arg0 + 0x1bc0) += 1;
         return;
     }
@@ -162,7 +162,7 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
         if (func_ov002_0216197c(*(int *) (arg0 + 0x1bb8) & 0xff,
                                                                   (struct TextWindowManager_0205d81c *) OBJ))
         {
-            func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8) & 0xff, 0);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8) & 0xff, 0);
         }
         int var10  = g_keyManager.TestKeysPressed(0x601);
         int var11  = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)OBJ, 0x14);
@@ -205,7 +205,7 @@ extern "C" ARM void func_ov002_02165764(char *arg0) {
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) OBJ, 0x10, 0);
             *(int *) (arg0 + 0x1bc0) = 1;
             *(int *) (arg0 + 0x1bb8) = 0x10;
-            func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8) & 0xff, 0);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8) & 0xff, 0);
             ConfigureMenuCursors_ov002_02161cf0(arg0);
             SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8 *) OBJ, 1, 0x29);
         }

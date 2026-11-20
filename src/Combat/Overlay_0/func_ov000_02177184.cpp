@@ -11,7 +11,7 @@ extern "C" void EnableKeyMenuCursor_0205cf04(void* windowManager);
 extern "C" void EnableTouchMenuCursor_0205cef8(void* windowManager);
 extern "C" void func_0205cf28(unsigned char* arg0, int arg1, int arg2, int arg3);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
-extern "C" void func_0205d7a0(unsigned char* arg0, int arg1);
+extern "C" void SetCursorIndex_0205d7a0(unsigned char* windowManager, int index);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_ov000_0217737c(void* arg0, void* arg1);
 #if defined(jpn)
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov000_02177184(struct Struct_ov000_02177184_2* arg0, in
     var0->unknown_ac_ = 0xa;
     var0->unknown_ae_ = 0xb;
     var0->unknown_b1_ = 1;
-    func_0205d7a0((unsigned char*)var0, arg0->unknown_1d69_);
+    SetCursorIndex_0205d7a0((unsigned char*)var0, arg0->unknown_1d69_);
 #if defined(jpn)
     void* var5 = *(void**)(GetMessageWindow_020421a0() + 0x28);
     memset(var5, 0, 0x800);

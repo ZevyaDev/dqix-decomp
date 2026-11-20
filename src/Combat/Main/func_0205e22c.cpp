@@ -60,7 +60,7 @@ extern "C" ARM void func_0205e22c(void* arg0) {
     int var6 = 0;
     int var7 = 0x74;
     for (; var5 < 4; var5++) {
-        void* var8 = func_0202c178((struct LocalWireless_0202b2f0*)var2, var5);
+        void* var8 = GetLocalWirelessPlayerRecord_0202c178((struct LocalWireless_0202b2f0*)var2, var5);
         if (var8 != NULL) {
             memset(var8, var6, var7);
         }

@@ -24,8 +24,8 @@ extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(void *menu);
 extern "C" void func_ov002_0215fb54(void *arg0);
-extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
-extern "C" void func_ov002_02156e90(void *arg0);
+extern "C" void RebuildMenuWindowText_ov002_0215b9a4(void *menu, int windowId, int hasCursorMark);
+extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(void *menu);
 extern char gSoundEffectManager_02108760[];
 
 // USA: func_ov002_02167eb0
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov002_02167eb0(char *arg0) {
     int var2 = g_keyManager.TestKeysPressed(0x601);
     int var3 = (var2 | IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)(arg0 + 0xe20), 0x14)) ? 1 : 0;
     if (var3) {
-        func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 1);
+        RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 1);
         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
         GameState *var4 = GameState::GetInstance();
         GetParty_02010828(var4);
@@ -55,14 +55,14 @@ extern "C" ARM void func_ov002_02167eb0(char *arg0) {
         if (var5 == 0) return;
         *(int *) (func_02053c6c(var5) + 0x8b4) = *(short *) (arg0 + 0x1acc);
         *(short *) (arg0 + 0x1acc)            = -1;
-        func_ov002_02156e90(arg0);
+        ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xe20), 0x1b, 0);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xe20), 0x1c, 0);
         return;
     }
     if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
         *(short *) (arg0 + 0x1acc) = -1;
-        func_ov002_02156e90(arg0);
+        ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xe20), 0x1b, 0);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xe20), 0x1c, 0);
     }
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov002_02167eb0(char *arg0) {
     int var8 = g_keyManager.TestKeysPressed(0x601);
     int var9 = (var8 | IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)(arg0 + 0xec8), 0x14)) ? 1 : 0;
     if (var9) {
-        func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8) & 0xff, 1);
+        RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8) & 0xff, 1);
         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
         GameState *var10 = GameState::GetInstance();
         GetParty_02010828(var10);
@@ -93,14 +93,14 @@ extern "C" ARM void func_ov002_02167eb0(char *arg0) {
         if (var11 == 0) return;
         *(int *) (func_02053c6c(var11) + 0x94c) = *(short *) (arg0 + 0x1c04);
         *(short *) (arg0 + 0x1c04)            = -1;
-        func_ov002_02156e90(arg0);
+        ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xec8), 0x1a, 0);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xec8), 0x1b, 0);
         return;
     }
     if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
         *(short *) (arg0 + 0x1c04) = -1;
-        func_ov002_02156e90(arg0);
+        ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xec8), 0x1a, 0);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xec8), 0x1b, 0);
     }

@@ -27,7 +27,7 @@ struct YesNoWindow_020e25e8;
 
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char* window);
-extern "C" void func_0208203c(struct KeyRepeat_02081f20_2* arg0);
+extern "C" void ResetKeyRepeat_0208203c(struct KeyRepeat_02081f20_2* keyRepeat);
 extern "C" void CloseMenuLayoutWindows_0207fe44(struct MenuLayout_0207fe44* menuLayout);
 extern "C" void func_ov003_021749c0(char* arg0);
 extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov003_02174550(char* arg0) {
     *(unsigned char*)(arg0 + Enum_ov003_02174550_4174) = 1;
 
     ResetMessageWindow_02043204((char*)GetMessageWindow_020421a0());
-    func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + Enum_ov003_02174550_2188));
+    ResetKeyRepeat_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + Enum_ov003_02174550_2188));
 
     *(int*)(arg0 + Enum_ov003_02174550_4088) = 0;
     CloseMenuLayoutWindows_0207fe44(*(struct MenuLayout_0207fe44**)(arg0 + Enum_ov003_02174550_2204));

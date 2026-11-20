@@ -16,15 +16,15 @@ struct Struct_ov031_02290c8c_3 {
 	unsigned short unknown_2_;
 	Struct_ov031_0222b870* unknown_4_;
 };
-extern Struct_ov031_02290c8c_3 data_ov031_02290c8c;
+extern Struct_ov031_02290c8c_3 gAccessPointListPage_ov031_02290c8c;
 
 // USA: func_ov031_0222b870
 extern "C" ARM void func_ov031_0222b870(void) {
 	int var0 = 0;
-	Struct_ov031_0222b870* var1 = data_ov031_02290c8c.unknown_4_;
+	Struct_ov031_0222b870* var1 = gAccessPointListPage_ov031_02290c8c.unknown_4_;
 	var1->unknown_40_ = (var1->unknown_51_ - 4) * 0x1c;
 
-	var1 = data_ov031_02290c8c.unknown_4_;
+	var1 = gAccessPointListPage_ov031_02290c8c.unknown_4_;
 	unsigned char var2 = var1->unknown_51_;
 	int var3;
 	if (var2 <= 4) {
@@ -39,8 +39,8 @@ extern "C" ARM void func_ov031_0222b870(void) {
 	}
 
 	if (var3 != 0) {
-		var1 = data_ov031_02290c8c.unknown_4_;
-		unsigned short var4 = data_ov031_02290c8c.unknown_2_;
+		var1 = gAccessPointListPage_ov031_02290c8c.unknown_4_;
+		unsigned short var4 = gAccessPointListPage_ov031_02290c8c.unknown_2_;
 		unsigned char var5 = var1->unknown_53_;
 		unsigned short var6 = var1->unknown_40_;
 		var0 = FastIntDivide(var4 * var5, var6);

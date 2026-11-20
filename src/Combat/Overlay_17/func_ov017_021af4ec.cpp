@@ -14,7 +14,7 @@
 #endif
 
 extern "C" void* func_020d6c00(void);
-extern "C" int* func_020936f8(void);
+extern "C" int* GetNoticeQueue_020936f8(void);
 struct Struct_0209494c;
 extern "C" int func_0209494c(struct Struct_0209494c* arg0);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
@@ -44,7 +44,7 @@ extern "C" ARM unsigned char func_ov017_021af4ec(Struct_ov017_021af4ec* arg0) {
  enum {Enum_ov017_021af4ec_17123=0x42e3, Enum_ov017_021af4ec_17122=0x42e2};
 #endif
 	unsigned int* var0 = (unsigned int*)func_020d6c00();
-	struct Struct_0209494c* var1 = (struct Struct_0209494c*)func_020936f8();
+	struct Struct_0209494c* var1 = (struct Struct_0209494c*)GetNoticeQueue_020936f8();
 	if (func_0209494c(var1)) {
 		SetGlobalFlags_020466e4(var0, 0x20);
 		int var2 = (int)GetGameResources();

@@ -21,7 +21,7 @@ extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 extern "C" int GetStoryChapter_0201079c(char* gameState);
-extern "C" int func_020107d0(char* arg0);
+extern "C" int GetStoryStep_020107d0(char* gameState);
 extern "C" int func_02010804(char* arg0);
 struct Struct_ov017_021d0490_4;
 extern "C" Struct_ov017_021d0490_4* GetBattle_ov017_021b8470(void* battleManager);
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov017_021d0490(int arg0) {
     if (IsNotLocalWirelessGuest_0202c508(var1) != 0) {
         var9->unknown_3_0_ = arg0;
         var9->unknown_0_ = GetStoryChapter_0201079c((char*)var0);
-        var9->unknown_1_ = func_020107d0((char*)var0);
+        var9->unknown_1_ = GetStoryStep_020107d0((char*)var0);
         var9->unknown_2_ = func_02010804((char*)var0);
         var9->unknown_4_ = *var2;
         Struct_ov017_021d0490_4* var10 = GetBattle_ov017_021b8470(var5);

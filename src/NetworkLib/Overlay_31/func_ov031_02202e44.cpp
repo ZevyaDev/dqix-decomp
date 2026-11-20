@@ -14,7 +14,7 @@ struct Struct_ov031_02202e44 {
     unsigned short unknown_12_;
 };
 struct Struct_ov031_0224c980_4 { char unknown_0_[0x40]; void (*unknown_40_)(void*); char unknown_44_[0xc]; unsigned int unknown_50_; };
-extern Struct_ov031_0224c980_4 data_ov031_0224c980;
+extern Struct_ov031_0224c980_4 gIPStack_ov031_0224c980;
 extern "C" int func_ov031_022007a4(unsigned int);
 extern "C" unsigned int func_ov031_02200684(void*, unsigned int);
 extern "C" void func_ov031_02200e38(void*, unsigned int, int);
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov031_02202e44(Struct_ov031_02202e44* arg0, unsigned in
         if (!func_ov031_022007a4(var1)) return;
         if (arg1 < inline_ov031_02202e44(arg0->unknown_2_)) return;
         if (func_ov031_02200684(arg0, (arg0->unknown_0_ & 15) << 2) != 0xffff) return;
-        if (data_ov031_0224c980.unknown_50_ == DestinationAddress02202e44(arg0))
+        if (gIPStack_ov031_0224c980.unknown_50_ == DestinationAddress02202e44(arg0))
             func_ov031_02200e38((char*)arg0 - 8, SourceAddress02202e44(arg0), 1);
     }
     int var2;
@@ -43,9 +43,9 @@ extern "C" ARM void func_ov031_02202e44(Struct_ov031_02202e44* arg0, unsigned in
     void* var3 = (char*)arg0 + ((arg0->unknown_0_ & 15) << 2);
     unsigned int var4 = inline_ov031_02202e44(arg0->unknown_2_) - ((arg0->unknown_0_ & 15) << 2);
     if (arg0->unknown_9_ == 17) func_ov031_0220296c(arg0, var3, var4);
-    else if (data_ov031_0224c980.unknown_50_) {
+    else if (gIPStack_ov031_0224c980.unknown_50_) {
         if (arg0->unknown_9_ == 1) func_ov031_02201bb4(arg0, var3, var4);
         else if (arg0->unknown_9_ == 6) func_ov031_0220284c(arg0, var3, var4);
     }
-    if (var2) data_ov031_0224c980.unknown_40_((char*)arg0 - 14);
+    if (var2) gIPStack_ov031_0224c980.unknown_40_((char*)arg0 - 14);
 }

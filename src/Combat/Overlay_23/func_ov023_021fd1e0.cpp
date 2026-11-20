@@ -18,11 +18,11 @@ struct Struct_ov011_02186548 {
 struct Struct_ov011_02186548_2 { int unknown_0_, unknown_4_; };
 struct Struct_ov011_02186548_3 { unsigned char unknown_0_, unknown_1_; };
 
-extern "C" void func_ov023_021f6ed8(void*);
+extern "C" void InitMenuObjectBase_ov023_021f6ed8(void*);
 
 // USA: func_ov023_021fd1e0
 extern "C" ARM int func_ov023_021fd1e0(struct Struct_ov011_02186548* arg0, int arg1, int arg2, int arg3, struct Struct_ov011_02186548_2* arg4, struct Struct_ov011_02186548_3* arg5) {
-    func_ov023_021f6ed8(arg0);
+    InitMenuObjectBase_ov023_021f6ed8(arg0);
     arg0->unknown_4_ = 0xd;
     arg0->unknown_6_ = arg2;
     arg0->unknown_8_ = arg3;

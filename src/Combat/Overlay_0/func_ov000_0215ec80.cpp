@@ -3,7 +3,7 @@
 
 struct Struct_02010088;
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
-extern "C" int func_ov000_02153c0c(GameObject* arg0);
+extern "C" int HasLeftBattle_ov000_02153c0c(GameObject* combatant);
 
 struct Struct_ov000_0215ec80 {
     unsigned short unknown_0_;
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov000_0215ec80(struct Struct_ov000_0215ec80_2* arg0, sho
         short var2 = (short)(arg0->unknown_81b4_[arg3].unknown_2_[var1] + 0xc0);
         GameObject* var3 = GameState::GetInstance()->GetCombatantByIndex(var2);
         if (var3 == NULL) continue;
-        if (func_ov000_02153c0c(var3)) continue;
+        if (HasLeftBattle_ov000_02153c0c(var3)) continue;
         if ((arg4 & 1) && IsDead_02010088((struct Struct_02010088*)var3)) continue;
         arg1[var0++] = var2;
         if (var0 == arg2) return var0;

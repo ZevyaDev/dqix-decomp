@@ -2,14 +2,14 @@
 #include "GameState/GameState.h"
 
 struct Struct_02088f68;
-extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
+extern "C" GameObject* GetEnemyByID_ov000_021536f8(int battle, int index);
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void func_ov000_02161e30(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void func_ov000_0215fd7c(void* arg0);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void func_02088f68(struct Struct_02088f68* arg0);
-extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, void* combatant, int amount, int flags, int isCriticalHit, int arg6);
 
 struct Struct_ov024_021e0d00 { char unknown_0_[0xc]; void* unknown_c_; void* unknown_10_; };
 
@@ -41,7 +41,7 @@ struct Struct_ov024_021e0d00_4 {
 
 // USA: func_ov024_021e0d00
 extern "C" ARM void* func_ov024_021e0d00(struct Struct_ov024_021e0d00* arg0, int arg1, int arg2, struct Struct_ov024_021e0d00_2* arg3) {
-	struct Struct_ov024_021e0d00_3* var0 = (struct Struct_ov024_021e0d00_3*)func_ov000_021536f8((int)arg0->unknown_10_, arg2);
+	struct Struct_ov024_021e0d00_3* var0 = (struct Struct_ov024_021e0d00_3*)GetEnemyByID_ov000_021536f8((int)arg0->unknown_10_, arg2);
 	if (!var0) return 0;
 	if (arg1 == arg2) {
 		int var1 = -1;
@@ -63,6 +63,6 @@ extern "C" ARM void* func_ov024_021e0d00(struct Struct_ov024_021e0d00* arg0, int
 	func_02088f68((struct Struct_02088f68*)var0->unknown_0_.currentStats_);
 	void* var3 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
 	if (!var3) return 0;
-	func_ov000_0215cd44(arg0->unknown_10_, var3, var0, 0, 0, 0, 0);
+	SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var3, var0, 0, 0, 0, 0);
 	return var3;
 }

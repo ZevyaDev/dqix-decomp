@@ -283,7 +283,7 @@ struct StringList_02072a68_2;
 
 extern "C" int func_020d2ff0(const char*);
 extern "C" unsigned char* func_02053c6c(unsigned char* gameObject);
-extern "C" struct Struct_ov004_0215f0c0_10* func_ov004_0215e47c(void* arg0, int arg1);
+extern "C" struct Struct_ov004_0215f0c0_10* FindMenuObject_ov004_0215e47c(void* menu, int id);
 extern "C" void* func_ov023_021fad18(void* arg0);
 extern "C" struct Struct_ov004_0215f0c0_8* func_ov004_0215e438(void* arg0, int arg1);
 extern "C" int GetHaloObject_ov017_021bdbcc(void* gameResources);
@@ -323,9 +323,9 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
         var4 = 9;
     }
 #if !defined(jpn)
-    struct Struct_ov004_0215f0c0_10* var5 = func_ov004_0215e47c(arg0, 0x1f5);
+    struct Struct_ov004_0215f0c0_10* var5 = FindMenuObject_ov004_0215e47c(arg0, 0x1f5);
     if (!var3) {
-        void* var6 = func_ov004_0215e47c(arg0, 0x1f4);
+        void* var6 = FindMenuObject_ov004_0215e47c(arg0, 0x1f4);
         if (var6 != 0) {
             int var7;
             void* var8 = func_ov023_021fad18(var6);
@@ -801,14 +801,14 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
     SetCameraTarget_0202e5c8((unsigned char*)data_ov004_021708c8, 0xb666, 0xa800, 0);
     DisableCameraFollow_020a27a0(data_ov004_021708c8);
     SetCamera_020100c4(var3, (int)data_ov004_021708c8);
-    func_ov004_0215e47c(arg0, 9)->unknown_c_ |= 0x80;
+    FindMenuObject_ov004_0215e47c(arg0, 9)->unknown_c_ |= 0x80;
     var0 = 0x18c6;
     CleanInvalidateCacheRange((const void*)(&var0), 2);
     LoadToSubBGStandardPalette(&var0, 2, 2);
     CleanCacheRange(&var0, 2);
 
 #if !defined(jpn)
-    struct Struct_ov004_0215f0c0_10* var28 = func_ov004_0215e47c(arg0, 0x1f5);
+    struct Struct_ov004_0215f0c0_10* var28 = FindMenuObject_ov004_0215e47c(arg0, 0x1f5);
     void* var29 = GetMenuObjectList_ov011_021849c8(arg0);
     if (var28 != 0 && var29 != 0) {
         void* var30 = FindMenuObjectById_ov023_021f6880(var29, 0x1f4);

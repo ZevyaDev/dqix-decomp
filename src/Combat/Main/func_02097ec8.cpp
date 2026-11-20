@@ -26,7 +26,7 @@ extern "C" void* func_0202ae18();
 extern "C" void func_0201bd3c(Struct_0208fa8c*, int, int);
 extern "C" void InitPartyMemberData_02082828(Struct_02097ec8*);
 extern "C" void func_020542b4(Struct_02054280*, SafeAllocator*, char*);
-extern "C" int func_020981e4(int, int);
+extern "C" int IsQuestersRestZone_020981e4(int, int);
 extern "C" int func_02098240(int, int);
 extern "C" int func_02098210(int, int);
 extern "C" void func_02054280(Struct_02054280*);
@@ -44,8 +44,8 @@ extern "C" ARM void func_02097ec8(Struct_02097ec8_2* arg0) {
     Struct_0208fa8c* var0 = GetZone3D_02012fe4();
     int var1 = var0->unknown_0_;
     int var2 = var0->unknown_2_;
-    if (!func_020981e4((int)arg0, var1) &&
-        !func_020981e4((int)arg0, var2)) return;
+    if (!IsQuestersRestZone_020981e4((int)arg0, var1) &&
+        !IsQuestersRestZone_020981e4((int)arg0, var2)) return;
     if (var1 != 0xc3b5 && var1 != 0xc419 && var1 != 0xc47d && var1 != 0xc4e1)
         arg0->unknown_1b60_ = 1;
     func_0202ae18();
@@ -56,7 +56,7 @@ extern "C" ARM void func_02097ec8(Struct_02097ec8_2* arg0) {
         func_0201bd3c(var0, 20, 0);
         func_0201bd3c(var0, 21, 0);
     }
-    if (func_020981e4((int)arg0, var1) &&
+    if (IsQuestersRestZone_020981e4((int)arg0, var1) &&
         !func_02098240((int)arg0, var1) &&
         !func_02098210((int)arg0, var1) && var1 != 0xc3bb) {
         GameResources* var3 = GetGameResources();

@@ -47,7 +47,7 @@ extern "C" void* func_0200ffc0(Struct_0200ffc0*);
 extern "C" void func_020a75a0(char*);
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
-extern "C" void func_02033fdc(Struct_02033fdc*);
+extern "C" void ResumeMovementUpdate_02033fdc(Struct_02033fdc*);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" void func_020da1ac(void*);
 extern "C" void func_020a72ac(Zone3D*, int);
@@ -107,7 +107,7 @@ extern "C" ARM void func_020a6728(GameResources* arg0, int arg1) {
     var8->unknown_b4_ = 0x106;
     var8->unknown_b6_ = 10;
     var8->unknown_0_.MakeVisible();
-    func_02033fdc((Struct_02033fdc*)var8);
+    ResumeMovementUpdate_02033fdc((Struct_02033fdc*)var8);
     var8->unknown_e0_ &= ~1;
     var8->unknown_0_.DisableFlag(0x180);
     var8->unknown_0_.EnableFlag(0x400000);

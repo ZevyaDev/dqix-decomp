@@ -6,7 +6,7 @@ struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern int gSoundEffectManager_02108760;
 extern "C" void func_ov017_0218d644(GameResources* arg0, void* arg1, int arg2);
-extern "C" void* func_020d7a50(void);
+extern "C" void* GetTimedMessageQueue_020d7a50(void);
 extern "C" void func_ov017_021b6090(void* arg0);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_ov017_021b5a30(void* arg0);
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov017_021b5f00(Struct_ov017_021b5f00* arg0) {
     GameResources* var0 = GetGameResources();
     if (arg0->unknown_54_ != 0) {
         func_ov017_0218d644(var0, (char*)arg0 + 0x2c, 0);
-        void* var1 = func_020d7a50();
+        void* var1 = GetTimedMessageQueue_020d7a50();
 #if defined(jpn)
         func_020d7e10(var1, arg0->unknown_3c_, 0, 0, 1);
 #else
@@ -38,7 +38,7 @@ extern "C" ARM int func_ov017_021b5f00(Struct_ov017_021b5f00* arg0) {
     func_ov017_021b6090(arg0);
     EnablePlayerControl_020397c0(arg0->unknown_1c_);
     if (*arg0->unknown_3c_ != 0) {
-        void* var2 = func_020d7a50();
+        void* var2 = GetTimedMessageQueue_020d7a50();
 #if defined(jpn)
         func_020d7e10(var2, arg0->unknown_3c_, 0, 0, 1);
 #else

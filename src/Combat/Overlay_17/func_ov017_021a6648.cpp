@@ -48,7 +48,7 @@ extern "C" void UnloadExtraSoundSet_0205ebec(void*);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" void func_020dc2d0(int);
 extern "C" void func_ov017_0219593c();
-extern "C" TimedMessageQueue_020d7aa0_2* func_020d7a50();
+extern "C" TimedMessageQueue_020d7aa0_2* GetTimedMessageQueue_020d7a50();
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2*);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void RemoveFromQueue_02046a8c(Queue_02038598_5*, void*);
@@ -147,7 +147,7 @@ extern "C" ARM void func_ov017_021a6648(Struct_ov017_021a6648_2* arg0, Queue_020
         func_020dc2d0(0);
         if (arg0->unknown_a_) {
             func_ov017_0219593c();
-            ClearTimedMessageQueue_020d7aa0(func_020d7a50());
+            ClearTimedMessageQueue_020d7aa0(GetTimedMessageQueue_020d7a50());
         }
         if (!arg0->unknown_b_ && IsTypeInQueue_02046b60(arg1, 0xa)) {
             RemoveFromQueue_02046a8c(arg1, var2->unknown_ptr_3718);

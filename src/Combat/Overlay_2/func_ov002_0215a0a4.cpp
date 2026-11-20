@@ -78,8 +78,8 @@ struct Struct_ov002_0215a0a4_4 {
     unsigned int* unknown_130_;
 };
 
-extern "C" void* func_020e2ff8();
-extern "C" void func_020e3428(void*, int);
+extern "C" void* GetWirelessLockTable_020e2ff8();
+extern "C" void ReleaseWirelessLock_020e3428(void*, int);
 extern "C" Struct_ov002_02157d40_6* GetMessageWindow_020421a0();
 extern "C" Struct_ov002_0215a0a4_5* FindActionData_02079e2c(char*, int);
 extern "C" void* InitNoun_020e46c4(void*);
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov002_0215a0a4(Struct_ov002_0215a0a4* arg0, Struct_ov00
     Struct_ov002_02157d40_6* var8;
     Struct_ov002_0215a0a4_5* var9;
     int var10;
-    func_020e3428(func_020e2ff8(), 1);
+    ReleaseWirelessLock_020e3428(GetWirelessLockTable_020e2ff8(), 1);
     var7 = GameState::GetInstance();
     var8 = GetMessageWindow_020421a0();
     var2 = func_0202ae18();

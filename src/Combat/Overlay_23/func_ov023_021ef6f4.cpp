@@ -47,7 +47,7 @@ extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2*);
 extern "C" Struct_ov000_0217964c_2* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
-extern "C" int func_0209ca2c(void*);
+extern "C" int IsJinglePlaying_0209ca2c(void*);
 extern "C" void func_ov023_021f00f4(int*, int, int, int);
 extern "C" Vector3fix func_02049b54(Struct_02049b54_2*);
 extern "C" void func_02049f28(unsigned char*);
@@ -111,7 +111,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
             var1->unknown_0_ = 2;
         } else var1->unknown_0_ = 3;
     } else if (var1->unknown_0_ == 2) {
-        if (!func_0209ca2c(gMusicManager_02109bf4) && func_ov023_021f4fc8()) var1->unknown_0_ = 3;
+        if (!IsJinglePlaying_0209ca2c(gMusicManager_02109bf4) && func_ov023_021f4fc8()) var1->unknown_0_ = 3;
     } else if (var1->unknown_0_ == 3) {
         ResetBattleCamera_ov000_0216d370(&arg0->unknown_c18_, 1, 1, 1);
         int var11 = 0x3000;

@@ -30,7 +30,7 @@ extern "C" unsigned char func_ov006_02158a28(Struct_ov006_02157a60* arg0);
 extern "C" unsigned char func_ov006_02158b78(Struct_ov006_02157a60* arg0);
 extern "C" unsigned char PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void CloseMenuLayoutWindow_0207fdcc(MenuLayout_0207fdcc_2* menuLayout, int windowId);
-extern "C" void func_0208203c(KeyRepeat_02081f20_2* arg0);
+extern "C" void ResetKeyRepeat_0208203c(KeyRepeat_02081f20_2* keyRepeat);
 extern "C" void CloseYesNoWindow_020e25e8(YesNoWindow_020e25e8* yesNoWindow);
 
 extern "C" char gSoundEffectManager_02108760[];
@@ -50,7 +50,7 @@ extern "C" ARM signed char func_ov006_02159e50(Struct_ov006_02157a60* arg0) {
     }
     if (var0 != 0) {
         CloseMenuLayoutWindow_0207fdcc(arg0->unknown_14_, arg0->unknown_36e_);
-        func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
+        ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
         arg0->unknown_44_ = 0;
     }
     if (arg0->unknown_18_ != 0 && var0 != 0)

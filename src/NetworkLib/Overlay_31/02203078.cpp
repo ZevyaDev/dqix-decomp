@@ -12,7 +12,7 @@ struct Struct_ov031_02203078 {
     unsigned short unknown_a_;
 };
 
-extern Struct_ov031_0224c980 data_ov031_0224c980;
+extern Struct_ov031_0224c980 gIPStack_ov031_0224c980;
 
 // USA: func_ov031_02203078
 extern "C" ARM unsigned short func_ov031_02203078(void) {
@@ -22,14 +22,14 @@ extern "C" ARM unsigned short func_ov031_02203078(void) {
     ProcessorContext* var3 = gContextScheduler_02111304.firstContext;
     do {
         var0 = 0;
-        ++data_ov031_0224c980.unknown_8_;
-        if (data_ov031_0224c980.unknown_8_ < 1024 ||
-            data_ov031_0224c980.unknown_8_ >= 5000) {
-            data_ov031_0224c980.unknown_8_ = 1024;
+        ++gIPStack_ov031_0224c980.unknown_8_;
+        if (gIPStack_ov031_0224c980.unknown_8_ < 1024 ||
+            gIPStack_ov031_0224c980.unknown_8_ >= 5000) {
+            gIPStack_ov031_0224c980.unknown_8_ = 1024;
         }
         var1 = var3;
         if (var1 != NULL) {
-            var2 = data_ov031_0224c980.unknown_8_;
+            var2 = gIPStack_ov031_0224c980.unknown_8_;
             do {
                 Struct_ov031_02203078* var4 = (Struct_ov031_02203078*)var1->unknown_A4;
                 if (var4 != NULL && var4->unknown_0_ != 0 &&
@@ -41,5 +41,5 @@ extern "C" ARM unsigned short func_ov031_02203078(void) {
             } while (var1 != NULL);
         }
     } while (var0 != 0);
-    return data_ov031_0224c980.unknown_8_;
+    return gIPStack_ov031_0224c980.unknown_8_;
 }

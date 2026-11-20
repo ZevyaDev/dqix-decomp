@@ -7,7 +7,7 @@
 
 struct Struct_020e28dc;
 struct YesNoWindow_020e263c_2;
-struct Struct_0207fc6c;
+struct MenuLayout_0207fc6c;
 
 struct Struct_ov003_021745fc {
 #if defined(jpn)
@@ -50,7 +50,7 @@ public:
 typedef void (Struct_ov003_021745fc_2::*Type_020200c0)();
 
 extern "C" {
-bool func_ov017_021959b4();
+bool IsLocalWirelessHostDisconnected_ov017_021959b4();
 void func_ov003_02174550(Struct_ov003_021745fc_2* arg0);
 void func_ov003_021749f0(Struct_ov003_021745fc_2* arg0);
 void func_ov003_021760cc(Struct_ov003_021745fc_2* arg0);
@@ -63,7 +63,7 @@ extern "C" void func_ov003_02174988(char* arg0);
 extern "C" void func_ov003_0217451c(char* arg0);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char* window);
-extern "C" void func_0207fc6c(Struct_0207fc6c* arg0, int arg1);
+extern "C" void UpdateMenuLayoutWindows_0207fc6c(MenuLayout_0207fc6c* menuLayout, int ticks);
 extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void* menuLayout, int windowId);
 extern "C" int func_020e28dc(Struct_020e28dc* arg0);
 extern "C" void UpdateYesNoWindow_020e263c(YesNoWindow_020e263c_2* yesNoWindow, int ticks);
@@ -75,7 +75,7 @@ extern Type_020200c0 data_ov003_02180aa4[10];
 // USA: func_ov003_021745fc
 extern "C" ARM bool func_ov003_021745fc(Struct_ov003_021745fc_2* arg0, int arg1) {
     arg0->unknown_fe0_ = arg1;
-    if (func_ov017_021959b4())
+    if (IsLocalWirelessHostDisconnected_ov017_021959b4())
         func_ov003_02174550(arg0);
     func_ov003_021749f0(arg0);
     func_ov003_02174988((char*)arg0);
@@ -93,7 +93,7 @@ extern "C" ARM bool func_ov003_021745fc(Struct_ov003_021745fc_2* arg0, int arg1)
 #endif
         Struct_ov003_021745fc* var0 = arg0->unknown_89c_;
         if (var0 != NULL)
-            func_0207fc6c((Struct_0207fc6c*)var0, arg1);
+            UpdateMenuLayoutWindows_0207fc6c((MenuLayout_0207fc6c*)var0, arg1);
         if (arg0->unknown_ff8_ != NULL) {
             UpdateKeyRepeat_02081f20(arg0->unknown_88c_, arg1);
             arg0->unknown_1000_ = *arg0->unknown_ff8_;

@@ -69,7 +69,7 @@ extern "C" ARM void func_0202b2f0(LocalWireless_0202b2f0* arg0) {
         if (var3 == arg0->unknown_1038_[func_0202df58()]) {
             continue;
         }
-        Struct_0202b2f0_2* var4 = func_0202c178(arg0, var3);
+        Struct_0202b2f0_2* var4 = GetLocalWirelessPlayerRecord_0202c178(arg0, var3);
         if (!var4) {
             continue;
         }
@@ -118,7 +118,7 @@ extern "C" ARM void func_0202b2f0(LocalWireless_0202b2f0* arg0) {
             if (var8 == arg0->unknown_1038_[func_0202df58()]) {
                 continue;
             }
-            Struct_0202b2f0_2* var9 = func_0202c178(arg0, var8);
+            Struct_0202b2f0_2* var9 = GetLocalWirelessPlayerRecord_0202c178(arg0, var8);
             if (!var9) {
                 continue;
             }
@@ -185,7 +185,7 @@ selectorFound:
             }
         }
     } else {
-        Struct_0202b2f0_2* var21 = func_0202c178(arg0, 0);
+        Struct_0202b2f0_2* var21 = GetLocalWirelessPlayerRecord_0202c178(arg0, 0);
         arg0->unknown_1038_[1] = var21->unknown_2_5_;
         arg0->unknown_1038_[2] = var21->unknown_2_7_;
         arg0->unknown_1038_[3] = var21->unknown_3_1_;

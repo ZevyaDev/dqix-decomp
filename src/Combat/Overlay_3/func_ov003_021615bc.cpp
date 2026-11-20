@@ -43,7 +43,7 @@ struct Struct_0205563c;
 extern "C" void func_0205563c(Struct_0205563c*);
 extern "C" void func_02032e58(void* arg0);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
-extern "C" int func_0207f9f4(void* arg0);
+extern "C" int UpdateMenuLayoutLoad_0207f9f4(void* menuLayout);
 extern "C" void func_02081224(void* arg0, int arg1);
 extern "C" void* func_0205ec34();
 struct BGLayer_02020cb8;
@@ -66,8 +66,8 @@ struct Struct_020e2490;
 extern "C" void func_020e2490(Struct_020e2490*, int, int, void*, SafeAllocator*, int, unsigned char);
 struct BGLayer_02020cb8_2;
 struct MenuLayout_0207f7f0;
-struct Struct_0207f7f0_2;
-extern "C" void func_0207f7f0(MenuLayout_0207f7f0*, Struct_0207f7f0_2*, int);
+struct TextWindow_0207f7f0_2;
+extern "C" void SetMenuLayoutWindowArray_0207f7f0(MenuLayout_0207f7f0*, TextWindow_0207f7f0_2*, int);
 extern "C" unsigned char func_ov003_02160b50(void* arg0);
 extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
@@ -113,7 +113,7 @@ struct Struct_ov003_021615bc_3 {
     void* unknown_320_;
     MenuLayout_0207f7f0* unknown_324_;
     BGLayer_02020cb8* unknown_328_;
-    Struct_0207f7f0_2* unknown_32c_;
+    TextWindow_0207f7f0_2* unknown_32c_;
     char unknown_330_[4];
     char unknown_334_[0x3c];
     void* unknown_370_;
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
         arg0->unknown_320_ = arg0->unknown_228_.Allocate(0x130);
         arg0->unknown_324_ = (MenuLayout_0207f7f0*)arg0->unknown_228_.Allocate(Enum_ov003_021615bc_64);
         arg0->unknown_328_ = (BGLayer_02020cb8*)arg0->unknown_228_.Allocate(0x60);
-        arg0->unknown_32c_ = (Struct_0207f7f0_2*)arg0->unknown_228_.Allocate(0x380);
+        arg0->unknown_32c_ = (TextWindow_0207f7f0_2*)arg0->unknown_228_.Allocate(0x380);
         arg0->unknown_394_ = (void**)arg0->unknown_228_.Allocate(0x10);
         func_ov003_021602bc(arg0);
         func_ov003_021672e4(arg0->unknown_318_, 0, -1);
@@ -262,7 +262,7 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
             }
             arg0->unknown_278_.Reset();
             arg0->unknown_398_ = arg0->unknown_278_.Allocate(0x6000);
-            Struct_0207f7f0_2* var19;
+            TextWindow_0207f7f0_2* var19;
             for (int var20 = 0; var20 < 4; var20++) {
                 var19 = arg0->unknown_32c_ + var20;
                 SetTextWindowBuffers_0204c7a8((TextWindow_0204c7a8*)var19, (SafeAllocator*)&arg0->unknown_278_, (int)arg0->unknown_398_, 0x400);
@@ -281,7 +281,7 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
         arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
     }
     if (arg0->unknown_4a4_ == 5) {
-        int var21 = func_0207f9f4(arg0->unknown_324_);
+        int var21 = UpdateMenuLayoutLoad_0207f9f4(arg0->unknown_324_);
         if (var21 == 0) {
             arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
         }
@@ -374,7 +374,7 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
         ColorEffect_ConfigureAlphaBlend((unsigned int*)0x4000050, 2, 9, 0xa, 6);
         var36->unknown_2c_ = arg0->unknown_328_;
         var36->unknown_38_ = 2;
-        func_0207f7f0(var36, arg0->unknown_32c_, 4);
+        SetMenuLayoutWindowArray_0207f7f0(var36, arg0->unknown_32c_, 4);
         var36->unknown_3a_ = 2;
 #if !defined(jpn)
         func_02081224(var36, 0x19);

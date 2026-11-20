@@ -60,7 +60,7 @@ struct Struct_ov006_02158478 {
 extern "C" void* GetSubBG0ScreenBase();
 extern "C" void* memset(void*, int, unsigned int);
 extern "C" int func_ov006_02158080(MenuLayout_0207fdcc_2*, int);
-extern "C" Struct_ov006_02158478* func_02081da8(MenuLayout_0207fdcc_2*, int);
+extern "C" Struct_ov006_02158478* FindMenuLayoutWindow_02081da8(MenuLayout_0207fdcc_2*, int);
 extern "C" void func_ov006_02154fe4(Struct_ov006_02154614*);
 extern "C" void func_ov006_02155480(Struct_ov006_02155480_2*);
 extern "C" int func_ov006_021570fc(Struct_ov006_02154614*, int);
@@ -168,7 +168,7 @@ extern "C" ARM void func_ov006_02158478(Struct_ov006_02157a60* arg0)
     memset(var0, 0, 0x800);
     if (func_ov006_02158080((MenuLayout_0207fdcc_2*)R(*(void**)((char*)arg0+0xc),arg0->unknown_14_), 1))
     {
-        Struct_ov006_02158478* var1 = func_02081da8((MenuLayout_0207fdcc_2*)R(*(void**)((char*)arg0+0xc),arg0->unknown_14_), 1);
+        Struct_ov006_02158478* var1 = FindMenuLayoutWindow_02081da8((MenuLayout_0207fdcc_2*)R(*(void**)((char*)arg0+0xc),arg0->unknown_14_), 1);
         if (var1 == 0)
             return;
         short var2;

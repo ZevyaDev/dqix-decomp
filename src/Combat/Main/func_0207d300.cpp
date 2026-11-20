@@ -36,7 +36,7 @@ extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, 
 extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
 extern "C" unsigned char* func_02053c6c(unsigned char* gameObject);
 extern "C" int CountHeldItems_02083960(struct PartyMemberData_0207d300* memberData);
-extern "C" int func_0207ccf0(struct Struct_0207ccf0_4* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" int AddItemToPartyMember_0207ccf0(struct Struct_0207ccf0_4* itemContext, int itemId, int count, int memberIndex, int isBagAllowed, int arg5, int arg6);
 extern "C" int func_0207cf30(struct Struct_0207ccf0_4* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0207d134(struct Struct_0207ccf0_4* arg0, int arg1, int arg2);
 extern "C" int func_0207d200(struct Struct_0207ccf0_4* arg0, short arg1, int arg2);
@@ -98,7 +98,7 @@ extern "C" ARM int AddItem_0207d300(struct Struct_0207ccf0_4* itemContext, short
                 if (CountHeldItems_02083960((struct PartyMemberData_0207d300*)memberData) == 8) {
                     break;
                 }
-                result = func_0207ccf0(itemContext, itemId, 1, memberIndex, 0, 0, 0);
+                result = AddItemToPartyMember_0207ccf0(itemContext, itemId, 1, memberIndex, 0, 0, 0);
                 if (result != 0) {
                     break;
                 }

@@ -50,7 +50,7 @@ enum { Enum_ov021_0218b5fc_1288 = 0x508, Enum_ov021_0218b5fc_7720 = 0x1e28, Enum
 struct AllocatorUnion;
 struct TextureVRAMArea_0203d028;
 struct Struct_0200f3a4_9;
-struct Struct_0203bdb0;
+struct OAMManager_0203bdb0;
 struct GameResources;
 struct Struct_0209c3b4_2;
 struct MusicManager_02109bf4_4;
@@ -70,7 +70,7 @@ extern "C" void MapVRAMBanksToLCDC(unsigned short mask);
 extern "C" void func_020ca458(unsigned int value, void* dest, int count);
 extern "C" int DisableLCDCMappedVRAMBanks(void);
 extern "C" void func_020c51dc();
-extern "C" void func_020c537c();
+extern "C" void ResetMatrixStacksToIdentity_020c537c();
 void LockStagedTextureVRAMCopying();
 void UnlockStagedTextureVRAMCopying();
 void UpdateVRAMStagingVRAMBanks();
@@ -104,11 +104,11 @@ extern "C" void UpdateInput_02012efc();
 extern "C" void func_ov021_0218bb30(void* arg0);
 extern "C" void func_020bbcb4();
 extern "C" void func_ov009_02184ca4(void* arg0);
-extern "C" void func_0203bdb0(Struct_0203bdb0* arg0);
+extern "C" void UploadOAMBuffers_0203bdb0(OAMManager_0203bdb0* oamManager);
 void UpdateAndApplyBrightness(GameResources* resources);
 extern "C" void func_ov009_02184848(void* arg0);
 extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4* manager, int fadeDuration);
-extern "C" void func_0203ad88(void* arg0, void* arg1, int arg2);
+extern "C" void StopStream_0203ad88(void* manager, void* handle, int fadeDuration);
 extern "C" void func_0203aa08(void* arg0);
 extern "C" void ResetMusic_0209c20c(Struct_02109bf4_3* manager);
 extern "C" void func_02043000(char* arg0);
@@ -160,7 +160,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     DisableLCDCMappedVRAMBanks();
     Nitro3D_FinishRender();
     func_020c51dc();
-    func_020c537c();
+    ResetMatrixStacksToIdentity_020c537c();
     LockStagedTextureVRAMCopying();
     MapVRAMBanksToTextureImage(1);
     InitializeTextureImageAllocation(1, 1);
@@ -244,7 +244,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
         WaitForVBlank_020c9820();
         func_020bbcb4();
         func_ov009_02184ca4(arg0->unknown_40_);
-        func_0203bdb0((Struct_0203bdb0*)func_0203bd08());
+        UploadOAMBuffers_0203bdb0((OAMManager_0203bdb0*)func_0203bd08());
         UpdateAndApplyBrightness((GameResources*)arg0);
         data_02114e50++;
         var0->CalculateDeltaTime(0x411b);
@@ -252,7 +252,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
 
     func_ov009_02184848(arg0->unknown_40_);
     StopMusic_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
-    func_0203ad88(&gMusicManager_02109bf4, 0, 0);
+    StopStream_0203ad88(&gMusicManager_02109bf4, 0, 0);
     func_0203aa08(&gMusicManager_02109bf4);
     ResetMusic_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
     func_02043000((char*)var5);

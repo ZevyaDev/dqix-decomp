@@ -327,7 +327,7 @@ extern char data_ov008_0218b4c1[];
 
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void InitNoun_020e46c4(void* noun);
-extern "C" void func_020e4c74(void* arg0, GameObject* arg1);
+extern "C" void InitMemberNoun_020e4c74(void* noun, GameObject* member);
 extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3, void* arg4, unsigned char arg5);
@@ -382,7 +382,7 @@ extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg
             }
             var5 = var10->unknown_150_->unknown_49c_0_;
             InitNoun_020e46c4(&var6);
-            func_020e4c74(&var6, var10);
+            InitMemberNoun_020e4c74(&var6, var10);
             var1->unknown_10_ = &var6;
         }
     }

@@ -92,7 +92,7 @@ extern "C" ARM void func_ov017_021a63d0(unsigned char* arg0) {
     if (!IsQueueEmpty_02046b08(*(void***)(arg0 + OFF_36fc))) return;
     if (IsLocalWirelessGuest_0202c540(var1)) return;
 
-    if (func_020117f0(GameState::GetInstance()) != 0) return;
+    if (IsInGrotto_020117f0(GameState::GetInstance()) != 0) return;
     if (*(int*)((char*)var3 + OFF_998) != 0) return;
     if (func_02015a2c((struct Struct_02015a2c_2*)var4)) return;
     if (func_020db2d4(var5)) return;

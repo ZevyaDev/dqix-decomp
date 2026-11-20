@@ -11,7 +11,7 @@
 
 extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
-extern "C" int func_020aad1c(int arg0, int arg1, int arg2, int arg3);
+extern "C" int UpdateSaveProgress_020aad1c(int progress, int scratchBuffer, int saveOptions, int isQuickSave);
 extern "C" void SetScriptRefInt_ov017_021d6134(void* value, int number);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov001_02163070(void* arg0) {
     }
     unsigned int* var0 = (unsigned int*)func_020d6c00();
     SetGlobalFlags_020466e4(var0, 0x80);
-    int var1 = func_020aad1c(data_ov001_021658b8.unknown_4b4_, data_ov001_021658b8.unknown_4b8_, 0xa, 0);
+    int var1 = UpdateSaveProgress_020aad1c(data_ov001_021658b8.unknown_4b4_, data_ov001_021658b8.unknown_4b8_, 0xa, 0);
     int var2 = (var1 != 0);
     SetScriptRefInt_ov017_021d6134(arg0, var2 == 0);
     if (var2 != 0) {

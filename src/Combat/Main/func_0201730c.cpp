@@ -23,8 +23,8 @@
 #define func_020100bc func_0200ff18
 #endif
 
-struct Struct_0201730c;
-struct Struct_0201730c_2;
+struct SPRSprite_0201730c;
+struct SPRSprite_0201730c_2;
 
 struct Struct_0201730c_3 {
     char unknown_0_[0x8];
@@ -38,7 +38,7 @@ struct Struct_0201730c_3 {
     char unknown_82_[0x88 - 0x82];
 };
 
-struct Struct_0201730c_2 {
+struct SPRSprite_0201730c_2 {
     char unknown_0_[0xc];
     void* unknown_c_;
     char unknown_10_[0x1c - 0x10];
@@ -54,7 +54,7 @@ struct Struct_0201730c_4 {
     short unknown_4_;
     char unknown_6_[0x8 - 6];
     Struct_0201730c_3 unknown_8_;
-    Struct_0201730c_2 unknown_90_;
+    SPRSprite_0201730c_2 unknown_90_;
     Struct_0201730c_3 unknown_118_[4];
     Vector3i unknown_338_[4];
 };
@@ -145,7 +145,7 @@ extern "C" ARM void func_0201730c(Struct_02016874_3* arg0) {
             ((SPRSprite*)((unsigned char*)&var4->unknown_8_))->DrawTextureStatic(0, 1);
         } else if (var4->unknown_2_ == 3) {
             if (var4->unknown_4_ < 12) {
-                ((SPRSprite*)((Struct_0201730c*)&var4->unknown_90_))->Update();
+                ((SPRSprite*)((SPRSprite_0201730c*)&var4->unknown_90_))->Update();
                 ((SPRSprite*)(&var4->unknown_90_))->DrawAnimatedWithRotation(1);
             }
             for (int var9 = 0; var9 < 4; var9++) {

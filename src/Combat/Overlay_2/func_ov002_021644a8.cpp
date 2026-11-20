@@ -10,7 +10,7 @@ extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" int func_ov002_021573f8(void *arg0, int arg1);
 struct TextWindowManager_0205d81c;
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
-extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
+extern "C" void RebuildMenuWindowText_ov002_0215b9a4(char *menu, unsigned char windowId, int hasCursorMark);
 struct TextWindowManager_0205def8;
 extern "C" void SetTextWindowVisible_0205def8(TextWindowManager_0205def8*, int, int);
 extern "C" void * FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
@@ -19,7 +19,7 @@ extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* w
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
-extern "C" void func_ov002_02156e90(char *arg0);
+extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(char *menu);
 struct TextWindowManager_0205dee8;
 extern "C" void SetCursorTextWindow_0205dee8(TextWindowManager_0205dee8*, int);
 
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov002_021644a8(char *arg0) {
         *(char *) (arg0 + 0x1ae9) = var2;
         SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(arg0 + 0xe20), 0xe, 1);
         if (*(short *) (arg0 + 0x1ab8) != 0) {
-            func_ov002_0215b9a4(arg0, 0xe, 0);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, 0xe, 0);
             SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)(arg0 + 0xe20), 1, 0xe);
             unsigned char *var3 = (unsigned char *) FindTextWindow_0205d81c((TextWindowManager_0205d81c*)(arg0 + 0xe20), 0xc);
             unsigned char *var4 = (unsigned char *) FindTextWindow_0205d81c((TextWindowManager_0205d81c*)(arg0 + 0xe20), 0xe);
@@ -80,12 +80,12 @@ extern "C" ARM void func_ov002_021644a8(char *arg0) {
             if (IsCancelPressed_ov002_02161b48(arg0, 1) == 0) {
                 return;
             }
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
             *(short *) (arg0 + 0x1ab8) = -1;
             *(char *) (arg0 + 0x1ae8) = -1;
             *(char *) (arg0 + 0x1ae9) = -1;
             SetCursorTextWindow_0205dee8((TextWindowManager_0205dee8*)(arg0 + 0xe20), (*(int *) (arg0 + 0x1a80) = 4));
-            func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80), 0);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80), 0);
             ConfigureMenuCursors_ov002_02161cf0(arg0);
         }
     }
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov002_021644a8(char *arg0) {
         *(char *) (arg0 + 0x1c21) = var12;
         SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(arg0 + 0xec8), 0xd, 1);
         if (*(short *) (arg0 + 0x1bf0) != 0) {
-            func_ov002_0215b9a4(arg0, 0xd, 0);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, 0xd, 0);
             SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)(arg0 + 0xec8), 1, 0xd);
             unsigned char *var13 = (unsigned char *) FindTextWindow_0205d81c((TextWindowManager_0205d81c*)(arg0 + 0xec8), 0xb);
             unsigned char *var14 = (unsigned char *) FindTextWindow_0205d81c((TextWindowManager_0205d81c*)(arg0 + 0xec8), 0xd);
@@ -144,12 +144,12 @@ extern "C" ARM void func_ov002_021644a8(char *arg0) {
             if (IsCancelPressed_ov002_02161b48(arg0, 1) == 0) {
                 return;
             }
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
             *(short *) (arg0 + 0x1bf0) = -1;
             *(char *) (arg0 + 0x1c20) = -1;
             *(char *) (arg0 + 0x1c21) = -1;
             SetCursorTextWindow_0205dee8((TextWindowManager_0205dee8*)(arg0 + 0x2c8 + 0xc00), (*(int *) (arg0 + 0x1bb8) = 4));
-            func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8), 0);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8), 0);
             ConfigureMenuCursors_ov002_02161cf0(arg0);
         }
     }

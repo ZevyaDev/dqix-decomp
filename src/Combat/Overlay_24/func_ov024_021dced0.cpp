@@ -10,7 +10,7 @@ extern "C" void func_020888a4(unsigned char* arg0);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void func_ov024_021e8bf0(void* arg0, void* arg1, unsigned short* arg2);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
-extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, void* combatant, int amount, int flags, int isCriticalHit, int arg6);
 
 struct Struct_ov024_021dced0_3 {
     unsigned int unknown_0_0_ : 10;
@@ -43,6 +43,6 @@ extern "C" ARM void* func_ov024_021dced0(struct Struct_ov024_021dced0_5* arg0, i
 	func_ov024_021e8bf0(arg0, arg0->unknown_c_, &var1);
 	AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var1);
 	struct Struct_ov024_021dced0_4* var3 = (struct Struct_ov024_021dced0_4*)((char*)arg0->unknown_c_ + 0x1c);
-	func_ov000_0215cd44(arg0->unknown_10_, var2, var0, 0, 0, 0, var3->unknown_0_7_ != 0);
+	SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var2, var0, 0, 0, 0, var3->unknown_0_7_ != 0);
 	return var2;
 }

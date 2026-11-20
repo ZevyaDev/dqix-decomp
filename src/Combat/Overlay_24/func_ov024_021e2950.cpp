@@ -36,7 +36,7 @@ static inline unsigned short inline_ov024_021dc700(GameObject* arg0) { return ar
 extern "C" int IsAsleep_020882f8(unsigned char*);
 extern "C" void func_02088390(void*);
 struct Struct_ov024_021de124;
-extern "C" int func_ov024_021de25c(Struct_ov024_021de124*);
+extern "C" int IsConfused_ov024_021de25c(Struct_ov024_021de124*);
 extern "C" void func_020883fc(void*);
 // USA: func_ov024_021e2950
 extern "C" ARM struct ActionResult_ov000_021584e8* func_ov024_021e2950(struct Struct_ov024_021e2950_2* arg0, int arg1, int arg2, int arg3, int arg4) {
@@ -70,7 +70,7 @@ extern "C" ARM struct ActionResult_ov000_021584e8* func_ov024_021e2950(struct St
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var1, 0x1f9);
         arg0->unknown_14_++;
     }
-    if (func_ov024_021de25c((Struct_ov024_021de124*)var0)) {
+    if (IsConfused_ov024_021de25c((Struct_ov024_021de124*)var0)) {
         func_020883fc(var0->currentStats_);
         ((struct Struct_ov024_021e2950_3*)((char*)var0->currentStats_ + 0x3b))->unknown_0_0_ = 1;
         SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var2, 0x19);

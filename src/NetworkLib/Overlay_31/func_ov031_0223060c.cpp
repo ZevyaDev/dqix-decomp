@@ -11,32 +11,32 @@ extern "C" void func_ov031_022308d4(void);
 extern "C" void QueueTaskRemoval_ov031_0223e2c0(int listIndex, int task);
 
 struct Struct_ov031_02290ca0_17 { unsigned char unknown_0_, unknown_1_, unknown_2_, unknown_3_; unsigned short unknown_4_; unsigned short unknown_6_; void* unknown_8_; };
-extern struct Struct_ov031_02290ca0_17 data_ov031_02290ca0;
+extern struct Struct_ov031_02290ca0_17 gConnectionSettingsPage_ov031_02290ca0;
 
 // USA: func_ov031_0223060c
 extern "C" ARM void func_ov031_0223060c(int arg0) {
 	func_ov031_0223521c();
 	func_ov031_022238cc();
 
-	if (data_ov031_02290ca0.unknown_4_ > 6) data_ov031_02290ca0.unknown_4_ -= 6;
-	else data_ov031_02290ca0.unknown_4_ = 0;
+	if (gConnectionSettingsPage_ov031_02290ca0.unknown_4_ > 6) gConnectionSettingsPage_ov031_02290ca0.unknown_4_ -= 6;
+	else gConnectionSettingsPage_ov031_02290ca0.unknown_4_ = 0;
 
-	int var0 = FastIntModulus(data_ov031_02290ca0.unknown_4_, 0x1d);
+	int var0 = FastIntModulus(gConnectionSettingsPage_ov031_02290ca0.unknown_4_, 0x1d);
 	if (var0 == 0x17) {
 		func_ov031_0222f9ec();
 		return;
 	}
 	if (var0 > 0x17) {
-		data_ov031_02290ca0.unknown_4_ = data_ov031_02290ca0.unknown_4_ + (0x1d - var0);
+		gConnectionSettingsPage_ov031_02290ca0.unknown_4_ = gConnectionSettingsPage_ov031_02290ca0.unknown_4_ + (0x1d - var0);
 		var0 = 0;
 	}
 	func_ov031_02230120();
 	if (var0 != 0) return;
 
-	int var1 = (data_ov031_02290ca0.unknown_4_ * 0x37) / 145;
+	int var1 = (gConnectionSettingsPage_ov031_02290ca0.unknown_4_ * 0x37) / 145;
 	func_ov031_022351f8(var1);
 	func_ov031_02235204();
 	func_ov031_022308d4();
-	*(int*)((char*)data_ov031_02290ca0.unknown_8_ + 0x38) = 0;
+	*(int*)((char*)gConnectionSettingsPage_ov031_02290ca0.unknown_8_ + 0x38) = 0;
 	QueueTaskRemoval_ov031_0223e2c0(0, arg0);
 }

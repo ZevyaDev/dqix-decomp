@@ -4,7 +4,7 @@
 extern "C" int CheckWirelessState_020d424c(int, int, int, int, int, int);
 extern "C" int SendWirelessCommand_020d40bc(int, int, int);
 extern "C" void SetWirelessCommandCallback_020d404c(int command, int callback);
-extern "C" void* func_020d41d8(void);
+extern "C" void* GetWirelessDriver_020d41d8(void);
 
 struct Struct_020d559c {
     unsigned short unknown_0_;
@@ -20,7 +20,7 @@ struct Struct_020d559c_2 {
 
 // USA: func_020d559c
 extern "C" ARM int func_020d559c(int arg0, unsigned int arg1) {
-    Struct_020d559c_2* var0 = (Struct_020d559c_2*)func_020d41d8();
+    Struct_020d559c_2* var0 = (Struct_020d559c_2*)GetWirelessDriver_020d41d8();
     int var1 = CheckWirelessState_020d424c(5, 7, 9, 8, 0xa, 0xb);
     if (var1 != 0) {
         return var1;

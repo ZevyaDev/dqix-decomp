@@ -20,7 +20,7 @@ struct MusicManager_02109bf4_4;
 struct Struct_020d6f0c;
 struct Struct_020d6d18_2;
 struct Struct_0203a54c;
-struct Struct_020e385c;
+struct EventSyncEntry_020e385c;
 struct Struct_ov003_02162f40 {
     char unknown_0_[8]; unsigned short unknown_8_; char unknown_a_[2]; int unknown_c_;
     char unknown_10_[0x25 - 0x10]; unsigned char unknown_25_; char unknown_26_[0x678 - 0x26];
@@ -108,10 +108,10 @@ extern "C" void StartMessage_0204500c(Struct_02081870*, const char*, int, int);
 #endif
 extern "C" void PlayJingle_0209c6d8(void*, int);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
-extern "C" Struct_020e385c* func_020e3808();
-extern "C" void func_020e3994(Struct_020e385c*, int, int);
-extern "C" void func_020e392c(Struct_020e385c*, int, int);
-extern "C" void func_020e39d4(Struct_020e385c*, int, int, int);
+extern "C" EventSyncEntry_020e385c* GetEventSyncTable_020e3808();
+extern "C" void func_020e3994(EventSyncEntry_020e385c*, int, int);
+extern "C" void func_020e392c(EventSyncEntry_020e385c*, int, int);
+extern "C" void func_020e39d4(EventSyncEntry_020e385c*, int, int, int);
 
 static inline SafeAllocator* inline_ov000_02166804(GameResources* arg0, int arg1) {
     return &arg0->allocator_array_38[arg1];
@@ -200,7 +200,7 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
         PlayJingle_0209c6d8(&gMusicManager_02109bf4, 0x36);
     }
     if (IsNotLocalWirelessGuest_0202c508(var2) && arg0->unknown_2a0_->unknown_c_ == 19) {
-        Struct_020e385c* var20 = func_020e3808();
+        EventSyncEntry_020e385c* var20 = GetEventSyncTable_020e3808();
         func_020e3994(var20, 1, -1);
         func_020e392c(var20, 1, 0x71e8);
         func_020e39d4(var20, 0, 1, 0x71e8);

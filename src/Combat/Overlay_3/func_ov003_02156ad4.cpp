@@ -2,9 +2,9 @@
 
 extern "C" {
 void* _ZN9GameState11GetInstanceEv(void);
-int func_02080468(void*, int);
+int GetMenuLayoutWindowFirstSelectableTextId_02080468(void*, int);
 void OpenMenuLayoutWindow_020813ec(void*, int);
-void func_0208203c(void*);
+void ResetKeyRepeat_0208203c(void*);
 int func_ov003_021550dc(void*);
 void PlaySoundEffect_0205eaa0(void*, int, int);
 int GetProtagonistObjectIndex_020100a8(void*);
@@ -74,11 +74,11 @@ extern "C" ARM void func_ov003_02156ad4(struct Struct_ov003_02156ad4_4* arg0) {
     if (arg0->unknown_1f9_ == 0) {
         arg0->unknown_1e6_ = 2;
         if (arg0->unknown_1e0_ < 0) {
-            arg0->unknown_1e0_ = func_02080468(var0, arg0->unknown_1e6_);
+            arg0->unknown_1e0_ = GetMenuLayoutWindowFirstSelectableTextId_02080468(var0, arg0->unknown_1e6_);
         }
         var0->unknown_36_ = arg0->unknown_1e0_;
         OpenMenuLayoutWindow_020813ec(var0, arg0->unknown_1e6_);
-        func_0208203c(arg0->unknown_80_);
+        ResetKeyRepeat_0208203c(arg0->unknown_80_);
         arg0->unknown_8_ = 0;
         arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
         return;
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov003_02156ad4(struct Struct_ov003_02156ad4_4* arg0) {
     arg0->unknown_8_ = &arg0->unknown_1e0_;
     if (func_ov003_021550dc(arg0) != 0) {
         PlaySoundEffect_0205eaa0(gSoundEffectManager_02108760, 1, 0);
-        func_0208203c(arg0->unknown_80_);
+        ResetKeyRepeat_0208203c(arg0->unknown_80_);
         arg0->unknown_8_ = 0;
         void* var3 = _ZN9GameState11GetInstanceEv();
         switch (arg0->unknown_1e0_) {

@@ -55,7 +55,7 @@ struct Struct_ov004_0215fdfc_5 {
     short unknown_106_;
 };
 
-extern "C" Struct_ov004_0215fdfc_4* func_ov004_0215e47c(void* arg0, int arg1);
+extern "C" Struct_ov004_0215fdfc_4* FindMenuObject_ov004_0215e47c(void* menu, int id);
 
 struct Struct_ov004_021707e8_2 {
 #if defined(jpn)
@@ -143,7 +143,7 @@ extern "C" ARM int func_ov004_0215fdfc(void* arg0) {
                 data_ov004_021707e8.unknown1_a_ = var2;
                 data_ov004_021707e8.unknown_1c_ = var4;
                 data_ov004_021707e8.unknown_0_ = 0;
-                Struct_ov004_0215fdfc_4* var7 = func_ov004_0215e47c(arg0, 0x85);
+                Struct_ov004_0215fdfc_4* var7 = FindMenuObject_ov004_0215e47c(arg0, 0x85);
                 if (var7) var7->unknown_c_ |= 0x78;
                 return 0;
             }
@@ -160,7 +160,7 @@ extern "C" ARM int func_ov004_0215fdfc(void* arg0) {
                 data_ov004_021707e8.unknown1_a_ = var2;
                 data_ov004_021707e8.unknown_1c_ = var4;
                 data_ov004_021707e8.unknown_0_ = 0;
-                Struct_ov004_0215fdfc_4* var8 = func_ov004_0215e47c(arg0, 0x85);
+                Struct_ov004_0215fdfc_4* var8 = FindMenuObject_ov004_0215e47c(arg0, 0x85);
                 if (var8) var8->unknown_c_ |= 0x78;
                 return 0;
             }
@@ -248,7 +248,7 @@ extern "C" ARM int func_ov004_0215fdfc(void* arg0) {
 #endif
     data_ov004_021707e8.unknown_1_ = 1;
     PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-    Struct_ov004_0215fdfc_4* var17 = func_ov004_0215e47c(arg0, 0x82);
+    Struct_ov004_0215fdfc_4* var17 = FindMenuObject_ov004_0215e47c(arg0, 0x82);
     func_ov023_021fc71c(var17, data_ov004_021707e8.unknown_1c_, 1);
     data_ov004_021707e8.unknown_b_ = 0;
     data_ov004_021707e8.unknown_6_ = 0;

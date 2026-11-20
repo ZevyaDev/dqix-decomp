@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-extern "C" void func_ov023_021f6ed8(void* arg0);
+extern "C" void InitMenuObjectBase_ov023_021f6ed8(void* object);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 struct Struct_ov023_021f9eb4;
 extern "C" void func_ov023_021f9eb4(struct Struct_ov023_021f9eb4* arg0);
@@ -23,7 +23,7 @@ struct Struct_ov011_02185b10_3 {
 
 // USA: func_ov023_021f9ec8
 extern "C" ARM int func_ov023_021f9ec8(struct Struct_ov011_02185b10_3* arg0, void* arg1, int arg2, int arg3, int arg4) {
-    func_ov023_021f6ed8(arg0);
+    InitMenuObjectBase_ov023_021f6ed8(arg0);
     arg0->unknown_4_ = 9;
     arg0->unknown_6_ = arg2;
     arg0->unknown_8_ = arg3;

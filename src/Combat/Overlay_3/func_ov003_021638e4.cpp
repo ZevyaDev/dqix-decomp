@@ -77,7 +77,7 @@ extern "C" void func_ov017_021b11b0(Struct_ov003_021638e4_2*);
 extern "C" int *func_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int *);
 extern "C" void func_ov017_021d1810(int, int, signed char);
-extern "C" void *func_020936f8();
+extern "C" void *GetNoticeQueue_020936f8();
 extern "C" void QueueNotice_02094030(void *, int, int, int);
 extern "C" unsigned int *func_020d6c00();
 struct GlobalFlags_02038598_4;
@@ -183,7 +183,7 @@ extern "C" ARM void func_ov003_021638e4(Struct_ov003_02154af4_3 *arg0) {
             }
             if (IsLocalWirelessOn_0202b7d8(func_0202ae18()) != 0) {
                 func_ov017_021d1810(0, -1, (signed char) GetProtagonistObjectIndex_020100a8(var1));
-                QueueNotice_02094030(func_020936f8(), 1, -1, 0);
+                QueueNotice_02094030(GetNoticeQueue_020936f8(), 1, -1, 0);
             }
         } else {
             if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() > 0) {

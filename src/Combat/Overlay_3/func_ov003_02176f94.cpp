@@ -53,14 +53,14 @@ extern "C" int func_02083994(struct Struct_02083994 *arg0, int arg1);
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c *menuLayout, int textId, int text);
 extern "C" int func_020dcc98(int arg0);
-struct Struct_02080cc0;
-extern "C" void func_02080cc0(struct Struct_02080cc0 *arg0, int arg1, int arg2);
+struct MenuLayout_02080cc0;
+extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0 *menuLayout, int textId, int color);
 struct MenuLayout_02080fa8;
 extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8 *menuLayout, int textId, int value);
 extern "C" int func_02080b2c(void *arg0, int arg1);
-extern "C" void func_02080b54(void *arg0, int arg1);
+extern "C" void HideMenuLayoutWindowTexts_02080b54(void *menuLayout, int windowId);
 extern "C" void func_02080c04(struct MenuLayout_0207fdcc_2 *arg0, int arg1);
-extern "C" short func_02086bf4(char *arg0, int arg1);
+extern "C" short CountItemInBags_02086bf4(char *party, int itemId);
 extern "C" void OpenMenuLayoutWindow_020813ec(void *menuLayout, int windowId);
 extern "C" void *GetParty_02010828(GameState *gameState);
 
@@ -142,7 +142,7 @@ extern "C" ARM void func_ov003_02176f94(Struct_ov003_02176f94_2* arg0) {
                     (struct Struct_02083994 *) func_02053c6c((unsigned char *) var14), arg0->unknown_103a_);
             }
             SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c *) var0, var4, var11);
-            func_02080cc0((struct Struct_02080cc0 *) var0, var4, func_020dcc98(var13));
+            SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0 *) var0, var4, func_020dcc98(var13));
             SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8 *) var0, var5, var12);
             if (var12 != 0) {
                 func_02080b2c(var0, var7);
@@ -156,10 +156,10 @@ extern "C" ARM void func_ov003_02176f94(Struct_ov003_02176f94_2* arg0) {
             var7 = var7 + 1;
         }
     } else {
-        func_02080b54(var0, var3);
+        HideMenuLayoutWindowTexts_02080b54(var0, var3);
         func_02080c04(var0, var3);
     }
     SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8 *) var0, var5,
-                                                         func_02086bf4(var2, arg0->unknown_103a_));
+                                                         CountItemInBags_02086bf4(var2, arg0->unknown_103a_));
     OpenMenuLayoutWindow_020813ec(var0, var3);
 }

@@ -8,8 +8,8 @@
 #include "Combat/MapDisplay.h"
 #include "Graphics/BGLayer.h"
 
-struct Struct_ov023_021f6ed8;
-extern "C" ARM void func_ov023_021f6ed8(struct Struct_ov023_021f6ed8* arg0);
+struct MenuObject_ov023_021f6ed8;
+extern "C" ARM void InitMenuObjectBase_ov023_021f6ed8(struct MenuObject_ov023_021f6ed8* object);
 
 
 struct BGLayer_02020cb8_5;
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov023_021f745c(char* arg0, void* arg1, int arg2, int arg
 #else
  enum {Enum_ov023_021f745c_40=0x28, Enum_ov023_021f745c_72=0x48, Enum_ov023_021f745c_80=0x50, Enum_ov023_021f745c_82=0x52};
 #endif
-    func_ov023_021f6ed8((struct Struct_ov023_021f6ed8*)arg0);
+    InitMenuObjectBase_ov023_021f6ed8((struct MenuObject_ov023_021f6ed8*)arg0);
     *(short*)(arg0 + 0x4) = 2;
     *(void**)(arg0 + 0x20) = arg1;
     *(short*)(arg0 + 0x6) = (short)arg2;

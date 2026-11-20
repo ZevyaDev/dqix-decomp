@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void* func_020d41d8(void);
+extern "C" void* GetWirelessDriver_020d41d8(void);
 extern "C" int CheckWirelessState_020d424c(int, int);
 extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 extern "C" void SetWirelessCommandCallback_020d404c(int command, int callback);
@@ -13,7 +13,7 @@ struct Struct_020d5cc8 {
 
 // USA: func_020d5cc8
 extern "C" ARM int func_020d5cc8(int arg0) {
-    struct Struct_020d5cc8* var0 = (struct Struct_020d5cc8*)func_020d41d8();
+    struct Struct_020d5cc8* var0 = (struct Struct_020d5cc8*)GetWirelessDriver_020d41d8();
     int var1 = CheckWirelessState_020d424c(1, 0xb);
     if (var1 != 0) return var1;
     InvalidateDataCacheRange((const void*)((int)((char*)var0->unknown_4_ + 0x10)), 4);

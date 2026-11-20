@@ -34,7 +34,7 @@ void SetMainBrightness(GameResources* resources, int brightness, int duration);
 int IsBrightnessTransitionActive(GameResources* resources);
 extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
-extern "C" void func_020dc2bc(void);
+extern "C" void SuspendMapDisplay_020dc2bc(void);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_ov023_021ec368(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov023_021ec39c(int arg0, int arg1, int arg2, int arg3);
@@ -147,7 +147,7 @@ extern "C" ARM void func_ov023_021eb578(Struct_ov023_021eb578_4* arg0) {
         }
         if (arg0->unknown_438_ & 0x10) {
             SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 1);
-            func_020dc2bc();
+            SuspendMapDisplay_020dc2bc();
         }
 #if defined(jpn)
         arg0->unknown_434_ = var3->QueueLoadFile(data_ov023_021fd39c, NULL);

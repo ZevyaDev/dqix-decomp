@@ -13,7 +13,7 @@ extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, in
 extern "C" void SetSubBGMode_020c3984(unsigned int bgMode);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
-extern "C" void SetOrthographicProjection_020c5770(int top, int bottom, int left, int right, int nearPlane, int farPlane, int arg6, int isLoadedAsProjection, void* projectionMatrix);
+extern "C" void SetOrthographicProjection_020c5770(int top, int bottom, int left, int right, int nearPlane, int farPlane, int matrixScale, int isLoadedAsProjection, void* projectionMatrix);
 
 struct Struct_ov020_0218b5a0 {
     char unknown_0_[0x8];

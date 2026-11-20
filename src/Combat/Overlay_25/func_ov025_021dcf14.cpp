@@ -105,7 +105,7 @@ extern "C" void func_ov025_021eee48(Struct_ov025_021dcf14_7*, Struct_ov025_021dc
 struct Struct_02033fcc;
 extern "C" void func_02033fcc(Struct_02033fcc*);
 struct Struct_02033fdc;
-extern "C" void func_02033fdc(Struct_02033fdc*);
+extern "C" void ResumeMovementUpdate_02033fdc(Struct_02033fdc*);
 struct Struct_02010604;
 extern "C" int SetMotion_02033b88(Struct_02010604*, int);
 extern "C" struct Struct_ov025_021dcf14_4* FindActionData_02079e2c(char*, int);
@@ -122,7 +122,7 @@ extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* man
 extern "C" void* func_ov000_0215fff4(void*, int, int);
 extern "C" int func_ov000_0215fd90(void* arg0, int arg1);
 extern "C" int func_02048c68(unsigned char*);
-extern "C" int func_02049ee8(unsigned char*);
+extern "C" int IsCombatantOnBattlefield_02049ee8(unsigned char*);
 extern "C" void func_0204a0c8(unsigned char*);
 extern "C" int GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 struct Struct_ov025_021dce7c;
@@ -379,7 +379,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
         } else {
             GameObject* var45 = var0->GetCombatantByIndex(var1->unknown_18_);
             if (var45) {
-                func_02033fdc((Struct_02033fdc*)var45);
+                ResumeMovementUpdate_02033fdc((Struct_02033fdc*)var45);
             }
             void* var46 = GetCurrentBattleAction_ov000_02160f20(arg0);
             struct Struct_ov025_021dcf14_2* var47 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var46, 0);
@@ -529,7 +529,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
                     if (var72 == NULL) {
                         continue;
                     }
-                    if (func_02049ee8((unsigned char*)var72) == 0 || func_02048c68((unsigned char*)var72) != 0) {
+                    if (IsCombatantOnBattlefield_02049ee8((unsigned char*)var72) == 0 || func_02048c68((unsigned char*)var72) != 0) {
                         var72->obj3D_.TransitionInheritedAlpha(0, 0x12c);
                         int var73 = 0;
                         if (var72->obj3D_.unknown_4_ >= 0 && var72->obj3D_.unknown_4_ <= 3) {
@@ -640,7 +640,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
             for (int var90 = 0; var90 < arg0[Enum_ov025_021dcf14_28237]; var90++) {
                 GameObject* var91 = var0->GetCombatantByIndex(((struct Struct_ov025_021dcf14*)(arg0 + Enum_ov025_021dcf14_28240))[var90].unknown_18_);
                 if (var91) {
-                    func_02033fdc((Struct_02033fdc*)var91);
+                    ResumeMovementUpdate_02033fdc((Struct_02033fdc*)var91);
                 }
                 ((struct Struct_ov025_021dcf14*)(arg0 + Enum_ov025_021dcf14_28240))[var90].unknown_18_ = -1;
                 ((struct Struct_ov025_021dcf14*)(arg0 + Enum_ov025_021dcf14_28240))[var90].unknown_1a_ = -1;
@@ -1051,13 +1051,13 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
             for (int var62 = 0; var62 < 4; var62++) {
                 GameObject* var63 = var0->GetCombatantByIndex(((short*)(arg0 + Enum_ov025_021dcf14_28602))[var62]);
                 if (var63) {
-                    func_02033fdc((Struct_02033fdc*)var63);
+                    ResumeMovementUpdate_02033fdc((Struct_02033fdc*)var63);
                 }
                 ((short*)(arg0 + Enum_ov025_021dcf14_28602))[var62] = -1;
             }
             GameObject* var64 = var0->GetCombatantByIndex(*(short*)(arg0 + Enum_ov025_021dcf14_28412));
             if (var64) {
-                func_02033fdc((Struct_02033fdc*)var64);
+                ResumeMovementUpdate_02033fdc((Struct_02033fdc*)var64);
             }
             arg0[Enum_ov025_021dcf14_28417] = 0;
             arg0[Enum_ov025_021dcf14_28415] = 0;

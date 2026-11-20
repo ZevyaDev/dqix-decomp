@@ -21,8 +21,8 @@ extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int window
 struct Struct_02081214;
 extern "C" void* func_02081214(struct Struct_02081214* arg0, int arg1);
 extern "C" void func_0208077c(void* arg0, int arg1, short arg2);
-struct Struct_02080cc0;
-extern "C" void func_02080cc0(struct Struct_02080cc0* arg0, int arg1, int arg2);
+struct MenuLayout_02080cc0;
+extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0* menuLayout, int textId, int color);
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c* menuLayout, int textId, int text);
 extern "C" void func_020805f4(void* arg0, int arg1);
@@ -96,7 +96,7 @@ extern "C" ARM void func_ov003_02177410(Struct_ov003_02177410_4* arg0) {
             }
         }
         func_0208077c(var1, var6, Enum_ov003_02177410_13);
-        func_02080cc0((struct Struct_02080cc0*)var1, var6, var8);
+        SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0*)var1, var6, var8);
         SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var1, var6, var7);
 #if !defined(jpn)
         func_020805f4(var1, var6);

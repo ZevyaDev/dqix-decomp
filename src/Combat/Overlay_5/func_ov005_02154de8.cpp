@@ -32,7 +32,7 @@ typedef void (Struct_ov005_02153954::*Type_02000c9c_5)();
 extern "C" Type_02000c9c_5 data_ov005_0215cd74[8];
 
 extern "C" void func_ov005_02153728(void* arg0, int arg1);
-extern "C" void func_ov023_021dc488(void* arg0);
+extern "C" void UpdateItemInfoPanel_ov023_021dc488(void* panel);
 extern "C" int func_ov005_0215cb4c(Struct_ov005_02153954* arg0);
 extern "C" void func_ov005_021556e4(Struct_ov005_02153954* arg0);
 extern "C" void func_ov005_02158878(Struct_ov005_02153954* arg0, int arg1);
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov005_02154de8(Struct_ov005_02153954* arg0) {
         var0 = 1;
     arg0->unknown_3de4_ = var0;
     func_ov005_02153728(arg0->unknown_1a34_, 1);
-    func_ov023_021dc488(arg0->unknown_1244_);
+    UpdateItemInfoPanel_ov023_021dc488(arg0->unknown_1244_);
     if (func_ov005_0215cb4c(arg0)) {
         func_ov005_021556e4(arg0);
         return;

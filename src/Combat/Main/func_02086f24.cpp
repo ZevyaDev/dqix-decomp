@@ -191,7 +191,7 @@ static inline unsigned short inline_02086f24_8(const Struct_01ff8b48* arg0) { SD
 // USA: func_02086f24
 extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, SafeAllocator* arg2) {
     Struct_0201099c_20 var0;
-    Struct_0201099c_2 var1;
+    LevelEntries_0201099c_2 var1;
     Struct_02086f24_2 var2;
     Struct_0201099c_6 var3;
 
@@ -274,8 +274,8 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
         var0.unknown_14c_[3].unknown_2_4_ = inline_02086f24_7(&var2.unknown_3c_);
         var0.unknown_15c_0_ = inline_02086f24_8(&var2.unknown_3c_);
         var0.unknown_15d_2_ = var2.unknown_0_[3].unknown_0_0_;
-        var0.unknown_f4_ = var1.unknown_0_.unknown_4_7_;
-        var0.unknown_1c_[var11->unknown_3d_] = var1.unknown_0_.requiredExperience_0_0_;
+        var0.unknown_f4_ = var1.requestedLevelEntry_0_.unknown_4_7_;
+        var0.unknown_1c_[var11->unknown_3d_] = var1.requestedLevelEntry_0_.requiredExperience_0_0_;
         var12 = var11->unknown_3d_;
     } else {
         var13 = 0;

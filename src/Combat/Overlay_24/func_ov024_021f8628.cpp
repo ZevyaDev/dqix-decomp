@@ -9,7 +9,7 @@ struct Struct_ov024_021f8628_2 {
 };
 extern "C" struct Struct_ov024_021f8628_2* func_02053dc0(struct Struct_02053dc0* arg0);
 
-extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
+extern "C" GameObject* GetEnemyByID_ov000_021536f8(int battle, int index);
 
 struct Struct_02010088_2 { char unknown_0_[0x14]; int statusFlags_14_; };
 struct Struct_02010088 { char unknown_0_[0x138]; struct Struct_02010088_2* pCurrentStats_138_; };
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov024_021f8628(char** arg0, void* arg1, struct Struct_02
     struct Struct_ov024_021f8628* var5 = (struct Struct_ov024_021f8628*)(*arg0 + 0x81b0);
     for (int var6 = 0; var6 < var5->unknown_1_4_; var6++) {
         for (int var7 = 0; var7 < var5[var6].unknown_e_0_; var7++) {
-            GameObject* var8 = func_ov000_021536f8((int)*arg0, (short)(var5[var6].unknown_6_[var7] + 0xc0));
+            GameObject* var8 = GetEnemyByID_ov000_021536f8((int)*arg0, (short)(var5[var6].unknown_6_[var7] + 0xc0));
             if (var8 == 0) continue;
             if (IsDead_02010088((struct Struct_02010088*)var8)) continue;
             if (func_ov024_021db358(var8) < var2) {

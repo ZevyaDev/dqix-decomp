@@ -28,7 +28,7 @@ struct Struct_ov031_0224c980_2 {
     unsigned long long unknown_70_;
     unsigned long long unknown_78_;
 };
-extern Struct_ov031_0224c980_2 data_ov031_0224c980;
+extern Struct_ov031_0224c980_2 gIPStack_ov031_0224c980;
 extern unsigned char data_ov031_0224ce68[];
 extern const char data_ov031_02249698[];
 
@@ -46,16 +46,16 @@ extern "C" ARM unsigned char* func_ov031_02203fdc(void* arg0, int arg1, int* arg
     VectorizedMemset(arg0, 0, sizeof(Struct_ov031_02203fdc));
     var1->unknown_0_ = 0x101;
     var1->unknown_2_ = 6;
-    data_ov031_0224c980.unknown_68_ = data_ov031_0224c980.unknown_70_ * data_ov031_0224c980.unknown_68_ + data_ov031_0224c980.unknown_78_;
-    unsigned int var2 = data_ov031_0224c980.unknown_68_ / 0x100000000ULL;
+    gIPStack_ov031_0224c980.unknown_68_ = gIPStack_ov031_0224c980.unknown_70_ * gIPStack_ov031_0224c980.unknown_68_ + gIPStack_ov031_0224c980.unknown_78_;
+    unsigned int var2 = gIPStack_ov031_0224c980.unknown_68_ / 0x100000000ULL;
     if (arg2) *arg2 = var2;
     int var3 = (unsigned short)(var2 / 0x10000U);
     var1->unknown_4_.unknown_0_ = (var3 >> 8) | (var3 << 8);
     int var4 = (unsigned short)var2;
     var1->unknown_4_.unknown_2_ = (var4 >> 8) | (var4 << 8);
-    int var5 = (unsigned short)(data_ov031_0224c980.unknown_50_ / 0x10000U);
+    int var5 = (unsigned short)(gIPStack_ov031_0224c980.unknown_50_ / 0x10000U);
     var1->unknown_c_.unknown_0_ = (var5 >> 8) | (var5 << 8);
-    int var6 = (unsigned short)data_ov031_0224c980.unknown_50_;
+    int var6 = (unsigned short)gIPStack_ov031_0224c980.unknown_50_;
     var1->unknown_c_.unknown_2_ = (var6 >> 8) | (var6 << 8);
     VectorizedInvertedMemcpy(data_ov031_0224ce68, var1->unknown_1c_, 6);
     ((unsigned short*)(var0 + sizeof(Struct_ov031_02203fdc)))[0] = 0x8263;

@@ -43,7 +43,7 @@ struct Struct_ov031_02203c6c {
     unsigned short unknown_18_, unknown_1a_;
     unsigned int unknown_1c_, unknown_20_;
 };
-extern Struct_ov031_0224c980_12 data_ov031_0224c980;
+extern Struct_ov031_0224c980_12 gIPStack_ov031_0224c980;
 extern unsigned char data_ov031_0224ca60[0x64];
 extern unsigned char data_ov031_0224d02c[], data_ov031_0224ceac[];
 extern Struct_ov031_0224ca00_2 data_ov031_0224ca00[8];
@@ -66,25 +66,25 @@ extern "C" ARM void func_ov031_02203c6c() {
     Struct_ov031_0224ca00_2* var3;
     int var4;
     int var5;
-    data_ov031_0224c980.unknown_44_ = 0;
+    gIPStack_ov031_0224c980.unknown_44_ = 0;
     VectorizedMemset(data_ov031_0224ca60, 0, 0x64);
-    data_ov031_0224c980.unknown_11c_ = 0x180;
-    data_ov031_0224c980.unknown_120_ = data_ov031_0224d02c;
-    data_ov031_0224c980.unknown_128_ = 0x180;
-    data_ov031_0224c980.unknown_12c_ = data_ov031_0224ceac;
+    gIPStack_ov031_0224c980.unknown_11c_ = 0x180;
+    gIPStack_ov031_0224c980.unknown_120_ = data_ov031_0224d02c;
+    gIPStack_ov031_0224c980.unknown_128_ = 0x180;
+    gIPStack_ov031_0224c980.unknown_12c_ = data_ov031_0224ceac;
     func_ov031_02203164((int)data_ov031_0224ca60);
     var4 = 1;
     var5 = 1;
     unsigned int var6 = 1;
-    data_ov031_0224c980.unknown_c_ = 1;
+    gIPStack_ov031_0224c980.unknown_c_ = 1;
     var1 = 0;
     while (1) {
         SleepCurrentContext(1000);
-        if (data_ov031_0224c980.unknown_44_) break;
+        if (gIPStack_ov031_0224c980.unknown_44_) break;
         var2 = (int)(GetCurrentTimestamp() >> 16);
-        if (data_ov031_0224c980.unknown_48_()) {
+        if (gIPStack_ov031_0224c980.unknown_48_()) {
             if (--var6 == 0) {
-                if (data_ov031_0224c980.unknown_10_ & 1) {
+                if (gIPStack_ov031_0224c980.unknown_10_ & 1) {
                     if (var1 == 0) {
                         func_ov031_02203bcc();
                         var1 = 1;
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov031_02203c6c() {
                     switch (var1) {
                     case 0:
                         if (var5) {
-                            data_ov031_0224c980.unknown_c_ = 2;
+                            gIPStack_ov031_0224c980.unknown_c_ = 2;
                             var5 = 0;
                         }
                         if (!func_ov031_022046b8() || func_ov031_02204710(&var6, 0) == 0) {
@@ -132,8 +132,8 @@ extern "C" ARM void func_ov031_02203c6c() {
             if (var3->unknown_0_ && (short)(var2 - var3->unknown_a_) > 957) var3->unknown_0_ = 0;
             var3++;
         } while (++var0 < 8);
-        if (data_ov031_0224c980.unknown_2c_ && --var4 == 0) {
-            func_ov031_02200ccc(data_ov031_0224c980.unknown_2c_);
+        if (gIPStack_ov031_0224c980.unknown_2c_ && --var4 == 0) {
+            func_ov031_02200ccc(gIPStack_ov031_0224c980.unknown_2c_);
             var4 = 105;
         }
         ProcessorContext* var7 = gContextScheduler_02111304.firstContext;
@@ -162,14 +162,14 @@ extern "C" ARM void func_ov031_02203c6c() {
         int var11 = 0;
         do {
             if (var10->unknown_4_ && var2 - var10->unknown_2c_ > 239) {
-                data_ov031_0224c980.unknown_40_(var10->unknown_34_);
+                gIPStack_ov031_0224c980.unknown_40_(var10->unknown_34_);
                 var10->unknown_4_ = 0;
             }
             var10++;
         } while (++var11 < 8);
         func_ov031_0220aa98(var2);
-        if (data_ov031_0224c980.unknown_3c_) data_ov031_0224c980.unknown_3c_();
+        if (gIPStack_ov031_0224c980.unknown_3c_) gIPStack_ov031_0224c980.unknown_3c_();
     }
-    if (!(data_ov031_0224c980.unknown_10_ & 1) && var1 != 3) func_ov031_0220480c();
+    if (!(gIPStack_ov031_0224c980.unknown_10_ & 1) && var1 != 3) func_ov031_0220480c();
     func_ov031_02203178();
 }

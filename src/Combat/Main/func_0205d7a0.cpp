@@ -9,20 +9,20 @@ struct MenuCursor_0205bcdc {
 };
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc* cursor, int index);
 
-// USA: func_0205d7a0
-extern "C" ARM void func_0205d7a0(unsigned char* arg0, int arg1) {
-    int var0;
-    if (arg0[0x95]) {
-        var0 = GetMenuCursorItemCount_0205bafc(arg0 + 0x54);
-    } else if (arg0[0x94]) {
-        var0 = GetMenuCursorItemCount_0205bafc(arg0 + 0x4);
+// USA: SetCursorIndex_0205d7a0
+extern "C" ARM void SetCursorIndex_0205d7a0(unsigned char* windowManager, int index) {
+    int itemCount;
+    if (windowManager[0x95]) {
+        itemCount = GetMenuCursorItemCount_0205bafc(windowManager + 0x54);
+    } else if (windowManager[0x94]) {
+        itemCount = GetMenuCursorItemCount_0205bafc(windowManager + 0x4);
     }
-    if (arg1 < 0) {
-        if (var0 <= arg1) return;
+    if (index < 0) {
+        if (itemCount <= index) return;
     }
-    if (arg0[0x95]) {
-        SetMenuCursorIndex_0205bb04(arg0 + 0x54, arg1);
+    if (windowManager[0x95]) {
+        SetMenuCursorIndex_0205bb04(windowManager + 0x54, index);
     }
-    if (arg0[0x94] == 0) return;
-    SetTouchMenuCursorIndex_0205bcdc((struct MenuCursor_0205bcdc*)(arg0 + 0x4), arg1);
+    if (windowManager[0x94] == 0) return;
+    SetTouchMenuCursorIndex_0205bcdc((struct MenuCursor_0205bcdc*)(windowManager + 0x4), index);
 }

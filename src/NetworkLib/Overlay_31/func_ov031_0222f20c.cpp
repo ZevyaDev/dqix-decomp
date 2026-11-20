@@ -22,7 +22,7 @@ struct Struct_ov031_02290ca0_4 {
 	unsigned char unknown_1_[7];
 	unsigned char* unknown_8_;
 };
-extern struct Struct_ov031_02290ca0_4 data_ov031_02290ca0;
+extern struct Struct_ov031_02290ca0_4 gConnectionSettingsPage_ov031_02290ca0;
 
 // USA: func_ov031_0222f20c
 extern "C" ARM void func_ov031_0222f20c(int arg0) {
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov031_0222f20c(int arg0) {
 		func_ov031_0222f3f8((unsigned char)(((arg0 - 7) ^ 1) != 0));
 		return;
 	default:
-		data_ov031_02290ca0.unknown_8_[0x40] = (unsigned char)arg0;
+		gConnectionSettingsPage_ov031_02290ca0.unknown_8_[0x40] = (unsigned char)arg0;
 		if (arg0 == 0xb || arg0 == 0xc) {
 			func_ov031_02230ca4();
 			if (func_ov031_02230df0() == 0) {

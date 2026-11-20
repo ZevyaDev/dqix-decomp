@@ -27,7 +27,7 @@ struct TextWindowManager_0205dee8;
 struct TextWindowManager_0205def8;
 struct Party_02048150;
 struct ItemBag_0207cf30_3;
-struct Struct_02061c04_23;
+struct ItemBag_02061c04_23;
 struct Struct_0207cf30_4;
 struct Struct_02083994;
 struct ItemTable_0201099c_10;
@@ -46,7 +46,7 @@ extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c 
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int GetBagItemCount_020a0b3c(struct ItemBag_0207cf30_3 *bag, int itemId);
-extern "C" int func_020a0a08(Struct_02061c04_23*, int, int);
+extern "C" int RemoveItemFromBag_020a0a08(ItemBag_02061c04_23*, int, int);
 extern "C" int func_020a095c(struct Struct_0207cf30_4 *arg0, int arg1, signed char arg2);
 extern "C" int func_02083994(struct Struct_02083994 *arg0, int arg1);
 extern "C" int func_020dc920(int arg0, int arg1, int arg2, int arg3);
@@ -59,8 +59,8 @@ extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllow
 extern "C" void func_ov002_0215b814(char *arg0);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215d654(char *arg0);
-extern "C" void func_ov002_02156e90(void *arg0);
-extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
+extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(void *menu);
+extern "C" void RebuildMenuWindowText_ov002_0215b9a4(char *menu, unsigned char windowId, int hasCursorMark);
 extern "C" void func_ov002_0215a7b4(char *arg0, int arg1, short arg2, int arg3, int arg4);
 extern "C" void func_ov002_0215b2c8(char *arg0);
 extern "C" void func_ov002_0216bfd4(char *arg0, int arg1);
@@ -119,7 +119,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
         if (!func_020dcc20(*(unsigned char *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xb31, 0xc6d)), 1)) {
             *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xb6, 0x1b00 + 0xee))        = -1;
             *(signed char *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xae9, 0xc21)) = -1;
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
             return;
         }
         int var8 = 0;
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                                                   *(unsigned char *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xb31, 0xc6d)), 0, 0, 0))
         {
             *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa94, 0xbcc)) = 1;
-            func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa80, 0xbb8)), 0);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa80, 0xbb8)), 0);
         }
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) L(arg0), Enum_ov002_02163bd0_13, 1);
         if (var7 != *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xb6, 0x1b00 + 0xee))) return;
@@ -156,7 +156,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                     void *var13 = GetParty_02010828(GameState::GetInstance());
                     int var14     = GetBagItemCount_020a0b3c((struct ItemBag_0207cf30_3 *) var13,
                                                                                *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)));
-                    func_020a0a08((struct Struct_02061c04_23 *) var13, *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)), (signed char)var14);
+                    RemoveItemFromBag_020a0a08((struct ItemBag_02061c04_23 *) var13, *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)), (signed char)var14);
                     func_020a095c((struct Struct_0207cf30_4 *) var13,
                                                                       *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)), var14);
                     *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xf0, 0x1c00 + 0x28)) = 0x236e;
@@ -188,8 +188,8 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                         *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xf0, 0x1c00 + 0x28)) = 0x2361;
                     }
                 }
-                func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa80, 0xbb8)), 1);
-                func_ov002_0215b9a4(arg0, Enum_ov002_02163bd0_13, 0);
+                RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa80, 0xbb8)), 1);
+                RebuildMenuWindowText_ov002_0215b9a4(arg0, Enum_ov002_02163bd0_13, 0);
                 *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xf2, 0x1c00 + 0x2a))          = -1;
                 *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa80, 0xbb8))           = Enum_ov002_02163bd0_38;
                 *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa84, 0xbbc))           = 5;
@@ -198,7 +198,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
             } else if (func_020dc920(*(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe9, 0x1c00 + 0x21)) & 0xff, 0, 0, 0)) {
                 PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
                 *(unsigned int *) (arg0 + 0x2000 + REGIONAL_OFFSET(0x2ac, 0x47c)) &= ~4;
-                func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa80, 0xbb8)), 1);
+                RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xa80, 0xbb8)), 1);
                 if (IsLocalWirelessOn_0202b7d8(func_0202ae18())) {
                     int var18 = 1;
                     int var19  = 0;
@@ -233,7 +233,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
         } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xb6, 0x1b00 + 0xee))        = -1;
             *(signed char *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xae9, 0xc21)) = -1;
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
         }
     }
 }

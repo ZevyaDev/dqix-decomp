@@ -20,24 +20,24 @@ struct Struct_ov031_0222c7d8 {
 	unsigned char unknown_53_;
 };
 struct Struct_ov031_02290c8c_15 { unsigned char unknown_0_[2]; unsigned short unknown_2_; Struct_ov031_0222c7d8* unknown_4_; };
-extern Struct_ov031_02290c8c_15 data_ov031_02290c8c;
+extern Struct_ov031_02290c8c_15 gAccessPointListPage_ov031_02290c8c;
 
 // USA: func_ov031_0222c7d8
 extern "C" ARM void func_ov031_0222c7d8(void* arg0) {
 	func_ov031_0223521c();
 	func_ov031_022238cc();
-	data_ov031_02290c8c.unknown_2_ += 4;
-	int var0 = FastIntModulus(data_ov031_02290c8c.unknown_2_, 0x1c);
+	gAccessPointListPage_ov031_02290c8c.unknown_2_ += 4;
+	int var0 = FastIntModulus(gAccessPointListPage_ov031_02290c8c.unknown_2_, 0x1c);
 	if (var0 >= 4) {
 		func_ov031_0222c660();
 		return;
 	}
-	data_ov031_02290c8c.unknown_2_ -= var0;
+	gAccessPointListPage_ov031_02290c8c.unknown_2_ -= var0;
 	func_ov031_0222c3b4();
-	int var1 = FastIntDivide(data_ov031_02290c8c.unknown_2_ * data_ov031_02290c8c.unknown_4_->unknown_53_, data_ov031_02290c8c.unknown_4_->unknown_40_);
+	int var1 = FastIntDivide(gAccessPointListPage_ov031_02290c8c.unknown_2_ * gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_53_, gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_40_);
 	func_ov031_022351f8(var1);
 	func_ov031_02235204();
 	func_ov031_0222c8cc();
-	data_ov031_02290c8c.unknown_4_->unknown_38_ = 0;
+	gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_38_ = 0;
 	QueueTaskRemoval_ov031_0223e2c0(0, arg0);
 }

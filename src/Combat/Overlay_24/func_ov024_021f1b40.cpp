@@ -2,15 +2,15 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-extern "C" int func_ov024_021edf00(int* arg0, int arg1, short* arg2);
+extern "C" int GetEnragedTarget_ov024_021edf00(int* targetSelector, int actorIndex, short* targetIndices);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" void ChooseEnemyActionTargets_ov024_021ed8c0(void* targetSelector, int actorIndex, int action, int* count, short* targetIndices);
 
 extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
 
-struct Struct_ov024_021de25c { char unknown_0_[0x14]; int unknown_14_; };
-struct Struct_ov024_021de124 { char unknown_0_[0x138]; struct Struct_ov024_021de25c* unknown_138_; };
-extern "C" int func_ov024_021de25c(struct Struct_ov024_021de124* arg0);
+struct Struct_ov024_021de25c { char unknown_0_[0x14]; int statusFlags_14_; };
+struct Struct_ov024_021de124 { char unknown_0_[0x138]; struct Struct_ov024_021de25c* pCurrentStats_138_; };
+extern "C" int IsConfused_ov024_021de25c(struct Struct_ov024_021de124* combatant);
 
 extern unsigned short data_ov024_021fec1c;
 
@@ -25,7 +25,7 @@ extern "C" ARM int func_ov024_021f1b40(int* arg0, int arg1, int arg2, int* arg3,
 		*var4 = *var2++;
 	} while (--var3);
 
-	int var5 = func_ov024_021edf00(arg0, arg1, var0);
+	int var5 = GetEnragedTarget_ov024_021edf00(arg0, arg1, var0);
 	if (var5 <= 0) {
 		var5 = CollectPartyCombatantIndices_ov000_0215e9fc(*arg0, var0, 4, 1);
 		if (var5 <= 0) return 0;
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov024_021f1b40(int* arg0, int arg1, int arg2, int* arg3,
 		GameObject* var7 = GetCombatantByID(*arg0, var0[var6]);
 		if (!var7) continue;
 		if (IsAsleep_020882f8((unsigned char*)var7->currentStats_)) continue;
-		if (func_ov024_021de25c((struct Struct_ov024_021de124*)var7)) continue;
+		if (IsConfused_ov024_021de25c((struct Struct_ov024_021de124*)var7)) continue;
 		int var8 = *arg3;
 		*arg3 = var8 + 1;
 		arg4[var8] = var0[var6];

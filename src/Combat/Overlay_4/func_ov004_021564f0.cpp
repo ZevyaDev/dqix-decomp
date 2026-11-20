@@ -19,9 +19,9 @@ extern "C" void RedrawMenuWindow_ov023_021f809c(void* window, void* menu);
 
 extern "C" int GetMessageWindow_020421a0(void);
 
-struct Struct_020a15bc_2 { unsigned int unknown_0_0_ : 9; unsigned int unknown_1_1_ : 23; unsigned int unknown_4_; unsigned int unknown_8_; };
-struct Struct_020a15bc { struct Struct_020a15bc_2* unknown_0_; unsigned short unknown_4_; unsigned short unknown_6_; };
-extern "C" struct Struct_020a15bc_2* func_020a15bc(struct Struct_020a15bc* arg0, int arg1);
+struct AccoladeEntry_020a15bc_2 { unsigned int id_0_0_ : 9; unsigned int unknown_1_1_ : 23; unsigned int unknown_4_; unsigned int unknown_8_; };
+struct AccoladeTable_020a15bc { struct AccoladeEntry_020a15bc_2* pEntries_0_; unsigned short unknown_4_; unsigned short count_6_; };
+extern "C" struct AccoladeEntry_020a15bc_2* FindAccolade_020a15bc(struct AccoladeTable_020a15bc* table, int accoladeId);
 
 struct StringListEntry_02072a68 { short id_0_; void* pText_4_; };
 struct StringList_02072a68_2 { struct StringListEntry_02072a68* unknown_0_; short capacity_4_; };
@@ -34,13 +34,13 @@ extern "C" int func_020420e8(void* arg0, int arg1);
 extern "C" int func_02046608(void* arg0, int arg1, unsigned int arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 
 #if defined(jpn)
-struct Struct_ov004_021707c8 { char unknown_0_[4]; short* unknown1_8_; struct Struct_020a15bc* unknown_8_; };
+struct Struct_ov004_021707c8 { char unknown_0_[4]; short* unknown1_8_; struct AccoladeTable_020a15bc* unknown_8_; };
 extern "C" void func_02041f50(void* arg0, char* arg1);
 extern "C" void func_02042428(char* arg0, int arg1);
 extern "C" int func_020d2ff0(const char* string);
 extern "C" void func_ov023_021f8960(char* arg0, short arg1, unsigned short arg2);
 #else
-struct Struct_ov004_021707c8 { char unknown_0_[8]; short* unknown1_8_; struct Struct_020a15bc* unknown_c_; };
+struct Struct_ov004_021707c8 { char unknown_0_[8]; short* unknown1_8_; struct AccoladeTable_020a15bc* unknown_c_; };
 #endif
 extern Struct_ov004_021707c8 data_ov004_021707c8;
 
@@ -76,7 +76,7 @@ extern "C" ARM int func_ov004_021564f0(void* arg0) {
     int var6 = func_ov023_021f9bc8(var1) + (short)(var2 * 16);
     short var7 = data_ov004_021707c8.unknown1_8_[var6];
 
-    struct Struct_020a15bc_2* var8 = func_020a15bc(data_ov004_021707c8.unknown_8_, var7);
+    struct AccoladeEntry_020a15bc_2* var8 = FindAccolade_020a15bc(data_ov004_021707c8.unknown_8_, var7);
     if (var8 != NULL) {
 
     void* var9 = (void*)GetMessageWindow_020421a0();
@@ -148,7 +148,7 @@ extern "C" ARM int func_ov004_021564f0(void* arg0) {
     int var19 = func_ov023_021f9bc8(var1) + (short)(var2 * 12);
     short var20 = data_ov004_021707c8.unknown1_8_[var19];
 
-    struct Struct_020a15bc_2* var21 = func_020a15bc(data_ov004_021707c8.unknown_c_, var20);
+    struct AccoladeEntry_020a15bc_2* var21 = FindAccolade_020a15bc(data_ov004_021707c8.unknown_c_, var20);
     if (var21 != NULL) {
 
     void* var22 = (void*)GetMessageWindow_020421a0();

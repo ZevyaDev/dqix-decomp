@@ -30,7 +30,7 @@ enum { Enum_ov003_021549a8_524 = 0x20c };
 #include "NitroSDK/Cache.h"
 #include "std_library_functions.h"
 
-extern "C" void func_ov023_021eb26c(void* arg0);
+extern "C" void DestroyAccoladeDisplay_ov023_021eb26c(void* display);
 struct BGControlSave_02074bd0;
 extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
 struct MenuLayout_0207fcb8;
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov003_021549a8(Struct_ov003_021549a8_2* arg0) {
         arg0->unknown_20c_ = -1;
     }
     if (arg0->unknown_204_ != NULL) {
-        func_ov023_021eb26c(arg0->unknown_204_);
+        DestroyAccoladeDisplay_ov023_021eb26c(arg0->unknown_204_);
         arg0->unknown_204_ = NULL;
     }
 

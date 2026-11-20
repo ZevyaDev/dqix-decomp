@@ -18,8 +18,8 @@ extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result
 extern "C" void AppendTargetResult_ov000_0215ffc4(void* target, void* result, int listIndex);
 extern "C" struct ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, struct Struct_ov024_021e3f14_3* flags, int flagIndex);
-extern "C" void func_ov000_0215cd44(void* arg0, struct ActionResult_ov000_021584e8* arg1, GameObject* arg2, int arg3,
-    struct Struct_ov024_021e3f14_3 arg4, int arg5);
+extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant, int amount,
+    struct Struct_ov024_021e3f14_3 flags, int isCriticalHit);
 
 struct Struct_ov024_021e3f14 { char unknown_0_[0x24]; unsigned char unknown_24_; };
 struct Struct_ov024_021e3f14_2 {
@@ -64,7 +64,7 @@ extern "C" ARM unsigned long long func_ov024_021e3f14(struct Struct_ov024_021e3f
         var2 = 1;
     }
     if (var2) {
-        func_ov000_0215cd44(arg0->unknown_10_, var1, var0, 0, var3, 0);
+        SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var1, var0, 0, var3, 0);
         AppendTargetResult_ov000_0215ffc4(arg0->unknown_c_, var1, 1);
         ((unsigned char*)arg0->unknown_10_)[0x8e02]++;
     }

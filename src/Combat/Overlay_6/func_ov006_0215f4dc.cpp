@@ -38,7 +38,7 @@ struct Struct_ov006_02157a60 {
     unsigned short unknown_394_;
 };
 
-extern "C" void func_02080b54(void*, int);
+extern "C" void HideMenuLayoutWindowTexts_02080b54(void*, int);
 extern "C" void func_02080608(void*, int);
 extern "C" void func_020806c4(void*, int);
 extern "C" void ShowMenuLayoutText_02080b40(void*, int);
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov006_0215f4dc(Struct_ov006_02157a60* arg0) {
     var6 = 0x64;
     var3 = 0x6c;
     var7 = 0x74;
-    func_02080b54(var4, 0x11);
+    HideMenuLayoutWindowTexts_02080b54(var4, 0x11);
     func_02080608(var4, 0x11);
     arg0->unknown_394_ &= ~4;
     if (var2 > 8) arg0->unknown_394_ |= 4;

@@ -4,7 +4,6 @@
 
 #if defined(jpn)
 enum { Enum_ov002_0215f4e8_7166 = 0x1ac6, Enum_ov002_0215f4e8_3036 = 0xaa4, Enum_ov002_0215f4e8_32 = 0x8 };
-#define func_02041cc0 func_0204234c
 #else
 enum { Enum_ov002_0215f4e8_7166 = 0x1bfe, Enum_ov002_0215f4e8_3036 = 0xbdc, Enum_ov002_0215f4e8_32 = 0x20 };
 #endif
@@ -14,9 +13,9 @@ extern "C" int AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMar
 extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 #if defined(jpn)
-extern "C" int func_0204234c(char *arg0, int arg1);
+extern "C" int AppendHorizontalLineTag_02041cc0(char *arg0, int arg1);
 #else
-extern "C" int func_02041cc0(char *arg0, int arg1);
+extern "C" int AppendHorizontalLineTag_02041cc0(char *buffer, int y);
 #endif
 extern "C" int AppendPositionTag_02041a90(char *buffer, int x, int y);
 extern "C" int AppendTextColorTag_02041e70(char *buffer, int colorIndex);
@@ -39,7 +38,7 @@ extern "C" ARM void func_ov002_0215f4e8(unsigned char *arg0, char *arg1, int arg
     AppendText_02042058(arg1, GetGameString((eGameString)(0x16)));
 #endif
     AppendText_02042058(arg1, *(const char **) (arg0 + 0x1000 + Enum_ov002_0215f4e8_3036));
-    func_02041cc0(arg1, 0x18);
+    AppendHorizontalLineTag_02041cc0(arg1, 0x18);
     AppendPositionTag_02041a90(arg1, 0xc, 0x1f);
 
     short var1 = 0;

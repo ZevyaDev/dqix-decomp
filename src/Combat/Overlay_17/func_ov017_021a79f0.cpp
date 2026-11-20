@@ -25,7 +25,7 @@ struct Struct_ov017_021a79f0 {
 // USA: func_ov017_021a79f0
 extern "C" ARM void func_ov017_021a79f0(struct Struct_ov017_021a79f0* arg0) {
     FontLoader_0208cb08* var0 = GetFontLoader_02094a00();
-    func_02094b38(var0, 0x205);
+    ClearLoadedFontSet_02094b38(var0, 0x205);
     CancelFontLoad_02094ab0(var0);
 
     void* var1 = arg0->unknown_25c_.GetSignedAllocator();

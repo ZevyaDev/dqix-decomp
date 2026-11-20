@@ -120,7 +120,7 @@ extern "C" ARM void func_ov017_021b11d8(void* arg0, void* arg1) {
     }
     for (int var10 = 0; var10 < 4; var10++) {
         if ((var0->unknown_a_ & (1 << var10)) != 0) {
-            Struct_0202b2f0_2* var11 = func_0202c178(var3, var10);
+            Struct_0202b2f0_2* var11 = GetLocalWirelessPlayerRecord_0202c178(var3, var10);
             if (var11 == 0) {
                 continue;
             }

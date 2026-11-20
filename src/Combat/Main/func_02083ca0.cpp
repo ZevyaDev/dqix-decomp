@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-// USA: func_02083ca0
-extern "C" ARM void func_02083ca0(unsigned char* arg0, int arg1) {
+// USA: SetVocation_02083ca0
+extern "C" ARM void SetVocation_02083ca0(unsigned char* memberData, int vocation) {
 #if defined(jpn)
-    *(unsigned short*)(arg0 + 0x8bc) |= 1 << arg1;
+    *(unsigned short*)(memberData + 0x8bc) |= 1 << vocation;
 #else
-    *(unsigned short*)(arg0 + 0x954) |= 1 << arg1;
+    *(unsigned short*)(memberData + 0x954) |= 1 << vocation;
 #endif
 #if defined(jpn)
-    *(int*)(arg0 + 0x8b8) = arg1;
+    *(int*)(memberData + 0x8b8) = vocation;
 #else
-    *(int*)(arg0 + 0x950) = arg1;
+    *(int*)(memberData + 0x950) = vocation;
 #endif
 }

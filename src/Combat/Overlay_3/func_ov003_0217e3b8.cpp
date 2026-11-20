@@ -38,7 +38,7 @@ extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigne
 extern "C" void func_020a1df8(int overlayEntry);
 extern "C" void func_ov003_021681c8(void* arg0);
 extern "C" void func_ov003_021680d4(void* arg0, SafeAllocator* arg1);
-extern "C" int func_ov017_021959b4(void);
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 extern "C" void func_ov003_021685cc(void* arg0);
 extern "C" int func_ov003_02168438(void* arg0, int arg1);
 extern "C" void func_ov003_02168324(void* arg0);
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov003_0217e3b8(Struct_ov003_0217e3b8* arg0)
     }
     else if (arg0->unknown_8_ == 1)
     {
-        if (func_ov017_021959b4())
+        if (IsLocalWirelessHostDisconnected_ov017_021959b4())
             func_ov003_021685cc(arg0->unknown_20_);
         if (func_ov003_02168438(arg0->unknown_20_, var4))
             arg0->unknown_8_++;

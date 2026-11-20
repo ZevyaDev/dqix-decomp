@@ -65,8 +65,8 @@ extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int GetMessageChoice_020457e0(int);
 struct Struct_0205faf4;
 struct GameState;
-struct Struct_02053f7c;
-extern "C" short func_02086aec(struct Struct_02053f7c* arg0, int arg1);
+struct Party_02053f7c;
+extern "C" short CountOwnedItem_02086aec(struct Party_02053f7c* party, int itemId);
 struct FlagManager_0205faf4_3;
 extern "C" int GetQuestState_0206e120(struct FlagManager_0205faf4_3* flagManager, int questId);
 extern "C" int func_0206e31c(int arg0, int arg1);
@@ -109,7 +109,7 @@ extern "C" void* func_02064904(void* arg0, int arg1, unsigned int arg2);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
-extern "C" short func_0207c638(void* arg0, unsigned int arg1);
+extern "C" short CountUsedEquipmentBagSlots_0207c638(void* bag, unsigned int category);
 struct Struct_0205faf4_9 { int unknown_0_[6]; };
 struct Struct_0205faf4_10 { int unknown_0_; int unknown_4_; unsigned int unknown_8_0_:9, unknown_9_1_:3; };
 extern "C" void* InitItemTable_020de824(void* itemTable);
@@ -231,9 +231,9 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return ((GameState*)((struct Struct_0205faf4*)var11))->IsMorningDayOrEvening();
     }
     case 18:
-        return func_02086aec((struct Struct_02053f7c*)GetParty_02010828((GameState*)(void*)GameState::GetInstance()), CS16(2)) > 0;
+        return CountOwnedItem_02086aec((struct Party_02053f7c*)GetParty_02010828((GameState*)(void*)GameState::GetInstance()), CS16(2)) > 0;
     case 19:
-        return func_02086aec((struct Struct_02053f7c*)GetParty_02010828((GameState*)(void*)GameState::GetInstance()), CS16(2)) <= 0;
+        return CountOwnedItem_02086aec((struct Party_02053f7c*)GetParty_02010828((GameState*)(void*)GameState::GetInstance()), CS16(2)) <= 0;
     case 20: {
         int var12 = 0;
         int var13 = GetQuestState_0206e120((struct FlagManager_0205faf4_3*)arg0, CU16(2)) == 2;
@@ -468,7 +468,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     case 48: {
         void* var60 = GetParty_02010828((GameState*)(void*)GameState::GetInstance());
         if (!var60) return 0;
-        return func_02086aec((struct Struct_02053f7c*)var60, CS16(2)) >= CU16(4) ? 1 : 0;
+        return CountOwnedItem_02086aec((struct Party_02053f7c*)var60, CS16(2)) >= CU16(4) ? 1 : 0;
     }
     case 49: {
         struct Struct_0203d028_2* var61 = (struct Struct_0203d028_2*)(void*)GameState::GetInstance();
@@ -650,7 +650,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return 1;
     }
     case 66: {
-        int var92 = func_02086aec((struct Struct_02053f7c*)GetParty_02010828((GameState*)(void*)GameState::GetInstance()), CS16(4)) > CU16(6);
+        int var92 = CountOwnedItem_02086aec((struct Party_02053f7c*)GetParty_02010828((GameState*)(void*)GameState::GetInstance()), CS16(4)) > CU16(6);
         if (CU16(2) != 0) return var92;
         return var92 == 0;
     }
@@ -749,7 +749,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         var111.CreateTypeA(var110, 0xc000);
         unsigned char* var114 = (unsigned char*)GetParty_02010828((GameState*)(void*)GameState::GetInstance());
         void* var115 = GetEquipmentBagItemIds_0207c5f8(var114 + 0x1d4, CU16(2));
-        short var116 = func_0207c638(var114 + 0x1d4, CU16(2));
+        short var116 = CountUsedEquipmentBagSlots_0207c638(var114 + 0x1d4, CU16(2));
         InitItemTable_020de824(&var112);
         func_020de848(&var112);
 #if defined(jpn)

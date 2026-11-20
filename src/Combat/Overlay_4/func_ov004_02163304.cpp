@@ -3,7 +3,7 @@
 #include "std_library_functions.h"
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" int func_020981e4(int arg0, int arg1);
+extern "C" int IsQuestersRestZone_020981e4(int questersRest, int zoneId);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 
 struct Struct_ov004_021707e8_10 {
@@ -24,7 +24,7 @@ extern "C" ARM int func_ov004_02163304(void* arg0) {
     int var0 = 3;
     char* var1 = (char*)GetZone3D_02012fe4();
     char* var2 = var1 + 0x840;
-    if (var2 != NULL && func_020981e4((int)var2, inline_ov004_02163304(var1))) {
+    if (var2 != NULL && IsQuestersRestZone_020981e4((int)var2, inline_ov004_02163304(var1))) {
         var0 = 7;
     }
     char* var3 = (char*)func_ov011_021845f8(arg0, var0);

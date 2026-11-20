@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov017_021959b4(void);
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 extern "C" void func_020936b0(void* arg0);
 extern "C" void func_02092e0c(void* arg0);
 extern "C" void func_02092f00(void* arg0);
@@ -30,7 +30,7 @@ extern "C" ARM int func_02092bcc(unsigned char* arg0, int arg1) {
     short var3;
 
     if (arg0[0x3a] == 0) {
-        if (func_ov017_021959b4() != 0) {
+        if (IsLocalWirelessHostDisconnected_ov017_021959b4() != 0) {
             arg0[0x3a] = 1;
             func_020936b0(arg0);
         }

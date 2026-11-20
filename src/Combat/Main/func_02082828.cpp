@@ -90,7 +90,7 @@ extern "C" void func_02082d38(Struct_02082828*, Struct_02082828*);
 extern "C" void func_02083508(Struct_02082828_2*);
 extern "C" void GetMACAddress_020c99ac(void*);
 extern char data_020f1010[];
-extern char data_020ef078[];
+extern char gStringFormat_020ef078[];
 
 #if defined(jpn)
 extern char data_020f1130[];
@@ -173,25 +173,25 @@ extern "C" ARM void InitPartyMemberData_02082828(PartyMemberData_02082828_4* mem
         memberData->unknown_2f4_[i].unknown_0_[9] = 0;
         memberData->unknown_2f4_[i].unknown_28_ = -1;
     }
-    unsigned char var3[6];
+    unsigned char macAddress[6];
 #if defined(jpn)
     char defaultName[11];
-    GetMACAddress_020c99ac(var3);
+    GetMACAddress_020c99ac(macAddress);
     char firstLetter[] = "\x82\x60";
     char secondLetter[] = "\x82\x60";
-    signed char firstLetterIndex = (var3[0] + var3[1] + var3[2]) % 26;
+    signed char firstLetterIndex = (macAddress[0] + macAddress[1] + macAddress[2]) % 26;
     firstLetter[1] += firstLetterIndex;
-    signed char secondLetterIndex = (var3[3] + var3[4] + var3[5]) % 26;
+    signed char secondLetterIndex = (macAddress[3] + macAddress[4] + macAddress[5]) % 26;
     secondLetter[1] += secondLetterIndex;
     sprintf(defaultName, data_020f1130, firstLetter, secondLetter);
 #else
     char defaultName[18];
-    GetMACAddress_020c99ac(var3);
-    int firstLetterIndex = (var3[0] + var3[2] + var3[4]) % 26;
-    int secondLetterIndex = (var3[1] + var3[3] + var3[5]) % 26;
+    GetMACAddress_020c99ac(macAddress);
+    int firstLetterIndex = (macAddress[0] + macAddress[2] + macAddress[4]) % 26;
+    int secondLetterIndex = (macAddress[1] + macAddress[3] + macAddress[5]) % 26;
     sprintf(defaultName, data_020f1010, (signed char)(firstLetterIndex + 65), (signed char)(secondLetterIndex + 65));
 #endif
-    sprintf(memberData->name_3c_, data_020ef078, defaultName);
+    sprintf(memberData->name_3c_, gStringFormat_020ef078, defaultName);
     memberData->unknown_956_ = 0;
     memberData->unknown_958_ = -1;
     memberData->unknown_95a_ = 0;

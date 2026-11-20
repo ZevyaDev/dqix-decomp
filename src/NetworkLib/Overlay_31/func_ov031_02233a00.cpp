@@ -8,7 +8,7 @@ struct Struct_ov031_02290cd0 {
 extern Struct_ov031_02290cd0 data_ov031_02290cd0;
 
 extern "C" void func_ov031_02233a8c(void);
-extern "C" void func_ov031_02227520(int* arg0, int* arg1);
+extern "C" void GetWifiSetupPageArguments_ov031_02227520(int* outFirstArgument, int* outSecondArgument);
 extern "C" void func_ov031_0222336c(int, int, int);
 extern "C" int func_ov031_02223518(void* arg0);
 extern "C" void func_ov031_022239f4(void);
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov031_02233a00(void) {
 	data_ov031_02290cd0.unknown_0_ = 0;
 	func_ov031_02233a8c();
 	int var0;
-	func_ov031_02227520(0, &var0);
+	GetWifiSetupPageArguments_ov031_02227520(0, &var0);
 	if (var0 != 0) goto skipInit;
 	func_ov031_0222336c(0x31, 0x31 - 0x32, 0);
 skipInit:

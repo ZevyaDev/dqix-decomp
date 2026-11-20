@@ -10,7 +10,7 @@ void UpdateCombatantMagicalMight(int unused, int combatantId);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
 struct Struct_ov024_021e2bd0;
 extern "C" void* func_ov024_021e8ca0(struct Struct_ov024_021e2bd0* arg0, int arg1);
-extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, void* combatant, int amount, int flags, int isCriticalHit, int arg6);
 
 struct Struct_ov024_021e4158 { char unknown_0_[0xc]; void* unknown_c_; void* unknown_10_; };
 struct Struct_ov024_021e4158_2 { char unknown_0_[0x32]; short unknown_32_; };
@@ -52,7 +52,7 @@ extern "C" ARM unsigned long long func_ov024_021e4158(struct Struct_ov024_021e41
 		SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var5, 0x20);
 		void* var7 = func_ov024_021e8ca0((struct Struct_ov024_021e2bd0*)arg0, var6);
 		if (var7) {
-			func_ov000_0215cd44(arg0->unknown_10_, var7, var0, 0, 0, 0, 0);
+			SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var7, var0, 0, 0, 0, 0);
 		}
 	}
 	return var5.unknown1_0_;

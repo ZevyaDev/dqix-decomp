@@ -77,7 +77,7 @@ struct Struct_ov017_021afe00_2 {
 
 extern "C" void* func_0202ae18();
 extern "C" void* GetZone3D_02012fe4();
-extern "C" void StopGesture_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* gameObject);
 extern "C" void func_ov017_021cff8c(int arg0, int arg1);
 extern "C" void func_ov017_021d0b30(int arg0, int arg1, int arg2);
 
@@ -107,7 +107,7 @@ extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
         if (var2 == GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var1)) {
             continue;
         }
-        Struct_0202b2f0_2* var3 = func_0202c178(var1, var2);
+        Struct_0202b2f0_2* var3 = GetLocalWirelessPlayerRecord_0202c178(var1, var2);
         if (var3 == 0) {
             continue;
         }

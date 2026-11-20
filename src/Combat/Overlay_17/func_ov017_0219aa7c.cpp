@@ -17,7 +17,7 @@ struct NPC_0203de84_2;
 struct Struct_0203e0a0;
 
 struct NPCManager_0203dce4_2;
-struct Struct_0203a46c;
+struct SPRSprite_0203a46c;
 struct Struct_020479fc;
 struct Struct_020479b8_3;
 struct Struct_ov017_0219aa7c { unsigned char unknown_0_, unknown_1_; unsigned short unknown_2_; };
@@ -35,7 +35,7 @@ extern "C" NPC_0203de84_2* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
 extern "C" void GetNPCPosition_020406f8(Struct_0203de84*, NPC_0203de84_2*);
 extern "C" void* func_02040538(Struct_0203e0a0*);
 extern "C" void func_0202ec84(void*, Struct_02015ef4*, int*, int*);
-extern "C" void func_0203a46c(Struct_0203a46c*, int, int, int);
+extern "C" void SetSPRSpritePosition_0203a46c(SPRSprite_0203a46c*, int, int, int);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void __clear(void*, unsigned int);
 
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov017_0219aa7c(GameResources* arg0) {
     func_0202ec84(var1, (Struct_02015ef4*)&var4, &var5, &var6);
     var5 -= 12;
     var6 -= 24;
-    func_0203a46c((Struct_0203a46c*)var3, var5 << 12, var6 << 12, 0);
+    SetSPRSpritePosition_0203a46c((SPRSprite_0203a46c*)var3, var5 << 12, var6 << 12, 0);
     if (!IsQueueEmpty_02046b08(static_cast<void**>(arg0->unknown_ptr_array_36fc[0]))) return;
     int var13 = 0;
     if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 10) {

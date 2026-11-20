@@ -10,7 +10,7 @@ struct Struct_ov031_0224c980_7 {
 	char unknown_0_[0x50];
 	int unknown_50_;
 };
-extern Struct_ov031_0224c980_7 data_ov031_0224c980;
+extern Struct_ov031_0224c980_7 gIPStack_ov031_0224c980;
 
 struct Struct_ov031_022032a4 {
 	char unknown_0_[0x4];
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov031_022032a4(Struct_ov031_022032a4* arg0) {
 		func_ov031_02201f10((int)arg0, var2, 0x18);
 
 		int var3 = DisableIRQInterrupts();
-		if (arg0->unknown1_8_ == 2 && data_ov031_0224c980.unknown_50_ != 0) {
+		if (arg0->unknown1_8_ == 2 && gIPStack_ov031_0224c980.unknown_50_ != 0) {
 			arg0->unknown_4_ = 1;
 			BlockCurrentContext(NULL);
 		}
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov031_022032a4(Struct_ov031_022032a4* arg0) {
 		if (arg0->unknown1_8_ == 4) {
 			return 0;
 		}
-		if (data_ov031_0224c980.unknown_50_ == 0) break;
+		if (gIPStack_ov031_0224c980.unknown_50_ == 0) break;
 		var0 = var0 + 1;
 	} while (var0 < 3);
 	return 1;

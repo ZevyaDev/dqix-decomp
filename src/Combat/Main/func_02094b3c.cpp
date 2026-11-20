@@ -6,13 +6,13 @@ extern "C" ARM void ClearLoadedFontSetForSize_02094b3c(FontLoader_0208cb08* load
 #if defined(jpn)
     switch (fontSize) {
     case 8:
-        func_02094b38(loader, loader->unknown_40_);
+        ClearLoadedFontSet_02094b38(loader, loader->unknown_40_);
         break;
     case 10:
-        func_02094b38(loader, loader->unknown_3c_);
+        ClearLoadedFontSet_02094b38(loader, loader->unknown_3c_);
         break;
     case 12:
-        func_02094b38(loader, loader->unknown_40_);
+        ClearLoadedFontSet_02094b38(loader, loader->unknown_40_);
         break;
     }
 #endif

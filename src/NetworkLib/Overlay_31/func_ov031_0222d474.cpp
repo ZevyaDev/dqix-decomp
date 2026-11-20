@@ -2,7 +2,7 @@
 
 extern "C" bool func_ov031_02237eb0();
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int handler);
-extern "C" void func_ov031_02227520(int* arg0, int* arg1);
+extern "C" void GetWifiSetupPageArguments_ov031_02227520(int* outFirstArgument, int* outSecondArgument);
 extern "C" void func_ov031_0222ce24();
 extern "C" void func_ov031_0222d1b8();
 
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov031_0222d474() {
 		return;
 	}
 	int var2;
-	func_ov031_02227520(&var2, (int*)0);
+	GetWifiSetupPageArguments_ov031_02227520(&var2, (int*)0);
 	var1 = data_ov031_02290c94;
 	void (*var3)(void*) = var0[var2];
 	var3((char*)var1 + 8);

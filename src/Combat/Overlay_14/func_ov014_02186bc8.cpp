@@ -81,16 +81,16 @@ struct Struct_ov014_02186bc8 {
 typedef void (Struct_ov014_02186bc8::*Type_0207fc6c)();
 
 struct Struct_ov014_02186bc8_2;
-struct Struct_0207fc6c;
+struct MenuLayout_0207fc6c;
 struct Struct_ov014_02186bc8_3;
 
 extern "C" void func_ov014_02186df0(Struct_ov014_02186bc8_2*);
-extern "C" void func_0207fc6c(Struct_0207fc6c*, int);
+extern "C" void UpdateMenuLayoutWindows_0207fc6c(MenuLayout_0207fc6c*, int);
 extern "C" short func_ov014_021874f8(Struct_ov014_02186bc8_3*);
 extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void*, int);
 
 extern "C" {
-bool func_ov017_021959b4();
+bool IsLocalWirelessHostDisconnected_ov017_021959b4();
 void UpdateKeyRepeat_02081f20(void* keyRepeat, int elapsedFrames);
 int func_020800fc(Struct_ov000_0217ab8c* arg0, short* arg1, short arg2, unsigned short arg3, unsigned char, bool);
 void OpenMenuLayoutWindow_020813ec(Struct_ov000_0217ab8c* menuLayout, short windowId);
@@ -109,11 +109,11 @@ extern "C" ARM bool func_ov014_02186bc8(Struct_ov014_02186bc8* arg0, int arg1)
     if (arg1 == 0)
         arg1 = 1;
     arg0->unknown_164_ = arg1;
-    if (func_ov017_021959b4())
+    if (IsLocalWirelessHostDisconnected_ov017_021959b4())
         func_ov014_02186df0((Struct_ov014_02186bc8_2*)arg0);
     if (arg0->unknown_17a_ != 0)
     {
-        func_0207fc6c((Struct_0207fc6c*)arg0->unknown_c0_, arg0->unknown_164_);
+        UpdateMenuLayoutWindows_0207fc6c((MenuLayout_0207fc6c*)arg0->unknown_c0_, arg0->unknown_164_);
         if (arg0->unknown_d0_ != NULL)
         {
             UpdateKeyRepeat_02081f20(arg0->unknown_14c_, arg0->unknown_164_);

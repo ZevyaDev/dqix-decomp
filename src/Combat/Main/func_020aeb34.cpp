@@ -13,7 +13,7 @@ struct NPC_0203de84_2;
 struct Struct_0203de84 { int unknown_0_; int unknown_4_; int unknown_8_; };
 struct Struct_0203d028_15;
 struct Struct_020409b0;
-struct Struct_0203e2c4_2;
+struct NPC_0203e2c4_2;
 struct Struct_020aeb34 { char unknown_0_[0x10]; int unknown_10_; int unknown_14_; int unknown_18_; short unknown_1c_; };
 struct Struct_ov009_0218aa28 { int unknown_0_; int unknown_4_; int unknown_8_; };
 
@@ -31,7 +31,7 @@ extern "C" int IsQueueEmpty_02046b08(void**);
 int IsMainBrightnessTransitionActive(struct GameResources*);
 int GetMainBrightnessTransitionState(struct GameResources*);
 extern "C" void func_02040774(struct Struct_0203d028_15*, int, int, int);
-extern "C" void func_02040b2c(struct Struct_0203e2c4_2*, int);
+extern "C" void SetNPCFacingInstantly_02040b2c(struct NPC_0203e2c4_2*, int);
 extern "C" void GetNPCPosition_020406f8(struct Struct_0203de84*, struct NPC_0203de84_2*);
 extern "C" void func_0203cec4(struct Struct_0203cec4*, int);
 extern "C" void func_0203fc5c(struct Struct_0203fc5c*, float);
@@ -68,7 +68,7 @@ extern "C" ARM void func_020aeb34(void) {
         for (int var6 = 0; var6 < 4; var6++) {
             Struct_020aeb34* var7 = (Struct_020aeb34*)func_02040538((Struct_0203e0a0*)var1[var6]);
             func_02040774((struct Struct_0203d028_15*)var1[var6], var7->unknown_10_, var7->unknown_14_, var7->unknown_18_);
-            func_02040b2c((struct Struct_0203e2c4_2*)var1[var6], var7->unknown_1c_);
+            SetNPCFacingInstantly_02040b2c((struct NPC_0203e2c4_2*)var1[var6], var7->unknown_1c_);
         }
         return;
     }

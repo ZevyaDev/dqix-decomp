@@ -29,5 +29,5 @@ struct Struct_0202b2f0_2 {
     short unknown_e_;
 };
 
-extern "C" Struct_0202b2f0_2* func_0202c178(LocalWireless_0202b2f0* arg0, int arg1);
+extern "C" Struct_0202b2f0_2* GetLocalWirelessPlayerRecord_0202c178(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" void func_0202c478(LocalWireless_0202b2f0* arg0);

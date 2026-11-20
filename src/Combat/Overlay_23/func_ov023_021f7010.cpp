@@ -2,7 +2,7 @@
 #include "Filesystem/BackgroundLoader.h"
 
 extern "C" int GetMenuObjectList_ov011_021849c8(int menu);
-extern "C" int func_ov023_021f6bb8(int arg0);
+extern "C" int GetMenuLoadTaskId_ov023_021f6bb8(int objectList);
 extern "C" void func_ov023_021f6bb0(int arg0, int arg1);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern char data_ov023_021fe4e0;
@@ -18,7 +18,7 @@ struct Struct_ov023_021f7010 {
 extern "C" ARM int func_ov023_021f7010(Struct_ov023_021f7010* arg0, int arg1) {
     char var0[0x50];
     int var1 = GetMenuObjectList_ov011_021849c8(arg1);
-    int var2 = func_ov023_021f6bb8(var1);
+    int var2 = GetMenuLoadTaskId_ov023_021f6bb8(var1);
     if (var2 >= 0) {
         return arg0->unknown_1c_;
     }

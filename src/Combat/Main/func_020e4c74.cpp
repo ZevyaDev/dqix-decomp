@@ -2,19 +2,19 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-struct Struct_020e4c74 {
+struct PartyMemberData_020e4c74 {
     char unknown_0_[0x49c];
-    unsigned char unknown_49c_0_ : 1;
+    unsigned char gender_49c_0_ : 1;
 };
 
 extern "C" void SetNoun_020e4b34(void* noun, struct BaseCombatStats* singularText, struct BaseCombatStats* pluralText,
     int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int isProperName, int hasInitialVowelSound, int isInitialVowelFromText);
 
-// USA: func_020e4c74
-extern "C" ARM void func_020e4c74(void* arg0, GameObject* arg1) {
-    memset(arg0, 0, 0xc);
-    if (arg1 != NULL) {
-        struct Struct_020e4c74* var0 = *(struct Struct_020e4c74**)((char*)arg1 + 0x150);
-        SetNoun_020e4b34(arg0, arg1->baseStats_, arg1->baseStats_, 0, 0, 0, 0, var0->unknown_49c_0_, 0, 1, 0, 1);
+// USA: InitMemberNoun_020e4c74
+extern "C" ARM void InitMemberNoun_020e4c74(void* noun, GameObject* member) {
+    memset(noun, 0, 0xc);
+    if (member != NULL) {
+        struct PartyMemberData_020e4c74* memberData = *(struct PartyMemberData_020e4c74**)((char*)member + 0x150);
+        SetNoun_020e4b34(noun, member->baseStats_, member->baseStats_, 0, 0, 0, 0, memberData->gender_49c_0_, 0, 1, 0, 1);
     }
 }

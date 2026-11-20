@@ -91,7 +91,7 @@ extern "C" void func_02083b28(unsigned char*, int);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char*, int);
 extern "C" void* func_02053c6c(unsigned char*);
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10*, int);
-extern "C" void* func_ov004_0215e47c(void*, int);
+extern "C" void* FindMenuObject_ov004_0215e47c(void*, int);
 extern "C" void func_ov004_0215ee90(void*);
 
 // USA: func_ov004_0215eb40
@@ -127,7 +127,7 @@ extern "C" ARM void func_ov004_0215eb40(void* arg0) {
 
     var5 = 0;
     {
-        Struct_ov004_0215eb40* var15 = (Struct_ov004_0215eb40*)func_ov004_0215e47c(arg0, 0x8d);
+        Struct_ov004_0215eb40* var15 = (Struct_ov004_0215eb40*)FindMenuObject_ov004_0215e47c(arg0, 0x8d);
         if (var15 != 0) {
             var5 = var15->inline_ov004_0215eb40_59();
         }

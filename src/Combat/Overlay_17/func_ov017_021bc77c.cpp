@@ -74,11 +74,11 @@ extern "C" void RemoveFromQueue_02046a8c(void* queue, unsigned char* node);
 extern "C" int func_0209ca68(char*);
 extern "C" void func_0209c530(void* arg0);
 extern "C" unsigned char* GetZoneEntry_0200fd0c(GameState* gameState);
-extern "C" void* func_020e3808();
+extern "C" void* GetEventSyncTable_020e3808();
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-struct Struct_020e385c;
-extern "C" void func_020e3a50(Struct_020e385c*, int, int, int);
-extern "C" void func_020e3994(Struct_020e385c*, int, int);
+struct EventSyncEntry_020e385c;
+extern "C" void func_020e3a50(EventSyncEntry_020e385c*, int, int, int);
+extern "C" void func_020e3994(EventSyncEntry_020e385c*, int, int);
 struct Struct_02040774_2;
 extern "C" void SetObject3DPosition_020407b4(Struct_02040774_2*, int, int, int);
 struct Struct_02033834;
@@ -359,11 +359,11 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
         arg0->unknown_13c_ = 2;
     }
     unsigned char* var27 = GetZoneEntry_0200fd0c(var0);
-    void* var28 = func_020e3808();
+    void* var28 = GetEventSyncTable_020e3808();
     if (var14[2]) {
-        func_020e3a50((Struct_020e385c*)var28, GetProtagonistObjectIndex_020100a8(var0), 1, *(unsigned short*)((unsigned char*)arg0 + 0x18));
+        func_020e3a50((EventSyncEntry_020e385c*)var28, GetProtagonistObjectIndex_020100a8(var0), 1, *(unsigned short*)((unsigned char*)arg0 + 0x18));
     } else if (*(int*)(var27 + 0x20) <= 0 || var27[2] == 0) {
-        func_020e3994((Struct_020e385c*)var28, 1, *(unsigned short*)((unsigned char*)arg0 + 0x18));
+        func_020e3994((EventSyncEntry_020e385c*)var28, 1, *(unsigned short*)((unsigned char*)arg0 + 0x18));
     }
     if (arg0->unknown_cc_ && arg0->unknown_cf_ == 3) {
         SetObject3DPosition_020407b4((Struct_02040774_2*)var3, 0x48cc, 0x199, -0x733);

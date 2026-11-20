@@ -17,7 +17,7 @@
 
 struct Struct_02012fa4;
 struct TextureVRAMArea_0203d028;
-struct Struct_0203a46c;
+struct SPRSprite_0203a46c;
 struct Struct_ov005_021556e4_2;
 
 struct Struct_ov005_02155d6c_2 {
@@ -31,7 +31,7 @@ struct Struct_ov005_02155d6c {
     char unknown_0_[0x70];
 };
 
-extern "C" void func_0203a46c(Struct_0203a46c* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetSPRSpritePosition_0203a46c(SPRSprite_0203a46c* sprite, int x, int y, int z);
 extern "C" void func_ov005_02155d38(Struct_ov005_021556e4_2* arg0);
 
 struct Struct_ov005_02153ba4 {
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov005_02155d6c(Struct_ov005_02153954* arg0) {
             }
             var4->unknown_82_ = 0x1f;
             var4->unknown_80_ = 0x7fff;
-            func_0203a46c((Struct_0203a46c*)var4, var2->unknown_c_, var2->unknown_10_, 0);
+            SetSPRSpritePosition_0203a46c((SPRSprite_0203a46c*)var4, var2->unknown_c_, var2->unknown_10_, 0);
             var2->unknown_14_ = -1;
             var2->unknown_3_ = 0;
             memset(arg0->unknown_3d94_, 0, 0x200);
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov005_02155d6c(Struct_ov005_02153954* arg0) {
                 }
                 var11->unknown_82_ = 0x1f;
                 var11->unknown_80_ = 0x7fff;
-                func_0203a46c((Struct_0203a46c*)var11, var8->unknown_c_, var8->unknown_10_, 0);
+                SetSPRSpritePosition_0203a46c((SPRSprite_0203a46c*)var11, var8->unknown_c_, var8->unknown_10_, 0);
                 var8->unknown_14_ = -1;
                 var8->unknown_3_ = 0;
                 var6++;
@@ -183,7 +183,7 @@ extern "C" ARM void func_ov005_02155d6c(Struct_ov005_02153954* arg0) {
                 }
                 var17->unknown_82_ = 0x1f;
                 var17->unknown_80_ = 0x7fff;
-                func_0203a46c((Struct_0203a46c*)var17, var15->unknown_c_, var15->unknown_10_, 0);
+                SetSPRSpritePosition_0203a46c((SPRSprite_0203a46c*)var17, var15->unknown_c_, var15->unknown_10_, 0);
                 var15->unknown_14_ = -1;
                 var15->unknown_3_ = 0;
                 var13++;

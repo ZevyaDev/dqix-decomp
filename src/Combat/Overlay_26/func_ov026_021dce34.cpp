@@ -108,7 +108,7 @@ extern "C" Struct_ov026_021d8ba0_6* func_ov026_021dae60(Struct_ov026_021d8ba0_4*
 extern "C" void func_02053da0(char*, Struct_02053da0*);
 extern "C" void func_0208936c(char*, char*, char*);
 extern "C" void func_02039d84(Struct_02039d84*);
-extern "C" void func_02033fdc(Struct_02033fdc*);
+extern "C" void ResumeMovementUpdate_02033fdc(Struct_02033fdc*);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_0203409c(unsigned char*);
 extern "C" void func_02039d58(unsigned char*);
@@ -195,7 +195,7 @@ extern "C" ARM void func_ov026_021dce34(int arg0, BattleScene_ov000_02160da0* ar
             func_02039d84((Struct_02039d84*)var11);
             ((Struct_ov023_021f2a48_2*)var11)->unknown_c1_.unknown_0_0_ |= 3;
             ((Struct_ov023_021f2a48_2*)var11)->unknown_c2_5_ = 1;
-            func_02033fdc((Struct_02033fdc*)var11);
+            ResumeMovementUpdate_02033fdc((Struct_02033fdc*)var11);
             SetMotion_02033b88((Struct_02010604*)var11, 0);
             func_0203409c((unsigned char*)var11);
             var11->obj3D_.SetInheritedAlpha(0x1f);

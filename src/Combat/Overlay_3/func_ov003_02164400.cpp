@@ -39,7 +39,7 @@ struct Random;
 struct SoundEffectManager_02108760;
 
 extern "C" void* func_020d6c00(void);
-extern "C" int* func_020936f8(void);
+extern "C" int* GetNoticeQueue_020936f8(void);
 extern "C" void* func_0202ae18(void);
 
 extern "C" void func_ov003_021612c0(void* arg0);
@@ -66,22 +66,22 @@ extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* men
 extern "C" void func_02080cec(void* arg0, int arg1, int arg2);
 extern "C" void func_0208108c(void* arg0, int arg1);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
-extern "C" void func_0208203c(struct KeyRepeat_02081f20_2* arg0);
+extern "C" void ResetKeyRepeat_0208203c(struct KeyRepeat_02081f20_2* keyRepeat);
 extern "C" void func_020939dc(void* arg0);
 extern "C" void StopLocalWireless_0202b0f4(int* wireless);
 extern "C" void* GetMessageWindow_020421a0(void);
-extern "C" int func_020aad1c(int arg0, int arg1, int arg2, int arg3);
+extern "C" int UpdateSaveProgress_020aad1c(int progress, int scratchBuffer, int saveOptions, int isQuickSave);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" short func_02080468(void* arg0, int arg1);
+extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
 extern "C" void func_02081198(struct Struct_02081198* arg0, int arg1, int arg2);
 extern "C" void SetMenuLayoutWindowFrameless_02081164(struct MenuLayout_02081164* menuLayout, int windowId, int isFrameless);
 extern "C" int func_0202bae4(void* arg0);
 extern "C" struct Struct_0202bad4* func_0202bad4(struct Struct_0202bad4_2* arg0, int arg1);
 struct Random* GetBTRandom(void);
 int NextRandomMax(struct Random* random, int maximum);
-extern "C" void func_02080b54(void* arg0, int arg1);
+extern "C" void HideMenuLayoutWindowTexts_02080b54(void* menuLayout, int windowId);
 extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
-extern "C" struct TextWindow_0207fdcc* func_02081da8(struct MenuLayout_0207fdcc_2*, int);
+extern "C" struct TextWindow_0207fdcc* FindMenuLayoutWindow_02081da8(struct MenuLayout_0207fdcc_2*, int);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
     unsigned char var6;
     int var7;
     var1 = func_020d6c00();
-    var2 = func_020936f8();
+    var2 = GetNoticeQueue_020936f8();
     var3 = func_0202ae18();
     var6 = arg0[HI(0x4a4)];
     var4 = *(struct MenuLayout_0207fdcc_2**)(arg0 + LO(0x324));
@@ -187,7 +187,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         *(unsigned int*)(arg0 + HI(0x464)) |= 0x2000000;
         BackgroundLoader::AddLockGlobal();
         BackgroundLoader::FreeAllocationsGlobal();
-        if (func_020aad1c((int)(arg0 + HI(0x4b4)), (int)&g_fileScratchSpace, 0xa, 0) == 1) {
+        if (UpdateSaveProgress_020aad1c((int)(arg0 + HI(0x4b4)), (int)&g_fileScratchSpace, 0xa, 0) == 1) {
             arg0[HI(0x4be)] = 1;
             *(unsigned int*)(arg0 + HI(0x464)) &= ~0x2000000u;
             *(short*)(arg0 + HI(0x484)) = 0x30;
@@ -212,7 +212,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
             func_0208108c(var4, 0x44);
 #endif
             OpenMenuLayoutWindow_020813ec(var4, 0xf);
-            func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + LO(0x308)));
+            ResetKeyRepeat_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + LO(0x308)));
             *(void**)(arg0 + HI(0x470)) = 0;
             arg0[HI(0x4a4)] = 6;
             StopLocalWireless_0202b0f4((int*)var3);
@@ -320,14 +320,14 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
         *(unsigned int*)(arg0 + HI(0x464)) |= 0x180000;
         *(short*)(arg0 + HI(0x488)) = 0x10;
         {
-            short var23 = func_02080468(var4, *(short*)(arg0 + HI(0x488)));
+            short var23 = GetMenuLayoutWindowFirstSelectableTextId_02080468(var4, *(short*)(arg0 + HI(0x488)));
             *(short*)(arg0 + HI(0x496)) = var23;
             *(short*)(arg0 + HI(0x474)) = var23;
         }
         var4->unknown_36_ = *(short*)(arg0 + HI(0x496));
         arg0[HI(0x4a0)] = 0;
         func_ov003_021666c4(arg0);
-        func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + LO(0x308)));
+        ResetKeyRepeat_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + LO(0x308)));
         *(void**)(arg0 + HI(0x470)) = 0;
         arg0[HI(0x4a4)] = 8;
         *(short*)(arg0 + HI(0x478)) = 0;
@@ -349,12 +349,12 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
             func_ov003_021666c4(arg0);
         }
         if (func_ov003_02160854(arg0) != 0) {
-            int var24 = func_02080468(var4, *(short*)(arg0 + HI(0x488)));
+            int var24 = GetMenuLayoutWindowFirstSelectableTextId_02080468(var4, *(short*)(arg0 + HI(0x488)));
             *(short*)(arg0 + HI(0x498)) = *(short*)(arg0 + HI(0x496)) - var24;
             *(short*)(arg0 + HI(0x498)) = *(short*)(arg0 + HI(0x498)) + (((signed char)arg0[HI(0x4a0)]) << 2);
             if (*(short*)(arg0 + HI(0x498)) < *(short*)(arg0 + LO(0x226))) {
                 PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-                func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + LO(0x308)));
+                ResetKeyRepeat_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + LO(0x308)));
                 *(void**)(arg0 + HI(0x470)) = 0;
                 struct Struct_ov003_02164400_4* var25 = (struct Struct_ov003_02164400_4*)(arg0 + (*(short*)(arg0 + HI(0x498))) * Enum_ov003_02164400_55);
                 int var26 = 4 - var25->unknown_0_1_;
@@ -409,17 +409,17 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
     if (var6 == 0xd) {
         if (*(unsigned short*)(arg0 + HI(0x47a)) == 0) {
             *(short*)(arg0 + HI(0x488)) = 0x11;
-            func_02080b54(var4, 0x11);
+            HideMenuLayoutWindowTexts_02080b54(var4, 0x11);
             ShowMenuLayoutText_02080b40(var4, 0x51);
 #if !defined(jpn)
             func_0208108c(var4, 0x51);
 #endif
             OpenMenuLayoutWindow_020813ec(var4, *(short*)(arg0 + HI(0x488)));
-            func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + LO(0x308)));
+            ResetKeyRepeat_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + LO(0x308)));
             *(void**)(arg0 + HI(0x470)) = 0;
             *(unsigned short*)(arg0 + HI(0x47a)) = *(unsigned short*)(arg0 + HI(0x47a)) + 1;
         }
-        void* var28 = func_02081da8(var4, 0x11);
+        void* var28 = FindMenuLayoutWindow_02081da8(var4, 0x11);
         if (var28 == 0) {
             *(short*)(arg0 + HI(0x484)) = 0x30;
             arg0[HI(0x4a4)] = arg0[HI(0x4a4)] + 1;

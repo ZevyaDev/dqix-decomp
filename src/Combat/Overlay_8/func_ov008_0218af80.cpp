@@ -12,7 +12,7 @@ extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" void func_ov008_021843f8(void* arg0);
 extern "C" void func_ov008_021842a0(void* arg0, void* arg1);
 extern "C" void func_ov008_02184a3c(char* arg0, unsigned char arg1);
-extern "C" void func_020dc2bc();
+extern "C" void SuspendMapDisplay_020dc2bc();
 
 struct Struct_ov008_0218af80 {
     char unknown_0_[0x228];
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov008_0218af80(Struct_ov008_0218af80* arg0) {
         return;
     }
     if (arg0->unknown_e9c_ == 1 && arg0->unknown_ec0_1_ && arg0->unknown_ec0_2_) {
-        func_020dc2bc();
+        SuspendMapDisplay_020dc2bc();
         SetSubBrightness(var0, -16, 15);
         arg0->unknown_e9b_ = 1;
         arg0->unknown_e9c_ = 0;

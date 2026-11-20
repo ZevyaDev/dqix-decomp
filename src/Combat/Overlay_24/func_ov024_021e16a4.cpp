@@ -5,9 +5,9 @@
 struct Struct_02070b6c_3;
 struct Struct_ov024_021e16a4_4 { char unknown_0_[2]; unsigned char unknown_2_; };
 extern "C" struct Struct_ov024_021e16a4_4* FindMonsterBattleData_02070fd0(struct Struct_02070b6c_3* table, int monsterId);
-extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
+extern "C" GameObject* GetEnemyByID_ov000_021536f8(int battle, int index);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
-extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, void* combatant, int amount, int flags, int isCriticalHit, int arg6);
 
 struct Struct_ov024_021e16a4_5 {
     unsigned int unknown_0_0_ : 10;
@@ -44,7 +44,7 @@ struct Struct_ov024_021e16a4_3 {
 
 // USA: func_ov024_021e16a4
 extern "C" ARM void* func_ov024_021e16a4(struct Struct_ov024_021e16a4_3* arg0, int arg1, int arg2, struct Struct_ov024_021e16a4_6* arg3) {
-    GameObject* var0 = func_ov000_021536f8((int)arg0->unknown_10_, arg2);
+    GameObject* var0 = GetEnemyByID_ov000_021536f8((int)arg0->unknown_10_, arg2);
     if (!var0) return 0;
     if (arg0->unknown_6e_ == 0) {
         int var1 = *((unsigned char*)var0 + 0x17c);
@@ -72,6 +72,6 @@ extern "C" ARM void* func_ov024_021e16a4(struct Struct_ov024_021e16a4_3* arg0, i
     void* var6 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var6) return 0;
     struct Struct_ov024_021e16a4_2* var7 = (struct Struct_ov024_021e16a4_2*)((char*)arg0->unknown_c_ + 0x1c);
-    func_ov000_0215cd44(arg0->unknown_10_, var6, var0, 0, 0, 0, var7->unknown_0_7_ != 0);
+    SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var6, var0, 0, 0, 0, var7->unknown_0_7_ != 0);
     return var6;
 }

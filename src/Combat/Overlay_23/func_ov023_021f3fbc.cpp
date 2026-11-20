@@ -14,7 +14,7 @@ enum {Enum_ov023_021f3fbc_3756=0xeac, Enum_ov023_021f3fbc_21896=0x5588};
 #define func_0202ae18 func_0202a9d0
 #endif
 
-extern "C" int func_0209ca2c(void* arg0);
+extern "C" int IsJinglePlaying_0209ca2c(void* manager);
 extern "C" void func_ov023_021d8af8(void* arg0);
 extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
@@ -26,7 +26,7 @@ extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void* func_020d6c00(void);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4*, unsigned int);
-extern "C" void func_ov000_02160d80(void* arg0, int arg1);
+extern "C" void SetBattleSceneState_ov000_02160d80(void* battleScene, int state);
 struct MusicManager_02109bf4_4;
 extern "C" void StopMusic_0209c678(struct MusicManager_02109bf4_4*, int);
 extern "C" void PopSubOverlay_020a1f4c(int);
@@ -35,7 +35,7 @@ extern char gMusicManager_02109bf4;
 
 // USA: func_ov023_021f3fbc
 extern "C" ARM int func_ov023_021f3fbc(char* arg0) {
-    if (func_0209ca2c(&gMusicManager_02109bf4)) {
+    if (IsJinglePlaying_0209ca2c(&gMusicManager_02109bf4)) {
         return *(int*)(arg0 + Enum_ov023_021f3fbc_3756);
     }
 
@@ -57,7 +57,7 @@ extern "C" ARM int func_ov023_021f3fbc(char* arg0) {
     ResetMessageWindow_02043204((char*)var4);
     CloseMessageWindow_02043124((char*)var4);
     ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)func_020d6c00(), 0x20000);
-    func_ov000_02160d80(arg0, 4);
+    SetBattleSceneState_ov000_02160d80(arg0, 4);
     StopMusic_0209c678((struct MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
     PopSubOverlay_020a1f4c(1);
     return *(int*)(arg0 + Enum_ov023_021f3fbc_3756);

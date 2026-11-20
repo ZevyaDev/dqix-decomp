@@ -61,7 +61,7 @@ struct Struct_ov017_021a9454_3 {
 extern "C" Struct_ov017_021a9454* GetMessageWindow_020421a0(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
-extern "C" struct Struct_0214e34c* func_020d7a50(void);
+extern "C" struct Struct_0214e34c* GetTimedMessageQueue_020d7a50(void);
 extern "C" void ClearTimedMessageQueue_020d7aa0(struct TimedMessageQueue_020d7aa0_2* queue);
 extern "C" void* func_0200ffc0(struct Struct_0200ffc0* arg0);
 extern "C" void func_020a7f40(unsigned char* arg0);
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov017_021a9454(Struct_ov017_021a9454_2* arg0) {
     int var3 = arg0->unknown_8_;
 
     if (var3 == 0) {
-        struct Struct_0214e34c* var4 = func_020d7a50();
+        struct Struct_0214e34c* var4 = GetTimedMessageQueue_020d7a50();
         ClearTimedMessageQueue_020d7aa0((struct TimedMessageQueue_020d7aa0_2*)var4);
         void* var5 = func_0200ffc0((struct Struct_0200ffc0*)var0);
         func_020a7f40((unsigned char*)var5);

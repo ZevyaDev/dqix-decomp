@@ -5,7 +5,7 @@
 extern "C" int* GetResources_0200fb8c(int*);
 struct GameResources;
 int IsBrightnessTransitionActive(GameResources*);
-extern "C" void func_020dc2bc();
+extern "C" void SuspendMapDisplay_020dc2bc();
 
 #define REG_DISPCNT_SUB (*(volatile unsigned int*)0x04001000)
 #define REG_BG0CNT_SUB (*(volatile unsigned short*)0x04001008)
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov008_0218599c(void* arg0) {
     if (var1 != 1) {
         return;
     }
-    func_020dc2bc();
+    SuspendMapDisplay_020dc2bc();
 
     REG_BG0CNT_SUB = (REG_BG0CNT_SUB & 0x43) | 0x600;
     REG_BG1CNT_SUB = (REG_BG1CNT_SUB & 0x43) | 0x304 | 0x400;

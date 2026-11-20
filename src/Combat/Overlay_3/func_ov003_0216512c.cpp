@@ -49,7 +49,7 @@ struct Struct_ov003_0216512c {
     unsigned char unknown_4a4_;
 };
 
-extern "C" unsigned char* func_020936f8(void);
+extern "C" unsigned char* GetNoticeQueue_020936f8(void);
 extern "C" void func_ov003_021612c0(struct Struct_ov003_0216512c* arg0);
 extern "C" int func_ov003_02161344(struct Struct_ov003_0216512c* arg0);
 extern "C" void CloseMenuLayoutWindows_0207fe44(struct MenuLayout_0207fe44* menuLayout);
@@ -60,7 +60,7 @@ extern "C" void func_ov003_02166f80(void* arg0, int arg1, int arg2);
 
 // USA: func_ov003_0216512c
 extern "C" ARM void func_ov003_0216512c(struct Struct_ov003_0216512c* arg0) {
-    unsigned char* var0 = func_020936f8();
+    unsigned char* var0 = GetNoticeQueue_020936f8();
     if (arg0->unknown_4a4_ == 0) {
         func_ov003_021612c0(arg0);
         arg0->unknown_4a4_++;

@@ -20,11 +20,11 @@
 #endif
 
 struct QueueNode_02015438;
-struct Struct_0201730c;
-struct Struct_02015ef4_2;
+struct SPRSprite_0201730c;
+struct SPRSprite_02015ef4_2;
 struct Struct_0203402c;
-struct Struct_0203a46c;
-struct Struct_02017098_3;
+struct SPRSprite_0203a46c;
+struct SPRSprite_02017098_3;
 struct LocalWireless_0202c1a4;
 struct Struct_02015ef4;
 
@@ -53,7 +53,7 @@ extern "C" Struct_ov017_0219ad84_2* GetMessageWindow_020421a0();
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" unsigned char IsOnLadder_02039d7c(char*);
 extern "C" int func_0203402c(Struct_0203402c*);
-extern "C" void func_0203a46c(Struct_0203a46c*, int, int, int);
+extern "C" void SetSPRSpritePosition_0203a46c(SPRSprite_0203a46c*, int, int, int);
 extern "C" int IsPerformingGesture_020535c8(signed char*);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" LocalWireless_0202c1a4* func_0202ae18();
@@ -88,10 +88,10 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
         if (inline_ov017_0219ad84(arg0) != &arg0->substruct_array_2b90[12] &&
             inline_ov017_0219ad84(arg0) != &arg0->substruct_array_2b90[13] &&
             inline_ov017_0219ad84(arg0) != &arg0->substruct_array_2b90[14]) {
-            ((SPRSprite*)((Struct_0201730c*)inline_ov017_0219ad84(arg0)))->Update();
-            ((SPRSprite*)((Struct_02015ef4_2*)inline_ov017_0219ad84(arg0)))->DrawAnimatedNoRotation(1);
+            ((SPRSprite*)((SPRSprite_0201730c*)inline_ov017_0219ad84(arg0)))->Update();
+            ((SPRSprite*)((SPRSprite_02015ef4_2*)inline_ov017_0219ad84(arg0)))->DrawAnimatedNoRotation(1);
         } else {
-            ((SPRSprite*)((Struct_02015ef4_2*)inline_ov017_0219ad84(arg0)))->DrawAnimatedNoRotation(1);
+            ((SPRSprite*)((SPRSprite_02015ef4_2*)inline_ov017_0219ad84(arg0)))->DrawAnimatedNoRotation(1);
         }
         GXFIFO_MATRIX_POP = 1;
         return;
@@ -122,8 +122,8 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
     int var8 = func_0203402c((Struct_0203402c*)var5);
     if (var7 | var8 | inline_ov017_0219ad84_2(var4)) var6 = 0;
     if (var6) {
-        func_0203a46c((Struct_0203a46c*)&arg0->substruct_array_2b90[0], arg0->unknown_3634_[0] << 12, arg0->unknown_3646_[0] << 12, -0x1000);
-        ((SPRSprite*)((Struct_02017098_3*)&arg0->substruct_array_2b90[0]))->SetAnimation(1);
+        SetSPRSpritePosition_0203a46c((SPRSprite_0203a46c*)&arg0->substruct_array_2b90[0], arg0->unknown_3634_[0] << 12, arg0->unknown_3646_[0] << 12, -0x1000);
+        ((SPRSprite*)((SPRSprite_02017098_3*)&arg0->substruct_array_2b90[0]))->SetAnimation(1);
         GXFIFO_MATRIX_PUSH = 0;
         ((SPRSprite*)(&arg0->substruct_array_2b90[0]))->DrawTextureScaleTranslate(0, 1);
         GXFIFO_MATRIX_POP = 1;
@@ -138,8 +138,8 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
             int var10 = arg0->unknown_36b4_[1];
             Struct_02012fa4* var11 = arg0->substruct_array_2b90;
             GXFIFO_MATRIX_PUSH = 0;
-            ((SPRSprite*)((Struct_0201730c*)&var11[var10]))->Update();
-            ((SPRSprite*)((Struct_02015ef4_2*)&var11[var10]))->DrawAnimatedNoRotation(1);
+            ((SPRSprite*)((SPRSprite_0201730c*)&var11[var10]))->Update();
+            ((SPRSprite*)((SPRSprite_02015ef4_2*)&var11[var10]))->DrawAnimatedNoRotation(1);
             GXFIFO_MATRIX_POP = 1;
         }
     }
@@ -168,29 +168,29 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* arg0) {
         var22 -= 24;
         if (var16->unknown_0_.GetFlag(0x400)) {
             Struct_02012fa4* var23 = &arg0->unknown_3520;
-            func_0203a46c((Struct_0203a46c*)var23, var21 << 12, var22 << 12, -0xa000);
-            ((SPRSprite*)((Struct_02017098_3*)var23))->SetAnimation(1);
-            ((SPRSprite*)((Struct_0201730c*)var23))->Update();
+            SetSPRSpritePosition_0203a46c((SPRSprite_0203a46c*)var23, var21 << 12, var22 << 12, -0xa000);
+            ((SPRSprite*)((SPRSprite_02017098_3*)var23))->SetAnimation(1);
+            ((SPRSprite*)((SPRSprite_0201730c*)var23))->Update();
             GXFIFO_MATRIX_PUSH = 0;
-            ((SPRSprite*)((Struct_02015ef4_2*)var23))->DrawAnimatedNoRotation(1);
+            ((SPRSprite*)((SPRSprite_02015ef4_2*)var23))->DrawAnimatedNoRotation(1);
             var14++;
             GXFIFO_MATRIX_POP = 1;
             if (var14 >= 3) break;
         } else if (var16->unknown_1b2_) {
             Struct_02012fa4* var24 = (Struct_02012fa4*)arg0->unknown_35a8;
-            func_0203a46c((Struct_0203a46c*)var24, var21 << 12, var22 << 12, -0xa000);
+            SetSPRSpritePosition_0203a46c((SPRSprite_0203a46c*)var24, var21 << 12, var22 << 12, -0xa000);
             GXFIFO_MATRIX_PUSH = 0;
-            ((SPRSprite*)((Struct_0201730c*)var24))->Update();
-            ((SPRSprite*)((Struct_02015ef4_2*)var24))->DrawAnimatedNoRotation(1);
+            ((SPRSprite*)((SPRSprite_0201730c*)var24))->Update();
+            ((SPRSprite*)((SPRSprite_02015ef4_2*)var24))->DrawAnimatedNoRotation(1);
             var14++;
             GXFIFO_MATRIX_POP = 1;
             if (var14 >= 3) break;
         } else if (func_ov017_0218d4ec(arg0, var16->unknown_0_.unknown_4_)) {
             Struct_02012fa4* var25 = &arg0->substruct_array_2b90[17];
-            func_0203a46c((Struct_0203a46c*)var25, var21 << 12, var22 << 12, -0xa000);
+            SetSPRSpritePosition_0203a46c((SPRSprite_0203a46c*)var25, var21 << 12, var22 << 12, -0xa000);
             GXFIFO_MATRIX_PUSH = 0;
-            ((SPRSprite*)((Struct_0201730c*)var25))->Update();
-            ((SPRSprite*)((Struct_02015ef4_2*)var25))->DrawAnimatedNoRotation(1);
+            ((SPRSprite*)((SPRSprite_0201730c*)var25))->Update();
+            ((SPRSprite*)((SPRSprite_02015ef4_2*)var25))->DrawAnimatedNoRotation(1);
             GXFIFO_MATRIX_POP = 1;
         }
     }

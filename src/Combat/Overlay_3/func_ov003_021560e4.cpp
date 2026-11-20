@@ -41,7 +41,7 @@ void func_ov023_021e20c0(void*);
 void SetTextWindowBuffers_0204c7a8(void*, void*, int, int);
 void ClearMenuLayoutBGScreenData_0207fcb8(void*);
 void func_020807fc(void*, int, int, int);
-void* func_020d7a50(void);
+void* GetTimedMessageQueue_020d7a50(void);
 void* GetMessageWindow_020421a0(void);
 void func_02080828(void*, short, short*, short*);
 void func_02080878(void*, int, short*, short*);
@@ -64,7 +64,7 @@ void StartMessage_0204500c(void*, void*, int, int);
 #endif
 void ClearMessageParams_02046380(void*);
 void* func_0205ec34(void);
-int func_0207f9f4(void*);
+int UpdateMenuLayoutLoad_0207f9f4(void*);
 void func_ov003_02156054(void*);
 void func_ov023_021e20f0(void*, void*, void*, unsigned int);
 }
@@ -97,7 +97,7 @@ struct Struct_ov003_021560e4 {
     char unknown_4_[0xc - 4];
     int unknown_c_;
     BGLayer_02020cb8* unknown_10_;
-    Struct_0207f7f0_2* unknown_14_;
+    TextWindow_0207f7f0_2* unknown_14_;
     MenuLayout_0207f7f0* unknown_18_;
     void* unknown_1c_;
     char unknown_20_[4];
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
 
     if (var1 == 0) {
         if (arg0->unknown_1fc_ & 1) {
-            ClearTimedMessageQueue_020d7aa0(func_020d7a50());
+            ClearTimedMessageQueue_020d7aa0(GetTimedMessageQueue_020d7a50());
         }
         func_ov003_02156054(arg0);
         FontLoader_0208cb08* var3 = GetFontLoader_02094a00();
@@ -273,7 +273,7 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
             arg0->unknown_1d0_ = -1;
             char* var35 = (char*)arg0->unknown_0_;
             for (unsigned char var36 = 0; var36 < 3; var36++) {
-                Struct_0207f7f0_2* var37 = arg0->unknown_14_ + var36;
+                TextWindow_0207f7f0_2* var37 = arg0->unknown_14_ + var36;
                 SetTextWindowBuffers_0204c7a8(var37, var35 + 0x14, arg0->unknown_c_, 0x4cc);
                 var37->unknown_4_ = arg0->unknown_10_;
             }
@@ -287,7 +287,7 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
             arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
         }
     } else if (var1 == 5) {
-        int var38 = func_0207f9f4(arg0->unknown_18_);
+        int var38 = UpdateMenuLayoutLoad_0207f9f4(arg0->unknown_18_);
         if (var38 == 0) {
             arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
         }
@@ -369,7 +369,7 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
             MenuLayout_0207f7f0* var59 = arg0->unknown_18_;
             var59->unknown_2c_ = arg0->unknown_10_;
             var59->unknown_38_ = 2;
-            func_0207f7f0(var59, arg0->unknown_14_, 3);
+            SetMenuLayoutWindowArray_0207f7f0(var59, arg0->unknown_14_, 3);
             var59->unknown_3a_ = 1;
             ClearMenuLayoutBGScreenData_0207fcb8(var59);
             FlushMenuLayoutBGScreenData_0207fd44(var59);

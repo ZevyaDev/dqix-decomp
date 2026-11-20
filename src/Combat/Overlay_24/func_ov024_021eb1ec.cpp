@@ -11,7 +11,7 @@ struct Struct_ov024_021da670_8;
 extern "C" int func_ov024_021da9c8(struct Struct_ov024_021da670_8* arg0);
 
 struct Struct_ov024_021de124;
-extern "C" int func_ov024_021de25c(struct Struct_ov024_021de124* arg0);
+extern "C" int IsConfused_ov024_021de25c(struct Struct_ov024_021de124* combatant);
 
 extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
 extern "C" unsigned short GetLevel_0202053c(void* gameObject);
@@ -44,7 +44,7 @@ extern "C" ARM int func_ov024_021eb1ec(void* arg0, int arg1) {
     if (IsParalysed_ov024_021da9b0((struct Struct_ov024_021da670_7*)var1)) {
         return 0;
     }
-    if (func_ov024_021de25c((struct Struct_ov024_021de124*)var1)) {
+    if (IsConfused_ov024_021de25c((struct Struct_ov024_021de124*)var1)) {
         return 0;
     }
     if (IsAsleep_020882f8((unsigned char*)var1->currentStats_)) {

@@ -12,9 +12,9 @@ extern "C" int func_ov024_021f6f10(void* arg0);
 extern "C" int func_ov023_021f9bc8(void*);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void*, int);
 
-struct Struct_020a15bc_2 { unsigned int unknown_0_0_ : 9; unsigned int unknown_1_1_ : 23; unsigned int unknown_4_; unsigned int unknown_8_; };
-struct Struct_020a15bc { struct Struct_020a15bc_2* unknown_0_; unsigned short unknown_4_; unsigned short unknown_6_; };
-extern "C" struct Struct_020a15bc_2* func_020a15bc(struct Struct_020a15bc* arg0, int arg1);
+struct AccoladeEntry_020a15bc_2 { unsigned int id_0_0_ : 9; unsigned int unknown_1_1_ : 23; unsigned int unknown_4_; unsigned int unknown_8_; };
+struct AccoladeTable_020a15bc { struct AccoladeEntry_020a15bc_2* pEntries_0_; unsigned short unknown_4_; unsigned short count_6_; };
+extern "C" struct AccoladeEntry_020a15bc_2* FindAccolade_020a15bc(struct AccoladeTable_020a15bc* table, int accoladeId);
 
 struct Struct_ov004_021707c8 {
 #if defined(jpn)
@@ -22,7 +22,7 @@ struct Struct_ov004_021707c8 {
 #else
  char unknown1_0_[8];
 #endif
- short* unknown_8_; struct Struct_020a15bc* unknown_c_; };
+ short* unknown_8_; struct AccoladeTable_020a15bc* unknown_c_; };
 extern struct Struct_ov004_021707c8 data_ov004_021707c8;
 
 // USA: func_ov004_021560e8
@@ -40,7 +40,7 @@ extern "C" ARM int func_ov004_021560e8(void* arg0) {
     int var3 = func_ov023_021f9bc8(var0) + var2;
 
     short var4 = data_ov004_021707c8.unknown_8_[var3];
-    struct Struct_020a15bc_2* var5 = func_020a15bc(data_ov004_021707c8.unknown_c_, var4);
+    struct AccoladeEntry_020a15bc_2* var5 = FindAccolade_020a15bc(data_ov004_021707c8.unknown_c_, var4);
     if (!var5) return 0;
 
     unsigned int var6 = *(unsigned int*)var5 >> 30;

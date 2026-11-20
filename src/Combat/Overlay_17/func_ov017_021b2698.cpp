@@ -12,7 +12,7 @@ extern "C" int func_ov011_02184694(int arg0);
 extern "C" int func_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void);
 extern "C" int func_ov017_0219bddc(unsigned char* arg0);
-extern "C" int* func_020936f8(void);
+extern "C" int* GetNoticeQueue_020936f8(void);
 extern "C" void QueueNotice_02094030(int*, int, int, int);
 
 struct Struct_ov017_021b2698 {
@@ -51,7 +51,7 @@ extern "C" ARM int func_ov017_021b2698(Struct_ov017_021b2698* arg0) {
     }
     arg0->unknown_38_ = (arg0->unknown_38_ & ~1) | 1;
     arg0->unknown_48_ = 1;
-    int* var3 = func_020936f8();
+    int* var3 = GetNoticeQueue_020936f8();
     QueueNotice_02094030(var3, 0x4e23, -1, 0);
 fail:
     return 3;

@@ -56,15 +56,15 @@ struct TextWindow_0204c7a8 {
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" void SetTextWindowBuffers_0204c7a8(struct TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
 
-struct Struct_0207f7f0_2;
+struct TextWindow_0207f7f0_2;
 struct Struct_0207f914;
 #if defined(jpn)
 extern "C" void func_0207f914(struct Struct_0207f914* arg0, int arg1, int arg2);
 #else
 extern "C" void func_0207f914(struct Struct_0207f914* arg0, int arg1, int arg2, int arg3);
 #endif
-extern "C" int func_0207f9f4(void* arg0);
-extern "C" void func_0207f7f0(struct MenuLayout_0207f7f0* arg0, struct Struct_0207f7f0_2* arg1, int arg2);
+extern "C" int UpdateMenuLayoutLoad_0207f9f4(void* menuLayout);
+extern "C" void SetMenuLayoutWindowArray_0207f7f0(struct MenuLayout_0207f7f0* menuLayout, struct TextWindow_0207f7f0_2* windows, int windowCount);
 
 struct Struct_ov006_02155e28 {
     short unknown_0_;
@@ -273,7 +273,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
 #endif
         arg0->unknown_add_++;
     } else if (var1 == 5) {
-        int var28 = func_0207f9f4(arg0->unknown_1d4_);
+        int var28 = UpdateMenuLayoutLoad_0207f9f4(arg0->unknown_1d4_);
         if (var28 == 0) {
             arg0->unknown_add_++;
         }
@@ -500,7 +500,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
         struct MenuLayout_0207f7f0* var68 = arg0->unknown_1d4_;
         var68->unknown_2c_ = arg0->unknown_1cc_;
         var68->unknown_38_ = 2;
-        func_0207f7f0(arg0->unknown_1d4_, (struct Struct_0207f7f0_2*)arg0->unknown_1d0_, 1);
+        SetMenuLayoutWindowArray_0207f7f0(arg0->unknown_1d4_, (struct TextWindow_0207f7f0_2*)arg0->unknown_1d0_, 1);
         arg0->unknown_1d4_->unknown_3a_ = 1;
         volatile unsigned int* var69 = (volatile unsigned int*)0x4000000;
         *var69 = (*var69 & ~0x1f00) | 0x1f00;

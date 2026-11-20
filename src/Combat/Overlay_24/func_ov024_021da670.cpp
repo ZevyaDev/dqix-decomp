@@ -5,7 +5,7 @@ struct Struct_ov024_021da670;
 struct Struct_ov024_021da670_3;
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" void SetActionResultFlag_ov000_02159eac(void*,void*,int);
-extern "C" void func_ov000_0215cd44(void*,void*,GameObject*,int,unsigned long long,int);
+extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void*,void*,GameObject*,int,unsigned long long,int);
 extern "C" void func_ov000_021554f4(void*,int,int,Struct_ov024_021da670_3*,int,int);
 struct Struct_02088f68;
 extern "C" void func_02088f68(Struct_02088f68*);
@@ -40,7 +40,7 @@ extern "C" ARM void* func_ov024_021da670(Struct_ov024_021da670* arg0,int arg1,in
         void* var4=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
         if(!var4)return 0;
         if(var1==0x150)SetActionResultFlag_ov000_02159eac(arg0->unknown_10_,&var3,4);
-        func_ov000_0215cd44(arg0->unknown_10_,var4,var0,0,var3.unknown1_0_,0);
+        SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_,var4,var0,0,var3.unknown1_0_,0);
         return var4;
     }
     if(var1==0xe1 || var1==0x395){
@@ -88,6 +88,6 @@ extern "C" ARM void* func_ov024_021da670(Struct_ov024_021da670* arg0,int arg1,in
     void* var6=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if(!var6)return 0;
     if(var2)AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var6,var2);
-    func_ov000_0215cd44(arg0->unknown_10_,var6,var0,0,var3.unknown1_0_,0);
+    SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_,var6,var0,0,var3.unknown1_0_,0);
     return var6;
 }

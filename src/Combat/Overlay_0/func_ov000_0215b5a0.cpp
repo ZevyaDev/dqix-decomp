@@ -32,13 +32,13 @@ struct BattleAction_ov000_0215440c { unsigned short unknown_0_; char unknown_2_[
 struct Struct_02010088;
 extern "C" Struct_ov000_0215b5a0_5* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" int IsDead_02010088(Struct_02010088*);
-extern "C" int func_ov000_02153c0c(GameObject*);
+extern "C" int HasLeftBattle_ov000_02153c0c(GameObject*);
 extern "C" int IsAsleep_020882f8(unsigned char*);
 extern "C" int func_ov000_02156038(GameObject*);
 extern "C" int func_ov000_02156050(GameObject*);
 extern "C" int func_020881c4(unsigned char*);
 extern "C" Struct_ov000_0215b5a0_3* func_ov000_0215e9d8(void*);
-extern "C" void func_ov000_02160030(void*);
+extern "C" void InitBattleAction_ov000_02160030(void*);
 extern "C" Struct_ov000_0215b5a0_4* func_ov000_0215e918(void*);
 extern "C" Struct_ov000_0215b5a0_5* func_ov000_0215e938(void*);
 extern "C" void func_ov000_02157cdc(void*);
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov000_0215b5a0(Struct_ov000_0215b5a0_2* arg0, BattleAct
         if (!inline_ov000_0215b5a0(var14)->unknown_23_6_) continue;
         inline_ov000_0215b5a0(var14)->unknown_23_6_ = 0;
         if (IsDead_02010088((Struct_02010088*)var14)) continue;
-        if (func_ov000_02153c0c(var14)) continue;
+        if (HasLeftBattle_ov000_02153c0c(var14)) continue;
         if (IsAsleep_020882f8((unsigned char*)var14->currentStats_)) continue;
         if (func_ov000_02156038(var14)) continue;
         if (func_ov000_02156050(var14)) continue;
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov000_0215b5a0(Struct_ov000_0215b5a0_2* arg0, BattleAct
 
         var8 = func_ov000_0215e9d8(arg0);
         if (!var8) continue;
-        func_ov000_02160030(var8);
+        InitBattleAction_ov000_02160030(var8);
         var9 = func_ov000_0215e918(arg0);
         if (!var9) continue;
         memset(var9, 0, 0x30); var9->unknown_1c_ = -1; var9->unknown_30_ = 0;
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov000_0215b5a0(Struct_ov000_0215b5a0_2* arg0, BattleAct
         if (!func_ov000_02159f18(arg0, var16, 7)) continue;
         var8 = func_ov000_0215e9d8(arg0);
         if (!var8) continue;
-        func_ov000_02160030(var8);
+        InitBattleAction_ov000_02160030(var8);
         var9 = func_ov000_0215e918(arg0);
         if (!var9) continue;
         memset(var9, 0, 0x30); var9->unknown_1c_ = -1; var9->unknown_30_ = 0;

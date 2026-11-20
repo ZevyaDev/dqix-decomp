@@ -38,14 +38,14 @@ extern "C" int func_020e2918(signed char *arg0);
 extern "C" int func_020e2910(signed char *arg0);
 extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8 *yesNoWindow);
 extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
-extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
+extern "C" void RebuildMenuWindowText_ov002_0215b9a4(char *menu, unsigned char windowId, int hasCursorMark);
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0 *windowManager, int isAll);
 extern "C" void func_ov017_0219577c(int arg0, int arg1, int arg2);
 extern "C" int func_020dc920(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov002_0216bfd4(char *arg0, int arg1);
 extern "C" void func_ov017_021d0198(int arg0, int arg1, int arg2, int arg3);
 extern "C" int func_ov002_0215753c(unsigned char *arg0);
-extern "C" void func_ov002_02156e90(void *arg0);
+extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(void *menu);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" void ResetMessageWindow_02043204(char *window);
 extern "C" void SetCursorTextWindow_0205dee8(struct TextWindowManager_0205dee8 *windowManager, int windowId);
@@ -66,7 +66,7 @@ struct Struct_ov002_0216a300 {
         char *e = FindItemData_020dedd0((struct ItemTable_0201099c_10 *) (arg0 + RG(0x3ec + 0x400, 0x750)), \
                                                                     *(short *) (arg0 + RG(0x1c00 + 0x22, 0x1a00 + 0xea))); \
         if (e != NULL && *(short *) (e + 0x18) == 0x5612) { \
-            func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)), 1); \
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)), 1); \
             CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0 *) LST(arg0), 0); \
             *(short *) (arg0 + RG(0x1c00 + 0x28, 0x1a00 + 0xf0))          = 0x797e; \
             *(short *) (arg0 + RG(0x1c00 + 0x2a, 0x1a00 + 0xf2))          = -1; \
@@ -77,7 +77,7 @@ struct Struct_ov002_0216a300 {
             return; \
         } \
         if (*(unsigned char *) (arg0 + 0x1000 + RG(0xc30, 0xaf8)) != 0) { \
-            func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)), 1); \
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)), 1); \
             CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0 *) LST(arg0), 0); \
             switch (*(unsigned char *) (arg0 + 0x1000 + RG(0xc79, 0xb3d))) { \
                 case 0: func_ov002_0216bfd4(arg0, 4); return; \
@@ -85,7 +85,7 @@ struct Struct_ov002_0216a300 {
             } \
             return; \
         } \
-        func_ov002_02156e90(arg0); \
+        ReturnToPreviousMenuWindow_ov002_02156e90(arg0); \
         ResetMessageWindow_02043204(var0); \
         if (*(unsigned char *) (arg0 + 0x2000 + RG(0x521, 0x351)) != 0) { \
             *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) = *(int *) (arg0 + 0x1000 + RG(0xbbc, 0xa84)); \
@@ -101,11 +101,11 @@ struct Struct_ov002_0216a300 {
             char *l_ = LST(arg0); \
             SetTouchMenuCursorIndex_0205bcdc((struct MenuCursor_0205bcdc *) (l_ + 4), n_); \
             SetMenuCursorIndex_0205bb04(l_ + 0x54, n_); \
-            func_ov002_0215b9a4(arg0, K(0x21, 0x24), 0); \
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, K(0x21, 0x24), 0); \
         } \
         if (*(int *) (arg0 + 0x1000 + RG(0xbbc, 0xa84)) == K(0xb, 0xc)) { \
             *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) = K(0xb, 0xc); \
-            func_ov002_0215b9a4(arg0, K(0xb, 0xc), 0); \
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, K(0xb, 0xc), 0); \
             SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8 *) LST(arg0), K(0xb, 0xc)); \
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) LST(arg0), K(0xb, 0xc), 0); \
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) LST(arg0), K(0xd, 0xe), 1); \
@@ -159,7 +159,7 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
                     char *var5                           = FindItemData_020dedd0(
                         (struct ItemTable_0201099c_10 *) (arg0 + RG(0x3ec + 0x400, 0x750)), *(short *) (arg0 + RG(0x1c00 + 0x22, 0x1a00 + 0xea)));
                     if (var5 != NULL && *(short *) (var5 + 0x18) == 0x5612) {
-                        func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)), 1);
+                        RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)), 1);
                         CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0 *) LST(arg0), 0);
                         *(short *) (arg0 + RG(0x1c00 + 0x28, 0x1a00 + 0xf0))          = 0x7972;
                         *(short *) (arg0 + RG(0x1c00 + 0x2a, 0x1a00 + 0xf2))          = -1;
@@ -213,10 +213,10 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
                     *(short *) (arg0 + RG(0x1c00 + 0x2a, 0x1a00 + 0xf2))          = -1;
                     *(unsigned char *) (arg0 + 0x1000 + RG(0xc2e, 0xaf6)) = 0;
                     if (*(short *) (arg0 + RG(0x1c00 + 0x28, 0x1a00 + 0xf0)) < 0) {
-                        func_ov002_02156e90(arg0);
+                        ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
                         if (*(short *) (arg0 + RG(0x1c00 + 0xa, 0x1a00 + 0xd2)) >= 0) {
-                            func_ov002_02156e90(arg0);
-                            func_ov002_02156e90(arg0);
+                            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
+                            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
                             ConfigureMenuCursors_ov002_02161cf0(arg0);
                             *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) = 1;
                             *(short *) (arg0 + RG(0x1c00 + 0xa, 0x1a00 + 0xd2)) = -1;
@@ -236,7 +236,7 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
                         *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) = 1;
                     }
                     if (*(int *) (arg0 + 0x1000 + RG(0xbbc, 0xa84)) == K(0xb, 0xc)) {
-                        func_ov002_0215b9a4(arg0, K(0xd, 0xe), 0);
+                        RebuildMenuWindowText_ov002_0215b9a4(arg0, K(0xd, 0xe), 0);
                         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) LST(arg0), K(0xb, 0xc), 1);
                         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) LST(arg0), K(0xd, 0xe), 1);
                     }

@@ -45,7 +45,7 @@ struct Struct_ov000_02182c94 {
 };
 
 extern "C" int func_ov000_02155154(GameObject* arg0);
-extern "C" int func_ov000_02153c0c(GameObject* arg0);
+extern "C" int HasLeftBattle_ov000_02153c0c(GameObject* combatant);
 extern "C" int func_ov000_0215516c(GameObject* arg0);
 
 extern struct Struct_ov000_02182ca4 data_ov000_02182ca4;
@@ -61,7 +61,7 @@ extern "C" ARM short func_ov000_02154f30(struct Random* arg0, int arg1, int arg2
         short var4 = var0->unknown_138_->unknown_2e_;
         GameState* var5 = GameState::GetInstance();
         GameObject* var6 = var5->GetCombatantByIndex(var4);
-        if (var6 != NULL && !IsDead_02010088((struct Struct_02010088*)var6) && !func_ov000_02153c0c(var6)) {
+        if (var6 != NULL && !IsDead_02010088((struct Struct_02010088*)var6) && !HasLeftBattle_ov000_02153c0c(var6)) {
             return var0->unknown_138_->unknown_2e_;
         }
     }
@@ -71,7 +71,7 @@ extern "C" ARM short func_ov000_02154f30(struct Random* arg0, int arg1, int arg2
         short var10 = arg3[var9];
         GameState* var11 = GameState::GetInstance();
         GameObject* var12 = var11->GetCombatantByIndex(var10);
-        if (var12 == NULL || IsDead_02010088((struct Struct_02010088*)var12) || func_ov000_02153c0c(var12)) {
+        if (var12 == NULL || IsDead_02010088((struct Struct_02010088*)var12) || HasLeftBattle_ov000_02153c0c(var12)) {
             continue;
         }
         var2.unknown_0_[var8] = (unsigned short)((struct Struct_ov000_02154f30_4*)var12)->unknown_134_->unknown_3f_6_ == 0 ? 2 : 1;

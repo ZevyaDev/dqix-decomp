@@ -5,7 +5,7 @@
 
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 
-extern "C" int func_ov024_021ed890(struct Random** arg0, int* arg1, short* arg2);
+extern "C" int PickRandomTarget_ov024_021ed890(struct Random** targetSelector, int* count, short* targetIndices);
 
 struct Struct_ov024_021feb84 { short unknown_0_[4]; };
 extern struct Struct_ov024_021feb84 data_ov024_021feb84;
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov024_021f4fd8(int* arg0, int arg1, int arg2, int* arg3,
         }
     }
     if (*arg3 > 0) {
-        func_ov024_021ed890((struct Random**)arg0, arg3, arg4);
+        PickRandomTarget_ov024_021ed890((struct Random**)arg0, arg3, arg4);
         return 1;
     }
     return 0;

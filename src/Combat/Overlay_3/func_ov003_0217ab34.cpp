@@ -58,16 +58,16 @@ struct Struct_ov003_0217ab34_2 {
 };
 
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" short func_02080468(void* arg0, int arg1);
+extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
 extern "C" void func_02081ea4(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
-extern "C" void func_0208203c(struct KeyRepeat_02081f20_2* arg0);
+extern "C" void ResetKeyRepeat_0208203c(struct KeyRepeat_02081f20_2* keyRepeat);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" struct Struct_ov003_02179e18* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void func_0207fdf0(struct Struct_0207fdf0_2* arg0, int arg1);
 extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" unsigned short func_ov003_0217b200(void** arg0);
-extern "C" int func_02086bf4(char* arg0, int arg1);
+extern "C" int CountItemInBags_02086bf4(char* party, int itemId);
 extern "C" int func_ov003_02179e18(struct Struct_ov003_02179e18* arg0);
 extern "C" void func_ov003_02175d78(char* arg0);
 
@@ -103,9 +103,9 @@ extern "C" ARM void func_ov003_0217ab34(struct Struct_ov003_0217ab34_2* arg0) {
         }
         arg0->unknown_ffe_ = 0x16;
         if (arg0->unknown_100e_ < 0) {
-            arg0->unknown_100e_ = func_02080468(var1, arg0->unknown_ffe_);
+            arg0->unknown_100e_ = GetMenuLayoutWindowFirstSelectableTextId_02080468(var1, arg0->unknown_ffe_);
         }
-        short var3 = func_02080468(var1, arg0->unknown_ffe_);
+        short var3 = GetMenuLayoutWindowFirstSelectableTextId_02080468(var1, arg0->unknown_ffe_);
         short var4 = (short)(arg0->unknown_100e_ - var3);
         struct Struct_ov003_0217ab34* var5 = (struct Struct_ov003_0217ab34*)var0;
         arg0->unknown_103a_ = var5->unknown_c_[(short)(arg0->unknown_1014_ * 8 + var4)];
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov003_0217ab34(struct Struct_ov003_0217ab34_2* arg0) {
         func_ov003_02177dd4(arg0);
         func_02081ea4(var1, arg0->unknown_ffe_, 0);
         SetMenuLayoutWindowPalette_02080c68(var1, arg0->unknown_ffe_, 0);
-        func_0208203c((struct KeyRepeat_02081f20_2*)arg0->unknown_88c_);
+        ResetKeyRepeat_0208203c((struct KeyRepeat_02081f20_2*)arg0->unknown_88c_);
         arg0->unknown_ff8_ = 0;
         arg0->unknown_103f_ = 1;
         func_ov003_021748c4(arg0);
@@ -127,7 +127,7 @@ extern "C" ARM void func_ov003_0217ab34(struct Struct_ov003_0217ab34_2* arg0) {
         SetItemInfoPanelItem_ov023_021dcae0((struct ItemInfoPanel_ov003_02178910*)arg0->unknown_3c_, arg0->unknown_103a_);
         if (func_ov003_021765b4(arg0) && var6 == arg0->unknown_103a_) {
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-            func_0208203c((struct KeyRepeat_02081f20_2*)arg0->unknown_88c_);
+            ResetKeyRepeat_0208203c((struct KeyRepeat_02081f20_2*)arg0->unknown_88c_);
             arg0->unknown_ff8_ = 0;
             arg0->unknown_8_ = FindItemData_020dedd0((struct ItemTable_0201099c_10*)arg0->unknown_874_, arg0->unknown_103a_);
             if (arg0->unknown_8_ == 0) {
@@ -170,7 +170,7 @@ extern "C" ARM void func_ov003_0217ab34(struct Struct_ov003_0217ab34_2* arg0) {
         if (func_ov003_021766e8(arg0) == 0) {
             return;
         }
-        func_0208203c((struct KeyRepeat_02081f20_2*)arg0->unknown_88c_);
+        ResetKeyRepeat_0208203c((struct KeyRepeat_02081f20_2*)arg0->unknown_88c_);
         arg0->unknown_ff8_ = 0;
         func_0207fdf0((struct Struct_0207fdf0_2*)var1, 0);
         arg0->unknown_103e_ = 4;
@@ -182,7 +182,7 @@ extern "C" ARM void func_ov003_0217ab34(struct Struct_ov003_0217ab34_2* arg0) {
     if (arg0->unknown_103f_ == 2) {
         func_ov003_02177208(arg0);
         func_ov003_0217726c(arg0);
-        func_0208203c((struct KeyRepeat_02081f20_2*)arg0->unknown_88c_);
+        ResetKeyRepeat_0208203c((struct KeyRepeat_02081f20_2*)arg0->unknown_88c_);
         arg0->unknown_103f_ = 3;
         arg0->unknown_104a_ = 0;
         return;
@@ -213,7 +213,7 @@ extern "C" ARM void func_ov003_0217ab34(struct Struct_ov003_0217ab34_2* arg0) {
         }
         if (var7 != 0) {
             int var10 = arg0->unknown_103c_ + var7;
-            int var11 = func_02086bf4(var0, arg0->unknown_103a_);
+            int var11 = CountItemInBags_02086bf4(var0, arg0->unknown_103a_);
             int var12 = func_ov003_02179e18(arg0->unknown_8_);
             if (var12 < var11) {
                 var11 = var12;
@@ -240,7 +240,7 @@ extern "C" ARM void func_ov003_0217ab34(struct Struct_ov003_0217ab34_2* arg0) {
             }
             arg0->unknown_103f_ = 6;
             arg0->unknown_1046_ |= 0x2000;
-            func_0208203c((struct KeyRepeat_02081f20_2*)arg0->unknown_88c_);
+            ResetKeyRepeat_0208203c((struct KeyRepeat_02081f20_2*)arg0->unknown_88c_);
             if (arg0->unknown_8_->unknown_9_4_ == 2) {
                 arg0->unknown_1036_ = 0x11;
                 arg0->unknown_103f_ = 4;
@@ -248,7 +248,7 @@ extern "C" ARM void func_ov003_0217ab34(struct Struct_ov003_0217ab34_2* arg0) {
         } else if (g_keyManager.TestKeysPressed(2) != 0 || var13 == -1) {
             CloseMenuLayoutWindow_0207fdcc(var1, 9);
             CloseMenuLayoutWindow_0207fdcc(var1, 10);
-            func_0208203c((struct KeyRepeat_02081f20_2*)arg0->unknown_88c_);
+            ResetKeyRepeat_0208203c((struct KeyRepeat_02081f20_2*)arg0->unknown_88c_);
             arg0->unknown_103f_ = 0;
         }
         return;

@@ -16,7 +16,7 @@ extern "C" void* func_0202ae24();
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 extern "C" void* func_0202ae18(void);
 extern "C" int GetLocalWirelessState_0202ba00(int* wireless);
-extern "C" int func_020ac4f8(int arg0);
+extern "C" int AddElapsedPlayTime_020ac4f8(int arg0);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" int GetAlchemyCount_020ac0b4(void* count);
 extern "C" int GetDefeatedMonsterListCompletion_020a0870(BattleRecords_02061c04* records);
@@ -155,7 +155,7 @@ extern "C" ARM void func_ov017_021d1118(int arg0, int arg1, bool arg2, unsigned 
         var6 = var4->unknown_100d_;
         var7 = 0;
         if ((var5 == 5 && var6 > 1) || var5 == 6) var7 = 1;
-        func_020ac4f8(var7);
+        AddElapsedPlayTime_020ac4f8(var7);
         BattleRecords_02061c04 var17;
         GetBattleRecords_020ac4c0(&var17);
         unsigned int var18 = 0;
@@ -170,10 +170,10 @@ extern "C" ARM void func_ov017_021d1118(int arg0, int arg1, bool arg2, unsigned 
         }
         Struct_ov017_021d1118_2 var19;
         VectorizedMemset(&var19, 0, sizeof(var19));
-        var19.unknown_0_0_ = var17.unknown_0_.unknown_0_.unknown_0_;
-        var19.unknown_8_0_ = var17.unknown_0_.unknown_0_.unknown_2_;
-        var19.unknown_4_0_ = var17.unknown_0_.unknown_4_.unknown_0_;
-        var19.unknown_8_7_ = var17.unknown_0_.unknown_4_.unknown_2_;
+        var19.unknown_0_0_ = var17.playTimes_0_.playTime_0_.hours_0_;
+        var19.unknown_8_0_ = var17.playTimes_0_.playTime_0_.minutes_2_;
+        var19.unknown_4_0_ = var17.playTimes_0_.multiplayerTime_4_.hours_0_;
+        var19.unknown_8_7_ = var17.playTimes_0_.multiplayerTime_4_.minutes_2_;
         var19.unknown_5_6_ = var17.unknown_8_0_;
         var19.unknown_1_6_ = var18;
         var19.unknown_c_0_ = var17.unknown_10_0_;

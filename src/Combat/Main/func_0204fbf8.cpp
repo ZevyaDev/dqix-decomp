@@ -3,29 +3,29 @@
 #include "Graphics/BGLayer.h"
 
 
-struct Struct_0204fbf8 {
+struct BGLayer_0204fbf8 {
     char unknown_0_[0x1c];
-    unsigned char unknown_1c_0_ : 4;
-    unsigned char unknown_1c_4_ : 4;
+    unsigned char isSubScreen_1c_0_ : 4;
+    unsigned char bgIndex_1c_4_ : 4;
 };
 
-struct Struct_0204fbf8_2 {
+struct TextWindow_0204fbf8_2 {
     char unknown_0_[0x4];
-    struct Struct_0204fbf8* unknown_4_;
-    void* unknown_8_;
+    struct BGLayer_0204fbf8* pBGLayer_4_;
+    void* pCharacterData_8_;
     char unknown_c_[0xa0 - 0xc];
-    int unknown_a0_;
-    int unknown_a4_;
+    int characterDataOffset_a0_;
+    int characterDataSize_a4_;
 };
 
-// USA: func_0204fbf8
-extern "C" ARM void func_0204fbf8(Struct_0204fbf8_2* arg0) {
-    unsigned char var0 = arg0->unknown_4_->unknown_1c_4_;
-    unsigned char var1 = arg0->unknown_4_->unknown_1c_0_;
-    unsigned char var2[2];
-    var2[0] = var1;
-    var2[1] = var0;
-    void (*var3)(void*, int, unsigned int) = (void(*)(void*, int, unsigned int))((int)GetCharVRAMLoadProc(var2[0], var2[1]));
-    CleanInvalidateCacheRange((const void*)(arg0->unknown_8_), arg0->unknown_a4_);
-    var3(arg0->unknown_8_, arg0->unknown_a0_, arg0->unknown_a4_);
+// USA: LoadTextWindowCharacterData_0204fbf8
+extern "C" ARM void LoadTextWindowCharacterData_0204fbf8(TextWindow_0204fbf8_2* textWindow) {
+    unsigned char bgIndex = textWindow->pBGLayer_4_->bgIndex_1c_4_;
+    unsigned char isSubScreen = textWindow->pBGLayer_4_->isSubScreen_1c_0_;
+    unsigned char screenAndBGIndex[2];
+    screenAndBGIndex[0] = isSubScreen;
+    screenAndBGIndex[1] = bgIndex;
+    void (*loadProc)(void*, int, unsigned int) = (void(*)(void*, int, unsigned int))((int)GetCharVRAMLoadProc(screenAndBGIndex[0], screenAndBGIndex[1]));
+    CleanInvalidateCacheRange((const void*)(textWindow->pCharacterData_8_), textWindow->characterDataSize_a4_);
+    loadProc(textWindow->pCharacterData_8_, textWindow->characterDataOffset_a0_, textWindow->characterDataSize_a4_);
 }

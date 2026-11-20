@@ -20,7 +20,7 @@
 #include "Graphics/BGLayer.h"
 
 extern "C" void* GetResources_0200fb8c(int*);
-extern "C" void func_020dc2bc();
+extern "C" void SuspendMapDisplay_020dc2bc();
 extern "C" void SaveMainBGControl_02074af4(void*);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov028_021d8dd0(unsigned char* arg0) {
             arg0[0x81] = arg0[0x81] + 1;
         }
     } else if (var4 == 2) {
-        func_020dc2bc();
+        SuspendMapDisplay_020dc2bc();
         SaveMainBGControl_02074af4(arg0 + 0xc);
         *(unsigned int*)(arg0 + 0x74) = GetFlags00((GameResources*)var3);
         *(unsigned int*)(arg0 + 0x78) = GetFlags04((GameResources*)var3);

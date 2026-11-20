@@ -343,7 +343,7 @@ extern "C" struct Struct_ov024_021eb5d0_6* GetNextActionResult_ov000_0215e958(vo
 extern "C" void SetActionResult_ov000_0215ccbc(void* battle, struct Struct_ov024_021eb5d0_6* result, void* combatant, short amount, short currHP, int currMP, unsigned long long flags, unsigned char isCriticalHit);
 extern "C" struct Struct_ov024_021eb5d0_8* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
 extern "C" int func_ov000_02157288(void* arg0, int arg1, struct Struct_ov024_021eaa50_2* arg2);
-extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, unsigned long long arg4, int arg5);
+extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, void* combatant, int amount, unsigned long long flags, int isCriticalHit);
 struct Struct_ov024_021da9e0_4;
 extern "C" void func_ov024_021eb4e4(Struct_ov024_021da9e0_4*, int);
 extern "C" short func_ov000_0215a1d4(void* arg0, int arg1, int arg2, short* arg3);
@@ -856,7 +856,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                         struct Struct_ov024_021eb5d0_12* var75 = (struct Struct_ov024_021eb5d0_12*)GetCombatantByID((int)arg0->unknown_10_, var4);
                         SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, var74, 0x10);
                         SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, var74, 0x19);
-                        func_ov000_0215cd44(arg0->unknown_10_, var74, var75, 0, 0, 0);
+                        SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var74, var75, 0, 0, 0);
                         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var74, (unsigned short)var73);
                         AppendTargetResult_ov000_0215ffc4(arg0->unknown_c_, var74, 1);
                         arg0->unknown_10_->unknown_8e02_ = arg0->unknown_10_->unknown_8e02_ + 1;
@@ -991,7 +991,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                     AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var103, (unsigned short)0x1f1);
                     var2 = 0;
                     if (arg0->unknown_47_ > 1) SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var2, 8);
-                    func_ov000_0215cd44(arg0->unknown_10_, var103, var102, 0, var2, 0);
+                    SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var103, var102, 0, var2, 0);
                     func_ov000_0215fe84(arg2->unknown_10_, var103, 1);
                     arg0->unknown_10_->unknown_8e02_ = arg0->unknown_10_->unknown_8e02_ + 1;
                 }

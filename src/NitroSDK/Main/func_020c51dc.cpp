@@ -5,7 +5,7 @@
 #endif
 
 extern "C" void func_020c5354(void);
-extern "C" void func_020c537c(void);
+extern "C" void ResetMatrixStacksToIdentity_020c537c(void);
 extern "C" void func_020c55b0(void);
 
 // USA: func_020c51dc
@@ -28,7 +28,7 @@ extern "C" ARM void func_020c51dc(void) {
     *(volatile unsigned int*)0x4000600 |= 0x8000;
     *(volatile unsigned int*)0x4000600 = (*(volatile unsigned int*)0x4000600 & ~0xc0000000) | 0x80000000;
 
-    func_020c537c();
+    ResetMatrixStacksToIdentity_020c537c();
 
     *(volatile unsigned int*)0x4000350 = 0;
     *(volatile unsigned short*)0x4000354 = 0x7fff;

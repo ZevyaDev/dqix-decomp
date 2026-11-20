@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
-extern "C" void* func_020e3808(void);
+extern "C" void* GetEventSyncTable_020e3808(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
 extern "C" void func_ov017_021cebcc(int, int, int);
 
-struct Struct_020e385c;
-extern "C" void func_020e39d4(struct Struct_020e385c* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_020e3a50(struct Struct_020e385c* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_020e392c(struct Struct_020e385c* arg0, int arg1, int arg2);
-extern "C" void func_020e3994(struct Struct_020e385c* arg0, int arg1, int arg2);
+struct EventSyncEntry_020e385c;
+extern "C" void func_020e39d4(struct EventSyncEntry_020e385c* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_020e3a50(struct EventSyncEntry_020e385c* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_020e392c(struct EventSyncEntry_020e385c* arg0, int arg1, int arg2);
+extern "C" void func_020e3994(struct EventSyncEntry_020e385c* arg0, int arg1, int arg2);
 
 struct Struct_020e3b44 {
     unsigned int unknown_0_;
@@ -29,7 +29,7 @@ struct Struct_ov017_021cec70 {
 
 // USA: func_ov017_021cec70
 extern "C" ARM void func_ov017_021cec70(int arg0, struct Struct_ov017_021cec70* arg1, int arg2, int arg3, void* arg4) {
-    struct Struct_020e385c* var0 = (struct Struct_020e385c*)func_020e3808();
+    struct EventSyncEntry_020e385c* var0 = (struct EventSyncEntry_020e385c*)GetEventSyncTable_020e3808();
     int var1 = IsNotLocalWirelessGuest_0202c508(arg4);
     int var2 = arg1->unknown_4_;
 

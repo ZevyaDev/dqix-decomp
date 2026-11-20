@@ -7,7 +7,7 @@ struct Struct_ov024_021e2298_3 { unsigned short unknown_0_; unsigned char unknow
 extern "C" Struct_ov024_021e2298_3* FindMonsterBattleData_02070fd0(Struct_02070b6c_3*,int);
 extern "C" short func_ov000_0215cda0(void*);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
-extern "C" void func_ov000_0215cd44(void*,void*,GameObject*,int,int,int,int);
+extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void*,void*,GameObject*,int,int,int,int);
 struct Struct_ov024_021fe6ec { int unknown_0_[3]; };
 extern Struct_ov024_021fe6ec data_ov024_021fe6ec;
 struct Struct_ov024_021e2298_4 { unsigned short unknown_0_; char unknown_2_[0x14]; unsigned char unknown_16_; unsigned char unknown_17_; };
@@ -69,6 +69,6 @@ extern "C" ARM void* func_ov024_021e2298(Struct_ov024_021e2298_2* arg0,int arg1,
     }
     void* var11=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if(!var11)return 0;
-    func_ov000_0215cd44(arg0->unknown_10_,var11,var0,0,0,0,arg0->unknown_c_->unknown_1c_7_!=0);
+    SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_,var11,var0,0,0,0,arg0->unknown_c_->unknown_1c_7_!=0);
     return var11;
 }

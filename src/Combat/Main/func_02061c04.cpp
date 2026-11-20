@@ -129,7 +129,7 @@ struct Struct_02061c04_16;
 extern "C" void func_020d9fb4(Struct_02061c04_16*, int);
 extern "C" void * GetParty_02010828(GameState*);
 extern "C" int GetStoryChapter_0201079c(char*);
-extern "C" int func_020107d0(char*);
+extern "C" int GetStoryStep_020107d0(char*);
 extern "C" int func_02010804(char*);
 extern "C" void func_0206e080(char*, int);
 extern "C" void func_0206e0d0(char*, int);
@@ -162,8 +162,8 @@ extern "C" void func_020dac40(void);
 extern "C" void * func_02053c6c(unsigned char*);
 struct Struct_02061c04_22;
 extern "C" void func_0208386c(Struct_02061c04_22*, int);
-struct Struct_02061c04_23;
-extern "C" void func_020a0a08(Struct_02061c04_23*, int, int);
+struct ItemBag_02061c04_23;
+extern "C" void RemoveItemFromBag_020a0a08(ItemBag_02061c04_23*, int, int);
 extern "C" void func_020ae9f0(void);
 extern "C" void GetCurrentDate_020cf0fc(int date);
 extern "C" void func_020cf1a8(int arg0);
@@ -226,7 +226,7 @@ struct Struct_02061c04_28;
 extern "C" void func_02064af8(Struct_02061c04_28*, Struct_02061c04_27*);
 struct PartyMember_0205faf4_11;
 extern "C" int IsNPCCompanion_02061bd8(PartyMember_0205faf4_11*);
-extern "C" void func_02048418(unsigned char*, unsigned short);
+extern "C" void ClearStatusFlags_02048418(unsigned char*, unsigned short);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(void *gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 struct Struct_02033b58;
 extern "C" void SetMotionKeepingAnimation_02033b58(Struct_02033b58*, unsigned char);
@@ -236,7 +236,7 @@ extern "C" void * func_02028bac(Struct_02028bac*, int);
 extern "C" void func_ov017_021a23b0(void *arg0, unsigned short arg1);
 extern "C" void func_ov017_021c9544(int arg0, int arg1, int arg2, int arg3);
 extern "C" int GetLocalWirelessState_0202ba00(int *wireless);
-extern "C" void func_020ac4f8(int arg0);
+extern "C" void AddElapsedPlayTime_020ac4f8(int arg0);
 extern "C" void func_02010810(char*, int);
 extern "C" int func_0201081c(char*);
 
@@ -521,7 +521,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     case 0x84: {
         GameState *var52 = GameState::GetInstance();
         var17.unknown_14_.unknown_a_ = GetStoryChapter_0201079c((char*)var52);
-        var17.unknown_14_.unknown_c_ = func_020107d0((char*)var52);
+        var17.unknown_14_.unknown_c_ = GetStoryStep_020107d0((char*)var52);
         var17.unknown_14_.unknown_e_ = func_02010804((char*)var52);
         func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         if (var17.unknown_14_.unknown_a_ != arg1->unknown_4_)
@@ -717,7 +717,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     case 0x94: {
         GameState *var84 = GameState::GetInstance();
         var17.unknown_14_.unknown_4_ = GetStoryChapter_0201079c((char*)var84);
-        var17.unknown_14_.unknown_6_ = func_020107d0((char*)var84);
+        var17.unknown_14_.unknown_6_ = GetStoryStep_020107d0((char*)var84);
         var17.unknown_14_.unknown_8_ = func_02010804((char*)var84);
         arg1->unknown_2_ = 5;
         func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
@@ -1064,7 +1064,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         int var139 = 0;
         if ((var137 == 5 && var138 > 1) || var137 == 6)
             var139 = 1;
-        func_020ac4f8(var139);
+        AddElapsedPlayTime_020ac4f8(var139);
         int var140 = func_0201081c((char*)var135);
         int var141 = arg1->unknown_2_;
         int var142 = var140;
@@ -1166,7 +1166,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             } else {
                 func_02053fe4(var154, 1, 1);
             }
-            func_02048418((unsigned char*)var154, 1);
+            ClearStatusFlags_02048418((unsigned char*)var154, 1);
             RebuildFieldPartyOrder_ov017_02191108(var152, 1, 1, 1, 1);
             SetMotionKeepingAnimation_02033b58((Struct_02033b58*)var154, 0);
             *(short *)((char *)var154 + 0xb2) = 0;
@@ -1298,7 +1298,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     case 0xd6: {
         GameState *var187 = GameState::GetInstance();
         var17.unknown_8_ = GetStoryChapter_0201079c((char*)var187);
-        var17.unknown_a_ = func_020107d0((char*)var187);
+        var17.unknown_a_ = GetStoryStep_020107d0((char*)var187);
         var17.unknown_c_ = func_02010804((char*)var187);
         func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
@@ -1397,7 +1397,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             void *var209 = func_02053c6c((unsigned char*)var208);
             func_0208386c((Struct_02061c04_22*)var209, (signed char)var206);
         } else {
-            func_020a0a08((Struct_02061c04_23*)var207, (short)var204, 1);
+            RemoveItemFromBag_020a0a08((ItemBag_02061c04_23*)var207, (short)var204, 1);
         }
         return 1;
     }
@@ -1420,8 +1420,8 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
                 var215 = *(*(unsigned short **)((char *)var216 + 0x134) + 0x18);
             var17.unknown_4_ = 0;
             GetAlchemyCount_020ac0b4((void *)&var17.unknown_4_);
-            func_020643e0((Struct_02061c04_24*)&var213->unknown_0_, (Struct_02061c04_24*)&var212->unknown_0_.unknown_0_);
-            func_020643e0((Struct_02061c04_24*)&var213->unknown_4_, (Struct_02061c04_24*)&var212->unknown_0_.unknown_4_);
+            func_020643e0((Struct_02061c04_24*)&var213->unknown_0_, (Struct_02061c04_24*)&var212->playTimes_0_.playTime_0_);
+            func_020643e0((Struct_02061c04_24*)&var213->unknown_4_, (Struct_02061c04_24*)&var212->playTimes_0_.multiplayerTime_4_);
             var213->unknown_8_0_ = var212->unknown_8_0_;
             var213->unknown_a_1_ = GetDefeatedMonsterListCompletion_020a0870(var212);
             var213->unknown_b_0_ = GetAlchenomiconCompletion_020a090c(var212);

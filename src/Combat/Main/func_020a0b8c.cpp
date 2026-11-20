@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 
-struct Struct_020a0b8c {
+struct ItemBag_020a0b8c {
     short* unknown_0_;
-    signed char* unknown_4_;
-    short unknown_8_;
+    signed char* pCounts_4_;
+    short slotCount_8_;
 };
 
-// USA: func_020a0b8c
-extern "C" ARM int func_020a0b8c(struct Struct_020a0b8c* arg0) {
-    signed char* var0 = arg0->unknown_4_;
-    short var1 = arg0->unknown_8_;
-    short var2 = 0;
-    short var3;
-    for (var3 = 0; var3 < var1; var3++) {
-        if (var0[var3] != 0) {
-            var2++;
+// USA: CountUsedBagSlots_020a0b8c
+extern "C" ARM int CountUsedBagSlots_020a0b8c(struct ItemBag_020a0b8c* bag) {
+    signed char* counts = bag->pCounts_4_;
+    short slotCount = bag->slotCount_8_;
+    short usedSlotCount = 0;
+    short i;
+    for (i = 0; i < slotCount; i++) {
+        if (counts[i] != 0) {
+            usedSlotCount++;
         }
     }
-    return var2;
+    return usedSlotCount;
 }

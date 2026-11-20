@@ -56,7 +56,7 @@ extern "C" void func_020de1d4(Struct_02083508_2*);
 extern "C" void* func_020e08f0(int arg0, unsigned int* arg1);
 #endif
 extern "C" int func_020def44(int, int, int, short);
-extern "C" void func_0207cbe8(char*);
+extern "C" void ResetItemContext_0207cbe8(char*);
 extern "C" void func_0207cc18(void*, void*);
 extern "C" void* GetParty_02010828(GameState*);
 struct Struct_0207cf30_4;
@@ -275,8 +275,8 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
         BackgroundLoader::RemoveLockGlobal();
         Struct_ov017_021b0bc0_5 var2;
         InitItemTable_020de824(var2.unknown_14_);
-        func_0207cbe8((char*)&var2);
-        func_0207cbe8((char*)&var2);
+        ResetItemContext_0207cbe8((char*)&var2);
+        ResetItemContext_0207cbe8((char*)&var2);
         func_0207cc18(&var2, &var1);
         func_020a095c((Struct_0207cf30_4*)GetParty_02010828(var5), 0x5612, 1);
     } else if (arg0->unknown_9_ == 0) {

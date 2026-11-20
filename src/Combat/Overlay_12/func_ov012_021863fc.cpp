@@ -131,7 +131,7 @@ extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" void* func_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" Struct_ov012_021863fc_3* GetMessageWindow_020421a0();
-extern "C" void func_020dc2bc();
+extern "C" void SuspendMapDisplay_020dc2bc();
 extern "C" void func_ov012_02185e18(Struct_ov012_021863fc_2* arg0);
 extern "C" void func_ov012_02185ea8(char* arg0);
 extern "C" void func_ov012_02185f04(char* arg0);
@@ -280,7 +280,7 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_10* arg0)
             arg0->unknown_1350_[1] = var2->QueueLoadFile(var5, 0);
             arg0->unknown_1350_[2] = var2->QueueLoadFile(data_ov012_0218bf9a, 0);
             arg0->unknown_1350_[3] = var2->QueueLoadFile(data_ov012_0218bfad, 0);
-            func_020dc2bc();
+            SuspendMapDisplay_020dc2bc();
             arg0->unknown_1340_++;
         }
         return;
@@ -338,7 +338,7 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_10* arg0)
     {
         if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()) && !IsSubBrightnessTransitionActive(var1))
         {
-            func_020dc2bc();
+            SuspendMapDisplay_020dc2bc();
             arg0->unknown_18_[2].Reset();
             func_ov023_021e7220(&arg0->unknown_d0c_, 2);
             func_ov023_021e71b4(&arg0->unknown_d0c_, &arg0->unknown_18_[2]);
@@ -437,7 +437,7 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_2* arg0)
             arg0->unknown_1380_[3] = var17->QueueLoadFile(data_ov012_0218b29a, 0);
             arg0->unknown_1380_[4] = var17->QueueLoadFileInGP2(data_ov012_0218b2ad, data_ov012_0218b2c2, 0);
             arg0->unknown_1380_[5] = var17->QueueLoadFile(data_ov012_0218b2d3, 0);
-            func_020dc2bc();
+            SuspendMapDisplay_020dc2bc();
             arg0->unknown_1370_++;
         }
         return;
@@ -501,7 +501,7 @@ extern "C" ARM void func_ov012_021863fc(Struct_ov012_021863fc_2* arg0)
     {
         if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()) && !IsSubBrightnessTransitionActive(var16))
         {
-            func_020dc2bc();
+            SuspendMapDisplay_020dc2bc();
             arg0->unknown_20_[2].Reset();
             func_ov023_021e7220(&arg0->unknown_d28_, 2);
             func_ov023_021e71b4(&arg0->unknown_d28_, &arg0->unknown_20_[2]);

@@ -12,7 +12,7 @@ struct Struct_ov031_0224c980_14 {
     unsigned char unknown_24_[0x34 - 0x24];
     unsigned int unknown_34_;
 };
-extern Struct_ov031_0224c980_14 data_ov031_0224c980;
+extern Struct_ov031_0224c980_14 gIPStack_ov031_0224c980;
 
 // USA: func_ov031_02204260
 extern "C" ARM int func_ov031_02204260(int arg0) {
@@ -22,16 +22,16 @@ extern "C" ARM int func_ov031_02204260(int arg0) {
     if (arg0 == 0) {
         var2[0] = 0x32;
         var2[1] = 4;
-        var2[2] = (unsigned char)((unsigned short)(data_ov031_0224c980.unknown_34_ >> 16) >> 8);
-        var2[3] = (unsigned char)(data_ov031_0224c980.unknown_34_ >> 16);
-        var2[4] = (unsigned char)((unsigned short)data_ov031_0224c980.unknown_34_ >> 8);
-        var2[5] = (unsigned char)data_ov031_0224c980.unknown_34_;
+        var2[2] = (unsigned char)((unsigned short)(gIPStack_ov031_0224c980.unknown_34_ >> 16) >> 8);
+        var2[3] = (unsigned char)(gIPStack_ov031_0224c980.unknown_34_ >> 16);
+        var2[4] = (unsigned char)((unsigned short)gIPStack_ov031_0224c980.unknown_34_ >> 8);
+        var2[5] = (unsigned char)gIPStack_ov031_0224c980.unknown_34_;
         var2[6] = 0x36;
         var2[7] = 4;
-        var2[8] = (unsigned char)((unsigned short)(data_ov031_0224c980.unknown_20_ >> 16) >> 8);
-        var2[9] = (unsigned char)(data_ov031_0224c980.unknown_20_ >> 16);
-        var2[0xa] = (unsigned char)((unsigned short)data_ov031_0224c980.unknown_20_ >> 8);
-        var2[0xb] = (unsigned char)data_ov031_0224c980.unknown_20_;
+        var2[8] = (unsigned char)((unsigned short)(gIPStack_ov031_0224c980.unknown_20_ >> 16) >> 8);
+        var2[9] = (unsigned char)(gIPStack_ov031_0224c980.unknown_20_ >> 16);
+        var2[0xa] = (unsigned char)((unsigned short)gIPStack_ov031_0224c980.unknown_20_ >> 8);
+        var2[0xb] = (unsigned char)gIPStack_ov031_0224c980.unknown_20_;
         var2 += 0xc;
     }
     var2[0] = 0xff;

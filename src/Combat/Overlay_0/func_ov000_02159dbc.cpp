@@ -30,7 +30,7 @@ extern "C" ARM int GetEnemyLevel_ov000_02159dbc(char* battle, int combatantIndex
         return 1;
     }
     char* zone = GetZone3D_02012fe4();
-    if (func_020117f0(gameState) && (*(struct Struct_ov000_02159dbc_2**)(battle + 0x8e18))->unknown_25_ != 0) {
+    if (IsInGrotto_020117f0(gameState) && (*(struct Struct_ov000_02159dbc_2**)(battle + 0x8e18))->unknown_25_ != 0) {
 #if defined(jpn)
         enum { Enum_ov000_02159dbc_9196 = 0x240c };
 #else

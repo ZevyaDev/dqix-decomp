@@ -43,7 +43,7 @@ extern "C" void func_0203dd10(Struct_0203dd10*, unsigned int, int);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" int func_0203adfc(void* arg0, void* arg1);
-extern "C" void func_0203ad88(void* arg0, void* arg1, int arg2);
+extern "C" void StopStream_0203ad88(void* manager, void* handle, int fadeDuration);
 extern "C" void func_0202e874(unsigned char*, unsigned short);
 extern "C" void func_0202f0c4(void* arg0, int arg1, int arg2);
 extern "C" void* GetColorFade_020704fc();
@@ -152,7 +152,7 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
     CloseMessageWindow_02043124(var2);
     ClearFlags04(var6, 8);
     if (func_0203adfc(gSoundEffectManager_02108760, 0) != 0) {
-        func_0203ad88(gMusicManager_02109bf4, 0, 0);
+        StopStream_0203ad88(gMusicManager_02109bf4, 0, 0);
     }
     ClearFlags04(var6, 0x2000);
     func_0202e874((unsigned char*)var10, 0);

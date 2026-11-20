@@ -12,9 +12,9 @@ enum { Enum_ov003_0217577c_2204 = 0x89c };
 
 struct MenuLayout_0207fdcc_2;
 struct TextWindow_0207fdcc;
-extern "C" struct TextWindow_0207fdcc* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
+extern "C" struct TextWindow_0207fdcc* FindMenuLayoutWindow_02081da8(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
-extern "C" void func_020809c4(void* arg0, int arg1, int arg2, short* arg3, short* arg4);
+extern "C" void GetMenuLayoutTextPosition_020809c4(void* menuLayout, int windowId, int textId, short* outX, short* outY);
 extern "C" void func_ov003_0217585c(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
 
 struct Struct_ov003_0217577c {
@@ -26,18 +26,18 @@ struct Struct_ov003_0217577c {
 extern "C" ARM void func_ov003_0217577c(void* arg0) {
     Struct_ov003_0217577c* var0 = (Struct_ov003_0217577c*)arg0;
     struct MenuLayout_0207fdcc_2* var1 = var0->unknown_89c_;
-    struct TextWindow_0207fdcc* var2 = func_02081da8(var1, 9);
+    struct TextWindow_0207fdcc* var2 = FindMenuLayoutWindow_02081da8(var1, 9);
     if (var2 == 0) return;
     if (!IsTextWindowReady_0204c7cc((unsigned char*)var2)) return;
 
     short var3, var4;
     int var5 = 0;
     if (*(unsigned char*)((char*)arg0 + Enum_ov003_0217577c_4171) != 0) var5 = 1;
-    func_020809c4(var1, 9, 0x58, &var3, &var4);
+    GetMenuLayoutTextPosition_020809c4(var1, 9, 0x58, &var3, &var4);
     func_ov003_0217585c(arg0, var3 + var5, var4 + var5, 0x1d, 0x1e);
 
     int var6 = 0;
     if (*(unsigned char*)((char*)arg0 + Enum_ov003_0217577c_4172) != 0) var6 = 1;
-    func_020809c4(var1, 9, 0x59, &var3, &var4);
+    GetMenuLayoutTextPosition_020809c4(var1, 9, 0x59, &var3, &var4);
     func_ov003_0217585c(arg0, var3 + var6, var4 + var6, 0x1e, 0x1f);
 }

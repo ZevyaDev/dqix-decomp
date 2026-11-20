@@ -33,7 +33,7 @@ struct MenuLayout_0207fdcc_2;
 extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 
 struct KeyRepeat_02081f20_2;
-extern "C" void func_0208203c(struct KeyRepeat_02081f20_2* arg0);
+extern "C" void ResetKeyRepeat_0208203c(struct KeyRepeat_02081f20_2* keyRepeat);
 
 struct YesNoWindow_020e25e8;
 extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8* yesNoWindow);
@@ -66,7 +66,7 @@ extern "C" ARM int func_ov003_02161344(char* arg0) {
 
     if (var0 != 0) {
         CloseMenuLayoutWindow_0207fdcc(*(struct MenuLayout_0207fdcc_2**)(arg0 + Enum_ov003_02161344_804), *(short*)(arg0 + Enum_ov003_02161344_1160));
-        func_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + Enum_ov003_02161344_776));
+        ResetKeyRepeat_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + Enum_ov003_02161344_776));
         *(void**)(arg0 + Enum_ov003_02161344_1136) = 0;
     }
 

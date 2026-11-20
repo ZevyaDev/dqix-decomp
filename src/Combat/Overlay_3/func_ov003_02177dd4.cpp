@@ -30,10 +30,10 @@ enum {
 
 extern "C" unsigned char func_0207ca94(int arg0);
 extern "C" int func_ov003_02175f90(void *arg0);
-struct Struct_020a0b8c {
+struct ItemBag_020a0b8c {
     short* unknown_0_;
-    signed char* unknown_4_;
-    short unknown_8_;
+    signed char* pCounts_4_;
+    short slotCount_8_;
 };
 struct Struct_0207c258 {
     char unknown_0_[0xbd0];
@@ -44,12 +44,12 @@ struct Struct_0207c258 {
     unsigned char unknown_c28_[8];
 };
 struct Struct_ov003_02177dd4_2 {
-    Struct_020a0b8c unknown_0_;
+    ItemBag_020a0b8c unknown_0_;
     short unknown_c_[152];
     signed char unknown_13c_[152];
     Struct_0207c258 unknown_1d4_;
 };
-extern "C" int func_020a0b8c(struct Struct_020a0b8c *arg0);
+extern "C" int CountUsedBagSlots_020a0b8c(struct ItemBag_020a0b8c *bag);
 struct MenuLayout_0207fdcc_2;
 extern "C" void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2 *menuLayout, int windowId);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void *menuLayout, int windowId, int palette);
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov003_02177dd4(Struct_ov003_02177dd4 *arg0) {
         var5 = 0x141;
         var16     = 5;
     } else {
-        var7 = func_020a0b8c(&var0->unknown_0_);
+        var7 = CountUsedBagSlots_020a0b8c(&var0->unknown_0_);
         var8  = var0->unknown_c_;
         var9  = var0->unknown_13c_;
         var6   = 0x7a;

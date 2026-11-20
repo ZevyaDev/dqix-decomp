@@ -31,7 +31,7 @@ struct Struct_ov014_02184f78 {
 };
 
 struct BGLayer_02020cb8;
-struct Struct_0207f7f0_2;
+struct TextWindow_0207f7f0_2;
 
 struct Struct_020974b0 {
     char unknown_0_[0x10];
@@ -67,7 +67,7 @@ struct Struct_ov014_02186bc8 {
     Struct_ov014_02184f78* unknown_bc_;
     MenuLayout_0207f7f0* unknown_c0_;
     BGLayer_02020cb8* unknown_c4_;
-    Struct_0207f7f0_2* unknown_c8_;
+    TextWindow_0207f7f0_2* unknown_c8_;
     void* unknown_cc_;
     short* unknown_d0_;
     void* unknown_d4_;
@@ -106,7 +106,7 @@ struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 struct StringTable_0201099c_14;
 struct MenuLayout_0207f7f0;
-struct Struct_0207f7f0_2;
+struct TextWindow_0207f7f0_2;
 
 extern "C" int* GetResources_0200fb8c(int*);
 extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
@@ -121,11 +121,11 @@ extern "C" void func_0207f914(Struct_0207f914*, int, int, int);
 extern "C" void func_02080798(void*, int, int);
 #endif
 extern "C" void func_020abf38(void*);
-extern "C" void func_0207f7f0(MenuLayout_0207f7f0*, Struct_0207f7f0_2*, int);
+extern "C" void SetMenuLayoutWindowArray_0207f7f0(MenuLayout_0207f7f0*, TextWindow_0207f7f0_2*, int);
 
 extern "C" {
 void func_020972e0(Struct_020974b0* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
-int func_0207f9f4(MenuLayout_0207f7f0* arg0);
+int UpdateMenuLayoutLoad_0207f9f4(MenuLayout_0207f7f0* menuLayout);
 void func_020abf60(Struct_020974b0* arg0);
 void func_ov014_02187488(Struct_ov014_02186bc8* arg0);
 Struct_ov014_02184f78* func_020974b0(Struct_020974b0* arg0, int arg1, int, bool arg3, int, short* arg5);
@@ -228,7 +228,7 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
     }
     else if (arg0->unknown_17b_ == 6)
     {
-        int var10 = func_0207f9f4(arg0->unknown_c0_);
+        int var10 = UpdateMenuLayoutLoad_0207f9f4(arg0->unknown_c0_);
         if (var10 == 0)
             arg0->unknown_17b_++;
         if (var10 < 0)
@@ -319,7 +319,7 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
         MenuLayout_0207f7f0* var22 = arg0->unknown_c0_;
         var22->unknown_2c_ = arg0->unknown_c4_;
         var22->unknown_38_ = 2;
-        func_0207f7f0(arg0->unknown_c0_, arg0->unknown_c8_, 4);
+        SetMenuLayoutWindowArray_0207f7f0(arg0->unknown_c0_, arg0->unknown_c8_, 4);
         arg0->unknown_c0_->unknown_3a_ = 0;
         func_020974b0(&arg0->unknown_a4_, -1, -1, false, 0, &arg0->unknown_180_);
         short var23 = 0;

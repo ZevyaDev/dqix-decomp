@@ -151,7 +151,7 @@ struct LocalWireless_0202c1a4;
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" int func_0206e558(void* arg0);
 extern "C" int func_ov017_0219c774(Struct_ov017_0219d250_6* arg0, int arg1, int arg2);
-extern "C" void* func_020936f8(void);
+extern "C" void* GetNoticeQueue_020936f8(void);
 extern "C" void QueueNotice_02094030(void* noticeQueue, int noticeId, int arg2, int memberIndex);
 extern "C" void func_0203e074(char*);
 extern "C" int func_0209cd50(int arg0);
@@ -165,7 +165,7 @@ extern "C" void _ZN8Object3D10SetField06Et(Object3D* arg0, int arg1);
 extern "C" void ResetFollowTrail_02039d24(unsigned char*);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
-extern "C" void StopGesture_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* gameObject);
 extern "C" void func_0203409c(unsigned char* arg0);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
@@ -191,7 +191,7 @@ extern "C" void func_0205859c(Struct_0205859c*);
 extern "C" void func_ov017_0219e234(Struct_ov017_0219d250_5*, Struct_ov017_0219d250_7*, Struct_ov017_0219d250_6*, void*);
 extern "C" void func_ov017_0219fda0(Struct_ov017_0219d250_5* arg0);
 extern "C" void func_ov017_0219fec0(void* arg0);
-extern "C" int func_020981e4(int, int);
+extern "C" int IsQuestersRestZone_020981e4(int, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(Struct_ov017_0219d250_5* gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
@@ -305,7 +305,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
                 }
                 if (var24) {
                     if (arg0->unknown_42e9_ != 0) {
-                        QueueNotice_02094030(func_020936f8(), 0x4e23, -1, 0);
+                        QueueNotice_02094030(GetNoticeQueue_020936f8(), 0x4e23, -1, 0);
                     }
                     var1->unknown_6e_ &= ~2;
                     func_0203e074((char*)var13);
@@ -419,7 +419,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
     }
     arg0->unknown_3658_ = 0;
     ((Zone3D*)var27)->SwitchZone(var1->unknown_0_, var1->unknown_4_);
-    if (func_020981e4((int)(((Zone3D*)var27)->unk_840), var2) || func_020981e4((int)(((Zone3D*)var27)->unk_840), var15)) {
+    if (IsQuestersRestZone_020981e4((int)(((Zone3D*)var27)->unk_840), var2) || IsQuestersRestZone_020981e4((int)(((Zone3D*)var27)->unk_840), var15)) {
         if (IsLocalWirelessOn_0202b7d8((int*)var12) == 0) {
             RebuildFieldPartyOrder_ov017_02191108(arg0, 1, 1, 1, 1);
         } else {

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-extern "C" void func_0203ad88(void*, void*, int);
+extern "C" void StopStream_0203ad88(void*, void*, int);
 
 struct MusicManager_02109bf4_4;
 extern "C" void StopMusic_0209c678(struct MusicManager_02109bf4_4* manager, int fadeDuration);
@@ -22,7 +22,7 @@ struct Struct_02109bf4_3 {
 
 // USA: ResetMusic_0209c20c
 extern "C" ARM void ResetMusic_0209c20c(struct Struct_02109bf4_3* manager) {
-    func_0203ad88((void*)(manager), (void*)(0), (int)(0));
+    StopStream_0203ad88((void*)(manager), (void*)(0), (int)(0));
     StopMusic_0209c678((struct MusicManager_02109bf4_4*)manager, 0);
     UpdateSound_020bbd9c();
     func_0203aa44(manager);

@@ -6,10 +6,10 @@ struct Struct_020213fc {
 #else
     char unknown_0_[0x9c6];
 #endif
-    unsigned char unknown_9c6_;
+    unsigned char isSubScreenFadeInHeld_9c6_;
 };
 
-// USA: func_020213fc
-extern "C" ARM void func_020213fc(struct Struct_020213fc* arg0, int arg1) {
-    arg0->unknown_9c6_ = (arg1 != 0) ? 1 : 0;
+// USA: SetSubScreenFadeInHeld_020213fc
+extern "C" ARM void SetSubScreenFadeInHeld_020213fc(struct Struct_020213fc* subScreenDisplay, int isHeld) {
+    subScreenDisplay->isSubScreenFadeInHeld_9c6_ = (isHeld != 0) ? 1 : 0;
 }

@@ -63,7 +63,7 @@ extern "C" unsigned int* func_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void SaveSubBGControl_02074b64(BGControlSave_02074b64*);
-extern "C" void func_020dc2bc();
+extern "C" void SuspendMapDisplay_020dc2bc();
 void SetSubBrightness(GameResources*, int, int);
 int IsSubBrightnessTransitionActive(GameResources*);
 extern "C" void func_0208c9cc(int, int, int, int, int);
@@ -98,7 +98,7 @@ extern "C" ARM void func_0208cb08(Struct_0208cb08_5* arg0) {
         if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00())) ++arg0->unknown_d5_;
     } else if (arg0->unknown_d5_ == 2) {
         SaveSubBGControl_02074b64(&arg0->unknown_2c_);
-        func_020dc2bc();
+        SuspendMapDisplay_020dc2bc();
         if (!(arg0->unknown_da_ & 0x10)) SetSubBrightness(var1, -16, 8);
         ++arg0->unknown_d5_;
     } else if (arg0->unknown_d5_ == 3) {

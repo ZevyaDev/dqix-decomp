@@ -41,10 +41,10 @@ struct Struct_ov006_02157a60 {
 extern "C" void ShowMenuLayoutWindow_02080c20(MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void func_ov006_021573c8(void* arg0);
 extern "C" unsigned short func_ov006_021591ec(Struct_ov006_021591ec* arg0);
-extern "C" short func_02080468(void* arg0, int arg1);
+extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
 extern "C" void func_ov006_0215f4dc(Struct_ov006_02157a60* arg0);
 extern "C" void func_ov006_0215f740(Struct_ov006_02157a60* arg0);
-extern "C" void func_0208203c(KeyRepeat_02081f20_2* arg0);
+extern "C" void ResetKeyRepeat_0208203c(KeyRepeat_02081f20_2* keyRepeat);
 extern "C" void func_02081ea4(MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
 
 // USA: func_ov006_0215943c
@@ -61,11 +61,11 @@ extern "C" ARM void func_ov006_0215943c(Struct_ov006_02157a60* arg0) {
     arg0->unknown_36e_ = 0x11;
     arg0->unknown_364_ = -1;
     if (arg0->unknown_364_ < 0)
-        arg0->unknown_364_ = func_02080468(arg0->unknown_14_, arg0->unknown_36e_);
+        arg0->unknown_364_ = GetMenuLayoutWindowFirstSelectableTextId_02080468(arg0->unknown_14_, arg0->unknown_36e_);
     arg0->unknown_14_->unknown_36_ = arg0->unknown_364_;
     func_ov006_0215f4dc(arg0);
     func_ov006_0215f740(arg0);
-    func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
+    ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
     arg0->unknown_44_ = 0;
     func_02081ea4(arg0->unknown_14_, arg0->unknown_36e_, 0);
 }

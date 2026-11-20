@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-// USA: func_02048418
-extern "C" ARM int func_02048418(unsigned char* arg0, unsigned short arg1) {
-    int* var0 = *(int**)(arg0 + 0x130);
-    if (!(arg1 & var0[0])) {
+// USA: ClearStatusFlags_02048418
+extern "C" ARM int ClearStatusFlags_02048418(unsigned char* gameObject, unsigned short statusFlags) {
+    int* status = *(int**)(gameObject + 0x130);
+    if (!(statusFlags & status[0])) {
         return 0;
     }
-    var0[0] = (unsigned short)(var0[0] & ~arg1);
+    status[0] = (unsigned short)(status[0] & ~statusFlags);
     return 1;
 }

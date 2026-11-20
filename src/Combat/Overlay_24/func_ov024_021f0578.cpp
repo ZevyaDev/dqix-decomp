@@ -5,7 +5,7 @@
 
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 struct Struct_ov024_021de124;
-extern "C" int func_ov024_021de25c(struct Struct_ov024_021de124* arg0);
+extern "C" int IsConfused_ov024_021de25c(struct Struct_ov024_021de124* combatant);
 
 struct Struct_ov024_021f0578 { int unknown_0_; };
 struct Struct_ov024_021fea34 { short unknown_0_[4]; };
@@ -19,7 +19,7 @@ extern "C" ARM int func_ov024_021f0578(struct Struct_ov024_021f0578* arg0, int a
     int var2 = 0;
     for (int var3 = 0; var3 < var1; var3++) {
         GameObject* var4 = GetCombatantByID(arg0->unknown_0_, var0.unknown_0_[var3]);
-        if (var4 && !func_ov024_021de25c((struct Struct_ov024_021de124*)var4)) {
+        if (var4 && !IsConfused_ov024_021de25c((struct Struct_ov024_021de124*)var4)) {
             var2 = 1;
             break;
         }

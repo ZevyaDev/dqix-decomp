@@ -9,7 +9,7 @@ struct Struct_020a87d0_2;
 extern char gSoundEffectManager_02108760;
 extern "C" void UnloadExtraSoundSet_0205eb80(void* manager);
 extern "C" void func_0205eb54(void* arg0, int arg1, int arg2);
-extern "C" void func_0205eb90(void* arg0, int arg1, int arg2);
+extern "C" void PlayExtraSoundEffect_0205eb90(void* manager, int soundEffectIndex, int handle);
 extern "C" void* func_0202ae18(void);
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
@@ -33,7 +33,7 @@ extern "C" ARM void func_020a87d0(struct Struct_020a87d0* arg0) {
     if (IsBrightnessWithinValidRange((GameResources*)var0, false) != 0) {
         UnloadExtraSoundSet_0205eb80(&gSoundEffectManager_02108760);
         func_0205eb54(&gSoundEffectManager_02108760, 0x72, 0x72);
-        func_0205eb90(&gSoundEffectManager_02108760, 0, 0);
+        PlayExtraSoundEffect_0205eb90(&gSoundEffectManager_02108760, 0, 0);
     }
 
     signed char var1 = GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)func_0202ae18());

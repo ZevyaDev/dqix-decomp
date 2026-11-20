@@ -27,7 +27,7 @@ extern unsigned short data_ov024_021fea3c[4];
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int, unsigned short*, int, int);
 extern "C" int func_ov024_021da998(Struct_ov024_021da670_6*);
 extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
-extern "C" int func_ov024_021eda60(GameObject*);
+extern "C" int IsReflecting_ov024_021eda60(GameObject*);
 extern "C" int func_ov024_021edbc0(GameObject*);
 extern "C" int func_ov024_021edbd8(GameObject*);
 extern "C" int func_ov024_021edbf0(GameObject*);
@@ -59,7 +59,7 @@ extern "C" ARM int func_ov024_021f3e64(int* arg0, int arg1, int arg2, int* arg3,
         if (!var8) continue;
         if (func_ov024_021da998((Struct_ov024_021da670_6*)var8)
             || func_ov024_021dd260((Struct_ov024_021dd028_5*)var8)
-            || func_ov024_021eda60(var8)
+            || IsReflecting_ov024_021eda60(var8)
             || func_ov024_021edbc0(var8)
             || func_ov024_021edbd8(var8)
             || func_ov024_021edbf0(var8)

@@ -21,7 +21,7 @@ enum { Enum_ov004_02164738_2292 = 0x8f4, Enum_ov004_02164738_2299 = 0x8fb, Enum_
 struct Struct_020263e4;
 struct Struct_02011930;
 
-extern "C" int func_020ac734(void* arg0);
+extern "C" int SetTreasureMaps_020ac734(void* treasureMaps);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_020263e4(Struct_020263e4* arg0);
 extern "C" void func_02026418(unsigned char* arg0, unsigned char arg1);
@@ -56,7 +56,7 @@ extern "C" ARM int func_ov004_02164738(void* arg0) {
     for (var2 = 0; var2 < 99; var2++) {
         VectorizedInvertedMemcpy(gTreasureMapScreen_ov004_02171010 + var2 * sizeof(TreasureMapMetadata), &var1.unknown_2_[var2], sizeof(TreasureMapMetadata));
     }
-    func_020ac734(&var1);
+    SetTreasureMaps_020ac734(&var1);
 
     GameState* var3 = GameState::GetInstance();
     char* var4 = (char*)GetZone3D_02012fe4();

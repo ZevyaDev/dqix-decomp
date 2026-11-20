@@ -67,7 +67,7 @@ struct Struct_0203c108_3;
 struct Struct_02053dc0;
 struct Struct_02010604;
 struct TextureVRAMArea_02015ef4_5;
-struct Struct_020e385c;
+struct EventSyncEntry_020e385c;
 struct Struct_02046574_2;
 struct GlobalFlags_02012de8;
 struct GlobalFlags_02038598_4;
@@ -130,7 +130,7 @@ extern "C" void* func_0202ae24();
 extern "C" void* func_020d6c00();
 extern "C" unsigned char* func_020e3580();
 extern "C" int func_ov000_0215fc60(char*);
-extern "C" void func_ov000_02160d80(void*, int);
+extern "C" void SetBattleSceneState_ov000_02160d80(void*, int);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 extern "C" void func_ov000_02160fbc(void*, int);
 extern "C" int func_ov000_02160fd4(void*, int);
@@ -174,10 +174,10 @@ extern "C" void func_ov000_021816e8(void*, int);
 extern "C" void func_ov000_02181694(void*, int);
 extern "C" void func_ov000_0217f5d0(void*);
 extern "C" void func_ov017_021ca174(unsigned short);
-extern "C" Struct_020e385c* func_020e3808();
-extern "C" int func_020e3ad0(Struct_020e385c*, int, int);
-extern "C" unsigned char* func_020e385c(Struct_020e385c*, int, int);
-extern "C" void func_020e3994(Struct_020e385c*, int, int);
+extern "C" EventSyncEntry_020e385c* GetEventSyncTable_020e3808();
+extern "C" int func_020e3ad0(EventSyncEntry_020e385c*, int, int);
+extern "C" unsigned char* FindEventSyncEntry_020e385c(EventSyncEntry_020e385c*, int, int);
+extern "C" void func_020e3994(EventSyncEntry_020e385c*, int, int);
 void SetBrightness(GameResources*, int, int);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_ov000_02174514(void*);
@@ -195,7 +195,7 @@ extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0*, int
 extern "C" int func_ov000_02168720(char*);
 extern "C" void func_ov000_021813d4(void*);
 extern "C" void func_0205eb54(void*, int, int);
-extern "C" void func_0205eb90(void*, int, int);
+extern "C" void PlayExtraSoundEffect_0205eb90(void*, int, int);
 extern "C" void func_ov017_021cefe0(unsigned short, unsigned char, unsigned char);
 extern "C" void func_ov017_021cf650(unsigned short, int, int);
 extern "C" int func_0205e488(void*);
@@ -538,7 +538,7 @@ extern "C" ARM void func_ov026_021d8ba0(BattleScene_ov000_02160da0* arg0) {
         return;
     }
     if (func_ov000_0215fc60((char*)var19) != 0 && var19->unknown_8e20_ == 2) {
-        func_ov000_02160d80(arg0, 4);
+        SetBattleSceneState_ov000_02160d80(arg0, 4);
         return;
     }
     {
@@ -899,13 +899,13 @@ state1:
     }
     if (arg0->unknown_eac_ == 0x11) {
         int var85;
-        Struct_020e385c* var86;
+        EventSyncEntry_020e385c* var86;
         var85 = var19->unknown_8e18_->unknown_c_ >= 0 ? 1 : 0;
         var21->unknown_19af_ = 0;
         var21->unknown_19ca_ = 0;
-        var86 = func_020e3808();
+        var86 = GetEventSyncTable_020e3808();
         if (!var85 || (func_020e3ad0(var86, 1, -1) && var85)) {
-            unsigned char* var87 = func_020e385c(var86, 1, -1);
+            unsigned char* var87 = FindEventSyncEntry_020e385c(var86, 1, -1);
             int var88 = 0;
             int var89;
             if (var87 != 0 && (var87[5] & (1 << GetProtagonistObjectIndex_020100a8(var17)))) {
@@ -1140,7 +1140,7 @@ state1:
                     UnloadExtraSoundSet_0205eb80(&gSoundEffectManager_02108760);
                     arg0->unknown_7711_ = 0;
                     func_0205eb54(&gSoundEffectManager_02108760, 0x1b3, 0x1b3);
-                    func_0205eb90(&gSoundEffectManager_02108760, 0, 0);
+                    PlayExtraSoundEffect_0205eb90(&gSoundEffectManager_02108760, 0, 0);
                     arg0->unknown_7711_ = 1;
                 }
                 {
@@ -1193,7 +1193,7 @@ state1:
                     }
                     if (var119) {
                         var19->unknown_8e14_ = 2;
-                        func_ov000_02160d80(arg0, 0xa);
+                        SetBattleSceneState_ov000_02160d80(arg0, 0xa);
                     }
                 }
             }
@@ -1336,7 +1336,7 @@ state1:
         if (arg0->unknown_5950_ == 1) {
             func_ov000_02160da0(arg0);
         } else {
-            func_ov000_02160d80(arg0, 0xb);
+            SetBattleSceneState_ov000_02160d80(arg0, 0xb);
         }
     } else if (arg0->unknown_eac_ == 6) {
         if (var23->GetNumQueuedTasks() > 0) {

@@ -36,14 +36,14 @@ struct Struct_020d49c4_2
 };
 
 extern "C" int func_020d41e8();
-extern "C" Struct_020d424c_2* func_020d41d8();
+extern "C" Struct_020d424c_2* GetWirelessDriver_020d41d8();
 
 // USA: func_020d49c4
 extern "C" ARM const Struct_020d49c4* func_020d49c4(const void* arg0, unsigned short arg1)
 {
     const Struct_020d49c4_2* const var0 = (const Struct_020d49c4_2*)arg0;
     Struct_020d49c4* var1[15];
-    Struct_020d424c_2* const var2 = func_020d41d8();
+    Struct_020d424c_2* const var2 = GetWirelessDriver_020d41d8();
     if (func_020d41e8() != 0)
         return NULL;
     if (arg1 < 1 || arg1 > 15)

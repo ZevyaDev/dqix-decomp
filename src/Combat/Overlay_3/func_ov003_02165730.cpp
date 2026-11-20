@@ -29,7 +29,7 @@ struct Struct_ov003_02165278 {
 };
 
 extern "C" void* func_020d6c00(void);
-extern "C" Struct_ov003_02165278* func_020936f8(void);
+extern "C" Struct_ov003_02165278* GetNoticeQueue_020936f8(void);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" int func_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned int mask);
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov003_02165730(Struct_ov003_02165730_2* arg0) {
     void* var1 = func_020d6c00();
 
     if (arg0->unknown_4a4_ == 0) {
-        func_020936f8()->unknown_3c9_0_ = 1;
+        GetNoticeQueue_020936f8()->unknown_3c9_0_ = 1;
         ResetMessageWindow_02043204((char*)GetMessageWindow_020421a0());
         arg0->unknown_484_ = arg0->unknown_486_ = -1;
         arg0->unknown_4a5_ = 0;

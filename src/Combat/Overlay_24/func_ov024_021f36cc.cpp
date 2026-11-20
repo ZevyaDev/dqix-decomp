@@ -8,12 +8,12 @@ extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
 struct Struct_ov024_021da670_7;
 extern "C" int IsParalysed_ov024_021da9b0(struct Struct_ov024_021da670_7* combatant);
 struct Struct_ov024_021de124;
-extern "C" int func_ov024_021de25c(struct Struct_ov024_021de124* arg0);
+extern "C" int IsConfused_ov024_021de25c(struct Struct_ov024_021de124* combatant);
 struct Struct_ov024_021da670_8;
 extern "C" int func_ov024_021da9c8(struct Struct_ov024_021da670_8* arg0);
 struct Struct_ov024_021dd028_5;
 extern "C" int func_ov024_021dd260(struct Struct_ov024_021dd028_5* arg0);
-extern "C" int func_ov024_021ed890(struct Random** arg0, int* arg1, short* arg2);
+extern "C" int PickRandomTarget_ov024_021ed890(struct Random** targetSelector, int* count, short* targetIndices);
 
 struct Struct_ov024_021fedec { short unknown_0_[8]; };
 extern struct Struct_ov024_021fedec data_ov024_021fedec;
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov024_021f36cc(int* arg0, int arg1, int arg2, int* arg3,
 		if (!var3) continue;
 		if (IsAsleep_020882f8((unsigned char*)var3->currentStats_)) continue;
 		if (IsParalysed_ov024_021da9b0((struct Struct_ov024_021da670_7*)var3)) continue;
-		if (func_ov024_021de25c((struct Struct_ov024_021de124*)var3)) continue;
+		if (IsConfused_ov024_021de25c((struct Struct_ov024_021de124*)var3)) continue;
 		if (func_ov024_021da9c8((struct Struct_ov024_021da670_8*)var3)) continue;
 		if (func_ov024_021dd260((struct Struct_ov024_021dd028_5*)var3)) continue;
 		int var4 = *arg3;
@@ -40,6 +40,6 @@ extern "C" ARM int func_ov024_021f36cc(int* arg0, int arg1, int arg2, int* arg3,
 		arg4[var4] = var0.unknown_0_[var2];
 	}
 	if (*arg3 <= 0) return 0;
-	func_ov024_021ed890((struct Random**)arg0, arg3, arg4);
+	PickRandomTarget_ov024_021ed890((struct Random**)arg0, arg3, arg4);
 	return 1;
 }

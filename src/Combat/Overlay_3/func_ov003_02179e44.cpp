@@ -20,9 +20,9 @@ enum { Enum_ov003_02179e44_2204 = 0x89c };
 
 #include "GameState/GameState.h"
 
-extern "C" short func_02080468(void* arg0, int arg1);
-struct Struct_020a0b8c;
-extern "C" int func_020a0b8c(struct Struct_020a0b8c* arg0);
+extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
+struct ItemBag_020a0b8c;
+extern "C" int CountUsedBagSlots_020a0b8c(struct ItemBag_020a0b8c* bag);
 
 // USA: func_ov003_02179e44
 extern "C" ARM int func_ov003_02179e44(char* arg0) {
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov003_02179e44(char* arg0) {
     }
 
     *(char*)(arg0 + Enum_ov003_02179e44_4163) = -1;
-    short var5 = func_02080468(var3, var4);
+    short var5 = GetMenuLayoutWindowFirstSelectableTextId_02080468(var3, var4);
     short var6 = *(short*)(arg0 + Enum_ov003_02179e44_4112);
     int var7 = *(int*)(arg0 + Enum_ov003_02179e44_4144);
     short var8 = (short)(var6 - var5);
@@ -50,7 +50,7 @@ extern "C" ARM int func_ov003_02179e44(char* arg0) {
         *(short*)(arg0 + Enum_ov003_02179e44_4118) = 1;
         return 1;
     } else {
-        int var10 = func_020a0b8c((struct Struct_020a0b8c*)var1);
+        int var10 = CountUsedBagSlots_020a0b8c((struct ItemBag_020a0b8c*)var1);
         int var11 = (var10 + 7) / 8;
         *(short*)(arg0 + Enum_ov003_02179e44_4116) = 0;
         *(short*)(arg0 + Enum_ov003_02179e44_4118) = var11;

@@ -65,7 +65,7 @@ extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" void LoadToMainBG1CharacterData(const void *data, unsigned int offset, unsigned int length);
 extern "C" void func_ov002_0215b428(unsigned char *arg0);
 extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
-extern "C" void func_ov023_021eb26c(void *arg0);
+extern "C" void DestroyAccoladeDisplay_ov023_021eb26c(void *display);
 
 // USA: func_ov002_021556fc
 extern "C" ARM void func_ov002_021556fc(char *arg0) {
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov002_021556fc(char *arg0) {
 #endif
     PopSubOverlay_020a1f4c(1);
     if (*(void **) (arg0 + FIELD_2468) != 0) {
-        func_ov023_021eb26c(*(void **) (arg0 + FIELD_2468));
+        DestroyAccoladeDisplay_ov023_021eb26c(*(void **) (arg0 + FIELD_2468));
     }
     SafeAllocator *var4[8] = {
         (SafeAllocator *) (arg0 + FIELD_810), (SafeAllocator *) (arg0 + FIELD_828), (SafeAllocator *) (arg0 + FIELD_83c),

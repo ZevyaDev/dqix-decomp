@@ -30,7 +30,7 @@ struct Struct_ov017_0218e8c8_2 {
 };
 
 extern "C" char* GetZone3D_02012fe4(void);
-extern "C" int func_020981e4(int, int);
+extern "C" int IsQuestersRestZone_020981e4(int, int);
 extern "C" unsigned short func_ov017_021b8480(void* arg0);
 extern "C" unsigned char* func_ov017_021b8478(void* battleManager);
 extern "C" int func_ov017_02191b58(void*, int);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov017_0218e8c8(Struct_ov017_0218e8c8_2* arg0, int arg1,
     GameState* var0 = GameState::GetInstance();
     char* var1 = GetZone3D_02012fe4();
     int var2 = 0;
-    if (func_020981e4((int)(var1 + Enum_ov017_0218e8c8_2112), arg1)) {
+    if (IsQuestersRestZone_020981e4((int)(var1 + Enum_ov017_0218e8c8_2112), arg1)) {
         var2 = 1;
     }
 

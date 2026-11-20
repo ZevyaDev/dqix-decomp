@@ -34,7 +34,7 @@ struct Struct_ov015_02192600_3;
 struct Struct_0204a120_2;
 struct TextureVRAMArea_0203d028;
 struct Struct_0200f3a4_9;
-struct Struct_0203bdb0;
+struct OAMManager_0203bdb0;
 
 struct Struct_ov015_021934f8 {
     char unknown_0_[0x2c8];
@@ -86,7 +86,7 @@ extern "C" void SetSubBGMode_020c3984(unsigned int);
 void UpdateVRAMStagingVRAMBanks();
 void UnlockStagedTextureVRAMCopying();
 extern "C" void func_020c51dc();
-extern "C" void func_020c537c();
+extern "C" void ResetMatrixStacksToIdentity_020c537c();
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_02028ddc(void*);
 extern "C" void func_02028d68(int);
@@ -133,13 +133,13 @@ extern "C" void func_ov015_02191294(void*);
 extern "C" void func_ov015_02191668(void*);
 extern "C" void func_ov015_02190d7c(void*);
 extern "C" void func_ov015_021901c8(void*);
-extern "C" void func_0203bd88(void* arg0);
+extern "C" void CleanInvalidateOAMBuffers_0203bd88(void* arg0);
 extern "C" void func_0203aa08(void*);
 extern "C" void UpdateSound_020bbd9c();
 extern "C" unsigned long long _ll_udiv(unsigned long long, unsigned long long);
 extern "C" float func_0200c76c(unsigned long long);
 extern "C" int ReadBrightnessRegister_020c39c8(unsigned short volatile*);
-extern "C" void func_0203bdb0(Struct_0203bdb0*);
+extern "C" void UploadOAMBuffers_0203bdb0(OAMManager_0203bdb0*);
 extern "C" void func_020290ac(int);
 
 extern AllocatorUnion gMainHeap_02114e20;
@@ -172,8 +172,8 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     ClearLoadedFontSetForSize_02094b3c(var2, 10);
     ClearLoadedFontSetForSize_02094b3c(var2, 12);
     RequestFontLoad_02094b34(var2, 0x69, 0, 0, 0);
-    func_02094b38(var2, 0x69);
-    func_02094b38(var2, 0);
+    ClearLoadedFontSet_02094b38(var2, 0x69);
+    ClearLoadedFontSet_02094b38(var2, 0);
     while (!UpdateFontLoad_02094b4c(var2))
         var1->RemoveAllLocks();
 
@@ -207,7 +207,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     POWCNT1 &= ~0x8000;
     Nitro3D_FinishRender();
     func_020c51dc();
-    func_020c537c();
+    ResetMatrixStacksToIdentity_020c537c();
     BG1CNT = BG1CNT & ~3;
     BG0CNT = (BG0CNT & ~3) | 1;
     BG0CNTSUB = BG0CNTSUB & ~3;
@@ -326,7 +326,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
         }
         func_ov015_02190d7c(arg0);
         func_ov015_021901c8(arg0);
-        func_0203bd88(var3);
+        CleanInvalidateOAMBuffers_0203bd88(var3);
         func_0203aa08(&gSoundEffectManager_02108760);
         UpdateSound_020bbd9c();
 
@@ -351,13 +351,13 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
         if (ReadBrightnessRegister_020c39c8((unsigned short volatile*)MASTER_BRIGHT) > -16)
             WaitForVBlank_020c9820();
         GetCurrentTimestamp();
-        func_0203bdb0((Struct_0203bdb0*)var3);
+        UploadOAMBuffers_0203bdb0((OAMManager_0203bdb0*)var3);
         func_020290ac(1);
         var0->CalculateDeltaTime(_ll_udiv((GetCurrentTimestamp() - var9) * 64000, 33514));
         var9 = GetCurrentTimestamp();
     }
 
-    func_02094b38(var2, 0x69);
+    ClearLoadedFontSet_02094b38(var2, 0x69);
     CancelFontLoad_02094ab0(var2);
     LoadSoundEffectSet_0205ea20(&gSoundEffectManager_02108760, 0x64);
     InitFollowCamera_020a2010(&var6);

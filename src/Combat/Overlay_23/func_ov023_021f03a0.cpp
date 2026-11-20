@@ -127,7 +127,7 @@ extern "C" char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void StartMessage_0204500c(Struct_02092e0c*, char*, int, int);
 #endif
 extern "C" Struct_ov023_021f03a0* func_ov023_021f0360(void*, int);
-extern "C" int func_02082490(Struct_ov023_021f0a5c_3*, void*, unsigned int, unsigned char, int);
+extern "C" int ReadLevelEntries_02082490(Struct_ov023_021f0a5c_3*, void*, unsigned int, unsigned char, int);
 extern "C" int func_ov023_021f4438(BattleScene_ov000_02160da0*);
 extern "C" int func_ov023_021f4fc8();
 extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2*);
@@ -306,7 +306,7 @@ extern "C" ARM int func_ov023_021f03a0(BattleScene_ov000_02160da0* arg0) {
         var9->GetLoadedFileByID(var6->unknown_4_, &var37, &var36);
         var9->RemoveTask(var6->unknown_4_);
         Struct_ov023_021f03a0* var39 = func_ov023_021f0360(_ZZ21inline_ov023_021f4c04vE1s, var38);
-        if (var37 && func_02082490(&arg0->unknown_5770_[var38], var37, var36, var39->unknown_2_, var39->unknown_4_)) {
+        if (var37 && ReadLevelEntries_02082490(&arg0->unknown_5770_[var38], var37, var36, var39->unknown_2_, var39->unknown_4_)) {
             if (!var39->unknown_3_) var6->unknown_12_[var38] = 1;
         }
         var6->unknown_11_++;

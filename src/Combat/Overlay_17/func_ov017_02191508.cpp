@@ -55,11 +55,11 @@ struct Struct_ov017_02191508_6 {
 extern "C" Struct_ov017_02191508_6* func_02053c6c(unsigned char* gameObject);
 extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
 extern "C" void func_02083e28(void* arg0, int arg1);
-extern "C" void func_02083ca0(unsigned char* arg0, int arg1);
+extern "C" void SetVocation_02083ca0(unsigned char* memberData, int vocation);
 extern "C" void func_02083c18(char* arg0);
 extern "C" void LearnSpell_02083b60(unsigned char* memberData, int spellId);
 
-extern char data_020ef078[];
+extern char gStringFormat_020ef078[];
 
 // USA: func_ov017_02191508
 extern "C" ARM void func_ov017_02191508(int arg0, Struct_ov017_02191508_2* arg1) {
@@ -74,13 +74,13 @@ extern "C" ARM void func_ov017_02191508(int arg0, Struct_ov017_02191508_2* arg1)
         var2 = var0->unknown_130_->unknown_4_;
     }
 #if defined(jpn)
-    sprintf(var1->unknown_3c_, data_020ef078, arg1->unknown_0_);
+    sprintf(var1->unknown_3c_, gStringFormat_020ef078, arg1->unknown_0_);
 
 #else
     if (arg1 != NULL) {
-        sprintf(var1->unknown_3c_, data_020ef078, arg1->unknown_0_);
+        sprintf(var1->unknown_3c_, gStringFormat_020ef078, arg1->unknown_0_);
     } else {
-        sprintf(var1->unknown_3c_, data_020ef078, var1->unknown_3c_);
+        sprintf(var1->unknown_3c_, gStringFormat_020ef078, var1->unknown_3c_);
     }
 
 #endif
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov017_02191508(int arg0, Struct_ov017_02191508_2* arg1)
         var0->unknown_130_->unknown_4_ = var0->unknown_134_->primaryStats.maxHP;
     }
     var0->unknown_130_->unknown_6_ = var0->unknown_134_->primaryStats.maxMP;
-    func_02083ca0((unsigned char*)var1, 0);
+    SetVocation_02083ca0((unsigned char*)var1, 0);
     func_02083c18((char*)var1);
     var1->unknown_16c_ = arg1->unknown_12_;
     LearnSpell_02083b60((unsigned char*)var1, arg1->unknown_13_);

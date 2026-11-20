@@ -21,7 +21,7 @@ struct Struct_ov002_02157634_5;
 struct Struct_ov004_0215e5fc_5;
 
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
-extern "C" void* func_ov004_0215e47c(void*, int);
+extern "C" void* FindMenuObject_ov004_0215e47c(void*, int);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" short func_ov023_021f6f10(void*);
 extern "C" void RedrawMenuWindow_ov023_021f809c(void*, void*);
@@ -153,7 +153,7 @@ extern "C" ARM void func_ov004_0215e5fc(void* arg0, int arg1) {
     void* var12 = GetPartyMemberBaseByIndex_0200ff1c(var5, arg1);
     if (var12 != 0) {
         var8 = (char*)func_02053c6c((unsigned char*)var12);
-        Struct_ov004_0215e5fc_2* var13 = (Struct_ov004_0215e5fc_2*)func_ov004_0215e47c(arg0, 0x81);
+        Struct_ov004_0215e5fc_2* var13 = (Struct_ov004_0215e5fc_2*)FindMenuObject_ov004_0215e47c(arg0, 0x81);
         if (var13 != 0) {
             var6 = var13->inline_ov004_0215e5fc_59();
             if (var6 != 0) {
@@ -237,7 +237,7 @@ extern "C" ARM void func_ov004_0215e5fc(void* arg0, int arg1) {
     void* var31 = GetPartyMemberBaseByIndex_0200ff1c(var24, arg1);
     if (var31 != 0) {
         var26 = (char*)func_02053c6c((unsigned char*)var31);
-        Struct_ov004_0215e5fc_2* var32 = (Struct_ov004_0215e5fc_2*)func_ov004_0215e47c(arg0, 0x81);
+        Struct_ov004_0215e5fc_2* var32 = (Struct_ov004_0215e5fc_2*)FindMenuObject_ov004_0215e47c(arg0, 0x81);
         if (var32 != 0) {
             var30 = var32->inline_ov004_0215e5fc_59();
             if (var30 != 0) {

@@ -7,7 +7,7 @@
 
 extern "C" char* func_ov031_02235c70(void);
 extern "C" void func_020ca408(void* src, void* dst, int size);
-extern "C" void func_ov031_02227520(int* arg0, int* arg1);
+extern "C" void GetWifiSetupPageArguments_ov031_02227520(int* outFirstArgument, int* outSecondArgument);
 extern "C" int func_ov031_02212d40(void* arg0);
 extern "C" void func_ov031_02213204(int arg0, void* arg1);
 extern "C" void* AddTask_ov031_0223e218(void* listIndex, void* callback, void* callbackData, int priority);
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov031_02233b34(void) {
 	func_020ca408(data_ov031_022491d8, var1, 0xc);
 
 	int var2;
-	func_ov031_02227520(0, &var2);
+	GetWifiSetupPageArguments_ov031_02227520(0, &var2);
 	if (var2 == 2) {
 		var1[0xa] = 4;
 	} else {

@@ -6,7 +6,7 @@ struct Struct_ov006_02158d50_2;
 struct MenuLayout_02080fa8;
 struct Struct_0201099c_3;
 struct MenuLayout_02080f8c;
-struct Struct_02080cc0;
+struct MenuLayout_02080cc0;
 struct MenuLayout_0207fdcc_2;
 
 struct Struct_ov006_021537d0 {
@@ -127,7 +127,7 @@ extern "C" void func_02080bac(void* arg0, int arg1);
 extern "C" void func_0208065c(void* arg0, int arg1);
 extern "C" void SetMenuLayoutTextValue_02080fa8(MenuLayout_02080fa8* menuLayout, int textId, int value);
 extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c* menuLayout, int textId, int text);
-extern "C" void func_02080cc0(Struct_02080cc0* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutTextColor_02080cc0(MenuLayout_02080cc0* menuLayout, int textId, int color);
 extern "C" Struct_ov006_021555b0* func_ov006_02153c6c(void* arg0, short arg1);
 extern "C" const char** FindNounInTable_020e5294(void* nounTable, int nounId);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
@@ -162,7 +162,7 @@ extern "C" ARM void func_ov006_0215f7e8(Struct_ov006_02157a60* arg0) {
         if (var2 != 0)
         {
             SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)var1, var4, (int)var3);
-            func_02080cc0((Struct_02080cc0*)var1, var4, 3);
+            SetMenuLayoutTextColor_02080cc0((MenuLayout_02080cc0*)var1, var4, 3);
             Struct_ov006_021555b0* var6 = func_ov006_02153c6c(arg0->unknown_74_, var2->unknown_0_);
             if (var6 != 0)
             {
@@ -185,7 +185,7 @@ extern "C" ARM void func_ov006_0215f7e8(Struct_ov006_02157a60* arg0) {
                 SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)var1, var4, (int)var7);
                 func_020805f4(var1, var4);
 #endif
-                func_02080cc0((Struct_02080cc0*)var1, var4, 0xf);
+                SetMenuLayoutTextColor_02080cc0((MenuLayout_02080cc0*)var1, var4, 0xf);
             }
             var2 = var2->unknown_1c_;
         }

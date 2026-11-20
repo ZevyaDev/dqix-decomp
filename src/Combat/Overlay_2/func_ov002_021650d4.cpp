@@ -24,7 +24,7 @@ extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205d
                                                                         unsigned char bgIndex);
 extern "C" void SetTextWindowVisible_0205def8(struct TextWindowManager_0205def8 *windowManager, int isVisible, int windowId);
 extern "C" void func_ov023_021e71b4(void *arg0, SafeAllocator *arg1);
-extern "C" void func_020dc2bc();
+extern "C" void SuspendMapDisplay_020dc2bc();
 extern "C" void func_020dc2d0(int arg0);
 extern "C" void func_ov023_021e7bc4(struct Struct_ov002_021650d4 *arg0, unsigned int arg1, int arg2);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
@@ -32,7 +32,7 @@ extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllow
 extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(void *menu);
 extern "C" void func_ov002_0215e44c(void *arg0);
-extern "C" void func_ov002_02156e90(void *arg0);
+extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(void *menu);
 extern "C" short func_020dc428();
 extern "C" void func_ov023_021e7220(void *arg0, int arg1);
 extern "C" int func_ov023_021e76c4(void *arg0);
@@ -65,8 +65,8 @@ extern "C" ARM void func_ov002_021650d4(char *arg0) {
         } else if (var2 == 6) {
             *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) = var2 + 1;
         } else if (var2 == 7) {
-            func_ov002_02156e90(arg0);
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
             *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80))  = RG(0xe, 0xf);
             *(short *) (arg0 + RG(0x1b00, 0x1a00) + RG(0xf6, 0xbe)) = func_020dc428();
             *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88))  = 0;
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov002_021650d4(char *arg0) {
         int var4 = *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88));
         if (var4 == 1) {
             if (IsSubBrightnessTransitionActive(var1)) return;
-            func_020dc2bc();
+            SuspendMapDisplay_020dc2bc();
             *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) += 1;
         } else if (var4 == 2) {
             if (!func_ov023_021e76c4(arg0 + RG(0xb4, 0x18) + 0x800)) return;

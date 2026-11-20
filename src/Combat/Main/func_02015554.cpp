@@ -7,7 +7,7 @@
 
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *, int, int);
-extern "C" int func_0209ca2c(void *);
+extern "C" int IsJinglePlaying_0209ca2c(void *);
 
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern char gMusicManager_02109bf4[];
@@ -89,7 +89,7 @@ extern "C" ARM void func_02015554(void *arg0, void *arg1) {
             unsigned int var9 = var1->GetEffectiveDeltaTime();
             if (var9 < var0->unknown1_36_) {
                 var0->unknown1_36_ -= var9;
-            } else if (!func_0209ca2c(gMusicManager_02109bf4)) {
+            } else if (!IsJinglePlaying_0209ca2c(gMusicManager_02109bf4)) {
                 if (var0->unknown_54_->MaybeSetRegularAnimation(data_020ef1fe, 5))
                     PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x13, 0);
                 else if (var0->unknown_54_->MaybeSetRegularAnimation(data_020ef204, 5))

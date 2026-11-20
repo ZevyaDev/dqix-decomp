@@ -33,7 +33,7 @@ extern "C" void SetActionResultFlag_ov000_02159eac(void*, Struct_ov024_021e2bd0_
 extern "C" int func_ov024_021da998(Struct_ov024_021da670_6*);
 extern "C" void func_0208826c(unsigned char*);
 extern "C" void* func_ov024_021e8ca0(Struct_ov024_021e2bd0*, int);
-extern "C" void func_ov000_0215cd44(void*, void*, GameObject*, int, int, int, int);
+extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void*, void*, GameObject*, int, int, int, int);
 extern "C" void func_ov024_021e8cfc(Struct_ov024_021e2bd0_3*, GameObject*, int, int);
 
 // USA: func_ov024_021e3a34
@@ -76,7 +76,7 @@ extern "C" ARM unsigned long long func_ov024_021e3a34(Struct_ov024_021e2bd0_3* a
     func_0208826c((unsigned char*)var0->currentStats_);
     SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var5, 0x18);
     void* var7 = func_ov024_021e8ca0((Struct_ov024_021e2bd0*)arg0, var4);
-    if (var7) func_ov000_0215cd44(arg0->unknown_10_, var7, var0, 0, 0, 0, 0);
+    if (var7) SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var7, var0, 0, 0, 0, 0);
     if (var6) func_ov024_021e8cfc(arg0, var0, 0, 0);
     return var5.unknown1_0_;
 }

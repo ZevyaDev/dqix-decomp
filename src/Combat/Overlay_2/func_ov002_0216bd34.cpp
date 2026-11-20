@@ -22,7 +22,7 @@ extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, 
 extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void func_ov002_02161798(char *arg0);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(void *menu);
-extern "C" void func_ov002_02156e90(void *arg0);
+extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(void *menu);
 extern "C" void func_ov002_0215a7b4(char *arg0, int arg1, short arg2, int arg3, int arg4);
 extern "C" char gSoundEffectManager_02108760[];
 
@@ -82,14 +82,14 @@ extern "C" ARM void func_ov002_0216bd34(char *arg0) {
                 case 1:
                     PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
                     *(short *) (arg0 + RG(0x1c00 + 0x14, 0x1a00 + 0xdc)) = -1;
-                    func_ov002_02156e90(arg0);
+                    ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
                     var4 = 1;
                     break;
             }
         } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + RG(0x1c00 + 0x14, 0x1a00 + 0xdc)) = 0;
             var4                              = 1;
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
         }
         if (!var4) {
             char *var7                                 = (char *) GameState::GetInstance();

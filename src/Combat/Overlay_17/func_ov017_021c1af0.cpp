@@ -127,7 +127,7 @@ extern "C" ARM void func_ov017_021c1af0(Struct_ov017_021c1af0* arg0) {
             func_ov017_0219c520();
         }
         FontLoader_0208cb08* var11 = GetFontLoader_02094a00();
-        func_02094b38(var11, 0x1f9);
+        ClearLoadedFontSet_02094b38(var11, 0x1f9);
         CancelFontLoad_02094ab0(var11);
         arg0->unknown_1_ = 1;
     } else if (arg0->unknown_8_ == 3) {
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov017_021c1af0(Struct_ov017_021c1af0* arg0) {
             ResetMessageWindow_02043204((char*)var12);
             EnablePlayerControl_020397c0(var0->GetProtagonist());
             FontLoader_0208cb08* var13 = GetFontLoader_02094a00();
-            func_02094b38(var13, 0x204);
+            ClearLoadedFontSet_02094b38(var13, 0x204);
             CancelFontLoad_02094ab0(var13);
             arg0->unknown_1_ = 1;
         }

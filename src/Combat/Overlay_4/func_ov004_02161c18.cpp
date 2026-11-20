@@ -58,7 +58,7 @@ public:
 
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
-extern "C" Struct_ov004_02161c18_2* func_ov004_0215e47c(void* arg0, int arg1);
+extern "C" Struct_ov004_02161c18_2* FindMenuObject_ov004_0215e47c(void* menu, int id);
 extern "C" void func_ov004_0215e574(void* arg0, unsigned short arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov004_0215e49c(void*, int, int);
 extern "C" Struct_ov004_02161c18_2* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
@@ -100,10 +100,10 @@ extern "C" ARM int func_ov004_02161c18(void* arg0) {
     var3 = 0;
     var2 = GetMenuObjectList_ov011_021849c8(arg0);
     if (data_ov004_021707e8.unknown_6_ == 0) {
-        var9 = func_ov004_0215e47c(arg0, 3);
+        var9 = FindMenuObject_ov004_0215e47c(arg0, 3);
         if (var9 != 0) var9->unknown_c_ &= ~4;
     } else {
-        var9 = func_ov004_0215e47c(arg0, 3);
+        var9 = FindMenuObject_ov004_0215e47c(arg0, 3);
         if (var9 != 0) var9->unknown_c_ |= 4;
     }
 

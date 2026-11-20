@@ -10,12 +10,12 @@ public:
 };
 
 extern "C" int func_ov004_0215e4e8(void* arg0, int arg1);
-extern "C" Struct_ov004_0215e574* func_ov004_0215e47c(void* arg0, int arg1);
+extern "C" Struct_ov004_0215e574* FindMenuObject_ov004_0215e47c(void* menu, int id);
 
 // USA: func_ov004_0215e574
 extern "C" ARM void func_ov004_0215e574(void* arg0, int arg1, int arg2, int arg3) {
     int var0 = func_ov004_0215e4e8(arg0, (short)arg1);
-    Struct_ov004_0215e574* var1 = func_ov004_0215e47c(arg0, arg1);
+    Struct_ov004_0215e574* var1 = FindMenuObject_ov004_0215e47c(arg0, arg1);
     if (!var1) return;
     Vector3i var2;
     const Vector3i& var3 = var1->inline_ov004_0215e574_9();

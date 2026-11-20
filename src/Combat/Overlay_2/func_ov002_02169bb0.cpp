@@ -27,8 +27,8 @@ extern "C" void func_ov002_0215b268(char *arg0);
 extern "C" void SetMenuCursorIndex_0205bb04(void *cursor, int index);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(void *menu);
 extern "C" void func_ov002_02160c68(void *arg0);
-extern "C" void func_ov002_02156e90(void *arg0);
-extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
+extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(void *menu);
+extern "C" void RebuildMenuWindowText_ov002_0215b9a4(char *menu, unsigned char windowId, int hasCursorMark);
 extern "C" char gSoundEffectManager_02108760[];
 
 // USA: func_ov002_02169bb0
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov002_02169bb0(char *arg0) {
                             char *var15                       = arg0 + RG(0x2c8 + 0xc00, 0xe20);
                             SetTouchMenuCursorIndex_0205bcdc((struct MenuCursor_0205bcdc *) (var15 + 4), var14);
                             SetMenuCursorIndex_0205bb04(var15 + 0x54, var14);
-                            func_ov002_0215b9a4(arg0, RG(0x23, 0x26), 0);
+                            RebuildMenuWindowText_ov002_0215b9a4(arg0, RG(0x23, 0x26), 0);
                             func_ov002_0215b268(arg0);
                             return;
                         }
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov002_02169bb0(char *arg0) {
                     *var17 += var18;
                     if (*var17 == 0) *var17 = 1;
                     if (*var17 > 5) *var17 = 5;
-                    func_ov002_0215b9a4(arg0, RG(0x23, 0x26), 0);
+                    RebuildMenuWindowText_ov002_0215b9a4(arg0, RG(0x23, 0x26), 0);
                     func_ov002_0215b268(arg0);
                     return;
                 }
@@ -101,10 +101,10 @@ extern "C" ARM void func_ov002_02169bb0(char *arg0) {
         if (((var19 | var20) ? 1 : 0) && *(short *) (arg0 + RG(0x1c00 + 0xe, 0x1a00 + 0xd6)) == 2) {
             PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
             *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
         } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
         }
     }
 }

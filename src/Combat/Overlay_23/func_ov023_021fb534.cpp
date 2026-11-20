@@ -13,7 +13,7 @@
 #define func_0203bd08 func_0203b760
 #endif
 
-extern "C" void func_ov023_021f6ed8(void* arg0);
+extern "C" void InitMenuObjectBase_ov023_021f6ed8(void* object);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" int func_ov023_021f6c90(void* arg0, int arg1, int arg2);
 extern "C" ARM void func_ov023_021f6bec(void* arg0, int arg1, unsigned int arg2, unsigned int arg3);
@@ -29,7 +29,7 @@ extern "C" void func_ov023_021fb8dc(struct Struct_ov023_021fb534* arg0, void* ar
 
 // USA: func_ov023_021fb534
 extern "C" ARM int func_ov023_021fb534(void* arg0, void* arg1, unsigned short arg2, unsigned short arg3, unsigned int arg4, int arg5) {
-    func_ov023_021f6ed8(arg0);
+    InitMenuObjectBase_ov023_021f6ed8(arg0);
     *(unsigned short*)((char*)arg0 + 0x4) = 0xc;
     *(unsigned short*)((char*)arg0 + 0x6) = arg2;
     *(unsigned short*)((char*)arg0 + 0x8) = arg3;

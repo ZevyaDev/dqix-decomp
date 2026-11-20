@@ -9,7 +9,7 @@ enum { Enum_ov005_02156e1c_15600 = 0x3cf0 };
 #include <NitroSDK/Matrix.h>
 #include <std_library_functions.h>
 
-struct Struct_0203a46c;
+struct SPRSprite_0203a46c;
 
 struct Struct_ov005_02155d6c_2 {
     char unknown_0_[0x1c];
@@ -23,7 +23,7 @@ struct Struct_ov005_02153954 {
     short unknown_3d78_;
 };
 
-extern "C" void func_0203a46c(Struct_0203a46c* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetSPRSpritePosition_0203a46c(SPRSprite_0203a46c* sprite, int x, int y, int z);
 
 // USA: func_ov005_02156e1c
 extern "C" ARM void func_ov005_02156e1c(Struct_ov005_02153954* arg0, int arg1, int arg2) {
@@ -46,5 +46,5 @@ extern "C" ARM void func_ov005_02156e1c(Struct_ov005_02153954* arg0, int arg1, i
         var3 = var1;
     if (abs(var2 - var4) < 3)
         var4 = var2;
-    func_0203a46c((Struct_0203a46c*)&arg0->unknown_3cf0_, var3 << 12, var4 << 12, 0x2000);
+    SetSPRSpritePosition_0203a46c((SPRSprite_0203a46c*)&arg0->unknown_3cf0_, var3 << 12, var4 << 12, 0x2000);
 }

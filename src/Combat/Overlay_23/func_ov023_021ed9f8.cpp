@@ -13,7 +13,7 @@ extern "C" void func_0207da94(struct Struct_0207da94* arg0, int arg1);
 
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 
-extern "C" int func_ov017_021959b4(void);
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 
 extern "C" void func_ov023_021f52c8(void* arg0);
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov023_021ed9f8(char* arg0) {
     *(int*)(arg0 + Enum_ov023_021ed9f8_3756) = var12;
 
     int var13 = 0;
-    if (func_ov017_021959b4()) {
+    if (IsLocalWirelessHostDisconnected_ov017_021959b4()) {
         if (*(unsigned char*)(arg0 + Enum_ov023_021ed9f8_30673) == 0) {
             SetBattleSceneFlags_ov000_02160fa8(arg0, 0x2000000);
             var13 = 1;

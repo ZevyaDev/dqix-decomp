@@ -117,7 +117,7 @@ extern "C" int UpdateTextWindowManager_0205d0e0(void* windowManager, int ticks);
 extern "C" void func_ov012_02185cf8(Struct_ov012_02184acc* arg0);
 extern "C" Struct_ov012_02184acc_2* GetMessageWindow_020421a0();
 extern "C" void func_ov012_0218adac(Struct_ov012_02184acc* arg0, int arg1, int arg2, int arg3);
-extern "C" int func_ov017_021959b4();
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4();
 extern "C" void func_ov012_021845f8(void* arg0);
 extern "C" int func_ov012_02184d80(void* arg0, char* arg1);
 #if defined(jpn)
@@ -171,7 +171,7 @@ extern "C" ARM int func_ov012_02184acc(Struct_ov012_02184acc* arg0, int arg1)
         if ((var1->unknown_998_ == 0 && g_keyManager.TestKeysPressed(0x800)) ||
             IsLocalWirelessPlayerDisconnected_0202c578(func_0202ae18(), 0))
 #else
-        if (func_ov017_021959b4())
+        if (IsLocalWirelessHostDisconnected_ov017_021959b4())
 #endif
         {
 #if defined(jpn)

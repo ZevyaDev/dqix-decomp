@@ -114,7 +114,7 @@ struct SaveProgress_020a9ea4;
 extern "C" void ResetSaveProgress_020a9ea4(SaveProgress_020a9ea4*);
 extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
-extern "C" int func_020aad1c(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" int UpdateSaveProgress_020aad1c(void* progress, void* scratchBuffer, int saveOptions, int isQuickSave);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 #if defined(jpn)
@@ -343,7 +343,7 @@ extern "C" ARM void func_ov006_0215cc70(Struct_ov006_0215cc70_3* arg0) {
         if (IsLocalWirelessGuest_0202c540(func_0202ae18())) {
             var8 = 0x14;
         }
-        if (func_020aad1c(arg0->unknown_3c_, &g_fileScratchSpace, var8, 0) == 1) {
+        if (UpdateSaveProgress_020aad1c(arg0->unknown_3c_, &g_fileScratchSpace, var8, 0) == 1) {
             ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)func_020d6c00(), 0x80);
             arg0->unknown_390_++;
             arg0->unknown_394_ &= ~0x200;

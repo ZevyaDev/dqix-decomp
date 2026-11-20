@@ -3,7 +3,7 @@
 
 #include "Combat/ResourceScriptEntry.h"
 
-static Struct_0201099c_2 *data_02108ef4;
+static LevelEntries_0201099c_2 *data_02108ef4;
 static unsigned int data_02108ef0;
 static unsigned int data_02108eec;
 static int data_02108ee8;
@@ -50,7 +50,7 @@ extern "C" ARM int func_02082064(Script::Parameter *arg0, int arg1) {
         var0.unknown_10_.unknown_1_2_ = (arg0++)->ToInt();
         var0.unknown_10_.unknown_2_4_ = (arg0++)->ToInt();
         var0.unknown_4_7_ = (arg0++)->ToInt();
-        func_020823e4((Struct_02082064_2 *) &data_02108ef4->unknown_0_, (Struct_02082064_2 *) &var0);
+        func_020823e4((Struct_02082064_2 *) &data_02108ef4->requestedLevelEntry_0_, (Struct_02082064_2 *) &var0);
     }
     return 1;
 }
@@ -80,39 +80,39 @@ extern "C" ARM int func_02082410(Struct_0201c1c8 *arg0) {
     return 1;
 }
 
-// USA: func_0208247c
-extern "C" ARM void* func_0208247c(void* arg0) {
-    return memset(arg0, 0, 0x54);
+// USA: ClearLevelEntries_0208247c
+extern "C" ARM void* ClearLevelEntries_0208247c(void* levelEntries) {
+    return memset(levelEntries, 0, 0x54);
 }
 
-// USA: func_02082490
-extern "C" ARM int func_02082490(void *arg0, void *arg1, unsigned int arg2, int arg3, int arg4) {
-    Struct_0201099c_2 *var0 = (Struct_0201099c_2 *) arg0;
-    Script var1;
-    memset(var0, 0, sizeof(*var0));
+// USA: ReadLevelEntries_02082490
+extern "C" ARM int ReadLevelEntries_02082490(void *destination, void *scriptData, unsigned int scriptSize, int level, int experience) {
+    LevelEntries_0201099c_2 *levelEntries = (LevelEntries_0201099c_2 *) destination;
+    Script script;
+    memset(levelEntries, 0, sizeof(*levelEntries));
     data_02108ef8 = 0;
-    data_02108ef4 = var0;
-    data_02108eec = arg4;
-    data_02108ef0 = arg3;
+    data_02108ef4 = levelEntries;
+    data_02108eec = experience;
+    data_02108ef0 = level;
     data_02108ee8 = 0;
-    var1.Initialize();
-    var1.SetOpcodeLookup(data_020f0ff8);
-    var1.Load(arg1, arg2);
-    var1.Execute();
+    script.Initialize();
+    script.SetOpcodeLookup(data_020f0ff8);
+    script.Load(scriptData, scriptSize);
+    script.Execute();
     if (data_02108ee8 != 0) {
-        var0->levelUpGains_28_.level_4_0_      = (unsigned short) (var0->reachedLevelEntry_14_.level_4_0_ - var0->unknown_0_.level_4_0_);
-        var0->levelUpGains_28_.requiredExperience_0_0_         = var0->reachedLevelEntry_14_.requiredExperience_0_0_ - var0->unknown_0_.requiredExperience_0_0_;
-        var0->levelUpGains_28_.unknown_8_.unknown_0_0_     = var0->reachedLevelEntry_14_.unknown_8_.unknown_0_0_ - var0->unknown_0_.unknown_8_.unknown_0_0_;
-        var0->levelUpGains_28_.unknown_8_.unknown_2_4_    = var0->reachedLevelEntry_14_.unknown_8_.unknown_2_4_ - var0->unknown_0_.unknown_8_.unknown_2_4_;
-        var0->levelUpGains_28_.unknown_8_.unknown_1_2_  = var0->reachedLevelEntry_14_.unknown_8_.unknown_1_2_ - var0->unknown_0_.unknown_8_.unknown_1_2_;
-        var0->levelUpGains_28_.unknown_c_.unknown_0_0_     = var0->reachedLevelEntry_14_.unknown_c_.unknown_0_0_ - var0->unknown_0_.unknown_c_.unknown_0_0_;
-        var0->levelUpGains_28_.unknown_c_.unknown_1_2_  = var0->reachedLevelEntry_14_.unknown_c_.unknown_1_2_ - var0->unknown_0_.unknown_c_.unknown_1_2_;
-        var0->levelUpGains_28_.unknown_10_.unknown_0_0_    = var0->reachedLevelEntry_14_.unknown_10_.unknown_0_0_ - var0->unknown_0_.unknown_10_.unknown_0_0_;
-        var0->levelUpGains_28_.unknown_c_.unknown_2_4_    = var0->reachedLevelEntry_14_.unknown_c_.unknown_2_4_ - var0->unknown_0_.unknown_c_.unknown_2_4_;
-        var0->levelUpGains_28_.unknown_10_.unknown_1_2_ = var0->reachedLevelEntry_14_.unknown_10_.unknown_1_2_ - var0->unknown_0_.unknown_10_.unknown_1_2_;
-        var0->levelUpGains_28_.unknown_10_.unknown_2_4_   = var0->reachedLevelEntry_14_.unknown_10_.unknown_2_4_ - var0->unknown_0_.unknown_10_.unknown_2_4_;
-        var0->levelUpGains_28_.unknown_4_7_     = (unsigned short) (var0->reachedLevelEntry_14_.unknown_4_7_ - var0->unknown_0_.unknown_4_7_);
-        return var0->reachedLevelEntry_14_.level_4_0_;
+        levelEntries->levelUpGains_28_.level_4_0_      = (unsigned short) (levelEntries->reachedLevelEntry_14_.level_4_0_ - levelEntries->requestedLevelEntry_0_.level_4_0_);
+        levelEntries->levelUpGains_28_.requiredExperience_0_0_         = levelEntries->reachedLevelEntry_14_.requiredExperience_0_0_ - levelEntries->requestedLevelEntry_0_.requiredExperience_0_0_;
+        levelEntries->levelUpGains_28_.unknown_8_.unknown_0_0_     = levelEntries->reachedLevelEntry_14_.unknown_8_.unknown_0_0_ - levelEntries->requestedLevelEntry_0_.unknown_8_.unknown_0_0_;
+        levelEntries->levelUpGains_28_.unknown_8_.unknown_2_4_    = levelEntries->reachedLevelEntry_14_.unknown_8_.unknown_2_4_ - levelEntries->requestedLevelEntry_0_.unknown_8_.unknown_2_4_;
+        levelEntries->levelUpGains_28_.unknown_8_.unknown_1_2_  = levelEntries->reachedLevelEntry_14_.unknown_8_.unknown_1_2_ - levelEntries->requestedLevelEntry_0_.unknown_8_.unknown_1_2_;
+        levelEntries->levelUpGains_28_.unknown_c_.unknown_0_0_     = levelEntries->reachedLevelEntry_14_.unknown_c_.unknown_0_0_ - levelEntries->requestedLevelEntry_0_.unknown_c_.unknown_0_0_;
+        levelEntries->levelUpGains_28_.unknown_c_.unknown_1_2_  = levelEntries->reachedLevelEntry_14_.unknown_c_.unknown_1_2_ - levelEntries->requestedLevelEntry_0_.unknown_c_.unknown_1_2_;
+        levelEntries->levelUpGains_28_.unknown_10_.unknown_0_0_    = levelEntries->reachedLevelEntry_14_.unknown_10_.unknown_0_0_ - levelEntries->requestedLevelEntry_0_.unknown_10_.unknown_0_0_;
+        levelEntries->levelUpGains_28_.unknown_c_.unknown_2_4_    = levelEntries->reachedLevelEntry_14_.unknown_c_.unknown_2_4_ - levelEntries->requestedLevelEntry_0_.unknown_c_.unknown_2_4_;
+        levelEntries->levelUpGains_28_.unknown_10_.unknown_1_2_ = levelEntries->reachedLevelEntry_14_.unknown_10_.unknown_1_2_ - levelEntries->requestedLevelEntry_0_.unknown_10_.unknown_1_2_;
+        levelEntries->levelUpGains_28_.unknown_10_.unknown_2_4_   = levelEntries->reachedLevelEntry_14_.unknown_10_.unknown_2_4_ - levelEntries->requestedLevelEntry_0_.unknown_10_.unknown_2_4_;
+        levelEntries->levelUpGains_28_.unknown_4_7_     = (unsigned short) (levelEntries->reachedLevelEntry_14_.unknown_4_7_ - levelEntries->requestedLevelEntry_0_.unknown_4_7_);
+        return levelEntries->reachedLevelEntry_14_.level_4_0_;
     }
     return 0;
 }
@@ -122,11 +122,11 @@ struct Struct_02013fb4;
 // USA: func_0208274c
 extern "C" ARM int func_0208274c(void *arg0, Struct_02013fb4 *arg1, int arg2, int arg3) {
     Script var0;
-    memset(arg0, 0, sizeof(Struct_0201099c_2));
+    memset(arg0, 0, sizeof(LevelEntries_0201099c_2));
     data_02108ef8 = 0;
     data_02108eec = 0;
     data_02108ef0 = arg3;
-    data_02108ef4 = (Struct_0201099c_2 *) arg0;
+    data_02108ef4 = (LevelEntries_0201099c_2 *) arg0;
     data_02108ee8 = 0;
     var0.Initialize();
     var0.SetOpcodeLookup(data_020f0ff8);

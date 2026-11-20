@@ -12,7 +12,7 @@ enum { Enum_02082fc4_2384 = 0x950 };
 extern unsigned char g_fileScratchSpace[0x30000];
 #include "Filesystem/FileIO.h"
 
-extern "C" void* func_0208247c(void* arg0);
+extern "C" void* ClearLevelEntries_0208247c(void* levelEntries);
 
 extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
 extern "C" void func_02083e28(void* arg0, int arg1);
@@ -36,9 +36,9 @@ extern "C" ARM void func_02082fc4(void* arg0, void* arg1) {
     void* var2 = LoadFileIntoMemory(var0, &g_fileScratchSpace, &var1);
     if (var2 != NULL) {
         Struct_02082fc4_3 var3;
-        func_0208247c(&var3);
+        ClearLevelEntries_0208247c(&var3);
         unsigned short var4 = *(unsigned short*)((char*)arg0 + *(int*)((char*)arg0 + Enum_02082fc4_2384) * 2 + 0x16c);
-        func_02082490(&var3, var2, var1, var4, 0);
+        ReadLevelEntries_02082490(&var3, var2, var1, var4, 0);
         func_02083cbc(arg0, &var3, &var3.unknown_3c_);
         func_02083e28(arg0, 0);
         if (arg1 != NULL) {

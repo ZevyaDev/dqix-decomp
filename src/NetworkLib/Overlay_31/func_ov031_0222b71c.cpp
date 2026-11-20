@@ -21,7 +21,7 @@ struct Struct_ov031_02290c8c_2 {
     int unknown_0_;
     Struct_ov031_0222b71c* unknown_4_;
 };
-extern Struct_ov031_02290c8c_2 data_ov031_02290c8c;
+extern Struct_ov031_02290c8c_2 gAccessPointListPage_ov031_02290c8c;
 
 struct Struct_ov031_0222b71c_2 {
     unsigned short unknown_0_0_ : 2;
@@ -36,10 +36,10 @@ extern "C" ARM void func_ov031_0222b71c() {
     Struct_ov031_02248e43 var0 = data_ov031_02248e43;
     Struct_ov031_02248e2d var1 = data_ov031_02248e2d;
     LoadFileToVRAM_ov031_022234d8(data_ov031_0224b9f4, LoadToMainBG3ScreenData);
-    data_ov031_02290c8c.unknown_4_->unknown_4_ = func_ov031_0223b61c(func_ov031_02223478(var0.unknown_0_), 0, 4);
-    func_ov031_02234ea8(data_ov031_02290c8c.unknown_4_->unknown_4_);
+    gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_4_ = func_ov031_0223b61c(func_ov031_02223478(var0.unknown_0_), 0, 4);
+    func_ov031_02234ea8(gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_4_);
     func_ov031_02234f34();
-    data_ov031_02290c8c.unknown_4_->unknown_8_ = func_ov031_0223b61c(func_ov031_02223478(var1.unknown_0_), 0, 4);
+    gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_8_ = func_ov031_0223b61c(func_ov031_02223478(var1.unknown_0_), 0, 4);
     SUB_BG_0222b71c.unknown_0_[0].unknown_0_0_ = 3;
     SUB_BG_0222b71c.unknown_0_[1].unknown_0_0_ = 3;
     MAIN_BG_0222b71c.unknown_0_[0].unknown_0_0_ = 3;

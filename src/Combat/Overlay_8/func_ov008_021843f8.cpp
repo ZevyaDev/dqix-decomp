@@ -11,7 +11,7 @@
 #endif
 
 struct Struct_ov008_021843f8_2 {
-    Struct_020ac4f8 unknown_0_[2];
+    PlayTime_020ac4f8 unknown_0_[2];
     unsigned int unknown_8_0_ : 17;
     unsigned int unknown_a_1_ : 7;
     unsigned int unknown_b_0_ : 7;
@@ -27,8 +27,8 @@ struct Struct_ov008_021843f8_2 {
 };
 
 struct Struct_ov008_021843f8_3 {
-    Struct_020ac4f8 unknown_0_;
-    Struct_020ac4f8 unknown_4_;
+    PlayTime_020ac4f8 unknown_0_;
+    PlayTime_020ac4f8 unknown_4_;
     unsigned int unknown_8_;
     unsigned int unknown_c_;
     unsigned int unknown_10_0_ : 9;
@@ -122,7 +122,7 @@ struct Struct_ov008_021842a0_2 {
 #if !defined(jpn)
     void* unknown_b3c_;
 #endif
-    Struct_020ac4f8 unknown_b40_[2];
+    PlayTime_020ac4f8 unknown_b40_[2];
 };
 
 extern "C" void func_ov008_02186cec(Struct_ov008_021842a0_2* arg0);

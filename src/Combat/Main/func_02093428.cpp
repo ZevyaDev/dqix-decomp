@@ -6,7 +6,7 @@ struct Struct_02093428_5;
 
 extern "C" void GetZone3D_02012fe4();
 extern "C" int GetMessageChoice_020457e0(char* window);
-extern "C" void StopGesture_020531f0(GameObject* arg0);
+extern "C" void StopGesture_020531f0(GameObject* gameObject);
 extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void func_020945ac(struct Struct_02093428_5* arg0);
 extern "C" void func_0200fb40(void* arg0);
@@ -18,7 +18,7 @@ extern "C" void func_ov017_021cf4b0(int arg0, int arg1);
 extern "C" void func_ov017_021d1810(int, int, signed char);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int GetResources_0200fb8c(int* gameState);
-extern "C" int* func_020936f8(void);
+extern "C" int* GetNoticeQueue_020936f8(void);
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 
@@ -135,7 +135,7 @@ extern "C" ARM void func_02093428(struct Struct_02093428_6* arg0) {
         if (((struct Struct_02093428_3*)var0)->unknown_7f75_ != 0) {
             func_02011b24((struct Struct_02011b24*)var0);
         }
-        func_020945ac((struct Struct_02093428_5*)func_020936f8());
+        func_020945ac((struct Struct_02093428_5*)GetNoticeQueue_020936f8());
         arg0->unknown_34_ = 4;
         arg0->unknown_35_ = 0;
         return;
@@ -144,7 +144,7 @@ extern "C" ARM void func_02093428(struct Struct_02093428_6* arg0) {
     if (var3 == 3) {
         ResetMessageWindow_02043204(var1);
         CloseMessageWindow_02043124(var1);
-        func_020945ac((struct Struct_02093428_5*)func_020936f8());
+        func_020945ac((struct Struct_02093428_5*)GetNoticeQueue_020936f8());
         arg0->unknown_34_ = 4;
         arg0->unknown_35_ = 0;
         func_0200fb40(var0);

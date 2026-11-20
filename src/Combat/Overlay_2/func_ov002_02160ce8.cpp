@@ -15,7 +15,7 @@ extern "C" int AppendTextColorTag_02041e70(char *buffer, int colorIndex);
 extern "C" int AppendMenuEntry_02041b70(char *buffer, int entryIndex, const char *text);
 extern "C" int AppendXPositionTag_02041a28(char *buffer, int x);
 extern "C" int func_02041bac(char *arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" int func_02041cc0(char *arg0, int arg1);
+extern "C" int AppendHorizontalLineTag_02041cc0(char *buffer, int y);
 extern "C" void *__clear(void *arg0, int arg1);
 
 extern "C" char data_ov002_0216d2b3[];
@@ -88,5 +88,5 @@ extern "C" ARM void func_ov002_02160ce8(unsigned char *arg0, char *arg1, int arg
         var8++;
     }
     func_02041bac(arg1, 0xf, 0x4e, 0x10, 1, 0x24);
-    func_02041cc0(arg1, 0x34);
+    AppendHorizontalLineTag_02041cc0(arg1, 0x34);
 }

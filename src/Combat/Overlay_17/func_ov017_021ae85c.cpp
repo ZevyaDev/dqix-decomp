@@ -27,8 +27,8 @@ struct Struct_02018300_3;
 struct Struct_02033b68;
 struct SoundEffectManager_02108760;
 struct Struct_02015ef4;
-struct Struct_0203a46c;
-struct Struct_02015ef4_2;
+struct SPRSprite_0203a46c;
+struct SPRSprite_02015ef4_2;
 struct ItemTable_0201099c_10 { unsigned int unknown_0_[4]; };
 struct ItemData_02015ef4_4 {
     int unknown_0_[4]; unsigned int unknown_10_0_:10, unknown_11_2_:10, unknown_12_4_:8, unknown_13_4_:4;
@@ -82,12 +82,12 @@ extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" Struct_ov017_021ae85c* GetMessageWindow_020421a0();
 extern "C" void __clear(void*, int);
 extern "C" void* InitItemTable_020de824(void*);
-extern "C" void func_0207cbe8(char*);
+extern "C" void ResetItemContext_0207cbe8(char*);
 extern "C" int func_0207d538(void*, int, int, char*, int);
-extern "C" void* func_020d7a50();
+extern "C" void* GetTimedMessageQueue_020d7a50();
 extern "C" void* func_020100bc(GameState*);
 extern "C" void func_0202ec84(void*, Struct_02015ef4*, int*, int*);
-extern "C" void func_0203a46c(Struct_0203a46c*, int, int, int);
+extern "C" void SetSPRSpritePosition_0203a46c(SPRSprite_0203a46c*, int, int, int);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 #if defined(jpn)
 #define data_ov017_021d79a8 data_ov017_021d80dc
@@ -176,13 +176,13 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
         Struct_ov017_021ae85c_5* var15 = GetZone3D_02012fe4();
         Struct_ov017_021ae85c_3 var16;
         InitItemTable_020de824(var16.unknown_14_);
-        func_0207cbe8((char*)&var16); func_0207cbe8((char*)&var16);
+        ResetItemContext_0207cbe8((char*)&var16); ResetItemContext_0207cbe8((char*)&var16);
         var16.unknown_2c_ = &var15->unknown_2754_;
         if (func_0207d538(&var16, 2, (unsigned short)arg0->unknown_c_, var14, 1))
 #if defined(jpn)
-            func_020d7e10(func_020d7a50(), var14, 0, 0, 1);
+            func_020d7e10(GetTimedMessageQueue_020d7a50(), var14, 0, 0, 1);
 #else
-            func_020d7e10(func_020d7a50(), var14, 0, 0, 1, 1);
+            func_020d7e10(GetTimedMessageQueue_020d7a50(), var14, 0, 0, 1, 1);
 #endif
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 14, 0);
         arg0->unknown_8_ = 5; arg0->unknown_a_ = 20; arg0->unknown_24_ = 61;
@@ -197,8 +197,8 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
         if (var18) {
             func_0202ec84(var18, (Struct_02015ef4*)&var19, &var20, &var21);
         }
-        func_0203a46c((Struct_0203a46c*)arg0->unknown_28_, (var20 - 12) << 12, (var21 - 40) << 12, 0);
-        ((SPRSprite*)((Struct_02015ef4_2*)arg0->unknown_28_))->DrawAnimatedNoRotation(1);
+        SetSPRSpritePosition_0203a46c((SPRSprite_0203a46c*)arg0->unknown_28_, (var20 - 12) << 12, (var21 - 40) << 12, 0);
+        ((SPRSprite*)((SPRSprite_02015ef4_2*)arg0->unknown_28_))->DrawAnimatedNoRotation(1);
         if (!arg0->unknown_a_) { arg0->unknown_8_ = 6; arg0->unknown_a_ = 7; }
     } else if (arg0->unknown_8_ == 6) {
         arg0->unknown_a_--;
@@ -211,8 +211,8 @@ extern "C" ARM void func_ov017_021ae85c(Struct_ov017_021ae85c_2* arg0) {
             if (var23) {
                 func_0202ec84(var23, (Struct_02015ef4*)&var24, &var25, &var26);
             }
-            func_0203a46c((Struct_0203a46c*)arg0->unknown_28_, (var25 - 12) << 12, (var26 - 40) << 12, 0);
-            ((SPRSprite*)((Struct_02015ef4_2*)arg0->unknown_28_))->DrawAnimatedNoRotation(1);
+            SetSPRSpritePosition_0203a46c((SPRSprite_0203a46c*)arg0->unknown_28_, (var25 - 12) << 12, (var26 - 40) << 12, 0);
+            ((SPRSprite*)((SPRSprite_02015ef4_2*)arg0->unknown_28_))->DrawAnimatedNoRotation(1);
             arg0->unknown_24_ -= var22;
             arg0->unknown_28_->unknown_82_ = arg0->unknown_24_ > 31 ? 31 : arg0->unknown_24_;
             if (arg0->unknown_24_ < 0) arg0->unknown_24_ = 0;

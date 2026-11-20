@@ -89,7 +89,7 @@ struct Struct_ov017_021b8e8c_5 {
     unsigned char unknown_139_;
 };
 
-extern "C" int func_ov017_021959b4(void);
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 extern "C" void func_ov017_021b8d80(Struct_ov017_021b8e8c_5* arg0);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" char* GetMessageWindow_020421a0(void);
@@ -103,9 +103,9 @@ extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int sta
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
 extern "C" void EnablePlayerControl_020397c0(void* object);
-extern "C" TimedMessageQueue_020d7aa0_2* func_020d7a50(void);
+extern "C" TimedMessageQueue_020d7aa0_2* GetTimedMessageQueue_020d7a50(void);
 extern "C" void ClearTimedMessageQueue_020d7aa0(struct TimedMessageQueue_020d7aa0_2* queue);
-extern "C" int func_020981e4(int arg0, int arg1);
+extern "C" int IsQuestersRestZone_020981e4(int questersRest, int zoneId);
 extern "C" int func_02098268(int arg0, int arg1);
 extern "C" Struct_ov017_021b8e8c GetNPCPosition_020406f8(struct NPC_0203de84_2* outPosition);
 extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
@@ -114,7 +114,7 @@ extern "C" int func_02040a90(struct Struct_02040a90* arg0);
 extern "C" int GetNPCData_02040528(int* npc);
 extern "C" void func_0203cedc(struct Struct_0203ca24* arg0, int arg1, int arg2);
 extern "C" int GetStoryChapter_0201079c(char* gameState);
-extern "C" int func_020107d0(char* arg0);
+extern "C" int GetStoryStep_020107d0(char* gameState);
 extern "C" Struct_0203d028_12* func_0209854c(struct Struct_0203d028_12* arg0, int arg1);
 extern "C" void func_ov017_021a967c(QueueNode_0201bdac* arg0, int arg1);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
@@ -173,7 +173,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_020
     var8 = (void*)GetFollowCamera_020100f8((char*)var0);
     unsigned char* var10 = (unsigned char*)var1->unknown_ptr_44c4;
 
-    if (func_ov017_021959b4() != 0) {
+    if (IsLocalWirelessHostDisconnected_ov017_021959b4() != 0) {
         func_ov017_021b8d80(arg0);
         ResetMessageWindow_02043204(var4);
         CloseMessageWindow_02043124(var4);
@@ -201,9 +201,9 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_020
             arg0->unknown_1_ = 1;
             break;
         }
-        ClearTimedMessageQueue_020d7aa0(func_020d7a50());
+        ClearTimedMessageQueue_020d7aa0(GetTimedMessageQueue_020d7a50());
         arg0->unknown_12c_ = arg0->unknown_114_->unknown_0_;
-        if (func_020981e4((int)((char*)var3 + Enum_ov017_021b8e8c_2112), var9) &&
+        if (IsQuestersRestZone_020981e4((int)((char*)var3 + Enum_ov017_021b8e8c_2112), var9) &&
             func_02098268((int)((char*)var3 + Enum_ov017_021b8e8c_2112), arg0->unknown_114_->unknown_0_)) {
             arg0->unknown_128_ = 1;
         }
@@ -270,7 +270,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_020
         void* var22;
         unsigned int var23;
         var2->GetLoadedFileByID(arg0->unknown_120_, &var22, &var23);
-        int var24 = func_020107d0((char*)var0);
+        int var24 = GetStoryStep_020107d0((char*)var0);
         unsigned short var25 = arg0->unknown_114_->unknown_0_;
         int var26 = func_0206ec1c((int)var10, var25, var10, 0x80);
         int var27 = func_0206ec1c((int)var10, var25, var10 + 0x80, 0x80);

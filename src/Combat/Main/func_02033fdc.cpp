@@ -5,7 +5,7 @@ struct Struct_02033fdc {
     unsigned char unknown_e0_;
 };
 
-// USA: func_02033fdc
-extern "C" ARM void func_02033fdc(struct Struct_02033fdc* arg0) {
-    arg0->unknown_e0_ &= ~0x4;
+// USA: ResumeMovementUpdate_02033fdc
+extern "C" ARM void ResumeMovementUpdate_02033fdc(struct Struct_02033fdc* object) {
+    object->unknown_e0_ &= ~0x4;
 }

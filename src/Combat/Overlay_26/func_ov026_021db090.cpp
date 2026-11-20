@@ -96,12 +96,12 @@ struct Struct_ov023_021f2a48_4 {
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" Struct_ov000_0217964c_3* GetMessageWindow_020421a0();
 extern "C" int IsDead_02010088(struct Struct_02010088*);
-extern "C" void func_020e4c74(void*, GameObject*);
+extern "C" void InitMemberNoun_020e4c74(void*, GameObject*);
 extern "C" void func_02053ec8(void*, int);
 extern "C" void func_ov017_021c9ad4(unsigned short);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void ResetMessageWindow_02043204(char*);
-extern "C" void func_ov000_02160d80(void*, int);
+extern "C" void SetBattleSceneState_ov000_02160d80(void*, int);
 extern "C" Struct_ov026_021db090_4* func_ov026_021dae60(Struct_ov026_021d8ba0_4*, int);
 
 extern "C" {
@@ -200,7 +200,7 @@ extern "C" ARM void func_ov026_021db090(BattleScene_ov000_02160da0* arg0) {
             strcat(var5, data_ov026_021df3fa);
         }
 #else
-        func_020e4c74(&var4, var0->GetPartyMemberByIndex(var8.unknown_0_[0]));
+        InitMemberNoun_020e4c74(&var4, var0->GetPartyMemberByIndex(var8.unknown_0_[0]));
 #endif
 
         if (arg0->unknown_5950_ == 2) {
@@ -268,7 +268,7 @@ extern "C" ARM void func_ov026_021db090(BattleScene_ov000_02160da0* arg0) {
             ResetMessageWindow_02043204((char*)var1);
             CloseMessageWindow_02043124(var1);
             if (arg0->unknown_5950_ == 2) {
-                func_ov000_02160d80(arg0, 4);
+                SetBattleSceneState_ov000_02160d80(arg0, 4);
             } else {
                 for (int var22 = 0; var22 < 4; var22++) {
                     Struct_ov026_021db090_4* var23 = func_ov026_021dae60(&arg0->unknown_3760_, var22);

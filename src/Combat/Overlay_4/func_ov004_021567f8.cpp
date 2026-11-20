@@ -11,9 +11,9 @@ struct Struct_02013fb4;
 extern "C" void func_020a147c(void*, void*, Struct_02013fb4*, int, int, unsigned short, unsigned char);
 extern "C" int func_020ac460(void* arg0);
 extern "C" void __clear(void* arg0, int arg1);
-struct Struct_020a15bc;
-struct Struct_020a15bc_2;
-extern "C" Struct_020a15bc_2* func_020a15bc(Struct_020a15bc* arg0, int arg1);
+struct AccoladeTable_020a15bc;
+struct AccoladeEntry_020a15bc_2;
+extern "C" AccoladeEntry_020a15bc_2* FindAccolade_020a15bc(AccoladeTable_020a15bc* table, int accoladeId);
 
 extern void* data_ov004_021707c8;
 #if defined(jpn)
@@ -82,11 +82,11 @@ extern "C" ARM int func_ov004_021567f8(void* arg0) {
     for (var12 = 0, var10 = 0; var10 < 0x1e0; var10++) {
         var11 = var10 + 1;
 #if defined(jpn)
-        Struct_020a15bc* var13 = *(Struct_020a15bc**)((char*)&data_ov004_021707c8 + 8);
+        AccoladeTable_020a15bc* var13 = *(AccoladeTable_020a15bc**)((char*)&data_ov004_021707c8 + 8);
 #else
-        Struct_020a15bc* var13 = *(Struct_020a15bc**)((char*)&data_ov004_021707c8 + 12);
+        AccoladeTable_020a15bc* var13 = *(AccoladeTable_020a15bc**)((char*)&data_ov004_021707c8 + 12);
 #endif
-        if (func_020a15bc(var13, (short)var11)) {
+        if (FindAccolade_020a15bc(var13, (short)var11)) {
             int var14 = var11 / 32;
             int var15 = var11 % 32;
             if (var9[var14] & (1u << var15)) {

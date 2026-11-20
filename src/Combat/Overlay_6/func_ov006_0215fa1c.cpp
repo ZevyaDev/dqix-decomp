@@ -18,7 +18,7 @@ struct Struct_ov006_0215fa1c {
     char unknown_368_[0x38f-0x368];
     unsigned char unknown_38f_;
 };
-extern "C" void func_02080b54(void*, int);
+extern "C" void HideMenuLayoutWindowTexts_02080b54(void*, int);
 extern "C" void ShowMenuLayoutText_02080b40(void*, int);
 extern "C" void SetMenuLayoutTextStringId_0208103c(void*, int, int);
 extern "C" void SetMenuLayoutTextValue_02080fa8(MenuLayout_02080fa8*, int, int);
@@ -30,7 +30,7 @@ extern "C" void OpenMenuLayoutWindow_020813ec(void*, int);
 // USA: func_ov006_0215fa1c
 extern "C" ARM void func_ov006_0215fa1c(Struct_ov006_0215fa1c* arg0, int arg1) {
     MenuLayout_02080fa8* var0 = arg0->unknown_14_;
-    func_02080b54(var0, 0xd);
+    HideMenuLayoutWindowTexts_02080b54(var0, 0xd);
     ShowMenuLayoutText_02080b40(var0, 0x56);
     SetMenuLayoutTextStringId_0208103c(arg0->unknown_14_, 0x56, 0x2b);
     if (arg0->unknown_38f_ != 10 && arg0->unknown_38f_ != 3) {

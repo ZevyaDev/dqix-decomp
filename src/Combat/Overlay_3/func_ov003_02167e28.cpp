@@ -10,7 +10,7 @@ extern "C" int func_020d2ff0(const char*);
 
 struct MenuLayout_02080f8c;
 struct MenuLayout_02080fa8;
-struct Struct_02080cc0;
+struct MenuLayout_02080cc0;
 
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c* menuLayout, int textId, int text);
 extern "C" void func_02080798(void* arg0, int arg1, int arg2);
@@ -22,7 +22,7 @@ extern "C" void func_02080828(void* arg0, int arg1, short* arg2, short* arg3);
 extern "C" void func_02080854(void* arg0, int arg1, int arg2, int arg3);
 extern "C" int func_02080b2c(void* arg0, int arg1);
 extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
-extern "C" void func_02080cc0(struct Struct_02080cc0* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0* menuLayout, int textId, int color);
 
 struct Struct_ov003_02167e28 {
     char unknown_0_[0x10];
@@ -71,5 +71,5 @@ extern "C" ARM void func_ov003_02167e28(struct Struct_ov003_02167e28* arg0, char
     if (arg4 == 10) {
         var4 = 0xd;
     }
-    func_02080cc0((struct Struct_02080cc0*)var0, 0x2c, var4);
+    SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0*)var0, 0x2c, var4);
 }

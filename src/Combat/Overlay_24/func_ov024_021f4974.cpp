@@ -6,7 +6,7 @@
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
 struct Struct_ov024_021da670_7;
 extern "C" int IsParalysed_ov024_021da9b0(struct Struct_ov024_021da670_7* combatant);
-extern "C" int func_ov024_021ed890(struct Random** arg0, int* arg1, short* arg2);
+extern "C" int PickRandomTarget_ov024_021ed890(struct Random** targetSelector, int* count, short* targetIndices);
 
 struct Struct_ov024_021fec8c { short unknown_0_[8]; };
 extern struct Struct_ov024_021fec8c data_ov024_021fec8c;
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov024_021f4974(int* arg0, int arg1, int arg2, int* arg3,
 		arg4[var4] = var0.unknown_0_[var2];
 	}
 	if (*arg3 > 0) {
-		func_ov024_021ed890((struct Random**)arg0, arg3, arg4);
+		PickRandomTarget_ov024_021ed890((struct Random**)arg0, arg3, arg4);
 		return 1;
 	}
 	return 0;

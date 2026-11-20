@@ -22,7 +22,7 @@ struct Struct_ov017_021c3194_2 {
 };
 
 extern "C" Struct_ov017_021c3194_2* GetMessageWindow_020421a0(void);
-extern "C" void StopGesture_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* gameObject);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 extern "C" void ClearMessageParams_02046380(void* window);

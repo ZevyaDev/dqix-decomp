@@ -14,14 +14,14 @@ enum { Enum_ov003_02179f34_2204 = 0x89c };
 #endif
 
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" short func_02080468(void* arg0, int arg1);
+extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
 extern "C" unsigned char func_0207ca94(int arg0);
-extern "C" short func_0207c638(void* arg0, unsigned int arg1);
+extern "C" short CountUsedEquipmentBagSlots_0207c638(void* bag, unsigned int category);
 extern "C" int func_02053c6c(unsigned char* gameObject);
 struct PartyMemberData_0207d300;
 extern "C" int CountHeldItems_02083960(struct PartyMemberData_0207d300* memberData);
-struct Struct_020a0b8c;
-extern "C" int func_020a0b8c(struct Struct_020a0b8c* arg0);
+struct ItemBag_020a0b8c;
+extern "C" int CountUsedBagSlots_020a0b8c(struct ItemBag_020a0b8c* bag);
 
 // USA: func_ov003_02179f34
 extern "C" ARM int func_ov003_02179f34(char* arg0) {
@@ -32,10 +32,10 @@ extern "C" ARM int func_ov003_02179f34(char* arg0) {
     void* var4 = *(void**)(arg0 + Enum_ov003_02179f34_2204);
 
     if (var3 == 0x77) {
-        short var5 = func_02080468(var4, 0x1d);
+        short var5 = GetMenuLayoutWindowFirstSelectableTextId_02080468(var4, 0x1d);
         short var6 = (short)(*(short*)(arg0 + Enum_ov003_02179f34_4096 + 0x12) - var5);
         unsigned char var7 = func_0207ca94(var6);
-        var0 = func_0207c638((char*)var2 + 0x1d4, var7);
+        var0 = CountUsedEquipmentBagSlots_0207c638((char*)var2 + 0x1d4, var7);
     } else {
         signed char var8 = *(signed char*)(arg0 + Enum_ov003_02179f34_4096 + 0x43);
         int var9 = var0;
@@ -49,7 +49,7 @@ extern "C" ARM int func_ov003_02179f34(char* arg0) {
                 var0 = (short)CountHeldItems_02083960((struct PartyMemberData_0207d300*)var11);
             }
         } else {
-            var0 = func_020a0b8c((struct Struct_020a0b8c*)var2);
+            var0 = CountUsedBagSlots_020a0b8c((struct ItemBag_020a0b8c*)var2);
         }
     }
     return var0;

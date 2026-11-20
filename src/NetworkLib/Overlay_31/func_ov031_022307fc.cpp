@@ -20,19 +20,19 @@ struct Struct_ov031_02290ca0_20 {
 };
 extern const Struct_ov031_02248f78 data_ov031_02248f78;
 extern const Struct_ov031_02249002 data_ov031_02249002[];
-extern Struct_ov031_02290ca0_20 data_ov031_02290ca0;
+extern Struct_ov031_02290ca0_20 gConnectionSettingsPage_ov031_02290ca0;
 extern "C" void func_ov031_02223720(int, int, int, int);
 
 // USA: func_ov031_022307fc
 extern "C" ARM void func_ov031_022307fc(void) {
     Struct_ov031_02248f78 var0 = data_ov031_02248f78;
-    int var1 = var0.unknown_0_[data_ov031_02290ca0.unknown_0_];
+    int var1 = var0.unknown_0_[gConnectionSettingsPage_ov031_02290ca0.unknown_0_];
     if (var1 >= 3) {
         func_ov031_02223720(3, data_ov031_02249002[var1].unknown_0_,
             data_ov031_02249002[var1].unknown_4_, data_ov031_02249002[var1].unknown_2_);
         return;
     }
     Struct_ov031_02249002 var2 = data_ov031_02249002[var1];
-    var2.unknown_2_ += data_ov031_02290ca0.unknown_2_ * 29;
+    var2.unknown_2_ += gConnectionSettingsPage_ov031_02290ca0.unknown_2_ * 29;
     func_ov031_02223720(1, var2.unknown_0_, var2.unknown_4_, var2.unknown_2_);
 }

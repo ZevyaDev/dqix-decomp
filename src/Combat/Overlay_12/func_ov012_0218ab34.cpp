@@ -57,15 +57,15 @@ struct Struct_ov012_0218ab34_3 {
 extern "C" Struct_ov012_0218ab34_2* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" const char* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern "C" int func_020420e8(const char* arg0, int arg1);
-extern "C" void func_0204f160(unsigned char* arg0, int arg1, int arg2);
+extern "C" void SetTextWindowCharacterDataOffsetAndId_0204f160(unsigned char* textWindow, int characterDataOffset, int windowId);
 extern "C" void func_0204ecb4(Struct_ov012_0218ab34_2* arg0, int arg1, int arg2, int arg3, int arg4, signed char* arg5);
 extern "C" void func_0204f41c(Struct_ov012_0218ab34_2* arg0, short arg1, short arg2, const char* arg3, int arg4,
                               unsigned char arg5, short* arg6, short* arg7, int arg8);
 extern "C" void func_0204f3bc(Struct_ov012_0218ab34_2* arg0, int arg1);
 extern "C" void func_ov003_0215ec68(int arg0, short* arg1, short* arg2);
 extern "C" void FillTextWindowRect_0204f914(Struct_ov012_0218ab34_2* textWindow, int colorIndex, short left, short top, short right, short bottom);
-struct Struct_0204fbf8_2;
-extern "C" void func_0204fbf8(struct Struct_0204fbf8_2* arg0);
+struct TextWindow_0204fbf8_2;
+extern "C" void LoadTextWindowCharacterData_0204fbf8(struct TextWindow_0204fbf8_2* textWindow);
 
 // USA: func_ov012_0218ab34
 extern "C" ARM void func_ov012_0218ab34(Struct_ov012_0218ab34_3* arg0, int arg1)
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov012_0218ab34(Struct_ov012_0218ab34_3* arg0, int arg1)
 
     if (var0->unknown_8_ != NULL)
         memset(var0->unknown_8_, 0, 0x7800);
-    func_0204f160((unsigned char*)var0, var0->unknown_a0_, 0xe);
+    SetTextWindowCharacterDataOffsetAndId_0204f160((unsigned char*)var0, var0->unknown_a0_, 0xe);
     func_0204ecb4(var0, 0, 0, 0x1e, 0x12, 0);
     func_0204f41c(var0, var4, 6, var3, 0xc, 0xf, &var13, &var14, var12);
     func_0204f3bc(var0, 0x18);
@@ -128,5 +128,5 @@ extern "C" ARM void func_ov012_0218ab34(Struct_ov012_0218ab34_3* arg0, int arg1)
         func_0204f41c(var0, var15 + var20, var21 + 2, var18, 0xc, 0xf, &var13, &var14, var12);
     }
 
-    func_0204fbf8((struct Struct_0204fbf8_2*)var0);
+    LoadTextWindowCharacterData_0204fbf8((struct TextWindow_0204fbf8_2*)var0);
 }

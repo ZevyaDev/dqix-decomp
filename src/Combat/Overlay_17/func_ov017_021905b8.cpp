@@ -39,9 +39,9 @@ extern "C" void func_0202c21c(LocalWireless_0202b2f0* arg0, int arg1);
 extern "C" Struct_0207da94* GetBattleJoinTable_0207d78c(void);
 extern "C" void func_ov017_0218d500(void* arg0);
 extern "C" void func_0207da94(Struct_0207da94* arg0, int arg1);
-extern "C" Struct_020e3544* func_020e2ff8(void);
+extern "C" Struct_020e3544* GetWirelessLockTable_020e2ff8(void);
 extern "C" void func_020e3544(Struct_020e3544* arg0, int arg1);
-extern "C" Struct_020e3b08* func_020e3808(void);
+extern "C" Struct_020e3b08* GetEventSyncTable_020e3808(void);
 extern "C" void func_020e3b08(Struct_020e3b08* arg0, int arg1);
 extern "C" int func_0207959c(Struct_0207959c* arg0, int arg1);
 extern "C" void func_0207958c(Struct_0207958c* arg0);
@@ -121,7 +121,7 @@ extern "C" ARM void func_ov017_021905b8(GameResources* arg0, int arg1, int arg2)
         }
     }
 
-    func_020e3544(func_020e2ff8(), arg1);
+    func_020e3544(GetWirelessLockTable_020e2ff8(), arg1);
 
     Struct_ov017_021905b8_3* var5 = (Struct_ov017_021905b8_3*)arg0->unknown_ptr_3718;
     if (var5->unknown_2_ != 0) {
@@ -151,5 +151,5 @@ extern "C" ARM void func_ov017_021905b8(GameResources* arg0, int arg1, int arg2)
         }
     }
 
-    func_020e3b08(func_020e3808(), arg1);
+    func_020e3b08(GetEventSyncTable_020e3808(), arg1);
 }

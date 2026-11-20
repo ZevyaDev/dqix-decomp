@@ -43,7 +43,7 @@ struct Struct_02065990_3;
 struct MusicManager_02109bf4_2;
 struct Struct_02066a6c_2;
 struct Struct_02042b98_3;
-struct Struct_02015ef4_2;
+struct SPRSprite_02015ef4_2;
 struct Struct_02045c00_2;
 struct Struct_02043124;
 struct Struct_0204500c_4;
@@ -534,7 +534,7 @@ extern "C" void func_0202f6a4(Struct_0202f6a4* arg0);
 extern "C" void func_0206b61c(struct Struct_02065990* arg0);
 extern "C" int func_020657c8(struct Struct_020657c8_2* arg0, int arg1);
 extern "C" void func_020658ac(unsigned char* arg0, unsigned int arg1);
-extern "C" int func_0209ca2c(void* arg0);
+extern "C" int IsJinglePlaying_0209ca2c(void* manager);
 extern "C" void func_020456d0(Struct_020456d0*);
 extern "C" void func_02065920(unsigned char* arg0, unsigned int arg1);
 extern "C" void func_020676e0(Struct_020676e0_4* arg0, int arg1);
@@ -994,14 +994,14 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
     func_020658ac((unsigned char*)var0, var9);
 
     if ((arg0->unknown_195b_ & 1) != 0) {
-        if (func_0209ca2c(&gMusicManager_02109bf4) == 0) {
+        if (IsJinglePlaying_0209ca2c(&gMusicManager_02109bf4) == 0) {
             arg0->unknown_195b_ = arg0->unknown_195b_ & ~1;
         }
     } else {
         if (arg0->unknown_8c_ != 0 && (arg0->unknown_8c_)[0xd4] == 2) return;
 
         if (arg0->unknown_19c9_ != 0) {
-            if (func_0209ca2c(&gMusicManager_02109bf4) != 0) return;
+            if (IsJinglePlaying_0209ca2c(&gMusicManager_02109bf4) != 0) return;
             *(int*)(var0 + 0x44) = *(int*)(var0 + 0x44) + 1;
             arg0->unknown_19c9_ = 0;
             return;
@@ -1771,7 +1771,7 @@ extern "C" ARM void func_020675fc(Struct_020675fc_2* arg0) {
         var8->unknown_1c_[0] = var7;
         var8->unknown_1c_[1] = var9;
         var8->unknown_1c_[2] = 0;
-        ((SPRSprite*)((Struct_02015ef4_2*)var8))->DrawAnimatedNoRotation(1);
+        ((SPRSprite*)((SPRSprite_02015ef4_2*)var8))->DrawAnimatedNoRotation(1);
     }
 }
 

@@ -34,8 +34,8 @@ struct Struct_ov003_02158334_3 {
 
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c*, int, int);
-struct Struct_02080cc0;
-extern "C" void func_02080cc0(Struct_02080cc0*, int, int);
+struct MenuLayout_02080cc0;
+extern "C" void SetMenuLayoutTextColor_02080cc0(MenuLayout_02080cc0*, int, int);
 extern "C" void OpenMenuLayoutWindow_020813ec(Struct_ov003_02158334_2*, int);
 
 // USA: func_ov003_02158334
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov003_02158334(Struct_ov003_02158334_3* arg0) {
             if (var8 <= 0.08f) var6 = 0xb;
             if (var5->unknown_130_->unknown_0_ & 1) var6 = 9;
 
-            func_02080cc0((Struct_02080cc0*)var3, var2, var6);
+            SetMenuLayoutTextColor_02080cc0((MenuLayout_02080cc0*)var3, var2, var6);
         }
         var2 = (short)(var2 + 1);
     }

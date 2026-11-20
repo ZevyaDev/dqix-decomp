@@ -77,7 +77,7 @@ struct Struct_0203d028_8 {
 extern "C" struct Struct_0203d028_8* GetZone3D_02012fe4(void);
 extern "C" unsigned int* func_020d6c00(void);
 
-extern "C" int func_020981e4(int arg0, int arg1);
+extern "C" int IsQuestersRestZone_020981e4(int questersRest, int zoneId);
 extern "C" int func_02098210(int arg0, int arg1);
 
 extern "C" void func_020404c0(int* arg0);
@@ -351,7 +351,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
     int var9 = 0;
     func_020401fc(&arg0->unknown_0_, 0xc, arg2);
 
-    if (func_020981e4((int)GLOBAL_SUB, var6) &&
+    if (IsQuestersRestZone_020981e4((int)GLOBAL_SUB, var6) &&
         func_02098210((int)GLOBAL_SUB, var6) == 0) {
         arg0->unknown_0_.unknown_5_ = 1;
     } else {

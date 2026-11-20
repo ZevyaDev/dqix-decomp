@@ -10,7 +10,7 @@
 
 
 
-extern "C" void* func_020d41d8(void);
+extern "C" void* GetWirelessDriver_020d41d8(void);
 extern "C" int func_020d41e8(void);
 extern "C" void SetWirelessCommandCallback_020d404c(int command, int callback);
 extern "C" int func_020d4168(void* arg0, unsigned int arg1);
@@ -25,7 +25,7 @@ struct Struct_020d5900 {
 
 // USA: func_020d5900
 extern "C" ARM int func_020d5900(int arg0, void* arg1) {
-    func_020d41d8();
+    GetWirelessDriver_020d41d8();
     int var0 = func_020d41e8();
     if (var0 != 0) return var0;
     SetWirelessCommandCallback_020d404c(0x23, arg0);

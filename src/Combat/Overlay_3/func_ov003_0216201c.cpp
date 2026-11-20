@@ -58,8 +58,8 @@ struct Struct_ov003_02154af4_3 {
 extern int gSoundEffectManager_02108760;
 extern "C" void OpenMenuLayoutWindow_020813ec(void *, int);
 struct KeyRepeat_02081f20_2;
-extern "C" void func_0208203c(KeyRepeat_02081f20_2*);
-extern "C" int func_02080468(void *, int);
+extern "C" void ResetKeyRepeat_0208203c(KeyRepeat_02081f20_2*);
+extern "C" int GetMenuLayoutWindowFirstSelectableTextId_02080468(void *, int);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *, int, int);
 struct MenuLayout_0207fe44;
@@ -94,11 +94,11 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
         if (*((unsigned char *)GetParty_02010828(GameState::GetInstance()) + 0xf7c) == 1) {
             arg0->unknown_488_ = 0x1d;
         }
-        arg0->unknown_48a_   = func_02080468(var5, arg0->unknown_488_);
+        arg0->unknown_48a_   = GetMenuLayoutWindowFirstSelectableTextId_02080468(var5, arg0->unknown_488_);
         arg0->unknown_474_   = arg0->unknown_48a_;
         var5->unknown_36_ = arg0->unknown_48a_;
         OpenMenuLayoutWindow_020813ec(var5, arg0->unknown_488_);
-        func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
+        ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
         arg0->unknown_470_  = 0;
         arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
         arg0->unknown_464_ &= ~0x300;
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
         SetMenuLayoutWindowPalette_02080c68(var5, arg0->unknown_488_, 0);
         if (func_ov003_02160854(arg0) != 0) {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
-            func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
+            ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
             arg0->unknown_470_ = 0;
             switch (arg0->unknown_48a_) {
                 case 0xb4:

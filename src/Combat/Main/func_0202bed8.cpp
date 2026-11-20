@@ -14,7 +14,7 @@ extern "C" ARM int func_0202bed8(struct LocalWireless_0202b2f0* arg0, int arg1) 
     if (arg1 == *(signed char*)((char*)arg0 + func_0202df58() + 0x1000 + 0x38)) {
         var0 = (char*)arg0 + 0x7c0;
     } else {
-        var0 = func_0202c178(arg0, arg1);
+        var0 = GetLocalWirelessPlayerRecord_0202c178(arg0, arg1);
     }
     if (var0 == NULL) {
         return 0;

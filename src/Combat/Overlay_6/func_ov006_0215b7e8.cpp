@@ -120,11 +120,11 @@ struct Struct_ov006_02157a60 {
 };
 
 extern "C" void func_ov006_021570fc(Struct_ov006_02154614* arg0, int arg1);
-extern "C" short func_02080468(void* arg0, int arg1);
+extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" void func_ov006_0215f348(Struct_ov006_0215b7e8_2* arg0);
 extern "C" void func_02081ea4(MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
-extern "C" void func_0208203c(KeyRepeat_02081f20_2* arg0);
+extern "C" void ResetKeyRepeat_0208203c(KeyRepeat_02081f20_2* keyRepeat);
 extern "C" void func_02080c04(MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" void ShowMenuLayoutWindow_02080c20(MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" unsigned char func_ov006_02158a28(Struct_ov006_02157a60* arg0);
@@ -146,12 +146,12 @@ extern "C" ARM void func_ov006_0215b7e8(Struct_ov006_02157a60* arg0) {
         arg0->unknown_397_ = 0;
         arg0->unknown_36e_ = 2;
         if (arg0->unknown_360_ < 0)
-            arg0->unknown_360_ = func_02080468(var0, arg0->unknown_36e_);
+            arg0->unknown_360_ = GetMenuLayoutWindowFirstSelectableTextId_02080468(var0, arg0->unknown_36e_);
         var0->unknown_36_ = arg0->unknown_360_;
         OpenMenuLayoutWindow_020813ec(var0, arg0->unknown_36e_);
         func_ov006_0215f348((Struct_ov006_0215b7e8_2*)arg0);
         func_02081ea4((MenuLayout_0207fdcc_2*)var0, arg0->unknown_36e_, 0);
-        func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
+        ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
         arg0->unknown_44_ = 0;
         arg0->unknown_390_++;
         if (arg0->unknown_360_ == 4)
@@ -174,7 +174,7 @@ extern "C" ARM void func_ov006_0215b7e8(Struct_ov006_02157a60* arg0) {
         if (func_ov006_02158a28(arg0))
         {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
-            func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
+            ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
             arg0->unknown_44_ = 0;
             switch (arg0->unknown_360_)
             {
@@ -246,7 +246,7 @@ extern "C" ARM void func_ov006_0215b7e8(Struct_ov006_02157a60* arg0) {
                 arg0->unknown_392_ = 0;
                 func_02081ea4((MenuLayout_0207fdcc_2*)var0, arg0->unknown_36e_, 1);
                 arg0->unknown_390_ = 0;
-                func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
+                ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
                 arg0->unknown_44_ = 0;
                 return;
             }

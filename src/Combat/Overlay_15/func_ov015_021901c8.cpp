@@ -37,7 +37,7 @@ extern "C" int func_020c555c(int edgeColors);
 extern "C" void* func_020100bc(GameState* gameState);
 extern "C" void UpdateCamera_0202e0a4(void* camera);
 extern "C" void func_020c57d4(int arg0, int arg1, int arg2, int arg3, void* arg4);
-extern "C" void SetOrthographicProjection_020c5770(int top, int bottom, int left, int right, int nearPlane, int farPlane, int arg6, int isLoadedAsProjection, void* projectionMatrix);
+extern "C" void SetOrthographicProjection_020c5770(int top, int bottom, int left, int right, int nearPlane, int farPlane, int matrixScale, int isLoadedAsProjection, void* projectionMatrix);
 extern "C" void Swap3DBuffers_020d86d0(int keepTranslucentOrder, int useWDepth);
 extern "C" void func_ov015_02190348(void* arg0);
 extern "C" void func_ov015_02190428(void* arg0);

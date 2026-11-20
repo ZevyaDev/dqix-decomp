@@ -24,7 +24,7 @@
 struct GameState;
 struct Struct_ov000_02161e30;
 struct Struct_ov026_021d8ba0_4;
-struct Struct_02015ef4_2;
+struct SPRSprite_02015ef4_2;
 
 struct Struct_ov026_021dddcc {
     int unknown_0_[3];
@@ -112,7 +112,7 @@ int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_02161e30* battle, s
 int CollectEnemyCombatantIndices_ov000_0215eb1c(Struct_ov000_02161e30* battle, short* indices, int maxCount, int filterFlags);
 int func_ov000_02153e78(Struct_ov000_02161e30* arg0, short* arg1, int arg2, int arg3, int arg4);
 int func_ov000_02171ffc(Struct_ov026_021d8ba0_6* arg0);
-double func_02009424(double arg0);
+double ComputeSine_02009424(double angle);
 void __clear(void* arg0, int arg1);
 }
 
@@ -259,7 +259,7 @@ extern "C" ARM void func_ov026_021dddcc(BattleScene_ov000_02160da0* arg0) {
         if (6.28f < var28) {
             var28 -= 6.28f;
         }
-        data_ov026_021def00.unknown_0_ = func_02009424((double)(var28));
+        data_ov026_021def00.unknown_0_ = ComputeSine_02009424((double)(var28));
     }
 
     for (var14 = 0; var14 < var10; var14++) {

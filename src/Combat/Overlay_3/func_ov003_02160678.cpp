@@ -12,7 +12,7 @@ enum { Enum_ov003_02160678_808 = 0x328 };
 
 struct MenuLayout_0207fdcc_2;
 extern "C" int func_020811d0(struct MenuLayout_0207fdcc_2* arg0, int arg1);
-extern "C" void func_020809c4(void* arg0, int arg1, int arg2, short* arg3, short* arg4);
+extern "C" void GetMenuLayoutTextPosition_020809c4(void* menuLayout, int windowId, int textId, short* outX, short* outY);
 extern "C" void func_ov003_021604f4(char* arg0, int arg1, int arg2, short arg3, unsigned char arg4);
 
 extern const short data_ov003_0217f400[];
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov003_02160678(struct Struct_ov003_02160678* arg0) {
         if (arg0->unknown_468_[var5] != 0) {
             short var6;
             short var7;
-            func_020809c4(var0, data_ov003_0217f41a[var1], var3, &var6, &var7);
+            GetMenuLayoutTextPosition_020809c4(var0, data_ov003_0217f41a[var1], var3, &var6, &var7);
             func_ov003_021604f4((char*)arg0, (short)(var6 + 0x38), (short)(var7 - 2), arg0->unknown_468_[var5] + 8, var4++);
         }
         var3++;

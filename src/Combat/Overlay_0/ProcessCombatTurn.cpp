@@ -118,7 +118,7 @@ extern "C" Struct_ov000_0215ab88* GetEnemyByIndex_0200fea4(GameState*, int);
 struct Struct_02053dc0;
 extern "C" Struct_ov000_0215d63c* func_02053dc0(Struct_02053dc0*);
 extern "C" void func_020dc548(signed char arg0, signed char* arg1, signed char* arg2);
-extern "C" void func_ov000_02160030(void* arg0);
+extern "C" void InitBattleAction_ov000_02160030(void* action);
 struct Struct_ov000_02157d14;
 extern "C" void func_ov000_02157d14(Struct_ov000_02157d14*);
 extern "C" void func_ov000_02157cdc(void* arg0);
@@ -145,7 +145,7 @@ extern "C" void func_ov000_0215f1ac(void* arg0);
 struct Struct_02010088;
 extern "C" int IsDead_02010088(Struct_02010088*);
 struct GameObject;
-extern "C" int func_ov000_02153c0c(GameObject*);
+extern "C" int HasLeftBattle_ov000_02153c0c(GameObject*);
 extern "C" int func_ov000_021599dc(GameObject*);
 extern "C" Struct_ov000_0215767c_10* func_ov000_0215e9d8(void* arg0);
 extern "C" Struct_ov000_0215767c_8* func_ov000_0215e918(void* arg0);
@@ -292,7 +292,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
 
     for (long var26 = 0; var26 < var4; var26++) {
         Struct_ov000_0215767c_10* var27 = &arg0->unknown_8e78_[arg0->unknown_8e7c_];
-        func_ov000_02160030(var27);
+        InitBattleAction_ov000_02160030(var27);
         var27->unknown_8_ = 1;
         var27->unknown_10_ = &arg0->unknown_8e70_[arg0->unknown_8e80_];
         func_ov000_02157d14((Struct_ov000_02157d14*)var27->unknown_10_);
@@ -397,7 +397,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
         int var48 = func_ov000_0215f57c(arg0, var3.unknown_0_[var26]);
         for (int var49 = 0; var49 < var48; var49++) {
             Struct_ov000_0215767c_10* var50 = &arg0->unknown_8e78_[arg0->unknown_8e7c_];
-            func_ov000_02160030(var50);
+            InitBattleAction_ov000_02160030(var50);
             var50->unknown_8_ = 1;
             var50->unknown_10_ = &arg0->unknown_8e70_[arg0->unknown_8e80_];
             func_ov000_02157d14((Struct_ov000_02157d14*)var50->unknown_10_);
@@ -472,7 +472,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
         if (var63->unknown_138_->unknown_3b_2_) {
             continue;
         }
-        if (func_ov000_02153c0c((GameObject*)var63) != 0) {
+        if (HasLeftBattle_ov000_02153c0c((GameObject*)var63) != 0) {
             continue;
         }
         if (var63->unknown_138_->unknown_3b_0_) {
@@ -491,7 +491,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
         if (var67 == 0) {
             break;
         }
-        func_ov000_02160030(var67);
+        InitBattleAction_ov000_02160030(var67);
         func_ov000_0215767c(arg0, var61, var67);
         Struct_ov000_0215d63c_3 var68;
         func_ov024_021eb510(&var68);
@@ -532,8 +532,8 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
             Struct_ov000_0215767c_10* var71 = &arg0->unknown_8e78_[0x47];
             Struct_ov000_0215767c_10* var72 = func_ov000_0215e9d8(arg0);
             if (var72 != 0) {
-                func_ov000_02160030(var72);
-                func_ov000_02160030(var71);
+                InitBattleAction_ov000_02160030(var72);
+                InitBattleAction_ov000_02160030(var71);
                 var72->unknown_0_ = var71->unknown_0_ = var67->unknown_0_;
                 for (int var73 = 0; var73 < var67->unknown_9_; var73++) {
                     Struct_ov000_0215767c_9* var74 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var67, var73);
@@ -545,7 +545,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
                     if (IsDead_02010088((Struct_02010088*)var76) != 0) {
                         continue;
                     }
-                    if (func_ov000_02153c0c((GameObject*)var76) != 0) {
+                    if (HasLeftBattle_ov000_02153c0c((GameObject*)var76) != 0) {
                         break;
                     }
                     Struct_ov000_0215767c_9* var77 = &arg0->unknown_8e74_[arg0->unknown_8e81_];
@@ -565,7 +565,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
                     if (IsDead_02010088((Struct_02010088*)var81) != 0) {
                         break;
                     }
-                    if (func_ov000_02153c0c((GameObject*)var81) != 0) {
+                    if (HasLeftBattle_ov000_02153c0c((GameObject*)var81) != 0) {
                         break;
                     }
                     Struct_ov000_0215767c_8* var82 = func_ov000_0215e918(arg0);

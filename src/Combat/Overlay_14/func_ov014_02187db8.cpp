@@ -76,8 +76,8 @@ struct SoundEffectManager_02108760;
 struct KeyRepeat_02081f20_2;
 struct Struct_ov014_02186bc8_3;
 
-extern "C" short func_02080468(void* arg0, int arg1);
-extern "C" void func_0208203c(KeyRepeat_02081f20_2*);
+extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
+extern "C" void ResetKeyRepeat_0208203c(KeyRepeat_02081f20_2*);
 extern "C" void CloseMenuLayoutWindow_0207fdcc(MenuLayout_0207fdcc_2*, int);
 extern "C" int func_ov014_02186ff0(char*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
@@ -101,7 +101,7 @@ extern "C" ARM void func_ov014_02187db8(Struct_ov014_02186bc8* arg0)
         {
             arg0->unknown_170_ = 2;
             if (arg0->unknown_174_ < 0)
-                arg0->unknown_174_ = func_02080468(arg0->unknown_c0_, arg0->unknown_170_);
+                arg0->unknown_174_ = GetMenuLayoutWindowFirstSelectableTextId_02080468(arg0->unknown_c0_, arg0->unknown_170_);
             OpenMenuLayoutWindow_020813ec(arg0->unknown_c0_, arg0->unknown_170_);
             arg0->unknown_17d_ = arg0->unknown_174_ - 0xb;
             short var0 = 0;
@@ -125,7 +125,7 @@ extern "C" ARM void func_ov014_02187db8(Struct_ov014_02186bc8* arg0)
         if (func_ov014_02186f10(arg0))
         {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
-            func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_14c_);
+            ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_14c_);
             if (func_ov014_021874f8((Struct_ov014_02186bc8_3*)arg0) != 0)
             {
                 CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_c0_, arg0->unknown_170_);

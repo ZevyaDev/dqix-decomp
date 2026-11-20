@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void* func_020d41d8(void);
+extern "C" void* GetWirelessDriver_020d41d8(void);
 extern "C" int func_020d41e8(void);
 extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 
@@ -11,7 +11,7 @@ struct Struct_020d4ac8 {
 
 // USA: func_020d4ac8
 extern "C" ARM int func_020d4ac8(void) {
-    struct Struct_020d4ac8* var0 = (struct Struct_020d4ac8*)func_020d41d8();
+    struct Struct_020d4ac8* var0 = (struct Struct_020d4ac8*)GetWirelessDriver_020d41d8();
     if (func_020d41e8() != 0) return 0;
 
     InvalidateDataCacheRange((const void*)var0->unknown_4_, 2);

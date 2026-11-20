@@ -2,12 +2,12 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
+extern "C" GameObject* GetEnemyByID_ov000_021536f8(int battle, int index);
 struct Struct_ov024_021e04e0;
 extern "C" int func_ov024_021e05e4(struct Struct_ov024_021e04e0* arg0);
 struct Struct_02010088;
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
-extern "C" int func_ov024_021edf00(int* arg0, int arg1, short* arg2);
+extern "C" int GetEnragedTarget_ov024_021edf00(int* targetSelector, int actorIndex, short* targetIndices);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 struct Struct_ov024_021da670_6;
 extern "C" int func_ov024_021da998(struct Struct_ov024_021da670_6* arg0);
@@ -21,7 +21,7 @@ extern unsigned short data_ov024_021feb5c;
 
 // USA: func_ov024_021f2ab4
 extern "C" ARM int func_ov024_021f2ab4(int* arg0, int arg1, int arg2, int* arg3, short* arg4) {
-	GameObject* var0 = func_ov000_021536f8(*arg0, arg1);
+	GameObject* var0 = GetEnemyByID_ov000_021536f8(*arg0, arg1);
 	if (!var0) return 0;
 	if (func_ov024_021e05e4((struct Struct_ov024_021e04e0*)var0)) {
 		GameObject* var1 = GetCombatantByID(*arg0, ((struct Struct_ov024_021f2ab4*)var0->currentStats_)->unknown_2e_);
@@ -41,7 +41,7 @@ extern "C" ARM int func_ov024_021f2ab4(int* arg0, int arg1, int arg2, int* arg3,
 		*var6 = *var4++;
 	} while (--var5);
 
-	int var7 = func_ov024_021edf00(arg0, arg1, var2);
+	int var7 = GetEnragedTarget_ov024_021edf00(arg0, arg1, var2);
 	if (var7 <= 0) {
 		var7 = CollectPartyCombatantIndices_ov000_0215e9fc(*arg0, var2, 4, 1);
 		if (var7 <= 0) return 0;

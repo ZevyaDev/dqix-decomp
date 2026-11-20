@@ -27,12 +27,12 @@ extern "C" int GetResources_0200fb8c(int *gameState);
 extern "C" void *func_02053c6c(unsigned char *gameObject);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_02157108(void *arg0, int arg1);
-extern "C" TimedMessageQueue_020d7aa0_2 *func_020d7a50();
+extern "C" TimedMessageQueue_020d7aa0_2 *GetTimedMessageQueue_020d7a50();
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2 *queue);
 extern "C" void func_020d7978(char *arg0);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215c474(char *arg0);
-extern "C" void func_ov002_02156e90(char *arg0);
+extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(char *menu);
 
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov002_02162714(char *arg0) {
                     if (func_ov002_02157108(arg0, *(signed char *) (arg0 + RG(0x1c20, 0x1ae8))) != 0) {
                         return;
                     }
-                    ClearTimedMessageQueue_020d7aa0(func_020d7a50());
+                    ClearTimedMessageQueue_020d7aa0(GetTimedMessageQueue_020d7a50());
                     *(short *) (arg0 + RG(0x1c28, 0x1af0)) = 0x2395;
                     *(short *) (arg0 + RG(0x1c2a, 0x1af2)) = -1;
                     *(int *) (arg0 + RG(0x1bb8, 0x1a80))   = RG(0x26, 0x29);
@@ -96,7 +96,7 @@ extern "C" ARM void func_ov002_02162714(char *arg0) {
             }
         } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + RG(0x1be4, 0x1aac)) = -1;
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
         }
     }
 }

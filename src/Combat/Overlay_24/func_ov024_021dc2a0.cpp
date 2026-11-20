@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-extern "C" GameObject* func_ov000_021536f8(int,int);
+extern "C" GameObject* GetEnemyByID_ov000_021536f8(int,int);
 extern "C" void* GetBattleScene_ov000_02160130();
 struct Struct_ov024_021fea1c;
 extern "C" int func_ov000_0215fb54(int, int, Struct_ov024_021fea1c*);
@@ -17,7 +17,7 @@ struct Struct_ov000_0215767c_4;
 struct Struct_ov000_0215767c_5;
 extern "C" void func_ov000_021600cc(Struct_ov000_0215767c_5*, Struct_ov000_0215767c_4*);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*,void*,int);
-extern "C" void func_ov000_0215cd44(void*,void*,GameObject*,int,int,int,int);
+extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void*,void*,GameObject*,int,int,int,int);
 struct Struct_ov024_021fe6d0 {int unknown_0_[2];};
 extern Struct_ov024_021fe6d0 data_ov024_021fe6d0;
 struct Struct_ov024_021dc2a0 {unsigned int unknown_0_0_:12;unsigned int unknown_1_4_:20;};
@@ -29,7 +29,7 @@ struct Struct_ov024_021dc2a0_6 {char unknown_0_[4];Struct_ov024_021dc2a0_5* unkn
 struct Struct_ov024_021dc2a0_7 {char unknown_0_[0x188];unsigned short unknown_188_;unsigned short unknown_18a_;};
 // USA: func_ov024_021dc2a0
 extern "C" ARM void* func_ov024_021dc2a0(Struct_ov024_021dc2a0_6* arg0,short arg1,int arg2,Struct_ov024_021dc2a0_4* arg3,int arg4,int arg5,unsigned char arg6){
-    GameObject* var0=func_ov000_021536f8((int)arg0->unknown_10_,arg1);
+    GameObject* var0=GetEnemyByID_ov000_021536f8((int)arg0->unknown_10_,arg1);
     if(!var0)return 0;
     void* var1=GetBattleScene_ov000_02160130();
     int var2=1;
@@ -55,7 +55,7 @@ extern "C" ARM void* func_ov024_021dc2a0(Struct_ov024_021dc2a0_6* arg0,short arg
                         var10->unknown_20_=0;
                         var10->unknown_e_=var9;
                         var10->unknown_17_=1;
-                        GameObject* var11=func_ov000_021536f8((int)arg0->unknown_10_,var9);
+                        GameObject* var11=GetEnemyByID_ov000_021536f8((int)arg0->unknown_10_,var9);
                         if(var11){
                             Struct_ov024_021dc2a0_8* var12=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
                             if(var12){
@@ -84,9 +84,9 @@ extern "C" ARM void* func_ov024_021dc2a0(Struct_ov024_021dc2a0_6* arg0,short arg
         arg0->unknown_4_->unknown_0_=0x1f5;
         unsigned short var14=arg3->unknown_24_.unknown_2_4_;
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var13,var14);
-        GameObject* var15=func_ov000_021536f8((int)arg0->unknown_10_,arg1);
+        GameObject* var15=GetEnemyByID_ov000_021536f8((int)arg0->unknown_10_,arg1);
         if(!var15)return 0;
-        func_ov000_0215cd44(arg0->unknown_10_,var13,var15,0,0,0,0);
+        SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_,var13,var15,0,0,0,0);
         return var13;
     }
     return 0;

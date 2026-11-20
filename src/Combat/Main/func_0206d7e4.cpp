@@ -18,7 +18,7 @@ struct Struct_02108cec_6 {
     void* unknown_10_;
     void* unknown_14_;
 };
-extern struct Struct_02108cec_6 data_02108cec;
+extern struct Struct_02108cec_6 gNPCPlacementParseState_02108cec;
 
 struct Struct_0206d7e4 {
     unsigned char unknown_0_[0x44];
@@ -34,12 +34,12 @@ struct Struct_0206d7e4 {
 extern "C" ARM int func_0206d7e4(void* arg0) {
     struct Struct_0206d7e4* var0;
     int var1 = ((Script::Parameter*)((struct Struct_0201c1c8*)arg0))->ToInt();
-    var0 = (Struct_0206d7e4*)func_0206db20(data_02108cec.unknown_10_, var1);
+    var0 = (Struct_0206d7e4*)func_0206db20(gNPCPlacementParseState_02108cec.unknown_10_, var1);
     if (var0 == 0) {
         return 0;
     }
     while (var0 != 0) {
-        if (var0->unknown_44_ == data_02108cec.unknown_a_) {
+        if (var0->unknown_44_ == gNPCPlacementParseState_02108cec.unknown_a_) {
             break;
         }
         var0 = var0->unknown_70_;
@@ -53,7 +53,7 @@ extern "C" ARM int func_0206d7e4(void* arg0) {
 
     var2 = (char*)(extern void*)((Script::Parameter*)((struct Struct_0201c3a4*)((char*)arg0 + 8)))->ToString();
     var3 = (unsigned short)strlen(var2);
-    var0->unknown_54_ = ((SafeAllocator*)data_02108cec.unknown_14_)->Allocate(var3 + 1);
+    var0->unknown_54_ = ((SafeAllocator*)gNPCPlacementParseState_02108cec.unknown_14_)->Allocate(var3 + 1);
     if (var0->unknown_54_ != 0) {
         memset(var0->unknown_54_, 0, var3 + 1);
         memcpy(var0->unknown_54_, var2, var3);
@@ -61,7 +61,7 @@ extern "C" ARM int func_0206d7e4(void* arg0) {
 
     var2 = (char*)(extern void*)((Script::Parameter*)((struct Struct_0201c3a4*)((char*)arg0 + 0x10)))->ToString();
     var3 = (unsigned short)strlen(var2);
-    var0->unknown_58_ = ((SafeAllocator*)data_02108cec.unknown_14_)->Allocate(var3 + 1);
+    var0->unknown_58_ = ((SafeAllocator*)gNPCPlacementParseState_02108cec.unknown_14_)->Allocate(var3 + 1);
     if (var0->unknown_58_ != 0) {
         memset(var0->unknown_58_, 0, var3 + 1);
         memcpy(var0->unknown_58_, var2, var3);

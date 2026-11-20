@@ -14,7 +14,7 @@ extern "C" void ResetMessageWindow_02043204(char *window);
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0 *windowManager, int isAll);
 extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8 *yesNoWindow);
 extern "C" int func_020e28dc(struct Struct_020e28dc *arg0);
-extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
+extern "C" void RebuildMenuWindowText_ov002_0215b9a4(char *menu, unsigned char windowId, int hasCursorMark);
 
 // USA: func_ov002_0216bfd4
 extern "C" ARM void func_ov002_0216bfd4(char *arg0, unsigned char arg1) {
@@ -22,7 +22,7 @@ extern "C" ARM void func_ov002_0216bfd4(char *arg0, unsigned char arg1) {
     if (*(unsigned char *) (arg0 + 0x1000 + RG(0xc2e, 0xaf6)) != 0) {
         *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
         *(unsigned char *) (arg0 + 0x1000 + RG(0xc2e, 0xaf6)) = 0;
-        func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)), 1);
+        RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)), 1);
         CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0 *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), 0);
     }
     *(unsigned char *) (arg0 + 0x1000 + RG(0xc79, 0xb3d)) = arg1;

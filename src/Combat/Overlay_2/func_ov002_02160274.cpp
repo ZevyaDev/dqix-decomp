@@ -6,7 +6,7 @@ extern "C" void func_ov002_02157480(void *arg0, int *arg1);
 extern "C" void SetNextTextWindow_ov002_0215be00(void *menu, int windowId, int x, int y);
 extern "C" void func_ov002_021605d4(void *arg0, void *arg1, int arg2);
 extern "C" void func_ov002_0216049c(void *arg0, void *arg1, int arg2);
-extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
+extern "C" void RebuildMenuWindowText_ov002_0215b9a4(void *menu, int windowId, int hasCursorMark);
 #if defined(jpn)
 extern "C" void OpenTextWindow_0205d304(void *windowManager, void *text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
 #else
@@ -100,6 +100,6 @@ extern "C" ARM void func_ov002_02160274(char *arg0) {
             }
         }
     }
-    func_ov002_0215b9a4(arg0, ((struct Struct_ov002_02160274_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff, 0);
+    RebuildMenuWindowText_ov002_0215b9a4(arg0, ((struct Struct_ov002_02160274_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff, 0);
 #endif
 }

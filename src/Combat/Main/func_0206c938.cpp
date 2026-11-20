@@ -18,7 +18,7 @@ struct Struct_02108cec {
     void* unknown_10_;
     void* unknown_14_;
 };
-extern struct Struct_02108cec data_02108cec;
+extern struct Struct_02108cec gNPCPlacementParseState_02108cec;
 
 struct Struct_0206c938_2 {
     int unknown_0_[3];
@@ -49,7 +49,7 @@ extern "C" ARM int func_0206c938(void* arg0, int arg1) {
 
     arg0 = (char*)arg0 + 8;
     var6 = ((Script::Parameter*)((struct Struct_0201c1c8*)var5))->ToInt();
-    var0 = (Struct_0206c938*)func_0206db20(data_02108cec.unknown_10_, var6);
+    var0 = (Struct_0206c938*)func_0206db20(gNPCPlacementParseState_02108cec.unknown_10_, var6);
     if (var0 == 0) {
         return 0;
     }
@@ -57,7 +57,7 @@ extern "C" ARM int func_0206c938(void* arg0, int arg1) {
         return 0;
     }
     while (var0 != 0) {
-        if (var0->unknown_44_ == data_02108cec.unknown_a_) break;
+        if (var0->unknown_44_ == gNPCPlacementParseState_02108cec.unknown_a_) break;
         var0 = var0->unknown_70_;
     }
     if (var0 == 0) {
@@ -67,7 +67,7 @@ extern "C" ARM int func_0206c938(void* arg0, int arg1) {
     var1 = (arg1 - 1) / 3;
     var2 = 0;
     for (var3 = 0; var3 < var1; var3++) {
-        var4 = (struct Struct_0206c938_2*)((SafeAllocator*)data_02108cec.unknown_14_)->Allocate(0x14);
+        var4 = (struct Struct_0206c938_2*)((SafeAllocator*)gNPCPlacementParseState_02108cec.unknown_14_)->Allocate(0x14);
         if (var4 == 0) {
             return 0;
         }

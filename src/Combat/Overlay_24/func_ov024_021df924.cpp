@@ -94,7 +94,7 @@ struct Struct_ov024_021df924_6 {
 
 extern float data_ov024_021fe860[];
 
-extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
+extern "C" GameObject* GetEnemyByID_ov000_021536f8(int battle, int index);
 extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int func_ov000_0215fd24(int arg0, int arg1);
@@ -105,9 +105,9 @@ extern "C" short GetEquippedItem_02052df8(Struct_02052df8* gameObject, int slot)
 extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" char* GetBattleUI_ov000_02160f08(void* battleScene);
 extern "C" void* InitItemTable_020de824(void* itemTable);
-extern "C" void func_0207cbe8(char* arg0);
+extern "C" void ResetItemContext_0207cbe8(char* itemContext);
 extern "C" void func_ov000_0215fa70(void*, short, short, short);
-extern "C" int func_0207ccf0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" int AddItemToPartyMember_0207ccf0(void* itemContext, int itemId, int count, int memberIndex, int isBagAllowed, int arg5, int arg6);
 extern "C" int func_020ac020(void* arg0, short* arg1, int* arg2, int arg3);
 extern "C" void func_020abe84(void* arg0, short* arg1, Struct_ov024_021df924_5* arg2, int arg3);
 extern "C" void GetBattleRecords_020ac4c0(void* records);
@@ -118,13 +118,13 @@ extern "C" void func_020a0038(Struct_020a0038* arg0, unsigned int arg1);
 extern "C" void SetBattleRecords_020ac494(void* records);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
-extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, GameObject* arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, GameObject* combatant, int amount, int flags, int isCriticalHit, int arg6);
 
 // USA: func_ov024_021df924
 extern "C" ARM void* func_ov024_021df924(Struct_ov024_021df924_2* arg0, short arg1, int arg2, Struct_ov024_021df924_4* arg3) {
     Struct_ov024_021df924_11* var0 = (Struct_ov024_021df924_11*)GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg1);
     if (!var0) return 0;
-    Struct_ov024_021df924_11* var1 = (Struct_ov024_021df924_11*)func_ov000_021536f8((int)arg0->unknown_10_, arg2);
+    Struct_ov024_021df924_11* var1 = (Struct_ov024_021df924_11*)GetEnemyByID_ov000_021536f8((int)arg0->unknown_10_, arg2);
     if (!var1) return 0;
     Struct_ov024_021df924_9* var2 = var1->unknown_148_;
     if (!var2) return 0;
@@ -178,15 +178,15 @@ extern "C" ARM void* func_ov024_021df924(Struct_ov024_021df924_2* arg0, short ar
             char* var22 = var20 + 0xe8;
             Struct_ov024_021df924_6 var14;
             InitItemTable_020de824(var14.unknown_14_);
-            func_0207cbe8((char*)&var14);
-            func_0207cbe8((char*)&var14);
+            ResetItemContext_0207cbe8((char*)&var14);
+            ResetItemContext_0207cbe8((char*)&var14);
             if (var16) {
                 arg0->unknown_4_->unknown_4_ = var10;
                 func_ov000_0215fa70(arg0->unknown_10_, var11, var12, var10);
                 var14.unknown_2c_ = var21;
             } else {
                 var14.unknown_2c_ = var22;
-                func_0207ccf0(&var14, arg0->unknown_4_->unknown_4_, 1, arg1, 1, 0, 0);
+                AddItemToPartyMember_0207ccf0(&var14, arg0->unknown_4_->unknown_4_, 1, arg1, 1, 0, 0);
                 var13.unknown_0_0_ = 0;
                 var13.unknown_1_2_ = 0;
                 var13.unknown_1_3_ = 0;
@@ -230,6 +230,6 @@ extern "C" ARM void* func_ov024_021df924(Struct_ov024_021df924_2* arg0, short ar
     void* var29 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var29) return 0;
     if (var28) AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var29, var28);
-    func_ov000_0215cd44(arg0->unknown_10_, var29, var1, 0, 0, 0, arg0->unknown_c_->unknown_1c_7_ != 0);
+    SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var29, var1, 0, 0, 0, arg0->unknown_c_->unknown_1c_7_ != 0);
     return var29;
 }

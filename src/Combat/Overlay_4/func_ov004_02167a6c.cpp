@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void* InitItemTable_020de824(void* itemTable);
-extern "C" void func_0207cbe8(char* arg0);
+extern "C" void ResetItemContext_0207cbe8(char* itemContext);
 extern "C" int func_ov004_02167908(void* arg0, int arg1);
 extern "C" void AddItem_0207d300(void* itemContext, void* itemId, int count, int isAliveRequired);
 
@@ -15,8 +15,8 @@ extern "C" ARM int func_ov004_02167a6c(void* arg0, void* arg1) {
 		char var1[0x38];
 		((SafeAllocator*)var1)->ResetAllocatorPointer();
 		InitItemTable_020de824(var1 + 0x14);
-		func_0207cbe8(var1);
-		func_0207cbe8(var1);
+		ResetItemContext_0207cbe8(var1);
+		ResetItemContext_0207cbe8(var1);
 		*(void**)(var1 + 0x2c) = var0;
 		AddItem_0207d300(var1, arg1, 1, 0);
 	}

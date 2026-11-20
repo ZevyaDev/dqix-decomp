@@ -13,7 +13,7 @@
 #include "Resource/StringList.h"
 
 struct Struct_ov008_021843f8_2 {
-    Struct_020ac4f8 unknown_0_[2];
+    PlayTime_020ac4f8 unknown_0_[2];
 };
 
 struct Struct_ov008_02187278 {
@@ -99,7 +99,7 @@ struct Struct_ov008_021842a0_2 {
     Struct_ov008_02187278* unknown_b34_;
     void* unknown_b38_;
     void* unknown_b3c_;
-    Struct_020ac4f8 unknown_b40_[2];
+    PlayTime_020ac4f8 unknown_b40_[2];
 };
 
 struct Struct_0201099c_3;
@@ -128,8 +128,8 @@ extern "C" ARM void func_ov008_02187278(Struct_ov008_021842a0_2* arg0, char* arg
 {
     if (arg1 == NULL)
         return;
-    Struct_020ac4f8* var0 = NULL;
-    Struct_020ac4f8 var1;
+    PlayTime_020ac4f8* var0 = NULL;
+    PlayTime_020ac4f8 var1;
     func_ov008_02184598(&var1);
     if (arg2 == 0)
     {
@@ -138,8 +138,8 @@ extern "C" ARM void func_ov008_02187278(Struct_ov008_021842a0_2* arg0, char* arg
         if (var2 != NULL)
         {
             var0 = &var1;
-            var1.unknown_0_ = var2->unknown_0_0_;
-            var1.unknown_2_ = arg0->unknown_b34_->unknown_8_0_;
+            var1.hours_0_ = var2->unknown_0_0_;
+            var1.minutes_2_ = arg0->unknown_b34_->unknown_8_0_;
         }
         else if (arg3 != NULL)
         {
@@ -153,8 +153,8 @@ extern "C" ARM void func_ov008_02187278(Struct_ov008_021842a0_2* arg0, char* arg
         if (var3 != NULL)
         {
             var0 = &var1;
-            var1.unknown_0_ = var3->unknown_4_0_;
-            var1.unknown_2_ = arg0->unknown_b34_->unknown_8_7_;
+            var1.hours_0_ = var3->unknown_4_0_;
+            var1.minutes_2_ = arg0->unknown_b34_->unknown_8_7_;
         }
         else if (arg3 != NULL)
         {
@@ -169,10 +169,10 @@ extern "C" ARM void func_ov008_02187278(Struct_ov008_021842a0_2* arg0, char* arg
     char var5[0x40];
     __clear(var5, sizeof(var5));
     ClearMessageParams_02046380(var4);
-    SetMessageNumber_020465c0((MessageWindow_020465c0*)var4, 0, var0->unknown_0_);
+    SetMessageNumber_020465c0((MessageWindow_020465c0*)var4, 0, var0->hours_0_);
     SetMessageNumberWidth_020465f0((unsigned char*)var4, 0, 4);
     SetMessageNumberAlignment_020465d8((unsigned char*)var4, 0, 1);
-    SetMessageNumber_020465c0((MessageWindow_020465c0*)var4, 1, var0->unknown_2_);
+    SetMessageNumber_020465c0((MessageWindow_020465c0*)var4, 1, var0->minutes_2_);
     SetMessageNumberWidth_020465f0((unsigned char*)var4, 1, 2);
     SetMessageNumberAlignment_020465d8((unsigned char*)var4, 1, 1);
     func_020474a8(var4, 10, ((StringList*)((Struct_0201099c_3*)&arg0->unknown_a0_))->GetString(0x6e), var5);
@@ -186,7 +186,7 @@ extern "C" ARM void func_ov008_02187278(Struct_ov008_021842a0_2* arg0, char* arg
     __clear(var6, sizeof(var6));
     const char* var7 = ((StringList*)((Struct_0201099c_3*)&arg0->unknown_a0_))->GetString(0x6e);
     if (var7 != NULL)
-        sprintf(var6, var7, var0->unknown_0_, var0->unknown_2_);
+        sprintf(var6, var7, var0->hours_0_, var0->minutes_2_);
     AppendText_02042058(arg1, var6);
 #endif
 }

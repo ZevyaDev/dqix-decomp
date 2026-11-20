@@ -55,13 +55,13 @@ struct Struct_02045cac;
 struct MenuCursor_0205bcdc;
 struct Struct_0205e8ec;
 struct Struct_0209c3b4_2;
-struct Struct_0203bdb0;
+struct OAMManager_0203bdb0;
 struct Struct_ov020_0218b710_3;
 
 extern "C" void WaitForVBlank_020c9820();
 extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
-extern "C" int GetTitleState_0201201c(void* arg0);
-extern "C" void SetTitleState_02012010(void* arg0, int state);
+extern "C" int GetTitleState_0201201c(void* gameState);
+extern "C" void SetTitleState_02012010(void* gameState, int state);
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
 extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
 extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
@@ -98,8 +98,8 @@ extern "C" void ResetOAMManager_0203bd24(char* oamManager);
 extern "C" void func_0205e8ec(Struct_0205e8ec* arg0);
 extern "C" void PlayMusic_0209c3b4(Struct_0209c3b4_2* manager, int musicIndex);
 extern "C" void ResetGeometryEngine_020c52e8();
-extern "C" void func_0203bd88(void* arg0);
-extern "C" void func_0203bdb0(Struct_0203bdb0* arg0);
+extern "C" void CleanInvalidateOAMBuffers_0203bd88(void* arg0);
+extern "C" void UploadOAMBuffers_0203bdb0(OAMManager_0203bdb0* oamManager);
 extern "C" void func_ov020_0218d8d8(Struct_ov020_0218b710_3* arg0);
 
 extern "C" int func_ov020_0218d898(void* arg0);
@@ -679,9 +679,9 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                 break;
             }
             Swap3DBuffers_020d86d0(0, 1);
-            func_0203bd88(var28);
+            CleanInvalidateOAMBuffers_0203bd88(var28);
             WaitForVBlank_020c9820();
-            func_0203bdb0((Struct_0203bdb0*)var28);
+            UploadOAMBuffers_0203bdb0((OAMManager_0203bdb0*)var28);
             func_020bbcb4();
             UpdateSound_020bbd9c();
             WriteBrightnessRegister_020c39a0((short*)0x400006c, 0);

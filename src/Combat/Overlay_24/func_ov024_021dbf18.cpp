@@ -23,7 +23,7 @@ extern "C" int func_ov000_02159f18(void* arg0, unsigned long long arg1, int arg2
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
-extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, unsigned long long arg4, int arg5);
+extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, void* combatant, int amount, unsigned long long flags, int isCriticalHit);
 
 // USA: func_ov024_021dbf18
 extern "C" ARM void* func_ov024_021dbf18(struct Struct_ov024_021dbf18_4* arg0, int arg1, int arg2, struct Struct_ov024_021dbf18_5* arg3, int arg4, int arg5, unsigned char arg6) {
@@ -58,6 +58,6 @@ extern "C" ARM void* func_ov024_021dbf18(struct Struct_ov024_021dbf18_4* arg0, i
 	void* var4 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
 	if (!var4) return 0;
 	AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var4, var1);
-	func_ov000_0215cd44(arg0->unknown_10_, var4, var0, 0, var3, arg0->unknown_c_->unknown_1c_.unknown_0_7_ != 0);
+	SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var4, var0, 0, var3, arg0->unknown_c_->unknown_1c_.unknown_0_7_ != 0);
 	return var4;
 }

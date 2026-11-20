@@ -30,7 +30,7 @@ extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" unsigned char* func_0205ec34(void);
 extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
-extern "C" int func_020117f0(GameState* arg0);
+extern "C" int IsInGrotto_020117f0(GameState* arg0);
 struct Struct_ov017_021ab860;
 extern "C" void func_ov017_021abb68(struct Struct_ov017_021ab860* arg0, unsigned char arg1);
 struct Struct_02046a3c_2;
@@ -107,7 +107,7 @@ extern "C" ARM int func_ov017_021ab860(int arg0, unsigned char arg1) {
     if (func_0206dfb0((int)var1, var1 + 0x8c, 0x113a) != 0) {
         return 1;
     }
-    if (func_020117f0(var0) != 0) {
+    if (IsInGrotto_020117f0(var0) != 0) {
         int var2;
         GameState* var3 = GameState::GetInstance();
         Struct_ov017_021ab860_2* var4 = (Struct_ov017_021ab860_2*)GetZone3D_02012fe4();

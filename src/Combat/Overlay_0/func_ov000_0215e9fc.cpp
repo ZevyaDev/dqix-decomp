@@ -6,7 +6,7 @@ struct Struct_02010088;
 extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" int func_ov000_0215fc60(char* arg0);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
-extern "C" int func_ov000_02153c0c(GameObject* arg0);
+extern "C" int HasLeftBattle_ov000_02153c0c(GameObject* combatant);
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
 
 struct Struct_ov000_0215e9fc {
@@ -43,7 +43,7 @@ extern "C" ARM int CollectPartyCombatantIndices_ov000_0215e9fc(char* battle, sho
         if (!IsPartyMemberInBattle_020a35e0(*(unsigned char**)(battle + 0x8e18), memberIndex)) continue;
         member = GetPartyMemberBaseByIndex_0200ff1c(gameState, memberIndex);
         if (member == NULL) continue;
-        if (func_ov000_02153c0c(member)) continue;
+        if (HasLeftBattle_ov000_02153c0c(member)) continue;
         if (skipFlaggedStats && IsDead_02010088((struct Struct_02010088*)member)) continue;
         if (skipMarkedData) {
             int isMarked;

@@ -31,11 +31,11 @@ struct Struct_ov000_0215767c_2 {
 
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" void* func_ov000_0215e9d8(void* arg0);
-extern "C" void func_ov000_02160030(void* arg0);
+extern "C" void InitBattleAction_ov000_02160030(void* action);
 extern "C" Struct_ov000_0215767c_8* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 extern "C" void* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 extern "C" int IsDead_02010088(Struct_02010088* object);
-extern "C" int func_ov000_02153c0c(GameObject* arg0);
+extern "C" int HasLeftBattle_ov000_02153c0c(GameObject* combatant);
 
 // USA: func_ov000_0215b198
 extern "C" ARM void func_ov000_0215b198(Struct_ov000_0215767c_2* arg0) {
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov000_0215b198(Struct_ov000_0215767c_2* arg0) {
         if (var1 == 0) {
             return;
         }
-        func_ov000_02160030(var1);
+        InitBattleAction_ov000_02160030(var1);
         BattleAction_ov000_0215440c_2* var2 = &arg0->unknown_6d30_[var0];
         Struct_ov000_0215767c_8* var3 = GetActionActor_ov000_02160094(var2, 0);
         if (var3 == 0) {
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov000_0215b198(Struct_ov000_0215767c_2* arg0) {
         if (IsDead_02010088((Struct_02010088*)var6)) {
             continue;
         }
-        if (func_ov000_02153c0c(var6)) {
+        if (HasLeftBattle_ov000_02153c0c(var6)) {
             continue;
         }
         memcpy(var1, var2, sizeof(BattleAction_ov000_0215440c_2));

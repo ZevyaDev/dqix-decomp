@@ -25,7 +25,7 @@ extern "C" int func_ov004_021634dc(void* arg0);
 extern "C" unsigned char func_020119f8(char* arg0, void* arg1);
 extern "C" unsigned int func_ov023_021f9bb0(struct Struct_ov004_021549e4_2* arg0);
 extern "C" unsigned int func_ov023_021f9ba0(void* arg0);
-extern "C" int func_020117f0(GameState* arg0);
+extern "C" int IsInGrotto_020117f0(GameState* arg0);
 
 extern char* gTreasureMapScreen_ov004_02171010;
 
@@ -79,7 +79,7 @@ extern "C" ARM int func_ov004_02165630(void* arg0) {
         GetZone3D_02012fe4();
         if (IsLocalWirelessGuest_0202c540(var5)) {
             QueueMenuScriptEntry_ov011_021848a0(arg0, 0x6e);
-        } else if (func_020117f0(var1)) {
+        } else if (IsInGrotto_020117f0(var1)) {
             QueueMenuScriptEntry_ov011_021848a0(arg0, 0x76);
         } else {
             short var6 = var2->unknown_5c_;

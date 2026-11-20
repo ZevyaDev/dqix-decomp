@@ -70,7 +70,7 @@ extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d8
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char*);
 extern "C" void func_0204c610(Struct_0204c610*, int, short*, short*, short*, short*);
 extern "C" void* func_ov017_021b8468(void*);
-extern "C" double func_02009424(double);
+extern "C" double ComputeSine_02009424(double);
 struct Struct_ov000_02183488 {
     short unknown_0_;
     short unknown_2_[2];
@@ -150,7 +150,7 @@ extern "C" ARM void func_ov000_021707f0(Struct_ov000_021707f0* arg0) {
     var6->unknown_342_ = 0x7c;
     var6->unknown_346_ = 0;
     if (var12) {
-        float var18 = (float)func_02009424(arg0->unknown_434_);
+        float var18 = (float)ComputeSine_02009424(arg0->unknown_434_);
         int var19 = 0;
         if (var18 >= 0.5f) {
             var19 = 1;
@@ -162,7 +162,7 @@ extern "C" ARM void func_ov000_021707f0(Struct_ov000_021707f0* arg0) {
                 (data_ov000_0218348a[var20].unknown_0_ << 5) | (data_ov000_0218348c[var20].unknown_0_ << 10);
         }
     } else {
-        var0 = (float)func_02009424(arg0->unknown_434_);
+        var0 = (float)ComputeSine_02009424(arg0->unknown_434_);
         var13 = 0;
         for (; var13 < 2; var12 += 2, ++var13) {
             int var21 = var12;

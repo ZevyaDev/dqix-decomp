@@ -31,7 +31,7 @@ extern "C" void func_ov023_021dca88(char *);
 extern "C" void func_020dc2d0(int);
 extern "C" void func_ov023_021e7340(char *);
 extern "C" void func_ov023_021eb414(char *);
-extern "C" void func_ov023_021eb26c(char *);
+extern "C" void DestroyAccoladeDisplay_ov023_021eb26c(char *);
 extern "C" void func_ov013_02186fa0(char *);
 extern "C" void func_ov013_021846a0(char *);
 extern "C" void *func_020d6c00();
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov002_0216c654(char *arg0) {
         }
     } else if (var1 == 5) {
         if (S32(0x2468 + Enum_ov002_0216c654_0_3) != 0) {
-            func_ov023_021eb26c((char *) S32(0x2468 + Enum_ov002_0216c654_0_3));
+            DestroyAccoladeDisplay_ov023_021eb26c((char *) S32(0x2468 + Enum_ov002_0216c654_0_3));
             ((SafeAllocator *) (arg0 + 0x28 + 0x800 + Enum_ov002_0216c654_0_6))->Reset();
             ((SafeAllocator *) (arg0 + 0x64 + 0x800 + Enum_ov002_0216c654_0_6))->Reset();
             S32(0x2468 + Enum_ov002_0216c654_0_3) = 0;

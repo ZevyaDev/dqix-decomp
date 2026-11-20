@@ -3,14 +3,14 @@
 extern "C" void* GetEquipmentBagCounts_0207c60c(void* bag, unsigned int category);
 extern "C" signed short func_0207c620(unsigned char* arg0, unsigned int arg1);
 
-// USA: func_0207c638
-extern "C" ARM short func_0207c638(void* arg0, unsigned int arg1) {
-    signed char* var0 = (signed char*)GetEquipmentBagCounts_0207c60c(arg0, arg1);
-    short var1 = func_0207c620((unsigned char*)arg0, arg1);
-    short var2 = 0;
-    short var3;
-    for (var3 = 0; var3 < var1; var3++) {
-        if (var0[var3] > 0) var2++;
+// USA: CountUsedEquipmentBagSlots_0207c638
+extern "C" ARM short CountUsedEquipmentBagSlots_0207c638(void* bag, unsigned int category) {
+    signed char* counts = (signed char*)GetEquipmentBagCounts_0207c60c(bag, category);
+    short capacity = func_0207c620((unsigned char*)bag, category);
+    short usedSlotCount = 0;
+    short i;
+    for (i = 0; i < capacity; i++) {
+        if (counts[i] > 0) usedSlotCount++;
     }
-    return var2;
+    return usedSlotCount;
 }

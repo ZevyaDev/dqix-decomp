@@ -98,7 +98,7 @@ extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void LoadFileTables_020a0c0c();
 extern "C" void func_ov017_0219bf74();
 extern "C" void func_ov017_0219b938(GameResources*);
-extern "C" int func_020981e4(int, int);
+extern "C" int IsQuestersRestZone_020981e4(int, int);
 extern "C" void func_ov017_021a316c(GameResources*);
 extern "C" void func_020a1df8(int);
 extern "C" void PushSubOverlay_020a1ef0(int);
@@ -107,7 +107,7 @@ extern "C" void __clear(void*, unsigned int);
 extern "C" int GetOwnPartyOrder_02011494(char*, void*);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 extern "C" void func_ov023_021e31b0(Struct_ov017_021a1284_7*, unsigned char*, int);
-extern "C" int func_ov017_021959b4();
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4();
 extern "C" void func_ov023_021e338c(char*);
 extern "C" void func_ov023_021e3030(Struct_ov017_021a1284_8*);
 extern "C" void func_ov017_021a18c8(Struct_ov017_021a1284*);
@@ -191,7 +191,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         SafeAllocator* var14 = &var7->allocator_array_38[5];
         var14->Reset();
         var11 = var12;
-        if (((Struct_ov017_021a1284_4*)var2)->unknown_840_ && func_020981e4((int)((Struct_ov017_021a1284_4*)var2)->unknown_840_, var2->currentZoneID_)) {
+        if (((Struct_ov017_021a1284_4*)var2)->unknown_840_ && IsQuestersRestZone_020981e4((int)((Struct_ov017_021a1284_4*)var2)->unknown_840_, var2->currentZoneID_)) {
             func_ov017_021a316c(var7);
             var11 = &var7->allocator_array_38[7];
             var11->Reset();
@@ -228,7 +228,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         }
         arg0->unknown_22_ = 3;
     } else if (arg0->unknown_22_ == 3) {
-        if (func_ov017_021959b4()) func_ov023_021e338c((char*)arg0->unknown_1c_);
+        if (IsLocalWirelessHostDisconnected_ov017_021959b4()) func_ov023_021e338c((char*)arg0->unknown_1c_);
         func_ov023_021e3030(arg0->unknown_1c_);
         if (arg0->unknown_1c_->unknown_4e6_ < 0) arg0->unknown_22_ = 4;
     } else if (arg0->unknown_22_ == 4) {

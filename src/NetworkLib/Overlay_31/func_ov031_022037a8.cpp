@@ -17,7 +17,7 @@ struct Struct_ov031_0224c980_10 {
     int (*unknown_48_)();
 };
 
-extern Struct_ov031_0224c980_10 data_ov031_0224c980;
+extern Struct_ov031_0224c980_10 gIPStack_ov031_0224c980;
 extern "C" int func_ov031_0220376c(int, int, int, int, int, int);
 extern "C" void func_ov031_02200264();
 
@@ -28,13 +28,13 @@ extern "C" ARM unsigned int func_ov031_022037a8(unsigned char* arg0, unsigned in
     int var2 = 0;
     arg4->unknown_34_ = 0;
     int var3 = GetCurrentTimestamp() >> 16;
-    while (data_ov031_0224c980.unknown_48_() != 0 && arg1 != 0 && arg4->unknown_8_ == 4 && (int)(GetCurrentTimestamp() >> 16) - var3 < 159) {
+    while (gIPStack_ov031_0224c980.unknown_48_() != 0 && arg1 != 0 && arg4->unknown_8_ == 4 && (int)(GetCurrentTimestamp() >> 16) - var3 < 159) {
         unsigned int var4 = arg4->unknown_28_;
         func_ov031_0220376c((int)arg0, arg1, (int)arg2, arg3, (int)arg4, var2);
         int var5 = GetCurrentTimestamp() >> 16;
         while (1) {
             func_ov031_02200264();
-            if (data_ov031_0224c980.unknown_48_() == 0 || arg4->unknown_8_ != 4 || arg4->unknown_28_ == arg4->unknown_30_ || (int)(GetCurrentTimestamp() >> 16) - var5 >= 15) break;
+            if (gIPStack_ov031_0224c980.unknown_48_() == 0 || arg4->unknown_8_ != 4 || arg4->unknown_28_ == arg4->unknown_30_ || (int)(GetCurrentTimestamp() >> 16) - var5 >= 15) break;
             if (var2 != 0 && arg4->unknown_2c_ != 0) break;
         }
         var1 = arg4->unknown_30_ - var4;
@@ -45,7 +45,7 @@ extern "C" ARM unsigned int func_ov031_022037a8(unsigned char* arg0, unsigned in
         if (arg4->unknown_8_ == 4 && arg4->unknown_2c_ == 0 && var1 == 0) {
             if (var2 == 0) {
                 int var6 = GetCurrentTimestamp() >> 16;
-                while (data_ov031_0224c980.unknown_48_() != 0 && (int)(GetCurrentTimestamp() >> 16) - var6 < 15) {
+                while (gIPStack_ov031_0224c980.unknown_48_() != 0 && (int)(GetCurrentTimestamp() >> 16) - var6 < 15) {
                     func_ov031_02200264();
                     if (arg4->unknown_2c_ != 0) break;
                 }

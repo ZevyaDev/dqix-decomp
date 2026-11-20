@@ -3,7 +3,7 @@
 
 struct Struct_ov024_021fea1c { int unknown_0_[2]; };
 
-extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
+extern "C" GameObject* GetEnemyByID_ov000_021536f8(int battle, int index);
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" int func_ov000_0215fb54(int arg0, int arg1, struct Struct_ov024_021fea1c* arg2);
 extern "C" void* func_ov000_02162d88(void* arg0, int arg1);
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov024_021f45c8(struct Struct_ov024_021f45c8_2* arg0, int
 	void* var1;
 	int var2;
 	int var3;
-	var0 = func_ov000_021536f8(arg0->unknown_0_, arg1);
+	var0 = GetEnemyByID_ov000_021536f8(arg0->unknown_0_, arg1);
 	if (!var0) return 0;
 	var1 = GetBattleScene_ov000_02160130();
 	if (!var1) return 0;

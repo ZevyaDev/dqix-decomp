@@ -28,7 +28,7 @@ struct Struct_ov003_02173f70 {
     unsigned char unknown_834_[0x89c - 0x834];
     MenuLayout_0207f7f0* unknown_89c_;
     BGLayer_02020cb8 unknown_8a0_[2];
-    Struct_0207f7f0_2 unknown_8e0_[8];
+    TextWindow_0207f7f0_2 unknown_8e0_[8];
 };
 
 extern "C" void func_ov003_02173f70(Struct_ov003_02173f70*, SafeAllocator*);

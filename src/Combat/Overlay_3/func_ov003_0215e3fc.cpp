@@ -7,8 +7,8 @@ enum { Enum_ov003_0215e3fc_948 = 0x3cc };
 enum { Enum_ov003_0215e3fc_948 = 0x3b4 };
 #endif
 
-extern "C" int func_0209ca2c(void* arg0);
-extern "C" void* func_020e2ff8(void);
+extern "C" int IsJinglePlaying_0209ca2c(void* manager);
+extern "C" void* GetWirelessLockTable_020e2ff8(void);
 
 extern "C" void func_0205e944(void* arg0, int arg1);
 extern "C" void func_ov003_0215c800(void* arg0);
@@ -28,7 +28,7 @@ struct Struct_ov003_0215c924_2 {
 
 // USA: func_ov003_0215e3fc
 extern "C" ARM void func_ov003_0215e3fc(struct Struct_ov003_0215c924_2* arg0) {
-    if (func_0209ca2c(&gMusicManager_02109bf4) != 0) {
+    if (IsJinglePlaying_0209ca2c(&gMusicManager_02109bf4) != 0) {
         return;
     }
     if (arg0->unknown_3ec_ != 0) {
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov003_0215e3fc(struct Struct_ov003_0215c924_2* arg0) {
     }
 
     func_0205e944(&gSoundEffectManager_02108760, 0x7f);
-    func_020e2ff8();
+    GetWirelessLockTable_020e2ff8();
 
     if (arg0->unknown_3b4_ != NULL) {
         int var0 = (int)BackgroundLoader::GetInstance();

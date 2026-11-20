@@ -25,11 +25,11 @@ extern "C" void SetTextWindowVisible_0205def8(TextWindowManager_0205def8*, int, 
 #if defined(jpn)
 extern const char data_ov002_0216d91f[];
 extern "C" void func_020474a8(void*, unsigned char, const char*, char*);
-extern "C" int func_0204234c(char*, int);
+extern "C" int AppendHorizontalLineTag_02041cc0(char*, int);
 #else
 extern const char data_ov002_0216d26c[];
 extern "C" void func_02046608(void*, int, int, int, int, int, unsigned char);
-extern "C" int func_02041cc0(char*, int);
+extern "C" int AppendHorizontalLineTag_02041cc0(char*, int);
 #endif
 extern "C" void OpenTextWindow_0205d304(void*, const char*, int, unsigned char, unsigned char, unsigned char, void*
 #if !defined(jpn)
@@ -46,10 +46,10 @@ extern "C" ARM void func_ov002_0215c028(char* arg0) {
     memset(var0->unknown_1bd0_, 0, Enum_ov002_0215c028_2400);
 #if defined(jpn)
     func_020474a8(var1, 8, data_ov002_0216d91f, var0->unknown_1bd0_);
-    func_0204234c(var0->unknown_1bd0_, 0x11);
+    AppendHorizontalLineTag_02041cc0(var0->unknown_1bd0_, 0x11);
 #else
     func_02046608(var1, 8, ((int)(data_ov002_0216d26c)), ((int)(var0->unknown_1bd0_)), 0x100, 0, 0);
-    func_02041cc0(var0->unknown_1bd0_, 0x11);
+    AppendHorizontalLineTag_02041cc0(var0->unknown_1bd0_, 0x11);
 #endif
     OpenTextWindow_0205d304(&var0->unknown_ec8_, var0->unknown_1bd0_, 0, 0, 0, 1, 0
 #if !defined(jpn)

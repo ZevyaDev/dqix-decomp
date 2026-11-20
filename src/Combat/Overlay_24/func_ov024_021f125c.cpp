@@ -4,7 +4,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
-extern "C" int func_ov024_021eda60(GameObject* arg0);
+extern "C" int IsReflecting_ov024_021eda60(GameObject* combatant);
 struct Struct_ov024_021df454_2;
 extern "C" int func_ov024_021df6ec(struct Struct_ov024_021df454_2* arg0);
 
@@ -23,7 +23,7 @@ extern "C" ARM int func_ov024_021f125c(struct Struct_ov024_021f125c* arg0, int a
         GameObject* var4 = GetCombatantByID(arg0->unknown_0_, var0.unknown_0_[var3]);
         if (!var4) continue;
         if (func_ov024_021df6ec((struct Struct_ov024_021df454_2*)var4)) continue;
-        if (!func_ov024_021eda60(var4)) {
+        if (!IsReflecting_ov024_021eda60(var4)) {
             var2 = 1;
             break;
         }

@@ -60,13 +60,13 @@ struct Struct_ov017_021ac3b0_5 {
 extern "C" Struct_ov017_021ac3b0_8* GetZone3D_02012fe4();
 extern "C" Struct_ov017_021ac3b0_3* GetMessageWindow_020421a0();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
-extern "C" int func_ov017_021959b4();
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4();
 extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_ov017_021ac32c(Struct_ov017_021ac3b0_2*);
 extern "C" int GetFollowCamera_020100f8(char*);
 extern "C" void SetCameraFlags_020a28a0(unsigned char*, unsigned char);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
-extern "C" void* func_020d7a50();
+extern "C" void* GetTimedMessageQueue_020d7a50();
 extern "C" int func_020d805c(Struct_020d805c*);
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2*);
 #if defined(jpn)
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
     BackgroundLoader* var4 = BackgroundLoader::GetInstance();
     FontLoader_0208cb08* var5 = GetFontLoader_02094a00();
     DisablePlayerControl_020397cc((Struct_02018300_3*)var1, 1);
-    if (!arg0->unknown_29_ && func_ov017_021959b4()) {
+    if (!arg0->unknown_29_ && IsLocalWirelessHostDisconnected_ov017_021959b4()) {
         arg0->unknown_29_ = 1; ResetMessageWindow_02043204((char*)var3);
         func_ov017_021ac32c(arg0); arg0->unknown_1_ = 1; return;
     }
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
         int var6 = GetFollowCamera_020100f8((char*)var0);
         if (var6) SetCameraFlags_020a28a0((unsigned char*)var6, 3);
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-        void* var7 = func_020d7a50();
+        void* var7 = GetTimedMessageQueue_020d7a50();
         if (func_020d805c((Struct_020d805c*)var7)) ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)var7);
 #if defined(jpn)
         StartMessage_0204500c(var3, data_ov017_021d7e88, 0);

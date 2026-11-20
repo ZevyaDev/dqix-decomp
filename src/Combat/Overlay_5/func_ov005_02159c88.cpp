@@ -17,7 +17,7 @@ extern "C" long labs(long);
 struct Struct_ov005_02156ecc;
 struct Struct_ov005_02156ecc_2;
 extern "C" void func_ov005_02157174(Struct_ov005_02156ecc*, Struct_ov005_02156ecc_2*);
-struct Struct_02015ef4_2;
+struct SPRSprite_02015ef4_2;
 struct ItemTable_0201099c_10;
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" Struct_ov005_02153ba4_2* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov005_02159c88(Struct_ov005_02159c88_4* arg0) {
                 var15.unknown_4_ = (var12 * 0x18) << 12;
                 func_ov005_02157174((Struct_ov005_02156ecc*)var14, (Struct_ov005_02156ecc_2*)&var15);
                 G3_MTX_PUSH = 0;
-                ((SPRSprite*)((Struct_02015ef4_2*)var14))->DrawAnimatedNoRotation(1);
+                ((SPRSprite*)((SPRSprite_02015ef4_2*)var14))->DrawAnimatedNoRotation(1);
                 G3_MTX_POP = 1;
                 if (arg0->unknown_3da8_ == 0 && arg0->unknown_3da9_ == 0) {
                     int var16 = var15.unknown_0_ + REGION(0x11000,0x8000);
@@ -153,7 +153,7 @@ extern "C" ARM void func_ov005_02159c88(Struct_ov005_02159c88_4* arg0) {
                 G3_MTX_TRANS = var23;
                 G3_MTX_TRANS = var24.unknown_8_ - 0x1000;
                 arg0->unknown_2d00_ = 0x25f;
-                ((SPRSprite*)((Struct_02015ef4_2*)arg0->unknown_2c80_))->DrawAnimatedNoRotation(1);
+                ((SPRSprite*)((SPRSprite_02015ef4_2*)arg0->unknown_2c80_))->DrawAnimatedNoRotation(1);
                 G3_MTX_POP = 1;
             }
             int var25 = var20->unknown_0_;
@@ -173,7 +173,7 @@ extern "C" ARM void func_ov005_02159c88(Struct_ov005_02159c88_4* arg0) {
                             G3_MTX_TRANS = var31;
                             G3_MTX_TRANS = var32.unknown_8_ - 0x1000;
                             arg0->unknown_2d00_ = 0x1ce7;
-                            ((SPRSprite*)((Struct_02015ef4_2*)arg0->unknown_2c80_))->DrawAnimatedNoRotation(1);
+                            ((SPRSprite*)((SPRSprite_02015ef4_2*)arg0->unknown_2c80_))->DrawAnimatedNoRotation(1);
                             G3_MTX_POP = 1;
                         }
                         var27->unknown_80_ = 0x3def;
@@ -185,7 +185,7 @@ extern "C" ARM void func_ov005_02159c88(Struct_ov005_02159c88_4* arg0) {
                     Struct_ov005_02159c88_2* var33 = var20->unknown_8_;
                     if (var19 == arg0->unknown_3dbc_ || var19 >= 8) {
                         G3_MTX_PUSH = 0;
-                        ((SPRSprite*)((Struct_02015ef4_2*)var33))->DrawAnimatedNoRotation(1);
+                        ((SPRSprite*)((SPRSprite_02015ef4_2*)var33))->DrawAnimatedNoRotation(1);
                         G3_MTX_POP = 1;
                         if (var19 < 8) {
                             if (arg0->unknown_3da8_ == 0 && arg0->unknown_3da9_ == 0) {
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov005_02159c88(Struct_ov005_02159c88_4* arg0) {
     }
     if (arg0->unknown_3d78_ >= 0 && arg0->unknown_3dab_ == 0) {
         G3_MTX_PUSH = 0;
-        ((SPRSprite*)((Struct_02015ef4_2*)&arg0->unknown_3cf0_))->DrawAnimatedNoRotation(1);
+        ((SPRSprite*)((SPRSprite_02015ef4_2*)&arg0->unknown_3cf0_))->DrawAnimatedNoRotation(1);
         G3_MTX_POP = 1;
         Struct_ov005_02159c88 var35 = arg0->unknown_3cf0_.unknown_1c_;
         func_ov005_02154d18(&arg0->unknown_1a34_, var35.unknown_0_, var35.unknown_4_);

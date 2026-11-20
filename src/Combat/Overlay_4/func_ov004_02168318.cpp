@@ -9,8 +9,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_02053f7c;
-extern "C" short func_02086aec(struct Struct_02053f7c* arg0, int arg1);
+struct Party_02053f7c;
+extern "C" short CountOwnedItem_02086aec(struct Party_02053f7c* party, int itemId);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 #if defined(jpn)
@@ -28,7 +28,7 @@ extern char data_ov004_0216fff8;
 
 // USA: func_ov004_02168318
 extern "C" ARM int func_ov004_02168318(void* arg0) {
-    short var0 = func_02086aec((struct Struct_02053f7c*)GetParty_02010828(GameState::GetInstance()), 0x5617);
+    short var0 = CountOwnedItem_02086aec((struct Party_02053f7c*)GetParty_02010828(GameState::GetInstance()), 0x5617);
     void* var1 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0xe);
     if (!var1) return 0;
     if (func_ov024_021f6f10(var1) != 7) return 0;

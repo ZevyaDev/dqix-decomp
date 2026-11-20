@@ -21,7 +21,7 @@ extern "C" ARM int func_02096660(FontLoader_0208cb08* arg0, int arg1, Struct_020
     switch (arg2->unknown_4_) {
         case 8:
             if (arg3 + arg0->unknown_10_ <= (unsigned int)*(int*)arg0->unknown_8_) {
-                func_02094b38(arg0, arg0->unknown_40_);
+                ClearLoadedFontSet_02094b38(arg0, arg0->unknown_40_);
                 var1 = (char*)arg0->unknown_0_ + (*(int*)arg0->unknown_8_ - arg3);
                 arg0->unknown_4_ = var1;
                 arg0->unknown_40_ = arg1;
@@ -32,7 +32,7 @@ extern "C" ARM int func_02096660(FontLoader_0208cb08* arg0, int arg1, Struct_020
             break;
         case 10:
             if (arg3 + arg0->unknown_10_ <= (unsigned int)*(int*)arg0->unknown_8_) {
-                func_02094b38(arg0, arg0->unknown_3c_);
+                ClearLoadedFontSet_02094b38(arg0, arg0->unknown_3c_);
                 arg0->unknown_3c_ = arg1;
                 arg0->unknown_c_ = arg3;
                 arg0->unknown_63_ = arg0->unknown_61_;
@@ -41,7 +41,7 @@ extern "C" ARM int func_02096660(FontLoader_0208cb08* arg0, int arg1, Struct_020
             break;
         case 12:
             if (arg3 + arg0->unknown_c_ <= (unsigned int)*(int*)arg0->unknown_8_) {
-                func_02094b38(arg0, arg0->unknown_40_);
+                ClearLoadedFontSet_02094b38(arg0, arg0->unknown_40_);
                 var1 = (char*)arg0->unknown_0_ + (*(int*)arg0->unknown_8_ - arg3);
                 arg0->unknown_4_ = var1;
                 arg0->unknown_40_ = arg1;

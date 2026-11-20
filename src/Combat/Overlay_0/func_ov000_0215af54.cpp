@@ -50,8 +50,8 @@ struct Struct_ov000_0215af54_5 {
 };
 
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
-extern "C" int func_ov000_02153c0c(GameObject* arg0);
-extern "C" void func_ov000_02160030(void* arg0);
+extern "C" int HasLeftBattle_ov000_02153c0c(GameObject* combatant);
+extern "C" void InitBattleAction_ov000_02160030(void* action);
 extern "C" void func_ov000_02157cdc(void* arg0);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void SetActionResult_ov000_0215ccbc(int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant,
@@ -87,12 +87,12 @@ extern "C" ARM void func_ov000_0215af54(struct Struct_ov000_0215af54_5* arg0, in
     if (IsDead_02010088((struct Struct_02010088*)var4)) {
         return;
     }
-    if (func_ov000_02153c0c(var4)) {
+    if (HasLeftBattle_ov000_02153c0c(var4)) {
         return;
     }
 
     var0 = &arg0->unknown_6d30_[arg0->unknown_8e10_];
-    func_ov000_02160030(var0);
+    InitBattleAction_ov000_02160030(var0);
     var1 = &arg0->unknown_6fb0_[arg0->unknown_8e11_];
     memset(var1, 0, 0x30);
     var1->unknown_1c_ = -1;

@@ -62,7 +62,7 @@ extern "C" void func_ov003_02173c40(char* arg0);
 extern "C" void func_ov003_021726f8(char* arg0, SafeAllocator* arg1);
 extern "C" void VectorizedMemset(void*, int, int);
 extern "C" void VectorizedInvertedMemcpy(void* dst, void* src, int size);
-extern "C" int func_020aad1c(int arg0, int arg1, int arg2, int arg3);
+extern "C" int UpdateSaveProgress_020aad1c(int progress, int scratchBuffer, int saveOptions, int isQuickSave);
 
 extern "C" void func_ov003_02170d88(void* arg0);
 extern "C" int func_ov003_021727c8(char* arg0);
@@ -103,8 +103,8 @@ extern "C" int GetBattleRecords_020ac4c0(void* records);
 struct Struct_020a03f8;
 extern "C" void func_020a03f8(Struct_020a03f8*, unsigned int);
 extern "C" void SetBattleRecords_020ac494(void* records);
-extern "C" void func_020ac760(void* arg0);
-extern "C" void func_020ac734(void* arg0);
+extern "C" void GetTreasureMaps_020ac760(void* treasureMaps);
+extern "C" void SetTreasureMaps_020ac734(void* treasureMaps);
 struct Struct_02011818;
 extern "C" void func_02011818(void*, Struct_02011818*);
 extern "C" void func_02011ab8(char*);
@@ -484,7 +484,7 @@ phase2:;
         *(unsigned char*)(var2 + 0x1000 + 0x7de) = 0;
         *(unsigned char*)(arg0 + 0x1000 + 0x27c) |= 4;
         BackgroundLoader::AddLockGlobal();
-        if (func_020aad1c((int)(arg0 + 0x29c + 0x1000), (int)g_fileScratchSpace, 8, 0) == 1) {
+        if (UpdateSaveProgress_020aad1c((int)(arg0 + 0x29c + 0x1000), (int)g_fileScratchSpace, 8, 0) == 1) {
             *(unsigned char*)(arg0 + 0x1000 + 0x27c) &= ~4;
             func_ov003_0216d8d4(arg0, 0xc9);
             *(short*)(arg0 + 6) = 0x12f;
@@ -607,7 +607,7 @@ phase2:;
                 char unknown_1_;
                 struct TreasureMapMetadata unknown_2_[99];
             } var54;
-            func_020ac760(&var54);
+            GetTreasureMaps_020ac760(&var54);
             VectorizedMemset(&var54.unknown_2_[var54.unknown_0_], 0, sizeof(struct TreasureMapMetadata));
             int var55 = func_ov017_021b1fa8(var53);
             int var56 = func_ov017_021b1fb0(var53);
@@ -615,7 +615,7 @@ phase2:;
             void* var57 = func_ov017_021b1fb8(var53);
             VectorizedInvertedMemcpy(var57, var54.unknown_2_[var54.unknown_0_].DiscoveredBy, 8);
             var54.unknown_0_ += 1;
-            func_020ac734(&var54);
+            SetTreasureMaps_020ac734(&var54);
             *(short*)(arg0 + 6) = 0xc;
         }
         return;
@@ -997,7 +997,7 @@ phase2:;
         *(unsigned char*)(var70 + 0x1000 + 0x9ae) = 0;
         *(unsigned char*)(arg0 + 0x1000 + 0x3ec) |= 4;
         BackgroundLoader::AddLockGlobal();
-        if (func_020aad1c((int)(arg0 + 0xc + 0x1400), (int)g_fileScratchSpace, 8, 0) == 1) {
+        if (UpdateSaveProgress_020aad1c((int)(arg0 + 0xc + 0x1400), (int)g_fileScratchSpace, 8, 0) == 1) {
             *(unsigned char*)(arg0 + 0x1000 + 0x3ec) &= ~4;
             func_ov003_0216d8d4(arg0, 0xc9, -1, -1, -1);
             *(short*)(arg0 + 6) = 0x12f;
@@ -1119,7 +1119,7 @@ phase2:;
                 char unknown_1_;
                 struct TreasureMapMetadata unknown_2_[99];
             } var124;
-            func_020ac760(&var124);
+            GetTreasureMaps_020ac760(&var124);
             unsigned char var125 = var124.unknown_0_;
             struct TreasureMapMetadata* var126 = &var124.unknown_2_[var125];
             VectorizedMemset(var126, 0, sizeof(struct TreasureMapMetadata));
@@ -1129,7 +1129,7 @@ phase2:;
             void* var129 = func_ov017_021b1fb8(var123);
             VectorizedInvertedMemcpy(var129, (char*)var126 + 1, 8);
             var124.unknown_0_ += 1;
-            func_020ac734(&var124);
+            SetTreasureMaps_020ac734(&var124);
             *(short*)(arg0 + 6) = 0xc;
         }
         return;

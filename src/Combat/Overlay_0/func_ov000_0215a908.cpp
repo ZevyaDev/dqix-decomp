@@ -27,9 +27,9 @@ struct Party_02048150;
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" int func_ov000_02155154(GameObject*);
 extern "C" int IsDead_02010088(Struct_02010088*);
-extern "C" int func_ov000_02153c0c(GameObject*);
+extern "C" int HasLeftBattle_ov000_02153c0c(GameObject*);
 extern "C" void func_02088e64(unsigned char*);
-extern "C" void func_ov000_02160030(void*);
+extern "C" void InitBattleAction_ov000_02160030(void*);
 extern "C" void func_ov000_02157cdc(void*);
 extern "C" void SetActionResult_ov000_0215ccbc(int, ActionResult_ov000_021584e8*, GameObject*, short, short, short, unsigned long long, unsigned char);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov000_0215a908(Struct_ov000_0215a908* arg0, int arg1) {
     if (!var2 || !func_ov000_02155154(var2)) return;
     short var3 = inline_ov000_0215a908(var2);
     GameObject* var4 = GameState::GetInstance()->GetCombatantByIndex(var3);
-    if (!var4 || IsDead_02010088((Struct_02010088*)var4) || func_ov000_02153c0c(var4)) {
+    if (!var4 || IsDead_02010088((Struct_02010088*)var4) || HasLeftBattle_ov000_02153c0c(var4)) {
         func_02088e64((unsigned char*)var2->currentStats_);
         ((Struct_ov000_0215a908_4*)var2)->unknown_182_ = 0;
         return;
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov000_0215a908(Struct_ov000_0215a908* arg0, int arg1) {
     ((Struct_ov000_0215a908_4*)var2)->unknown_181_ = 1;
     ((Struct_ov000_0215a908_4*)var2)->unknown_182_ = 0;
     Struct_ov000_0215767c_7* var5 = &arg0->unknown_6060_[arg0->unknown_8e0b_];
-    func_ov000_02160030(var5);
+    InitBattleAction_ov000_02160030(var5);
     var0 = &arg0->unknown_6380_[arg0->unknown_8e0c_];
     memset(var0, 0, 0x30);
     var0->unknown_1c_ = -1;

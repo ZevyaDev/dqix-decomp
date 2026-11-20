@@ -84,9 +84,9 @@ struct Struct_ov003_021539a0 {
 struct SafeAllocator;
 extern "C" void __clear(void*, int);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
-extern "C" void* func_0208247c(void*);
+extern "C" void* ClearLevelEntries_0208247c(void*);
 extern "C" unsigned char* func_02053c6c(unsigned char*);
-extern "C" int func_02082490(void*, void*, unsigned int, int, int);
+extern "C" int ReadLevelEntries_02082490(void*, void*, unsigned int, int, int);
 struct PacEntry_02020aec;
 struct BGLayer_02020cb8_5;
 extern "C" void InitTextWindow_0204c684(void*);
@@ -153,12 +153,12 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
         ((BackgroundLoader*)var0)->GetLoadedFileByID(arg0->unknown_50_, &var5, &var6);
         void* var9 = GameState::GetInstance();
         unsigned char* var10 = (unsigned char*)((GameState*)var9)->GetPartyMemberByIndex(arg0->unknown_59_);
-        func_0208247c(arg0->unknown_8_);
+        ClearLevelEntries_0208247c(arg0->unknown_8_);
         unsigned char* var11 = 0;
         unsigned char* var12;
         if (var10 != 0 && var5 != 0) {
             var11 = func_02053c6c(var10);
-            func_02082490(arg0->unknown_8_, var5, var6, *(unsigned short*)(var11 + 0x100 + arg0->unknown_14_ * 2 + 0x6c), 0);
+            ReadLevelEntries_02082490(arg0->unknown_8_, var5, var6, *(unsigned short*)(var11 + 0x100 + arg0->unknown_14_ * 2 + 0x6c), 0);
         }
         ((BackgroundLoader*)var0)->RemoveTask(arg0->unknown_50_);
         arg0->unknown_50_ = -1;
@@ -287,12 +287,12 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
         ((BackgroundLoader*)var29)->GetLoadedFileByID(arg0->unknown_50_, &var36, &var37);
         void* var40 = GameState::GetInstance();
         unsigned char* var41 = (unsigned char*)((GameState*)var40)->GetPartyMemberByIndex(arg0->unknown_59_);
-        func_0208247c(arg0->unknown_8_);
+        ClearLevelEntries_0208247c(arg0->unknown_8_);
         unsigned char* var42 = 0;
         unsigned char* var43;
         if (var41 != 0 && var36 != 0) {
             var42 = func_02053c6c(var41);
-            func_02082490(arg0->unknown_8_, var36, var37, *(unsigned short*)(var42 + 0x100 + arg0->unknown_14_ * 2 + 0x6c), 0);
+            ReadLevelEntries_02082490(arg0->unknown_8_, var36, var37, *(unsigned short*)(var42 + 0x100 + arg0->unknown_14_ * 2 + 0x6c), 0);
         }
         ((BackgroundLoader*)var29)->RemoveTask(arg0->unknown_50_);
         arg0->unknown_50_ = -1;

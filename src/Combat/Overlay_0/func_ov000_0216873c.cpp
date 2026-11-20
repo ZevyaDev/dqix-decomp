@@ -58,7 +58,7 @@ struct Struct_02099950;
 extern "C" struct Struct_02095924_2* func_02011584(void* gameState);
 extern "C" struct Struct_02099950* func_02099950(struct Struct_02095924_2* arg0, int arg1);
 extern "C" void func_0206461c(void* arg0, struct Struct_02099950* arg1);
-extern "C" void func_ov000_02160d80(void* arg0, int arg1);
+extern "C" void SetBattleSceneState_ov000_02160d80(void* battleScene, int state);
 
 extern int data_ov000_0218321c[];
 
@@ -144,5 +144,5 @@ extern "C" ARM void func_ov000_0216873c(struct Struct_ov000_0216873c* arg0) {
     if (arg0->unknown_0_ != 0) {
         DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_0_ << 8);
     }
-    func_ov000_02160d80(arg0, 6);
+    SetBattleSceneState_ov000_02160d80(arg0, 6);
 }

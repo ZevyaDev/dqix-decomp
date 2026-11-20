@@ -19,7 +19,7 @@ extern char data_ov000_02183a47[];
 extern char data_ov000_02183a4e[];
 extern char data_ov000_02183a54[];
 extern char data_ov000_021839e2[];
-extern char data_020ef078[];
+extern char gStringFormat_020ef078[];
 
 struct Struct_02013fb4;
 struct Struct_02070b6c_3 { unsigned char unknown_0_[0xc]; };
@@ -135,7 +135,7 @@ extern "C" ARM void func_ov000_02166070(Struct_ov000_02166070_2* arg0, GPCReadPa
     var17->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&var5, 0);
     var6.unknown_4_ = FindMonsterBattleData_02070fd0(var3, arg3);
     var6.unknown_0_ = FindMonsterData_0206f4f0(var1, arg3 << 16 >> 16);
-    sprintf(var6.unknown_4_->unknown_2c_, data_020ef078, var6.unknown_0_->unknown_0_);
+    sprintf(var6.unknown_4_->unknown_2c_, gStringFormat_020ef078, var6.unknown_0_->unknown_0_);
     if (var12 == 0) {
         var6.unknown_8_ = 0;
     } else {

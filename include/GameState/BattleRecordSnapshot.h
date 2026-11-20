@@ -3,22 +3,22 @@
 
 
 
-struct Struct_020ac4f8 {
-    unsigned short unknown_0_;
-    unsigned char unknown_2_;
-    unsigned char unknown_3_;
+struct PlayTime_020ac4f8 {
+    unsigned short hours_0_;
+    unsigned char minutes_2_;
+    unsigned char seconds_3_;
 };
 
-extern "C" void func_ov008_02184598(Struct_020ac4f8*);
+extern "C" void func_ov008_02184598(PlayTime_020ac4f8*);
 
-struct Struct_02061c04_2 {
-    Struct_020ac4f8 unknown_0_;
-    Struct_020ac4f8 unknown_4_;
+struct PlayTimes_02061c04_2 {
+    PlayTime_020ac4f8 playTime_0_;
+    PlayTime_020ac4f8 multiplayerTime_4_;
 };
 
 struct Struct_02061c04_3 {
-    Struct_020ac4f8 unknown_0_;
-    Struct_020ac4f8 unknown_4_;
+    PlayTime_020ac4f8 unknown_0_;
+    PlayTime_020ac4f8 unknown_4_;
     unsigned int unknown_8_0_ : 17;
     unsigned int unknown_a_1_ : 7;
     unsigned int unknown_b_0_ : 7;
@@ -40,7 +40,7 @@ struct Struct_02061c04_3 {
 };
 
 struct BattleRecords_02061c04 {
-    Struct_02061c04_2 unknown_0_;
+    PlayTimes_02061c04_2 playTimes_0_;
     unsigned int unknown_8_0_ : 24;
     unsigned int unknown_b_0_ : 8;
     unsigned int unknown_c_0_ : 14;
@@ -80,7 +80,7 @@ struct BattleRecords_02061c04 {
     unsigned int unknown_44_;
     unsigned int unknown_48_;
     unsigned char unknown_4c_[0x1c];
-    Struct_02061c04_2 unknown_68_;
+    PlayTimes_02061c04_2 unknown_68_;
     unsigned int unknown_70_[5];
     unsigned int unknown_84_0_ : 10;
     unsigned int unknown_85_2_ : 16;

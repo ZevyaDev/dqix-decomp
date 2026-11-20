@@ -13,7 +13,7 @@ extern "C" void StartMessage_0204500c(void*, const char*, int);
 extern char data_020f29cc;
 #endif
 
-extern "C" int func_ov017_021959b4(void);
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void* func_0202ae18(void);
 extern "C" char* GetFollowCamera_020100f8(char*);
@@ -23,7 +23,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov017_021cf730(int arg0, int arg1);
 extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
-extern "C" void StopGesture_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* gameObject);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020e11a4(void);
@@ -62,7 +62,7 @@ extern "C" ARM void func_020d9870(struct Struct_020d9870* arg0) {
     char* var5 = GetFollowCamera_020100f8((char*)var0);
     unsigned short* var6 = GetZone3D_02012fe4();
 
-    if (func_ov017_021959b4() != 0) {
+    if (IsLocalWirelessHostDisconnected_ov017_021959b4() != 0) {
         func_020d9a58(arg0);
         return;
     }

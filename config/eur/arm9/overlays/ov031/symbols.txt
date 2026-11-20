@@ -854,7 +854,7 @@ func_ov031_02222c18 kind:function(arm,size=0xcc) addr:0x02222c18
 func_ov031_02222ce4 kind:function(arm,size=0xf8) addr:0x02222ce4
 func_ov031_02222ddc kind:function(arm,size=0x30) addr:0x02222ddc
 GetButtonBarChoice_ov031_02222e0c kind:function(arm,size=0x14) addr:0x02222e0c
-func_ov031_02222e20 kind:function(arm,size=0x20) addr:0x02222e20
+SetButtonBarChoice_ov031_02222e20 kind:function(arm,size=0x20) addr:0x02222e20
 func_ov031_02222e40 kind:function(arm,size=0x14) addr:0x02222e40
 func_ov031_02222e54 kind:function(arm,size=0x2c) addr:0x02222e54
 EnableButtonBarInput_ov031_02222e80 kind:function(arm,size=0x18) addr:0x02222e80
@@ -872,7 +872,7 @@ CloseSubScreenMessage_ov031_02223440 kind:function(arm,size=0x38) addr:0x0222344
 func_ov031_02223478 kind:function(arm,size=0x60) addr:0x02223478
 LoadFileToVRAM_ov031_022234d8 kind:function(arm,size=0x40) addr:0x022234d8
 func_ov031_02223518 kind:function(arm,size=0x50) addr:0x02223518
-func_ov031_02223568 kind:function(arm,size=0x38) addr:0x02223568
+CreateButtonBarIfEnabled_ov031_02223568 kind:function(arm,size=0x38) addr:0x02223568
 func_ov031_022235a0 kind:function(arm,size=0x74) addr:0x022235a0
 func_ov031_02223614 kind:function(arm,size=0xbc) addr:0x02223614
 func_ov031_022236d0 kind:function(arm,size=0x18) addr:0x022236d0
@@ -963,7 +963,7 @@ SetWifiSetupFrameHandler_ov031_022274c0 kind:function(arm,size=0x10) addr:0x0222
 SetStepIndicatorAndButtonBarModes_ov031_022274d0 kind:function(arm,size=0x14) addr:0x022274d0
 func_ov031_022274e4 kind:function(arm,size=0x28) addr:0x022274e4
 func_ov031_0222750c kind:function(arm,size=0x14) addr:0x0222750c
-func_ov031_02227520 kind:function(arm,size=0x28) addr:0x02227520
+GetWifiSetupPageArguments_ov031_02227520 kind:function(arm,size=0x28) addr:0x02227520
 func_ov031_02227548 kind:function(arm,size=0x10) addr:0x02227548
 func_ov031_02227558 kind:function(arm,size=0x18) addr:0x02227558
 func_ov031_02227570 kind:function(arm,size=0x1c) addr:0x02227570
@@ -2677,7 +2677,7 @@ data_ov031_0224c938 kind:data(any) addr:0x0224c938
 data_ov031_0224c93d kind:data(any) addr:0x0224c93d
 data_ov031_0224c94e kind:data(any) addr:0x0224c94e
 data_ov031_0224c954 kind:data(any) addr:0x0224c954
-data_ov031_0224c980 kind:bss addr:0x0224c980
+gIPStack_ov031_0224c980 kind:bss addr:0x0224c980
 data_ov031_0224c981 kind:bss addr:0x0224c981 local
 data_ov031_0224c982 kind:bss addr:0x0224c982 local
 pingseq$96 kind:bss(size=0x2) addr:0x0224c984 local
@@ -2839,12 +2839,12 @@ data_ov031_02290c78 kind:bss addr:0x02290c78
 data_ov031_02290c7c kind:bss addr:0x02290c7c
 data_ov031_02290c80 kind:bss addr:0x02290c80
 data_ov031_02290c88 kind:bss addr:0x02290c88
-data_ov031_02290c8c kind:bss addr:0x02290c8c
+gAccessPointListPage_ov031_02290c8c kind:bss addr:0x02290c8c
 data_ov031_02290c90 kind:bss addr:0x02290c90
 data_ov031_02290c94 kind:bss addr:0x02290c94
 data_ov031_02290c98 kind:bss addr:0x02290c98
 data_ov031_02290c9c kind:bss addr:0x02290c9c
-data_ov031_02290ca0 kind:bss addr:0x02290ca0
+gConnectionSettingsPage_ov031_02290ca0 kind:bss addr:0x02290ca0
 data_ov031_02290ca8 kind:bss addr:0x02290ca8
 data_ov031_02290cac kind:bss addr:0x02290cac
 data_ov031_02290cb0 kind:bss addr:0x02290cb0

@@ -16,7 +16,7 @@ enum { Enum_ov003_02173508_269 = 0x10d };
 enum { Enum_ov003_02173508_292 = 0x124 };
 #endif
 
-extern "C" void func_020dc2bc(void);
+extern "C" void SuspendMapDisplay_020dc2bc(void);
 struct BGControlSave_02074b64;
 extern "C" void SaveSubBGControl_02074b64(struct BGControlSave_02074b64* save);
 
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov003_02173508(Struct_ov003_02173508* arg0) {
     (int)GetGameResources();
     if (arg0->unknown_ef_ != 0) return;
 
-    func_020dc2bc();
+    SuspendMapDisplay_020dc2bc();
     SaveSubBGControl_02074b64((struct BGControlSave_02074b64*)((char*)arg0 + Enum_ov003_02173508_268));
 
     volatile unsigned int* var0 = (volatile unsigned int*)0x4001000;

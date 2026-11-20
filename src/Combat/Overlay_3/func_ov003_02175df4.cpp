@@ -24,14 +24,14 @@ enum { Enum_ov003_02175df4_4148 = 0x1034 };
 #endif
 
 struct EquipmentBag_0207c484;
-struct Struct_02061c04_23;
+struct ItemBag_02061c04_23;
 struct Struct_02061c04_22;
 
 extern "C" int RemoveEquipmentFromBag_0207c484(struct EquipmentBag_0207c484* bag, int itemId, int count, int category);
-extern "C" short func_02080468(void* arg0, int arg1);
+extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
 extern "C" struct Struct_02061c04_22* func_02053c6c(unsigned char* gameObject);
 extern "C" void func_0208386c(struct Struct_02061c04_22* arg0, int arg1);
-extern "C" int func_020a0a08(struct Struct_02061c04_23* arg0, int arg1, int arg2);
+extern "C" int RemoveItemFromBag_020a0a08(struct ItemBag_02061c04_23* bag, int itemId, int count);
 
 struct Struct_ov003_02175df4 {
     char unknown_0_[0x8];
@@ -77,16 +77,16 @@ extern "C" ARM int func_ov003_02175df4(Struct_ov003_02175df4_2* arg0) {
         var2 = 0x14;
         break;
     }
-    short var3 = arg0->unknown_1010_ - func_02080468(arg0->unknown_89c_, var2);
+    short var3 = arg0->unknown_1010_ - GetMenuLayoutWindowFirstSelectableTextId_02080468(arg0->unknown_89c_, var2);
     if (arg0->unknown_1030_ > var3) {
         GameObject* var4 = var0->GetPartyMemberByIndex(arg0->unknown_101c_[var3]);
         if (var4 == NULL) {
             return 0;
         }
-        short var5 = arg0->unknown_100e_ - func_02080468(arg0->unknown_89c_, 0x15);
+        short var5 = arg0->unknown_100e_ - GetMenuLayoutWindowFirstSelectableTextId_02080468(arg0->unknown_89c_, 0x15);
         func_0208386c(func_02053c6c((unsigned char*)var4), (signed char)var5);
         return 1;
     }
-    func_020a0a08((struct Struct_02061c04_23*)var1, arg0->unknown_103a_, arg0->unknown_103c_);
+    RemoveItemFromBag_020a0a08((struct ItemBag_02061c04_23*)var1, arg0->unknown_103a_, arg0->unknown_103c_);
     return 1;
 }

@@ -99,7 +99,7 @@ extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 struct Struct_ov023_021eeaac_2;
 extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2*);
 extern "C" Struct_ov023_021f03a0* func_ov023_021f0360(void*, int);
-extern "C" int func_02082490(Struct_ov023_021f0a5c_3*, void*, unsigned int, unsigned char, unsigned int);
+extern "C" int ReadLevelEntries_02082490(Struct_ov023_021f0a5c_3*, void*, unsigned int, unsigned char, unsigned int);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 extern "C" Struct_ov000_0215d63c_2* func_02053c6c(unsigned char*);
 extern "C" void func_02083cbc(Struct_ov000_0215d63c_2*, Struct_ov023_021f0a5c_2*, Struct_ov023_021f0a5c_2*);
@@ -129,7 +129,7 @@ extern "C" int func_ov023_021f4fc8();
 extern "C" int func_ov023_021f5228(int);
 extern "C" void* func_0205ec34();
 extern "C" int func_0206dfb0(int, unsigned char*, int);
-extern "C" int func_0209ca2c(void*);
+extern "C" int IsJinglePlaying_0209ca2c(void*);
 
 static inline int inline_ov023_021f0a5c(Struct_ov000_0215d63c_2* arg0) { return arg0->unknown1_16c_[arg0->unknown_950_]; }
 
@@ -169,7 +169,7 @@ extern "C" ARM int func_ov023_021f0a5c(BattleScene_ov000_02160da0* arg0) {
         var8->RemoveTask(var6->unknown_4_);
         int var15 = 0;
         Struct_ov023_021f03a0* var16 = func_ov023_021f0360(_ZZ21inline_ov023_021f4c04vE1s, var14);
-        if (var13 && func_02082490(&arg0->unknown_5770_[var14], var13, var12, var16->unknown_2_, var16->unknown_4_)) {
+        if (var13 && ReadLevelEntries_02082490(&arg0->unknown_5770_[var14], var13, var12, var16->unknown_2_, var16->unknown_4_)) {
             if (!var16->unknown_3_) var15 = 1;
         }
         Struct_ov023_021f0a5c_2* var17 = &arg0->unknown_5770_[var14].unknown_28_;
@@ -333,7 +333,7 @@ extern "C" ARM int func_ov023_021f0a5c(BattleScene_ov000_02160da0* arg0) {
         }
         var6->unknown_0_++;
     } else if (var6->unknown_0_ == 7) {
-        if (func_0209ca2c(gMusicManager_02109bf4)) return arg0->unknown_eac_;
+        if (IsJinglePlaying_0209ca2c(gMusicManager_02109bf4)) return arg0->unknown_eac_;
         if (func_ov023_021f4fc8()) {
             signed char var44 = var6->unknown_e5_;
             func_ov023_021eefac((Struct_ov023_021eeaac_2*)var6);

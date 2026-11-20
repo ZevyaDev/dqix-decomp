@@ -5,7 +5,7 @@ struct Struct_ov031_02290ca0_5 {
     unsigned char unknown_1_[7];
     unsigned char* unknown_8_;
 };
-extern struct Struct_ov031_02290ca0_5 data_ov031_02290ca0;
+extern struct Struct_ov031_02290ca0_5 gConnectionSettingsPage_ov031_02290ca0;
 extern "C" char* func_ov031_02235c70(void);
 extern "C" void func_ov031_02235c84(unsigned char);
 extern "C" void func_ov031_02235c98(unsigned char);
@@ -17,13 +17,13 @@ extern "C" ARM void func_ov031_0222f38c(unsigned char arg0) {
     if ((unsigned char)var0[0xf5] == arg0) return;
     unsigned char var1;
     if (arg0 != 0) {
-        if (data_ov031_02290ca0.unknown_8_[0x43] != 0) {
+        if (gConnectionSettingsPage_ov031_02290ca0.unknown_8_[0x43] != 0) {
             var1 = 1;
         } else {
             var1 = 0;
         }
     } else {
-        data_ov031_02290ca0.unknown_8_[0x43] = *(unsigned char*)(var0 + 0xf6);
+        gConnectionSettingsPage_ov031_02290ca0.unknown_8_[0x43] = *(unsigned char*)(var0 + 0xf6);
         var1 = 0;
     }
     func_ov031_02235c84(arg0);

@@ -67,13 +67,13 @@ struct Struct_020d5d34
 
 extern "C" void func_020d63f0(void* arg0);
 extern "C" void func_020d651c(void* arg0);
-extern "C" Struct_020d424c_2* func_020d41d8();
+extern "C" Struct_020d424c_2* GetWirelessDriver_020d41d8();
 extern "C" unsigned short func_020d46cc();
 
 // USA: func_020d6318
 extern "C" ARM void func_020d6318(void* arg0)
 {
-    Struct_020d424c_2* const var0 = func_020d41d8();
+    Struct_020d424c_2* const var0 = GetWirelessDriver_020d41d8();
     Struct_020d42e0_2* const var1 = (Struct_020d42e0_2*)arg0;
     const Type_020d42e0 var2 = var0->unknown_cc_[var1->unknown_a_];
     Struct_020d5d34* const var3 = (Struct_020d5d34*)var0->unknown_10c_[var1->unknown_a_];

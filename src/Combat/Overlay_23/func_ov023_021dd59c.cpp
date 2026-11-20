@@ -13,7 +13,7 @@ extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int func_ov023_021ddbb8(void* arg0, int arg1, int arg2);
 struct Struct_ov023_021dd59c;
 extern "C" int func_ov023_021ddbf8(struct Struct_ov023_021dd59c* arg0);
-extern "C" void func_020dc2bc(void);
+extern "C" void SuspendMapDisplay_020dc2bc(void);
 
 struct BGControlSave_02074b64;
 extern "C" void SaveSubBGControl_02074b64(struct BGControlSave_02074b64* save);
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov023_021dd59c(void* arg0) {
     if (*(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) == 1) {
         if (func_ov023_021ddbf8((struct Struct_ov023_021dd59c*)var0) == 0) {
             if (*(signed char*)(var0 + Enum_ov023_021dd59c_1915) != 1) {
-                func_020dc2bc();
+                SuspendMapDisplay_020dc2bc();
             }
             *(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) = *(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) + 1;
         }

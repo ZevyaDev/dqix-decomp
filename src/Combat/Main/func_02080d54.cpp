@@ -10,11 +10,11 @@ struct TextWindow_02080d54 {
     short tileY_ae_;
 };
 
-extern "C" struct TextWindow_02080d54* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
+extern "C" struct TextWindow_02080d54* FindMenuLayoutWindow_02081da8(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 
 // USA: IsPointInMenuLayoutWindow_02080d54
 extern "C" ARM int IsPointInMenuLayoutWindow_02080d54(struct MenuLayout_0207fdcc_2* menuLayout, int windowId, int x, int y) {
-    struct TextWindow_02080d54* window = func_02081da8(menuLayout, windowId);
+    struct TextWindow_02080d54* window = FindMenuLayoutWindow_02081da8(menuLayout, windowId);
     short tileRight, tileBottom;
     if (window == NULL) {
         return 0;

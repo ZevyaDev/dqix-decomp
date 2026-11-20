@@ -13,13 +13,13 @@ struct KeyRepeat_02081f20_2 {
     signed char unknown_8_;
 };
 
-// USA: func_0208203c
-extern "C" ARM void func_0208203c(struct KeyRepeat_02081f20_2 *arg0) {
-    struct RepeatedKey_02081f20 *var0 = arg0->unknown_0_;
-    if (var0 != NULL) {
-        var0->key_0_ = 0;
-        var0->event_2_ = 0;
+// USA: ResetKeyRepeat_0208203c
+extern "C" ARM void ResetKeyRepeat_0208203c(struct KeyRepeat_02081f20_2 *keyRepeat) {
+    struct RepeatedKey_02081f20 *repeatedKey = keyRepeat->unknown_0_;
+    if (repeatedKey != NULL) {
+        repeatedKey->key_0_ = 0;
+        repeatedKey->event_2_ = 0;
     }
-    arg0->unknown_4_ = 0;
-    arg0->unknown_8_ = arg0->unknown_6_;
+    keyRepeat->unknown_4_ = 0;
+    keyRepeat->unknown_8_ = keyRepeat->unknown_6_;
 }

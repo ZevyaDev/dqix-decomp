@@ -66,7 +66,7 @@ extern "C" int IsLocalWirelessGuest_0202c540(LocalWireless_0202b2f0*);
 extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(LocalWireless_0202b2f0*, int);
 extern "C" GlobalFlags_02038598_4* func_020d6c00();
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
-extern "C" void* func_020936f8();
+extern "C" void* GetNoticeQueue_020936f8();
 extern "C" void func_020939dc(void*);
 extern "C" void func_02093a14(char*);
 extern "C" void QueueNotice_02094030(void*, int, int, int);
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov000_02160620(Struct_ov000_02160620_2* arg0) {
             var3->obj3D_.AdvanceEffects();
         if (IsLocalWirelessGuest_0202c540(var1) && IsLocalWirelessPlayerDisconnected_0202c578(var1, 0) && arg0->unknown_77d0_ == 0) {
             ClearGlobalFlags_020466f4(func_020d6c00(), 0x8020);
-            void* var4 = func_020936f8();
+            void* var4 = GetNoticeQueue_020936f8();
             func_020939dc(var4);
             func_02093a14((char*)var4);
             QueueNotice_02094030(var4, 4, -1, 0);

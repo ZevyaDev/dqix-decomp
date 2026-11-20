@@ -15,7 +15,7 @@ struct MenuLayout_0207fdcc_2;
 extern "C" void ShowMenuLayoutWindow_02080c20(MenuLayout_0207fdcc_2*, int);
 extern "C" void func_02080c04(struct MenuLayout_0207fdcc_2* arg0, short arg1);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void*, int, int);
-extern "C" void func_02080b54(void*, int);
+extern "C" void HideMenuLayoutWindowTexts_02080b54(void*, int);
 struct ItemTable_0201099c_10 {
     char unknown_0_;
 };
@@ -23,8 +23,8 @@ struct Struct_ov003_021769ec;
 extern "C" struct Struct_ov003_021769ec* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c* menuLayout, int textId, int text);
-struct Struct_02080cc0;
-extern "C" void func_02080cc0(struct Struct_02080cc0* arg0, int arg1, int arg2);
+struct MenuLayout_02080cc0;
+extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0* menuLayout, int textId, int color);
 extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
 extern "C" void SetMenuLayoutTextStringId_0208103c(void* menuLayout, int textId, int stringId);
 struct Struct_02052df8;
@@ -125,7 +125,7 @@ extern "C" ARM void func_ov003_021769ec(Struct_ov003_021769ec_3* arg0) {
 
     ShowMenuLayoutWindow_02080c20(var9, var0);
     SetMenuLayoutWindowPalette_02080c68(var9, var0, 0);
-    func_02080b54(var9, var0);
+    HideMenuLayoutWindowTexts_02080b54(var9, var0);
 
     Struct_ov003_021769ec* var12 = FindItemData_020dedd0(&arg0->unknown_874_, arg0->unknown_1000_.unknown_3a_);
     bool var13 = false;
@@ -142,15 +142,15 @@ extern "C" ARM void func_ov003_021769ec(Struct_ov003_021769ec_3* arg0) {
                 var17 = *(int*)((char*)var18 + 0x134);
             }
             SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var9, var1, var17);
-            func_02080cc0((struct Struct_02080cc0*)var9, var1, func_020dcc98(var16));
+            SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0*)var9, var1, func_020dcc98(var16));
             ShowMenuLayoutText_02080b40(var9, var1);
 
             if (var15 != 0) {
-                func_02080cc0((struct Struct_02080cc0*)var9, var5, 3);
+                SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0*)var9, var5, 3);
                 SetMenuLayoutTextStringId_0208103c(var9, var5, 0xb);
                 ShowMenuLayoutText_02080b40(var9, var5);
             } else {
-                func_02080cc0((struct Struct_02080cc0*)var9, var5, 0xf);
+                SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0*)var9, var5, 0xf);
                 int var19 = data_ov003_0217fb18[var12->unknown_8_0_];
                 if (var19 < 0) {
                     return;
@@ -170,7 +170,7 @@ extern "C" ARM void func_ov003_021769ec(Struct_ov003_021769ec_3* arg0) {
                         if (var21 > var22) {
                             var23 = 9;
                         }
-                        func_02080cc0((struct Struct_02080cc0*)var9, var3, var23);
+                        SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0*)var9, var3, var23);
                         SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var9, var2, var21);
                         SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var9, var3, var22);
                         ShowMenuLayoutText_02080b40(var9, var2);
@@ -187,7 +187,7 @@ extern "C" ARM void func_ov003_021769ec(Struct_ov003_021769ec_3* arg0) {
                         if (var24 > var25) {
                             var26 = 9;
                         }
-                        func_02080cc0((struct Struct_02080cc0*)var9, var8, var26);
+                        SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0*)var9, var8, var26);
                         func_02080fc4((struct Struct_02080fc4*)var9, var7, *(int*)&var24);
                         func_02080fc4((struct Struct_02080fc4*)var9, var8, *(int*)&var25);
                         ShowMenuLayoutText_02080b40(var9, var7);

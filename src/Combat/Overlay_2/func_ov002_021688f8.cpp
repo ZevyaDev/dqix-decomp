@@ -12,7 +12,7 @@
 #endif
 
 struct Struct_020a13c4;
-struct Struct_020a15bc;
+struct AccoladeTable_020a15bc;
 struct Struct_ov002_021688f8 {
     unsigned int unknown_0_;
     void* unknown_4_;
@@ -27,7 +27,7 @@ struct Struct_ov002_021688f8_2 {
 extern "C" int func_ov002_02168c00(unsigned char *arg0);
 extern "C" void ClearAccoladeTable_020a13c4(struct Struct_020a13c4 *table);
 extern "C" void func_020a13e4(void *arg0, void *arg1, int arg2, unsigned short arg3, unsigned char arg4);
-extern "C" void *func_020a15bc(struct Struct_020a15bc *arg0, int arg1);
+extern "C" void *FindAccolade_020a15bc(struct AccoladeTable_020a15bc *table, int accoladeId);
 extern "C" void func_ov002_02168c38(struct Struct_ov002_021688f8 *arg0);
 extern "C" void func_ov002_02168d10(unsigned char *arg0, int arg1);
 extern "C" int func_ov023_021ed724(void *arg0, short *arg1, int arg2);
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov002_021688f8(char *arg0) {
         for (var6 = 0; var6 < var7; var6++) {
             func_ov002_02168c38((struct Struct_ov002_021688f8 *) (var5 + var6 * sizeof(Struct_ov002_021688f8)));
             void *var12 =
-                func_020a15bc(*(struct Struct_020a15bc **) (arg0 + 0x2000 + REGION_VALUE(0x294, 0x464)), var4[var6]);
+                FindAccolade_020a15bc(*(struct AccoladeTable_020a15bc **) (arg0 + 0x2000 + REGION_VALUE(0x294, 0x464)), var4[var6]);
             if (var12 == NULL) continue;
             int var13 = ((int)var0.GetString(var4[var6]));
             if (var13 == 0) continue;

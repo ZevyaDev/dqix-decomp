@@ -16,7 +16,7 @@ struct Struct_ov000_0215bf5c_6 { char unknown_0_[0x20]; int unknown_20_; };
 extern "C" Struct_ov000_0215bf5c_2* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*,int);
 extern "C" Struct_ov000_0215bf5c_3* func_ov000_0215feb4(char*,int,int);
 extern "C" void* func_ov000_0215e9d8(void*);
-extern "C" void func_ov000_02160030(void*);
+extern "C" void InitBattleAction_ov000_02160030(void*);
 extern "C" void* func_ov000_0215e918(void*);
 extern "C" void* func_ov000_0215e938(void*);
 extern "C" void func_ov000_02157cdc(void*);
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov000_0215bf5c(Struct_ov000_0215bf5c* arg0,BattleAction
         if (var11<=0) continue;
         var5=(Struct_ov000_0215bf5c_4*)func_ov000_0215e9d8(arg0);
         if (!var5) continue;
-        func_ov000_02160030(var5);
+        InitBattleAction_ov000_02160030(var5);
         Struct_ov000_0215bf5c_2* var12=(Struct_ov000_0215bf5c_2*)func_ov000_0215e918(arg0);
         if (!var12) continue;
         memset(var12,0,0x30);var12->unknown_1c_=-1;var12->unknown_30_=0;

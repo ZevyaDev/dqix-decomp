@@ -21,7 +21,7 @@ extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int sta
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" TimedMessageQueue_020d7aa0_2* func_020d7a50();
+extern "C" TimedMessageQueue_020d7aa0_2* GetTimedMessageQueue_020d7a50();
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2* queue);
 extern "C" void PushSubOverlay_020a1ef0(int subOverlayEntry);
 extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov017_021a9768(Struct_ov017_021a9768_2* arg0) {
             arg0->unknown_1_ = 1;
             return;
         }
-        ClearTimedMessageQueue_020d7aa0(func_020d7a50());
+        ClearTimedMessageQueue_020d7aa0(GetTimedMessageQueue_020d7a50());
 #if defined(jpn)
         arg0->unknown_c_.CreateTypeA(var4, 0x1c704);
 #else

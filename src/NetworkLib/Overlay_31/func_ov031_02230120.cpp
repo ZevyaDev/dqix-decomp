@@ -46,7 +46,7 @@ struct Struct_ov031_02290ca0_14 {
     unsigned short unknown_6_;
     Struct_ov031_02230120* unknown_8_;
 };
-extern Struct_ov031_02290ca0_14 data_ov031_02290ca0;
+extern Struct_ov031_02290ca0_14 gConnectionSettingsPage_ov031_02290ca0;
 extern "C" int FastIntDivide(int, int);
 extern "C" int FastIntModulus(int, int);
 
@@ -63,34 +63,34 @@ static inline void inline_ov031_02230120_2(Struct_ov031_02230120_2* arg0, int ar
 extern "C" ARM void func_ov031_02230120() {
     int var0;
     int var1;
-    int var2 = FastIntDivide(data_ov031_02290ca0.unknown_4_, 29);
-    int var3 = 52 - FastIntModulus(data_ov031_02290ca0.unknown_4_, 29);
-    if (data_ov031_02290ca0.unknown_8_->unknown_34_) {
+    int var2 = FastIntDivide(gConnectionSettingsPage_ov031_02290ca0.unknown_4_, 29);
+    int var3 = 52 - FastIntModulus(gConnectionSettingsPage_ov031_02290ca0.unknown_4_, 29);
+    if (gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_34_) {
         if (var2 == 0) var0 = 38;
         else var0 = 256;
-        inline_ov031_02230120_2(data_ov031_02290ca0.unknown_8_->unknown_34_, var0, var3);
+        inline_ov031_02230120_2(gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_34_, var0, var3);
     }
     int var4 = var3;
     int var5 = 0;
     do {
-        Struct_ov031_02230120_2* var6 = data_ov031_02290ca0.unknown_8_->unknown_18_[var5];
+        Struct_ov031_02230120_2* var6 = gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_18_[var5];
         inline_ov031_02230120(var6, (unsigned long*)&var0, (unsigned long*)&var1);
         inline_ov031_02230120_2(var6, var0, var4);
         var4 += 29;
     } while (++var5 < 5);
     if (var2 <= 2) {
-        Struct_ov031_02230120_2* var7 = data_ov031_02290ca0.unknown_8_->unknown_18_[5];
+        Struct_ov031_02230120_2* var7 = gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_18_[5];
         inline_ov031_02230120(var7, (unsigned long*)&var0, (unsigned long*)&var1);
         inline_ov031_02230120_2(var7, var0, var3 + (2 - var2) * 29);
     } else {
-        inline_ov031_02230120_2(data_ov031_02290ca0.unknown_8_->unknown_18_[5], 256, 0);
+        inline_ov031_02230120_2(gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_18_[5], 256, 0);
     }
     if (var2 >= 2 && var2 <= 6) {
-        Struct_ov031_02230120_2* var8 = data_ov031_02290ca0.unknown_8_->unknown_18_[6];
+        Struct_ov031_02230120_2* var8 = gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_18_[6];
         inline_ov031_02230120(var8, (unsigned long*)&var0, (unsigned long*)&var1);
         inline_ov031_02230120_2(var8, var0, var3 + (6 - var2) * 29);
     } else {
-        inline_ov031_02230120_2(data_ov031_02290ca0.unknown_8_->unknown_18_[6], 256, 0);
+        inline_ov031_02230120_2(gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_18_[6], 256, 0);
     }
-    data_ov031_02290ca0.unknown_8_->unknown_44_ = 1;
+    gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_44_ = 1;
 }

@@ -8,8 +8,8 @@ enum { Enum_ov002_0215b720_3000 = 0xbb8, Enum_ov002_0215b720_6 = 6, Enum_ov002_0
 #endif
 
 extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
-extern "C" void* func_020e2ff8(void);
-extern "C" void func_020e3368(unsigned char* arg0, unsigned char arg1);
+extern "C" void* GetWirelessLockTable_020e2ff8(void);
+extern "C" void QueueWirelessLockRequest_020e3368(unsigned char* lockTable, unsigned char lockId);
 
 struct Struct_ov002_0215b720 {
     unsigned int unknown_0_0_ : 5;
@@ -40,8 +40,8 @@ extern "C" ARM int func_ov002_0215b720(unsigned char* arg0, int arg1) {
     }
 
     if (var0 != 0) {
-        void* var4 = func_020e2ff8();
-        func_020e3368((unsigned char*)var4, 1);
+        void* var4 = GetWirelessLockTable_020e2ff8();
+        QueueWirelessLockRequest_020e3368((unsigned char*)var4, 1);
     }
 
     return var0;

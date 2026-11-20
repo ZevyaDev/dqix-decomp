@@ -56,12 +56,12 @@ struct Struct_0203e2c4 {
 };
 
 struct Struct_02033834;
-struct Struct_0203e2c4_2;
+struct NPC_0203e2c4_2;
 struct Struct_0203d028_15;
 
 extern "C" void *FindNPCById_0203df78(void *npcManager, int id);
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834 *object, int angle);
-extern "C" void func_02040b2c(struct Struct_0203e2c4_2 *arg0, int arg1);
+extern "C" void SetNPCFacingInstantly_02040b2c(struct NPC_0203e2c4_2 *npc, int angle);
 extern "C" void func_02040774(struct Struct_0203d028_15 *arg0, int arg1, int arg2, int arg3);
 
 // USA: func_0203e2c4
@@ -94,7 +94,7 @@ extern "C" ARM void func_0203e2c4(void *arg0, unsigned short arg1) {
                     *(Vector3i *) ((char*)var5->unknown_1c_ + 0x44) = var8;
                     SetFacingInstantly_02033874((struct Struct_02033834 *) var5->unknown_1c_, var9);
                 }
-                func_02040b2c((struct Struct_0203e2c4_2 *) var5, var9);
+                SetNPCFacingInstantly_02040b2c((struct NPC_0203e2c4_2 *) var5, var9);
                 func_02040af0(var5, var9);
                 if (var1->unknown_9_1_) {
                     var5->flags_0_ |= 0x8000;

@@ -64,7 +64,7 @@ struct Struct_ov031_0224c980_3 {
     unsigned long long unknown_78_;
 };
 extern Struct_ov031_0224cca8_2 data_ov031_0224cca8[8];
-extern const Struct_ov031_0224c980_3 data_ov031_0224c980[];
+extern const Struct_ov031_0224c980_3 gIPStack_ov031_0224c980[];
 
 static inline unsigned short inline_ov031_02202b78(unsigned short arg0) {
     return (arg0 >> 8) | (arg0 << 8);
@@ -105,7 +105,7 @@ extern "C" ARM Struct_ov031_02202b78* func_ov031_02202b78(Struct_ov031_02202b78*
     if (var10 == 8) {
         if (!var2 || var7 > 4096) return NULL;
         var3 = var2;
-        var3->unknown_34_ = static_cast<unsigned char*>(data_ov031_0224c980[0].unknown_14_(var1 + 14 + 4096));
+        var3->unknown_34_ = static_cast<unsigned char*>(gIPStack_ov031_0224c980[0].unknown_14_(var1 + 14 + 4096));
         if (!var3->unknown_34_) return NULL;
         var3->unknown_0_ = var8;
         var3->unknown_6_ = var0;
@@ -116,7 +116,7 @@ extern "C" ARM Struct_ov031_02202b78* func_ov031_02202b78(Struct_ov031_02202b78*
     }
     if (var3->unknown_4_ == 8 || var7 > 4096) {
         var3->unknown_4_ = 0;
-        data_ov031_0224c980[0].unknown_40_(var3->unknown_34_);
+        gIPStack_ov031_0224c980[0].unknown_40_(var3->unknown_34_);
         return NULL;
     }
     var9 = var4 + ((var6 + 7) >> 3);

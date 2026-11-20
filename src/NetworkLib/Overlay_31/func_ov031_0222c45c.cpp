@@ -22,27 +22,27 @@ struct Struct_ov031_02290c8c_11 {
     unsigned char unknown_1_[3];
     Struct_ov031_0222c45c_2* unknown_4_;
 };
-extern Struct_ov031_02290c8c_11 data_ov031_02290c8c;
+extern Struct_ov031_02290c8c_11 gAccessPointListPage_ov031_02290c8c;
 
 // USA: func_ov031_0222c45c
 extern "C" ARM void func_ov031_0222c45c(int arg0, int arg1) {
     unsigned short var0[0x11];
-    int var1 = func_ov031_0223dd34(data_ov031_02290c8c.unknown_4_->unknown_0_[arg0].unknown_0_, 0x20);
+    int var1 = func_ov031_0223dd34(gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_0_[arg0].unknown_0_, 0x20);
     int var2 = arg1 * 0x1c;
-    if (arg0 >= data_ov031_02290c8c.unknown_4_->unknown_51_) return;
+    if (arg0 >= gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_51_) return;
     if (var1 <= 0x10) var2 += 6;
     VectorizedMemset(var0, 0, sizeof(var0));
     int var3 = var1 <= 0x10 ? var1 : 0x10;
     int var4;
     for (var4 = 0; var4 < var3; var4++) {
-        var0[var4] = data_ov031_02290c8c.unknown_4_->unknown_0_[arg0].unknown_0_[var4];
+        var0[var4] = gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_0_[arg0].unknown_0_[var4];
     }
-    func_ov031_0223c8d4(data_ov031_02290c8c.unknown_4_->unknown_c_, 10, var2, 2, 10, var0, 1);
+    func_ov031_0223c8d4(gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_c_, 10, var2, 2, 10, var0, 1);
     if (var1 <= 0x10) return;
     VectorizedMemset(var0, 0, sizeof(var0));
     var1 -= 0x10;
     for (var4 = 0; var4 < var1; var4++) {
-        var0[var4] = data_ov031_02290c8c.unknown_4_->unknown_0_[arg0].unknown_0_[var4 + 0x10];
+        var0[var4] = gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_0_[arg0].unknown_0_[var4 + 0x10];
     }
-    func_ov031_0223c8d4(data_ov031_02290c8c.unknown_4_->unknown_c_, 10, var2 + 0xc, 2, 10, var0, 1);
+    func_ov031_0223c8d4(gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_c_, 10, var2 + 0xc, 2, 10, var0, 1);
 }

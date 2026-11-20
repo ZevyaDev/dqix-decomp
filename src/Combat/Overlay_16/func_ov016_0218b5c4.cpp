@@ -75,7 +75,7 @@ extern "C" void func_02028d68(int arg0);
 extern "C" void func_02028ddc(void* arg0);
 extern "C" void func_02028dec(int);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
-extern "C" void SetOrthographicProjection_020c5770(int top, int bottom, int left, int right, int nearPlane, int farPlane, int arg6, int isLoadedAsProjection, void* projectionMatrix);
+extern "C" void SetOrthographicProjection_020c5770(int top, int bottom, int left, int right, int nearPlane, int farPlane, int matrixScale, int isLoadedAsProjection, void* projectionMatrix);
 extern "C" int func_ov016_0218bc70(int arg0);
 extern "C" void func_ov016_0218e00c(Struct_ov016_0218b5c4_3* arg0);
 struct Struct_ov016_0218b5c4_4;
@@ -105,11 +105,11 @@ extern "C" void func_020bbcb4();
 extern "C" void func_020290ac(int arg0);
 extern "C" void func_020e57e0(Struct_020e57e0* arg0);
 extern "C" void func_020e57f4(int, int, Struct_02013fb4*, int);
-extern "C" int GetTitleState_0201201c(void* arg0);
+extern "C" int GetTitleState_0201201c(void* gameState);
 struct Struct_ov016_0218b5c4_6;
 extern "C" Struct_ov016_0218b5c4_2* func_ov016_0218e124(Struct_ov016_0218b5c4_6**, int);
 extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4* manager, int fadeDuration);
-extern "C" void func_0203ad88(void* arg0, void* arg1, int arg2);
+extern "C" void StopStream_0203ad88(void* manager, void* handle, int fadeDuration);
 extern "C" void UpdateSound_020bbd9c();
 extern "C" void func_0205e8d4(void* arg0);
 extern "C" void func_0203a950(void* arg0);
@@ -285,7 +285,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
 #if !defined(jpn)
             if (var19->unknown_11_ != 0) {
                 StopMusic_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
-                func_0203ad88(&gMusicManager_02109bf4, 0, 0);
+                StopStream_0203ad88(&gMusicManager_02109bf4, 0, 0);
                 UpdateSound_020bbd9c();
                 func_0205e8d4(&gSoundEffectManager_02108760);
                 func_0203a950(&gMusicManager_02109bf4);

@@ -100,12 +100,12 @@ struct Struct_ov023_021fc518_2 {
     SafeAllocator unknown_4_;
 };
 
-struct Struct_ov023_021f6ed8;
+struct MenuObject_ov023_021f6ed8;
 struct TextureVRAMArea_0203d028;
 struct Camera_0202e5c0;
 struct Struct_0202df68;
 
-extern "C" void func_ov023_021f6ed8(Struct_ov023_021f6ed8* arg0);
+extern "C" void InitMenuObjectBase_ov023_021f6ed8(MenuObject_ov023_021f6ed8* object);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" Struct_ov023_021fc518_3* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" Struct_ov023_021fc518_2* func_ov011_021845f8(void* arg0, int arg1);
@@ -125,7 +125,7 @@ extern "C" void DisableCameraFollow_020a27a0(void* camera);
 
 // USA: func_ov023_021fc518
 extern "C" ARM int func_ov023_021fc518(Struct_ov023_021fc518* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5) {
-    func_ov023_021f6ed8((Struct_ov023_021f6ed8*)arg0);
+    InitMenuObjectBase_ov023_021f6ed8((MenuObject_ov023_021f6ed8*)arg0);
     arg0->unknown_4_ = 5;
     arg0->unknown_6_ = arg2;
     arg0->unknown_8_ = arg3;

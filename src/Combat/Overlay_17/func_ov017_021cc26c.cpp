@@ -7,7 +7,7 @@
 
 extern "C" void* func_ov017_021b8478(void* battleManager);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
-extern "C" void StopGesture_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* gameObject);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 
 struct Struct_02037d88_2;

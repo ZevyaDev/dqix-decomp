@@ -28,29 +28,29 @@ extern unsigned char data_ov023_021ffa0c;
 struct Struct_ov023_021fda88 { unsigned int unknown_0_; unsigned int unknown_4_; };
 extern struct Struct_ov023_021fda88 data_ov023_021fda88[];
 
-// USA: func_ov023_021dc488
-extern "C" ARM int func_ov023_021dc488(void* arg0) {
+// USA: UpdateItemInfoPanel_ov023_021dc488
+extern "C" ARM int UpdateItemInfoPanel_ov023_021dc488(void* panel) {
     func_ov023_021db110(&data_ov023_021ffa0c);
     if (!(data_ov023_021ff9e0.unknown_1c_ & 1)) {
         data_ov023_021fda60.unknown_40_ = gNullMemberFunctionPointer_020e6d5c;
         data_ov023_021ff9e0.unknown_1c_ |= 1;
     }
-    unsigned char var0 = *((unsigned char*)arg0
+    unsigned char state = *((unsigned char*)panel
 #if defined(jpn)
  + 0x6f2
 #else
  + 0x776
 #endif
 );
-    if (data_ov023_021fda88[var0].unknown_0_ == 0) return 1;
-    struct Struct_ov023_021fda88* var1 = &data_ov023_021fda88[var0];
-    void* var2 = (char*)arg0 + ((int)var1->unknown_4_ >> 1);
-    void* var3;
-    if (var1->unknown_4_ & 1) {
-        var3 = *(void**)((char*)*(void**)var2 + var1->unknown_0_);
+    if (data_ov023_021fda88[state].unknown_0_ == 0) return 1;
+    struct Struct_ov023_021fda88* stateMethod = &data_ov023_021fda88[state];
+    void* adjustedThis = (char*)panel + ((int)stateMethod->unknown_4_ >> 1);
+    void* stateFunction;
+    if (stateMethod->unknown_4_ & 1) {
+        stateFunction = *(void**)((char*)*(void**)adjustedThis + stateMethod->unknown_0_);
     } else {
-        var3 = (void*)var1->unknown_0_;
+        stateFunction = (void*)stateMethod->unknown_0_;
     }
-    ((void(*)(void*))var3)(var2);
+    ((void(*)(void*))stateFunction)(adjustedThis);
     return 0;
 }

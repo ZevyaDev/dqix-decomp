@@ -3,7 +3,7 @@
 
 struct MenuLayout_0207fdcc_2;
 struct TextWindow_0207fdcc;
-extern "C" struct TextWindow_0207fdcc* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
+extern "C" struct TextWindow_0207fdcc* FindMenuLayoutWindow_02081da8(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 extern "C" void func_ov003_02173f08(char* arg0, char* arg1, char* arg2, char* arg3);
 
@@ -25,7 +25,7 @@ extern "C" ARM int func_ov003_021782a0(struct MenuLayout_0207fdcc_2* arg0) {
     return 0;
 #else
     struct MenuLayout_0207fdcc_2* var2 = *(struct MenuLayout_0207fdcc_2**)((char*)arg0 + 0x89c);
-    struct TextWindow_0207fdcc* var3 = func_02081da8(var2, 10);
+    struct TextWindow_0207fdcc* var3 = FindMenuLayoutWindow_02081da8(var2, 10);
     if (!var3)
         return 0;
     if (!IsTextWindowReady_0204c7cc((unsigned char*)var3))

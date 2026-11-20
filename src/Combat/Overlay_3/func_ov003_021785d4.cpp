@@ -13,7 +13,7 @@ enum { Enum_ov003_021785d4_4088 = 0xff8 };
 #endif
 
 
-extern "C" short func_02080468(void* arg0, int arg1);
+extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
 extern "C" void func_ov003_02178548(void* arg0);
 extern "C" void func_ov003_021767ec(void* arg0);
 extern "C" void func_ov003_021769ec(void* arg0);
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov003_021785d4(char* arg0) {
 
     if (var1 != 0) {
         void* var2 = *(void**)(arg0 + Enum_ov003_021785d4_2204);
-        short var3 = func_02080468(var2, 3);
+        short var3 = GetMenuLayoutWindowFirstSelectableTextId_02080468(var2, 3);
         *(short*)(*(void**)(arg0 + Enum_ov003_021785d4_4088)) = var3;
         func_ov003_02178548(arg0);
         func_ov003_021767ec(arg0);

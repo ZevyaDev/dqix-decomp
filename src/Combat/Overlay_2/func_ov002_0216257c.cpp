@@ -22,7 +22,7 @@ extern "C" int GetResources_0200fb8c(int *gameState);
 extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(void *menu);
 extern "C" void func_ov002_0215c2c8(void *arg0);
-extern "C" void func_ov002_02156e90(void *arg0);
+extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(void *menu);
 extern "C" void GetZone3D_02012fe4(void);
 extern "C" void func_02017c58(void);
 extern "C" char gSoundEffectManager_02108760[];
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov002_0216257c(char *arg0) {
             func_02017c58();
         } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + RG(0x1b00, 0x1a00) + RG(0xe2, 0xaa)) = -1;
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
         }
     }
 }

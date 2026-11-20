@@ -20,7 +20,7 @@ extern "C" void func_02094d00(Struct_020134e0_2*);
 extern "C" void func_02012fa4(char* arg0);
 extern "C" void func_020982b4(void* arg0);
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
-extern "C" int GetTitleState_0201201c(void* arg0);
+extern "C" int GetTitleState_0201201c(void* gameState);
 struct Struct_02000c9c_12;
 extern "C" unsigned char func_020115a8(Struct_02000c9c_12*);
 

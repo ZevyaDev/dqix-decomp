@@ -38,12 +38,12 @@ struct Struct_ov000_0215767c_2 {
 
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" void* func_ov000_0215e9d8(void* arg0);
-extern "C" void func_ov000_02160030(void* arg0);
+extern "C" void InitBattleAction_ov000_02160030(void* action);
 extern "C" Struct_ov000_0215767c_8* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 extern "C" Struct_ov000_0215ab88_2* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" int IsDead_02010088(Struct_02010088* object);
-extern "C" int func_ov000_02153c0c(GameObject* arg0);
+extern "C" int HasLeftBattle_ov000_02153c0c(GameObject* combatant);
 extern "C" void func_02088e64(unsigned char* arg0);
 
 static inline GameObject* inline_ov000_0215ab88(int arg0) {
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov000_0215ab88(Struct_ov000_0215767c_2* arg0) {
         if (var1 == 0) {
             return;
         }
-        func_ov000_02160030(var1);
+        InitBattleAction_ov000_02160030(var1);
         var2 = &arg0->unknown_6060_[var0];
         var3 = GetActionActor_ov000_02160094(var2, 0);
         if (var3 == 0) {
@@ -88,11 +88,11 @@ extern "C" ARM void func_ov000_0215ab88(Struct_ov000_0215767c_2* arg0) {
         if (IsDead_02010088((Struct_02010088*)var5)) {
             continue;
         }
-        if (func_ov000_02153c0c(var5)) {
+        if (HasLeftBattle_ov000_02153c0c(var5)) {
             continue;
         }
         var6 = inline_ov000_02153aa4(var4->unknown_c_);
-        if (var6 == 0 || IsDead_02010088((Struct_02010088*)var6) || func_ov000_02153c0c(var6)) {
+        if (var6 == 0 || IsDead_02010088((Struct_02010088*)var6) || HasLeftBattle_ov000_02153c0c(var6)) {
             func_02088e64(((Struct_ov000_0215ab88*)var5)->unknown_138_);
             continue;
         }

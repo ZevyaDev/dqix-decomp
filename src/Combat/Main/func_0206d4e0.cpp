@@ -32,14 +32,14 @@ struct Struct_02108cec {
     void* unknown_10_;
     void* unknown_14_;
 };
-extern struct Struct_02108cec data_02108cec;
+extern struct Struct_02108cec gNPCPlacementParseState_02108cec;
 
 // USA: func_0206d4e0
 extern "C" ARM int func_0206d4e0(void* arg0, int arg1) {
     if (arg1 < 9) {
         return 0;
     }
-    data_02108cec.unknown_a_++;
+    gNPCPlacementParseState_02108cec.unknown_a_++;
     bool var0 = false;
     if (arg1 % 2 == 0) {
         var0 = true;
@@ -84,12 +84,12 @@ extern "C" ARM int func_0206d4e0(void* arg0, int arg1) {
 
     int var13 = ((Script::Parameter*)((struct Struct_0201c1c8*)((char*)var5 + 8)))->ToInt();
     int var14 = ((Script::Parameter*)((struct Struct_0201c1c8*)((char*)var5 + 0x10)))->ToInt();
-    if (var13 != data_02108cec.unknown_c_) {
-        func_0206dd68(data_02108cec.unknown_10_, var14);
+    if (var13 != gNPCPlacementParseState_02108cec.unknown_c_) {
+        func_0206dd68(gNPCPlacementParseState_02108cec.unknown_10_, var14);
         return 1;
     }
 
-    struct Struct_0206bf2c* var15 = (struct Struct_0206bf2c*)((SafeAllocator*)data_02108cec.unknown_14_)->Allocate(0x78);
+    struct Struct_0206bf2c* var15 = (struct Struct_0206bf2c*)((SafeAllocator*)gNPCPlacementParseState_02108cec.unknown_14_)->Allocate(0x78);
     if (var15 == 0) {
         return 0;
     }
@@ -98,7 +98,7 @@ extern "C" ARM int func_0206d4e0(void* arg0, int arg1) {
     int var16 = arg1 - var3 * 2 - var0;
     var15->unknown_0_ = (unsigned char)var14;
     if (var16 < 4) {
-        func_0206dd68(data_02108cec.unknown_10_, var15->unknown_0_);
+        func_0206dd68(gNPCPlacementParseState_02108cec.unknown_10_, var15->unknown_0_);
         return 1;
     }
 
@@ -107,8 +107,8 @@ extern "C" ARM int func_0206d4e0(void* arg0, int arg1) {
     if (var0) {
         var15->unknown_1e_ = (unsigned char)((Script::Parameter*)((struct Struct_0201c1c8*)((char*)var17 + 8)))->ToInt();
     }
-    var15->unknown_44_ = data_02108cec.unknown_a_;
+    var15->unknown_44_ = gNPCPlacementParseState_02108cec.unknown_a_;
     var15->unknown_a_2_ = 1;
-    func_0206db48(data_02108cec.unknown_10_, var15);
+    func_0206db48(gNPCPlacementParseState_02108cec.unknown_10_, var15);
     return 1;
 }

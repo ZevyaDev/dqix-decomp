@@ -31,7 +31,7 @@ extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 extern "C" int GetInventoryItemByID(char *arg0, int arg1, int arg2);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(void *menu);
 extern "C" void func_ov002_02161b98(char *arg0);
-extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
+extern "C" void RebuildMenuWindowText_ov002_0215b9a4(char *menu, unsigned char windowId, int hasCursorMark);
 extern "C" void func_ov002_0215b458(char *arg0, int arg1);
 extern "C" int func_0205df38(void *arg0, int arg1);
 extern "C" void func_ov023_021dc9e8(char *arg0, SafeAllocator *arg1, int arg2, char *arg3, int arg4);
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
         *(short *) (arg0 + 0x1ac2) = -1;
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + 0xe20), 0, 2);
         ConfigureMenuCursors_ov002_02161cf0(arg0);
-        func_ov002_0215b9a4(arg0, 5, 0);
+        RebuildMenuWindowText_ov002_0215b9a4(arg0, 5, 0);
         *(int *) (arg0 + 0x1a88) += 1;
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xe20), 4, 1);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xe20), 5, 0);
@@ -134,7 +134,7 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
         *(short *) (arg0 + 0x1b00 + 0xfa) = -1;
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2 *) (arg0 + 0x2c8 + 0xc00), 0, 2);
         ConfigureMenuCursors_ov002_02161cf0(arg0);
-        func_ov002_0215b9a4(arg0, 5, 0);
+        RebuildMenuWindowText_ov002_0215b9a4(arg0, 5, 0);
         *(int *) (arg0 + 0x1000 + 0xbc0) += 1;
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0x2c8 + 0xc00), 4, 1);
         SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0x2c8 + 0xc00), 5, 0);

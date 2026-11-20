@@ -59,7 +59,7 @@ extern "C" int func_ov004_0215eb20(void*, int);
 extern "C" int func_ov004_0215e460();
 extern "C" void func_ov004_0215e49c(void*, int, int);
 extern "C" int func_ov004_0215e4e8(void*, short);
-extern "C" Struct_ov004_0216276c_2* func_ov004_0215e47c(void*, int);
+extern "C" Struct_ov004_0216276c_2* FindMenuObject_ov004_0215e47c(void*, int);
 
 // USA: func_ov004_0216276c
 extern "C" ARM int func_ov004_0216276c(void* arg0) {
@@ -123,7 +123,7 @@ extern "C" ARM int func_ov004_0216276c(void* arg0) {
             int var13 = 13;
             var13 += var5;
             int var14 = func_ov004_0215e4e8(arg0, static_cast<short>(var13));
-            var10 = func_ov004_0215e47c(arg0, var13);
+            var10 = FindMenuObject_ov004_0215e47c(arg0, var13);
             if (var10) {
                 Vector3i var15;
                 const Vector3i& var16 = var10->inline_ov004_0216276c_27();
@@ -132,7 +132,7 @@ extern "C" ARM int func_ov004_0216276c(void* arg0) {
 #if defined(jpn)
                 var15.y += 0x2000;
 #endif
-                var10 = func_ov004_0215e47c(arg0, var5 + 38);
+                var10 = FindMenuObject_ov004_0215e47c(arg0, var5 + 38);
                 if (var10) {
                     var10->inline_ov004_0216276c_26(var15);
                     var10->unknown_38_ = var12 + 0x1d3;

@@ -223,7 +223,7 @@ extern "C" void func_02048588(unsigned char* arg0, unsigned char* arg1);
 extern "C" void func_ov000_02166784(struct Struct_ov000_02161c0c_3* arg0, unsigned char* arg1, unsigned char* arg2);
 extern "C" void func_ov000_021677fc(void* arg0);
 extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
-extern "C" int func_02049ee8(unsigned char* arg0);
+extern "C" int IsCombatantOnBattlefield_02049ee8(unsigned char* combatant);
 extern "C" void func_020d7334(unsigned char* arg0, int arg1);
 extern "C" void func_02049f3c(unsigned char* arg0);
 extern "C" void func_ov000_02167434(unsigned char* arg0, int arg1);
@@ -800,7 +800,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         SetMotion_02033b88((struct Struct_02010604*)var59, 0);
         var59->obj3D_.SkipAnimationTransition();
     } else if (func_ov000_0215fd90(var49, 0xd)) {
-        if (func_02049ee8((unsigned char*)var59)) {
+        if (IsCombatantOnBattlefield_02049ee8((unsigned char*)var59)) {
             SetMotion_02033b88((struct Struct_02010604*)var59, 4);
         }
         func_020d7334((unsigned char*)var5, var48);
@@ -886,7 +886,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
             }
         skipFlash:
             if (((struct Struct_ov025_021d8c30_7*)((unsigned char*)var59 + 0xc1))->unknown_0_4_ != 1 && !var10 &&
-                func_02049ee8((unsigned char*)var59)) {
+                IsCombatantOnBattlefield_02049ee8((unsigned char*)var59)) {
                 var59->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef3f5, 9);
             }
         }

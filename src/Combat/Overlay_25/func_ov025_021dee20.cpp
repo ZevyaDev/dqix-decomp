@@ -18,7 +18,7 @@ struct Struct_ov025_021ded50;
 struct Struct_ov000_0215fef0;
 
 extern "C" int func_ov025_021deda0(struct Struct_ov025_021ded50* arg0, struct Struct_ov025_021ded50_2* arg1);
-extern "C" void func_ov000_02160030(void* arg0);
+extern "C" void InitBattleAction_ov000_02160030(void* action);
 extern "C" void func_ov000_0215fe64(void* arg0);
 extern "C" void func_ov000_0215fef0(struct Struct_ov000_0215fef0* arg0);
 
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov025_021dee20(void* arg0) {
     if (!var2) {
         return;
     }
-    func_ov000_02160030(var2);
+    InitBattleAction_ov000_02160030(var2);
     var2->unknown_0_ = var0.unknown_2_;
 
     GameState* var3 = GameState::GetInstance();

@@ -27,7 +27,7 @@ extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int fl
 struct QueueNode_02015438;
 extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
-extern "C" int GetTitleState_0201201c(void* arg0);
+extern "C" int GetTitleState_0201201c(void* gameState);
 
 struct Struct_ov017_0218d0ec_3;
 

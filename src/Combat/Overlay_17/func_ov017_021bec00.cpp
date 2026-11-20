@@ -194,7 +194,7 @@ extern "C" ARM void func_ov017_021bec00(Struct_ov017_021bec00_2* arg0) {
         ResetMessageWindow_02043204((char*)var2);
         EnablePlayerControl_020397c0(var0->GetUnknownGameObject());
         FontLoader_0208cb08* var16 = GetFontLoader_02094a00();
-        func_02094b38(var16, 0x1f9);
+        ClearLoadedFontSet_02094b38(var16, 0x1f9);
         CancelFontLoad_02094ab0(var16);
         func_ov017_021bef84(arg0);
         arg0->unknown_1_ = 1;

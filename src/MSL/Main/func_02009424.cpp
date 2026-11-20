@@ -4,31 +4,31 @@ extern "C" double func_020085cc(double arg0, double arg1, int arg2);
 extern "C" int func_02007028(double arg0, double* arg1);
 extern "C" double func_020076f0(double arg0, double arg1);
 
-// USA: func_02009424
-extern "C" ARM double func_02009424(double arg0) {
-    double var0[2];
-    double var1 = 0.0;
-    int var2;
-    int var3;
+// USA: ComputeSine_02009424
+extern "C" ARM double ComputeSine_02009424(double angle) {
+    double reducedAngle[2];
+    double angleTail = 0.0;
+    int quadrant;
+    int highWord;
 
-    var3 = ((int*)&arg0)[1];
+    highWord = ((int*)&angle)[1];
 
-    var3 &= 0x7fffffff;
-    if (var3 <= 0x3fe921fb) {
-        return func_020085cc(arg0, var1, 0);
-    } else if (var3 >= 0x7ff00000) {
-        return arg0 - arg0;
+    highWord &= 0x7fffffff;
+    if (highWord <= 0x3fe921fb) {
+        return func_020085cc(angle, angleTail, 0);
+    } else if (highWord >= 0x7ff00000) {
+        return angle - angle;
     } else {
-        var2 = func_02007028(arg0, var0);
-        switch (var2 & 3) {
+        quadrant = func_02007028(angle, reducedAngle);
+        switch (quadrant & 3) {
         case 0:
-            return func_020085cc(var0[0], var0[1], 1);
+            return func_020085cc(reducedAngle[0], reducedAngle[1], 1);
         case 1:
-            return func_020076f0(var0[0], var0[1]);
+            return func_020076f0(reducedAngle[0], reducedAngle[1]);
         case 2:
-            return -func_020085cc(var0[0], var0[1], 1);
+            return -func_020085cc(reducedAngle[0], reducedAngle[1], 1);
         default:
-            return -func_020076f0(var0[0], var0[1]);
+            return -func_020076f0(reducedAngle[0], reducedAngle[1]);
         }
     }
 }

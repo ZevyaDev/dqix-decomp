@@ -131,12 +131,12 @@ extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0* window);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
-extern "C" int func_02086bf4(char* arg0, int arg1);
+extern "C" int CountItemInBags_02086bf4(char* party, int itemId);
 extern "C" int GetMessageChoice_020457e0(MessageWindow_020465c0* window);
 extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" int func_ov017_021a85e8(unsigned char* arg0, int arg1);
 extern "C" void* InitItemTable_020de824(void* itemTable);
-extern "C" void func_0207cbe8(char* arg0);
+extern "C" void ResetItemContext_0207cbe8(char* itemContext);
 extern "C" void func_0207cf30(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void EnablePlayerControl_020397c0(void* object);
@@ -285,7 +285,7 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
 #endif
         AppendText_02042058(var16, (char*)((char*)((StringList*)(arg0->unknown_1c_))->GetString(0x64)));
         AppendText_02042058(var16, (char*)((char*)((StringList*)(arg0->unknown_1c_))->GetString(0x78)));
-        if (func_02086bf4((char*)GetParty_02010828(var0), arg0->unknown_30_) == 0x63) {
+        if (CountItemInBags_02086bf4((char*)GetParty_02010828(var0), arg0->unknown_30_) == 0x63) {
             AppendText_02042058(var16, (char*)((char*)((StringList*)(arg0->unknown_1c_))->GetString(0x70)));
             arg0->unknown_3a_ |= 1;
         } else {
@@ -355,8 +355,8 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
                 Struct_ov017_021a7e14_3* var20 = FindItemData_020dedd0(arg0->unknown_2c_, arg0->unknown_30_);
                 Struct_ov017_021a7e14_4 var21;
                 InitItemTable_020de824(var21.unknown_14_);
-                func_0207cbe8((char*)&var21);
-                func_0207cbe8((char*)&var21);
+                ResetItemContext_0207cbe8((char*)&var21);
+                ResetItemContext_0207cbe8((char*)&var21);
                 var21.unknown_2c_ = arg0->unknown_2c_;
                 if ((unsigned char)var20->unknown_8_0_ == 8) {
                     func_0207cf30(&var21, arg0->unknown_30_, 1, 0);

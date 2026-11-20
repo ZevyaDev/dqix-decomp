@@ -30,7 +30,7 @@ struct BattleScene_ov000_02160da0 {
 extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 extern "C" struct Struct_ov000_021626a0* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
-extern "C" int func_02049ee8(unsigned char* arg0);
+extern "C" int IsCombatantOnBattlefield_02049ee8(unsigned char* combatant);
 extern "C" void func_020d76b8(struct Struct_020d76b8* arg0, int arg1);
 extern "C" void func_020d76d8(unsigned char* arg0, int arg1);
 extern "C" int func_ov000_0215fc60(char* arg0);
@@ -69,7 +69,7 @@ extern "C" ARM void SetObjectsVisibleBySelector_ov000_021626a0(BattleScene_ov000
             enemy = GetEnemyByIndex_0200fea4(gameState, indices[i]);
             if (enemy != NULL) {
                 enemyRecord = enemy->unknown_148_;
-                if (func_02049ee8((unsigned char*)enemy) == 0 && enemyRecord->unknown_13_3_) {
+                if (IsCombatantOnBattlefield_02049ee8((unsigned char*)enemy) == 0 && enemyRecord->unknown_13_3_) {
                     isShown = 0;
                 }
             }

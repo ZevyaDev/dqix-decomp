@@ -38,7 +38,7 @@ struct Struct_020e280c {
 struct SoundEffectManager_02108760;
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" int OpenMenuLayoutWindow_020813ec(void*, int);
-extern "C" void func_0208203c(KeyRepeat_02081f20_2*);
+extern "C" void ResetKeyRepeat_0208203c(KeyRepeat_02081f20_2*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_02080c04(MenuLayout_0207fdcc_2*, int);
 extern "C" void func_020e280c(Struct_020e280c*, void*);
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov006_02159db0(Struct_ov006_02159db0* arg0) {
     arg0->unknown_35e_ = arg0->unknown_36c_ = 0x22;
     arg0->unknown1_14_->unknown_36_ = arg0->unknown_36c_;
     OpenMenuLayoutWindow_020813ec(arg0->unknown1_14_, arg0->unknown_36e_);
-    func_0208203c(&arg0->unknown_9c_);
+    ResetKeyRepeat_0208203c(&arg0->unknown_9c_);
     arg0->unknown_44_ = 0;
     if (arg0->unknown_18_ == 0)
         return;

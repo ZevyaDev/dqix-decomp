@@ -45,7 +45,7 @@ struct Struct_02114330
 
 extern "C" void GetMACAddress_020c99ac(void* macAddress);
 extern "C" int func_020d41e8();
-extern "C" Struct_020d424c_2* func_020d41d8();
+extern "C" Struct_020d424c_2* GetWirelessDriver_020d41d8();
 extern "C" unsigned short func_020d46fc();
 extern "C" unsigned short func_020d46cc();
 
@@ -78,7 +78,7 @@ extern "C" ARM int func_020d4770(unsigned short arg0, Type_020d42e0 arg1, void* 
         return var0;
     }
     {
-        Struct_020d424c_2* const var3 = func_020d41d8();
+        Struct_020d424c_2* const var3 = GetWirelessDriver_020d41d8();
         var3->unknown_cc_[arg0] = arg1;
         var3->unknown_10c_[arg0] = arg2;
     }

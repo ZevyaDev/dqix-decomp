@@ -24,12 +24,12 @@ extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 struct TextWindowManager_0205da38;
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" int func_0205df38(void *arg0, int arg1);
-extern "C" TimedMessageQueue_020d7aa0_2 *func_020d7a50();
+extern "C" TimedMessageQueue_020d7aa0_2 *GetTimedMessageQueue_020d7a50();
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2 *queue);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int func_ov002_0216364c(void *arg0);
 extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
-extern "C" void func_ov002_02156e90(void *arg0);
+extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(void *menu);
 
 extern "C" char gSoundEffectManager_02108760;
 
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov002_02165378(char *arg0) {
         if (*(unsigned int *) (arg0 + 0x22ac) & 2) {
             return;
         }
-        ClearTimedMessageQueue_020d7aa0(func_020d7a50());
+        ClearTimedMessageQueue_020d7aa0(GetTimedMessageQueue_020d7a50());
         *(unsigned char *) (arg0 + 0xed8) = *(int *) (arg0 + 0x1a80);
         *(unsigned int *) (arg0 + 0x22ac) &= ~4;
         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
@@ -126,7 +126,7 @@ extern "C" ARM void func_ov002_02165378(char *arg0) {
     if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
         *(short *) (arg0 + 0x1ac0)       = -1;
         *(signed char *) (arg0 + 0x1ae8) = -1;
-        func_ov002_02156e90(arg0);
+        ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
     }
 }
 #else
@@ -191,7 +191,7 @@ extern "C" ARM void func_ov002_02165378(char *arg0) {
         if (*(unsigned int *) (arg0 + 0x247c) & 2) {
             return;
         }
-        ClearTimedMessageQueue_020d7aa0(func_020d7a50());
+        ClearTimedMessageQueue_020d7aa0(GetTimedMessageQueue_020d7a50());
         *(unsigned char *) (arg0 + 0xf80) = *(int *) (arg0 + 0x1bb8);
         *(unsigned int *) (arg0 + 0x247c) &= ~4;
         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
@@ -219,7 +219,7 @@ extern "C" ARM void func_ov002_02165378(char *arg0) {
     if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
         *(short *) (arg0 + 0x1bf8)       = -1;
         *(signed char *) (arg0 + 0x1c20) = -1;
-        func_ov002_02156e90(arg0);
+        ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
     }
 }
 #endif

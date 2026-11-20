@@ -81,7 +81,7 @@ void SetBrightness(GameResources*, int, int);
 extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4*, int);
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 int IsBrightnessTransitionActive(GameResources*);
-extern "C" void func_020dc2bc();
+extern "C" void SuspendMapDisplay_020dc2bc();
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void LoadFileTables_020a0c0c();
@@ -99,7 +99,7 @@ extern "C" void* GetNPCManager_0203cf4c();
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void func_0203e0a0(void*, unsigned short);
 extern "C" void func_ov017_0219bf74();
-extern "C" int func_020981e4(int, int);
+extern "C" int IsQuestersRestZone_020981e4(int, int);
 extern "C" void func_ov017_021a316c(GameResources*);
 extern "C" void func_0203d008(unsigned char*);
 extern "C" int func_ov006_02157d7c(Struct_ov017_021b1564*, unsigned int);
@@ -182,7 +182,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         return;
     } else if (arg0->unknown_48_ == 1) {
         if (IsBrightnessTransitionActive(var1)) return;
-        func_020dc2bc();
+        SuspendMapDisplay_020dc2bc();
         ++arg0->unknown_48_;
         return;
     } else if (arg0->unknown_48_ == 2) {
@@ -231,7 +231,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         Zone3D* var11 = GetZone3D_02012fe4();
         func_0203e0a0(var10, var11->currentZoneID_);
         func_ov017_0219bf74();
-        if (func_020981e4((int)var11->unk_840, inline_ov017_021b1564(var11))) {
+        if (IsQuestersRestZone_020981e4((int)var11->unk_840, inline_ov017_021b1564(var11))) {
             func_ov017_021a316c(var1);
             var1->allocator_array_38[7].Reset();
         }

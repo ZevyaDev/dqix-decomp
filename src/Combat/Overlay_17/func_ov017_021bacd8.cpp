@@ -28,7 +28,7 @@ extern "C" void func_ov017_021bac8c(struct Struct_ov017_021bac8c* arg0);
 
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void LoadFileTables_020a0c0c(void);
-extern "C" int func_ov017_021959b4(void);
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 
 extern "C" void func_ov003_0215c650(void* arg0);
 extern "C" void func_ov003_0215c568(void* arg0, void* arg1);
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov017_021bacd8(Struct_ov017_021bacd8* arg0) {
         return;
     }
     if (var5 == 1) {
-        if (func_ov017_021959b4() != 0) {
+        if (IsLocalWirelessHostDisconnected_ov017_021959b4() != 0) {
             func_ov003_0215caa4(arg0->unknown_20_);
         }
         if (func_ov003_0215c924(arg0->unknown_20_, var4) != 0) {

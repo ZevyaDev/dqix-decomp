@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int func_020becd4(void* arg0);
-extern "C" int func_0203ad88(void* arg0, void* arg1, int arg2);
+extern "C" int StopStream_0203ad88(void* manager, void* handle, int fadeDuration);
 extern "C" int func_0203ad14(void* arg0, int arg1, void* arg2, int arg3);
 typedef int (*Type_0203ae4c)(void*, short, void*, int);
 
@@ -31,7 +31,7 @@ extern "C" ARM void func_0203ae4c(void* arg0, int arg1, void* arg2) {
             }
 
             var3 = *(short*)(var0 + 0xa4);
-            var4 = func_0203ad88(arg0, arg2, 0);
+            var4 = StopStream_0203ad88(arg0, arg2, 0);
             *(int*)(var0 + 0xa8) = var4;
             *(short*)(var0 + 0xa4) = var3;
 

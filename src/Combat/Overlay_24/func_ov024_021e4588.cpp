@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_ov024_021de124;
-extern "C" int func_ov024_021de25c(struct Struct_ov024_021de124* arg0);
+extern "C" int IsConfused_ov024_021de25c(struct Struct_ov024_021de124* combatant);
 extern "C" void func_020883fc(void* arg0);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
 
@@ -17,7 +17,7 @@ extern "C" ARM unsigned long long func_ov024_021e4588(struct Struct_ov024_021e45
 	union { struct { int unknown_0_; int unknown_4_; }; unsigned long long unknown1_0_; } var1;
 	var1.unknown_0_ = 0;
 	var1.unknown_4_ = 0;
-	if (func_ov024_021de25c((struct Struct_ov024_021de124*)var0)) {
+	if (IsConfused_ov024_021de25c((struct Struct_ov024_021de124*)var0)) {
 		func_020883fc(var0->currentStats_);
 		struct Struct_ov024_021e4588_2* var2 = (struct Struct_ov024_021e4588_2*)var0->currentStats_;
 		var2->unknown_3b_ = (var2->unknown_3b_ & ~1) | 1;

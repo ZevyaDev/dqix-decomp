@@ -15,12 +15,12 @@ enum { Enum_ov002_0215b9a4_3784 = 0xec8, Enum_ov002_0215b9a4_7120 = 0x1bd0, Enum
 class Struct_ov002_0215b9a4 {
 public:
     unsigned char unknown_0_[Enum_ov002_0215b9a4_3784];
-    Struct_ov023_021d9c7c unknown_ec8_;
+    Struct_ov023_021d9c7c windowManager_ec8_;
     unsigned char unknown_f84_[Enum_ov002_0215b9a4_7096 - Enum_ov002_0215b9a4_3784 - sizeof(Struct_ov023_021d9c7c)];
-    int unknown_1bb8_;
+    int activeWindowId_1bb8_;
     unsigned char unknown_1bbc_[Enum_ov002_0215b9a4_7116 - Enum_ov002_0215b9a4_7096 - sizeof(int)];
-    int unknown_1bcc_;
-    void* unknown_1bd0_;
+    int isLinkedRedrawPending_1bcc_;
+    void* pTextBuffer_1bd0_;
 };
 
 typedef void (Struct_ov002_0215b9a4::*Type_ov002_0215b9a4)(void *buf, int flag);
@@ -46,69 +46,69 @@ struct TextWindow_0205d0e0 {
 };
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 
-// USA: func_ov002_0215b9a4
+// USA: RebuildMenuWindowText_ov002_0215b9a4
 // JPN: func_ov002_0215cb1c
-extern "C" ARM void func_ov002_0215b9a4(Struct_ov002_0215b9a4 *arg0, unsigned char arg1, int arg2) {
-    TextWindow_0205d0e0* var0 = FindTextWindow_0205d81c(((TextWindowManager_0205d81c*)(&arg0->unknown_ec8_)), arg1);
-    if (var0 == 0) {
+extern "C" ARM void RebuildMenuWindowText_ov002_0215b9a4(Struct_ov002_0215b9a4 *menu, unsigned char windowId, int hasCursorMark) {
+    TextWindow_0205d0e0* window = FindTextWindow_0205d81c(((TextWindowManager_0205d81c*)(&menu->windowManager_ec8_)), windowId);
+    if (window == 0) {
         return;
     }
-    if (arg2) {
-        var0->unknown_c5_ |= 0x40;
+    if (hasCursorMark) {
+        window->unknown_c5_ |= 0x40;
     } else {
-        var0->unknown_c5_ &= ~0x40;
+        window->unknown_c5_ &= ~0x40;
     }
-    int var1 = 0;
-    if (var0->unknown_c5_ & 2) {
-        var1 = 1;
+    int hasFrame = 0;
+    if (window->unknown_c5_ & 2) {
+        hasFrame = 1;
     }
-    memset(arg0->unknown_1bd0_, 0, Enum_ov002_0215b9a4_2400);
+    memset(menu->pTextBuffer_1bd0_, 0, Enum_ov002_0215b9a4_2400);
     if (!(data_ov002_0216d3b0[1] & 1)) {
-        Type_ov002_0215b9a4 var2      = gNullMemberFunctionPointer_020e6d5c;
-        data_ov002_0216cfac[0]  = var2;
+        Type_ov002_0215b9a4 nullBuilder      = gNullMemberFunctionPointer_020e6d5c;
+        data_ov002_0216cfac[0]  = nullBuilder;
 #if defined(jpn)
-        data_ov002_0216cfac[24] = var2;
-        data_ov002_0216cfac[31] = var2;
-        data_ov002_0216cfac[34] = var2;
-        data_ov002_0216cfac[35] = var2;
-        data_ov002_0216cfac[39] = var2;
-        data_ov002_0216cfac[43] = var2;
-        data_ov002_0216cfac[44] = var2;
-        data_ov002_0216cfac[45] = var2;
-        data_ov002_0216cfac[46] = var2;
+        data_ov002_0216cfac[24] = nullBuilder;
+        data_ov002_0216cfac[31] = nullBuilder;
+        data_ov002_0216cfac[34] = nullBuilder;
+        data_ov002_0216cfac[35] = nullBuilder;
+        data_ov002_0216cfac[39] = nullBuilder;
+        data_ov002_0216cfac[43] = nullBuilder;
+        data_ov002_0216cfac[44] = nullBuilder;
+        data_ov002_0216cfac[45] = nullBuilder;
+        data_ov002_0216cfac[46] = nullBuilder;
 #else
-        data_ov002_0216cfac[23] = var2;
-        data_ov002_0216cfac[30] = var2;
-        data_ov002_0216cfac[36] = var2;
-        data_ov002_0216cfac[40] = var2;
-        data_ov002_0216cfac[41] = var2;
-        data_ov002_0216cfac[42] = var2;
-        data_ov002_0216cfac[43] = var2;
+        data_ov002_0216cfac[23] = nullBuilder;
+        data_ov002_0216cfac[30] = nullBuilder;
+        data_ov002_0216cfac[36] = nullBuilder;
+        data_ov002_0216cfac[40] = nullBuilder;
+        data_ov002_0216cfac[41] = nullBuilder;
+        data_ov002_0216cfac[42] = nullBuilder;
+        data_ov002_0216cfac[43] = nullBuilder;
 #endif
         data_ov002_0216d3b0[1] |= 1;
     }
-    if (data_ov002_0216cfac[arg1] == 0) {
+    if (data_ov002_0216cfac[windowId] == 0) {
         return;
     }
-    (arg0->*data_ov002_0216cfac[arg1])(arg0->unknown_1bd0_, var1);
-    SetTextWindowText_0205d5d0(((TextWindowManager_0205d5d0*)(&arg0->unknown_ec8_)), arg1, ((int)(arg0->unknown_1bd0_)),
+    (menu->*data_ov002_0216cfac[windowId])(menu->pTextBuffer_1bd0_, hasFrame);
+    SetTextWindowText_0205d5d0(((TextWindowManager_0205d5d0*)(&menu->windowManager_ec8_)), windowId, ((int)(menu->pTextBuffer_1bd0_)),
 #if defined(jpn)
                              1);
 #else
                              0, 0);
 #endif
-    if (arg0->unknown_1bcc_ == 0) {
+    if (menu->isLinkedRedrawPending_1bcc_ == 0) {
         return;
     }
-    for (int var3 = 0; data_ov002_0216cae8[var3].unknown_0_ >= 0; var3++) {
-        if (arg0->unknown_1bb8_ == data_ov002_0216cae8[var3].unknown_0_) {
-            int var4 = data_ov002_0216caec[var3].unknown_0_;
-            memset(arg0->unknown_1bd0_, 0, Enum_ov002_0215b9a4_2400);
-            if (data_ov002_0216cfac[var4] == 0) {
+    for (int i = 0; data_ov002_0216cae8[i].unknown_0_ >= 0; i++) {
+        if (menu->activeWindowId_1bb8_ == data_ov002_0216cae8[i].unknown_0_) {
+            int linkedWindowId = data_ov002_0216caec[i].unknown_0_;
+            memset(menu->pTextBuffer_1bd0_, 0, Enum_ov002_0215b9a4_2400);
+            if (data_ov002_0216cfac[linkedWindowId] == 0) {
                 break;
             }
-            (arg0->*data_ov002_0216cfac[var4])(arg0->unknown_1bd0_, var1);
-            SetTextWindowText_0205d5d0(((TextWindowManager_0205d5d0*)(&arg0->unknown_ec8_)), static_cast<unsigned char>(var4), ((int)(arg0->unknown_1bd0_)),
+            (menu->*data_ov002_0216cfac[linkedWindowId])(menu->pTextBuffer_1bd0_, hasFrame);
+            SetTextWindowText_0205d5d0(((TextWindowManager_0205d5d0*)(&menu->windowManager_ec8_)), static_cast<unsigned char>(linkedWindowId), ((int)(menu->pTextBuffer_1bd0_)),
 #if defined(jpn)
                                      1);
 #else
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov002_0215b9a4(Struct_ov002_0215b9a4 *arg0, unsigned ch
 #endif
         }
     }
-    arg0->unknown_1bcc_ = 0;
+    menu->isLinkedRedrawPending_1bcc_ = 0;
 }
 
 #if defined(jpn)

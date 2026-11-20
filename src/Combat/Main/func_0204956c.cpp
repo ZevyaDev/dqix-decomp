@@ -20,7 +20,7 @@ struct Struct_02048f64_2;
 extern "C" int func_02048c68(unsigned char*);
 extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" void StopCombatantSidestep_02049ae4(unsigned char*);
-extern "C" int func_02049ee8(unsigned char*);
+extern "C" int IsCombatantOnBattlefield_02049ee8(unsigned char*);
 extern "C" int func_020494a0(unsigned char*);
 extern "C" int GetCombatantCell_020493a4(unsigned char*);
 extern "C" void func_020494c0(Struct_02048f64_2*);
@@ -46,7 +46,7 @@ extern "C" ARM void func_0204956c(Struct_0204956c_2* arg0) {
         StopCombatantSidestep_02049ae4(var0);
         return;
     }
-    if (!func_02049ee8(var0)) return;
+    if (!IsCombatantOnBattlefield_02049ee8(var0)) return;
     GameState* var1 = GameState::GetInstance();
     Struct_0204956c* var2 = arg0->unknown_13c_;
     Object3D* var3 = &arg0->unknown_0_.obj3D_;

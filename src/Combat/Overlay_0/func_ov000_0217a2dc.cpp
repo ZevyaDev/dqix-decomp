@@ -14,7 +14,7 @@ extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" int AppendPositionTag_02041a90(char* buffer, int x, int y);
-extern "C" int func_02041cc0(char* arg0, int arg1);
+extern "C" int AppendHorizontalLineTag_02041cc0(char* buffer, int y);
 #if defined(jpn)
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380(void*);
@@ -133,6 +133,6 @@ extern "C" ARM void func_ov000_0217a2dc(struct Struct_ov000_0217a2dc* arg0, int 
     const char* var14 = (const char*)((int)((StringList*)(var0))->GetString(0x21));
     AppendPositionTag_02041a90(arg2, (0xb0 - func_020420e8(var14, 0)) >> 1, 5);
     AppendText_02042058(arg2, var14);
-    func_02041cc0(arg2, 0x11);
+    AppendHorizontalLineTag_02041cc0(arg2, 0x11);
 #endif
 }

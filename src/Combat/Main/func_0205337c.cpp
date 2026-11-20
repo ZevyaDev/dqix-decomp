@@ -25,7 +25,7 @@ extern "C" int func_02046708(struct GlobalFlags_02012de8* globalFlags, unsigned 
 struct Struct_02015ef4 { int unknown_0_; int unknown_4_; int unknown_8_; };
 extern "C" ARM int func_0202ec84(void* camera, struct Struct_02015ef4* worldPosition, int* outX, int* outY);
 
-struct Struct_02015ef4_2;
+struct SPRSprite_02015ef4_2;
 
 struct Struct_0205337c {
     unsigned char unknown_0_[0x1c];
@@ -90,6 +90,6 @@ extern "C" ARM void func_0205337c(struct Struct_0205337c_2* arg0) {
     var9->unknown_20_ = var8 << 12;
     var9->unknown_24_ = -0xa000;
 
-    ((SPRSprite*)((struct Struct_02015ef4_2*)arg0->unknown_190_))->DrawAnimatedNoRotation(1);
+    ((SPRSprite*)((struct SPRSprite_02015ef4_2*)arg0->unknown_190_))->DrawAnimatedNoRotation(1);
     *(volatile int*)0x4000448 = 1;
 }

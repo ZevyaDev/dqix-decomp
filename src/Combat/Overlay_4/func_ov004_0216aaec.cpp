@@ -69,7 +69,7 @@ extern "C" void func_02046608(struct MessageWindow_020465c0* arg0, int arg1, voi
 #endif
 extern "C" void func_ov023_021f8960(char* arg0, short arg1, unsigned short arg2);
 extern "C" void func_02021410(struct Struct_02021410* arg0, int arg1, int arg2);
-extern "C" void func_020213fc(struct Struct_020213fc* arg0, int arg1);
+extern "C" void SetSubScreenFadeInHeld_020213fc(struct Struct_020213fc* subScreenDisplay, int isHeld);
 
 extern struct Struct_ov004_02170138 data_ov004_02170138;
 
@@ -132,6 +132,6 @@ extern "C" ARM int func_ov004_0216aaec(void* arg0) {
 
     struct Struct_02021410* var13 = (struct Struct_02021410*)GetGameResources()->unknown_ptr_36d0;
     func_02021410(var13, 1, 0);
-    func_020213fc((struct Struct_020213fc*)var13, 0);
+    SetSubScreenFadeInHeld_020213fc((struct Struct_020213fc*)var13, 0);
     return 0;
 }

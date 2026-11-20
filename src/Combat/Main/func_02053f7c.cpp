@@ -7,10 +7,10 @@ enum { Enum_02053f7c_178 = 0xb2 };
 
 #include "GameState/GameState.h"
 
-struct Struct_02053f7c {
+struct Party_02053f7c {
     char unknown_0_[0xf78];
-    unsigned char unknown_f78_[4];
-    unsigned char unknown_f7c_;
+    unsigned char memberObjectIndices_f78_[4];
+    unsigned char memberCount_f7c_;
 };
 
 struct Struct_02053f7c_2 {
@@ -29,12 +29,12 @@ extern "C" void* GetParty_02010828(GameState* gameState);
 
 // USA: func_02053f7c
 extern "C" ARM void func_02053f7c(Struct_02053f7c_3* arg0, unsigned short arg1, int arg2) {
-    struct Struct_02053f7c* var0 = (struct Struct_02053f7c*)GetParty_02010828(GameState::GetInstance());
+    struct Party_02053f7c* var0 = (struct Party_02053f7c*)GetParty_02010828(GameState::GetInstance());
     int var1 = 0;
     int var2;
     if (var0 != NULL) {
-        for (var2 = 0; var2 < var0->unknown_f7c_; var2++) {
-            unsigned char var3 = var0->unknown_f78_[var2];
+        for (var2 = 0; var2 < var0->memberCount_f7c_; var2++) {
+            unsigned char var3 = var0->memberObjectIndices_f78_[var2];
             if (var3 == arg0->unknown_4_) {
                 var1 = 1;
                 break;

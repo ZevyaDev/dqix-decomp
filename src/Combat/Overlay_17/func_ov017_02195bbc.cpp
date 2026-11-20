@@ -24,7 +24,7 @@ extern "C" void* func_02010768(void* arg0);
 extern "C" void func_ov017_021a3dcc(int arg0);
 extern "C" void func_02016874(Zone3D* arg0);
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
-extern "C" int GetTitleState_0201201c(void* arg0);
+extern "C" int GetTitleState_0201201c(void* gameState);
 extern "C" void func_0202343c(void* arg0);
 extern "C" Struct_0203dde0_2* GetNPCManager_0203cf4c();
 extern "C" void func_0203de84(void* arg0);

@@ -3,12 +3,12 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "std_library_functions.h"
 
-struct Struct_ov024_021de25c { char unknown_0_[0x14]; int unknown_14_; };
-struct Struct_ov024_021de124 { char unknown_0_[0x138]; struct Struct_ov024_021de25c* unknown_138_; };
+struct Struct_ov024_021de25c { char unknown_0_[0x14]; int statusFlags_14_; };
+struct Struct_ov024_021de124 { char unknown_0_[0x138]; struct Struct_ov024_021de25c* pCurrentStats_138_; };
 
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, unsigned short* indices, int maxCount, int filterFlags);
-extern "C" int func_ov024_021de25c(struct Struct_ov024_021de124* arg0);
-extern "C" int func_ov024_021eda60(GameObject* arg0);
+extern "C" int IsConfused_ov024_021de25c(struct Struct_ov024_021de124* combatant);
+extern "C" int IsReflecting_ov024_021eda60(GameObject* combatant);
 
 extern unsigned short data_ov024_021febcc;
 
@@ -31,8 +31,8 @@ extern "C" ARM int func_ov024_021f063c(int* arg0, int arg1, int arg2, int* arg3,
     for (var7 = 0; var7 < var5; var7++) {
         GameObject* var8 = GetCombatantByID(*arg0, *(short*)&var0[var7]);
         if (!var8) continue;
-        if (func_ov024_021de25c((struct Struct_ov024_021de124*)var8)) continue;
-        if (func_ov024_021eda60(var8)) continue;
+        if (IsConfused_ov024_021de25c((struct Struct_ov024_021de124*)var8)) continue;
+        if (IsReflecting_ov024_021eda60(var8)) continue;
         unsigned char* var9 = (unsigned char*)var8->currentStats_;
         int var10 = var9[0x4a];
         if (var10 > 0) var6++;

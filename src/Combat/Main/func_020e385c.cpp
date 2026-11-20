@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 
-struct Struct_020e385c {
-    unsigned int unknown_0_;
-    unsigned char unknown_4_;
+struct EventSyncEntry_020e385c {
+    unsigned int eventId_0_;
+    unsigned char type_4_;
 };
 
-// USA: func_020e385c
-extern "C" ARM struct Struct_020e385c* func_020e385c(struct Struct_020e385c* arg0, int arg1, int arg2) {
-    int var0;
-    for (var0 = 0; var0 < 4; var0++, arg0++) {
-        if (arg0->unknown_4_ == arg1) {
-            if (arg0->unknown_0_ == arg2 || arg2 == -1) {
-                return arg0;
+// USA: FindEventSyncEntry_020e385c
+extern "C" ARM struct EventSyncEntry_020e385c* FindEventSyncEntry_020e385c(struct EventSyncEntry_020e385c* entry, int type, int eventId) {
+    int i;
+    for (i = 0; i < 4; i++, entry++) {
+        if (entry->type_4_ == type) {
+            if (entry->eventId_0_ == eventId || eventId == -1) {
+                return entry;
             }
         }
     }

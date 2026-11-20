@@ -63,7 +63,7 @@ extern "C" int *func_0202ae18();
 extern "C" void * GetResources_0200fb8c(int*);
 extern "C" Struct_ov003_0215d150_2 *GetMessageWindow_020421a0();
 extern "C" void *GetNPCManager_0203cf4c();
-extern "C" unsigned char *func_020e2ff8();
+extern "C" unsigned char *GetWirelessLockTable_020e2ff8();
 extern "C" int IsNotLocalWirelessGuest_0202c508(int *);
 extern "C" void ResetMessageWindow_02043204(char*);
 struct Struct_0201099c_3;
@@ -80,22 +80,22 @@ int IsBrightnessTransitionActive(GameResources*);
 struct Struct_02109bf4_3;
 extern "C" void ResetMusic_0209c20c(Struct_02109bf4_3*);
 extern "C" void PlayJingle_0209c6d8(void*, int);
-extern "C" void func_020e3368(unsigned char *, unsigned char);
-struct Struct_0208ab34;
-extern "C" int func_020e34bc(Struct_0208ab34*, int);
+extern "C" void QueueWirelessLockRequest_020e3368(unsigned char *, unsigned char);
+struct WirelessLockTable_0208ab34;
+extern "C" int GetWirelessLockStatus_020e34bc(WirelessLockTable_0208ab34*, int);
 extern "C" char *GetGameObjectByIndex_0200ff94(GameState *, int);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
-extern "C" void func_020e3428(void *, int);
-struct Struct_0208ab34_2;
-extern "C" void func_020e3468(Struct_0208ab34_2*, int);
+extern "C" void ReleaseWirelessLock_020e3428(void *, int);
+struct WirelessLock_0208ab34_2;
+extern "C" void func_020e3468(WirelessLock_0208ab34_2*, int);
 extern "C" void func_ov017_021a2fa0(void *);
 extern "C" void GetZone3D_02012fe4();
 extern "C" void func_ov017_0219bd1c(int, int, int, int);
 extern "C" void func_ov017_021921fc(void *, int, int);
-extern "C" int func_0209ca2c(void *);
+extern "C" int IsJinglePlaying_0209ca2c(void *);
 extern "C" void func_0209c7fc(void *);
-struct Struct_0203e2c4_2;
-extern "C" void func_02040b2c(Struct_0203e2c4_2*, int);
+struct NPC_0203e2c4_2;
+extern "C" void SetNPCFacingInstantly_02040b2c(NPC_0203e2c4_2*, int);
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
     int *var3           = func_0202ae18();
     void *var4          = GetNPCManager_0203cf4c();
     GameObject *var5    = var0->GetUnknownGameObject();
-    unsigned char *var6 = func_020e2ff8();
+    unsigned char *var6 = GetWirelessLockTable_020e2ff8();
     unsigned char var7;
     int var8;
     int var9;
@@ -172,11 +172,11 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
         arg0->unknown_3b8_ = arg0->unknown_3b8_ + 1;
     }
     if (var7 == 3) {
-        func_020e3368(var6, 1);
+        QueueWirelessLockRequest_020e3368(var6, 1);
         arg0->unknown_3b8_ = arg0->unknown_3b8_ + 1;
     }
     if (var7 == 4) {
-        int var12 = func_020e34bc((Struct_0208ab34*)var6, 1);
+        int var12 = GetWirelessLockStatus_020e34bc((WirelessLockTable_0208ab34*)var6, 1);
         if (var12 == 1 || arg0->unknown_3f4_ != 0) {
             unsigned char *var13              = (unsigned char *)GetParty_02010828(var0);
             *(unsigned int *) (var13 + 0xf6c) = *(unsigned int *) (var13 + 0xf6c) - arg0->unknown_3cc_;
@@ -194,10 +194,10 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
                     case 3: var0->SetDayTimer(arg0->unknown_3e0_); break;
                 }
             }
-            func_020e3428(var6, 1);
+            ReleaseWirelessLock_020e3428(var6, 1);
             arg0->unknown_3b8_ = arg0->unknown_3b8_ + 1;
         } else if ((unsigned int) (var12 - 3) <= 2) {
-            func_020e3468((Struct_0208ab34_2*)var6, 1);
+            func_020e3468((WirelessLock_0208ab34_2*)var6, 1);
             arg0->unknown_3b8_ = 3;
         }
     }
@@ -211,7 +211,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
         }
     }
     if (var7 == 6) {
-        if (func_0209ca2c(&gMusicManager_02109bf4) != 0) {
+        if (IsJinglePlaying_0209ca2c(&gMusicManager_02109bf4) != 0) {
             return;
         }
         func_0209c7fc(&gMusicManager_02109bf4);
@@ -221,7 +221,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
         arg0->unknown_3ed_ = 0;
         void *var15 = FindNPCById_0203df78(var4, (*(Struct_ov003_0215d4fc **) ((char *) GetGameResources() + 0x3000 + Enum_ov003_0215d4fc_1808))->unknown_12c_);
         if (var15 != 0) {
-            func_02040b2c((Struct_0203e2c4_2*)var15, arg0->unknown_3f8_);
+            SetNPCFacingInstantly_02040b2c((NPC_0203e2c4_2*)var15, arg0->unknown_3f8_);
         }
         arg0->unknown_3b8_ = arg0->unknown_3b8_ + 1;
     } else if (arg0->unknown_3b8_ == 7) {

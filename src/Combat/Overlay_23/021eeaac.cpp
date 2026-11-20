@@ -29,9 +29,9 @@ extern "C" int func_ov023_021ed92c();
 extern "C" void func_020de848(void* itemTable);
 extern "C" int LoadItemTableByIds_020de9a4(void* itemTable, void* allocator, void* fileData, unsigned int fileSize, void* itemIds, unsigned short itemIdCount);
 extern "C" void* InitItemTable_020de824(void* itemTable);
-extern "C" void func_0207cbe8(char* arg0);
+extern "C" void ResetItemContext_0207cbe8(char* itemContext);
 extern "C" int AddItem_0207d300(void* itemContext, int itemId, int count, int isAliveRequired);
-extern "C" int func_0207ccf0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" int AddItemToPartyMember_0207ccf0(void* itemContext, int itemId, int count, int memberIndex, int isBagAllowed, int arg5, int arg6);
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" LocalWireless_0202b2f0* func_0202ae18(void);
@@ -156,8 +156,8 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
             var9--;
             ((SafeAllocator*)var18)->ResetAllocatorPointer();
             InitItemTable_020de824(var18 + 0x14);
-            func_0207cbe8(var18);
-            func_0207cbe8(var18);
+            ResetItemContext_0207cbe8(var18);
+            ResetItemContext_0207cbe8(var18);
             *(void**)(var18 + 0x2c) = *(void**)(arg0 + Enum_ov023_021eeaac_22796);
             AddItem_0207d300(var18, var10[var9], 1, 0);
         }
@@ -178,8 +178,8 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
             for (var27 = 0; var27 < var9; var27++, var20++) {
                 ((SafeAllocator*)var25)->ResetAllocatorPointer();
                 InitItemTable_020de824(var25 + 0x14);
-                func_0207cbe8(var25);
-                func_0207cbe8(var25);
+                ResetItemContext_0207cbe8(var25);
+                ResetItemContext_0207cbe8(var25);
                 *(void**)(var25 + 0x2c) = var19;
                 var6 = var20->unknown_5_;
                 if (var6 < 0) {
@@ -190,7 +190,7 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
                             var6 = var28;
                         }
                     }
-                    var26 = func_0207ccf0(var25, var20->unknown_0_, 1, var6, 1, 0, 1);
+                    var26 = AddItemToPartyMember_0207ccf0(var25, var20->unknown_0_, 1, var6, 1, 0, 1);
                 }
                 var20->unknown_2_ &= ~0x8000;
                 if (var26 == 2) {

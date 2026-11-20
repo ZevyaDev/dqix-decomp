@@ -5,7 +5,7 @@
 
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" int func_ov024_021eda60(GameObject* arg0);
+extern "C" int IsReflecting_ov024_021eda60(GameObject* combatant);
 
 extern unsigned short data_ov024_021feb34;
 
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov024_021ee20c(int* arg0, int arg1, int arg2, int* arg3,
     var7 = 0;
     for (; var7 < var5; var7++) {
         GameObject* var9 = GetCombatantByID(*arg0, var0[var7]);
-        if (var9 && func_ov024_021eda60(var9)) {
+        if (var9 && IsReflecting_ov024_021eda60(var9)) {
             var6[var8] = var0[var7];
             var8++;
         }

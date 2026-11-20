@@ -110,9 +110,9 @@ struct Struct_ov003_021575dc_4 {
 
 extern "C" void* GetParty_02010828(GameState*);
 
-extern "C" int func_02080468(void* arg0, int arg1);
+extern "C" int GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
 struct KeyRepeat_02081f20_2;
-extern "C" void func_0208203c(KeyRepeat_02081f20_2*);
+extern "C" void ResetKeyRepeat_0208203c(KeyRepeat_02081f20_2*);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 struct MenuLayout_0207fe44;
@@ -123,10 +123,10 @@ extern "C" void func_ov003_0215873c(void* arg0);
 extern "C" void func_ov003_02158a50(unsigned char*);
 struct MusicManager_02109bf4_2;
 extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
-extern "C" int func_0209ca2c(void* arg0);
+extern "C" int IsJinglePlaying_0209ca2c(void* manager);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" void* InitItemTable_020de824(void* itemTable);
-extern "C" void func_0207cbe8(char* arg0);
+extern "C" void ResetItemContext_0207cbe8(char* itemContext);
 extern "C" void func_0207cc0c(char* arg0);
 extern "C" int func_ov023_021ed6cc(int arg0);
 struct Struct_020a13c4;
@@ -135,8 +135,8 @@ extern "C" void func_020a13e4(void* arg0, void* arg1, int arg2, unsigned short a
 struct Struct_020a1180;
 extern "C" void func_020a1380(Struct_020a1180*);
 extern "C" void func_ov003_021580a0(Struct_ov003_021575dc*);
-struct Struct_020a15bc;
-extern "C" void* func_020a15bc(Struct_020a15bc*, int);
+struct AccoladeTable_020a15bc;
+extern "C" void* FindAccolade_020a15bc(AccoladeTable_020a15bc*, int);
 struct Struct_ov003_021575dc_2;
 extern "C" void func_ov003_02158140(Struct_ov003_021575dc_2*, int);
 
@@ -149,13 +149,13 @@ extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_020dc2d0(int);
 struct GameResources;
 ARM int IsBrightnessTransitionActive(GameResources*);
-extern "C" ARM void* func_0208247c(void* arg0);
+extern "C" ARM void* ClearLevelEntries_0208247c(void* levelEntries);
 
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" ARM int OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" void AddItem_0207d300(void* itemContext, int itemId, int count, int isAliveRequired);
 extern "C" void* func_0205ec34(void);
-extern "C" void func_02082490(void* arg0, void* arg1, int arg2, int arg3, int arg4);
+extern "C" void ReadLevelEntries_02082490(void* destination, void* scriptData, int scriptSize, int level, int experience);
 extern "C" void func_ov003_02158334(void* arg0);
 extern "C" int func_ov003_021550dc(void* arg0);
 extern "C" int func_ov003_02155208(void* arg0);
@@ -170,7 +170,7 @@ extern "C" void func_ov023_021eb138(void* arg0, int arg1);
 extern "C" void func_ov023_021eb080(void* arg0, void* arg1);
 extern "C" void func_ov023_021eb564(void* arg0, void* arg1, int arg2);
 extern "C" void func_ov023_021eb43c(void* arg0);
-extern "C" void func_ov023_021eb26c(void* arg0);
+extern "C" void DestroyAccoladeDisplay_ov023_021eb26c(void* display);
 
 extern char gSoundEffectManager_02108760;
 extern char data_ov003_0217fdbb;
@@ -200,22 +200,22 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
         case 4: var0->unknown_1e6_ = 5; break;
         }
         if (var0->unknown_1e2_ < 0) {
-            short var8 = (short)func_02080468(var6, var0->unknown_1e6_);
+            short var8 = (short)GetMenuLayoutWindowFirstSelectableTextId_02080468(var6, var0->unknown_1e6_);
             var0->unknown_1e2_ = var8;
             var0->unknown_1e8_ = var0->unknown_1e2_;
         }
         var6->unknown_36_ = var0->unknown_1e2_;
         func_ov003_02158334(arg0);
-        func_0208203c((KeyRepeat_02081f20_2*)var0->unknown_80_);
+        ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)var0->unknown_80_);
         var0->unknown_8_ = 0;
         var0->unknown_1f9_ = var0->unknown_1f9_ + 1;
     } else if (var3 == 1) {
         var0->unknown_8_ = &var0->unknown_1e2_;
         if (func_ov003_021550dc(arg0) != 0) {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
-            func_0208203c((KeyRepeat_02081f20_2*)var0->unknown_80_);
+            ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)var0->unknown_80_);
             var0->unknown_8_ = 0;
-            int var9 = func_02080468(var6, var0->unknown_1e6_);
+            int var9 = GetMenuLayoutWindowFirstSelectableTextId_02080468(var6, var0->unknown_1e6_);
             short var10 = var0->unknown_1e2_ - var9;
             unsigned char var11 = var0->unknown_1f2_[var10];
             var0->unknown_1f7_ = var11;
@@ -287,9 +287,9 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
         if (var20->GetTaskStatus(var0->unknown_1d0_) != 0) {
             void* var21; unsigned int var22;
             var20->GetLoadedFileByID(var0->unknown_1d0_, &var21, &var22);
-            func_0208247c(var0->unknown_90_);
+            ClearLevelEntries_0208247c(var0->unknown_90_);
             if (var21 != 0) {
-                func_02082490(var0->unknown_90_, var21, var22, 1, 0);
+                ReadLevelEntries_02082490(var0->unknown_90_, var21, var22, 1, 0);
             }
             var20->RemoveTask(var0->unknown_1d0_);
             var0->unknown_1d0_ = -1;
@@ -332,7 +332,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
         QueueJingle_0209c830((MusicManager_02109bf4_2*)&gMusicManager_02109bf4, 0x34);
         var0->unknown_1f9_ = var0->unknown_1f9_ + 1;
     } else if (var3 == 0xa) {
-        if (func_0209ca2c(&gMusicManager_02109bf4) != 0) {
+        if (IsJinglePlaying_0209ca2c(&gMusicManager_02109bf4) != 0) {
             goto tail;
         }
         if (var0->unknown_280_.HasAnimationStopped() == 0) {
@@ -358,8 +358,8 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
                 char var37[0x38];
                 ((SafeAllocator*)var37)->ResetAllocatorPointer();
                 InitItemTable_020de824(var37 + 0x14);
-                func_0207cbe8(var37);
-                func_0207cbe8(var37);
+                ResetItemContext_0207cbe8(var37);
+                ResetItemContext_0207cbe8(var37);
                 *(void**)(var37 + 0x2c) = var0->unknown_178_;
                 AddItem_0207d300(var37, var0->unknown_1f0_, 1, 0);
                 func_0207cc0c(var37);
@@ -411,7 +411,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
             int var49 = 0;
             for (int var50 = 0; var50 < var39; var50++) {
                 short var51 = var38[var50];
-                void* var52 = func_020a15bc((Struct_020a15bc*)var45, var51);
+                void* var52 = FindAccolade_020a15bc((AccoladeTable_020a15bc*)var45, var51);
                 if (var52 != 0) {
                     func_ov003_021580a0(&var46[var49]);
                     func_ov003_021580d8(&var46[var49], var52);
@@ -483,7 +483,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
         if (var0->unknown_204_ != 0) {
             func_ov023_021eb43c(var0->unknown_204_);
             if (*(unsigned short*)((char*)var0->unknown_204_ + 0x438) & 4) {
-                func_ov023_021eb26c(var0->unknown_204_);
+                DestroyAccoladeDisplay_ov023_021eb26c(var0->unknown_204_);
                 ((SafeAllocator*)(var0->unknown_0_ + 0x64))->Reset();
                 var0->unknown_200_ = 0;
                 var0->unknown_204_ = 0;

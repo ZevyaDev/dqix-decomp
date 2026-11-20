@@ -15,7 +15,7 @@ extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameSt
 extern "C" int func_02039874(void* arg0);
 extern "C" int func_02053604(signed char* arg0);
 
-extern "C" void StopGesture_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* gameObject);
 struct ObjectArchiveLoadInfo;
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_0205308c(void* arg0, int arg1);

@@ -8,7 +8,7 @@ extern unsigned short data_ov031_02248da0[];
 extern unsigned short data_ov031_02248da4[];
 extern signed char data_ov031_02290c50;
 extern "C" int func_ov031_0223d49c(Struct_ov031_02248d8e*);
-extern "C" void func_ov031_02222e20(int);
+extern "C" void SetButtonBarChoice_ov031_02222e20(int);
 extern "C" int AreKeysPressed_ov031_0223d354(int);
 extern "C" int func_ov031_0223d394(int);
 extern "C" void func_ov031_022237dc(unsigned short, unsigned short, unsigned short, unsigned short);
@@ -20,7 +20,7 @@ extern "C" ARM void func_ov031_02228258() {
     Struct_ov031_02248d8e* var1 = data_ov031_02248d8e;
     do {
         if (func_ov031_0223d49c(var1)) {
-            func_ov031_02222e20(1);
+            SetButtonBarChoice_ov031_02222e20(1);
             int var2 = (unsigned char)var0 * 4;
             unsigned short var3 = data_ov031_02248d9e[var2];
             unsigned short var4 = data_ov031_02248da2[var2];
@@ -33,8 +33,8 @@ extern "C" ARM void func_ov031_02228258() {
         var0++;
         var1++;
     } while ((unsigned int)var0 < 2);
-    if (AreKeysPressed_ov031_0223d354(1)) { func_ov031_02222e20(1); return; }
-    if (AreKeysPressed_ov031_0223d354(2)) { func_ov031_02222e20(0); return; }
+    if (AreKeysPressed_ov031_0223d354(1)) { SetButtonBarChoice_ov031_02222e20(1); return; }
+    if (AreKeysPressed_ov031_0223d354(2)) { SetButtonBarChoice_ov031_02222e20(0); return; }
     if (func_ov031_0223d394(0x40)) { func_ov031_022284ec(1); return; }
     if (func_ov031_0223d394(0x80)) { func_ov031_022284ec(3); return; }
     if (func_ov031_0223d394(0x20)) { func_ov031_022284ec(0); return; }

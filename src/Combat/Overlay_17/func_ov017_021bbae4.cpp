@@ -9,7 +9,7 @@ enum { Enum_ov017_021bbae4_204 = 0xcc };
 #include "GameState/GameState.h"
 
 extern "C" int GetStoryChapter_0201079c(char* gameState);
-extern "C" int func_020107d0(char* arg0);
+extern "C" int GetStoryStep_020107d0(char* gameState);
 extern "C" void ResetEventTask_ov017_021baedc(void* node, int isRestart);
 
 extern char data_ov017_021d7d8a[0xc];
@@ -59,8 +59,8 @@ extern "C" ARM void func_ov017_021bbae4(struct Struct_ov017_021bbae4* arg0, unsi
     char* var1 = (char*)var0;
     arg0->unknown_c_ = (unsigned char)GetStoryChapter_0201079c(var1);
     arg0->unknown_e_ = (unsigned char)GetStoryChapter_0201079c(var1);
-    arg0->unknown_d_ = (unsigned char)func_020107d0(var1);
-    arg0->unknown_f_ = (unsigned char)func_020107d0(var1);
+    arg0->unknown_d_ = (unsigned char)GetStoryStep_020107d0(var1);
+    arg0->unknown_f_ = (unsigned char)GetStoryStep_020107d0(var1);
 
     arg0->unknown_16_ = 1;
     arg0->unknown_10_ = 1;

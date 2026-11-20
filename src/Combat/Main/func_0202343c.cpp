@@ -27,7 +27,7 @@ struct Struct_0202343c_4;
 
 extern "C" void *func_020d6c00();
 extern "C" int func_02046708(GlobalFlags_02012de8 *globalFlags, unsigned int mask);
-extern "C" int *func_020936f8();
+extern "C" int *GetNoticeQueue_020936f8();
 extern "C" int func_0209497c(Struct_0202343c *arg0, int arg1);
 extern "C" int func_020949bc(Struct_0202343c_2 *arg0, int arg1);
 extern "C" void func_02093a58(char *arg0);
@@ -59,7 +59,7 @@ extern "C" ARM void func_0202343c(void *arg0) {
     if (func_02046708(static_cast<GlobalFlags_02012de8 *>(func_020d6c00()), 0x41)) return;
 
     GameResources *var1 = GetGameResources();
-    int *var2                = func_020936f8();
+    int *var2                = GetNoticeQueue_020936f8();
     if (var0->unknown_9c3_ || var0->unknown_9c2_ <= 0) {
         if (func_0209497c(reinterpret_cast<Struct_0202343c *>(var2), 4)) {
             func_02093a58(reinterpret_cast<char *>(var2));

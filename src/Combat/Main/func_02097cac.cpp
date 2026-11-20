@@ -22,7 +22,7 @@ extern "C" Struct_0208fa8c* GetZone3D_02012fe4();
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
-extern "C" int func_020981e4(int arg0, int arg1);
+extern "C" int IsQuestersRestZone_020981e4(int questersRest, int zoneId);
 extern "C" int func_02098240(int arg0, int arg1);
 extern "C" int func_02098210(int arg0, int arg1);
 extern "C" void func_020989cc(Struct_02097cac_2* arg0);
@@ -40,8 +40,8 @@ extern "C" ARM void func_02097cac(Struct_02097cac_2* arg0) {
     GameObject* var5;
     int var6 = var3->unknown_0_;
 
-    if (!func_020981e4((int)arg0, var4) &&
-        !func_020981e4((int)arg0, var6)) return;
+    if (!IsQuestersRestZone_020981e4((int)arg0, var4) &&
+        !IsQuestersRestZone_020981e4((int)arg0, var6)) return;
 
     var5 = var1->GetProtagonist();
 
@@ -64,7 +64,7 @@ extern "C" ARM void func_02097cac(Struct_02097cac_2* arg0) {
     } else {
         if (IsLocalWirelessGuest_0202c540(var0) == 0 || var2->unknown_65_ == 0) return;
         int var8 = arg0->unknown_1b3c_;
-        if (!func_020981e4((int)arg0, var4)) return;
+        if (!IsQuestersRestZone_020981e4((int)arg0, var4)) return;
         if (func_02098240((int)arg0, var4)) return;
         if (var4 == 0xc3bb) return;
         if (var4 == 0xc3bc) return;

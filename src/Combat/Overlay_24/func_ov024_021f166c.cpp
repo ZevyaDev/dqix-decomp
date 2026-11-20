@@ -6,8 +6,8 @@
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, unsigned short* indices, int maxCount, int filterFlags);
 struct Struct_ov024_021f1330;
 extern "C" int func_ov024_021f1440(struct Struct_ov024_021f1330* arg0);
-extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
-extern "C" int func_ov024_021eda60(GameObject* arg0);
+extern "C" GameObject* GetEnemyByID_ov000_021536f8(int battle, int index);
+extern "C" int IsReflecting_ov024_021eda60(GameObject* combatant);
 
 struct Struct_ov024_021f166c { int unknown_0_; };
 
@@ -26,7 +26,7 @@ extern unsigned short data_ov024_021fef6c;
 
 // USA: func_ov024_021f166c
 extern "C" ARM int func_ov024_021f166c(struct Struct_ov024_021f166c* arg0, short arg1, int arg2, int* arg3, void* arg4) {
-    GameObject* var0 = func_ov000_021536f8(arg0->unknown_0_, arg1);
+    GameObject* var0 = GetEnemyByID_ov000_021536f8(arg0->unknown_0_, arg1);
     if (!var0) return 0;
     if (!func_ov024_021f1440((struct Struct_ov024_021f1330*)var0)) return 0;
 
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov024_021f166c(struct Struct_ov024_021f166c* arg0, short
     for (int var7 = 0; var7 < var6; var7++) {
         GameObject* var8 = GetCombatantByID(arg0->unknown_0_, *(short*)&var1[var7]);
         if (!var8) continue;
-        if (func_ov024_021eda60(var8)) continue;
+        if (IsReflecting_ov024_021eda60(var8)) continue;
         struct Struct_ov024_021f166c_2* var9 = (struct Struct_ov024_021f166c_2*)((char*)var8->currentStats_ + 0x58);
         if (var9->unknown_2_5_ < 2) break;
     }

@@ -18,7 +18,7 @@ struct Struct_ov005_02153954
 };
 
 extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2* manager, int jingleIndex);
-extern "C" int func_0209ca2c(void* arg0);
+extern "C" int IsJinglePlaying_0209ca2c(void* manager);
 
 extern "C" MusicManager_02109bf4_2 gMusicManager_02109bf4;
 
@@ -35,7 +35,7 @@ extern "C" ARM int func_ov005_0215cb4c(Struct_ov005_02153954* arg0)
     }
     if (var0 == 1)
     {
-        if (func_0209ca2c(&gMusicManager_02109bf4))
+        if (IsJinglePlaying_0209ca2c(&gMusicManager_02109bf4))
             return 1;
         arg0->unknown_3dcc_ &= ~0x10000;
         arg0->unknown_3df3_ = 0;

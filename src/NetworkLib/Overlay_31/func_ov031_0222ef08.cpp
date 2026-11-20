@@ -19,7 +19,7 @@ struct Struct_ov031_02290ca0_3 {
 	struct Struct_ov031_0222ef08* unknown_8_;
 };
 
-extern struct Struct_ov031_02290ca0_3 data_ov031_02290ca0;
+extern struct Struct_ov031_02290ca0_3 gConnectionSettingsPage_ov031_02290ca0;
 
 extern "C" int func_ov031_0222f188(void);
 extern "C" ARM int AreKeysPressed_ov031_0223d354(int keys);
@@ -36,54 +36,54 @@ extern "C" ARM void* AddTask_ov031_0223e218(void* listIndex, void* callback, voi
 
 // USA: func_ov031_0222ef08
 extern "C" ARM void func_ov031_0222ef08(void) {
-	if (data_ov031_02290ca0.unknown_8_->unknown_38_ != 0 || data_ov031_02290ca0.unknown_8_->unknown_45_ != 0) {
+	if (gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_38_ != 0 || gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_45_ != 0) {
 		return;
 	}
 	if (func_ov031_0222f188() != 0) {
 		return;
 	}
 	if (AreKeysPressed_ov031_0223d354(1) != 0) {
-		func_ov031_0222f20c(data_ov031_02290ca0.unknown_0_);
+		func_ov031_0222f20c(gConnectionSettingsPage_ov031_02290ca0.unknown_0_);
 		return;
 	}
 	if (AreKeysPressed_ov031_0223d354(2) != 0) {
 		PlayWifiSetupSoundEffect_ov031_02236878(7);
-		data_ov031_02290ca0.unknown_8_->unknown_40_ = 0xd;
+		gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_40_ = 0xd;
 		SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222f68c);
 		return;
 	}
 	if (func_ov031_0223d394(0x200) != 0) {
-		if (data_ov031_02290ca0.unknown_4_ == 0x91) {
-			if (data_ov031_02290ca0.unknown_8_->unknown_47_ != 0) {
+		if (gConnectionSettingsPage_ov031_02290ca0.unknown_4_ == 0x91) {
+			if (gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_47_ != 0) {
 				return;
 			}
 			PlayWifiSetupSoundEffect_ov031_02236878(9);
-			data_ov031_02290ca0.unknown_8_->unknown_47_ = 1;
+			gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_47_ = 1;
 			return;
 		}
 		PlayWifiSetupSoundEffect_ov031_02236878(0x13);
-		data_ov031_02290ca0.unknown_8_->unknown_38_ = (int)AddTask_ov031_0223e218(0, (void*)func_ov031_022306d4, 0, 0x78);
+		gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_38_ = (int)AddTask_ov031_0223e218(0, (void*)func_ov031_022306d4, 0, 0x78);
 		return;
 	}
 	if (func_ov031_0223d3d4(0x200) != 0) {
-		data_ov031_02290ca0.unknown_8_->unknown_47_ = 0;
+		gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_47_ = 0;
 		return;
 	}
 	if (func_ov031_0223d394(0x100) != 0) {
-		if (data_ov031_02290ca0.unknown_4_ == 0) {
-			if (data_ov031_02290ca0.unknown_8_->unknown_47_ != 0) {
+		if (gConnectionSettingsPage_ov031_02290ca0.unknown_4_ == 0) {
+			if (gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_47_ != 0) {
 				return;
 			}
 			PlayWifiSetupSoundEffect_ov031_02236878(9);
-			data_ov031_02290ca0.unknown_8_->unknown_47_ = 1;
+			gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_47_ = 1;
 			return;
 		}
 		PlayWifiSetupSoundEffect_ov031_02236878(0x13);
-		data_ov031_02290ca0.unknown_8_->unknown_38_ = (int)AddTask_ov031_0223e218(0, (void*)func_ov031_0223060c, 0, 0x78);
+		gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_38_ = (int)AddTask_ov031_0223e218(0, (void*)func_ov031_0223060c, 0, 0x78);
 		return;
 	}
 	if (func_ov031_0223d3d4(0x100) != 0) {
-		data_ov031_02290ca0.unknown_8_->unknown_47_ = 0;
+		gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_47_ = 0;
 		return;
 	}
 	if (func_ov031_0223d394(0x40) != 0) {
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov031_0222ef08(void) {
 		return;
 	}
 	if (func_ov031_0223d3d4(0x40) != 0) {
-		data_ov031_02290ca0.unknown_8_->unknown_47_ = 0;
+		gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_47_ = 0;
 		return;
 	}
 	if (func_ov031_0223d394(0x80) != 0) {
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov031_0222ef08(void) {
 		return;
 	}
 	if (func_ov031_0223d3d4(0x80) != 0) {
-		data_ov031_02290ca0.unknown_8_->unknown_47_ = 0;
+		gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_47_ = 0;
 		return;
 	}
 	if (func_ov031_0223d394(0x20) != 0) {

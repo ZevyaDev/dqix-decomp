@@ -4,7 +4,7 @@
 
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void func_ov017_0219bcac(unsigned char arg0);
-extern "C" int* func_020936f8(void);
+extern "C" int* GetNoticeQueue_020936f8(void);
 extern "C" void QueueNotice_02094030(int*, short, short, signed char);
 
 // USA: func_ov017_0219bf04
@@ -25,6 +25,6 @@ extern "C" ARM void func_ov017_0219bf04(unsigned char arg0, int arg1) {
 		*(short*)((char*)var1 + Enum_ov017_0219bf04_17408 + Enum_ov017_0219bf04_178) = 0x4e23;
 		return;
 	}
-	int* var3 = func_020936f8();
+	int* var3 = GetNoticeQueue_020936f8();
 	QueueNotice_02094030(var3, 0x4e23, -1, 0);
 }

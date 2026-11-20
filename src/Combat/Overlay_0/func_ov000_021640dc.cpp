@@ -24,7 +24,7 @@ extern "C" void func_ov000_02164d74(struct Struct_ov000_021640dc_4* arg0);
 extern "C" void func_ov000_021674f4(unsigned char* arg0, int arg1);
 extern "C" unsigned char* func_0208a9b4(void);
 extern "C" void func_0208b4c0(unsigned char* arg0);
-extern "C" void func_ov000_02160d80(void* arg0, int arg1);
+extern "C" void SetBattleSceneState_ov000_02160d80(void* battleScene, int state);
 extern "C" void func_ov000_021750e4(void* arg0);
 extern "C" void func_ov000_021760d4(void* arg0);
 
@@ -121,7 +121,7 @@ extern "C" ARM void func_ov000_021640dc(struct Struct_ov000_021640dc_4* arg0) {
     arg0->unknown_2a0_->unknown_30_ = 0;
     func_ov000_021674f4((unsigned char*)arg0, arg0->unknown_2a0_->unknown_2c_ == 0);
     func_0208b4c0(func_0208a9b4());
-    func_ov000_02160d80(arg0, 7);
+    SetBattleSceneState_ov000_02160d80(arg0, 7);
     SetBattleSceneFlags_ov000_02160fa8(arg0, 0x10000);
     SetBattleSceneFlags_ov000_02160fa8(arg0, 0x40000000);
     arg0->unknown_3760_.unknown_24_ = arg0->unknown_2a0_->unknown_8_;

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
+extern "C" GameObject* GetEnemyByID_ov000_021536f8(int battle, int index);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, unsigned short* indices, int maxCount, int filterFlags);
 struct Struct_ov024_021ed9dc;
 extern "C" int func_ov024_021ed9dc(struct Struct_ov024_021ed9dc* arg0, int arg1);
@@ -21,7 +21,7 @@ struct Struct_ov024_021f3168 {
 
 // USA: func_ov024_021f3168
 extern "C" ARM int func_ov024_021f3168(int* arg0, int arg1, int arg2, int* arg3, short* arg4) {
-	GameObject* var0 = func_ov000_021536f8(*arg0, arg1);
+	GameObject* var0 = GetEnemyByID_ov000_021536f8(*arg0, arg1);
 	if (!var0) return 0;
 	if (((struct Struct_ov024_021f3168*)((char*)var0->currentStats_ + 0x58))->unknown_2_2_ >= 2) return 0;
 

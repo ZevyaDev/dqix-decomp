@@ -48,7 +48,7 @@ extern "C" int SetTextWindowText_0205d5d0(struct Struct_ov002_0215bba8_3 *, int,
 #else
 extern "C" int SetTextWindowText_0205d5d0(struct Struct_ov002_0215bba8_3 *, int, int, int, unsigned char);
 #endif
-extern "C" void func_ov002_02156e90(void *arg0);
+extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(void *menu);
 extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 
 extern "C" char gSoundEffectManager_02108760;
@@ -120,12 +120,12 @@ extern "C" ARM void func_ov002_0216994c(char *arg0) {
         memset(var12, 0, RG(0x960, 0x800));
         func_ov002_021607cc(arg0, var12, (var11[0xc5] & 2) ? 1 : 0);
         APPLY((struct Struct_ov002_0215bba8_3 *) OBJ, RG(0x21, 0x24), (int) var12);
-        func_ov002_02156e90(arg0);
+        ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
         return;
     }
     if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
         *(unsigned int *) (arg0 + RG(0x247c, 0x22ac)) &= ~4;
         *(short *) (arg0 + RG(0x1c0c, 0x1ad4)) = 0;
-        func_ov002_02156e90(arg0);
+        ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
     }
 }

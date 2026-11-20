@@ -14,8 +14,8 @@ struct ItemTable_0201099c_10;
 struct Struct_0201099c_3;
 struct Struct_02046574_2;
 struct MessageWindow_020465c0;
-extern "C" void *func_020e2ff8(void);
-extern "C" void func_020e3428(void *arg0, int arg1);
+extern "C" void *GetWirelessLockTable_020e2ff8(void);
+extern "C" void ReleaseWirelessLock_020e3428(void *lockTable, int lockId);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
@@ -44,7 +44,7 @@ struct Struct_ov002_02159900 {
 
 // USA: func_ov002_02159900
 extern "C" ARM void func_ov002_02159900(char *arg0, char *arg1, int arg2) {
-    func_020e3428(func_020e2ff8(), 1);
+    ReleaseWirelessLock_020e3428(GetWirelessLockTable_020e2ff8(), 1);
     GameState *var0      = GameState::GetInstance();
     char *var1            = (char *) GetMessageWindow_020421a0();
     unsigned char *var2 = (unsigned char *) (arg1 + 8);

@@ -26,13 +26,13 @@ struct Struct_02108cec_4 {
     unsigned int unknown_c_;
     void* unknown_10_;
 };
-extern Struct_02108cec_4 data_02108cec;
+extern Struct_02108cec_4 gNPCPlacementParseState_02108cec;
 // USA: func_0206c6f4
 extern "C" ARM int func_0206c6f4(Script::Parameter* arg0) {
-    Struct_0206c6f4* var0 = (Struct_0206c6f4*)func_0206db20(data_02108cec.unknown_10_, arg0->ToInt());
+    Struct_0206c6f4* var0 = (Struct_0206c6f4*)func_0206db20(gNPCPlacementParseState_02108cec.unknown_10_, arg0->ToInt());
     if (!var0) return 0;
     while (var0) {
-        if (var0->unknown_44_ == data_02108cec.unknown_a_) break;
+        if (var0->unknown_44_ == gNPCPlacementParseState_02108cec.unknown_a_) break;
         var0 = var0->unknown_70_;
     }
     if (!var0) return 0;

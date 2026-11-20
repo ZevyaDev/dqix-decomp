@@ -5,22 +5,22 @@ extern "C" short func_020a0af4(struct Struct_020a095c* arg0, int arg1);
 struct Struct_020a0a08;
 extern "C" void func_020a0a60(struct Struct_020a0a08* arg0, short arg1);
 
-struct Struct_02061c04_23 { short* unknown_0_; signed char* unknown_4_; short unknown_8_; };
+struct ItemBag_02061c04_23 { short* pItemIds_0_; signed char* pCounts_4_; short unknown_8_; };
 
-// USA: func_020a0a08
-extern "C" ARM int func_020a0a08(struct Struct_02061c04_23* arg0, int arg1, int arg2) {
-    short* var0 = arg0->unknown_0_;
-    signed char* var1 = arg0->unknown_4_;
-    short var2 = func_020a0af4((struct Struct_020a095c*)arg0, arg1);
-    int var3 = 0;
-    if (var2 >= 0) {
-        var1[var2] -= arg2;
-        if (var1[var2] <= 0) {
-            var0[var2] = var3 - 1;
-            var1[var2] = var3;
-            func_020a0a60((struct Struct_020a0a08*)arg0, var2);
+// USA: RemoveItemFromBag_020a0a08
+extern "C" ARM int RemoveItemFromBag_020a0a08(struct ItemBag_02061c04_23* bag, int itemId, int count) {
+    short* itemIds = bag->pItemIds_0_;
+    signed char* counts = bag->pCounts_4_;
+    short slot = func_020a0af4((struct Struct_020a095c*)bag, itemId);
+    int isRemoved = 0;
+    if (slot >= 0) {
+        counts[slot] -= count;
+        if (counts[slot] <= 0) {
+            itemIds[slot] = isRemoved - 1;
+            counts[slot] = isRemoved;
+            func_020a0a60((struct Struct_020a0a08*)bag, slot);
         }
-        var3 = 1;
+        isRemoved = 1;
     }
-    return var3;
+    return isRemoved;
 }

@@ -61,7 +61,7 @@ extern "C" void ResetMenuTask_ov017_021b2174(unsigned char* node);
 extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2* arg0, char* arg1);
 extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
 extern "C" void func_020dc2d0(int arg0);
-extern "C" void func_020213fc(Struct_020213fc* arg0, int arg1);
+extern "C" void SetSubScreenFadeInHeld_020213fc(Struct_020213fc* subScreenDisplay, int isHeld);
 extern "C" void func_02027bac(Struct_02027bac* arg0, unsigned char arg1);
 extern "C" void func_ov004_0216ae2c(SafeAllocator* arg0, void* arg1);
 extern char gSoundEffectManager_02108760;
@@ -228,6 +228,6 @@ extern "C" ARM void func_ov017_021a51a4(Struct_ov017_021a51a4_4* arg0) {
     func_ov017_021b2bd0(var2, (int)func_ov004_0216ae2c, OVERLAY_ID(4));
     AppendToQueue_020469b4(arg0->unknown_36fc_, (QueueNode_0201bdac*)var2);
     func_020dc2d0(3);
-    func_020213fc(arg0->unknown_36d0_, 1);
+    SetSubScreenFadeInHeld_020213fc(arg0->unknown_36d0_, 1);
     func_02027bac((Struct_02027bac*)arg0->unknown_36d0_, 1);
 }

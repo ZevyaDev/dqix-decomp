@@ -6,7 +6,7 @@
 
 extern unsigned char g_fileScratchSpace[0x30000];
 
-extern "C" int func_ov017_021959b4(void);
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 extern "C" void func_ov011_02184604(void* arg0, unsigned char* arg1);
 
 struct BGControlSave_02074bd0;
@@ -16,12 +16,12 @@ extern "C" void RestoreSubBGControl_02074bf4(struct BGControlSave_02074bf4* save
 
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
 extern "C" void LoadToMainBG1ScreenData(void* p, int a, int b);
-extern "C" int func_ov023_021f6bb8(void* arg0);
+extern "C" int GetMenuLoadTaskId_ov023_021f6bb8(void* objectList);
 
 
 // USA: func_ov011_02184770
 extern "C" ARM void func_ov011_02184770(char* arg0) {
-    if (func_ov017_021959b4() != 0 && *(void(**)(void*))(arg0 + 0x1dc) != 0) {
+    if (IsLocalWirelessHostDisconnected_ov017_021959b4() != 0 && *(void(**)(void*))(arg0 + 0x1dc) != 0) {
         (*(void(**)(void*))(arg0 + 0x1dc))(arg0);
     }
     *(void**)(arg0 + 0x1dc) = 0;
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov011_02184770(char* arg0) {
     *var6 = (var7 << 8) | (*var6 & ~0x1f00);
 
     int var8 = (int)BackgroundLoader::GetInstance();
-    int var9 = func_ov023_021f6bb8(arg0 + 0x118);
+    int var9 = GetMenuLoadTaskId_ov023_021f6bb8(arg0 + 0x118);
     ((BackgroundLoader*)(var8))->RemoveTask((int)(var9));
 
     BackgroundLoader::RemoveLockGlobal();

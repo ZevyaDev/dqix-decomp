@@ -22,7 +22,7 @@ extern "C" int GetWardrobeCompletion_020a08d8(BattleRecords_02061c04* records);
 extern "C" int GetAlchenomiconCompletion_020a090c(BattleRecords_02061c04* records);
 extern "C" int func_0201e830(struct Struct_0201e830* arg0);
 extern "C" int GetLocalWirelessState_0202ba00(int* wireless);
-extern "C" int func_020ac4f8(int arg0);
+extern "C" int AddElapsedPlayTime_020ac4f8(int arg0);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" int GetAlchemyCount_020ac0b4(void* count);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
@@ -125,7 +125,7 @@ extern "C" ARM int func_ov004_02168b44(void* arg0) {
     int var5 = *((unsigned char*)var1 + 0x100d);
     int var6 = 0;
     if ((var4 == 5 && var5 > 1) || var4 == 6) var6 = 1;
-    func_020ac4f8(var6);
+    AddElapsedPlayTime_020ac4f8(var6);
 
     data_ov004_02171030 = 0;
     void* var7 = func_ov011_021845f8(arg0, 0);
@@ -160,10 +160,10 @@ extern "C" ARM int func_ov004_02168b44(void* arg0) {
     memset(data_ov004_02171030->unknown_194_, 0, 0x18);
 
     if (var10) {
-        data_ov004_02171030->unknown_194_->unknown_0_0_ = var9.unknown_0_.unknown_0_.unknown_0_;
-        data_ov004_02171030->unknown_194_->unknown_8_0_ = var9.unknown_0_.unknown_0_.unknown_2_;
-        data_ov004_02171030->unknown_194_->unknown_4_0_ = var9.unknown_0_.unknown_4_.unknown_0_;
-        data_ov004_02171030->unknown_194_->unknown_8_7_ = var9.unknown_0_.unknown_4_.unknown_2_;
+        data_ov004_02171030->unknown_194_->unknown_0_0_ = var9.playTimes_0_.playTime_0_.hours_0_;
+        data_ov004_02171030->unknown_194_->unknown_8_0_ = var9.playTimes_0_.playTime_0_.minutes_2_;
+        data_ov004_02171030->unknown_194_->unknown_4_0_ = var9.playTimes_0_.multiplayerTime_4_.hours_0_;
+        data_ov004_02171030->unknown_194_->unknown_8_7_ = var9.playTimes_0_.multiplayerTime_4_.minutes_2_;
         data_ov004_02171030->unknown_194_->unknown_5_6_ = var9.unknown_8_0_;
         data_ov004_02171030->unknown_194_->unknown_1_6_ = var11;
         data_ov004_02171030->unknown_194_->unknown_c_0_ = var9.unknown_10_0_;

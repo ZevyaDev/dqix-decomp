@@ -69,7 +69,7 @@ extern "C" unsigned char* GetBattleNumberPopups_02039e70(void);
 extern "C" int func_0203a5d0(unsigned char* arg0);
 extern "C" int func_ov025_021ed2f4(void* arg0);
 extern "C" int func_ov025_021ed0fc(void* arg0);
-extern "C" int func_0209ca2c(void* arg0);
+extern "C" int IsJinglePlaying_0209ca2c(void* manager);
 struct Struct_02010604;
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void __clear(void* arg0, int arg1);
@@ -137,7 +137,7 @@ extern "C" ARM int func_ov025_021dc940(Struct_ov025_021dc940_5* arg0) {
     if (func_ov025_021ed0fc(arg0->unknown_4d4_) == 0) {
         return 0;
     }
-    if (func_0209ca2c(&gMusicManager_02109bf4) != 0) {
+    if (IsJinglePlaying_0209ca2c(&gMusicManager_02109bf4) != 0) {
         return 0;
     }
 

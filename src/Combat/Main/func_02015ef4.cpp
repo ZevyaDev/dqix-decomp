@@ -17,7 +17,7 @@
 #endif
 
 struct Struct_02012fa4;
-struct Struct_02015ef4_2;
+struct SPRSprite_02015ef4_2;
 struct Struct_02015ef4_3;
 struct Struct_020159c0_2;
 struct ItemTable_0201099c_10;
@@ -228,7 +228,7 @@ extern "C" ARM int func_02015ef4(Zone3D* arg0, int arg1) {
             var26->unknown_1c_[0] = var24 << 12;
             var26->unknown_1c_[1] = var25 << 12;
             var26->unknown_1c_[2] = 0;
-            ((SPRSprite*)((Struct_02015ef4_2*)var1->unknown_20_))->DrawAnimatedNoRotation(1);
+            ((SPRSprite*)((SPRSprite_02015ef4_2*)var1->unknown_20_))->DrawAnimatedNoRotation(1);
         }
     }
     return 0;

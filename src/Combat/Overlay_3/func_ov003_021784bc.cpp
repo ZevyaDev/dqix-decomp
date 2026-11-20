@@ -3,7 +3,7 @@
 struct ItemBag_0207cf30_3 { short* pItemIds_0_; signed char* pCounts_4_; short slotCount_8_; };
 extern "C" signed char GetBagItemCount_020a0b3c(struct ItemBag_0207cf30_3* bag, int itemId);
 extern "C" int func_02086d20(unsigned char* arg0);
-extern "C" int func_0207c7a0(void* arg0, int arg1, int arg2);
+extern "C" int GetEquipmentBagItemCount_0207c7a0(void* bag, int itemId, int category);
 
 // USA: func_ov003_021784bc
 extern "C" ARM int func_ov003_021784bc(void* arg0, int arg1, unsigned int arg2, int arg3) {
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov003_021784bc(void* arg0, int arg1, unsigned int arg2, 
     } else {
         unsigned int var5 = (arg2 <= 7);
         if (var5) {
-            var0 = 0x63 - func_0207c7a0((char*)arg0 + 0x1d4, arg1, 9);
+            var0 = 0x63 - GetEquipmentBagItemCount_0207c7a0((char*)arg0 + 0x1d4, arg1, 9);
         }
     }
     return var0;

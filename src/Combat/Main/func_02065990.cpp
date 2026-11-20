@@ -68,7 +68,7 @@ struct Struct_02065990;
 extern "C" void func_0206b61c(Struct_02065990*);
 extern "C" int func_020657c8(void* arg0, int arg1);
 extern "C" void func_020658ac(unsigned char*, unsigned int);
-extern "C" int func_0209ca2c(void* arg0);
+extern "C" int IsJinglePlaying_0209ca2c(void* manager);
 struct Struct_020456d0;
 extern "C" void func_020456d0(Struct_020456d0*);
 extern "C" void func_02065920(unsigned char*, unsigned int);
@@ -174,14 +174,14 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
     func_020658ac((unsigned char*)var0, var9);
 
     if ((arg0->unknown_195b_ & 1) != 0) {
-        if (func_0209ca2c(&gMusicManager_02109bf4) == 0) {
+        if (IsJinglePlaying_0209ca2c(&gMusicManager_02109bf4) == 0) {
             arg0->unknown_195b_ = arg0->unknown_195b_ & ~1;
         }
     } else {
         if (arg0->unknown_8c_ != 0 && (arg0->unknown_8c_)[0xd4] == 2) return;
 
         if (arg0->unknown_19c9_ != 0) {
-            if (func_0209ca2c(&gMusicManager_02109bf4) != 0) return;
+            if (IsJinglePlaying_0209ca2c(&gMusicManager_02109bf4) != 0) return;
             *(int*)(var0 + REGION_VALUE(0x44, 0x78)) = *(int*)(var0 + REGION_VALUE(0x44, 0x78)) + 1;
             arg0->unknown_19c9_ = 0;
             return;

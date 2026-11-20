@@ -123,7 +123,7 @@ extern "C" void func_02019568(void* arg0, int arg1);
 extern "C" Object3D* func_ov017_021bdbc0(unsigned char* arg0);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
-extern "C" void func_020213fc(Struct_020213fc* arg0, int arg1);
+extern "C" void SetSubScreenFadeInHeld_020213fc(Struct_020213fc* subScreenDisplay, int isHeld);
 
 extern AllocatorUnion gMainHeap_02114e20;
 extern char gMusicManager_02109bf4;
@@ -322,6 +322,6 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
     DisableCameraFollow_020a27a0(var4);
     DisableCameraTurning_020a27b8((unsigned char*)var4);
     *(short*)((char*)var5 + 0xb2) = 0;
-    func_020213fc((Struct_020213fc*)var2->unknown_ptr_36d0, 0);
+    SetSubScreenFadeInHeld_020213fc((Struct_020213fc*)var2->unknown_ptr_36d0, 0);
     return 3;
 }

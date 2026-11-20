@@ -3,8 +3,8 @@
 #include <globaldefs.h>
 
 struct BGLayer_02020cb8;
-struct Struct_0207f7f0_2 {
-    Struct_0207f7f0_2* unknown_0_;
+struct TextWindow_0207f7f0_2 {
+    TextWindow_0207f7f0_2* pPreviousTextWindow_0_;
     BGLayer_02020cb8* unknown_4_;
     unsigned char unknown_8_[0xd8];
 };
@@ -20,17 +20,17 @@ struct MenuLayout_0207f7f0 {
     int unknown_20_[3];
 #endif
     BGLayer_02020cb8* unknown_2c_;
-    Struct_0207f7f0_2* unknown_30_;
+    TextWindow_0207f7f0_2* pWindows_30_;
     short unknown_34_;
     short unknown_36_;
     unsigned char unknown_38_;
-    unsigned char unknown_39_;
+    unsigned char windowCount_39_;
     unsigned char unknown_3a_;
     unsigned char unknown_3b_;
     unsigned char unknown_3c_;
 };
 
 extern "C" void ResetMenuLayout_0207f84c(MenuLayout_0207f7f0*);
-extern "C" void func_0207f7f0(MenuLayout_0207f7f0*, Struct_0207f7f0_2*, int);
+extern "C" void SetMenuLayoutWindowArray_0207f7f0(MenuLayout_0207f7f0*, TextWindow_0207f7f0_2*, int);
 
 extern "C" void func_0207f8bc(MenuLayout_0207f7f0*);

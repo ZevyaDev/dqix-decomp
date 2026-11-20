@@ -142,7 +142,7 @@ extern "C" ARM void func_ov017_021be0c4(Struct_ov017_021be0c4* arg0) {
             ResetMessageWindow_02043204((char*)var2);
             EnablePlayerControl_020397c0(var0->GetUnknownGameObject());
             FontLoader_0208cb08* var8 = GetFontLoader_02094a00();
-            func_02094b38(var8, 0x203);
+            ClearLoadedFontSet_02094b38(var8, 0x203);
             CancelFontLoad_02094ab0(var8);
             UnloadExtraSoundSet_0205ebec(gSoundEffectManager_02108760);
             arg0->unknown_1_ = 1;

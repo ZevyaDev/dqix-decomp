@@ -3,7 +3,7 @@
 #include "NitroSDK/Memory.h"
 
 extern "C" int CheckWirelessState_020d424c(int stateCount, int arg1);
-extern "C" void* func_020d41d8(void);
+extern "C" void* GetWirelessDriver_020d41d8(void);
 extern "C" void SetWirelessCommandCallback_020d404c(int command, int callback);
 extern "C" int func_020d4168(void* arg0, unsigned int arg1);
 
@@ -29,7 +29,7 @@ extern "C" ARM int func_020d54d0(int arg0, Struct_020d54d0* arg1, const void* ar
         return 6;
     }
     CleanCacheRange(arg1, arg1->unknown_0_ << 1);
-    void* var1 = func_020d41d8();
+    void* var1 = GetWirelessDriver_020d41d8();
     *(unsigned short*)((char*)var1 + 0x150) = 0;
     *(int*)((char*)var1 + 0x14c) = 0;
     SetWirelessCommandCallback_020d404c(0xc, arg0);

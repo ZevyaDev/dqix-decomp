@@ -2,10 +2,10 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-extern "C" int func_ov024_021edf00(int* arg0, int arg1, short* arg2);
+extern "C" int GetEnragedTarget_ov024_021edf00(int* targetSelector, int actorIndex, short* targetIndices);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" void ChooseEnemyActionTargets_ov024_021ed8c0(void* targetSelector, int actorIndex, int action, int* count, short* targetIndices);
-extern "C" int func_ov024_021eda60(GameObject* arg0);
+extern "C" int IsReflecting_ov024_021eda60(GameObject* combatant);
 
 extern unsigned short data_ov024_021fea84;
 
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov024_021ee0f0(int* arg0, int arg1, int arg2, int* arg3,
 		*var4 = *var2++;
 	} while (--var3);
 
-	int var5 = func_ov024_021edf00(arg0, arg1, var0);
+	int var5 = GetEnragedTarget_ov024_021edf00(arg0, arg1, var0);
 	if (var5 <= 0) {
 		var5 = CollectPartyCombatantIndices_ov000_0215e9fc(*arg0, var0, 4, 1);
 		if (var5 <= 0) return 0;
@@ -30,7 +30,7 @@ extern "C" ARM int func_ov024_021ee0f0(int* arg0, int arg1, int arg2, int* arg3,
 	for (int var6 = 0; var6 < var5; var6++) {
 		GameObject* var7 = GetCombatantByID(*arg0, var0[var6]);
 		if (!var7) continue;
-		if (func_ov024_021eda60(var7)) continue;
+		if (IsReflecting_ov024_021eda60(var7)) continue;
 		arg4[*arg3] = var0[var6];
 		(*arg3)++;
 	}

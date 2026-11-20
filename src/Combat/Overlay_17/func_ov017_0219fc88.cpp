@@ -33,7 +33,7 @@ extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagInde
 extern "C" void ResetEventTask_ov017_021baedc(void* node, int isRestart);
 
 struct Struct_020213fc;
-extern "C" void func_020213fc(struct Struct_020213fc* arg0, int arg1);
+extern "C" void SetSubScreenFadeInHeld_020213fc(struct Struct_020213fc* subScreenDisplay, int isHeld);
 
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
@@ -83,7 +83,7 @@ extern "C" ARM int func_ov017_0219fc88(void* arg0, int arg1) {
             } else if (var8->unknown_3_ == 0) {
                 ResetEventTask_ov017_021baedc(var8, 1);
                 var8->unknown_8_ = arg1;
-                func_020213fc(*(struct Struct_020213fc**)((char*)var4 + 0x3000 + Enum_ov017_0219fc88_1744), 1);
+                SetSubScreenFadeInHeld_020213fc(*(struct Struct_020213fc**)((char*)var4 + 0x3000 + Enum_ov017_0219fc88_1744), 1);
                 AppendToQueue_020469b4(var5, (struct QueueNode_0201bdac*)var8);
             }
 

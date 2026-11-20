@@ -93,7 +93,7 @@ struct Struct_ov006_02154614 {
     unsigned char unknown_12bd_;
 };
 
-struct Struct_0207fc6c;
+struct MenuLayout_0207fc6c;
 
 typedef void (Struct_ov006_02154614::*Type_02000c9c_7)();
 struct Struct_ov006_0215ff94 { Type_02000c9c_7 unknown_0_[3]; };
@@ -101,7 +101,7 @@ extern struct Struct_ov006_0215ff94 data_ov006_0215ff94;
 extern Type_02000c9c_7 gNullMemberFunctionPointer_020e6d5c;
 
 extern "C" void func_ov006_02156bd8(Struct_ov006_02154614* arg0);
-extern "C" void func_0207fc6c(Struct_0207fc6c* arg0, int arg1);
+extern "C" void UpdateMenuLayoutWindows_0207fc6c(MenuLayout_0207fc6c* menuLayout, int ticks);
 extern "C" void func_ov006_02156fdc(Struct_ov006_02154614* arg0);
 extern "C" void func_ov006_02156d70(Struct_ov006_02154614* arg0);
 extern "C" void func_ov006_02155068(Struct_ov006_02154614* arg0);
@@ -109,9 +109,9 @@ extern "C" void func_ov006_02155068(Struct_ov006_02154614* arg0);
 // USA: func_ov006_021549ac
 extern "C" ARM void func_ov006_021549ac(Struct_ov006_02154614* arg0, int arg1) {
     func_ov006_02156bd8(arg0);
-    Struct_0207fc6c* var0 = (Struct_0207fc6c*)arg0->unknown_1d4_;
+    MenuLayout_0207fc6c* var0 = (MenuLayout_0207fc6c*)arg0->unknown_1d4_;
     if (var0 != 0)
-        func_0207fc6c(var0, arg1);
+        UpdateMenuLayoutWindows_0207fc6c(var0, arg1);
     func_ov006_02156fdc(arg0);
     func_ov006_02156d70(arg0);
     struct Struct_ov006_0215ff94 var1;

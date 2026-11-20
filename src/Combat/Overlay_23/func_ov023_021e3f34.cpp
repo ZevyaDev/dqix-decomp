@@ -10,7 +10,7 @@ extern "C" int GetResources_0200fb8c(int* gameState);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
-extern "C" int func_0209ca2c(void* arg0);
+extern "C" int IsJinglePlaying_0209ca2c(void* manager);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern int gMusicManager_02109bf4;
 
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov023_021e3f34(struct Struct_ov023_021e3f34* arg0) {
         arg0->unknown_4e4_++;
     }
     if (IsBrightnessTransitionActive((GameResources*)var1)) return;
-    if (func_0209ca2c(&gMusicManager_02109bf4)) return;
+    if (IsJinglePlaying_0209ca2c(&gMusicManager_02109bf4)) return;
     SetCamera_020100c4(var0, arg0->unknown_138_);
     arg0->unknown_4e4_ = 0;
     *(signed char*)((char*)arg0 + Enum_ov023_021e3f34_1255) = *(signed char*)((char*)arg0 + 0x400 + Enum_ov023_021e3f34_230);

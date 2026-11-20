@@ -68,7 +68,7 @@ extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameSt
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" int SetMotion_02033b88(Struct_02010604* object, int motion);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
-extern "C" void StopGesture_020531f0(GameObject* arg0);
+extern "C" void StopGesture_020531f0(GameObject* gameObject);
 extern "C" unsigned char* func_020177a8(unsigned char* arg0, int arg1);
 extern "C" void func_ov017_0218daa8(void* arg0, Struct_ov009_0218aa28* arg1, int arg2, int arg3, unsigned char arg4);
 extern "C" unsigned char* func_0201777c(Struct_02017098* arg0, int arg1);

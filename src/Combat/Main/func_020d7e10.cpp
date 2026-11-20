@@ -4,7 +4,7 @@
 
 #include "Resource/TextQueue.h"
 
-extern "C" int func_ov017_021959b4(void);
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 
 struct Struct_020d7b04_2 {
 #if defined(jpn)
@@ -39,7 +39,7 @@ extern "C" ARM void func_020d7e10(void *arg0, void *arg1, int arg2, int arg3, un
 #endif
     Struct_020d7e10 *var0 = static_cast<Struct_020d7e10 *>(arg0);
     const char *var1       = static_cast<const char *>(arg1);
-    if (func_ov017_021959b4()) return;
+    if (IsLocalWirelessHostDisconnected_ov017_021959b4()) return;
     unsigned int var2 = var0->unknown_150_0_;
     if (var2 != 0 && arg4 != 0 && strcmp(var0->unknown_0_[0].unknown_0_, var1) == 0) return;
     if (var2 < 3) {

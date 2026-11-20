@@ -47,7 +47,7 @@ extern "C" int func_ov003_0216af14(Struct_ov003_0217ef58* arg0);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
-extern "C" int func_ov017_021959b4(void);
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 extern "C" void func_ov003_0217f194(Struct_ov003_0217ef58_2* arg0);
 extern "C" void func_ov003_0217f118(Struct_ov003_0217ef58_2* arg0);
 extern "C" void EnablePlayerControl_020397c0(void* object);
@@ -90,8 +90,8 @@ extern "C" ARM void func_ov003_0217ef58(Struct_ov003_0217ef58_2* arg0) {
         if (func_ov003_0216af14(arg0->unknown_c_) == 0) {
             arg0->unknown_10_ = 2;
         }
-        func_ov017_021959b4();
-        if (func_ov017_021959b4() != 0 && arg0->unknown_c_->unknown_4_ != 5) {
+        IsLocalWirelessHostDisconnected_ov017_021959b4();
+        if (IsLocalWirelessHostDisconnected_ov017_021959b4() != 0 && arg0->unknown_c_->unknown_4_ != 5) {
             func_ov003_0217f194(arg0);
             arg0->unknown_10_ = 3;
         }

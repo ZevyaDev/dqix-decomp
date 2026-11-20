@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" double func_02009424(double arg0);
+extern "C" double ComputeSine_02009424(double angle);
 
 struct Struct_0208bb78 {
     char unknown_0_[0xc8];
@@ -28,7 +28,7 @@ extern "C" ARM int func_0208ca00(struct Struct_0208bb78* arg0, int arg1) {
         if (3.14f < arg0->unknown_c8_) {
             arg0->unknown_c8_ = arg0->unknown_c8_ - 6.28f;
         }
-        int var2 = (int)(var1 * (float)func_02009424((double)(arg0->unknown_c8_)));
+        int var2 = (int)(var1 * (float)ComputeSine_02009424((double)(arg0->unknown_c8_)));
         *(volatile int*)0x4001010 = var2 & 0x1ff;
         return var2;
     }

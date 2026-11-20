@@ -174,7 +174,7 @@ struct Struct_ov024_021f7478_7 {
 };
 
 extern "C" void func_ov024_021f68c8(struct Struct_ov024_021f68c8* arg0);
-extern "C" struct Struct_ov024_021f7478_10* func_ov000_021536f8(int arg0, int arg1);
+extern "C" struct Struct_ov024_021f7478_10* GetEnemyByID_ov000_021536f8(int battle, int index);
 struct Struct_ov024_021f7478_10* GetCombatantByID(int unused, int id);
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int func_ov024_021e6798(GameObject* arg0);
@@ -262,7 +262,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
     for (var5 = 0; var5 < var13->unknown_1_4_; var5++) {
         var11 = 0;
         for (var12 = 0; var12 < var13[var5].unknown_e_0_; var12++) {
-            struct Struct_ov024_021f7478_10* var14 = func_ov000_021536f8((int)arg0->unknown_0_, (short)(var13[var5].unknown_6_[var12] + 0xc0));
+            struct Struct_ov024_021f7478_10* var14 = GetEnemyByID_ov000_021536f8((int)arg0->unknown_0_, (short)(var13[var5].unknown_6_[var12] + 0xc0));
             if (var14 == 0) continue;
             if (IsDead_02010088((struct Struct_02010088*)var14)) continue;
             if (func_ov024_021e6798((GameObject*)var14)) continue;
@@ -450,7 +450,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
         struct Struct_ov024_021f7478_9* var57 = var55->unknown_148_;
         for (int var58 = 0; var58 < 6; var58++) {
             unsigned short var59 = var57->unknown_18_[var58];
-            if (func_020117f0(var10) && ((struct Struct_ov024_021f7478_4*)((struct Struct_ov024_021f7478_5*)arg0->unknown_0_)->unknown_8e18_)->unknown_25_ != 0) {
+            if (IsInGrotto_020117f0(var10) && ((struct Struct_ov024_021f7478_4*)((struct Struct_ov024_021f7478_5*)arg0->unknown_0_)->unknown_8e18_)->unknown_25_ != 0) {
                 char* var60 = (char*)((ActiveGrottoClass*)((char*)GetZone3D_02012fe4() + Enum_ov024_021f7478_9196))->GetDetailedData();
                 short var61 = var55->unknown_2_;
                 unsigned short var62 = ((DetailedTreasureMapData::LegacyBossMapData*)(var60 + 0x4c))->MaybeGetCurrentAlternateID();

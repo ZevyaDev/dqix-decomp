@@ -30,7 +30,7 @@ enum { Enum_ov017_021adcb0_10020 = 0x2724, Enum_ov017_021adcb0_10068 = 0x2754, E
 struct Struct_02018300_3;
 struct Struct_02033834_2;
 struct Struct_02033b68;
-struct Struct_02053f7c;
+struct Party_02053f7c;
 struct TimedMessageQueue_020d7aa0_2;
 struct Struct_020d805c;
 struct Struct_ov017_0218d618_2;
@@ -89,7 +89,7 @@ struct Struct_ov017_021adcb0_4 {
 
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" unsigned char* GetZone3D_02012fe4(void);
-extern "C" void* func_020d7a50(void);
+extern "C" void* GetTimedMessageQueue_020d7a50(void);
 extern "C" void func_ov017_021ae760(Struct_ov017_021adcb0_4* arg0);
 extern "C" void func_ov017_0218d5ac(void* arg0);
 extern "C" void* GetFollowCamera_020100f8(char* gameState);
@@ -107,7 +107,7 @@ extern "C" void func_02046608(void* arg0, int arg1, int arg2, char* arg3, int ar
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" int func_020d805c(Struct_020d805c* arg0);
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2* queue);
-extern "C" short func_02086aec(Struct_02053f7c* arg0, int arg1);
+extern "C" short CountOwnedItem_02086aec(Party_02053f7c* party, int itemId);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void func_020113a8(void* arg0, int arg1, int arg2);
 extern "C" void SetMotionIfDifferent_02033b68(Struct_02033b68* object, int motion);
@@ -124,12 +124,12 @@ extern "C" void func_ov017_021a9bc4(void* arg0, int arg1);
 extern "C" void func_ov017_021a9a9c(void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void* InitItemTable_020de824(void*);
-extern "C" void func_0207cbe8(char*);
+extern "C" void ResetItemContext_0207cbe8(char*);
 extern "C" int func_0207d538(void*, int, int, char*, int);
 extern "C" void func_ov017_0218d644(GameResources*, Vector3fix*, int);
 extern "C" void UnloadExtraSoundSet_0205eb80(void* manager);
 extern "C" void func_0205eb54(void* arg0, int arg1, int arg2);
-extern "C" void func_0205eb90(void* arg0, int arg1, int arg2);
+extern "C" void PlayExtraSoundEffect_0205eb90(void* manager, int soundEffectIndex, int handle);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" void func_ov017_021cdb00(int, int, int, int);
@@ -153,7 +153,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
     unsigned char* var2 = GetZone3D_02012fe4();
     LootableContainerManager* var3 = LootableContainerManager::GetMainInstance();
     Struct_02015ef4_3* var4 = (Struct_02015ef4_3*)(var2 + Enum_ov017_021adcb0_10020);
-    void* var5 = func_020d7a50();
+    void* var5 = GetTimedMessageQueue_020d7a50();
     GameObject* var6 = var0->GetPartyMemberByIndex(arg0->unknown_8_);
     GameResources* var7 = GetGameResources();
     Queue_0201bdac_2* var8 = (Queue_0201bdac_2*)var7->unknown_ptr_array_36fc[0];
@@ -187,7 +187,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
                 var13 = var3->GetContainerByID(var12->unknown_1c_, NULL);
             }
         }
-        Struct_02053f7c* var14 = (Struct_02053f7c*)GetParty_02010828(var9);
+        Party_02053f7c* var14 = (Party_02053f7c*)GetParty_02010828(var9);
         if (IsLocalWirelessOn_0202b7d8(var11) && IsLocalWirelessGuest_0202c540(var11) && var13 && var13->containerType == 0) {
 #if !defined(jpn)
             char var15[0xc];
@@ -195,24 +195,24 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
             char var16[0x50];
 #if defined(jpn)
             sprintf(var16, data_ov017_021d7f9c[2], var6->baseStats_->unk);
-            func_020d7e10(func_020d7a50(), var16, 0, 0, 1);
+            func_020d7e10(GetTimedMessageQueue_020d7a50(), var16, 0, 0, 1);
 #else
             InitPartyMemberNoun_020e4bf4(var15, arg0->unknown_8_);
             *(char**)var1 = var15;
             func_02046608(var1, 0xc, ((int)GetGameString((eGameString)(0x28))), var16, 0xe3, 0, 1);
-            func_020d7e10(func_020d7a50(), var16, 0, 0, 1, 1);
+            func_020d7e10(GetTimedMessageQueue_020d7a50(), var16, 0, 0, 1, 1);
 #endif
             func_ov017_021ae760(arg0);
         } else if (var13 && var13->unk_4_0 != 0) {
             DisablePlayerControl_020397cc((Struct_02018300_3*)var6, 1);
-            void* var17 = func_020d7a50();
+            void* var17 = GetTimedMessageQueue_020d7a50();
             if (func_020d805c((Struct_020d805c*)var17)) {
                 ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)var17);
             }
             int var18 = 0;
-            int var19 = func_02086aec(var14, 0x561c);
-            int var20 = func_02086aec(var14, 0x561a);
-            int var21 = func_02086aec(var14, 0x561b);
+            int var19 = CountOwnedItem_02086aec(var14, 0x561c);
+            int var20 = CountOwnedItem_02086aec(var14, 0x561a);
+            int var21 = CountOwnedItem_02086aec(var14, 0x561b);
             if (var19 > 0) {
                 var18 = 1;
             } else if (var13->unk_4_0 == 1 && (var20 > 0 || var21 > 0)) {
@@ -224,7 +224,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
 #if defined(jpn)
                 char var22[0x78];
                 sprintf(var22, data_ov017_021d8068, data_ov017_021d7f9c[1], var6->baseStats_->unk);
-                func_020d7e10(func_020d7a50(), var22, 0, 0, 1);
+                func_020d7e10(GetTimedMessageQueue_020d7a50(), var22, 0, 0, 1);
 #else
                 char var23[0x100];
                 char var24[0xc];
@@ -234,7 +234,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
                 InitPartyMemberNoun_020e4bf4(var24, arg0->unknown_8_);
                 *(char**)var1 = var24;
                 func_02046608(var1, 0xc, (int)var25, var23, 0xe3, 0, 1);
-                func_020d7e10(func_020d7a50(), var23, 0, 0, 1, 1);
+                func_020d7e10(GetTimedMessageQueue_020d7a50(), var23, 0, 0, 1, 1);
 #endif
                 arg0->unknown_c_ = 0xf;
                 arg0->unknown_9_ = 9;
@@ -246,7 +246,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
                 } else {
                     sprintf(var27, data_ov017_021d80ac, data_ov017_021d7f9c[1]);
                 }
-                func_020d7e10(func_020d7a50(), var27, 0, 0, 1);
+                func_020d7e10(GetTimedMessageQueue_020d7a50(), var27, 0, 0, 1);
 #else
                 char var28[0x100];
                 if (var20 > 0 || var21 > 0) {
@@ -255,7 +255,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
                 } else {
                     sprintf(var28, data_ov017_021d79a2, ((int)GetGameString((eGameString)(0x29))));
                 }
-                func_020d7e10(func_020d7a50(), var28, 0, 0, 1, 1);
+                func_020d7e10(GetTimedMessageQueue_020d7a50(), var28, 0, 0, 1, 1);
 #endif
                 arg0->unknown_e_ = 0;
                 arg0->unknown_9_ = 8;
@@ -353,9 +353,9 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
                     } else {
                         Struct_ov017_021a7e14_4 var40;
                         InitItemTable_020de824(var40.unknown_14_);
-                        func_0207cbe8((char*)&var40);
+                        ResetItemContext_0207cbe8((char*)&var40);
                         char var41[0x80] = {};
-                        func_0207cbe8((char*)&var40);
+                        ResetItemContext_0207cbe8((char*)&var40);
                         var40.unknown_2c_ = (ItemTable_0201099c_10*)(var2 + Enum_ov017_021adcb0_10068);
                         if (func_0207d538(&var40, var38->lootType, var38->itemIDOrRank, var41, 1)) {
 #if defined(jpn)
@@ -401,7 +401,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
                     if (arg0->unknown_21_) {
                         UnloadExtraSoundSet_0205eb80(&gSoundEffectManager_02108760);
                         func_0205eb54(&gSoundEffectManager_02108760, 0x15e, 0x15e);
-                        func_0205eb90(&gSoundEffectManager_02108760, 0, 0);
+                        PlayExtraSoundEffect_0205eb90(&gSoundEffectManager_02108760, 0, 0);
                     } else if (var45->lootType != 0 && var45->itemIDOrRank != 0x5617) {
                         PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0xe, 0);
                     }
@@ -461,9 +461,9 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
                 }
             }
 #if defined(jpn)
-            func_020d7e10(func_020d7a50(), var53, 0, 0, 1);
+            func_020d7e10(GetTimedMessageQueue_020d7a50(), var53, 0, 0, 1);
 #else
-            func_020d7e10(func_020d7a50(), var53, 0, 0, 1, 1);
+            func_020d7e10(GetTimedMessageQueue_020d7a50(), var53, 0, 0, 1, 1);
 #endif
             func_ov017_021c2744((Struct_ov017_021adcb0*)var51);
             var51->unknown_14_ = var6->obj3D_.unknown_4_;

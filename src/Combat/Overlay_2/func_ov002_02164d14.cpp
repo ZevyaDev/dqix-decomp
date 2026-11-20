@@ -32,7 +32,7 @@ extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllow
 extern "C" void func_ov002_0215b814(char *arg0);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215e1d0(char *arg0);
-extern "C" void func_ov002_02156e90(char *arg0);
+extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(char *menu);
 extern "C" void func_020d79e0(char *arg0, int arg1);
 extern "C" void GetZone3D_02012fe4(void);
 extern "C" void func_02017c58(void);
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
         if (var6) {
             *(unsigned int *) (arg0 + OFF_FLAGS_02164d14) &= ~4;
             *(short *) (arg0 + OFF_SEL_02164d14) = -1;
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
             *(int *) (arg0 + OFF_NEXT_02164d14) = K_0E_02164d14;
             *(int *) (arg0 + OFF_STATE_02164d14) = 0;
             return;
@@ -146,7 +146,7 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
             func_02017c58();
         } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + OFF_SEL_02164d14) = -1;
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
         }
     }
 }

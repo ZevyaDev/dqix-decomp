@@ -16,7 +16,7 @@ extern "C" void QueueNotice_02094030(int* noticeQueue, short noticeId, short arg
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" int* func_020936f8(void);
+extern "C" int* GetNoticeQueue_020936f8(void);
 extern "C" unsigned int func_02092cd0(Struct_02092cd0* arg0, int arg1);
 extern "C" int func_02092d18(Struct_02092cd0* arg0, int arg1);
 extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
@@ -78,7 +78,7 @@ extern "C" ARM void func_020930d0(struct Struct_02092cd0* arg0) {
     var0 = GetGameResources();
     var8 = (struct Queue_02038598_5*)var0->unknown_ptr_array_36fc[0];
     var7 = (struct Struct_020930d0*)GetParty_02010828(var1);
-    var3 = func_020936f8();
+    var3 = GetNoticeQueue_020936f8();
     var9 = arg0->unknown_35_;
 
     if (var9 == 0) {

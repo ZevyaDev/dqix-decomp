@@ -3,7 +3,7 @@
 #include "Graphics/TextureArena.h"
 
 extern "C" unsigned short* GetZone3D_02012fe4(void);
-extern "C" int func_020981e4(int arg0, int arg1);
+extern "C" int IsQuestersRestZone_020981e4(int questersRest, int zoneId);
 struct TextureVRAMArea_0203d028;
 extern "C" void func_020dbebc(void* arg0);
 struct Struct_020dbd9c;
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov017_0218d510(struct Struct_ov017_0218d510* arg0, SafeA
         return -1;
     }
     unsigned short* var0 = GetZone3D_02012fe4();
-    int var1 = func_020981e4((int)(var0 + Enum_ov017_0218d510_1056), *var0);
+    int var1 = IsQuestersRestZone_020981e4((int)(var0 + Enum_ov017_0218d510_1056), *var0);
     struct TextureVRAMArea_0203d028* var2 = inline_ov017_0218d510(arg0->unknown_2cc_, var1);
     ((TextureArena*)(var2))->Reset();
     if (arg0->unknown_4498_ != NULL) {

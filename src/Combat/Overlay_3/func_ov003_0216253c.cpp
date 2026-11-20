@@ -69,8 +69,8 @@ extern "C" void SetMenuLayoutWindowFrameless_02081164(MenuLayout_02081164*, int,
 extern "C" void OpenMenuLayoutWindow_020813ec(void *, int);
 extern "C" void func_ov003_02165c9c(Struct_ov003_02154af4_3 *);
 struct KeyRepeat_02081f20_2;
-extern "C" void func_0208203c(KeyRepeat_02081f20_2*);
-extern "C" int func_02080468(void *, int);
+extern "C" void ResetKeyRepeat_0208203c(KeyRepeat_02081f20_2*);
+extern "C" int GetMenuLayoutWindowFirstSelectableTextId_02080468(void *, int);
 extern "C" void SetGlobalFlags_020466e4(unsigned int *, unsigned int);
 extern "C" void func_ov003_02165bd8(Struct_ov003_02154af4_3 *);
 extern "C" void func_ov003_02161438(void*);
@@ -109,7 +109,7 @@ extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
         SetMenuLayoutWindowFrameless_02081164((MenuLayout_02081164*)var0, 0x15, 1);
         OpenMenuLayoutWindow_020813ec(var0, 0x15);
         func_ov003_02165c9c(arg0);
-        func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
+        ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
         arg0->unknown_470_ = 0;
         arg0->unknown_464_ |= 0x780000;
         if (arg0->unknown_464_ & 1) {
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
         arg0->unknown_480_   = -1;
         arg0->unknown_49f_   = 0;
         arg0->unknown_488_   = 6;
-        arg0->unknown_48c_   = func_02080468(var0, arg0->unknown_488_);
+        arg0->unknown_48c_   = GetMenuLayoutWindowFirstSelectableTextId_02080468(var0, arg0->unknown_488_);
         arg0->unknown_474_   = arg0->unknown_48c_;
         var0->unknown_36_ = arg0->unknown_48c_;
         func_02081198((Struct_02081198*)var0, 0x15, 1);
@@ -135,7 +135,7 @@ extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
         if (arg0->unknown_464_ & 1) {
             arg0->unknown_464_ |= 0x800000;
         }
-        func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
+        ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
         arg0->unknown_470_  = 0;
         arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
         SetGlobalFlags_020466e4(var1, 0x40);
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
                     return;
                 }
                 PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
-                func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
+                ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
                 arg0->unknown_470_ = 0;
                 CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var0);
                 arg0->unknown_464_ |= 0x80000;
@@ -176,7 +176,7 @@ extern "C" ARM void func_ov003_0216253c(Struct_ov003_02154af4_3 *arg0) {
             }
             arg0->unknown_480_ = var5;
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760 *) &gSoundEffectManager_02108760, 1, 0);
-            func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
+            ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_308_);
             arg0->unknown_470_ = 0;
             CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)var0);
             arg0->unknown_464_ |= 0x80000;

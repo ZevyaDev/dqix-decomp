@@ -32,8 +32,8 @@ extern "C" int func_020dc920(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov002_0215b814(char *arg0);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215ce94(char *arg0);
-extern "C" void func_ov002_02156e90(char *arg0);
-extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
+extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(char *menu);
+extern "C" void RebuildMenuWindowText_ov002_0215b9a4(char *menu, unsigned char windowId, int hasCursorMark);
 extern "C" int func_ov002_0215b720(char *arg0, int arg1);
 extern "C" void func_ov002_02157d40(char *arg0);
 extern "C" void func_ov002_02157634(char *arg0);
@@ -76,14 +76,14 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
         }
         if (var7 != 7 && !func_020dcc20(var5, 0)) {
             *(short *) (arg0 + 0x1ab4) = -1;
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
             return;
         }
         int var8 = 0;
         if (*(short *) (arg0 + 0x1aee) == 0xd1) var8 = 1;
         if (*(unsigned char *) (arg0 + 0x1b88) != 0 || func_020dcbbc(var6, var5, 1, 1, var8)) {
             *(int *) (arg0 + 0x1a94) = 1;
-            func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 0);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 0);
         }
         if (var4 != *(short *) (arg0 + 0x1ab4)) return;
         int var9 = g_keyManager.TestKeysPressed(0x601);
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
             *(unsigned char *) (arg0 + 0x1ae9) = var6[*(short *) (arg0 + 0x1ab4)];
             PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
             *(unsigned int *) (arg0 + 0x22ac) &= ~4;
-            func_ov002_0215b9a4(arg0, 0x11, 1);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, 0x11, 1);
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xe20), 0x11, 1);
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xe20), 0x14, 1);
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xe20), 8, 1);
@@ -130,7 +130,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
                 *(int *) (arg0 + 0x1a80) = 0x12;
                 ConfigureMenuCursors_ov002_02161cf0(arg0);
             } else {
-                func_ov002_02156e90(arg0);
+                ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
             }
             *(short *) (arg0 + 0x1ab4) = -1;
         }
@@ -210,14 +210,14 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
         }
         if (var27 != 7 && !func_020dcc20(var25, 0)) {
             *(short *) (arg0 + 0x1b00 + 0xec) = -1;
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
             return;
         }
         int var28 = 0;
         if (*(short *) (arg0 + 0x1c00 + 0x26) == 0xd1) var28 = 1;
         if (*(unsigned char *) (arg0 + 0x1000 + 0xcc4) != 0 || func_020dcbbc(var26, var25, 1, 1, var28)) {
             *(int *) (arg0 + 0x1000 + 0xbcc) = 1;
-            func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + 0xbb8) & 0xff, 0);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + 0xbb8) & 0xff, 0);
         }
         if (var24 != *(short *) (arg0 + 0x1b00 + 0xec)) return;
         int var29 = g_keyManager.TestKeysPressed(0x601);
@@ -229,7 +229,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
             *(unsigned char *) (arg0 + 0x1000 + 0xc21) = var26[*(short *) (arg0 + 0x1b00 + 0xec)];
             PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 1, 0);
             *(unsigned int *) (arg0 + 0x2000 + 0x47c) &= ~4;
-            func_ov002_0215b9a4(arg0, 0x10, 1);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, 0x10, 1);
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0x2c8 + 0xc00), 0x10, 1);
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0x2c8 + 0xc00), 0x13, 1);
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0x2c8 + 0xc00), 7, 1);
@@ -264,7 +264,7 @@ extern "C" ARM void func_ov002_02163664(char *arg0) {
                 *(int *) (arg0 + 0x1000 + 0xbb8) = 0x11;
                 ConfigureMenuCursors_ov002_02161cf0(arg0);
             } else {
-                func_ov002_02156e90(arg0);
+                ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
             }
             *(short *) (arg0 + 0x1b00 + 0xec) = -1;
         }

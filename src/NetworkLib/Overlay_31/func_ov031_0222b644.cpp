@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(int size, int alignAndDir);
-extern "C" void func_ov031_02227520(int* arg0, int* arg1);
+extern "C" void GetWifiSetupPageArguments_ov031_02227520(int* outFirstArgument, int* outSecondArgument);
 extern "C" int func_ov031_02235984(void* arg0);
 extern "C" void func_ov031_0222b71c(void);
 extern "C" void func_ov031_022239f4(void);
@@ -31,19 +31,19 @@ struct Struct_ov031_02290c8c {
 	unsigned short unknown_2_;
 	Struct_ov031_0222b644* unknown_4_;
 };
-extern Struct_ov031_02290c8c data_ov031_02290c8c;
+extern Struct_ov031_02290c8c gAccessPointListPage_ov031_02290c8c;
 
 // USA: func_ov031_0222b644
 extern "C" ARM void func_ov031_0222b644(void) {
 	int var0;
-	data_ov031_02290c8c.unknown_4_ = (Struct_ov031_0222b644*)AllocateZeroedMemory_ov031_0223cf4c(0x5c, 4);
-	func_ov031_02227520(&var0, NULL);
+	gAccessPointListPage_ov031_02290c8c.unknown_4_ = (Struct_ov031_0222b644*)AllocateZeroedMemory_ov031_0223cf4c(0x5c, 4);
+	GetWifiSetupPageArguments_ov031_02227520(&var0, NULL);
 	if (var0 == 0) {
-		data_ov031_02290c8c.unknown_0_ = 0;
-		data_ov031_02290c8c.unknown_2_ = 0;
+		gAccessPointListPage_ov031_02290c8c.unknown_0_ = 0;
+		gAccessPointListPage_ov031_02290c8c.unknown_2_ = 0;
 	}
 
-	data_ov031_02290c8c.unknown_4_->unknown_51_ = (unsigned char)func_ov031_02235984(data_ov031_02290c8c.unknown_4_);
+	gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_51_ = (unsigned char)func_ov031_02235984(gAccessPointListPage_ov031_02290c8c.unknown_4_);
 
 	func_ov031_0222b71c();
 	func_ov031_022239f4();
@@ -52,8 +52,8 @@ extern "C" ARM void func_ov031_0222b644(void) {
 	func_ov031_0222b870();
 	func_ov031_0222b918();
 
-	data_ov031_02290c8c.unknown_4_->unknown_c_ = func_ov031_0223c560(0, 0);
-	data_ov031_02290c8c.unknown_4_->unknown_3c_ = (int)AddTask_ov031_0223e218((void*)1, (void*)func_ov031_0222c870, NULL, 0x6e);
+	gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_c_ = func_ov031_0223c560(0, 0);
+	gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_3c_ = (int)AddTask_ov031_0223e218((void*)1, (void*)func_ov031_0222c870, NULL, 0x6e);
 
 	func_ov031_0222c3b4();
 	func_ov031_0222c8cc();

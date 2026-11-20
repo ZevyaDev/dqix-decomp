@@ -10,7 +10,7 @@ struct Struct_ov031_02290ca0_19 {
     unsigned char unknown_6_[2];
     Struct_ov031_02230778* unknown_8_;
 };
-extern Struct_ov031_02290ca0_19 data_ov031_02290ca0;
+extern Struct_ov031_02290ca0_19 gConnectionSettingsPage_ov031_02290ca0;
 extern const unsigned char data_ov031_02249048[];
 extern "C" int FastIntDivide(int, unsigned int);
 extern "C" int FastIntModulus(int, unsigned int);
@@ -24,10 +24,10 @@ static inline void inline_ov031_02230778(int arg0, int arg1) {
 
 // USA: func_ov031_02230778
 extern "C" ARM void func_ov031_02230778() {
-    if (!data_ov031_02290ca0.unknown_8_->unknown_44_) return;
-    int var0 = FastIntDivide(data_ov031_02290ca0.unknown_4_, 29);
-    int var1 = FastIntModulus(data_ov031_02290ca0.unknown_4_, 29) - 51;
+    if (!gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_44_) return;
+    int var0 = FastIntDivide(gConnectionSettingsPage_ov031_02290ca0.unknown_4_, 29);
+    int var1 = FastIntModulus(gConnectionSettingsPage_ov031_02290ca0.unknown_4_, 29) - 51;
     int var2 = var1 + data_ov031_02249048[var0];
     inline_ov031_02230778(var1, var2);
-    data_ov031_02290ca0.unknown_8_->unknown_44_ = 0;
+    gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_44_ = 0;
 }

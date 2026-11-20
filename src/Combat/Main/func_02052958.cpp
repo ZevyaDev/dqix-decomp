@@ -4,7 +4,7 @@
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02042764(char* arg0, void* arg1, int arg2);
 extern "C" int func_020426bc(void* text, void* outGlyphIndices, int font);
-extern char data_020ef078;
+extern char gStringFormat_020ef078;
 
 // USA: func_02052958
 extern "C" ARM void func_02052958(char* arg0, char* arg1, int arg2) {
@@ -22,6 +22,6 @@ extern "C" ARM void func_02052958(char* arg0, char* arg1, int arg2) {
         char var3[0x30];
         __clear(var3, 0x30);
         func_02042764(arg1, var3, 1);
-        sprintf(*(char**)(arg0 + 0x134), &data_020ef078, var3);
+        sprintf(*(char**)(arg0 + 0x134), &gStringFormat_020ef078, var3);
     }
 }

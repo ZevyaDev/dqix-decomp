@@ -7,7 +7,7 @@ enum { Enum_ov003_02175f90_4114 = 0x1012 };
 #include "GameState/GameState.h"
 
 extern "C" unsigned char func_0207ca94(int arg0);
-extern "C" short func_0207c638(void* arg0, unsigned int arg1);
+extern "C" short CountUsedEquipmentBagSlots_0207c638(void* bag, unsigned int category);
 
 // USA: func_ov003_02175f90
 extern "C" ARM short func_ov003_02175f90(void* arg0) {
@@ -16,5 +16,5 @@ extern "C" ARM short func_ov003_02175f90(void* arg0) {
     short var2 = *(short*)((char*)arg0 + Enum_ov003_02175f90_4114);
     int var3 = (short)(var2 - 286);
     unsigned char var4 = func_0207ca94(var3);
-    return func_0207c638((char*)var1 + 0x1d4, var4);
+    return CountUsedEquipmentBagSlots_0207c638((char*)var1 + 0x1d4, var4);
 }

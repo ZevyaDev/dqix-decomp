@@ -3,8 +3,8 @@
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
-extern "C" int func_020ac4f8(int arg0);
-extern "C" int* func_020936f8(void);
+extern "C" int AddElapsedPlayTime_020ac4f8(int arg0);
+extern "C" int* GetNoticeQueue_020936f8(void);
 extern "C" void QueueNotice_02094030(int* noticeQueue, short noticeId, short arg2, signed char memberIndex);
 extern "C" void func_ov017_021d1118(int arg0, int arg1, int arg2, int arg3);
 
@@ -20,9 +20,9 @@ extern "C" ARM void func_ov017_021d1078(int arg0, Struct_ov017_021d1078* arg1, v
     signed char var0 = GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)arg4);
     if (!arg1->unknown_4_7_) {
         if (var0 != arg1->unknown_4_0_) return;
-        func_020ac4f8(IsLocalWirelessOn_0202b7d8((int*)arg4) != 0);
+        AddElapsedPlayTime_020ac4f8(IsLocalWirelessOn_0202b7d8((int*)arg4) != 0);
         func_ov017_021d1118(arg0, 0xff, 0, 0);
-        QueueNotice_02094030(func_020936f8(), 0x4e20, -1, arg0);
+        QueueNotice_02094030(GetNoticeQueue_020936f8(), 0x4e20, -1, arg0);
         return;
     }
     unsigned char var1 = 1;

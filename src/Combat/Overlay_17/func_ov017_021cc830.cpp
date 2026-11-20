@@ -6,7 +6,7 @@
 #endif
 
 extern "C" int func_02053c6c(unsigned char* gameObject);
-extern "C" void func_02083ca0(unsigned char* arg0, int arg1);
+extern "C" void SetVocation_02083ca0(unsigned char* memberData, int vocation);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_020897b4(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
 extern "C" void func_020e3b8c(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, unsigned char arg7);
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov017_021cc830(void* arg0, struct Struct_ov017_021cc830
     if (var1 == NULL) return;
 
     int var2 = arg1->unknown_5_3_;
-    func_02083ca0(var1, var2);
+    SetVocation_02083ca0(var1, var2);
     *(unsigned short*)(var1 + var2 * 2 + 0x16c) = arg1->unknown_4_3_;
     *(var1 + var2 + 0x186) = arg1->unknown_c_;
 

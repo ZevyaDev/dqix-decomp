@@ -5,7 +5,7 @@
 
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
 extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
-extern "C" void SetTitleState_02012010(void* arg0, int state);
+extern "C" void SetTitleState_02012010(void* gameState, int state);
 extern "C" unsigned char func_02012034(void* arg0);
 extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
 extern "C" void func_ov017_0218d258(void* arg0);

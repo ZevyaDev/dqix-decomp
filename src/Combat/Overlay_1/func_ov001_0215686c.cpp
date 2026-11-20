@@ -61,7 +61,7 @@ extern "C" int ReadBrightnessRegister_020c39c8(volatile unsigned short* reg);
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
-extern "C" void func_020dc2bc();
+extern "C" void SuspendMapDisplay_020dc2bc();
 
 static inline unsigned int inline_ov001_0215686c(Struct_ov001_0215686c_2* arg0) {
     return arg0->unknown_a_;
@@ -122,7 +122,7 @@ cont:
     }
 
     SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 1);
-    func_020dc2bc();
+    SuspendMapDisplay_020dc2bc();
 
     volatile unsigned int* var8 = (volatile unsigned int*)0x4001000;
     volatile unsigned short* var9 = (volatile unsigned short*)0x4001000;

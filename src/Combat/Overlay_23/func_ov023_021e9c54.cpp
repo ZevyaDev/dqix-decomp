@@ -3,7 +3,7 @@
 
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 
-extern "C" Struct_020ac4f8 func_ov023_021e8fe8(Struct_020ac4f8 arg0, int arg1);
+extern "C" PlayTime_020ac4f8 func_ov023_021e8fe8(PlayTime_020ac4f8 arg0, int arg1);
 struct Struct_0209cf44 {
     int unknown_0_;
     union {
@@ -21,9 +21,9 @@ extern "C" ARM int func_ov023_021e9c54(void* arg0) {
     BattleRecords_02061c04 var1;
     GetBattleRecords_020ac4c0(&var1);
 
-    Struct_020ac4f8 var2 = func_ov023_021e8fe8(var1.unknown_0_.unknown_4_, 1);
+    PlayTime_020ac4f8 var2 = func_ov023_021e8fe8(var1.playTimes_0_.multiplayerTime_4_, 1);
 
-    SetScriptRefInt_ov017_021d6134(&var0[0], var2.unknown_0_);
-    SetScriptRefInt_ov017_021d6134(&var0[1], var2.unknown_2_);
+    SetScriptRefInt_ov017_021d6134(&var0[0], var2.hours_0_);
+    SetScriptRefInt_ov017_021d6134(&var0[1], var2.minutes_2_);
     return 1;
 }

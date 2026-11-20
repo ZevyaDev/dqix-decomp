@@ -64,7 +64,7 @@ extern "C" void func_ov003_0215fb94(Struct_ov017_021b688c*);
 extern "C" void func_ov017_021b67d8(Struct_ov017_021b688c_2*);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void EnablePlayerControl_020397c0(void*);
-extern "C" int func_ov017_021959b4();
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4();
 extern "C" void EnableCameraTurning_020a27ac(void*);
 extern "C" void ClearCameraFlags_020a28b0(unsigned char*, int);
 extern "C" void* func_0205ec34();
@@ -126,7 +126,7 @@ extern "C" ARM void func_ov017_021b688c(Struct_ov017_021b688c_2* arg0) {
         ClearFlags04(var2, 0xc0);
         EnablePlayerControl_020397c0(var1);
         unsigned char* var6 = (unsigned char*)GetFollowCamera_020100f8((char*)var0);
-        if (!func_ov017_021959b4()) EnableCameraTurning_020a27ac(var6);
+        if (!IsLocalWirelessHostDisconnected_ov017_021959b4()) EnableCameraTurning_020a27ac(var6);
         ClearCameraFlags_020a28b0(var6, 2);
         void* var7 = func_0205ec34();
         GetParty_02010828(var0);

@@ -36,7 +36,7 @@ extern "C" void func_ov000_02172720(void* arg0);
 extern "C" void func_02079f9c(char* arg0);
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId);
-extern "C" void func_ov023_021eb26c(void* arg0);
+extern "C" void DestroyAccoladeDisplay_ov023_021eb26c(void* display);
 
 extern char gSoundEffectManager_02108760[];
 extern int data_ov000_02182fe0[];
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov000_021604f0(struct Struct_ov000_021604f0* arg0) {
         RemoveEffectResource_02057f00(var0, *var1);
     }
     if (arg0->unknown_55cc_ != NULL) {
-        func_ov023_021eb26c(arg0->unknown_55cc_);
+        DestroyAccoladeDisplay_ov023_021eb26c(arg0->unknown_55cc_);
     }
     for (int var2 = 0; var2 < REGION_ALLOCATOR_COUNT; var2++) {
         if (arg0->unknown_8_[var2].GetSignedAllocator() != NULL) {

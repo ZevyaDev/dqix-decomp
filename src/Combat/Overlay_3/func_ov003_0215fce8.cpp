@@ -37,9 +37,9 @@ extern int data_ov003_02180cc0;
 extern struct Struct_020e6d5c_14 gNullMemberFunctionPointer_020e6d5c;
 extern struct Struct_020e6d5c_14 data_ov003_0217ff68[];
 
-extern "C" int func_ov017_021959b4();
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4();
 extern "C" void *func_020d6c00(void);
-extern "C" int *func_020936f8(void);
+extern "C" int *GetNoticeQueue_020936f8(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int *globalFlags, unsigned int mask);
 extern "C" void *func_0202ae18();
 extern "C" void *func_0202ae24(void);
@@ -58,8 +58,8 @@ struct YesNoWindow_020e25e8;
 extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8 *yesNoWindow);
 struct YesNoWindow_020e263c_2;
 extern "C" void UpdateYesNoWindow_020e263c(struct YesNoWindow_020e263c_2 *yesNoWindow, int ticks);
-struct Struct_0207fc6c;
-extern "C" void func_0207fc6c(struct Struct_0207fc6c *arg0, int arg1);
+struct MenuLayout_0207fc6c;
+extern "C" void UpdateMenuLayoutWindows_0207fc6c(struct MenuLayout_0207fc6c *menuLayout, int ticks);
 struct Struct_ov003_0215fce8;
 extern "C" void func_ov003_021604d0(struct Struct_ov003_0215fce8 *arg0);
 struct Struct_ov003_0215fce8_2;
@@ -84,11 +84,11 @@ extern "C" void OpenMenuLayoutWindow_020813ec(void *menuLayout, int windowId);
 
 // USA: func_ov003_0215fce8
 extern "C" ARM int func_ov003_0215fce8(unsigned char *arg0, int arg1) {
-    if (arg0[SO(0x4c0)] == 0 && func_ov017_021959b4() != 0) {
+    if (arg0[SO(0x4c0)] == 0 && IsLocalWirelessHostDisconnected_ov017_021959b4() != 0) {
         unsigned char var0 = arg0[SO(0x4a3)];
         if ((var0 == 0xb && arg0[SO(0x4a4)] == 0x11) || (var0 == 6 && arg0[SO(0x4a4)] == 0)) {
             void *var1 = func_020d6c00();
-            int *var2  = func_020936f8();
+            int *var2  = GetNoticeQueue_020936f8();
             SetGlobalFlags_020466e4((unsigned int *) var1, 0x20);
             unsigned char *var3 = (unsigned char*)GetGameResources();
             void *var4          = func_0202ae18();
@@ -154,7 +154,7 @@ extern "C" ARM int func_ov003_0215fce8(unsigned char *arg0, int arg1) {
     }
     char *var10 = *(char **) (arg0 + SO(0x324));
     if (var10 != 0) {
-        func_0207fc6c((struct Struct_0207fc6c *) var10, arg1);
+        UpdateMenuLayoutWindows_0207fc6c((struct MenuLayout_0207fc6c *) var10, arg1);
     }
     if (func_ov003_02160cc0((char *) arg0) == 0) return 0;
     if (*(unsigned int *) (arg0 + SO(0x464)) & 0x1000) return 0;

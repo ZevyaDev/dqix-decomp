@@ -21,7 +21,7 @@ enum { Enum_020675fc_2456 = 0x998, Enum_020675fc_288 = 0x120, Enum_020675fc_90 =
 
 struct NPCManager_0203dce4_2;
 struct NPC_0203de84_2;
-struct Struct_02015ef4_2;
+struct SPRSprite_02015ef4_2;
 struct Struct_0203de84 { unsigned int unknown_0_[3]; };
 struct Struct_02015ef4 { unsigned int unknown_0_[3]; };
 union Struct_020675fc {
@@ -67,6 +67,6 @@ extern "C" ARM void func_020675fc(Struct_020675fc_2* arg0) {
         var8->unknown_1c_[0] = var7;
         var8->unknown_1c_[1] = var9;
         var8->unknown_1c_[2] = 0;
-        ((SPRSprite*)((Struct_02015ef4_2*)var8))->DrawAnimatedNoRotation(1);
+        ((SPRSprite*)((SPRSprite_02015ef4_2*)var8))->DrawAnimatedNoRotation(1);
     }
 }

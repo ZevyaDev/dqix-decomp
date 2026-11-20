@@ -26,7 +26,7 @@ extern unsigned char data_ov031_0224bb50[1];
 
 struct Struct_ov031_0222ec20 { char unknown_0_[8]; int unknown_8_; int unknown_c_; int unknown_10_; void* unknown_14_; };
 struct Struct_ov031_02290ca0_2 { char unknown_0_[8]; Struct_ov031_0222ec20* unknown_8_; };
-extern Struct_ov031_02290ca0_2 data_ov031_02290ca0;
+extern Struct_ov031_02290ca0_2 gConnectionSettingsPage_ov031_02290ca0;
 
 // USA: func_ov031_0222ec20
 extern "C" ARM void func_ov031_0222ec20(void) {
@@ -45,15 +45,15 @@ extern "C" ARM void func_ov031_0222ec20(void) {
 
 	int var4 = func_ov031_02223478(&var0);
 	int var5 = func_ov031_0223b61c(var4, 0, 4);
-	data_ov031_02290ca0.unknown_8_->unknown_8_ = var5;
-	func_ov031_02234ea8((void*)data_ov031_02290ca0.unknown_8_->unknown_8_);
+	gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_8_ = var5;
+	func_ov031_02234ea8((void*)gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_8_);
 	func_ov031_02234f34();
 	int var6 = func_ov031_02223478(&var1);
 	int var7 = func_ov031_0223b61c(var6, 0, 4);
-	data_ov031_02290ca0.unknown_8_->unknown_c_ = var7;
+	gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_c_ = var7;
 	int var8 = func_ov031_02223478(&var2);
 	int var9 = func_ov031_0223b61c(var8, 0, 4);
-	data_ov031_02290ca0.unknown_8_->unknown_10_ = var9;
+	gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_10_ = var9;
 
 	volatile unsigned short* var10 = (volatile unsigned short*)0x4001008;
 	volatile unsigned short* var11 = (volatile unsigned short*)0x4000008;

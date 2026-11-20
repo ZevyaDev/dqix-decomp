@@ -128,7 +128,7 @@ extern "C" void* func_020d6c00();
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 
 extern "C" {
-void func_ov023_021eb26c(void* arg0);
+void DestroyAccoladeDisplay_ov023_021eb26c(void* display);
 void CloseMessageWindow_02043124(MessageWindow_02021b84* window);
 unsigned int GetMainBGAssignedVRAMSize();
 void func_020ca458(int value, void* destination, unsigned int size);
@@ -150,7 +150,7 @@ extern "C" ARM void func_ov008_021845ac(Struct_ov008_021842a0_2* arg0)
     if (arg0->unknown_73c_ != NULL)
         ((OBJSpriteSet*)(arg0->unknown_73c_))->Destroy();
     if (arg0->unknown_b08_ != NULL)
-        func_ov023_021eb26c(arg0->unknown_b08_);
+        DestroyAccoladeDisplay_ov023_021eb26c(arg0->unknown_b08_);
     MessageWindow_02021b84* var1 = GetMessageWindow_020421a0();
     func_02045cac((Struct_02045cac*)var1);
     ResetMessageWindow_02043204((char*)var1);

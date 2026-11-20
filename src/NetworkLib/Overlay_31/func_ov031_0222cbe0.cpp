@@ -5,7 +5,7 @@ extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int size, int alig
 
 extern void* data_ov031_02290c94;
 
-extern "C" void func_ov031_02227520(int*, int*);
+extern "C" void GetWifiSetupPageArguments_ov031_02227520(int*, int*);
 extern "C" void func_ov031_02235f0c(void*);
 extern "C" int func_ov031_0223dd34(unsigned char*, int);
 extern "C" void func_ov031_0222cd14(void);
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov031_0222cbe0(void) {
 	data_ov031_02290c94 = AllocateZeroedMemory_ov031_0223cf4c(0x2c, 4);
 
 	int var1, var2;
-	func_ov031_02227520(&var1, &var2);
+	GetWifiSetupPageArguments_ov031_02227520(&var1, &var2);
 
 	if (var1 == 0) {
 		func_ov031_02235f0c((char*)data_ov031_02290c94 + 8);

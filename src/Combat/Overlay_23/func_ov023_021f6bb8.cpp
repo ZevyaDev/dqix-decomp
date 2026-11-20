@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct Struct_021f6bb8 {
+struct MenuObjectList_021f6bb8 {
 	int unknown_0_;
-	int unknown_4_;
+	int loadTaskId_4_;
 };
 
-// USA: func_ov023_021f6bb8
-extern "C" ARM int func_ov023_021f6bb8(struct Struct_021f6bb8* arg0) {
-	return arg0->unknown_4_;
+// USA: GetMenuLoadTaskId_ov023_021f6bb8
+extern "C" ARM int GetMenuLoadTaskId_ov023_021f6bb8(struct MenuObjectList_021f6bb8* objectList) {
+	return objectList->loadTaskId_4_;
 }

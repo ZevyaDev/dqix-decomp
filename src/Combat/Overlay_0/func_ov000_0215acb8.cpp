@@ -4,7 +4,7 @@
 
 struct Struct_02010088;
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
-extern "C" int func_ov000_02153c0c(GameObject* arg0);
+extern "C" int HasLeftBattle_ov000_02153c0c(GameObject* combatant);
 
 struct Struct_ov000_0215acb8 {
     unsigned short unknown_0_;
@@ -45,7 +45,7 @@ struct Struct_ov000_0215acb8_4 {
     unsigned char unknown_8e0f_;
 };
 
-extern "C" void func_ov000_02160030(void* arg0);
+extern "C" void InitBattleAction_ov000_02160030(void* action);
 extern "C" void func_ov000_02157cdc(void* arg0);
 extern "C" void SetActionResult_ov000_0215ccbc(int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant,
                             short amount, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
@@ -71,11 +71,11 @@ extern "C" ARM void func_ov000_0215acb8(struct Struct_ov000_0215acb8_4* arg0, in
     if (IsDead_02010088((struct Struct_02010088*)var0)) {
         return;
     }
-    if (func_ov000_02153c0c(var0)) {
+    if (HasLeftBattle_ov000_02153c0c(var0)) {
         return;
     }
     struct Struct_ov000_0215acb8* var1 = &arg0->unknown_7770_[arg0->unknown_8e0f_];
-    func_ov000_02160030(var1);
+    InitBattleAction_ov000_02160030(var1);
     struct Struct_ov000_0215acb8_2* var2 = &arg0->unknown_79f0_[arg0->unknown_8e0f_];
     memset(var2, 0, 0x30);
     var2->unknown_1c_ = -1;

@@ -38,7 +38,7 @@ public:
     virtual void inline_ov004_0216033c(const Type_02000c9c_18& arg0);
     virtual Type_02000c9c_18 inline_ov004_0216033c_2();
 };
-extern "C" Struct_ov004_0215fdfc_4* func_ov004_0215e47c(void* arg0, int arg1);
+extern "C" Struct_ov004_0215fdfc_4* FindMenuObject_ov004_0215e47c(void* menu, int id);
 
 extern "C" void* func_ov004_0215e4c0(void* arg0, int arg1);
 struct Struct_ov004_0215f6f4;
@@ -333,7 +333,7 @@ stats_done:
     func_ov004_0215e49c(arg0, 0xf, var43);
 
     int var44 = func_ov004_0215e4e8(arg0, 0xf);
-    Struct_ov004_0215fdfc_4* var45 = func_ov004_0215e47c(arg0, 0xf);
+    Struct_ov004_0215fdfc_4* var45 = FindMenuObject_ov004_0215e47c(arg0, 0xf);
     if (var45) {
         const Vector3i& var46 = var45->inline_ov004_0216033c_2();
         Vector3i var47;
@@ -345,7 +345,7 @@ stats_done:
 #if defined(jpn)
         var47.y += 0x2000;
 #endif
-        Struct_ov004_0215fdfc_4* var49 = func_ov004_0215e47c(arg0, 0xc8);
+        Struct_ov004_0215fdfc_4* var49 = FindMenuObject_ov004_0215e47c(arg0, 0xc8);
         if (var49) {
             var49->inline_ov004_0216033c(var47);
         }

@@ -4,14 +4,14 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-struct Struct_020a0b8c;
+struct ItemBag_020a0b8c;
 struct Struct_020a0bcc;
 struct Struct_020a095c;
 struct Struct_0207cf30_4;
 struct Struct_ov002_0215b2c8;
 struct ItemTable_0201099c_10;
 struct TextWindowManager_0205d81c;
-extern "C" int func_020a0b8c(struct Struct_020a0b8c *arg0);
+extern "C" int CountUsedBagSlots_020a0b8c(struct ItemBag_020a0b8c *bag);
 extern "C" void func_020a0bcc(struct Struct_020a0bcc *arg0);
 extern "C" int func_020a0af4(struct Struct_020a095c *arg0, int arg1);
 extern "C" void func_020a095c(struct Struct_0207cf30_4 *arg0, int arg1, int arg2);
@@ -28,8 +28,8 @@ struct Struct_ov002_0215b458_4 {
 };
 extern "C" struct Struct_ov002_0215b458_4 *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
 extern "C" int GetInventoryItemByID(char *arg0, int arg1, int arg2);
-extern "C" void func_0205d7a0(void *arg0, int arg1);
-extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
+extern "C" void SetCursorIndex_0205d7a0(void *windowManager, int index);
+extern "C" void RebuildMenuWindowText_ov002_0215b9a4(void *menu, int windowId, int hasCursorMark);
 extern "C" const char data_ov002_0216d5b6[];
 
 struct Struct_ov002_0215b458 {
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov002_0215c618(char *arg0, int arg1) {
     var2 = GetInventoryItemByID(arg0, *(short *) (arg0 + 0x1a00 + 0xb0), *(signed char *) (arg0 + 0x1a00 + 0xe8));
     var3 = var4->unknown_0_;
     var6 = var4->unknown_4_;
-    var5 = func_020a0b8c((struct Struct_020a0b8c *) var4);
+    var5 = CountUsedBagSlots_020a0b8c((struct ItemBag_020a0b8c *) var4);
     if (var5 == 0) return;
 
     ((SafeAllocator *) (arg0 + 0x3b4 + 0x400))->Reset();
@@ -112,13 +112,13 @@ extern "C" ARM void func_ov002_0215c618(char *arg0, int arg1) {
         int var15 = func_020a0af4((struct Struct_020a095c *) var4, var2);
         if (var15 >= 0) {
             *(short *) (arg0 + 0x1a00 + 0xb0) = var15;
-            func_0205d7a0(arg0 + 0xe20, var15);
+            SetCursorIndex_0205d7a0(arg0 + 0xe20, var15);
             struct Struct_ov002_0215b458_4 *var16 = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c *) (arg0 + 0xe20), 5);
             if (var16 != NULL) {
                 var16->unknown_c5_ &= ~2;
             }
         }
     }
-    func_ov002_0215b9a4(arg0, 5, 0);
+    RebuildMenuWindowText_ov002_0215b9a4(arg0, 5, 0);
 }
 #endif

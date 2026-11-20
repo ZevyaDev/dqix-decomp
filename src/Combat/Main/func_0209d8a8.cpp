@@ -20,7 +20,7 @@ extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" void* func_ov017_021b8468(int battleManager);
 extern "C" void* GetBattleUI_ov000_02160f08(void* battleScene);
 extern "C" void* InitItemTable_020de824(void* itemTable);
-extern "C" void func_0207cbe8(char* arg0);
+extern "C" void ResetItemContext_0207cbe8(char* itemContext);
 
 struct ItemTable_0201099c_10;
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
@@ -66,7 +66,7 @@ extern "C" ARM int func_0209d8a8(void* arg0) {
     struct ItemTable_0201099c_10* var8 = (struct ItemTable_0201099c_10*)((char*)var7 + 0xd0);
     ((SafeAllocator*)&var0)->ResetAllocatorPointer();
     InitItemTable_020de824(var0.unknown_0_ + 0x14);
-    func_0207cbe8(var0.unknown_0_);
+    ResetItemContext_0207cbe8(var0.unknown_0_);
     if (FindItemData_020dedd0(var8, (short)var1) != NULL) {
         var0.unknown_2c_ = var8;
         func_0207d200((struct Struct_0207ccf0_4*)&var0, var1, (char)var2);

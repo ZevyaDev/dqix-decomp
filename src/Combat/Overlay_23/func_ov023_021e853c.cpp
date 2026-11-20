@@ -14,10 +14,9 @@ struct Struct_ov023_021e853c_2 {
 
 extern "C" int GetMessageWindow_020421a0(void);
 #if defined(jpn)
-extern "C" int func_0204234c(char* arg0, int arg1);
-#define func_02041cc0 func_0204234c
+extern "C" int AppendHorizontalLineTag_02041cc0(char* arg0, int arg1);
 #else
-extern "C" int func_02041cc0(char* arg0, int arg1);
+extern "C" int AppendHorizontalLineTag_02041cc0(char* buffer, int y);
 #endif
 
 struct MessageWindow_020465c0;
@@ -41,7 +40,7 @@ extern "C" ARM void func_ov023_021e853c(void* arg0) {
     Struct_ov023_021e853c_2* var0 = static_cast<Struct_ov023_021e853c_2*>(arg0);
     Struct_ov023_021e853c* var1 = static_cast<Struct_ov023_021e853c*>(GetParty_02010828(GameState::GetInstance()));
     int var2 = GetMessageWindow_020421a0();
-    func_02041cc0(var0->unknown_5d8_, 0x18);
+    AppendHorizontalLineTag_02041cc0(var0->unknown_5d8_, 0x18);
     int var3[2] = { var1->unknown_f6c_, var1->unknown_f68_ };
     for (int var4 = 0; var4 < 2; var4++) {
         SetMessageNumber_020465c0((struct MessageWindow_020465c0*)var2, var4, var3[var4]);
@@ -57,5 +56,5 @@ extern "C" ARM void func_ov023_021e853c(void* arg0) {
 }
 
 #if defined(jpn)
-#undef func_02041cc0
+#undef AppendHorizontalLineTag_02041cc0
 #endif

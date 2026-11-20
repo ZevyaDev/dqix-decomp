@@ -9,7 +9,7 @@ struct Struct_02087d78;
 extern "C" int func_02087d78(struct Struct_02087d78* arg0, int arg1);
 struct Struct_ov024_021e2bd0;
 extern "C" void* func_ov024_021e8ca0(struct Struct_ov024_021e2bd0* arg0, int arg1);
-extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, void* combatant, int amount, int flags, int isCriticalHit, int arg6);
 
 struct Struct_ov024_021e3d88 { unsigned char unknown_0_0_ : 7; unsigned char unknown_0_7_ : 1; };
 struct Struct_ov024_021e3d88_2 { char unknown_0_[0xc]; void* unknown_c_; struct Random* unknown_10_; };
@@ -59,7 +59,7 @@ extern "C" ARM unsigned long long func_ov024_021e3d88(struct Struct_ov024_021e3d
 		}
 		void* var10 = func_ov024_021e8ca0((struct Struct_ov024_021e2bd0*)arg0, var9);
 		if (var10) {
-			func_ov000_0215cd44(arg0->unknown_10_, var10, var0, 0, 0, 0, 0);
+			SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var10, var0, 0, 0, 0, 0);
 		}
 	}
 	return 0;

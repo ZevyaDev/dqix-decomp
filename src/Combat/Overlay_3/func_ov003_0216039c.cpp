@@ -34,10 +34,10 @@ struct SpriteAnimation_0205a254_2 {
     unsigned char unknown_15_;
 };
 
-extern "C" unsigned char* func_02081da8(MenuLayout_0207fdcc_2* arg0, int arg1);
+extern "C" unsigned char* FindMenuLayoutWindow_02081da8(MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" int func_020e28dc(Struct_020e28dc* arg0);
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
-extern "C" void func_020809c4(void* arg0, int arg1, int arg2, short* arg3, short* arg4);
+extern "C" void GetMenuLayoutTextPosition_020809c4(void* menuLayout, int windowId, int textId, short* outX, short* outY);
 extern "C" void SetSpriteAnimationPosition_020e27ec(SpriteAnimationList_0205a254* animationList, int index, short x, short y);
 
 struct Struct_ov003_0216039c {
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov003_0216039c(Struct_ov003_0216039c* arg0) {
     if (arg0->unknown_470_ == NULL || arg0->unknown_488_ < 0 || arg0->unknown_324_ == NULL) {
         return;
     }
-    unsigned char* var0 = func_02081da8(arg0->unknown_324_, arg0->unknown_488_);
+    unsigned char* var0 = FindMenuLayoutWindow_02081da8(arg0->unknown_324_, arg0->unknown_488_);
     if (var0 == NULL) {
         return;
     }
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov003_0216039c(Struct_ov003_0216039c* arg0) {
     }
     short var1;
     short var2;
-    func_020809c4(arg0->unknown_324_, arg0->unknown_488_, *arg0->unknown_470_, &var1, &var2);
+    GetMenuLayoutTextPosition_020809c4(arg0->unknown_324_, arg0->unknown_488_, *arg0->unknown_470_, &var1, &var2);
     var1 -= 0x10;
     var2 -= 3;
     ((OBJSpriteSet::List*)(arg0->unknown_38c_))->PlaySpriteAnimation(0);

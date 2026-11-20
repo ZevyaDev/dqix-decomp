@@ -28,31 +28,31 @@ struct Struct_02108cec {
     void* unknown_10_;
     SafeAllocator* unknown_14_;
 };
-extern Struct_02108cec data_02108cec;
+extern Struct_02108cec gNPCPlacementParseState_02108cec;
 static inline int inline_0206cbcc(FlagManager_0205faf4_3* arg0, int arg1, int arg2) {
     return GetQuestState_0206e120(arg0, arg1) == arg2;
 }
 
 // USA: func_0206cbcc
 extern "C" ARM int func_0206cbcc(Script::Parameter* arg0, int arg1) {
-    data_02108cec.unknown_a_++;
+    gNPCPlacementParseState_02108cec.unknown_a_++;
     FlagManager_0205faf4_3* var0;
     int var1 = arg0[0].ToInt();
     int var2 = arg0[1].ToInt();
     int var3 = arg0[2].ToInt();
     int var4 = arg0[3].ToInt();
     int var5 = arg0[4].ToInt();
-    if (data_02108cec.unknown_6_ != var5) {
-        data_02108cec.unknown_6_ = var5;
-        data_02108cec.unknown_8_ = -1;
-        data_02108cec.unknown_4_ = -1;
+    if (gNPCPlacementParseState_02108cec.unknown_6_ != var5) {
+        gNPCPlacementParseState_02108cec.unknown_6_ = var5;
+        gNPCPlacementParseState_02108cec.unknown_8_ = -1;
+        gNPCPlacementParseState_02108cec.unknown_4_ = -1;
     }
-    if (data_02108cec.unknown_4_ > 0) return 1;
+    if (gNPCPlacementParseState_02108cec.unknown_4_ > 0) return 1;
     var0 = func_0205ec34();
-    if (data_02108cec.unknown_8_ != var1 && data_02108cec.unknown_8_ > -1 &&
+    if (gNPCPlacementParseState_02108cec.unknown_8_ != var1 && gNPCPlacementParseState_02108cec.unknown_8_ > -1 &&
         !inline_0206cbcc(var0, var1, 1) && !inline_0206cbcc(var0, var1, 2) &&
-        inline_0206cbcc(var0, data_02108cec.unknown_8_, 3) && inline_0206cbcc(var0, var1, 3)) {
-        if (data_02108cec.unknown_8_ > var1) return 1;
+        inline_0206cbcc(var0, gNPCPlacementParseState_02108cec.unknown_8_, 3) && inline_0206cbcc(var0, var1, 3)) {
+        if (gNPCPlacementParseState_02108cec.unknown_8_ > var1) return 1;
     }
     switch (var2) {
     case -1: if (!inline_0206cbcc(var0, var1, 0)) return 1; break;
@@ -65,11 +65,11 @@ extern "C" ARM int func_0206cbcc(Script::Parameter* arg0, int arg1) {
     GameState* var6 = GameState::GetInstance();
     if (var3 == 1) { if (var6->IsMorningDayOrEvening()) return 1; }
     else if (var3 == 0) { if (!var6->IsMorningDayOrEvening()) return 1; }
-    if (var4 != data_02108cec.unknown_c_) {
-        func_0206dd68(data_02108cec.unknown_10_, var5);
+    if (var4 != gNPCPlacementParseState_02108cec.unknown_c_) {
+        func_0206dd68(gNPCPlacementParseState_02108cec.unknown_10_, var5);
         return 1;
     }
-    Struct_0206bf2c* var7 = (Struct_0206bf2c*)data_02108cec.unknown_14_->Allocate(0x78);
+    Struct_0206bf2c* var7 = (Struct_0206bf2c*)gNPCPlacementParseState_02108cec.unknown_14_->Allocate(0x78);
     if (!var7) return 0;
     func_0206bf2c(var7);
     var7->unknown_46_ = var1;
@@ -77,15 +77,15 @@ extern "C" ARM int func_0206cbcc(Script::Parameter* arg0, int arg1) {
     var7->unknown_2_ = var4;
     var7->unknown_0_ = var5;
     if (arg1 < 6) {
-        func_0206dd68(data_02108cec.unknown_10_, var5);
-        data_02108cec.unknown_8_ = var1;
+        func_0206dd68(gNPCPlacementParseState_02108cec.unknown_10_, var5);
+        gNPCPlacementParseState_02108cec.unknown_8_ = var1;
         return 1;
     }
     Script::Parameter* var8 = arg0[5].ToVec3fix((Vector3fix*)var7->unknown1_10_);
     var7->unknown_1c_ = (int)(4096.0f * var8->ToFloat());
     if (arg1 > 9) var7->unknown_1e_ = var8[1].ToInt();
-    var7->unknown_44_ = data_02108cec.unknown_a_;
-    func_0206db48(data_02108cec.unknown_10_, var7);
-    data_02108cec.unknown_8_ = var1;
+    var7->unknown_44_ = gNPCPlacementParseState_02108cec.unknown_a_;
+    func_0206db48(gNPCPlacementParseState_02108cec.unknown_10_, var7);
+    gNPCPlacementParseState_02108cec.unknown_8_ = var1;
     return 1;
 }

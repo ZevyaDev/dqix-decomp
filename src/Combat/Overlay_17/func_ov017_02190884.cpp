@@ -60,7 +60,7 @@ extern "C" int IsOnLadder_02039d7c(char* object);
 extern "C" LocalWireless_0202c1a4* func_0202ae18();
 extern "C" GameObject* func_0200fee0(GameState* arg0, int arg1);
 extern "C" char* GetZone3D_02012fe4();
-extern "C" int func_020981e4(int arg0, int arg1);
+extern "C" int IsQuestersRestZone_020981e4(int questersRest, int zoneId);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" int func_ov017_02190818(int arg0);
@@ -69,7 +69,7 @@ extern "C" int func_02039820(void* arg0);
 extern "C" int func_02039828(void* arg0);
 extern "C" int func_02010038(GameState* arg0, unsigned char* arg1);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
-extern "C" void StopGesture_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* gameObject);
 extern "C" int func_02039874(void* arg0);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void func_020340f4(unsigned char* arg0);
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
     int var12 = 0;
     int var13;
     GameObject* var14;
-    if (func_020981e4((int)((Zone3D*)var11)->unk_840, *(unsigned short*)var11)) {
+    if (IsQuestersRestZone_020981e4((int)((Zone3D*)var11)->unk_840, *(unsigned short*)var11)) {
         var12 = 1;
     }
 

@@ -3,7 +3,7 @@
 extern "C" int CheckWirelessState_020d424c(int stateCount, int arg1);
 extern "C" int SendWirelessCommand_020d40bc(int command, int paramCount, void* arg2, int arg3);
 extern "C" void SetWirelessCommandCallback_020d404c(int command, int callback);
-extern "C" void* func_020d41d8(void);
+extern "C" void* GetWirelessDriver_020d41d8(void);
 extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 void CleanCacheRange(const void* addr, unsigned int size);
 
@@ -19,7 +19,7 @@ struct Struct_020d5b5c_2 {
 
 // USA: func_020d5b5c
 extern "C" ARM int func_020d5b5c(int arg0, void* arg1, unsigned int arg2) {
-    struct Struct_020d5b5c_2* var0 = (struct Struct_020d5b5c_2*)func_020d41d8();
+    struct Struct_020d5b5c_2* var0 = (struct Struct_020d5b5c_2*)GetWirelessDriver_020d41d8();
     int var1 = CheckWirelessState_020d424c(1, 8);
     if (var1 != 0) {
         return var1;

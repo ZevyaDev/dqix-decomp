@@ -53,7 +53,7 @@ extern "C" void func_0205337c(GameObject*);
 extern "C" unsigned char func_02039820(void*);
 extern "C" int IsOnLadder_02039d7c(char*);
 extern "C" void func_02096824(unsigned char*);
-extern "C" int* func_020936f8();
+extern "C" int* GetNoticeQueue_020936f8();
 extern "C" void func_02093f68(char*);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_ov017_021959ec(void*);
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov017_021960b8(Struct_ov017_021960b8* arg0) {
         func_02096824(arg0->unknown_4328_);
     }
 
-    func_02093f68((char*)func_020936f8());
+    func_02093f68((char*)GetNoticeQueue_020936f8());
     if (((AtmosphericEffectSet*)((char*)GetZone3D_02012fe4() + Enum_ov017_021960b8_244))->Draw()) {
         func_ov017_021959ec(arg0);
     }

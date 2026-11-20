@@ -17,7 +17,7 @@
 
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_0202ae24(void);
-extern "C" void* func_020e2ff8(void);
+extern "C" void* GetWirelessLockTable_020e2ff8(void);
 extern "C" void* func_020e3580(void);
 extern "C" int func_0202b000(void* arg0);
 extern "C" void func_ov017_021c37a4(void);
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov017_021c36a0(void) {
 	void* var2 = func_0202ae18();
 	GameObject* var3 = var0->GetProtagonist();
 	void* var4 = func_0202ae24();
-	void* var5 = func_020e2ff8();
+	void* var5 = GetWirelessLockTable_020e2ff8();
 	void* var6 = func_020e3580();
 
 	if (func_0202b000(var2) != 0) {

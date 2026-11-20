@@ -50,7 +50,7 @@ struct Struct_020531f0_2 {
 };
 
 // USA: StopGesture_020531f0
-extern "C" ARM void StopGesture_020531f0(struct Struct_020531f0_2* arg0) {
+extern "C" ARM void StopGesture_020531f0(struct Struct_020531f0_2* gameObject) {
 #if defined(jpn)
     enum { Enum_020531f0_408 = 0x18c, Enum_020531f0_6577 = 0x17e1 };
 #else
@@ -63,46 +63,46 @@ extern "C" ARM void StopGesture_020531f0(struct Struct_020531f0_2* arg0) {
     int objectIndex;
 
     backgroundLoader = BackgroundLoader::GetInstance();
-    if (arg0->unknown_180_ > -1) {
-        backgroundLoader->RemoveTask(arg0->unknown_180_);
-        arg0->unknown_180_ = -1;
+    if (gameObject->unknown_180_ > -1) {
+        backgroundLoader->RemoveTask(gameObject->unknown_180_);
+        gameObject->unknown_180_ = -1;
     }
 
-    if (func_02053604((signed char*)arg0) == 0x19) {
-        func_0205eabc((void*)&gSoundEffectManager_02108760, (char*)arg0 + Enum_020531f0_408, 0);
+    if (func_02053604((signed char*)gameObject) == 0x19) {
+        func_0205eabc((void*)&gSoundEffectManager_02108760, (char*)gameObject + Enum_020531f0_408, 0);
     }
 
-    memset(arg0->unknown_178_, 0, 4);
-    arg0->unknown_17c_ = 0;
-    arg0->unknown_17d_ = 0;
-    arg0->unknown_180_ = -1;
-    arg0->unknown_17e_ = 0;
-    arg0->unknown_17f_ = 0;
-    arg0->unknown_184_ = 0;
+    memset(gameObject->unknown_178_, 0, 4);
+    gameObject->unknown_17c_ = 0;
+    gameObject->unknown_17d_ = 0;
+    gameObject->unknown_180_ = -1;
+    gameObject->unknown_17e_ = 0;
+    gameObject->unknown_17f_ = 0;
+    gameObject->unknown_184_ = 0;
 
-    if (arg0->unknown_194_ > -1) {
-        backgroundLoader->RemoveTask(arg0->unknown_194_);
-        arg0->unknown_194_ = -1;
+    if (gameObject->unknown_194_ > -1) {
+        backgroundLoader->RemoveTask(gameObject->unknown_194_);
+        gameObject->unknown_194_ = -1;
     }
 
-    arg0->unknown_190_ = 0;
-    arg0->unknown_194_ = -1;
-    arg0->unknown_185_ = 0;
-    arg0->unknown_186_ = 0;
+    gameObject->unknown_190_ = 0;
+    gameObject->unknown_194_ = -1;
+    gameObject->unknown_185_ = 0;
+    gameObject->unknown_186_ = 0;
 
-    if ((arg0->unknown_0_.unknown_0_ & 0x200) != 0) {
-        if (IsOnLadder_02039d7c((char*)arg0) != 0) {
+    if ((gameObject->unknown_0_.unknown_0_ & 0x200) != 0) {
+        if (IsOnLadder_02039d7c((char*)gameObject) != 0) {
             return;
         }
     }
 
-    arg0->unknown_c1_.unknown_0_0_ &= ~2;
-    arg0->unknown_0_.RemoveAnimationPackageByID(2);
-    arg0->unknown_b2_ = 0;
-    SetMotion_02033b88((struct Struct_02010604*)arg0, 0);
+    gameObject->unknown_c1_.unknown_0_0_ &= ~2;
+    gameObject->unknown_0_.RemoveAnimationPackageByID(2);
+    gameObject->unknown_b2_ = 0;
+    SetMotion_02033b88((struct Struct_02010604*)gameObject, 0);
 
     gameState = GameState::GetInstance();
-    objectIndex = arg0->unknown_0_.unknown_4_;
+    objectIndex = gameObject->unknown_0_.unknown_4_;
     int ownPartyLeaderObjectIndex = GetOwnPartyLeaderObjectIndex_020100b0(gameState);
     if (ownPartyLeaderObjectIndex == objectIndex) {
         camera = GetFollowCamera_020100f8((char*)gameState);
@@ -114,5 +114,5 @@ extern "C" ARM void StopGesture_020531f0(struct Struct_020531f0_2* arg0) {
         }
     }
 
-    func_ov017_021cc1f8(arg0->unknown_0_.unknown_4_, (const char*)gestureIds, 0, 1);
+    func_ov017_021cc1f8(gameObject->unknown_0_.unknown_4_, (const char*)gestureIds, 0, 1);
 }

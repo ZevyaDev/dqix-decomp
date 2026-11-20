@@ -4,7 +4,7 @@
 #include "Graphics/BGLayer.h"
 
 extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
-extern "C" double func_02009424(double arg0);
+extern "C" double ComputeSine_02009424(double angle);
 
 struct Struct_ov000_02174e50 {
     char unknown_0_[0x24];
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov000_02174e50(char* arg0, int arg1) {
             var0->unknown_40_ = 0.0f;
             var0->unknown_80_ = 0x7fff;
         } else {
-            float var3 = func_02009424((double)(var1 * 2.0f));
+            float var3 = ComputeSine_02009424((double)(var1 * 2.0f));
             if (var3 < 0.0f) {
                 var3 = 0.0f - var3;
             }

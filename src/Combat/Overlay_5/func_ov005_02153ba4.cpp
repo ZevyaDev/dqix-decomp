@@ -169,9 +169,9 @@ extern "C" unsigned char func_ov005_0215a918(void* arg0, int arg1);
 extern "C" short func_0207c620(unsigned char* arg0, unsigned int arg1);
 extern "C" void InitKeyMenuCursor_0205bef8(KeyMenuCursor_0205bef8* cursor);
 extern "C" Struct_ov005_02153ba4_2* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
-extern "C" int func_0207c638(void* arg0, unsigned int arg1);
+extern "C" int CountUsedEquipmentBagSlots_0207c638(void* bag, unsigned int category);
 extern "C" short GetEquippedItem_02052df8(Struct_02052df8* gameObject, int slot);
-extern "C" int func_0207c7a0(void* arg0, int arg1, int arg2);
+extern "C" int GetEquipmentBagItemCount_0207c7a0(void* bag, int itemId, int category);
 extern "C" short* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
 
 // USA: func_ov005_02153ba4
@@ -296,7 +296,7 @@ extern "C" ARM void func_ov005_02153ba4(Struct_ov005_02153954* arg0) {
     for (int var15 = 0; var15 < 8; var15++) {
         unsigned char var16 = func_ov005_0215a948(arg0, var15);
         int var17 = func_ov005_0215a918(arg0, var15);
-        int var18 = func_0207c638(var7 + 0x1d4, var16);
+        int var18 = CountUsedEquipmentBagSlots_0207c638(var7 + 0x1d4, var16);
         short var19[4];
         __clear(var19, sizeof(var19));
         for (int var20 = 0; var20 < var14; var20++) {
@@ -309,7 +309,7 @@ extern "C" ARM void func_ov005_02153ba4(Struct_ov005_02153954* arg0) {
             int var22;
             for (var22 = 0; var22 < var20; var22++)
                 ;
-            if (!func_0207c7a0(var7 + 0x1d4, var19[var20], 9))
+            if (!GetEquipmentBagItemCount_0207c7a0(var7 + 0x1d4, var19[var20], 9))
                 var18++;
         }
         if (var18 > 0)

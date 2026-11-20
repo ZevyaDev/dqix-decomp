@@ -9,7 +9,7 @@ struct Struct_020885b4;
 extern "C" int func_020885b4(struct Struct_020885b4* arg0);
 struct Struct_02088514;
 extern "C" int IsEnvenomated_02088514(struct Struct_02088514* stats);
-extern "C" int func_ov024_021ed890(struct Random** arg0, int* arg1, short* arg2);
+extern "C" int PickRandomTarget_ov024_021ed890(struct Random** targetSelector, int* count, short* targetIndices);
 
 struct Struct_ov024_021fec7c { short unknown_0_[8]; };
 extern struct Struct_ov024_021fec7c data_ov024_021fec7c;
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov024_021f4880(int* arg0, int arg1, int arg2, int* arg3,
         }
     }
     if (*arg3 > 0) {
-        func_ov024_021ed890((struct Random**)arg0, arg3, arg4);
+        PickRandomTarget_ov024_021ed890((struct Random**)arg0, arg3, arg4);
         return 1;
     }
     return 0;

@@ -16,8 +16,8 @@ extern "C" void func_0207fe80(void* arg0, int arg1, int arg2, int arg3);
 struct MenuLayout_0207fd44_2;
 extern "C" void FlushMenuLayoutBGScreenData_0207fd44(struct MenuLayout_0207fd44_2* menuLayout);
 struct MenuLayout_0207fdcc_2;
-extern "C" void* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
-extern "C" void func_020809c4(void* arg0, int arg1, int arg2, short* arg3, short* arg4);
+extern "C" void* FindMenuLayoutWindow_02081da8(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
+extern "C" void GetMenuLayoutTextPosition_020809c4(void* menuLayout, int windowId, int textId, short* outX, short* outY);
 extern "C" int GetMessageWindow_020421a0(void);
 struct SpriteAnimationList_0205a330;
 struct SpriteAnimationList_0205a254;
@@ -61,10 +61,10 @@ extern "C" ARM void func_ov017_021aad8c(struct Struct_ov017_021aad8c_2* arg0) {
 
     if (arg0->unknown_44_ == NULL) return;
     if (arg0->unknown_48_ < 0) return;
-    if (func_02081da8((struct MenuLayout_0207fdcc_2*)arg0->unknown_18_, arg0->unknown_48_) == NULL) return;
+    if (FindMenuLayoutWindow_02081da8((struct MenuLayout_0207fdcc_2*)arg0->unknown_18_, arg0->unknown_48_) == NULL) return;
 
     short var1, var2;
-    func_020809c4(arg0->unknown_18_, arg0->unknown_48_, *arg0->unknown_44_, &var1, &var2);
+    GetMenuLayoutTextPosition_020809c4(arg0->unknown_18_, arg0->unknown_48_, *arg0->unknown_44_, &var1, &var2);
     var1 -= 0x10;
     var2 -= 3;
 

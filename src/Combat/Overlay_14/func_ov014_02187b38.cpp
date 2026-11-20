@@ -11,7 +11,7 @@
 
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" void func_ov014_02188330(void* arg0);
-extern "C" short func_02080468(void* arg0, int arg1);
+extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov014_02187b38(void* arg0) {
         func_ov014_02188330(arg0);
         *(short*)((char*)arg0 + 0x170) = 1;
         if (*(short*)((char*)arg0 + 0x172) < 0) {
-            *(short*)((char*)arg0 + 0x172) = func_02080468(*(void**)((char*)arg0 + 0xc0), *(short*)((char*)arg0 + 0x170));
+            *(short*)((char*)arg0 + 0x172) = GetMenuLayoutWindowFirstSelectableTextId_02080468(*(void**)((char*)arg0 + 0xc0), *(short*)((char*)arg0 + 0x170));
         }
         *(short*)((char*)*(void**)((char*)arg0 + 0xc0) + REGION_MEMBER_SHORT_OFFSET) = *(short*)((char*)arg0 + 0x172);
         OpenMenuLayoutWindow_020813ec(*(void**)((char*)arg0 + 0xc0), *(short*)((char*)arg0 + 0x170));

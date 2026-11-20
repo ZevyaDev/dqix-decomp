@@ -9,7 +9,7 @@ struct Struct_02097ec8_2 {
 
 extern "C" Struct_0208fa8c* GetZone3D_02012fe4();
 extern "C" int _s32_div_f(int a, int b);
-extern "C" int func_020981e4(int arg0, int arg1);
+extern "C" int IsQuestersRestZone_020981e4(int questersRest, int zoneId);
 extern "C" int func_02098240(int arg0, int arg1);
 extern "C" int func_0201bd74(Struct_02017a94* arg0, unsigned int arg1, int arg2);
 
@@ -21,7 +21,7 @@ extern "C" ARM int func_02098080(Struct_02097ec8_2* arg0) {
     var3 = arg0->unknown_1b3c_;
     var2 = _s32_div_f(var0->unknown_0_, 100) - 500;
 
-    if (!func_020981e4((int)arg0, var1)) return 0;
+    if (!IsQuestersRestZone_020981e4((int)arg0, var1)) return 0;
     if (func_02098240((int)arg0, var1)) return 0;
     if (var1 == 0xc3bb) return 0;
     if ((unsigned int)(var1 - 0xc3bc) <= 2) return 0;

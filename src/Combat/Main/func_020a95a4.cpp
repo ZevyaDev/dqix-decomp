@@ -15,7 +15,7 @@
 #endif
 
 struct Struct_0208660c;
-struct Struct_02061c04_23;
+struct ItemBag_02061c04_23;
 struct Struct_020838c4;
 struct Struct_02108760_2;
 
@@ -150,7 +150,7 @@ extern "C" void func_020a93e0(char* arg0);
 extern "C" void func_02082d6c(void* arg0, void* arg1);
 extern "C" int func_020838c4(struct Struct_020838c4* arg0, int arg1);
 extern "C" void func_020a093c(struct Struct_0208660c* arg0, int arg1, int arg2, short arg3);
-extern "C" int func_020a0a08(struct Struct_02061c04_23* arg0, int arg1, int arg2);
+extern "C" int RemoveItemFromBag_020a0a08(struct ItemBag_02061c04_23* bag, int itemId, int count);
 extern "C" void func_0207c258(void* arg0);
 extern "C" unsigned short* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
 extern "C" unsigned char* GetEquipmentBagCounts_0207c60c(void* bag, unsigned int category);
@@ -214,7 +214,7 @@ extern "C" ARM int func_020a95a4(Struct_020a95a4_6* arg0, Struct_020a95a4_5* arg
     var1->unknown_f7c_ = arg0->unknown_1d11_;
     memcpy(var1->unknown_0_, arg0->unknown_1d5c_, sizeof(arg0->unknown_1d5c_));
     func_020a093c((struct Struct_0208660c*)var1->unknown_0_, (int)var1->unknown_c_, (int)var1->unknown_13c_, 0x98);
-    func_020a0a08((struct Struct_02061c04_23*)var1->unknown_0_, 0x5612, 0x63);
+    RemoveItemFromBag_020a0a08((struct ItemBag_02061c04_23*)var1->unknown_0_, 0x5612, 0x63);
 
     int var9 = 0;
     func_0207c258(var1->unknown_1d4_);

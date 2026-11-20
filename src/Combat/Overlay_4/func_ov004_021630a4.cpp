@@ -13,7 +13,7 @@ public:
     virtual Struct_ov004_021630a4_2 inline_ov004_021630a4_9();
 };
 
-extern "C" Struct_ov004_021630a4* func_ov004_0215e47c(void* arg0, int arg1);
+extern "C" Struct_ov004_021630a4* FindMenuObject_ov004_0215e47c(void* menu, int id);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 
 extern int data_ov004_021707e8;
@@ -25,7 +25,7 @@ extern "C" ARM int func_ov004_021630a4(void* arg0) {
 #else
     enum { Enum_ov004_021630a4_16 = 0x10 };
 #endif
-    Struct_ov004_021630a4* var0 = func_ov004_0215e47c(arg0, 9);
+    Struct_ov004_021630a4* var0 = FindMenuObject_ov004_0215e47c(arg0, 9);
     var0->unknown_c_ &= ~0x80;
     Struct_ov004_021630a4_2 var1;
     const Struct_ov004_021630a4_2& var2 = var0->inline_ov004_021630a4_9();

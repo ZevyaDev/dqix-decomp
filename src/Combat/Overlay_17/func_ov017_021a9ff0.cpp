@@ -18,7 +18,7 @@ extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
 extern "C" void PrependToQueue_020469f8(Queue_020469f8* queue, QueueNode_020469f8_2* node);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 void SetBrightness(GameResources* resources, int brightness, int frames);
-extern "C" void func_020213fc(Struct_020213fc* arg0, int arg1);
+extern "C" void SetSubScreenFadeInHeld_020213fc(Struct_020213fc* subScreenDisplay, int isHeld);
 extern "C" void func_ov004_02165df4(SafeAllocator* arg0, void* arg1);
 extern char data_ov017_021d7831;
 
@@ -49,5 +49,5 @@ extern "C" ARM void func_ov017_021a9ff0(int arg0) {
         AppendToQueue_020469b4((Queue_0201bdac_2*)var2, (QueueNode_0201bdac*)var3);
     }
     SetBrightness(var0, -16, 0x19);
-    func_020213fc(var1, 1);
+    SetSubScreenFadeInHeld_020213fc(var1, 1);
 }

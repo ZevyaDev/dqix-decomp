@@ -118,7 +118,7 @@ extern "C" {
 void func_ov023_021eb138(Struct_ov008_02185a70* arg0, int arg1);
 void func_ov023_021eb080(Struct_ov008_02185a70* arg0, SafeAllocator* arg1);
 void func_ov023_021eb564(Struct_ov008_02185a70* arg0, void* arg1, int arg2);
-void func_ov023_021eb26c(Struct_ov008_02185a70* arg0);
+void DestroyAccoladeDisplay_ov023_021eb26c(Struct_ov008_02185a70* display);
 void func_ov008_02186964(Struct_ov008_021842a0_2* arg0);
 int func_ov008_02188d74(Struct_ov008_021842a0_2* arg0);
 int func_ov008_02188a54(Struct_ov008_021842a0_2* arg0, int arg1);
@@ -174,7 +174,7 @@ extern "C" ARM void func_ov008_02185a70(Struct_ov008_021842a0_2* arg0, unsigned 
         arg0->unknown_b11_++;
     if (var3 == 4)
     {
-        func_ov023_021eb26c(arg0->unknown_b08_);
+        DestroyAccoladeDisplay_ov023_021eb26c(arg0->unknown_b08_);
         arg0->unknown_78_.Reset();
         arg0->unknown_b08_ = NULL;
         arg0->unknown_b0c_ = NULL;

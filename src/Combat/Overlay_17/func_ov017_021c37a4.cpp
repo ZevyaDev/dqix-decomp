@@ -135,13 +135,13 @@ struct GlobalFlags_02038598_4;
 
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_0202ae24(void);
-extern "C" void* func_020e2ff8(void);
+extern "C" void* GetWirelessLockTable_020e2ff8(void);
 extern "C" void* func_020e3580(void);
-extern "C" void* func_020e3808(void);
+extern "C" void* GetEventSyncTable_020e3808(void);
 extern "C" void* func_020d6c00(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int GetLocalWirelessState_0202ba00(int* wireless);
-extern "C" void func_020ac4f8(int arg0);
+extern "C" void AddElapsedPlayTime_020ac4f8(int arg0);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02012084(unsigned char* arg0);
 extern "C" void func_02011af0(void* arg0);
@@ -180,7 +180,7 @@ extern "C" void func_020116c8(void* arg0);
 extern "C" void RevivePartyMember_02048150(void* gameObject, int hp, int isPartyOrderRebuildAllowed);
 extern "C" void SetCombatantAppearanceFlags_ov017_02191aac(void* gameResources, int isSet, int combatantIndex, unsigned char flags);
 extern "C" void VectorizedMemset(void* dst, int value, int len);
-extern "C" char* func_020936f8(void);
+extern "C" char* GetNoticeQueue_020936f8(void);
 extern "C" void func_02093a14(char* arg0);
 extern "C" Struct_ov017_021c37a4_4* GetZone3D_02012fe4(void);
 extern "C" void func_ov017_02195748(unsigned char* arg0);
@@ -206,9 +206,9 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     Struct_ov017_021c37a4_6* var2 = (Struct_ov017_021c37a4_6*)func_0202ae18();
     GameResources* var3 = GetGameResources();
     void* var4 = func_0202ae24();
-    void* var5 = func_020e2ff8();
+    void* var5 = GetWirelessLockTable_020e2ff8();
     void* var6 = func_020e3580();
-    void* var7 = func_020e3808();
+    void* var7 = GetEventSyncTable_020e3808();
     void* var8 = func_020d6c00();
     int var9 = IsLocalWirelessGuest_0202c540(var2);
     int var10 = GetLocalWirelessState_0202ba00((int*)var2);
@@ -223,7 +223,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     Struct_ov017_021c37a4_2 var15;
 
     if ((var10 == 5 && var11 > 1) || var10 == 6) {
-        func_020ac4f8(1);
+        AddElapsedPlayTime_020ac4f8(1);
     }
 
 #if !defined(jpn)
@@ -394,7 +394,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
         var41->unknown_9_ = -1;
     }
 
-    func_02093a14(func_020936f8());
+    func_02093a14(GetNoticeQueue_020936f8());
     Struct_ov017_021c37a4_4* var43 = GetZone3D_02012fe4();
     Struct_ov017_021c37a4_3* var44 = var43->inline_ov017_021c37a4();
     var44->unknown_64_ = 0;

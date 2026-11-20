@@ -70,7 +70,7 @@ extern "C" void func_020a1df8(int);
 extern "C" unsigned int* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
-extern "C" void* func_020d7a50(void);
+extern "C" void* GetTimedMessageQueue_020d7a50(void);
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2* queue);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void func_02053ec8(void*, int);
@@ -133,7 +133,7 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
     func_ov001_0215aa14((SafeAllocator*)NULL);
     DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
     DisableCameraTurning_020a27b8(var3);
-    ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)func_020d7a50());
+    ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)GetTimedMessageQueue_020d7a50());
     *(unsigned short*)(var3 + 0x21e) = GetCameraYaw_0202e7f0(var3);
 
     if (IsLocalWirelessOn_0202b7d8((int*)var5)) {

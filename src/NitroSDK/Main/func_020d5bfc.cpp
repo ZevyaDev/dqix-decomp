@@ -2,7 +2,7 @@
 #include "NitroSDK/Cache.h"
 #include "NitroSDK/Memory.h"
 
-extern "C" void* func_020d41d8(void);
+extern "C" void* GetWirelessDriver_020d41d8(void);
 extern "C" int CheckWirelessState_020d424c(int stateCount, int arg1);
 extern "C" void SetWirelessCommandCallback_020d404c(int command, int callback);
 extern "C" int SendWirelessCommand_020d40bc(int command, int paramCount, int arg2, int arg3, int arg4, int arg5);
@@ -15,7 +15,7 @@ struct Struct_020d5bfc {
 
 // USA: func_020d5bfc
 extern "C" ARM int func_020d5bfc(int arg0, void* arg1, void* arg2, unsigned int arg3) {
-    struct Struct_020d5bfc* var0 = (struct Struct_020d5bfc*)func_020d41d8();
+    struct Struct_020d5bfc* var0 = (struct Struct_020d5bfc*)GetWirelessDriver_020d41d8();
     int var1 = CheckWirelessState_020d424c(1, 0xb);
     if (var1 != 0) return var1;
     InvalidateDataCacheRange((const void*)((int)((char*)var0->unknown_4_ + 0x10)), 4);

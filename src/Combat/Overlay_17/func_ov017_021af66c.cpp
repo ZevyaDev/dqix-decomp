@@ -103,7 +103,7 @@ extern "C" void func_ov017_021afb8c(Struct_ov017_021af66c_4* arg0, unsigned char
 extern "C" void func_ov017_0218b5c0(int arg0, int arg1);
 
 extern "C" void* func_020d6c00();
-extern "C" void* func_020936f8();
+extern "C" void* GetNoticeQueue_020936f8();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
 extern "C" int func_0202bd34(LocalWireless_0202b2f0* arg0, int arg1);
@@ -144,7 +144,7 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
     LocalWireless_0202b2f0* var2 = (LocalWireless_0202b2f0*)func_0202ae18();
     Struct_ov017_021af66c_5* var3 = (Struct_ov017_021af66c_5*)var0->GetUnknownGameObject();
     GlobalFlags_02038598_4* var4 = (GlobalFlags_02038598_4*)func_020d6c00();
-    char* var5 = (char*)func_020936f8();
+    char* var5 = (char*)GetNoticeQueue_020936f8();
     Struct_ov017_021af66c* var6 = static_cast<Struct_ov017_021af66c*>(var1->unknown_ptr_3718);
     DisablePlayerControl_020397cc((Struct_02018300_3*)var3, 0);
     var3->unknown_b2_ = 0;

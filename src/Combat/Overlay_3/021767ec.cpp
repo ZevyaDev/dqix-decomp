@@ -23,7 +23,7 @@ enum { Enum_ov003_021767ec_4118 = 0x1016 };
 struct MenuLayout_0207fdcc_2;
 extern "C" void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
-extern "C" void func_02080b54(void* arg0, int arg1);
+extern "C" void HideMenuLayoutWindowTexts_02080b54(void* menuLayout, int windowId);
 extern "C" void func_02080608(void* arg0, int arg1);
 extern "C" void func_02081130(void* arg0, int arg1, int arg2);
 
@@ -61,7 +61,7 @@ extern "C" ARM int func_ov003_021767ec(char* arg0) {
 
     ShowMenuLayoutWindow_02080c20(var0, 3);
     SetMenuLayoutWindowPalette_02080c68(var0, 3, 0);
-    func_02080b54(var0, 3);
+    HideMenuLayoutWindowTexts_02080b54(var0, 3);
     func_02080608(var0, 3);
 
     unsigned short var4 = *(unsigned short*)(arg0 + Enum_ov003_021767ec_4166);

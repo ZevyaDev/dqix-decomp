@@ -32,7 +32,7 @@ extern "C" void func_0202ae18();
 extern "C" Struct_02046574_2* GetMessageWindow_020421a0();
 extern "C" void* GetZone3D_02012fe4();
 extern "C" unsigned char* GetFollowCamera_020100f8(char*);
-extern "C" TimedMessageQueue_020d7aa0_2* func_020d7a50();
+extern "C" TimedMessageQueue_020d7aa0_2* GetTimedMessageQueue_020d7a50();
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2*);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void DisableCameraTurning_020a27b8(unsigned char*);
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
     GameObject* var3 = var0->GetUnknownGameObject();
     unsigned char* var4 = GetFollowCamera_020100f8((char*)var0);
     if (arg0->unknown_8_ == 0) {
-        ClearTimedMessageQueue_020d7aa0(func_020d7a50());
+        ClearTimedMessageQueue_020d7aa0(GetTimedMessageQueue_020d7a50());
         DisablePlayerControl_020397cc((Struct_02018300_3*)var3, 1);
         DisableCameraTurning_020a27b8(var4);
         void* var5 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021bf014_800);
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
         ResetMessageWindow_02043204((char*)var1);
         EnablePlayerControl_020397c0(var3);
         FontLoader_0208cb08* var11 = GetFontLoader_02094a00();
-        func_02094b38(var11, 0x203);
+        ClearLoadedFontSet_02094b38(var11, 0x203);
         CancelFontLoad_02094ab0(var11);
         func_ov017_021bf398((char*)arg0);
     }

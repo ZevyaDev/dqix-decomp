@@ -28,7 +28,7 @@ struct Struct_ov031_0222c1b8_3 {
     unsigned char unknown_0_[0xf4];
     unsigned char unknown_f4_;
 };
-extern Struct_ov031_02290c8c_9 data_ov031_02290c8c;
+extern Struct_ov031_02290c8c_9 gAccessPointListPage_ov031_02290c8c;
 extern unsigned char data_ov031_02290c90;
 extern "C" int IsBrightnessFadeActive_ov031_0223c054(int);
 extern "C" int func_ov031_02222e54();
@@ -61,36 +61,36 @@ extern "C" ARM void func_ov031_0222c1b8() {
     if (IsBrightnessFadeActive_ov031_0223c054(1) != 0) return;
     if (IsBrightnessFadeActive_ov031_0223c054(0) != 0) return;
     if (func_ov031_02222e54() == 0) return;
-    func_ov031_0223e2e0(1, data_ov031_02290c8c.unknown_4_->unknown_3c_);
+    func_ov031_0223e2e0(1, gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_3c_);
     int var0 = 0;
     do {
-        if (data_ov031_02290c8c.unknown_4_->unknown_10_[var0]) func_ov031_0223da58(data_ov031_02290c8c.unknown_4_->unknown_10_[var0]);
-        if (data_ov031_02290c8c.unknown_4_->unknown_24_[var0]) func_ov031_0223da58(data_ov031_02290c8c.unknown_4_->unknown_24_[var0]);
+        if (gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_10_[var0]) func_ov031_0223da58(gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_10_[var0]);
+        if (gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_24_[var0]) func_ov031_0223da58(gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_24_[var0]);
     } while (++var0 < 5);
-    func_ov031_0223c760(data_ov031_02290c8c.unknown_4_->unknown_c_);
+    func_ov031_0223c760(gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_c_);
     func_ov031_02235194();
     func_ov031_022238cc();
     CloseSubScreenMessage_ov031_02223440();
     func_ov031_02234f08();
-    func_ov031_0223b710(data_ov031_02290c8c.unknown_4_->unknown_4_);
-    func_ov031_0223b710(data_ov031_02290c8c.unknown_4_->unknown_8_);
+    func_ov031_0223b710(gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_4_);
+    func_ov031_0223b710(gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_8_);
     HideScreenLayers_ov031_0223cbbc(1, 1);
     HideScreenLayers_ov031_0223cbbc(0, 0x1d);
     REG_SCROLL = 0;
     REG_SCROLL_SUB = 0;
-    if (data_ov031_02290c8c.unknown_4_->unknown_54_ == 0) {
+    if (gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_54_ == 0) {
         func_ov031_022357b4();
         func_ov031_02236094(((Struct_ov031_0222c1b8_3*)func_ov031_02235c70())->unknown_f4_);
         SetStepIndicatorAndButtonBarModes_ov031_022274d0(2, 0);
         SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02233248);
-    } else if (data_ov031_02290c8c.unknown_0_ == 4) {
+    } else if (gAccessPointListPage_ov031_02290c8c.unknown_0_ == 4) {
         func_ov031_022357b4();
         SetStepIndicatorAndButtonBarModes_ov031_022274d0(0, 1);
         SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02232024);
     } else {
-        func_ov031_02235cac(&data_ov031_02290c8c.unknown_4_->unknown_0_[data_ov031_02290c8c.unknown_4_->unknown_52_]);
+        func_ov031_02235cac(&gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_0_[gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_52_]);
         SetStepIndicatorAndButtonBarModes_ov031_022274d0(0, 0);
-        if (data_ov031_02290c8c.unknown_4_->unknown_0_[data_ov031_02290c8c.unknown_4_->unknown_52_].unknown_28_ != 0) {
+        if (gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_0_[gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_52_].unknown_28_ != 0) {
             SetStepIndicatorAndButtonBarModes_ov031_022274d0(0, 1);
             func_ov031_0222750c(1, 1);
             SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222cbe0);

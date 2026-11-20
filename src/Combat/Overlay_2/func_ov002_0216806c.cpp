@@ -23,14 +23,14 @@ extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760 *manager, i
 extern "C" void func_ov002_0215af64(char *arg0);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_02160068(char *arg0);
-extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
+extern "C" void RebuildMenuWindowText_ov002_0215b9a4(char *menu, unsigned char windowId, int hasCursorMark);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void *gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
 extern "C" void func_ov002_02161a8c();
 extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
 extern "C" int *func_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" void func_ov017_021d0dbc();
-extern "C" void func_ov002_02156e90(char *arg0);
+extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(char *menu);
 struct TextWindowManager_0205d81c;
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
 
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov002_0216806c(char *arg0) {
         *(short *) (arg0 + 0x1ace) = GetCursorIndex_0205d794((struct Struct_0205c570 *) (arg0 + 0xe20));
         if (var1 != *(short *) (arg0 + 0x1ace)) {
             func_ov002_0215af64(arg0);
-            func_ov002_0215b9a4(arg0, 0x1e, 0);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, 0x1e, 0);
         }
         int var2  = g_keyManager.TestKeysPressed(0x601);
         int var3  = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)(arg0 + 0xe20), 0x14);
@@ -76,14 +76,14 @@ extern "C" ARM void func_ov002_0216806c(char *arg0) {
             if (var8 != 0 && IsLocalWirelessOn_0202b7d8(var8)) {
                 func_ov017_021d0dbc();
             }
-            func_ov002_02156e90(arg0);
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
             SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(arg0 + 0xe20), 0x19, 0);
             SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(arg0 + 0xe20), 0x1b, 0);
             SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(arg0 + 0xe20), 0x1c, 0);
         } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
-            func_ov002_02156e90(arg0);
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
             SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(arg0 + 0xe20), 0x19, 0);
             SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(arg0 + 0xe20), 0x1b, 0);
             SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(arg0 + 0xe20), 0x1c, 0);
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov002_0216806c(char *arg0) {
         *(short *) (arg0 + 0x1c06) = GetCursorIndex_0205d794((struct Struct_0205c570 *) (arg0 + 0xec8));
         if (var10 != *(short *) (arg0 + 0x1c06)) {
             func_ov002_0215af64(arg0);
-            func_ov002_0215b9a4(arg0, 0x1d, 0);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, 0x1d, 0);
         }
         int var11  = g_keyManager.TestKeysPressed(0x601);
         int var12  = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)(arg0 + 0xec8), 0x14);
@@ -129,14 +129,14 @@ extern "C" ARM void func_ov002_0216806c(char *arg0) {
             if (var17 != 0 && IsLocalWirelessOn_0202b7d8(var17)) {
                 func_ov017_021d0dbc();
             }
-            func_ov002_02156e90(arg0);
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
             SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(arg0 + 0xec8), 0x18, 0);
             SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(arg0 + 0xec8), 0x1a, 0);
             SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(arg0 + 0xec8), 0x1b, 0);
         } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
-            func_ov002_02156e90(arg0);
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
             SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(arg0 + 0xec8), 0x18, 0);
             SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(arg0 + 0xec8), 0x1a, 0);
             SetTextWindowPalette_0205deb4((TextWindowManager_0205d81c*)(arg0 + 0xec8), 0x1b, 0);

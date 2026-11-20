@@ -39,14 +39,14 @@ struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 struct Struct_0207f914;
 struct MenuLayout_0207f7f0;
-struct Struct_0207f7f0_2;
+struct TextWindow_0207f7f0_2;
 struct MenuLayout_0207fcb8;
 struct MenuLayout_0207fd44_2;
 struct MenuLayout_0207fd88;
 struct KeyRepeat_02081f20_2;
 struct Struct_ov017_021aa59c_4;
 struct MenuLayout_0207fdcc_2;
-struct Struct_0207fc6c;
+struct MenuLayout_0207fc6c;
 struct Struct_ov017_021aa59c_5;
 struct Struct_ov017_021aa59c_6;
 struct SoundEffectManager_02108760;
@@ -58,7 +58,7 @@ extern "C" void* func_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_020d6c00(void);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" int func_ov017_021959b4(void);
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 extern "C" void func_ov017_021aaf08(void* arg0);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int func_02086b98(struct Struct_0201bdac_4* arg0);
@@ -76,16 +76,16 @@ extern "C" void func_02080654(struct Struct_0207f914* arg0, int arg1, int arg2);
 #else
 extern "C" void func_0207f914(struct Struct_0207f914* arg0, int arg1, int arg2, int arg3);
 #endif
-extern "C" int func_0207f9f4(void* arg0);
-extern "C" void func_0207f7f0(struct MenuLayout_0207f7f0* arg0, struct Struct_0207f7f0_2* arg1, int arg2);
+extern "C" int UpdateMenuLayoutLoad_0207f9f4(void* menuLayout);
+extern "C" void SetMenuLayoutWindowArray_0207f7f0(struct MenuLayout_0207f7f0* menuLayout, struct TextWindow_0207f7f0_2* windows, int windowCount);
 extern "C" void ClearMenuLayoutBGScreenData_0207fcb8(struct MenuLayout_0207fcb8* menuLayout);
 extern "C" void FlushMenuLayoutBGScreenData_0207fd44(struct MenuLayout_0207fd44_2* menuLayout);
 extern "C" void CopyMenuLayoutBGScreenDataToVRAM_0207fd88(struct MenuLayout_0207fd88* menuLayout);
-extern "C" void func_0208203c(struct KeyRepeat_02081f20_2* arg0);
+extern "C" void ResetKeyRepeat_0208203c(struct KeyRepeat_02081f20_2* keyRepeat);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" void func_ov017_021ab060(struct Struct_ov017_021aa59c_4* arg0);
-extern "C" void* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
-extern "C" void func_0207fc6c(struct Struct_0207fc6c* arg0, int arg1);
+extern "C" void* FindMenuLayoutWindow_02081da8(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
+extern "C" void UpdateMenuLayoutWindows_0207fc6c(struct MenuLayout_0207fc6c* menuLayout, int ticks);
 extern "C" void UpdateKeyRepeat_02081f20(void* keyRepeat, int elapsedFrames);
 extern "C" int func_020800fc(void* arg0, short* arg1, short arg2, unsigned short arg3, unsigned char arg4, bool arg5);
 extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void* menuLayout, int windowId);
@@ -146,7 +146,7 @@ struct Struct_ov017_021aa59c_3 {
     int unknown_14_;
     MenuLayout_0207f7f0* unknown_18_;
     BGLayer_02020cb8* unknown_1c_;
-    Struct_0207f7f0_2* unknown_20_;
+    TextWindow_0207f7f0_2* unknown_20_;
     SafeAllocator unknown_24_;
     int unknown_38_;
     void* unknown_3c_;
@@ -173,7 +173,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
     var1 = (Struct_ov017_021aa59c_2*)GetZone3D_02012fe4();
     unsigned int* var4 = (unsigned int*)func_020d6c00();
 
-    if (arg0->unknown_14_ < 6 && (func_ov017_021959b4() != 0 || var0->unknown_42e2_ != 0)) {
+    if (arg0->unknown_14_ < 6 && (IsLocalWirelessHostDisconnected_ov017_021959b4() != 0 || var0->unknown_42e2_ != 0)) {
         func_ov017_021aaf08(arg0);
         arg0->unknown_1_ = 1;
         return;
@@ -203,7 +203,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
         arg0->unknown_24_.CreateTypeA(var7, 0x7800);
         arg0->unknown_24_.Reset();
         arg0->unknown_8_ = arg0->unknown_24_.Allocate(0x1400);
-        arg0->unknown_20_ = (Struct_0207f7f0_2*)arg0->unknown_24_.Allocate(0x1c0);
+        arg0->unknown_20_ = (TextWindow_0207f7f0_2*)arg0->unknown_24_.Allocate(0x1c0);
         arg0->unknown_1c_ = (BGLayer_02020cb8*)arg0->unknown_24_.Allocate(0x40);
 #if defined(jpn)
         arg0->unknown_18_ = (MenuLayout_0207f7f0*)arg0->unknown_24_.Allocate(0x34);
@@ -226,7 +226,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
             var8++;
         }
 
-        Struct_0207f7f0_2* var10 = arg0->unknown_20_;
+        TextWindow_0207f7f0_2* var10 = arg0->unknown_20_;
         for (unsigned char var11 = 0; var11 < 2; var11++) {
             InitTextWindow_0204c684(var10);
             SetTextWindowBuffers_0204c7a8((TextWindow_0204c7a8*)var10, &arg0->unknown_24_, (int)arg0->unknown_8_, 0x800);
@@ -267,7 +267,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
             arg0->unknown_14_ = 2;
         }
     } else if (var6 == 2) {
-        int var20 = func_0207f9f4(arg0->unknown_18_);
+        int var20 = UpdateMenuLayoutLoad_0207f9f4(arg0->unknown_18_);
         if (var20 == 0) {
             arg0->unknown_14_ = 3;
         }
@@ -278,7 +278,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
         MenuLayout_0207f7f0* var21 = arg0->unknown_18_;
         var21->unknown_2c_ = arg0->unknown_1c_;
         var21->unknown_38_ = 2;
-        func_0207f7f0(var21, arg0->unknown_20_, 2);
+        SetMenuLayoutWindowArray_0207f7f0(var21, arg0->unknown_20_, 2);
         var21->unknown_3a_ = 1;
         ClearMenuLayoutBGScreenData_0207fcb8((MenuLayout_0207fcb8*)var21);
         FlushMenuLayoutBGScreenData_0207fd44((MenuLayout_0207fd44_2*)var21);
@@ -293,7 +293,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
         arg0->unknown_48_ = 0;
         arg0->unknown_4c_ = 0;
         arg0->unknown_4e_ = 0;
-        func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_3c_);
+        ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_3c_);
         arg0->unknown_44_ = NULL;
         OpenMenuLayoutWindow_020813ec(arg0->unknown_18_, arg0->unknown_48_);
         func_ov017_021ab060((Struct_ov017_021aa59c_4*)arg0);
@@ -303,11 +303,11 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
         bool var23 = false;
         void* var24;
         MenuLayout_0207f7f0* var25 = arg0->unknown_18_;
-        var24 = func_02081da8((MenuLayout_0207fdcc_2*)var25, arg0->unknown_48_);
+        var24 = FindMenuLayoutWindow_02081da8((MenuLayout_0207fdcc_2*)var25, arg0->unknown_48_);
         if (var25 != NULL) {
             if (var24 != NULL) {
                 int var26 = var2->GetTickCount();
-                func_0207fc6c((Struct_0207fc6c*)var25, var26);
+                UpdateMenuLayoutWindows_0207fc6c((MenuLayout_0207fc6c*)var25, var26);
                 arg0->unknown_44_ = &arg0->unknown_4c_;
                 if (arg0->unknown_44_ != NULL) {
                     UpdateKeyRepeat_02081f20(arg0->unknown_3c_, var26);
@@ -327,7 +327,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
                         return;
                     }
                     PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-                    func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_3c_);
+                    ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_3c_);
                     arg0->unknown_44_ = NULL;
                     if (arg0->unknown_4c_ == 0) {
                         CloseMenuLayoutWindows_0207fe44((MenuLayout_0207fe44*)arg0->unknown_18_);

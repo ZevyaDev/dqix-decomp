@@ -168,7 +168,7 @@ extern "C" void VectorizedMemset(void*, int, unsigned int);
 extern "C" void* func_02052a10(char*);
 extern "C" short* GetAppearance_02052e2c(Struct_02052e2c*);
 extern "C" int GetAlchemyCount_020ac0b4(void*);
-extern "C" int func_020ac4f8(int);
+extern "C" int AddElapsedPlayTime_020ac4f8(int);
 extern "C" int GetDefeatedMonsterListCompletion_020a0870(BattleRecords_02061c04*);
 extern "C" int GetItemListCompletion_020a08a4(BattleRecords_02061c04*);
 extern "C" int GetWardrobeCompletion_020a08d8(BattleRecords_02061c04*);
@@ -225,17 +225,17 @@ extern "C" ARM void func_ov003_02170d88(Struct_ov003_02170d88_4* arg0) {
         var9 = var12->unknown_150_->unknown_49c_0_;
         var10 = var12->unknown_150_->unknown_186_[var13];
     }
-    func_020ac4f8(0);
+    AddElapsedPlayTime_020ac4f8(0);
 #if defined(jpn)
     Struct_ov003_02170d88_8* var14 = inline_ov003_02170d88(var6);
 #else
     Struct_ov003_02170d88_8* var14 = &var6->unknown_569c_;
 #endif
     VectorizedMemset(var7, 0, 0x18);
-    var7->unknown_0_.unknown_0_0_ = var0->unknown_3c_.unknown_0_.unknown_0_.unknown_0_;
-    var7->unknown_0_.unknown_8_0_ = var0->unknown_3c_.unknown_0_.unknown_0_.unknown_2_;
-    var7->unknown_0_.unknown_4_0_ = var0->unknown_3c_.unknown_0_.unknown_4_.unknown_0_;
-    var7->unknown_0_.unknown_8_7_ = var0->unknown_3c_.unknown_0_.unknown_4_.unknown_2_;
+    var7->unknown_0_.unknown_0_0_ = var0->unknown_3c_.playTimes_0_.playTime_0_.hours_0_;
+    var7->unknown_0_.unknown_8_0_ = var0->unknown_3c_.playTimes_0_.playTime_0_.minutes_2_;
+    var7->unknown_0_.unknown_4_0_ = var0->unknown_3c_.playTimes_0_.multiplayerTime_4_.hours_0_;
+    var7->unknown_0_.unknown_8_7_ = var0->unknown_3c_.playTimes_0_.multiplayerTime_4_.minutes_2_;
     var7->unknown_0_.unknown_5_6_ = var0->unknown_3c_.unknown_8_0_;
     var7->unknown_0_.unknown_1_6_ = var8;
     var7->unknown_0_.unknown_c_0_ = var0->unknown_3c_.unknown_10_0_;

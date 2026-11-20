@@ -38,7 +38,7 @@ struct Struct_ov023_021fbf4c_3;
 extern "C" double _dadd(double arg0, double arg1);
 extern "C" unsigned int func_0200af90(double value);
 extern "C" Struct_ov023_021fbf4c_3* GetMenuObjectList_ov011_021849c8(void* menu);
-extern "C" int func_ov023_021f6bb8(Struct_ov023_021fbf4c_3* arg0);
+extern "C" int GetMenuLoadTaskId_ov023_021f6bb8(Struct_ov023_021fbf4c_3* objectList);
 extern "C" void func_ov023_021f6bb0(Struct_ov023_021fbf4c_3* arg0, int arg1);
 extern "C" Struct_ov023_021fbf4c* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void func_020de888(Struct_02000c9c_74* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
@@ -56,7 +56,7 @@ extern "C" ARM int func_ov023_021fbf4c(Struct_ov023_021fbf4c_2* arg0, void* arg1
     Struct_ov023_021fbf4c* var0;
     Struct_ov023_021fbf4c_3* var1 = GetMenuObjectList_ov011_021849c8(arg1);
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
-    int var3 = func_ov023_021f6bb8(var1);
+    int var3 = GetMenuLoadTaskId_ov023_021f6bb8(var1);
     if (var2->GetTaskStatus(var3))
     {
         if (var2->GetDetailedTaskStatus(var3) == 2)

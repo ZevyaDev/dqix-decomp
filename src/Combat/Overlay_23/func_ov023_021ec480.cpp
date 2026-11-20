@@ -105,7 +105,7 @@ extern "C" void PlayExtraSoundEffect_0205ebfc(void* manager, int soundEffectInde
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c* windowManager, int windowId, int palette);
 extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2* manager, int jingleIndex);
 extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
-extern "C" int func_0209ca2c(void* arg0);
+extern "C" int IsJinglePlaying_0209ca2c(void* manager);
 extern "C" int func_ov023_021ed014(struct Struct_ov023_021ec480* arg0);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
@@ -202,7 +202,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
         {
             void* var6 = func_0205ec34();
             if (arg0->unknown_28_ == arg0->unknown_24_ - 1 && func_0206dfb0((int)var6, (unsigned char*)var6 + 0x8c, 0x119a) &&
-                func_0209ca2c(gMusicManager_02109bf4))
+                IsJinglePlaying_0209ca2c(gMusicManager_02109bf4))
                 return;
         }
         if (inline_ov023_021ec480(arg0))
@@ -282,7 +282,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
     if (var2 == 8)
     {
         var1->unknown_19ae_ = 0;
-        if (func_0209ca2c(gMusicManager_02109bf4))
+        if (IsJinglePlaying_0209ca2c(gMusicManager_02109bf4))
             return;
         arg0->unknown_432_++;
         var2++;
@@ -323,7 +323,7 @@ extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
     if (var2 == 11)
     {
         var1->unknown_19ae_ = 0;
-        if (func_0209ca2c(gMusicManager_02109bf4))
+        if (IsJinglePlaying_0209ca2c(gMusicManager_02109bf4))
             return;
         if (!inline_ov023_021ec480(arg0))
             return;

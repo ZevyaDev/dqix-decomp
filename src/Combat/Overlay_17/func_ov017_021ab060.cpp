@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_02080b54(void* arg0, int arg1);
+extern "C" void HideMenuLayoutWindowTexts_02080b54(void* menuLayout, int windowId);
 extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
@@ -19,7 +19,7 @@ extern "C" ARM void func_ov017_021ab060(Struct_ov017_021aa59c_4* arg0) {
     }
     void* var1 = arg0->unknown_18_;
     int var2;
-    func_02080b54(var1, 1);
+    HideMenuLayoutWindowTexts_02080b54(var1, 1);
     for (var2 = 0; var2 < 3; var2++) {
         ShowMenuLayoutText_02080b40(var1, var0);
         var0 = (short)(var0 + 1);

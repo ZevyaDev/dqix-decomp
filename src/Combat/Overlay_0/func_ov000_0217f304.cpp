@@ -8,7 +8,7 @@ extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 extern "C" int GetMenuCursorIndex_0205bb84(struct MenuCursor_0205bb84* cursor);
 extern "C" int func_ov000_021753d8(void* arg0, int arg1);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
-extern "C" void func_0205d7a0(unsigned char* arg0, int arg1);
+extern "C" void SetCursorIndex_0205d7a0(unsigned char* windowManager, int index);
 
 struct Struct_ov000_0217f304 {
     char unknown_0_[0x10];
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov000_0217f304(struct Struct_ov000_0217f304_2* arg0, in
             var6++;
             var5 = var8;
             if (var2 == var6) {
-                func_0205d7a0(arg0->unknown_188_, var7);
+                SetCursorIndex_0205d7a0(arg0->unknown_188_, var7);
                 arg0->unknown_118_ = 1;
                 return;
             }

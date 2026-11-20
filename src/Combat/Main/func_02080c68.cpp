@@ -19,7 +19,7 @@ struct TextWindow_02080c68 {
 };
 
 extern "C" struct MenuLayoutWindowEntry_02080c68_2* FindMenuLayoutWindowEntry_0207f0ac(struct MenuLayoutWindowEntryList_0207f0ac* windowEntries, int windowId);
-extern "C" struct TextWindow_02080c68* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
+extern "C" struct TextWindow_02080c68* FindMenuLayoutWindow_02081da8(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 
 // USA: SetMenuLayoutWindowPalette_02080c68
 extern "C" ARM void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette) {
@@ -29,7 +29,7 @@ extern "C" ARM void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int wi
         return;
     }
     windowEntry->unknown_12_.unknown_0_ = (windowEntry->unknown_12_.unknown_0_ & ~0xf) | (palette & 0xf);
-    window = func_02081da8((struct MenuLayout_0207fdcc_2*)menuLayout, windowEntry->windowId_8_);
+    window = FindMenuLayoutWindow_02081da8((struct MenuLayout_0207fdcc_2*)menuLayout, windowEntry->windowId_8_);
     if (window != NULL) {
         window->palette_c2_ = windowEntry->unknown_12_.unknown1_0_.unknown_0_0_ & 0xf;
     }

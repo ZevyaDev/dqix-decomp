@@ -76,7 +76,7 @@ struct Struct_ov002_02155960 {
     unsigned char unknown_0_[0x34];
 };
 
-extern "C" int func_ov017_021959b4();
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4();
 extern "C" void func_ov002_02155024(unsigned char*);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov023_021e7404(void*, int);
@@ -111,7 +111,7 @@ static inline Struct_ov002_02155960_6* inline_ov002_02155960(Struct_ov002_021559
 
 // USA: func_ov002_02155960
 extern "C" ARM int func_ov002_02155960(Struct_ov002_02155960_7* arg0, int arg1) {
-    if (func_ov017_021959b4() != 0)
+    if (IsLocalWirelessHostDisconnected_ov017_021959b4() != 0)
         func_ov002_02155024((unsigned char*)arg0);
     Struct_ov002_02155960_5* var0 = (Struct_ov002_02155960_5*)GetMessageWindow_020421a0();
     arg0->unknown_1ba0_ = arg1;

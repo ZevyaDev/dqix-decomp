@@ -367,10 +367,10 @@ extern "C" unsigned short* func_020120a0(char* arg0, unsigned int arg1);
 extern "C" unsigned char func_0209ca98(char* arg0);
 extern "C" unsigned char func_0205ea18(unsigned char* arg0);
 extern "C" int GetStoryChapter_0201079c(char* gameState);
-extern "C" int func_020107d0(char* arg0);
+extern "C" int GetStoryStep_020107d0(char* gameState);
 extern "C" int func_02010804(char* arg0);
 extern "C" int func_0201081c(char* arg0);
-extern "C" void func_020ac4f8(int arg0);
+extern "C" void AddElapsedPlayTime_020ac4f8(int arg0);
 extern "C" int func_0201b588(int arg0);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
@@ -625,7 +625,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
         } else {
             Struct_020a9eb8_6 var39;
             var39.unknown_0_ = GetStoryChapter_0201079c((char*)var38);
-            var39.unknown_4_ = func_020107d0((char*)var38);
+            var39.unknown_4_ = GetStoryStep_020107d0((char*)var38);
             var39.unknown_8_ = func_02010804((char*)var38);
             var39.unknown_c_ = func_0201081c((char*)var38);
             func_020a99d0(&var39.unknown_10_, var1);
@@ -679,7 +679,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
     if ((var48 == 5 && var49 > 1) || var48 == 6) {
         var50 = 1;
     }
-    func_020ac4f8(var50);
+    AddElapsedPlayTime_020ac4f8(var50);
 
     func_02075acc((char*)arg1->unknown_3dd8_ - var21, reinterpret_cast<Struct_020a9eb8_2*>(GameState::GetInstance())->unknown_7504_, 0xec, 0);
 

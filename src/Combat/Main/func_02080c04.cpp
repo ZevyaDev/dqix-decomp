@@ -8,11 +8,11 @@ struct TextWindow_0207fdcc {
     char unknown_c6_[0x1a];
 };
 
-extern "C" struct TextWindow_0207fdcc* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
+extern "C" struct TextWindow_0207fdcc* FindMenuLayoutWindow_02081da8(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 
 // USA: func_02080c04
 extern "C" ARM void func_02080c04(struct MenuLayout_0207fdcc_2* arg0, int arg1) {
-    struct TextWindow_0207fdcc* var0 = func_02081da8(arg0, arg1);
+    struct TextWindow_0207fdcc* var0 = FindMenuLayoutWindow_02081da8(arg0, arg1);
     if (var0 != NULL) {
         var0->unknown_c5_ |= 0x20;
     }

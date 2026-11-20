@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void* func_020e2ff8(void);
+extern "C" void* GetWirelessLockTable_020e2ff8(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
 extern "C" void func_020e321c(void*, int, int);
 extern "C" void func_020e33b4(void*, int, int);
@@ -8,13 +8,13 @@ extern "C" void func_020e33b4(void*, int, int);
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 
-struct Struct_0208ab34_2 {
-    unsigned char unknown_0_;
+struct WirelessLock_0208ab34_2 {
+    unsigned char ownerObjectIndex_0_;
     unsigned char unknown_1_;
-    unsigned char unknown_2_;
+    unsigned char state_2_;
     unsigned char unknown_3_;
 };
-extern "C" struct Struct_0208ab34_2* func_020e3054(struct Struct_0208ab34_2* arg0, int arg1);
+extern "C" struct WirelessLock_0208ab34_2* func_020e3054(struct WirelessLock_0208ab34_2* arg0, int arg1);
 
 struct Struct_ov017_021ceb28 {
     unsigned char unknown_0_[4];
@@ -26,7 +26,7 @@ struct Struct_ov017_021ceb28 {
 
 // USA: func_ov017_021ceb28
 extern "C" ARM void func_ov017_021ceb28(int arg0, struct Struct_ov017_021ceb28* arg1, int arg2, int arg3, struct LocalWireless_0202c1a4* arg4) {
-    void* var0 = func_020e2ff8();
+    void* var0 = GetWirelessLockTable_020e2ff8();
     int var1 = IsNotLocalWirelessGuest_0202c508(arg4);
     if (var1 != 0 && arg0 > 0) {
         if (arg1->unknown_4_ != 0) {
@@ -39,11 +39,11 @@ extern "C" ARM void func_ov017_021ceb28(int arg0, struct Struct_ov017_021ceb28* 
     if (arg0 != 0) return;
     signed char var2 = GetOwnProtagonistObjectIndex_0202c1a4(arg4);
     if (arg1->unknown_7_ != var2) return;
-    struct Struct_0208ab34_2* var3 = func_020e3054((struct Struct_0208ab34_2*)var0, arg1->unknown_5_);
+    struct WirelessLock_0208ab34_2* var3 = func_020e3054((struct WirelessLock_0208ab34_2*)var0, arg1->unknown_5_);
     if (var3 == NULL) return;
     if (arg1->unknown_4_ != 0) {
-        var3->unknown_2_ = 1;
+        var3->state_2_ = 1;
     } else {
-        var3->unknown_2_ = 3;
+        var3->state_2_ = 3;
     }
 }

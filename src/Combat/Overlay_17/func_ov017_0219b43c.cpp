@@ -20,10 +20,10 @@ enum { Enum_ov017_0219b43c_1584 = 0x630, Enum_ov017_0219b43c_11152 = 0x2b90 };
 struct Struct_02015ef4 { unsigned int unknown_0_[3]; };
 extern "C" int func_0202ec84(void* camera, struct Struct_02015ef4* worldPosition, int* outX, int* outY);
 
-struct Struct_0203a46c;
-extern "C" void func_0203a46c(struct Struct_0203a46c* arg0, int arg1, int arg2, int arg3);
+struct SPRSprite_0203a46c;
+extern "C" void SetSPRSpritePosition_0203a46c(struct SPRSprite_0203a46c* sprite, int x, int y, int z);
 
-struct Struct_02017098_3;
+struct SPRSprite_02017098_3;
 
 struct Struct_ov017_0219b43c { unsigned char unknown_0_[0x88]; };
 
@@ -61,8 +61,8 @@ extern "C" ARM void func_ov017_0219b43c(char* arg0, int arg1, struct Struct_0201
     default: {
         int var4 = ((var1 - 0xc) + arg3) << 0xc;
         int var5 = ((var2 - 0x4c) + arg4) << 0xc;
-        func_0203a46c(*(struct Struct_0203a46c**)(arg0 + 0x3000 + Enum_ov017_0219b43c_1584), var4, var5, 0);
-        ((SPRSprite*)(*(struct Struct_02017098_3**)(arg0 + 0x3000 + Enum_ov017_0219b43c_1584)))->SetAnimation(1);
+        SetSPRSpritePosition_0203a46c(*(struct SPRSprite_0203a46c**)(arg0 + 0x3000 + Enum_ov017_0219b43c_1584), var4, var5, 0);
+        ((SPRSprite*)(*(struct SPRSprite_02017098_3**)(arg0 + 0x3000 + Enum_ov017_0219b43c_1584)))->SetAnimation(1);
         break;
     }
     case 0xc:
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov017_0219b43c(char* arg0, int arg1, struct Struct_0201
     case 0xe: {
         int var6 = ((var1 - 6) + arg3) << 0xc;
         int var7 = ((var2 - 0x4c) + arg4) << 0xc;
-        func_0203a46c(*(struct Struct_0203a46c**)(arg0 + 0x3000 + Enum_ov017_0219b43c_1584), var6, var7, 0);
+        SetSPRSpritePosition_0203a46c(*(struct SPRSprite_0203a46c**)(arg0 + 0x3000 + Enum_ov017_0219b43c_1584), var6, var7, 0);
         break;
     }
     }

@@ -16,11 +16,11 @@ extern "C" int func_ov024_021f6f10(void* arg0);
 #endif
 extern "C" void* func_ov023_021f9bc8(void*);
 
-// USA: func_ov004_02156e2c
-extern "C" ARM int func_ov004_02156e2c(void* arg0, int arg1) {
-    void* var0 = GetMenuObjectList_ov011_021849c8(arg0);
-    void* var1 = FindMenuObjectById_ov023_021f6880(var0, arg1);
-    if (!var1) return -1;
-    if (func_ov024_021f6f10(var1) != 7) return -1;
-    return (int)func_ov023_021f9bc8(var1);
+// USA: GetMenuGridCursorIndex_ov004_02156e2c
+extern "C" ARM int GetMenuGridCursorIndex_ov004_02156e2c(void* menu, int id) {
+    void* objectList = GetMenuObjectList_ov011_021849c8(menu);
+    void* object = FindMenuObjectById_ov023_021f6880(objectList, id);
+    if (!object) return -1;
+    if (func_ov024_021f6f10(object) != 7) return -1;
+    return (int)func_ov023_021f9bc8(object);
 }

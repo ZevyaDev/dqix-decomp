@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
+extern "C" GameObject* GetEnemyByID_ov000_021536f8(int battle, int index);
 
 // USA: func_ov024_021f59c4
 extern "C" ARM int func_ov024_021f59c4(int* arg0, int arg1, int arg2, int* arg3, short* arg4) {
-	GameObject* var0 = func_ov000_021536f8(*arg0, arg1);
+	GameObject* var0 = GetEnemyByID_ov000_021536f8(*arg0, arg1);
 	if (!var0) return 0;
 	if (*(unsigned short*)((unsigned char*)var0->currentStats_ + 2) != 0) return 0;
 	*arg3 = 1;

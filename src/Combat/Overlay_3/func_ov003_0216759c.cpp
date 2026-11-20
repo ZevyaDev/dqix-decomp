@@ -8,7 +8,7 @@
 #include "Resource/PAC.h"
 
 struct Struct_ov003_0216759c {
-    int unknown_0_; SafeAllocator* unknown_4_; BGLayer_02020cb8* unknown_8_; Struct_0207f7f0_2* unknown_c_; MenuLayout_0207f7f0* unknown_10_;
+    int unknown_0_; SafeAllocator* unknown_4_; BGLayer_02020cb8* unknown_8_; TextWindow_0207f7f0_2* unknown_c_; MenuLayout_0207f7f0* unknown_10_;
 #if defined(jpn)
     char unknown_14_[0x34-0x14];
 #else
@@ -28,7 +28,7 @@ void func_02080654(void*,SafeAllocator*,const char*);
 #else
 void func_0207f914(void*,SafeAllocator*,const char*,const char*);
 #endif
-int func_0207f9f4(void*);
+int UpdateMenuLayoutLoad_0207f9f4(void*);
 void LoadToSubBGStandardPalette(const void*,unsigned int,unsigned int);
 void _Z15CleanCacheRangePKvj(const void*,unsigned int);
 void CloseMenuLayoutWindows_0207fe44(void*);
@@ -103,9 +103,9 @@ extern "C" ARM int func_ov003_0216759c(Struct_ov003_0216759c* arg0) {
             }
             var11=arg0->unknown_4_;
             var11[1].Reset();
-            arg0->unknown_c_=(Struct_0207f7f0_2*)var11[1].Allocate(0x380);
+            arg0->unknown_c_=(TextWindow_0207f7f0_2*)var11[1].Allocate(0x380);
             for (var0=0;var0<4;var0++) {
-                Struct_0207f7f0_2* var18=arg0->unknown_c_+var0;
+                TextWindow_0207f7f0_2* var18=arg0->unknown_c_+var0;
                 InitTextWindow_0204c684(var18);
                 SetTextWindowBuffers_0204c7a8(var18,var11+1,arg0->unknown_0_,0x600);
                 var18->unknown_4_=arg0->unknown_8_;
@@ -130,7 +130,7 @@ extern "C" ARM int func_ov003_0216759c(Struct_ov003_0216759c* arg0) {
         arg0->unknown_75_++;
         var0=0;
     } else if (arg0->unknown_75_ == 3) {
-        int var20=func_0207f9f4(arg0->unknown_10_);
+        int var20=UpdateMenuLayoutLoad_0207f9f4(arg0->unknown_10_);
         if (var20==0) arg0->unknown_75_++;
         if (var20<0) arg0->unknown_74_=2;
         var0=0;
@@ -146,7 +146,7 @@ extern "C" ARM int func_ov003_0216759c(Struct_ov003_0216759c* arg0) {
         CleanInvalidateCacheRange((const void*)(data_ov003_0217f4dc), 2);
         LoadToSubBGStandardPalette(data_ov003_0217f4dc,0x22,2);
         _Z15CleanCacheRangePKvj(data_ov003_0217f4dc,2);
-        func_0207f7f0(arg0->unknown_10_,arg0->unknown_c_,4);
+        SetMenuLayoutWindowArray_0207f7f0(arg0->unknown_10_,arg0->unknown_c_,4);
         MenuLayout_0207f7f0* var21=arg0->unknown_10_;
         var21->unknown_2c_=arg0->unknown_8_;
         var21->unknown_38_=1;

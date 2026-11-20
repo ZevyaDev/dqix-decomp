@@ -20,10 +20,10 @@ extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c 
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" char *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
 extern "C" int func_ov002_0216197c(int arg0, struct TextWindowManager_0205d81c *arg1);
-extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
+extern "C" void RebuildMenuWindowText_ov002_0215b9a4(void *menu, int windowId, int hasCursorMark);
 struct TextWindowManager_0205da38;
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
-extern "C" TimedMessageQueue_020d7aa0_2 *func_020d7a50();
+extern "C" TimedMessageQueue_020d7aa0_2 *GetTimedMessageQueue_020d7a50();
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2 *queue);
 extern "C" void func_ov002_02156080(void *arg0, short *arg1, short *arg2);
 extern "C" int func_ov002_02161920(void *arg0);
@@ -33,7 +33,7 @@ extern "C" void func_ov002_0215a878(char *arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
 extern "C" void func_ov017_021bff8c(int arg0, int arg1);
 extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
-extern "C" void func_ov002_02156e90(void *arg0);
+extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(void *menu);
 
 extern "C" char gSoundEffectManager_02108760;
 
@@ -64,9 +64,9 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
         if (var4 != 0) {
             *(short *) (var4 + 0xc2) = 0;
         }
-        func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 0);
+        RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 0);
         if (var3 != *(short *) (arg0 + 0x1ac6)) {
-            func_ov002_0215b9a4(arg0, 0x17, 0);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, 0x17, 0);
         }
         int var5  = g_keyManager.TestKeysPressed(0x601);
         int var6  = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)OBJ, 0x14);
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
             if (var8 & 2) {
                 return;
             }
-            ClearTimedMessageQueue_020d7aa0(func_020d7a50());
+            ClearTimedMessageQueue_020d7aa0(GetTimedMessageQueue_020d7a50());
             short var9 = 0;
             short var10[9];
             func_ov002_02156080(arg0, var10, &var9);
@@ -141,7 +141,7 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
             }
         } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + 0x1ac6) = -1;
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
         }
     }
 }
@@ -171,10 +171,10 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
         if (func_ov002_0216197c(*(int *) (arg0 + 0x1bb8) & 0xff,
                                                                   (struct TextWindowManager_0205d81c *) OBJ))
         {
-            func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8) & 0xff, 0);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1bb8) & 0xff, 0);
         }
         if (var17 != *(short *) (arg0 + 0x1bfe)) {
-            func_ov002_0215b9a4(arg0, 0x16, 0);
+            RebuildMenuWindowText_ov002_0215b9a4(arg0, 0x16, 0);
         }
         int var19  = g_keyManager.TestKeysPressed(0x601);
         int var20  = IsEntryTouchedAgain_0205da38((struct TextWindowManager_0205da38*)OBJ, 0x14);
@@ -187,7 +187,7 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
             if (!(var22 & 0x20)) {
                 return;
             }
-            ClearTimedMessageQueue_020d7aa0(func_020d7a50());
+            ClearTimedMessageQueue_020d7aa0(GetTimedMessageQueue_020d7a50());
             short var23 = 0;
             short var24[9];
             func_ov002_02156080(arg0, var24, &var23);
@@ -252,7 +252,7 @@ extern "C" ARM void func_ov002_02166168(char *arg0) {
             }
         } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + 0x1bfe) = -1;
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
         }
     }
 }

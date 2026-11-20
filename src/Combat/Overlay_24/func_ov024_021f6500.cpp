@@ -3,8 +3,8 @@
 #include "Util/Random.h"
 
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
-extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
-extern "C" int func_ov024_021ed890(struct Random** arg0, int* arg1, short* arg2);
+extern "C" GameObject* GetEnemyByID_ov000_021536f8(int battle, int index);
+extern "C" int PickRandomTarget_ov024_021ed890(struct Random** targetSelector, int* count, short* targetIndices);
 
 extern unsigned short data_ov024_021fedbc;
 
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov024_021f6500(struct Struct_ov024_021f6500* arg0, int a
 
 	*arg3 = 0;
 	for (int var6 = 0; var6 < var5; var6++) {
-		GameObject* var7 = func_ov000_021536f8(arg0->unknown_0_, var0[var6]);
+		GameObject* var7 = GetEnemyByID_ov000_021536f8(arg0->unknown_0_, var0[var6]);
 		if (!var7) continue;
 		if (var7->obj3D_.unknown_2_ != 0x13a) continue;
 		if (*(short*)((char*)var7->currentStats_ + 0x2c) > 0) continue;
@@ -35,6 +35,6 @@ extern "C" ARM int func_ov024_021f6500(struct Struct_ov024_021f6500* arg0, int a
 	}
 
 	if (*arg3 <= 0) return 0;
-	func_ov024_021ed890((struct Random**)arg0, arg3, arg4);
+	PickRandomTarget_ov024_021ed890((struct Random**)arg0, arg3, arg4);
 	return 1;
 }

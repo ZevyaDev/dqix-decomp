@@ -130,7 +130,7 @@ struct TextWindow_0204c7a8;
 extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8*, SafeAllocator*, int, unsigned int);
 struct Struct_0207f914;
 extern "C" void func_0207f914(Struct_0207f914*, int, int, int);
-extern "C" int func_0207f9f4(void*);
+extern "C" int UpdateMenuLayoutLoad_0207f9f4(void*);
 extern "C" void func_0208108c(void*, int);
 extern "C" Struct_ov003_02174a80* GetMessageWindow_020421a0(void);
 extern "C" void func_ov003_02176798(void*);
@@ -309,7 +309,7 @@ extern "C" ARM void func_ov003_02174a80(Struct_ov003_02174a80_5* arg0) {
 #endif
         arg0->unknown_103f_++;
     } else if (arg0->unknown_103f_ == 8) {
-        int var24 = func_0207f9f4(arg0->unknown_89c_);
+        int var24 = UpdateMenuLayoutLoad_0207f9f4(arg0->unknown_89c_);
         if (var24 == 0) {
             arg0->unknown_103f_++;
         }

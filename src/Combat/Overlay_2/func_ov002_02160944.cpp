@@ -13,7 +13,7 @@ extern "C" int AppendCursorTag_02041ea4(char *buffer, int entryIndex);
 extern "C" int AppendXPositionTag_02041a28(char *buffer, int x);
 extern "C" int func_02042638(char *arg0, int arg1, int arg2);
 extern "C" int AppendPositionTag_02041a90(char *buffer, int x, int y);
-extern "C" int func_0204234c(char *arg0, int arg1);
+extern "C" int AppendHorizontalLineTag_02041cc0(char *arg0, int arg1);
 extern "C" int AppendTextColorTag_02041e70(char *buffer, int colorIndex);
 extern "C" int AppendMenuEntry_02041b70(char *buffer, int entryIndex, const char *text);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
@@ -65,6 +65,6 @@ extern "C" ARM void func_ov002_02160944(unsigned char *arg0, char *arg1, int arg
     int var8[5] = {0, 0x25, 0x2f, 0x3f, 0x47};
     AppendPositionTag_02041a90(arg1, 0x4a, var7[var3]);
     AppendMenuEntry_02041b70(arg1, var1, (const char *) ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString(0x11fa)));
-    func_0204234c(arg1, var8[var3]);
+    AppendHorizontalLineTag_02041cc0(arg1, var8[var3]);
 }
 #endif

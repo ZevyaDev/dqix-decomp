@@ -17,7 +17,7 @@ extern "C" int func_ov001_02153994(void);
 extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
-extern "C" void* func_020e2ff8(void);
+extern "C" void* GetWirelessLockTable_020e2ff8(void);
 struct Struct_02033fcc;
 extern "C" void func_02033fcc(struct Struct_02033fcc* arg0);
 extern "C" unsigned char IsOnLadder_02039d7c(char* object);
@@ -38,7 +38,7 @@ extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int 
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int isHeld);
-extern "C" void func_020e3368(unsigned char* arg0, unsigned char arg1);
+extern "C" void QueueWirelessLockRequest_020e3368(unsigned char* lockTable, unsigned char lockId);
 struct Struct_ov001_02154de4;
 extern "C" int func_ov001_02154de4(struct Struct_ov001_02154de4* arg0);
 
@@ -183,7 +183,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
     }
 
     if ((arg0->unknown_f8_0_ & 0x10) && IsNotLocalWirelessGuest_0202c508(var1) != 0) {
-        func_020e3368((unsigned char*)func_020e2ff8(), 1);
+        QueueWirelessLockRequest_020e3368((unsigned char*)GetWirelessLockTable_020e2ff8(), 1);
         return 0x12;
     }
     return func_ov001_02154de4((struct Struct_ov001_02154de4*)arg0);

@@ -8,7 +8,7 @@
 #define RG(u, j) (u)
 #endif
 
-extern "C" unsigned char* func_020936f8(void);
+extern "C" unsigned char* GetNoticeQueue_020936f8(void);
 extern "C" void func_ov003_021612c0(void* arg0);
 extern "C" int func_ov003_02161344(void* arg0);
 extern "C" int func_ov003_02160b84(void* arg0);
@@ -57,7 +57,7 @@ struct Struct_ov003_0216552c_2 {
 
 // USA: func_ov003_0216552c
 extern "C" ARM void func_ov003_0216552c(Struct_ov003_0216552c_2* arg0) {
-    unsigned char* var0 = func_020936f8();
+    unsigned char* var0 = GetNoticeQueue_020936f8();
     Struct_ov003_0216552c* var1 = arg0->unknown_324_;
     short* var2 = arg0->unknown_484_;
 

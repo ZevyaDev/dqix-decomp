@@ -31,7 +31,7 @@ struct LocalWireless_0202c508;
 extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202c508* wireless);
 
 extern "C" void func_ov017_021d1810(int, int, signed char);
-extern "C" int* func_020936f8(void);
+extern "C" int* GetNoticeQueue_020936f8(void);
 extern "C" void QueueNotice_02094030(int* noticeQueue, unsigned short noticeId, short arg2, unsigned char memberIndex);
 extern "C" void func_0202c21c(struct LocalWireless_0202b2f0* arg0, int arg1);
 
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov003_02171764(char* arg0) {
     if (IsLocalWirelessPlayerDisconnected_0202c578(var1, *(unsigned char*)(arg0 + 0x199)) != 0) {
         if (IsNotLocalWirelessGuest_0202c508((struct LocalWireless_0202c508*)var1) != 0) {
             func_ov017_021d1810(4, -1, 0);
-            int* var3 = func_020936f8();
+            int* var3 = GetNoticeQueue_020936f8();
             QueueNotice_02094030(var3, 4, -1, 0);
         }
         func_0202c21c(var1, *(unsigned char*)(arg0 + 0x199));

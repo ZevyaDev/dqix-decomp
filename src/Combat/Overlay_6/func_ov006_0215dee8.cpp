@@ -138,7 +138,7 @@ extern "C" void func_ov006_0215fa1c(Struct_ov006_02157a60* arg0, int arg1);
 extern "C" void func_ov006_0215fb7c(Struct_ov006_02157a60* arg0);
 extern "C" void func_ov006_0215fcf0(Struct_ov006_02157a60* arg0);
 extern "C" void func_ov006_0215f7e8(Struct_ov006_02157a60* arg0);
-extern "C" void func_0208203c(KeyRepeat_02081f20_2* arg0);
+extern "C" void ResetKeyRepeat_0208203c(KeyRepeat_02081f20_2* keyRepeat);
 extern "C" Struct_ov006_021537d0* func_ov006_02158d8c(void* arg0, short arg1);
 extern "C" Struct_ov006_021555b0* func_ov006_02153c6c(void* arg0, short arg1);
 extern "C" void func_ov006_02153b9c(void* arg0, short arg1, unsigned char* arg2);
@@ -186,7 +186,7 @@ extern "C" ARM void func_ov006_0215dee8(Struct_ov006_02157a60* arg0) {
             arg0->unknown_36a_ = 0x29;
         arg0->unknown_14_->unknown_36_ = arg0->unknown_36a_;
         func_ov006_0215f7e8(arg0);
-        func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
+        ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
         arg0->unknown_44_ = 0;
         arg0->unknown_390_++;
     }
@@ -249,7 +249,7 @@ extern "C" ARM void func_ov006_0215dee8(Struct_ov006_02157a60* arg0) {
                 arg0->unknown_34_ = var2;
                 arg0->unknown_14_->unknown_36_ = *arg0->unknown_44_;
                 PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
-                func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
+                ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
                 arg0->unknown_44_ = 0;
                 if (func_ov006_021537d0(arg0->unknown_74_, var2->unknown_0_))
                 {
@@ -279,7 +279,7 @@ extern "C" ARM void func_ov006_0215dee8(Struct_ov006_02157a60* arg0) {
             CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0xf);
             arg0->unknown_38f_ = 9;
             arg0->unknown_390_ = 0;
-            func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
+            ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
             arg0->unknown_44_ = 0;
             func_ov006_02157184((Struct_ov006_02157184*)arg0->unknown_10_);
             arg0->unknown_397_ = 2;
@@ -382,7 +382,7 @@ extern "C" ARM void func_ov006_0215dee8(Struct_ov006_02157a60* arg0) {
         if (g_keyManager.TestKeysPressed(1) || var11 == 2)
         {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
-            func_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
+            ResetKeyRepeat_0208203c((KeyRepeat_02081f20_2*)arg0->unknown_9c_);
             arg0->unknown_44_ = 0;
             arg0->unknown_387_ = arg0->unknown_38b_;
             CloseMenuLayoutWindow_0207fdcc((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0xa);

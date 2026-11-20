@@ -19,7 +19,7 @@ extern "C" struct Struct_0202bad4* func_0202bad4(struct Struct_0202bad4_2* arg0,
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void* func_020d6c00(void);
-extern "C" int* func_020936f8(void);
+extern "C" int* GetNoticeQueue_020936f8(void);
 extern "C" void func_020939dc(void* arg0);
 extern "C" void QueueNotice_02094030(int*, short, short, signed char);
 extern "C" void SetLoadingIndicator_020daf9c(int isShown, int isFadeWaitSkipped, int isScreenBlanked, int isMainScreenForced);
@@ -48,7 +48,7 @@ extern "C" ARM unsigned char func_ov017_021aef80(void* arg0) {
 
     if (var2 < 0) {
         ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)func_020d6c00(), 0x8020);
-        int* var8 = func_020936f8();
+        int* var8 = GetNoticeQueue_020936f8();
         func_020939dc(var8);
         QueueNotice_02094030(var8, 4, -1, 0);
         return 3;

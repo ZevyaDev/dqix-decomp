@@ -11,7 +11,7 @@ typedef signed char Type_ov002_0215ab60;
 typedef short Type_ov003_021666c4;
 typedef unsigned int Type_020b11c8;
 
-struct Struct_02080cc0 {
+struct MenuLayout_02080cc0 {
 #if defined(jpn)
     Type_020b1300 unknown_0_[0x2a];
 #else
@@ -39,7 +39,7 @@ struct Struct_ov003_021666c4_2 {
     Type_020b1300 unknown_228_[0xb4];
     Struct_0201099c_3 unknown_2dc_;
     Type_020b1300 unknown_2e4_[0x40];
-    Struct_02080cc0* unknown_324_;
+    MenuLayout_02080cc0* unknown_324_;
 #if defined(jpn)
     Type_020b1300 unknown_328_[0x7c];
 #else
@@ -52,9 +52,9 @@ struct Struct_ov003_021666c4_2 {
     Type_020b1300 unknown_4bd_;
 };
 
-extern "C" void func_02080b54(void*, int);
+extern "C" void HideMenuLayoutWindowTexts_02080b54(void*, int);
 extern "C" void func_0202ae18();
-extern "C" void func_02080cc0(Struct_02080cc0*, int, int);
+extern "C" void SetMenuLayoutTextColor_02080cc0(MenuLayout_02080cc0*, int, int);
 extern "C" void ShowMenuLayoutText_02080b40(void*, int);
 extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c*, int, int);
 extern "C" void SetMenuLayoutTextValue_02080fa8(MenuLayout_02080fa8*, Type_ov003_021666c4, int);
@@ -65,8 +65,8 @@ extern "C" void func_ov003_02160794(Struct_ov003_021666c4_2*);
 
 // USA: func_ov003_021666c4
 extern "C" ARM void func_ov003_021666c4(Struct_ov003_021666c4_2* arg0) {
-    Struct_02080cc0* var0 = arg0->unknown_324_;
-    func_02080b54(var0, 16);
+    MenuLayout_02080cc0* var0 = arg0->unknown_324_;
+    HideMenuLayoutWindowTexts_02080b54(var0, 16);
     int var1 = 69;
     func_0202ae18();
     arg0->unknown_4bd_ = var1;
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov003_021666c4(Struct_ov003_021666c4_2* arg0) {
     for (; var2 < var3; var1 = (Type_ov003_021666c4)(var1 + 1), var2++) {
         int var4 = 15;
         if (var1 == var0->unknown_36_) var4 = 10;
-        func_02080cc0(var0, var1, var4);
+        SetMenuLayoutTextColor_02080cc0(var0, var1, var4);
         Struct_ov003_021666c4* var5 = &arg0->unknown_0_[var2];
         if (var5->unknown_0_7_ && var2 < arg0->unknown_226_) {
             char* var6;
@@ -84,20 +84,20 @@ extern "C" ARM void func_ov003_021666c4(Struct_ov003_021666c4_2* arg0) {
                 var6 = var5->unknown_1_;
                 var7 = 4 - var5->unknown_0_1_;
             } else {
-                if (var1 == var0->unknown_36_) func_02080cc0(var0, var1, 8);
-                else func_02080cc0(var0, var1, 4);
+                if (var1 == var0->unknown_36_) SetMenuLayoutTextColor_02080cc0(var0, var1, 8);
+                else SetMenuLayoutTextColor_02080cc0(var0, var1, 4);
                 var6 = var5->unknown_1_;
                 var7 = 0;
             }
             for (int var8 = 1; var8 < 3; var8 = (Type_ov003_021666c4)(var8 + 1)) {
                 int var9 = var1 + var8 * 4;
-                func_02080cc0(var0, (Type_ov003_021666c4)var9, var4);
+                SetMenuLayoutTextColor_02080cc0(var0, (Type_ov003_021666c4)var9, var4);
                 ShowMenuLayoutText_02080b40(var0, (Type_ov003_021666c4)(unsigned int)var9);
             }
             SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)var0, var1, (int)var6);
 #if defined(jpn)
             int var11 = var1 + 8;
-            func_02080cc0(var0, (Type_ov003_021666c4)var11, var4);
+            SetMenuLayoutTextColor_02080cc0(var0, (Type_ov003_021666c4)var11, var4);
             SetMenuLayoutTextValue_02080fa8((MenuLayout_02080fa8*)var0, var11, var7);
 #else
             SetMenuLayoutTextValue_02080fa8((MenuLayout_02080fa8*)var0, (Type_ov003_021666c4)(var1 + 4), var7);

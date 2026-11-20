@@ -7,7 +7,7 @@
 
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void* func_0202ae18(void);
-extern "C" void StopGesture_020531f0(void* arg0);
+extern "C" void StopGesture_020531f0(void* gameObject);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
 struct Struct_02039df4;

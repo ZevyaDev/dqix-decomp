@@ -117,7 +117,7 @@ extern "C" int GetEquipRestrictions_020dd4c4(signed char memberIndex, Struct_ov0
 struct Struct_020deda4;
 extern "C" Struct_ov005_02157b74_6* func_020deda4(int, int, Struct_020deda4*);
 extern "C" void func_020483f0(unsigned char*, unsigned short);
-extern "C" int func_0207c7a0(char* arg0, short arg1, int arg2);
+extern "C" int GetEquipmentBagItemCount_0207c7a0(char* bag, short itemId, int category);
 extern "C" int func_0207caa4(char* arg0, short arg1, int arg2);
 extern "C" void RemoveEquipmentFromBag_0207c484(char* bag, short itemId, int count, int category);
 struct Struct_0207cb38;
@@ -313,8 +313,8 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
     var2->unknown_634_ |= 4;
 
     unsigned char var21 = data_ov005_0215cd30[arg0->unknown_3dbc_];
-    signed char var22 = func_0207c7a0(var0 + 0x1d4, arg1, var21);
-    signed char var23 = func_0207c7a0(var0 + 0x1d4, var17, var21);
+    signed char var22 = GetEquipmentBagItemCount_0207c7a0(var0 + 0x1d4, arg1, var21);
+    signed char var23 = GetEquipmentBagItemCount_0207c7a0(var0 + 0x1d4, var17, var21);
     if (var22 == 1 && var23 == 0) {
         int var24 = func_0207caa4(var0 + 0x1d4, arg1, var21);
         RemoveEquipmentFromBag_0207c484(var0 + 0x1d4, arg1, 1, var21);

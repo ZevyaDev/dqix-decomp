@@ -8,8 +8,8 @@ struct Struct_ov004_021680cc { Struct_ov004_021680cc_2* unknown_0_; };
 #endif
 #include "GameState/GameState.h"
 
-struct Struct_02053f7c;
-extern "C" short func_02086aec(struct Struct_02053f7c* arg0, int arg1);
+struct Party_02053f7c;
+extern "C" short CountOwnedItem_02086aec(struct Party_02053f7c* party, int itemId);
 extern "C" void func_ov023_021f64a8(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
@@ -30,7 +30,7 @@ extern short data_ov004_0216fff8;
 
 // USA: func_ov004_021680cc
 extern "C" ARM int func_ov004_021680cc(void* arg0) {
-    short var0 = func_02086aec((struct Struct_02053f7c*)GetParty_02010828(GameState::GetInstance()), 0x5617);
+    short var0 = CountOwnedItem_02086aec((struct Party_02053f7c*)GetParty_02010828(GameState::GetInstance()), 0x5617);
 #if defined(jpn)
     {
         Struct_ov004_021680cc* var1 = (Struct_ov004_021680cc*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x2b);

@@ -50,9 +50,9 @@ extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void func_ov017_021cdb00(int, int, int, int);
 extern "C" void __clear(void*, int);
 extern "C" void* InitItemTable_020de824(void*);
-extern "C" void func_0207cbe8(char*);
+extern "C" void ResetItemContext_0207cbe8(char*);
 extern "C" int func_0207d538(void*, int, int, char*, int);
-extern "C" void* func_020d7a50();
+extern "C" void* GetTimedMessageQueue_020d7a50();
 extern "C" void func_ov017_0218d644(GameResources*, Vector3fix*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern AllocatorUnion gMainHeap_02114e20;
@@ -109,14 +109,14 @@ extern "C" ARM int func_ov017_021bf9a0(Struct_ov017_021bf9a0_2* arg0) {
             Struct_ov017_021bf9a0_3* var14 = GetZone3D_02012fe4();
             Struct_ov017_021a7e14_4 var15;
             InitItemTable_020de824(var15.unknown_14_);
-            func_0207cbe8((char*)&var15);
-            func_0207cbe8((char*)&var15);
+            ResetItemContext_0207cbe8((char*)&var15);
+            ResetItemContext_0207cbe8((char*)&var15);
             var15.unknown_2c_ = (ItemTable_0201099c_10*)var14->unknown_2754_;
             if (func_0207d538(&var15, var10->lootType, var10->itemIDOrRank, var13, 1)) {
 #if defined(jpn)
-                func_020d7e10(func_020d7a50(), var13, 0, 0, 1);
+                func_020d7e10(GetTimedMessageQueue_020d7a50(), var13, 0, 0, 1);
 #else
-                func_020d7e10(func_020d7a50(), var13, 0, 0, 1, 0);
+                func_020d7e10(GetTimedMessageQueue_020d7a50(), var13, 0, 0, 1, 0);
 #endif
                 GameResources* var16 = GetGameResources();
                 if (arg0->unknown_48_) func_ov017_0218d644(var16, &arg0->unknown_28_, 0);

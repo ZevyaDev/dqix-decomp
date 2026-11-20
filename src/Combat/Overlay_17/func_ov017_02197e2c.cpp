@@ -32,7 +32,7 @@ extern "C" int func_020c32f8(int);
 extern "C" int func_020c3260(int);
 extern "C" float func_0200c700(int);
 extern "C" int func_ov017_021a4754(Vector3fix*, int, Vector3fix*);
-extern "C" Struct_ov017_02197e2c_2* func_020d7a50();
+extern "C" Struct_ov017_02197e2c_2* GetTimedMessageQueue_020d7a50();
 extern "C" void func_ov017_0219a674(unsigned char*);
 extern "C" void func_ov017_0219b33c(GameResources*, Struct_ov017_02197e2c_3*);
 
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov017_02197e2c(GameResources* arg0) {
     if (var5 || var10 < 0 || !var8 || !var9) return;
     if (var2->unknown_be_ != 0 && var2->unknown_be_ != 1) return;
     if ((var9->unknown_17_ == 1 || var9->unknown_17_ == 2) && var9->unknown_16_ != 1) return;
-    Struct_ov017_02197e2c_2* var22 = func_020d7a50();
+    Struct_ov017_02197e2c_2* var22 = GetTimedMessageQueue_020d7a50();
     int var23 = var9->unknown_16_ == 1 ? 1 : 0;
     if (!var23) return;
     if (var22->unknown_150_0_ > 1) return;

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void func_ov031_022357b4(void);
-extern "C" void func_ov031_02227520(int*, int*);
+extern "C" void GetWifiSetupPageArguments_ov031_02227520(int*, int*);
 extern "C" void func_ov031_02234118(void);
 extern "C" void func_ov031_0222336c(int, int, int);
 extern "C" void func_ov031_022239f4(void);
@@ -13,7 +13,7 @@ extern "C" ARM void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" ARM void func_ov031_022340c0(void) {
 	func_ov031_022357b4();
 	int var0;
-	func_ov031_02227520(NULL, &var0);
+	GetWifiSetupPageArguments_ov031_02227520(NULL, &var0);
 	func_ov031_02234118();
 	func_ov031_0222336c(0x31, -1, 0);
 	if (var0 != 2) {

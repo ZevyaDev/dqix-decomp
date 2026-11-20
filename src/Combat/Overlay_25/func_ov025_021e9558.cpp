@@ -5,7 +5,7 @@
 #include "World/Object3D.h"
 
 struct Struct_02033fdc;
-extern "C" void func_02033fdc(struct Struct_02033fdc* arg0);
+extern "C" void ResumeMovementUpdate_02033fdc(struct Struct_02033fdc* object);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov025_021e9558(struct Struct_ov025_021e9558_4* arg0) {
         GameObject* var8 = var0->GetCombatantByIndex(var7->unknown_20_);
         if (var8 != NULL) {
             var8->obj3D_.DisableFlag(0x800);
-            func_02033fdc((struct Struct_02033fdc*)var8);
+            ResumeMovementUpdate_02033fdc((struct Struct_02033fdc*)var8);
         }
     }
 

@@ -3,13 +3,13 @@
 #include "GameState/GameState.h"
 
 struct Struct_ov024_021de124;
-extern "C" int func_ov024_021de25c(struct Struct_ov024_021de124* arg0);
+extern "C" int IsConfused_ov024_021de25c(struct Struct_ov024_021de124* combatant);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" void func_020883fc(void* arg0);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
-extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, unsigned long long arg4, int arg5);
+extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, void* combatant, int amount, unsigned long long flags, int isCriticalHit);
 
 struct Struct_ov024_021de124_2 {
 	unsigned int unknown_0_0_ : 10;
@@ -31,7 +31,7 @@ extern "C" ARM void* func_ov024_021de124(struct Struct_ov024_021de124_5* arg0, i
 	var1.unknown_0_ = 0;
 	var1.unknown_4_ = 0;
 	unsigned short var2;
-	if (func_ov024_021de25c((struct Struct_ov024_021de124*)var0) && arg6 != 0) {
+	if (IsConfused_ov024_021de25c((struct Struct_ov024_021de124*)var0) && arg6 != 0) {
 		var2 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, arg3->unknown_20_.unknown_2_4_, arg3->unknown_24_.unknown_0_0_);
 		func_020883fc((void*)var0->currentStats_);
 		((struct Struct_ov024_021de124_4*)((char*)var0->currentStats_ + 0x3b))->unknown_0_0_ = 1;
@@ -44,6 +44,6 @@ extern "C" ARM void* func_ov024_021de124(struct Struct_ov024_021de124_5* arg0, i
 	if (!var3) return 0;
 	AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var3, var2);
 	struct Struct_ov024_021de124_3* var4 = (struct Struct_ov024_021de124_3*)((char*)arg0->unknown_c_ + 0x1c);
-	func_ov000_0215cd44(arg0->unknown_10_, var3, var0, 0, var1.unknown1_0_, var4->unknown_0_7_ != 0);
+	SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var3, var0, 0, var1.unknown1_0_, var4->unknown_0_7_ != 0);
 	return var3;
 }

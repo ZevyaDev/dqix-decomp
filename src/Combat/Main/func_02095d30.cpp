@@ -14,8 +14,8 @@ struct FlagManager_0205faf4_3;
 extern "C" int GetQuestState_0206e120(FlagManager_0205faf4_3*, int);
 extern "C" void func_0206e218(unsigned char*, int);
 extern "C" void func_0206eb64(unsigned char*, int, int);
-struct Struct_02053f7c;
-extern "C" int func_02086aec(Struct_02053f7c*, int);
+struct Party_02053f7c;
+extern "C" int CountOwnedItem_02086aec(Party_02053f7c*, int);
 extern "C" int func_02086d88(unsigned char*, int);
 
 struct Struct_02095d30 {
@@ -70,7 +70,7 @@ extern "C" ARM int func_02095d30(struct Struct_02095d30_2* arg0, int arg1, int a
                 if (var10 <= 0) {
                     continue;
                 }
-                var8 = func_02086aec((Struct_02053f7c*)var2, var10);
+                var8 = CountOwnedItem_02086aec((Party_02053f7c*)var2, var10);
                 for (var9 = 0; var9 < var8; var9++) {
                     func_02086d88((unsigned char*)var2, var3->unknown_1e_[var7]);
                 }

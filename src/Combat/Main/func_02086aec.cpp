@@ -5,10 +5,10 @@
 #define func_02053c6c func_02054fe4
 #endif
 
-struct Struct_02053f7c {
+struct Party_02053f7c {
     char unknown_0_[0xf78];
-    unsigned char unknown_f78_[4];
-    unsigned char unknown_f7c_;
+    unsigned char memberObjectIndices_f78_[4];
+    unsigned char memberCount_f7c_;
 };
 
 extern "C" int func_02053c6c(unsigned char* gameObject);
@@ -20,31 +20,31 @@ struct Struct_0206f81c;
 struct Struct_0206f81c_8;
 extern "C" struct Struct_0206f81c_8* func_02083554(struct Struct_0206f81c* arg0, int arg1);
 
-extern "C" short func_02086bf4(char* arg0, int arg1);
+extern "C" short CountItemInBags_02086bf4(char* party, int itemId);
 
-// USA: func_02086aec
-extern "C" ARM short func_02086aec(struct Struct_02053f7c* arg0, int arg1) {
-    short var0;
-    GameState* var1;
-    unsigned char var2;
-    GameObject* var3;
-    void* var4;
-    if (arg1 < 0) {
+// USA: CountOwnedItem_02086aec
+extern "C" ARM short CountOwnedItem_02086aec(struct Party_02053f7c* party, int itemId) {
+    short count;
+    GameState* gameState;
+    unsigned char i;
+    GameObject* partyMemberBase;
+    void* memberData;
+    if (itemId < 0) {
         return 0;
     }
-    var0 = 0;
-    var1 = GameState::GetInstance();
-    for (var2 = 0; var2 < arg0->unknown_f7c_; var2++) {
-        var3 = GetPartyMemberBaseByIndex_0200ff1c(var1, arg0->unknown_f78_[var2]);
-        if (var3 != NULL) {
-            var4 = (void*)func_02053c6c((unsigned char*)var3);
-            if (var4 != NULL) {
-                var0 = var0 + func_02083994((struct Struct_02083994*)var4, arg1);
-                if (func_02083554((struct Struct_0206f81c*)var4, arg1) != NULL) {
-                    var0 = var0 + 1;
+    count = 0;
+    gameState = GameState::GetInstance();
+    for (i = 0; i < party->memberCount_f7c_; i++) {
+        partyMemberBase = GetPartyMemberBaseByIndex_0200ff1c(gameState, party->memberObjectIndices_f78_[i]);
+        if (partyMemberBase != NULL) {
+            memberData = (void*)func_02053c6c((unsigned char*)partyMemberBase);
+            if (memberData != NULL) {
+                count = count + func_02083994((struct Struct_02083994*)memberData, itemId);
+                if (func_02083554((struct Struct_0206f81c*)memberData, itemId) != NULL) {
+                    count = count + 1;
                 }
             }
         }
     }
-    return var0 + func_02086bf4((char*)arg0, arg1);
+    return count + CountItemInBags_02086bf4((char*)party, itemId);
 }

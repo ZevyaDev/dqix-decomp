@@ -19,7 +19,7 @@ extern "C" void func_ov003_02159250(void*, void*);
 extern "C" void CloseMessageWindow_02043124(void*);
 struct MusicManager_02109bf4_2;
 extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
-extern "C" int func_0209ca2c(void*);
+extern "C" int IsJinglePlaying_0209ca2c(void*);
 
 extern unsigned char gMusicManager_02109bf4;
 
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov003_0215b0e8(void* arg0) {
     if (*(int*)(var1 + Enum_ov003_0215b0e8_2464) == 3) {
         *(unsigned char*)(var1 + 0x1000 + Enum_ov003_0215b0e8_2478) = 0;
     }
-    if (func_0209ca2c(&gMusicManager_02109bf4) == 0) {
+    if (IsJinglePlaying_0209ca2c(&gMusicManager_02109bf4) == 0) {
         *(unsigned char*)(var0 + 0x588) = 1;
         *(unsigned char*)(var0 + 0x580) = 0;
     }

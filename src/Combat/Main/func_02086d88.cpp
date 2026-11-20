@@ -5,8 +5,8 @@
 #define func_02053c6c func_02054fe4
 #endif
 
-struct Struct_02061c04_23;
-extern "C" int func_020a0a08(struct Struct_02061c04_23* arg0, int arg1, int arg2);
+struct ItemBag_02061c04_23;
+extern "C" int RemoveItemFromBag_020a0a08(struct ItemBag_02061c04_23* bag, int itemId, int count);
 
 extern "C" int func_0207c894(void* arg0, int arg1, int arg2);
 
@@ -20,13 +20,13 @@ extern "C" ARM int func_02086d88(unsigned char* arg0, int arg1) {
     if (arg1 < 0) {
         return 0;
     }
-    if (func_020a0a08((struct Struct_02061c04_23*)arg0, arg1, 1) != 0) {
+    if (RemoveItemFromBag_020a0a08((struct ItemBag_02061c04_23*)arg0, arg1, 1) != 0) {
         return 1;
     }
     if (func_0207c894(arg0 + 0x1d4, arg1, 9) != 0) {
         return 1;
     }
-    if (func_020a0a08((struct Struct_02061c04_23*)(arg0 + 0xe04), arg1, 1) != 0) {
+    if (RemoveItemFromBag_020a0a08((struct ItemBag_02061c04_23*)(arg0 + 0xe04), arg1, 1) != 0) {
         return 1;
     }
     GameState* var0 = GameState::GetInstance();

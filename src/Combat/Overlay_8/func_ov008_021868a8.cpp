@@ -6,7 +6,7 @@ struct GameResources;
 void SetBrightness(GameResources*, int, int);
 void SetSubBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
-extern "C" int func_0209ca2c(void* arg0);
+extern "C" int IsJinglePlaying_0209ca2c(void* manager);
 struct TextWindowManager_0205d6a0;
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov008_021868a8(struct Struct_ov008_021868a8* arg0) {
     }
     if (var1 != 1) return;
     if (IsBrightnessTransitionActive((GameResources*)var0) != 0) return;
-    if (func_0209ca2c(&gMusicManager_02109bf4) != 0) return;
+    if (IsJinglePlaying_0209ca2c(&gMusicManager_02109bf4) != 0) return;
     CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)((char*)arg0 + 0x130), 1);
     arg0->unknown_b10_ = 0xe;
     arg0->unknown_b11_ = 0;

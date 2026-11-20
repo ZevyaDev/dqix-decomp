@@ -10,9 +10,9 @@
 
 extern int data_ov000_02184220;
 
-// USA: func_ov000_02160d80
-extern "C" ARM void func_ov000_02160d80(void* arg0, int arg1) {
-	*(int*)((char*)arg0 + REGION_OFFSET_0) = arg1;
-	*(int*)((char*)arg0 + REGION_OFFSET_1) = 0;
+// USA: SetBattleSceneState_ov000_02160d80
+extern "C" ARM void SetBattleSceneState_ov000_02160d80(void* battleScene, int state) {
+	*(int*)((char*)battleScene + REGION_OFFSET_0) = state;
+	*(int*)((char*)battleScene + REGION_OFFSET_1) = 0;
 	data_ov000_02184220 = 1;
 }

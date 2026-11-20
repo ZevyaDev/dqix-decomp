@@ -4,7 +4,7 @@
 #include "Util/Random.h"
 
 extern "C" int func_ov000_0215ec80(int arg0, short* arg1, int arg2, int arg3, int arg4);
-extern "C" int func_ov024_021eda60(GameObject* arg0);
+extern "C" int IsReflecting_ov024_021eda60(GameObject* combatant);
 
 struct Struct_ov024_021efb48 {
     unsigned char unknown_0_;
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov024_021efb48(struct Struct_ov024_021efb48_2* arg0, int
             if (!var8) continue;
             if (var8->currentStats_->primaryStats.agility >= 999) continue;
             if (var8->currentStats_->agilityBuff >= 2) continue;
-            if (!func_ov024_021eda60(var8)) var6++;
+            if (!IsReflecting_ov024_021eda60(var8)) var6++;
         }
         if (var6 > 0) var1.unknown_0_[var2++] = var3;
     }

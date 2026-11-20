@@ -17,16 +17,16 @@ struct MenuLayout_0207fdcc_2 {
     unsigned char unknown_39_;
 };
 
-// USA: func_02081da8
-extern "C" ARM struct TextWindow_0207fdcc* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1) {
-    unsigned char var0 = arg0->unknown_39_;
-    struct TextWindow_0207fdcc* var1 = arg0->unknown_30_;
-    unsigned char var2;
-    for (var2 = 0; var2 < var0; var2++) {
-        if (arg1 == var1->unknown_c4_) {
-            return var1;
+// USA: FindMenuLayoutWindow_02081da8
+extern "C" ARM struct TextWindow_0207fdcc* FindMenuLayoutWindow_02081da8(struct MenuLayout_0207fdcc_2* menuLayout, int windowId) {
+    unsigned char windowCount = menuLayout->unknown_39_;
+    struct TextWindow_0207fdcc* window = menuLayout->unknown_30_;
+    unsigned char i;
+    for (i = 0; i < windowCount; i++) {
+        if (windowId == window->unknown_c4_) {
+            return window;
         }
-        var1++;
+        window++;
     }
     return NULL;
 }

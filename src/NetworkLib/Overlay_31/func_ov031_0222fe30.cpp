@@ -15,7 +15,7 @@ struct Struct_ov031_02290ca0_11 {
     int unknown_4_;
     Struct_ov031_0222fe30* unknown_8_;
 };
-extern Struct_ov031_02290ca0_11 data_ov031_02290ca0;
+extern Struct_ov031_02290ca0_11 gConnectionSettingsPage_ov031_02290ca0;
 extern unsigned char data_ov031_02248f86[];
 extern "C" int func_ov031_022305e8(int);
 extern "C" void func_ov031_0223bdb0(int, int, void*);
@@ -33,12 +33,12 @@ extern "C" ARM void func_ov031_0222fe30(int arg0, int arg1, int arg2) {
     var0[2] = 0xc0;
     var0[3] = 0x8f;
     var0[4] = 0x8f;
-    Struct_ov031_0222fe30_2** var1 = &data_ov031_02290ca0.unknown_8_->unknown_18_[arg2];
+    Struct_ov031_0222fe30_2** var1 = &gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_18_[arg2];
     if ((unsigned int)(arg0 - 1) <= 1) {
         if (func_ov031_022305e8(arg2) == 2)
-            var1 = &data_ov031_02290ca0.unknown_8_->unknown_2c_;
+            var1 = &gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_2c_;
         else
-            var1 = &data_ov031_02290ca0.unknown_8_->unknown_30_;
+            var1 = &gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_30_;
     }
     unsigned char* var2 = data_ov031_02248f86 + arg0 * 3;
     int var3 = var2[arg1];

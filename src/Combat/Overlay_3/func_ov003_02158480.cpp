@@ -22,7 +22,7 @@ struct Struct_ov003_02158334_3 {
     signed char unknown_1f7_;
 };
 
-extern "C" void func_02080b54(void*, int);
+extern "C" void HideMenuLayoutWindowTexts_02080b54(void*, int);
 extern "C" void func_02080608(void*, int);
 extern "C" void ShowMenuLayoutText_02080b40(void*, int);
 extern "C" void func_0208108c(void*, int);
@@ -37,8 +37,8 @@ extern "C" void func_02080828(void*, int, short*, short*);
 extern "C" void func_020808c8(void*, int, short*, short*);
 extern "C" void func_02080854(void*, int, int, int);
 extern "C" void func_02080fe0(void*, int, int);
-struct Struct_02080cc0;
-extern "C" void func_02080cc0(Struct_02080cc0*, int, int);
+struct MenuLayout_02080cc0;
+extern "C" void SetMenuLayoutTextColor_02080cc0(MenuLayout_02080cc0*, int, int);
 extern "C" void func_020807c4(void*, int, short*, short*);
 extern "C" void func_02080878(void*, int, short*, short*);
 extern "C" void func_020807fc(void*, int, int, int);
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov003_02158480(Struct_ov003_02158334_3* arg0) {
     short var3 = 0x2b;
     short var4 = 0x37;
 
-    func_02080b54(var0, 6);
+    HideMenuLayoutWindowTexts_02080b54(var0, 6);
     func_02080608(var0, 6);
     ShowMenuLayoutText_02080b40(var0, 0x43);
 #if !defined(jpn)
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov003_02158480(Struct_ov003_02158334_3* arg0) {
 #endif
                     ShowMenuLayoutText_02080b40(var0, var4);
                     func_02080fe0(var0, var4, var14);
-                    func_02080cc0((Struct_02080cc0*)var0, var4, var15);
+                    SetMenuLayoutTextColor_02080cc0((MenuLayout_02080cc0*)var0, var4, var15);
                 }
             }
             var1 = (short)(var1 + 1);

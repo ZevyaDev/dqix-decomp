@@ -30,7 +30,7 @@ extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215b814(char *arg0);
 extern "C" int func_ov002_0215b720(char *arg0, int arg1);
 extern "C" void func_ov002_02157634(char *arg0);
-extern "C" void func_ov002_02156e90(char *arg0);
+extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(char *menu);
 extern "C" char gSoundEffectManager_02108760[];
 
 #if defined(jpn)
@@ -137,12 +137,12 @@ extern "C" ARM void func_ov002_021631e8(char *arg0) {
                 }
                 case 3:
                     *(short *) (arg0 + RG(0x1b00 + 0xea, 0x1ab2)) = -1;
-                    func_ov002_02156e90(arg0);
+                    ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
                     return;
             }
         } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + RG(0x1b00 + 0xea, 0x1ab2)) = -1;
-            func_ov002_02156e90(arg0);
+            ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4, 1);
         }
     } else if (var0 == 2) {

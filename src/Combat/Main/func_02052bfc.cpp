@@ -54,7 +54,7 @@ extern "C" void* GetZone3D_02012fe4(void);
 extern "C" long long _ll_udiv(long long arg0, long long arg1);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int func_0201bc94(Struct_0201bc94* arg0);
-extern "C" void* func_020d7a50(void);
+extern "C" void* GetTimedMessageQueue_020d7a50(void);
 extern "C" void SetCombatantAppearanceFlags_ov017_02191aac(char* gameResources, int isSet, int combatantIndex, unsigned char flags);
 extern "C" void func_ov017_021ce014(int arg0, unsigned short arg1, unsigned short arg2, unsigned short arg3);
 
@@ -96,9 +96,9 @@ extern "C" ARM void func_02052bfc(struct Struct_02052bfc_2* arg0) {
 #endif
         }
         #if defined(jpn)
-        func_020d7e10(func_020d7a50(), var8, 0, 0, 1);
+        func_020d7e10(GetTimedMessageQueue_020d7a50(), var8, 0, 0, 1);
 #else
-        func_020d7e10(func_020d7a50(), var8, 0, 0, 1, 1);
+        func_020d7e10(GetTimedMessageQueue_020d7a50(), var8, 0, 0, 1, 1);
 #endif
     }
     SetCombatantAppearanceFlags_ov017_02191aac((char*)var1, 0, var5, 2);

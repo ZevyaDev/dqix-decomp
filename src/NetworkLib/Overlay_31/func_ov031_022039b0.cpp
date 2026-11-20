@@ -4,7 +4,7 @@ struct Struct_ov031_022039b0 { unsigned char unknown_0_[0x8]; unsigned char unkn
 struct Struct_02111304_5 { unsigned char unknown_0_[0x4]; void* unknown_4_; };
 
 extern Struct_02111304_5 gContextScheduler_02111304;
-extern unsigned char data_ov031_0224c980;
+extern unsigned char gIPStack_ov031_0224c980;
 
 extern "C" int func_ov031_02201414(void* arg0, int arg1, Struct_ov031_022039b0* arg2);
 extern "C" void func_ov031_02201364(void* arg0, unsigned int arg1, Struct_ov031_022039b0* arg2);
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov031_022039b0(void* arg0, int arg1, void* arg2, int arg
 				var1 = func_ov031_022037a8(arg0, arg1, arg2, arg3, var0);
 			}
 		}
-		if (data_ov031_0224c980 == 0) {
+		if (gIPStack_ov031_0224c980 == 0) {
 			return var1;
 		}
 	}

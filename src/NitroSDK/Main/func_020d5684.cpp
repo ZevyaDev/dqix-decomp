@@ -79,7 +79,7 @@ struct Struct_020d5684_2
 extern "C" void func_020ca3ec(unsigned long arg0, void* arg1, unsigned long arg2);
 extern "C" void func_020ca408(const void* arg0, void* arg1, unsigned long arg2);
 extern "C" int CheckWirelessState_020d424c(int stateCount, ...);
-extern "C" Struct_020d424c_2* func_020d41d8();
+extern "C" Struct_020d424c_2* GetWirelessDriver_020d41d8();
 extern "C" int func_020d4900();
 extern "C" int func_020d4894();
 extern "C" void SetWirelessCommandCallback_020d404c(int command, int callback);
@@ -90,7 +90,7 @@ extern "C" ARM int func_020d5684(Type_020d42e0 arg0, unsigned short* arg1, unsig
                                  unsigned short* arg3, unsigned short arg4, const Struct_020d5684* arg5)
 {
     int var0;
-    Struct_020d424c_2* const var1 = func_020d41d8();
+    Struct_020d424c_2* const var1 = GetWirelessDriver_020d41d8();
     Struct_020d424c* const var2 = var1->unknown_4_;
     var0 = CheckWirelessState_020d424c(2, 7, 8);
     if (var0 != 0)

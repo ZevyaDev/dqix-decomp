@@ -6,7 +6,7 @@ extern "C" void func_ov004_0215e5fc(void* arg0, void* arg1);
 extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 struct PartyMember_0205faf4_11;
 extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
-extern "C" void* func_ov004_0215e47c(void* arg0, int arg1);
+extern "C" void* FindMenuObject_ov004_0215e47c(void* menu, int id);
 
 struct Struct_ov004_021707e8_7 { char unknown_0_[0x1c]; void* unknown_1c_; };
 extern Struct_ov004_021707e8_7 data_ov004_021707e8;
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov004_02162b84(void* arg0) {
     }
 
     if (var3 == 1 || var2 <= 1) {
-        unsigned char* var6 = (unsigned char*)func_ov004_0215e47c(arg0, 0x85);
+        unsigned char* var6 = (unsigned char*)FindMenuObject_ov004_0215e47c(arg0, 0x85);
         if (!var6) return 0;
         var6[0xc] |= 0x78;
     }

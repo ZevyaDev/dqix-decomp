@@ -14,7 +14,7 @@ struct Struct_ov000_02170b0c {
 };
 extern unsigned short data_ov000_02184288;
 extern unsigned short data_ov000_02184288_arg;
-extern "C" double func_02009424(double);
+extern "C" double ComputeSine_02009424(double);
 extern "C" void LoadToSubBGStandardPalette(const void*, unsigned int, unsigned int);
 
 // USA: func_ov000_02170b0c
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov000_02170b0c(Struct_ov000_02170b0c* arg0, unsigned in
     } else {
         arg0->unknown_438_ += 0.2f * (float)arg1;
         while (3.1415925f <= arg0->unknown_438_) arg0->unknown_438_ -= 3.1415925f;
-        float var0 = 1.0f - (float)func_02009424((double)(arg0->unknown_438_));
+        float var0 = 1.0f - (float)ComputeSine_02009424((double)(arg0->unknown_438_));
         short var1 = (short)(int)(21.0f * var0);
         short var2 = (short)(int)(21.0f * var0);
         short var3 = (short)(int)(-10.0f * var0);

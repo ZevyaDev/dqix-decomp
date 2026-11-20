@@ -15,12 +15,12 @@ enum { Enum_ov003_02179ff0_4154 = 0x103a };
 #include "GameState/GameState.h"
 
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" short func_02080468(void* arg0, int arg1);
+extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
 extern "C" unsigned char func_0207ca94(int arg0);
-extern "C" short func_0207c638(void* arg0, unsigned int arg1);
+extern "C" short CountUsedEquipmentBagSlots_0207c638(void* bag, unsigned int category);
 extern "C" int func_0207c6b8(unsigned char* arg0, unsigned int arg1, int arg2);
-struct Struct_020a0b8c;
-extern "C" int func_020a0b8c(struct Struct_020a0b8c* arg0);
+struct ItemBag_020a0b8c;
+extern "C" int CountUsedBagSlots_020a0b8c(struct ItemBag_020a0b8c* bag);
 
 struct Struct_ov003_02179ff0 {
     unsigned char unknown_0_[Enum_ov003_02179ff0_2204];
@@ -40,20 +40,20 @@ extern "C" ARM void func_ov003_02179ff0(Struct_ov003_02179ff0* arg0) {
     void* var0 = arg0->unknown_89c_;
     unsigned char* var1 = (unsigned char*)GetParty_02010828(GameState::GetInstance());
     if (arg0->unknown_100c_ == 0x77) {
-        short var2 = arg0->unknown_1012_ - func_02080468(var0, 0x1d);
+        short var2 = arg0->unknown_1012_ - GetMenuLayoutWindowFirstSelectableTextId_02080468(var0, 0x1d);
         unsigned int var3 =func_0207ca94(var2);
-        int var4 = func_0207c638(var1 + 0x1d4, var3);
-        short var5 = arg0->unknown_100e_ - func_02080468(var0, 0x1e);
+        int var4 = CountUsedEquipmentBagSlots_0207c638(var1 + 0x1d4, var3);
+        short var5 = arg0->unknown_100e_ - GetMenuLayoutWindowFirstSelectableTextId_02080468(var0, 0x1e);
         short var6 = var5 + arg0->unknown_1014_ * 5;
         if (var4 <= var6) var6 = var4 - 1;
         arg0->unknown_103a_ = func_0207c6b8(var1 + 0x1d4, var3, var6);
-        arg0->unknown_100e_ = var6 % 5 + func_02080468(var0, 0x1e);
+        arg0->unknown_100e_ = var6 % 5 + GetMenuLayoutWindowFirstSelectableTextId_02080468(var0, 0x1e);
     } else {
-        int var7 = func_020a0b8c((struct Struct_020a0b8c*)var1);
-        short var8 = arg0->unknown_100e_ - func_02080468(var0, 0x16);
+        int var7 = CountUsedBagSlots_020a0b8c((struct ItemBag_020a0b8c*)var1);
+        short var8 = arg0->unknown_100e_ - GetMenuLayoutWindowFirstSelectableTextId_02080468(var0, 0x16);
         short var9 = var8 + arg0->unknown_1014_ * 8;
         if (var7 <= var9) var9 = var7 - 1;
         arg0->unknown_103a_ = ((short*)(var1 + 0xc))[var9];
-        arg0->unknown_100e_ = var9 % 8 + func_02080468(var0, 0x16);
+        arg0->unknown_100e_ = var9 % 8 + GetMenuLayoutWindowFirstSelectableTextId_02080468(var0, 0x16);
     }
 }

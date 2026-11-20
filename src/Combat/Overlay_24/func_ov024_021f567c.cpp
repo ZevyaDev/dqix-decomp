@@ -4,8 +4,8 @@
 #include "GameState/GameState.h"
 
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
-extern "C" int func_ov024_021eda60(GameObject* arg0);
-extern "C" int func_ov024_021ed890(struct Random** arg0, int* arg1, short* arg2);
+extern "C" int IsReflecting_ov024_021eda60(GameObject* combatant);
+extern "C" int PickRandomTarget_ov024_021ed890(struct Random** targetSelector, int* count, short* targetIndices);
 
 struct Struct_ov024_021fec4c { short unknown_0_[4]; };
 extern struct Struct_ov024_021fec4c data_ov024_021fec4c;
@@ -21,13 +21,13 @@ extern "C" ARM int func_ov024_021f567c(int* arg0, int arg1, int arg2, int* arg3,
         if (!var3) continue;
         void* var4 = var3->currentStats_;
         if (*(unsigned short*)((char*)var4 + 2) == 0) continue;
-        if (func_ov024_021eda60(var3)) continue;
+        if (IsReflecting_ov024_021eda60(var3)) continue;
         int var5 = *arg3;
         *arg3 = var5 + 1;
         arg4[var5] = var0.unknown_0_[var2];
     }
     if (*arg3 > 0) {
-        func_ov024_021ed890((struct Random**)arg0, arg3, arg4);
+        PickRandomTarget_ov024_021ed890((struct Random**)arg0, arg3, arg4);
         return 1;
     }
     return 0;

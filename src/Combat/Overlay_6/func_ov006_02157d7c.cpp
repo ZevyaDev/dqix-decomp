@@ -6,17 +6,17 @@ enum { Enum_ov006_02157d7c_16 = 8, Enum_ov006_02157d7c_2786 = 0x962, Enum_ov006_
 enum { Enum_ov006_02157d7c_16 = 0x10, Enum_ov006_02157d7c_2786 = 0xae2, Enum_ov006_02157d7c_168 = 0xa8, Enum_ov006_02157d7c_54 = 0x36 };
 #endif
 
-struct Struct_0207fc6c;
+struct MenuLayout_0207fc6c;
 struct MenuLayout_0207fdcc_2;
 struct Struct_020e28dc;
 struct YesNoWindow_020e263c_2;
 
-extern "C" int func_ov017_021959b4(void);
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 extern "C" void func_ov006_021585ac(void* arg0);
-extern "C" int func_0209ca2c(void* arg0);
+extern "C" int IsJinglePlaying_0209ca2c(void* manager);
 extern char gMusicManager_02109bf4[];
 extern "C" void func_ov006_021549ac(void* arg0, int arg1);
-extern "C" void func_0207fc6c(struct Struct_0207fc6c* arg0, int arg1);
+extern "C" void UpdateMenuLayoutWindows_0207fc6c(struct MenuLayout_0207fc6c* menuLayout, int ticks);
 extern "C" void func_ov006_0215a00c(void* arg0, int arg1);
 extern "C" int func_ov006_02158c70();
 extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
@@ -65,7 +65,7 @@ extern int data_ov006_02160398;
 extern "C" ARM int func_ov006_02157d7c(struct Struct_ov006_02157d7c* arg0, int arg1)
 {
     arg0->unknown_34c_ = arg1;
-    if (func_ov017_021959b4() != 0)
+    if (IsLocalWirelessHostDisconnected_ov017_021959b4() != 0)
         func_ov006_021585ac(arg0);
 
     if ((*(unsigned short*)((char*)arg0 + 0x300 + 0x94) & 0x200) == 0)
@@ -91,14 +91,14 @@ extern "C" ARM int func_ov006_02157d7c(struct Struct_ov006_02157d7c* arg0, int a
         arg0->unknown_42c_ = (signed char)(((signed char*)((char*)arg0 + 0x400))[0x2c] & 0x3f);
     }
 
-    if (func_0209ca2c(gMusicManager_02109bf4) == 0)
+    if (IsJinglePlaying_0209ca2c(gMusicManager_02109bf4) == 0)
         arg0->unknown_42f_ = 0;
 
     func_ov006_021549ac(arg0->unknown_10_, arg1);
 
-    Struct_0207fc6c* var1 = (Struct_0207fc6c*)arg0->unknown_14_;
+    MenuLayout_0207fc6c* var1 = (MenuLayout_0207fc6c*)arg0->unknown_14_;
     if (var1 != 0)
-        func_0207fc6c(var1, arg1);
+        UpdateMenuLayoutWindows_0207fc6c(var1, arg1);
 
     if (*(short*)((char*)arg0 + 0x300 + 0x7e) >= 0)
     {

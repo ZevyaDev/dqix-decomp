@@ -36,7 +36,7 @@ extern "C" void func_ov002_021682c0(char* arg0);
 void SetSubBrightness(GameResources* resources, int brightness, int duration);
 extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
-extern "C" void func_020dc2bc(void);
+extern "C" void SuspendMapDisplay_020dc2bc(void);
 extern "C" void ClearSkillTable_0209a338(Struct_ov002_02168d54_2* table);
 extern "C" void func_0209a470(Struct_ov002_02168d54_3* arg0, SafeAllocator* arg1, Struct_ov002_02168d54_4* arg2, int arg3);
 int IsSubBrightnessTransitionActive(GameResources* resources);
@@ -67,7 +67,7 @@ extern "C" void func_020e5280(void* arg0);
 extern "C" void func_ov023_021eb138(char* arg0, int arg1);
 extern "C" void func_ov023_021eb080(char* arg0, SafeAllocator* arg1);
 extern "C" void func_ov023_021eb564(char* arg0, int arg1, int arg2);
-extern "C" void func_ov023_021eb26c(void* arg0);
+extern "C" void DestroyAccoladeDisplay_ov023_021eb26c(void* display);
 extern "C" void ColorEffect_ConfigureAlphaBlend(int control, unsigned int pixel1Source, unsigned int pixel2Source, unsigned int pixel1Alpha, unsigned int pixel2Alpha);
 extern "C" void ClearGlobalFlags_020466f4(Struct_ov002_02168d54_9* globalFlags, unsigned int mask);
 extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
         *(int*)(arg0 + REGION_VALUE(0x228c, 0x2458)) = var2->QueueLoadFile(&data_ov002_0216d350, NULL);
 #if !defined(jpn)
         SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 1);
-        func_020dc2bc();
+        SuspendMapDisplay_020dc2bc();
 #endif
     } else if (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)) == 1) {
         if (*(int*)(arg0 + REGION_VALUE(0x228c, 0x2458)) >= 0) {
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
         } else if (!IsSubBrightnessTransitionActive(var1)) {
 #if defined(jpn)
             SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 1);
-            func_020dc2bc();
+            SuspendMapDisplay_020dc2bc();
 #endif
             (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)))++;
         }
@@ -245,7 +245,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
         }
     } else if (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)) == 0xe) {
         arg0[REGION_VALUE(0x22a2, 0x2472)] = 0;
-        func_ov023_021eb26c(*(void**)(arg0 + REGION_VALUE(0x2298, 0x2468)));
+        DestroyAccoladeDisplay_ov023_021eb26c(*(void**)(arg0 + REGION_VALUE(0x2298, 0x2468)));
         ((SafeAllocator*)(arg0 + REGION_VALUE(0x78c, 0x828)))->Reset();
         ((SafeAllocator*)(arg0 + REGION_VALUE(0x7c8, 0x864)))->Reset();
         *(void**)(arg0 + REGION_VALUE(0x2298, 0x2468)) = NULL;

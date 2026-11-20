@@ -5,7 +5,7 @@
 #endif
 
 
-extern "C" void* func_020d41d8(void);
+extern "C" void* GetWirelessDriver_020d41d8(void);
 extern "C" int func_020d41e8(void);
 extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 extern "C" int func_020ca4b4(void*, void*, int);
@@ -17,7 +17,7 @@ struct Struct_020d4848 {
 
 // USA: func_020d4848
 extern "C" ARM int func_020d4848(void* arg0) {
-    struct Struct_020d4848* var0 = (struct Struct_020d4848*)func_020d41d8();
+    struct Struct_020d4848* var0 = (struct Struct_020d4848*)GetWirelessDriver_020d41d8();
     int var1 = func_020d41e8();
     if (var1 != 0) {
         return var1;

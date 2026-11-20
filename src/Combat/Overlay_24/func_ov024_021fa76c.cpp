@@ -15,7 +15,7 @@ struct Struct_ov024_021da670_8;
 extern "C" int func_ov024_021da9c8(struct Struct_ov024_021da670_8* arg0);
 
 struct Struct_ov024_021de124;
-extern "C" int func_ov024_021de25c(struct Struct_ov024_021de124* arg0);
+extern "C" int IsConfused_ov024_021de25c(struct Struct_ov024_021de124* combatant);
 
 struct Struct_021fa76c {
     char unknown_0_[0x138];
@@ -29,5 +29,5 @@ extern "C" ARM int func_ov024_021fa76c(struct Struct_021fa76c* arg0) {
     if (IsParalysed_ov024_021da9b0((struct Struct_ov024_021da670_7*)arg0)) return 0;
     if (IsAsleep_020882f8(arg0->unknown_138_)) return 0;
     if (func_ov024_021da9c8((struct Struct_ov024_021da670_8*)arg0)) return 0;
-    return !func_ov024_021de25c((struct Struct_ov024_021de124*)arg0);
+    return !IsConfused_ov024_021de25c((struct Struct_ov024_021de124*)arg0);
 }

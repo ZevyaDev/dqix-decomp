@@ -30,7 +30,7 @@ struct Struct_ov031_0224c980_15 {
     unsigned int unknown_60_;
     unsigned int unknown_64_;
 };
-extern Struct_ov031_0224c980_15 data_ov031_0224c980;
+extern Struct_ov031_0224c980_15 gIPStack_ov031_0224c980;
 extern unsigned short data_ov031_0224ce68[3];
 extern "C" int func_ov031_02203b1c();
 extern "C" void func_ov031_02200264();
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov031_02204368(int arg0, int arg1) {
     int var0 = (arg1 + 1) * 15;
     int var1 = (int)(GetCurrentTimestamp() >> 16);
     int var2 = 0;
-    while (data_ov031_0224c980.unknown_48_() != 0 && var2 == 0 && (int)(GetCurrentTimestamp() >> 16) - var1 < var0) {
+    while (gIPStack_ov031_0224c980.unknown_48_() != 0 && var2 == 0 && (int)(GetCurrentTimestamp() >> 16) - var1 < var0) {
         if (!func_ov031_02203b1c()) {
             func_ov031_02200264();
             continue;
@@ -68,35 +68,35 @@ extern "C" ARM int func_ov031_02204368(int arg0, int arg1) {
                     if (var9 == 0) continue;
                     switch (var9) {
                     case 1:
-                        data_ov031_0224c980.unknown_1c_ = READ_NETWORK32_02204368(var8 + 1);
+                        gIPStack_ov031_0224c980.unknown_1c_ = READ_NETWORK32_02204368(var8 + 1);
                         break;
                     case 3:
-                        data_ov031_0224c980.unknown_2c_ = READ_NETWORK32_02204368(var8 + 1);
+                        gIPStack_ov031_0224c980.unknown_2c_ = READ_NETWORK32_02204368(var8 + 1);
                         break;
                     case 6:
-                        if (var8[0] < 8) data_ov031_0224c980.unknown_64_ = 0;
-                        else data_ov031_0224c980.unknown_64_ = READ_NETWORK32_02204368(var8 + 5);
-                        data_ov031_0224c980.unknown_60_ = READ_NETWORK32_02204368(var8 + 1);
+                        if (var8[0] < 8) gIPStack_ov031_0224c980.unknown_64_ = 0;
+                        else gIPStack_ov031_0224c980.unknown_64_ = READ_NETWORK32_02204368(var8 + 5);
+                        gIPStack_ov031_0224c980.unknown_60_ = READ_NETWORK32_02204368(var8 + 1);
                         break;
                     case 51:
-                        data_ov031_0224c980.unknown_4c_ = READ_NETWORK32_02204368(var8 + 1);
+                        gIPStack_ov031_0224c980.unknown_4c_ = READ_NETWORK32_02204368(var8 + 1);
                         break;
                     case 53:
                         switch (var8[1]) {
                         case 2:
                             var2 = 1;
-                            data_ov031_0224c980.unknown_34_ = var7;
+                            gIPStack_ov031_0224c980.unknown_34_ = var7;
                             break;
                         case 5:
                             var2 = 2;
-                            data_ov031_0224c980.unknown_50_ = var7;
+                            gIPStack_ov031_0224c980.unknown_50_ = var7;
                             break;
                         default:
                             break;
                         }
                         break;
                     case 54:
-                        data_ov031_0224c980.unknown_20_ = READ_NETWORK32_02204368(var8 + 1);
+                        gIPStack_ov031_0224c980.unknown_20_ = READ_NETWORK32_02204368(var8 + 1);
                         break;
                     default:
                         break;

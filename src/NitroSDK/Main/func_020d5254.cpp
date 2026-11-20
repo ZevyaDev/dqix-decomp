@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void* func_020d41d8(void);
+extern "C" void* GetWirelessDriver_020d41d8(void);
 extern "C" int CheckWirelessState_020d424c(int stateCount, int arg1, int arg2, int arg3);
 extern "C" void SetWirelessCommandCallback_020d404c(int command, int callback);
 extern "C" int func_020d4168(void* arg0, unsigned int arg1);

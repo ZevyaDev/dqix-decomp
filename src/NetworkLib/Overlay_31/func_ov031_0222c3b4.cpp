@@ -18,13 +18,13 @@ struct Struct_ov031_02290c8c_10 {
     unsigned short unknown_2_;
     Struct_ov031_0222c3b4* unknown_4_;
 };
-extern Struct_ov031_02290c8c_10 data_ov031_02290c8c;
+extern Struct_ov031_02290c8c_10 gAccessPointListPage_ov031_02290c8c;
 
 // USA: func_ov031_0222c3b4
 extern "C" ARM void func_ov031_0222c3b4(void) {
-    int var0 = FastIntDivide(data_ov031_02290c8c.unknown_2_, 0x1c);
-    int var1 = data_ov031_02290c8c.unknown_4_->unknown_51_;
-    func_ov031_0223ca40(data_ov031_02290c8c.unknown_4_->unknown_c_, 0);
+    int var0 = FastIntDivide(gAccessPointListPage_ov031_02290c8c.unknown_2_, 0x1c);
+    int var1 = gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_51_;
+    func_ov031_0223ca40(gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_c_, 0);
     if (var1 > 5) var1 = 5;
 
     int var2 = var0;
@@ -46,6 +46,6 @@ extern "C" ARM void func_ov031_0222c3b4(void) {
         } while (var5 < var1);
     }
 
-    func_ov031_0223caec(data_ov031_02290c8c.unknown_4_->unknown_c_);
+    func_ov031_0223caec(gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_c_);
     func_ov031_0222c660();
 }

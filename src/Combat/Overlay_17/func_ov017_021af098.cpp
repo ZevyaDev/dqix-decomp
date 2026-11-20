@@ -34,7 +34,7 @@ extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(LocalWireless_0202b2f0
 extern "C" int func_0202d6a8(void);
 extern "C" void* func_020d6c00(void);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
-extern "C" int* func_020936f8(void);
+extern "C" int* GetNoticeQueue_020936f8(void);
 extern "C" void func_020939dc(void* arg0);
 extern "C" void QueueNotice_02094030(int* noticeQueue, short noticeId, short arg2, signed char memberIndex);
 extern "C" void func_0202c1e8(LocalWireless_0202b2f0* arg0, int arg1);
@@ -62,7 +62,7 @@ extern "C" ARM unsigned char func_ov017_021af098(Struct_ov017_021af098* arg0) {
     Struct_0205e854* var3 = (Struct_0205e854*)func_0202ae24();
 
     if (GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var2) == 0) {
-        func_0202c178(var2, 0);
+        GetLocalWirelessPlayerRecord_0202c178(var2, 0);
         if (g_keyManager.TestKeysPressed(2)) {
             arg0->unknown_f_ = -1;
             SetFlags00((GameResources*)var1, 2);
@@ -74,7 +74,7 @@ extern "C" ARM unsigned char func_ov017_021af098(Struct_ov017_021af098* arg0) {
             arg0->unknown_1_ = 1;
         } else if (IsLocalWirelessPlayerDisconnected_0202c578(var2, 0) != 0 || func_0202d6a8() == 8) {
             ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)func_020d6c00(), 0x8020);
-            int* var4 = func_020936f8();
+            int* var4 = GetNoticeQueue_020936f8();
             func_020939dc(var4);
             QueueNotice_02094030(var4, 4, -1, 0);
             return 3;

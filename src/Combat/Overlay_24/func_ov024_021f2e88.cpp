@@ -3,7 +3,7 @@
 
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" int HasEnemyTrait_ov000_02156068(int battle, int combatantIndex, int kind, int traitType);
-extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
+extern "C" GameObject* GetEnemyByID_ov000_021536f8(int battle, int index);
 extern "C" int func_ov024_021edbf0(GameObject* arg0);
 
 struct Struct_ov024_021f2e88 { int unknown_0_; };
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov024_021f2e88(struct Struct_ov024_021f2e88* arg0, int a
 
     if (*arg3 <= 0) return 0;
 
-    GameObject* var4 = func_ov000_021536f8(arg0->unknown_0_, arg1);
+    GameObject* var4 = GetEnemyByID_ov000_021536f8(arg0->unknown_0_, arg1);
     if (!var4) return 0;
 
     int var5 = func_ov024_021edbf0(var4);

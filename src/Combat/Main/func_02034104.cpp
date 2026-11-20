@@ -26,14 +26,14 @@ extern "C" ARM Vector3fix func_02034104(void* arg0) {
     if (IsLocalWirelessOn_0202b7d8((int*)var1)) {
         if (IsNotLocalWirelessGuest_0202c508(var1)) {
             short var2 = var0->unknown_4_;
-            if (func_0202c178((struct LocalWireless_0202b2f0*)var1, var2)) {
+            if (GetLocalWirelessPlayerRecord_0202c178((struct LocalWireless_0202b2f0*)var1, var2)) {
                 var2 = var0->unknown_4_;
                 signed char var3 = GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var1);
                 if (var3 != var2) {
                     Struct_02034104* var4 = (Struct_02034104*)((char*)arg0 + 0xc1);
                     if (var4->unknown_0_0_ & 1) {
                         var2 = var0->unknown_4_;
-                        Struct_0202b2f0_2* var5 = func_0202c178((struct LocalWireless_0202b2f0*)var1, var2);
+                        Struct_0202b2f0_2* var5 = GetLocalWirelessPlayerRecord_0202c178((struct LocalWireless_0202b2f0*)var1, var2);
                         Vector3fix16 var6;
 #if defined(jpn)
                         var6.x = var5->unknown_8_;

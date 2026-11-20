@@ -120,7 +120,7 @@ extern "C" void func_ov025_021dc694(Struct_ov000_021537b8*);
 extern "C" void func_ov025_021dc880(Struct_ov000_021537b8*);
 extern "C" void func_ov025_021db458(Struct_ov000_021537b8*);
 extern "C" void func_ov025_021db7f8(Struct_ov000_021537b8*);
-extern "C" void func_ov000_02160d80(void*, int);
+extern "C" void SetBattleSceneState_ov000_02160d80(void*, int);
 inline unsigned int inline_ov025_021db038(unsigned int arg0) { return (arg0 + 3) & ~3; }
 
 #if defined(jpn)
@@ -222,10 +222,10 @@ extern "C" ARM void func_ov025_021db038(Struct_ov000_021537b8* arg0) {
     func_ov025_021db458(arg0);
     if (arg0->unknown_55d8_ != var1->unknown_8e24_) return;
     func_ov025_021db7f8(arg0);
-    if (arg0->unknown_29c_->unknown_8e14_ == 2) func_ov000_02160d80(arg0, 10);
-    else if (arg0->unknown_29c_->unknown_8e14_ == 1) func_ov000_02160d80(arg0, 9);
+    if (arg0->unknown_29c_->unknown_8e14_ == 2) SetBattleSceneState_ov000_02160d80(arg0, 10);
+    else if (arg0->unknown_29c_->unknown_8e14_ == 1) SetBattleSceneState_ov000_02160d80(arg0, 9);
     else {
-        func_ov000_02160d80(arg0, 7);
+        SetBattleSceneState_ov000_02160d80(arg0, 7);
         SetFlags00(var4, 0x800);
     }
     var3->SetGameSpeed(0x1000);

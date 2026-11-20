@@ -12,13 +12,13 @@ struct TextWindow_0207fdcc {
     unsigned char unknown_c5_;
 };
 
-extern "C" struct TextWindow_0207fdcc* func_02081da8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
+extern "C" struct TextWindow_0207fdcc* FindMenuLayoutWindow_02081da8(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
 // USA: func_ov003_02166f80
 extern "C" ARM void func_ov003_02166f80(void* arg0, int arg1, int arg2) {
     struct MenuLayout_0207fdcc_2* var0 = *(struct MenuLayout_0207fdcc_2**)((char*)arg0 + Enum_ov003_02166f80_804);
-    struct TextWindow_0207fdcc* var1 = func_02081da8(var0, arg1);
+    struct TextWindow_0207fdcc* var1 = FindMenuLayoutWindow_02081da8(var0, arg1);
     if (var1 == NULL) {
         return;
     }

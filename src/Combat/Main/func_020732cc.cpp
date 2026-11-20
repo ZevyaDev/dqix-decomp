@@ -8,7 +8,7 @@ extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, 
 
 struct Struct_02052e2c;
 extern "C" short* GetAppearance_02052e2c(struct Struct_02052e2c* gameObject);
-extern "C" void func_02048418(unsigned char*, unsigned short);
+extern "C" void ClearStatusFlags_02048418(unsigned char*, unsigned short);
 
 struct EquipmentBag_020732cc;
 extern "C" int AddEquipmentToBag_0207c378(struct EquipmentBag_020732cc* bag, int itemId, int count, int category);
@@ -47,7 +47,7 @@ extern "C" ARM void func_020732cc(int arg0) {
                 (struct Struct_02052e2c*)var3);
             if (var5 != NULL && var6 != NULL) {
                 if (var5[var7] > 0) {
-                    func_02048418((unsigned char*)var3, 4);
+                    ClearStatusFlags_02048418((unsigned char*)var3, 4);
                     AddEquipmentToBag_0207c378((struct EquipmentBag_020732cc*)((char*)var2 + 0x1d4),
                                   var5[var7], 1, var6->unknown_8_0_);
                 }

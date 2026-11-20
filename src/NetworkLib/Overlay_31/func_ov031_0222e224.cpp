@@ -11,7 +11,7 @@ extern Struct_ov031_02248ee0_3 data_ov031_02248ee0;
 extern Struct_ov031_0222e224* data_ov031_02290c98;
 
 extern "C" void func_ov031_022366d8(unsigned char* arg0, unsigned char* arg1);
-extern "C" void func_ov031_02227520(int* arg0, int* arg1);
+extern "C" void GetWifiSetupPageArguments_ov031_02227520(int* outFirstArgument, int* outSecondArgument);
 extern "C" int func_ov031_0221b258(unsigned char* arg0);
 
 // USA: func_ov031_0222e224
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov031_0222e224(void) {
 
     func_ov031_022366d8(var8->unknown_8_, var2);
 
-    func_ov031_02227520(&var1, NULL);
+    GetWifiSetupPageArguments_ov031_02227520(&var1, NULL);
     if (var1 == 1) {
         int var9 = 0;
         unsigned char* var10 = var2;

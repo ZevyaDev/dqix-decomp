@@ -8,7 +8,7 @@ struct Struct_ov031_0224c980_6 {
 	unsigned int unknown_50_;
 };
 
-extern Struct_ov031_0224c980_6 data_ov031_0224c980;
+extern Struct_ov031_0224c980_6 gIPStack_ov031_0224c980;
 
 struct Struct_ov031_022031bc {
 	char unknown_0_[0xa];
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov031_022031bc(int arg0, unsigned short arg1, unsigned 
 	if (var0 == NULL) {
 		return;
 	}
-	unsigned int var1 = (arg2 == 0x7f000001) ? data_ov031_0224c980.unknown_50_ : arg2;
+	unsigned int var1 = (arg2 == 0x7f000001) ? gIPStack_ov031_0224c980.unknown_50_ : arg2;
 	var0->unknown_1a_ = arg1;
 	var0->unknown_18_ = var0->unknown_1a_;
 	var0->unknown_20_ = var1;

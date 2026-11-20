@@ -15,7 +15,7 @@ extern "C" int func_ov002_021574d4(void *arg0, int arg1);
 extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(void *menu);
 extern "C" void func_ov002_02160274(void *arg0);
-extern "C" void func_ov002_02156e90(void *arg0);
+extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(void *menu);
 extern char gSoundEffectManager_02108760[];
 #if defined(jpn)
 extern "C" void func_ov002_0215bba8(char *arg0);
@@ -66,6 +66,6 @@ extern "C" ARM void func_ov002_02169520(char *arg0) {
     if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
         *(short *) (arg0 + 0x1c08 + Enum_ov002_02169520_0)       = -1;
         *(signed char *) (arg0 + 0x1c20 + Enum_ov002_02169520_0) = -1;
-        func_ov002_02156e90(arg0);
+        ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
     }
 }

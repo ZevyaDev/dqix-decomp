@@ -6,8 +6,8 @@
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
 struct Struct_ov024_021de124;
-extern "C" int func_ov024_021de25c(struct Struct_ov024_021de124* arg0);
-extern "C" int func_ov024_021ed890(struct Random** arg0, int* arg1, short* arg2);
+extern "C" int IsConfused_ov024_021de25c(struct Struct_ov024_021de124* combatant);
+extern "C" int PickRandomTarget_ov024_021ed890(struct Random** targetSelector, int* count, short* targetIndices);
 
 struct Struct_ov024_021fee0c { short unknown_0_[8]; };
 extern struct Struct_ov024_021fee0c data_ov024_021fee0c;
@@ -23,14 +23,14 @@ extern "C" ARM int func_ov024_021f37fc(int* arg0, int arg1, int arg2, int* arg3,
 	for (int var2 = 0; var2 < var1; var2++) {
 		GameObject* var3 = GetCombatantByID(*arg0, var0.unknown_0_[var2]);
 		if (!var3) continue;
-		if (IsAsleep_020882f8((unsigned char*)var3->currentStats_) || func_ov024_021de25c((struct Struct_ov024_021de124*)var3)) {
+		if (IsAsleep_020882f8((unsigned char*)var3->currentStats_) || IsConfused_ov024_021de25c((struct Struct_ov024_021de124*)var3)) {
 			int var4 = *arg3;
 			*arg3 = var4 + 1;
 			arg4[var4] = var0.unknown_0_[var2];
 		}
 	}
 	if (*arg3 > 0) {
-		func_ov024_021ed890((struct Random**)arg0, arg3, arg4);
+		PickRandomTarget_ov024_021ed890((struct Random**)arg0, arg3, arg4);
 		return 1;
 	}
 	return 0;

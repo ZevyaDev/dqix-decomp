@@ -48,7 +48,7 @@ struct Queue_0201bdac_2;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
 
 struct Struct_020213fc;
-extern "C" void func_020213fc(struct Struct_020213fc* arg0, int arg1);
+extern "C" void SetSubScreenFadeInHeld_020213fc(struct Struct_020213fc* subScreenDisplay, int isHeld);
 extern "C" void DisableInputForDuration_020e1154(void* durationMs);
 
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
@@ -77,7 +77,7 @@ extern "C" void func_020de848(void* itemTable);
 extern char* gItemDataPath_020f2a38;
 extern char* data_020f2a30;
 extern "C" int func_020de980(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
-extern "C" void func_0207cbe8(char* arg0);
+extern "C" void ResetItemContext_0207cbe8(char* itemContext);
 extern "C" void AddItem_0207d300(void* itemContext, short itemId, int count, int isAliveRequired);
 
 extern "C" int func_02086d88(unsigned char* arg0, int arg1);
@@ -229,7 +229,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                 ResetEventTask_ov017_021baedc(var18, 1);
                 *(unsigned short*)((char*)var18 + 8) = *(unsigned short*)(var14 + 2);
                 AppendToQueue_020469b4(var9, var18);
-                func_020213fc(*(struct Struct_020213fc**)((char*)var12 + 0x3000 + REGION_VALUE(0x4c0, 0x6d0)), 1);
+                SetSubScreenFadeInHeld_020213fc(*(struct Struct_020213fc**)((char*)var12 + 0x3000 + REGION_VALUE(0x4c0, 0x6d0)), 1);
                 DisableInputForDuration_020e1154((void*)0x1f4);
                 break;
             }
@@ -244,7 +244,7 @@ extern "C" ARM void func_0206f81c(void* arg0) {
                 if (*(unsigned short*)(var14 + 0) == 0xe2) var19[0xc] = 1;
                 if (*((unsigned char*)var11 + 0x5000 + REGION_VALUE(0xa4c, 0xcac)) != 0) var19[0x60] = 1;
                 var15 = 1;
-                func_020213fc(*(struct Struct_020213fc**)((char*)var12 + 0x3000 + REGION_VALUE(0x4c0, 0x6d0)), var15);
+                SetSubScreenFadeInHeld_020213fc(*(struct Struct_020213fc**)((char*)var12 + 0x3000 + REGION_VALUE(0x4c0, 0x6d0)), var15);
                 break;
             }
 
@@ -369,8 +369,8 @@ extern "C" ARM void func_0206f81c(void* arg0) {
 #endif
                     Struct_0206f81c_7 var37;
                     InitItemTable_020de824(var37.unknown1_14_);
-                    func_0207cbe8((char*)&var37);
-                    func_0207cbe8((char*)&var37);
+                    ResetItemContext_0207cbe8((char*)&var37);
+                    ResetItemContext_0207cbe8((char*)&var37);
                     var37.unknown_2c_ = var32;
                     AddItem_0207d300(&var37, *(short*)(var14 + 2), (signed char)*(unsigned short*)(var14 + 4), 0);
                 }
@@ -494,8 +494,8 @@ extern "C" ARM void func_0206f81c(void* arg0) {
 #endif
                     Struct_0206f81c_7 var73;
                     InitItemTable_020de824(var73.unknown1_14_);
-                    func_0207cbe8((char*)&var73);
-                    func_0207cbe8((char*)&var73);
+                    ResetItemContext_0207cbe8((char*)&var73);
+                    ResetItemContext_0207cbe8((char*)&var73);
                     var73.unknown_2c_ = var68;
                     AddItem_0207d300(&var73, *(short*)(var14 + 6), 1, 0);
                 }

@@ -188,7 +188,7 @@ extern "C" int SetBattleRecords_020ac494(void* records);
 extern "C" unsigned char* GetZone3D_02012fe4(void);
 extern "C" void func_0201bf98(unsigned char* arg0, int arg1, int arg2);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, int maxCount, int filterFlags);
-extern "C" int func_ov017_021959b4(void);
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 extern "C" void* func_0205ec34(void);
 extern "C" int func_02064a24(void*, Struct_02064a08*);
 extern "C" int func_02064a08(void*, Struct_02064a08*);
@@ -217,10 +217,10 @@ extern "C" void func_020a2830(void* arg0);
 void SetMainBrightness(GameResources* res, int level, int b);
 extern "C" void func_ov017_021c98f4(int arg0, int arg1);
 extern "C" void func_ov017_021b6f9c(Struct_ov017_021b790c_4* arg0);
-extern "C" void* func_020d7a50(void);
+extern "C" void* GetTimedMessageQueue_020d7a50(void);
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" void func_020e4c74(void* arg0, GameObject* arg1);
+extern "C" void InitMemberNoun_020e4c74(void* noun, GameObject* member);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void func_02046608(void* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" int abs(int arg0);
@@ -330,7 +330,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
                 *((unsigned char*)var22 + 0xc3) = 0x96;
             }
         }
-        if (arg0->unknown_28_ >= 0 && func_ov017_021959b4() == 0) {
+        if (arg0->unknown_28_ >= 0 && IsLocalWirelessHostDisconnected_ov017_021959b4() == 0) {
             void* var23 = func_0205ec34();
             Struct_02064a08 var24;
             memset(&var24, 0, sizeof(var24));
@@ -427,7 +427,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
         }
         if (var31 < 500 && arg0->unknown_6b8_ >= 500) {
             GameObject* var32 = var0->GetUnknownGameObject();
-            void* var33 = func_020d7a50();
+            void* var33 = GetTimedMessageQueue_020d7a50();
 #if defined(jpn)
             char var34[0x64];
             __clear(var34, sizeof(var34));
@@ -442,7 +442,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
             __clear(var36, sizeof(var36));
             if (var32 != NULL) {
                 Struct_ov017_021b790c_8 var37;
-                func_020e4c74(&var37, var0->GetUnknownGameObject());
+                InitMemberNoun_020e4c74(&var37, var0->GetUnknownGameObject());
                 var3->unknown_0_ = &var37;
                 sprintf(var36, (const char*)((int)GetGameString((eGameString)(0x20))));
                 func_02046608(var3, 0xc, var36, var35, 0xe3, 0, 1);

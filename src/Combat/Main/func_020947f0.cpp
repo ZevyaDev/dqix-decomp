@@ -15,7 +15,7 @@ struct Struct_020947f0 {
     unsigned char unknown_3c8_7_ : 1;
 };
 struct Struct_02094654_2 { unsigned int unknown_0_; unsigned short unknown_4_; };
-extern "C" double func_02009424(double);
+extern "C" double ComputeSine_02009424(double);
 extern "C" void LoadToMainObjStandardPalette(const void*, unsigned int, unsigned int);
 extern "C" void LoadToSubObjStandardPalette(const void*, unsigned int, unsigned int);
 extern "C" int func_0209378c(int);
@@ -25,7 +25,7 @@ extern "C" void func_020946f8(Struct_02094654_2*, int, int, int, int, int, int, 
 
 // USA: func_020947f0
 extern "C" ARM void func_020947f0(Struct_020947f0* arg0) {
-    float var0 = (float)func_02009424((double)arg0->unknown_344_);
+    float var0 = (float)ComputeSine_02009424((double)arg0->unknown_344_);
     var0 += 1.0f;
     var0 *= 0.5f;
     short var1 = (short)(31.0f * var0);

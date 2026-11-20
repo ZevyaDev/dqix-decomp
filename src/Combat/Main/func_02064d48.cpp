@@ -11,7 +11,7 @@ enum { Enum_02064d48_2112 = 0x840, Enum_02064d48_20 = 0x14 };
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
-extern "C" int func_020981e4(int arg0, int arg1);
+extern "C" int IsQuestersRestZone_020981e4(int questersRest, int zoneId);
 extern "C" int func_02098268(int arg0, int arg1);
 
 extern "C" void* GetZone3D_02012fe4(void);
@@ -35,7 +35,7 @@ extern "C" ARM int func_02064d48(const Script::Parameter* arg0) {
     int var1 = var0[0].ToInt();
     char* var2 = (char*)GetZone3D_02012fe4();
 
-    if (func_020981e4((int)(var2 + Enum_02064d48_2112), *(unsigned short*)var2)) {
+    if (IsQuestersRestZone_020981e4((int)(var2 + Enum_02064d48_2112), *(unsigned short*)var2)) {
         if (func_02098268((int)(var2 + Enum_02064d48_2112), var1)) {
             return 1;
         }

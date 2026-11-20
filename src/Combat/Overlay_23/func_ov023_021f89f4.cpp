@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-struct Struct_ov023_021f6ed8;
-extern "C" ARM void func_ov023_021f6ed8(struct Struct_ov023_021f6ed8* arg0);
+struct MenuObject_ov023_021f6ed8;
+extern "C" ARM void InitMenuObjectBase_ov023_021f6ed8(struct MenuObject_ov023_021f6ed8* object);
 
 struct Struct_ov023_021f89f4 { unsigned char unknown_0_0_ : 4; unsigned char unknown_0_4_ : 4; };
 #if defined(jpn)
@@ -13,7 +13,7 @@ struct Struct_ov023_021f89f4_2 { unsigned char unknown_0_0_ : 1; unsigned char u
 
 // USA: func_ov023_021f89f4
 extern "C" ARM int func_ov023_021f89f4(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10) {
-    func_ov023_021f6ed8((struct Struct_ov023_021f6ed8*)arg0);
+    InitMenuObjectBase_ov023_021f6ed8((struct MenuObject_ov023_021f6ed8*)arg0);
     *(short*)(arg0 + 0x4) = 8;
     *(short*)(arg0 + 0x6) = arg2;
     *(short*)(arg0 + 0x8) = arg3;

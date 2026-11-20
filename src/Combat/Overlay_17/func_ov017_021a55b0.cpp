@@ -9,7 +9,7 @@
 extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void LoadFileTables_020a0c0c(void);
 struct Struct_0214e34c;
-extern "C" struct Struct_0214e34c* func_020d7a50();
+extern "C" struct Struct_0214e34c* GetTimedMessageQueue_020d7a50();
 struct TimedMessageQueue_020d7aa0_2;
 extern "C" void ClearTimedMessageQueue_020d7aa0(struct TimedMessageQueue_020d7aa0_2* queue);
 
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov017_021a55b0(struct Struct_ov017_021a55b0* arg0) {
         func_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var0);
         LoadFileTables_020a0c0c();
     }
-    ClearTimedMessageQueue_020d7aa0((struct TimedMessageQueue_020d7aa0_2*)func_020d7a50());
+    ClearTimedMessageQueue_020d7aa0((struct TimedMessageQueue_020d7aa0_2*)GetTimedMessageQueue_020d7a50());
     arg0->unknown_c_.ResetAllocatorPointer();
     arg0->unknown_8_ = 0;
 }

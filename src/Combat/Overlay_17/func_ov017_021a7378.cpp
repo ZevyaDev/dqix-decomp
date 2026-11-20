@@ -112,7 +112,7 @@ extern "C" Struct_ov000_0217964c_3* GetMessageWindow_020421a0();
 extern "C" Struct_ov017_021a7378_4* GetZone3D_02012fe4(void);
 extern "C" Struct_ov001_02158ae4_3* func_0200ffd0(Struct_0200ffd0* arg0);
 extern "C" void func_0205c904(unsigned char* arg0, int arg1);
-extern "C" void* func_020d7a50(void);
+extern "C" void* GetTimedMessageQueue_020d7a50(void);
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2* queue);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void func_020ae38c(unsigned char* arg0);
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1)
     func_0205c904(arg0->unknown_24_, var0->GetTickCount());
 
     if (arg0->unknown_8_ == 0) {
-        ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)func_020d7a50());
+        ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)GetTimedMessageQueue_020d7a50());
         arg0->unknown_1c_ = (DISPCNT & 0x1f00) >> 8;
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1100;
         ReleaseFileTablesForSpace_020a0cc4(Enum_ov017_021a7378_5120);

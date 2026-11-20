@@ -18,7 +18,7 @@ enum { Enum_ov003_0217a220_4154 = 0x103a };
 #endif
 
 extern "C" int func_02053c6c(unsigned char* gameObject);
-extern "C" short func_02080468(void* arg0, int arg1);
+extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
 
 // USA: func_ov003_0217a220
 extern "C" ARM void func_ov003_0217a220(unsigned char* arg0) {
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov003_0217a220(unsigned char* arg0) {
     GameObject* var2 = var1->GetPartyMemberByIndex(*(signed char*)(arg0 + Enum_ov003_0217a220_4163));
     if (var2 != NULL) {
         unsigned char* var3 = (unsigned char*)func_02053c6c((unsigned char*)var2);
-        short var4 = func_02080468(*(void**)(arg0 + Enum_ov003_0217a220_2204), 0x15);
+        short var4 = GetMenuLayoutWindowFirstSelectableTextId_02080468(*(void**)(arg0 + Enum_ov003_0217a220_2204), 0x15);
         short var5 = *(short*)(arg0 + Enum_ov003_0217a220_4110) - var4;
         var0 = *(short*)(var3 + var5 * 2 + 0x400 + 0x54);
     }

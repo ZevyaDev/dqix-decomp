@@ -17,7 +17,7 @@ struct Struct_ov031_02290ca0_21 {
     unsigned short unknown_6_;
     Struct_ov031_022309b4* unknown_8_;
 };
-extern Struct_ov031_02290ca0_21 data_ov031_02290ca0;
+extern Struct_ov031_02290ca0_21 gConnectionSettingsPage_ov031_02290ca0;
 
 extern "C" unsigned char* func_ov031_02235c70(void);
 extern "C" void* AddTask_ov031_0223e218(void*, void*, void*, int);
@@ -33,78 +33,78 @@ extern "C" void func_ov031_022306d4(int);
 extern "C" ARM void func_ov031_022309b4(int arg0) {
     unsigned char* var0 = func_ov031_02235c70();
     int var1 = 0;
-    unsigned char var2 = data_ov031_02290ca0.unknown_0_;
+    unsigned char var2 = gConnectionSettingsPage_ov031_02290ca0.unknown_0_;
     if (var2 == 8 && var0[0xf5] == 0) {
         if (arg0 == 0 || arg0 == 2) return;
     }
     switch (var2) {
     case 0:
-        if (arg0 == 1) data_ov031_02290ca0.unknown_0_ = 11;
-        else if (arg0 == 3) data_ov031_02290ca0.unknown_2_++;
+        if (arg0 == 1) gConnectionSettingsPage_ov031_02290ca0.unknown_0_ = 11;
+        else if (arg0 == 3) gConnectionSettingsPage_ov031_02290ca0.unknown_2_++;
         else var1 = 2;
         break;
     case 10:
-        if (arg0 == 1) data_ov031_02290ca0.unknown_2_--;
-        else if (arg0 == 3) data_ov031_02290ca0.unknown_0_ = data_ov031_02290ca0.unknown_8_->unknown_42_;
+        if (arg0 == 1) gConnectionSettingsPage_ov031_02290ca0.unknown_2_--;
+        else if (arg0 == 3) gConnectionSettingsPage_ov031_02290ca0.unknown_0_ = gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_42_;
         else var1 = 2;
         break;
     case 11:
         if (arg0 == 1) {
-            if (data_ov031_02290ca0.unknown_8_->unknown_47_) return;
+            if (gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_47_) return;
             PlayWifiSetupSoundEffect_ov031_02236878(9);
-            data_ov031_02290ca0.unknown_8_->unknown_47_ = 1;
+            gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_47_ = 1;
             return;
         } else if (arg0 == 3) {
-            data_ov031_02290ca0.unknown_0_ = 0;
-            data_ov031_02290ca0.unknown_2_ = 0;
-            data_ov031_02290ca0.unknown_4_ = 0;
+            gConnectionSettingsPage_ov031_02290ca0.unknown_0_ = 0;
+            gConnectionSettingsPage_ov031_02290ca0.unknown_2_ = 0;
+            gConnectionSettingsPage_ov031_02290ca0.unknown_4_ = 0;
             func_ov031_0222f9ec();
             func_ov031_022351f8(0);
         } else var1 = 2;
         break;
     case 12:
     case 13:
-        data_ov031_02290ca0.unknown_8_->unknown_42_ = var2;
+        gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_42_ = var2;
         if (arg0 == 1) {
-            data_ov031_02290ca0.unknown_0_ = 10;
-            data_ov031_02290ca0.unknown_2_ = 3;
-            data_ov031_02290ca0.unknown_4_ = 0x91;
+            gConnectionSettingsPage_ov031_02290ca0.unknown_0_ = 10;
+            gConnectionSettingsPage_ov031_02290ca0.unknown_2_ = 3;
+            gConnectionSettingsPage_ov031_02290ca0.unknown_4_ = 0x91;
             func_ov031_0222f9ec();
             func_ov031_022351f8(0x37);
         } else if (arg0 == 3) {
-            if (data_ov031_02290ca0.unknown_8_->unknown_47_) return;
+            if (gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_47_) return;
             PlayWifiSetupSoundEffect_ov031_02236878(9);
-            data_ov031_02290ca0.unknown_8_->unknown_47_ = 1;
+            gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_47_ = 1;
             return;
         } else if (var2 == 12) {
-            data_ov031_02290ca0.unknown_0_ = 13;
+            gConnectionSettingsPage_ov031_02290ca0.unknown_0_ = 13;
         } else {
-            data_ov031_02290ca0.unknown_0_ = 12;
+            gConnectionSettingsPage_ov031_02290ca0.unknown_0_ = 12;
         }
         break;
     default:
         if (arg0 == 1) {
-            if (data_ov031_02290ca0.unknown_2_ != 0) {
-                data_ov031_02290ca0.unknown_2_--;
+            if (gConnectionSettingsPage_ov031_02290ca0.unknown_2_ != 0) {
+                gConnectionSettingsPage_ov031_02290ca0.unknown_2_--;
                 break;
             }
             PlayWifiSetupSoundEffect_ov031_02236878(0x13);
-            data_ov031_02290ca0.unknown_8_->unknown_38_ = (int)AddTask_ov031_0223e218(0, (void*)func_ov031_0223060c, 0, 0x78);
+            gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_38_ = (int)AddTask_ov031_0223e218(0, (void*)func_ov031_0223060c, 0, 0x78);
             return;
         } else if (arg0 == 3) {
-            if (data_ov031_02290ca0.unknown_2_ < 3) {
-                data_ov031_02290ca0.unknown_2_++;
+            if (gConnectionSettingsPage_ov031_02290ca0.unknown_2_ < 3) {
+                gConnectionSettingsPage_ov031_02290ca0.unknown_2_++;
                 break;
             }
             PlayWifiSetupSoundEffect_ov031_02236878(0x13);
-            data_ov031_02290ca0.unknown_8_->unknown_38_ = (int)AddTask_ov031_0223e218(0, (void*)func_ov031_022306d4, 0, 0x78);
+            gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_38_ = (int)AddTask_ov031_0223e218(0, (void*)func_ov031_022306d4, 0, 0x78);
             return;
         }
         var1 = 2;
-        if (var2 == 2) data_ov031_02290ca0.unknown_0_ = 3;
-        else if (var2 == 3) data_ov031_02290ca0.unknown_0_ = 2;
-        else if (var2 == 7) data_ov031_02290ca0.unknown_0_ = 8;
-        else if (var2 == 8) data_ov031_02290ca0.unknown_0_ = 7;
+        if (var2 == 2) gConnectionSettingsPage_ov031_02290ca0.unknown_0_ = 3;
+        else if (var2 == 3) gConnectionSettingsPage_ov031_02290ca0.unknown_0_ = 2;
+        else if (var2 == 7) gConnectionSettingsPage_ov031_02290ca0.unknown_0_ = 8;
+        else if (var2 == 8) gConnectionSettingsPage_ov031_02290ca0.unknown_0_ = 7;
         else break;
         PlayWifiSetupSoundEffect_ov031_02236878(8);
         func_ov031_022307fc();

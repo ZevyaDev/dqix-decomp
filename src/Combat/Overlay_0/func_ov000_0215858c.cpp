@@ -64,7 +64,7 @@ extern "C" void func_ov000_021584e8(struct Random* arg0, void* arg1, GameObject*
 extern "C" void func_020884f8(unsigned char* arg0);
 extern "C" int func_ov000_02155154(GameObject* arg0);
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
-extern "C" int func_ov000_02153c0c(GameObject* arg0);
+extern "C" int HasLeftBattle_ov000_02153c0c(GameObject* combatant);
 extern "C" void func_02088e64(unsigned char* arg0);
 extern "C" void func_020488cc(unsigned char* arg0, int arg1);
 extern "C" int func_02088660(struct Struct_02088660* arg0);
@@ -167,7 +167,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         if (var7 != 0 && IsDead_02010088((struct Struct_02010088*)var7) != 0) {
             var4 = 1;
         }
-        if (var7 != 0 && func_ov000_02153c0c(var7) != 0) {
+        if (var7 != 0 && HasLeftBattle_ov000_02153c0c(var7) != 0) {
             var4 = 1;
         }
         if (var4 != 0) {

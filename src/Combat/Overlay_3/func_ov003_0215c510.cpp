@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 
-extern "C" int func_0209ca2c(void* arg0);
+extern "C" int IsJinglePlaying_0209ca2c(void* manager);
 extern int gMusicManager_02109bf4;
 
 // USA: func_ov003_0215c510
 extern "C" ARM void func_ov003_0215c510(char* arg0) {
-    if (func_0209ca2c(&gMusicManager_02109bf4) != 0) return;
+    if (IsJinglePlaying_0209ca2c(&gMusicManager_02109bf4) != 0) return;
     if (*(unsigned char*)(arg0 + 0x59d) != 0) return;
 
     int var0 = (int)BackgroundLoader::GetInstance();

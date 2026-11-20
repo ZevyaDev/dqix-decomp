@@ -5,7 +5,7 @@ struct Struct_ov000_021537b8_5 { char unknown_0_[0x2e]; short unknown_2e_; };
 struct GameObject { char unknown_0_[0x138]; Struct_ov000_021537b8_5* unknown_138_; char unknown_13c_[0x17c - 0x13c]; unsigned char unknown_17c_; char unknown_17d_[2]; unsigned char unknown_17f_; unsigned char unknown_180_; };
 class GameState {public: static GameState* GetInstance();GameObject* GetCombatantByIndex(int);};
 struct Struct_02010088;extern "C" int IsDead_02010088(Struct_02010088*);
-extern "C" int func_ov000_02153c0c(GameObject*);
+extern "C" int HasLeftBattle_ov000_02153c0c(GameObject*);
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*,int);
 extern "C" int func_ov000_0215fc60(char*);
 struct Struct_ov000_021537b8_4 {char unknown_0_[8];unsigned int unknown_8_0_:8,unknown_9_0_:2,unknown_9_2_:22;char unknown_c_[8];unsigned int unknown_14_0_:28,unknown_17_4_:4;unsigned int unknown_18_0_:5,unknown_18_5_:7,unknown_19_4_:20;unsigned int unknown_1c_0_:14,unknown_1d_6_:5,unknown_1e_3_:13;};
@@ -40,7 +40,7 @@ extern "C" ARM int func_ov000_0215440c(Random* arg0,Struct_ov000_0215440c_3* arg
   if(var5->unknown_17f_){
    if((var3->unknown_17_4_==2||var3->unknown_17_4_==5)&&var3->unknown_9_0_==1){
     GameObject* var7=inline_ov000_021537b8_2(inline_ov000_0215440c(var5->unknown_138_));
-    if(var7&&!IsDead_02010088((Struct_02010088*)var7)&&!func_ov000_02153c0c(var7)){arg2[0]=inline_ov000_0215440c(var5->unknown_138_);var4++;var6=1;}
+    if(var7&&!IsDead_02010088((Struct_02010088*)var7)&&!HasLeftBattle_ov000_02153c0c(var7)){arg2[0]=inline_ov000_0215440c(var5->unknown_138_);var4++;var6=1;}
    }
   }else if(var5->unknown_180_)var6=1;
  }
@@ -68,7 +68,7 @@ extern "C" ARM int func_ov000_0215440c(Random* arg0,Struct_ov000_0215440c_3* arg
       int var22=var14[var20].unknown_6_[var21]+0xc0;
       GameObject* var23=GameState::GetInstance()->GetCombatantByIndex((short)var22);
       if(!var23)continue;
-      if(func_ov000_02153c0c(var23))continue;
+      if(HasLeftBattle_ov000_02153c0c(var23))continue;
       if(IsDead_02010088((Struct_02010088*)var23)){if(var19>0){arg2[var4]=var22;var4++;var19--;}}
       else{arg2[var4]=var22;var4++;}
       if(var4>=5)break;
@@ -79,7 +79,7 @@ extern "C" ARM int func_ov000_0215440c(Random* arg0,Struct_ov000_0215440c_3* arg
      short var25=var9[var24];
      GameState* var26=GameState::GetInstance();
      GameObject* var27=var26->GetCombatantByIndex(var25);
-     if(var3->unknown_18_5_==0x12||var3->unknown_18_5_==0x21||(!IsDead_02010088((Struct_02010088*)var27)&&!func_ov000_02153c0c(var27))){arg2[var4]=var9[var24];var4++;}
+     if(var3->unknown_18_5_==0x12||var3->unknown_18_5_==0x21||(!IsDead_02010088((Struct_02010088*)var27)&&!HasLeftBattle_ov000_02153c0c(var27))){arg2[var4]=var9[var24];var4++;}
     }
    }
   }else{
@@ -87,7 +87,7 @@ extern "C" ARM int func_ov000_0215440c(Random* arg0,Struct_ov000_0215440c_3* arg
     Struct_ov000_0215440c_5* var29=GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1,var28);
     GameObject* var30=inline_ov000_021537b8_2(inline_ov000_0215440c(var29));
     if(!var30)continue;
-    if(var3->unknown_18_5_==0x12||var3->unknown_18_5_==0x21||(!IsDead_02010088((Struct_02010088*)var30)&&!func_ov000_02153c0c(var30))){arg2[var4]=inline_ov000_0215440c(var29);var4++;}
+    if(var3->unknown_18_5_==0x12||var3->unknown_18_5_==0x21||(!IsDead_02010088((Struct_02010088*)var30)&&!HasLeftBattle_ov000_02153c0c(var30))){arg2[var4]=inline_ov000_0215440c(var29);var4++;}
    }
   }
  }

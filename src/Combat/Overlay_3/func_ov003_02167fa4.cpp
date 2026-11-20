@@ -4,8 +4,8 @@ extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
 extern "C" int func_02080b2c(void* arg0, int arg1);
 extern "C" void SetMenuLayoutTextStringId_0208103c(void* menuLayout, int textId, int stringId);
 extern "C" void func_02080798(void* arg0, int arg1, int arg2);
-struct Struct_02080cc0;
-extern "C" void func_02080cc0(struct Struct_02080cc0* arg0, int arg1, int arg2);
+struct MenuLayout_02080cc0;
+extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0* menuLayout, int textId, int color);
 struct MenuLayout_02080fa8;
 extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8* menuLayout, int textId, int value);
 extern "C" ARM int GetVocationSkill_020dd11c(unsigned int vocation, unsigned int index);
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov003_02167fa4(void* arg0, int arg1, unsigned char* arg
             unsigned char var6 = arg2[var4];
             int var7 = 0xf;
             if (var6 == 0x64) var7 = 0xd;
-            func_02080cc0((struct Struct_02080cc0*)var0, var2, var7);
+            SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0*)var0, var2, var7);
             SetMenuLayoutTextStringId_0208103c(var0, var1, var5);
 #if !defined(jpn)
             func_02080798(var0, var1, 1);

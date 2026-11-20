@@ -50,9 +50,9 @@ extern "C" int func_ov003_0215bf18(void*, int);
 extern "C" int func_ov003_0215b580(void*, int);
 struct MusicManager_02109bf4_2;
 extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
-extern "C" int func_0209ca2c(void*);
+extern "C" int IsJinglePlaying_0209ca2c(void*);
 extern "C" void RevivePartyMember_02048150(void*, int, int);
-extern "C" void func_02048418(unsigned char*, unsigned short);
+extern "C" void ClearStatusFlags_02048418(unsigned char*, unsigned short);
 extern "C" void* GetParty_02010828(GameState*);
 extern "C" void AddEquipmentToBag_0207c378(void*, short, int, int);
 extern "C" void SetEquippedItem_02052d7c(void*, signed char, int);
@@ -229,7 +229,7 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
         if (*(int*)(var2 + Enum_ov003_0215a740_2464) == 3) {
             *(unsigned char*)(var2 + 0x1000 + Enum_ov003_0215a740_2478) = 0;
         }
-        if (func_0209ca2c(&gMusicManager_02109bf4) != 0) return;
+        if (IsJinglePlaying_0209ca2c(&gMusicManager_02109bf4) != 0) return;
         int var14 = *(unsigned char*)(var0 + *(signed char*)(var0 + 0x5a1) + 0x591);
         unsigned char* var15 = (unsigned char*)(void*)GetPartyMemberBaseByIndex_0200ff1c(var1, var14);
         switch (arg2) {
@@ -242,10 +242,10 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
             break;
         }
         case 0x410:
-            func_02048418((unsigned char*)var15, 2);
+            ClearStatusFlags_02048418((unsigned char*)var15, 2);
             break;
         case 0x406 + 20: {
-            func_02048418((unsigned char*)var15, 4);
+            ClearStatusFlags_02048418((unsigned char*)var15, 4);
             unsigned char* var17 = (unsigned char*)GetParty_02010828(var1);
             int var18 = 0;
             for (int var19 = 0; var19 < 0xb; var19++) {

@@ -21,12 +21,12 @@ enum { Enum_ov003_02178548_58 = 0x3a };
 #endif
 
 
-extern "C" short func_02080468(void* arg0, int arg1);
+extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
 
 // USA: func_ov003_02178548
 extern "C" ARM void func_ov003_02178548(unsigned char* arg0) {
 	void* var0 = *(void**)(arg0 + Enum_ov003_02178548_2204);
-	short var1 = func_02080468(var0, 3);
+	short var1 = GetMenuLayoutWindowFirstSelectableTextId_02080468(var0, 3);
 	short var2 = *(short*)(arg0 + Enum_ov003_02178548_4102);
 	int var3 = var2 - var1;
 	short var4 = *(short*)(arg0 + Enum_ov003_02178548_4116);
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov003_02178548(unsigned char* arg0) {
 	short var7 = *(short*)(arg0 + Enum_ov003_02178548_2048 + var5 * 2 + Enum_ov003_02178548_72);
 	*(short*)(arg0 + Enum_ov003_02178548_4096 + Enum_ov003_02178548_58) = var7;
 
-	short var8 = func_02080468(var0, 3);
+	short var8 = GetMenuLayoutWindowFirstSelectableTextId_02080468(var0, 3);
 	int var9 = var5 % 6;
 #if defined(jpn)
 	*(short*)(arg0 + 0xf00 + 0x82) = (short)(var9 + var8);

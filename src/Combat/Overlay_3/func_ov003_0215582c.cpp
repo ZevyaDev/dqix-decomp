@@ -127,13 +127,13 @@ extern "C" int func_ov003_02155e14(int arg0, int arg1);
 extern "C" short* GetEquippedItems_02052e14(struct PartyMember_02052e14* gameObject);
 extern "C" int AddEquipmentToBag_0207c378(void* bag, int itemId, int count, int category);
 extern "C" int func_ov003_02156034(void* arg0);
-extern "C" void func_02083ca0(unsigned char* arg0, int arg1);
+extern "C" void SetVocation_02083ca0(unsigned char* memberData, int vocation);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" void func_020a06ec(struct Struct_020a06ec* arg0, unsigned int arg1);
 extern "C" void func_020a0258(struct Struct_020a0258* arg0, unsigned int arg1);
 extern "C" int SetBattleRecords_020ac494(void* records);
-extern "C" int func_0207c7a0(void* arg0, int arg1, int arg2);
+extern "C" int GetEquipmentBagItemCount_0207c7a0(void* bag, int itemId, int category);
 extern "C" struct Struct_ov003_0215582c_10* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void SetEquippedItem_02052d7c(void* gameObject, int slot, int itemId);
 extern "C" int RemoveEquipmentFromBag_0207c484(struct EquipmentBag_0207c484* bag, int itemId, int count, int category);
@@ -196,7 +196,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
         }
     }
 
-    func_02083ca0((unsigned char*)var3, func_ov003_02156034(arg0));
+    SetVocation_02083ca0((unsigned char*)var3, func_ov003_02156034(arg0));
 
     var5 = GetProtagonistObjectIndex_020100a8(var0);
     if (var5 == var2->unknown_4_) {
@@ -236,7 +236,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
         }
     }
 
-    if (var8[7] == 0x4680 && func_0207c7a0(var1->unknown_1d4_, 0x4680, 7) == 0) {
+    if (var8[7] == 0x4680 && GetEquipmentBagItemCount_0207c7a0(var1->unknown_1d4_, 0x4680, 7) == 0) {
         bool var20[2];
         for (int var21 = 0; var21 < 7; var21++) {
             struct Struct_ov003_0215582c_10* var22 = FindItemData_020dedd0((struct ItemTable_0201099c_10*)arg0->unknown_178_, var8[var21]);
@@ -257,7 +257,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
         int var25 = 0;
         int var26 = var8[var24];
         int var27 = data_ov003_0217f2b4[var24];
-        if (var26 > 0 && func_0207c7a0(var1->unknown_1d4_, var26, var27) >= 1) {
+        if (var26 > 0 && GetEquipmentBagItemCount_0207c7a0(var1->unknown_1d4_, var26, var27) >= 1) {
             if (data_ov003_0217f2bc[var24] != 0xff) {
                 SetEquippedItem_02052d7c(var2, data_ov003_0217f2bc[var24], var26);
             }

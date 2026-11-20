@@ -9,7 +9,7 @@ extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*,int);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int,int,int);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*,void*,int);
-extern "C" void func_ov000_0215cd44(void*,void*,GameObject*,int,unsigned long long,unsigned char);
+extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void*,void*,GameObject*,int,unsigned long long,unsigned char);
 struct Struct_ov024_021dd278_3 {char unknown_0_[0x1c];unsigned char unknown_1c_0_:7;unsigned char unknown_1c_7_:1;};
 struct Struct_ov024_021dd278_4 {char unknown_0_[0xc];Struct_ov024_021dd278_3* unknown_c_;void* unknown_10_;int unknown_14_;};
 struct Struct_ov024_021dd278_5 {unsigned int unknown_0_0_:12;unsigned int unknown_1_4_:10;unsigned int unknown_2_6_:10;};
@@ -61,6 +61,6 @@ extern "C" ARM void* func_ov024_021dd278(Struct_ov024_021dd278_4* arg0,int arg1,
     void* var10=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if(!var10)return 0;
     AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var10,var5);
-    func_ov000_0215cd44(arg0->unknown_10_,var10,var1,0,var4.unknown1_0_,arg0->unknown_c_->unknown_1c_7_!=0);
+    SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_,var10,var1,0,var4.unknown1_0_,arg0->unknown_c_->unknown_1c_7_!=0);
     return var10;
 }

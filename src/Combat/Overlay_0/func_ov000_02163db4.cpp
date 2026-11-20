@@ -25,7 +25,7 @@ extern "C" void* func_0202ae18();
 extern "C" Struct_020708c8* GetColorFade_020704fc();
 extern "C" void* func_0202ae24();
 extern "C" void func_020708c8(Struct_020708c8*, unsigned int);
-extern "C" int func_ov017_021959b4();
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4();
 extern "C" void StopGesture_020531f0(GameObject*);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 extern "C" int func_ov000_02160fd4(void*, int);
@@ -39,7 +39,7 @@ extern "C" int IsPerformingGesture_020535c8(signed char*);
 #define func_ov000_02165490 func_ov000_02166bdc
 #endif
 extern "C" int func_020535e0(int*);
-extern "C" TimedMessageQueue_020d7aa0_2* func_020d7a50();
+extern "C" TimedMessageQueue_020d7aa0_2* GetTimedMessageQueue_020d7a50();
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2*);
 extern "C" void func_ov017_021bd5d0(int);
 extern "C" int IsQueueEmpty_02046b08(void**);
@@ -58,7 +58,7 @@ extern "C" void LoadSoundEffectSet_0205ea20(void*, int);
 extern "C" void func_ov017_021c812c(int, int);
 extern "C" void func_ov017_021c8398(int, int);
 extern "C" void func_ov017_021c839c(int, int);
-extern "C" void func_ov000_02160d80(void*, int);
+extern "C" void SetBattleSceneState_ov000_02160d80(void*, int);
 extern unsigned char gSoundEffectManager_02108760;
 struct Struct_ov000_02163db4 {
     char unknown_0_[8]; unsigned short unknown_8_; char unknown_a_[2]; int unknown_c_;
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov000_02163db4(Struct_ov000_02163db4_2* arg0) {
     func_0202ae24();
     SetBrightness(var1, -16, 0);
     func_020708c8(var3, 0);
-    if (func_ov017_021959b4()) {
+    if (IsLocalWirelessHostDisconnected_ov017_021959b4()) {
         for (int var4 = 0; var4 < 4; var4++) {
             GameObject* var5 = GetPartyMemberBaseByIndex_0200ff1c(var0, var4);
             if (var5) StopGesture_020531f0(var5);
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov000_02163db4(Struct_ov000_02163db4_2* arg0) {
             if (func_020535e0((int*)var9)) StopGesture_020531f0(var9);
         }
     }
-    ClearTimedMessageQueue_020d7aa0(func_020d7a50());
+    ClearTimedMessageQueue_020d7aa0(GetTimedMessageQueue_020d7a50());
     if (arg0->unknown_2a0_->unknown_c_ >= 0) func_ov017_021bd5d0(arg0->unknown_2a0_->unknown_c_);
     if (var2->GetNumQueuedTasks() > 0) return;
     if (!IsQueueEmpty_02046b08((void**)var1->unknown_ptr_array_36fc[1])) return;
@@ -153,5 +153,5 @@ extern "C" ARM void func_ov000_02163db4(Struct_ov000_02163db4_2* arg0) {
     if (arg0->unknown_ec8_ == 0x785d || arg0->unknown_ec8_ == 0x77f7 || arg0->unknown_ec8_ == 0x77f5) {
         SetFlags04(var1, 0x200000);
     }
-    func_ov000_02160d80(arg0, 1);
+    SetBattleSceneState_ov000_02160d80(arg0, 1);
 }

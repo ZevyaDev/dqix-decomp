@@ -61,7 +61,7 @@ extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215f170(char *arg0);
 extern "C" void func_ov002_02161b98(char *arg0);
 extern "C" void func_ov002_0215a7b4(char *arg0, int arg1, short arg2, int arg3, int arg4);
-extern "C" void func_ov002_0215b9a4(char *arg0, unsigned char arg1, int arg2);
+extern "C" void RebuildMenuWindowText_ov002_0215b9a4(char *menu, unsigned char windowId, int hasCursorMark);
 extern "C" char *func_0205ec34(void);
 extern "C" char *GetZone3D_02012fe4(void);
 extern "C" int *func_0202ae18(void);
@@ -222,7 +222,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                 SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8 *) (arg0 + 0xe20), 0x12);
                 SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xe20), 0x12, 0);
                 ConfigureMenuCursors_ov002_02161cf0(arg0);
-                func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 0);
+                RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1a80) & 0xff, 0);
                 *(int *) (arg0 + 0x1a88) = 1;
             }
         }
@@ -376,7 +376,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                 SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8 *) (arg0 + 0x2c8 + 0xc00), 0x11);
                 SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0x2c8 + 0xc00), 0x11, 0);
                 ConfigureMenuCursors_ov002_02161cf0(arg0);
-                func_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + 0xbb8) & 0xff, 0);
+                RebuildMenuWindowText_ov002_0215b9a4(arg0, *(int *) (arg0 + 0x1000 + 0xbb8) & 0xff, 0);
                 *(int *) (arg0 + 0x1000 + 0xbc0) = 1;
             }
         }

@@ -7,7 +7,7 @@
 extern "C" unsigned int* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 
-// USA: func_020dc2bc
-extern "C" ARM void func_020dc2bc(void) {
+// USA: SuspendMapDisplay_020dc2bc
+extern "C" ARM void SuspendMapDisplay_020dc2bc(void) {
     SetGlobalFlags_020466e4(func_020d6c00(), 0x40);
 }

@@ -30,11 +30,11 @@ struct Struct_ov031_02290c8c_7 {
 	Struct_ov031_0222c01c* unknown_4_;
 };
 
-extern Struct_ov031_02290c8c_7 data_ov031_02290c8c;
+extern Struct_ov031_02290c8c_7 gAccessPointListPage_ov031_02290c8c;
 
 // USA: func_ov031_0222c01c
 extern "C" ARM void func_ov031_0222c01c(void) {
-	if (data_ov031_02290c8c.unknown_4_->unknown_38_ != 0 || data_ov031_02290c8c.unknown_4_->unknown_57_ != 0) return;
+	if (gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_38_ != 0 || gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_57_ != 0) return;
 
 	int var0 = GetButtonBarChoice_ov031_02222e0c();
 	switch (var0) {
@@ -42,16 +42,16 @@ extern "C" ARM void func_ov031_0222c01c(void) {
 		PlayWifiSetupSoundEffect_ov031_02236878(7);
 		break;
 	case 1:
-		if (data_ov031_02290c8c.unknown_0_ == 4) {
-			data_ov031_02290c8c.unknown_4_->unknown_54_ = 1;
+		if (gAccessPointListPage_ov031_02290c8c.unknown_0_ == 4) {
+			gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_54_ = 1;
 			PlayWifiSetupSoundEffect_ov031_02236878(6);
 			func_ov031_0222cb5c();
 			break;
 		}
 		{
-			int var1 = FastIntDivide(data_ov031_02290c8c.unknown_2_, 0x1c);
-			int var2 = data_ov031_02290c8c.unknown_0_ + var1;
-			Struct_ov031_0222c01c* var3 = data_ov031_02290c8c.unknown_4_;
+			int var1 = FastIntDivide(gAccessPointListPage_ov031_02290c8c.unknown_2_, 0x1c);
+			int var2 = gAccessPointListPage_ov031_02290c8c.unknown_0_ + var1;
+			Struct_ov031_0222c01c* var3 = gAccessPointListPage_ov031_02290c8c.unknown_4_;
 			unsigned char* var4 = (unsigned char*)(var3->unknown_0_ + var2 * 0x2a);
 			if (var4[0x28] == 2) {
 				PlayWifiSetupSoundEffect_ov031_02236878(9);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov031_0222c01c(void) {
 				return;
 			}
 			var3->unknown_54_ = 1;
-			data_ov031_02290c8c.unknown_4_->unknown_52_ = (unsigned char)var2;
+			gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_52_ = (unsigned char)var2;
 			PlayWifiSetupSoundEffect_ov031_02236878(6);
 		}
 		break;

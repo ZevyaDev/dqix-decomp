@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
-extern "C" void func_ov023_021f6ed8(void* arg0);
+extern "C" void InitMenuObjectBase_ov023_021f6ed8(void* object);
 
 // USA: func_ov023_021fbb64
 extern "C" ARM int func_ov023_021fbb64(void* arg0, int arg1, unsigned short arg2, unsigned short arg3,
                                          int arg4, int arg5, int arg6,
                                          int arg7, int arg8, int arg9, int arg10) {
-    func_ov023_021f6ed8(arg0);
+    InitMenuObjectBase_ov023_021f6ed8(arg0);
     *(unsigned short*)((char*)arg0 + 0x4) = 0xf;
     *(unsigned int*)((char*)arg0 + 0x2c) = 0;
     *(unsigned short*)((char*)arg0 + 0x6) = arg2;

@@ -6,7 +6,7 @@
 #define func_0202ae18 func_0202a9d0
 #endif
 
-struct Struct_ov008_0218747c { char unknown_0_[0x3c]; Struct_020ac4f8 unknown_3c_[2]; };
+struct Struct_ov008_0218747c { char unknown_0_[0x3c]; PlayTime_020ac4f8 unknown_3c_[2]; };
 #if defined(jpn)
 enum { Enum_ov008_0218747c_29956 = 0x72c4, Enum_ov008_0218747c_24 = 0x14 };
 #else
@@ -22,7 +22,7 @@ struct Struct_ov008_0218747c_2 {
     char unknown_b1c_[Enum_ov008_0218747c_24];
     int unknown_b34_;
     char unknown_b38_[8];
-    Struct_020ac4f8 unknown_b40_[2];
+    PlayTime_020ac4f8 unknown_b40_[2];
 };
 struct Struct_ov008_0218747c_3 { char unknown_0_[0x100d]; unsigned char unknown_100d_; };
 struct Struct_020103f0;
@@ -31,8 +31,8 @@ extern "C" void func_020103f0(Struct_020103f0*, unsigned short*, unsigned char*,
 extern "C" Struct_ov008_0218747c_3* func_0202ae18();
 extern "C" int GetLocalWirelessState_0202ba00(int*);
 extern "C" void func_020104cc(Struct_020104cc*, unsigned short*, unsigned char*, unsigned char*);
-extern "C" void func_020ac614(Struct_020ac4f8*, int);
-extern "C" void func_020ac644(Struct_020ac4f8*, int);
+extern "C" void func_020ac614(PlayTime_020ac4f8*, int);
+extern "C" void func_020ac644(PlayTime_020ac4f8*, int);
 static inline Struct_ov008_0218747c* inline_ov008_0218747c(GameState* arg0) { return &((Struct_01ff91ac_37*)arg0)->unknown_7504_; }
 
 // USA: func_ov008_0218747c
@@ -40,14 +40,14 @@ extern "C" ARM void func_ov008_0218747c(Struct_ov008_0218747c_2* arg0, int arg1)
     if (arg0->unknown_b34_) return;
     if (arg0->unknown_b10_ == 12 && arg0->unknown_b11_ < 6) return;
     GameState* var0 = GameState::GetInstance();
-    Struct_020ac4f8* var1 = 0;
+    PlayTime_020ac4f8* var1 = 0;
     Struct_ov008_0218747c* var2 = inline_ov008_0218747c(var0);
-    Struct_020ac4f8* var3 = 0;
+    PlayTime_020ac4f8* var3 = 0;
     unsigned short var4 = 0;
     unsigned char var5 = 0;
     unsigned char var6 = 0;
-    Struct_020ac4f8* var7 = &var2->unknown_3c_[0];
-    Struct_020ac4f8* var8 = var7 + 1;
+    PlayTime_020ac4f8* var7 = &var2->unknown_3c_[0];
+    PlayTime_020ac4f8* var8 = var7 + 1;
     if (arg1 == 0) {
         var1 = &arg0->unknown_b40_[0];
         var3 = var7;
@@ -67,24 +67,24 @@ extern "C" ARM void func_ov008_0218747c(Struct_ov008_0218747c_2* arg0, int arg1)
         }
     }
     if (!var1 || !var3) return;
-    unsigned char var12 = var1->unknown_2_;
+    unsigned char var12 = var1->minutes_2_;
     func_ov008_02184598(var1);
-    func_020ac614(var1, (unsigned short)(var3->unknown_0_ + var4));
-    func_020ac644(var1, (unsigned char)(var3->unknown_2_ + var5));
-    var1->unknown_3_ += (unsigned char)(var3->unknown_3_ + var6);
-    unsigned char var13 = var1->unknown_3_;
+    func_020ac614(var1, (unsigned short)(var3->hours_0_ + var4));
+    func_020ac644(var1, (unsigned char)(var3->minutes_2_ + var5));
+    var1->seconds_3_ += (unsigned char)(var3->seconds_3_ + var6);
+    unsigned char var13 = var1->seconds_3_;
     if (var13 > 59) {
         unsigned char var14 = var13 / 60;
-        if (var1->unknown_0_ == 9999 && var1->unknown_2_ + var14 > 59) {
-            var1->unknown_0_ = 9999;
-            var1->unknown_2_ = 59;
-            var1->unknown_3_ = 59;
+        if (var1->hours_0_ == 9999 && var1->minutes_2_ + var14 > 59) {
+            var1->hours_0_ = 9999;
+            var1->minutes_2_ = 59;
+            var1->seconds_3_ = 59;
         } else {
             func_020ac644(var1, var14);
-            var1->unknown_3_ %= 60;
+            var1->seconds_3_ %= 60;
         }
     }
-    if (var1->unknown_2_ != var12) {
+    if (var1->minutes_2_ != var12) {
         if (arg1 == 0) arg0->unknown_b18_ |= 0x800;
         else if (arg1 == 1) arg0->unknown_b18_ |= 0x1000;
     }

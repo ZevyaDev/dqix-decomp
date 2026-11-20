@@ -16,28 +16,28 @@ struct Struct_ov031_0224c980_11 {
 	int unknown_50_;
 };
 
-extern Struct_ov031_0224c980_11 data_ov031_0224c980;
+extern Struct_ov031_0224c980_11 gIPStack_ov031_0224c980;
 
 // USA: func_ov031_02203bcc
 extern "C" ARM int func_ov031_02203bcc(void) {
-	data_ov031_0224c980.unknown_18_();
-	int var0 = data_ov031_0224c980.unknown_50_;
+	gIPStack_ov031_0224c980.unknown_18_();
+	int var0 = gIPStack_ov031_0224c980.unknown_50_;
 	if (var0 == 0) {
 		return var0;
 	}
-	func_ov031_02200ccc(data_ov031_0224c980.unknown_50_);
+	func_ov031_02200ccc(gIPStack_ov031_0224c980.unknown_50_);
 	SleepCurrentContext(0x64);
-	func_ov031_02200ccc(data_ov031_0224c980.unknown_50_);
+	func_ov031_02200ccc(gIPStack_ov031_0224c980.unknown_50_);
 	unsigned int var1 = (unsigned int)(GetCurrentTimestamp() >> 16);
 	goto checkExit;
 retry:
-	if (data_ov031_0224c980.unknown_1_ != 0) {
+	if (gIPStack_ov031_0224c980.unknown_1_ != 0) {
 		return func_ov031_02200160(4);
 	}
 	SleepCurrentContext(0x64);
 checkExit:
 	{
-		int var2 = data_ov031_0224c980.unknown_48_();
+		int var2 = gIPStack_ov031_0224c980.unknown_48_();
 		if (var2 == 0) {
 			return var2;
 		}

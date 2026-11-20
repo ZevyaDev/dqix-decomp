@@ -4,8 +4,8 @@
 extern "C" int func_020ddb20(unsigned int* arg0);
 extern "C" void* GetParty_02010828(GameState* gameState);
 
-struct Struct_02061c04_23;
-extern "C" int func_020a0a08(struct Struct_02061c04_23* arg0, int arg1, int arg2);
+struct ItemBag_02061c04_23;
+extern "C" int RemoveItemFromBag_020a0a08(struct ItemBag_02061c04_23* bag, int itemId, int count);
 
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 
@@ -23,7 +23,7 @@ extern "C" ARM int func_020dddcc(void* arg0) {
     GameState* var1 = GameState::GetInstance();
     void* var2 = GetParty_02010828(var1);
     short var3 = *(short*)((char*)arg0 + 0x18);
-    if (!func_020a0a08((struct Struct_02061c04_23*)var2, var3, 1)) {
+    if (!RemoveItemFromBag_020a0a08((struct ItemBag_02061c04_23*)var2, var3, 1)) {
         return 0;
     }
     int var4 = *(int*)((char*)arg0 + 0x8);

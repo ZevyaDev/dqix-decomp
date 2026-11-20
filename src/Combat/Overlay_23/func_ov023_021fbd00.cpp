@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_ov023_021f6ed8(void*);
+extern "C" void InitMenuObjectBase_ov023_021f6ed8(void*);
 extern "C" void* func_ov011_021845f8(void*, int);
 extern "C" void InitItemInfoPanel_ov023_021dc134(void*, int, int);
 extern "C" void AllocateItemInfoPanelBuffers_ov023_021dbfd0(void*, void*);
@@ -25,7 +25,7 @@ struct Struct_ov023_021fbd00 {
 
 // USA: func_ov023_021fbd00
 extern "C" ARM int func_ov023_021fbd00(Struct_ov023_021fbd00* arg0, void* arg1, unsigned short arg2, unsigned short arg3, int arg4, int arg5, unsigned char arg6) {
-    func_ov023_021f6ed8(arg0);
+    InitMenuObjectBase_ov023_021f6ed8(arg0);
     arg0->unknown_4_ = 0x10;
     arg0->unknown_6_ = arg2;
     arg0->unknown_8_ = arg3;

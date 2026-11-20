@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" short func_02080468(void* arg0, int arg1);
+extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
 extern "C" void func_ov014_02188a8c(void* arg0, short arg1);
 
 struct Struct_ov014_021873a0 {
@@ -23,7 +23,7 @@ struct Struct_ov014_021873a0_2 {
 // USA: func_ov014_021873a0
 extern "C" ARM Struct_ov014_021873a0* func_ov014_021873a0(Struct_ov014_021873a0_2* arg0) {
     void* var0 = arg0->unknown_c0_;
-    short var1 = func_02080468(var0, 5);
+    short var1 = GetMenuLayoutWindowFirstSelectableTextId_02080468(var0, 5);
     short var2 = (short)(arg0->unknown_176_ - var1);
     Struct_ov014_021873a0* var3 = arg0->unknown_bc_;
     short var4 = 0;
@@ -42,7 +42,7 @@ extern "C" ARM Struct_ov014_021873a0* func_ov014_021873a0(Struct_ov014_021873a0_
         arg0->unknown_bc_ = arg0->unknown_b8_;
         var4 = 0;
     }
-    var1 = func_02080468(var0, 5);
+    var1 = GetMenuLayoutWindowFirstSelectableTextId_02080468(var0, 5);
     arg0->unknown_176_ = var4 + var1;
     if (var3 != 0) {
         short var6 = var3->unknown_1a_;

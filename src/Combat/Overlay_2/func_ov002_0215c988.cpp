@@ -13,7 +13,7 @@
 struct MenuCursor_0205c508;
 struct MessageWindow_020465c0;
 struct ItemTable_0201099c_10;
-struct Struct_020a0b8c;
+struct ItemBag_020a0b8c;
 struct ItemBag_0207cf30_3;
 struct TextWindowManager_0205d81c;
 
@@ -31,7 +31,7 @@ extern "C" void CopyCapitalizedText_0206819c(const char *text, char *outText, in
 extern "C" int AppendMenuEntry_02041b70(char *buffer, int entryIndex, const char *text);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" void *GetParty_02010828(GameState *gameState);
-extern "C" int func_020a0b8c(struct Struct_020a0b8c *arg0);
+extern "C" int CountUsedBagSlots_020a0b8c(struct ItemBag_020a0b8c *bag);
 extern "C" int GetBagItemCount_020a0b3c(ItemBag_0207cf30_3 *bag, int itemId);
 extern "C" int sprintf(char *arg0, const char *arg1, ...);
 extern "C" void func_ov002_0215b918(unsigned char *arg0, int arg1, int arg2, int arg3);
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov002_0215c988(char *arg0, char *arg1, int arg2) {
         }
     } else if (var9 == 4) {
         unsigned char *var17 = (unsigned char *) GetParty_02010828(var4);
-        int var18              = func_020a0b8c((struct Struct_020a0b8c *) var17);
+        int var18              = CountUsedBagSlots_020a0b8c((struct ItemBag_020a0b8c *) var17);
         if (*(int *) (arg0 + 0x1000 + 0xa80) == 4) {
             var1 = 0;
             var2  = 8;
@@ -190,7 +190,7 @@ extern "C" ARM void func_ov002_0215c988(char *arg0, char *arg1, int arg2) {
         }
     } else if (var36 == 4) {
         unsigned char *var43 = (unsigned char *) GetParty_02010828(var31);
-        int var44              = func_020a0b8c((struct Struct_020a0b8c *) var43);
+        int var44              = CountUsedBagSlots_020a0b8c((struct ItemBag_020a0b8c *) var43);
         if (*(int *) (arg0 + 0x1bb8) == 4) {
             var28 = 0;
             var29  = 8;

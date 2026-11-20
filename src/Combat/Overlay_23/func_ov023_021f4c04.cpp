@@ -196,13 +196,13 @@ extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void StartMessage_0204500c(void* window, const char* text, int arg2, int arg3);
 #endif
 extern "C" void PlayJingle_0209c6d8(void* manager, int jingleIndex);
-extern "C" int func_ov017_021959b4(void);
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 extern "C" void func_ov017_021cbfb8(unsigned short arg0, unsigned char arg1);
 extern "C" void func_0209c7fc(void* arg0);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(void* window);
-extern "C" void func_ov000_02160d80(void* arg0, int arg1);
+extern "C" void SetBattleSceneState_ov000_02160d80(void* battleScene, int state);
 
 // USA: func_ov023_021f4c04
 extern "C" ARM void func_ov023_021f4c04(BattleScene_ov000_02160da0* arg0) {
@@ -298,7 +298,7 @@ extern "C" ARM void func_ov023_021f4c04(BattleScene_ov000_02160da0* arg0) {
         PlayJingle_0209c6d8(&gMusicManager_02109bf4, 0x3a);
         arg0->unknown_eac_ = 2;
     } else if (var10 == 2) {
-        if (func_ov017_021959b4() == 0 && *(unsigned char*)((char*)var3 + REGION_LAYOUT(0x54c8, 0x5728)) == 0) {
+        if (IsLocalWirelessHostDisconnected_ov017_021959b4() == 0 && *(unsigned char*)((char*)var3 + REGION_LAYOUT(0x54c8, 0x5728)) == 0) {
             if (var4->unknown_998_ != 0) return;
         }
         if (IsInParty_02086ef0((Party_02048150*)var8, arg0->unknown_2a0_->unknown_2a_)) {
@@ -308,6 +308,6 @@ extern "C" ARM void func_ov023_021f4c04(BattleScene_ov000_02160da0* arg0) {
         func_0209c7fc(&gMusicManager_02109bf4);
         ResetMessageWindow_02043204((char*)var4);
         CloseMessageWindow_02043124(var4);
-        func_ov000_02160d80(arg0, 4);
+        SetBattleSceneState_ov000_02160d80(arg0, 4);
     }
 }

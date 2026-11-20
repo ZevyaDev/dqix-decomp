@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include <Resource/UiArrayEntry.h>
 
-extern "C" void func_ov031_02227520(int*, int*);
+extern "C" void GetWifiSetupPageArguments_ov031_02227520(int*, int*);
 extern "C" unsigned char func_ov031_02227548(void);
 extern "C" void* func_ov031_0223c560(int, int);
 extern "C" int func_020c7170(char*, unsigned long, const char*, ...);
@@ -22,7 +22,7 @@ extern "C" ARM void func_ov031_0222e484(void) {
     int var0;
     char var1[8];
     unsigned short var2[8];
-    func_ov031_02227520(0, &var0);
+    GetWifiSetupPageArguments_ov031_02227520(0, &var0);
     int var3 = data_ov031_02290c9c;
     int var4;
     if (var3 >= -20099) var4 = 0;

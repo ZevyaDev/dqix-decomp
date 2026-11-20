@@ -3,7 +3,7 @@
 #include "std_library_functions.h"
 
 #if defined(jpn)
-extern char data_020ef078;
+extern char gStringFormat_020ef078;
 #endif
 
 extern "C" void func_02052958(char* arg0, char* arg1, int arg2);
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov017_021c4618(int arg0, char* arg1, GameState* arg2, G
     GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var1);
     if (var2 == NULL) return;
 #if defined(jpn)
-    sprintf(((Struct_ov017_021c4618_2*)var2)->unknown_134_, &data_020ef078, var0->unknown_5_);
+    sprintf(((Struct_ov017_021c4618_2*)var2)->unknown_134_, &gStringFormat_020ef078, var0->unknown_5_);
     strcpy(arg3->unknown_435c_[var1], var0->unknown_5_);
 #else
     func_02052958((char*)var2, var0->unknown_5_, 1);

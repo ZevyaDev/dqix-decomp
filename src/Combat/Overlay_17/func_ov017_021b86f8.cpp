@@ -37,7 +37,7 @@ extern "C" GameObject* GetGameObjectByIndex_0200ff94(GameState* gameState, int i
 extern "C" Struct_020708c8* GetColorFade_020704fc(void);
 extern "C" GlobalFlags_02012de8* func_020d6c00(void);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_020d7a50(void);
+extern "C" void* GetTimedMessageQueue_020d7a50(void);
 extern "C" void* GetBattleUI_ov000_02160f08(void* battleScene);
 extern "C" void func_ov000_02172850(void* arg0);
 extern "C" float func_020709ac(unsigned char* arg0);
@@ -67,9 +67,9 @@ extern "C" ARM void func_ov017_021b86f8(Struct_ov017_021b86f8* arg0, int arg1, i
     if (var1 != NULL) {
         if (arg2) {
 #if defined(jpn)
-            func_020d7e10(func_020d7a50(), data_ov017_021d83e7, 0, 0, 1);
+            func_020d7e10(GetTimedMessageQueue_020d7a50(), data_ov017_021d83e7, 0, 0, 1);
 #else
-            func_020d7e10(func_020d7a50(), (void*)((int)GetGameString((eGameString)(0x23))), 0, 0, 1
+            func_020d7e10(GetTimedMessageQueue_020d7a50(), (void*)((int)GetGameString((eGameString)(0x23))), 0, 0, 1
 #if !defined(jpn)
                 , 1
 #endif

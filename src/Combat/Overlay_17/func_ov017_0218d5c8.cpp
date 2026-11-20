@@ -3,7 +3,7 @@
 
 extern "C" void func_020dbebc(void* arg0);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" int func_020981e4(int arg0, int arg1);
+extern "C" int IsQuestersRestZone_020981e4(int questersRest, int zoneId);
 struct TextureVRAMArea_0203d028;
 
 #if defined(jpn)
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov017_0218d5c8(unsigned char* arg0) {
 	}
 	unsigned char* var1 = (unsigned char*)GetZone3D_02012fe4();
 	unsigned short var2 = *(unsigned short*)var1;
-	int var3 = func_020981e4((int)(var1 + kIdOffset), var2);
+	int var3 = IsQuestersRestZone_020981e4((int)(var1 + kIdOffset), var2);
 	unsigned char* var4 = arg0 + kInternalOffset;
 	if (var3 != 0) {
 		var4 = var4 + 0x930;

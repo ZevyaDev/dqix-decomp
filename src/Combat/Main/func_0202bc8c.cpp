@@ -10,5 +10,5 @@ extern "C" ARM unsigned short func_0202bc8c(struct LocalWireless_0202b2f0* arg0)
     if (IsNotLocalWirelessGuest_0202c508(arg0)) {
         return func_0202d698();
     }
-    return func_0202c178(arg0, 0)->unknown_4_;
+    return GetLocalWirelessPlayerRecord_0202c178(arg0, 0)->unknown_4_;
 }

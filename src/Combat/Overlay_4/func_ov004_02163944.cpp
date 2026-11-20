@@ -33,7 +33,7 @@ void func_ov004_02163a20(void*);
 extern "C" Struct_ov004_02162dd8* func_ov011_021845f8(void*, int);
 extern "C" int func_020a3844(SafeAllocator*);
 extern "C" void func_ov004_0216342c(void*);
-extern "C" bool func_020ac760(void*);
+extern "C" bool GetTreasureMaps_020ac760(void*);
 extern "C" void VectorizedInvertedMemcpy(const void*, void*, unsigned int);
 extern "C" void func_ov004_02163530(void*);
 extern "C" void func_ov004_02163c40(void*);
@@ -66,7 +66,7 @@ extern "C" ARM int func_ov004_02163944(void* arg0) {
     memset(gTreasureMapScreen_ov004_02171010.unknown_4_, 0, 0x333);
 #endif
     Struct_ov004_02163944 var2;
-    if (func_020ac760(&var2)) {
+    if (GetTreasureMaps_020ac760(&var2)) {
         gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_18f4_ = var2.unknown_0_;
         for (int var3 = 0; var3 < 99; var3++) VectorizedInvertedMemcpy(&var2.unknown_2_[var3], &gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_0_[var3], 0x1c);
     }

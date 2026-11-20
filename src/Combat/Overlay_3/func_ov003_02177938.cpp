@@ -49,23 +49,23 @@ extern "C" int func_ov003_02179e44(void *arg0);
 struct MenuLayout_0207fdcc_2;
 extern "C" void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2 *menuLayout, int windowId);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void *menuLayout, int windowId, int palette);
-extern "C" void func_02080b54(void *arg0, int arg1);
+extern "C" void HideMenuLayoutWindowTexts_02080b54(void *menuLayout, int windowId);
 extern "C" void func_02080608(void *arg0, int arg1);
 extern "C" unsigned char func_0207ca94(int arg0);
-extern "C" int func_0207c638(void *arg0, unsigned int arg1);
+extern "C" int CountUsedEquipmentBagSlots_0207c638(void *bag, unsigned int category);
 extern "C" int func_0207c6b8(unsigned char *arg0, unsigned int arg1, int arg2);
 extern "C" int ShowMenuLayoutText_02080b40(void *menuLayout, int textId);
 extern "C" int func_02081010(void *arg0, int arg1);
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c *menuLayout, int textId, int text);
-struct Struct_02080cc0;
-extern "C" void func_02080cc0(struct Struct_02080cc0 *arg0, int arg1, int arg2);
+struct MenuLayout_02080cc0;
+extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0 *menuLayout, int textId, int color);
 extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 struct PartyMemberData_0207d300;
 extern "C" int CountHeldItems_02083960(struct PartyMemberData_0207d300 *memberData);
 extern "C" int func_020dcc98(int arg0);
-struct Struct_020a0b8c;
-extern "C" int func_020a0b8c(struct Struct_020a0b8c *arg0);
+struct ItemBag_020a0b8c;
+extern "C" int CountUsedBagSlots_020a0b8c(struct ItemBag_020a0b8c *bag);
 struct MenuLayout_02080fa8;
 extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8 *menuLayout, int textId, int value);
 struct ItemTable_0201099c_10;
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov003_02177938(Struct_ov003_02177938 *arg0) {
 
     ShowMenuLayoutWindow_02080c20(var2, 0x15);
     SetMenuLayoutWindowPalette_02080c68(var2, 0x15, 0);
-    func_02080b54(var2, 0x15);
+    HideMenuLayoutWindowTexts_02080b54(var2, 0x15);
     func_02080608(var2, 0x15);
     var8 = 0;
     memset(var9, 0xff, sizeof(var9));
@@ -122,7 +122,7 @@ extern "C" ARM void func_ov003_02177938(Struct_ov003_02177938 *arg0) {
         short var10   = arg0->unknown_1012_ - 0x11e;
         unsigned int var11 = func_0207ca94(var10);
         var7 += var10 + 1;
-        int var12       = func_0207c638(var1 + 0x1d4, var11);
+        int var12       = CountUsedEquipmentBagSlots_0207c638(var1 + 0x1d4, var11);
         arg0->unknown_1016_ = (var12 + 7) / 8;
         if (arg0->unknown_1016_ == 0) {
             arg0->unknown_1016_ = 1;
@@ -136,7 +136,7 @@ extern "C" ARM void func_ov003_02177938(Struct_ov003_02177938 *arg0) {
         ShowMenuLayoutText_02080b40(var2, 0x8a);
         SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c *) var2, 0x8a,
                                    func_02081010(var2, arg0->unknown_1012_));
-        func_02080cc0((struct Struct_02080cc0 *) var2, 0x8a, 0xf);
+        SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0 *) var2, 0x8a, 0xf);
         var8 = 1;
         var3    = var12 != 0;
     } else {
@@ -154,13 +154,13 @@ extern "C" ARM void func_ov003_02177938(Struct_ov003_02177938 *arg0) {
                 }
                 ShowMenuLayoutText_02080b40(var2, 0x8a);
                 SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c *) var2, 0x8a, *(int *) ((char *) var15 + 0x134));
-                func_02080cc0((struct Struct_02080cc0 *) var2, 0x8a, func_020dcc98(arg0->unknown_1043_));
+                SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0 *) var2, 0x8a, func_020dcc98(arg0->unknown_1043_));
                 var3 = var17 != 0;
             } else {
-                func_02080b54(var2, 0x15);
+                HideMenuLayoutWindowTexts_02080b54(var2, 0x15);
             }
         } else {
-            int var19 = func_020a0b8c((struct Struct_020a0b8c *) var1);
+            int var19 = CountUsedBagSlots_020a0b8c((struct ItemBag_020a0b8c *) var1);
             if (var19 > 8) {
                 var19 = 8;
             }
@@ -170,7 +170,7 @@ extern "C" ARM void func_ov003_02177938(Struct_ov003_02177938 *arg0) {
             ShowMenuLayoutText_02080b40(var2, 0x8a);
             SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c *) var2, 0x8a,
                                        func_02081010(var2, 0x7a));
-            func_02080cc0((struct Struct_02080cc0 *) var2, 0x8a, 0xf);
+            SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0 *) var2, 0x8a, 0xf);
             var8 = 1;
             var3    = var19 != 0;
         }

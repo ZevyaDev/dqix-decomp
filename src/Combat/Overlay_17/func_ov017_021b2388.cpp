@@ -29,7 +29,7 @@ extern "C" void func_020c9be0(void);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 struct Struct_0214e34c;
-extern "C" struct Struct_0214e34c* func_020d7a50();
+extern "C" struct Struct_0214e34c* GetTimedMessageQueue_020d7a50();
 struct TimedMessageQueue_020d7aa0_2;
 extern "C" void ClearTimedMessageQueue_020d7aa0(struct TimedMessageQueue_020d7aa0_2* queue);
 
@@ -98,6 +98,6 @@ extern "C" ARM int func_ov017_021b2388(struct Struct_ov017_021b2388_2* arg0) {
         SetBrightness((GameResources*)var1, -16, 30);
     }
 
-    ClearTimedMessageQueue_020d7aa0((struct TimedMessageQueue_020d7aa0_2*)func_020d7a50());
+    ClearTimedMessageQueue_020d7aa0((struct TimedMessageQueue_020d7aa0_2*)GetTimedMessageQueue_020d7a50());
     return 1;
 }

@@ -33,7 +33,7 @@ struct Struct_ov003_0217f340 { Struct_020e6d5c_13 unknown_0_[8]; };
 extern short data_ov003_0217f2a8[3];
 extern Struct_ov003_0217f340 data_ov003_0217f340;
 extern Struct_020e6d5c_13 gNullMemberFunctionPointer_020e6d5c;
-extern "C" int func_ov017_021959b4();
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4();
 extern "C" char* GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char*);
 struct Struct_020e28dc;
@@ -42,8 +42,8 @@ struct YesNoWindow_020e25e8;
 extern "C" void CloseYesNoWindow_020e25e8(YesNoWindow_020e25e8*);
 extern "C" void func_ov003_021537d4(void*,unsigned int);
 extern "C" void func_ov003_021552b8(Struct_ov003_02154af4_3*);
-struct Struct_0207fc6c;
-extern "C" void func_0207fc6c(Struct_0207fc6c*, int);
+struct MenuLayout_0207fc6c;
+extern "C" void UpdateMenuLayoutWindows_0207fc6c(MenuLayout_0207fc6c*, int);
 extern "C" unsigned int GetLevel_0202053c(void*);
 struct MenuLayout_0207fdcc_2;
 extern "C" int func_020811d0(MenuLayout_0207fdcc_2*, int);
@@ -57,7 +57,7 @@ extern "C" void UpdateYesNoWindow_020e263c(YesNoWindow_020e263c_2*, int);
 // USA: func_ov003_02154af4
 extern "C" ARM int func_ov003_02154af4(Struct_ov003_02154af4_3* arg0,unsigned int arg1) {
  arg0->unknown_1dc_=arg1;
- if (!arg0->unknown_33a_ && func_ov017_021959b4()) { arg0->unknown_33a_=1; arg0->unknown_339_=1; }
+ if (!arg0->unknown_33a_ && IsLocalWirelessHostDisconnected_ov017_021959b4()) { arg0->unknown_33a_=1; arg0->unknown_339_=1; }
  if (arg0->unknown_339_ && !arg0->unknown_338_) {
   if(arg0->unknown_8_) *arg0->unknown_8_=-1;
   arg0->unknown_8_=0;
@@ -71,7 +71,7 @@ extern "C" ARM int func_ov003_02154af4(Struct_ov003_02154af4_3* arg0,unsigned in
  if(arg0->unknown_1f8_) GetMessageWindow_020421a0()[Enum_ov003_02154af4_6574]=0;
  Struct_ov003_02154af4_2* var0=arg0->unknown_18_;
  if(var0) {
-  if(!arg0->unknown_204_) func_0207fc6c((Struct_0207fc6c*)var0, arg1);
+  if(!arg0->unknown_204_) UpdateMenuLayoutWindows_0207fc6c((MenuLayout_0207fc6c*)var0, arg1);
   int var1; Struct_ov003_02154af4* var2; Struct_ov000_0217c638* var3; bool var4; int var5; Struct_ov000_02182a74* var6; GameState* var7;
   var4=false;
   var7=GameState::GetInstance();

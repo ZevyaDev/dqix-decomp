@@ -116,7 +116,7 @@ extern "C" void func_02048c90(Struct_02048c90*);
 extern "C" int GetCombatantCell_020493a4(unsigned char*);
 extern "C" int func_020493c8(unsigned char*);
 extern "C" int func_02049444(unsigned char*);
-extern "C" int func_02049ee8(unsigned char*);
+extern "C" int IsCombatantOnBattlefield_02049ee8(unsigned char*);
 extern "C" void func_ov025_021e2114(unsigned char*, void*, int);
 extern "C" void func_02049410(Struct_02049410*, void*, int);
 extern "C" void func_02049a74(Struct_02048f64*);
@@ -374,7 +374,7 @@ found:
         if (var71 != 0 && (*(unsigned int*)(var71 + Enum_ov025_021e0638_396) & 1)) {
             var70 = 1;
         }
-        if (func_02049ee8(var5[var69].unknown_8_) != 0 && var70 == 0 && arg0[Enum_ov025_021e0638_3704] != 0) {
+        if (IsCombatantOnBattlefield_02049ee8(var5[var69].unknown_8_) != 0 && var70 == 0 && arg0[Enum_ov025_021e0638_3704] != 0) {
             func_02049a74((Struct_02048f64*)var5[var69].unknown_8_);
         } else {
             StopCombatantSidestep_02049ae4(var5[var69].unknown_8_);
@@ -464,7 +464,7 @@ found:
     }
     for (int var93 = 0; var93 < var0; var93++) {
         unsigned char* var94 = var5[var93].unknown_8_;
-        if (func_02049ee8(var94) != 0 && func_02049444(var94) == 0 && func_02049ec0(var94) != 0
+        if (IsCombatantOnBattlefield_02049ee8(var94) != 0 && func_02049444(var94) == 0 && func_02049ec0(var94) != 0
             && (*(unsigned int*)(*(unsigned char**)(var94 + 0x138) + 0x14) & 1) == 0 && arg0[Enum_ov025_021e0638_3704] != 0
             && func_02048c10(var94) == 0) {
             func_020494c0((Struct_02048f64_2*)var94);

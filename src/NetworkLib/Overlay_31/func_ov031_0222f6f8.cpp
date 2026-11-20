@@ -20,7 +20,7 @@ struct Struct_ov031_0222f6f8 {
     unsigned char unknown_40_;
 };
 
-extern struct Struct_ov031_02290ca0_8 data_ov031_02290ca0;
+extern struct Struct_ov031_02290ca0_8 gConnectionSettingsPage_ov031_02290ca0;
 extern int data_ov031_0224bb64;
 extern void* data_ov031_02290ca8;
 
@@ -57,31 +57,31 @@ extern "C" ARM void func_ov031_0222f6f8(void) {
     if (IsBrightnessFadeActive_ov031_0223c054(1) != 0) return;
     if (IsBrightnessFadeActive_ov031_0223c054(0) != 0) return;
 
-    func_ov031_0223e2e0(0, data_ov031_02290ca0.unknown_8_->unknown_0_);
-    func_ov031_0223e2e0(1, data_ov031_02290ca0.unknown_8_->unknown_3c_);
+    func_ov031_0223e2e0(0, gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_0_);
+    func_ov031_0223e2e0(1, gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_3c_);
 
     int var0 = 0;
     do {
-        void* var1 = data_ov031_02290ca0.unknown_8_->unknown_18_[var0];
+        void* var1 = gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_18_[var0];
         func_ov031_0223da58(var1);
         var0++;
     } while (var0 < 7);
-    if (data_ov031_02290ca0.unknown_8_->unknown_34_ != 0) {
-        func_ov031_0223da58(data_ov031_02290ca0.unknown_8_->unknown_34_);
+    if (gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_34_ != 0) {
+        func_ov031_0223da58(gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_34_);
     }
 
     func_ov031_02235194();
     CloseScreenTextLayer_ov031_0223c7c4(0);
     func_ov031_022238cc();
 
-    if (data_ov031_02290ca0.unknown_8_->unknown_40_ != 0xc) CloseSubScreenMessage_ov031_02223440();
+    if (gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_40_ != 0xc) CloseSubScreenMessage_ov031_02223440();
 
     func_ov031_02234f08();
-    func_ov031_0223b710(data_ov031_02290ca0.unknown_8_->unknown_8_);
+    func_ov031_0223b710(gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_8_);
 
     int var2 = 0;
     do {
-        void* var3 = data_ov031_02290ca0.unknown_8_->unknown_c_[var2];
+        void* var3 = gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_c_[var2];
         func_ov031_0223b710(var3);
         var2++;
     } while (var2 < 2);
@@ -96,15 +96,15 @@ extern "C" ARM void func_ov031_0222f6f8(void) {
     *(volatile unsigned short*)0x400000c = (*(volatile unsigned short*)0x400000c & 0x43) | 0xe10;
 
     int var4 = 0;
-    switch (data_ov031_02290ca0.unknown_8_->unknown_40_) {
+    switch (gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_40_) {
     case 0:
     case 1:
-        func_ov031_0222750c(data_ov031_02290ca0.unknown_8_->unknown_40_, var4);
+        func_ov031_0222750c(gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_40_, var4);
         SetStepIndicatorAndButtonBarModes_ov031_022274d0(2, 0);
         SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222cbe0);
         break;
     case 4: case 5: case 6: case 9: case 10: {
-        unsigned int var5 = data_ov031_02290ca0.unknown_8_->unknown_40_;
+        unsigned int var5 = gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_40_;
         int var6 = var5 - 4;
         if (var5 >= 9) var6 -= 2;
         SetStepIndicatorAndButtonBarModes_ov031_022274d0(2, 0);
@@ -135,7 +135,7 @@ extern "C" ARM void func_ov031_0222f6f8(void) {
         SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02230f00);
         break;
     case 13:
-        if (data_ov031_02290ca0.unknown_1_ == 0) {
+        if (gConnectionSettingsPage_ov031_02290ca0.unknown_1_ == 0) {
             var4 = 1;
             SetStepIndicatorAndButtonBarModes_ov031_022274d0(2, var4);
             SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02232508);

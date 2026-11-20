@@ -43,7 +43,7 @@ struct Struct_ov003_0216b968_2 {
 };
 
 extern "C" Struct_ov003_0216b968* GetMessageWindow_020421a0(void);
-extern "C" void func_0205d7a0(void* arg0, int arg1);
+extern "C" void SetCursorIndex_0205d7a0(void* windowManager, int index);
 extern "C" void func_ov003_0216da90(Struct_ov003_0216b968_2* arg0);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 extern "C" void func_ov003_0216dc58(Struct_ov003_0216b968_2* arg0);
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov003_0216b968(Struct_ov003_0216b968_2* arg0) {
         if (arg0->unknown_13ec_ & 1) {
             return;
         }
-        func_0205d7a0(arg0->unknown_12c0_, 0);
+        SetCursorIndex_0205d7a0(arg0->unknown_12c0_, 0);
         func_ov003_0216da90(arg0);
         ColorEffect_ConfigureAlphaBlend(0x04000050, 4, 1, 10, 6);
         arg0->unknown_6_ = 2;

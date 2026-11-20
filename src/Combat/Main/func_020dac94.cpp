@@ -17,7 +17,7 @@ enum { Enum_020dac94_228 = 0xe4 };
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" int func_ov003_0217ce3c(void*);
-extern "C" int func_ov017_021959b4(void);
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 extern "C" int func_ov003_0217daf0(void*);
 extern "C" void func_ov003_0217cd24(void*, void*);
 extern "C" void func_020dae08(void*);
@@ -88,7 +88,7 @@ extern "C" ARM void func_020dac94(void* arg0, void*) {
         if (func_ov003_0217ce3c(var8) == 0) {
             var0->unknown_10_ = 2;
         }
-        if (func_ov017_021959b4() != 0) {
+        if (IsLocalWirelessHostDisconnected_ov017_021959b4() != 0) {
             func_020daeb0(arg0);
             var0->unknown_10_ = 3;
         }

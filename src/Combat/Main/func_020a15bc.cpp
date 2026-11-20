@@ -1,29 +1,29 @@
 #include <globaldefs.h>
 
-struct Struct_020a15bc_2 {
-    unsigned int unknown_0_0_ : 9;
+struct AccoladeEntry_020a15bc_2 {
+    unsigned int id_0_0_ : 9;
     unsigned int unknown_1_1_ : 23;
     unsigned int unknown_4_;
     unsigned int unknown_8_;
 };
 
-struct Struct_020a15bc {
-    struct Struct_020a15bc_2* unknown_0_;
+struct AccoladeTable_020a15bc {
+    struct AccoladeEntry_020a15bc_2* pEntries_0_;
     unsigned short unknown_4_;
-    unsigned short unknown_6_;
+    unsigned short count_6_;
 };
 
-// USA: func_020a15bc
-extern "C" ARM struct Struct_020a15bc_2* func_020a15bc(struct Struct_020a15bc* arg0, int arg1) {
-    unsigned short var0;
-    int var1;
-    if (arg1 <= 0) {
+// USA: FindAccolade_020a15bc
+extern "C" ARM struct AccoladeEntry_020a15bc_2* FindAccolade_020a15bc(struct AccoladeTable_020a15bc* table, int accoladeId) {
+    unsigned short searchId;
+    int i;
+    if (accoladeId <= 0) {
         return NULL;
     }
-    var0 = (unsigned short)arg1;
-    for (var1 = 0; var1 < arg0->unknown_6_; var1++) {
-        if (var0 == arg0->unknown_0_[var1].unknown_0_0_) {
-            return &arg0->unknown_0_[var1];
+    searchId = (unsigned short)accoladeId;
+    for (i = 0; i < table->count_6_; i++) {
+        if (searchId == table->pEntries_0_[i].id_0_0_) {
+            return &table->pEntries_0_[i];
         }
     }
     return NULL;

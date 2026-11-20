@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
-extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
+extern "C" GameObject* GetEnemyByID_ov000_021536f8(int battle, int index);
 extern "C" int func_02088dd8(unsigned char* arg0);
 extern "C" void func_02088e48(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_020488ac(unsigned char* arg0, int arg1);
@@ -31,7 +31,7 @@ static inline int inline_ov024_021eb08c(int arg0) {
 // USA: func_ov024_021eb08c
 extern "C" ARM int func_ov024_021eb08c(struct Struct_ov024_021eb08c* arg0, int arg1, int arg2, unsigned int arg3) {
 	struct Random* var0;
-	GameObject* var1 = func_ov000_021536f8((int)arg0->unknown_10_, arg2);
+	GameObject* var1 = GetEnemyByID_ov000_021536f8((int)arg0->unknown_10_, arg2);
 	if (!var1) return 0;
 	struct Struct_ov024_021eb08c_2* var2 = *(struct Struct_ov024_021eb08c_2**)((char*)var1 + 0x148);
 	if (!var2) return 0;

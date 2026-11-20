@@ -124,7 +124,7 @@ extern "C" void func_ov000_021634c8(char* arg0, int arg1);
 extern "C" short GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 extern "C" int func_ov025_021d8c30(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 extern "C" void StopCombatantSidestep_02049ae4(unsigned char* combatant);
-extern "C" int func_02049ee8(unsigned char* arg0);
+extern "C" int IsCombatantOnBattlefield_02049ee8(unsigned char* combatant);
 extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void CloseMessageWindow_02043124(void* window);
@@ -321,7 +321,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Struct_ov025_021e9778_4* arg0) {
                         if (var44 != 0) {
                             ((Object3D*)((unsigned char*)var44))->MakeVisible();
                             StopCombatantSidestep_02049ae4((unsigned char*)var44);
-                            if (func_02049ee8((unsigned char*)var44) != 0) {
+                            if (IsCombatantOnBattlefield_02049ee8((unsigned char*)var44) != 0) {
                                 SetMotion_02033b88((struct Struct_02010604*)var44, 0);
                             }
                         }

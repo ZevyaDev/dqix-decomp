@@ -300,8 +300,8 @@ extern "C" void func_020464e8(char*, int, char*);
 extern "C" void SetNoun_020e4b34(void* noun, void* singularText, void* pluralText, int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int isProperName, int hasInitialVowelSound, int isInitialVowelFromText);
 extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" unsigned char func_02011804(GameState* arg0);
-extern "C" void func_020ac760(void* arg0);
-extern "C" void func_020ac734(void* arg0);
+extern "C" void GetTreasureMaps_020ac760(void* treasureMaps);
+extern "C" void SetTreasureMaps_020ac734(void* treasureMaps);
 struct Struct_02011818;
 extern "C" void func_02011818(void*, Struct_02011818*);
 extern "C" void func_02011ab8(char*);
@@ -667,7 +667,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
             var11->unknown_19b2_ = 1;
             arg0->unknown_e9a_ = 5;
         } else {
-            func_020ac760(&var4);
+            GetTreasureMaps_020ac760(&var4);
             VectorizedMemset(&var4.unknown_2_[var4.unknown_0_], 0, 0x1c);
             Struct_ov008_02189c70_18* var56 = &arg0->unknown_ebc_->unknown_50_;
             Struct_ov008_02189c70_18* var57 = &var4.unknown_2_[var4.unknown_0_];
@@ -680,7 +680,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
             var57->unknown_18_ = var56->unknown_18_;
             var57->unknown_1a_ = var56->unknown_1a_;
             var4.unknown_0_++;
-            func_020ac734(&var4);
+            SetTreasureMaps_020ac734(&var4);
             arg0->unknown_ebc_->unknown_b_7_ = 0;
             arg0->unknown_e9a_ = 2;
         }

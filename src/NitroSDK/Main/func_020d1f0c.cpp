@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_020d217c(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" int QueueSoundCommand_020d217c(int commandId, int param0, int param1, int param2, int param3);
 extern "C" void func_020d2960(int arg0);
 
 // USA: func_020d1f0c
@@ -12,5 +12,5 @@ extern "C" ARM int func_020d1f0c(int arg0, int arg1, int arg2, int arg3) {
             func_020d2960(var0);
         }
     }
-    return func_020d217c(0xd, arg0, arg1, arg2, arg3);
+    return QueueSoundCommand_020d217c(0xd, arg0, arg1, arg2, arg3);
 }

@@ -46,7 +46,7 @@ extern "C" void func_ov023_021edf38(void*, Struct_ov023_021edc08_5*);
 extern "C" void func_020dcf7c(int, void*);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
-extern "C" void func_020e4c74(void*, GameObject*);
+extern "C" void InitMemberNoun_020e4c74(void*, GameObject*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void StartMessage_0204500c(Struct_02081870*, const char*, int, int);
 extern "C" void func_ov023_021ed7e0(Struct_ov023_021ed7e0*);
@@ -105,7 +105,7 @@ extern "C" ARM int func_ov023_021f2a48(Struct_ov023_021f2a48_6* arg0) {
         } else {
             char var20[0x164] = {0};
             sprintf(var19, FindStringInList_02072a68(&arg0->unknown_5904_, 0x11));
-            func_020e4c74(&var15, var9);
+            InitMemberNoun_020e4c74(&var15, var9);
             var2->unknown_10_ = &var15;
             if (!var6) sprintf(var20, FindStringInList_02072a68(&arg0->unknown_5904_, 0x12));
             else sprintf(var20, FindStringInList_02072a68(&arg0->unknown_5904_, 0x13));

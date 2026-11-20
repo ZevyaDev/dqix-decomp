@@ -125,7 +125,7 @@ extern "C" ARM void func_0205e57c(struct Struct_0205e57c_5* arg0) {
     for (int var8 = 0; var8 < 4; var8++) {
         if (!IsLocalWirelessPlayerJoined_0202c1c0(var0, var8)) continue;
         if (var8 == GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var0)) continue;
-        struct Struct_0205e57c_2* var9 = (struct Struct_0205e57c_2*)func_0202c178(var0, var8);
+        struct Struct_0205e57c_2* var9 = (struct Struct_0205e57c_2*)GetLocalWirelessPlayerRecord_0202c178(var0, var8);
         if (var9 == NULL) continue;
         if (var9->unknown_0_.unknown_0_.unknown_0_0_ == 0) continue;
         for (int var10 = 0; var10 < 5; var10++) {

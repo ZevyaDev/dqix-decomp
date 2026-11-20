@@ -4,7 +4,7 @@
 #include "std_library_functions.h"
 
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
-extern "C" int func_ov024_021eda60(GameObject* arg0);
+extern "C" int IsReflecting_ov024_021eda60(GameObject* combatant);
 extern "C" float func_ov024_021db358(GameObject* arg0);
 
 struct Struct_ov024_021ee7a4 { int unknown_0_; };
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov024_021ee7a4(struct Struct_ov024_021ee7a4* arg0, int a
 	for (int var2 = 0; var2 < var1; var2++) {
 		GameObject* var3 = GetCombatantByID(arg0->unknown_0_, var0.unknown_0_[var2]);
 		if (!var3) continue;
-		if (func_ov024_021eda60(var3)) continue;
+		if (IsReflecting_ov024_021eda60(var3)) continue;
 		if (func_ov024_021db358(var3) >= 0.5f) continue;
 		arg4[*arg3] = var0.unknown_0_[var2];
 		*arg3 = *arg3 + 1;

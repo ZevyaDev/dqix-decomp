@@ -19,7 +19,7 @@
 #endif
 
 extern "C" void* func_0202ae18(void);
-extern "C" int func_ov017_021959b4(void);
+extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 extern "C" void func_ov011_021848a8(void* arg0);
@@ -41,7 +41,7 @@ extern "C" ARM int func_ov011_02184694(Struct_ov011_02184694* arg0) {
     int var0 = (int)GetGameResources();
     func_0202ae18();
     if (arg0->unknown_1cd_ == 0) {
-        int var1 = func_ov017_021959b4();
+        int var1 = IsLocalWirelessHostDisconnected_ov017_021959b4();
         if (var1) {
             arg0->unknown_1cd_ = 1;
             if (var0) {

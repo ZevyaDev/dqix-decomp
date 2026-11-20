@@ -47,7 +47,7 @@ struct PacEntry_02020aec;
 extern "C" int* GetBGVRAMManager_0203b628();
 extern "C" void func_0203b678(int* arg0, int arg1, int arg2);
 extern "C" void func_0203b66c(char*);
-extern "C" void func_0203b634(char*);
+extern "C" void ResetBGVRAMManager_0203b634(char*);
 extern "C" void func_ov000_02172944(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov000_02172978(int arg0, int arg1, int arg2, int arg3, int arg4);
 struct BGLayer_0204b12c;
@@ -381,7 +381,7 @@ extern "C" ARM int func_ov000_021729ac(Struct_ov000_021729ac_8* arg0) {
         func_0203b678(var31, 1, 0);
         func_0203b678(var31, 1, 1);
         func_0203b66c((char*)var31);
-        func_0203b634((char*)var31);
+        ResetBGVRAMManager_0203b634((char*)var31);
         func_ov000_02172944(0, arg0->unknown_180_.unknown_0_7_, 5, arg0->unknown_180_.unknown_0_2_, arg0->unknown_182_.unknown_1_5_);
         func_ov000_02172978(0, arg0->unknown_182_.unknown_0_7_, 6, arg0->unknown_182_.unknown_0_2_, arg0->unknown_182_.unknown_1_5_);
         *(volatile unsigned short*)0x400100c = (*(volatile unsigned short*)0x400100c & 0x43) | 0x704;

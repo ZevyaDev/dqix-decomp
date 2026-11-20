@@ -6,7 +6,7 @@
 
 struct Struct_ov003_0217d6ac;
 extern "C" struct Struct_ov003_0217d6ac *GetZone3D_02012fe4(void);
-extern "C" void func_0205d7a0(void *arg0, int arg1);
+extern "C" void SetCursorIndex_0205d7a0(void *windowManager, int index);
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int *out, unsigned char a, unsigned char b, unsigned char c, int d);
 extern "C" char *GetMessageWindow_020421a0(void);
 struct SpriteAnimationList_0205a330;
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov003_0217d6ac(Struct_ov003_0217d6ac_2 *arg0) {
     var7 = GetZone3D_02012fe4();
 #endif
     if (arg0->unknown_5_ == 0) {
-        func_0205d7a0(arg0->unknown_90_, 0);
+        SetCursorIndex_0205d7a0(arg0->unknown_90_, 0);
         func_ov003_0217dd60(arg0);
         ColorEffect_ConfigureAlphaBlend((unsigned int *) 0x04000050, 4, 1, 10, 6);
         arg0->unknown_5_ = 1;

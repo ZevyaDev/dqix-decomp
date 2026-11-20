@@ -5,8 +5,8 @@
 
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 
-struct Struct_021f6bb8 { int unknown_0_; int unknown_4_; };
-extern "C" int func_ov023_021f6bb8(struct Struct_021f6bb8* arg0);
+struct MenuObjectList_021f6bb8 { int unknown_0_; int loadTaskId_4_; };
+extern "C" int GetMenuLoadTaskId_ov023_021f6bb8(struct MenuObjectList_021f6bb8* objectList);
 extern "C" void func_ov023_021f6bb0(void* arg0, int arg1);
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
@@ -59,7 +59,7 @@ extern "C" ARM int func_ov023_021fa370(struct Struct_ov023_021fa370_2* arg0, voi
     char var5[0x40];
 
     var0 = GetMenuObjectList_ov011_021849c8(arg1);
-    var1 = func_ov023_021f6bb8((struct Struct_021f6bb8*)var0);
+    var1 = GetMenuLoadTaskId_ov023_021f6bb8((struct MenuObjectList_021f6bb8*)var0);
     if (var1 >= 0) goto earlyOut;
 
     var2 = (int)BackgroundLoader::GetInstance();
