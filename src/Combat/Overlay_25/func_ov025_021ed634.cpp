@@ -100,7 +100,7 @@ extern "C" void func_ov025_021ed1f0(void* arg0);
 extern "C" Struct_ov000_0215440c_4* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 extern "C" Struct_ov000_0215440c_5* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 extern "C" void func_ov025_021ed2a0(char* arg0);
-extern "C" void* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
+extern "C" void* GetTargetResult_ov000_0215fff4(void* target, int index, int listIndex);
 extern "C" short GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" int func_ov000_02159f7c(void* arg0, Struct_ov000_02159f7c* arg1);
@@ -247,7 +247,7 @@ extern "C" ARM void func_ov025_021ed634(Struct_ov025_021e9fc4* arg0) {
                 Struct_ov000_0215440c_5* var40 = GetActionTarget_ov000_021600f8(arg0->unknown_164_, var39);
                 if (var40 != 0 && var40->unknown_e_ == var20) {
                     for (int var41 = 0; var41 < var40->unknown_18_; var41++) {
-                        Struct_ov025_021ed634* var42 = (Struct_ov025_021ed634*)func_ov000_0215fff4(var40, var41, 0);
+                        Struct_ov025_021ed634* var42 = (Struct_ov025_021ed634*)GetTargetResult_ov000_0215fff4(var40, var41, 0);
                         if (var42 != 0 && var42->unknown_c_ >= 0) {
                             var28 = var42->unknown_c_;
                             var27++;
@@ -277,7 +277,7 @@ extern "C" ARM void func_ov025_021ed634(Struct_ov025_021e9fc4* arg0) {
                     if (var32 != 0) continue;
                 }
                 for (int var46 = 0; var46 < var45->unknown_18_; var46++) {
-                    Struct_ov025_021ed634* var47 = (Struct_ov025_021ed634*)func_ov000_0215fff4(var45, var46, 0);
+                    Struct_ov025_021ed634* var47 = (Struct_ov025_021ed634*)GetTargetResult_ov000_0215fff4(var45, var46, 0);
                     if (var47 == 0) continue;
                     int var48 = var47->unknown_c_;
                     if (var48 >= 0) { if (var48 > 0) var28 += var48; }

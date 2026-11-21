@@ -12,10 +12,10 @@ struct Struct_ov016_0218e240 {
 extern "C" char data_ov016_0219d06d[];
 extern "C" char data_ov016_0219d06f[];
 
-extern "C" int func_02042648(int arg0);
+extern "C" int GetFontDefaultWidth_02042648(int font);
 extern "C" int FindFontGlyphIndex_020424e4(int text, int font);
 extern "C" struct Struct_ov016_0218e240* GetFontGlyph_020425b4(int glyphIndex, int font);
-extern "C" int func_020425e4(int arg0, int arg1, int arg2);
+extern "C" int GetFontKerning_020425e4(int previousGlyphIndex, int glyphIndex, int font);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" int func_020420e8(char* arg0, int arg1);
 extern "C" void func_ov016_0218e17c(unsigned short* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5);
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov016_0218e240(unsigned short* arg0, char* arg1, unsign
     int var3;
     int var4 = arg4;
     short var5 = 0xff;
-    int var6 = func_02042648(1) & 0xff;
+    int var6 = GetFontDefaultWidth_02042648(1) & 0xff;
     int var7;
     int var8[3];
     var8[0] = var1;
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov016_0218e240(unsigned short* arg0, char* arg1, unsign
                 func_ov016_0218e17c(arg0, var1, var4 - 1, var2, 0, 1);
                 func_ov016_0218e17c(arg0, var1, var4 + 1, var2, 0, 1);
             }
-            var1 += func_020425e4(var5, var16, 1);
+            var1 += GetFontKerning_020425e4(var5, var16, 1);
             func_ov016_0218e17c(arg0, var1, var4, var2, arg2, 1);
             var5 = var16;
                         var15 = var2->unknown_4_ + 1;

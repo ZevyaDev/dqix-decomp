@@ -3,26 +3,26 @@
 extern "C" long long func_020c30ac(unsigned int, unsigned int);
 extern "C" long long func_020c3194(unsigned int, unsigned int);
 
-// USA: func_020c3260
-extern "C" ARM long long func_020c3260(int arg0) {
-    long long var0;
-    if (arg0 < 0) {
-        return -func_020c3260(-arg0);
+// USA: ComputeFixedPointSine_020c3260
+extern "C" ARM long long ComputeFixedPointSine_020c3260(int angle) {
+    long long octants;
+    if (angle < 0) {
+        return -ComputeFixedPointSine_020c3260(-angle);
     }
-    var0 = (long long)arg0 * 0x145F306DDLL;
-    int var1 = (int)(var0 >> 44);
-    unsigned long long var2 = (unsigned long long)((var0 >> 12) & 0xFFFFFFFFULL);
-    if (var1 & 1) {
-        var2 = 0x100000000ULL - var2;
+    octants = (long long)angle * 0x145F306DDLL;
+    int octant = (int)(octants >> 44);
+    unsigned long long octantFraction = (unsigned long long)((octants >> 12) & 0xFFFFFFFFULL);
+    if (octant & 1) {
+        octantFraction = 0x100000000ULL - octantFraction;
     }
-    long long var3;
-    if ((var1 + 1) & 2) {
-        var3 = func_020c3194((unsigned int)var2, (unsigned int)(var2 >> 32));
+    long long magnitude;
+    if ((octant + 1) & 2) {
+        magnitude = func_020c3194((unsigned int)octantFraction, (unsigned int)(octantFraction >> 32));
     } else {
-        var3 = func_020c30ac((unsigned int)var2, (unsigned int)(var2 >> 32));
+        magnitude = func_020c30ac((unsigned int)octantFraction, (unsigned int)(octantFraction >> 32));
     }
-    if ((var1 & 7) <= 3) {
-        return var3;
+    if ((octant & 7) <= 3) {
+        return magnitude;
     }
-    return -var3;
+    return -magnitude;
 }

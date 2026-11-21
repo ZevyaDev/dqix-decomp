@@ -71,7 +71,7 @@ extern "C" void func_ov006_02154a60(Struct_ov006_02154614*);
 extern "C" int func_0200fb08(Struct_02000c9c_8*);
 extern "C" void ClearMenuLayoutBGScreenData_0207fcb8(MenuLayout_0207fcb8*);
 extern "C" void DrawMenuLayoutWindows_0207fd00(MenuLayout_0207fd00*);
-extern "C" void func_0207fe80(void*, int, int, int);
+extern "C" void FillBGUnderMenuLayoutWindows_0207fe80(void*, int, int, int);
 extern "C" void FlushMenuLayoutBGScreenData_0207fd44(MenuLayout_0207fd44_2*);
 extern "C" int IsYesNoWindowOpen_020e28dc(YesNoWindow_020e28dc*);
 extern "C" void DrawYesNoWindow_020e2794(YesNoWindow_020e2794_2*, void*);
@@ -226,7 +226,7 @@ extern "C" ARM void func_ov006_021580b8(Struct_ov006_02157a60* arg0)
         void* var3 = arg0->unknown_14_;
         ClearMenuLayoutBGScreenData_0207fcb8((MenuLayout_0207fcb8*)var3);
         DrawMenuLayoutWindows_0207fd00((MenuLayout_0207fd00*)var3);
-        func_0207fe80(var3, 2, 1, 1);
+        FillBGUnderMenuLayoutWindows_0207fe80(var3, 2, 1, 1);
         ((BGLayer*)(arg0->unknown_54_))->CleanIndexBufferCache((const void*)(0));
         FlushMenuLayoutBGScreenData_0207fd44((MenuLayout_0207fd44_2*)var3);
         if (arg0->unknown_394_ & 0x200)

@@ -3,7 +3,7 @@
 extern "C" int IsBrightnessFadeActive_ov031_0223c054(int useSubScreen);
 extern "C" int func_ov031_02222e54(void);
 extern "C" void func_ov031_0223da58(void* arg0);
-extern "C" void func_ov031_022238cc(void);
+extern "C" void FreeCursorSprites_ov031_022238cc(void);
 extern "C" void CloseSubScreenMessage_ov031_02223440(void);
 extern "C" void func_ov031_0223b710(void* arg0);
 extern "C" void HideScreenLayers_ov031_0223cbbc(int isSubScreen, int layerMask);
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov031_022295ac(void) {
 	if (!func_ov031_02222e54()) return;
 
 	func_ov031_0223da58(data_ov031_02290c5c.unknown_8_);
-	func_ov031_022238cc();
+	FreeCursorSprites_ov031_022238cc();
 	CloseSubScreenMessage_ov031_02223440();
 	func_ov031_0223b710(data_ov031_02290c5c.unknown_4_);
 	HideScreenLayers_ov031_0223cbbc(1, 1);

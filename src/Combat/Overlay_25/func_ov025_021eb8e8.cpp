@@ -30,7 +30,7 @@ extern "C" Struct_ov025_021eb8e8_3* func_0204a01c(unsigned char* arg0);
 extern "C" void func_ov000_02162dc4(void* arg0, GameObject* arg1, GameObject* arg2, unsigned int arg3,
                                     int arg4, int arg5, unsigned long long arg6, int arg7);
 extern "C" Struct_ov025_021eb8e8* func_ov025_021dafd0(char* arg0, int arg1);
-extern "C" void func_ov000_0217616c(Struct_ov025_021eb8e8* arg0);
+extern "C" void SendPartyMemberPanelStats_ov000_0217616c(Struct_ov025_021eb8e8* panel);
 extern "C" void func_ov000_0216ff20(char*, unsigned char);
 extern "C" void func_0204a00c(unsigned char* arg0, int arg1);
 extern "C" int func_0204a0f8(unsigned char* arg0);
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov025_021eb8e8(Struct_ov025_021eb8e8_2* arg0) {
             Struct_ov025_021eb8e8* var10 = func_ov025_021dafd0(var2, *var5);
             if (var10 != 0) {
                 var10->unknown_28_ = var9;
-                func_ov000_0217616c(var10);
+                SendPartyMemberPanelStats_ov000_0217616c(var10);
                 func_ov000_0216ff20((char*)var10, var8->unknown_1d_);
                 var10->unknown_2f_ = var8->unknown_1e_;
             }

@@ -32,7 +32,7 @@ extern "C" ARM void func_ov017_021975e4(GameResources* arg0) {
     unsigned int* var2 = func_020d6c00();
     GameObject* var3 = var0->GetUnknownGameObject();
     Vector3i var4 = var3->obj3D_.position_;
-    Struct_02037d10* var5 = func_020399a8(var3);
+    LadderAction_02037d10* var5 = GetLadderAction_020399a8(var3);
     GameResources* var6 = GetGameResources();
     Queue_02038598_5* var7 = (Queue_02038598_5*)var6->unknown_ptr_array_36fc[0];
 
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov017_021975e4(GameResources* arg0) {
 
     Struct_02018300* var9 = (Struct_02018300*)GetFirstZoneFeatureOfType_0201e838((unsigned char*)&var1->substruct_6c_, 9);
     while (var9 != 0) {
-        Struct_02037d10 var10;
+        LadderAction_02037d10 var10;
         func_02038508(&var10);
         if (func_02094b9c(var9, &var4)) {
             Vector3i var11;

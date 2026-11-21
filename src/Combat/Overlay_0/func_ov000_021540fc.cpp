@@ -15,7 +15,7 @@ struct Struct_ov000_021540fc {unsigned short unknown_0_;unsigned char unknown_2_
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char*,int);extern "C" void func_ov000_02153cc0(int,int,int*);
 struct Random;extern "C" int func_ov000_0215fbe0(Random*,int);int NextRandomMax(Random*,int);
 struct Struct_ov000_021540fc_2 {unsigned int unknown_0_0_:1,unknown_0_1_:1,unknown_0_2_:30;};struct Struct_ov000_02182ae4 {short unknown_0_[8];};
-extern "C" {extern const Struct_ov000_02182ae4 data_ov000_02182b74;int func_ov000_02153f98(void*,int,int,short*);void func_ov000_02153aa4(void*,int,int*);void func_ov000_02153c24(void*,int*);int func_ov000_02153e78(void*,short*,int,int,int);int CollectEnemyCombatantIndices_ov000_0215eb1c(void*,short*,int,int);int CollectPartyCombatantIndices_ov000_0215e9fc(void*,short*,int,int);}
+extern "C" {extern const Struct_ov000_02182ae4 data_ov000_02182b74;int func_ov000_02153f98(void*,int,int,short*);void func_ov000_02153aa4(void*,int,int*);void func_ov000_02153c24(void*,int*);int CollectEnemyGroupCombatantIndices_ov000_02153e78(void*,short*,int,int,int);int CollectEnemyCombatantIndices_ov000_0215eb1c(void*,short*,int,int);int CollectPartyCombatantIndices_ov000_0215e9fc(void*,short*,int,int);}
 // USA: func_ov000_021540fc
 extern "C" ARM int func_ov000_021540fc(Random* arg0,int arg1,int arg2,short* arg3){
  GameState* var0=GameState::GetInstance();Struct_ov000_021537b8_4* var1=FindActionData_02079e2c((char*)GetActionTables_020797dc(),(short)arg2);if(!var1)return 0;
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov000_021540fc(Random* arg0,int arg1,int arg2,short* arg
  if(var6==1){arg3[var4++]=arg1;}
  else if(var5==1){
   if(var6==2){int var8=var3->unknown_2_;func_ov000_02153aa4(arg0,var3->unknown_3_,&var8);arg3[var4++]=var8;}
-  else if(var6==4){int var9=var3->unknown_3_;func_ov000_02153c24(arg0,&var9);var4=func_ov000_02153e78(arg0,arg3,8,var9,1);}
+  else if(var6==4){int var9=var3->unknown_3_;func_ov000_02153c24(arg0,&var9);var4=CollectEnemyGroupCombatantIndices_ov000_02153e78(arg0,arg3,8,var9,1);}
   else if(var6==3)var4=CollectEnemyCombatantIndices_ov000_0215eb1c(arg0,arg3,8,1);
  }else if(var5==2){
   if(var6==2||var6==7||var6==8){int var10=var3->unknown_2_;if(var1->unknown_18_5_!=0x12)func_ov000_02153cc0((int)arg0,arg1,&var10);arg3[var4++]=var10;}

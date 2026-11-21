@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-// USA: func_0202e7d4
-extern "C" ARM void func_0202e7d4(unsigned char* arg0, int* arg1, int* arg2, int* arg3) {
-    *arg1 = *(int*)(arg0 + 0x70);
-    *arg2 = *(int*)(arg0 + 0x74);
-    *arg3 = *(int*)(arg0 + 0x78);
+// USA: GetCameraOrbit_0202e7d4
+extern "C" ARM void GetCameraOrbit_0202e7d4(unsigned char* camera, int* yaw, int* height, int* distance) {
+    *yaw = *(int*)(camera + 0x70);
+    *height = *(int*)(camera + 0x74);
+    *distance = *(int*)(camera + 0x78);
 }

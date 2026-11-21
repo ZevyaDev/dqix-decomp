@@ -49,7 +49,7 @@ enum { Enum_ov021_0218b5fc_1288 = 0x508, Enum_ov021_0218b5fc_7720 = 0x1e28, Enum
 
 struct AllocatorUnion;
 struct TextureVRAMArea_0203d028;
-struct Struct_0200f3a4_9;
+struct GameState_0200f3a4_9;
 struct OAMManager_0203bdb0;
 struct GameResources;
 struct Struct_0209c3b4_2;
@@ -59,13 +59,13 @@ struct Struct_02109bf4_3;
 extern "C" void func_020a1df8(int overlayEntry);
 extern "C" void func_020a1e54(int isPreviousReloaded);
 extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
-extern "C" void func_0200fb84(int* arg0, int arg1);
+extern "C" void SetResources_0200fb84(int* gameState, int resources);
 extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
 extern "C" void* func_0203bd08(void);
 extern "C" void ResetOAMManager_0203bd24(char* oamManager);
 extern "C" int* GetSpriteTextManager_0203bd14();
 extern "C" int func_0203be4c(void* arg0);
-extern "C" void func_0203c35c(int* arg0);
+extern "C" void LoadSpriteTextPalettes_0203c35c(int* spriteTextManager);
 extern "C" void MapVRAMBanksToLCDC(unsigned short mask);
 extern "C" void func_020ca458(unsigned int value, void* dest, int count);
 extern "C" int DisableLCDCMappedVRAMBanks(void);
@@ -85,7 +85,7 @@ extern "C" void SetSubBGMode_020c3984(unsigned int bgMode);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void func_020c555c(int edgeColors);
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void func_02042c68(void* arg0);
+extern "C" void InitMessageWindow_02042c68(void* window);
 extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" void func_020440a4(void* arg0);
 extern "C" void InitMessageGlyphs_020432c4(void* window);
@@ -98,7 +98,7 @@ extern "C" void func_ov009_021842a0(void* arg0, SafeAllocator* arg1);
 extern "C" void PlayMusic_0209c3b4(Struct_0209c3b4_2* manager, int musicIndex);
 extern "C" void WaitForVBlank_020c9820();
 extern "C" void TurnOnMainDisplay_020c38d4();
-extern "C" void func_02010124(Struct_0200f3a4_9* arg0);
+extern "C" void ResetGameSpeedAndDeltaTime_02010124(GameState_0200f3a4_9* gameState);
 extern "C" int GetGameMode_0200fb9c(char* gameState);
 extern "C" void UpdateInput_02012efc();
 extern "C" void func_ov021_0218bb30(void* arg0);
@@ -144,7 +144,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     LoadOverlay_020a1940(OVERLAY_ID(9));
     LoadOverlay_020a1940(OVERLAY_ID(23));
     GameState* var0 = GameState::GetInstance();
-    func_0200fb84((int*)var0, (int)arg0);
+    SetResources_0200fb84((int*)var0, (int)arg0);
     WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
     WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
     BackgroundLoader::GetInstance()->MaybeReset();
@@ -153,7 +153,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     *(int*)var1 = 0;
     int* var2 = GetSpriteTextManager_0203bd14();
     *var2 = func_0203be4c(var1) + 0x200;
-    func_0203c35c(var2);
+    LoadSpriteTextPalettes_0203c35c(var2);
     var2[Enum_ov021_0218b5fc_1288 / 4] = 0x7000;
     MapVRAMBanksToLCDC(0x1ff);
     func_020ca458(0, (void*)0x6800000, 0xa4000);
@@ -210,7 +210,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     func_020c555c((int)&var4);
     ((TextureArena*)(arg0->unknown_44_))->Initialize(0x4000, 0x40);
     void* var5 = GetMessageWindow_020421a0();
-    func_02042c68(var5);
+    InitMessageWindow_02042c68(var5);
     CloseMessageWindow_02043124(var5);
     func_020440a4(var5);
     *(char**)((char*)var5 + Enum_ov021_0218b5fc_7720) = arg0->unknown_44_;
@@ -231,7 +231,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     WaitForVBlank_020c9820();
     TurnOnMainDisplay_020c38d4();
     DISPCNTSUB |= 0x10000;
-    func_02010124((Struct_0200f3a4_9*)var0);
+    ResetGameSpeedAndDeltaTime_02010124((GameState_0200f3a4_9*)var0);
 
     for (;;) {
         if (GetGameMode_0200fb9c((char*)var0) == 0 || arg0->unknown_b8_ != 0) {
@@ -257,7 +257,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     ResetMusic_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
     func_02043000((char*)var5);
     ((TextureArena*)((TextureVRAMArea_0203d028*)arg0->unknown_44_))->Reset();
-    func_0200fb84((int*)var0, 0);
+    SetResources_0200fb84((int*)var0, 0);
 #if !defined(jpn)
     func_020a1e54(1);
 #endif

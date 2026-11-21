@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern char gLocalWirelessLink_021015a0;
-extern "C" unsigned short func_020d4aa8();
+extern "C" unsigned short GetWirelessChannelMask_020d4aa8();
 extern "C" void SetLocalWirelessLinkError_0202c848(int);
 extern "C" int func_020d6b34(int, short, short, unsigned short, unsigned short);
 extern "C" void func_0202d840();
@@ -11,7 +11,7 @@ extern "C" ARM int func_0202d788(unsigned short arg0) {
     int var0;
     unsigned short var1;
 
-    var0 = func_020d4aa8();
+    var0 = GetWirelessChannelMask_020d4aa8();
     if (var0 == 0x8000) {
         SetLocalWirelessLinkError_0202c848(3);
         *(int*)(&gLocalWirelessLink_021015a0 + 0x10) = 9;

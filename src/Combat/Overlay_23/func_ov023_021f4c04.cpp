@@ -187,7 +187,7 @@ extern "C" int func_ov000_02163c80(void* arg0, int arg1);
 extern "C" GameObject* FindFieldMonsterById_ov017_021a278c(void* gameResources, int fieldMonsterId);
 extern "C" void func_ov017_021c9b20(int arg0, int arg1);
 extern "C" int SetFieldMonsterState_02076ccc(void* monster, int state);
-extern "C" void DespawnFieldMonster_ov017_021a23b0(void* gameResources, int arg1);
+extern "C" void DespawnFieldMonster_ov017_021a23b0(void* gameResources, int fieldMonsterId);
 extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" void ResetBattleCamera_ov000_0216d370(void* camera, int resetRoll, int resetFieldOfView, int resetTurns);
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);

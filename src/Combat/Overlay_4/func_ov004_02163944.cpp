@@ -39,7 +39,7 @@ extern "C" void func_ov004_02163530(void*);
 extern "C" void func_ov004_02163c40(void*);
 extern "C" bool func_ov004_021635d0(int*, int*);
 extern "C" void InitNounTable_020e526c(void*);
-extern "C" void func_020e5604(void*, SafeAllocator*, void*, unsigned int);
+extern "C" void LoadNounTable_020e5604(void*, SafeAllocator*, void*, unsigned int);
 extern "C" Struct_ov004_02163944_3* GetZone3D_02012fe4();
 extern "C" void func_02026420(unsigned char*, unsigned char);
 extern "C" void func_020263dc(unsigned char*, void*);
@@ -86,7 +86,7 @@ extern "C" ARM int func_ov004_02163944(void* arg0) {
     BackgroundLoader::AddLockGlobal();
     unsigned int var8 = 0;
     void* var9 = ExtractFileFromGP2((const char*)(data_ov004_0217055c), (const char*)(data_ov004_02170572), (unsigned int*)(&var8));
-    func_020e5604(gTreasureMapScreen_ov004_02171010.unknown_8_, &var7->unknown_4_, var9, var8);
+    LoadNounTable_020e5604(gTreasureMapScreen_ov004_02171010.unknown_8_, &var7->unknown_4_, var9, var8);
     BackgroundLoader::RemoveLockGlobal();
 #endif
     Struct_ov004_02163944_3* var10 = GetZone3D_02012fe4();

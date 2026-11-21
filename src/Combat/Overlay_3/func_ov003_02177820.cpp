@@ -14,7 +14,7 @@ enum { Enum_ov003_02177820_2204 = 0x89c };
 struct MenuLayout_0207fdcc_2;
 extern "C" void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
-extern "C" void func_02080bac(void* arg0, int arg1);
+extern "C" void ShowMenuLayoutWindowTexts_02080bac(void* menuLayout, int windowId);
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c* menuLayout, int textId, int text);
 struct MenuLayout_02080cc0;
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov003_02177820(char* arg0) {
 
     ShowMenuLayoutWindow_02080c20(var0, var3);
     SetMenuLayoutWindowPalette_02080c68(var0, var3, 0);
-    func_02080bac(var0, var3);
+    ShowMenuLayoutWindowTexts_02080bac(var0, var3);
 
     int var5;
     unsigned char var6;

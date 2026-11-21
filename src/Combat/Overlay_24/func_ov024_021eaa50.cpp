@@ -10,7 +10,7 @@
 struct Struct_ov024_021ea4d0;
 struct Struct_ov024_021eaa50;
 struct Struct_ov024_021eaa50_2;
-struct Struct_ov000_02153e78_3;
+struct Battle_ov000_02153e78_3;
 struct Struct_ov024_021dced0_2;
 
 struct Struct_ov024_021eaa50_3 {
@@ -43,7 +43,7 @@ struct Struct_ov024_021fe748 {
 extern Struct_ov024_021fe748 data_ov024_021fe748;
 
 extern "C" GameObject* GetEnemyByID_ov000_021536f8(int, int);
-extern "C" int func_ov000_02153e78(Struct_ov000_02153e78_3*, short*, int, int, int);
+extern "C" int CollectEnemyGroupCombatantIndices_ov000_02153e78(Battle_ov000_02153e78_3*, short*, int, int, int);
 extern "C" int func_ov000_02159c58(void*, int);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(char*, short*, int, unsigned int);
 extern "C" int func_ov000_02159cb4(void*, int);
@@ -76,7 +76,7 @@ extern "C" ARM int func_ov024_021eaa50(Struct_ov024_021ea4d0* arg0, Struct_ov024
             *(unsigned char*)(var1 + 9) = 0;
             return 2;
         }
-        if (func_ov000_02153e78((Struct_ov000_02153e78_3*)*(char**)(var0 + 0x10), var6.unknown_0_, 8, *((unsigned char*)var7 + 0x17c), 1) != 8) {
+        if (CollectEnemyGroupCombatantIndices_ov000_02153e78((Battle_ov000_02153e78_3*)*(char**)(var0 + 0x10), var6.unknown_0_, 8, *((unsigned char*)var7 + 0x17c), 1) != 8) {
             *(unsigned short*)var1 = 2;
             *(unsigned char*)(var1 + 9) = 0;
             return 2;
@@ -89,7 +89,7 @@ extern "C" ARM int func_ov024_021eaa50(Struct_ov024_021ea4d0* arg0, Struct_ov024
             *(unsigned char*)(var1 + 9) = 0;
             return 2;
         }
-        if (func_ov000_02153e78((Struct_ov000_02153e78_3*)*(char**)(var0 + 0x10), var6.unknown_0_, 8, *((unsigned char*)var8 + 0x17c), 1) != 3) {
+        if (CollectEnemyGroupCombatantIndices_ov000_02153e78((Battle_ov000_02153e78_3*)*(char**)(var0 + 0x10), var6.unknown_0_, 8, *((unsigned char*)var8 + 0x17c), 1) != 3) {
             *(unsigned short*)var1 = 2;
             *(unsigned char*)(var1 + 9) = 0;
             return 2;

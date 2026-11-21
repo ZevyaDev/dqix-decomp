@@ -14,7 +14,7 @@ struct Struct_0203a974
     unsigned int unknown_90_;
 };
 
-extern struct Struct_0203a974* data_02110370;
+extern struct Struct_0203a974* gCurrentSoundArchive_02110370;
 extern "C" int func_020bd190(struct Struct_0203a974* arg0, int arg1, int arg2);
 
 // USA: func_020bd110
@@ -40,8 +40,8 @@ extern "C" ARM int func_020bd110(struct Struct_0203a974* arg0, const char* arg1,
     int var1 = func_020bd190(arg0, arg2, arg3);
     if (var1 != 0)
     {
-        data_02110370 = arg0;
-        return (int)&data_02110370;
+        gCurrentSoundArchive_02110370 = arg0;
+        return (int)&gCurrentSoundArchive_02110370;
     }
 
     return var1;

@@ -103,7 +103,7 @@ struct MusicManager_02109bf4_2;
 extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
 extern "C" void func_0208be94(unsigned char*);
 extern "C" void func_0208beb4(unsigned char*);
-extern "C" void func_0205e944(void* arg0, int arg1);
+extern "C" void SetSoundEffectVolume_0205e944(void* manager, int volume);
 
 extern unsigned char gMusicManager_02109bf4;
 extern unsigned char gSoundEffectManager_02108760;
@@ -540,7 +540,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
 #endif
             } else if (var1 >= REGION_VALUE(0xff52, 0xff4d) && var1 <= REGION_VALUE(0xff55, 0xff50)) {
                 int var44 = *(signed char*)(var0 + REGION_VALUE(0x1778, 0x194a) + (var1 - REGION_VALUE(0xff52, 0xff4d)));
-                func_0205e944(&gSoundEffectManager_02108760, ((var44 * 0x21dd) >> 10) & 0x7f);
+                SetSoundEffectVolume_0205e944(&gSoundEffectManager_02108760, ((var44 * 0x21dd) >> 10) & 0x7f);
             } else if (var1 == 0xff0e) {
                 arg0->unknown_19c0_ = 1;
                 arg0->unknown_195d_ = 0x1e;

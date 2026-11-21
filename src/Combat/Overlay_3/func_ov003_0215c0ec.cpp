@@ -3,7 +3,7 @@
 #if defined(jpn)
 enum { Enum_ov003_0215c0ec_2400=0x800 };
 extern "C" void func_02042428(char*, int);
-extern "C" void func_02042158(char*, int);
+extern "C" void AppendXOffsetTag_02041acc(char*, int);
 extern char data_ov003_0217e68e[];
 extern char data_ov003_0217e696[];
 #else
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov003_0215c0ec(struct Struct_ov003_0215c0ec_3* arg0) {
 #if defined(jpn)
         func_02042428(arg0->unknown_7c_, 8);
         AppendText_02042058(arg0->unknown_7c_, data_ov003_0217e68e);
-        func_02042158(arg0->unknown_7c_, 2);
+        AppendXOffsetTag_02041acc(arg0->unknown_7c_, 2);
         AppendText_02042058(arg0->unknown_7c_, data_ov003_0217e696);
 #else
         AppendText_02042058(arg0->unknown_7c_, (const char*)((int)GetGameString((eGameString)(0x3f1))));

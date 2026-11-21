@@ -43,7 +43,7 @@ extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" int func_ov023_021e6e20(Struct_ov012_02186a7c*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov012_0218a974(char*);
-extern "C" void func_ov023_021e6e60(char*);
+extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(char*);
 extern "C" int func_ov023_021e6de4(char*);
 #if defined(jpn)
 extern "C" void func_ov012_0218adac(char*, int, int);
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov012_02188aec(char* arg0) {
         (*(unsigned char*)(arg0 + Enum_ov012_02188aec_5024)) = 0;
         (*(unsigned int*)(arg0 + Enum_ov012_02188aec_5108)) = (var0->unknown_2_5_ - var0->unknown_3_1_) / 2;
         SetNextTextWindowBGLayer_0205de24((TextWindowManager_0205de24_2*)(arg0 + Enum_ov012_02188aec_172), 0, 3);
-        func_ov023_021e6e60(arg0);
+        ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
         func_ov012_0218a974((char*)arg0);
         (*(unsigned char*)(arg0 + Enum_ov012_02188aec_4976))++;
         return;

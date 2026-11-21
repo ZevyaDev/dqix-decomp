@@ -14,7 +14,7 @@ struct Struct_ov031_0220defc_2 {
     Struct_02101680 unknown_2288_;
 };
 extern Struct_ov031_0220defc_2* gAccessPointConnection_ov031_0224e53c;
-extern "C" void func_ov031_0220da1c(int);
+extern "C" void SetAccessPointConnectionState_ov031_0220da1c(int);
 extern "C" int func_ov031_0220d984(int, int, int, int);
 extern "C" void InvalidateDataCacheRange(const void*, unsigned int);
 extern "C" void func_ov031_0220ec5c(int, unsigned short);
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov031_0220defc(Struct_ov031_0220defc* arg0) {
     switch (arg0->unknown_2_) {
     case 0:
         if (gAccessPointConnection_ov031_0224e53c->unknown_2260_ == 5) {
-            func_ov031_0220da1c(6);
+            SetAccessPointConnectionState_ov031_0220da1c(6);
             func_ov031_0220d984(0, 0, 0, 0x704);
         }
         switch (gAccessPointConnection_ov031_0224e53c->unknown_2260_) {
@@ -80,12 +80,12 @@ extern "C" ARM void func_ov031_0220defc(Struct_ov031_0220defc* arg0) {
         case 2:
             return;
         case 8:
-            func_ov031_0220da1c(12);
+            SetAccessPointConnectionState_ov031_0220da1c(12);
             func_ov031_0220d984(1, 0, 0, 0x753);
             return;
         case 3:
         default:
-            func_ov031_0220da1c(11);
+            SetAccessPointConnectionState_ov031_0220da1c(11);
             func_ov031_0220d984(7, 0, 0, 0x75c);
             return;
         }
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov031_0220defc(Struct_ov031_0220defc* arg0) {
     case 3:
     case 4:
     default:
-        func_ov031_0220da1c(11);
+        SetAccessPointConnectionState_ov031_0220da1c(11);
         func_ov031_0220d984(7, 0, 0, 0x76d);
         return;
     }

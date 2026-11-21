@@ -99,7 +99,7 @@ extern "C" void func_0206b804(char*, int*, int*);
 extern "C" void func_02066cc0(Struct_02066a6c_2*, short*, short*);
 extern "C" void func_02042c24(Struct_02042b98_3*, int, int);
 extern "C" void func_0202f404(void*, int, int);
-extern "C" int func_02042648(int);
+extern "C" int GetFontDefaultWidth_02042648(int);
 extern "C" void func_02066ce0(Struct_02066a6c_4*, int, int, short);
 extern "C" void func_020417b0(Struct_02066a6c_4*, int, int, int);
 extern "C" void func_020654b8(Struct_02066a6c_7*, void*, Struct_02066a6c_4*, int, int, int);
@@ -139,7 +139,7 @@ extern "C" ARM void func_02066a6c(Struct_02066a6c_7* arg0, int arg1) {
         short var21 = 8 - (arg0->unknown_1944_ & 7);
         var19 += (var21 + 18) >> 1;
         var20 += 5;
-        unsigned char var22 = func_02042648(arg0->unknown_19dc_);
+        unsigned char var22 = GetFontDefaultWidth_02042648(arg0->unknown_19dc_);
         for (var15 = 0; var15 < var12; var15++) {
             var16 = var22 + 1;
             unsigned short var23 = var13[var15];

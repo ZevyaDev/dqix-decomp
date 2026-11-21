@@ -12,7 +12,7 @@ struct Struct_ov000_02163b90 { char unknown_0_[REGION_OFFSET_0]; unsigned char* 
 
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" void func_02049f28(unsigned char* arg0);
-extern "C" void func_02049f3c(unsigned char* arg0);
+extern "C" void SetCombatantOffBattlefield_02049f3c(unsigned char* combatant);
 
 // USA: func_ov000_02163b90
 extern "C" ARM void func_ov000_02163b90(struct Struct_ov000_02163b90* arg0, int arg1) {
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov000_02163b90(struct Struct_ov000_02163b90* arg0, int 
             func_02049f28((unsigned char*)var2);
         } else {
             ((Object3D*)((unsigned char*)var2))->MakeHidden();
-            func_02049f3c((unsigned char*)var2);
+            SetCombatantOffBattlefield_02049f3c((unsigned char*)var2);
         }
     }
 }

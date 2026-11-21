@@ -35,8 +35,8 @@ extern "C" int FindFontGlyphIndex_020424e4(int, int);
 
 extern "C" char* func_020424ac(char*);
 extern "C" Struct_0206b974_2::Struct_0206b974_3* GetFontGlyph_020425b4(int glyphIndex, int font);
-extern "C" int func_020425e4(int arg0, int arg1, int arg2);
-extern "C" int func_02042648(int arg0);
+extern "C" int GetFontKerning_020425e4(int previousGlyphIndex, int glyphIndex, int font);
+extern "C" int GetFontDefaultWidth_02042648(int font);
 extern "C" int func_02044420(void*, void*);
 extern "C" bool func_02044494(void*, void*);
 extern "C" int func_020d2ff0(const char*);
@@ -88,7 +88,7 @@ extern "C" ARM void func_0206b974(Struct_0206b974* arg0, bool arg1, char *arg2, 
     bool var8 = true;
     bool var9 = 0;
 
-    unsigned char var10 = func_02042648(arg7);
+    unsigned char var10 = GetFontDefaultWidth_02042648(arg7);
 
     while (true)
     {
@@ -240,7 +240,7 @@ extern "C" ARM void func_0206b974(Struct_0206b974* arg0, bool arg1, char *arg2, 
             Struct_0206b974_2::Struct_0206b974_3* var25 = GetFontGlyph_020425b4(var16, arg7);
             var24 = var25->unknown_5_0_;
             unsigned char var26 = var16;
-            int var27 = func_020425e4(var7, var26, arg7);
+            int var27 = GetFontKerning_020425e4(var7, var26, arg7);
             var7 = var26;
             var23 = var27 + var25->unknown_4_;
 

@@ -3,7 +3,7 @@
 
 extern void* data_ov031_0224e5d8;
 
-extern "C" int func_020d4aa8(void);
+extern "C" int GetWirelessChannelMask_020d4aa8(void);
 extern "C" unsigned short func_020d4be8(void);
 extern "C" void func_ov031_02215ce0(void);
 
@@ -17,7 +17,7 @@ extern "C" ARM int func_ov031_022160b0(int arg0) {
     }
     *(void**)((char*)data_ov031_0224e5d8 + 0x1000 + 0x300) = (char*)data_ov031_0224e5d8 + 0xf00;
     *(unsigned short*)((char*)data_ov031_0224e5d8 + 0x1300 + 0x4) = 0x400;
-    int var0 = func_020d4aa8();
+    int var0 = GetWirelessChannelMask_020d4aa8();
     *(unsigned short*)((char*)data_ov031_0224e5d8 + 0x1300 + 0x6) = var0;
     unsigned short var1 = func_020d4be8();
     *(unsigned short*)((char*)data_ov031_0224e5d8 + 0x1300 + 0x8) = var1;

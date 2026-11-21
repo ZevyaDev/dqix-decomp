@@ -27,7 +27,7 @@ extern "C" ARM void RebuildFieldPartyOrder_ov017_02191108(void* gameResources, i
 
     GameObject* currentLeader = gameState->GetUnknownGameObject();
     if (currentLeader != 0 && IsOnLadder_02039d7c((char*)currentLeader) != 0) {
-        Struct_02037d10* leaderAction = func_020399a8(currentLeader);
+        LadderAction_02037d10* leaderAction = GetLadderAction_020399a8(currentLeader);
         leaderAction->isPartyOrderRebuildPending_52_ = 1;
         return;
     }

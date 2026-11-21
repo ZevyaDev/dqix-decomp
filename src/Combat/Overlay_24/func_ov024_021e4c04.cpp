@@ -116,7 +116,7 @@ extern "C" void func_ov024_021eb4e4(Struct_ov024_021da9e0_4*, int);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" void SetActionResultFlag_ov000_02159eac(void*, void*, int);
 extern "C" int HasEnemyTrait_ov000_02156068(void*, int, int, int);
-extern "C" void func_ov000_0215a004(void*, int, int, int, void*, Struct_ov024_021e4c04_6*, int, int);
+extern "C" void ApplyDamage_ov000_0215a004(void*, int, int, int, void*, Struct_ov024_021e4c04_6*, int, int);
 extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void*, void*, GameObject*, int, unsigned long long, int);
 extern "C" int func_ov024_021e9198(Struct_ov024_021e4c04_5*, int, int, int);
 extern "C" int func_020877c0(void*, int);
@@ -205,10 +205,10 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
                 if (func_ov024_021e47dc((Struct_ov024_021e4604*)var13)) {
                     SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var8, 0x29);
                     func_02088b34((unsigned char*)var13->currentStats_);
-                    func_ov000_0215a004(arg0->unknown_10_, arg1, arg2, inline_ov000_0215a908_2(var13) - 1, &var8, arg3, arg0->unknown_c_->unknown_1c_7_ != 0, 0);
+                    ApplyDamage_ov000_0215a004(arg0->unknown_10_, arg1, arg2, inline_ov000_0215a908_2(var13) - 1, &var8, arg3, arg0->unknown_c_->unknown_1c_7_ != 0, 0);
                     AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, 200);
                 } else {
-                    func_ov000_0215a004(arg0->unknown_10_, arg1, arg2, 0xffff, &var8, arg3, arg0->unknown_c_->unknown_1c_7_ != 0, 8);
+                    ApplyDamage_ov000_0215a004(arg0->unknown_10_, arg1, arg2, 0xffff, &var8, arg3, arg0->unknown_c_->unknown_1c_7_ != 0, 8);
                     var8.unknown_0_ = 0;
                     var8.unknown_4_ = 0;
                     SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var8, 0xd);

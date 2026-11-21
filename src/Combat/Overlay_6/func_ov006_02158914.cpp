@@ -46,7 +46,7 @@ int func_ov023_021e2c38(void*, short);
 }
 
 extern "C" Struct_ov006_02158478* FindMenuLayoutWindow_02081da8(MenuLayout_0207fdcc_2*, int);
-extern "C" void func_ov023_021e2bdc(void*, int, short*, short*);
+extern "C" void GetLayoutGroupFirstElementPosition_ov023_021e2bdc(void*, int, short*, short*);
 
 struct Struct_ov006_02157a60 {
 #if !defined(jpn)
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov006_02158914(Struct_ov006_02157a60* arg0)
         {
             short var2;
             short var3;
-            func_ov023_021e2bdc(arg0->unknown_100_, var1, &var2, &var3);
+            GetLayoutGroupFirstElementPosition_ov023_021e2bdc(arg0->unknown_100_, var1, &var2, &var3);
             short var4 = data_ov006_0215ffc4[var0];
             Struct_ov006_021580b8* var5 = &arg0->unknown_24_[var4];
             if (var0 == 2 && !(arg0->unknown_10_->unknown_1258_ & 0x800))

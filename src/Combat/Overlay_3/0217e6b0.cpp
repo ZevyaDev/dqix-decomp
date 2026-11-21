@@ -132,7 +132,7 @@ extern "C" void* func_0203bd08(void);
 extern "C" void ResetOAMManager_0203bd24(char* oamManager);
 extern "C" int* GetSpriteTextManager_0203bd14(void);
 extern "C" int func_0203be4c(void* arg0);
-extern "C" void func_0203c35c(int* arg0);
+extern "C" void LoadSpriteTextPalettes_0203c35c(int* spriteTextManager);
 extern "C" int func_ov009_02184a18(void* arg0);
 extern "C" void RestoreMainBGControl_02074bd0(BGControlSave_02074bd0* save);
 extern "C" void RestoreSubBGControl_02074bf4(BGControlSave_02074bf4* save);
@@ -141,7 +141,7 @@ extern "C" void func_ov017_0218f79c(void* arg0);
 extern "C" void func_ov017_021a2840(GameResources* arg0);
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void func_02058564(Struct_02058564_2* arg0);
-extern "C" void func_ov017_0219b624(GameResources* arg0);
+extern "C" void LoadFieldIcons_ov017_0219b624(GameResources* gameResources);
 extern "C" void LoadCommonFieldResources_ov017_0219ba0c(GameResources* gameResources, int isIconsOnly);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void InitMessageGlyphs_020432c4(void* window);
@@ -272,7 +272,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         *(int*)var5 = 0;
         int* var6 = GetSpriteTextManager_0203bd14();
         *var6 = func_0203be4c(var5) + 0x200;
-        func_0203c35c(var6);
+        LoadSpriteTextPalettes_0203c35c(var6);
         var6[Enum_ov003_0217e6b0_1288 / 4] = 0x7000;
         arg0->unknown_20_++;
     } else if (arg0->unknown_20_ == 3) {
@@ -315,7 +315,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         func_ov017_021a2840(var1);
         func_02058564((Struct_02058564_2*)GetEffectManager_02057924());
         SetCamera_020100c4(var0, (int)arg0->unknown_b0_);
-        func_ov017_0219b624(var1);
+        LoadFieldIcons_ov017_0219b624(var1);
         LoadCommonFieldResources_ov017_0219ba0c(var1, 0);
         char* var8 = var1->unknown_2cc_;
         void* var9 = (void*)GetMessageWindow_020421a0();

@@ -18,7 +18,7 @@ extern "C" void ResetMusic_0209c20c(struct Struct_02109bf4_3* manager);
 struct SoundEffectManager_0205e8ec;
 extern "C" void ResetSoundEffects_0205e8ec(struct SoundEffectManager_0205e8ec* manager);
 struct Struct_02108760_2;
-extern "C" void func_0205e9f4(struct Struct_02108760_2* arg0, int arg1);
+extern "C" void SetSoundEffectVolumeLevel_0205e9f4(struct Struct_02108760_2* manager, int volumeLevel);
 struct Struct_02011544;
 extern "C" void func_02011544(struct Struct_02011544* arg0);
 
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov004_0216d920() {
         ResetSoundEffects_0205e8ec((struct SoundEffectManager_0205e8ec*)&gSoundEffectManager_02108760);
     }
     SetMusicVolumeLevel_0209ca70((void*)&gMusicManager_02109bf4, data_ov004_02171034[Enum_ov004_0216d920_4]);
-    func_0205e9f4((struct Struct_02108760_2*)&gSoundEffectManager_02108760, data_ov004_02171034[Enum_ov004_0216d920_1]);
+    SetSoundEffectVolumeLevel_0205e9f4((struct Struct_02108760_2*)&gSoundEffectManager_02108760, data_ov004_02171034[Enum_ov004_0216d920_1]);
     ClearFlags00(var1, -1);
     ClearFlags04(var1, -1);
     ClearFlags08(var1, -1);

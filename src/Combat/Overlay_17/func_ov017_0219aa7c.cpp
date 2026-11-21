@@ -14,7 +14,7 @@
 struct Struct_0203de84 { int unknown_0_, unknown_4_, unknown_8_; };
 struct Struct_02015ef4 { int unknown_0_, unknown_4_, unknown_8_; };
 struct NPC_0203de84_2;
-struct Struct_0203e0a0;
+struct NPC_0203e0a0;
 
 struct NPCManager_0203dce4_2;
 struct SPRSprite_0203a46c;
@@ -33,7 +33,7 @@ extern "C" int IsPerformingGesture_020535c8(signed char*);
 extern "C" NPCManager_0203dce4_2* GetNPCManager_0203cf4c();
 extern "C" NPC_0203de84_2* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
 extern "C" void GetNPCPosition_020406f8(Struct_0203de84*, NPC_0203de84_2*);
-extern "C" void* func_02040538(Struct_0203e0a0*);
+extern "C" void* GetNPCPlacement_02040538(NPC_0203e0a0*);
 extern "C" void func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" void SetSPRSpritePosition_0203a46c(SPRSprite_0203a46c*, int, int, int);
 extern "C" int IsQueueEmpty_02046b08(void**);
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov017_0219aa7c(GameResources* arg0) {
             GetNPCPosition_020406f8(&var9, var8);
             var4 = *(Vector3fix*)&var9;
             var4.y += 0x1800;
-            void* var10 = func_02040538((Struct_0203e0a0*)var8);
+            void* var10 = GetNPCPlacement_02040538((NPC_0203e0a0*)var8);
             if (var10 != 0) var4.y += *reinterpret_cast<int*>(static_cast<char*>(var10) + 0x60);
             var7 = 0;
         }

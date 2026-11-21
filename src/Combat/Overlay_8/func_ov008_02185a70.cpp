@@ -115,9 +115,9 @@ extern "C" Struct_ov006_02158478* FindTextWindow_0205d81c(TextWindowManager_0205
 int IsBrightnessTransitionActive(GameResources* resources);
 
 extern "C" {
-void func_ov023_021eb138(Struct_ov008_02185a70* arg0, int arg1);
-void func_ov023_021eb080(Struct_ov008_02185a70* arg0, SafeAllocator* arg1);
-void func_ov023_021eb564(Struct_ov008_02185a70* arg0, void* arg1, int arg2);
+void InitAccoladeDisplay_ov023_021eb138(Struct_ov008_02185a70* display, int kind);
+void AllocateAccoladeDisplayBuffers_ov023_021eb080(Struct_ov008_02185a70* display, SafeAllocator* allocator);
+void SetAccoladeDisplayEntries_ov023_021eb564(Struct_ov008_02185a70* display, void* entries, int entryCount);
 void DestroyAccoladeDisplay_ov023_021eb26c(Struct_ov008_02185a70* display);
 void func_ov008_02186964(Struct_ov008_021842a0_2* arg0);
 int func_ov008_02188d74(Struct_ov008_021842a0_2* arg0);
@@ -149,9 +149,9 @@ extern "C" ARM void func_ov008_02185a70(Struct_ov008_021842a0_2* arg0, unsigned 
     if (var3 == 2)
     {
         arg0->unknown_b08_ = (Struct_ov008_02185a70*)arg0->unknown_78_.Allocate(sizeof(Struct_ov008_02185a70));
-        func_ov023_021eb138(arg0->unknown_b08_, 0);
-        func_ov023_021eb080(arg0->unknown_b08_, &arg0->unknown_78_);
-        func_ov023_021eb564(arg0->unknown_b08_, arg0->unknown_b0c_, 1);
+        InitAccoladeDisplay_ov023_021eb138(arg0->unknown_b08_, 0);
+        AllocateAccoladeDisplayBuffers_ov023_021eb080(arg0->unknown_b08_, &arg0->unknown_78_);
+        SetAccoladeDisplayEntries_ov023_021eb564(arg0->unknown_b08_, arg0->unknown_b0c_, 1);
         {
             int var4 = arg0->inline_ov008_02185a70(0x8000);
             Struct_ov008_02185a70* var5 = arg0->unknown_b08_;

@@ -35,7 +35,7 @@ extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameSt
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_0202c600(LocalWireless_0202b2f0* arg0, int arg1);
 extern "C" void func_0202c718(LocalWireless_0202b2f0* arg0, int arg1);
-extern "C" void func_0202c21c(LocalWireless_0202b2f0* arg0, int arg1);
+extern "C" void RemoveLocalWirelessPlayer_0202c21c(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" Struct_0207da94* GetBattleJoinTable_0207d78c(void);
 extern "C" void func_ov017_0218d500(void* arg0);
 extern "C" void func_0207da94(Struct_0207da94* arg0, int arg1);
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov017_021905b8(GameResources* arg0, int arg1, int arg2)
     func_0202c600(var1, arg1);
     func_0202c718(var1, arg1);
     if (arg2) {
-        func_0202c21c(var1, arg1);
+        RemoveLocalWirelessPlayer_0202c21c(var1, arg1);
     }
     func_ov017_02190264(arg0, arg1);
     func_0207da94(var2, (unsigned char)arg1);

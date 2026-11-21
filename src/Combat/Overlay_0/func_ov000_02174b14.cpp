@@ -8,13 +8,13 @@
 extern "C" void func_ov000_0217228c(void* arg0);
 extern "C" void* func_0202ae18(GameState* arg0);
 
-struct Struct_ov000_02174b14 {
+struct PartyMemberPanel_ov000_02174b14 {
     char unknown_0_[0x24];
-    unsigned char unknown_24_;
+    unsigned char flags_24_;
     char unknown_25_[0x44 - 0x25];
-    int unknown_44_;
-    int unknown_48_;
-    int unknown_4c_;
+    int x_44_;
+    int y_48_;
+    int memberIndex_4c_;
 #if defined(jpn)
     char unknown_50_[0x488 - 0x50];
 #else
@@ -22,47 +22,47 @@ struct Struct_ov000_02174b14 {
 #endif
 };
 
-struct Struct_ov000_02174b14_2 {
+struct BattleUI_ov000_02174b14_2 {
     char unknown_0_[0x6c];
-    signed char unknown_6c_[4];
+    signed char panelOrder_6c_[4];
     char unknown_70_[0x958 - 0x70];
-    struct Struct_ov000_02174b14 unknown_958_[4];
+    struct PartyMemberPanel_ov000_02174b14 panels_958_[4];
 };
 
-// USA: func_ov000_02174b14
-extern "C" ARM void func_ov000_02174b14(struct Struct_ov000_02174b14_2* arg0) {
-    func_ov000_0217228c(arg0);
+// USA: PositionPartyMemberPanels_ov000_02174b14
+extern "C" ARM void PositionPartyMemberPanels_ov000_02174b14(struct BattleUI_ov000_02174b14_2* battleUI) {
+    func_ov000_0217228c(battleUI);
     func_0202ae18(GameState::GetInstance());
-    int var0 = 0;
-    for (int var1 = 0; var1 < 4; var1++) {
-        struct Struct_ov000_02174b14* var2 = &arg0->unknown_958_[arg0->unknown_6c_[var1]];
-        if (var2->unknown_4c_ < 0) {
+    int hasExpandedPanel = 0;
+    for (int i = 0; i < 4; i++) {
+        struct PartyMemberPanel_ov000_02174b14* panel = &battleUI->panels_958_[battleUI->panelOrder_6c_[i]];
+        if (panel->memberIndex_4c_ < 0) {
             continue;
         }
-        int var3 = (var2->unknown_24_ & 4) ? 1 : 0;
-        var0 = (var0 | var3) ? 1 : 0;
+        int isExpanded = (panel->flags_24_ & 4) ? 1 : 0;
+        hasExpandedPanel = (hasExpandedPanel | isExpanded) ? 1 : 0;
     }
-    int var4 = 0;
-    if (!var0) {
-        var4 = 0x20;
+    int nextY = 0;
+    if (!hasExpandedPanel) {
+        nextY = 0x20;
     }
-    struct Struct_ov000_02174b14* var5;
-    for (int var6 = 0; var6 < 4; var6++) {
-        var5 = &arg0->unknown_958_[arg0->unknown_6c_[var6]];
-        int var7 = var5->unknown_4c_;
-        int var8 = 0;
-        if (var7 >= 0) {
-            var8 = var7 <= 3;
+    struct PartyMemberPanel_ov000_02174b14* panel;
+    for (int i = 0; i < 4; i++) {
+        panel = &battleUI->panels_958_[battleUI->panelOrder_6c_[i]];
+        int memberIndex = panel->memberIndex_4c_;
+        int isPartyMemberIndex = 0;
+        if (memberIndex >= 0) {
+            isPartyMemberIndex = memberIndex <= 3;
         }
-        if (!var8) {
+        if (!isPartyMemberIndex) {
             continue;
         }
-        var5->unknown_44_ = 0;
-        var5->unknown_48_ = var4;
-        if (var5->unknown_24_ & 4) {
-            var4 += 0x48;
+        panel->x_44_ = 0;
+        panel->y_48_ = nextY;
+        if (panel->flags_24_ & 4) {
+            nextY += 0x48;
         } else {
-            var4 += 0x28;
+            nextY += 0x28;
         }
     }
 }

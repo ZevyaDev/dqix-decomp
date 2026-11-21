@@ -41,7 +41,7 @@ extern "C" Struct_ov031_0222ea24_2* AllocateZeroedMemory_ov031_0223cf4c(int, int
 extern "C" void func_ov031_0222ee34();
 extern "C" void func_ov031_0222ec20();
 extern "C" int func_ov031_02227548();
-extern "C" void func_ov031_0222336c(int, int, int);
+extern "C" void ShowSubScreenMessage_ov031_0222336c(int, int, int);
 extern "C" void func_ov031_02223518(int);
 extern "C" void func_ov031_02223a0c();
 extern "C" void func_ov031_022350bc(int, int, int, int, int);
@@ -64,9 +64,9 @@ extern "C" ARM void func_ov031_0222ea24() {
     func_ov031_0222ee34();
     func_ov031_0222ec20();
     if (gConnectionSettingsPage_ov031_02290ca0.unknown_1_ == 0) {
-        func_ov031_0222336c(0x30, data_ov031_02249034[func_ov031_02227548()], var0->unknown_f4_ + 1);
+        ShowSubScreenMessage_ov031_0222336c(0x30, data_ov031_02249034[func_ov031_02227548()], var0->unknown_f4_ + 1);
     } else {
-        func_ov031_0222336c(0x45, -1, 0);
+        ShowSubScreenMessage_ov031_0222336c(0x45, -1, 0);
     }
     func_ov031_02223518(1);
     func_ov031_02223a0c();

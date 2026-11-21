@@ -6,9 +6,9 @@ struct Struct_ov001_02163ef4 { int unknown_0_; Struct_020117f0_2 unknown_4_; };
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(Struct_ov001_02163ef4* value);
 extern "C" float GetScriptValueAsFloat_ov017_021d6110(Struct_ov001_02163ef4* value);
 extern "C" void* GetZone3D_02012fe4(void);
-struct Struct_02019508;
-struct Struct_02019508_3;
-extern "C" ARM struct Struct_02019508* func_02019508(struct Struct_02019508_3* arg0, int arg1, int arg2);
+struct BMDJEntry_02019508;
+struct Zone3D_02019508_3;
+extern "C" ARM struct BMDJEntry_02019508* FindBMDJEntry_02019508(struct Zone3D_02019508_3* zone, int bmdjId, int entryId);
 
 // USA: func_ov001_02163ef4
 extern "C" ARM int func_ov001_02163ef4(Struct_ov001_02163ef4* arg0) {
@@ -18,7 +18,7 @@ extern "C" ARM int func_ov001_02163ef4(Struct_ov001_02163ef4* arg0) {
     if (!var2) {
         return 0;
     }
-    struct Struct_02019508* var3 = func_02019508((struct Struct_02019508_3*)var2, var0, var1);
+    struct BMDJEntry_02019508* var3 = FindBMDJEntry_02019508((struct Zone3D_02019508_3*)var2, var0, var1);
     if (!var3) {
         return 0;
     }

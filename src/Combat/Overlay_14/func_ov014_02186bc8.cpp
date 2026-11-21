@@ -92,7 +92,7 @@ extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void*, int);
 extern "C" {
 bool IsLocalWirelessHostDisconnected_ov017_021959b4();
 void UpdateKeyRepeat_02081f20(void* keyRepeat, int elapsedFrames);
-int func_020800fc(Struct_ov000_0217ab8c* arg0, short* arg1, short arg2, unsigned short arg3, unsigned char, bool);
+int UpdateMenuLayoutCursor_020800fc(Struct_ov000_0217ab8c* menuLayout, short* cursorTextId, short currentTextId, unsigned short key, unsigned char, bool);
 void OpenMenuLayoutWindow_020813ec(Struct_ov000_0217ab8c* menuLayout, short windowId);
 void func_ov014_02184700(Struct_ov014_02186bc8* arg0);
 void func_ov014_021886f8(Struct_ov014_02186bc8* arg0);
@@ -121,7 +121,7 @@ extern "C" ARM bool func_ov014_02186bc8(Struct_ov014_02186bc8* arg0, int arg1)
             bool var0 = false;
             if (arg0->unknown_17a_ == 4)
                 var0 = func_ov014_021874f8((Struct_ov014_02186bc8_3*)arg0) > 16;
-            arg0->unknown_160_ = func_020800fc(arg0->unknown_c0_, arg0->unknown_d0_, arg0->unknown_178_, arg0->unknown_158_, arg0->unknown_15a_, var0);
+            arg0->unknown_160_ = UpdateMenuLayoutCursor_020800fc(arg0->unknown_c0_, arg0->unknown_d0_, arg0->unknown_178_, arg0->unknown_158_, arg0->unknown_15a_, var0);
             arg0->unknown_c0_->unknown_36_ = *arg0->unknown_d0_;
             if (arg0->unknown_160_ != 0)
                 ClearMenuLayoutWindowHighlights_020804fc(arg0->unknown_c0_, arg0->unknown_170_);

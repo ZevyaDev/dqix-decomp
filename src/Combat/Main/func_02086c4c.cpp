@@ -6,8 +6,8 @@
 #endif
 
 extern "C" int func_02053c6c(unsigned char* gameObject);
-struct Struct_02083994;
-extern "C" int func_02083994(struct Struct_02083994* arg0, int arg1);
+struct PartyMemberData_02083994;
+extern "C" int GetHeldItemCount_02083994(struct PartyMemberData_02083994* memberData, int itemId);
 struct ItemBag_0207cf30_3;
 extern "C" signed char GetBagItemCount_020a0b3c(struct ItemBag_0207cf30_3* bag, int itemId);
 extern "C" short GetEquipmentBagItemCount_0207c7a0(void* bag, int itemId, int category);
@@ -36,7 +36,7 @@ after:
         if (var4 == NULL) {
             return 0;
         }
-        var1 += func_02083994((struct Struct_02083994*)var4, arg2);
+        var1 += GetHeldItemCount_02083994((struct PartyMemberData_02083994*)var4, arg2);
     } else if (arg1 == 4) {
         var1 = GetBagItemCount_020a0b3c((struct ItemBag_0207cf30_3*)arg0, arg2);
     } else if (arg1 == 5) {

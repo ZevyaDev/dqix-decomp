@@ -2,7 +2,7 @@
 #include "NitroSDK/Memory.h"
 
 extern "C" void SetLocalWirelessLinkError_0202c848(int errorCode);
-extern "C" int func_020d4aa8(void);
+extern "C" int GetWirelessChannelMask_020d4aa8(void);
 extern "C" unsigned short func_020d4be8(void);
 
 struct Struct_02101680 {
@@ -24,7 +24,7 @@ extern "C" void func_0202cefc(void);
 
 // USA: func_0202cddc
 extern "C" ARM int func_0202cddc(void) {
-    int var0 = func_020d4aa8();
+    int var0 = GetWirelessChannelMask_020d4aa8();
     if (var0 == 0x8000) {
         SetLocalWirelessLinkError_0202c848(3);
         return 0;

@@ -40,7 +40,7 @@ extern "C" Struct_ov017_021a1d98_2* GetZone3D_02012fe4();
 extern "C" int func_02076bec(GameObject*, void*);
 struct Struct_0203402c;
 extern "C" int func_0203402c(Struct_0203402c*);
-extern "C" void func_0208f87c(const void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void DrawShadow_0208f87c(const void* position, int color, int scale, int alpha, int polygonId);
 
 // USA: func_ov017_021a1d98
 extern "C" ARM void func_ov017_021a1d98(unsigned int* arg0, int arg1) {
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov017_021a1d98(unsigned int* arg0, int arg1) {
             int var23 = var20->unknown_180_ ? var20->unknown_180_->unknown_12_ : 0x1000;
             fix32_t var24 = FIX32_MULTIPLY(var23, var20->obj3D_.GetScale().x * 15);
             const Vector3fix& var25 = var20->obj3D_.MaybeGetShadowSource();
-            func_0208f87c(&var25, var3, var24, var22, 8);
+            DrawShadow_0208f87c(&var25, var3, var24, var22, 8);
         }
     }
 }

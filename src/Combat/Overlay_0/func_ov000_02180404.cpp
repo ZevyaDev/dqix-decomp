@@ -4,7 +4,7 @@ extern "C" void func_ov000_0217f518(char* arg0);
 
 struct Struct_ov000_021735d0_2 {
     char unknown_0_[0x4c];
-    int unknown_4c_;
+    int memberIndex_4c_;
 #if defined(jpn)
     char unknown_50_[0x488 - 0x50];
 #else
@@ -15,9 +15,9 @@ struct Struct_ov000_021735d0_3 {
     char unknown_0_[0x6c];
     signed char unknown_6c_[4];
     char unknown_70_[0x17c - 0x70];
-    int unknown_17c_;
+    int selectedMemberIndex_17c_;
 };
-extern "C" struct Struct_ov000_021735d0_2* func_ov000_0217f8c0(struct Struct_ov000_021735d0_3* arg0);
+extern "C" struct Struct_ov000_021735d0_2* GetSelectedMemberPanel_ov000_0217f8c0(struct Struct_ov000_021735d0_3* battleUI);
 
 struct Struct_ov000_02180404 {
     char unknown_0_[0x4c];
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov000_02180404(char* arg0) {
             func_ov000_0217f518((char*)var1);
         }
     }
-    struct Struct_ov000_021735d0_2* var3 = func_ov000_0217f8c0((struct Struct_ov000_021735d0_3*)arg0);
+    struct Struct_ov000_021735d0_2* var3 = GetSelectedMemberPanel_ov000_0217f8c0((struct Struct_ov000_021735d0_3*)arg0);
     if (var3) {
         *((unsigned char*)var3 + 0x24) |= 4;
     }

@@ -30,7 +30,7 @@ extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleActio
 extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" Struct_ov000_0215feb4* func_ov000_0215feb4(char*, int, int);
 extern "C" void* func_ov000_0215fe2c(void*, int);
-extern "C" void* func_ov000_0215fff4(void*, int, int);
+extern "C" void* GetTargetResult_ov000_0215fff4(void*, int, int);
 extern "C" void func_ov025_021ed324(void*, const char*);
 extern "C" void func_ov025_021ed634(Struct_ov025_021e9fc4*);
 
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov025_021e9fc4(char* arg0) {
             }
             for (int var22 = 0; var22 < 3; var22++) {
                 for (int var23 = 0; var23 < var12->unknown_18_[var22]; var23++) {
-                    Struct_ov000_0215feb4* var24 = (Struct_ov000_0215feb4*)func_ov000_0215fff4(var12, var23, (unsigned char)var22);
+                    Struct_ov000_0215feb4* var24 = (Struct_ov000_0215feb4*)GetTargetResult_ov000_0215fff4(var12, var23, (unsigned char)var22);
                     if (var24 == 0) continue;
                     for (int var25 = 0; var25 < *((unsigned char*)var24 + 0x1f); var25++) {
                         short* var26 = (short*)func_ov000_0215fe2c(var24, var25);

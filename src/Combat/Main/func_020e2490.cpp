@@ -19,7 +19,7 @@ struct YesNoWindow_020e2490 {
     unsigned char* pWindow_10_;
     signed char unknown_14_;
     signed char unknown_15_;
-    signed char unknown_16_;
+    signed char defaultCursorIndex_16_;
     signed char unknown_17_;
     short cursorX_18_;
     short cursorY_1a_;
@@ -35,7 +35,7 @@ extern "C" ARM void InitYesNoWindow_020e2490(struct YesNoWindow_020e2490* yesNoW
     yesNoWindow->cursorAnimationFlags_1e_ = 8;
     yesNoWindow->cursorX_18_ = 0;
     yesNoWindow->cursorY_1a_ = 0;
-    yesNoWindow->unknown_16_ = 0;
+    yesNoWindow->defaultCursorIndex_16_ = 0;
     func_020e25cc((signed char*)yesNoWindow);
 
     yesNoWindow->unknown_0_ = allocator->Allocate(maxSpriteCount * 0xc);

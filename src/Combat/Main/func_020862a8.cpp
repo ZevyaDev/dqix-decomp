@@ -7,7 +7,7 @@
 extern short data_020e8bec[];
 
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
-extern "C" int func_0201137c(char* arg0, int arg1);
+extern "C" int GetSkillEntryBonus_0201137c(char* gameState, int skillEntryId);
 
 // USA: GetSkillMaxHPBonus_020862a8
 extern "C" ARM int GetSkillMaxHPBonus_020862a8(unsigned char* memberData) {
@@ -17,7 +17,7 @@ extern "C" ARM int GetSkillMaxHPBonus_020862a8(unsigned char* memberData) {
     short skillEntryId;
     for (i = 0; (skillEntryId = data_020e8bec[i]) != -1; i++) {
         if (HasLearnedSkillEntry_02083b00(memberData, skillEntryId)) {
-            bonus += func_0201137c((char*)gameState, skillEntryId);
+            bonus += GetSkillEntryBonus_0201137c((char*)gameState, skillEntryId);
         }
     }
     return bonus;

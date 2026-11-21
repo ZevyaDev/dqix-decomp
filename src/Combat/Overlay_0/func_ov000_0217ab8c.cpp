@@ -95,119 +95,119 @@ struct MenuCursor_0205bcdc;
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc*, int);
 extern "C" void SetMenuCursorIndex_0205bb04(Struct_02061c04_21*, int);
 
-// USA: func_ov000_0217ab8c
-extern "C" ARM void func_ov000_0217ab8c(Struct_ov000_0217ab8c* arg0, int arg1, int arg2) {
-    int var0, var1, var2, var3, var4;
-    Struct_ov000_0217636c* var5;
-    if (arg0->unknown_4c_ < 0 || !(arg0->unknown_24_ & 1) || arg0->unknown_c_ == 0 || (var5 = arg0->unknown_38_) == 0) {
+// USA: ConfigurePanelMenuCursors_ov000_0217ab8c
+extern "C" ARM void ConfigurePanelMenuCursors_ov000_0217ab8c(Struct_ov000_0217ab8c* panel, int arg1, int enemyTargetCount) {
+    int columnCount, rowCount, pageCount, itemCount, index;
+    Struct_ov000_0217636c* windowManager;
+    if (panel->unknown_4c_ < 0 || !(panel->unknown_24_ & 1) || panel->unknown_c_ == 0 || (windowManager = panel->unknown_38_) == 0) {
         return;
     }
-    switch (arg0->unknown_10_[arg0->unknown_18_]) {
+    switch (panel->unknown_10_[panel->unknown_18_]) {
     case 13:
-        var4 = arg0->unknown_1c_;
-        var0 = 2;
-        var1 = 3;
-        var2 = 1;
-        var3 = 6;
+        index = panel->unknown_1c_;
+        columnCount = 2;
+        rowCount = 3;
+        pageCount = 1;
+        itemCount = 6;
         break;
     case 14:
-        var1 = 1;
-        var0 = arg2;
-        var2 = var1;
-        var3 = arg2;
-        var4 = arg0->unknown_1d_;
+        rowCount = 1;
+        columnCount = enemyTargetCount;
+        pageCount = rowCount;
+        itemCount = enemyTargetCount;
+        index = panel->unknown_1d_;
         break;
     case 15:
-        if (func_ov000_02171698((Struct_ov000_02171640*)arg0) >= 4) {
-            var0 = 1;
-            var1 = 4;
-            var2 = (func_ov000_02171698((Struct_ov000_02171640*)arg0) + 3) / 4;
+        if (func_ov000_02171698((Struct_ov000_02171640*)panel) >= 4) {
+            columnCount = 1;
+            rowCount = 4;
+            pageCount = (func_ov000_02171698((Struct_ov000_02171640*)panel) + 3) / 4;
         } else {
-            var0 = 1;
-            var1 = func_ov000_02171698((Struct_ov000_02171640*)arg0);
-            var2 = var0;
+            columnCount = 1;
+            rowCount = func_ov000_02171698((Struct_ov000_02171640*)panel);
+            pageCount = columnCount;
         }
-        arg0->unknown_19_ = var5->unknown_54_.unknown_14_;
-        var3 = func_ov000_02171698((Struct_ov000_02171640*)arg0);
-        var4 = arg0->unknown_20_;
-        if (var4 < 0 || var3 <= var4) {
-            var4 = 0;
-            arg0->unknown_20_ = 0;
+        panel->unknown_19_ = windowManager->unknown_54_.unknown_14_;
+        itemCount = func_ov000_02171698((Struct_ov000_02171640*)panel);
+        index = panel->unknown_20_;
+        if (index < 0 || itemCount <= index) {
+            index = 0;
+            panel->unknown_20_ = 0;
         }
         break;
     case 16:
-        if (func_ov000_021719c0((Struct_ov000_02171968*)arg0) >= 4) {
-            var0 = 1;
-            var1 = 4;
-            var2 = (func_ov000_021719c0((Struct_ov000_02171968*)arg0) + 3) / 4;
+        if (func_ov000_021719c0((Struct_ov000_02171968*)panel) >= 4) {
+            columnCount = 1;
+            rowCount = 4;
+            pageCount = (func_ov000_021719c0((Struct_ov000_02171968*)panel) + 3) / 4;
         } else {
-            var0 = 1;
-            var1 = func_ov000_021719c0((Struct_ov000_02171968*)arg0);
-            var2 = var0;
+            columnCount = 1;
+            rowCount = func_ov000_021719c0((Struct_ov000_02171968*)panel);
+            pageCount = columnCount;
         }
-        arg0->unknown_1a_ = var5->unknown_54_.unknown_14_;
-        var3 = func_ov000_021719c0((Struct_ov000_02171968*)arg0);
-        var4 = arg0->unknown_1e_;
-        if (var4 < 0 || var3 <= var4) {
-            var4 = 0;
-            arg0->unknown_1e_ = 0;
+        panel->unknown_1a_ = windowManager->unknown_54_.unknown_14_;
+        itemCount = func_ov000_021719c0((Struct_ov000_02171968*)panel);
+        index = panel->unknown_1e_;
+        if (index < 0 || itemCount <= index) {
+            index = 0;
+            panel->unknown_1e_ = 0;
         }
         break;
     case 17: {
-        GameState* var6 = GameState::GetInstance();
-        GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var6, arg0->unknown_4c_);
-        int var8 = func_02053c6c((unsigned char*)var7);
-        if (var8 != 0) {
-            int var9 = CountHeldItems_02083960((PartyMemberData_0207d300*)var8);
-            var2 = (arg0->unknown_86_ - var9 + 3) / 4 + (var9 + 3) / 4;
-            arg0->unknown_1b_ = var5->unknown_54_.unknown_14_;
-            var3 = var2 * 4;
-            var4 = arg0->unknown_22_;
-            var0 = 1;
-            var1 = 4;
+        GameState* gameState = GameState::GetInstance();
+        GameObject* member = GetPartyMemberBaseByIndex_0200ff1c(gameState, panel->unknown_4c_);
+        int memberData = func_02053c6c((unsigned char*)member);
+        if (memberData != 0) {
+            int heldItemCount = CountHeldItems_02083960((PartyMemberData_0207d300*)memberData);
+            pageCount = (panel->unknown_86_ - heldItemCount + 3) / 4 + (heldItemCount + 3) / 4;
+            panel->unknown_1b_ = windowManager->unknown_54_.unknown_14_;
+            itemCount = pageCount * 4;
+            index = panel->unknown_22_;
+            columnCount = 1;
+            rowCount = 4;
         }
         break;
     }
     case 18:
     case 19:
     case 20:
-        if (arg0->unknown_444_ != 0) {
-            for (int var10 = 0; var10 < arg0->unknown_34_; var10++) {
-                if (arg0->unknown_442_ == arg0->unknown_30_[var10]) {
-                    arg0->unknown_21_ = var10;
+        if (panel->unknown_444_ != 0) {
+            for (int i = 0; i < panel->unknown_34_; i++) {
+                if (panel->unknown_442_ == panel->unknown_30_[i]) {
+                    panel->unknown_21_ = i;
                     break;
                 }
             }
-            arg0->unknown_442_ = -1;
-            arg0->unknown_444_ = 0;
+            panel->unknown_442_ = -1;
+            panel->unknown_444_ = 0;
         }
-        var1 = arg0->unknown_34_;
-        var0 = 1;
-        var2 = var0;
-        var3 = var1;
-        var4 = arg0->unknown_21_;
+        rowCount = panel->unknown_34_;
+        columnCount = 1;
+        pageCount = columnCount;
+        itemCount = rowCount;
+        index = panel->unknown_21_;
         break;
     case 21:
-        var0 = 1;
-        var1 = var0;
-        var2 = var0;
-        var3 = var0;
-        var4 = arg0->unknown_23_;
+        columnCount = 1;
+        rowCount = columnCount;
+        pageCount = columnCount;
+        itemCount = columnCount;
+        index = panel->unknown_23_;
         break;
     default:
-        DisableTouchMenuCursor_0205cf10(var5);
-        DisableKeyMenuCursor_0205cf1c((TextWindowManager_0205cf1c*)arg0->unknown_38_);
+        DisableTouchMenuCursor_0205cf10(windowManager);
+        DisableKeyMenuCursor_0205cf1c((TextWindowManager_0205cf1c*)panel->unknown_38_);
         return;
     }
-    EnableTouchMenuCursor_0205cef8(arg0->unknown_38_);
-    EnableKeyMenuCursor_0205cf04(arg0->unknown_38_);
-    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&var5->unknown_4_, var0, var1, 0);
-    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&var5->unknown_54_, var0, var1, 0);
-    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&var5->unknown_4_, var3);
-    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&var5->unknown_54_, var3);
-    var5->unknown_4_.unknown_4_ = var2;
-    var5->unknown_54_.unknown_4_ = var2;
-    SetTouchMenuCursorIndex_0205bcdc((MenuCursor_0205bcdc*)&var5->unknown_4_, var4);
-    SetMenuCursorIndex_0205bb04(&var5->unknown_54_, var4);
+    EnableTouchMenuCursor_0205cef8(panel->unknown_38_);
+    EnableKeyMenuCursor_0205cf04(panel->unknown_38_);
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&windowManager->unknown_4_, columnCount, rowCount, 0);
+    SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&windowManager->unknown_54_, columnCount, rowCount, 0);
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&windowManager->unknown_4_, itemCount);
+    SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&windowManager->unknown_54_, itemCount);
+    windowManager->unknown_4_.unknown_4_ = pageCount;
+    windowManager->unknown_54_.unknown_4_ = pageCount;
+    SetTouchMenuCursorIndex_0205bcdc((MenuCursor_0205bcdc*)&windowManager->unknown_4_, index);
+    SetMenuCursorIndex_0205bb04(&windowManager->unknown_54_, index);
     data_ov000_02184294.unknown1_8_->unknown_1d72_ &= ~0x100;
 }

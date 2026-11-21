@@ -89,7 +89,7 @@ extern "C" int LoadLayout_ov023_021e20f0(void* layout, SafeAllocator* allocator,
 extern "C" void func_02042428(char* arg0, int arg1);
 extern "C" int func_02099304(Struct_ov012_02189314_2* arg0, char* arg1, const void* arg2, unsigned int arg3, void* arg4, int arg5, unsigned char arg6, char* arg7, char* arg8);
 extern "C" void SetNextTextWindowBGLayer_0205de24(void* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
-extern "C" void func_ov023_021e6e60(Struct_ov012_02189314* arg0);
+extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(Struct_ov012_02189314* menu);
 extern "C" void func_ov012_0218aabc(Struct_ov012_02189314* arg0);
 extern "C" void InitKeyMenuCursor_0205bef8(KeyMenuCursor_0205bef8* cursor);
 extern "C" void SetMenuCursorGrid_0205ba68(KeyMenuCursor_0205bef8* cursor, int columnCount, int rowCount, int isRowMajor);
@@ -175,7 +175,7 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
     {
         arg0->unknown_1368_ = 0;
         SetNextTextWindowBGLayer_0205de24(arg0->unknown_90_, 0, 2);
-        func_ov023_021e6e60(arg0);
+        ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
         func_ov012_0218aabc(arg0);
         arg0->unknown_13b8_ = 0;
         InitKeyMenuCursor_0205bef8(&arg0->unknown_1378_);
@@ -333,7 +333,7 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
     else if (arg0->unknown_1340_ == 7)
     {
         arg0->unknown_1341_ = 1;
-        func_ov023_021e6e60(arg0);
+        ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
         func_ov012_02189d18(arg0);
         arg0->unknown_1368_ = 1;
         arg0->unknown_1340_ = 1;

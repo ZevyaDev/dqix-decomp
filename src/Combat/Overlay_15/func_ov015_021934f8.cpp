@@ -33,7 +33,7 @@ struct Struct_ov015_0218b810;
 struct Struct_ov015_02192600_3;
 struct Struct_0204a120_2;
 struct TextureVRAMArea_0203d028;
-struct Struct_0200f3a4_9;
+struct GameState_0200f3a4_9;
 struct OAMManager_0203bdb0;
 
 struct Struct_ov015_021934f8 {
@@ -75,7 +75,7 @@ struct Struct_ov015_021934f8_3 {
     char unknown_26c_[0x52];
 };
 
-extern "C" void func_0200fb84(int*, int);
+extern "C" void SetResources_0200fb84(int*, int);
 extern "C" void WriteBrightnessRegister_020c39a0(short*, int);
 extern "C" void* func_0203bd08();
 extern "C" void ResetOAMManager_0203bd24(char*);
@@ -111,7 +111,7 @@ extern "C" void func_ov015_02192544(void*);
 extern "C" void LoadSoundEffectSet_0205ea20(void*, int);
 extern "C" void WaitForVBlank_020c9820();
 extern "C" void TurnOnMainDisplay_020c38d4();
-extern "C" void func_02010124(Struct_0200f3a4_9*);
+extern "C" void ResetGameSpeedAndDeltaTime_02010124(GameState_0200f3a4_9*);
 extern "C" void func_020c3a0c(int);
 unsigned long long GetCurrentTimestamp();
 extern "C" void* GetMessageWindow_020421a0();
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     GameState* var0 = GameState::GetInstance();
     if (var0 == NULL)
         return;
-    func_0200fb84((int*)var0, (int)arg0);
+    SetResources_0200fb84((int*)var0, (int)arg0);
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     var1->MaybeReset();
     FontLoader_0208cb08* var2 = GetFontLoader_02094a00();
@@ -268,7 +268,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     WaitForVBlank_020c9820();
     TurnOnMainDisplay_020c38d4();
     DISPCNTSUB |= 0x10000;
-    func_02010124((Struct_0200f3a4_9*)var0);
+    ResetGameSpeedAndDeltaTime_02010124((GameState_0200f3a4_9*)var0);
     func_020c3a0c(0);
     GetCurrentTimestamp();
     Struct_ov015_021934f8_2* var7 = (Struct_ov015_021934f8_2*)GetMessageWindow_020421a0();

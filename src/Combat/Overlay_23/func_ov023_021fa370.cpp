@@ -7,7 +7,7 @@ extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 
 struct MenuObjectList_021f6bb8 { int unknown_0_; int loadTaskId_4_; };
 extern "C" int GetMenuLoadTaskId_ov023_021f6bb8(struct MenuObjectList_021f6bb8* objectList);
-extern "C" void func_ov023_021f6bb0(void* arg0, int arg1);
+extern "C" void SetMenuLoadTaskId_ov023_021f6bb0(void* objectList, int taskId);
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
@@ -108,7 +108,7 @@ extern "C" ARM int func_ov023_021fa370(struct Struct_ov023_021fa370_2* arg0, voi
         }
 
 #endif
-        func_ov023_021f6bb0(var0, var9);
+        SetMenuLoadTaskId_ov023_021f6bb0(var0, var9);
     }
     return 1;
 

@@ -7,7 +7,7 @@ struct Struct_ov031_02248c98 { unsigned char unknown_0_[5]; };
 
 struct OAMAllocation_ov031_02222ce4;
 struct Struct_ov031_02226d48;
-struct Struct_ov031_02222f44_2;
+struct OAMAllocation_ov031_02222f44_2;
 struct Struct_ov031_022269d8 { int unknown_0_, unknown_4_; Struct_020b0a1c_2* unknown_8_; };
 struct Struct_ov031_022266b0;
 
@@ -71,7 +71,7 @@ extern "C" void* AddTask_ov031_0223e218(void*, void*, void*, int);
 extern "C" void func_ov031_0223ba20(void*);
 extern "C" void SetTaskCallback_ov031_0223e2b8(void* task, int callback);
 extern "C" void QueueTaskRemoval_ov031_0223e2c0(int, void*);
-extern "C" void func_ov031_0223bd28(Struct_ov031_02222f44_2*, int, unsigned int*, unsigned int*);
+extern "C" void GetSpritePosition_ov031_0223bd28(OAMAllocation_ov031_02222f44_2*, int, unsigned int*, unsigned int*);
 extern "C" void func_ov031_0223cb34(const Struct_ov031_022489c4*, const Struct_ov031_022489c4*, Struct_ov031_022493b8*);
 extern "C" int func_ov031_0223d49c(Struct_ov031_022493b8* arg0);
 extern "C" int func_ov031_0223d5ac(Struct_ov031_022493b8*);
@@ -324,7 +324,7 @@ extern "C" ARM void func_ov031_02225e1c(void* arg0) {
 // USA: func_ov031_02225ea0
 extern "C" ARM void func_ov031_02225ea0(void* arg0) {
     unsigned int var0, var1;
-    func_ov031_0223bd28((Struct_ov031_02222f44_2*)gNumericKeypad_ov031_02250c00->unknown_40_[0], 0, &var0, &var1);
+    GetSpritePosition_ov031_0223bd28((OAMAllocation_ov031_02222f44_2*)gNumericKeypad_ov031_02250c00->unknown_40_[0], 0, &var0, &var1);
     int var2 = (int)var1 - 0xc;
     var1 = (unsigned int)var2;
     if (var2 > 0xaa) {

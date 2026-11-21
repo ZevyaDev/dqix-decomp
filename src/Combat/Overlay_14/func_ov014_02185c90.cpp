@@ -110,7 +110,7 @@ struct Struct_ov014_02185c90_3;
 extern "C" void* func_ov014_021893c4(Struct_ov014_02185c90_3*, int);
 extern "C" struct Struct_ov000_021700dc* func_ov014_0218940c(void*, int, void*);
 extern "C" int* func_ov014_02189430(void*, int, void*);
-extern "C" void func_ov023_021e257c(void*);
+extern "C" void DrawLayoutElements_ov023_021e257c(void*);
 struct BGLayer_02020cb8;
 struct BGLayer_02020cb8_5;
 struct BGLayer_02020cb8_6;
@@ -274,7 +274,7 @@ extern "C" ARM void func_ov014_02185c90(struct Struct_ov000_0217c638_2* arg0) {
                 struct Struct_ov014_02185c90_7* var32 = arg0->unknown_58_;
                 var32->unknown_4_ = &var5;
                 var32->unknown_12_ = 1;
-                func_ov023_021e257c(arg0->unknown_58_);
+                DrawLayoutElements_ov023_021e257c(arg0->unknown_58_);
                 ((BGLayer*)((BGLayer_02020cb8*)&var11))->Reset();
                 ((BGLayer*)((unsigned char*)&var11))->ConfigureTextMode(0);
                 var11.unknown_1c_0_ = 0;

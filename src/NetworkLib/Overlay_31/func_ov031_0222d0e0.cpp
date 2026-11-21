@@ -12,7 +12,7 @@ extern void* data_ov031_02290c94;
 extern "C" int func_ov031_02223fdc(void);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_0222d1b8(void);
-extern "C" int func_ov031_02237b2c(int, int, int, int, int);
+extern "C" int OpenDialog_ov031_02237b2c(int, int, int, int, int);
 extern "C" void func_ov031_0222d6b0(void);
 extern "C" void GetWifiSetupPageArguments_ov031_02227520(int*, int*);
 extern "C" void func_ov031_0222d418(void);
@@ -31,13 +31,13 @@ extern "C" ARM void func_ov031_0222d0e0(void) {
 		return;
 	}
 	if (var1 == 2) {
-		func_ov031_02237b2c(6, 3, 1, -1, 0);
+		OpenDialog_ov031_02237b2c(6, 3, 1, -1, 0);
 		SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222d6b0);
 		return;
 	}
 
 	int var2;
 	GetWifiSetupPageArguments_ov031_02227520(NULL, &var2);
-	func_ov031_02237b2c(var0[var2], 2, 1, -1, 0);
+	OpenDialog_ov031_02237b2c(var0[var2], 2, 1, -1, 0);
 	SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222d418);
 }

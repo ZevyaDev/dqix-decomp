@@ -30,7 +30,7 @@ extern "C" void func_ov017_021cd0d8(int arg0, unsigned short *arg1, int arg2);
 extern "C" void ResetStringList_020727d8(StringList_020727d8 *stringList);
 extern "C" void LoadStringList_020728ac(void *stringList, void *allocator, void *scriptData, unsigned int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 extern "C" void InitNounTable_020e526c(void *nounTable);
-extern "C" void func_020e5604(void *arg0, void *arg1, void *arg2, unsigned int arg3);
+extern "C" void LoadNounTable_020e5604(void *nounTable, void *allocator, void *fileData, unsigned int fileSize);
 extern "C" void *func_02053c6c(unsigned char *gameObject);
 extern "C" void CalculatePartyMemberStats_02083e28(void *memberData, int outStats);
 
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov002_02168354(char *arg0) {
             *(void **) (arg0 + 0x244c) = ((SafeAllocator *) (arg0 + 0x64 + 0x800))->Allocate(0xc);
             InitNounTable_020e526c(*(void **) (arg0 + 0x244c));
             if (var5 != 0) {
-                func_020e5604(*(void **) (arg0 + 0x244c), arg0 + 0x64 + 0x800, var5, var0);
+                LoadNounTable_020e5604(*(void **) (arg0 + 0x244c), arg0 + 0x64 + 0x800, var5, var0);
             }
             BackgroundLoader::RemoveLockGlobal();
             CalculatePartyMemberStats_02083e28(func_02053c6c((unsigned char *) var2), 0);

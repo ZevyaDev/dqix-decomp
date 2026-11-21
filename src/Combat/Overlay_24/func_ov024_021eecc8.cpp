@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
-extern "C" int func_ov000_02153e78(int arg0, short* arg1, int arg2, int arg3, int arg4);
+extern "C" int CollectEnemyGroupCombatantIndices_ov000_02153e78(int battle, short* indices, int maxCount, int groupIndex, int filterFlags);
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
 
 struct Struct_ov024_021eecc8 {
@@ -30,7 +30,7 @@ extern "C" ARM int func_ov024_021eecc8(struct Struct_ov024_021eecc8_3* arg0, int
 	for (int var3 = 0; var3 < var0->unknown_1_4_; var3++) {
 		var1 += var0[var3].unknown_e_4_;
 		struct Struct_ov024_021fecec var4 = data_ov024_021fecec;
-		var2 += func_ov000_02153e78(arg0->unknown_0_, var4.unknown_0_, 8, var3, 0);
+		var2 += CollectEnemyGroupCombatantIndices_ov000_02153e78(arg0->unknown_0_, var4.unknown_0_, 8, var3, 0);
 	}
 	if (var1 >= 5) return 0;
 	if (var2 > 5) var2 = 5;

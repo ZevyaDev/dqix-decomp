@@ -21,7 +21,7 @@ extern "C" void func_ov000_02171e60(void*);
 #endif
 extern "C" int func_ov000_0217ab48(void*);
 extern "C" void func_ov000_0217629c(void*);
-extern "C" void func_ov000_0217ab8c(void*, int, int);
+extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(void*, int, int);
 extern "C" void func_ov000_02176e3c(void*, void*, int, int, int, int);
 struct Struct_ov000_0217b8a4_4 {
     char unknown_0_[0x188];
@@ -124,7 +124,7 @@ extern "C" ARM int func_ov000_0217b8a4(Struct_ov000_0217b8a4_3* arg0, int arg1, 
         arg0->unknown_10_[arg0->unknown_18_] = 0;
         arg0->unknown_18_--;
         arg0->unknown_22_ = -1;
-        func_ov000_0217ab8c(arg0, arg1, arg2);
+        ConfigurePanelMenuCursors_ov000_0217ab8c(arg0, arg1, arg2);
         func_ov000_02176e3c(data_ov000_02184294.unknown_8_, arg0, arg0->unknown_10_[arg0->unknown_18_], data_ov000_02184294.unknown_4_, data_ov000_02184294.unknown_0_, 0);
     }
     return -1;

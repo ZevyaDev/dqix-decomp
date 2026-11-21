@@ -105,14 +105,14 @@ extern "C" void* GetZone3D_02012fe4();
 extern "C" int func_0201bb78(struct Struct_0201bb78* arg0, unsigned int arg1);
 extern "C" void* func_0205ec34();
 extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
-extern "C" void func_020ac2d4(int, short* arg1, void* arg2, int arg3);
+extern "C" void GetAlchemyRecipeStates_020ac2d4(int, short* recipeIds, void* states, int count);
 extern "C" int func_0206e384(unsigned char* arg0);
 extern "C" int func_0206e3d4(int arg0, int arg1);
 extern "C" unsigned int func_ov023_021db564(char* arg0);
 extern "C" void func_ov023_021dbb20(struct Struct_ov023_021db634_7* arg0, struct Struct_ov023_021db634_7* arg1);
 extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" void func_ov023_021db45c(void* arg0, struct Struct_ov023_021db45c* arg1, int arg2, short* arg3, short* arg4);
-extern "C" void func_ov023_021e257c(Struct_ov023_021db634_3* arg0);
+extern "C" void DrawLayoutElements_ov023_021e257c(Struct_ov023_021db634_3* layout);
 extern "C" void func_ov023_021db544(void* arg0, void* arg1, int arg2, int arg3);
 
 #define SHOW_ELEMENT(layout, id)                                           \
@@ -207,7 +207,7 @@ extern "C" ARM void func_ov023_021db634(Struct_ov023_021db634_3* arg0, Struct_ov
                     unsigned short unknown_2_0_ : 1;
                 } var22;
                 memset(&var22, 0, sizeof(var22));
-                func_020ac2d4(0, &var20, &var22, 1);
+                GetAlchemyRecipeStates_020ac2d4(0, &var20, &var22, 1);
                 if (var22.unknown_0_ == 0 || !var22.unknown_2_0_)
                     continue;
                 var15.unknown_4_ = 1;
@@ -277,7 +277,7 @@ extern "C" ARM void func_ov023_021db634(Struct_ov023_021db634_3* arg0, Struct_ov
     {
         arg0->unknown_4_ = arg1;
         arg0->unknown_12_ = 1;
-        func_ov023_021e257c(arg0);
+        DrawLayoutElements_ov023_021e257c(arg0);
     }
     func_ov023_021db544(arg0, (void*)0xf, var28, var29);
     HIDE_ELEMENT(arg0, 0xf);

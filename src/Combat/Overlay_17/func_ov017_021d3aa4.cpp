@@ -9,7 +9,7 @@ enum { Enum_ov017_021d3aa4_2856 = 0xb28 };
 
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
-extern "C" void func_0208e0a8(void);
+extern "C" void GetFieldItemSpots_0208e0a8(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" ARM int* func_020120b8(char* arg0, int arg1);
 extern "C" int func_ov017_021d3950(void* arg0);
@@ -25,7 +25,7 @@ struct Struct_ov017_021d3aa4 {
 
 // USA: func_ov017_021d3aa4
 extern "C" ARM void func_ov017_021d3aa4(int arg0, struct Struct_ov017_021d3aa4* arg1, char* arg2, int arg3, struct LocalWireless_0202c1a4* arg4) {
-    func_0208e0a8();
+    GetFieldItemSpots_0208e0a8();
     unsigned char* var0 = *(unsigned char**)((char*)arg3 + 0x3000 + Enum_ov017_021d3aa4_2856);
 
     if (IsNotLocalWirelessGuest_0202c508(arg4)) {

@@ -57,9 +57,9 @@ struct PacEntry_02020aec;
 struct Struct_0207f914;
 extern "C" void func_0207f914(Struct_0207f914*, int, int, int);
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void func_0208108c(void* arg0, int arg1);
+extern "C" void CenterMenuLayoutText_0208108c(void* menuLayout, int textId);
 extern "C" void func_02081058(void* arg0, int arg1, int arg2);
-extern "C" void func_02080798(void* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutTextAlignment_02080798(void* menuLayout, int textId, int alignment);
 struct Sprite_02043368_2;
 struct SpriteAnimationList_02043368;
 struct YesNoWindow_020e2490;
@@ -306,8 +306,8 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
         MenuLayout_0207f7f0* var24 = arg0->unknown_324_;
         var24->unknown_3b_ = 0x12;
         var24->unknown_3c_ = 0x10;
-        func_0208108c(var24, 0);
-        func_0208108c(var24, 1);
+        CenterMenuLayoutText_0208108c(var24, 0);
+        CenterMenuLayoutText_0208108c(var24, 1);
         short* var25 = data_ov003_0217f46c;
         for (;;) {
             if (*var25 < 0) {
@@ -321,7 +321,7 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
         func_02081058(var24, 0xc3, 0x9c);
         short var26 = 0x64;
         for (int var27 = 0; var27 < 8; var27++) {
-            func_02080798(var24, var26, 1);
+            SetMenuLayoutTextAlignment_02080798(var24, var26, 1);
             var26++;
         }
 #endif

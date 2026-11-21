@@ -67,7 +67,7 @@ extern "C" void StartMessage_0204500c(Struct_ov012_02187320* window, const char*
 #endif
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
-extern "C" void func_ov023_021e6e60(Struct_ov012_02187320_3* arg0);
+extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(Struct_ov012_02187320_3* menu);
 extern "C" void func_ov012_02189f38(char* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
@@ -120,7 +120,7 @@ extern "C" ARM void func_ov012_02187320(Struct_ov012_02187320_3* arg0)
         arg0->unknown_13a0_ = 0;
         arg0->unknown_13f8_ = 0;
         SetNextTextWindowBGLayer_0205de24((TextWindowManager_0205de24_2*)arg0->unknown_ac_, 0, 2);
-        func_ov023_021e6e60(arg0);
+        ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
         func_ov012_02189f38((char*)arg0);
         PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 5, 0);
         arg0->unknown_1370_++;
@@ -181,7 +181,7 @@ extern "C" ARM void func_ov012_02187320(Struct_ov012_02187320_3* arg0)
     else if (arg0->unknown_1370_ == 6)
     {
         arg0->unknown_1371_ = 1;
-        func_ov023_021e6e60(arg0);
+        ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
         func_ov012_0218943c(arg0);
         arg0->unknown_13a0_ = 1;
         arg0->unknown_13a8_ = -1;

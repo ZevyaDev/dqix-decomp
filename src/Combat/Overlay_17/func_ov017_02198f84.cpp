@@ -79,7 +79,7 @@ extern "C" ARM void func_ov017_02198f84(Struct_ov017_02198f84_3* arg0) {
             RunDeferredTriggerActions_0206f81c(&var5);
         }
         if (!(var2->unknown_2c_.unknown1_0_.unknown_2_4_ & 4)) {
-            func_02018300(var0, var2, 1, 1, 1);
+            OpenDoor_02018300(var0, var2, 1, 1, 1);
             if ((var2->unknown_2c_.unknown1_0_.unknown_2_4_ & 8) && var2->unknown_2c_.unknown1_0_.unknown_4_ != 0) {
                 func_ov017_021ab250(arg0->unknown_3b10_);
                 Struct_ov017_02198f84* var6 = GetZoneEntry_0200fd0c(GameState::GetInstance());

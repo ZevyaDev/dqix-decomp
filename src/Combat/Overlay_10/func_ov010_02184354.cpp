@@ -87,9 +87,9 @@ extern "C" int GetMessageChoice_020457e0(void* window);
 
 struct TextureVRAMArea_0203d028;
 
-struct Struct_02057de0_2;
+struct EffectManager_02057de0_2;
 extern "C" void* GetEffectManager_02057924(void);
-extern "C" int func_02057de0(struct Struct_02057de0_2* arg0, int arg1, SafeAllocator* arg2, int arg3, int arg4);
+extern "C" int LoadEffectResource_02057de0(struct EffectManager_02057de0_2* effectManager, int effectId, SafeAllocator* allocator, int fileData, int fileSize);
 extern "C" int PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 
 struct Vector3i;
@@ -339,7 +339,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
         ((TextureArena*)((struct TextureVRAMArea_0203d028*)(var29 + 0xc40)))->Reset();
         ((TextureArena*)(var29 + 0xc40))->Restore();
         void* var31 = GetEffectManager_02057924();
-        func_02057de0((struct Struct_02057de0_2*)var31, 0x11, &arg0->unknown_14_,
+        LoadEffectResource_02057de0((struct EffectManager_02057de0_2*)var31, 0x11, &arg0->unknown_14_,
                                       (int)var27, (int)var28);
         ((TextureArena*)(var29 + 0xc40))->Save();
 

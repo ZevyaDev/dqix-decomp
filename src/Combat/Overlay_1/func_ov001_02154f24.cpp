@@ -62,7 +62,7 @@ extern "C" void* func_0202ae18();
 extern "C" void func_02012de4(AllocatorUnion*);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(int);
 extern "C" void func_0203e0a0(void*, int);
-extern "C" void func_ov017_021a316c(GameResources*);
+extern "C" void UnloadFieldObjects_ov017_021a316c(GameResources*);
 extern "C" void func_0203cf58(Struct_0203cf58*);
 extern "C" void func_02012da4(AllocatorUnion*, void*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
@@ -121,7 +121,7 @@ extern "C" ARM int func_ov001_02154f24(Struct_ov001_02154f24_3* arg0)
     if ((arg0->unknown_50_ & 1) && !TestFlags00(var1, 0x1000))
     {
         func_0203e0a0(var3, var4->unknown_0_);
-        func_ov017_021a316c(var1);
+        UnloadFieldObjects_ov017_021a316c(var1);
         func_0203cf58((Struct_0203cf58*)GetNPCManager_0203cf4c());
         SafeAllocator* var6 = inline_ov001_02154f24(var1, 7);
         arg0->unknown_90_ = var6->GetSize();
@@ -132,7 +132,7 @@ extern "C" ARM int func_ov001_02154f24(Struct_ov001_02154f24_3* arg0)
     else if (arg0->unknown_50_ & 4)
     {
         func_0203e0a0(var3, var4->unknown_0_);
-        func_ov017_021a316c(var1);
+        UnloadFieldObjects_ov017_021a316c(var1);
         func_0203cf58((Struct_0203cf58*)GetNPCManager_0203cf4c());
         var1->allocator_array_38[7].Reset();
     }

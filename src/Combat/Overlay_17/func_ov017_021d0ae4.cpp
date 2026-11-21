@@ -2,7 +2,7 @@
 
 extern "C" int IsNotLocalWirelessGuest_0202c508(int wireless);
 extern "C" void func_ov017_02192654(int arg0, unsigned short arg1, unsigned char arg2);
-extern "C" void DespawnFieldMonster_ov017_021a23b0(int gameResources, unsigned short arg1);
+extern "C" void DespawnFieldMonster_ov017_021a23b0(int gameResources, unsigned short fieldMonsterId);
 
 struct Struct_ov017_021d0ae4 {
 	unsigned char unknown_0_[4];

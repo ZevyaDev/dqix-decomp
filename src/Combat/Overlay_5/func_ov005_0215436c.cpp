@@ -43,8 +43,8 @@ struct TextWindowManager_0205cf78;
 extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78*, TextWindow_0205cf78_2*, unsigned char);
 struct Struct_02000c9c_8;
 extern "C" int func_0200fb08(Struct_02000c9c_8*);
-struct Struct_ov002_0215505c_2;
-extern "C" void func_ov023_021e1318(Struct_ov002_0215505c_2*);
+struct ItemSortList_ov002_0215505c_2;
+extern "C" void ClearItemSortList_ov023_021e1318(ItemSortList_ov002_0215505c_2*);
 extern "C" void func_ov023_021e133c(void* arg0, void* arg1, int arg2, int arg3, int arg4, short arg5);
 extern "C" void func_ov005_02154d18(void* arg0, int arg1, int arg2);
 extern "C" void func_ov005_02154d34(void* arg0, int arg1, int arg2);
@@ -328,7 +328,7 @@ extern "C" ARM int func_ov005_0215436c(Struct_ov005_0215436c_3* arg0) {
         if (var13->GetTaskStatus(arg0->unknown_3dc8_) != 0) {
             var13->GetLoadedFileByID(arg0->unknown_3dc8_, &var7, &var8);
             arg0->unknown1_258_.Reset();
-            func_ov023_021e1318((Struct_ov002_0215505c_2*)arg0->unknown_19e0_);
+            ClearItemSortList_ov023_021e1318((ItemSortList_ov002_0215505c_2*)arg0->unknown_19e0_);
             func_ov023_021e133c(arg0->unknown_19e0_, &arg0->unknown1_258_, (int)var7, var8, 0, 0);
             var13->RemoveTask(arg0->unknown_3dc8_);
             arg0->unknown_3dc8_ = -1;

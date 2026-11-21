@@ -3,7 +3,7 @@
 #include "NitroSDK/Matrix.h"
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_0208e0a8(void);
+extern "C" void* GetFieldItemSpots_0208e0a8(void);
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" int rand(void);
 extern "C" int _s32_div_f(int a, int b);
@@ -60,7 +60,7 @@ extern "C" ARM void func_0208f168(struct Struct_0208f168* arg0, void* arg1) {
 
     void* var0 = GetZone3D_02012fe4();
     char* var1 = *(char**)((char*)var0 + 8);
-    struct Struct_0208f168_5* var2 = (struct Struct_0208f168_5*)func_0208e0a8();
+    struct Struct_0208f168_5* var2 = (struct Struct_0208f168_5*)GetFieldItemSpots_0208e0a8();
 
     if (var1 == 0) {
         return;

@@ -51,7 +51,7 @@ extern "C" Struct_ov005_021556e4* FindItemData_020dedd0(ItemTable_0201099c_10* i
 extern "C" Struct_ov005_0215840c_2* func_02053c6c(unsigned char* gameObject);
 extern "C" void SetEquippedItem_02052d7c(Struct_02052df8* gameObject, int slot, short itemId);
 extern "C" void func_0208358c(Struct_ov005_0215840c_2* arg0, Struct_ov005_021556e4* arg1, int arg2);
-extern "C" void UnequipCategory_02083738(Struct_ov005_0215840c_2* memberData, int arg1);
+extern "C" void UnequipCategory_02083738(Struct_ov005_0215840c_2* memberData, int category);
 extern "C" int AddEquipmentToBag_0207c378(void* bag, int itemId, int count, int category);
 
 // USA: func_ov005_0215840c

@@ -18,8 +18,8 @@ extern "C" int func_020a1eb0(void);
 extern "C" void* func_ov017_021b8478(void* battleManager);
 extern "C" void* func_ov017_021b8468(void* battleManager);
 
-struct Struct_020a36a8;
-extern "C" int func_020a36a8(struct Struct_020a36a8* arg0);
+struct BattleSetup_020a36a8;
+extern "C" int IsProtagonistBattleOwner_020a36a8(struct BattleSetup_020a36a8* battleSetup);
 
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov017_021ca1a4(int arg0, struct Struct_ov017_021ca1a4* 
 
     if (((struct Struct_ov017_021ca1a4_2*)var1)->unknown_8_ != arg1->unknown_4_) return;
 
-    if (func_020a36a8((struct Struct_020a36a8*)var1)) {
+    if (IsProtagonistBattleOwner_020a36a8((struct BattleSetup_020a36a8*)var1)) {
         int var3;
         struct Struct_ov017_021c6814 var4;
         for (var3 = 0; var3 < 4; var3++) {

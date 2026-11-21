@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-// USA: func_02039888
-extern "C" ARM int func_02039888(void* arg0) {
+// USA: GetPartyLeaderObjectIndex_02039888
+extern "C" ARM int GetPartyLeaderObjectIndex_02039888(void* object) {
 #if defined(jpn)
-    return *(signed char*)((char*)arg0 + 0x1be);
+    return *(signed char*)((char*)object + 0x1be);
 #else
-    return *(signed char*)((char*)arg0 + 0x1ca);
+    return *(signed char*)((char*)object + 0x1ca);
 #endif
 }

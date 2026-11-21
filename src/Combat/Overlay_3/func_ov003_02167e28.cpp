@@ -13,7 +13,7 @@ struct MenuLayout_02080fa8;
 struct MenuLayout_02080cc0;
 
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c* menuLayout, int textId, int text);
-extern "C" void func_02080798(void* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutTextAlignment_02080798(void* menuLayout, int textId, int alignment);
 extern "C" void SetMenuLayoutTextStringId_0208103c(void* menuLayout, int textId, int stringId);
 extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8* menuLayout, int textId, int value);
 extern "C" char* func_02081010(void* arg0, int arg1);
@@ -35,11 +35,11 @@ extern "C" ARM void func_ov003_02167e28(struct Struct_ov003_02167e28* arg0, char
     void* var0 = arg0->unknown_10_;
 #if !defined(jpn)
     SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var0, 3, ((int)GetGameString((eGameString)(0x3f3))));
-    func_02080798(var0, 3, 1);
+    SetMenuLayoutTextAlignment_02080798(var0, 3, 1);
 #endif
     SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var0, 0, (int)arg1);
 #if !defined(jpn)
-    func_02080798(var0, 0, 1);
+    SetMenuLayoutTextAlignment_02080798(var0, 0, 1);
 #endif
     SetMenuLayoutTextStringId_0208103c(var0, 1, (short)arg2);
     SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, 5, arg5);

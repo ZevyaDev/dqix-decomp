@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
-extern "C" int func_0201137c(char* arg0, int arg1);
+extern "C" int GetSkillEntryBonus_0201137c(char* gameState, int skillEntryId);
 
 struct Struct_02085ab8 {
     unsigned char unknown_0_[0x18];
@@ -37,7 +37,7 @@ extern "C" ARM int func_02085ab8(unsigned char* arg0, struct Struct_02085ab8* ar
         if ((arg0[Enum_02085ab8_2296] & 0x80) == 0) {
             return 0;
         }
-        return func_0201137c((char*)var0, 0x67);
+        return GetSkillEntryBonus_0201137c((char*)var0, 0x67);
     }
 
     int var2 = 0x21;
@@ -58,7 +58,7 @@ extern "C" ARM int func_02085ab8(unsigned char* arg0, struct Struct_02085ab8* ar
     int var5 = 0;
     if (var3 != -1) {
         if (HasLearnedSkillEntry_02083b00(arg0, var3)) {
-            var5 += func_0201137c((char*)var0, var3);
+            var5 += GetSkillEntryBonus_0201137c((char*)var0, var3);
         }
     }
     return var5;

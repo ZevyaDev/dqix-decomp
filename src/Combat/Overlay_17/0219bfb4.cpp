@@ -83,7 +83,7 @@ extern "C" void func_ov017_021b2bdc(Struct_0206f81c_5* arg0, unsigned int arg1);
 extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3, void* arg4, unsigned char arg5);
-extern "C" int func_020d3018(const char* arg0, const char* arg1);
+extern "C" int CompareStrings_020d3018(const char* left, const char* right);
 extern "C" int ParseDecimal_02005a94(signed char* string);
 extern "C" void func_ov017_021ba90c(Struct_ov017_0219bfb4* arg0);
 extern "C" void func_ov004_021689d8(SafeAllocator* arg0, void* arg1);
@@ -227,10 +227,10 @@ extern "C" ARM void func_ov017_0219bfb4(int arg0, unsigned short arg1) {
         func_02072928(var22, (Struct_02013fb4*)&g_fileScratchSpace, var21, var24, var30, var28);
         int var31 = 0;
         int var32 = 0;
-        if (func_020d3018(var29, &data_ov017_021d75fa)) {
+        if (CompareStrings_020d3018(var29, &data_ov017_021d75fa)) {
             var31 = ParseDecimal_02005a94((signed char*)var29);
         }
-        if (func_020d3018(var30, &data_ov017_021d75fa)) {
+        if (CompareStrings_020d3018(var30, &data_ov017_021d75fa)) {
             var32 = ParseDecimal_02005a94((signed char*)var30);
         }
         int var33 = 0;
@@ -253,7 +253,7 @@ extern "C" ARM void func_ov017_0219bfb4(int arg0, unsigned short arg1) {
     BackgroundLoader::RemoveLockGlobal();
 
     signed char var35 = 1;
-    if (func_020d3018(var23, &data_ov017_021d75fa)) {
+    if (CompareStrings_020d3018(var23, &data_ov017_021d75fa)) {
         var35 = ParseDecimal_02005a94((signed char*)var23);
     }
     if (var35 != 3) {

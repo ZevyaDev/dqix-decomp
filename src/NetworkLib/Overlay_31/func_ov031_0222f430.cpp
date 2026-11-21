@@ -21,7 +21,7 @@ extern "C" unsigned char func_ov031_022351e4();
 extern "C" unsigned char func_ov031_022351d0();
 extern "C" void DisableButtonBarInput_ov031_02222e98();
 extern "C" void EnableButtonBarInput_ov031_02222e80();
-extern "C" void func_ov031_022238cc();
+extern "C" void FreeCursorSprites_ov031_022238cc();
 extern "C" void func_ov031_0222f9ec();
 extern "C" void func_ov031_022308d4();
 extern "C" int PlayWifiSetupSoundEffect_ov031_02236878(int);
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov031_0222f430() {
         return;
     case 2:
         if (gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_41_) return;
-        func_ov031_022238cc();
+        FreeCursorSprites_ov031_022238cc();
         gConnectionSettingsPage_ov031_02290ca0.unknown_4_ = (func_ov031_022351d0() * 145) / 55;
         func_ov031_0222f9ec();
         gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_41_ = 4;

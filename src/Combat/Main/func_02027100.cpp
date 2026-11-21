@@ -21,7 +21,7 @@ extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void func_0202756c(void* arg0, int arg1, int arg2, int arg3,
         unsigned char arg4, unsigned char arg5, unsigned short arg6, unsigned char arg7, int arg8, int arg9);
 extern Struct_020fdc60_2 data_020fdc60[];
-extern int data_020fdcb0;
+extern int gPartyStatsCache_020fdcb0;
 
 // USA: func_02027100
 extern "C" ARM void func_02027100(unsigned char* arg0) {
@@ -41,7 +41,7 @@ extern "C" ARM void func_02027100(unsigned char* arg0) {
         if (func_02053c6c((unsigned char*)var4) == 0) {
             continue;
         }
-        if (*(int*)((char*)&data_020fdcb0 + (var3 << 5)) < 0) {
+        if (*(int*)((char*)&gPartyStatsCache_020fdcb0 + (var3 << 5)) < 0) {
             continue;
         }
         Struct_020fdc60_2* var5 = &data_020fdc60[var1];

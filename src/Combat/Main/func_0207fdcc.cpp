@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-extern "C" void func_0204c804(void*);
+extern "C" void CloseTextWindow_0204c804(void*);
 
 struct TextWindow_0207fdcc;
 
@@ -20,5 +20,5 @@ extern "C" ARM void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2*
     if (menuLayout->unknown_30_ == NULL) return;
     window = FindMenuLayoutWindow_02081da8(menuLayout, windowId);
     if (window == NULL) return;
-    func_0204c804((void*)(window));
+    CloseTextWindow_0204c804((void*)(window));
 }

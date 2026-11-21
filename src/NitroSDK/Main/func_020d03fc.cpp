@@ -42,7 +42,7 @@ struct Struct_021118e0 {
 
 extern Struct_021118e0 data_021118e0;
 #define BACKUP_MIDDLEWARE ((const void*)0x02000bc4)
-extern "C" void func_02000b9c(const void*);
+extern "C" void ReferenceLibraryTag_02000b9c(const void*);
 extern "C" int func_020d06e8();
 extern "C" int func_020d0fc4(Struct_020d03fc_2*, int, int);
 extern "C" void VectorizedInvertedMemcpy(const void*, void*, unsigned int);
@@ -70,7 +70,7 @@ extern "C" ARM void func_020d03fc(Struct_020d03fc_2* arg0) {
     const int var1 = arg0->unknown_34_;
     const int var2 = arg0->unknown_30_;
     unsigned int var3 = sizeof(arg0->unknown_12c_);
-    func_02000b9c(BACKUP_MIDDLEWARE);
+    ReferenceLibraryTag_02000b9c(BACKUP_MIDDLEWARE);
     if (var0 == 11) {
         var3 = func_020d06e8();
     } else if (var0 == 15) {

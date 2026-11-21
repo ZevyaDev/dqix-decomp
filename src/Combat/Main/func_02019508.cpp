@@ -6,45 +6,45 @@ enum { Enum_02019508_1052 = 0x41c };
 #endif
 
 
-struct Struct_02019508 {
-    unsigned short unknown_0_;
+struct BMDJEntry_02019508 {
+    unsigned short id_0_;
     unsigned char unknown_2_[0x6e];
 };
 
-struct Struct_02019508_2 {
-    int unknown_0_;
+struct BMDJStruct_02019508_2 {
+    int id_0_;
     unsigned char unknown_4_[0x10];
-    int unknown_14_;
+    int entryCount_14_;
     unsigned char unknown_18_[0x2c];
-    struct Struct_02019508* unknown_44_;
+    struct BMDJEntry_02019508* pEntries_44_;
     unsigned char unknown_48_[0xc];
-    struct Struct_02019508_2* unknown_54_;
+    struct BMDJStruct_02019508_2* pNext_54_;
 };
 
-struct Struct_02019508_3 {
+struct Zone3D_02019508_3 {
     unsigned char unknown_0_[Enum_02019508_1052];
-    struct Struct_02019508_2* unknown_41c_;
+    struct BMDJStruct_02019508_2* pFirstBMDJStruct_41c_;
 };
 
-// USA: func_02019508
-extern "C" ARM struct Struct_02019508* func_02019508(struct Struct_02019508_3* arg0, int arg1, int arg2) {
-    struct Struct_02019508* var0;
-    struct Struct_02019508_2* var1;
-    var0 = 0;
-    var1 = arg0->unknown_41c_;
-    while (var1 != 0) {
-        if (var1->unknown_0_ == arg1) {
-            int var2 = var1->unknown_14_;
-            struct Struct_02019508* var3 = var1->unknown_44_;
-            int var4;
-            for (var4 = 0; var4 < var2; var4++, var3++) {
-                if (var3->unknown_0_ == arg2) {
-                    var0 = var3;
+// USA: FindBMDJEntry_02019508
+extern "C" ARM struct BMDJEntry_02019508* FindBMDJEntry_02019508(struct Zone3D_02019508_3* zone, int bmdjId, int entryId) {
+    struct BMDJEntry_02019508* foundEntry;
+    struct BMDJStruct_02019508_2* bmdj;
+    foundEntry = 0;
+    bmdj = zone->pFirstBMDJStruct_41c_;
+    while (bmdj != 0) {
+        if (bmdj->id_0_ == bmdjId) {
+            int entryCount = bmdj->entryCount_14_;
+            struct BMDJEntry_02019508* entry = bmdj->pEntries_44_;
+            int i;
+            for (i = 0; i < entryCount; i++, entry++) {
+                if (entry->id_0_ == entryId) {
+                    foundEntry = entry;
                     break;
                 }
             }
         }
-        var1 = var1->unknown_54_;
+        bmdj = bmdj->pNext_54_;
     }
-    return var0;
+    return foundEntry;
 }

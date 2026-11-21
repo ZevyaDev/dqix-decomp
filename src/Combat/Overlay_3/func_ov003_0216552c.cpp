@@ -14,7 +14,7 @@ extern "C" int func_ov003_02161344(void* arg0);
 extern "C" int func_ov003_02160b84(void* arg0);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 struct Vector3i;
-extern "C" void func_0202e7d4(unsigned char* arg0, int* arg1, int* arg2, int* arg3);
+extern "C" void GetCameraOrbit_0202e7d4(unsigned char* camera, int* yaw, int* height, int* distance);
 extern "C" void func_ov017_021c37a4(void);
 struct Struct_0202e6a8;
 extern "C" void func_0202e784(struct Struct_0202e6a8* arg0, int arg1);
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov003_0216552c(Struct_ov003_0216552c_2* arg0) {
                 if (var9 != NULL) {
                     *(Vector3i*)var7 = *(Vector3i const*)var9->unknown_4_;
                     *(Vector3i*)var8 = *(Vector3i const*)var9->unknown_10_;
-                    func_0202e7d4((unsigned char*)var9, &var6, &var5, &var4);
+                    GetCameraOrbit_0202e7d4((unsigned char*)var9, &var6, &var5, &var4);
                 }
                 func_ov017_021c37a4();
                 if (var9 != NULL) {

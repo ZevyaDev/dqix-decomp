@@ -25,7 +25,7 @@ struct MessageWindow_02045c00_2 {
     char unknown_9b8_[0x17b8 - 0x9b8];
     unsigned char glyphSlotUseCounts_17b8_[0x80];
     char unknown_1838_[0x1e28 - 0x1838];
-    char* unknown_1e28_;
+    char* pTextureArena_1e28_;
     inline Struct_02045d14_2* inline_02045d14() { return &unknown_1b4_; }
 };
 typedef MessageWindow_02045c00_2 MessageWindow_02045c00_2;
@@ -52,7 +52,7 @@ extern "C" ARM unsigned short ConvertTextToMessageGlyphs_02045d14(MessageWindow_
     codeCount = 0;
     textOffset = 0;
     codeIndex = 0;
-    if (window->unknown_1e28_) ((TextureArena*)(window->unknown_1e28_))->Restore();
+    if (window->pTextureArena_1e28_) ((TextureArena*)(window->pTextureArena_1e28_))->Restore();
     while (1) {
         if (codeIndex > 0 && glyphCodes[codeIndex - 1] == 0xff01) break;
         memcpy(&codedText.code_0_, codedText.buffer_4_ + textOffset, 2);
@@ -92,6 +92,6 @@ extern "C" ARM unsigned short ConvertTextToMessageGlyphs_02045d14(MessageWindow_
             ++codeCount;
         }
     }
-    if (window->unknown_1e28_) ((TextureArena*)(window->unknown_1e28_))->Save();
+    if (window->pTextureArena_1e28_) ((TextureArena*)(window->pTextureArena_1e28_))->Save();
     return codeCount;
 }

@@ -9,7 +9,7 @@ extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireles
 
 extern "C" void* func_ov017_021b8478(void* battleManager);
 extern "C" void func_ov017_021b8b6c(char* arg0);
-extern "C" void DespawnFieldMonster_ov017_021a23b0(void* gameResources, int arg1);
+extern "C" void DespawnFieldMonster_ov017_021a23b0(void* gameResources, int fieldMonsterId);
 
 struct Struct_ov017_021c5e80 {
 	unsigned char unknown_0_[4];

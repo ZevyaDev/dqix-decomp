@@ -36,7 +36,7 @@
 extern "C" void func_0202ae18(void);
 extern "C" void func_02013718(char* arg0, int arg1, int arg2);
 extern "C" void GetZone3D_02012fe4(void);
-extern "C" int func_020a3694(int* arg0);
+extern "C" int IsScriptedBattle_020a3694(int* battleSetup);
 extern "C" void* func_02011584(void* gameState);
 struct Struct_02099950;
 struct Struct_02095924_2;
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov000_02166880(unsigned char* arg0) {
     func_02013718((char*)(arg0 + REGION_OFFSET_0 + 0xc00), (int)(arg0 + 8), (int)(arg0 + REGION_OFFSET_1 + REGION_OFFSET_2));
     GetZone3D_02012fe4();
 
-    if (func_020a3694(*(int**)(arg0 + REGION_OFFSET_3))) {
+    if (IsScriptedBattle_020a3694(*(int**)(arg0 + REGION_OFFSET_3))) {
         unsigned short var2 = *(unsigned short*)((char*)*(int**)(arg0 + REGION_OFFSET_3) + 0x20);
         if (var2 != 0) *(unsigned short*)((char*)*(int**)(arg0 + REGION_OFFSET_3) + 2) = var2;
     }

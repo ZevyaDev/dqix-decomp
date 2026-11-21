@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" int TrySelectTacticOption_ov024_021fe698(void* tacticAI, int option);
-extern "C" void func_ov024_021f9874(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" void RankCandidateAction_ov024_021f9874(void* tacticAI, void* arg1, int targetGroup, int targetIndex);
 
 struct Struct_ov024_021fceb0 { char unknown_0_[8]; int unknown_8_; };
 struct Struct_ov024_021fceb0_2 { char unknown_0_[0x148]; Struct_ov024_021fceb0* unknown_148_; };
@@ -50,5 +50,5 @@ extern "C" ARM void func_ov024_021fceb0(Struct_ov024_021fceb0_3* arg0) {
     char var6[0xc8];
     memset(var6, 0, 0xc8);
     *(float*)(var6 + 0xc4) = var0;
-    return func_ov024_021f9874(arg0, var6, 0, 0);
+    return RankCandidateAction_ov024_021f9874(arg0, var6, 0, 0);
 }

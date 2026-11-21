@@ -44,7 +44,7 @@ static inline Struct_ov012_02186e38* inline_ov012_02186e38(GameState* arg0) {
 extern "C" int func_ov012_0218432c(int arg0);
 struct TextWindowManager_0205de24_2;
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
-extern "C" void func_ov023_021e6e60(void* arg0);
+extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(void* menu);
 extern "C" void func_ov012_02189c44(char* arg0);
 struct Struct_0205c570;
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov012_02186fd8(char* arg0) {
         }
 
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)(arg0 + Enum_ov012_02186fd8_172), 0, 3);
-        func_ov023_021e6e60(arg0);
+        ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
         func_ov012_02189c44(arg0);
 
         (*(unsigned char*)(arg0 + Enum_ov012_02186fd8_4976))++;

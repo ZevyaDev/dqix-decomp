@@ -37,7 +37,7 @@ struct Struct_ov005_02153954 {
 
 extern int gSoundEffectManager_02108760;
 
-extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char arg1);
+extern "C" void SetEquipMenuMode_ov005_0215792c(Struct_ov005_02153954* equipMenuUI, unsigned char mode);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov005_02157190(void* arg0);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
@@ -48,7 +48,7 @@ extern "C" void func_ov005_021555c0(Struct_ov005_02153954* arg0);
 // USA: func_ov005_0215742c
 extern "C" ARM void func_ov005_0215742c(Struct_ov005_02153954* arg0) {
     if (g_keyManager.TestKeysPressed(0x80)) {
-        func_ov005_0215792c(arg0, 3);
+        SetEquipMenuMode_ov005_0215792c(arg0, 3);
         arg0->unknown_3dbb_ = arg0->unknown_3dbc_;
         if (g_keyManager.TestKeysPressed(0x80))
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 2, 0);

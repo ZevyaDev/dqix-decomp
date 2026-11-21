@@ -13,7 +13,7 @@ struct TextWindowManager_0205d0e0_2;
 extern "C" void* GetLastOpenedTextWindow_0205d888(struct TextWindowManager_0205d0e0_2* windowManager);
 struct TextWindowManager_0205d6a0;
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
-extern "C" void func_ov023_021e6e60(void* arg0);
+extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(void* menu);
 extern "C" void func_ov012_02185bf0(void* arg0, int arg1, int arg2);
 
 struct Struct_ov012_0218af88 { unsigned char unknown_0_; unsigned char unknown_1_; };
@@ -37,6 +37,6 @@ extern "C" ARM void func_ov012_0218930c(char* arg0, int arg1) {
     var0 = GetLastOpenedTextWindow_0205d888((struct TextWindowManager_0205d0e0_2*)(arg0 + LOW_REGION(0x90, 0xac)));
     if (var0 == 0) return;
     arg0[LOW_REGION(0x1341, 0x1371)] = *((unsigned char*)var0 + 0xc4);
-    func_ov023_021e6e60(arg0);
+    ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
     func_ov012_02185bf0(arg0, *(unsigned char*)(arg0 + LOW_REGION(0x1341, 0x1371)), 0);
 }

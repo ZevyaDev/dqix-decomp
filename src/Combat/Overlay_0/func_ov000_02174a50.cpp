@@ -4,7 +4,7 @@ struct Struct_0203c0cc;
 extern "C" void func_0203c0f0(struct Struct_0203c0cc* arg0);
 extern "C" void func_ov000_0216fe9c(void* arg0);
 extern "C" void func_ov000_021710ac(void* arg0, int arg1, int arg2);
-extern "C" void func_ov000_02174b14(void* arg0);
+extern "C" void PositionPartyMemberPanels_ov000_02174b14(void* battleUI);
 extern int data_ov000_02183ff0;
 
 struct Struct_ov000_02174a50 {
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov000_02174a50(void* arg0, int arg1) {
             func_ov000_0216fe9c((char*)var4 + 0x8);
             func_ov000_021710ac(var4, -1, 0);
             data_ov000_02183ff0 -= 1;
-            func_ov000_02174b14(arg0);
+            PositionPartyMemberPanels_ov000_02174b14(arg0);
             if (data_ov000_02183ff0 <= 0) {
                 data_ov000_02183ff0 = 1;
             }

@@ -3,7 +3,7 @@
 extern unsigned char data_ov031_02248998[];
 extern int* data_ov031_02250bf0;
 
-extern "C" void func_ov031_022238cc(void);
+extern "C" void FreeCursorSprites_ov031_022238cc(void);
 extern "C" int func_ov031_0223be70(int arg0, int arg1, int arg2);
 extern "C" void SetSpritePosition_ov031_0223bbd8(void* sprite, int entryIndex, int x, int y);
 
@@ -12,7 +12,7 @@ extern "C" void SetSpritePriority_ov031_0223bcc8(OAMAllocation_ov031_02222ce4* s
 
 // USA: func_ov031_02223720
 extern "C" ARM void func_ov031_02223720(int arg0, int arg1, int arg2, int arg3) {
-	func_ov031_022238cc();
+	FreeCursorSprites_ov031_022238cc();
 	unsigned char* var0 = &data_ov031_02248998[arg0 * 2];
 	int var1 = 0;
 	int var2 = 0;

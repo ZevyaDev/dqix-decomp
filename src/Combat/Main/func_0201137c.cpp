@@ -1,23 +1,23 @@
 #include <globaldefs.h>
 
-struct Struct_0201137c { int unknown_0_; unsigned int unknown_4_; };
-extern "C" struct Struct_0201137c* FindSkillEntry_0209a594(void* table, int skillEntryId);
+struct SkillEntry_0201137c { int unknown_0_; unsigned int unknown_4_; };
+extern "C" struct SkillEntry_0201137c* FindSkillEntry_0209a594(void* table, int skillEntryId);
 
-// USA: func_0201137c
-extern "C" ARM int func_0201137c(char* arg0, int arg1) {
-    struct Struct_0201137c* var0;
-    unsigned int var1 = 0;
+// USA: GetSkillEntryBonus_0201137c
+extern "C" ARM int GetSkillEntryBonus_0201137c(char* gameState, int skillEntryId) {
+    struct SkillEntry_0201137c* entry;
+    unsigned int bonus = 0;
 #if defined(jpn)
-    var0 = FindSkillEntry_0209a594(arg0 + 0x54cc, arg1);
+    entry = FindSkillEntry_0209a594(gameState + 0x54cc, skillEntryId);
 #else
-    var0 = FindSkillEntry_0209a594(arg0 + 0x572c, arg1);
+    entry = FindSkillEntry_0209a594(gameState + 0x572c, skillEntryId);
 #endif
-    if (var0 != NULL) {
+    if (entry != NULL) {
 #if defined(jpn)
-        var1 = var0->unknown_4_ >> 24;
+        bonus = entry->unknown_4_ >> 24;
 #else
-        var1 = (var0->unknown_4_ << 12) >> 24;
+        bonus = (entry->unknown_4_ << 12) >> 24;
 #endif
     }
-    return var1;
+    return bonus;
 }

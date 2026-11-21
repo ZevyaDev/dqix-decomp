@@ -18,7 +18,7 @@ extern "C" void* FindActionData_02079e2c(char*, int);
 extern "C" int func_ov025_021eb42c(void* arg0, short arg1, short arg2);
 extern "C" int func_ov025_021eb148(void*, short, int, unsigned char);
 extern "C" void* GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
-extern "C" void* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
+extern "C" void* GetTargetResult_ov000_0215fff4(void* target, int index, int listIndex);
 extern "C" int HasActionResultFlag_ov000_0215fd90(void* result, int flagIndex);
 extern "C" void func_ov025_021ed124(unsigned char* arg0);
 extern "C" void func_ov025_021ebab4(char* arg0);
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
             int var27 = 0;
             var0 = var16 + var26;
             for (; var27 < (unsigned char)var0[0x18]; var27++) {
-                void* var28 = func_ov000_0215fff4(var16, var27, var2);
+                void* var28 = GetTargetResult_ov000_0215fff4(var16, var27, var2);
                 if (var28 != 0 && var28 != 0) {
                     if (HasActionResultFlag_ov000_0215fd90(var28, 0xd)) {
                         func_ov025_021eb42c(arg0, 0x1b, 0x3c);

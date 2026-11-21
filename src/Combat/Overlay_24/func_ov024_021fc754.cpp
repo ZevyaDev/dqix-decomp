@@ -58,7 +58,7 @@ struct Struct_ov024_021fc754_4 {
     int unknown_9c_;
 };
 extern "C" int TrySelectTacticOption_ov024_021fe698(Struct_ov024_021fc754_4*, int);
-extern "C" void func_ov024_021f9874(Struct_ov024_021fc754_4*, Struct_ov024_021f6a1c*, int, int);
+extern "C" void RankCandidateAction_ov024_021f9874(Struct_ov024_021fc754_4*, Struct_ov024_021f6a1c*, int, int);
 
 // USA: func_ov024_021fc754
 extern "C" ARM void func_ov024_021fc754(Struct_ov024_021fc754_4* arg0) {
@@ -125,6 +125,6 @@ extern "C" ARM void func_ov024_021fc754(Struct_ov024_021fc754_4* arg0) {
         var13.unknown_7_ = 100;
         var13.unknown_8_ = 6;
         func_ov024_021f6a1c(&var12, &var13);
-        func_ov024_021f9874(arg0, &var12, 0, (unsigned char)arg0->unknown_4_);
+        RankCandidateAction_ov024_021f9874(arg0, &var12, 0, (unsigned char)arg0->unknown_4_);
     }
 }

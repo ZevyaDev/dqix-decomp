@@ -28,7 +28,7 @@ struct Struct_ov006_02154614 {
     unsigned short unknown_1258_;
 };
 
-extern "C" void func_ov023_021e2bdc(void*, int, short*, short*);
+extern "C" void GetLayoutGroupFirstElementPosition_ov023_021e2bdc(void*, int, short*, short*);
 
 struct Struct_ov006_02157a60 {
 #if !defined(jpn)
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov006_0215868c(Struct_ov006_02157a60* arg0)
         return;
     short var0;
     short var1;
-    func_ov023_021e2bdc(arg0->unknown_100_, 0x78, &var0, &var1);
+    GetLayoutGroupFirstElementPosition_ov023_021e2bdc(arg0->unknown_100_, 0x78, &var0, &var1);
     Struct_ov006_021580b8* var2 = &arg0->unknown_24_[10];
     var2->unknown_14_ = var0 << 12;
     var2->unknown_18_ = var1 << 12;
@@ -142,14 +142,14 @@ extern "C" ARM void func_ov006_0215868c(Struct_ov006_02157a60* arg0)
     if (arg0->unknown_38c_[0] > 1 || arg0->unknown_38c_[1] >= 1)
         var2->unknown_25_ = 8;
     ((OBJSpriteSet*)(arg0->unknown_ac_))->DrawMetatile((OBJSpriteSet::Metatile*)(var2));
-    func_ov023_021e2bdc(arg0->unknown_100_, 0x10, &var0, &var1);
+    GetLayoutGroupFirstElementPosition_ov023_021e2bdc(arg0->unknown_100_, 0x10, &var0, &var1);
     var2 = &arg0->unknown_24_[9];
     var2->unknown_14_ = var0 << 12;
     var2->unknown_18_ = var1 << 12;
     var2->unknown_22_ = 0xe;
     var2->unknown_26_ = 2;
     ((OBJSpriteSet*)(arg0->unknown_ac_))->DrawMetatile((OBJSpriteSet::Metatile*)(var2));
-    func_ov023_021e2bdc(arg0->unknown_100_, 0x25, &var0, &var1);
+    GetLayoutGroupFirstElementPosition_ov023_021e2bdc(arg0->unknown_100_, 0x25, &var0, &var1);
     var2 = &arg0->unknown_24_[15];
     if (!(arg0->unknown_10_->unknown_1258_ & 0x800))
         var2 = &arg0->unknown_24_[16];

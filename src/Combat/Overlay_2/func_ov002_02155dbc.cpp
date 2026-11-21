@@ -19,7 +19,7 @@ extern "C" void func_ov023_021e7868(void *arg0);
 #else
 extern "C" void func_ov023_021e761c(void *arg0);
 #endif
-extern "C" void func_ov023_021eb4b8(void *arg0);
+extern "C" void DrawAccoladeDisplay_ov023_021eb4b8(void *display);
 extern "C" void func_ov013_02184a58(void *arg0);
 extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(struct TextWindowManager_0205d1e0 *windowManager);
 extern "C" void DrawTextWindows_0205d228(struct TextWindowManager_0205d228 *windowManager);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov002_02155dbc(char *arg0) {
 #endif
     }
     if (*(void **) (arg0 + 0x2000 + LOW_REGION(0x298, 0x468)) != NULL) {
-        func_ov023_021eb4b8(*(void **) (arg0 + 0x2000 + LOW_REGION(0x298, 0x468)));
+        DrawAccoladeDisplay_ov023_021eb4b8(*(void **) (arg0 + 0x2000 + LOW_REGION(0x298, 0x468)));
     }
     if (*(int *) (arg0 + 0x1000 + LOW_REGION(0xa80, 0xbb8)) == LOW_REGION(0x1f, 0x1e) && *(int *) (arg0 + 0x1000 + LOW_REGION(0xa88, 0xbc0)) > 4) {
         func_ov013_02184a58(arg0 + LOW_REGION(0xc20, 0xd70) + 0x1000);

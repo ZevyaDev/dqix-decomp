@@ -45,7 +45,7 @@ int CollectPartyCombatantIndices_ov000_0215e9fc(void* battle, short* indices, in
 int CollectEnemyCombatantIndices_ov000_0215eb1c(void* battle, short* indices, int maxCount, int filterFlags);
 void func_ov000_0215c758(void* arg0, short* arg1, int arg2, int arg3, short* arg4, short* arg5,
                          unsigned long long* arg6);
-short func_ov000_0215a004(void* arg0, int arg1, int arg2, int arg3, unsigned long long* arg4, int arg5, int arg6, int arg7);
+short ApplyDamage_ov000_0215a004(void* battle, int attackerIndex, int targetIndex, int damage, unsigned long long* resultFlags, int action, int isCriticalHit, int defeatFlags);
 int GetEnemyLevel_ov000_02159dbc(void* battle, int combatantIndex);
 Struct_ov000_0215a23c_3* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 Struct_ov000_0215a23c_2* func_02053c6c(Struct_ov000_0215a23c_3* gameObject);
@@ -171,7 +171,7 @@ extern "C" ARM void func_ov000_0215a23c(void* arg0) {
             }
             if (var25 > 0) {
                 var4[var9] |= 2;
-                var5[var9] = func_ov000_0215a004(arg0, var11[var23], var11[var23], var25, &var4[var9], 0, 0, 1);
+                var5[var9] = ApplyDamage_ov000_0215a004(arg0, var11[var23], var11[var23], var25, &var4[var9], 0, 0, 1);
                 var3[var9] = var25;
                 var6[var9] = var11[var23];
                 var9++;
@@ -211,7 +211,7 @@ extern "C" ARM void func_ov000_0215a23c(void* arg0) {
             }
             if (var32 > 0) {
                 var4[var9] |= 2;
-                var5[var9] = func_ov000_0215a004(arg0, var11[var30], var11[var30], var32, &var4[var9], 0, 0, 1);
+                var5[var9] = ApplyDamage_ov000_0215a004(arg0, var11[var30], var11[var30], var32, &var4[var9], 0, 0, 1);
                 var3[var9] = var32;
                 var6[var9] = var11[var30];
                 var9++;

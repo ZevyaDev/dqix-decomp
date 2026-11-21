@@ -5,7 +5,7 @@
 struct Struct_ov000_02169b04;
 struct Struct_ov000_02169b54;
 struct BattleAction_ov000_0215440c_2;
-struct Struct_ov000_02163a7c;
+struct BattleScene_ov000_02163a7c;
 
 struct Struct_ov000_02169b04_2 {
     char unknown_0_[8];
@@ -90,7 +90,7 @@ extern "C" struct Struct_ov000_02169b04_2* func_ov000_02169b04(struct Struct_ov0
 extern "C" struct Struct_ov000_02169b04_2* func_ov000_02169b54(struct Struct_ov000_02169b54*, int);
 extern "C" struct Struct_ov025_021db8d8* GetActionActor_ov000_02160094(struct BattleAction_ov000_0215440c_2*, int);
 extern "C" void func_ov000_02167dd8(unsigned char*);
-extern "C" void func_ov000_02163a7c(struct Struct_ov000_02163a7c*);
+extern "C" void SetCombatantsOpaque_ov000_02163a7c(struct BattleScene_ov000_02163a7c*);
 extern "C" int func_ov025_021dfa9c(void* arg0, void* arg1);
 extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void* battleScene, int selector, int isVisible);
 extern "C" int CollectCombatantIndices_ov000_02153e40(void* battle, short* indices, int maxCount, int filterFlags);
@@ -239,7 +239,7 @@ extern "C" ARM void func_ov025_021db8d8(struct Struct_ov025_021db8d8_6* arg0) {
             func_ov000_02167dd8((unsigned char*)arg0);
             var14->unknown_e7c_ = var15;
             func_ov000_0216e678(var14->unknown_c00_, var4, var17, 0, 1);
-            func_ov000_02163a7c((struct Struct_ov000_02163a7c*)arg0);
+            SetCombatantsOpaque_ov000_02163a7c((struct BattleScene_ov000_02163a7c*)arg0);
             arg0->unknown_5951_.unknown_0_2_ = 0;
             var18 = 0;
             if (var19) {

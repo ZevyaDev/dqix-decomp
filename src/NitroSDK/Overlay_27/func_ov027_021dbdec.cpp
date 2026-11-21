@@ -104,7 +104,7 @@ extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 void DMAMemcpySynchronous16Bit(int chan, unsigned int src, unsigned int dst, unsigned int len);
 extern "C" int func_020d6ad4(int arg0, int arg1, int arg2, int arg3, unsigned short arg4);
 extern "C" int func_020d5254(int arg0, Struct_020d5254* arg1);
-extern "C" int func_020d503c(int arg0);
+extern "C" int ShutDownWirelessDriver_020d503c(int callback);
 extern "C" int func_020d57f4(int arg0, int arg1, int arg2, int arg3, unsigned short arg4, unsigned short arg5,
                                unsigned short arg6, int arg7, int arg8, int arg9, int arg10);
 
@@ -318,7 +318,7 @@ extern "C" ARM void func_ov027_021dbdec(void* arg0) {
         } else {
             var1->unknown_52a_ = 0;
             data_ov027_021e33e0.unknown_8_->unknown_528_ = 0;
-            func_ov027_021dd0cc(2, func_020d503c((int)func_ov027_021dbdec));
+            func_ov027_021dd0cc(2, ShutDownWirelessDriver_020d503c((int)func_ov027_021dbdec));
         }
         return;
 

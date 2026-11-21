@@ -26,11 +26,11 @@ extern "C" int GetCombatantCell_020493a4(unsigned char*);
 extern "C" void SetCombatantCell_02049390(unsigned char*, unsigned char);
 extern "C" void func_020493b8(unsigned char*, unsigned char);
 extern "C" void func_020493dc(unsigned char*, unsigned char);
-extern "C" void func_02049bd4(unsigned char*, int*);
+extern "C" void SetCombatantCellPosition_02049bd4(unsigned char*, int*);
 struct Struct_02010604;
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
-struct Struct_02048c90;
-extern "C" void func_02048c90(Struct_02048c90*);
+struct Combatant_02048c90;
+extern "C" void ClearCombatantPath_02048c90(Combatant_02048c90*);
 extern "C" struct CellPosition_02048cf0 GetCellPosition_ov000_0216f74c(int* cell);
 struct Vector3i;
 
@@ -54,7 +54,7 @@ extern "C" ARM void func_02048cf0(struct Struct_02048cf0_3* arg0, int arg1) {
         var2.unknown_0_[0] = var1.x_0_;
         var2.unknown_0_[2] = var1.z_4_;
         unsigned int var3 = arg0->unknown_13c_->unknown_20_;
-        func_02049bd4((unsigned char*)arg0, var2.unknown_0_);
+        SetCombatantCellPosition_02049bd4((unsigned char*)arg0, var2.unknown_0_);
         arg0->unknown_13c_->unknown_20_ = var3;
         if (var3 & 0x21) {
             *(Vector3i*)arg0->unknown_44_ = *(Vector3i const*)var2.unknown_0_;
@@ -70,7 +70,7 @@ extern "C" ARM void func_02048cf0(struct Struct_02048cf0_3* arg0, int arg1) {
         ((Object3D*)arg0)->IsTransitioningAnimations();
     }
     ((Object3D*)arg0)->SetAnimationPlaybackSpeed(0x1000, 0);
-    func_02048c90((Struct_02048c90*)arg0);
+    ClearCombatantPath_02048c90((Combatant_02048c90*)arg0);
 }
 
 void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)

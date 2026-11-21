@@ -11,7 +11,7 @@
 #endif
 
 struct BattleScene_ov000_02160da0;
-struct Struct_020a36a8;
+struct BattleSetup_020a36a8;
 struct Struct_ov026_021d8ba0_4;
 struct Struct_02053da0;
 struct Struct_02033fdc;
@@ -99,7 +99,7 @@ struct Struct_ov023_021f2a48_2 {
     unsigned int unknown_18c_;
 };
 
-extern "C" int func_020a36a8(Struct_020a36a8*);
+extern "C" int IsProtagonistBattleOwner_020a36a8(BattleSetup_020a36a8*);
 extern "C" int func_ov000_02160fd4(void*, int);
 extern "C" void func_ov000_02160fbc(void*, int);
 extern "C" void func_020a35cc(unsigned char*, unsigned char);
@@ -141,7 +141,7 @@ void AttachPartyMemberWeapon_ov017_021917f0(int, int);
 void func_ov000_021675a0(BattleScene_ov000_02160da0*);
 void func_ov026_021daec8(Struct_ov000_02161e30*, void*, int);
 void func_ov000_021676a8(BattleScene_ov000_02160da0*);
-void func_ov000_02174b14(void*);
+void PositionPartyMemberPanels_ov000_02174b14(void*);
 void func_ov000_0217a8f4(void*);
 void func_ov017_021c847c();
 void func_ov000_0217fcc4(void*, int);
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov026_021dce34(int arg0, BattleScene_ov000_02160da0* ar
     GameState* var3 = GameState::GetInstance();
     GetGameResources();
     int* var4 = func_0202ae18();
-    if (!func_020a36a8((Struct_020a36a8*)arg3) && !func_ov000_02160fd4(arg1, 0x80000000)) {
+    if (!IsProtagonistBattleOwner_020a36a8((BattleSetup_020a36a8*)arg3) && !func_ov000_02160fd4(arg1, 0x80000000)) {
         return;
     }
     func_ov000_02160fbc(arg1, 0x80000000);
@@ -231,9 +231,9 @@ extern "C" ARM void func_ov026_021dce34(int arg0, BattleScene_ov000_02160da0* ar
         if (arg2->unknown_8e20_ == 0) {
             func_ov000_021676a8(arg1);
         }
-        func_ov000_02174b14(arg4);
+        PositionPartyMemberPanels_ov000_02174b14(arg4);
         func_ov000_0217a8f4(arg4);
-        if (func_020a36a8((Struct_020a36a8*)arg3)) {
+        if (IsProtagonistBattleOwner_020a36a8((BattleSetup_020a36a8*)arg3)) {
             unsigned char var12 = 0;
             unsigned char var13 = 0;
             int var14 = CollectPartyCombatantIndices_ov000_0215e9fc(arg2, var2, 4, 0);

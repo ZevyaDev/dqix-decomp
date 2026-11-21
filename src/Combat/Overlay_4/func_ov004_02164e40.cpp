@@ -15,11 +15,11 @@ extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
 
-struct Struct_ov004_021549e4_2 {
+struct MenuGrid_ov004_021549e4_2 {
     char unknown_0_[0x28];
-    unsigned short unknown_28_;
+    unsigned short cursorRow_28_;
 };
-extern "C" unsigned int func_ov023_021f9bb0(struct Struct_ov004_021549e4_2* arg0);
+extern "C" unsigned int GetMenuGridCursorRow_ov023_021f9bb0(struct MenuGrid_ov004_021549e4_2* grid);
 
 struct MessageString_02046574 { char text_0_[0x40]; };
 struct Struct_02046574_2 {
@@ -44,7 +44,7 @@ extern "C" ARM int func_ov004_02164e40(void* arg0) {
     if (!var3) return 0;
     if (func_ov023_021f6f10(var3) != 7) return 0;
 
-    unsigned int var4 = func_ov023_021f9bb0((struct Struct_ov004_021549e4_2*)var3);
+    unsigned int var4 = GetMenuGridCursorRow_ov023_021f9bb0((struct MenuGrid_ov004_021549e4_2*)var3);
 
 #if defined(jpn)
     char var5[32];

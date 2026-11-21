@@ -4,17 +4,17 @@
 #include "Memory/SafeAllocator.h"
 #include "Graphics/TextureArena.h"
 
-struct Struct_02057de0 {
+struct EffectResource_02057de0 {
     unsigned char unknown_0_[0x1ec];
-    struct Struct_02057de0* unknown_1ec_;
+    struct EffectResource_02057de0* pNext_1ec_;
 };
 
-struct Struct_02057de0_2 {
-    struct Struct_02057de0* unknown_0_;
+struct EffectManager_02057de0_2 {
+    struct EffectResource_02057de0* pEffectResources_0_;
     int unknown_4_;
 };
 
-extern "C" int func_02057de0(Struct_02057de0_2* arg0, int arg1, SafeAllocator* arg2, int arg3, int arg4);
+extern "C" int LoadEffectResource_02057de0(EffectManager_02057de0_2* effectManager, int effectId, SafeAllocator* allocator, int fileData, int fileSize);
 extern "C" int func_02058680(char* arg0, int arg1, void** arg2, int arg3);
 
 struct Struct_020dbdc0;
@@ -36,7 +36,7 @@ extern "C" ARM void func_020dbdc0(Struct_020dbd9c* arg0) {
     if (arg0->unknown_c_ >= 0) {
         BackgroundLoader* var0 = BackgroundLoader::GetInstance();
         if (var0->GetTaskStatus(arg0->unknown_c_) != 0) {
-            Struct_02057de0_2* var1 = (Struct_02057de0_2*)GetEffectManager_02057924();
+            EffectManager_02057de0_2* var1 = (EffectManager_02057de0_2*)GetEffectManager_02057924();
             void* var2 = NULL;
             unsigned int var3 = 0;
             var0->GetLoadedFileByID(arg0->unknown_c_, &var2, &var3);
@@ -47,7 +47,7 @@ extern "C" ARM void func_020dbdc0(Struct_020dbd9c* arg0) {
             }
             memcpy(var4, var2, var3);
             ((TextureArena*)(arg0->unknown_4_))->Restore();
-            func_02057de0(var1, arg0->unknown_8_, arg0->unknown_0_, (int)var4, (int)var3);
+            LoadEffectResource_02057de0(var1, arg0->unknown_8_, arg0->unknown_0_, (int)var4, (int)var3);
             ((TextureArena*)(arg0->unknown_4_))->Save();
             func_020dbf70((struct Struct_020dbdc0*)arg0);
             arg0->unknown_10_ = 2;

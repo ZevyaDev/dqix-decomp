@@ -15,7 +15,7 @@ extern "C" void func_0208e9f4(struct Struct_0208e9f4*);
 
 extern "C" void func_020120d4(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_0208ec04(struct Struct_0208e9f4*);
-extern "C" void* func_0208e0a8(void);
+extern "C" void* GetFieldItemSpots_0208e0a8(void);
 extern "C" int rand(void);
 
 struct Struct_0208ea10_2;
@@ -74,7 +74,7 @@ extern "C" ARM void func_0208ea10(void* arg0, int arg1) {
             ((Script*)((struct Struct_0208ea10_2*)var0))->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f1308);
             ((Script*)((struct Struct_0208ea10_2*)var0))->Load(var5, var4);
             ((Script*)((struct Struct_0208ea10_2*)var0))->Execute();
-            ((unsigned char*)func_0208e0a8())[0xa] = 1;
+            ((unsigned char*)GetFieldItemSpots_0208e0a8())[0xa] = 1;
         }
 
         int var7;

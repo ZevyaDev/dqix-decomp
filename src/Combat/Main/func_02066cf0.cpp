@@ -374,9 +374,9 @@ extern "C" void func_02042c24(struct Struct_02042b98_3* arg0, int arg1, int arg2
 extern "C" void func_0202f404(void* arg0, int arg1, int arg2);
 extern "C" bool func_02067a9c(void* arg0, void* arg1);
 extern "C" void func_0206b6b8(unsigned char* arg0);
-extern "C" int func_02042648(int arg0);
+extern "C" int GetFontDefaultWidth_02042648(int font);
 extern "C" bool func_02044494(void* arg0, void* arg1);
-extern "C" int func_020425e4(int arg0, int arg1, int arg2);
+extern "C" int GetFontKerning_020425e4(int previousGlyphIndex, int glyphIndex, int font);
 extern "C" int GetMessageWindow_020421a0();
 struct Struct_020416cc_2;
 extern "C" int func_020416cc(struct Struct_020416cc_2* arg0);
@@ -574,7 +574,7 @@ extern "C" ARM void func_02066cf0(Struct_02066cf0_3* arg0, int arg1) {
     var54 = 0xff;
     if (var39 < var56) var39 = var56;
 
-    unsigned char var57 = func_02042648(arg0->unknown_19dc_);
+    unsigned char var57 = GetFontDefaultWidth_02042648(arg0->unknown_19dc_);
     var38 = var47[0] - arg0->unknown_1868_;
     var37 = var46[0];
 
@@ -600,7 +600,7 @@ extern "C" ARM void func_02066cf0(Struct_02066cf0_3* arg0, int arg1) {
 
         var36 = &arg0->unknown_9b8_[var51];
         var40 = var36->unknown_17_;
-        var37 += func_020425e4(var54, var40, arg0->unknown_19dc_);
+        var37 += GetFontKerning_020425e4(var54, var40, arg0->unknown_19dc_);
         var54 = var40;
 
         if (arg1 != 0) {

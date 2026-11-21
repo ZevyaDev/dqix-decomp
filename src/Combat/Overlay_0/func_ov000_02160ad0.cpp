@@ -25,14 +25,14 @@ extern "C" void func_ov000_021742c8(void* arg0);
 extern "C" void func_ov013_021870c0(void* arg0);
 struct Struct_ov000_02160ad0;
 extern "C" void func_ov023_021d8c94(struct Struct_ov000_02160ad0* arg0);
-extern "C" void func_ov023_021eb4f4(char* arg0);
+extern "C" void CopyAccoladeDisplayToVRAM_ov023_021eb4f4(char* display);
 extern "C" void func_ov013_02184aec(void* arg0);
 
 // USA: func_ov000_02160ad0
 extern "C" ARM void func_ov000_02160ad0(char* arg0) {
     if (*(int*)(arg0 + 0x5000 + REGION_OFFSET_0) == 0) return;
     if (*(void**)(arg0 + 0x5000 + REGION_OFFSET_1) != 0) {
-        func_ov023_021eb4f4(*(char**)(arg0 + 0x5000 + REGION_OFFSET_1));
+        CopyAccoladeDisplayToVRAM_ov023_021eb4f4(*(char**)(arg0 + 0x5000 + REGION_OFFSET_1));
     }
     if (*(void**)(arg0 + 0x5000 + REGION_OFFSET_2) != 0) {
         func_ov013_02184aec(*(void**)(arg0 + 0x5000 + REGION_OFFSET_2));

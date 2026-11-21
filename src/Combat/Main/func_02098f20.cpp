@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 extern "C" void GetCurrentDate_020cf0fc(int);
 
-struct Struct_02098f20 { int unknown_0_; int unknown_4_; int unknown_8_; int unknown_c_; };
+struct Date_02098f20 { int unknown_0_; int month_4_; int day_8_; int unknown_c_; };
 
-// USA: func_02098f20
-extern "C" ARM int func_02098f20(int arg0, int arg1, int arg2) {
-    struct Struct_02098f20 var0;
-    int var1;
-    GetCurrentDate_020cf0fc((int)(&var0));
-    var0.unknown_0_ += 0x7d0;
-    var1 = var0.unknown_0_ - arg0;
-    if (arg1 * 100 + arg2 > var0.unknown_4_ * 100 + var0.unknown_8_) var1 -= 1;
-    return var1;
+// USA: CalculateAge_02098f20
+extern "C" ARM int CalculateAge_02098f20(int birthYear, int birthMonth, int birthDay) {
+    struct Date_02098f20 today;
+    int age;
+    GetCurrentDate_020cf0fc((int)(&today));
+    today.unknown_0_ += 0x7d0;
+    age = today.unknown_0_ - birthYear;
+    if (birthMonth * 100 + birthDay > today.month_4_ * 100 + today.day_8_) age -= 1;
+    return age;
 }

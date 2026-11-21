@@ -25,8 +25,8 @@ extern AllocatorUnion gMainHeap_02114e20;
 extern const char data_020f2810[];
 extern const char data_020f2826[];
 
-struct Struct_02114e20;
-extern "C" unsigned int GetMaxPossibleAllocation_02012dd0(Struct_02114e20* allocator);
+struct AllocatorTypeB_02114e20;
+extern "C" unsigned int GetMaxPossibleAllocation_02012dd0(AllocatorTypeB_02114e20* allocator);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
@@ -63,7 +63,7 @@ struct Struct_020d9b34_2 {
 // USA: func_020d9b34
 extern "C" ARM void func_020d9b34(struct Struct_020d9b34_2* arg0) {
     if (arg0->unknown_9_ == 0) {
-        if (GetMaxPossibleAllocation_02012dd0((Struct_02114e20*)&gMainHeap_02114e20) < 0x400) {
+        if (GetMaxPossibleAllocation_02012dd0((AllocatorTypeB_02114e20*)&gMainHeap_02114e20) < 0x400) {
             arg0->unknown_1_ = 1;
             return;
         }

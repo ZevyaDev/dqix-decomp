@@ -17,8 +17,8 @@ extern "C" void func_ov017_021b848c(void* arg0, void* arg1, int arg2, int arg3, 
 extern "C" GameObject* FindFieldMonsterById_ov017_021a278c(void* gameResources, int fieldMonsterId);
 extern "C" void SetFieldMonsterState_02076ccc(void*, int);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-struct Struct_02053f7c_3;
-extern "C" void func_02053f7c(struct Struct_02053f7c_3* arg0, unsigned short arg1, int arg2);
+struct PartyMember_02053f7c_3;
+extern "C" void SetPartyMemberBattleId_02053f7c(struct PartyMember_02053f7c_3* member, unsigned short battleId, int isForced);
 extern "C" void func_ov017_021c6034(signed char* arg0);
 
 struct Struct_ov017_021c616c {
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov017_021c616c(int arg0, unsigned char* arg1, GameState
         if (var2->unknown_4_[var5] != 0) {
             GameObject* var6 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var5);
             if (var6 != NULL) {
-                func_02053f7c((struct Struct_02053f7c_3*)var6, var2->unknown_0_, 1);
+                SetPartyMemberBattleId_02053f7c((struct PartyMember_02053f7c_3*)var6, var2->unknown_0_, 1);
             }
         }
     }

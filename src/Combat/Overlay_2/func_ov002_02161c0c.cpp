@@ -14,7 +14,7 @@ extern "C" int func_02041b00(char *arg0, int arg1);
 extern "C" int AppendTextColorTag_02041e70(char *buffer, int colorIndex);
 extern "C" int AppendMenuEntry_02041b70(char *buffer, int entryIndex, const char *text);
 extern "C" int AppendXPositionTag_02041a28(char *buffer, int x);
-extern "C" int func_02042158(char *arg0, int arg1);
+extern "C" int AppendXOffsetTag_02041acc(char *arg0, int arg1);
 extern "C" int func_02041bac(char *arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" int AppendHorizontalLineTag_02041cc0(char *arg0, int arg1);
 extern "C" void *__clear(void *arg0, int arg1);
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov002_02161c0c(unsigned char *arg0, char *arg1, int arg
             var4 = 0x11fb;
             AppendTextColorTag_02041e70(arg1, 3);
             AppendText_02042058(arg1, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString(var4++)));
-            func_02042158(arg1, 0xc);
+            AppendXOffsetTag_02041acc(arg1, 0xc);
             for (var6 = 0; var6 < 5; var6++) {
                 int var11 = 0xf;
                 if (var6 + 1 == *var0[var3]) {
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov002_02161c0c(unsigned char *arg0, char *arg1, int arg
                 AppendTextColorTag_02041e70(arg1, var11);
                 AppendMenuEntry_02041b70(arg1, var9, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString(var4++)));
                 var9++;
-                func_02042158(arg1, 0xc);
+                AppendXOffsetTag_02041acc(arg1, 0xc);
             }
             AppendTextColorTag_02041e70(arg1, 3);
             AppendText_02042058(arg1, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString(var4)));

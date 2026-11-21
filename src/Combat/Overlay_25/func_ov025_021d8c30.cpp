@@ -189,7 +189,7 @@ extern "C" void func_ov025_021dcde8(unsigned char* arg0, struct Struct_ov025_021
 extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 extern "C" struct Struct_ov000_0215feb4* func_ov000_0215feb4(char* arg0, int arg1, int arg2);
 extern "C" int GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
-extern "C" void* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
+extern "C" void* GetTargetResult_ov000_0215fff4(void* target, int index, int listIndex);
 extern "C" void func_ov000_02182498(void* arg0, int arg1);
 extern "C" int strcmp(const char* arg0, const char* arg1);
 extern "C" void func_ov025_021eaf48(unsigned char* arg0, int arg1, int arg2, int arg3);
@@ -198,7 +198,7 @@ extern "C" void func_ov000_02162dc4(unsigned char* arg0, GameObject* arg1, GameO
                                     int arg4, int arg5, unsigned long long arg6, int arg7);
 extern "C" void StopCombatantSidestep_02049ae4(unsigned char* combatant);
 extern "C" void func_ov000_0216f1e4(void* arg0, int* arg1, int arg2, int arg3);
-extern "C" void func_0202ea10(unsigned char* arg0, int arg1, int arg2);
+extern "C" void ShakeCamera_0202ea10(unsigned char* camera, int amplitude, int duration);
 extern "C" void func_ov000_02163440(void* arg0, short arg1, unsigned short arg2, unsigned short arg3);
 extern "C" void func_0205ec20(void* arg0, void* arg1, int arg2);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -215,7 +215,7 @@ extern "C" void func_02032fd0(Struct_02032fd0* arg0, short arg1, unsigned short 
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* GetBattleUI_ov000_02160f08(void* battleScene);
 extern "C" void* func_ov025_021dafd0(char* arg0, int arg1);
-extern "C" void func_ov000_0217616c(void* arg0);
+extern "C" void SendPartyMemberPanelStats_ov000_0217616c(void* panel);
 extern "C" void func_0204a00c(unsigned char* arg0, int arg1);
 extern "C" void func_0203a48c(Struct_0203a48c_3*, int, Struct_0203a48c_2*, int, int, int);
 extern "C" void func_02049f28(unsigned char* arg0);
@@ -225,7 +225,7 @@ extern "C" void func_ov000_021677fc(void* arg0);
 extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
 extern "C" int IsCombatantOnBattlefield_02049ee8(unsigned char* combatant);
 extern "C" void func_020d7334(unsigned char* arg0, int arg1);
-extern "C" void func_02049f3c(unsigned char* arg0);
+extern "C" void SetCombatantOffBattlefield_02049f3c(unsigned char* combatant);
 extern "C" void func_ov000_02167434(unsigned char* arg0, int arg1);
 extern "C" void SetCombatantAppearanceFlags_ov017_02191aac(char* gameResources, int isSet, int combatantIndex, unsigned char flags);
 extern "C" void func_02054028(void* arg0, int arg1);
@@ -412,11 +412,11 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
             var50 = var58;
             var48 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var58);
             if (arg3 == 0) {
-                var8 = (int)func_ov000_0215fff4(var58, arg5, 0);
+                var8 = (int)GetTargetResult_ov000_0215fff4(var58, arg5, 0);
             } else if (arg3 == 1) {
-                var8 = (int)func_ov000_0215fff4(var58, arg5, 1);
+                var8 = (int)GetTargetResult_ov000_0215fff4(var58, arg5, 1);
             } else if (arg3 == 2) {
-                var8 = (int)func_ov000_0215fff4(var58, arg5, 2);
+                var8 = (int)GetTargetResult_ov000_0215fff4(var58, arg5, 2);
             }
             var9 = 1;
         }
@@ -496,7 +496,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
                 var61.y = FIX32_MULTIPLY(var61.y, var62);
                 var61.z = 0x7000;
                 func_ov000_0216f1e4(arg0 + Enum_ov025_021d8c30_3096, &var61.x, 0xb33, 0);
-                func_0202ea10(arg0 + Enum_ov025_021d8c30_3096, 0xcc, 0x3e8);
+                ShakeCamera_0202ea10(arg0 + Enum_ov025_021d8c30_3096, 0xcc, 0x3e8);
                 if (arg2 != 2) {
                     func_ov000_02163440(arg0, 0x199, 0x258, 0x32);
                 }
@@ -750,7 +750,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
     if (var87) var88 = func_ov025_021dafd0((char*)var87, var48);
     if (HasActionResultFlag_ov000_0215fd90(var49, 0x2d) && var88) {
         *(unsigned int*)((unsigned char*)var88 + 0x28) &= ~0x100;
-        func_ov000_0217616c(var88);
+        SendPartyMemberPanelStats_ov000_0217616c(var88);
     }
     if (HasActionResultFlag_ov000_0215fd90(var49, 0x27)) {
         func_0204a00c((unsigned char*)var59, (int)var49);
@@ -804,7 +804,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
             SetMotion_02033b88((struct Struct_02010604*)var59, 4);
         }
         func_020d7334((unsigned char*)var5, var48);
-        func_02049f3c((unsigned char*)var59);
+        SetCombatantOffBattlefield_02049f3c((unsigned char*)var59);
         func_ov000_02167434(arg0, var59->obj3D_.GetTexturePaletteOffset());
         SetCombatantAppearanceFlags_ov017_02191aac(var2, 0, var48, 2);
         SetCombatantAppearanceFlags_ov017_02191aac(var2, 0, var48, 4);
@@ -831,7 +831,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
             Vector3fix var94 = *(Vector3fix*)(arg0 + Enum_ov025_021d8c30_3208);
             var94.z = FIX32_MULTIPLY(var94.z, 0xe66);
             func_ov000_0216f1e4(arg0 + Enum_ov025_021d8c30_3096, &var94.x, 0xccc, 0);
-            func_0202ea10(arg0 + Enum_ov025_021d8c30_3096, 0xcc, 0x3e8);
+            ShakeCamera_0202ea10(arg0 + Enum_ov025_021d8c30_3096, 0xcc, 0x3e8);
         }
         if (!((unsigned char*)func_020100bc(var1) == arg0 + Enum_ov025_021d8c30_3096 && arg0[Enum_ov025_021d8c30_3640] == 2) &&
             *(int*)(arg0 + Enum_ov025_021d8c30_1232) == 0) {
@@ -864,7 +864,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         if (HasActionResultFlag_ov000_0215fd90(var49, 2)) {
             SetMotion_02033b88((struct Struct_02010604*)var59, 4);
             func_020d7334((unsigned char*)var5, var48);
-            func_02049f3c((unsigned char*)var59);
+            SetCombatantOffBattlefield_02049f3c((unsigned char*)var59);
             func_ov000_02167434(arg0, var59->obj3D_.GetTexturePaletteOffset());
             SetCombatantAppearanceFlags_ov017_02191aac(var2, 0, var48, 2);
             SetCombatantAppearanceFlags_ov017_02191aac(var2, 0, var48, 4);
@@ -958,10 +958,10 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         }
         if (var42->unknown_0_) {
             if (!var52) {
-                func_0202ea10(var3, var42->unknown_2_, var42->unknown_0_);
+                ShakeCamera_0202ea10(var3, var42->unknown_2_, var42->unknown_0_);
             }
         } else if (var49->unknown_1c_) {
-            func_0202ea10(var3, 0x333, 0x1f4);
+            ShakeCamera_0202ea10(var3, 0x333, 0x1f4);
         }
         Vector3fix var104 = var59->obj3D_.position_;
         var104.y += var59->obj3D_.GetHeight();
@@ -1117,7 +1117,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
             *(short*)(var128 + 8) = var49->unknown_12_;
             *(short*)(var128 + 0xa) = var49->unknown_14_;
             *(unsigned int*)(var128 + 0x28) = var49->unknown_18_;
-            func_ov000_0217616c(var128);
+            SendPartyMemberPanelStats_ov000_0217616c(var128);
             func_ov000_0216ff20((char*)var128, var49->unknown_1d_);
             var128[0x2f] = var49->unknown_1e_;
         }

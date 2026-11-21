@@ -14,7 +14,7 @@ struct Struct_02010088;
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
 struct Struct_ov024_021f6a1c;
 extern "C" void func_ov024_021f6a1c(struct Struct_ov024_021f6a1c* arg0, void* arg1);
-extern "C" void func_ov024_021f9874(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" void RankCandidateAction_ov024_021f9874(void* tacticAI, void* arg1, int targetGroup, int targetIndex);
 
 struct Struct_ov024_021fc4f4_4 {
     float unknown_0_;
@@ -91,6 +91,6 @@ extern "C" ARM void func_ov024_021fc4f4(struct Struct_ov024_021fc4f4_3* arg0) {
         GetCombatantByID((int)arg0->unknown_0_, 0);
         int var8 = var0->unknown_4_ & 0xff;
         if (var1->unknown_17_4_ == 3) var8 = 0xff;
-        func_ov024_021f9874(arg0, &var3, 0, var8);
+        RankCandidateAction_ov024_021f9874(arg0, &var3, 0, var8);
     }
 }

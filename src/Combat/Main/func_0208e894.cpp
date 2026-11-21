@@ -10,7 +10,7 @@ enum { Enum_0208e894_220 = 0xdc, Enum_0208e894_23552 = 0x5c00 };
 
 struct Struct_0201c1c8;
 extern "C" int _s32_div_f(int a, int b);
-extern "C" void* func_0208e0a8(void);
+extern "C" void* GetFieldItemSpots_0208e0a8(void);
 
 extern int data_02108fe4;
 
@@ -50,7 +50,7 @@ extern "C" ARM int func_0208e894(char* arg0) {
         var0[var2].unknown_3_5_ = var3;
         var0[var2].unknown_3_7_ = 1;
     } else {
-        var1 = (struct Struct_02108ff4*)((char*)func_0208e0a8() + 0x10);
+        var1 = (struct Struct_02108ff4*)((char*)GetFieldItemSpots_0208e0a8() + 0x10);
         var0[var2].unknown_0_0_ = 0;
         var0[var2].unknown_1_1_ = var1[var4].unknown_3_;
         var0[var2].unknown_2_1_ = 0;

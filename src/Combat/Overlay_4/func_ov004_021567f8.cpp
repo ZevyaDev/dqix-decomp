@@ -9,7 +9,7 @@ struct Struct_020a13c4;
 extern "C" void ClearAccoladeTable_020a13c4(Struct_020a13c4* table);
 struct Struct_02013fb4;
 extern "C" void func_020a147c(void*, void*, Struct_02013fb4*, int, int, unsigned short, unsigned char);
-extern "C" int func_020ac460(void* arg0);
+extern "C" int GetEarnedAccoladeBits_020ac460(void* earnedBits);
 extern "C" void __clear(void* arg0, int arg1);
 struct AccoladeTable_020a15bc;
 struct AccoladeEntry_020a15bc_2;
@@ -76,7 +76,7 @@ extern "C" ARM int func_ov004_021567f8(void* arg0) {
 #endif
     unsigned int var9[15];
     __clear(var9, sizeof(var9));
-    func_020ac460(var9);
+    GetEarnedAccoladeBits_020ac460(var9);
 
     int var10, var11, var12;
     for (var12 = 0, var10 = 0; var10 < 0x1e0; var10++) {

@@ -63,7 +63,7 @@ extern "C" int PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* mana
 struct Struct_ov012_02186a7c;
 extern "C" int func_ov023_021e6e20(struct Struct_ov012_02186a7c* arg0);
 
-extern "C" void func_ov023_021e6e60(void* arg0);
+extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(void* menu);
 extern "C" int func_ov023_021e6de4(char* arg0);
 extern "C" int func_ov012_0218432c(int arg0);
 extern "C" int func_ov023_021e6448(void* arg0);
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov012_02186e38(char* arg0) {
 		if (var1 < 0) *(int*)(arg0 + Enum_ov012_02186e38_5084) = 0;
 
 		SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)(arg0 + Enum_ov012_02186e38_172), 0, 3);
-		func_ov023_021e6e60(arg0);
+		ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
 		func_ov012_02189a78(arg0);
 		(*(unsigned char*)(arg0 + Enum_ov012_02186e38_4976))++;
 		return;

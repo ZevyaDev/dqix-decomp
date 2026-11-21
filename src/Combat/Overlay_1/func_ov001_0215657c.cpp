@@ -82,7 +82,7 @@ extern "C" void RemoveFromQueue_02046a8c(void*, void*);
 extern "C" void func_ov017_021bb0c4(unsigned char*);
 void SetBrightness(GameResources*, int, int);
 extern "C" void EnableCameraFollow_020a2794(void*);
-extern "C" void func_020a2718(char*);
+extern "C" void ResetFollowCameraAngle_020a2718(char*);
 extern "C" void func_ov017_021bb27c(void*);
 extern int gMusicManager_02109bf4 __attribute__((aligned(4)));
 
@@ -141,7 +141,7 @@ extern "C" ARM int func_ov001_0215657c(Struct_ov001_0215657c_2* arg0, void* arg1
     }
     SetBrightness(var1, 0, 30);
     EnableCameraFollow_020a2794(var2);
-    func_020a2718(var2);
+    ResetFollowCameraAngle_020a2718(var2);
     SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, arg0->unknown_94_, 0);
     func_ov017_021bb27c(arg0);
     arg0->unknown_1_ = 1;

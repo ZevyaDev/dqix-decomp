@@ -39,16 +39,16 @@ struct Struct_ov000_02166a94_4 {
     char unknown_0_[0x230];
     char unknown_230_[4];
 };
-struct Struct_02057de0_2;
+struct EffectManager_02057de0_2;
 struct ObjectArchiveLoadInfo_0203d028_11 { int unknown_0_[8]; };
 union Struct_ov000_02166a94 { ObjectArchiveLoadInfo_0203d028_11 unknown_0_; ObjectArchiveLoadInfo unknown1_0_; };
 struct Struct_020d6d18_2;
 struct Struct_020d6d90_3;
 struct Struct_020d76fc;
 struct Struct_020d6ec8;
-extern "C" Struct_02057de0_2* GetEffectManager_02057924();
+extern "C" EffectManager_02057de0_2* GetEffectManager_02057924();
 extern "C" void func_020c9be0();
-extern "C" void func_02057de0(Struct_02057de0_2*, int, SafeAllocator*, int, int);
+extern "C" void LoadEffectResource_02057de0(EffectManager_02057de0_2*, int, SafeAllocator*, int, int);
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d028_11*);
 extern "C" void func_ov000_02182114(char*);
 extern "C" void func_ov000_0218214c(void*, SafeAllocator*, const void*);
@@ -74,7 +74,7 @@ extern Struct_ov000_02183028 data_ov000_02183028;
 extern "C" ARM void func_ov000_02166a94(Struct_ov000_02166a94_3* arg0) {
     SafeAllocator* var0;
     Struct_ov000_02166a94_4* var1;
-    Struct_02057de0_2* var2;
+    EffectManager_02057de0_2* var2;
     SafeAllocator* var3;
     GameResources* var4 = GetGameResources();
     var2 = GetEffectManager_02057924();
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov000_02166a94(Struct_ov000_02166a94_3* arg0) {
         void* var7 = var0->Allocate(var5);
         if (var7) {
             memcpy(var7, var6, var5);
-            func_02057de0(var2, 2, var0, (int)var7, var5);
+            LoadEffectResource_02057de0(var2, 2, var0, (int)var7, var5);
         }
     }
     SafeAllocator* var8[4] = {var0, arg0->unknown_4_, arg0->unknown_4_, arg0->unknown_4_};
@@ -106,7 +106,7 @@ extern "C" ARM void func_ov000_02166a94(Struct_ov000_02166a94_3* arg0) {
             void* var13 = (*var11)->Allocate(var5);
             if (var13) {
                 memcpy(var13, var6, var5);
-                func_02057de0(var2, data_ov000_021838fc[var10], *var12, (int)var13, var5);
+                LoadEffectResource_02057de0(var2, data_ov000_021838fc[var10], *var12, (int)var13, var5);
             }
         }
     }

@@ -54,7 +54,7 @@ extern "C" void UpdateTaskQueue_ov017_021a3498(Queue_0203d028_4*);
 extern "C" void func_020a654c(GameResources*);
 extern "C" void func_020ac9ac(GameResources*);
 extern "C" void func_02011b68(GameState*);
-extern "C" int func_0202e09c(int);
+extern "C" int GetCameraClassFlags_0202e09c(int);
 extern "C" void func_020a20d8(void*);
 extern "C" void func_ov000_0216d464(void*);
 extern "C" void func_0204a170(void*);
@@ -138,9 +138,9 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
     func_02011b68(var0);
     void* var13 = func_020100bc(var0);
     if (var13) {
-        if (func_0202e09c((int)var13) & 4) func_020a20d8(var13);
-        else if (func_0202e09c((int)var13) & 8) func_ov000_0216d464(var13);
-        else if (func_0202e09c((int)var13) & 16) func_0204a170(var13);
+        if (GetCameraClassFlags_0202e09c((int)var13) & 4) func_020a20d8(var13);
+        else if (GetCameraClassFlags_0202e09c((int)var13) & 8) func_ov000_0216d464(var13);
+        else if (GetCameraClassFlags_0202e09c((int)var13) & 16) func_0204a170(var13);
     }
     func_ov017_0218d0ec(arg0);
     if (GetQueueHeadType_02046b24((QueueNode_02015438**)arg0->unknown_ptr_array_36fc[0]) != 3) {

@@ -10,7 +10,7 @@
 #define func_020c555c func_020c7028
 #endif
 
-extern "C" unsigned short (*func_02099cac(void))[2];
+extern "C" unsigned short (*GetCharacterPalettes_02099cac(void))[2];
 extern "C" int func_020c555c(int edgeColors);
 extern "C" void func_02031234(int arg0);
 
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov023_021e5628(Struct_ov023_021e5628* arg0, Struct_ov02
     if (arg0->unknown_c12_ != 0) return;
     if (arg0->unknown_c14_ == 0) return;
 
-    unsigned short (*var0)[2] = func_02099cac();
+    unsigned short (*var0)[2] = GetCharacterPalettes_02099cac();
     if (var0 == 0) return;
 
     unsigned short var1 = *(unsigned short*)((char*)var0 + 0x128);

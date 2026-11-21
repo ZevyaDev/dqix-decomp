@@ -25,7 +25,7 @@ extern "C" void* GetMenuObjectStringList_ov023_021fa598(void* object);
 extern "C" void RedrawMenuWindow_ov023_021f809c(void* window, void* menu);
 extern "C" void func_ov004_021561b0(void* arg0);
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" ARM int func_020ac460(void* arg0);
+extern "C" ARM int GetEarnedAccoladeBits_020ac460(void* earnedBits);
 struct Struct_ov004_021549e4_5;
 extern "C" void func_ov023_021f9bdc(struct Struct_ov004_021549e4_5*, int);
 struct SoundEffectManager_02108760;
@@ -70,7 +70,7 @@ extern "C" ARM int func_ov004_02156a00(void* arg0) {
 
     memset(data_ov004_021707c8.unknown_4_, 0, 0x3c0);
     __clear(var0, 0x3c);
-    func_020ac460(var0);
+    GetEarnedAccoladeBits_020ac460(var0);
 
     int var8 = 0;
     for (struct Struct_ov004_02156a00* var9 = ((struct Struct_ov004_02156a00_2*)data_ov004_021707c8.unknown_c_)->unknown_8_; var9 != 0; var9 = var9->unknown_8_) {

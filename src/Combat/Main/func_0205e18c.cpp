@@ -10,12 +10,12 @@ struct Struct_0205e18c {
     int unknown_8_;
 };
 
-extern "C" void func_020d8654(void);
-extern "C" void func_020d8694(void);
+extern "C" void SaveAndDisableVCounterInterrupt_020d8654(void);
+extern "C" void RestoreVCounterInterrupt_020d8694(void);
 
 // USA: func_0205e18c
 extern "C" ARM void func_0205e18c(struct Struct_0205e18c* arg0, struct Struct_0205e18c_2* arg1) {
-    func_020d8654();
+    SaveAndDisableVCounterInterrupt_020d8654();
     if (arg0->unknown_0_ != NULL) {
         arg0->unknown_4_->unknown_18_ = arg1;
         arg0->unknown_4_ = arg1;
@@ -26,5 +26,5 @@ extern "C" ARM void func_0205e18c(struct Struct_0205e18c* arg0, struct Struct_02
     }
     arg0->unknown_8_++;
     arg0->unknown_4_->unknown_18_ = NULL;
-    func_020d8694();
+    RestoreVCounterInterrupt_020d8694();
 }

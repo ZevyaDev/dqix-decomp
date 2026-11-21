@@ -61,7 +61,7 @@ struct Struct_02026f34 {
 };
 
 extern Struct_020fdc60_4 data_020fdc60[4];
-extern Struct_020fdcb0_5 data_020fdcb0[4];
+extern Struct_020fdcb0_5 gPartyStatsCache_020fdcb0[4];
 
 extern "C" void func_0201fbac(struct Struct_0201fbac* arg0);
 extern "C" void func_0201fc40(struct Struct_0201fc40* arg0, int arg1);
@@ -94,7 +94,7 @@ extern "C" ARM void func_02026f34(void* arg0) {
         if (!(var0[0x55d] & var8)) continue;
 
         var6 = (Struct_020fdc60_4*)((char*)data_020fdc60 + var3 * 0x14);
-        var7 = (Struct_020fdcb0_5*)((char*)data_020fdcb0 + (var5 << 5));
+        var7 = (Struct_020fdcb0_5*)((char*)gPartyStatsCache_020fdcb0 + (var5 << 5));
         void* var9 = var1->GetPartyMemberByIndex(var5);
         if (var9 == NULL) continue;
 

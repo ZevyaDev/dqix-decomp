@@ -13,7 +13,7 @@ extern "C" void SetObject3DPositionFromVector_02059f38(struct Struct_02059cfc_2*
 
 struct Struct_02059cfc_4;
 
-extern "C" void func_02059cc8(unsigned char* arg0);
+extern "C" void ResetEffectSlot_02059cc8(unsigned char* slot);
 
 struct Struct_02057334_2;
 extern "C" int func_02057854(struct Struct_02057334_2* arg0);
@@ -59,7 +59,7 @@ extern "C" ARM void func_0205a020(unsigned char* arg0, int arg1) {
 
         if (arg0[0x19] & 1) {
             if (((Object3D*)((struct Struct_02059cfc_4*)arg0))->HasAnimationStopped()) {
-                func_02059cc8(arg0);
+                ResetEffectSlot_02059cc8(arg0);
             }
         }
 
@@ -67,12 +67,12 @@ extern "C" ARM void func_0205a020(unsigned char* arg0, int arg1) {
         if (*var6 > 0) {
             *var6 -= arg1;
             if (*var6 <= 0) {
-                func_02059cc8(arg0);
+                ResetEffectSlot_02059cc8(arg0);
             }
         }
     } else {
         if (func_02057854(*(struct Struct_02057334_2**)(arg0 + 0x4)) == 1) {
-            func_02059cc8(arg0);
+            ResetEffectSlot_02059cc8(arg0);
         } else {
             func_02055774((int*)arg0);
         }

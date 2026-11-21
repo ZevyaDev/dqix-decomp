@@ -9,11 +9,11 @@
 #endif
 
 
-extern "C" void func_020d8654(void);
+extern "C" void SaveAndDisableVCounterInterrupt_020d8654(void);
 extern "C" void func_020d84e4(void);
 extern "C" void func_020d84e8(void);
 extern "C" void* func_0202ae18(void);
-extern "C" void func_020d8694(void);
+extern "C" void RestoreVCounterInterrupt_020d8694(void);
 extern "C" void func_020c9be0(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
@@ -61,7 +61,7 @@ struct Struct_0205e330_2 {
 extern "C" ARM void QueueOutgoingPacket_0205e330(unsigned char* packetQueue, struct LocalWirelessPacket_0205e330_3* packet, short flags) {
     struct Struct_0205e1e4_2* node;
 
-    func_020d8654();
+    SaveAndDisableVCounterInterrupt_020d8654();
     func_020d84e4();
 
     if (IsLocalWirelessOn_0202b7d8((int*)func_0202ae18())) {
@@ -82,5 +82,5 @@ extern "C" ARM void QueueOutgoingPacket_0205e330(unsigned char* packetQueue, str
     }
 
     func_020d84e8();
-    func_020d8694();
+    RestoreVCounterInterrupt_020d8694();
 }

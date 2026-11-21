@@ -28,7 +28,7 @@ extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*,int,int);
 extern "C" void* GetParty_02010828(GameState*);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*,int);
-extern "C" Struct_ov000_021735d0_2* func_ov000_0217f8c0(Struct_ov000_021735d0_3*);
+extern "C" Struct_ov000_021735d0_2* GetSelectedMemberPanel_ov000_0217f8c0(Struct_ov000_021735d0_3*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_ov000_0218155c(void*);
 extern "C" void func_ov000_0217a9d0(int,int,int,TextWindowManager_0205d81c*);
@@ -78,10 +78,10 @@ extern "C" ARM void func_ov000_0217ce24(Struct_ov000_021682ec_5* arg0,int arg1,i
             func_ov000_02177038(arg0,0,arg0->unknown_1d60_[arg0->unknown_1d68_],arg1,arg2);
             if(var2->unknown_f7c_==1||var4||arg0->unknown_1d78_||var3==1){
                 arg0->unknown_1d6b_=0;arg0->unknown_1d68_++;arg0->unknown_1d60_[arg0->unknown_1d68_]=12;
-                func_ov000_02176634(arg0,func_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0),12,arg1,arg2);
+                func_ov000_02176634(arg0,GetSelectedMemberPanel_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0),12,arg1,arg2);
             }else{
                 arg0->unknown_1d6b_=0;arg0->unknown_1d68_++;arg0->unknown_1d60_[arg0->unknown_1d68_]=3;
-                func_ov000_02176634(arg0,func_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0),3,arg1,arg2);
+                func_ov000_02176634(arg0,GetSelectedMemberPanel_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0),3,arg1,arg2);
             }
             break;
         case 1:
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov000_0217ce24(Struct_ov000_021682ec_5* arg0,int arg1,i
                     break;
                 }
             }
-            {Struct_ov000_021735d0_2* var12=func_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0);
+            {Struct_ov000_021735d0_2* var12=GetSelectedMemberPanel_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0);
             func_ov000_02176634(arg0,var12,arg0->unknown_1d60_[arg0->unknown_1d68_],arg1,arg2);}
             func_ov000_0217a9d0(6,func_ov000_0218155c(arg0),4,(TextWindowManager_0205d81c*)arg0->unknown_188_);
             break;
@@ -106,7 +106,7 @@ extern "C" ARM void func_ov000_0217ce24(Struct_ov000_021682ec_5* arg0,int arg1,i
             arg0->unknown_79_=var3;
             func_ov000_02177038(arg0,0,arg0->unknown_1d60_[arg0->unknown_1d68_],arg1,arg2);
             arg0->unknown_1d6b_=0;arg0->unknown_1d68_++;arg0->unknown_1d60_[arg0->unknown_1d68_]=8;
-            func_ov000_02176634(arg0,func_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0),8,arg1,arg2);
+            func_ov000_02176634(arg0,GetSelectedMemberPanel_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0),8,arg1,arg2);
             break;
         case 3:
             func_ov000_02176e3c(arg0,0,arg0->unknown_1d60_[arg0->unknown_1d68_],arg1,arg2,1);

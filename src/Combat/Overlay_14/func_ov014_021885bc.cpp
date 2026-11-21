@@ -11,7 +11,7 @@
 #define LOW_REGION(j, u) (u)
 #endif
 
-extern "C" void func_02080bac(void* arg0, int arg1);
+extern "C" void ShowMenuLayoutWindowTexts_02080bac(void* menuLayout, int windowId);
 extern "C" void func_0208065c(void* arg0, int arg1);
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c* menuLayout, int textId, int text);
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov014_021885bc(void* arg0) {
     void* var0 = *(void**)((char*)arg0 + 0xc0);
     short var1 = *(short*)((char*)arg0 + 0x176);
     *(short*)((char*)var0 + LOW_REGION(0x2a, 0x36)) = var1;
-    func_02080bac(var0, 5);
+    ShowMenuLayoutWindowTexts_02080bac(var0, 5);
     func_0208065c(var0, 5);
 
     struct Struct_ov014_021885bc* var2 = *(struct Struct_ov014_021885bc**)((char*)arg0 + 0xbc);

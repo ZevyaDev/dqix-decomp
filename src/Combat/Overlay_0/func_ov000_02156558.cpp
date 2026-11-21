@@ -8,7 +8,7 @@ enum { Enum_ov000_02156558_336 = 0x150, Enum_ov000_02156558_2384 = 0x950 };
 #include "Util/Random.h"
 
 extern "C" int func_ov000_0215fc60(char* arg0);
-extern "C" int func_ov000_02155f9c(struct Random* arg0, int arg1, int arg2);
+extern "C" int IsCombatantIncapacitated_ov000_02155f9c(struct Random* battle, int combatantIndex, int isConfusionCounted);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int func_ov000_02156404(GameObject* arg0);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov000_02156558(struct Random* arg0, int arg1) {
         return 0;
     }
 
-    if (func_ov000_02155f9c(arg0, arg1, 0) != 0) {
+    if (IsCombatantIncapacitated_ov000_02155f9c(arg0, arg1, 0) != 0) {
         return 0;
     }
 

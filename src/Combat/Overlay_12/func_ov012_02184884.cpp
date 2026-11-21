@@ -8,7 +8,7 @@ extern "C" ARM void func_ov003_0215efb8(Struct_ov003_0215efb8* arg0);
 struct Struct_ov003_0215e6d8;
 extern "C" ARM void func_ov003_0215e6d8(Struct_ov003_0215e6d8* arg0);
 
-extern "C" ARM int func_020ac460(void* arg0);
+extern "C" ARM int GetEarnedAccoladeBits_020ac460(void* earnedBits);
 
 #if defined(jpn)
 enum { Enum_ov012_02184884_0 = -8, Enum_ov012_02184884_0_2 = -0x28, Enum_ov012_02184884_0_3 = 0x58, Enum_ov012_02184884_84992 = 0x15000, Enum_ov012_02184884_9216 = 0x1c00, Enum_ov012_02184884_6144 = 0x1400, Enum_ov012_02184884_760 = 0x2a8 };
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov012_02184884(char* arg0, SafeAllocator* arg1) {
     *(void**)(arg0 + 0x1000 + 0x3cc + Enum_ov012_02184884_0_3) = var3;
     memset(var3, 0, 0x3c);
 
-    func_020ac460(*(void**)(arg0 + 0x1000 + 0x3cc + Enum_ov012_02184884_0_3));
+    GetEarnedAccoladeBits_020ac460(*(void**)(arg0 + 0x1000 + 0x3cc + Enum_ov012_02184884_0_3));
 
     void* var4 = arg1->Allocate(0x400);
     *(void**)(arg0 + 0x1000 + 0x3d0 + Enum_ov012_02184884_0_3) = var4;

@@ -138,8 +138,8 @@ extern "C" struct Struct_ov003_0215582c_10* FindItemData_020dedd0(struct ItemTab
 extern "C" void SetEquippedItem_02052d7c(void* gameObject, int slot, int itemId);
 extern "C" int RemoveEquipmentFromBag_0207c484(struct EquipmentBag_0207c484* bag, int itemId, int count, int category);
 extern "C" short* GetAppearance_02052e2c(struct Struct_02052e2c* gameObject);
-extern "C" void UnequipCategory_02083738(void* memberData, int arg1);
-extern "C" void SetLevelStats_02083cbc(void* memberData, void* arg1, void* arg2);
+extern "C" void UnequipCategory_02083738(void* memberData, int category);
+extern "C" void SetLevelStats_02083cbc(void* memberData, void* levelEntry, void* arg2);
 extern "C" void LearnSpell_02083b60(unsigned char* memberData, int spellId);
 extern "C" void* func_0202ae18(void);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);

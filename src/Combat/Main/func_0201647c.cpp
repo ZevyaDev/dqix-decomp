@@ -39,7 +39,7 @@ struct Struct_0201647c_2 {
 struct Struct_020130b0;
 extern "C" void* func_0205ec34();
 extern "C" int* func_0202ae18();
-extern "C" void* func_0208e0a8();
+extern "C" void* GetFieldItemSpots_0208e0a8();
 extern "C" int func_0208e824(void*, char*);
 extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
@@ -60,7 +60,7 @@ extern "C" ARM void func_0201647c(Zone3D* arg0) {
     LootableContainerManager* var1 = LootableContainerManager::GetMainInstance();
     unsigned char* var2 = (unsigned char*)func_0205ec34();
     int* var3 = func_0202ae18();
-    Struct_0201647c_2* var4 = (Struct_0201647c_2*)func_0208e0a8();
+    Struct_0201647c_2* var4 = (Struct_0201647c_2*)GetFieldItemSpots_0208e0a8();
     LootableContainerManager::Container* var5 = var1->pContainerList_;
     bool var6 = false;
     if (func_0208e824(var4, arg0->pUnknownStruct_8_->mapShortName_)) var6 = true;

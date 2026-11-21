@@ -41,7 +41,7 @@ extern "C" void* GetColorFade_020704fc(void);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void ResetGeometryEngine_020c52e8();
 extern "C" void ResetMatrixStacks_020c5414();
-extern "C" void func_020c57d4(int, int, int, int, void*);
+extern "C" void WriteAndLoadViewMatrix_020c57d4(int, int, int, int, void*);
 extern "C" void SetOrthographicProjection_020c5770(int, int, int, int, int, int, int, int, void*);
 extern "C" void func_ov017_021a3b30(int);
 extern "C" void func_020707c8(Struct_020707c8*);
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov017_021960b8(Struct_ov017_021960b8* arg0) {
     ResetGeometryEngine_020c52e8();
     ResetMatrixStacks_020c5414();
     *(volatile unsigned int*)0x04000440 = 0;
-    func_020c57d4((int)&var5, (int)&var6, (int)&var4, 1, NULL);
+    WriteAndLoadViewMatrix_020c57d4((int)&var5, (int)&var6, (int)&var4, 1, NULL);
     SetOrthographicProjection_020c5770(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, 1, NULL);
     *(volatile unsigned int*)0x04000440 = 2;
     func_ov017_021a3b30((int)arg0->unknown_36fc_);

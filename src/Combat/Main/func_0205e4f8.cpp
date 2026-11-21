@@ -4,10 +4,10 @@
 #define func_0202ae18 func_0202a9d0
 #endif
 
-extern "C" void func_020d8654(void);
+extern "C" void SaveAndDisableVCounterInterrupt_020d8654(void);
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_0202c19c(void* arg0);
-extern "C" void func_020d8694(void);
+extern "C" void RestoreVCounterInterrupt_020d8694(void);
 
 struct Struct_0205e4f8 {
     unsigned char unknown_0_;
@@ -24,7 +24,7 @@ struct Struct_0205e4f8_2 {
 // USA: func_0205e4f8
 extern "C" ARM int func_0205e4f8(void* arg0, int arg1) {
     int var0 = 0;
-    func_020d8654();
+    SaveAndDisableVCounterInterrupt_020d8654();
     struct Struct_0205e4f8* var1 = *(struct Struct_0205e4f8**)((char*)arg0 + 0x150c);
     while (var1 != NULL) {
         if (var1->unknown_0_ == arg1) {
@@ -42,6 +42,6 @@ extern "C" ARM int func_0205e4f8(void* arg0, int arg1) {
             }
         }
     }
-    func_020d8694();
+    RestoreVCounterInterrupt_020d8694();
     return var0;
 }

@@ -26,27 +26,27 @@ struct Struct_ov005_02153954 {
 
 extern "C" void func_ov005_021571d0(Struct_ov005_02153954* arg0);
 
-// USA: func_ov005_0215792c
-extern "C" ARM void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char arg1) {
-    arg0->unknown_3db9_ = arg0->unknown_3db8_;
-    arg0->unknown_3db8_ = arg1;
-    arg0->unknown_3dba_ = 0;
-    if (arg0->unknown_3db8_ == 0) {
-        arg0->unknown_3dbe_ = arg0->unknown_3dbc_;
-        arg0->unknown_3dcc_ |= 0x400;
+// USA: SetEquipMenuMode_ov005_0215792c
+extern "C" ARM void SetEquipMenuMode_ov005_0215792c(Struct_ov005_02153954* equipMenuUI, unsigned char mode) {
+    equipMenuUI->unknown_3db9_ = equipMenuUI->unknown_3db8_;
+    equipMenuUI->unknown_3db8_ = mode;
+    equipMenuUI->unknown_3dba_ = 0;
+    if (equipMenuUI->unknown_3db8_ == 0) {
+        equipMenuUI->unknown_3dbe_ = equipMenuUI->unknown_3dbc_;
+        equipMenuUI->unknown_3dcc_ |= 0x400;
     } else {
-        arg0->unknown_3dcc_ &= ~0x400;
+        equipMenuUI->unknown_3dcc_ &= ~0x400;
     }
-    if (arg0->unknown_3db8_ == 0 && arg0->unknown_3db9_ == 1) {
-        arg0->unknown_3df0_ = 3;
-        arg0->unknown_3df1_ = 30;
-        arg0->unknown_3df2_ = 30;
-        arg0->unknown_3dcc_ &= ~0x1000;
-        arg0->unknown_3dcc_ &= ~0x2000;
-    } else if (arg0->unknown_3db9_ == 3) {
-        arg0->unknown_3df0_ = 0;
-        arg0->unknown_3dcc_ &= ~0x1000;
+    if (equipMenuUI->unknown_3db8_ == 0 && equipMenuUI->unknown_3db9_ == 1) {
+        equipMenuUI->unknown_3df0_ = 3;
+        equipMenuUI->unknown_3df1_ = 30;
+        equipMenuUI->unknown_3df2_ = 30;
+        equipMenuUI->unknown_3dcc_ &= ~0x1000;
+        equipMenuUI->unknown_3dcc_ &= ~0x2000;
+    } else if (equipMenuUI->unknown_3db9_ == 3) {
+        equipMenuUI->unknown_3df0_ = 0;
+        equipMenuUI->unknown_3dcc_ &= ~0x1000;
     }
-    if (arg0->unknown_3db8_ != 5 && arg0->unknown_3db8_ != 1 && arg0->unknown_3db8_ != 7)
-        func_ov005_021571d0(arg0);
+    if (equipMenuUI->unknown_3db8_ != 5 && equipMenuUI->unknown_3db8_ != 1 && equipMenuUI->unknown_3db8_ != 7)
+        func_ov005_021571d0(equipMenuUI);
 }

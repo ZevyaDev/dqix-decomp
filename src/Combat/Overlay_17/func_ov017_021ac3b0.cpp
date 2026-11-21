@@ -85,7 +85,7 @@ extern "C" void AppendText_02042058(char*, const char*);
 extern "C" char* func_0206f504();
 extern "C" void func_0206f510(char*);
 extern "C" void func_0206f550(char*, char*, char*);
-extern "C" int func_020ac2d4(int, void*, Struct_ov017_021ac3b0*, int);
+extern "C" int GetAlchemyRecipeStates_020ac2d4(int, void*, Struct_ov017_021ac3b0*, int);
 extern "C" void func_020ac104(int, Struct_ov017_021ac3b0*, int);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void EnablePlayerControl_020397c0(void*);
@@ -208,7 +208,7 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
                 for (unsigned char var23 = 0; var23 < var21; var23++) {
                     var22[var23].unknown_0_ = -1; var22[var23].unknown_2_0_ = 0; var22[var23].unknown_2_1_ = 0; var22[var23].unknown_2_2_ = 0;
                 }
-                if (func_020ac2d4(0, arg0->unknown_c_->unknown_c_, var22, var21)) {
+                if (GetAlchemyRecipeStates_020ac2d4(0, arg0->unknown_c_->unknown_c_, var22, var21)) {
                     for (unsigned char var24 = 0; var24 < var21; var24++) var22[var24].unknown_2_1_ = 1;
                     func_020ac104(0, var22, var21);
                 }

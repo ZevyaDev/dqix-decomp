@@ -33,11 +33,11 @@ extern unsigned int data_ov025_021ef9a4;
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" BattleAction_ov000_0215440c* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" void func_ov025_021df9b0(void* arg0);
-struct Struct_ov000_02163a7c;
-extern "C" void func_ov000_02163a7c(Struct_ov000_02163a7c*);
+struct BattleScene_ov000_02163a7c;
+extern "C" void SetCombatantsOpaque_ov000_02163a7c(BattleScene_ov000_02163a7c*);
 extern "C" void* func_ov000_02169b04(struct Struct_ov000_02169b04* arg0, int arg1);
 extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
-extern "C" Struct_ov025_021e9b2c* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
+extern "C" Struct_ov025_021e9b2c* GetTargetResult_ov000_0215fff4(void* target, int index, int listIndex);
 extern "C" short GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 extern "C" void func_ov025_021eb6fc(Struct_ov025_021e9778_3* arg0, int arg1);
 extern "C" void func_ov025_021ea474(Struct_ov025_021e9778_3* arg0);
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov025_021e9b2c(Struct_ov025_021e9778_3* arg0) {
         func_ov025_021ea474(arg0);
         func_ov025_021eb7fc(arg0);
         func_ov025_021df9b0((char*)var0 + Enum_ov025_021e9b2c_23216);
-        func_ov000_02163a7c((Struct_ov000_02163a7c*)var0);
+        SetCombatantsOpaque_ov000_02163a7c((BattleScene_ov000_02163a7c*)var0);
     }
     if (arg0->unknown_1c4_ & 0x10) {
         arg0->unknown_1c4_ &= ~0x10;
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov025_021e9b2c(Struct_ov025_021e9778_3* arg0) {
                     continue;
                 }
                 for (int var5 = 0; var5 < var4->unknown_18_; var5++) {
-                    Struct_ov025_021e9b2c* var6 = func_ov000_0215fff4(var4, var5, 0);
+                    Struct_ov025_021e9b2c* var6 = GetTargetResult_ov000_0215fff4(var4, var5, 0);
                     if (var6 != NULL && var6->unknown_8_ != NULL) {
                         var2 = 0;
                         break;

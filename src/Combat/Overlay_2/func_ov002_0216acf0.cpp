@@ -94,7 +94,7 @@ struct Struct_ov002_0216acf0_5 {
     unsigned char unknown_5_;
 };
 
-extern Struct_020fdcb0_2 data_020fdcb0[];
+extern Struct_020fdcb0_2 gPartyStatsCache_020fdcb0[];
 extern char gSoundEffectManager_02108760;
 
 #define U8(o) (*(unsigned char*)(arg0 + (o)))
@@ -121,7 +121,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
     int var4 = 0;
     int var5 = 0;
     for (int var6 = 0; var6 < 4; var6++) {
-        Struct_020fdcb0_2* var7 = &data_020fdcb0[var6];
+        Struct_020fdcb0_2* var7 = &gPartyStatsCache_020fdcb0[var6];
         if (var7->unknown_0_ >= 0) var3 += var7->unknown_0_;
         if (var7->unknown_4_ >= 0) var4 += var7->unknown_4_;
         if (var7->unknown_8_ >= 0) var3 += var7->unknown_8_;

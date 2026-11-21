@@ -66,7 +66,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int IsNotLocalWirelessGuest_0202c508(int*);
 extern "C" void func_ov017_021cf730(int, int);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
-extern "C" void func_ov017_021d1810(int, int, signed char);
+extern "C" void SendNotice_ov017_021d1810(int, int, signed char);
 extern "C" void func_02011408(void*);
 extern "C" void func_ov017_021d3ec8();
 extern "C" void ResetMessageWindow_02043204(char*);
@@ -130,7 +130,7 @@ extern "C" ARM void func_ov017_021be0c4(Struct_ov017_021be0c4* arg0) {
             int* var7 = func_0202ae18();
             if (IsLocalWirelessOn_0202b7d8(var7) && IsNotLocalWirelessGuest_0202c508(var7)) {
                 func_ov017_021cf730(-1, 0);
-                func_ov017_021d1810(0x2713, -1, GetProtagonistObjectIndex_020100a8(var0));
+                SendNotice_ov017_021d1810(0x2713, -1, GetProtagonistObjectIndex_020100a8(var0));
             }
             func_02011408(var0);
             func_ov017_021d3ec8();

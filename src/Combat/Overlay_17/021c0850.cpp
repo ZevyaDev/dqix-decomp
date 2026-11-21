@@ -147,7 +147,7 @@ extern "C" void* func_0203bd08(void);
 extern "C" void ResetOAMManager_0203bd24(char* oamManager);
 extern "C" int* GetSpriteTextManager_0203bd14(void);
 extern "C" int func_0203be4c(void* arg0);
-extern "C" void func_0203c35c(int* arg0);
+extern "C" void LoadSpriteTextPalettes_0203c35c(int* spriteTextManager);
 extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 extern "C" void func_ov008_02184a2c(char*);
 extern "C" int func_ov008_02184754(void* arg0);
@@ -155,7 +155,7 @@ extern "C" void RestoreMainBGControl_02074bd0(BGControlSave_02074bd0* save);
 extern "C" void RestoreSubBGControl_02074bf4(BGControlSave_02074bf4* save);
 extern "C" void* func_ov008_021845ac(void* arg0);
 extern "C" void func_ov017_0218f79c(void* arg0);
-extern "C" void func_ov017_0219b624(GameResources* arg0);
+extern "C" void LoadFieldIcons_ov017_0219b624(GameResources* gameResources);
 extern "C" int GetMessageWindow_020421a0(void);
 struct TextureVRAMArea_0203d028;
 extern "C" void InitMessageGlyphs_020432c4(void* window);
@@ -325,7 +325,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         *(int*)var7 = 0;
         int* var8 = GetSpriteTextManager_0203bd14();
         *var8 = func_0203be4c(var7) + 0x200;
-        func_0203c35c(var8);
+        LoadSpriteTextPalettes_0203c35c(var8);
         var8[Enum_ov017_021c0850_1288 / 4] = 0x7000;
         arg0->unknown_20_++;
     } else if (arg0->unknown_20_ == 3) {
@@ -372,7 +372,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
             }
             var11++;
         }
-        func_ov017_0219b624(var1);
+        LoadFieldIcons_ov017_0219b624(var1);
         char* var14 = var1->unknown_2cc_;
         void* var15 = (void*)GetMessageWindow_020421a0();
         ((TextureArena*)((TextureVRAMArea_0203d028*)(var14 + 0x5b0)))->Reset();

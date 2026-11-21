@@ -8,14 +8,14 @@
 #define func_ov017_021b8468 func_ov017_021b8978
 #endif
 
-struct Struct_0207d7f4;
+struct BattleJoinRecord_0207d7f4;
 struct Struct_0207da94;
 struct Struct_ov000_0216377c;
 
 extern "C" void* GetBattleJoinTable_0207d78c(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_0207da94(struct Struct_0207da94* arg0, int arg1);
-extern "C" int func_0207db58(struct Struct_0207d7f4* arg0, unsigned short arg1, char arg2);
+extern "C" int func_0207db58(struct BattleJoinRecord_0207d7f4* arg0, unsigned short arg1, char arg2);
 extern "C" void* func_ov017_021b8478(void* battleManager);
 extern "C" int func_ov017_021b8468(void* battleManager);
 extern "C" void func_ov000_0216377c(struct Struct_ov000_0216377c* arg0, unsigned char arg1);
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov017_021c9bc8(char arg0, struct Struct_ov017_021c9bc8*
 	unsigned short var2 = arg1->unknown_6_;
 	if (IsNotLocalWirelessGuest_0202c508(arg4)) {
 		func_0207da94((struct Struct_0207da94*)var0, var2 & 0xff);
-		func_0207db58((struct Struct_0207d7f4*)var0, (unsigned short)var1, arg0);
+		func_0207db58((struct BattleJoinRecord_0207d7f4*)var0, (unsigned short)var1, arg0);
 		return;
 	}
 	if (arg0 != 0) return;

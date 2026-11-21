@@ -4,7 +4,7 @@
 
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" int GetMenuLoadTaskId_ov023_021f6bb8(void* objectList);
-extern "C" void func_ov023_021f6bb0(void* arg0, int arg1);
+extern "C" void SetMenuLoadTaskId_ov023_021f6bb0(void* objectList, int taskId);
 
 extern char data_ov023_021fe5ec;
 
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov023_021f75d0(struct Struct_ov023_021f75d0* arg0, void*
     char var2[0x50];
     sprintf(var2, &data_ov023_021fd8b8, arg0->unknown_10_);
     int var3 = ((BackgroundLoader*)(var1))->QueueLoadFile((const char*)((int)var2), (SafeAllocator*)(0));
-    func_ov023_021f6bb0(var0, var3);
+    SetMenuLoadTaskId_ov023_021f6bb0(var0, var3);
     return 1;
 }
 #else
@@ -53,7 +53,7 @@ extern "C" ARM int func_ov023_021f75d0(struct Struct_ov023_021f75d0* arg0, void*
         } else {
             var8 = ((BackgroundLoader*)(var6))->QueueLoadFile((const char*)((int)var7), (SafeAllocator*)(0));
         }
-        func_ov023_021f6bb0(var4, var8);
+        SetMenuLoadTaskId_ov023_021f6bb0(var4, var8);
         return 1;
     }
     return arg0->unknown_1c_;

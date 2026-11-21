@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void func_020dc4d0(signed char*, signed char*);
+extern "C" void GetExistingPartyOrder_020dc4d0(signed char*, signed char*);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" int GetLeaderObjectIndex_020546a8(void*);
 static inline int inline_020dc548(int arg0) { return arg0 >= 0 && arg0 <= 3; }
@@ -11,7 +11,7 @@ extern "C" ARM void func_020dc548(int arg0, signed char* arg1, signed char* arg2
     if (!inline_020dc548(arg0)) { *arg2 = 0; return; }
     GameState* var0 = GameState::GetInstance();
     signed char var1[4], var2;
-    func_020dc4d0(var1, &var2);
+    GetExistingPartyOrder_020dc4d0(var1, &var2);
     signed char var3[4][4];
     int var4 = -1;
     signed char var5 = 0;

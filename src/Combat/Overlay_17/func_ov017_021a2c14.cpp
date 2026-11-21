@@ -12,7 +12,7 @@ extern "C" int sprintf(char*, const char*, ...);
 extern "C" char* strstr(const char*, const char*);
 
 struct Struct_0203d028_6;
-struct Struct_0203cfb4;
+struct NPCManager_0203cfb4;
 struct Struct_02013fb4;
 struct NPCManager_0203dce4_2;
 struct Struct_ov017_021a2c14 { int unknown_0_; Vector3i unknown_4_; };
@@ -32,7 +32,7 @@ extern "C" void* GetNPCManager_0203cf4c();
 extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" int GetStoryStep_020107d0(char*);
 extern "C" int func_02010804(char*);
-extern "C" void func_0203cfb4(Struct_0203cfb4*);
+extern "C" void ResetNPCManager_0203cfb4(NPCManager_0203cfb4*);
 extern "C" Struct_0203d028_6* func_0203d004(void*);
 extern "C" void func_020401fc(Struct_0203d028_6*, unsigned int, SafeAllocator*);
 extern "C" void* func_0203cffc(void*);
@@ -65,7 +65,7 @@ extern "C" ARM int func_ov017_021a2c14(GameResources* arg0, Zone3D_StructPtr_8* 
     int var6 = GetStoryChapter_0201079c((char*)var0);
     int var7 = GetStoryStep_020107d0((char*)var0);
     int var8 = func_02010804((char*)var0);
-    func_0203cfb4((Struct_0203cfb4*)var2);
+    ResetNPCManager_0203cfb4((NPCManager_0203cfb4*)var2);
     if (var1->GetNumQueuedTasks() > 0) return 0;
     char var9[0x50];
     NarcHandle var10;

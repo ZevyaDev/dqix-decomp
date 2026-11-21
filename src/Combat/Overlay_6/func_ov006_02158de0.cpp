@@ -40,7 +40,7 @@ struct Struct_ov006_02157a60 {
 
 extern "C" Struct_ov000_02182a74* GetParty_02010828(GameState* gameState);
 extern "C" void* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-extern "C" short func_0207c620(unsigned char* arg0, unsigned int arg1);
+extern "C" short GetEquipmentBagCapacity_0207c620(unsigned char* bag, unsigned int category);
 extern "C" short* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
 extern "C" unsigned char* GetEquipmentBagCounts_0207c60c(void* bag, unsigned int category);
 extern "C" void func_ov006_02158fd8(Struct_ov006_02157a60* arg0, unsigned int arg1, short arg2, unsigned char arg3);
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov006_02158de0(Struct_ov006_02157a60* arg0) {
     }
     for (unsigned char var10 = 0; var10 < 8; var10++) {
         int var11 = data_ov006_02160010[var10];
-        short var12 = func_0207c620((unsigned char*)var4 + 0x1d4, var11);
+        short var12 = GetEquipmentBagCapacity_0207c620((unsigned char*)var4 + 0x1d4, var11);
         short* var13 = GetEquipmentBagItemIds_0207c5f8((unsigned char*)var4 + 0x1d4, var11);
         unsigned char* var14 = GetEquipmentBagCounts_0207c60c((char*)var4 + 0x1d4, var11);
         for (short var15 = 0; var15 < var12; var15++)

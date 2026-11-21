@@ -53,14 +53,14 @@ struct Struct_ov026_021d8ba0_6;
 struct Struct_ov026_021d8ba0_7;
 struct Struct_ov026_021d8ba0_8;
 struct Struct_ov026_021d8ba0_9;
-struct Struct_020a36a8;
+struct BattleSetup_020a36a8;
 struct SkillTable_0200f3a4_8;
 struct Struct_0209a470;
 struct SpellTable_02086f24_6;
 struct Struct_02013fb4;
 struct Struct_0204671c;
 struct Struct_020d6ec8;
-struct Struct_ov000_02163a7c;
+struct BattleScene_ov000_02163a7c;
 struct Struct_02010088;
 struct Struct_ov026_021d8ba0_10;
 struct Struct_0203c108_3;
@@ -137,7 +137,7 @@ extern "C" int func_ov000_02160fd4(void*, int);
 extern "C" void func_ov000_0218173c(void*);
 extern "C" int func_02012060(void*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
-extern "C" int func_020a36a8(Struct_020a36a8*);
+extern "C" int IsProtagonistBattleOwner_020a36a8(BattleSetup_020a36a8*);
 extern "C" void func_ov000_0215e8e8(void*);
 extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8*);
 extern "C" void func_0209a470(Struct_0209a470*, SafeAllocator*, Struct_02013fb4*, int);
@@ -153,10 +153,10 @@ extern "C" void func_ov000_02167e6c(unsigned char*);
 extern "C" Struct_020d6ec8* func_ov000_02163524(void*);
 extern "C" void func_020d6f44(Struct_020d6ec8*);
 extern "C" void func_020d738c(void*);
-extern "C" void func_ov000_02163a7c(Struct_ov000_02163a7c*);
+extern "C" void SetCombatantsOpaque_ov000_02163a7c(BattleScene_ov000_02163a7c*);
 extern "C" int GetCombatantCell_020493a4(unsigned char*);
 extern "C" void SetCombatantCell_02049390(unsigned char*, unsigned char);
-extern "C" void func_02049bd4(unsigned char*, int*);
+extern "C" void SetCombatantCellPosition_02049bd4(unsigned char*, int*);
 extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_ov000_02174dc0(void*);
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
@@ -181,7 +181,7 @@ extern "C" void RemoveEventSyncEntry_020e3994(EventSyncEntry_020e385c*, int, int
 void SetBrightness(GameResources*, int, int);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_ov000_02174514(void*);
-extern "C" void func_02088e64(unsigned char*);
+extern "C" void ClearRage_02088e64(unsigned char*);
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 extern "C" int func_02046708(GlobalFlags_02012de8*, unsigned int);
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
@@ -564,7 +564,7 @@ extern "C" ARM void func_ov026_021d8ba0(BattleScene_ov000_02160da0* arg0) {
         ((SafeAllocator*)(arg0->unknown_30_))->Reset();
         inline_ov026_021d8ba0_2().unknown_18_ = var23->QueueLoadFile(data_ov026_021dedbc, 0);
         arg0->unknown_eac_ = 1;
-        if (IsLocalWirelessOn_0202b7d8(var22) && func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
+        if (IsLocalWirelessOn_0202b7d8(var22) && IsProtagonistBattleOwner_020a36a8((BattleSetup_020a36a8*)arg0->unknown_2a0_)) {
             func_ov000_0215e8e8(arg0->pBattle_29c_);
         }
     }
@@ -646,7 +646,7 @@ state1:
         }
         SetObjectsVisibleBySelector_ov000_021626a0(arg0, 0x26, 0);
         SetObjectsVisibleBySelector_ov000_021626a0(arg0, 0x27, 1);
-        func_ov000_02163a7c((Struct_ov000_02163a7c*)arg0);
+        SetCombatantsOpaque_ov000_02163a7c((BattleScene_ov000_02163a7c*)arg0);
         func_ov000_021629ec(arg0);
         {
             int var59;
@@ -706,7 +706,7 @@ state1:
                         var12 = data_ov026_021de6dc;
                         var12.unknown_0_[0] = var70.unknown_0_;
                         var12.unknown_0_[2] = var70.unknown_4_;
-                        func_02049bd4(*var66, var12.unknown_0_);
+                        SetCombatantCellPosition_02049bd4(*var66, var12.unknown_0_);
                     }
                 }
             }
@@ -854,7 +854,7 @@ state1:
                 }
             }
         }
-        if (func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
+        if (IsProtagonistBattleOwner_020a36a8((BattleSetup_020a36a8*)arg0->unknown_2a0_)) {
             SetBattleSceneFlags_ov000_02160fa8(arg0, 0x40000000);
         }
         if (((SafeAllocator*)arg0->unknown_774c_)->GetSignedAllocator() == 0) {
@@ -978,7 +978,7 @@ state1:
                     ModifiableCombatStats* var98 = var97->currentStats_;
                     if ((*(int*)&var98->unk1[4] & 0x1000) && GetPartyMemberBaseByIndex_0200ff1c(var93, *(short*)&var98->unk1[0x1a]) == 0) {
                         var28 = var96[var94];
-                        func_02088e64((unsigned char*)var97->currentStats_);
+                        ClearRage_02088e64((unsigned char*)var97->currentStats_);
                         var91 = 1;
                         goto checked;
                     }
@@ -1022,7 +1022,7 @@ state1:
                     SetGlobalFlags_020466e4((unsigned int*)var25, 0x200);
                 }
             }
-            if (func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_) && func_020e37e8(var26)) {
+            if (IsProtagonistBattleOwner_020a36a8((BattleSetup_020a36a8*)arg0->unknown_2a0_) && func_020e37e8(var26)) {
                 func_020e3798(var26);
             }
         }
@@ -1044,7 +1044,7 @@ state1:
                 func_ov000_02162c90((char*)arg0, var106, func_ov000_0217fb98(arg0->unknown_3760_) == 0);
             }
             func_ov026_021db3d8(arg0);
-            if (func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
+            if (IsProtagonistBattleOwner_020a36a8((BattleSetup_020a36a8*)arg0->unknown_2a0_)) {
                 var45 = arg0->unknown_2a0_;
                 var107 = 1;
                 var46 = func_0202ae18();
@@ -1066,7 +1066,7 @@ state1:
             if (func_ov000_02168720((char*)arg0) > 0 || var21->unknown_998_ != 0) {
                 var107 = 0;
             }
-            if (var107 && IsLocalWirelessOn_0202b7d8(var22) && func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
+            if (var107 && IsLocalWirelessOn_0202b7d8(var22) && IsProtagonistBattleOwner_020a36a8((BattleSetup_020a36a8*)arg0->unknown_2a0_)) {
                 if (func_ov026_021d8a40() == 0) {
                     var107 = 0;
                 }
@@ -1169,7 +1169,7 @@ state1:
                         func_ov000_02167e6c((unsigned char*)arg0);
                     }
                     func_ov026_021daec8(var19, GetBattleCamera_ov000_02160f14(arg0), 0);
-                    if (func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
+                    if (IsProtagonistBattleOwner_020a36a8((BattleSetup_020a36a8*)arg0->unknown_2a0_)) {
                         arg0->unknown_5950_ = func_ov026_021dd3dc(arg0->pBattle_29c_, arg0->unknown_2a0_, arg0->unknown_3760_);
                         func_ov017_021cefe0(arg0->unknown_2a0_->unknown_8_, arg0->unknown_5950_, arg0->unknown_7748_);
                         SetBattleSceneFlags_ov000_02160fa8(arg0, 0x800000);
@@ -1204,7 +1204,7 @@ state1:
         }
         if (func_020e37e8(var26) != 0 || func_02046708((GlobalFlags_02012de8*)var25, 0x200) == 0) {
             ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var25, 0x200);
-            if (func_020a36a8((Struct_020a36a8*)arg0->unknown_2a0_)) {
+            if (IsProtagonistBattleOwner_020a36a8((BattleSetup_020a36a8*)arg0->unknown_2a0_)) {
                 arg0->unknown_eac_ = 8;
             } else {
                 arg0->unknown_eac_ = 0xa;

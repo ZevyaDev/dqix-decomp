@@ -8,7 +8,7 @@ extern "C" unsigned char func_0209ca98(char* arg0);
 extern "C" unsigned char func_0205ea18(unsigned char* arg0);
 extern "C" void SetMusicVolumeLevel_0209ca70(void* manager, int volumeLevel);
 struct Struct_02108760_2;
-extern "C" void func_0205e9f4(struct Struct_02108760_2* arg0, int arg1);
+extern "C" void SetSoundEffectVolumeLevel_0205e9f4(struct Struct_02108760_2* manager, int volumeLevel);
 extern "C" int func_020ac864(int arg0);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern "C" int func_020aba5c(int arg0);
@@ -54,7 +54,7 @@ extern "C" ARM int func_ov004_0216e490(void* arg0) {
         data_ov004_02171034[1] = var3;
 #endif
         SetMusicVolumeLevel_0209ca70(&gMusicManager_02109bf4, 3);
-        func_0205e9f4((struct Struct_02108760_2*)&gSoundEffectManager_02108760, 3);
+        SetSoundEffectVolumeLevel_0205e9f4((struct Struct_02108760_2*)&gSoundEffectManager_02108760, 3);
         if (func_020ac864(1) == 0) {
 #if defined(jpn)
             data_ov004_02171034[3] = 1;

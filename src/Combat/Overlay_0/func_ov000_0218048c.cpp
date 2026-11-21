@@ -14,7 +14,7 @@ extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(struct TextWindowMan
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(struct TextWindowManager_0205d274*);
 extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(struct TextWindowManager_0205d2bc*);
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0*, int);
-extern "C" void func_ov000_02174b14(void* arg0);
+extern "C" void PositionPartyMemberPanels_ov000_02174b14(void* battleUI);
 
 struct Struct_ov000_0218048c {
     char unknown_0_[0x24];
@@ -46,5 +46,5 @@ extern "C" ARM void func_ov000_0218048c(char* arg0) {
     *(unsigned short*)(arg0 + Enum_ov000_0218048c_7538) &= ~0x8;
     *(int*)(arg0 + 0x914) = 0;
     *(int*)(arg0 + 0x910) = 0;
-    func_ov000_02174b14(arg0);
+    PositionPartyMemberPanels_ov000_02174b14(arg0);
 }

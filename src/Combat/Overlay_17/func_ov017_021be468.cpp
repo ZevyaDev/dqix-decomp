@@ -10,7 +10,7 @@
 #if defined(jpn)
 #define func_0202ae18 func_0202a9d0
 #endif
-struct Struct_02018300_3; struct Queue_02038598_5; struct TextureVRAMArea_0203d028; struct Struct_02010834; struct Queue_0201bdac_2; struct QueueNode_0201bdac;
+struct Struct_02018300_3; struct Queue_02038598_5; struct TextureVRAMArea_0203d028; struct GameState_02010834; struct Queue_0201bdac_2; struct QueueNode_0201bdac;
 struct Struct_ov017_021be468_5 {
     unsigned char unknown_0_,unknown_1_; char unknown_2_[6]; int unknown_8_,unknown_c_; Vector3i unknown_10_; int unknown_1c_,unknown_20_;
     SafeAllocator unknown_24_; unsigned char unknown_38_,unknown_39_; unsigned short unknown_3a_; unsigned char unknown_3c_; unsigned char unknown_3d_0_:1,unknown_3d_1_:7; unsigned char unknown_3e_,unknown_3f_; unsigned short unknown_40_;
@@ -54,7 +54,7 @@ extern "C" void func_ov017_021d2738(unsigned char,unsigned char); extern "C" int
 extern "C" void* GetFontLoader_02094a00(); extern "C" void CancelFontLoad_02094ab0(void*); extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*,unsigned int);
 extern "C" void AddEffectResource_02057e6c(void*,int,SafeAllocator*,void*,unsigned int,TextureVRAMArea_0203d028*);
-int IsMainBrightnessTransitionActive(GameResources*); extern "C" void func_02010834(Struct_02010834*,int,int*,int*);
+int IsMainBrightnessTransitionActive(GameResources*); extern "C" void func_02010834(GameState_02010834*,int,int*,int*);
 extern "C" void PlayEffect_02057fb4(void*,int,void*); extern "C" void LoadExtraSoundSet_0205ebc0(void*,int,int); extern "C" void PlayExtraSoundEffect_0205ebfc(void*,int,int);
 void SetBrightness(GameResources*,int,int);  extern "C" void func_ov017_02197528();
 extern "C" Struct_ov017_021be468_3* GetZoneEntry_0200fd0c(GameState*); extern "C" void VectorizedMemset(void*,int,int);
@@ -92,7 +92,7 @@ extern "C" ARM void func_ov017_021be468(Struct_ov017_021be468_5* arg0,Queue_0203
         }
     } else if(arg0->unknown_8_==2) {
         if(!IsMainBrightnessTransitionActive(var1)) {
-            int var10[5],var11=0; func_02010834((Struct_02010834*)var0,var2->obj3D_.unknown_4_,var10,&var11);
+            int var10[5],var11=0; func_02010834((GameState_02010834*)var0,var2->obj3D_.unknown_4_,var10,&var11);
             for(int var12=0;var12<var11;var12++) arg0->unknown_38_|=1<<var10[var12];
             Struct_ov017_021be468_2 var13[5];
             for(int var14=0;var14<var11;var14++) {

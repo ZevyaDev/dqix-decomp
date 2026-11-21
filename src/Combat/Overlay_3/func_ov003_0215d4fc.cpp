@@ -75,7 +75,7 @@ struct MusicManager_02109bf4_4;
 extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4*, int);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
-extern "C" void func_0205e944(void *, int);
+extern "C" void SetSoundEffectVolume_0205e944(void *, int);
 int IsBrightnessTransitionActive(GameResources*);
 struct Struct_02109bf4_3;
 extern "C" void ResetMusic_0209c20c(Struct_02109bf4_3*);
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
         CloseTextWindows_0205d6a0((TextWindowManager_0205d6a0*)arg0->unknown_98_, 0);
         StopMusic_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0x10);
         SetBrightness((GameResources*)var1, -16, 0x3c);
-        func_0205e944(&gSoundEffectManager_02108760, 0);
+        SetSoundEffectVolume_0205e944(&gSoundEffectManager_02108760, 0);
         arg0->unknown_3f5_  = 1;
         arg0->unknown_3b8_ = arg0->unknown_3b8_ + 1;
     }
@@ -216,7 +216,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
         }
         func_0209c7fc(&gMusicManager_02109bf4);
         SetBrightness((GameResources*)var1, 0, 0x3c);
-        func_0205e944(&gSoundEffectManager_02108760, 0x7f);
+        SetSoundEffectVolume_0205e944(&gSoundEffectManager_02108760, 0x7f);
         arg0->unknown_3ec_ = 1;
         arg0->unknown_3ed_ = 0;
         void *var15 = FindNPCById_0203df78(var4, (*(Struct_ov003_0215d4fc **) ((char *) GetGameResources() + 0x3000 + Enum_ov003_0215d4fc_1808))->unknown_12c_);

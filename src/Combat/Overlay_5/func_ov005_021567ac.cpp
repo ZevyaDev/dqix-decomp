@@ -56,7 +56,7 @@ struct Struct_ov005_02153954 {
 
 extern int gSoundEffectManager_02108760;
 
-extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char arg1);
+extern "C" void SetEquipMenuMode_ov005_0215792c(Struct_ov005_02153954* equipMenuUI, unsigned char mode);
 extern "C" Struct_ov005_02153ba4_2* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov005_021567ac(Struct_ov005_02153954* arg0, int arg1, i
             arg0->unknown_3dc0_ = -1;
             return;
         }
-        func_ov005_0215792c(arg0, 4);
+        SetEquipMenuMode_ov005_0215792c(arg0, 4);
         arg0->unknown_3dbb_ = arg0->unknown_3d78_;
         func_ov005_021579ec(arg0, arg0->unknown_3db8_, arg0->unknown_3dbb_);
         SetMenuCursorIndex_0205bb04(arg0->unknown_19f4_, arg0->unknown_3dbb_ - 8);

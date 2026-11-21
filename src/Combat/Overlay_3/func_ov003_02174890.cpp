@@ -11,7 +11,7 @@
 struct MenuLayout_0207fd88;
 extern "C" void CopyMenuLayoutBGScreenDataToVRAM_0207fd88(struct MenuLayout_0207fd88* menuLayout);
 struct YesNoWindow_020e2834;
-extern "C" void func_020e2834(struct YesNoWindow_020e2834* arg0);
+extern "C" void ApplyYesNoWindowTextColorsAndDisplayWindow_020e2834(struct YesNoWindow_020e2834* yesNoWindow);
 
 // USA: func_ov003_02174890
 extern "C" ARM void func_ov003_02174890(char* arg0) {
@@ -20,5 +20,5 @@ extern "C" ARM void func_ov003_02174890(char* arg0) {
     CopyMenuLayoutBGScreenDataToVRAM_0207fd88(var0);
     struct YesNoWindow_020e2834* var1 = *(struct YesNoWindow_020e2834**)arg0;
     if (var1 == NULL) return;
-    func_020e2834(var1);
+    ApplyYesNoWindowTextColorsAndDisplayWindow_020e2834(var1);
 }

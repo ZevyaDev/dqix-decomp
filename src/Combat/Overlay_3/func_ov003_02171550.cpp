@@ -37,8 +37,8 @@ extern "C" void func_0202c360(void* arg0, int arg1);
 extern "C" void func_0202b2f0(void* arg0);
 extern "C" void func_0202c410(void* arg0);
 extern "C" void func_0202b828(unsigned char* arg0);
-extern "C" void func_0202c21c(struct LocalWireless_0202b2f0* arg0, int arg1);
-extern "C" void func_0202c1e8(struct LocalWireless_0202b2f0* arg0, int arg1);
+extern "C" void RemoveLocalWirelessPlayer_0202c21c(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
+extern "C" void SetLocalWirelessPlayerJoined_0202c1e8(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" void UpdateLocalWirelessPlayerCount_0202c288(void* wireless);
 
 // USA: func_ov003_02171550
@@ -65,8 +65,8 @@ extern "C" ARM void func_ov003_02171550(struct Struct_ov003_02171550* arg0) {
     func_0202b2f0(var1);
     func_0202c410(var1);
     func_0202b828((unsigned char*)var1);
-    func_0202c21c((struct LocalWireless_0202b2f0*)var1, 0xf);
-    func_0202c1e8((struct LocalWireless_0202b2f0*)var1, 0);
+    RemoveLocalWirelessPlayer_0202c21c((struct LocalWireless_0202b2f0*)var1, 0xf);
+    SetLocalWirelessPlayerJoined_0202c1e8((struct LocalWireless_0202b2f0*)var1, 0);
     UpdateLocalWirelessPlayerCount_0202c288(var1);
 
     *(int*)((char*)arg0 + 4) = (rand() % 4 + 2) * 500;

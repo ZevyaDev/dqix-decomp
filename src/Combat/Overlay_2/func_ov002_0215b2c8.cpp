@@ -10,12 +10,12 @@
 #endif
 
 struct ItemBag_020a0b8c;
-struct Struct_ov002_0215505c_2;
+struct ItemSortList_ov002_0215505c_2;
 struct Struct_ov002_0215b2c8;
 struct ItemTable_0201099c_10;
 extern "C" short CountUsedBagSlots_020a0b8c(struct ItemBag_020a0b8c *bag);
 extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
-extern "C" void func_ov023_021e1318(struct Struct_ov002_0215505c_2 *arg0);
+extern "C" void ClearItemSortList_ov023_021e1318(struct ItemSortList_ov002_0215505c_2 *sortList);
 extern "C" void func_ov023_021e133c(void *arg0, void *arg1, int arg2, int arg3, int arg4, short arg5);
 extern "C" void func_ov023_021e1518(void *arg0);
 extern "C" void func_ov023_021e1474(struct Struct_ov002_0215b2c8 *arg0,
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov002_0215b2c8(char *arg0) {
     }
     ((SafeAllocator *) (arg0 + 0x850))->Reset();
     var7 = arg0 + 4;
-    func_ov023_021e1318((struct Struct_ov002_0215505c_2 *) (var7 + 0x800));
+    ClearItemSortList_ov023_021e1318((struct ItemSortList_ov002_0215505c_2 *) (var7 + 0x800));
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
     void *var12 = ExtractFileFromGP2((const char*)(data_ov002_0216cf83), (const char*)(data_ov002_0216cf99), (unsigned int*)(&var0));

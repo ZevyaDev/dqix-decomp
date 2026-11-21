@@ -9,7 +9,7 @@ enum { Enum_0208f410_1788 = 0x6fc };
 #endif
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_0208e0a8(void);
+extern "C" void* GetFieldItemSpots_0208e0a8(void);
 
 struct QueueNode_02015438;
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438** queue);
@@ -41,7 +41,7 @@ extern "C" ARM void func_0208f410(Struct_0208f410_3* arg0) {
 
     void* var2 = GetZone3D_02012fe4();
     char* var3 = *(char**)((char*)var2 + 8);
-    void* var4 = func_0208e0a8();
+    void* var4 = GetFieldItemSpots_0208e0a8();
     if (var3 == 0) return;
     if (func_0208e824(var4, var3 + 5) == 0) return;
 

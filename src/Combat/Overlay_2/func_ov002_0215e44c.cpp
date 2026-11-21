@@ -11,7 +11,7 @@ struct Struct_ov002_0216c9fb {
 
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" void *GetParty_02010828(GameState *gameState);
-extern "C" void func_020dc4d0(signed char *arg0, signed char *arg1);
+extern "C" void GetExistingPartyOrder_020dc4d0(signed char *outPartyOrder, signed char *outCount);
 extern "C" void SetNextTextWindow_ov002_0215be00(void *menu, int windowId, int x, int y);
 extern "C" void func_ov002_0215e644(unsigned char *arg0, void *arg1, int arg2);
 #if defined(jpn)
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov002_0215e44c(unsigned char *arg0) {
     GetParty_02010828(GameState::GetInstance());
     signed char var0    = 0;
     Struct_ov002_0216c9fb var1 = data_ov002_0216c9fb;
-    func_020dc4d0(var1.unknown_0_, &var0);
+    GetExistingPartyOrder_020dc4d0(var1.unknown_0_, &var0);
     int var2 = 0x10;
     var2 -= var0 * 4;
     for (signed char var3 = 0; var3 < var0; var3++) {

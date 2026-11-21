@@ -26,7 +26,7 @@ struct Struct_ov000_021682ec_5 {
 struct Struct_ov000_021735d0 {char unknown_0_[Enum_ov000_021735d0_23756]; signed int unknown_5ccc_0_:1,unknown_5ccc_1_:1,unknown_5ccc_2_:30;};
 struct Struct_ov000_021735d0_2 {char unknown_0_[0x10];signed char unknown_10_[8];signed char unknown_18_;char unknown_19_[0x24-0x19];unsigned char unknown_24_;};
 struct Struct_ov000_021735d0_3;struct BGLayer_02020cb8_5;struct Struct_ov000_021735d0_4;struct Struct_ov000_021735d0_5;
-extern "C" Struct_ov000_021735d0_2* func_ov000_0217f8c0(Struct_ov000_021735d0_3*);
+extern "C" Struct_ov000_021735d0_2* GetSelectedMemberPanel_ov000_0217f8c0(Struct_ov000_021735d0_3*);
 extern "C" void func_ov000_02175440(void*);
 extern "C" void func_ov000_02174fc0(void*);
 extern "C" void func_ov000_021754fc(Struct_ov000_021735d0_4*,int);
@@ -56,11 +56,11 @@ extern "C" ARM void func_ov000_021735d0(Struct_ov000_021682ec_5* arg0,int arg1)
     if(((Struct_ov000_021735d0*)var0)->unknown_5ccc_1_)LoadPartyMemberColors_020dc7e8(0,-1);
     if(!arg1)arg1=1;
     int var1=1;
-    Struct_ov000_021735d0_2* var2=func_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0);
+    Struct_ov000_021735d0_2* var2=GetSelectedMemberPanel_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0);
     if(var2&&var2->unknown_10_[var2->unknown_18_]==100)var1=0;
     if(var1){
         func_ov000_02175440(arg0);
-        var2=func_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0);
+        var2=GetSelectedMemberPanel_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0);
         int var3;bool var4=arg0->unknown_21c_,var5=arg0->unknown_21d_;var3=0;
         if(var2&&!(arg0->unknown_1d72_&0x200)&&arg0->unknown_1d60_[arg0->unknown_1d68_]!=6&&arg0->unknown_1d60_[arg0->unknown_1d68_]!=7&&!(var2->unknown_24_&1))var3=1;
         if(var3){arg0->unknown_21c_=false;arg0->unknown_21d_=false;}

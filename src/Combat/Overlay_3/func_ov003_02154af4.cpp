@@ -49,7 +49,7 @@ struct MenuLayout_0207fdcc_2;
 extern "C" int func_020811d0(MenuLayout_0207fdcc_2*, int);
 extern "C" void func_ov003_02158334(Struct_ov003_02154af4_3*);
 extern "C" void UpdateKeyRepeat_02081f20(void*,unsigned int);
-extern "C" int func_020800fc(Struct_ov003_02154af4_2*,short*,int,unsigned short,unsigned char,int);
+extern "C" int UpdateMenuLayoutCursor_020800fc(Struct_ov003_02154af4_2*,short*,int,unsigned short,unsigned char,int);
 extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void*, int);
 extern "C" void OpenMenuLayoutWindow_020813ec(Struct_ov003_02154af4_2*,int);
 struct YesNoWindow_020e263c_2;
@@ -95,7 +95,7 @@ extern "C" ARM int func_ov003_02154af4(Struct_ov003_02154af4_3* arg0,unsigned in
  if(arg0->unknown_8_) {
   UpdateKeyRepeat_02081f20(arg0->unknown_80_,arg1);
   arg0->unknown_1e8_=*arg0->unknown_8_;
-  arg0->unknown_1d8_=func_020800fc(var0,arg0->unknown_8_,arg0->unknown_1e8_,arg0->unknown_8c_,arg0->unknown_8e_,(arg0->unknown_1fc_&4)!=0);
+  arg0->unknown_1d8_=UpdateMenuLayoutCursor_020800fc(var0,arg0->unknown_8_,arg0->unknown_1e8_,arg0->unknown_8c_,arg0->unknown_8e_,(arg0->unknown_1fc_&4)!=0);
   var0->unknown_36_=*arg0->unknown_8_;
   if(arg0->unknown_1d8_) ClearMenuLayoutWindowHighlights_020804fc(var0, arg0->unknown_1e6_);
   if(arg0->unknown_1e8_!=*arg0->unknown_8_) OpenMenuLayoutWindow_020813ec(var0,arg0->unknown_1e6_);

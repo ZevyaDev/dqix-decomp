@@ -17,7 +17,7 @@ struct TextWindow_0205d0e0 {
 struct TextWindowManager_0205d81c;
 
 extern "C" void func_ov000_0217964c(void* arg0, void* arg1);
-extern "C" void func_ov000_0217ab8c(void* arg0, int arg1, int arg2);
+extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(void* panel, int arg1, int enemyTargetCount);
 extern "C" int GetMenuCursorItemCount_0205bafc(void* cursor);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov000_0217979c(void* arg0, void* arg1, void* arg2);
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov000_021794cc(char* arg0, void* arg1, int arg2, int ar
 
     int var0 = *(int*)((char*)arg1 + 0x44);
     int var1 = *(int*)((char*)arg1 + 0x48);
-    func_ov000_0217ab8c(arg1, arg2, arg3);
+    ConfigurePanelMenuCursors_ov000_0217ab8c(arg1, arg2, arg3);
 
     char* var2 = arg0 + 0x188;
 #if defined(jpn)

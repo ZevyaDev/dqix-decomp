@@ -16,7 +16,7 @@ struct Struct_ov002_0216ca30 {
 };
 extern "C" int func_02041a5c(char *arg0, int arg1);
 extern "C" int AppendXPositionTag_02041a28(char *buffer, int x);
-extern "C" int func_02041acc(char *arg0, int arg1);
+extern "C" int AppendXOffsetTag_02041acc(char *buffer, int xOffset);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
 extern "C" int func_02041fac(char *arg0, int arg1, int arg2);
 extern "C" char *GetMessageWindow_020421a0();
@@ -57,9 +57,9 @@ extern "C" ARM void func_ov002_0215fcc0(char *arg0, char *arg1) {
             (const char *) ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 0x20)))->GetString((short) (var12 + 0x8fc)));
         func_02041a5c(var0, 4);
         AppendText_02042058(var0, var8);
-        func_02041acc(var0, 0x10);
+        AppendXOffsetTag_02041acc(var0, 0x10);
         AppendText_02042058(var0, var13);
-        func_02041acc(var0, 4);
+        AppendXOffsetTag_02041acc(var0, 4);
         AppendText_02042058(var0, GetGameString((eGameString)(0x3f3)));
         __clear(var2, 0x10);
         sprintf(var2, data_ov002_0216d285, var11);
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov002_0215fcc0(char *arg0, char *arg1) {
     } else {
         func_02041a5c(var0, 4);
         AppendText_02042058(var0, var8);
-        func_02041acc(var0, 0x12);
+        AppendXOffsetTag_02041acc(var0, 0x12);
         AppendText_02042058(var0, GetGameString((eGameString)(0x3f3)));
         __clear(var3, 0x10);
         sprintf(var3, data_ov002_0216d285, var11);

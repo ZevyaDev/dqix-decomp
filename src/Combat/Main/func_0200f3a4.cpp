@@ -16,8 +16,8 @@ extern "C" void InitPartyMemberData_02082828(Struct_0200f3a4_7* memberData);
 extern "C" void func_0200fb40(void* arg0);
 struct SkillTable_0200f3a4_8;
 extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8* table);
-struct Struct_0200f3a4_9;
-extern "C" void func_02010124(Struct_0200f3a4_9* arg0);
+struct GameState_0200f3a4_9;
+extern "C" void ResetGameSpeedAndDeltaTime_02010124(GameState_0200f3a4_9* gameState);
 extern "C" void func_020118fc(void* arg0);
 extern "C" void* func_020d6c00();
 struct Struct_0200f3a4_10;
@@ -244,7 +244,7 @@ extern "C" ARM void func_0200f3a4(void* arg0) {
     *(unsigned int*)(var1 + J(0x5ccc)) &= ~1u;
     *(unsigned int*)(var1 + J(0x5ccc)) |= 2u;
 
-    func_02010124((Struct_0200f3a4_9*)var1);
+    ResetGameSpeedAndDeltaTime_02010124((GameState_0200f3a4_9*)var1);
 
     *(unsigned char*)(var1 + J(0x63d6)) = 0;
     *(short*)(var1 + J(0x63d8)) = 0;

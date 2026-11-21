@@ -28,11 +28,11 @@ extern "C" ARM void LoadCommonFieldResources_ov017_0219ba0c(GameResources* gameR
     unsigned int archiveSize;
     unsigned int fileSize;
     char* messageWindow = GetMessageWindow_020421a0();
-    BackgroundLoader* var5 = BackgroundLoader::GetInstance();
-    SafeAllocator* var6 = &gameResources->allocator_array_38[6];
+    BackgroundLoader* backgroundLoader = BackgroundLoader::GetInstance();
+    SafeAllocator* allocator = &gameResources->allocator_array_38[6];
     char* textureArena = gameResources->unknown_2cc_ + 0x2a0;
-    var5->AddLockGlobal();
-    var6->Reset();
+    backgroundLoader->AddLockGlobal();
+    allocator->Reset();
     ((TextureArena*)((TextureVRAMArea_0203d028*)textureArena))->Reset();
     ((TextureArena*)(textureArena))->Restore();
 
@@ -48,7 +48,7 @@ extern "C" ARM void LoadCommonFieldResources_ov017_0219ba0c(GameResources* gameR
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    func_020440b8(messageWindow, var6, g_fileScratchSpace);
+    func_020440b8(messageWindow, allocator, g_fileScratchSpace);
     if (isIconsOnly) {
         archive.Destroy();
         ((TextureArena*)(textureArena))->Save();
@@ -59,14 +59,14 @@ extern "C" ARM void LoadCommonFieldResources_ov017_0219ba0c(GameResources* gameR
 
     ((Model3D*)gameResources->unknown_ptr_36c8)->Clear();
     if (GetFileInNarc(g_fileScratchSpace, data_ov017_021d7577, &archiveFile, &archiveFileSize, 0)) {
-        ((Model3D*)gameResources->unknown_ptr_36c8)->CopyAndProcessRawFile(&var6->allocUnion, archiveFile, archiveFileSize, Model3D::TextureStagingMode_Normal);
+        ((Model3D*)gameResources->unknown_ptr_36c8)->CopyAndProcessRawFile(&allocator->allocUnion, archiveFile, archiveFileSize, Model3D::TextureStagingMode_Normal);
     }
     ((Object3D*)gameResources->unknown_ptr_36cc)->Initialize();
     if (GetFileInNarc(g_fileScratchSpace, data_ov017_021d7584, &archiveFile, &archiveFileSize, 0)) {
         ObjectArchiveLoadInfo loadInfo;
         loadInfo.fileData = archiveFile;
         loadInfo.unk_8 = archiveFileSize;
-        loadInfo.allocator = var6;
+        loadInfo.allocator = allocator;
         loadInfo.unk_10 = 1;
         ((Object3D*)gameResources->unknown_ptr_36cc)->LoadFromCHRArchive(&loadInfo);
     }
@@ -76,7 +76,7 @@ extern "C" ARM void LoadCommonFieldResources_ov017_0219ba0c(GameResources* gameR
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    void* buffer = var6->Allocate(fileSize);
+    void* buffer = allocator->Allocate(fileSize);
     if (buffer == NULL) {
         BackgroundLoader::RemoveLockGlobal();
         return;
@@ -88,7 +88,7 @@ extern "C" ARM void LoadCommonFieldResources_ov017_0219ba0c(GameResources* gameR
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    buffer = var6->Allocate(fileSize);
+    buffer = allocator->Allocate(fileSize);
     if (buffer == NULL) {
         BackgroundLoader::RemoveLockGlobal();
         return;

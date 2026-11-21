@@ -52,14 +52,14 @@ extern "C" void func_ov027_021db4e0(int arg0);
 extern "C" int func_ov027_021db430(void);
 extern "C" void func_ov027_021dd0cc(int arg0, int arg1);
 extern "C" void func_020d4770(int arg0, int arg1, int arg2);
-extern "C" void func_020c976c(unsigned int cycles);
+extern "C" void BusyWait_020c976c(unsigned int cycles);
 extern "C" void func_020c9be0(void);
 
 extern "C" void func_ov027_021db490(void);
 extern "C" int func_020d507c(int arg0, Struct_0202db64* arg1);
 extern "C" int func_020d6a84(int arg0, int arg1);
 extern "C" int func_020d51a8(int arg0, int arg1);
-extern "C" int func_020d503c(int arg0);
+extern "C" int ShutDownWirelessDriver_020d503c(int callback);
 extern "C" int func_020d57f4(int arg0, int arg1, int arg2, int arg3, unsigned short arg4, unsigned short arg5,
                       unsigned short arg6, int arg7, int arg8, int arg9, int arg10);
 extern "C" int func_020d472c(void* arg0);
@@ -224,7 +224,7 @@ extern "C" ARM void func_ov027_021db524(Struct_ov027_021db524* arg0) {
                 var16++;
             } while (var16 < 0xf);
             if (var17 == 1) {
-                func_020c976c(0x32c8);
+                BusyWait_020c976c(0x32c8);
             }
         }
         data_ov027_021e33e0.unknown_8_[0x50c] = 0;
@@ -263,7 +263,7 @@ extern "C" ARM void func_ov027_021db524(Struct_ov027_021db524* arg0) {
             } else {
                 *(unsigned short*)(data_ov027_021e33e0.unknown_8_ + 0x52a) = 0;
                 *(unsigned short*)(data_ov027_021e33e0.unknown_8_ + 0x528) = 0;
-                func_ov027_021dd0cc(2, func_020d503c((int)func_ov027_021db524));
+                func_ov027_021dd0cc(2, ShutDownWirelessDriver_020d503c((int)func_ov027_021db524));
             }
         } else {
             func_020d4770(1, 0, 0);

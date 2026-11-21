@@ -213,7 +213,7 @@ extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2* arg0);
 extern "C" {
 void __clear(void* arg0, unsigned long arg1);
 void LoadStringList_020728ac(void* stringList, void* allocator, void* scriptData, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
-void func_020e5604(void* arg0, SafeAllocator* arg1, void* arg2, int arg3);
+void LoadNounTable_020e5604(void* nounTable, SafeAllocator* allocator, void* fileData, int fileSize);
 Struct_ov023_021f1868_2* FindSkillEntry_0209a594(void* table, int skillEntryId);
 void ClearMessageParams_02046380(Struct_ov023_021f1868_3* window);
 void ExpandInflectionTags_020e4864(void* text, char* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
@@ -223,11 +223,11 @@ void StartMessage_0204500c(Struct_ov023_021f1868_3* window, char* text, int arg2
 void StartMessage_0204500c(Struct_ov023_021f1868_3* window, char* text, int arg2, int arg3);
 #endif
 int func_ov023_021f4fc8();
-int func_ov023_021ed724(void* arg0, short* arg1, int arg2);
+int AwardAccolades_ov023_021ed724(void* table, short* accoladeIds, int idCount);
 void func_ov023_021f229c(Struct_ov023_021f1868_5* arg0, void* arg1);
-void func_ov023_021eb138(Struct_ov023_021f1868_6* arg0, int arg1);
-void func_ov023_021eb080(Struct_ov023_021f1868_6* arg0, SafeAllocator* arg1);
-void func_ov023_021eb564(Struct_ov023_021f1868_6* arg0, Struct_ov023_021f1868_5* arg1, int arg2);
+void InitAccoladeDisplay_ov023_021eb138(Struct_ov023_021f1868_6* display, int kind);
+void AllocateAccoladeDisplayBuffers_ov023_021eb080(Struct_ov023_021f1868_6* display, SafeAllocator* allocator);
+void SetAccoladeDisplayEntries_ov023_021eb564(Struct_ov023_021f1868_6* display, Struct_ov023_021f1868_5* entries, int entryCount);
 void DestroyAccoladeDisplay_ov023_021eb26c(Struct_ov023_021f1868_6* display);
 }
 
@@ -340,7 +340,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
             arg0->unknown_57b8_ = arg0->unknown_30_.Allocate(0x14);
             ClearAccoladeTable_020a13c4((Struct_020a13c4*)arg0->unknown_57b8_);
             func_020a13e4(arg0->unknown_57b8_, &arg0->unknown_30_, (int)var9, (unsigned short)var11, 4);
-            arg0->unknown_55d5_ = func_ov023_021ed724(arg0->unknown_57b8_, var9, var11) & 1 ? 1 : 0;
+            arg0->unknown_55d5_ = AwardAccolades_ov023_021ed724(arg0->unknown_57b8_, var9, var11) & 1 ? 1 : 0;
             Struct_ov023_021f1868_14* var14 = var19->GetProtagonist();
             StringList var15;
             var15.Reset();
@@ -402,7 +402,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
         arg0->unknown_5580_ = arg0->unknown_30_.Allocate(0xc);
         InitNounTable_020e526c(arg0->unknown_5580_);
         if (var26 != NULL)
-            func_020e5604(arg0->unknown_5580_, &arg0->unknown_30_, var26, var25);
+            LoadNounTable_020e5604(arg0->unknown_5580_, &arg0->unknown_30_, var26, var25);
         BackgroundLoader::RemoveLockGlobal();
         arg0->unknown_55c4_ = NULL;
         var20->unknown_4_ = var22->QueueLoadFile(data_ov023_021fe284, NULL);
@@ -517,7 +517,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
             arg0->unknown_55c8_ = arg0->unknown_30_.Allocate(0x14);
             ClearAccoladeTable_020a13c4((Struct_020a13c4*)arg0->unknown_55c8_);
             func_020a13e4(arg0->unknown_55c8_, &arg0->unknown_30_, (int)var40, (unsigned short)var37, 4);
-            arg0->unknown_55d5_ = func_ov023_021ed724(arg0->unknown_55c8_, var40, var37) & 1 ? 1 : 0;
+            arg0->unknown_55d5_ = AwardAccolades_ov023_021ed724(arg0->unknown_55c8_, var40, var37) & 1 ? 1 : 0;
             Struct_ov023_021f1868_14* var42 = var19->GetProtagonist();
             StringList var43;
             var43.Reset();
@@ -569,10 +569,10 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
     else if (var20->unknown_0_ == 5)
     {
         arg0->unknown_55cc_ = (Struct_ov023_021f1868_6*)arg0->unknown_30_.Allocate(0x44c);
-        func_ov023_021eb138(arg0->unknown_55cc_, 7);
+        InitAccoladeDisplay_ov023_021eb138(arg0->unknown_55cc_, 7);
         arg0->unknown_55cc_->unknown_438_ |= 8;
-        func_ov023_021eb080(arg0->unknown_55cc_, &arg0->unknown_30_);
-        func_ov023_021eb564(arg0->unknown_55cc_, arg0->unknown_55d0_, arg0->unknown_55d4_);
+        AllocateAccoladeDisplayBuffers_ov023_021eb080(arg0->unknown_55cc_, &arg0->unknown_30_);
+        SetAccoladeDisplayEntries_ov023_021eb564(arg0->unknown_55cc_, arg0->unknown_55d0_, arg0->unknown_55d4_);
         func_ov023_021f2348(arg0->unknown_55cc_, arg0->unknown_55d5_);
         var20->unknown_0_++;
     }

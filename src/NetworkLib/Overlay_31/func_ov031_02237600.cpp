@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
 extern "C" ARM int func_020d4848(void* arg0);
-extern "C" ARM int func_020d5004(int arg0);
-extern "C" ARM int func_020d503c(int arg0);
+extern "C" ARM int ResetWirelessDriver_020d5004(int callback);
+extern "C" ARM int ShutDownWirelessDriver_020d503c(int callback);
 extern "C" ARM int func_ov031_0223e2e0(int arg0, void* arg1);
 extern "C" ARM unsigned int FreeAndClearPointer_ov031_0223cf70(void** pointer);
 extern "C" void func_ov031_022376fc(void);
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov031_02237600(void) {
 	func_020d4848(&data_ov031_02290d0c->unknown_13b8_);
 
 	if (data_ov031_02290d0c->unknown_13b8_ != 2) {
-		if (func_020d5004((int)func_ov031_022376fc) != 2) {
+		if (ResetWirelessDriver_020d5004((int)func_ov031_022376fc) != 2) {
 			return 0;
 		}
 		do {
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov031_02237600(void) {
 		} while (data_ov031_02290d0c->unknown_13b8_ != 2);
 	}
 
-	if (func_020d503c((int)func_ov031_022376fc) != 2) {
+	if (ShutDownWirelessDriver_020d503c((int)func_ov031_022376fc) != 2) {
 		return 0;
 	}
 

@@ -23,7 +23,7 @@ extern "C" void func_ov008_02188934(void* arg0);
 struct Struct_ov008_02184878;
 extern "C" void func_ov008_021889f8(struct Struct_ov008_02184878* arg0);
 extern "C" void func_ov008_02188870(void* arg0);
-extern "C" void func_ov023_021eb4b8(void* arg0);
+extern "C" void DrawAccoladeDisplay_ov023_021eb4b8(void* display);
 
 // USA: func_ov008_02184878
 extern "C" ARM void func_ov008_02184878(char* arg0) {
@@ -41,6 +41,6 @@ extern "C" ARM void func_ov008_02184878(char* arg0) {
     func_ov008_021889f8((struct Struct_ov008_02184878*)arg0);
     func_ov008_02188870(arg0);
     if (*(void**)(arg0 + 0xb08) != 0) {
-        func_ov023_021eb4b8(*(void**)(arg0 + 0xb08));
+        DrawAccoladeDisplay_ov023_021eb4b8(*(void**)(arg0 + 0xb08));
     }
 }

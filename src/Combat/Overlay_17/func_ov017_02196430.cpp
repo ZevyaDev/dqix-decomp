@@ -138,9 +138,9 @@ extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
 extern "C" unsigned short func_ov017_021971c4(Struct_ov017_02196430_8* arg0);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
-struct Struct_0207d7f4;
-extern "C" Struct_0207d7f4* GetBattleJoinTable_0207d78c();
-extern "C" Struct_ov017_02196430_6* func_0207d9bc(Struct_0207d7f4* arg0, unsigned short arg1);
+struct BattleJoinRecord_0207d7f4;
+extern "C" BattleJoinRecord_0207d7f4* GetBattleJoinTable_0207d78c();
+extern "C" Struct_ov017_02196430_6* FindBattleJoinRecord_0207d9bc(BattleJoinRecord_0207d7f4* arg0, unsigned short monsterId);
 extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
 extern "C" void func_ov017_02196c08(unsigned char* arg0);
 extern "C" void func_ov017_021b6e70(Struct_ov017_02196430_5* arg0, int arg1);
@@ -353,7 +353,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
         }
     }
     if (var23 && var25 && IsNotLocalWirelessGuest_0202c508(var2)) {
-        Struct_ov017_02196430_6* var34 = func_0207d9bc(GetBattleJoinTable_0207d78c(), var26);
+        Struct_ov017_02196430_6* var34 = FindBattleJoinRecord_0207d9bc(GetBattleJoinTable_0207d78c(), var26);
         if (var34 != NULL && var34->unknown_4_ < 0) {
             var23 = 0;
         }

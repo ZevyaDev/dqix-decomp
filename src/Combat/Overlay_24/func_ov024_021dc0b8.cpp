@@ -6,7 +6,7 @@ struct Party_02048150;
 extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
-extern "C" void func_ov000_0215a8d4(unsigned char* arg0, int arg1);
+extern "C" void IncrementQuestBattleCounter_ov000_0215a8d4(unsigned char* battle, int counterIndex);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, void* combatant, int amount, unsigned long long flags, int isCriticalHit);
@@ -50,7 +50,7 @@ extern "C" ARM void* func_ov024_021dc0b8(struct Struct_ov024_021dc0b8_2* arg0, i
 			var1 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, arg3->unknown_20_.unknown_2_4_, arg3->unknown_24_.unknown_0_0_);
 			void* var5 = GetParty_02010828(GameState::GetInstance());
 			if (var3 && IsInParty_02086ef0((Party_02048150*)var5, arg1) && arg3->unknown_4_0_ == 0xa9) {
-				func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 5);
+				IncrementQuestBattleCounter_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 5);
 			}
 			arg0->unknown_14_++;
 			var4 = 1;

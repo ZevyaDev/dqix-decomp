@@ -5,7 +5,7 @@
 #endif
 
 extern "C" void* func_ov017_021b8478(void* battleManager);
-extern "C" void func_020891cc(void* arg0);
+extern "C" void InitModifiableCombatStats_020891cc(void* stats);
 
 struct Struct_ov017_021ca358 {
 	unsigned char unknown_0_[8];
@@ -35,6 +35,6 @@ extern "C" ARM void func_ov017_021ca358(int arg0, Struct_ov017_021ca358_2* arg1,
 		if (var1->unknown_30_ == 0) return;
 	}
 	for (int var2 = 0; var2 < 8; var2++) {
-		func_020891cc((unsigned char*)var1 + 0x158 + var2 * 0xa4);
+		InitModifiableCombatStats_020891cc((unsigned char*)var1 + 0x158 + var2 * 0xa4);
 	}
 }

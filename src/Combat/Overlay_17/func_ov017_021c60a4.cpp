@@ -7,8 +7,8 @@
 
 extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
-struct Struct_02053f7c_3;
-extern "C" void func_02053f7c(struct Struct_02053f7c_3* arg0, unsigned short arg1, int arg2);
+struct PartyMember_02053f7c_3;
+extern "C" void SetPartyMemberBattleId_02053f7c(struct PartyMember_02053f7c_3* member, unsigned short battleId, int isForced);
 extern "C" void func_ov017_021c6034(signed char* arg0);
 
 struct Struct_0207dcf0 {
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov017_021c60a4(struct Struct_0207dcf0* arg0) {
         if ((signed char)arg0->unknown_4_[var6] == 0) continue;
         GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(var5, var6);
         if (var7 == NULL) continue;
-        func_02053f7c((struct Struct_02053f7c_3*)var7, arg0->unknown_0_, 1);
+        SetPartyMemberBattleId_02053f7c((struct PartyMember_02053f7c_3*)var7, arg0->unknown_0_, 1);
     }
 
     func_ov017_021c6034((signed char*)var1.unknown_8_);

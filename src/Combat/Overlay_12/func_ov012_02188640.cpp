@@ -31,7 +31,7 @@ struct Struct_ov012_02186a7c;
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2*, unsigned char, unsigned char);
-extern "C" void func_ov023_021e6e60(void*);
+extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(void*);
 extern "C" void func_ov012_0218a574(char*);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" int func_ov023_021e6448(void*);
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov012_02188640(char* arg0) {
             var2 = 0;
         *(unsigned int*)(arg0 + 0x1444) = var2;
         SetNextTextWindowBGLayer_0205de24((TextWindowManager_0205de24_2*)(arg0 + 0x90), 0, 3);
-        func_ov023_021e6e60(arg0);
+        ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
         func_ov012_0218a574(arg0);
         ++*(unsigned char*)(arg0 + 0x1340);
         return;
@@ -170,7 +170,7 @@ struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 
 extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
-extern "C" void func_ov023_021e6e60(Struct_ov012_02188640_6* arg0);
+extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(Struct_ov012_02188640_6* menu);
 extern "C" void func_ov012_0218a574(char* arg0);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
 extern "C" int func_ov023_021e6448(Struct_ov012_02188640_6* arg0);
@@ -216,7 +216,7 @@ extern "C" ARM void func_ov012_02188640(Struct_ov012_02188640_6* arg0)
     found:
         arg0->unknown_13d8_[5] = var9;
         SetNextTextWindowBGLayer_0205de24((TextWindowManager_0205de24_2*)arg0->unknown_ac_, 0, 3);
-        func_ov023_021e6e60(arg0);
+        ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
         func_ov012_0218a574((char*)arg0);
         arg0->unknown_1370_++;
         return;

@@ -3,7 +3,7 @@
 unsigned int DisableIRQInterrupts(void);
 unsigned int SetIRQInterruptState(int state);
 extern "C" int func_020d4f3c(int arg0);
-extern "C" void func_ov031_0220da1c(int arg0);
+extern "C" void SetAccessPointConnectionState_ov031_0220da1c(int state);
 extern "C" void func_ov031_0220dc40(void);
 extern int gAccessPointConnection_ov031_0224e53c;
 
@@ -33,7 +33,7 @@ L_slot: {
     int var2 = func_020d4f3c((int)func_ov031_0220dc40);
     switch (var2) {
     case 2:
-        func_ov031_0220da1c(4);
+        SetAccessPointConnectionState_ov031_0220da1c(4);
         *(unsigned short*)((char*)gAccessPointConnection_ov031_0224e53c + 0x2280) = 2;
         break;
     case 8:
@@ -41,7 +41,7 @@ L_slot: {
         return 4;
     case 3:
     default:
-        func_ov031_0220da1c(0xb);
+        SetAccessPointConnectionState_ov031_0220da1c(0xb);
         SetIRQInterruptState(var0);
         return 7;
     }

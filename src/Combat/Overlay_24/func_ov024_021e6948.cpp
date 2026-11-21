@@ -26,7 +26,7 @@ struct GameState;
 extern "C" void* GetParty_02010828(GameState*);
 struct Party_02048150;
 extern "C" int IsInParty_02086ef0(Party_02048150*, int);
-extern "C" void func_ov000_0215a8d4(unsigned char*, int);
+extern "C" void IncrementQuestBattleCounter_ov000_0215a8d4(unsigned char*, int);
 extern "C" int HasEnemyTrait_ov000_02156068(struct Struct_02000c9c_76* battle, int combatantIndex, int kind, int traitType);
 struct Random;
 int NextRandomMax(Random*, int);
@@ -46,7 +46,7 @@ extern "C" ARM int func_ov024_021e6948(struct Struct_ov024_021e6948_2* arg0, int
         }
         if (IsInParty_02086ef0((Party_02048150*)(GetParty_02010828((GameState*)GameState::GetInstance())), arg1) &&
             var1 && var1->unknown_138_->unknown_21_ == 1) {
-            func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 0);
+            IncrementQuestBattleCounter_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 0);
         }
     }
     if (var0 > 0 && HasEnemyTrait_ov000_02156068(arg0->unknown_10_, arg1, 0, 1)) {

@@ -110,7 +110,7 @@ extern "C" void func_ov000_0216d530(void* arg0, int arg1);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char*, int, int, int);
 extern "C" void SetCameraOrbit_0202e5d8(void* camera, int angle, int height, int distance);
 extern "C" void func_ov000_02163b90(void* arg0, int arg1);
-extern "C" void func_02049f3c(unsigned char* arg0);
+extern "C" void SetCombatantOffBattlefield_02049f3c(unsigned char* combatant);
 extern "C" Struct_ov023_021f2e6c_9* func_0202ed64(void* arg0);
 extern "C" void func_ov000_0216d2d0(void* arg0);
 struct Struct_0202ed0c_2;
@@ -481,7 +481,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                         }
                         if (var70 <= 0) {
                             ((Object3D*)var69)->MakeHidden();
-                            func_02049f3c(var69);
+                            SetCombatantOffBattlefield_02049f3c(var69);
                             *(unsigned char*)(arg0 + Enum_ov023_021f2e6c_21950) = 0;
                             void* var71 = GetBattleCamera_ov000_02160f14(arg0);
                             Struct_ov023_021f2e6c_9 var72 = *func_0202ed64(var71);

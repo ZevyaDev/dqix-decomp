@@ -156,7 +156,7 @@ extern "C" void RemoveEquipmentFromBag_0207c484(EquipmentBag_0207c484*, int, int
 extern "C" void func_020483f0(unsigned char*, unsigned short);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
 extern "C" void func_02046608(Struct_ov000_02176634_9*, int, char*, char*, int, int, unsigned char);
-extern "C" void func_ov000_0217ab8c(Struct_ov000_02176634*, int, int);
+extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(Struct_ov000_02176634*, int, int);
 #if defined(jpn)
 extern "C" void OpenTextWindow_0205d304(Struct_ov000_02176634_10*, char*, int, int, int, int, int);
 extern "C" void func_0203bdf4(void*, char*);
@@ -581,7 +581,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
 
     func_02046608(var13, 10, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(var33)), var11, 0xa4, 0, 0);
 #endif
-    func_ov000_0217ab8c(arg1, arg3, arg4);
+    ConfigurePanelMenuCursors_ov000_0217ab8c(arg1, arg3, arg4);
     Struct_ov000_02176634_10* var40 = &arg0->unknown_188_;
     var40->unknown_a0_ = 8;
     var40->unknown_a2_ = 7;

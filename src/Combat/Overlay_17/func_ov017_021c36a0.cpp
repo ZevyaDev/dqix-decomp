@@ -23,7 +23,7 @@ extern "C" int func_0202b000(void* arg0);
 extern "C" void func_ov017_021c37a4(void);
 extern "C" void func_0202c778(unsigned char* arg0);
 extern "C" int func_0202b800(int* arg0);
-extern "C" void func_0205e22c(void* arg0);
+extern "C" void ResetLocalWirelessPacketQueue_0205e22c(void* packetQueue);
 struct Struct_020e3004;
 extern "C" void func_020e3004(struct Struct_020e3004* arg0);
 struct Struct_020e358c;
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov017_021c36a0(void) {
 	func_0202c778((unsigned char*)var2);
 #endif
 	func_0202b800((int*)var2);
-	func_0205e22c(var4);
+	ResetLocalWirelessPacketQueue_0205e22c(var4);
 	func_020e3004((struct Struct_020e3004*)var5);
 	func_020e358c((struct Struct_020e358c*)var6);
 	func_ov017_02195748((unsigned char*)var1);

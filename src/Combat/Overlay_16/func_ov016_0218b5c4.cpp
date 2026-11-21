@@ -112,7 +112,7 @@ extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4* manager, int fadeDur
 extern "C" void StopStream_0203ad88(void* manager, void* handle, int fadeDuration);
 extern "C" void UpdateSound_020bbd9c();
 extern "C" void func_0205e8d4(void* arg0);
-extern "C" void func_0203a950(void* arg0);
+extern "C" void CloseSoundArchive_0203a950(void* manager);
 extern "C" void func_0205e88c(Struct_02000c9c_17* arg0);
 extern "C" void func_0209c174(Struct_02000c9c_16* arg0);
 extern "C" void func_0209c2b8(void* arg0);
@@ -288,7 +288,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
                 StopStream_0203ad88(&gMusicManager_02109bf4, 0, 0);
                 UpdateSound_020bbd9c();
                 func_0205e8d4(&gSoundEffectManager_02108760);
-                func_0203a950(&gMusicManager_02109bf4);
+                CloseSoundArchive_0203a950(&gMusicManager_02109bf4);
                 func_0205e88c((Struct_02000c9c_17*)&gSoundEffectManager_02108760);
                 func_0209c174((Struct_02000c9c_16*)&gMusicManager_02109bf4);
                 func_0209c2b8(&gMusicManager_02109bf4);
@@ -311,7 +311,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
 #if !defined(jpn)
             if (var19->unknown_11_ != 0) {
                 func_0205e8d4(&gSoundEffectManager_02108760);
-                func_0203a950(&gMusicManager_02109bf4);
+                CloseSoundArchive_0203a950(&gMusicManager_02109bf4);
                 func_0205e88c((Struct_02000c9c_17*)&gSoundEffectManager_02108760);
                 func_0209c174((Struct_02000c9c_16*)&gMusicManager_02109bf4);
                 LoadSoundEffectSet_0205ea20(&gSoundEffectManager_02108760, 100);

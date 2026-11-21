@@ -28,7 +28,7 @@ struct Struct_020bd7c4_3 {
     long unknown_90_;
 };
 
-extern Struct_020bd7c4_3* data_02110370;
+extern Struct_020bd7c4_3* gCurrentSoundArchive_02110370;
 
 // USA: func_020bd7c4
 extern "C" ARM long func_020bd7c4(unsigned long arg0, void* arg1, long arg2, long arg3) {
@@ -38,7 +38,7 @@ extern "C" ARM long func_020bd7c4(unsigned long arg0, void* arg1, long arg2, lon
     Struct_020bd7c4_3* var3;
     long var4;
 
-    var3 = data_02110370;
+    var3 = gCurrentSoundArchive_02110370;
     if (arg0 >= var3->unknown_84_->unknown_8_)
         return -1;
 

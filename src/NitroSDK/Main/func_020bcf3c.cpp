@@ -2,7 +2,7 @@
 
 extern "C" void func_020d1f0c(unsigned long arg0, unsigned long arg1, int arg2, int arg3);
 extern "C" unsigned long func_020d26ec();
-extern "C" void SendSoundCommands_020d24c4(int arg0);
+extern "C" void SendSoundCommands_020d24c4(int flags);
 extern "C" void func_020d2680(unsigned int arg0);
 extern "C" int DequeueValue_020c7ea0(void* queue, void** value, int flags);
 extern "C" void func_020bbe94(int arg0);

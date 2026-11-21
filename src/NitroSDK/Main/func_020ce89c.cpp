@@ -73,7 +73,7 @@ static inline unsigned long inline_020ce89c_4()
     return VBLANK_COUNT;
 }
 
-extern "C" void func_020c976c(unsigned long cycles);
+extern "C" void BusyWait_020c976c(unsigned long cycles);
 extern "C" void func_020c9bf0();
 extern "C" int func_020d135c();
 extern "C" int func_020ceba8(int arg0, int arg1, int arg2, int arg3);
@@ -128,11 +128,11 @@ extern "C" ARM void func_020ce89c(int arg0, int arg1, unsigned short arg2)
     var8 = func_020cede0();
     if (func_020ce810(&var4, &var5) != PM_SUCCESS)
         do
-            func_020c976c(RETRY_WAIT_CYCLES);
+            BusyWait_020c976c(RETRY_WAIT_CYCLES);
         while (func_020ce810(&var4, &var5) != PM_SUCCESS);
     if (func_020ce6d0(PM_LCD_ALL, PM_BACKLIGHT_OFF) != PM_SUCCESS)
         do
-            func_020c976c(RETRY_WAIT_CYCLES);
+            BusyWait_020c976c(RETRY_WAIT_CYCLES);
         while (func_020ce6d0(PM_LCD_ALL, PM_BACKLIGHT_OFF) != PM_SUCCESS);
 
     {
@@ -176,14 +176,14 @@ extern "C" ARM void func_020ce89c(int arg0, int arg1, unsigned short arg2)
         {
             if (func_020ce614(PM_LED_ON) != PM_SUCCESS)
                 do
-                    func_020c976c(RETRY_WAIT_CYCLES);
+                    BusyWait_020c976c(RETRY_WAIT_CYCLES);
                 while (func_020ce614(PM_LED_ON) != PM_SUCCESS);
         }
         DISPCNT = var6;
         DISPCNTSUB = var7;
     }
 
-    func_020c976c(LCD_POWER_WAIT_CYCLES);
+    BusyWait_020c976c(LCD_POWER_WAIT_CYCLES);
 
     DisableIRQInterrupts();
     SetSpecificInterruptsEnabled(var2);

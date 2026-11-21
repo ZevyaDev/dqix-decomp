@@ -45,7 +45,7 @@ extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void GetCurrentDate_020cf0fc(int date);
 extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0(void);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
-extern "C" int func_02098f20(int arg0, int arg1, int arg2);
+extern "C" int CalculateAge_02098f20(int birthYear, int birthMonth, int birthDay);
 extern "C" void SetMessageString_02046574(Struct_02046574_2* window, int index, char* text);
 
 // USA: func_02099304
@@ -105,7 +105,7 @@ extern "C" ARM int func_02099304(Struct_02099304* arg0, char* arg1, const void* 
         if (arg0->unknown_4_0_ < 0) {
             var5 = 0;
         } else {
-            var5 = func_02098f20(arg0->unknown_0_0_, arg0->unknown_1_4_, arg0->unknown_2_0_);
+            var5 = CalculateAge_02098f20(arg0->unknown_0_0_, arg0->unknown_1_4_, arg0->unknown_2_0_);
             if (var5 < 0) {
                 var5 = 0;
             }

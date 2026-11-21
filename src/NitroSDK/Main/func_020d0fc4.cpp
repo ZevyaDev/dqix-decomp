@@ -10,7 +10,7 @@
 #define CARD_RESULT_SUCCESS 0
 #define CARD_RESULT_TIMEOUT 4
 
-extern "C" void func_020c976c(unsigned long cycles);
+extern "C" void BusyWait_020c976c(unsigned long cycles);
 
 static inline void inline_020d0fc4(unsigned long arg0)
 {
@@ -27,7 +27,7 @@ extern "C" ARM int func_020d0fc4(CardReadManager* arg0, int arg1, int arg2)
         arg0->flags |= 1 << READ_MANAGER_FLAG_INIT_REQUEST_SENT;
         while (!IsIPCCommandHandlerRegistered(IPC_COMMAND_CARD, IPCSide_Arm7))
         {
-            func_020c976c(100);
+            BusyWait_020c976c(100);
         }
         func_020d0fc4(arg0, CARD_REQUEST_INIT, 1);
     }

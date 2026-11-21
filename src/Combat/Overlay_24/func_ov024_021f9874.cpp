@@ -25,14 +25,14 @@ struct Struct_ov024_021f9874_6 {
     char unknown_a_[2];
 };
 
-struct Struct_ov024_021f9874_7 {
-    unsigned short unknown_0_;
+struct RankedAction_ov024_021f9874_7 {
+    unsigned short actionId_0_;
     signed char unknown_2_;
     unsigned char unknown_3_;
-    float unknown_4_;
-    unsigned short unknown_8_;
-    unsigned char unknown_a_;
-    unsigned char unknown_b_;
+    float score_4_;
+    unsigned short mpCost_8_;
+    unsigned char targetGroup_a_;
+    unsigned char targetIndex_b_;
 };
 
 struct Struct_ov024_021f9874_8 {
@@ -41,17 +41,17 @@ struct Struct_ov024_021f9874_8 {
     float unknown_c4_;
 };
 
-struct Struct_ov024_021f9874_9 {
+struct ActionData_ov024_021f9874_9 {
     char unknown_0_[4];
-    unsigned int unknown_4_0_ : 12;
+    unsigned int id_4_0_ : 12;
     unsigned int unknown_5_4_ : 20;
     char unknown_8_[0xc];
     unsigned int unknown_14_0_ : 28;
     unsigned int unknown_17_4_ : 4;
 };
 
-struct Struct_ov024_021f9874 {
-    unsigned short unknown_0_;
+struct ActionListEntry_ov024_021f9874 {
+    unsigned short actionId_0_;
     signed char unknown_2_;
     unsigned char unknown_3_;
 };
@@ -62,12 +62,12 @@ struct Struct_ov024_021f9874_2 {
     unsigned int unknown_1_1_ : 23;
 };
 
-struct Struct_ov024_021f9874_3 {
+struct TacticAI_ov024_021f9874_3 {
     int unknown_0_;
     char unknown_4_[2];
-    unsigned char unknown_6_;
+    unsigned char tactic_6_;
     char unknown_7_[1];
-    GameObject* unknown_8_;
+    GameObject* pMember_8_;
     char unknown_c_[8];
     unsigned char unknown_14_;
     char unknown_15_[0x17];
@@ -76,17 +76,17 @@ struct Struct_ov024_021f9874_3 {
     float unknown_30_;
     unsigned char unknown_34_;
     char unknown_35_[3];
-    int unknown_38_;
+    int option_38_;
     int unknown_3c_;
     unsigned char unknown_40_;
     char unknown_41_[3];
     float unknown_44_[4];
-    unsigned char unknown_54_[0x28];
-    GameObject* unknown_7c_[8];
-    int unknown_9c_;
+    unsigned char optionWeights_54_[0x28];
+    GameObject* enemies_7c_[8];
+    int enemyCount_9c_;
     char unknown_a0_[0x24];
-    int unknown_c4_[25];
-    int unknown_128_;
+    int estimatedEnemyHP_c4_[25];
+    int lowestHPMemberIndex_128_;
     char unknown_12c_[4];
     int unknown_130_;
     char unknown_134_[5];
@@ -94,22 +94,22 @@ struct Struct_ov024_021f9874_3 {
     char unknown_13a_[0x32];
     int unknown_16c_;
     char unknown_170_[0x238];
-    struct Struct_ov024_021f9874_7 unknown_3a8_[4];
-    struct Struct_ov024_021f9874_7 unknown_3d8_[4];
-    struct Struct_ov024_021f9874_7 unknown_408_[4];
-    struct Struct_ov024_021f9874_7 unknown_438_[4];
+    struct RankedAction_ov024_021f9874_7 totalRanking_3a8_[4];
+    struct RankedAction_ov024_021f9874_7 unknown_3d8_[4];
+    struct RankedAction_ov024_021f9874_7 damageRanking_408_[4];
+    struct RankedAction_ov024_021f9874_7 costFreeDamageRanking_438_[4];
     char unknown_468_[0x30];
-    struct Struct_ov024_021f9874_7 unknown_498_[4];
-    struct Struct_ov024_021f9874_7 unknown_4c8_[4];
+    struct RankedAction_ov024_021f9874_7 reviveRanking_498_[4];
+    struct RankedAction_ov024_021f9874_7 healRanking_4c8_[4];
     char unknown_4f8_[0x30];
-    struct Struct_ov024_021f9874_7 unknown_528_[4];
-    struct Struct_ov024_021f9874_7 unknown_558_[4];
-    struct Struct_ov024_021f9874_7 unknown_588_[4];
-    struct Struct_ov024_021f9874_7 unknown_5b8_[4];
+    struct RankedAction_ov024_021f9874_7 cureRanking_528_[4];
+    struct RankedAction_ov024_021f9874_7 unknown_558_[4];
+    struct RankedAction_ov024_021f9874_7 unknown_588_[4];
+    struct RankedAction_ov024_021f9874_7 unknown_5b8_[4];
     char unknown_5e8_[0x60];
-    struct Struct_ov024_021f9874* unknown_648_;
-    struct Struct_ov024_021f9874_9* unknown_64c_;
-    int unknown_650_;
+    struct ActionListEntry_ov024_021f9874* pCandidate_648_;
+    struct ActionData_ov024_021f9874_9* pAction_64c_;
+    int mpCost_650_;
     char unknown_654_[1];
     unsigned char unknown_655_;
 };
@@ -129,7 +129,7 @@ struct Struct_ov024_021f9874_5 {
 };
 
 extern "C" void* __clear(void* arg0, int arg1);
-extern "C" void func_ov024_021f6830(void* arg0, struct Struct_ov024_021f9874_7* arg1);
+extern "C" void func_ov024_021f6830(void* arg0, struct RankedAction_ov024_021f9874_7* arg1);
 extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov024_021eadfc(GameObject* arg0);
 
@@ -142,351 +142,351 @@ extern unsigned char data_ov024_021ffc98[12];
 extern unsigned char data_ov024_021ffca4[33];
 extern unsigned char data_ov024_021ffcc5[39];
 
-// USA: func_ov024_021f9874
-extern "C" ARM void func_ov024_021f9874(struct Struct_ov024_021f9874_3* arg0, struct Struct_ov024_021f9874_8* arg1, unsigned char arg2, unsigned char arg3) {
+// USA: RankCandidateAction_ov024_021f9874
+extern "C" ARM void RankCandidateAction_ov024_021f9874(struct TacticAI_ov024_021f9874_3* tacticAI, struct Struct_ov024_021f9874_8* arg1, unsigned char targetGroup, unsigned char targetIndex) {
     char var0[0x38];
-    int var1[8];
-    float var2[8];
+    int isEnemyDefeated[8];
+    float enemyDamage[8];
     struct Struct_ov024_021f9874_5 var3;
-    float var4[14];
-    float var5[8];
-    int var6[4];
+    float scores[14];
+    float deathChance[8];
+    int healAmounts[4];
     int var7[4];
-    float var8[4];
-    struct Struct_ov024_021f9874_7 var9;
-    float var10;
-    float var11;
+    float categoryWeights[4];
+    struct RankedAction_ov024_021f9874_7 rankEntry;
+    float damageScore;
+    float totalScore;
     float var12;
     float var13;
-    float var14;
+    float costWeight;
     float var15;
-    float var16;
+    float mpRatio;
     int var17;
-    float var18;
-    int var19;
+    float optionWeight;
+    int hasDeathEffect;
 
     memset(var0, 0, 0x38);
-    __clear(var1, 0x20);
-    __clear(var2, 0x20);
+    __clear(isEnemyDefeated, 0x20);
+    __clear(enemyDamage, 0x20);
     __clear(&var3, 0xe);
-    __clear(var4, 0x38);
-    __clear(var5, 0x20);
-    __clear(var6, 0x10);
+    __clear(scores, 0x38);
+    __clear(deathChance, 0x20);
+    __clear(healAmounts, 0x10);
     __clear(var7, 0x10);
 
     var17 = 0;
 
-    for (int var20 = 0; var20 < arg1->unknown_c0_; var20++) {
-        struct Struct_ov024_021f9874_6* var21 = &arg1->unknown_0_[var20];
-        if (var21->unknown_8_ != 0) continue;
-        if (var21->unknown_5_ == 0) continue;
+    for (int i = 0; i < arg1->unknown_c0_; i++) {
+        struct Struct_ov024_021f9874_6* effect = &arg1->unknown_0_[i];
+        if (effect->unknown_8_ != 0) continue;
+        if (effect->unknown_5_ == 0) continue;
         {
-            int var22 = var21->unknown_6_;
-            float var23 = var21->unknown_0_ * var21->unknown_9_.unknown_0_0_;
-            if (arg0->unknown_34_ != 0) var23 *= 1.2f;
-            var2[var22] += var23;
-            if (var2[var22] >= arg0->unknown_c4_[var22]) var1[var22] = 10;
+            int enemyIndex = effect->unknown_6_;
+            float damage = effect->unknown_0_ * effect->unknown_9_.unknown_0_0_;
+            if (tacticAI->unknown_34_ != 0) damage *= 1.2f;
+            enemyDamage[enemyIndex] += damage;
+            if (enemyDamage[enemyIndex] >= tacticAI->estimatedEnemyHP_c4_[enemyIndex]) isEnemyDefeated[enemyIndex] = 10;
             var3.unknown_2_ = 1;
-            if (var21->unknown_9_.unknown_0_6_) var17 = 1;
+            if (effect->unknown_9_.unknown_0_6_) var17 = 1;
         }
     }
 
-    var19 = 0;
-    if (arg0->unknown_14_ != 0) {
-        for (int var24 = 0; var24 < arg1->unknown_c0_; var24++) {
-            struct Struct_ov024_021f9874_6* var25 = &arg1->unknown_0_[var24];
-            if (var25->unknown_8_ != 2) continue;
-            if (var25->unknown_5_ == 0) continue;
-            var5[var25->unknown_6_] = 0.01f * var25->unknown_7_;
+    hasDeathEffect = 0;
+    if (tacticAI->unknown_14_ != 0) {
+        for (int i = 0; i < arg1->unknown_c0_; i++) {
+            struct Struct_ov024_021f9874_6* effect = &arg1->unknown_0_[i];
+            if (effect->unknown_8_ != 2) continue;
+            if (effect->unknown_5_ == 0) continue;
+            deathChance[effect->unknown_6_] = 0.01f * effect->unknown_7_;
             var3.unknown_2_ = 1;
-            var19 = 1;
-            if (var25->unknown_9_.unknown_0_6_) var17 = 1;
+            hasDeathEffect = 1;
+            if (effect->unknown_9_.unknown_0_6_) var17 = 1;
         }
-        if (var19) {
-            float var26;
-            int var27;
-            for (var27 = 0; var27 < arg1->unknown_c0_; var27++) {
-                float var28;
+        if (hasDeathEffect) {
+            float remainingHP;
+            int i;
+            for (i = 0; i < arg1->unknown_c0_; i++) {
+                float enemyHP;
                 var3.unknown_2_ = 1;
-                var28 = arg0->unknown_c4_[var27];
-                var26 = var28 - var2[var27];
-                if (var26 <= 0.0f) continue;
+                enemyHP = tacticAI->estimatedEnemyHP_c4_[i];
+                remainingHP = enemyHP - enemyDamage[i];
+                if (remainingHP <= 0.0f) continue;
                 {
-                    float var29 = var5[var27];
-                    if (arg0->unknown_6_ != 0) {
-                        double var30 = var29;
-                        double var31 = 0.005 * (double)arg0->unknown_650_;
-                        var29 = (float)(var30 - var31);
+                    float chance = deathChance[i];
+                    if (tacticAI->tactic_6_ != 0) {
+                        double chanceAsDouble = chance;
+                        double costPenalty = 0.005 * (double)tacticAI->mpCost_650_;
+                        chance = (float)(chanceAsDouble - costPenalty);
                     }
                     {
-                        float var32 = var29 * var29;
-                        float var33 = var32;
-                        if (var32 > 0.9f) var33 = 0.9f;
-                        var2[var27] += var26 * var33;
+                        float squaredChance = chance * chance;
+                        float killChance = squaredChance;
+                        if (squaredChance > 0.9f) killChance = 0.9f;
+                        enemyDamage[i] += remainingHP * killChance;
                     }
                 }
             }
         }
     }
 
-    for (int var34 = 0; var34 < arg1->unknown_c0_; var34++) {
-        struct Struct_ov024_021f9874_6* var35 = &arg1->unknown_0_[var34];
-        if (var35->unknown_8_ == 3) {
-            if (var35->unknown_5_ != 0) continue;
-            var6[var35->unknown_6_] += var35->unknown_0_;
+    for (int i = 0; i < arg1->unknown_c0_; i++) {
+        struct Struct_ov024_021f9874_6* effect = &arg1->unknown_0_[i];
+        if (effect->unknown_8_ == 3) {
+            if (effect->unknown_5_ != 0) continue;
+            healAmounts[effect->unknown_6_] += effect->unknown_0_;
             var3.unknown_6_ = 1;
         }
-        if (var35->unknown_8_ == 4 && var35->unknown_5_ == 0) {
-            var7[var35->unknown_6_] += var35->unknown_0_;
+        if (effect->unknown_8_ == 4 && effect->unknown_5_ == 0) {
+            var7[effect->unknown_6_] += effect->unknown_0_;
             var3.unknown_7_ = 1;
         }
     }
 
-    var4[13] = arg0->unknown_650_;
-    if (arg0->unknown_648_->unknown_3_ != 0) var4[13] += 30.0f;
+    scores[13] = tacticAI->mpCost_650_;
+    if (tacticAI->pCandidate_648_->unknown_3_ != 0) scores[13] += 30.0f;
 
     if (var3.unknown_2_ != 0) {
-        float* var36 = var2;
-        for (int var37 = 0; var37 < arg0->unknown_9c_; var37++) {
-            float var38 = var36[var37];
-            int var39;
-            if (var38 <= 0.0f) continue;
-            var39 = arg0->unknown_c4_[var37];
-            if (var38 >= var39) var38 = var39;
-            var4[2] += 100.0f * var38 / inline_ov024_021dc700(arg0->unknown_7c_[var37]);
+        float* var36 = enemyDamage;
+        for (int i = 0; i < tacticAI->enemyCount_9c_; i++) {
+            float damage = var36[i];
+            int enemyHP;
+            if (damage <= 0.0f) continue;
+            enemyHP = tacticAI->estimatedEnemyHP_c4_[i];
+            if (damage >= enemyHP) damage = enemyHP;
+            scores[2] += 100.0f * damage / inline_ov024_021dc700(tacticAI->enemies_7c_[i]);
         }
-        if (arg0->unknown_648_->unknown_3_ != 0 && arg0->unknown_6_ != 0) var4[2] = 0.0f;
+        if (tacticAI->pCandidate_648_->unknown_3_ != 0 && tacticAI->tactic_6_ != 0) scores[2] = 0.0f;
     }
 
     if (var3.unknown_6_ != 0) {
-        for (int var40 = 0; var40 < 4; var40++) {
-            int var41 = var6[var40];
-            if (var41 == 0) continue;
+        for (int memberIndex = 0; memberIndex < 4; memberIndex++) {
+            int healAmount = healAmounts[memberIndex];
+            if (healAmount == 0) continue;
             {
-                float var42 = 100.0f * var41 / inline_ov024_021dc700(GetCombatantByID(arg0->unknown_0_, (short)var40));
-                if (var40 == arg0->unknown_128_) var42 *= 2.0f;
-                var4[6] += var42;
+                float healScore = 100.0f * healAmount / inline_ov024_021dc700(GetCombatantByID(tacticAI->unknown_0_, (short)memberIndex));
+                if (memberIndex == tacticAI->lowestHPMemberIndex_128_) healScore *= 2.0f;
+                scores[6] += healScore;
             }
         }
-        if (arg0->unknown_650_ != 0) {
-            if (arg0->unknown_648_->unknown_0_ == 0x310) {
-                if (arg0->unknown_130_ >= 2) var4[6] *= 0.66f;
-                else var4[6] *= 0.55f;
-                if (arg0->unknown_139_ == 0) var4[6] = 0.0f;
-            } else if (arg0->unknown_648_->unknown_0_ == 0x21) {
-                var4[6] *= 0.9f;
+        if (tacticAI->mpCost_650_ != 0) {
+            if (tacticAI->pCandidate_648_->actionId_0_ == 0x310) {
+                if (tacticAI->unknown_130_ >= 2) scores[6] *= 0.66f;
+                else scores[6] *= 0.55f;
+                if (tacticAI->unknown_139_ == 0) scores[6] = 0.0f;
+            } else if (tacticAI->pCandidate_648_->actionId_0_ == 0x21) {
+                scores[6] *= 0.9f;
             }
         }
     }
 
-    for (int var43 = 0; var43 < arg1->unknown_c0_; var43++) {
-        struct Struct_ov024_021f9874_6* var44 = &arg1->unknown_0_[var43];
-        if (var44->unknown_8_ == 5 && var44->unknown_5_ == 0) {
-            var4[5] += var44->unknown_7_;
+    for (int i = 0; i < arg1->unknown_c0_; i++) {
+        struct Struct_ov024_021f9874_6* effect = &arg1->unknown_0_[i];
+        if (effect->unknown_8_ == 5 && effect->unknown_5_ == 0) {
+            scores[5] += effect->unknown_7_;
             var3.unknown_5_ = 1;
         }
     }
 
-    if (arg0->unknown_648_->unknown_0_ == 0x28) {
+    if (tacticAI->pCandidate_648_->actionId_0_ == 0x28) {
         var3.unknown_6_ = 1;
-        var4[6] = 400.0f;
+        scores[6] = 400.0f;
     }
 
-    for (int var45 = 0; var45 < arg1->unknown_c0_; var45++) {
-        struct Struct_ov024_021f9874_6* var46 = &arg1->unknown_0_[var45];
-        int var47;
+    for (int i = 0; i < arg1->unknown_c0_; i++) {
+        struct Struct_ov024_021f9874_6* effect = &arg1->unknown_0_[i];
+        int isOptionEnabled;
 
-        var47 = 1;
-        if (var46->unknown_9_.unknown_0_7_) {
-            var18 = 0.01f * arg0->unknown_54_[arg0->unknown_3c_];
-            var47 = arg0->unknown_40_;
+        isOptionEnabled = 1;
+        if (effect->unknown_9_.unknown_0_7_) {
+            optionWeight = 0.01f * tacticAI->optionWeights_54_[tacticAI->unknown_3c_];
+            isOptionEnabled = tacticAI->unknown_40_;
         } else {
-            var18 = 0.01f * arg0->unknown_54_[arg0->unknown_38_];
+            optionWeight = 0.01f * tacticAI->optionWeights_54_[tacticAI->option_38_];
         }
-        __clear(var8, 0x10);
+        __clear(categoryWeights, 0x10);
 
-        if (var46->unknown_8_ == 8) {
-            if (var46->unknown_5_ != 0) continue;
-            var8[0] = 10.0f;
+        if (effect->unknown_8_ == 8) {
+            if (effect->unknown_5_ != 0) continue;
+            categoryWeights[0] = 10.0f;
             {
-                int var48;
-                for (var48 = 0; var48 < 6; var48++) {
-                    unsigned int var49 = data_ov024_021ffc98[var48 * 2 + 1];
-                    if (var46->unknown_4_ == data_ov024_021ffc98[var48 * 2]) var8[0] = var49;
+                int j;
+                for (j = 0; j < 6; j++) {
+                    unsigned int weight = data_ov024_021ffc98[j * 2 + 1];
+                    if (effect->unknown_4_ == data_ov024_021ffc98[j * 2]) categoryWeights[0] = weight;
                 }
             }
-        } else if (var46->unknown_8_ == 7) {
-            int var50;
-            if (var46->unknown_5_ != 0) continue;
-            var50 = var46->unknown_6_;
-            if (var46->unknown_4_ == 0xd) {
-                var8[1] = arg0->unknown_16c_ * 13 / 100;
-                if (var46->unknown_4_ == 0x11 && arg0->unknown_64c_->unknown_17_4_ == 2) {
-                    if (var50 >= 0 && var50 < 4) var8[1] *= arg0->unknown_44_[var50];
+        } else if (effect->unknown_8_ == 7) {
+            int memberIndex;
+            if (effect->unknown_5_ != 0) continue;
+            memberIndex = effect->unknown_6_;
+            if (effect->unknown_4_ == 0xd) {
+                categoryWeights[1] = tacticAI->unknown_16c_ * 13 / 100;
+                if (effect->unknown_4_ == 0x11 && tacticAI->pAction_64c_->unknown_17_4_ == 2) {
+                    if (memberIndex >= 0 && memberIndex < 4) categoryWeights[1] *= tacticAI->unknown_44_[memberIndex];
                 }
             } else {
-                int var51;
-                for (var51 = 0; var51 < 0xb; var51++) {
-                    int var52 = data_ov024_021ffca4[var51 * 3 + 1];
-                    unsigned int var53 = data_ov024_021ffca4[var51 * 3 + 2];
-                    if (var46->unknown_4_ != data_ov024_021ffca4[var51 * 3]) continue;
+                int j;
+                for (j = 0; j < 0xb; j++) {
+                    int category = data_ov024_021ffca4[j * 3 + 1];
+                    unsigned int weight = data_ov024_021ffca4[j * 3 + 2];
+                    if (effect->unknown_4_ != data_ov024_021ffca4[j * 3]) continue;
                     {
-                        var8[var52] = var53;
-                        if (var47 == 0) var8[var52] = 0.0f;
-                        if (var46->unknown_4_ == 0x11 && arg0->unknown_64c_->unknown_17_4_ == 2) {
-                            if (var50 >= 0 && var50 < 4) var8[var52] *= arg0->unknown_44_[var50];
+                        categoryWeights[category] = weight;
+                        if (isOptionEnabled == 0) categoryWeights[category] = 0.0f;
+                        if (effect->unknown_4_ == 0x11 && tacticAI->pAction_64c_->unknown_17_4_ == 2) {
+                            if (memberIndex >= 0 && memberIndex < 4) categoryWeights[category] *= tacticAI->unknown_44_[memberIndex];
                         }
-                        if (var46->unknown_0_ < 0.0f) {
-                            var8[var52] = -3.0f * var53;
+                        if (effect->unknown_0_ < 0.0f) {
+                            categoryWeights[category] = -3.0f * weight;
                         }
                         break;
                     }
                 }
             }
-        } else if (var46->unknown_8_ == 6) {
-            if (var46->unknown_5_ == 0) continue;
-            var8[3] += var46->unknown_0_;
-        } else if (var46->unknown_8_ == 5) {
-            int var54;
-            if (var46->unknown_5_ == 0) continue;
-            var54 = var46->unknown_6_;
-            if (var1[var54] != 0) continue;
-            if (var46->unknown_4_ == 0x12) {
-                GameObject* var55 = arg0->unknown_7c_[var54];
-                if (var55 != 0) {
-                    unsigned int var56 = inline_ov024_021f9874(var55);
-                    unsigned short var57 = inline_ov024_021dc700(var55);
-                    float var58 = 100.0f * (int)(var56 >> 2);
-                    var58 = var58 / var57;
-                    if (var58 > 29.0f) var58 = 29.0f;
-                    var8[2] = var58;
+        } else if (effect->unknown_8_ == 6) {
+            if (effect->unknown_5_ == 0) continue;
+            categoryWeights[3] += effect->unknown_0_;
+        } else if (effect->unknown_8_ == 5) {
+            int enemyIndex;
+            if (effect->unknown_5_ == 0) continue;
+            enemyIndex = effect->unknown_6_;
+            if (isEnemyDefeated[enemyIndex] != 0) continue;
+            if (effect->unknown_4_ == 0x12) {
+                GameObject* enemy = tacticAI->enemies_7c_[enemyIndex];
+                if (enemy != 0) {
+                    unsigned int defense = inline_ov024_021f9874(enemy);
+                    unsigned short maxHP = inline_ov024_021dc700(enemy);
+                    float defenseWeight = 100.0f * (int)(defense >> 2);
+                    defenseWeight = defenseWeight / maxHP;
+                    if (defenseWeight > 29.0f) defenseWeight = 29.0f;
+                    categoryWeights[2] = defenseWeight;
                 }
             } else {
-                int var59;
-                for (var59 = 0; var59 < 0xd; var59++) {
-                    int var60 = data_ov024_021ffcc5[var59 * 3 + 1];
-                    unsigned int var61 = data_ov024_021ffcc5[var59 * 3 + 2];
-                    if (var46->unknown_4_ != data_ov024_021ffcc5[var59 * 3]) continue;
-                    var8[var60] = var61;
-                    if (var47 == 0) var8[var60] = 0.0f;
+                int j;
+                for (j = 0; j < 0xd; j++) {
+                    int category = data_ov024_021ffcc5[j * 3 + 1];
+                    unsigned int weight = data_ov024_021ffcc5[j * 3 + 2];
+                    if (effect->unknown_4_ != data_ov024_021ffcc5[j * 3]) continue;
+                    categoryWeights[category] = weight;
+                    if (isOptionEnabled == 0) categoryWeights[category] = 0.0f;
                 }
             }
         }
 
-        if (var8[0]) {
-            float var62 = var8[0] * var46->unknown_7_;
-            var62 = 0.01f * var62;
-            var4[8] += var62;
+        if (categoryWeights[0]) {
+            float entryCureScore = categoryWeights[0] * effect->unknown_7_;
+            entryCureScore = 0.01f * entryCureScore;
+            scores[8] += entryCureScore;
             var3.unknown_8_ = 1;
         }
-        if (var8[1]) {
-            float var63 = var8[1] * var46->unknown_7_;
+        if (categoryWeights[1]) {
+            float var63 = categoryWeights[1] * effect->unknown_7_;
             var63 = 0.01f * var63;
-            var63 = var18 * var63;
-            var4[9] += var63;
+            var63 = optionWeight * var63;
+            scores[9] += var63;
             var3.unknown_9_ = 1;
         }
-        if (var8[2]) {
-            float var64 = var8[2] * var46->unknown_7_;
+        if (categoryWeights[2]) {
+            float var64 = categoryWeights[2] * effect->unknown_7_;
             var64 = 0.01f * var64;
-            var64 = var18 * var64;
-            var4[10] += var64;
+            var64 = optionWeight * var64;
+            scores[10] += var64;
             var3.unknown_a_ = 1;
         }
-        if (var8[3]) {
-            float var65 = var8[3] * var46->unknown_7_;
+        if (categoryWeights[3]) {
+            float var65 = categoryWeights[3] * effect->unknown_7_;
             var65 = 0.01f * var65;
-            var65 = var18 * var65;
-            var4[11] += var65;
+            var65 = optionWeight * var65;
+            scores[11] += var65;
             var3.unknown_b_ = 1;
         }
     }
 
     {
-        struct Struct_ov024_021f9874* var66 = arg0->unknown_648_;
-        var9.unknown_0_ = var66->unknown_0_;
-        var9.unknown_2_ = var66->unknown_2_;
-        var9.unknown_3_ = var66->unknown_3_;
-        var9.unknown_a_ = arg2;
-        var9.unknown_b_ = arg3;
-        var9.unknown_8_ = (unsigned short)arg0->unknown_650_;
+        struct ActionListEntry_ov024_021f9874* candidate = tacticAI->pCandidate_648_;
+        rankEntry.actionId_0_ = candidate->actionId_0_;
+        rankEntry.unknown_2_ = candidate->unknown_2_;
+        rankEntry.unknown_3_ = candidate->unknown_3_;
+        rankEntry.targetGroup_a_ = targetGroup;
+        rankEntry.targetIndex_b_ = targetIndex;
+        rankEntry.mpCost_8_ = (unsigned short)tacticAI->mpCost_650_;
     }
 
-    var10 = 0.0f;
+    damageScore = 0.0f;
     if (var3.unknown_2_ != 0) {
-        var10 = var4[2];
-        if (arg0->unknown_2c_ != 0) var10 += var4[11];
-        if (var17 != 0) var10 *= arg0->unknown_30_;
-        var9.unknown_4_ = var10 - 0.01f * var4[13];
-        func_ov024_021f6830(arg0->unknown_408_, &var9);
-        if (0.0f == var4[13]) {
-            func_ov024_021f6830(arg0->unknown_438_, &var9);
+        damageScore = scores[2];
+        if (tacticAI->unknown_2c_ != 0) damageScore += scores[11];
+        if (var17 != 0) damageScore *= tacticAI->unknown_30_;
+        rankEntry.score_4_ = damageScore - 0.01f * scores[13];
+        func_ov024_021f6830(tacticAI->damageRanking_408_, &rankEntry);
+        if (0.0f == scores[13]) {
+            func_ov024_021f6830(tacticAI->costFreeDamageRanking_438_, &rankEntry);
         }
     }
 
     if (var3.unknown_5_ != 0) {
-        var9.unknown_4_ = var4[5] - 0.1f * var4[13];
-        func_ov024_021f6830(arg0->unknown_498_, &var9);
+        rankEntry.score_4_ = scores[5] - 0.1f * scores[13];
+        func_ov024_021f6830(tacticAI->reviveRanking_498_, &rankEntry);
     }
-    if (arg0->unknown_655_ != 0 && var3.unknown_6_ != 0) {
-        var9.unknown_4_ = var4[6] - 0.1f * var4[13];
-        func_ov024_021f6830(arg0->unknown_4c8_, &var9);
+    if (tacticAI->unknown_655_ != 0 && var3.unknown_6_ != 0) {
+        rankEntry.score_4_ = scores[6] - 0.1f * scores[13];
+        func_ov024_021f6830(tacticAI->healRanking_4c8_, &rankEntry);
     }
 
-    var14 = 0.1f;
-    if (arg0->unknown_6_ == 0) var14 = 0.01f;
+    costWeight = 0.1f;
+    if (tacticAI->tactic_6_ == 0) costWeight = 0.01f;
     var15 = 0.0f; var12 = 0.0f; var13 = 0.0f;
 
     if (var3.unknown_8_ != 0) {
-        float var67 = var4[8] - 0.1f * var4[13];
-        var67 += 0.01f * var4[6];
-        var9.unknown_4_ = var67;
-        func_ov024_021f6830(arg0->unknown_528_, &var9);
+        float cureScore = scores[8] - 0.1f * scores[13];
+        cureScore += 0.01f * scores[6];
+        rankEntry.score_4_ = cureScore;
+        func_ov024_021f6830(tacticAI->cureRanking_528_, &rankEntry);
     }
-    if (arg0->unknown_6_ == 2 && arg0->unknown_64c_->unknown_4_0_ != 0x1f9) {
-        var10 *= 0.3f;
+    if (tacticAI->tactic_6_ == 2 && tacticAI->pAction_64c_->id_4_0_ != 0x1f9) {
+        damageScore *= 0.3f;
     }
     if (var3.unknown_9_ != 0) {
-        var15 = var4[9] - var4[13] * var14;
-        var9.unknown_4_ = var15;
-        func_ov024_021f6830(arg0->unknown_558_, &var9);
+        var15 = scores[9] - scores[13] * costWeight;
+        rankEntry.score_4_ = var15;
+        func_ov024_021f6830(tacticAI->unknown_558_, &rankEntry);
     }
     if (var3.unknown_a_ != 0) {
-        var12 = var4[10] - var4[13] * var14;
-        var9.unknown_4_ = var12;
-        func_ov024_021f6830(arg0->unknown_588_, &var9);
+        var12 = scores[10] - scores[13] * costWeight;
+        rankEntry.score_4_ = var12;
+        func_ov024_021f6830(tacticAI->unknown_588_, &rankEntry);
     }
     if (var3.unknown_b_ != 0) {
-        var13 = var4[11] - var4[13] * var14;
-        var9.unknown_4_ = var13;
-        func_ov024_021f6830(arg0->unknown_5b8_, &var9);
+        var13 = scores[11] - scores[13] * costWeight;
+        rankEntry.score_4_ = var13;
+        func_ov024_021f6830(tacticAI->unknown_5b8_, &rankEntry);
     }
 
-    if (arg0->unknown_6_ != 0 && arg0->unknown_64c_->unknown_4_0_ == 1) {
-        unsigned char* var68 = (unsigned char*)func_02053c6c((unsigned char*)arg0->unknown_8_);
-        int var69;
-        int var70;
+    if (tacticAI->tactic_6_ != 0 && tacticAI->pAction_64c_->id_4_0_ == 1) {
+        unsigned char* var68 = (unsigned char*)func_02053c6c((unsigned char*)tacticAI->pMember_8_);
+        int firstTargetIndex;
+        int targetMP;
         if (var68 != 0 && *(short*)(var68 + 0x2ac) > 0 &&
             ((struct Struct_ov024_021f9874_2*)(var68 + 0x29c))->unknown_0_4_ == 3 &&
-            !func_ov024_021eadfc(arg0->unknown_8_) &&
-            (var69 = arg1->unknown_0_[0].unknown_6_, var69 >= 0) && var69 < 8 &&
-            arg0->unknown_7c_[var69] != 0 &&
-            (var70 = arg0->unknown_7c_[var69]->currentStats_->primaryStats.currMP, var70 > 0)) {
-            var16 = (float)inline_ov000_0215cd44_2(arg0->unknown_8_) / inline_ov024_021dc540_2(arg0->unknown_8_);
-            if (var16 <= 0.1f) arg1->unknown_c4_ += 50.0f;
-            if (var16 <= 0.3f) arg1->unknown_c4_ += 30.0f;
-            if (var16 <= 0.5f) arg1->unknown_c4_ += 10.0f;
+            !func_ov024_021eadfc(tacticAI->pMember_8_) &&
+            (firstTargetIndex = arg1->unknown_0_[0].unknown_6_, firstTargetIndex >= 0) && firstTargetIndex < 8 &&
+            tacticAI->enemies_7c_[firstTargetIndex] != 0 &&
+            (targetMP = tacticAI->enemies_7c_[firstTargetIndex]->currentStats_->primaryStats.currMP, targetMP > 0)) {
+            mpRatio = (float)inline_ov000_0215cd44_2(tacticAI->pMember_8_) / inline_ov024_021dc540_2(tacticAI->pMember_8_);
+            if (mpRatio <= 0.1f) arg1->unknown_c4_ += 50.0f;
+            if (mpRatio <= 0.3f) arg1->unknown_c4_ += 30.0f;
+            if (mpRatio <= 0.5f) arg1->unknown_c4_ += 10.0f;
         }
     }
 
-    var11 = arg1->unknown_c4_ + var15;
-    var11 = var12 + var11;
-    var11 = var13 + var11;
-    var11 = var10 + var11;
-    var9.unknown_4_ = var11 - var4[13] * var14;
-    func_ov024_021f6830(arg0->unknown_3a8_, &var9);
+    totalScore = arg1->unknown_c4_ + var15;
+    totalScore = var12 + totalScore;
+    totalScore = var13 + totalScore;
+    totalScore = damageScore + totalScore;
+    rankEntry.score_4_ = totalScore - scores[13] * costWeight;
+    func_ov024_021f6830(tacticAI->totalRanking_3a8_, &rankEntry);
 
-    if (!(var10 > 0.0f) || arg0->unknown_650_ <= 0) {
-        func_ov024_021f6830(arg0->unknown_3d8_, &var9);
+    if (!(damageScore > 0.0f) || tacticAI->mpCost_650_ <= 0) {
+        func_ov024_021f6830(tacticAI->unknown_3d8_, &rankEntry);
     }
 }

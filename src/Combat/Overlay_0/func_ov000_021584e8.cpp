@@ -4,7 +4,7 @@
 struct ActionResult_ov000_021584e8;
 
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
-extern "C" void func_ov000_0215fe84(void* arg0, void* arg1, int arg2);
+extern "C" void AppendActorResult_ov000_0215fe84(void* actor, void* result, int listIndex);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
 extern "C" void SetActionResult_ov000_0215ccbc(
     void* battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant, short amount, short currHP, short currMP,
@@ -17,7 +17,7 @@ static inline short inline_ov000_021584e8_2(ModifiableCombatStats* arg0) { retur
 extern "C" ARM void func_ov000_021584e8(void* arg0, struct ActionResult_ov000_021584e8* arg1, GameObject* arg2,
                                         void* arg3, int arg4, unsigned char arg5) {
     AddActionResultMessage_ov000_0215a88c(arg0, arg1, (unsigned short)arg4);
-    func_ov000_0215fe84(arg3, arg1, 1);
+    AppendActorResult_ov000_0215fe84(arg3, arg1, 1);
     ((unsigned char*)arg0)[0x8e02]++;
     unsigned long long var0 = 0;
     SetActionResultFlag_ov000_02159eac(arg0, &var0, arg5);

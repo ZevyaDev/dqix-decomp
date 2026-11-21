@@ -18,7 +18,7 @@ struct BattleAction_ov000_0215440c;struct Struct_ov000_0215440c_5 { char unknown
 struct Struct_ov000_0215440c_6 { unsigned char unknown_0_; unsigned char unknown_1_0_:4,unknown_1_4_:2,unknown_1_6_:2; char unknown_2_[4]; unsigned char unknown_6_[8]; unsigned char unknown_e_0_:4,unknown_e_4_:4; char unknown_f_[0x18-0xf]; };
 struct Struct_ov000_02182ae4 { short unknown_0_[8]; };
 extern "C" {extern const Struct_ov000_02182ae4 data_ov000_02182c84;extern const Struct_ov000_02182ae4 data_ov000_02182b64;extern const Struct_ov000_02182ae4 data_ov000_02182ae4;
-int func_ov000_02153e78(Random*,short*,int,int,int);int CollectEnemyCombatantIndices_ov000_0215eb1c(Random*,short*,int,int);int CollectPartyCombatantIndices_ov000_0215e9fc(Random*,short*,int,int);int func_ov000_02154a04(Random*,int,int,short*);}
+int CollectEnemyGroupCombatantIndices_ov000_02153e78(Random*,short*,int,int,int);int CollectEnemyCombatantIndices_ov000_0215eb1c(Random*,short*,int,int);int CollectPartyCombatantIndices_ov000_0215e9fc(Random*,short*,int,int);int func_ov000_02154a04(Random*,int,int,short*);}
 inline int inline_ov000_0215440c(Entry* arg0){return arg0->unknown_20_;}
 inline int inline_ov000_0215440c(Struct_ov000_021537b8_5* arg0){return arg0->unknown_2e_;}
 inline int inline_ov000_0215440c(Struct_ov000_0215440c_5* arg0){return arg0->unknown_e_;}
@@ -52,14 +52,14 @@ extern "C" ARM int func_ov000_0215440c(Random* arg0,Struct_ov000_0215440c_3* arg
      Struct_ov000_0215440c_5* var12=GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1,0);
      if(var12){GameObject* var13=inline_ov000_0215440c_2(inline_ov000_0215440c(var12));if(var13)var10=var13->unknown_17c_;}
     }
-    if(var3->unknown_17_4_==4)var11=func_ov000_02153e78(arg0,var8.unknown_0_,8,var10,0);
+    if(var3->unknown_17_4_==4)var11=CollectEnemyGroupCombatantIndices_ov000_02153e78(arg0,var8.unknown_0_,8,var10,0);
     else if(var3->unknown_17_4_==3)var11=CollectEnemyCombatantIndices_ov000_0215eb1c(arg0,var8.unknown_0_,8,0);
    }else if(var3->unknown_9_0_==1){
     var11=CollectPartyCombatantIndices_ov000_0215e9fc(arg0,var9,8,0);
    }
    if(var3->unknown_18_5_==0x21){
     Struct_ov000_0215440c_6* var14=(Struct_ov000_0215440c_6*)((char*)arg0+0x81b0);int var15=0;int var16=0;
-    for(int var17=0;var17<var14->unknown_1_4_;var17++){var15+=var14[var17].unknown_e_4_;Struct_ov000_02182ae4 var18=data_ov000_02182b64;var16+=func_ov000_02153e78(arg0,var18.unknown_0_,8,var17,0);}
+    for(int var17=0;var17<var14->unknown_1_4_;var17++){var15+=var14[var17].unknown_e_4_;Struct_ov000_02182ae4 var18=data_ov000_02182b64;var16+=CollectEnemyGroupCombatantIndices_ov000_02153e78(arg0,var18.unknown_0_,8,var17,0);}
     if(var15>=5){memcpy(arg2,&var8,sizeof(var8));return var11;}
     if(var16>5)var16=5;
     var4=0;int var19=var16-var15;

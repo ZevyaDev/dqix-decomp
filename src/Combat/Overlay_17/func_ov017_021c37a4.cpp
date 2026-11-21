@@ -148,7 +148,7 @@ extern "C" void func_02011af0(void* arg0);
 extern "C" void RemoveFromQueue_02046a8c(void* queue, void* node);
 extern "C" void func_020d84e0(void);
 extern "C" void StopLocalWireless_0202b0f4(void* wireless);
-extern "C" void func_0205e22c(void* arg0);
+extern "C" void ResetLocalWirelessPacketQueue_0205e22c(void* packetQueue);
 extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int IsOnLadder_02039d7c(char* object);
 extern "C" void func_02039d84(Struct_02039d84* arg0);
@@ -162,7 +162,7 @@ extern "C" void func_020dcd40(void);
 extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
 extern "C" void RebuildPartyOrders_ov017_02191234(void* gameResources);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(void* gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
-extern "C" void func_020546a0(void* arg0, int arg1);
+extern "C" void SetLeaderObjectIndex_020546a0(void* companion, int leaderObjectIndex);
 extern "C" void func_02039858(unsigned char* arg0, int arg1);
 extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 extern "C" void* GetFollowCamera_020100f8(char* gameState);
@@ -184,7 +184,7 @@ extern "C" char* GetNoticeQueue_020936f8(void);
 extern "C" void func_02093a14(char* arg0);
 extern "C" Struct_ov017_021c37a4_4* GetZone3D_02012fe4(void);
 extern "C" void func_ov017_02195748(unsigned char* arg0);
-extern "C" void func_020a2718(char* arg0);
+extern "C" void ResetFollowCameraAngle_020a2718(char* camera);
 extern "C" void func_020e3004(Struct_020e3004* arg0);
 extern "C" void func_020e358c(Struct_020e358c* arg0);
 extern "C" void func_020e3814(Struct_020e3814* arg0);
@@ -246,7 +246,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     SetFlags00(var3, 2);
     func_020d84e0();
     StopLocalWireless_0202b0f4(var2);
-    func_0205e22c(var4);
+    ResetLocalWirelessPacketQueue_0205e22c(var4);
 #if !defined(jpn)
     var2->unknown_1029_ &= ~0x10;
 #endif
@@ -305,7 +305,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     for (int var25 = 0; var25 < 4; var25++) {
         GameObject* var26 = GetCompanionByIndex_0200ff58(var0, var25);
         if (var26) {
-            func_020546a0(var26, GetProtagonistObjectIndex_020100a8(var0));
+            SetLeaderObjectIndex_020546a0(var26, GetProtagonistObjectIndex_020100a8(var0));
             func_02039858((unsigned char*)var26, GetProtagonistObjectIndex_020100a8(var0));
             ResetFollowTrail_02039d24((unsigned char*)var26);
         }
@@ -400,7 +400,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     var44->unknown_64_ = 0;
     var3->unknown_42e2_ = 0;
     func_ov017_02195748((unsigned char*)var3);
-    func_020a2718((char*)var27);
+    ResetFollowCameraAngle_020a2718((char*)var27);
     func_020e3004((Struct_020e3004*)var5);
     func_020e358c((Struct_020e358c*)var6);
     func_020e3814((Struct_020e3814*)var7);

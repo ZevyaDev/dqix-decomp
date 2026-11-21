@@ -50,7 +50,7 @@ struct OAMManager_0203bdb0;
 extern "C" unsigned int* func_020d6c00();
 extern "C" void SetLoadingIndicator_020daf9c(int isShown, int isFadeWaitSkipped, int isScreenBlanked, int isMainScreenForced);
 extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
-extern "C" void func_0200fb84(int* arg0, int arg1);
+extern "C" void SetResources_0200fb84(int* gameState, int resources);
 extern "C" char* GetBGVRAMManager_0203b628();
 extern "C" void ResetBGVRAMManager_0203b634(char* bgVRAMManager);
 extern "C" void* func_0203bd08(void);
@@ -74,7 +74,7 @@ extern "C" void ResetMatrixStacksToIdentity_020c537c();
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void SetOrthographicProjection_020c5770(int, int, int, int, int, int, int, int, void*);
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
-extern "C" void func_02042c68(MessageWindow_02021b84* arg0);
+extern "C" void InitMessageWindow_02042c68(MessageWindow_02021b84* window);
 extern "C" void CloseMessageWindow_02043124(MessageWindow_02021b84* window);
 extern "C" void func_02042b30(void* arg0, void* arg1);
 extern "C" void InitMessageGlyphs_020432c4(MessageWindow_02021b84* window);
@@ -104,7 +104,7 @@ extern "C" void func_02043368(MessageWindow_02021b84* arg0);
 extern "C" void UpdateSound_020bbd9c();
 extern "C" void ResetGeometryEngine_020c52e8();
 extern "C" void ResetMatrixStacks_020c5414();
-extern "C" void func_020c57d4(int, int, int, int, void*);
+extern "C" void WriteAndLoadViewMatrix_020c57d4(int, int, int, int, void*);
 extern "C" void func_020444e0(Struct_020444e0* arg0);
 extern "C" void func_ov019_0218c178(void* arg0);
 extern "C" void CleanInvalidateOAMBuffers_0203bd88(void* arg0);
@@ -225,7 +225,7 @@ static inline void inline_ov019_0218b5a8_8(int arg0) {
 }
 
 static inline void inline_ov019_0218b5a8_9(Vector3fix* arg0, Vector3fix* arg1, Vector3fix* arg2, void* arg3) {
-    func_020c57d4((int)arg0, (int)arg1, (int)arg2, 1, arg3);
+    WriteAndLoadViewMatrix_020c57d4((int)arg0, (int)arg1, (int)arg2, 1, arg3);
 }
 
 // USA: func_ov019_0218b5a8
@@ -243,7 +243,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     ((OBJSpriteSet::List*)(&arg0->unknown_2d8_))->Reset();
     WriteBrightnessRegister_020c39a0((short*)0x400006c, -16);
     WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
-    func_0200fb84((int*)var0, (int)arg0);
+    SetResources_0200fb84((int*)var0, (int)arg0);
     var1->MaybeReset();
     ResetBGVRAMManager_0203b634(GetBGVRAMManager_0203b628());
     void* var4 = func_0203bd08();
@@ -285,7 +285,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     ((TextureArena*)(var5))->Initialize(0x4000, 0x20);
     ((TextureArena*)(var6))->Initialize(0x4000, 0x20);
     MessageWindow_02021b84* var7 = GetMessageWindow_020421a0();
-    func_02042c68(var7);
+    InitMessageWindow_02042c68(var7);
     CloseMessageWindow_02043124(var7);
     func_02042b30(var7, var5);
     ((TextureArena*)((TextureVRAMArea_0203d028*)var5))->Reset();

@@ -53,7 +53,7 @@ struct Struct_ov023_021e540c {
     unsigned short unknown_108_[16][2];
 };
 
-extern "C" unsigned short (*func_02099cac())[2];
+extern "C" unsigned short (*GetCharacterPalettes_02099cac())[2];
 extern "C" void func_ov023_021e5fdc(void* arg0, short* arg1, short* arg2);
 extern "C" ItemData_0201099c_9* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" int func_020de2a4(Struct_020730e0_2* arg0, int arg1, int arg2);
@@ -62,7 +62,7 @@ extern short data_ov023_021fd68a[];
 // USA: func_ov023_021e540c
 extern "C" ARM void func_ov023_021e540c(Struct_ov023_021e540c_5* arg0) {
     Struct_ov023_021e540c_2* var0 = &arg0->unknown_c18_->unknown_488_;
-    Struct_ov023_021e540c* var1 = (Struct_ov023_021e540c*)func_02099cac();
+    Struct_ov023_021e540c* var1 = (Struct_ov023_021e540c*)GetCharacterPalettes_02099cac();
     unsigned int var2 = var0->unknown_14_1_;
     unsigned int var3 = var0->unknown_14_4_;
     unsigned int var4 = arg0->unknown_794_[2].unknown_68_0_ << 3;
@@ -96,7 +96,7 @@ extern "C" ARM void func_ov023_021e540c(Struct_ov023_021e540c_5* arg0) {
                             int var18 = 0x20;
                             if (var7 == 0) var18 = 0x200;
                             var16 -= var17 - var18;
-                            Struct_ov023_021e540c* var19 = (Struct_ov023_021e540c*)func_02099cac();
+                            Struct_ov023_021e540c* var19 = (Struct_ov023_021e540c*)GetCharacterPalettes_02099cac();
                             if (var19 != NULL) {
                                 const void* var20 = NULL;
                                 unsigned int var21 = var13 * 2;

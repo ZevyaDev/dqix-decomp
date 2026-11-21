@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_02059cc8(unsigned char* arg0);
+extern "C" void ResetEffectSlot_02059cc8(unsigned char* slot);
 
 struct Struct_02057930 {
     int unknown_0_;                       // 0x0
@@ -19,7 +19,7 @@ extern "C" ARM void func_02057930(Struct_02057930* arg0) {
     arg0->unknown_d4c_ = 0;
     arg0->unknown_d50_ = 0;
     for (var0 = 0; var0 < 16; var0++) {
-        func_02059cc8(arg0->unknown_8_[var0]);
+        ResetEffectSlot_02059cc8(arg0->unknown_8_[var0]);
     }
     arg0->unknown_d48_ = 0;
 }

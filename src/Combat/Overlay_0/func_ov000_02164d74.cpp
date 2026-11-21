@@ -78,7 +78,7 @@ extern "C" void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int isHe
 extern "C" void func_ov000_021675a0(struct Struct_ov000_02164d74_5* arg0);
 extern "C" void func_ov000_021676a8(struct Struct_ov000_02164d74_5* arg0);
 extern "C" void func_ov017_021901ac(void* arg0);
-extern "C" void func_02049f3c(unsigned char* arg0);
+extern "C" void SetCombatantOffBattlefield_02049f3c(unsigned char* combatant);
 extern "C" void func_ov000_021677fc(struct Struct_ov000_02164d74_5* arg0);
 extern "C" void func_ov000_02167cd4(struct Struct_ov000_02164d74_5* arg0);
 extern "C" void func_ov000_02167dd8(unsigned char* arg0);
@@ -135,7 +135,7 @@ extern "C" ARM void func_ov000_02164d74(struct Struct_ov000_02164d74_5* arg0) {
             struct Struct_ov000_02164d74_4* var6 = GetEnemyByIndex_0200fea4(var0, var3 + 0xc0);
             if (var6 != NULL && !(var5 & (1 << var3))) {
                 var6->unknown_0_.MakeHidden();
-                func_02049f3c((unsigned char*)var6);
+                SetCombatantOffBattlefield_02049f3c((unsigned char*)var6);
             }
         }
     }

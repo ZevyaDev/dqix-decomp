@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_020891cc(void* arg0);
+extern "C" void InitModifiableCombatStats_020891cc(void* stats);
 
 struct Struct_02048b0c_3 {
     unsigned short unknown_0_;
@@ -53,5 +53,5 @@ extern "C" ARM void func_02048b0c(struct Struct_02048b0c_2* arg0, int arg1) {
         arg0->unknown_130_->unknown_0_ |= 4;
     }
 
-    func_020891cc(arg0->unknown_138_);
+    InitModifiableCombatStats_020891cc(arg0->unknown_138_);
 }

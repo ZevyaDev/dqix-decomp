@@ -12,7 +12,7 @@ extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, struct Struct_o
 extern "C" void SetActionResult_ov000_0215ccbc(
     int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant, short amount, short currHP, short currMP,
     struct Struct_ov024_021e56c0 flags, unsigned char isCriticalHit);
-extern "C" void func_ov000_0215fe84(void* arg0, void* arg1, int arg2);
+extern "C" void AppendActorResult_ov000_0215fe84(void* actor, void* result, int listIndex);
 
 struct Struct_ov024_021e56c0_2 { char unknown_0_[0x24]; short unknown_24_; };
 struct Struct_ov024_021e56c0_3 {
@@ -40,6 +40,6 @@ extern "C" ARM void func_ov024_021e56c0(struct Struct_ov024_021e56c0_3* arg0, in
     SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var5, 0x22);
     SetActionResult_ov000_0215ccbc((int)arg0->unknown_10_, var4, var0, -var1,
         var0->currentStats_->primaryStats.currHP, var3, var5, 0);
-    func_ov000_0215fe84(arg0->unknown_8_, var4, 2);
+    AppendActorResult_ov000_0215fe84(arg0->unknown_8_, var4, 2);
     ((unsigned char*)arg0->unknown_10_)[0x8e02]++;
 }

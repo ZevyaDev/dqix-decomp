@@ -12,8 +12,8 @@ enum { Enum_ov001_02156108_140 = 0x8c };
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void func_0208beb4(unsigned char* arg0);
 extern "C" void func_0208bb78(void* arg0, int arg1);
-struct Struct_0208ba54;
-extern "C" void func_0208ba54(struct Struct_0208ba54*);
+struct QuestDisplay_0208ba54;
+extern "C" void ReleaseQuestDisplay_0208ba54(struct QuestDisplay_0208ba54*);
 extern "C" int func_ov001_02153948(unsigned short arg0);
 
 struct Struct_ov001_02156108 {
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov001_02156108(struct Struct_ov001_02156108* arg0) {
                 func_0208bb78(arg0->unknown_120_, var4);
                 return arg0->unknown_a_;
             }
-            func_0208ba54((struct Struct_0208ba54*)var3);
+            ReleaseQuestDisplay_0208ba54((struct QuestDisplay_0208ba54*)var3);
         }
         *(int*)(var1 + Enum_ov001_02156108_140) = 0;
         arg0->unknown_120_ = 0;

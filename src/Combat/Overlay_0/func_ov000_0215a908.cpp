@@ -28,16 +28,16 @@ extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" int func_ov000_02155154(GameObject*);
 extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" int HasLeftBattle_ov000_02153c0c(GameObject*);
-extern "C" void func_02088e64(unsigned char*);
+extern "C" void ClearRage_02088e64(unsigned char*);
 extern "C" void InitBattleAction_ov000_02160030(void*);
-extern "C" void func_ov000_02157cdc(void*);
+extern "C" void InitActionTarget_ov000_02157cdc(void*);
 extern "C" void SetActionResult_ov000_0215ccbc(int, ActionResult_ov000_021584e8*, GameObject*, short, short, short, unsigned long long, unsigned char);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
 extern "C" void AppendTargetResult_ov000_0215ffc4(void*, void*, int);
 extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*, Struct_ov000_0215767c_6*);
 extern "C" void AppendActionTarget_ov000_021600cc(BattleAction_ov000_0215767c_5*, ActionTarget_ov000_0215767c_4*);
 extern "C" int IsInParty_02086ef0(Party_02048150*, int);
-extern "C" void func_ov000_0215a8d4(unsigned char*, int);
+extern "C" void IncrementQuestBattleCounter_ov000_0215a8d4(unsigned char*, int);
 static inline short inline_ov000_0215a908(GameObject* arg0) { return ((Struct_ov000_0215a908_2*)arg0->currentStats_)->unknown_2e_; }
 static inline short inline_ov000_0215a908_2(GameObject* arg0) { SDK_NULL_ASSERT(arg0); return arg0->currentStats_->primaryStats.currHP; }
 static inline short inline_ov000_0215a908_3(GameObject* arg0) { SDK_NULL_ASSERT(arg0); return arg0->currentStats_->primaryStats.currMP; }
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov000_0215a908(Struct_ov000_0215a908* arg0, int arg1) {
     short var3 = inline_ov000_0215a908(var2);
     GameObject* var4 = GameState::GetInstance()->GetCombatantByIndex(var3);
     if (!var4 || IsDead_02010088((Struct_02010088*)var4) || HasLeftBattle_ov000_02153c0c(var4)) {
-        func_02088e64((unsigned char*)var2->currentStats_);
+        ClearRage_02088e64((unsigned char*)var2->currentStats_);
         ((Struct_ov000_0215a908_4*)var2)->unknown_182_ = 0;
         return;
     }
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov000_0215a908(Struct_ov000_0215a908* arg0, int arg1) {
     var0->unknown_1c_ = -1;
     var0->unknown_30_ = 0;
     var1 = &arg0->unknown_6790_[arg0->unknown_8e0d_];
-    func_ov000_02157cdc(var1);
+    InitActionTarget_ov000_02157cdc(var1);
     ActionResult_ov000_021584e8* var6 = &arg0->unknown_6a60_[arg0->unknown_8e0e_];
     memset(var6, 0, 0x20);
     var6->unknown_20_ = 0;
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov000_0215a908(Struct_ov000_0215a908* arg0, int arg1) {
     func_ov000_02160068(var5, var0);
     AppendActionTarget_ov000_021600cc(inline_ov000_0215a908_4(var5), var1);
     Struct_ov000_0215a908_3* var7 = ((Struct_ov000_0215a908_4*)var2)->unknown_144_;
-    if (IsInParty_02086ef0((Party_02048150*)GetParty_02010828(GameState::GetInstance()), var1->unknown_c_) && var7 && var7->unknown_8_ == 0x143) func_ov000_0215a8d4((unsigned char*)arg0, 9);
+    if (IsInParty_02086ef0((Party_02048150*)GetParty_02010828(GameState::GetInstance()), var1->unknown_c_) && var7 && var7->unknown_8_ == 0x143) IncrementQuestBattleCounter_ov000_0215a8d4((unsigned char*)arg0, 9);
     arg0->unknown_8e0b_++;
     arg0->unknown_8e0c_++;
     arg0->unknown_8e0d_++;

@@ -20,11 +20,11 @@ extern "C" void* func_020108f0(void* arg0, int arg1);
 extern "C" char* func_02010954(char* arg0);
 extern "C" void func_02086380(unsigned char* arg0);
 extern "C" void func_02082d6c(void* arg0, void* arg1);
-extern "C" void func_ov017_0218f064(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void CreatePartyMemberObject_ov017_0218f064(void* gameResources, int memberIndex, int arg2, int requestModelLoad, int arg4);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" void func_020875c4(Struct_02087574* arg0, int arg1, int arg2);
 extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" void func_020546a0(void* arg0, int arg1);
+extern "C" void SetLeaderObjectIndex_020546a0(void* companion, int leaderObjectIndex);
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" void func_020546b4(void*, int);
 extern "C" unsigned char* func_02053c6c(unsigned char* gameObject);
@@ -68,7 +68,7 @@ extern "C" ARM int func_020dcd40() {
         *(short*)((char*)var9 + 0x568) = var7;
         func_02086380((unsigned char*)var9);
         func_02082d6c(var9, var6);
-        func_ov017_0218f064(var1, var7, 0x1000, 1, 0);
+        CreatePartyMemberObject_ov017_0218f064(var1, var7, 0x1000, 1, 0);
         GameObject* var10 = GetCompanionByIndex_0200ff58(var2, var7);
         if (var10 == NULL) {
             break;
@@ -78,7 +78,7 @@ extern "C" ARM int func_020dcd40() {
         var10->obj3D_.SetField06(*var4);
         var2->GetProtagonist();
         unsigned char var12 = GetProtagonistObjectIndex_020100a8(var2);
-        func_020546a0(var10, var12);
+        SetLeaderObjectIndex_020546a0(var10, var12);
         int var13 = 0;
         for (int var14 = 0; var14 < 4; var14++) {
             GameObject* var15 = GetCompanionByIndex_0200ff58(var2, var14);

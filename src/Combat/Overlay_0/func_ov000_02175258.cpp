@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_ov000_02174b14(void* arg0);
+extern "C" void PositionPartyMemberPanels_ov000_02174b14(void* battleUI);
 
 struct Struct_ov000_02175258 {
     char unknown_0_[0x18];
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov000_02175258(char* arg0) {
         signed char var2 = *(signed char*)(arg0 + var0 + 0x6c);
         struct Struct_ov000_02175258* var3 = var1 + var2;
         var3->unknown_24_ = var3->unknown_24_ & ~4;
-        func_ov000_02174b14(arg0);
+        PositionPartyMemberPanels_ov000_02174b14(arg0);
     }
 
     struct Struct_ov000_02175258* var4 = (struct Struct_ov000_02175258*)(arg0 + 0x958);
@@ -40,12 +40,12 @@ extern "C" ARM void func_ov000_02175258(char* arg0) {
         if (var10 >= 0x64) {
             if (var8 == 0) return;
             var7->unknown_24_ &= ~4;
-            func_ov000_02174b14(arg0);
+            PositionPartyMemberPanels_ov000_02174b14(arg0);
             return;
         } else {
             if (var8 != 0) return;
             var7->unknown_24_ |= 4;
-            func_ov000_02174b14(arg0);
+            PositionPartyMemberPanels_ov000_02174b14(arg0);
             return;
         }
     }

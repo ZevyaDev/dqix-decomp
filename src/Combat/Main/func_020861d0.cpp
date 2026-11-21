@@ -5,7 +5,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
-extern "C" int func_0201137c(char* arg0, int arg1);
+extern "C" int GetSkillEntryBonus_0201137c(char* gameState, int skillEntryId);
 extern short data_020e8ad2[];
 
 // USA: GetSkillMagicalMendingBonus_020861d0
@@ -18,7 +18,7 @@ extern "C" ARM int GetSkillMagicalMendingBonus_020861d0(unsigned char* memberDat
     short skillEntryId;
     while ((skillEntryId = skillEntryIds[i]) != -1) {
         if (HasLearnedSkillEntry_02083b00(memberData, skillEntryId)) {
-            bonus += func_0201137c((char*)gameState, skillEntryId);
+            bonus += GetSkillEntryBonus_0201137c((char*)gameState, skillEntryId);
         }
         i = (i + 1) & 0xff;
     }

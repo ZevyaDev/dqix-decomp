@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_020a3694
-extern "C" ARM int func_020a3694(int* arg0) {
-    return arg0[3] >= 0;
+// USA: IsScriptedBattle_020a3694
+extern "C" ARM int IsScriptedBattle_020a3694(int* battleSetup) {
+    return battleSetup[3] >= 0;
 }

@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-// USA: func_020d3018
-extern "C" ARM int func_020d3018(const char* arg0, const char* arg1) {
-    while (*arg0 == *arg1 && *arg0 != 0) {
-        arg0++;
-        arg1++;
+// USA: CompareStrings_020d3018
+extern "C" ARM int CompareStrings_020d3018(const char* left, const char* right) {
+    while (*left == *right && *left != 0) {
+        left++;
+        right++;
     }
-    return *arg0 - *arg1;
+    return *left - *right;
 }

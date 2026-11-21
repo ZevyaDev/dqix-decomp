@@ -96,7 +96,7 @@ extern "C" int func_ov005_02157190(void* arg0);
 extern "C" unsigned char* GetParty_02010828(GameState*);
 extern "C" short* GetEquipmentBagItemIds_0207c5f8(unsigned char*, unsigned int);
 extern "C" signed char* GetEquipmentBagCounts_0207c60c(void*, unsigned int);
-extern "C" void func_ov005_0215792c(Struct_ov005_0215c058_4* arg0, int arg1);
+extern "C" void SetEquipMenuMode_ov005_0215792c(Struct_ov005_0215c058_4* equipMenuUI, int mode);
 
 extern char gSoundEffectManager_02108760[];
 extern unsigned char data_ov005_0215cd10[];
@@ -224,7 +224,7 @@ extern "C" ARM void func_ov005_0215c058(Struct_ov005_0215c058_4* arg0)
             arg0->unknown_3dcc_.unknown_0_6_ = 1;
             arg0->unknown_3daa_ = 0;
             arg0->unknown_3de0_ = -1;
-            func_ov005_0215792c(arg0, 4);
+            SetEquipMenuMode_ov005_0215792c(arg0, 4);
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             var0->unknown_634_ |= 0x81;
 #if defined(jpn)
@@ -238,7 +238,7 @@ extern "C" ARM void func_ov005_0215c058(Struct_ov005_0215c058_4* arg0)
         else if (g_keyManager.TestKeysPressed(2))
         {
             arg0->unknown_3de0_ = -1;
-            func_ov005_0215792c(arg0, 4);
+            SetEquipMenuMode_ov005_0215792c(arg0, 4);
             var0->unknown_634_ |= 0x81;
 #if defined(jpn)
             arg0->unknown_1a34_ = (char*)arg0 + 0x19e8;

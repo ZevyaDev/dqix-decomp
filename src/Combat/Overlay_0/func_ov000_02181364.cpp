@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
-extern "C" void func_ov000_02174b14(void* arg0);
+extern "C" void PositionPartyMemberPanels_ov000_02174b14(void* battleUI);
 
 // USA: func_ov000_02181364
 extern "C" ARM void func_ov000_02181364(void* arg0) {
@@ -21,5 +21,5 @@ extern "C" ARM void func_ov000_02181364(void* arg0) {
             *(unsigned char*)((char*)var4 + 0x24) = var7;
         }
     }
-    func_ov000_02174b14(arg0);
+    PositionPartyMemberPanels_ov000_02174b14(arg0);
 }

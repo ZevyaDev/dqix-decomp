@@ -323,7 +323,7 @@ func_ov031_0220d8d4 kind:function(arm,size=0x20) addr:0x0220e0b4
 func_ov031_0220d8f4 kind:function(arm,size=0x90) addr:0x0220e0d4
 func_ov031_0220d984 kind:function(arm,size=0x44) addr:0x0220e164
 func_ov031_0220d9c8 kind:function(arm,size=0x54) addr:0x0220e1a8
-func_ov031_0220da1c kind:function(arm,size=0x98) addr:0x0220e1fc
+SetAccessPointConnectionState_ov031_0220da1c kind:function(arm,size=0x98) addr:0x0220e1fc
 func_ov031_0220dab4 kind:function(arm,size=0x74) addr:0x0220e294
 func_ov031_0220db28 kind:function(arm,size=0x10) addr:0x0220e308
 func_ov031_0220db38 kind:function(arm,size=0x2c) addr:0x0220e318
@@ -867,7 +867,7 @@ func_ov031_0222318c kind:function(arm,size=0x64) addr:0x0222396c
 func_ov031_022231f0 kind:function(arm,size=0x78) addr:0x022239d0
 func_ov031_02223268 kind:function(arm,size=0xf0) addr:0x02223a48
 func_ov031_02223358 kind:function(arm,size=0x14) addr:0x02223b38
-func_ov031_0222336c kind:function(arm,size=0xd4) addr:0x02223b4c
+ShowSubScreenMessage_ov031_0222336c kind:function(arm,size=0xd4) addr:0x02223b4c
 CloseSubScreenMessage_ov031_02223440 kind:function(arm,size=0x38) addr:0x02223c20
 func_ov031_02223478 kind:function(arm,size=0x60) addr:0x02223c58
 LoadFileToVRAM_ov031_022234d8 kind:function(arm,size=0x40) addr:0x02223cb8
@@ -880,7 +880,7 @@ func_ov031_022236e8 kind:function(arm,size=0x20) addr:0x02223ec8
 func_ov031_02223708 kind:function(arm,size=0x18) addr:0x02223ee8
 func_ov031_02223720 kind:function(arm,size=0xbc) addr:0x02223f00
 func_ov031_022237dc kind:function(arm,size=0xf0) addr:0x02223fbc
-func_ov031_022238cc kind:function(arm,size=0x40) addr:0x022240ac
+FreeCursorSprites_ov031_022238cc kind:function(arm,size=0x40) addr:0x022240ac
 func_ov031_0222390c kind:function(arm,size=0x78) addr:0x022240ec
 func_ov031_02223984 kind:function(arm,size=0x14) addr:0x02224164
 func_ov031_02223998 kind:function(arm,size=0x5c) addr:0x02224178
@@ -1585,8 +1585,8 @@ func_ov031_022376fc kind:function(arm,size=0x90) addr:0x02237edc
 func_ov031_0223778c kind:function(arm,size=0x158) addr:0x02237f6c
 func_ov031_022378e4 kind:function(arm,size=0x10c) addr:0x022380c4
 func_ov031_022379f0 kind:function(arm,size=0x13c) addr:0x022381d0
-func_ov031_02237b2c kind:function(arm,size=0x32c) addr:0x0223830c
-func_ov031_02237e58 kind:function(arm,size=0x44) addr:0x02238638
+OpenDialog_ov031_02237b2c kind:function(arm,size=0x32c) addr:0x0223830c
+CloseDialog_ov031_02237e58 kind:function(arm,size=0x44) addr:0x02238638
 GetDialogChoice_ov031_02237e9c kind:function(arm,size=0x14) addr:0x0223867c
 IsDialogOpen_ov031_02237eb0 kind:function(arm,size=0x1c) addr:0x02238690
 func_ov031_02237ecc kind:function(arm,size=0x60) addr:0x022386ac
@@ -1703,7 +1703,7 @@ func_ov031_0223bab4 kind:function(arm,size=0xa4) addr:0x0223c294
 func_ov031_0223bb58 kind:function(arm,size=0x80) addr:0x0223c338
 SetSpritePosition_ov031_0223bbd8 kind:function(arm,size=0xf0) addr:0x0223c3b8
 SetSpritePriority_ov031_0223bcc8 kind:function(arm,size=0x60) addr:0x0223c4a8
-func_ov031_0223bd28 kind:function(arm,size=0x30) addr:0x0223c508
+GetSpritePosition_ov031_0223bd28 kind:function(arm,size=0x30) addr:0x0223c508
 func_ov031_0223bd58 kind:function(arm,size=0x30) addr:0x0223c538
 func_ov031_0223bd88 kind:function(arm,size=0x28) addr:0x0223c568
 func_ov031_0223bdb0 kind:function(arm,size=0x94) addr:0x0223c590
@@ -2872,7 +2872,7 @@ data_ov031_02290d00 kind:bss addr:0x02291900
 data_ov031_02290d04 kind:bss addr:0x02291904
 data_ov031_02290d08 kind:bss addr:0x02291908
 data_ov031_02290d0c kind:bss addr:0x0229190c
-data_ov031_02290d10 kind:bss addr:0x02291910
+gDialog_ov031_02290d10 kind:bss addr:0x02291910
 data_ov031_02290d14 kind:bss addr:0x02291914
 data_ov031_02290d18 kind:bss addr:0x02291918
 data_ov031_02290d20 kind:bss addr:0x02291920

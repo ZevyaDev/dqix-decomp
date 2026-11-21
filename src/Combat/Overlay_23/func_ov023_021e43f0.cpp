@@ -7,13 +7,13 @@
 #define FLAG_FIELD_021E43F0 0x634
 #endif
 
-extern "C" void func_ov023_021e2bdc(void* arg0, int arg1, short* arg2, short* arg3);
+extern "C" void GetLayoutGroupFirstElementPosition_ov023_021e2bdc(void* layout, int groupId, short* outX, short* outY);
 
 // USA: func_ov023_021e43f0
 extern "C" ARM void func_ov023_021e43f0(void* arg0) {
     short var0, var1;
     void* var2 = *(void**)((char*)arg0 + 0xcc);
-    func_ov023_021e2bdc((char*)arg0 + 0xd4, 0x1b, &var0, &var1);
+    GetLayoutGroupFirstElementPosition_ov023_021e2bdc((char*)arg0 + 0xd4, 0x1b, &var0, &var1);
     if (*(unsigned short*)((char*)arg0 + FLAG_FIELD_021E43F0) & 0x800) {
         var0++;
         var1++;

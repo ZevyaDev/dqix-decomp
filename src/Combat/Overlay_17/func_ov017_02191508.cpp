@@ -53,7 +53,7 @@ struct Struct_ov017_02191508_6 {
 };
 
 extern "C" Struct_ov017_02191508_6* func_02053c6c(unsigned char* gameObject);
-extern "C" void SetLevelStats_02083cbc(void* memberData, void* arg1, void* arg2);
+extern "C" void SetLevelStats_02083cbc(void* memberData, void* levelEntry, void* arg2);
 extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
 extern "C" void SetVocation_02083ca0(unsigned char* memberData, int vocation);
 extern "C" void func_02083c18(char* arg0);

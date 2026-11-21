@@ -12,7 +12,7 @@ enum { Enum_020dc70c_3276 = 0xccc };
 #endif
 
 extern "C" int func_02053c6c(unsigned char* gameObject);
-extern "C" void* func_020a6084(void);
+extern "C" void* GetPartyMemberColorPalettes_020a6084(void);
 
 extern "C" int LoadToMainObjStandardPalette(int arg0, int arg1, unsigned int arg2);
 extern "C" void LoadToMainBGStandardPalette(int src, int dstOffset, unsigned int size);
@@ -34,7 +34,7 @@ extern "C" ARM void func_020dc70c(int arg0, int arg1, int arg2, int arg3, unsign
     if (var5 > 0x200)
         return;
     unsigned int var6 = var4 << 1;
-    int var7 = (int)func_020a6084();
+    int var7 = (int)GetPartyMemberColorPalettes_020a6084();
     int var8 = var7 + (var3 << 5) + (arg1 << 1);
     CleanInvalidateCacheRange((const void*)((void*)var8), arg6);
     if (arg2 == 0) {

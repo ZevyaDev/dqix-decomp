@@ -34,7 +34,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
 struct LocalWireless_0202b2f0;
 extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
-extern "C" int func_02039888(void* arg0);
+extern "C" int GetPartyLeaderObjectIndex_02039888(void* object);
 
 extern "C" void func_02034104(void* arg0, GameObject* arg1);
 
@@ -206,10 +206,10 @@ extern "C" ARM void func_020733d8(unsigned char* arg0, int arg1) {
                         continue;
                     }
 
-                    if (func_02039888(var40) < 0) {
+                    if (GetPartyLeaderObjectIndex_02039888(var40) < 0) {
                         var39 = var41;
                     } else {
-                        var39 = func_02039888(var40);
+                        var39 = GetPartyLeaderObjectIndex_02039888(var40);
                     }
 
                     var38 = 0;

@@ -61,7 +61,7 @@ extern "C" int func_ov024_021e7ba8(GameObject*);
 extern "C" void func_ov000_0215ff50(void* arg0, short arg1, unsigned char arg2);
 extern "C" int func_02085474(unsigned char* arg0);
 int NextRandomMax(struct Random* random, int maximum);
-extern "C" int func_ov000_02155f9c(struct Random* arg0, int arg1, int arg2);
+extern "C" int IsCombatantIncapacitated_ov000_02155f9c(struct Random* battle, int combatantIndex, int isConfusionCounted);
 extern "C" int func_ov024_021ea500(struct Struct_ov024_021e9f68_3* arg0, struct Struct_ov024_021e9f68_4* arg1, int arg2);
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(struct Random* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(struct Random* battle, short* indices, int maxCount, int filterFlags);
@@ -128,7 +128,7 @@ extern "C" ARM int func_ov024_021e9f68(struct Struct_ov024_021e9f68_3* arg0, sho
         arg0->unknown_76_ = 0;
         return 0;
     }
-    if (func_ov000_02155f9c(arg0->unknown_10_, *arg2, 0)) {
+    if (IsCombatantIncapacitated_ov000_02155f9c(arg0->unknown_10_, *arg2, 0)) {
         return 0;
     }
     int var9 = 0;

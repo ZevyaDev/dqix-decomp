@@ -82,7 +82,7 @@ struct Struct_ov014_02186bc8 {
 struct MenuLayout_02080fa8;
 struct MenuLayout_02081164;
 
-extern "C" void func_02080bac(void* arg0, int arg1);
+extern "C" void ShowMenuLayoutWindowTexts_02080bac(void* menuLayout, int windowId);
 extern "C" void SetMenuLayoutTextStringId_0208103c(void* menuLayout, int textId, int stringId);
 extern "C" void SetMenuLayoutTextValue_02080fa8(MenuLayout_02080fa8* menuLayout, int textId, int value);
 extern "C" int HideMenuLayoutText_02080b2c(void* menuLayout, int textId);
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov014_02188330(Struct_ov014_02186bc8* arg0)
 #if !defined(jpn)
     func_020806d8(arg0->unknown_c0_, 0, 2, 1, 4);
 #endif
-    func_02080bac(arg0->unknown_c0_, 0);
+    ShowMenuLayoutWindowTexts_02080bac(arg0->unknown_c0_, 0);
     if (arg0->unknown_17d_ >= 0)
         SetMenuLayoutTextStringId_0208103c(arg0->unknown_c0_, 0x2f, (short)(arg0->unknown_17d_ + 0x1e));
 

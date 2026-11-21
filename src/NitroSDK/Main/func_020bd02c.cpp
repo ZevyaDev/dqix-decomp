@@ -2,7 +2,7 @@
 
 extern "C" int func_020d1f0c(int arg0, int arg1, int arg2, int arg3);
 extern "C" int func_020d26ec(void);
-extern "C" void SendSoundCommands_020d24c4(int arg0);
+extern "C" void SendSoundCommands_020d24c4(int flags);
 extern "C" void func_020d2680(unsigned int arg0);
 
 extern char data_0210fd74;

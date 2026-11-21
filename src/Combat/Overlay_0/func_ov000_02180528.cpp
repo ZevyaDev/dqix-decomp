@@ -17,7 +17,7 @@ struct Struct_ov000_02180528 {
     char unknown_25_[REGION_OFFSET_0 - 0x25];
 };
 
-extern "C" int func_ov000_02174b14(void* arg0);
+extern "C" int PositionPartyMemberPanels_ov000_02174b14(void* battleUI);
 
 // USA: func_ov000_02180528
 extern "C" ARM int func_ov000_02180528(char* arg0) {
@@ -32,5 +32,5 @@ extern "C" ARM int func_ov000_02180528(char* arg0) {
     *(int*)(arg0 + 0x92c) = 8;
     *(int*)(arg0 + 0x924) = 0x100;
     *(int*)(arg0 + 0x928) = 0x100;
-    return func_ov000_02174b14(arg0);
+    return PositionPartyMemberPanels_ov000_02174b14(arg0);
 }

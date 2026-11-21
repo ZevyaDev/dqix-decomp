@@ -182,7 +182,7 @@ extern "C" void func_02039d84(Struct_02039d84*);
 extern "C" void func_ov017_021d440c(int arg0);
 extern "C" void func_0203409c(unsigned char*);
 extern "C" void func_02039d58(unsigned char*);
-extern "C" int func_02039888(void*);
+extern "C" int GetPartyLeaderObjectIndex_02039888(void*);
 void Vector3fixMultiplyScalar(const Vector3i* v, int s, Vector3i* out);
 extern "C" void func_020338d4(Struct_020338d4*, Struct_ov009_0218aa28*);
 extern "C" void func_ov017_021cee78(int arg0, unsigned char arg1);
@@ -201,9 +201,9 @@ extern "C" void func_ov017_0219b938(int arg0);
 extern "C" int GetNPCManager_0203cf4c();
 extern "C" int func_0203e06c(void*);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
-struct Struct_0203cfb4;
-extern "C" void func_0203cfb4(Struct_0203cfb4*);
-extern "C" void func_ov017_021a316c(int arg0);
+struct NPCManager_0203cfb4;
+extern "C" void ResetNPCManager_0203cfb4(NPCManager_0203cfb4*);
+extern "C" void UnloadFieldObjects_ov017_021a316c(int gameResources);
 extern "C" void func_ov000_02163524(void*);
 extern "C" void func_ov000_0216d2d0(void* arg0);
 extern "C" void func_ov000_0216f700(void* arg0, int arg1);
@@ -279,7 +279,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
             Struct_ov000_0215f7a8* var14 = (Struct_ov000_0215f7a8*)var0->GetPartyMemberByIndex(0);
             if (!var14) continue;
             if (**(unsigned int**)((char*)var14 + 0x130) & 1) {
-                var14 = (Struct_ov000_0215f7a8*)var0->GetPartyMemberByIndex((short)func_02039888(var14));
+                var14 = (Struct_ov000_0215f7a8*)var0->GetPartyMemberByIndex((short)GetPartyLeaderObjectIndex_02039888(var14));
                 if (!var14) {
                     var14 = (Struct_ov000_0215f7a8*)var0->GetPartyMemberByIndex(0);
                 }
@@ -351,8 +351,8 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     if (func_0203e06c((void*)var31) > 0) {
         SetBattleSceneFlags_ov000_02160fa8(arg0, 0x1000);
     }
-    func_0203cfb4((Struct_0203cfb4*)var31);
-    func_ov017_021a316c(var3);
+    ResetNPCManager_0203cfb4((NPCManager_0203cfb4*)var31);
+    UnloadFieldObjects_ov017_021a316c(var3);
     SetFlags04((GameResources*)var3, 0x80);
     SetFlags04((GameResources*)var3, 4);
     SetFlags04((GameResources*)var3, 0x10);

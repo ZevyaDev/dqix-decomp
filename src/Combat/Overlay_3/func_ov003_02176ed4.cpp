@@ -15,7 +15,7 @@ extern "C" void* GetParty_02010828(GameState*);
 
 struct MenuLayout_0207fdcc_2;
 extern "C" void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
-extern "C" void func_02080c04(struct MenuLayout_0207fdcc_2* arg0, int arg1);
+extern "C" void HideMenuLayoutWindow_02080c04(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 
 struct ItemTable_0201099c_10;
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov003_02176ed4(char* arg0) {
         int var6 = CountOwnedItem_02086aec(var1, var5);
         SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, 0x54, var6);
     } else {
-        func_02080c04(var0, 8);
+        HideMenuLayoutWindow_02080c04(var0, 8);
     }
     OpenMenuLayoutWindow_020813ec(var0, 8);
 }

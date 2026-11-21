@@ -2,7 +2,7 @@
 
 extern "C" void func_ov031_0223521c();
 extern "C" void func_ov031_02235204();
-extern "C" void func_ov031_022238cc();
+extern "C" void FreeCursorSprites_ov031_022238cc();
 extern "C" int FastIntModulus(int, int);
 extern "C" void func_ov031_02230120();
 extern "C" void func_ov031_0222f9ec();
@@ -17,7 +17,7 @@ extern Struct_ov031_02290ca0_18 gConnectionSettingsPage_ov031_02290ca0;
 // USA: func_ov031_022306d4
 extern "C" ARM void func_ov031_022306d4(void* arg0) {
     func_ov031_0223521c();
-    func_ov031_022238cc();
+    FreeCursorSprites_ov031_022238cc();
     gConnectionSettingsPage_ov031_02290ca0.unknown_4_ += 6;
     int var0 = FastIntModulus(gConnectionSettingsPage_ov031_02290ca0.unknown_4_, 29);
     if (var0 >= 6) {

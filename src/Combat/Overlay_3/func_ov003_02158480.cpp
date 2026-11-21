@@ -25,7 +25,7 @@ struct Struct_ov003_02158334_3 {
 extern "C" void HideMenuLayoutWindowTexts_02080b54(void*, int);
 extern "C" void func_02080608(void*, int);
 extern "C" void ShowMenuLayoutText_02080b40(void*, int);
-extern "C" void func_0208108c(void*, int);
+extern "C" void CenterMenuLayoutText_0208108c(void*, int);
 struct Struct_ov003_0215570c;
 extern "C" int func_ov003_0215570c(Struct_ov003_0215570c*);
 extern "C" unsigned char* func_02053c6c(unsigned char*);
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov003_02158480(Struct_ov003_02158334_3* arg0) {
     func_02080608(var0, 6);
     ShowMenuLayoutText_02080b40(var0, 0x43);
 #if !defined(jpn)
-    func_0208108c(var0, 0x43);
+    CenterMenuLayoutText_0208108c(var0, 0x43);
 #endif
 
     int var5 = func_ov003_0215570c((Struct_ov003_0215570c*)arg0);

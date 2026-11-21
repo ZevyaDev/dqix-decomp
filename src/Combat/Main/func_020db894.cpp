@@ -4,7 +4,7 @@
 #define func_020d6c00 func_020d8608
 #endif
 
-extern "C" void func_020d8654();
+extern "C" void SaveAndDisableVCounterInterrupt_020d8654();
 
 struct Struct_020db894;
 extern "C" void func_020db964(Struct_020db894* arg0);
@@ -23,7 +23,7 @@ extern "C" void func_020db0c4(Struct_020dafd4* arg0);
 
 extern "C" void func_020db814(void* arg0);
 
-extern "C" void func_020d8694();
+extern "C" void RestoreVCounterInterrupt_020d8694();
 
 typedef void (*Type_0200f3a4_2)(int);
 typedef int (*Type_01ff8b48_5)(void);
@@ -51,7 +51,7 @@ extern "C" ARM void func_020db894(Struct_020db894_2* arg0) {
     if (!arg0->unknown_51_) {
         return;
     }
-    func_020d8654();
+    SaveAndDisableVCounterInterrupt_020d8654();
     func_020db964((Struct_020db894*)arg0);
     if (arg0->unknown_53_) {
         func_020db844((Struct_020db3f4_3*)arg0, arg0->unknown_3c_, arg0->unknown_6a_, 0);
@@ -66,5 +66,5 @@ extern "C" ARM void func_020db894(Struct_020db894_2* arg0) {
     ClearGlobalFlags_020466f4(func_020d6c00(), 0x8000);
     func_020db0c4((Struct_020dafd4*)arg0);
     func_020db814(arg0);
-    func_020d8694();
+    RestoreVCounterInterrupt_020d8694();
 }

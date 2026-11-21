@@ -14,7 +14,7 @@ struct Struct_0205563c {
 struct Struct_020d6f9c_5 { unsigned char unknown_0_[0xe8]; Matrix4x3 unknown_e8_; };
 struct Struct_02055660 { void* unknown_0_; void* unknown_4_; int unknown_8_; int unknown_c_; };
 
-extern "C" void func_02059cc8(unsigned char* arg0);
+extern "C" void ResetEffectSlot_02059cc8(unsigned char* slot);
 extern "C" void func_0205563c(Struct_0205563c* arg0);
 extern "C" int func_02055660(Struct_02055660* arg0, int arg1, int arg2, int arg3);
 extern const Vector3fix data_020ee20c;
@@ -95,7 +95,7 @@ extern "C" ARM void func_020d6f9c(void* arg0, int arg1, int arg2) {
     if (arg1 >= 0xc0) arg1 -= 0xbc;
     if (var1->unknown_a24_ & (1 << arg1)) {
         if (var1->unknown_0_[arg1].unknown_d0_ == arg2) return;
-        func_02059cc8((unsigned char*)&var1->unknown_0_[arg1]);
+        ResetEffectSlot_02059cc8((unsigned char*)&var1->unknown_0_[arg1]);
         var1->unknown_0_[arg1].unknown_d4_ = 0;
     }
     Struct_020d6f9c_7 var2;

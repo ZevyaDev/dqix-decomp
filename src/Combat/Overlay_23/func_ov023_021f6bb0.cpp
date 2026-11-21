@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_ov023_021f6bb0
-extern "C" ARM void func_ov023_021f6bb0(void* arg0, int arg1) {
-    *(int*)((char*)arg0 + 0x4) = arg1;
+// USA: SetMenuLoadTaskId_ov023_021f6bb0
+extern "C" ARM void SetMenuLoadTaskId_ov023_021f6bb0(void* objectList, int taskId) {
+    *(int*)((char*)objectList + 0x4) = taskId;
 }

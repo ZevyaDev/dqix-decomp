@@ -38,7 +38,7 @@ extern const short data_ov006_0215ffe2[];
 extern const unsigned char data_ov006_0215ffc0[];
 }
 
-extern "C" void func_ov023_021e2bdc(void*, int, short*, short*);
+extern "C" void GetLayoutGroupFirstElementPosition_ov023_021e2bdc(void*, int, short*, short*);
 
 struct Struct_ov006_02157a60 {
 #if !defined(jpn)
@@ -153,7 +153,7 @@ extern "C" ARM void func_ov006_021587d0(Struct_ov006_02157a60* arg0)
     {
         short var2;
         short var3;
-        func_ov023_021e2bdc(arg0->unknown_100_, var0[var1], &var2, &var3);
+        GetLayoutGroupFirstElementPosition_ov023_021e2bdc(arg0->unknown_100_, var0[var1], &var2, &var3);
         short var4 = data_ov006_0215ffe2[var1];
         Struct_ov006_021580b8* var5 = &arg0->unknown_24_[var4];
         if (var4 == 0xb && arg0->unknown_430_ != 0)

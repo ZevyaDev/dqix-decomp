@@ -4,7 +4,7 @@ struct Struct_ov031_02290cbc { unsigned char unknown_0_; unsigned short unknown_
 extern Struct_ov031_02290cbc data_ov031_02290cbc;
 
 extern "C" void func_ov031_0223208c(void);
-extern "C" void func_ov031_0222336c(int, int, int);
+extern "C" void ShowSubScreenMessage_ov031_0222336c(int, int, int);
 extern "C" void func_ov031_022239f4(void);
 extern "C" void func_ov031_02223518(int);
 extern "C" void ShowMainScreenMessage_ov031_022235a0(int);
@@ -20,7 +20,7 @@ extern "C" ARM void func_ov031_02232024(void) {
 	data_ov031_02290cbc.unknown_2_ = 0;
 	data_ov031_02290cbc.unknown_0_ = 0;
 	func_ov031_0223208c();
-	func_ov031_0222336c(0x33, -1, 0);
+	ShowSubScreenMessage_ov031_0222336c(0x33, -1, 0);
 	func_ov031_022239f4();
 	func_ov031_02223518(2);
 	ShowMainScreenMessage_ov031_022235a0(0x33);

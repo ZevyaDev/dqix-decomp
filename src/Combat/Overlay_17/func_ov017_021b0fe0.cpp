@@ -33,7 +33,7 @@ extern "C" void func_ov017_021d0e00(int arg0);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_021d25f4(int arg0);
 extern "C" void* func_ov017_021b8468(void* battleManager);
-extern "C" void func_ov000_0217616c(void* arg0);
+extern "C" void SendPartyMemberPanelStats_ov000_0217616c(void* panel);
 
 extern "C" void* GetBattleUI_ov000_02160f08(void* battleScene);
 
@@ -101,5 +101,5 @@ extern "C" ARM void func_ov017_021b0fe0(int arg0) {
 	}
 	var5 = 0;
 lookupDone:
-	func_ov000_0217616c(var5);
+	SendPartyMemberPanelStats_ov000_0217616c(var5);
 }

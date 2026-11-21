@@ -330,7 +330,7 @@ extern "C" int func_ov024_021e6948(struct Struct_ov024_021ea4d0* arg0, int arg1,
 extern "C" int func_ov024_021e6a90(struct Struct_ov024_021ea4d0* arg0, int arg1, int arg2, struct Struct_ov024_021eaa50_2* arg3, unsigned short arg4);
 struct Party_02048150;
 extern "C" int IsInParty_02086ef0(Party_02048150*, int);
-extern "C" void func_ov000_0215a8d4(unsigned char*, int);
+extern "C" void IncrementQuestBattleCounter_ov000_0215a8d4(unsigned char*, int);
 struct Struct_ov024_021da670_6;
 extern "C" int HasTension_ov024_021da998(Struct_ov024_021da670_6*);
 struct Struct_ov024_021dd028_5;
@@ -341,14 +341,14 @@ extern "C" void AppendTargetResult_ov000_0215ffc4(void* target, void* result, in
 extern "C" int func_ov000_021573a8(void* arg0, int arg1, int arg2, int arg3);
 extern "C" struct Struct_ov024_021eb5d0_6* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void SetActionResult_ov000_0215ccbc(void* battle, struct Struct_ov024_021eb5d0_6* result, void* combatant, short amount, short currHP, int currMP, unsigned long long flags, unsigned char isCriticalHit);
-extern "C" struct Struct_ov024_021eb5d0_8* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
+extern "C" struct Struct_ov024_021eb5d0_8* GetTargetResult_ov000_0215fff4(void* target, int index, int listIndex);
 extern "C" int func_ov000_02157288(void* arg0, int arg1, struct Struct_ov024_021eaa50_2* arg2);
 extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, void* combatant, int amount, unsigned long long flags, int isCriticalHit);
 struct Struct_ov024_021da9e0_4;
 extern "C" void func_ov024_021eb4e4(Struct_ov024_021da9e0_4*, int);
 extern "C" short func_ov000_0215a1d4(void* arg0, int arg1, int arg2, short* arg3);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
-extern "C" void func_ov000_0215fe84(void* arg0, void* arg1, int arg2);
+extern "C" void AppendActorResult_ov000_0215fe84(void* actor, void* result, int listIndex);
 extern "C" void func_ov024_021e4c04(struct Struct_ov024_021ea4d0* arg0, int arg1, int arg2, struct Struct_ov024_021eaa50_2* arg3, int arg4);
 extern "C" void func_ov024_021e556c(struct Struct_ov024_021ea4d0* arg0, int arg1, int arg2, struct Struct_ov024_021eaa50_2* arg3, int arg4);
 struct ActionTarget_ov000_0215767c_4;
@@ -365,7 +365,7 @@ extern "C" void func_0208978c(Struct_0208978c*, short);
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov024_021eb08c(struct Struct_ov024_021ea4d0* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov000_0215a908(void* arg0, int arg1);
-extern "C" int func_ov000_02155f9c(void* arg0, int arg1, int arg2);
+extern "C" int IsCombatantIncapacitated_ov000_02155f9c(void* battle, int combatantIndex, int isConfusionCounted);
 extern "C" void func_ov024_021e6060(struct Struct_ov024_021ea4d0* arg0, int arg1, struct Struct_ov024_021eaa50_2* arg2, int arg3);
 extern "C" void func_ov024_021e6104(struct Struct_ov024_021ea4d0* arg0, int arg1, struct Struct_ov024_021eaa50_2* arg2);
 extern "C" void func_ov024_021e62cc(struct Struct_ov024_021ea4d0* arg0, int arg1, struct Struct_ov024_021eaa50_2* arg2);
@@ -771,7 +771,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                 void* var61 = GetParty_02010828((GameState*)(Struct_0203d028_2*)GameState::GetInstance());
                 if (arg0->unknown_c_->unknown_1c_.unknown_0_2_ != 0) {
                     if (IsInParty_02086ef0((Party_02048150*)var61, var4) != 0) {
-                        func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 6);
+                        IncrementQuestBattleCounter_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 6);
                     }
                 }
             }
@@ -844,7 +844,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                             arg0->unknown_68_ = var70;
                         }
                     }
-                    struct Struct_ov024_021eb5d0_8* var72 = func_ov000_0215fff4(arg0->unknown_c_, 0, 0);
+                    struct Struct_ov024_021eb5d0_8* var72 = GetTargetResult_ov000_0215fff4(arg0->unknown_c_, 0, 0);
                     if (var72 != 0) var72->unknown_10_ = var69;
                 }
             }
@@ -882,7 +882,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                         SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var1, 0x22);
                         SetActionResult_ov000_0215ccbc(
                             arg0->unknown_10_, var79, var76, -var5, var76->unknown_138_->unknown_0_, var77, var1, 0);
-                        func_ov000_0215fe84(arg0->unknown_8_, var79, 5);
+                        AppendActorResult_ov000_0215fe84(arg0->unknown_8_, var79, 5);
                         arg0->unknown_8_->unknown_1c_ = var4;
                         arg0->unknown_8_->unknown_1e_ = 0;
                         arg0->unknown_10_->unknown_8e02_ = arg0->unknown_10_->unknown_8e02_ + 1;
@@ -938,7 +938,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
             if (var89 != 0) func_ov000_0215a908(arg0->unknown_10_, var8.unknown_0_[var88]);
         }
     }
-    if (GetCombatantByID((int)arg0->unknown_10_, var18) != 0 && func_ov000_02155f9c(arg0->unknown_10_, var18, 0) == 0) {
+    if (GetCombatantByID((int)arg0->unknown_10_, var18) != 0 && IsCombatantIncapacitated_ov000_02155f9c(arg0->unknown_10_, var18, 0) == 0) {
         if (var40 == 0) {
             func_ov024_021e6060(arg0, var18, var15, var32);
             func_ov024_021e6104(arg0, var18, var15);
@@ -992,7 +992,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                     var2 = 0;
                     if (arg0->unknown_47_ > 1) SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var2, 8);
                     SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var103, var102, 0, var2, 0);
-                    func_ov000_0215fe84(arg2->unknown_10_, var103, 1);
+                    AppendActorResult_ov000_0215fe84(arg2->unknown_10_, var103, 1);
                     arg0->unknown_10_->unknown_8e02_ = arg0->unknown_10_->unknown_8e02_ + 1;
                 }
             }

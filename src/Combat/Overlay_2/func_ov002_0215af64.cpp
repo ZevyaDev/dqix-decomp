@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 #include "NitroSDK/Cache.h"
 
-extern "C" void* func_020a6084(void);
+extern "C" void* GetPartyMemberColorPalettes_020a6084(void);
 extern "C" int LoadToMainObjStandardPalette(int arg0, int arg1, unsigned int arg2);
 
 // USA: func_ov002_0215af64
@@ -15,7 +15,7 @@ extern "C" ARM void func_ov002_0215af64(char* arg0) {
     short var0 = *(short*)(arg0 + Enum_ov002_0215af64_7168 + Enum_ov002_0215af64_6);
     void* var1 = *(void**)(arg0 + 0x1000 + Enum_ov002_0215af64_3032);
     unsigned char var2 = (unsigned char)var0;
-    int var3 = (int)func_020a6084();
+    int var3 = (int)GetPartyMemberColorPalettes_020a6084();
     memcpy(var1, (void*)(var3 + (var2 << 5) + 0x1e), 2);
     CleanInvalidateCacheRange((const void*)(var1), 2);
     LoadToMainObjStandardPalette((int)var1, 0x11e, 2);

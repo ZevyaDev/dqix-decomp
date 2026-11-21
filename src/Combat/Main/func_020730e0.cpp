@@ -17,7 +17,7 @@ extern "C" int func_02053c6c(unsigned char* gameObject);
 struct Struct_02052e2c;
 extern "C" short* GetAppearance_02052e2c(struct Struct_02052e2c* gameObject);
 
-extern "C" unsigned short (*func_02099cac(void))[2];
+extern "C" unsigned short (*GetCharacterPalettes_02099cac(void))[2];
 
 struct Struct_0206f81c;
 extern "C" void* func_02083554(struct Struct_0206f81c* arg0, int arg1);
@@ -71,7 +71,7 @@ extern "C" ARM void func_020730e0(int arg0, int arg1) {
     }
 
     var3 = (struct Struct_020730e0*)GetAppearance_02052e2c((struct Struct_02052e2c*)var1);
-    func_02099cac();
+    GetCharacterPalettes_02099cac();
 
     func_02072afc(arg0, var7, var8);
     if (var8[arg1] < 0) {

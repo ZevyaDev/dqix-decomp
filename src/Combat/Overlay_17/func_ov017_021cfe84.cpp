@@ -8,8 +8,8 @@ enum { Enum_ov017_021cfe84_14132 = 0x3734 };
 #endif
 
 extern "C" void* GetZone3D_02012fe4(void);
-struct Struct_02019508_3;
-extern "C" void func_0201ba1c(struct Struct_02019508_3* arg0, int arg1, int arg2);
+struct Zone3D_02019508_3;
+extern "C" void func_0201ba1c(struct Zone3D_02019508_3* arg0, int arg1, int arg2);
 
 struct Struct_ov017_021cfe84 {
 	unsigned char unknown_0_[4];
@@ -29,5 +29,5 @@ extern "C" ARM void func_ov017_021cfe84(int arg0, Struct_ov017_021cfe84* arg1) {
 	if (var2[3] != 0) {
 		return;
 	}
-	func_0201ba1c((struct Struct_02019508_3*)var0, arg1->unknown_8_, arg1->unknown_6_);
+	func_0201ba1c((struct Zone3D_02019508_3*)var0, arg1->unknown_8_, arg1->unknown_6_);
 }

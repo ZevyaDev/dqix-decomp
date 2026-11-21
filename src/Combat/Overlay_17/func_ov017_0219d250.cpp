@@ -172,7 +172,7 @@ extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void func_ov017_0219e290(void*, unsigned short);
 extern "C" void func_0206ebc8(void* arg0);
 extern "C" void func_0206ebdc(unsigned char*);
-extern "C" void func_ov017_021a316c(Struct_ov017_0219d250_5* arg0);
+extern "C" void UnloadFieldObjects_ov017_021a316c(Struct_ov017_0219d250_5* gameResources);
 extern "C" void func_ov017_0219de70(Struct_ov017_0219d250_5* arg0, Struct_ov017_0219d250_6* arg1, Struct_ov017_0219d250_6* arg2);
 extern "C" void func_02012040(void*);
 extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState* gameState);
@@ -184,8 +184,8 @@ struct Struct_ov017_0219d250_8;
 extern "C" void func_ov017_0219e014(unsigned char*, Struct_ov017_0219d250_8*);
 extern "C" void func_020288e0(void* arg0);
 extern "C" void func_ov017_0219e0ec(void* arg0);
-struct Struct_0203cfb4;
-extern "C" void func_0203cfb4(Struct_0203cfb4*);
+struct NPCManager_0203cfb4;
+extern "C" void ResetNPCManager_0203cfb4(NPCManager_0203cfb4*);
 struct Struct_0205859c;
 extern "C" void func_0205859c(Struct_0205859c*);
 extern "C" void func_ov017_0219e234(Struct_ov017_0219d250_5*, Struct_ov017_0219d250_7*, Struct_ov017_0219d250_6*, void*);
@@ -384,7 +384,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
         var1->unknown_6e_ &= ~2;
     }
     if (!(var1->unknown_6e_ & 2)) {
-        func_ov017_021a316c(arg0);
+        UnloadFieldObjects_ov017_021a316c(arg0);
         if (((Zone3D*)var27)->internalAllocator_.GetSignedAllocator()) {
             ((Zone3D*)var27)->internalAllocator_.Destroy();
             ((Zone3D*)var27)->internalAllocator_.ResetAllocatorPointer();
@@ -402,7 +402,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
     func_ov017_0219e014((unsigned char*)arg0, (Struct_ov017_0219d250_8*)(FindActiveZone_02028bd0((ActiveZone_020fdd44*)var7, var15)));
     func_020288e0(var7);
     func_ov017_0219e0ec(arg0);
-    func_0203cfb4((Struct_0203cfb4*)var13);
+    ResetNPCManager_0203cfb4((NPCManager_0203cfb4*)var13);
     func_0205859c((Struct_0205859c*)var8);
     func_ov017_0219e234(arg0, var1, var4, var3);
     arg0->unknown_36f0_ = 0;

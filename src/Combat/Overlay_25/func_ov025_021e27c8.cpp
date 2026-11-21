@@ -7,7 +7,7 @@
 #include "Graphics/TextureArena.h"
 
 struct Struct_02000c9c_8;
-struct Struct_02057de0_2;
+struct EffectManager_02057de0_2;
 struct Struct_ov025_021e267c_2;
 struct Struct_ov025_021e27c8;
 
@@ -35,11 +35,11 @@ struct Struct_ov025_021ef988_3 {
 
 extern "C" SafeAllocator* func_ov025_021e8a54(char* arg0);
 extern "C" char* func_ov025_021e8a64(char* arg0);
-extern "C" Struct_02057de0_2* GetEffectManager_02057924(void);
+extern "C" EffectManager_02057de0_2* GetEffectManager_02057924(void);
 extern "C" unsigned char func_0200fb08(Struct_02000c9c_8* gameState);
 extern "C" int func_ov025_021e24d0(char* arg0, char* arg1, char* arg2);
 extern "C" void func_ov025_021e8bac(Struct_ov025_021e267c_2* arg0, Struct_ov025_021e267c_3* arg1);
-extern "C" int func_02057de0(Struct_02057de0_2* arg0, int arg1, SafeAllocator* arg2, int arg3, int arg4);
+extern "C" int LoadEffectResource_02057de0(EffectManager_02057de0_2* effectManager, int effectId, SafeAllocator* allocator, int fileData, int fileSize);
 extern "C" void func_ov025_021eb084(Struct_ov025_021e27c8* arg0, int arg1);
 extern "C" void __clear(void* arg0, int arg1);
 
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov025_021e27c8(char* arg0, int arg1) {
         char* var10;
         SafeAllocator* var11;
         void* var12;
-        Struct_02057de0_2* var13;
+        EffectManager_02057de0_2* var13;
         var11 = func_ov025_021e8a54(data_ov025_021ef988.unknown_c_);
         var10 = func_ov025_021e8a64(data_ov025_021ef988.unknown_c_);
         var13 = GetEffectManager_02057924();
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov025_021e27c8(char* arg0, int arg1) {
                 var14->unknown_4_ = arg1;
                 func_ov025_021e8bac((Struct_ov025_021e267c_2*)data_ov025_021ef988.unknown_c_, var14);
                 ((TextureArena*)(var10))->Restore();
-                func_02057de0(var13, arg1, var11, (int)var12, var9);
+                LoadEffectResource_02057de0(var13, arg1, var11, (int)var12, var9);
                 ((TextureArena*)(var10))->Save();
                 data_ov025_021ef988.unknown1_8_++;
             }

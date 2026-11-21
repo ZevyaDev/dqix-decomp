@@ -21,7 +21,7 @@ extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagInde
 extern "C" int func_020dd19c(unsigned int arg0, int arg1);
 extern "C" void func_ov023_021e23d0(void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov023_021db45c(void* arg0, struct Struct_ov023_021db45c* arg1, int arg2, short* arg3, short* arg4);
-extern "C" void func_ov023_021e257c(void* arg0);
+extern "C" void DrawLayoutElements_ov023_021e257c(void* layout);
 extern "C" void* func_ov023_021db544(void* arg0, void* arg1, int arg2, int arg3);
 extern "C" void* func_ov023_021db4e4(void* arg0, int arg1);
 extern "C" int func_ov023_021ddc98(void* arg0, int arg1, unsigned short arg2, int arg3);
@@ -131,7 +131,7 @@ extern "C" ARM void func_ov023_021df218(Struct_ov023_021df218_4* arg0)
             {
                 arg0->unknown_cc_.unknown_4_ = var0;
                 arg0->unknown_cc_.unknown_12_ = 1;
-                func_ov023_021e257c(&arg0->unknown_cc_);
+                DrawLayoutElements_ov023_021e257c(&arg0->unknown_cc_);
             }
             func_ov023_021db544(&arg0->unknown_cc_, (void*)0x1b, var3, var2);
             var16 = (Struct_ov023_021df218_3*)func_ov023_021db4e4(&arg0->unknown_cc_, 0x1b);
@@ -158,12 +158,12 @@ extern "C" int func_020dd19c(unsigned int arg0, int arg1);
 extern "C" void func_ov023_021e29b8(void* arg0, int arg1, unsigned char arg2);
 extern "C" void* func_ov023_021e2550(void* arg0, int arg1, int arg2);
 extern "C" void func_ov023_021db45c(void* arg0, struct Struct_ov023_021db45c* arg1, int arg2, short* arg3, short* arg4);
-extern "C" void func_ov023_021e257c(void* arg0);
+extern "C" void DrawLayoutElements_ov023_021e257c(void* layout);
 extern "C" void* func_ov023_021db544(void* arg0, void* arg1, int arg2, int arg3);
 extern "C" void* func_ov023_021db4e4(void* arg0, int arg1);
 extern "C" int func_ov023_021ddc98(void* arg0, int arg1, unsigned short arg2, int arg3);
 extern "C" unsigned short* func_ov023_021db2b8(signed char arg0, int arg1);
-extern "C" void func_ov023_021e2bdc(void* arg0, int arg1, short* arg2, short* arg3);
+extern "C" void GetLayoutGroupFirstElementPosition_ov023_021e2bdc(void* layout, int groupId, short* outX, short* outY);
 
 struct Struct_ov023_021ff9e0_12 {
     int unknown_0_;
@@ -286,7 +286,7 @@ extern "C" ARM void func_ov023_021df218(Struct_ov023_021df218_4* arg0)
             {
                 arg0->unknown_cc_.unknown_4_ = var0;
                 arg0->unknown_cc_.unknown_12_ = 1;
-                func_ov023_021e257c(&arg0->unknown_cc_);
+                DrawLayoutElements_ov023_021e257c(&arg0->unknown_cc_);
             }
             func_ov023_021db544(&arg0->unknown_cc_, (void*)0x1b, var3, var2);
             var16 = (Struct_ov023_021df218_3*)func_ov023_021db4e4(&arg0->unknown_cc_, 0x1b);
@@ -315,7 +315,7 @@ extern "C" ARM void func_ov023_021df218(Struct_ov023_021df218_4* arg0)
 
                     var6 = 0;
                     var5 = 0;
-                    func_ov023_021e2bdc(&arg0->unknown_cc_, data_ov023_021fd634[var23], &var6, &var5);
+                    GetLayoutGroupFirstElementPosition_ov023_021e2bdc(&arg0->unknown_cc_, data_ov023_021fd634[var23], &var6, &var5);
                     var9 = var6 >> 3;
                     var19 = var5 >> 3;
                     var6 = (short)var9;

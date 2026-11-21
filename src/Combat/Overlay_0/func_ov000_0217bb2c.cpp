@@ -28,7 +28,7 @@ extern "C" int func_ov000_0217b518(void* arg0, int arg1, int arg2);
 extern "C" int func_ov000_0217b6d0(void* arg0, int arg1, int arg2);
 extern "C" int func_ov000_0217b8a4(void* arg0, int arg1, int arg2);
 extern "C" void func_ov000_0217629c(void* arg0);
-extern "C" void func_ov000_0217ab8c(void* arg0, int arg1, int arg2);
+extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(void* panel, int arg1, int enemyTargetCount);
 extern "C" Struct_ov000_0217bb2c_3* func_ov000_02170cf8(void* arg0, int arg1);
 extern "C" void func_ov000_02176e3c(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
 
@@ -98,7 +98,7 @@ extern "C" ARM int func_ov000_0217bb2c(Struct_ov000_0217bb2c_2* arg0, int arg1, 
         arg0->unknown_18_--;
         arg0->unknown_21_ = -1;
         arg0->unknown_2e_ = -1;
-        func_ov000_0217ab8c(arg0, arg1, arg2);
+        ConfigurePanelMenuCursors_ov000_0217ab8c(arg0, arg1, arg2);
         int var0 = -1;
         switch (arg0->unknown_10_[arg0->unknown_18_]) {
         case 0xf:
@@ -145,7 +145,7 @@ extern "C" ARM int func_ov000_0217bb2c(Struct_ov000_0217bb2c_2* arg0, int arg1, 
         arg0->unknown_18_--;
         arg0->unknown_21_ = -1;
         arg0->unknown_2e_ = -1;
-        func_ov000_0217ab8c(arg0, arg1, arg2);
+        ConfigurePanelMenuCursors_ov000_0217ab8c(arg0, arg1, arg2);
         func_ov000_02176e3c(data_ov000_02184294.unknown_8_, arg0, arg0->unknown_10_[arg0->unknown_18_], data_ov000_02184294.unknown_4_, data_ov000_02184294.unknown_0_, 0);
     }
     return -1;

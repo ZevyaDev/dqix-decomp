@@ -20,7 +20,7 @@ extern "C" ARM void func_02018c74(Zone3D* arg0, unsigned int arg1) {
                 if (!(var1->unknown_2c_.unknown1_0_.unknown_2_4_ & 8)) {
                     var1->unknown_2c_.unknown1_0_.unknown_2_4_ = var1->unknown_2c_.unknown1_0_.unknown_2_4_ | 0x101;
                 }
-                func_02018300(arg0, var1, 0, 0, 0);
+                OpenDoor_02018300(arg0, var1, 0, 0, 0);
             }
         }
     }

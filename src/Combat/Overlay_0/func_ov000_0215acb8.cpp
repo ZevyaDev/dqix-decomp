@@ -46,7 +46,7 @@ struct Struct_ov000_0215acb8_4 {
 };
 
 extern "C" void InitBattleAction_ov000_02160030(void* action);
-extern "C" void func_ov000_02157cdc(void* arg0);
+extern "C" void InitActionTarget_ov000_02157cdc(void* target);
 extern "C" void SetActionResult_ov000_0215ccbc(int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant,
                             short amount, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov000_0215acb8(struct Struct_ov000_0215acb8_4* arg0, in
     var2->unknown_1c_ = -1;
     var2->unknown_30_ = 0;
     struct Struct_ov000_0215acb8_3* var3 = &arg0->unknown_7d30_[arg0->unknown_8e0f_];
-    func_ov000_02157cdc(var3);
+    InitActionTarget_ov000_02157cdc(var3);
     struct ActionResult_ov000_021584e8* var4 = &arg0->unknown_7f70_[arg0->unknown_8e0f_];
     memset(var4, 0, 0x20);
     var4->unknown_20_ = 0;

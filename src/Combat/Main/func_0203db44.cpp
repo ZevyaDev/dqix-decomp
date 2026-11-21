@@ -9,7 +9,7 @@
 #include "NitroSDK/Graphics3D/Graphics3D.h"
 
 struct Struct_0203db44 {
-    Struct_0203e0a0 unknown_0_;
+    NPC_0203e0a0 unknown_0_;
     char unknown_10_[8];
     Object3D* unknown_18_;
 };
@@ -28,7 +28,7 @@ extern "C" ARM void func_0203db44(void*, Struct_0203db44* arg1, SafeAllocator* a
     if (arg1->unknown_18_ == NULL) return;
     GameState::GetInstance();
     Object3D* var4 = arg1->unknown_18_;
-    Struct_0203db44_2* var5 = (Struct_0203db44_2*)func_02040538(&arg1->unknown_0_);
+    Struct_0203db44_2* var5 = (Struct_0203db44_2*)GetNPCPlacement_02040538(&arg1->unknown_0_);
     if (var5 == NULL) return;
     unsigned short var6 = var5->unknown_20_;
     unsigned short var7 = var6 & 31;

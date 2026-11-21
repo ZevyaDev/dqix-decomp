@@ -2,7 +2,7 @@
 #include "Resource/MessageGlyphSlot.h"
 
 extern "C" bool func_02044494(void* arg0, void* arg1);
-extern "C" int func_020425e4(int arg0, int arg1, int arg2);
+extern "C" int GetFontKerning_020425e4(int previousGlyphIndex, int glyphIndex, int font);
 
 extern int data_020e7a94[];
 
@@ -99,7 +99,7 @@ extern "C" ARM int func_02046170(struct Struct_02046170* arg0, unsigned short* a
         } else {
             Struct_0204166c* var6 = &arg0->unknown_9b8_[var5];
             int var7 = var6->unknown_17_;
-            var1 += func_020425e4(var3, var7, arg3);
+            var1 += GetFontKerning_020425e4(var3, var7, arg3);
             var3 = var7;
             int var8 = var0;
             if (var6->unknown2_18_ != 0) var8 = var6->unknown2_18_->width_4_;

@@ -39,7 +39,7 @@ extern "C" double _dadd(double arg0, double arg1);
 extern "C" unsigned int func_0200af90(double value);
 extern "C" Struct_ov023_021fbf4c_3* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" int GetMenuLoadTaskId_ov023_021f6bb8(Struct_ov023_021fbf4c_3* objectList);
-extern "C" void func_ov023_021f6bb0(Struct_ov023_021fbf4c_3* arg0, int arg1);
+extern "C" void SetMenuLoadTaskId_ov023_021f6bb0(Struct_ov023_021fbf4c_3* objectList, int taskId);
 extern "C" Struct_ov023_021fbf4c* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void func_020de888(Struct_02000c9c_74* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
 extern "C" void LoadItemTableByCategories_020dea64(Struct_02000c9c_74* itemTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize,
@@ -68,7 +68,7 @@ extern "C" ARM int func_ov023_021fbf4c(Struct_ov023_021fbf4c_2* arg0, void* arg1
             if (var0 == NULL)
             {
                 var2->RemoveTask(var3);
-                func_ov023_021f6bb0(var1, -1);
+                SetMenuLoadTaskId_ov023_021f6bb0(var1, -1);
                 return 2;
             }
             if (arg0->unknown_4c_ == 0)
@@ -131,7 +131,7 @@ extern "C" ARM int func_ov023_021fbf4c(Struct_ov023_021fbf4c_2* arg0, void* arg1
             }
         }
         var2->RemoveTask(var3);
-        func_ov023_021f6bb0(var1, -1);
+        SetMenuLoadTaskId_ov023_021f6bb0(var1, -1);
         return 2;
     }
     return arg0->unknown_1c_;

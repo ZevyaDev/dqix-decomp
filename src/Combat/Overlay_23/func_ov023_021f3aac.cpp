@@ -132,11 +132,11 @@ extern "C" {
 void __clear(void* arg0, unsigned long arg1);
 void func_ov023_021f1818(void* arg0, int arg1);
 void func_ov023_021d8af8(void* arg0);
-int func_ov023_021ed724(void* arg0, short* arg1, int arg2);
+int AwardAccolades_ov023_021ed724(void* table, short* accoladeIds, int idCount);
 void func_ov023_021f229c(Struct_ov023_021f3aac_9* arg0, void* arg1);
-void func_ov023_021eb138(Struct_ov023_021f3aac* arg0, int arg1);
-void func_ov023_021eb080(Struct_ov023_021f3aac* arg0, SafeAllocator* arg1);
-void func_ov023_021eb564(Struct_ov023_021f3aac* arg0, Struct_ov023_021f3aac_9* arg1, int arg2);
+void InitAccoladeDisplay_ov023_021eb138(Struct_ov023_021f3aac* display, int kind);
+void AllocateAccoladeDisplayBuffers_ov023_021eb080(Struct_ov023_021f3aac* display, SafeAllocator* allocator);
+void SetAccoladeDisplayEntries_ov023_021eb564(Struct_ov023_021f3aac* display, Struct_ov023_021f3aac_9* entries, int entryCount);
 void DestroyAccoladeDisplay_ov023_021eb26c(Struct_ov023_021f3aac* display);
 }
 
@@ -208,7 +208,7 @@ extern "C" ARM int func_ov023_021f3aac(Struct_ov023_021f3aac_4* arg0)
             arg0->unknown_55c8_ = arg0->unknown_30_.Allocate(0x14);
             ClearAccoladeTable_020a13c4((Struct_020a13c4*)arg0->unknown_55c8_);
             func_020a13e4(arg0->unknown_55c8_, &arg0->unknown_30_, 0, 0, 2);
-            arg0->unknown_55d5_ = func_ov023_021ed724(arg0->unknown_55c8_, var7, var10) & 1 ? 1 : 0;
+            arg0->unknown_55d5_ = AwardAccolades_ov023_021ed724(arg0->unknown_55c8_, var7, var10) & 1 ? 1 : 0;
             Struct_ov023_021f3aac_7* var13 = GameState::GetInstance()->GetProtagonist();
             StringList var14;
             var14.Reset();
@@ -281,9 +281,9 @@ extern "C" ARM int func_ov023_021f3aac(Struct_ov023_021f3aac_4* arg0)
     else if (var2 == 4)
     {
         arg0->unknown_55cc_ = (Struct_ov023_021f3aac*)arg0->unknown_30_.Allocate(0x44c);
-        func_ov023_021eb138(arg0->unknown_55cc_, 2);
-        func_ov023_021eb080(arg0->unknown_55cc_, &arg0->unknown_30_);
-        func_ov023_021eb564(arg0->unknown_55cc_, arg0->unknown_55d0_, arg0->unknown_55d4_);
+        InitAccoladeDisplay_ov023_021eb138(arg0->unknown_55cc_, 2);
+        AllocateAccoladeDisplayBuffers_ov023_021eb080(arg0->unknown_55cc_, &arg0->unknown_30_);
+        SetAccoladeDisplayEntries_ov023_021eb564(arg0->unknown_55cc_, arg0->unknown_55d0_, arg0->unknown_55d4_);
         func_ov023_021f2348(arg0->unknown_55cc_, arg0->unknown_55d5_);
         var0->unknown_0_++;
     }

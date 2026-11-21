@@ -106,7 +106,7 @@ extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, 
 extern "C" double func_0200b454(double x);
 extern "C" short GetEquippedItem_02052df8(Struct_02052df8* gameObject, int slot);
 extern "C" int func_ov005_02158560(Struct_ov005_02153954* arg0, unsigned char arg1, int arg2);
-extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char arg1);
+extern "C" void SetEquipMenuMode_ov005_0215792c(Struct_ov005_02153954* equipMenuUI, unsigned char mode);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" void func_ov005_021555c0(Struct_ov005_02153954* arg0);
 extern "C" void* GetParty_02010828(GameState* gameState);
@@ -191,7 +191,7 @@ extern "C" ARM void func_ov005_0215690c(Struct_ov005_02153954* arg0, int arg1, i
                 if (arg0->unknown_3dbc_ != var6) {
                     func_ov005_02158560(arg0, var6, 1);
                     arg0->unknown_3dbb_ = 8;
-                    func_ov005_0215792c(arg0, 4);
+                    SetEquipMenuMode_ov005_0215792c(arg0, 4);
                     func_ov005_021579ec(arg0, arg0->unknown_3db8_, arg0->unknown_3dbb_);
                     arg0->unknown_3dcc_ |= 0x100;
                     func_ov005_021555c0(arg0);
@@ -237,7 +237,7 @@ extern "C" ARM void func_ov005_0215690c(Struct_ov005_02153954* arg0, int arg1, i
         arg0->unknown_3dcc_ |= 0x40;
         arg0->unknown_3daa_ = 0;
     }
-    func_ov005_0215792c(arg0, 3);
+    SetEquipMenuMode_ov005_0215792c(arg0, 3);
     arg0->unknown_3d78_ = arg0->unknown_3dbc_;
     arg0->unknown_3dbb_ = arg0->unknown_3d78_;
     SetMenuCursorIndex_0205bb04(arg0->unknown_19f4_, arg0->unknown_3d78_);

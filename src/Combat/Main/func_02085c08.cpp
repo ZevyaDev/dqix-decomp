@@ -9,7 +9,7 @@ enum { Enum_02085c08_2293 = 0x8f5 };
 
 #include "GameState/GameState.h"
 
-extern "C" int func_0201137c(char* arg0, int arg1);
+extern "C" int GetSkillEntryBonus_0201137c(char* gameState, int skillEntryId);
 
 // USA: func_02085c08
 extern "C" ARM int func_02085c08(unsigned char* arg0) {
@@ -26,12 +26,12 @@ extern "C" ARM int func_02085c08(unsigned char* arg0) {
     if (var1 != 5) {
         if (var1 == 0x21) {
             if (arg0[Enum_02085c08_2301] & 1) {
-                var3 += func_0201137c((char*)var2, 0x88);
+                var3 += GetSkillEntryBonus_0201137c((char*)var2, 0x88);
             }
         }
     } else {
         if (arg0[Enum_02085c08_2293] & 1) {
-            var3 += func_0201137c((char*)var2, 0x48);
+            var3 += GetSkillEntryBonus_0201137c((char*)var2, 0x48);
         }
     }
     return var3;

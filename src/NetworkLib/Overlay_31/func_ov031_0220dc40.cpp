@@ -6,7 +6,7 @@ extern "C" int func_020d4ebc(int arg0);
 extern "C" int func_020d6a84(int arg0, int arg1);
 extern "C" int func_020d6950(int arg0, int arg1, int arg2, int arg3);
 extern "C" int func_020d54d0(void* arg0, void* arg1, void* arg2, int arg3, unsigned short arg4);
-extern "C" void func_ov031_0220da1c(int);
+extern "C" void SetAccessPointConnectionState_ov031_0220da1c(int);
 extern "C" void func_ov031_0220d984(int, void*, int, int);
 extern "C" void func_ov031_0220e258(void*);
 
@@ -41,17 +41,17 @@ extern "C" ARM void func_ov031_0220dc40(Struct_ov031_0220dc40* arg0) {
         case 4:
             switch (func_020d3fdc()) {
             case 0:
-                func_ov031_0220da1c(1);
+                SetAccessPointConnectionState_ov031_0220da1c(1);
                 func_ov031_0220d984(0, 0, 0, 0x663);
                 return;
             case 4:
             default:
-                func_ov031_0220da1c(0xb);
+                SetAccessPointConnectionState_ov031_0220da1c(0xb);
                 func_ov031_0220d984(7, 0, 0, 0x66c);
                 return;
             }
         case 5:
-            func_ov031_0220da1c(3);
+            SetAccessPointConnectionState_ov031_0220da1c(3);
             func_ov031_0220d984(0, 0, 0, 0x673);
             return;
         case 6:
@@ -78,24 +78,24 @@ extern "C" ARM void func_ov031_0220dc40(Struct_ov031_0220dc40* arg0) {
         case 2:
             return;
         case 8:
-            func_ov031_0220da1c(0xc);
+            SetAccessPointConnectionState_ov031_0220da1c(0xc);
             func_ov031_0220d984(1, gAccessPointConnection_ov031_0224e53c->unknown_2280_ == 5 ? gAccessPointConnection_ov031_0224e53c->unknown_2140_ : 0, 0, 0x6af);
             return;
         case 3:
         default:
-            func_ov031_0220da1c(0xb);
+            SetAccessPointConnectionState_ov031_0220da1c(0xb);
             func_ov031_0220d984(7, gAccessPointConnection_ov031_0224e53c->unknown_2280_ == 5 ? gAccessPointConnection_ov031_0224e53c->unknown_2140_ : 0, 0, 0x6b8);
             return;
         }
     case 1:
-        func_ov031_0220da1c(0xc);
+        SetAccessPointConnectionState_ov031_0220da1c(0xc);
         func_ov031_0220d984(1, gAccessPointConnection_ov031_0224e53c->unknown_2280_ == 5 ? gAccessPointConnection_ov031_0224e53c->unknown_2140_ : 0, 0, 0x6de);
         break;
     case 2:
     case 3:
     case 4:
     default:
-        func_ov031_0220da1c(0xb);
+        SetAccessPointConnectionState_ov031_0220da1c(0xb);
         func_ov031_0220d984(7, gAccessPointConnection_ov031_0224e53c->unknown_2280_ == 5 ? gAccessPointConnection_ov031_0224e53c->unknown_2140_ : 0, 0, 0x6e8);
         break;
     }

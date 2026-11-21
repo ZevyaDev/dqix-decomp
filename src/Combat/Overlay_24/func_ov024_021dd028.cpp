@@ -9,7 +9,7 @@ struct Struct_ov024_021dd028_6;
 struct Struct_ov024_021dd028_7;
 extern "C" int func_ov024_021ea78c(Struct_ov024_021dd028_7*, int, Struct_ov024_021dd028_6*);
 extern "C" void SetActionResultFlag_ov000_02159eac(void*,void*,int);
-extern "C" void func_ov000_0215a004(void*,int,int,int,void*,Struct_ov024_021dd028_4*,int,int);
+extern "C" void ApplyDamage_ov000_0215a004(void*,int,int,int,void*,Struct_ov024_021dd028_4*,int,int);
 extern "C" void func_02088b34(unsigned char*);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int,int,int);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
@@ -37,12 +37,12 @@ extern "C" ARM void* func_ov024_021dd028(Struct_ov024_021dd028_2* arg0,int arg1,
     if(arg6 && var1){
         if(func_ov024_021ea78c((Struct_ov024_021dd028_7*)arg0, arg2, (Struct_ov024_021dd028_6*)arg3)){
             SetActionResultFlag_ov000_02159eac(arg0->unknown_10_,&var2,0x29);
-            func_ov000_0215a004(arg0->unknown_10_,arg1,arg2,inline_ov000_0215a908_2(var0)-1,&var2,arg3,arg0->unknown_c_->unknown_1c_7_!=0,0);
+            ApplyDamage_ov000_0215a004(arg0->unknown_10_,arg1,arg2,inline_ov000_0215a908_2(var0)-1,&var2,arg3,arg0->unknown_c_->unknown_1c_7_!=0,0);
             SetActionResultFlag_ov000_02159eac(arg0->unknown_10_,&var2,0xfe);
             func_02088b34((unsigned char*)var0->currentStats_);
             var3=0xc8;
         }else{
-            func_ov000_0215a004(arg0->unknown_10_,arg1,arg2,0xffff,&var2,arg3,arg0->unknown_c_->unknown_1c_7_!=0,8);
+            ApplyDamage_ov000_0215a004(arg0->unknown_10_,arg1,arg2,0xffff,&var2,arg3,arg0->unknown_c_->unknown_1c_7_!=0,8);
             var2.unknown_0_=0;
             var2.unknown_4_=0;
             SetActionResultFlag_ov000_02159eac(arg0->unknown_10_,&var2,0xd);

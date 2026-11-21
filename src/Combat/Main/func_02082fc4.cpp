@@ -14,7 +14,7 @@ extern unsigned char g_fileScratchSpace[0x30000];
 
 extern "C" void* ClearLevelEntries_0208247c(void* levelEntries);
 
-extern "C" void SetLevelStats_02083cbc(void* memberData, void* arg1, void* arg2);
+extern "C" void SetLevelStats_02083cbc(void* memberData, void* levelEntry, void* arg2);
 extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
 
 extern char data_020f1019[];

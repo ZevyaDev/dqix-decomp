@@ -25,7 +25,7 @@ struct YesNoWindow_020e280c;
 extern "C" void OpenMenuLayoutWindow_020813ec(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void ResetKeyRepeat_0208203c(struct KeyRepeat_02081f20_2* keyRepeat);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" void func_02080c04(struct MenuLayout_0207fdcc_2* arg0, int arg1);
+extern "C" void HideMenuLayoutWindow_02080c04(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void func_020e29a8(struct Struct_020e29a8* arg0, int arg1);
 extern "C" void OpenYesNoWindow_020e280c(struct YesNoWindow_020e280c* yesNoWindow, void* objVRAMEnd);
 
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov003_02155580(struct Struct_ov003_02155580* arg0, int 
     arg0->unknown_8_ = 0;
     PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 5, 0);
     if (arg0->unknown_1c_ != 0) {
-        func_02080c04(arg0->unknown_18_, arg0->unknown_1e6_);
+        HideMenuLayoutWindow_02080c04(arg0->unknown_18_, arg0->unknown_1e6_);
         func_020e29a8((struct Struct_020e29a8*)arg0->unknown_1c_, (signed char)arg1);
         OpenYesNoWindow_020e280c((struct YesNoWindow_020e280c*)arg0->unknown_1c_, (void*)-1);
     }

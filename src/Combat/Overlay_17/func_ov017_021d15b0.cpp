@@ -2,16 +2,16 @@
 #include <std_library_functions.h>
 
 struct LocalWireless_0202c1a4;
-struct Struct_ov017_021d1118_8 { unsigned char unknown_0_[6]; };
+struct PlayerId_ov017_021d1118_8 { unsigned char bytes_0_[6]; };
 struct Struct_ov017_021d15b0 {
-    Struct_ov017_021d1118_8 unknown_0_;
+    PlayerId_ov017_021d1118_8 unknown_0_;
     signed char unknown_6_;
     unsigned char unknown_7_;
     unsigned char unknown_8_;
     signed char unknown_9_;
 };
 struct Struct_ov017_021d15b0_2 {
-    Struct_ov017_021d1118_8 unknown_0_;
+    PlayerId_ov017_021d1118_8 unknown_0_;
     char unknown_6_[0xc];
     unsigned short unknown_12_0_ : 14;
     unsigned short unknown_13_6_ : 1;
@@ -77,10 +77,10 @@ extern "C" ARM void func_ov017_021d15b0(int arg0, Struct_ov017_021d1118* arg1, S
             int var7;
             for (var7 = 0; var7 < 16; var7++, var6++) {
                 if (var6->unknown_13_6_) {
-                    Struct_ov017_021d1118_8 var8 = var4->unknown_0_;
+                    PlayerId_ov017_021d1118_8 var8 = var4->unknown_0_;
                     int var9;
                     for (int var10 = 0; var10 < 6; var10++) {
-                        if (var8.unknown_0_[var10] != var6->unknown_0_.unknown_0_[var10]) {
+                        if (var8.bytes_0_[var10] != var6->unknown_0_.bytes_0_[var10]) {
                             var9 = 0;
                             goto compared;
                         }

@@ -39,8 +39,8 @@ struct Struct_02048f64_3;
 extern "C" void func_02049520(Struct_02048f64_3*);
 struct Struct_02048f64;
 extern "C" void func_02049a74(Struct_02048f64*);
-struct Struct_02048c90;
-extern "C" void func_02048c90(Struct_02048c90*);
+struct Combatant_02048c90;
+extern "C" void ClearCombatantPath_02048c90(Combatant_02048c90*);
 extern "C" void SetCombatantCell_02049390(unsigned char*, unsigned char);
 struct Struct_02010604;
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
@@ -146,7 +146,7 @@ extern "C" ARM void func_02048f64(Struct_02048e2c* arg0) {
             func_02049520((Struct_02048f64_3*)arg0);
             func_02049a74((Struct_02048f64*)arg0);
         }
-        func_02048c90((Struct_02048c90*)arg0);
+        ClearCombatantPath_02048c90((Combatant_02048c90*)arg0);
         ((Object3D*)arg0)->SetAnimationPlaybackSpeed(0x1000, 500);
         SetCombatantCell_02049390((unsigned char*)arg0, var2->unknown_1d_);
         if (IsCombatantOnBattlefield_02049ee8((unsigned char*)arg0) && arg0->unknown_be_ == 1) {

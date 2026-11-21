@@ -127,12 +127,12 @@ extern "C" ARM void func_ov017_021bb27c(Struct_ov017_021bb27c_7* arg0) {
         if (!var9) continue;
         ResumeMovementUpdate_02033fdc((Struct_02033fdc*)var9);
         SetMotionKeepingAnimation_02033b58((Struct_02033b58*)var9, 0);
-        if (!IsOnLadder_02039d7c((char*)var9) || func_020399a8(var9)->unknown_1_ != 2) {
+        if (!IsOnLadder_02039d7c((char*)var9) || GetLadderAction_020399a8(var9)->unknown_1_ != 2) {
                 var9->obj3D_.MaybeSetRegularAnimation(data_ov017_021d7d6c, 0x10);
         } else if (arg0->unknown_11_) {
                 ((Struct_ov017_021bb27c_2*)var9)->unknown_e0_ &= ~1;
                 var9->obj3D_.DisableFlag(0x1180);
-                func_02038508(func_020399a8(var9));
+                func_02038508(GetLadderAction_020399a8(var9));
                 var9->obj3D_.MaybeSetRegularAnimation(data_ov017_021d7d6c, 0x10);
         } else var9->obj3D_.MaybeSetRegularAnimation(data_ov017_021d7d72, 0);
         SetFacingInstantly_02033874((Struct_02033834*)var9, var9->obj3D_.rotation_.y);

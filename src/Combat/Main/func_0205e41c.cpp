@@ -4,11 +4,11 @@
 #define func_0202ae18 func_0202a9d0
 #endif
 
-extern "C" void func_020d8654(void);
+extern "C" void SaveAndDisableVCounterInterrupt_020d8654(void);
 extern "C" void func_020d84e4(void);
 extern "C" void func_020d84e8(void);
 extern "C" void* func_0202ae18(void);
-extern "C" void func_020d8694(void);
+extern "C" void RestoreVCounterInterrupt_020d8694(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
 struct Struct_0205e1e4_2 {
@@ -36,7 +36,7 @@ extern "C" void func_0205e18c(struct Struct_0205e18c* arg0, struct Struct_0205e1
 // USA: func_0205e41c
 extern "C" ARM struct Struct_0205e1e4_2* func_0205e41c(void* arg0, int* arg1) {
     struct Struct_0205e1e4_2* var0;
-    func_020d8654();
+    SaveAndDisableVCounterInterrupt_020d8654();
     func_020d84e4();
     var0 = NULL;
     if (IsLocalWirelessOn_0202b7d8((int*)func_0202ae18())) {
@@ -50,6 +50,6 @@ extern "C" ARM struct Struct_0205e1e4_2* func_0205e41c(void* arg0, int* arg1) {
         }
     }
     func_020d84e8();
-    func_020d8694();
+    RestoreVCounterInterrupt_020d8694();
     return var0;
 }

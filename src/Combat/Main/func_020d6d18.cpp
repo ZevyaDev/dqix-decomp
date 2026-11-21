@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-extern "C" void func_02059cc8(unsigned char* arg0);
+extern "C" void ResetEffectSlot_02059cc8(unsigned char* slot);
 
 struct Struct_020d6d18 {
     unsigned char unknown_0_[0xd4];
@@ -23,7 +23,7 @@ struct Struct_020d6d18_2 {
 // USA: func_020d6d18
 extern "C" ARM void func_020d6d18(Struct_020d6d18_2* arg0) {
     for (int var0 = 0; var0 < 12; var0++) {
-        func_02059cc8((unsigned char*)&arg0->unknown_0_[var0]);
+        ResetEffectSlot_02059cc8((unsigned char*)&arg0->unknown_0_[var0]);
         arg0->unknown_0_[var0].unknown_d4_ = 0;
     }
     arg0->unknown_a28_.ResetAllocatorPointer();

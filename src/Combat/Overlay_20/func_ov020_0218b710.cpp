@@ -119,7 +119,7 @@ extern "C" void OpenTextWindow_0205d304(void* windowManager, char* text, int, in
 extern "C" void OpenTextWindow_0205d304(void* windowManager, char* text, int, int, int, int, int, int);
 #endif
 extern "C" void UpdateTextWindowManager_0205d0e0(void* windowManager, int ticks);
-extern "C" void func_02042c68(char* arg0);
+extern "C" void InitMessageWindow_02042c68(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void InitMessageGlyphs_020432c4(char* window);
 extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
@@ -447,7 +447,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
     arg0->unknown_470_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x10000), 0x10000);
     ((TextureArena*)(arg0->unknown_244_))->Initialize(0x4000, 0x400);
     char* var17 = GetMessageWindow_020421a0();
-    func_02042c68(var17);
+    InitMessageWindow_02042c68(var17);
     CloseMessageWindow_02043124(var17);
     func_020440a4(var17);
 #if defined(jpn)

@@ -5,14 +5,14 @@
 struct BattleAction_ov000_0215440c;
 struct ActionTarget_ov000_021600f8;
 extern "C" struct ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index);
-extern "C" void* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
+extern "C" void* GetTargetResult_ov000_0215fff4(void* target, int index, int listIndex);
 extern "C" short func_ov000_0215a16c(void* arg0, int arg1, int arg2, short* arg3);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void SetActionResult_ov000_0215ccbc(void* battle, void* result, GameObject* combatant,
                             short amount, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
-extern "C" void func_ov000_0215fe84(void* arg0, void* arg1, int arg2);
+extern "C" void AppendActorResult_ov000_0215fe84(void* actor, void* result, int listIndex);
 
 struct Struct_ov024_021e5988_5 { char unknown_0_[0x18]; unsigned char unknown_18_; };
 struct Struct_ov024_021e5988_6 { char unknown_0_[0xc]; short unknown_c_; };
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov024_021e5988(struct Struct_ov024_021e5988_4* arg0, in
 	int var3 = 0;
 	int var4 = 0;
 	for (int var5 = 0; var5 < var0->unknown_18_; var5++) {
-		struct Struct_ov024_021e5988_6* var6 = (struct Struct_ov024_021e5988_6*)func_ov000_0215fff4(var0, var5, var4);
+		struct Struct_ov024_021e5988_6* var6 = (struct Struct_ov024_021e5988_6*)GetTargetResult_ov000_0215fff4(var0, var5, var4);
 		if (var6) var3 += var6->unknown_c_;
 	}
 	var3 >>= 2;
@@ -60,6 +60,6 @@ extern "C" ARM void func_ov024_021e5988(struct Struct_ov024_021e5988_4* arg0, in
 	AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var9, 0x215);
 	SetActionResult_ov000_0215ccbc(arg0->unknown_10_, var9, var1, -var3, var8,
 	                       inline_ov024_021e5988(var1), var10.unknown1_0_, 0);
-	func_ov000_0215fe84(arg0->unknown_8_, var9, 2);
+	AppendActorResult_ov000_0215fe84(arg0->unknown_8_, var9, 2);
 	((unsigned char*)arg0->unknown_10_)[0x8e02]++;
 }

@@ -65,7 +65,7 @@ extern "C" void func_020884f8(unsigned char* arg0);
 extern "C" int func_ov000_02155154(GameObject* arg0);
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int HasLeftBattle_ov000_02153c0c(GameObject* combatant);
-extern "C" void func_02088e64(unsigned char* arg0);
+extern "C" void ClearRage_02088e64(unsigned char* stats);
 extern "C" void func_020488cc(unsigned char* arg0, int arg1);
 extern "C" int func_02088660(struct Struct_02088660* arg0);
 extern "C" void func_02088674(struct Struct_02088674* arg0);
@@ -172,7 +172,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         }
         if (var4 != 0) {
             var0->unknown_a1_ = 0;
-            func_02088e64((unsigned char*)var1->currentStats_);
+            ClearRage_02088e64((unsigned char*)var1->currentStats_);
             func_ov000_021584e8(arg0, var3, var1, arg2, 0x164, 0);
         } else if (var0->unknown_a1_ != 0) {
             int var8 = var0->unknown_a1_ - 1;
@@ -181,7 +181,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
             var0->unknown_a1_ = var8;
             if (var9 > var10) {
                 var0->unknown_a1_ = 0;
-                func_02088e64((unsigned char*)var1->currentStats_);
+                ClearRage_02088e64((unsigned char*)var1->currentStats_);
                 int var11 = (arg1 >= 0 && arg1 <= 3);
                 if (var11 == 0) {
                     func_020488cc((unsigned char*)var1, 1);

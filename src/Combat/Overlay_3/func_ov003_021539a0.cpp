@@ -106,7 +106,7 @@ extern "C" int GetSkillMagicalMightBonus_0208623c(unsigned char*);
 extern "C" int GetSkillMaxHPBonus_020862a8(unsigned char*);
 extern "C" int GetSkillMaxMPBonus_02086314(unsigned char*);
 extern "C" void func_ov023_021e24b0(void*, int, int, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);
-extern "C" void func_ov023_021e257c(void*);
+extern "C" void DrawLayoutElements_ov023_021e257c(void*);
 extern "C" void* GetResources_0200fb8c(int*);
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
@@ -238,7 +238,7 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
                 }
                 var13->unknown_4_ = &var2;
                 var13->unknown_12_ = 1;
-                func_ov023_021e257c(var13);
+                DrawLayoutElements_ov023_021e257c(var13);
             }
             CleanInvalidateCacheRange((const void*)(var12), 0x6000);
             LoadToSubBG0CharacterData((const void*)((int)var12), 0, 0x6000);
@@ -380,7 +380,7 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
                 }
                 var44->unknown_4_ = &var31;
                 var44->unknown_12_ = 1;
-                func_ov023_021e257c(var44);
+                DrawLayoutElements_ov023_021e257c(var44);
             }
             CleanInvalidateCacheRange((const void*)(var43), 0x6000);
             LoadToSubBG0CharacterData((const void*)((int)var43), 0, 0x6000);

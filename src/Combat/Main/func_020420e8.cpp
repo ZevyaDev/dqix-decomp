@@ -5,7 +5,7 @@
 extern int data_020e7a94[];
 extern "C" int FindFontGlyphIndex_020424e4(int, int);
 extern "C" FontGlyph_020420e8* GetFontGlyph_020425b4(int glyphIndex, int font);
-extern "C" int func_020425e4(int arg0, int arg1, int arg2);
+extern "C" int GetFontKerning_020425e4(int previousGlyphIndex, int glyphIndex, int font);
 
 #if defined(jpn)
 
@@ -71,7 +71,7 @@ extern "C" ARM int func_020420e8(char* arg0, int arg1) {
         } else {
             var3 = var6 & 0xff;
             FontGlyph_020420e8* var7 = GetFontGlyph_020425b4(var6, arg1);
-            int var8 = func_020425e4(var2, var3, arg1);
+            int var8 = GetFontKerning_020425e4(var2, var3, arg1);
             var2 = var3;
             var5 = (var7->width_4_ + 1) + var8;
             arg0 = arg0 + var7->codeLength_5_0_;

@@ -2,7 +2,7 @@
 #include "Combat/ActorAction.h"
 
 // USA: func_02038508
-extern "C" ARM void func_02038508(struct Struct_02037d10* arg0) {
+extern "C" ARM void func_02038508(struct LadderAction_02037d10* arg0) {
     arg0->unknown_0_ = 0;
     arg0->unknown_1_ = 0;
     arg0->unknown_2_ = 0;

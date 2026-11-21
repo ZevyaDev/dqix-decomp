@@ -45,7 +45,7 @@ extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" int func_ov015_0218c03c(void* arg0, char* arg1, int arg2, int arg3);
 extern "C" void func_ov015_0218c3a4(void* arg0, int arg1);
 extern "C" void func_ov015_0218c920(void* arg0, int arg1);
-extern "C" void* func_02099cac();
+extern "C" void* GetCharacterPalettes_02099cac();
 void LockStagedTextureVRAMCopying();
 void UnlockStagedTextureVRAMCopying();
 extern "C" void MemoryMapTexturePalette();
@@ -168,7 +168,7 @@ extern "C" ARM int func_ov015_0218d50c(Struct_ov015_0218d50c_3* arg0) {
         }
         var9.Reset();
     }
-    char* var23 = (char*)func_02099cac();
+    char* var23 = (char*)GetCharacterPalettes_02099cac();
     unsigned int var24 = ((Struct_ov015_0218d50c*)*arg0->unknown_4_)->unknown_148_;
     unsigned int var25 = (var24 << 16) >> 13;
     if (var25 != 0) {

@@ -23,8 +23,8 @@ extern "C" void func_02033fcc(struct Struct_02033fcc* arg0);
 extern "C" unsigned char IsOnLadder_02039d7c(char* object);
 extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-struct Struct_02010834;
-extern "C" void func_02010834(struct Struct_02010834* arg0, int arg1, int* arg2, int* arg3);
+struct GameState_02010834;
+extern "C" void func_02010834(struct GameState_02010834* arg0, int arg1, int* arg2, int* arg3);
 extern "C" void func_02039d58(unsigned char* arg0);
 extern "C" void* func_020d6c00(void);
 extern "C" void* GetParty_02010828(GameState* gameState);
@@ -111,7 +111,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
                 continue;
             }
             func_02033fcc((struct Struct_02033fcc*)var5);
-            if (IsOnLadder_02039d7c((char*)var5) == 0 || func_020399a8(var5)->unknown_1_ != 2) {
+            if (IsOnLadder_02039d7c((char*)var5) == 0 || GetLadderAction_020399a8(var5)->unknown_1_ != 2) {
                 var5->obj3D_.MaybeSetRegularAnimation(data_ov001_02164bd1, 0x10);
             }
             ResetFollowTrail_02039d24((unsigned char*)var5);
@@ -120,7 +120,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
 
         int var6[4];
         int var7;
-        func_02010834((struct Struct_02010834*)var2, GetProtagonistObjectIndex_020100a8(var2), var6, &var7);
+        func_02010834((struct GameState_02010834*)var2, GetProtagonistObjectIndex_020100a8(var2), var6, &var7);
         for (int var8 = 0; var8 < var7; var8++) {
             GameObject* var9 = var2->GetPartyMemberByIndex(var6[var8]);
             if (var9 == 0) {

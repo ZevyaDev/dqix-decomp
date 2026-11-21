@@ -35,7 +35,7 @@ struct Struct_02038598_6 {
     unsigned char unknown_252_;
     unsigned char unknown_253_;
     char unknown_254_[0x26c - 0x254];
-    Struct_02037d10 unknown_26c_;
+    LadderAction_02037d10 unknown_26c_;
 };
 struct Struct_02038598_7 {
     char unknown_0_[2];
@@ -116,7 +116,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
     GameResources* var0;
     Zone3D* var1;
     Struct_02038598_7* var2;
-    struct Struct_02037d10* var3;
+    struct LadderAction_02037d10* var3;
     unsigned int* var4;
     unsigned char var5;
     Queue_02038598_5* var6;

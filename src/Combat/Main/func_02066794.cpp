@@ -559,7 +559,7 @@ extern "C" void GetCurrentTime_020cf1a8(int);
 extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
 extern "C" void func_0208be94(unsigned char*);
 extern "C" void func_0208beb4(unsigned char*);
-extern "C" void func_0205e944(void* arg0, int arg1);
+extern "C" void SetSoundEffectVolume_0205e944(void* manager, int volume);
 
 extern "C" int func_02042764(char* arg0);
 extern "C" void func_02066934(unsigned char* arg0, void* arg1, void* arg2, int arg3, short arg4, unsigned char arg5);
@@ -1323,7 +1323,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                 var12 = false;
             } else if (var1 >= 0xff52 && var1 <= 0xff55) {
                 int var44 = *(signed char*)(var0 + 0x1778 + (var1 - 0xff52));
-                func_0205e944(&gSoundEffectManager_02108760, ((var44 * 0x21dd) >> 10) & 0x7f);
+                SetSoundEffectVolume_0205e944(&gSoundEffectManager_02108760, ((var44 * 0x21dd) >> 10) & 0x7f);
             } else if (var1 == 0xff0e) {
                 arg0->unknown_19c0_ = 1;
                 arg0->unknown_195d_ = 0x1e;

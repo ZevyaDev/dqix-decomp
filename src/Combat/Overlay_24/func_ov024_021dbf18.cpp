@@ -17,7 +17,7 @@ struct Struct_ov024_021dbf18_6 { char unknown_0_[0x3b]; unsigned char unknown_3b
 
 extern "C" unsigned long long func_ov024_021e4b14(struct Struct_ov024_021dbf18_4* arg0, int arg1, int arg2, struct Struct_ov024_021dbf18_5* arg3, int arg4);
 extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
-extern "C" void func_02088390(void* arg0);
+extern "C" void ClearSleep_02088390(void* stats);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
 extern "C" int func_ov000_02159f18(void* arg0, unsigned long long arg1, int arg2);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
@@ -36,7 +36,7 @@ extern "C" ARM void* func_ov024_021dbf18(struct Struct_ov024_021dbf18_4* arg0, i
 		var3 = func_ov024_021e4b14(arg0, arg1, arg2, arg3, 1);
 		if (IsAsleep_020882f8((unsigned char*)var0->currentStats_)) {
 			var1 = 0x40;
-			func_02088390(var0->currentStats_);
+			ClearSleep_02088390(var0->currentStats_);
 			if (var3 == 0) {
 				SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var3, 0x10);
 			}

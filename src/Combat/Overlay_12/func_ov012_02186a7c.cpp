@@ -45,7 +45,7 @@ extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* win
 struct Struct_ov012_02186a7c;
 extern "C" int func_ov023_021e6e20(struct Struct_ov012_02186a7c* arg0);
 
-extern "C" void func_ov023_021e6e60(void* arg0);
+extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(void* menu);
 extern "C" int func_ov023_021e6de4(char* arg0);
 extern "C" void func_ov012_0218943c(void* arg0);
 
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov012_02186a7c(char* arg0) {
 		*(unsigned char*)(arg0 + Enum_ov012_02186a7c_5024) = 0;
 		*(int*)(arg0 + Enum_ov012_02186a7c_5076) = 0;
 		SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)(arg0 + Enum_ov012_02186a7c_172), 0, 2);
-		func_ov023_021e6e60(arg0);
+		ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
 		func_ov012_0218943c(arg0);
 		(*(unsigned char*)(arg0 + Enum_ov012_02186a7c_4976))++;
 		return;

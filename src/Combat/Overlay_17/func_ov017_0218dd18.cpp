@@ -19,8 +19,8 @@ struct Struct_ov017_0218dd18_2 {
 };
 
 extern "C" Vector3fix GetNPCPosition_020406f8(Struct_ov017_0218dd18_2* outPosition);
-struct Struct_0203e0a0;
-extern "C" Struct_ov017_0218dd18* func_02040538(Struct_0203e0a0*);
+struct NPC_0203e0a0;
+extern "C" Struct_ov017_0218dd18* GetNPCPlacement_02040538(NPC_0203e0a0*);
 struct Struct_0203d028_15;
 extern "C" void func_02040774(Struct_0203d028_15*, int, int, int);
 extern "C" unsigned int func_02039dcc(unsigned char* arg0);
@@ -37,7 +37,7 @@ extern "C" ARM int func_ov017_0218dd18(Object3D* arg0, Struct_ov017_0218dd18_2* 
     if (arg1->unknown_18_ != NULL) {
         var3 = arg1->unknown_18_->GetRadius() / 2;
     }
-    Struct_ov017_0218dd18_3* var4 = func_02040538((Struct_0203e0a0*)arg1)->unknown_5c_;
+    Struct_ov017_0218dd18_3* var4 = GetNPCPlacement_02040538((NPC_0203e0a0*)arg1)->unknown_5c_;
     if (var4 != NULL) {
         var3 = var4->unknown_c_;
         Vector3fix_Add(&var1, &var4->unknown_0_, &var1);

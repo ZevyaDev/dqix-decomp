@@ -29,7 +29,7 @@ extern "C" ARM void func_02037d10(void* arg0) {
     *(int*)(var0 + COMBAT_FIELD(0x260)) = -1;
     var0[COMBAT_FIELD(0x255)] = -1;
     *(unsigned short*)(var0 + COMBAT_FIELD(0x256)) = 0;
-    struct Struct_02037d10* var1 = (struct Struct_02037d10*)(var0 + COMBAT_FIELD(0x26c));
+    struct LadderAction_02037d10* var1 = (struct LadderAction_02037d10*)(var0 + COMBAT_FIELD(0x26c));
     *(int*)(var0 + COMBAT_FIELD(0x268)) = 0;
     func_02038508(var1);
 }

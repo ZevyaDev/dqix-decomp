@@ -14,9 +14,9 @@ struct Struct_02083cbc {
     unsigned int unknown_3_6_ : 2;
 };
 
-struct Struct_02083cbc_2 {
+struct LevelEntry_02083cbc_2 {
     unsigned char unknown_0_[8];
-    Struct_02083cbc unknown_8_[3];
+    Struct_02083cbc levelStats_8_[3];
 };
 
 struct PartyMemberData_02083cbc_3 {
@@ -27,16 +27,16 @@ struct PartyMemberData_02083cbc_3 {
 };
 
 // USA: SetLevelStats_02083cbc
-extern "C" ARM void SetLevelStats_02083cbc(void* memberData, void* arg1, void* arg2) {
-    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[0].unknown_0_0_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[0].unknown_0_0_;
-    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[0].unknown_1_2_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[0].unknown_1_2_;
-    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[0].unknown_2_4_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[0].unknown_2_4_;
-    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[1].unknown_0_0_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[1].unknown_0_0_;
-    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[1].unknown_1_2_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[1].unknown_1_2_;
-    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[1].unknown_2_4_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[1].unknown_2_4_;
-    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[2].unknown_0_0_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[2].unknown_0_0_;
-    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[2].unknown_1_2_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[2].unknown_1_2_;
-    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[2].unknown_2_4_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[2].unknown_2_4_;
+extern "C" ARM void SetLevelStats_02083cbc(void* memberData, void* levelEntry, void* arg2) {
+    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[0].unknown_0_0_ = ((LevelEntry_02083cbc_2*)levelEntry)->levelStats_8_[0].unknown_0_0_;
+    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[0].unknown_1_2_ = ((LevelEntry_02083cbc_2*)levelEntry)->levelStats_8_[0].unknown_1_2_;
+    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[0].unknown_2_4_ = ((LevelEntry_02083cbc_2*)levelEntry)->levelStats_8_[0].unknown_2_4_;
+    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[1].unknown_0_0_ = ((LevelEntry_02083cbc_2*)levelEntry)->levelStats_8_[1].unknown_0_0_;
+    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[1].unknown_1_2_ = ((LevelEntry_02083cbc_2*)levelEntry)->levelStats_8_[1].unknown_1_2_;
+    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[1].unknown_2_4_ = ((LevelEntry_02083cbc_2*)levelEntry)->levelStats_8_[1].unknown_2_4_;
+    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[2].unknown_0_0_ = ((LevelEntry_02083cbc_2*)levelEntry)->levelStats_8_[2].unknown_0_0_;
+    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[2].unknown_1_2_ = ((LevelEntry_02083cbc_2*)levelEntry)->levelStats_8_[2].unknown_1_2_;
+    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[2].unknown_2_4_ = ((LevelEntry_02083cbc_2*)levelEntry)->levelStats_8_[2].unknown_2_4_;
     memset(((PartyMemberData_02083cbc_3*)memberData)->unknown_934_, 100, 0x16);
     if (arg2 != NULL) {
         for (int i = 0; i < 0x16; i++) {

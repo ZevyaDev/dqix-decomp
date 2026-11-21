@@ -35,7 +35,7 @@ struct Struct_ov017_021b0288_2 {
 extern "C" LocalWireless_0202c1a4* func_0202ae18(void);
 extern "C" unsigned char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
-extern "C" void func_020546a0(void* arg0, int arg1);
+extern "C" void SetLeaderObjectIndex_020546a0(void* companion, int leaderObjectIndex);
 extern "C" void func_ov017_021c32b0(Struct_ov017_021b0288* arg0, int arg1);
 extern "C" void func_020100a0(GameState* arg0, int arg1);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(void* gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
@@ -72,7 +72,7 @@ extern "C" ARM int func_ov017_021b0288(Struct_ov017_021b0288_2* arg0) {
                     if (var7[var1] == 3) {
                         var8[var3].unknown_0_ = var2;
                         var8[var3].unknown_1_ = var1;
-                        func_020546a0(var0, GetOwnProtagonistObjectIndex_0202c1a4(var5));
+                        SetLeaderObjectIndex_020546a0(var0, GetOwnProtagonistObjectIndex_0202c1a4(var5));
                         var7[var1] = 0;
                         var3++;
                         break;

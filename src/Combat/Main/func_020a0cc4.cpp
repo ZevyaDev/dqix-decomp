@@ -6,8 +6,8 @@
 #define func_02012da4 func_02012b6c
 #endif
 
-struct Struct_02114e20;
-extern "C" unsigned int GetMaxPossibleAllocation_02012dd0(struct Struct_02114e20* allocator);
+struct AllocatorTypeB_02114e20;
+extern "C" unsigned int GetMaxPossibleAllocation_02012dd0(struct AllocatorTypeB_02114e20* allocator);
 
 
 
@@ -19,7 +19,7 @@ extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 
 struct Struct_020a0cc4;
 
-extern struct Struct_02114e20 gMainHeap_02114e20;
+extern struct AllocatorTypeB_02114e20 gMainHeap_02114e20;
 extern void* data_02109d90;
 extern const char data_020f18e8[];
 

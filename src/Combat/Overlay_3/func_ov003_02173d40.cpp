@@ -56,7 +56,7 @@ struct StringList_020727d8 {
     short unknown_4_;
     short unknown_6_;
 };
-extern "C" void func_020727ec(struct StringList_020727d8* arg0);
+extern "C" void DestroyStringList_020727ec(struct StringList_020727d8* stringList);
 void CleanCacheRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(const void* src, unsigned int offset, unsigned int size);
 extern "C" void* GetMainBG1ScreenBase(void);
@@ -98,9 +98,9 @@ extern "C" ARM void func_ov003_02173d40(Struct_ov003_02173d40* arg0) {
 
     ClearFlags00(var1, 4);
     ClearFlags04(var1, 0x81e);
-    func_020727ec(&arg0->unknown_1c8_[0]);
-    func_020727ec(&arg0->unknown_1c8_[1]);
-    func_020727ec(&arg0->unknown_1c8_[2]);
+    DestroyStringList_020727ec(&arg0->unknown_1c8_[0]);
+    DestroyStringList_020727ec(&arg0->unknown_1c8_[1]);
+    DestroyStringList_020727ec(&arg0->unknown_1c8_[2]);
     arg0->unknown_184_[0].Destroy();
     arg0->unknown_184_[1].Destroy();
     arg0->unknown_184_[2].Destroy();

@@ -8,7 +8,7 @@
 
 extern "C" void func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void);
-extern "C" void DespawnFieldMonster_ov017_021a23b0(void* gameResources, int arg1);
+extern "C" void DespawnFieldMonster_ov017_021a23b0(void* gameResources, int fieldMonsterId);
 
 extern "C" GameObject* func_0200ffe0(GameState* arg0, int arg1);
 extern "C" void func_02079710(unsigned char* arg0, int arg1, int arg2);

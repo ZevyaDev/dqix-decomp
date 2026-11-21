@@ -5,7 +5,7 @@ struct Struct_0201099c_3;
 struct Struct_ov023_021db45c;
 struct Struct_ov023_021dbb34;
 struct Struct_ov023_021dbc58_2;
-struct Struct_ov023_021e257c;
+struct Layout_ov023_021e257c;
 
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg3, short arg4);
@@ -15,14 +15,14 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_ov023_021dbb34(void* arg0, struct Struct_ov023_021dbb34* arg1);
 extern "C" void func_ov023_021dbc58(void*, Struct_ov023_021dbc58_2*, int);
 extern "C" void func_ov023_021e23d0(void* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4);
-extern "C" void func_ov023_021e2bdc(void* arg0, int arg1, short* arg2, short* arg3);
+extern "C" void GetLayoutGroupFirstElementPosition_ov023_021e2bdc(void* layout, int groupId, short* outX, short* outY);
 extern "C" void func_0204f41c(void* arg0, short arg1, short arg2, int arg3, int arg4, int arg5, short* arg6, short* arg7, int arg8);
 #if defined(jpn)
 extern "C" void func_02050678(void*,short,short,int,int,int,short*,short*);
 #endif
 extern "C" void func_ov023_021db3c0(void* arg0, int arg1, short arg2, float arg3, unsigned char arg4);
 extern "C" void func_ov023_021e24b0(void* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4, unsigned char arg5, unsigned char arg6, unsigned char arg7, unsigned char arg8);
-extern "C" void func_ov023_021e257c(void* arg0);
+extern "C" void DrawLayoutElements_ov023_021e257c(void* layout);
 extern "C" void* func_ov023_021db544(void* arg0, void* arg1, int arg2, int arg3);
 extern "C" int func_020dd718(int arg0, int arg1);
 extern "C" int GetEquipRestrictions_020dd4c4(int memberIndex, void* item);
@@ -121,7 +121,7 @@ struct Struct_ov023_021ddf5c_4 {
 
 #define SetEntryOff(obj, key) do {     struct Struct_ov023_021ddf5c_3* e_ = (struct Struct_ov023_021ddf5c_3*)func_ov023_021db4e4((obj)->unknown_cc_, (key));     if (e_) e_->unknown_16_ &= ~1; } while (0)
 
-#define FlushList(obj, buf) do {     if (data_ov023_021ff9e0.unknown1_4_) {         (obj)->unknown_d0_ = (buf);         (obj)->unknown_de_ = 1;         func_ov023_021e257c((obj)->unknown_cc_);     } } while (0)
+#define FlushList(obj, buf) do {     if (data_ov023_021ff9e0.unknown1_4_) {         (obj)->unknown_d0_ = (buf);         (obj)->unknown_de_ = 1;         DrawLayoutElements_ov023_021e257c((obj)->unknown_cc_);     } } while (0)
 
 // USA: func_ov023_021ddf5c
 extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
@@ -180,7 +180,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
             var3 = (short)(var18[var1] + 12);
             func_ov023_021e23d0(arg0->unknown_cc_, data_ov023_021fd5c6[var1], ((int)((StringList*)(data_ov023_021ff9e0.unknown_14_))->GetString(var3)), 10, 0xf);
             var5 = data_ov023_021fd5d6[var1];
-            func_ov023_021e2bdc(arg0->unknown_cc_, var5, &var11, &var10);
+            GetLayoutGroupFirstElementPosition_ov023_021e2bdc(arg0->unknown_cc_, var5, &var11, &var10);
             switch (var3) {
             case 14:
             case 15:
@@ -295,7 +295,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
             var20 = (short)(var37[var1] + 12);
             func_ov023_021e23d0(arg0->unknown_cc_, data_ov023_021fd5e6[var1], ((int)((StringList*)(data_ov023_021ff9e0.unknown_14_))->GetString(var20)), 10, 0xf);
             var22 = data_ov023_021fd5f6[var1];
-            func_ov023_021e2bdc(arg0->unknown_cc_, var22, &var29, &var28);
+            GetLayoutGroupFirstElementPosition_ov023_021e2bdc(arg0->unknown_cc_, var22, &var29, &var28);
             switch (var20) {
             case 14:
             case 15:
@@ -422,7 +422,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
             var41 = var40 + 12;
             func_ov023_021e23d0(arg0->unknown_cc_, data_ov023_021fd606[var1], ((int)((StringList*)(data_ov023_021ff9e0.unknown_14_))->GetString(var41)), 10, 0xf);
             var42 = data_ov023_021fd60e[var1];
-            func_ov023_021e2bdc(arg0->unknown_cc_, var42, &var52, &var51);
+            GetLayoutGroupFirstElementPosition_ov023_021e2bdc(arg0->unknown_cc_, var42, &var52, &var51);
             var43 = var59[var40];
             switch (var41) {
             case 14:
@@ -477,7 +477,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
             if (var43 == var44) var45 = 0xf;
             else if (var43 < var44) var45 = 5;
             var46 = data_ov023_021fd61e[var1];
-            func_ov023_021e2bdc(arg0->unknown_cc_, var46, &var52, &var51);
+            GetLayoutGroupFirstElementPosition_ov023_021e2bdc(arg0->unknown_cc_, var46, &var52, &var51);
             switch (var41) {
             case 14:
             case 15:

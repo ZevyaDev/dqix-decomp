@@ -47,7 +47,7 @@ extern "C" void* __clear(void* arg0, int arg1);
 extern "C" int func_020420e8(char* arg0, int arg1);
 extern "C" int FindFontGlyphIndex_020424e4(int text, int font);
 extern "C" Struct_0204cd60_2* GetFontGlyph_020425b4(int glyphIndex, int font);
-extern "C" int func_020425e4(int arg0, int arg1, int arg2);
+extern "C" int GetFontKerning_020425e4(int previousGlyphIndex, int glyphIndex, int font);
 extern "C" void func_0204cc68(Struct_0204cd60* arg0, int arg1, short arg2, short arg3, short arg4, short arg5);
 extern "C" void FillTextWindowRect_0204f914(Struct_0204cd60* textWindow, int colorIndex, short left, short top, short right, short bottom);
 extern "C" void func_0204ea5c(Struct_0204cd60* arg0);
@@ -413,7 +413,7 @@ extern "C" ARM void func_0204cd60(Struct_0204cd60* arg0, char* arg1, short arg2,
         if (var63 >= 0) {
             var12 = var63 & 0xff;
             var10 = GetFontGlyph_020425b4(var63, arg3);
-            var4 += func_020425e4(var11, var12, arg3);
+            var4 += GetFontKerning_020425e4(var11, var12, arg3);
             func_0204df9c(arg0, var10, var4, var5, var38, arg3);
             var11 = var12;
             var50 = (unsigned char)(var10->unknown_4_ + 1);

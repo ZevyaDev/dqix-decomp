@@ -31,13 +31,13 @@ struct Struct_0203e5d8;
 struct Queue_02038598_5;
 extern "C" void* GetZone3D_02012fe4();
 extern "C" unsigned char* GetColorFade_020704fc();
-extern "C" void func_02017c58(void*);
+extern "C" void SaveBMDJEntryVisibility_02017c58(void*);
 extern "C" int func_02046cc8(Struct_02046f84*);
 extern "C" int func_0204700c(Struct_02046f84*);
 extern "C" void* func_ov017_021b8478(void*);
 extern "C" void func_0209c480(MusicManager_02109bf4_4*, int);
 extern "C" void SetMusicVolume_0209c2e0(MusicManager_02109bf4_4*, int, int);
-extern "C" void func_0205e944(void*, int);
+extern "C" void SetSoundEffectVolume_0205e944(void*, int);
 extern "C" void CloseMessageWindow_02043124(void*);
 extern "C" int abs(int);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
             StopMusic_0209c678(&gMusicManager_02109bf4, 10);
         }
         if (arg0->unknown_fe_ <= 0) arg0->unknown_fd_ = 0;
-        if (arg0->unknown_8_) func_02017c58(GetZone3D_02012fe4());
+        if (arg0->unknown_8_) SaveBMDJEntryVisibility_02017c58(GetZone3D_02012fe4());
         arg0->unknown_fc_ = 1;
     }
     if (arg0->unknown_fd_) --arg0->unknown_fd_;
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
             }
             func_0209c480(&gMusicManager_02109bf4, var6);
             SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, 127, 0);
-            func_0205e944(gSoundEffectManager_02108760, 127);
+            SetSoundEffectVolume_0205e944(gSoundEffectManager_02108760, 127);
             SetFlags04(var1, 0x40);
             CloseMessageWindow_02043124(GetMessageWindow_020421a0());
             func_0203e5d8(GetNPCManager_0203cf4c(), 0);

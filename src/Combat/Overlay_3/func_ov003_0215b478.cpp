@@ -10,7 +10,7 @@ enum { Enum_ov003_0215b478_2 = 2 };
 #if defined(jpn)
 extern "C" void func_02042428(void*, int);
 extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int);
-extern "C" void func_02042158(void*, int);
+extern "C" void AppendXOffsetTag_02041acc(void*, int);
 extern char data_ov003_0217e68e[], data_ov003_0217e696[];
 #endif
 #include "std_library_functions.h"
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov003_0215b478(unsigned char* arg0) {
 #if defined(jpn)
     func_02042428(*(void**)(arg0 + 0x7c), 8);
     AppendText_02042058(*(char**)(arg0 + 0x7c), data_ov003_0217e68e);
-    func_02042158(*(void**)(arg0 + 0x7c), 2);
+    AppendXOffsetTag_02041acc(*(void**)(arg0 + 0x7c), 2);
     AppendText_02042058(*(char**)(arg0 + 0x7c), data_ov003_0217e696);
 #else
     int var2 = ((int)GetGameString((eGameString)(0x3f1)));

@@ -60,7 +60,7 @@ extern "C" unsigned short* GetZone3D_02012fe4();
 extern "C" void func_020d3c08(char*);
 extern "C" void func_020d3c84(Struct_020d3c28*, Struct_02013fb4*, int);
 extern "C" Struct_ov017_021c1e6c_7* func_020d3d90(Struct_020d3d90*, int);
-extern "C" void func_ov017_0218f064(GameResources*, int, int, int, int);
+extern "C" void CreatePartyMemberObject_ov017_0218f064(GameResources*, int, int, int, int);
 extern "C" unsigned char func_ov017_02191764(int, int);
 extern "C" void* func_0202ae18();
 extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
@@ -69,7 +69,7 @@ extern "C" void func_02054664(Struct_02054664*);
 extern "C" void func_02053c4c(char*, char*);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
-extern "C" void func_020546a0(void*, int);
+extern "C" void SetLeaderObjectIndex_020546a0(void*, int);
 extern "C" void func_020546b4(void*, int);
 extern "C" void SetObject3DPositionFromVector_02059f38(Struct_02059cfc_2*, Struct_02059cfc_3*);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov017_021c1e6c(Struct_ov017_021c1e6c_6* arg0) {
         if (var4->unknown_10_3_) {
             int var10 = var4->unknown_10_0_;
             var8 = 3;
-            func_ov017_0218f064(var2, var8, 4, 1, var10);
+            CreatePartyMemberObject_ov017_0218f064(var2, var8, 4, 1, var10);
             var9 = func_ov017_02191764(var8, 0);
             arg0->unknown_1_ = 1;
         } else {
@@ -168,7 +168,7 @@ extern "C" ARM void func_ov017_021c1e6c(Struct_ov017_021c1e6c_6* arg0) {
 configureCombatant:
         GameObject* var17 = GetCompanionByIndex_0200ff58(var0, var8);
         if (var17) {
-            func_020546a0(var17, 0);
+            SetLeaderObjectIndex_020546a0(var17, 0);
             func_020546b4(var17, var9);
             var17->obj3D_.SetField06(*var3);
             if (var0->GetUnknownGameObject()) {
@@ -202,7 +202,7 @@ configureCombatant:
                     var23->obj3D_.LoadFromCCHROrCMOTArchive(&var21, 0);
                     ((TextureArena*)(var22))->Save();
                     var23->obj3D_.SetScale(0x10a, 0x10a, 0x10a);
-                    func_020546a0(var23, 0);
+                    SetLeaderObjectIndex_020546a0(var23, 0);
                     SetMotion_02033b88((Struct_02010604*)var23, 0);
                     func_02039d58((unsigned char*)var23);
                     for (int var24 = 0; var24 < 4; var24++) {

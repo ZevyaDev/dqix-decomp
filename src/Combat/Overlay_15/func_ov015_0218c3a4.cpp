@@ -58,7 +58,7 @@ struct Struct_ov015_0218c03c_2
 
 extern "C" Struct_ov005_021556e4* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" int func_020de2a4(Struct_020730e0_2* arg0, int arg1, int arg2);
-extern "C" Struct_02099d34* func_02099cac();
+extern "C" Struct_02099d34* GetCharacterPalettes_02099cac();
 extern "C" void func_02099d34(void* arg0, int arg1, int arg2, int arg3);
 
 // USA: func_ov015_0218c3a4
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov015_0218c3a4(Struct_ov015_0218c03c_2* arg0, int arg1)
         if (arg1 == 0)
             var6 = 0x200;
         var4 -= var5 - var6;
-        Struct_02099d34* var7 = func_02099cac();
+        Struct_02099d34* var7 = GetCharacterPalettes_02099cac();
         const void* var8 = NULL;
         int var9 = var2 * 2;
         switch (var2)

@@ -11,7 +11,7 @@ extern "C" void func_ov031_0222a794(void);
 extern "C" void func_020ca390(int a, void* buf, unsigned int size);
 extern "C" int Memcpy16Bit_020ca3b8(int dst, int src, int size);
 extern "C" void func_ov031_0223c980(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, void* arg7);
-extern "C" void func_ov031_02237b2c(int, int, int, int, int);
+extern "C" void OpenDialog_ov031_02237b2c(int, int, int, int, int);
 extern "C" void func_ov031_0222a814(void);
 extern "C" ARM void func_ov031_0222aa88();
 extern unsigned char data_ov031_02290c78[2];
@@ -35,6 +35,6 @@ extern "C" ARM void func_ov031_0222a6c4(void) {
 	func_ov031_0223c980(var1, 8, 0x35, 0xf0, 0x1c, 2, 0x480, &var2[0]);
 	func_ov031_0223caec(var1);
 	func_ov031_0222785c((int)func_ov031_0222aa88);
-	func_ov031_02237b2c(0x1d, 4, 0, -1, 0);
+	OpenDialog_ov031_02237b2c(0x1d, 4, 0, -1, 0);
 	SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222a814);
 }

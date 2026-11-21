@@ -8,7 +8,7 @@
 
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" int GetMenuLoadTaskId_ov023_021f6bb8(void*);
-extern "C" void func_ov023_021f6bb0(void*, int);
+extern "C" void SetMenuLoadTaskId_ov023_021f6bb0(void*, int);
 
 extern char data_ov023_021fef64[];
 
@@ -29,6 +29,6 @@ extern "C" ARM int func_ov023_021fb700(Struct_ov023_021fb700* arg0, void* arg1) 
     BackgroundLoader* var2 = BackgroundLoader::GetInstance();
     sprintf(var1, data_ov023_021fef64, arg0->unknown_10_);
     int var3 = var2->QueueLoadFile(var1, NULL);
-    func_ov023_021f6bb0(var0, var3);
+    SetMenuLoadTaskId_ov023_021f6bb0(var0, var3);
     return 1;
 }

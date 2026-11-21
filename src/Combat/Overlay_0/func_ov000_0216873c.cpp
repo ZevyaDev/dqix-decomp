@@ -49,7 +49,7 @@ extern "C" void func_020d6d18(struct Struct_020d6d18_2* arg0);
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId);
 extern "C" void func_ov017_021a05a8(GameResources* arg0);
-extern "C" void func_ov017_0219b624(GameResources* arg0);
+extern "C" void LoadFieldIcons_ov017_0219b624(GameResources* gameResources);
 extern "C" void LoadCommonFieldResources_ov017_0219ba0c(GameResources* gameResources, int isIconsOnly);
 extern "C" void* func_0205ec34(void);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
@@ -134,7 +134,7 @@ extern "C" ARM void func_ov000_0216873c(struct Struct_ov000_0216873c* arg0) {
     if (func_ov000_02160fd4(arg0, 1)) {
         func_ov017_021a05a8(var1);
     }
-    func_ov017_0219b624(var1);
+    LoadFieldIcons_ov017_0219b624(var1);
 #if !defined(jpn)
     LoadCommonFieldResources_ov017_0219ba0c(var1, 0);
 #endif

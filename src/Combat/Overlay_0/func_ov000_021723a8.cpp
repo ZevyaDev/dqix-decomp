@@ -38,7 +38,7 @@ struct Struct_ov000_021723a8;
 extern "C" void func_ov000_0217228c(struct Struct_ov000_021723a8* arg0);
 extern "C" void func_ov000_0216ff28(void* arg0);
 extern "C" void func_ov000_0217feb0(struct Struct_ov000_021723a8* arg0, unsigned char arg1, int arg2);
-extern "C" void func_ov000_02174b14(struct Struct_ov000_021723a8* arg0);
+extern "C" void PositionPartyMemberPanels_ov000_02174b14(struct Struct_ov000_021723a8* battleUI);
 
 struct Struct_ov000_021723a8_2 {
     void* unknown_0_;
@@ -259,7 +259,7 @@ extern "C" ARM void func_ov000_021723a8(struct Struct_ov000_021723a8* arg0, int 
     }
     func_ov000_0217feb0(arg0, 0, -1);
     func_ov000_0217feb0(arg0, 1, GetProtagonistObjectIndex_020100a8(var6));
-    func_ov000_02174b14(arg0);
+    PositionPartyMemberPanels_ov000_02174b14(arg0);
     arg0->unknown_1d7c_ = 0;
     arg0->unknown_1d78_ = 0;
     arg0->unknown_950_ = 0;

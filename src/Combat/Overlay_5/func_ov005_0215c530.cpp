@@ -155,7 +155,7 @@ extern "C" void SetMenuCursorIndex_0205bb04(void*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov005_021555c0(Struct_ov005_0215c530_3*);
 extern "C" void SetItemInfoPanelItem_ov023_021dcae0(ItemInfoPanel_ov003_02178910*, int);
-extern "C" void func_ov005_0215792c(Struct_ov005_0215c530_3*, unsigned char);
+extern "C" void SetEquipMenuMode_ov005_0215792c(Struct_ov005_0215c530_3*, unsigned char);
 
 #if defined(jpn)
 #define data_ov005_0215cd08 data_ov005_0215e0e8
@@ -327,5 +327,5 @@ extern "C" ARM void func_ov005_0215c530(Struct_ov005_0215c530_3* arg0)
     SetItemInfoPanelItem_ov023_021dcae0(&arg0->unknown_1244_, var25);
     arg0->unknown_3dcc_ |= 0x40;
     arg0->unknown_3daa_ = 0;
-    func_ov005_0215792c(arg0, arg0->unknown_3db9_);
+    SetEquipMenuMode_ov005_0215792c(arg0, arg0->unknown_3db9_);
 }

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" ARM void func_ov031_0223521c(void);
-extern "C" void func_ov031_022238cc(void);
+extern "C" void FreeCursorSprites_ov031_022238cc(void);
 extern "C" int FastIntModulus(int, int);
 extern "C" void func_ov031_0222c3b4(void);
 extern "C" void func_ov031_0222c660(void);
@@ -29,7 +29,7 @@ extern Struct_ov031_02290c8c_14 gAccessPointListPage_ov031_02290c8c;
 // USA: func_ov031_0222c71c
 extern "C" ARM void func_ov031_0222c71c(void* arg0) {
 	func_ov031_0223521c();
-	func_ov031_022238cc();
+	FreeCursorSprites_ov031_022238cc();
 
 	if (gAccessPointListPage_ov031_02290c8c.unknown_2_ > 4) {
 		gAccessPointListPage_ov031_02290c8c.unknown_2_ = gAccessPointListPage_ov031_02290c8c.unknown_2_ - 4;

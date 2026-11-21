@@ -4,7 +4,7 @@
 
 extern "C" int TrySelectTacticOption_ov024_021fe698(void* tacticAI, int option);
 extern "C" void func_ov024_021fdf04(void* arg0, int arg1);
-extern "C" void func_ov024_021f9874(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" void RankCandidateAction_ov024_021f9874(void* tacticAI, void* arg1, int targetGroup, int targetIndex);
 
 struct Struct_ov024_021fbf18 {
 	char unknown_0_[4];
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov024_021fbf18(struct Struct_ov024_021fbf18_2* arg0) {
 		char var2[0xc8];
 		memset(var2, 0, 0xc8);
 		*(float*)(var2 + 0xc4) = 1000.0f;
-		func_ov024_021f9874(arg0, var2, 0, 0);
+		RankCandidateAction_ov024_021f9874(arg0, var2, 0, 0);
 	} else {
 		if (TrySelectTacticOption_ov024_021fe698(arg0, 1)) {
 			func_ov024_021fdf04(arg0, 8);

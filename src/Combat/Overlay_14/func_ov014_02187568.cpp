@@ -118,7 +118,7 @@ extern "C" void CopyCapitalizedText_0206819c(const char*, char*, int);
 extern "C" void func_02080654(Struct_0207f914*, int, int);
 #else
 extern "C" void func_0207f914(Struct_0207f914*, int, int, int);
-extern "C" void func_02080798(void*, int, int);
+extern "C" void SetMenuLayoutTextAlignment_02080798(void*, int, int);
 #endif
 extern "C" void func_020abf38(void*);
 extern "C" void SetMenuLayoutWindowArray_0207f7f0(MenuLayout_0207f7f0*, TextWindow_0207f7f0_2*, int);
@@ -237,7 +237,7 @@ extern "C" ARM void func_ov014_02187568(Struct_ov014_02186bc8* arg0)
     else if (arg0->unknown_17b_ == 7)
     {
 #if !defined(jpn)
-        func_02080798(arg0->unknown_c0_, 6, 1);
+        SetMenuLayoutTextAlignment_02080798(arg0->unknown_c0_, 6, 1);
 #endif
         arg0->unknown_f8_.unknown_50_ = 1;
         arg0->unknown_f8_.inline_ov008_02188d74(arg0->unknown_d4_, 8);

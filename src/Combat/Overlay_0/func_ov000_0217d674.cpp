@@ -39,7 +39,7 @@ extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* man
 struct TextWindowManager_0205d6a0;
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 struct Struct_ov000_021735d0_3;
-extern "C" struct Struct_ov000_021735d0_2* func_ov000_0217f8c0(Struct_ov000_021735d0_3*);
+extern "C" struct Struct_ov000_021735d0_2* GetSelectedMemberPanel_ov000_0217f8c0(Struct_ov000_021735d0_3*);
 extern "C" int func_ov000_0217c5f4(void*);
 extern "C" int func_ov000_0218155c(void*);
 struct TextWindowManager_0205d81c;
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov000_0217d674(Struct_ov000_02178d28_2* arg0, int arg1,
         func_ov000_02175258(arg0);
         arg0->unknown_1d68_ = arg0->unknown_1d68_ + 1;
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 6;
-        func_ov000_02176634(arg0, func_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0), 6, arg1, arg2);
+        func_ov000_02176634(arg0, GetSelectedMemberPanel_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0), 6, arg1, arg2);
         func_ov000_0217a9d0(6, func_ov000_0218155c(arg0), 4, (TextWindowManager_0205d81c*)arg0->unknown_188_);
         SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 0, 1);
         SetTextWindowVisible_0205def8((TextWindowManager_0205def8*)arg0->unknown_188_, 0, 2);

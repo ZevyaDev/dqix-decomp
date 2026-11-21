@@ -12,7 +12,7 @@
 
 extern "C" void func_02044f3c(void*, const char*, int);
 extern "C" void func_0206cb14(void*, int, unsigned short);
-extern "C" void func_0205e944(void*, int);
+extern "C" void SetSoundEffectVolume_0205e944(void*, int);
 extern "C" void func_02041bbc(Struct_0204166c*);
 extern "C" void SetMessageWindowRect_02042b98(void*, int, int, int, int);
 extern "C" void func_02044d0c(void);
@@ -39,7 +39,7 @@ extern "C" void func_020dcf7c(int, void*);
 extern "C" int func_020d2ff0(const char*);
 extern "C" void func_02044f3c(struct MessageWindow_02021b84* arg0, const char* arg1, int arg2);
 extern "C" void func_0206b198(struct Struct_0204500c_4*, unsigned short);
-extern "C" void func_0205e944(void* arg0, int arg1);
+extern "C" void SetSoundEffectVolume_0205e944(void* manager, int volume);
 extern "C" void func_020416c0(struct Struct_0204166c*);
 extern "C" void SetMessageWindowRect_02042b98(struct MessageWindow_02021b84* window, int x, int y, int width, int height);
 extern "C" void func_02042fcc(struct Struct_02042c68*);
@@ -100,7 +100,7 @@ extern "C" ARM void StartMessage_0204500c(MessageWindow_02021b84* window, const 
         window->unknown_19bf_ = 1;
         window->unknown_17ff_.unknown_0_1_ = 1;
         window->unknown_1778_[0] = window->unknown_1778_[1] = window->unknown_1778_[2] = window->unknown_1778_[3] = 0x7f;
-        func_0205e944(&gSoundEffectManager_02108760, 0x7f);
+        SetSoundEffectVolume_0205e944(&gSoundEffectManager_02108760, 0x7f);
         memset(window->unknown_2cc_, 0, sizeof(window->unknown_2cc_));
         memset(window->unknown_14_, 0, 0x800);
         memset(window->unknown_4c_, 0, 0x140);
@@ -157,7 +157,7 @@ extern "C" ARM void StartMessage_0204500c(MessageWindow_02021b84* window, const 
         }
         if (window->unknown_17ff_.unknown_0_0_ != 0) {
             window->unknown_44_ = 0;
-            func_02044104((Struct_0204394c*)window->unknown_1e28_);
+            func_02044104((Struct_0204394c*)window->pTextureArena_1e28_);
         }
         func_020698d8(window, window->unknown_1788_, text, window->unknown_2c_);
         func_02069ecc((Struct_0204500c_5*)window, window->unknown_2c_, window->unknown_30_);
@@ -198,7 +198,7 @@ extern "C" ARM void StartMessage_0204500c(MessageWindow_02021b84* window, const 
         for (int var7 = 0; var7 < 2; var7++) {
             SetDisplayWindowEnabled_020e2cc4(&window->unknown_1964_[var7].unknown_0_, 0);
         }
-        if (window->unknown_1e28_ != 0) ((TextureArena*)(window->unknown_1e28_))->Reset();
+        if (window->pTextureArena_1e28_ != 0) ((TextureArena*)(window->pTextureArena_1e28_))->Reset();
     }
 }
 #else
@@ -266,7 +266,7 @@ extern "C" ARM void StartMessage_0204500c(struct MessageWindow_02021b84* window,
         window->unknown_19bf_ = 1;
         window->unknown_19cf_ = 1;
         window->unknown_194a_[0] = window->unknown_194a_[1] = window->unknown_194a_[2] = window->unknown_194a_[3] = 0x7f;
-        func_0205e944(&gSoundEffectManager_02108760, 0x7f);
+        SetSoundEffectVolume_0205e944(&gSoundEffectManager_02108760, 0x7f);
         memset(window->unknown_2cc_, 0, sizeof(window->unknown_2cc_));
         memset(window->unknown_48_, 0, 0x960);
         memset(window->unknown_4c_, 0, 0x280);
@@ -322,7 +322,7 @@ extern "C" ARM void StartMessage_0204500c(struct MessageWindow_02021b84* window,
         }
         if (window->unknown_19ce_ != 0) {
             window->unknown_44_ = 0;
-            func_0204394c((struct Struct_0204394c*)window->unknown_1e28_);
+            func_0204394c((struct Struct_0204394c*)window->pTextureArena_1e28_);
         }
         char* var21 = window->unknown_60_;
         char* var22 = window->unknown_64_;
@@ -369,8 +369,8 @@ extern "C" ARM void StartMessage_0204500c(struct MessageWindow_02021b84* window,
         for (int var24 = 0; var24 < 2; var24++) {
             SetDisplayWindowEnabled_020e2cc4(&window->unknown_1964_[var24], 0);
         }
-        if (window->unknown_1e28_ != 0) {
-            ((TextureArena*)(window->unknown_1e28_))->Reset();
+        if (window->pTextureArena_1e28_ != 0) {
+            ((TextureArena*)(window->pTextureArena_1e28_))->Reset();
         }
     }
     window->unknown_30_ = -1;

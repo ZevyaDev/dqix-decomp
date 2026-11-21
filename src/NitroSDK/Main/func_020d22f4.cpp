@@ -19,7 +19,7 @@ extern Struct_02112780_2 data_02112780;
 extern Struct_020d22f4* const data_021127a4[9];
 
 extern "C" unsigned long func_020d2a20();
-extern "C" void func_020c976c(unsigned long cycles);
+extern "C" void BusyWait_020c976c(unsigned long cycles);
 
 // USA: func_020d22f4
 extern "C" ARM void* func_020d22f4(unsigned long arg0) {
@@ -30,7 +30,7 @@ extern "C" ARM void* func_020d22f4(unsigned long arg0) {
         if (data_02112780.unknown_4_ == func_020d2a20()) {
             do {
                 SetIRQInterruptState(var0);
-                func_020c976c(100);
+                BusyWait_020c976c(100);
                 var0 = DisableIRQInterrupts();
             } while (data_02112780.unknown_4_ == func_020d2a20());
         }

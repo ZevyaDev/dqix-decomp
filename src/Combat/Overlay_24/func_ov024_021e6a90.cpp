@@ -170,7 +170,7 @@ extern "C" float func_02074938(int arg0);
 extern "C" int func_ov024_021e67b0(GameObject*);
 struct Party_02048150;
 extern "C" int IsInParty_02086ef0(Party_02048150*, int);
-extern "C" void func_ov000_0215a8d4(unsigned char*, int);
+extern "C" void IncrementQuestBattleCounter_ov000_0215a8d4(unsigned char*, int);
 extern "C" int func_02085154(unsigned char* arg0);
 extern "C" int func_020851d8(unsigned char* arg0);
 int NextRandomMax(Random*, int);
@@ -423,7 +423,7 @@ extern "C" ARM int func_ov024_021e6a90(struct Struct_ov024_021e6a90_5* arg0, int
             }
             if (IsInParty_02086ef0((Party_02048150*)(GetParty_02010828(GameState::GetInstance())), arg2) &&
                 var2 && var2->unknown_138_->unknown_21_ == 1) {
-                func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 0);
+                IncrementQuestBattleCounter_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 0);
             }
         }
     }

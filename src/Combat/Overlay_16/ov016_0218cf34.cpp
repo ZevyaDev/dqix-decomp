@@ -23,7 +23,7 @@ extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
 extern "C" void ClearSoundHandle_020bc078(int* handle);
 extern "C" void func_0203aa44(void* arg0);
 extern "C" void func_0203aaf8(void* arg0, int arg1, int arg2);
-extern "C" void func_020c3864(int arg0);
+extern "C" void SetVBlankInterruptEnabled_020c3864(int isEnabled);
 extern "C" void MapVRAMBanksToLCDC(int banks);
 extern "C" void func_020ca458(int arg0, void* arg1, unsigned int arg2);
 extern "C" void DisableLCDCMappedVRAMBanks(void);
@@ -57,7 +57,7 @@ extern "C" void func_ov016_0218e240(unsigned short* arg0, char* arg1, unsigned s
 extern "C" void func_02012bd8(void);
 extern "C" void func_020d1f0c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_020d1fd0(int arg0, int arg1);
-extern "C" void SendSoundCommands_020d24c4(int arg0);
+extern "C" void SendSoundCommands_020d24c4(int flags);
 extern "C" void func_020c9778(int arg0, int arg1);
 extern "C" void UpdateSound_020bbd9c(void);
 extern "C" int func_020ce89c(int arg0, int arg1, int arg2);
@@ -288,7 +288,7 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 		unsigned short var5 = *var4;
 		*var4 = 1;
 	}
-	func_020c3864(1);
+	SetVBlankInterruptEnabled_020c3864(1);
 	MapVRAMBanksToLCDC(0x1ff);
 	func_020ca458(0, (void*)0x6800000, 0xa4000);
 	DisableLCDCMappedVRAMBanks();

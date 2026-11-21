@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-// USA: func_020883fc
-extern "C" ARM void func_020883fc(void* arg0) {
-    unsigned char* var0 = (unsigned char*)arg0;
-    *(int*)(var0 + 0x14) &= ~0x20;
-    var0[0x5e] = 0;
-    var0[0x81] = 0;
+// USA: ClearConfusion_020883fc
+extern "C" ARM void ClearConfusion_020883fc(void* stats) {
+    unsigned char* statsBytes = (unsigned char*)stats;
+    *(int*)(statsBytes + 0x14) &= ~0x20;
+    statsBytes[0x5e] = 0;
+    statsBytes[0x81] = 0;
 }

@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
-// USA: func_ov000_0215fff4
-extern "C" ARM void* func_ov000_0215fff4(void* arg0, int arg1, int arg2) {
-    unsigned char* var0 = (unsigned char*)arg0 + arg2;
-    if (var0[0x18] <= arg1) return 0;
-    void* var1 = *(void**)((char*)arg0 + arg2 * 4);
-    int var2 = 0;
-    while (var2 < arg1 && var1 != 0) {
-        var1 = *(void**)((char*)var1 + 0x20);
-        var2++;
+// USA: GetTargetResult_ov000_0215fff4
+extern "C" ARM void* GetTargetResult_ov000_0215fff4(void* target, int index, int listIndex) {
+    unsigned char* shiftedTargetBytes = (unsigned char*)target + listIndex;
+    if (shiftedTargetBytes[0x18] <= index) return 0;
+    void* result = *(void**)((char*)target + listIndex * 4);
+    int i = 0;
+    while (i < index && result != 0) {
+        result = *(void**)((char*)result + 0x20);
+        i++;
     }
-    return var1;
+    return result;
 }

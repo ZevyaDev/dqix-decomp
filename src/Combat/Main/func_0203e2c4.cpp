@@ -74,7 +74,7 @@ extern "C" ARM void func_0203e2c4(void *arg0, unsigned short arg1) {
             for (unsigned int var4 = 0; var4 < var0->unknown_8c_; ++var3, ++var4) {
                 NPC_0203dce4 *var5 = *var3;
                 unsigned short *var6 = (unsigned short *) GetNPCData_02040528(&var5->flags_0_);
-                void *var7 = func_02040538((Struct_0203e0a0 *) var5);
+                void *var7 = GetNPCPlacement_02040538((NPC_0203e0a0 *) var5);
                 if (var6 == NULL || var7 == NULL) {
                     continue;
                 }
@@ -99,7 +99,7 @@ extern "C" ARM void func_0203e2c4(void *arg0, unsigned short arg1) {
                 if (var1->unknown_9_1_) {
                     var5->flags_0_ |= 0x8000;
                 }
-                Struct_0203e0a0_5 *var10 = (Struct_0203e0a0_5 *) func_02040538((Struct_0203e0a0 *) var5);
+                Struct_0203e0a0_5 *var10 = (Struct_0203e0a0_5 *) GetNPCPlacement_02040538((NPC_0203e0a0 *) var5);
                 if (var10 != NULL) {
                     Struct_0203e0a0_4 *var11 = var10->unknown_34_;
                     while (var11 != NULL) {

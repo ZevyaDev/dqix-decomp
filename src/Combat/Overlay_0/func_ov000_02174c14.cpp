@@ -9,7 +9,7 @@ enum { Enum_ov000_02174c14_7520 = 0x1d60, Enum_ov000_02174c14_7528 = 0x1d68, Enu
 struct TextWindowManager_0205d6a0;
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
-extern "C" void func_0204c804(void* arg0);
+extern "C" void CloseTextWindow_0204c804(void* textWindow);
 
 struct Struct_ov000_02174c14 {
     char unknown_0_[0xc];
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov000_02174c14(char* arg0) {
         struct Struct_ov000_02174c14_2* var2 = (struct Struct_ov000_02174c14_2*)(arg0 + 0x284);
         int var3 = var0->unknown_44_;
         int var4 = var0->unknown_48_;
-        func_0204c804(var2);
+        CloseTextWindow_0204c804(var2);
         var2->unknown_ac_ = (var3 >> 3) + 9;
         var2->unknown_ae_ = var4 >> 3;
         var2->unknown_c2_ = 0;

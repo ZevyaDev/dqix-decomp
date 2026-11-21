@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 
-extern int data_020fdcb0[][8];
+extern int gPartyStatsCache_020fdcb0[][8];
 extern int data_020fdcb8[][8];
 
 // USA: func_02027bd0
@@ -18,7 +18,7 @@ extern "C" ARM int func_02027bd0(int arg0) {
         return 1;
     }
 
-    var0 = data_020fdcb0[arg0][0];
+    var0 = gPartyStatsCache_020fdcb0[arg0][0];
     var1 = data_020fdcb8[arg0][0];
     if (var0 < 0) {
         return 1;

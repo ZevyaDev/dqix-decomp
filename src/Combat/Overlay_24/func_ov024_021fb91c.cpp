@@ -81,7 +81,7 @@ extern "C" void func_ov024_021f6a1c(Struct_ov024_021f6a1c*, void*);
 extern "C" void func_ov024_021f8938(void*, float*, float*, int, void*, GameObject*);
 extern "C" void func_ov024_021f6a4c(void*, void*);
 extern "C" void func_ov024_021fd858(void*);
-extern "C" void func_ov024_021f9874(void*, void*, int, int);
+extern "C" void RankCandidateAction_ov024_021f9874(void*, void*, int, int);
 
 static inline unsigned int inline_ov024_021fb91c(GameObject* arg0) { return arg0->currentStats_->primaryStats.maxHP; }
 
@@ -153,7 +153,7 @@ extern "C" ARM void func_ov024_021fb91c(Struct_ov024_021fb91c_2* arg0) {
             func_ov024_021fd858(arg0);
         }
         if (var0->unknown_17_4_ == 2 || var0->unknown_17_4_ == 1 || var0->unknown_17_4_ == 8) {
-            func_ov024_021f9874(arg0, &var8, 0, (unsigned char)var10->obj3D_.unknown_4_);
+            RankCandidateAction_ov024_021f9874(arg0, &var8, 0, (unsigned char)var10->obj3D_.unknown_4_);
             memset(&var8, 0, sizeof(var8));
         }
     }
@@ -161,6 +161,6 @@ extern "C" ARM void func_ov024_021fb91c(Struct_ov024_021fb91c_2* arg0) {
         GetCombatantByID((int)arg0->unknown_0_, 0);
         int var18 = (unsigned char)var3->obj3D_.unknown_4_;
         if (var0->unknown_17_4_ == 3) var18 = 0xff;
-        func_ov024_021f9874(arg0, &var8, 0, var18);
+        RankCandidateAction_ov024_021f9874(arg0, &var8, 0, var18);
     }
 }

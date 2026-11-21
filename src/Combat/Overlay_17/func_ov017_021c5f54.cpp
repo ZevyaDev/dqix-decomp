@@ -9,16 +9,16 @@ extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c
 
 extern "C" void* GetBattleJoinTable_0207d78c(void);
 
-struct Struct_0207d7f4 { unsigned short unknown_0_; unsigned short unknown_2_; unsigned int unknown_4_; unsigned int unknown_8_; };
-extern "C" Struct_0207d7f4* func_0207d9bc(Struct_0207d7f4* arg0, unsigned short arg1);
-extern "C" int func_0207d978(Struct_0207d7f4* arg0, unsigned short arg1);
+struct BattleJoinRecord_0207d7f4 { unsigned short unknown_0_; unsigned short unknown_2_; unsigned int unknown_4_; unsigned int unknown_8_; };
+extern "C" BattleJoinRecord_0207d7f4* FindBattleJoinRecord_0207d9bc(BattleJoinRecord_0207d7f4* arg0, unsigned short monsterId);
+extern "C" int func_0207d978(BattleJoinRecord_0207d7f4* arg0, unsigned short arg1);
 extern "C" int func_0207da30(unsigned char* arg0, int arg1, int arg2);
 
 extern "C" GameObject* FindFieldMonsterById_ov017_021a278c(void* gameResources, int fieldMonsterId);
 
 extern "C" void func_ov017_021c5e28(int arg0, int arg1);
 
-extern "C" void func_0207d7f4(Struct_0207d7f4* arg0, unsigned short arg1, int arg2, unsigned char arg3, int arg4, unsigned short arg5, int arg6);
+extern "C" void func_0207d7f4(BattleJoinRecord_0207d7f4* arg0, unsigned short arg1, int arg2, unsigned char arg3, int arg4, unsigned short arg5, int arg6);
 extern "C" void func_0207dcf0(int arg0);
 
 struct Struct_ov017_021c5f54 {
@@ -32,13 +32,13 @@ struct Struct_ov017_021c5f54 {
 
 // USA: func_ov017_021c5f54
 extern "C" ARM void func_ov017_021c5f54(int arg0, Struct_ov017_021c5f54* arg1, int arg2, void* arg3, LocalWireless_0202c1a4* arg4) {
-    Struct_0207d7f4* var0;
+    BattleJoinRecord_0207d7f4* var0;
     if (GetOwnProtagonistObjectIndex_0202c1a4(arg4) != 0)
         return;
-    var0 = (Struct_0207d7f4*)GetBattleJoinTable_0207d78c();
+    var0 = (BattleJoinRecord_0207d7f4*)GetBattleJoinTable_0207d78c();
     if (arg1->unknown_9_ == 0 && arg1->unknown_a_ == 0
         && FindFieldMonsterById_ov017_021a278c(arg3, arg1->unknown_4_) == NULL
-        && func_0207d9bc(var0, arg1->unknown_4_) == NULL) {
+        && FindBattleJoinRecord_0207d9bc(var0, arg1->unknown_4_) == NULL) {
         ((void(*)(int, unsigned short))func_ov017_021c5e28)(arg0, arg1->unknown_4_);
         return;
     }

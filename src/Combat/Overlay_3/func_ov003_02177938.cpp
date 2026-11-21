@@ -80,7 +80,7 @@ extern "C" void func_020805f4(void *arg0, int arg1);
 extern "C" void func_020806c4(void *arg0, int arg1);
 extern "C" void func_ov003_0217818c(void *arg0, struct ItemData_0201099c_9 *arg1, int arg2, int arg3);
 extern "C" void SetMenuLayoutTextStringId_0208103c(void *menuLayout, int textId, int stringId);
-extern "C" void func_0208108c(void *arg0, int arg1);
+extern "C" void CenterMenuLayoutText_0208108c(void *menuLayout, int textId);
 extern "C" void OpenMenuLayoutWindow_020813ec(void *menuLayout, int windowId);
 
 struct Struct_ov003_02177938 {
@@ -213,8 +213,8 @@ extern "C" ARM void func_ov003_02177938(Struct_ov003_02177938 *arg0) {
         SetMenuLayoutTextStringId_0208103c(var2, 0x143, var7);
         ShowMenuLayoutText_02080b40(var2, 0x143);
         ShowMenuLayoutText_02080b40(var2, 0x144);
-        func_0208108c(var2, 0x143);
-        func_0208108c(var2, 0x144);
+        CenterMenuLayoutText_0208108c(var2, 0x143);
+        CenterMenuLayoutText_0208108c(var2, 0x144);
     }
     OpenMenuLayoutWindow_020813ec(var2, 0x15);
 }

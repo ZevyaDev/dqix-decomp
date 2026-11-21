@@ -163,7 +163,7 @@ extern "C" void* func_0202ae18();
 struct Struct_0202aec0_2;
 extern "C" void func_0202aec0(Struct_0202aec0_2*);
 extern "C" void* func_0202ae24();
-extern "C" void func_0205e22c(void*);
+extern "C" void ResetLocalWirelessPacketQueue_0205e22c(void*);
 extern "C" void VectorizedMemset(void*, int, unsigned int);
 extern "C" void* func_02052a10(char*);
 extern "C" short* GetAppearance_02052e2c(Struct_02052e2c*);
@@ -197,7 +197,7 @@ extern "C" ARM void func_ov003_02170d88(Struct_ov003_02170d88_4* arg0) {
     Struct_0202aec0_2* var1 = static_cast<Struct_0202aec0_2*>(func_0202ae18());
     func_0202aec0(var1);
     void* var2 = func_0202ae24();
-    func_0205e22c(var2);
+    ResetLocalWirelessPacketQueue_0205e22c(var2);
     GameState* var3 = GameState::GetInstance();
     GameObject* var4 = var3->GetProtagonist();
     Struct_ov003_02170d88_9* var5 = static_cast<Struct_ov003_02170d88_9*>(var4);

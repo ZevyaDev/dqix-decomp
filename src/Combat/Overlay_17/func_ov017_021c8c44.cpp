@@ -2,8 +2,8 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct Struct_0207d7f4;
-struct Struct_02053f7c_3;
+struct BattleJoinRecord_0207d7f4;
+struct PartyMember_02053f7c_3;
 
 struct Struct_ov017_021c8c44 {
     unsigned char unknown_0_;
@@ -37,10 +37,10 @@ extern "C" void func_0202738c(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_02027304(void* arg0, int arg1);
 extern "C" void func_ov017_021b86f8(void* arg0, int arg1, int arg2, int arg3);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
-extern "C" Struct_0207d7f4* GetBattleJoinTable_0207d78c(void);
-extern "C" void func_0207da7c(Struct_0207d7f4* arg0, unsigned short arg1);
+extern "C" BattleJoinRecord_0207d7f4* GetBattleJoinTable_0207d78c(void);
+extern "C" void func_0207da7c(BattleJoinRecord_0207d7f4* arg0, unsigned short arg1);
 extern "C" void func_ov017_021a33e0(void* arg0, int arg1);
-extern "C" void func_02053f7c(Struct_02053f7c_3* arg0, unsigned short arg1, int arg2);
+extern "C" void SetPartyMemberBattleId_02053f7c(PartyMember_02053f7c_3* member, unsigned short battleId, int isForced);
 extern "C" void func_ov017_021907dc(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov017_02197324(unsigned char* arg0, unsigned short arg1);
 
@@ -100,11 +100,11 @@ extern "C" ARM void func_ov017_021c8c44(int arg0, Struct_ov017_021c8c44* arg1, G
         Struct_ov017_021c8c44_2* var12 = (Struct_ov017_021c8c44_2*)GetPartyMemberBaseByIndex_0200ff1c(arg2, var11);
         if (var12 != NULL) {
             if (arg0 == var12->unknown_0_.unknown_4_) {
-                func_02053f7c((Struct_02053f7c_3*)var12, 0, 1);
+                SetPartyMemberBattleId_02053f7c((PartyMember_02053f7c_3*)var12, 0, 1);
             } else if (var12->unknown_0_.unknown_0_ & 0x1000) {
                 Struct_ov017_021c8c44_2* var13 = (Struct_ov017_021c8c44_2*)GetPartyMemberBaseByIndex_0200ff1c(arg2, 0);
                 if (var13 != NULL) {
-                    func_02053f7c((Struct_02053f7c_3*)var12, var13->unknown_1b2_, 1);
+                    SetPartyMemberBattleId_02053f7c((PartyMember_02053f7c_3*)var12, var13->unknown_1b2_, 1);
                 }
             }
         }

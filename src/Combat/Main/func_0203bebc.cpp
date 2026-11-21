@@ -26,8 +26,8 @@ extern "C" void SetCanvasCharacterData_0205b220(void* canvas, int characterData)
 extern "C" void SetCanvasRects_0205b228(void* canvas, int rects, unsigned char rectCount);
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void* GetFontGlyph_020425b4(int glyphIndex, int font);
-extern "C" int func_020425e4(int arg0, int arg1, int arg2);
-extern "C" int func_02042648(int arg0);
+extern "C" int GetFontKerning_020425e4(int previousGlyphIndex, int glyphIndex, int font);
+extern "C" int GetFontDefaultWidth_02042648(int font);
 extern "C" void LoadToSubObjVRAM(const void* data, unsigned int offset, unsigned int length);
 extern "C" int func_0205b36c(void* arg0, void* arg1, short arg2, int arg3, unsigned char arg4, unsigned char arg5);
 
@@ -176,7 +176,7 @@ extern "C" ARM void func_0203bebc(void* arg0, void* arg1, void* arg2)
     int var25 = 0;
     var16 = ((unsigned char*)arg0)[0x20];
     int var26 = 0xff;
-    int var27 = func_02042648(0);
+    int var27 = GetFontDefaultWidth_02042648(0);
     unsigned char var28;
     int var29 = 0;
     unsigned char* var30 = (unsigned char*)arg1;
@@ -189,7 +189,7 @@ extern "C" ARM void func_0203bebc(void* arg0, void* arg1, void* arg2)
             var31 = var32->unknown_4_;
             func_0205b36c(&var24, var32, (short)var25, 0, 0xf, 0);
         }
-        int var33 = var25 + func_020425e4(var26, var28, 0);
+        int var33 = var25 + GetFontKerning_020425e4(var26, var28, 0);
         var25 = var33 + (var31 + 1);
         var26 = var28;
         var30++;

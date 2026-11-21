@@ -4,7 +4,7 @@ extern "C" int IsBrightnessFadeActive_ov031_0223c054(int);
 extern "C" ARM int func_ov031_02237388(void);
 extern "C" int func_ov031_02222e54(void);
 extern "C" void func_ov031_0223ba20(int arg0);
-extern "C" void func_ov031_022238cc(void);
+extern "C" void FreeCursorSprites_ov031_022238cc(void);
 extern "C" void CloseSubScreenMessage_ov031_02223440(void);
 extern "C" void func_ov031_0223b710(int arg0);
 typedef void (*VRAMLoader_ov031_022234d8)(void*, int, int);
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov031_02232b44(void) {
 		var1++;
 	} while (var1 < 3);
 
-	func_ov031_022238cc();
+	FreeCursorSprites_ov031_022238cc();
 	CloseSubScreenMessage_ov031_02223440();
 	func_ov031_0223b710(data_ov031_02290cc0.unknown_4_->unknown_0_);
 	LoadFileToVRAM_ov031_022234d8((int)&data_ov031_0224bcec, (VRAMLoader_ov031_022234d8)LoadToMainObjStandardPalette);

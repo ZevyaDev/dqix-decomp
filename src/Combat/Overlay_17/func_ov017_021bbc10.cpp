@@ -33,7 +33,7 @@
 struct Queue_02038598_5;
 struct Struct_02018300_3;
 struct TimedMessageQueue_020d7aa0_2;
-struct Struct_02010834;
+struct GameState_02010834;
 struct Struct_02033fcc;
 
 struct Struct_ov017_021bbc10 {
@@ -76,7 +76,7 @@ extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int sta
 extern "C" void func_02053ec8(void*, int);
 extern "C" void func_02053ed8(void* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" void func_02010834(Struct_02010834* arg0, int arg1, int* arg2, int* arg3);
+extern "C" void func_02010834(GameState_02010834* arg0, int arg1, int* arg2, int* arg3);
 extern "C" void func_02033fcc(Struct_02033fcc*);
 extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 struct Struct_ov017_021baedc;
@@ -119,7 +119,7 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
     if (var4->unknown_4080_ != 0) {
         return arg0->unknown_a_;
     }
-    Struct_02037d10* var6 = func_020399a8(var2);
+    LadderAction_02037d10* var6 = GetLadderAction_020399a8(var2);
     if (IsOnLadder_02039d7c((char*)var2) != 0 && var6->unknown_1_ != 2) {
         return arg0->unknown_a_;
     }
@@ -149,12 +149,12 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
 
     int var10;
     int var11[4];
-    func_02010834((Struct_02010834*)var0, GetProtagonistObjectIndex_020100a8(var0), var11, &var10);
+    func_02010834((GameState_02010834*)var0, GetProtagonistObjectIndex_020100a8(var0), var11, &var10);
     for (int var12 = 0; var12 < var10; var12++) {
         GameObject* var13 = var0->GetPartyMemberByIndex(var11[var12]);
         if (var13 != NULL) {
             func_02033fcc((Struct_02033fcc*)var13);
-            if (IsOnLadder_02039d7c((char*)var13) == 0 || func_020399a8(var13)->unknown_1_ != 2) {
+            if (IsOnLadder_02039d7c((char*)var13) == 0 || GetLadderAction_020399a8(var13)->unknown_1_ != 2) {
                 var13->obj3D_.MaybeSetRegularAnimation(data_ov017_021d7d6c, 0x10);
             }
             ResetFollowTrail_02039d24((unsigned char*)var13);

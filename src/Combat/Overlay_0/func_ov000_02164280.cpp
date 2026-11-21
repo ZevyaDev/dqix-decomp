@@ -57,7 +57,7 @@ extern "C" void MapVRAMBanksToTextureImage(int handle);
 extern "C" void MapVRAMBanksToSubObj(int value);
 extern "C" void MapVRAMBanksToSubBG(int value);
 extern "C" void ResetOAMManager_0203bd24(char* oamManager);
-extern "C" void func_0203c35c(int* arg0);
+extern "C" void LoadSpriteTextPalettes_0203c35c(int* spriteTextManager);
 extern "C" void func_ov017_02195540(unsigned char* arg0);
 
 // USA: func_ov000_02164280
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov000_02164280(Struct_ov000_02164280* arg0) {
     ((TextureArena*)(&arg0->unknown_14c_))->Reset();
 
     ResetOAMManager_0203bd24(var1);
-    func_0203c35c(var2);
+    LoadSpriteTextPalettes_0203c35c(var2);
     func_ov017_02195540((unsigned char*)var0);
     ((TextureArena*)(var0->unknown_2cc_))->Reset();
     ((TextureArena*)((char*)var0->unknown_2cc_))->Restore();

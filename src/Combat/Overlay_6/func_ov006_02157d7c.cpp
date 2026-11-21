@@ -21,7 +21,7 @@ extern "C" void func_ov006_0215a00c(void* arg0, int arg1);
 extern "C" int func_ov006_02158c70();
 extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" unsigned short UpdateKeyRepeat_02081f20(void* keyRepeat, int elapsedFrames);
-extern "C" int func_020800fc(void* arg0, short* arg1, short arg2, unsigned short arg3, unsigned char arg4, int arg5);
+extern "C" int UpdateMenuLayoutCursor_020800fc(void* menuLayout, short* cursorTextId, short currentTextId, unsigned short key, unsigned char keyEvent, int hasPages);
 extern "C" int ClearMenuLayoutWindowHighlights_020804fc(void* menuLayout, int windowId);
 extern "C" int OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" int IsYesNoWindowOpen_020e28dc(struct YesNoWindow_020e28dc* yesNoWindow);
@@ -128,7 +128,7 @@ extern "C" ARM int func_ov006_02157d7c(struct Struct_ov006_02157d7c* arg0, int a
     {
         UpdateKeyRepeat_02081f20(arg0->unknown_9c_, arg1);
         *(short*)((char*)arg0 + 0x300 + 0x5e) = *arg0->unknown_44_;
-        arg0->unknown_350_ = func_020800fc(var1, arg0->unknown_44_, *(short*)((char*)arg0 + 0x300 + 0x5e),
+        arg0->unknown_350_ = UpdateMenuLayoutCursor_020800fc(var1, arg0->unknown_44_, *(short*)((char*)arg0 + 0x300 + 0x5e),
                                    *(unsigned short*)((char*)arg0 + Enum_ov006_02157d7c_168),
                                    *(unsigned char*)((char*)arg0 + Enum_ov006_02157d7c_168 + 2),
                                    (*(unsigned short*)((char*)arg0 + 0x300 + 0x94) & 4) != 0);

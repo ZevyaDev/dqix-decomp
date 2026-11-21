@@ -15,7 +15,7 @@ extern "C" void func_02011b24(struct Struct_02011b24* arg0);
 extern "C" void func_02011af0(void* arg0);
 extern "C" void func_ov017_021acd30(char* arg0, unsigned char arg1, unsigned char arg2, unsigned char arg3);
 extern "C" void func_ov017_021cf4b0(int arg0, int arg1);
-extern "C" void func_ov017_021d1810(int, int, signed char);
+extern "C" void SendNotice_ov017_021d1810(int, int, signed char);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int* GetNoticeQueue_020936f8(void);
@@ -105,7 +105,7 @@ extern "C" ARM void func_02093428(struct Struct_02093428_6* arg0) {
         arg0->unknown_30_ = 3;
         arg0->unknown_35_ = 4;
         func_ov017_021cf4b0(var2, 3);
-        func_ov017_021d1810(10000, -1, (signed char)GetProtagonistObjectIndex_020100a8(var0));
+        SendNotice_ov017_021d1810(10000, -1, (signed char)GetProtagonistObjectIndex_020100a8(var0));
         return;
     }
 

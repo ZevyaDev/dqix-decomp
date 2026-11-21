@@ -85,7 +85,7 @@ extern "C" void func_02046608(void* arg0, int, const char* arg2, char* arg3, int
 extern "C" Struct_ov023_021df558_5* func_ov023_021db4e4(Struct_ov023_021df558* arg0, int arg1);
 extern "C" void func_ov023_021e23d0(void* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4);
 extern "C" void func_ov023_021db45c(void* arg0, struct Struct_ov023_021db45c* arg1, int arg2, short* arg3, short* arg4);
-extern "C" void func_ov023_021e257c(Struct_ov023_021df558* arg0);
+extern "C" void DrawLayoutElements_ov023_021e257c(Struct_ov023_021df558* layout);
 extern "C" void func_ov023_021db544(void* arg0, void* arg1, int arg2, int arg3);
 extern "C" unsigned int func_ov023_021ddc98(Struct_ov023_021df558_2* arg0, unsigned int arg1, unsigned short arg2, int arg3);
 extern "C" unsigned short func_020de194(void* arg0);
@@ -150,7 +150,7 @@ extern "C" ARM void func_ov023_021df558(Struct_ov023_021df558_4* arg0)
                 arg0->unknown_cc_.unknown_48_ = 0xe;
 #endif
 
-                func_ov023_021e257c(&arg0->unknown_cc_);
+                DrawLayoutElements_ov023_021e257c(&arg0->unknown_cc_);
             }
             func_ov023_021db544(&arg0->unknown_cc_, (void*)var2, var6, var5);
             HIDE_ELEMENT(&arg0->unknown_cc_, var2);
@@ -183,7 +183,7 @@ extern "C" ARM void func_ov023_021df558(Struct_ov023_021df558_4* arg0)
         {
             arg0->unknown_cc_.unknown_4_ = &var0;
             arg0->unknown_cc_.unknown_12_ = 1;
-            func_ov023_021e257c(&arg0->unknown_cc_);
+            DrawLayoutElements_ov023_021e257c(&arg0->unknown_cc_);
         }
         func_ov023_021db544(&arg0->unknown_cc_, (void*)0x10, var9, var8);
         HIDE_ELEMENT(&arg0->unknown_cc_, 0x10);
@@ -214,7 +214,7 @@ extern "C" ARM void func_ov023_021df558(Struct_ov023_021df558_4* arg0)
         {
             arg0->unknown_cc_.unknown_4_ = &var0;
             arg0->unknown_cc_.unknown_12_ = 1;
-            func_ov023_021e257c(&arg0->unknown_cc_);
+            DrawLayoutElements_ov023_021e257c(&arg0->unknown_cc_);
         }
         func_ov023_021db544(&arg0->unknown_cc_, (void*)0x12, var13, var12);
         HIDE_ELEMENT(&arg0->unknown_cc_, 0x12);

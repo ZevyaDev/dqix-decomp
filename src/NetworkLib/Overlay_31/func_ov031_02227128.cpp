@@ -9,7 +9,7 @@
 extern "C" void func_020c3898(void);
 int Is64BitTimerInitialized();
 int IsAlarmListInitialized();
-extern "C" int func_020c3864(int arg0);
+extern "C" int SetVBlankInterruptEnabled_020c3864(int isEnabled);
 extern "C" void func_020c36ec(void);
 void InitializeROMFilesystem(int dmaChannel);
 extern "C" void func_020c9be0(void);
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov031_02227128(void) {
     if (!IsAlarmListInitialized()) {
         func_020c9be0();
     }
-    func_020c3864(0);
+    SetVBlankInterruptEnabled_020c3864(0);
     func_020c36ec();
     InitializeROMFilesystem(-1);
     InitializeTouchSystem();

@@ -8,13 +8,13 @@ namespace DuplicatePool {
 #else
 extern char* data_ov031_02290cf8;
 #endif
-extern "C" int func_020d4aa8(void);
+extern "C" int GetWirelessChannelMask_020d4aa8(void);
 extern "C" unsigned int FreeAndClearPointer_ov031_0223cf70(void** pointer);
 
 // USA: func_ov031_022357b4
 extern "C" ARM void func_ov031_022357b4(void) {
 	if (data_ov031_02290cf8 == NULL) return;
-	while (func_020d4aa8() != 0x8000) {}
+	while (GetWirelessChannelMask_020d4aa8() != 0x8000) {}
 #if defined(jpn)
 	FreeAndClearPointer_ov031_0223cf70((void**)&DuplicatePool::data_ov031_02290cf8);
 #else

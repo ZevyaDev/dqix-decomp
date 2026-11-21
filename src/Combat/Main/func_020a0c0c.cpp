@@ -6,8 +6,8 @@
 #define func_02012da4 func_02012b6c
 #endif
 
-struct Struct_02114e20;
-extern "C" unsigned int GetMaxPossibleAllocation_02012dd0(struct Struct_02114e20* allocator);
+struct AllocatorTypeB_02114e20;
+extern "C" unsigned int GetMaxPossibleAllocation_02012dd0(struct AllocatorTypeB_02114e20* allocator);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 unsigned int LoadROMFilesystemFileTables(void* where, unsigned int capacity);
@@ -27,7 +27,7 @@ extern "C" ARM void LoadFileTables_020a0c0c() {
         return;
 
     tablesSize = LoadROMFilesystemFileTables(NULL, 0);
-    maxAllocation = GetMaxPossibleAllocation_02012dd0((Struct_02114e20*)&gMainHeap_02114e20);
+    maxAllocation = GetMaxPossibleAllocation_02012dd0((AllocatorTypeB_02114e20*)&gMainHeap_02114e20);
     if (tablesSize + 0x10 > maxAllocation)
         return;
 

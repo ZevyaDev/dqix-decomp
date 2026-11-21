@@ -32,7 +32,7 @@ extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" void func_020a0504(struct Struct_020a0504* arg0, unsigned int arg1);
 extern "C" int SetBattleRecords_020ac494(void* records);
-extern "C" void UnequipCategory_02083738(void* memberData, int arg1);
+extern "C" void UnequipCategory_02083738(void* memberData, int category);
 
 // USA: func_020ddb38
 extern "C" ARM int func_020ddb38(int arg0, int arg1, struct Struct_020ddb38_3* arg2, struct Random* arg3) {

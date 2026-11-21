@@ -90,34 +90,34 @@ extern const char data_ov017_021d73a4[];
 
 static inline Struct_ov017_0218f064_8* inline_ov017_0218f064_2(GameResources* arg0) { SDK_NULL_ASSERT(arg0); return ((Struct_ov017_0218f064_9*)arg0)->unknown_2cc_; }
 
-// USA: func_ov017_0218f064
+// USA: CreatePartyMemberObject_ov017_0218f064
 // JPN: func_ov017_0218fc44
-extern "C" ARM void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2, int arg3, int arg4) {
-    GameState* var0 = GameState::GetInstance();
+extern "C" ARM void CreatePartyMemberObject_ov017_0218f064(GameResources* gameResources, int memberIndex, int arg2, int requestModelLoad, int arg4) {
+    GameState* gameState = GameState::GetInstance();
 #if !defined(jpn)
-    Zone3D* var1;
+    Zone3D* zone;
 #endif
-    Struct_ov017_0218f064_4* var2 = (Struct_ov017_0218f064_4*)GetZoneEntry_0200fd0c(var0);
+    Struct_ov017_0218f064_4* zoneEntry = (Struct_ov017_0218f064_4*)GetZoneEntry_0200fd0c(gameState);
 #if defined(jpn)
     Struct_ov017_0218f064_10* var3 = ((Struct_ov017_0218f064_3*)GetZone3D_02012fe4())->inline_ov017_0218f064_3();
 #else
-    var1 = GetZone3D_02012fe4();
+    zone = GetZone3D_02012fe4();
 #endif
     func_0202ae18();
-    int var4 = 1;
-    SafeAllocator* var5;
+    int hasPartObjects = 1;
+    SafeAllocator* allocator;
     Struct_020545b8* var6;
     if (arg2 == 0x4000) {
 #if defined(jpn)
         var6 = var3->unknown_1b58_;
 #else
-        var6 = inline_ov017_0218f064(var1)->unknown_b58_;
+        var6 = inline_ov017_0218f064(zone)->unknown_b58_;
 #endif
         if (!var6) return;
-        SafeAllocator* var7 = arg0->allocator_array_1a0;
+        SafeAllocator* var7 = gameResources->allocator_array_1a0;
         SafeAllocator* var8 = &var7[3];
-        var5 = &var6->unknown_5d8_;
-        Struct_ov017_0218f064_8* var9 = inline_ov017_0218f064_2(arg0);
+        allocator = &var6->unknown_5d8_;
+        Struct_ov017_0218f064_8* var9 = inline_ov017_0218f064_2(gameResources);
         var8->Reset();
         Struct_ov017_0218f064_8* var10 = &var9[21];
         ((TextureArena*)((TextureVRAMArea_0203d028*)var10))->Reset();
@@ -125,53 +125,53 @@ extern "C" ARM void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2,
         func_020542b4(var6, var8, var10);
     } else {
         if (func_ov017_021925e0()) {
-            for (int var11 = 0; var11 < 4; ++var11) {
-                if (((Struct_020545b8*)&arg0->substruct_array_12c8[var11])->unknown_0_ == arg1) return;
+            for (int i = 0; i < 4; ++i) {
+                if (((Struct_020545b8*)&gameResources->substruct_array_12c8[i])->unknown_0_ == memberIndex) return;
             }
         }
-        var6 = (Struct_020545b8*)func_ov017_021a11b4((Struct_ov017_0218f064_6*)arg0);
+        var6 = (Struct_020545b8*)func_ov017_021a11b4((Struct_ov017_0218f064_6*)gameResources);
         if (!var6) return;
-        var5 = &var6->unknown_5d8_;
+        allocator = &var6->unknown_5d8_;
         int var12 = var6->unknown_2_ + 1;
-        SafeAllocator* var13 = &arg0->allocator_array_38[var12];
-        Struct_ov017_0218f064_8* var14 = &((Struct_ov017_0218f064_9*)arg0)->unknown_2cc_[var12];
+        SafeAllocator* var13 = &gameResources->allocator_array_38[var12];
+        Struct_ov017_0218f064_8* var14 = &((Struct_ov017_0218f064_9*)gameResources)->unknown_2cc_[var12];
         func_020545b8(var6);
         if (arg2 == 4) func_02054464(var6, var13, var14);
         else func_020542b4(var6, var13, var14);
     }
-    Struct_ov017_0218f064* var15 = (Struct_ov017_0218f064*)arg0;
+    Struct_ov017_0218f064* var15 = (Struct_ov017_0218f064*)gameResources;
     if (var15->unknown_4334_) { var15->unknown_4334_->Destroy(); var15->unknown_4334_ = 0; }
     if (var15->unknown_4338_) { var15->unknown_4338_->Destroy(); var15->unknown_4338_ = 0; }
     if (var15->unknown_433c_) { var15->unknown_433c_->Destroy(); var15->unknown_433c_ = 0; }
     if (var15->unknown_4340_) { var15->unknown_4340_->Destroy(); var15->unknown_4340_ = 0; }
-    var5->Reset();
-    Struct_ov017_0218f064_5* var16 = 0;
+    allocator->Reset();
+    Struct_ov017_0218f064_5* partyMember = 0;
     if (arg2 == 0x800) {
-        var16 = (Struct_ov017_0218f064_5*)var5->Allocate(Enum_ov017_0218f064_720);
-        func_02037d10(var16);
+        partyMember = (Struct_ov017_0218f064_5*)allocator->Allocate(Enum_ov017_0218f064_720);
+        func_02037d10(partyMember);
     } else if (arg2 == 0x200) {
-        var16 = (Struct_ov017_0218f064_5*)var5->Allocate(Enum_ov017_0218f064_720);
-        func_02048104((Struct_02048104*)var16);
+        partyMember = (Struct_ov017_0218f064_5*)allocator->Allocate(Enum_ov017_0218f064_720);
+        func_02048104((Struct_02048104*)partyMember);
     } else if (arg2 == 0x1000) {
-        var16 = (Struct_ov017_0218f064_5*)var5->Allocate(Enum_ov017_0218f064_724);
-        func_02054664((Struct_02054664*)var16);
-        if (var16) var16->unknown_2d2_ = func_ov017_02192548();
+        partyMember = (Struct_ov017_0218f064_5*)allocator->Allocate(Enum_ov017_0218f064_724);
+        func_02054664((Struct_02054664*)partyMember);
+        if (partyMember) partyMember->unknown_2d2_ = func_ov017_02192548();
     } else if (arg2 == 0x4000) {
-        var16 = (Struct_ov017_0218f064_5*)var5->Allocate(Enum_ov017_0218f064_760);
-        func_020415d8((Struct_020415d8*)var16);
+        partyMember = (Struct_ov017_0218f064_5*)allocator->Allocate(Enum_ov017_0218f064_760);
+        func_020415d8((Struct_020415d8*)partyMember);
     } else if (arg2 == 4) {
-        var16 = (Struct_ov017_0218f064_5*)var5->Allocate(Enum_ov017_0218f064_724);
-        func_02054664((Struct_02054664*)var16);
-        if (var16) var16->unknown_2d2_ = func_ov017_02192548();
-        var4 = 0;
+        partyMember = (Struct_ov017_0218f064_5*)allocator->Allocate(Enum_ov017_0218f064_724);
+        func_02054664((Struct_02054664*)partyMember);
+        if (partyMember) partyMember->unknown_2d2_ = func_ov017_02192548();
+        hasPartObjects = 0;
     }
-    if (!var16) func_020c9be0();
-    var16->unknown_0_.unknown_4_ = (short)arg1;
-    var16->unknown_154_ = var6;
-    var6->unknown_0_ = (short)arg1;
-    SetGameObjectByIndex_0200fd38(var0, arg1, (GameObject*)var16);
-    if (var4) {
-        Struct_ov017_0218f064_7* var17 = (Struct_ov017_0218f064_7*)var5->Allocate(0x764);
+    if (!partyMember) func_020c9be0();
+    partyMember->unknown_0_.unknown_4_ = (short)memberIndex;
+    partyMember->unknown_154_ = var6;
+    var6->unknown_0_ = (short)memberIndex;
+    SetGameObjectByIndex_0200fd38(gameState, memberIndex, (GameObject*)partyMember);
+    if (hasPartObjects) {
+        Struct_ov017_0218f064_7* var17 = (Struct_ov017_0218f064_7*)allocator->Allocate(0x764);
         if (!var17) func_020c9be0();
         var17->unknown_0_[0].Initialize();
         var17->unknown_0_[2].Initialize();
@@ -188,37 +188,37 @@ extern "C" ARM void func_ov017_0218f064(GameResources* arg0, int arg1, int arg2,
         var20->Initialize();
         Object3D* var21 = &var17->unknown_0_[10];
         var21->Initialize();
-        int var22 = arg1 * 12;
-        SetGameObjectByIndex_0200fd38(var0, var22 + 0x13, (GameObject*)&var17->unknown_0_[0]);
-        SetGameObjectByIndex_0200fd38(var0, var22 + 0x14, (GameObject*)&var17->unknown_0_[1]);
-        SetGameObjectByIndex_0200fd38(var0, var22 + 0x15, (GameObject*)&var17->unknown_0_[2]);
-        SetGameObjectByIndex_0200fd38(var0, var22 + 0x16, (GameObject*)&var17->unknown_0_[3]);
-        SetGameObjectByIndex_0200fd38(var0, var22 + 0x17, (GameObject*)&var17->unknown_0_[5]);
-        SetGameObjectByIndex_0200fd38(var0, var22 + 0x18, (GameObject*)var18);
-        SetGameObjectByIndex_0200fd38(var0, var22 + 0x19, (GameObject*)var19);
-        SetGameObjectByIndex_0200fd38(var0, var22 + 0x1a, (GameObject*)&var17->unknown_0_[8]);
-        SetGameObjectByIndex_0200fd38(var0, var22 + 0x1b, (GameObject*)&var17->unknown_0_[4]);
-        SetGameObjectByIndex_0200fd38(var0, var22 + 0x1c, (GameObject*)var20);
-        SetGameObjectByIndex_0200fd38(var0, var22 + 0x1d, (GameObject*)var21);
+        int partIndexBase = memberIndex * 12;
+        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x13, (GameObject*)&var17->unknown_0_[0]);
+        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x14, (GameObject*)&var17->unknown_0_[1]);
+        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x15, (GameObject*)&var17->unknown_0_[2]);
+        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x16, (GameObject*)&var17->unknown_0_[3]);
+        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x17, (GameObject*)&var17->unknown_0_[5]);
+        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x18, (GameObject*)var18);
+        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x19, (GameObject*)var19);
+        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x1a, (GameObject*)&var17->unknown_0_[8]);
+        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x1b, (GameObject*)&var17->unknown_0_[4]);
+        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x1c, (GameObject*)var20);
+        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x1d, (GameObject*)var21);
     }
-    var16->unknown_b0_ = 0x324;
-    var16->unknown_b4_ = 0x189;
-    var16->unknown_0_.SetHeight(0x1800);
-    var16->unknown_0_.SetRadius(0x1000);
-    var16->unknown_0_.MaybeSetRegularAnimation(data_ov017_021d73a4, 0);
-    var16->unknown_0_.position_ = var2->unknown_10_;
-    SetObject3DRotation_0203db34((unsigned char*)var16, var16->unknown_0_.rotation_.x, var2->unknown_1c_, var16->unknown_0_.rotation_.z);
-    SetMotion_02033b88((Struct_02010604*)var16, 0);
+    partyMember->unknown_b0_ = 0x324;
+    partyMember->unknown_b4_ = 0x189;
+    partyMember->unknown_0_.SetHeight(0x1800);
+    partyMember->unknown_0_.SetRadius(0x1000);
+    partyMember->unknown_0_.MaybeSetRegularAnimation(data_ov017_021d73a4, 0);
+    partyMember->unknown_0_.position_ = zoneEntry->unknown_10_;
+    SetObject3DRotation_0203db34((unsigned char*)partyMember, partyMember->unknown_0_.rotation_.x, zoneEntry->unknown_1c_, partyMember->unknown_0_.rotation_.z);
+    SetMotion_02033b88((Struct_02010604*)partyMember, 0);
     if (arg2 == 0x4000) {
 #if defined(jpn)
         char* var23 = var3->unknown_1b5c_;
 #else
-        char* var23 = inline_ov017_0218f064(var1)->unknown_b5c_;
+        char* var23 = inline_ov017_0218f064(zone)->unknown_b5c_;
 #endif
-        if (var23) func_02053c4c((char*)var16, var23);
-    } else func_02053c74((char*)var16, arg1);
-    if (arg4 > 0) func_ov017_0218f57c(var16, arg4);
-    if (arg3) QueuePartyMemberModelLoad_ov017_0218f5a4(arg0, arg1, 0, 0, 0);
+        if (var23) func_02053c4c((char*)partyMember, var23);
+    } else func_02053c74((char*)partyMember, memberIndex);
+    if (arg4 > 0) func_ov017_0218f57c(partyMember, arg4);
+    if (requestModelLoad) QueuePartyMemberModelLoad_ov017_0218f5a4(gameResources, memberIndex, 0, 0, 0);
 }
 
 #if defined(jpn)

@@ -15,7 +15,7 @@ struct Struct_0202b000_2 {
     Struct_0202b000 unknown_102c_;
 };
 extern "C" void func_0202aec0(Struct_0202b000_2*);
-extern "C" void func_020d8654();
+extern "C" void SaveAndDisableVCounterInterrupt_020d8654();
 extern "C" int func_020d4dd4();
 extern "C" int func_0202d9e0();
 extern "C" int func_020d472c(void*);
@@ -23,13 +23,13 @@ extern "C" void func_0202d688(int);
 extern "C" int func_0202b1f4(Struct_0202b000_2*, int);
 extern "C" void func_0202dd28();
 extern "C" int func_020d5974(void*, int, int);
-extern "C" void func_020d8694();
+extern "C" void RestoreVCounterInterrupt_020d8694();
 extern "C" void func_0202ae30(void*);
 
 // USA: func_0202b000
 extern "C" ARM unsigned char func_0202b000(Struct_0202b000_2* arg0) {
     func_0202aec0(arg0);
-    func_020d8654();
+    SaveAndDisableVCounterInterrupt_020d8654();
     arg0->unknown_4_ = func_020d4dd4();
     int var0 = 0;
     while (!func_0202d9e0()) {
@@ -49,6 +49,6 @@ extern "C" ARM unsigned char func_0202b000(Struct_0202b000_2* arg0) {
     GameState* var2 = GameState::GetInstance();
     Struct_0202b000 var3 = *(Struct_0202b000*)&var2->unk_6fc0[Enum_0202b000_1342];
     arg0->unknown_102c_ = var3;
-    func_020d8694();
+    RestoreVCounterInterrupt_020d8694();
     return var1;
 }

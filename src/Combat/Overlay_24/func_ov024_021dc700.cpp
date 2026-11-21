@@ -4,10 +4,10 @@
 extern "C" void* GetParty_02010828(GameState*);
 struct Party_02048150;
 extern "C" int IsInParty_02086ef0(Party_02048150*, int);
-extern "C" void func_ov000_0215a8d4(unsigned char*, int);
+extern "C" void IncrementQuestBattleCounter_ov000_0215a8d4(unsigned char*, int);
 extern "C" short func_ov000_0215a16c(void*,int,int,short*);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
-extern "C" void func_ov000_0215a004(void*,int,int,int,void*,void*,int,int);
+extern "C" void ApplyDamage_ov000_0215a004(void*,int,int,int,void*,void*,int,int);
 extern "C" void SetActionResultFlag_ov000_02159eac(void*,void*,int);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*,void*,int);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int,int,int);
@@ -35,7 +35,7 @@ extern "C" ARM void* func_ov024_021dc700(Struct_ov024_021dc700_4* arg0,int arg1,
         var4=SelectPartyOrEnemyMessage_ov024_021da644(arg2,arg3->unknown_20_.unknown_2_4_,arg3->unknown_24_.unknown_0_0_);
         void* var5=GetParty_02010828(GameState::GetInstance());
         if(IsInParty_02086ef0((Party_02048150*)var5, arg1) && var1->currentStats_->primaryStats.currHP==1 && arg3->unknown_4_.unknown_0_0_==0xb7)
-            func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 2);
+            IncrementQuestBattleCounter_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 2);
     }else{
         arg4=0;
         var4=SelectPartyOrEnemyMessage_ov024_021da644(arg2,arg3->unknown_24_.unknown_1_2_,arg3->unknown_24_.unknown_2_4_);
@@ -46,7 +46,7 @@ extern "C" ARM void* func_ov024_021dc700(Struct_ov024_021dc700_4* arg0,int arg1,
     AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var6,var4);
     union {struct{int unknown_0_;int unknown_4_;};unsigned long long unknown1_0_;} var7;
     var7.unknown_0_=0;var7.unknown_4_=0;
-    func_ov000_0215a004(arg0->unknown_10_,arg1,arg1,arg4,&var7,arg3,arg0->unknown_c_->unknown_1c_7_!=0,0);
+    ApplyDamage_ov000_0215a004(arg0->unknown_10_,arg1,arg1,arg4,&var7,arg3,arg0->unknown_c_->unknown_1c_7_!=0,0);
     var7.unknown_0_=0;var7.unknown_4_=0;
     short var8=0;
     short var9=func_ov000_0215a16c(arg0->unknown_10_,arg2,arg4,&var8);

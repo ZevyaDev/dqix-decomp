@@ -193,7 +193,7 @@ extern "C" void* func_0205ec34(void);
 extern "C" int func_02064a24(void*, Struct_02064a08*);
 extern "C" int func_02064a08(void*, Struct_02064a08*);
 extern "C" void RunDeferredTriggerActions_0206f81c(void* triggerResult);
-extern "C" int func_020a3694(int* arg0);
+extern "C" int IsScriptedBattle_020a3694(int* battleSetup);
 extern "C" void func_02010604(GameState* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0209c530(void* arg0);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
@@ -248,7 +248,7 @@ extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
-extern "C" int func_02039888(void* arg0);
+extern "C" int GetPartyLeaderObjectIndex_02039888(void* object);
 
 // USA: func_ov017_021b790c
 extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_02038598_5* arg1) {
@@ -346,7 +346,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
             }
         }
         if (func_02010750((char*)var0) != 0) {
-            if (func_020a3694((int*)arg0->unknown_1c_)) {
+            if (IsScriptedBattle_020a3694((int*)arg0->unknown_1c_)) {
                 func_02010604(var0, 1, 1, arg0->unknown_3e_);
                 arg0->unknown_6b6_ |= 0x2000;
             } else {
@@ -469,7 +469,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
                 func_020d7e10(var33, var35, 0, 0, 1, 1);
 #endif
             }
-            if (func_020a3694((int*)arg0->unknown_1c_)) {
+            if (IsScriptedBattle_020a3694((int*)arg0->unknown_1c_)) {
                 SetGlobalFlags_020466e4(var5, 0x200);
             }
         }
@@ -533,7 +533,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
             } else {
                 GameObject* var47 = var0->GetPartyMemberByIndex(var43);
                 if (var47 != NULL) {
-                    GameObject* var48 = var0->GetPartyMemberByIndex(func_02039888(var47));
+                    GameObject* var48 = var0->GetPartyMemberByIndex(GetPartyLeaderObjectIndex_02039888(var47));
                     if (var48 != NULL) {
                         sprintf(var45, data_ov017_021d83c0, *(char**)((char*)var48 + 0x134));
                     }
@@ -553,7 +553,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
             } else {
                 GameObject* var51 = var0->GetPartyMemberByIndex(var43);
                 if (var51 != NULL) {
-                    GameObject* var52 = var0->GetPartyMemberByIndex(func_02039888(var51));
+                    GameObject* var52 = var0->GetPartyMemberByIndex(GetPartyLeaderObjectIndex_02039888(var51));
                     if (var52 != NULL) {
                         InitPartyMemberNoun_020e4bf4(&var50, var52->obj3D_.unknown_4_);
                         var42->unknown_0_ = &var50;

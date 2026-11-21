@@ -53,7 +53,7 @@ extern "C" int CountUsedBagSlots_020a0b8c(struct ItemBag_020a0b8c *bag);
 struct MenuLayout_0207fdcc_2;
 extern "C" void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2 *menuLayout, int windowId);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void *menuLayout, int windowId, int palette);
-extern "C" void func_02080bac(void *arg0, int arg1);
+extern "C" void ShowMenuLayoutWindowTexts_02080bac(void *menuLayout, int windowId);
 extern "C" void func_0208065c(void *arg0, int arg1);
 extern "C" void func_02081130(void *arg0, int arg1, int arg2);
 extern "C" void func_020806b0(void *arg0, int arg1);
@@ -151,7 +151,7 @@ extern "C" ARM void func_ov003_02177dd4(Struct_ov003_02177dd4 *arg0) {
 
     ShowMenuLayoutWindow_02080c20(var10, var11);
     SetMenuLayoutWindowPalette_02080c68(var10, var11, 0);
-    func_02080bac(var10, var11);
+    ShowMenuLayoutWindowTexts_02080bac(var10, var11);
     func_0208065c(var10, var11);
     func_02081130(var10, var11, var16 < var7);
 

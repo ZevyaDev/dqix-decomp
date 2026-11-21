@@ -25,7 +25,7 @@ struct MenuLayout_0207fcb8;
 extern "C" void ClearMenuLayoutBGScreenData_0207fcb8(struct MenuLayout_0207fcb8* menuLayout);
 struct MenuLayout_0207fd00;
 extern "C" void DrawMenuLayoutWindows_0207fd00(struct MenuLayout_0207fd00* menuLayout);
-extern "C" void func_0207fe80(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void FillBGUnderMenuLayoutWindows_0207fe80(void* menuLayout, int fillBGIndex, int windowBGIndex, int screenEntry);
 struct MenuLayout_0207fd44_2;
 extern "C" void FlushMenuLayoutBGScreenData_0207fd44(struct MenuLayout_0207fd44_2* menuLayout);
 extern "C" void func_ov003_02166fc4(void* arg0);
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov003_02160134(char* arg0) {
     if (var0 != 0) {
         ClearMenuLayoutBGScreenData_0207fcb8((struct MenuLayout_0207fcb8*)var0);
         DrawMenuLayoutWindows_0207fd00((struct MenuLayout_0207fd00*)var0);
-        func_0207fe80(var0, 1, 2, 1);
+        FillBGUnderMenuLayoutWindows_0207fe80(var0, 1, 2, 1);
         FlushMenuLayoutBGScreenData_0207fd44((struct MenuLayout_0207fd44_2*)var0);
     }
     func_ov003_02166fc4(arg0);

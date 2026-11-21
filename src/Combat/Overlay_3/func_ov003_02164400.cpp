@@ -64,7 +64,7 @@ extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalF
 extern "C" int func_020811e8(struct MenuLayout_0207fdcc_2* arg0, int arg1);
 extern "C" void CloseMenuLayoutWindow_0207fdcc(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void func_02080cec(void* arg0, int arg1, int arg2);
-extern "C" void func_0208108c(void* arg0, int arg1);
+extern "C" void CenterMenuLayoutText_0208108c(void* menuLayout, int textId);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" void ResetKeyRepeat_0208203c(struct KeyRepeat_02081f20_2* keyRepeat);
 extern "C" void func_020939dc(void* arg0);
@@ -208,8 +208,8 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
             *(short*)(arg0 + LO(0x226)) = 0;
             func_02080cec(var4, 0xf, 0xf);
 #if !defined(jpn)
-            func_0208108c(var4, 0x43);
-            func_0208108c(var4, 0x44);
+            CenterMenuLayoutText_0208108c(var4, 0x43);
+            CenterMenuLayoutText_0208108c(var4, 0x44);
 #endif
             OpenMenuLayoutWindow_020813ec(var4, 0xf);
             ResetKeyRepeat_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + LO(0x308)));
@@ -412,7 +412,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* arg0) {
             HideMenuLayoutWindowTexts_02080b54(var4, 0x11);
             ShowMenuLayoutText_02080b40(var4, 0x51);
 #if !defined(jpn)
-            func_0208108c(var4, 0x51);
+            CenterMenuLayoutText_0208108c(var4, 0x51);
 #endif
             OpenMenuLayoutWindow_020813ec(var4, *(short*)(arg0 + HI(0x488)));
             ResetKeyRepeat_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + LO(0x308)));

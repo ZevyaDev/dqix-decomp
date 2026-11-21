@@ -15,33 +15,33 @@ struct Party_02053f7c {
 
 struct Struct_02053f7c_2 {
     char unknown_0_[Enum_02053f7c_178];
-    short unknown_b2_;
+    short battleId_b2_;
 };
 
-struct Struct_02053f7c_3 {
+struct PartyMember_02053f7c_3 {
     char unknown_0_[4];
-    short unknown_4_;
+    short objectIndex_4_;
     char unknown_6_[0x100 - 6];
     struct Struct_02053f7c_2 unknown_100_;
 };
 
 extern "C" void* GetParty_02010828(GameState* gameState);
 
-// USA: func_02053f7c
-extern "C" ARM void func_02053f7c(Struct_02053f7c_3* arg0, unsigned short arg1, int arg2) {
-    struct Party_02053f7c* var0 = (struct Party_02053f7c*)GetParty_02010828(GameState::GetInstance());
-    int var1 = 0;
-    int var2;
-    if (var0 != NULL) {
-        for (var2 = 0; var2 < var0->memberCount_f7c_; var2++) {
-            unsigned char var3 = var0->memberObjectIndices_f78_[var2];
-            if (var3 == arg0->unknown_4_) {
-                var1 = 1;
+// USA: SetPartyMemberBattleId_02053f7c
+extern "C" ARM void SetPartyMemberBattleId_02053f7c(PartyMember_02053f7c_3* member, unsigned short battleId, int isForced) {
+    struct Party_02053f7c* party = (struct Party_02053f7c*)GetParty_02010828(GameState::GetInstance());
+    int isInParty = 0;
+    int i;
+    if (party != NULL) {
+        for (i = 0; i < party->memberCount_f7c_; i++) {
+            unsigned char memberObjectIndex = party->memberObjectIndices_f78_[i];
+            if (memberObjectIndex == member->objectIndex_4_) {
+                isInParty = 1;
                 break;
             }
         }
     }
-    if (arg2 != 0 || var1 != 0) {
-        arg0->unknown_100_.unknown_b2_ = arg1;
+    if (isForced != 0 || isInParty != 0) {
+        member->unknown_100_.battleId_b2_ = battleId;
     }
 }

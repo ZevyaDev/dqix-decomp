@@ -12,7 +12,7 @@ extern "C" unsigned char func_0209ca98(char* arg0);
 extern "C" unsigned char func_0205ea18(unsigned char* arg0);
 extern "C" void SetMusicVolumeLevel_0209ca70(void* manager, int volumeLevel);
 struct Struct_02108760_2;
-extern "C" void func_0205e9f4(struct Struct_02108760_2* arg0, int arg1);
+extern "C" void SetSoundEffectVolumeLevel_0205e9f4(struct Struct_02108760_2* manager, int volumeLevel);
 extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
 extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
 extern "C" void SetTitleState_02012010(void* gameState, int state);
@@ -40,7 +40,7 @@ extern "C" ARM int func_ov004_0216d504(void* arg0) {
     data_ov004_02171034.unknown_4_ = func_0209ca98(&gMusicManager_02109bf4);
     data_ov004_02171034.unknown_1_ = func_0205ea18(&gSoundEffectManager_02108760);
     SetMusicVolumeLevel_0209ca70(&gMusicManager_02109bf4, 3);
-    func_0205e9f4((struct Struct_02108760_2*)&gSoundEffectManager_02108760, 3);
+    SetSoundEffectVolumeLevel_0205e9f4((struct Struct_02108760_2*)&gSoundEffectManager_02108760, 3);
 
     GameState* var0 = GameState::GetInstance();
     SetTitleIdleTimeoutEnabled_02012028(var0, 0);

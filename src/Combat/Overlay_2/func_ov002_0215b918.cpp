@@ -5,7 +5,7 @@ struct TextWindow_0205d0e0;
 
 extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" struct TextWindow_0205d0e0* func_0205e00c(struct TextWindowManager_0205d81c* arg0, int arg1);
-extern "C" void SetTextWindowPageNumberShown_02050400(unsigned char* arg0, int isShown);
+extern "C" void SetTextWindowPageNumberShown_02050400(unsigned char* textWindow, int isShown);
 extern "C" void SetTextWindowPage_0205042c(unsigned char* textWindow, unsigned char page);
 extern "C" void SetTextWindowPageCount_02050440(unsigned char* textWindow, int pageCount);
 

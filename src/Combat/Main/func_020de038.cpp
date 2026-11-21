@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-extern "C" int func_020c3260(int);
-extern "C" float func_0200c700(int);
+extern "C" int ComputeFixedPointSine_020c3260(int);
+extern "C" float ConvertInt64ToFloat_0200c700(int);
 extern "C" int fix32_Divide(unsigned int, unsigned int);
 
 struct Struct_020de038 {
@@ -20,7 +20,7 @@ extern "C" ARM void func_020de038(struct Struct_020de038* arg0) {
     int var2;
 
     arg0->unknown_1c_ = arg0->unknown_1c_ + 0x800;
-    var0 = func_0200c700(func_020c3260(arg0->unknown_1c_)) / 4294967296.0f;
+    var0 = ConvertInt64ToFloat_0200c700(ComputeFixedPointSine_020c3260(arg0->unknown_1c_)) / 4294967296.0f;
     var1 = (int)(var0 * 4096.0f);
     var2 = fix32_Divide(
         (unsigned int)(((long long)(0xc800 - arg0->unknown_1c_) * var1 + 0x800) >> 12), 0x3000);

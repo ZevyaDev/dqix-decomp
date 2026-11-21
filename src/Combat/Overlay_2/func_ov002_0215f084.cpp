@@ -20,7 +20,7 @@ extern "C" void func_020474a8(void *arg0, int arg1, int arg2, int arg3);
 #endif
 
 struct Struct_020fdcb0 { int unknown_0_; int unknown_4_; char unknown_8_[0x18]; };
-extern Struct_020fdcb0 data_020fdcb0[];
+extern Struct_020fdcb0 gPartyStatsCache_020fdcb0[];
 
 // USA: func_ov002_0215f084
 extern "C" ARM void func_ov002_0215f084(void *arg0, int arg1) {
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov002_0215f084(void *arg0, int arg1) {
     unsigned int var6 = ((Struct_ov002_0215f084*)((char*)var5 + 8))->unknown_0_0_;
     int var7 = GetSkillAdjustedMPCost_020dd290(var3, var6);
     short var8 = *(short*)((char*)var3 + 4);
-    Struct_020fdcb0 *var9 = &data_020fdcb0[var8];
+    Struct_020fdcb0 *var9 = &gPartyStatsCache_020fdcb0[var8];
     void *var10 = GetMessageWindow_020421a0();
     ClearMessageParams_02046380();
     SetMessageNumber_020465c0((Struct_ov002_02157d40_2*)var10, 0, var7);

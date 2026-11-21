@@ -20,8 +20,8 @@ extern "C" unsigned int func_ov023_021f6f10(void* arg0);
 extern "C" int func_ov024_021f6f10(void* arg0);
 #define NODE_KIND_CALL func_ov024_021f6f10
 #endif
-struct Struct_ov004_021549e4_2;
-extern "C" unsigned int func_ov023_021f9bb0(struct Struct_ov004_021549e4_2* arg0);
+struct MenuGrid_ov004_021549e4_2;
+extern "C" unsigned int GetMenuGridCursorRow_ov023_021f9bb0(struct MenuGrid_ov004_021549e4_2* grid);
 extern "C" void func_ov004_021636b0(void* arg0, void* arg1);
 
 // USA: func_ov004_0216556c
@@ -43,7 +43,7 @@ extern "C" ARM int func_ov004_0216556c(void* arg0) {
     if (var3 == NULL) return 0;
     if (NODE_KIND_CALL(var3) != 7) return 0;
 
-    unsigned int var4 = func_ov023_021f9bb0((struct Struct_ov004_021549e4_2*)var3);
+    unsigned int var4 = GetMenuGridCursorRow_ov023_021f9bb0((struct MenuGrid_ov004_021549e4_2*)var3);
     void* var5 = (void*)(var4 * Enum_ov004_0216556c_452 + (gTreasureMapScreen_ov004_02171010 + 1 + 0xb00));
     func_ov004_021636b0(arg0, var5);
     return 0;

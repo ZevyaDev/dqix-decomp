@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-struct Struct_02019508_3;
-extern "C" struct Struct_02019508* func_02019508(struct Struct_02019508_3* arg0, int arg1, int arg2);
+struct Zone3D_02019508_3;
+extern "C" struct BMDJEntry_02019508* FindBMDJEntry_02019508(struct Zone3D_02019508_3* zone, int bmdjId, int entryId);
 
 struct Struct_0201ba1c {
     unsigned char unknown_0_[0x2];
@@ -16,8 +16,8 @@ struct Struct_0201ba1c {
 };
 
 // USA: func_0201ba1c
-extern "C" ARM void func_0201ba1c(struct Struct_02019508_3* arg0, int arg1, int arg2) {
-    struct Struct_0201ba1c* var0 = (struct Struct_0201ba1c*)func_02019508(arg0, arg1, arg2);
+extern "C" ARM void func_0201ba1c(struct Zone3D_02019508_3* arg0, int arg1, int arg2) {
+    struct Struct_0201ba1c* var0 = (struct Struct_0201ba1c*)FindBMDJEntry_02019508(arg0, arg1, arg2);
     if (var0 == NULL || var0->unknown_54_ == 0) return;
     if (var0->unknown_24_ == NULL) return;
     if (*var0->unknown_24_ != 2) return;

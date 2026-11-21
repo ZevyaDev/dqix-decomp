@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_0204c804(void* arg0);
+extern "C" void CloseTextWindow_0204c804(void* textWindow);
 
 struct Struct_0205d6e4_2 {
     char unknown_0_[0x98];
@@ -32,7 +32,7 @@ extern "C" ARM void func_0205d6e4(Struct_0205d6e4_2* arg0, unsigned int arg1) {
         Struct_0205d6e4* var3 = (Struct_0205d6e4*)((char*)var2 + var1 * 0xe0);
         var3->unknown_c2_ = 0;
         var3->unknown_c4_ = 0;
-        func_0204c804(var3);
+        CloseTextWindow_0204c804(var3);
 
         int var4 = arg0->unknown_b4_ - 1;
         arg0->unknown_b4_ = var4;

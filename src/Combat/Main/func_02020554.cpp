@@ -28,7 +28,7 @@ extern "C" void func_0201f9b8(Struct_020fdcb0_3 *arg0);
 extern "C" void func_0201f9e8(Struct_020fdc60_3 *arg0);
 extern "C" void func_02026644(char *arg0);
 
-extern Struct_020fdcb0_3 data_020fdcb0[4];
+extern Struct_020fdcb0_3 gPartyStatsCache_020fdcb0[4];
 #if defined(jpn)
 extern unsigned char data_020fda36;
 #define data_020fdcce data_020fda36
@@ -52,7 +52,7 @@ extern "C" ARM void func_02020554(Struct_02020554 *arg0) {
     func_02020720(arg0);
 
     for (int var0 = 0; var0 < 4; var0++) {
-        func_0201f9b8(&data_020fdcb0[var0]);
+        func_0201f9b8(&gPartyStatsCache_020fdcb0[var0]);
         (&data_020fdcce)[var0 * 0x20] = 0;
         func_0201f9e8((Struct_020fdc60_3 *) &data_020fdc60[var0]);
     }

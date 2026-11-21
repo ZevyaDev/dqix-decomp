@@ -28,7 +28,7 @@ extern "C" char* GetEquipMenu_ov017_021a193c(int*);
 extern "C" void func_ov005_021551fc(char*, int, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov005_021555c0(void*);
-extern "C" void func_ov005_0215792c(void*, unsigned char);
+extern "C" void SetEquipMenuMode_ov005_0215792c(void*, unsigned char);
 extern "C" unsigned char func_ov005_021586c4(void*, int, int);
 
 struct Struct_ov005_02153ba4 {
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov005_0215b2bc(Struct_ov000_0217ab8c* arg0) {
         func_ov005_021555c0(arg0);
         arg0->unknown_3dcc_ |= 0x40;
         arg0->unknown_3daa_ = 0;
-        func_ov005_0215792c(arg0, 1);
+        SetEquipMenuMode_ov005_0215792c(arg0, 1);
         Struct_ov005_02153ba4* var11;
         int var12 = 0;
         for (; var12 < 8; var12++) {

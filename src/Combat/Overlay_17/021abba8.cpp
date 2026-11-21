@@ -28,7 +28,7 @@ enum { Enum_ov017_021abba8_340 = 0x154 };
 struct Struct_02018300_3;
 struct Queue_02038598_5;
 struct TextureVRAMArea_0203d028;
-struct Struct_02010834;
+struct GameState_02010834;
 struct MenuTask_0206f81c_2;
 struct Struct_0206f81c_3;
 struct Struct_0206f81c_4;
@@ -91,7 +91,7 @@ extern "C" void CancelFontLoad_02094ab0(int loader);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" int AddEffectResource_02057e6c(void* effectManager, int effectId, SafeAllocator* allocator, void* fileData, unsigned int fileSize, TextureVRAMArea_0203d028* textureVRAMArea);
-extern "C" void func_02010834(Struct_02010834* arg0, int arg1, int* arg2, int* arg3);
+extern "C" void func_02010834(GameState_02010834* arg0, int arg1, int* arg2, int* arg3);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
@@ -167,7 +167,7 @@ extern "C" ARM void func_ov017_021abba8(Struct_ov017_021abba8* arg0, Queue_02038
         int var12[5];
         Struct_ov017_021abba8_2 var13[5];
         if (arg0->unknown_c_ != 0) {
-            func_02010834((Struct_02010834*)var0, var3->obj3D_.unknown_4_, var12, &var11);
+            func_02010834((GameState_02010834*)var0, var3->obj3D_.unknown_4_, var12, &var11);
             for (int var14 = 0; var14 < var11; var14++) {
                 arg0->unknown_d_ |= 1 << var12[var14];
             }

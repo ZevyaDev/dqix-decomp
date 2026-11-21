@@ -29,7 +29,7 @@ struct Party_02048150;
 struct ItemBag_0207cf30_3;
 struct ItemBag_02061c04_23;
 struct Struct_0207cf30_4;
-struct Struct_02083994;
+struct PartyMemberData_02083994;
 struct ItemTable_0201099c_10;
 extern "C" int func_ov002_02154f4c(unsigned char *arg0);
 extern "C" void *func_02053c6c(unsigned char *gameObject);
@@ -48,7 +48,7 @@ extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *man
 extern "C" int GetBagItemCount_020a0b3c(struct ItemBag_0207cf30_3 *bag, int itemId);
 extern "C" int RemoveItemFromBag_020a0a08(ItemBag_02061c04_23*, int, int);
 extern "C" int func_020a095c(struct Struct_0207cf30_4 *arg0, int arg1, signed char arg2);
-extern "C" int func_02083994(struct Struct_02083994 *arg0, int arg1);
+extern "C" int GetHeldItemCount_02083994(struct PartyMemberData_02083994 *memberData, int itemId);
 extern "C" int func_020dc920(int arg0, int arg1, int arg2, int arg3);
 extern "C" int *func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
@@ -178,8 +178,8 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                             *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xf0, 0x1c00 + 0x28)) = 0x2361;
                         }
                         if (*(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)) == 0x570a &&
-                            func_02083994(
-                                (struct Struct_02083994 *) func_02053c6c((unsigned char *) var17), 0x570a) == 0)
+                            GetHeldItemCount_02083994(
+                                (struct PartyMemberData_02083994 *) func_02053c6c((unsigned char *) var17), 0x570a) == 0)
                         {
                             *(unsigned char *) (*(char **) (var17 + 0x130) + 8) = 0;
                             func_ov017_021c9e00(*(short *) (var17 + 4), 0, 0, 1);

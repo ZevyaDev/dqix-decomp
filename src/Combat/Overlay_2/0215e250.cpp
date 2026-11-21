@@ -11,7 +11,7 @@ extern "C" int func_02042638(char* arg0, int arg1, int arg2);
 #define RG(u, j) (u)
 #endif
 
-extern "C" void func_020dc4d0(signed char* arg0, signed char* arg1);
+extern "C" void GetExistingPartyOrder_020dc4d0(signed char* outPartyOrder, signed char* outCount);
 struct PartyMember_0205faf4_11;
 extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
 
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov002_0215e250(unsigned char* arg0, char* arg1, int arg
 
     signed char var2[7];
     signed char var3;
-    func_020dc4d0(var2, &var3);
+    GetExistingPartyOrder_020dc4d0(var2, &var3);
 
     signed char var4 = 0;
     for (int var5 = 0; var5 < var3; var5++) {

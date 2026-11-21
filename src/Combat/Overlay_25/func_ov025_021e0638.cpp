@@ -26,7 +26,7 @@ struct Struct_0203d028_3 {
     struct ModifiableCombatStats* unknown_138_;
 };
 
-struct Struct_02048c90;
+struct Combatant_02048c90;
 struct Struct_02049410;
 struct Struct_02048f64;
 struct Struct_02048f64_2;
@@ -112,7 +112,7 @@ struct Vector3i;
 extern "C" void __clear(void* arg0, int arg1);
 
 extern "C" void func_ov025_021e20d8(void* arg0);
-extern "C" void func_02048c90(Struct_02048c90*);
+extern "C" void ClearCombatantPath_02048c90(Combatant_02048c90*);
 extern "C" int GetCombatantCell_020493a4(unsigned char*);
 extern "C" int func_020493c8(unsigned char*);
 extern "C" int func_02049444(unsigned char*);
@@ -180,7 +180,7 @@ extern "C" ARM void func_ov025_021e0638(unsigned char* arg0) {
         return;
     }
     for (int var25 = 0; var25 < var0; var25++) {
-        func_02048c90((Struct_02048c90*)var5[var25].unknown_8_);
+        ClearCombatantPath_02048c90((Combatant_02048c90*)var5[var25].unknown_8_);
         var8.unknown_0_[var25] = GetCombatantCell_020493a4(var5[var25].unknown_8_);
         var24[var25].unknown_20_ = 0;
         memset(var24[var25].unknown_10_, 0, 0x10);

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "NitroSDK/Interrupts.h"
 
-extern "C" void func_ov031_0220da1c(int);
+extern "C" void SetAccessPointConnectionState_ov031_0220da1c(int);
 extern "C" void func_ov031_0220e694(void*);
 extern "C" int func_020d5cc8(int arg0);
 extern void* gAccessPointConnection_ov031_0224e53c;
@@ -27,7 +27,7 @@ ret1:
 	return 1;
 case9:
 	if (*(unsigned char*)((char*)gAccessPointConnection_ov031_0224e53c + 0x2000 + 0x26b) == 1) {
-		func_ov031_0220da1c(0xa);
+		SetAccessPointConnectionState_ov031_0220da1c(0xa);
 		*(unsigned short*)((char*)gAccessPointConnection_ov031_0224e53c + 0x2200 + 0x80) = 6;
 		goto ret3;
 	}
@@ -35,7 +35,7 @@ case9:
 		int var2 = func_020d5cc8((int)func_ov031_0220e694);
 		switch (var2) {
 		case 2:
-			func_ov031_0220da1c(0xa);
+			SetAccessPointConnectionState_ov031_0220da1c(0xa);
 			*(unsigned short*)((char*)gAccessPointConnection_ov031_0224e53c + 0x2200 + 0x80) = 6;
 			goto ret3;
 		case 8:
@@ -43,7 +43,7 @@ case9:
 			return 4;
 		case 3:
 		default:
-			func_ov031_0220da1c(0xb);
+			SetAccessPointConnectionState_ov031_0220da1c(0xb);
 			SetIRQInterruptState(var0);
 			return 7;
 		}

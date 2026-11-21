@@ -34,7 +34,7 @@ struct Struct_ov017_021d3f00_2 {
 };
 
 // USA: func_ov017_021d3f00
-extern "C" ARM void func_ov017_021d3f00(Struct_02037d10* arg0, unsigned char arg1, unsigned char arg2) {
+extern "C" ARM void func_ov017_021d3f00(LadderAction_02037d10* arg0, unsigned char arg1, unsigned char arg2) {
     if (!arg0) return;
     GameState* var0 = GameState::GetInstance();
     void* var1 = func_0202ae18();

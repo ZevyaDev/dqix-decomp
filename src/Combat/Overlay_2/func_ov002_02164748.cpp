@@ -28,7 +28,7 @@ extern "C" int func_ov002_02157108(void *arg0, int arg1);
 extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *gameState, int index);
 extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" void func_02083834(struct Struct_ov002_02164748_3 *arg0, int arg1);
-extern "C" int func_02083994(struct Struct_ov002_02164748_4 *arg0, int arg1);
+extern "C" int GetHeldItemCount_02083994(struct Struct_ov002_02164748_4 *memberData, int itemId);
 extern "C" void func_020a095c(struct Struct_ov002_02164748_5 *arg0, int arg1, int arg2);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215bba8(char *arg0);
@@ -142,7 +142,7 @@ extern "C" ARM void func_ov002_02164748(char *arg0) {
                     *(short *) (arg0 + RG(0x1c00 + 0x22, 0x1aea)) == *(short *) (arg0 + RG(0x1c00 + 0x24, 0x1aec)))
                     var14 = 1;
                 if (*(short *) (arg0 + RG(0x1c00 + 0x22, 0x1aea)) == 0x570a && var15 != 4) {
-                    short var16 = func_02083994(
+                    short var16 = GetHeldItemCount_02083994(
                         (struct Struct_ov002_02164748_4 *) func_02053c6c((unsigned char *) var7), 0x570a);
                     if (var16 == 0 || (var16 == 1 && var14)) {
                         *(unsigned char *) (*(char **) ((char *) var7 + 0x130) + 8) = 0;
@@ -150,7 +150,7 @@ extern "C" ARM void func_ov002_02164748(char *arg0) {
                     }
                 }
                 if (*(short *) (arg0 + RG(0x1c00 + 0x24, 0x1aec)) == 0x570a) {
-                    short var17 = func_02083994((struct Struct_ov002_02164748_4 *) var6, 0x570a);
+                    short var17 = GetHeldItemCount_02083994((struct Struct_ov002_02164748_4 *) var6, 0x570a);
                     if (var17 == 0 || (var17 == 1 && var14)) {
                         *(unsigned char *) (*(char **) ((char *) var5 + 0x130) + 8) = 0;
                         func_ov017_021c9e00(var5->obj3D_.unknown_4_, 0, 0, 1);

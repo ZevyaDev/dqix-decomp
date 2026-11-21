@@ -3,8 +3,8 @@
 struct Struct_02108760_2;
 
 extern "C" void func_0203a914(void* arg0);
-extern "C" void func_0205e9f4(struct Struct_02108760_2* arg0, int arg1);
-extern "C" void func_0205e944(void*, int);
+extern "C" void SetSoundEffectVolumeLevel_0205e9f4(struct Struct_02108760_2* manager, int volumeLevel);
+extern "C" void SetSoundEffectVolume_0205e944(void*, int);
 
 struct Struct_02000c9c_17 {
     char unknown_0_[0xb0];
@@ -27,6 +27,6 @@ extern "C" ARM void func_0205e88c(struct Struct_02000c9c_17* arg0) {
     arg0->unknown_bc_ = -1;
     arg0->unknown_c0_ = 0;
     arg0->unknown_c4_ = -1;
-    func_0205e944(arg0, 0x7f);
-    func_0205e9f4((struct Struct_02108760_2*)arg0, 3);
+    SetSoundEffectVolume_0205e944(arg0, 0x7f);
+    SetSoundEffectVolumeLevel_0205e9f4((struct Struct_02108760_2*)arg0, 3);
 }

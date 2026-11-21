@@ -27,7 +27,7 @@ extern char data_020f102e[];
 extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void* ClearLevelEntries_0208247c(void* levelEntries);
 extern "C" int func_0208274c(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3);
-extern "C" void SetLevelStats_02083cbc(void* memberData, void* arg1, void* arg2);
+extern "C" void SetLevelStats_02083cbc(void* memberData, void* levelEntry, void* arg2);
 extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
 extern "C" void func_02083b8c(unsigned char* arg0, unsigned char* arg1, unsigned int arg2);
 extern "C" void ClearSpellTable_0209a804(int* table);

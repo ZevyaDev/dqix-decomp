@@ -186,7 +186,7 @@ extern "C" void func_ov017_021c37a4(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(struct LocalWireless_0202b2f0* wireless);
 extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" int func_0202c758(struct LocalWireless_0202b2f0* arg0, int arg1);
-extern "C" void func_ov017_021d1810(int, int, signed char);
+extern "C" void SendNotice_ov017_021d1810(int, int, signed char);
 extern "C" void func_ov017_021cea34(int arg0);
 extern "C" void func_0202c6dc(struct LocalWireless_0202b2f0* arg0, int arg1);
 extern "C" int RemoveDepartedPlayer_ov017_02195658(unsigned char* gameResources);
@@ -223,7 +223,7 @@ extern "C" int fix32_Divide(int arg0, int arg1);
 extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 extern "C" unsigned short func_0202bc8c(struct LocalWireless_0202b2f0* arg0);
 extern "C" int func_ov017_021bd3a4(struct Struct_ov017_0218e674* arg0);
-extern "C" int func_02039888(void* arg0);
+extern "C" int GetPartyLeaderObjectIndex_02039888(void* object);
 struct Vector3i;
 extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
@@ -327,7 +327,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
             if (IsLocalWirelessPlayerDisconnected_0202c578(var7, var18) == 0) continue;
             if (func_0202c758(var7, var18) != 0) continue;
             QueueNotice_02094030(GetNoticeQueue_020936f8(), 3, var17, var18);
-            func_ov017_021d1810(3, var17, var18);
+            SendNotice_ov017_021d1810(3, var17, var18);
             func_ov017_021cea34(var18);
             func_0202c6dc(var7, var18);
         }
@@ -553,7 +553,7 @@ dispatched:
         if (var41 == NULL) continue;
         GameObject* var42 = var6->GetPartyMemberByIndex(var40);
         if (var42 == NULL) continue;
-        var42 = var6->GetPartyMemberByIndex(func_02039888(var42));
+        var42 = var6->GetPartyMemberByIndex(GetPartyLeaderObjectIndex_02039888(var42));
         if (var42 == NULL) continue;
         if ((((struct Struct_ov017_021941fc_3*)((char*)var42 + 0xc1))->unknown_0_0_ & 1) == 0 && var41->unknown_3_4_) {
             var4.unknown_0_ = var41->unknown_8_ << 7;

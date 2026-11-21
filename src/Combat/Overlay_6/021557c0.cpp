@@ -142,7 +142,7 @@ extern "C" int func_020e12ec(char* arg0, const char* arg1);
 #define data_ov006_0215ff5c data_ov006_021612c0
 #endif
 extern "C" void func_020de848(void* itemTable);
-extern "C" int func_020de980(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
+extern "C" int LoadItemTableById_020de980(void* itemTable, void* allocator, void* fileData, int fileSize, int itemId);
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void func_ov023_021dcd90(Struct_ov006_02154614_2* arg0, unsigned char arg1);
 extern "C" void SetItemInfoPanelItem_ov023_021dcae0(Struct_ov006_02154614_2* panel, int itemId);
@@ -186,7 +186,7 @@ extern "C" ARM void func_ov006_021557c0(Struct_ov006_02154614* arg0) {
             arg0->unknown_188_->Reset();
             short var10 = arg0->unknown_12b8_;
             func_020de848(arg0->unknown_1288_);
-            func_020de980(arg0->unknown_1288_, arg0->unknown_188_, var8, var9, var10);
+            LoadItemTableById_020de980(arg0->unknown_1288_, arg0->unknown_188_, var8, var9, var10);
             arg0->unknown_ae4_.unknown_774_ &= ~0x1000;
             arg0->unknown_ae4_.unknown_48_ = arg0->unknown_1288_;
             func_ov023_021dcd90(&arg0->unknown_ae4_, 1);
@@ -233,7 +233,7 @@ extern "C" ARM void func_ov006_021557c0(Struct_ov006_02154614* arg0) {
         if (var18 != 0) {
             arg0->unknown_188_->Reset();
             func_020de848(arg0->unknown_1288_);
-            func_020de980(arg0->unknown_1288_, arg0->unknown_188_, var18, var19, arg0->unknown_1b8_->unknown_2_);
+            LoadItemTableById_020de980(arg0->unknown_1288_, arg0->unknown_188_, var18, var19, arg0->unknown_1b8_->unknown_2_);
             arg0->unknown_1dc_ = FindItemData_020dedd0((ItemTable_0201099c_10*)arg0->unknown_1288_, arg0->unknown_1b8_->unknown_2_);
         }
         var0->RemoveTask(arg0->unknown_ad4_);

@@ -29,42 +29,42 @@ struct LocalWireless_0202b2f0;
 
 struct Struct_0205e22c {
     unsigned char unknown_0_[0x10];
-    unsigned char unknown_10_;
+    unsigned char slotKind_10_;
     unsigned char unknown_11_[0x14 - 0x11];
 };
 
-// USA: func_0205e22c
-extern "C" ARM void func_0205e22c(void* arg0) {
-    func_0205e16c((struct Struct_0202c7bc_2*)((char*)arg0 + 0x1500));
-    func_0205e16c((struct Struct_0202c7bc_2*)((char*)arg0 + 0x150c));
-    func_0205e16c((struct Struct_0202c7bc_2*)((char*)arg0 + 0x1518));
+// USA: ResetLocalWirelessPacketQueue_0205e22c
+extern "C" ARM void ResetLocalWirelessPacketQueue_0205e22c(void* packetQueue) {
+    func_0205e16c((struct Struct_0202c7bc_2*)((char*)packetQueue + 0x1500));
+    func_0205e16c((struct Struct_0202c7bc_2*)((char*)packetQueue + 0x150c));
+    func_0205e16c((struct Struct_0202c7bc_2*)((char*)packetQueue + 0x1518));
 
-    memset(arg0, 0, 0x1500);
+    memset(packetQueue, 0, 0x1500);
 
-    struct Struct_0205e18c_2* var0 = (struct Struct_0205e18c_2*)arg0;
-    for (int var1 = 0; var1 < 0xc0; var1++) {
-        func_0205e18c((struct Struct_0205e18c*)((char*)arg0 + 0x1500), &var0[var1]);
+    struct Struct_0205e18c_2* nodes = (struct Struct_0205e18c_2*)packetQueue;
+    for (int i = 0; i < 0xc0; i++) {
+        func_0205e18c((struct Struct_0205e18c*)((char*)packetQueue + 0x1500), &nodes[i]);
     }
 
-    void* var2 = func_0202ae18();
+    void* wireless = func_0202ae18();
     UpdateLocalWirelessPlayerCount_0202c288();
 
-    struct Struct_0205e22c* var3 = (struct Struct_0205e22c*)func_0202c19c(var2);
-    memset(var3, 0, 0x74);
+    struct Struct_0205e22c* ownRecord = (struct Struct_0205e22c*)func_0202c19c(wireless);
+    memset(ownRecord, 0, 0x74);
 
-    for (int var4 = 0; var4 < 5; var4++) {
-        var3[var4].unknown_10_ = 0xff;
+    for (int i = 0; i < 5; i++) {
+        ownRecord[i].slotKind_10_ = 0xff;
     }
 
-    int var5 = 0;
-    int var6 = 0;
-    int var7 = 0x74;
-    for (; var5 < 4; var5++) {
-        void* var8 = GetLocalWirelessPlayerRecord_0202c178((struct LocalWireless_0202b2f0*)var2, var5);
-        if (var8 != NULL) {
-            memset(var8, var6, var7);
+    int protagonistObjectIndex = 0;
+    int fillByte = 0;
+    int recordSize = 0x74;
+    for (; protagonistObjectIndex < 4; protagonistObjectIndex++) {
+        void* playerRecord = GetLocalWirelessPlayerRecord_0202c178((struct LocalWireless_0202b2f0*)wireless, protagonistObjectIndex);
+        if (playerRecord != NULL) {
+            memset(playerRecord, fillByte, recordSize);
         }
     }
 
-    memset((char*)arg0 + 0x1524, 0xff, 0x20);
+    memset((char*)packetQueue + 0x1524, 0xff, 0x20);
 }

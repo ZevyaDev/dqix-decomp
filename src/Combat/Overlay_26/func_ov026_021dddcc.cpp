@@ -98,7 +98,7 @@ extern "C" {
 GameState* _ZN9GameState11GetInstanceEv();
 Struct_ov000_0215ab88* _ZN9GameState21GetPartyMemberByIndexEi(GameState* arg0, int arg1);
 unsigned char* func_02053c6c(unsigned char* gameObject);
-char* func_020a6084();
+char* GetPartyMemberColorPalettes_020a6084();
 Struct_ov026_021d8ba0_6* func_ov026_021dae60(Struct_ov026_021d8ba0_4* arg0, int arg1);
 int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
 int func_ov000_021761c8(char* arg0, int arg1);
@@ -110,7 +110,7 @@ int func_0202ec84(void* camera, Struct_ov026_021dddcc* worldPosition, int* outX,
 int func_ov000_0217fd60(void* arg0, int arg1);
 int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_02161e30* battle, short* indices, int maxCount, int filterFlags);
 int CollectEnemyCombatantIndices_ov000_0215eb1c(Struct_ov000_02161e30* battle, short* indices, int maxCount, int filterFlags);
-int func_ov000_02153e78(Struct_ov000_02161e30* arg0, short* arg1, int arg2, int arg3, int arg4);
+int CollectEnemyGroupCombatantIndices_ov000_02153e78(Struct_ov000_02161e30* battle, short* indices, int maxCount, int groupIndex, int filterFlags);
 int func_ov000_02171ffc(Struct_ov026_021d8ba0_6* arg0);
 double ComputeSine_02009424(double angle);
 void __clear(void* arg0, int arg1);
@@ -167,7 +167,7 @@ extern "C" ARM void func_ov026_021dddcc(BattleScene_ov000_02160da0* arg0) {
     }
 
     __clear(var3, sizeof(var3));
-    var8 = func_020a6084();
+    var8 = GetPartyMemberColorPalettes_020a6084();
     for (var9 = 0; var9 < 4; var9++) {
         Struct_ov000_0215ab88* var15 = _ZN9GameState21GetPartyMemberByIndexEi(var6, var9);
         if (var15 != 0) {
@@ -221,7 +221,7 @@ extern "C" ARM void func_ov026_021dddcc(BattleScene_ov000_02160da0* arg0) {
         case 4: {
             Struct_ov026_021de802 var24;
             var24 = data_ov026_021de812;
-            var5[var12] = func_ov000_02153e78(var7, var24.unknown_0_, 8, var20, 1);
+            var5[var12] = CollectEnemyGroupCombatantIndices_ov000_02153e78(var7, var24.unknown_0_, 8, var20, 1);
             if (var17 != arg0->unknown_38dc_) {
                 int var25;
                 for (var25 = 0; var25 < var5[var12]; var25++) {
@@ -297,7 +297,7 @@ extern "C" ARM void func_ov026_021dddcc(BattleScene_ov000_02160da0* arg0) {
             break;
         case 4:
             var29 = 1;
-            var36 = func_ov000_02153e78(var7, var38.unknown_0_, 8, var34, var29);
+            var36 = CollectEnemyGroupCombatantIndices_ov000_02153e78(var7, var38.unknown_0_, 8, var34, var29);
             if (var36 == 0) continue;
             break;
         case 2:

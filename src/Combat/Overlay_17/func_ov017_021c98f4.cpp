@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_02053f7c_3;
-extern "C" void func_02053f7c(Struct_02053f7c_3* arg0, unsigned short arg1, int arg2);
+struct PartyMember_02053f7c_3;
+extern "C" void SetPartyMemberBattleId_02053f7c(PartyMember_02053f7c_3* member, unsigned short battleId, int isForced);
 
 // USA: func_ov017_021c98f4
 extern "C" ARM void func_ov017_021c98f4(int arg0, int arg1) {
@@ -22,6 +22,6 @@ extern "C" ARM void func_ov017_021c98f4(int arg0, int arg1) {
 		if (arg0 != var3) {
 			continue;
 		}
-		func_02053f7c((struct Struct_02053f7c_3*)var2, 0, arg1);
+		SetPartyMemberBattleId_02053f7c((struct PartyMember_02053f7c_3*)var2, 0, arg1);
 	}
 }

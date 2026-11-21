@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 #include "Combat/SearchEntry.h"
 
-extern "C" ARM void func_020d8654(void);
-extern "C" void func_020d8694(void);
+extern "C" ARM void SaveAndDisableVCounterInterrupt_020d8654(void);
+extern "C" void RestoreVCounterInterrupt_020d8694(void);
 
 struct Struct_0202ba08_2;
 extern "C" ARM struct Struct_0202ba08_2* func_0202ba08(struct Struct_0202ba08_2* arg0, struct Struct_0202ba08_2* arg1);
 
 // USA: func_0202c478
 extern "C" ARM void func_0202c478(LocalWireless_0202b2f0* arg0) {
-    func_020d8654();
+    SaveAndDisableVCounterInterrupt_020d8654();
     char* var0 = (char*)arg0;
     int var1;
     for (var1 = 0; var1 < *(int*)(var0 + 0xc); var1++) {
@@ -24,5 +24,5 @@ extern "C" ARM void func_0202c478(LocalWireless_0202b2f0* arg0) {
         }
         (*(int*)(var0 + 0xc))--;
     }
-    func_020d8694();
+    RestoreVCounterInterrupt_020d8694();
 }

@@ -26,12 +26,12 @@ struct ItemData_02015ef4_4 {
     short unknown_14_, unknown_16_, itemId_18_, unknown_1a_, unknown_1c_;
 };
 
-struct Struct_02019508_3;
+struct Zone3D_02019508_3;
 struct ItemTable_0201099c_10;
 struct Struct_02012fa4;
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void func_0201ba1c(struct Struct_02019508_3* arg0, int arg1, int arg2);
+extern "C" void func_0201ba1c(struct Zone3D_02019508_3* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021cfe40(unsigned short arg0, unsigned short arg1, unsigned short arg2);
 extern "C" unsigned char* func_0205ec34(void);
 extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
@@ -83,7 +83,7 @@ extern "C" ARM int func_ov017_021bf7ac(struct Struct_ov017_021bf7ac_2* arg0) {
     BackgroundLoader* var3 = BackgroundLoader::GetInstance();
     unsigned short var4 = var2->unknown_2c_;
     unsigned short var5 = var2->unknown_2e_;
-    func_0201ba1c((struct Struct_02019508_3*)var1, var4, var5);
+    func_0201ba1c((struct Zone3D_02019508_3*)var1, var4, var5);
     func_ov017_021cfe40(*var1, var4, var5);
 
     LootableContainerManager* var6 = LootableContainerManager::GetMainInstance();

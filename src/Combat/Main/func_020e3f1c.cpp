@@ -153,7 +153,7 @@ struct StringList_020727d8 {
 };
 struct StringList_02072a68_2;
 #include "Filesystem/FileIO.h"
-extern "C" int func_020d3018(const char* arg0, const char* arg1);
+extern "C" int CompareStrings_020d3018(const char* left, const char* right);
 extern "C" void ResetStringList_020727d8(struct StringList_020727d8* stringList);
 extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, void* scriptData, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
@@ -235,7 +235,7 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
         DisableCameraTurning_020a27b8((unsigned char*)var5);
         SetMainBrightness(var7, -16, 0x1e);
 #if defined(jpn)
-        if (func_020d3018(var10->unknown_180_->unknown_0_, data_020f2e30) == 0) {
+        if (CompareStrings_020d3018(var10->unknown_180_->unknown_0_, data_020f2e30) == 0) {
 #else
         if (var10->unknown_180_->unknown_10_ == 0x133) {
 #endif

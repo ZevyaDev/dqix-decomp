@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
-extern "C" int func_ov000_02155f9c(struct Random* arg0, int arg1, int arg2);
+extern "C" int IsCombatantIncapacitated_ov000_02155f9c(struct Random* battle, int combatantIndex, int isConfusionCounted);
 extern "C" float func_ov000_02156270(struct Random* arg0, int arg1);
 extern "C" int func_ov000_02156404(GameObject* arg0);
 
@@ -17,7 +17,7 @@ extern "C" ARM int func_ov000_02156f98(struct Random* arg0, int arg1, struct Str
     if (!(arg2->unknown_10_ & 0x20)) {
         return 0;
     }
-    if (func_ov000_02155f9c(arg0, arg1, 0) != 0) {
+    if (IsCombatantIncapacitated_ov000_02155f9c(arg0, arg1, 0) != 0) {
         return 0;
     }
     GameState* var0 = GameState::GetInstance();

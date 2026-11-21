@@ -9,10 +9,10 @@ extern "C" void func_0204f138(unsigned char* arg0, unsigned char** arg1, unsigne
 struct Struct_0205bd58;
 extern "C" void func_0205bd58(struct Struct_0205bd58* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 
-struct Struct_0205d904 {
+struct TextWindow_0205d904 {
     char unknown_0_[0xac];
-    short unknown_ac_;
-    short unknown_ae_;
+    short tileX_ac_;
+    short tileY_ae_;
 };
 
 // USA: func_0205d904
@@ -22,7 +22,7 @@ extern "C" ARM void func_0205d904(unsigned char* arg0) {
     unsigned char* var2;
     unsigned char* var3;
     unsigned char* var4;
-    struct Struct_0205d904* var5;
+    struct TextWindow_0205d904* var5;
 
     var0 = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)arg0, arg0[0xb0]);
     if (var0 == NULL) return;
@@ -30,10 +30,10 @@ extern "C" ARM void func_0205d904(unsigned char* arg0) {
     func_0204f138((unsigned char*)var0, &var1, &var2, &var3, &var4);
     func_0205bd58((struct Struct_0205bd58*)(arg0 + 4), 0x12, (int)var1, (int)var2, (int)var3, (int)var4);
 
-    var5 = (struct Struct_0205d904*)var0;
+    var5 = (struct TextWindow_0205d904*)var0;
     {
-        short var6 = var5->unknown_ac_;
-        short var7 = var5->unknown_ae_;
+        short var6 = var5->tileX_ac_;
+        short var7 = var5->tileY_ae_;
         *(short*)(arg0 + 0x3c) = var6 << 3;
         *(short*)(arg0 + 0x3e) = var7 << 3;
     }

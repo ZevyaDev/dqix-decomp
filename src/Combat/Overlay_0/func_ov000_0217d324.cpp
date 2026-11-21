@@ -15,7 +15,7 @@ struct Struct_ov000_021735d0_2;
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
-extern "C" struct Struct_ov000_021735d0_2* func_ov000_0217f8c0(struct Struct_ov000_021735d0_3* arg0);
+extern "C" struct Struct_ov000_021735d0_2* GetSelectedMemberPanel_ov000_0217f8c0(struct Struct_ov000_021735d0_3* battleUI);
 extern "C" int func_ov000_0217c5f4(void* arg0);
 extern "C" int func_ov000_0217c594(void* arg0, int arg1);
 extern "C" void func_ov000_02176634(void* arg0, struct Struct_ov000_021735d0_2* arg1, int arg2, int arg3, int arg4);
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov000_0217d324(char* arg0, int arg1, int arg2) {
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
         *(signed char*)(arg0 + Enum_ov000_0217d324_7528) = *(signed char*)(arg0 + Enum_ov000_0217d324_7528) + 1;
         *(unsigned char*)(arg0 + *(signed char*)(arg0 + Enum_ov000_0217d324_7528) + Enum_ov000_0217d324_7520) = 4;
-        struct Struct_ov000_021735d0_2* var1 = func_ov000_0217f8c0((struct Struct_ov000_021735d0_3*)arg0);
+        struct Struct_ov000_021735d0_2* var1 = GetSelectedMemberPanel_ov000_0217f8c0((struct Struct_ov000_021735d0_3*)arg0);
         func_ov000_02176634(arg0, var1, 4, arg1, arg2);
     } else if (func_ov000_0217c5f4(arg0) != 0) {
         CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)(arg0 + 0x188), 0);

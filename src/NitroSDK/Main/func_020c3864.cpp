@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-// USA: func_020c3864
-extern "C" ARM int func_020c3864(int arg0) {
-    volatile unsigned short* var0 = (volatile unsigned short*)0x4000004;
-    int var1 = *var0 & 8;
-    if (arg0 != 0) {
-        *var0 |= 8;
+// USA: SetVBlankInterruptEnabled_020c3864
+extern "C" ARM int SetVBlankInterruptEnabled_020c3864(int isEnabled) {
+    volatile unsigned short* displayStatusRegister = (volatile unsigned short*)0x4000004;
+    int previousEnableBit = *displayStatusRegister & 8;
+    if (isEnabled != 0) {
+        *displayStatusRegister |= 8;
     } else {
-        *var0 &= ~8;
+        *displayStatusRegister &= ~8;
     }
-    return var1;
+    return previousEnableBit;
 }

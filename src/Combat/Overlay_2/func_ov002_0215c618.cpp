@@ -15,7 +15,7 @@ extern "C" int CountUsedBagSlots_020a0b8c(struct ItemBag_020a0b8c *bag);
 extern "C" void func_020a0bcc(struct Struct_020a0bcc *arg0);
 extern "C" int func_020a0af4(struct Struct_020a095c *arg0, int arg1);
 extern "C" void func_020a095c(struct Struct_0207cf30_4 *arg0, int arg1, int arg2);
-extern "C" void func_ov023_021e1318(void *arg0);
+extern "C" void ClearItemSortList_ov023_021e1318(void *sortList);
 extern "C" void func_ov023_021e1330(void *arg0);
 extern "C" void func_ov023_021e1518(void *arg0);
 extern "C" void func_ov023_021e1474(struct Struct_ov002_0215b2c8 *arg0, struct ItemTable_0201099c_10 *arg1);
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov002_0215c618(char *arg0, int arg1) {
     var8.ResetAllocatorPointer();
     var8.CreateTypeA(var9, 0x4bc0);
     var1 = arg0 + 0x368;
-    func_ov023_021e1318(var1 + 0x400);
+    ClearItemSortList_ov023_021e1318(var1 + 0x400);
     func_ov023_021e1850(var1 + 0x400, &var8, data_ov002_0216d5b6, var3, var5);
     func_ov023_021e1518(var1 + 0x400);
     func_ov023_021e1474((struct Struct_ov002_0215b2c8 *) (var1 + 0x400), (struct ItemTable_0201099c_10 *) (arg0 + 0x750));

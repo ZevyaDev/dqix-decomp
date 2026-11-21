@@ -19,7 +19,7 @@ struct Struct_0203de84_4;
 extern "C" void GetNPCPosition_020406f8(struct Struct_0203de84* outPosition, struct NPC_0203de84_2* npc);
 extern "C" int func_02040adc(struct Struct_0203de84_3* arg0);
 extern "C" int func_02040910(struct Struct_0203de84_4* arg0, int arg1);
-extern "C" void func_0208f87c(const void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void DrawShadow_0208f87c(const void* position, int color, int scale, int alpha, int polygonId);
 
 struct Struct_0203de84_5 {
 #if defined(jpn)
@@ -68,7 +68,7 @@ extern "C" ARM void func_0203de84(void* arg0) {
         Object3D* var8 = var0->unknown_c_[var6]->unknown_18_;
         if (var8 != NULL && var8->GetFlag(0x10) != 0) continue;
         GetNPCPosition_020406f8(&var5, (struct NPC_0203de84_2*)var0->unknown_c_[var6]);
-        func_0208f87c(&var5, var3, 0x1000, var4,
+        DrawShadow_0208f87c(&var5, var3, 0x1000, var4,
             func_02040adc((struct Struct_0203de84_3*)var0->unknown_c_[var6]));
     }
 }

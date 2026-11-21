@@ -23,7 +23,7 @@ struct Struct_021117ec_5
 
 extern Struct_021117ec_5 data_021117ec;
 
-extern "C" void func_020c976c(unsigned long cycles);
+extern "C" void BusyWait_020c976c(unsigned long cycles);
 extern "C" void WaitForVBlank_020c9820();
 extern "C" unsigned long func_020ce614(int arg0);
 extern "C" unsigned long func_020ce5b0(int arg0, void (*arg1)(), int* arg2);
@@ -43,27 +43,27 @@ extern "C" ARM int func_020ceba8(int arg0, int arg1, int arg2, int arg3)
             {
                 if (func_020ce614(arg1) != PM_SUCCESS)
                     do
-                        func_020c976c(RETRY_WAIT_CYCLES);
+                        BusyWait_020c976c(RETRY_WAIT_CYCLES);
                     while (func_020ce614(arg1) != PM_SUCCESS);
             }
             else
             {
                 if (func_020ce5b0(arg1, NULL, NULL) != PM_SUCCESS)
                     do
-                        func_020c976c(RETRY_WAIT_CYCLES);
+                        BusyWait_020c976c(RETRY_WAIT_CYCLES);
                     while (func_020ce5b0(arg1, NULL, NULL) != PM_SUCCESS);
             }
         }
         POWCNT |= 1;
         if (func_020ce7e0(data_021117ec.unknown_10_) != PM_SUCCESS)
             do
-                func_020c976c(RETRY_WAIT_CYCLES);
+                BusyWait_020c976c(RETRY_WAIT_CYCLES);
             while (func_020ce7e0(data_021117ec.unknown_10_) != PM_SUCCESS);
         break;
     case PM_LCD_POWER_OFF:
         if (func_020ce7e0(0) != PM_SUCCESS)
             do
-                func_020c976c(RETRY_WAIT_CYCLES);
+                BusyWait_020c976c(RETRY_WAIT_CYCLES);
             while (func_020ce7e0(0) != PM_SUCCESS);
         if (VBLANK_COUNT - data_021117ec.unknown_8_ <= LCD_INIT_WAIT_FRAMES)
         {
@@ -78,14 +78,14 @@ extern "C" ARM int func_020ceba8(int arg0, int arg1, int arg2, int arg3)
             {
                 if (func_020ce614(arg1) != PM_SUCCESS)
                     do
-                        func_020c976c(RETRY_WAIT_CYCLES);
+                        BusyWait_020c976c(RETRY_WAIT_CYCLES);
                     while (func_020ce614(arg1) != PM_SUCCESS);
             }
             else
             {
                 if (func_020ce5b0(arg1, NULL, NULL) != PM_SUCCESS)
                     do
-                        func_020c976c(RETRY_WAIT_CYCLES);
+                        BusyWait_020c976c(RETRY_WAIT_CYCLES);
                     while (func_020ce5b0(arg1, NULL, NULL) != PM_SUCCESS);
             }
         }

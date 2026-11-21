@@ -6,7 +6,7 @@ enum {Enum_ov023_021e4264_1588=0x634};
 #include <globaldefs.h>
 #include "Graphics/OBJSpriteSet.h"
 
-extern "C" void func_ov023_021e2bdc(void* arg0, int arg1, short* arg2, short* arg3);
+extern "C" void GetLayoutGroupFirstElementPosition_ov023_021e2bdc(void* layout, int groupId, short* outX, short* outY);
 
 struct Struct_ov023_021e4264 {
     char unknown_0_[0xc8];
@@ -30,7 +30,7 @@ struct Struct_ov023_021e4264_2 {
 extern "C" ARM void func_ov023_021e4264(Struct_ov023_021e4264* arg0) {
     short var0, var1;
     Struct_ov023_021e4264_2* var2 = (Struct_ov023_021e4264_2*)arg0->unknown_cc_;
-    func_ov023_021e2bdc((char*)arg0 + 0xd4, 0x11, &var0, &var1);
+    GetLayoutGroupFirstElementPosition_ov023_021e2bdc((char*)arg0 + 0xd4, 0x11, &var0, &var1);
     if (arg0->unknown_634_ & 0x100) {
         var0--;
         var1++;
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov023_021e4264(Struct_ov023_021e4264* arg0) {
     ((OBJSpriteSet*)(arg0->unknown_c8_))->DrawMetatile((OBJSpriteSet::Metatile*)(var3));
 
     var2 = (Struct_ov023_021e4264_2*)arg0->unknown_cc_;
-    func_ov023_021e2bdc((char*)arg0 + 0xd4, 0x12, &var0, &var1);
+    GetLayoutGroupFirstElementPosition_ov023_021e2bdc((char*)arg0 + 0xd4, 0x12, &var0, &var1);
     if (arg0->unknown_634_ & 0x200) {
         var0++;
         var1++;

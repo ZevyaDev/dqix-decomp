@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-extern "C" int func_020ac460(void* arg0);
+extern "C" int GetEarnedAccoladeBits_020ac460(void* earnedBits);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" void SetScriptRefInt_ov017_021d6134(void*, int);
 
 // USA: func_ov023_021e9190
 extern "C" ARM int func_ov023_021e9190(void* arg0) {
     unsigned int var0[15];
-    func_020ac460(var0);
+    GetEarnedAccoladeBits_020ac460(var0);
     int var1 = 0;
     int var2 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     int var3 = var2 / 32;

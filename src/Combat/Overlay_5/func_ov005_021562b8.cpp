@@ -63,7 +63,7 @@ extern int gSoundEffectManager_02108760;
 
 extern "C" Struct_ov005_02153ba4_2* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char arg1);
+extern "C" void SetEquipMenuMode_ov005_0215792c(Struct_ov005_02153954* equipMenuUI, unsigned char mode);
 extern "C" void func_ov005_02156658(Struct_ov005_02153954* arg0, int arg1, int arg2);
 extern "C" void func_ov005_021567ac(Struct_ov005_02153954* arg0, int arg1, int arg2);
 extern "C" void func_ov005_0215690c(Struct_ov005_02153954* arg0, int arg1, int arg2);
@@ -85,12 +85,12 @@ extern "C" ARM void func_ov005_021562b8(Struct_ov005_02153954* arg0) {
         Struct_ov005_02153ba4_2* var3 = GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
         if (!(arg0->unknown_3dcc_ & 0x400) && (var3->unknown_634_ & 0x800)) {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0x1b, 0);
-            func_ov005_0215792c(arg0, 1);
+            SetEquipMenuMode_ov005_0215792c(arg0, 1);
             return;
         }
         func_ov005_02156658(arg0, var0, var1);
         if (!(arg0->unknown_3dcc_ & 0x400) && var0 >= 0x80 && var1 >= 0xb0) {
-            func_ov005_0215792c(arg0, 7);
+            SetEquipMenuMode_ov005_0215792c(arg0, 7);
             arg0->unknown_3dcc_ |= 0x80000;
             return;
         }
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov005_021562b8(Struct_ov005_02153954* arg0) {
         func_ov005_021567ac(arg0, var0, var1);
         func_ov005_0215690c(arg0, var0, var1);
         if (var0 > 0x83 && var1 > 0x15 && var1 < 0x2e) {
-            func_ov005_0215792c(arg0, 3);
+            SetEquipMenuMode_ov005_0215792c(arg0, 3);
             arg0->unknown_3dbb_ = arg0->unknown_3dbc_;
             func_ov005_021579ec(arg0, arg0->unknown_3db8_, 0);
         }
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov005_021562b8(Struct_ov005_02153954* arg0) {
         if (arg0->unknown_3e07_ == arg0->unknown_3d78_) {
             if (arg0->unknown_3e06_ > 0) {
                 if (arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_ >= 0) {
-                    func_ov005_0215792c(arg0, 5);
+                    SetEquipMenuMode_ov005_0215792c(arg0, 5);
                     PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
                     var3->unknown_634_ &= ~1;
                     var3->unknown_634_ &= ~0x80;

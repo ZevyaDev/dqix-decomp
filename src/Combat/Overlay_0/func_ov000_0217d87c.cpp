@@ -68,7 +68,7 @@ extern const char* data_020f2a2c;
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
-extern "C" struct Struct_ov000_021735d0_2* func_ov000_0217f8c0(Struct_ov000_021735d0_3*);
+extern "C" struct Struct_ov000_021735d0_2* GetSelectedMemberPanel_ov000_0217f8c0(Struct_ov000_021735d0_3*);
 extern "C" int func_ov000_0217c5f4(void*);
 extern "C" void func_ov000_0217a9d0(int, int, int, TextWindowManager_0205d81c*);
 extern "C" void SetTextWindowVisible_0205def8(TextWindowManager_0205def8*, int, int);
@@ -127,7 +127,7 @@ extern "C" ARM void func_ov000_0217d87c(Struct_ov000_02178d28_2* arg0, int arg1,
         arg0->unknown_1d6f_ = 0;
         arg0->unknown_1d68_ = arg0->unknown_1d68_ + 1;
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 7;
-        func_ov000_02176634(arg0, func_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0), 7, arg1, arg2);
+        func_ov000_02176634(arg0, GetSelectedMemberPanel_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0), 7, arg1, arg2);
         func_ov000_0217a9d0(7, arg0->unknown_66_, 4, (TextWindowManager_0205d81c*)arg0->unknown_188_);
     } else if (func_ov000_0217c5f4(arg0) != 0) {
         arg0->unknown_956_ = 0;

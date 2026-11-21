@@ -66,7 +66,7 @@ extern "C" void func_0203aa44(void*);
 extern "C" int func_0203aaf8(void*, void*, int*);
 extern "C" void func_ov016_0218be1c();
 extern "C" void func_02012bd8();
-extern "C" int func_020c3864(int);
+extern "C" int SetVBlankInterruptEnabled_020c3864(int);
 extern "C" int GetTitleState_0201201c(void*);
 extern "C" void SetSubBGMode_020c3984(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
@@ -123,7 +123,7 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
     EnableSpecificInterrupts(0x60078);
     unsigned short var0 = IRQ_MASTER_ENABLE;
     IRQ_MASTER_ENABLE = 1;
-    func_020c3864(1);
+    SetVBlankInterruptEnabled_020c3864(1);
     GameState* var1 = GameState::GetInstance();
     if (GetTitleState_0201201c(var1) == 5)
     {
@@ -218,7 +218,7 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
     EnableSpecificInterrupts(0x60078);
     unsigned short var13 = IRQ_MASTER_ENABLE;
     IRQ_MASTER_ENABLE = 1;
-    func_020c3864(1);
+    SetVBlankInterruptEnabled_020c3864(1);
     GameState* var14 = GameState::GetInstance();
     if (GetTitleState_0201201c(var14) == 5)
     {

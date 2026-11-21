@@ -17,58 +17,58 @@ extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void func_0206eb20(void* arg0, void* arg1, int arg2, int arg3);
 extern "C" void func_0206ea8c(void* arg0, unsigned char arg1, short arg2, int arg3);
 
-struct Struct_02017c58 {
-    unsigned short unknown_0_;
-    unsigned short unknown_2_;
+struct BMDJEntry_02017c58 {
+    unsigned short id_0_;
+    unsigned short flags_2_;
     char unknown_4_[0x70 - 4];
 };
 
-struct Struct_02017c58_2 {
-    int unknown_0_;
+struct BMDJStruct_02017c58_2 {
+    int id_0_;
     char unknown_4_[0x14 - 4];
-    int unknown_14_;
+    int entryCount_14_;
     char unknown_18_[0x44 - 0x14 - 4];
-    Struct_02017c58* unknown_44_;
+    BMDJEntry_02017c58* pEntries_44_;
     char unknown_48_[0x54 - 0x44 - 4];
-    Struct_02017c58_2* unknown_54_;
+    BMDJStruct_02017c58_2* pNext_54_;
 };
 
-// USA: func_02017c58
-extern "C" ARM void func_02017c58(void* arg0) {
-    GameState* var0 = GameState::GetInstance();
-    if (var0 == NULL) {
+// USA: SaveBMDJEntryVisibility_02017c58
+extern "C" ARM void SaveBMDJEntryVisibility_02017c58(void* zone) {
+    GameState* gameState = GameState::GetInstance();
+    if (gameState == NULL) {
         return;
     }
-    char* var1 = (char*)GetZoneEntry_0200fd0c(var0);
-    if (var1 == NULL) {
+    char* zoneEntry = (char*)GetZoneEntry_0200fd0c(gameState);
+    if (zoneEntry == NULL) {
         return;
     }
-    void* var2 = func_0205ec34();
-    if (var2 == NULL) {
+    void* flagManager = func_0205ec34();
+    if (flagManager == NULL) {
         return;
     }
 
-    int var3;
-    for (var3 = 0; var3 < 2; var3++) {
-        func_0206eb20(var2, (void*)(unsigned char)var3, 0, 0x7f);
-        func_0206eb20(var2, (void*)(unsigned char)(unsigned int)var3, 0x80, 0xff);
+    int tableIndex;
+    for (tableIndex = 0; tableIndex < 2; tableIndex++) {
+        func_0206eb20(flagManager, (void*)(unsigned char)tableIndex, 0, 0x7f);
+        func_0206eb20(flagManager, (void*)(unsigned char)(unsigned int)tableIndex, 0x80, 0xff);
     }
 
-    int var4;
-    int var5;
-    Struct_02017c58_2* var6 = *(Struct_02017c58_2**)((char*)arg0 + Enum_02017c58_1052);
-    int var7;
-    while (var6 != NULL) {
-        var4 = var6->unknown_14_;
-        var5 = var6->unknown_0_;
-        for (var7 = 0; var7 < var4; var7++) {
-            Struct_02017c58* var8 = &var6->unknown_44_[var7];
-            if (var8 != NULL && (var8->unknown_2_ & 4) != 0) {
-                func_0206ea8c(var2, var5, (short)(var8->unknown_0_ + 0x80), 1);
+    int entryCount;
+    int bmdjId;
+    BMDJStruct_02017c58_2* bmdj = *(BMDJStruct_02017c58_2**)((char*)zone + Enum_02017c58_1052);
+    int i;
+    while (bmdj != NULL) {
+        entryCount = bmdj->entryCount_14_;
+        bmdjId = bmdj->id_0_;
+        for (i = 0; i < entryCount; i++) {
+            BMDJEntry_02017c58* entry = &bmdj->pEntries_44_[i];
+            if (entry != NULL && (entry->flags_2_ & 4) != 0) {
+                func_0206ea8c(flagManager, bmdjId, (short)(entry->id_0_ + 0x80), 1);
             } else {
-                func_0206ea8c(var2, var5, (short)var8->unknown_0_, 1);
+                func_0206ea8c(flagManager, bmdjId, (short)entry->id_0_, 1);
             }
         }
-        var6 = var6->unknown_54_;
+        bmdj = bmdj->pNext_54_;
     }
 }

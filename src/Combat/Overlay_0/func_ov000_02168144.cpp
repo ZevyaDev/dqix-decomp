@@ -4,7 +4,7 @@
 
 extern "C" int CollectCombatantIndices_ov000_02153e40(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int GetCombatantCell_020493a4(unsigned char* combatant);
-extern "C" void func_02049bd4(unsigned char* arg0, int* arg1);
+extern "C" void SetCombatantCellPosition_02049bd4(unsigned char* combatant, int* cellPosition);
 
 struct Struct_ov000_021830f0 { unsigned int unknown_0_[3]; };
 extern struct Struct_ov000_021830f0 data_ov000_021830f0;
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov000_02168144(unsigned char* arg0) {
             struct Struct_ov000_021830f0 var6 = data_ov000_021830f0;
             var6.unknown_0_[0] = var5.x_0_;
             var6.unknown_0_[2] = var5.z_4_;
-            func_02049bd4((unsigned char*)var4, (int*)&var6);
+            SetCombatantCellPosition_02049bd4((unsigned char*)var4, (int*)&var6);
         }
     }
 }

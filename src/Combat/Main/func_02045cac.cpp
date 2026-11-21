@@ -31,7 +31,7 @@ struct MessageWindow_02045cac {
 #else
     char unknown_19b1_[0x1e28 - 0x19b1];
 #endif
-    void* unknown_1e28_;
+    void* pTextureArena_1e28_;
 };
 
 // USA: ClearMessageGlyphs_02045cac
@@ -50,7 +50,7 @@ extern "C" ARM void ClearMessageGlyphs_02045cac(struct MessageWindow_02045cac* w
         func_020416c0((struct Struct_0204166c*)(window->glyphSlots_9b8_ + slot * 0x1c));
         window->glyphSlotUseCounts_17b8_[slot] = 0;
     }
-    if (window->unknown_1e28_ != NULL) {
-        ((TextureArena*)((struct TextureVRAMArea_0203d028*)window->unknown_1e28_))->Reset();
+    if (window->pTextureArena_1e28_ != NULL) {
+        ((TextureArena*)((struct TextureVRAMArea_0203d028*)window->pTextureArena_1e28_))->Reset();
     }
 }

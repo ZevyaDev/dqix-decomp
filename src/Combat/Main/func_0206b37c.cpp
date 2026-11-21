@@ -14,10 +14,10 @@ struct FontGlyph_0204254c {
     char unknown_6_[2];
 };
 
-extern "C" int func_02042648(int);
+extern "C" int GetFontDefaultWidth_02042648(int);
 extern "C" bool func_02044494(void*, void*);
 extern "C" int func_02044420(void*, void*);
-extern "C" int func_020425e4(int, int, int);
+extern "C" int GetFontKerning_020425e4(int, int, int);
 extern "C" FontGlyph_0204254c* FindFontGlyph_0204254c(int, int);
 extern "C" int FindFontGlyphIndex_020424e4(int, int);
 extern "C" int func_02067ad8(int, void*);
@@ -25,7 +25,7 @@ extern "C" int func_02067ad8(int, void*);
 // USA: func_0206b37c
 extern "C" ARM int func_0206b37c(Struct_0206b37c* arg0, char* arg1) {
     if (!arg1) return 0;
-    unsigned char var0 = func_02042648(arg0->unknown_19dc_);
+    unsigned char var0 = GetFontDefaultWidth_02042648(arg0->unknown_19dc_);
     int var1 = 0xff;
     unsigned char var2 = var1;
     int var3;
@@ -40,7 +40,7 @@ extern "C" ARM int func_0206b37c(Struct_0206b37c* arg0, char* arg1) {
             switch (var6) {
             case 0xff19:
                 var2 = 0xff;
-                var5 += func_020425e4(var2, var1, arg0->unknown_19dc_);
+                var5 += GetFontKerning_020425e4(var2, var1, arg0->unknown_19dc_);
                 break;
             case 0xff20:
                 var2 = 0xff;
@@ -60,7 +60,7 @@ extern "C" ARM int func_0206b37c(Struct_0206b37c* arg0, char* arg1) {
             FontGlyph_0204254c* var9 = FindFontGlyph_0204254c((int)arg1, arg0->unknown_19dc_);
             if (var9) {
                 var1 = (unsigned char)FindFontGlyphIndex_020424e4((int)arg1, arg0->unknown_19dc_);
-                var5 += func_020425e4(var2, var1, arg0->unknown_19dc_);
+                var5 += GetFontKerning_020425e4(var2, var1, arg0->unknown_19dc_);
                 var2 = var1;
                 var1 = 0xff;
                 var4 = var9->codeLength_5_0_;

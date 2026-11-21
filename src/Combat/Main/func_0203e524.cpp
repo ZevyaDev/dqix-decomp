@@ -9,7 +9,7 @@ struct NPCManager_0203dce4_2 {
 
 extern "C" struct NPC_0203dce4* GetNPCByIndex_0203dce4(struct NPCManager_0203dce4_2* npcManager, int index);
 
-extern "C" void* func_02040538(struct Struct_0203e0a0* arg0);
+extern "C" void* GetNPCPlacement_02040538(struct NPC_0203e0a0* npc);
 
 struct Struct_02028460_3 { int unknown_0_; int unknown_4_; int unknown_8_; };
 
@@ -53,7 +53,7 @@ extern "C" ARM int func_0203e524(struct NPCManager_0203dce4_2* arg0, struct Stru
         struct NPC_0203dce4* var3 = GetNPCByIndex_0203dce4(arg0, var2);
         if (var3 == 0) continue;
         if (var3->flags_0_ & 0x8000) continue;
-        void* var4 = func_02040538((struct Struct_0203e0a0*)var3);
+        void* var4 = GetNPCPlacement_02040538((struct NPC_0203e0a0*)var3);
         if (var4 == 0) continue;
         int var5 = Vector3fix_Distance(arg1, (struct Struct_02028460_3*)((char*)var4 + 0x10));
         if (var5 >= var0) continue;

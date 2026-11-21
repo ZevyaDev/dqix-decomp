@@ -102,7 +102,7 @@ void* GetBTRandom(void);
 struct Random;
 unsigned int NextRandomMax(Random*, int);
 struct MenuLayout_0207fdcc_2;
-extern "C" void func_02080c04(MenuLayout_0207fdcc_2*, int);
+extern "C" void HideMenuLayoutWindow_02080c04(MenuLayout_0207fdcc_2*, int);
 extern "C" void ShowMenuLayoutWindow_02080c20(MenuLayout_0207fdcc_2*, int);
 extern "C" int func_ov006_02158c70(Struct_ov006_0215cc70_3* arg0);
 extern "C" void func_ov006_02153cbc(void* arg0, int arg1, int arg2, void* arg3);
@@ -218,10 +218,10 @@ extern "C" ARM void func_ov006_0215cc70(Struct_ov006_0215cc70_3* arg0) {
                 }
                 func_ov006_0215a33c((Struct_ov006_0215a33c*)arg0, arg0->inline_ov006_0215cc70());
             } else {
-                func_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0x10);
-                func_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0x11);
-                func_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 1);
-                func_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
+                HideMenuLayoutWindow_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0x10);
+                HideMenuLayoutWindow_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0x11);
+                HideMenuLayoutWindow_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 1);
+                HideMenuLayoutWindow_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
                 arg0->unknown_10_->unknown_ae2_ |= 0x10;
                 arg0->unknown_432_ = 1;
                 arg0->unknown_42d_ = 0;
@@ -326,7 +326,7 @@ extern "C" ARM void func_ov006_0215cc70(Struct_ov006_0215cc70_3* arg0) {
     } else if (arg0->unknown_390_ == 0xd) {
         arg0->unknown_37e_ = 0x36;
         arg0->unknown_392_ = 0;
-        func_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
+        HideMenuLayoutWindow_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
         arg0->unknown_390_++;
     } else if (arg0->unknown_390_ == 0xe) {
         arg0->unknown_394_ |= 0x200;
@@ -364,10 +364,10 @@ extern "C" ARM void func_ov006_0215cc70(Struct_ov006_0215cc70_3* arg0) {
     } else if (arg0->unknown_390_ == 0x12) {
         arg0->unknown_42c_ = 0;
         if (func_ov006_02158c70(arg0)) {
-            func_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0x10);
-            func_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0x11);
-            func_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 1);
-            func_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
+            HideMenuLayoutWindow_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0x10);
+            HideMenuLayoutWindow_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0x11);
+            HideMenuLayoutWindow_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 1);
+            HideMenuLayoutWindow_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
             arg0->unknown_10_->unknown_ae2_ |= 0x10;
             arg0->unknown_432_ = 1;
             arg0->unknown_42d_ = 0;
@@ -472,7 +472,7 @@ extern "C" ARM void func_ov006_0215cc70(Struct_ov006_0215cc70_3* arg0) {
             arg0->unknown_42f_ = 1;
             QueueJingle_0209c830((MusicManager_02109bf4_2*)&gMusicManager_02109bf4, 0x3e);
             var0->unknown_ae2_ |= 0x400;
-            func_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
+            HideMenuLayoutWindow_02080c04((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 0);
             arg0->unknown_37e_ = 0xc;
             arg0->unknown_392_ = 0;
             arg0->unknown_390_++;

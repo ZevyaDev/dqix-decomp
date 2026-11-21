@@ -3,8 +3,8 @@
 
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void* GetBattleJoinTable_0207d78c(void);
-struct Struct_0207d7f4;
-extern "C" struct Struct_0207d7f4* func_0207d9bc(struct Struct_0207d7f4* arg0, unsigned short arg1);
+struct BattleJoinRecord_0207d7f4;
+extern "C" struct BattleJoinRecord_0207d7f4* FindBattleJoinRecord_0207d9bc(struct BattleJoinRecord_0207d7f4* arg0, unsigned short monsterId);
 
 extern unsigned char data_ov017_021d7654[4];
 
@@ -32,7 +32,7 @@ retry:
             }
         }
     }
-    if (func_0207d9bc((struct Struct_0207d7f4*)var1, *(unsigned short*)(data_ov017_021d7654 + 2)) != NULL) {
+    if (FindBattleJoinRecord_0207d9bc((struct BattleJoinRecord_0207d7f4*)var1, *(unsigned short*)(data_ov017_021d7654 + 2)) != NULL) {
         *(unsigned short*)(data_ov017_021d7654 + 2) = *(unsigned short*)(data_ov017_021d7654 + 2) + 1;
         goto retry;
     }

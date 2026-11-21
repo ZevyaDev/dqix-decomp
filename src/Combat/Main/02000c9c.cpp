@@ -45,7 +45,7 @@ extern "C" void func_0205e88c(Struct_02000c9c_17* arg0);
 extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
 extern "C" void func_020421c4(SafeAllocator* arg0);
 extern "C" void func_02071688();
-extern "C" char* func_02099cac();
+extern "C" char* GetCharacterPalettes_02099cac();
 extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
 extern "C" char GetGameMode_0200fb9c(char* gameState);
 extern "C" void SetTitleState_02012010(void* gameState, int state);
@@ -62,7 +62,7 @@ extern "C" void func_020115b4(Struct_02000c9c_13* arg0, unsigned char arg1);
 extern "C" void func_020115c0(Struct_02000c9c_14* arg0);
 extern "C" void func_020d6cb4();
 extern "C" void func_0205e8d4(void* arg0);
-extern "C" void func_0203a950(void* arg0);
+extern "C" void CloseSoundArchive_0203a950(void* manager);
 void InitializeActiveAlarmList();
 extern "C" void func_ov031_02211c50(int arg0);
 extern "C" int func_0200fb08(Struct_02000c9c_8* gameState);
@@ -73,7 +73,7 @@ extern "C" void func_020c98f0(int arg0);
 void SetInterruptHandler(unsigned int mask, const void* handler);
 void EnableSpecificInterrupts(unsigned int mask);
 void EnableIRQInterrupts();
-extern "C" void func_020c3864(int arg0);
+extern "C" void SetVBlankInterruptEnabled_020c3864(int isEnabled);
 extern "C" void MapVRAMBanksToMainBG(int banks);
 extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, int isBG03D);
 extern "C" void WaitForVBlank_020c9820();
@@ -255,7 +255,7 @@ extern "C" ARM void main() {
     var3.Reset();
     func_020421c4(&var3);
     func_02071688();
-    char* var4 = func_02099cac();
+    char* var4 = GetCharacterPalettes_02099cac();
     if (*(int*)0x027ffc20 != 0) {
         SetGameMode_0200fb94((char*)var0, 6);
         SetTitleState_02012010(var0, 0);
@@ -356,7 +356,7 @@ extern "C" ARM void main() {
                 break;
             case 8:
                 func_0205e8d4(gSoundEffectManager_02108760);
-                func_0203a950(gMusicManager_02109bf4);
+                CloseSoundArchive_0203a950(gMusicManager_02109bf4);
                 g_touchInput.Pause();
                 LoadOverlay_020a1940(&OVERLAY_27_ID);
                 LoadOverlay_020a1940(&OVERLAY_31_ID);
@@ -399,7 +399,7 @@ extern "C" ARM void main() {
                 EnableSpecificInterrupts(1);
                 func_020d6c9c();
                 EnableIRQInterrupts();
-                func_020c3864(1);
+                SetVBlankInterruptEnabled_020c3864(1);
                 MapVRAMBanksToMainBG(0x60);
                 SetMainDisplayAndBGMode_020c391c(1, 0, 0);
                 DISPCNT = (DISPCNT & ~0x1f00) | 0x100;

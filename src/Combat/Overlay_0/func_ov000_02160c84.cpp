@@ -48,7 +48,7 @@ struct Struct_ov000_02160c84 {
     char unknown_6ffc_[1];
 };
 
-extern "C" void func_ov023_021eb4b8(void* arg0);
+extern "C" void DrawAccoladeDisplay_ov023_021eb4b8(void* display);
 extern "C" void func_ov000_02175480(void* arg0);
 extern "C" void func_ov013_02184a58(void* arg0);
 extern "C" void func_ov023_021d8c60(struct Struct_ov023_021d8c60* arg0);
@@ -66,7 +66,7 @@ extern "C" void func_ov026_021dddcc(struct Struct_ov000_02160c84* arg0);
 extern "C" ARM void func_ov000_02160c84(struct Struct_ov000_02160c84* arg0) {
     if (arg0->unknown_55f4_ & 0x200) {
         if (arg0->unknown_55cc_) {
-            func_ov023_021eb4b8(arg0->unknown_55cc_);
+            DrawAccoladeDisplay_ov023_021eb4b8(arg0->unknown_55cc_);
         }
         if (arg0->unknown_5574_) {
             func_ov000_02175480(arg0->unknown_3760_);

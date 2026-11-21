@@ -35,7 +35,7 @@ extern "C" Struct_ov000_02161020_2* GetZone3D_02012fe4(void);
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" int func_02032fdc(GameObject* arg0, int arg1, int arg2);
 extern "C" void func_02057ab8(void* arg0, int arg1);
-extern "C" void func_0208f87c(const void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void DrawShadow_0208f87c(const void* position, int color, int scale, int alpha, int polygonId);
 extern "C" void func_020d76b8(Struct_020d76b8* arg0, int arg1);
 extern "C" void func_020d76d8(unsigned char* arg0, int arg1);
 
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov000_02161020(Struct_ov000_02161020* arg0) {
                 var12 = Nitro3D_GetModelMaterialPolygonID((Nitro3DModel*)(var13->rawInternalModel_), 0);
             }
             const Vector3fix& var14 = var7->obj3D_.MaybeGetShadowSource();
-            func_0208f87c(&var14, var5, ((Struct_ov000_02161020_3*)var7)->unknown_18e_, var11, var12);
+            DrawShadow_0208f87c(&var14, var5, ((Struct_ov000_02161020_3*)var7)->unknown_18e_, var11, var12);
             if (var4 != NULL) {
                 func_020d76b8(var4, var6 + 0xc0);
             }

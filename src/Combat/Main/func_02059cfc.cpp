@@ -13,7 +13,7 @@ extern "C" void SetObject3DPositionFromVector_02059f38(struct Struct_02059cfc_2*
 
 struct Struct_02059cfc_4;
 
-extern "C" void func_02059cc8(unsigned char* arg0);
+extern "C" void ResetEffectSlot_02059cc8(unsigned char* slot);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 
 struct Struct_02057334_2;
@@ -127,7 +127,7 @@ extern "C" ARM void func_02059cfc(unsigned char* arg0, int arg1, int arg2) {
         if (var0->unknown_19_ & 1) {
             if (((Object3D*)((struct Struct_02059cfc_4*)var0))->HasAnimationStopped()) {
                 ClearGameObjectByIndex_0200fd48(var1, arg2);
-                func_02059cc8(arg0);
+                ResetEffectSlot_02059cc8(arg0);
             }
         }
 
@@ -135,7 +135,7 @@ extern "C" ARM void func_02059cfc(unsigned char* arg0, int arg1, int arg2) {
             var0->unknown_b6_ -= arg1;
             if (var0->unknown_b6_ <= 0) {
                 ClearGameObjectByIndex_0200fd48(var1, arg2);
-                func_02059cc8(arg0);
+                ResetEffectSlot_02059cc8(arg0);
             }
         }
     } else {
@@ -144,7 +144,7 @@ extern "C" ARM void func_02059cfc(unsigned char* arg0, int arg1, int arg2) {
         }
         if (func_02057854(var0->unknown_4_) == 1) {
             ClearGameObjectByIndex_0200fd48(var1, arg2);
-            func_02059cc8(arg0);
+            ResetEffectSlot_02059cc8(arg0);
         } else {
             func_02055774((int*)arg0);
         }

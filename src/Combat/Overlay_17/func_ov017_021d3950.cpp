@@ -35,7 +35,7 @@ struct Struct_0208e7a4 {
 
 struct Struct_0208f3b4;
 
-extern "C" Struct_0208e7a4* func_0208e0a8(void);
+extern "C" Struct_0208e7a4* GetFieldItemSpots_0208e0a8(void);
 extern "C" Struct_ov017_021d3950* func_020120b8(char* arg0, int arg1);
 extern "C" Struct_ov017_021d3950_2* func_0208e7a4(Struct_0208e7a4* arg0, unsigned int arg1);
 extern "C" Struct_0208f3b4* func_0208e9e8(void);
@@ -44,7 +44,7 @@ extern "C" void func_0208f3b4(Struct_0208f3b4* arg0, int arg1);
 // USA: func_ov017_021d3950
 extern "C" ARM int func_ov017_021d3950(Struct_ov017_021d3950_3* arg0) {
     GameState* var0 = GameState::GetInstance();
-    Struct_0208e7a4* var1 = func_0208e0a8();
+    Struct_0208e7a4* var1 = GetFieldItemSpots_0208e0a8();
     Struct_ov017_021d3950* var2 = func_020120b8((char*)var0, arg0->unknown_3_);
     if (var2 != NULL && (arg0->unknown_2_ & var2->unknown_2_1_) != 0) {
         var2->unknown_2_1_ = ~arg0->unknown_2_ & var2->unknown_2_1_;

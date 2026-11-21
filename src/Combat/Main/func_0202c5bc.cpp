@@ -2,12 +2,12 @@
 
 struct LocalWireless_0202b2f0;
 struct Struct_0202bcf8;
-extern "C" signed char func_0202bcbc(struct LocalWireless_0202b2f0* arg0, int arg1);
+extern "C" signed char FindConsoleByProtagonistObjectIndex_0202bcbc(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" signed char func_0202bcf8(struct Struct_0202bcf8* arg0, int arg1);
 
 // USA: func_0202c5bc
 extern "C" ARM void func_0202c5bc(struct LocalWireless_0202b2f0* arg0, int arg1) {
-    int var0 = func_0202bcbc(arg0, arg1);
+    int var0 = FindConsoleByProtagonistObjectIndex_0202bcbc(arg0, arg1);
     if (var0 < 0) {
         var0 = func_0202bcf8((struct Struct_0202bcf8*)arg0, arg1);
         if (var0 < 0) return;

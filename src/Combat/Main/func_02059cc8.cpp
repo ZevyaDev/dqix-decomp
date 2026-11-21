@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-// USA: func_02059cc8
-extern "C" ARM void func_02059cc8(unsigned char* arg0) {
-    memset(arg0, 0, 0xd4);
-    *(short*)(arg0 + 0xb2) = -1;
-    *(short*)(arg0 + 0xb4) = -1;
-    arg0[0xcc] = (arg0[0xcc] | 4) & ~8;
+// USA: ResetEffectSlot_02059cc8
+extern "C" ARM void ResetEffectSlot_02059cc8(unsigned char* slot) {
+    memset(slot, 0, 0xd4);
+    *(short*)(slot + 0xb2) = -1;
+    *(short*)(slot + 0xb4) = -1;
+    slot[0xcc] = (slot[0xcc] | 4) & ~8;
 }

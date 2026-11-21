@@ -40,7 +40,7 @@ struct Struct_ov014_02184a64_3 {
     unsigned char unknown_94_;
 };
 extern "C" {
-void func_ov023_021e2bdc(void*, short, short*, short*);
+void GetLayoutGroupFirstElementPosition_ov023_021e2bdc(void*, short, short*, short*);
 extern const short data_ov014_0218948c[6];
 extern const short data_ov014_0218948e[6];
 extern const short data_ov014_02189478[3];
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov014_02184a64(Struct_ov014_02184a64_3* arg0) {
             short var4 = 0, var5 = 0;
             int var6 = var3 == 2 ? var2 : var1;
             if (var6) {
-                func_ov023_021e2bdc(arg0->unknown_58_, data_ov014_02189478[var3], &var4, &var5);
+                GetLayoutGroupFirstElementPosition_ov023_021e2bdc(arg0->unknown_58_, data_ov014_02189478[var3], &var4, &var5);
                 if (arg0->unknown_90_[var3]) {
                     var4 += data_ov014_0218948c[2*var3];
                     var5 += data_ov014_0218948e[2*var3];

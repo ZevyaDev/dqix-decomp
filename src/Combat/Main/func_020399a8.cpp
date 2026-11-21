@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 #include "Combat/ActorAction.h"
 
-// USA: func_020399a8
-extern "C" ARM Struct_02037d10* func_020399a8(void* arg0) {
+// USA: GetLadderAction_020399a8
+extern "C" ARM LadderAction_02037d10* GetLadderAction_020399a8(void* object) {
 #if defined(jpn)
-    return (Struct_02037d10*)((char*)arg0 + 0x260);
+    return (LadderAction_02037d10*)((char*)object + 0x260);
 #else
-    return (Struct_02037d10*)((char*)arg0 + 0x26c);
+    return (LadderAction_02037d10*)((char*)object + 0x26c);
 #endif
 }

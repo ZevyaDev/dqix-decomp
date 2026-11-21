@@ -13,14 +13,14 @@ struct Struct_ov002_0215a658 {
     unsigned int unknown_a_5_ : 11;
 };
 struct ItemTable_0201099c_10;
-struct Struct_02083994;
+struct PartyMemberData_02083994;
 struct Struct_0207cf30_4;
 
 extern "C" struct Struct_ov002_0215a658* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int func_02053c6c(unsigned char* gameObject);
-extern "C" int func_02083994(struct Struct_02083994* arg0, int arg1);
+extern "C" int GetHeldItemCount_02083994(struct PartyMemberData_02083994* memberData, int itemId);
 extern "C" int func_020a095c(struct Struct_0207cf30_4* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov002_0215b2c8(char* arg0);
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov002_0215a658(char* arg0, int arg1) {
                             *(short*)(var7 + var9++ * 2 + 0x454) = var11;
                         } else {
                             if (*(short*)(var1 + var0) == 0x570a) {
-                                if (func_02083994((struct Struct_02083994*)var7, 0x570a) == 1) {
+                                if (GetHeldItemCount_02083994((struct PartyMemberData_02083994*)var7, 0x570a) == 1) {
                                     *(char*)(*(char**)((char*)var6 + 0x130) + 8) = 0;
                                     func_ov017_021c9e00(var6->obj3D_.unknown_4_, 0, 0, 1);
                                 }
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov002_0215a658(char* arg0, int arg1) {
                             *(short*)(var19 + var21++ * 2 + 0x454) = var23;
                         } else {
                             if (*(short*)(var13 + var12) == 0x570a) {
-                                if (func_02083994((struct Struct_02083994*)var19, 0x570a) == 1) {
+                                if (GetHeldItemCount_02083994((struct PartyMemberData_02083994*)var19, 0x570a) == 1) {
                                     *(char*)(*(char**)((char*)var18 + 0x130) + 8) = 0;
                                     func_ov017_021c9e00(var18->obj3D_.unknown_4_, 0, 0, 1);
                                 }

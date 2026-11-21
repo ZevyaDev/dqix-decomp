@@ -2,7 +2,7 @@
 
 int DisableIRQInterrupts(void);
 void SetIRQInterruptState(int mask);
-extern "C" void func_ov031_0220da1c(int);
+extern "C" void SetAccessPointConnectionState_ov031_0220da1c(int);
 
 struct Struct_ov031_0220cf6c {
 	char unknown_0_[0x2260];
@@ -23,7 +23,7 @@ extern "C" ARM int func_ov031_0220cf6c(void) {
 
 	switch (var1->unknown_2260_) {
 		case 6:
-			func_ov031_0220da1c(7);
+			SetAccessPointConnectionState_ov031_0220da1c(7);
 			gAccessPointConnection_ov031_0224e53c->unknown_2280_ = 4;
 			goto epilogue3;
 		case 7:

@@ -1,22 +1,22 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct Struct_ov023_021fd850 { unsigned int unknown_0_[4]; };
-extern struct Struct_ov023_021fd850 data_ov023_021fd850;
+struct AccoladeDisplayBufferSizes_ov023_021fd850 { unsigned int sizes_0_[4]; };
+extern struct AccoladeDisplayBufferSizes_ov023_021fd850 data_ov023_021fd850;
 
-// USA: func_ov023_021eb080
-extern "C" ARM void func_ov023_021eb080(void* arg0, SafeAllocator* arg1) {
-    if (arg1 == NULL) return;
-    struct Struct_ov023_021fd850 var0 = data_ov023_021fd850;
-    *(void**)arg0 = arg1->Allocate(0x50);
-    for (int var1 = 0; var1 < 4; var1++) {
-        SafeAllocator* var2 = &((SafeAllocator*)(*(void**)arg0))[var1];
-        var2->ResetAllocatorPointer();
-        unsigned int var3 = var0.unknown_0_[var1];
-        void* var4 = arg1->Allocate(var3);
-        var2->CreateTypeA(var4, var3);
+// USA: AllocateAccoladeDisplayBuffers_ov023_021eb080
+extern "C" ARM void AllocateAccoladeDisplayBuffers_ov023_021eb080(void* display, SafeAllocator* allocator) {
+    if (allocator == NULL) return;
+    struct AccoladeDisplayBufferSizes_ov023_021fd850 bufferSizes = data_ov023_021fd850;
+    *(void**)display = allocator->Allocate(0x50);
+    for (int i = 0; i < 4; i++) {
+        SafeAllocator* bufferAllocator = &((SafeAllocator*)(*(void**)display))[i];
+        bufferAllocator->ResetAllocatorPointer();
+        unsigned int bufferSize = bufferSizes.sizes_0_[i];
+        void* buffer = allocator->Allocate(bufferSize);
+        bufferAllocator->CreateTypeA(buffer, bufferSize);
     }
-    *(void**)((char*)arg0 + 0x424) = arg1->Allocate(0x54);
-    *(void**)((char*)arg0 + 0x428) = arg1->Allocate(0xa0);
-    *(void**)((char*)arg0 + 0x42c) = arg1->Allocate(0x8);
+    *(void**)((char*)display + 0x424) = allocator->Allocate(0x54);
+    *(void**)((char*)display + 0x428) = allocator->Allocate(0xa0);
+    *(void**)((char*)display + 0x42c) = allocator->Allocate(0x8);
 }

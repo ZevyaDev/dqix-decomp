@@ -128,7 +128,7 @@ struct Struct_02052df8;
 extern "C" Struct_ov000_021554f4_2* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" int func_ov000_02155154(GameObject*);
 extern "C" int IsInParty_02086ef0(Party_02048150*, int);
-extern "C" void func_ov000_0215a8d4(unsigned char*, int);
+extern "C" void IncrementQuestBattleCounter_ov000_0215a8d4(unsigned char*, int);
 extern "C" float func_ov000_02155a04(char*);
 extern "C" Struct_ov000_021554f4_8* GetEquippedWeaponItemData_02054000(PartyMember_02054000*);
 extern "C" unsigned short GetEquippedItem_02052df8(Struct_02052df8*, int);
@@ -162,7 +162,7 @@ extern "C" ARM void func_ov000_021554f4(Struct_ov000_021554f4_6* arg0, int arg1,
         if (!(func_ov000_02155154((GameObject*)var2) && var2->unknown_181_) && var2->unknown_182_
             && IsInParty_02086ef0(var1, arg2)) {
             Struct_ov000_021554f4_2* var4 = (Struct_ov000_021554f4_2*)GameState::GetInstance()->GetCombatantByIndex(arg2);
-            if (var4 && var4->inline_ov000_021554f4_7()->unknown_58_.unknown_1_1_ == 2) func_ov000_0215a8d4((unsigned char*)arg0, 8);
+            if (var4 && var4->inline_ov000_021554f4_7()->unknown_58_.unknown_1_1_ == 2) IncrementQuestBattleCounter_ov000_0215a8d4((unsigned char*)arg0, 8);
         }
     }
     arg0->unknown_8e04_ = -1;

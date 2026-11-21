@@ -11,7 +11,7 @@
 #endif
 
 
-struct Struct_02010834;
+struct GameState_02010834;
 struct WirelessLockTable_0208ab34;
 struct WirelessLock_0208ab34_2;
 struct Struct_02048228;
@@ -22,7 +22,7 @@ extern "C" void* GetZone3D_02012fe4();
 extern "C" void* __clear(void*, int);
 extern "C" void RunDeferredTriggerActions_0206f81c(void*);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
-extern "C" void func_02010834(Struct_02010834*, int, int*, int*);
+extern "C" void func_02010834(GameState_02010834*, int, int*, int*);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" int RunTrigger_020649b0(void*, int, void*);
 extern "C" void* GetWirelessLockTable_020e2ff8();
@@ -100,7 +100,7 @@ extern "C" ARM void func_0208b0f8(void* arg0) {
     int var18[4];
     int var19;
     __clear(var18, sizeof(var18));
-    func_02010834((Struct_02010834*)var1, var12->unknown_4_, var18, &var19);
+    func_02010834((GameState_02010834*)var1, var12->unknown_4_, var18, &var19);
     if (IsQueueEmpty_02046b08(var8) && var12->unknown_b2_ != 0 && var0->unknown_a8_ != 0) {
         var0->unknown_a8_--;
         if (var0->unknown_a8_ == 0) {

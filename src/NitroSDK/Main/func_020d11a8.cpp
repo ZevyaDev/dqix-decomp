@@ -7,7 +7,7 @@
 
 void ResetDMAChannel(int id);
 extern "C" int func_020ce7a4(void);
-extern "C" void func_020c976c(unsigned int id);
+extern "C" void BusyWait_020c976c(unsigned int id);
 extern "C" void func_020d1294(int arg0, int arg1);
 extern "C" void func_020c9be0(void);
 
@@ -25,7 +25,7 @@ extern "C" ARM void func_020d11a8(void) {
         int var3 = func_020ce7a4();
         if (var3 == 4) {
             do {
-                func_020c976c(0xa3a47);
+                BusyWait_020c976c(0xa3a47);
                 var3 = func_020ce7a4();
             } while (var3 == 4);
         }

@@ -12,8 +12,8 @@
 
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int func_02010038(GameState* arg0, unsigned char* arg1);
-struct Struct_02053f7c_3;
-extern "C" void func_02053f7c(Struct_02053f7c_3*, unsigned short, int);
+struct PartyMember_02053f7c_3;
+extern "C" void SetPartyMemberBattleId_02053f7c(PartyMember_02053f7c_3*, unsigned short, int);
 extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void SendDayTimer_ov017_021cdaa0(void);
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
     for (var25 = 0; var25 < var24; var25++) {
         var1 = arg2->GetPartyMemberByIndex(var0[var25]);
         if (var1 != NULL) {
-            func_02053f7c((Struct_02053f7c_3*)var1, arg1->unknown_4_, 1);
+            SetPartyMemberBattleId_02053f7c((PartyMember_02053f7c_3*)var1, arg1->unknown_4_, 1);
         }
     }
 

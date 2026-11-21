@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-// USA: func_02088390
-extern "C" ARM void func_02088390(void* arg0) {
-    unsigned char* var0 = (unsigned char*)arg0;
-    *(int*)(var0 + 0x14) &= ~0x10;
-    var0[0x5d] = 0;
-    var0[0x80] = 0;
+// USA: ClearSleep_02088390
+extern "C" ARM void ClearSleep_02088390(void* stats) {
+    unsigned char* statsBytes = (unsigned char*)stats;
+    *(int*)(statsBytes + 0x14) &= ~0x10;
+    statsBytes[0x5d] = 0;
+    statsBytes[0x80] = 0;
 }

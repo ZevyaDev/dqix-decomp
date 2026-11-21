@@ -8,8 +8,8 @@ int IsSubBrightnessTransitionActive(GameResources*);
 struct BGControlSave_02074bf4;
 extern "C" void RestoreSubBGControl_02074bf4(struct BGControlSave_02074bf4*);
 
-struct Struct_0208ba54;
-extern "C" void func_0208ba54(struct Struct_0208ba54*);
+struct QuestDisplay_0208ba54;
+extern "C" void ReleaseQuestDisplay_0208ba54(struct QuestDisplay_0208ba54*);
 
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
@@ -54,6 +54,6 @@ extern "C" ARM void func_0208d340(struct Struct_0208d340* arg0) {
     *var1 = (*var1 & ~0x1f00) | (arg0->unknown_b8_ << 8);
     *(short*)((char*)var1 + 0x50) = 0;
     arg0->unknown_d5_ = arg0->unknown_d5_ + 1;
-    func_0208ba54((struct Struct_0208ba54*)arg0);
+    ReleaseQuestDisplay_0208ba54((struct QuestDisplay_0208ba54*)arg0);
     ClearFlags00((GameResources*)(GetResources_0200fb8c((int*)GameState::GetInstance())), 0x6000);
 }

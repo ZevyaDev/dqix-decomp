@@ -12,7 +12,7 @@ extern "C" int func_ov024_021e05e4(struct Struct_ov024_021e04e0* arg0);
 extern "C" int HasTension_ov024_021da998(struct Struct_ov024_021da670_6* combatant);
 extern "C" int HasSuperHighTension_ov024_021dd260(struct Struct_ov024_021dd028_5* combatant);
 extern "C" void func_020488cc(unsigned char* arg0, int arg1);
-extern "C" void func_02088e64(unsigned char* arg0);
+extern "C" void ClearRage_02088e64(unsigned char* stats);
 extern "C" void func_02087704(void* arg0);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void AppendTargetResult_ov000_0215ffc4(void* target, void* result, int listIndex);
@@ -42,7 +42,7 @@ extern "C" ARM unsigned long long func_ov024_021e3f14(struct Struct_ov024_021e3f
     int var2 = 0;
     if (func_ov024_021e05e4((struct Struct_ov024_021e04e0*)var0)) {
         if (!inline_ov024_021ddf5c(arg2)) func_020488cc((unsigned char*)var0, 1);
-        func_02088e64((unsigned char*)var0->currentStats_);
+        ClearRage_02088e64((unsigned char*)var0->currentStats_);
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var1, 0x164);
         var2 = 1;
     }

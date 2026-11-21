@@ -43,7 +43,7 @@ extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* curs
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 extern "C" int func_ov000_0217538c(void* arg0);
 extern "C" int func_ov000_021753d8(void* arg0, int arg1);
-extern "C" void func_ov000_0217ab8c(void* arg0, int arg1, int arg2);
+extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(void* panel, int arg1, int enemyTargetCount);
 extern "C" void func_ov000_02178938(void* arg0, void* arg1, int arg2, void* arg3);
 #if defined(jpn)
 extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov000_021787b8(Struct_ov000_021787b8_4* arg0, struct St
     int var1 = arg1->unknown_48_;
     int var2 = func_ov000_0217538c(arg0);
     int var3 = func_ov000_021753d8(arg0, arg1->unknown_1d_);
-    func_ov000_0217ab8c(arg1, arg2, arg3);
+    ConfigurePanelMenuCursors_ov000_0217ab8c(arg1, arg2, arg3);
     Struct_ov000_021787b8_2* var4 = &arg0->unknown_188_;
 #if defined(jpn)
     var4->unknown_a0_ = 1;

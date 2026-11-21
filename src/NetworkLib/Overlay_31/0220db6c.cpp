@@ -10,9 +10,9 @@ struct Struct_ov031_0220d330 {
 };
 
 extern Struct_ov031_0220d330* gAccessPointConnection_ov031_0224e53c;
-extern "C" int func_020d5004(int);
+extern "C" int ResetWirelessDriver_020d5004(int);
 extern "C" void func_ov031_0220e7b0(void);
-extern "C" void func_ov031_0220da1c(int);
+extern "C" void SetAccessPointConnectionState_ov031_0220da1c(int);
 extern "C" void func_ov031_0220d984(int, int, int, int);
 
 // USA: func_ov031_0220db6c
@@ -20,7 +20,7 @@ extern "C" ARM void func_ov031_0220db6c(void) {
     Struct_ov031_0220d330* var0 = gAccessPointConnection_ov031_0224e53c;
     if (var0->unknown_226b_ != 0) return;
     var0->unknown_226b_ = 1;
-    if (func_020d5004((int)func_ov031_0220e7b0) == 2) return;
-    func_ov031_0220da1c(11);
+    if (ResetWirelessDriver_020d5004((int)func_ov031_0220e7b0) == 2) return;
+    SetAccessPointConnectionState_ov031_0220da1c(11);
     func_ov031_0220d984(7, 0, 0, 0x610);
 }

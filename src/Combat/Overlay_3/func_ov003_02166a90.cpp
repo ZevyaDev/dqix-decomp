@@ -77,12 +77,12 @@ extern "C" void* func_020108f0(void*, int);
 extern "C" void* func_02010954(char*);
 extern "C" void func_02086380(unsigned char*);
 extern "C" void func_02082d6c(Struct_02082d6c*, Struct_02082d6c_2*);
-extern "C" void func_ov017_0218f064(GameResources*, int, int, int, int);
+extern "C" void CreatePartyMemberObject_ov017_0218f064(GameResources*, int, int, int, int);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" unsigned char* func_ov017_021a4658(unsigned char*, int);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
-extern "C" void func_020546a0(void*, int);
+extern "C" void SetLeaderObjectIndex_020546a0(void*, int);
 extern "C" int GetLeaderObjectIndex_020546a8(void*);
 extern "C" void func_020546b4(void*, int);
 typedef void (*Type_ov003_02166a90)(void*, int);
@@ -152,7 +152,7 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
         var7->unknown_568_ = arg0->unknown_4a2_;
         func_02086380((unsigned char*)var7);
         func_02082d6c((Struct_02082d6c*)var7, (Struct_02082d6c_2*)var0);
-        func_ov017_0218f064(var3, arg0->unknown_4a2_, 0x1000, 1, 0);
+        CreatePartyMemberObject_ov017_0218f064(var3, arg0->unknown_4a2_, 0x1000, 1, 0);
         GameObject* var8 = GetCompanionByIndex_0200ff58(var2, arg0->unknown_4a2_);
         if (var8 == 0) {
             return 0;
@@ -166,7 +166,7 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
             var9->unknown_b_ |= 8;
         }
         int var10 = GetProtagonistObjectIndex_020100a8(var2);
-        ((Type_ov003_02166a90)func_020546a0)(var8, var10);
+        ((Type_ov003_02166a90)SetLeaderObjectIndex_020546a0)(var8, var10);
         int var11 = 0;
         for (int var12 = 0; var12 < 4; var12++) {
             GameObject* var13 = GetCompanionByIndex_0200ff58(var2, var12);

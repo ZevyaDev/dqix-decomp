@@ -52,7 +52,7 @@ extern "C" Struct_ov000_0215767c_10* func_ov000_0215e9d8(void* arg0);
 extern "C" Struct_ov000_0215767c_8* func_ov000_0215e918(void* arg0);
 extern "C" Struct_ov000_0215767c_9* func_ov000_0215e938(void* arg0);
 extern "C" void InitBattleAction_ov000_02160030(void* action);
-extern "C" void func_ov000_02157cdc(void* arg0);
+extern "C" void InitActionTarget_ov000_02157cdc(void* target);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 
 extern "C" Struct_ov000_0215767c* FindActionData_02079e2c(char* actionTables, int actionId);
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov000_0215c758(Struct_ov000_0215767c_2* arg0, short* ar
         if (var5 == 0) {
             continue;
         }
-        func_ov000_02157cdc(var5);
+        InitActionTarget_ov000_02157cdc(var5);
         GameObject* var6 = inline_ov000_02153aa4(arg1[var4]);
         short var7 = arg5[var4];
         unsigned char var8 = arg3;

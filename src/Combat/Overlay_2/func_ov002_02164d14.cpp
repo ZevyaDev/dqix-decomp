@@ -21,7 +21,7 @@ extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205d
                                                                         unsigned char bgIndex);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" void SetTextWindowVisible_0205def8(struct TextWindowManager_0205def8 *windowManager, int isVisible, int windowId);
-extern "C" void func_020dc4d0(signed char *arg0, signed char *arg1);
+extern "C" void GetExistingPartyOrder_020dc4d0(signed char *outPartyOrder, signed char *outCount);
 extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *gameState, int index);
 extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11 *partyMember);
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
@@ -35,7 +35,7 @@ extern "C" void func_ov002_0215e1d0(char *arg0);
 extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(char *menu);
 extern "C" void func_020d79e0(char *arg0, int arg1);
 extern "C" void GetZone3D_02012fe4(void);
-extern "C" void func_02017c58(void);
+extern "C" void SaveBMDJEntryVisibility_02017c58(void);
 extern "C" char gSoundEffectManager_02108760[];
 extern "C" unsigned short data_ov002_0216cca4[];
 extern "C" unsigned short data_ov002_0216cc86[];
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
         signed char var4;
         Struct_ov002_02164d14 *var5 = (Struct_ov002_02164d14 *) (arg0 + OFF_LIST_02164d14) + 1;
         int var6         = 0;
-        func_020dc4d0(var3, &var4);
+        GetExistingPartyOrder_020dc4d0(var3, &var4);
         int var7 = var6;
         for (int var8 = 0; var8 < var4; var8++) {
             GameObject *var9 = GetPartyMemberBaseByIndex_0200ff1c(var1, var3[var8]);
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov002_02164d14(char *arg0) {
             *(int *) (arg0 + OFF_NEXT_02164d14) = K_2B_02164d14;
             *(int *) (arg0 + OFF_STATE_02164d14) = 0;
             GetZone3D_02012fe4();
-            func_02017c58();
+            SaveBMDJEntryVisibility_02017c58();
         } else if (IsCancelPressed_ov002_02161b48(arg0, 1)) {
             *(short *) (arg0 + OFF_SEL_02164d14) = -1;
             ReturnToPreviousMenuWindow_ov002_02156e90(arg0);

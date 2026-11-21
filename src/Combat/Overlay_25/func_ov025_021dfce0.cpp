@@ -19,8 +19,8 @@ struct Struct_ov023_021edc08 {
 #endif
     int unknown_55d8_;
 };
-struct Struct_02048c90;
-extern "C" void func_02048c90(Struct_02048c90*);
+struct Combatant_02048c90;
+extern "C" void ClearCombatantPath_02048c90(Combatant_02048c90*);
 extern "C" int func_02049468(unsigned char*);
 extern "C" int func_0204948c(unsigned char*);
 extern "C" int IsCombatantOnBattlefield_02049ee8(unsigned char*);
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov025_021dfce0(Struct_ov023_021edc08* arg0) {
     int var2 = func_ov025_021e1048(arg0->unknown_29c_, var1);
     for (int var3 = 0; var3 < var2; var3++) {
         GameObject* var4 = var1[var3].unknown_8_;
-        func_02048c90((Struct_02048c90*)var4);
+        ClearCombatantPath_02048c90((Combatant_02048c90*)var4);
         if (func_02049468((unsigned char*)var4) != 0xff) {
             GameObject* var5 = var0->GetCombatantByIndex(func_02049468((unsigned char*)var4));
             if (!var5) func_02049458((unsigned char*)var4, 0xff);

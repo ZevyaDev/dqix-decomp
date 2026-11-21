@@ -4,7 +4,7 @@
 struct Struct_02082828;
 extern "C" void func_02082d38(struct Struct_02082828* arg0, struct Struct_02082828* arg1);
 
-extern "C" void func_020891cc(void* arg0, void* arg1, int arg2);
+extern "C" void InitModifiableCombatStats_020891cc(void* stats, void* arg1, int arg2);
 
 struct Struct_02089630 {
     unsigned int unknown_0_0_ : 10;
@@ -15,7 +15,7 @@ struct Struct_02089630 {
 
 // USA: func_02089630
 extern "C" ARM void func_02089630(char* arg0, char* arg1, int arg2) {
-    func_020891cc(arg0, arg1, arg2);
+    InitModifiableCombatStats_020891cc(arg0, arg1, arg2);
     struct Random* var0 = GetBTRandom();
 
     if (arg2 != 0) {

@@ -13,8 +13,8 @@ struct Party_02053f7c {
 
 extern "C" int func_02053c6c(unsigned char* gameObject);
 
-struct Struct_02083994;
-extern "C" int func_02083994(struct Struct_02083994* arg0, int arg1);
+struct PartyMemberData_02083994;
+extern "C" int GetHeldItemCount_02083994(struct PartyMemberData_02083994* memberData, int itemId);
 
 struct Struct_0206f81c;
 struct Struct_0206f81c_8;
@@ -39,7 +39,7 @@ extern "C" ARM short CountOwnedItem_02086aec(struct Party_02053f7c* party, int i
         if (partyMemberBase != NULL) {
             memberData = (void*)func_02053c6c((unsigned char*)partyMemberBase);
             if (memberData != NULL) {
-                count = count + func_02083994((struct Struct_02083994*)memberData, itemId);
+                count = count + GetHeldItemCount_02083994((struct PartyMemberData_02083994*)memberData, itemId);
                 if (func_02083554((struct Struct_0206f81c*)memberData, itemId) != NULL) {
                     count = count + 1;
                 }

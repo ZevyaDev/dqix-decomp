@@ -34,7 +34,7 @@ extern "C" void SetActionResult_ov000_0215ccbc(void* battle, struct ActionResult
 
 static inline int inline_ov024_021dc540(GameObject* arg0) { SDK_NULL_ASSERT(arg0); return arg0->currentStats_->primaryStats.currHP; }
 
-extern "C" void func_ov000_0215fe84(void*,void*,int);
+extern "C" void AppendActorResult_ov000_0215fe84(void*,void*,int);
 extern "C" void func_ov024_021e8bf0(Struct_ov024_021de274_6*,void*,unsigned short*);
 static inline int inline_ov000_021537b8(int arg0){return arg0>=0 && arg0<=3;}
 // USA: func_ov024_021de274
@@ -81,7 +81,7 @@ extern "C" ARM ActionResult_ov000_021584e8* func_ov024_021de274(Struct_ov024_021
    if(!var12)return 0;
    AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var12,0x26c);
    SetActionResult_ov000_0215ccbc(arg0->unknown_10_,var12,var0,-arg4,var0->currentStats_->primaryStats.currHP,var11,var6,0);
-   func_ov000_0215fe84(arg0->unknown_8_,var12,0);
+   AppendActorResult_ov000_0215fe84(arg0->unknown_8_,var12,0);
    ++*((unsigned char*)arg0->unknown_10_+0x8e02);
   }
  }

@@ -10,7 +10,7 @@ struct Struct_020243b8;
 struct Struct_ov017_021973e8_2 { int unknown_0_[3]; };
 struct Struct_ov017_021973e8_3;
 extern "C" void _ZNK8Object3D20MaybeGetShadowSourceEv(struct Struct_ov017_021973e8_2* arg0, struct Struct_ov017_021973e8_3* arg1);
-extern "C" void func_0208f87c(const void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void DrawShadow_0208f87c(const void* position, int color, int scale, int alpha, int polygonId);
 
 #if defined(jpn)
 enum { Enum_ov017_021973e8_56 = 0x58, Enum_ov017_021973e8_60 = 0x5c };
@@ -48,6 +48,6 @@ extern "C" ARM void func_ov017_021973e8(unsigned int* arg0) {
         struct Struct_ov017_021973e8_2 var9;
         _ZNK8Object3D20MaybeGetShadowSourceEv(&var9, (struct Struct_ov017_021973e8_3*)var6);
         int var10 = ((Object3D*)((unsigned char*)var6))->GetRadius();
-        func_0208f87c(&var9, var2, var10, var8, 8);
+        DrawShadow_0208f87c(&var9, var2, var10, var8, 8);
     }
 }

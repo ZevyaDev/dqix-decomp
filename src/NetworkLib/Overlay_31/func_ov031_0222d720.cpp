@@ -23,7 +23,7 @@ extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int size, int alig
 extern "C" void GetWifiSetupPageArguments_ov031_02227520(int*, int*);
 extern "C" void func_ov031_0222d894(void);
 extern "C" void func_ov031_02223998(int);
-extern "C" void func_ov031_0222336c(int, int, int);
+extern "C" void ShowSubScreenMessage_ov031_0222336c(int, int, int);
 extern "C" void func_ov031_02223518(int);
 extern "C" int func_ov031_0223c560(int, int);
 extern "C" int func_ov031_0223be44(int, int);
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov031_0222d720(void) {
     }
     func_ov031_0222d894();
     func_ov031_02223998(var2 + 0xb);
-    func_ov031_0222336c(var1[var2], -1, 0);
+    ShowSubScreenMessage_ov031_0222336c(var1[var2], -1, 0);
     func_ov031_02223518(2);
     data_ov031_02290c98->unknown_0_ = func_ov031_0223c560(0, 0);
     data_ov031_02290c98->unknown_4_ = (Struct_ov031_0222d720*)func_ov031_0223be44(0, 0x3f);

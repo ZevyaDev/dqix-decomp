@@ -234,7 +234,7 @@ extern "C" ARM void UpdateMessageWindowGraphics_020439b0(char* window, int arg1)
             messageWindow->unknown_19ce_
 #endif
         ) != 0 && messageWindow->unknown_44_ == 0) {
-        func_0204394c((struct Struct_0204394c*)(messageWindow->unknown_1e28_));
+        func_0204394c((struct Struct_0204394c*)(messageWindow->pTextureArena_1e28_));
     }
     {
         int i;
@@ -245,8 +245,8 @@ extern "C" ARM void UpdateMessageWindowGraphics_020439b0(char* window, int arg1)
 
     if (arg1 != 0 && messageWindow->unknown_998_ == 0) return;
     {
-        void* var30 = messageWindow->unknown_1e28_;
-        if (var30 != 0) {
+        void* textureArena = messageWindow->pTextureArena_1e28_;
+        if (textureArena != 0) {
             Struct_0204166c* glyphEntry;
             int i;
             for (i = 0; i < 0x80; i++) {
@@ -262,9 +262,9 @@ extern "C" ARM void UpdateMessageWindowGraphics_020439b0(char* window, int arg1)
         ) != 0) {
                             glyphEntry->unknown_16_0_ = 0;
                         } else {
-                            ((TextureArena*)((char*)messageWindow->unknown_1e28_))->Restore();
+                            ((TextureArena*)((char*)messageWindow->pTextureArena_1e28_))->Restore();
                             func_02041754(glyphEntry);
-                            ((TextureArena*)((char*)messageWindow->unknown_1e28_))->Save();
+                            ((TextureArena*)((char*)messageWindow->pTextureArena_1e28_))->Save();
                         }
                         func_02042af4((int)window, messageWindow->unknown_2cc_, glyphEntry->unknown_8_);
                     }

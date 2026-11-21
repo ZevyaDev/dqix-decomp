@@ -71,7 +71,7 @@ extern "C" Struct_ov000_0217e558_4* FindActionData_02079e2c(char*, int);
 extern "C" void func_ov000_02175b54(Struct_ov000_0217e558*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void func_ov000_02176e3c(Struct_ov000_0217e558*, int, int, int, int, int);
-extern "C" int func_ov000_0217f8c0(Struct_ov000_021735d0_3*);
+extern "C" int GetSelectedMemberPanel_ov000_0217f8c0(Struct_ov000_021735d0_3*);
 extern "C" void func_ov000_02176634(Struct_ov000_0217e558*, int, int, int, int);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern int data_ov000_02184294[3];
@@ -144,6 +144,6 @@ extern "C" ARM void func_ov000_0217e558(Struct_ov000_0217e558* arg0, int arg1, i
     if (arg0->unknown_1d60_[arg0->unknown_1d68_] != 25) return;
     func_ov000_02176e3c(arg0, 0, 23, G02184294(1), G02184294(0), 1);
     arg0->unknown_1c_ = 0;
-    int var17 = func_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0);
+    int var17 = GetSelectedMemberPanel_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0);
     func_ov000_02176634(arg0, var17, 25, arg1, arg2);
 }

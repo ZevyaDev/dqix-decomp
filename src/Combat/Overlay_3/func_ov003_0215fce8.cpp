@@ -70,7 +70,7 @@ extern "C" void func_ov003_02160ec4(void *arg0);
 extern "C" void func_ov003_02160f4c(void *arg0);
 extern "C" void func_ov003_02160794(void *arg0);
 extern "C" int UpdateKeyRepeat_02081f20(void *keyRepeat, int elapsedFrames);
-extern "C" int func_020800fc(void *arg0, short *arg1, short arg2, unsigned short arg3, unsigned char arg4, bool arg5);
+extern "C" int UpdateMenuLayoutCursor_020800fc(void *menuLayout, short *cursorTextId, short currentTextId, unsigned short key, unsigned char keyEvent, bool hasPages);
 extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void *menuLayout, int windowId);
 extern "C" void OpenMenuLayoutWindow_020813ec(void *menuLayout, int windowId);
 
@@ -163,7 +163,7 @@ extern "C" ARM int func_ov003_0215fce8(unsigned char *arg0, int arg1) {
         UpdateKeyRepeat_02081f20((char *) arg0 + SO(0x308), arg1);
         *(short *) (arg0 + SO(0x474)) = **(short **) (arg0 + SO(0x470));
         *(int *) (arg0 + SO(0x45c)) =
-            func_020800fc(var10, *(short **) (arg0 + SO(0x470)), *(short *) (arg0 + SO(0x474)),
+            UpdateMenuLayoutCursor_020800fc(var10, *(short **) (arg0 + SO(0x470)), *(short *) (arg0 + SO(0x474)),
                           *(unsigned short *) (arg0 + SO(0x314)), arg0[SO(0x316)], (*(unsigned int *) (arg0 + SO(0x464)) & 1) != 0);
         *(short *) (var10 + RG(0x36, 0x2a)) = **(short **) (arg0 + SO(0x470));
         if (*(int *) (arg0 + SO(0x45c)) != 0) {

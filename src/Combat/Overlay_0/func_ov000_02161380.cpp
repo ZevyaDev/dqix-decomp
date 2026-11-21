@@ -27,14 +27,14 @@ extern "C" Struct_02048850_2* FindMonsterData_0206f4f0(Struct_0206f01c_2* monste
 extern "C" int IsDead_02010088(Struct_02010088* object);
 extern "C" int func_ov000_02161bb8(unsigned char* arg0);
 extern "C" void func_02048934(void* arg0, Struct_02048934* arg1, Random* arg2);
-extern "C" void func_020891cc(void* arg0);
+extern "C" void InitModifiableCombatStats_020891cc(void* stats);
 extern "C" void func_02089630(void* arg0, void* arg1, int arg2);
 extern "C" void func_ov000_02161bec(unsigned char* arg0);
 extern "C" void func_02048614(unsigned char* arg0);
 extern "C" void SetCombatantBattleState_02049c88(void* combatant, void* battleState);
 extern "C" void func_02048850(Struct_02048850* arg0, Struct_02048850_2* arg1);
 extern "C" void func_020488ec(char* arg0);
-extern "C" void func_02049f3c(unsigned char* arg0);
+extern "C" void SetCombatantOffBattlefield_02049f3c(unsigned char* combatant);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState* gameState, int index, GameObject* object);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
@@ -277,7 +277,7 @@ extern "C" ARM int func_ov000_02161380(Struct_ov000_02161380_10* arg0, int arg1,
             var9 = var13->unknown_188_;
             unsigned short var34 = var13->unknown_18a_;
             var10 = var13->unknown_138_;
-            func_020891cc(var10);
+            InitModifiableCombatStats_020891cc(var10);
             func_02089630(var10, var12 + 0x2c, 0);
             var13->unknown_138_->unknown_0_ = var9;
             var13->unknown_138_->unknown_4_ = var9;
@@ -298,7 +298,7 @@ extern "C" ARM int func_ov000_02161380(Struct_ov000_02161380_10* arg0, int arg1,
         int var35 = var4 - 0xc0;
         var7 = &arg0->unknown_2a0_->unknown_158_[var35];
         var15 = &arg0->unknown_5e24_[var35];
-        func_020891cc(var7);
+        InitModifiableCombatStats_020891cc(var7);
         if (var15) {
             func_02048614((unsigned char*)var15);
             SetCombatantBattleState_02049c88(var15, &arg0->unknown_6aa4_[var35]);
@@ -327,7 +327,7 @@ extern "C" ARM int func_ov000_02161380(Struct_ov000_02161380_10* arg0, int arg1,
             var15->unknown_18d_ = var39;
             var15->unknown_184_ = 1;
             var15->unknown_0_.MakeHidden();
-            func_02049f3c((unsigned char*)var15);
+            SetCombatantOffBattlefield_02049f3c((unsigned char*)var15);
             var16->unknown_4c_[var23].unknown_4_ |= 1 << var15->unknown_18d_;
             func_ov000_02161bec(var38);
             SetGameObjectByIndex_0200fd38(var1, var4, (GameObject*)var15);

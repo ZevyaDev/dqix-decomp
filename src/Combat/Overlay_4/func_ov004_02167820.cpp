@@ -8,7 +8,7 @@
 
 extern "C" void InitMenuObjectBase_ov023_021f6ed8(void* object);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
-extern "C" void func_0208b9a0(void*, int);
+extern "C" void ResetQuestDisplay_0208b9a0(void*, int);
 
 struct Struct_0208b8c4;
 extern "C" void func_0208b8c4(struct Struct_0208b8c4* arg0, SafeAllocator* arg1);
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov004_02167820(Struct_ov004_02167820* arg0, void* arg1, 
     void* var1 = ((SafeAllocator*)((char*)var0 + 4))->Allocate(0x2800);
     arg0->unknown_20_.CreateTypeA(var1, 0x2800);
 
-    func_0208b9a0((char*)arg0 + 0x34, 1);
+    ResetQuestDisplay_0208b9a0((char*)arg0 + 0x34, 1);
     func_0208b8c4((struct Struct_0208b8c4*)((char*)arg0 + 0x34), &arg0->unknown_20_);
 
     arg0->unknown_106_ = 0x270f;

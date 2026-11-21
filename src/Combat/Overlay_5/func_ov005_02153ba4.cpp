@@ -19,7 +19,7 @@ struct ZoneFeatures_0201e830;
 struct StringTable_0201099c_14;
 struct BGLayer_02020cb8;
 struct TextWindowManager_0205cfd4;
-struct Struct_ov002_0215505c_2;
+struct ItemSortList_ov002_0215505c_2;
 struct KeyMenuCursor_0205bef8;
 struct Struct_02052df8;
 
@@ -160,13 +160,13 @@ extern "C" void func_ov023_021e20c0(void* arg0);
 extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" void InitItemInfoPanel_ov023_021dc134(void* panel, int itemId, int isEmbedded);
-extern "C" void func_ov023_021e1318(Struct_ov002_0215505c_2* arg0);
+extern "C" void ClearItemSortList_ov023_021e1318(ItemSortList_ov002_0215505c_2* sortList);
 extern "C" void func_ov023_021dad78(void* arg0);
 extern "C" void func_ov005_021536e0(void* arg0);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" unsigned char func_ov005_0215a948(void* arg0, int arg1);
 extern "C" unsigned char func_ov005_0215a918(void* arg0, int arg1);
-extern "C" short func_0207c620(unsigned char* arg0, unsigned int arg1);
+extern "C" short GetEquipmentBagCapacity_0207c620(unsigned char* bag, unsigned int category);
 extern "C" void InitKeyMenuCursor_0205bef8(KeyMenuCursor_0205bef8* cursor);
 extern "C" Struct_ov005_02153ba4_2* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
 extern "C" int CountUsedEquipmentBagSlots_0207c638(void* bag, unsigned int category);
@@ -208,7 +208,7 @@ extern "C" ARM void func_ov005_02153ba4(Struct_ov005_02153954* arg0) {
         InitTextWindow_0204c684(arg0->unknown_fa0_[var2]);
     arg0->unknown_1240_ = NULL;
     InitItemInfoPanel_ov023_021dc134(arg0->unknown_1244_, -1, 0);
-    func_ov023_021e1318((Struct_ov002_0215505c_2*)arg0->unknown_19e0_);
+    ClearItemSortList_ov023_021e1318((ItemSortList_ov002_0215505c_2*)arg0->unknown_19e0_);
     func_ov023_021dad78(arg0->unknown_19ec_);
     func_ov005_021536e0(arg0->unknown_1a34_);
     for (int var3 = 0; var3 < 36; var3++)
@@ -238,7 +238,7 @@ extern "C" ARM void func_ov005_02153ba4(Struct_ov005_02153954* arg0) {
     GameState* var6 = GameState::GetInstance();
     char* var7 = (char*)GetParty_02010828(var6);
     for (int var8 = 0; var8 < 8; var8++)
-        arg0->unknown_3d98_[var8] = func_0207c620((unsigned char*)(var7 + 0x1d4), func_ov005_0215a948(arg0, var8));
+        arg0->unknown_3d98_[var8] = GetEquipmentBagCapacity_0207c620((unsigned char*)(var7 + 0x1d4), func_ov005_0215a948(arg0, var8));
     arg0->unknown_3da8_ = 0;
     arg0->unknown_3da9_ = 0;
     arg0->unknown_3daa_ = 0;
@@ -317,7 +317,7 @@ extern "C" ARM void func_ov005_02153ba4(Struct_ov005_02153954* arg0) {
         else
             arg0->unknown_3df4_[var15] = 1;
         short* var23 = GetEquipmentBagItemIds_0207c5f8((unsigned char*)(var7 + 0x1d4), var16);
-        short var24 = func_0207c620((unsigned char*)(var7 + 0x1d4), var16);
+        short var24 = GetEquipmentBagCapacity_0207c620((unsigned char*)(var7 + 0x1d4), var16);
         int var25 = 0;
         for (int var26 = 0; var26 < var24; var26++) {
             if (var23[var26] > 0 && var25 < var26)

@@ -337,7 +337,7 @@ extern "C" void func_ov017_021c4854(Zone3D* arg0, int arg1, int arg2, int* arg3,
 extern "C" int func_02039790(void* arg0, int arg1);
 extern "C" void func_ov017_021bd4d0(void* arg0, unsigned char arg1, int arg2, int arg3);
 extern "C" void func_ov017_021ce400(unsigned char arg0, int arg1);
-extern "C" void* func_0208e0a8(void);
+extern "C" void* GetFieldItemSpots_0208e0a8(void);
 extern "C" void func_0208e520(void* arg0, void* arg1);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" char* strcpy(char* arg0, const char* arg1);
@@ -397,7 +397,7 @@ struct Struct_0204a170;
 extern "C" int func_020a3570(Struct_0204a170*);
 extern "C" void func_0202ec5c(char*, int*);
 extern "C" void func_ov017_021982ac(void* arg0);
-extern "C" void func_020a2718(char*);
+extern "C" void ResetFollowCameraAngle_020a2718(char*);
 extern "C" void RestartMapDisplay_020dc2d0(int modeOverride);
 struct Struct_020a2cbc;
 extern "C" void func_020a2cbc(Struct_020a2cbc*, int);
@@ -445,7 +445,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 	struct Struct_ov017_0219e384_9 var18;
 
 	if (arg0->unknown_8_ == 0) {
-		Struct_02037d10* var19 = func_020399a8(var3);
+		LadderAction_02037d10* var19 = GetLadderAction_020399a8(var3);
 		if (IsOnLadder_02039d7c((char*)var3) != 0 && var19->unknown_1_ != 2 && var4->unknown_6c_ != 9999) {
 			if (var4->unknown_67_ != 0) {
 				*(Vector3i*)var4->unknown_10_ = *(Vector3i const*)var3->unknown_44_;
@@ -712,7 +712,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 		return;
 	}
 	if (arg0->unknown_8_ == 5) {
-		func_0208e520(func_0208e0a8(), var6->pUnknownStruct_8_->mapShortName_);
+		func_0208e520(GetFieldItemSpots_0208e0a8(), var6->pUnknownStruct_8_->mapShortName_);
 		((SafeAllocator*)(var1 + 0x18c))->Reset();
 		((LootableContainerManager*)var14)->Reset();
 		data_ov017_021d75b8.unknown_4_ = var5->QueueLoadFile(data_ov017_021d75fc, 0);
@@ -958,10 +958,10 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 				func_0202ec5c((char*)var63, (int*)&var18.unknown_54_);
 			}
 			func_ov017_021982ac(var1);
-			func_020a2718((char*)var63);
+			ResetFollowCameraAngle_020a2718((char*)var63);
 		}
 		if ((var4->unknown_6e_ & 0x40) != 0) {
-			func_020a2718((char*)var63);
+			ResetFollowCameraAngle_020a2718((char*)var63);
 		}
 		if ((var4->unknown_6e_ & 1) == 0) {
 			ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var15, 1);

@@ -27,7 +27,7 @@ extern void* data_ov031_02290ca8;
 extern "C" int IsBrightnessFadeActive_ov031_0223c054(int);
 extern "C" ARM int func_ov031_0223e2e0(int, void*);
 extern "C" int func_ov031_0223da58(void* arg0);
-extern "C" void func_ov031_022238cc(void);
+extern "C" void FreeCursorSprites_ov031_022238cc(void);
 extern "C" void* CloseScreenTextLayer_ov031_0223c7c4(int isSubScreen);
 extern "C" int CloseSubScreenMessage_ov031_02223440(void);
 extern "C" void func_ov031_02234f08(void);
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov031_0222f6f8(void) {
 
     func_ov031_02235194();
     CloseScreenTextLayer_ov031_0223c7c4(0);
-    func_ov031_022238cc();
+    FreeCursorSprites_ov031_022238cc();
 
     if (gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_40_ != 0xc) CloseSubScreenMessage_ov031_02223440();
 

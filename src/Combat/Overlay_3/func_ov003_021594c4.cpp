@@ -58,7 +58,7 @@ extern "C" void func_ov003_02159250(void* arg0, void* arg1);
 extern "C" void func_ov003_02159464(void* arg0);
 extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
 extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78* windowManager, TextWindow_0205cf78_2* textWindows, unsigned char textWindowCapacity);
-extern "C" int func_020d3018(const char* arg0, const char* arg1);
+extern "C" int CompareStrings_020d3018(const char* left, const char* right);
 extern "C" void func_ov003_0215917c(Struct_ov003_0215917c* arg0, int arg1);
 extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* outOwnPartyOrder);
 
@@ -264,7 +264,7 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
         unsigned char var31 = 0x3f;
         for (int var32 = 0; var32 < 6; var32++) {
             const char* var33 = ((StringList*)((Struct_0201099c_3*)arg0->unknown_64_))->GetString((short)var32);
-            if (func_020d3018(data_ov003_0217fe7e, var33) == 0) {
+            if (CompareStrings_020d3018(data_ov003_0217fe7e, var33) == 0) {
                 var31 &= ~(1 << var32);
             }
         }
@@ -426,7 +426,7 @@ extern "C" ARM void func_ov003_021594c4(Struct_ov003_021594c4_2* arg0) {
         unsigned char var66 = 0x3f;
         for (int var67 = 0; var67 < 6; var67++) {
             const char* var68 = ((StringList*)((Struct_0201099c_3*)arg0->unknown_64_))->GetString((short)var67);
-            if (func_020d3018(data_ov003_0217fe7e, var68) == 0) {
+            if (CompareStrings_020d3018(data_ov003_0217fe7e, var68) == 0) {
                 var66 &= ~(1 << var67);
             }
         }

@@ -30,9 +30,9 @@ int NextRandomMax(struct Random* random, int max);
 extern "C" int func_ov000_02156038(GameObject* arg0);
 extern "C" void func_020882dc(void* arg0);
 extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
-extern "C" void func_02088390(void* arg0);
+extern "C" void ClearSleep_02088390(void* stats);
 extern "C" int func_ov000_021543f4(GameObject* arg0);
-extern "C" void func_020883fc(void* arg0);
+extern "C" void ClearConfusion_020883fc(void* stats);
 
 // USA: func_ov000_0215833c
 extern "C" ARM int func_ov000_0215833c(struct Random* arg0, int arg1, Struct_ov000_0215767c_10* arg2) {
@@ -67,7 +67,7 @@ extern "C" ARM int func_ov000_0215833c(struct Random* arg0, int arg1, Struct_ov0
             var0[1] = var5;
             if (var6 > var2) {
                 var0[1] = 0;
-                func_02088390(var1->currentStats_);
+                ClearSleep_02088390(var1->currentStats_);
                 arg2->unknown_0_ = 0x385;
                 arg2->unknown_9_ = 0;
                 return 1;
@@ -79,7 +79,7 @@ extern "C" ARM int func_ov000_0215833c(struct Random* arg0, int arg1, Struct_ov0
         var0[2] = var7;
         if (var8 > var2) {
             var0[2] = 0;
-            func_020883fc(var1->currentStats_);
+            ClearConfusion_020883fc(var1->currentStats_);
             arg2->unknown_0_ = 0x3aa;
             arg2->unknown_9_ = 0;
             return 1;

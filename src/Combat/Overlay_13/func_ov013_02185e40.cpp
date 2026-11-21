@@ -55,7 +55,7 @@ struct Struct_ov013_021846a0_2 {
 struct Struct_0201099c_3;
 extern "C" ARM int func_02041a5c(char* arg0, int arg1);
 extern "C" ARM int AppendXPositionTag_02041a28(char* buffer, int x);
-extern "C" ARM int func_02041acc(char* arg0, int arg1);
+extern "C" ARM int AppendXOffsetTag_02041acc(char* buffer, int xOffset);
 extern "C" ARM int AppendTextColorTag_02041e70(char* buffer, int colorIndex);
 extern "C" ARM int AppendText_02042058(char* buffer, const char* text);
 extern "C" ARM int func_02041fac(char* arg0, int arg1, int arg2);
@@ -112,10 +112,10 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
 
         func_02041a5c(var10, 4);
         AppendText_02042058(var10, arg0->unknown_6a4_);
-        func_02041acc(var10, 0x10);
+        AppendXOffsetTag_02041acc(var10, 0x10);
         AppendTextColorTag_02041e70(var10, var14);
         AppendText_02042058(var10, (const char*)var13);
-        func_02041acc(var10, 4);
+        AppendXOffsetTag_02041acc(var10, 4);
         AppendTextColorTag_02041e70(var10, 0xf);
         int var15 = ((int)GetGameString((eGameString)(0x3f3)));
         AppendText_02042058(var10, (const char*)var15);
@@ -127,7 +127,7 @@ extern "C" ARM void func_ov013_02185e40(Struct_ov013_021846a0_2* arg0, char* arg
     } else {
         func_02041a5c(var10, 4);
         AppendText_02042058(var10, arg0->unknown_6a4_);
-        func_02041acc(var10, 0x12);
+        AppendXOffsetTag_02041acc(var10, 0x12);
         int var17 = ((int)GetGameString((eGameString)(0x3f3)));
         AppendText_02042058(var10, (const char*)var17);
 

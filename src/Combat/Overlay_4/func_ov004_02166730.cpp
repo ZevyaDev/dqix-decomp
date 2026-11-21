@@ -16,8 +16,8 @@ struct Struct_ov004_021549e4_5;
 extern "C" void func_ov023_021f9bdc(struct Struct_ov004_021549e4_5* arg0, int arg1);
 extern "C" int func_ov023_021f98e0(void* arg0, void* arg1);
 
-struct Struct_ov004_021549e4_2;
-extern "C" unsigned int func_ov023_021f9bb0(struct Struct_ov004_021549e4_2* arg0);
+struct MenuGrid_ov004_021549e4_2;
+extern "C" unsigned int GetMenuGridCursorRow_ov023_021f9bb0(struct MenuGrid_ov004_021549e4_2* grid);
 struct Struct_ov004_021549e4_4;
 extern "C" unsigned short func_ov023_021f9bc0(struct Struct_ov004_021549e4_4* arg0);
 struct Struct_ov004_021549e4_3;
@@ -54,7 +54,7 @@ extern "C" ARM int func_ov004_02166730(void* arg0, short arg1) {
         func_ov023_021f98e0(var4, arg0);
     }
 
-    unsigned int var6 = func_ov023_021f9bb0((struct Struct_ov004_021549e4_2*)var4);
+    unsigned int var6 = GetMenuGridCursorRow_ov023_021f9bb0((struct MenuGrid_ov004_021549e4_2*)var4);
     unsigned short var7 = func_ov023_021f9bc0((struct Struct_ov004_021549e4_4*)var4);
     unsigned int var8 = func_ov023_021f9b6c((struct Struct_ov004_021549e4_3*)var4, var6, var7);
 

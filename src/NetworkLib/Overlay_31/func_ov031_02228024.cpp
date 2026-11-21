@@ -2,7 +2,7 @@
 
 extern "C" void func_ov031_022280a0(void);
 extern "C" void func_ov031_02223998(int arg0);
-extern "C" void func_ov031_0222336c(int, int, int);
+extern "C" void ShowSubScreenMessage_ov031_0222336c(int, int, int);
 extern "C" void *func_ov031_022373b4(int);
 extern "C" void func_ov031_022237dc(unsigned short, unsigned short, unsigned short, unsigned short);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int handler);
@@ -17,7 +17,7 @@ extern "C" void func_ov031_0222818c(void);
 extern "C" ARM void func_ov031_02228024(void) {
     func_ov031_022280a0();
     func_ov031_02223998(0);
-    func_ov031_0222336c(0x2e, -1, 0);
+    ShowSubScreenMessage_ov031_0222336c(0x2e, -1, 0);
     func_ov031_022373b4(4);
 
     int var0 = data_ov031_02290c50 * 8;

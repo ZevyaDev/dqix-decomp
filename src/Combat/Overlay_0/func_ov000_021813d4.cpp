@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
-extern "C" void func_ov000_02174b14(void* arg0);
+extern "C" void PositionPartyMemberPanels_ov000_02174b14(void* battleUI);
 
 // USA: func_ov000_021813d4
 extern "C" ARM void func_ov000_021813d4(void* arg0) {
@@ -14,7 +14,7 @@ extern "C" ARM void func_ov000_021813d4(void* arg0) {
             unsigned char var3 = *(unsigned char*)((char*)var1 + 0x24);
             var3 &= ~0x4;
             *(unsigned char*)((char*)var1 + 0x24) = var3;
-            func_ov000_02174b14(arg0);
+            PositionPartyMemberPanels_ov000_02174b14(arg0);
         }
     }
 }

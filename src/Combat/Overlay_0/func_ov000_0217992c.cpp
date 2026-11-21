@@ -10,7 +10,7 @@
 
 #include "std_library_functions.h"
 
-extern "C" void func_ov000_0217ab8c(void* arg0, int arg1, int arg2);
+extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(void* panel, int arg1, int enemyTargetCount);
 extern "C" void func_ov000_02179a70(void* arg0, void* arg1, int arg2, void* arg3);
 extern "C" int GetMessageWindow_020421a0(void);
 #if defined(jpn)
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov000_0217992c(char* arg0, void* arg1, int arg2, int ar
 
     int var0 = *(int*)((char*)arg1 + 0x44);
     int var1 = *(int*)((char*)arg1 + 0x48);
-    func_ov000_0217ab8c(arg1, arg2, arg3);
+    ConfigurePanelMenuCursors_ov000_0217ab8c(arg1, arg2, arg3);
 
     signed char var2 = *(signed char*)(arg0 + 0x78);
     char* var3 = arg0 + 0x188;

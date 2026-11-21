@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void func_0203aa80(void* arg0, int arg1);
-extern "C" void func_0205e944(void*, int);
+extern "C" void SetSoundEffectVolume_0205e944(void*, int);
 extern "C" void UpdateSound_020bbd9c(void);
 
 struct SoundEffectManager_0205e8ec {
@@ -21,6 +21,6 @@ extern "C" ARM void ResetSoundEffects_0205e8ec(struct SoundEffectManager_0205e8e
         manager->unknown_bc_ = -1;
         manager->extraSoundSet_c4_ = -1;
     }
-    func_0205e944(manager, 0x7f);
+    SetSoundEffectVolume_0205e944(manager, 0x7f);
     UpdateSound_020bbd9c();
 }

@@ -3,12 +3,12 @@
 
 extern "C" int func_ov017_021c9d2c(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
 
-// USA: func_ov000_0217616c
-extern "C" ARM void func_ov000_0217616c(char* arg0) {
-    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), *(int*)(arg0 + 0x4c));
-    if (var0 == 0) {
+// USA: SendPartyMemberPanelStats_ov000_0217616c
+extern "C" ARM void SendPartyMemberPanelStats_ov000_0217616c(char* panel) {
+    GameObject* member = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), *(int*)(panel + 0x4c));
+    if (member == 0) {
         return;
     }
-    func_ov017_021c9d2c(*(int*)(arg0 + 0x4c), *(short*)(arg0 + 0xc), *(short*)(arg0 + 0x8), *(short*)(arg0 + 0xe),
-                         *(short*)(arg0 + 0xa), *(int*)(arg0 + 0x28), 0, 0, 0);
+    func_ov017_021c9d2c(*(int*)(panel + 0x4c), *(short*)(panel + 0xc), *(short*)(panel + 0x8), *(short*)(panel + 0xe),
+                         *(short*)(panel + 0xa), *(int*)(panel + 0x28), 0, 0, 0);
 }

@@ -20,7 +20,7 @@ struct Struct_ov000_021735d0_3 {
     char unknown_1b_[5];
     int unknown_20_;
     char unknown_24_[0x158];
-    int unknown_17c_;
+    int selectedMemberIndex_17c_;
     char unknown_180_[8];
     TextWindowManager_0205d6a0 unknown_188_;
 #if defined(jpn)
@@ -42,7 +42,7 @@ extern "C" void func_ov000_021757ac(Struct_ov000_021735d0_3*, unsigned short);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" Struct_ov000_02175808* FindPartyMemberPanel_ov000_02161318(Struct_ov000_021735d0_3*, int);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
-extern "C" int func_ov000_0217f8c0(Struct_ov000_021735d0_3*);
+extern "C" int GetSelectedMemberPanel_ov000_0217f8c0(Struct_ov000_021735d0_3*);
 extern "C" void func_ov000_02176634(Struct_ov000_021735d0_3*, int, int, int, int);
 extern unsigned short data_ov000_0218342a[];
 extern int data_ov000_02184288[3];
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov000_02175808(Struct_ov000_021735d0_3* arg0) {
     }
     if (!var1) return;
     GameState* var7 = GameState::GetInstance();
-    arg0->unknown_17c_ = GetProtagonistObjectIndex_020100a8(var7);
+    arg0->selectedMemberIndex_17c_ = GetProtagonistObjectIndex_020100a8(var7);
     func_ov000_021757ac(arg0, 0);
     Struct_ov000_02175808_4* var8 = (Struct_ov000_02175808_4*)GetParty_02010828(var7);
     unsigned char var9 = var8->unknown_f7c_;
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov000_02175808(Struct_ov000_021735d0_3* arg0) {
     arg0->unknown_1d6d_ = 0;
     ++arg0->unknown_1d68_;
     arg0->unknown_1d60_[arg0->unknown_1d68_] = 0x17;
-    int var12 = func_ov000_0217f8c0(arg0);
+    int var12 = GetSelectedMemberPanel_ov000_0217f8c0(arg0);
     func_ov000_02176634(arg0, var12, 0x17, data_ov000_02183ff0, data_ov000_02184288[1]);
     arg0->unknown_1d81_ = 0;
 }

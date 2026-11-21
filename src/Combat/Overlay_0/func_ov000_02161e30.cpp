@@ -78,7 +78,7 @@ extern "C" Struct_02048850_2* FindMonsterData_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" Struct_ov000_0215ab88* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" void func_ov000_021620d8(Struct_ov000_02161e30_3*);
 extern "C" void func_ov000_02167c28(unsigned char*, int);
-extern "C" void func_020891cc(Struct_ov000_02161e30_2*);
+extern "C" void InitModifiableCombatStats_020891cc(Struct_ov000_02161e30_2*);
 extern "C" void func_02089630(Struct_ov000_02161e30_2*, void*, int);
 extern "C" void func_02048850(Struct_02048850*, Struct_02048850_2*);
 extern "C" void func_02048934(void*, Struct_02048934*, Random*);
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov000_02161e30(Struct_ov000_02161e30* arg0, int arg1, i
     }
     func_ov000_02167c28((unsigned char*)arg0, arg1);
     Struct_ov000_02161e30_2* var11 = var1->unknown_138_;
-    func_020891cc(var11);
+    InitModifiableCombatStats_020891cc(var11);
     func_02089630(var11, inline_ov000_02161e30(var0), 0);
     var1->unknown_148_ = var0;
     int var12 = ((Object3D*)var1)->GetHeight();

@@ -161,7 +161,7 @@ extern "C" Struct_ov000_02165490_11* FindMonsterBattleData_02070fd0(void*, int);
 extern "C" char* GetActionTables_020797dc();
 extern "C" Struct_ov000_02165490_13* FindActionData_02079e2c(char*, int);
 extern "C" int func_ov000_0215fb54(Struct_ov000_02165490_14*, int, int*);
-extern "C" int func_020a3694(void*);
+extern "C" int IsScriptedBattle_020a3694(void*);
 extern "C" void func_ov000_02165f90(void*, void*);
 extern "C" void* memcpy(void*, const void*, unsigned int);
 extern "C" void* memset(void*, int, unsigned int);
@@ -341,7 +341,7 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
 
         {
             unsigned short var44 = inline_ov000_02165490_3(arg0->unknown_29c_)->unknown_2_;
-            if (!func_020a3694(arg0->unknown_2a0_)) {
+            if (!IsScriptedBattle_020a3694(arg0->unknown_2a0_)) {
                 for (int var45 = 0; var45 < var9; var45++) {
                     if (var44 == var5[var45]) {
                         var5[var45] = var5[0];

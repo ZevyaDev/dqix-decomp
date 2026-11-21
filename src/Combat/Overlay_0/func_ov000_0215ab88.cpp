@@ -44,7 +44,7 @@ extern "C" Struct_ov000_0215ab88_2* GetActionTarget_ov000_021600f8(BattleAction_
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" int IsDead_02010088(Struct_02010088* object);
 extern "C" int HasLeftBattle_ov000_02153c0c(GameObject* combatant);
-extern "C" void func_02088e64(unsigned char* arg0);
+extern "C" void ClearRage_02088e64(unsigned char* stats);
 
 static inline GameObject* inline_ov000_0215ab88(int arg0) {
     GameState* var0 = GameState::GetInstance();
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov000_0215ab88(Struct_ov000_0215767c_2* arg0) {
         }
         var6 = inline_ov000_02153aa4(var4->unknown_c_);
         if (var6 == 0 || IsDead_02010088((Struct_02010088*)var6) || HasLeftBattle_ov000_02153c0c(var6)) {
-            func_02088e64(((Struct_ov000_0215ab88*)var5)->unknown_138_);
+            ClearRage_02088e64(((Struct_ov000_0215ab88*)var5)->unknown_138_);
             continue;
         }
         memcpy(var1, var2, sizeof(BattleAction_ov000_0215440c_2));

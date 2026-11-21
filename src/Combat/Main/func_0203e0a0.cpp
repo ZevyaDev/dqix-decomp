@@ -80,7 +80,7 @@ extern "C" ARM void func_0203e0a0(void *arg0, unsigned short arg1) {
             }
             var2->unknown_9_1_     = (var4->flags_0_ & 0x8000) != 0;
             var2->unknown_9_2_    = 0;
-            Struct_0203e0a0_5 *var11 = (Struct_0203e0a0_5 *) func_02040538((Struct_0203e0a0 *) var4);
+            Struct_0203e0a0_5 *var11 = (Struct_0203e0a0_5 *) GetNPCPlacement_02040538((NPC_0203e0a0 *) var4);
             if (var11 != NULL) {
                 Struct_0203e0a0_4 *var12 = var11->unknown_34_;
                 while (var12 != NULL) {

@@ -9,22 +9,22 @@ struct SoundEffectManager_0205e944 {
     unsigned char volumeLevel_cc_;
 };
 
-// USA: func_0205e944
-extern "C" ARM void func_0205e944(SoundEffectManager_0205e944* arg0, int arg1) {
-    float var0;
-    int var1;
-    arg0->volume_c8_ = arg1;
-    var0 = (float)arg1;
-    var0 = var0 * data_020e7dd4[arg0->volumeLevel_cc_ - 1];
-    var1 = (int)var0;
-    func_020bbf34(0xa, var1);
-    func_020bbf34(0xb, var1);
-    func_020bbf34(0xc, var1);
-    func_020bbf34(0xd, var1);
-    func_020bbf34(0xe, var1);
-    func_020bbf34(0xf, var1);
-    func_020bbf34(0xa, var1);
-    func_020bbf34(0xc, var1);
-    func_020bbf34(0xd, var1);
-    func_020bbf34(0x10, var1);
+// USA: SetSoundEffectVolume_0205e944
+extern "C" ARM void SetSoundEffectVolume_0205e944(SoundEffectManager_0205e944* manager, int volume) {
+    float scaledVolume;
+    int groupVolume;
+    manager->volume_c8_ = volume;
+    scaledVolume = (float)volume;
+    scaledVolume = scaledVolume * data_020e7dd4[manager->volumeLevel_cc_ - 1];
+    groupVolume = (int)scaledVolume;
+    func_020bbf34(0xa, groupVolume);
+    func_020bbf34(0xb, groupVolume);
+    func_020bbf34(0xc, groupVolume);
+    func_020bbf34(0xd, groupVolume);
+    func_020bbf34(0xe, groupVolume);
+    func_020bbf34(0xf, groupVolume);
+    func_020bbf34(0xa, groupVolume);
+    func_020bbf34(0xc, groupVolume);
+    func_020bbf34(0xd, groupVolume);
+    func_020bbf34(0x10, groupVolume);
 }

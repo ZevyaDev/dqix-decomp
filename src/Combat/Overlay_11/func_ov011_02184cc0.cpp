@@ -22,10 +22,10 @@ extern "C" void func_0203e0a0(void* arg0, unsigned short arg1);
 extern "C" void* UnloadZone_ov017_0219bf74(void);
 extern "C" void func_ov017_021a27e8(void* arg0);
 
-struct Struct_0203cfb4;
-extern "C" void func_0203cfb4(struct Struct_0203cfb4* arg0);
+struct NPCManager_0203cfb4;
+extern "C" void ResetNPCManager_0203cfb4(struct NPCManager_0203cfb4* npcManager);
 
-extern "C" void func_ov017_021a316c(int arg0);
+extern "C" void UnloadFieldObjects_ov017_021a316c(int gameResources);
 
 extern "C" void func_ov017_0219b938(int arg0);
 
@@ -47,8 +47,8 @@ extern "C" ARM int func_ov011_02184cc0(struct ScriptValue_ov011_02184c30* arg0) 
         if (func_ov011_021849bc(var1, 2)) return 1;
         func_0203e0a0(var2, *(unsigned short*)var3);
         func_ov017_021a27e8((void*)var0);
-        func_0203cfb4((struct Struct_0203cfb4*)var2);
-        func_ov017_021a316c(var0);
+        ResetNPCManager_0203cfb4((struct NPCManager_0203cfb4*)var2);
+        UnloadFieldObjects_ov017_021a316c(var0);
         SetFlags04((GameResources*)var0, 8);
         SetFlags04((GameResources*)var0, 0x10);
         func_ov011_021849ac(var1, 2);

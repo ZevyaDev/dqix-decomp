@@ -27,39 +27,39 @@ extern "C" void func_020d2880();
 extern "C" void* func_020d22f4(unsigned long arg0);
 
 // USA: SendSoundCommands_020d24c4
-extern "C" ARM int SendSoundCommands_020d24c4(unsigned long arg0) {
-    int var0 = DisableIRQInterrupts();
+extern "C" ARM int SendSoundCommands_020d24c4(unsigned long flags) {
+    int priorState = DisableIRQInterrupts();
     if (data_02112780.pPendingHead_8_ == NULL) {
-        SetIRQInterruptState(var0);
+        SetIRQInterruptState(priorState);
         return true;
     }
     if (data_02112780.outstandingBatchCount_1c_ >= 8) {
-        if (!(arg0 & 1)) {
-            SetIRQInterruptState(var0);
+        if (!(flags & 1)) {
+            SetIRQInterruptState(priorState);
             return false;
         }
         do {
             func_020d22f4(1);
         } while (data_02112780.outstandingBatchCount_1c_ >= 8);
         if (data_02112780.pPendingHead_8_ == NULL) {
-            SetIRQInterruptState(var0);
+            SetIRQInterruptState(priorState);
             return true;
         }
     }
     CleanInvalidateCacheRange((const void*)(data_02112a60), sizeof(data_02112a60));
     if (SendCommandToArm7(7, (int)data_02112780.pPendingHead_8_, false) < 0) {
-        if (!(arg0 & 1)) {
-            SetIRQInterruptState(var0);
+        if (!(flags & 1)) {
+            SetIRQInterruptState(priorState);
             return false;
         }
         while (data_02112780.outstandingBatchCount_1c_ >= 8 ||
                SendCommandToArm7(7, (int)data_02112780.pPendingHead_8_, false) < 0) {
-            SetIRQInterruptState(var0);
+            SetIRQInterruptState(priorState);
             func_020d22f4(0);
-            var0 = DisableIRQInterrupts();
+            priorState = DisableIRQInterrupts();
             CleanInvalidateCacheRange((const void*)(data_02112a60), sizeof(data_02112a60));
             if (data_02112780.pPendingHead_8_ == NULL) {
-                SetIRQInterruptState(var0);
+                SetIRQInterruptState(priorState);
                 return true;
             }
         }
@@ -72,8 +72,8 @@ extern "C" ARM int SendSoundCommands_020d24c4(unsigned long arg0) {
     data_02112780.pPendingTail_c_ = NULL;
     data_02112780.outstandingBatchCount_1c_++;
     data_02112780.nextBatchNumber_20_++;
-    SetIRQInterruptState(var0);
-    if (arg0 & 2)
+    SetIRQInterruptState(priorState);
+    if (flags & 2)
         func_020d2880();
     return true;
 }

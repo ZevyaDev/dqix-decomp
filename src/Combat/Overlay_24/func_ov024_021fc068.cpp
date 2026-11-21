@@ -12,7 +12,7 @@ extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsign
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
 struct Struct_ov024_021f6a1c;
 extern "C" void func_ov024_021f6a1c(struct Struct_ov024_021f6a1c* arg0, void* arg1);
-extern "C" void func_ov024_021f9874(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" void RankCandidateAction_ov024_021f9874(void* tacticAI, void* arg1, int targetGroup, int targetIndex);
 
 struct Struct_ov024_021fc068_5 {
 	unsigned short unknown_0_;
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov024_021fc068(struct Struct_ov024_021fc068_2* arg0) {
 		var6.unknown_8_ = 5;
 		func_ov024_021f6a1c((struct Struct_ov024_021f6a1c*)&var3, &var6);
 		if (var1->unknown_17_4_ == 2 || var1->unknown_17_4_ == 1) {
-			func_ov024_021f9874(arg0, &var3, 0, (unsigned char)var5->unknown_4_);
+			RankCandidateAction_ov024_021f9874(arg0, &var3, 0, (unsigned char)var5->unknown_4_);
 			memset(&var3, 0, sizeof(var3));
 		}
 	}
@@ -113,6 +113,6 @@ extern "C" ARM void func_ov024_021fc068(struct Struct_ov024_021fc068_2* arg0) {
 		GetCombatantByID((int)arg0->unknown_0_, 0);
 		int var7 = (unsigned char)var0->unknown_4_;
 		if (var1->unknown_17_4_ == 3) var7 = 0xff;
-		func_ov024_021f9874(arg0, &var3, 0, var7);
+		RankCandidateAction_ov024_021f9874(arg0, &var3, 0, var7);
 	}
 }

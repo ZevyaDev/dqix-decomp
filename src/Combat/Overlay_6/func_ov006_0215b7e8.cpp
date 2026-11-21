@@ -125,7 +125,7 @@ extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" void func_ov006_0215f348(Struct_ov006_0215b7e8_2* arg0);
 extern "C" void SetMenuLayoutWindowCursorMark_02081ea4(MenuLayout_0207fdcc_2* menuLayout, int windowId, int hasCursorMark);
 extern "C" void ResetKeyRepeat_0208203c(KeyRepeat_02081f20_2* keyRepeat);
-extern "C" void func_02080c04(MenuLayout_0207fdcc_2* arg0, int arg1);
+extern "C" void HideMenuLayoutWindow_02080c04(MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void ShowMenuLayoutWindow_02080c20(MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" unsigned char func_ov006_02158a28(Struct_ov006_02157a60* arg0);
 extern "C" unsigned char func_ov006_02158b78(Struct_ov006_02157a60* arg0);
@@ -155,7 +155,7 @@ extern "C" ARM void func_ov006_0215b7e8(Struct_ov006_02157a60* arg0) {
         arg0->unknown_44_ = 0;
         arg0->unknown_390_++;
         if (arg0->unknown_360_ == 4)
-            func_02080c04((MenuLayout_0207fdcc_2*)var0, 3);
+            HideMenuLayoutWindow_02080c04((MenuLayout_0207fdcc_2*)var0, 3);
         else
             ShowMenuLayoutWindow_02080c20((MenuLayout_0207fdcc_2*)var0, 3);
     }
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov006_0215b7e8(Struct_ov006_02157a60* arg0) {
         if (arg0->unknown_35e_ != *arg0->unknown_44_)
         {
             if (arg0->unknown_360_ == 4)
-                func_02080c04((MenuLayout_0207fdcc_2*)var0, 3);
+                HideMenuLayoutWindow_02080c04((MenuLayout_0207fdcc_2*)var0, 3);
             else
                 ShowMenuLayoutWindow_02080c20((MenuLayout_0207fdcc_2*)var0, 3);
             func_ov006_0215f348((Struct_ov006_0215b7e8_2*)arg0);

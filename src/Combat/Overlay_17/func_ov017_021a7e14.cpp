@@ -119,7 +119,7 @@ extern "C" void LoadFileTables_020a0c0c();
 #endif
 extern "C" void func_ov017_021a7dd8(Struct_ov017_021a7e14_5* arg0);
 extern "C" void func_020de848(void* itemTable);
-extern "C" void func_020de980(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
+extern "C" void LoadItemTableById_020de980(void* itemTable, void* allocator, void* fileData, int fileSize, int itemId);
 extern "C" void InitNoun_020e46c4(void* noun);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void func_020dcf7c(int arg0, void* arg1);
@@ -226,7 +226,7 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
         arg0->unknown_2c_ = (ItemTable_0201099c_10*)arg0->unknown_8_.Allocate(0x18);
         func_020de848(arg0->unknown_2c_);
         if (var13 != NULL) {
-            func_020de980(arg0->unknown_2c_, &arg0->unknown_8_, var13, var12, arg0->unknown_30_);
+            LoadItemTableById_020de980(arg0->unknown_2c_, &arg0->unknown_8_, var13, var12, arg0->unknown_30_);
         }
 #if defined(jpn)
         __clear(var11, sizeof(var11));

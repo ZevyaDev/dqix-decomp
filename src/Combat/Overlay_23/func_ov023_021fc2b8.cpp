@@ -3,7 +3,7 @@
 
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" int GetMenuLoadTaskId_ov023_021f6bb8(void*);
-extern "C" void func_ov023_021f6bb0(void*, int);
+extern "C" void SetMenuLoadTaskId_ov023_021f6bb0(void*, int);
 
 extern char data_ov023_021ff480;
 extern char data_ov023_021ff496;
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov023_021fc2b8(struct Struct_ov023_021fc2b8* arg0, void*
     }
     int var2 = (int)BackgroundLoader::GetInstance();
     int var3 = ((BackgroundLoader*)(var2))->QueueLoadFile((const char*)((int)&data_ov023_021fe718), (SafeAllocator*)(0));
-    func_ov023_021f6bb0(var0, var3);
+    SetMenuLoadTaskId_ov023_021f6bb0(var0, var3);
     return 1;
 }
 #else
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov023_021fc2b8(struct Struct_ov023_021fc2b8* arg0, void*
     }
     int var6 = (int)BackgroundLoader::GetInstance();
     int var7 = ((BackgroundLoader*)(var6))->QueueLoadFileInGP2((const char*)((int)&data_ov023_021ff480), (const char*)((int)&data_ov023_021ff496), (SafeAllocator*)(0));
-    func_ov023_021f6bb0(var4, var7);
+    SetMenuLoadTaskId_ov023_021f6bb0(var4, var7);
     return 1;
 }
 #endif

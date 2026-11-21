@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
-extern "C" signed short func_0207c620(unsigned char* arg0, unsigned int arg1);
+extern "C" signed short GetEquipmentBagCapacity_0207c620(unsigned char* bag, unsigned int category);
 
 // USA: func_0207c6b8
 extern "C" ARM int func_0207c6b8(unsigned char* arg0, unsigned int arg1, int arg2) {
@@ -11,7 +11,7 @@ extern "C" ARM int func_0207c6b8(unsigned char* arg0, unsigned int arg1, int arg
     }
     signed short var1;
     var1 = 0;
-    int var2 = func_0207c620(arg0, arg1);
+    int var2 = GetEquipmentBagCapacity_0207c620(arg0, arg1);
     for (unsigned int var3 = 0; var3 < (unsigned int)var2; var3++) {
         signed short var4 = *var0;
         if (var4 > 0) {

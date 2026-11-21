@@ -196,7 +196,7 @@ extern unsigned int data_ov031_02249680;
 extern unsigned char data_ov031_0224e1c0[];
 extern unsigned char data_ov031_0224d9c0[];
 #define CPS_MIDDLEWARE ((const void*)0x02000c04)
-extern "C" void func_02000b9c(const void*);
+extern "C" void ReferenceLibraryTag_02000b9c(const void*);
 
 extern "C" void func_ov031_02203008(void);
 extern "C" void func_ov031_02203c6c(void);
@@ -219,7 +219,7 @@ static inline Type_020b11c8 inline_ov031_02200298_2(Struct_ov031_0224c9e8* arg0,
 
 // USA: func_ov031_02200298
 extern "C" ARM void func_ov031_02200298(Struct_ov031_02200298* arg0) {
-    func_02000b9c(CPS_MIDDLEWARE);
+    ReferenceLibraryTag_02000b9c(CPS_MIDDLEWARE);
     Type_020b11c8_2 var0 = arg0->unknown_18_;
     if (var0) {
         inline_ov031_02200298(&data_ov031_0224c9e8, var0);

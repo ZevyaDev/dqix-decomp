@@ -42,7 +42,7 @@ extern struct Struct_ov000_02182a64 data_ov000_02182a64;
 extern struct Struct_ov000_02182aa0 data_ov000_02182aa0;
 
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(struct Random* battle, short* indices, int maxCount, int filterFlags);
-extern "C" int func_ov000_02155f9c(struct Random* arg0, int arg1, int arg2);
+extern "C" int IsCombatantIncapacitated_ov000_02155f9c(struct Random* battle, int combatantIndex, int isConfusionCounted);
 extern "C" float func_ov000_0215641c(struct Random* arg0, int arg1);
 int NextRandomMax(struct Random* random, int maximum);
 extern "C" int func_02088418(struct Struct_02088418* arg0, int arg1, int arg2);
@@ -66,7 +66,7 @@ extern "C" ARM int func_ov000_0215704c(struct Random* arg0, int arg1) {
     if (var3 == NULL) {
         return 0;
     }
-    if (func_ov000_02155f9c(arg0, arg1, 0)) {
+    if (IsCombatantIncapacitated_ov000_02155f9c(arg0, arg1, 0)) {
         return 0;
     }
     if (var3->unknown_138_->unknown_53_ == 0) {

@@ -19,7 +19,7 @@ struct Struct_ov017_021c48f0_2 { char unknown_0_[0x34c0]; unsigned char* unknown
 #else
 struct Struct_ov017_021c48f0_2 { char unknown_0_[0x36d0]; unsigned char* unknown_36d0_; char unknown_36d4_[0x3734-0x36d4]; Struct_ov017_021c48f0_8* unknown_3734_; };
 #endif
-extern "C" int func_02039888(void*); extern "C" void func_02039d58(unsigned char*);
+extern "C" int GetPartyLeaderObjectIndex_02039888(void*); extern "C" void func_02039d58(unsigned char*);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*,int); extern "C" int GetLeaderObjectIndex_020546a8(void*);
 extern "C" unsigned short* GetZone3D_02012fe4(); extern "C" void ResetFollowTrail_02039d24(unsigned char*);
 extern "C" void SetObject3DPosition_020407b4(Struct_02040774_2*,int,int,int); extern "C" void SetFacingInstantly_02033874(Struct_02033834*,int); extern "C" void SetMotion_02033b88(Struct_02010604*,int);
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov017_021c48f0(int arg0,Struct_ov017_021c48f0_5* arg1,G
     GameObject* var6[4]; var6[var5++]=arg2->GetPartyMemberByIndex(arg0);
     if(var6[0]!=NULL) {
         GameObject* var7=var6[0];
-        if(*((Struct_ov017_021c48f0_7*)var7)->unknown_130_&1) { var0=func_02039888(var7); GameObject* var8=arg2->GetPartyMemberByIndex(var0); if(var8!=NULL) func_02039d58((unsigned char*)var8); }
+        if(*((Struct_ov017_021c48f0_7*)var7)->unknown_130_&1) { var0=GetPartyLeaderObjectIndex_02039888(var7); GameObject* var8=arg2->GetPartyMemberByIndex(var0); if(var8!=NULL) func_02039d58((unsigned char*)var8); }
         else { func_02039d58((unsigned char*)var7); var0=arg0; }
         for(int var9=0;var9<4;var9++) { GameObject* var10=GetCompanionByIndex_0200ff58(arg2,var9); if(var10!=NULL && arg0==GetLeaderObjectIndex_020546a8(var10)) var6[var5++]=var10; }
         int var11=(var2->unknown_3_==0 || var2->unknown_101_==0)?1:0;
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov017_021c48f0(int arg0,Struct_ov017_021c48f0_5* arg1,G
             if(!var13->obj3D_.IsVisible() && var11) {
                 if(arg1->unknown_7_==0 || var3!=*GetZone3D_02012fe4()) var13->obj3D_.MakeVisible();
                 ResetFollowTrail_02039d24((unsigned char*)var13);
-                if(arg1->unknown_4_==10000 && func_02039888(var13)!=-1) SetObject3DPosition_020407b4((Struct_02040774_2*)var13,0xff000,0,0xff000);
+                if(arg1->unknown_4_==10000 && GetPartyLeaderObjectIndex_02039888(var13)!=-1) SetObject3DPosition_020407b4((Struct_02040774_2*)var13,0xff000,0,0xff000);
                 else var13->obj3D_.position_=var4;
                 SetFacingInstantly_02033874((Struct_02033834*)var13,arg1->unknown_10_);
                 if(var12!=0) SetMotion_02033b88((Struct_02010604*)var13,0);

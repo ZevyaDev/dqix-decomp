@@ -88,11 +88,11 @@ extern "C" int func_0205df38(void* arg0, int arg1);
 extern "C" void func_ov023_021e6378(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov023_021e6de4(Struct_ov012_02187adc* arg0);
-extern "C" int func_02098f20(int arg0, int arg1, int arg2);
+extern "C" int CalculateAge_02098f20(int birthYear, int birthMonth, int birthDay);
 extern "C" void func_ov012_0218adac(Struct_ov012_02187adc* arg0, int arg1, int arg2, int arg3);
 extern "C" int func_ov023_021e6e20(Struct_ov012_02186a7c* arg0);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
-extern "C" void func_ov023_021e6e60(Struct_ov012_02187adc* arg0);
+extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(Struct_ov012_02187adc* menu);
 extern "C" void func_ov012_0218943c(Struct_ov012_02187adc* arg0);
 
 #if defined(jpn)
@@ -237,7 +237,7 @@ extern "C" ARM void func_ov012_02187adc(Struct_ov012_02187adc* arg0)
             var8->unknown_1_4_ = arg0->unknown_13fe_;
             var8->unknown_2_0_ = arg0->unknown_13ff_;
             var8->unknown_3_4_ = 1;
-            var8->unknown_4_0_ = func_02098f20(arg0->unknown_13fc_, arg0->unknown_13fe_, arg0->unknown_13ff_);
+            var8->unknown_4_0_ = CalculateAge_02098f20(arg0->unknown_13fc_, arg0->unknown_13fe_, arg0->unknown_13ff_);
             func_ov012_0218adac(arg0, 0, -1, 0);
             arg0->unknown_1371_ = 6;
             arg0->unknown_1370_ = 0;
@@ -267,7 +267,7 @@ extern "C" ARM void func_ov012_02187adc(Struct_ov012_02187adc* arg0)
     else if (arg0->unknown_1370_ == 7)
     {
         arg0->unknown_1371_ = 1;
-        func_ov023_021e6e60(arg0);
+        ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
         func_ov012_0218943c(arg0);
         arg0->unknown_13a0_ = 1;
         arg0->unknown_13a8_ = -1;

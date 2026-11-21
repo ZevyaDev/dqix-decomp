@@ -1,5 +1,5 @@
 #include <globaldefs.h>
 
-// USA: func_02000b9c
-extern "C" ARM void func_02000b9c(void) {
+// USA: ReferenceLibraryTag_02000b9c
+extern "C" ARM void ReferenceLibraryTag_02000b9c(void) {
 }

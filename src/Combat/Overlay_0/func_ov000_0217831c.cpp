@@ -41,10 +41,9 @@ extern "C" struct Struct_ov000_0217831c* FindItemData_020dedd0(struct ItemTable_
 extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 #if defined(jpn)
-extern "C" int func_02042158(char* arg0, int arg1);
-#define func_02041acc func_02042158
+extern "C" int AppendXOffsetTag_02041acc(char* arg0, int arg1);
 #else
-extern "C" int func_02041acc(char* arg0, int arg1);
+extern "C" int AppendXOffsetTag_02041acc(char* buffer, int xOffset);
 #endif
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" void __clear(void* arg0, unsigned int arg1);
@@ -93,10 +92,10 @@ extern "C" ARM void func_ov000_0217831c(Struct_ov000_0217831c_3* arg0, char* arg
         if (var10 == var16) {
             AppendText_02042058(var15, ((StringList*)(var4))->GetString(0x13));
 #if !defined(jpn)
-            func_02041acc(var15, 3);
+            AppendXOffsetTag_02041acc(var15, 3);
 #endif
         } else {
-            func_02041acc(var15, 8);
+            AppendXOffsetTag_02041acc(var15, 8);
         }
         AppendText_02042058(var15, var18);
         AppendMenuEntry_02041b70(arg1, var8, var15);

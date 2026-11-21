@@ -94,7 +94,7 @@ extern "C" struct Struct_ov025_021e3178* GetActionActor_ov000_02160094(BattleAct
 struct BattleAction_ov000_0215440c;
 extern "C" struct Struct_ov025_021e3178* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 extern "C" struct Struct_ov025_021e3178* func_ov000_0215feb4(char*, int, int);
-extern "C" void* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
+extern "C" void* GetTargetResult_ov000_0215fff4(void* target, int index, int listIndex);
 extern "C" int func_020850d0(unsigned char* arg0);
 extern "C" void __clear(void* arg0, int arg1);
 
@@ -401,7 +401,7 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
         struct Struct_ov025_021e3178* var66 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, 0);
         if (!var66) return 0;
         if (!var66) return 0;
-        void* var67 = func_ov000_0215fff4(var66, 0, 0);
+        void* var67 = GetTargetResult_ov000_0215fff4(var66, 0, 0);
         if (!var67) return 0;
         if (!var67) return 0;
         for (int* var68 = data_ov025_021eef40; *var68 != -1; var68++) {

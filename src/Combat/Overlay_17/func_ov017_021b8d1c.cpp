@@ -4,7 +4,7 @@
 struct QueueNode_0204693c;
 extern "C" void ResetQueueNode_0204693c(struct QueueNode_0204693c* node);
 
-extern "C" void func_0208b9a0(void*, int);
+extern "C" void ResetQuestDisplay_0208b9a0(void*, int);
 
 struct Struct_02061c04_11;
 extern "C" void func_ov017_021b994c(struct Struct_02061c04_11* arg0);
@@ -14,7 +14,7 @@ extern "C" ARM void func_ov017_021b8d1c(unsigned char* arg0) {
     ResetQueueNode_0204693c((struct QueueNode_0204693c*)arg0);
     ((SafeAllocator*)(arg0 + 0x8))->ResetAllocatorPointer();
     ((SafeAllocator*)(arg0 + 0x1c))->ResetAllocatorPointer();
-    func_0208b9a0(arg0 + 0x30, 0);
+    ResetQuestDisplay_0208b9a0(arg0 + 0x30, 0);
     arg0[0] = 5;
     *(int*)(arg0 + 0x11c) = 0;
     *(int*)(arg0 + 0x124) = 0;

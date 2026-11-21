@@ -18,7 +18,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int func_ov012_0218432c(int arg0);
-extern "C" void func_ov023_021e6e60(void* arg0);
+extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(void* menu);
 extern "C" int func_ov023_021e6448(void* arg0);
 extern "C" int func_ov023_021e6de4(char* arg0);
 struct Struct_ov012_02186a7c { char unknown_0_[R(0x90,0xac)]; };
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov012_02187158(char* arg0) {
             }
         }
         SetNextTextWindowBGLayer_0205de24((struct TextWindowManager_0205de24_2*)(arg0 + R(0x90,0xac)), 0, 3);
-        func_ov023_021e6e60(arg0);
+        ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
         func_ov012_02189d68(arg0);
         (*(unsigned char*)(arg0 + R(0x1340,0x1370)))++;
         return;

@@ -2,24 +2,24 @@
 
 struct LocalWireless_0202b2f0 {
     char unknown_0_[0x1038];
-    signed char unknown_1038_[16];
+    signed char protagonistObjectIndexByConsole_1038_[16];
 };
 struct Struct_0202bcf8;
 
-extern "C" signed char func_0202bcbc(struct LocalWireless_0202b2f0* arg0, int arg1);
+extern "C" signed char FindConsoleByProtagonistObjectIndex_0202bcbc(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" signed char func_0202bcf8(struct Struct_0202bcf8* arg0, int arg1);
 extern "C" void func_0202c69c(struct LocalWireless_0202b2f0* arg0, int arg1);
 extern "C" void UpdateLocalWirelessPlayerCount_0202c288(struct LocalWireless_0202b2f0* wireless);
 
-// USA: func_0202c21c
-extern "C" ARM void func_0202c21c(struct LocalWireless_0202b2f0* arg0, int arg1) {
-    int var0 = func_0202bcbc(arg0, arg1);
-    if (var0 < 0) {
-        var0 = func_0202bcf8((struct Struct_0202bcf8*)arg0, arg1);
-        if (var0 < 0) return;
+// USA: RemoveLocalWirelessPlayer_0202c21c
+extern "C" ARM void RemoveLocalWirelessPlayer_0202c21c(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex) {
+    int console = FindConsoleByProtagonistObjectIndex_0202bcbc(wireless, protagonistObjectIndex);
+    if (console < 0) {
+        console = func_0202bcf8((struct Struct_0202bcf8*)wireless, protagonistObjectIndex);
+        if (console < 0) return;
     }
-    *((unsigned char*)arg0 + 0x100c) &= ~(1 << var0);
-    func_0202c69c(arg0, arg1);
-    UpdateLocalWirelessPlayerCount_0202c288(arg0);
-    arg0->unknown_1038_[var0] = 0;
+    *((unsigned char*)wireless + 0x100c) &= ~(1 << console);
+    func_0202c69c(wireless, protagonistObjectIndex);
+    UpdateLocalWirelessPlayerCount_0202c288(wireless);
+    wireless->protagonistObjectIndexByConsole_1038_[console] = 0;
 }

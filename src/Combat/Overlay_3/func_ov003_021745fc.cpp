@@ -55,7 +55,7 @@ void func_ov003_02174550(Struct_ov003_021745fc_2* arg0);
 void func_ov003_021749f0(Struct_ov003_021745fc_2* arg0);
 void func_ov003_021760cc(Struct_ov003_021745fc_2* arg0);
 void UpdateKeyRepeat_02081f20(void* keyRepeat, int elapsedFrames);
-int func_020800fc(Struct_ov003_021745fc* arg0, short* arg1, short arg2, unsigned short arg3, unsigned char, bool);
+int UpdateMenuLayoutCursor_020800fc(Struct_ov003_021745fc* menuLayout, short* cursorTextId, short currentTextId, unsigned short key, unsigned char, bool);
 void OpenMenuLayoutWindow_020813ec(Struct_ov003_021745fc* menuLayout, short windowId);
 }
 
@@ -97,7 +97,7 @@ extern "C" ARM bool func_ov003_021745fc(Struct_ov003_021745fc_2* arg0, int arg1)
         if (arg0->unknown_ff8_ != NULL) {
             UpdateKeyRepeat_02081f20(arg0->unknown_88c_, arg1);
             arg0->unknown_1000_ = *arg0->unknown_ff8_;
-            arg0->unknown_fe4_ = func_020800fc(var0, arg0->unknown_ff8_, arg0->unknown_1000_, arg0->unknown_898_, arg0->unknown_89a_, (arg0->unknown_1046_ & 0x400) != 0);
+            arg0->unknown_fe4_ = UpdateMenuLayoutCursor_020800fc(var0, arg0->unknown_ff8_, arg0->unknown_1000_, arg0->unknown_898_, arg0->unknown_89a_, (arg0->unknown_1046_ & 0x400) != 0);
             var0->unknown_36_ = *arg0->unknown_ff8_;
             if (arg0->unknown_fe4_ != 0)
                 ClearMenuLayoutWindowHighlights_020804fc(var0, arg0->unknown_ffe_);

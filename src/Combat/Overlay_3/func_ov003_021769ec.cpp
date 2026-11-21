@@ -13,7 +13,7 @@ enum { Enum_ov003_021769ec_4096 = 0x1000 };
 extern "C" void* GetParty_02010828(GameState* gameState);
 struct MenuLayout_0207fdcc_2;
 extern "C" void ShowMenuLayoutWindow_02080c20(MenuLayout_0207fdcc_2*, int);
-extern "C" void func_02080c04(struct MenuLayout_0207fdcc_2* arg0, short arg1);
+extern "C" void HideMenuLayoutWindow_02080c04(struct MenuLayout_0207fdcc_2* menuLayout, short windowId);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void*, int, int);
 extern "C" void HideMenuLayoutWindowTexts_02080b54(void*, int);
 struct ItemTable_0201099c_10 {
@@ -210,7 +210,7 @@ extern "C" ARM void func_ov003_021769ec(Struct_ov003_021769ec_3* arg0) {
             SetMenuLayoutTextStringId_0208103c(var9, var6, (short)(var12->unknown_c_7_ + 0x2f));
         }
     } else {
-        func_02080c04(var9, var0);
+        HideMenuLayoutWindow_02080c04(var9, var0);
     }
 
     OpenMenuLayoutWindow_020813ec(var9, var0);

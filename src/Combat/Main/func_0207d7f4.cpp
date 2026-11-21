@@ -8,7 +8,7 @@
 struct LocalWireless_0202b2f0;
 struct Struct_0207d798;
 
-struct Struct_0207d7f4 {
+struct BattleJoinRecord_0207d7f4 {
     unsigned short unknown_0_;
     unsigned short unknown_2_;
     signed char unknown_4_;
@@ -19,32 +19,32 @@ struct Struct_0207d7f4 {
 
 extern "C" void* func_0207d9f4(unsigned char* arg0, int arg1);
 extern "C" void func_0207d7c0(struct Struct_0207d798* arg0);
-extern "C" struct Struct_0207d7f4* func_0207d9bc(struct Struct_0207d7f4* arg0, unsigned short arg1);
+extern "C" struct BattleJoinRecord_0207d7f4* FindBattleJoinRecord_0207d9bc(struct BattleJoinRecord_0207d7f4* arg0, unsigned short monsterId);
 extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
-extern "C" int func_0207d978(struct Struct_0207d7f4* arg0, unsigned short arg1);
+extern "C" int func_0207d978(struct BattleJoinRecord_0207d7f4* arg0, unsigned short arg1);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 
 // USA: func_0207d7f4
-extern "C" ARM int func_0207d7f4(struct Struct_0207d7f4* arg0, unsigned short arg1, int arg2, int arg3,
+extern "C" ARM int func_0207d7f4(struct BattleJoinRecord_0207d7f4* arg0, unsigned short arg1, int arg2, int arg3,
                       signed char arg4, unsigned short arg5, unsigned char arg6) {
     signed char var0;
     GameState* var1 = GameState::GetInstance();
-    struct Struct_0207d7f4* var2;
+    struct BattleJoinRecord_0207d7f4* var2;
     struct LocalWireless_0202b2f0* var3;
     GameObject* var4;
     int var5;
 
     if (arg3 != 0) {
-        var2 = (struct Struct_0207d7f4*)func_0207d9f4((unsigned char*)arg0, arg2);
+        var2 = (struct BattleJoinRecord_0207d7f4*)func_0207d9f4((unsigned char*)arg0, arg2);
         if (var2 != NULL && var2->unknown_0_ != arg1) {
             func_0207d7c0((struct Struct_0207d798*)var2);
         }
     }
-    var2 = func_0207d9bc(arg0, arg1);
+    var2 = FindBattleJoinRecord_0207d9bc(arg0, arg1);
     if (var2 == NULL) {
-        var2 = func_0207d9bc(arg0, 0);
+        var2 = FindBattleJoinRecord_0207d9bc(arg0, 0);
         if (var2 == NULL) return 0;
         func_0207d7c0((struct Struct_0207d798*)var2);
         var2->unknown_0_ = arg1;

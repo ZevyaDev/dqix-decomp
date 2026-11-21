@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 extern "C" int func_ov000_0216352c(int,float,float);
-extern "C" void func_0202e7d4(unsigned char*,int*,int*,int*);
+extern "C" void GetCameraOrbit_0202e7d4(unsigned char*,int*,int*,int*);
 int fix32abs(int);
 int Vector3fixSquaredDistance(const Vector3i*,const Vector3i*);
 extern "C" void func_ov000_0216d530(void*,int);
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov000_0216df00(Struct_ov000_0216df00* arg0,int arg1,int
     if(var6<var5) var6=var5;
     if(var1) {
         int var7=0,var8=0,var9=0;
-        func_0202e7d4((unsigned char*)arg0,&var7,&var8,&var9);
+        GetCameraOrbit_0202e7d4((unsigned char*)arg0,&var7,&var8,&var9);
         if(var7==0) {
             int var10=inline_ov000_0216df00_3(var6,0x400);
             if(fix32abs(var9-var6)<var10) {

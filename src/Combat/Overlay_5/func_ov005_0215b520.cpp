@@ -33,7 +33,7 @@ struct BGLayer_0204b8d0 {
     unsigned char screenBlockCount_1d_;
 };
 struct BGLayer_0204b010;
-extern "C" void func_ov005_0215792c(void* arg0, unsigned char arg1);
+extern "C" void SetEquipMenuMode_ov005_0215792c(void* equipMenuUI, unsigned char mode);
 extern "C" void func_ov005_021579ec(void* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" void func_ov005_02154d34(void* arg0, int arg1, int arg2);
 extern "C" void func_ov005_02154d7c(void* arg0, int arg1, int arg2);
@@ -110,7 +110,7 @@ struct Struct_ov005_0215b520_2 {
 extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
     unsigned char var0 = arg0->unknown_3dba_;
     if (var0 == 0 && arg0->unknown_3dec_ == 0) {
-        func_ov005_0215792c(arg0, 1);
+        SetEquipMenuMode_ov005_0215792c(arg0, 1);
         arg0->unknown_3dcc_ |= 0x100;
         void* var1 = (void*)GameState::GetInstance();
         GameResources* var2 = GetGameResources();
@@ -196,7 +196,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
             arg0->unknown_3de8_ = 0;
         }
     } else if (var0 == 2 && arg0->unknown_3dec_ == 1) {
-        func_ov005_0215792c(arg0, 3);
+        SetEquipMenuMode_ov005_0215792c(arg0, 3);
         arg0->unknown_3dcc_ |= 0x100;
         func_ov005_021579ec(arg0, arg0->unknown_3db8_, arg0->unknown_3dbb_);
         func_ov005_02154d34(arg0->unknown_1a34_, 0x85000, 0x17000);
@@ -204,7 +204,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
         arg0->unknown_3dcc_ |= 0x800;
     } else if (var0 == 0 && arg0->unknown_3dec_ == 1) {
         arg0->unknown_3dcc_ |= 0x800;
-        func_ov005_0215792c(arg0, 1);
+        SetEquipMenuMode_ov005_0215792c(arg0, 1);
         arg0->unknown_3dcc_ |= 0x100;
         arg0->unknown_3de8_ += arg0->unknown_3de4_;
         if (arg0->unknown_3de8_ >= 3) {
@@ -287,7 +287,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
             arg0->unknown_3de2_ = 0;
             arg0->unknown_3de8_ = 0;
             arg0->unknown_3dec_ = 0;
-            func_ov005_0215792c(arg0, 0);
+            SetEquipMenuMode_ov005_0215792c(arg0, 0);
             arg0->unknown_3dcc_ |= 0x100;
         }
     }

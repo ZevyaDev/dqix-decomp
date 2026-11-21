@@ -4,7 +4,7 @@
 extern "C" void* GetParty_02010828(GameState*);
 struct Party_02048150;
 extern "C" int IsInParty_02086ef0(Party_02048150*, int);
-extern "C" void func_ov000_0215a8d4(unsigned char*, int);
+extern "C" void IncrementQuestBattleCounter_ov000_0215a8d4(unsigned char*, int);
 extern "C" int func_020881c4(unsigned char*);
 extern "C" int func_0208810c(unsigned char*);
 extern "C" void func_02088220(void*, int);
@@ -102,7 +102,7 @@ extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg
       func_ov000_0215af54(arg0->unknown_10_,arg2,0);
       void* var14=GetParty_02010828(GameState::GetInstance());
       if(IsInParty_02086ef0((Party_02048150*)var14, arg1) && var5==0xa8)
-       func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 3);
+       IncrementQuestBattleCounter_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 3);
      }
     }else{
      var4=0;

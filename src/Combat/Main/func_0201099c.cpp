@@ -197,7 +197,7 @@ extern "C" void func_020de848(void* itemTable);
 extern "C" int LoadItemTableByCategories_020dea64(void* itemTable, void* allocator, void* fileData, unsigned int fileSize, const void* categories, short categoryCount);
 extern "C" void* ClearLevelEntries_0208247c(void* levelEntries);
 extern "C" void InitPartyMemberData_02082828(Struct_0201099c_13* memberData);
-extern "C" void SetLevelStats_02083cbc(void* memberData, void* arg1, void* arg2);
+extern "C" void SetLevelStats_02083cbc(void* memberData, void* levelEntry, void* arg2);
 extern "C" ItemData_0201099c_9* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
 

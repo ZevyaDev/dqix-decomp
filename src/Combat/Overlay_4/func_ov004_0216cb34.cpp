@@ -11,7 +11,7 @@ struct StringList_02072a68_2;
 struct Struct_ov004_0216b7bc;
 
 extern "C" void SetMusicVolumeLevel_0209ca70(void* manager, int volumeLevel);
-extern "C" void func_0205e9f4(struct Struct_02108760_2* arg0, int arg1);
+extern "C" void SetSoundEffectVolumeLevel_0205e9f4(struct Struct_02108760_2* manager, int volumeLevel);
 extern "C" void PlayMusic_0209c3b4(struct Struct_0209c3b4_2* manager, int musicIndex);
 extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
 extern "C" void* func_ov004_0216b1c4(void* arg0, int arg1);
@@ -99,7 +99,7 @@ extern "C" ARM int func_ov004_0216cb34(void* arg0) {
     Struct_ov004_0216cb34_3* var5;
 
     SetMusicVolumeLevel_0209ca70(gMusicManager_02109bf4, 3);
-    func_0205e9f4(&gSoundEffectManager_02108760, 3);
+    SetSoundEffectVolumeLevel_0205e9f4(&gSoundEffectManager_02108760, 3);
     data_ov004_02171034.unknown_7_ = 3;
     data_ov004_02171034.unknown_6_ = 3;
     data_ov004_02171034.unknown_8_ = 0;

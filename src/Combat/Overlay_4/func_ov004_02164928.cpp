@@ -17,7 +17,7 @@ struct Struct_ov004_02164928 {
 };
 struct Struct_ov004_02164928_2 { int unknown_0_, unknown_4_, unknown_8_; };
 struct Struct_0201165c { Struct_ov004_02164928_2 unknown_0_; unsigned int unknown_c_, unknown_10_; };
-struct Struct_ov004_021549e4_2;
+struct MenuGrid_ov004_021549e4_2;
 struct Struct_020d8080;
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
@@ -27,9 +27,9 @@ extern "C" Zone3D* GetZone3D_02012fe4();
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" int func_ov004_021634dc(void*);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
-extern "C" Struct_ov004_021549e4_2* FindMenuObjectById_ov023_021f6880(void*, int);
-extern "C" int func_ov023_021f6f10(Struct_ov004_021549e4_2*);
-extern "C" unsigned int func_ov023_021f9bb0(Struct_ov004_021549e4_2*);
+extern "C" MenuGrid_ov004_021549e4_2* FindMenuObjectById_ov023_021f6880(void*, int);
+extern "C" int func_ov023_021f6f10(MenuGrid_ov004_021549e4_2*);
+extern "C" unsigned int GetMenuGridCursorRow_ov023_021f9bb0(MenuGrid_ov004_021549e4_2*);
 extern "C" void func_0201165c(char*, const void*, int, Struct_0201165c);
 typedef void (*Type_ov004_02164928)(char*, const void*, int, Struct_ov004_02164928_2, unsigned int, unsigned int);
 extern "C" unsigned char func_02090294(ActiveGrottoClass*);
@@ -60,10 +60,10 @@ extern "C" ARM int func_ov004_02164928(void* arg0) {
     for (int var7 = 0; var7 < 99; ++var7)
         gTreasureMapScreen_ov004_02171010->unknown_0_[var7].ClearInitialByteUnknownBit();
     gTreasureMapScreen_ov004_02171010->unknown_0_[var6].SetInitialByteUnknownBit();
-    Struct_ov004_021549e4_2* var8 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 10);
+    MenuGrid_ov004_021549e4_2* var8 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 10);
     if (!var8) return 0;
     if (func_ov023_021f6f10(var8) != 7) return 0;
-    unsigned int var9 = func_ov023_021f9bb0(var8);
+    unsigned int var9 = GetMenuGridCursorRow_ov023_021f9bb0(var8);
 #if defined(jpn)
     if (gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].mapType_ == 1) {
         ((Type_ov004_02164928)(func_0201165c))(((char*)(var0)), &gTreasureMapScreen_ov004_02171010->unknown_0_[var6], gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].entranceZoneID_, *((Struct_ov004_02164928_2*)(&gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].entranceX_)), gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].regular_.environ_, gTreasureMapScreen_ov004_02171010->unknown_ad4_[var9].regular_.startingMonsterRank_);

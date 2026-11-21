@@ -10,7 +10,7 @@
 struct Struct_02032e58;
 
 struct Party_02048150;
-struct Struct_ov000_02163a7c;
+struct BattleScene_ov000_02163a7c;
 struct Struct_02010088;
 struct Struct_02010604;
 struct TextWindowManager_0205d6a0 { char unknown_0_[4]; };
@@ -98,7 +98,7 @@ extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void func_ov023_021ed988(char*, int);
 extern "C" void func_ov000_02163b90(BattleScene_ov000_02160da0*, int);
 extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(BattleScene_ov000_02160da0*, int, int);
-extern "C" void func_ov000_02163a7c(Struct_ov000_02163a7c*);
+extern "C" void SetCombatantsOpaque_ov000_02163a7c(BattleScene_ov000_02163a7c*);
 extern "C" void func_ov000_021639b4(BattleScene_ov000_02160da0*);
 extern "C" void func_ov000_02167dd8(unsigned char*);
 extern "C" int CollectCombatantIndices_ov000_02153e40(void*, short*, int, int);
@@ -158,7 +158,7 @@ extern "C" ARM int func_ov023_021f03a0(BattleScene_ov000_02160da0* arg0) {
         if (arg0->unknown_576c_) func_ov023_021ed988((char*)arg0, 0);
         func_ov000_02163b90(arg0, 1);
         SetObjectsVisibleBySelector_ov000_021626a0(arg0, 4, 0);
-        func_ov000_02163a7c((Struct_ov000_02163a7c*)arg0);
+        SetCombatantsOpaque_ov000_02163a7c((BattleScene_ov000_02163a7c*)arg0);
         func_ov000_021639b4(arg0);
         ClearFlags04(var8, 0x400);
         func_ov000_02167dd8((unsigned char*)arg0);

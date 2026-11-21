@@ -52,7 +52,7 @@ struct Struct_ov000_0215af54_5 {
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int HasLeftBattle_ov000_02153c0c(GameObject* combatant);
 extern "C" void InitBattleAction_ov000_02160030(void* action);
-extern "C" void func_ov000_02157cdc(void* arg0);
+extern "C" void InitActionTarget_ov000_02157cdc(void* target);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void SetActionResult_ov000_0215ccbc(int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant,
                             short amount, short currHP, short currMP, unsigned long long flags, unsigned char isCriticalHit);
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov000_0215af54(struct Struct_ov000_0215af54_5* arg0, in
     var1->unknown_1c_ = -1;
     var1->unknown_30_ = 0;
     var2 = &arg0->unknown_72f0_[arg0->unknown_8e12_];
-    func_ov000_02157cdc(var2);
+    InitActionTarget_ov000_02157cdc(var2);
     var3 = &arg0->unknown_7530_[arg0->unknown_8e13_];
     memset(var3, 0, 0x20);
     var3->unknown_20_ = 0;

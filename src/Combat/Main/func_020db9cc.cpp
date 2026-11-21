@@ -4,14 +4,14 @@
 #define func_020db9cc func_020dd3d4
 #endif
 
-extern "C" void func_020d8654(void);
+extern "C" void SaveAndDisableVCounterInterrupt_020d8654(void);
 extern "C" void func_020db264(void* arg0, int arg1, int arg2, int arg3, int arg4);
 struct Struct_020db264;
 extern "C" void func_020db360(struct Struct_020db264* arg0, int arg1);
 struct Struct_020db3f4_3;
 extern "C" void func_020db844(struct Struct_020db3f4_3* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_020db894(void* arg0);
-extern "C" void func_020d8694(void);
+extern "C" void RestoreVCounterInterrupt_020d8694(void);
 
 // USA: func_020db9cc
 extern "C" ARM int func_020db9cc(void* arg0, int arg1, int arg2, int arg3) {
@@ -21,7 +21,7 @@ extern "C" ARM int func_020db9cc(void* arg0, int arg1, int arg2, int arg3) {
     if (*(unsigned char*)(var0 + 0x6c) == 0) return 1;
 
     int var1 = 1;
-    func_020d8654();
+    SaveAndDisableVCounterInterrupt_020d8654();
 
     if (arg2 == -16 || arg2 == 0x10) {
         if (*(unsigned char*)(var0 + 0x3c) != arg1) {
@@ -43,6 +43,6 @@ extern "C" ARM int func_020db9cc(void* arg0, int arg1, int arg2, int arg3) {
         var1 = 0;
     }
 
-    func_020d8694();
+    RestoreVCounterInterrupt_020d8694();
     return var1;
 }

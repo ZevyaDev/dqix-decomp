@@ -22,9 +22,9 @@ extern "C" ARM void DrawCanvasText_0205b234(Canvas_0205b234_2* canvas, short x, 
     }
 }
 #else
-extern "C" int func_02042648(int);
+extern "C" int GetFontDefaultWidth_02042648(int);
 extern "C" int FindFontGlyphIndex_020424e4(int, int);
-extern "C" int func_020425e4(int, int, int);
+extern "C" int GetFontKerning_020425e4(int, int, int);
 extern "C" FontGlyph_020420e8* GetFontGlyph_020425b4(int glyphIndex, int font);
 extern "C" void func_0205b36c(Canvas_0205b234_2* arg0, FontGlyph_020420e8* arg1, short arg2, short arg3, unsigned char arg4, unsigned char arg5);
 
@@ -34,14 +34,14 @@ extern "C" ARM int DrawCanvasText_0205b234(Canvas_0205b234_2* canvas, short x, s
     if (canvas->pRects_4_ == 0) return 0;
     if (canvas->rectCount_8_ == 0) return 0;
     if (text == 0) return 0;
-    unsigned char defaultWidth = func_02042648(arg5);
-    int var4 = 0xff;
+    unsigned char defaultWidth = GetFontDefaultWidth_02042648(arg5);
+    int previousGlyphIndex = 0xff;
     short glyphX = x;
     while (*text != 0) {
         int glyphIndex;
         signed char advance = defaultWidth + 1;
         glyphIndex = FindFontGlyphIndex_020424e4((int)text, arg5) & 0xff;
-        glyphX += func_020425e4(var4, glyphIndex, arg5);
+        glyphX += GetFontKerning_020425e4(previousGlyphIndex, glyphIndex, arg5);
         int codeLength = 1;
         if (glyphIndex != 0xff) {
             FontGlyph_020420e8* glyph = GetFontGlyph_020425b4(glyphIndex, arg5);
@@ -49,7 +49,7 @@ extern "C" ARM int DrawCanvasText_0205b234(Canvas_0205b234_2* canvas, short x, s
             advance = glyph->width_4_ + 1;
             codeLength = glyph->codeLength_5_0_;
         }
-        var4 = glyphIndex;
+        previousGlyphIndex = glyphIndex;
         text += codeLength;
         glyphX += advance;
     }

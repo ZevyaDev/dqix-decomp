@@ -20,7 +20,7 @@ extern "C" void func_ov000_021716d0(void* arg0);
 extern "C" void* func_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov000_0217ab48(void* arg0);
 extern "C" void func_ov000_0217629c(void* arg0);
-extern "C" void func_ov000_0217ab8c(void* arg0, int arg1, int arg2);
+extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(void* panel, int arg1, int enemyTargetCount);
 extern "C" void func_ov000_02176e3c(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
 
 struct Struct_ov000_0217b6d0_4 {
@@ -134,7 +134,7 @@ extern "C" ARM int func_ov000_0217b6d0(Struct_ov000_0217b6d0_3* arg0, int arg1, 
         arg0->unknown_18_--;
         arg0->unknown_1e_ = -1;
         arg0->unknown_26_ = 0;
-        func_ov000_0217ab8c(arg0, arg1, arg2);
+        ConfigurePanelMenuCursors_ov000_0217ab8c(arg0, arg1, arg2);
         func_ov000_02176e3c(data_ov000_02184294.unknown_0_, arg0, arg0->unknown_10_[arg0->unknown_18_], data_ov000_02184294.unknown_8_, data_ov000_02184294.unknown_4_, 0);
     }
     return -1;
@@ -181,7 +181,7 @@ extern "C" ARM int func_ov000_0217b6d0(Struct_ov000_0217b6d0_3* arg0, int arg1, 
         arg0->unknown_18_--;
         arg0->unknown_1e_ = -1;
         arg0->unknown_26_ = 0;
-        func_ov000_0217ab8c(arg0, arg1, arg2);
+        ConfigurePanelMenuCursors_ov000_0217ab8c(arg0, arg1, arg2);
         func_ov000_02176e3c(data_ov000_02184294.unknown1_8_, arg0, arg0->unknown_10_[arg0->unknown_18_], data_ov000_02184294.unknown1_4_, data_ov000_02184294.unknown1_0_, 0);
     }
     return -1;

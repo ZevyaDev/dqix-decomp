@@ -3,8 +3,8 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
-struct Struct_02114e20;
-extern "C" unsigned int GetMaxPossibleAllocation_02012dd0(struct Struct_02114e20*);
+struct AllocatorTypeB_02114e20;
+extern "C" unsigned int GetMaxPossibleAllocation_02012dd0(struct AllocatorTypeB_02114e20*);
 
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 
@@ -17,7 +17,7 @@ extern "C" ARM int func_ov001_0215e9b0(void* arg0) {
     if (var0 < 0 || var0 >= 8) {
         return 0;
     }
-    unsigned int var1 = GetMaxPossibleAllocation_02012dd0((struct Struct_02114e20*)&gMainHeap_02114e20);
+    unsigned int var1 = GetMaxPossibleAllocation_02012dd0((struct AllocatorTypeB_02114e20*)&gMainHeap_02114e20);
     if (data_ov001_021658b8[0] != NULL) {
         if (data_ov001_021658b8[0]->GetMaxPossibleAllocation() <= 0x14) {
             return 0;

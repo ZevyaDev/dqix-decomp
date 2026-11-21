@@ -2,19 +2,19 @@
 
 struct LocalWireless_0202b2f0 {
     char unknown_0_[0x1038];
-    signed char unknown_1038_[16];
+    signed char protagonistObjectIndexByConsole_1038_[16];
 };
 
-// USA: func_0202bcbc
-extern "C" ARM signed char func_0202bcbc(struct LocalWireless_0202b2f0* arg0, int arg1) {
-    int var0;
-    for (var0 = 0; var0 < 16; var0++) {
-        if (arg0->unknown_1038_[var0] == arg1) {
+// USA: FindConsoleByProtagonistObjectIndex_0202bcbc
+extern "C" ARM signed char FindConsoleByProtagonistObjectIndex_0202bcbc(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex) {
+    int console;
+    for (console = 0; console < 16; console++) {
+        if (wireless->protagonistObjectIndexByConsole_1038_[console] == protagonistObjectIndex) {
             break;
         }
     }
-    if (var0 == 16) {
+    if (console == 16) {
         return -1;
     }
-    return var0;
+    return console;
 }

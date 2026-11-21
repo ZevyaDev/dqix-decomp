@@ -4,7 +4,7 @@
 #include "Resource/GameResources.h"
 #include "std_library_functions.h"
 
-struct Struct_ov004_021549e4_2;
+struct MenuGrid_ov004_021549e4_2;
 struct Struct_0202656c;
 struct StringList_02072a68_2;
 
@@ -38,7 +38,7 @@ extern "C" void func_02046608(int arg0, int arg1, char* arg2, char* arg3, int ar
 extern "C" void* __clear(void* arg0, int arg1);
 
 extern "C" unsigned int func_ov023_021f6f10(void* arg0);
-extern "C" int func_ov023_021f9bb0(struct Struct_ov004_021549e4_2* arg0);
+extern "C" int GetMenuGridCursorRow_ov023_021f9bb0(struct MenuGrid_ov004_021549e4_2* grid);
 extern "C" void func_02026428(void* arg0, const char* arg1);
 extern "C" void func_02026470(void* arg0, int arg1);
 extern "C" void func_020264e4(char* arg0, char* arg1);
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov004_021636b0(void* arg0, const char* arg1) {
     if (var9 == NULL) return;
     if (func_ov023_021f6f10(var9) != 7) return;
 
-    int var10 = func_ov023_021f9bb0((struct Struct_ov004_021549e4_2*)var9);
+    int var10 = GetMenuGridCursorRow_ov023_021f9bb0((struct MenuGrid_ov004_021549e4_2*)var9);
 #if !defined(jpn)
     var3 = &gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var10];
 #endif

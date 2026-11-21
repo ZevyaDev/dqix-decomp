@@ -22,7 +22,7 @@ extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 
 struct Struct_ov017_0218dba0;
 
-extern "C" void func_0208f87c(const void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void DrawShadow_0208f87c(const void* position, int color, int scale, int alpha, int polygonId);
 
 // USA: func_ov017_0218dba0
 extern "C" ARM void func_ov017_0218dba0(int arg0) {
@@ -52,9 +52,9 @@ extern "C" ARM void func_ov017_0218dba0(int arg0) {
     int var10 = (int)(var9 * (float)var8);
 
     if (var1 != 0) {
-        Struct_02037d10* var11 = func_020399a8(var1);
+        LadderAction_02037d10* var11 = GetLadderAction_020399a8(var1);
         if (var11->unknown_0_ != 0) {
-            var11 = func_020399a8(var1);
+            var11 = GetLadderAction_020399a8(var1);
             unsigned char var12 = var11->unknown_1_;
             if (var12 == 1 || var12 == 4) {
                 var10 = var11->unknown_50_;
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov017_0218dba0(int arg0) {
 
     if (var1->obj3D_.GetFlag(0x10) == 0) {
         int var13 = (int)(0.9f * (float)((Object3D*)((unsigned char*)var1))->GetRadius());
-        func_0208f87c(&var7, var2, var13, var10, 8);
+        DrawShadow_0208f87c(&var7, var2, var13, var10, 8);
     } else {
         Nitro3DRenderConfig::SubmitToFifo();
     }

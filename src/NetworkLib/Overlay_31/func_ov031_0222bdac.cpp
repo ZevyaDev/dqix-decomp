@@ -21,7 +21,7 @@ extern "C" unsigned char func_ov031_022351e4();
 extern "C" unsigned char func_ov031_022351d0();
 extern "C" void DisableButtonBarInput_ov031_02222e98();
 extern "C" void EnableButtonBarInput_ov031_02222e80();
-extern "C" void func_ov031_022238cc();
+extern "C" void FreeCursorSprites_ov031_022238cc();
 extern "C" void func_ov031_0222c3b4();
 extern "C" void func_ov031_0222c8cc();
 extern "C" int PlayWifiSetupSoundEffect_ov031_02236878(int);
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov031_0222bdac() {
         return;
     case 2:
         if (gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_55_) return;
-        func_ov031_022238cc();
+        FreeCursorSprites_ov031_022238cc();
         gAccessPointListPage_ov031_02290c8c.unknown_2_ = FastIntDivide(gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_40_ * func_ov031_022351d0(), gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_53_);
         func_ov031_0222c3b4();
         gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_55_ = 4;

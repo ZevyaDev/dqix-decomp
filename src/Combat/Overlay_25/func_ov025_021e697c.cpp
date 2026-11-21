@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
-extern "C" void func_02049f3c(unsigned char* arg0);
+extern "C" void SetCombatantOffBattlefield_02049f3c(unsigned char* combatant);
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void func_ov000_02167434(unsigned char* arg0, int arg1);
 
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov025_021e697c(struct Struct_ov025_021e697c* arg0, int a
     for (var3 = 0; var3 < var2; var3++) {
         GameObject* var4 = var1->GetCombatantByIndex(var0[var3]);
         if (var4 != NULL) {
-            func_02049f3c((unsigned char*)var4);
+            SetCombatantOffBattlefield_02049f3c((unsigned char*)var4);
             {
                 void* var5 = GetBattleScene_ov000_02160130();
                 int var6 = ((Object3D*)((unsigned char*)var4))->GetTexturePaletteOffset();

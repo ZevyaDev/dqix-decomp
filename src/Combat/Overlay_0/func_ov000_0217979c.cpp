@@ -12,10 +12,9 @@ extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 #if defined(jpn)
-extern "C" int func_02042158(char* arg0, int arg1);
-#define func_02041acc func_02042158
+extern "C" int AppendXOffsetTag_02041acc(char* arg0, int arg1);
 #else
-extern "C" int func_02041acc(char* arg0, int arg1);
+extern "C" int AppendXOffsetTag_02041acc(char* buffer, int xOffset);
 #endif
 extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 
@@ -68,10 +67,10 @@ extern "C" ARM void func_ov000_0217979c(char* arg0, struct Struct_ov000_0217979c
             AppendText_02042058(var9, ((char*)((StringList*)((struct Struct_0201099c_3*)(arg0 + 0xb8)))->GetString(0x13)));
 #else
             AppendText_02042058(var9, var5);
-            func_02041acc(var9, 3);
+            AppendXOffsetTag_02041acc(var9, 3);
 #endif
         } else {
-            func_02041acc(var9, 8);
+            AppendXOffsetTag_02041acc(var9, 8);
         }
 #if defined(jpn)
         AppendText_02042058(var9, var8->unknown_4_);

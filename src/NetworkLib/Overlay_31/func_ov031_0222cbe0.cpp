@@ -10,7 +10,7 @@ extern "C" void func_ov031_02235f0c(void*);
 extern "C" int func_ov031_0223dd34(unsigned char*, int);
 extern "C" void func_ov031_0222cd14(void);
 extern "C" void func_ov031_02223998(int);
-extern "C" void func_ov031_0222336c(int, int, int);
+extern "C" void ShowSubScreenMessage_ov031_0222336c(int, int, int);
 extern "C" void func_ov031_02223518(int);
 extern "C" int func_ov031_0223c560(int, int);
 extern "C" int func_ov031_0223be44(int, int);
@@ -39,9 +39,9 @@ extern "C" ARM void func_ov031_0222cbe0(void) {
 	func_ov031_0222cd14();
 	func_ov031_02223998(var1 + 9);
 	if (var2 == 1) {
-		func_ov031_0222336c(0x35, -1, 0);
+		ShowSubScreenMessage_ov031_0222336c(0x35, -1, 0);
 	} else {
-		func_ov031_0222336c(var0[var1], -1, 0);
+		ShowSubScreenMessage_ov031_0222336c(var0[var1], -1, 0);
 	}
 	func_ov031_02223518(2);
 	int var4 = func_ov031_0223c560(0, 0);

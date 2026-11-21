@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
-extern "C" void func_02059cc8(unsigned char* arg0);
+extern "C" void ResetEffectSlot_02059cc8(unsigned char* slot);
 
 struct Struct_0205859c {
     int unknown_0_;
@@ -21,7 +21,7 @@ extern "C" ARM void func_0205859c(struct Struct_0205859c* arg0) {
         ClearGameObjectByIndex_0200fd48(var0, var1 + 0xd0);
     }
     for (var2 = 0; var2 < 0x10; var2++) {
-        func_02059cc8(arg0->unknown_8_ + var2 * 0xd4);
+        ResetEffectSlot_02059cc8(arg0->unknown_8_ + var2 * 0xd4);
     }
     arg0->unknown_d48_ = 0;
     if (arg0->unknown_d4c_ != NULL) {

@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct Struct_ov031_0223bd28 { unsigned int unknown_0_; unsigned int unknown_4_; };
-struct Struct_ov031_02222f44_2 { unsigned char unknown_0_[8]; struct Struct_ov031_0223bd28* unknown_8_; };
+struct OAMEntry_ov031_0223bd28 { unsigned int unknown_0_; unsigned int unknown_4_; };
+struct OAMAllocation_ov031_02222f44_2 { unsigned char unknown_0_[8]; struct OAMEntry_ov031_0223bd28* pOAMEntries_8_; };
 
-// USA: func_ov031_0223bd28
-extern "C" ARM void func_ov031_0223bd28(struct Struct_ov031_02222f44_2* arg0, int arg1, unsigned int* arg2, unsigned int* arg3) {
-	struct Struct_ov031_0223bd28* var0 = arg0->unknown_8_;
-	*arg2 = (var0[arg1].unknown_0_ & 0x1ff0000) >> 16;
-	*arg3 = var0[arg1].unknown_0_ & 0xff;
+// USA: GetSpritePosition_ov031_0223bd28
+extern "C" ARM void GetSpritePosition_ov031_0223bd28(struct OAMAllocation_ov031_02222f44_2* sprite, int entryIndex, unsigned int* outX, unsigned int* outY) {
+	struct OAMEntry_ov031_0223bd28* oamEntries = sprite->pOAMEntries_8_;
+	*outX = (oamEntries[entryIndex].unknown_0_ & 0x1ff0000) >> 16;
+	*outY = oamEntries[entryIndex].unknown_0_ & 0xff;
 }

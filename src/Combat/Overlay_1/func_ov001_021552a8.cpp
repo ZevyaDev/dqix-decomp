@@ -100,7 +100,7 @@ extern "C" char* GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
 extern "C" void func_ov017_021bb27c(void* arg0);
-extern "C" void func_0208b9a0(void* arg0, unsigned char arg1);
+extern "C" void ResetQuestDisplay_0208b9a0(void* display, unsigned char arg1);
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void func_0208b8c4(Struct_0208b8c4* arg0, SafeAllocator* arg1);
 extern "C" void* GetNPCManager_0203cf4c(void);
@@ -194,7 +194,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
 
     if (arg0->unknown_c_.unknown_44_ & 2) {
         arg0->unknown_120_ = arg0->unknown_7c_.Allocate(0xe4);
-        func_0208b9a0(arg0->unknown_120_, 0);
+        ResetQuestDisplay_0208b9a0(arg0->unknown_120_, 0);
         char* var11 = GetMessageWindow_020421a0();
         arg0->unknown_124_.CreateTypeA(arg0->unknown_7c_.Allocate(0xa000), 0xa000);
         arg0->unknown_124_.Reset();

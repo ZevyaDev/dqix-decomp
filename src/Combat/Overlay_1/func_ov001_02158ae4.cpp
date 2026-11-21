@@ -35,7 +35,7 @@ struct Struct_ov001_02158ae4_3 {
 struct Struct_ov000_0216df00 { int unknown_0_; Vector3i unknown_4_; Vector3i unknown_10_; };
 extern "C" void* func_020100bc(GameState*);
 extern "C" void func_ov001_021588e4(Struct_ov001_02158ae4_3*);
-extern "C" void func_0202e7d4(unsigned char*, int*, int*, int*);
+extern "C" void GetCameraOrbit_0202e7d4(unsigned char*, int*, int*, int*);
 extern "C" Struct_ov001_02158ae4* func_ov001_02158e8c(Struct_ov001_02158ae4_3*, Struct_ov001_02158ae4*, int);
 extern "C" void SetCameraOrbit_0202e5d8(Struct_ov000_0216df00*, int, int, int);
 extern "C" void SetCameraOrbitFromEye_0202eab8(Struct_ov000_0216df00*);
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov001_02158ae4(Struct_ov001_02158ae4_3* arg0) {
     if (!var2) { func_ov001_021588e4(arg0); return; }
     arg0->unknown_4c_ = var2->unknown_4_;
     arg0->unknown_58_ = var2->unknown_10_;
-    func_0202e7d4((unsigned char*)var2, &arg0->unknown_64_, &arg0->unknown_68_, &arg0->unknown_6c_);
+    GetCameraOrbit_0202e7d4((unsigned char*)var2, &arg0->unknown_64_, &arg0->unknown_68_, &arg0->unknown_6c_);
     Vector3i var3 = arg0->unknown_4c_;
     Vector3i var4 = arg0->unknown_58_;
     int var5 = arg0->unknown_64_;

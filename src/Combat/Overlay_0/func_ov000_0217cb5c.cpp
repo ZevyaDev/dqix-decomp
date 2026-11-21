@@ -45,7 +45,7 @@ extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void* GetParty_02010828(GameState*);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
-extern "C" Struct_ov000_021735d0_2* func_ov000_0217f8c0(Struct_ov000_021735d0_3*);
+extern "C" Struct_ov000_021735d0_2* GetSelectedMemberPanel_ov000_0217f8c0(Struct_ov000_021735d0_3*);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" {
 void GetZone3D_02012fe4();
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov000_0217cb5c(Struct_ov000_0215767c_2* arg0, int arg1,
             arg0->unknown_1d6a_ = 0;
             arg0->unknown_1d68_++;
             arg0->unknown_1d60_[arg0->unknown_1d68_] = 2;
-            func_ov000_02176634(arg0, func_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0), 2, arg1, arg2);
+            func_ov000_02176634(arg0, GetSelectedMemberPanel_ov000_0217f8c0((Struct_ov000_021735d0_3*)arg0), 2, arg1, arg2);
             break;
         case 2:
             arg0->unknown_1d72_ &= ~0x100;

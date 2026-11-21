@@ -6,9 +6,9 @@ extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 extern "C" int func_020d3fdc(void);
 extern "C" int func_020d4ebc(int arg0);
 extern "C" int func_020d4f3c(int arg0);
-extern "C" int func_020d5004(int arg0);
+extern "C" int ResetWirelessDriver_020d5004(int callback);
 extern "C" unsigned short* func_020d46a8(void);
-extern "C" void func_ov031_0220da1c(int);
+extern "C" void SetAccessPointConnectionState_ov031_0220da1c(int);
 extern "C" void func_ov031_0220dc40(void);
 extern "C" void func_ov031_0220e7b0(void);
 
@@ -40,7 +40,7 @@ extern "C" ARM int func_ov031_0220d330(void) {
 			SetIRQInterruptState(var0);
 			return 0;
 		case 6:
-			func_ov031_0220da1c(0xd);
+			SetAccessPointConnectionState_ov031_0220da1c(0xd);
 			gAccessPointConnection_ov031_0224e53c->unknown_2280_ = 9;
 			SetIRQInterruptState(var0);
 			return 3;
@@ -59,7 +59,7 @@ extern "C" ARM int func_ov031_0220d330(void) {
 		case 9:
 		case 12:
 			if (gAccessPointConnection_ov031_0224e53c->unknown_226b_ == 1) {
-				func_ov031_0220da1c(0xd);
+				SetAccessPointConnectionState_ov031_0220da1c(0xd);
 				gAccessPointConnection_ov031_0224e53c->unknown_2280_ = 9;
 				goto epilogue3;
 			}
@@ -70,7 +70,7 @@ extern "C" ARM int func_ov031_0220d330(void) {
 					case 0:
 						var1 = func_020d3fdc();
 						if (var1 != 0) break;
-						func_ov031_0220da1c(1);
+						SetAccessPointConnectionState_ov031_0220da1c(1);
 						gAccessPointConnection_ov031_0224e53c->unknown_2280_ = 0;
 						SetIRQInterruptState(var0);
 						return 0;
@@ -82,7 +82,7 @@ extern "C" ARM int func_ov031_0220d330(void) {
 						break;
 					default:
 						gAccessPointConnection_ov031_0224e53c->unknown_226b_ = 1;
-						var1 = func_020d5004((int)func_ov031_0220e7b0);
+						var1 = ResetWirelessDriver_020d5004((int)func_ov031_0220e7b0);
 						break;
 				}
 			}
@@ -91,7 +91,7 @@ extern "C" ARM int func_ov031_0220d330(void) {
 
 	switch (var1) {
 		case 2:
-			func_ov031_0220da1c(0xd);
+			SetAccessPointConnectionState_ov031_0220da1c(0xd);
 			gAccessPointConnection_ov031_0224e53c->unknown_2280_ = 9;
 			goto epilogue3;
 		case 8:
@@ -99,7 +99,7 @@ extern "C" ARM int func_ov031_0220d330(void) {
 			return 4;
 		case 3:
 		default:
-			func_ov031_0220da1c(0xb);
+			SetAccessPointConnectionState_ov031_0220da1c(0xb);
 			SetIRQInterruptState(var0);
 			return 7;
 	}

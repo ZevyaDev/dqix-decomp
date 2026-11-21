@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-extern "C" void func_020d8654(void);
+extern "C" void SaveAndDisableVCounterInterrupt_020d8654(void);
 extern "C" int func_0202d6a8(void);
 extern "C" int func_0202dcd4(int arg0);
 extern "C" int func_0202dcb4(int arg0);
-extern "C" void func_020d8694(void);
+extern "C" void RestoreVCounterInterrupt_020d8694(void);
 
 // USA: func_0202bf40
 extern "C" ARM void func_0202bf40(void* arg0) {
-    func_020d8654();
+    SaveAndDisableVCounterInterrupt_020d8654();
     if (func_0202d6a8() == 5) {
         if (func_0202dcd4((int)((char*)arg0 + 0x7c0))) {
             char* var0 = (char*)arg0 + 0xbc0;
@@ -33,5 +33,5 @@ extern "C" ARM void func_0202bf40(void* arg0) {
         for (unsigned short var5 = 0; var5 < 4; var5++) *(int*)((char*)arg0 + var5 * 4 + 0xfc4) = 0;
         *(int*)((char*)arg0 + 0xfc0) = 0;
     }
-    func_020d8694();
+    RestoreVCounterInterrupt_020d8694();
 }

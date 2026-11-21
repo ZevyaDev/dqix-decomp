@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 
-struct Struct_ov023_021e2bdc { short unknown_0_; };
+struct Struct_ov023_021e2bdc { short elementId_0_; };
 struct LayoutGroup_ov023_021e2bdc_2 { char unknown_0_[2]; unsigned short elementCount_2_; struct Struct_ov023_021e2bdc* pElementIds_4_; };
 
 extern "C" struct LayoutGroup_ov023_021e2bdc_2* func_ov023_021db4e4(void*);
 extern "C" void func_ov023_021e2b5c(void*, int, short*, short*);
 
-// USA: func_ov023_021e2bdc
-extern "C" ARM void func_ov023_021e2bdc(void* arg0, int arg1, short* arg2, short* arg3) {
-    struct LayoutGroup_ov023_021e2bdc_2* var0 = func_ov023_021db4e4(arg0);
-    if (var0 != 0 && var0->elementCount_2_ != 0 && var0->pElementIds_4_ != 0) {
-        short var1 = var0->pElementIds_4_->unknown_0_;
-        short var2, var3;
-        func_ov023_021e2b5c(arg0, var1, &var2, &var3);
-        *arg2 = var2;
-        *arg3 = var3;
+// USA: GetLayoutGroupFirstElementPosition_ov023_021e2bdc
+extern "C" ARM void GetLayoutGroupFirstElementPosition_ov023_021e2bdc(void* layout, int groupId, short* outX, short* outY) {
+    struct LayoutGroup_ov023_021e2bdc_2* group = func_ov023_021db4e4(layout);
+    if (group != 0 && group->elementCount_2_ != 0 && group->pElementIds_4_ != 0) {
+        short firstElementId = group->pElementIds_4_->elementId_0_;
+        short x, y;
+        func_ov023_021e2b5c(layout, firstElementId, &x, &y);
+        *outX = x;
+        *outY = y;
     }
 }

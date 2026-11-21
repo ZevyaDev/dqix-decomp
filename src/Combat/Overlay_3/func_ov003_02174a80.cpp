@@ -131,7 +131,7 @@ extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8*, SafeAllocato
 struct Struct_0207f914;
 extern "C" void func_0207f914(Struct_0207f914*, int, int, int);
 extern "C" int UpdateMenuLayoutLoad_0207f9f4(void*);
-extern "C" void func_0208108c(void*, int);
+extern "C" void CenterMenuLayoutText_0208108c(void*, int);
 extern "C" Struct_ov003_02174a80* GetMessageWindow_020421a0(void);
 extern "C" void func_ov003_02176798(void*);
 
@@ -320,21 +320,21 @@ extern "C" ARM void func_ov003_02174a80(Struct_ov003_02174a80_5* arg0) {
 
     if (arg0->unknown_103f_ == 9) {
         void* var25 = arg0->unknown_89c_;
-        func_0208108c(var25, 0x21);
-        func_0208108c(var25, 0x2c);
-        func_0208108c(var25, 0x3c);
-        func_0208108c(var25, 0x51);
+        CenterMenuLayoutText_0208108c(var25, 0x21);
+        CenterMenuLayoutText_0208108c(var25, 0x2c);
+        CenterMenuLayoutText_0208108c(var25, 0x3c);
+        CenterMenuLayoutText_0208108c(var25, 0x51);
 #if !defined(jpn)
-        func_0208108c(var25, 0x52);
-        func_0208108c(var25, 0x55);
+        CenterMenuLayoutText_0208108c(var25, 0x52);
+        CenterMenuLayoutText_0208108c(var25, 0x55);
 #endif
-        func_0208108c(var25, 0x5c);
-        func_0208108c(var25, 0x5f);
-        func_0208108c(var25, 0x63);
-        func_0208108c(var25, 0x70);
-        func_0208108c(var25, 0x71);
-        func_0208108c(var25, 0x75);
-        func_0208108c(var25, 0xd2);
+        CenterMenuLayoutText_0208108c(var25, 0x5c);
+        CenterMenuLayoutText_0208108c(var25, 0x5f);
+        CenterMenuLayoutText_0208108c(var25, 0x63);
+        CenterMenuLayoutText_0208108c(var25, 0x70);
+        CenterMenuLayoutText_0208108c(var25, 0x71);
+        CenterMenuLayoutText_0208108c(var25, 0x75);
+        CenterMenuLayoutText_0208108c(var25, 0xd2);
         BG0CNT = (BG0CNT & ~3) | 3;
         BG1CNT = (BG1CNT & ~3) | 2;
         BG2CNT = (BG2CNT & ~3) | 1;

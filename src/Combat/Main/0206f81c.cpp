@@ -76,7 +76,7 @@ extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void func_020de848(void* itemTable);
 extern char* gItemDataPath_020f2a38;
 extern char* data_020f2a30;
-extern "C" int func_020de980(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
+extern "C" int LoadItemTableById_020de980(void* itemTable, void* allocator, void* fileData, int fileSize, int itemId);
 extern "C" void ResetItemContext_0207cbe8(char* itemContext);
 extern "C" void AddItem_0207d300(void* itemContext, short itemId, int count, int isAliveRequired);
 
@@ -86,7 +86,7 @@ struct Struct_0203d028_3;
 extern "C" int func_02053c6c(unsigned char* gameObject);
 struct Struct_0206f81c;
 extern "C" void* func_02083554(struct Struct_0206f81c* arg0, int arg1);
-extern "C" void UnequipCategory_02083738(void* memberData, int arg1);
+extern "C" void UnequipCategory_02083738(void* memberData, int category);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int memberIndex, int requestModelLoad);
 extern "C" void SendPartyMemberBodyAppearance_ov017_021c4418(int memberIndex, signed char recipientIndex);
@@ -363,7 +363,7 @@ extern "C" ARM void RunDeferredTriggerActions_0206f81c(void* triggerResult) {
                     unsigned int fileSize = 0;
                     void* fileData = ExtractFileFromGP2((const char*)(gItemDataPath_020f2a38), (const char*)(data_020f2a30), (unsigned int*)(&fileSize));
                     if (fileData != NULL) {
-                        func_020de980(itemTable, allocator, fileData, fileSize, (int)(*(short*)(action + 2)));
+                        LoadItemTableById_020de980(itemTable, allocator, fileData, fileSize, (int)(*(short*)(action + 2)));
                     }
                     BackgroundLoader::RemoveLockGlobal();
 #endif
@@ -488,7 +488,7 @@ extern "C" ARM void RunDeferredTriggerActions_0206f81c(void* triggerResult) {
                     unsigned int fileSize = 0;
                     void* fileData = ExtractFileFromGP2((const char*)(gItemDataPath_020f2a38), (const char*)(data_020f2a30), (unsigned int*)(&fileSize));
                     if (fileData != NULL) {
-                        func_020de980(itemTable, allocator, fileData, fileSize, (int)(*(short*)(action + 6)));
+                        LoadItemTableById_020de980(itemTable, allocator, fileData, fileSize, (int)(*(short*)(action + 6)));
                     }
                     BackgroundLoader::RemoveLockGlobal();
 #endif

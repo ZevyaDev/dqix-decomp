@@ -19,7 +19,7 @@ struct TextWindow_0207fe80 {
     char unknown_b0_[0xc0 - 0xb0];
     short shownRows_c0_;
     char unknown_c2_[0xc4 - 0xc2];
-    unsigned char unknown_c4_;
+    unsigned char id_c4_;
     unsigned char flags_c5_;
     char unknown_c6_[0xe0 - 0xc6];
 };
@@ -40,60 +40,60 @@ struct MenuLayout_0207fe80_3 {
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char*);
 extern "C" int func_0204fd00(struct TextWindow_0207fe80* arg0, int arg1);
 
-// USA: func_0207fe80
-extern "C" ARM void func_0207fe80(struct MenuLayout_0207fe80_3* arg0, int arg1, int arg2, unsigned short arg3) {
-    struct BGLayer_0207fe80_2* var0;
-    struct BGLayer_0207fe80_2* var1;
-    struct BGLayer_0207fe80_2* var2;
-    unsigned char var3;
-    struct TextWindow_0207fe80* var4;
-    unsigned char var5;
-    short var6;
-    short var7;
-    short var8;
-    short var9;
+// USA: FillBGUnderMenuLayoutWindows_0207fe80
+extern "C" ARM void FillBGUnderMenuLayoutWindows_0207fe80(struct MenuLayout_0207fe80_3* menuLayout, int fillBGIndex, int windowBGIndex, unsigned short screenEntry) {
+    struct BGLayer_0207fe80_2* fillLayer;
+    struct BGLayer_0207fe80_2* windowLayer;
+    struct BGLayer_0207fe80_2* layer;
+    unsigned char layerIndex;
+    struct TextWindow_0207fe80* textWindow;
+    unsigned char windowIndex;
+    short x;
+    short y;
+    short width;
+    short height;
 
-    arg1 &= 3;
-    arg2 &= 3;
-    if (arg1 == arg2) {
+    fillBGIndex &= 3;
+    windowBGIndex &= 3;
+    if (fillBGIndex == windowBGIndex) {
         return;
     }
-    var0 = NULL;
-    var1 = NULL;
-    for (var3 = 0; var3 < arg0->bgLayerCount_38_; var3++) {
-        var2 = &arg0->pBGLayers_2c_[var3];
-        if (arg1 == var2->bgIndex_1c_4_) {
-            var0 = var2;
+    fillLayer = NULL;
+    windowLayer = NULL;
+    for (layerIndex = 0; layerIndex < menuLayout->bgLayerCount_38_; layerIndex++) {
+        layer = &menuLayout->pBGLayers_2c_[layerIndex];
+        if (fillBGIndex == layer->bgIndex_1c_4_) {
+            fillLayer = layer;
         }
-        if (arg2 == var2->bgIndex_1c_4_) {
-            var1 = var2;
+        if (windowBGIndex == layer->bgIndex_1c_4_) {
+            windowLayer = layer;
         }
     }
-    if ((var0 == NULL) | (var1 == NULL)) {
+    if ((fillLayer == NULL) | (windowLayer == NULL)) {
         return;
     }
-    arg3 &= 0x3ff;
-    for (var5 = 0; var5 < arg0->windowCount_39_; var5++) {
-        var4 = &arg0->pWindows_30_[var5];
-        if (IsTextWindowOpen_0204c7e0((unsigned char*)var4) && var4->unknown_c4_ != 0xff) {
-            if (!(var4->flags_c5_ & 0x20) && !(var4->flags_c5_ & 0x80) && var1 == var4->pBGLayer_4_) {
-                var7 = var4->tileY_ae_;
-                var6 = var4->tileX_ac_;
-                var8 = var4->width_a8_;
-                var9 = var4->shownRows_c0_;
-                ((BGLayer*)(var0))->SetTileInRectangle(arg3, var6, var7, var8, var9, 0);
-                if (var9 && arg3) {
-                    if (!func_0204fd00(var4, 1)) {
-                        ((BGLayer*)(var0))->SetTileInRectangle(2, var6, var7, 1, 1, 0);
+    screenEntry &= 0x3ff;
+    for (windowIndex = 0; windowIndex < menuLayout->windowCount_39_; windowIndex++) {
+        textWindow = &menuLayout->pWindows_30_[windowIndex];
+        if (IsTextWindowOpen_0204c7e0((unsigned char*)textWindow) && textWindow->id_c4_ != 0xff) {
+            if (!(textWindow->flags_c5_ & 0x20) && !(textWindow->flags_c5_ & 0x80) && windowLayer == textWindow->pBGLayer_4_) {
+                y = textWindow->tileY_ae_;
+                x = textWindow->tileX_ac_;
+                width = textWindow->width_a8_;
+                height = textWindow->shownRows_c0_;
+                ((BGLayer*)(fillLayer))->SetTileInRectangle(screenEntry, x, y, width, height, 0);
+                if (height && screenEntry) {
+                    if (!func_0204fd00(textWindow, 1)) {
+                        ((BGLayer*)(fillLayer))->SetTileInRectangle(2, x, y, 1, 1, 0);
                     }
-                    if (!func_0204fd00(var4, 2)) {
-                        ((BGLayer*)(var0))->SetTileInRectangle(0x402, (short)(var6 + var8 - 1), var7, 1, 1, 0);
+                    if (!func_0204fd00(textWindow, 2)) {
+                        ((BGLayer*)(fillLayer))->SetTileInRectangle(0x402, (short)(x + width - 1), y, 1, 1, 0);
                     }
-                    if (!func_0204fd00(var4, 4)) {
-                        ((BGLayer*)(var0))->SetTileInRectangle(0x802, var6, (short)(var7 + var9 - 1), 1, 1, 0);
+                    if (!func_0204fd00(textWindow, 4)) {
+                        ((BGLayer*)(fillLayer))->SetTileInRectangle(0x802, x, (short)(y + height - 1), 1, 1, 0);
                     }
-                    if (!func_0204fd00(var4, 8)) {
-                        ((BGLayer*)(var0))->SetTileInRectangle(0xc02, (short)(var6 + var8 - 1), (short)(var7 + var9 - 1), 1, 1, 0);
+                    if (!func_0204fd00(textWindow, 8)) {
+                        ((BGLayer*)(fillLayer))->SetTileInRectangle(0xc02, (short)(x + width - 1), (short)(y + height - 1), 1, 1, 0);
                     }
                 }
             }

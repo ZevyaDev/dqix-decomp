@@ -17,7 +17,7 @@ extern "C" {
     unsigned int _Z28SetSpecificInterruptsEnabledj(unsigned int arg0);
     void _Z19SetInterruptHandlerjPKv(unsigned int arg0, const void* arg1);
     void _Z24EnableSpecificInterruptsj(unsigned int arg0);
-    int func_020c3864(int arg0);
+    int SetVBlankInterruptEnabled_020c3864(int isEnabled);
     void func_02012d18(AllocatorUnion* arg0);
     void _Z23InitializeROMFilesystemi(int arg0);
     void _Z23ChangeROMLoadDMAChannelj(int arg0);
@@ -50,7 +50,7 @@ extern "C" ARM void func_02012c34(void) {
     volatile unsigned short* var0 = (volatile unsigned short*)0x04000208;
     *var0;
     *var0 = 1;
-    func_020c3864(1);
+    SetVBlankInterruptEnabled_020c3864(1);
     func_02012d18(&gMainHeap_02114e20);
     _Z24EnableSpecificInterruptsj(0x40000);
     _Z23InitializeROMFilesystemi(2);

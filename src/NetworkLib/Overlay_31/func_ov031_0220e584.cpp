@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "NitroSDK/Cache.h"
 
-extern "C" void func_ov031_0220da1c(int arg0);
+extern "C" void SetAccessPointConnectionState_ov031_0220da1c(int state);
 extern "C" void func_ov031_0220db6c(void);
 extern "C" void func_ov031_0220d984(int arg0, void* arg1, int arg2, int arg3);
 extern "C" void func_ov031_0220f394(int arg0);
@@ -26,10 +26,10 @@ extern "C" ARM void func_ov031_0220e584(Struct_ov031_0220e584* arg0) {
 			unsigned char* var0 = (unsigned char*)gAccessPointConnection_ov031_0224e53c;
 			int var1 = *(int*)(var0 + 0x2000 + 0x260);
 			if (var1 == 0xc) {
-				func_ov031_0220da1c(8);
+				SetAccessPointConnectionState_ov031_0220da1c(8);
 				func_ov031_0220db6c();
 			} else {
-				func_ov031_0220da1c(9);
+				SetAccessPointConnectionState_ov031_0220da1c(9);
 				unsigned char* var2 = (unsigned char*)gAccessPointConnection_ov031_0224e53c;
 				func_ov031_0220d984(0, var2 + 0x2140, 0, 0x872);
 			}
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov031_0220e584(Struct_ov031_0220e584* arg0) {
 			break;
 		}
 		default: {
-			func_ov031_0220da1c(0xb);
+			SetAccessPointConnectionState_ov031_0220da1c(0xb);
 			unsigned char* var5 = (unsigned char*)gAccessPointConnection_ov031_0224e53c;
 			int var6 = arg0->unknown_4_;
 			func_ov031_0220d984(7, var5 + 0x2140, var6, 0x881);
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov031_0220e584(Struct_ov031_0220e584* arg0) {
 		break;
 	case 4:
 	default: {
-		func_ov031_0220da1c(0xb);
+		SetAccessPointConnectionState_ov031_0220da1c(0xb);
 		unsigned char* var7 = (unsigned char*)gAccessPointConnection_ov031_0224e53c;
 		func_ov031_0220d984(7, var7 + 0x2140, 0, 0x88c);
 		break;

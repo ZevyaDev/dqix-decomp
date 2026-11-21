@@ -20,7 +20,7 @@ extern "C" {
 void func_ov006_02153e54(Struct_ov006_02153cbc*);
 void func_ov006_02153e8c(void*, Struct_ov006_02153cbc*);
 int func_ov006_02154138(void*);
-bool func_020ac2d4(int, short*, Struct_ov006_02153cbc*, int);
+bool GetAlchemyRecipeStates_020ac2d4(int, short*, Struct_ov006_02153cbc*, int);
 void func_020ac104(void*, Struct_ov006_02153cbc*, int);
 Struct_ov006_02153cbc_2* func_02071d60(void*, short);
 bool GetAlchemyCount_020ac0b4(unsigned int*);
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov006_02153cbc(void* arg0, short arg1, short arg2, void
     BackgroundLoader::FreeAllocationsGlobal();
     Struct_ov006_02153cbc var0;
     func_ov006_02153e54(&var0);
-    if (func_020ac2d4(0, &arg1, &var0, 1)) {
+    if (GetAlchemyRecipeStates_020ac2d4(0, &arg1, &var0, 1)) {
         var0.unknown_2_0_ = 1;
         var0.unknown_2_1_ = 1;
         func_020ac104(g_fileScratchSpace, &var0, 1);
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov006_02153cbc(void* arg0, short arg1, short arg2, void
     }
     if (arg2 > 0) {
         func_ov006_02153e54(&var0);
-        if (func_020ac2d4(0, &arg2, &var0, 1)) {
+        if (GetAlchemyRecipeStates_020ac2d4(0, &arg2, &var0, 1)) {
             var0.unknown_0_ = arg2;
             var0.unknown_2_1_ = 1;
             func_020ac104(g_fileScratchSpace, &var0, 1);

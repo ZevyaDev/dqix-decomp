@@ -14,14 +14,14 @@
 extern "C" int GetMessageWindow_020421a0();
 struct Struct_ov000_021735d0_3;
 struct Struct_ov000_021735d0_2;
-extern "C" struct Struct_ov000_021735d0_2* func_ov000_0217f8c0(struct Struct_ov000_021735d0_3* arg0);
+extern "C" struct Struct_ov000_021735d0_2* GetSelectedMemberPanel_ov000_0217f8c0(struct Struct_ov000_021735d0_3* battleUI);
 extern "C" void func_ov000_02179194(void* arg0, void* arg1);
 extern "C" void func_ov000_0217936c(void* arg0, void* arg1, void* arg2);
 
 struct TextWindowManager_0205d5d0;
 // USA: func_ov000_02179128
 extern "C" ARM int func_ov000_02179128(void* arg0, int, int) {
-	void* var0 = func_ov000_0217f8c0((struct Struct_ov000_021735d0_3*)arg0);
+	void* var0 = GetSelectedMemberPanel_ov000_0217f8c0((struct Struct_ov000_021735d0_3*)arg0);
 	func_ov000_02179194(arg0, var0);
 	void* var1 = *(void**)(GetMessageWindow_020421a0() + REGION_OFFSET_0);
 	memset(var1, 0, REGION_OFFSET_1);

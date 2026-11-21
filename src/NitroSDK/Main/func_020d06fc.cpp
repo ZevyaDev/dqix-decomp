@@ -10,7 +10,7 @@
 #endif
 
 
-extern "C" void func_02000b9c(unsigned int);
+extern "C" void ReferenceLibraryTag_02000b9c(unsigned int);
 extern "C" void func_020c9be0(void);
 extern "C" void func_020d0fc4(CardReadManager* arg0, int arg1, int arg2);
 
@@ -22,7 +22,7 @@ extern "C" ARM int func_020d06fc(void* arg0) {
     NitroHandle* var3;
     CardReadManager::CompletionCallback var4;
 
-    func_02000b9c(0x2000bc4);
+    ReferenceLibraryTag_02000b9c(0x2000bc4);
     if (arg0 == NULL) {
         func_020c9be0();
     }

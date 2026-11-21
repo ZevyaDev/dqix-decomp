@@ -71,7 +71,7 @@ extern "C" void func_ov023_021e20c0(void*);
 extern "C" void LoadLayout_ov023_021e20f0(void*, void*, void*, unsigned int);
 extern "C" void* func_ov006_02157368(void*, int);
 extern "C" void InitNounTable_020e526c(void*);
-extern "C" void func_020e5604(void*, void*, void*, unsigned int);
+extern "C" void LoadNounTable_020e5604(void*, void*, void*, unsigned int);
 struct Struct_0207f914;
 extern "C" void func_0207f914(Struct_0207f914*, int, int, int);
 extern "C" int UpdateMenuLayoutLoad_0207f9f4(void*);
@@ -79,7 +79,7 @@ extern "C" void func_020810a0(void*, int);
 struct MenuLayout_0207f7f0;
 struct TextWindow_0207f7f0_2;
 extern "C" void SetMenuLayoutWindowArray_0207f7f0(MenuLayout_0207f7f0*, TextWindow_0207f7f0_2*, int);
-extern "C" void func_0208108c(void*, int);
+extern "C" void CenterMenuLayoutText_0208108c(void*, int);
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int*, int, int, int, int);
 extern "C" void func_ov006_02158de0(void*);
 extern "C" void func_ov006_02153744(void*, void*, void*, int);
@@ -385,7 +385,7 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
                 ((StringList*)((char*)arg0 + REGIONAL_OFFSET(0x164, 0x170)))->LoadFromMemory((SafeAllocator*)((char*)var23 + 0x28), (const void*)(var0.unknown_8_), var0.unknown_4_);
 #else
                 InitNounTable_020e526c((char*)arg0 + REGIONAL_OFFSET(0x164, 0x170));
-                func_020e5604((char*)arg0 + REGIONAL_OFFSET(0x164, 0x170), (char*)var23 + 0x28, var0.unknown_8_, var0.unknown_4_);
+                LoadNounTable_020e5604((char*)arg0 + REGIONAL_OFFSET(0x164, 0x170), (char*)var23 + 0x28, var0.unknown_8_, var0.unknown_4_);
 #endif
             }
             ((BackgroundLoader*)var1)->RemoveTask(arg0->unknown_354_);
@@ -423,8 +423,8 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
         SetMenuLayoutWindowArray_0207f7f0(arg0->unknown_14_, arg0->unknown_20_, 7);
         arg0->unknown_14_->unknown_3a_ = 1;
 #if !defined(jpn)
-        func_0208108c(arg0->unknown_14_, 0x20);
-        func_0208108c(arg0->unknown_14_, 0x3e);
+        CenterMenuLayoutText_0208108c(arg0->unknown_14_, 0x20);
+        CenterMenuLayoutText_0208108c(arg0->unknown_14_, 0x3e);
 #endif
         volatile unsigned short* var27 = (volatile unsigned short*)0x04001008;
         var27[0] = var27[0] & ~3;

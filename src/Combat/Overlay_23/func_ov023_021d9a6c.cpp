@@ -11,10 +11,10 @@
 #include "Combat/TryApplyElemFields.h"
 
 extern "C" int AppendTextColorTag_02041e70(char*, int);
-extern "C" int func_02042158(char*, int);
+extern "C" int AppendXOffsetTag_02041acc(char*, int);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" int func_020d2ff0(const char*);
-extern "C" int func_020d3018(const char*, const char*);
+extern "C" int CompareStrings_020d3018(const char*, const char*);
 extern "C" const char data_ov023_021fcd20[];
 
 extern "C" ARM void func_ov023_021d9a6c(char* arg0) {
@@ -45,11 +45,11 @@ extern "C" ARM void func_ov023_021d9a6c(char* arg0) {
             AppendTextColorTag_02041e70(var0->unknown_f8_, 15);
         if (var5 < 7) {
             short var6 = var4[var5];
-            func_02042158(var0->unknown_f8_, (10 - func_020d2ff0((const char*)((int)((StringList*)(&var0->unknown_e0_))->GetString(var6)))) * 5);
+            AppendXOffsetTag_02041acc(var0->unknown_f8_, (10 - func_020d2ff0((const char*)((int)((StringList*)(&var0->unknown_e0_))->GetString(var6)))) * 5);
             AppendText_02042058(var0->unknown_f8_, (const char*)((int)((StringList*)(&var0->unknown_e0_))->GetString(var6)));
             AppendText_02042058(var0->unknown_f8_, (const char*)((int)((StringList*)(&var0->unknown_e0_))->GetString(0x4273)));
         } else if (var5 == 7) {
-            if (func_020d3018(var0->unknown_d74_[var0->unknown_da3_], (const char*)((int)((StringList*)(&var0->unknown_e0_))->GetString(0x4272))) == 0) {
+            if (CompareStrings_020d3018(var0->unknown_d74_[var0->unknown_da3_], (const char*)((int)((StringList*)(&var0->unknown_e0_))->GetString(0x4272))) == 0) {
                 AppendText_02042058(var0->unknown_f8_, (const char*)((int)((StringList*)(&var0->unknown_e0_))->GetString(0x4274)));
             } else {
                 char var7[11] = {};
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov023_021d9a6c(char* arg0) {
                         break;
                     }
                 }
-                func_02042158(var0->unknown_f8_, (10 - func_020d2ff0(var7)) * 5);
+                AppendXOffsetTag_02041acc(var0->unknown_f8_, (10 - func_020d2ff0(var7)) * 5);
                 AppendText_02042058(var0->unknown_f8_, var7);
             }
         }

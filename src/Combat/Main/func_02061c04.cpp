@@ -71,7 +71,7 @@ extern "C" void func_ov017_021d0d58();
 struct Queue_02038598_5;
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void *func_ov017_021b8478(void *battleManager);
-extern "C" int func_020a3694(int*);
+extern "C" int IsScriptedBattle_020a3694(int*);
 struct Struct_02061c04_8;
 extern "C" void func_ov017_021aa16c(Struct_02061c04_8*);
 struct Queue_020469f8;
@@ -95,7 +95,7 @@ struct Struct_02061c04_10 {
     float unknown_10_;
 };
 extern "C" void func_ov017_021cd6d8(Struct_02061c04_10 *arg0);
-extern "C" void func_0202ea10(unsigned char*, int, int);
+extern "C" void ShakeCamera_0202ea10(unsigned char*, int, int);
 extern "C" void func_0202ea3c(unsigned char*);
 struct Struct_0202ea20;
 extern "C" void func_0202ea20(Struct_0202ea20*);
@@ -203,15 +203,15 @@ struct Struct_01ff91ac_4 { unsigned int unknown_0_0_ : 14; unsigned int unknown_
 struct Struct_01ff91ac_5 { unsigned int unknown_0_0_ : 9; unsigned int unknown_1_1_ : 14; unsigned int unknown_2_7_ : 9; };
 extern "C" void *GetNPCManager_0203cf4c(void);
 extern "C" void *FindNPCById_0203df78(void *npcManager, int id);
-struct Struct_0203e0a0;
-extern "C" void * func_02040538(Struct_0203e0a0*);
+struct NPC_0203e0a0;
+extern "C" void * GetNPCPlacement_02040538(NPC_0203e0a0*);
 extern "C" void GetCurrentDate_020cf0fc(int date);
-extern "C" int func_020ac2d4(int arg0, void *arg1, void *arg2, int arg3);
+extern "C" int GetAlchemyRecipeStates_020ac2d4(int arg0, void *recipeIds, void *states, int count);
 extern "C" void func_020ac104(void *arg0, void *arg1, int arg2);
 extern "C" void * func_ov017_021bdbf0(unsigned char*);
 extern "C" void * func_ov017_021beba4(char*);
-struct Struct_02019508_3;
-extern "C" void * func_02019508(Struct_02019508_3*, int, int);
+struct Zone3D_02019508_3;
+extern "C" void * FindBMDJEntry_02019508(Zone3D_02019508_3*, int, int);
 extern "C" void func_0206ea8c(void *arg0, unsigned char arg1, short arg2, int arg3);
 struct Struct_02013380;
 extern "C" void func_02013380(Struct_02013380*, int, int);
@@ -233,7 +233,7 @@ extern "C" void SetMotionKeepingAnimation_02033b58(Struct_02033b58*, unsigned ch
 extern "C" void *GetActiveZones_02027ca4(void);
 struct Struct_02028bac;
 extern "C" void * func_02028bac(Struct_02028bac*, int);
-extern "C" void DespawnFieldMonster_ov017_021a23b0(void *gameResources, unsigned short arg1);
+extern "C" void DespawnFieldMonster_ov017_021a23b0(void *gameResources, unsigned short fieldMonsterId);
 extern "C" void func_ov017_021c9544(int arg0, int arg1, int arg2, int arg3);
 extern "C" int GetLocalWirelessState_0202ba00(int *wireless);
 extern "C" void AddElapsedPlayTime_020ac4f8(int isMultiplayerTimeIncluded);
@@ -371,7 +371,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
                 var35->unknown_2c_.unknown1_0_.unknown_0_ == arg1->unknown_4_ &&
                 var35->unknown_2c_.unknown1_0_.unknown_1_ == arg1->unknown_6_ &&
                 var35->unknown_20_ == (short)arg1->unknown_2_) {
-                func_02018300(var34, var35, 1, 1, 1);
+                OpenDoor_02018300(var34, var35, 1, 1, 1);
             }
             var35 = var35->unknown_70_;
         }
@@ -386,7 +386,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
                 var37->unknown_2c_.unknown1_0_.unknown_1_ == arg1->unknown_6_ &&
                 var37->unknown_20_ == (short)arg1->unknown_2_) {
                 var37->unknown_2c_.unknown1_0_.unknown_2_4_ |= 0x100;
-                func_02018300(var36, var37, 0, 1, 1);
+                OpenDoor_02018300(var36, var37, 0, 1, 1);
             }
             var37 = var37->unknown_70_;
         }
@@ -727,7 +727,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         void *var85 = GetZone3D_02012fe4();
         if (!var85)
             return 0;
-        void *var86 = func_02019508((Struct_02019508_3*)var85, arg1->unknown_2_, arg1->unknown_4_);
+        void *var86 = FindBMDJEntry_02019508((Zone3D_02019508_3*)var85, arg1->unknown_2_, arg1->unknown_4_);
         if (!var86) {
             func_0206ea8c(arg0, (unsigned char)arg1->unknown_2_, (short)(arg1->unknown_4_ + 0x80), 1);
             func_0206ea8c(arg0, (unsigned char)arg1->unknown_2_, (short)arg1->unknown_4_, 0);
@@ -740,7 +740,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         void *var87 = GetZone3D_02012fe4();
         if (!var87)
             return 0;
-        void *var88 = func_02019508((Struct_02019508_3*)var87, arg1->unknown_2_, arg1->unknown_4_);
+        void *var88 = FindBMDJEntry_02019508((Zone3D_02019508_3*)var87, arg1->unknown_2_, arg1->unknown_4_);
         if (!var88) {
             func_0206ea8c(arg0, (unsigned char)arg1->unknown_2_, (short)(arg1->unknown_4_ + 0x80), 0);
             func_0206ea8c(arg0, (unsigned char)arg1->unknown_2_, (short)arg1->unknown_4_, 1);
@@ -805,7 +805,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         var17.unknown_14_.unknown_2_ &= ~2;
         var17.unknown_14_.unknown_2_ &= ~0xfffcu;
         var17.unknown_0_ = arg1->unknown_2_;
-        if (func_020ac2d4(0, &var17.unknown_0_, &var17.unknown_14_.unknown_0_, 1)) {
+        if (GetAlchemyRecipeStates_020ac2d4(0, &var17.unknown_0_, &var17.unknown_14_.unknown_0_, 1)) {
             var17.unknown_14_.unknown_2_ |= 2;
             func_020ac104(&g_fileScratchSpace, &var17.unknown_14_.unknown_0_, 1);
         }
@@ -932,7 +932,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             return 1;
         void *var112 = *(void **)((char *)var110 + 0x3000 + REGION_VALUE(0x508, 0x718));
         void *var113 = func_ov017_021b8478(var112);
-        if (!func_020a3694((int*)var113))
+        if (!IsScriptedBattle_020a3694((int*)var113))
             return 1;
         *(short *)((char *)var113 + 0x22) = (*(int *)((char *)var113 + 0xc) == arg1->unknown_2_) ? arg1->unknown_4_ : 0;
         return 1;
@@ -1039,7 +1039,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         GameState *var132 = GameState::GetInstance();
         void *var133 = func_020100bc(var132);
         if (arg1->unknown_2_ != 0) {
-            func_0202ea10((unsigned char*)var133, 0x333, 1);
+            ShakeCamera_0202ea10((unsigned char*)var133, 0x333, 1);
             func_0202ea3c((unsigned char*)var133);
         } else {
             func_0202ea20((Struct_0202ea20*)var133);
@@ -1444,7 +1444,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         void *var218 = FindNPCById_0203df78(var217, arg1->unknown_2_);
         if (!var218)
             return 1;
-        void *var219 = func_02040538((Struct_0203e0a0*)var218);
+        void *var219 = GetNPCPlacement_02040538((NPC_0203e0a0*)var218);
         if (!var219)
             return 1;
         unsigned char var220 = *((unsigned char *)var219 + 0xa);

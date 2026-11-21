@@ -3,7 +3,7 @@
 struct Struct_02082828;
 extern "C" void func_02082d38(struct Struct_02082828* arg0, struct Struct_02082828* arg1);
 
-extern "C" void func_020891cc(void* arg0, void* arg1, void* arg2);
+extern "C" void InitModifiableCombatStats_020891cc(void* stats, void* arg1, void* arg2);
 
 struct Struct_0208936c {
     unsigned int unknown_0_0_ : 10;
@@ -14,7 +14,7 @@ struct Struct_0208936c {
 
 // USA: func_0208936c
 extern "C" ARM void func_0208936c(char* arg0, char* arg1, char* arg2) {
-    func_020891cc(arg0, arg1, arg2);
+    InitModifiableCombatStats_020891cc(arg0, arg1, arg2);
 
     *(unsigned short*)(arg0 + 0x0) = *(unsigned short*)(arg1 + 0x4);
     *(unsigned short*)(arg0 + 0x2) = *(unsigned short*)(arg1 + 0x6);

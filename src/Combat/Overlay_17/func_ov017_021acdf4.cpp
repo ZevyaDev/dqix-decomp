@@ -23,7 +23,7 @@
 struct Struct_02018300_3;
 struct Struct_0209494c;
 struct TextureVRAMArea_0203d028;
-struct Struct_02010834;
+struct GameState_02010834;
 struct MenuTask_0206f81c_2;
 struct Struct_0206f81c_3;
 struct Struct_0206f81c_4;
@@ -115,7 +115,7 @@ extern "C" void InitZoneEntry_02070378(char* zoneEntry);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_0205ce94(unsigned char* arg0);
 extern "C" int AddEffectResource_02057e6c(void* effectManager, int effectId, SafeAllocator* allocator, void* fileData, unsigned int fileSize, TextureVRAMArea_0203d028* textureVRAMArea);
-extern "C" void func_02010834(Struct_02010834* arg0, int arg1, int* arg2, int* arg3);
+extern "C" void func_02010834(GameState_02010834* arg0, int arg1, int* arg2, int* arg3);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
@@ -152,7 +152,7 @@ extern "C" void InitMemberNoun_020e4c74(void* noun, GameObject* member);
 extern "C" void StartMessage_0204500c(void* window, int text, int arg2, int arg3);
 #endif
 extern "C" int GetFollowCamera_020100f8(char* gameState);
-extern "C" void func_0202ea10(unsigned char* arg0, int arg1, int arg2);
+extern "C" void ShakeCamera_0202ea10(unsigned char* camera, int amplitude, int duration);
 extern "C" int func_020a277c(void* arg0);
 extern "C" void func_020a2770(void* arg0, short arg1);
 extern "C" void func_0205ec20(void* arg0, void* arg1, int arg2);
@@ -255,7 +255,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Queue_02046
         Struct_ov017_021abba8_2 var12[5];
         Vector3i var13;
         void* var14 = func_0202ae18();
-        func_02010834((Struct_02010834*)var0, *(short*)((char*)var2 + 4), var11, &var10);
+        func_02010834((GameState_02010834*)var0, *(short*)((char*)var2 + 4), var11, &var10);
         for (int var15 = 0; var15 < var10; var15++) {
             arg0->unknown_1e_ |= 1 << var11[var15];
         }
@@ -475,7 +475,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Queue_02046
             var37[Enum_ov017_021acdf4_6578] = 0;
             *(int*)(var37 + Enum_ov017_021acdf4_2456) = 1;
             unsigned char* var39 = (unsigned char*)GetFollowCamera_020100f8((char*)var0);
-            func_0202ea10(var39, 0xcc, 0x3e8);
+            ShakeCamera_0202ea10(var39, 0xcc, 0x3e8);
             arg0->unknown_20_ = *(Vector3i*)(var39 + 0x10);
             arg0->unknown_1f_ = func_020a277c(var39);
             func_020a2770(var39, -1);

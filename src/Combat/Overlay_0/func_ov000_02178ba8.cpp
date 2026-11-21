@@ -51,7 +51,7 @@ extern "C" Struct_ov000_02178ba8* GetMessageWindow_020421a0();
 extern "C" int GetMenuCursorItemCount_0205bafc(void* cursor);
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" void func_ov000_02178d28(Struct_ov000_02178ba8_3* arg0, Struct_ov000_02178ba8_2* arg1);
-extern "C" void func_ov000_0217ab8c(Struct_ov000_02178ba8_2* arg0, int arg1, int arg2);
+extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(Struct_ov000_02178ba8_2* panel, int arg1, int enemyTargetCount);
 extern "C" void func_ov000_02178f28(Struct_ov000_02178ba8_3* arg0, Struct_ov000_02178ba8_2* arg1, void* arg2);
 #if defined(jpn)
 extern "C" void OpenTextWindow_0205d304(TextWindowManager_0205d81c* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov000_02178ba8(Struct_ov000_02178ba8_3* arg0, Struct_ov
     func_ov000_02178d28(arg0, arg1);
     int var0 = arg1->unknown_44_;
     int var1 = arg1->unknown_48_;
-    func_ov000_0217ab8c(arg1, arg2, arg3);
+    ConfigurePanelMenuCursors_ov000_0217ab8c(arg1, arg2, arg3);
     TextWindowManager_0205d81c* var2 = &arg0->unknown_188_;
 #if defined(jpn)
     var2->unknown_a0_ = 0xd;

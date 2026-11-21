@@ -99,7 +99,7 @@ extern "C" void LoadFileTables_020a0c0c();
 extern "C" void UnloadZone_ov017_0219bf74();
 extern "C" void func_ov017_0219b938(GameResources*);
 extern "C" int IsQuestersRestZone_020981e4(int, int);
-extern "C" void func_ov017_021a316c(GameResources*);
+extern "C" void UnloadFieldObjects_ov017_021a316c(GameResources*);
 extern "C" void func_020a1df8(int);
 extern "C" void PushSubOverlay_020a1ef0(int);
 extern "C" void func_ov023_021e2dd8(Struct_ov017_021a1284_8*);
@@ -111,7 +111,7 @@ extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4();
 extern "C" void func_ov023_021e338c(char*);
 extern "C" void func_ov023_021e3030(Struct_ov017_021a1284_8*);
 extern "C" void func_ov017_021a18c8(Struct_ov017_021a1284*);
-extern "C" void func_ov017_0219b624(GameResources*);
+extern "C" void LoadFieldIcons_ov017_0219b624(GameResources*);
 extern "C" void func_0203d018(unsigned char*);
 extern "C" void func_0203de2c(Struct_0203de2c_3*);
 extern "C" void func_ov017_0218f79c(void*);
@@ -192,7 +192,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         var14->Reset();
         var11 = var12;
         if (((Struct_ov017_021a1284_4*)var2)->unknown_840_ && IsQuestersRestZone_020981e4((int)((Struct_ov017_021a1284_4*)var2)->unknown_840_, var2->currentZoneID_)) {
-            func_ov017_021a316c(var7);
+            UnloadFieldObjects_ov017_021a316c(var7);
             var11 = &var7->allocator_array_38[7];
             var11->Reset();
         }
@@ -233,9 +233,9 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         if (arg0->unknown_1c_->unknown_4e6_ < 0) arg0->unknown_22_ = 4;
     } else if (arg0->unknown_22_ == 4) {
         func_ov017_021a18c8(arg0);
-        func_ov017_021a316c(var7);
+        UnloadFieldObjects_ov017_021a316c(var7);
         var7->allocator_array_38[7].Reset();
-        func_ov017_0219b624(var7);
+        LoadFieldIcons_ov017_0219b624(var7);
         func_0203d018((unsigned char*)var3);
         func_0203de2c((Struct_0203de2c_3*)var3);
         func_ov017_0218f79c(var7);

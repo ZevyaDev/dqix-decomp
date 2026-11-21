@@ -46,7 +46,7 @@ extern "C" void* GetTimedMessageQueue_020d7a50(void);
 struct TimedMessageQueue_020d7aa0_2;
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2* queue);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_02017c58(void* arg0);
+extern "C" void* SaveBMDJEntryVisibility_02017c58(void* zone);
 extern "C" void func_ov017_021c0760(unsigned char* arg0, unsigned char arg1);
 struct Queue_02046a3c_2;
 struct QueueNode_02046a3c;
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov017_021c05f4(void* arg0, unsigned char arg1, unsigned
 
     void* var4 = GetTimedMessageQueue_020d7a50();
     ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)var4);
-    func_02017c58(GetZone3D_02012fe4());
+    SaveBMDJEntryVisibility_02017c58(GetZone3D_02012fe4());
 
     func_ov017_021c0760((unsigned char*)*(void**)((char*)arg0 + 0x3000 + Enum_ov017_021c05f4_2876), arg1);
     char* var5 = (char*)arg0 + 0x3000;

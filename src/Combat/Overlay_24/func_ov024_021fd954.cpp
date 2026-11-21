@@ -34,7 +34,7 @@ struct Struct_ov024_021f6a1c;
 extern "C" void func_ov024_021f6a1c(struct Struct_ov024_021f6a1c* arg0, void* arg1);
 extern "C" void func_ov024_021f6a4c(void* arg0, void* arg1);
 extern "C" void func_ov024_021fd858(void* arg0);
-extern "C" void func_ov024_021f9874(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" void RankCandidateAction_ov024_021f9874(void* tacticAI, void* arg1, int targetGroup, int targetIndex);
 
 struct Struct_ov024_021fd954 {
     char unknown_0_[4];
@@ -63,13 +63,13 @@ struct Struct_ov024_021fd954_3 {
     char unknown_0_[0xc8];
     Struct_ov024_021fd954_3() { memset(this, 0, sizeof(*this)); }
 };
-struct Struct_ov024_021fd954_4 {
+struct ActionData_ov024_021fd954_4 {
     char unknown_0_[8];
     unsigned int unknown_8_0_ : 8;
-    unsigned int unknown_9_0_ : 2;
+    unsigned int targetSide_9_0_ : 2;
     unsigned int unknown_9_2_ : 22;
     char unknown_c_[4];
-    unsigned int unknown_10_;
+    unsigned int flags_10_;
     unsigned int unknown_14_0_ : 28;
     unsigned int unknown_17_4_ : 4;
     unsigned int unknown_18_0_ : 5;
@@ -77,33 +77,33 @@ struct Struct_ov024_021fd954_4 {
 };
 struct Struct_ov024_021fd954_5 {
     char unknown_0_[0x8e18];
-    unsigned char* unknown_8e18_;
+    unsigned char* pBattleSetup_8e18_;
 };
-struct Struct_ov024_021fbec4 {
-    struct Struct_ov024_021fd954_5* unknown_0_;
-    short unknown_4_;
-    struct Struct_ov024_021fd954* unknown_8_;
+struct TacticAI_ov024_021fbec4 {
+    struct Struct_ov024_021fd954_5* pBattle_0_;
+    short memberIndex_4_;
+    struct Struct_ov024_021fd954* pMember_8_;
     char unknown_c_[0x64c - 0xc];
-    struct Struct_ov024_021fd954_4* unknown_64c_;
+    struct ActionData_ov024_021fd954_4* pAction_64c_;
     char unknown_650_[0x658 - 0x650];
-    struct Struct_ov024_021fd954_3* unknown_658_;
-    struct Struct_ov024_021fd954_2 unknown_65c_;
-    struct Struct_ov024_021fd954* unknown_668_;
-    int unknown_66c_;
+    struct Struct_ov024_021fd954_3* pEffects_658_;
+    struct Struct_ov024_021fd954_2 effect_65c_;
+    struct Struct_ov024_021fd954* pTarget_668_;
+    int targetIndex_66c_;
 };
 
 // USA: func_ov024_021fd954
-extern "C" ARM void func_ov024_021fd954(struct Struct_ov024_021fbec4* arg0, int arg1) {
-    struct Struct_ov024_021fd954_4* var0;
+extern "C" ARM void func_ov024_021fd954(struct TacticAI_ov024_021fbec4* arg0, int arg1) {
+    struct ActionData_ov024_021fd954_4* var0;
     int var1;
     int var2;
     struct Struct_ov024_021fd954* var3;
     int var4;
     struct Struct_ov024_021fd954* var5;
-    var5 = arg0->unknown_8_;
+    var5 = arg0->pMember_8_;
     func_02053c6c((unsigned char*)var5);
-    var0 = arg0->unknown_64c_;
-    if (var0->unknown_9_0_ == 1) return;
+    var0 = arg0->pAction_64c_;
+    if (var0->targetSide_9_0_ == 1) return;
     var1 = var0->unknown_17_4_;
     if (var1 == 6) {
         if (HasLearnedSkillEntry_02083b00(var5->unknown_150_, 0xe6)) {
@@ -118,12 +118,12 @@ extern "C" ARM void func_ov024_021fd954(struct Struct_ov024_021fbec4* arg0, int 
     memset(&var6, 0, sizeof(var6));
     var4 = 0;
     for (var2 = 0; var2 < 4; var2++) {
-        if (var1 == 1 && var2 != arg0->unknown_4_) continue;
-        if (!IsPartyMemberInBattle_020a35e0(arg0->unknown_0_->unknown_8e18_, var2 & 0xff)) continue;
-        var3 = GetCombatantByID((int)arg0->unknown_0_, (short)var2);
+        if (var1 == 1 && var2 != arg0->memberIndex_4_) continue;
+        if (!IsPartyMemberInBattle_020a35e0(arg0->pBattle_0_->pBattleSetup_8e18_, var2 & 0xff)) continue;
+        var3 = GetCombatantByID((int)arg0->pBattle_0_, (short)var2);
         if (!var3) continue;
         if (IsDead_02010088((struct Struct_02010088*)var3)) continue;
-        if ((var0->unknown_10_ & 0x400) && (*(unsigned int*)((char*)var3->unknown_138_ + 0x14) & 0x200)) continue;
+        if ((var0->flags_10_ & 0x400) && (*(unsigned int*)((char*)var3->unknown_138_ + 0x14) & 0x200)) continue;
 
         bool var7 = false;
         int var8 = 8;
@@ -200,23 +200,23 @@ extern "C" ARM void func_ov024_021fd954(struct Struct_ov024_021fbec4* arg0, int 
         var14.unknown_8_ = var8;
         func_ov024_021f6a1c((struct Struct_ov024_021f6a1c*)&var6, &var14);
         if (var0->unknown_18_0_ != 0) {
-            arg0->unknown_658_ = &var6;
-            func_ov024_021f6a4c(&arg0->unknown_65c_, &var14);
-            arg0->unknown_668_ = var3;
-            arg0->unknown_66c_ = var3->unknown_4_;
+            arg0->pEffects_658_ = &var6;
+            func_ov024_021f6a4c(&arg0->effect_65c_, &var14);
+            arg0->pTarget_668_ = var3;
+            arg0->targetIndex_66c_ = var3->unknown_4_;
             func_ov024_021fd858(arg0);
         }
         if (var1 == 2 || var1 == 1) {
             int var16 = (unsigned char)var3->unknown_4_;
-            if (var4) func_ov024_021f9874(arg0, &var6, 0, var16);
+            if (var4) RankCandidateAction_ov024_021f9874(arg0, &var6, 0, var16);
             memset(&var6, 0, sizeof(var6));
             var4 = 0;
         }
     }
     if (var1 == 4 || var1 == 3) {
-        GetCombatantByID((int)arg0->unknown_0_, 0);
+        GetCombatantByID((int)arg0->pBattle_0_, 0);
         int var17 = (unsigned char)var5->unknown_4_;
         if (var1 == 3) var17 = 0xff;
-        if (var4) func_ov024_021f9874(arg0, &var6, 0, var17);
+        if (var4) RankCandidateAction_ov024_021f9874(arg0, &var6, 0, var17);
     }
 }

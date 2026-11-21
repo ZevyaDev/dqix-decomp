@@ -16,7 +16,7 @@
 #define REG_BG3_SCROLL_SUB (*(volatile unsigned int*)0x0400101c)
 #define REG_POWER_CONTROL (*(volatile unsigned short*)0x04000304)
 
-extern "C" void func_020c3864(int);
+extern "C" void SetVBlankInterruptEnabled_020c3864(int);
 extern "C" void SetMainDisplayAndBGMode_020c391c(int, int, int);
 extern "C" void WriteBrightnessRegister_020c39a0(short*, int);
 extern "C" void SetSubBGMode_020c3984(unsigned int);
@@ -32,7 +32,7 @@ static inline unsigned int inline_ov031_022271f0(unsigned int arg0) {
 
 // USA: func_ov031_022271f0
 extern "C" ARM void func_ov031_022271f0() {
-    func_020c3864(0);
+    SetVBlankInterruptEnabled_020c3864(0);
     MapVRAMBanksToMainBG(1);
     MapVRAMBanksToMainObj(2);
     SetMainDisplayAndBGMode_020c391c(1, 0, 0);
@@ -82,5 +82,5 @@ extern "C" ARM void func_ov031_022271f0() {
     func_ov031_0223b79c();
     TurnOnMainDisplay_020c38d4();
     DISPCNTSUB |= 0x10000;
-    func_020c3864(1);
+    SetVBlankInterruptEnabled_020c3864(1);
 }

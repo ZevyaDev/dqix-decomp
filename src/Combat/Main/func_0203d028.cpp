@@ -147,7 +147,7 @@ extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int 
 extern "C" int func_020cede0(void);
 extern "C" int func_020cedc0(int arg0);
 
-extern "C" void func_ov017_0218f064(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void CreatePartyMemberObject_ov017_0218f064(void* gameResources, int memberIndex, int arg2, int requestModelLoad, int arg4);
 
 struct Struct_0203d028_3;
 
@@ -427,7 +427,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
                     ((unsigned char*)var27)[0x56a] = ((unsigned char*)var29)[0x4f];
                     memcpy(var27 + 0x488, (unsigned char*)var29 + 0x1a, 0x1c);
 
-                    func_ov017_0218f064(var1, 5, 0x4000, 1, 0);
+                    CreatePartyMemberObject_ov017_0218f064(var1, 5, 0x4000, 1, 0);
 
                     var10->unknown_1c_ = (Struct_0203d028_3*)((GameState*)var0)->GetGameObjectByIndex(5);
                     _ZN8Object3D10SetField06Et((struct Struct_0203d028_13*)var10->unknown_1c_, var6);

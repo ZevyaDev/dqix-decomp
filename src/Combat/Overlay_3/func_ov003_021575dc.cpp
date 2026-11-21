@@ -143,7 +143,7 @@ extern "C" void func_ov003_02158140(Struct_ov003_021575dc_2*, int);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" void func_020de848(void* itemTable);
-extern "C" ARM int func_020de980(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
+extern "C" ARM int LoadItemTableById_020de980(void* itemTable, void* allocator, void* fileData, int fileSize, int itemId);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void RestartMapDisplay_020dc2d0(int);
@@ -165,10 +165,10 @@ extern "C" int func_ov003_02155618(void* arg0);
 extern "C" void func_ov003_02155e38(void* arg0);
 extern "C" void func_ov003_021580d8(void* arg0, void* arg1);
 extern "C" int func_ov003_02158754(void* arg0);
-extern "C" int func_ov023_021ed724(void* arg0, void* arg1, int arg2);
-extern "C" void func_ov023_021eb138(void* arg0, int arg1);
-extern "C" void func_ov023_021eb080(void* arg0, void* arg1);
-extern "C" void func_ov023_021eb564(void* arg0, void* arg1, int arg2);
+extern "C" int AwardAccolades_ov023_021ed724(void* table, void* accoladeIds, int idCount);
+extern "C" void InitAccoladeDisplay_ov023_021eb138(void* display, int kind);
+extern "C" void AllocateAccoladeDisplayBuffers_ov023_021eb080(void* display, void* allocator);
+extern "C" void SetAccoladeDisplayEntries_ov023_021eb564(void* display, void* entries, int entryCount);
 extern "C" void func_ov023_021eb43c(void* arg0);
 extern "C" void DestroyAccoladeDisplay_ov023_021eb26c(void* display);
 
@@ -321,7 +321,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
             var0->unknown_1d0_ = -1;
             short var31 = var0->unknown_1f0_;
             func_020de848(var0->unknown_178_);
-            func_020de980(var0->unknown_178_, var0->unknown_0_ + 0x78, var25, var26, var31);
+            LoadItemTableById_020de980(var0->unknown_178_, var0->unknown_0_ + 0x78, var25, var26, var31);
             var0->unknown_338_ = 1;
             func_ov003_0215873c(arg0);
             var0->unknown_1f9_ = 0x32;
@@ -442,7 +442,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
             }
             if (var49 <= 0) goto emptyResult0x64;
             {
-                int var60 = func_ov023_021ed724(var45, var48, var49);
+                int var60 = AwardAccolades_ov023_021ed724(var45, var48, var49);
                 ((SafeAllocator*)((char*)var4 + 0x64))->Reset();
                 var0->unknown_200_ = (Struct_ov003_021575dc*)((SafeAllocator*)((char*)var4 + 0x64))->Allocate(var49 * sizeof(Struct_ov003_021575dc));
                 for (int var61 = 0; var61 < var49; var61++) {
@@ -454,9 +454,9 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
                 }
                 void* var64 = ((SafeAllocator*)((char*)var4 + 0x64))->Allocate(1100);
                 var0->unknown_204_ = var64;
-                func_ov023_021eb138(var64, 6);
-                func_ov023_021eb080(var0->unknown_204_, (char*)var4 + 0x64);
-                func_ov023_021eb564(var0->unknown_204_, var0->unknown_200_, var39);
+                InitAccoladeDisplay_ov023_021eb138(var64, 6);
+                AllocateAccoladeDisplayBuffers_ov023_021eb080(var0->unknown_204_, (char*)var4 + 0x64);
+                SetAccoladeDisplayEntries_ov023_021eb564(var0->unknown_204_, var0->unknown_200_, var39);
                 char* var65 = (char*)var0->unknown_204_;
                 if (var60 & 1) {
                     *(unsigned short*)(var65 + 0x438) |= 0x400;

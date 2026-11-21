@@ -20,7 +20,7 @@ struct Struct_01ff91ac_7;
 struct Struct_0204a054;
 struct Struct_0204a054_2;
 
-extern "C" void func_0208e0a8(void);
+extern "C" void GetFieldItemSpots_0208e0a8(void);
 extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void* func_0205ec34(void);
@@ -44,7 +44,7 @@ struct Struct_0208ec78_3 {
 // USA: func_0208ec78
 extern "C" ARM void func_0208ec78(struct Struct_0208ec78_3* arg0) {
     GameState* var0 = GameState::GetInstance();
-    func_0208e0a8();
+    GetFieldItemSpots_0208e0a8();
     void* var1;
     char* var2;
 #if defined(jpn)

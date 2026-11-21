@@ -75,7 +75,7 @@ extern "C" ARM void func_ov017_0219dac4(unsigned char* arg0, int arg1, int arg2)
     var3->unknown_0_.SetInheritedAlpha(31);
     var3->unknown_c2_ &= ~0x40;
     func_0203409c((unsigned char*)var3);
-    func_02038508(func_020399a8(var3));
+    func_02038508(GetLadderAction_020399a8(var3));
 
     for (int var7 = 0; var7 < 4; var7++) {
         Struct_ov017_0219dac4* var8 = (Struct_ov017_0219dac4*)GetCompanionByIndex_0200ff58(var0, var7);

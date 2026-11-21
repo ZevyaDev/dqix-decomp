@@ -83,7 +83,7 @@ struct PartyMemberData_02082828_4 {
     unsigned short unknown_960_;
     unsigned short unknown_962_;
 };
-extern "C" void func_020891cc(void*);
+extern "C" void InitModifiableCombatStats_020891cc(void*);
 extern "C" void func_02082cdc(Struct_02082cdc*);
 extern "C" void func_020827c4(Struct_020827c4*);
 extern "C" void func_02082d38(Struct_02082828*, Struct_02082828*);
@@ -122,7 +122,7 @@ extern "C" ARM void InitPartyMemberData_02082828(PartyMemberData_02082828_4* mem
     memset(memberData->unknown_91c_, 0, 24);
     memberData->unknown_91c_[2].unknown_1_2_ = 1;
     memset(memberData->unknown_934_, 100, 22);
-    func_020891cc(memberData->unknown_94_);
+    InitModifiableCombatStats_020891cc(memberData->unknown_94_);
     for (int i = 0; i < 13; i++) func_02082cdc(&memberData->unknown_850_[i]);
     func_020827c4(&memberData->unknown_488_);
     memset(memberData->unknown_4a4_, -1, 192);

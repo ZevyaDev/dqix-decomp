@@ -5,8 +5,8 @@
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
-struct Struct_ov004_021549e4_2;
-extern "C" unsigned int func_ov023_021f9bb0(struct Struct_ov004_021549e4_2* arg0);
+struct MenuGrid_ov004_021549e4_2;
+extern "C" unsigned int GetMenuGridCursorRow_ov023_021f9bb0(struct MenuGrid_ov004_021549e4_2* grid);
 extern "C" int func_ov004_021634dc(void* arg0);
 extern "C" void func_02011a24(char* arg0, void* arg1);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
@@ -25,7 +25,7 @@ extern "C" ARM int func_ov004_02165a1c(void* arg0) {
     if (var0 == NULL) return 0;
     if (func_ov023_021f6f10(var0) != 7) return 0;
 
-    unsigned int var1 = func_ov023_021f9bb0((struct Struct_ov004_021549e4_2*)var0);
+    unsigned int var1 = GetMenuGridCursorRow_ov023_021f9bb0((struct MenuGrid_ov004_021549e4_2*)var0);
     int var2 = func_ov004_021634dc(arg0);
     GameState* var3 = GameState::GetInstance();
     char* var4 = gTreasureMapScreen_ov004_02171010;

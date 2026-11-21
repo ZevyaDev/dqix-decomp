@@ -16,7 +16,7 @@ struct Struct_ov005_02153954 {
 };
 
 extern "C" int func_ov005_02158560(Struct_ov005_02153954*, unsigned char, int);
-extern "C" void func_ov005_0215792c(Struct_ov005_02153954*, int);
+extern "C" void SetEquipMenuMode_ov005_0215792c(Struct_ov005_02153954*, int);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954*, unsigned char, unsigned char);
 extern "C" int func_ov005_021585fc(Struct_ov005_02153954*, int);
 extern "C" void func_ov005_021555c0(Struct_ov005_02153954*);
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov005_02156658(Struct_ov005_02153954* arg0, int arg1, i
         }
         arg0->unknown_3dcc_ |= 0x100;
         var0 = func_ov005_02158560(arg0, var1, 0);
-        func_ov005_0215792c(arg0, 2);
+        SetEquipMenuMode_ov005_0215792c(arg0, 2);
         func_ov005_021579ec(arg0, arg0->unknown_3db8_, var1);
     }
     if ((arg0->unknown_3dcc_ & 8) && arg2 > 157 && arg2 < 174) {

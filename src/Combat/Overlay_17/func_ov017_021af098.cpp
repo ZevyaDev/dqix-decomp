@@ -37,7 +37,7 @@ extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, u
 extern "C" int* GetNoticeQueue_020936f8(void);
 extern "C" void func_020939dc(void* arg0);
 extern "C" void QueueNotice_02094030(int* noticeQueue, short noticeId, short arg2, signed char memberIndex);
-extern "C" void func_0202c1e8(LocalWireless_0202b2f0* arg0, int arg1);
+extern "C" void SetLocalWirelessPlayerJoined_0202c1e8(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" void* func_0205e870(Struct_0205e870* arg0);
 extern "C" void func_0205e7dc(unsigned char* arg0, int arg1);
 extern "C" void func_ov017_021cc0cc(void);
@@ -108,7 +108,7 @@ extern "C" ARM unsigned char func_ov017_021af098(Struct_ov017_021af098* arg0) {
     }
 
     arg0->unknown_10_ = GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var2);
-    func_0202c1e8(var2, GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var2));
+    SetLocalWirelessPlayerJoined_0202c1e8(var2, GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var2));
     ClearFlags00((GameResources*)var1, 2);
     func_0205e870((Struct_0205e870*)var3);
     func_0205e7dc((unsigned char*)var3, 0x2c);

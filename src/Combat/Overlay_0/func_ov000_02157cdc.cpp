@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-// USA: func_ov000_02157cdc
-extern "C" ARM void func_ov000_02157cdc(void* arg0) {
-    memset(arg0, 0, 0x20);
-    memset((char*)arg0 + 0xe, -1, 6);
-    *(short*)((char*)arg0 + 0xc) = -1;
-    *(int*)((char*)arg0 + 0x20) = 0;
+// USA: InitActionTarget_ov000_02157cdc
+extern "C" ARM void InitActionTarget_ov000_02157cdc(void* target) {
+    memset(target, 0, 0x20);
+    memset((char*)target + 0xe, -1, 6);
+    *(short*)((char*)target + 0xc) = -1;
+    *(int*)((char*)target + 0x20) = 0;
 }

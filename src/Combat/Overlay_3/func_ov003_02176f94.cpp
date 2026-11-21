@@ -43,13 +43,13 @@ enum {
 struct MenuLayout_0207fdcc_2;
 extern "C" void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2 *menuLayout, int windowId);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void *menuLayout, int windowId, int palette);
-extern "C" void func_02080bac(void *arg0, int arg1);
+extern "C" void ShowMenuLayoutWindowTexts_02080bac(void *menuLayout, int windowId);
 struct ItemTable_0201099c_10;
 struct Struct_ov003_02176f94;
 extern "C" struct Struct_ov003_02176f94 *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" void *func_02053c6c(unsigned char *gameObject);
-struct Struct_02083994;
-extern "C" int func_02083994(struct Struct_02083994 *arg0, int arg1);
+struct PartyMemberData_02083994;
+extern "C" int GetHeldItemCount_02083994(struct PartyMemberData_02083994 *memberData, int itemId);
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c *menuLayout, int textId, int text);
 extern "C" int func_020dcc98(int arg0);
@@ -59,7 +59,7 @@ struct MenuLayout_02080fa8;
 extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8 *menuLayout, int textId, int value);
 extern "C" int HideMenuLayoutText_02080b2c(void *menuLayout, int textId);
 extern "C" void HideMenuLayoutWindowTexts_02080b54(void *menuLayout, int windowId);
-extern "C" void func_02080c04(struct MenuLayout_0207fdcc_2 *arg0, int arg1);
+extern "C" void HideMenuLayoutWindow_02080c04(struct MenuLayout_0207fdcc_2 *menuLayout, int windowId);
 extern "C" short CountItemInBags_02086bf4(char *party, int itemId);
 extern "C" void OpenMenuLayoutWindow_020813ec(void *menuLayout, int windowId);
 extern "C" void *GetParty_02010828(GameState *gameState);
@@ -121,7 +121,7 @@ extern "C" ARM void func_ov003_02176f94(Struct_ov003_02176f94_2* arg0) {
 
     ShowMenuLayoutWindow_02080c20(var0, var3);
     SetMenuLayoutWindowPalette_02080c68(var0, var3, 0);
-    func_02080bac(var0, var3);
+    ShowMenuLayoutWindowTexts_02080bac(var0, var3);
 
     bool var8                 = true;
     struct Struct_ov003_02176f94 *var9 = FindItemData_020dedd0(
@@ -138,8 +138,8 @@ extern "C" ARM void func_ov003_02176f94(Struct_ov003_02176f94_2* arg0) {
             GameObject *var14 = var1->GetPartyMemberByIndex(var13);
             if (var14 != NULL) {
                 var11 = (int)var14->baseStats_;
-                var12 = func_02083994(
-                    (struct Struct_02083994 *) func_02053c6c((unsigned char *) var14), arg0->unknown_103a_);
+                var12 = GetHeldItemCount_02083994(
+                    (struct PartyMemberData_02083994 *) func_02053c6c((unsigned char *) var14), arg0->unknown_103a_);
             }
             SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c *) var0, var4, var11);
             SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0 *) var0, var4, func_020dcc98(var13));
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov003_02176f94(Struct_ov003_02176f94_2* arg0) {
         }
     } else {
         HideMenuLayoutWindowTexts_02080b54(var0, var3);
-        func_02080c04(var0, var3);
+        HideMenuLayoutWindow_02080c04(var0, var3);
     }
     SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8 *) var0, var5,
                                                          CountItemInBags_02086bf4(var2, arg0->unknown_103a_));

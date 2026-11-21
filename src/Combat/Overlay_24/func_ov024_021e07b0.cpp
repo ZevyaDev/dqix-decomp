@@ -21,11 +21,11 @@ extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 struct Struct_ov024_021e04e0;
 extern "C" int func_ov024_021e05e4(struct Struct_ov024_021e04e0* arg0);
 extern "C" void func_020488cc(unsigned char* arg0, int arg1);
-extern "C" void func_02088e64(unsigned char* arg0);
+extern "C" void ClearRage_02088e64(unsigned char* stats);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 struct Party_02048150;
 extern "C" int IsInParty_02086ef0(struct Party_02048150* party, int objectIndex);
-extern "C" void func_ov000_0215a8d4(unsigned char* arg0, int arg1);
+extern "C" void IncrementQuestBattleCounter_ov000_0215a8d4(unsigned char* battle, int counterIndex);
 extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, void* combatant, int amount, unsigned long long flags, int isCriticalHit);
 
 // USA: func_ov024_021e07b0
@@ -41,11 +41,11 @@ extern "C" ARM void* func_ov024_021e07b0(struct Struct_ov024_021e07b0_3* arg0, u
         if (!var4) {
             func_020488cc((unsigned char*)var0, 1);
         }
-        func_02088e64((unsigned char*)var0->currentStats_);
+        ClearRage_02088e64((unsigned char*)var0->currentStats_);
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, 0x164);
         var3 = 1;
         if (IsInParty_02086ef0((struct Party_02048150*)GetParty_02010828(GameState::GetInstance()), arg1) && arg3->unknown_4_0_ == 0xc6) {
-            func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, var3);
+            IncrementQuestBattleCounter_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, var3);
         }
     }
     if (var1 != 0) {

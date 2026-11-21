@@ -12,7 +12,7 @@ extern "C" void* GetEffectManager_02057924(void);
 extern "C" void* func_02058658(void* arg0, int arg1);
 extern "C" void* func_ov025_021e8cf0(char* arg0, int arg1);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
-extern "C" void func_02059cc8(unsigned char* arg0);
+extern "C" void ResetEffectSlot_02059cc8(unsigned char* slot);
 extern int data_ov025_021ef988;
 
 struct Struct_ov025_021e4fc8 { char unknown_0_[8]; unsigned char unknown_8_; };
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov025_021e4fc8(struct Struct_ov025_021e4fc8* arg0) {
         void* var2 = GetEffectManager_02057924();
         void* var3 = func_02058658(var2, *(int*)var0);
         if (var3) {
-            func_02059cc8((unsigned char*)var3);
+            ResetEffectSlot_02059cc8((unsigned char*)var3);
         }
     }
     return 1;

@@ -1,10 +1,10 @@
 	.section .text
 	.arm
 
-	.global func_0200c700
+	.global ConvertInt64ToFloat_0200c700
 
-// USA: func_0200c700
-func_0200c700:
+// USA: ConvertInt64ToFloat_0200c700
+ConvertInt64ToFloat_0200c700:
 	ands r2, r1, #0x80000000
 	beq _L010
 	rsbs r0, r0, #0

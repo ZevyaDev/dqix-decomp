@@ -18,7 +18,7 @@ enum { Enum_ov003_02176468_54 = 0x36 };
 #endif
 
 struct MenuLayout_0207fdcc_2;
-extern "C" void func_02080c04(struct MenuLayout_0207fdcc_2* arg0, int arg1);
+extern "C" void HideMenuLayoutWindow_02080c04(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
 struct KeyRepeat_02081f20_2;
@@ -43,6 +43,6 @@ extern "C" ARM void func_ov003_02176468(unsigned char* arg0) {
     if (*(void**)arg0 == 0) {
         return;
     }
-    func_02080c04(*(struct MenuLayout_0207fdcc_2**)(arg0 + Enum_ov003_02176468_2204), *(short*)(arg0 + Enum_ov003_02176468_4094));
+    HideMenuLayoutWindow_02080c04(*(struct MenuLayout_0207fdcc_2**)(arg0 + Enum_ov003_02176468_2204), *(short*)(arg0 + Enum_ov003_02176468_4094));
     OpenYesNoWindow_020e280c((struct YesNoWindow_020e280c*)(*(void**)arg0), (void*)-1);
 }

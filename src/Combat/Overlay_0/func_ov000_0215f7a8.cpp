@@ -14,7 +14,7 @@ struct Random;Random* GetBTRandom();int NextRandomMax(Random*,int);
 struct Struct_ov000_021540fc {char unknown_0_[0xc];int unknown_c_;};
 struct Struct_ov000_0215767c_2 {char unknown_0_[0x8e18];Struct_ov000_021540fc* unknown_8e18_;int unknown_8e1c_;int unknown_8e20_;char unknown_8e24_[0x25];unsigned char unknown_8e49_;};
 struct Struct_ov000_02182ae4 {short unknown_0_[8];};
-extern "C" {extern const Struct_ov000_02182ae4 data_ov000_02182b94;extern const int data_ov000_02182c04[];int func_ov000_0215ed34(void*,short*,int);int CollectEnemyCombatantIndices_ov000_0215eb1c(void*,short*,int,int);int CollectPartyCombatantIndices_ov000_0215e9fc(void*,short*,int,int);int func_ov000_02155f9c(void*,int,int);}
+extern "C" {extern const Struct_ov000_02182ae4 data_ov000_02182b94;extern const int data_ov000_02182c04[];int func_ov000_0215ed34(void*,short*,int);int CollectEnemyCombatantIndices_ov000_0215eb1c(void*,short*,int,int);int CollectPartyCombatantIndices_ov000_0215e9fc(void*,short*,int,int);int IsCombatantIncapacitated_ov000_02155f9c(void*,int,int);}
 inline GameObject* inline_ov000_021537b8_2(int arg0){GameState* var0=GameState::GetInstance();return var0->GetCombatantByIndex(arg0);}
 // USA: func_ov000_0215f7a8
 extern "C" ARM int func_ov000_0215f7a8(Struct_ov000_0215767c_2* arg0,short* arg1,int arg2){
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov000_0215f7a8(Struct_ov000_0215767c_2* arg0,short* arg1
  short var1[3];int var2=func_ov000_0215ed34(arg0,var1,3);short* var3=var1;for(int var4=0;var4<var2;var4++,var3++)if((unsigned int)(*var3-0x26)<=2)return 0;
  if(arg0->unknown_8e20_==0&&arg0->unknown_8e49_==1)return 1;
  int var5=0;int var6=0;Struct_ov000_02182ae4 var7(data_ov000_02182b94);short* var8=var7.unknown_0_;short var9=CollectEnemyCombatantIndices_ov000_0215eb1c(arg0,var8,8,1);short var10=0;
- for(;var10<var9;var10++,var8++){if(!func_ov000_02155f9c(arg0,*var8,0))break;}
+ for(;var10<var9;var10++,var8++){if(!IsCombatantIncapacitated_ov000_02155f9c(arg0,*var8,0))break;}
  if(var10==var9)return 1;
  var8=var7.unknown_0_;for(var10=0;var10<var9;var10++,var8++){GameObject* var11=inline_ov000_021537b8_2(*var8);if(var11)var6+=var11->unknown_134_->inline_ov000_0215f7a8_3()+var11->unknown_134_->inline_ov000_0215f7a8_2();}
  var6/=var9;

@@ -36,7 +36,7 @@ extern "C" void func_ov031_0223e2e0(int, void*);
 extern "C" void func_ov031_0223da58(void*);
 extern "C" void func_ov031_0223c760(void*);
 extern "C" void func_ov031_02235194();
-extern "C" void func_ov031_022238cc();
+extern "C" void FreeCursorSprites_ov031_022238cc();
 extern "C" void CloseSubScreenMessage_ov031_02223440();
 extern "C" void func_ov031_02234f08();
 extern "C" void func_ov031_0223b710(void*);
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov031_0222c1b8() {
     } while (++var0 < 5);
     func_ov031_0223c760(gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_c_);
     func_ov031_02235194();
-    func_ov031_022238cc();
+    FreeCursorSprites_ov031_022238cc();
     CloseSubScreenMessage_ov031_02223440();
     func_ov031_02234f08();
     func_ov031_0223b710(gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_4_);

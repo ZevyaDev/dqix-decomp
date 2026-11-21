@@ -3,7 +3,7 @@
 
 extern "C" int GetMenuObjectList_ov011_021849c8(int menu);
 extern "C" int GetMenuLoadTaskId_ov023_021f6bb8(int objectList);
-extern "C" void func_ov023_021f6bb0(int arg0, int arg1);
+extern "C" void SetMenuLoadTaskId_ov023_021f6bb0(int objectList, int taskId);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern char data_ov023_021fe4e0;
 
@@ -25,6 +25,6 @@ extern "C" ARM int func_ov023_021f7010(Struct_ov023_021f7010* arg0, int arg1) {
     int var3 = (int)BackgroundLoader::GetInstance();
     sprintf(var0, &data_ov023_021fe4e0, arg0->unknown_10_);
     int var4 = ((BackgroundLoader*)(var3))->QueueLoadFile((const char*)((int)var0), (SafeAllocator*)(0));
-    func_ov023_021f6bb0(var1, var4);
+    SetMenuLoadTaskId_ov023_021f6bb0(var1, var4);
     return 1;
 }

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_0200fb84
-extern "C" ARM void func_0200fb84(int* arg0, int arg1) {
-    *arg0 = arg1;
+// USA: SetResources_0200fb84
+extern "C" ARM void SetResources_0200fb84(int* gameState, int resources) {
+    *gameState = resources;
 }

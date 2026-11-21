@@ -4,11 +4,11 @@ struct Struct_0203a950;
 extern "C" void func_020bd984(struct Struct_0203a950*);
 extern "C" void func_0203a914(void*);
 
-// USA: func_0203a950
-extern "C" ARM void func_0203a950(void* arg0) {
-    void* var0 = *(void**)arg0;
-    if (var0 != NULL) {
-        func_020bd984((struct Struct_0203a950*)var0);
+// USA: CloseSoundArchive_0203a950
+extern "C" ARM void CloseSoundArchive_0203a950(void* manager) {
+    void* heap = *(void**)manager;
+    if (heap != NULL) {
+        func_020bd984((struct Struct_0203a950*)heap);
     }
-    func_0203a914(arg0);
+    func_0203a914(manager);
 }

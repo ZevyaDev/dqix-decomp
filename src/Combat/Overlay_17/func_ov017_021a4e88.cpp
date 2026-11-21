@@ -56,8 +56,8 @@ extern "C" void func_02040bcc(char*);
 struct Struct_0203de84;
 struct NPC_0203de84_2;
 extern "C" void GetNPCPosition_020406f8(Struct_0203de84* outPosition, NPC_0203de84_2* npc);
-struct Struct_0203e0a0;
-extern "C" Struct_ov017_021a4e88_3* func_02040538(Struct_0203e0a0*);
+struct NPC_0203e0a0;
+extern "C" Struct_ov017_021a4e88_3* GetNPCPlacement_02040538(NPC_0203e0a0*);
 extern "C" Struct_ov017_021a4e88_4* FindNPCById_0203df78(void* npcManager, int id);
 extern "C" int IsPerformingGesture_020535c8(signed char*);
 struct Struct_ov009_0218aa28;
@@ -105,7 +105,7 @@ extern "C" ARM int func_ov017_021a4e88(int arg0, unsigned short* arg1) {
         Type_ov017_021a4e88 var15 = ((Type_ov017_021a4e88 (*)(Struct_ov017_021a4e88_4*))GetNPCPosition_020406f8)(var13);
         int var16 = 0;
         int var17 = 0x1800;
-        Struct_ov017_021a4e88_3* var18 = func_02040538((Struct_0203e0a0*)var13);
+        Struct_ov017_021a4e88_3* var18 = GetNPCPlacement_02040538((NPC_0203e0a0*)var13);
         if (var18 != NULL) {
             if (var18->unknown_5c_ != NULL) {
                 Vector3fix_Add(&var15, &var18->unknown_5c_->unknown_0_, &var15);

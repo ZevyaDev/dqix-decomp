@@ -121,8 +121,8 @@ extern "C" void func_020dc548(signed char arg0, signed char* arg1, signed char* 
 extern "C" void InitBattleAction_ov000_02160030(void* action);
 struct Struct_ov000_02157d14;
 extern "C" void func_ov000_02157d14(Struct_ov000_02157d14*);
-extern "C" void func_ov000_02157cdc(void* arg0);
-extern "C" int func_ov000_02155f9c(void* arg0, int arg1, int arg2);
+extern "C" void InitActionTarget_ov000_02157cdc(void* target);
+extern "C" int IsCombatantIncapacitated_ov000_02155f9c(void* battle, int combatantIndex, int isConfusionCounted);
 extern "C" void func_ov024_021f73b8(Struct_ov000_0215767c_3* arg0);
 extern "C" void func_ov024_021f9030(Struct_ov000_0215767c_3* arg0, void* arg1, int arg2, Struct_ov000_0215767c_10* arg3);
 extern "C" int func_ov000_02159d94(void*, int);
@@ -314,7 +314,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
             }
         }
 
-        if (func_ov000_02155f9c(arg0, var3.unknown_0_[var26], 1) != 0) {
+        if (IsCombatantIncapacitated_ov000_02155f9c(arg0, var3.unknown_0_[var26], 1) != 0) {
             var27->unknown_0_ = 0x1f7;
         } else {
             var27->unknown_0_ = 2;
@@ -385,7 +385,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
         var27->unknown_9_ = 0;
         for (int var46 = 0; var46 < var29; var46++) {
             Struct_ov000_0215767c_9* var47 = &arg0->unknown_8e74_[arg0->unknown_8e81_];
-            func_ov000_02157cdc(var47);
+            InitActionTarget_ov000_02157cdc(var47);
             var47->unknown_e_ = var28.unknown_0_[var46];
             var47->unknown_17_ = 1;
             AppendActionTarget_ov000_021600cc((BattleAction_ov000_0215767c_5*)var27, (ActionTarget_ov000_0215767c_4*)var47);
@@ -405,7 +405,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
 
             Struct_ov000_02182b04 var51 = data_ov000_02182b04;
             int var52 = 0;
-            if (func_ov000_02155f9c(arg0, var3.unknown_0_[var26], 1) != 0) {
+            if (IsCombatantIncapacitated_ov000_02155f9c(arg0, var3.unknown_0_[var26], 1) != 0) {
                 var50->unknown_0_ = 0x1f7;
             } else {
                 var50->unknown_0_ = 2;
@@ -445,7 +445,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
             var50->unknown_9_ = 0;
             for (int var59 = 0; var59 < var52; var59++) {
                 Struct_ov000_0215767c_9* var60 = &arg0->unknown_8e74_[arg0->unknown_8e81_];
-                func_ov000_02157cdc(var60);
+                InitActionTarget_ov000_02157cdc(var60);
                 var60->unknown_e_ = var51.unknown_0_[var59];
                 var60->unknown_17_ = 1;
                 AppendActionTarget_ov000_021600cc((BattleAction_ov000_0215767c_5*)var50, (ActionTarget_ov000_0215767c_4*)var60);
@@ -497,7 +497,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
         func_ov024_021eb510(&var68);
         func_ov024_021eb510(&var68);
         func_ov024_021eb5d0(&var68, arg0, var67, var61, 0);
-        if (func_ov000_02155f9c(arg0, var3.unknown_0_[var0], 1) != 0) {
+        if (IsCombatantIncapacitated_ov000_02155f9c(arg0, var3.unknown_0_[var0], 1) != 0) {
             var66 = 0;
         }
         func_ov000_02157d3c(arg0, var67, var66);
@@ -549,7 +549,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
                         break;
                     }
                     Struct_ov000_0215767c_9* var77 = &arg0->unknown_8e74_[arg0->unknown_8e81_];
-                    func_ov000_02157cdc(var77);
+                    InitActionTarget_ov000_02157cdc(var77);
                     var77->unknown_e_ = var74->unknown_e_;
                     var77->unknown_17_ = 1;
                     AppendActionTarget_ov000_021600cc((BattleAction_ov000_0215767c_5*)var71, (ActionTarget_ov000_0215767c_4*)var77);

@@ -20,8 +20,8 @@ struct Struct_ov002_0215505c {
 };
 
 extern "C" void *InitNoun_020e46c4(void *noun);
-struct Struct_ov002_0215505c_2;
-extern "C" void func_ov023_021e1318(Struct_ov002_0215505c_2*);
+struct ItemSortList_ov002_0215505c_2;
+extern "C" void ClearItemSortList_ov023_021e1318(ItemSortList_ov002_0215505c_2*);
 extern "C" void SaveMainBGControl_02074af4(void *save);
 extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4 *windowManager);
 extern "C" void InitTextWindow_0204c684(void *textWindow);
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
     RESET(0x7a0);
     RESET(0x78c);
     RESET(0x774);
-    func_ov023_021e1318((Struct_ov002_0215505c_2*)(arg0 + 0x768));
+    ClearItemSortList_ov023_021e1318((ItemSortList_ov002_0215505c_2*)(arg0 + 0x768));
     RESET(0x804);
     ((StringList*)((struct StringTable_0201099c_14 *) (arg0 + 0x8)))->Reset();
     U8(0x30) = 0;
@@ -252,7 +252,7 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
     RESET(0x83c);
     RESET(0x828);
     RESET(0x810);
-    func_ov023_021e1318((Struct_ov002_0215505c_2*)(arg0 + 0x804));
+    ClearItemSortList_ov023_021e1318((ItemSortList_ov002_0215505c_2*)(arg0 + 0x804));
     RESET(0x8a0);
     ((StringList*)((struct StringTable_0201099c_14 *) (arg0 + 0x20)))->Reset();
     U8(0x48) = 0;

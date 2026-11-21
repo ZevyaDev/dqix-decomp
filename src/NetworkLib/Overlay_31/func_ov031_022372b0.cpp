@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-struct Struct_ov031_02222f44_2;
-extern "C" void func_ov031_0223bd28(Struct_ov031_02222f44_2* arg0, int arg1, unsigned int* arg2, unsigned int* arg3);
+struct OAMAllocation_ov031_02222f44_2;
+extern "C" void GetSpritePosition_ov031_0223bd28(OAMAllocation_ov031_02222f44_2* sprite, int entryIndex, unsigned int* outX, unsigned int* outY);
 
 struct Struct_ov031_0224926a { unsigned short unknown_0_; unsigned short unknown_2_; };
 extern Struct_ov031_0224926a data_ov031_0224926a[];
@@ -20,7 +20,7 @@ extern void* data_ov031_02290d08;
 extern "C" ARM void func_ov031_022372b0(void* arg0) {
 	int var0;
 	unsigned int var1;
-	func_ov031_0223bd28((Struct_ov031_02222f44_2*)data_ov031_02290d04.unknown_4_->unknown_0_[0], 0, (unsigned int*)&var0, &var1);
+	GetSpritePosition_ov031_0223bd28((OAMAllocation_ov031_02222f44_2*)data_ov031_02290d04.unknown_4_->unknown_0_[0], 0, (unsigned int*)&var0, &var1);
 	var0 -= 8;
 	int var2 = 0;
 	do {

@@ -9,7 +9,7 @@ struct Struct_ov000_0215f67c {
 
 extern unsigned short data_ov000_02182bb4[8];
 
-extern "C" int func_020a3694(int* arg0);
+extern "C" int IsScriptedBattle_020a3694(int* battleSetup);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(struct Struct_ov000_0215f67c* battle, unsigned short* indices, int maxCount, int filterFlags);
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(struct Struct_ov000_0215f67c* battle, unsigned short* indices, int maxCount, int filterFlags);
 
@@ -47,7 +47,7 @@ extern "C" ARM unsigned short func_ov000_0215f67c(struct Struct_ov000_0215f67c* 
         var5[2] = 0xde;
         var5[3] = 0x394;
         var8 = 4;
-        if (!func_020a3694(arg0->unknown_8e18_)) {
+        if (!IsScriptedBattle_020a3694(arg0->unknown_8e18_)) {
             var5[4] = 0x395;
             var8 = 5;
         }

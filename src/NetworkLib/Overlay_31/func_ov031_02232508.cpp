@@ -4,7 +4,7 @@ extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int size, int alig
 extern int data_ov031_02290cc0;
 extern "C" void func_ov031_02232568(void);
 extern "C" void func_ov031_02223998(int arg0);
-extern "C" void func_ov031_0222336c(int, int, int);
+extern "C" void ShowSubScreenMessage_ov031_0222336c(int, int, int);
 extern "C" void func_ov031_02223518(int);
 extern "C" void func_ov031_02232678(void);
 extern "C" void func_ov031_02232ce8(void);
@@ -18,7 +18,7 @@ extern "C" ARM void func_ov031_02232508(void) {
 	((unsigned char*)var0)[0x1d] = 0;
 	func_ov031_02232568();
 	func_ov031_02223998(1);
-	func_ov031_0222336c(0x2f, -1, 0);
+	ShowSubScreenMessage_ov031_0222336c(0x2f, -1, 0);
 	func_ov031_02223518(0);
 	func_ov031_02232678();
 	func_ov031_02232ce8();

@@ -6,7 +6,7 @@ extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(struct Random* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int GetCombatantCell_020493a4(unsigned char* combatant);
 extern "C" void SetCombatantCell_02049390(unsigned char* combatant, unsigned char cell);
-extern "C" void func_02049bd4(unsigned char* arg0, int* arg1);
+extern "C" void SetCombatantCellPosition_02049bd4(unsigned char* combatant, int* cellPosition);
 extern "C" void func_02049c60(unsigned char* arg0, int* arg1);
 extern "C" void __clear(void* arg0, int arg1);
 
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov000_02167cd4(unsigned char* arg0) {
             int var9[3];
             __clear(var9, 0xc);
             SetCombatantCell_02049390((unsigned char*)var5, (unsigned char)(var6 & 0xff));
-            func_02049bd4((unsigned char*)var5, (int*)&var8);
+            SetCombatantCellPosition_02049bd4((unsigned char*)var5, (int*)&var8);
             func_02049c60((unsigned char*)var5, var9);
         }
         var4++;

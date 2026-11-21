@@ -15,9 +15,9 @@ struct FontGlyph_0204254c {
     char unknown_6_[2];
 };
 
-struct Struct_020425e4 {
-    unsigned short unknown_0_;
-    signed char unknown_2_;
+struct KerningPair_020425e4 {
+    unsigned short glyphPair_0_;
+    signed char xOffset_2_;
     unsigned char unknown_3_;
 };
 
@@ -25,7 +25,7 @@ struct Struct_02042804 {
     unsigned char unknown_0_[4];
     unsigned int unknown_4_;
     unsigned int unknown_8_;
-    Struct_020425e4 *unknown_c_;
+    KerningPair_020425e4 *unknown_c_;
     FontGlyph_0204254c *unknown_10_;
     void *unknown_14_;
 };
@@ -48,7 +48,7 @@ extern "C" ARM void func_02042804(void *arg0, const char *arg1, int *arg2, int *
         memcpy(reinterpret_cast<void *>(*arg2), g_fileScratchSpace, var2);
         Struct_02042804 *var3 = reinterpret_cast<Struct_02042804 *>(*arg2);
         char *var4               = reinterpret_cast<char *>(var3);
-        var3->unknown_c_             = reinterpret_cast<Struct_020425e4 *>(var4 + reinterpret_cast<int>(var3->unknown_c_));
+        var3->unknown_c_             = reinterpret_cast<KerningPair_020425e4 *>(var4 + reinterpret_cast<int>(var3->unknown_c_));
         var3->unknown_10_          = reinterpret_cast<FontGlyph_0204254c *>(var4 + reinterpret_cast<int>(var3->unknown_10_));
         var3->unknown_14_        = var4 + reinterpret_cast<int>(var3->unknown_14_);
         for (unsigned int var5 = 0; var5 < var3->unknown_4_; ++var5) {

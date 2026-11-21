@@ -63,7 +63,7 @@ extern "C" void func_ov000_02174a38(void* arg0, int arg1);
 
 extern "C" void func_ov000_021710ac(struct Struct_ov000_02174738_3* arg0, int arg1, int arg2);
 extern "C" void func_ov000_02171138(void* arg0);
-extern "C" void func_ov000_02174b14(struct Struct_ov000_02174738_5* arg0);
+extern "C" void PositionPartyMemberPanels_ov000_02174b14(struct Struct_ov000_02174738_5* battleUI);
 extern "C" int GetHaloObject_ov017_021bdbcc();
 extern "C" int func_020420e8(char* arg0, int arg1);
 extern "C" void DrawCanvasText_0205b234(struct Struct_ov000_02174738_6* canvas, short x, int y, void* text, unsigned char arg4, unsigned char arg5);
@@ -93,7 +93,7 @@ checkvalid:
         struct Struct_ov000_02174738_3* var4 = &arg0->unknown_158_.unknown_800_[var3[var1]];
         if (arg1 == var4->unknown_4c_) {
             func_ov000_02171138(var4);
-            func_ov000_02174b14(arg0);
+            PositionPartyMemberPanels_ov000_02174b14(arg0);
             return;
         }
     }
@@ -111,7 +111,7 @@ checkvalid:
         func_ov000_02174a38(var7, arg1 == GetProtagonistObjectIndex_020100a8(var5));
         func_ov000_02171138(var7);
         data_ov000_02183ff0 = data_ov000_02183ff0 + 1;
-        func_ov000_02174b14(arg0);
+        PositionPartyMemberPanels_ov000_02174b14(arg0);
         if (data_ov000_02183ff0 > 4) {
             data_ov000_02183ff0 = 4;
         }
@@ -140,7 +140,7 @@ checkvalid:
         struct Struct_ov000_02174738_3* var12 = &arg0->unknown_158_.unknown_800_[var11[var9]];
         if (arg1 == var12->unknown_4c_) {
             func_ov000_02171138(var12);
-            func_ov000_02174b14(arg0);
+            PositionPartyMemberPanels_ov000_02174b14(arg0);
             return;
         }
     }
@@ -219,7 +219,7 @@ checkvalid:
         func_ov000_02174a38(var35, arg1 == GetProtagonistObjectIndex_020100a8(var33));
         func_ov000_02171138(var35);
         data_ov000_02183ff0 = data_ov000_02183ff0 + 1;
-        func_ov000_02174b14(arg0);
+        PositionPartyMemberPanels_ov000_02174b14(arg0);
         if (data_ov000_02183ff0 > 4) {
             data_ov000_02183ff0 = 4;
         }

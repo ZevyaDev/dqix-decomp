@@ -2,7 +2,7 @@
 
 struct Struct_0202c7bc_2;
 extern "C" ARM void func_0205e16c(struct Struct_0202c7bc_2* arg0);
-extern "C" void func_0205e22c(void* arg0);
+extern "C" void ResetLocalWirelessPacketQueue_0205e22c(void* packetQueue);
 
 struct Struct_0202c7bc {
     unsigned char unknown_0_[0x14];
@@ -24,6 +24,6 @@ extern "C" ARM void* func_0202c7bc(void* arg0) {
     func_0205e16c((struct Struct_0202c7bc_2*)((char*)arg0 + 0x1500));
     func_0205e16c((struct Struct_0202c7bc_2*)((char*)arg0 + 0x150c));
     func_0205e16c((struct Struct_0202c7bc_2*)((char*)arg0 + 0x1518));
-    func_0205e22c(arg0);
+    ResetLocalWirelessPacketQueue_0205e22c(arg0);
     return arg0;
 }

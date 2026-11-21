@@ -6,8 +6,8 @@ extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
 extern "C" float func_02074968(int arg0);
 extern "C" int func_ov000_021543f4(GameObject* arg0);
 extern "C" float func_02074978(int arg0);
-extern "C" void func_02088390(void* arg0);
-extern "C" void func_020883fc(void* arg0);
+extern "C" void ClearSleep_02088390(void* stats);
+extern "C" void ClearConfusion_020883fc(void* stats);
 
 struct Struct_ov000_02157288 {
     char unknown_0_[0x10];
@@ -55,8 +55,8 @@ extern "C" ARM int func_ov000_02157288(struct Random* arg0, int arg1, struct Str
         if (func_ov000_021543f4(var4)) {
             var3 = 0x173;
         }
-        func_02088390(var4->currentStats_);
-        func_020883fc(var4->currentStats_);
+        ClearSleep_02088390(var4->currentStats_);
+        ClearConfusion_020883fc(var4->currentStats_);
         ((struct Struct_ov000_02157288_2*)var4->currentStats_)->unknown_3b_0_ = 1;
         return var3;
     }

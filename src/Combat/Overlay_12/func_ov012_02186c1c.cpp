@@ -25,7 +25,7 @@ extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" int func_ov023_021e6e20(Struct_ov012_02186a7c*);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
-extern "C" void func_ov023_021e6e60(void*);
+extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(void*);
 extern "C" int func_ov023_021e7148(void*);
 extern "C" void func_ov012_0218bba0(void*, int, int);
 extern "C" void func_ov012_02189be8(void*, int);
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov012_02186c1c(char* arg0) {
         else var1 = 0;
         *(int*)(arg0 + 0x1430) = var1;
         SetNextTextWindowBGLayer_0205de24((TextWindowManager_0205de24_2*)(arg0 + 0x90), 0, 3);
-        func_ov023_021e6e60(arg0);
+        ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
         func_ov012_021898bc(arg0);
         (*(unsigned char*)(arg0 + 0x1340))++;
         return;
@@ -149,7 +149,7 @@ extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" int func_ov023_021e6e20(Struct_ov012_02186a7c*);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
-extern "C" void func_ov023_021e6e60(Struct_ov012_02185ab8*);
+extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(Struct_ov012_02185ab8*);
 extern "C" int func_ov023_021e6de4(Struct_ov012_02185ab8*);
 extern "C" void func_ov012_0218adac(Struct_ov012_02185ab8*, int, int, int);
 extern "C" void func_ov012_0218930c(Struct_ov012_02185ab8*, int);
@@ -174,7 +174,7 @@ extern "C" ARM void func_ov012_02186c1c(Struct_ov012_02185ab8* arg0) {
         }
         arg0->unknown_13d8_ = var6;
         SetNextTextWindowBGLayer_0205de24(&arg0->unknown_ac_, 0, 3);
-        func_ov023_021e6e60(arg0);
+        ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
         func_ov012_021898bc((char*)arg0);
         arg0->unknown_1370_++;
         return;

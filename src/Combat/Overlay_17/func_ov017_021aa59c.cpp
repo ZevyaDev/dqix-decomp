@@ -87,7 +87,7 @@ extern "C" void func_ov017_021ab060(struct Struct_ov017_021aa59c_4* arg0);
 extern "C" void* FindMenuLayoutWindow_02081da8(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void UpdateMenuLayoutWindows_0207fc6c(struct MenuLayout_0207fc6c* menuLayout, int ticks);
 extern "C" void UpdateKeyRepeat_02081f20(void* keyRepeat, int elapsedFrames);
-extern "C" int func_020800fc(void* arg0, short* arg1, short arg2, unsigned short arg3, unsigned char arg4, bool arg5);
+extern "C" int UpdateMenuLayoutCursor_020800fc(void* menuLayout, short* cursorTextId, short currentTextId, unsigned short key, unsigned char keyEvent, bool hasPages);
 extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void* menuLayout, int windowId);
 extern "C" int func_ov017_021ab0c0(struct Struct_ov017_021aa59c_5* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -312,7 +312,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
                 if (arg0->unknown_44_ != NULL) {
                     UpdateKeyRepeat_02081f20(arg0->unknown_3c_, var26);
                     arg0->unknown_4e_ = *arg0->unknown_44_;
-                    arg0->unknown_38_ = func_020800fc(var25, arg0->unknown_44_, arg0->unknown_4e_, arg0->unknown_40_->unknown_0_, arg0->unknown_40_->unknown_2_, false);
+                    arg0->unknown_38_ = UpdateMenuLayoutCursor_020800fc(var25, arg0->unknown_44_, arg0->unknown_4e_, arg0->unknown_40_->unknown_0_, arg0->unknown_40_->unknown_2_, false);
                     var25->unknown_36_ = *arg0->unknown_44_;
                     if (arg0->unknown_38_ != 0) {
                         ClearMenuLayoutWindowHighlights_020804fc(var25, arg0->unknown_48_);

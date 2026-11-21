@@ -109,7 +109,7 @@ extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsign
 extern "C" int func_ov024_021e6798(GameObject* arg0);
 extern "C" Struct_ov024_021f9030_4* GetBattleCommand_02053dc0(Struct_02053dc0* partyMember);
 extern "C" Struct_ov024_021f9030_7* FindActionData_02079e2c(char* actionTables, int actionId);
-extern "C" int func_ov000_02155f9c(Struct_ov024_021f9030_5* arg0, int arg1, int arg2);
+extern "C" int IsCombatantIncapacitated_ov000_02155f9c(Struct_ov024_021f9030_5* battle, int combatantIndex, int isConfusionCounted);
 extern "C" void func_ov024_021f7478(Struct_ov024_021f9030_2* arg0);
 extern "C" int func_ov024_021f8874(Struct_ov024_021f9030_2* arg0, Struct_ov024_021f9030_7* arg1, GameObject* arg2, int* arg3);
 extern "C" void func_ov024_021fa7ec(Struct_ov024_021f9030_2* arg0, float* arg1, float* arg2, float* arg3,
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov024_021f9030(Struct_ov024_021f9030_2* arg0, Struct_ov
     if (var4 >= 5) {
         return;
     }
-    if (func_ov000_02155f9c(arg1, arg2, 0) != 0 || *arg3 != 1) {
+    if (IsCombatantIncapacitated_ov000_02155f9c(arg1, arg2, 0) != 0 || *arg3 != 1) {
         return;
     }
     arg0->unknown_0_ = arg1;

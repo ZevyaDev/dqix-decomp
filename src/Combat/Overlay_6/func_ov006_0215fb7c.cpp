@@ -95,7 +95,7 @@ struct Struct_ov006_02157a60 {
 };
 
 extern "C" void SetMenuLayoutTextStringId_0208103c(void* menuLayout, int textId, int stringId);
-extern "C" void func_0208108c(void* arg0, int arg1);
+extern "C" void CenterMenuLayoutText_0208108c(void* menuLayout, int textId);
 extern "C" void SetMenuLayoutWindowFrameless_02081164(MenuLayout_02081164* menuLayout, int windowId, int isFrameless);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
@@ -176,7 +176,7 @@ extern "C" ARM void func_ov006_0215fb7c(Struct_ov006_02157a60* arg0) {
         break;
     }
     SetMenuLayoutTextStringId_0208103c(var0, 0x59, var1);
-    func_0208108c(var0, 0x59);
+    CenterMenuLayoutText_0208108c(var0, 0x59);
     SetMenuLayoutWindowFrameless_02081164((MenuLayout_02081164*)var0, 0xe, 1);
     OpenMenuLayoutWindow_020813ec(var0, 0xe);
     SetMenuLayoutWindowPalette_02080c68(var0, 0xe, 2);

@@ -34,7 +34,7 @@ extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" ARM void func_ov017_021d3fa8(int arg0, Struct_ov017_021d3fa8* arg1, GameState* arg2, void* arg3, void* arg4) {
     GameObject* var0 = arg2->GetUnknownGameObject();
     GameObject* var1 = arg2->GetPartyMemberByIndex(arg1->unknown_7_);
-    Struct_02037d10* var2 = func_020399a8(var1);
+    LadderAction_02037d10* var2 = GetLadderAction_020399a8(var1);
     unsigned short var3 = arg1->unknown_6_0_;
     int var4 = arg1->unknown_6_4_;
     int var5 = arg1->unknown_4_;

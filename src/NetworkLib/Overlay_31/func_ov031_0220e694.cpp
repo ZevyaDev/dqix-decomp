@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_ov031_0220da1c(int);
+extern "C" void SetAccessPointConnectionState_ov031_0220da1c(int);
 extern "C" void func_ov031_0220db6c(void);
 extern "C" void func_ov031_0220d984(int, int, int, int);
 extern "C" int func_020d559c(int, unsigned int);
@@ -16,7 +16,7 @@ extern "C" ARM void func_ov031_0220e694(struct Struct_ov031_0220e694 *arg0) {
 	case 0: {
 		int var0 = *(int*)((char*)gAccessPointConnection_ov031_0224e53c + 0x2000 + 0x260);
 		if (var0 == 0xc) {
-			func_ov031_0220da1c(0xa);
+			SetAccessPointConnectionState_ov031_0220da1c(0xa);
 			func_ov031_0220db6c();
 			return;
 		}
@@ -24,27 +24,27 @@ extern "C" ARM void func_ov031_0220e694(struct Struct_ov031_0220e694 *arg0) {
 		if (var1 == 2) return;
 		if (var1 == 3) goto case0_r3;
 		if (var1 != 8) goto case0_r740;
-		func_ov031_0220da1c(0xc);
+		SetAccessPointConnectionState_ov031_0220da1c(0xc);
 		func_ov031_0220d984(1, (int)((char*)gAccessPointConnection_ov031_0224e53c + 0x2140), 0, 0x8b4);
 		return;
 	case0_r3:
-		func_ov031_0220da1c(0xa);
+		SetAccessPointConnectionState_ov031_0220da1c(0xa);
 		func_ov031_0220db6c();
 		return;
 	case0_r740:
-		func_ov031_0220da1c(0xb);
+		SetAccessPointConnectionState_ov031_0220da1c(0xb);
 		func_ov031_0220d984(7, (int)((char*)gAccessPointConnection_ov031_0224e53c + 0x2140), 0, 0x8c0);
 		return;
 	}
 	case 1:
 	case 3:
-		func_ov031_0220da1c(0xa);
+		SetAccessPointConnectionState_ov031_0220da1c(0xa);
 		func_ov031_0220db6c();
 		return;
 	case 2:
 	case 4:
 	default:
-		func_ov031_0220da1c(0xb);
+		SetAccessPointConnectionState_ov031_0220da1c(0xb);
 		func_ov031_0220d984(7, (int)((char*)gAccessPointConnection_ov031_0224e53c + 0x2140), 0, 0x8d3);
 		return;
 	}

@@ -40,7 +40,7 @@ extern "C" ARM int func_020459b8(MessageWindow_02021b84* arg0, unsigned char arg
     }
     for (int var4 = 0; var4 < 0x80; var4++) {
         if (var1[var4] == 0) {
-            if (arg0->unknown_1e28_ != NULL) {
+            if (arg0->pTextureArena_1e28_ != NULL) {
                 unsigned char* var5 = var0 + (var3 << 7);
                 Struct_0204166c* var6 = &var2[var4];
                 bool var7 = false;
@@ -62,7 +62,7 @@ extern "C" ARM int func_020459b8(MessageWindow_02021b84* arg0, unsigned char arg
                     }
                 }
                 func_020416e0(var6, arg1, (int)arg2, (int)var5, var3,
-                                          (var4 << 7) + inline_020459b8(arg0->unknown_1e28_), arg3);
+                                          (var4 << 7) + inline_020459b8(arg0->pTextureArena_1e28_), arg3);
                 if (var8) {
                     var6->unknown_16_2_ = 1;
                 }

@@ -33,7 +33,7 @@ struct LocalWireless_0202b2f0 {
     unsigned char unknown_1010_;
     unsigned char unknown_1011_;
     unsigned char unknown_1012_[0x26];
-    signed char unknown_1038_[16];
+    signed char protagonistObjectIndexByConsole_1038_[16];
     signed char unknown_1048_[16];
     int inline_0202b2f0() const {
         return unknown_0_ != 0;
@@ -51,12 +51,12 @@ extern "C" void func_0202bf40(LocalWireless_0202b2f0*);
 extern "C" void func_0202c04c(LocalWireless_0202b2f0*);
 extern "C" int IsNotLocalWirelessGuest_0202c508(LocalWireless_0202b2f0*);
 extern "C" unsigned short func_0202bc8c(LocalWireless_0202b2f0*);
-extern "C" signed char func_0202bcbc(LocalWireless_0202b2f0*, int);
+extern "C" signed char FindConsoleByProtagonistObjectIndex_0202bcbc(LocalWireless_0202b2f0*, int);
 extern "C" int func_0202bd34(LocalWireless_0202b2f0*, int);
-extern "C" void func_0202c21c(LocalWireless_0202b2f0*, int);
+extern "C" void RemoveLocalWirelessPlayer_0202c21c(LocalWireless_0202b2f0*, int);
 extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0*, int);
 extern "C" void func_0202c5bc(LocalWireless_0202b2f0*, int);
-extern "C" void func_0202c1e8(LocalWireless_0202b2f0*, int);
+extern "C" void SetLocalWirelessPlayerJoined_0202c1e8(LocalWireless_0202b2f0*, int);
 extern "C" void func_0202c660(LocalWireless_0202b2f0*, int);
 extern "C" int func_0202d6b8();
 
@@ -66,7 +66,7 @@ extern "C" ARM void func_0202b2f0(LocalWireless_0202b2f0* arg0) {
     unsigned short var1[4];
     unsigned short var2[4];
     for (int var3 = 0; var3 < 4; var3++) {
-        if (var3 == arg0->unknown_1038_[func_0202df58()]) {
+        if (var3 == arg0->protagonistObjectIndexByConsole_1038_[func_0202df58()]) {
             continue;
         }
         Struct_0202b2f0_2* var4 = GetLocalWirelessPlayerRecord_0202c178(arg0, var3);
@@ -115,7 +115,7 @@ extern "C" ARM void func_0202b2f0(LocalWireless_0202b2f0* arg0) {
     }
     if (arg0->unknown_fc0_) {
         for (int var8 = 0; var8 < 4; var8++) {
-            if (var8 == arg0->unknown_1038_[func_0202df58()]) {
+            if (var8 == arg0->protagonistObjectIndexByConsole_1038_[func_0202df58()]) {
                 continue;
             }
             Struct_0202b2f0_2* var9 = GetLocalWirelessPlayerRecord_0202c178(arg0, var8);
@@ -131,7 +131,7 @@ extern "C" ARM void func_0202b2f0(LocalWireless_0202b2f0* arg0) {
             var0 = &arg0->unknown_7c0_;
             unsigned int var11 = var0->unknown_2_1_;
             for (int var12 = 1; var12 < 4; var12++) {
-                if (!(var10 & (1 << var12)) || arg0->unknown_1038_[var12] != 0) {
+                if (!(var10 & (1 << var12)) || arg0->protagonistObjectIndexByConsole_1038_[var12] != 0) {
                     continue;
                 }
                 for (int var13 = 1; var13 < 4; var13++) {
@@ -140,7 +140,7 @@ extern "C" ARM void func_0202b2f0(LocalWireless_0202b2f0* arg0) {
                     }
                     int var14;
                     for (int var15 = 1; var15 < 4; var15++) {
-                        if ((signed char)var13 == arg0->unknown_1038_[var15]) {
+                        if ((signed char)var13 == arg0->protagonistObjectIndexByConsole_1038_[var15]) {
                             var14 = 1;
                             goto selectorFound;
                         }
@@ -148,28 +148,28 @@ extern "C" ARM void func_0202b2f0(LocalWireless_0202b2f0* arg0) {
                     var14 = 0;
 selectorFound:
                     if (!var14) {
-                        arg0->unknown_1038_[var12] = var13;
+                        arg0->protagonistObjectIndexByConsole_1038_[var12] = var13;
                         break;
                     }
                 }
             }
         }
         arg0->unknown_100e_ = 0;
-        int var16 = func_0202bcbc(arg0, 0);
+        int var16 = FindConsoleByProtagonistObjectIndex_0202bcbc(arg0, 0);
         if (!(arg0->unknown_100f_ & (1 << var16))) {
             var0 = &arg0->unknown_7c0_;
             for (int var17 = 1; var17 < 4; var17++) {
-                int var18 = func_0202bcbc(arg0, var17);
+                int var18 = FindConsoleByProtagonistObjectIndex_0202bcbc(arg0, var17);
                 if ((arg0->unknown_100f_ & (1 << var18)) && !(var0->unknown_2_1_ & (1 << var17))) {
                     if (!func_0202bd34(arg0, var17)) {
-                        func_0202c21c(arg0, var17);
+                        RemoveLocalWirelessPlayer_0202c21c(arg0, var17);
                     }
                 } else if (IsLocalWirelessPlayerJoined_0202c1c0(arg0, var17)) {
                     if (!func_0202bd34(arg0, var17)) {
                         func_0202c5bc(arg0, var17);
                     }
                 } else if (func_0202bd34(arg0, var17)) {
-                    func_0202c1e8(arg0, var17);
+                    SetLocalWirelessPlayerJoined_0202c1e8(arg0, var17);
                     func_0202c660(arg0, var17);
                     if (arg0->inline_0202b2f0()) {
                         GameResources* var19 = GetGameResources();
@@ -180,15 +180,15 @@ selectorFound:
         } else {
             for (int var20 = 1; var20 < 4; var20++) {
                 if (IsLocalWirelessPlayerJoined_0202c1c0(arg0, var20) && !func_0202bd34(arg0, var20)) {
-                    func_0202c21c(arg0, var20);
+                    RemoveLocalWirelessPlayer_0202c21c(arg0, var20);
                 }
             }
         }
     } else {
         Struct_0202b2f0_2* var21 = GetLocalWirelessPlayerRecord_0202c178(arg0, 0);
-        arg0->unknown_1038_[1] = var21->unknown_2_5_;
-        arg0->unknown_1038_[2] = var21->unknown_2_7_;
-        arg0->unknown_1038_[3] = var21->unknown_3_1_;
+        arg0->protagonistObjectIndexByConsole_1038_[1] = var21->unknown_2_5_;
+        arg0->protagonistObjectIndexByConsole_1038_[2] = var21->unknown_2_7_;
+        arg0->protagonistObjectIndexByConsole_1038_[3] = var21->unknown_3_1_;
         if (var21->unknown_2_5_) {
             arg0->unknown_1048_[1] = var21->unknown_2_5_;
         }
@@ -199,7 +199,7 @@ selectorFound:
             arg0->unknown_1048_[3] = var21->unknown_3_1_;
         }
     }
-    if (arg0->unknown_1038_[func_0202df58()] != 0 && func_0202d6b8() == 20) {
+    if (arg0->protagonistObjectIndexByConsole_1038_[func_0202df58()] != 0 && func_0202d6b8() == 20) {
         func_0202c5bc(arg0, 0);
     }
 }

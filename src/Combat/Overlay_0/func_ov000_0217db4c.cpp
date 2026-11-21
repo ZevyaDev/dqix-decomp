@@ -17,7 +17,7 @@ extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* man
 extern "C" void* func_ov000_021815e4(char* arg0);
 extern "C" int func_ov000_021815c8(void* arg0);
 extern "C" int GetEquipRestrictions_020dd4c4(int memberIndex, void* item);
-extern "C" struct Struct_ov000_021735d0_2* func_ov000_0217f8c0(struct Struct_ov000_021735d0_3* arg0);
+extern "C" struct Struct_ov000_021735d0_2* GetSelectedMemberPanel_ov000_0217f8c0(struct Struct_ov000_021735d0_3* battleUI);
 extern "C" void func_ov000_02176634(void* arg0, struct Struct_ov000_021735d0_2* arg1, int arg2, int arg3, int arg4);
 extern "C" int func_ov000_0217c5f4(void* arg0);
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov000_0217db4c(struct Struct_ov000_0217db4c* arg0, int 
                 if (var3 & data_ov000_02184704[var4]) {
                     arg0->unknown_1d68_++;
                     arg0->unknown_1d60_[arg0->unknown_1d68_] = 0x1f;
-                    func_ov000_02176634(arg0, func_ov000_0217f8c0((struct Struct_ov000_021735d0_3*)arg0), 0x1f, arg1, arg2);
+                    func_ov000_02176634(arg0, GetSelectedMemberPanel_ov000_0217f8c0((struct Struct_ov000_021735d0_3*)arg0), 0x1f, arg1, arg2);
                     return;
                 }
             }
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov000_0217db4c(struct Struct_ov000_0217db4c* arg0, int 
 #endif
         arg0->unknown_1d68_++;
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 0x20;
-        func_ov000_02176634(arg0, func_ov000_0217f8c0((struct Struct_ov000_021735d0_3*)arg0), arg0->unknown_1d60_[arg0->unknown_1d68_], arg1, arg2);
+        func_ov000_02176634(arg0, GetSelectedMemberPanel_ov000_0217f8c0((struct Struct_ov000_021735d0_3*)arg0), arg0->unknown_1d60_[arg0->unknown_1d68_], arg1, arg2);
     } else if (func_ov000_0217c5f4(arg0)) {
         arg0->unknown_956_ = 0;
         CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)arg0->unknown_188_, 0);
@@ -86,6 +86,6 @@ extern "C" ARM void func_ov000_0217db4c(struct Struct_ov000_0217db4c* arg0, int 
         arg0->unknown_1d60_[arg0->unknown_1d68_] = 0;
         arg0->unknown_1d68_--;
         func_ov000_0217c638(arg0, arg1, arg2);
-        func_ov000_02176e3c(arg0, func_ov000_0217f8c0((struct Struct_ov000_021735d0_3*)arg0), arg0->unknown_1d60_[arg0->unknown_1d68_], arg1, arg2, 0);
+        func_ov000_02176e3c(arg0, GetSelectedMemberPanel_ov000_0217f8c0((struct Struct_ov000_021735d0_3*)arg0), arg0->unknown_1d60_[arg0->unknown_1d68_], arg1, arg2, 0);
     }
 }

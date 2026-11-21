@@ -56,90 +56,90 @@ extern "C" int func_02080e40(void* arg0, int arg1, int arg2, int arg3);
 extern "C" struct MenuLayoutTextEntry_020800fc_3* FindMenuLayoutTextEntry_0207f6ac(struct MenuLayoutTextEntryList_0207f524* textEntries, int textId);
 extern "C" struct MenuLayoutTextEntry_020800fc_3* func_0208036c(void* arg0, struct MenuLayoutTextEntry_020800fc_3* arg1, int arg2, struct Struct_020800fc* arg3, unsigned char arg4);
 
-// USA: func_020800fc
-extern "C" ARM int func_020800fc(struct MenuLayout_020800fc_2* arg0, short* arg1, short arg2, int arg3, unsigned char arg4, unsigned char arg5) {
-    struct Struct_020800fc var0;
-    struct MenuLayoutTextEntry_020800fc_3* var1;
-    struct MenuLayoutTextEntry_020800fc_3* var2;
-    struct MenuLayoutWindowEntry_020800fc_4* var3;
-    int var4;
-    int var5;
-    int var6;
+// USA: UpdateMenuLayoutCursor_020800fc
+extern "C" ARM int UpdateMenuLayoutCursor_020800fc(struct MenuLayout_020800fc_2* menuLayout, short* cursorTextId, short currentTextId, int key, unsigned char keyEvent, unsigned char hasPages) {
+    struct Struct_020800fc result;
+    struct MenuLayoutTextEntry_020800fc_3* nextEntry;
+    struct MenuLayoutTextEntry_020800fc_3* textEntry;
+    struct MenuLayoutWindowEntry_020800fc_4* windowEntry;
+    int touchX;
+    int touchY;
+    int touchedTextId;
 
-    var0.unknown_0_ = 0;
-    *arg1 = arg2;
+    result.unknown_0_ = 0;
+    *cursorTextId = currentTextId;
     if (g_touchInput.pressed_ != 0) {
-        var3 = (struct MenuLayoutWindowEntry_020800fc_4*)func_020810b4((unsigned char*)arg0, arg2);
-        if (var3 != NULL) {
-            g_touchInput.GetTouchPoint(&var4, &var5);
-            var6 = func_02080e40(arg0, var3->windowId_8_, (short)var4, (short)var5);
-            if (var6 >= 0) {
-                *arg1 = (short)var6;
+        windowEntry = (struct MenuLayoutWindowEntry_020800fc_4*)func_020810b4((unsigned char*)menuLayout, currentTextId);
+        if (windowEntry != NULL) {
+            g_touchInput.GetTouchPoint(&touchX, &touchY);
+            touchedTextId = func_02080e40(menuLayout, windowEntry->windowId_8_, (short)touchX, (short)touchY);
+            if (touchedTextId >= 0) {
+                *cursorTextId = (short)touchedTextId;
             }
-            if (arg5 != 0) {
-                short var7 = (short)(var3->unknown_a_ + var3->unknown_e_);
-                short var8 = (short)(var3->unknown_c_ + var3->unknown_10_);
-                if ((short)(var8 << 3) - arg0->unknown_3c_ <= var5 && var5 < (short)(var8 << 3)) {
-                    short var9 = (short)(var3->unknown_a_ << 3);
-                    if (var9 <= var4 && var4 < var9 + arg0->unknown_3b_) {
-                        var0.unknown_0_ |= 0x20;
+            if (hasPages != 0) {
+                short rightColumn = (short)(windowEntry->unknown_a_ + windowEntry->unknown_e_);
+                short bottomRow = (short)(windowEntry->unknown_c_ + windowEntry->unknown_10_);
+                if ((short)(bottomRow << 3) - menuLayout->unknown_3c_ <= touchY && touchY < (short)(bottomRow << 3)) {
+                    short leftX = (short)(windowEntry->unknown_a_ << 3);
+                    if (leftX <= touchX && touchX < leftX + menuLayout->unknown_3b_) {
+                        result.unknown_0_ |= 0x20;
                     }
-                    if ((short)(var7 << 3) - arg0->unknown_3b_ <= var4 && var4 < (short)(var7 << 3)) {
-                        var0.unknown_0_ |= 0x10;
+                    if ((short)(rightColumn << 3) - menuLayout->unknown_3b_ <= touchX && touchX < (short)(rightColumn << 3)) {
+                        result.unknown_0_ |= 0x10;
                     }
                 }
             }
         }
-        return var0.unknown_0_;
+        return result.unknown_0_;
     }
 
-    if (arg4 == 0) {
-        return var0.unknown_0_;
+    if (keyEvent == 0) {
+        return result.unknown_0_;
     }
-    var2 = FindMenuLayoutTextEntry_0207f6ac(&arg0->textEntries_4_, *arg1);
-    if (var2 == NULL) {
-        return var0.unknown_0_;
+    textEntry = FindMenuLayoutTextEntry_0207f6ac(&menuLayout->textEntries_4_, *cursorTextId);
+    if (textEntry == NULL) {
+        return result.unknown_0_;
     }
-    var1 = NULL;
-    switch (arg3) {
+    nextEntry = NULL;
+    switch (key) {
     case 0x10:
-        var1 = var2->pRightEntry_24_;
-        var0.unknown_0_ |= 8;
+        nextEntry = textEntry->pRightEntry_24_;
+        result.unknown_0_ |= 8;
         break;
     case 0x20:
-        var1 = var2->pLeftEntry_20_;
-        var0.unknown_0_ |= 4;
+        nextEntry = textEntry->pLeftEntry_20_;
+        result.unknown_0_ |= 4;
         break;
     case 0x40:
-        var1 = var2->pUpEntry_18_;
-        var0.unknown_0_ |= 1;
+        nextEntry = textEntry->pUpEntry_18_;
+        result.unknown_0_ |= 1;
         break;
     case 0x80:
-        var1 = var2->pDownEntry_1c_;
-        var0.unknown_0_ |= 2;
+        nextEntry = textEntry->pDownEntry_1c_;
+        result.unknown_0_ |= 2;
         break;
     }
-    if (var1 != NULL) {
-        if (var1->flags_2a_ & 2) {
-            var1 = func_0208036c(arg0, var2, arg3, &var0, arg5);
+    if (nextEntry != NULL) {
+        if (nextEntry->flags_2a_ & 2) {
+            nextEntry = func_0208036c(menuLayout, textEntry, key, &result, hasPages);
         }
-        if (var1 != NULL) {
-            *arg1 = var1->unknown_4_;
+        if (nextEntry != NULL) {
+            *cursorTextId = nextEntry->unknown_4_;
         }
     } else {
-        if (arg4 == 1) {
-            var2 = func_0208036c(arg0, var2, arg3, &var0, arg5);
-        } else if (arg4 == 2 && arg5 != 0) {
-            switch (arg3) {
+        if (keyEvent == 1) {
+            textEntry = func_0208036c(menuLayout, textEntry, key, &result, hasPages);
+        } else if (keyEvent == 2 && hasPages != 0) {
+            switch (key) {
             case 0x10:
-                var0.unknown_0_ |= 0x10;
+                result.unknown_0_ |= 0x10;
                 break;
             case 0x20:
-                var0.unknown_0_ |= 0x20;
+                result.unknown_0_ |= 0x20;
                 break;
             }
         }
-        *arg1 = var2->unknown_4_;
+        *cursorTextId = textEntry->unknown_4_;
     }
-    return var0.unknown_0_;
+    return result.unknown_0_;
 }

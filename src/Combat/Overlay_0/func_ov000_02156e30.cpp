@@ -31,7 +31,7 @@ struct Struct_ov000_02156e30_2 {
 extern "C" Struct_ov000_02156e30* func_02053c6c(unsigned char* gameObject);
 extern "C" int func_02085154(unsigned char* arg0);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
-extern "C" int func_ov000_02155f9c(struct Random* arg0, int arg1, int arg2);
+extern "C" int IsCombatantIncapacitated_ov000_02155f9c(struct Random* battle, int combatantIndex, int isConfusionCounted);
 extern "C" float func_ov000_02156118(struct Random* arg0, int arg1);
 
 static inline unsigned char* inline_ov000_02156cc4(GameObject* arg0) {
@@ -48,7 +48,7 @@ extern "C" ARM int func_ov000_02156e30(struct Random* arg0, int arg1, int arg2, 
     if (!(arg3->unknown_10_ & 0x40)) {
         return 0;
     }
-    if (func_ov000_02155f9c(arg0, arg2, 0) != 0) {
+    if (IsCombatantIncapacitated_ov000_02155f9c(arg0, arg2, 0) != 0) {
         return 0;
     }
     if (inline_ov000_02156cc4_2(arg1)) {

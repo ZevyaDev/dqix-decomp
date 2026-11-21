@@ -6,7 +6,7 @@ extern "C" void InitKeyControlledCamera_020a2cf0(struct Struct_0204a120_2* camer
 extern "C" void func_0202e08c(unsigned int* arg0, unsigned int arg1);
 extern "C" void func_020a0d58(void* arg0);
 extern "C" void func_020a2ca0(unsigned char* arg0);
-extern "C" void func_020a2718(char* arg0);
+extern "C" void ResetFollowCameraAngle_020a2718(char* camera);
 
 // USA: InitFollowCamera_020a2010
 extern "C" ARM void InitFollowCamera_020a2010(void* storage) {
@@ -47,5 +47,5 @@ extern "C" ARM void InitFollowCamera_020a2010(void* storage) {
     *(short*)(camera + 0x21e) = 0;
 
     func_020a2ca0((unsigned char*)camera);
-    func_020a2718(camera);
+    ResetFollowCameraAngle_020a2718(camera);
 }

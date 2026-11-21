@@ -100,7 +100,7 @@ extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void func_0203e0a0(void*, unsigned short);
 extern "C" void UnloadZone_ov017_0219bf74();
 extern "C" int IsQuestersRestZone_020981e4(int, int);
-extern "C" void func_ov017_021a316c(GameResources*);
+extern "C" void UnloadFieldObjects_ov017_021a316c(GameResources*);
 extern "C" void func_0203d008(unsigned char*);
 extern "C" int func_ov006_02157d7c(Struct_ov017_021b1564*, unsigned int);
 extern "C" void func_ov006_02157cc0(Struct_ov017_021b1564*);
@@ -119,7 +119,7 @@ void SetAndLockMainBrightness(GameResources*, int, int);
 extern "C" void func_ov017_021921fc(Vector3i*, short, int);
 extern "C" void func_ov017_0219bd1c(int, int, int, int);
 extern "C" void func_ov017_021a2fa0(GameResources*);
-extern "C" void func_ov017_0219b624(GameResources*);
+extern "C" void LoadFieldIcons_ov017_0219b624(GameResources*);
 extern "C" void LoadCommonFieldResources_ov017_0219ba0c(GameResources*, int);
 extern "C" void InitMessageGlyphs_020432c4(void*);
 void UnlockAndSetMainBrightness(GameResources*, int, int);
@@ -232,7 +232,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         func_0203e0a0(var10, var11->currentZoneID_);
         UnloadZone_ov017_0219bf74();
         if (IsQuestersRestZone_020981e4((int)var11->unk_840, inline_ov017_021b1564(var11))) {
-            func_ov017_021a316c(var1);
+            UnloadFieldObjects_ov017_021a316c(var1);
             var1->allocator_array_38[7].Reset();
         }
         func_0203d008((unsigned char*)var10);
@@ -286,7 +286,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         func_ov017_021921fc(&var5->obj3D_.position_, ((Struct_ov017_021b1564_4*)var5)->unknown_ae_, 1);
         func_ov017_0219bd1c(1, 0, 0, 0);
         func_ov017_021a2fa0(var1);
-        func_ov017_0219b624(var1);
+        LoadFieldIcons_ov017_0219b624(var1);
         LoadCommonFieldResources_ov017_0219ba0c(var1, 0);
         Struct_ov017_021b1564_5* var14 = (Struct_ov017_021b1564_5*)var1->unknown_2cc_;
         Struct_ov017_021b1564_8* var15 = GetMessageWindow_020421a0();

@@ -7,9 +7,9 @@
 #endif
 
 struct Struct_ov000_02161e30;
-struct Struct_020a36a8;
+struct BattleSetup_020a36a8;
 struct Struct_0207da94;
-struct Struct_0207d7f4;
+struct BattleJoinRecord_0207d7f4;
 struct Struct_ov000_0216377c;
 
 struct Struct_ov000_0217e870_2 {
@@ -52,8 +52,8 @@ struct BattleScene_ov000_02160da0 {
 
 extern "C" char GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void* GetBattleJoinTable_0207d78c();
-extern "C" int func_020a36a8(Struct_020a36a8* arg0);
-extern "C" unsigned char func_0207db58(Struct_0207d7f4* arg0, unsigned short arg1, char arg2);
+extern "C" int IsProtagonistBattleOwner_020a36a8(BattleSetup_020a36a8* battleSetup);
+extern "C" unsigned char func_0207db58(BattleJoinRecord_0207d7f4* arg0, unsigned short arg1, char arg2);
 extern "C" void func_ov000_0216377c(Struct_ov000_0216377c* arg0, unsigned char arg1);
 extern "C" void func_ov017_021cc050(unsigned short arg0);
 
@@ -92,14 +92,14 @@ extern "C" ARM void func_ov026_021dbd1c(BattleScene_ov000_02160da0* arg0, int ar
 
     if (arg1 == var1->unknown_2a_) {
         if (IsNotLocalWirelessGuest_0202c508(var5)) {
-            func_ov000_0216377c((Struct_ov000_0216377c*)arg0, func_0207db58((Struct_0207d7f4*)var4, var1->unknown_8_, GetProtagonistObjectIndex_020100a8(var0)));
+            func_ov000_0216377c((Struct_ov000_0216377c*)arg0, func_0207db58((BattleJoinRecord_0207d7f4*)var4, var1->unknown_8_, GetProtagonistObjectIndex_020100a8(var0)));
         } else {
             func_ov017_021c9b90(var1->unknown_8_, arg1);
         }
     }
     func_ov000_0215fb04(var3, arg1);
 
-    if (arg2 && arg0->unknown_eac_ != 0x11 && var7 && func_020a36a8((Struct_020a36a8*)var1)) {
+    if (arg2 && arg0->unknown_eac_ != 0x11 && var7 && IsProtagonistBattleOwner_020a36a8((BattleSetup_020a36a8*)var1)) {
         func_ov026_021dbf04(arg0);
         func_ov017_021cc050(var1->unknown_8_);
     }

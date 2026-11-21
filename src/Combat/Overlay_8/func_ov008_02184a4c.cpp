@@ -249,11 +249,11 @@ extern "C" void SetCamera_020100c4(GameState*, int);
 struct Struct_020a13c4;
 extern "C" void ClearAccoladeTable_020a13c4(Struct_020a13c4*);
 extern "C" void func_020a13e4(void* arg0, void* arg1, int arg2, unsigned short arg3, unsigned char arg4);
-extern "C" int func_ov023_021ed724(void* arg0, short* arg1, int arg2);
+extern "C" int AwardAccolades_ov023_021ed724(void* table, short* accoladeIds, int idCount);
 struct AccoladeTable_020a15bc;
 extern "C" Struct_ov008_02184a4c_6* FindAccolade_020a15bc(AccoladeTable_020a15bc*, int);
 extern "C" int GetStoryProgress_0201081c(char*);
-extern "C" int func_020d3018(const char* arg0, const char* arg1);
+extern "C" int CompareStrings_020d3018(const char* left, const char* right);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_ov008_0218712c(Struct_ov008_02184a4c_12* arg0, int arg1);
 struct Struct_ov008_02184a4c_13;
@@ -529,7 +529,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
                 for (int var44 = 0; var44 < var43; var44++) {
                     var42[var44] = arg0->unknown_b04_->unknown_6a_[var44];
                 }
-                if (func_ov023_021ed724(arg0->unknown_bc_, var42, var43) & 1) {
+                if (AwardAccolades_ov023_021ed724(arg0->unknown_bc_, var42, var43) & 1) {
                     arg0->unknown_b18_ |= 0x8000;
                 }
                 if (arg0->inline_ov008_02184a4c_12(2)) {
@@ -601,7 +601,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
                 Struct_ov008_02184a4c var56;
                 ResetStringList_020727d8((StringList_020727d8*)&var56);
                 func_020727f8(&var56, data_ov008_0218b400, (short)var55, arg0->unknown_b8_, REGION_VALUE(1, 2));
-                if (func_020d3018(arg0->unknown_b8_, data_ov008_0218b48f) == 0) {
+                if (CompareStrings_020d3018(arg0->unknown_b8_, data_ov008_0218b48f) == 0) {
                     arg0->unknown_b11_ = 0xff;
                 } else {
                     arg0->unknown_b20_ = var2->QueueLoadFile(arg0->unknown_b8_, NULL);

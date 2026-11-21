@@ -6,7 +6,7 @@ extern "C" void func_ov031_0222cb5c(void);
 extern "C" int FastIntDivide(int arg0, unsigned int arg1);
 extern "C" void func_ov031_0223521c(void);
 extern "C" void DisableButtonBarInput_ov031_02222e98(void);
-extern "C" void func_ov031_02237b2c(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void OpenDialog_ov031_02237b2c(int messageIndex, int layout, int isDimmed, int digitPosition, int digit);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int handler);
 extern "C" void func_ov031_0222cb8c(void);
 extern "C" void func_ov031_0222c128(void);
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov031_0222c01c(void) {
 				PlayWifiSetupSoundEffect_ov031_02236878(9);
 				func_ov031_0223521c();
 				DisableButtonBarInput_ov031_02222e98();
-				func_ov031_02237b2c(0xe, 1, 1, -1, 0);
+				OpenDialog_ov031_02237b2c(0xe, 1, 1, -1, 0);
 				SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222cb8c);
 				return;
 			}

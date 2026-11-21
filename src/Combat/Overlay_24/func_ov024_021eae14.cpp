@@ -23,9 +23,9 @@ struct Struct_020885b4;
 struct Struct_02088644;
 struct Struct_02088514;
 extern "C" int IsAsleep_020882f8(unsigned char*);
-extern "C" void func_02088390(void*);
+extern "C" void ClearSleep_02088390(void*);
 extern "C" int IsConfused_ov024_021de25c(Struct_ov024_021de124*);
-extern "C" void func_020883fc(void*);
+extern "C" void ClearConfusion_020883fc(void*);
 extern "C" int IsParalysed_ov024_021da9b0(Struct_ov024_021da670_7*);
 extern "C" void func_020882dc(void*);
 extern "C" int func_ov024_021da9c8(Struct_ov024_021da670_8*);
@@ -59,10 +59,10 @@ extern "C" ARM int func_ov024_021eae14(Struct_ov017_021d82e0* arg0, int arg1) {
     int var1 = 0;
     int var2 = 0;
     if (IsAsleep_020882f8((unsigned char*)var0->currentStats_)) {
-        func_02088390(var0->currentStats_); var1++; var2 = 1;
+        ClearSleep_02088390(var0->currentStats_); var1++; var2 = 1;
     }
     if (IsConfused_ov024_021de25c((Struct_ov024_021de124*)var0)) {
-        func_020883fc(var0->currentStats_); var1++; var2 = 1;
+        ClearConfusion_020883fc(var0->currentStats_); var1++; var2 = 1;
     }
     if (IsParalysed_ov024_021da9b0((Struct_ov024_021da670_7*)var0)) {
         func_020882dc(var0->currentStats_); var1++; var2 = 1;

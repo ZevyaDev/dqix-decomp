@@ -121,7 +121,7 @@ extern "C" int func_ov024_021da9c8(Struct_ov024_021da670_8*);
 struct Struct_021fa76c;
 extern "C" int func_ov024_021fa76c(Struct_021fa76c*);
 extern "C" void func_ov024_021f6a1c(Struct_ov024_021f6a1c*, void*);
-extern "C" void func_ov024_021f9874(Struct_ov024_021fdf04_5*, Struct_ov024_021f6a1c*, int, int);
+extern "C" void RankCandidateAction_ov024_021f9874(Struct_ov024_021fdf04_5*, Struct_ov024_021f6a1c*, int, int);
 
 // USA: func_ov024_021fdf04
 extern "C" ARM void func_ov024_021fdf04(Struct_ov024_021fdf04_5* arg0, int arg1) {
@@ -306,7 +306,7 @@ extern "C" ARM void func_ov024_021fdf04(Struct_ov024_021fdf04_5* arg0, int arg1)
             int var35 = var22->inline_ov024_021fdf04();
             if (var10 == 4) var34 = 0xff;
             else if (var10 == 3) { var34 = 0xff; var35 = var34; }
-            func_ov024_021f9874(arg0, &var16, var35, var34);
+            RankCandidateAction_ov024_021f9874(arg0, &var16, var35, var34);
         }
         memset(&var16, 0, sizeof(var16));
         var18 = 0;

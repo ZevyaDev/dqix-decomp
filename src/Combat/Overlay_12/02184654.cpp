@@ -45,7 +45,7 @@ struct StringList_02072a68_2;
 struct Struct_0201099c_3;
 extern "C" void* func_0202ae18();
 extern "C" unsigned char* func_02053c6c(unsigned char*);
-extern "C" int func_02098f20(int, int, int);
+extern "C" int CalculateAge_02098f20(int, int, int);
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void func_ov023_021e66ac(void*);
 
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov012_02184654(char* arg0) {
         }
         var1->unknown_3_2_ = 1;
     }
-    var1->unknown_4_0_ = func_02098f20(var1->unknown_0_0_, var1->unknown_1_4_, var1->unknown_2_0_);
+    var1->unknown_4_0_ = CalculateAge_02098f20(var1->unknown_0_0_, var1->unknown_1_4_, var1->unknown_2_0_);
     signed char* var9 = var1->unknown_8_;
     while (*(unsigned char*)(arg0 + 0x1375) < 114) {
         if (var9[0] == var2[0] && var9[1] == var2[1]) break;
@@ -182,7 +182,7 @@ struct Struct_ov012_02184654_7
 
 extern "C" void* func_0202ae18();
 extern "C" unsigned char* func_02053c6c(unsigned char* gameObject);
-extern "C" int func_02098f20(int arg0, int arg1, int arg2);
+extern "C" int CalculateAge_02098f20(int birthYear, int birthMonth, int birthDay);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_ov023_021e66ac(Struct_ov012_02184654_7* arg0);
 
@@ -231,7 +231,7 @@ extern "C" ARM void func_ov012_02184654(Struct_ov012_02184654_7* arg0)
         var12->unknown_3_2_ = 1;
     }
 
-    var12->unknown_4_0_ = func_02098f20(var12->unknown_0_0_, var12->unknown_1_4_, var12->unknown_2_0_);
+    var12->unknown_4_0_ = CalculateAge_02098f20(var12->unknown_0_0_, var12->unknown_1_4_, var12->unknown_2_0_);
 
     var15 = FindStringInList_02072a68((struct StringList_02072a68_2*)arg0->unknown_133c_, (short)(var12->unknown_5_1_ + 10000));
     memcpy(arg0->unknown_1440_, var15, strlen((char*)var15));

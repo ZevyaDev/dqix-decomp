@@ -62,11 +62,11 @@ extern "C" void func_0209ff6c(Struct_ov002_02168d54_6* arg0);
 extern "C" int func_ov002_02168c00(unsigned char* arg0);
 extern "C" void func_ov013_02186fa0(char* arg0);
 extern "C" void func_ov002_021688f8(char* arg0);
-extern "C" void func_020727ec(Struct_ov002_02168d54_8* arg0);
+extern "C" void DestroyStringList_020727ec(Struct_ov002_02168d54_8* stringList);
 extern "C" void func_020e5280(void* arg0);
-extern "C" void func_ov023_021eb138(char* arg0, int arg1);
-extern "C" void func_ov023_021eb080(char* arg0, SafeAllocator* arg1);
-extern "C" void func_ov023_021eb564(char* arg0, int arg1, int arg2);
+extern "C" void InitAccoladeDisplay_ov023_021eb138(char* display, int kind);
+extern "C" void AllocateAccoladeDisplayBuffers_ov023_021eb080(char* display, SafeAllocator* allocator);
+extern "C" void SetAccoladeDisplayEntries_ov023_021eb564(char* display, int entries, int entryCount);
 extern "C" void DestroyAccoladeDisplay_ov023_021eb26c(void* display);
 extern "C" void ColorEffect_ConfigureAlphaBlend(int control, unsigned int pixel1Source, unsigned int pixel2Source, unsigned int pixel1Alpha, unsigned int pixel2Alpha);
 extern "C" void ClearGlobalFlags_020466f4(Struct_ov002_02168d54_9* globalFlags, unsigned int mask);
@@ -219,7 +219,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
     } else if (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)) == 0xc) {
 #if !defined(jpn)
         if (*(Struct_ov002_02168d54_8**)(arg0 + 0x2448) != NULL) {
-            func_020727ec(*(Struct_ov002_02168d54_8**)(arg0 + 0x2448));
+            DestroyStringList_020727ec(*(Struct_ov002_02168d54_8**)(arg0 + 0x2448));
         }
         *(void**)(arg0 + 0x2448) = NULL;
         if (*(void**)(arg0 + 0x244c) != NULL) {
@@ -229,9 +229,9 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
 #endif
         ((SafeAllocator*)(arg0 + REGION_VALUE(0x7c8, 0x864)))->Reset();
         *(char**)(arg0 + REGION_VALUE(0x2298, 0x2468)) = (char*)((SafeAllocator*)(arg0 + REGION_VALUE(0x7c8, 0x864)))->Allocate(0x44c);
-        func_ov023_021eb138(*(char**)(arg0 + REGION_VALUE(0x2298, 0x2468)), 7);
-        func_ov023_021eb080(*(char**)(arg0 + REGION_VALUE(0x2298, 0x2468)), (SafeAllocator*)(arg0 + REGION_VALUE(0x7c8, 0x864)));
-        func_ov023_021eb564(*(char**)(arg0 + REGION_VALUE(0x2298, 0x2468)), *(int*)(arg0 + REGION_VALUE(0x229c, 0x246c)), *(unsigned char*)(arg0 + REGION_VALUE(0x22a0, 0x2470)));
+        InitAccoladeDisplay_ov023_021eb138(*(char**)(arg0 + REGION_VALUE(0x2298, 0x2468)), 7);
+        AllocateAccoladeDisplayBuffers_ov023_021eb080(*(char**)(arg0 + REGION_VALUE(0x2298, 0x2468)), (SafeAllocator*)(arg0 + REGION_VALUE(0x7c8, 0x864)));
+        SetAccoladeDisplayEntries_ov023_021eb564(*(char**)(arg0 + REGION_VALUE(0x2298, 0x2468)), *(int*)(arg0 + REGION_VALUE(0x229c, 0x246c)), *(unsigned char*)(arg0 + REGION_VALUE(0x22a0, 0x2470)));
         char* var12 = *(char**)(arg0 + REGION_VALUE(0x2298, 0x2468));
         if (*(unsigned char*)(arg0 + REGION_VALUE(0x22a1, 0x2471)) != 0) {
             *(unsigned short*)(var12 + 0x438) |= 0x400;

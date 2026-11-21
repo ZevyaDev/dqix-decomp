@@ -19,7 +19,7 @@ enum {
 struct MenuLayout_0207fdcc_2;
 extern "C" void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2 *menuLayout, int windowId);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void *menuLayout, int windowId, int palette);
-extern "C" void func_02080bac(void *arg0, int arg1);
+extern "C" void ShowMenuLayoutWindowTexts_02080bac(void *menuLayout, int windowId);
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c *menuLayout, int textId, int text);
 extern "C" void func_020805f4(void *arg0, int arg1);
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov003_02177550(Struct_ov003_02177550_2 *arg0) {
 
     ShowMenuLayoutWindow_02080c20(var2, 0xf);
     SetMenuLayoutWindowPalette_02080c68(var2, 0xf, 0);
-    func_02080bac(var2, 0xf);
+    ShowMenuLayoutWindowTexts_02080bac(var2, 0xf);
     SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c *) var2, 0x70, var3->unknown_4_);
 #if !defined(jpn)
     func_020805f4(var2, 0x70);

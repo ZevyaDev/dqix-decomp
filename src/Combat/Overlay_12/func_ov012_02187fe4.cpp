@@ -95,7 +95,7 @@ extern "C" int func_0205df38(void* arg0, int arg1);
 extern "C" void func_ov023_021e6378(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov023_021e6de4(Struct_ov012_02187fe4* arg0);
-extern "C" int func_02098f20(int arg0, int arg1, int arg2);
+extern "C" int CalculateAge_02098f20(int birthYear, int birthMonth, int birthDay);
 #if defined(jpn)
 extern "C" void func_ov023_021e65a0(Struct_ov012_02187fe4* arg0);
 extern "C" void func_ov023_021e655c(Struct_ov012_02187fe4* arg0);
@@ -105,7 +105,7 @@ extern "C" void func_ov012_0218adac(Struct_ov012_02187fe4* arg0, int arg1, int a
 #endif
 extern "C" int func_ov023_021e6e20(Struct_ov012_02186a7c* arg0);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
-extern "C" void func_ov023_021e6e60(Struct_ov012_02187fe4* arg0);
+extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(Struct_ov012_02187fe4* menu);
 extern "C" void func_ov012_0218943c(Struct_ov012_02187fe4* arg0);
 
 extern "C" char gSoundEffectManager_02108760[];
@@ -142,7 +142,7 @@ extern "C" ARM void func_ov012_02187fe4(Struct_ov012_02187fe4* arg0)
         arg0->unknown_13fe_ = inline_ov012_02187fe4(var0)->unknown_1_4_;
         arg0->unknown_13ff_ = inline_ov012_02187fe4(var0)->unknown_2_0_;
         SetNextTextWindowBGLayer_0205de24((TextWindowManager_0205de24_2*)arg0->unknown_ac_, 0, 2);
-        func_ov023_021e6e60(arg0);
+        ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
         func_ov012_0218a054(arg0);
         arg0->unknown_13a0_ = 0;
         arg0->unknown_1370_++;
@@ -248,7 +248,7 @@ extern "C" ARM void func_ov012_02187fe4(Struct_ov012_02187fe4* arg0)
             var6->unknown_1_4_ = arg0->unknown_13fe_;
             var6->unknown_2_0_ = arg0->unknown_13ff_;
             var6->unknown_3_4_ = 1;
-            var6->unknown_4_0_ = func_02098f20(arg0->unknown_13fc_, arg0->unknown_13fe_, arg0->unknown_13ff_);
+            var6->unknown_4_0_ = CalculateAge_02098f20(arg0->unknown_13fc_, arg0->unknown_13fe_, arg0->unknown_13ff_);
 #if defined(jpn)
             func_ov012_0218bba0(arg0, 0, -1);
 #else
@@ -280,7 +280,7 @@ extern "C" ARM void func_ov012_02187fe4(Struct_ov012_02187fe4* arg0)
     else if (arg0->unknown_1370_ == 7)
     {
         arg0->unknown_1371_ = 1;
-        func_ov023_021e6e60(arg0);
+        ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
         func_ov012_0218943c(arg0);
         arg0->unknown_13a0_ = 1;
         arg0->unknown_13a8_ = -1;

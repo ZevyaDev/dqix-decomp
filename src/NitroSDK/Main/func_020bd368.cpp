@@ -6,7 +6,7 @@
 
 
 extern "C" void func_020ca408(void* dst, void* src, int size);
-extern void* data_02110370;
+extern void* gCurrentSoundArchive_02110370;
 
 struct Struct_020bd368 {
     int unknown_0_;    // +0x0
@@ -56,5 +56,5 @@ extern "C" ARM void func_020bd368(struct Struct_020bd368_3* arg0, char* arg1) {
         } while (var0 < arg0->unknown_84_->unknown_8_);
     }
     arg0->unknown_30_ = 0;
-    data_02110370 = arg0;
+    gCurrentSoundArchive_02110370 = arg0;
 }

@@ -46,7 +46,7 @@ struct Struct_02022dc8_2 : GameObject {
 };
 struct GlobalFlags_02012de8;
 struct Struct_020214f0;
-extern Struct_020fdcb0_3 data_020fdcb0[4];
+extern Struct_020fdcb0_3 gPartyStatsCache_020fdcb0[4];
 extern Struct_020fdc60_3 data_020fdc60[4];
 extern "C" void func_0201f9b8(Struct_020fdcb0_3*);
 extern "C" void func_0201f9e8(Struct_020fdc60_3*);
@@ -67,7 +67,7 @@ extern "C" void func_02026bdc(Struct_02020554*, int);
 extern "C" ARM void func_02022dc8(Struct_02020554* arg0) {
     GameState* var0 = GameState::GetInstance();
     for (int var1 = 0; var1 < 4; ++var1) {
-        if (!var0->GetPartyMemberByIndex(var1)) func_0201f9b8(&data_020fdcb0[var1]);
+        if (!var0->GetPartyMemberByIndex(var1)) func_0201f9b8(&gPartyStatsCache_020fdcb0[var1]);
     }
     int var2 = arg0->unknown_75c_;
     if (var2) {
@@ -76,7 +76,7 @@ extern "C" ARM void func_02022dc8(Struct_02020554* arg0) {
     for (int var4 = 0; var4 < arg0->unknown_75c_; ++var4) {
         int var5 = arg0->unknown_758_[var4];
         unsigned char var6 = 1 << var5;
-        Struct_020fdcb0_3* var7 = &data_020fdcb0[var5];
+        Struct_020fdcb0_3* var7 = &gPartyStatsCache_020fdcb0[var5];
         Struct_02022dc8_2* var8 = (Struct_02022dc8_2*)var0->GetPartyMemberByIndex(var5);
         if (!var8 || !(arg0->unknown_55d_ & var6)) continue;
         int var9 = var8->unknown_ac_.unknown_84_->unknown_4_;

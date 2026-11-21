@@ -99,7 +99,7 @@ extern "C" Struct_ov005_02157b74_5* FindItemData_020dedd0(ItemTable_0201099c_10*
 extern "C" void SetEquippedItem_02052d7c(Struct_ov005_02157b74_8* gameObject, int slot, short itemId);
 extern "C" void* func_02053c6c(unsigned char*);
 extern "C" void func_0208358c(void* arg0, Struct_ov005_02157b74_5* arg1, int arg2);
-extern "C" void UnequipCategory_02083738(void* memberData, int arg1);
+extern "C" void UnequipCategory_02083738(void* memberData, int category);
 struct Struct_ov005_02157b74_3;
 extern "C" void func_ov005_021583fc(Struct_ov005_02157b74_3*, char);
 struct Struct_02052e2c;

@@ -6,7 +6,7 @@ extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 
 extern "C" {
     int GetMenuLoadTaskId_ov023_021f6bb8(void* objectList);
-    void func_ov023_021f6bb0(void* arg0, int arg1);
+    void SetMenuLoadTaskId_ov023_021f6bb0(void* objectList, int taskId);
     void func_ov023_021fab48(void* arg0, void* arg1, const void* arg2, int arg3);
 }
 
@@ -29,7 +29,7 @@ extern "C" ARM int func_ov023_021fa9a4(struct Struct_ov023_021fa9a4* arg0, void*
         }
 
         var1->RemoveTask(var2);
-        func_ov023_021f6bb0(var0, -1);
+        SetMenuLoadTaskId_ov023_021f6bb0(var0, -1);
         return 2;
     }
     return arg0->unknown_1c_;

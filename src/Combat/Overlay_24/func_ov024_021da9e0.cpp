@@ -72,7 +72,7 @@ struct Struct_ov024_021da9e0_2 {
 extern "C" float GetHPRatio_ov024_021db358(GameObject* combatant);
 extern "C" int func_ov000_0215fc60(char*);
 extern "C" int GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
-extern "C" void* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
+extern "C" void* GetTargetResult_ov000_0215fff4(void* target, int index, int listIndex);
 extern "C" struct Struct_ov024_021da9e0_10* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, GameObject* combatant, int amount, unsigned long long flags, int isCriticalHit);
 extern "C" void AppendTargetResult_ov000_0215ffc4(void* target, void* result, int listIndex);
@@ -83,7 +83,7 @@ extern "C" int func_ov000_02159f18(void* arg0, unsigned long long arg1, int arg2
 struct BattleAction_ov000_0215440c_2;
 extern "C" struct Struct_ov024_021da9e0* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
 extern "C" struct Struct_ov024_021da9e0_8* FindActionData_02079e2c(char*, int);
-extern "C" short func_ov000_0215a004(void* arg0, int arg1, int arg2, int arg3, void* arg4, struct Struct_ov024_021da9e0_8* arg5, int arg6, int arg7);
+extern "C" short ApplyDamage_ov000_0215a004(void* battle, int attackerIndex, int targetIndex, int damage, void* resultFlags, struct Struct_ov024_021da9e0_8* action, int isCriticalHit, int defeatFlags);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" int func_ov024_021eb08c(struct Struct_ov024_021da9e0_2* arg0, int arg1, int arg2, int arg3);
@@ -138,7 +138,7 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
                     struct Struct_ov024_021da9e0_10** var10 = &var7->unknown_0_[var8];
                     struct Struct_ov024_021da9e0_10* var11 = 0;
                     if (arg0->unknown_c_->unknown_18_[1] != 0)
-                        var11 = (struct Struct_ov024_021da9e0_10*)func_ov000_0215fff4(arg0->unknown_c_, arg0->unknown_c_->unknown_18_[1] - 1, 1);
+                        var11 = (struct Struct_ov024_021da9e0_10*)GetTargetResult_ov000_0215fff4(arg0->unknown_c_, arg0->unknown_c_->unknown_18_[1] - 1, 1);
                     while (var9) {
                         struct Struct_ov024_021da9e0_9* var12 = var9->unknown_8_;
                         if (var12) {
@@ -192,7 +192,7 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
                     var18 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), 1);
             }
         }
-        var17 = func_ov000_0215a004(arg0->unknown_10_, arg1, arg2, arg4, &var14, var18, arg0->unknown_c_->unknown_1c_.unknown_0_7_ != 0, 0);
+        var17 = ApplyDamage_ov000_0215a004(arg0->unknown_10_, arg1, arg2, arg4, &var14, var18, arg0->unknown_c_->unknown_1c_.unknown_0_7_ != 0, 0);
     }
     if (arg4 > 0) arg0->unknown_14_++;
     else SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var14, 4);

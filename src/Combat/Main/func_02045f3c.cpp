@@ -3,7 +3,7 @@
 
 #if !defined(jpn)
 
-extern "C" int func_020425e4(int arg0, int arg1, int arg2);
+extern "C" int GetFontKerning_020425e4(int previousGlyphIndex, int glyphIndex, int font);
 extern "C" void func_020654b8(void* arg0, void* arg1, Struct_0204166c* arg2, short arg3, short arg4, int arg5);
 extern "C" void func_020417b0(Struct_0204166c* arg0, int arg1, void* arg2, int arg3);
 
@@ -70,7 +70,7 @@ extern "C" ARM void func_02045f3c(Struct_02045f3c* arg0, unsigned short* arg1, i
             break;
         }
         unsigned char var9 = var3->unknown_17_;
-        var5 += func_020425e4(var8, var9, arg8);
+        var5 += GetFontKerning_020425e4(var8, var9, arg8);
         var8 = var9;
         var3->unknown_c_ = var5;
         var3->unknown_10_ = arg3;

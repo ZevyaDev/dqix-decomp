@@ -47,94 +47,94 @@ extern "C" void func_02028c64(Struct_02018300_2*, int);
 extern const Struct_020e6e74 data_020e6e74;
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
-// USA: func_02018300
-extern "C" ARM void func_02018300(Zone3D* arg0, Struct_020134e0::Struct_02018300* arg1, int arg2, int arg3, int arg4) {
-    Struct_02016874_2* var0 = func_02018b34(arg0, arg1);
-    if (!var0) return;
-    if (!arg3 && (arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 8)) return;
-    if (!arg3 && (arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 4)) return;
-    if (!arg3) {
-        void* var1 = func_0205ec34();
-        Struct_02018300_5 var2;
-        var2.unknown_28_ = arg1->unknown_20_;
-        var2.unknown_1e_ = arg1->unknown_2c_.unknown1_0_.unknown_1_;
-        var2.unknown_1c_ = arg1->unknown_2c_.unknown1_0_.unknown_0_;
-        var2.unknown_c_ = arg0->currentZoneID_;
-        func_02064b24(var1, 17, 108, &var2);
-        func_02064b24(var1, 3, 108, &var2);
-        if (arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 4) {
-            arg1->unknown_2c_.unknown1_0_.unknown_2_4_ = (unsigned short)(arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & ~4);
-            arg1->unknown_2c_.unknown1_0_.unknown_2_4_ = (unsigned short)(arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & ~1);
+// USA: OpenDoor_02018300
+extern "C" ARM void OpenDoor_02018300(Zone3D* zone, Struct_020134e0::Struct_02018300* door, int isSoundPlayed, int isOpenedHere, int isSentToOtherConsoles) {
+    Struct_02016874_2* doorEntry = func_02018b34(zone, door);
+    if (!doorEntry) return;
+    if (!isOpenedHere && (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 8)) return;
+    if (!isOpenedHere && (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 4)) return;
+    if (!isOpenedHere) {
+        void* flagManager = func_0205ec34();
+        Struct_02018300_5 triggerResult;
+        triggerResult.unknown_28_ = door->unknown_20_;
+        triggerResult.unknown_1e_ = door->unknown_2c_.unknown1_0_.unknown_1_;
+        triggerResult.unknown_1c_ = door->unknown_2c_.unknown1_0_.unknown_0_;
+        triggerResult.unknown_c_ = zone->currentZoneID_;
+        func_02064b24(flagManager, 17, 108, &triggerResult);
+        func_02064b24(flagManager, 3, 108, &triggerResult);
+        if (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 4) {
+            door->unknown_2c_.unknown1_0_.unknown_2_4_ = (unsigned short)(door->unknown_2c_.unknown1_0_.unknown_2_4_ & ~4);
+            door->unknown_2c_.unknown1_0_.unknown_2_4_ = (unsigned short)(door->unknown_2c_.unknown1_0_.unknown_2_4_ & ~1);
             return;
         }
     }
-    if (arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 32) {
-        short var3 = fix32ReduceAngle0To2Pi((short)(arg1->unknown_20_ + 0x1922));
-        int var4 = fix32cos(var3);
-        Vector3i var5;
-        var5.x = fix32sin(var3);
-        var5.y = 0;
-        var5.z = var4;
-        Vector3fix_Normalize(&var5, &var5);
-        Vector3fixMultiplyScalar(&var5, arg1->unknown_2c_.unknown1_0_.unknown_40_, &var5);
-        Vector3i var6;
-        Vector3fix_Normalize(&var5, &var6);
-        var0->unknown_48_ = var6;
-        Vector3i var7;
-        Vector3fix_Add(&var0->unknown_8_, &var5, &var7);
-        var0->unknown_3c_ = var7;
-        var0->unknown_3a_ = 0x266;
+    if (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 32) {
+        short slideAngle = fix32ReduceAngle0To2Pi((short)(door->unknown_20_ + 0x1922));
+        int slideCos = fix32cos(slideAngle);
+        Vector3i slideOffset;
+        slideOffset.x = fix32sin(slideAngle);
+        slideOffset.y = 0;
+        slideOffset.z = slideCos;
+        Vector3fix_Normalize(&slideOffset, &slideOffset);
+        Vector3fixMultiplyScalar(&slideOffset, door->unknown_2c_.unknown1_0_.unknown_40_, &slideOffset);
+        Vector3i slideDirection;
+        Vector3fix_Normalize(&slideOffset, &slideDirection);
+        doorEntry->unknown_48_ = slideDirection;
+        Vector3i slideTarget;
+        Vector3fix_Add(&doorEntry->unknown_8_, &slideOffset, &slideTarget);
+        doorEntry->unknown_3c_ = slideTarget;
+        doorEntry->unknown_3a_ = 0x266;
     } else {
-        int var8 = (arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 64) ? 0x1922 : 0x141b;
-        if (arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 256) {
-            if (arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 128) {
-                var0->unknown_2_ |= 16;
-                if (arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 2) {
-                    var0->unknown_34_ = var0->unknown_6_ - var8;
-                    var0->unknown_38_ = var0->unknown_34_;
+        int swingAngle = (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 64) ? 0x1922 : 0x141b;
+        if (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 256) {
+            if (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 128) {
+                doorEntry->unknown_2_ |= 16;
+                if (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 2) {
+                    doorEntry->unknown_34_ = doorEntry->unknown_6_ - swingAngle;
+                    doorEntry->unknown_38_ = doorEntry->unknown_34_;
                 } else {
-                    var0->unknown_34_ = var0->unknown_6_ + var8;
-                    var0->unknown_38_ = var0->unknown_34_;
+                    doorEntry->unknown_34_ = doorEntry->unknown_6_ + swingAngle;
+                    doorEntry->unknown_38_ = doorEntry->unknown_34_;
                 }
-            } else var0->unknown_2_ |= 4;
+            } else doorEntry->unknown_2_ |= 4;
         } else {
-            if (arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 128) var0->unknown_2_ |= 16;
-            if (arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 2) {
-                var0->unknown_34_ = var0->unknown_6_ - var8;
+            if (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 128) doorEntry->unknown_2_ |= 16;
+            if (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 2) {
+                doorEntry->unknown_34_ = doorEntry->unknown_6_ - swingAngle;
             } else {
-                var0->unknown_34_ = var0->unknown_6_ + var8;
+                doorEntry->unknown_34_ = doorEntry->unknown_6_ + swingAngle;
             }
         }
-        var0->unknown_36_ = 0x199;
+        doorEntry->unknown_36_ = 0x199;
     }
-    arg1->unknown_2c_.unknown1_0_.unknown_2_4_ = (unsigned short)(arg1->unknown_2c_.unknown1_0_.unknown_2_4_ | 1);
-    var0->unknown_2_ |= 1;
-    for (int var9 = 0; var9 < arg0->unknown_82c_; var9++) {
-        Struct_02016874_2* var10 = (*(Struct_02016874_2***)(arg0->unk_5f0 + 0x234))[var9];
-        if (var10->unknown_28_ == var0) {
-            var10->unknown_2_ |= 1;
+    door->unknown_2c_.unknown1_0_.unknown_2_4_ = (unsigned short)(door->unknown_2c_.unknown1_0_.unknown_2_4_ | 1);
+    doorEntry->unknown_2_ |= 1;
+    for (int i = 0; i < zone->unknown_82c_; i++) {
+        Struct_02016874_2* collisionEntry = (*(Struct_02016874_2***)(zone->unk_5f0 + 0x234))[i];
+        if (collisionEntry->unknown_28_ == doorEntry) {
+            collisionEntry->unknown_2_ |= 1;
             break;
         }
     }
-    Struct_020134e0::Struct_02018300* var11 = (Struct_020134e0::Struct_02018300*)GetFirstZoneFeatureOfType_0201e838((unsigned char*)&arg0->substruct_6c_, 2);
-    while (var11) {
-        if (var11->unknown_2c_.unknown1_0_.unknown_0_ == arg1->unknown_2c_.unknown1_0_.unknown_0_ && var11->unknown_2c_.unknown1_0_.unknown_1_ == arg1->unknown_2c_.unknown1_0_.unknown_1_)
-            var11->unknown_2c_.unknown1_0_.unknown_2_4_ = (unsigned short)(var11->unknown_2c_.unknown1_0_.unknown_2_4_ | 1);
-        var11 = var11->unknown_70_;
+    Struct_020134e0::Struct_02018300* matchingDoor = (Struct_020134e0::Struct_02018300*)GetFirstZoneFeatureOfType_0201e838((unsigned char*)&zone->substruct_6c_, 2);
+    while (matchingDoor) {
+        if (matchingDoor->unknown_2c_.unknown1_0_.unknown_0_ == door->unknown_2c_.unknown1_0_.unknown_0_ && matchingDoor->unknown_2c_.unknown1_0_.unknown_1_ == door->unknown_2c_.unknown1_0_.unknown_1_)
+            matchingDoor->unknown_2c_.unknown1_0_.unknown_2_4_ = (unsigned short)(matchingDoor->unknown_2c_.unknown1_0_.unknown_2_4_ | 1);
+        matchingDoor = matchingDoor->unknown_70_;
     }
-    if (arg2) {
-        Struct_020e6e74 var12 = data_020e6e74;
-        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, var12.unknown_0_[arg1->unknown_2c_.unknown1_0_.unknown_2_0_], 0);
+    if (isSoundPlayed) {
+        Struct_020e6e74 doorSounds = data_020e6e74;
+        PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, doorSounds.unknown_0_[door->unknown_2c_.unknown1_0_.unknown_2_0_], 0);
     }
-    if (arg3 && (arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 8)) {
-        GameObject* var13 = GameState::GetInstance()->GetProtagonist();
-        ((Struct_02018300_4*)var13)->unknown_b2_ = 0;
-        DisablePlayerControl_020397cc((Struct_02018300_3*)var13, 1);
-        arg0->unk_830[0] = 8;
+    if (isOpenedHere && (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 8)) {
+        GameObject* protagonist = GameState::GetInstance()->GetProtagonist();
+        ((Struct_02018300_4*)protagonist)->unknown_b2_ = 0;
+        DisablePlayerControl_020397cc((Struct_02018300_3*)protagonist, 1);
+        zone->unk_830[0] = 8;
         return;
     }
-    int var14 = func_02018bc4(arg0, arg1);
-    if (arg3 && arg4) func_ov017_021d196c(arg0->currentZoneID_, (unsigned short)var14, arg2);
-    Struct_02018300_2* var15 = FindActiveZone_02028bd0(GetActiveZones_02027ca4(), arg0->currentZoneID_);
-    if (var15 && !(arg1->unknown_2c_.unknown1_0_.unknown_2_4_ & 512)) func_02028c64(var15, var14);
+    int doorIndex = func_02018bc4(zone, door);
+    if (isOpenedHere && isSentToOtherConsoles) func_ov017_021d196c(zone->currentZoneID_, (unsigned short)doorIndex, isSoundPlayed);
+    Struct_02018300_2* activeZone = FindActiveZone_02028bd0(GetActiveZones_02027ca4(), zone->currentZoneID_);
+    if (activeZone && !(door->unknown_2c_.unknown1_0_.unknown_2_4_ & 512)) func_02028c64(activeZone, doorIndex);
 }

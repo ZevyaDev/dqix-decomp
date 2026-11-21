@@ -11,7 +11,7 @@
 
 struct TextWindowManager_0205d5d0;
 extern "C" void func_ov008_02187278(void* arg0, char* arg1, int arg2, void* arg3);
-extern "C" void func_ov023_021eb4f4(char* arg0);
+extern "C" void CopyAccoladeDisplayToVRAM_ov023_021eb4f4(char* display);
 struct TextWindowManager_0205d2bc;
 extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(struct TextWindowManager_0205d2bc*);
 struct Struct_ov008_02184968;
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov008_02184968(struct Struct_ov008_02184968_2* arg0) {
         ((BGLayer*)((char*)arg0 + 0xd0))->UploadIndexBuffer((const void*)(0));
     }
     if (arg0->unknown_b08_ != 0) {
-        func_ov023_021eb4f4(arg0->unknown_b08_);
+        CopyAccoladeDisplayToVRAM_ov023_021eb4f4(arg0->unknown_b08_);
         return;
     }
 

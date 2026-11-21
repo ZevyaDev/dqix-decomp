@@ -91,7 +91,7 @@ extern "C" void func_ov003_0215e6f8(void* arg0, SafeAllocator* arg1, void* arg2,
 extern "C" void func_ov003_0215efb8(Struct_ov003_0215efb8* arg0);
 extern "C" int func_ov012_0218ae74(Struct_ov012_02188cd0* arg0, Struct_ov012_02188cd0_3* arg1);
 extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
-extern "C" void func_ov023_021e6e60(Struct_ov012_02188cd0* arg0);
+extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(Struct_ov012_02188cd0* menu);
 extern "C" void func_ov012_0218aabc(char* arg0);
 extern "C" void func_ov003_0215f41c(void* arg0, const char* arg1);
 extern "C" void func_ov012_0218ab34(Struct_ov012_02188cd0* arg0, char* arg1, int arg2);
@@ -170,7 +170,7 @@ extern "C" ARM void func_ov012_02188cd0(Struct_ov012_02188cd0* arg0)
     {
         arg0->unknown_13a0_ = 0;
         SetNextTextWindowBGLayer_0205de24((TextWindowManager_0205de24_2*)arg0->unknown_ac_, 0, 2);
-        func_ov023_021e6e60(arg0);
+        ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
         func_ov012_0218aabc((char*)arg0);
         memcpy(arg0->unknown_13ac_, inline_ov012_02188cd0(GameState::GetInstance())->unknown_8_, 0x72);
         Struct_ov012_02188cd0_2* var4 = (Struct_ov012_02188cd0_2*)arg0->unknown_0_;
@@ -262,7 +262,7 @@ extern "C" ARM void func_ov012_02188cd0(Struct_ov012_02188cd0* arg0)
     else if (arg0->unknown_1370_ == 7)
     {
         arg0->unknown_1371_ = 1;
-        func_ov023_021e6e60(arg0);
+        ConfigureProfileMenuCursors_ov023_021e6e60(arg0);
         func_ov012_0218943c(arg0);
         arg0->unknown_13a0_ = 1;
         arg0->unknown_1370_ = 1;

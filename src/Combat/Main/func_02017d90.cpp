@@ -14,8 +14,8 @@ struct Struct_02017d90 {
 };
 struct Struct_02017d90_2 { Vector3i unknown_0_; Vector3i unknown_c_; };
 extern "C" long long func_020c32f8(int);
-extern "C" long long func_020c3260(int);
-extern "C" float func_0200c700(long long);
+extern "C" long long ComputeFixedPointSine_020c3260(int);
+extern "C" float ConvertInt64ToFloat_0200c700(long long);
 extern "C" int func_0204c030(void*, Struct_02017d90*, Struct_02017d90_2);
 
 // USA: func_02017d90
@@ -57,8 +57,8 @@ extern "C" ARM int func_02017d90(Zone3D* arg0, int arg1, Struct_02017d90* arg2, 
         func_020130a8(&var9, var2, 0, var3);
         Vector3fix_Subtract(&var8.unknown_0_, &var9, &var8.unknown_0_);
         int var11 = -(var4 - 25735);
-        int var12 = (int)(4096.0f * (func_0200c700(func_020c32f8(var11)) / 4294967296.0f));
-        int var13 = (int)(4096.0f * (func_0200c700(func_020c3260(var11)) / 4294967296.0f));
+        int var12 = (int)(4096.0f * (ConvertInt64ToFloat_0200c700(func_020c32f8(var11)) / 4294967296.0f));
+        int var13 = (int)(4096.0f * (ConvertInt64ToFloat_0200c700(ComputeFixedPointSine_020c3260(var11)) / 4294967296.0f));
         Mat3x3_WriteRotationY(&var10, var13, var12);
         Mat3x3_ApplyToVector(&var8.unknown_0_, &var10, &var8.unknown_0_);
         var8.unknown_c_ = var8.unknown_0_;

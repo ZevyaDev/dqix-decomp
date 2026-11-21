@@ -125,7 +125,7 @@ extern "C" Struct_02048934* FindMonsterBattleData_02070fd0(Struct_02070b6c_3* ta
 extern "C" Struct_02048850_2* FindMonsterData_0206f4f0(Struct_0206f01c_2* monsterTable, int monsterId);
 extern "C" void func_ov000_02167c28(unsigned char* arg0, int arg1);
 extern "C" int func_ov000_02161bb8(unsigned char* arg0);
-extern "C" void func_020891cc(void* arg0);
+extern "C" void InitModifiableCombatStats_020891cc(void* stats);
 extern "C" void func_02089630(void* arg0, void* arg1, int arg2);
 extern "C" void SetCombatantBattleState_02049c88(void* combatant, void* battleState);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState* gameState, int index, GameObject* object);
@@ -135,7 +135,7 @@ extern "C" void func_ov000_02161bec(unsigned char* arg0);
 extern "C" void func_02048614(unsigned char* arg0);
 extern "C" void func_02048850(Struct_02048850* arg0, Struct_02048850_2* arg1);
 extern "C" void func_020488ec(char* arg0);
-extern "C" void func_02049f3c(unsigned char* arg0);
+extern "C" void SetCombatantOffBattlefield_02049f3c(unsigned char* combatant);
 
 extern const short data_ov000_02182ff8[][3];
 extern const signed char data_ov000_02182fd4[][3];
@@ -178,7 +178,7 @@ extern "C" ARM void func_ov000_021620f0(Struct_ov000_021620f0_6* arg0, int arg1)
         for (int var15 = 0; var15 < var10[var11]; var15++, var1++) {
             var2 = (Struct_ov000_021620f0_8*)GetEnemyByIndex_0200fea4(var4, var1 + 0xc0);
             Struct_ov000_021620f0_7* var16 = &arg0->unknown_2a0_->unknown_158_[var1];
-            func_020891cc(var16);
+            InitModifiableCombatStats_020891cc(var16);
             if (!var2) {
                 func_ov000_02167c28((unsigned char*)arg0, var1 + 0xc0);
                 var2 = &arg0->unknown_5e24_[var1];
@@ -191,7 +191,7 @@ extern "C" ARM void func_ov000_021620f0(Struct_ov000_021620f0_6* arg0, int arg1)
                 var2->unknown_148_ = var12;
                 func_02048850((Struct_02048850*)var2, var13);
                 var2->unknown_0_.MakeHidden();
-                func_02049f3c((unsigned char*)var2);
+                SetCombatantOffBattlefield_02049f3c((unsigned char*)var2);
                 SetGameObjectByIndex_0200fd38(var4, var1 + 0xc0, (GameObject*)var2);
             }
             func_02048934(var2, var12, arg0->unknown_29c_->inline_ov000_021620f0());

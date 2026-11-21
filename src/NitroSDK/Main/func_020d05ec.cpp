@@ -8,7 +8,7 @@
 
 typedef void (*Type_020d05ec)(void* arg);
 
-extern "C" void func_02000b9c(const void* arg0);
+extern "C" void ReferenceLibraryTag_02000b9c(const void* arg0);
 extern "C" void func_020d03fc(CardReadManager* arg0);
 
 // USA: func_020d05ec
@@ -16,7 +16,7 @@ extern "C" ARM int func_020d05ec(unsigned long arg0, unsigned long arg1, unsigne
     void* arg4, int arg5, int arg6, int arg7, int arg8)
 {
     CardReadManager* const var0 = &data_021118e0;
-    func_02000b9c(BACKUP_MIDDLEWARE);
+    ReferenceLibraryTag_02000b9c(BACKUP_MIDDLEWARE);
     {
         const int var1 = DisableIRQInterrupts();
         if (var0->flags & CARD_STAT_BUSY)

@@ -6,7 +6,7 @@ extern "C" void func_ov023_021f7ca0(struct Struct_ov023_021f7688_3* arg0, void* 
 
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" int GetMenuLoadTaskId_ov023_021f6bb8(void* objectList);
-extern "C" void func_ov023_021f6bb0(void* arg0, int arg1);
+extern "C" void SetMenuLoadTaskId_ov023_021f6bb0(void* objectList, int taskId);
 
 struct Struct_020534ac_2;
 
@@ -51,7 +51,7 @@ extern "C" ARM int func_ov023_021f7688(struct Struct_ov023_021f7688_2* arg0, voi
         }
 
         ((BackgroundLoader*)(var1))->RemoveTask((int)(var2));
-        func_ov023_021f6bb0(var0, -1);
+        SetMenuLoadTaskId_ov023_021f6bb0(var0, -1);
         var3 = 2;
     } else {
         var3 = arg0->unknown_1c_;

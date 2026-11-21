@@ -3,17 +3,17 @@
 
 extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 
-// USA: func_020dc4d0
-extern "C" ARM void func_020dc4d0(signed char* arg0, signed char* arg1) {
-    GameState* var0 = GameState::GetInstance();
-    signed char var1[8];
-    signed char var2 = GetPartyOrder_020114ec((char*)var0, var1);
-    signed char var3 = 0;
-    for (signed char var4 = 0; var4 < var2; var4++) {
-        if (var0->GetPartyMemberByIndex(var1[var4]) != NULL) {
-            arg0[var3] = var1[var4];
-            var3 = var3 + 1;
+// USA: GetExistingPartyOrder_020dc4d0
+extern "C" ARM void GetExistingPartyOrder_020dc4d0(signed char* outPartyOrder, signed char* outCount) {
+    GameState* gameState = GameState::GetInstance();
+    signed char partyOrder[8];
+    signed char partyOrderCount = GetPartyOrder_020114ec((char*)gameState, partyOrder);
+    signed char existingCount = 0;
+    for (signed char i = 0; i < partyOrderCount; i++) {
+        if (gameState->GetPartyMemberByIndex(partyOrder[i]) != NULL) {
+            outPartyOrder[existingCount] = partyOrder[i];
+            existingCount = existingCount + 1;
         }
     }
-    *arg1 = var3;
+    *outCount = existingCount;
 }

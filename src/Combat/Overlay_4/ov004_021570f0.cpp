@@ -1224,8 +1224,8 @@ extern "C" ARM int func_ov004_02158a60(void* arg0) {
 }
 
 struct Struct_ov004_02158b78 { char unknown_0_[0xf6c]; int unknown_f6c_; };
-extern "C" void* func_ov004_02156f38(void*, int);
-extern "C" void* func_ov004_02156f6c(void*, int);
+extern "C" void* FindMenuNumber_ov004_02156f38(void*, int);
+extern "C" void* FindMenuWindow_ov004_02156f6c(void*, int);
 extern "C" int RedrawMenuWindow_ov023_021f809c(void*, void*);
 
 class Struct_ov004_02158b78_2 {
@@ -1249,18 +1249,18 @@ public:
 
 // USA: func_ov004_02158b78
 extern "C" ARM int func_ov004_02158b78(void* arg0) {
-    Struct_ov004_02158b78_2* var0 = (Struct_ov004_02158b78_2*)func_ov004_02156f38(arg0, 0xc9);
+    Struct_ov004_02158b78_2* var0 = (Struct_ov004_02158b78_2*)FindMenuNumber_ov004_02156f38(arg0, 0xc9);
     if (var0) {
         struct Struct_ov004_02158b78* var1 = (struct Struct_ov004_02158b78*)GetParty_02010828(GameState::GetInstance());
         var0->inline_ov004_02158b78_57(var1->unknown_f6c_);
-        void* var2 = func_ov004_02156f6c(arg0, 0x16);
+        void* var2 = FindMenuWindow_ov004_02156f6c(arg0, 0x16);
         if (var2) RedrawMenuWindow_ov023_021f809c(var2, arg0);
     }
     return 0;
 }
 
 extern "C" int GetMenuGridCursorIndex_ov004_02156e2c(void* menu, int id);
-extern "C" void* func_ov004_021570a4(void*, int);
+extern "C" void* GetDQVCEntry_ov004_021570a4(void*, int);
 extern "C" void* func_ov004_02157054(void*, int);
 
 struct Struct_ov004_02158bd4;
@@ -1280,10 +1280,10 @@ struct Struct_ov004_02158bd4_2 { char unknown_0_[8]; unsigned int unknown_8_0_ :
 extern "C" ARM int func_ov004_02158bd4(void* arg0) {
     int var0 = GetMenuGridCursorIndex_ov004_02156e2c(arg0, 0x5b);
     if (var0 < 0) return 0;
-    void* var1 = func_ov004_021570a4(arg0, (unsigned char)var0);
+    void* var1 = GetDQVCEntry_ov004_021570a4(arg0, (unsigned char)var0);
     if (!var1) return 0;
 
-    void* var2 = func_ov004_02156f6c(arg0, 0x15);
+    void* var2 = FindMenuWindow_ov004_02156f6c(arg0, 0x15);
     if (var2) {
         RedrawMenuWindow_ov023_021f809c(var2, arg0);
     }
@@ -1411,7 +1411,7 @@ extern "C" void* __clear(void*, int);
 extern "C" ARM int func_ov004_02158dcc(void* arg0) {
     int var0 = GetMenuGridCursorIndex_ov004_02156e2c(arg0, 0x5b);
     if (var0 < 0) return 0;
-    Struct_ov004_02158dcc_3* var1 = ((Struct_ov004_02158dcc_3*)func_ov004_021570a4(arg0, (unsigned char)var0));
+    Struct_ov004_02158dcc_3* var1 = ((Struct_ov004_02158dcc_3*)GetDQVCEntry_ov004_021570a4(arg0, (unsigned char)var0));
     if (!var1) return 0;
     Struct_ov004_02158dcc_4* var2 = ((Struct_ov004_02158dcc_4*)FindItemData_020dedd0(((struct ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5)), var1->unknown_0_));
     if (!var2) return 0;
@@ -1569,7 +1569,7 @@ extern "C" ARM int func_ov004_02158fec(void* arg0) {
     if (!var6) return 0;
     Struct_ov004_0216fb28 var7 = data_ov004_0216fb28;
     for (unsigned char var8 = 0; var8 < 6; var8++) {
-        Struct_ov004_02158fec_2* var9 = ((Struct_ov004_02158fec_2*)func_ov004_021570a4(arg0, var8));
+        Struct_ov004_02158fec_2* var9 = ((Struct_ov004_02158fec_2*)GetDQVCEntry_ov004_021570a4(arg0, var8));
         if (var9) {
             int var10 = 15;
             if (var9->unknown_4_0_ == 0) var10 = 3;
@@ -1592,12 +1592,12 @@ extern "C" ARM int func_ov004_02158fec(void* arg0) {
                 if (var14) var14->inline_ov004_02158fec_55(var10);
                 Struct_ov004_02158fec* var15 = ((Struct_ov004_02158fec*)func_ov004_02156f04(arg0, var2));
                 if (var15) var15->inline_ov004_02158fec_55(var10);
-                Struct_ov004_02158fec* var16 = ((Struct_ov004_02158fec*)func_ov004_02156f38(arg0, var3));
+                Struct_ov004_02158fec* var16 = ((Struct_ov004_02158fec*)FindMenuNumber_ov004_02156f38(arg0, var3));
                 if (var16) {
                     var16->inline_ov004_02158fec_57(var9->unknown_4_0_);
                     var16->inline_ov004_02158fec_55(var10);
                 }
-                Struct_ov004_02158fec* var17 = ((Struct_ov004_02158fec*)func_ov004_02156f38(arg0, var4));
+                Struct_ov004_02158fec* var17 = ((Struct_ov004_02158fec*)FindMenuNumber_ov004_02156f38(arg0, var4));
                 if (var17) {
                     var17->inline_ov004_02158fec_57(var9->unknown_4_7_);
                     var17->inline_ov004_02158fec_55(var10);
@@ -1609,9 +1609,9 @@ extern "C" ARM int func_ov004_02158fec(void* arg0) {
                 if (var19) var19->unknown_c_ |= 8;
                 Struct_ov004_02158fec* var20 = ((Struct_ov004_02158fec*)func_ov004_02156f04(arg0, var2));
                 if (var20) var20->unknown_c_ |= 8;
-                Struct_ov004_02158fec* var21 = ((Struct_ov004_02158fec*)func_ov004_02156f38(arg0, var3));
+                Struct_ov004_02158fec* var21 = ((Struct_ov004_02158fec*)FindMenuNumber_ov004_02156f38(arg0, var3));
                 if (var21) var21->unknown_c_ |= 8;
-                Struct_ov004_02158fec* var22 = ((Struct_ov004_02158fec*)func_ov004_02156f38(arg0, var4));
+                Struct_ov004_02158fec* var22 = ((Struct_ov004_02158fec*)FindMenuNumber_ov004_02156f38(arg0, var4));
                 if (var22) var22->unknown_c_ |= 8;
                 SetMenuGridCell_ov023_021f9b30(var5, 0, var8, 0);
                 Struct_ov004_02158fec* var23 = ((Struct_ov004_02158fec*)func_ov004_02156fa0(arg0, var8 + 0x14a));
@@ -1656,24 +1656,24 @@ public:
 extern "C" ARM int func_ov004_02159384(void* arg0) {
 	int var0 = GetMenuGridCursorIndex_ov004_02156e2c(arg0, 0x5b);
 	if (var0 < 0) return 0;
-	void* var1 = func_ov004_021570a4(arg0, (unsigned char)var0);
+	void* var1 = GetDQVCEntry_ov004_021570a4(arg0, (unsigned char)var0);
 	if (!var1) return 0;
 
-	Struct_ov004_02159384* var2 = (Struct_ov004_02159384*)func_ov004_02156f38(arg0, 0x25a);
+	Struct_ov004_02159384* var2 = (Struct_ov004_02159384*)FindMenuNumber_ov004_02156f38(arg0, 0x25a);
 	if (var2) {
 		var2->inline_ov004_02159384_57(data_ov004_021707e0[0x11]);
 	}
 
-	Struct_ov004_02159384* var3 = (Struct_ov004_02159384*)func_ov004_02156f38(arg0, 0x2bd);
+	Struct_ov004_02159384* var3 = (Struct_ov004_02159384*)FindMenuNumber_ov004_02156f38(arg0, 0x2bd);
 	if (var3) {
 		unsigned int var4 = *(unsigned int*)((char*)var1 + 4);
 		var3->inline_ov004_02159384_57(data_ov004_021707e0[0x11] * (var4 >> 7));
 	}
 
-	void* var5 = func_ov004_02156f6c(arg0, 0x19);
+	void* var5 = FindMenuWindow_ov004_02156f6c(arg0, 0x19);
 	if (var5) RedrawMenuWindow_ov023_021f809c(var5, arg0);
 
-	void* var6 = func_ov004_02156f6c(arg0, 0x1a);
+	void* var6 = FindMenuWindow_ov004_02156f6c(arg0, 0x1a);
 	if (var6) RedrawMenuWindow_ov023_021f809c(var6, arg0);
 
 	return 0;
@@ -1813,7 +1813,7 @@ extern "C" ARM int func_ov004_0215951c(void* arg0) {
         }
     }
 
-    void* var18 = func_ov004_02156f6c(arg0, 0x16);
+    void* var18 = FindMenuWindow_ov004_02156f6c(arg0, 0x16);
     if (var18) {
         RedrawMenuWindow_ov023_021f809c(var18, arg0);
     }
@@ -1859,7 +1859,7 @@ extern "C" ARM int func_ov004_02159650(void* arg0) {
 
     int var4 = GetMenuGridCursorIndex_ov004_02156e2c(arg0, 0x5b);
     if (var4 >= 0) {
-        var3 = (struct Struct_ov004_02159650_2*)func_ov004_021570a4(arg0, var4 & 0xff);
+        var3 = (struct Struct_ov004_02159650_2*)GetDQVCEntry_ov004_021570a4(arg0, var4 & 0xff);
         if (var3 != 0 && var1 != 0) {
             var2 = ((struct Struct_ov004_02159650_3*)FindItemData_020dedd0(var1, var3->unknown_0_));
         }
@@ -1933,7 +1933,7 @@ extern "C" ARM int func_ov004_02159888(void* arg0) {
     int var0 = GetMenuGridCursorIndex_ov004_02156e2c(arg0, 0x5b);
     if (var0 < 0) return 0;
 
-    Struct_ov004_02159888* var1 = (Struct_ov004_02159888*)func_ov004_021570a4(arg0, (unsigned char)var0);
+    Struct_ov004_02159888* var1 = (Struct_ov004_02159888*)GetDQVCEntry_ov004_021570a4(arg0, (unsigned char)var0);
     if (!var1) return 0;
 
     if (data_ov004_021707e0[0x11] >= var1->unknown_4_0_) return 0;
@@ -1963,7 +1963,7 @@ extern "C" ARM int func_ov004_021599b4(void* arg0) {
     if (var0 < 0) {
         return 0;
     }
-    void* var1 = func_ov004_021570a4(arg0, (unsigned char)var0);
+    void* var1 = GetDQVCEntry_ov004_021570a4(arg0, (unsigned char)var0);
     if (!var1) {
         return 0;
     }
@@ -1997,7 +1997,7 @@ extern "C" ARM int func_ov004_02159a2c(void* arg0) {
     GameState::GetInstance();
     int var1 = GetMenuGridCursorIndex_ov004_02156e2c(arg0, 0x5b);
     if (var1 < 0) return 0;
-    void* var2 = func_ov004_021570a4(arg0, var1 & 0xff);
+    void* var2 = GetDQVCEntry_ov004_021570a4(arg0, var1 & 0xff);
     if (!var2) return 0;
     struct ItemTable_0201099c_10* var3 = ((struct ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     if (!var3) return 0;
@@ -2146,10 +2146,10 @@ extern "C" ARM int func_ov004_02159ce0(void* arg0) {
         func_ov023_021f65d4(arg0, 0x3ed, 8);
         func_ov023_021f6600(arg0, 0x3ee, 8);
     } else {
-        Struct_ov004_02159ce0_2* var11 = (Struct_ov004_02159ce0_2*)func_ov004_02156f38(arg0, 0x3eb);
+        Struct_ov004_02159ce0_2* var11 = (Struct_ov004_02159ce0_2*)FindMenuNumber_ov004_02156f38(arg0, 0x3eb);
         if (var11) var11->unknown_0_->unknown_e0_(var11, var7);
 
-        Struct_ov004_02159ce0_2* var12 = (Struct_ov004_02159ce0_2*)func_ov004_02156f38(arg0, 0x3ed);
+        Struct_ov004_02159ce0_2* var12 = (Struct_ov004_02159ce0_2*)FindMenuNumber_ov004_02156f38(arg0, 0x3ed);
         if (var12) var12->unknown_0_->unknown_e0_(var12, var8);
 
         Struct_ov004_02159ce0_4* var13 = (Struct_ov004_02159ce0_4*)FindMenuObjectById_ov023_021f6880((void**)(GetMenuObjectList_ov011_021849c8(arg0)), 0x3eb);
@@ -2172,7 +2172,7 @@ extern "C" ARM int func_ov004_02159ce0(void* arg0) {
         func_ov023_021f65d4(arg0, 0x3ee, 8);
     }
 
-    Struct_ov004_02159ce0_2* var17 = (Struct_ov004_02159ce0_2*)func_ov004_02156f6c(arg0, 0x17);
+    Struct_ov004_02159ce0_2* var17 = (Struct_ov004_02159ce0_2*)FindMenuWindow_ov004_02156f6c(arg0, 0x17);
     if (var17) RedrawMenuWindow_ov023_021f809c(var17, arg0);
 
     void* var18 = func_ov004_02157054(arg0, 7);
@@ -2403,8 +2403,8 @@ extern "C" ARM int func_ov004_0215a31c(void* arg0) {
         var3 += var10 * 8;
         var9 = ((Struct_ov004_0215a31c*)func_ov004_02156f04(arg0, 0x458));
         if (var9) var9->unknown_c_ &= ~8;
-        ((Struct_ov004_0215a31c*)func_ov004_02156f38(arg0, 0x456))->inline_ov004_0215a31c_57(var10 + 1);
-        ((Struct_ov004_0215a31c*)func_ov004_02156f38(arg0, 0x457))->inline_ov004_0215a31c_57(var11);
+        ((Struct_ov004_0215a31c*)FindMenuNumber_ov004_02156f38(arg0, 0x456))->inline_ov004_0215a31c_57(var10 + 1);
+        ((Struct_ov004_0215a31c*)FindMenuNumber_ov004_02156f38(arg0, 0x457))->inline_ov004_0215a31c_57(var11);
         func_ov023_021f6600(arg0, 0x456, 8);
         func_ov023_021f6600(arg0, 0x457, 8);
         func_ov023_021f6600(arg0, 0x469, 8);
@@ -2412,7 +2412,7 @@ extern "C" ARM int func_ov004_0215a31c(void* arg0) {
         for (var5 = 0; var5 < 8; var5++) {
             func_ov023_021f6600(arg0, var5 + 0x459, 8);
             func_ov023_021f6600(arg0, var5 + 0x461, 8);
-            ((Struct_ov004_0215a31c*)func_ov004_02156f38(arg0, var5 + 0x461))->inline_ov004_0215a31c_57(var8[var5]);
+            ((Struct_ov004_0215a31c*)FindMenuNumber_ov004_02156f38(arg0, var5 + 0x461))->inline_ov004_0215a31c_57(var8[var5]);
         }
     } else {
         GameObject* var12 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), var0);
@@ -2453,7 +2453,7 @@ extern "C" ARM int func_ov004_0215a31c(void* arg0) {
         }
     }
     func_ov023_021f9ba8(var4, 0);
-    void* var17 = func_ov004_02156f6c(arg0, 0x17);
+    void* var17 = FindMenuWindow_ov004_02156f6c(arg0, 0x17);
     if (var17) RedrawMenuWindow_ov023_021f809c(var17, arg0);
     void* var18 = func_ov004_02157088(arg0, 7);
     if (var18) SetItemInfoPanelItem_ov023_021dcae0((ItemInfoPanel_ov003_02178910*)var18, -1);
@@ -2545,17 +2545,17 @@ extern "C" ARM int func_ov004_0215a738(void* arg0) {
                 ((Type_ov004_0215a31c)SetMenuGridCell_ov023_021f9b30)((Struct_ov004_0215a31c_2*)var4, var9 + 0x44c, (unsigned short)var9, (unsigned short)0);
                 func_ov023_021f6600(arg0, var9 + 0x459, 8);
                 func_ov023_021f6600(arg0, var9 + 0x461, 8);
-                ((Struct_ov004_0215a738_4*)func_ov004_02156f38(arg0, var9 + 0x461))->inline_ov004_0215a738_57(var6[var10]);
+                ((Struct_ov004_0215a738_4*)FindMenuNumber_ov004_02156f38(arg0, var9 + 0x461))->inline_ov004_0215a738_57(var6[var10]);
             }
         }
     }
-    ((Struct_ov004_0215a738_4*)func_ov004_02156f38(arg0, 0x456))->inline_ov004_0215a738_57(var0 + 1);
-    ((Struct_ov004_0215a738_4*)func_ov004_02156f38(arg0, 0x457))->inline_ov004_0215a738_57(var1);
+    ((Struct_ov004_0215a738_4*)FindMenuNumber_ov004_02156f38(arg0, 0x456))->inline_ov004_0215a738_57(var0 + 1);
+    ((Struct_ov004_0215a738_4*)FindMenuNumber_ov004_02156f38(arg0, 0x457))->inline_ov004_0215a738_57(var1);
     func_ov023_021f6600(arg0, 0x456, 8);
     func_ov023_021f6600(arg0, 0x457, 8);
     func_ov023_021f6600(arg0, 0x469, 8);
     func_ov023_021f6600(arg0, 0x46a, 8);
-    void* var14 = func_ov004_02156f6c(arg0, 0x17);
+    void* var14 = FindMenuWindow_ov004_02156f6c(arg0, 0x17);
     if (var14) RedrawMenuWindow_ov023_021f809c(var14, arg0);
     void* var15 = (void*)func_ov004_02157088(arg0, 7);
     int var16 = GetMenuGridCursorIndex_ov004_02156e2c(arg0, 0x63);
@@ -2774,11 +2774,11 @@ public:
 
 // USA: func_ov004_0215af80
 extern "C" ARM int func_ov004_0215af80(void* arg0) {
-    Struct_ov004_0215af80* var0 = (Struct_ov004_0215af80*)func_ov004_02156f38(arg0, 0x25a);
+    Struct_ov004_0215af80* var0 = (Struct_ov004_0215af80*)FindMenuNumber_ov004_02156f38(arg0, 0x25a);
     if (var0) {
         var0->inline_ov004_0215af80_57(data_ov004_021707e0[0x6e]);
     }
-    Struct_ov004_0215af80* var1 = (Struct_ov004_0215af80*)func_ov004_02156f38(arg0, 0x2bd);
+    Struct_ov004_0215af80* var1 = (Struct_ov004_0215af80*)FindMenuNumber_ov004_02156f38(arg0, 0x2bd);
     if (var1) {
         var1->inline_ov004_0215af80_57(*(int*)(data_ov004_021707e0 + 0x78));
     }
@@ -2803,11 +2803,11 @@ struct Struct_ov004_0215b02c_2 { Struct_ov004_0215b02c* unknown_0_; };
 extern "C" ARM int func_ov004_0215b02c(void* arg0) {
     if (data_ov004_021707e0[0x6e] < data_ov004_021707e0[0x6f]) {
         data_ov004_021707e0[0x6e]++;
-        Struct_ov004_0215b02c_2* var0 = ((Struct_ov004_0215b02c_2*)func_ov004_02156f38(arg0, 0x25a));
+        Struct_ov004_0215b02c_2* var0 = ((Struct_ov004_0215b02c_2*)FindMenuNumber_ov004_02156f38(arg0, 0x25a));
         if (var0) {
             var0->unknown_0_->unknown_e0_(var0, data_ov004_021707e0[0x6e]);
         }
-        int var1 = ((int)func_ov004_02156f6c(arg0, 0x19));
+        int var1 = ((int)FindMenuWindow_ov004_02156f6c(arg0, 0x19));
         if (var1) {
             RedrawMenuWindow_ov023_021f809c((void*)var1, arg0);
         }
@@ -2842,13 +2842,13 @@ extern "C" ARM int func_ov004_0215b0a8(void* arg0) {
     }
     data_ov004_021707e0[0x6e] = var0 - 1;
     {
-        Struct_ov004_0215b0a8* var1 = (Struct_ov004_0215b0a8*)func_ov004_02156f38(arg0, 0x25a);
+        Struct_ov004_0215b0a8* var1 = (Struct_ov004_0215b0a8*)FindMenuNumber_ov004_02156f38(arg0, 0x25a);
         if (var1) {
             var1->inline_ov004_0215b0a8_57(data_ov004_021707e0[0x6e]);
         }
     }
     {
-        void* var2 = func_ov004_02156f6c(arg0, 0x19);
+        void* var2 = FindMenuWindow_ov004_02156f6c(arg0, 0x19);
         if (var2) {
             RedrawMenuWindow_ov023_021f809c(var2, arg0);
         }
@@ -3120,10 +3120,10 @@ extern "C" ARM int func_ov004_0215b360(void* arg0) {
     if (var10 < 1) var10 = 1;
     var9->unknown_5c_ = 0;
     var9->unknown_5e_ = var10;
-    ((Struct_ov004_0215b360*)func_ov004_02156f38(arg0, 0x456))->inline_ov004_0215b360_57(1);
-    ((Struct_ov004_0215b360*)func_ov004_02156f38(arg0, 0x457))->inline_ov004_0215b360_57(var10);
+    ((Struct_ov004_0215b360*)FindMenuNumber_ov004_02156f38(arg0, 0x456))->inline_ov004_0215b360_57(1);
+    ((Struct_ov004_0215b360*)FindMenuNumber_ov004_02156f38(arg0, 0x457))->inline_ov004_0215b360_57(var10);
     for (int var11 = 0; var11 < 8; var11++)
-        ((Struct_ov004_0215b360*)func_ov004_02156f38(arg0, var11 + 0x461))->inline_ov004_0215b360_57(var1[var11]);
+        ((Struct_ov004_0215b360*)FindMenuNumber_ov004_02156f38(arg0, var11 + 0x461))->inline_ov004_0215b360_57(var1[var11]);
     for (int var12 = 0; var12 < 8; var12++) {
         Struct_ov004_0215b360_5* var13 = ((Struct_ov004_0215b360_5*)FindItemData_020dedd0(var3, var0[var12]));
         Struct_ov004_0215b360* var14 = ((Struct_ov004_0215b360*)func_ov004_02156f04(arg0, var12 + 0x44c));
@@ -3143,7 +3143,7 @@ extern "C" ARM int func_ov004_0215b360(void* arg0) {
             }
         }
     }
-    void* var16 = func_ov004_02156f6c(arg0, 0x17);
+    void* var16 = FindMenuWindow_ov004_02156f6c(arg0, 0x17);
     if (var16) RedrawMenuWindow_ov023_021f809c(var16, arg0);
     void* var17 = ((Type_ov004_0215b360)func_ov004_02157088)(arg0, 7);
     if (var17) SetItemInfoPanelItem_ov023_021dcae0((ItemInfoPanel_ov003_02178910*)var17, -1);
@@ -3692,7 +3692,7 @@ struct Struct_ov004_0215c0c0_2 { char unknown_0_[0xf6c]; int unknown_f6c_; };
 extern "C" ARM int func_ov004_0215c0c0(void* arg0) {
     int var0 = GetMenuGridCursorIndex_ov004_02156e2c(arg0, 0x5b);
     if (var0 < 0) return 0;
-    void* var1 = func_ov004_021570a4(arg0, var0 & 0xff);
+    void* var1 = GetDQVCEntry_ov004_021570a4(arg0, var0 & 0xff);
     if (!var1) return 0;
     struct Struct_ov004_0215c0c0_2* var2 = (struct Struct_ov004_0215c0c0_2*)GetParty_02010828(GameState::GetInstance());
     struct Struct_ov004_0215c0c0* var3 = (struct Struct_ov004_0215c0c0*)((char*)var1 + 4);
@@ -3750,7 +3750,7 @@ extern "C" ARM int func_ov004_0215c1ac(void* arg0) {
         *(unsigned char*)((char*)var1 + 0x45) &= ~1;
         ((Struct_ov004_0215c1ac*)var1)->inline_ov004_0215c1ac_55(0xf);
     }
-    void* var2 = func_ov004_02156f6c(arg0, 0x17);
+    void* var2 = FindMenuWindow_ov004_02156f6c(arg0, 0x17);
     if (var2) {
         func_ov023_021f8240(var2, arg0);
     }
@@ -3898,7 +3898,7 @@ extern "C" ARM int func_ov004_0215c494(void* arg0) {
     if (var0 < 0) {
         return 0;
     }
-    void* var1 = func_ov004_021570a4(arg0, (unsigned char)var0);
+    void* var1 = GetDQVCEntry_ov004_021570a4(arg0, (unsigned char)var0);
     if (!var1) {
         return 0;
     }
@@ -3918,7 +3918,7 @@ extern "C" ARM int func_ov004_0215c50c(void* arg0) {
     int var0 = GetMenuGridCursorIndex_ov004_02156e2c(arg0, 0x5b);
     if (var0 < 0) return 0;
 
-    Struct_ov004_0215c50c* var1 = (Struct_ov004_0215c50c*)func_ov004_021570a4(arg0, (unsigned char)var0);
+    Struct_ov004_0215c50c* var1 = (Struct_ov004_0215c50c*)GetDQVCEntry_ov004_021570a4(arg0, (unsigned char)var0);
     if (!var1) return 0;
 
     unsigned char var2 = data_ov004_021707e0[0x11];
@@ -3967,11 +3967,11 @@ struct Struct_ov004_0215c684_2 { Struct_ov004_0215c684* unknown_0_; };
 extern "C" ARM int func_ov004_0215c684(void* arg0) {
     if (data_ov004_021707e0[0x6e] > 1) {
         data_ov004_021707e0[0x6e] = 1;
-        Struct_ov004_0215c684_2* var0 = ((Struct_ov004_0215c684_2*)func_ov004_02156f38(arg0, 0x25a));
+        Struct_ov004_0215c684_2* var0 = ((Struct_ov004_0215c684_2*)FindMenuNumber_ov004_02156f38(arg0, 0x25a));
         if (var0) {
             var0->unknown_0_->unknown_e0_(var0, data_ov004_021707e0[0x6e]);
         }
-        int var1 = ((int)func_ov004_02156f6c(arg0, 0x19));
+        int var1 = ((int)FindMenuWindow_ov004_02156f6c(arg0, 0x19));
         if (var1) {
             RedrawMenuWindow_ov023_021f809c((void*)var1, arg0);
         }
@@ -3987,11 +3987,11 @@ struct Struct_ov004_0215c6fc_2 { Struct_ov004_0215c6fc* unknown_0_; };
 extern "C" ARM int func_ov004_0215c6fc(void* arg0) {
     if (data_ov004_021707e0[0x6e] < data_ov004_021707e0[0x6f]) {
         data_ov004_021707e0[0x6e] = data_ov004_021707e0[0x6f];
-        Struct_ov004_0215c6fc_2* var0 = ((Struct_ov004_0215c6fc_2*)func_ov004_02156f38(arg0, 0x25a));
+        Struct_ov004_0215c6fc_2* var0 = ((Struct_ov004_0215c6fc_2*)FindMenuNumber_ov004_02156f38(arg0, 0x25a));
         if (var0) {
             var0->unknown_0_->unknown_e0_(var0, data_ov004_021707e0[0x6e]);
         }
-        int var1 = ((int)func_ov004_02156f6c(arg0, 0x19));
+        int var1 = ((int)FindMenuWindow_ov004_02156f6c(arg0, 0x19));
         if (var1) {
             RedrawMenuWindow_ov023_021f809c((void*)var1, arg0);
         }
@@ -4476,7 +4476,7 @@ extern "C" ARM int func_ov004_0215cec4(void* arg0) {
     GameState* var0 = GameState::GetInstance();
     int var1 = GetMenuGridCursorIndex_ov004_02156e2c(arg0, 0x5b);
     if (var1 < 0) return 0;
-    Struct_ov004_0215cec4_2* var2 = ((Struct_ov004_0215cec4_2*)func_ov004_021570a4(arg0, var1 & 0xff));
+    Struct_ov004_0215cec4_2* var2 = ((Struct_ov004_0215cec4_2*)GetDQVCEntry_ov004_021570a4(arg0, var1 & 0xff));
     if (!var2) return 0;
     ItemTable_0201099c_10* var3 = ((ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     if (!var3) return 0;
@@ -4535,9 +4535,9 @@ extern "C" ARM int func_ov004_0215cec4(void* arg0) {
                     func_020ddaf4((int)&var5, var13, (int)var4, 1, (int)&var16, (int)&var17);
                 }
 
-                Struct_ov004_0215cec4_5* var18 = (Struct_ov004_0215cec4_5*)func_ov004_02156f38(arg0, var12 + 0x1c6);
+                Struct_ov004_0215cec4_5* var18 = (Struct_ov004_0215cec4_5*)FindMenuNumber_ov004_02156f38(arg0, var12 + 0x1c6);
                 if (var18) var18->unknown_0_->unknown_e0_(var18, var16);
-                Struct_ov004_0215cec4_5* var19 = (Struct_ov004_0215cec4_5*)func_ov004_02156f38(arg0, var12 + 0x1ca);
+                Struct_ov004_0215cec4_5* var19 = (Struct_ov004_0215cec4_5*)FindMenuNumber_ov004_02156f38(arg0, var12 + 0x1ca);
                 if (var19) var19->unknown_0_->unknown_e0_(var19, var17);
 
                 Struct_ov004_0215cec4_7* var20 = (Struct_ov004_0215cec4_7*)FindMenuObjectById_ov023_021f6880((void**)(GetMenuObjectList_ov011_021849c8(arg0)), var12 + 0x1c6);
@@ -4564,7 +4564,7 @@ extern "C" ARM int func_ov004_0215cec4(void* arg0) {
         }
     }
 
-    void* var24 = func_ov004_02156f6c(arg0, 0x17);
+    void* var24 = FindMenuWindow_ov004_02156f6c(arg0, 0x17);
     if (var24) RedrawMenuWindow_ov023_021f809c(var24, arg0);
     return 0;
 }
@@ -4607,15 +4607,15 @@ extern "C" ARM int func_ov004_0215d384(void* arg0) {
     GameState* var0 = GameState::GetInstance();
     int var1 = GetMenuGridCursorIndex_ov004_02156e2c(arg0, 0x5b);
     if (var1 < 0) return 0;
-    void* var2 = func_ov004_021570a4(arg0, var1 & 0xff);
+    void* var2 = GetDQVCEntry_ov004_021570a4(arg0, var1 & 0xff);
     if (!var2) return 0;
-    Struct_ov004_0215d384_2* var3 = (Struct_ov004_0215d384_2*)func_ov004_02156f38(arg0, 0x1dc);
+    Struct_ov004_0215d384_2* var3 = (Struct_ov004_0215d384_2*)FindMenuNumber_ov004_02156f38(arg0, 0x1dc);
     if (!var3) return 0;
 
     int var4 = CountOwnedItem_02086aec((struct Party_02053f7c*)GetParty_02010828(var0), *(short*)var2);
     var3->inline_ov004_0215d384_57(var4);
 
-    void* var5 = func_ov004_02156f6c(arg0, 0x1b);
+    void* var5 = FindMenuWindow_ov004_02156f6c(arg0, 0x1b);
     if (var5) RedrawMenuWindow_ov023_021f809c(var5, arg0);
 
 #if !defined(jpn)
@@ -4665,7 +4665,7 @@ extern "C" ARM int func_ov004_0215d534(void* arg0) {
         func_ov004_0215c0c0(arg0);
     } else {
         int var2 = ((Struct_ov004_0215d534*)func_ov004_02156ed0(arg0, 0x5b))->unknown_5c_ * 6 + var0;
-        Struct_ov004_0215d534_2* var3 = (Struct_ov004_0215d534_2*)func_ov004_021570a4(arg0, (unsigned char)var0);
+        Struct_ov004_0215d534_2* var3 = (Struct_ov004_0215d534_2*)GetDQVCEntry_ov004_021570a4(arg0, (unsigned char)var0);
 
         if (IsNotLocalWirelessGuest_0202c508((LocalWireless_0202c508*)var1)) {
             if (var3->unknown_4_0_ >= ((Struct_ov004_0215d534_3*)data_ov004_021707e0)->unknown_11_) {
@@ -4759,7 +4759,7 @@ extern "C" ARM int func_ov004_0215d738(void* arg0) {
     unsigned char* var1 = (unsigned char*)GetParty_02010828(var0);
     int var2 = GetMenuGridCursorIndex_ov004_02156e2c(arg0, 0x5b);
     if (var2 < 0) return 0;
-    short* var3 = (short*)func_ov004_021570a4(arg0, var2 & 0xff);
+    short* var3 = (short*)GetDQVCEntry_ov004_021570a4(arg0, var2 & 0xff);
     if (!var3) return 0;
     void* var4 = ((void*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
     if (!var4) return 0;
@@ -4793,7 +4793,7 @@ extern "C" ARM int func_ov004_0215d738(void* arg0) {
                 func_ov023_021f6600(arg0, var9 + 0x1e4, 8);
                 func_ov023_021f6600(arg0, var9 + 0x1ee, 8);
                 func_ov023_021f65d4(arg0, var9 + 0x1e9, 8);
-                Struct_ov004_0215d738* var14 = ((Struct_ov004_0215d738*)func_ov004_02156f38(arg0, var9 + 0x1e4));
+                Struct_ov004_0215d738* var14 = ((Struct_ov004_0215d738*)FindMenuNumber_ov004_02156f38(arg0, var9 + 0x1e4));
                 if (var14) var14->inline_ov004_0215d738_57(var13);
             }
         } else if (var9 == var6) {
@@ -4802,7 +4802,7 @@ extern "C" ARM int func_ov004_0215d738(void* arg0) {
             func_ov023_021f6600(arg0, var9 + 0x1ee, 8);
             func_ov023_021f65d4(arg0, var9 + 0x1e9, 8);
             int var15 = CountItemInBags_02086bf4((char*)var1, *var3);
-            Struct_ov004_0215d738* var16 = ((Struct_ov004_0215d738*)func_ov004_02156f38(arg0, var9 + 0x1e4));
+            Struct_ov004_0215d738* var16 = ((Struct_ov004_0215d738*)FindMenuNumber_ov004_02156f38(arg0, var9 + 0x1e4));
             if (var16) var16->inline_ov004_0215d738_57(var15);
         } else {
             func_ov023_021f65d4(arg0, var9 + 0x1df, 8);
@@ -4812,7 +4812,7 @@ extern "C" ARM int func_ov004_0215d738(void* arg0) {
         }
     }
 
-    void* var17 = func_ov004_02156f6c(arg0, 0x1c);
+    void* var17 = FindMenuWindow_ov004_02156f6c(arg0, 0x1c);
     if (var17) RedrawMenuWindow_ov023_021f809c(var17, arg0);
     return 0;
 }
@@ -5083,7 +5083,7 @@ extern "C" ARM int func_ov004_0215e148(void* arg0) {
         GameState::GetInstance();
         int var0 = GetMenuGridCursorIndex_ov004_02156e2c(arg0, 0x5b);
         if (var0 < 0) return 0;
-        void* var1 = func_ov004_021570a4(arg0, var0 & 0xff);
+        void* var1 = GetDQVCEntry_ov004_021570a4(arg0, var0 & 0xff);
         if (!var1) return 0;
         struct ItemTable_0201099c_10* var2 = ((struct ItemTable_0201099c_10*)FindMenuItemTable_ov004_02156fd4(arg0, 5));
         if (!var2) return 0;

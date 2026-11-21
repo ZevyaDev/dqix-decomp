@@ -89,8 +89,8 @@ struct SoundEffectManager_02108760;
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void ResetBattleCamera_ov000_0216d370(void* camera, int resetRoll, int resetFieldOfView, int resetTurns);
 extern "C" void func_ov000_0216df00(void* arg0, int arg1, int arg2, int arg3, float arg4);
-struct Struct_ov000_02163a7c;
-extern "C" void func_ov000_02163a7c(Struct_ov000_02163a7c*);
+struct BattleScene_ov000_02163a7c;
+extern "C" void SetCombatantsOpaque_ov000_02163a7c(BattleScene_ov000_02163a7c*);
 extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" void SetCameraOrbitFromArray_0202e694(void*, int*);
 extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void* battleScene, int selector, int isVisible);
@@ -116,10 +116,10 @@ extern "C" struct Struct_ov025_021dcf14_2* GetActionActor_ov000_02160094(BattleA
 struct Struct_ov025_021d8bfc;
 extern "C" void func_ov025_021d8bfc(void*, Struct_ov025_021d8bfc*);
 extern "C" int func_ov025_021ed444(void* arg0, int arg1, int arg2, int arg3, int arg4, short arg5, unsigned short arg6);
-extern "C" void func_0202ea10(unsigned char*, int, int);
+extern "C" void ShakeCamera_0202ea10(unsigned char*, int, int);
 extern "C" void func_ov000_02163440(void* arg0, short arg1, unsigned short arg2, unsigned short arg3);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" void* func_ov000_0215fff4(void*, int, int);
+extern "C" void* GetTargetResult_ov000_0215fff4(void*, int, int);
 extern "C" int HasActionResultFlag_ov000_0215fd90(void* result, int flagIndex);
 extern "C" int func_02048c68(unsigned char*);
 extern "C" int IsCombatantOnBattlefield_02049ee8(unsigned char*);
@@ -197,7 +197,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
     if (arg0[Enum_ov025_021dcf14_28235] == 1) {
         ResetBattleCamera_ov000_0216d370(arg0 + Enum_ov025_021dcf14_3096, 1, 1, 1);
         func_ov000_0216df00(arg0 + Enum_ov025_021dcf14_3096, var1->unknown_1a_, 0, 0, 1.8f);
-        func_ov000_02163a7c((Struct_ov000_02163a7c*)arg0);
+        SetCombatantsOpaque_ov000_02163a7c((BattleScene_ov000_02163a7c*)arg0);
         void* var6 = GetCurrentBattleAction_ov000_02160f20(arg0);
         if (*(unsigned short*)var6 == 0x11b || *(unsigned short*)var6 == 0x116) {
             Vector3fix var7 = *(Vector3fix*)(arg0 + Enum_ov025_021dcf14_3208);
@@ -424,7 +424,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
                 arg0[Enum_ov025_021dcf14_30534] = var48->unknown_e_[0];
             }
             if (var49 || var50) {
-                func_0202ea10((unsigned char*)(arg0 + Enum_ov025_021dcf14_3096), 0xcc, 0x1f4);
+                ShakeCamera_0202ea10((unsigned char*)(arg0 + Enum_ov025_021dcf14_3096), 0xcc, 0x1f4);
                 func_ov000_02163440(arg0, 0x199, 0x1f4, 0x64);
                 if (var50) {
                     PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x43, 0);
@@ -445,7 +445,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
                         int var54 = 0;
                         int var55;
                         for (var55 = 0; var55 < var48->unknown_18_[var53]; var55++) {
-                            void* var56 = func_ov000_0215fff4(var48, var55, (unsigned char)var53);
+                            void* var56 = GetTargetResult_ov000_0215fff4(var48, var55, (unsigned char)var53);
                             if (var56 && HasActionResultFlag_ov000_0215fd90(var56, 0x2a)) {
                                 var54 = 1;
                                 TIMER = 0;
@@ -768,7 +768,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* arg0) {
             && !(var1->unknown_0_ == 0x30f || var1->unknown_0_ == 0x243)) {
             ResetBattleCamera_ov000_0216d370(arg0 + Enum_ov025_021dcf14_3096, 0, 1, 1);
             func_ov000_0216df00(arg0 + Enum_ov025_021dcf14_3096, var6->unknown_e_[0], 0, 0, 1.8f);
-            func_ov000_02163a7c((Struct_ov000_02163a7c*)arg0);
+            SetCombatantsOpaque_ov000_02163a7c((BattleScene_ov000_02163a7c*)arg0);
             SetObjectsVisibleBySelector_ov000_021626a0(arg0, 4, 0);
             GameObject* var8 = var0->GetCombatantByIndex(var6->unknown_e_[0]);
             if (var8) {

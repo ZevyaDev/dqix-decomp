@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
-extern "C" signed short func_0207c620(unsigned char* arg0, unsigned int arg1);
+extern "C" signed short GetEquipmentBagCapacity_0207c620(unsigned char* bag, unsigned int category);
 extern short data_020f29dc[];
 
 // USA: func_020dd300
@@ -10,7 +10,7 @@ extern "C" ARM int func_020dd300(int arg0) {
     GameState* var0 = GameState::GetInstance();
     unsigned char* var1 = (unsigned char*)GetParty_02010828(var0);
     signed short* var2 = (signed short*)GetEquipmentBagItemIds_0207c5f8(var1 + 0x1d4, 0);
-    short var3 = func_0207c620(var1 + 0x1d4, 0);
+    short var3 = GetEquipmentBagCapacity_0207c620(var1 + 0x1d4, 0);
     short var4 = 0;
     for (short var5 = 0; var5 < var3; var5++) {
         signed short var6 = var2[var5];

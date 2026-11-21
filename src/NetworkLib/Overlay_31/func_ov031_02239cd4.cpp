@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_020d4aa8();
+extern "C" int GetWirelessChannelMask_020d4aa8();
 extern "C" void func_ov031_022393e4(int);
 extern "C" void func_ov031_02239368(int);
 extern "C" void func_ov031_02239d70(void*);
@@ -9,7 +9,7 @@ typedef int (*Type_ov031_02239cd4)(int, unsigned short);
 
 // USA: func_ov031_02239cd4
 extern "C" ARM unsigned short func_ov031_02239cd4(unsigned short arg0) {
-    int var0 = func_020d4aa8();
+    int var0 = GetWirelessChannelMask_020d4aa8();
     if (var0 == 0x8000) {
         func_ov031_022393e4(3);
         func_ov031_02239368(9);

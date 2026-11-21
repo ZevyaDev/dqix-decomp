@@ -50,7 +50,7 @@ struct Struct_ov005_02153954 {
 
 extern int gSoundEffectManager_02108760;
 
-extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char arg1);
+extern "C" void SetEquipMenuMode_ov005_0215792c(Struct_ov005_02153954* equipMenuUI, unsigned char mode);
 extern "C" Struct_ov005_02153ba4_2* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov005_02157190(void* arg0);
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov005_0215771c(Struct_ov005_02153954* arg0) {
     int var1 = arg0->unknown_3dbb_ - 8;
     int var2;
     if (var1 < 4 && g_keyManager.TestKeysPressed(0x40)) {
-        func_ov005_0215792c(arg0, 3);
+        SetEquipMenuMode_ov005_0215792c(arg0, 3);
         arg0->unknown_3dbb_ = arg0->unknown_3dbc_;
         func_ov005_021579ec(arg0, arg0->unknown_3db8_, GetMenuCursorIndex_0205bb84((MenuCursor_0205bb84*)arg0->unknown_19f4_));
         return;
@@ -106,7 +106,7 @@ extern "C" ARM void func_ov005_0215771c(Struct_ov005_02153954* arg0) {
         return;
     if (arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_ < 0)
         return;
-    func_ov005_0215792c(arg0, 5);
+    SetEquipMenuMode_ov005_0215792c(arg0, 5);
     PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
     var5->unknown_634_ &= ~1;
     var5->unknown_634_ &= ~0x80;

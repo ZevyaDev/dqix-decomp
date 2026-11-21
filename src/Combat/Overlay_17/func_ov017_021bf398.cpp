@@ -13,7 +13,7 @@ extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern int gMainHeap_02114e20;
 
 struct StringList_020727d8;
-extern "C" void func_020727ec(struct StringList_020727d8* arg0);
+extern "C" void DestroyStringList_020727ec(struct StringList_020727d8* stringList);
 
 // USA: func_ov017_021bf398
 extern "C" ARM void func_ov017_021bf398(char* arg0) {
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov017_021bf398(char* arg0) {
 	if (var4) {
 		var3->Reset();
 		var3->Destroy();
-		func_020727ec((struct StringList_020727d8*)(arg0 + 0xc));
+		DestroyStringList_020727ec((struct StringList_020727d8*)(arg0 + 0xc));
 		func_02012da4((AllocatorUnion*)&gMainHeap_02114e20, var4);
 	}
 	arg0[1] = 1;

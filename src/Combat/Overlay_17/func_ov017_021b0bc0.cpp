@@ -23,7 +23,7 @@
 
 struct LocalWireless_0202c1a4;
 struct Struct_02033834;
-struct Struct_02053f7c_3;
+struct PartyMember_02053f7c_3;
 struct ItemData_02083508_2 { char unknown_0_[0x20]; };
 
 extern "C" void* func_0202ae18(void);
@@ -34,12 +34,12 @@ extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0* wire
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(GameResources*, int, int, int, int);
 extern "C" void func_ov017_021907dc(int, int, int, int, int);
-extern "C" signed char func_02039888(void*);
+extern "C" signed char GetPartyLeaderObjectIndex_02039888(void*);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void func_020120d4(unsigned char*, unsigned char);
 extern "C" void* func_020120a0(char* arg0, unsigned int arg1);
 extern "C" void func_0201206c(void*, int);
-extern "C" void func_02053f7c(Struct_02053f7c_3*, unsigned short, int);
+extern "C" void SetPartyMemberBattleId_02053f7c(PartyMember_02053f7c_3*, unsigned short, int);
 extern "C" void* func_0205ec34(void);
 extern "C" void func_0206dfe8(void*, int, int);
 extern "C" void func_0206e70c(char*);
@@ -203,7 +203,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
             if (var17 == NULL) {
                 continue;
             }
-            if (var16 == func_02039888(var17)) {
+            if (var16 == GetPartyLeaderObjectIndex_02039888(var17)) {
                 continue;
             }
             if (var16 != 0 && !(var17->obj3D_.unknown_0_ & 0x1000)) {
@@ -242,7 +242,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
         for (int var19 = 0; var19 < 4; var19++) {
             GameObject* var20 = var5->GetPartyMemberByIndex(var19);
             if (var20 != NULL) {
-                func_02053f7c((Struct_02053f7c_3*)var20, var18->unknown_2d6_[var19], 1);
+                SetPartyMemberBattleId_02053f7c((PartyMember_02053f7c_3*)var20, var18->unknown_2d6_[var19], 1);
             }
         }
 

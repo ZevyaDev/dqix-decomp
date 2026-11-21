@@ -13,10 +13,10 @@ extern "C" int func_020a18f4(unsigned int arg0);
 extern "C" void func_020db894(void* arg0);
 extern "C" int func_020db9a8(Struct_020db264* arg0);
 extern "C" void func_020db3f4(Struct_020db3f4* arg0);
-extern "C" void func_020d8654(void);
+extern "C" void SaveAndDisableVCounterInterrupt_020d8654(void);
 extern "C" void func_020db844(Struct_020db3f4_3* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_020db264(void* arg0, int arg1, int arg2, int arg3, int arg4);
-extern "C" void func_020d8694(void);
+extern "C" void RestoreVCounterInterrupt_020d8694(void);
 extern "C" void func_020db5ec(Struct_020db5ec_2* arg0);
 extern "C" void func_020db814(void*);
 
@@ -49,7 +49,7 @@ extern "C" ARM void func_020dbae0(void* arg0) {
         func_020db3f4((Struct_020db3f4*)arg0);
     } else {
         if (var3 != *(unsigned char*)(var0 + 0x3c)) {
-            func_020d8654();
+            SaveAndDisableVCounterInterrupt_020d8654();
             func_020db844((Struct_020db3f4_3*)arg0, *(unsigned char*)(var0 + 0x3c), *(short*)(var0 + 0x66), 0);
             short var4 = *(short*)(var0 + 0x6a);
             unsigned char var5 = *(unsigned char*)(var0 + 0x50);
@@ -61,7 +61,7 @@ extern "C" ARM void func_020dbae0(void* arg0) {
             *(unsigned char*)(var0 + 0x3c) = var3;
             *(short*)(var0 + 0x6a) = *(short*)(var0 + 0x66) = var4;
             func_020db264(arg0, var5, var6, var7, var8);
-            func_020d8694();
+            RestoreVCounterInterrupt_020d8694();
             return;
         }
         func_020db5ec((Struct_020db5ec_2*)arg0);

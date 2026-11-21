@@ -27,8 +27,8 @@ extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_020a1e54(int isPreviousReloaded);
 extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
 extern "C" void EnablePlayerControl_020397c0(void* object);
-struct Struct_02053f7c_3;
-extern "C" void func_02053f7c(Struct_02053f7c_3* arg0, unsigned short arg1, int arg2);
+struct PartyMember_02053f7c_3;
+extern "C" void SetPartyMemberBattleId_02053f7c(PartyMember_02053f7c_3* member, unsigned short battleId, int isForced);
 extern "C" ARM void func_ov017_021c3f70(unsigned short arg0);
 extern "C" void LoadFileTables_020a0c0c(void);
 struct Queue_02038598_5;
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov017_021b6f9c(char* arg0) {
 
     GameObject* var8 = GameState::GetInstance()->GetUnknownGameObject();
     EnablePlayerControl_020397c0(var8);
-    func_02053f7c((Struct_02053f7c_3*)var8, 0, 0);
+    SetPartyMemberBattleId_02053f7c((PartyMember_02053f7c_3*)var8, 0, 0);
     func_ov017_021c3f70(0);
 
     var6->ResetAllocatorPointer();

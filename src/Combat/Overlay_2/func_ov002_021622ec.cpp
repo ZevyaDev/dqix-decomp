@@ -38,7 +38,7 @@ extern "C" void func_ov002_02161a8c(int arg0);
 extern "C" void func_ov017_021c05f4(int arg0, int arg1, int arg2, int arg3);
 extern "C" void CloseItemInfoPanel_ov023_021dca88(void *panel);
 extern "C" void GetZone3D_02012fe4(void);
-extern "C" void func_02017c58(void);
+extern "C" void SaveBMDJEntryVisibility_02017c58(void);
 extern "C" char gSoundEffectManager_02108760[];
 
 static inline int inline_ov002_021622ec(char *arg0) {
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov002_021622ec(char *arg0) {
                         *(int *) (arg0 + 0x1000 + RG(0xbb8, 0xa80)) = RG(0x2b, 0x2e);
                         *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) = 0;
                         GetZone3D_02012fe4();
-                        func_02017c58();
+                        SaveBMDJEntryVisibility_02017c58();
                     }
                     break;
                 case 2:

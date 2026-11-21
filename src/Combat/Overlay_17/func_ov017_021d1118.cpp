@@ -24,7 +24,7 @@ extern "C" int GetItemListCompletion_020a08a4(BattleRecords_02061c04* records);
 extern "C" int GetWardrobeCompletion_020a08d8(BattleRecords_02061c04* records);
 extern "C" int GetAlchenomiconCompletion_020a090c(BattleRecords_02061c04* records);
 
-struct Struct_ov017_021d1118_8 { unsigned char unknown_0_[6]; };
+struct PlayerId_ov017_021d1118_8 { unsigned char bytes_0_[6]; };
 
 struct Struct_ov017_021d1118_9 {
     unsigned char unknown_0_[14];
@@ -43,29 +43,29 @@ struct Struct_ov017_021d1118 {
     Struct_ov017_021d1118_9 unknown_4_;
 };
 
-struct Struct_ov017_021d1118_2 {
-    unsigned int unknown_0_0_ : 14;
-    unsigned int unknown_1_6_ : 17;
+struct RecordsSummary_ov017_021d1118_2 {
+    unsigned int playTimeHours_0_0_ : 14;
+    unsigned int alchemyCount_1_6_ : 17;
     unsigned int unknown_3_7_ : 1;
-    unsigned int unknown_4_0_ : 14;
+    unsigned int multiplayerTimeHours_4_0_ : 14;
     unsigned int unknown_5_6_ : 17;
     unsigned int unknown_7_7_ : 1;
-    unsigned int unknown_8_0_ : 7;
-    unsigned int unknown_8_7_ : 7;
-    unsigned int unknown_9_6_ : 7;
-    unsigned int unknown_a_5_ : 7;
+    unsigned int playTimeMinutes_8_0_ : 7;
+    unsigned int multiplayerTimeMinutes_8_7_ : 7;
+    unsigned int defeatedMonsterListCompletion_9_6_ : 7;
+    unsigned int itemListCompletion_a_5_ : 7;
     unsigned int unknown_b_4_ : 4;
     unsigned int unknown_c_0_ : 10;
     unsigned int unknown_d_2_ : 14;
-    unsigned int unknown_f_0_ : 7;
+    unsigned int wardrobeCompletion_f_0_ : 7;
     unsigned int unknown_f_7_ : 1;
     unsigned int unknown_10_0_ : 9;
     unsigned int unknown_11_1_ : 14;
-    unsigned int unknown_12_7_ : 7;
+    unsigned int alchenomiconCompletion_12_7_ : 7;
     unsigned int unknown_13_6_ : 2;
     short unknown_14_;
-    unsigned char unknown_16_0_ : 1;
-    unsigned char unknown_16_1_ : 4;
+    unsigned char gender_16_0_ : 1;
+    unsigned char revocationCount_16_1_ : 4;
 };
 
 struct Struct_ov017_021d1118_3 {
@@ -86,8 +86,8 @@ struct Struct_ov017_021d1118_4 {
     Struct_ov017_021d1118_3 unknown_569c_;
     char unknown_5718_[0x74fe - 0x5718];
 #endif
-    Struct_ov017_021d1118_8 unknown_74fe_;
-    Struct_ov017_021d1118_8 inline_ov017_021d1118() { return unknown_74fe_; }
+    PlayerId_ov017_021d1118_8 unknown_74fe_;
+    PlayerId_ov017_021d1118_8 inline_ov017_021d1118() { return unknown_74fe_; }
 };
 
 struct Struct_ov017_021d1118_5 {
@@ -145,7 +145,7 @@ extern "C" ARM void func_ov017_021d1118(int arg0, int arg1, bool arg2, unsigned 
     if (arg1 & 4) {
         var2->unknown_f_0_ = 2;
         var2->unknown_f_2_ = 6;
-        Struct_ov017_021d1118_8 var16 = ((Struct_ov017_021d1118_4*)var0)->inline_ov017_021d1118();
+        PlayerId_ov017_021d1118_8 var16 = ((Struct_ov017_021d1118_4*)var0)->inline_ov017_021d1118();
         memcpy(var2->unknown_0_, &var16, var2->unknown_f_2_);
         QueueOutgoingPacket_0205e330(var1, &var15, 0);
     }
@@ -168,25 +168,25 @@ extern "C" ARM void func_ov017_021d1118(int arg0, int arg1, bool arg2, unsigned 
             var8 = var11->unknown_49c_0_;
             var9 = var11->unknown_186_[var11->unknown_950_];
         }
-        Struct_ov017_021d1118_2 var19;
+        RecordsSummary_ov017_021d1118_2 var19;
         VectorizedMemset(&var19, 0, sizeof(var19));
-        var19.unknown_0_0_ = var17.playTimes_0_.playTime_0_.hours_0_;
-        var19.unknown_8_0_ = var17.playTimes_0_.playTime_0_.minutes_2_;
-        var19.unknown_4_0_ = var17.playTimes_0_.multiplayerTime_4_.hours_0_;
-        var19.unknown_8_7_ = var17.playTimes_0_.multiplayerTime_4_.minutes_2_;
+        var19.playTimeHours_0_0_ = var17.playTimes_0_.playTime_0_.hours_0_;
+        var19.playTimeMinutes_8_0_ = var17.playTimes_0_.playTime_0_.minutes_2_;
+        var19.multiplayerTimeHours_4_0_ = var17.playTimes_0_.multiplayerTime_4_.hours_0_;
+        var19.multiplayerTimeMinutes_8_7_ = var17.playTimes_0_.multiplayerTime_4_.minutes_2_;
         var19.unknown_5_6_ = var17.unknown_8_0_;
-        var19.unknown_1_6_ = var18;
+        var19.alchemyCount_1_6_ = var18;
         var19.unknown_c_0_ = var17.unknown_10_0_;
         var19.unknown_10_0_ = var17.unknown_b_0_;
         var19.unknown_d_2_ = var17.unknown_d_6_;
         var19.unknown_11_1_ = var17.unknown_11_1_;
-        var19.unknown_9_6_ = (unsigned char)GetDefeatedMonsterListCompletion_020a0870(&var17);
-        var19.unknown_a_5_ = (unsigned char)GetItemListCompletion_020a08a4(&var17);
-        var19.unknown_f_0_ = (unsigned char)GetWardrobeCompletion_020a08d8(&var17);
-        var19.unknown_12_7_ = (unsigned char)GetAlchenomiconCompletion_020a090c(&var17);
+        var19.defeatedMonsterListCompletion_9_6_ = (unsigned char)GetDefeatedMonsterListCompletion_020a0870(&var17);
+        var19.itemListCompletion_a_5_ = (unsigned char)GetItemListCompletion_020a08a4(&var17);
+        var19.wardrobeCompletion_f_0_ = (unsigned char)GetWardrobeCompletion_020a08d8(&var17);
+        var19.alchenomiconCompletion_12_7_ = (unsigned char)GetAlchenomiconCompletion_020a090c(&var17);
         var19.unknown_14_ = var14->unknown_6_3_;
-        var19.unknown_16_0_ = var8;
-        var19.unknown_16_1_ = var9;
+        var19.gender_16_0_ = var8;
+        var19.revocationCount_16_1_ = var9;
         var2->unknown_f_0_ = 0;
         var2->unknown_f_6_ = 0;
         var3 = (unsigned char*)&var19;

@@ -5,7 +5,7 @@
 #endif
 #include <globaldefs.h>
 
-extern "C" int func_020d4aa8(void);
+extern "C" int GetWirelessChannelMask_020d4aa8(void);
 
 struct Struct_ov027_021db3c0 {
     unsigned char unknown_0_[4];
@@ -14,7 +14,7 @@ struct Struct_ov027_021db3c0 {
 
 // USA: func_ov027_021db3c0
 extern "C" ARM int func_ov027_021db3c0(Struct_ov027_021db3c0* arg0) {
-    unsigned int var0 = func_020d4aa8();
+    unsigned int var0 = GetWirelessChannelMask_020d4aa8();
     if (var0 == 0) return 0;
     unsigned short var1 = 0;
     unsigned short var2 = arg0->unknown_4_;

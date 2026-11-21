@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-// USA: func_ov023_021eb564
-extern "C" ARM void func_ov023_021eb564(char* arg0, int arg1, int arg2) {
-    if (arg1 != 0 && arg2 != 0) {
-        *(int*)(arg0 + 0x20) = arg1;
-        *(int*)(arg0 + 0x24) = arg2;
+// USA: SetAccoladeDisplayEntries_ov023_021eb564
+extern "C" ARM void SetAccoladeDisplayEntries_ov023_021eb564(char* display, int entries, int entryCount) {
+    if (entries != 0 && entryCount != 0) {
+        *(int*)(display + 0x20) = entries;
+        *(int*)(display + 0x24) = entryCount;
     }
 }

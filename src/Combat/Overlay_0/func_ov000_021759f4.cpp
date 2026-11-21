@@ -17,7 +17,7 @@ struct Struct_ov000_021759f4_2 {
 };
 #endif
 
-struct Struct_020a36a8;
+struct BattleSetup_020a36a8;
 
 struct Struct_ov000_021643d4_8 {
     char unknown_0_[0x10];
@@ -73,8 +73,8 @@ struct Struct_ov000_021759f4 {
     unsigned char unknown_eb4_;
 };
 
-extern "C" struct Struct_020a36a8* func_ov017_021b8478(void* battleManager);
-extern "C" int func_020a36a8(struct Struct_020a36a8* arg0);
+extern "C" struct BattleSetup_020a36a8* func_ov017_021b8478(void* battleManager);
+extern "C" int IsProtagonistBattleOwner_020a36a8(struct BattleSetup_020a36a8* battleSetup);
 extern "C" struct Struct_ov000_021759f4* func_ov017_021b8468(void* battleManager);
 extern "C" struct Struct_ov000_021643d4_8* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
@@ -88,14 +88,14 @@ extern "C" ARM int func_ov000_021759f4(struct Struct_ov000_021759f4_5* arg0) {
 #else
     void* var0 = GetGameResources()->unknown_ptr_3718;
 #endif
-    struct Struct_020a36a8* var1 = func_ov017_021b8478(var0);
+    struct BattleSetup_020a36a8* var1 = func_ov017_021b8478(var0);
     if (arg0->unknown_1d72_ & 0x200) {
         return 0;
     }
     if (arg0->unknown_1d72_ & 0x400) {
         return 0;
     }
-    if (var1 != NULL && !func_020a36a8(var1)) {
+    if (var1 != NULL && !IsProtagonistBattleOwner_020a36a8(var1)) {
         struct Struct_ov000_021759f4* var2 = func_ov017_021b8468(var0);
         if (var2 != NULL) {
             return var2->unknown_eb4_;

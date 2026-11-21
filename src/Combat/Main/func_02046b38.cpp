@@ -11,12 +11,12 @@ struct Queue_02046b38 {
 
 // USA: IsNodeInQueue_02046b38
 extern "C" ARM int IsNodeInQueue_02046b38(struct Queue_02046b38* queue, struct QueueNode_02046b38_2* node) {
-    struct QueueNode_02046b38_2* var0 = queue->pHead_0_;
-    while (var0 != 0) {
-        if (var0 == node) {
+    struct QueueNode_02046b38_2* current = queue->pHead_0_;
+    while (current != 0) {
+        if (current == node) {
             return 1;
         }
-        var0 = var0->pNext_4_;
+        current = current->pNext_4_;
     }
     return 0;
 }

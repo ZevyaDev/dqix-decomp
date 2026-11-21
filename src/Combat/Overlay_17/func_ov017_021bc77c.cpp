@@ -55,7 +55,7 @@ extern "C" void DisableInputForDuration_020e1154(void*);
 extern "C" void EnableCameraFollow_020a2794(void* camera);
 extern "C" void func_020a2744(char*);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
-extern "C" void func_ov017_0219b624(void* arg0);
+extern "C" void LoadFieldIcons_ov017_0219b624(void* gameResources);
 extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_ov017_021a2fa0(void* arg0);
@@ -284,7 +284,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
         SetFlag_0206df6c(var13, var13 + 0x8c, arg0->unknown_a0_ + 0xbea, 1);
     }
     if (arg0->unknown_9a_) {
-        func_ov017_0219b624(var1);
+        LoadFieldIcons_ov017_0219b624(var1);
     }
     if (arg0->unknown_138_) {
         SignedAllocatorHeader* var21 = arg0->unknown_138_->GetSignedAllocator();

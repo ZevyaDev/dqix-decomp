@@ -8,7 +8,7 @@ struct ActionTarget_ov000_021600f8 { char unknown_0_[0xe]; short unknown_e_; };
 struct Struct_ov025_021ef9a8 { int unknown_0_[6]; };
 struct Struct_ov025_021ef988_24 { char unknown_0_[0x20]; int unknown_20_; };
 struct Struct_ov025_021e6a08 { int unknown_0_, unknown_4_, unknown_8_; };
-struct Struct_02048c90;
+struct Combatant_02048c90;
 struct Struct_02010604 { Object3D unknown_0_; char unknown_ac_[0x14]; unsigned char unknown_c0_; };
 struct Struct_ov023_021f2a48 { char unknown_0_[0x14]; unsigned int unknown_14_; };
 extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
@@ -19,7 +19,7 @@ extern "C" int func_02048c10(unsigned char*);
 extern "C" int IsAsleep_020882f8(unsigned char*);
 extern "C" void func_02033920(GameObject*, int, int);
 extern "C" int SetMotion_02033b88(Struct_02010604*, int);
-extern "C" void func_02048c90(Struct_02048c90*);
+extern "C" void ClearCombatantPath_02048c90(Combatant_02048c90*);
 extern Struct_ov025_021ef9a8 data_ov025_021ef9a8;
 extern Struct_ov025_021ef988_24 data_ov025_021ef988;
 
@@ -72,7 +72,7 @@ extern "C" ARM int func_ov025_021e6a08(Struct_ov025_021e6a08* arg0, BattleAction
         }
     }
     if (var5) {
-        func_02048c90((Struct_02048c90*)var3);
+        ClearCombatantPath_02048c90((Combatant_02048c90*)var3);
         if (((Struct_02010604*)var3)->unknown_c0_ != 6) SetMotion_02033b88((Struct_02010604*)var3, 1);
     }
     return 0;

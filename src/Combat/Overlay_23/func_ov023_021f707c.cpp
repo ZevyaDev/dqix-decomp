@@ -9,7 +9,7 @@ struct Struct_020534ac;
 
 extern "C" {
     int GetMenuLoadTaskId_ov023_021f6bb8(void* objectList);
-    void func_ov023_021f6bb0(void* arg0, int arg1);
+    void SetMenuLoadTaskId_ov023_021f6bb0(void* objectList, int taskId);
     void func_ov023_021f7290(void* arg0, void* arg1, int arg2, int arg3);
 }
 
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov023_021f707c(struct Struct_ov023_021f707c* arg0, void*
         }
 
         ((BackgroundLoader*)(var1))->RemoveTask((int)(var2));
-        func_ov023_021f6bb0(var0, -1);
+        SetMenuLoadTaskId_ov023_021f6bb0(var0, -1);
         return 2;
     }
     return arg0->unknown_1c_;

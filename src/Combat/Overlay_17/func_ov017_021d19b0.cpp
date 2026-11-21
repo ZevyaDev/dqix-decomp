@@ -23,7 +23,7 @@ extern "C" ARM void func_ov017_021d19b0(int arg0, struct Struct_ov017_021d19b0* 
         Struct_020134e0::Struct_02018300* var1 = func_02018c20(var0, arg1->unknown_6_);
         if (var1 == NULL)
             return;
-        func_02018300(var0, var1, arg1->unknown_8_, 0, 0);
+        OpenDoor_02018300(var0, var1, arg1->unknown_8_, 0, 0);
     } else {
         struct ActiveZone_020fdd44* var2 = GetActiveZones_02027ca4();
         struct ActiveZone_020fdd44* var3 = FindActiveZone_02028bd0(var2, arg1->unknown_4_);

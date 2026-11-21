@@ -5,7 +5,7 @@ extern "C" int func_020d26ec(void);
 
 extern "C" void func_020bd02c(void);
 extern "C" void func_020d1f0c(int arg0, int arg1, int arg2, int arg3);
-extern "C" void SendSoundCommands_020d24c4(int arg0);
+extern "C" void SendSoundCommands_020d24c4(int flags);
 
 // USA: func_020bbdd8
 extern "C" ARM void func_020bbdd8(void) {

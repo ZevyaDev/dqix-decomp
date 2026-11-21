@@ -8,7 +8,7 @@ enum { Enum_020dc428_336 = 0x150 };
 
 #include "GameState/GameState.h"
 
-extern "C" void func_020dc4d0(signed char* arg0, signed char* arg1);
+extern "C" void GetExistingPartyOrder_020dc4d0(signed char* outPartyOrder, signed char* outCount);
 
 struct Struct_020dc428 {
     unsigned char unknown_0_[0x56b];
@@ -27,7 +27,7 @@ struct Struct_020dc428_3 {
 // USA: func_020dc428
 extern "C" ARM int func_020dc428(void) {
     struct Struct_020dc428_3 var0;
-    func_020dc4d0(var0.unknown_1_, &var0.unknown_0_);
+    GetExistingPartyOrder_020dc4d0(var0.unknown_1_, &var0.unknown_0_);
 
     signed char var1 = 0;
     GameState* var2 = GameState::GetInstance();

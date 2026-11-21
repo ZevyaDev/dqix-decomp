@@ -13,7 +13,7 @@ extern "C" void* func_ov000_0215e9d8(void*);
 extern "C" void InitBattleAction_ov000_02160030(void*);
 extern "C" void* func_ov000_0215e918(void*);
 extern "C" void* func_ov000_0215e938(void*);
-extern "C" void func_ov000_02157cdc(void*);
+extern "C" void InitActionTarget_ov000_02157cdc(void*);
 extern "C" void AppendTargetResult_ov000_0215ffc4(void*,void*,int);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*,void*,int);
 struct Struct_ov000_0215767c_7; struct Struct_ov000_0215767c_6; struct BattleAction_ov000_0215767c_5; struct ActionTarget_ov000_0215767c_4;
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov000_0215b278(unsigned char* arg0,BattleAction_ov000_0
   Struct_ov000_0215b278* var6=(Struct_ov000_0215b278*)func_ov000_0215e918(arg0);
   if(!var6) continue; memset(var6,0,0x30);var6->unknown_1c_=-1;var6->unknown_30_=0;
   Struct_ov000_0215b278_2* var7=(Struct_ov000_0215b278_2*)func_ov000_0215e938(arg0);
-  if(!var7) continue;func_ov000_02157cdc(var7);
+  if(!var7) continue;InitActionTarget_ov000_02157cdc(var7);
   var5->unknown_0_=0x3b1;
   var6->unknown_20_=var1->unknown_e_;var6->unknown_22_=var4->unknown_138_->unknown_0_;var6->unknown_24_=var4->unknown_138_->unknown_2_;
   memcpy(var7,var1,0x24);
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov000_0215b278(unsigned char* arg0,BattleAction_ov000_0
    var6=(Struct_ov000_0215b278*)func_ov000_0215e918(arg0);
    if(!var6) continue;memset(var6,0,0x30);var6->unknown_1c_=-1;var6->unknown_30_=0;
    Struct_ov000_0215b278_2* var9=(Struct_ov000_0215b278_2*)func_ov000_0215e938(arg0);
-   if(!var9) continue;func_ov000_02157cdc(var9);
+   if(!var9) continue;InitActionTarget_ov000_02157cdc(var9);
    Struct_ov000_0215b278_3* var10=GetNextActionResult_ov000_0215e958(arg0);
    if(!var10)continue;memset(var10,0,0x20);var10->unknown_20_=0;
    var8->unknown_0_=0x39c;

@@ -4,7 +4,7 @@
 
 extern "C" int func_020dc920(int arg0, int arg1, int arg2, int arg3);
 extern "C" int func_ov017_0218b628(signed char arg0);
-extern int data_020fdcb0[][8];
+extern int gPartyStatsCache_020fdcb0[][8];
 
 struct Struct_ov002_02159774 {
 #if defined(jpn)
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov002_02159774(char *arg0, int arg1, int arg2, int arg3,
         if (*(short *) (arg0 + Enum_ov002_02159774_7206) == 0xd1) var5 = 1;
         if (func_020dc920(arg1 & 0xff, arg3, arg4, var5) == 0) return 3;
     }
-    int *var6 = data_020fdcb0[var0->obj3D_.unknown_4_];
+    int *var6 = gPartyStatsCache_020fdcb0[var0->obj3D_.unknown_4_];
     var1    = (float) var6[0];
     var2    = (float) var6[2];
     if ((*(int *) (arg0 + Enum_ov002_02159774_9340) & 1) || *(int *) (arg0 + Enum_ov002_02159774_7096) == 4) {

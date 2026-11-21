@@ -9,7 +9,7 @@ extern "C" void func_ov031_02227ce4(void);
 extern "C" ARM void func_ov031_02222e40(int arg0);
 extern "C" ARM unsigned char func_ov031_0223607c(int arg0);
 extern "C" ARM unsigned char func_ov031_02227548(void);
-extern "C" void func_ov031_02237b2c(int, int, int, int, int);
+extern "C" void OpenDialog_ov031_02237b2c(int, int, int, int, int);
 extern "C" void func_ov031_02232f58(void);
 extern "C" void func_ov031_02232fe8(void);
 extern "C" void func_ov031_02236094(void);
@@ -64,7 +64,7 @@ handleOne:
         PlayWifiSetupSoundEffect_ov031_02236878(6);
         signed char var5 = data_ov031_0224910c[func_ov031_02227548()];
         int var6 = var3 + 1;
-        func_ov031_02237b2c(0x46, 0, 1, var5, var6);
+        OpenDialog_ov031_02237b2c(0x46, 0, 1, var5, var6);
         func_ov031_02232f58();
         DisableButtonBarInput_ov031_02222e98();
         SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02232fe8);
