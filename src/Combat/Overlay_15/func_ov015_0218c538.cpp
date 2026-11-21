@@ -17,7 +17,7 @@
 #include "Combat/Overlay15ViewerContext.h"
 
 extern "C" void* __clear(void* arg0, int arg1);
-extern "C" void func_02079a3c(void* arg0);
+extern "C" void InitGPCReadPair_02079a3c(void* readPair);
 
 struct ObjectArchiveLoadInfo_0203d028_11;
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo);
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov015_0218c538(Struct_ov015_0218bcb0* arg0, char* arg1)
     unsigned char* var4 = g_fileScratchSpace;
     unsigned int var5 = 0x30000;
     GPCReadPair var6;
-    func_02079a3c(&var6);
+    InitGPCReadPair_02079a3c(&var6);
 
     if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var6.pGPCFile, &var6.machine, data_ov015_02194020, var4, &var3, var5, false, 0)) {
         var4 += var3;

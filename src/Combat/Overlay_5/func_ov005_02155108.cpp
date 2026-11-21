@@ -22,11 +22,11 @@ extern "C" void func_ov005_0215a620(void* arg0);
 struct DisplayWindow_020439b0;
 extern "C" void SetDisplayWindowInsideLayers_020e2d24(int* displayWindow, int layers, int isEffectEnabled);
 extern "C" void func_ov005_0215ae7c(void* arg0);
-struct Struct_020e28dc;
-extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
+struct YesNoWindow_020e28dc;
+extern "C" int IsYesNoWindowOpen_020e28dc(struct YesNoWindow_020e28dc* yesNoWindow);
 extern "C" void SetDisplayWindowEnabled_020e2cc4(struct DisplayWindow_020439b0* displayWindow, int isEnabled);
-struct Struct_020e2834;
-extern "C" void func_020e2834(struct Struct_020e2834* arg0);
+struct YesNoWindow_020e2834;
+extern "C" void func_020e2834(struct YesNoWindow_020e2834* arg0);
 extern "C" void func_ov005_02155d6c(void* arg0);
 
 // USA: func_ov005_02155108
@@ -52,9 +52,9 @@ extern "C" ARM void func_ov005_02155108(void* arg0) {
         unsigned char* var1 = *(unsigned char**)((unsigned char*)(*(void**)(var0 + R(0xe60, 0xe64))) + 0x10);
         int var2;
         SetDisplayWindowInsideLayers_020e2d24((int*)(var1 + 0x28), 0x1f, 1);
-        var2 = func_020e28dc((struct Struct_020e28dc*)*(void**)(var0 + R(0xe60, 0xe64)));
+        var2 = IsYesNoWindowOpen_020e28dc((struct YesNoWindow_020e28dc*)*(void**)(var0 + R(0xe60, 0xe64)));
         SetDisplayWindowEnabled_020e2cc4((struct DisplayWindow_020439b0*)(var1 + 0x28), var2);
-        func_020e2834((struct Struct_020e2834*)*(void**)(var0 + R(0xe60, 0xe64)));
+        func_020e2834((struct YesNoWindow_020e2834*)*(void**)(var0 + R(0xe60, 0xe64)));
     }
 
     func_ov005_02155d6c(arg0);

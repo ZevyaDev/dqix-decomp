@@ -6,7 +6,7 @@
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, unsigned short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov024_021ede2c(void* arg0);
 struct Struct_020885b4;
-extern "C" int func_020885b4(struct Struct_020885b4* arg0);
+extern "C" int IsPoisoned_020885b4(struct Struct_020885b4* stats);
 
 extern unsigned short data_ov024_021fec3c;
 
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov024_021f43b0(struct Struct_ov024_021f43b0* arg0, int a
 	for (int var6 = 0; var6 < var5; var6++) {
 		GameObject* var7 = GetCombatantByID(arg0->unknown_0_, var0[var6]);
 		if (!var7) continue;
-		if (func_020885b4((struct Struct_020885b4*)var7->currentStats_)) continue;
+		if (IsPoisoned_020885b4((struct Struct_020885b4*)var7->currentStats_)) continue;
 		int var8 = *arg3;
 		*arg3 = var8 + 1;
 		arg4[var8] = var0[var6];

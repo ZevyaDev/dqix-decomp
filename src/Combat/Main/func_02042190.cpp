@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-// USA: func_02042190
-extern "C" ARM int func_02042190(int arg0) {
-    int var0 = 0;
-    if (arg0 == 0xc) {
-        var0 = 1;
+// USA: GetFontForFontSize_02042190
+extern "C" ARM int GetFontForFontSize_02042190(int fontSize) {
+    int font = 0;
+    if (fontSize == 0xc) {
+        font = 1;
     }
-    return var0;
+    return font;
 }

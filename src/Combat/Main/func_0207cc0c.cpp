@@ -2,7 +2,7 @@
 
 extern "C" void ResetItemContext_0207cbe8(char* itemContext);
 
-// USA: func_0207cc0c
-extern "C" ARM void func_0207cc0c(char* arg0) {
-    ResetItemContext_0207cbe8(arg0);
+// USA: DestroyItemContext_0207cc0c
+extern "C" ARM void DestroyItemContext_0207cc0c(char* itemContext) {
+    ResetItemContext_0207cbe8(itemContext);
 }

@@ -12,7 +12,7 @@ extern "C" void GetWifiSetupPageArguments_ov031_02227520(int* outFirstArgument, 
 extern "C" void func_ov031_0222336c(int, int, int);
 extern "C" int func_ov031_02223518(void* arg0);
 extern "C" void func_ov031_022239f4(void);
-extern "C" void func_ov031_022235a0(void* arg0);
+extern "C" void ShowMainScreenMessage_ov031_022235a0(void* messageIndex);
 extern "C" void func_ov031_02222b0c(int);
 extern "C" void func_ov031_02233b34(void);
 extern "C" void func_ov031_02223a64(int);
@@ -33,7 +33,7 @@ skipInit:
 	if (var0 != 0) goto skipCall;
 	func_ov031_022239f4();
 skipCall:
-	func_ov031_022235a0((void*)0x2c);
+	ShowMainScreenMessage_ov031_022235a0((void*)0x2c);
 	func_ov031_02222b0c(0);
 	func_ov031_02233b34();
 	func_ov031_02223a64(0);

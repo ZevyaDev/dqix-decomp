@@ -852,7 +852,7 @@ func_ov031_02222b0c kind:function(arm,size=0xd0) addr:0x022232ec
 func_ov031_02222bdc kind:function(arm,size=0x3c) addr:0x022233bc
 func_ov031_02222c18 kind:function(arm,size=0xcc) addr:0x022233f8
 func_ov031_02222ce4 kind:function(arm,size=0xf8) addr:0x022234c4
-func_ov031_02222ddc kind:function(arm,size=0x30) addr:0x022235bc
+CloseButtonBar_ov031_02222ddc kind:function(arm,size=0x30) addr:0x022235bc
 GetButtonBarChoice_ov031_02222e0c kind:function(arm,size=0x14) addr:0x022235ec
 SetButtonBarChoice_ov031_02222e20 kind:function(arm,size=0x20) addr:0x02223600
 func_ov031_02222e40 kind:function(arm,size=0x14) addr:0x02223620
@@ -873,7 +873,7 @@ func_ov031_02223478 kind:function(arm,size=0x60) addr:0x02223c58
 LoadFileToVRAM_ov031_022234d8 kind:function(arm,size=0x40) addr:0x02223cb8
 func_ov031_02223518 kind:function(arm,size=0x50) addr:0x02223cf8
 CreateButtonBarIfEnabled_ov031_02223568 kind:function(arm,size=0x38) addr:0x02223d48
-func_ov031_022235a0 kind:function(arm,size=0x74) addr:0x02223d80
+ShowMainScreenMessage_ov031_022235a0 kind:function(arm,size=0x74) addr:0x02223d80
 func_ov031_02223614 kind:function(arm,size=0xbc) addr:0x02223df4
 func_ov031_022236d0 kind:function(arm,size=0x18) addr:0x02223eb0
 func_ov031_022236e8 kind:function(arm,size=0x20) addr:0x02223ec8
@@ -1525,7 +1525,7 @@ func_ov031_022359e0 kind:function(arm,size=0x64) addr:0x022361c0
 func_ov031_02235a44 kind:function(arm,size=0x1d4) addr:0x02236224
 func_ov031_02235c18 kind:function(arm,size=0x44) addr:0x022363f8
 func_ov031_02235c5c kind:function(arm,size=0x14) addr:0x0223643c
-func_ov031_02235c70 kind:function(arm,size=0x14) addr:0x02236450
+GetEditedConnectionSettings_ov031_02235c70 kind:function(arm,size=0x14) addr:0x02236450
 func_ov031_02235c84 kind:function(arm,size=0x14) addr:0x02236464
 func_ov031_02235c98 kind:function(arm,size=0x14) addr:0x02236478
 func_ov031_02235cac kind:function(arm,size=0x30) addr:0x0223648c
@@ -1557,7 +1557,7 @@ func_ov031_0223684c kind:function(arm,size=0x2c) addr:0x0223702c
 PlayWifiSetupSoundEffect_ov031_02236878 kind:function(arm,size=0x24) addr:0x02237058
 func_ov031_0223689c kind:function(arm,size=0x20) addr:0x0223707c
 func_ov031_022368bc kind:function(arm,size=0x24) addr:0x0223709c
-func_ov031_022368e0 kind:function(arm,size=0x20) addr:0x022370c0
+StopWifiSetupSoundEffect_ov031_022368e0 kind:function(arm,size=0x20) addr:0x022370c0
 func_ov031_02236900 kind:function(arm,size=0xc) addr:0x022370e0
 func_ov031_0223690c kind:function(arm,size=0xfc) addr:0x022370ec
 func_ov031_02236a08 kind:function(arm,size=0xe4) addr:0x022371e8
@@ -1587,8 +1587,8 @@ func_ov031_022378e4 kind:function(arm,size=0x10c) addr:0x022380c4
 func_ov031_022379f0 kind:function(arm,size=0x13c) addr:0x022381d0
 func_ov031_02237b2c kind:function(arm,size=0x32c) addr:0x0223830c
 func_ov031_02237e58 kind:function(arm,size=0x44) addr:0x02238638
-func_ov031_02237e9c kind:function(arm,size=0x14) addr:0x0223867c
-func_ov031_02237eb0 kind:function(arm,size=0x1c) addr:0x02238690
+GetDialogChoice_ov031_02237e9c kind:function(arm,size=0x14) addr:0x0223867c
+IsDialogOpen_ov031_02237eb0 kind:function(arm,size=0x1c) addr:0x02238690
 func_ov031_02237ecc kind:function(arm,size=0x60) addr:0x022386ac
 func_ov031_02237f2c kind:function(arm,size=0xd4) addr:0x0223870c
 func_ov031_02238000 kind:function(arm,size=0x15c) addr:0x022387e0
@@ -1702,7 +1702,7 @@ func_ov031_0223baac kind:function(arm,size=0x8) addr:0x0223c28c
 func_ov031_0223bab4 kind:function(arm,size=0xa4) addr:0x0223c294
 func_ov031_0223bb58 kind:function(arm,size=0x80) addr:0x0223c338
 SetSpritePosition_ov031_0223bbd8 kind:function(arm,size=0xf0) addr:0x0223c3b8
-func_ov031_0223bcc8 kind:function(arm,size=0x60) addr:0x0223c4a8
+SetSpritePriority_ov031_0223bcc8 kind:function(arm,size=0x60) addr:0x0223c4a8
 func_ov031_0223bd28 kind:function(arm,size=0x30) addr:0x0223c508
 func_ov031_0223bd58 kind:function(arm,size=0x30) addr:0x0223c538
 func_ov031_0223bd88 kind:function(arm,size=0x28) addr:0x0223c568
@@ -2762,7 +2762,7 @@ data_ov031_0224e6b2 kind:bss addr:0x0224f2b2
 data_ov031_0224e6b6 kind:bss addr:0x0224f2b6
 data_ov031_0224e6b8 kind:bss addr:0x0224f2b8
 data_ov031_0224e6c0 kind:bss addr:0x0224f2c0
-data_ov031_0224e6e0 kind:bss addr:0x0224f2e0
+gAOSSSession_ov031_0224e6e0 kind:bss addr:0x0224f2e0
 data_ov031_0224f2e4 kind:bss addr:0x0224f2e4
 data_ov031_0224e700 kind:bss addr:0x0224f300
 data_ov031_0224e704 kind:bss addr:0x0224f304

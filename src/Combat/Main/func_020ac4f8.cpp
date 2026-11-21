@@ -20,7 +20,7 @@ extern "C" int SetBattleRecords_020ac494(void* records);
 unsigned long long GetCurrentTimestamp(void);
 
 // USA: AddElapsedPlayTime_020ac4f8
-extern "C" ARM int AddElapsedPlayTime_020ac4f8(int arg0) {
+extern "C" ARM int AddElapsedPlayTime_020ac4f8(int isMultiplayerTimeIncluded) {
     GameState *gameState;
     BattleRecords_02061c04 records;
     unsigned short hours;
@@ -49,7 +49,7 @@ extern "C" ARM int AddElapsedPlayTime_020ac4f8(int arg0) {
     timestamp = GetCurrentTimestamp();
     gameState->mainTimestamp_ = timestamp;
 
-    if (arg0 != 0) {
+    if (isMultiplayerTimeIncluded != 0) {
         PlayTime_020ac4f8* multiplayerTime;
         func_020104cc((struct Struct_020104cc*)gameState, &hours, &minutes, &seconds);
         multiplayerTime = &records.playTimes_0_.multiplayerTime_4_;

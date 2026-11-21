@@ -15,9 +15,9 @@ struct Struct_0201d638 { int unknown_0_, unknown_4_, unknown_8_; };
 extern "C" void __clear(void* arg0, int arg1);
 
 struct Struct_020fdc20_9 { unsigned char* unknown_0_; };
-extern struct Struct_020fdc20_9 data_020fdc20;
+extern struct Struct_020fdc20_9 gZoneFeatureScriptContext_020fdc20;
 
-#define REC ((unsigned char*)data_020fdc20.unknown_0_)
+#define REC ((unsigned char*)gZoneFeatureScriptContext_020fdc20.unknown_0_)
 #define B(off) (*(unsigned char*)(REC + (off)))
 #define H(off) (*(short*)(REC + (off)))
 #define W(off) (*(int*)(REC + (off)))
@@ -30,7 +30,7 @@ struct Struct_0201d638_3 { unsigned short unknown_0_0_ : 4; unsigned short unkno
 
 // USA: func_0201d638
 extern "C" ARM int func_0201d638(Script::Parameter* arg0, int arg1) {
-    if (data_020fdc20.unknown_0_ == 0) return 0;
+    if (gZoneFeatureScriptContext_020fdc20.unknown_0_ == 0) return 0;
 
     void* var0 = func_02011584((void*)GameState::GetInstance());
 

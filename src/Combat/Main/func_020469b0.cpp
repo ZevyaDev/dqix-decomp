@@ -27,8 +27,8 @@ extern "C" int func_02043014(int, void*);
 extern "C" int func_02045c00(Struct_020469b0_3*, void*, int);
 extern "C" unsigned short func_02046530(Struct_020469b0_3*, void*, int, int);
 
-// JPN: func_020469b0
-extern "C" ARM unsigned short func_020469b0(Struct_020469b0_3* arg0, const char* arg1, unsigned short* arg2, int arg3) {
+// JPN: ConvertTextToMessageGlyphs_02045d14
+extern "C" ARM unsigned short ConvertTextToMessageGlyphs_02045d14(Struct_020469b0_3* arg0, const char* arg1, unsigned short* arg2, int arg3) {
     unsigned short var0;
     int var1;
     int var2;

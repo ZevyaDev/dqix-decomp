@@ -7,7 +7,7 @@ extern "C" void ExpandInflectionTags_020e4864(int text, void* buffer, int isInde
 extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 
 struct Struct_0203c108_3;
-extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
+extern "C" void SetSpriteText_0203c108(struct Struct_0203c108_3* spriteText, char* text);
 
 // USA: func_ov000_021718a4
 extern "C" ARM void func_ov000_021718a4(void* arg0) {
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov000_021718a4(void* arg0) {
     var6[8] = (unsigned char)var4;
 
 #if defined(jpn)
-    func_0203c108((struct Struct_0203c108_3*)((char*)arg0 + 0x50), *(char**)var2);
+    SetSpriteText_0203c108((struct Struct_0203c108_3*)((char*)arg0 + 0x50), *(char**)var2);
 #else
     char var7[0x80];
     __clear(var7, 0x80);
@@ -37,6 +37,6 @@ extern "C" ARM void func_ov000_021718a4(void* arg0) {
     ExpandInflectionTags_020e4864(*(int*)var2, var7, 1, 0, 0, 0);
 
     CopyCapitalizedText_0206819c(var7, var8, 0);
-    func_0203c108((struct Struct_0203c108_3*)((char*)arg0 + 0x50), var8);
+    SetSpriteText_0203c108((struct Struct_0203c108_3*)((char*)arg0 + 0x50), var8);
 #endif
 }

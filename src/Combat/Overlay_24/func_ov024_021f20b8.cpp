@@ -4,7 +4,7 @@
 #include "std_library_functions.h"
 
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, unsigned short* indices, int maxCount, int filterFlags);
-extern "C" float func_ov024_021db358(GameObject* arg0);
+extern "C" float GetHPRatio_ov024_021db358(GameObject* combatant);
 
 extern unsigned short data_ov024_021fec6c;
 
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov024_021f20b8(int* arg0, int arg1, int arg2, int* arg3,
     for (int var8 = 0; var8 < var7; var8++) {
         GameObject* var9 = GetCombatantByID(*arg0, *(short*)&var2[var8]);
         if (!var9) continue;
-        if (func_ov024_021db358(var9) >= var1) continue;
+        if (GetHPRatio_ov024_021db358(var9) >= var1) continue;
         int var10 = *arg3;
         *arg3 = var10 + 1;
         arg4[var10] = *(short*)&var2[var8];

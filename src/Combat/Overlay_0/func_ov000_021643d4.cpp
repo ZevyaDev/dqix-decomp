@@ -174,7 +174,7 @@ struct Struct_ov000_021643d4_7 {
 
 extern "C" int func_0202ae18(BackgroundLoader*);
 extern "C" int func_02027cb0();
-extern "C" Struct_ov000_0215f7a8* func_ov017_021a278c(void*, int);
+extern "C" Struct_ov000_0215f7a8* FindFieldMonsterById_ov017_021a278c(void*, int);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" int IsOnLadder_02039d7c(char*);
 struct Struct_02039d84;
@@ -192,7 +192,7 @@ struct LocalWireless_0202c1a4;
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
 extern "C" void SetFieldMonsterState_02076ccc(void*, int);
 extern "C" void InitFieldMonster_02076a8c(Struct_ov000_0215f7a8* monster);
-extern "C" void func_ov017_0219bf74();
+extern "C" void UnloadZone_ov017_0219bf74();
 extern "C" void func_ov017_0219bd1c(int arg0, int arg1, int arg2, int arg3);
 extern "C" struct Struct_ov017_0219e384* GetZoneEntry_0200fd0c(GameState*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
@@ -222,7 +222,7 @@ extern "C" void func_ov000_02161300(Struct_ov000_021643d4_7* arg0, int arg1);
 extern "C" void func_02039894(unsigned char*);
 extern "C" int IsLocalWirelessGuest_0202c540(int wireless);
 extern "C" void func_ov017_0219c774(int arg0, int arg1, int arg2);
-extern "C" void func_ov017_021cdaa0();
+extern "C" void SendDayTimer_ov017_021cdaa0();
 extern "C" void GetBattleRecords_020ac4c0(void*);
 struct Struct_020a07e0;
 extern "C" void func_020a07e0(Struct_020a07e0*, unsigned int);
@@ -250,7 +250,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     Zone3D* var5 = GetZone3D_02012fe4();
     Struct_ov000_021643d4_2* var6 = (Struct_ov000_021643d4_2*)GetParty_02010828(var0);
     Struct_ov000_0215f7a8* var7 = (Struct_ov000_0215f7a8*)var0->GetProtagonist();
-    Struct_ov000_0215f7a8* var8 = func_ov017_021a278c((void*)var3, arg0->unknown_2a0_->unknown_8_);
+    Struct_ov000_0215f7a8* var8 = FindFieldMonsterById_ov017_021a278c((void*)var3, arg0->unknown_2a0_->unknown_8_);
     var0->GetUnknownGameObject();
     Struct_ov000_0215f7a8* var9 = (Struct_ov000_0215f7a8*)var0->GetPartyMemberByIndex(arg0->unknown_2a0_->unknown_2a_);
     arg0->unknown_0_ = (*(volatile unsigned int*)0x4000000 & 0x1f00) >> 8;
@@ -325,7 +325,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
             ((Object3D*)var8)->MakeHidden();
         }
     }
-    func_ov017_0219bf74();
+    UnloadZone_ov017_0219bf74();
     func_ov017_0219bd1c(0, 4, 1, 0);
     char* var25 = (char*)GetZoneEntry_0200fd0c(var0);
     int var26 = GetProtagonistObjectIndex_020100a8(var0);
@@ -442,7 +442,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
         var40->unknown_94_ = data_ov000_0218423c[0];
         var40->unknown_98_ = 0;
     }
-    func_ov017_021cdaa0();
+    SendDayTimer_ov017_021cdaa0();
     if (arg0->unknown_2a0_->unknown_c_ == 0x1a) {
         var0->SetTimeOfDay(TimeOfDay_Evening);
         var40->unknown_98_ = 3;

@@ -17,8 +17,8 @@
 
 struct Struct_ov009_0218aa28 { int unknown_0_, unknown_4_, unknown_8_; };
 struct Struct_02000c9c_56 { Vector3fix unknown_0_, unknown_c_; };
-struct Struct_02046b38;
-struct Struct_02046b38_2;
+struct Queue_02046b38;
+struct QueueNode_02046b38_2;
 struct QueueNode_02015438;
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
@@ -46,7 +46,7 @@ extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void* func_020100bc(GameState*);
 extern "C" void* func_0205ec34(void*);
-extern "C" int func_02046b38(Struct_02046b38*, Struct_02046b38_2*);
+extern "C" int IsNodeInQueue_02046b38(Queue_02046b38*, QueueNode_02046b38_2*);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_ov017_0219bed0(void*);
@@ -56,13 +56,13 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_020321e0(const Vector3fix*, Struct_02000c9c_56*, int, const Vector3fix*, int);
 extern "C" void* func_ov017_0219c6f4(void*);
 extern "C" unsigned char func_02039820(void*);
-extern "C" void func_ov017_0219a674(unsigned char*);
+extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char*);
 extern "C" short func_ov017_021a4754(Vector3fix*, int, Vector3fix*);
 extern "C" void func_ov017_0219b33c(GameResources*, Struct_ov017_0219ca88_3*);
 extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char*, int);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" int RunTrigger_020649b0(void*, int, void*);
-extern "C" void func_0206f81c(void*);
+extern "C" void RunDeferredTriggerActions_0206f81c(void*);
 
 // USA: func_ov017_0219ca88
 extern "C" ARM void func_ov017_0219ca88(GameResources* arg0) {
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov017_0219ca88(GameResources* arg0) {
     Vector3fix* var4;
     int var5 = 0;
     void* var6 = func_0205ec34(func_020100bc(var0));
-    if (func_02046b38((Struct_02046b38*)arg0->unknown_ptr_array_36fc[0], (Struct_02046b38_2*)arg0->unknown_ptr_array_36fc[4])) return;
+    if (IsNodeInQueue_02046b38((Queue_02046b38*)arg0->unknown_ptr_array_36fc[0], (QueueNode_02046b38_2*)arg0->unknown_ptr_array_36fc[4])) return;
     if (GetQueueHeadType_02046b24((QueueNode_02015438**)arg0->unknown_ptr_array_36fc[0]) == 4) return;
     if (GetQueueHeadType_02046b24((QueueNode_02015438**)arg0->unknown_ptr_array_36fc[0]) == 10) return;
     if (TestFlags08(arg0, 8)) {
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov017_0219ca88(GameResources* arg0) {
         if (IsMainBrightnessTransitionActive(arg0)) return;
         ClearFlags08(arg0, 8);
     }
-    if (func_02046b38((Struct_02046b38*)arg0->unknown_ptr_array_36fc[0], (Struct_02046b38_2*)arg0->unknown_ptr_array_371c[0])) return;
+    if (IsNodeInQueue_02046b38((Queue_02046b38*)arg0->unknown_ptr_array_36fc[0], (QueueNode_02046b38_2*)arg0->unknown_ptr_array_371c[0])) return;
     if (IsQueueEmpty_02046b08((void**)arg0->unknown_ptr_array_36fc[0]) && !IsBrightnessTransitionActive(arg0) && ((unsigned char*)arg0->unknown_42e3_)[6]) {
         if (var3[2]) var3[0xa] = 0;
         else func_ov017_0219bed0((void*)1);
@@ -106,7 +106,7 @@ extern "C" ARM void func_ov017_0219ca88(GameResources* arg0) {
                     var5 = 0;
                     if (!func_02039820(var1)) continue;
                     Struct_ov017_0219ca88_3 var11;
-                    func_ov017_0219a674((unsigned char*)&var11);
+                    ResetInteractionPrompt_ov017_0219a674((unsigned char*)&var11);
                     var11.unknown_0_ = 8;
                     var11.unknown_8_ = var10;
                     var11.unknown_10_ = func_ov017_021a4754(var4, (short)var1->obj3D_.rotation_.y, &var10->unknown_58_);
@@ -131,6 +131,6 @@ extern "C" ARM void func_ov017_0219ca88(GameResources* arg0) {
     if (!var3[0xa]) {
         Struct_ov017_0219ca88 var12;
         var12.unknown_c_ = var2->currentZoneID_;
-        if (RunTrigger_020649b0(var6, 6, &var12)) func_0206f81c(&var12);
+        if (RunTrigger_020649b0(var6, 6, &var12)) RunDeferredTriggerActions_0206f81c(&var12);
     }
 }

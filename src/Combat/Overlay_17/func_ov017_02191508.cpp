@@ -53,8 +53,8 @@ struct Struct_ov017_02191508_6 {
 };
 
 extern "C" Struct_ov017_02191508_6* func_02053c6c(unsigned char* gameObject);
-extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
-extern "C" void func_02083e28(void* arg0, int arg1);
+extern "C" void SetLevelStats_02083cbc(void* memberData, void* arg1, void* arg2);
+extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
 extern "C" void SetVocation_02083ca0(unsigned char* memberData, int vocation);
 extern "C" void func_02083c18(char* arg0);
 extern "C" void LearnSpell_02083b60(unsigned char* memberData, int spellId);
@@ -98,8 +98,8 @@ extern "C" ARM void func_ov017_02191508(int arg0, Struct_ov017_02191508_2* arg1)
     var3.unknown_8_[2].unknown_1_2_ = arg1->unknown_14_[2].unknown_1_2_;
     var3.unknown_8_[2].unknown_2_4_ = arg1->unknown_14_[2].unknown_2_4_;
     var1->unknown_56a_ = 0xb;
-    func_02083cbc(var1, &var3, NULL);
-    func_02083e28(var1, 0);
+    SetLevelStats_02083cbc(var1, &var3, NULL);
+    CalculatePartyMemberStats_02083e28(var1, 0);
 
     if (var2 > -1) {
         var0->unknown_130_->unknown_4_ = var2;

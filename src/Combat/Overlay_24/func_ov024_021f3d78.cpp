@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
-extern "C" float func_ov024_021db358(GameObject* arg0);
+extern "C" float GetHPRatio_ov024_021db358(GameObject* combatant);
 
 struct Struct_ov024_021f3d78 { int unknown_0_; };
 struct Struct_ov024_021feefc { short unknown_0_[8]; };
@@ -19,7 +19,7 @@ extern "C" ARM int func_ov024_021f3d78(struct Struct_ov024_021f3d78* arg0, int a
         if (arg1 == var0.unknown_0_[var2]) continue;
         GameObject* var3 = GetCombatantByID(arg0->unknown_0_, var0.unknown_0_[var2]);
         if (!var3) continue;
-        if (func_ov024_021db358(var3) > 0.08f) continue;
+        if (GetHPRatio_ov024_021db358(var3) > 0.08f) continue;
         int var4 = *arg3;
         *arg3 = var4 + 1;
         arg4[var4] = var0.unknown_0_[var2];

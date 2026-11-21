@@ -22,7 +22,7 @@ extern "C" void func_02023064(struct Struct_020200c0_3* arg0, unsigned int arg1,
 extern "C" void InitCanvas_0205b20c(struct Canvas_020200c0_4* canvas);
 extern "C" void SetCanvasCharacterData_0205b220(void* canvas, int characterData);
 extern "C" void SetCanvasRects_0205b228(void* canvas, int rects, unsigned char rectCount);
-extern "C" int func_0205b234(void*, short, short, int, unsigned char, unsigned char);
+extern "C" int DrawCanvasText_0205b234(void*, short, short, int, unsigned char, unsigned char);
 
 #if defined(jpn)
 extern "C" int func_020d2ff0(const char*);
@@ -53,12 +53,12 @@ extern "C" ARM void func_020e0df8(void* arg0, int arg1, int arg2, int) {
     SetCanvasCharacterData_0205b220(&var1, arg1 + arg2);
     SetCanvasRects_0205b228(&var1, (int)var0, Enum_020e0df8_7);
 #if defined(jpn)
-    func_0205b234((void*)&var1, (short)6, (short)Enum_020e0df8_2, (int)((char*)arg0 + 0x1b4 + 0x400), (unsigned char)Enum_020e0df8_15, (unsigned char)Enum_020e0df8_0);
+    DrawCanvasText_0205b234((void*)&var1, (short)6, (short)Enum_020e0df8_2, (int)((char*)arg0 + 0x1b4 + 0x400), (unsigned char)Enum_020e0df8_15, (unsigned char)Enum_020e0df8_0);
     int var2 = func_020d2ff0((char*)arg0 + 0x1b4 + 0x400);
     short var4 = (var2 / 2) * 10 + 7;
 #else
-    int var3 = func_0205b234((void*)&var1, (short)6, (short)Enum_020e0df8_2, (int)((char*)arg0 + 0x1b4 + 0x400), (unsigned char)Enum_020e0df8_15, (unsigned char)Enum_020e0df8_0);
+    int var3 = DrawCanvasText_0205b234((void*)&var1, (short)6, (short)Enum_020e0df8_2, (int)((char*)arg0 + 0x1b4 + 0x400), (unsigned char)Enum_020e0df8_15, (unsigned char)Enum_020e0df8_0);
     short var4 = var3 + 9;
 #endif
-    func_0205b234((void*)&var1, var4, (short)Enum_020e0df8_2, (int)((char*)arg0 + 0x1f4 + 0x400), (unsigned char)Enum_020e0df8_15, (unsigned char)Enum_020e0df8_0);
+    DrawCanvasText_0205b234((void*)&var1, var4, (short)Enum_020e0df8_2, (int)((char*)arg0 + 0x1f4 + 0x400), (unsigned char)Enum_020e0df8_15, (unsigned char)Enum_020e0df8_0);
 }

@@ -30,7 +30,7 @@ extern "C" int IsParalysed_ov024_021da9b0(Struct_ov024_021da670_7*);
 extern "C" void func_020882dc(void*);
 extern "C" int func_ov024_021da9c8(Struct_ov024_021da670_8*);
 extern "C" void func_020884f8(unsigned char*);
-extern "C" int func_020885b4(Struct_020885b4*);
+extern "C" int IsPoisoned_020885b4(Struct_020885b4*);
 extern "C" void func_02088644(Struct_02088644*);
 extern "C" int IsEnvenomated_02088514(Struct_02088514*);
 extern "C" void func_02088598(unsigned char*);
@@ -70,7 +70,7 @@ extern "C" ARM int func_ov024_021eae14(Struct_ov017_021d82e0* arg0, int arg1) {
     if (func_ov024_021da9c8((Struct_ov024_021da670_8*)var0)) {
         func_020884f8((unsigned char*)var0->currentStats_); var1++; var2 = 1;
     }
-    if (func_020885b4((Struct_020885b4*)var0->currentStats_)) {
+    if (IsPoisoned_020885b4((Struct_020885b4*)var0->currentStats_)) {
         func_02088644((Struct_02088644*)var0->currentStats_); var1++;
     }
     if (IsEnvenomated_02088514((Struct_02088514*)var0->currentStats_)) {

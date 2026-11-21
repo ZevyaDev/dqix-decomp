@@ -21,8 +21,8 @@ extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_02017d68(void* arg0);
 extern "C" void func_ov023_021e4f18(void* arg0);
 extern "C" int GetMessageWindow_020421a0(void);
-struct Struct_02045cac;
-extern "C" void func_02045cac(struct Struct_02045cac*);
+struct MessageWindow_02045cac;
+extern "C" void ClearMessageGlyphs_02045cac(struct MessageWindow_02045cac*);
 extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void CloseMessageWindow_02043124(int);
 
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov023_021e2f38(void* arg0) {
     *(int*)(var0 + 0xc4) = 0;
 
     int var3 = GetMessageWindow_020421a0();
-    func_02045cac((struct Struct_02045cac*)var3);
+    ClearMessageGlyphs_02045cac((struct MessageWindow_02045cac*)var3);
     ResetMessageWindow_02043204((char*)var3);
     CloseMessageWindow_02043124(var3);
 

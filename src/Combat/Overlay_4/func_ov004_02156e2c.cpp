@@ -14,7 +14,7 @@ extern "C" int func_ov024_021f6f10(void* arg0);
 #else
 extern "C" int func_ov024_021f6f10(void* arg0);
 #endif
-extern "C" void* func_ov023_021f9bc8(void*);
+extern "C" void* GetMenuGridCursorIndex_ov023_021f9bc8(void*);
 
 // USA: GetMenuGridCursorIndex_ov004_02156e2c
 extern "C" ARM int GetMenuGridCursorIndex_ov004_02156e2c(void* menu, int id) {
@@ -22,5 +22,5 @@ extern "C" ARM int GetMenuGridCursorIndex_ov004_02156e2c(void* menu, int id) {
     void* object = FindMenuObjectById_ov023_021f6880(objectList, id);
     if (!object) return -1;
     if (func_ov024_021f6f10(object) != 7) return -1;
-    return (int)func_ov023_021f9bc8(object);
+    return (int)GetMenuGridCursorIndex_ov023_021f9bc8(object);
 }

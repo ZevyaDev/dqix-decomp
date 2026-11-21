@@ -15,10 +15,10 @@ struct Struct_0203c108_3 {
     char unknown_0_[0x14];
     short unknown_14_;
 };
-extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
+extern "C" void SetSpriteText_0203c108(struct Struct_0203c108_3* spriteText, char* text);
 
 extern "C" int func_ov000_02153a8c(GameObject* arg0);
-extern "C" int func_020dd290(void* arg0, unsigned int arg1);
+extern "C" int GetSkillAdjustedMPCost_020dd290(void* member, unsigned int arg1);
 
 struct Struct_ov000_02171458_3 {
     int unknown_0_;
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov000_02171458(struct Struct_ov000_02171458_2* arg0) {
         var0->unknown_10_++;
         var0->unknown_8_[arg0->unknown_8_.unknown_10_] = 0xe;
         var0->unknown_15_ = 0;
-        func_0203c108(&arg0->unknown_50_, ((char*)((StringList*)(arg0->unknown_4_))->GetString(5)));
+        SetSpriteText_0203c108(&arg0->unknown_50_, ((char*)((StringList*)(arg0->unknown_4_))->GetString(5)));
         return;
     }
     GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0->unknown_4c_);
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov000_02171458(struct Struct_ov000_02171458_2* arg0) {
     } else if (arg0->unknown_9c_[var1]->unknown_8_0_ >= 0xff) {
         var3 = 1;
     } else {
-        var3 = func_020dd290(var2, var3);
+        var3 = GetSkillAdjustedMPCost_020dd290(var2, var3);
     }
     if (arg0->unknown_8_.unknown_6_ < var3) {
         var0->unknown_10_++;
@@ -96,7 +96,7 @@ extern "C" ARM void func_ov000_02171458(struct Struct_ov000_02171458_2* arg0) {
         return;
     }
 #if defined(jpn)
-    func_0203c108(&arg0->unknown_50_, (char*)var4->unknown_0_);
+    SetSpriteText_0203c108(&arg0->unknown_50_, (char*)var4->unknown_0_);
 #else
     char var5[0x80];
     __clear(var5, 0x80);
@@ -104,6 +104,6 @@ extern "C" ARM void func_ov000_02171458(struct Struct_ov000_02171458_2* arg0) {
     __clear(var6, 0x80);
     ExpandInflectionTags_020e4864(var4->unknown_0_, var5, 1, 0, 0, 0);
     CopyCapitalizedText_0206819c(var5, var6, 0);
-    func_0203c108(&arg0->unknown_50_, var6);
+    SetSpriteText_0203c108(&arg0->unknown_50_, var6);
 #endif
 }

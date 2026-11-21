@@ -9,7 +9,7 @@ extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireles
 
 extern "C" void* func_ov017_021b8478(void* battleManager);
 extern "C" void func_ov017_021b8b6c(char* arg0);
-extern "C" void func_ov017_021a23b0(void* arg0, int arg1);
+extern "C" void DespawnFieldMonster_ov017_021a23b0(void* gameResources, int arg1);
 
 struct Struct_ov017_021c5e80 {
 	unsigned char unknown_0_[4];
@@ -36,9 +36,9 @@ extern "C" ARM void func_ov017_021c5e80(int arg0, Struct_ov017_021c5e80* arg1, i
 		if (!var4) return;
 		if (*(unsigned short*)((char*)var4 + 8) != var1) return;
 		func_ov017_021b8b6c((char*)var2);
-		func_ov017_021a23b0(arg3, var1);
+		DespawnFieldMonster_ov017_021a23b0(arg3, var1);
 		return;
 	}
 	func_ov017_021b8b6c((char*)var2);
-	func_ov017_021a23b0(arg3, var1);
+	DespawnFieldMonster_ov017_021a23b0(arg3, var1);
 }

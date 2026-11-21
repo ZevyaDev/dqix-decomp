@@ -9,7 +9,7 @@ struct Struct_ov024_021da670_7;
 extern "C" int IsParalysed_ov024_021da9b0(struct Struct_ov024_021da670_7* combatant);
 extern "C" void func_020882dc(void* arg0);
 struct Struct_020885b4;
-extern "C" int func_020885b4(struct Struct_020885b4* arg0);
+extern "C" int IsPoisoned_020885b4(struct Struct_020885b4* stats);
 struct Struct_02088514;
 extern "C" int IsEnvenomated_02088514(struct Struct_02088514* stats);
 struct Struct_02088644;
@@ -58,7 +58,7 @@ extern "C" ARM struct ActionResult_ov000_021584e8* func_ov024_021e2784(struct St
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var1, 0x1f9);
         arg0->unknown_14_++;
     }
-    if (func_020885b4((struct Struct_020885b4*)var0->currentStats_) || IsEnvenomated_02088514((struct Struct_02088514*)var0->currentStats_)) {
+    if (IsPoisoned_020885b4((struct Struct_020885b4*)var0->currentStats_) || IsEnvenomated_02088514((struct Struct_02088514*)var0->currentStats_)) {
         func_02088644((struct Struct_02088644*)var0->currentStats_);
         SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var2, 0x11);
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var1, 0x54);

@@ -7,7 +7,7 @@
 #include "World/Object3D.h"
 #include "std_library_functions.h"
 
-extern "C" void* func_02079a3c(void* arg0);
+extern "C" void* InitGPCReadPair_02079a3c(void* readPair);
 extern "C" void* __clear(void* arg0, int arg1);
 extern char data_ov015_02194094[27] __attribute__((aligned(4)));
 extern char data_ov015_021940af[9];
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov015_0218c920(void* arg0, int arg1) {
     unsigned char* var3 = g_fileScratchSpace;
     unsigned int var4 = 0x30000;
     GPCReadPair var5;
-    func_02079a3c(&var5);
+    InitGPCReadPair_02079a3c(&var5);
     if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var5.pGPCFile, &var5.machine, data_ov015_02194094, var3, &var2, var4, false, 0)) {
         var3 += var2;
         var4 -= var2;

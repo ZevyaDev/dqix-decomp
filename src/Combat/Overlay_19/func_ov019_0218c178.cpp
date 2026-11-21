@@ -14,10 +14,10 @@ struct SpriteAnimationList_0205a330;
 
 struct Struct_0205c96c {
     char unknown_0_[4];
-    unsigned short unknown_4_;
-    unsigned short unknown_6_;
+    unsigned short drawX_4_;
+    unsigned short drawY_6_;
     char unknown_8_[0xd];
-    unsigned char unknown_15_;
+    unsigned char flags_15_;
 };
 
 struct Struct_ov019_0218c178 {
@@ -38,13 +38,13 @@ extern "C" ARM void func_ov019_0218c178(struct Struct_ov019_0218c178* arg0) {
             ((OBJSpriteSet::List*)(var1))->PlaySpriteAnimation(1);
             var2 = ((Struct_0205c96c*)((OBJSpriteSet::List*)(var1))->GetSprite(1));
             if (var2 != NULL) {
-                var2->unknown_15_ = var2->unknown_15_ | 8;
+                var2->flags_15_ = var2->flags_15_ | 8;
             }
             ((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a330*)var1))->UpdateAll(var0->GetTickCount());
             var2 = ((Struct_0205c96c*)((OBJSpriteSet::List*)(var1))->GetSprite(1));
             if (var2 != NULL) {
-                var2->unknown_4_ = 0xd7;
-                var2->unknown_6_ = 0x96;
+                var2->drawX_4_ = 0xd7;
+                var2->drawY_6_ = 0x96;
             }
             ((OBJSpriteSet::List*)(var1))->SetSpriteOBJIndex(1, 0x24);
         }
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov019_0218c178(struct Struct_ov019_0218c178* arg0) {
         if (var3 != NULL) {
             struct Struct_0205c96c* var4 = ((Struct_0205c96c*)((OBJSpriteSet::List*)(var3))->GetSprite(1));
             if (var4 != NULL) {
-                var4->unknown_15_ = var4->unknown_15_ & ~8;
+                var4->flags_15_ = var4->flags_15_ & ~8;
             }
         }
     }

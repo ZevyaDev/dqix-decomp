@@ -19,7 +19,7 @@ struct Struct_ov031_02290ca0_21 {
 };
 extern Struct_ov031_02290ca0_21 gConnectionSettingsPage_ov031_02290ca0;
 
-extern "C" unsigned char* func_ov031_02235c70(void);
+extern "C" unsigned char* GetEditedConnectionSettings_ov031_02235c70(void);
 extern "C" void* AddTask_ov031_0223e218(void*, void*, void*, int);
 extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int);
 extern "C" void func_ov031_0222f9ec(void);
@@ -31,7 +31,7 @@ extern "C" void func_ov031_022306d4(int);
 
 // USA: func_ov031_022309b4
 extern "C" ARM void func_ov031_022309b4(int arg0) {
-    unsigned char* var0 = func_ov031_02235c70();
+    unsigned char* var0 = GetEditedConnectionSettings_ov031_02235c70();
     int var1 = 0;
     unsigned char var2 = gConnectionSettingsPage_ov031_02290ca0.unknown_0_;
     if (var2 == 8 && var0[0xf5] == 0) {

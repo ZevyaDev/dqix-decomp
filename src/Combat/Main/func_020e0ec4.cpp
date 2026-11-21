@@ -22,7 +22,7 @@ extern "C" void InitCanvas_0205b20c(struct Canvas_020200c0_4* canvas);
 extern "C" void SetCanvasCharacterData_0205b220(void* canvas, int characterData);
 extern "C" void SetCanvasRects_0205b228(void* canvas, int rects, unsigned char rectCount);
 extern "C" int func_0200fb08(Struct_02000c9c_8*);
-extern "C" int func_0205b234(void*, short, short, int, unsigned char, unsigned char);
+extern "C" int DrawCanvasText_0205b234(void*, short, short, int, unsigned char, unsigned char);
 
 #if defined(jpn)
 extern short data_020ee91a[];
@@ -53,9 +53,9 @@ extern "C" ARM void func_020e0ec4(void* arg0, void* arg1, int arg2, int) {
     SetCanvasRects_0205b228(&var1, (int)var0, Enum_020e0ec4_14);
 
 #if defined(jpn)
-    func_0205b234(&var1, (short)44, (short)18, (int)((char*)arg0 + 0x680), (unsigned char)10, (unsigned char)15);
+    DrawCanvasText_0205b234(&var1, (short)44, (short)18, (int)((char*)arg0 + 0x680), (unsigned char)10, (unsigned char)15);
 #else
     int var2 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
-    func_0205b234(&var1, data_020ee820[var2], (short)6, (int)((char*)arg0 + 0x2ec + 0x400), (unsigned char)0xf, (unsigned char)0);
+    DrawCanvasText_0205b234(&var1, data_020ee820[var2], (short)6, (int)((char*)arg0 + 0x2ec + 0x400), (unsigned char)0xf, (unsigned char)0);
 #endif
 }

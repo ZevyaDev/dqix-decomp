@@ -10,9 +10,9 @@ extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int GetEnragedTarget_ov024_021edf00(int* targetSelector, int actorIndex, short* targetIndices);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 struct Struct_ov024_021da670_6;
-extern "C" int func_ov024_021da998(struct Struct_ov024_021da670_6* arg0);
+extern "C" int HasTension_ov024_021da998(struct Struct_ov024_021da670_6* combatant);
 struct Struct_ov024_021dd028_5;
-extern "C" int func_ov024_021dd260(struct Struct_ov024_021dd028_5* arg0);
+extern "C" int HasSuperHighTension_ov024_021dd260(struct Struct_ov024_021dd028_5* combatant);
 extern "C" void ChooseEnemyActionTargets_ov024_021ed8c0(void* targetSelector, int actorIndex, int action, int* count, short* targetIndices);
 
 struct Struct_ov024_021f2ab4 { char unknown_0_[0x2e]; short unknown_2e_; };
@@ -50,7 +50,7 @@ extern "C" ARM int func_ov024_021f2ab4(int* arg0, int arg1, int arg2, int* arg3,
 	*arg3 = 0;
 	for (int var8 = 0; var8 < var7; var8++) {
 		GameObject* var9 = GetCombatantByID(*arg0, var2[var8]);
-		if (var9 && (func_ov024_021da998((struct Struct_ov024_021da670_6*)var9) || func_ov024_021dd260((struct Struct_ov024_021dd028_5*)var9))) {
+		if (var9 && (HasTension_ov024_021da998((struct Struct_ov024_021da670_6*)var9) || HasSuperHighTension_ov024_021dd260((struct Struct_ov024_021dd028_5*)var9))) {
 			int var10 = *arg3;
 			*arg3 = var10 + 1;
 			arg4[var10] = var2[var8];

@@ -3,7 +3,7 @@
 
 extern "C" GameObject* GetEnemyByID_ov000_021536f8(int battle, int index);
 struct Struct_020885b4;
-extern "C" int func_020885b4(struct Struct_020885b4* arg0);
+extern "C" int IsPoisoned_020885b4(struct Struct_020885b4* stats);
 struct Struct_02088514;
 extern "C" int IsEnvenomated_02088514(struct Struct_02088514* stats);
 struct Struct_ov024_021df454_2;
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov024_021f3564(struct Struct_ov024_021f3564_2* arg0, int
 	GameObject* var0 = GetEnemyByID_ov000_021536f8(arg0->unknown_0_, arg1);
 	if (!var0) return 0;
 	int var1 = 0;
-	if (func_020885b4((struct Struct_020885b4*)var0->currentStats_)) var1++;
+	if (IsPoisoned_020885b4((struct Struct_020885b4*)var0->currentStats_)) var1++;
 	if (IsEnvenomated_02088514((struct Struct_02088514*)var0->currentStats_)) var1++;
 	if (func_ov024_021df6ec((struct Struct_ov024_021df454_2*)var0)) var1++;
 	if (func_ov024_021dd010((struct Struct_ov024_021dced0_2*)var0)) var1++;

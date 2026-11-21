@@ -102,8 +102,8 @@ extern "C" Struct_ov023_021f03a0* func_ov023_021f0360(void*, int);
 extern "C" int ReadLevelEntries_02082490(Struct_ov023_021f0a5c_3*, void*, unsigned int, unsigned char, unsigned int);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 extern "C" Struct_ov000_0215d63c_2* func_02053c6c(unsigned char*);
-extern "C" void func_02083cbc(Struct_ov000_0215d63c_2*, Struct_ov023_021f0a5c_2*, Struct_ov023_021f0a5c_2*);
-extern "C" void func_02083e28(Struct_ov000_0215d63c_2*, int);
+extern "C" void SetLevelStats_02083cbc(Struct_ov000_0215d63c_2*, Struct_ov023_021f0a5c_2*, Struct_ov023_021f0a5c_2*);
+extern "C" void CalculatePartyMemberStats_02083e28(Struct_ov000_0215d63c_2*, int);
 extern "C" unsigned char func_0209aa54(void*, GameObject*, unsigned char*, int);
 struct Struct_ov023_021edf54;
 extern "C" int func_ov023_021eea98(Struct_ov023_021edf54*);
@@ -185,8 +185,8 @@ extern "C" ARM int func_ov023_021f0a5c(BattleScene_ov000_02160da0* arg0) {
                     unsigned short var23 = 0xa28 - var22->unknown_564_;
                     if (var23 < var17->unknown_4_7_) var17->unknown_4_7_ = var23;
                     var22->unknown_564_ += var17->unknown_4_7_;
-                    func_02083cbc(var22, &arg0->unknown_5770_[var14].unknown_14_, &arg0->unknown_5770_[var14].unknown_3c_);
-                    func_02083e28(var22, 0);
+                    SetLevelStats_02083cbc(var22, &arg0->unknown_5770_[var14].unknown_14_, &arg0->unknown_5770_[var14].unknown_3c_);
+                    CalculatePartyMemberStats_02083e28(var22, 0);
                     var6->unknown_6c_[var14] = func_0209aa54(var6->unknown_f0_, var21, var6->unknown_1c_[var14], var18);
                 }
             }

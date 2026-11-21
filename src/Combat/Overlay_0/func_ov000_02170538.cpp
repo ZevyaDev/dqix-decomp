@@ -26,7 +26,7 @@ extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
 #if defined(jpn)
 struct Struct_0201099c_3;
 #endif
-extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
+extern "C" void SetSpriteText_0203c108(struct Struct_0203c108_3* spriteText, char* text);
 extern "C" void func_0203c198(char* arg0);
 
 extern "C" void __clear(void* arg0, int arg1);
@@ -106,13 +106,13 @@ extern "C" ARM void func_ov000_02170538(struct Struct_ov000_02170538_2* arg0, in
 #if defined(jpn)
             char* var12 = (char*)((int)((StringList*)(*(struct Struct_0201099c_3**)((char*)arg0 + 4)))->GetString(func_ov000_02171a74(arg0)));
             if (var12 != NULL) {
-                func_0203c108((struct Struct_0203c108_3*)&arg0->unknown_50_, var12);
+                SetSpriteText_0203c108((struct Struct_0203c108_3*)&arg0->unknown_50_, var12);
             }
 #else
             char var13[0x80];
             __clear(var13, sizeof(var13));
             if (func_ov000_02171a74(arg0, var13) >= 0) {
-                func_0203c108((struct Struct_0203c108_3*)&arg0->unknown_50_, var13);
+                SetSpriteText_0203c108((struct Struct_0203c108_3*)&arg0->unknown_50_, var13);
             }
 #endif
             arg0->unknown_3c_ = arg0->unknown_28_;

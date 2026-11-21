@@ -13,7 +13,7 @@ struct MenuCursor_0205ba68;
 extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
 struct MenuCursor_0205bacc;
 extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
-extern "C" void func_0205cb74(char* arg0, int arg1);
+extern "C" void AddChoiceListEntry_0205cb74(char* choiceList, int text);
 extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
 #if defined(jpn)
 extern "C" void func_0205dfa8(void*);
@@ -23,7 +23,7 @@ extern char data_ov017_021d8104[];
 #endif
 struct Struct_0205c77c;
 extern "C" void func_0205c77c(struct Struct_0205c77c* arg0, int arg1);
-extern "C" void func_0205cd28(unsigned char* arg0);
+extern "C" void OpenChoiceList_0205cd28(unsigned char* choiceList);
 
 // USA: func_ov017_021adb50
 extern "C" ARM void func_ov017_021adb50(char* arg0) {
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov017_021adb50(char* arg0) {
     int var0 = ((int)GetGameString((eGameString)(0x1f)));
 #endif
 
-    func_0205cb74(arg0 + 0x44, var0);
+    AddChoiceListEntry_0205cb74(arg0 + 0x44, var0);
     *(short*)(arg0 + 0xf8) = 8;
     *(short*)(arg0 + 0xfa) = 0x40;
 #if defined(jpn)
@@ -67,5 +67,5 @@ extern "C" ARM void func_ov017_021adb50(char* arg0) {
     *(short*)(arg0 + 0xfa) = 0x40;
 
 #endif
-    func_0205cd28((unsigned char*)(arg0 + 0x44));
+    OpenChoiceList_0205cd28((unsigned char*)(arg0 + 0x44));
 }

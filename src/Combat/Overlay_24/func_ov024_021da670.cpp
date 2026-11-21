@@ -11,7 +11,7 @@ struct Struct_02088f68;
 extern "C" void func_02088f68(Struct_02088f68*);
 extern "C" void func_02088474(void*,int,int);
 struct Struct_ov024_021da670_6;
-extern "C" int func_ov024_021da998(Struct_ov024_021da670_6*);
+extern "C" int HasTension_ov024_021da998(Struct_ov024_021da670_6*);
 extern "C" void func_0208826c(unsigned char*);
 extern "C" void func_020883cc(unsigned char*);
 struct Struct_ov024_021da670_7;
@@ -64,7 +64,7 @@ extern "C" ARM void* func_ov024_021da670(Struct_ov024_021da670* arg0,int arg1,in
             func_02088474(var0->currentStats_,10,0);
             break;
         case 2:
-            ((unsigned char*)arg0->unknown_10_)[0x8e96]=func_ov024_021da998((Struct_ov024_021da670_6*)var0);
+            ((unsigned char*)arg0->unknown_10_)[0x8e96]=HasTension_ov024_021da998((Struct_ov024_021da670_6*)var0);
             var2=0x94;
             func_0208826c((unsigned char*)var0->currentStats_);
             SetActionResultFlag_ov000_02159eac(arg0->unknown_10_,&var3,0x18);

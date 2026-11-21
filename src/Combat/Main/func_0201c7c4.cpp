@@ -32,7 +32,7 @@ extern "C" ARM int func_0201c7c4(Script::Parameter *arg0, int arg1) {
         strcpy(var6.unknown_10_, var5);
         if (var0 == NULL) var6.unknown_20_[0] = 0; else strcpy(var6.unknown_20_, var0);
         if (var1 == NULL) var6.unknown_30_[0] = 0; else strcpy(var6.unknown_30_, var1);
-        data_020fdc20.unknown_8_->func_0201e304(var6);
+        gZoneFeatureScriptContext_020fdc20.unknown_8_->func_0201e304(var6);
     }
     return 1;
 }

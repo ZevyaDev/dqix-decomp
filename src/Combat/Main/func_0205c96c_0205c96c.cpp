@@ -23,17 +23,17 @@ extern "C" void func_02045f3c(void* arg0, void* arg1, int arg2, int arg3, int ar
 struct SpriteAnimationList_0205a254;
 struct Struct_0205c96c {
     char unknown_0_[4];
-    unsigned short unknown_4_;
-    unsigned short unknown_6_;
+    unsigned short drawX_4_;
+    unsigned short drawY_6_;
     char unknown_8_[0xd];
-    unsigned char unknown_15_;
+    unsigned char flags_15_;
 };
 
 static inline int inline_0205c96c(unsigned char* arg0) { return *(int*)(arg0 + 0x88); }
 static inline int inline_0205c96c_2(unsigned char* arg0) { return *(int*)(arg0 + 0x8c); }
 
-// USA: func_0205c96c
-extern "C" ARM void func_0205c96c(unsigned char* arg0, int arg1) {
+// USA: DrawChoiceList_0205c96c
+extern "C" ARM void DrawChoiceList_0205c96c(unsigned char* arg0, int arg1) {
     unsigned char* var0;
     int var1;
     int var2;
@@ -114,12 +114,12 @@ extern "C" ARM void func_0205c96c(unsigned char* arg0, int arg1) {
     ((OBJSpriteSet::List*)(var13))->PlaySpriteAnimation(var14);
     var15 = ((Struct_0205c96c*)((OBJSpriteSet::List*)(var13))->GetSprite(var14));
     if (var15 != NULL) {
-        var15->unknown_15_ |= 8;
+        var15->flags_15_ |= 8;
     }
     var15 = ((Struct_0205c96c*)((OBJSpriteSet::List*)(var13))->GetSprite(var14));
     if (var15 != NULL) {
-        var15->unknown_4_ = var5;
-        var15->unknown_6_ = var6;
+        var15->drawX_4_ = var5;
+        var15->drawY_6_ = var6;
     }
     ((OBJSpriteSet*)(var12))->DrawAll();
 }

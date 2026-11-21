@@ -37,7 +37,7 @@ extern "C" void SetCamera_020100c4(GameState*, int);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" int func_020a35f8(unsigned char*);
-extern "C" void func_02072c9c(int, char*);
+extern "C" void FormatPartyMemberAnimationName_02072c9c(int, char*);
 struct Struct_02040774_2;
 extern "C" void SetObject3DPosition_020407b4(struct Struct_02040774_2*, int, int, int);
 struct GameResources;
@@ -180,7 +180,7 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* arg0, BattleScene_ov000_0
                 GameObject* var26 = GetPartyMemberBaseByIndex_0200ff1c(var3, var25);
                 if (var26) {
                     char var27[0x14];
-                    func_02072c9c(var25, var27);
+                    FormatPartyMemberAnimationName_02072c9c(var25, var27);
 #if defined(jpn)
                     enum { Enum_ov026_021dc440_452 = 0x1b8 };
 #else

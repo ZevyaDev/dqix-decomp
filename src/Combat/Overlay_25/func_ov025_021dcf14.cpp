@@ -120,7 +120,7 @@ extern "C" void func_0202ea10(unsigned char*, int, int);
 extern "C" void func_ov000_02163440(void* arg0, short arg1, unsigned short arg2, unsigned short arg3);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void* func_ov000_0215fff4(void*, int, int);
-extern "C" int func_ov000_0215fd90(void* arg0, int arg1);
+extern "C" int HasActionResultFlag_ov000_0215fd90(void* result, int flagIndex);
 extern "C" int func_02048c68(unsigned char*);
 extern "C" int IsCombatantOnBattlefield_02049ee8(unsigned char*);
 extern "C" void func_0204a0c8(unsigned char*);
@@ -446,7 +446,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
                         int var55;
                         for (var55 = 0; var55 < var48->unknown_18_[var53]; var55++) {
                             void* var56 = func_ov000_0215fff4(var48, var55, (unsigned char)var53);
-                            if (var56 && func_ov000_0215fd90(var56, 0x2a)) {
+                            if (var56 && HasActionResultFlag_ov000_0215fd90(var56, 0x2a)) {
                                 var54 = 1;
                                 TIMER = 0;
                                 break;

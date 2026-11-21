@@ -48,7 +48,7 @@ extern "C" int func_ov000_02159c58(void*, int);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(char*, short*, int, unsigned int);
 extern "C" int func_ov000_02159cb4(void*, int);
 extern "C" int func_ov024_021eadfc(GameObject*);
-extern "C" unsigned int func_020dd290(void*, unsigned int);
+extern "C" unsigned int GetSkillAdjustedMPCost_020dd290(void*, unsigned int);
 extern "C" int func_ov024_021dd010(Struct_ov024_021dced0_2*);
 extern "C" int func_ov000_0215fd24(int, int);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
@@ -107,7 +107,7 @@ extern "C" ARM int func_ov024_021eaa50(Struct_ov024_021ea4d0* arg0, Struct_ov024
     if (!func_ov024_021eadfc(var5) && arg3 == 0 && !var2->unknown_b_4_) {
         short var10 = (short)var2->unknown_8_0_;
         if (inline_ov000_02169850(var4)) {
-            var10 = (short)func_020dd290(
+            var10 = (short)GetSkillAdjustedMPCost_020dd290(
                 GetPartyMemberBaseByIndex_0200ff1c(var3, var4), (unsigned int)var10);
         }
         if (var2->unknown_8_0_ < 0xff) {

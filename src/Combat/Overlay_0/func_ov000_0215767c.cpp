@@ -23,7 +23,7 @@ extern "C" int func_ov000_02159d94(void*, int);extern "C" void func_0208a910(int
 struct Struct_0204887c;extern "C" void func_0204887c(Struct_0204887c*,char*);extern "C" Struct_ov000_0215767c* FindActionData_02079e2c(char*,int);
 extern "C" void func_ov000_02157cdc(void*);extern "C" void* func_ov000_0215e918(void*);extern "C" void func_02089758(unsigned char*);
 extern "C" int func_ov000_02156050(GameObject*);extern "C" int func_ov000_021543f4(GameObject*);
-struct Struct_ov000_0215767c_5;struct Struct_ov000_0215767c_4;extern "C" void func_ov000_021600cc(Struct_ov000_0215767c_5*,Struct_ov000_0215767c_4*);
+struct BattleAction_ov000_0215767c_5;struct ActionTarget_ov000_0215767c_4;extern "C" void AppendActionTarget_ov000_021600cc(BattleAction_ov000_0215767c_5*,ActionTarget_ov000_0215767c_4*);
 struct Struct_ov000_0215767c_7;struct Struct_ov000_0215767c_6;extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*,Struct_ov000_0215767c_6*);
 extern "C" {
 extern const Struct_ov000_02182ae4 data_ov000_02182c54,data_ov000_02182c64;extern const Struct_ov000_02182a74 data_ov000_02182a74;
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov000_0215767c(Struct_ov000_0215767c_2* arg0,Struct_ov0
    if(var21){while(var21->unknown_18_5_==0x22){void* var22=FindMonsterBattleData_02070fd0((Struct_02070b6c_3*)(arg0->unknown_8e18_+0x684),var21->unknown_30_);if(var22){func_0204887c((Struct_0204887c*)var15,(char*)var22);var15->unknown_138_->unknown_36_=var21->unknown_30_;}
     memset(var18.unknown_0_,-1,16);var19=0;arg1->unknown_0_=func_0208a91c(&var20,arg0,(unsigned short)var2,&var19,var18.unknown_0_);var21=FindActionData_02079e2c((char*)var1,(short)arg1->unknown_0_);if(!var21)break;
    }}
-   arg1->unknown_9_=0;for(int var23=0;var23<var19;var23++){Struct_ov000_0215767c_9* var24=&arg0->unknown_8e74_[arg0->unknown_8e81_];func_ov000_02157cdc(var24);var24->unknown_e_=var18.unknown_0_[var23];var24->unknown_17_=1;func_ov000_021600cc((Struct_ov000_0215767c_5*)arg1,(Struct_ov000_0215767c_4*)var24);arg0->unknown_8e81_++;}
+   arg1->unknown_9_=0;for(int var23=0;var23<var19;var23++){Struct_ov000_0215767c_9* var24=&arg0->unknown_8e74_[arg0->unknown_8e81_];func_ov000_02157cdc(var24);var24->unknown_e_=var18.unknown_0_[var23];var24->unknown_17_=1;AppendActionTarget_ov000_021600cc((BattleAction_ov000_0215767c_5*)arg1,(ActionTarget_ov000_0215767c_4*)var24);arg0->unknown_8e81_++;}
   }
  }
  for(signed char var25=0;var25<var5;var25++){

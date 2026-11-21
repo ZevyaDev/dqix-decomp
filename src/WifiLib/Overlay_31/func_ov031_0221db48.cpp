@@ -33,7 +33,7 @@ struct Struct_ov031_0224e6e0_7 {
     unsigned int unknown_30_;
 };
 extern unsigned char data_ov031_0224b06c[];
-extern Struct_ov031_0224e6e0_7 data_ov031_0224e6e0;
+extern Struct_ov031_0224e6e0_7 gAOSSSession_ov031_0224e6e0;
 extern "C" int func_ov031_0221d90c(Struct_ov031_0221db48_3*, Struct_ov031_0221c5ac_8*);
 extern "C" int func_ov031_0221da60(Struct_ov031_0221db48_3*, Struct_ov031_0221c5ac_9*);
 extern "C" int func_ov031_0221db18(Struct_ov031_0221db48_3*, void*);
@@ -88,6 +88,6 @@ found:
         var3 -= var8;
         arg1 = (Struct_ov031_0221db48_3*)((char*)arg1 + var8);
     } while (var3 > 0);
-    data_ov031_0224e6e0.unknown_30_ |= var0;
+    gAOSSSession_ov031_0224e6e0.unknown_30_ |= var0;
     return 0;
 }

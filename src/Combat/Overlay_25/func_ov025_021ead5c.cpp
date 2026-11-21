@@ -34,7 +34,7 @@ struct Struct_ov025_021ead5c {
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" BattleAction_ov000_0215440c* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
 extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
-extern "C" int func_ov000_0215fd90(Struct_ov025_021ead5c_2* arg0, int arg1);
+extern "C" int HasActionResultFlag_ov000_0215fd90(Struct_ov025_021ead5c_2* result, int flagIndex);
 extern "C" short GetLatestTargetCombatantIndex_ov000_0215ffa0(ActionTarget_ov000_021600f8* entry);
 extern "C" int func_ov025_021ed380(char* arg0, int arg1, int arg2, int arg3, int arg4, short arg5, unsigned short arg6);
 
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov025_021ead5c(Struct_ov025_021ead5c* arg0, int arg1) {
     if (var0->unknown_1e_ != 0 || var0->unknown_20_ != 0) {
         for (ActionTarget_ov000_021600f8* var5 = GetActionTarget_ov000_021600f8(var0, 0); var5 != NULL; var5 = var5->pNext_20_) {
             for (Struct_ov025_021ead5c_2* var6 = var5->unknown_0_; var6 != NULL; var6 = var6->unknown_20_) {
-                if (func_ov000_0215fd90(var6, 0xd) != 0) {
+                if (HasActionResultFlag_ov000_0215fd90(var6, 0xd) != 0) {
                     continue;
                 }
                 if (var6->unknown_e_ > 0) {

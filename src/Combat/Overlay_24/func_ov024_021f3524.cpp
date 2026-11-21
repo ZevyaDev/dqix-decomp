@@ -3,7 +3,7 @@
 
 extern "C" GameObject* GetEnemyByID_ov000_021536f8(int battle, int index);
 struct Struct_ov024_021dd028_5;
-extern "C" int func_ov024_021dd260(struct Struct_ov024_021dd028_5* arg0);
+extern "C" int HasSuperHighTension_ov024_021dd260(struct Struct_ov024_021dd028_5* combatant);
 
 struct Struct_ov024_021f3524 { int unknown_0_; };
 
@@ -12,7 +12,7 @@ extern "C" ARM int func_ov024_021f3524(struct Struct_ov024_021f3524* arg0, int a
 	GameObject* var0 = GetEnemyByID_ov000_021536f8(arg0->unknown_0_, arg1);
 	if (!var0) return 0;
 	int var1;
-	if (func_ov024_021dd260((struct Struct_ov024_021dd028_5*)var0)) {
+	if (HasSuperHighTension_ov024_021dd260((struct Struct_ov024_021dd028_5*)var0)) {
 		var1 = 0;
 	} else {
 		var1 = 1;

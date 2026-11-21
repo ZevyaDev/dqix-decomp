@@ -40,45 +40,45 @@ enum { Enum_020dc2d0_1788 = 0x4ec };
 enum { Enum_020dc2d0_1788 = 0x6fc };
 #endif
 
-// USA: func_020dc2d0
-extern "C" ARM void func_020dc2d0(int arg0) {
-    GameState* var0 = GameState::GetInstance();
-    GrottoStruct* var1 = var0->GetGrottoStruct();
-    void* var2 = func_0202ae18(var1);
-    void* var3 = GetZone3D_02012fe4();
-    int var4;
-    int var5;
-    Struct_020dc2d0* var6 = *(Struct_020dc2d0**)((char*)var3 + 0x8);
+// USA: RestartMapDisplay_020dc2d0
+extern "C" ARM void RestartMapDisplay_020dc2d0(int modeOverride) {
+    GameState* gameState = GameState::GetInstance();
+    GrottoStruct* grotto = gameState->GetGrottoStruct();
+    void* wireless = func_0202ae18(grotto);
+    void* zone = GetZone3D_02012fe4();
+    int isTreasureMapMode;
+    int isWorldMapMode;
+    Struct_020dc2d0* currentMap = *(Struct_020dc2d0**)((char*)zone + 0x8);
 
-    int var7 = ((int)GetGameResources());
-    var4 = 0;
-    void* var8 = *(void**)(var7 + 0x3000 + Enum_020dc2d0_1788);
-    var5 = var4;
+    int gameResources = ((int)GetGameResources());
+    isTreasureMapMode = 0;
+    void* queue = *(void**)(gameResources + 0x3000 + Enum_020dc2d0_1788);
+    isWorldMapMode = isTreasureMapMode;
 
-    int var9 = IsTypeInQueue_02046b60((Queue_02038598_5*)var8, 0x43);
-    if (var9) {
-        var4 = 1;
+    int isTreasureMapTaskQueued = IsTypeInQueue_02046b60((Queue_02038598_5*)queue, 0x43);
+    if (isTreasureMapTaskQueued) {
+        isTreasureMapMode = 1;
     }
 
-    if (var1->unknown_0[0] != 0 && var1->unknown_0[1] != 0) {
-        if (IsNotLocalWirelessGuest_0202c508(var2) != 0 && var6 != NULL) {
-            if (var6->unknown_c_0_ == 0) {
-                var4 = 1;
+    if (grotto->unknown_0[0] != 0 && grotto->unknown_0[1] != 0) {
+        if (IsNotLocalWirelessGuest_0202c508(wireless) != 0 && currentMap != NULL) {
+            if (currentMap->unknown_c_0_ == 0) {
+                isTreasureMapMode = 1;
             }
         }
     }
 
-    if (arg0 == 1) {
-        var4 = 1;
-    } else if (arg0 == 2) {
-        var4 = 0;
-    } else if (arg0 == 3) {
-        var5 = 1;
+    if (modeOverride == 1) {
+        isTreasureMapMode = 1;
+    } else if (modeOverride == 2) {
+        isTreasureMapMode = 0;
+    } else if (modeOverride == 3) {
+        isWorldMapMode = 1;
     }
 
-    if (var4) {
+    if (isTreasureMapMode) {
         func_020dc214(1);
-    } else if (var5) {
+    } else if (isWorldMapMode) {
         func_020dc214(2);
     } else {
         func_020dc214(0);

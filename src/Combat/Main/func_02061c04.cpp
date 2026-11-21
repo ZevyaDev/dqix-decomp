@@ -47,7 +47,7 @@ extern "C" void *GetFirstZoneFeatureOfType_0201e838(unsigned char *zoneFeatures,
 struct Struct_02061c04_25;
 struct Struct_02061c04_26;
 extern "C" void func_0206445c(int arg0, Struct_02061c04_25 *arg1, Struct_02061c04_26 *arg2);
-extern "C" void func_ov017_021cdaa0();
+extern "C" void SendDayTimer_ov017_021cdaa0();
 extern "C" void *GetQuestManager_02094d6c(void);
 extern "C" int func_020961b0(void *arg0, int arg1);
 extern "C" int func_0206dfb0(int flagManager, unsigned char *flags, int flagIndex);
@@ -160,13 +160,13 @@ extern struct Struct_02109bf4 {
 } gMusicManager_02109bf4;
 extern "C" void func_020dac40(void);
 extern "C" void * func_02053c6c(unsigned char*);
-struct Struct_02061c04_22;
-extern "C" void func_0208386c(Struct_02061c04_22*, int);
+struct PartyMemberData_02061c04_22;
+extern "C" void RemoveHeldItemByIndex_0208386c(PartyMemberData_02061c04_22*, int);
 struct ItemBag_02061c04_23;
 extern "C" void RemoveItemFromBag_020a0a08(ItemBag_02061c04_23*, int, int);
 extern "C" void func_020ae9f0(void);
 extern "C" void GetCurrentDate_020cf0fc(int date);
-extern "C" void func_020cf1a8(int arg0);
+extern "C" void GetCurrentTime_020cf1a8(int time);
 extern "C" void func_02095cfc(int, int);
 extern "C" int IsLocalWirelessGuest_0202c540(void *wireless);
 extern "C" void GetAlchemyCount_020ac0b4(void *count);
@@ -233,12 +233,12 @@ extern "C" void SetMotionKeepingAnimation_02033b58(Struct_02033b58*, unsigned ch
 extern "C" void *GetActiveZones_02027ca4(void);
 struct Struct_02028bac;
 extern "C" void * func_02028bac(Struct_02028bac*, int);
-extern "C" void func_ov017_021a23b0(void *arg0, unsigned short arg1);
+extern "C" void DespawnFieldMonster_ov017_021a23b0(void *gameResources, unsigned short arg1);
 extern "C" void func_ov017_021c9544(int arg0, int arg1, int arg2, int arg3);
 extern "C" int GetLocalWirelessState_0202ba00(int *wireless);
-extern "C" void AddElapsedPlayTime_020ac4f8(int arg0);
+extern "C" void AddElapsedPlayTime_020ac4f8(int isMultiplayerTimeIncluded);
 extern "C" void func_02010810(char*, int);
-extern "C" int func_0201081c(char*);
+extern "C" int GetStoryProgress_0201081c(char*);
 
 // USA: func_02061c04
 struct Struct_01ff91ac_6 { unsigned int unknown_0_; unsigned short unknown_4_, unknown_6_, unknown_8_; };
@@ -400,7 +400,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         var39->timeOfDayIndex_ = var38->GetTimeOfDay();
         void *var40 = func_0202ae18();
         if (IsNotLocalWirelessGuest_0202c508(var40))
-            func_ov017_021cdaa0();
+            SendDayTimer_ov017_021cdaa0();
         return 1;
     }
     case 0x72:
@@ -467,7 +467,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
     }
     case 0x7f: {
         GetCurrentDate_020cf0fc((int)&var1);
-        func_020cf1a8((int)&var2);
+        GetCurrentTime_020cf1a8((int)&var2);
         var17.unknown_24_.unknown_0_0_ = var1.unknown_0_;
         var17.unknown_24_.unknown_0_7_ = var1.unknown_4_;
         var17.unknown_24_.unknown_1_3_ = var1.unknown_8_;
@@ -1065,7 +1065,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         if ((var137 == 5 && var138 > 1) || var137 == 6)
             var139 = 1;
         AddElapsedPlayTime_020ac4f8(var139);
-        int var140 = func_0201081c((char*)var135);
+        int var140 = GetStoryProgress_0201081c((char*)var135);
         int var141 = arg1->unknown_2_;
         int var142 = var140;
         if (var140 >= 0xd && var140 <= 0xd) var142 = var140;
@@ -1208,7 +1208,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
                     if (!var170)
                         continue;
                     unsigned short var171 = *(unsigned short *)((char *)var170 + 0x100 + 0x6a);
-                    func_ov017_021a23b0(var164, var171);
+                    DespawnFieldMonster_ov017_021a23b0(var164, var171);
                     short var172 = *(short *)((char *)var170 + 2);
                     unsigned short var173 = *(unsigned short *)var167;
                     func_ov017_021c9544(var173, var169, var172, -1);
@@ -1395,7 +1395,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             if (!var208)
                 return 1;
             void *var209 = func_02053c6c((unsigned char*)var208);
-            func_0208386c((Struct_02061c04_22*)var209, (signed char)var206);
+            RemoveHeldItemByIndex_0208386c((PartyMemberData_02061c04_22*)var209, (signed char)var206);
         } else {
             RemoveItemFromBag_020a0a08((ItemBag_02061c04_23*)var207, (short)var204, 1);
         }

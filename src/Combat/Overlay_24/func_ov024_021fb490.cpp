@@ -91,8 +91,8 @@ extern "C" void* func_02079ee0(void*, int);
 extern "C" float func_02074948(int);
 extern "C" float _fmul(float, float);
 extern "C" int _fgeq(float, float);
-extern "C" int func_ov024_021da998(Struct_ov024_021da670_6*);
-extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
+extern "C" int HasTension_ov024_021da998(Struct_ov024_021da670_6*);
+extern "C" int HasSuperHighTension_ov024_021dd260(Struct_ov024_021dd028_5*);
 extern "C" void func_ov024_021f6a1c(Struct_ov024_021f6a1c*, void*);
 extern "C" void func_ov024_021f8938(void*, float*, float*, int, void*, void*);
 extern "C" void func_ov024_021fa7ec(void*, float*, float*, float*, int*, float, float, void*, void*, int);
@@ -209,8 +209,8 @@ extern "C" ARM void func_ov024_021fb490(Struct_ov024_021fb490_5* arg0) {
         var34.unknown_9_.unknown_0_0_ = var32;
         var34.unknown_9_.unknown_0_6_ = var24;
         func_ov024_021f6a1c(&var27, &var34);
-        if (var0[var31] >= 0.1f && !func_ov024_021da998((Struct_ov024_021da670_6*)var7) &&
-            !func_ov024_021dd260((Struct_ov024_021dd028_5*)var7)) {
+        if (var0[var31] >= 0.1f && !HasTension_ov024_021da998((Struct_ov024_021da670_6*)var7) &&
+            !HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)var7)) {
             arg0->unknown_25c_.unknown_3fc_ = &var27;
             func_ov024_021f6a4c(&arg0->unknown_25c_.unknown_400_, &var34);
             arg0->unknown_25c_.unknown_40c_ = var33;

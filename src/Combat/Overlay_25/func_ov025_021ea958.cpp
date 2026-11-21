@@ -9,7 +9,7 @@ struct BattleAction_ov000_0215440c {
     char unknown_0_[6];
     short unknown_6_;
     unsigned char unknown_8_;
-    unsigned char unknown_9_;
+    unsigned char targetCount_9_;
     char unknown_a_[2];
     unsigned char unknown_c_0_ : 1;
     unsigned char unknown_c_1_ : 1;
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov025_021ea958(Struct_ov025_021ea604_3* arg0, int arg1,
     if (arg0->unknown_5d0_ && !arg0->unknown_5d1_) return;
     if (arg1 && (var0->unknown_c_0_ || var0->unknown_c_1_)) arg3 = -2;
     else if (!arg1 && (var0->unknown_c_3_ || var0->unknown_c_4_)) arg3 = -2;
-    for (int var1 = 0; var1 < var0->unknown_9_; var1++) {
+    for (int var1 = 0; var1 < var0->targetCount_9_; var1++) {
         ActionTarget_ov000_021600f8* var2 = GetActionTarget_ov000_021600f8(var0, var1);
         if (var2) {
             for (int var3 = 1; var3 < var2->unknown_17_; var3++) {
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov025_021ea958(Struct_ov025_021ea604_3* arg0, int arg1,
     int var4 = 0;
     if (arg3 == -2) var4 = 1;
     if (arg3 < 0) {
-        for (int var5 = 0; var5 < var0->unknown_9_; var5++) {
+        for (int var5 = 0; var5 < var0->targetCount_9_; var5++) {
             ActionTarget_ov000_021600f8* var6 = GetActionTarget_ov000_021600f8(var0, var5);
             if (var6) {
                 int var7 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var6);

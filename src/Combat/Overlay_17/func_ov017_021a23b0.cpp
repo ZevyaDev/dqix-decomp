@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
+extern "C" GameObject* FindFieldMonsterById_ov017_021a278c(void* gameResources, int fieldMonsterId);
 extern "C" void InitFieldMonster_02076a8c(void* monster);
 
-// USA: func_ov017_021a23b0
-extern "C" ARM void func_ov017_021a23b0(void* arg0, int arg1) {
+// USA: DespawnFieldMonster_ov017_021a23b0
+extern "C" ARM void DespawnFieldMonster_ov017_021a23b0(void* gameResources, int arg1) {
 	GameState::GetInstance();
-	GameObject* var0 = func_ov017_021a278c(arg0, arg1);
-	if (!var0) return;
-	InitFieldMonster_02076a8c(var0);
-	((Object3D*)((unsigned char*)var0))->MakeHidden();
+	GameObject* monster = FindFieldMonsterById_ov017_021a278c(gameResources, arg1);
+	if (!monster) return;
+	InitFieldMonster_02076a8c(monster);
+	((Object3D*)((unsigned char*)monster))->MakeHidden();
 }

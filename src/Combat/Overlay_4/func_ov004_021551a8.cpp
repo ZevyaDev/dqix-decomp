@@ -8,7 +8,7 @@ extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" int func_ov024_021f6f10(void* arg0);
 #endif
 extern "C" int func_ov004_0215513c(void*, short*, short*, short*);
-extern "C" int func_ov023_021f9bc8(char* arg0);
+extern "C" int GetMenuGridCursorIndex_ov023_021f9bc8(char* grid);
 
 struct Struct_ov004_02153c74 { struct Struct_ov004_02153c74* unknown_0_; int unknown_4_; };
 
@@ -46,7 +46,7 @@ extern "C" ARM int func_ov004_021551a8(void* arg0) {
     short var2 = *(short*)((char*)var1 + 0x5c);
     short var3, var4, var5;
     func_ov004_0215513c(arg0, &var3, &var4, &var5);
-    int var6 = func_ov023_021f9bc8((char*)var1) + (var2 << 4);
+    int var6 = GetMenuGridCursorIndex_ov023_021f9bc8((char*)var1) + (var2 << 4);
 
     void* var7 = FindMenuObjectById_ov023_021f6880(var0, 0x2d);
     if (!var7) return 0;

@@ -186,7 +186,7 @@ extern "C" void func_ov023_021e33a0(char* arg0, signed char arg1);
 extern "C" void func_ov005_02159c24(Struct_ov005_02159c24*, void*, void*);
 
 extern "C" {
-void func_ov017_0219ba0c(GameResources* arg0, int arg1);
+void LoadCommonFieldResources_ov017_0219ba0c(GameResources* gameResources, int isIconsOnly);
 void func_ov005_02153ba4(void* arg0);
 void func_ov005_02153954(void* arg0, SafeAllocator* arg1, void* arg2);
 void func_ov004_02154da8(void* arg0, void* arg1, unsigned int arg2);
@@ -198,7 +198,7 @@ void LoadItemTableByCategories_020dea64(void* itemTable, SafeAllocator* allocato
 void InitMessageGlyphs_020432c4(void* window);
 void ClearMessageParams_02046380(void* window);
 void func_02046608(void* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
-void func_ov023_021e20f0(void* arg0, void* arg1, void* arg2, unsigned int arg3);
+void LoadLayout_ov023_021e20f0(void* layout, void* allocator, void* fileData, unsigned int fileSize);
 void func_ov023_021e3d3c(void* arg0, int arg1, int arg2);
 int func_ov023_021e5974(void* arg0, void* arg1, int arg2, int arg3, int arg4);
 void func_ov023_021e49a4(Struct_ov023_021e33b4* arg0);
@@ -229,7 +229,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
     {
         if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()))
         {
-            func_ov017_0219ba0c(var1, 1);
+            LoadCommonFieldResources_ov017_0219ba0c(var1, 1);
 #if defined(jpn)
             arg0->unknown_630_ = var2->QueueLoadGP1(gItemDataPath_020f2a38, NULL);
 #else
@@ -432,7 +432,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             {
                 arg0->unknown_7c_.Reset();
                 func_ov023_021e20c0(arg0->unknown_d4_);
-                func_ov023_021e20f0(arg0->unknown_d4_, &arg0->unknown_7c_, var23, var24);
+                LoadLayout_ov023_021e20f0(arg0->unknown_d4_, &arg0->unknown_7c_, var23, var24);
                 func_ov023_021e3d3c(arg0->unknown_d4_, 1, 1);
             }
             var2->RemoveTask(arg0->unknown_630_);

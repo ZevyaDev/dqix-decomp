@@ -6,7 +6,7 @@ struct Struct_ov024_021db3a4_3;
 extern "C" void* GetParty_02010828(GameState*);
 struct Party_02048150;
 extern "C" int IsInParty_02086ef0(Party_02048150*, int);
-extern "C" float func_ov024_021db358(GameObject*);
+extern "C" float GetHPRatio_ov024_021db358(GameObject*);
 extern "C" void func_ov000_0215a8d4(unsigned char*, int);
 extern "C" short func_ov000_0215a16c(void*, int, int, short*);
 extern "C" unsigned short func_ov024_021e9b24(Struct_ov024_021db3a4*, int, Struct_ov024_021db3a4_3*, int);
@@ -26,7 +26,7 @@ extern "C" ARM void* func_ov024_021db3a4(Struct_ov024_021db3a4* arg0, short arg1
     unsigned short var1 = arg3->unknown_4_.unknown_0_0_;
     if (var1 == 0x21 || var1 == 0x310) arg4 = var0->currentStats_->primaryStats.maxHP;
     void* var2 = GetParty_02010828(GameState::GetInstance());
-    if (arg3->unknown_4_.unknown_0_0_ == 0x20 && IsInParty_02086ef0((Party_02048150*)var2, arg1) && func_ov024_021db358(var0) <= 0.08f && arg6 && arg4 > 0)
+    if (arg3->unknown_4_.unknown_0_0_ == 0x20 && IsInParty_02086ef0((Party_02048150*)var2, arg1) && GetHPRatio_ov024_021db358(var0) <= 0.08f && arg6 && arg4 > 0)
         func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 7);
     short var3 = 0;
     short var4 = func_ov000_0215a16c(arg0->unknown_10_, arg2, arg4, &var3);

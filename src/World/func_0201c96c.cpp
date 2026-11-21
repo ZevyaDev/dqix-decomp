@@ -28,6 +28,6 @@ extern "C" ARM int func_0201c96c(Script::Parameter *arg0, int arg1) {
     var9.unknown_18_[1] = var8;
     var9.unknown_20_    = 4096.0f * var6;
 
-    data_020fdc20.unknown_8_->func_0201e4b0(var9);
+    gZoneFeatureScriptContext_020fdc20.unknown_8_->func_0201e4b0(var9);
     return 1;
 }

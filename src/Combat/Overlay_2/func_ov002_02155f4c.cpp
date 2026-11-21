@@ -3,8 +3,8 @@
 
 struct Struct_ov002_02155f4c;
 struct TextWindowManager_0205d2bc;
-struct Struct_020e2834;
-struct Struct_020e28dc;
+struct YesNoWindow_020e2834;
+struct YesNoWindow_020e28dc;
 struct DisplayWindow_020439b0;
 
 extern "C" void func_ov023_021e76a8(Struct_ov002_02155f4c *arg0);
@@ -12,9 +12,9 @@ extern "C" void func_ov023_021eb4f4(char *arg0);
 extern "C" void func_ov013_02184aec(void *arg0);
 extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(TextWindowManager_0205d2bc *windowManager);
 extern "C" void SetDisplayWindowInsideLayers_020e2d24(int *displayWindow, int layers, int isEffectEnabled);
-extern "C" int func_020e28dc(Struct_020e28dc *arg0);
+extern "C" int IsYesNoWindowOpen_020e28dc(YesNoWindow_020e28dc *yesNoWindow);
 extern "C" void SetDisplayWindowEnabled_020e2cc4(DisplayWindow_020439b0 *displayWindow, int isEnabled);
-extern "C" void func_020e2834(Struct_020e2834 *arg0);
+extern "C" void func_020e2834(YesNoWindow_020e2834 *arg0);
 
 struct Struct_ov002_02155f4c_3 {
     char unknown_0_[0x10];
@@ -54,14 +54,14 @@ extern "C" ARM void func_ov002_02155f4c(Struct_ov002_02155f4c_2 *arg0) {
         int *var2 = (int *) (arg0->unknown_0_[0]->unknown_10_ + 0x28);
         SetDisplayWindowInsideLayers_020e2d24(var2, 0x11, 1);
         SetDisplayWindowEnabled_020e2cc4(
-            (DisplayWindow_020439b0 *) var2, func_020e28dc((Struct_020e28dc *) arg0->unknown_0_[0]));
-        func_020e2834((Struct_020e2834 *) arg0->unknown_0_[0]);
+            (DisplayWindow_020439b0 *) var2, IsYesNoWindowOpen_020e28dc((YesNoWindow_020e28dc *) arg0->unknown_0_[0]));
+        func_020e2834((YesNoWindow_020e2834 *) arg0->unknown_0_[0]);
     }
     if (arg0->unknown_0_[1] != 0) {
         int *var3 = (int *) (arg0->unknown_0_[1]->unknown_10_ + 0x28);
         SetDisplayWindowInsideLayers_020e2d24(var3, 0x11, 1);
         SetDisplayWindowEnabled_020e2cc4(
-            (DisplayWindow_020439b0 *) var3, func_020e28dc((Struct_020e28dc *) arg0->unknown_0_[1]));
-        func_020e2834((Struct_020e2834 *) arg0->unknown_0_[1]);
+            (DisplayWindow_020439b0 *) var3, IsYesNoWindowOpen_020e28dc((YesNoWindow_020e28dc *) arg0->unknown_0_[1]));
+        func_020e2834((YesNoWindow_020e2834 *) arg0->unknown_0_[1]);
     }
 }

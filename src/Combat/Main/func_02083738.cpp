@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
 
-struct Struct_02083738_2 {
+struct ItemData_02083738_2 {
     void* unknown_0_;
-    void* unknown_4_;
+    void* pName_4_;
     char unknown_8_[0x18];
 };
 
@@ -11,9 +11,9 @@ struct Struct_0200f3a4_14 {
     char unknown_0_[0x20];
 };
 
-struct Struct_02083738 {
+struct PartyMemberData_02083738 {
     char unknown_0_[0x194];
-    struct Struct_02083738_2 unknown_194_[11];
+    struct ItemData_02083738_2 unknown_194_[11];
     #if defined(jpn)
     char unknown_2f4_[0x364];
 #else
@@ -22,41 +22,41 @@ struct Struct_02083738 {
     struct Struct_0200f3a4_14 unknown_6f0_[11];
 };
 
-struct Struct_02083508_2;
-extern "C" void func_020de1d4(struct Struct_02083508_2*);
+struct ItemData_02083508_2;
+extern "C" void InitItemData_020de1d4(struct ItemData_02083508_2*);
 extern "C" unsigned char* func_0208349c(unsigned char* arg0, int arg1);
 
-// USA: func_02083738
-extern "C" ARM void func_02083738(struct Struct_02083738* arg0, int arg1) {
-    int var0 = -1;
-    int var1 = -1;
+// USA: UnequipCategory_02083738
+extern "C" ARM void UnequipCategory_02083738(struct PartyMemberData_02083738* memberData, int arg1) {
+    int recordIndex = -1;
+    int slot = -1;
     switch (arg1) {
-    case 0: var0 = 8; var1 = 7; break;
-    case 1: var0 = 9; var1 = 8; break;
-    case 4: var0 = 7; var1 = 6; break;
-    case 2: var0 = 0; var1 = 0; break;
-    case 5: var0 = 5; var1 = 4; break;
-    case 3: var0 = 1; var1 = 1; break;
-    case 6: var0 = 6; var1 = 5; break;
-    case 7: var0 = 10; var1 = 9; break;
+    case 0: recordIndex = 8; slot = 7; break;
+    case 1: recordIndex = 9; slot = 8; break;
+    case 4: recordIndex = 7; slot = 6; break;
+    case 2: recordIndex = 0; slot = 0; break;
+    case 5: recordIndex = 5; slot = 4; break;
+    case 3: recordIndex = 1; slot = 1; break;
+    case 6: recordIndex = 6; slot = 5; break;
+    case 7: recordIndex = 10; slot = 9; break;
     }
-    if (var0 >= 0 && var1 >= 0) {
-        struct Struct_02083738_2* var2 = &arg0->unknown_194_[var0];
-        void* var3 = var2->unknown_0_;
-        void* var4 = var2->unknown_4_;
-        *(short*)((char*)arg0 + var1 * 2 + 0x488) = -1;
-        memset(var3, 0, 0x20);
+    if (recordIndex >= 0 && slot >= 0) {
+        struct ItemData_02083738_2* equippedItem = &memberData->unknown_194_[recordIndex];
+        void* itemParameters = equippedItem->unknown_0_;
+        void* name = equippedItem->pName_4_;
+        *(short*)((char*)memberData + slot * 2 + 0x488) = -1;
+        memset(itemParameters, 0, 0x20);
 #if defined(jpn)
-        memset(var4, 0, 0x14);
+        memset(name, 0, 0x14);
 #else
-        *(unsigned char*)var4 = 0;
+        *(unsigned char*)name = 0;
 #endif
-        func_020de1d4((struct Struct_02083508_2*)var2);
-        var2->unknown_0_ = &arg0->unknown_6f0_[var0];
+        InitItemData_020de1d4((struct ItemData_02083508_2*)equippedItem);
+        equippedItem->unknown_0_ = &memberData->unknown_6f0_[recordIndex];
 #if defined(jpn)
-        var2->unknown_4_ = (unsigned char*)arg0 + 0x56f + var0 * 0x15;
+        equippedItem->pName_4_ = (unsigned char*)memberData + 0x56f + recordIndex * 0x15;
 #else
-        var2->unknown_4_ = func_0208349c((unsigned char*)arg0, var0);
+        equippedItem->pName_4_ = func_0208349c((unsigned char*)memberData, recordIndex);
 #endif
     }
 }

@@ -125,7 +125,7 @@ extern "C" int func_02053cdc(int* arg0);
 extern "C" int IsOnLadder_02039d7c(char* object);
 extern "C" int func_02039760(void* arg0);
 extern "C" int func_02077a20(Struct_02077788_2* arg0);
-extern "C" void func_ov017_0219a674(unsigned char* arg0);
+extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char* prompt);
 extern "C" short func_ov017_021a4754(Vector3fix* arg0, int arg1, Vector3fix* arg2);
 extern "C" void func_ov017_0219b33c(Struct_ov017_02196430_8* arg0, Struct_ov017_02196430_4* arg1);
 extern "C" int func_ov017_0219735c(unsigned char* arg0, unsigned short arg1);
@@ -141,7 +141,7 @@ extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 struct Struct_0207d7f4;
 extern "C" Struct_0207d7f4* GetBattleJoinTable_0207d78c();
 extern "C" Struct_ov017_02196430_6* func_0207d9bc(Struct_0207d7f4* arg0, unsigned short arg1);
-extern "C" void func_ov017_021b6f18(void* arg0);
+extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
 extern "C" void func_ov017_02196c08(unsigned char* arg0);
 extern "C" void func_ov017_021b6e70(Struct_ov017_02196430_5* arg0, int arg1);
 extern "C" int func_ov017_021970a0(int arg0);
@@ -249,7 +249,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
                     var28 = var32 < var31 + 0x1000;
                 }
                 if (var28 && IsNotLocalWirelessGuest_0202c508(var2)) {
-                    func_ov017_0219a674((unsigned char*)&var15);
+                    ResetInteractionPrompt_ov017_0219a674((unsigned char*)&var15);
                     var15.unknown_0_ = 9;
                     var15.unknown_2_ = var27->unknown_0_.unknown_4_;
                     var15.unknown_10_ = func_ov017_021a4754(&var4->unknown_0_.position_, (short)var4->unknown_0_.rotation_.y, &var27->unknown_0_.position_);
@@ -284,7 +284,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
                 if (!var27->unknown_0_.IsVisible()) {
                     continue;
                 }
-                func_ov017_0219a674((unsigned char*)&var16);
+                ResetInteractionPrompt_ov017_0219a674((unsigned char*)&var16);
                 var16.unknown_0_ = 0xe;
                 func_ov017_0219b33c(var0, &var16);
                 if (g_keyManager.TestKeysPressed(1) == 0 && var0->unknown_42e6_ == 0) {
@@ -334,7 +334,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
 
     unsigned short var33 = func_ov017_021971c4(var0);
     if (var33 != 0) {
-        func_ov017_0219a674((unsigned char*)&var17);
+        ResetInteractionPrompt_ov017_0219a674((unsigned char*)&var17);
         var17.unknown_0_ = 0xe;
         func_ov017_0219b33c(var0, &var17);
     }
@@ -367,7 +367,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
         var12 = -1;
     }
     if (var23) {
-        func_ov017_021b6f18(var0->unknown_3718_);
+        ResetBattleTask_ov017_021b6f18(var0->unknown_3718_);
         func_ov017_02196c08((unsigned char*)&var18);
         var18.unknown_0_ = 1;
         if (var10) {

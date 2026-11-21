@@ -36,7 +36,7 @@ struct FieldMonster_02076a8c {
     unsigned short unknown_164_;
     unsigned short unknown_166_;
     unsigned short unknown_168_;
-    unsigned short unknown_16a_;
+    unsigned short id_16a_;
     unsigned char unknown_16c_[4];
     fix32_t unknown_170_;
     short unknown_174_;

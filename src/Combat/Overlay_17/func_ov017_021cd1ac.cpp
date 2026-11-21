@@ -8,7 +8,7 @@
 
 extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void LearnSkillEntry_02083acc(unsigned char* memberData, int skillEntryId);
-extern "C" void func_02083e28(void* arg0, int arg1);
+extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
 
 struct Struct_ov017_021cd1ac {
 	unsigned char unknown_0_0_ : 3;
@@ -39,5 +39,5 @@ extern "C" ARM void func_ov017_021cd1ac(int arg0, unsigned char* arg1, GameState
         unsigned short var5 = var0->unknown_2_[var4];
 		LearnSkillEntry_02083acc(var3, var5);
 	}
-	func_02083e28(var3, 0);
+	CalculatePartyMemberStats_02083e28(var3, 0);
 }

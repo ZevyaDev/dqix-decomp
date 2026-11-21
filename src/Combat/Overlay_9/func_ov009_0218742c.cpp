@@ -104,9 +104,9 @@ extern "C" int sprintf(char*, const char*, ...);
 extern "C" void ClearLevelEntries_0208247c(void*);
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);
 extern "C" void ReadLevelEntries_02082490(void*, void*, unsigned int, int, int);
-extern "C" void func_02083cbc(void*, void*, void*);
+extern "C" void SetLevelStats_02083cbc(void*, void*, void*);
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
-extern "C" void func_02083e28(void*, int);
+extern "C" void CalculatePartyMemberStats_02083e28(void*, int);
 extern "C" void func_020863c4(unsigned char*);
 extern "C" void ClearSpellTable_0209a804(int*);
 extern "C" void func_0209a810(Struct_0201099c_18*, void*);
@@ -203,14 +203,14 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             unsigned int var12;
             void* var13 = LoadFileIntoMemory(var9, g_fileScratchSpace, &var12);
             if (var13) ReadLevelEntries_02082490(&var11, var13, var12, arg0->unknown_d88_->unknown_16c_[arg0->unknown_da2_], 0);
-            func_02083cbc(arg0->unknown_d88_, &var11, var11.unknown_3c_);
+            SetLevelStats_02083cbc(arg0->unknown_d88_, &var11, var11.unknown_3c_);
             BackgroundLoader::RemoveLockGlobal();
             short* var14 = arg0->unknown_d88_->unknown_488_;
             for (int var15 = 0; var15 < 7; ++var15) {
                 void* var16 = FindItemData_020dedd0((ItemTable_0201099c_10*)arg0->unknown_a8_, var14[data_ov009_0218aac8[var15].unknown_0_]);
                 if (var16) memcpy(&arg0->unknown_d88_->unknown_194_[data_ov009_0218aac8[var15].unknown_1_], var16, 32);
             }
-            func_02083e28(arg0->unknown_d88_, 0);
+            CalculatePartyMemberStats_02083e28(arg0->unknown_d88_, 0);
             func_020863c4((unsigned char*)arg0->unknown_d88_);
             Struct_ov009_0218742c_7* var17 = inline_ov009_0218742c_4(&var8);
             Struct_ov009_0218742c_9* var18 = arg0->unknown_d88_;
@@ -263,14 +263,14 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             unsigned int var31;
             void* var32 = LoadFileIntoMemory(var28, g_fileScratchSpace, &var31);
             if (var32) ReadLevelEntries_02082490(&var30, var32, var31, var25->unknown_16c_[arg0->unknown_da2_], 0);
-            func_02083cbc(var25, &var30, var30.unknown_3c_);
+            SetLevelStats_02083cbc(var25, &var30, var30.unknown_3c_);
             BackgroundLoader::RemoveLockGlobal();
             short* var33 = var25->unknown_488_;
             for (int var34 = 0; var34 < 7; ++var34) {
                 void* var35 = FindItemData_020dedd0((ItemTable_0201099c_10*)arg0->unknown_c8_, var33[data_ov009_0218aac8[var34].unknown_0_]);
                 if (var35) memcpy(&var25->unknown_194_[data_ov009_0218aac8[var34].unknown_1_], var35, 32);
             }
-            func_02083e28(var25, 0);
+            CalculatePartyMemberStats_02083e28(var25, 0);
             func_020863c4((unsigned char*)var25);
             Struct_ov009_0218742c_7* var36 = inline_ov009_0218742c_4(&var27);
             var36[0].unknown_0_0_ = var25->unknown_0_[0].unknown_0_0_;

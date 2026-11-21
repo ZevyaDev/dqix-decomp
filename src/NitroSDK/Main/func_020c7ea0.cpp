@@ -7,30 +7,30 @@ void BlockCurrentContext(struct BlockedContextList* p);
 void UnblockContexts(struct BlockedContextList* p);
 extern "C" int _s32_div_f(int a, int b);
 
-// USA: func_020c7ea0
-extern "C" ARM int func_020c7ea0(void* arg0, unsigned int* arg1, int arg2) {
-    unsigned int var0 = DisableIRQInterrupts();
-    if (*(int*)((char*)arg0 + 0x1c) == 0) {
-        int var1 = arg2 & 1;
+// USA: DequeueValue_020c7ea0
+extern "C" ARM int DequeueValue_020c7ea0(void* queue, unsigned int* value, int flags) {
+    unsigned int priorState = DisableIRQInterrupts();
+    if (*(int*)((char*)queue + 0x1c) == 0) {
+        int isBlocking = flags & 1;
         while (1) {
-            if (!var1) {
-                SetIRQInterruptState(var0);
+            if (!isBlocking) {
+                SetIRQInterruptState(priorState);
                 return 0;
             }
-            BlockCurrentContext((struct BlockedContextList*)((char*)arg0 + 8));
-            if (*(int*)((char*)arg0 + 0x1c) != 0) break;
+            BlockCurrentContext((struct BlockedContextList*)((char*)queue + 8));
+            if (*(int*)((char*)queue + 0x1c) != 0) break;
         }
     }
-    if (arg1 != NULL) {
-        unsigned int* var2 = *(unsigned int**)((char*)arg0 + 0x10);
-        unsigned int var3 = *(unsigned int*)((char*)arg0 + 0x18);
-        *arg1 = var2[var3];
+    if (value != NULL) {
+        unsigned int* entries = *(unsigned int**)((char*)queue + 0x10);
+        unsigned int head = *(unsigned int*)((char*)queue + 0x18);
+        *value = entries[head];
     }
-    int var4 = *(int*)((char*)arg0 + 0x18);
-    int var5 = *(int*)((char*)arg0 + 0x14);
-    *(int*)((char*)arg0 + 0x18) = (var4 + 1) % var5;
-    *(int*)((char*)arg0 + 0x1c) = *(int*)((char*)arg0 + 0x1c) - 1;
-    UnblockContexts((struct BlockedContextList*)arg0);
-    SetIRQInterruptState(var0);
+    int oldHead = *(int*)((char*)queue + 0x18);
+    int capacity = *(int*)((char*)queue + 0x14);
+    *(int*)((char*)queue + 0x18) = (oldHead + 1) % capacity;
+    *(int*)((char*)queue + 0x1c) = *(int*)((char*)queue + 0x1c) - 1;
+    UnblockContexts((struct BlockedContextList*)queue);
+    SetIRQInterruptState(priorState);
     return 1;
 }

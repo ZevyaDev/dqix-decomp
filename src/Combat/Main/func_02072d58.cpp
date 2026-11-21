@@ -8,7 +8,7 @@ enum { Enum_02072d58_14076 = 0x36fc, Enum_02072d58_336 = 0x150 };
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void func_02072c9c(int arg0, char* arg1);
+extern "C" void FormatPartyMemberAnimationName_02072c9c(int memberIndex, char* animationName);
 
 struct QueueNode_02015438;
 extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
@@ -17,7 +17,7 @@ extern char data_020f0cff[];
 
 // USA: func_02072d58
 extern "C" ARM void func_02072d58(int arg0, char* arg1, char* arg2) {
-    func_02072c9c(arg0, arg1);
+    FormatPartyMemberAnimationName_02072c9c(arg0, arg1);
 
     int var0 = ((int)GetGameResources());
     struct QueueNode_02015438** var1 = *(struct QueueNode_02015438***)((char*)var0 + Enum_02072d58_14076);

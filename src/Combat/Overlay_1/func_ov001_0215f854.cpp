@@ -9,7 +9,7 @@
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" void* GetScriptValueAsString_ov017_021d612c(void*);
-extern "C" int func_ov001_0215ad2c(int arg0);
+extern "C" int ResolveEventObjectIndex_ov001_0215ad2c(int scriptObjectId);
 extern SafeAllocator* data_ov001_021658b8[8];
 extern "C" void* func_02010768(void* arg0);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov001_0215f854(char* arg0) {
 	void* var4 = GetScriptValueAsString_ov017_021d612c(arg0 + 0x8);
 	void* var5 = GetScriptValueAsString_ov017_021d612c(arg0 + 0x10);
 
-	int var6 = func_ov001_0215ad2c(var3);
+	int var6 = ResolveEventObjectIndex_ov001_0215ad2c(var3);
 
 	GameObject* var7 = var0->GetGameObjectByIndex(var6);
 	if (var7 == NULL) return 0;

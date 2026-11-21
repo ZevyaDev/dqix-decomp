@@ -7,7 +7,7 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Struct_020e28dc;
+struct YesNoWindow_020e28dc;
 struct MenuLayout_0207fdcc_2;
 
 struct Struct_ov006_021580b8 {
@@ -20,8 +20,8 @@ struct Struct_ov006_02156e54_2 {
 
 struct Struct_ov006_02154614;
 
-extern "C" int func_020e28dc(Struct_020e28dc*);
-extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
+extern "C" int IsYesNoWindowOpen_020e28dc(YesNoWindow_020e28dc*);
+extern "C" int IsYesNoWindowCancelPressed_020e2984(struct YesNoWindow_020e28dc* yesNoWindow);
 extern "C" int IsPointInMenuLayoutWindow_02080d54(MenuLayout_0207fdcc_2*, int, int, int);
 
 struct Struct_ov006_02157a60 {
@@ -125,9 +125,9 @@ extern "C" ARM unsigned char func_ov006_02158b78(Struct_ov006_02157a60* arg0)
     unsigned char var0 = 0;
     if (g_keyManager.TestKeysPressed(2))
         var0 = 1;
-    if (arg0->unknown_18_ != 0 && func_020e28dc((Struct_020e28dc*)arg0->unknown_18_))
+    if (arg0->unknown_18_ != 0 && IsYesNoWindowOpen_020e28dc((YesNoWindow_020e28dc*)arg0->unknown_18_))
     {
-        if (func_020e2984((struct Struct_020e28dc*)arg0->unknown_18_))
+        if (IsYesNoWindowCancelPressed_020e2984((struct YesNoWindow_020e28dc*)arg0->unknown_18_))
             var0 = 1;
     }
     else if (g_touchInput.pressed_)

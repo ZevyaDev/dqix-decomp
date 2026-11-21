@@ -85,7 +85,7 @@ struct Struct_ov012_02189314
 
 extern "C" void CloseTextWindows_0205d6a0(void* windowManager, int isAll);
 extern "C" void func_ov023_021e20c0(void* arg0);
-extern "C" int func_ov023_021e20f0(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
+extern "C" int LoadLayout_ov023_021e20f0(void* layout, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 extern "C" void func_02042428(char* arg0, int arg1);
 extern "C" int func_02099304(Struct_ov012_02189314_2* arg0, char* arg1, const void* arg2, unsigned int arg3, void* arg4, int arg5, unsigned char arg6, char* arg7, char* arg8);
 extern "C" void SetNextTextWindowBGLayer_0205de24(void* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
@@ -149,7 +149,7 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
             unsigned int var3;
             var1->GetLoadedFileByID(arg0->unknown_1350_[0], &var2, &var3);
             arg0->unknown_18_[4].Reset();
-            func_ov023_021e20f0(arg0->unknown_13bc_, &arg0->unknown_18_[4], var2, var3);
+            LoadLayout_ov023_021e20f0(arg0->unknown_13bc_, &arg0->unknown_18_[4], var2, var3);
             var1->RemoveTask(arg0->unknown_1350_[0]);
             arg0->unknown_1350_[0] = -1;
             arg0->unknown_1340_++;

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_02049b54_2;
+struct Combatant_02049b54_2;
 struct Struct_02033834;
 
 struct Struct_ov009_0218aa28 {
@@ -13,7 +13,7 @@ extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int a
 extern "C" void func_02049f28(unsigned char* arg0);
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
-extern "C" void func_02049b54(struct Struct_ov009_0218aa28* arg0, struct Struct_02049b54_2* arg1);
+extern "C" void GetCombatantLineupPosition_02049b54(struct Struct_ov009_0218aa28* combatant, struct Combatant_02049b54_2* arg1);
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 extern "C" void func_02049bac(unsigned char* arg0, int* arg1);
 extern "C" void func_ov000_02161c0c(void* arg0, int arg1);
@@ -71,7 +71,7 @@ extern "C" ARM int func_ov025_021e604c(void* arg0, int arg1, int arg2, void* arg
         if (var18 != NULL) {
             __clear(&var5, 0xc);
             var5.z = var9;
-            func_02049b54(&var1, (struct Struct_02049b54_2*)var18);
+            GetCombatantLineupPosition_02049b54(&var1, (struct Combatant_02049b54_2*)var18);
             var4 = var1;
             var4.unknown_0_[1] = 0;
             Vector3fix_Subtract(&var5, (Vector3fix*)&var4, &var3);

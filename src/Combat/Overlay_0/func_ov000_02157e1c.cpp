@@ -37,7 +37,7 @@ extern Struct_ov000_02182cb4 data_ov000_02182cd4;
 extern float data_ov000_02182ad4[];
 extern float data_ov000_02182bd4[];
 
-extern "C" int func_ov000_02153e40(struct Random* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectCombatantIndices_ov000_02153e40(struct Random* battle, short* indices, int maxCount, int filterFlags);
 extern "C" void func_ov000_0215cac8(struct Random* arg0, short* arg1, int arg2, short arg3,
                                     unsigned short* arg4, unsigned char* arg5);
 extern "C" void __clear(void* arg0, unsigned int arg1);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov000_02157e1c(struct Random* arg0) {
     short var2 = 0;
     Struct_ov000_02182cb4 var3 = data_ov000_02182cd4;
     short* var4 = var3.unknown_0_;
-    int var5 = func_ov000_02153e40(arg0, var4, 16, 1);
+    int var5 = CollectCombatantIndices_ov000_02153e40(arg0, var4, 16, 1);
     struct Struct_ov000_02157e1c* var6;
     unsigned short var7[40];
     unsigned char var8[8];

@@ -98,7 +98,7 @@ extern Struct_021142e0 data_021142e0;
 extern unsigned long data_02114380[10][Enum_020d3df8_64] __attribute__((aligned(32)));
 extern "C" void func_020d468c();
 extern "C" void func_020c7de4(Struct_ov031_0224e204*, int, int);
-extern "C" int func_020c7e0c(Struct_ov031_0224e204*, void*, int);
+extern "C" int EnqueueValue_020c7e0c(Struct_ov031_0224e204*, void*, int);
 extern "C" void func_020d42e0(unsigned int, unsigned int, unsigned int);
 
 // USA: func_020d3df8
@@ -144,7 +144,7 @@ extern "C" ARM Enum_020d3df8 func_020d3df8(void* arg0, unsigned short arg1, unsi
     for (int var2 = 0; var2 < 10; var2++) {
         ((Struct_020d3df8_2*)data_02114380[var2])->unknown_0_ = 0x8000;
         CleanCacheRange(data_02114380[var2], 2);
-        func_020c7e0c(&data_021142e0.unknown_8_, data_02114380[var2], 1);
+        EnqueueValue_020c7e0c(&data_021142e0.unknown_8_, data_02114380[var2], 1);
     }
     SetArm9IPCCommandHandler(10, func_020d42e0);
     data_021142e0.unknown_0_ = 1;

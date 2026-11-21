@@ -2,7 +2,7 @@
 
 struct BlockedContextList;
 void UnblockContexts(struct BlockedContextList* list);
-extern "C" void func_020c7e0c(void* arg0, int arg1, int arg2);
+extern "C" void EnqueueValue_020c7e0c(void* queue, int value, int flags);
 extern "C" void func_020c7f44(void* arg0, int arg1, int arg2);
 extern "C" int func_020c7fe0(void* arg0, unsigned int* arg1, int arg2);
 
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov031_02245e5c(struct Struct_ov031_02245e5c* arg0) {
 			return;
 		}
 		if (arg0->unknown_2_ == 0) {
-			func_020c7e0c(&data_ov031_02291f60, 2, 0);
+			EnqueueValue_020c7e0c(&data_ov031_02291f60, 2, 0);
 		} else {
 			func_020c7f44(&data_ov031_02291f60, 3, 0);
 		}
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov031_02245e5c(struct Struct_ov031_02245e5c* arg0) {
 		if (arg0->unknown_2_ == 0) {
 			unsigned int var0;
 			if (func_020c7fe0(&data_ov031_02291f60, &var0, 0) != 0) return;
-			func_020c7e0c(&data_ov031_02291f60, 1, 0);
+			EnqueueValue_020c7e0c(&data_ov031_02291f60, 1, 0);
 		} else {
 			func_020c7f44(&data_ov031_02291f60, 3, 0);
 		}

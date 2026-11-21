@@ -2,7 +2,7 @@
 #include <std_library_functions.h>
 
 #if defined(jpn)
-struct Struct_02045c00_2;
+struct MessageWindow_02045c00_2;
 struct Struct_02067b28 {
     char unknown_0_[0x18];
     unsigned short* unknown_4c_;
@@ -33,7 +33,7 @@ struct Struct_02067b28 {
 extern "C" int func_02069430(void*, unsigned short);
 extern "C" int func_02069444(void*, unsigned short);
 extern "C" int func_02043014(int, unsigned short*);
-extern "C" int func_02045c00(Struct_02045c00_2*, const char*, int);
+extern "C" int func_02045c00(MessageWindow_02045c00_2*, const char*, int);
 extern "C" int func_02046530(void*, unsigned short*, int, int);
 extern const char data_020f07ce[];
 
@@ -80,7 +80,7 @@ extern "C" ARM void func_02067b28(Struct_02067b28* arg0) {
         if (arg0->unknown_17f2_) var4 = 6;
         int var7 = func_02043014(var4, (unsigned short*)var0);
         if (var7 >= 0) {
-            int var8 = func_02045c00((Struct_02045c00_2*)arg0, var0, var4);
+            int var8 = func_02045c00((MessageWindow_02045c00_2*)arg0, var0, var4);
             if (var8 < 0) {
                 unsigned short var9 = func_02046530(arg0, (unsigned short*)var0, var7, var4);
                 if (!arg0->unknown_19c2_) arg0->unknown_1882_[arg0->unknown_1942_] = var9;
@@ -120,7 +120,7 @@ struct FontGlyph_0204254c {
     signed char unknown_5_6_ : 2;
     char unknown_6_[2];
 };
-struct Struct_02045c00_2;
+struct MessageWindow_02045c00_2;
 struct Struct_02067b28 {
     char unknown_0_[0x4c];
     unsigned short* unknown_4c_;
@@ -155,7 +155,7 @@ extern "C" int func_02044494(void*, void*);
 extern "C" int func_02044420(void*, void*);
 extern "C" FontGlyph_0204254c* FindFontGlyph_0204254c(int, int);
 extern "C" int FindFontGlyphIndex_020424e4(int, int);
-extern "C" int func_02045c00(Struct_02045c00_2*, int);
+extern "C" int func_02045c00(MessageWindow_02045c00_2*, int);
 extern "C" int func_020459b8(Struct_02067b28*, unsigned char, FontGlyph_0204254c*, unsigned char);
 extern char data_020f08dc[3];
 
@@ -194,7 +194,7 @@ extern "C" ARM void func_02067b28(Struct_02067b28* arg0) {
         FontGlyph_0204254c* var4 = FindFontGlyph_0204254c((int)var0, arg0->unknown_19dc_);
         int var5 = FindFontGlyphIndex_020424e4((int)var0, arg0->unknown_19dc_);
         if (var4 && var5 >= 0) {
-            int var6 = func_02045c00((Struct_02045c00_2*)arg0, (int)var4);
+            int var6 = func_02045c00((MessageWindow_02045c00_2*)arg0, (int)var4);
             arg0->unknown_7c_ += var4->codeLength_5_0_;
             if (var6 < 0) {
                 unsigned short var7 = func_020459b8(arg0, (unsigned char)var5, var4, arg0->unknown_19dc_);

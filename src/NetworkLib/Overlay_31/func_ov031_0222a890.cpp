@@ -2,7 +2,7 @@
 
 extern "C" void func_ov031_0222a900(void);
 extern "C" void func_ov031_0222a904(void);
-extern "C" signed char func_ov031_02237e9c(void);
+extern "C" signed char GetDialogChoice_ov031_02237e9c(void);
 extern unsigned char data_ov031_02290c78;
 extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int);
 extern "C" void func_ov031_0222785c(int);
@@ -14,7 +14,7 @@ extern "C" void func_ov031_0222a908(void);
 extern "C" ARM void func_ov031_0222a890(void) {
 	func_ov031_0222a900();
 	func_ov031_0222a904();
-	signed char var0 = func_ov031_02237e9c();
+	signed char var0 = GetDialogChoice_ov031_02237e9c();
 	switch (var0) {
 	case 0:
 		(&data_ov031_02290c78)[1] = 0;

@@ -7,7 +7,7 @@ struct Struct_ov000_0215767c_8 {
 
 struct BattleAction_ov000_0215440c_2 {
     char unknown_0_[8];
-    unsigned char unknown_8_;
+    unsigned char actorCount_8_;
 };
 
 struct Struct_ov000_02182c74 {
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov000_02157d3c(Struct_ov000_0215767c_2* arg0, BattleAct
     }
     if (arg0->unknown_8e14_ == 0 && arg2 == 0) {
         int var1;
-        for (var1 = 0; var1 < arg1->unknown_8_; var1++) {
+        for (var1 = 0; var1 < arg1->actorCount_8_; var1++) {
             Struct_ov000_0215767c_8* var2 = GetActionActor_ov000_02160094(arg1, var1);
             if (var2 != 0) {
                 func_ov000_0215858c(arg0, var2->unknown_20_, var2);

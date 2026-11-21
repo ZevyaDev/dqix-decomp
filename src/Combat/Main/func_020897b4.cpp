@@ -19,7 +19,7 @@ enum { Enum_020897b4_2384 = 0x950 };
 #endif
 
 struct Struct_02013fb4;
-struct Struct_02086f24_6 { void* unknown_0_; };
+struct SpellTable_02086f24_6 { void* pBlock_0_; };
 
 extern char data_020f1019[];
 extern char data_020f102e[];
@@ -27,11 +27,11 @@ extern char data_020f102e[];
 extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void* ClearLevelEntries_0208247c(void* levelEntries);
 extern "C" int func_0208274c(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3);
-extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
-extern "C" void func_02083e28(void* arg0, int arg1);
+extern "C" void SetLevelStats_02083cbc(void* memberData, void* arg1, void* arg2);
+extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
 extern "C" void func_02083b8c(unsigned char* arg0, unsigned char* arg1, unsigned int arg2);
 extern "C" void ClearSpellTable_0209a804(int* table);
-extern "C" void func_0209a8b4(Struct_02086f24_6* arg0, SafeAllocator* arg1, Struct_02013fb4* arg2, int arg3);
+extern "C" void BuildSpellTable_0209a8b4(SpellTable_02086f24_6* table, SafeAllocator* allocator, Struct_02013fb4* scriptData, int scriptSize);
 extern "C" int func_0209aa54(void* arg0, unsigned char* arg1, unsigned char* arg2, int arg3);
 extern "C" void func_ov017_021ce614(unsigned char arg0, unsigned char arg1, unsigned char arg2);
 
@@ -64,7 +64,7 @@ extern "C" ARM void func_020897b4(unsigned char arg0, unsigned char arg1, int ar
     LevelEntries_0201099c_2 var1;
     char var2[0x600];
     unsigned int var5;
-    Struct_02086f24_6 var6;
+    SpellTable_02086f24_6 var6;
 
     GameObject* var7 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0);
     if (var7 == 0) {
@@ -92,10 +92,10 @@ extern "C" ARM void func_020897b4(unsigned char arg0, unsigned char arg1, int ar
     var9->unknown_16c_[arg2] = arg1;
     var9->unknown_138_[arg2] = var8->requestedLevelEntry_0_.requiredExperience_0_0_;
     var9->unknown_564_ = var8->requestedLevelEntry_0_.unknown_4_7_;
-    func_02083cbc(var9, var8, var1.unknown_3c_);
+    SetLevelStats_02083cbc(var9, var8, var1.unknown_3c_);
 
     if (arg4 != 0) {
-        func_02083e28(var9, 0);
+        CalculatePartyMemberStats_02083e28(var9, 0);
         Struct_020897b4_3* var10 = reinterpret_cast<Struct_020897b4_3*>(var7);
         var10->unknown_130_->unknown_4_ = var7->baseStats_->primaryStats.maxHP;
         var10->unknown_130_->unknown_6_ = var7->baseStats_->primaryStats.maxMP;
@@ -113,7 +113,7 @@ extern "C" ARM void func_020897b4(unsigned char arg0, unsigned char arg1, int ar
         unsigned char var4[0x14];
         var3.CreateTypeA(var2, 0x600);
         ClearSpellTable_0209a804((int*)&var6);
-        func_0209a8b4(&var6, &var3, (Struct_02013fb4*)arg7, arg8);
+        BuildSpellTable_0209a8b4(&var6, &var3, (Struct_02013fb4*)arg7, arg8);
         unsigned int var11 = func_0209aa54(&var6, (unsigned char*)var7, var4, 0);
         func_02083b8c(reinterpret_cast<unsigned char*>(var9), var4, var11);
         var3.Destroy();

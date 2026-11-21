@@ -14,7 +14,7 @@ struct Struct_02081b3c {
     unsigned char unknown_0_2_ : 6;
 };
 
-extern "C" ARM int func_02042190(int arg0);
+extern "C" ARM int GetFontForFontSize_02042190(int fontSize);
 extern "C" ARM int GetMessageWindow_020421a0(void);
 extern "C" ARM void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 
@@ -85,7 +85,7 @@ extern "C" ARM void func_02081b3c(void* arg0, void* arg1, void* arg2) {
         var3 = 5;
     }
 
-    int var4 = func_02042190(F13(var2)->unknown_0_0_);
+    int var4 = GetFontForFontSize_02042190(F13(var2)->unknown_0_0_);
 
     char var5[0x100];
     char* var6 = *(char**)(var2 + 0x0);

@@ -26,7 +26,7 @@ enum { Enum_ov003_0216039c_1140 = 0x474 };
 #endif
 
 struct MenuLayout_0207fdcc_2;
-struct Struct_020e28dc;
+struct YesNoWindow_020e28dc;
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimationList_0205a330;
 struct SpriteAnimation_0205a254_2 {
@@ -35,7 +35,7 @@ struct SpriteAnimation_0205a254_2 {
 };
 
 extern "C" unsigned char* FindMenuLayoutWindow_02081da8(MenuLayout_0207fdcc_2* menuLayout, int windowId);
-extern "C" int func_020e28dc(Struct_020e28dc* arg0);
+extern "C" int IsYesNoWindowOpen_020e28dc(YesNoWindow_020e28dc* yesNoWindow);
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 extern "C" void GetMenuLayoutTextPosition_020809c4(void* menuLayout, int windowId, int textId, short* outX, short* outY);
 extern "C" void SetSpriteAnimationPosition_020e27ec(SpriteAnimationList_0205a254* animationList, int index, short x, short y);
@@ -46,7 +46,7 @@ struct Struct_ov003_0216039c {
     char unknown_328_[Enum_ov003_0216039c_820 - Enum_ov003_0216039c_808];
     char unknown_334_[Enum_ov003_0216039c_908 - Enum_ov003_0216039c_820];
     SpriteAnimationList_0205a254* unknown_38c_;
-    Struct_020e28dc* unknown_390_;
+    YesNoWindow_020e28dc* unknown_390_;
     char unknown_394_[Enum_ov003_0216039c_1120 - Enum_ov003_0216039c_916];
     int unknown_460_;
     char unknown_464_[Enum_ov003_0216039c_1136 - Enum_ov003_0216039c_1124];
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov003_0216039c(Struct_ov003_0216039c* arg0) {
     if (var0 == NULL) {
         return;
     }
-    if (arg0->unknown_390_ != NULL && func_020e28dc(arg0->unknown_390_) != 0) {
+    if (arg0->unknown_390_ != NULL && IsYesNoWindowOpen_020e28dc(arg0->unknown_390_) != 0) {
         ((OBJSpriteSet::List*)(arg0->unknown_38c_))->SetSpriteOBJIndex(0, 0);
         ((OBJSpriteSet*)(arg0->unknown_334_))->DrawAll();
         return;

@@ -98,7 +98,7 @@ extern "C" void SaveSubBGControl_02074b64(BGControlSave_02074b64*);
 extern "C" void* GetNPCManager_0203cf4c();
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void func_0203e0a0(void*, unsigned short);
-extern "C" void func_ov017_0219bf74();
+extern "C" void UnloadZone_ov017_0219bf74();
 extern "C" int IsQuestersRestZone_020981e4(int, int);
 extern "C" void func_ov017_021a316c(GameResources*);
 extern "C" void func_0203d008(unsigned char*);
@@ -120,7 +120,7 @@ extern "C" void func_ov017_021921fc(Vector3i*, short, int);
 extern "C" void func_ov017_0219bd1c(int, int, int, int);
 extern "C" void func_ov017_021a2fa0(GameResources*);
 extern "C" void func_ov017_0219b624(GameResources*);
-extern "C" void func_ov017_0219ba0c(GameResources*, int);
+extern "C" void LoadCommonFieldResources_ov017_0219ba0c(GameResources*, int);
 extern "C" void InitMessageGlyphs_020432c4(void*);
 void UnlockAndSetMainBrightness(GameResources*, int, int);
 extern "C" int* FindNPCById_0203df78(void*, int);
@@ -230,7 +230,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         void* var10 = GetNPCManager_0203cf4c();
         Zone3D* var11 = GetZone3D_02012fe4();
         func_0203e0a0(var10, var11->currentZoneID_);
-        func_ov017_0219bf74();
+        UnloadZone_ov017_0219bf74();
         if (IsQuestersRestZone_020981e4((int)var11->unk_840, inline_ov017_021b1564(var11))) {
             func_ov017_021a316c(var1);
             var1->allocator_array_38[7].Reset();
@@ -287,7 +287,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         func_ov017_0219bd1c(1, 0, 0, 0);
         func_ov017_021a2fa0(var1);
         func_ov017_0219b624(var1);
-        func_ov017_0219ba0c(var1, 0);
+        LoadCommonFieldResources_ov017_0219ba0c(var1, 0);
         Struct_ov017_021b1564_5* var14 = (Struct_ov017_021b1564_5*)var1->unknown_2cc_;
         Struct_ov017_021b1564_8* var15 = GetMessageWindow_020421a0();
         ((TextureArena*)((TextureVRAMArea_0203d028*)var14->unknown_5b0_))->Reset();

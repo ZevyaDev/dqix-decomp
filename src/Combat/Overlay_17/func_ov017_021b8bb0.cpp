@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void func_ov017_021b6f18(void* arg0);
+extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov017_021b6e70(void* arg0, unsigned short arg1);
 extern "C" void func_ov017_021b7104(void* arg0, void* arg1);
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov017_021b8bb0(int arg0) {
     char* var1 = (char*)(long)((int)GetGameResources()) + 0x3000;
     struct Queue_0201bdac_2* var2 = *(struct Queue_0201bdac_2**)(var1 + Enum_ov017_021b8bb0_1788);
     struct QueueNode_0201bdac* var3 = *(struct QueueNode_0201bdac**)(var1 + Enum_ov017_021b8bb0_1816);
-    func_ov017_021b6f18(var3);
+    ResetBattleTask_ov017_021b6f18(var3);
 
     struct Struct_ov017_021b8bb0 var4;
     var4.unknown_0_ = 1;

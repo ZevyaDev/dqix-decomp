@@ -37,7 +37,7 @@ extern "C" int func_02070fe4(Struct_02070fe4*);
 extern "C" int LoadItemTableByIds_020de9a4(void* itemTable, void* allocator, void* fileData, unsigned int fileSize, void* itemIds, unsigned short itemIdCount);
 struct Struct_0201099c_3;
 struct Struct_0203c108_3;
-extern "C" void func_0203c108(Struct_0203c108_3*, char*);
+extern "C" void SetSpriteText_0203c108(Struct_0203c108_3*, char*);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void InitNoun_020e46c4(void* noun);
 extern "C" void ClearMessageParams_02046380(void* window);
@@ -299,12 +299,12 @@ extern "C" ARM int func_ov000_021729ac(Struct_ov000_021729ac_8* arg0) {
             }
             var18->RemoveTask(arg0->unknown_90c_);
             arg0->unknown_90c_ = -1;
-            func_0203c108((Struct_0203c108_3*)arg0->unknown_1b54_[0], ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x754e)));
-            func_0203c108((Struct_0203c108_3*)arg0->unknown_1b54_[1], ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7550)));
+            SetSpriteText_0203c108((Struct_0203c108_3*)arg0->unknown_1b54_[0], ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x754e)));
+            SetSpriteText_0203c108((Struct_0203c108_3*)arg0->unknown_1b54_[1], ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(0x7550)));
 
 #if defined(jpn)
             for (int var24 = 0; var24 < 5; var24++) {
-                func_0203c108((Struct_0203c108_3*)arg0->unknown_1c7c_[var24], ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(data_ov000_02183418[var24])));
+                SetSpriteText_0203c108((Struct_0203c108_3*)arg0->unknown_1c7c_[var24], ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(data_ov000_02183418[var24])));
             }
 #else
             void* var25 = GetMessageWindow_020421a0();
@@ -318,7 +318,7 @@ extern "C" ARM int func_ov000_021729ac(Struct_ov000_021729ac_8* arg0) {
                 int var27 = data_ov000_02183418[var26];
                 *(void**)var25 = &var3;
                 func_02046608(var25, 0xa, ((char*)((StringList*)((Struct_0201099c_3*)arg0->unknown_b8_))->GetString(var27)), var1, 0x100, 0, 0);
-                func_0203c108((Struct_0203c108_3*)arg0->unknown_1b84_[var26], var1);
+                SetSpriteText_0203c108((Struct_0203c108_3*)arg0->unknown_1b84_[var26], var1);
             }
 
 #endif

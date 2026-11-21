@@ -17,9 +17,9 @@ extern "C" void DisableCameraFollow_020a27a0(void* camera);
 extern "C" void EnableCameraFollow_020a2794(void* camera);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_ov017_0218d5ac(void* arg0);
-struct Struct_02046b38;
-struct Struct_02046b38_2;
-extern "C" int func_02046b38(Struct_02046b38* arg0, Struct_02046b38_2* arg1);
+struct Queue_02046b38;
+struct QueueNode_02046b38_2;
+extern "C" int IsNodeInQueue_02046b38(Queue_02046b38* queue, QueueNode_02046b38_2* node);
 extern "C" void func_ov017_021b5a30(void* arg0);
 
 typedef int (*Type_ov017_021b58b8)(void*);
@@ -38,7 +38,7 @@ struct Struct_ov017_021b58b8 {
 };
 
 // USA: func_ov017_021b58b8
-extern "C" ARM void func_ov017_021b58b8(Struct_ov017_021b58b8* arg0, Struct_02046b38_2* arg1) {
+extern "C" ARM void func_ov017_021b58b8(Struct_ov017_021b58b8* arg0, QueueNode_02046b38_2* arg1) {
     if (arg0->unknown_18_ != 0) {
         GameState* var0 = GameState::GetInstance();
         GameObject* var1 = var0->GetUnknownGameObject();
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov017_021b58b8(Struct_ov017_021b58b8* arg0, Struct_0204
         arg0->unknown_8_ = var9(arg0);
     }
 
-    if (func_02046b38((Struct_02046b38*)arg1, *(Struct_02046b38_2**)((char*)var7 + 0x3000 + Enum_ov017_021b58b8_1804)) != 0) {
+    if (IsNodeInQueue_02046b38((Queue_02046b38*)arg1, *(QueueNode_02046b38_2**)((char*)var7 + 0x3000 + Enum_ov017_021b58b8_1804)) != 0) {
         arg0->unknown_1_ = 1;
         func_ov017_021b5a30(arg0);
     }

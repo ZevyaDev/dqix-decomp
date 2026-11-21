@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-struct Struct_ov031_02222ce4;
-extern "C" void func_ov031_0223bcc8(Struct_ov031_02222ce4* arg0, int arg1, int arg2);
+struct OAMAllocation_ov031_02222ce4;
+extern "C" void SetSpritePriority_ov031_0223bcc8(OAMAllocation_ov031_02222ce4* sprite, int entryIndex, int priority);
 extern "C" void* AddTask_ov031_0223e218(void* listIndex, void* callback, void* callbackData, int priority);
 
 struct Struct_ov031_0224926a { unsigned short unknown_0_; unsigned short unknown_2_; };
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov031_0223690c(int arg0) {
 	int var2 = 0;
 	do {
 		data_ov031_02290d04.unknown_4_->unknown_0_[var2] = func_ov031_0223be70(1, *var0++, 1);
-		func_ov031_0223bcc8((Struct_ov031_02222ce4*)data_ov031_02290d04.unknown_4_->unknown_0_[var2], -1, 0);
+		SetSpritePriority_ov031_0223bcc8((OAMAllocation_ov031_02222ce4*)data_ov031_02290d04.unknown_4_->unknown_0_[var2], -1, 0);
 		Struct_ov031_0224926a* var3 = &data_ov031_0224926a[var2];
 		SetSpritePosition_ov031_0223bbd8(data_ov031_02290d04.unknown_4_->unknown_0_[var2], -1, -42, var3->unknown_2_);
 		func_ov031_0223bb58(data_ov031_02290d04.unknown_4_->unknown_0_[var2], -1, 0, *var1++);

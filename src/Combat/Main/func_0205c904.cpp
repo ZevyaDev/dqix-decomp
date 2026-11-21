@@ -16,24 +16,24 @@ extern "C" void func_02042b1c(unsigned char* arg0);
 extern "C" int func_0205cde8(unsigned char* arg0);
 extern "C" int func_0205c5b0(void* arg0, void* arg1);
 
-// USA: func_0205c904
-extern "C" ARM void func_0205c904(unsigned char* arg0, int arg1) {
-    if (arg0[FIRST_FLAG] == 0) {
+// USA: UpdateChoiceList_0205c904
+extern "C" ARM void UpdateChoiceList_0205c904(unsigned char* choiceList, int ticks) {
+    if (choiceList[FIRST_FLAG] == 0) {
         return;
     }
 
-    if (arg0[SECOND_FLAG] == 0) {
+    if (choiceList[SECOND_FLAG] == 0) {
         return;
     }
 
-    unsigned char* var0 = GetMessageWindow_020421a0();
-    func_02042b10(var0, arg0 + 0xb4);
-    func_0202f380(var0 + TIMED_STATE, arg1);
-    func_02042b1c(var0);
+    unsigned char* messageWindow = GetMessageWindow_020421a0();
+    func_02042b10(messageWindow, choiceList + 0xb4);
+    func_0202f380(messageWindow + TIMED_STATE, ticks);
+    func_02042b1c(messageWindow);
 
-    if (func_0205cde8(arg0) == 0) {
+    if (func_0205cde8(choiceList) == 0) {
         return;
     }
 
-    func_0205c5b0(arg0 + 0x1c, (void*)arg1);
+    func_0205c5b0(choiceList + 0x1c, (void*)ticks);
 }

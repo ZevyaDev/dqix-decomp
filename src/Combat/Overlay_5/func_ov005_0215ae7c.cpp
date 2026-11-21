@@ -47,11 +47,11 @@ extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 extern "C" void func_02046608(MessageWindow_02021b84* arg0, int, const char* arg2, char* arg3, int arg4, int, unsigned char);
 extern "C" int func_020d2f88(char* arg0, char* arg1);
-extern "C" void func_02045d14(MessageWindow_02021b84* arg0, const char* arg1, unsigned short* arg2, int);
-extern "C" void func_020439b0(MessageWindow_02021b84* arg0, int);
+extern "C" void ConvertTextToMessageGlyphs_02045d14(MessageWindow_02021b84* window, const char* text, unsigned short* glyphCodes, int);
+extern "C" void UpdateMessageWindowGraphics_020439b0(MessageWindow_02021b84* window, int);
 #if defined(jpn)
 extern "C" void func_020471d0(MessageWindow_02021b84* arg0, int, unsigned short* arg2, int);
-extern "C" void func_020469b0(MessageWindow_02021b84* arg0, const char* arg1, unsigned short* arg2, int);
+extern "C" void ConvertTextToMessageGlyphs_02045d14(MessageWindow_02021b84* arg0, const char* arg1, unsigned short* arg2, int);
 #endif
 
 extern "C" const unsigned char data_ov005_0215cc04[8];
@@ -87,15 +87,15 @@ extern "C" ARM void func_ov005_0215ae7c(Struct_ov005_02153954* arg0)
 #if defined(jpn)
         if (var8 != NULL)
         {
-            func_020469b0(var0, var8->unknown_4_, arg0->unknown_3e84_[var6], 0xa);
+            ConvertTextToMessageGlyphs_02045d14(var0, var8->unknown_4_, arg0->unknown_3e84_[var6], 0xa);
         }
         else if (var7 <= 0)
         {
-            func_020469b0(var0, ((StringList*)((Struct_0201099c_3*)arg0->unknown_df8_))->GetString(0x2ee0), arg0->unknown_3e84_[var6], 0xa);
+            ConvertTextToMessageGlyphs_02045d14(var0, ((StringList*)((Struct_0201099c_3*)arg0->unknown_df8_))->GetString(0x2ee0), arg0->unknown_3e84_[var6], 0xa);
         }
         else
         {
-            func_020469b0(var0, ((StringList*)((Struct_0201099c_3*)arg0->unknown_df8_))->GetString(0x32c7), arg0->unknown_3e84_[var6], 0xa);
+            ConvertTextToMessageGlyphs_02045d14(var0, ((StringList*)((Struct_0201099c_3*)arg0->unknown_df8_))->GetString(0x32c7), arg0->unknown_3e84_[var6], 0xa);
         }
 #else
         char var9[0x80];
@@ -117,9 +117,9 @@ extern "C" ARM void func_ov005_0215ae7c(Struct_ov005_02153954* arg0)
         }
         if (func_020d2f88(var9, data_ov005_0215ce08))
             arg0->unknown_4284_[var6] = 1;
-        func_02045d14(var0, var9, arg0->unknown_3e84_[var6], 0);
+        ConvertTextToMessageGlyphs_02045d14(var0, var9, arg0->unknown_3e84_[var6], 0);
 #endif
-        func_020439b0(var0, 0);
+        UpdateMessageWindowGraphics_020439b0(var0, 0);
         arg0->unknown_3e04_ = 2;
     }
 }

@@ -10,7 +10,7 @@ enum { Enum_ov004_0216d504_3953 = 0xf71 };
 extern "C" void func_020aaf84(void*, int, int, int);
 extern "C" unsigned char func_0209ca98(char* arg0);
 extern "C" unsigned char func_0205ea18(unsigned char* arg0);
-extern "C" void func_0209ca70(void* arg0, int arg1);
+extern "C" void SetMusicVolumeLevel_0209ca70(void* manager, int volumeLevel);
 struct Struct_02108760_2;
 extern "C" void func_0205e9f4(struct Struct_02108760_2* arg0, int arg1);
 extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov004_0216d504(void* arg0) {
     func_020aaf84(data_ov004_02171034.unknown_10_, 0, 0, 0);
     data_ov004_02171034.unknown_4_ = func_0209ca98(&gMusicManager_02109bf4);
     data_ov004_02171034.unknown_1_ = func_0205ea18(&gSoundEffectManager_02108760);
-    func_0209ca70(&gMusicManager_02109bf4, 3);
+    SetMusicVolumeLevel_0209ca70(&gMusicManager_02109bf4, 3);
     func_0205e9f4((struct Struct_02108760_2*)&gSoundEffectManager_02108760, 3);
 
     GameState* var0 = GameState::GetInstance();

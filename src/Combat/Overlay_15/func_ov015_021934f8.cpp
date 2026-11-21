@@ -102,7 +102,7 @@ extern "C" void ClearMonsterTable_0206efc4(void*);
 extern "C" void func_0206efd8(void*, void*);
 extern "C" void func_020709d8(void*);
 extern "C" void func_020709ec(void*, void*);
-extern "C" void func_0202df68(void*);
+extern "C" void InitCamera_0202df68(void*);
 extern "C" void InitKeyControlledCamera_020a2cf0(struct Struct_0204a120_2*);
 extern "C" void InitFollowCamera_020a2010(void*);
 extern "C" void DisableCameraFollow_020a27a0(void*);
@@ -123,7 +123,7 @@ extern "C" void StartMessage_0204500c(void*, const void*, int);
 extern "C" void StartMessage_0204500c(void*, const void*, int, int);
 #endif
 extern "C" void DrawMessageGlyphs_0204359c(void*, int);
-extern "C" void func_020439b0(void*, int);
+extern "C" void UpdateMessageWindowGraphics_020439b0(void*, int);
 extern "C" void func_ov015_02192700(void*);
 extern "C" void func_02012de4(AllocatorUnion*);
 extern "C" void UpdateInput_02012efc();
@@ -258,7 +258,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     func_020709ec(arg0->unknown_70_, &arg0->unknown_b0_);
 
     Struct_ov015_021934f8 var6;
-    func_0202df68(&var6);
+    InitCamera_0202df68(&var6);
     InitKeyControlledCamera_020a2cf0((struct Struct_0204a120_2*)&var6);
     InitFollowCamera_020a2010(&var6);
     DisableCameraFollow_020a27a0(&var6);
@@ -286,7 +286,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     for (unsigned int var8 = 0; var8 < 0x10; var8++)
     {
         DrawMessageGlyphs_0204359c(var7, 0x10);
-        func_020439b0(var7, 0);
+        UpdateMessageWindowGraphics_020439b0(var7, 0);
     }
     arg0->unknown_194_ = 0;
     arg0->unknown_198_ = 2;
@@ -362,5 +362,5 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     LoadSoundEffectSet_0205ea20(&gSoundEffectManager_02108760, 0x64);
     InitFollowCamera_020a2010(&var6);
     InitKeyControlledCamera_020a2cf0((struct Struct_0204a120_2*)&var6);
-    func_0202df68(&var6);
+    InitCamera_0202df68(&var6);
 }

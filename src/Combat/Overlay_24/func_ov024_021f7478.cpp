@@ -178,7 +178,7 @@ extern "C" struct Struct_ov024_021f7478_10* GetEnemyByID_ov000_021536f8(int batt
 struct Struct_ov024_021f7478_10* GetCombatantByID(int unused, int id);
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int func_ov024_021e6798(GameObject* arg0);
-extern "C" float func_ov024_021db358(struct Struct_ov024_021f7478_10* arg0);
+extern "C" float GetHPRatio_ov024_021db358(struct Struct_ov024_021f7478_10* combatant);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" void __clear(void* arg0, int arg1);
@@ -270,7 +270,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
             arg0->unknown_a0_[var5][var11] = arg0->unknown_9c_;
             arg0->unknown_c4_[arg0->unknown_9c_] = var14->unknown_138_->primaryStats.currHP;
             if (arg0->unknown_6_ == 0) {
-                if (func_ov024_021db358(var14) <= 1.0f) {
+                if (GetHPRatio_ov024_021db358(var14) <= 1.0f) {
                     {
                     unsigned short var15 = inline_ov000_0215cd44(var14);
                     unsigned short var16 = inline_ov024_021dc700(var14);
@@ -278,7 +278,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
                     }
                 }
             } else {
-                if (func_ov024_021db358(var14) <= 0.33333f) {
+                if (GetHPRatio_ov024_021db358(var14) <= 0.33333f) {
                     unsigned short var17 = inline_ov000_0215cd44(var14);
                     unsigned short var18 = inline_ov024_021dc700(var14);
                     int var19 = (int)(0.3f * var18 + 0.1f * var17);
@@ -307,7 +307,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
         if (!IsPartyMemberInBattle_020a35e0(((struct Struct_ov024_021f7478_5*)arg0->unknown_0_)->unknown_8e18_, var21)) continue;
         struct Struct_ov024_021f7478_10* var22 = GetCombatantByID((int)arg0->unknown_0_, (short)var21);
         if (var22 == 0) continue;
-        arg0->unknown_114_[var21] = func_ov024_021db358(var22);
+        arg0->unknown_114_[var21] = GetHPRatio_ov024_021db358(var22);
         arg0->unknown_104_[var21] = var22->unknown_138_->primaryStats.currHP;
         if (IsDead_02010088((struct Struct_02010088*)var22)) {
             if (arg0->unknown_12c_ < 0) arg0->unknown_12c_ = var21;

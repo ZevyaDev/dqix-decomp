@@ -4,7 +4,7 @@
 #include "Util/Random.h"
 
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
-extern "C" float func_ov024_021db358(GameObject* arg0);
+extern "C" float GetHPRatio_ov024_021db358(GameObject* combatant);
 extern "C" int PickRandomTarget_ov024_021ed890(struct Random** targetSelector, int* count, short* targetIndices);
 
 extern unsigned short data_ov024_021fef7c;
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov024_021f1c64(int* arg0, int arg1, int arg2, int* arg3,
     for (int var6 = 0; var6 < var5; var6++) {
         GameObject* var7 = GetCombatantByID(*arg0, var0[var6]);
         if (!var7) continue;
-        if (func_ov024_021db358(var7) >= 0.5f) continue;
+        if (GetHPRatio_ov024_021db358(var7) >= 0.5f) continue;
         int var8 = *arg3;
         *arg3 = var8 + 1;
         arg4[var8] = var0[var6];

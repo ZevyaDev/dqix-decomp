@@ -55,7 +55,7 @@ struct Struct_ov009_0218aa28;
 extern "C" short func_ov017_021a4754(Vector3fix*, int, Vector3fix*);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
-extern "C" void func_ov017_0219a674(unsigned char* arg0);
+extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char* prompt);
 extern "C" void func_ov017_0219b33c(GameResources* arg0, Struct_ov017_0218dfd8_2* arg1);
 
 // USA: func_ov017_0218dfd8
@@ -113,7 +113,7 @@ extern "C" ARM int func_ov017_0218dfd8(Struct_ov017_0218dfd8* arg0) {
     if (var8 != NULL && IsQueueEmpty_02046b08(var15) != 0 &&
         IsPerformingGesture_020535c8((signed char*)arg0) == 0 && !(arg0->unknown_18c_ & 0x40) && var6 < 0xc91) {
         Struct_ov017_0218dfd8_2 var16;
-        func_ov017_0219a674((unsigned char*)&var16);
+        ResetInteractionPrompt_ov017_0219a674((unsigned char*)&var16);
         var16.unknown_0_ = 5;
         var16.unknown_10_ = var6;
         var16.unknown_8_ = var8;

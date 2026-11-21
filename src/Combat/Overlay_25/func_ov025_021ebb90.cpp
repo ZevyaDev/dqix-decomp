@@ -56,7 +56,7 @@ struct Struct_ov025_021e9778_4 {
     unsigned char unknown_311_;
 };
 
-struct BattleAction_ov000_0215440c { short unknown_0_; char unknown_2_[7]; unsigned char unknown_9_; };
+struct BattleAction_ov000_0215440c { short unknown_0_; char unknown_2_[7]; unsigned char targetCount_9_; };
 struct ActionTarget_ov000_021600f8 {
     char unknown_0_[0xe];
     short unknown_e_[3];
@@ -235,7 +235,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Struct_ov025_021e9778_4* arg0) {
         if (!(arg0->unknown_0_[var17].unknown_6_ & 0x10)) {
             struct Struct_ov025_021ebb90* var26 = FindActionData_02079e2c((char*)GetActionTables_020797dc(),
                                                                ((struct BattleAction_ov000_0215440c*)arg0->unknown_0_[var17].unknown_0_)->unknown_0_);
-            for (int var27 = 0; var27 < ((struct BattleAction_ov000_0215440c*)arg0->unknown_0_[var17].unknown_0_)->unknown_9_; var27++) {
+            for (int var27 = 0; var27 < ((struct BattleAction_ov000_0215440c*)arg0->unknown_0_[var17].unknown_0_)->targetCount_9_; var27++) {
                 struct ActionTarget_ov000_021600f8* var28 = GetActionTarget_ov000_021600f8((struct BattleAction_ov000_0215440c*)arg0->unknown_0_[var17].unknown_0_, var27);
                 if (var28 != 0) {
                     unsigned char var29 = 0;

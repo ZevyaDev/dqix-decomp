@@ -35,7 +35,7 @@ extern "C" int IsPerformingGesture_020535c8(signed char*);
 extern "C" int func_0203402c(Struct_0203402c*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
-extern "C" void func_ov017_0219a674(unsigned char*);
+extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char*);
 extern "C" void func_ov017_0219b33c(void*, Struct_ov017_02198aa0_3*);
 extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov017_02198aa0(GameResources* arg0) {
           var11.unknown_4_ - 0x1000 < var1->obj3D_.position_.y && var1->obj3D_.position_.y < var11.unknown_4_ + 0x1000) var12 = 1;
     if (!var12) return;
     Struct_ov017_02198aa0_3 var13;
-    func_ov017_0219a674((unsigned char*)&var13);
+    ResetInteractionPrompt_ov017_0219a674((unsigned char*)&var13);
     var13.unknown_0_ = 4;
     func_ov017_0219b33c(arg0, &var13);
     int var14 = 0;

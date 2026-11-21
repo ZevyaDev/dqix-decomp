@@ -12,7 +12,7 @@ extern "C" int func_ov000_02171a74(void* arg0, char* arg1);
 #endif
 
 struct Struct_0203c108_3;
-extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
+extern "C" void SetSpriteText_0203c108(struct Struct_0203c108_3* spriteText, char* text);
 
 struct Struct_ov000_021814bc {
     char unknown_0_[0x28];
@@ -49,6 +49,6 @@ extern "C" ARM void func_ov000_021814bc(char* arg0) {
         __clear(var0, 0x80);
         if (func_ov000_02171a74(var1, var0) < 0) continue;
 #endif
-        func_0203c108((struct Struct_0203c108_3*)((char*)var1 + 0x50), var0);
+        SetSpriteText_0203c108((struct Struct_0203c108_3*)((char*)var1 + 0x50), var0);
     }
 }

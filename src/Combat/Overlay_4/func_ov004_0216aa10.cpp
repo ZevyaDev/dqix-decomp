@@ -8,7 +8,7 @@ enum { Enum_ov004_0216aa10_2456 = 0x998 };
 #endif
 
 extern "C" void func_ov004_02169144(void);
-extern "C" void func_020dc2d0(int arg0);
+extern "C" void RestartMapDisplay_020dc2d0(int modeOverride);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
 
@@ -18,7 +18,7 @@ extern "C" ARM int func_ov004_0216aa10(void) {
     BG0CNTSUB = (BG0CNTSUB & ~3) | 1;
     BG1CNTSUB = (BG1CNTSUB & ~3) | 2;
     BG2CNTSUB = (BG2CNTSUB & ~3);
-    func_020dc2d0(0);
+    RestartMapDisplay_020dc2d0(0);
     int var0 = GetMessageWindow_020421a0();
     if (*(int*)((char*)var0 + Enum_ov004_0216aa10_2456) != 0) {
         ResetMessageWindow_02043204((char*)var0);

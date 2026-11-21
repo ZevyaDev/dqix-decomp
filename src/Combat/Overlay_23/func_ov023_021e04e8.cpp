@@ -3,7 +3,7 @@
 
 struct Struct_020534ac;
 
-extern "C" void func_ov023_021e20f0(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" void LoadLayout_ov023_021e20f0(void* layout, void* allocator, int fileData, int fileSize);
 
 extern "C" void func_ov023_021dbd10(void* arg0, void* arg1);
 
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov023_021e04e8(void* arg0) {
 #endif
 
             ((SafeAllocator*)arg0)->Reset();
-            func_ov023_021e20f0((char*)arg0 + 0xcc, arg0, var2, var3);
+            LoadLayout_ov023_021e20f0((char*)arg0 + 0xcc, arg0, var2, var3);
         }
 
         ((BackgroundLoader*)(var1))->RemoveTask((int)(*(int*)((char*)arg0 + Enum_ov023_021e04e8_1852)));

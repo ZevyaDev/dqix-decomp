@@ -2,7 +2,7 @@
 
 struct Struct_ov031_0224e720;
 extern Struct_ov031_0224e720 data_ov031_0224e720;
-extern int data_ov031_0224e6e0;
+extern int gAOSSSession_ov031_0224e6e0;
 extern "C" unsigned int func_ov031_0221e610(unsigned int);
 extern "C" void func_ov031_0221d060(int);
 extern "C" int func_ov031_0221d82c(unsigned int*, Struct_ov031_0224e720*);
@@ -47,7 +47,7 @@ extern "C" THUMB int func_ov031_0221d450(int arg0, Struct_ov031_0221d3b0_2* arg1
         ++*arg2;
         return arg0;
     }
-    data_ov031_0224e6e0 = func_ov031_0221dc58(func_ov031_0221e638(var0->unknown_c_));
+    gAOSSSession_ov031_0224e6e0 = func_ov031_0221dc58(func_ov031_0221e638(var0->unknown_c_));
     *arg2 = 0;
     return 1;
 }

@@ -66,7 +66,7 @@ extern "C" void func_020115f4(void*, unsigned short);
 extern "C" void func_ov017_021bb27c(void* arg0);
 extern "C" void func_ov017_021bb0c4(unsigned char*);
 extern "C" int RunTrigger_020649b0(void*, int, void*);
-extern "C" void func_0206f81c(void* arg0);
+extern "C" void RunDeferredTriggerActions_0206f81c(void* triggerResult);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" unsigned char* func_ov017_021b8478(unsigned char* battleManager);
@@ -78,7 +78,7 @@ extern "C" void* GetEventSyncTable_020e3808();
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 struct EventSyncEntry_020e385c;
 extern "C" void func_020e3a50(EventSyncEntry_020e385c*, int, int, int);
-extern "C" void func_020e3994(EventSyncEntry_020e385c*, int, int);
+extern "C" void RemoveEventSyncEntry_020e3994(EventSyncEntry_020e385c*, int, int);
 struct Struct_02040774_2;
 extern "C" void SetObject3DPosition_020407b4(Struct_02040774_2*, int, int, int);
 struct Struct_02033834;
@@ -323,7 +323,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
         Struct_ov017_021bc77c_2 var24;
         var24.unknown_8_ = arg0->unknown_8_;
         if (RunTrigger_020649b0(var13, 0xb, &var24)) {
-            func_0206f81c(&var24);
+            RunDeferredTriggerActions_0206f81c(&var24);
         }
         if (IsLocalWirelessGuest_0202c540(var2)) {
             int var25 = 0;
@@ -363,7 +363,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
     if (var14[2]) {
         func_020e3a50((EventSyncEntry_020e385c*)var28, GetProtagonistObjectIndex_020100a8(var0), 1, *(unsigned short*)((unsigned char*)arg0 + 0x18));
     } else if (*(int*)(var27 + 0x20) <= 0 || var27[2] == 0) {
-        func_020e3994((EventSyncEntry_020e385c*)var28, 1, *(unsigned short*)((unsigned char*)arg0 + 0x18));
+        RemoveEventSyncEntry_020e3994((EventSyncEntry_020e385c*)var28, 1, *(unsigned short*)((unsigned char*)arg0 + 0x18));
     }
     if (arg0->unknown_cc_ && arg0->unknown_cf_ == 3) {
         SetObject3DPosition_020407b4((Struct_02040774_2*)var3, 0x48cc, 0x199, -0x733);

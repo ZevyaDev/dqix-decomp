@@ -12,7 +12,7 @@ extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 extern "C" void func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void);
-extern "C" void func_ov017_021cdaa0(void);
+extern "C" void SendDayTimer_ov017_021cdaa0(void);
 
 struct Struct_ov017_021b7284_10 {
     unsigned short unknown_0_;
@@ -59,6 +59,6 @@ extern "C" ARM void func_ov017_021c5284(Struct_ov017_021b7284_10* arg0) {
 
     func_0202ae18();
     if (IsNotLocalWirelessGuest_0202c508()) {
-        func_ov017_021cdaa0();
+        SendDayTimer_ov017_021cdaa0();
     }
 }

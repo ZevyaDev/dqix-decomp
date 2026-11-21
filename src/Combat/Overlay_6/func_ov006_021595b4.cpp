@@ -42,7 +42,7 @@ struct Struct_ov006_02157a60 {
 
 extern "C" short func_ov023_021e29d0(void* arg0);
 extern "C" void func_ov006_0215f4dc(Struct_ov006_02157a60* arg0);
-extern "C" void func_02081ea4(MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowCursorMark_02081ea4(MenuLayout_0207fdcc_2* menuLayout, int windowId, int hasCursorMark);
 extern "C" void func_ov006_021570fc(Struct_ov006_02154614* arg0, int arg1);
 extern "C" unsigned char PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov006_021595b4(Struct_ov006_02157a60* arg0) {
             arg0->unknown_38f_ = 7;
             arg0->unknown_390_ = 6;
             func_ov006_0215f4dc(arg0);
-            func_02081ea4(arg0->unknown_14_, 0x10, 1);
+            SetMenuLayoutWindowCursorMark_02081ea4(arg0->unknown_14_, 0x10, 1);
             arg0->unknown_394_ &= ~0x10;
             arg0->unknown_394_ |= 0x20;
             arg0->unknown_37e_ = 0xa;

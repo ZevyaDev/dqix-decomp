@@ -7,7 +7,7 @@
 
 extern "C" void* GetScriptValueAsString_ov017_021d612c(void* value);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
-extern "C" int func_ov001_0215ad2c(int arg0);
+extern "C" int ResolveEventObjectIndex_ov001_0215ad2c(int scriptObjectId);
 
 extern SafeAllocator* data_ov001_021658b8[8];
 extern const char data_ov001_02165745[];
@@ -46,7 +46,7 @@ extern "C" ARM int func_ov001_0215f060(char* arg0, int arg1) {
     for (int var8 = 1; var8 < arg1; var8++) {
         int var9 = GetScriptValueAsInt_ov017_021d60f4(arg0);
         arg0 += 0x8;
-        GameObject* var10 = var2->GetGameObjectByIndex(func_ov001_0215ad2c(var9));
+        GameObject* var10 = var2->GetGameObjectByIndex(ResolveEventObjectIndex_ov001_0215ad2c(var9));
         if (var10 != NULL) {
             if (var6 != NULL) {
                 var10->obj3D_.LoadType0AnimationFromFileInMemory(var5, var3, var6, var7);

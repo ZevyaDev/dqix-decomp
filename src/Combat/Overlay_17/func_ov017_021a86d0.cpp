@@ -49,7 +49,7 @@ struct Struct_ov017_021a86d0 {
 
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" char* GetZone3D_02012fe4(void);
-extern "C" void func_0205c904(unsigned char* arg0, int arg1);
+extern "C" void UpdateChoiceList_0205c904(unsigned char* choiceList, int ticks);
 extern "C" void* GetTimedMessageQueue_020d7a50(void);
 struct TimedMessageQueue_020d7aa0_2;
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2*);
@@ -88,14 +88,14 @@ extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
 struct MenuCursor_0205bacc;
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
 struct Struct_0201099c_3;
-extern "C" void func_0205cb74(char*, int);
+extern "C" void AddChoiceListEntry_0205cb74(char*, int);
 extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
 struct MenuCursor_0205bcdc;
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc*, int);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 struct Struct_0205c77c;
 extern "C" void func_0205c77c(Struct_0205c77c*, int);
-extern "C" void func_0205cd28(unsigned char* arg0);
+extern "C" void OpenChoiceList_0205cd28(unsigned char* choiceList);
 struct SpriteAnimationList_0205a330;
 extern "C" int func_0205cecc(void* arg0);
 extern "C" int func_0205cb64(void* arg0);
@@ -142,7 +142,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
     char* var1 = GetMessageWindow_020421a0();
     char* var2 = GetZone3D_02012fe4();
     Struct_ov017_021a86d0_2* var3 = (Struct_ov017_021a86d0_2*)arg0->unknown_2c_;
-    func_0205c904(arg0->unknown_2c_, var0->GetTickCount());
+    UpdateChoiceList_0205c904(arg0->unknown_2c_, var0->GetTickCount());
 
     if (arg0->unknown_8_ == 0) {
         ClearTimedMessageQueue_020d7aa0((TimedMessageQueue_020d7aa0_2*)GetTimedMessageQueue_020d7a50());
@@ -218,9 +218,9 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
                 if (arg0->unknown_18_[var17] == 4) {
                     var16 = 0xc;
                 }
-                func_0205cb74((char*)arg0->unknown_2c_, (int)(((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_278_))->GetString(arg0->unknown_18_[var17]))));
+                AddChoiceListEntry_0205cb74((char*)arg0->unknown_2c_, (int)(((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_278_))->GetString(arg0->unknown_18_[var17]))));
             }
-            func_0205cb74((char*)arg0->unknown_2c_, (int)(((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_278_))->GetString(6))));
+            AddChoiceListEntry_0205cb74((char*)arg0->unknown_2c_, (int)(((void*)((StringList*)((Struct_0201099c_3*)arg0->unknown_278_))->GetString(6))));
             int var18 = arg0->unknown_20_;
             int var19 = 0x60 - (var18 + 1) * 0xe;
             if (var18 == 2) {
@@ -255,7 +255,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
             var3->unknown_233_ = 1;
             var3->unknown_234_ = 1;
             func_0205c77c((Struct_0205c77c*)var3->unknown_4_, 1);
-            func_0205cd28(arg0->unknown_2c_);
+            OpenChoiceList_0205cd28(arg0->unknown_2c_);
             arg0->unknown_8_ = 3;
         }
     } else if (arg0->unknown_8_ == 3) {

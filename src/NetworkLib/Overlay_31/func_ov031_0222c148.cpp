@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int IsBrightnessFadeActive_ov031_0223c054(int);
-extern "C" ARM int func_ov031_02222ddc(void);
+extern "C" ARM int CloseButtonBar_ov031_02222ddc(void);
 extern "C" ARM void DisableButtonBarInput_ov031_02222e98(void);
 extern "C" void StartBrightnessFade_ov031_0223c078(int, int, int, int);
 extern "C" ARM void SetWifiSetupFrameHandler_ov031_022274c0(int);
@@ -14,7 +14,7 @@ extern Struct_ov031_02290c8c_8 gAccessPointListPage_ov031_02290c8c;
 extern "C" ARM void func_ov031_0222c148(void) {
     if (IsBrightnessFadeActive_ov031_0223c054(1) != 0) return;
     if (*(unsigned char*)(gAccessPointListPage_ov031_02290c8c.unknown_4_ + 0x54) != 0) {
-        func_ov031_02222ddc();
+        CloseButtonBar_ov031_02222ddc();
     } else {
         DisableButtonBarInput_ov031_02222e98();
     }

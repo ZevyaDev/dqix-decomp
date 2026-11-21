@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
-struct Struct_ov000_0215fd90 {
-    unsigned long long unknown_0_;
+struct ActionResult_ov000_0215fd90 {
+    unsigned long long flags_0_;
 };
 
-// USA: func_ov000_0215fd90
-extern "C" ARM int func_ov000_0215fd90(struct Struct_ov000_0215fd90* arg0, unsigned int arg1) {
-    unsigned long long var0;
-    if (arg1 > 31) {
-        var0 = arg0->unknown_0_ & (((unsigned long long)(1 << (arg1 - 31)) << 32) & 0xFFFFFFFF00000000ULL);
+// USA: HasActionResultFlag_ov000_0215fd90
+extern "C" ARM int HasActionResultFlag_ov000_0215fd90(struct ActionResult_ov000_0215fd90* result, unsigned int flagIndex) {
+    unsigned long long matchedBits;
+    if (flagIndex > 31) {
+        matchedBits = result->flags_0_ & (((unsigned long long)(1 << (flagIndex - 31)) << 32) & 0xFFFFFFFF00000000ULL);
     } else {
-        var0 = arg0->unknown_0_ & ((long long)(1 << arg1) & 0xFFFFFFFFULL);
+        matchedBits = result->flags_0_ & ((long long)(1 << flagIndex) & 0xFFFFFFFFULL);
     }
-    return var0 != 0;
+    return matchedBits != 0;
 }

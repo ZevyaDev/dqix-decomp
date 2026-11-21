@@ -17,8 +17,8 @@ extern "C" int func_ov003_0215c300(struct Struct_ov003_02158e94_2* arg0, int arg
 extern "C" void func_ov003_02159464(void* arg0);
 extern "C" void func_ov003_0215c510(void* arg0);
 
-struct Struct_020e28dc;
-extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
+struct YesNoWindow_020e28dc;
+extern "C" int IsYesNoWindowOpen_020e28dc(struct YesNoWindow_020e28dc* yesNoWindow);
 
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0 {
@@ -46,7 +46,7 @@ struct Struct_ov003_02158e94 {
     unsigned char unknown_0_[0xf4];
     unsigned char unknown_f4_[0x4];
     unsigned char unknown_f8_[0x478];
-    struct Struct_020e28dc* unknown_570_;
+    struct YesNoWindow_020e28dc* unknown_570_;
     int unknown_574_;
     unsigned char unknown_578_[0xa];
     unsigned char unknown_582_;
@@ -76,7 +76,7 @@ extern "C" ARM int func_ov003_02158e94(struct Struct_ov003_02158e94* arg0, int a
         return 0;
     }
 
-    if (arg0->unknown_570_ != 0 && !func_020e28dc(arg0->unknown_570_) && arg0->unknown_588_ != 0 && arg0->unknown_587_ == 0) {
+    if (arg0->unknown_570_ != 0 && !IsYesNoWindowOpen_020e28dc(arg0->unknown_570_) && arg0->unknown_588_ != 0 && arg0->unknown_587_ == 0) {
         struct TextWindow_0205d0e0* var0 = GetCursorTextWindow_0205d8c4((struct TextWindowManager_0205d81c*)arg0->unknown_f4_);
         if (var0 != 0 && IsTextWindowReady_0204c7cc((unsigned char*)var0) != 0 && (var0->unknown_c5_ & 2) == 0) {
             SetMenuCursorTouchedIndex_0205bc24(arg0->unknown_f8_, -1);

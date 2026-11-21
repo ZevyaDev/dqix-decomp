@@ -3,7 +3,7 @@
 
 struct Struct_ov000_02169850_3 { unsigned short unknown_0_; unsigned char unknown_2_; unsigned char unknown_3_; unsigned char unknown_4_; };
 struct Struct_02053dc0;
-extern "C" Struct_ov000_02169850_3* func_02053dc0(Struct_02053dc0*);
+extern "C" Struct_ov000_02169850_3* GetBattleCommand_02053dc0(Struct_02053dc0*);
 struct Struct_ov000_02169850 {
     char unknown_0_[0x1d];
     unsigned char unknown_1d_;
@@ -47,7 +47,7 @@ struct Struct_ov000_02169850_4 {
 };
 struct Struct_ov000_0215767c_8 { char unknown_0_[0x16]; unsigned short unknown_16_; };
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
-extern "C" void func_ov000_02162c14(Struct_ov000_02169850_2*, int, Struct_ov000_02169850_4*);
+extern "C" void GetPartyMemberCommand_ov000_02162c14(Struct_ov000_02169850_2*, int, Struct_ov000_02169850_4*);
 extern "C" Struct_ov000_0215767c_8* func_ov000_02171d90(Struct_ov000_02169850*, int);
 extern "C" int func_ov000_021761c8(char*, int);
 extern "C" int func_ov000_021761ec(char*, int);
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov000_02169850(Struct_ov000_02169850_2* arg0) {
         if (!IsPartyMemberInBattle_020a35e0(arg0->unknown_2a0_, var1)) continue;
         GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, var1);
         if (!var2) continue;
-        Struct_ov000_02169850_3* var3 = func_02053dc0((Struct_02053dc0*)var2);
+        Struct_ov000_02169850_3* var3 = GetBattleCommand_02053dc0((Struct_02053dc0*)var2);
         if (!var3) continue;
         int var4;
         Struct_ov000_02169850* var5;
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov000_02169850(Struct_ov000_02169850_2* arg0) {
     found:
         if (!var5) continue;
         Struct_ov000_02169850_4 var7;
-        func_ov000_02162c14(arg0, var1, &var7);
+        GetPartyMemberCommand_ov000_02162c14(arg0, var1, &var7);
         var4 = 1;
         if (var7.unknown_1_ == 0) {}
         else if (var7.unknown_1_ == 1) var4 = var7.unknown_8_;

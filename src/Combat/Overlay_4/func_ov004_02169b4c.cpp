@@ -32,7 +32,7 @@ extern "C" struct StringList_02072a68_2* func_ov004_02168b08(void* arg0, int arg
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* func_02053c6c(unsigned char* gameObject);
 extern "C" void* func_0205ec34(void* arg0);
-extern "C" int func_ov023_021f9bc8(char* arg0);
+extern "C" int GetMenuGridCursorIndex_ov023_021f9bc8(char* grid);
 extern "C" unsigned int func_ov023_021f9b6c(struct Struct_ov004_021549e4_3* arg0, unsigned int arg1, unsigned int arg2);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02042764(const char* arg0, char* arg1, int arg2);
@@ -174,7 +174,7 @@ extern "C" ARM int func_ov004_02169b4c(void* arg0) {
     struct StringList_02072a68_2* var8 = func_ov004_02168b08(arg0, 7);
 #endif
     short var9 = var1->unknown_5c_;
-    int var10 = func_ov023_021f9bc8((char*)var1);
+    int var10 = GetMenuGridCursorIndex_ov023_021f9bc8((char*)var1);
     int var11 = var10 + var9 * 8;
     if (!func_ov023_021f9b6c((struct Struct_ov004_021549e4_3*)var1, (unsigned short)var10, 0)) return 0;
 

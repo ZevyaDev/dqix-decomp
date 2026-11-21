@@ -51,7 +51,7 @@ struct Struct_ov025_021e9778 {
 
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* GetCurrentBattleAction_ov000_02160f20(void* battleScene);
-extern "C" void func_02072c9c(int arg0, char* arg1);
+extern "C" void FormatPartyMemberAnimationName_02072c9c(int memberIndex, char* animationName);
 struct BattleAction_ov000_0215440c_2;
 extern "C" Struct_ov025_021eb46c* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
 struct Struct_ov025_021e267c_3;
@@ -94,7 +94,7 @@ extern "C" ARM int func_ov025_021eb46c(Struct_ov025_021e9778* arg0) {
                         sprintf(var1, data_ov025_021ef8fc);
                         arg0->unknown_1cc_ = var5->QueueLoadFile(var1, var7);
                     } else {
-                        func_02072c9c(var9, var0);
+                        FormatPartyMemberAnimationName_02072c9c(var9, var0);
                         sprintf(var1, data_ov025_021ef916, var0);
                         arg0->unknown_1cc_ = var5->QueueLoadFileInGP2(data_ov025_021ef91f, var1, var7);
                     }

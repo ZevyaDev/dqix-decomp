@@ -29,30 +29,30 @@ struct Struct_0203c108_3 {
     short unknown_14_;
 };
 
-// USA: func_0203c108
-extern "C" ARM void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1) {
-    if (data_02105244 != NULL && arg1 != NULL && *arg1 != 0) {
+// USA: SetSpriteText_0203c108
+extern "C" ARM void SetSpriteText_0203c108(struct Struct_0203c108_3* spriteText, char* text) {
+    if (data_02105244 != NULL && text != NULL && *text != 0) {
 #if defined(jpn)
-        char var0[0x14];
-        char var1[0x80];
-        memcpy(var0, arg0, 0x14);
-        func_0203cb58(data_02105244, var0);
-        func_0203c198((char*)arg0);
-        __clear(var1, 0x80);
-        func_0203bf00(arg0, arg1, var1, 10);
-        *(int*)((char*)arg0 + 0x20) = 10;
-        func_0203c5a8(data_02105244, var1, arg0, 10);
+        char oldSlots[0x14];
+        char convertedText[0x80];
+        memcpy(oldSlots, spriteText, 0x14);
+        func_0203cb58(data_02105244, oldSlots);
+        func_0203c198((char*)spriteText);
+        __clear(convertedText, 0x80);
+        func_0203bf00(spriteText, text, convertedText, 10);
+        *(int*)((char*)spriteText + 0x20) = 10;
+        func_0203c5a8(data_02105244, convertedText, spriteText, 10);
         func_0203cbe4(static_cast<Struct_0203c108_2*>(data_02105244),
-                               reinterpret_cast<const short*>(var0));
+                               reinterpret_cast<const short*>(oldSlots));
 #else
-        char var2[0x100];
-        __clear(var2, 0x100);
-        sprintf(var2, arg1);
-        short var3 = arg0->unknown_14_;
-        func_0203c6b8((struct Struct_0203c108*)data_02105244, var3);
-        func_0203c198((char*)arg0);
-        func_0203c5a8(data_02105244, var2, &arg0->unknown_14_);
-        func_0203c6fc((struct Struct_0203c108_2*)data_02105244, var3);
+        char formattedText[0x100];
+        __clear(formattedText, 0x100);
+        sprintf(formattedText, text);
+        short oldSlot = spriteText->unknown_14_;
+        func_0203c6b8((struct Struct_0203c108*)data_02105244, oldSlot);
+        func_0203c198((char*)spriteText);
+        func_0203c5a8(data_02105244, formattedText, &spriteText->unknown_14_);
+        func_0203c6fc((struct Struct_0203c108_2*)data_02105244, oldSlot);
 #endif
     }
 }

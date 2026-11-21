@@ -14,7 +14,7 @@ struct Struct_020fdc20_7 {
     int unknown_4_;
     unsigned char* unknown_8_;
 };
-extern struct Struct_020fdc20_7 data_020fdc20;
+extern struct Struct_020fdc20_7 gZoneFeatureScriptContext_020fdc20;
 
 // USA: func_0201d4ec
 extern "C" ARM int func_0201d4ec(Script::Parameter* arg0, int) {
@@ -22,6 +22,6 @@ extern "C" ARM int func_0201d4ec(Script::Parameter* arg0, int) {
     int var1 = ((Script::Parameter*)var0)->ToInt();
     int var2 = ((Script::Parameter*)(var0 + 1))->ToInt();
     int var3 = ((Script::Parameter*)(var0 + 2))->ToInt();
-    *(unsigned short*)(data_020fdc20.unknown_8_ + 0x7e) = var1 | (var2 << 5) | (var3 << 10);
+    *(unsigned short*)(gZoneFeatureScriptContext_020fdc20.unknown_8_ + 0x7e) = var1 | (var2 << 5) | (var3 << 10);
     return 1;
 }

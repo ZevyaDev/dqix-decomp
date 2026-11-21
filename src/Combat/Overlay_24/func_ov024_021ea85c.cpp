@@ -3,9 +3,9 @@
 #include "GameState/GameState.h"
 
 struct Struct_ov024_021da670_6;
-extern "C" int func_ov024_021da998(struct Struct_ov024_021da670_6* arg0);
+extern "C" int HasTension_ov024_021da998(struct Struct_ov024_021da670_6* combatant);
 struct Struct_ov024_021dd028_5;
-extern "C" int func_ov024_021dd260(struct Struct_ov024_021dd028_5* arg0);
+extern "C" int HasSuperHighTension_ov024_021dd260(struct Struct_ov024_021dd028_5* combatant);
 
 extern "C" void func_02088234(void* arg0);
 extern "C" void func_020881ac(void* arg0);
@@ -46,8 +46,8 @@ void ApplyCombatantBuffs(int unused, int combatantId);
 struct Struct_ov024_021ddc80_5;
 extern "C" void* func_ov024_021e8cfc(struct Struct_ov024_021ddc80_5* arg0, void* arg1, int arg2, int arg3);
 
-struct Struct_ov024_021e2bd0;
-extern "C" void* func_ov024_021e8ca0(struct Struct_ov024_021e2bd0* arg0, int arg1);
+struct ActionRunner_ov024_021e2bd0;
+extern "C" void* AddExtraTargetResult_ov024_021e8ca0(struct ActionRunner_ov024_021e2bd0* actionRunner, int messageId);
 
 extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, void* combatant, int amount, int flags, int isCriticalHit, int arg6);
 
@@ -57,8 +57,8 @@ struct Struct_ov024_021ea85c { char unknown_0_[0x10]; void* unknown_10_; };
 extern "C" ARM void* func_ov024_021ea85c(struct Struct_ov024_021ea85c* arg0, int arg1, int arg2) {
 	GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg1);
 	if (!var0) return 0;
-	int var1 = func_ov024_021da998((struct Struct_ov024_021da670_6*)var0);
-	int var2 = func_ov024_021dd260((struct Struct_ov024_021dd028_5*)var0);
+	int var1 = HasTension_ov024_021da998((struct Struct_ov024_021da670_6*)var0);
+	int var2 = HasSuperHighTension_ov024_021dd260((struct Struct_ov024_021dd028_5*)var0);
 	func_02088234(var0->currentStats_);
 	func_020881ac(var0->currentStats_);
 	func_02088914((unsigned char*)var0->currentStats_);
@@ -96,11 +96,11 @@ extern "C" ARM void* func_ov024_021ea85c(struct Struct_ov024_021ea85c* arg0, int
 	void* var3 = 0;
 	if (var1) {
 		var3 = func_ov024_021e8cfc((struct Struct_ov024_021ddc80_5*)arg0, var0, 0, arg2);
-	} else if (var2 && !func_ov024_021dd260((struct Struct_ov024_021dd028_5*)var0)) {
+	} else if (var2 && !HasSuperHighTension_ov024_021dd260((struct Struct_ov024_021dd028_5*)var0)) {
 		var3 = func_ov024_021e8cfc((struct Struct_ov024_021ddc80_5*)arg0, var0, 8, arg2);
 	}
 	if (arg2 != 0 && var3 == 0) {
-		void* var4 = func_ov024_021e8ca0((struct Struct_ov024_021e2bd0*)arg0, 0xf1);
+		void* var4 = AddExtraTargetResult_ov024_021e8ca0((struct ActionRunner_ov024_021e2bd0*)arg0, 0xf1);
 		var3 = var4;
 		SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var4, var0, 0, 0, 0, 0);
 	}

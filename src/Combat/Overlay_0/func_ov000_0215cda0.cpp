@@ -2,9 +2,9 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
 
-struct Struct_02049b54_2;
+struct Combatant_02049b54_2;
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(void* battle, short* indices, int maxCount, int filterFlags);
-extern "C" Vector3i func_02049b54(struct Struct_02049b54_2* arg0);
+extern "C" Vector3i GetCombatantLineupPosition_02049b54(struct Combatant_02049b54_2* combatant);
 
 struct Struct_ov000_02182c34 { short unknown_0_[8]; };
 extern struct Struct_ov000_02182c34 data_ov000_02182c34;
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov000_0215cda0(void* arg0) {
         GameState* var6 = GameState::GetInstance();
         GameObject* var7 = var6->GetCombatantByIndex(var5);
         if (var7 != NULL) {
-            Vector3i var8 = func_02049b54((struct Struct_02049b54_2*)var7);
+            Vector3i var8 = GetCombatantLineupPosition_02049b54((struct Combatant_02049b54_2*)var7);
             if (var1 > 0) {
                 if (var8.x < var3.x) {
                     var3 = var8;

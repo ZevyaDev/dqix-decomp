@@ -40,7 +40,7 @@ enum { Enum_ov017_021c0850_123784 = 0x1e388, Enum_ov017_021c0850_2888 = 0xb48, E
 struct AllocatorUnion;
 struct Struct_02018300_3;
 struct Struct_ov017_021c0580;
-struct Struct_0201e830;
+struct ZoneFeatures_0201e830;
 struct BGControlSave_02074b64;
 struct BGControlSave_02074bd0;
 struct BGControlSave_02074bf4;
@@ -134,7 +134,7 @@ void SetMainBrightness(GameResources* resources, int brightness, int duration);
 int IsBrightnessTransitionActive(GameResources* resources);
 extern "C" void SaveMainBGControl_02074af4(void* save);
 extern "C" void SaveSubBGControl_02074b64(BGControlSave_02074b64* save);
-extern "C" unsigned short func_0201e830(Struct_0201e830* arg0);
+extern "C" unsigned short GetZoneClearColor_0201e830(ZoneFeatures_0201e830* zoneFeatures);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 void LockStagedTextureVRAMCopying(void);
 void UnlockStagedTextureVRAMCopying(void);
@@ -281,7 +281,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         arg0->unknown_60_ = var6.unknown_3_3_;
         arg0->unknown_64_ = var6.unknown_3_0_;
         arg0->unknown_68_ = DISPCNT & 0x300010;
-        arg0->unknown_a8_ = func_0201e830((Struct_0201e830*)((char*)GetZone3D_02012fe4() + Enum_ov017_021c0850_108));
+        arg0->unknown_a8_ = GetZoneClearColor_0201e830((ZoneFeatures_0201e830*)((char*)GetZone3D_02012fe4() + Enum_ov017_021c0850_108));
         arg0->unknown_ac_ = GetFlags00(var1);
         arg0->unknown_b0_ = GetFlags04(var1);
         arg0->unknown_b4_ = GetFlags08(var1);

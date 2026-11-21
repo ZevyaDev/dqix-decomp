@@ -19,7 +19,7 @@ extern "C" int func_ov011_021849bc(struct Struct_ov011_021849bc* arg0, int arg1)
 extern "C" void func_ov011_021849ac(void* arg0, unsigned int arg1);
 
 extern "C" void func_0203e0a0(void* arg0, unsigned short arg1);
-extern "C" void* func_ov017_0219bf74(void);
+extern "C" void* UnloadZone_ov017_0219bf74(void);
 extern "C" void func_ov017_021a27e8(void* arg0);
 
 struct Struct_0203cfb4;
@@ -40,7 +40,7 @@ extern "C" ARM int func_ov011_02184cc0(struct ScriptValue_ov011_02184c30* arg0) 
     case 0:
         if (func_ov011_021849bc(var1, 1)) return 1;
         func_0203e0a0(var2, *(unsigned short*)var3);
-        func_ov017_0219bf74();
+        UnloadZone_ov017_0219bf74();
         func_ov011_021849ac(var1, 1);
         break;
     case 1:

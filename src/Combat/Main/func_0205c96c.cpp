@@ -25,14 +25,14 @@ struct Struct_02042c68 {
 struct SpriteAnimationList_0205a254;
 struct Struct_0205c96c {
     char unknown_0_[4];
-    unsigned short unknown_4_;
-    unsigned short unknown_6_;
+    unsigned short drawX_4_;
+    unsigned short drawY_6_;
     char unknown_8_[0xd];
-    unsigned char unknown_15_;
+    unsigned char flags_15_;
 };
 
-// USA: func_0205c96c
-extern "C" ARM void func_0205c96c(unsigned char* arg0, int arg1) {
+// USA: DrawChoiceList_0205c96c
+extern "C" ARM void DrawChoiceList_0205c96c(unsigned char* arg0, int arg1) {
     if (arg0[0x233] != 0 && arg0[0x232] != 0) {
         unsigned char* var0 = (unsigned char*)GetMessageWindow_020421a0();
         int var1 = *(int*)(arg0 + 0x50);
@@ -88,11 +88,11 @@ extern "C" ARM void func_0205c96c(unsigned char* arg0, int arg1) {
                 if (var22 != NULL && var27 != NULL) {
                     ((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a254*)var27))->PlaySpriteAnimation(var28);
                     struct Struct_0205c96c* var29 = ((Struct_0205c96c*)((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a254*)var27))->GetSprite(var28));
-                    if (var29 != NULL) var29->unknown_15_ |= 8;
+                    if (var29 != NULL) var29->flags_15_ |= 8;
                     struct Struct_0205c96c* var30 = ((Struct_0205c96c*)((OBJSpriteSet::List*)((struct SpriteAnimationList_0205a254*)var27))->GetSprite(var28));
                     if (var30 != NULL) {
-                        var30->unknown_4_ = var26;
-                        var30->unknown_6_ = var25;
+                        var30->drawX_4_ = var26;
+                        var30->drawY_6_ = var25;
                     }
                     ((OBJSpriteSet*)(var22))->DrawAll();
                 }

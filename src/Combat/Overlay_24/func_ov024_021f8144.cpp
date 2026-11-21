@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-struct Struct_02053dc0 { char unknown_0_[0x19c]; void* unknown_19c_; };
-extern "C" void* func_02053dc0(struct Struct_02053dc0* arg0);
+struct Struct_02053dc0 { char unknown_0_[0x19c]; void* pBattleCommand_19c_; };
+extern "C" void* GetBattleCommand_02053dc0(struct Struct_02053dc0* partyMember);
 
 extern "C" void func_ov024_021f9660(void* arg0);
 extern "C" int func_ov024_021f8628(void* arg0, void* arg1, void* arg2, void* arg3);
@@ -11,7 +11,7 @@ struct Struct_ov024_021f8144 { char unknown_0_[4]; short unknown_4_; };
 
 // USA: func_ov024_021f8144
 extern "C" ARM int func_ov024_021f8144(struct Struct_ov024_021f8144* arg0, void* arg1, struct Struct_02053dc0* arg2, unsigned short* arg3) {
-	void* var0 = func_02053dc0(arg2);
+	void* var0 = GetBattleCommand_02053dc0(arg2);
 	if (!var0) return (int)var0;
 	*(int*)((char*)arg0 + 0x170) = 0;
 	*(float*)((char*)arg0 + 0x124) = 0.08f;

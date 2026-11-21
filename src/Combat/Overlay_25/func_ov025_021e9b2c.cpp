@@ -5,7 +5,7 @@ struct Struct_ov000_02169b04;
 
 struct BattleAction_ov000_0215440c {
     char unknown_0_[9];
-    unsigned char unknown_9_;
+    unsigned char targetCount_9_;
 };
 
 struct ActionTarget_ov000_021600f8 {
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov025_021e9b2c(Struct_ov025_021e9778_3* arg0) {
                 func_ov025_021e9d14(arg0);
             }
             int var2 = 1;
-            for (int var3 = 0; var3 < var1->unknown_9_; var3++) {
+            for (int var3 = 0; var3 < var1->targetCount_9_; var3++) {
                 ActionTarget_ov000_021600f8* var4 = GetActionTarget_ov000_021600f8(var1, var3);
                 if (var4 == NULL) {
                     continue;

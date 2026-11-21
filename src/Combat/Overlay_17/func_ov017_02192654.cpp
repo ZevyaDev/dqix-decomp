@@ -8,7 +8,7 @@
 
 extern "C" void func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void);
-extern "C" void func_ov017_021a23b0(void* arg0, int arg1);
+extern "C" void DespawnFieldMonster_ov017_021a23b0(void* gameResources, int arg1);
 
 extern "C" GameObject* func_0200ffe0(GameState* arg0, int arg1);
 extern "C" void func_02079710(unsigned char* arg0, int arg1, int arg2);
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov017_02192654(int arg0, int arg1, unsigned char arg2) 
             if (func_0207973c((unsigned char*)var2)) {
                 if (func_020797bc((unsigned char*)var2)) {
                     func_ov017_021d0aa8((unsigned short)arg1, 1);
-                    func_ov017_021a23b0(var0, arg1);
+                    DespawnFieldMonster_ov017_021a23b0(var0, arg1);
                 }
                 func_020797d0((unsigned char*)var2);
             }

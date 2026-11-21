@@ -10,7 +10,7 @@ struct Canvas_020200c0_4 {
 };
 }
 extern "C" void __clear(void*, int);
-extern "C" void func_0205b234(Canvas_020200c0_4*, int, int, void*, int, int);
+extern "C" void DrawCanvasText_0205b234(Canvas_020200c0_4*, int, int, void*, int, int);
 
 // JPN: func_0205c9ac
 extern "C" ARM void func_0205c9ac(Canvas_020200c0_4* arg0, short arg1, short arg2, int arg3,
@@ -26,7 +26,7 @@ extern "C" ARM void func_0205c9ac(Canvas_020200c0_4* arg0, short arg1, short arg
             __clear(var1, 2);
             var1[0] = '0';
             var1[0] += (char)(arg3 % 10);
-            func_0205b234(arg0, arg1, arg2, var1, arg4, arg5);
+            DrawCanvasText_0205b234(arg0, arg1, arg2, var1, arg4, arg5);
             arg1 = (short)(arg1 - arg4);
         } while ((arg3 = arg3 / 10) != 0);
     }
@@ -38,7 +38,7 @@ struct Struct_020200c0_2 { int unknown_0_; int unknown_4_; };
 extern "C" int func_02042658(void* arg0, int arg1);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int sprintf(void* arg0, void* arg1, int arg2);
-extern "C" void func_0205b234(struct Struct_020200c0_2* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5);
+extern "C" void DrawCanvasText_0205b234(struct Struct_020200c0_2* canvas, int x, int y, void* text, int arg4, int arg5);
 extern char data_020f0518;
 
 // USA: func_0205b674
@@ -54,7 +54,7 @@ extern "C" ARM void func_0205b674(struct Struct_020200c0_2* arg0, short arg1, in
         char var2[0xa];
         __clear(var2, 0xa);
         sprintf(var2, &data_020f0518, arg3);
-        func_0205b234(arg0, arg1, arg2, var2, arg4, arg7);
+        DrawCanvasText_0205b234(arg0, arg1, arg2, var2, arg4, arg7);
     }
 }
 

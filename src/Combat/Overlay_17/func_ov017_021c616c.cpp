@@ -14,7 +14,7 @@ enum { Enum_ov017_021c616c_1816 = 0x718 };
 
 extern "C" void* func_ov017_021b8478(void* battleManager);
 extern "C" void func_ov017_021b848c(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
-extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
+extern "C" GameObject* FindFieldMonsterById_ov017_021a278c(void* gameResources, int fieldMonsterId);
 extern "C" void SetFieldMonsterState_02076ccc(void*, int);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 struct Struct_02053f7c_3;
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov017_021c616c(int arg0, unsigned char* arg1, GameState
         func_ov017_021b848c(var0, var2->unknown_4_, var2->unknown_8_, 0, var2->unknown_2_, var2->unknown_9_, 1, var2->unknown_a_);
     } else {
         void* var3 = GetGameResources();
-        GameObject* var4 = func_ov017_021a278c(var3, var2->unknown_0_);
+        GameObject* var4 = FindFieldMonsterById_ov017_021a278c(var3, var2->unknown_0_);
         if (var4 != NULL) {
             SetFieldMonsterState_02076ccc(var4, 9);
         }

@@ -304,7 +304,7 @@ extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" void func_ov017_021d035c(unsigned char arg0, unsigned char arg1, unsigned char arg2);
 extern "C" void func_ov017_021d257c(unsigned char arg0, int arg1);
 extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
-extern "C" void func_0206f81c(void* arg0);
+extern "C" void RunDeferredTriggerActions_0206f81c(void* triggerResult);
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" void StopGesture_020531f0(void* gameObject);
@@ -373,7 +373,7 @@ extern "C" void func_020a6aac(void* arg0, int arg1, int arg2);
 extern "C" void func_020acecc(void* arg0, int arg1, int arg2);
 extern "C" int func_ov017_021a01f4(void* arg0, int arg1, int arg2, void* arg3, int* arg4);
 extern "C" void func_ov017_0219fc88(void* arg0, int arg1);
-extern "C" void func_ov017_021b6f18(void* arg0);
+extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
 extern "C" void func_ov017_02196c08(unsigned char*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void func_ov017_021b6e70(struct Struct_ov017_0219e384_7* arg0, int arg1);
@@ -398,7 +398,7 @@ extern "C" int func_020a3570(Struct_0204a170*);
 extern "C" void func_0202ec5c(char*, int*);
 extern "C" void func_ov017_021982ac(void* arg0);
 extern "C" void func_020a2718(char*);
-extern "C" void func_020dc2d0(int arg0);
+extern "C" void RestartMapDisplay_020dc2d0(int modeOverride);
 struct Struct_020a2cbc;
 extern "C" void func_020a2cbc(Struct_020a2cbc*, int);
 extern "C" void func_020ae53c(int arg0);
@@ -406,7 +406,7 @@ extern "C" void func_020a8740(void);
 extern "C" void func_02026b7c(unsigned char*);
 extern "C" void func_ov017_021a3338(void* arg0);
 extern "C" void func_ov017_021a65c4(void* arg0, unsigned char arg1, int arg2);
-extern "C" void func_ov017_021cdaa0(void);
+extern "C" void SendDayTimer_ov017_021cdaa0(void);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_ov017_021d2ad0(short, int, int, int, unsigned char);
 extern "C" void* GetMessageWindow_020421a0(void);
@@ -538,7 +538,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			var23 = func_0205ec34();
 			var17.unknown_ac_.unknown_c_ = var6->currentZoneID_;
 			if (var4->unknown_a_ == 0 && RunTrigger_020649b0(var23, 0x1e, &var17.unknown_ac_) != 0) {
-				func_0206f81c(&var17.unknown_ac_);
+				RunDeferredTriggerActions_0206f81c(&var17.unknown_ac_);
 			}
 			if (var21 == 0) {
 				arg0->unknown_8_ = 2;
@@ -881,7 +881,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 		} else if (var4->unknown_28_ >= 0 && var4->unknown_2c_ == var6->currentZoneID_ && var4->unknown_1e_ != var4->unknown_28_) {
 			if (func_0201b5d8(var6->currentZoneID_) == 0) {
 			void* var69 = *(void**)(var1 + Enum_ov017_0219e384_14104);
-			func_ov017_021b6f18(var69);
+			ResetBattleTask_ov017_021b6f18(var69);
 			func_ov017_02196c08((unsigned char*)&var17.unknown_6c_);
 			var17.unknown_6c_.unknown_0_ = 1;
 			var17.unknown_6c_.unknown_1_ = GetProtagonistObjectIndex_020100a8(var0);
@@ -903,7 +903,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			int var71;
 			var17.unknown_38_.unknown_c_ = var58;
 			if (var4->unknown_a_ == 0 && func_020649f4(var70, &var17.unknown_38_) != 0) {
-				func_0206f81c(&var17.unknown_38_);
+				RunDeferredTriggerActions_0206f81c(&var17.unknown_38_);
 			}
 			var71 = IsTypeInQueue_02046b60((Queue_02038598_5*)var56, 4);
 			if (IsLocalWirelessOn_0202b7d8((int*)var13) == 0 || IsNotLocalWirelessGuest_0202c508(var13) != 0) {
@@ -965,7 +965,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 		}
 		if ((var4->unknown_6e_ & 1) == 0) {
 			ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var15, 1);
-			func_020dc2d0(0);
+			RestartMapDisplay_020dc2d0(0);
 		}
 		func_020a2cbc((Struct_020a2cbc*)var63, ((struct Struct_ov017_0219e384_5*)(var60 + 4))->unknown_0_0_ == 0 ? 1 : 0);
 		func_020ae53c(1);
@@ -1014,7 +1014,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			var74 = 0;
 		}
 		if (IsNotLocalWirelessGuest_0202c508(var13) != 0) {
-			func_ov017_021cdaa0();
+			SendDayTimer_ov017_021cdaa0();
 		}
 		if (var74 != 0) {
 			SetMainBrightness((GameResources*)var1, 0, 15);
@@ -1068,7 +1068,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			int* var85 = (int*)LightingManager::GetInstance();
 			char* var86 = (char*)GetGameResources();
 			struct Struct_ov017_0219e384_3* var87;
-			func_ov017_021b6f18(*(void**)(var86 + Enum_ov017_0219e384_14104));
+			ResetBattleTask_ov017_021b6f18(*(void**)(var86 + Enum_ov017_0219e384_14104));
 			var87 = (struct Struct_ov017_0219e384_3*)var84->GetPartyMemberByIndex(0);
 			func_ov017_02196c08((unsigned char*)&var18.unknown_24_);
 			var18.unknown_24_.unknown_0_ = 1;
@@ -1130,7 +1130,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 							break;
 						}
 						if (var89 >= 0) {
-							func_ov017_021b6f18(*(void**)(var96 + Enum_ov017_0219e384_14104));
+							ResetBattleTask_ov017_021b6f18(*(void**)(var96 + Enum_ov017_0219e384_14104));
 							func_ov017_02196c08((unsigned char*)&var18.unknown_c_);
 							var18.unknown_c_.unknown_0_ = 1;
 							var18.unknown_c_.unknown_1_ = GetProtagonistObjectIndex_020100a8(var95);

@@ -5,7 +5,7 @@ struct TextWindowManager_0205de24_2;
 struct MenuCursor_0205ba68;
 struct MenuCursor_0205bacc;
 struct TextWindowManager_0205d81c;
-struct Struct_0204c610;
+struct TextWindow_0204c610;
 struct Struct_0201099c_3;
 
 struct Struct_ov003_0216fc58 {
@@ -33,7 +33,7 @@ extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg
 extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
 extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
 extern "C" struct Struct_ov003_0216fc58* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
-extern "C" void func_0204c610(struct Struct_0204c610* arg0, int arg1, short* arg2, short* arg3, short* arg4, short* arg5);
+extern "C" void GetTextWindowEntryRect_0204c610(struct TextWindow_0204c610* textWindow, int entryIndex, short* outX, short* outY, short* outWidth, short* outHeight);
 extern "C" void* func_ov023_021e2ca8(void* arg0, void* arg1, int arg2, int arg3);
 extern "C" void* func_ov023_021e2cc8(void* arg0, void* arg1, int arg2, int arg3);
 
@@ -160,7 +160,7 @@ extern "C" ARM void func_ov003_0216fc58(char* arg0, int arg1, int arg2) {
     short var9 = 0x16;
     for (int var10 = 0; var10 < 3; var10++, var9++) {
         short var11, var12, var13, var14;
-        func_0204c610((struct Struct_0204c610*)var6, (short)var10, &var11, &var12, &var13, &var14);
+        GetTextWindowEntryRect_0204c610((struct TextWindow_0204c610*)var6, (short)var10, &var11, &var12, &var13, &var14);
         func_ov023_021e2ca8(*(void**)(arg0 + 0xd4), (void*)var9, (short)(var11 + var7), (short)(var12 + var8));
         func_ov023_021e2cc8(*(void**)(arg0 + 0xd4), (void*)var9, var13, var14);
     }

@@ -157,7 +157,7 @@ extern "C" unsigned char* GetEquipmentBagCounts_0207c60c(void* bag, unsigned int
 extern "C" short func_0207c620(unsigned char* arg0, unsigned int arg1);
 extern "C" void func_0207c6a8(unsigned char* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" unsigned short* func_020120a0(char* arg0, unsigned int arg1);
-extern "C" void func_0209ca70(void* arg0, int arg1);
+extern "C" void SetMusicVolumeLevel_0209ca70(void* manager, int volumeLevel);
 extern "C" void func_0205e9f4(struct Struct_02108760_2* arg0, int arg1);
 
 extern unsigned char gMusicManager_02109bf4[];
@@ -239,7 +239,7 @@ extern "C" ARM int func_020a95a4(Struct_020a95a4_6* arg0, Struct_020a95a4_5* arg
     var1->unknown_2c94_ = arg0->unknown_2c4c_;
     var14->unknown_7e74_ = arg0->unknown_2c4c_;
     memcpy(func_020120a0((char*)var0, 0), arg0->unknown_2c50_, sizeof(arg0->unknown_2c50_));
-    func_0209ca70(gMusicManager_02109bf4, arg0->unknown_2c58_);
+    SetMusicVolumeLevel_0209ca70(gMusicManager_02109bf4, arg0->unknown_2c58_);
     func_0205e9f4((struct Struct_02108760_2*)gSoundEffectManager_02108760, arg0->unknown_2c59_);
     var1->unknown_f7d_ = arg0->unknown_2c5a_;
     var14->unknown_63dc_ = arg0->unknown_2c5b_;

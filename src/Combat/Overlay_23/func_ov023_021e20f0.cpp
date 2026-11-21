@@ -5,23 +5,23 @@
 
 extern unsigned char data_ov023_021fdc90;
 
-struct Struct_ov023_021e20f0_4 {
+struct LayoutFile_ov023_021e20f0_4 {
     char unknown_0_[4];
-    int unknown_4_;
+    int groupsOffset_4_;
     char unknown_8_[0xc - 0x8];
     int unknown_c_;
     char unknown_10_[0x14 - 0x10];
     int unknown_14_;
-    int unknown_18_;
+    int groupCount_18_;
 };
 
-struct Struct_ov023_021e20f0_5 {
+struct Layout_ov023_021e20f0_5 {
     char unknown_0_[8];
-    void* unknown_8_;   // 0x8
-    void* unknown_c_;   // 0xc
+    void* pGroups_8_;   // 0x8
+    void* pElements_c_;   // 0xc
     char unknown_10_[0x14 - 0x10];
-    unsigned short unknown_14_; // 0x14
-    unsigned short unknown_16_;    // 0x16
+    unsigned short groupCount_14_; // 0x14
+    unsigned short elementCount_16_;    // 0x16
 };
 
 struct Struct_ov023_021e20f0_6 {
@@ -38,12 +38,12 @@ struct Struct_ov023_021e20f0_6 {
     unsigned short unknown_18_;
 };
 
-struct Struct_ov023_021e20f0_7 {
-    signed short unknown_0_;
-    unsigned short unknown_2_;
-    void* unknown_4_;
-    signed short unknown_8_;
-    signed short unknown_a_;
+struct LayoutGroup_ov023_021e20f0_7 {
+    signed short id_0_;
+    unsigned short elementCount_2_;
+    void* pElementIds_4_;
+    signed short x_8_;
+    signed short y_a_;
     signed short unknown_c_;
     signed short unknown_e_;
     signed short unknown_10_;
@@ -65,112 +65,112 @@ struct Struct_ov023_021e20f0 {
 
 struct Struct_ov023_021e20f0_2 { unsigned char unknown_0_0_ : 4; unsigned char unknown_0_4_ : 4; };
 
-struct Struct_ov023_021e20f0_3 {
-    short unknown_0_;
-    unsigned char unknown_2_;
+struct LayoutElement_ov023_021e20f0_3 {
+    short id_0_;
+    unsigned char type_2_;
     unsigned char unknown_3_;
-    signed short unknown_4_;
-    signed short unknown_6_;
-    signed short unknown_8_;
-    signed short unknown_a_;
+    signed short x_4_;
+    signed short y_6_;
+    signed short width_8_;
+    signed short height_a_;
     int unknown_c_;
     unsigned char unknown_10_;
 };
 
-// USA: func_ov023_021e20f0
-extern "C" ARM int func_ov023_021e20f0(struct Struct_ov023_021e20f0_5* arg0, SafeAllocator* arg1,
-        struct Struct_ov023_021e20f0_4* arg2, void* arg3) {
-    short var0 = -1;
-    if (arg1 == 0) return 1;
-    if (arg2 == 0) return 1;
-    if (arg3 == 0) return 1;
+// USA: LoadLayout_ov023_021e20f0
+extern "C" ARM int LoadLayout_ov023_021e20f0(struct Layout_ov023_021e20f0_5* layout, SafeAllocator* allocator,
+        struct LayoutFile_ov023_021e20f0_4* fileData, void* fileSize) {
+    short invalidId = -1;
+    if (allocator == 0) return 1;
+    if (fileData == 0) return 1;
+    if (fileSize == 0) return 1;
 
-    if (memcmp((unsigned char*)((char*)arg2 + 8), &data_ov023_021fdc90, 3) != 0) {
+    if (memcmp((unsigned char*)((char*)fileData + 8), &data_ov023_021fdc90, 3) != 0) {
         return 1;
     }
 
-    arg2->unknown_c_ = (int)((char*)arg2 + arg2->unknown_c_);
-    arg2->unknown_14_ = (int)((char*)arg2 + arg2->unknown_14_);
-    arg0->unknown_14_ = 0;
-    arg0->unknown_16_ = 0;
-    arg0->unknown_14_ = arg2->unknown_18_;
-    arg0->unknown_8_ = arg1->Allocate(arg0->unknown_14_ * 0x18);
-    struct Struct_ov023_021e20f0_6* var1 = (struct Struct_ov023_021e20f0_6*)((char*)arg2 + arg2->unknown_4_);
-    unsigned short var2 = arg0->unknown_14_;
+    fileData->unknown_c_ = (int)((char*)fileData + fileData->unknown_c_);
+    fileData->unknown_14_ = (int)((char*)fileData + fileData->unknown_14_);
+    layout->groupCount_14_ = 0;
+    layout->elementCount_16_ = 0;
+    layout->groupCount_14_ = fileData->groupCount_18_;
+    layout->pGroups_8_ = allocator->Allocate(layout->groupCount_14_ * 0x18);
+    struct Struct_ov023_021e20f0_6* fileGroups = (struct Struct_ov023_021e20f0_6*)((char*)fileData + fileData->groupsOffset_4_);
+    unsigned short groupCount = layout->groupCount_14_;
 
-    unsigned short var3;
-    for (var3 = 0; var3 < var2; var3++) {
-        struct Struct_ov023_021e20f0_6* var4 = (struct Struct_ov023_021e20f0_6*)((char*)var1 + var3 * 0x1c);
-        struct Struct_ov023_021e20f0_7* var5 = (struct Struct_ov023_021e20f0_7*)((char*)arg0->unknown_8_ + var3 * 0x18);
+    unsigned short groupIndex;
+    for (groupIndex = 0; groupIndex < groupCount; groupIndex++) {
+        struct Struct_ov023_021e20f0_6* fileGroup = (struct Struct_ov023_021e20f0_6*)((char*)fileGroups + groupIndex * 0x1c);
+        struct LayoutGroup_ov023_021e20f0_7* group = (struct LayoutGroup_ov023_021e20f0_7*)((char*)layout->pGroups_8_ + groupIndex * 0x18);
 
-        var5->unknown_0_ = var0;
-        var5->unknown_2_ = 0;
-        var5->unknown_4_ = 0;
-        var5->unknown_a_ = 0;
-        var5->unknown_8_ = var5->unknown_a_;
-        var5->unknown_c_ = var0;
-        var5->unknown_e_ = var0;
-        var5->unknown_10_ = var0;
-        var5->unknown_12_ = var0;
-        var5->unknown_14_ = 0;
-        var5->unknown_16_ = 3;
-        var5->unknown_17_ = 0xff;
+        group->id_0_ = invalidId;
+        group->elementCount_2_ = 0;
+        group->pElementIds_4_ = 0;
+        group->y_a_ = 0;
+        group->x_8_ = group->y_a_;
+        group->unknown_c_ = invalidId;
+        group->unknown_e_ = invalidId;
+        group->unknown_10_ = invalidId;
+        group->unknown_12_ = invalidId;
+        group->unknown_14_ = 0;
+        group->unknown_16_ = 3;
+        group->unknown_17_ = 0xff;
 
-        var5->unknown_8_ = var4->unknown_8_;
-        var5->unknown_a_ = var4->unknown_a_;
-        var5->unknown_2_ = var4->unknown_e_;
-        var5->unknown_4_ = arg1->Allocate(var4->unknown_e_ * 2);
-        char* var6 = (char*)arg2->unknown_14_ + var4->unknown_4_;
-        if (var6 != 0) {
-            memcpy(var5->unknown_4_, var6, var4->unknown_e_ * 2);
+        group->x_8_ = fileGroup->unknown_8_;
+        group->y_a_ = fileGroup->unknown_a_;
+        group->elementCount_2_ = fileGroup->unknown_e_;
+        group->pElementIds_4_ = allocator->Allocate(fileGroup->unknown_e_ * 2);
+        char* fileElementIds = (char*)fileData->unknown_14_ + fileGroup->unknown_4_;
+        if (fileElementIds != 0) {
+            memcpy(group->pElementIds_4_, fileElementIds, fileGroup->unknown_e_ * 2);
         }
-        var5->unknown_0_ = var4->unknown_10_;
-        var5->unknown_c_ = var4->unknown_12_;
-        var5->unknown_e_ = var4->unknown_14_;
-        var5->unknown_10_ = var4->unknown_16_;
-        var5->unknown_12_ = var4->unknown_18_;
-        arg0->unknown_16_ = arg0->unknown_16_ + var5->unknown_2_;
+        group->id_0_ = fileGroup->unknown_10_;
+        group->unknown_c_ = fileGroup->unknown_12_;
+        group->unknown_e_ = fileGroup->unknown_14_;
+        group->unknown_10_ = fileGroup->unknown_16_;
+        group->unknown_12_ = fileGroup->unknown_18_;
+        layout->elementCount_16_ = layout->elementCount_16_ + group->elementCount_2_;
     }
 
-    arg0->unknown_c_ = arg1->Allocate(arg0->unknown_16_ * 0x14);
-    struct Struct_ov023_021e20f0* var7 = (struct Struct_ov023_021e20f0*)arg2->unknown_c_;
+    layout->pElements_c_ = allocator->Allocate(layout->elementCount_16_ * 0x14);
+    struct Struct_ov023_021e20f0* fileElements = (struct Struct_ov023_021e20f0*)fileData->unknown_c_;
 
-    unsigned short var8;
-    for (var8 = 0; var8 < arg0->unknown_16_; var8++) {
-        struct Struct_ov023_021e20f0* var9 = (struct Struct_ov023_021e20f0*)((char*)var7 + var8 * 0x28);
-        struct Struct_ov023_021e20f0_3* var10 = (struct Struct_ov023_021e20f0_3*)((char*)arg0->unknown_c_ + var8 * 0x14);
+    unsigned short elementIndex;
+    for (elementIndex = 0; elementIndex < layout->elementCount_16_; elementIndex++) {
+        struct Struct_ov023_021e20f0* fileElement = (struct Struct_ov023_021e20f0*)((char*)fileElements + elementIndex * 0x28);
+        struct LayoutElement_ov023_021e20f0_3* element = (struct LayoutElement_ov023_021e20f0_3*)((char*)layout->pElements_c_ + elementIndex * 0x14);
 
-        var10->unknown_0_ = -1;
-        var10->unknown_2_ = 0;
-        struct Struct_ov023_021e20f0_2* var11 = (struct Struct_ov023_021e20f0_2*)&var10->unknown_3_;
-        var11->unknown_0_0_ = 0xa;
-        var11->unknown_0_4_ = 0xf;
-        var10->unknown_6_ = 0;
-        var10->unknown_4_ = var10->unknown_6_;
-        var10->unknown_a_ = 0;
-        var10->unknown_8_ = var10->unknown_a_;
-        var10->unknown_c_ = 0;
-        var10->unknown_10_ = 0;
+        element->id_0_ = -1;
+        element->type_2_ = 0;
+        struct Struct_ov023_021e20f0_2* textFormat = (struct Struct_ov023_021e20f0_2*)&element->unknown_3_;
+        textFormat->unknown_0_0_ = 0xa;
+        textFormat->unknown_0_4_ = 0xf;
+        element->y_6_ = 0;
+        element->x_4_ = element->y_6_;
+        element->height_a_ = 0;
+        element->width_8_ = element->height_a_;
+        element->unknown_c_ = 0;
+        element->unknown_10_ = 0;
 
-        var10->unknown_4_ = var9->unknown_4_;
-        var10->unknown_6_ = var9->unknown_6_;
-        var10->unknown_0_ = var9->unknown_8_;
+        element->x_4_ = fileElement->unknown_4_;
+        element->y_6_ = fileElement->unknown_6_;
+        element->id_0_ = fileElement->unknown_8_;
 
-        switch (var9->unknown_0_) {
+        switch (fileElement->unknown_0_) {
         case 0:
-            var10->unknown_2_ = 2;
-            var10->unknown_8_ = *(unsigned short*)((char*)var9 + 0xc);
-            var10->unknown_a_ = *(unsigned short*)((char*)var9 + 0xe);
+            element->type_2_ = 2;
+            element->width_8_ = *(unsigned short*)((char*)fileElement + 0xc);
+            element->height_a_ = *(unsigned short*)((char*)fileElement + 0xe);
             break;
         case 1:
-            var10->unknown_2_ = 1;
-            var10->unknown_8_ = *(unsigned short*)((char*)var9 + 0xc);
-            var10->unknown_a_ = *(unsigned short*)((char*)var9 + 0xe);
+            element->type_2_ = 1;
+            element->width_8_ = *(unsigned short*)((char*)fileElement + 0xc);
+            element->height_a_ = *(unsigned short*)((char*)fileElement + 0xe);
             break;
         case 3:
-            if (*(int*)((char*)var9 + 0xc) == 0) {
-                var10->unknown_8_ = var9->unknown_10_;
-                var10->unknown_a_ = var9->unknown_12_;
+            if (*(int*)((char*)fileElement + 0xc) == 0) {
+                element->width_8_ = fileElement->unknown_10_;
+                element->height_a_ = fileElement->unknown_12_;
             }
             break;
         case 2:

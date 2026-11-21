@@ -10,7 +10,7 @@ struct Struct_ov031_0221dcbc_2 {
 };
 struct Struct_ov031_0221dcbc { unsigned char unknown_0_; unsigned char unknown_1_; unsigned short unknown_2_; unsigned char unknown_4_[524]; };
 struct Struct_ov031_0224e6e0_8 { unsigned char unknown_0_[0x14]; unsigned char* unknown_14_; };
-extern Struct_ov031_0224e6e0_8 data_ov031_0224e6e0;
+extern Struct_ov031_0224e6e0_8 gAOSSSession_ov031_0224e6e0;
 extern unsigned char data_ov031_0224f440[8];
 extern char data_ov031_0224b0dc[];
 extern "C" void func_ov031_0221e52c(void*, int, unsigned int);
@@ -31,7 +31,7 @@ extern "C" THUMB int func_ov031_0221dcbc(int arg0, const void* arg1, int arg2) {
     var0.unknown_0_ = 0;
     var0.unknown_4_ = 0;
     var0.unknown_2_ = 0;
-    unsigned char* var1 = data_ov031_0224e6e0.unknown_14_;
+    unsigned char* var1 = gAOSSSession_ov031_0224e6e0.unknown_14_;
     func_ov031_0221e52c(var1, 0, 1500);
     Struct_ov031_0221dcbc* var2 = static_cast<Struct_ov031_0221dcbc*>(func_ov031_0221c49c(528));
     if (!var2) { func_ov031_0221d060(2); return -1; }

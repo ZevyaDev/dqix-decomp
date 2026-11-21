@@ -115,13 +115,13 @@ struct MessageWindow_02021b84 {
     void* unknown_2e0_;
 };
 
-struct Struct_02045cac;
+struct MessageWindow_02045cac;
 struct BGLayer_0204b010;
 struct BGLayer_02020cb8_3;
 struct GlobalFlags_02038598_4;
 
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
-extern "C" void func_02045cac(Struct_02045cac* arg0);
+extern "C" void ClearMessageGlyphs_02045cac(MessageWindow_02045cac* window);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_02017d68(void* arg0);
 extern "C" void* func_020d6c00();
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov008_021845ac(Struct_ov008_021842a0_2* arg0)
     if (arg0->unknown_b08_ != NULL)
         DestroyAccoladeDisplay_ov023_021eb26c(arg0->unknown_b08_);
     MessageWindow_02021b84* var1 = GetMessageWindow_020421a0();
-    func_02045cac((Struct_02045cac*)var1);
+    ClearMessageGlyphs_02045cac((MessageWindow_02045cac*)var1);
     ResetMessageWindow_02043204((char*)var1);
     CloseMessageWindow_02043124(var1);
     var1->unknown_2d8_ = NULL;

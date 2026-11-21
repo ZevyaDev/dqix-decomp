@@ -19,7 +19,7 @@ struct BattleAction_ov000_0215440c {
     char unknown_4_[2];
     short unknown_6_;
     char unknown_8_;
-    unsigned char unknown_9_;
+    unsigned char targetCount_9_;
 };
 struct BattleAction_ov000_0215440c_2;
 struct Struct_ov000_0215440c_5 {
@@ -104,13 +104,13 @@ extern "C" void* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
 extern "C" short GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" int func_ov000_02159f7c(void* arg0, Struct_ov000_02159f7c* arg1);
-extern "C" int func_ov000_0215fd90(void* arg0, int arg1);
+extern "C" int HasActionResultFlag_ov000_0215fd90(void* result, int flagIndex);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0* window, int index, int number);
 extern "C" void InitPartyMemberNoun_020e4bf4(void* noun, int partyMemberIndex);
 class GameObject;
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
-extern "C" void func_020e4ce8(void* arg0, void* arg1, int arg2);
+extern "C" void InitEnemyNoun_020e4ce8(void* noun, void* enemy, int arg2);
 extern "C" void func_02046504(char* arg0, char* arg1);
 extern "C" void func_020464dc(void*, signed char);
 extern "C" void func_0204653c(void* arg0, char* arg1);
@@ -230,7 +230,7 @@ extern "C" ARM void func_ov025_021ed634(Struct_ov025_021e9fc4* arg0) {
         short var34;
         int var35 = 0;
         int var36 = 0;
-        int var37 = arg0->unknown_164_->unknown_9_;
+        int var37 = arg0->unknown_164_->targetCount_9_;
         if (arg0->unknown_164_->unknown_0_ == 0x61) {
             Struct_ov000_0215440c_5* var38 = GetActionTarget_ov000_021600f8(arg0->unknown_164_, 0);
             if (var38 != 0) {
@@ -243,7 +243,7 @@ extern "C" ARM void func_ov025_021ed634(Struct_ov025_021e9fc4* arg0) {
             var28 = arg0->unknown_f0_[0];
             func_ov025_021ed2a0((char*)arg0);
         } else if (arg0->unknown_164_->unknown_0_ == 0x3a6) {
-            for (int var39 = 0; var39 < arg0->unknown_164_->unknown_9_; var39++) {
+            for (int var39 = 0; var39 < arg0->unknown_164_->targetCount_9_; var39++) {
                 Struct_ov000_0215440c_5* var40 = GetActionTarget_ov000_021600f8(arg0->unknown_164_, var39);
                 if (var40 != 0 && var40->unknown_e_ == var20) {
                     for (int var41 = 0; var41 < var40->unknown_18_; var41++) {
@@ -266,7 +266,7 @@ extern "C" ARM void func_ov025_021ed634(Struct_ov025_021e9fc4* arg0) {
         } else {
             var15 = data_ov025_021ef020;
             var33[1] = 0;
-            for (int var44 = 0; var44 < arg0->unknown_164_->unknown_9_; var44++) {
+            for (int var44 = 0; var44 < arg0->unknown_164_->targetCount_9_; var44++) {
                 Struct_ov000_0215440c_5* var45 = GetActionTarget_ov000_021600f8(arg0->unknown_164_, var44);
                 if (var45 == 0) continue;
                 var34 = GetLatestTargetCombatantIndex_ov000_0215ffa0(var45);
@@ -290,7 +290,7 @@ extern "C" ARM void func_ov025_021ed634(Struct_ov025_021e9fc4* arg0) {
                         }
                         if (var50 == 0) { var13.unknown_0_[var33[0]] = var34; var33[0]++; }
                     } else {
-                        if (func_ov000_02159f7c(var49, (Struct_ov000_02159f7c*)var47) != 0 || func_ov000_0215fd90(var47, 4) != 0) {
+                        if (func_ov000_02159f7c(var49, (Struct_ov000_02159f7c*)var47) != 0 || HasActionResultFlag_ov000_0215fd90(var47, 4) != 0) {
                             int var52 = 0;
                             for (int var53 = 0; var53 < var35; var53++) {
                                 if (var34 == var14.unknown_0_[var53]) { var52 = 1; break; }
@@ -299,7 +299,7 @@ extern "C" ARM void func_ov025_021ed634(Struct_ov025_021e9fc4* arg0) {
                         }
                     }
                     if (var32 == 0) {
-                        if (func_ov000_0215fd90(var47, 2) != 0) {
+                        if (HasActionResultFlag_ov000_0215fd90(var47, 2) != 0) {
                             int var54 = 0;
                             for (int var55 = 0; var55 < var33[1]; var55++) {
                                 if (var34 == var15.unknown_0_[var55]) { var54 = 1; break; }
@@ -352,7 +352,7 @@ SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var28);
             } else {
                 GameObject* var59 = GetEnemyByIndex_0200fea4(var0, var20);
                 if (var59 != 0) {
-                    func_020e4ce8(var10, var59, 1);
+                    InitEnemyNoun_020e4ce8(var10, var59, 1);
                     ((Struct_ov025_021ed634_2*)var1)->unknown_20_ = (int)var10;
                 }
             }
@@ -384,7 +384,7 @@ SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var28);
             } else {
                 GameObject* var61 = GetEnemyByIndex_0200fea4(var0, var25);
                 if (var61 != 0) {
-                    func_020e4ce8(var9, var61, 1);
+                    InitEnemyNoun_020e4ce8(var9, var61, 1);
                     ((Struct_ov025_021ed634_2*)var1)->unknown_0_ = (int)var9;
                 }
             }
@@ -398,7 +398,7 @@ SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var28);
             } else {
                 GameObject* var63 = GetEnemyByIndex_0200fea4(var0, var25);
                 if (var63 != 0) {
-                    func_020e4ce8(var9, var63, 1);
+                    InitEnemyNoun_020e4ce8(var9, var63, 1);
                     ((Struct_ov025_021ed634_2*)var1)->unknown_0_ = (int)var9;
                 }
             }
@@ -420,7 +420,7 @@ SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var28);
 #if defined(jpn)
 
 #else
-            func_020e4ce8(var10, var65, 1);
+            InitEnemyNoun_020e4ce8(var10, var65, 1);
             ((Struct_ov025_021ed634_2*)var1)->unknown_10_ = (int)var10;
 #endif
         } else {
@@ -433,7 +433,7 @@ SetMessageNumber_020465c0((MessageWindow_020465c0*)var1, 0, var28);
                 InitPartyMemberNoun_020e4bf4(var10, var20);
             } else {
                 GameObject* var66 = GetEnemyByIndex_0200fea4(var0, var20);
-                func_020e4ce8(var10, var66, 1);
+                InitEnemyNoun_020e4ce8(var10, var66, 1);
             }
             if (var25 == var20) ((Struct_ov025_021ed634_2*)var1)->unknown_10_ = (int)var9;
             else ((Struct_ov025_021ed634_2*)var1)->unknown_10_ = (int)var10;

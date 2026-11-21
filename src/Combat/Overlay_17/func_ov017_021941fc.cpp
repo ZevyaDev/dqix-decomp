@@ -175,7 +175,7 @@ extern "C" void func_ov017_0219577c(int arg0, int arg1, int arg2);
 extern "C" void func_ov017_0219593c(void);
 extern "C" void func_020939dc(void* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" void func_020dc2d0(int arg0);
+extern "C" void RestartMapDisplay_020dc2d0(int modeOverride);
 extern "C" void func_02093a14(char* arg0);
 extern "C" void QueueNotice_02094030(int* noticeQueue, int noticeId, int arg2, signed char memberIndex);
 extern "C" int func_0209494c(struct Struct_0209494c* arg0);
@@ -189,7 +189,7 @@ extern "C" int func_0202c758(struct LocalWireless_0202b2f0* arg0, int arg1);
 extern "C" void func_ov017_021d1810(int, int, signed char);
 extern "C" void func_ov017_021cea34(int arg0);
 extern "C" void func_0202c6dc(struct LocalWireless_0202b2f0* arg0, int arg1);
-extern "C" int func_ov017_02195658(unsigned char* arg0);
+extern "C" int RemoveDepartedPlayer_ov017_02195658(unsigned char* gameResources);
 extern "C" int IsLocalWirelessGuest_0202c540(struct LocalWireless_0202b2f0* wireless);
 extern "C" void func_ov017_02195618(unsigned char* arg0);
 extern "C" void func_020e35a0(unsigned char* arg0);
@@ -301,7 +301,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
             var15 = 1;
         }
         if (var15 != 0) {
-            func_020dc2d0(0);
+            RestartMapDisplay_020dc2d0(0);
             func_02093a14((char*)var13);
             QueueNotice_02094030(var13, 4, -1, 0);
             *(unsigned char*)(arg0 + 0x4000 + Enum_ov017_021941fc_738) = 0;
@@ -333,7 +333,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* arg0, unsigned char* arg1
         }
     }
     if (func_02046708((struct GlobalFlags_02012de8*)var9, 0x40000) == 0) {
-        func_ov017_02195658(arg0);
+        RemoveDepartedPlayer_ov017_02195658(arg0);
     }
     if (IsLocalWirelessGuest_0202c540(var7) != 0) {
         if (IsLocalWirelessPlayerDisconnected_0202c578(var7, 0) != 0) {

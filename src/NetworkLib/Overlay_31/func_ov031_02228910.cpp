@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" signed char func_ov031_02237e9c(void);
+extern "C" signed char GetDialogChoice_ov031_02237e9c(void);
 extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int);
 extern unsigned char data_ov031_02290c58;
 extern "C" void func_ov031_02237e58(void);
@@ -9,7 +9,7 @@ extern "C" void func_ov031_02228960(void);
 
 // USA: func_ov031_02228910
 extern "C" ARM void func_ov031_02228910(void) {
-    signed char var0 = func_ov031_02237e9c();
+    signed char var0 = GetDialogChoice_ov031_02237e9c();
     if (var0 != 0) {
         if (var0 != 1) return;
         PlayWifiSetupSoundEffect_ov031_02236878(0xe);

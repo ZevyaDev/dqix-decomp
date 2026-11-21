@@ -16,7 +16,7 @@ extern "C" int func_ov003_021538e0(void*);
 extern "C" void* func_020d6c00(void);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
-extern "C" void func_020dc2d0(int);
+extern "C" void RestartMapDisplay_020dc2d0(int);
 extern "C" void func_ov003_02153874(void* arg0);
 
 // USA: func_ov003_02158184
@@ -44,6 +44,6 @@ extern "C" ARM void func_ov003_02158184(void* arg0) {
     if (func_ov003_021538e0(var2) == 0) return;
 
     ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)func_020d6c00(), 1);
-    func_020dc2d0(0);
+    RestartMapDisplay_020dc2d0(0);
     *(unsigned char*)(var0 + Enum_ov003_02158184_504) = 7;
 }

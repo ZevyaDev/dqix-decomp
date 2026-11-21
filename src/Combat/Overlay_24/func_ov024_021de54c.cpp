@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int func_02084a64(unsigned char* arg0, int arg1);
-extern "C" void func_02083e28(unsigned char* arg0, int arg1);
+extern "C" void CalculatePartyMemberStats_02083e28(unsigned char* memberData, int outStats);
 extern "C" void func_02089494(char* arg0, char* arg1, char* arg2);
 void ApplyCombatantBuffs(int world, int id);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
@@ -48,7 +48,7 @@ extern "C" ARM void* func_ov024_021de54c(struct Struct_ov024_021de54c_4* arg0, i
 	unsigned short var1;
 	if (func_02084a64(var0->unknown_150_, arg3->unknown_4_0_) > 0) {
 		var1 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, arg3->unknown_20_.unknown_2_4_, arg3->unknown_24_.unknown_0_0_);
-		func_02083e28(var0->unknown_150_, 0);
+		CalculatePartyMemberStats_02083e28(var0->unknown_150_, 0);
 		func_02089494(var0->unknown_138_, var0->unknown_130_, var0->unknown_134_);
 		ApplyCombatantBuffs((int)arg0->unknown_10_, arg2);
 		arg0->unknown_14_++;

@@ -12,7 +12,7 @@
 #define SECOND_SHIFT 0
 #define CURSOR_OFFSET 0x36
 #endif
-struct Struct_020e28dc;
+struct YesNoWindow_020e28dc;
 
 struct Struct_ov003_02160854 {
     char unknown_0_[CURSOR_OFFSET];
@@ -23,7 +23,7 @@ struct Struct_ov003_02160854_2 {
     char unknown_0_[0x324 - FIRST_SHIFT];
     Struct_ov003_02160854* unknown_324_;
     char unknown_328_[0x390 - 0x328];
-    Struct_020e28dc* unknown_390_;
+    YesNoWindow_020e28dc* unknown_390_;
     char unknown_394_[0x470 - SECOND_SHIFT - (0x394 - FIRST_SHIFT)];
     short* unknown_470_;
     short unknown_474_;
@@ -33,9 +33,9 @@ struct Struct_ov003_02160854_2 {
 
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int func_ov017_021a4e70(unsigned char* arg0);
-extern "C" int func_020e28dc(Struct_020e28dc* arg0);
-extern "C" int func_020e2918(signed char* arg0);
-extern "C" int func_02080dd4(void* arg0, int arg1, int arg2, int arg3, unsigned char* arg4, unsigned char arg5);
+extern "C" int IsYesNoWindowOpen_020e28dc(YesNoWindow_020e28dc* yesNoWindow);
+extern "C" int GetYesNoWindowChoice_020e2918(signed char* yesNoWindow);
+extern "C" int HighlightTouchedMenuLayoutText_02080dd4(void* layout, int windowId, int x, int y, unsigned char* isTouchedAgain, unsigned char isRedrawn);
 
 extern "C" {
 extern short data_ov003_0217f484[];
@@ -55,8 +55,8 @@ extern "C" ARM unsigned char func_ov003_02160854(Struct_ov003_02160854_2* arg0) 
         }
     }
 
-    if (func_020e28dc(arg0->unknown_390_)) {
-        int var2 = func_020e2918((signed char*)arg0->unknown_390_);
+    if (IsYesNoWindowOpen_020e28dc(arg0->unknown_390_)) {
+        int var2 = GetYesNoWindowChoice_020e2918((signed char*)arg0->unknown_390_);
         if (var2 >= 0) {
             var0 = 1;
             *arg0->unknown_470_ = var2 + 0x2c;
@@ -66,7 +66,7 @@ extern "C" ARM unsigned char func_ov003_02160854(Struct_ov003_02160854_2* arg0) 
         int var4;
         Struct_ov003_02160854* var5 = arg0->unknown_324_;
         g_touchInput.GetTouchPoint(&var3, &var4);
-        int var6 = func_02080dd4(var5, arg0->unknown_488_, (short)var3, (short)var4, &var0, 0);
+        int var6 = HighlightTouchedMenuLayoutText_02080dd4(var5, arg0->unknown_488_, (short)var3, (short)var4, &var0, 0);
         if (var6 < 0)
             return 0;
 

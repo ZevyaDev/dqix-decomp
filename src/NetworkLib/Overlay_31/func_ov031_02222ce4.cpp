@@ -9,8 +9,8 @@ extern "C" void func_ov031_02222eb0(void*);
 extern "C" void func_ov031_02222f44(void*);
 extern "C" ARM void* AddTask_ov031_0223e218(void* listIndex, void* callback, void* callbackData, int priority);
 
-struct Struct_ov031_02222ce4;
-extern "C" void func_ov031_0223bcc8(Struct_ov031_02222ce4* arg0, int arg1, int arg2);
+struct OAMAllocation_ov031_02222ce4;
+extern "C" void SetSpritePriority_ov031_0223bcc8(OAMAllocation_ov031_02222ce4* sprite, int entryIndex, int priority);
 
 // USA: func_ov031_02222ce4
 extern "C" ARM void func_ov031_02222ce4(int arg0) {
@@ -30,14 +30,14 @@ extern "C" ARM void func_ov031_02222ce4(int arg0) {
 			unsigned char var6 = *var4++;
 			int var7 = func_ov031_0223be70(0, var6, var5);
 			((int*)data_ov031_02250ba8)[var3] = var7;
-			func_ov031_0223bcc8((Struct_ov031_02222ce4*)((int*)data_ov031_02250ba8)[var3], var2 + 1, var5);
+			SetSpritePriority_ov031_0223bcc8((OAMAllocation_ov031_02222ce4*)((int*)data_ov031_02250ba8)[var3], var2 + 1, var5);
 			var3++;
 		} while (var3 < var0);
 	}
 
 	int var8 = func_ov031_0223be70(0, 1, 1);
 	((int*)data_ov031_02250ba8)[2] = var8;
-	func_ov031_0223bcc8((Struct_ov031_02222ce4*)((int*)data_ov031_02250ba8)[2], var2 + 1, 1);
+	SetSpritePriority_ov031_0223bcc8((OAMAllocation_ov031_02222ce4*)((int*)data_ov031_02250ba8)[2], var2 + 1, 1);
 
 	func_ov031_02222eb0((void*)0xc0);
 

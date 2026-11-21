@@ -3,7 +3,7 @@
 
 struct Struct_ov031_02218528 { char* unknown_0_; char* unknown_4_; char* unknown_8_; int unknown_c_; };
 extern "C" int func_ov031_0221883c(void* arg0, Struct_ov031_02218528* arg1, int arg2);
-extern "C" int func_020c7170(char* arg0, unsigned long arg1, const char* arg2, ...);
+extern "C" int FormatToSizedBuffer_020c7170(char* buffer, unsigned long bufferSize, const char* format, ...);
 
 extern char data_ov031_02249ed0[];
 extern char data_ov031_02249df8[];
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov031_02218528(void* arg0, const char* arg1, const char*
 	char* var7 = var5 + 2;
 	int var8 = strlen(var7) + 1;
 	memmove(var7 + var2, var7, var8);
-	int var9 = func_020c7170(var7, var2 + 1, data_ov031_02249ed0, arg1, arg2);
+	int var9 = FormatToSizedBuffer_020c7170(var7, var2 + 1, data_ov031_02249ed0, arg1, arg2);
 	var7[var9] = var6;
 	var1->unknown_4_ = var1->unknown_4_ + var2;
 	return 0;

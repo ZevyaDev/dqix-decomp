@@ -24,7 +24,7 @@ struct Struct_ov000_02182c74 { short unknown_0_[16]; };
 extern Struct_ov000_02182c74 data_ov000_02182d14;
 
 extern "C" void func_ov000_0215d090(struct Struct_ov000_0215d588_3* arg0);
-extern "C" int func_ov000_02153e40(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectCombatantIndices_ov000_02153e40(void* battle, short* indices, int maxCount, int filterFlags);
 
 // USA: func_ov000_0215d588
 extern "C" ARM void func_ov000_0215d588(struct Struct_ov000_0215d588_3* arg0) {
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov000_0215d588(struct Struct_ov000_0215d588_3* arg0) {
         arg0->unknown_81b0_[var0].unknown_f_ = 0;
     }
     Struct_ov000_02182c74 var1 = data_ov000_02182d14;
-    int var2 = func_ov000_02153e40(arg0, var1.unknown_0_, 0x10, 0);
+    int var2 = CollectCombatantIndices_ov000_02153e40(arg0, var1.unknown_0_, 0x10, 0);
     for (int var3 = 0; var3 < var2; var3++) {
         int var4 = var1.unknown_0_[var3];
         GameState* var5 = GameState::GetInstance();

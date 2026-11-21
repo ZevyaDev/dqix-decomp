@@ -20,8 +20,8 @@ enum { Enum_ov003_02155e38_2384 = 0x950 };
 #endif
 
 extern "C" int func_02053c6c(unsigned char* gameObject);
-extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
-extern "C" void func_02083e28(void* arg0, int arg1);
+extern "C" void SetLevelStats_02083cbc(void* memberData, void* arg1, void* arg2);
+extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
 extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
@@ -50,8 +50,8 @@ extern "C" ARM void func_ov003_02155e38(void* arg0) {
     if (var9 > 10) {
         var8[var5] = var9 = 10;
     }
-    func_02083cbc(var7, var0 + 0x90, var0 + 0xcc);
-    func_02083e28(var7, 0);
+    SetLevelStats_02083cbc(var7, var0 + 0x90, var0 + 0xcc);
+    CalculatePartyMemberStats_02083e28(var7, 0);
     *(unsigned short*)(*(char**)((char*)var3 + 0x130) + 4) = *(unsigned short*)(*(char**)((char*)var3 + 0x134) + 0x30);
     *(unsigned short*)(*(char**)((char*)var3 + 0x130) + 6) = *(unsigned short*)(*(char**)((char*)var3 + 0x134) + 0x32);
     if (IsLocalWirelessOn_0202b7d8((int*)func_0202ae18()) == 0) {

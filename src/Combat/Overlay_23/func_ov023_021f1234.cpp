@@ -176,7 +176,7 @@ void func_ov013_0218782c(Struct_ov023_021f1234* arg0, int arg1, int arg2);
 void func_ov013_02186fa0(Struct_ov023_021f1234* arg0);
 void func_ov013_02184c8c(Struct_ov023_021f1234_5* arg0, void* arg1);
 unsigned char func_0209a678(char* arg0, void* arg1, unsigned short* arg2);
-void func_02083e28(unsigned char* arg0, int arg1);
+void CalculatePartyMemberStats_02083e28(unsigned char* memberData, int outStats);
 void func_ov017_021cc730(int arg0, int arg1, int arg2, int arg3);
 void func_ov017_021ccc34(int arg0);
 void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
@@ -344,7 +344,7 @@ extern "C" ARM int func_ov023_021f1234(Struct_ov023_021f1234_3* arg0)
                 {
                     func_ov013_02184c8c(arg0->unknown_5574_, var13);
                     var1->unknown_e2_ = func_0209a678(var1->unknown_e8_, var13, var1->unknown_74_);
-                    func_02083e28(func_02053c6c((unsigned char*)var13), 0);
+                    CalculatePartyMemberStats_02083e28(func_02053c6c((unsigned char*)var13), 0);
                 }
                 func_ov017_021cc730(var6, 0, 0, 1);
                 func_ov017_021ccc34(var6);

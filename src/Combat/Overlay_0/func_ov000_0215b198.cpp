@@ -8,7 +8,7 @@ struct Struct_ov000_0215767c_8 {
 
 struct BattleAction_ov000_0215440c_2 {
     char unknown_0_[8];
-    unsigned char unknown_8_;
+    unsigned char actorCount_8_;
     unsigned char unknown_9_;
     char unknown_a_;
     unsigned char unknown_b_;

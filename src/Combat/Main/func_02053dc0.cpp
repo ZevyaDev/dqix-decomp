@@ -6,11 +6,11 @@ struct Struct_02053dc0 {
 #else
     char unknown_0_[0x19c];
 #endif
-    void* unknown_19c_;
+    void* pBattleCommand_19c_;
 };
 
-// USA: func_02053dc0
-extern "C" ARM void* func_02053dc0(struct Struct_02053dc0* arg0) {
-    void* var0 = arg0->unknown_19c_;
-    return var0 != NULL ? var0 : NULL;
+// USA: GetBattleCommand_02053dc0
+extern "C" ARM void* GetBattleCommand_02053dc0(struct Struct_02053dc0* partyMember) {
+    void* command = partyMember->pBattleCommand_19c_;
+    return command != NULL ? command : NULL;
 }

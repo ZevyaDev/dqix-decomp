@@ -21,11 +21,11 @@ extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
 extern "C" void func_ov017_021cebcc(int, int, int);
 
-// USA: func_020e3994
-extern "C" ARM void func_020e3994(struct EventSyncEntry_020e385c* arg0, int arg1, int arg2) {
-    struct EventSyncEntry_020e385c* var0 = FindEventSyncEntry_020e385c(arg0, arg1, arg2);
-    if (var0 == NULL) return;
-    func_020e3840((struct Struct_020e3814*)var0);
+// USA: RemoveEventSyncEntry_020e3994
+extern "C" ARM void RemoveEventSyncEntry_020e3994(struct EventSyncEntry_020e385c* entry, int type, int eventId) {
+    struct EventSyncEntry_020e385c* foundEntry = FindEventSyncEntry_020e385c(entry, type, eventId);
+    if (foundEntry == NULL) return;
+    func_020e3840((struct Struct_020e3814*)foundEntry);
     if (!IsNotLocalWirelessGuest_0202c508(func_0202ae18())) return;
-    func_ov017_021cebcc(3, arg1 & 0xff, arg2);
+    func_ov017_021cebcc(3, type & 0xff, eventId);
 }

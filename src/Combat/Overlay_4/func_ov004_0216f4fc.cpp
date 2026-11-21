@@ -14,7 +14,7 @@ extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" void RedrawMenuWindow_ov023_021f809c(void* window, void* menu);
-extern "C" int func_020c7170(char* arg0, unsigned long arg1, const char* arg2, ...);
+extern "C" int FormatToSizedBuffer_020c7170(char* buffer, unsigned long bufferSize, const char* format, ...);
 
 extern const char data_ov004_021707b0[];
 struct Struct_ov004_02171048_5 { char unknown_0_[4]; char* unknown_4_; };
@@ -38,7 +38,7 @@ extern "C" ARM int func_ov004_0216f4fc(void* arg0) {
     if (var5 != NULL) {
         char* var7 = (char*)var1 + Enum_ov004_0216f4fc_9088;
         var7 += Enum_ov004_0216f4fc_16384;
-        func_020c7170(var0, 0xd, data_ov004_021707b0, *(long long*)(var7 + 0x48));
+        FormatToSizedBuffer_020c7170(var0, 0xd, data_ov004_021707b0, *(long long*)(var7 + 0x48));
 
         var2 = data_ov004_02171048.unknown_4_ + 0xe;
         var3 = var0;

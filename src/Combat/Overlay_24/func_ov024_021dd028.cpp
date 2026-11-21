@@ -4,7 +4,7 @@
 struct Struct_ov024_021dd028_2;
 struct Struct_ov024_021dd028_4;
 struct Struct_ov024_021dd028_5;
-extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
+extern "C" int HasSuperHighTension_ov024_021dd260(Struct_ov024_021dd028_5*);
 struct Struct_ov024_021dd028_6;
 struct Struct_ov024_021dd028_7;
 extern "C" int func_ov024_021ea78c(Struct_ov024_021dd028_7*, int, Struct_ov024_021dd028_6*);
@@ -27,7 +27,7 @@ extern "C" ARM void* func_ov024_021dd028(Struct_ov024_021dd028_2* arg0,int arg1,
     GameObject* var0=GetCombatantByID((int)arg0->unknown_10_,arg2);
     if(!var0)return 0;
     int var1=1;
-    if(func_ov024_021dd260((Struct_ov024_021dd028_5*)var0)){
+    if(HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)var0)){
         if(arg3->unknown_1c_.unknown_2_3_==7)var1=0;
     }
     union {struct {int unknown_0_;int unknown_4_;};unsigned long long unknown1_0_;} var2;

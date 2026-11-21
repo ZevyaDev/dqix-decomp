@@ -17,7 +17,7 @@ struct ItemData_0201099c_9;
 struct ItemBag_0207cf30_3;
 struct Struct_0207cf30_4;
 struct PartyMember_0205faf4_11;
-struct Struct_0207cf30;
+struct PartyMemberData_0207cf30;
 
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void* func_0207d6dc(SafeAllocator* arg0, int arg1, int arg2);
@@ -25,7 +25,7 @@ extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int GetBagItemCount_020a0b3c(struct ItemBag_0207cf30_3* bag, int itemId);
 extern "C" int func_020a095c(struct Struct_0207cf30_4* arg0, int arg1, int arg2);
 extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
-extern "C" struct Struct_0207cf30* func_02053c6c(unsigned char* gameObject);
+extern "C" struct PartyMemberData_0207cf30* func_02053c6c(unsigned char* gameObject);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 
 extern "C" void func_0207cc18(void* arg0, struct ItemData_0201099c_9* arg1);
@@ -34,27 +34,27 @@ extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 
 extern AllocatorUnion gMainHeap_02114e20 __attribute__((aligned(4)));
 
-struct Struct_0207cf30 {
+struct PartyMemberData_0207cf30 {
     char unknown_0_[0x454];
-    short unknown_454_[8];
+    short heldItems_454_[8];
 };
 
-struct Struct_0207cf30_2 {
+struct ItemContext_0207cf30_2 {
     char unknown_0_[0x2c];
-    struct ItemTable_0201099c_10* unknown_2c_;
+    struct ItemTable_0201099c_10* pItemTable_2c_;
     void* unknown_30_;
     void* unknown_34_;
 };
 
 // USA: func_0207cf30
-extern "C" ARM int func_0207cf30(struct Struct_0207cf30_2* arg0, short arg1, int arg2, int arg3) {
+extern "C" ARM int func_0207cf30(struct ItemContext_0207cf30_2* arg0, short arg1, int arg2, int arg3) {
     int var0 = 0;
-    if (arg0->unknown_2c_ == NULL) {
+    if (arg0->pItemTable_2c_ == NULL) {
         func_0207d6dc((SafeAllocator*)arg0, (int)&arg1, 1);
         var0 = 1;
     }
     int var1 = 0;
-    struct ItemData_0201099c_9* var2 = FindItemData_020dedd0(arg0->unknown_2c_, arg1);
+    struct ItemData_0201099c_9* var2 = FindItemData_020dedd0(arg0->pItemTable_2c_, arg1);
     if (var2 != NULL) {
         GameState* var3 = GameState::GetInstance();
         char* var4 = (char*)GetParty_02010828(var3);
@@ -82,13 +82,13 @@ extern "C" ARM int func_0207cf30(struct Struct_0207cf30_2* arg0, short arg1, int
                     continue;
                 if (IsNPCCompanion_02061bd8((struct PartyMember_0205faf4_11*)var10) != 0)
                     continue;
-                struct Struct_0207cf30* var11 = func_02053c6c((unsigned char*)var10);
+                struct PartyMemberData_0207cf30* var11 = func_02053c6c((unsigned char*)var10);
                 if (var11 == NULL)
                     continue;
                 for (int var12 = 0; var12 < 8; var12++) {
-                    if (var11->unknown_454_[var12] > 0)
+                    if (var11->heldItems_454_[var12] > 0)
                         continue;
-                    var11->unknown_454_[var12] = arg1;
+                    var11->heldItems_454_[var12] = arg1;
                     func_0207cc18(arg0, var2);
                     var6++;
                     if (var6 == arg2)
@@ -104,7 +104,7 @@ extern "C" ARM int func_0207cf30(struct Struct_0207cf30_2* arg0, short arg1, int
         SignedAllocatorHeader* var14 = var13->GetSignedAllocator();
         var13->Destroy();
         func_02012da4(&gMainHeap_02114e20, var14);
-        arg0->unknown_2c_ = NULL;
+        arg0->pItemTable_2c_ = NULL;
     }
     return var1;
 }

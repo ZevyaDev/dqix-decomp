@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" int func_ov017_02195658(void);
+extern "C" int RemoveDepartedPlayer_ov017_02195658(void);
 extern "C" void* GetBattleJoinTable_0207d78c(void);
 extern "C" void func_ov000_02174a50(void* arg0, int arg1);
 extern "C" void func_020a367c(unsigned char* arg0, int arg1);
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov023_021ed9f8(char* arg0) {
     int var0 = (int)BackgroundLoader::GetInstance();
     ((int)GetGameResources());
     unsigned char* var1 = *(unsigned char**)(arg0 + Enum_ov023_021ed9f8_672);
-    int var2 = func_ov017_02195658();
+    int var2 = RemoveDepartedPlayer_ov017_02195658();
     if (var2 > 0) {
         void* var3 = GetBattleJoinTable_0207d78c();
         func_ov000_02174a50(arg0 + Enum_ov023_021ed9f8_14176, var2);

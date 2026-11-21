@@ -7,7 +7,7 @@
 
 extern "C" void* GetScriptValueAsString_ov017_021d612c(void* value);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
-extern "C" int func_ov001_0215ad2c(int arg0);
+extern "C" int ResolveEventObjectIndex_ov001_0215ad2c(int scriptObjectId);
 
 struct Struct_ov001_0215e1cc;
 
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov001_0215ef54(char* arg0, int arg1) {
     for (int var8 = 1; var8 < arg1; var8++) {
         int var9 = GetScriptValueAsInt_ov017_021d60f4(arg0);
         arg0 += 0x8;
-        int var10 = func_ov001_0215ad2c(var9);
+        int var10 = ResolveEventObjectIndex_ov001_0215ad2c(var9);
         GameObject* var11 = var2->GetGameObjectByIndex(var10);
         if (var11 != 0 && var11->obj3D_.pModel_ != 0) {
             ((Model3D*)(var11->obj3D_.pModel_))->ApplyTexturesFromModel((Model3D*)var5);

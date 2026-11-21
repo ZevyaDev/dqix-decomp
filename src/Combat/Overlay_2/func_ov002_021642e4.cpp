@@ -23,7 +23,7 @@ extern "C" void func_ov023_021dc9e8(char *arg0, SafeAllocator *arg1, int arg2, c
 extern "C" void InitItemInfoPanel_ov023_021dc134(char *panel, int itemId, int isEmbedded);
 extern "C" void AllocateItemInfoPanelBuffers_ov023_021dbfd0(char *panel, SafeAllocator *allocator);
 extern "C" void SetItemInfoPanelItem_ov023_021dcae0(char *panel, int itemId);
-extern "C" void func_ov023_021dca88(char *arg0);
+extern "C" void CloseItemInfoPanel_ov023_021dca88(char *panel);
 
 // USA: func_ov002_021642e4
 #if defined(jpn)
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov002_021642e4(char *arg0) {
             *(short *) (arg0 + 0x1aea) = -1;
             *(short *) (arg0 + 0x1ab0) = -1;
             ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
-            func_ov023_021dca88(var1);
+            CloseItemInfoPanel_ov023_021dca88(var1);
         }
     }
 }
@@ -109,7 +109,7 @@ extern "C" ARM void func_ov002_021642e4(char *arg0) {
             *(short *) (arg0 + 0x1c22) = -1;
             *(short *) (arg0 + 0x1be8) = -1;
             ReturnToPreviousMenuWindow_ov002_02156e90(arg0);
-            func_ov023_021dca88(arg0 + 0x50);
+            CloseItemInfoPanel_ov023_021dca88(arg0 + 0x50);
         }
     }
 }

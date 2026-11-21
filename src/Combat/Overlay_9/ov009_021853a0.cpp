@@ -36,7 +36,7 @@ extern unsigned char g_fileScratchSpace[0x30000] __attribute__((aligned(4)));
 
 struct Struct_ov009_021842a0;
 struct GlobalFlags_02038598_4;
-struct Struct_02045cac;
+struct MessageWindow_02045cac;
 struct BGLayer_0204b010;
 struct BGLayer_02020cb8_3;
 struct TextWindowManager_0205d048;
@@ -701,7 +701,7 @@ extern "C" int func_ov009_02185888(Struct_ov009_02185888* arg0);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" void func_ov023_021e4f18(void* arg0);
 extern "C" int GetMessageWindow_020421a0();
-extern "C" void func_02045cac(struct Struct_02045cac* arg0);
+extern "C" void ClearMessageGlyphs_02045cac(struct MessageWindow_02045cac* window);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void* GetSpriteTextManager_0203bd14();
@@ -785,9 +785,9 @@ extern "C" int sprintf(char*, const char*, ...);
 extern "C" void ClearLevelEntries_0208247c(void*);
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);
 extern "C" void ReadLevelEntries_02082490(void*, void*, unsigned int, int, int);
-extern "C" void func_02083cbc(void*, void*, void*);
+extern "C" void SetLevelStats_02083cbc(void*, void*, void*);
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
-extern "C" void func_02083e28(void*, int);
+extern "C" void CalculatePartyMemberStats_02083e28(void*, int);
 extern "C" void func_020863c4(unsigned char*);
 extern "C" void ClearSpellTable_0209a804(int*);
 extern "C" void func_0209a810(Struct_0201099c_18*, void*);
@@ -1062,7 +1062,7 @@ extern "C" ARM void func_ov009_02184848(Struct_ov009_021842a0* arg0) {
     func_ov023_021e4f18(*(void**)(var0 + (0x7b8)));
 
     void* var1 = (void*)GetMessageWindow_020421a0();
-    func_02045cac((struct Struct_02045cac*)var1);
+    ClearMessageGlyphs_02045cac((struct MessageWindow_02045cac*)var1);
     ResetMessageWindow_02043204((char*)var1);
     CloseMessageWindow_02043124((char*)var1);
 
@@ -2379,14 +2379,14 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             unsigned int var12;
             void* var13 = LoadFileIntoMemory(var9, g_fileScratchSpace, &var12);
             if (var13) ReadLevelEntries_02082490(&var11, var13, var12, arg0->unknown_d88_->unknown_16c_[arg0->unknown_da2_], 0);
-            func_02083cbc(arg0->unknown_d88_, &var11, var11.unknown_3c_);
+            SetLevelStats_02083cbc(arg0->unknown_d88_, &var11, var11.unknown_3c_);
             BackgroundLoader::RemoveLockGlobal();
             short* var14 = arg0->unknown_d88_->unknown_488_;
             for (int var15 = 0; var15 < 7; ++var15) {
                 void* var16 = FindItemData_020dedd0((ItemTable_0201099c_10*)arg0->unknown_a8_, var14[data_ov009_0218aac8[var15].unknown_0_]);
                 if (var16) memcpy(&arg0->unknown_d88_->unknown_194_[data_ov009_0218aac8[var15].unknown_1_], var16, 32);
             }
-            func_02083e28(arg0->unknown_d88_, 0);
+            CalculatePartyMemberStats_02083e28(arg0->unknown_d88_, 0);
             func_020863c4((unsigned char*)arg0->unknown_d88_);
             Struct_ov009_0218742c_7* var17 = inline_ov009_0218742c_4(&var8);
             Struct_ov009_0218742c_9* var18 = arg0->unknown_d88_;

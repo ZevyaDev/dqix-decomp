@@ -74,8 +74,8 @@ struct Struct_02010088;
 extern "C" int func_02053c6c(unsigned char*);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" int IsDead_02010088(Struct_02010088*);
-extern "C" int func_ov024_021da998(Struct_ov024_021da670_6*);
-extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
+extern "C" int HasTension_ov024_021da998(Struct_ov024_021da670_6*);
+extern "C" int HasSuperHighTension_ov024_021dd260(Struct_ov024_021dd028_5*);
 extern "C" float func_02074738(int, int);
 extern "C" void func_ov024_021f6a1c(Struct_ov024_021f6a1c*, void*);
 extern "C" void func_ov024_021f8938(void*, float*, float*, int, void*, GameObject*);
@@ -105,8 +105,8 @@ extern "C" ARM void func_ov024_021fb91c(Struct_ov024_021fb91c_2* arg0) {
         var6 = 999.0f;
     }
     if ((var0->unknown_10_ & 0x2000) &&
-        (func_ov024_021da998((Struct_ov024_021da670_6*)var3) ||
-        func_ov024_021dd260((Struct_ov024_021dd028_5*)var3))) {
+        (HasTension_ov024_021da998((Struct_ov024_021da670_6*)var3) ||
+        HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)var3))) {
         float var7 = func_02074738(((Struct_ov024_021fb91c_3*)var3->currentStats_)->unknown_24_, 0);
         var5 *= var7;
         var6 *= var7;

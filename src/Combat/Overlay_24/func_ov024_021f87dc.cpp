@@ -14,7 +14,7 @@ struct Struct_ov024_021f87dc {
 };
 
 extern "C" int func_ov024_021eadfc(GameObject* arg0);
-extern "C" unsigned int func_020dd290(void* arg0, unsigned int arg1);
+extern "C" unsigned int GetSkillAdjustedMPCost_020dd290(void* member, unsigned int arg1);
 
 // USA: func_ov024_021f87dc
 extern "C" ARM int func_ov024_021f87dc(GameObject* arg0, Struct_ov024_021f87dc* arg1, int* arg2) {
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov024_021f87dc(GameObject* arg0, Struct_ov024_021f87dc* 
                 *arg2 = arg0->currentStats_->primaryStats.currMP;
             }
         } else {
-            *arg2 = func_020dd290(arg0, *arg2);
+            *arg2 = GetSkillAdjustedMPCost_020dd290(arg0, *arg2);
         }
     }
     return *arg2;

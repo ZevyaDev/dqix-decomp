@@ -28,10 +28,10 @@ extern "C" void RedrawMenuWindow_ov023_021f809c(void*, void*);
 extern "C" void* func_ov004_0215e4c0(void*, int);
 extern "C" void func_ov023_021f8960(char*, short, unsigned short);
 extern "C" struct Struct_ov004_0215e5fc_5* FindItemData_020dedd0(struct Struct_ov002_02157634_5*, int);
-extern "C" void func_02083738(void*, int);
+extern "C" void UnequipCategory_02083738(void*, int);
 extern "C" void func_0208358c(void*, void*, int);
 extern "C" int func_02046608(int, int, void*, void*, int, int, unsigned char);
-extern "C" void func_02083e28(void*, int);
+extern "C" void CalculatePartyMemberStats_02083e28(void*, int);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int func_02053c6c(unsigned char*);
 extern "C" char* func_020d2f88(char*, char*);
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov004_0215e5fc(void* arg0, int arg1) {
                     var0 = (struct Struct_ov004_0215e5fc_5*)FindItemData_020dedd0((struct Struct_ov002_02157634_5*)var6, var3);
                     if (var0 == 0) {
                         var9 = data_ov004_0217057c[var4];
-                        func_02083738(var8, var9);
+                        UnequipCategory_02083738(var8, var9);
                         data_ov004_02171118[var4][arg1] = -1;
                         if (var3 < 0 && var4 == 0) {
                             data_ov004_021710a8[arg1] = 0xe;
@@ -199,7 +199,7 @@ extern "C" ARM void func_ov004_0215e5fc(void* arg0, int arg1) {
                     }
                 }
                 if (var7) {
-                    func_02083e28(var8, 0);
+                    CalculatePartyMemberStats_02083e28(var8, 0);
                 }
             }
         }
@@ -249,7 +249,7 @@ extern "C" ARM void func_ov004_0215e5fc(void* arg0, int arg1) {
                     var19 = (struct Struct_ov004_0215e5fc_5*)FindItemData_020dedd0((struct Struct_ov002_02157634_5*)var30, var22);
                     if (var19 == 0) {
                         var27 = data_ov004_0216fdfc[var23];
-                        func_02083738(var26, var27);
+                        UnequipCategory_02083738(var26, var27);
                         data_ov004_02170888[var23][arg1] = -1;
                         if (var22 < 0 && var23 == 0) {
                             data_ov004_02170818[arg1] = 0xe;
@@ -286,7 +286,7 @@ extern "C" ARM void func_ov004_0215e5fc(void* arg0, int arg1) {
                     }
                 }
                 if (var25) {
-                    func_02083e28(var26, 0);
+                    CalculatePartyMemberStats_02083e28(var26, 0);
                 }
             }
         }

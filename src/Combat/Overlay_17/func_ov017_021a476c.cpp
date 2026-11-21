@@ -134,7 +134,7 @@ extern "C" Struct_ov017_021a476c_5* func_02040538(Struct_0203e0a0* arg0);
 extern "C" unsigned char IsOnLadder_02039d7c(char* object);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int func_0203402c(Struct_0203402c* arg0);
-extern "C" void func_ov017_0219a674(unsigned char* arg0);
+extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char* prompt);
 extern "C" void GetNPCPosition_020406f8(Struct_0203de84* outPosition, NPC_0203de84_2* npc);
 extern "C" short func_ov017_021a4700(Struct_ov009_0218aa28* arg0, int arg1, Struct_ov009_0218aa28* arg2);
 extern "C" int func_ov017_0218daa8(void* arg0, Struct_ov009_0218aa28* arg1, int arg2, int arg3, unsigned char arg4);
@@ -195,7 +195,7 @@ extern "C" ARM void func_ov017_021a476c(Struct_ov017_021a476c_9* arg0) {
             }
             if (var10 != NULL && var11 != NULL) {
                 int var12 = 0x1922;
-                func_ov017_0219a674((unsigned char*)&var0);
+                ResetInteractionPrompt_ov017_0219a674((unsigned char*)&var0);
                 var0.unknown_0_ = 0;
                 GetNPCPosition_020406f8((Struct_0203de84*)&var2, (NPC_0203de84_2*)var9);
                 var0.unknown_10_ = fix32abs(func_ov017_021a4700((Struct_ov009_0218aa28*)&var5->unknown_0_.position_, (short)var5->unknown_0_.rotation_.y, (Struct_ov009_0218aa28*)&var2));
@@ -332,7 +332,7 @@ extern "C" ARM void func_ov017_021a476c(Struct_ov017_021a476c_9* arg0) {
             if (var16->unknown_1b2_ == 0) {
                 if (!func_ov017_0218d4ec(arg0, data_ov017_021d76d8) ||
                     !func_0206dfb0((int)var17, var17->unknown_8c_, 0x799)) {
-                    func_ov017_0219a674((unsigned char*)&var1);
+                    ResetInteractionPrompt_ov017_0219a674((unsigned char*)&var1);
                     var1.unknown_0_ = 0xa;
                     var1.unknown_10_ = fix32abs(func_ov017_021a4700((Struct_ov009_0218aa28*)&var5->unknown_0_.position_, (short)var5->unknown_0_.rotation_.y, (Struct_ov009_0218aa28*)&var16->unknown_0_.position_));
                     if (var1.unknown_10_ < 0x1922) {

@@ -41,7 +41,7 @@ struct Struct_02081870_3 {
     short unknown_28_;
     unsigned char unknown_2a_;
 };
-extern "C" int func_02042190(int);
+extern "C" int GetFontForFontSize_02042190(int);
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" int func_020420e8(char*, int);
 extern "C" int GetMessageWindow_020421a0();
@@ -92,7 +92,7 @@ extern "C" ARM void func_02081870(Struct_02081870* arg0, Struct_02081870_2* arg1
 extern "C" ARM void func_02081870(Struct_02081870* arg0, Struct_02081870_2* arg1, Struct_02081870_3* arg2) {
     int var8 = arg2->unknown_13_4_;
     if (arg2->unknown_2a_ & 4) var8 = 5;
-    int var9 = func_02042190(arg2->unknown_13_0_);
+    int var9 = GetFontForFontSize_02042190(arg2->unknown_13_0_);
     if (arg2->unknown_2a_ & 8) {
         char* var10 = (char*)FindStringInList_02072a68(arg0->unknown_0_, arg2->unknown_e_);
         if (var10) {

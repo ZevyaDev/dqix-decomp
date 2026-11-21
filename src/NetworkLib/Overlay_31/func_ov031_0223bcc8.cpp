@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
-struct Struct_ov031_0223bcc8 { unsigned int unknown_0_; unsigned short unknown_4_; unsigned short unknown_6_; };
-struct Struct_ov031_02222ce4 { unsigned char unknown_0_[8]; Struct_ov031_0223bcc8* unknown_8_; unsigned char unknown_c_; };
+struct OAMEntry_ov031_0223bcc8 { unsigned int unknown_0_; unsigned short unknown_4_; unsigned short unknown_6_; };
+struct OAMAllocation_ov031_02222ce4 { unsigned char unknown_0_[8]; OAMEntry_ov031_0223bcc8* unknown_8_; unsigned char oamCount_c_; };
 
-// USA: func_ov031_0223bcc8
-extern "C" ARM void func_ov031_0223bcc8(Struct_ov031_02222ce4* arg0, int arg1, int arg2) {
-	Struct_ov031_0223bcc8* var0 = arg0->unknown_8_;
-	if (arg1 >= 0) {
-		var0[arg1].unknown_4_ = (var0[arg1].unknown_4_ & ~0xc00) | (arg2 << 10);
+// USA: SetSpritePriority_ov031_0223bcc8
+extern "C" ARM void SetSpritePriority_ov031_0223bcc8(OAMAllocation_ov031_02222ce4* sprite, int entryIndex, int priority) {
+	OAMEntry_ov031_0223bcc8* oamEntries = sprite->unknown_8_;
+	if (entryIndex >= 0) {
+		oamEntries[entryIndex].unknown_4_ = (oamEntries[entryIndex].unknown_4_ & ~0xc00) | (priority << 10);
 		return;
 	}
-	for (int var1 = 0; var1 < arg0->unknown_c_; var1++) {
-		var0[var1].unknown_4_ = (var0[var1].unknown_4_ & ~0xc00) | (arg2 << 10);
+	for (int i = 0; i < sprite->oamCount_c_; i++) {
+		oamEntries[i].unknown_4_ = (oamEntries[i].unknown_4_ & ~0xc00) | (priority << 10);
 	}
 }

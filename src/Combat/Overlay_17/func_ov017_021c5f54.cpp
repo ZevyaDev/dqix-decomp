@@ -14,7 +14,7 @@ extern "C" Struct_0207d7f4* func_0207d9bc(Struct_0207d7f4* arg0, unsigned short 
 extern "C" int func_0207d978(Struct_0207d7f4* arg0, unsigned short arg1);
 extern "C" int func_0207da30(unsigned char* arg0, int arg1, int arg2);
 
-extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
+extern "C" GameObject* FindFieldMonsterById_ov017_021a278c(void* gameResources, int fieldMonsterId);
 
 extern "C" void func_ov017_021c5e28(int arg0, int arg1);
 
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov017_021c5f54(int arg0, Struct_ov017_021c5f54* arg1, i
         return;
     var0 = (Struct_0207d7f4*)GetBattleJoinTable_0207d78c();
     if (arg1->unknown_9_ == 0 && arg1->unknown_a_ == 0
-        && func_ov017_021a278c(arg3, arg1->unknown_4_) == NULL
+        && FindFieldMonsterById_ov017_021a278c(arg3, arg1->unknown_4_) == NULL
         && func_0207d9bc(var0, arg1->unknown_4_) == NULL) {
         ((void(*)(int, unsigned short))func_ov017_021c5e28)(arg0, arg1->unknown_4_);
         return;

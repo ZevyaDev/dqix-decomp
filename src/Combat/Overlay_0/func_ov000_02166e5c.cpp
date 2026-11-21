@@ -116,7 +116,7 @@ extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d0
 struct Struct_02054664;
 extern "C" void func_02054664(Struct_02054664*);
 extern "C" void func_02053da0(char*, Struct_02053da0*);
-extern "C" void func_02049c88(Struct_ov000_02166e5c_7*, Struct_02000c9c_34*);
+extern "C" void SetCombatantBattleState_02049c88(Struct_ov000_02166e5c_7*, Struct_02000c9c_34*);
 extern "C" void func_ov000_0216d1c4(int, Struct_02013fb4*, int, int*);
 extern "C" void func_ov000_02165480(void*, int);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
@@ -128,8 +128,8 @@ extern "C" void func_020d3c28(Struct_02061c04_12*);
 struct Struct_020d3d90;
 extern "C" Struct_ov000_02166e5c_3* func_020d3d90(Struct_020d3d90*, int);
 extern "C" int sprintf(char*, const char*, ...);
-extern "C" void func_02083cbc(Struct_ov000_02166e5c_6*, Struct_ov000_02166e5c_5*, void*);
-extern "C" void func_02083e28(Struct_ov000_02166e5c_6*, int);
+extern "C" void SetLevelStats_02083cbc(Struct_ov000_02166e5c_6*, Struct_ov000_02166e5c_5*, void*);
+extern "C" void CalculatePartyMemberStats_02083e28(Struct_ov000_02166e5c_6*, int);
 extern "C" void SetVocation_02083ca0(unsigned char*, int);
 extern "C" void func_02083c18(char*);
 extern "C" void LearnSpell_02083b60(unsigned char*, int);
@@ -186,7 +186,7 @@ extern "C" ARM void func_ov000_02166e5c(Struct_ov000_02166e5c* arg0) {
     }
     var6->unknown_0_.SetScale(0x10a, 0x10a, 0x10a);
     func_02053da0((char*)var6, &arg0->unknown_5734_);
-    func_02049c88(var6, &arg0->unknown_5cac_);
+    SetCombatantBattleState_02049c88(var6, &arg0->unknown_5cac_);
     const void* var8;
     unsigned int var9;
     if (FindFilesInNarcBySubstring(g_fileScratchSpace, data_ov000_021839e2, &var8, &var9, 1)) {
@@ -232,8 +232,8 @@ extern "C" ARM void func_ov000_02166e5c(Struct_ov000_02166e5c* arg0) {
     var14.unknown_8_[2].unknown_0_0_ = var13->unknown_14_[2].unknown_0_0_;
     var14.unknown_8_[2].unknown_1_2_ = var13->unknown_14_[2].unknown_1_2_;
     var14.unknown_8_[2].unknown_2_4_ = var13->unknown_14_[2].unknown_2_4_;
-    func_02083cbc(var11, &var14, 0);
-    func_02083e28(var11, 0);
+    SetLevelStats_02083cbc(var11, &var14, 0);
+    CalculatePartyMemberStats_02083e28(var11, 0);
     var6->unknown_130_->maxHP = var6->unknown_134_->primaryStats.maxHP;
     var6->unknown_130_->maxMP = var6->unknown_134_->primaryStats.maxMP;
     SetVocation_02083ca0((unsigned char*)var11, 0);

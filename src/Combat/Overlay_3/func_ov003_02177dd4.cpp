@@ -57,7 +57,7 @@ extern "C" void func_02080bac(void *arg0, int arg1);
 extern "C" void func_0208065c(void *arg0, int arg1);
 extern "C" void func_02081130(void *arg0, int arg1, int arg2);
 extern "C" void func_020806b0(void *arg0, int arg1);
-extern "C" int func_02080b2c(void *arg0, int arg1);
+extern "C" int HideMenuLayoutText_02080b2c(void *menuLayout, int textId);
 extern "C" int func_0207c6b8(unsigned char *arg0, unsigned int arg1, int arg2);
 struct ItemData_0201099c_9;
 struct ItemTable_0201099c_10 {
@@ -160,11 +160,11 @@ extern "C" ARM void func_ov003_02177dd4(Struct_ov003_02177dd4 *arg0) {
     for (; var18 < var19; var18++) {
         if (var7 <= var18) {
             func_020806b0(var10, var12);
-            func_02080b2c(var10, var12);
-            func_02080b2c(var10, var13);
-            func_02080b2c(var10, var14);
-            func_02080b2c(var10, var3);
-            func_02080b2c(var10, var15);
+            HideMenuLayoutText_02080b2c(var10, var12);
+            HideMenuLayoutText_02080b2c(var10, var13);
+            HideMenuLayoutText_02080b2c(var10, var14);
+            HideMenuLayoutText_02080b2c(var10, var3);
+            HideMenuLayoutText_02080b2c(var10, var15);
         } else {
             int var20 = 0;
             int var21   = 0;

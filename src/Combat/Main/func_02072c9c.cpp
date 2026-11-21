@@ -11,44 +11,44 @@ extern "C" void func_02072afc(int arg0, void* arg1, void* arg2);
 extern "C" int func_02053c6c(unsigned char* gameObject);
 extern char data_020f0cf4[];
 
-struct Struct_02072c9c {
+struct ItemData_02072c9c {
     void* unknown_0_;
     char unknown_4_[0x14];
-    short unknown_18_;
+    short itemId_18_;
 };
 
-// USA: func_02072c9c
-extern "C" ARM void func_02072c9c(int arg0, char* arg1) {
-    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0);
-    if (var0 == NULL) {
+// USA: FormatPartyMemberAnimationName_02072c9c
+extern "C" ARM void FormatPartyMemberAnimationName_02072c9c(int memberIndex, char* animationName) {
+    GameObject* partyMemberBase = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), memberIndex);
+    if (partyMemberBase == NULL) {
         return;
     }
-    int var1 = func_02053c6c((unsigned char*)var0);
-    if (var1 == 0) {
+    int memberData = func_02053c6c((unsigned char*)partyMemberBase);
+    if (memberData == 0) {
         return;
     }
-    char* var2 = (char*)var1;
+    char* memberDataBytes = (char*)memberData;
 
-    char var3[0x2c];
-    char var4[0x18];
-    func_02072afc(arg0, var3, var4);
+    char partObjectIndices[0x2c];
+    char partModelIds[0x18];
+    func_02072afc(memberIndex, partObjectIndices, partModelIds);
 
-    struct Struct_02072c9c* var5 = (struct Struct_02072c9c*)(var2 + 0x294);
-    struct Struct_02072c9c* var6 = (struct Struct_02072c9c*)(var2 + 0x194);
-    if (var6 == NULL) {
-        SetEquippedItem_02052d7c(var0, 0, -1);
-        func_02072afc(arg0, var3, var4);
-        var6 = (struct Struct_02072c9c*)(var2 + 0x194);
+    struct ItemData_02072c9c* weaponItemData = (struct ItemData_02072c9c*)(memberDataBytes + 0x294);
+    struct ItemData_02072c9c* bodyItemData = (struct ItemData_02072c9c*)(memberDataBytes + 0x194);
+    if (bodyItemData == NULL) {
+        SetEquippedItem_02052d7c(partyMemberBase, 0, -1);
+        func_02072afc(memberIndex, partObjectIndices, partModelIds);
+        bodyItemData = (struct ItemData_02072c9c*)(memberDataBytes + 0x194);
     }
 
-    unsigned int* var7 = *(unsigned int**)var6;
-    unsigned int var8 = (var7[1] << 12) >> 24;
-    unsigned int var9 = 0;
-    if (var5->unknown_18_ >= 0) {
-        if (var5 != NULL) {
-            unsigned int* var10 = *(unsigned int**)var5;
-            var9 = (var10[1] << 12) >> 24;
+    unsigned int* bodyEquipData = *(unsigned int**)bodyItemData;
+    unsigned int bodyAnimationType = (bodyEquipData[1] << 12) >> 24;
+    unsigned int weaponAnimationType = 0;
+    if (weaponItemData->itemId_18_ >= 0) {
+        if (weaponItemData != NULL) {
+            unsigned int* weaponEquipData = *(unsigned int**)weaponItemData;
+            weaponAnimationType = (weaponEquipData[1] << 12) >> 24;
         }
     }
-    sprintf(arg1, data_020f0cf4, var8, var9);
+    sprintf(animationName, data_020f0cf4, bodyAnimationType, weaponAnimationType);
 }

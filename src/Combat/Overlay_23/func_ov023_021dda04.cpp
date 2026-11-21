@@ -8,7 +8,7 @@ extern "C" int func_ov023_021ddbb8(void* arg0, int arg1, int arg2);
 struct Struct_ov023_021dd59c;
 extern "C" int func_ov023_021ddbf8(struct Struct_ov023_021dd59c* arg0);
 extern "C" void func_ov023_021dc354(void* arg0);
-extern "C" void func_020dc2d0(int arg0);
+extern "C" void RestartMapDisplay_020dc2d0(int modeOverride);
 
 struct Struct_ov023_021dda04 {
 #if defined(jpn)
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov023_021dda04(struct Struct_ov023_021dda04* arg0) {
         return;
     }
     if (arg0->unknown_77b_ != 1) {
-        func_020dc2d0(0);
+        RestartMapDisplay_020dc2d0(0);
     }
     arg0->unknown_776_ = 3;
 }

@@ -2,7 +2,7 @@
 
 struct Struct_ov031_022269d8;
 struct Struct_ov031_02223268_2;
-struct Struct_ov031_02222ce4;
+struct OAMAllocation_ov031_02222ce4;
 
 struct Struct_ov031_02223268 {
 	Struct_ov031_022269d8* unknown_0_[4];
@@ -17,7 +17,7 @@ extern unsigned char data_ov031_02248924[][2];
 
 extern "C" Struct_ov031_02223268_2* func_ov031_0223baa0(Struct_ov031_022269d8* arg0, int arg1);
 extern "C" void func_ov031_0223bdb0(int arg0, int arg1, void* arg2);
-extern "C" ARM void func_ov031_0223bcc8(Struct_ov031_02222ce4* arg0, int arg1, int arg2);
+extern "C" ARM void SetSpritePriority_ov031_0223bcc8(OAMAllocation_ov031_02222ce4* sprite, int entryIndex, int priority);
 extern "C" ARM void func_ov031_02222eb0(void* arg0);
 extern "C" ARM void QueueTaskRemoval_ov031_0223e2c0(int listIndex, int task);
 
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov031_02223268(int arg0) {
 			unsigned char var2 = data_ov031_02248924[data_ov031_02250ba8->unknown_17_][var1];
 			Struct_ov031_02223268_2* var3 = func_ov031_0223baa0(data_ov031_02250ba8->unknown_0_[var1], 0);
 			func_ov031_0223bdb0(0, var2, var3);
-			func_ov031_0223bcc8((Struct_ov031_02222ce4*)data_ov031_02250ba8->unknown_0_[var1], -1, 1);
+			SetSpritePriority_ov031_0223bcc8((OAMAllocation_ov031_02222ce4*)data_ov031_02250ba8->unknown_0_[var1], -1, 1);
 			var1++;
 		} while (var1 < var0);
 	}

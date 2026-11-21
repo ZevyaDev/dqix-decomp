@@ -12,7 +12,7 @@ struct TextWindowManager_0205d274;
 extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(TextWindowManager_0205d1e0*);
 extern "C" void DrawTextWindows_0205d228(TextWindowManager_0205d228*);
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274*);
-extern "C" void func_0205c96c(void*, int);
+extern "C" void DrawChoiceList_0205c96c(void*, int);
 extern "C" void FillBGUnderTextWindows_0205da88(void*, int, int, int);
 
 extern "C" void func_ov013_02186cac(void*);
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov013_02184a58(void* arg0) {
 
     switch (var1) {
         case 3: case 4:
-            func_0205c96c((void*)(var0 + R(0x3d0, 0x3d4)), 0);
+            DrawChoiceList_0205c96c((void*)(var0 + R(0x3d0, 0x3d4)), 0);
             break;
     }
 

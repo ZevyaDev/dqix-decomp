@@ -101,7 +101,7 @@ struct Struct_0203d028_9 {
     int unknown_54_;
     int unknown_58_;
 };
-extern "C" struct Struct_0203d028_9* func_0206db20(void* arg0, int arg1);
+extern "C" struct Struct_0203d028_9* FindNPCPlacement_0206db20(void* placementList, int npcId);
 
 extern "C" void func_02040520(int* arg0, int arg1);
 extern "C" void func_02040530(int* arg0, int arg1);
@@ -156,8 +156,8 @@ extern "C" void _ZN8Object3D10SetField06Et(struct Struct_0203d028_13* arg0, int 
 
 extern "C" int* func_ov017_021a4658(void* arg0, int arg1);
 
-struct Struct_0203d028_4;
-extern "C" void func_ov017_021a3498(struct Struct_0203d028_4* arg0);
+struct Queue_0203d028_4;
+extern "C" void UpdateTaskQueue_ov017_021a3498(struct Queue_0203d028_4* queue);
 
 struct QueueNode_02015438 { signed char type_0_; };
 extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
@@ -365,7 +365,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
         struct Struct_0203d028_24* var10 = (struct Struct_0203d028_24*)arg2->Allocate(0x20);
         if (var10 == 0) goto abort_unlock;
         func_020404c0((int*)var10);
-        struct Struct_0203d028_9* var11 = func_0206db20(&arg0->unknown_94_, var2->unknown_0_);
+        struct Struct_0203d028_9* var11 = FindNPCPlacement_0206db20(&arg0->unknown_94_, var2->unknown_0_);
         func_02040520((int*)var10, (int)var2);
         func_02040530((int*)var10, (int)var11);
 
@@ -447,9 +447,9 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
 
                     while (GetQueueHeadType_02046b24((struct QueueNode_02015438**)var32) == 0x13) {
                         var34->RemoveAllLocks();
-                        func_ov017_021a3498((struct Struct_0203d028_4*)var32);
+                        UpdateTaskQueue_ov017_021a3498((struct Queue_0203d028_4*)var32);
                         if (GetQueueHeadType_02046b24((struct QueueNode_02015438**)var33) == 0x14) {
-                            func_ov017_021a3498((struct Struct_0203d028_4*)var33);
+                            UpdateTaskQueue_ov017_021a3498((struct Queue_0203d028_4*)var33);
                         }
                     }
 

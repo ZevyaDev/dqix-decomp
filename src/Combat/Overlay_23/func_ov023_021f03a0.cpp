@@ -101,7 +101,7 @@ extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(BattleScene_ov000_021
 extern "C" void func_ov000_02163a7c(Struct_ov000_02163a7c*);
 extern "C" void func_ov000_021639b4(BattleScene_ov000_02160da0*);
 extern "C" void func_ov000_02167dd8(unsigned char*);
-extern "C" int func_ov000_02153e40(void*, short*, int, int);
+extern "C" int CollectCombatantIndices_ov000_02153e40(void*, short*, int, int);
 extern "C" void func_02048cf0(GameObject*, int);
 extern "C" void func_ov000_0216e3c4(void*);
 extern "C" unsigned char* func_ov000_02163524(void*);
@@ -165,7 +165,7 @@ extern "C" ARM int func_ov023_021f03a0(BattleScene_ov000_02160da0* arg0) {
         void* var10 = arg0->pBattle_29c_;
         int var11;
         GameState* var12 = GameState::GetInstance();
-        var11 = func_ov000_02153e40(var10, var4, 12, 0);
+        var11 = CollectCombatantIndices_ov000_02153e40(var10, var4, 12, 0);
         for (var0 = 0; var0 < var11; var0++) {
             GameObject* var13 = var12->GetCombatantByIndex(var4[var0]);
             if (var13) func_02048cf0(var13, 0);

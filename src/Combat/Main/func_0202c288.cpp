@@ -15,7 +15,7 @@ extern "C" void func_020d8654(void);
 extern "C" void func_020d8694(void);
 extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" void func_0202c3e0(void* arg0);
-extern "C" void AddElapsedPlayTime_020ac4f8(int arg0);
+extern "C" void AddElapsedPlayTime_020ac4f8(int isMultiplayerTimeIncluded);
 unsigned long long GetCurrentTimestamp(void);
 
 // USA: UpdateLocalWirelessPlayerCount_0202c288

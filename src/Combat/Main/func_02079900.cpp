@@ -7,7 +7,7 @@ extern unsigned char g_fileScratchSpace[0x30000] __attribute__((aligned(4)));
 #include "Resource/ActionDataTables.h"
 struct Struct_02000c9c_8;
 extern "C" unsigned char func_0200fb08(Struct_02000c9c_8*);
-extern "C" void* func_02079a3c(void*);
+extern "C" void* InitGPCReadPair_02079a3c(void*);
 extern "C" void __clear(void*, unsigned int);
 #if defined(jpn)
 #define data_020f0dcc data_020f0e94
@@ -24,7 +24,7 @@ extern "C" ARM void func_02079900(ActionTables_02108e10* arg0, SafeAllocator* ar
     unsigned int var1 = 0;
     unsigned char* var2 = g_fileScratchSpace;
     int var3 = 0x30000;
-    func_02079a3c(&var0);
+    InitGPCReadPair_02079a3c(&var0);
     unsigned int var4;
     if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var0.pGPCFile, &var0.machine, data_020f0dcc, var2, &var4, var3, false, 0)) {
         var1 = var4;

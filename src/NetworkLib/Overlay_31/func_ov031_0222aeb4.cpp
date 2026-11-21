@@ -5,7 +5,7 @@ extern "C" void func_ov031_0222af14(void);
 extern "C" void func_ov031_022239f4(void);
 extern "C" int func_ov031_0222336c(int, int, int);
 extern "C" int func_ov031_02223518(void *arg0);
-extern "C" void func_ov031_022235a0(int);
+extern "C" void ShowMainScreenMessage_ov031_022235a0(int);
 extern "C" void func_ov031_02222b0c(int);
 extern "C" void func_ov031_02226e08(void);
 extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int);
@@ -19,7 +19,7 @@ extern "C" ARM void func_ov031_0222aeb4(void) {
 	func_ov031_022239f4();
 	func_ov031_0222336c(0x36, 0x36 - 0x37, 0);
 	func_ov031_02223518((void*)2);
-	func_ov031_022235a0(0x22);
+	ShowMainScreenMessage_ov031_022235a0(0x22);
 	func_ov031_02222b0c(0);
 	func_ov031_02226e08();
 	PlayWifiSetupSoundEffect_ov031_02236878(0xb);

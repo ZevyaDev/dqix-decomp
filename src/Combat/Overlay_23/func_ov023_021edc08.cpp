@@ -80,7 +80,7 @@ extern "C" Struct_02081870* GetMessageWindow_020421a0();
 extern "C" unsigned int* func_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void func_ov017_021c9ad4(unsigned short);
-extern "C" void func_ov017_021a23b0(GameResources*, int);
+extern "C" void DespawnFieldMonster_ov017_021a23b0(GameResources*, int);
 extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4*, int);
 extern "C" void ResetBattleCamera_ov000_0216d370(void*, int, int, int);
 extern "C" void* GetEffectManager_02057924();
@@ -109,7 +109,7 @@ extern "C" void StartMessage_0204500c(Struct_02081870*, const char*, int, int);
 extern "C" void PlayJingle_0209c6d8(void*, int);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
 extern "C" EventSyncEntry_020e385c* GetEventSyncTable_020e3808();
-extern "C" void func_020e3994(EventSyncEntry_020e385c*, int, int);
+extern "C" void RemoveEventSyncEntry_020e3994(EventSyncEntry_020e385c*, int, int);
 extern "C" void func_020e392c(EventSyncEntry_020e385c*, int, int);
 extern "C" void func_020e39d4(EventSyncEntry_020e385c*, int, int, int);
 
@@ -130,7 +130,7 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
     Struct_02081870* var3 = GetMessageWindow_020421a0();
     SetGlobalFlags_020466e4(func_020d6c00(), 0x20000);
     func_ov017_021c9ad4(arg0->unknown_2a0_->unknown_8_);
-    func_ov017_021a23b0(var1, arg0->unknown_2a0_->unknown_8_);
+    DespawnFieldMonster_ov017_021a23b0(var1, arg0->unknown_2a0_->unknown_8_);
     StopMusic_0209c678(&gMusicManager_02109bf4, 0);
     ResetBattleCamera_ov000_0216d370(arg0->unknown_c18_, 0, 0, 1);
     void* var4 = GetEffectManager_02057924();
@@ -201,7 +201,7 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
     }
     if (IsNotLocalWirelessGuest_0202c508(var2) && arg0->unknown_2a0_->unknown_c_ == 19) {
         EventSyncEntry_020e385c* var20 = GetEventSyncTable_020e3808();
-        func_020e3994(var20, 1, -1);
+        RemoveEventSyncEntry_020e3994(var20, 1, -1);
         func_020e392c(var20, 1, 0x71e8);
         func_020e39d4(var20, 0, 1, 0x71e8);
     }

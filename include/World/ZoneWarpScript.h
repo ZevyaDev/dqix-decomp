@@ -3,7 +3,7 @@
 #include "Resource/Script.h"
 #include "World/ZoneFeatures.h"
 
-struct Struct_020fdc20 {
+struct ZoneFeatureScriptContext_020fdc20 {
     Struct_020134e0::Struct_02018300 *unknown_0_;
     SafeAllocator *unknown_4_;
     Struct_020134e0 *unknown_8_;
@@ -11,7 +11,7 @@ struct Struct_020fdc20 {
     float unknown_c_[5];
 };
 
-extern Struct_020fdc20 data_020fdc20;
+extern ZoneFeatureScriptContext_020fdc20 gZoneFeatureScriptContext_020fdc20;
 
 extern "C" void func_0201e1d0(const void* arg0, unsigned int arg1, Struct_020134e0* arg2, SafeAllocator* arg3);
 

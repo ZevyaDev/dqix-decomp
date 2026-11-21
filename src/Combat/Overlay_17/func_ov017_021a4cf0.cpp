@@ -21,7 +21,7 @@ extern "C" int* GetQuestManager_02094d6c(void);
 extern "C" void func_02095924(int* arg0, int arg1);
 extern "C" void* func_0205ec34(void* arg0);
 extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
-extern "C" void func_0206f81c(void* arg0);
+extern "C" void RunDeferredTriggerActions_0206f81c(void* triggerResult);
 struct Struct_02000c9c_59;
 extern "C" void func_ov017_021b8d1c(void* arg0);
 struct Queue_0201bdac_2;
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov017_021a4cf0(char* arg0) {
     var10.unknown_0_ = *(unsigned short*)var3;
     var10.unknown_14_ = *(unsigned short*)&data_ov017_021d83a8;
     if (RunTrigger_020649b0(var9, 0, &var10)) {
-        func_0206f81c(&var10);
+        RunDeferredTriggerActions_0206f81c(&var10);
         return;
     }
     func_ov017_021b8d1c(*(void**)(arg0 + 0x3000 + Enum_ov017_021a4cf0_1808));

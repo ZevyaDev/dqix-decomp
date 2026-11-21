@@ -8,7 +8,7 @@ enum { Enum_ov006_02157d7c_16 = 0x10, Enum_ov006_02157d7c_2786 = 0xae2, Enum_ov0
 
 struct MenuLayout_0207fc6c;
 struct MenuLayout_0207fdcc_2;
-struct Struct_020e28dc;
+struct YesNoWindow_020e28dc;
 struct YesNoWindow_020e263c_2;
 
 extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
@@ -24,7 +24,7 @@ extern "C" unsigned short UpdateKeyRepeat_02081f20(void* keyRepeat, int elapsedF
 extern "C" int func_020800fc(void* arg0, short* arg1, short arg2, unsigned short arg3, unsigned char arg4, int arg5);
 extern "C" int ClearMenuLayoutWindowHighlights_020804fc(void* menuLayout, int windowId);
 extern "C" int OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
-extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
+extern "C" int IsYesNoWindowOpen_020e28dc(struct YesNoWindow_020e28dc* yesNoWindow);
 extern "C" void UpdateYesNoWindow_020e263c(struct YesNoWindow_020e263c_2* yesNoWindow, int ticks);
 
 typedef int (*Type_ov006_02157d7c)(void* self);
@@ -141,7 +141,7 @@ extern "C" ARM int func_ov006_02157d7c(struct Struct_ov006_02157d7c* arg0, int a
 
     if (arg0->unknown_18_ != 0)
     {
-        if (func_020e28dc((struct Struct_020e28dc*)arg0->unknown_18_) != 0)
+        if (IsYesNoWindowOpen_020e28dc((struct YesNoWindow_020e28dc*)arg0->unknown_18_) != 0)
             UpdateYesNoWindow_020e263c((struct YesNoWindow_020e263c_2*)arg0->unknown_18_, arg0->unknown_34c_);
     }
 

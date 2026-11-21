@@ -8,13 +8,13 @@
 
 extern "C" void func_020c9be0(void);
 
-struct Struct_0206f81c_2 {
+struct MenuTask_0206f81c_2 {
 	unsigned char unknown_0_[0x24];
-	char unknown_24_[1];
+	char fileName_24_[1];
 };
 
-// USA: func_ov017_021b2ba0
-extern "C" ARM void func_ov017_021b2ba0(Struct_0206f81c_2* arg0, char* arg1) {
-	if (strlen(arg1) >= 0xc) func_020c9be0();
-	strcpy(arg0->unknown_24_, arg1);
+// USA: SetMenuTaskFileName_ov017_021b2ba0
+extern "C" ARM void SetMenuTaskFileName_ov017_021b2ba0(MenuTask_0206f81c_2* menuTask, char* fileName) {
+	if (strlen(fileName) >= 0xc) func_020c9be0();
+	strcpy(menuTask->fileName_24_, fileName);
 }

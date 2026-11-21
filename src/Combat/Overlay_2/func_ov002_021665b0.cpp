@@ -147,7 +147,7 @@ extern "C" void ResetMessageWindow_02043204(char* window);
 struct TextWindowManager_0205def8;
 extern "C" void SetTextWindowVisible_0205def8(TextWindowManager_0205def8*, int, int);
 extern "C" void func_ov016_0218b5c0(int arg0, int arg1);
-extern "C" void func_ov017_0218b5f8(int arg0);
+extern "C" void RequestPartyMemberPanelRedraw_ov017_0218b5f8(int memberIndex);
 
 #if defined(jpn)
 #define SPELLS_021665b0 0x227c
@@ -751,7 +751,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
         }
         if (var93) {
             func_ov016_0218b5c0(1, -1);
-            func_ov017_0218b5f8(-1);
+            RequestPartyMemberPanelRedraw_ov017_0218b5f8(-1);
         }
     } else if (var10 == 6) {
         arg0->unknown_1cae_ = 3;

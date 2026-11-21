@@ -4,7 +4,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" void func_020730e0(int arg0, int arg1);
-extern "C" int func_ov017_0218fcf8(int arg0, int arg1, int arg2);
+extern "C" int TintPartyMemberPalettes_ov017_0218fcf8(int gameResources, int memberIndex, int color);
 
 extern short data_020e8846[];
 
@@ -24,5 +24,5 @@ extern "C" ARM void func_02073240(int arg0) {
     if (*(unsigned short*)((char*)var1 + 0x9c) == 0) return;
 
     int var4 = (int)GetGameResources();
-    func_ov017_0218fcf8(var4, arg0, *(unsigned short*)((char*)var1 + 0x9c));
+    TintPartyMemberPalettes_ov017_0218fcf8(var4, arg0, *(unsigned short*)((char*)var1 + 0x9c));
 }

@@ -11,11 +11,11 @@ enum { Enum_ov017_021a7b38_1788 = 0x6fc, Enum_ov017_021a7b38_1816 = 0x718 };
 extern "C" unsigned short* GetZone3D_02012fe4(void* arg0);
 struct Queue_02038598_5;
 extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
-struct Struct_02046b38;
-struct Struct_02046b38_2;
-extern "C" int func_02046b38(struct Struct_02046b38* arg0, struct Struct_02046b38_2* arg1);
+struct Queue_02046b38;
+struct QueueNode_02046b38_2;
+extern "C" int IsNodeInQueue_02046b38(struct Queue_02046b38* queue, struct QueueNode_02046b38_2* node);
 extern "C" int _s32_div_f(int a, int b);
-extern "C" void func_ov017_021b6f18(void* arg0);
+extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
 extern "C" void func_ov017_021b7104(void* arg0, void* arg1);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov017_021a7b38(struct Struct_ov017_021a3544_2* arg0, vo
     GameState::GetInstance();
     char* var0 = (char*)(long)((int)GetGameResources()) + 0x3000;
     struct Queue_02038598_5* var1 = *(struct Queue_02038598_5**)(var0 + Enum_ov017_021a7b38_1788);
-    struct Struct_02046b38_2* var2 = *(struct Struct_02046b38_2**)(var0 + Enum_ov017_021a7b38_1816);
+    struct QueueNode_02046b38_2* var2 = *(struct QueueNode_02046b38_2**)(var0 + Enum_ov017_021a7b38_1816);
     unsigned short var3 = *GetZone3D_02012fe4(var0);
     if (arg0->unknown_8_ != 0) {
         return;
@@ -53,9 +53,9 @@ extern "C" ARM void func_ov017_021a7b38(struct Struct_ov017_021a3544_2* arg0, vo
             return;
         }
     }
-    if (!func_02046b38((struct Struct_02046b38*)var1, var2)) {
+    if (!IsNodeInQueue_02046b38((struct Queue_02046b38*)var1, var2)) {
         arg0->unknown_20_ = 1;
-        func_ov017_021b6f18(var2);
+        ResetBattleTask_ov017_021b6f18(var2);
         func_ov017_021b7104(var2, (char*)arg0 + 0xc);
         AppendToQueue_020469b4((struct Queue_0201bdac_2*)var1, (struct QueueNode_0201bdac*)var2);
     }

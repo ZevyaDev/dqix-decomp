@@ -3,7 +3,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
-extern "C" int func_ov017_0218fcf8(int arg0, int arg1, int arg2);
+extern "C" int TintPartyMemberPalettes_ov017_0218fcf8(int gameResources, int memberIndex, int color);
 extern "C" int func_ov017_0218f92c(int arg0, int arg1, int arg2);
 
 struct Struct_ov001_02165880_15 { int unknown_0_; unsigned char* unknown_4_; };
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov001_0215cf98(void* arg0, int arg1) {
 
             int var10 = (var4 >= 0 && var4 <= 3);
             if (var10) {
-                func_ov017_0218fcf8(var0, var4, var8);
+                TintPartyMemberPalettes_ov017_0218fcf8(var0, var4, var8);
             } else {
                 func_ov017_0218f92c(var0, var4, var8);
             }

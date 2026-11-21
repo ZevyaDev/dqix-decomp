@@ -2,7 +2,7 @@
 
 extern "C" int func_ov031_0223d414(void* arg0);
 extern "C" int func_ov031_0223d69c(void* arg0);
-extern "C" void func_ov031_022368e0(void);
+extern "C" void StopWifiSetupSoundEffect_ov031_022368e0(void);
 extern "C" void func_ov031_02235488(int arg0);
 extern "C" void func_ov031_02235744(int arg0);
 
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov031_022353b8(void) {
     }
 
 fail:
-    func_ov031_022368e0();
+    StopWifiSetupSoundEffect_ov031_022368e0();
     data_ov031_02290cf4->unknown_1c_ = 0;
     data_ov031_02290cf4->unknown_1d_ = 3;
 }

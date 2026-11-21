@@ -55,9 +55,9 @@ extern "C" void AppendTargetResult_ov000_0215ffc4(void* target, void* result, in
 struct Struct_ov000_0215767c_7;
 struct Struct_ov000_0215767c_6;
 extern "C" void func_ov000_02160068(struct Struct_ov000_0215767c_7* arg0, struct Struct_ov000_0215767c_6* arg1);
-struct Struct_ov000_0215767c_5;
-struct Struct_ov000_0215767c_4;
-extern "C" void func_ov000_021600cc(struct Struct_ov000_0215767c_5* arg0, struct Struct_ov000_0215767c_4* arg1);
+struct BattleAction_ov000_0215767c_5;
+struct ActionTarget_ov000_0215767c_4;
+extern "C" void AppendActionTarget_ov000_021600cc(struct BattleAction_ov000_0215767c_5* action, struct ActionTarget_ov000_0215767c_4* target);
 
 // USA: func_ov000_0215acb8
 extern "C" ARM void func_ov000_0215acb8(struct Struct_ov000_0215acb8_4* arg0, int arg1, short arg2, short arg3) {
@@ -95,6 +95,6 @@ extern "C" ARM void func_ov000_0215acb8(struct Struct_ov000_0215acb8_4* arg0, in
     var3->unknown_17_ = 1;
     AppendTargetResult_ov000_0215ffc4(var3, var4, 0);
     func_ov000_02160068((struct Struct_ov000_0215767c_7*)var1, (struct Struct_ov000_0215767c_6*)var2);
-    func_ov000_021600cc((struct Struct_ov000_0215767c_5*)var1, (struct Struct_ov000_0215767c_4*)var3);
+    AppendActionTarget_ov000_021600cc((struct BattleAction_ov000_0215767c_5*)var1, (struct ActionTarget_ov000_0215767c_4*)var3);
     arg0->unknown_8e0f_++;
 }

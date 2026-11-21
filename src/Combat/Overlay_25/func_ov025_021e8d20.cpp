@@ -19,7 +19,7 @@ extern "C" int func_ov025_021eb42c(void* arg0, short arg1, short arg2);
 extern "C" int func_ov025_021eb148(void*, short, int, unsigned char);
 extern "C" void* GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 extern "C" void* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
-extern "C" int func_ov000_0215fd90(void* arg0, int arg1);
+extern "C" int HasActionResultFlag_ov000_0215fd90(void* result, int flagIndex);
 extern "C" void func_ov025_021ed124(unsigned char* arg0);
 extern "C" void func_ov025_021ebab4(char* arg0);
 extern "C" void func_ov025_021ed31c(char*, int);
@@ -208,12 +208,12 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
             for (; var27 < (unsigned char)var0[0x18]; var27++) {
                 void* var28 = func_ov000_0215fff4(var16, var27, var2);
                 if (var28 != 0 && var28 != 0) {
-                    if (func_ov000_0215fd90(var28, 0xd)) {
+                    if (HasActionResultFlag_ov000_0215fd90(var28, 0xd)) {
                         func_ov025_021eb42c(arg0, 0x1b, 0x3c);
                     }
-                    if (func_ov000_0215fd90(var28, 0xc)) {
+                    if (HasActionResultFlag_ov000_0215fd90(var28, 0xc)) {
                         func_ov025_021eb148(arg0, 0x19, 0x38e, 2);
-                    } else if (func_ov000_0215fd90(var28, 6) == 0) {
+                    } else if (HasActionResultFlag_ov000_0215fd90(var28, 6) == 0) {
                         func_0205eabc(&gSoundEffectManager_02108760, 0, 0);
                         if (((unsigned char*)var28)[0x1c] != 0 && var7 != 0) {
                             unsigned int var29 = var6->unknown_0_;

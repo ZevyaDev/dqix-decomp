@@ -55,7 +55,7 @@ extern "C" ARM int func_0201e018(Script::Parameter* arg0, int arg1)
     var0.unknown_20_ += var0.unknown_0_.unknown1_0_.z;
     var0.unknown_24_ += var0.unknown_0_.unknown1_0_.x;
     var0.unknown_28_ += var0.unknown_0_.unknown1_0_.z;
-    data_020fdc20.unknown_8_->func_0201e88c(var0);
+    gZoneFeatureScriptContext_020fdc20.unknown_8_->func_0201e88c(var0);
     return 1;
 }
 #endif

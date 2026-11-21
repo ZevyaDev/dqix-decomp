@@ -18,8 +18,8 @@ struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void func_ov023_021e4f18(void* arg0);
 extern "C" int GetMessageWindow_020421a0();
-struct Struct_02045cac;
-extern "C" void func_02045cac(struct Struct_02045cac* arg0);
+struct MessageWindow_02045cac;
+extern "C" void ClearMessageGlyphs_02045cac(struct MessageWindow_02045cac* window);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void* GetSpriteTextManager_0203bd14();
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov009_02184848(Struct_ov009_021842a0* arg0) {
     func_ov023_021e4f18(*(void**)(var0 + R(0x7b8,0x7f4)));
 
     void* var1 = (void*)GetMessageWindow_020421a0();
-    func_02045cac((struct Struct_02045cac*)var1);
+    ClearMessageGlyphs_02045cac((struct MessageWindow_02045cac*)var1);
     ResetMessageWindow_02043204((char*)var1);
     CloseMessageWindow_02043124((char*)var1);
 

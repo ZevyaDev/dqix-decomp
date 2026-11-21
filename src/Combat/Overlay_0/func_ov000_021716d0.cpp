@@ -51,9 +51,9 @@ struct Struct_ov000_021716d0_4 {
     Struct_ov000_021716d0* unknown_1a4_[1];
 };
 
-extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
+extern "C" void SetSpriteText_0203c108(struct Struct_0203c108_3* spriteText, char* text);
 extern "C" int func_ov000_02153a8c(GameObject* arg0);
-extern "C" int func_020dd290(void* arg0, unsigned int arg1);
+extern "C" int GetSkillAdjustedMPCost_020dd290(void* member, unsigned int arg1);
 extern "C" int func_ov000_02171210(void* arg0, void* arg1);
 extern "C" int* func_ov000_02170cf8(void* arg0, int arg1);
 extern "C" void __clear(void* arg0, int arg1);
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov000_021716d0(Struct_ov000_021716d0_4* arg0) {
         var0->unknown_10_++;
         var0->unknown_8_[arg0->unknown_8_.unknown_10_] = 0xe;
         var0->unknown_15_ = 0;
-        func_0203c108((struct Struct_0203c108_3*)arg0->unknown_50_, (char*)((int)((StringList*)(arg0->unknown_4_))->GetString(5)));
+        SetSpriteText_0203c108((struct Struct_0203c108_3*)arg0->unknown_50_, (char*)((int)((StringList*)(arg0->unknown_4_))->GetString(5)));
         return;
     }
 
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov000_021716d0(Struct_ov000_021716d0_4* arg0) {
     } else if (arg0->unknown_1a4_[var1]->unknown_8_0_ >= 0xff) {
         var4 = 1;
     } else {
-        var4 = func_020dd290(var3, var4);
+        var4 = GetSkillAdjustedMPCost_020dd290(var3, var4);
     }
     if (arg0->unknown_1a4_[var1]->unknown_2d_2_ == 6) {
         Struct_ov000_021716d0_3* var6 = (Struct_ov000_021716d0_3*)GetParty_02010828(var2);
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov000_021716d0(Struct_ov000_021716d0_4* arg0) {
     if (var7 == NULL) return;
 
 #if defined(jpn)
-    func_0203c108((struct Struct_0203c108_3*)arg0->unknown_50_, (char*)*var7);
+    SetSpriteText_0203c108((struct Struct_0203c108_3*)arg0->unknown_50_, (char*)*var7);
 #else
     char var8[0x80];
     __clear(var8, 0x80);
@@ -111,6 +111,6 @@ extern "C" ARM void func_ov000_021716d0(Struct_ov000_021716d0_4* arg0) {
     __clear(var9, 0x80);
     ExpandInflectionTags_020e4864(*var7, var8, 1, 0, 0, 0);
     CopyCapitalizedText_0206819c(var8, var9, 0);
-    func_0203c108((struct Struct_0203c108_3*)arg0->unknown_50_, var9);
+    SetSpriteText_0203c108((struct Struct_0203c108_3*)arg0->unknown_50_, var9);
 #endif
 }

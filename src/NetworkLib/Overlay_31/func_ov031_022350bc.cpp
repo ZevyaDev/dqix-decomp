@@ -10,8 +10,8 @@ extern unsigned char data_ov031_022491f0[];
 
 extern "C" void SetSpritePosition_ov031_0223bbd8(void*, int, int, int);
 
-struct Struct_ov031_02222ce4;
-extern "C" ARM void func_ov031_0223bcc8(Struct_ov031_02222ce4*, int, int);
+struct OAMAllocation_ov031_02222ce4;
+extern "C" ARM void SetSpritePriority_ov031_0223bcc8(OAMAllocation_ov031_02222ce4*, int, int);
 
 extern "C" ARM void* AddTask_ov031_0223e218(void* listIndex, void* callback, void* callbackData, int priority);
 extern "C" void func_ov031_02235234(void);
@@ -36,6 +36,6 @@ extern "C" ARM void func_ov031_022350bc(int arg0, int arg1, unsigned short arg2,
     func_ov031_0223cb10((unsigned short)arg2, (unsigned short)arg3, (Struct_ov031_022350bc_2*)((char*)data_ov031_02290cf4 + 0x10));
     data_ov031_02290cf4->unknown_0_ = func_ov031_0223be70(0, data_ov031_022491f0[arg0], 1);
     SetSpritePosition_ov031_0223bbd8((void*)data_ov031_02290cf4->unknown_0_, -1, arg2, arg3 + arg4);
-    func_ov031_0223bcc8((Struct_ov031_02222ce4*)data_ov031_02290cf4->unknown_0_, -1, 1);
+    SetSpritePriority_ov031_0223bcc8((OAMAllocation_ov031_02222ce4*)data_ov031_02290cf4->unknown_0_, -1, 1);
     data_ov031_02290cf4->unknown_c_ = (int)AddTask_ov031_0223e218(0, (void*)func_ov031_02235234, 0, 0x80);
 }

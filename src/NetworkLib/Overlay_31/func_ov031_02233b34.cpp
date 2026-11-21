@@ -5,7 +5,7 @@
 #endif
 
 
-extern "C" char* func_ov031_02235c70(void);
+extern "C" char* GetEditedConnectionSettings_ov031_02235c70(void);
 extern "C" void func_020ca408(void* src, void* dst, int size);
 extern "C" void GetWifiSetupPageArguments_ov031_02227520(int* outFirstArgument, int* outSecondArgument);
 extern "C" int func_ov031_02212d40(void* arg0);
@@ -24,7 +24,7 @@ extern Struct_ov031_02290cd0_2 data_ov031_02290cd0;
 
 // USA: func_ov031_02233b34
 extern "C" ARM void func_ov031_02233b34(void) {
-	unsigned char* var0 = (unsigned char*)func_ov031_02235c70();
+	unsigned char* var0 = (unsigned char*)GetEditedConnectionSettings_ov031_02235c70();
 	unsigned char var1[0xc];
 	func_020ca408(data_ov031_022491d8, var1, 0xc);
 

@@ -8,7 +8,7 @@ struct ItemData_0201099c_9 {
     unsigned char unknown_8_[0x18];
 };
 
-struct Struct_0208358c_2 {
+struct ItemData_0208358c_2 {
     int unknown_0_;
     int unknown_4_;
     int unknown_8_;
@@ -28,12 +28,12 @@ struct Struct_020de5b0_2 {
     unsigned short unknown_4_;
     unsigned short unknown_6_;
     int unknown_8_;
-    Struct_0208358c_2* unknown_c_;
+    ItemData_0208358c_2* unknown_c_;
 };
 
 struct Struct_020def98;
 struct Struct_020def98_2;
-struct Struct_02083508_2;
+struct ItemData_02083508_2;
 
 typedef int (*Type_020de5fc)(ItemData_0201099c_9*);
 
@@ -41,11 +41,11 @@ extern "C" int func_020de56c(void*);
 extern "C" ItemData_0201099c_9* func_020de650(Struct_020de5b0_2* arg0, int arg1, Type_020de5fc arg2);
 extern "C" int func_020df618(SafeAllocator*, void*, Struct_020def98*, void**, int, Struct_020def98*);
 extern "C" int func_020df6cc(void*, Struct_020def98_2*, int, Struct_020def98_2*);
-extern "C" void func_020836e4(Struct_0208358c_2* arg0, Struct_0208358c_2* arg1);
-extern "C" void func_020de1d4(Struct_02083508_2*);
+extern "C" void func_020836e4(ItemData_0208358c_2* arg0, ItemData_0208358c_2* arg1);
+extern "C" void InitItemData_020de1d4(ItemData_02083508_2*);
 
-static inline void inline_020def98(Struct_0208358c_2* arg0, Struct_0208358c_2* arg1) {
-    Struct_0208358c_2 var0 = *arg0;
+static inline void inline_020def98(ItemData_0208358c_2* arg0, ItemData_0208358c_2* arg1) {
+    ItemData_0208358c_2 var0 = *arg0;
     func_020836e4(arg0, arg1);
     func_020836e4(arg1, &var0);
 }
@@ -54,7 +54,7 @@ static inline void inline_020def98(Struct_0208358c_2* arg0, Struct_0208358c_2* a
 extern "C" ARM int func_020def98(SafeAllocator* arg0, Struct_020de5b0_2* arg1,
     Struct_020de5b0_2* arg2, short* arg3, short arg4) {
     if (!arg1 || !arg2 || !arg3 || !arg4) return 0;
-    Struct_0208358c_2* var0 = arg1->unknown_c_;
+    ItemData_0208358c_2* var0 = arg1->unknown_c_;
     if (!arg2->unknown_c_) return 0;
     if (arg0 && !var0) {
         int var1 = arg4;
@@ -75,7 +75,7 @@ extern "C" ARM int func_020def98(SafeAllocator* arg0, Struct_020de5b0_2* arg1,
             var2++;
             if (var7->unknown_0_) var3++;
         }
-        var0 = (Struct_0208358c_2*)arg0->Allocate((var2 + var1) * 32);
+        var0 = (ItemData_0208358c_2*)arg0->Allocate((var2 + var1) * 32);
         arg1->unknown_0_ = var2;
         arg1->unknown_2_0_ = (unsigned short)var3;
         arg1->unknown_c_ = var0;
@@ -121,10 +121,10 @@ extern "C" ARM int func_020def98(SafeAllocator* arg0, Struct_020de5b0_2* arg1,
             int var22 = var21->unknown_0_;
             if (var21->unknown_c_ != NULL && var22 != 0) {
                 int var23;
-                Struct_0208358c_2* var24;
-                Struct_0208358c_2* var25;
+                ItemData_0208358c_2* var24;
+                ItemData_0208358c_2* var25;
                 int var26;
-                Struct_0208358c_2* var27;
+                ItemData_0208358c_2* var27;
                 int var28;
                 int var29;
                 int var30;
@@ -149,7 +149,7 @@ extern "C" ARM int func_020def98(SafeAllocator* arg0, Struct_020de5b0_2* arg1,
                         var24 = var25 - 1;
                         if (var24->unknown_18_ > var25->unknown_18_) {
                             var26 = var29;
-                            Struct_0208358c_2 var32 = *var25;
+                            ItemData_0208358c_2 var32 = *var25;
                             func_020836e4(var25, var24);
                             func_020836e4(var24, &var32);
                         }
@@ -162,7 +162,7 @@ extern "C" ARM int func_020def98(SafeAllocator* arg0, Struct_020de5b0_2* arg1,
         }
     }
     int var33 = arg1->unknown_4_;
-    Struct_0208358c_2* var34 = arg1->unknown_c_ + arg1->unknown_0_;
-    for (var12 = arg1->unknown_0_; var12 < var33; var12++, var34++) func_020de1d4((Struct_02083508_2*)var34);
+    ItemData_0208358c_2* var34 = arg1->unknown_c_ + arg1->unknown_0_;
+    for (var12 = arg1->unknown_0_; var12 < var33; var12++, var34++) InitItemData_020de1d4((ItemData_02083508_2*)var34);
     return 1;
 }

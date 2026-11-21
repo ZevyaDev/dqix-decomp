@@ -25,7 +25,7 @@ extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205d
 extern "C" void SetTextWindowVisible_0205def8(struct TextWindowManager_0205def8 *windowManager, int isVisible, int windowId);
 extern "C" void func_ov023_021e71b4(void *arg0, SafeAllocator *arg1);
 extern "C" void SuspendMapDisplay_020dc2bc();
-extern "C" void func_020dc2d0(int arg0);
+extern "C" void RestartMapDisplay_020dc2d0(int modeOverride);
 extern "C" void func_ov023_021e7bc4(struct Struct_ov002_021650d4 *arg0, unsigned int arg1, int arg2);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState *gameState);
 extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
@@ -92,7 +92,7 @@ extern "C" ARM void func_ov002_021650d4(char *arg0) {
             *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) += 1;
         } else if (var4 == 5) {
             if (IsSubBrightnessTransitionActive(var1)) return;
-            func_020dc2d0(0);
+            RestartMapDisplay_020dc2d0(0);
             func_ov023_021e7340(arg0 + RG(0xb4, 0x18) + 0x800);
             *(unsigned char *) (arg0 + 0x1000 + RG(0xcc3, 0xb87)) = 0;
             *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) += 1;

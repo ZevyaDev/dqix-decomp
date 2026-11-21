@@ -7,7 +7,7 @@
 #define data_ov000_021831d8 data_ov000_02184284
 #define data_ov000_021830d8 data_ov000_02184184
 #endif
-extern "C" int func_ov000_02153e40(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectCombatantIndices_ov000_02153e40(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" void func_ov000_02167b54(int* arg0, int arg1, int arg2, int arg3);
 extern "C" int GetCombatantCell_020493a4(unsigned char* combatant);
 extern "C" void SetCombatantCell_02049390(unsigned char* combatant, unsigned char cell);
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov000_02167fb0(struct Struct_ov000_02167fb0* arg0, Game
     }
     GameState* var0 = GameState::GetInstance();
     short var1[0x10];
-    int var2 = func_ov000_02153e40(arg0->unknown_29c_, var1, 0x10, 0);
+    int var2 = CollectCombatantIndices_ov000_02153e40(arg0->unknown_29c_, var1, 0x10, 0);
     int var3[3];
     int* var4;
     int var5 = (arg1->obj3D_.unknown_4_ >= 0 && arg1->obj3D_.unknown_4_ <= 3) ? 1 : 0;

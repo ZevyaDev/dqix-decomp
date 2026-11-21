@@ -52,8 +52,8 @@ extern "C" void *func_0205e854(Struct_0205e854 *arg0);
 struct Struct_ov003_021549a8;
 extern "C" Struct_ov003_021549a8 *GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char *window);
-struct Struct_020e28dc;
-extern "C" int func_020e28dc(struct Struct_020e28dc *arg0);
+struct YesNoWindow_020e28dc;
+extern "C" int IsYesNoWindowOpen_020e28dc(struct YesNoWindow_020e28dc *yesNoWindow);
 struct YesNoWindow_020e25e8;
 extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8 *yesNoWindow);
 struct YesNoWindow_020e263c_2;
@@ -121,8 +121,8 @@ extern "C" ARM int func_ov003_0215fce8(unsigned char *arg0, int arg1) {
         *(short *) (arg0 + SO(0x486)) = -1;
         *(short *) (arg0 + SO(0x484)) = *(short *) (arg0 + SO(0x486));
         arg0[SO(0x4a5)]                      = 0;
-        struct Struct_020e28dc *var7       = *(struct Struct_020e28dc **) (arg0 + SO(0x390));
-        if (var7 != 0 && func_020e28dc(var7) != 0) {
+        struct YesNoWindow_020e28dc *var7       = *(struct YesNoWindow_020e28dc **) (arg0 + SO(0x390));
+        if (var7 != 0 && IsYesNoWindowOpen_020e28dc(var7) != 0) {
             CloseYesNoWindow_020e25e8(*(struct YesNoWindow_020e25e8 **) (arg0 + SO(0x390)));
         }
         arg0[SO(0x4a3)] = 0xf;
@@ -146,9 +146,9 @@ extern "C" ARM int func_ov003_0215fce8(unsigned char *arg0, int arg1) {
     func_ov003_02160b2c((struct Struct_ov003_0215fce8_2 *) arg0);
     arg0[SO(0x4a6)] = 0;
     *(unsigned int *) (arg0 + SO(0x464)) &= ~0x4000u;
-    struct Struct_020e28dc *var9;
-    if (*(int *) (arg0 + SO(0x470)) != 0 && (var9 = *(struct Struct_020e28dc **) (arg0 + SO(0x390))) != 0 &&
-        func_020e28dc(var9) != 0)
+    struct YesNoWindow_020e28dc *var9;
+    if (*(int *) (arg0 + SO(0x470)) != 0 && (var9 = *(struct YesNoWindow_020e28dc **) (arg0 + SO(0x390))) != 0 &&
+        IsYesNoWindowOpen_020e28dc(var9) != 0)
     {
         UpdateYesNoWindow_020e263c(*(struct YesNoWindow_020e263c_2 **) (arg0 + SO(0x390)), arg1);
     }

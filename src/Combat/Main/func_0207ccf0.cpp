@@ -50,7 +50,7 @@ struct Struct_0207ccf0_3 {
 static inline int inline_0207ccf0(unsigned int arg0) { return arg0 <= 7; }
 
 // USA: AddItemToPartyMember_0207ccf0
-extern "C" ARM int AddItemToPartyMember_0207ccf0(struct ItemContext_0207ccf0* itemContext, short itemId, int count, int memberIndex, unsigned char isBagAllowed, unsigned char arg5, unsigned char arg6) {
+extern "C" ARM int AddItemToPartyMember_0207ccf0(struct ItemContext_0207ccf0* itemContext, short itemId, int count, int memberIndex, unsigned char isBagAllowed, unsigned char isOverflowToHeldItems, unsigned char arg6) {
     int hasLoadedItemTable = 0;
     if (itemContext->pItemTable_2c_ == NULL) {
         func_0207d6dc((SafeAllocator*)itemContext, (int)&itemId, 1);
@@ -65,7 +65,7 @@ extern "C" ARM int AddItemToPartyMember_0207ccf0(struct ItemContext_0207ccf0* it
         short* heldItems = (short*)(func_02053c6c((unsigned char*)partyMemberBase) + 0x454);
         int placedCount = 0;
         if (isBagAllowed && arg6 && item->unknown_b_1_) {
-            if (func_0207cf30(itemContext, itemId, count, arg5)) {
+            if (func_0207cf30(itemContext, itemId, count, isOverflowToHeldItems)) {
                 placedCount = count;
                 result = 1;
             }
@@ -89,7 +89,7 @@ extern "C" ARM int AddItemToPartyMember_0207ccf0(struct ItemContext_0207ccf0* it
             } else if (item->unknown_8_0_ == 9) {
                 if (func_0207d200((struct Struct_0207ccf0_4*)itemContext, itemId, (signed char)remainingCount)) result = 1;
             } else {
-                if (func_0207cf30(itemContext, itemId, remainingCount, arg5)) result = 1;
+                if (func_0207cf30(itemContext, itemId, remainingCount, isOverflowToHeldItems)) result = 1;
             }
         }
     } else {

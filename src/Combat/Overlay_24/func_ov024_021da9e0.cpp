@@ -69,7 +69,7 @@ struct Struct_ov024_021da9e0_2 {
     unsigned char unknown_7a_;
 };
 
-extern "C" float func_ov024_021db358(GameObject* arg0);
+extern "C" float GetHPRatio_ov024_021db358(GameObject* combatant);
 extern "C" int func_ov000_0215fc60(char*);
 extern "C" int GetLatestTargetCombatantIndex_ov000_0215ffa0(void* entry);
 extern "C" void* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
@@ -106,7 +106,7 @@ static inline unsigned short inline_ov024_021da9e0_3(GameObject* arg0) { SDK_NUL
 extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struct_ov024_021da9e0_2* arg0, short arg1, int arg2, struct Struct_ov024_021da9e0_8* arg3, int arg4, int* arg5, unsigned char arg6) {
     GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
     if (!var0) return 0;
-    float var1 = func_ov024_021db358(var0);
+    float var1 = GetHPRatio_ov024_021db358(var0);
     unsigned short var2 = arg3->unknown_4_.unknown_0_0_;
     if (var2 == 0x150) arg4 = 0;
     if (func_ov000_0215fc60((char*)arg0->unknown_10_) != 0 && var2 == 1 && arg2 == 0) {
@@ -210,7 +210,7 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
     } else if (!func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0x29)) {
         if (!inline_ov024_021da9e0(arg2) && inline_ov024_021da9e0_2(arg1) && arg4 > 0) {
             int var21 = 0;
-            float var22 = func_ov024_021db358(var0);
+            float var22 = GetHPRatio_ov024_021db358(var0);
             if (var1 >= 0.25f && var22 < 0.25f) {
                 if (func_ov024_021eb08c(arg0, arg1, arg2, 4)) var21 = 1;
             } else if (var1 >= 0.5f && var22 < 0.5f) {

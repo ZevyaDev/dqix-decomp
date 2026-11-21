@@ -5,9 +5,9 @@ struct Struct_ov031_02222c18 { int unknown_0_, unknown_4_; Struct_ov031_0222506c
 extern "C" Struct_ov031_0222506c* func_ov031_0223baa0(Struct_ov031_02222c18* arg0, int arg1);
 extern "C" int func_ov031_0223bdb0(int arg0, int arg1, int arg2);
 
-struct Struct_ov031_0223bcc8 { unsigned int unknown_0_; unsigned short unknown_4_; unsigned short unknown_6_; };
-struct Struct_ov031_02222ce4 { unsigned char unknown_0_[8]; Struct_ov031_0223bcc8* unknown_8_; unsigned char unknown_c_; };
-extern "C" void func_ov031_0223bcc8(Struct_ov031_02222ce4* arg0, int arg1, int arg2);
+struct OAMEntry_ov031_0223bcc8 { unsigned int unknown_0_; unsigned short unknown_4_; unsigned short unknown_6_; };
+struct OAMAllocation_ov031_02222ce4 { unsigned char unknown_0_[8]; OAMEntry_ov031_0223bcc8* unknown_8_; unsigned char oamCount_c_; };
+extern "C" void SetSpritePriority_ov031_0223bcc8(OAMAllocation_ov031_02222ce4* sprite, int entryIndex, int priority);
 
 extern "C" void SetSpritePosition_ov031_0223bbd8(void* sprite, int entryIndex, int x, int y);
 
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov031_0222506c(void) {
 	Struct_ov031_0222506c* var3 = func_ov031_0223baa0(var0->unknown_114_, 0);
 	func_ov031_0223bdb0(0, var2, (int)var3);
 
-	func_ov031_0223bcc8((Struct_ov031_02222ce4*)gKeyboard_ov031_02250bfc->unknown_114_, -1, 2);
+	SetSpritePriority_ov031_0223bcc8((OAMAllocation_ov031_02222ce4*)gKeyboard_ov031_02250bfc->unknown_114_, -1, 2);
 
 	int var4 = gKeyboard_ov031_02250bfc->unknown_121_ * 2;
 	unsigned short var5 = data_ov031_02248ac8[var4];

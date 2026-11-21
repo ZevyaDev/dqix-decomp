@@ -7,7 +7,7 @@
 
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
-extern "C" int func_02042190(int arg0);
+extern "C" int GetFontForFontSize_02042190(int fontSize);
 extern "C" int func_020420e8(char* arg0, int arg1);
 extern "C" void func_0204f41c(int arg0, short arg1, short arg2, char* arg3, int arg4, int arg5, void* arg6, void* arg7, int arg8);
 extern char data_020f02f5;
@@ -74,7 +74,7 @@ extern "C" ARM void func_0204f7e8(int arg0, short arg1, short arg2, int arg3,
         sprintf(var6, &data_020f0300, arg3);
     }
 
-    int var8 = func_02042190(arg4);
+    int var8 = GetFontForFontSize_02042190(arg4);
     if (arg8) {
         arg1 = arg1 - func_020420e8(var6, var8);
     }

@@ -61,11 +61,11 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int, int);
 extern "C" void SendPartyMemberBodyAppearance_ov017_021c4418(int, int);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void*, int, int, int, int);
-struct Struct_0203d028_4;
-extern "C" void func_ov017_021a3498(Struct_0203d028_4*);
+struct Queue_0203d028_4;
+extern "C" void UpdateTaskQueue_ov017_021a3498(Queue_0203d028_4*);
 struct QueueNode_02015438;
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
-extern "C" void func_ov017_0218b5f8(int);
+extern "C" void RequestPartyMemberPanelRedraw_ov017_0218b5f8(int);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
 
 extern int gMusicManager_02109bf4;
@@ -273,9 +273,9 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
                 QueuePartyMemberModelLoad_ov017_0218f5a4(var25, var14, 1, 0, 0);
                 while (GetQueueHeadType_02046b24((QueueNode_02015438**)var26) == 0x13) {
                     ((BackgroundLoader*)var28)->RemoveAllLocks();
-                    func_ov017_021a3498((Struct_0203d028_4*)var26);
+                    UpdateTaskQueue_ov017_021a3498((Queue_0203d028_4*)var26);
                     if (GetQueueHeadType_02046b24((QueueNode_02015438**)var27) == 0x14) {
-                        func_ov017_021a3498((Struct_0203d028_4*)var27);
+                        UpdateTaskQueue_ov017_021a3498((Queue_0203d028_4*)var27);
                     }
                 }
             }
@@ -283,7 +283,7 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
         }
         *(unsigned char*)(var0 + 0x59f) = *(unsigned char*)(var0 + 0x59f) & ~0x10;
         *(unsigned char*)(var0 + 0x583) = 1;
-        func_ov017_0218b5f8(-1);
+        RequestPartyMemberPanelRedraw_ov017_0218b5f8(-1);
         func_ov017_021c9e00(var14, 1, 0, 1);
         func_ov003_02159250(arg0,
             ((void*)((StringList*)((Struct_0201099c_3*)(var0 + 0x64)))->GetString(0x42e)));

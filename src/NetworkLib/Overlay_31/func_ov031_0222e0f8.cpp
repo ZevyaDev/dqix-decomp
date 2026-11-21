@@ -4,7 +4,7 @@ typedef void (*Type_ov031_02226fe4)(void*);
 struct Struct_ov031_02248f0c { Type_ov031_02226fe4 unknown_0_[5]; };
 extern Struct_ov031_02248f0c data_ov031_02248f0c;
 
-extern "C" bool func_ov031_02237eb0(void);
+extern "C" bool IsDialogOpen_ov031_02237eb0(void);
 
 struct Struct_ov031_0222e0f8 {
 	unsigned char unknown_0_[4];
@@ -23,7 +23,7 @@ extern "C" void func_ov031_0222dee0(void);
 extern "C" ARM void func_ov031_0222e0f8(void) {
 	Struct_ov031_02248f0c var0 = data_ov031_02248f0c;
 
-	if (func_ov031_02237eb0()) return;
+	if (IsDialogOpen_ov031_02237eb0()) return;
 
 	Struct_ov031_0222e0f8* var1 = data_ov031_02290c98;
 	if (var1->unknown_15_ == 0) {

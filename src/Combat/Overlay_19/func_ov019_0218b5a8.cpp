@@ -110,7 +110,7 @@ extern "C" void func_ov019_0218c178(void* arg0);
 extern "C" void CleanInvalidateOAMBuffers_0203bd88(void* arg0);
 extern "C" void DrawMessageGlyphs_0204359c(void* window, int glyphCount);
 extern "C" void UploadOAMBuffers_0203bdb0(OAMManager_0203bdb0* oamManager);
-extern "C" void func_020439b0(MessageWindow_02021b84* arg0, int arg1);
+extern "C" void UpdateMessageWindowGraphics_020439b0(MessageWindow_02021b84* window, int arg1);
 extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
 extern "C" void SetTitleState_02012010(void* gameState, int state);
@@ -527,7 +527,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
         arg0->unknown_28_ = 1;
         WaitForVBlank_020c9820();
         UploadOAMBuffers_0203bdb0((OAMManager_0203bdb0*)var4);
-        func_020439b0(var7, 1);
+        UpdateMessageWindowGraphics_020439b0(var7, 1);
         var0->CalculateDeltaTime((GetCurrentTimestamp() - var19) * 64 * 1000 / 33514);
         var19 = GetCurrentTimestamp();
     }

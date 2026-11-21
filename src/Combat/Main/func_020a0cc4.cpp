@@ -7,7 +7,7 @@
 #endif
 
 struct Struct_02114e20;
-extern "C" unsigned int func_02012dd0(struct Struct_02114e20* arg0);
+extern "C" unsigned int GetMaxPossibleAllocation_02012dd0(struct Struct_02114e20* allocator);
 
 
 
@@ -26,7 +26,7 @@ extern const char data_020f18e8[];
 // USA: ReleaseFileTablesForSpace_020a0cc4
 extern "C" ARM int ReleaseFileTablesForSpace_020a0cc4(int neededSize) {
     if (neededSize >= 0) {
-        unsigned int maxAllocation = func_02012dd0(&gMainHeap_02114e20);
+        unsigned int maxAllocation = GetMaxPossibleAllocation_02012dd0(&gMainHeap_02114e20);
         if (maxAllocation >= neededSize) goto fail;
     }
     if (data_02109d90 == NULL) goto fail;

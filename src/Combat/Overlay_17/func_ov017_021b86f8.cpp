@@ -47,7 +47,7 @@ void SetMainBrightness(GameResources* res, int level, int b);
 extern "C" int func_02046708(GlobalFlags_02012de8* globalFlags, unsigned int mask);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
-extern "C" void func_020dc2d0(int arg0);
+extern "C" void RestartMapDisplay_020dc2d0(int modeOverride);
 extern "C" int func_0209ca68(char* arg0);
 extern "C" void func_0209c530(void* arg0);
 extern "C" void func_ov017_021c9c64(unsigned short arg0, int arg1);
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov017_021b86f8(Struct_ov017_021b86f8* arg0, int arg1, i
     }
     if (func_02046708(var4, 1)) {
         ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var4, 1);
-        func_020dc2d0(0);
+        RestartMapDisplay_020dc2d0(0);
     }
     if (func_0209ca68(gMusicManager_02109bf4) == 2) {
         func_0209c530(gMusicManager_02109bf4);

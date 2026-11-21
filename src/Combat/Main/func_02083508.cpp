@@ -23,15 +23,15 @@ struct Struct_02082828_2 {
     struct Struct_02082828_6 unknown_6f0_[11];  // 0x6f0
 };
 
-struct Struct_02083508_2;
-extern "C" void func_020de1d4(struct Struct_02083508_2*);
+struct ItemData_02083508_2;
+extern "C" void InitItemData_020de1d4(struct ItemData_02083508_2*);
 extern "C" unsigned char* func_0208349c(unsigned char* arg0, int arg1);
 
 // USA: func_02083508
 extern "C" ARM void func_02083508(struct Struct_02082828_2* arg0) {
     int var0;
     for (var0 = 0; var0 < 11; var0++) {
-        func_020de1d4((struct Struct_02083508_2*)&arg0->unknown_194_[var0]);
+        InitItemData_020de1d4((struct ItemData_02083508_2*)&arg0->unknown_194_[var0]);
 #if defined(jpn)
         arg0->unknown_194_[var0].unknown_4_ = (unsigned char*)arg0 + 0x56f + var0 * 0x15;
 #else

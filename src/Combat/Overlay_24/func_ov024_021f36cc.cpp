@@ -12,7 +12,7 @@ extern "C" int IsConfused_ov024_021de25c(struct Struct_ov024_021de124* combatant
 struct Struct_ov024_021da670_8;
 extern "C" int func_ov024_021da9c8(struct Struct_ov024_021da670_8* arg0);
 struct Struct_ov024_021dd028_5;
-extern "C" int func_ov024_021dd260(struct Struct_ov024_021dd028_5* arg0);
+extern "C" int HasSuperHighTension_ov024_021dd260(struct Struct_ov024_021dd028_5* combatant);
 extern "C" int PickRandomTarget_ov024_021ed890(struct Random** targetSelector, int* count, short* targetIndices);
 
 struct Struct_ov024_021fedec { short unknown_0_[8]; };
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov024_021f36cc(int* arg0, int arg1, int arg2, int* arg3,
 		if (IsParalysed_ov024_021da9b0((struct Struct_ov024_021da670_7*)var3)) continue;
 		if (IsConfused_ov024_021de25c((struct Struct_ov024_021de124*)var3)) continue;
 		if (func_ov024_021da9c8((struct Struct_ov024_021da670_8*)var3)) continue;
-		if (func_ov024_021dd260((struct Struct_ov024_021dd028_5*)var3)) continue;
+		if (HasSuperHighTension_ov024_021dd260((struct Struct_ov024_021dd028_5*)var3)) continue;
 		int var4 = *arg3;
 		*arg3 = var4 + 1;
 		arg4[var4] = var0.unknown_0_[var2];

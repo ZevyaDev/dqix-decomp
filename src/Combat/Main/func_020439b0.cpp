@@ -56,7 +56,7 @@ struct Struct_02042b98_3 {
     Struct_020439b0_5* unknown_440_;
 };
 
-struct Struct_020439b0_6 { char unknown_0_[8]; int unknown_8_; char unknown_c_[0xa8-0xc]; short unknown_a8_, unknown_aa_, unknown_ac_, unknown_ae_; };
+struct TextWindow_020439b0_6 { char unknown_0_[8]; int pCharacterData_8_; char unknown_c_[0xa8-0xc]; short width_a8_, height_aa_, tileX_ac_, tileY_ae_; };
 struct Struct_02044074 { unsigned short unknown_0_, unknown_2_, unknown_4_, unknown_6_; };
 struct Struct_020439b0_7 { short unknown_0_, unknown_2_, unknown_4_, unknown_6_; };
 union Struct_020439b0_8 { Struct_02044074 unknown_0_; Struct_020439b0_7 unknown1_0_; };
@@ -82,50 +82,50 @@ extern void* data_02107800;
 #define TILE_MAP_BUFFER data_02107800
 #endif
 
-static inline short inline_020439b0(Struct_020439b0_6* arg0) { return arg0->unknown_a8_; }
+static inline short inline_020439b0(TextWindow_020439b0_6* arg0) { return arg0->width_a8_; }
 
-// USA: func_020439b0
-extern "C" ARM void func_020439b0(char* arg0, int arg1) {
-    MessageWindow_02021b84* var0 = (MessageWindow_02021b84*)arg0;
-    int var1, var2;
-    Struct_020439b0_8 var3, var4, var5;
+// USA: UpdateMessageWindowGraphics_020439b0
+extern "C" ARM void UpdateMessageWindowGraphics_020439b0(char* window, int arg1) {
+    MessageWindow_02021b84* messageWindow = (MessageWindow_02021b84*)window;
+    int offsetX, offsetY;
+    Struct_020439b0_8 frameRect, var4, var5;
 
-    if (var0->unknown_19cc_ != 0) {
-        func_0206b804(arg0, &var1, &var2);
-        func_02044c74(arg0, (*(Struct_020439b0_6**)(arg0 + Enum_020439b0_52)));
+    if (messageWindow->unknown_19cc_ != 0) {
+        func_0206b804(window, &offsetX, &offsetY);
+        func_02044c74(window, (*(TextWindow_020439b0_6**)(window + Enum_020439b0_52)));
 
-        Struct_020439b0_6* var6 = (*(Struct_020439b0_6**)(arg0 + Enum_020439b0_52));
-        int var7 = var6->unknown_8_;
-        if (var7 != 0) {
-            var6->unknown_8_ = var7;
+        TextWindow_020439b0_6* textWindow = (*(TextWindow_020439b0_6**)(window + Enum_020439b0_52));
+        int characterData = textWindow->pCharacterData_8_;
+        if (characterData != 0) {
+            textWindow->pCharacterData_8_ = characterData;
 
-            var0->unknown_19cc_ = 0;
-            func_02066cf0(arg0, 1);
-            var0->unknown_19cc_ = 1;
-            if (var0->unknown_19c0_ != 0) {
-                var0->unknown_40_ = 0;
+            messageWindow->unknown_19cc_ = 0;
+            func_02066cf0(window, 1);
+            messageWindow->unknown_19cc_ = 1;
+            if (messageWindow->unknown_19c0_ != 0) {
+                messageWindow->unknown_40_ = 0;
             }
 
-            func_02044074(&var3.unknown_0_);
+            func_02044074(&frameRect.unknown_0_);
             func_02044074(&var4.unknown_0_);
             func_02044074(&var5.unknown_0_);
 
-            if (var0->unknown_998_ != 0 && var0->unknown_19b1_ != 0) {
+            if (messageWindow->unknown_998_ != 0 && messageWindow->unknown_19b1_ != 0) {
                 goto prepareBounds;
             }
-            if ((*(unsigned char*)(arg0 + Enum_020439b0_6603)) != 0) {
+            if ((*(unsigned char*)(window + Enum_020439b0_6603)) != 0) {
             prepareBounds:
-                if (var0->unknown_19b1_ != 0) {
-                    SetMessageWindowRect_02042b98(arg0, 2, 0x74, 0xfc, 0x4a);
-                    func_0204408c(&var3.unknown1_0_, var1 + 2, var2 + 0x74, 0xfc, 0x4a);
-                    func_02043600((*(Struct_020439b0_6**)(arg0 + Enum_020439b0_52)), &var3);
-                    func_0204408c(&var3.unknown1_0_, 2, 0x74, 0xfc, 0x4a);
+                if (messageWindow->unknown_19b1_ != 0) {
+                    SetMessageWindowRect_02042b98(window, 2, 0x74, 0xfc, 0x4a);
+                    func_0204408c(&frameRect.unknown1_0_, offsetX + 2, offsetY + 0x74, 0xfc, 0x4a);
+                    func_02043600((*(TextWindow_020439b0_6**)(window + Enum_020439b0_52)), &frameRect);
+                    func_0204408c(&frameRect.unknown1_0_, 2, 0x74, 0xfc, 0x4a);
 
                 }
 
-                if (var0->unknown_19c4_ != 0 && var0->unknown_19c3_ != 0) {
-                    struct Struct_02042b98_3* var8 = (Struct_02042b98_3*)(arg0 + Enum_020439b0_6624);
-                    var8->unknown_440_ = &(*(Struct_020439b0_5*)(arg0 + Enum_020439b0_2352));
+                if (messageWindow->unknown_19c4_ != 0 && messageWindow->unknown_19c3_ != 0) {
+                    struct Struct_02042b98_3* var8 = (Struct_02042b98_3*)(window + Enum_020439b0_6624);
+                    var8->unknown_440_ = &(*(Struct_020439b0_5*)(window + Enum_020439b0_2352));
                     int var9 = (var8->unknown_440_ != 0) ? (var8->unknown_440_->unknown_8_ == 2) : 0;
                     if (var9) {
                         short var10, var11, var12, var13;
@@ -137,79 +137,79 @@ extern "C" ARM void func_020439b0(char* arg0, int arg1) {
                             var12 = var8->unknown_440_->unknown_4_;
                             var13 = var8->unknown_440_->unknown_6_;
                         }
-                        func_0204408c(&var4.unknown1_0_, var10 + var1, var11 + var2, var12, var13);
-                        func_02043600((*(Struct_020439b0_6**)(arg0 + Enum_020439b0_52)), &var4);
+                        func_0204408c(&var4.unknown1_0_, var10 + offsetX, var11 + offsetY, var12, var13);
+                        func_02043600((*(TextWindow_020439b0_6**)(window + Enum_020439b0_52)), &var4);
                         func_0204408c(&var4.unknown1_0_, var10, var11, var12, var13);
                     }
-                    var8->unknown_440_ = &(*(Struct_020439b0_5*)(arg0 + Enum_020439b0_2324));
+                    var8->unknown_440_ = &(*(Struct_020439b0_5*)(window + Enum_020439b0_2324));
                 }
 
-                if (var0->unknown_9a0_ == 6) {
-                    if ((*(unsigned char*)(arg0 + Enum_020439b0_6586)) != 0 && (*(unsigned char*)(arg0 + Enum_020439b0_707)) != 0) {
-                        func_0204408c(&var5.unknown1_0_, (*(Struct_020439b0_7*)(arg0 + Enum_020439b0_324)).unknown_0_, (*(Struct_020439b0_7*)(arg0 + Enum_020439b0_324)).unknown_2_,
-                            (*(Struct_020439b0_7*)(arg0 + Enum_020439b0_324)).unknown_4_, (*(Struct_020439b0_7*)(arg0 + Enum_020439b0_324)).unknown_6_);
-                        func_02043600((*(Struct_020439b0_6**)(arg0 + Enum_020439b0_52)), &var5);
+                if (messageWindow->unknown_9a0_ == 6) {
+                    if ((*(unsigned char*)(window + Enum_020439b0_6586)) != 0 && (*(unsigned char*)(window + Enum_020439b0_707)) != 0) {
+                        func_0204408c(&var5.unknown1_0_, (*(Struct_020439b0_7*)(window + Enum_020439b0_324)).unknown_0_, (*(Struct_020439b0_7*)(window + Enum_020439b0_324)).unknown_2_,
+                            (*(Struct_020439b0_7*)(window + Enum_020439b0_324)).unknown_4_, (*(Struct_020439b0_7*)(window + Enum_020439b0_324)).unknown_6_);
+                        func_02043600((*(TextWindow_020439b0_6**)(window + Enum_020439b0_52)), &var5);
                     }
                 }
             }
 
-            Struct_020439b0_6* var14 = (*(Struct_020439b0_6**)(arg0 + Enum_020439b0_52));
+            TextWindow_020439b0_6* var14 = (*(TextWindow_020439b0_6**)(window + Enum_020439b0_52));
             if (var14 != 0) {
-                short var15;
-                int var16;
-                int var17;
-                short var18;
-                int var19;
-                short var20 = var14->unknown_ac_;
-                short var21 = var14->unknown_ae_;
-                short var22 = inline_020439b0(var14);
-                var18 = var14->unknown_aa_;
-                var16 = (var20 + (var21 << 5)) << 5;
-                var17 = var14->unknown_8_;
-                var15 = 0;
-                for (; var15 < var18; var15++) {
-                    var19 = var22 << 5;
-                    StageMemoryToVRAM(VRAMSubregion_MainBG3Character, (const void*)var17, var16, var19, 1, 0);
-                    var17 += var19;
-                    var16 += 0x400;
+                short row;
+                int vramOffset;
+                int source;
+                short height;
+                int rowSize;
+                short tileX = var14->tileX_ac_;
+                short tileY = var14->tileY_ae_;
+                short width = inline_020439b0(var14);
+                height = var14->height_aa_;
+                vramOffset = (tileX + (tileY << 5)) << 5;
+                source = var14->pCharacterData_8_;
+                row = 0;
+                for (; row < height; row++) {
+                    rowSize = width << 5;
+                    StageMemoryToVRAM(VRAMSubregion_MainBG3Character, (const void*)source, vramOffset, rowSize, 1, 0);
+                    source += rowSize;
+                    vramOffset += 0x400;
                 }
             }
 
-            int var23 = var0->unknown_94c_[0];
-            int var24 = var0->unknown_94c_[1];
-            REG_BG_SCROLL_020439b0 = ((-var23) & 0x1ff) | (((-var24) << 16) & 0x1ff0000);
-            var0->unknown_94c_[0] = var1;
-            var0->unknown_94c_[1] = var2;
+            int previousOffsetX = messageWindow->unknown_94c_[0];
+            int previousOffsetY = messageWindow->unknown_94c_[1];
+            REG_BG_SCROLL_020439b0 = ((-previousOffsetX) & 0x1ff) | (((-previousOffsetY) << 16) & 0x1ff0000);
+            messageWindow->unknown_94c_[0] = offsetX;
+            messageWindow->unknown_94c_[1] = offsetY;
 
-            if (var0->unknown_9a0_ != 1 && var0->unknown_9a0_ != 0) {
+            if (messageWindow->unknown_9a0_ != 1 && messageWindow->unknown_9a0_ != 0) {
                 memset(TILE_MAP_BUFFER, 0, 0x800);
 
-                if (var0->unknown_998_ != 0 && var0->unknown_19b1_ != 0) {
+                if (messageWindow->unknown_998_ != 0 && messageWindow->unknown_19b1_ != 0) {
                     goto stageBounds;
                 }
-                if ((*(unsigned char*)(arg0 + Enum_020439b0_6603)) != 0) {
+                if ((*(unsigned char*)(window + Enum_020439b0_6603)) != 0) {
                 stageBounds:
-                    if (var0->unknown_19b1_ != 0) {
-                        void* var25 = TILE_MAP_BUFFER;
-                        func_020437bc(var25, &var3, 0);
-                        func_020437bc(var25, &var4, 1);
-                        func_020437bc(var25, &var5, 2);
-                        StageMemoryToVRAM(VRAMSubregion_MainBG2Screen, var25, 0, 0x800, 1, 0);
+                    if (messageWindow->unknown_19b1_ != 0) {
+                        void* screenBuffer = TILE_MAP_BUFFER;
+                        func_020437bc(screenBuffer, &frameRect, 0);
+                        func_020437bc(screenBuffer, &var4, 1);
+                        func_020437bc(screenBuffer, &var5, 2);
+                        StageMemoryToVRAM(VRAMSubregion_MainBG2Screen, screenBuffer, 0, 0x800, 1, 0);
                     }
                 }
 
-                if (var0->unknown_19b1_ == 0) {
+                if (messageWindow->unknown_19b1_ == 0) {
                     StageMemoryToVRAM(VRAMSubregion_MainBG2Screen, TILE_MAP_BUFFER, 0, 0x800, 1, 0);
                 }
 
-                if (!((*(unsigned int*)(arg0 + Enum_020439b0_116)) != var0->unknown_78_ && var0->unknown_998_ != 0)) {
+                if (!((*(unsigned int*)(window + Enum_020439b0_116)) != messageWindow->unknown_78_ && messageWindow->unknown_998_ != 0)) {
                     Struct_020439b0_9* var26 = (Struct_020439b0_9*)TILE_MAP_BUFFER;
-                    unsigned short var27;
-                    for (var27 = 0; var27 < 0x100; var27++) {
-                        var26->unknown_800_[var27] = 0;
+                    unsigned short i;
+                    for (i = 0; i < 0x100; i++) {
+                        var26->unknown_800_[i] = 0;
                     }
-                    for (unsigned short var28 = 0x100; var28 < 0x300; var28++) {
-                        var26->unknown_800_[var28] = (short)var28;
+                    for (unsigned short tile = 0x100; tile < 0x300; tile++) {
+                        var26->unknown_800_[tile] = (short)tile;
                     }
                     StageMemoryToVRAM(VRAMSubregion_MainBG3Screen, var26->unknown_800_, 0, 0x800, 1, 0);
                 }
@@ -218,81 +218,81 @@ extern "C" ARM void func_020439b0(char* arg0, int arg1) {
             REG_DISPLAY_020439b0 = (REG_DISPLAY_020439b0 & ~0x1f00) | 0x1d00;
         }
 
-        FreeVRAMStagingMemory((const void*)(*(Struct_020439b0_6**)(arg0 + Enum_020439b0_52))->unknown_8_);
+        FreeVRAMStagingMemory((const void*)(*(TextWindow_020439b0_6**)(window + Enum_020439b0_52))->pCharacterData_8_);
 
-        if (var0->unknown_998_ == 0) {
-            func_02043040((MessageWindow_02021b84*)arg0);
-            CloseMessageWindow_02043124(arg0);
-            func_020430b0((MessageWindow_02021b84*)arg0);
+        if (messageWindow->unknown_998_ == 0) {
+            func_02043040((MessageWindow_02021b84*)window);
+            CloseMessageWindow_02043124(window);
+            func_020430b0((MessageWindow_02021b84*)window);
         }
     }
 
     if ((
 #if defined(jpn)
-            var0->unknown_17ff_.unknown_0_0_
+            messageWindow->unknown_17ff_.unknown_0_0_
 #else
-            var0->unknown_19ce_
+            messageWindow->unknown_19ce_
 #endif
-        ) != 0 && var0->unknown_44_ == 0) {
-        func_0204394c((struct Struct_0204394c*)(var0->unknown_1e28_));
+        ) != 0 && messageWindow->unknown_44_ == 0) {
+        func_0204394c((struct Struct_0204394c*)(messageWindow->unknown_1e28_));
     }
     {
-        int var29;
-        for (var29 = 0; var29 < 2; var29++) {
-            SetDisplayWindowEnabled_020e2cc4((DisplayWindow_020439b0*)&var0->unknown_1964_[var29], 0);
+        int i;
+        for (i = 0; i < 2; i++) {
+            SetDisplayWindowEnabled_020e2cc4((DisplayWindow_020439b0*)&messageWindow->unknown_1964_[i], 0);
         }
     }
 
-    if (arg1 != 0 && var0->unknown_998_ == 0) return;
+    if (arg1 != 0 && messageWindow->unknown_998_ == 0) return;
     {
-        void* var30 = var0->unknown_1e28_;
+        void* var30 = messageWindow->unknown_1e28_;
         if (var30 != 0) {
-            Struct_0204166c* var31;
-            int var32;
-            for (var32 = 0; var32 < 0x80; var32++) {
-                if (var0->unknown_17b8_[var32] != 0) {
-                    var31 = &var0->unknown_9b8_[var32];
-                    if (var31->unknown_16_0_) {
-                        if (var0->unknown_19cc_ != 0 || (
+            Struct_0204166c* glyphEntry;
+            int i;
+            for (i = 0; i < 0x80; i++) {
+                if (messageWindow->unknown_17b8_[i] != 0) {
+                    glyphEntry = &messageWindow->unknown_9b8_[i];
+                    if (glyphEntry->unknown_16_0_) {
+                        if (messageWindow->unknown_19cc_ != 0 || (
 #if defined(jpn)
-            var0->unknown_17ff_.unknown_0_0_
+            messageWindow->unknown_17ff_.unknown_0_0_
 #else
-            var0->unknown_19ce_
+            messageWindow->unknown_19ce_
 #endif
         ) != 0) {
-                            var31->unknown_16_0_ = 0;
+                            glyphEntry->unknown_16_0_ = 0;
                         } else {
-                            ((TextureArena*)((char*)var0->unknown_1e28_))->Restore();
-                            func_02041754(var31);
-                            ((TextureArena*)((char*)var0->unknown_1e28_))->Save();
+                            ((TextureArena*)((char*)messageWindow->unknown_1e28_))->Restore();
+                            func_02041754(glyphEntry);
+                            ((TextureArena*)((char*)messageWindow->unknown_1e28_))->Save();
                         }
-                        func_02042af4((int)arg0, var0->unknown_2cc_, var31->unknown_8_);
+                        func_02042af4((int)window, messageWindow->unknown_2cc_, glyphEntry->unknown_8_);
                     }
                 }
             }
         }
     }
 
-    if ((*(Struct_020439b0_5*)(arg0 + Enum_020439b0_2324)).unknown_8_ >= 2) {
-        func_020e2d2c((Struct_020439b0_3*)&var0->unknown_1964_[0], 4, 0x76, 0xf8, 0x46);
-        if ((*(unsigned char*)(arg0 + Enum_020439b0_6498)) != 0) {
-            SetDisplayWindowEnabled_020e2cc4((DisplayWindow_020439b0*)&var0->unknown_1964_[0], 1);
+    if ((*(Struct_020439b0_5*)(window + Enum_020439b0_2324)).unknown_8_ >= 2) {
+        func_020e2d2c((Struct_020439b0_3*)&messageWindow->unknown_1964_[0], 4, 0x76, 0xf8, 0x46);
+        if ((*(unsigned char*)(window + Enum_020439b0_6498)) != 0) {
+            SetDisplayWindowEnabled_020e2cc4((DisplayWindow_020439b0*)&messageWindow->unknown_1964_[0], 1);
         }
     }
 
-    if ((*(int*)(arg0 + Enum_020439b0_332)) >= 2) {
-        int var33 = (*(Struct_020439b0_7*)(arg0 + Enum_020439b0_324)).unknown_0_;
-        int var34 = (*(Struct_020439b0_7*)(arg0 + Enum_020439b0_324)).unknown_2_;
-        int var35 = (*(Struct_020439b0_7*)(arg0 + Enum_020439b0_324)).unknown_4_;
-        int var36 = (*(Struct_020439b0_7*)(arg0 + Enum_020439b0_324)).unknown_6_;
-        func_020e2d2c((Struct_020439b0_3*)&var0->unknown_1964_[1], var33 + 2, var34 + 2, var35 - 4, var36 - 4);
-        if ((*(unsigned char*)(arg0 + Enum_020439b0_6498)) != 0) {
-            SetDisplayWindowEnabled_020e2cc4((DisplayWindow_020439b0*)&var0->unknown_1964_[1], 1);
+    if ((*(int*)(window + Enum_020439b0_332)) >= 2) {
+        int x = (*(Struct_020439b0_7*)(window + Enum_020439b0_324)).unknown_0_;
+        int y = (*(Struct_020439b0_7*)(window + Enum_020439b0_324)).unknown_2_;
+        int width = (*(Struct_020439b0_7*)(window + Enum_020439b0_324)).unknown_4_;
+        int height = (*(Struct_020439b0_7*)(window + Enum_020439b0_324)).unknown_6_;
+        func_020e2d2c((Struct_020439b0_3*)&messageWindow->unknown_1964_[1], x + 2, y + 2, width - 4, height - 4);
+        if ((*(unsigned char*)(window + Enum_020439b0_6498)) != 0) {
+            SetDisplayWindowEnabled_020e2cc4((DisplayWindow_020439b0*)&messageWindow->unknown_1964_[1], 1);
         }
     }
 
-    int var37;
-    for (var37 = 0; var37 < 2; var37++) {
-        func_020e2c34((Struct_020439b0_4*)&var0->unknown_1964_[var37]);
+    int i;
+    for (i = 0; i < 2; i++) {
+        func_020e2c34((Struct_020439b0_4*)&messageWindow->unknown_1964_[i]);
     }
 }

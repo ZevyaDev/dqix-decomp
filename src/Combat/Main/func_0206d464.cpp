@@ -32,7 +32,7 @@ struct Struct_0206d464 {
 // USA: func_0206d464
 extern "C" ARM int func_0206d464(void* arg0) {
     int var0 = ((Script::Parameter*)((struct Struct_0201c1c8*)arg0))->ToInt();
-    struct Struct_0206d464* var1 = (Struct_0206d464*)func_0206db20(gNPCPlacementParseState_02108cec.unknown_10_, var0);
+    struct Struct_0206d464* var1 = (Struct_0206d464*)FindNPCPlacement_0206db20(gNPCPlacementParseState_02108cec.unknown_10_, var0);
     if (var1 == 0) return 0;
     while (var1 != 0) {
         if (var1->unknown_44_ == gNPCPlacementParseState_02108cec.unknown_a_) break;

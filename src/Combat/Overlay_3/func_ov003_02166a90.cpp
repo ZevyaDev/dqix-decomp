@@ -105,7 +105,7 @@ extern "C" void func_0206e424(void*, int);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 extern "C" void RebuildPartyOrders_ov017_02191234(unsigned char*);
-extern "C" void func_020dc2d0(int);
+extern "C" void RestartMapDisplay_020dc2d0(int);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(void*, int, int, int, int);
 extern "C" void LoadPartyMemberColors_020dc7e8(int, int);
 extern "C" void func_ov017_021d0dbc(void);
@@ -220,7 +220,7 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
         ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)func_020d6c00(), 0x41);
         RebuildPartyOrders_ov017_02191234((unsigned char*)var3);
         if (var1 != 0) {
-            func_020dc2d0(0);
+            RestartMapDisplay_020dc2d0(0);
         }
         RebuildFieldPartyOrder_ov017_02191108(var3, 1, 1, 1, 1);
         LoadPartyMemberColors_020dc7e8(6, -1);

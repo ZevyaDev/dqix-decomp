@@ -20,7 +20,7 @@ extern "C" void* GetLastOpenedTextWindow_0205d888(struct TextWindowManager_0205d
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 extern "C" void SetMenuCursorTouchedIndex_0205bc24(void* cursor, int index);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" void func_0205c904(unsigned char* arg0, int arg1);
+extern "C" void UpdateChoiceList_0205c904(unsigned char* choiceList, int ticks);
 
 struct SpriteAnimationList_0205a330;
 
@@ -71,7 +71,7 @@ extern "C" ARM unsigned char func_ov013_021847c4(void* arg0, int arg1) {
     }
 
     *(int*)(var0 + R(0x5d4,0x648)) = UpdateTextWindowManager_0205d0e0(var0 + R(0x34,0x38), *(int*)(var0 + R(0x5d0,0x644)));
-    func_0205c904(var0 + R(0x3d0,0x3d4), *(int*)(var0 + R(0x5d0,0x644)));
+    UpdateChoiceList_0205c904(var0 + R(0x3d0,0x3d4), *(int*)(var0 + R(0x5d0,0x644)));
 
     {
         int var4 = GetMessageWindow_020421a0();

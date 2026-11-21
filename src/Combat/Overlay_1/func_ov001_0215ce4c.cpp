@@ -8,7 +8,7 @@
 void Nitro3D_SetModelPolygonID(Nitro3DModel* model, int id);
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
-extern "C" int func_ov001_0215ad2c(int arg0);
+extern "C" int ResolveEventObjectIndex_ov001_0215ad2c(int scriptObjectId);
 extern "C" unsigned int func_ov001_0215a750(const char* arg0, void** arg1);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState* gameState, int index, GameObject* object);
 
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov001_0215ce4c(char* arg0, int arg1) {
 
     var5 = GameState::GetInstance();
     var6 = BackgroundLoader::GetInstance();
-    var10 = func_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(arg0));
+    var10 = ResolveEventObjectIndex_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(arg0));
     var4 = 0;
     if (arg1 >= 2) {
         var4 = GetScriptValueAsInt_ov017_021d60f4(arg0 + 8);

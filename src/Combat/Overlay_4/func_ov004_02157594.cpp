@@ -27,7 +27,7 @@ extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
 extern "C" StringList_02072a68_2* GetMenuObjectStringList_ov023_021fa598(void*);
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2*, int);
-extern "C" void func_ov023_021f9b30(Struct_ov004_02157594*, unsigned short, unsigned short, unsigned short);
+extern "C" void SetMenuGridCell_ov023_021f9b30(Struct_ov004_02157594*, unsigned short, unsigned short, unsigned short);
 extern "C" void func_ov023_021f9d14(Struct_ov004_02157594*, void*);
 extern "C" void RedrawMenuWindow_ov023_021f809c(void*, void*);
 extern "C" int func_ov004_021560e8(void*);
@@ -55,15 +55,15 @@ extern "C" ARM int func_ov004_02157594(void* arg0) {
         var10->unknown_c_ &= ~8;
         int var11 = var8 + var7;
         if (data_ov004_021707c8.unknown_4_[var11] > 0) {
-            func_ov023_021f9b30(var1, (unsigned short)var9, (unsigned short)(var8 >> 1), var8 & 1);
+            SetMenuGridCell_ov023_021f9b30(var1, (unsigned short)var9, (unsigned short)(var8 >> 1), var8 & 1);
             var10->unknown_20_ = FindStringInList_02072a68(var5, data_ov004_021707c8.unknown_4_[var11]);
             var6++;
         } else {
-            func_ov023_021f9b30(var1, 0, (unsigned short)(var8 >> 1), var8 & 1);
+            SetMenuGridCell_ov023_021f9b30(var1, 0, (unsigned short)(var8 >> 1), var8 & 1);
             var10->unknown_c_ |= 8;
         }
     }
-    if (var6 == 0) func_ov023_021f9b30(var1, 0x6e, 0, 0);
+    if (var6 == 0) SetMenuGridCell_ov023_021f9b30(var1, 0x6e, 0, 0);
     func_ov023_021f9d14(var1, arg0);
     var1->unknown_61_ = 0;
     Struct_ov004_02157594_2* var12 = (Struct_ov004_02157594_2*)FindMenuObjectById_ov023_021f6880(var0, 0x33);

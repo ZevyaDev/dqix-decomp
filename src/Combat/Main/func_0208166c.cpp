@@ -14,7 +14,7 @@ struct Struct_0208166c_2 {
     unsigned char unknown_0_2_ : 6;
 };
 
-extern "C" ARM int func_02042190(int arg0);
+extern "C" ARM int GetFontForFontSize_02042190(int fontSize);
 extern "C" ARM int GetMessageWindow_020421a0(void);
 
 extern "C" int func_020420e8(void* arg0, int arg1);
@@ -35,7 +35,7 @@ extern "C" ARM void func_0208166c(void* arg0, void* arg1, void* arg2) {
         var3 = 5;
     }
 
-    int var4 = func_02042190(F13(var2)->unknown_0_0_);
+    int var4 = GetFontForFontSize_02042190(F13(var2)->unknown_0_0_);
 
     void* var5 = FindStringInList_02072a68((struct StringList_02072a68_2*)*(void**)(var0 + 0x0), *(short*)(var2 + 0xe));
     if (var5) {

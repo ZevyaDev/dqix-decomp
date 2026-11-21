@@ -14,7 +14,7 @@
 #include "Graphics/OBJSpriteSet.h"
 
 struct MenuLayout_0207fdcc_2;
-struct Struct_020e28dc;
+struct YesNoWindow_020e28dc;
 struct YesNoWindow_020e263c_2;
 struct Struct_020e28f0;
 struct Struct_ov006_02154614;
@@ -31,7 +31,7 @@ struct Struct_ov006_02158478;
 
 extern "C" Struct_ov006_02158478* FindMenuLayoutWindow_02081da8(MenuLayout_0207fdcc_2*, int);
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char*);
-extern "C" int func_020e28dc(Struct_020e28dc*);
+extern "C" int IsYesNoWindowOpen_020e28dc(YesNoWindow_020e28dc*);
 extern "C" void GetMenuLayoutTextPosition_020809c4(void*, int, int, short*, short*);
 extern "C" void UpdateYesNoWindow_020e263c(YesNoWindow_020e263c_2*, int);
 extern "C" void func_020e28f0(Struct_020e28f0*, short, short);
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov006_021585c4(Struct_ov006_02157a60* arg0)
         return;
     if (!IsTextWindowOpen_0204c7e0((unsigned char*)var0) || arg0->unknown_18_ == 0)
         return;
-    if (func_020e28dc((Struct_020e28dc*)arg0->unknown_18_))
+    if (IsYesNoWindowOpen_020e28dc((YesNoWindow_020e28dc*)arg0->unknown_18_))
         return;
     short var1;
     short var2;

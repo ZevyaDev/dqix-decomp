@@ -10,7 +10,7 @@
 
 struct LocalWireless_0202b2f0;
 struct LocalWireless_0202c1a4;
-struct Struct_0201e830;
+struct ZoneFeatures_0201e830;
 struct AllocatorUnion;
 
 struct Struct_ov017_021afe00_3 {
@@ -83,7 +83,7 @@ extern "C" void func_ov017_021d0b30(int arg0, int arg1, int arg2);
 
 extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
-extern "C" unsigned short func_0201e830(Struct_0201e830* arg0);
+extern "C" unsigned short GetZoneClearColor_0201e830(ZoneFeatures_0201e830* zoneFeatures);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int GetEquipMenu_ov017_021a193c(int* equipMenuTask);
@@ -92,7 +92,7 @@ extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigne
 extern "C" void* func_020120a0(char* arg0, unsigned int arg1);
 extern "C" unsigned int func_02012078(void* arg0);
 extern "C" void func_020116c8(void* arg0);
-extern "C" void func_020dc2d0(int arg0);
+extern "C" void RestartMapDisplay_020dc2d0(int modeOverride);
 
 extern AllocatorUnion gMainHeap_02114e20;
 
@@ -135,12 +135,12 @@ extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
             char* var7 = (char*)GetZone3D_02012fe4();
             if (var7 != 0) {
 #if defined(jpn)
-                Struct_0201e830* var8 = (Struct_0201e830*)(var7 + 0x8c);
+                ZoneFeatures_0201e830* var8 = (ZoneFeatures_0201e830*)(var7 + 0x8c);
 #else
-                Struct_0201e830* var8 = (Struct_0201e830*)(var7 + 0x6c);
+                ZoneFeatures_0201e830* var8 = (ZoneFeatures_0201e830*)(var7 + 0x6c);
 #endif
                 if (var8 != 0) {
-                    arg0->unknown_40_ = func_0201e830(var8);
+                    arg0->unknown_40_ = GetZoneClearColor_0201e830(var8);
                 }
             }
             int var9 = 0;
@@ -239,7 +239,7 @@ extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
     Struct_ov017_021afe00_2* var17 = (Struct_ov017_021afe00_2*)var0->GetGrottoStruct();
     if (var17->unknown_0_ != 0 && arg0->unknown_9_ == 2) {
         func_020116c8(var0);
-        func_020dc2d0(0);
+        RestartMapDisplay_020dc2d0(0);
     }
     func_ov017_021d0b30(1, 0, 0);
     return 3;

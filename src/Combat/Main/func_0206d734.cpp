@@ -31,7 +31,7 @@ struct Struct_0206d734 {
 extern "C" ARM int func_0206d734(void* arg0, int arg1) {
     struct Struct_0206d734* var0;
     int var1 = ((Script::Parameter*)((struct Struct_0201c1c8*)arg0))->ToInt();
-    var0 = (Struct_0206d734*)func_0206db20(gNPCPlacementParseState_02108cec.unknown_10_, var1);
+    var0 = (Struct_0206d734*)FindNPCPlacement_0206db20(gNPCPlacementParseState_02108cec.unknown_10_, var1);
     if (var0 == 0) {
         return 0;
     }

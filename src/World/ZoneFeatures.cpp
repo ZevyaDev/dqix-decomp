@@ -27,7 +27,7 @@ extern "C"
 
 extern "C" int func_0201c79c(Script::Parameter* arg0, int arg1)
 {
-    data_020fdc20.unknown_8_->func_0201e25c(arg0[0].ToInt(), data_020fdc20.unknown_4_);
+    gZoneFeatureScriptContext_020fdc20.unknown_8_->func_0201e25c(arg0[0].ToInt(), gZoneFeatureScriptContext_020fdc20.unknown_4_);
     return 1;
 }
 
@@ -70,13 +70,13 @@ extern "C" int func_0201c7c4(Script::Parameter* arg0, int arg1)
     else
         strcpy(var6.unknown_30_, var1);
 
-    data_020fdc20.unknown_8_->func_0201e304(var6);
+    gZoneFeatureScriptContext_020fdc20.unknown_8_->func_0201e304(var6);
     return 1;
 }
 
 extern "C" int func_0201c8a8(Script::Parameter* arg0, int arg1)
 {
-    data_020fdc20.unknown_8_->func_0201e288(arg0[0].ToInt(), data_020fdc20.unknown_4_);
+    gZoneFeatureScriptContext_020fdc20.unknown_8_->func_0201e288(arg0[0].ToInt(), gZoneFeatureScriptContext_020fdc20.unknown_4_);
     return 1;
 }
 
@@ -89,19 +89,19 @@ extern "C" int func_0201c8d0(Script::Parameter* arg0, int arg1)
     for (int var1 = 0; var1 < 9; var1++)
         var0.directionBitmasks[var1] = (arg0++)->ToInt();
 
-    data_020fdc20.unknown_8_->func_0201e3c4(var0);
+    gZoneFeatureScriptContext_020fdc20.unknown_8_->func_0201e3c4(var0);
     return 1;
 }
 
 extern "C" int func_0201c944(Script::Parameter* arg0, int arg1)
 {
-    data_020fdc20.unknown_8_->func_0201e480(arg0[0].ToInt(), data_020fdc20.unknown_4_);
+    gZoneFeatureScriptContext_020fdc20.unknown_8_->func_0201e480(arg0[0].ToInt(), gZoneFeatureScriptContext_020fdc20.unknown_4_);
     return 1;
 }
 
 extern "C" int func_0201cb38(Script::Parameter* arg0, int arg1)
 {
-    data_020fdc20.unknown_8_->func_0201e518(arg0[0].ToInt(), data_020fdc20.unknown_4_);
+    gZoneFeatureScriptContext_020fdc20.unknown_8_->func_0201e518(arg0[0].ToInt(), gZoneFeatureScriptContext_020fdc20.unknown_4_);
     return 1;
 }
 
@@ -134,7 +134,7 @@ void Struct_020134e0::Struct_0201cb60_3::func_0201ce10()
 
 extern "C" int func_0201d01c(Script::Parameter* arg0, int arg1)
 {
-    data_020fdc20.unknown_8_->func_0201e634(arg0[0].ToInt(), data_020fdc20.unknown_4_);
+    gZoneFeatureScriptContext_020fdc20.unknown_8_->func_0201e634(arg0[0].ToInt(), gZoneFeatureScriptContext_020fdc20.unknown_4_);
     return 1;
 }
 
@@ -247,7 +247,7 @@ extern "C" int func_0201d044(Script::Parameter* arg0, int arg1)
         var1.unknown_2c_.unknown4_0_.unknown_4_ = 0;
     }
 
-    Struct_020134e0* var17 = data_020fdc20.unknown_8_;
+    Struct_020134e0* var17 = gZoneFeatureScriptContext_020fdc20.unknown_8_;
     var1.unknown_70_ = NULL;
     var17->func_0201e710(var1);
     return 1;
@@ -285,7 +285,7 @@ extern "C" int func_0201d494(Script::Parameter* arg0, int arg1)
     arg0 = arg0->ToVec3fix(&var0);
     fix32_t var1 = _Z22fix32ReduceAngle0To2Pii(4096.0f * (arg0++)->ToFloat());
 
-    Struct_020134e0* var2 = data_020fdc20.unknown_8_;
+    Struct_020134e0* var2 = gZoneFeatureScriptContext_020fdc20.unknown_8_;
     var2->unknown_70_ = var0;
     var2->unknown_7c_ = var1;
     return 1;
@@ -296,7 +296,7 @@ extern "C" int func_0201d4ec(Script::Parameter* arg0, int arg1)
     int var0 = (arg0++)->ToInt();
     int var1 = (arg0++)->ToInt();
     int var2 = (arg0++)->ToInt();
-    data_020fdc20.unknown_8_->unknown_7e_ = var0 | (var1 << 5) | (var2 << 10);
+    gZoneFeatureScriptContext_020fdc20.unknown_8_->unknown_7e_ = var0 | (var1 << 5) | (var2 << 10);
     return 1;
 }
 
@@ -321,53 +321,53 @@ extern "C" int func_0201d530(Script::Parameter* arg0, int arg1)
     var0.unknown_24_ = var5;
     var0.unknown_24_ = var4 + var5;
 
-    data_020fdc20.unknown_0_ = data_020fdc20.unknown_8_->func_0201e710(var0);
+    gZoneFeatureScriptContext_020fdc20.unknown_0_ = gZoneFeatureScriptContext_020fdc20.unknown_8_->func_0201e710(var0);
     return 1;
 }
 
 extern "C" int func_0201d638(Script::Parameter* arg0, int arg1)
 {
-    if (data_020fdc20.unknown_0_ == NULL)
+    if (gZoneFeatureScriptContext_020fdc20.unknown_0_ == NULL)
         return 0;
     void* var0 = func_02011584(GameState::GetInstance());
-    switch (data_020fdc20.unknown_0_->unknown_4_)
+    switch (gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_4_)
     {
     case 0:
-        data_020fdc20.unknown_0_->unknown_2c_.unknown_0_.unknown_0_ = 0;
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown_0_.unknown_0_ = 0;
         if (arg1 != 0)
-            data_020fdc20.unknown_0_->unknown_0_ = arg0->ToInt();
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_0_ = arg0->ToInt();
         break;
     case 6:
-        data_020fdc20.unknown_0_->unknown_4_ = 0;
-        data_020fdc20.unknown_0_->unknown_2c_.unknown_0_.unknown_0_ = 1;
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_4_ = 0;
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown_0_.unknown_0_ = 1;
         if (arg1 != 0)
-            data_020fdc20.unknown_0_->unknown_0_ = arg0->ToInt();
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_0_ = arg0->ToInt();
         break;
     case 1:
         if (arg1 != 0)
-            data_020fdc20.unknown_0_->unknown_0_ = arg0->ToInt();
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_0_ = arg0->ToInt();
         break;
     case 2:
         if (arg1 == 3)
         {
-            data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_0_ = (arg0++)->ToInt();
-            data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_1_ = (arg0++)->ToInt();
-            data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_2_4_ = (arg0++)->ToInt();
-            data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_2_0_ = 0;
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_0_ = (arg0++)->ToInt();
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_1_ = (arg0++)->ToInt();
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_2_4_ = (arg0++)->ToInt();
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_2_0_ = 0;
         }
         else
         {
             int var1 = 0;
-            data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_0_ = (arg0++)->ToInt();
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_0_ = (arg0++)->ToInt();
             var1++;
-            data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_1_ = (arg0++)->ToInt();
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_1_ = (arg0++)->ToInt();
             var1++;
-            data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_2_4_ = (arg0++)->ToInt();
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_2_4_ = (arg0++)->ToInt();
             var1++;
-            data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_2_0_ = (arg0++)->ToInt();
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_2_0_ = (arg0++)->ToInt();
             var1++;
 
-            if (data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_2_4_ & 8)
+            if (gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_2_4_ & 8)
             {
                 if (arg0->type == 0)
                 {
@@ -377,31 +377,31 @@ extern "C" int func_0201d638(Script::Parameter* arg0, int arg1)
 
                     if (var3 == NULL)
                         return 0;
-                    data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_4_ = *var3;
+                    gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_4_ = *var3;
                 }
                 else
                 {
-                    data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_4_ = (arg0++)->ToInt();
+                    gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_4_ = (arg0++)->ToInt();
                     var1++;
                 }
-                data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_6_ = (arg0++)->ToInt();
+                gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_6_ = (arg0++)->ToInt();
                 var1++;
-                data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_8_ = (arg0++)->ToInt();
+                gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_8_ = (arg0++)->ToInt();
                 var1++;
                 Vector3fix var4;
                 arg0 = arg0->ToVec3fix(&var4);
                 var1 += 3;
-                data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_c_[0] = var4;
-                data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_3c_ = 4096.0f * (arg0++)->ToFloat();
+                gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_c_[0] = var4;
+                gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_3c_ = 4096.0f * (arg0++)->ToFloat();
                 var1++;
-                data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_3e_ = 4096.0f * (arg0++)->ToFloat();
+                gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_3e_ = 4096.0f * (arg0++)->ToFloat();
                 var1++;
 
                 for (int var5 = 1; var5 < 4; var5++)
                 {
                     arg0 = arg0->ToVec3fix(&var4);
                     var1 += 3;
-                    data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_c_[var5] = var4;
+                    gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_c_[var5] = var4;
                 }
             }
             if (var1 < arg1)
@@ -414,20 +414,20 @@ extern "C" int func_0201d638(Script::Parameter* arg0, int arg1)
                 (void)((arg0++)->ToInt());
                 var1++;
             }
-            if (data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_2_4_ & 0x20)
+            if (gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_2_4_ & 0x20)
             {
-                data_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_40_ = 4096.0f * (arg0++)->ToFloat();
+                gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown1_0_.unknown_40_ = 4096.0f * (arg0++)->ToFloat();
             }
         }
         break;
     case 3:
-        data_020fdc20.unknown_0_->unknown_2c_.unknown2_0_.unknown_0_ = (arg0++)->ToInt();
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown2_0_.unknown_0_ = (arg0++)->ToInt();
         break;
     case 4:
     {
-        data_020fdc20.unknown_0_->unknown_2c_.unknown3_0_.unknown_0_0_ = (arg0++)->ToInt();
-        data_020fdc20.unknown_0_->unknown_2c_.unknown3_0_.unknown_1_ = (arg0++)->ToInt();
-        data_020fdc20.unknown_0_->unknown_2c_.unknown3_0_.unknown_0_7_ = (arg0++)->ToInt();
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown3_0_.unknown_0_0_ = (arg0++)->ToInt();
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown3_0_.unknown_1_ = (arg0++)->ToInt();
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown3_0_.unknown_0_7_ = (arg0++)->ToInt();
         Vector3fix var6;
         Vector3fix var7;
         arg0 = arg0->ToVec3fix(&var6);
@@ -438,7 +438,7 @@ extern "C" int func_0201d638(Script::Parameter* arg0, int arg1)
         Vector3fix_Normalize(&var8.unknown_0_.unknown1_0_, &var8.unknown_0_.unknown1_0_);
         var8.unknown_c_ = Vector3fix_InnerProduct(&var8.unknown_0_.unknown1_0_, &var6);
         Vector3fix var10 = { 0, 0, 0 };
-        if (data_020fdc20.unknown_0_->unknown_2c_.unknown3_0_.unknown_0_0_ == 4)
+        if (gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown3_0_.unknown_0_0_ == 4)
         {
             arg0 = arg0->ToVec3fix(&var10);
         }
@@ -449,28 +449,28 @@ extern "C" int func_0201d638(Script::Parameter* arg0, int arg1)
         }
         Vector3fix var11;
         arg0 = arg0->ToVec3fix(&var11);
-        data_020fdc20.unknown_0_->unknown_2c_.unknown3_0_.unknown_4_.func_0201d474(var8);
-        data_020fdc20.unknown_0_->unknown_2c_.unknown3_0_.unknown_14_ = var9;
-        data_020fdc20.unknown_0_->unknown_2c_.unknown3_0_.unknown_18_ = var10;
-        data_020fdc20.unknown_0_->unknown_2c_.unknown3_0_.unknown_24_ = var11;
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown3_0_.unknown_4_.func_0201d474(var8);
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown3_0_.unknown_14_ = var9;
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown3_0_.unknown_18_ = var10;
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown3_0_.unknown_24_ = var11;
         break;
     }
     case 5:
-        data_020fdc20.unknown_0_->unknown_2c_.unknown4_0_.unknown_0_ = (arg0++)->ToInt();
-        data_020fdc20.unknown_0_->unknown_2c_.unknown4_0_.unknown_2_ = (arg0++)->ToInt();
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown4_0_.unknown_0_ = (arg0++)->ToInt();
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown4_0_.unknown_2_ = (arg0++)->ToInt();
         if (arg1 > 2)
-            data_020fdc20.unknown_0_->unknown_0_ = (arg0++)->ToInt();
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_0_ = (arg0++)->ToInt();
         break;
     case 8:
         if (arg1 != 0)
-            data_020fdc20.unknown_0_->unknown_0_ = (arg0++)->ToInt();
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_0_ = (arg0++)->ToInt();
         break;
     case 9:
-        data_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_0_ = (arg0++)->ToInt();
-        data_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_2_ = (arg0++)->ToInt();
-        data_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_4_ = (arg0++)->ToInt();
-        data_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_5_ = (arg0++)->ToInt();
-        if (data_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_5_ & 2)
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_0_ = (arg0++)->ToInt();
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_2_ = (arg0++)->ToInt();
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_4_ = (arg0++)->ToInt();
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_5_ = (arg0++)->ToInt();
+        if (gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_5_ & 2)
         {
             if (arg0->type == 0)
             {
@@ -479,44 +479,44 @@ extern "C" int func_0201d638(Script::Parameter* arg0, int arg1)
 
                 if (var13 == NULL)
                     return 0;
-                data_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_6_ = *var13;
+                gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_6_ = *var13;
             }
             else
             {
-                data_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_6_ = (arg0++)->ToInt();
+                gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_6_ = (arg0++)->ToInt();
             }
-            data_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_8_ = (arg0++)->ToInt();
-            data_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_a_ = (arg0++)->ToInt();
-            arg0 = arg0->ToVec3fix(&data_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_c_);
-            data_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_3c_ = 4096.0f * (arg0++)->ToFloat();
-            data_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_3e_ = 4096.0f * (arg0++)->ToFloat();
-            arg0 = arg0->ToVec3fix(&data_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_18_);
-            arg0 = arg0->ToVec3fix(&data_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_24_);
-            arg0 = arg0->ToVec3fix(&data_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_30_);
-            data_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_40_ = 4096.0f * (arg0++)->ToFloat();
-            data_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_42_ = (arg0++)->ToInt();
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_8_ = (arg0++)->ToInt();
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_a_ = (arg0++)->ToInt();
+            arg0 = arg0->ToVec3fix(&gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_c_);
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_3c_ = 4096.0f * (arg0++)->ToFloat();
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_3e_ = 4096.0f * (arg0++)->ToFloat();
+            arg0 = arg0->ToVec3fix(&gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_18_);
+            arg0 = arg0->ToVec3fix(&gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_24_);
+            arg0 = arg0->ToVec3fix(&gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_30_);
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_40_ = 4096.0f * (arg0++)->ToFloat();
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown5_0_.unknown_42_ = (arg0++)->ToInt();
         }
         break;
     case 10:
-        data_020fdc20.unknown_0_->unknown_2c_.unknown6_0_.unknown_0_ = (arg0++)->ToInt();
-        arg0 = arg0->ToVec3fix(&data_020fdc20.unknown_0_->unknown_2c_.unknown6_0_.unknown_4_);
-        data_020fdc20.unknown_0_->unknown_2c_.unknown6_0_.unknown_2_ = 4096.0f * (arg0++)->ToFloat();
-        data_020fdc20.unknown_0_->unknown_2c_.unknown6_0_.unknown_10_ = 4096.0f * (arg0++)->ToFloat();
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown6_0_.unknown_0_ = (arg0++)->ToInt();
+        arg0 = arg0->ToVec3fix(&gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown6_0_.unknown_4_);
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown6_0_.unknown_2_ = 4096.0f * (arg0++)->ToFloat();
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown6_0_.unknown_10_ = 4096.0f * (arg0++)->ToFloat();
         if (arg1 > 6)
         {
-            arg0 = arg0->ToVec3fix(&data_020fdc20.unknown_0_->unknown_2c_.unknown6_0_.unknown_14_);
-            data_020fdc20.unknown_0_->unknown_2c_.unknown6_0_.unknown_20_ = 4096.0f * (arg0++)->ToFloat();
+            arg0 = arg0->ToVec3fix(&gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown6_0_.unknown_14_);
+            gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown6_0_.unknown_20_ = 4096.0f * (arg0++)->ToFloat();
         }
         break;
     case 12:
     {
-        VectorizedMemset(&data_020fdc20.unknown_0_->unknown_2c_.unknown7_0_,
-            0, sizeof(data_020fdc20.unknown_0_->unknown_2c_.unknown7_0_));
-        data_020fdc20.unknown_0_->unknown_2c_.unknown7_0_.unknown_0_ = (arg0++)->ToInt();
-        data_020fdc20.unknown_0_->unknown_2c_.unknown7_0_.unknown_1_ = (arg0++)->ToInt();
-        data_020fdc20.unknown_0_->unknown_2c_.unknown7_0_.unknown_2_ = (arg0++)->ToInt();
+        VectorizedMemset(&gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown7_0_,
+            0, sizeof(gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown7_0_));
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown7_0_.unknown_0_ = (arg0++)->ToInt();
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown7_0_.unknown_1_ = (arg0++)->ToInt();
+        gZoneFeatureScriptContext_020fdc20.unknown_0_->unknown_2c_.unknown7_0_.unknown_2_ = (arg0++)->ToInt();
 
-        Struct_020134e0::Struct_02018300* var14 = data_020fdc20.unknown_0_;
+        Struct_020134e0::Struct_02018300* var14 = gZoneFeatureScriptContext_020fdc20.unknown_0_;
         switch (var14->unknown_2c_.unknown7_0_.unknown_0_)
         {
         case 1:
@@ -555,10 +555,10 @@ extern "C" int func_0201dfcc(Script::Parameter* arg0, int arg1)
 {
     int var0 = arg0[0].ToInt();
     Struct_020134e0::Struct_0201dfcc* var1 =
-        (Struct_020134e0::Struct_0201dfcc*)data_020fdc20.unknown_4_->Allocate(var0 * sizeof(Struct_020134e0::Struct_0201dfcc));
+        (Struct_020134e0::Struct_0201dfcc*)gZoneFeatureScriptContext_020fdc20.unknown_4_->Allocate(var0 * sizeof(Struct_020134e0::Struct_0201dfcc));
     if (var1 == NULL)
         return 0;
-    data_020fdc20.unknown_8_->func_0201e878(var1, var0);
+    gZoneFeatureScriptContext_020fdc20.unknown_8_->func_0201e878(var1, var0);
     return 1;
 }
 
@@ -625,7 +625,7 @@ extern "C" int func_0201e018(Script::Parameter* arg0, int arg1)
     var0.unknown_20_ = var11;
     var0.unknown_24_ = var10;
     var0.unknown_28_ = var12;
-    data_020fdc20.unknown_8_->func_0201e88c(var0);
+    gZoneFeatureScriptContext_020fdc20.unknown_8_->func_0201e88c(var0);
     return 1;
 }
 
@@ -633,9 +633,9 @@ extern "C" void func_0201e1d0(const void* arg0, unsigned int arg1, Struct_020134
 {
     if (arg1 == 0)
         return;
-    data_020fdc20.unknown_8_ = arg2;
-    data_020fdc20.unknown_4_ = arg3;
-    data_020fdc20.unknown_0_ = NULL;
+    gZoneFeatureScriptContext_020fdc20.unknown_8_ = arg2;
+    gZoneFeatureScriptContext_020fdc20.unknown_4_ = arg3;
+    gZoneFeatureScriptContext_020fdc20.unknown_0_ = NULL;
 
     Script var0;
     var0.Initialize();
@@ -643,9 +643,9 @@ extern "C" void func_0201e1d0(const void* arg0, unsigned int arg1, Struct_020134
     var0.Load(arg0, arg1);
     var0.Execute();
 
-    data_020fdc20.unknown_8_ = NULL;
-    data_020fdc20.unknown_4_ = NULL;
-    data_020fdc20.unknown_0_ = NULL;
+    gZoneFeatureScriptContext_020fdc20.unknown_8_ = NULL;
+    gZoneFeatureScriptContext_020fdc20.unknown_4_ = NULL;
+    gZoneFeatureScriptContext_020fdc20.unknown_0_ = NULL;
 }
 
 extern "C" void func_0201e248(Struct_020134e0* arg0)

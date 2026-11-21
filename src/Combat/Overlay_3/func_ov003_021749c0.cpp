@@ -4,7 +4,7 @@
 #define func_020d6c00 func_020d8608
 #endif
 
-extern "C" void func_ov023_021dca88(void* arg0);
+extern "C" void CloseItemInfoPanel_ov023_021dca88(void* panel);
 
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
@@ -12,7 +12,7 @@ extern "C" void* func_020d6c00(void);
 
 // USA: func_ov003_021749c0
 extern "C" ARM void func_ov003_021749c0(char* arg0) {
-	func_ov023_021dca88(arg0 + 0x3c);
+	CloseItemInfoPanel_ov023_021dca88(arg0 + 0x3c);
 #if defined(jpn)
     enum { Enum_ov003_021749c0_4166 = 0xfc2 };
 #else

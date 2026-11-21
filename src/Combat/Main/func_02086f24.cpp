@@ -132,7 +132,7 @@ struct Struct_02086f24_4 {
 };
 
 struct Struct_02086f24_5;
-struct Struct_02086f24_6 { void* unknown_0_; };
+struct SpellTable_02086f24_6 { void* pBlock_0_; };
 struct Struct_02086f24_7;
 struct Struct_02013fb4;
 
@@ -149,9 +149,9 @@ extern "C" void func_02082fc4(void* arg0, void* arg1);
 extern "C" void InitItemTable_020de824(void* itemTable);
 extern "C" void func_020de848(void* itemTable);
 extern "C" int func_020def44(int arg0, int arg1, int arg2, short arg3);
-extern "C" void func_02083e28(void* arg0, int arg1);
+extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
 extern "C" void ClearSpellTable_0209a804(int* table);
-extern "C" void func_0209a8b4(Struct_02086f24_6* arg0, SafeAllocator* arg1, Struct_02013fb4* arg2, int arg3);
+extern "C" void BuildSpellTable_0209a8b4(SpellTable_02086f24_6* table, SafeAllocator* allocator, Struct_02013fb4* scriptData, int scriptSize);
 extern "C" int func_0209ab20(Struct_02086f24_7* arg0, int arg1, int arg2, unsigned char* arg3);
 extern "C" int func_02086778(Struct_02086f24_4* arg0, Struct_0201099c_20* arg1, unsigned char arg2, unsigned char arg3);
 
@@ -206,7 +206,7 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
     unsigned char var7[20];
     unsigned int var8;
     unsigned int var9;
-    Struct_02086f24_6 var10;
+    SpellTable_02086f24_6 var10;
     var4.ResetAllocatorPointer();
     var4.CreateTypeA(arg2->Allocate(HEAP_SIZE_02086f24), HEAP_SIZE_02086f24);
     var4.Reset();
@@ -259,7 +259,7 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
 #endif
         }
         BackgroundLoader::RemoveLockGlobal();
-        func_02083e28(&var2, 0);
+        CalculatePartyMemberStats_02083e28(&var2, 0);
         var0.unknown_14c_[0].unknown_0_0_ = var2.unknown_0_[0].unknown_0_0_;
         var0.unknown_14c_[0].unknown_1_2_ = var2.unknown_0_[0].unknown_1_2_;
         var0.unknown_14c_[0].unknown_2_4_ = var2.unknown_0_[0].unknown_2_4_;
@@ -286,7 +286,7 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
         void* var18 = LoadFileIntoMemory(data_020f102e, g_fileScratchSpace, &var9);
         if (var18 != NULL) {
             ClearSpellTable_0209a804((int*)&var10);
-            func_0209a8b4(&var10, &var4, (Struct_02013fb4*)var18, var9);
+            BuildSpellTable_0209a8b4(&var10, &var4, (Struct_02013fb4*)var18, var9);
             int var19 = func_0209ab20((Struct_02086f24_7*)&var10, var12, var0.unknown_2_[var12], var7);
             unsigned char* var20 = var7;
             for (int var21 = 0; var21 < var19; var21++) {

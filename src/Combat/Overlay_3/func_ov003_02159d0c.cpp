@@ -46,7 +46,7 @@ extern "C" int func_ov003_0215bf18(void*, int);
 extern "C" int GetMessageChoice_020457e0(void*);
 extern "C" void* func_0205ec34(void);
 extern "C" int RunTrigger_020649b0(void*, int, void*);
-extern "C" void func_0206f81c(void*);
+extern "C" void RunDeferredTriggerActions_0206f81c(void*);
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
 extern "C" void func_ov017_021d1118(int, int, int, int);
 extern "C" void func_ov017_021d1014(int, int, int);
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
         }
         *(unsigned char*)(var0 + 0x59f) = *(unsigned char*)(var0 + 0x59f) | 0x10;
         if (RunTrigger_020649b0(func_0205ec34(), 0xc, var4)) {
-            func_0206f81c(var4);
+            RunDeferredTriggerActions_0206f81c(var4);
         }
         if (*(unsigned char*)(var0 + 0x5b4) == 0) {
             func_ov003_02159250(arg0, ((void*)((StringList*)((Struct_0201099c_3*)(var0 + 0x64)))->GetString(0x64)));

@@ -3,7 +3,7 @@
 
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void DrawMessageGlyphs_0204359c(void* window, int glyphCount);
-extern "C" void func_020439b0(void* arg0, int arg1);
+extern "C" void UpdateMessageWindowGraphics_020439b0(void* window, int arg1);
 extern "C" void func_0205cb60(void* arg0);
 
 // USA: func_ov017_021a925c
@@ -12,6 +12,6 @@ extern "C" ARM void func_ov017_021a925c(char* arg0) {
     void* var1 = (void*)GetMessageWindow_020421a0();
     int var2 = var0->GetTickCount();
     DrawMessageGlyphs_0204359c(var1, var2);
-    func_020439b0(var1, 0);
+    UpdateMessageWindowGraphics_020439b0(var1, 0);
     func_0205cb60(arg0 + 0x2c);
 }

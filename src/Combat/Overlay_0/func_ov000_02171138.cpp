@@ -29,7 +29,7 @@
 extern "C" int func_02053c6c(unsigned char* gameObject);
 
 struct Struct_0203c108_3;
-extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
+extern "C" void SetSpriteText_0203c108(struct Struct_0203c108_3* spriteText, char* text);
 
 extern "C" void func_ov000_0216fe9c(void* arg0);
 
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov000_02171138(void* arg0) {
         return;
     }
     int var5 = *(int*)((char*)var3 + 0x134);
-    func_0203c108((struct Struct_0203c108_3*)(var0 + REGION_OFFSET_0), (char*)var5);
+    SetSpriteText_0203c108((struct Struct_0203c108_3*)(var0 + REGION_OFFSET_0), (char*)var5);
     *(int*)(var0 + REGION_OFFSET_1) = 2;
     int var6 = *(int*)(var4 + REGION_OFFSET_2);
     *(unsigned char*)(var0 + REGION_OFFSET_3) = (unsigned char)var6;

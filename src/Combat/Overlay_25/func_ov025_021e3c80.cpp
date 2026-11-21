@@ -3,7 +3,7 @@
 
 struct BattleAction_ov000_0215440c_2;
 struct ActionActor_ov000_02160094 { char unknown_0_[0x20]; unsigned short unknown_20_; };
-struct BattleAction_ov000_0215440c { char unknown_0_[9]; unsigned char unknown_9_; };
+struct BattleAction_ov000_0215440c { char unknown_0_[9]; unsigned char targetCount_9_; };
 struct ActionTarget_ov000_021600f8 { char unknown_0_[0xe]; short unknown_e_; };
 
 struct Struct_ov025_021e3c80 {
@@ -134,7 +134,7 @@ extern "C" ARM int func_ov025_021e3c80(Struct_ov025_021e3c80* arg0, BattleAction
         break;
     }
     case 7: {
-        int var17 = ((BattleAction_ov000_0215440c*)arg1)->unknown_9_;
+        int var17 = ((BattleAction_ov000_0215440c*)arg1)->targetCount_9_;
         for (int var18 = 0; var18 < var17; var18++) {
             ActionTarget_ov000_021600f8* var19 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, var18);
             if (var19 != 0) {

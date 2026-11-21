@@ -8,7 +8,7 @@
 struct Struct_020a87d0_2;
 extern char gSoundEffectManager_02108760;
 extern "C" void UnloadExtraSoundSet_0205eb80(void* manager);
-extern "C" void func_0205eb54(void* arg0, int arg1, int arg2);
+extern "C" void LoadExtraSoundSet_0205eb54(void* manager, int soundSetToLoad, int soundSet);
 extern "C" void PlayExtraSoundEffect_0205eb90(void* manager, int soundEffectIndex, int handle);
 extern "C" void* func_0202ae18(void);
 struct LocalWireless_0202c1a4;
@@ -32,7 +32,7 @@ extern "C" ARM void func_020a87d0(struct Struct_020a87d0* arg0) {
     struct Struct_020a87d0_2* var0 = (struct Struct_020a87d0_2*)GetGameResources();
     if (IsBrightnessWithinValidRange((GameResources*)var0, false) != 0) {
         UnloadExtraSoundSet_0205eb80(&gSoundEffectManager_02108760);
-        func_0205eb54(&gSoundEffectManager_02108760, 0x72, 0x72);
+        LoadExtraSoundSet_0205eb54(&gSoundEffectManager_02108760, 0x72, 0x72);
         PlayExtraSoundEffect_0205eb90(&gSoundEffectManager_02108760, 0, 0);
     }
 

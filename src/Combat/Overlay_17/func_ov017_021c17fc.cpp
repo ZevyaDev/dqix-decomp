@@ -33,7 +33,7 @@ extern "C" void func_ov012_021843d4(void* arg0);
 extern "C" void func_ov012_02184884(void* arg0, SafeAllocator* arg1);
 extern "C" int func_ov012_02184acc(void* arg0, unsigned int arg1);
 extern "C" void func_ov012_02185af0(void* arg0);
-extern "C" void func_020dc2d0(int arg0);
+extern "C" void RestartMapDisplay_020dc2d0(int modeOverride);
 extern "C" void func_ov017_021a5530(char* arg0);
 extern "C" void func_ov017_0218d77c(GameResources* arg0, int arg1);
 extern char gMainHeap_02114e20;
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov017_021c17fc(Struct_ov017_021c17fc_2* arg0) {
     unsigned char var5 = arg0->unknown_20_->unknown_14bc_;
     *(volatile unsigned int*)0x4000000 = (arg0->unknown_20_->unknown_1c_ << 8) | (*(volatile unsigned int*)0x4000000 & ~0x1f00);
     func_ov017_021c1a24(arg0);
-    func_020dc2d0(0);
+    RestartMapDisplay_020dc2d0(0);
     if (arg0->unknown_1d_) {
         if (var5) {
             EnablePlayerControl_020397c0(var2);

@@ -8,7 +8,7 @@ char unknown1_50_[0x3f1];
 #endif
 unsigned char unknown_441_;char unknown_442_[6];};
 struct Struct_ov000_021682ec_5 {char unknown_0_[0x6c];signed char unknown_6c_[4];char unknown_70_[4];signed char unknown_74_[4],unknown_78_;char unknown_79_[0x9f];int unknown_118_;char unknown_11c_[0x60];int unknown_17c_;char unknown_180_[0x7d8];Struct_ov000_021700dc unknown_958_[4];};
-struct TextWindowManager_0205d81c;extern "C" unsigned char* FindTextWindow_0205d81c(TextWindowManager_0205d81c*,int);struct Struct_ov000_02171640;extern "C" int func_ov000_02171698(Struct_ov000_02171640*);struct Struct_ov000_02171968;extern "C" int func_ov000_021719c0(Struct_ov000_02171968*);extern "C" int GetMenuCursorItemCount_0205bafc(void*);extern "C" void func_02050400(unsigned char*,int);extern "C" void func_ov000_0217f78c(void*);
+struct TextWindowManager_0205d81c;extern "C" unsigned char* FindTextWindow_0205d81c(TextWindowManager_0205d81c*,int);struct Struct_ov000_02171640;extern "C" int func_ov000_02171698(Struct_ov000_02171640*);struct Struct_ov000_02171968;extern "C" int func_ov000_021719c0(Struct_ov000_02171968*);extern "C" int GetMenuCursorItemCount_0205bafc(void*);extern "C" void SetTextWindowPageNumberShown_02050400(unsigned char*,int);extern "C" void func_ov000_0217f78c(void*);
 extern "C" {void func_ov000_0217fa60(void*);void func_ov000_02174c14(void*);void func_ov000_0217f304(void*,int,int,void*);int func_ov000_021700dc(void*);void func_ov000_0217edd4(void*,signed char*,signed char*);void func_ov000_0217ee7c(signed char*,signed char*,signed char,int);void func_ov000_02176634(void*,void*,int,int,int);int func_ov000_0217c158(void*);void func_ov000_02177038(void*,void*,int,int,int);}
 // USA: func_ov000_0217f00c
 extern "C" ARM void func_ov000_0217f00c(Struct_ov000_021682ec_5* arg0,int arg1,int arg2){
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov000_0217f00c(Struct_ov000_021682ec_5* arg0,int arg1,i
    if(var3==15){if(func_ov000_02171698((Struct_ov000_02171640*)var1)>4)var4=1;}
    else if(var3==16){if(func_ov000_021719c0((Struct_ov000_02171968*)var1)>4)var4=1;}
    else if(var3==17){if(GetMenuCursorItemCount_0205bafc((char*)var1->unknown_38_+0x54)>4)var4=1;}
-   if(var2)func_02050400(var2,var4);break;
+   if(var2)SetTextWindowPageNumberShown_02050400(var2,var4);break;
   }
   case 19:{
    func_ov000_0217edd4(arg0,arg0->unknown_74_,&arg0->unknown_78_);func_ov000_0217ee7c(arg0->unknown_74_,&arg0->unknown_78_,-1,1);signed char var6=arg0->unknown_78_;var1->unknown_30_=arg0->unknown_74_;var1->unknown_34_=var6;var1->unknown_441_=arg1;func_ov000_02176634(arg0,var1,var3,arg1,arg2);break;}

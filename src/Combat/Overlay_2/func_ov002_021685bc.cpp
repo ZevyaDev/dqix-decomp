@@ -17,7 +17,7 @@ extern "C" void *FindNounInTable_020e5294(void *nounTable, int nounId);
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0 *window, int index, int number);
 extern "C" void func_020466c8(struct Struct_020466c8 *arg0, int arg1);
 extern "C" int func_ov002_021574d4(void *arg0, int arg1);
-extern "C" void *func_0209a594(void *arg0, int arg1);
+extern "C" void *FindSkillEntry_0209a594(void *table, int skillEntryId);
 extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" void ExpandInflectionTags_020e4864(void *text, void *buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
 #if defined(jpn)
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov002_021685bc(unsigned char *arg0) {
 #else
 extern "C" ARM void func_ov002_021685bc(unsigned char *arg0) {
     while (*(arg0 + 0x2000 + 0x454) < *(arg0 + 0x2000 + 0x455)) {
-        struct Struct_ov002_021685bc *var0 = (struct Struct_ov002_021685bc *) func_0209a594(
+        struct Struct_ov002_021685bc *var0 = (struct Struct_ov002_021685bc *) FindSkillEntry_0209a594(
             arg0 + 0x3c + 0x2400, (*(unsigned short **) (arg0 + 0x2000 + 0x450))[*(arg0 + 0x2000 + 0x454)]);
         char *var1 = NULL;
         if (var0 != NULL) {

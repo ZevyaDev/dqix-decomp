@@ -2,7 +2,7 @@
 
 extern "C" int func_ov031_02212ee8(void);
 extern "C" void func_ov031_02223b1c(void);
-extern "C" void func_ov031_022368e0(void);
+extern "C" void StopWifiSetupSoundEffect_ov031_022368e0(void);
 extern "C" int PlayWifiSetupSoundEffect_ov031_02236878(int soundEffectIndex);
 extern "C" ARM int func_ov031_02212fb8(void);
 extern "C" ARM void func_ov031_0222ea14(void* arg0);
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov031_02233d84(void* arg0) {
         if (var0 == 0) return;
     }
     func_ov031_02223b1c();
-    func_ov031_022368e0();
+    StopWifiSetupSoundEffect_ov031_022368e0();
     if (data_ov031_02290cd0.unknown_4_ != 0 && var0 > 0) {
         data_ov031_02290cd0.unknown_0_ = 1;
         PlayWifiSetupSoundEffect_ov031_02236878(0x11);

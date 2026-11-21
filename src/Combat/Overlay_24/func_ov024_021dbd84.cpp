@@ -7,7 +7,7 @@ extern "C" void func_02088338(unsigned char* arg0);
 struct Struct_ov024_021dbd84_6;
 extern "C" int func_ov024_021e929c(struct Struct_ov024_021dbd84_6* arg0, int arg1, int arg2);
 struct Struct_ov024_021da670_6;
-extern "C" int func_ov024_021da998(struct Struct_ov024_021da670_6* arg0);
+extern "C" int HasTension_ov024_021da998(struct Struct_ov024_021da670_6* combatant);
 extern "C" int func_ov024_021eb4b0(int arg0, int arg1, int arg2);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
 extern "C" void* func_ov024_021e8cfc(void* arg0, void* arg1, int arg2, int arg3);
@@ -52,7 +52,7 @@ extern "C" ARM void* func_ov024_021dbd84(struct Struct_ov024_021dbd84_2* arg0, i
     var2.unknown_0_ = 0;
     var2.unknown_4_ = 0;
     unsigned short var4 = func_ov024_021e929c((struct Struct_ov024_021dbd84_6*)arg0, arg2, var1);
-    int var5 = func_ov024_021da998((struct Struct_ov024_021da670_6*)var0);
+    int var5 = HasTension_ov024_021da998((struct Struct_ov024_021da670_6*)var0);
     if (var1) {
         if (arg3->unknown_4_.unknown_0_0_ == 0x233) var4 = arg3->unknown_20_.unknown_2_4_;
         if (func_ov024_021eb4b0((int)arg0, ((struct Struct_ov024_021dbd84_5*)var0->currentStats_)->unknown_14_, 0x10)) {

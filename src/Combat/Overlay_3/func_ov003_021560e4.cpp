@@ -66,7 +66,7 @@ void ClearMessageParams_02046380(void*);
 void* func_0205ec34(void);
 int UpdateMenuLayoutLoad_0207f9f4(void*);
 void func_ov003_02156054(void*);
-void func_ov023_021e20f0(void*, void*, void*, unsigned int);
+void LoadLayout_ov023_021e20f0(void*, void*, void*, unsigned int);
 }
 
 extern const char data_ov003_0217fce4[];
@@ -338,7 +338,7 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
                 char* var54 = (char*)arg0->unknown_0_;
                 _ZN13SafeAllocator5ResetEv(var54 + 0x50);
                 func_ov023_021e20c0(arg0->unknown_114_);
-                func_ov023_021e20f0(arg0->unknown_114_, var54 + 0x50, var52, var53);
+                LoadLayout_ov023_021e20f0(arg0->unknown_114_, var54 + 0x50, var52, var53);
             }
             var2->RemoveTask(arg0->unknown_1d0_);
             arg0->unknown_1d0_ = -1;

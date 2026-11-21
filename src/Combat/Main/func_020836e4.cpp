@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-struct Struct_0208358c_2 {
+struct ItemData_0208358c_2 {
     int unknown_0_;
     int unknown_4_;
     int unknown_8_;
@@ -12,7 +12,7 @@ struct Struct_0208358c_2 {
     unsigned short unknown_1c_;
 };
 // USA: func_020836e4
-extern "C" ARM void func_020836e4(struct Struct_0208358c_2* arg0, struct Struct_0208358c_2* arg1) {
+extern "C" ARM void func_020836e4(struct ItemData_0208358c_2* arg0, struct ItemData_0208358c_2* arg1) {
     arg0->unknown_0_ = arg1->unknown_0_;
     arg0->unknown_4_ = arg1->unknown_4_;
     arg0->unknown_8_ = arg1->unknown_8_;

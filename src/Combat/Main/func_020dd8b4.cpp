@@ -35,7 +35,7 @@ extern "C" int func_02084fc8(char*);
 extern "C" int func_02084ee8(void*);
 extern "C" int func_02084f58(void*);
 extern "C" int func_02084e78(void*);
-extern "C" void func_02083e28(char*, Struct_020dd8b4_3*);
+extern "C" void CalculatePartyMemberStats_02083e28(char*, Struct_020dd8b4_3*);
 static inline int inline_020dd8b4(int arg0) { return arg0 >= 0 && arg0 <= 3; }
 // USA: func_020dd8b4
 extern "C" ARM void func_020dd8b4(Struct_020dd8b4_4* arg0, int arg1, int arg2, unsigned char arg3) {
@@ -58,5 +58,5 @@ extern "C" ARM void func_020dd8b4(Struct_020dd8b4_4* arg0, int arg1, int arg2, u
     arg0->unknown_70_ = var0->unknown_134_->primaryStats.magicalMending;
     arg0->unknown_74_ = var0->unknown_134_->primaryStats.maxHP;
     arg0->unknown_78_ = var0->unknown_134_->primaryStats.maxMP;
-    func_02083e28(var1, &arg0->unknown_4_);
+    CalculatePartyMemberStats_02083e28(var1, &arg0->unknown_4_);
 }

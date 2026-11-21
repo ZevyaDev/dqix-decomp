@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov000_0215fd90(void* arg0, int arg1);
+extern "C" int HasActionResultFlag_ov000_0215fd90(void* result, int flagIndex);
 
 struct Struct_ov000_02159f7c {
     unsigned long long unknown_0_;
@@ -15,7 +15,7 @@ extern "C" ARM int func_ov000_02159f7c(void* arg0, struct Struct_ov000_02159f7c*
     if (TEST_BIT_CONST(arg1, 9)) goto ret1;
     if (TEST_BIT_CONST(arg1, 10)) goto ret1;
     if (TEST_BIT_CONST(arg1, 12)) goto ret1;
-    if (func_ov000_0215fd90(arg1, 0x26) == 0) goto ret0;
+    if (HasActionResultFlag_ov000_0215fd90(arg1, 0x26) == 0) goto ret0;
 ret1:
     return 1;
 ret0:

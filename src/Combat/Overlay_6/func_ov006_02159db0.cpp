@@ -28,12 +28,12 @@ struct Struct_ov006_02159db0_3 {
     unsigned char unknown_0_[0x28];
     int unknown_28_[3];
 };
-struct Struct_020e280c {
+struct YesNoWindow_020e280c {
     void* unknown_0_;
     void* unknown_4_;
     void* unknown_8_;
     Struct_ov006_02159db0_2* unknown_c_;
-    Struct_ov006_02159db0_3* unknown_10_;
+    Struct_ov006_02159db0_3* pWindow_10_;
 };
 struct SoundEffectManager_02108760;
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
@@ -41,14 +41,14 @@ extern "C" int OpenMenuLayoutWindow_020813ec(void*, int);
 extern "C" void ResetKeyRepeat_0208203c(KeyRepeat_02081f20_2*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_02080c04(MenuLayout_0207fdcc_2*, int);
-extern "C" void func_020e280c(Struct_020e280c*, void*);
+extern "C" void OpenYesNoWindow_020e280c(YesNoWindow_020e280c*, void*);
 extern "C" void SetDisplayWindowInsideLayers_020e2d24(int*, int, int);
 
 struct Struct_ov006_02159db0 {
 #if defined(jpn)
     unsigned char unknown_0_[0xc];
     MenuLayout_0207fdcc_2* unknown1_14_;
-    Struct_020e280c* unknown_18_;
+    YesNoWindow_020e280c* unknown_18_;
     unsigned char unknown_14_[0x3c - 0x14];
     short* unknown_44_;
     unsigned char unknown_40_[0x94 - 0x40];
@@ -57,7 +57,7 @@ struct Struct_ov006_02159db0 {
 #else
     unsigned char unknown1_0_[0x14];
     MenuLayout_0207fdcc_2* unknown1_14_;
-    Struct_020e280c* unknown_18_;
+    YesNoWindow_020e280c* unknown_18_;
     unsigned char unknown_1c_[0x44 - 0x1c];
     short* unknown_44_;
     unsigned char unknown_48_[0x9c - 0x48];
@@ -81,11 +81,11 @@ extern "C" ARM void func_ov006_02159db0(Struct_ov006_02159db0* arg0) {
     if (arg0->unknown_18_ == 0)
         return;
     func_02080c04(arg0->unknown1_14_, arg0->unknown_36e_);
-    func_020e280c(arg0->unknown_18_, (void*)-1);
+    OpenYesNoWindow_020e280c(arg0->unknown_18_, (void*)-1);
 #if defined(jpn)
     Struct_ov006_02159db0_2* var0 = arg0->unknown_18_->unknown_c_;
     var0->unknown_38_ = 0xc2;
     var0->unknown_39_ = 0x48;
 #endif
-    SetDisplayWindowInsideLayers_020e2d24(arg0->unknown_18_->unknown_10_->unknown_28_, 0x18, 1);
+    SetDisplayWindowInsideLayers_020e2d24(arg0->unknown_18_->pWindow_10_->unknown_28_, 0x18, 1);
 }

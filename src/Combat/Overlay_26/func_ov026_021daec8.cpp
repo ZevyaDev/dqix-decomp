@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
 
-struct Struct_02049b54_2;
+struct Combatant_02049b54_2;
 struct Struct_02033834;
 struct Struct_02010088;
 
@@ -22,7 +22,7 @@ struct Struct_02049b54_3 {
 
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
-extern "C" Struct_02049b54_3 func_02049b54(Struct_02049b54_2* arg0);
+extern "C" Struct_02049b54_3 GetCombatantLineupPosition_02049b54(Combatant_02049b54_2* combatant);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834* object, int angle);
 extern "C" void func_02049bac(unsigned char* arg0, int* arg1);
 extern "C" int IsDead_02010088(Struct_02010088* object);
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov026_021daec8(Struct_ov000_02161e30* arg0, Struct_ov02
             __clear(&var9, sizeof(var9));
             var9.z = var6;
 
-            Vector3fix var10 = func_02049b54((Struct_02049b54_2*)var8).unknown_0_;
+            Vector3fix var10 = GetCombatantLineupPosition_02049b54((Combatant_02049b54_2*)var8).unknown_0_;
             var10.y = 0;
 
             Vector3fix var11;

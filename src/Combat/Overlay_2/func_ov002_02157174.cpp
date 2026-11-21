@@ -36,7 +36,7 @@ extern "C" Struct_ov002_02157174 *FindActionData_02079e2c(char *actionTables, in
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" int func_0209ab7c(void *arg0, void *arg1, unsigned char *arg2);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char *memberData, int skillEntryId);
-extern "C" Struct_ov002_02157174_2 *func_0209a594(void *arg0, int arg1);
+extern "C" Struct_ov002_02157174_2 *FindSkillEntry_0209a594(void *table, int skillEntryId);
 extern "C" void *func_02053c6c(unsigned char *gameObject);
 
 // USA: func_ov002_02157174
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov002_02157174(char *arg0, int arg1) {
     }
     for (var11 = 0; var11 < 0x11f; var11++) {
         if (HasLearnedSkillEntry_02083b00(var5, var11)) {
-            Struct_ov002_02157174_2 *var14 = func_0209a594(arg0 + Enum_ov002_02157174_60 + Enum_ov002_02157174_9216, var11);
+            Struct_ov002_02157174_2 *var14 = FindSkillEntry_0209a594(arg0 + Enum_ov002_02157174_60 + Enum_ov002_02157174_9216, var11);
             if (var14 != 0 && var14->unknown_8_ != 0) {
                 Struct_ov002_02157174 *var15 = FindActionData_02079e2c((char*)var8, (short) var14->unknown_8_);
                 if (var15 != 0 && var15->unknown_19_4_ == 1) {

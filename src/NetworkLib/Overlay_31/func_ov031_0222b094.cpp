@@ -4,7 +4,7 @@ extern "C" void func_ov031_0222b168(void);
 extern "C" void func_ov031_0222b1a0(void);
 extern "C" void func_ov031_0222b1a4(void);
 extern "C" int func_ov031_02226f68(void);
-extern "C" void* func_ov031_022368e0(void);
+extern "C" void* StopWifiSetupSoundEffect_ov031_022368e0(void);
 extern "C" int func_ov031_02237b2c(int, int, int, int, int);
 extern "C" int PlayWifiSetupSoundEffect_ov031_02236878(int);
 extern "C" void DisableButtonBarInput_ov031_02222e98(void);
@@ -35,7 +35,7 @@ state1:
     return;
 state2:
     if (data_ov031_02290c80.unknown_4_ == 0) return;
-    func_ov031_022368e0();
+    StopWifiSetupSoundEffect_ov031_022368e0();
     func_ov031_02237b2c(0xc, 1, 1, -1, 0);
     PlayWifiSetupSoundEffect_ov031_02236878(9);
     DisableButtonBarInput_ov031_02222e98();

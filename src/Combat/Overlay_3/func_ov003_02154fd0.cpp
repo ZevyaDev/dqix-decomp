@@ -12,8 +12,8 @@ extern "C" void func_ov023_021eb4f4(char* arg0);
 struct MenuLayout_0207fd88;
 extern "C" void CopyMenuLayoutBGScreenDataToVRAM_0207fd88(struct MenuLayout_0207fd88* menuLayout);
 
-struct Struct_020e2834;
-extern "C" void func_020e2834(struct Struct_020e2834* arg0);
+struct YesNoWindow_020e2834;
+extern "C" void func_020e2834(struct YesNoWindow_020e2834* arg0);
 
 // USA: func_ov003_02154fd0
 extern "C" ARM void func_ov003_02154fd0(char* arg0) {
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov003_02154fd0(char* arg0) {
             CopyMenuLayoutBGScreenDataToVRAM_0207fd88(var1);
         }
     }
-    struct Struct_020e2834* var2 = *(struct Struct_020e2834**)(arg0 + 0x1c);
+    struct YesNoWindow_020e2834* var2 = *(struct YesNoWindow_020e2834**)(arg0 + 0x1c);
     if (var2 != 0) {
         func_020e2834(var2);
     }

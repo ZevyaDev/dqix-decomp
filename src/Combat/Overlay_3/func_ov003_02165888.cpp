@@ -15,7 +15,7 @@ struct Struct_02081198;
 struct MenuLayout_02081164;
 
 extern "C" int HideMenuLayoutWindowTexts_02080b54(void* menuLayout, int windowId);
-extern "C" int func_02080b2c(void* arg0, int arg1);
+extern "C" int HideMenuLayoutText_02080b2c(void* menuLayout, int textId);
 extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
 extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0* menuLayout, int textId, int color);
 extern "C" int func_020dcc98(int arg0);
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov003_02165888(Struct_ov003_02165888* arg0) {
 
     for (var15 = 0; var15 < 4; var15++) {
         var2 = 0xf;
-        func_02080b2c(var0, var3);
+        HideMenuLayoutText_02080b2c(var0, var3);
 
         if (var15 < var10) {
             int var16;
@@ -223,7 +223,7 @@ extern "C" ARM void func_ov003_02165888(Struct_ov003_02165888* arg0) {
 
     for (var36 = 0; var36 < 4; var36++) {
         var23 = 0xf;
-        func_02080b2c(var21, var24);
+        HideMenuLayoutText_02080b2c(var21, var24);
 
         if (var36 < var31) {
             int var38;

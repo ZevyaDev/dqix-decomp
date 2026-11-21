@@ -21,79 +21,79 @@ extern char data_ov017_021d7584[];
 extern char data_ov017_021d758d[];
 extern char data_ov017_021d75a2[];
 
-// USA: func_ov017_0219ba0c
-extern "C" ARM void func_ov017_0219ba0c(GameResources* arg0, int arg1) {
-    const void* var0;
-    unsigned int var1;
-    unsigned int var2;
-    unsigned int var3;
-    char* var4 = GetMessageWindow_020421a0();
+// USA: LoadCommonFieldResources_ov017_0219ba0c
+extern "C" ARM void LoadCommonFieldResources_ov017_0219ba0c(GameResources* gameResources, int isIconsOnly) {
+    const void* archiveFile;
+    unsigned int archiveFileSize;
+    unsigned int archiveSize;
+    unsigned int fileSize;
+    char* messageWindow = GetMessageWindow_020421a0();
     BackgroundLoader* var5 = BackgroundLoader::GetInstance();
-    SafeAllocator* var6 = &arg0->allocator_array_38[6];
-    char* var7 = arg0->unknown_2cc_ + 0x2a0;
+    SafeAllocator* var6 = &gameResources->allocator_array_38[6];
+    char* textureArena = gameResources->unknown_2cc_ + 0x2a0;
     var5->AddLockGlobal();
     var6->Reset();
-    ((TextureArena*)((TextureVRAMArea_0203d028*)var7))->Reset();
-    ((TextureArena*)(var7))->Restore();
+    ((TextureArena*)((TextureVRAMArea_0203d028*)textureArena))->Reset();
+    ((TextureArena*)(textureArena))->Restore();
 
-    char var8[0x50];
-    sprintf(var8, data_ov017_021d7504, data_ov017_021d7510);
-    if (!LoadFileIntoMemory(var8, g_fileScratchSpace, &var2)) {
+    char path[0x50];
+    sprintf(path, data_ov017_021d7504, data_ov017_021d7510);
+    if (!LoadFileIntoMemory(path, g_fileScratchSpace, &archiveSize)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
 
-    NarcHandle var9;
-    if (!var9.Initialize(data_ov017_021d751b, g_fileScratchSpace)) {
+    NarcHandle archive;
+    if (!archive.Initialize(data_ov017_021d751b, g_fileScratchSpace)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    func_020440b8(var4, var6, g_fileScratchSpace);
-    if (arg1) {
-        var9.Destroy();
-        ((TextureArena*)(var7))->Save();
+    func_020440b8(messageWindow, var6, g_fileScratchSpace);
+    if (isIconsOnly) {
+        archive.Destroy();
+        ((TextureArena*)(textureArena))->Save();
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    var9.Destroy();
+    archive.Destroy();
 
-    ((Model3D*)arg0->unknown_ptr_36c8)->Clear();
-    if (GetFileInNarc(g_fileScratchSpace, data_ov017_021d7577, &var0, &var1, 0)) {
-        ((Model3D*)arg0->unknown_ptr_36c8)->CopyAndProcessRawFile(&var6->allocUnion, var0, var1, Model3D::TextureStagingMode_Normal);
+    ((Model3D*)gameResources->unknown_ptr_36c8)->Clear();
+    if (GetFileInNarc(g_fileScratchSpace, data_ov017_021d7577, &archiveFile, &archiveFileSize, 0)) {
+        ((Model3D*)gameResources->unknown_ptr_36c8)->CopyAndProcessRawFile(&var6->allocUnion, archiveFile, archiveFileSize, Model3D::TextureStagingMode_Normal);
     }
-    ((Object3D*)arg0->unknown_ptr_36cc)->Initialize();
-    if (GetFileInNarc(g_fileScratchSpace, data_ov017_021d7584, &var0, &var1, 0)) {
-        ObjectArchiveLoadInfo var10;
-        var10.fileData = var0;
-        var10.unk_8 = var1;
-        var10.allocator = var6;
-        var10.unk_10 = 1;
-        ((Object3D*)arg0->unknown_ptr_36cc)->LoadFromCHRArchive(&var10);
+    ((Object3D*)gameResources->unknown_ptr_36cc)->Initialize();
+    if (GetFileInNarc(g_fileScratchSpace, data_ov017_021d7584, &archiveFile, &archiveFileSize, 0)) {
+        ObjectArchiveLoadInfo loadInfo;
+        loadInfo.fileData = archiveFile;
+        loadInfo.unk_8 = archiveFileSize;
+        loadInfo.allocator = var6;
+        loadInfo.unk_10 = 1;
+        ((Object3D*)gameResources->unknown_ptr_36cc)->LoadFromCHRArchive(&loadInfo);
     }
-    ((TextureArena*)(var7))->Save();
+    ((TextureArena*)(textureArena))->Save();
 
-    if (!LoadFileIntoMemory(data_ov017_021d758d, g_fileScratchSpace, &var3)) {
+    if (!LoadFileIntoMemory(data_ov017_021d758d, g_fileScratchSpace, &fileSize)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    void* var11 = var6->Allocate(var3);
-    if (var11 == NULL) {
+    void* buffer = var6->Allocate(fileSize);
+    if (buffer == NULL) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    memcpy(var11, g_fileScratchSpace, var3);
-    *(void**)((char*)arg0 + 0x30) = var11;
-    *(unsigned int*)((char*)arg0 + 0x34) = var3;
-    if (!LoadFileIntoMemory(data_ov017_021d75a2, g_fileScratchSpace, &var3)) {
+    memcpy(buffer, g_fileScratchSpace, fileSize);
+    *(void**)((char*)gameResources + 0x30) = buffer;
+    *(unsigned int*)((char*)gameResources + 0x34) = fileSize;
+    if (!LoadFileIntoMemory(data_ov017_021d75a2, g_fileScratchSpace, &fileSize)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    var11 = var6->Allocate(var3);
-    if (var11 == NULL) {
+    buffer = var6->Allocate(fileSize);
+    if (buffer == NULL) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    memcpy(var11, g_fileScratchSpace, var3);
-    *(void**)((char*)arg0 + 0x2c) = var11;
+    memcpy(buffer, g_fileScratchSpace, fileSize);
+    *(void**)((char*)gameResources + 0x2c) = buffer;
     BackgroundLoader::RemoveLockGlobal();
 }

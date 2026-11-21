@@ -10,7 +10,7 @@ extern Struct_ov031_02249198 data_ov031_0224919e[];
 extern Struct_ov031_02290cc8 data_ov031_02290cc8;
 extern signed char data_ov031_02249150[8];
 
-extern "C" char* func_ov031_02235c70(void);
+extern "C" char* GetEditedConnectionSettings_ov031_02235c70(void);
 extern "C" unsigned char func_ov031_02227548(void);
 extern "C" int func_ov031_02227570(unsigned int);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
@@ -23,7 +23,7 @@ extern "C" void func_ov031_02233458(void);
 
 // USA: func_ov031_02233248
 extern "C" ARM void func_ov031_02233248(void) {
-    char* var0 = func_ov031_02235c70();
+    char* var0 = GetEditedConnectionSettings_ov031_02235c70();
     data_ov031_02290cc8.unknown_2_ = 0;
     if (data_ov031_02290cc8.unknown_0_ == 0) {
         data_ov031_02290cc8.unknown_0_ = 1;

@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Resource/StringList.h"
 
-extern "C" int func_020dd290(void *arg0, unsigned int arg1);
+extern "C" int GetSkillAdjustedMPCost_020dd290(void *member, unsigned int arg1);
 extern "C" void *GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380();
 struct Struct_ov002_02157d40_2;
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov002_0215f084(void *arg0, int arg1) {
     }
     struct Struct_ov002_0215f084 { unsigned int unknown_0_0_ : 8; unsigned int unknown_1_0_ : 24; };
     unsigned int var6 = ((Struct_ov002_0215f084*)((char*)var5 + 8))->unknown_0_0_;
-    int var7 = func_020dd290(var3, var6);
+    int var7 = GetSkillAdjustedMPCost_020dd290(var3, var6);
     short var8 = *(short*)((char*)var3 + 4);
     Struct_020fdcb0 *var9 = &data_020fdcb0[var8];
     void *var10 = GetMessageWindow_020421a0();

@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Graphics/OBJSpriteSet.h"
 
-struct Struct_020e28dc;
-extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
+struct YesNoWindow_020e28dc;
+extern "C" int IsYesNoWindowOpen_020e28dc(struct YesNoWindow_020e28dc* yesNoWindow);
 
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0 {
@@ -33,8 +33,8 @@ extern "C" ARM void func_ov003_0215c32c(char* arg0) {
 	struct SpriteAnimation_0205a254_2* var0;
 
 	if (*(unsigned char*)(arg0 + 0x59f) & 1) {
-		struct Struct_020e28dc* var1 = *(struct Struct_020e28dc**)(arg0 + 0x570);
-		if (var1 != NULL && func_020e28dc(var1)) {
+		struct YesNoWindow_020e28dc* var1 = *(struct YesNoWindow_020e28dc**)(arg0 + 0x570);
+		if (var1 != NULL && IsYesNoWindowOpen_020e28dc(var1)) {
 			((OBJSpriteSet*)(arg0 + 0x98))->DrawAll();
 			return;
 		}

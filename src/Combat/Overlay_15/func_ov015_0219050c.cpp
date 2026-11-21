@@ -3,7 +3,6 @@
 #if defined(jpn)
 #define func_ov015_0219050c func_ov015_021910b0
 #define func_02069fec func_02069ecc
-#define func_02045d14 func_020469b0
 #define PrepareLineMode 8
 #else
 #define PrepareLineMode 0
@@ -57,9 +56,9 @@ struct Struct_ov015_0219050c_2
 extern "C" Struct_0204500c_5* GetMessageWindow_020421a0();
 extern "C" void func_02069fec(Struct_0204500c_5* arg0, const char* arg1, char* arg2);
 #if defined(jpn)
-extern "C" int func_02045d14(Struct_0204500c_5* arg0, const char* arg1, unsigned short* arg2, int arg3);
+extern "C" int ConvertTextToMessageGlyphs_02045d14(Struct_0204500c_5* arg0, const char* arg1, unsigned short* arg2, int arg3);
 #else
-extern "C" void func_02045d14(Struct_0204500c_5* arg0, const char* arg1, unsigned short* arg2, int arg3);
+extern "C" void ConvertTextToMessageGlyphs_02045d14(Struct_0204500c_5* window, const char* text, unsigned short* glyphCodes, int font);
 #endif
 #if defined(jpn)
 extern "C" void func_02046c78(Struct_0204500c_5* arg0, unsigned short* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
@@ -87,7 +86,7 @@ extern const char data_ov015_02194295[];
         Struct_0204500c_5* system = GetMessageWindow_020421a0();     \
         char converted[0x40] = {};                                        \
         func_02069fec(system, var0, converted);                           \
-        func_02045d14(system, converted, var1, PrepareLineMode);          \
+        ConvertTextToMessageGlyphs_02045d14(system, converted, var1, PrepareLineMode);          \
     }
 
 #if defined(jpn)

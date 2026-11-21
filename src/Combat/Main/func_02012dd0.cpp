@@ -6,7 +6,7 @@ struct Struct_02114e20 {
     HPXEAllocator* unknown_4_;
 };
 
-// USA: func_02012dd0
-extern "C" ARM unsigned int func_02012dd0(Struct_02114e20* arg0) {
-    return arg0->unknown_4_->GetMaxPossibleAllocation(4);
+// USA: GetMaxPossibleAllocation_02012dd0
+extern "C" ARM unsigned int GetMaxPossibleAllocation_02012dd0(Struct_02114e20* allocator) {
+    return allocator->unknown_4_->GetMaxPossibleAllocation(4);
 }

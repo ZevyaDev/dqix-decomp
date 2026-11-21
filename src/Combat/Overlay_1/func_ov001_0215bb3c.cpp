@@ -6,7 +6,7 @@
 
 extern "C" void* GetScriptValueAsString_ov017_021d612c(void* value);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
-extern "C" int func_ov001_0215ad2c(int arg0);
+extern "C" int ResolveEventObjectIndex_ov001_0215ad2c(int scriptObjectId);
 extern "C" unsigned int func_ov001_0215a750(const char* arg0, void** arg1);
 
 extern const char data_ov001_02165745[];
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov001_0215bb3c(char* arg0, int arg1) {
     var8 = GetScriptValueAsString_ov017_021d612c(arg0);
     char* var11 = arg0 + 0x8;
     arg0 += 0x10;
-    var9 = func_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(var11));
+    var9 = ResolveEventObjectIndex_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(var11));
 
     var10 = 0;
     if (arg1 >= 3) {

@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
+extern "C" GameObject* FindFieldMonsterById_ov017_021a278c(void* gameResources, int fieldMonsterId);
 
 // USA: func_ov017_021c5a1c
 extern "C" ARM int func_ov017_021c5a1c(int arg0) {
@@ -19,5 +19,5 @@ skip:
 	void* var0 = GetGameResources();
 	if (var0 == NULL)
 		return 0;
-	return func_ov017_021a278c(var0, arg0) != NULL;
+	return FindFieldMonsterById_ov017_021a278c(var0, arg0) != NULL;
 }

@@ -29,7 +29,7 @@ extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4();
 extern "C" void StopGesture_020531f0(GameObject*);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 extern "C" int func_ov000_02160fd4(void*, int);
-extern "C" int func_ov017_02195658(GameResources*);
+extern "C" int RemoveDepartedPlayer_ov017_02195658(GameResources*);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" void func_ov017_021c8b78(unsigned short);
 extern "C" void func_020a367c(unsigned char*, int);
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov000_02163db4(Struct_ov000_02163db4_2* arg0) {
         SetBattleSceneFlags_ov000_02160fa8(arg0, 0x2000000);
     }
     Struct_ov000_02163db4* var6 = arg0->unknown_2a0_;
-    int var7 = func_ov017_02195658(var1);
+    int var7 = RemoveDepartedPlayer_ov017_02195658(var1);
     if (IsPartyMemberInBattle_020a35e0((unsigned char*)var6, var7 & 0xff)) {
         if (var6->unknown_2a_ == var7) {
             SetBattleSceneFlags_ov000_02160fa8(arg0, 0x2000000);

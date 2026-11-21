@@ -25,8 +25,8 @@ extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char* window);
 
-struct Struct_020e28dc;
-extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
+struct YesNoWindow_020e28dc;
+extern "C" int IsYesNoWindowOpen_020e28dc(struct YesNoWindow_020e28dc* yesNoWindow);
 struct YesNoWindow_020e25e8;
 extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8* yesNoWindow);
 
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov003_02158214(void* arg0) {
         *(short*)(var0 + Enum_ov003_02158214_492) = *(short*)(var0 + Enum_ov003_02158214_494);
 
         if (*(void**)(var0 + 0x1c) != 0 &&
-            func_020e28dc((struct Struct_020e28dc*)*(void**)(var0 + 0x1c)) != 0) {
+            IsYesNoWindowOpen_020e28dc((struct YesNoWindow_020e28dc*)*(void**)(var0 + 0x1c)) != 0) {
             CloseYesNoWindow_020e25e8((struct YesNoWindow_020e25e8*)*(void**)(var0 + 0x1c));
         }
 

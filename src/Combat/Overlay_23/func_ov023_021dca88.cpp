@@ -8,23 +8,23 @@ enum { Enum_ov023_021dca88_1844 = 0x6b0, Enum_ov023_021dca88_1848 = 0x6b4, Enum_
 enum { Enum_ov023_021dca88_1844 = 0x734, Enum_ov023_021dca88_1848 = 0x738, Enum_ov023_021dca88_1910 = 0x776, Enum_ov023_021dca88_1911 = 0x777 };
 #endif
 
-struct Struct_ov023_021dca88 {
+struct ItemInfoPanel_ov023_021dca88 {
     unsigned char unknown_0_[Enum_ov023_021dca88_1844];
-    int unknown_734_;
-    int unknown_738_[7];
+    int loadTaskId_734_;
+    int loadTaskIds_738_[7];
     unsigned char unknown_754_[Enum_ov023_021dca88_1910 - Enum_ov023_021dca88_1848 - 7 * sizeof(int)];
-    unsigned char unknown_776_;
-    unsigned char unknown_777_;
+    unsigned char state_776_;
+    unsigned char step_777_;
 };
 
-// USA: func_ov023_021dca88
-extern "C" ARM void func_ov023_021dca88(void* arg0) {
-    Struct_ov023_021dca88* var0 = (Struct_ov023_021dca88*)arg0;
-    if (var0->unknown_776_ == 2) return;
-    func_ov023_021db2e4(&var0->unknown_734_);
-    for (int var1 = 0; var1 < 7; var1++) {
-        func_ov023_021db2e4(&var0->unknown_738_[var1]);
+// USA: CloseItemInfoPanel_ov023_021dca88
+extern "C" ARM void CloseItemInfoPanel_ov023_021dca88(void* panel) {
+    ItemInfoPanel_ov023_021dca88* itemInfoPanel = (ItemInfoPanel_ov023_021dca88*)panel;
+    if (itemInfoPanel->state_776_ == 2) return;
+    func_ov023_021db2e4(&itemInfoPanel->loadTaskId_734_);
+    for (int i = 0; i < 7; i++) {
+        func_ov023_021db2e4(&itemInfoPanel->loadTaskIds_738_[i]);
     }
-    var0->unknown_776_ = 2;
-    var0->unknown_777_ = 0;
+    itemInfoPanel->state_776_ = 2;
+    itemInfoPanel->step_777_ = 0;
 }

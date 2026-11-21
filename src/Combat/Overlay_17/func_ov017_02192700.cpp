@@ -59,7 +59,7 @@ struct Struct_ov017_02192700_5 {
     unsigned int unknown_18c_;
 };
 
-extern "C" void func_ov017_0219a674(unsigned char* arg0);
+extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char* prompt);
 
 struct Struct_01ff91ac_18 {
     unsigned char unknown_0_;
@@ -97,14 +97,14 @@ extern "C" void func_ov017_0219344c(Struct_ov017_02192700_5* arg0, int arg1, int
 static inline Struct_ov017_02192700_4* inline_ov017_02192700() {
     Struct_ov017_02192700_4* var0 = (Struct_ov017_02192700_4*)GetGameResources();
     Struct_01ff91ac_18 var1;
-    func_ov017_0219a674((unsigned char*)&var1);
+    ResetInteractionPrompt_ov017_0219a674((unsigned char*)&var1);
     var1.unknown_0_ = 1;
     func_ov017_0219b33c(var0, &var1);
     return var0;
 }
 
 static inline void inline_ov017_02192700_2(Struct_01ff91ac_18* arg0) {
-    func_ov017_0219a674((unsigned char*)arg0);
+    ResetInteractionPrompt_ov017_0219a674((unsigned char*)arg0);
     arg0->unknown_0_ = 0xd;
     arg0->unknown_1_ = 0x11;
 }

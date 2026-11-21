@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" int func_ov031_022187a4(char* arg0, void* arg1, int arg2);
-extern "C" int func_020c7170(char* arg0, unsigned long arg1, const char* arg2, ...);
+extern "C" int FormatToSizedBuffer_020c7170(char* buffer, unsigned long bufferSize, const char* format, ...);
 
 struct Struct_ov031_02218468 {
     char* unknown_0_;
@@ -30,7 +30,7 @@ extern "C" ARM int func_ov031_02218468(char* arg0) {
         return 1;
     }
 
-    int var7 = func_020c7170(var0->unknown_4_, var0->unknown_c_, var2,
+    int var7 = FormatToSizedBuffer_020c7170(var0->unknown_4_, var0->unknown_c_, var2,
         *(char**)(arg0 + 0x1128), *(char**)(arg0 + 0x1124));
     var0->unknown_4_ = var0->unknown_4_ + var7;
     return 0;

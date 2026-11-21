@@ -23,7 +23,7 @@ struct Struct_02013fb4;
 struct Struct_0201f040_3;
 
 extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
-extern "C" void func_0206f81c(void* arg0);
+extern "C" void RunDeferredTriggerActions_0206f81c(void* triggerResult);
 
 extern int data_020f05bc;
 
@@ -56,7 +56,7 @@ extern "C" ARM void func_02064574(struct Struct_02108844* arg0, int arg1, struct
         struct Struct_02064574 var1;
         var1.unknown_c_ = arg4;
         if (RunTrigger_020649b0(arg0, 0x14, &var1)) {
-            func_0206f81c(&var1);
+            RunDeferredTriggerActions_0206f81c(&var1);
         }
     }
 }

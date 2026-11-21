@@ -85,7 +85,7 @@ extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int)
 extern "C" void func_ov017_02191fec(GameResources*, int);
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
-extern "C" void func_020dc2d0(int);
+extern "C" void RestartMapDisplay_020dc2d0(int);
 extern "C" void func_ov017_02190264(GameResources*, int);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources*, int, int, int, int);
 extern "C" void EnablePlayerControl_020397c0(void*);
@@ -183,7 +183,7 @@ extern "C" ARM void func_ov017_021bb27c(Struct_ov017_021bb27c_7* arg0) {
     Struct_ov017_021bb27c_5* var18 = (Struct_ov017_021bb27c_5*)GetZoneEntry_0200fd0c(var1);
     if (arg0->unknown_104_ && !var4->unknown_2_ && (!var18->unknown_2_ || arg0->unknown_10c_) &&
         !IsTypeInQueue_02046b60(var3, 10) && !(arg0->unknown_16_ == 1 && arg0->unknown_cf_ == 2)) {
-        func_020dc2d0(0);
+        RestartMapDisplay_020dc2d0(0);
     }
     arg0->unknown_ff_ = 1;
     for (int var19 = 0; var19 < 4; var19++) {

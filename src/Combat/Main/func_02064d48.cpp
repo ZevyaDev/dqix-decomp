@@ -41,7 +41,7 @@ extern "C" ARM int func_02064d48(const Script::Parameter* arg0) {
         }
     }
 
-    if (func_0206db20(*(void**)((char*)&data_02108ce0 + 4), var1) == NULL) {
+    if (FindNPCPlacement_0206db20(*(void**)((char*)&data_02108ce0 + 4), var1) == NULL) {
         return 1;
     }
 

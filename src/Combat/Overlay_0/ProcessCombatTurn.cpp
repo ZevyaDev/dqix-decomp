@@ -99,7 +99,7 @@ struct Struct_020749ac { int unknown_0_; float unknown_4_; };
 struct Struct_ov000_0215d63c_3 { char unknown_0_[0x7c]; };
 struct Struct_ov000_0215767c_3 { char unknown_0_[0x678]; };
 
-extern "C" int func_ov000_02153e40(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectCombatantIndices_ov000_02153e40(void* battle, short* indices, int maxCount, int filterFlags);
 void UpdateCombatantAttack(int, int);
 void UpdateCombatantDefense(int, int);
 void UpdateCombatantAgility(int, int);
@@ -116,7 +116,7 @@ extern "C" void func_020749ac(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" Struct_ov000_0215ab88* GetEnemyByIndex_0200fea4(GameState*, int);
 struct Struct_02053dc0;
-extern "C" Struct_ov000_0215d63c* func_02053dc0(Struct_02053dc0*);
+extern "C" Struct_ov000_0215d63c* GetBattleCommand_02053dc0(Struct_02053dc0*);
 extern "C" void func_020dc548(signed char arg0, signed char* arg1, signed char* arg2);
 extern "C" void InitBattleAction_ov000_02160030(void* action);
 struct Struct_ov000_02157d14;
@@ -133,9 +133,9 @@ struct Struct_02070b6c_3;
 extern "C" void* FindMonsterBattleData_02070fd0(Struct_02070b6c_3*, int);
 struct Struct_0204887c;
 extern "C" void func_0204887c(Struct_0204887c*, char*);
-struct Struct_ov000_0215767c_4;
-struct Struct_ov000_0215767c_5;
-extern "C" void func_ov000_021600cc(Struct_ov000_0215767c_5*, Struct_ov000_0215767c_4*);
+struct ActionTarget_ov000_0215767c_4;
+struct BattleAction_ov000_0215767c_5;
+extern "C" void AppendActionTarget_ov000_021600cc(BattleAction_ov000_0215767c_5*, ActionTarget_ov000_0215767c_4*);
 struct Struct_ov000_0215767c_6;
 struct Struct_ov000_0215767c_7;
 extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*, Struct_ov000_0215767c_6*);
@@ -188,7 +188,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
     void* var1 = GameState::GetInstance();
     ActionTables_02108e10* var2 = GetActionTables_020797dc();
     Struct_ov000_02182c74 var3 = data_ov000_02182d34;
-    long var4 = func_ov000_02153e40(arg0, var3.unknown_0_, 0x10, 1);
+    long var4 = CollectCombatantIndices_ov000_02153e40(arg0, var3.unknown_0_, 0x10, 1);
 
     for (long var5 = 0; var5 < var4; var5++) {
         int var6 = var3.unknown_0_[var5];
@@ -271,7 +271,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
         if (var18) {
             Struct_ov000_0215ab88* var19 = (Struct_ov000_0215ab88*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var1, var3.unknown_0_[var17]);
             if (var19 != 0) {
-                Struct_ov000_0215d63c* var20 = func_02053dc0((Struct_02053dc0*)var19);
+                Struct_ov000_0215d63c* var20 = GetBattleCommand_02053dc0((Struct_02053dc0*)var19);
                 if (var20 != 0 && (var20->unknown_4_ & 1)) {
                     Struct_ov000_02182a60 var21 = data_ov000_02182a60;
                     signed char var22 = 0;
@@ -279,7 +279,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
                     for (unsigned int var23 = 0; var23 < var22; var23++) {
                         Struct_ov000_0215ab88* var24 = (Struct_ov000_0215ab88*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var1, var21.unknown_0_[var23]);
                         if (var24 != 0) {
-                            Struct_ov000_0215d63c* var25 = func_02053dc0((Struct_02053dc0*)var24);
+                            Struct_ov000_0215d63c* var25 = GetBattleCommand_02053dc0((Struct_02053dc0*)var24);
                             if (var25 != 0) {
                                 var25->unknown_4_ |= 1;
                             }
@@ -307,7 +307,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
         if (var30) {
             Struct_ov000_0215ab88* var31 = (Struct_ov000_0215ab88*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var1, var3.unknown_0_[var26]);
             if (var31 != 0) {
-                Struct_ov000_0215d63c* var32 = func_02053dc0((Struct_02053dc0*)var31);
+                Struct_ov000_0215d63c* var32 = GetBattleCommand_02053dc0((Struct_02053dc0*)var31);
                 if (var32 != 0 && (var32->unknown_4_ & 1)) {
                     continue;
                 }
@@ -325,7 +325,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
             if (var33) {
                 Struct_ov000_0215ab88* var34 = (Struct_ov000_0215ab88*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var1, var3.unknown_0_[var26]);
                 if (var34 != 0) {
-                    Struct_ov000_0215d63c* var35 = func_02053dc0((Struct_02053dc0*)var34);
+                    Struct_ov000_0215d63c* var35 = GetBattleCommand_02053dc0((Struct_02053dc0*)var34);
                     if (var35 != 0) {
                         var27->unknown_0_ = var35->unknown_0_;
                     }
@@ -388,7 +388,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
             func_ov000_02157cdc(var47);
             var47->unknown_e_ = var28.unknown_0_[var46];
             var47->unknown_17_ = 1;
-            func_ov000_021600cc((Struct_ov000_0215767c_5*)var27, (Struct_ov000_0215767c_4*)var47);
+            AppendActionTarget_ov000_021600cc((BattleAction_ov000_0215767c_5*)var27, (ActionTarget_ov000_0215767c_4*)var47);
             arg0->unknown_8e81_++;
         }
         arg0->unknown_8e7c_++;
@@ -448,7 +448,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
                 func_ov000_02157cdc(var60);
                 var60->unknown_e_ = var51.unknown_0_[var59];
                 var60->unknown_17_ = 1;
-                func_ov000_021600cc((Struct_ov000_0215767c_5*)var50, (Struct_ov000_0215767c_4*)var60);
+                AppendActionTarget_ov000_021600cc((BattleAction_ov000_0215767c_5*)var50, (ActionTarget_ov000_0215767c_4*)var60);
                 arg0->unknown_8e81_++;
             }
             arg0->unknown_8e7c_++;
@@ -552,7 +552,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
                     func_ov000_02157cdc(var77);
                     var77->unknown_e_ = var74->unknown_e_;
                     var77->unknown_17_ = 1;
-                    func_ov000_021600cc((Struct_ov000_0215767c_5*)var71, (Struct_ov000_0215767c_4*)var77);
+                    AppendActionTarget_ov000_021600cc((BattleAction_ov000_0215767c_5*)var71, (ActionTarget_ov000_0215767c_4*)var77);
                     arg0->unknown_8e81_++;
                 }
                 for (int var78 = 0; var78 < var67->unknown_8_; var78++) {

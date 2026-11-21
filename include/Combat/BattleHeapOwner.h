@@ -4,10 +4,10 @@
 #include "Combat/MapDisplay.h"
 #include "Combat/MenuNodeChain.h"
 
-struct Struct_020e2490;
+struct YesNoWindow_020e2490;
 struct SpriteAnimationList_02043368;
 struct Struct_ov003_02173f70 {
-    Struct_020e2490* unknown_0_;
+    YesNoWindow_020e2490* unknown_0_;
     SafeAllocator* unknown_4_;
     unsigned char unknown_8_[0x38 - 8];
     int unknown_38_;

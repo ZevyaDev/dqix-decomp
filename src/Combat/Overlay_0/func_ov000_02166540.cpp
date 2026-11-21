@@ -79,7 +79,7 @@ struct Struct_ov000_02166540_3 {
     short unknown_c_;
 };
 extern "C" void func_02048614(unsigned char*);
-extern "C" void func_02049c88(Struct_ov000_02166540_7*, Struct_ov000_02166540_8*);
+extern "C" void SetCombatantBattleState_02049c88(Struct_ov000_02166540_7*, Struct_ov000_02166540_8*);
 extern "C" void func_02048588(unsigned char*, unsigned char*);
 extern "C" void func_020488ec(char*);
 extern "C" char* FindMonsterBattleData_02070fd0(Struct_02070b6c_3*, int);
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov000_02166540(Struct_ov000_02161c0c_3* arg0, int arg1,
     func_02048614((unsigned char*)var7);
     Struct_ov000_02166540_8* var8 = &arg0->unknown_6aa4_[var3];
     if (!var8) return;
-    func_02049c88(var7, var8);
+    SetCombatantBattleState_02049c88(var7, var8);
     var7->unknown_c2_ |= 0x20;
     func_02048588((unsigned char*)var4, (unsigned char*)var7);
     var7->unknown_0_.SetField06(arg0->unknown_ec8_);

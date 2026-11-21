@@ -22,7 +22,7 @@ struct Struct_0203c108_3 {
     char unknown_0_[0x14];
     short unknown_14_;
 };
-extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
+extern "C" void SetSpriteText_0203c108(struct Struct_0203c108_3* spriteText, char* text);
 
 extern "C" void __clear(void* arg0, int arg1);
 
@@ -65,13 +65,13 @@ extern "C" ARM void func_ov000_02170ffc(struct Struct_ov000_02170ffc* arg0) {
         int var1 = func_ov000_02171a74(arg0);
         struct Struct_0201099c_3* var2 = arg0->unknown_4_;
         if (var2 != NULL && var1 >= 0) {
-            func_0203c108(&arg0->unknown_50_, (char*)((int)((StringList*)(var2))->GetString(var1)));
+            SetSpriteText_0203c108(&arg0->unknown_50_, (char*)((int)((StringList*)(var2))->GetString(var1)));
             return;
         }
 #else
         __clear(var0, sizeof(var0));
         if (func_ov000_02171a74(arg0, var0) >= 0) {
-            func_0203c108(&arg0->unknown_50_, var0);
+            SetSpriteText_0203c108(&arg0->unknown_50_, var0);
             return;
         }
 #endif
@@ -83,5 +83,5 @@ extern "C" ARM void func_ov000_02170ffc(struct Struct_ov000_02170ffc* arg0) {
     }
     struct Struct_ov000_02170ffc_2* var5 = func_02053c6c((unsigned char*)var4);
     var3 += (signed char)var5->unknown_94c_;
-    func_0203c108(&arg0->unknown_50_, (char*)((int)((StringList*)(arg0->unknown_4_))->GetString(var3)));
+    SetSpriteText_0203c108(&arg0->unknown_50_, (char*)((int)((StringList*)(arg0->unknown_4_))->GetString(var3)));
 }

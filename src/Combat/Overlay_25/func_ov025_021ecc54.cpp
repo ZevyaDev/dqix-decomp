@@ -100,7 +100,7 @@ extern "C" struct ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(Ba
 struct BattleAction_ov000_0215440c_2;
 extern "C" struct ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
 extern "C" void func_ov025_021ebb24(struct Struct_ov025_021ebb90_6* arg0);
-extern "C" int func_ov000_0215fd90(struct Struct_ov025_021ecc54_4* arg0, int arg1);
+extern "C" int HasActionResultFlag_ov000_0215fd90(struct Struct_ov025_021ecc54_4* result, int flagIndex);
 extern "C" void func_ov025_021ed0b8(struct Struct_ov025_021ecc54_3* arg0, struct Struct_ov025_021ebb90_6* arg1);
 
 extern unsigned int data_ov025_021ef010[];
@@ -205,7 +205,7 @@ extern "C" ARM void func_ov025_021ecc54(struct Struct_ov025_021ecc54_3* arg0, st
                     struct ActionTarget_ov000_021600f8* var18 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)var17, var3);
                     if (var18 != 0) {
                         for (struct Struct_ov025_021ecc54_4* var19 = var18->unknown_0_; var19 != 0; var19 = var19->unknown_20_) {
-                            if (func_ov000_0215fd90(var19, 3)) {
+                            if (HasActionResultFlag_ov000_0215fd90(var19, 3)) {
                                 var16 = 1;
                                 goto checked;
                             }
@@ -215,7 +215,7 @@ extern "C" ARM void func_ov025_021ecc54(struct Struct_ov025_021ecc54_3* arg0, st
                     struct ActionActor_ov000_02160094* var20 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)var17, var3);
                     if (var20 != 0) {
                         for (struct Struct_ov025_021ecc54_4* var21 = var20->unknown_0_[0]; var21 != 0; var21 = var21->unknown_20_) {
-                            if (func_ov000_0215fd90(var21, 3)) {
+                            if (HasActionResultFlag_ov000_0215fd90(var21, 3)) {
                                 var16 = 1;
                                 goto checked;
                             }

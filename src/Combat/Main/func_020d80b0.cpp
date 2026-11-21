@@ -62,7 +62,7 @@ extern "C" void StartMessage_0204500c(void*, char*, int, int);
 #endif
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void EnablePlayerControl_020397c0(void*);
-extern "C" void func_020dc2d0(int);
+extern "C" void RestartMapDisplay_020dc2d0(int);
 struct Struct_020d80b0 {
 #if defined(jpn)
     unsigned char unknown_0_[0x28];
@@ -165,7 +165,7 @@ extern "C" ARM void func_020d80b0(Struct_020d80b0_3* arg0) {
         }
     } else if (arg0->unknown_8_ == 8) {
         if (!IsBrightnessTransitionActive(var1)) {
-            func_020dc2d0(2);
+            RestartMapDisplay_020dc2d0(2);
             arg0->unknown_8_ = 9;
         }
     } else if (arg0->unknown_8_ == 9) func_020d8484(arg0);

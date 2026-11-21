@@ -44,7 +44,7 @@ struct MusicManager_02109bf4_2;
 struct Struct_02066a6c_2;
 struct Struct_02042b98_3;
 struct SPRSprite_02015ef4_2;
-struct Struct_02045c00_2;
+struct MessageWindow_02045c00_2;
 struct Struct_02043124;
 struct Struct_0204500c_4;
 
@@ -542,7 +542,7 @@ extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" void func_ov017_0218d7b0(unsigned char* arg0, char* arg1);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_ov016_0218b5c0(int arg0, signed char arg1);
-extern "C" void func_ov017_0218b5f8(signed char arg0);
+extern "C" void RequestPartyMemberPanelRedraw_ov017_0218b5f8(signed char memberIndex);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void func_ov017_021a5ab0(void* arg0);
 extern "C" void GetNPCPosition_020406f8(Struct_0203de84*, NPC_0203de84_2*);
@@ -555,7 +555,7 @@ extern "C" void func_0208bf28(Struct_02065990_2*, int, unsigned char);
 extern "C" unsigned char* GetQuestManager_02094d6c();
 extern "C" int func_020965ac(Struct_02065990_3*, unsigned char);
 extern "C" void GetCurrentDate_020cf0fc(int);
-extern "C" void func_020cf1a8(int);
+extern "C" void GetCurrentTime_020cf1a8(int);
 extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
 extern "C" void func_0208be94(unsigned char*);
 extern "C" void func_0208beb4(unsigned char*);
@@ -585,7 +585,7 @@ extern "C" void func_0204459c(void* arg0, int arg1);
 extern "C" void func_020653e4(int arg0, int arg1);
 extern "C" void* func_020100bc(GameState*);
 extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
-extern "C" void func_0205c904(unsigned char*, int);
+extern "C" void UpdateChoiceList_0205c904(unsigned char*, int);
 extern "C" int func_0205cde8(unsigned char*);
 extern "C" void func_0205cd94(unsigned char*);
 extern "C" int GetFollowCamera_020100f8(char*);
@@ -597,7 +597,7 @@ extern "C" void func_0206cbe8(void* arg0, unsigned short arg1, unsigned short* a
 extern "C" void func_0205c840(void* arg0);
 
 extern "C" int func_02043014(int, unsigned short*);
-extern "C" int func_02045c00(Struct_02045c00_2*, const char*, int);
+extern "C" int func_02045c00(MessageWindow_02045c00_2*, const char*, int);
 extern "C" int func_02046530(void*, unsigned short*, int, int);
 extern "C" void func_02067b28(Struct_02067b28* arg0);
 extern "C" void func_020698d8(Struct_020698d8* arg0, int arg1, signed char* arg2, char* arg3);
@@ -1116,7 +1116,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                         if (var18 == 2) {
                             var17 = -1;
                             func_ov016_0218b5c0(1, var17);
-                            func_ov017_0218b5f8(var17);
+                            RequestPartyMemberPanelRedraw_ov017_0218b5f8(var17);
                         }
                     }
                     if (var17 >= 0xa && var17 <= 0x32) {
@@ -1124,14 +1124,14 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                         int var20 = var19 >= 0 && var19 <= 3;
                         if (var20) {
                             func_ov016_0218b5c0(1, var19);
-                            func_ov017_0218b5f8(var19);
+                            RequestPartyMemberPanelRedraw_ov017_0218b5f8(var19);
                         }
                         var17 = var17 - (var19 + 1) * 0xa;
                     }
                     int var21 = var17 >= 0 && var17 <= 3;
                     if (var21) {
                         func_ov016_0218b5c0(1, var17);
-                        func_ov017_0218b5f8(var17);
+                        RequestPartyMemberPanelRedraw_ov017_0218b5f8(var17);
                         unsigned char* var22 = ((unsigned char*)GetGameResources());
                         if (IsTypeInQueue_02046b60((Queue_02038598_5*)(*(void**)(var22 + 0x34ec)), 0xc) != 0) {
                             func_ov017_021a5ab0(*(void**)(var22 + 0x350c));
@@ -1274,7 +1274,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                     unsigned char* var38 = GetQuestManager_02094d6c();
                     int var39 = func_020965ac((Struct_02065990_3*)var38, (unsigned char)*(short*)(var0 + 0x1776));
                     GetCurrentDate_020cf0fc((int)&var6);
-                    func_020cf1a8((int)&var7);
+                    GetCurrentTime_020cf1a8((int)&var7);
                     var3.unknown1_0_.unknown_0_0_ = var6.unknown_0_;
                     var3.unknown1_0_.unknown_0_7_ = var6.unknown_4_;
                     var3.unknown1_0_.unknown_1_3_ = var6.unknown_8_;
@@ -1778,7 +1778,7 @@ extern "C" ARM void func_020675fc(Struct_020675fc_2* arg0) {
 extern "C" ARM void func_020676e0(Struct_020676e0_4* arg0, int arg1) {
     if (arg0->unknown_9a0_ != 6) return;
     if (!arg0->unknown_19ba_) return;
-    func_0205c904(arg0->unknown_90_, arg1);
+    UpdateChoiceList_0205c904(arg0->unknown_90_, arg1);
     if (!func_0205cde8(arg0->unknown_90_)) {
         func_0205cd94(arg0->unknown_90_);
         return;
@@ -1980,7 +1980,7 @@ extern "C" ARM void func_02067b28(Struct_02067b28* arg0) {
         if (arg0->unknown_17f2_) var4 = 6;
         int var7 = func_02043014(var4, (unsigned short*)var0);
         if (var7 >= 0) {
-            int var8 = func_02045c00((Struct_02045c00_2*)arg0, var0, var4);
+            int var8 = func_02045c00((MessageWindow_02045c00_2*)arg0, var0, var4);
             if (var8 < 0) {
                 unsigned short var9 = func_02046530(arg0, (unsigned short*)var0, var7, var4);
                 if (!arg0->unknown_19c2_) arg0->unknown_1882_[arg0->unknown_1942_] = var9;

@@ -18,7 +18,7 @@ extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c* men
 struct MenuLayout_02080fa8;
 extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8* menuLayout, int textId, int value);
 extern "C" void func_020806b0(void* arg0, int arg1);
-extern "C" void func_02080b2c(void* arg0, int arg1);
+extern "C" void HideMenuLayoutText_02080b2c(void* menuLayout, int textId);
 extern "C" void func_02081130(void* arg0, int arg1, int arg2);
 extern "C" int OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 struct Struct_0201099c_3;
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov014_021885bc(void* arg0) {
             var2 = var2->unknown_0_;
         } else {
             func_020806b0(var0, var3);
-            func_02080b2c(var0, var3);
+            HideMenuLayoutText_02080b2c(var0, var3);
         }
     }
 

@@ -4,7 +4,7 @@
 #include "Util/Random.h"
 
 struct ActionResult_ov000_021584e8;
-struct BattleAction_ov000_0215440c { char unknown_0_[9]; unsigned char unknown_9_; };
+struct BattleAction_ov000_0215440c { char unknown_0_[9]; unsigned char targetCount_9_; };
 struct Struct_ov024_021e62cc {
     char unknown_0_[0x14];
     unsigned char unknown_14_[3];
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov024_021e62cc(struct Struct_ov024_021e62cc_6* arg0, in
     int var2 = 0;
     struct Struct_ov024_021e62cc_7 var3[8];
     memset(var3, var2, sizeof(var3));
-    for (int var4 = 0; var4 < arg0->unknown_4_->unknown_9_; var4++) {
+    for (int var4 = 0; var4 < arg0->unknown_4_->targetCount_9_; var4++) {
         struct Struct_ov024_021e62cc* var5 = GetActionTarget_ov000_021600f8(arg0->unknown_4_, var4);
         if (!var5) continue;
         int var6 = 0;

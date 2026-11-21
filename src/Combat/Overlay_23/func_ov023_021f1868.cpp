@@ -214,7 +214,7 @@ extern "C" {
 void __clear(void* arg0, unsigned long arg1);
 void LoadStringList_020728ac(void* stringList, void* allocator, void* scriptData, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 void func_020e5604(void* arg0, SafeAllocator* arg1, void* arg2, int arg3);
-Struct_ov023_021f1868_2* func_0209a594(void* arg0, int arg1);
+Struct_ov023_021f1868_2* FindSkillEntry_0209a594(void* table, int skillEntryId);
 void ClearMessageParams_02046380(Struct_ov023_021f1868_3* window);
 void ExpandInflectionTags_020e4864(void* text, char* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
 #if defined(jpn)
@@ -432,7 +432,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
     {
         while (var20->unknown_e3_ < var20->unknown_e2_)
         {
-            Struct_ov023_021f1868_2* var29 = func_0209a594(arg0->unknown_e98_, var20->unknown1_74_[var20->unknown_e3_]);
+            Struct_ov023_021f1868_2* var29 = FindSkillEntry_0209a594(arg0->unknown_e98_, var20->unknown1_74_[var20->unknown_e3_]);
             char* var30 = NULL;
             if (var29 != NULL)
                 var30 = FindStringInList_02072a68(arg0->unknown_557c_, var29->unknown_6_4_);

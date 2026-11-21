@@ -26,7 +26,7 @@ extern "C" void SetCanvasCharacterData_0205b220(void* canvas, int characterData)
 extern "C" void SetCanvasRects_0205b228(void* canvas, int rects, unsigned char rectCount);
 extern "C" ARM void* __clear(void* arg0, int arg1);
 extern char data_020ef6b6;
-extern "C" int func_0205b234(void* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5);
+extern "C" int DrawCanvasText_0205b234(void* canvas, int x, int y, char* text, int arg4, int arg5);
 
 #if defined(jpn)
 extern short data_020e790a[6], data_020e7916[6], data_020e78f2[6], data_020e78fe[6];
@@ -39,8 +39,8 @@ extern "C" ARM void func_02023218(Struct_02020554* arg0, char* arg1, int arg2, u
     InitCanvas_0205b20c(&var1);
     SetCanvasCharacterData_0205b220(&var1, (int)(arg1 + arg2));
     SetCanvasRects_0205b228(&var1, (int)var0, 6);
-    func_0205b234(&var1, 14, 3, arg0->inline_02023218(), 10, 15);
-    func_0205b234(&var1, (short)(func_020d2ff0(arg0->inline_02023218()) / 2 * 10 + 15), 3, arg0->inline_02023218_2(), 10, 15);
+    DrawCanvasText_0205b234(&var1, 14, 3, arg0->inline_02023218(), 10, 15);
+    DrawCanvasText_0205b234(&var1, (short)(func_020d2ff0(arg0->inline_02023218()) / 2 * 10 + 15), 3, arg0->inline_02023218_2(), 10, 15);
 }
 #else
 // USA: func_02023218
@@ -78,7 +78,7 @@ extern "C" ARM void func_02023218(char* arg0, char* arg1, int arg2) {
     __clear(var8, 0x100);
     sprintf(var8, &data_020ef6b6, arg0 + 0x5b4, arg0 + 0x5f4);
 
-    func_0205b234(&var7, (short)var10, 3, var8, 0xf, 0);
+    DrawCanvasText_0205b234(&var7, (short)var10, 3, var8, 0xf, 0);
 }
 
 #endif

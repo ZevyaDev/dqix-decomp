@@ -96,7 +96,7 @@ extern "C" void func_0203e0a0(NPCManager_0203dce4_2*, unsigned short);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void LoadFileTables_020a0c0c();
-extern "C" void func_ov017_0219bf74();
+extern "C" void UnloadZone_ov017_0219bf74();
 extern "C" void func_ov017_0219b938(GameResources*);
 extern "C" int IsQuestersRestZone_020981e4(int, int);
 extern "C" void func_ov017_021a316c(GameResources*);
@@ -124,7 +124,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int, int);
 extern "C" void SendPartyMemberBodyAppearance_ov017_021c4418(int, int);
-extern "C" void func_ov017_0219ba0c(GameResources*, int);
+extern "C" void LoadCommonFieldResources_ov017_0219ba0c(GameResources*, int);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_020732a8();
 extern "C" void func_ov017_0219bd1c(int, int, int, int);
@@ -181,7 +181,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         }
         arg0->unknown_8_.CreateTypeA(var10, Enum_ov017_021a1284_95744);
         arg0->unknown_8_.Reset();
-        func_ov017_0219bf74();
+        UnloadZone_ov017_0219bf74();
         SafeAllocator* var11;
         SafeAllocator* var12 = &var7->allocator_array_38[0];
         Struct_ov017_021a1284_2* var13 = &((Struct_ov017_021a1284_3*)var7)->unknown_2cc_;
@@ -254,7 +254,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
             }
         }
         ClearFlags00(var7, 0x10);
-        func_ov017_0219ba0c(var7, 0);
+        LoadCommonFieldResources_ov017_0219ba0c(var7, 0);
         arg0->unknown_22_ = 5;
     } else if (arg0->unknown_22_ == 5) {
         if (!IsQueueEmpty_02046b08(((Struct_ov017_021a1284_3*)var7)->unknown_3700_)) return;

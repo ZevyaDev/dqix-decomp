@@ -6,7 +6,7 @@ extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireles
 extern "C" void func_ov017_021cf730(int arg0, int arg1);
 extern "C" void func_ov017_021c4fa0(int arg0, int arg1);
 struct Struct_02039df4;
-extern "C" void func_ov017_021cdaa0(void);
+extern "C" void SendDayTimer_ov017_021cdaa0(void);
 
 struct Struct_ov017_021cd9e8 {
     unsigned char unknown_0_[4];
@@ -22,7 +22,7 @@ extern "C" ARM void func_ov017_021cd9e8(int arg0, struct Struct_ov017_021cd9e8* 
     if (arg1->unknown_4_0_ != var0) return;
 
     if (arg1->unknown_8_ & 0x1) {
-        func_ov017_021cdaa0();
+        SendDayTimer_ov017_021cdaa0();
     }
     if (arg1->unknown_8_ & 0x20) {
         func_ov017_021cf730((signed char)arg1->unknown_4_4_, 0);

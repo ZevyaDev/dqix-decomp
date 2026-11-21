@@ -369,8 +369,8 @@ extern "C" unsigned char func_0205ea18(unsigned char* arg0);
 extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" int GetStoryStep_020107d0(char* gameState);
 extern "C" int func_02010804(char* arg0);
-extern "C" int func_0201081c(char* arg0);
-extern "C" void AddElapsedPlayTime_020ac4f8(int arg0);
+extern "C" int GetStoryProgress_0201081c(char* gameState);
+extern "C" void AddElapsedPlayTime_020ac4f8(int isMultiplayerTimeIncluded);
 extern "C" int func_0201b588(int arg0);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
@@ -627,7 +627,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             var39.unknown_0_ = GetStoryChapter_0201079c((char*)var38);
             var39.unknown_4_ = GetStoryStep_020107d0((char*)var38);
             var39.unknown_8_ = func_02010804((char*)var38);
-            var39.unknown_c_ = func_0201081c((char*)var38);
+            var39.unknown_c_ = GetStoryProgress_0201081c((char*)var38);
             func_020a99d0(&var39.unknown_10_, var1);
             func_02075acc((char*)&arg1->unknown_2cac_ - var21, &var39, sizeof(var39), 0);
         }

@@ -6,7 +6,7 @@
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
 
 struct Struct_020885b4;
-extern "C" int func_020885b4(struct Struct_020885b4* arg0);
+extern "C" int IsPoisoned_020885b4(struct Struct_020885b4* stats);
 struct Struct_02088514;
 extern "C" int IsEnvenomated_02088514(struct Struct_02088514* stats);
 extern "C" int PickRandomTarget_ov024_021ed890(struct Random** targetSelector, int* count, short* targetIndices);
@@ -24,7 +24,7 @@ extern "C" ARM int func_ov024_021f4880(int* arg0, int arg1, int arg2, int* arg3,
     *arg3 = 0;
     for (int var2 = 0; var2 < var1; var2++) {
         GameObject* var3 = GetCombatantByID(*arg0, var0.unknown_0_[var2]);
-        if (var3 && (func_020885b4((struct Struct_020885b4*)var3->currentStats_) ||
+        if (var3 && (IsPoisoned_020885b4((struct Struct_020885b4*)var3->currentStats_) ||
                        IsEnvenomated_02088514((struct Struct_02088514*)var3->currentStats_))) {
             int var4 = *arg3;
             *arg3 = var4 + 1;

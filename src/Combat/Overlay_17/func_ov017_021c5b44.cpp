@@ -2,11 +2,11 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
-struct Struct_02046b38;
-struct Struct_02046b38_2;
-extern "C" int func_02046b38(struct Struct_02046b38* arg0, struct Struct_02046b38_2* arg1);
-extern "C" void func_ov017_021b6f18(void* arg0);
+extern "C" GameObject* FindFieldMonsterById_ov017_021a278c(void* gameResources, int fieldMonsterId);
+struct Queue_02046b38;
+struct QueueNode_02046b38_2;
+extern "C" int IsNodeInQueue_02046b38(struct Queue_02046b38* queue, struct QueueNode_02046b38_2* node);
+extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
 extern "C" void func_ov017_02196c08(unsigned char* arg0);
 extern "C" bool func_ov017_021b6e70(void* arg0, int arg1);
 extern "C" void func_ov017_021b7104(unsigned char* arg0, void* arg1);
@@ -51,13 +51,13 @@ extern "C" ARM void func_ov017_021c5b44(unsigned char arg0, int arg1, unsigned i
     void* var3 = var1->unknown_6fc_;
     void* var4 = var1->unknown_718_;
 
-    GameObject* var5 = func_ov017_021a278c(var0, arg1);
+    GameObject* var5 = FindFieldMonsterById_ov017_021a278c(var0, arg1);
     if (var5 != 0) {
         var2 = var5->obj3D_.unknown_4_;
     }
 
-    if (!func_02046b38((struct Struct_02046b38*)var3, (struct Struct_02046b38_2*)var4)) {
-        func_ov017_021b6f18(var4);
+    if (!IsNodeInQueue_02046b38((struct Queue_02046b38*)var3, (struct QueueNode_02046b38_2*)var4)) {
+        ResetBattleTask_ov017_021b6f18(var4);
 
         struct Struct_ov017_021c5b44_2 var6;
         func_ov017_02196c08((unsigned char*)&var6);

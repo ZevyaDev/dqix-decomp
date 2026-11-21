@@ -42,7 +42,7 @@ struct Struct_ov003_02167b34_3 {
 };
 
 extern "C" void* func_02053c6c(unsigned char* gameObject);
-extern "C" void func_02083e28(void* arg0, int arg1);
+extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
 extern "C" void func_ov003_02167e28(Struct_ov003_02167b34_3* arg0, BaseCombatStats* arg1, int arg2, unsigned char arg3, int arg4, int arg5, int arg6);
 extern "C" void func_ov003_02167fa4(Struct_ov003_02167b34_3* arg0, int arg1, unsigned char* arg2);
 extern "C" void func_ov003_02168088(struct Struct_ov003_02167b34_2* arg0, int* arg1);
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov003_02167b34(Struct_ov003_02167b34_3* arg0) {
     GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0->unknown_76_);
     if (var0 == 0) return;
     Struct_ov003_02167b34* var1 = (Struct_ov003_02167b34*)func_02053c6c((unsigned char*)var0);
-    func_02083e28(var1, 0);
+    CalculatePartyMemberStats_02083e28(var1, 0);
     func_ov003_02167e28(arg0, inline_02069120(var0), var1->unknown_49c_0_, var1->unknown_950_, var1->unknown_186_[var1->unknown_950_], var1->unknown_16c_[var1->unknown_950_], var1->unknown_138_[var1->unknown_950_]);
     func_ov003_02167fa4(arg0, var1->unknown_950_ & 0xff, var1->unknown_464_);
     int var2[12];

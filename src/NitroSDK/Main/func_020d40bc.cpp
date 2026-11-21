@@ -9,7 +9,7 @@ typedef char* Type_02001bdc;
 #include "NitroSDK/IPC.h"
 
 extern "C" void* func_020d4064();
-extern "C" int func_020c7e0c(void* arg0, void* arg1, int arg2);
+extern "C" int EnqueueValue_020c7e0c(void* queue, void* value, int flags);
 
 extern int data_021142e8;
 
@@ -30,7 +30,7 @@ extern "C" ARM int SendWirelessCommand_020d40bc(int command, unsigned short para
     va_end(params);
     CleanCacheRange(commandBuffer, 0x100);
     sendResult = SendCommandToArm7(10, (int)commandBuffer, false);
-    func_020c7e0c(&data_021142e8, commandBuffer, 1);
+    EnqueueValue_020c7e0c(&data_021142e8, commandBuffer, 1);
     if (sendResult < 0)
         return 8;
     return 2;

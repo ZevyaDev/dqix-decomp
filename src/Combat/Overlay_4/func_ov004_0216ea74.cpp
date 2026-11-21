@@ -10,7 +10,7 @@
 #define func_020c54a4 func_020c6f70
 #endif
 
-struct Struct_0201e830;
+struct ZoneFeatures_0201e830;
 
 struct Struct_ov004_021589e8 {
     unsigned int unknown_0_0_ : 12;
@@ -39,19 +39,19 @@ extern Struct_ov004_02171048 data_ov004_02171048;
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_ov017_021b2090(Struct_ov004_021589e8 arg0, Struct_ov004_021589e8 arg1);
-extern "C" int func_0201e830(struct Struct_0201e830* arg0);
+extern "C" int GetZoneClearColor_0201e830(struct ZoneFeatures_0201e830* zoneFeatures);
 extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
 extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
 extern "C" int GetCurrentDate_020cf0fc(int);
-extern "C" int func_020cf1a8(int);
+extern "C" int GetCurrentTime_020cf1a8(int);
 
 struct Struct_ov004_0216ea74 {
     unsigned char unknown_0_[4];
     SafeAllocator unknown_4_;
 };
 
-static inline Struct_0201e830* inline_ov004_0216ea74(Zone3D* arg0) {
-    return (Struct_0201e830*)&arg0->substruct_6c_;
+static inline ZoneFeatures_0201e830* inline_ov004_0216ea74(Zone3D* arg0) {
+    return (ZoneFeatures_0201e830*)&arg0->substruct_6c_;
 }
 
 struct Struct_ov004_0216ea74_2 {
@@ -98,9 +98,9 @@ extern "C" ARM int func_ov004_0216ea74(SafeAllocator* arg0) {
 
     Zone3D* var4 = (Zone3D*)GetZone3D_02012fe4();
     if (!var4) return 0;
-    Struct_0201e830* var5 = inline_ov004_0216ea74(var4);
+    ZoneFeatures_0201e830* var5 = inline_ov004_0216ea74(var4);
     if (!var5) return 0;
-    data_ov004_02171048.unknown_4_->unknown_c_ = func_0201e830(var5);
+    data_ov004_02171048.unknown_4_->unknown_c_ = GetZoneClearColor_0201e830(var5);
 
     GameResources* var6 = GetGameResources();
     data_ov004_02171048.unknown_4_->unknown_0_ = GetFlags00(var6);
@@ -115,7 +115,7 @@ extern "C" ARM int func_ov004_0216ea74(SafeAllocator* arg0) {
     int var7[4];
     int var8[3];
     GetCurrentDate_020cf0fc((int)var7);
-    func_020cf1a8((int)var8);
+    GetCurrentTime_020cf1a8((int)var8);
 
     data_ov004_02171048.unknown_4_->unknown_38_.unknown_0_0_ = var7[0] + 0x7d0;
     data_ov004_02171048.unknown_4_->unknown_38_.unknown_1_4_ = var7[1];

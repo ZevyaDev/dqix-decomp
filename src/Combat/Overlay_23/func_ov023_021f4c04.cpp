@@ -184,10 +184,10 @@ extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, void*
                               int skippedStringCount);
 extern "C" void func_ov023_021f50fc();
 extern "C" int func_ov000_02163c80(void* arg0, int arg1);
-extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
+extern "C" GameObject* FindFieldMonsterById_ov017_021a278c(void* gameResources, int fieldMonsterId);
 extern "C" void func_ov017_021c9b20(int arg0, int arg1);
 extern "C" int SetFieldMonsterState_02076ccc(void* monster, int state);
-extern "C" void func_ov017_021a23b0(void* arg0, int arg1);
+extern "C" void DespawnFieldMonster_ov017_021a23b0(void* gameResources, int arg1);
 extern "C" unsigned char GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" void ResetBattleCamera_ov000_0216d370(void* camera, int resetRoll, int resetFieldOfView, int resetTurns);
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
@@ -260,7 +260,7 @@ extern "C" ARM void func_ov023_021f4c04(BattleScene_ov000_02160da0* arg0) {
         func_ov023_021f50fc();
         int var14 = arg0->unknown_2a0_->unknown_8_;
         if (func_ov000_02163c80(arg0, 1)) {
-            GameObject* var15 = func_ov017_021a278c((void*)var5, var14);
+            GameObject* var15 = FindFieldMonsterById_ov017_021a278c((void*)var5, var14);
             if (var15 != NULL) {
                 func_ov017_021c9b20((unsigned short)var14, 1);
                 SetFieldMonsterState_02076ccc(var15, 1);
@@ -268,7 +268,7 @@ extern "C" ARM void func_ov023_021f4c04(BattleScene_ov000_02160da0* arg0) {
             }
         } else {
             func_ov017_021c9b20((unsigned short)var14, 0);
-            func_ov017_021a23b0((void*)var5, var14);
+            DespawnFieldMonster_ov017_021a23b0((void*)var5, var14);
         }
 #if !defined(jpn)
         unsigned char var16 = GetPartyOrder_020114ec((char*)var3, var2);

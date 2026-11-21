@@ -8,20 +8,20 @@
 extern "C" int func_020d2ff0(const char*);
 #endif
 struct Struct_0208358c { int unknown_0_, unknown_4_, unknown_8_, unknown_c_, unknown_10_, unknown_14_, unknown_18_, unknown_1c_; };
-struct Struct_0208358c_2 { Struct_0208358c* unknown_0_; char* unknown_4_; unsigned int unknown_8_0_:4; unsigned int unknown_8_4_:28; char unknown_c_[20]; };
-struct Struct_0208358c_3 { char unknown_0_[0x194]; Struct_0208358c_2 unknown_194_[11];
+struct ItemData_0208358c_2 { Struct_0208358c* unknown_0_; char* unknown_4_; unsigned int unknown_8_0_:4; unsigned int unknown_8_4_:28; char unknown_c_[20]; };
+struct Struct_0208358c_3 { char unknown_0_[0x194]; ItemData_0208358c_2 unknown_194_[11];
 #if defined(jpn)
     char unknown_2f4_[0x364];
 #else
     char unknown1_2f4_[0x3fc];
 #endif
     Struct_0208358c unknown_6f0_[11]; };
-struct Struct_02083508_2;
-extern "C" void func_020de1d4(Struct_02083508_2*);
-extern "C" void func_020836e4(Struct_0208358c_2*, Struct_0208358c_2*);
+struct ItemData_02083508_2;
+extern "C" void InitItemData_020de1d4(ItemData_02083508_2*);
+extern "C" void func_020836e4(ItemData_0208358c_2*, ItemData_0208358c_2*);
 extern "C" unsigned char* func_0208349c(unsigned char*, int);
 // USA: func_0208358c
-extern "C" ARM void func_0208358c(Struct_0208358c_3* arg0, Struct_0208358c_2* arg1, int arg2) {
+extern "C" ARM void func_0208358c(Struct_0208358c_3* arg0, ItemData_0208358c_2* arg1, int arg2) {
     if (!arg1) return;
     int var0 = -1;
     switch (arg1->unknown_8_0_) {
@@ -36,7 +36,7 @@ extern "C" ARM void func_0208358c(Struct_0208358c_3* arg0, Struct_0208358c_2* ar
     case 11: var0 = arg2; break;
     }
     if (var0 < 0) return;
-    Struct_0208358c_2* var1 = &arg0->unknown_194_[var0];
+    ItemData_0208358c_2* var1 = &arg0->unknown_194_[var0];
     Struct_0208358c* var2 = var1->unknown_0_;
     char* var3 = var1->unknown_4_;
     Struct_0208358c* var4 = arg1->unknown_0_;
@@ -49,7 +49,7 @@ extern "C" ARM void func_0208358c(Struct_0208358c_3* arg0, Struct_0208358c_2* ar
     *var3 = 0;
     if (arg1->unknown_4_) { memset(var3, 0, 0x30); sprintf(var3, arg1->unknown_4_); }
 #endif
-    func_020de1d4((Struct_02083508_2*)var1);
+    InitItemData_020de1d4((ItemData_02083508_2*)var1);
     func_020836e4(var1, arg1);
     var1->unknown_0_ = &arg0->unknown_6f0_[var0];
 #if defined(jpn)

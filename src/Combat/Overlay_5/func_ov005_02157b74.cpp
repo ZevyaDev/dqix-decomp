@@ -99,13 +99,13 @@ extern "C" Struct_ov005_02157b74_5* FindItemData_020dedd0(ItemTable_0201099c_10*
 extern "C" void SetEquippedItem_02052d7c(Struct_ov005_02157b74_8* gameObject, int slot, short itemId);
 extern "C" void* func_02053c6c(unsigned char*);
 extern "C" void func_0208358c(void* arg0, Struct_ov005_02157b74_5* arg1, int arg2);
-extern "C" void func_02083738(void* arg0, int arg1);
+extern "C" void UnequipCategory_02083738(void* memberData, int arg1);
 struct Struct_ov005_02157b74_3;
 extern "C" void func_ov005_021583fc(Struct_ov005_02157b74_3*, char);
 struct Struct_02052e2c;
 extern "C" Struct_ov005_02157b74_7* GetAppearance_02052e2c(Struct_02052e2c*);
 extern "C" int func_ov005_0215840c(Struct_ov005_02157b74_2* arg0, int arg1);
-extern "C" void func_02083e28(void* arg0, int arg1);
+extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void AddEquipmentToBag_0207c378(char* bag, short itemId, int count, int category);
 extern "C" void func_ov005_021551fc(char*, int, int);
@@ -167,7 +167,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
         if (var11 != 0) {
             func_0208358c(var10, var11, var3);
         } else {
-            func_02083738(var10, var8->unknown_8_0_);
+            UnequipCategory_02083738(var10, var8->unknown_8_0_);
             if (var8->unknown_8_0_ == 7) {
                 func_ov005_021583fc((Struct_ov005_02157b74_3*)var5, 1);
             }
@@ -184,7 +184,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
                 }
             }
         }
-        func_02083e28(var5->unknown_150_, 0);
+        CalculatePartyMemberStats_02083e28(var5->unknown_150_, 0);
         func_ov017_021c9e00(var5->unknown_4_, 0, 0, 1);
         var2->unknown_634_ |= 4;
         if (arg2 == 0) {
@@ -279,7 +279,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
         SetEquippedItem_02052d7c(var5, var15, (unsigned short)arg1);
         void* var19 = func_02053c6c((unsigned char*)var5);
         func_0208358c(var19, var13, -1);
-        func_02083e28(var19, 0);
+        CalculatePartyMemberStats_02083e28(var19, 0);
         func_ov017_021c9e00(var5->unknown_4_, 0, 0, 1);
         if (var13->unknown_8_0_ == 7) {
             func_ov005_021583fc((Struct_ov005_02157b74_3*)var5, 1);

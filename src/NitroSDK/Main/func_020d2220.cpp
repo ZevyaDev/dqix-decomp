@@ -5,7 +5,7 @@ extern "C" void func_020d2a48(void*);
 struct Struct_020d217c_2;
 extern "C" void func_020d248c(Struct_020d217c_2*);
 extern "C" int func_020d2404(int);
-extern "C" void func_020d24c4(int);
+extern "C" void SendSoundCommands_020d24c4(int);
 
 struct Struct_02112a60 {
     struct Struct_02112a60* unknown_0_;
@@ -71,5 +71,5 @@ extern "C" ARM void func_020d2220(void) {
     var1->unknown_4_ = 0x1d;
     var1->unknown_8_ = data_021142c0;
     func_020d248c((Struct_020d217c_2*)var1);
-    func_020d24c4(1);
+    SendSoundCommands_020d24c4(1);
 }

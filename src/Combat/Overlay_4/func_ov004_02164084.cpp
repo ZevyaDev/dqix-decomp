@@ -24,7 +24,7 @@ struct Struct_ov004_02162dd8 {
     SafeAllocator* inline_ov004_02164084_48() { return &unknown_4_; }
 };
 
-struct Struct_ov004_02153e20 {
+struct MenuGrid_ov004_02153e20 {
     char unknown_0_[0x5c];
     short unknown_5c_;
     short unknown_5e_;
@@ -109,7 +109,7 @@ extern "C" void func_ov023_021f9d14(void*, void*);
 extern "C" void RedrawMenuWindow_ov023_021f809c(void*, void*);
 extern "C" Struct_ov004_02162dd8* func_ov011_021845f8(void*, int);
 extern "C" void func_ov004_021634b8(void*, int, int);
-extern "C" void func_ov023_021f9b30(Struct_ov004_02153e20*, unsigned short, unsigned short, unsigned int);
+extern "C" void SetMenuGridCell_ov023_021f9b30(MenuGrid_ov004_02153e20*, unsigned short, unsigned short, unsigned int);
 extern "C" void func_ov023_021f6600(void*, int, int);
 extern "C" int func_020119f8(char*, void*);
 struct Struct_02011930;
@@ -125,7 +125,7 @@ extern char data_ov004_02170e3a[];
 // USA: func_ov004_02164084
 extern "C" ARM int func_ov004_02164084(void* arg0) {
     void* var0 = GetMenuObjectList_ov011_021849c8(arg0);
-    Struct_ov004_02153e20* var1 = (Struct_ov004_02153e20*)FindMenuObjectById_ov023_021f6880(var0, 10);
+    MenuGrid_ov004_02153e20* var1 = (MenuGrid_ov004_02153e20*)FindMenuObjectById_ov023_021f6880(var0, 10);
     if (!var1) return 0;
     if (func_ov023_021f6f10(var1) != 7) return 0;
     short var2 = gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_18f6_;
@@ -168,22 +168,22 @@ extern "C" ARM int func_ov004_02164084(void* arg0) {
 #endif
         var10->unknown_20_ = 0;
         var10->unknown_c_ |= 8;
-        func_ov023_021f9b30(var1, 0, var8 & 0xffff, 0);
+        SetMenuGridCell_ov023_021f9b30(var1, 0, var8 & 0xffff, 0);
         var11->unknown_20_ = 0;
         var11->unknown_c_ |= 8;
 #if defined(jpn)
-        func_ov023_021f9b30(var1, 0, var8, 1);
+        SetMenuGridCell_ov023_021f9b30(var1, 0, var8, 1);
         var20->unknown_20_ = 0;
         var20->unknown_c_ |= 8;
-        func_ov023_021f9b30(var1, 0, var8, 2);
+        SetMenuGridCell_ov023_021f9b30(var1, 0, var8, 2);
 #endif
         if (var9 >= gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_18f4_) continue;
         ExportDetailedTreasureMapData(&gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_0_[var9], &gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var8], true, var6);
         var10->unknown_c_ &= ~8;
-        func_ov023_021f9b30(var1, (unsigned short)(var8 + 0x3c), (unsigned short)var8, 0);
+        SetMenuGridCell_ov023_021f9b30(var1, (unsigned short)(var8 + 0x3c), (unsigned short)var8, 0);
         var11->unknown_c_ &= ~8;
 #if defined(jpn)
-        func_ov023_021f9b30(var1, (unsigned short)(var8 + 0x46), var8, 1);
+        SetMenuGridCell_ov023_021f9b30(var1, (unsigned short)(var8 + 0x46), var8, 1);
         if (gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_ad4_[var8].mapType_ == 1) {
             var10->unknown_20_ = gTreasureMapScreen_ov004_02171010.unknown_0_->inline_ov004_02164084_57(var8)->nameNoLevel_;
             var11->unknown_20_ = gTreasureMapScreen_ov004_02171010.unknown_0_->inline_ov004_02164084_57(var8)->levelString_;
@@ -192,7 +192,7 @@ extern "C" ARM int func_ov004_02164084(void* arg0) {
             var11->unknown_20_ = gTreasureMapScreen_ov004_02171010.unknown_0_->inline_ov004_02164084_58(var8)->mapLevelString_;
         }
         var20->unknown_c_ &= ~8;
-        func_ov023_021f9b30(var1, (unsigned short)(var8 + 0x50), var8, 2);
+        SetMenuGridCell_ov023_021f9b30(var1, (unsigned short)(var8 + 0x50), var8, 2);
         GameState* var13 = GameState::GetInstance();
         var10->inline_ov004_02164084_47(0xf);
         var11->inline_ov004_02164084_47(0xf);
@@ -262,10 +262,10 @@ extern "C" ARM int func_ov004_02164084(void* arg0) {
     if (gTreasureMapScreen_ov004_02171010.unknown_0_->unknown_18f4_ == 0) {
         var1->unknown_5c_ = 1;
         var1->unknown_5e_ = 1;
-        func_ov023_021f9b30(var1, 0x3c, 0, 0);
+        SetMenuGridCell_ov023_021f9b30(var1, 0x3c, 0, 0);
 #if defined(jpn)
-        func_ov023_021f9b30(var1, 0x46, 0, 1);
-        func_ov023_021f9b30(var1, 0x50, 0, 2);
+        SetMenuGridCell_ov023_021f9b30(var1, 0x46, 0, 1);
+        SetMenuGridCell_ov023_021f9b30(var1, 0x50, 0, 2);
 #endif
         Struct_ov004_02164084* var14 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x1f4);
         if (var14) var14->unknown_c_ |= 8;

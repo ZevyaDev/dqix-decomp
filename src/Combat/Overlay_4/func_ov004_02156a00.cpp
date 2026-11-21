@@ -20,7 +20,7 @@ extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
-extern "C" short func_ov023_021f9bc8(void* arg0);
+extern "C" short GetMenuGridCursorIndex_ov023_021f9bc8(void* grid);
 extern "C" void* GetMenuObjectStringList_ov023_021fa598(void* object);
 extern "C" void RedrawMenuWindow_ov023_021f809c(void* window, void* menu);
 extern "C" void func_ov004_021561b0(void* arg0);
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov004_02156a00(void* arg0) {
 
     short var4 = var3->unknown_5c_ * Enum_ov004_02156a00_12;
     var2 = var3->unknown_5e_;
-    int var5 = func_ov023_021f9bc8(var3) + var4;
+    int var5 = GetMenuGridCursorIndex_ov023_021f9bc8(var3) + var4;
     short var6 = ((short*)data_ov004_021707c8.unknown_8_)[var5];
 
     struct Struct_ov004_02156a00_5* var7 = (struct Struct_ov004_02156a00_5*)GameState::GetInstance()->GetProtagonist();

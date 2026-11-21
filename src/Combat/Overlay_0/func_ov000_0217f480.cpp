@@ -5,7 +5,7 @@
 struct Struct_0201099c_3;
 
 struct Struct_0203c108_3;
-extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
+extern "C" void SetSpriteText_0203c108(struct Struct_0203c108_3* spriteText, char* text);
 
 extern "C" int IsPanelMemberIncapacitated_ov000_021719f8(int* panel);
 
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov000_0217f480(char* arg0) {
     *(unsigned short*)(var0 + 0x1e) = 0;
     if (!IsPanelMemberIncapacitated_ov000_021719f8((int*)arg0)) {
         int var4 = ((int)((StringList*)(*(struct Struct_0201099c_3**)(arg0 + 4)))->GetString(0x7531));
-        func_0203c108((struct Struct_0203c108_3*)(arg0 + 0x50), (char*)var4);
+        SetSpriteText_0203c108((struct Struct_0203c108_3*)(arg0 + 0x50), (char*)var4);
     }
     *(unsigned char*)(arg0 + 0x24) &= ~4;
 }

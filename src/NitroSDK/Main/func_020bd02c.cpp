@@ -2,7 +2,7 @@
 
 extern "C" int func_020d1f0c(int arg0, int arg1, int arg2, int arg3);
 extern "C" int func_020d26ec(void);
-extern "C" void func_020d24c4(int arg0);
+extern "C" void SendSoundCommands_020d24c4(int arg0);
 extern "C" void func_020d2680(unsigned int arg0);
 
 extern char data_0210fd74;
@@ -19,6 +19,6 @@ extern "C" ARM void func_020bd02c(void) {
     int var5 = *(int*)(var1 + 0x28);
     func_020d1f0c(var4, var5, var3, 0);
     int var6 = func_020d26ec();
-    func_020d24c4(1);
+    SendSoundCommands_020d24c4(1);
     func_020d2680((unsigned int)var6);
 }

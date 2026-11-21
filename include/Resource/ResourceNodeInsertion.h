@@ -3,7 +3,7 @@
 #include <Memory/SafeAllocator.h>
 
 struct GameResources;
-struct Struct_02046a3c;
+struct QueueNode_02046a3c;
 
 // Prefix initialized by Init021a124c. Allocation extent is not specified here.
 struct Struct_ov017_021a120c {
@@ -11,7 +11,7 @@ struct Struct_ov017_021a120c {
     unsigned char unknown_1_;
     unsigned char unknown_2_;
     unsigned char unknown_3_;
-    Struct_02046a3c* unknown_4_;
+    QueueNode_02046a3c* unknown_4_;
     SafeAllocator unknown_8_;
     void* unknown_1c_;
     unsigned char unknown_20_;

@@ -31,8 +31,8 @@ struct Struct_ov005_02153954 {
 
 extern int gSoundEffectManager_02108760;
 
-struct Struct_020e280c;
-extern "C" void func_020e280c(Struct_020e280c*, void*);
+struct YesNoWindow_020e280c;
+extern "C" void OpenYesNoWindow_020e280c(YesNoWindow_020e280c*, void*);
 extern "C" void func_020e16dc(unsigned char* arg0, int arg1, short arg2);
 struct Struct_020e1674_2;
 extern "C" void func_020e1674(Struct_020e1674_2*, int, int);
@@ -48,7 +48,7 @@ extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, i
 extern "C" ARM void func_ov005_02159b74(Struct_ov005_02153954* arg0) {
     short var0;
     short var1;
-    func_020e280c((Struct_020e280c*)arg0->unknown_e64_, (void*)-1);
+    OpenYesNoWindow_020e280c((YesNoWindow_020e280c*)arg0->unknown_e64_, (void*)-1);
 #if defined(jpn)
     Struct_ov005_02159b74* var2 = arg0->unknown_e64_->inline_ov005_02159b74();
     var2->unknown_38_ = 0xc2;

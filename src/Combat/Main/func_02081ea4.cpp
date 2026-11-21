@@ -11,15 +11,15 @@ struct TextWindow_0207fdcc {
 extern "C" struct TextWindow_0207fdcc* FindMenuLayoutWindow_02081da8(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 extern "C" void OpenMenuLayoutWindow_020813ec(struct MenuLayout_0207fdcc_2* menuLayout, int windowId);
 
-// USA: func_02081ea4
-extern "C" ARM void func_02081ea4(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2) {
-    struct TextWindow_0207fdcc* var0 = FindMenuLayoutWindow_02081da8(arg0, arg1);
-    if (var0 != NULL) {
-        if (arg2 != 0) {
-            var0->unknown_c5_ |= 0x40;
+// USA: SetMenuLayoutWindowCursorMark_02081ea4
+extern "C" ARM void SetMenuLayoutWindowCursorMark_02081ea4(struct MenuLayout_0207fdcc_2* menuLayout, int windowId, int hasCursorMark) {
+    struct TextWindow_0207fdcc* window = FindMenuLayoutWindow_02081da8(menuLayout, windowId);
+    if (window != NULL) {
+        if (hasCursorMark != 0) {
+            window->unknown_c5_ |= 0x40;
         } else {
-            var0->unknown_c5_ &= ~0x40;
+            window->unknown_c5_ &= ~0x40;
         }
-        OpenMenuLayoutWindow_020813ec(arg0, arg1);
+        OpenMenuLayoutWindow_020813ec(menuLayout, windowId);
     }
 }

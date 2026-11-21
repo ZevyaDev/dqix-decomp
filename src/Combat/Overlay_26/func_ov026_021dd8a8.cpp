@@ -91,7 +91,7 @@ struct Struct_ov023_021f4c04 {
 
 extern "C" void __clear(void*, int);
 extern "C" void ClearMessageParams_02046380(Struct_ov023_021f4c04*);
-extern "C" void func_020e4ce8(Struct_ov026_021db090_3*, GameObject*, int);
+extern "C" void InitEnemyNoun_020e4ce8(Struct_ov026_021db090_3*, GameObject*, int);
 extern "C" Struct_ov026_021d8ba0_8* func_ov017_021b8478(void*);
 extern "C" void* func_ov017_021b8468(void*);
 extern "C" void func_020dd0b0(int, char*);
@@ -180,7 +180,7 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
                 continue;
             }
             Struct_ov026_021db090_3* var29 = &var1[var9];
-            func_020e4ce8(var29, var28, 1);
+            InitEnemyNoun_020e4ce8(var29, var28, 1);
             var29->unknown_0_[2] &= ~0x80000000;
             var8->unknown_20_[var9] = var29;
             var4[var9] = var10->unknown_a_0_;

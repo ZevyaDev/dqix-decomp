@@ -19,7 +19,7 @@ extern "C" void InitCanvas_0205b20c(struct Canvas_020200c0_4* canvas);
 extern "C" void SetCanvasCharacterData_0205b220(void* canvas, int characterData);
 extern "C" void SetCanvasRects_0205b228(void* canvas, int rects, unsigned char rectCount);
 extern "C" int func_020420e8(char*, int);
-extern "C" int func_0205b234(void*, short, short, int, unsigned char, unsigned char);
+extern "C" int DrawCanvasText_0205b234(void*, short, short, int, unsigned char, unsigned char);
 
 #if defined(jpn)
 extern short data_020ee908[];
@@ -54,10 +54,10 @@ extern "C" ARM void func_020e0cfc(void* arg0, int arg1, int arg2, int) {
     SetCanvasRects_0205b228(&var3, (int)var0, Enum_020e0cfc_4);
 
 #if defined(jpn)
-    func_0205b234(&var3, (short)45, (short)5, (int)((char*)arg0 + 0x288 + 0x400), (unsigned char)10, (unsigned char)15);
-    func_0205b234(&var3, (short)45, (short)17, (int)((char*)arg0 + 0x298 + 0x400), (unsigned char)10, (unsigned char)15);
+    DrawCanvasText_0205b234(&var3, (short)45, (short)5, (int)((char*)arg0 + 0x288 + 0x400), (unsigned char)10, (unsigned char)15);
+    DrawCanvasText_0205b234(&var3, (short)45, (short)17, (int)((char*)arg0 + 0x298 + 0x400), (unsigned char)10, (unsigned char)15);
 #else
-    func_0205b234(&var3, (short)(0x5f - var1), (short)0x14, (int)((char*)arg0 + 0x2f4 + 0x400), (unsigned char)0xf, (unsigned char)0);
-    func_0205b234(&var3, (short)(0x5f - var2), (short)0x2c, (int)((char*)arg0 + 0x324 + 0x400), (unsigned char)0xf, (unsigned char)0);
+    DrawCanvasText_0205b234(&var3, (short)(0x5f - var1), (short)0x14, (int)((char*)arg0 + 0x2f4 + 0x400), (unsigned char)0xf, (unsigned char)0);
+    DrawCanvasText_0205b234(&var3, (short)(0x5f - var2), (short)0x2c, (int)((char*)arg0 + 0x324 + 0x400), (unsigned char)0xf, (unsigned char)0);
 #endif
 }

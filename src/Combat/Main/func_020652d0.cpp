@@ -14,7 +14,7 @@ extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, i
 struct MenuCursor_0205bacc;
 extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
 
-extern "C" void func_0205cb74(char* arg0, int arg1);
+extern "C" void AddChoiceListEntry_0205cb74(char* choiceList, int text);
 
 #if defined(jpn)
 extern "C" void func_0205dfa8(void* arg0);
@@ -34,7 +34,7 @@ extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 struct Struct_0205c77c;
 extern "C" void func_0205c77c(struct Struct_0205c77c* arg0, int arg1);
 
-extern "C" void func_0205cd28(unsigned char* arg0);
+extern "C" void OpenChoiceList_0205cd28(unsigned char* choiceList);
 
 // JPN: func_020665bc
 // USA: func_020652d0
@@ -54,11 +54,11 @@ extern "C" ARM void func_020652d0(char* arg0, int arg1, int arg2, int arg3) {
     SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(arg0 + 0x70), 2);
 
 #if defined(jpn)
-    func_0205cb74(arg0, (int)arg2);
-    func_0205cb74(arg0, (int)arg3);
+    AddChoiceListEntry_0205cb74(arg0, (int)arg2);
+    AddChoiceListEntry_0205cb74(arg0, (int)arg3);
 #else
-    func_0205cb74(arg0, arg2);
-    func_0205cb74(arg0, arg3);
+    AddChoiceListEntry_0205cb74(arg0, arg2);
+    AddChoiceListEntry_0205cb74(arg0, arg3);
 #endif
 
     *(short*)(arg0 + 0xb4) = 0;
@@ -84,7 +84,7 @@ extern "C" ARM void func_020652d0(char* arg0, int arg1, int arg2, int arg3) {
     arg0[Enum_020652d0_564] = 1;
     func_0205c77c((struct Struct_0205c77c*)(arg0 + 0x4), 1);
 
-    func_0205cd28((unsigned char*)arg0);
+    OpenChoiceList_0205cd28((unsigned char*)arg0);
 
     int var0 = (*(volatile unsigned short*)0x4000304 & 0x8000) >> 15;
     if (var0 == 1) {

@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Combat/FormationPosition.h"
 
-extern "C" int func_ov000_02153e40(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectCombatantIndices_ov000_02153e40(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int GetCombatantCell_020493a4(unsigned char* combatant);
 extern "C" void func_02049bd4(unsigned char* arg0, int* arg1);
 
@@ -22,7 +22,7 @@ extern "C" ARM void func_ov000_02168144(unsigned char* arg0) {
 #else
     enum { Enum_ov000_02168144_668 = 0x29c };
 #endif
-    int var2 = func_ov000_02153e40(*(void**)(arg0 + Enum_ov000_02168144_668), var1, 0xc, 0);
+    int var2 = CollectCombatantIndices_ov000_02153e40(*(void**)(arg0 + Enum_ov000_02168144_668), var1, 0xc, 0);
     int var3;
     for (var3 = 0; var3 < var2; var3++) {
         GameObject* var4 = var0->GetCombatantByIndex(var1[var3]);

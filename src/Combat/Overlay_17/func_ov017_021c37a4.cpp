@@ -141,7 +141,7 @@ extern "C" void* GetEventSyncTable_020e3808(void);
 extern "C" void* func_020d6c00(void);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int GetLocalWirelessState_0202ba00(int* wireless);
-extern "C" void AddElapsedPlayTime_020ac4f8(int arg0);
+extern "C" void AddElapsedPlayTime_020ac4f8(int isMultiplayerTimeIncluded);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02012084(unsigned char* arg0);
 extern "C" void func_02011af0(void* arg0);

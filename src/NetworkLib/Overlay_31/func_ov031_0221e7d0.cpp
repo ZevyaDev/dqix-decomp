@@ -13,7 +13,7 @@ struct Struct_ov031_0224f4c0 {
 extern "C" void func_020c7de4(Struct_ov031_0224e204* arg0, int arg1, int arg2);
 extern "C" int func_ov031_0221f26c(int (*arg0)(int), void* arg1, int arg2);
 extern "C" int func_ov031_0221e7a8(int arg0);
-extern "C" int func_020c7ea0(Struct_ov031_0224e204* arg0, int* arg1, int arg2);
+extern "C" int DequeueValue_020c7ea0(Struct_ov031_0224e204* queue, int* value, int flags);
 extern Struct_ov031_0224e204 data_ov031_0224f4e0;
 extern int data_ov031_0224f4d0[4];
 extern Struct_ov031_0224f4c0 data_ov031_0224f4c0;
@@ -34,7 +34,7 @@ extern "C" THUMB int func_ov031_0221e7d0(void* (*arg0)(void*), void (*arg1)(void
     if (var0 != 0) {
         do {
             int var3;
-            func_020c7ea0(&data_ov031_0224f4e0, &var3, 1);
+            DequeueValue_020c7ea0(&data_ov031_0224f4e0, &var3, 1);
             switch (var3) {
             case 4: case 5: break;
             case 6: return 0;

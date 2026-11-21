@@ -31,7 +31,7 @@ extern "C" void func_020891cc(void* arg0);
 extern "C" void func_02089630(void* arg0, void* arg1, int arg2);
 extern "C" void func_ov000_02161bec(unsigned char* arg0);
 extern "C" void func_02048614(unsigned char* arg0);
-extern "C" void func_02049c88(void* arg0, void* arg1);
+extern "C" void SetCombatantBattleState_02049c88(void* combatant, void* battleState);
 extern "C" void func_02048850(Struct_02048850* arg0, Struct_02048850_2* arg1);
 extern "C" void func_020488ec(char* arg0);
 extern "C" void func_02049f3c(unsigned char* arg0);
@@ -301,7 +301,7 @@ extern "C" ARM int func_ov000_02161380(Struct_ov000_02161380_10* arg0, int arg1,
         func_020891cc(var7);
         if (var15) {
             func_02048614((unsigned char*)var15);
-            func_02049c88(var15, &arg0->unknown_6aa4_[var35]);
+            SetCombatantBattleState_02049c88(var15, &arg0->unknown_6aa4_[var35]);
             func_02089630(var7, var12 + 0x2c, 0);
             var15->unknown_0_.SetField06(arg0->unknown_ec8_);
             var15->unknown_138_ = var7;

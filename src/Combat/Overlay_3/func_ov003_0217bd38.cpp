@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-extern "C" void* func_ov017_0219bf74(void);
+extern "C" void* UnloadZone_ov017_0219bf74(void);
 
 struct Struct_ov003_0217bd38 {
     SafeAllocator* unknown_0_;
@@ -12,7 +12,7 @@ struct Struct_ov003_0217bd38 {
 
 // USA: func_ov003_0217bd38
 extern "C" ARM void func_ov003_0217bd38(Struct_ov003_0217bd38* arg0) {
-    arg0->unknown_0_ = (SafeAllocator*)func_ov017_0219bf74();
+    arg0->unknown_0_ = (SafeAllocator*)UnloadZone_ov017_0219bf74();
     void* var0 = arg0->unknown_0_->Allocate(0x32000);
     arg0->unknown_4_.CreateTypeA(var0, 0x32000);
     arg0->unknown_4_.Reset();

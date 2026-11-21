@@ -30,7 +30,7 @@ struct Struct_0203c108_3 {
     int unknown_10_;
     short unknown_14_;
 };
-extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
+extern "C" void SetSpriteText_0203c108(struct Struct_0203c108_3* spriteText, char* text);
 
 extern "C" void __clear(void* arg0, int arg1);
 
@@ -89,25 +89,25 @@ extern "C" ARM void func_ov000_02170db0(struct Struct_ov000_02170db0_3* arg0) {
 #if defined(jpn)
         char* var4 = (char*)((int)((StringList*)(arg0->unknown_4_))->GetString(func_ov000_02171a74(arg0)));
         if (var4 != NULL) {
-            func_0203c108(&arg0->unknown_50_, var4);
+            SetSpriteText_0203c108(&arg0->unknown_50_, var4);
         }
 #else
         char var5[0x80];
         __clear(var5, sizeof(var5));
         if (func_ov000_02171a74(arg0, var5) >= 0) {
-            func_0203c108(&arg0->unknown_50_, var5);
+            SetSpriteText_0203c108(&arg0->unknown_50_, var5);
         }
 #endif
     } else if (var3 != NULL && (signed char)var3->unknown_94c_ != 5 && arg0->unknown_1c_ != 6) {
         char* var6 = (char*)((int)((StringList*)(arg0->unknown_4_))->GetString((short)((signed char)var3->unknown_94c_ + 0x753e)));
         if (var6 != NULL) {
-            func_0203c108(&arg0->unknown_50_, var6);
+            SetSpriteText_0203c108(&arg0->unknown_50_, var6);
         } else {
-            func_0203c108(&arg0->unknown_50_, data_ov000_02183ff4);
+            SetSpriteText_0203c108(&arg0->unknown_50_, data_ov000_02183ff4);
         }
     } else if (var0 != NULL) {
 #if defined(jpn)
-        func_0203c108(&arg0->unknown_50_, (char*)var0->unknown_0_);
+        SetSpriteText_0203c108(&arg0->unknown_50_, (char*)var0->unknown_0_);
 #else
         char var7[0x80];
         char var8[0x80];
@@ -115,12 +115,12 @@ extern "C" ARM void func_ov000_02170db0(struct Struct_ov000_02170db0_3* arg0) {
         __clear(var8, sizeof(var8));
         ExpandInflectionTags_020e4864(var0->unknown_0_, var7, 1, 0, 0, 0);
         CopyCapitalizedText_0206819c(var7, var8, 0);
-        func_0203c108(&arg0->unknown_50_, var8);
+        SetSpriteText_0203c108(&arg0->unknown_50_, var8);
 #endif
     } else if (var1 != NULL) {
         if (var1->unknown_18_ > 0) {
 #if defined(jpn)
-            func_0203c108(&arg0->unknown_50_, (char*)var1->unknown_4_);
+            SetSpriteText_0203c108(&arg0->unknown_50_, (char*)var1->unknown_4_);
 #else
             char var9[0x80];
             char var10[0x80];
@@ -129,13 +129,13 @@ extern "C" ARM void func_ov000_02170db0(struct Struct_ov000_02170db0_3* arg0) {
             ExpandInflectionTags_020e4864(var1->unknown_4_, var9, 1, 0, 0, 0);
             CopyCapitalizedText_0206819c(var9, var10, 0);
             func_02046608(GetMessageWindow_020421a0(), 10, var10, var9, 0x100, 0, 0);
-            func_0203c108(&arg0->unknown_50_, var9);
+            SetSpriteText_0203c108(&arg0->unknown_50_, var9);
 #endif
         }
     } else if (arg0->unknown_1c_ == 6) {
-        func_0203c108(&arg0->unknown_50_, (char*)((int)((StringList*)(arg0->unknown_4_))->GetString(0x7531)));
+        SetSpriteText_0203c108(&arg0->unknown_50_, (char*)((int)((StringList*)(arg0->unknown_4_))->GetString(0x7531)));
     } else {
-        func_0203c108(&arg0->unknown_50_, data_ov000_02183ff4);
+        SetSpriteText_0203c108(&arg0->unknown_50_, data_ov000_02183ff4);
     }
     func_ov000_0217616c(arg0);
 }

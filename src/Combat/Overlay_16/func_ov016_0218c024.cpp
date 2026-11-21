@@ -38,7 +38,7 @@ extern "C" void func_ov016_0218bec4(void* arg0, int arg1);
 #endif
 extern "C" void func_020d1f0c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_020d1fd0(int arg0, int arg1);
-extern "C" void func_020d24c4(int arg0);
+extern "C" void SendSoundCommands_020d24c4(int arg0);
 extern "C" void func_020c9778(int arg0, int arg1);
 extern "C" void UpdateSound_020bbd9c(void);
 extern "C" int func_020ce89c(int arg0, int arg1, int arg2);
@@ -305,7 +305,7 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 						if (var12 == 1) {
 							func_020d1f0c(3, 0, 1, 0);
 							func_020d1fd0(3, 0);
-							func_020d24c4(1);
+							SendSoundCommands_020d24c4(1);
 						}
 						while (func_ov016_0218ca70() != 0) {
 							func_020c9778(0, 1);
@@ -399,7 +399,7 @@ extern "C" ARM void func_ov016_0218c04c(const char* arg0, int arg1) {
 			if (var12 == 1) {
 				func_020d1f0c(3, 0, 1, 0);
 				func_020d1fd0(3, 0);
-				func_020d24c4(1);
+				SendSoundCommands_020d24c4(1);
 			}
 		}
 		CancelAlarm(&data_ov016_0219d118);

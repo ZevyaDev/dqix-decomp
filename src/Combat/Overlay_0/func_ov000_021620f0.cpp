@@ -127,7 +127,7 @@ extern "C" void func_ov000_02167c28(unsigned char* arg0, int arg1);
 extern "C" int func_ov000_02161bb8(unsigned char* arg0);
 extern "C" void func_020891cc(void* arg0);
 extern "C" void func_02089630(void* arg0, void* arg1, int arg2);
-extern "C" void func_02049c88(void* arg0, void* arg1);
+extern "C" void SetCombatantBattleState_02049c88(void* combatant, void* battleState);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState* gameState, int index, GameObject* object);
 extern "C" void func_ov000_02161274(GameObject* arg0);
 extern "C" void func_02048934(void* arg0, Struct_02048934* arg1, Random* arg2);
@@ -183,7 +183,7 @@ extern "C" ARM void func_ov000_021620f0(Struct_ov000_021620f0_6* arg0, int arg1)
                 func_ov000_02167c28((unsigned char*)arg0, var1 + 0xc0);
                 var2 = &arg0->unknown_5e24_[var1];
                 func_02048614((unsigned char*)var2);
-                func_02049c88(var2, &arg0->unknown_6aa4_[var1]);
+                SetCombatantBattleState_02049c88(var2, &arg0->unknown_6aa4_[var1]);
                 func_02089630(var16, var12->unknown_2c_, 0);
                 var2->unknown_0_.SetField06(arg0->unknown_ec8_);
                 var2->unknown_138_ = var16;

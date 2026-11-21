@@ -6,7 +6,7 @@ extern "C" void* func_ov004_02168f08(void* arg0, int arg1);
 #else
 extern "C" void* func_ov023_021f6524(void* arg0, int arg1);
 #endif
-extern "C" int func_ov023_021f9bc8(char* arg0);
+extern "C" int GetMenuGridCursorIndex_ov023_021f9bc8(char* grid);
 struct Struct_ov004_0216950c;
 extern "C" void func_ov004_021695fc(struct Struct_ov004_0216950c* arg0);
 extern "C" void func_ov004_0216920c(void* arg0);
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov004_0216950c(void* arg0) {
 #endif
     short var2 = var1->unknown_5c_;
     unsigned char *var3, *var4;
-    int var5 = func_ov023_021f9bc8((char*)var1) + var2 * 8;
+    int var5 = GetMenuGridCursorIndex_ov023_021f9bc8((char*)var1) + var2 * 8;
     var3 = var0 + 4 + var5 * 0x2c;
     var4 = var0 + 4 + (var5 + 1) * 0x2c;
     func_ov004_021695fc((struct Struct_ov004_0216950c*)var3);

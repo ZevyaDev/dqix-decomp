@@ -134,9 +134,9 @@ extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void ExpandInflectionTags_020e4864(const char* text, char* buffer, int, int, int, int);
 extern "C" void func_020805f4(void* arg0, int arg1);
 extern "C" void func_020806b0(void* arg0, int arg1);
-extern "C" void func_02080b2c(void* arg0, int arg1);
+extern "C" void HideMenuLayoutText_02080b2c(void* menuLayout, int textId);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
-extern "C" void func_02081ea4(MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowCursorMark_02081ea4(MenuLayout_0207fdcc_2* menuLayout, int windowId, int hasCursorMark);
 extern "C" void func_02081130(void* arg0, int arg1, int arg2);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
@@ -192,12 +192,12 @@ extern "C" ARM void func_ov006_0215f7e8(Struct_ov006_02157a60* arg0) {
         else
         {
             func_020806b0(var1, var4);
-            func_02080b2c(var1, var4);
+            HideMenuLayoutText_02080b2c(var1, var4);
         }
         var4++;
     }
     SetMenuLayoutWindowPalette_02080c68(var1, 9, 0);
-    func_02081ea4((MenuLayout_0207fdcc_2*)var1, 9, 0);
+    SetMenuLayoutWindowCursorMark_02081ea4((MenuLayout_0207fdcc_2*)var1, 9, 0);
     func_02081130(var1, 9, (arg0->unknown_394_ & 4) ? 1 : 0);
     OpenMenuLayoutWindow_020813ec(var1, 9);
 }

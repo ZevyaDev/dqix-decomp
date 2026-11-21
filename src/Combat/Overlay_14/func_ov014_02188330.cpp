@@ -85,7 +85,7 @@ struct MenuLayout_02081164;
 extern "C" void func_02080bac(void* arg0, int arg1);
 extern "C" void SetMenuLayoutTextStringId_0208103c(void* menuLayout, int textId, int stringId);
 extern "C" void SetMenuLayoutTextValue_02080fa8(MenuLayout_02080fa8* menuLayout, int textId, int value);
-extern "C" int func_02080b2c(void* arg0, int arg1);
+extern "C" int HideMenuLayoutText_02080b2c(void* menuLayout, int textId);
 extern "C" void SetMenuLayoutWindowFrameless_02081164(MenuLayout_02081164* menuLayout, int windowId, int isFrameless);
 
 extern "C" {
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov014_02188330(Struct_ov014_02186bc8* arg0)
         short var8 = data_ov014_021894cc[var0][var7];
         if (var8 < 0)
             break;
-        func_02080b2c(arg0->unknown_c0_, var8);
+        HideMenuLayoutText_02080b2c(arg0->unknown_c0_, var8);
     }
     SetMenuLayoutWindowFrameless_02081164((MenuLayout_02081164*)arg0->unknown_c0_, 0, 1);
     OpenMenuLayoutWindow_020813ec(arg0->unknown_c0_, 0);

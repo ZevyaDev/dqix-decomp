@@ -5,7 +5,7 @@
 
 // USA: func_0206db48
 extern "C" ARM void func_0206db48(void *arg0, Struct_0206bf2c *arg1) {
-    Struct_0206bf2c *var0 = (Struct_0206bf2c *) func_0206db20(arg0, arg1->unknown_0_);
+    Struct_0206bf2c *var0 = (Struct_0206bf2c *) FindNPCPlacement_0206db20(arg0, arg1->unknown_0_);
     int var1;
     if (arg1->unknown_a_2_) {
         var1 = 0;

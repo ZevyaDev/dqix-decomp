@@ -4,7 +4,7 @@
 #if defined(jpn)
 #define data_ov003_02180cc8 data_ov003_0217ef40
 #endif
-extern "C" void func_020e2490(Struct_020e2490*, int, int, void*, SafeAllocator*, int, unsigned char);
+extern "C" void InitYesNoWindow_020e2490(YesNoWindow_020e2490*, int, int, void*, SafeAllocator*, int, unsigned char);
 extern unsigned int data_ov003_02180cc8[2];
 
 #if defined(jpn)
@@ -20,12 +20,12 @@ extern "C" ARM void func_ov003_02173f70(Struct_ov003_02173f70* arg0, SafeAllocat
         arg0->unknown_830_ = static_cast<Sprite_02043368_2*>(arg1->Allocate(0x528));
         arg0->unknown_89c_ = static_cast<MenuLayout_0207f7f0*>(arg1->Allocate(sizeof(MenuLayout_0207f7f0)));
         arg0->unknown_82c_ = static_cast<SpriteAnimationList_02043368*>(arg1->Allocate(8));
-        arg0->unknown_0_ = static_cast<Struct_020e2490*>(arg1->Allocate(0x24));
+        arg0->unknown_0_ = static_cast<YesNoWindow_020e2490*>(arg1->Allocate(0x24));
 #if defined(jpn)
-        func_020e2490(arg0->unknown_0_, 0, 1, arg0->unknown_82c_, arg1, 3, 0x40);
+        InitYesNoWindow_020e2490(arg0->unknown_0_, 0, 1, arg0->unknown_82c_, arg1, 3, 0x40);
         static unsigned int sizes[6] = {0, 0x1800, 0x1e00, 0x400, 0x9800, 0x6000};
 #else
-        func_020e2490(arg0->unknown_0_, 0, 1, arg0->unknown_82c_, arg1, 4, 0x40);
+        InitYesNoWindow_020e2490(arg0->unknown_0_, 0, 1, arg0->unknown_82c_, arg1, 4, 0x40);
         static unsigned int sizes[6] = {0, 0x2800, 0x1e00, 0x400, 0x9800, 0x6000};
 #endif
         if (!(data_ov003_02180cc8[1] & 1)) {

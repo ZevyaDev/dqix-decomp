@@ -6,7 +6,7 @@
 #endif
 
 
-struct Struct_ov004_02153e20 {
+struct MenuGrid_ov004_02153e20 {
     char unknown_0_[0x5c];
     short unknown_5c_;
     short unknown_5e_;
@@ -63,12 +63,12 @@ struct Struct_ov004_0217101c_3 {
 
 extern "C" void* func_0205ec34();
 extern "C" void func_ov004_02166608(void*);
-extern "C" Struct_ov004_02153e20* func_ov023_021f6524(void*, int);
+extern "C" MenuGrid_ov004_02153e20* func_ov023_021f6524(void*, int);
 extern "C" Struct_02065990_3* GetQuestManager_02094d6c();
 extern "C" void GetMessageWindow_020421a0();
 extern "C" void func_ov023_021f65d4(void*, int, int);
 extern "C" Struct_ov004_02166bd8_3* func_0208d994(Struct_0208bf78_5*, int);
-extern "C" void func_ov023_021f9b30(Struct_ov004_02153e20*, unsigned short, unsigned int, unsigned int);
+extern "C" void SetMenuGridCell_ov023_021f9b30(MenuGrid_ov004_02153e20*, unsigned short, unsigned int, unsigned int);
 extern "C" Struct_ov004_02166bd8* func_ov004_02165ea4(void*, int, int);
 struct Struct_02000c9c_8;
 extern "C" int func_0200fb08(Struct_02000c9c_8*);
@@ -80,7 +80,7 @@ extern "C" void AppendXPositionTag_02041a28(char*, int);
 extern "C" void AppendText_02042058(char*, const char*);
 extern "C" void func_ov023_021f63f8(void*, int, char*, int);
 extern "C" void func_ov023_021f6600(void*, int, int);
-extern "C" void func_ov023_021f9d14(Struct_ov004_02153e20*, void*);
+extern "C" void func_ov023_021f9d14(MenuGrid_ov004_02153e20*, void*);
 extern "C" void func_ov023_021f6630(int, int, short, short);
 
 extern Struct_ov004_0217101c_3 data_ov004_0217101c;
@@ -115,7 +115,7 @@ extern "C" ARM int func_ov004_02166bd8(void* arg0) {
     func_ov004_02166608(arg0);
     short var0 = 0;
     short var1 = 1;
-    Struct_ov004_02153e20* var2 = func_ov023_021f6524(arg0, 0x5b);
+    MenuGrid_ov004_02153e20* var2 = func_ov023_021f6524(arg0, 0x5b);
     if (var2) {
         var0 = var2->unknown_5c_;
         var1 = var2->unknown_5e_;
@@ -152,7 +152,7 @@ extern "C" ARM int func_ov004_02166bd8(void* arg0) {
             Struct_ov004_02166bd8_3* var14 = func_0208d994(&var8->unknown_c_, var3->unknown_0_);
             if (var14) {
                 var13 = 1;
-                func_ov023_021f9b30(var2, var4, (unsigned short)var12, 0);
+                SetMenuGridCell_ov023_021f9b30(var2, var4, (unsigned short)var12, 0);
                 int var15 = 0;
                 if (!var3->unknown_2_4_) {
 #if defined(jpn)
@@ -259,7 +259,7 @@ extern "C" ARM int func_ov004_02166bd8(void* arg0) {
             var3 = var3->unknown_8_;
         }
         if (!var13)
-            func_ov023_021f9b30(var2, 0, (unsigned short)var12, 0);
+            SetMenuGridCell_ov023_021f9b30(var2, 0, (unsigned short)var12, 0);
     }
     func_ov023_021f9d14(var2, arg0);
     func_ov023_021f6630((int)arg0, 0x17, var0, var1);

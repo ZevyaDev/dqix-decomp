@@ -56,7 +56,7 @@ struct Struct_ov026_021d8ba0_9;
 struct Struct_020a36a8;
 struct SkillTable_0200f3a4_8;
 struct Struct_0209a470;
-struct Struct_02086f24_6;
+struct SpellTable_02086f24_6;
 struct Struct_02013fb4;
 struct Struct_0204671c;
 struct Struct_020d6ec8;
@@ -142,7 +142,7 @@ extern "C" void func_ov000_0215e8e8(void*);
 extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8*);
 extern "C" void func_0209a470(Struct_0209a470*, SafeAllocator*, Struct_02013fb4*, int);
 extern "C" void ClearSpellTable_0209a804(int*);
-extern "C" void func_0209a8b4(Struct_02086f24_6*, SafeAllocator*, Struct_02013fb4*, int);
+extern "C" void BuildSpellTable_0209a8b4(SpellTable_02086f24_6*, SafeAllocator*, Struct_02013fb4*, int);
 extern "C" void UnloadExtraSoundSet_0205eb80(void*);
 extern "C" int func_0204671c(Struct_0204671c*);
 extern "C" void func_ov000_02180b3c(void*);
@@ -163,11 +163,11 @@ extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" char* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" int func_ov026_021dd3c4(Struct_ov026_021d8ba0_10*);
-extern "C" void func_0203c108(Struct_0203c108_3*, char*);
+extern "C" void SetSpriteText_0203c108(Struct_0203c108_3*, char*);
 extern "C" void func_ov000_021744f4(int, void*);
 extern "C" void func_ov000_02176054(void*);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
-extern "C" void* func_02053dc0(Struct_02053dc0*);
+extern "C" void* GetBattleCommand_02053dc0(Struct_02053dc0*);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_ov000_02181364(void*);
 extern "C" void func_ov000_021816e8(void*, int);
@@ -177,7 +177,7 @@ extern "C" void func_ov017_021ca174(unsigned short);
 extern "C" EventSyncEntry_020e385c* GetEventSyncTable_020e3808();
 extern "C" int func_020e3ad0(EventSyncEntry_020e385c*, int, int);
 extern "C" unsigned char* FindEventSyncEntry_020e385c(EventSyncEntry_020e385c*, int, int);
-extern "C" void func_020e3994(EventSyncEntry_020e385c*, int, int);
+extern "C" void RemoveEventSyncEntry_020e3994(EventSyncEntry_020e385c*, int, int);
 void SetBrightness(GameResources*, int, int);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" void func_ov000_02174514(void*);
@@ -194,7 +194,7 @@ extern "C" void func_ov000_02162c90(char*, int, int);
 extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0*, int);
 extern "C" int func_ov000_02168720(char*);
 extern "C" void func_ov000_021813d4(void*);
-extern "C" void func_0205eb54(void*, int, int);
+extern "C" void LoadExtraSoundSet_0205eb54(void*, int, int);
 extern "C" void PlayExtraSoundEffect_0205eb90(void*, int, int);
 extern "C" void func_ov017_021cefe0(unsigned short, unsigned char, unsigned char);
 extern "C" void func_ov017_021cf650(unsigned short, int, int);
@@ -221,7 +221,7 @@ void ExpandInflectionTags_020e4864(void*, char*, int, int, int, int);
 void __clear(void*, int);
 void func_02046608(Struct_ov023_021f4c04*, int, char*, char*, int, int, int);
 void func_ov000_0217f518(Struct_ov026_021d8ba0_6*);
-void func_ov000_02162c14( BattleScene_ov000_02160da0*, int, void*);
+void GetPartyMemberCommand_ov000_02162c14( BattleScene_ov000_02160da0*, int, void*);
 void func_ov000_0217fa60(void*);
 void func_ov000_02175258(void*);
 void func_ov000_02174c14(void*);
@@ -244,7 +244,7 @@ void func_ov026_021dce34(int, BattleScene_ov000_02160da0*, Struct_ov000_02161e30
 void func_ov026_021dd8a8(Struct_ov000_02161e30*, Struct_ov000_0217e870_2*);
 void func_ov000_0217fbf4(void*, int);
 void ClearMessageParams_02046380(Struct_ov023_021f4c04*);
-void func_020e4ce8(void*, char*, int);
+void InitEnemyNoun_020e4ce8(void*, char*, int);
 void func_ov000_0216258c( BattleScene_ov000_02160da0*);
 void func_ov026_021db3d8( BattleScene_ov000_02160da0*);
 int IsNotLocalWirelessGuest_0202c508(int*);
@@ -591,7 +591,7 @@ state1:
         }
         var23->GetLoadedFileByID(inline_ov026_021d8ba0_2().unknown_18_, &var54, &var55);
         ClearSpellTable_0209a804((int*)(arg0->unknown_ea0_));
-        func_0209a8b4((Struct_02086f24_6*)(arg0->unknown_ea0_), (SafeAllocator*)(arg0->unknown_30_), (Struct_02013fb4*)var54, var55);
+        BuildSpellTable_0209a8b4((SpellTable_02086f24_6*)(arg0->unknown_ea0_), (SafeAllocator*)(arg0->unknown_30_), (Struct_02013fb4*)var54, var55);
         var23->RemoveTask(inline_ov026_021d8ba0_2().unknown_18_);
         inline_ov026_021d8ba0_2().unknown_18_ = -1;
         arg0->unknown_eac_ = 3;
@@ -736,7 +736,7 @@ state1:
                     if (var48 == 0) {
                         continue;
                     }
-                    func_0203c108((Struct_0203c108_3*)(var41 + var74 * 0x38), (char*)var36 + 0x14c);
+                    SetSpriteText_0203c108((Struct_0203c108_3*)(var41 + var74 * 0x38), (char*)var36 + 0x14c);
                     arg0->unknown_547c_[var74] = *((unsigned char*)var36 + 0x17c);
                     arg0->unknown_549c_[var74] = var72[var38].unknown_6_[var73] + 0xc0;
                     var74++;
@@ -767,7 +767,7 @@ state1:
                         ExpandInflectionTags_020e4864((char*)var36 + 0x14c, var3.unknown_0_ + 5, 1, 0, 0, 0);
                         __clear(var2, sizeof(var2));
                         func_02046608(var40, 0xa, var3.unknown_0_, var2, 0x100, 0, 0);
-                        func_0203c108((Struct_0203c108_3*)(var41 + var74 * 0x18), var2);
+                        SetSpriteText_0203c108((Struct_0203c108_3*)(var41 + var74 * 0x18), var2);
                     }
                     arg0->unknown_547c_[var74] = *((unsigned char*)var36 + 0x17c);
                     arg0->unknown_549c_[var74] = var72[var38].unknown_6_[var73] + 0xc0;
@@ -777,7 +777,7 @@ state1:
                         ExpandInflectionTags_020e4864(var48->unknown_14_, var1.unknown_0_ + 5, 1, 0, 0, 0);
                         __clear(var0, sizeof(var0));
                         func_02046608(var40, 0xa, var1.unknown_0_, var0, 0x100, 0, 0);
-                        func_0203c108((Struct_0203c108_3*)(var42 + var39 * 0x18), var0);
+                        SetSpriteText_0203c108((Struct_0203c108_3*)(var42 + var39 * 0x18), var0);
                         var39++;
                     }
                     var74++;
@@ -798,7 +798,7 @@ state1:
                 func_ov000_0217f518(var75);
             }
         }
-        func_ov000_02162c14(arg0, GetProtagonistObjectIndex_020100a8(var17), &arg0->unknown_54e4_);
+        GetPartyMemberCommand_ov000_02162c14(arg0, GetProtagonistObjectIndex_020100a8(var17), &arg0->unknown_54e4_);
         func_ov000_0217fa60(arg0->unknown_3760_);
         func_ov000_02176054(arg0->unknown_3760_);
         func_ov000_02175258(arg0->unknown_3760_);
@@ -824,7 +824,7 @@ state1:
             if (!IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var56)) continue;
             var27 = GetPartyMemberBaseByIndex_0200ff1c(var17, var56);
             if (var27 == 0) continue;
-            var78 = func_02053dc0((Struct_02053dc0*)var27);
+            var78 = GetBattleCommand_02053dc0((Struct_02053dc0*)var27);
             if (var78 != 0) {
                 memset(var78, 0, 6);
             }
@@ -872,7 +872,7 @@ state1:
                         func_ov000_0217f518(var82);
                     }
                 }
-                func_ov000_02162c14(arg0, var80->unknown_f78_[var81], &var5);
+                GetPartyMemberCommand_ov000_02162c14(arg0, var80->unknown_f78_[var81], &var5);
                 func_ov017_021c6814(arg0->unknown_2a0_->unknown_8_, var80->unknown_f78_[var81], &var5, 0, -1, 0);
             }
         }
@@ -918,7 +918,7 @@ state1:
             if (var89 || !var88 || !var87) {
                 ResetMessageWindow_02043204((char*)var21);
                 arg0->unknown_eac_ = 4;
-                func_020e3994(var86, 1, -1);
+                RemoveEventSyncEntry_020e3994(var86, 1, -1);
                 return;
             }
         }
@@ -998,7 +998,7 @@ state1:
 #if defined(jpn)
                 StartMessage_0204500c(var99, var102, 0);
 #else
-                func_020e4ce8(var4, (char*)var101, 1);
+                InitEnemyNoun_020e4ce8(var4, (char*)var101, 1);
                 var99->unknown_20_ = var4;
                 StartMessage_0204500c(var99, var102, 0, 0xe3);
 #endif
@@ -1080,7 +1080,7 @@ state1:
                 }
                 if (var111) {
                     int var113;
-                    func_ov000_02162c14(arg0, var110, &var6);
+                    GetPartyMemberCommand_ov000_02162c14(arg0, var110, &var6);
                     var113 = !(var6.unknown_0_[0] == arg0->unknown_54e4_.unknown_0_[0] && var6.unknown_0_[1] == arg0->unknown_54e4_.unknown_0_[1] && var6.unknown_0_[2] == arg0->unknown_54e4_.unknown_0_[2] &&
                                 var6.unknown_0_[3] == arg0->unknown_54e4_.unknown_0_[3] && var6.unknown_6_ == arg0->unknown_54e4_.unknown_6_ && var6.unknown_8_ == arg0->unknown_54e4_.unknown_8_ && var6.unknown_4_ == arg0->unknown_54e4_.unknown_4_);
                     if (var113 || var108) {
@@ -1097,7 +1097,7 @@ state1:
                             int var115;
                             for (var115 = 0; var115 < var114->unknown_f7c_; var115++) {
                                 if (arg0->unknown_54f0_ == var115) continue;
-                                func_ov000_02162c14(arg0, var114->unknown_f78_[var115], &var7);
+                                GetPartyMemberCommand_ov000_02162c14(arg0, var114->unknown_f78_[var115], &var7);
                                 func_ov017_021c6814(arg0->unknown_2a0_->unknown_8_, var114->unknown_f78_[var115], &var7, arg0->unknown_54f4_[var106], -1, 0);
                             }
                         }
@@ -1107,7 +1107,7 @@ state1:
                 if (arg0->unknown_54f0_ != var112) {
                     arg0->unknown_54f0_ = var112;
                     if (inline_ov017_021c9d2c(var112)) {
-                        func_ov000_02162c14(arg0, var112, &var8);
+                        GetPartyMemberCommand_ov000_02162c14(arg0, var112, &var8);
                         func_ov017_021c6814(arg0->unknown_2a0_->unknown_8_, var112, &var8, arg0->unknown_54f4_[var106], -1, 0);
                     }
                 }
@@ -1139,7 +1139,7 @@ state1:
                     arg0->unknown_7710_ = 60;
                     UnloadExtraSoundSet_0205eb80(&gSoundEffectManager_02108760);
                     arg0->unknown_7711_ = 0;
-                    func_0205eb54(&gSoundEffectManager_02108760, 0x1b3, 0x1b3);
+                    LoadExtraSoundSet_0205eb54(&gSoundEffectManager_02108760, 0x1b3, 0x1b3);
                     PlayExtraSoundEffect_0205eb90(&gSoundEffectManager_02108760, 0, 0);
                     arg0->unknown_7711_ = 1;
                 }
@@ -1219,7 +1219,7 @@ state1:
             for (var122 = 0; var122 < 4; var122++) {
                 if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var122)) {
                     GetCompanionByIndex_0200ff58(var17, var122);
-                    func_ov000_02162c14(arg0, var122, &var9);
+                    GetPartyMemberCommand_ov000_02162c14(arg0, var122, &var9);
                     func_ov017_021c6814(arg0->unknown_2a0_->unknown_8_, var122, &var9, 1, -1, 1);
                 }
             }
@@ -1295,7 +1295,7 @@ state1:
             int var130;
             for (var130 = 0; var130 < 4; var130++) {
                 if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var130)) {
-                    func_ov000_02162c14(arg0, var130, &var11);
+                    GetPartyMemberCommand_ov000_02162c14(arg0, var130, &var11);
                     var129 = (Object3D*)var17->GetGameObjectByIndex(var130);
                     if (var129 != 0) {
                         var129->DisableFlag(0x1000);

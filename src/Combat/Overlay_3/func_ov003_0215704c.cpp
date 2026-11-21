@@ -47,7 +47,7 @@ void SendPartyMemberBodyAppearance_ov017_021c4418(int, int);
 void func_ov017_021cf078(int, int, int);
 void func_ov017_021ccc34(int);
 void func_ov017_021cc730(int, int, int, int);
-void func_02083e28(void *, int);
+void CalculatePartyMemberStats_02083e28(void *, int);
 void func_ov003_02155740(void *);
 void *GetQuestManager_02094d6c(void);
 int func_ov003_02158754(void *);
@@ -269,7 +269,7 @@ extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
         }
         void *var15 = GetPartyMemberBaseByIndex_0200ff1c((GameState *)var0, arg0->unknown_1f7_);
         if (var15 != 0) {
-            func_02083e28(*(void **) ((char *) var15 + JPN_OFS(0x144, 0x150)), 0);
+            CalculatePartyMemberStats_02083e28(*(void **) ((char *) var15 + JPN_OFS(0x144, 0x150)), 0);
         }
         func_ov003_02155740(arg0);
         struct Struct_ov003_0215704c_4 *var16 = (struct Struct_ov003_0215704c_4 *) GetQuestManager_02094d6c();

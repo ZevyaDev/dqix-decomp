@@ -9,7 +9,7 @@ enum { Enum_ov006_0215a384_12 = 0xc, Enum_ov006_0215a384_332 = 0x14c };
 #include <Memory/SafeAllocator.h>
 #include <Filesystem/BackgroundLoader.h>
 
-struct Struct_0208358c_2 {
+struct ItemData_0208358c_2 {
     void* unknown_0_;
     char unknown_4_[0x1c];
 };
@@ -18,7 +18,7 @@ struct Struct_ov006_02157a60_2;
 struct Struct_02071d60;
 
 struct Struct_ov006_02156f04 {
-    Struct_0208358c_2 unknown_0_;
+    ItemData_0208358c_2 unknown_0_;
     char unknown_20_[0x50];
     short unknown_70_;
 };
@@ -53,7 +53,7 @@ struct Struct_ov006_02157a60 {
 };
 
 extern "C" void func_ov006_02157c78(Struct_ov006_02157a60_2* arg0);
-extern "C" void func_020836e4(Struct_0208358c_2* arg0, Struct_0208358c_2* arg1);
+extern "C" void func_020836e4(ItemData_0208358c_2* arg0, ItemData_0208358c_2* arg1);
 extern "C" Struct_ov006_021537d0* func_02071d60(Struct_02071d60* arg0, int arg1);
 extern "C" void func_020deef4(int arg0, int arg1, int arg2, short* arg3, short arg4);
 extern "C" void func_ov006_02156f04(Struct_ov006_02154614* arg0, Struct_ov006_02156f04* arg1);
@@ -70,7 +70,7 @@ extern "C" ARM unsigned char func_ov006_0215a384(Struct_ov006_02157a60* arg0, in
         if (var1 != 0) {
             arg0->unknown_c_[8].Reset();
             Struct_ov006_0215ffda var3 = data_ov006_0215ffda;
-            Struct_0208358c_2 var4[4];
+            ItemData_0208358c_2 var4[4];
             unsigned char var5;
             for (var5 = 0; var5 < 4; var5++) {
                 func_ov006_02157c78((Struct_ov006_02157a60_2*)&arg0->unknown_17c_[var5]);

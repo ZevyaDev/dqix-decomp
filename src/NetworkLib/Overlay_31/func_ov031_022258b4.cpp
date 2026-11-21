@@ -5,7 +5,7 @@ struct Struct_ov031_022489c4 { unsigned short unknown_0_, unknown_2_; };
 struct Struct_ov031_022493b8 { unsigned short unknown_0_, unknown_2_, unknown_4_, unknown_6_; };
 struct Struct_ov031_02248c98 { unsigned char unknown_0_[5]; };
 
-struct Struct_ov031_02222ce4;
+struct OAMAllocation_ov031_02222ce4;
 struct Struct_ov031_02226d48;
 struct Struct_ov031_02222f44_2;
 struct Struct_ov031_022269d8 { int unknown_0_, unknown_4_; Struct_020b0a1c_2* unknown_8_; };
@@ -61,12 +61,12 @@ extern Struct_ov031_022493b8 data_ov031_022493b8;
 
 extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int, int);
 extern "C" Struct_020b0a1c_2* func_ov031_0223be44(int, int);
-extern "C" Struct_ov031_02222ce4* func_ov031_0223be70(int, int, int);
+extern "C" OAMAllocation_ov031_02222ce4* func_ov031_0223be70(int, int, int);
 extern "C" void func_ov031_0223bab4(void*, int, int, int);
-extern "C" void func_ov031_0223bcc8(Struct_ov031_02222ce4*, int, int);
+extern "C" void SetSpritePriority_ov031_0223bcc8(OAMAllocation_ov031_02222ce4*, int, int);
 extern "C" void* func_ov031_0223c458(int, int, int, int, int*, int);
 extern "C" void func_ov031_0223c980(void*, int, int, int, int, int, unsigned long, const unsigned short*);
-extern "C" Struct_ov031_02222ce4* func_ov031_0223b8c4(int, int, int);
+extern "C" OAMAllocation_ov031_02222ce4* func_ov031_0223b8c4(int, int, int);
 extern "C" void* AddTask_ov031_0223e218(void*, void*, void*, int);
 extern "C" void func_ov031_0223ba20(void*);
 extern "C" void SetTaskCallback_ov031_0223e2b8(void* task, int callback);
@@ -175,7 +175,7 @@ extern "C" ARM void func_ov031_022258b4() {
     for (var3 = 0; var3 < 2; ++var3) {
         gNumericKeypad_ov031_02250c00->unknown_40_[var3] = func_ov031_0223be70(0, data_ov031_02248c78[var3], 1);
         func_ov031_0223bab4(gNumericKeypad_ov031_02250c00->unknown_40_[var3], -1, 0x200, 0);
-        func_ov031_0223bcc8((Struct_ov031_02222ce4*)gNumericKeypad_ov031_02250c00->unknown_40_[var3], -1, 3);
+        SetSpritePriority_ov031_0223bcc8((OAMAllocation_ov031_02222ce4*)gNumericKeypad_ov031_02250c00->unknown_40_[var3], -1, 3);
     }
     var5[1] = 0;
     for (var3 = 0; var3 < 4; ++var3) {
@@ -193,7 +193,7 @@ extern "C" ARM void func_ov031_022258b4() {
     }
     gNumericKeypad_ov031_02250c00->unknown_58_ = func_ov031_0223be70(0, 0x44, 1);
     func_ov031_0223bab4(gNumericKeypad_ov031_02250c00->unknown_58_, -1, 0x200, 0);
-    func_ov031_0223bcc8((Struct_ov031_02222ce4*)gNumericKeypad_ov031_02250c00->unknown_58_, -1, 2);
+    SetSpritePriority_ov031_0223bcc8((OAMAllocation_ov031_02222ce4*)gNumericKeypad_ov031_02250c00->unknown_58_, -1, 2);
     gNumericKeypad_ov031_02250c00->unknown_5c_ = AddTask_ov031_0223e218(0, (void*)func_ov031_02225c90, 0, 0x78);
     func_ov031_022266b0(0, 0xc0);
 }
@@ -644,7 +644,7 @@ extern "C" ARM void func_ov031_022269d8(void) {
     void* var3 = func_ov031_0223baa0((Struct_ov031_022269d8*)var2, 0);
     func_ov031_0223bdb0(0, var1, (int)var3);
 
-    func_ov031_0223bcc8((Struct_ov031_02222ce4*)gNumericKeypad_ov031_02250c00->unknown_58_, -1, 2);
+    SetSpritePriority_ov031_0223bcc8((OAMAllocation_ov031_02222ce4*)gNumericKeypad_ov031_02250c00->unknown_58_, -1, 2);
 
     signed char var4 = gNumericKeypad_ov031_02250c00->unknown_63_;
     void* var5 = gNumericKeypad_ov031_02250c00->unknown_58_;

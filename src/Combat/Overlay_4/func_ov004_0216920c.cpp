@@ -115,7 +115,7 @@ extern "C" void func_ov023_021f6600(void*, int, int);
 extern "C" Struct_ov004_0216920c_8* func_ov004_02168a6c(void* arg0, int arg1);
 extern "C" Struct_ov004_0216920c_8* func_ov004_02168a38(void* arg0, int arg1);
 extern "C" void func_02042764(void*, void*, int);
-extern "C" int func_ov023_021f9b30(struct Struct_ov004_0216920c_7* arg0, unsigned short arg1, unsigned int arg2, unsigned int arg3);
+extern "C" int SetMenuGridCell_ov023_021f9b30(struct Struct_ov004_0216920c_7* grid, unsigned short objectId, unsigned int row, unsigned int column);
 extern "C" void func_ov023_021f65d4(void*, int, int);
 extern "C" void func_ov023_021f9da0(void*, unsigned char);
 extern "C" void func_ov004_02169b4c(void*);
@@ -170,14 +170,14 @@ extern "C" ARM int func_ov004_0216920c(struct Struct_ov004_0216920c_5* arg0) {
             var7->unknown_c_ &= ~8;
             var8->unknown_c_ &= ~8;
             var9->unknown_c_ &= ~8;
-            func_ov023_021f9b30((struct Struct_ov004_0216920c_7*)var1, (unsigned short)(var5 + 0xc8), (unsigned short)var5, 0);
+            SetMenuGridCell_ov023_021f9b30((struct Struct_ov004_0216920c_7*)var1, (unsigned short)(var5 + 0xc8), (unsigned short)var5, 0);
             var6->inline_ov004_0216920c_49(3);
         } else {
             var6->unknown_c_ |= 8;
             var7->unknown_c_ |= 8;
             var8->unknown_c_ |= 8;
             var9->unknown_c_ |= 8;
-            func_ov023_021f9b30((struct Struct_ov004_0216920c_7*)var1, 0, (unsigned short)var5, 0);
+            SetMenuGridCell_ov023_021f9b30((struct Struct_ov004_0216920c_7*)var1, 0, (unsigned short)var5, 0);
             var6->inline_ov004_0216920c_49(3);
             var3++;
         }

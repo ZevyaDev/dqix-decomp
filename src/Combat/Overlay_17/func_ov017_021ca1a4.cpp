@@ -35,7 +35,7 @@ struct Struct_ov017_021c6814 {
 };
 extern "C" void func_ov017_021c6814(unsigned short arg0, unsigned short arg1, struct Struct_ov017_021c6814* arg2, unsigned char arg3, signed char arg4, unsigned char arg5);
 
-extern "C" void func_ov000_02162c14(void* arg0, int arg1, struct Struct_ov017_021c6814* arg2);
+extern "C" void GetPartyMemberCommand_ov000_02162c14(void* battleScene, int memberIndex, struct Struct_ov017_021c6814* command);
 
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov017_021ca1a4(int arg0, struct Struct_ov017_021ca1a4* 
         struct Struct_ov017_021c6814 var4;
         for (var3 = 0; var3 < 4; var3++) {
             if (IsPartyMemberInBattle_020a35e0((unsigned char*)var1, var3 & 0xff) && arg0 != var3) {
-                func_ov000_02162c14(var2, var3, &var4);
+                GetPartyMemberCommand_ov000_02162c14(var2, var3, &var4);
                 int var5 = *(int*)((char*)var2 + var3 * 4 + Enum_ov017_021ca1a4_21748);
                 func_ov017_021c6814(((struct Struct_ov017_021ca1a4_2*)var1)->unknown_8_, (unsigned short)var3, &var4, (unsigned char)(var5 & 0xff), (signed char)arg0, 0);
             }

@@ -4,7 +4,7 @@
 extern "C" void GetWifiSetupPageArguments_ov031_02227520(int*, int*);
 extern "C" unsigned char func_ov031_02227548(void);
 extern "C" void* func_ov031_0223c560(int, int);
-extern "C" int func_020c7170(char*, unsigned long, const char*, ...);
+extern "C" int FormatToSizedBuffer_020c7170(char*, unsigned long, const char*, ...);
 extern "C" void func_ov031_0223dd60(void*, const void*, int);
 extern "C" void func_ov031_0223c8d4(void*, int, int, int, int, void*, int);
 extern "C" int func_ov031_022236d0(void);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov031_0222e484(void) {
     else var4 = 0;
     void* var5 = func_ov031_0223c560(0, data_ov031_02248f2c[func_ov031_02227548()]);
     int var6 = func_ov031_022276b4(data_ov031_02290c4c, var4);
-    func_020c7170(var1, 8, data_ov031_0224bb08, -data_ov031_02290c9c);
+    FormatToSizedBuffer_020c7170(var1, 8, data_ov031_0224bb08, -data_ov031_02290c9c);
     func_ov031_0223dd60(var2, var1, 8);
     unsigned short var7 = data_ov031_02248f3e[func_ov031_02227548() * 2];
     unsigned short var8 = data_ov031_02248f3c[func_ov031_02227548() * 2];

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
-extern "C" int func_02080b2c(void* arg0, int arg1);
+extern "C" int HideMenuLayoutText_02080b2c(void* menuLayout, int textId);
 extern "C" void SetMenuLayoutTextStringId_0208103c(void* menuLayout, int textId, int stringId);
 extern "C" void func_02080798(void* arg0, int arg1, int arg2);
 struct MenuLayout_02080cc0;
@@ -17,8 +17,8 @@ extern "C" ARM void func_ov003_02167fa4(void* arg0, int arg1, unsigned char* arg
     int var2 = 0x24;
     for (unsigned char var3 = 0; var3 < 5; var3++) {
         if (arg1 == 0) {
-            func_02080b2c(var0, var1);
-            func_02080b2c(var0, var2);
+            HideMenuLayoutText_02080b2c(var0, var1);
+            HideMenuLayoutText_02080b2c(var0, var2);
         } else {
             ShowMenuLayoutText_02080b40(var0, var1);
             ShowMenuLayoutText_02080b40(var0, var2);

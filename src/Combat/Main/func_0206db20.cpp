@@ -2,14 +2,14 @@
 
 #include "Combat/NodeLookup.h"
 
-// USA: func_0206db20
-extern "C" ARM struct Struct_0206db20* func_0206db20(void* arg0, int arg1) {
-    struct Struct_0206db20* var0 = *(struct Struct_0206db20**)arg0;
-    while (var0 != 0) {
-        if (var0->unknown_0_ == arg1) {
-            return var0;
+// USA: FindNPCPlacement_0206db20
+extern "C" ARM struct NPCPlacement_0206db20* FindNPCPlacement_0206db20(void* placementList, int npcId) {
+    struct NPCPlacement_0206db20* placement = *(struct NPCPlacement_0206db20**)placementList;
+    while (placement != 0) {
+        if (placement->npcId_0_ == npcId) {
+            return placement;
         }
-        var0 = var0->unknown_68_;
+        placement = placement->pNext_68_;
     }
     return 0;
 }

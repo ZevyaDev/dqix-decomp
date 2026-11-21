@@ -33,9 +33,9 @@ extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagInde
 extern "C" int IsInGrotto_020117f0(GameState* arg0);
 struct Struct_ov017_021ab860;
 extern "C" void func_ov017_021abb68(struct Struct_ov017_021ab860* arg0, unsigned char arg1);
-struct Struct_02046a3c_2;
-struct Struct_02046a3c;
-extern "C" void func_02046a3c(struct Struct_02046a3c_2* arg0, struct Struct_02046a3c* arg1);
+struct Queue_02046a3c_2;
+struct QueueNode_02046a3c;
+extern "C" void InsertAfterQueueHead_02046a3c(struct Queue_02046a3c_2* queue, struct QueueNode_02046a3c* node);
 extern "C" int func_ov017_0219ff58(GameResources* arg0, int arg1, int arg2, int arg3);
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void VectorizedMemset(void* dst, int val, int size);
@@ -161,8 +161,8 @@ extern "C" ARM int func_ov017_021ab860(int arg0, unsigned char arg1) {
     if (data_ov017_021d83b0.unknown_8_ != 0) {
         GameResources* var12 = GetGameResources();
         func_ov017_021abb68((struct Struct_ov017_021ab860*)var12->unknown_ptr_array_3afc[6], arg1);
-        func_02046a3c((struct Struct_02046a3c_2*)var12->unknown_ptr_array_36fc[0],
-                            (struct Struct_02046a3c*)var12->unknown_ptr_array_3afc[6]);
+        InsertAfterQueueHead_02046a3c((struct Queue_02046a3c_2*)var12->unknown_ptr_array_36fc[0],
+                            (struct QueueNode_02046a3c*)var12->unknown_ptr_array_3afc[6]);
         int var13 = func_ov017_0219ff58(var12, 1, 0, 0);
         if (var13 != 0) {
             return 3;

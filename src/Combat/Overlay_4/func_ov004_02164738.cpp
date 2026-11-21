@@ -25,13 +25,13 @@ extern "C" int SetTreasureMaps_020ac734(void* treasureMaps);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_020263e4(Struct_020263e4* arg0);
 extern "C" void func_02026418(unsigned char* arg0, unsigned char arg1);
-extern "C" void func_020dc2d0(int arg0);
+extern "C" void RestartMapDisplay_020dc2d0(int modeOverride);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void func_020a39d8(SafeAllocator* arg0);
 extern "C" unsigned char func_02011930(void* arg0, struct Struct_02011930* arg1, void* arg2, void* arg3);
 extern "C" void* func_0205ec34(void);
 extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
-extern "C" void func_0206f81c(void* arg0);
+extern "C" void RunDeferredTriggerActions_0206f81c(void* triggerResult);
 extern "C" int func_0201b5d8(int arg0);
 extern "C" void DisableInputForDuration_020e1154(void* durationMs);
 extern "C" void func_020118fc(void* arg0);
@@ -68,7 +68,7 @@ extern "C" ARM int func_ov004_02164738(void* arg0) {
     *(int*)(var6 + 0x14) = *(int*)(gTreasureMapScreen_ov004_02171010 + 0x1000 + Enum_ov004_02164738_2320);
     strcpy(var4 + 0x26, gTreasureMapScreen_ov004_02171010 + Enum_ov004_02164738_6399);
     var5->allocator_array_38[12].Reset();
-    func_020dc2d0(0);
+    RestartMapDisplay_020dc2d0(0);
 
     for (var2 = 0; var2 < 8; var2++) {
         ((DetailedTreasureMapData*)(gTreasureMapScreen_ov004_02171010 + 0xad4 + var2 * Enum_ov004_02164738_452))->BlankFunction();
@@ -84,7 +84,7 @@ extern "C" ARM int func_ov004_02164738(void* arg0) {
     if (func_02011930(var3, NULL, NULL, NULL) != 0) {
         if (*((unsigned char*)var3 + 0x6000 + Enum_ov004_02164738_1246) != 0) {
             if (RunTrigger_020649b0(func_0205ec34(), 0x1b, var0)) {
-                func_0206f81c(var0);
+                RunDeferredTriggerActions_0206f81c(var0);
             }
         }
         if (func_0201b5d8(*(unsigned short*)var4)) {

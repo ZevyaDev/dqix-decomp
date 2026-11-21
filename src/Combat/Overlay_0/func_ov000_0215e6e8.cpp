@@ -35,7 +35,7 @@ extern "C" void func_020488ac(unsigned char*, int);
 extern "C" void func_020488cc(unsigned char*, int);
 extern "C" void func_0208979c(unsigned char*);
 extern "C" int func_ov000_0215fc60(char*);
-extern "C" int func_ov000_02153e40(Struct_ov000_0215767c_2* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectCombatantIndices_ov000_02153e40(Struct_ov000_0215767c_2* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_0215767c_2* battle, short* indices, int maxCount, int filterFlags);
 extern "C" void func_ov000_0215a23c(Struct_ov000_0215767c_2* arg0);
 extern "C" void func_ov000_02157e1c(Struct_ov000_0215767c_2* arg0);
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov000_0215e6e8(Struct_ov000_0215767c_2* arg0) {
     int var0;
     Struct_ov000_02182c74 var1 = data_ov000_02182cf4;
     if (arg0->unknown_8e14_ == 0) {
-        var0 = func_ov000_02153e40(arg0, var1.unknown_0_, 0x10, 1);
+        var0 = CollectCombatantIndices_ov000_02153e40(arg0, var1.unknown_0_, 0x10, 1);
         for (int var2 = 0; var2 < var0; var2++) {
             int var3 = var1.unknown_0_[var2];
             void* var4 = GameState::GetInstance();

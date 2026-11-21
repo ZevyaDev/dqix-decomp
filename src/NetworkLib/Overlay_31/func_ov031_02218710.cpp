@@ -8,7 +8,7 @@ struct Struct_ov031_02218710 {
 	int unknown_c_;
 };
 
-extern "C" int func_020c7170(char* arg0, unsigned long arg1, const char* arg2, ...);
+extern "C" int FormatToSizedBuffer_020c7170(char* buffer, unsigned long bufferSize, const char* format, ...);
 extern "C" int func_ov031_0221883c(void* arg0, Struct_ov031_02218710* arg1, int arg2);
 extern const char data_ov031_02249ee8[];
 
@@ -25,7 +25,7 @@ extern "C" ARM int func_ov031_02218710(void* arg0, const char* arg1) {
 		var2 = var1->unknown_8_ - var1->unknown_4_;
 	}
 
-	int var3 = func_020c7170(var1->unknown_4_, var2, data_ov031_02249ee8, arg1);
+	int var3 = FormatToSizedBuffer_020c7170(var1->unknown_4_, var2, data_ov031_02249ee8, arg1);
 	if (var3 != var0) {
 		return 1;
 	}

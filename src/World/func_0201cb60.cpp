@@ -73,6 +73,6 @@ extern "C" ARM int func_0201ccc8(Script::Parameter *arg0, int arg1) {
     var0.unknown_4_[5]  = var13;
 
     if (!func_0201cb60(var1, arg1 - (var1 - arg0), var0)) return 0;
-    data_020fdc20.unknown_8_->func_0201e574(var0);
+    gZoneFeatureScriptContext_020fdc20.unknown_8_->func_0201e574(var0);
     return 1;
 }

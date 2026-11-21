@@ -24,7 +24,7 @@ struct Struct_02018300_3;
 struct Struct_0209494c;
 struct TextureVRAMArea_0203d028;
 struct Struct_02010834;
-struct Struct_0206f81c_2;
+struct MenuTask_0206f81c_2;
 struct Struct_0206f81c_3;
 struct Struct_0206f81c_4;
 struct Struct_0206f81c_5;
@@ -103,7 +103,7 @@ struct Struct_ov017_021acdf4 {
 
 extern "C" void* func_0202ae18(void);
 extern "C" void* GetEffectManager_02057924(void);
-extern "C" void func_0205c904(unsigned char* arg0, int arg1);
+extern "C" void UpdateChoiceList_0205c904(unsigned char* choiceList, int ticks);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" Struct_0209494c* GetNoticeQueue_020936f8(void);
 extern "C" int func_0209494c(Struct_0209494c* arg0);
@@ -129,8 +129,8 @@ extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bd
 extern "C" void func_0200fb40(void* arg0);
 extern "C" int func_02011b50(void* arg0, int arg1);
 extern "C" void ResetMenuTask_ov017_021b2174(unsigned char* node);
-extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2* arg0, char* arg1);
-extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
+extern "C" void SetMenuTaskFileName_ov017_021b2ba0(MenuTask_0206f81c_2* menuTask, char* fileName);
+extern "C" void SetMenuTaskSetupFunction_ov017_021b2bd0(void* menuTask, int setupFunction, int overlayId);
 extern "C" void func_ov017_021b2bf4(Struct_0206f81c_3* arg0, unsigned int arg1);
 extern "C" void func_ov017_021b2c0c(Struct_0206f81c_4* arg0, unsigned int arg1);
 extern "C" void func_ov017_021b2bdc(Struct_0206f81c_5* arg0, unsigned int arg1);
@@ -189,7 +189,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Queue_02046
         func_ov017_021adb1c(arg0);
     }
     unsigned int var5 = var0->GetTickCount();
-    func_0205c904(arg0->unknown_44_, var5 ? var5 : 1);
+    UpdateChoiceList_0205c904(arg0->unknown_44_, var5 ? var5 : 1);
     DisablePlayerControl_020397cc((Struct_02018300_3*)var2, 1);
     *(short*)((char*)var2 + 0xb2) = 0;
 
@@ -405,8 +405,8 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Queue_02046
                 unsigned char* var32 = (unsigned char*)var1->unknown_ptr_array_3afc[0x14];
                 var31 = (Queue_0201bdac_2*)var1->unknown_ptr_array_36fc[0];
                 ResetMenuTask_ov017_021b2174(var32);
-                func_ov017_021b2ba0((Struct_0206f81c_2*)var32, &data_ov017_021d798f);
-                func_ov017_021b2bd0(var32, (int)func_ov004_021689d8, OVERLAY_ID(4));
+                SetMenuTaskFileName_ov017_021b2ba0((MenuTask_0206f81c_2*)var32, &data_ov017_021d798f);
+                SetMenuTaskSetupFunction_ov017_021b2bd0(var32, (int)func_ov004_021689d8, OVERLAY_ID(4));
                 func_ov017_021b2bf4((Struct_0206f81c_3*)var32, 1);
                 func_ov017_021b2c0c((Struct_0206f81c_4*)var32, 1);
                 func_ov017_021b2bdc((Struct_0206f81c_5*)var32, 0);

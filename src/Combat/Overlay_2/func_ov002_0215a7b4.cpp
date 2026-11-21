@@ -13,7 +13,7 @@ struct ItemTable_0201099c_10 {
     unsigned char unknown_10_[4];
     unsigned char isSorted_14_;
 };
-struct Struct_02061c04_22 { unsigned char unknown_0_[0x454]; short unknown_454_[8]; };
+struct PartyMemberData_02061c04_22 { unsigned char unknown_0_[0x454]; short heldItems_454_[8]; };
 struct ItemBag_02061c04_23 { short* pItemIds_0_; signed char* pCounts_4_; short unknown_8_; };
 
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
@@ -23,7 +23,7 @@ extern "C" int RemoveItemFromBag_020a0a08(struct ItemBag_02061c04_23* bag, int i
 extern "C" int func_020ddcbc(int arg0, int arg1, struct ItemTable_0201099c_10* arg2, int arg3);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int func_02053c6c(unsigned char* gameObject);
-extern "C" void func_0208386c(struct Struct_02061c04_22* arg0, int arg1);
+extern "C" void RemoveHeldItemByIndex_0208386c(struct PartyMemberData_02061c04_22* memberData, int index);
 
 #if defined(jpn)
 #define CONTAINER_0215a7b4 0x750
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov002_0215a7b4(char* arg0, int arg1, int arg2, int arg3
         if (var3 == 0) return;
         {
             int var4 = func_02053c6c((unsigned char*)var3);
-            func_0208386c((struct Struct_02061c04_22*)var4, (signed char)arg3);
+            RemoveHeldItemByIndex_0208386c((struct PartyMemberData_02061c04_22*)var4, (signed char)arg3);
         }
     }
     *(unsigned char*)(arg0 + DIRTY_0215a7b4) = 1;

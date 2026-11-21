@@ -7,7 +7,7 @@ struct ActionActor_ov000_02160094 {
 
 struct BattleAction_ov000_0215440c_2 {
     char unknown_0_[8];
-    unsigned char unknown_8_;
+    unsigned char actorCount_8_;
     char unknown_9_[7];
     struct ActionActor_ov000_02160094* unknown_10_;
 };

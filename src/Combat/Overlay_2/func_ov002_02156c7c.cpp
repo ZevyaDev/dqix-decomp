@@ -14,7 +14,7 @@
 
 struct SkillTable_0200f3a4_8;
 struct Struct_0209a470;
-struct Struct_02086f24_6;
+struct SpellTable_02086f24_6;
 struct Struct_02013fb4;
 extern "C" void func_020de848(void *itemTable);
 extern "C" void ClearSpellTable_0209a804(int *table);
@@ -23,10 +23,10 @@ extern "C" void func_0209a470(struct Struct_0209a470 *arg0,
                                                                                                     SafeAllocator *arg1,
                                                                                                     struct Struct_02013fb4 *arg2,
                                                                                                     int arg3);
-extern "C" void func_0209a8b4(struct Struct_02086f24_6 *arg0,
-                                                                                                    SafeAllocator *arg1,
-                                                                                                    struct Struct_02013fb4 *arg2,
-                                                                                                    int arg3);
+extern "C" void BuildSpellTable_0209a8b4(struct SpellTable_02086f24_6 *table,
+                                                                                                    SafeAllocator *allocator,
+                                                                                                    struct Struct_02013fb4 *scriptData,
+                                                                                                    int scriptSize);
 extern "C" void LoadItemTableByCategories_020dea64(void *itemTable, void *allocator, void *fileData, unsigned int fileSize, const void *categories, int categoryCount);
 extern "C" char data_ov002_0216c96e[];
 
@@ -64,8 +64,8 @@ extern "C" ARM void func_ov002_02156c7c(char *arg0) {
         var6->GetLoadedFileByID(*var9, &var2, &var3);
         ClearSpellTable_0209a804((int *) (arg0 + RG(0x44, 0x27c) + RG(0x2400, 0x2000)));
         if (var2 != NULL && var3 != 0) {
-            func_0209a8b4(
-                (struct Struct_02086f24_6 *) (arg0 + RG(0x44, 0x27c) + RG(0x2400, 0x2000)), (SafeAllocator *) (arg0 + RG(0x8c, 0x7f0) + RG(0x800, 0)),
+            BuildSpellTable_0209a8b4(
+                (struct SpellTable_02086f24_6 *) (arg0 + RG(0x44, 0x27c) + RG(0x2400, 0x2000)), (SafeAllocator *) (arg0 + RG(0x8c, 0x7f0) + RG(0x800, 0)),
                 (struct Struct_02013fb4 *) var2, var3);
         }
         var6->RemoveTask(*var9);

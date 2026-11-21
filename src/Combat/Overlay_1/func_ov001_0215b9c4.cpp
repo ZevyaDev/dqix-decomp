@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
-extern "C" int func_ov001_0215ad2c(int arg0);
+extern "C" int ResolveEventObjectIndex_ov001_0215ad2c(int scriptObjectId);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 extern "C" void func_ov001_0215acb4(void* arg0);
 
@@ -15,7 +15,7 @@ struct Struct_ov001_0215b9c4 { int unknown_0_; int unknown_4_; char unknown_8_[8
 extern "C" ARM int func_ov001_0215b9c4(void* arg0) {
 	GameState* var0 = GameState::GetInstance();
 	if (var0 == 0) return 0;
-	int var1 = func_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(arg0));
+	int var1 = ResolveEventObjectIndex_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(arg0));
 	GameObject* var2 = var0->GetGameObjectByIndex(var1);
 	if (var2 == 0) return 0;
 	((Object3D*)((unsigned char*)var2))->Destroy();

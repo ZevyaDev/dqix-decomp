@@ -6,7 +6,7 @@
 #endif
 
 extern "C" int func_02053c6c(unsigned char* gameObject);
-extern "C" void func_02083e28(void* arg0, int arg1);
+extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
 
 struct Struct_02084a64 {
     unsigned int unknown_0_0_ : 10;
@@ -50,5 +50,5 @@ extern "C" ARM void func_ov017_021ce8ac(int arg0, Struct_ov017_021ce8ac_2* arg1,
     var2[2].unknown_1_2_ = arg1->unknown_c_.unknown_1_2_;
     var2[2].unknown_2_4_ = arg1->unknown_c_.unknown_2_4_;
     var2[3].unknown_0_0_ = arg1->unknown_10_.unknown_0_0_;
-    func_02083e28(var1, 0);
+    CalculatePartyMemberStats_02083e28(var1, 0);
 }

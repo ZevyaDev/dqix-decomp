@@ -65,7 +65,7 @@ struct Struct_0201099c_3;
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" Struct_ov000_0217df08_6* GetEnemyByIndex_0200fea4(GameState*, int);
-extern "C" void func_020e4ce8(Struct_ov000_0217df08*, Struct_ov000_0217df08_6*, int);
+extern "C" void InitEnemyNoun_020e4ce8(Struct_ov000_0217df08*, Struct_ov000_0217df08_6*, int);
 extern "C" int func_ov000_0217ff34(void* arg0, int arg1, int* arg2);
 extern "C" void ClearMessageParams_02046380(Struct_ov000_0217df08_8*);
 extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
@@ -302,8 +302,8 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_9* arg0, int arg1,
                             return;
                         }
                         if (var37 < var42->unknown_a_0_) {
-                            func_020e4ce8(&var32, var43, 1);
-                            func_020e4ce8(&var33, var43, 0);
+                            InitEnemyNoun_020e4ce8(&var32, var43, 1);
+                            InitEnemyNoun_020e4ce8(&var33, var43, 0);
                             var37 = var42->unknown_a_0_;
                         }
                     }
@@ -316,8 +316,8 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_9* arg0, int arg1,
                         var41 = func_ov000_0217ff34(arg0, arg0->unknown_1d3c_[var39], &var45);
                         if (var41 >= 0) {
                             ClearMessageParams_02046380(var23);
-                            func_020e4ce8(&var32, var44, 1);
-                            func_020e4ce8(&var33, var44, 0);
+                            InitEnemyNoun_020e4ce8(&var32, var44, 1);
+                            InitEnemyNoun_020e4ce8(&var33, var44, 0);
                             InitPartyMemberNoun_020e4bf4(&var31, var45);
                             var23->unknown_20_ = &var32;
                             var23->unknown_10_ = &var31;

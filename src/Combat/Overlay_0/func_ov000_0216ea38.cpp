@@ -5,7 +5,7 @@
 extern "C" int func_ov000_0216f728(unsigned short*);
 extern "C" void SetCameraOrbitFromArray_0202e694(void*, int*);
 extern "C" int func_0202e88c(void*);
-extern "C" void func_0202e874(unsigned char*, int);
+extern "C" void SetCameraRoll_0202e874(unsigned char*, int);
 extern "C" {
 void SetCameraOrbit_0202e5d8(void*,int,int,int);
 extern int data_ov000_02183fc8;
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov000_0216ea38(Struct_ov000_0216ea38* arg0) {
     if (data_ov000_02183fc8) {
         arg0->unknown_10_ = var9;
         SetCameraOrbit_0202e5d8(arg0,var20,var26,var27);
-        func_0202e874((unsigned char*)arg0,var31);
+        SetCameraRoll_0202e874((unsigned char*)arg0,var31);
         data_ov000_02183fc8 = 0;
     } else {
         if (var14.y > 0x2000) var14.y = 0x2000;
@@ -131,6 +131,6 @@ extern "C" ARM void func_ov000_0216ea38(Struct_ov000_0216ea38* arg0) {
             if (var35 > 0) var35 = var36;
             else var35 = -var36;
         }
-        if (var35) func_0202e874((unsigned char*)arg0,(short)fix32ReduceAngle0To2Pi(var35+var37));
+        if (var35) SetCameraRoll_0202e874((unsigned char*)arg0,(short)fix32ReduceAngle0To2Pi(var35+var37));
     }
 }

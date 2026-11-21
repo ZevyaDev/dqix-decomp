@@ -6,9 +6,9 @@ extern "C" void func_020e12a8(struct Struct_020e12a8* arg0, short arg1, short ar
 
 extern "C" int func_020420e8(int, unsigned char);
 #if defined(jpn)
-extern "C" void func_0205b234(void*, short, short, int, unsigned char, unsigned char);
+extern "C" void DrawCanvasText_0205b234(void*, short, short, int, unsigned char, unsigned char);
 #else
-extern "C" int func_0205b234(void*, short, short, int, unsigned char, unsigned char);
+extern "C" int DrawCanvasText_0205b234(void*, short, short, int, unsigned char, unsigned char);
 #endif
 
 // USA: func_020e2310
@@ -30,5 +30,5 @@ extern "C" ARM void func_020e2310(char* arg0, int arg1, int arg2, int arg3, int 
         arg0[8] = arg1 + 1;
     }
     void **var3 = *(void***)(arg0 + 4);
-    func_0205b234(var3[1], arg2, arg3, arg4, arg5, arg6);
+    DrawCanvasText_0205b234(var3[1], arg2, arg3, arg4, arg5, arg6);
 }

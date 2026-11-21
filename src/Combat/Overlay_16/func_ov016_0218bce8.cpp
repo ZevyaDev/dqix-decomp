@@ -6,7 +6,7 @@ extern "C" int func_020d1fb0(int arg0, int arg1);
 extern "C" void func_020d2038(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9);
 extern "C" int func_020d1f70(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" int func_020d1ee4(int arg0, int arg1, int arg2, int arg3);
-extern "C" void func_020d24c4(int);
+extern "C" void SendSoundCommands_020d24c4(int);
 extern "C" void func_ov016_0218bcc4(void);
 
 struct Struct_ov016_0219d0c0_4 {
@@ -42,5 +42,5 @@ extern "C" ARM void func_ov016_0218bce8(unsigned int arg0, unsigned int arg1) {
 
     func_020d1f70(0, var3, var3, (int)func_ov016_0218bcc4, 0);
     func_020d1ee4(3, 0, 1, 0);
-    func_020d24c4(1);
+    SendSoundCommands_020d24c4(1);
 }

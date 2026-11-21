@@ -66,7 +66,7 @@ extern "C" void func_ov000_02171138(void* arg0);
 extern "C" void func_ov000_02174b14(struct Struct_ov000_02174738_5* arg0);
 extern "C" int GetHaloObject_ov017_021bdbcc();
 extern "C" int func_020420e8(char* arg0, int arg1);
-extern "C" void func_0205b234(struct Struct_ov000_02174738_6* arg0, short arg1, int arg2, void* arg3, unsigned char arg4, unsigned char arg5);
+extern "C" void DrawCanvasText_0205b234(struct Struct_ov000_02174738_6* canvas, short x, int y, void* text, unsigned char arg4, unsigned char arg5);
 
 extern char data_ov000_0218405b;
 extern int data_ov000_02183ff0;
@@ -194,7 +194,7 @@ checkvalid:
                 char var29[8];
                 sprintf(var29, &data_ov000_0218405b, var28);
                 short var30 = (short)(0x10 - func_020420e8(var29, 0));
-                func_0205b234(&var23, var30, 0, var29, 0xf, 0);
+                DrawCanvasText_0205b234(&var23, var30, 0, var29, 0xf, 0);
 
                 unsigned short var31 = *(unsigned short*)(var15 + 4) & 0x3ff;
                 unsigned int var32 = var31 << 7;

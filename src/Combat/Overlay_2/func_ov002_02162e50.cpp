@@ -38,7 +38,7 @@ extern "C" void func_ov023_021dc9e8(char *arg0, SafeAllocator *arg1, int arg2, c
 extern "C" void InitItemInfoPanel_ov023_021dc134(char *panel, int itemId, int isEmbedded);
 extern "C" void AllocateItemInfoPanelBuffers_ov023_021dbfd0(char *panel, SafeAllocator *allocator);
 extern "C" void SetItemInfoPanelItem_ov023_021dcae0(char *panel, int itemId);
-extern "C" void func_ov023_021dca88(char *arg0);
+extern "C" void CloseItemInfoPanel_ov023_021dca88(char *panel);
 extern "C" char gSoundEffectManager_02108760[];
 
 static inline int inline_02000c9c_6(int arg0) {
@@ -123,7 +123,7 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
             SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8 *) (arg0 + 0xe20), 4);
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0xe20), 4, 0);
             ConfigureMenuCursors_ov002_02161cf0(arg0);
-            func_ov023_021dca88(var1);
+            CloseItemInfoPanel_ov023_021dca88(var1);
         }
     }
 }
@@ -201,7 +201,7 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
             SetCursorTextWindow_0205dee8((struct TextWindowManager_0205dee8 *) (arg0 + 0x2c8 + 0xc00), 4);
             SetTextWindowPalette_0205deb4((struct TextWindowManager_0205d81c *) (arg0 + 0x2c8 + 0xc00), 4, 0);
             ConfigureMenuCursors_ov002_02161cf0(arg0);
-            func_ov023_021dca88(arg0 + 0x50);
+            CloseItemInfoPanel_ov023_021dca88(arg0 + 0x50);
         }
     }
 }

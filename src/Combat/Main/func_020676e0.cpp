@@ -42,7 +42,7 @@ extern Type_02000c9c_11 data_020f079c[2];
 #else
 extern Type_02000c9c_11 data_020f08b8[2];
 #endif
-extern "C" void func_0205c904(unsigned char*, int);
+extern "C" void UpdateChoiceList_0205c904(unsigned char*, int);
 extern "C" int func_0205cde8(unsigned char*);
 extern "C" void func_0205cd94(unsigned char*);
 extern "C" int GetFollowCamera_020100f8(char*);
@@ -56,7 +56,7 @@ extern "C" int func_0205cb64(void*);
 extern "C" ARM void func_020676e0(Struct_020676e0_4* arg0, int arg1) {
     if (arg0->unknown_9a0_ != 6) return;
     if (!arg0->unknown_19ba_) return;
-    func_0205c904(arg0->unknown_90_, arg1);
+    UpdateChoiceList_0205c904(arg0->unknown_90_, arg1);
     if (!func_0205cde8(arg0->unknown_90_)) {
         func_0205cd94(arg0->unknown_90_);
         return;

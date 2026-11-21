@@ -57,7 +57,7 @@ extern "C" void func_ov016_0218e240(unsigned short* arg0, char* arg1, unsigned s
 extern "C" void func_02012bd8(void);
 extern "C" void func_020d1f0c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_020d1fd0(int arg0, int arg1);
-extern "C" void func_020d24c4(int arg0);
+extern "C" void SendSoundCommands_020d24c4(int arg0);
 extern "C" void func_020c9778(int arg0, int arg1);
 extern "C" void UpdateSound_020bbd9c(void);
 extern "C" int func_020ce89c(int arg0, int arg1, int arg2);
@@ -164,7 +164,7 @@ extern "C" ARM void func_ov016_0218cf58(unsigned int arg0, unsigned int arg1) {
 
     func_020d1f70(0, var3, var3, (int)func_ov016_0218cf34, 0);
     func_020d1ee4(1, 0, 1, 0);
-    func_020d24c4(1);
+    SendSoundCommands_020d24c4(1);
 }
 
 // USA: func_ov016_0218d034
@@ -507,7 +507,7 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 						if (var24 == 1) {
 							func_020d1f0c(1, 0, 1, 0);
 							func_020d1fd0(1, 0);
-							func_020d24c4(1);
+							SendSoundCommands_020d24c4(1);
 						}
 						while (func_ov016_0218d2bc() != 0) {
 							func_020c9778(0, 1);
@@ -554,7 +554,7 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 			if (var24 == 1) {
 				func_020d1f0c(1, 0, 1, 0);
 				func_020d1fd0(1, 0);
-				func_020d24c4(1);
+				SendSoundCommands_020d24c4(1);
 			}
 		}
 		CancelAlarm(&data_ov016_0219d190);

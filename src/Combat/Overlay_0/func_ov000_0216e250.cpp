@@ -10,8 +10,8 @@ extern "C" void Vector3fix_Add(const Vector3fix* arg0, const Vector3fix* arg1, V
 struct Struct_ov000_0216e250 {
     int unknown_0_, unknown_4_, unknown_8_;
 };
-struct Struct_02049b54_2;
-extern "C" struct Struct_ov000_0216e250 func_02049b54(struct Struct_02049b54_2* arg0);
+struct Combatant_02049b54_2;
+extern "C" struct Struct_ov000_0216e250 GetCombatantLineupPosition_02049b54(struct Combatant_02049b54_2* combatant);
 extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
 
 extern int data_ov000_0218323c[];
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov000_0216e250(struct Struct_ov000_0216e250_2* arg0, in
     for (int var2 = 0; var2 < arg2; var2++) {
         GameObject* var3 = var0->GetCombatantByIndex(arg1[var2]);
         if (var3 != NULL) {
-            struct Struct_ov000_0216e250 var4 = func_02049b54((struct Struct_02049b54_2*)var3);
+            struct Struct_ov000_0216e250 var4 = GetCombatantLineupPosition_02049b54((struct Combatant_02049b54_2*)var3);
             Vector3fix_Add(&var1, (Vector3fix*)&var4, &var1);
         }
     }

@@ -4,7 +4,7 @@
 
 struct Struct_0202ecfc;
 extern "C" void func_0202ecfc(struct Struct_0202ecfc* arg0);
-extern "C" void func_0202e874(unsigned char* arg0, unsigned short arg1);
+extern "C" void SetCameraRoll_0202e874(unsigned char* camera, unsigned short roll);
 struct Struct_0202df68;
 extern "C" void SetCameraFieldOfView_0202e9a4(struct Struct_0202df68* camera, int halfAngle);
 extern "C" void func_0202e948(unsigned char* arg0);
@@ -31,7 +31,7 @@ extern "C" ARM void ResetBattleCamera_ov000_0216d370(char* camera, int resetRoll
     *(unsigned char*)(camera + 0x260) = 0;
 
     if (resetRoll) {
-        func_0202e874((unsigned char*)camera, 0);
+        SetCameraRoll_0202e874((unsigned char*)camera, 0);
     }
 
     if (resetFieldOfView) {

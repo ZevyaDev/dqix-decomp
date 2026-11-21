@@ -3,7 +3,7 @@
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
-extern "C" int AddElapsedPlayTime_020ac4f8(int arg0);
+extern "C" int AddElapsedPlayTime_020ac4f8(int isMultiplayerTimeIncluded);
 extern "C" int* GetNoticeQueue_020936f8(void);
 extern "C" void QueueNotice_02094030(int* noticeQueue, short noticeId, short arg2, signed char memberIndex);
 extern "C" void func_ov017_021d1118(int arg0, int arg1, int arg2, int arg3);

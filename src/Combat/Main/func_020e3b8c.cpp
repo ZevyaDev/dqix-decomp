@@ -7,14 +7,14 @@ enum { Enum_020e3b8c_15364 = 0x3c04, Enum_020e3b8c_14084 = 0x3704 };
 #endif
 
 
-struct Struct_02046b38_2 {
+struct QueueNode_02046b38_2 {
     char unknown_0_[4];
-    struct Struct_02046b38_2* unknown_4_;
+    struct QueueNode_02046b38_2* pNext_4_;
 };
-struct Struct_02046b38 {
-    struct Struct_02046b38_2* unknown_0_;
+struct Queue_02046b38 {
+    struct QueueNode_02046b38_2* pHead_0_;
 };
-extern "C" int func_02046b38(struct Struct_02046b38* arg0, struct Struct_02046b38_2* arg1);
+extern "C" int IsNodeInQueue_02046b38(struct Queue_02046b38* queue, struct QueueNode_02046b38_2* node);
 
 struct Struct_020e3b8c {
     char unknown_0_[0x14];
@@ -56,7 +56,7 @@ extern "C" ARM void func_020e3b8c(char* arg0, int arg1, int arg2, int arg3, int 
 {
     struct Struct_020e3b8c_2* var0 = (struct Struct_020e3b8c_2*)(arg0 + Enum_020e3b8c_15364 + arg1 * (int)sizeof(struct Struct_020e3b8c_2));
 
-    if (func_02046b38(*(struct Struct_02046b38**)(arg0 + Enum_020e3b8c_14084), (struct Struct_02046b38_2*)var0)) {
+    if (IsNodeInQueue_02046b38(*(struct Queue_02046b38**)(arg0 + Enum_020e3b8c_14084), (struct QueueNode_02046b38_2*)var0)) {
         func_020e3ed8((struct Struct_020e3b8c*)var0);
         RemoveFromQueue_02046a8c(*(void**)(arg0 + Enum_020e3b8c_14084), var0);
     }

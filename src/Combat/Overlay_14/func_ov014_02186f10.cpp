@@ -20,7 +20,7 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-extern "C" int func_02080dd4(void* arg0, int arg1, int arg2, int arg3, unsigned char* arg4, unsigned char arg5);
+extern "C" int HighlightTouchedMenuLayoutText_02080dd4(void* layout, int windowId, int x, int y, unsigned char* isTouchedAgain, unsigned char isRedrawn);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
 // USA: func_ov014_02186f10
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov014_02186f10(char* arg0) {
     if (g_touchInput.pressed_ != 0 && *(short**)(arg0 + 0xd0) != 0) {
         int var1, var2;
         g_touchInput.GetTouchPoint(&var1, &var2);
-        int var3 = func_02080dd4(*(void**)(arg0 + 0xc0), *(short*)(arg0 + 0x170), (short)var1, (short)var2, &var0, 1);
+        int var3 = HighlightTouchedMenuLayoutText_02080dd4(*(void**)(arg0 + 0xc0), *(short*)(arg0 + 0x170), (short)var1, (short)var2, &var0, 1);
         if (var3 < 0) {
             return 0;
         }

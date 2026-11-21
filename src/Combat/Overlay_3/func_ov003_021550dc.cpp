@@ -9,16 +9,16 @@ enum { Enum_ov003_021550dc_54 = 0x36 };
 enum { Enum_ov003_021550dc_486 = 0x1e6 };
 #endif
 
-struct Struct_020e28dc;
+struct YesNoWindow_020e28dc;
 
 struct Struct_ov000_0217ab8c {
     char unknown_0_[Enum_ov003_021550dc_54];
     short unknown_36_;
 };
 
-extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
-extern "C" int func_020e2918(signed char* arg0);
-extern "C" int func_02080dd4(void* arg0, int arg1, int arg2, int arg3, unsigned char* arg4, unsigned char arg5);
+extern "C" int IsYesNoWindowOpen_020e28dc(struct YesNoWindow_020e28dc* yesNoWindow);
+extern "C" int GetYesNoWindowChoice_020e2918(signed char* yesNoWindow);
+extern "C" int HighlightTouchedMenuLayoutText_02080dd4(void* layout, int windowId, int x, int y, unsigned char* isTouchedAgain, unsigned char isRedrawn);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
 struct Struct_ov003_021550dc {
@@ -26,7 +26,7 @@ struct Struct_ov003_021550dc {
     short* unknown_8_;
     char unknown_c_[0x18 - 0xc];
     Struct_ov000_0217ab8c* unknown_18_;
-    Struct_020e28dc* unknown_1c_;
+    YesNoWindow_020e28dc* unknown_1c_;
     char unknown_20_[Enum_ov003_021550dc_486 - 0x20];
     short unknown_1e6_;
     short unknown_1e8_;
@@ -38,8 +38,8 @@ extern "C" ARM unsigned char func_ov003_021550dc(Struct_ov003_021550dc* arg0) {
     if (g_keyManager.TestKeysPressed(0x401)) {
         var0 = 1;
     }
-    if (arg0->unknown_1c_ != NULL && func_020e28dc(arg0->unknown_1c_)) {
-        int var1 = func_020e2918((signed char*)arg0->unknown_1c_);
+    if (arg0->unknown_1c_ != NULL && IsYesNoWindowOpen_020e28dc(arg0->unknown_1c_)) {
+        int var1 = GetYesNoWindowChoice_020e2918((signed char*)arg0->unknown_1c_);
         if (var1 >= 0) {
             var0 = 1;
             *arg0->unknown_8_ = var1 + 6;
@@ -49,7 +49,7 @@ extern "C" ARM unsigned char func_ov003_021550dc(Struct_ov003_021550dc* arg0) {
         int var3, var4;
         g_touchInput.GetTouchPoint(&var3, &var4);
         arg0->unknown_1e8_ = *arg0->unknown_8_;
-        int var5 = func_02080dd4(var2, arg0->unknown_1e6_, (short)var3, (short)var4, &var0, 1);
+        int var5 = HighlightTouchedMenuLayoutText_02080dd4(var2, arg0->unknown_1e6_, (short)var3, (short)var4, &var0, 1);
         if (var5 < 0) {
             return 0;
         }

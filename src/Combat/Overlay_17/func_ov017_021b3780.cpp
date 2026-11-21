@@ -26,7 +26,7 @@ extern "C" void func_0209a088(struct Struct_0209a088* arg0, struct Struct_0209a0
 
 extern "C" void* func_0209a004(void* arg0, int arg1);
 
-extern "C" void func_02083e28(void* arg0, int arg1);
+extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
 
 extern unsigned char data_ov017_021d6b20;
 
@@ -97,6 +97,6 @@ extern "C" ARM int func_ov017_021b3780(struct Struct_ov017_021b3780_2* arg0) {
 
     ((BackgroundLoader*)(var1))->RemoveTask((int)(var4));
     arg0->unknown_10_ = -1;
-    func_02083e28((void*)var3, 0);
+    CalculatePartyMemberStats_02083e28((void*)var3, 0);
     return 1;
 }

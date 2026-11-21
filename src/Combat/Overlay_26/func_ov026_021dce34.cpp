@@ -131,7 +131,7 @@ int func_ov000_0215fad4(Struct_ov000_02161e30*);
 int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
 void func_ov000_02174738(void*, int);
 void* memset(void*, int, unsigned int);
-void func_02049c88(void*, void*);
+void SetCombatantBattleState_02049c88(void*, void*);
 void func_ov026_021dc8fc(BattleScene_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*, void*, void*, int);
 void StopGesture_020531f0(void*);
 void func_ov000_02167fb0(void*, GameObject*);
@@ -187,7 +187,7 @@ extern "C" ARM void func_ov026_021dce34(int arg0, BattleScene_ov000_02160da0* ar
             var11->obj3D_.MakeHidden();
             var11->obj3D_.SetField06(var10);
             memset(&arg6[var6], 0, sizeof(Struct_ov026_021dce34_3));
-            func_02049c88(var11, &arg6[var6]);
+            SetCombatantBattleState_02049c88(var11, &arg6[var6]);
             func_02053da0((char*)var11, (Struct_02053da0*)&arg7[var6]);
             func_0208936c((char*)var11->currentStats_, (char*)((Struct_ov023_021f2a48_2*)var11)->unknown_130_, (char*)var11->baseStats_);
             func_ov026_021dc8fc(arg1, arg2, arg3, arg4, arg8, arg9, var6);

@@ -7,7 +7,7 @@ extern "C" void func_0208826c(unsigned char* arg0);
 struct Struct_ov024_021ddc80_4;
 extern "C" int func_ov024_021e9464(struct Struct_ov024_021ddc80_4* arg0, int arg1, int arg2);
 struct Struct_ov024_021da670_6;
-extern "C" int func_ov024_021da998(struct Struct_ov024_021da670_6* arg0);
+extern "C" int HasTension_ov024_021da998(struct Struct_ov024_021da670_6* combatant);
 extern "C" int func_ov024_021eb4b0(int arg0, int arg1, int arg2);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
 struct Struct_ov024_021ddc80_5;
@@ -35,7 +35,7 @@ extern "C" ARM void* func_ov024_021ddc80(struct Struct_ov024_021ddc80* arg0, int
 	if (arg3->unknown_4_0_ == 0x393) {
 		var3 = 0;
 	}
-	int var4 = func_ov024_021da998((struct Struct_ov024_021da670_6*)var0);
+	int var4 = HasTension_ov024_021da998((struct Struct_ov024_021da670_6*)var0);
 	union { struct { int unknown_0_; int unknown_4_; }; unsigned long long unknown1_0_; } var5;
 	var5.unknown_0_ = 0;
 	var5.unknown_4_ = 0;

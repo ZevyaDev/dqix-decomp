@@ -150,7 +150,7 @@ extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, i
 extern "C" unsigned char func_ov006_02158a28(Struct_ov006_02157a60* arg0);
 extern "C" unsigned char func_ov006_02158b78(Struct_ov006_02157a60* arg0);
 extern "C" int func_ov006_021537d0(void* arg0, short arg1);
-extern "C" void func_02081ea4(MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowCursorMark_02081ea4(MenuLayout_0207fdcc_2* menuLayout, int windowId, int hasCursorMark);
 extern "C" void func_ov006_02157184(Struct_ov006_02157184* arg0);
 extern "C" void func_ov006_02158c28(Struct_ov006_02158c28* arg0);
 extern "C" void func_ov006_02159db0(Struct_ov006_02157a60* arg0);
@@ -253,7 +253,7 @@ extern "C" ARM void func_ov006_0215dee8(Struct_ov006_02157a60* arg0) {
                 arg0->unknown_44_ = 0;
                 if (func_ov006_021537d0(arg0->unknown_74_, var2->unknown_0_))
                 {
-                    func_02081ea4((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 9, 1);
+                    SetMenuLayoutWindowCursorMark_02081ea4((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 9, 1);
                     arg0->unknown_37e_ = 3;
                     arg0->unknown_392_ = 0;
                     arg0->unknown_394_ |= 0x20;
@@ -262,7 +262,7 @@ extern "C" ARM void func_ov006_0215dee8(Struct_ov006_02157a60* arg0) {
                     arg0->unknown_390_++;
                     return;
                 }
-                func_02081ea4((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 9, 1);
+                SetMenuLayoutWindowCursorMark_02081ea4((MenuLayout_0207fdcc_2*)arg0->unknown_14_, 9, 1);
                 arg0->unknown_37e_ = 2;
                 arg0->unknown_392_ = 0;
                 arg0->unknown_394_ |= 0x20;

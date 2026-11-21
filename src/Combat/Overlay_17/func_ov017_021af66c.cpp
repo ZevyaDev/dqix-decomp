@@ -97,7 +97,7 @@ extern "C" Struct_ov017_021af66c_3* GetZone3D_02012fe4();
 extern "C" void ResetEventTask_ov017_021baedc(Struct_ov017_021af66c* node, int isRestart);
 extern "C" void func_ov017_021bbae4(Struct_ov017_021af66c* arg0, int arg1, int arg2);
 extern "C" void func_ov017_0219577c(int arg0, int arg1, int arg2);
-extern "C" int func_ov017_02195658(GameResources* arg0);
+extern "C" int RemoveDepartedPlayer_ov017_02195658(GameResources* gameResources);
 extern "C" void* func_ov017_021b8468(Struct_ov017_021af66c* battleManager);
 extern "C" void func_ov017_021afb8c(Struct_ov017_021af66c_4* arg0, unsigned char* arg1);
 extern "C" void func_ov017_0218b5c0(int arg0, int arg1);
@@ -105,12 +105,12 @@ extern "C" void func_ov017_0218b5c0(int arg0, int arg1);
 extern "C" void* func_020d6c00();
 extern "C" void* GetNoticeQueue_020936f8();
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
-extern "C" void func_0205c904(unsigned char* arg0, int arg1);
+extern "C" void UpdateChoiceList_0205c904(unsigned char* choiceList, int ticks);
 extern "C" int func_0202bd34(LocalWireless_0202b2f0* arg0, int arg1);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void func_02093a14(char* arg0);
-extern "C" void func_020dc2d0(int arg0);
+extern "C" void RestartMapDisplay_020dc2d0(int modeOverride);
 extern "C" void func_ov000_02163b14(void* arg0, void* arg1);
 extern "C" void func_ov000_02163b40(void* arg0);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
@@ -154,7 +154,7 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
         if (var8 == 0) {
             var8 = 1;
         }
-        func_0205c904(arg0->unknown_48_, var8);
+        UpdateChoiceList_0205c904(arg0->unknown_48_, var8);
         arg0->unknown_a_ = var7.unknown_0_[arg0->unknown_a_](arg0);
     }
     if (arg0->unknown_8_ != 0) {
@@ -190,12 +190,12 @@ extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg
             Struct_ov017_021af66c* var11 = static_cast<Struct_ov017_021af66c*>(var1->unknown_ptr_array_371c[6]);
             if (var11->unknown_2_ != 0 && var11->unknown_cf_ == 2) {
                 func_02093a14(var5);
-                func_020dc2d0(0);
+                RestartMapDisplay_020dc2d0(0);
             }
         }
         arg0->unknown_1_ = 1;
     }
-    int var12 = func_ov017_02195658(var1);
+    int var12 = RemoveDepartedPlayer_ov017_02195658(var1);
     if (var12 > 0) {
         arg0->unknown_1b_[var12] = 0;
         if (var6->unknown_2_ != 0) {

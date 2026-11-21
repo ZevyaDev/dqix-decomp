@@ -46,7 +46,7 @@ extern "C" void PlayExtraSoundEffect_0205ebfc(void*, int, int);
 extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" void UnloadExtraSoundSet_0205ebec(void*);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
-extern "C" void func_020dc2d0(int);
+extern "C" void RestartMapDisplay_020dc2d0(int);
 extern "C" void func_ov017_0219593c();
 extern "C" TimedMessageQueue_020d7aa0_2* GetTimedMessageQueue_020d7a50();
 extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2*);
@@ -144,7 +144,7 @@ extern "C" ARM void func_ov017_021a6648(Struct_ov017_021a6648_2* arg0, Queue_020
         UnloadExtraSoundSet_0205ebec(&gSoundEffectManager_02108760);
         ClearFlags00(var2, 0x10);
         ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var5, 1);
-        func_020dc2d0(0);
+        RestartMapDisplay_020dc2d0(0);
         if (arg0->unknown_a_) {
             func_ov017_0219593c();
             ClearTimedMessageQueue_020d7aa0(GetTimedMessageQueue_020d7a50());

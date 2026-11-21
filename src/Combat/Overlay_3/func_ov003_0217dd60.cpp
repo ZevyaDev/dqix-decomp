@@ -69,9 +69,9 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" unsigned char* func_0205e00c(struct TextWindowManager_0205d81c* arg0, int arg1);
-extern "C" void func_02050400(unsigned char* arg0, int arg1);
-extern "C" void func_0205042c(unsigned char* arg0, unsigned char arg1);
-extern "C" void func_02050440(unsigned char* arg0, int arg1);
+extern "C" void SetTextWindowPageNumberShown_02050400(unsigned char* arg0, int isShown);
+extern "C" void SetTextWindowPage_0205042c(unsigned char* textWindow, unsigned char page);
+extern "C" void SetTextWindowPageCount_02050440(unsigned char* textWindow, int pageCount);
 #if defined(jpn)
 struct MessageWindow_020465c0;
 extern "C" void OpenTextWindow_0205d304(void* windowManager, char* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
@@ -217,9 +217,9 @@ extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
     if (arg0->unknown_32_ > 1) {
         unsigned char* var25 = func_0205e00c((struct TextWindowManager_0205d81c*)arg0->unknown_90_, 0);
         if (var25 != NULL) {
-            func_02050400(var25, 1);
-            func_0205042c(var25, var23);
-            func_02050440(var25, arg0->unknown_32_);
+            SetTextWindowPageNumberShown_02050400(var25, 1);
+            SetTextWindowPage_0205042c(var25, var23);
+            SetTextWindowPageCount_02050440(var25, arg0->unknown_32_);
         }
     }
     if (arg0->unknown_32_ > 1) {

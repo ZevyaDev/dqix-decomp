@@ -14,8 +14,8 @@ enum { Enum_ov003_0217480c_4172 = 0x104c };
 
 struct MenuLayout_0207fcb8;
 extern "C" void ClearMenuLayoutBGScreenData_0207fcb8(struct MenuLayout_0207fcb8* menuLayout);
-struct Struct_0207fd00;
-extern "C" void func_0207fd00(struct Struct_0207fd00* arg0);
+struct MenuLayout_0207fd00;
+extern "C" void DrawMenuLayoutWindows_0207fd00(struct MenuLayout_0207fd00* menuLayout);
 extern "C" void func_0207fe80(void* arg0, int arg1, int arg2, int arg3);
 struct MenuLayout_0207fd44_2;
 extern "C" void FlushMenuLayoutBGScreenData_0207fd44(struct MenuLayout_0207fd44_2* menuLayout);
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov003_0217480c(void* arg0) {
     if (*(unsigned char*)(var0 + Enum_ov003_0217480c_4158) != 0) {
         void* var1 = *(void**)(var0 + Enum_ov003_0217480c_2204);
         ClearMenuLayoutBGScreenData_0207fcb8((struct MenuLayout_0207fcb8*)var1);
-        func_0207fd00((struct Struct_0207fd00*)var1);
+        DrawMenuLayoutWindows_0207fd00((struct MenuLayout_0207fd00*)var1);
         func_0207fe80(var1, 1, 2, 1);
         FlushMenuLayoutBGScreenData_0207fd44((struct MenuLayout_0207fd44_2*)var1);
         func_ov003_02175fd4(var0);

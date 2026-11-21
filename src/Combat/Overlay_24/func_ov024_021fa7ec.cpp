@@ -118,9 +118,9 @@ extern "C" int func_02053c6c(unsigned char*);
 extern "C" struct Struct_ov024_021fa7ec_10* func_ov000_02153758(void*, int);
 extern "C" int func_ov024_021f736c(struct Struct_ov024_021f736c* arg0);
 struct Struct_ov024_021da670_6;
-extern "C" int func_ov024_021da998(Struct_ov024_021da670_6*);
+extern "C" int HasTension_ov024_021da998(Struct_ov024_021da670_6*);
 struct Struct_ov024_021dd028_5;
-extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
+extern "C" int HasSuperHighTension_ov024_021dd260(Struct_ov024_021dd028_5*);
 extern "C" float func_02074738(int arg0, int arg1);
 extern "C" int GetLevel_0202053c(void*);
 float CalculateTensionBonus(int tension, int level);
@@ -218,8 +218,8 @@ extern "C" ARM void func_ov024_021fa7ec(struct Struct_ov024_021fa7ec_3* arg0, fl
     unsigned char var12 = 0;
 
     if ((var0->unknown_10_ & 0x2000) &&
-        (func_ov024_021da998((Struct_ov024_021da670_6*)var9) ||
-         func_ov024_021dd260((Struct_ov024_021dd028_5*)var9))) {
+        (HasTension_ov024_021da998((Struct_ov024_021da670_6*)var9) ||
+         HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)var9))) {
         float var13 = func_02074738(var9->unknown_138_->unknown_24_, 0);
         var4 = var4 * var13;
         var5 = var5 * var13;
@@ -362,7 +362,7 @@ extern "C" ARM void func_ov024_021fa7ec(struct Struct_ov024_021fa7ec_3* arg0, fl
             var7 = var7 * func_02074938(1);
         }
     }
-    if (func_ov024_021dd260((Struct_ov024_021dd028_5*)arg8) && var0->unknown_18_5_ == 1) {
+    if (HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)arg8) && var0->unknown_18_5_ == 1) {
         var7 = 0.5f * var7;
     }
 
@@ -421,8 +421,8 @@ extern "C" ARM void func_ov024_021fa7ec(struct Struct_ov024_021fa7ec_3* arg0, fl
                 var5 += 1.0f;
             }
             if ((var0->unknown_10_ & 0x2000) &&
-                (func_ov024_021da998((Struct_ov024_021da670_6*)var9) ||
-                 func_ov024_021dd260((Struct_ov024_021dd028_5*)var9))) {
+                (HasTension_ov024_021da998((Struct_ov024_021da670_6*)var9) ||
+                 HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)var9))) {
                 float var33 = func_02074738(var9->unknown_138_->unknown_24_, 0);
                 var4 = var4 * var33;
                 var5 = var5 * var33;

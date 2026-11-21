@@ -12,7 +12,7 @@ enum { Enum_ov003_0216d53c_3868 = 0xf1c };
 
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void DrawMessageGlyphs_0204359c(void* window, int glyphCount);
-extern "C" void func_020439b0(void* arg0, int arg1);
+extern "C" void UpdateMessageWindowGraphics_020439b0(void* window, int arg1);
 
 struct TextWindowManager_0205d2bc;
 extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(TextWindowManager_0205d2bc* windowManager);
@@ -33,7 +33,7 @@ struct Struct_ov003_0216d53c {
 extern "C" ARM void func_ov003_0216d53c(Struct_ov003_0216d53c* arg0) {
     int var0 = GetMessageWindow_020421a0();
     DrawMessageGlyphs_0204359c((void*)var0, 2);
-    func_020439b0((void*)var0, 0);
+    UpdateMessageWindowGraphics_020439b0((void*)var0, 0);
 
     void* var1 = arg0->unknown_12c0_;
     if (var1) {

@@ -40,7 +40,7 @@ extern "C" int func_02098284(int, int);
 extern "C" int func_020982a4(int, int);
 extern "C" void func_020984b0(struct Struct_02064e88*);
 extern "C" int func_020984dc(struct Struct_02064e88_2*, int, struct Struct_02064e88_2**);
-extern "C" void* func_0206db20(void*, int);
+extern "C" void* FindNPCPlacement_0206db20(void*, int);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02042764(struct Struct_02064e88_2* arg0, void* arg1, int arg2);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
@@ -97,7 +97,7 @@ extern "C" ARM int func_02064e88(struct Struct_02064e88_3** arg0, void* arg1, Sa
                                          func_02098284((int)((char*)var0 + Enum_02064e88_2112), var1), var7);
     for (var4 = 0; var4 < var3; var4++) {
         var5 = var4 + 1 + var2;
-        if (func_0206db20(arg1, var5) == 0) {
+        if (FindNPCPlacement_0206db20(arg1, var5) == 0) {
             continue;
         }
         var6 = (struct Struct_02064e88_3*)arg2->Allocate(sizeof(Struct_02064e88_3));

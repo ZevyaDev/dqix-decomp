@@ -89,7 +89,7 @@ extern "C" Struct_ov003_0217599c_4 *FindItemData_020dedd0(ItemTable_0201099c_10 
 extern "C" void *InitItemTable_020de824(void *);
 extern "C" void ResetItemContext_0207cbe8(char *);
 extern "C" void func_0207cc18(void *, Struct_ov003_0217599c_4 *);
-extern "C" void func_0207cc0c(char *);
+extern "C" void DestroyItemContext_0207cc0c(char *);
 extern "C" int GetEquipRestrictions_020dd4c4(int, void *);
 extern "C" int GetEquippedItem_02052df8(Struct_02052df8 *, int);
 extern "C" void SetEquippedItem_02052d7c(Struct_ov003_0217599c *, int, short);
@@ -130,7 +130,7 @@ extern "C" ARM int func_ov003_0217599c(Struct_ov003_0217599c_2 *arg0) {
     ResetItemContext_0207cbe8((char *) &var5);
     var5.unknown_2c_ = &arg0->unknown_874_;
     func_0207cc18(&var5, var3);
-    func_0207cc0c((char *) &var5);
+    DestroyItemContext_0207cc0c((char *) &var5);
     if (!inline_ov003_0217599c(var4)) return 0;
     if (GetEquipRestrictions_020dd4c4(arg0->unknown_1043_, var3)) return 0;
 #if defined(jpn)

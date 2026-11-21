@@ -51,9 +51,9 @@ struct TextWindowManager_0205d228;
 struct TextWindowManager_0205d274;
 struct TextWindowManager_0205d2bc;
 struct TextureVRAMArea_0203d028;
-struct Struct_02045cac;
+struct MessageWindow_02045cac;
 struct MenuCursor_0205bcdc;
-struct Struct_0205e8ec;
+struct SoundEffectManager_0205e8ec;
 struct Struct_0209c3b4_2;
 struct OAMManager_0203bdb0;
 struct Struct_ov020_0218b710_3;
@@ -88,14 +88,14 @@ void UpdateVRAMStagingVRAMBanks();
 void UnlockStagedTextureVRAMCopying();
 extern "C" void func_020440a4(void* arg0);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
-extern "C" void func_02045cac(Struct_02045cac* arg0);
+extern "C" void ClearMessageGlyphs_02045cac(MessageWindow_02045cac* window);
 extern "C" void InitChoiceList_0205c790(char* choiceList);
 extern "C" int func_020ab9c0(int arg0);
-extern "C" void func_0205cb74(char* arg0, int arg1);
+extern "C" void AddChoiceListEntry_0205cb74(char* choiceList, int text);
 extern "C" void DrawMessageGlyphs_0204359c(void* window, int glyphCount);
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc* cursor, int index);
 extern "C" void ResetOAMManager_0203bd24(char* oamManager);
-extern "C" void func_0205e8ec(Struct_0205e8ec* arg0);
+extern "C" void ResetSoundEffects_0205e8ec(SoundEffectManager_0205e8ec* manager);
 extern "C" void PlayMusic_0209c3b4(Struct_0209c3b4_2* manager, int musicIndex);
 extern "C" void ResetGeometryEngine_020c52e8();
 extern "C" void CleanInvalidateOAMBuffers_0203bd88(void* arg0);
@@ -128,7 +128,7 @@ extern "C" void func_0205dfa8(void* arg0);
 #endif
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 extern "C" void func_02043368(char* arg0);
-extern "C" void func_020439b0(char* arg0, int arg1);
+extern "C" void UpdateMessageWindowGraphics_020439b0(char* window, int arg1);
 extern "C" char* func_0203bd08(void);
 extern "C" void ResetMatrixStacks_020c5414(void);
 extern "C" void UpdateSound_020bbd9c(void);
@@ -594,7 +594,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         func_ov020_0218c98c(arg0);
         TurnOnMainDisplay_020c38d4();
         *(volatile unsigned int*)0x4001000 |= 0x10000;
-        func_02045cac((Struct_02045cac*)var17);
+        ClearMessageGlyphs_02045cac((MessageWindow_02045cac*)var17);
         InitChoiceList_0205c790(arg0->unknown_c_);
         arg0->unknown_bd_ = 1;
         arg0->unknown_bc_ = 1;
@@ -602,17 +602,17 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         if (func_020ab9c0(1) == 4) {
             Struct_ov020_0218b710_6 var18 = *(Struct_ov020_0218b710_6*)data_ov020_0218da90;
             for (int var19 = 0; var19 < 8; var19++) {
-                func_0205cb74(arg0->unknown_c_, (int)(var18.unknown_0_ + var19 * 0x20));
+                AddChoiceListEntry_0205cb74(arg0->unknown_c_, (int)(var18.unknown_0_ + var19 * 0x20));
                 DrawMessageGlyphs_0204359c(var17, 0x80);
-                func_020439b0(var17, 0);
+                UpdateMessageWindowGraphics_020439b0(var17, 0);
             }
             func_ov020_0218c7f0(arg0->unknown_c_, 1, 8);
         } else {
             Struct_ov020_0218b710_7 var20 = *(Struct_ov020_0218b710_7*)data_ov020_0218d9b0;
             for (int var21 = 0; var21 < 7; var21++) {
-                func_0205cb74(arg0->unknown_c_, (int)(var20.unknown_0_ + var21 * 0x20));
+                AddChoiceListEntry_0205cb74(arg0->unknown_c_, (int)(var20.unknown_0_ + var21 * 0x20));
                 DrawMessageGlyphs_0204359c(var17, 0x80);
-                func_020439b0(var17, 0);
+                UpdateMessageWindowGraphics_020439b0(var17, 0);
             }
             func_ov020_0218c7f0(arg0->unknown_c_, 1, 7);
         }
@@ -622,16 +622,16 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
 #else
         if (func_020ab9c0(1) == 4) {
             for (int var22 = 0; var22 < 8; var22++) {
-                func_0205cb74(arg0->unknown_c_, (int)(data_ov020_0218da90 + var22 * 0x20));
+                AddChoiceListEntry_0205cb74(arg0->unknown_c_, (int)(data_ov020_0218da90 + var22 * 0x20));
                 DrawMessageGlyphs_0204359c(var17, 0x10);
-                func_020439b0(var17, 0);
+                UpdateMessageWindowGraphics_020439b0(var17, 0);
             }
             func_ov020_0218c7f0(arg0->unknown_c_, 1, 8);
         } else {
             for (int var23 = 0; var23 < 7; var23++) {
-                func_0205cb74(arg0->unknown_c_, (int)(data_ov020_0218d9b0 + var23 * 0x20));
+                AddChoiceListEntry_0205cb74(arg0->unknown_c_, (int)(data_ov020_0218d9b0 + var23 * 0x20));
                 DrawMessageGlyphs_0204359c(var17, 0x10);
-                func_020439b0(var17, 0);
+                UpdateMessageWindowGraphics_020439b0(var17, 0);
             }
             func_ov020_0218c7f0(arg0->unknown_c_, 1, 7);
         }
@@ -660,7 +660,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
 
         char* var28 = func_0203bd08();
         ResetOAMManager_0203bd24(var28);
-        func_0205e8ec((Struct_0205e8ec*)gSoundEffectManager_02108760);
+        ResetSoundEffects_0205e8ec((SoundEffectManager_0205e8ec*)gSoundEffectManager_02108760);
         PlayMusic_0209c3b4((Struct_0209c3b4_2*)gMusicManager_02109bf4, 2);
         while (arg0->unknown_0_ != -1) {
             UpdateInput_02012efc();

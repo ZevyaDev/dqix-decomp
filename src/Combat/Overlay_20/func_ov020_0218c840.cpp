@@ -13,8 +13,8 @@
 extern "C" int GetMessageWindow_020421a0();
 struct Struct_0205c77c;
 extern "C" void func_0205c77c(struct Struct_0205c77c* arg0, int arg1);
-extern "C" void func_0205cd28(unsigned char* arg0);
-extern "C" void func_0205c904(unsigned char* arg0, int arg1);
+extern "C" void OpenChoiceList_0205cd28(unsigned char* choiceList);
+extern "C" void UpdateChoiceList_0205c904(unsigned char* choiceList, int ticks);
 struct SpriteAnimationList_0205a330;
 extern "C" int func_0205cde8(unsigned char* arg0);
 extern "C" int func_0205cecc(void* arg0);
@@ -22,7 +22,7 @@ extern "C" int func_0205cb64(void* arg0);
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
 extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
 extern "C" int func_020ab9c0(int arg0);
-extern "C" int func_0205c96c(unsigned char* arg0, int arg1);
+extern "C" int DrawChoiceList_0205c96c(unsigned char* arg0, int arg1);
 extern int data_ov020_0218d990[8];
 extern int data_ov020_0218d974[7];
 
@@ -43,10 +43,10 @@ extern "C" ARM void func_ov020_0218c840(struct Struct_ov020_0218c840* arg0) {
         arg0->unknown_23f_ = 1;
         arg0->unknown_240_ = 1;
         func_0205c77c((struct Struct_0205c77c*)((char*)arg0 + 0x10), 1);
-        func_0205cd28((unsigned char*)arg0 + 0xc);
+        OpenChoiceList_0205cd28((unsigned char*)arg0 + 0xc);
     }
 
-    func_0205c904((unsigned char*)arg0 + 0xc, 1);
+    UpdateChoiceList_0205c904((unsigned char*)arg0 + 0xc, 1);
 
     struct SpriteAnimationList_0205a330* var2 = *(struct SpriteAnimationList_0205a330**)(var1 + REGION(0x230, 0x2e0));
     if (var2 != 0) {
@@ -79,5 +79,5 @@ extern "C" ARM void func_ov020_0218c840(struct Struct_ov020_0218c840* arg0) {
         }
     }
 
-    func_0205c96c((unsigned char*)arg0 + 0xc, 0);
+    DrawChoiceList_0205c96c((unsigned char*)arg0 + 0xc, 0);
 }

@@ -62,8 +62,8 @@ extern "C" void func_02081058(void* arg0, int arg1, int arg2);
 extern "C" void func_02080798(void* arg0, int arg1, int arg2);
 struct Sprite_02043368_2;
 struct SpriteAnimationList_02043368;
-struct Struct_020e2490;
-extern "C" void func_020e2490(Struct_020e2490*, int, int, void*, SafeAllocator*, int, unsigned char);
+struct YesNoWindow_020e2490;
+extern "C" void InitYesNoWindow_020e2490(YesNoWindow_020e2490*, int, int, void*, SafeAllocator*, int, unsigned char);
 struct BGLayer_02020cb8_2;
 struct MenuLayout_0207f7f0;
 struct TextWindow_0207f7f0_2;
@@ -338,7 +338,7 @@ extern "C" ARM void func_ov003_021615bc(Struct_ov003_021615bc_3* arg0) {
         arg0->unknown_370_ = arg0->unknown_38c_;
         arg0->unknown_2c8_.Reset();
         arg0->unknown_390_ = arg0->unknown_2c8_.Allocate(0x24);
-        func_020e2490((Struct_020e2490*)arg0->unknown_390_, 0, 1, arg0->unknown_38c_, &arg0->unknown_2c8_, Enum_ov003_021615bc_4, 0x40);
+        InitYesNoWindow_020e2490((YesNoWindow_020e2490*)arg0->unknown_390_, 0, 1, arg0->unknown_38c_, &arg0->unknown_2c8_, Enum_ov003_021615bc_4, 0x40);
         arg0->unknown_46c_ = var0->QueueLoadFile(data_ov003_0218008a, NULL);
         arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
     }

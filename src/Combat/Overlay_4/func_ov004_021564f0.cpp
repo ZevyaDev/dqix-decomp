@@ -14,7 +14,7 @@ extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov024_021f6f10(void* arg0);
 extern "C" int GetMenuObjectStringList_ov023_021fa598(void*);
-extern "C" int func_ov023_021f9bc8(void*);
+extern "C" int GetMenuGridCursorIndex_ov023_021f9bc8(void*);
 extern "C" void RedrawMenuWindow_ov023_021f809c(void* window, void* menu);
 
 extern "C" int GetMessageWindow_020421a0(void);
@@ -73,7 +73,7 @@ extern "C" ARM int func_ov004_021564f0(void* arg0) {
     }
 
 #if defined(jpn)
-    int var6 = func_ov023_021f9bc8(var1) + (short)(var2 * 16);
+    int var6 = GetMenuGridCursorIndex_ov023_021f9bc8(var1) + (short)(var2 * 16);
     short var7 = data_ov004_021707c8.unknown1_8_[var6];
 
     struct AccoladeEntry_020a15bc_2* var8 = FindAccolade_020a15bc(data_ov004_021707c8.unknown_8_, var7);
@@ -145,7 +145,7 @@ extern "C" ARM int func_ov004_021564f0(void* arg0) {
 
     }
 #else
-    int var19 = func_ov023_021f9bc8(var1) + (short)(var2 * 12);
+    int var19 = GetMenuGridCursorIndex_ov023_021f9bc8(var1) + (short)(var2 * 12);
     short var20 = data_ov004_021707c8.unknown1_8_[var19];
 
     struct AccoladeEntry_020a15bc_2* var21 = FindAccolade_020a15bc(data_ov004_021707c8.unknown_c_, var20);

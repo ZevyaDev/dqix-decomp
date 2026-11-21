@@ -29,7 +29,7 @@ struct Struct_020fdc20_8 {
     int unknown_4_;
     Struct_020134e0* unknown_8_;
 };
-extern struct Struct_020fdc20_8 data_020fdc20;
+extern struct Struct_020fdc20_8 gZoneFeatureScriptContext_020fdc20;
 
 // USA: func_0201d530
 extern "C" ARM int func_0201d530(Script::Parameter* arg0, int) {
@@ -55,6 +55,6 @@ extern "C" ARM int func_0201d530(Script::Parameter* arg0, int) {
     int var7 = inline_0201d530(var4, var4);
     var1.unknown_24_ = var7 + var6;
 
-    data_020fdc20.unknown_0_ = data_020fdc20.unknown_8_->func_0201e710(*(Struct_020134e0::Struct_02018300*)&var1);
+    gZoneFeatureScriptContext_020fdc20.unknown_0_ = gZoneFeatureScriptContext_020fdc20.unknown_8_->func_0201e710(*(Struct_020134e0::Struct_02018300*)&var1);
     return 1;
 }

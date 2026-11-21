@@ -21,7 +21,7 @@
 #endif
 
 
-struct Struct_ov004_02153e20 {
+struct MenuGrid_ov004_02153e20 {
     char unknown_0_[0x20];
     short* unknown_20_;
     unsigned short unknown_24_;
@@ -74,8 +74,8 @@ extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" void* func_0205ec34(void);
-extern "C" void func_ov023_021f9d14(Struct_ov004_02153e20* arg0, void* arg1);
-extern "C" int func_ov023_021f9b30(Struct_ov004_02153e20* arg0, unsigned short arg1, unsigned int arg2, unsigned int arg3);
+extern "C" void func_ov023_021f9d14(MenuGrid_ov004_02153e20* arg0, void* arg1);
+extern "C" int SetMenuGridCell_ov023_021f9b30(MenuGrid_ov004_02153e20* grid, unsigned short objectId, unsigned int row, unsigned int column);
 extern "C" void func_ov023_021f9da0(void* arg0, unsigned char arg1);
 extern "C" void func_ov023_021f6630(int arg0, int arg1, short arg2, short arg3);
 extern "C" int func_ov004_021552b8(void* arg0);
@@ -85,7 +85,7 @@ extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagInde
 extern "C" ARM int func_ov004_0215534c(void* arg0) {
     void* var0;
     short var1;
-    Struct_ov004_02153e20* var2;
+    MenuGrid_ov004_02153e20* var2;
     short var3;
     Struct_ov004_0215534c* var4;
     Struct_ov004_0215534c_3** var5;
@@ -97,7 +97,7 @@ extern "C" ARM int func_ov004_0215534c(void* arg0) {
     Struct_ov004_0215534c_4* var11;
 
     var0 = GetMenuObjectList_ov011_021849c8(arg0);
-    var2 = (Struct_ov004_02153e20*)FindMenuObjectById_ov023_021f6880(var0, 0x2c);
+    var2 = (MenuGrid_ov004_02153e20*)FindMenuObjectById_ov023_021f6880(var0, 0x2c);
     if (!var2) return 0;
     if (func_ov023_021f6f10(var2) != 7) return 0;
     var1 = var2->unknown_5c_;
@@ -126,10 +126,10 @@ extern "C" ARM int func_ov004_0215534c(void* arg0) {
             var11->unknown_20_ = 0;
             var11->unknown_c_ &= ~8;
             if (!var6) {
-                func_ov023_021f9b30(var2, 0, (unsigned short)(var9 >> 1), (unsigned short)(var9 & 1));
+                SetMenuGridCell_ov023_021f9b30(var2, 0, (unsigned short)(var9 >> 1), (unsigned short)(var9 & 1));
                 var11->unknown_c_ |= 8;
             } else {
-                func_ov023_021f9b30(var2, (unsigned short)var10, (unsigned short)(var9 >> 1), (unsigned short)(var9 & 1));
+                SetMenuGridCell_ov023_021f9b30(var2, (unsigned short)var10, (unsigned short)(var9 >> 1), (unsigned short)(var9 & 1));
                 Struct_ov004_0215534c_2* var13 = var6->unknown_4_;
                 if (var13) {
                     int var14 = (unsigned short)((var13->unknown_c_ << 9) >> 21);

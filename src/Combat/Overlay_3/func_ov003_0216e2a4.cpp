@@ -75,7 +75,7 @@ extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8 *window, SafeA
 extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78 *windowManager,
                                                                                      TextWindow_0205cf78_2 *textWindows,
                                                                                      unsigned char textWindowCapacity);
-extern "C" void func_ov023_021e20f0(void *arg0, SafeAllocator *arg1, void *arg2, unsigned int arg3);
+extern "C" void LoadLayout_ov023_021e20f0(void *layout, SafeAllocator *allocator, void *fileData, unsigned int fileSize);
 
 extern const unsigned char data_ov003_0217f5ba[2];
 extern const unsigned char data_ov003_0217f5b8[2];
@@ -177,7 +177,7 @@ extern "C" ARM void func_ov003_0216e2a4(Struct_ov003_0216e2a4_4 *arg0) {
             void *var17;
             unsigned int var18;
             var0->GetLoadedFileByID(arg0->unknown_1c_, &var17, &var18);
-            func_ov023_021e20f0(arg0->unknown_d4_, arg0->unknown_d0_, var17, var18);
+            LoadLayout_ov023_021e20f0(arg0->unknown_d4_, arg0->unknown_d0_, var17, var18);
             var0->RemoveTask(arg0->unknown_1c_);
             arg0->unknown_1c_ = -1;
             arg0->unknown_1c_ = var0->QueueLoadFile(data_ov003_0217ea05, 0);
@@ -280,7 +280,7 @@ extern "C" ARM void func_ov003_0216e2a4(Struct_ov003_0216e2a4_4 *arg0) {
             void *var44;
             unsigned int var45;
             var21->GetLoadedFileByID(arg0->unknown_1c_, &var44, &var45);
-            func_ov023_021e20f0(arg0->unknown_d4_, arg0->unknown_d0_, var44, var45);
+            LoadLayout_ov023_021e20f0(arg0->unknown_d4_, arg0->unknown_d0_, var44, var45);
             var21->RemoveTask(arg0->unknown_1c_);
             arg0->unknown_1c_ = -1;
             arg0->unknown_1c_ = var21->QueueLoadFileInGP2(data_ov003_02180260, data_ov003_0218027a, 0);

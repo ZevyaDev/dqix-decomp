@@ -21,7 +21,7 @@ extern "C" void __clear(void*, int);
 extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0*);
 extern "C" void InitNoun_020e46c4(void*);
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
-extern "C" void func_020e4ce8(Struct_ov000_02178938_3*, GameObject*, int);
+extern "C" void InitEnemyNoun_020e4ce8(Struct_ov000_02178938_3*, GameObject*, int);
 extern "C" void func_ov000_0217aa08(char*, char*);
 extern "C" void func_020e4f18(Struct_ov000_02178938_3*, Struct_ov000_02178938_3*, int);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
@@ -114,9 +114,9 @@ extern "C" ARM void func_ov000_02178938(Struct_ov000_02178938* arg0, Struct_ov00
                 __clear(var21, 128);
                 __clear(var22, 128);
                 if (var20) {
-                    func_020e4ce8(&var19, var20, 1);
+                    InitEnemyNoun_020e4ce8(&var19, var20, 1);
                     Struct_ov000_02178938_3 var23;
-                    func_020e4ce8(&var23, var20, 0);
+                    InitEnemyNoun_020e4ce8(&var23, var20, 0);
                     func_ov000_0217aa08(var19.unknown_0_, var21);
                     func_ov000_0217aa08(var19.unknown_4_, var22);
                     var19.unknown_0_ = var21;

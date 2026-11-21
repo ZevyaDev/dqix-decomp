@@ -7,13 +7,13 @@
 #define RG(u, j) (u)
 #endif
 
-struct Struct_020e2490;
+struct YesNoWindow_020e2490;
 struct Struct_020e1368;
 struct Struct_020e1374;
 
-extern "C" void func_020e2490(Struct_020e2490 *arg0, int arg1,
-                                                                                          int arg2, void *arg3, SafeAllocator *arg4,
-                                                                                          int arg5, unsigned char arg6);
+extern "C" void InitYesNoWindow_020e2490(YesNoWindow_020e2490 *yesNoWindow, int isSubScreen,
+                                                                                          int displayWindowIndex, void *cursorAnimationList, SafeAllocator *allocator,
+                                                                                          int maxSpriteCount, unsigned char firstOAMIndex);
 extern "C" void func_020e1368(Struct_020e1368 *arg0, unsigned int arg1, unsigned int arg2,
                                                                     unsigned char arg3);
 extern "C" void func_020e1374(Struct_020e1374 *arg0, unsigned int arg1, unsigned int arg2, int arg3);
@@ -35,9 +35,9 @@ extern "C" ARM void func_ov002_02154d40(char *arg0, SafeAllocator *arg1) {
     *(void **) (arg0 + RG(0x1bd4, 0x1a9c)) = arg1->Allocate(RG(0x960, 0x800));
     *(void **) (arg0 + 0)      = arg1->Allocate(0x24);
     *(void **) (arg0 + 4)      = arg1->Allocate(0x24);
-    func_020e2490(*(Struct_020e2490 **) (arg0 + 0), 0, 0, 0,
+    InitYesNoWindow_020e2490(*(YesNoWindow_020e2490 **) (arg0 + 0), 0, 0, 0,
                                                                               arg1, 0xc, 0x40);
-    func_020e2490(*(Struct_020e2490 **) (arg0 + 4), 0, 1,
+    InitYesNoWindow_020e2490(*(YesNoWindow_020e2490 **) (arg0 + 4), 0, 1,
                                                                               *(void **) (arg0 + RG(0x1a6c, 0x19c4)), arg1, RG(4, 3), 0x60);
     char *var0 = *(char **) (*(char **) (arg0 + 0) + 0xc);
     func_020e1368((Struct_020e1368 *) (var0 + 0xc), 0, 0x3000, 5);

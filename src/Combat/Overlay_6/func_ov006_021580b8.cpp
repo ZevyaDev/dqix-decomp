@@ -25,12 +25,12 @@ struct BGLayer_0204af14;
 struct Struct_02000c9c_8;
 struct BGLayer_0204b8d0;
 struct MenuLayout_0207fcb8;
-struct Struct_0207fd00;
+struct MenuLayout_0207fd00;
 struct MenuLayout_0207fd44_2;
 struct SpriteAnimationList_0205a254;
 struct SpriteAnimationList_0205a330;
-struct Struct_020e28dc;
-struct Struct_020e2794_2;
+struct YesNoWindow_020e28dc;
+struct YesNoWindow_020e2794_2;
 struct Struct_02075db0;
 struct Struct_ov006_02154614;
 struct Struct_ov006_02157a60;
@@ -70,11 +70,11 @@ extern "C" void func_ov006_02158054(void*, Struct_ov006_02158054*, int, int, uns
 extern "C" void func_ov006_02154a60(Struct_ov006_02154614*);
 extern "C" int func_0200fb08(Struct_02000c9c_8*);
 extern "C" void ClearMenuLayoutBGScreenData_0207fcb8(MenuLayout_0207fcb8*);
-extern "C" void func_0207fd00(Struct_0207fd00*);
+extern "C" void DrawMenuLayoutWindows_0207fd00(MenuLayout_0207fd00*);
 extern "C" void func_0207fe80(void*, int, int, int);
 extern "C" void FlushMenuLayoutBGScreenData_0207fd44(MenuLayout_0207fd44_2*);
-extern "C" int func_020e28dc(Struct_020e28dc*);
-extern "C" void func_020e2794(Struct_020e2794_2*, void*);
+extern "C" int IsYesNoWindowOpen_020e28dc(YesNoWindow_020e28dc*);
+extern "C" void DrawYesNoWindow_020e2794(YesNoWindow_020e2794_2*, void*);
 extern "C" void func_ov006_021585c4(Struct_ov006_02157a60*);
 extern "C" void func_ov006_0215868c(Struct_ov006_02157a60*);
 extern "C" void func_ov006_021587d0(Struct_ov006_02157a60*);
@@ -225,7 +225,7 @@ extern "C" ARM void func_ov006_021580b8(Struct_ov006_02157a60* arg0)
 #endif
         void* var3 = arg0->unknown_14_;
         ClearMenuLayoutBGScreenData_0207fcb8((MenuLayout_0207fcb8*)var3);
-        func_0207fd00((Struct_0207fd00*)var3);
+        DrawMenuLayoutWindows_0207fd00((MenuLayout_0207fd00*)var3);
         func_0207fe80(var3, 2, 1, 1);
         ((BGLayer*)(arg0->unknown_54_))->CleanIndexBufferCache((const void*)(0));
         FlushMenuLayoutBGScreenData_0207fd44((MenuLayout_0207fd44_2*)var3);
@@ -256,8 +256,8 @@ extern "C" ARM void func_ov006_021580b8(Struct_ov006_02157a60* arg0)
         }
         if (arg0->unknown_37e_ < 0)
         {
-            if (arg0->unknown_18_ != 0 && func_020e28dc((Struct_020e28dc*)arg0->unknown_18_))
-                func_020e2794((Struct_020e2794_2*)arg0->unknown_18_, arg0->unknown_ac_);
+            if (arg0->unknown_18_ != 0 && IsYesNoWindowOpen_020e28dc((YesNoWindow_020e28dc*)arg0->unknown_18_))
+                DrawYesNoWindow_020e2794((YesNoWindow_020e2794_2*)arg0->unknown_18_, arg0->unknown_ac_);
             else
                 func_ov006_021585c4(arg0);
         }

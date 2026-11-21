@@ -101,7 +101,7 @@ extern "C" void func_ov000_02171b68(void*, int, void*);
 extern "C" Struct_0206f81c_8* func_02083554(Struct_0206f81c*, int);
 extern "C" int IsAsleep_020882f8(unsigned char*);
 extern "C" int func_ov026_021dce1c(Struct_ov026_021dc8fc_4*);
-extern "C" Struct_ov026_021dc8fc_2* func_0209a594(void*, int);
+extern "C" Struct_ov026_021dc8fc_2* FindSkillEntry_0209a594(void*, int);
 extern "C" int func_0209ab7c(Struct_0209a9dc_2*, GameObject*, unsigned char*);
 
 // USA: func_ov026_021dc8fc
@@ -136,7 +136,7 @@ extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Struct_ov026_021d8b
     }
     for (unsigned short var14 = 0; var14 < 0x11f; ++var14) {
         if (HasLearnedSkillEntry_02083b00((unsigned char*)var2, var14)) {
-            Struct_ov026_021dc8fc_2* var15 = func_0209a594(arg4, var14);
+            Struct_ov026_021dc8fc_2* var15 = FindSkillEntry_0209a594(arg4, var14);
             if (var15 && var15->unknown_2_) {
                 var4[var15->unknown_a_] = var15->unknown_2_;
                 ++var8;

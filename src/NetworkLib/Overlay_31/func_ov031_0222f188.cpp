@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" ARM char* func_ov031_02235c70(void);
+extern "C" ARM char* GetEditedConnectionSettings_ov031_02235c70(void);
 extern "C" int func_ov031_02230330(char* arg0);
 extern "C" int func_ov031_0222fd9c(void);
 extern "C" int PlayWifiSetupSoundEffect_ov031_02236878(int soundEffectIndex);
@@ -10,7 +10,7 @@ extern "C" void func_ov031_0222f20c(int arg0);
 
 // USA: func_ov031_0222f188
 extern "C" ARM int func_ov031_0222f188(void) {
-    int var0 = func_ov031_02230330(func_ov031_02235c70());
+    int var0 = func_ov031_02230330(GetEditedConnectionSettings_ov031_02235c70());
     if (var0 == 0xe) return 0;
     if (func_ov031_0222fd9c() == 0) {
         PlayWifiSetupSoundEffect_ov031_02236878(9);

@@ -30,7 +30,7 @@ struct Struct_02000c9c_8;
 struct Struct_ov017_021befe4;
 struct SoundEffectManager_02108760;
 struct Struct_02018300_3;
-struct Struct_0206f81c_2;
+struct MenuTask_0206f81c_2;
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 struct Struct_020213fc;
@@ -58,9 +58,9 @@ extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, i
 extern "C" void func_ov017_021a5568(void* arg0);
 extern "C" int IsOnLadder_02039d7c(char* object);
 extern "C" void ResetMenuTask_ov017_021b2174(unsigned char* node);
-extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2* arg0, char* arg1);
-extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
-extern "C" void func_020dc2d0(int arg0);
+extern "C" void SetMenuTaskFileName_ov017_021b2ba0(MenuTask_0206f81c_2* menuTask, char* fileName);
+extern "C" void SetMenuTaskSetupFunction_ov017_021b2bd0(void* menuTask, int setupFunction, int overlayId);
+extern "C" void RestartMapDisplay_020dc2d0(int modeOverride);
 extern "C" void SetSubScreenFadeInHeld_020213fc(Struct_020213fc* subScreenDisplay, int isHeld);
 extern "C" void func_02027bac(Struct_02027bac* arg0, unsigned char arg1);
 extern "C" void func_ov004_0216ae2c(SafeAllocator* arg0, void* arg1);
@@ -224,10 +224,10 @@ extern "C" ARM void func_ov017_021a51a4(Struct_ov017_021a51a4_4* arg0) {
     var1->unknown_b2_ = 0;
     var2 = arg0->unknown_3b4c_;
     ResetMenuTask_ov017_021b2174(var2);
-    func_ov017_021b2ba0((Struct_0206f81c_2*)var2, &data_ov017_021d76dc);
-    func_ov017_021b2bd0(var2, (int)func_ov004_0216ae2c, OVERLAY_ID(4));
+    SetMenuTaskFileName_ov017_021b2ba0((MenuTask_0206f81c_2*)var2, &data_ov017_021d76dc);
+    SetMenuTaskSetupFunction_ov017_021b2bd0(var2, (int)func_ov004_0216ae2c, OVERLAY_ID(4));
     AppendToQueue_020469b4(arg0->unknown_36fc_, (QueueNode_0201bdac*)var2);
-    func_020dc2d0(3);
+    RestartMapDisplay_020dc2d0(3);
     SetSubScreenFadeInHeld_020213fc(arg0->unknown_36d0_, 1);
     func_02027bac((Struct_02027bac*)arg0->unknown_36d0_, 1);
 }

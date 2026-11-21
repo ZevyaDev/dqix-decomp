@@ -2,12 +2,12 @@
 #include "GameState/GameState.h"
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
-extern "C" int func_ov001_0215ad2c(int arg0);
+extern "C" int ResolveEventObjectIndex_ov001_0215ad2c(int scriptObjectId);
 
 // USA: func_ov001_0215eeb0
 extern "C" ARM int func_ov001_0215eeb0(void* arg0) {
     GameState* var0 = GameState::GetInstance();
-    int var1 = func_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(arg0));
+    int var1 = ResolveEventObjectIndex_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(arg0));
     int var2 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x8);
     int var3 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x10);
     GameObject* var4 = var0->GetGameObjectByIndex(var1);

@@ -127,7 +127,7 @@ extern "C" int IsJinglePlaying_0209ca2c(void* manager);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void ResetItemContext_0207cbe8(char* itemContext);
-extern "C" void func_0207cc0c(char* arg0);
+extern "C" void DestroyItemContext_0207cc0c(char* itemContext);
 extern "C" int func_ov023_021ed6cc(int arg0);
 struct Struct_020a13c4;
 extern "C" void ClearAccoladeTable_020a13c4(Struct_020a13c4*);
@@ -146,7 +146,7 @@ extern "C" void func_020de848(void* itemTable);
 extern "C" ARM int func_020de980(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
-extern "C" void func_020dc2d0(int);
+extern "C" void RestartMapDisplay_020dc2d0(int);
 struct GameResources;
 ARM int IsBrightnessTransitionActive(GameResources*);
 extern "C" ARM void* ClearLevelEntries_0208247c(void* levelEntries);
@@ -362,7 +362,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
                 ResetItemContext_0207cbe8(var37);
                 *(void**)(var37 + 0x2c) = var0->unknown_178_;
                 AddItem_0207d300(var37, var0->unknown_1f0_, 1, 0);
-                func_0207cc0c(var37);
+                DestroyItemContext_0207cc0c(var37);
                 return;
             }
         }
@@ -497,7 +497,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
         var0->unknown_1f9_ = var0->unknown_1f9_ + 1;
     } else if (var3 == 0x67) {
         if (UpdateFontLoad_02094b4c(GetFontLoader_02094a00()) != 0) {
-            func_020dc2d0(0);
+            RestartMapDisplay_020dc2d0(0);
             var0->unknown_1f9_ = var0->unknown_1f9_ + 1;
         }
     } else if (var3 == 0x68) {

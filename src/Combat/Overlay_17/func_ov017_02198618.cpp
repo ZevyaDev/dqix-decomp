@@ -22,7 +22,7 @@ extern "C" int func_0203402c(struct Struct_0203402c* arg0);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* GetFirstZoneFeatureOfType_0201e838(unsigned char* zoneFeatures, unsigned int type);
 extern "C" int func_02094b9c(void* arg0, void* arg1);
-extern "C" void func_ov017_0219a674(unsigned char* arg0);
+extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char* prompt);
 extern "C" void func_ov017_0219b33c(void* arg0, void* arg1, int arg2, int arg3);
 
 struct Struct_ov017_02198618 { unsigned int unknown_0_, unknown_4_, unknown_8_; };
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov017_02198618(void* arg0) {
                 unsigned short var8 = *(unsigned short*)(var2 + 0x2700 + Enum_ov017_02198618_134);
                 if (var7 == var8) {
                     struct Struct_ov017_02198618_2 var9;
-                    func_ov017_0219a674((unsigned char*)&var9);
+                    ResetInteractionPrompt_ov017_0219a674((unsigned char*)&var9);
                     var9.unknown_0_ = 0xb;
                     var9.unknown_8_ = var3;
                     var9.unknown_4_ = 1;

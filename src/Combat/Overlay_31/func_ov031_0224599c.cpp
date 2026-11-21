@@ -19,7 +19,7 @@ extern "C" int func_ov031_02245c68(int arg0);
 extern "C" void func_ov031_0220eadc(void);
 extern "C" int func_ov031_0220eb88(int arg0);
 extern "C" int func_ov031_0220eb30(void);
-extern "C" int func_020c7ea0(void* arg0, int* arg1, int arg2);
+extern "C" int DequeueValue_020c7ea0(void* queue, int* value, int flags);
 extern "C" void func_020ca458(unsigned int arg0, void* arg1, int arg2);
 extern "C" void func_020ca4b4(const void* arg0, void* arg1, int arg2);
 
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov031_0224599c(void) {
 			}
 			break;
 		case 6:
-			func_020c7ea0(&data_ov031_02291f60, &var3, 1);
+			DequeueValue_020c7ea0(&data_ov031_02291f60, &var3, 1);
 			{
 				Enum_ov031_0224599c var4 = Enum_ov031_0224599c_1;
 				Enum_ov031_0224599c var5 = Enum_ov031_0224599c_4;
@@ -121,7 +121,7 @@ extern "C" ARM void func_ov031_0224599c(void) {
 			}
 			break;
 		case 9:
-			func_020c7ea0(&data_ov031_02291f60, &var3, 1);
+			DequeueValue_020c7ea0(&data_ov031_02291f60, &var3, 1);
 			{
 				Enum_ov031_0224599c var6 = Enum_ov031_0224599c_5;
 				if (var3 == var6) {

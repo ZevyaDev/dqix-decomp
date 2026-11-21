@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" unsigned char* func_ov031_02235c70(void);
+extern "C" unsigned char* GetEditedConnectionSettings_ov031_02235c70(void);
 extern "C" int FastIntDivide(int arg0, unsigned int arg1);
 extern "C" void func_ov031_022307fc(void);
 extern unsigned char gConnectionSettingsPage_ov031_02290ca0;
@@ -14,7 +14,7 @@ extern "C" ARM void func_ov031_022308d4(void) {
 		func_ov031_022307fc();
 		return;
 	}
-	unsigned char* var2 = func_ov031_02235c70();
+	unsigned char* var2 = GetEditedConnectionSettings_ov031_02235c70();
 	unsigned short var3 = *(unsigned short*)(&gConnectionSettingsPage_ov031_02290ca0 + 4);
 	int var4 = FastIntDivide(var3, 0x1d);
 	unsigned char var5 = (&gConnectionSettingsPage_ov031_02290ca0)[2];

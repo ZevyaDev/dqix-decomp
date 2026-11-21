@@ -15,7 +15,7 @@ struct Struct_0203c108_3 {
     short unknown_14_;
     short unknown_16_;
 };
-extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
+extern "C" void SetSpriteText_0203c108(struct Struct_0203c108_3* spriteText, char* text);
 
 extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" int func_ov000_02171210(void* arg0, void* arg1);
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov000_02171e60(struct Struct_ov000_02171e60* arg0) {
         arg0->unknown_18_++;
         arg0->unknown_10_[arg0->unknown_18_] = 0xe;
         arg0->unknown_1d_ = 0;
-        func_0203c108(&arg0->unknown_50_, ((char*)((StringList*)(arg0->unknown_4_))->GetString(5)));
+        SetSpriteText_0203c108(&arg0->unknown_50_, ((char*)((StringList*)(arg0->unknown_4_))->GetString(5)));
         return;
     }
     void* var1 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), var0->unknown_16_);
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov000_02171e60(struct Struct_ov000_02171e60* arg0) {
         arg0->unknown_18_++;
         arg0->unknown_10_[arg0->unknown_18_] = 0xe;
         arg0->unknown_1d_ = 0;
-        func_0203c108(&arg0->unknown_50_, ((char*)((StringList*)(arg0->unknown_4_))->GetString(5)));
+        SetSpriteText_0203c108(&arg0->unknown_50_, ((char*)((StringList*)(arg0->unknown_4_))->GetString(5)));
         return;
     }
     arg0->unknown_18_++;
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov000_02171e60(struct Struct_ov000_02171e60* arg0) {
         }
     }
 #if defined(jpn)
-    func_0203c108(&arg0->unknown_50_, (char*)var0->unknown_4_);
+    SetSpriteText_0203c108(&arg0->unknown_50_, (char*)var0->unknown_4_);
 #else
     char var2[0x80];
     __clear(var2, 0x80);
@@ -97,6 +97,6 @@ extern "C" ARM void func_ov000_02171e60(struct Struct_ov000_02171e60* arg0) {
     ExpandInflectionTags_020e4864(var0->unknown_4_, var2, 1, 0, 0, 0);
     CopyCapitalizedText_0206819c(var2, var3, 0);
     func_02046608(GetMessageWindow_020421a0(), 10, var3, var2, 0x100, 0, 0);
-    func_0203c108(&arg0->unknown_50_, var2);
+    SetSpriteText_0203c108(&arg0->unknown_50_, var2);
 #endif
 }

@@ -192,7 +192,7 @@ extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 extern "C" void* func_0205ec34(void);
 extern "C" int func_02064a24(void*, Struct_02064a08*);
 extern "C" int func_02064a08(void*, Struct_02064a08*);
-extern "C" void func_0206f81c(void* arg0);
+extern "C" void RunDeferredTriggerActions_0206f81c(void* triggerResult);
 extern "C" int func_020a3694(int* arg0);
 extern "C" void func_02010604(GameState* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_0209c530(void* arg0);
@@ -241,7 +241,7 @@ extern "C" void func_020d7e10(void* arg0, char* arg1, int arg2, int arg3, int ar
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void func_ov017_021cbf18(unsigned char arg0, unsigned short arg1);
 extern "C" void func_ov017_021b86f8(Struct_ov017_021b790c_4* arg0, int arg1, int arg2, int arg3);
-extern "C" int func_ov017_02195658(void* arg0);
+extern "C" int RemoveDepartedPlayer_ov017_02195658(void* gameResources);
 extern "C" void func_020a367c(unsigned char* arg0, int arg1);
 extern "C" void func_02039758(void* arg0, int arg1);
 extern "C" void ResetMessageWindow_02043204(char* window);
@@ -337,11 +337,11 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
             var24.unknown_18_ = arg0->unknown_28_;
             if (arg0->unknown_6b0_->unknown_8e14_ == 2) {
                 if (func_02064a24(var23, &var24)) {
-                    func_0206f81c(&var24);
+                    RunDeferredTriggerActions_0206f81c(&var24);
                 }
             } else {
                 if (func_02064a08(var23, &var24)) {
-                    func_0206f81c(&var24);
+                    RunDeferredTriggerActions_0206f81c(&var24);
                 }
             }
         }
@@ -488,7 +488,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
                 }
             }
         }
-        int var40 = func_ov017_02195658(var1);
+        int var40 = RemoveDepartedPlayer_ov017_02195658(var1);
         if (var40 >= 0) {
             func_020a367c(arg0->unknown_1c_, (unsigned char)var40);
         }
@@ -509,7 +509,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
             func_ov017_021b6f9c(arg0);
             arg0->unknown_1_ = 1;
         }
-        int var41 = func_ov017_02195658(var1);
+        int var41 = RemoveDepartedPlayer_ov017_02195658(var1);
         if (var41 >= 0) {
             func_020a367c(arg0->unknown_1c_, (unsigned char)var41);
         }

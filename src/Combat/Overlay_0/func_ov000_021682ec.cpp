@@ -21,7 +21,7 @@ char unknown_0_[0x79c6];
 char unknown1_0_[0x77d6];
 #endif
 Struct_ov000_021682ec_4 unknown_77d6_[4];unsigned char unknown_77ee_;inline int inline_ov000_021682ec_2(){return unknown_77ee_;}};
-extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*,int);extern "C" int IsQueueEmpty_02046b08(void**);extern "C" void func_02072c9c(int,char*);
+extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*,int);extern "C" int IsQueueEmpty_02046b08(void**);extern "C" void FormatPartyMemberAnimationName_02072c9c(int,char*);
 struct ObjectArchiveLoadInfo_0203d028_11;extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d028_11*);struct Struct_02013fb4;extern "C" void func_ov000_0216d1c4(int,Struct_02013fb4*,int,int*);struct Struct_02010604;extern "C" void SetMotion_02033b88(Struct_02010604*,int);
 extern "C" {int sprintf(char*,const char*,...);void func_ov000_0216867c(Struct_ov000_021682ec_5*,int);extern const char data_ov000_02183ad8[],data_ov000_02183ae0[],data_ov000_02183afb[],data_ov000_02183b03[];}
 // USA: func_ov000_021682ec
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov000_021682ec(Struct_ov000_021682ec_5* arg0){
  for(var4=0;var4<arg0->inline_ov000_021682ec_2();var4++){
   var5=&arg0->unknown_77d6_[var4];
   if(var5->unknown_1_==0){
-   if(!IsQueueEmpty_02046b08(var7))return;var6=GetPartyMemberBaseByIndex_0200ff1c(var2,var5->unknown_0_);if(var6)var6->obj3D_.RemoveAllAnimationPackages();var1->AddFence();func_02072c9c(var5->unknown_0_,var11);sprintf(var8,data_ov000_02183ad8,var11);
+   if(!IsQueueEmpty_02046b08(var7))return;var6=GetPartyMemberBaseByIndex_0200ff1c(var2,var5->unknown_0_);if(var6)var6->obj3D_.RemoveAllAnimationPackages();var1->AddFence();FormatPartyMemberAnimationName_02072c9c(var5->unknown_0_,var11);sprintf(var8,data_ov000_02183ad8,var11);
    if(var6&&((Struct_ov000_021682ec_3*)var6)->unknown_150_->unknown_49c_0_==1)var8[0]='w';
    var5->unknown_2_=var1->QueueLoadFileInGP2(data_ov000_02183ae0,var8,0);sprintf(var8,data_ov000_02183afb,var11);var5->unknown_4_=var1->QueueLoadFileInGP2(data_ov000_02183ae0,var8,0);var5->unknown_1_++;
   }else if(var5->unknown_1_==1){

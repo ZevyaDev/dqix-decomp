@@ -9,14 +9,14 @@ extern "C" void func_020e1cdc(void* arg0, void* arg1);
 struct Struct_020e2604;
 extern "C" void func_020e2604(struct Struct_020e2604* arg0);
 
-struct Struct_020e280c {
+struct YesNoWindow_020e280c {
     unsigned char unknown_0_[0x10];
-    void* unknown_10_;   // 0x10
+    void* pWindow_10_;   // 0x10
 };
 
-// USA: func_020e280c
-extern "C" ARM void func_020e280c(struct Struct_020e280c* arg0, void* arg1) {
-    func_020e25cc((signed char*)arg0);
-    func_020e1cdc(arg0->unknown_10_, arg1);
-    func_020e2604((struct Struct_020e2604*)arg0);
+// USA: OpenYesNoWindow_020e280c
+extern "C" ARM void OpenYesNoWindow_020e280c(struct YesNoWindow_020e280c* yesNoWindow, void* objVRAMEnd) {
+    func_020e25cc((signed char*)yesNoWindow);
+    func_020e1cdc(yesNoWindow->pWindow_10_, objVRAMEnd);
+    func_020e2604((struct Struct_020e2604*)yesNoWindow);
 }

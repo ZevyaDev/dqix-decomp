@@ -7,7 +7,7 @@ struct Struct_ov031_0221df48 {
     unsigned short unknown_4_;
 };
 extern unsigned char data_ov031_0224e700[];
-extern unsigned char data_ov031_0224e6e0[];
+extern unsigned char gAOSSSession_ov031_0224e6e0[];
 extern "C" void func_ov031_0221e51c(void*, const void*, unsigned int);
 extern "C" unsigned short func_ov031_0221e5f8(unsigned short);
 extern "C" unsigned int func_ov031_0221e5d0(unsigned int);
@@ -17,8 +17,8 @@ extern "C" THUMB short func_ov031_0221df48(Struct_ov031_0221df48* arg0) {
     short var0 = 0;
     arg0->unknown_0_ = *(signed char*)(data_ov031_0224e700 + 0x1d);
     arg0->unknown_1_ = 1;
-    short var1 = *(int*)(data_ov031_0224e6e0 + 0x28);
-    func_ov031_0221e51c(arg0 + 1, *(void**)(data_ov031_0224e6e0 + 0x24), var1);
+    short var1 = *(int*)(gAOSSSession_ov031_0224e6e0 + 0x28);
+    func_ov031_0221e51c(arg0 + 1, *(void**)(gAOSSSession_ov031_0224e6e0 + 0x24), var1);
     arg0->unknown_2_ = func_ov031_0221e5f8(var1);
     short var2 = (((short)(var1 + 6) + 1) / 2) * 2;
     arg0->unknown_4_ = func_ov031_0221e5f8(var2);

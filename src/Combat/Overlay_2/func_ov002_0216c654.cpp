@@ -15,7 +15,7 @@
 #define func_02046708 func_02047528
 #endif
 
-struct Struct_020e28dc;
+struct YesNoWindow_020e28dc;
 struct YesNoWindow_020e25e8;
 struct GlobalFlags_02012de8;
 struct GlobalFlags_02038598_4;
@@ -23,12 +23,12 @@ struct GlobalFlags_02038598_4;
 extern "C" int GetResources_0200fb8c(int *);
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char *);
-extern "C" int func_020e28dc(struct Struct_020e28dc *);
+extern "C" int IsYesNoWindowOpen_020e28dc(struct YesNoWindow_020e28dc *);
 extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8 *);
 void SetSubBrightness(GameResources *, int, int);
 int IsSubBrightnessTransitionActive(GameResources *);
-extern "C" void func_ov023_021dca88(char *);
-extern "C" void func_020dc2d0(int);
+extern "C" void CloseItemInfoPanel_ov023_021dca88(char *);
+extern "C" void RestartMapDisplay_020dc2d0(int);
 extern "C" void func_ov023_021e7340(char *);
 extern "C" void func_ov023_021eb414(char *);
 extern "C" void DestroyAccoladeDisplay_ov023_021eb26c(char *);
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov002_0216c654(char *arg0) {
     int var1          = S32(0x1bc0 + Enum_ov002_0216c654_0);
     if (var1 == 0) {
         ResetMessageWindow_02043204(GetMessageWindow_020421a0());
-        if (S32(4) != 0 && func_020e28dc((struct Struct_020e28dc *) S32(4))) {
+        if (S32(4) != 0 && IsYesNoWindowOpen_020e28dc((struct YesNoWindow_020e28dc *) S32(4))) {
             CloseYesNoWindow_020e25e8((struct YesNoWindow_020e25e8 *) S32(4));
         }
         *(short *) (arg0 + 0x1c14 + Enum_ov002_0216c654_0) = 0;
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov002_0216c654(char *arg0) {
         S32(0x1bc0 + Enum_ov002_0216c654_0) = 1;
     } else if (var1 == 1) {
         if (S32(0x247c + Enum_ov002_0216c654_0_3) & 1) {
-            func_ov023_021dca88(arg0 + 0x50 + Enum_ov002_0216c654_0_5);
+            CloseItemInfoPanel_ov023_021dca88(arg0 + 0x50 + Enum_ov002_0216c654_0_5);
         }
         if (*(unsigned char *) (arg0 + 0x1cc3 + Enum_ov002_0216c654_0_2) != 0 || *(unsigned char *) (arg0 + 0x2472 + Enum_ov002_0216c654_0_3) != 0 ||
             *(unsigned char *) (arg0 + 0x2456 + Enum_ov002_0216c654_0_4) != 0)
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov002_0216c654(char *arg0) {
         }
     } else if (var1 == 2) {
         if (IsSubBrightnessTransitionActive(var0)) return;
-        func_020dc2d0(0);
+        RestartMapDisplay_020dc2d0(0);
         func_ov023_021e7340(arg0 + 0xb4 + 0x800 + Enum_ov002_0216c654_0_6);
         *(unsigned char *) (arg0 + 0x1cc3 + Enum_ov002_0216c654_0_2) = 0;
         S32(0x1bc0 + Enum_ov002_0216c654_0)                        = 7;
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov002_0216c654(char *arg0) {
             !IsSubBrightnessTransitionActive(var0))
         {
             ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4 *) var2, 1);
-            func_020dc2d0(0);
+            RestartMapDisplay_020dc2d0(0);
         }
         if (*(unsigned char *) (arg0 + 0x1c33 + Enum_ov002_0216c654_0) != 0) {
             PopSubOverlay_020a1f4c(1);

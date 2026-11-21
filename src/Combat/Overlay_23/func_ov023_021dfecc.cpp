@@ -23,7 +23,7 @@ struct PacEntry_02020aec;
 
 struct BGLayer_02020cb8_6;
 
-extern "C" int func_ov023_021e20f0(void*, void*, void*, void*);
+extern "C" int LoadLayout_ov023_021e20f0(void*, void*, void*, void*);
 
 extern "C" void func_ov023_021e20c0(void* arg0);
 
@@ -92,7 +92,7 @@ extern "C" ARM int func_ov023_021dfecc(void* arg0) {
                     if (var3) {
                         ((BGLayer*)(&var1))->ProcessGraphicsFileMetadata((const void*)((char*)var3));
                         ((BGLayer*)((struct BGLayer_02020cb8_6*)&var1))->StageGraphicsFileBuffer((const void*)((char*)var3));
-                        func_ov023_021e20f0(var0 + 0xcc, var0, var3, (void*)var5);
+                        LoadLayout_ov023_021e20f0(var0 + 0xcc, var0, var3, (void*)var5);
                     }
                 }
             } else {
@@ -105,7 +105,7 @@ extern "C" ARM int func_ov023_021dfecc(void* arg0) {
                             ((BGLayer*)(&var1))->ProcessGraphicsFileMetadata((const void*)((char*)var3));
                             ((BGLayer*)((struct BGLayer_02020cb8_6*)&var1))->StageGraphicsFileBuffer((const void*)((char*)var3));
                         } else {
-                            func_ov023_021e20f0(var0 + 0xcc, var0, var3, (void*)var5);
+                            LoadLayout_ov023_021e20f0(var0 + 0xcc, var0, var3, (void*)var5);
                         }
                     }
                 }

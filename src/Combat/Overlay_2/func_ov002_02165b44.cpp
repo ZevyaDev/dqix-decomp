@@ -66,7 +66,7 @@ extern "C" char *func_0205ec34(void);
 extern "C" char *GetZone3D_02012fe4(void);
 extern "C" int *func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(int *wireless);
-extern "C" void func_ov023_021dca88(char *arg0);
+extern "C" void CloseItemInfoPanel_ov023_021dca88(char *panel);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov017_021d1a18(int arg0, int arg1, int arg2, int arg3);
 extern "C" char gSoundEffectManager_02108760[];
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                         *(short *) (arg0 + 0x1af2)          = -1;
                         *(short *) (arg0 + 0x22b8)          = -1;
                         *(unsigned char *) (arg0 + 0x22ba) = 0;
-                        if (*(unsigned int *) (arg0 + 0x22ac) & 1) func_ov023_021dca88(arg0 + 0x38);
+                        if (*(unsigned int *) (arg0 + 0x22ac) & 1) CloseItemInfoPanel_ov023_021dca88(arg0 + 0x38);
                         func_ov002_0215a7b4(arg0, *(signed char *) (arg0 + 0x1ae8), *(short *) (arg0 + 0x1aea),
                                             *(short *) (arg0 + 0x1ab0), 0);
                     } else {
@@ -186,7 +186,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                     *(short *) (arg0 + 0x1af2)          = -1;
                     *(short *) (arg0 + 0x22b8)          = -1;
                     *(unsigned char *) (arg0 + 0x22ba) = 0;
-                    if (*(unsigned int *) (arg0 + 0x22ac) & 1) func_ov023_021dca88(arg0 + 0x38);
+                    if (*(unsigned int *) (arg0 + 0x22ac) & 1) CloseItemInfoPanel_ov023_021dca88(arg0 + 0x38);
                 } else {
                     PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 0x64, 0);
                 }
@@ -278,7 +278,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                         *(short *) (arg0 + 0x1c00 + 0x2a)          = -1;
                         *(short *) (arg0 + 0x2400 + 0x88)          = -1;
                         *(unsigned char *) (arg0 + 0x2000 + 0x48a) = 0;
-                        if (*(unsigned int *) (arg0 + 0x2000 + 0x47c) & 1) func_ov023_021dca88(arg0 + 0x50);
+                        if (*(unsigned int *) (arg0 + 0x2000 + 0x47c) & 1) CloseItemInfoPanel_ov023_021dca88(arg0 + 0x50);
                         func_ov002_0215a7b4(arg0, *(signed char *) (arg0 + 0x1c00 + 0x20), *(short *) (arg0 + 0x1c00 + 0x22),
                                             *(short *) (arg0 + 0x1b00 + 0xe8), 0);
                     } else {
@@ -340,7 +340,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                     *(short *) (arg0 + 0x1c00 + 0x2a)          = -1;
                     *(short *) (arg0 + 0x2400 + 0x88)          = -1;
                     *(unsigned char *) (arg0 + 0x2000 + 0x48a) = 0;
-                    if (*(unsigned int *) (arg0 + 0x2000 + 0x47c) & 1) func_ov023_021dca88(arg0 + 0x50);
+                    if (*(unsigned int *) (arg0 + 0x2000 + 0x47c) & 1) CloseItemInfoPanel_ov023_021dca88(arg0 + 0x50);
                 } else {
                     PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 0x64, 0);
                 }

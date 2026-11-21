@@ -71,7 +71,7 @@ extern "C" Struct_ov017_021c9954_3* func_ov017_021b8468(Struct_ov017_021c9954_2*
 extern "C" void func_ov000_02163778(void* arg0);
 extern "C" void func_020dc548(signed char arg0, signed char* arg1, signed char* arg2);
 extern "C" void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int isHeld);
-extern "C" Struct_ov017_021c9954* func_ov017_021a278c(void* arg0, int arg1);
+extern "C" Struct_ov017_021c9954* FindFieldMonsterById_ov017_021a278c(void* gameResources, int fieldMonsterId);
 extern "C" void func_ov017_021c98f4(int arg0, int arg1);
 extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
 extern "C" Struct_ov017_021c9954_4* func_ov017_021a7c8c(void* arg0);
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov017_021c9954(int arg0, int arg1, int arg2, int arg3) 
     Struct_ov017_021c9954_2* var2 = var0->unknown_3718_;
     func_ov017_021b86f8(var2, arg0, 1, arg2);
 
-    var1 = func_ov017_021a278c(var0, arg0);
+    var1 = FindFieldMonsterById_ov017_021a278c(var0, arg0);
     if (var1 != 0 && arg2 == 0) {
         InitFieldMonster_02076a8c(var1);
         var1->unknown_0_.MakeHidden();

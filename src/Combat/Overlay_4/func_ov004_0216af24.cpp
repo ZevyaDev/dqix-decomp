@@ -2,7 +2,7 @@
 
 struct StringList_02072a68_2;
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
-extern "C" int func_02042190(int arg0);
+extern "C" int GetFontForFontSize_02042190(int fontSize);
 
 struct Struct_ov004_0216af24 {
     char unknown_0_[0x20];
@@ -37,7 +37,7 @@ extern "C" ARM int func_ov004_0216af24(void* arg0, int arg1) {
     }
     int var5 = 0;
     if (var2) {
-        var5 = func_020420e8(var2, func_02042190(var1->unknown_44_0_));
+        var5 = func_020420e8(var2, GetFontForFontSize_02042190(var1->unknown_44_0_));
     }
     return var5;
 }

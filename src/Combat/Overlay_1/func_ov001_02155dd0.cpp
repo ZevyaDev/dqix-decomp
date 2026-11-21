@@ -44,7 +44,7 @@ extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" int func_0203adfc(void* arg0, void* arg1);
 extern "C" void StopStream_0203ad88(void* manager, void* handle, int fadeDuration);
-extern "C" void func_0202e874(unsigned char*, unsigned short);
+extern "C" void SetCameraRoll_0202e874(unsigned char*, unsigned short);
 extern "C" void func_0202f0c4(void* arg0, int arg1, int arg2);
 extern "C" void* GetColorFade_020704fc();
 struct Struct_020708c8;
@@ -155,7 +155,7 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
         StopStream_0203ad88(gMusicManager_02109bf4, 0, 0);
     }
     ClearFlags04(var6, 0x2000);
-    func_0202e874((unsigned char*)var10, 0);
+    SetCameraRoll_0202e874((unsigned char*)var10, 0);
     func_0202f0c4(var10, 0xf000, 0);
     func_020708c8((Struct_020708c8*)GetColorFade_020704fc(), 0);
     var1->MaybeReset();

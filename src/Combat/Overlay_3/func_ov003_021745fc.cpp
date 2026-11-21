@@ -5,7 +5,7 @@
 #define data_ov003_02180aa4 data_ov003_0217ed08
 #endif
 
-struct Struct_020e28dc;
+struct YesNoWindow_020e28dc;
 struct YesNoWindow_020e263c_2;
 struct MenuLayout_0207fc6c;
 
@@ -20,7 +20,7 @@ struct Struct_ov003_021745fc {
 
 class Struct_ov003_021745fc_2 {
 public:
-    Struct_020e28dc* unknown_0_;
+    YesNoWindow_020e28dc* unknown_0_;
 #if defined(jpn)
     char unknown_4_[0x808 - 0x4];
 #else
@@ -65,7 +65,7 @@ extern "C" int GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void UpdateMenuLayoutWindows_0207fc6c(MenuLayout_0207fc6c* menuLayout, int ticks);
 extern "C" void ClearMenuLayoutWindowHighlights_020804fc(void* menuLayout, int windowId);
-extern "C" int func_020e28dc(Struct_020e28dc* arg0);
+extern "C" int IsYesNoWindowOpen_020e28dc(YesNoWindow_020e28dc* yesNoWindow);
 extern "C" void UpdateYesNoWindow_020e263c(YesNoWindow_020e263c_2* yesNoWindow, int ticks);
 
 extern unsigned int data_ov003_02180cc8[2];
@@ -106,7 +106,7 @@ extern "C" ARM bool func_ov003_021745fc(Struct_ov003_021745fc_2* arg0, int arg1)
         }
     }
 
-    if (arg0->unknown_0_ != NULL && func_020e28dc(arg0->unknown_0_))
+    if (arg0->unknown_0_ != NULL && IsYesNoWindowOpen_020e28dc(arg0->unknown_0_))
         UpdateYesNoWindow_020e263c((YesNoWindow_020e263c_2*)arg0->unknown_0_, arg0->unknown_fe0_);
 
     if (!(data_ov003_02180cc8[0] & 1)) {

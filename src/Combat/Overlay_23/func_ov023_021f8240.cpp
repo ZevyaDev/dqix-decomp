@@ -177,7 +177,7 @@ extern "C" unsigned short func_ov023_021f6f10(Struct_ov023_021f8240* arg0);
 extern "C" Struct_ov023_021f8240* FindMenuObjectById_ov023_021f6880(Struct_ov023_021f68b8* objectList, int id);
 extern "C" StringList_02072a68_2* GetMenuObjectStringList_ov023_021fa598(Struct_ov023_021f8240* object);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
-extern "C" int func_02042190(int arg0);
+extern "C" int GetFontForFontSize_02042190(int fontSize);
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 extern "C" void* GetMessageWindow_020421a0();
@@ -277,7 +277,7 @@ extern "C" ARM void func_ov023_021f8240(Struct_ov023_021f8240_6* arg0, void* arg
             int var18 = var10.unknown_4_ / 4096.0f;
 #else
             var7 = var4->unknown_45_7_;
-            var5 = func_02042190(var4->unknown_44_0_);
+            var5 = GetFontForFontSize_02042190(var4->unknown_44_0_);
             char var19[0x100] = {0};
             char var20[0x100] = {0};
             if (var7)

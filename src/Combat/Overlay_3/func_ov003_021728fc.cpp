@@ -21,7 +21,7 @@ enum { Enum_ov003_021728fc_969 = 0x3c9 };
 
 extern "C" int GetMessageWindow_020421a0();
 
-extern "C" int AddElapsedPlayTime_020ac4f8(int arg0);
+extern "C" int AddElapsedPlayTime_020ac4f8(int isMultiplayerTimeIncluded);
 struct BGControlSave_02074af4;
 extern "C" ARM void SaveMainBGControl_02074af4(struct BGControlSave_02074af4* save);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);

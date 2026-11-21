@@ -46,7 +46,7 @@ extern "C" int func_0202bd34(LocalWireless_0202b2f0* arg0, int arg1);
 extern "C" int func_0202c648(int* arg0);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" int func_ov017_02195658(GameResources* arg0);
+extern "C" int RemoveDepartedPlayer_ov017_02195658(GameResources* gameResources);
 
 // USA: func_ov017_021b11d8
 extern "C" ARM void func_ov017_021b11d8(void* arg0, void* arg1) {
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov017_021b11d8(void* arg0, void* arg1) {
         goto done;
     }
     {
-        int var8 = func_ov017_02195658(var2);
+        int var8 = RemoveDepartedPlayer_ov017_02195658(var2);
         if (var8 > 0) {
             var0->unknown_a_ &= ~(1 << var8);
         }

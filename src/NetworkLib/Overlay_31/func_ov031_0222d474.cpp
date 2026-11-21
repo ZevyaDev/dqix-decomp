@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" bool func_ov031_02237eb0();
+extern "C" bool IsDialogOpen_ov031_02237eb0();
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int handler);
 extern "C" void GetWifiSetupPageArguments_ov031_02227520(int* outFirstArgument, int* outSecondArgument);
 extern "C" void func_ov031_0222ce24();
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov031_0222d474() {
 	void (*var0[2])(void*);
 	var0[0] = data_ov031_02248eb4.unknown_10_;
 	var0[1] = data_ov031_02248eb4.unknown_14_;
-	if (func_ov031_02237eb0()) {
+	if (IsDialogOpen_ov031_02237eb0()) {
 		return;
 	}
 	Struct_ov031_0222d474* var1 = data_ov031_02290c94;

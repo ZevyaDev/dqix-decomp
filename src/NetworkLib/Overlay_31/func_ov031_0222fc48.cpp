@@ -15,13 +15,13 @@ struct Struct_ov031_02290ca0_10 {
 
 extern struct Struct_ov031_02290ca0_10 gConnectionSettingsPage_ov031_02290ca0;
 
-extern "C" char* func_ov031_02235c70(void);
+extern "C" char* GetEditedConnectionSettings_ov031_02235c70(void);
 extern "C" int func_ov031_0222fd9c(int arg0);
 extern "C" void func_ov031_0222fe30(int arg0, int arg1, int arg2);
 
 // USA: func_ov031_0222fc48
 extern "C" ARM void func_ov031_0222fc48(int arg0, int arg1) {
-	unsigned char* var0 = (unsigned char*)func_ov031_02235c70();
+	unsigned char* var0 = (unsigned char*)GetEditedConnectionSettings_ov031_02235c70();
 	int var1;
 	int var2;
 

@@ -4,7 +4,7 @@
 
 struct Struct_ov024_021f3a04 { char unknown_0_[0x2c]; short unknown_2c_; };
 extern "C" GameObject* GetEnemyByID_ov000_021536f8(int, int);
-extern "C" float func_ov024_021db358(GameObject*);
+extern "C" float GetHPRatio_ov024_021db358(GameObject*);
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int, short*, int, int);
 extern const short data_ov024_021fee3c[8] __attribute__((aligned(4)));
 
@@ -12,7 +12,7 @@ extern const short data_ov024_021fee3c[8] __attribute__((aligned(4)));
 extern "C" ARM int func_ov024_021f3a04(int* arg0, int arg1, void*, int* arg3, short* arg4) {
     GameObject* var0 = GetEnemyByID_ov000_021536f8(*arg0, arg1);
     if (!var0) return 0;
-    if (func_ov024_021db358(var0) < 0.5f) return 0;
+    if (GetHPRatio_ov024_021db358(var0) < 0.5f) return 0;
     short var1[8];
     const short* var2 = data_ov024_021fee3c;
     short* var3 = var1;
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov024_021f3a04(int* arg0, int arg1, void*, int* arg3, sh
         if (var1[var6] == arg1) continue;
         GameObject* var7 = GetCombatantByID(*arg0, var1[var6]);
         if (!var7) continue;
-        if (func_ov024_021db358(var7) >= 0.5f) continue;
+        if (GetHPRatio_ov024_021db358(var7) >= 0.5f) continue;
         if (((Struct_ov024_021f3a04*)var7->currentStats_)->unknown_2c_ > 0) continue;
         int var8 = *arg3;
         *arg3 = var8 + 1;

@@ -8,19 +8,19 @@ extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skil
 extern "C" int func_0201137c(char* arg0, int arg1);
 extern short data_020e8ab6[];
 
-// USA: func_02085fb4
-extern "C" ARM int func_02085fb4(unsigned char* arg0) {
-    short* var0;
-    GameState* var1 = GameState::GetInstance();
-    int var2 = 0;
-    unsigned char var3 = 0;
-    var0 = data_020e8ab6;
-    short var4;
-    while ((var4 = var0[var3]) != -1) {
-        if (HasLearnedSkillEntry_02083b00(arg0, var4)) {
-            var2 += func_0201137c((char*)var1, var4);
+// USA: GetSkillStrengthBonus_02085fb4
+extern "C" ARM int GetSkillStrengthBonus_02085fb4(unsigned char* memberData) {
+    short* skillEntryIds;
+    GameState* gameState = GameState::GetInstance();
+    int bonus = 0;
+    unsigned char i = 0;
+    skillEntryIds = data_020e8ab6;
+    short skillEntryId;
+    while ((skillEntryId = skillEntryIds[i]) != -1) {
+        if (HasLearnedSkillEntry_02083b00(memberData, skillEntryId)) {
+            bonus += func_0201137c((char*)gameState, skillEntryId);
         }
-        var3 = (var3 + 1) & 0xff;
+        i = (i + 1) & 0xff;
     }
-    return var2;
+    return bonus;
 }

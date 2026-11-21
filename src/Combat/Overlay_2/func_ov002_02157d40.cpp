@@ -87,7 +87,7 @@ extern "C" void ClearStatusFlags_02048418(unsigned char* gameObject, unsigned sh
 extern "C" void func_020a8170(struct Struct_ov002_02157634_6* arg0);
 extern "C" int GetPartyOrder_020114ec(char* gameState, void* outPartyOrder);
 extern "C" int func_0202663c(unsigned char* arg0);
-extern "C" void func_02046a3c(struct Struct_ov002_02157d40_9* arg0, struct Struct_ov002_02157d40_10* arg1);
+extern "C" void InsertAfterQueueHead_02046a3c(struct Struct_ov002_02157d40_9* queue, struct Struct_ov002_02157d40_10* node);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void func_02026644(char* arg0);
 extern "C" void func_ov017_021c2744(struct Struct_ov002_02157d40_13* arg0);
@@ -521,7 +521,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
             if (var34[2] == 0) {
                 func_ov017_021c2744((struct Struct_ov002_02157d40_13*)var34);
                 *(int*)(var34 + 0x14) = var7->unknown_4_;
-                func_02046a3c((struct Struct_ov002_02157d40_9*)var33, (struct Struct_ov002_02157d40_10*)var34);
+                InsertAfterQueueHead_02046a3c((struct Struct_ov002_02157d40_9*)var33, (struct Struct_ov002_02157d40_10*)var34);
             }
             arg0->unknown_1bb8_ = ST(0x2b);
             arg0->unknown_1bbc_ = ST(0x2b);
@@ -608,7 +608,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
             var46 = *(unsigned char**)((unsigned char*)var3 + RG(0x36fc, 0x34ec));
             func_ov017_021c2688(var47);
             var47[0xc] = arg0->unknown_1c20_;
-            func_02046a3c((struct Struct_ov002_02157d40_9*)var46, (struct Struct_ov002_02157d40_10*)var47);
+            InsertAfterQueueHead_02046a3c((struct Struct_ov002_02157d40_9*)var46, (struct Struct_ov002_02157d40_10*)var47);
             arg0->unknown_1bb8_ = ST(0x2b);
             arg0->unknown_1bbc_ = ST(0x2b);
             return;
@@ -687,7 +687,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
             var53 = *(unsigned char**)(var52 + RG(0x36fc, 0x34ec));
             if (var54[2] == 0) {
                 func_ov017_021c2b28(var54, 0, var7->unknown_4_);
-                func_02046a3c((struct Struct_ov002_02157d40_9*)var53, (struct Struct_ov002_02157d40_10*)var54);
+                InsertAfterQueueHead_02046a3c((struct Struct_ov002_02157d40_9*)var53, (struct Struct_ov002_02157d40_10*)var54);
             }
             arg0->unknown_1c28_ = 0x233c;
             var9 = 1;

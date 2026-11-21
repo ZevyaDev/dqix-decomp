@@ -3,7 +3,7 @@
 extern "C" int func_020d22f4(int arg0);
 extern "C" void func_020bc2f0(void);
 extern "C" void func_020bed10(void);
-extern "C" void func_020d24c4(int arg0);
+extern "C" void SendSoundCommands_020d24c4(int arg0);
 extern "C" void func_020bceb4(void);
 
 // USA: UpdateSound_020bbd9c
@@ -13,5 +13,5 @@ extern "C" ARM void UpdateSound_020bbd9c(void) {
     func_020bc2f0();
     func_020bceb4();
     func_020bed10();
-    func_020d24c4(0);
+    SendSoundCommands_020d24c4(0);
 }

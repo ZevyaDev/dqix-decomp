@@ -5,7 +5,6 @@
 
 #if defined(jpn)
 #define func_02069fec func_02069ecc
-#define func_02045d14 func_020469b0
 #define func_02045f3c func_02046c78
 #define data_ov015_0219417c data_ov015_02194cbc
 #define data_ov015_02194192 data_ov015_02194cd2
@@ -33,7 +32,7 @@ struct Struct_ov015_0218f794
 
 extern "C" Struct_ov015_0218f794* GetMessageWindow_020421a0();
 extern "C" void func_02069fec(Struct_ov015_0218f794* arg0, const char* arg1, char* arg2);
-extern "C" void func_02045d14(Struct_ov015_0218f794* arg0, const char* arg1, unsigned short* arg2, int arg3);
+extern "C" void ConvertTextToMessageGlyphs_02045d14(Struct_ov015_0218f794* window, const char* text, unsigned short* glyphCodes, int font);
 #if defined(jpn)
 extern "C" void func_02045f3c(Struct_ov015_0218f794* arg0, unsigned short* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #else
@@ -74,7 +73,7 @@ extern const char data_ov015_02194242[];
         char converted[0x40];                                                     \
         __clear(converted, sizeof(converted));                                    \
         func_02069fec(system, var0, converted);                                   \
-        func_02045d14(system, converted, var1, 8);                                \
+        ConvertTextToMessageGlyphs_02045d14(system, converted, var1, 8);                                \
     }
 
 #define DRAW_LINE(y)                                                              \
@@ -90,7 +89,7 @@ extern const char data_ov015_02194242[];
         char converted[0x40];                                                     \
         __clear(converted, sizeof(converted));                                    \
         func_02069fec(system, var0, converted);                                   \
-        func_02045d14(system, converted, var1, 0);                                \
+        ConvertTextToMessageGlyphs_02045d14(system, converted, var1, 0);                                \
     }
 
 #define DRAW_LINE(y)                                                              \

@@ -15,14 +15,14 @@ enum { Enum_ov004_02168b44_336 = 0x144, Enum_ov004_02168b44_29888 = 0x7280, Enum
 enum { Enum_ov004_02168b44_336 = 0x150, Enum_ov004_02168b44_29888 = 0x74c0, Enum_ov004_02168b44_420 = 0x1a4, Enum_ov004_02168b44_29180 = 0x71fc, Enum_ov004_02168b44_22172 = 0x569c, Enum_ov004_02168b44_108 = 0x6c, Enum_ov004_02168b44_15236 = 0x3b84, Enum_ov004_02168b44_6498 = 0x1962, Enum_ov004_02168b44_6500 = 0x1964, Enum_ov004_02168b44_6536 = 0x1988 };
 #endif
 
-struct Struct_0201e830;
+struct ZoneFeatures_0201e830;
 extern "C" int GetDefeatedMonsterListCompletion_020a0870(BattleRecords_02061c04* records);
 extern "C" int GetItemListCompletion_020a08a4(BattleRecords_02061c04* records);
 extern "C" int GetWardrobeCompletion_020a08d8(BattleRecords_02061c04* records);
 extern "C" int GetAlchenomiconCompletion_020a090c(BattleRecords_02061c04* records);
-extern "C" int func_0201e830(struct Struct_0201e830* arg0);
+extern "C" int GetZoneClearColor_0201e830(struct ZoneFeatures_0201e830* zoneFeatures);
 extern "C" int GetLocalWirelessState_0202ba00(int* wireless);
-extern "C" int AddElapsedPlayTime_020ac4f8(int arg0);
+extern "C" int AddElapsedPlayTime_020ac4f8(int isMultiplayerTimeIncluded);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" int GetAlchemyCount_020ac0b4(void* count);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
@@ -187,9 +187,9 @@ extern "C" ARM int func_ov004_02168b44(void* arg0) {
 
     void* var15 = GetZone3D_02012fe4();
     if (!var15) return 0;
-    struct Struct_0201e830* var16 = (struct Struct_0201e830*)((char*)var15 + Enum_ov004_02168b44_108);
+    struct ZoneFeatures_0201e830* var16 = (struct ZoneFeatures_0201e830*)((char*)var15 + Enum_ov004_02168b44_108);
     if (!var16) return 0;
-    data_ov004_02171030->unknown_18c_ = func_0201e830(var16);
+    data_ov004_02171030->unknown_18c_ = GetZoneClearColor_0201e830(var16);
 
     unsigned int* var17 = (unsigned int*)GetGameResources();
     data_ov004_02171030->unknown_180_ = GetFlags00((GameResources*)var17);

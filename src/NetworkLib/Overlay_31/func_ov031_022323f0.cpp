@@ -8,7 +8,7 @@ extern "C" void* CloseScreenTextLayer_ov031_0223c7c4(int isSubScreen);
 extern "C" void CloseSubScreenMessage_ov031_02223440(void);
 extern "C" void HideScreenLayers_ov031_0223cbbc(int isSubScreen, int layerMask);
 extern "C" void func_ov031_022357b4(void);
-extern "C" char* func_ov031_02235c70(void);
+extern "C" char* GetEditedConnectionSettings_ov031_02235c70(void);
 extern "C" void func_ov031_02236094(int arg0);
 extern "C" void SetStepIndicatorAndButtonBarModes_ov031_022274d0(int stepIndicatorMode, int buttonBarMode);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int handler);
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov031_022323f0(void) {
 
 	if (data_ov031_02290cbc != 1) {
 		func_ov031_022357b4();
-		unsigned char var0 = func_ov031_02235c70()[0xf4];
+		unsigned char var0 = GetEditedConnectionSettings_ov031_02235c70()[0xf4];
 		func_ov031_02236094(var0);
 		SetStepIndicatorAndButtonBarModes_ov031_022274d0(2, 1);
 		SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02233248);

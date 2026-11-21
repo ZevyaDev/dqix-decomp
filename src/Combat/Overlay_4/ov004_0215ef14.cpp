@@ -292,7 +292,7 @@ extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8* gameState);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" Struct_ov004_0215f0c0_5* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(Struct_ov004_0215f0c0_5* arg0);
-extern "C" int func_02042190(int arg0);
+extern "C" int GetFontForFontSize_02042190(int fontSize);
 extern "C" int func_020420e8(void* arg0, int arg1);
 extern "C" int func_ov004_0215e460(void);
 extern "C" void func_ov004_0215e49c(void*, int, int);
@@ -384,7 +384,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
                 var23 = func_020d2ff0((const char*)var22);
                 var23 = (var23 * var21->unknown_44_0_) >> 1;
 #else
-                var23 = func_020420e8(var22, func_02042190(var21->unknown_44_0_));
+                var23 = func_020420e8(var22, GetFontForFontSize_02042190(var21->unknown_44_0_));
 #endif
             }
             Vector3i var24;

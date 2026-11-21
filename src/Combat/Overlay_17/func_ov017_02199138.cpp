@@ -9,7 +9,7 @@
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0205ec34(void);
 extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
-extern "C" void func_0206f81c(void* arg0);
+extern "C" void RunDeferredTriggerActions_0206f81c(void* triggerResult);
 extern "C" void func_ov017_021b57fc(void* arg0);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov017_02199138(char* arg0) {
     var4.unknown_c_ = *var2;
     var4.unknown_24_ = *(unsigned short*)(*(void**)(arg0 + 0x3000 + Enum_ov017_02199138_1724));
     if (RunTrigger_020649b0(var3, 0x17, &var4)) {
-        func_0206f81c(&var4);
+        RunDeferredTriggerActions_0206f81c(&var4);
         return;
     }
     func_ov017_021b57fc(*(void**)(arg0 + 0x3000 + Enum_ov017_02199138_2812));

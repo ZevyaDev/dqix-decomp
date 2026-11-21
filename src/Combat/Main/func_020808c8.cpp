@@ -20,7 +20,7 @@ struct Struct_020808c8 {
 
 extern "C" void* FindMenuLayoutTextEntry_0207f6ac(struct MenuLayoutTextEntryList_0207f524* textEntries, int textId);
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
-extern "C" int func_02042190(int arg0);
+extern "C" int GetFontForFontSize_02042190(int fontSize);
 extern "C" int func_020420e8(void* arg0, int arg1);
 
 struct Struct_020808c8_2 {
@@ -45,7 +45,7 @@ extern "C" ARM void func_020808c8(void* arg0, int arg1, short* arg2, short* arg3
     }
 
 #if !defined(jpn)
-    int var2 = func_02042190(var1->unknown_13_0_);
+    int var2 = GetFontForFontSize_02042190(var1->unknown_13_0_);
 #endif
     int var3 = var1->unknown_12_;
 

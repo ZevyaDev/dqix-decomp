@@ -70,7 +70,7 @@ extern "C" int func_020937f0(int);
 extern "C" void InitCanvas_0205b20c(Canvas_020200c0_4*);
 extern "C" void SetCanvasCharacterData_0205b220(void*, int);
 extern "C" void SetCanvasRects_0205b228(void*, int, unsigned char);
-extern "C" void func_0205b234(void*, int, int, void*, int, int);
+extern "C" void DrawCanvasText_0205b234(void*, int, int, void*, int, int);
 extern "C" void LoadToMainObjVRAM(const void*, unsigned int, unsigned int);
 extern "C" void LoadToSubObjVRAM(const void*, unsigned int, unsigned int);
 extern "C" void func_02012da4(AllocatorUnion*, void*);
@@ -144,7 +144,7 @@ extern "C" ARM void func_02093b90(Struct_02093b90_2* arg0, int arg1) {
                 InitCanvas_0205b20c(&var13);
                 SetCanvasCharacterData_0205b220(&var13, (int)var3);
                 SetCanvasRects_0205b228(&var13, (int)var7, 8);
-                func_0205b234(&var13, 16, 3, var5, DRAW_ARGS_02093b90);
+                DrawCanvasText_0205b234(&var13, 16, 3, var5, DRAW_ARGS_02093b90);
                 CleanInvalidateCacheRange((const void*)(var3), 0x800);
                 if (var4==0) LoadToMainObjVRAM(var3, var6-0x800, 0x800);
                 else LoadToSubObjVRAM(var3, var6-0x800, 0x800);

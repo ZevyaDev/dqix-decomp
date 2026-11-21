@@ -44,9 +44,9 @@ extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMar
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 extern "C" unsigned char* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
-extern "C" void func_02050400(unsigned char* arg0, int arg1);
-extern "C" void func_0205042c(unsigned char* arg0, unsigned char arg1);
-extern "C" void func_02050440(unsigned char* arg0, int arg1);
+extern "C" void SetTextWindowPageNumberShown_02050400(unsigned char* arg0, int isShown);
+extern "C" void SetTextWindowPage_0205042c(unsigned char* textWindow, unsigned char page);
+extern "C" void SetTextWindowPageCount_02050440(unsigned char* textWindow, int pageCount);
 extern const char data_ov003_02180c7f[];
 
 // USA: func_ov003_0217dfb4
@@ -90,9 +90,9 @@ extern "C" ARM void func_ov003_0217dfb4(struct Struct_ov003_0217dfb4_2* arg0) {
 #else
         unsigned char* var6 = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)arg0->unknown_90_, 0);
         if (var6 != NULL) {
-            func_02050400(var6, 1);
-            func_0205042c(var6, var4);
-            func_02050440(var6, arg0->unknown_32_);
+            SetTextWindowPageNumberShown_02050400(var6, 1);
+            SetTextWindowPage_0205042c(var6, var4);
+            SetTextWindowPageCount_02050440(var6, arg0->unknown_32_);
         }
 #endif
     }

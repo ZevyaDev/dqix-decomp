@@ -21,7 +21,7 @@
 
 struct LocalWireless_0202c1a4;
 struct QueueNode_02015438;
-struct Struct_0203d028_4;
+struct Queue_0203d028_4;
 struct Struct_0208b088;
 struct Struct_0203dd20_2;
 struct Struct_020579b4;
@@ -42,7 +42,7 @@ extern "C" int GetTitleState_0201201c(void*);
 void Stub(GameResources*);
 extern "C" void func_ov017_021941fc(GameResources*);
 extern "C" void func_02039830(void*);
-extern "C" void func_ov017_0219a674(unsigned char*);
+extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char*);
 extern "C" void func_02015438(void*);
 extern "C" void func_020d9834(int);
 extern "C" void func_02022dc8(void*);
@@ -50,7 +50,7 @@ extern "C" void func_ov017_021a624c(GameResources*);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void func_ov017_0219a6b8(GameResources*);
 extern "C" void func_020966e0(void*);
-extern "C" void func_ov017_021a3498(Struct_0203d028_4*);
+extern "C" void UpdateTaskQueue_ov017_021a3498(Queue_0203d028_4*);
 extern "C" void func_020a654c(GameResources*);
 extern "C" void func_020ac9ac(GameResources*);
 extern "C" void func_02011b68(GameState*);
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
         func_02039830(var4);
         (*(Vector3i*)(arg0->unknown_432c + 0x1c)) = var4->obj3D_.position_;
     }
-    func_ov017_0219a674(arg0->unknown_36b4_);
+    ResetInteractionPrompt_ov017_0219a674(arg0->unknown_36b4_);
     if (!TestFlags00(arg0, 4)) {
         func_02015438(var2);
         if (var12) func_020d9834(1);
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
         var8->func_020444d4(var5);
     }
     func_020966e0(arg0->unknown_ptr_4328);
-    func_ov017_021a3498((Struct_0203d028_4*)arg0->unknown_ptr_array_36fc[0]);
+    UpdateTaskQueue_ov017_021a3498((Queue_0203d028_4*)arg0->unknown_ptr_array_36fc[0]);
     func_020a654c(arg0);
     func_020ac9ac(arg0);
     func_02011b68(var0);
@@ -172,9 +172,9 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
         func_020579b4(var3, var5);
         if (!var2->unknown_424_) func_ov017_02192700(arg0);
         if (!TestFlags00(arg0, 16))
-            func_ov017_021a3498((Struct_0203d028_4*)arg0->unknown_ptr_array_36fc[1]);
+            UpdateTaskQueue_ov017_021a3498((Queue_0203d028_4*)arg0->unknown_ptr_array_36fc[1]);
         if (!TestFlags00(arg0, 128))
-            func_ov017_021a3498((Struct_0203d028_4*)arg0->unknown_ptr_array_36fc[2]);
+            UpdateTaskQueue_ov017_021a3498((Queue_0203d028_4*)arg0->unknown_ptr_array_36fc[2]);
         func_020d7b04(var9);
         if (TestFlags00(arg0, 0x1000)) func_ov028_021d9734();
         if (var12) func_020d9834(1);

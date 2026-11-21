@@ -10,7 +10,7 @@
 struct Struct_020da034 { char unknown_0_[8]; unsigned short unknown_8_; char unknown_a_[2]; int unknown_c_[1]; int unknown_10_; };
 struct Struct_02114e20 { void* unknown_0_; HPXEAllocator* unknown_4_; };
 extern "C" int* GetQuestManager_02094d6c();
-extern "C" unsigned int func_02012dd0(Struct_02114e20*);
+extern "C" unsigned int GetMaxPossibleAllocation_02012dd0(Struct_02114e20*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_02012da4(AllocatorUnion*, void*);
 extern "C" void func_020da034(Struct_020da034*, int);
@@ -24,7 +24,7 @@ extern "C" ARM void func_020da074(Struct_020da034* arg0) {
     void* var2;
     unsigned int var3;
     var0->GetLoadedFileByID(arg0->unknown_c_[0], &var2, &var3);
-    if (func_02012dd0((Struct_02114e20*)&gMainHeap_02114e20) > 0x400) {
+    if (GetMaxPossibleAllocation_02012dd0((Struct_02114e20*)&gMainHeap_02114e20) > 0x400) {
         SafeAllocator var4;
         var4.ResetAllocatorPointer();
         void* var5 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x400);

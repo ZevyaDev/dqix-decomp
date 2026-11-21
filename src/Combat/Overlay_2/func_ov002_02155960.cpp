@@ -90,14 +90,14 @@ extern "C" void func_ov002_021561b0(Struct_ov002_02155960_7*);
 extern "C" Struct_ov002_02155960_4* GetCursorTextWindow_0205d8c4(Struct_ov002_02155960_2*);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char*);
 extern "C" void SetMenuCursorTouchedIndex_0205bc24(void*, int);
-extern "C" int func_020e28dc(Struct_0201079c*);
+extern "C" int IsYesNoWindowOpen_020e28dc(Struct_0201079c*);
 extern "C" void UpdateYesNoWindow_020e263c(Struct_0201079c_2*, int);
 extern "C" int UpdateTextWindowManager_0205d0e0(Struct_ov002_02155960_2*, int);
 extern "C" int IsCancelPressed_ov002_02161b48(char*, int);
 extern "C" void* func_0205ec34();
 extern "C" int RunTrigger_020649b0(void*, int, void*);
-extern "C" void func_0206f81c(void*);
-extern "C" void func_ov023_021dca88(void*);
+extern "C" void RunDeferredTriggerActions_0206f81c(void*);
+extern "C" void CloseItemInfoPanel_ov023_021dca88(void*);
 extern "C" void func_ov002_0215aa14(char*);
 extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" void SetTextWindowVisible_0205def8(Struct_ov002_02155960_3*, int, int);
@@ -132,7 +132,7 @@ extern "C" ARM int func_ov002_02155960(Struct_ov002_02155960_7* arg0, int arg1) 
         Struct_ov002_02155960_4* var1 = GetCursorTextWindow_0205d8c4((Struct_ov002_02155960_2*)&arg0->unknown_ec8_);
         if (var1 != 0 && IsTextWindowReady_0204c7cc((unsigned char*)var1) != 0 && (var1->unknown_c5_ & 2) == 0)
             SetMenuCursorTouchedIndex_0205bc24(inline_ov002_02155960(arg0)->unknown_4_, -1);
-        if (arg0->unknown_4_.unknown_0_ != 0 && func_020e28dc(arg0->unknown_4_.unknown_0_) != 0) {
+        if (arg0->unknown_4_.unknown_0_ != 0 && IsYesNoWindowOpen_020e28dc(arg0->unknown_4_.unknown_0_) != 0) {
             UpdateYesNoWindow_020e263c(arg0->unknown_4_.unknown1_0_, arg0->unknown_1ba0_);
         } else {
             arg0->unknown_1bc8_ = UpdateTextWindowManager_0205d0e0((Struct_ov002_02155960_2*)&arg0->unknown_ec8_, arg0->unknown_1ba0_);
@@ -147,9 +147,9 @@ extern "C" ARM int func_ov002_02155960(Struct_ov002_02155960_7* arg0, int arg1) 
         if (arg0->unknown_2487_ == 1) {
             Struct_ov002_02155960 var2;
             if (RunTrigger_020649b0(func_0205ec34(), 0x16, &var2) != 0)
-                func_0206f81c(&var2);
+                RunDeferredTriggerActions_0206f81c(&var2);
             if (arg0->unknown_247c_ & 1)
-                func_ov023_021dca88(arg0->unknown_50_);
+                CloseItemInfoPanel_ov023_021dca88(arg0->unknown_50_);
             arg0->unknown_1bb8_ = RG(0x2b, 0x2e);
             arg0->unknown_1bbc_ = RG(0x2b, 0x2e);
             arg0->unknown_2487_ = 2;
@@ -202,7 +202,7 @@ extern "C" ARM int func_ov002_02155960(Struct_ov002_02155960_7* arg0, int arg1) 
                 func_ov002_02155024((unsigned char*)arg0);
             } else {
                 if (arg0->unknown_247c_ & 1)
-                    func_ov023_021dca88(arg0->unknown_50_);
+                    CloseItemInfoPanel_ov023_021dca88(arg0->unknown_50_);
                 arg0->unknown_1bb8_ = RG(0x2b, 0x2e);
                 arg0->unknown_1c14_ = 0;
             }

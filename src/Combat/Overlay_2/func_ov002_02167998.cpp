@@ -42,7 +42,7 @@ extern "C" void SetTextWindowVisible_0205def8(struct Struct_ov002_02155960_3 *wi
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct Struct_ov002_0215624c_11 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" struct Struct_ov002_02155960_4 *FindTextWindow_0205d81c(struct Struct_ov002_02155960_2 *windowManager, int windowId);
-extern "C" void func_0204c610(struct Struct_ov002_02167998 *arg0, int arg1, short *arg2, short *arg3, short *arg4, short *arg5);
+extern "C" void GetTextWindowEntryRect_0204c610(struct Struct_ov002_02167998 *textWindow, int entryIndex, short *outX, short *outY, short *outWidth, short *outHeight);
 extern "C" void func_0204c654(Struct_ov002_02167998_2*, int, short, short, short, short);
 extern "C" int GetCursorIndex_0205d794(struct Struct_ov002_0215624c_15 *windowManager);
 extern "C" void SetCursorIndex_0205d7a0(unsigned char *windowManager, int index);
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov002_02167998(char *arg0) {
     if (var8 != 0) {
         short var9 = *(signed char *) (arg0 + RG(0x1c73, 0x1b37));
         short var10, var11, var12, var13;
-        func_0204c610((struct Struct_ov002_02167998 *) var8, var9, &var10, &var11, &var12, &var13);
+        GetTextWindowEntryRect_0204c610((struct Struct_ov002_02167998 *) var8, var9, &var10, &var11, &var12, &var13);
         var9 += *(signed char *) (arg0 + RG(0x1c73, 0x1b37)) + 1;
         func_0204c654((struct Struct_ov002_02167998_2 *) var8, var9, var10, var11, var12, var13);
         var9 += *(signed char *) (arg0 + RG(0x1c73, 0x1b37)) + 1;

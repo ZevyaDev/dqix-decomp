@@ -6,35 +6,35 @@
 #define REGION_OFFSET_0 0x3760
 #endif
 
-struct Struct_ov000_02162c14 {
+struct PartyMemberPanel_ov000_02162c14 {
     char unknown_0_[0x18];
-    signed char unknown_18_;
+    signed char windowStackTop_18_;
     char unknown_19_[0x1c - 0x19];
-    signed char unknown_1c_;
-    signed char unknown_1d_;
+    signed char commandType_1c_;
+    signed char enemyTargetSlot_1d_;
     char unknown_1e_[0x26 - 0x1e];
-    unsigned short unknown_26_;
+    unsigned short actionId_26_;
     char unknown_28_[0x2c - 0x28];
-    short unknown_2c_;
-    signed char unknown_2e_;
+    short itemId_2c_;
+    signed char targetMemberIndex_2e_;
 };
 
-extern "C" struct Struct_ov000_02162c14* FindPartyMemberPanel_ov000_02161318(char* battleUI, int memberIndex);
+extern "C" struct PartyMemberPanel_ov000_02162c14* FindPartyMemberPanel_ov000_02161318(char* battleUI, int memberIndex);
 extern "C" int func_ov000_021761c8(char* arg0, int arg1);
 extern "C" int func_ov000_021761ec(char* arg0, int arg1);
 
-// USA: func_ov000_02162c14
-extern "C" ARM void func_ov000_02162c14(char* arg0, int arg1, char* arg2) {
-    struct Struct_ov000_02162c14* var0 = FindPartyMemberPanel_ov000_02161318(arg0 + REGION_OFFSET_0, arg1);
-    if (var0 == 0) {
+// USA: GetPartyMemberCommand_ov000_02162c14
+extern "C" ARM void GetPartyMemberCommand_ov000_02162c14(char* battleScene, int memberIndex, char* command) {
+    struct PartyMemberPanel_ov000_02162c14* panel = FindPartyMemberPanel_ov000_02161318(battleScene + REGION_OFFSET_0, memberIndex);
+    if (panel == 0) {
         return;
     }
-    signed char var1 = var0->unknown_18_;
-    arg2[0] = *(signed char*)((char*)var0 + var1 + 0x10);
-    arg2[1] = var0->unknown_1c_;
-    arg2[2] = (signed char)func_ov000_021761c8(arg0 + REGION_OFFSET_0, var0->unknown_1d_);
-    arg2[3] = (signed char)func_ov000_021761ec(arg0 + REGION_OFFSET_0, var0->unknown_1d_);
-    *(short*)(arg2 + 6) = var0->unknown_2c_;
-    arg2[4] = var0->unknown_2e_;
-    *(unsigned short*)(arg2 + 8) = var0->unknown_26_;
+    signed char windowStackTop = panel->windowStackTop_18_;
+    command[0] = *(signed char*)((char*)panel + windowStackTop + 0x10);
+    command[1] = panel->commandType_1c_;
+    command[2] = (signed char)func_ov000_021761c8(battleScene + REGION_OFFSET_0, panel->enemyTargetSlot_1d_);
+    command[3] = (signed char)func_ov000_021761ec(battleScene + REGION_OFFSET_0, panel->enemyTargetSlot_1d_);
+    *(short*)(command + 6) = panel->itemId_2c_;
+    command[4] = panel->targetMemberIndex_2e_;
+    *(unsigned short*)(command + 8) = panel->actionId_26_;
 }

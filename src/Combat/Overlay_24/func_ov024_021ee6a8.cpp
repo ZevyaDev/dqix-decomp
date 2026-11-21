@@ -5,7 +5,7 @@
 
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, unsigned short* indices, int maxCount, int filterFlags);
 extern "C" int IsReflecting_ov024_021eda60(GameObject* combatant);
-extern "C" float func_ov024_021db358(GameObject* arg0);
+extern "C" float GetHPRatio_ov024_021db358(GameObject* combatant);
 extern "C" int PickRandomTarget_ov024_021ed890(struct Random** targetSelector, int* count, short* targetIndices);
 
 extern unsigned short data_ov024_021fec9c;
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov024_021ee6a8(int* arg0, int arg1, int arg2, int* arg3,
         GameObject* var9 = GetCombatantByID(*arg0, *(short*)&var1[var8]);
         if (!var9) continue;
         if (IsReflecting_ov024_021eda60(var9)) continue;
-        if (func_ov024_021db358(var9) >= var7) continue;
+        if (GetHPRatio_ov024_021db358(var9) >= var7) continue;
         arg4[*arg3] = *(short*)&var1[var8];
         (*arg3)++;
     }

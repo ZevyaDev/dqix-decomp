@@ -39,7 +39,7 @@ struct Struct_ov015_0218cc24_2 {
 
 struct Vector3i;
 extern "C" void WaitForVBlank_020c9820();
-extern "C" void func_02079a3c(void*);
+extern "C" void InitGPCReadPair_02079a3c(void*);
 struct TextureVRAMArea_0203d028;
 struct ItemTable_0201099c_10;
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
@@ -92,7 +92,7 @@ extern "C" ARM int func_ov015_0218cc24(Struct_ov015_0218cc24_2* arg0) {
     unsigned int var8 = 0x30000;
     GPCReadPair var9;
     char var10[0x80];
-    func_02079a3c(&var9);
+    InitGPCReadPair_02079a3c(&var9);
     if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var9.pGPCFile, &var9.machine, &data_ov015_021940c0, var7, &var6, var8, false, 0)) {
         var7 += var6;
         var8 -= var6;

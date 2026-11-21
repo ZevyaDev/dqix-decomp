@@ -5,8 +5,8 @@
 
 extern "C" int GetFontLoader_02094a00(void);
 extern "C" void CancelFontLoad_02094ab0(void);
-struct Struct_020e28dc;
-extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
+struct YesNoWindow_020e28dc;
+extern "C" int IsYesNoWindowOpen_020e28dc(struct YesNoWindow_020e28dc* yesNoWindow);
 struct YesNoWindow_020e25e8;
 extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8* yesNoWindow);
 struct BGControlSave_02074bd0;
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov003_02158d4c(Struct_ov003_02158d4c* arg0) {
     GetFontLoader_02094a00();
     CancelFontLoad_02094ab0();
 
-    if (arg0->unknown_570_ != NULL && func_020e28dc((struct Struct_020e28dc*)arg0->unknown_570_)) {
+    if (arg0->unknown_570_ != NULL && IsYesNoWindowOpen_020e28dc((struct YesNoWindow_020e28dc*)arg0->unknown_570_)) {
         CloseYesNoWindow_020e25e8(arg0->unknown_570_);
     }
 

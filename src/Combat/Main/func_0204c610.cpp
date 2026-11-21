@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 
-struct Struct_0204c610 {
+struct TextWindow_0204c610 {
     char unknown_0_[0xc];
-    short unknown_c_[18]; // 0xc
-    short unknown_30_[18]; // 0x30
-    short unknown_54_[18]; // 0x54
-    short unknown_78_[18]; // 0x78
+    short entryXs_c_[18]; // 0xc
+    short entryYs_30_[18]; // 0x30
+    short entryWidths_54_[18]; // 0x54
+    short entryHeights_78_[18]; // 0x78
 };
 
-// USA: func_0204c610
-extern "C" ARM void func_0204c610(struct Struct_0204c610* arg0, int arg1, short* arg2, short* arg3, short* arg4, short* arg5) {
-    if (arg1 < 0) return;
-    if (arg1 >= 18) return;
-    *arg2 = arg0->unknown_c_[arg1];
-    *arg3 = arg0->unknown_30_[arg1];
-    *arg4 = arg0->unknown_54_[arg1];
-    *arg5 = arg0->unknown_78_[arg1];
+// USA: GetTextWindowEntryRect_0204c610
+extern "C" ARM void GetTextWindowEntryRect_0204c610(struct TextWindow_0204c610* textWindow, int entryIndex, short* outX, short* outY, short* outWidth, short* outHeight) {
+    if (entryIndex < 0) return;
+    if (entryIndex >= 18) return;
+    *outX = textWindow->entryXs_c_[entryIndex];
+    *outY = textWindow->entryYs_30_[entryIndex];
+    *outWidth = textWindow->entryWidths_54_[entryIndex];
+    *outHeight = textWindow->entryHeights_78_[entryIndex];
 }

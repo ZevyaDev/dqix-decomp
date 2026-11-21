@@ -9,14 +9,14 @@ extern "C" void SetTitleState_02012010(void* gameState, int state);
 extern "C" unsigned char func_02012034(void* arg0);
 extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
 extern "C" void func_ov017_0218d258(void* arg0);
-extern "C" void func_0209ca70(void* arg0, int arg1);
+extern "C" void SetMusicVolumeLevel_0209ca70(void* manager, int volumeLevel);
 
 struct MusicManager_02109bf4_4;
 extern "C" void StopMusic_0209c678(struct MusicManager_02109bf4_4* manager, int fadeDuration);
 struct Struct_02109bf4_3;
 extern "C" void ResetMusic_0209c20c(struct Struct_02109bf4_3* manager);
-struct Struct_0205e8ec;
-extern "C" void func_0205e8ec(struct Struct_0205e8ec* arg0);
+struct SoundEffectManager_0205e8ec;
+extern "C" void ResetSoundEffects_0205e8ec(struct SoundEffectManager_0205e8ec* manager);
 struct Struct_02108760_2;
 extern "C" void func_0205e9f4(struct Struct_02108760_2* arg0, int arg1);
 struct Struct_02011544;
@@ -39,9 +39,9 @@ extern "C" ARM int func_ov004_0216d920() {
     if (GetGameMode_0200fb9c((char*)var0) != 2) {
         StopMusic_0209c678((struct MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
         ResetMusic_0209c20c((struct Struct_02109bf4_3*)&gMusicManager_02109bf4);
-        func_0205e8ec((struct Struct_0205e8ec*)&gSoundEffectManager_02108760);
+        ResetSoundEffects_0205e8ec((struct SoundEffectManager_0205e8ec*)&gSoundEffectManager_02108760);
     }
-    func_0209ca70((void*)&gMusicManager_02109bf4, data_ov004_02171034[Enum_ov004_0216d920_4]);
+    SetMusicVolumeLevel_0209ca70((void*)&gMusicManager_02109bf4, data_ov004_02171034[Enum_ov004_0216d920_4]);
     func_0205e9f4((struct Struct_02108760_2*)&gSoundEffectManager_02108760, data_ov004_02171034[Enum_ov004_0216d920_1]);
     ClearFlags00(var1, -1);
     ClearFlags04(var1, -1);

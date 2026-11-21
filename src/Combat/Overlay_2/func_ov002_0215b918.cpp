@@ -5,9 +5,9 @@ struct TextWindow_0205d0e0;
 
 extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" struct TextWindow_0205d0e0* func_0205e00c(struct TextWindowManager_0205d81c* arg0, int arg1);
-extern "C" void func_02050400(unsigned char* arg0, int arg1);
-extern "C" void func_0205042c(unsigned char* arg0, unsigned char arg1);
-extern "C" void func_02050440(unsigned char* arg0, int arg1);
+extern "C" void SetTextWindowPageNumberShown_02050400(unsigned char* arg0, int isShown);
+extern "C" void SetTextWindowPage_0205042c(unsigned char* textWindow, unsigned char page);
+extern "C" void SetTextWindowPageCount_02050440(unsigned char* textWindow, int pageCount);
 
 // USA: func_ov002_0215b918
 extern "C" ARM void func_ov002_0215b918(unsigned char* arg0, int arg1, int arg2, int arg3) {
@@ -18,12 +18,12 @@ extern "C" ARM void func_ov002_0215b918(unsigned char* arg0, int arg1, int arg2,
         if (var1 == 0) return;
     }
     if (arg3 != 0) {
-        func_02050400((unsigned char*)var1, 1);
-        func_0205042c((unsigned char*)var1, arg2 & 0xff);
-        func_02050440((unsigned char*)var1, arg3 & 0xff);
+        SetTextWindowPageNumberShown_02050400((unsigned char*)var1, 1);
+        SetTextWindowPage_0205042c((unsigned char*)var1, arg2 & 0xff);
+        SetTextWindowPageCount_02050440((unsigned char*)var1, arg3 & 0xff);
     } else {
-        func_02050400((unsigned char*)var1, 0);
-        func_0205042c((unsigned char*)var1, 0);
-        func_02050440((unsigned char*)var1, 0);
+        SetTextWindowPageNumberShown_02050400((unsigned char*)var1, 0);
+        SetTextWindowPage_0205042c((unsigned char*)var1, 0);
+        SetTextWindowPageCount_02050440((unsigned char*)var1, 0);
     }
 }

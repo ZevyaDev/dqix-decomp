@@ -18,7 +18,7 @@ extern "C" void SetActionResult_ov000_0215ccbc(
     struct Struct_ov024_021e6104_5 flags, unsigned char isCriticalHit);
 extern "C" void func_ov000_0215fe84(void* arg0, void* arg1, int arg2);
 
-struct BattleAction_ov000_0215440c { char unknown_0_[9]; unsigned char unknown_9_; };
+struct BattleAction_ov000_0215440c { char unknown_0_[9]; unsigned char targetCount_9_; };
 struct ActionTarget_ov000_021600f8 { char unknown_0_[0x18]; unsigned char unknown_18_; };
 struct Struct_ov024_021e6104 { char unknown_0_[0xc]; short unknown_c_; };
 struct Struct_ov024_021e6104_2 {
@@ -53,7 +53,7 @@ extern "C" ARM int func_ov024_021e6104(struct Struct_ov024_021e6104_4* arg0, int
     if (!var0) return 0;
     if ((arg2->unknown_10_ & 0x400000) && inline_ov024_021ddf5c(arg1) && func_020850fc(((struct Struct_ov024_021e6104_2*)var0)->unknown_150_)) {
         int var1 = 0;
-        for (int var2 = 0; var2 < arg0->unknown_4_->unknown_9_; var2++) {
+        for (int var2 = 0; var2 < arg0->unknown_4_->targetCount_9_; var2++) {
             struct ActionTarget_ov000_021600f8* var3 = GetActionTarget_ov000_021600f8(arg0->unknown_4_, var2);
             if (!var3) continue;
             for (int var4 = 0; var4 < var3->unknown_18_; var4++) {

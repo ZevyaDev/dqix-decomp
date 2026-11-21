@@ -11,7 +11,7 @@ extern "C" void GetMenuObjectStringList_ov023_021fa598(void*);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void SetTitleIdleTimeoutEnabled_02012028(void*, unsigned char);
 extern "C" void* func_ov011_021845f8(void*, int);
-extern "C" int func_020c7170(char* arg0, unsigned long arg1, const char* arg2, ...);
+extern "C" int FormatToSizedBuffer_020c7170(char* buffer, unsigned long bufferSize, const char* format, ...);
 extern const char data_ov004_02170fac[];
 struct Struct_ov004_0216d718 { char unknown_0_[0x20]; char* unknown_20_; };
 struct Struct_ov004_0216d718_2 { char unknown_0_[0x48]; unsigned long long unknown_48_; };
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov004_0216d718(void* arg0)
         var4 = 0;
     if (var4 != 0) {
         char var5[13];
-        func_020c7170(var5, 13, data_ov004_02170fac, inline_ov004_0216d718_2(inline_ov004_0216d718(var1))->unknown_48_);
+        FormatToSizedBuffer_020c7170(var5, 13, data_ov004_02170fac, inline_ov004_0216d718_2(inline_ov004_0216d718(var1))->unknown_48_);
         char* var6 = var5;
         char* var7 = var3;
         for (int var8 = 0; var8 < 3; var8++) {

@@ -2,8 +2,8 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct Struct_02046b38;
-struct Struct_02046b38_2;
+struct Queue_02046b38;
+struct QueueNode_02046b38_2;
 struct Struct_02072adc;
 struct Struct_02033834;
 struct Struct_02076cc4;
@@ -47,15 +47,15 @@ struct Struct_ov017_021d46a4_3 {
 #else
     char unknown1_0_[0x2b90]; Struct_ov017_021d46a4_2 unknown_2b90_;
 #endif
-    char unknown_31f4_[0x36fc - 0x31f4]; Struct_02046b38* unknown_36fc_;
-    char unknown_3700_[0x3718 - 0x3700]; Struct_02046b38_2* unknown_3718_;
+    char unknown_31f4_[0x36fc - 0x31f4]; Queue_02046b38* unknown_36fc_;
+    char unknown_3700_[0x3718 - 0x3700]; QueueNode_02046b38_2* unknown_3718_;
 };
 struct Struct_0208fa8c { unsigned short unknown_0_; };
 extern "C" Struct_0208fa8c* GetZone3D_02012fe4();
 extern "C" void* GetActiveZones_02027ca4();
 extern "C" Struct_0206ef40* func_02027cb0();
 extern "C" void InitFieldMonster_02076a8c(GameObject*);
-extern "C" int func_02046b38(Struct_02046b38*, Struct_02046b38_2*);
+extern "C" int IsNodeInQueue_02046b38(Queue_02046b38*, QueueNode_02046b38_2*);
 extern "C" Struct_02072adc* func_ov017_021a2738(void*, int);
 extern "C" void func_02072adc(Struct_02072adc*, Struct_02072adc*);
 extern "C" int GetGroundHeight_02018fbc(Struct_0208fa8c*, Vector3i*);
@@ -78,11 +78,11 @@ extern "C" ARM void func_ov017_021d46a4(void*, Struct_ov017_021d46a4_4* arg1) {
     Struct_ov017_021d46a4_3* var1 = (Struct_ov017_021d46a4_3*)GetGameResources();
     Struct_0208fa8c* var2 = GetZone3D_02012fe4();
     GetActiveZones_02027ca4();
-    Struct_02046b38* var3 = var1->unknown_36fc_;
+    Queue_02046b38* var3 = var1->unknown_36fc_;
     Struct_0206ef40* var4;
     int var5;
     GameObject* var6;
-    Struct_02046b38_2* var7 = var1->unknown_3718_;
+    QueueNode_02046b38_2* var7 = var1->unknown_3718_;
     if (arg1->unknown_6_ != var2->unknown_0_) return;
     var4 = func_02027cb0();
     if (!var4) return;
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov017_021d46a4(void*, Struct_ov017_021d46a4_4* arg1) {
     var6 = var0->GetMaybeFieldMonsterByIndex(var5);
     if (!var6) return;
     InitFieldMonster_02076a8c(var6);
-    if (!func_02046b38(var3, var7)) {
+    if (!IsNodeInQueue_02046b38(var3, var7)) {
         Struct_02072adc* var8 = func_ov017_021a2738(var1, arg1->unknown_a_);
         if (var8) func_02072adc(var8, (Struct_02072adc*)var6);
     }

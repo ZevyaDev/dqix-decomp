@@ -299,7 +299,7 @@ extern "C" void func_020a395c();
 extern "C" void func_020464e8(char*, int, char*);
 extern "C" void SetNoun_020e4b34(void* noun, void* singularText, void* pluralText, int singularIndefiniteArticle, int pluralIndefiniteArticle, int singularDefiniteArticle, int pluralDefiniteArticle, int gender, int isPluralOnly, int isProperName, int hasInitialVowelSound, int isInitialVowelFromText);
 extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
-extern "C" unsigned char func_02011804(GameState* arg0);
+extern "C" unsigned char GetTreasureMapCount_02011804(GameState* gameState);
 extern "C" void GetTreasureMaps_020ac760(void* treasureMaps);
 extern "C" void SetTreasureMaps_020ac734(void* treasureMaps);
 struct Struct_02011818;
@@ -628,7 +628,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
         var11->unknown_10_ = var8;
         var11->unknown_0_ = var7;
 #endif
-        if (func_02011804(var9) >= 0x63) {
+        if (GetTreasureMapCount_02011804(var9) >= 0x63) {
 #if defined(jpn)
             StartMessage_0204500c(var11, FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x278), 0xc9), 0);
 #else
@@ -646,7 +646,7 @@ extern "C" ARM void func_ov008_02189c70(Struct_ov008_02189c70_16* arg0) {
         arg0->unknown_e9a_ = 4;
     } else if (arg0->unknown_e9a_ == 4) {
         if (var11->unknown_998_ != 0) return;
-        if (func_02011804(var9) >= 0x63) {
+        if (GetTreasureMapCount_02011804(var9) >= 0x63) {
 #if defined(jpn)
             char* var54 = var11->unknown_2c_;
             char* var55 = *(char**)((char*)var9->GetUnknownGameObject() + 0x134);

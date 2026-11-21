@@ -3,15 +3,15 @@
 #include "Resource/GameResources.h"
 
 struct Struct_ov017_021c0580;
-struct Struct_0206f81c_2;
+struct MenuTask_0206f81c_2;
 struct Struct_0206f81c_5;
 struct Queue_020469f8;
 struct QueueNode_020469f8_2;
 
 extern "C" void func_ov017_021c0820(Struct_ov017_021c0580* arg0);
 extern "C" void ResetMenuTask_ov017_021b2174(unsigned char* node);
-extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2* arg0, char* arg1);
-extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
+extern "C" void SetMenuTaskFileName_ov017_021b2ba0(MenuTask_0206f81c_2* menuTask, char* fileName);
+extern "C" void SetMenuTaskSetupFunction_ov017_021b2bd0(void* menuTask, int setupFunction, int overlayId);
 extern "C" void func_ov017_021b2bdc(Struct_0206f81c_5* arg0, unsigned int arg1);
 extern "C" void PrependToQueue_020469f8(Queue_020469f8* queue, QueueNode_020469f8_2* node);
 
@@ -29,8 +29,8 @@ extern "C" ARM void func_ov017_021c0580(Struct_ov017_021c0580* arg0, int arg1, c
     func_ov017_021c0820(arg0);
     *(unsigned char*)((char*)arg0 + 0x24) = arg1;
     ResetMenuTask_ov017_021b2174(var2);
-    func_ov017_021b2ba0((Struct_0206f81c_2*)var2, arg2);
-    func_ov017_021b2bd0(var2, arg3, OVERLAY_ID(4));
+    SetMenuTaskFileName_ov017_021b2ba0((MenuTask_0206f81c_2*)var2, arg2);
+    SetMenuTaskSetupFunction_ov017_021b2bd0(var2, arg3, OVERLAY_ID(4));
     func_ov017_021b2bdc((Struct_0206f81c_5*)var2, 0);
     PrependToQueue_020469f8(var1, (QueueNode_020469f8_2*)var2);
 }

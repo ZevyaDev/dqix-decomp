@@ -4,7 +4,7 @@ struct MenuLayout_0207fd88;
 extern "C" void CopyMenuLayoutBGScreenDataToVRAM_0207fd88(struct MenuLayout_0207fd88* menuLayout);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void DrawMessageGlyphs_0204359c(void* window, int glyphCount);
-extern "C" void func_020439b0(void* arg0, int arg1);
+extern "C" void UpdateMessageWindowGraphics_020439b0(void* window, int arg1);
 
 // USA: func_ov017_021aaec8
 extern "C" ARM void func_ov017_021aaec8(char* arg0) {
@@ -14,5 +14,5 @@ extern "C" ARM void func_ov017_021aaec8(char* arg0) {
 	}
 	void* var1 = (void*)GetMessageWindow_020421a0();
 	DrawMessageGlyphs_0204359c(var1, 8);
-	func_020439b0(var1, 0);
+	UpdateMessageWindowGraphics_020439b0(var1, 0);
 }

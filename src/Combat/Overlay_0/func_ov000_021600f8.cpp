@@ -7,7 +7,7 @@ struct ActionTarget_ov000_021600f8 {
 
 struct BattleAction_ov000_0215440c {
     char unknown_0_[9];
-    unsigned char unknown_9_;
+    unsigned char targetCount_9_;
     char unknown_a_[10];
     struct ActionTarget_ov000_021600f8* unknown_14_;
 };
@@ -16,7 +16,7 @@ struct BattleAction_ov000_0215440c {
 extern "C" ARM struct ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index) {
     struct ActionTarget_ov000_021600f8* target;
     int i;
-    if (action->unknown_9_ <= index) return 0;
+    if (action->targetCount_9_ <= index) return 0;
     target = action->unknown_14_;
     i = 0;
     while (i < index && target != 0) {

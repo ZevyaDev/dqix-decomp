@@ -29,12 +29,12 @@ extern "C" void func_02012de8(void);
 extern "C" void func_ov000_0216d1c4(int, Struct_02013fb4*, int, int*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_020d84f4(void);
-extern "C" void* func_02079a3c(void* arg0);
+extern "C" void* InitGPCReadPair_02079a3c(void* readPair);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" int IsNPCCompanion_02061bd8(PartyMember_0205faf4_11* partyMember);
-extern "C" void func_02072c9c(int arg0, char* arg1);
+extern "C" void FormatPartyMemberAnimationName_02072c9c(int memberIndex, char* animationName);
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d028_11* loadInfo);
-extern "C" void func_02049c88(void* arg0, void* arg1);
+extern "C" void SetCombatantBattleState_02049c88(void* combatant, void* battleState);
 extern "C" void func_ov000_02165480(void*, int);
 struct Struct_ov000_02164fac;
 extern "C" Struct_ov000_02164fac* func_02053c6c(unsigned char* gameObject);
@@ -168,7 +168,7 @@ extern "C" ARM void func_ov000_02164fac(Struct_ov000_02164fac_3* arg0) {
 
     unsigned char* var17 = g_fileScratchSpace;
     int var18 = 0x30000;
-    func_02079a3c(&var0);
+    InitGPCReadPair_02079a3c(&var0);
     const char* var19 = data_ov000_02183983;
     if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var0.pGPCFile, &var0.machine, var19, var17, &var4, var18, false, 0)) {
         var17 += var4;
@@ -198,7 +198,7 @@ extern "C" ARM void func_ov000_02164fac(Struct_ov000_02164fac_3* arg0) {
                 LoadFileIntoMemory(var1, g_fileScratchSpace, &var4);
                 var17 = g_fileScratchSpace;
             } else {
-                func_02072c9c(var20, var7);
+                FormatPartyMemberAnimationName_02072c9c(var20, var7);
                 if (var21->unknown_150_->unknown_49c_.unknown_0_0_ == 1) {
                     var7[0] = 'w';
                 }
@@ -219,7 +219,7 @@ extern "C" ARM void func_ov000_02164fac(Struct_ov000_02164fac_3* arg0) {
                 var21->unknown_0_.LoadFromCCHROrCMOTArchive(&var2, NULL);
             }
 
-            func_02049c88(var21, &arg0->unknown_5c3c_[var20]);
+            SetCombatantBattleState_02049c88(var21, &arg0->unknown_5c3c_[var20]);
             func_02012de8();
             if (IsNPCCompanion_02061bd8((PartyMember_0205faf4_11*)var21)) {
                 ((TextureArena*)((char*)(var22 + 0xcc)))->Save();

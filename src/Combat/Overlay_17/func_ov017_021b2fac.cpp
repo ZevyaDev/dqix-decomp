@@ -47,12 +47,12 @@ struct Struct_ov017_021b2fac_4 {
 extern "C" void func_ov017_021b33d8(void* arg0);
 extern "C" int func_ov017_021b3444(struct Struct_ov017_021b2fac* arg0);
 extern "C" int func_ov017_021b38c8(struct Struct_ov017_021b2fac* arg0);
-extern "C" void func_02083e28(void* arg0, int arg1);
+extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
 extern "C" int func_ov017_021b3560(struct Struct_ov017_021b2fac* arg0);
 extern "C" void func_ov017_021b3678(struct Struct_ov017_021b2fac* arg0);
 extern "C" int func_ov017_021b3780(struct Struct_ov017_021b2fac* arg0);
 extern "C" int func_ov017_021b3e14(struct Struct_ov017_021b2fac* arg0);
-extern "C" void func_ov017_0218fcf8(int, int, int);
+extern "C" void TintPartyMemberPalettes_ov017_0218fcf8(int, int, int);
 extern "C" void func_020d3c08(char* arg0);
 struct Struct_020d3c28;
 struct Struct_02013fb4;
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov017_021b2fac(struct Struct_ov017_021b2fac* arg0) {
         } else if (func_ov017_021b3444(arg0) != 0) {
             arg0->unknown_a_ = 1;
         } else if (func_ov017_021b38c8(arg0) != 0) {
-            func_02083e28(var9->unknown_150_, 0);
+            CalculatePartyMemberStats_02083e28(var9->unknown_150_, 0);
             arg0->unknown_a_ = 3;
         } else {
             arg0->unknown_1_ = 1;
@@ -160,7 +160,7 @@ extern "C" ARM void func_ov017_021b2fac(struct Struct_ov017_021b2fac* arg0) {
             var4 = (Struct_ov017_021b2fac_4*)GetPartyMemberBaseByIndex_0200ff1c(var7, arg0->unknown_8_);
             if (var4->unknown_9c_ != 0) {
                 var1 = GetGameResources();
-                func_ov017_0218fcf8((int)var1, arg0->unknown_8_, var4->unknown_9c_);
+                TintPartyMemberPalettes_ov017_0218fcf8((int)var1, arg0->unknown_8_, var4->unknown_9c_);
             }
             ((Object3D*)var4)->DisableFlag(0x200);
             if (arg0->unknown_b_ & 8) {

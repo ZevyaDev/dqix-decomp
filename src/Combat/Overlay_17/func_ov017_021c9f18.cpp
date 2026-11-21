@@ -28,11 +28,11 @@ struct Struct_ov017_021c9f18_2 {
     unsigned char unknown_2_;
 };
 extern "C" void* func_02053c6c(unsigned char*);
-extern "C" void func_02083e28(void*, int);
+extern "C" void CalculatePartyMemberStats_02083e28(void*, int);
 extern "C" unsigned short func_ov017_021b8480(void*);
 extern "C" void func_02054224(void*);
 extern "C" void func_02054234(void*);
-extern "C" void func_ov017_0218b5f8(int);
+extern "C" void RequestPartyMemberPanelRedraw_ov017_0218b5f8(int);
 extern "C" void func_02026f08(unsigned char*, int, int);
 extern "C" void func_02026f20(int, int);
 extern "C" int GetLeaderObjectIndex_020546a8(void*);
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov017_021c9f18(void* arg0, const Struct_ov017_021c9f18*
     var1->baseStats_->primaryStats.maxMP = arg1->unknown_c_;
     var1->unknown_ac_.unknown_84_->unknown_0_ = arg1->unknown_10_ & 0xffff;
     var1->unknown_ac_.unknown_84_->unknown_8_ = arg1->unknown_5_;
-    if (arg1->unknown_4_4_ != 0) func_02083e28(var6, 0);
+    if (arg1->unknown_4_4_ != 0) CalculatePartyMemberStats_02083e28(var6, 0);
     Struct_ov017_021c9f18_2* var10 = static_cast<Struct_ov017_021c9f18_2*>(arg3->unknown_ptr_3718);
     var3 = 1;
     if (var10->unknown_2_ != 0 && func_ov017_021b8480(var10) == 0) var3 = 0;
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov017_021c9f18(void* arg0, const Struct_ov017_021c9f18*
             else func_02054234(var1);
         }
     }
-    if (arg1->unknown_4_5_ != 0) func_ov017_0218b5f8(-1);
+    if (arg1->unknown_4_5_ != 0) RequestPartyMemberPanelRedraw_ov017_0218b5f8(-1);
     Struct_02020554* var11 = arg3->unknown_ptr_36d0;
     if (var11 != NULL) {
         func_02026f08((unsigned char*)var11, (unsigned char)var4, arg1->unknown_4_5_);

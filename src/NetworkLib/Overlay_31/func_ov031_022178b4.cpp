@@ -20,7 +20,7 @@ struct Struct_ov031_02217604_5 {
     unsigned short unknown_7e_[11];
 };
 
-extern "C" int func_020c7170(char* arg0, unsigned long arg1, const char* arg2, ...);
+extern "C" int FormatToSizedBuffer_020c7170(char* buffer, unsigned long bufferSize, const char* format, ...);
 extern "C" int func_ov031_02218604(void* arg0, const char* arg1, void* arg2, int arg3);
 extern "C" int func_ov031_02218528(void* arg0, const char* arg1, const char* arg2);
 extern "C" int func_02005aa8(void* arg0);
@@ -47,7 +47,7 @@ extern const char data_ov031_02249d74[];
 // USA: func_ov031_022178b4
 extern "C" ARM int func_ov031_022178b4(void* arg0, Struct_ov031_02217604_5* arg1, int arg2) {
     char var0[0x24];
-    func_020c7170(var0, 0x21, data_ov031_02249cd4, 0x3, 1);
+    FormatToSizedBuffer_020c7170(var0, 0x21, data_ov031_02249cd4, 0x3, 1);
     if (func_ov031_02218604(arg0, data_ov031_02249ce0, var0, strlen(var0)) != 0) return 0;
     if (func_ov031_02218604(arg0, data_ov031_02249ce8, arg1->unknown_0_, strlen(arg1->unknown_0_)) != 0) return 0;
     if (func_ov031_02218604(arg0, data_ov031_02249cf0, arg1->unknown_e_, strlen(arg1->unknown_e_)) != 0) return 0;
@@ -64,7 +64,7 @@ extern "C" ARM int func_ov031_022178b4(void* arg0, Struct_ov031_02217604_5* arg1
     if (arg2 == 1) {
         if (func_ov031_02218604(arg0, data_ov031_02249d48, arg1->unknown_4e_, strlen(arg1->unknown_4e_)) != 0) return 0;
     }
-    func_020c7170(var0, 0x21, data_ov031_02249d50, 0x3, 1);
+    FormatToSizedBuffer_020c7170(var0, 0x21, data_ov031_02249d50, 0x3, 1);
     if (func_ov031_02218528(arg0, data_ov031_02249d68, var0) != 0) return 0;
     return func_ov031_02218528(arg0, data_ov031_02249d74, arg1->unknown_15_) == 0;
 }

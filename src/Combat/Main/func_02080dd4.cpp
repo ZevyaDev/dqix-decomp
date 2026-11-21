@@ -9,9 +9,9 @@ struct MenuLayoutTextEntryList_0207f524 {
     MenuLayoutTextEntry_0207f6ac* pEntries_0_;
     short count_4_;
 };
-struct Struct_02080dd4 {
+struct MenuLayout_02080dd4 {
     void* unknown_0_;
-    MenuLayoutTextEntryList_0207f524 unknown_4_;
+    MenuLayoutTextEntryList_0207f524 textEntries_4_;
 };
 
 extern "C" int func_02080e40(void* arg0, int arg1, int arg2, int arg3);
@@ -19,21 +19,21 @@ extern "C" struct MenuLayoutTextEntry_0207f6ac* FindMenuLayoutTextEntry_0207f6ac
 
 extern "C" void func_02080558(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
 
-// USA: func_02080dd4
-extern "C" ARM int func_02080dd4(void* arg0, int arg1, int arg2, int arg3,
-                                  unsigned char* arg4, unsigned char arg5) {
-    Struct_02080dd4* var0 = static_cast<Struct_02080dd4*>(arg0);
-    int var1;
-    struct MenuLayoutTextEntry_0207f6ac* var2;
-    var1 = func_02080e40(var0, arg1, arg2, arg3);
-    if (var1 == -1) {
+// USA: HighlightTouchedMenuLayoutText_02080dd4
+extern "C" ARM int HighlightTouchedMenuLayoutText_02080dd4(void* layout, int windowId, int x, int y,
+                                  unsigned char* isTouchedAgain, unsigned char isRedrawn) {
+    MenuLayout_02080dd4* menuLayout = static_cast<MenuLayout_02080dd4*>(layout);
+    int textId;
+    struct MenuLayoutTextEntry_0207f6ac* textEntry;
+    textId = func_02080e40(menuLayout, windowId, x, y);
+    if (textId == -1) {
         return -1;
     }
-    *arg4 = 0;
-    var2 = FindMenuLayoutTextEntry_0207f6ac(&var0->unknown_4_, var1);
-    if (var2->unknown_2a_ & 4) {
-        *arg4 = 1;
+    *isTouchedAgain = 0;
+    textEntry = FindMenuLayoutTextEntry_0207f6ac(&menuLayout->textEntries_4_, textId);
+    if (textEntry->unknown_2a_ & 4) {
+        *isTouchedAgain = 1;
     }
-    func_02080558(var0, arg1, var1, 1, arg5);
-    return var1;
+    func_02080558(menuLayout, windowId, textId, 1, isRedrawn);
+    return textId;
 }

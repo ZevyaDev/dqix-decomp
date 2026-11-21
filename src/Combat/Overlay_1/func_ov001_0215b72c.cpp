@@ -6,7 +6,7 @@
 struct Struct_ov001_0215b72c { char unknown_0_[8]; };
 extern "C" const char* GetScriptValueAsString_ov017_021d612c(Struct_ov001_0215b72c*);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(Struct_ov001_0215b72c*);
-extern "C" int func_ov001_0215ad2c(int);
+extern "C" int ResolveEventObjectIndex_ov001_0215ad2c(int);
 extern "C" int func_ov001_0215ad3c(const char*, char*, char*);
 extern "C" unsigned int func_ov001_0215a750(const char*, void**);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
@@ -18,7 +18,7 @@ extern const char data_ov001_02165758[];
 extern const char data_ov001_02165762[];
 
 static inline int inline_ov001_0215b72c(Struct_ov001_0215b72c* arg0) {
-    return func_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(arg0));
+    return ResolveEventObjectIndex_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(arg0));
 }
 
 // USA: func_ov001_0215b72c

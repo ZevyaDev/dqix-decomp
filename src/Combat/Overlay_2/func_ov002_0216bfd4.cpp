@@ -7,13 +7,13 @@
 #endif
 
 struct TextWindowManager_0205d6a0;
-struct Struct_020e28dc;
+struct YesNoWindow_020e28dc;
 struct YesNoWindow_020e25e8;
 extern "C" char *GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char *window);
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0 *windowManager, int isAll);
 extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8 *yesNoWindow);
-extern "C" int func_020e28dc(struct Struct_020e28dc *arg0);
+extern "C" int IsYesNoWindowOpen_020e28dc(struct YesNoWindow_020e28dc *yesNoWindow);
 extern "C" void RebuildMenuWindowText_ov002_0215b9a4(char *menu, unsigned char windowId, int hasCursorMark);
 
 // USA: func_ov002_0216bfd4
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov002_0216bfd4(char *arg0, unsigned char arg1) {
             break;
     }
     if (var1 && *(void **) (arg0 + 4) != NULL &&
-        func_020e28dc(*(struct Struct_020e28dc **) (arg0 + 4)))
+        IsYesNoWindowOpen_020e28dc(*(struct YesNoWindow_020e28dc **) (arg0 + 4)))
     {
         CloseYesNoWindow_020e25e8(*(struct YesNoWindow_020e25e8 **) (arg0 + 4));
     }

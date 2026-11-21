@@ -9,10 +9,10 @@ struct TextWindowManager_0205d274;
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(struct TextWindowManager_0205d274* windowManager);
 extern "C" void func_ov003_0215c32c(void* arg0);
 extern "C" void func_ov003_0215c464(void* arg0);
-struct Struct_020e28dc;
-extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
-struct Struct_020e2794_2;
-extern "C" void func_020e2794(struct Struct_020e2794_2* arg0, void* arg1);
+struct YesNoWindow_020e28dc;
+extern "C" int IsYesNoWindowOpen_020e28dc(struct YesNoWindow_020e28dc* yesNoWindow);
+struct YesNoWindow_020e2794_2;
+extern "C" void DrawYesNoWindow_020e2794(struct YesNoWindow_020e2794_2* yesNoWindow, void* spriteSet);
 
 // USA: func_ov003_02159078
 extern "C" ARM void func_ov003_02159078(void* arg0) {
@@ -26,6 +26,6 @@ extern "C" ARM void func_ov003_02159078(void* arg0) {
     func_ov003_0215c32c(var0);
     func_ov003_0215c464(var0);
     if (*(void**)(var0 + 0x570) == NULL) return;
-    if (!func_020e28dc((struct Struct_020e28dc*)*(void**)(var0 + 0x570))) return;
-    func_020e2794((struct Struct_020e2794_2*)*(void**)(var0 + 0x570), var0 + 0x98);
+    if (!IsYesNoWindowOpen_020e28dc((struct YesNoWindow_020e28dc*)*(void**)(var0 + 0x570))) return;
+    DrawYesNoWindow_020e2794((struct YesNoWindow_020e2794_2*)*(void**)(var0 + 0x570), var0 + 0x98);
 }

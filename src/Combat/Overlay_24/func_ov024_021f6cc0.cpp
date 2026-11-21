@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Struct_020885b4;
-extern "C" int func_020885b4(struct Struct_020885b4* arg0);
+extern "C" int IsPoisoned_020885b4(struct Struct_020885b4* stats);
 struct Struct_02088514;
 extern "C" int IsEnvenomated_02088514(struct Struct_02088514* stats);
 
@@ -22,7 +22,7 @@ struct Struct_ov024_021f6cc0 {
 // USA: func_ov024_021f6cc0
 extern "C" ARM int func_ov024_021f6cc0(struct Struct_ov024_021f6cc0* arg0) {
     struct Struct_ov024_021da670_7* var0 = arg0->unknown_4_;
-    if (func_020885b4((struct Struct_020885b4*)var0->pCurrentStats_138_) ||
+    if (IsPoisoned_020885b4((struct Struct_020885b4*)var0->pCurrentStats_138_) ||
         IsEnvenomated_02088514((struct Struct_02088514*)var0->pCurrentStats_138_) ||
         IsParalysed_ov024_021da9b0(var0)) {
         arg0->unknown_1c_ = arg0->unknown_14_ * 1.5f;

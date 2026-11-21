@@ -11,15 +11,15 @@ extern "C" void func_020416c0(struct Struct_0204166c* arg0);
 
 struct TextureVRAMArea_0203d028;
 
-struct Struct_02045cac {
+struct MessageWindow_02045cac {
 #if defined(jpn)
     char unknown_0_[0x884];
 #else
     char unknown1_0_[0x9b4];
 #endif
-    int unknown_9b4_;
-    unsigned char unknown_9b8_[0xe00];
-    unsigned char unknown_17b8_[0x80];
+    int usedGlyphSlotCount_9b4_;
+    unsigned char glyphSlots_9b8_[0xe00];
+    unsigned char glyphSlotUseCounts_17b8_[0x80];
 #if defined(jpn)
     char unknown_1708_[0x17e0 - 0x1708];
 #else
@@ -34,23 +34,23 @@ struct Struct_02045cac {
     void* unknown_1e28_;
 };
 
-// USA: func_02045cac
-extern "C" ARM void func_02045cac(struct Struct_02045cac* arg0) {
-    arg0->unknown_19b0_ = 1;
+// USA: ClearMessageGlyphs_02045cac
+extern "C" ARM void ClearMessageGlyphs_02045cac(struct MessageWindow_02045cac* window) {
+    window->unknown_19b0_ = 1;
 #if defined(jpn)
-    arg0->unknown_9b4_ = 14;
+    window->usedGlyphSlotCount_9b4_ = 14;
 #else
-    arg0->unknown_9b4_ = 0;
+    window->usedGlyphSlotCount_9b4_ = 0;
 #endif
 #if defined(jpn)
-    for (int var0 = 14; var0 < 0x80; var0++) {
+    for (int slot = 14; slot < 0x80; slot++) {
 #else
-    for (int var0 = 0; var0 < 0x80; var0++) {
+    for (int slot = 0; slot < 0x80; slot++) {
 #endif
-        func_020416c0((struct Struct_0204166c*)(arg0->unknown_9b8_ + var0 * 0x1c));
-        arg0->unknown_17b8_[var0] = 0;
+        func_020416c0((struct Struct_0204166c*)(window->glyphSlots_9b8_ + slot * 0x1c));
+        window->glyphSlotUseCounts_17b8_[slot] = 0;
     }
-    if (arg0->unknown_1e28_ != NULL) {
-        ((TextureArena*)((struct TextureVRAMArea_0203d028*)arg0->unknown_1e28_))->Reset();
+    if (window->unknown_1e28_ != NULL) {
+        ((TextureArena*)((struct TextureVRAMArea_0203d028*)window->unknown_1e28_))->Reset();
     }
 }

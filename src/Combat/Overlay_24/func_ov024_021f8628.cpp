@@ -7,7 +7,7 @@ struct Struct_ov024_021f8628_2 {
     unsigned char unknown_2_;
     unsigned char unknown_3_;
 };
-extern "C" struct Struct_ov024_021f8628_2* func_02053dc0(struct Struct_02053dc0* arg0);
+extern "C" struct Struct_ov024_021f8628_2* GetBattleCommand_02053dc0(struct Struct_02053dc0* partyMember);
 
 extern "C" GameObject* GetEnemyByID_ov000_021536f8(int battle, int index);
 
@@ -15,7 +15,7 @@ struct Struct_02010088_2 { char unknown_0_[0x14]; int statusFlags_14_; };
 struct Struct_02010088 { char unknown_0_[0x138]; struct Struct_02010088_2* pCurrentStats_138_; };
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
 
-extern "C" float func_ov024_021db358(GameObject* arg0);
+extern "C" float GetHPRatio_ov024_021db358(GameObject* combatant);
 
 struct Struct_ov024_021f8628 {
     unsigned char unknown_0_;
@@ -29,7 +29,7 @@ struct Struct_ov024_021f8628 {
 
 // USA: func_ov024_021f8628
 extern "C" ARM int func_ov024_021f8628(char** arg0, void* arg1, struct Struct_02053dc0* arg2, unsigned short* arg3) {
-    struct Struct_ov024_021f8628_2* var0 = func_02053dc0(arg2);
+    struct Struct_ov024_021f8628_2* var0 = GetBattleCommand_02053dc0(arg2);
     if (!var0) return 0;
 
     int var1 = 0;
@@ -42,8 +42,8 @@ extern "C" ARM int func_ov024_021f8628(char** arg0, void* arg1, struct Struct_02
             GameObject* var8 = GetEnemyByID_ov000_021536f8((int)*arg0, (short)(var5[var6].unknown_6_[var7] + 0xc0));
             if (var8 == 0) continue;
             if (IsDead_02010088((struct Struct_02010088*)var8)) continue;
-            if (func_ov024_021db358(var8) < var2) {
-                var2 = func_ov024_021db358(var8);
+            if (GetHPRatio_ov024_021db358(var8) < var2) {
+                var2 = GetHPRatio_ov024_021db358(var8);
                 var3 = var6;
                 var1 = var5[var6].unknown_6_[var7] + 0xc0;
                 var4 = 1;

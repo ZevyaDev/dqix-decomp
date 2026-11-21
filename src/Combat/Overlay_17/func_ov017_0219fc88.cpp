@@ -42,7 +42,7 @@ extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct Qu
 extern "C" void func_ov017_021bd398(void* arg0);
 
 extern "C" int func_020649f4(void* arg0, void* arg1);
-extern "C" void func_0206f81c(void* arg0);
+extern "C" void RunDeferredTriggerActions_0206f81c(void* triggerResult);
 
 struct Struct_ov017_0219fc88 {
     char unknown_0_[2];
@@ -99,7 +99,7 @@ extern "C" ARM int func_ov017_0219fc88(void* arg0, int arg1) {
         struct Struct_ov017_0219fc88_2 var10;
         var10.unknown_c_ = *var1;
         if (func_020649f4(var9, &var10)) {
-            func_0206f81c(&var10);
+            RunDeferredTriggerActions_0206f81c(&var10);
         }
     }
 

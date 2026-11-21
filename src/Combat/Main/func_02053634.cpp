@@ -20,7 +20,7 @@ struct ObjectArchiveLoadInfo;
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_0205308c(void* arg0, int arg1);
 extern "C" void* func_0205ec34(void);
-extern "C" void func_0206f81c(void* arg0);
+extern "C" void RunDeferredTriggerActions_0206f81c(void* triggerResult);
 
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -200,7 +200,7 @@ extern "C" ARM void func_02053634(void* arg0) {
                         ((signed char*)(var22 + 0x2a))[var23] = var24[OBJECT_OFFSET(0x78)];
                     }
                     if (func_02064a9c(var21, var22) != 0) {
-                        func_0206f81c(var22);
+                        RunDeferredTriggerActions_0206f81c(var22);
                     }
                 }
                 StopGesture_020531f0(var0);
@@ -289,7 +289,7 @@ extern "C" ARM void func_02053634(void* arg0) {
                     ((signed char*)(var35 + 0x2a))[var36] = var37[OBJECT_OFFSET(0x78)];
                 }
                 if (func_02064a9c(var34, var35) != 0) {
-                    func_0206f81c(var35);
+                    RunDeferredTriggerActions_0206f81c(var35);
                 }
             }
             StopGesture_020531f0(var0);

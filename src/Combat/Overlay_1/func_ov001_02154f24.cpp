@@ -69,11 +69,11 @@ extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void __clear(void*, unsigned int);
 extern "C" void* func_0205ec34();
 extern "C" int RunTrigger_020649b0(void*, int, void*);
-extern "C" void func_0206f81c(void*);
+extern "C" void RunDeferredTriggerActions_0206f81c(void*);
 extern "C" EventSyncEntry_020e385c* GetEventSyncTable_020e3808();
 extern "C" void* FindEventSyncEntry_020e385c(EventSyncEntry_020e385c*, int, int);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
-extern "C" void func_020e3994(EventSyncEntry_020e385c*, int, int);
+extern "C" void RemoveEventSyncEntry_020e3994(EventSyncEntry_020e385c*, int, int);
 extern "C" void func_020e392c(EventSyncEntry_020e385c*, int, int);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void func_020e39d4(EventSyncEntry_020e385c*, int, int, int);
@@ -196,13 +196,13 @@ extern "C" ARM int func_ov001_02154f24(Struct_ov001_02154f24_3* arg0)
     var16.unknown_8_ = arg0->unknown_8_;
     if (RunTrigger_020649b0(var15, 10, &var16))
     {
-        func_0206f81c(&var16);
+        RunDeferredTriggerActions_0206f81c(&var16);
     }
     EventSyncEntry_020e385c* var17 = GetEventSyncTable_020e3808();
     void* var18 = FindEventSyncEntry_020e385c(var17, 1, 0x71e8);
     if (IsNotLocalWirelessGuest_0202c508(var5) && !var18 && !FindEventSyncEntry_020e385c(var17, 1, arg0->unknown_18_))
     {
-        func_020e3994(var17, 1, -1);
+        RemoveEventSyncEntry_020e3994(var17, 1, -1);
         func_020e392c(var17, 1, arg0->unknown_18_);
     }
     func_020e39d4(var17, GetProtagonistObjectIndex_020100a8(var0), 1, arg0->unknown_18_);

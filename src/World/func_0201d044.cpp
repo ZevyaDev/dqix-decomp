@@ -110,7 +110,7 @@ extern "C" ARM int func_0201d044(Script::Parameter* arg0, int arg1)
         var0.unknown_2c_.unknown4_0_.unknown_4_ = 0;
     }
 
-    Struct_020134e0* var16 = data_020fdc20.unknown_8_;
+    Struct_020134e0* var16 = gZoneFeatureScriptContext_020fdc20.unknown_8_;
     var0.unknown_70_ = NULL;
     var16->func_0201e710(var0);
     return 1;

@@ -16,7 +16,7 @@ struct SoundEffectManager_02108760;
 struct TextWindowManager_0205def8;
 struct TextWindowManager_0205d81c;
 struct TextWindowManager_0205dee8;
-struct Struct_020e280c;
+struct YesNoWindow_020e280c;
 struct Struct_020676e0;
 struct YesNoWindow_020e25e8;
 struct TextWindowManager_0205d6a0;
@@ -30,11 +30,11 @@ extern "C" void func_ov002_02160fb4(char *arg0);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" void SetTextWindowVisible_0205def8(struct TextWindowManager_0205def8 *windowManager, int isVisible, int windowId);
 extern "C" char *func_020e1b24(void *arg0);
-extern "C" void func_020e280c(struct Struct_020e280c *arg0, void *arg1);
+extern "C" void OpenYesNoWindow_020e280c(struct YesNoWindow_020e280c *yesNoWindow, void *objVRAMEnd);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" char *GetFollowCamera_020100f8(char *gameState);
 extern "C" int func_020a27c4(struct Struct_020676e0 *arg0);
-extern "C" int func_020e2918(signed char *arg0);
+extern "C" int GetYesNoWindowChoice_020e2918(signed char *yesNoWindow);
 extern "C" int func_020e2910(signed char *arg0);
 extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8 *yesNoWindow);
 extern "C" char *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
@@ -51,7 +51,7 @@ extern "C" void ResetMessageWindow_02043204(char *window);
 extern "C" void SetCursorTextWindow_0205dee8(struct TextWindowManager_0205dee8 *windowManager, int windowId);
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc *cursor, int index);
 extern "C" void SetMenuCursorIndex_0205bb04(void *cursor, int index);
-extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
+extern "C" int IsYesNoWindowCancelPressed_020e2984(struct YesNoWindow_020e28dc* yesNoWindow);
 extern "C" char gSoundEffectManager_02108760[];
 extern "C" unsigned char data_ov002_0216d3ac;
 
@@ -127,9 +127,9 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
         SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8 *) LST(arg0), 0, K(0x25, 0x28));
         char *var2 = func_020e1b24(*(void **) (*(char **) arg0 + 0x10));
         if (((struct Struct_ov002_0216a300 *) var2)->unknown_3f_0_) {
-            func_020e280c(*(struct Struct_020e280c **) (arg0 + 4), *(void **) (var2 + 0x30));
+            OpenYesNoWindow_020e280c(*(struct YesNoWindow_020e280c **) (arg0 + 4), *(void **) (var2 + 0x30));
         } else {
-            func_020e280c(*(struct Struct_020e280c **) (arg0 + 4), (void *) -1);
+            OpenYesNoWindow_020e280c(*(struct YesNoWindow_020e280c **) (arg0 + 4), (void *) -1);
         }
         *(int *) (arg0 + 0x1000 + RG(0xbc0, 0xa88)) += 1;
     } else if (var1 == 1) {
@@ -146,7 +146,7 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
                 var3 = 0;
             }
         }
-        *(short *) (arg0 + RG(0x1c00 + 0x12, 0x1a00 + 0xda)) = func_020e2918(*(signed char **) (arg0 + 4));
+        *(short *) (arg0 + RG(0x1c00 + 0x12, 0x1a00 + 0xda)) = GetYesNoWindowChoice_020e2918(*(signed char **) (arg0 + 4));
         if (*(short *) (arg0 + RG(0x1c00 + 0x12, 0x1a00 + 0xda)) >= 0 || var3) {
             *(short *) (arg0 + RG(0x1c00 + 0x12, 0x1a00 + 0xda)) = func_020e2910(*(signed char **) (arg0 + 4));
             CloseYesNoWindow_020e25e8(*(struct YesNoWindow_020e25e8 **) (arg0 + 4));
@@ -248,7 +248,7 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
                     CONFIRM_0216A300();
                     break;
             }
-        } else if (*(struct Struct_020e28dc **) (arg0 + 4) != NULL && func_020e2984(*(struct Struct_020e28dc **) (arg0 + 4))) {
+        } else if (*(struct YesNoWindow_020e28dc **) (arg0 + 4) != NULL && IsYesNoWindowCancelPressed_020e2984(*(struct YesNoWindow_020e28dc **) (arg0 + 4))) {
             CloseYesNoWindow_020e25e8(*(struct YesNoWindow_020e25e8 **) (arg0 + 4));
             *(unsigned int *) (arg0 + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
             *(unsigned char *) (arg0 + 0x1000 + RG(0xc2e, 0xaf6)) = 0;

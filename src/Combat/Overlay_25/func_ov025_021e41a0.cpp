@@ -38,7 +38,7 @@ struct EffectParams_02078398_2 {
 struct BattleAction_ov000_0215440c_2;
 struct Struct_ov025_021e41a0_2 { unsigned char unknown_0_[0x20]; unsigned short unknown_20_; };
 struct Struct_ov025_021e41a0_3 { unsigned char unknown_0_[0xe]; short unknown_e_; };
-struct BattleAction_ov000_0215440c { unsigned char unknown_0_[9]; unsigned char unknown_9_; };
+struct BattleAction_ov000_0215440c { unsigned char unknown_0_[9]; unsigned char targetCount_9_; };
 #if defined(jpn)
 struct Struct_ov025_021e41a0 { unsigned char unknown_0_[0x70f2]; unsigned short unknown_6f02_; };
 #else
@@ -79,7 +79,7 @@ extern "C" ARM int func_ov025_021e41a0(Struct_ov025_021e41a0_4* arg0, BattleActi
     int var7 = 1;
     if (arg0->unknown_10_ & 1) {
         Vector3i var8 = {};
-        for (int var9 = 0; var9 < arg1->unknown_9_; var9++) {
+        for (int var9 = 0; var9 < arg1->targetCount_9_; var9++) {
             Struct_ov025_021e41a0_3* var10 = GetActionTarget_ov000_021600f8(arg1, var9);
             if (var10) {
                 GameObject* var11 = var0->GetGameObjectByIndex(var10->unknown_e_);
@@ -90,8 +90,8 @@ extern "C" ARM int func_ov025_021e41a0(Struct_ov025_021e41a0_4* arg0, BattleActi
                 }
             }
         }
-        if (arg1->unknown_9_) {
-            int var13 = 4096.0f * (1.0f / (unsigned int)arg1->unknown_9_);
+        if (arg1->targetCount_9_) {
+            int var13 = 4096.0f * (1.0f / (unsigned int)arg1->targetCount_9_);
             Vector3fixMultiplyScalar(&var8, var13, &var8);
         }
         Struct_ov025_021e41a0_3* var14 = GetActionTarget_ov000_021600f8(arg1, 0);

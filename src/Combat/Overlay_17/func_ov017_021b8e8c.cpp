@@ -140,7 +140,7 @@ extern "C" void StartMessage_0204500c(void* window, char* text, int arg2, int ar
 #endif
 extern "C" void func_0208bb78(void* arg0, unsigned int arg1);
 extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
-extern "C" void func_0206f81c(void* arg0);
+extern "C" void RunDeferredTriggerActions_0206f81c(void* triggerResult);
 extern "C" void func_ov008_02184a3c(char* arg0, unsigned char arg1);
 extern "C" void func_0208beb4(unsigned char* arg0);
 extern "C" void func_ov017_021bd38c(void* arg0, int arg1, int arg2);
@@ -400,7 +400,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_020
         var37.unknown_0_ = arg0->unknown_114_->unknown_0_;
         var37.unknown_14_ = arg0->unknown_124_;
         if (RunTrigger_020649b0(var7, 1, &var37) != 0) {
-            func_0206f81c(&var37);
+            RunDeferredTriggerActions_0206f81c(&var37);
         }
         break;
     }
@@ -463,7 +463,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_020
         var42.unknown_0_ = arg0->unknown_114_->unknown_0_;
         var42.unknown_14_ = arg0->unknown_124_;
         if (RunTrigger_020649b0(var7, 1, &var42) != 0) {
-            func_0206f81c(&var42);
+            RunDeferredTriggerActions_0206f81c(&var42);
         }
         if (var40 == 0 && var41[2] != 0) {
             arg0->unknown_138_ = 1;

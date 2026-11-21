@@ -21,8 +21,8 @@
 struct TextWindowManager_0205d1e0;
 struct TextWindowManager_0205d228;
 struct TextWindowManager_0205d274;
-struct Struct_020e28dc;
-struct Struct_020e2794_2;
+struct YesNoWindow_020e28dc;
+struct YesNoWindow_020e2794_2;
 
 struct Struct_ov005_02153954 {
     char unknown_0_[R(0xe60, 0xe64)];
@@ -54,8 +54,8 @@ extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(TextWindowManager_02
 extern "C" void DrawTextWindows_0205d228(TextWindowManager_0205d228* windowManager);
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274* windowManager);
 extern "C" void func_ov005_02159c88(Struct_ov005_02153954* arg0);
-extern "C" int func_020e28dc(Struct_020e28dc* arg0);
-extern "C" void func_020e2794(Struct_020e2794_2* arg0, void* arg1);
+extern "C" int IsYesNoWindowOpen_020e28dc(YesNoWindow_020e28dc* yesNoWindow);
+extern "C" void DrawYesNoWindow_020e2794(YesNoWindow_020e2794_2* yesNoWindow, void* spriteSet);
 extern "C" void func_ov005_0215a7ec(Struct_ov005_02153954* arg0);
 extern "C" void func_ov005_0215a418(Struct_ov005_02153954* arg0);
 extern "C" void func_ov005_0215b0a0(Struct_ov005_02153954* arg0);
@@ -107,8 +107,8 @@ extern "C" ARM void func_ov005_02154ef0(Struct_ov005_02153954* arg0) {
         FlushTextWindowManagerBGScreenData_0205d274((TextWindowManager_0205d274*)arg0->unknown_ee4_);
     }
     func_ov005_02159c88(arg0);
-    if (arg0->unknown_e64_ != NULL && func_020e28dc((Struct_020e28dc*)arg0->unknown_e64_))
-        func_020e2794((Struct_020e2794_2*)arg0->unknown_e64_, (void*)arg0->unknown_e68_);
+    if (arg0->unknown_e64_ != NULL && IsYesNoWindowOpen_020e28dc((YesNoWindow_020e28dc*)arg0->unknown_e64_))
+        DrawYesNoWindow_020e2794((YesNoWindow_020e2794_2*)arg0->unknown_e64_, (void*)arg0->unknown_e68_);
     func_ov005_0215a7ec(arg0);
     func_ov005_0215a418(arg0);
     if (!(arg0->unknown_3dcc_ & 0x200) && arg0->unknown_3e04_ <= 0) {

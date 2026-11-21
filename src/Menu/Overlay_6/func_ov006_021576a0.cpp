@@ -75,7 +75,7 @@ extern unsigned short data_ov006_0215fffe[];
 extern unsigned int data_ov006_02160054[];
 void* memcpy(void*, const void*, unsigned int);
 void* memset(void*, int, unsigned int);
-void func_020e2490(void*, int, int, void*, SafeAllocator*, int, int);
+void InitYesNoWindow_020e2490(void*, int, int, void*, SafeAllocator*, int, int);
 void InitTextWindow_0204c684(void*);
 void func_ov006_02154614(void*);
 void func_ov006_02154348(Struct_ov006_02154348*, SafeAllocator*, void*);
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov006_021576a0(Struct_ov006_021576a0_5* arg0, SafeAlloc
     arg0->unknown_10_ = (Struct_ov006_02154348*)arg1->Allocate(R(0x10bc, 0x12c0));
     arg0->unknown_38_ = (Struct_ov006_021576a0_2*)arg1->Allocate(0x75c);
     arg0->unknown_18_ = (Struct_ov006_021576a0_4*)arg1->Allocate(0x24);
-    func_020e2490(arg0->unknown_18_, 1, 1, arg0->unknown_28_, arg1, R(3, 4), 0x40);
+    InitYesNoWindow_020e2490(arg0->unknown_18_, 1, 1, arg0->unknown_28_, arg1, R(3, 4), 0x40);
     Struct_ov006_021576a0_3* var3 = arg0->unknown_18_->unknown_c_;
     var3->inline_ov006_021576a0();
     for (unsigned char var4 = 0; var4 < 10; var4++) {

@@ -69,7 +69,7 @@ extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020e11a4();
 extern "C" char* GetMessageWindow_020421a0();
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
-extern "C" unsigned char func_02011804(GameState* arg0);
+extern "C" unsigned char GetTreasureMapCount_02011804(GameState* gameState);
 extern "C" void GetTreasureMaps_020ac760(void*);
 extern "C" void SetTreasureMaps_020ac734(void*);
 extern "C" void StartMessage_0204500c(char*, char*, int
@@ -84,7 +84,7 @@ extern "C" void func_02011a74(char*, unsigned int, const char*);
 extern "C" void func_ov017_021a9ff0(int);
 extern "C" void* func_0205ec34();
 extern "C" int RunTrigger_020649b0(void*, int, void*);
-extern "C" void func_0206f81c(void*);
+extern "C" void RunDeferredTriggerActions_0206f81c(void*);
 extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" void func_ov017_021a9fa0(Struct_ov017_021a9bf8*);
 extern const char data_ov017_021d781f[];
@@ -120,7 +120,7 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
         SetMessageString_02046574((Struct_02046574_2*)var7, 1, arg0->unknown_22c_);
         sprintf(var8, GetGameString((eGameString)(0x40)));
 #endif
-        if (func_02011804(var0) >= 99) {
+        if (GetTreasureMapCount_02011804(var0) >= 99) {
             arg0->unknown_26c_ = 1;
 #if defined(jpn)
             strcat(var8, data_ov017_021d7cbf);
@@ -201,7 +201,7 @@ extern "C" ARM void func_ov017_021a9bf8(Struct_ov017_021a9bf8* arg0) {
     } else if (arg0->unknown_8_ == 4) {
         if ((*reinterpret_cast<int*>(GetMessageWindow_020421a0() + Enum_ov017_021a9bf8_2456))) return;
         CancelFontLoad_02094ab0(GetFontLoader_02094a00());
-        if (RunTrigger_020649b0(func_0205ec34(), 0x1b, var4)) func_0206f81c(var4);
+        if (RunTrigger_020649b0(func_0205ec34(), 0x1b, var4)) RunDeferredTriggerActions_0206f81c(var4);
         arg0->unknown_8_ = 5;
     }
     if (arg0->unknown_8_ == 5) {

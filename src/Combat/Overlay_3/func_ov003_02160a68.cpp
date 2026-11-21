@@ -19,9 +19,9 @@ enum { Enum_ov003_02160a68_916 = 0x394 };
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int func_ov017_021a4e70(unsigned char* arg0);
 
-struct Struct_020e28dc;
-extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
-extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
+struct YesNoWindow_020e28dc;
+extern "C" int IsYesNoWindowOpen_020e28dc(struct YesNoWindow_020e28dc* yesNoWindow);
+extern "C" int IsYesNoWindowCancelPressed_020e2984(struct YesNoWindow_020e28dc* yesNoWindow);
 
 struct MenuLayout_0207fdcc_2;
 extern "C" int IsPointInMenuLayoutWindow_02080d54(struct MenuLayout_0207fdcc_2* menuLayout, int windowId, int x, int y);
@@ -30,7 +30,7 @@ struct Struct_ov003_02160a68 {
     char unknown_0_[Enum_ov003_02160a68_804];
     struct MenuLayout_0207fdcc_2* unknown_324_;
     char unknown_328_[Enum_ov003_02160a68_912 - Enum_ov003_02160a68_808];
-    struct Struct_020e28dc* unknown_390_;
+    struct YesNoWindow_020e28dc* unknown_390_;
     char unknown_394_[Enum_ov003_02160a68_1160 - Enum_ov003_02160a68_916];
     short unknown_488_;
 };
@@ -45,8 +45,8 @@ extern "C" ARM int func_ov003_02160a68(struct Struct_ov003_02160a68* arg0) {
         }
     }
 
-    if (func_020e28dc(arg0->unknown_390_)) {
-        if (func_020e2984(arg0->unknown_390_)) {
+    if (IsYesNoWindowOpen_020e28dc(arg0->unknown_390_)) {
+        if (IsYesNoWindowCancelPressed_020e2984(arg0->unknown_390_)) {
             var0 = 1;
         }
     } else if (g_touchInput.pressed_ != 0) {

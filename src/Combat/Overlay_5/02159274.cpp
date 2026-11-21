@@ -11,7 +11,7 @@ enum { Enum_ov005_02159274_3684 = 0xe64, Enum_ov005_02159274_2400 = 0x960, Enum_
 #include <std_library_functions.h>
 #include <GameState/GameState.h>
 
-struct Struct_020e28dc;
+struct YesNoWindow_020e28dc;
 struct YesNoWindow_020e263c_2;
 struct SoundEffectManager_02108760;
 struct TextWindowManager_0205d5d0;
@@ -67,16 +67,16 @@ struct Struct_ov005_02159274_3 {
 
 extern "C" char gSoundEffectManager_02108760[];
 
-extern "C" int func_020e28dc(Struct_020e28dc* arg0);
+extern "C" int IsYesNoWindowOpen_020e28dc(YesNoWindow_020e28dc* yesNoWindow);
 extern "C" void UpdateYesNoWindow_020e263c(YesNoWindow_020e263c_2* yesNoWindow, int ticks);
 extern "C" void func_ov005_021589f4(void* arg0);
 extern "C" void func_ov005_02159b74(void* arg0);
 extern "C" int func_ov005_02158b3c(void* arg0, void* arg1);
-extern "C" int func_020e2918(signed char*);
+extern "C" int GetYesNoWindowChoice_020e2918(signed char*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 struct YesNoWindow_020e25e8;
 extern "C" void CloseYesNoWindow_020e25e8(YesNoWindow_020e25e8*);
-extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
+extern "C" int IsYesNoWindowCancelPressed_020e2984(struct YesNoWindow_020e28dc* yesNoWindow);
 extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" int func_020dd768(Struct_020dd768* arg0);
 extern "C" void func_ov005_02157b74(void* arg0, int arg1, int arg2);
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
     if (var0 == 0)
         var0 = 1;
 
-    if (arg0->unknown_e64_ != 0 && func_020e28dc((Struct_020e28dc*)arg0->unknown_e64_))
+    if (arg0->unknown_e64_ != 0 && IsYesNoWindowOpen_020e28dc((YesNoWindow_020e28dc*)arg0->unknown_e64_))
         UpdateYesNoWindow_020e263c((YesNoWindow_020e263c_2*)arg0->unknown_e64_, var0);
 
     if (arg0->unknown_3ddc_ == 0) {
@@ -101,11 +101,11 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
         return;
     }
     if (arg0->unknown_3ddc_ == 1) {
-        var0 = func_020e2918((signed char*)arg0->unknown_e64_);
+        var0 = GetYesNoWindowChoice_020e2918((signed char*)arg0->unknown_e64_);
         if (var0 >= 0) {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             CloseYesNoWindow_020e25e8((YesNoWindow_020e25e8*)arg0->unknown_e64_);
-        } else if (func_020e2984((struct Struct_020e28dc*)arg0->unknown_e64_)) {
+        } else if (IsYesNoWindowCancelPressed_020e2984((struct YesNoWindow_020e28dc*)arg0->unknown_e64_)) {
             CloseYesNoWindow_020e25e8((YesNoWindow_020e25e8*)arg0->unknown_e64_);
             var0 = -2;
         }
@@ -202,11 +202,11 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
         return;
     }
     if (arg0->unknown_3ddc_ == 3) {
-        var0 = func_020e2918((signed char*)arg0->unknown_e64_);
+        var0 = GetYesNoWindowChoice_020e2918((signed char*)arg0->unknown_e64_);
         if (var0 >= 0) {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             CloseYesNoWindow_020e25e8((YesNoWindow_020e25e8*)arg0->unknown_e64_);
-        } else if (func_020e2984((struct Struct_020e28dc*)arg0->unknown_e64_)) {
+        } else if (IsYesNoWindowCancelPressed_020e2984((struct YesNoWindow_020e28dc*)arg0->unknown_e64_)) {
             CloseYesNoWindow_020e25e8((YesNoWindow_020e25e8*)arg0->unknown_e64_);
             var0 = -2;
         }

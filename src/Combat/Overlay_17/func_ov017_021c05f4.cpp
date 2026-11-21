@@ -48,9 +48,9 @@ extern "C" void ClearTimedMessageQueue_020d7aa0(TimedMessageQueue_020d7aa0_2* qu
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_02017c58(void* arg0);
 extern "C" void func_ov017_021c0760(unsigned char* arg0, unsigned char arg1);
-struct Struct_02046a3c_2;
-struct Struct_02046a3c;
-extern "C" void func_02046a3c(Struct_02046a3c_2*, Struct_02046a3c*);
+struct Queue_02046a3c_2;
+struct QueueNode_02046a3c;
+extern "C" void InsertAfterQueueHead_02046a3c(Queue_02046a3c_2*, QueueNode_02046a3c*);
 
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
@@ -86,5 +86,5 @@ extern "C" ARM void func_ov017_021c05f4(void* arg0, unsigned char arg1, unsigned
     func_ov017_021c0760((unsigned char*)*(void**)((char*)arg0 + 0x3000 + Enum_ov017_021c05f4_2876), arg1);
     char* var5 = (char*)arg0 + 0x3000;
     *((unsigned char*)*(void**)(var5 + Enum_ov017_021c05f4_2876) + 0x24) = arg2;
-    func_02046a3c((Struct_02046a3c_2*)(*(void**)(var5 + Enum_ov017_021c05f4_1788)), (Struct_02046a3c*)(*(void**)(var5 + Enum_ov017_021c05f4_2876)));
+    InsertAfterQueueHead_02046a3c((Queue_02046a3c_2*)(*(void**)(var5 + Enum_ov017_021c05f4_1788)), (QueueNode_02046a3c*)(*(void**)(var5 + Enum_ov017_021c05f4_2876)));
 }

@@ -12,8 +12,8 @@
 struct TextWindowManager_0205d1e0;
 struct TextWindowManager_0205d228;
 struct TextWindowManager_0205d274;
-struct Struct_020e28dc;
-struct Struct_020e2794_2;
+struct YesNoWindow_020e28dc;
+struct YesNoWindow_020e2794_2;
 #if defined(jpn)
 extern "C" void func_ov023_021e7868(void *arg0);
 #else
@@ -24,8 +24,8 @@ extern "C" void func_ov013_02184a58(void *arg0);
 extern "C" void ClearTextWindowManagerBGScreenData_0205d1e0(struct TextWindowManager_0205d1e0 *windowManager);
 extern "C" void DrawTextWindows_0205d228(struct TextWindowManager_0205d228 *windowManager);
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(struct TextWindowManager_0205d274 *windowManager);
-extern "C" int func_020e28dc(struct Struct_020e28dc *arg0);
-extern "C" void func_020e2794(struct Struct_020e2794_2 *arg0, void *arg1);
+extern "C" int IsYesNoWindowOpen_020e28dc(struct YesNoWindow_020e28dc *yesNoWindow);
+extern "C" void DrawYesNoWindow_020e2794(struct YesNoWindow_020e2794_2 *yesNoWindow, void *spriteSet);
 extern "C" void FillBGUnderTextWindows_0205da88(void *windowManager, int fillBGIndex, int windowBGIndex, int screenEntry);
 extern "C" void func_ov002_0215aaa4(void *arg0);
 #if !defined(jpn)
@@ -79,10 +79,10 @@ extern "C" ARM void func_ov002_02155dbc(char *arg0) {
         func_ov002_0215b0a8(arg0);
         func_ov002_0215b138(arg0);
     }
-    if (*(struct Struct_020e28dc **) arg0 != NULL && func_020e28dc(*(struct Struct_020e28dc **) arg0)) {
-        func_020e2794(*(struct Struct_020e2794_2 **) arg0, NULL);
+    if (*(struct YesNoWindow_020e28dc **) arg0 != NULL && IsYesNoWindowOpen_020e28dc(*(struct YesNoWindow_020e28dc **) arg0)) {
+        DrawYesNoWindow_020e2794(*(struct YesNoWindow_020e2794_2 **) arg0, NULL);
     }
-    if (*(struct Struct_020e28dc **) (arg0 + 4) != NULL && func_020e28dc(*(struct Struct_020e28dc **) (arg0 + 4))) {
-        func_020e2794(*(struct Struct_020e2794_2 **) (arg0 + 4), *(void **) (arg0 + 0x1000 + LOW_REGION(0x9c0, 0xa68)));
+    if (*(struct YesNoWindow_020e28dc **) (arg0 + 4) != NULL && IsYesNoWindowOpen_020e28dc(*(struct YesNoWindow_020e28dc **) (arg0 + 4))) {
+        DrawYesNoWindow_020e2794(*(struct YesNoWindow_020e2794_2 **) (arg0 + 4), *(void **) (arg0 + 0x1000 + LOW_REGION(0x9c0, 0xa68)));
     }
 }

@@ -29,8 +29,8 @@ struct Struct_0201bdac_4;
 struct Struct_02046c78;
 struct MusicManager_02109bf4_4;
 struct Struct_02109bf4_3;
-struct Struct_02081ee4;
-struct Struct_02081ee4_2;
+struct KeyRepeat_02081ee4;
+struct RepeatedKey_02081ee4_2;
 struct BGLayer_02020cb8;
 struct BGLayer_0204b12c;
 struct BGLayer_02020cb8_5;
@@ -68,7 +68,7 @@ extern "C" void StopMusic_0209c678(struct MusicManager_02109bf4_4* manager, int 
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void LoadFileTables_020a0c0c(void);
-extern "C" void func_02081ee4(struct Struct_02081ee4* arg0, struct Struct_02081ee4_2* arg1);
+extern "C" void InitKeyRepeat_02081ee4(struct KeyRepeat_02081ee4* keyRepeat, struct RepeatedKey_02081ee4_2* repeatedKey);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" void SetTextWindowBuffers_0204c7a8(struct TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
 #if defined(jpn)
@@ -212,7 +212,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
 #endif
         arg0->unknown_3c_ = arg0->unknown_24_.Allocate(0xc);
         arg0->unknown_40_ = (Struct_ov017_021aa59c*)arg0->unknown_24_.Allocate(4);
-        func_02081ee4((Struct_02081ee4*)arg0->unknown_3c_, (Struct_02081ee4_2*)arg0->unknown_40_);
+        InitKeyRepeat_02081ee4((KeyRepeat_02081ee4*)arg0->unknown_3c_, (RepeatedKey_02081ee4_2*)arg0->unknown_40_);
 
         BGLayer_02020cb8* var8 = arg0->unknown_1c_;
         for (int var9 = 0; var9 < 2; var9++) {

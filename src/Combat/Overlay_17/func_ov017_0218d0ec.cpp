@@ -31,7 +31,7 @@ extern "C" int GetTitleState_0201201c(void* gameState);
 
 struct Struct_ov017_0218d0ec_3;
 
-extern "C" void func_ov017_021cdaa0(void);
+extern "C" void SendDayTimer_ov017_021cdaa0(void);
 extern "C" int func_ov017_021b8b54(void* arg0);
 
 struct Struct_ov017_0218d0ec_4 { unsigned char unknown_0_[0x94]; float unknown_94_; int unknown_98_; };
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov017_0218d0ec(unsigned char* arg0) {
 
     int var7 = var0->GetTimeOfDay();
     if (IsNotLocalWirelessGuest_0202c508(var2) != 0 && var6 != var7) {
-        func_ov017_021cdaa0();
+        SendDayTimer_ov017_021cdaa0();
     }
 
     if (GetQueueHeadType_02046b24(*(struct QueueNode_02015438***)(arg0 + 0x3000 + Enum_ov017_0218d0ec_1788)) == 0xa) {

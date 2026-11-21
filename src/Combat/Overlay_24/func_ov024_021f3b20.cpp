@@ -5,7 +5,7 @@
 
 extern "C" GameObject* GetEnemyByID_ov000_021536f8(int battle, int index);
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
-extern "C" float func_ov024_021db358(GameObject* arg0);
+extern "C" float GetHPRatio_ov024_021db358(GameObject* combatant);
 extern "C" int PickRandomTarget_ov024_021ed890(struct Random** targetSelector, int* count, short* targetIndices);
 
 extern unsigned short data_ov024_021fee6c;
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov024_021f3b20(int* arg0, int arg1, int arg2, int* arg3,
 		if (arg1 == var1[var7]) continue;
 		GameObject* var8 = GetCombatantByID(*arg0, var1[var7]);
 		if (!var8) continue;
-		if (func_ov024_021db358(var8) >= 1.0f) continue;
+		if (GetHPRatio_ov024_021db358(var8) >= 1.0f) continue;
 		int var9 = *arg3;
 		*arg3 = var9 + 1;
 		arg4[var9] = var1[var7];

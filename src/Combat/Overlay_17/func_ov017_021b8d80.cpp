@@ -19,7 +19,7 @@ struct Struct_0208ba54;
 extern "C" void func_0208ba54(struct Struct_0208ba54* arg0);
 extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void func_ov008_021845ac(void* arg0);
-extern "C" void func_020dc2d0(int arg0);
+extern "C" void RestartMapDisplay_020dc2d0(int modeOverride);
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
 struct Struct_02061c04_11;
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov017_021b8d80(unsigned char* arg0) {
         var6[1] = (var6[1] & ~3) | 2;
         var6[2] = var6[2] & ~3;
 
-        func_020dc2d0(0);
+        RestartMapDisplay_020dc2d0(0);
         SetSubBrightness(var0, 0, 0xf);
     }
 

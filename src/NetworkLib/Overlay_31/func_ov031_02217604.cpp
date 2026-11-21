@@ -54,7 +54,7 @@ struct Struct_ov031_02217604_5 {
     char unknown_6f_[14];
     unsigned short unknown_7e_[11];
 };
-extern "C" int func_020c7170(char*, unsigned long, const char*, ...);
+extern "C" int FormatToSizedBuffer_020c7170(char*, unsigned long, const char*, ...);
 extern "C" int func_020c7130(char*, const char*, ...);
 extern "C" void func_020c9be0(void);
 extern "C" void GetMACAddress_020c99ac(unsigned char*);
@@ -80,11 +80,11 @@ extern "C" ARM int func_ov031_02217604(Struct_ov031_02217604_5* arg0, const Stru
     unsigned short var4;
     VectorizedMemset(arg0, 0, sizeof(*arg0));
     if (arg1->unknown_0_ != 0) {
-        func_020c7170(arg0->unknown_0_, 14, data_ov031_02249c84, arg1->unknown_0_);
+        FormatToSizedBuffer_020c7170(arg0->unknown_0_, 14, data_ov031_02249c84, arg1->unknown_0_);
     } else {
-        func_020c7170(arg0->unknown_0_, 14, data_ov031_02249c84, arg1->unknown_8_);
+        FormatToSizedBuffer_020c7170(arg0->unknown_0_, 14, data_ov031_02249c84, arg1->unknown_8_);
     }
-    func_020c7170(arg0->unknown_e_, 7, data_ov031_02249c8c, arg1->unknown_10_);
+    FormatToSizedBuffer_020c7170(arg0->unknown_e_, 7, data_ov031_02249c8c, arg1->unknown_10_);
     const unsigned char* var5 = (const unsigned char*)((const CartridgeHeader*)BIOS_ADDR_CARTRIDGE_HEADER)->gameCode;
     const unsigned char* var6 = (const unsigned char*)((const CartridgeHeader*)BIOS_ADDR_CARTRIDGE_HEADER)->makerCode;
     if (var5[0] == 0) {
@@ -110,13 +110,13 @@ extern "C" ARM int func_ov031_02217604(Struct_ov031_02217604_5* arg0, const Stru
     if (var0.unknown_0_ >= 8) {
         var0.unknown_0_ = 1;
     }
-    func_020c7170(arg0->unknown_2c_, 3, data_ov031_02249c94, var0.unknown_0_);
+    FormatToSizedBuffer_020c7170(arg0->unknown_2c_, 3, data_ov031_02249c94, var0.unknown_0_);
     VectorizedInvertedMemcpy(var0.unknown_4_, arg0->unknown_7e_, 20);
-    func_020c7170(arg0->unknown_2f_, 5, data_ov031_02249c9c, var0.unknown_2_, var0.unknown_3_);
+    FormatToSizedBuffer_020c7170(arg0->unknown_2f_, 5, data_ov031_02249c9c, var0.unknown_2_, var0.unknown_3_);
     if (func_020cf25c(&var1, &var2) != 0) {
         return 0;
     }
-    func_020c7170(arg0->unknown_34_, 13, data_ov031_02249ca8,
+    FormatToSizedBuffer_020c7170(arg0->unknown_34_, 13, data_ov031_02249ca8,
         var1.unknown_0_, var1.unknown_4_, var1.unknown_8_, var2.unknown_0_, var2.unknown_4_, var2.unknown_8_);
     unsigned long var10 = DisableIRQInterrupts();
     unsigned char* var11 = func_ov031_0220f040();
@@ -136,7 +136,7 @@ extern "C" ARM int func_ov031_02217604(Struct_ov031_02217604_5* arg0, const Stru
     if (var14 == 0xff || var14 > 99) {
         var14 = 99;
     }
-    func_020c7170(arg0->unknown_6f_, 14, data_ov031_02249cc4, var14);
+    FormatToSizedBuffer_020c7170(arg0->unknown_6f_, 14, data_ov031_02249cc4, var14);
     unsigned char* var15 = func_ov031_0220f084(&var4);
     InvalidateDataCacheRange(var15, 32);
     if (var15 == 0) {

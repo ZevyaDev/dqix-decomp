@@ -96,7 +96,7 @@ struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" unsigned char* func_ov000_02162d88(void* arg0, unsigned short arg1);
 extern "C" void func_02048614(unsigned char* arg0);
-extern "C" void func_02049c88(unsigned char* arg0, int arg1);
+extern "C" void SetCombatantBattleState_02049c88(unsigned char* combatant, int battleState);
 struct Struct_02048850;
 struct Struct_02048850_2;
 extern "C" void func_02048850(Struct_02048850*, Struct_02048850_2*);
@@ -430,7 +430,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                             int var60 = *(int*)(var57 + 0x144);
                             func_02048614(var57);
                             *(short*)(var57 + 4) = var54;
-                            func_02049c88(var57, var59);
+                            SetCombatantBattleState_02049c88(var57, var59);
                             func_02048850((Struct_02048850*)var57, (Struct_02048850_2*)var60);
                             func_02048588(var52, var57);
                             *(int*)(var57 + 0x138) = var58;

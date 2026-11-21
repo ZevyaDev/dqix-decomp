@@ -135,7 +135,7 @@ struct Struct_ov005_0215c530_5
     int unknown_4fc_;
 };
 
-struct Struct_02083508_2;
+struct ItemData_02083508_2;
 struct SoundEffectManager_02108760;
 
 extern "C" short* GetEquipmentBagItemIds_0207c5f8(unsigned char*, unsigned int);
@@ -145,7 +145,7 @@ extern "C" void func_ov023_021e1518(void*);
 extern "C" void func_ov023_021e1b5c(void*, int, int, int);
 extern "C" void func_ov023_021e1b0c(void*, int, int, int);
 extern "C" Struct_ov005_0215c530_5* GetEquipMenu_ov017_021a193c(int*);
-extern "C" void func_020de1d4(Struct_02083508_2*);
+extern "C" void InitItemData_020de1d4(ItemData_02083508_2*);
 extern "C" void* memset(void*, int, unsigned int);
 extern "C" void* memcpy(void*, const void*, unsigned int);
 extern "C" Struct_ov005_0215c530_7* func_ov023_021db08c(void*, int);
@@ -230,7 +230,7 @@ extern "C" ARM void func_ov005_0215c530(Struct_ov005_0215c530_3* arg0)
             signed char var13 = GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->unknown_4fc_;
             Struct_ov005_0215c530_6 var14;
             Struct_ov005_0215c530_4 var15;
-            func_020de1d4((Struct_02083508_2*)&var14);
+            InitItemData_020de1d4((ItemData_02083508_2*)&var14);
             memset(&var15, 0, 0x20);
             var14.unknown_0_ = &var15;
             int var16 = 0;
@@ -240,7 +240,7 @@ extern "C" ARM void func_ov005_0215c530(Struct_ov005_0215c530_3* arg0)
                 short var19 = var2[var18];
                 if (var19 > 0)
                 {
-                    func_020de1d4((Struct_02083508_2*)&var14);
+                    InitItemData_020de1d4((ItemData_02083508_2*)&var14);
                     memset(&var15, 0, 0x20);
                     Struct_ov005_0215c530_7* var20;
                     var14.unknown_0_ = &var15;

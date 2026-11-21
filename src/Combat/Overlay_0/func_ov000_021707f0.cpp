@@ -9,7 +9,7 @@
 #endif
 
 struct TextWindowManager_0205d81c;
-struct Struct_0204c610;
+struct TextWindow_0204c610;
 struct TextWindow_0205d0e0 {
     char unknown_0_[0xac];
     short tileX_ac_;
@@ -68,7 +68,7 @@ extern "C" int GetResources_0200fb8c(int*);
 extern "C" void* GetBattleUI_ov000_02160f08(void*);
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char*);
-extern "C" void func_0204c610(Struct_0204c610*, int, short*, short*, short*, short*);
+extern "C" void GetTextWindowEntryRect_0204c610(TextWindow_0204c610*, int, short*, short*, short*, short*);
 extern "C" void* func_ov017_021b8468(void*);
 extern "C" double ComputeSine_02009424(double);
 struct Struct_ov000_02183488 {
@@ -144,7 +144,7 @@ extern "C" ARM void func_ov000_021707f0(Struct_ov000_021707f0* arg0) {
     }
     short var16 = var11->tileX_ac_;
     short var17 = var11->tileY_ae_;
-    func_0204c610((Struct_0204c610*)var11, 5, &var7, &var8, &var9, &var10);
+    GetTextWindowEntryRect_0204c610((TextWindow_0204c610*)var11, 5, &var7, &var8, &var9, &var10);
     var6->unknown_334_ = (var7 + (short)(var16 * 8)) << 12;
     var6->unknown_338_ = (var8 + (short)(var17 * 8)) << 12;
     var6->unknown_342_ = 0x7c;

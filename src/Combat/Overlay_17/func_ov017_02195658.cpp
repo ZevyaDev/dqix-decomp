@@ -17,34 +17,34 @@ extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(struct LocalWireless_0
 extern "C" GameObject* func_0200fee0(GameState* arg0, int arg1);
 extern "C" void func_ov017_021905b8(void* arg0, int arg1, int arg2);
 
-// USA: func_ov017_02195658
-extern "C" ARM int func_ov017_02195658(unsigned char* arg0) {
-    GameState* var0 = GameState::GetInstance();
-    struct LocalWireless_0202b2f0* var1 = func_0202ae18();
-    for (int var2 = 1; var2 < 4; var2++) {
-        int var3 = 0;
-        int var4 = 1;
-        GameObject* var5 = func_0200fee0(var0, var2);
-        unsigned char* var6 = *(unsigned char**)(arg0 + 0x4000 + Enum_ov017_02195658_1052);
-        if (var6[0] == 1 && var6[2] == var2) {
-            if (var5 != NULL) {
-                var3 = var4;
-                var4 = 0;
+// USA: RemoveDepartedPlayer_ov017_02195658
+extern "C" ARM int RemoveDepartedPlayer_ov017_02195658(unsigned char* gameResources) {
+    GameState* gameState = GameState::GetInstance();
+    struct LocalWireless_0202b2f0* wireless = func_0202ae18();
+    for (int i = 1; i < 4; i++) {
+        int isRemoving = 0;
+        int isJoinCleared = 1;
+        GameObject* member = func_0200fee0(gameState, i);
+        unsigned char* joinRecord = *(unsigned char**)(gameResources + 0x4000 + Enum_ov017_02195658_1052);
+        if (joinRecord[0] == 1 && joinRecord[2] == i) {
+            if (member != NULL) {
+                isRemoving = isJoinCleared;
+                isJoinCleared = 0;
             }
         }
-        if (IsLocalWirelessPlayerDisconnected_0202c578(var1, var2) != 0) var3 = 1;
-        if (var3 != 0) {
-            func_ov017_021905b8(arg0, var2, var4);
-            if (var4 != 0) {
-                unsigned char* var7 = *(unsigned char**)(arg0 + 0x4000 + Enum_ov017_02195658_1052);
-                if (var7[0] != 0 && var7[2] == var2) {
-                    var7[0] = 0;
-                    var7[1] = 0;
-                    unsigned char* var8 = *(unsigned char**)(arg0 + 0x3000 + Enum_ov017_02195658_2864);
-                    if (var8[3] != 0) var8[8] = 1;
+        if (IsLocalWirelessPlayerDisconnected_0202c578(wireless, i) != 0) isRemoving = 1;
+        if (isRemoving != 0) {
+            func_ov017_021905b8(gameResources, i, isJoinCleared);
+            if (isJoinCleared != 0) {
+                unsigned char* clearedJoinRecord = *(unsigned char**)(gameResources + 0x4000 + Enum_ov017_02195658_1052);
+                if (clearedJoinRecord[0] != 0 && clearedJoinRecord[2] == i) {
+                    clearedJoinRecord[0] = 0;
+                    clearedJoinRecord[1] = 0;
+                    unsigned char* joinTask = *(unsigned char**)(gameResources + 0x3000 + Enum_ov017_02195658_2864);
+                    if (joinTask[3] != 0) joinTask[8] = 1;
                 }
             }
-            return var2;
+            return i;
         }
     }
     return -1;

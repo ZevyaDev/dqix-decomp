@@ -6,8 +6,8 @@
 
 struct StringTable_0201099c_14;
 struct Struct_ov003_02174114_4;
-struct Struct_02081ee4;
-struct Struct_02081ee4_2;
+struct KeyRepeat_02081ee4;
+struct RepeatedKey_02081ee4_2;
 struct BGLayer_02020cb8;
 
 struct Struct_ov003_02174114 {
@@ -98,7 +98,7 @@ extern "C" void StartMessage_0204500c(Struct_ov003_02174114 *, int, int, int);
 extern "C" void SaveMainBGControl_02074af4(void *);
 extern "C" void InitItemInfoPanel_ov023_021dc134(void *, int, int);
 extern "C" void func_ov003_02174408(Struct_ov003_02174114_4 *);
-extern "C" void func_02081ee4(Struct_02081ee4 *, Struct_02081ee4_2 *);
+extern "C" void InitKeyRepeat_02081ee4(KeyRepeat_02081ee4 *, RepeatedKey_02081ee4_2 *);
 extern "C" void InitTextWindow_0204c684(void *);
 extern "C" unsigned char GetOwnPartyOrder_02011494(char *, void *);
 extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *, int);
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov003_02174114(Struct_ov003_02174114_3 *arg0) {
     ((OBJSpriteSet*)(arg0->unknown_7d8_))->Reset();
     arg0->unknown_830_ = 0;
     func_ov003_02174408((Struct_ov003_02174114_4 *) arg0->unknown_834_);
-    func_02081ee4((Struct_02081ee4 *) arg0->unknown_88c_, (Struct_02081ee4_2 *) arg0->unknown_898_);
+    InitKeyRepeat_02081ee4((KeyRepeat_02081ee4 *) arg0->unknown_88c_, (RepeatedKey_02081ee4_2 *) arg0->unknown_898_);
     arg0->unknown_89c_ = 0;
     for (int var4 = 0; var4 < 2; var4++)
         ((BGLayer*)((BGLayer_02020cb8 *) (arg0->unknown_8a0_ + var4 * 32)))->Reset();

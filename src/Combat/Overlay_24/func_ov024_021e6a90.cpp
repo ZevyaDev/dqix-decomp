@@ -124,9 +124,9 @@ struct Struct_ov024_021e6a90_11* GetCombatantByID(int, int);
 struct GameObject;
 extern "C" int func_ov024_021e7ba8(GameObject*);
 struct Struct_ov024_021da670_6;
-extern "C" int func_ov024_021da998(Struct_ov024_021da670_6*);
+extern "C" int HasTension_ov024_021da998(Struct_ov024_021da670_6*);
 struct Struct_ov024_021dd028_5;
-extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
+extern "C" int HasSuperHighTension_ov024_021dd260(Struct_ov024_021dd028_5*);
 extern "C" float func_02074738(int arg0, int arg1);
 extern "C" int HasEnemyTrait_ov000_02156068(struct Struct_ov024_021e6a90_4* battle, int combatantIndex, int kind, int traitType);
 extern "C" struct Struct_ov024_021e6a90_6* GetPartyMemberDataByIndex_ov000_02153710(struct Struct_ov024_021e6a90_4* battle, int combatantIndex);
@@ -204,10 +204,10 @@ extern "C" ARM int func_ov024_021e6a90(struct Struct_ov024_021e6a90_5* arg0, int
         arg3->unknown_9_0_ == 1) {
         arg0->unknown_c_->unknown_1c_6_ = 1;
         if ((arg3->unknown_10_ & 0x2000) &&
-            (func_ov024_021da998((Struct_ov024_021da670_6*)var1) ||
-             func_ov024_021dd260((Struct_ov024_021dd028_5*)var1))) {
+            (HasTension_ov024_021da998((Struct_ov024_021da670_6*)var1) ||
+             HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)var1))) {
             arg0->unknown_47_ = 1;
-            if (func_ov024_021dd260((Struct_ov024_021dd028_5*)var1)) {
+            if (HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)var1)) {
                 arg0->unknown_47_ = 2;
             }
         }
@@ -215,8 +215,8 @@ extern "C" ARM int func_ov024_021e6a90(struct Struct_ov024_021e6a90_5* arg0, int
     }
 
     if (arg0->unknown_76_ && (arg3->unknown_10_ & 0x2000) &&
-        (func_ov024_021da998((Struct_ov024_021da670_6*)var1) ||
-         func_ov024_021dd260((Struct_ov024_021dd028_5*)var1))) {
+        (HasTension_ov024_021da998((Struct_ov024_021da670_6*)var1) ||
+         HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)var1))) {
         if (arg4 != 0 || (arg3->unknown_4_0_ != 0x70 && arg3->unknown_4_0_ != 0x48)) {
             float var6;
             if (inline_ov000_02169850(arg1)) {
@@ -243,7 +243,7 @@ extern "C" ARM int func_ov024_021e6a90(struct Struct_ov024_021e6a90_5* arg0, int
             }
         }
         arg0->unknown_47_ = 1;
-        if (func_ov024_021dd260((Struct_ov024_021dd028_5*)var1)) {
+        if (HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)var1)) {
             arg0->unknown_47_ = 2;
         }
     }
@@ -509,8 +509,8 @@ extern "C" ARM int func_ov024_021e6a90(struct Struct_ov024_021e6a90_5* arg0, int
             }
         }
         if (arg0->unknown_76_ && (arg3->unknown_10_ & 0x2000) &&
-            (func_ov024_021da998((Struct_ov024_021da670_6*)var1) ||
-             func_ov024_021dd260((Struct_ov024_021dd028_5*)var1))) {
+            (HasTension_ov024_021da998((Struct_ov024_021da670_6*)var1) ||
+             HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)var1))) {
             float var35;
             if (inline_ov000_02169850(arg1)) {
                 var35 = func_02074738(var1->unknown_138_->unknown_24_, 0);
@@ -521,7 +521,7 @@ extern "C" ARM int func_ov024_021e6a90(struct Struct_ov024_021e6a90_5* arg0, int
         }
     }
 
-    if (func_ov024_021dd260((Struct_ov024_021dd028_5*)var2) && arg3->unknown_18_5_ == 1) {
+    if (HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)var2) && arg3->unknown_18_5_ == 1) {
         var4 = 0.5f * var4;
     }
 

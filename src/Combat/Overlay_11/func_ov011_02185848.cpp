@@ -16,8 +16,8 @@ extern "C" ARM void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" ARM void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" ARM int func_ov023_021f6f10(void* arg0);
 
-struct Struct_ov004_02153e20;
-extern "C" int func_ov023_021f9b30(struct Struct_ov004_02153e20* arg0, unsigned short arg1, unsigned int arg2, unsigned int arg3);
+struct MenuGrid_ov004_02153e20;
+extern "C" int SetMenuGridCell_ov023_021f9b30(struct MenuGrid_ov004_02153e20* grid, unsigned short objectId, unsigned int row, unsigned int column);
 
 // USA: func_ov011_02185848
 extern "C" ARM int func_ov011_02185848(struct ScriptValue_ov011_02184c30* arg0, int arg1) {
@@ -33,5 +33,5 @@ extern "C" ARM int func_ov011_02185848(struct ScriptValue_ov011_02184c30* arg0, 
     if (func_ov023_021f6f10(var5) != 7)
         return 0;
 
-    return func_ov023_021f9b30((struct Struct_ov004_02153e20*)var5, var1,(unsigned short)var3, (unsigned short)var2) ? 1 : 0;
+    return SetMenuGridCell_ov023_021f9b30((struct MenuGrid_ov004_02153e20*)var5, var1,(unsigned short)var3, (unsigned short)var2) ? 1 : 0;
 }

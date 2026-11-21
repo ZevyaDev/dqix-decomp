@@ -39,7 +39,7 @@ extern "C" int func_ov003_0215e930(struct Struct_ov003_0215e930* arg0, short arg
 extern "C" void func_ov003_0215e9ec(struct Struct_ov003_0215e8f4* arg0, int arg1, int arg2);
 extern "C" int func_ov003_0215ef54(struct Struct_ov003_0215e8f4* arg0);
 extern "C" int func_ov003_0215eeb8(struct Struct_ov003_0215e8f4* arg0);
-extern "C" void func_ov003_0215ec68(int arg0, short* arg1, short* arg2);
+extern "C" void GetButtonSize_ov003_0215ec68(int sizeType, short* width, short* height);
 
 // USA: func_ov003_0215f000
 extern "C" ARM int func_ov003_0215f000(struct Struct_ov003_0215e8f4* arg0, int arg1) {
@@ -157,7 +157,7 @@ extern "C" ARM int func_ov003_0215f000(struct Struct_ov003_0215e8f4* arg0, int a
                     if (var3->unknown_c_ & var4) {
                         short var19;
                         short var20;
-                        func_ov003_0215ec68(var3->unknown_e_, &var20, &var19);
+                        GetButtonSize_ov003_0215ec68(var3->unknown_e_, &var20, &var19);
                         if (var3->unknown_2_ <= var16 && var16 < var3->unknown_2_ + var19 && var3->unknown_0_ <= var17 && var17 < var3->unknown_0_ + var20) {
                             goto found;
                         }

@@ -10,7 +10,7 @@ struct Struct_0206dd68 {
 
 // USA: func_0206dd68
 extern "C" ARM void func_0206dd68(void* arg0, int arg1) {
-    struct Struct_0206dd68* var0 = (Struct_0206dd68*)func_0206db20(arg0, arg1);
+    struct Struct_0206dd68* var0 = (Struct_0206dd68*)FindNPCPlacement_0206db20(arg0, arg1);
     if (var0 == NULL) {
         return;
     }

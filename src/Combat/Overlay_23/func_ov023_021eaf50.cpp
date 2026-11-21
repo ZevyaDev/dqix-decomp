@@ -10,9 +10,9 @@ extern "C" void* func_ov017_021b8478(void* battleManager);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void SetScriptRefInt_ov017_021d6134(void* value, int number);
 
-struct Struct_02046b38;
-struct Struct_02046b38_2;
-extern "C" int func_02046b38(struct Struct_02046b38* arg0, struct Struct_02046b38_2* arg1);
+struct Queue_02046b38;
+struct QueueNode_02046b38_2;
+extern "C" int IsNodeInQueue_02046b38(struct Queue_02046b38* queue, struct QueueNode_02046b38_2* node);
 extern "C" bool func_0201b588(int arg0);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 
@@ -31,11 +31,11 @@ extern "C" ARM int func_ov023_021eaf50(void* arg0) {
     int var0 = 0;
 
     char* var1 = (char*)GetGameResources() + 0x3000;
-    struct Struct_02046b38* var2 = *(struct Struct_02046b38**)(var1 + Enum_ov023_021eaf50_1788);
-    struct Struct_02046b38_2* var3 = *(struct Struct_02046b38_2**)(var1 + Enum_ov023_021eaf50_1816);
+    struct Queue_02046b38* var2 = *(struct Queue_02046b38**)(var1 + Enum_ov023_021eaf50_1788);
+    struct QueueNode_02046b38_2* var3 = *(struct QueueNode_02046b38_2**)(var1 + Enum_ov023_021eaf50_1816);
     void* var4 = func_ov017_021b8478(var3);
 
-    if (func_02046b38(var2, var3) != 0) {
+    if (IsNodeInQueue_02046b38(var2, var3) != 0) {
         void* var5 = GetZone3D_02012fe4();
         ActiveGrottoClass* var6 = (ActiveGrottoClass*)((char*)var5 + Enum_ov023_021eaf50_9196);
         DetailedTreasureMapData* var7 = var6->GetDetailedData();

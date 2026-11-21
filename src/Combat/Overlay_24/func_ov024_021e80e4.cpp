@@ -113,7 +113,7 @@ extern "C" struct Struct_ov024_021e80e4* GetActionTarget_ov000_021600f8(BattleAc
 extern "C" short GetLatestTargetCombatantIndex_ov000_0215ffa0(struct Struct_ov024_021e80e4* entry);
 struct Struct_ov000_02159f7c;
 extern "C" int func_ov000_02159f7c(void*, Struct_ov000_02159f7c*);
-extern "C" int func_ov000_0215fd90(struct Struct_ov024_021e80e4_11* arg0, int arg1);
+extern "C" int HasActionResultFlag_ov000_0215fd90(struct Struct_ov024_021e80e4_11* result, int flagIndex);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
 extern "C" unsigned short func_ov024_021e9b24(struct Struct_ov024_021e80e4_4* arg0, int arg1, struct Struct_ov024_021e80e4_9* arg2, int arg3);
 
@@ -165,14 +165,14 @@ extern "C" ARM void func_ov024_021e80e4(struct Struct_ov024_021e80e4_4* arg0, st
                         var10 = 0;
                         var6++;
                     }
-                } else if (func_ov000_0215fd90(var16, 0xd) != 0) {
+                } else if (HasActionResultFlag_ov000_0215fd90(var16, 0xd) != 0) {
                     if (IN_RANGE_021e80e4(var15)) {
                         var7++;
                     } else {
                         var8 = 0;
                     }
                     continue;
-                } else if (func_ov000_0215fd90(var16, 4) != 0) {
+                } else if (HasActionResultFlag_ov000_0215fd90(var16, 4) != 0) {
                     if (IN_RANGE_021e80e4(var15)) {
                         var5++;
                     } else {
@@ -189,7 +189,7 @@ extern "C" ARM void func_ov024_021e80e4(struct Struct_ov024_021e80e4_4* arg0, st
                 }
             }
             for (var16 = var14->unknown_8_; var16 != 0; var16 = var16->unknown_20_) {
-                if (func_ov000_0215fd90(var16, 0xd) != 0) {
+                if (HasActionResultFlag_ov000_0215fd90(var16, 0xd) != 0) {
                     if (IN_RANGE_021e80e4(var15)) {
                         var7++;
                     } else {
@@ -347,7 +347,7 @@ extern "C" ARM void func_ov024_021e80e4(struct Struct_ov024_021e80e4_4* arg0, st
             } else if (var11 > 0) {
                 if (var41->unknown_18_ > 1) {
                     arg1->unknown_1a_ = var24;
-                } else if (var42 == 0 || func_ov000_0215fd90(var42, 0xd) == 0) {
+                } else if (var42 == 0 || HasActionResultFlag_ov000_0215fd90(var42, 0xd) == 0) {
                     arg1->unknown_1a_ = func_ov024_021e9b24(arg0, GetLatestTargetCombatantIndex_ov000_0215ffa0(arg1->unknown_14_), var38, 0);
                     if (arg1->unknown_1a_ == 0) {
                         if (var23 != 0) arg1->unknown_1a_ = 2;
@@ -374,7 +374,7 @@ extern "C" ARM void func_ov024_021e80e4(struct Struct_ov024_021e80e4_4* arg0, st
             } else if (var12 > 0) {
                 if (var43->unknown_18_ > 1) {
                     arg1->unknown_1c_ = var22;
-                } else if (var44 == 0 || func_ov000_0215fd90(var44, 0xd) == 0) {
+                } else if (var44 == 0 || HasActionResultFlag_ov000_0215fd90(var44, 0xd) == 0) {
                     arg1->unknown_1c_ = func_ov024_021e9b24(arg0, GetLatestTargetCombatantIndex_ov000_0215ffa0(arg1->unknown_14_), var39, 0);
                     if (arg1->unknown_1c_ == 0) {
                         if (var23 != 0) arg1->unknown_1c_ = 5;

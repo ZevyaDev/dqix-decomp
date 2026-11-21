@@ -59,7 +59,7 @@ extern "C" void func_020dd040(int arg0, char* arg1);
 extern "C" void func_02046608(Struct_ov000_02184294* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void ClearMessageParams_02046380(Struct_ov000_02184294* window);
 extern "C" int func_ov000_02153a8c(GameObject* arg0);
-extern "C" int func_020dd290(void*, unsigned int);
+extern "C" int GetSkillAdjustedMPCost_020dd290(void*, unsigned int);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 struct TextWindowManager_0205d81c;
@@ -123,7 +123,7 @@ extern "C" ARM void func_ov000_02178d28(Struct_ov000_02178d28_2* arg0, Struct_ov
     } else if (var2->unknown_8_0_ >= 0xff) {
         var9 = arg1->unknown_e_;
     } else {
-        var9 = func_020dd290(var3, var2->unknown_8_0_);
+        var9 = GetSkillAdjustedMPCost_020dd290(var3, var2->unknown_8_0_);
     }
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var4, 0, var9);
     SetMessageNumber_020465c0((MessageWindow_020465c0*)var4, 1, arg1->unknown_e_);

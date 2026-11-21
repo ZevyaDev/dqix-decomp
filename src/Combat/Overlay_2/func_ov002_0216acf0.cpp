@@ -47,7 +47,7 @@ extern "C" void func_ov002_0216c28c(char* arg0, int arg1);
 struct Struct_ov002_0216acf0;
 extern "C" void func_020444bc(Struct_ov002_0216acf0*);
 extern "C" void func_ov016_0218b5c0(int arg0, int arg1);
-extern "C" void func_ov017_0218b5f8(int arg0);
+extern "C" void RequestPartyMemberPanelRedraw_ov017_0218b5f8(int memberIndex);
 struct Struct_ov002_0216acf0_2;
 extern "C" char* GetLastOpenedTextWindow_0205d888(Struct_ov002_0216acf0_2*);
 extern "C" void func_ov002_02156ff0(unsigned char*, int);
@@ -57,7 +57,7 @@ extern "C" void SetCursorTextWindow_0205dee8(Struct_ov002_02164748_2*, int);
 struct Struct_ov002_02155960_2;
 extern "C" void SetTextWindowPalette_0205deb4(Struct_ov002_02155960_2*, int, int);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(char* menu);
-extern "C" void func_ov023_021dca88(char* arg0);
+extern "C" void CloseItemInfoPanel_ov023_021dca88(char* panel);
 extern "C" void SetCursorIndex_0205d7a0(char* windowManager, int index);
 extern "C" void func_ov002_0215c988(char* arg0, void* arg1, int arg2);
 struct Struct_ov002_0215bba8_3;
@@ -346,7 +346,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
                 return;
             }
             func_ov016_0218b5c0(1, -1);
-            func_ov017_0218b5f8(-1);
+            RequestPartyMemberPanelRedraw_ov017_0218b5f8(-1);
             U8(RG(0x1c31, 0x1af9)) = 0;
             char* var27 = GetLastOpenedTextWindow_0205d888((Struct_ov002_0216acf0_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)));
             if (var27 != 0) {
@@ -369,7 +369,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
                         SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4, 0);
                         ConfigureMenuCursors_ov002_02161cf0(arg0);
                         if (S32(RG(0x247c, 0x22ac)) & 1) {
-                            func_ov023_021dca88(arg0 + RG(0x50, 0x38));
+                            CloseItemInfoPanel_ov023_021dca88(arg0 + RG(0x50, 0x38));
                         }
                         return;
                     }
@@ -387,7 +387,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
                     ConfigureMenuCursors_ov002_02161cf0(arg0);
                 }
             } else if (S32(RG(0x247c, 0x22ac)) & 1) {
-                func_ov023_021dca88(arg0 + RG(0x50, 0x38));
+                CloseItemInfoPanel_ov023_021dca88(arg0 + RG(0x50, 0x38));
             }
         }
         if (*(int*)(var1 + RG(0x9a0, 0x870)) != 3) {
@@ -421,7 +421,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
         } else {
             ResetMessageWindow_02043204(var1);
             func_ov016_0218b5c0(1, -1);
-            func_ov017_0218b5f8(-1);
+            RequestPartyMemberPanelRedraw_ov017_0218b5f8(-1);
             if (S8(RG(0x1caf, 0x1b73)) == 4) {
                 U8(RG(0x1cae, 0x1b72)) = 5;
                 U8(RG(0x1caf, 0x1b73)) = 0;
@@ -511,7 +511,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
                     SetTextWindowPalette_0205deb4((Struct_ov002_02155960_2*)(arg0 + RG(0x2c8 + 0xc00, 0xe20)), 4, 0);
                     ConfigureMenuCursors_ov002_02161cf0(arg0);
                     if (S32(RG(0x247c, 0x22ac)) & 1) {
-                        func_ov023_021dca88(arg0 + RG(0x50, 0x38));
+                        CloseItemInfoPanel_ov023_021dca88(arg0 + RG(0x50, 0x38));
                     }
                     return;
                 }
@@ -526,7 +526,7 @@ extern "C" ARM void func_ov002_0216acf0(char* arg0) {
             }
         } else if (S32(RG(0x1bb8, 0x1a80)) != K(9, 0xa)) {
             if (S32(RG(0x247c, 0x22ac)) & 1) {
-                func_ov023_021dca88(arg0 + RG(0x50, 0x38));
+                CloseItemInfoPanel_ov023_021dca88(arg0 + RG(0x50, 0x38));
             }
         }
         return;

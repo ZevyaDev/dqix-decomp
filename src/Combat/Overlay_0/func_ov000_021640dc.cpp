@@ -12,7 +12,7 @@
 
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 extern "C" int func_ov000_02160fd4(void* battleScene, int flags);
-extern "C" int func_ov017_02195658(GameResources* arg0);
+extern "C" int RemoveDepartedPlayer_ov017_02195658(GameResources* gameResources);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" void func_020a367c(unsigned char* arg0, int arg1);
 
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov000_021640dc(struct Struct_ov000_021640dc_4* arg0) {
         return;
     }
     struct Struct_ov000_021640dc_2* var2 = arg0->unknown_2a0_;
-    int var3 = func_ov017_02195658(var1);
+    int var3 = RemoveDepartedPlayer_ov017_02195658(var1);
     if (IsPartyMemberInBattle_020a35e0((unsigned char*)var2, var3)) {
         if (var2->unknown_2a_ == var3) {
             SetBattleSceneFlags_ov000_02160fa8(arg0, 0x2000000);

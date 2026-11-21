@@ -54,12 +54,12 @@ extern "C" void InitCanvas_0205b20c(Canvas_020200c0_4*);
 extern "C" void SetCanvasCharacterData_0205b220(void*, int);
 extern "C" void SetCanvasRects_0205b228(void*, int, unsigned char);
 extern "C" {
-void func_ov003_0215ec68(int, short*, short*);
+void GetButtonSize_ov003_0215ec68(int, short*, short*);
 void func_0205b890(Struct_ov023_021e6b8c*, int, Struct_ov023_021e6b8c_4*);
 void* memcpy(void*, const void*, unsigned int);
 int func_020420e8(const char*, int);
 void func_0205b734(void*, short, short, short, short, short);
-int func_0205b234(void*, short, short, const char*, unsigned char, unsigned char);
+int DrawCanvasText_0205b234(void*, short, short, const char*, unsigned char, unsigned char);
 void LoadToMainObjVRAM(const void*, unsigned int, unsigned int);
 }
 
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov023_021e6b8c(Struct_ov023_021e6b8c_7* arg0, unsigned 
     Struct_ov023_021e6b8c_4* var0 = &arg0->unknown_1364_[arg2->unknown_e_ + 15];
     short var1;
     short var2;
-    func_ov003_0215ec68(arg2->unknown_e_, &var1, &var2);
+    GetButtonSize_ov003_0215ec68(arg2->unknown_e_, &var1, &var2);
     Struct_ov023_021e6b8c var3[3];
     for (int var4 = 0; var4 < 3; var4++) {
         var3[var4].unknown_0_ = 0;
@@ -101,7 +101,7 @@ extern "C" ARM void func_ov023_021e6b8c(Struct_ov023_021e6b8c_7* arg0, unsigned 
     SetCanvasCharacterData_0205b220(&var12, (int)arg0->unknown_137c_);
     SetCanvasRects_0205b228(&var12, (int)var3, 3);
     func_0205b734(&var12, 9, 9, (short)(var1 + 7), (short)(var2 + 7), 9);
-    func_0205b234(&var12, (short)(var11 + 8), 10, var10, 2, 1);
+    DrawCanvasText_0205b234(&var12, (short)(var11 + 8), 10, var10, 2, 1);
     CleanInvalidateCacheRange((const void*)(arg0->unknown_137c_), arg3);
     LoadToMainObjVRAM(arg0->unknown_137c_, arg1, arg3);
     CleanCacheRange(arg0->unknown_137c_, arg3);

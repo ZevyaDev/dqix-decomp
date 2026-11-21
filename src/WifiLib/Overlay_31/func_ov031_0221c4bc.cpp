@@ -20,7 +20,7 @@ typedef void (*Type_ov031_0221c49c)(int);
 typedef void (*Type_ov031_0221c49c_2)(int);
 extern Type_ov031_0221c49c data_ov031_0224f4c0;
 extern Type_ov031_0221c49c_2 data_ov031_0224f4cc;
-extern Struct_ov031_0224e6e0_2 data_ov031_0224e6e0;
+extern Struct_ov031_0224e6e0_2 gAOSSSession_ov031_0224e6e0;
 extern int data_ov031_0224b070;
 extern "C" void func_ov031_0221c49c(int);
 extern "C" void func_ov031_0221c4ac(int);
@@ -53,15 +53,15 @@ extern "C" THUMB int func_ov031_0221c4bc(Struct_ov031_0221c4bc* arg0) {
         func_ov031_0221cfdc();
         return -1;
     }
-    data_ov031_0224e6e0.unknown_14_ = inline_ov031_0221c4bc(0x5f8);
-    if (data_ov031_0224e6e0.unknown_14_ == 0) {
+    gAOSSSession_ov031_0224e6e0.unknown_14_ = inline_ov031_0221c4bc(0x5f8);
+    if (gAOSSSession_ov031_0224e6e0.unknown_14_ == 0) {
         arg0->unknown_116_ = 15;
         func_ov031_0221cfdc();
         return -1;
     }
     func_ov031_0221d384(-1);
     int var1 = func_ov031_0221c5ac(arg0);
-    func_ov031_0221c4ac((int)data_ov031_0224e6e0.unknown_14_);
+    func_ov031_0221c4ac((int)gAOSSSession_ov031_0224e6e0.unknown_14_);
     func_ov031_0221cfdc();
     if (data_ov031_0224b070 != -1)
         func_ov031_0221e5c8((void*)data_ov031_0224b070);

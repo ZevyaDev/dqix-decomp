@@ -50,7 +50,7 @@ struct Struct_020213fc;
 
 extern "C" void* func_0205ec34(void);
 extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
-extern "C" int func_0201081c(char* arg0);
+extern "C" int GetStoryProgress_0201081c(char* gameState);
 extern "C" struct Struct_ov004_0216aaec_2* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" struct Struct_ov004_0216aaec_3* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
@@ -85,7 +85,7 @@ extern "C" ARM int func_ov004_0216aaec(void* arg0) {
             var3++;
         }
     }
-    int var5 = func_0201081c((char*)var0);
+    int var5 = GetStoryProgress_0201081c((char*)var0);
 
     struct Struct_ov004_0216aaec_2* var6 = func_ov011_021845f8(arg0, 4);
     if (var6 == 0) {

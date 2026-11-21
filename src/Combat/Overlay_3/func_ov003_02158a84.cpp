@@ -4,9 +4,9 @@
 #include "Graphics/OBJSpriteSet.h"
 
 struct SpriteAnimationList_02043368;
-struct Struct_020e2490;
+struct YesNoWindow_020e2490;
 
-extern "C" void func_020e2490(Struct_020e2490* arg0, int arg1, int arg2, void* arg3, SafeAllocator* arg4, int arg5, unsigned char arg6);
+extern "C" void InitYesNoWindow_020e2490(YesNoWindow_020e2490* yesNoWindow, int isSubScreen, int displayWindowIndex, void* cursorAnimationList, SafeAllocator* allocator, int maxSpriteCount, unsigned char firstOAMIndex);
 
 struct Struct_ov003_02158a84 {
     SafeAllocator unknown_0_;
@@ -18,7 +18,7 @@ struct Struct_ov003_02158a84 {
     Sprite_02043368_2* unknown_ec_;
     SpriteAnimationList_02043368* unknown_f0_;
     char unknown_f4_[0x570 - 0xf4];
-    Struct_020e2490* unknown_570_;
+    YesNoWindow_020e2490* unknown_570_;
 };
 
 // USA: func_ov003_02158a84
@@ -38,10 +38,10 @@ extern "C" ARM void func_ov003_02158a84(Struct_ov003_02158a84* arg0, SafeAllocat
     arg0->unknown_f0_ = (SpriteAnimationList_02043368*)arg1->Allocate(8);
     ((OBJSpriteSet::List*)(arg0->unknown_f0_))->Reset();
     arg0->unknown_50_.Reset();
-    arg0->unknown_570_ = (Struct_020e2490*)arg0->unknown_50_.Allocate(0x24);
+    arg0->unknown_570_ = (YesNoWindow_020e2490*)arg0->unknown_50_.Allocate(0x24);
 #if defined(jpn)
-    func_020e2490(arg0->unknown_570_, 0, 1, arg0->unknown_f0_, &arg0->unknown_50_, 3, 0x40);
+    InitYesNoWindow_020e2490(arg0->unknown_570_, 0, 1, arg0->unknown_f0_, &arg0->unknown_50_, 3, 0x40);
 #else
-    func_020e2490(arg0->unknown_570_, 0, 1, arg0->unknown_f0_, &arg0->unknown_50_, 4, 0x40);
+    InitYesNoWindow_020e2490(arg0->unknown_570_, 0, 1, arg0->unknown_f0_, &arg0->unknown_50_, 4, 0x40);
 #endif
 }

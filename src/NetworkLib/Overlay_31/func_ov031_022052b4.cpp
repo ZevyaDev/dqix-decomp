@@ -22,8 +22,8 @@ struct Struct_ov031_022052b4_2 {
 };
 extern "C" int func_020c7fe0(void*, unsigned int*, int);
 extern "C" void func_ov031_02205174(int);
-extern "C" int func_020c7ea0(void*, unsigned int*, int);
-extern "C" int func_020c7e0c(void*, unsigned int, int);
+extern "C" int DequeueValue_020c7ea0(void*, unsigned int*, int);
+extern "C" int EnqueueValue_020c7e0c(void*, unsigned int, int);
 
 // USA: func_ov031_022052b4
 extern "C" ARM void func_ov031_022052b4(void* arg0) {
@@ -36,9 +36,9 @@ extern "C" ARM void func_ov031_022052b4(void* arg0) {
         var2 = var0->unknown_0_(var0);
         var1 = DisableIRQInterrupts();
         AddContextSwitchLock();
-        func_020c7ea0(arg0, NULL, 0);
+        DequeueValue_020c7ea0(arg0, NULL, 0);
         if (var0->unknown_4_) var0->unknown_4_->unknown_6c_ = var2;
-        if (var0->unknown_8_) func_020c7e0c(var0->unknown_8_, var2, 0);
+        if (var0->unknown_8_) EnqueueValue_020c7e0c(var0->unknown_8_, var2, 0);
         func_ov031_02205174((int)var0);
         RemoveContextSwitchLock();
         SetIRQInterruptState(var1);

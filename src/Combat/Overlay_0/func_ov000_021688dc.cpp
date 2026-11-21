@@ -114,7 +114,7 @@ extern "C" void* func_0203bd08(void);
 extern "C" void InitPartyMemberData_02082828(int memberData);
 extern "C" void func_020542b4(void* arg0, void* arg1, void* arg2);
 extern "C" void func_02048b0c(void* arg0, int arg1);
-extern "C" void func_02049c88(void* arg0, void* arg1);
+extern "C" void SetCombatantBattleState_02049c88(void* combatant, void* battleState);
 extern "C" void RemoveFromQueue_02046a8c(void* queue, void* node);
 extern "C" void InitFieldMonster_02076a8c(void* monster);
 extern "C" int func_ov000_02163c80(void* arg0, int arg1);
@@ -177,7 +177,7 @@ extern "C" void func_02039d58(unsigned char* arg0);
 extern "C" void func_020398a4(unsigned char* arg0);
 struct Struct_02033834;
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
-extern "C" int func_ov017_0218fcf8(int arg0, int arg1, int arg2);
+extern "C" int TintPartyMemberPalettes_ov017_0218fcf8(int gameResources, int memberIndex, int color);
 extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 extern "C" void func_02039758(void* arg0, int arg1);
 
@@ -190,7 +190,7 @@ extern "C" void func_02053ec8(void* arg0, int arg1);
 
 struct Struct_02010604;
 extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
-extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
+extern "C" GameObject* FindFieldMonsterById_ov017_021a278c(void* gameResources, int fieldMonsterId);
 
 struct TextureVRAMArea_0203d028;
 extern "C" void func_02072d58(int arg0, char* arg1, char* arg2);
@@ -389,7 +389,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
 
                 var36->obj3D_.unknown_9c_ = 0;
                 var36->obj3D_.SetField9e(0);
-                func_ov017_0218fcf8(var10, var35, 0);
+                TintPartyMemberPalettes_ov017_0218fcf8(var10, var35, 0);
                 ResetFollowTrail_02039d24((unsigned char*)var36);
                 func_020398a4((unsigned char*)var36);
                 func_02039758(var36, 0);
@@ -425,7 +425,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
     int var40 = 0;
     if (!IsLocalWirelessOn_0202b7d8((int*)var11) ||
         GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var11) == 0) {
-        GameObject* var41 = func_ov017_021a278c((void*)var10,
+        GameObject* var41 = FindFieldMonsterById_ov017_021a278c((void*)var10,
             *(unsigned short*)(*(unsigned char**)(arg0 + Enum_ov000_021688dc_672) + 8));
         if (var41 != NULL) {
             if (func_ov000_02163c80(arg0, 0) != 0) {
@@ -473,7 +473,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
             if (*(int**)((char*)var44 + 0x13c) != NULL) {
                 **(int**)((char*)var44 + 0x13c) = 0;
             }
-            func_02049c88(var44, NULL);
+            SetCombatantBattleState_02049c88(var44, NULL);
             *((unsigned char*)var44 + 0xc2) &= ~0x20;
             AttachPartyMemberWeapon_ov017_021917f0(var7[var43], 0);
         }

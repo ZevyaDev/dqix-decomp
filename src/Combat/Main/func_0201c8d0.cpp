@@ -14,6 +14,6 @@ extern "C" ARM int func_0201c8d0(Script::Parameter* arg0, int arg1) {
         var0.directionBitmasks[var2] = arg0->ToInt();
         arg0++;
     }
-    data_020fdc20.unknown_8_->func_0201e3c4(var0);
+    gZoneFeatureScriptContext_020fdc20.unknown_8_->func_0201e3c4(var0);
     return 1;
 }

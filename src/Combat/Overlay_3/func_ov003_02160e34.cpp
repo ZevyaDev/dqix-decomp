@@ -26,7 +26,7 @@ int IsSubBrightnessTransitionActive(GameResources*);
 extern "C" void func_ov003_02167370(void* arg0);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
-extern "C" void func_020dc2d0(int);
+extern "C" void RestartMapDisplay_020dc2d0(int);
 
 struct Struct_ov003_02160e34 {
 	char unknown_0_[Enum_ov003_02160e34_792];
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov003_02160e34(struct Struct_ov003_02160e34* arg0) {
 	arg0->unknown_4a8_ = 0;
 	var0 = 1;
 	ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var1, 0x41);
-	func_020dc2d0(0);
+	RestartMapDisplay_020dc2d0(0);
 	arg0->unknown_464_ &= ~0x800;
 end:
 	return var0;

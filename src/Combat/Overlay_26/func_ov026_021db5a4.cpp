@@ -115,7 +115,7 @@ struct Struct_ov026_021de6a0 {
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 void SetMainBrightness(GameResources*, int, int);
-extern "C" void func_0205eb54(void* arg0, int arg1, int arg2);
+extern "C" void LoadExtraSoundSet_0205eb54(void* manager, int soundSetToLoad, int soundSet);
 extern "C" void PlayExtraSoundEffect_0205eb90(void* manager, int soundEffectIndex, int handle);
 extern "C" void UnloadExtraSoundSet_0205eb80(void* manager);
 extern "C" void InitEffectParams_02078484(EffectParams_02078398_2* params);
@@ -190,7 +190,7 @@ extern "C" ARM void func_ov026_021db5a4(BattleScene_ov000_02160da0* arg0) {
         }
     } else if (arg0->unknown_7712_ == 2) {
         EffectParams_02078398_2 var9;
-        func_0205eb54(gSoundEffectManager_02108760, 0x1b3, 0x1b3);
+        LoadExtraSoundSet_0205eb54(gSoundEffectManager_02108760, 0x1b3, 0x1b3);
         PlayExtraSoundEffect_0205eb90(gSoundEffectManager_02108760, 1, 0);
         arg0->unknown_7711_ = 1;
         SetObjectsVisibleBySelector_ov000_021626a0(arg0, 0x26, 0);
@@ -261,7 +261,7 @@ extern "C" ARM void func_ov026_021db5a4(BattleScene_ov000_02160da0* arg0) {
         func_ov000_02163894(arg0);
         func_ov000_021636ac(arg0);
         arg0->unknown_7712_ = 6;
-        func_0205eb54(gSoundEffectManager_02108760, 0x1b3, 0x1b3);
+        LoadExtraSoundSet_0205eb54(gSoundEffectManager_02108760, 0x1b3, 0x1b3);
         PlayExtraSoundEffect_0205eb90(gSoundEffectManager_02108760, 2, 0);
         arg0->unknown_7711_ = 1;
     } else if (arg0->unknown_7712_ == 6) {

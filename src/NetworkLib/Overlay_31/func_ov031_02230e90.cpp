@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" signed char func_ov031_02237e9c(void);
+extern "C" signed char GetDialogChoice_ov031_02237e9c(void);
 extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int soundEffectIndex);
 extern "C" void func_ov031_02237e58(void);
 extern "C" void* func_ov031_02235060(int arg0);
@@ -16,7 +16,7 @@ extern "C" void func_ov031_02230ed0(void);
 
 // USA: func_ov031_02230e90
 extern "C" ARM void func_ov031_02230e90(void) {
-    if (func_ov031_02237e9c() != 0) {
+    if (GetDialogChoice_ov031_02237e9c() != 0) {
         return;
     }
     PlayWifiSetupSoundEffect_ov031_02236878(6);

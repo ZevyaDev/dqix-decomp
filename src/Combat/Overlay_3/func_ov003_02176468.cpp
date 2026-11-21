@@ -28,8 +28,8 @@ struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
-struct Struct_020e280c;
-extern "C" void func_020e280c(struct Struct_020e280c* arg0, void* arg1);
+struct YesNoWindow_020e280c;
+extern "C" void OpenYesNoWindow_020e280c(struct YesNoWindow_020e280c* yesNoWindow, void* objVRAMEnd);
 
 // USA: func_ov003_02176468
 extern "C" ARM void func_ov003_02176468(unsigned char* arg0) {
@@ -44,5 +44,5 @@ extern "C" ARM void func_ov003_02176468(unsigned char* arg0) {
         return;
     }
     func_02080c04(*(struct MenuLayout_0207fdcc_2**)(arg0 + Enum_ov003_02176468_2204), *(short*)(arg0 + Enum_ov003_02176468_4094));
-    func_020e280c((struct Struct_020e280c*)(*(void**)arg0), (void*)-1);
+    OpenYesNoWindow_020e280c((struct YesNoWindow_020e280c*)(*(void**)arg0), (void*)-1);
 }

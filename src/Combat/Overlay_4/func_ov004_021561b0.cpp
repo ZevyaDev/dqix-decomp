@@ -62,7 +62,7 @@ struct Struct_ov004_021561b0 {
     char unknown_24_[0x104 - 0x24];
     short unknown_104_, unknown_106_;
 };
-struct Struct_ov004_02153e20 {
+struct MenuGrid_ov004_02153e20 {
     char unknown_0_[0x5c];
     short unknown_5c_, unknown_5e_;
     unsigned char unknown_60_;
@@ -90,10 +90,10 @@ extern "C" void* GetMessageWindow_020421a0();
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void func_02046608(void*, int, void*, char*, int, int, unsigned char);
 extern "C" char* func_020d2f88(char*, char*);
-extern "C" void func_ov023_021f9b30(Struct_ov004_02153e20*, short, unsigned int, unsigned int);
-typedef void (*Type_ov004_021561b0)(Struct_ov004_02153e20*, unsigned short, unsigned int, unsigned int);
+extern "C" void SetMenuGridCell_ov023_021f9b30(MenuGrid_ov004_02153e20*, short, unsigned int, unsigned int);
+typedef void (*Type_ov004_021561b0)(MenuGrid_ov004_02153e20*, unsigned short, unsigned int, unsigned int);
 typedef void (*Type_ov004_021561b0_2)(char*, unsigned short, unsigned short);
-extern "C" void func_ov023_021f9d14(Struct_ov004_02153e20*, void*);
+extern "C" void func_ov023_021f9d14(MenuGrid_ov004_02153e20*, void*);
 extern "C" void func_ov023_021f8960(char*, short, unsigned short);
 extern "C" void RedrawMenuWindow_ov023_021f809c(void*, void*);
 extern "C" int func_ov004_021560e8(void*);
@@ -102,7 +102,7 @@ extern "C" int func_ov004_021560e8(void*);
 extern "C" ARM int func_ov004_021561b0(void* arg0) {
     void* var0 = GetMenuObjectList_ov011_021849c8(arg0);
     short var1;
-    Struct_ov004_02153e20* var2 = (Struct_ov004_02153e20*)FindMenuObjectById_ov023_021f6880(var0, 3);
+    MenuGrid_ov004_02153e20* var2 = (MenuGrid_ov004_02153e20*)FindMenuObjectById_ov023_021f6880(var0, 3);
     if (!var2) return 0;
     if (func_ov023_021f6f10(var2) != 7) return 0;
     var1 = var2->unknown_5c_;
@@ -142,15 +142,15 @@ extern "C" ARM int func_ov004_021561b0(void* arg0) {
             var12->inline_ov004_021561b0_23(&var17);
             char* var19 = data_ov004_021707c8.unknown_0_->unknown_0_[var10].unknown_0_;
             memcpy(var19, var8->unknown_f00_.unknown_0_, 0x100);
-            ((Type_ov004_021561b0)func_ov023_021f9b30)(var2, (unsigned short)var11, (unsigned short)(var10 >> 1), var10 & 1);
+            ((Type_ov004_021561b0)SetMenuGridCell_ov023_021f9b30)(var2, (unsigned short)var11, (unsigned short)(var10 >> 1), var10 & 1);
             var12->unknown_20_ = var19;
             var7++;
         } else {
-            func_ov023_021f9b30(var2, 0, (unsigned short)(var10 >> 1), var10 & 1);
+            SetMenuGridCell_ov023_021f9b30(var2, 0, (unsigned short)(var10 >> 1), var10 & 1);
             var12->unknown_c_ |= 8;
         }
     }
-    if (var7 == 0) func_ov023_021f9b30(var2, 0x6e, 0, 0);
+    if (var7 == 0) SetMenuGridCell_ov023_021f9b30(var2, 0x6e, 0, 0);
     func_ov023_021f9d14(var2, arg0);
     var2->unknown_61_ = 0;
     Struct_ov004_021561b0* var20 = (Struct_ov004_021561b0*)FindMenuObjectById_ov023_021f6880(var0, 0x33);

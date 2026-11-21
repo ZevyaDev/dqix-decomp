@@ -210,7 +210,7 @@ extern "C" void InitEffectParams_02078484(struct EffectParams_02078398_2* params
 extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 extern "C" int func_02085078(unsigned char* arg0);
 extern "C" int func_020850a4(unsigned char* arg0);
-extern "C" int func_ov000_0215fd90(void* arg0, int arg1);
+extern "C" int HasActionResultFlag_ov000_0215fd90(void* result, int flagIndex);
 extern "C" void func_02032fd0(Struct_02032fd0* arg0, short arg1, unsigned short arg2);
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* GetBattleUI_ov000_02160f08(void* battleScene);
@@ -683,15 +683,15 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         var23 = 1;
     }
 
-    if (func_ov000_0215fd90(var49, 0xc)) {
+    if (HasActionResultFlag_ov000_0215fd90(var49, 0xc)) {
         if (arg1->unknown_0_ != 0x150) {
             var15 = 1;
             var16 = 0x19;
             var46 |= 3;
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x3b, 0);
         }
-    } else if (func_ov000_0215fd90(var49, 9) || func_ov000_0215fd90(var49, 0xa)) {
-        if (func_ov000_0215fd90(var49, 9)) {
+    } else if (HasActionResultFlag_ov000_0215fd90(var49, 9) || HasActionResultFlag_ov000_0215fd90(var49, 0xa)) {
+        if (HasActionResultFlag_ov000_0215fd90(var49, 9)) {
             int var80 = 0;
             struct Struct_ov025_021d8c30_3* var81 = arg1->unknown_14_;
             for (int var82 = 0; var82 < arg1->unknown_9_; var82++) {
@@ -713,7 +713,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
             }
         }
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x3a, 0);
-    } else if (func_ov000_0215fd90(var49, 6)) {
+    } else if (HasActionResultFlag_ov000_0215fd90(var49, 6)) {
         if (arg1->unknown_0_ != 0x1df) {
             var15 = 1;
             var16 = 0x1c;
@@ -722,14 +722,14 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         var59->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef3ef, 0x10);
         var10 = 0;
         var23 = 1;
-    } else if (func_ov000_0215fd90(var49, 4) || func_ov000_0215fd90(var49, 5) || func_ov000_0215fd90(var49, 0x26)) {
-        if (!func_ov000_0215fd90(var49, 0xd)) {
+    } else if (HasActionResultFlag_ov000_0215fd90(var49, 4) || HasActionResultFlag_ov000_0215fd90(var49, 5) || HasActionResultFlag_ov000_0215fd90(var49, 0x26)) {
+        if (!HasActionResultFlag_ov000_0215fd90(var49, 0xd)) {
             if (inline_ov000_02169850(var48)) {
                 PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x36, 0);
             } else {
                 PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x37, 0);
             }
-            if (func_ov000_0215fd90(var49, 5)) {
+            if (HasActionResultFlag_ov000_0215fd90(var49, 5)) {
                 if (!var10) {
                     var59->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef3d0, 1);
                 }
@@ -739,7 +739,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         }
     }
 
-    if (func_ov000_0215fd90(var49, 0x2b)) {
+    if (HasActionResultFlag_ov000_0215fd90(var49, 0x2b)) {
         var59->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef3f5, 1);
     }
 
@@ -748,19 +748,19 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
     void* var88 = 0;
     if (var28) var87 = GetBattleUI_ov000_02160f08(var28);
     if (var87) var88 = func_ov025_021dafd0((char*)var87, var48);
-    if (func_ov000_0215fd90(var49, 0x2d) && var88) {
+    if (HasActionResultFlag_ov000_0215fd90(var49, 0x2d) && var88) {
         *(unsigned int*)((unsigned char*)var88 + 0x28) &= ~0x100;
         func_ov000_0217616c(var88);
     }
-    if (func_ov000_0215fd90(var49, 0x27)) {
+    if (HasActionResultFlag_ov000_0215fd90(var49, 0x27)) {
         func_0204a00c((unsigned char*)var59, (int)var49);
     }
     if ((var49->unknown_18_ & 0x80000) && var49->unknown_1d_ == 0xa) {
         func_0204a00c((unsigned char*)var59, (int)var49);
     }
-    if (func_ov000_0215fd90(var49, 0x23) || func_ov000_0215fd90(var49, 7)) {
+    if (HasActionResultFlag_ov000_0215fd90(var49, 0x23) || HasActionResultFlag_ov000_0215fd90(var49, 7)) {
         int var89 = 0;
-        if (func_ov000_0215fd90(var49, 7)) {
+        if (HasActionResultFlag_ov000_0215fd90(var49, 7)) {
             var89 = 0x64;
         } else if (var49->unknown_c_ == 1) {
             var89 = 5;
@@ -774,7 +774,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         func_0203a48c(var4, var89, (Struct_0203a48c_2*)&var90, 4, 0, 0);
     }
 
-    if (func_ov000_0215fd90(var49, 3)) {
+    if (HasActionResultFlag_ov000_0215fd90(var49, 3)) {
         func_02049f28((unsigned char*)var59);
         var59->obj3D_.MakeVisible();
         var59->obj3D_.SetInheritedAlpha(0x1f);
@@ -799,7 +799,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         }
         SetMotion_02033b88((struct Struct_02010604*)var59, 0);
         var59->obj3D_.SkipAnimationTransition();
-    } else if (func_ov000_0215fd90(var49, 0xd)) {
+    } else if (HasActionResultFlag_ov000_0215fd90(var49, 0xd)) {
         if (IsCombatantOnBattlefield_02049ee8((unsigned char*)var59)) {
             SetMotion_02033b88((struct Struct_02010604*)var59, 4);
         }
@@ -817,7 +817,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x42, 0);
         }
         var20 = 1;
-    } else if (func_ov000_0215fd90(var49, 0x24)) {
+    } else if (HasActionResultFlag_ov000_0215fd90(var49, 0x24)) {
         var59->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef3fc, 0);
         var59->obj3D_.TransitionInheritedAlpha(0, 0x1f4);
         func_ov000_02167434(arg0, var59->obj3D_.GetTexturePaletteOffset());
@@ -843,25 +843,25 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         func_ov025_021ed444((char*)(arg0 + Enum_ov025_021d8c30_2192), arg1->unknown_22_, -1, 0, 0, -1, 0);
         arg1->unknown_22_ = 0;
     }
-    if (func_ov000_0215fd90(var49, 8)) {
+    if (HasActionResultFlag_ov000_0215fd90(var49, 8)) {
         SetCombatantAppearanceFlags_ov017_02191aac(var2, 0, var59->obj3D_.unknown_4_, 4);
         if (!var9) var22 = 1;
     }
-    if (func_ov000_0215fd90(var49, 0x2c)) {
+    if (HasActionResultFlag_ov000_0215fd90(var49, 0x2c)) {
         SetCombatantAppearanceFlags_ov017_02191aac(var2, 1, var59->obj3D_.unknown_4_, 2);
     }
-    if (func_ov000_0215fd90(var49, 0x28)) {
+    if (HasActionResultFlag_ov000_0215fd90(var49, 0x28)) {
         SetCombatantAppearanceFlags_ov017_02191aac(var2, 0, var59->obj3D_.unknown_4_, 2);
     }
 
     var52 = 0;
-    if ((arg1->unknown_0_ == 1 || arg1->unknown_0_ == 2 || arg1->unknown_0_ == 0xdb) && func_ov000_0215fd90(var49, 0x2a)) {
+    if ((arg1->unknown_0_ == 1 || arg1->unknown_0_ == 2 || arg1->unknown_0_ == 0xdb) && HasActionResultFlag_ov000_0215fd90(var49, 0x2a)) {
         var52 = 1;
     }
 
-    if (func_ov000_0215fd90(var49, 1) && !func_ov000_0215fd90(var49, 0x29)) {
+    if (HasActionResultFlag_ov000_0215fd90(var49, 1) && !HasActionResultFlag_ov000_0215fd90(var49, 0x29)) {
         var29 = var49->unknown_c_;
-        if (func_ov000_0215fd90(var49, 2)) {
+        if (HasActionResultFlag_ov000_0215fd90(var49, 2)) {
             SetMotion_02033b88((struct Struct_02010604*)var59, 4);
             func_020d7334((unsigned char*)var5, var48);
             func_02049f3c((unsigned char*)var59);
@@ -966,7 +966,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         Vector3fix var104 = var59->obj3D_.position_;
         var104.y += var59->obj3D_.GetHeight();
         int var105 = 0;
-        if (func_ov000_0215fd90(var49, 0x2a)) var105 = 1;
+        if (HasActionResultFlag_ov000_0215fd90(var49, 0x2a)) var105 = 1;
         func_0203a48c(var4, var29, (Struct_0203a48c_2*)&var104, var105, inline_ov025_021d8c30(arg5), inline_ov025_021d8c30_2(arg5));
         if (!arg1->unknown_b_4_ && arg0[Enum_ov025_021d8c30_28238] != 4) {
             func_ov000_021823dc(arg0 + Enum_ov025_021d8c30_28668, arg1->unknown_b_5_);
@@ -975,9 +975,9 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         var15 = 1;
     }
 
-    if (func_ov000_0215fd90(var49, 0x25) || func_ov000_0215fd90(var49, 0x22)) {
+    if (HasActionResultFlag_ov000_0215fd90(var49, 0x25) || HasActionResultFlag_ov000_0215fd90(var49, 0x22)) {
         int var106 = 2;
-        if (func_ov000_0215fd90(var49, 0x22)) var106 = 3;
+        if (HasActionResultFlag_ov000_0215fd90(var49, 0x22)) var106 = 3;
         var35 = -var49->unknown_c_;
         Vector3fix var107 = var59->obj3D_.position_;
         if (arg2 == 0) {
@@ -1104,7 +1104,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
                 }
             }
             if (var50 && (var50->unknown_14_[1] == 8 || var50->unknown_14_[1] == 7 || var50->unknown_14_[1] == 6)) {
-                if (var49 && (func_ov000_0215fd90(var49, 0x22) || func_ov000_0215fd90(var49, 0x2a))) {
+                if (var49 && (HasActionResultFlag_ov000_0215fd90(var49, 0x22) || HasActionResultFlag_ov000_0215fd90(var49, 0x2a))) {
                     short var130 = var49->unknown_10_;
                     func_ov000_02176150((struct Struct_ov000_021537b8_6*)var128, var130);
                     *(short*)(var128 + 0xe) = var130;

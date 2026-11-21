@@ -5,8 +5,8 @@ struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0;
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 
-struct Struct_0204c610;
-extern "C" void func_0204c610(struct Struct_0204c610* arg0, int arg1, short* arg2, short* arg3, short* arg4, short* arg5);
+struct TextWindow_0204c610;
+extern "C" void GetTextWindowEntryRect_0204c610(struct TextWindow_0204c610* textWindow, int entryIndex, short* outX, short* outY, short* outWidth, short* outHeight);
 
 // USA: func_ov013_021842a0
 extern "C" ARM int func_ov013_021842a0(void* arg0, int arg1) {
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov013_021842a0(void* arg0, int arg1) {
     short var2 = *(short*)((char*)var0 + 0xae);
 
     short var3, var4, var5, var6;
-    func_0204c610((struct Struct_0204c610*)var0, (short)arg1, &var3, &var4, &var5, &var6);
+    GetTextWindowEntryRect_0204c610((struct TextWindow_0204c610*)var0, (short)arg1, &var3, &var4, &var5, &var6);
 
     return g_touchInput.TestHoldInRectangle(var3 + (short)(var1 << 3), var4 + (short)(var2 << 3), var5, var6);
     }

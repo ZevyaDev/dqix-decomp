@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
-extern "C" int func_ov001_0215ad2c(int arg0);
+extern "C" int ResolveEventObjectIndex_ov001_0215ad2c(int scriptObjectId);
 extern "C" void func_ov001_0215acb4(void* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_ov001_02164214(void* arg0, int arg1, int arg2, int arg3, int arg4);
@@ -23,7 +23,7 @@ extern "C" ARM int func_ov001_0215bdd0(char* arg0) {
     int var2 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     var1 = GetScriptValueAsInt_ov017_021d60f4(arg0 + 0x8);
     int var3 = GetScriptValueAsInt_ov017_021d60f4(arg0 + 0x10);
-    var1 = func_ov001_0215ad2c(var1);
+    var1 = ResolveEventObjectIndex_ov001_0215ad2c(var1);
 
     func_ov001_0215acb4(data_ov001_02165880.unknown_4_ + (var2 << 4));
 

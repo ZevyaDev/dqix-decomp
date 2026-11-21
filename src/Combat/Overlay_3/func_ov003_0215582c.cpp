@@ -138,8 +138,8 @@ extern "C" struct Struct_ov003_0215582c_10* FindItemData_020dedd0(struct ItemTab
 extern "C" void SetEquippedItem_02052d7c(void* gameObject, int slot, int itemId);
 extern "C" int RemoveEquipmentFromBag_0207c484(struct EquipmentBag_0207c484* bag, int itemId, int count, int category);
 extern "C" short* GetAppearance_02052e2c(struct Struct_02052e2c* gameObject);
-extern "C" void func_02083738(void* arg0, int arg1);
-extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
+extern "C" void UnequipCategory_02083738(void* memberData, int arg1);
+extern "C" void SetLevelStats_02083cbc(void* memberData, void* arg1, void* arg2);
 extern "C" void LearnSpell_02083b60(unsigned char* memberData, int spellId);
 extern "C" void* func_0202ae18(void);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
@@ -285,7 +285,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
                 }
                 if (var9[data_ov003_0217f2bc[var24]] != -1) {
                     struct Struct_ov003_0215582c* var30 = func_02053c6c((unsigned char*)var2);
-                    func_02083738(var30, var27);
+                    UnequipCategory_02083738(var30, var27);
                     var30->unknown_2f4_[var24].unknown_0_[0] = 0;
                     var30->unknown_2f4_[var24].unknown_0_[1] = 0;
                     var30->unknown_2f4_[var24].unknown_0_[2] = 0;
@@ -303,7 +303,7 @@ extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
         }
     }
 
-    func_02083cbc(var3, arg0->unknown_90_, arg0->unknown_cc_);
+    SetLevelStats_02083cbc(var3, arg0->unknown_90_, arg0->unknown_cc_);
     switch (func_ov003_02156034(arg0)) {
     case 2:
         LearnSpell_02083b60((unsigned char*)var3, 0x1a);

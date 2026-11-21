@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-extern "C" void func_020dc2d0(int arg0);
+extern "C" void RestartMapDisplay_020dc2d0(int modeOverride);
 
 // USA: func_ov023_021fbb48
 extern "C" ARM void func_ov023_021fbb48() {
-    func_020dc2d0(0);
+    RestartMapDisplay_020dc2d0(0);
 }

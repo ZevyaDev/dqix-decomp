@@ -9,7 +9,7 @@ extern unsigned char g_fileScratchSpace[0x30000] __attribute__((aligned(4)));
 struct Struct_ov001_0215b72c { char unknown_0_[8]; };
 extern "C" const char* GetScriptValueAsString_ov017_021d612c(Struct_ov001_0215b72c*);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(Struct_ov001_0215b72c*);
-extern "C" int func_ov001_0215ad2c(int);
+extern "C" int ResolveEventObjectIndex_ov001_0215ad2c(int);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern SafeAllocator* data_ov001_021658b8[];
 extern const char data_ov001_0216572d[];
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov001_0215ca4c(Struct_ov001_0215b72c* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     const char* var2 = GetScriptValueAsString_ov017_021d612c(arg0++);
-    int var3 = func_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(arg0++));
+    int var3 = ResolveEventObjectIndex_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4(arg0++));
     int var4 = var3;
     int var5 = 0;
     if (arg1 >= 3) var5 = GetScriptValueAsInt_ov017_021d60f4(arg0);

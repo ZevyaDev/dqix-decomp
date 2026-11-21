@@ -9,7 +9,7 @@ extern "C" unsigned int func_ov023_021f6f10(void* arg0);
 extern "C" int func_ov024_021f6f10(void* arg0);
 #define NODE_KIND_CALL func_ov024_021f6f10
 #endif
-extern "C" int func_ov023_021f9bc8(void*);
+extern "C" int GetMenuGridCursorIndex_ov023_021f9bc8(void*);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void*, int);
 
 struct AccoladeEntry_020a15bc_2 { unsigned int id_0_0_ : 9; unsigned int unknown_1_1_ : 23; unsigned int unknown_4_; unsigned int unknown_8_; };
@@ -37,7 +37,7 @@ extern "C" ARM int func_ov004_021560e8(void* arg0) {
 #else
     short var2 = (short)(var1 * 12);
 #endif
-    int var3 = func_ov023_021f9bc8(var0) + var2;
+    int var3 = GetMenuGridCursorIndex_ov023_021f9bc8(var0) + var2;
 
     short var4 = data_ov004_021707c8.unknown_8_[var3];
     struct AccoladeEntry_020a15bc_2* var5 = FindAccolade_020a15bc(data_ov004_021707c8.unknown_c_, var4);

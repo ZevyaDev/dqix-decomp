@@ -78,7 +78,7 @@ extern "C" void func_ov017_0218d7b0(unsigned char* arg0, char* arg1);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov016_0218b5c0(int arg0, signed char arg1);
-extern "C" void func_ov017_0218b5f8(signed char arg0);
+extern "C" void RequestPartyMemberPanelRedraw_ov017_0218b5f8(signed char memberIndex);
 struct Queue_02038598_5;
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void func_ov017_021a5ab0(void* arg0);
@@ -98,7 +98,7 @@ extern "C" unsigned char* GetQuestManager_02094d6c();
 struct Struct_02065990_3;
 extern "C" int func_020965ac(Struct_02065990_3*, unsigned char);
 extern "C" void GetCurrentDate_020cf0fc(int);
-extern "C" void func_020cf1a8(int);
+extern "C" void GetCurrentTime_020cf1a8(int);
 struct MusicManager_02109bf4_2;
 extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
 extern "C" void func_0208be94(unsigned char*);
@@ -315,7 +315,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                         if (var18 == 2) {
                             var17 = -1;
                             func_ov016_0218b5c0(1, var17);
-                            func_ov017_0218b5f8(var17);
+                            RequestPartyMemberPanelRedraw_ov017_0218b5f8(var17);
                         }
                     }
                     if (var17 >= 0xa && var17 <= 0x32) {
@@ -323,14 +323,14 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                         int var20 = var19 >= 0 && var19 <= 3;
                         if (var20) {
                             func_ov016_0218b5c0(1, var19);
-                            func_ov017_0218b5f8(var19);
+                            RequestPartyMemberPanelRedraw_ov017_0218b5f8(var19);
                         }
                         var17 = var17 - (var19 + 1) * 0xa;
                     }
                     int var21 = var17 >= 0 && var17 <= 3;
                     if (var21) {
                         func_ov016_0218b5c0(1, var17);
-                        func_ov017_0218b5f8(var17);
+                        RequestPartyMemberPanelRedraw_ov017_0218b5f8(var17);
                         unsigned char* var22 = ((unsigned char*)GetGameResources());
                         if (IsTypeInQueue_02046b60((Queue_02038598_5*)(*(void**)(var22 + REGION_VALUE(0x34ec, 0x36fc))), 0xc) != 0) {
                             func_ov017_021a5ab0(*(void**)(var22 + REGION_VALUE(0x350c, 0x371c)));
@@ -489,7 +489,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
                     unsigned char* var38 = GetQuestManager_02094d6c();
                     int var39 = func_020965ac((Struct_02065990_3*)var38, (unsigned char)*(short*)(var0 + REGION_VALUE(0x1776, 0x1948)));
                     GetCurrentDate_020cf0fc((int)&var6);
-                    func_020cf1a8((int)&var7);
+                    GetCurrentTime_020cf1a8((int)&var7);
                     var3.unknown1_0_.unknown_0_0_ = var6.unknown_0_;
                     var3.unknown1_0_.unknown_0_7_ = var6.unknown_4_;
                     var3.unknown1_0_.unknown_1_3_ = var6.unknown_8_;

@@ -41,7 +41,7 @@ extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*,int);
 extern "C" int func_02053c6c(unsigned char*);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*,int,int);
-extern "C" void func_0203c108(Struct_0203c108_3*,char*);
+extern "C" void SetSpriteText_0203c108(Struct_0203c108_3*,char*);
 extern "C" int func_ov000_0217ab48(void*);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*,int);
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
@@ -76,7 +76,7 @@ extern "C" ARM int func_ov000_0217ae90(Struct_ov000_021682ec_5* arg0)
             var2->unknown_15_=0;var2->unknown_19_=-1;var2->unknown_26_=-1;var2->unknown_1e_=1;
             if(func_ov000_0217c2a0(arg0)){
                 var2->unknown_8_[var2->unknown_10_]=100;
-                func_0203c108((Struct_0203c108_3*)arg0->unknown_50_,(char*)((int)((StringList*)(arg0->unknown_4_))->GetString(0x7534)));
+                SetSpriteText_0203c108((Struct_0203c108_3*)arg0->unknown_50_,(char*)((int)((StringList*)(arg0->unknown_4_))->GetString(0x7534)));
             }
             return var2->unknown_8_[var2->unknown_10_];
         case 1:
@@ -94,7 +94,7 @@ extern "C" ARM int func_ov000_0217ae90(Struct_ov000_021682ec_5* arg0)
         case 2:
             arg0->unknown_43d_=arg0->unknown_8_.unknown_8_[arg0->unknown_8_.unknown_10_];var2->unknown_1e_=3;
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760,1,0);
-            func_0203c108((Struct_0203c108_3*)arg0->unknown_50_,(char*)((int)((StringList*)(arg0->unknown_4_))->GetString(0x7536)));
+            SetSpriteText_0203c108((Struct_0203c108_3*)arg0->unknown_50_,(char*)((int)((StringList*)(arg0->unknown_4_))->GetString(0x7536)));
             var2->unknown_10_++;var2->unknown_8_[var2->unknown_10_]=100;
             return var2->unknown_8_[var2->unknown_10_];
         case 3:

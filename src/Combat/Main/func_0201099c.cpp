@@ -197,9 +197,9 @@ extern "C" void func_020de848(void* itemTable);
 extern "C" int LoadItemTableByCategories_020dea64(void* itemTable, void* allocator, void* fileData, unsigned int fileSize, const void* categories, short categoryCount);
 extern "C" void* ClearLevelEntries_0208247c(void* levelEntries);
 extern "C" void InitPartyMemberData_02082828(Struct_0201099c_13* memberData);
-extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
+extern "C" void SetLevelStats_02083cbc(void* memberData, void* arg1, void* arg2);
 extern "C" ItemData_0201099c_9* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
-extern "C" void func_02083e28(void* arg0, int arg1);
+extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
 
 extern AllocatorUnion gMainHeap_02114e20;
 extern char data_020ef08c[];
@@ -456,7 +456,7 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
                         var43 = &var32;
                         Struct_0201099c_11* var49 = &var43->unknown_3c_;
                         InitPartyMemberData_02082828(var43);
-                        func_02083cbc(var43, &var1, var1.unknown_3c_);
+                        SetLevelStats_02083cbc(var43, &var1, var1.unknown_3c_);
                         short* var50 = var4->unknown_160_.unknown_0_;
                         for (int var51 = 0; var51 < 8; var51++) {
                             ItemData_0201099c_9* var52 = FindItemData_020dedd0(&var40, var50[inline_0201099c_2(var51)->unknown_0_]);
@@ -464,7 +464,7 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
                                 memcpy(&var32.unknown_194_[inline_0201099c_2(var51)->unknown_1_], var52, sizeof(ItemData_0201099c_9));
                             }
                         }
-                        func_02083e28(&var32, 0);
+                        CalculatePartyMemberStats_02083e28(&var32, 0);
                         var4->unknown_14c_[0].unknown_0_0_ = var43->unknown_0_[0].unknown_0_0_;
                         var4->unknown_14c_[0].unknown_1_2_ = var43->unknown_0_[0].unknown_1_2_;
                         var4->unknown_14c_[0].unknown_2_4_ = var43->unknown_0_[0].unknown_2_4_;

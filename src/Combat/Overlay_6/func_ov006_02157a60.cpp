@@ -20,8 +20,8 @@
 
 struct BGLayer_02020cb8;
 struct Struct_ov006_021536e0;
-struct Struct_02081ee4;
-struct Struct_02081ee4_2;
+struct KeyRepeat_02081ee4;
+struct RepeatedKey_02081ee4_2;
 struct Struct_02071be8;
 struct StringTable_0201099c_14;
 struct Struct_ov006_02157a60_2;
@@ -30,7 +30,7 @@ extern "C" void* func_0205ec34();
 extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void func_ov006_021536e0(Struct_ov006_021536e0*);
-extern "C" void func_02081ee4(Struct_02081ee4*, Struct_02081ee4_2*);
+extern "C" void InitKeyRepeat_02081ee4(KeyRepeat_02081ee4*, RepeatedKey_02081ee4_2*);
 extern "C" void func_ov023_021e20c0(void*);
 extern "C" void func_02071be8(Struct_02071be8*);
 extern "C" void func_ov006_02157c78(Struct_ov006_02157a60_2*);
@@ -184,7 +184,7 @@ extern "C" ARM void func_ov006_02157a60(Struct_ov006_02157a60* arg0)
     arg0->unknown_50_ = 0;
     ((BGLayer*)((BGLayer_02020cb8*)&arg0->unknown_54_))->Reset();
     func_ov006_021536e0((Struct_ov006_021536e0*)arg0->unknown_74_);
-    func_02081ee4((Struct_02081ee4*)arg0->unknown_9c_, (Struct_02081ee4_2*)&arg0->unknown_a8_);
+    InitKeyRepeat_02081ee4((KeyRepeat_02081ee4*)arg0->unknown_9c_, (RepeatedKey_02081ee4_2*)&arg0->unknown_a8_);
     ((OBJSpriteSet*)((char*)arg0->unknown_ac_))->Reset();
     func_ov023_021e20c0(arg0->unknown_100_);
     func_02071be8((Struct_02071be8*)arg0->unknown_14c_);

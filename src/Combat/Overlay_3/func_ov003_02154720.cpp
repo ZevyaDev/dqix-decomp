@@ -23,9 +23,9 @@ struct Struct_ov003_02154720_2 {
  char unknown_208_[0x330-0x208];int unknown_330_,unknown_334_;unsigned char unknown_338_,unknown_339_,unknown_33a_;
 };
 extern "C" void SaveMainBGControl_02074af4(void*);
-struct Struct_02081ee4;
-struct Struct_02081ee4_2;
-extern "C" void func_02081ee4(Struct_02081ee4*, Struct_02081ee4_2*);
+struct KeyRepeat_02081ee4;
+struct RepeatedKey_02081ee4_2;
+extern "C" void InitKeyRepeat_02081ee4(KeyRepeat_02081ee4*, RepeatedKey_02081ee4_2*);
 extern "C" void ClearLevelEntries_0208247c(void*);
 struct StringTable_0201099c_14;
 extern "C" void func_ov023_021e20c0(void*);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov003_02154720(void* arg0,unsigned char arg1) {
  var2=(Struct_ov003_02154720*)GetParty_02010828(var5);
  var1->unknown_0_=0;var1->unknown_4_=0;var1->unknown_c_=0;var1->unknown_8_=0;var1->unknown_10_=0;var1->unknown_14_=0;var1->unknown_18_=0;var1->unknown_20_=0;var1->unknown_24_=0;var1->unknown_28_=0;
  ((OBJSpriteSet*)((char*)var1->unknown_2c_))->Reset();
- func_02081ee4((Struct_02081ee4*)var1->unknown_80_, (Struct_02081ee4_2*)var1->unknown_8c_);
+ InitKeyRepeat_02081ee4((KeyRepeat_02081ee4*)var1->unknown_80_, (RepeatedKey_02081ee4_2*)var1->unknown_8c_);
  ClearLevelEntries_0208247c(var1->unknown_90_);
  ((StringList*)((StringTable_0201099c_14*)var1->unknown_e4_))->Reset();
  ((StringList*)((StringTable_0201099c_14*)var1->unknown_fc_))->Reset();

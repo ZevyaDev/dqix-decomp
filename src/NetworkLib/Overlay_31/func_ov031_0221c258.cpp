@@ -12,7 +12,7 @@ struct Struct_020cf294_2 { unsigned int unknown_0_; unsigned int unknown_4_; uns
 extern "C" void func_ov031_0221ae00(Struct_ov031_0221bfe8* arg0);
 extern "C" void func_020cf020(void);
 extern "C" int GetCurrentDate_020cf0fc(int date);
-extern "C" int func_020cf1a8(int arg0);
+extern "C" int GetCurrentTime_020cf1a8(int time);
 extern "C" long long func_020cf990(int arg0, unsigned char* arg1);
 int Is64BitTimerInitialized();
 unsigned long long GetCurrentTimestamp(void);
@@ -36,7 +36,7 @@ static inline unsigned short inline_ov031_0221bfe8(Struct_ov031_0221bfe8_2* arg0
 }
 
 static inline int inline_ov031_0221bfe8_2(Struct_020cf294* arg0) { return GetCurrentDate_020cf0fc((int)arg0); }
-static inline int inline_ov031_0221bfe8_3(Struct_020cf294_2* arg0) { return func_020cf1a8((int)arg0); }
+static inline int inline_ov031_0221bfe8_3(Struct_020cf294_2* arg0) { return GetCurrentTime_020cf1a8((int)arg0); }
 static inline long long inline_ov031_0221bfe8_4(const Struct_020cf294* arg0, const Struct_020cf294_2* arg1) {
     return func_020cf990((int)arg0, (unsigned char*)arg1);
 }

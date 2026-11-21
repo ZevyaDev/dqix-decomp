@@ -28,7 +28,7 @@ extern "C" void func_02023064(struct Struct_020200c0_3* arg0, unsigned int arg1,
 extern "C" void InitCanvas_0205b20c(struct Canvas_020200c0_4* canvas);
 extern "C" void SetCanvasCharacterData_0205b220(void* canvas, int characterData);
 extern "C" void SetCanvasRects_0205b228(void* canvas, int rects, unsigned char rectCount);
-extern "C" int func_0205b234(void* arg0, short arg1, int arg2, char* arg3, int arg4, int arg5);
+extern "C" int DrawCanvasText_0205b234(void* canvas, short x, int y, char* text, int arg4, int arg5);
 
 // USA: func_020230fc
 extern "C" ARM void func_020230fc(Struct_02020554* arg0, char* arg1, int arg2) {
@@ -86,9 +86,9 @@ extern "C" ARM void func_020230fc(Struct_02020554* arg0, char* arg1, int arg2) {
         SetCanvasRects_0205b228(&var5, (int)var4, 0x12);
 
 #if defined(jpn)
-        func_0205b234(&var5, (short)var7, 3, var10->substruct_c_.jpbuffer, 10, 15);
+        DrawCanvasText_0205b234(&var5, (short)var7, 3, var10->substruct_c_.jpbuffer, 10, 15);
 #else
-        func_0205b234(&var5, (short)var7, 3, arg0->unknown_ba2_, 0xf, 0);
+        DrawCanvasText_0205b234(&var5, (short)var7, 3, arg0->unknown_ba2_, 0xf, 0);
 #endif
     }
 }

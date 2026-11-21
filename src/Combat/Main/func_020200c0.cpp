@@ -69,7 +69,7 @@ extern "C" void func_0205b890(struct Struct_020200c0_3* arg0, int arg1, int arg2
 extern "C" void InitCanvas_0205b20c(struct Canvas_020200c0_4* canvas);
 extern "C" void SetCanvasCharacterData_0205b220(void* canvas, int characterData);
 extern "C" void SetCanvasRects_0205b228(void* canvas, int rects, unsigned char rectCount);
-extern "C" void func_0205b234(struct Canvas_020200c0_4* arg0, short arg1, short arg2, const char* arg3, int arg4, int arg5);
+extern "C" void DrawCanvasText_0205b234(struct Canvas_020200c0_4* canvas, short x, short y, const char* text, int arg4, int arg5);
 extern "C" int GetHaloObject_ov017_021bdbcc(GameResources* gameResources);
 extern "C" unsigned short GetLevel_0202053c(void* gameObject);
 extern "C" void WaitForVBlank_020c9820(void);
@@ -112,7 +112,7 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
     if (var8 == NULL) return;
     char* var9 = var8->baseStats_->unk;
     int var10 = func_020d2ff0(var9) >> 1;
-    func_0205b234(&var7, (short)((0x40 - var10 * 10) >> 1), 3, var9, 10, 0xf);
+    DrawCanvasText_0205b234(&var7, (short)((0x40 - var10 * 10) >> 1), 3, var9, 10, 0xf);
 
     unsigned char var11;
     int var12;
@@ -124,11 +124,11 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
     if (GetHaloObject_ov017_021bdbcc(var2)) var11 = 0xd;
     unsigned int var16 = var8->unknown_ac_.unknown_84_->unknown_0_;
     if (var16 & 1) {
-        func_0205b234(&var7, 0x16, 0x2b, data_020ef464, 10, 8);
+        DrawCanvasText_0205b234(&var7, 0x16, 0x2b, data_020ef464, 10, 8);
     } else if (var16 & 2) {
-        func_0205b234(&var7, 0x16, 0x2b, data_020ef469, 10, 3);
+        DrawCanvasText_0205b234(&var7, 0x16, 0x2b, data_020ef469, 10, 3);
     } else if (var16 & 4) {
-        func_0205b234(&var7, 0x11, 0x2b, data_020ef46e, 10, 0xf);
+        DrawCanvasText_0205b234(&var7, 0x11, 0x2b, data_020ef46e, 10, 0xf);
     } else {
         if (var14 != 0) {
             static const unsigned char data_020e78c0 = 10;
@@ -140,13 +140,13 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
             }
             char var17[3] = "\xe8\x40";
             var17[1] += var14 - 1;
-            func_0205b234(&var7, 5, 0x2b, data_020e795c[var11], 10, 0xf);
-            func_0205b234(&var7, 0x22, 0x2b, data_020ef475, 10, 0xf);
+            DrawCanvasText_0205b234(&var7, 5, 0x2b, data_020e795c[var11], 10, 0xf);
+            DrawCanvasText_0205b234(&var7, 0x22, 0x2b, data_020ef475, 10, 0xf);
             func_0205c9ac(&var7, 0x2c, 0x2d, GetLevel_0202053c(var8), 8, 0xf, 2, 1);
-            func_0205b234(&var7, 0x1a, var13 + 0x2e, var17, 8, var12);
+            DrawCanvasText_0205b234(&var7, 0x1a, var13 + 0x2e, var17, 8, var12);
         } else {
-            func_0205b234(&var7, 8, 0x2b, data_020e795c[var11], 10, 0xf);
-            func_0205b234(&var7, 0x1e, 0x2b, data_020ef475, 10, 0xf);
+            DrawCanvasText_0205b234(&var7, 8, 0x2b, data_020e795c[var11], 10, 0xf);
+            DrawCanvasText_0205b234(&var7, 0x1e, 0x2b, data_020ef475, 10, 0xf);
             func_0205c9ac(&var7, 0x28, 0x2d, GetLevel_0202053c(var8), 8, 0xf, 2, 1);
         }
     }
@@ -193,14 +193,14 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
     SetCanvasCharacterData_0205b220(&var7, (int)var5);
     SetCanvasRects_0205b228(&var7, (int)&var6, 1);
     func_0205b734(&var7, 7, 0x10, 0x17, 0x18, 1);
-    func_0205b234(&var7, 7, 0xe, GetGameString((eGameString)(0xc9)), 0xf, 0);
+    DrawCanvasText_0205b234(&var7, 7, 0xe, GetGameString((eGameString)(0xc9)), 0xf, 0);
     func_0205b734(&var7, 7, 0x1c, 0x17, 0x24, 1);
-    func_0205b234(&var7, 7, 0x1a, GetGameString((eGameString)(0xca)), 0xf, 0);
+    DrawCanvasText_0205b234(&var7, 7, 0x1a, GetGameString((eGameString)(0xca)), 0xf, 0);
 
     Struct_020200c0_8* var8 = (Struct_020200c0_8*)GetPartyMemberBaseByIndex_0200ff1c(var0, arg0);
     if (var8 == NULL) return;
     char* var9 = var8->baseStats_->unk;
-    func_0205b234(&var7, (short)((0x40 - func_020420e8(var9, 0)) >> 1), 3, var9, 0xf, 0);
+    DrawCanvasText_0205b234(&var7, (short)((0x40 - func_020420e8(var9, 0)) >> 1), 3, var9, 0xf, 0);
 
     int var10;
     int var11;
@@ -239,13 +239,13 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
                 }
             }
         }
-        func_0205b234(&var7, 0x20, 0x2b, var19, 0xf, 0);
+        DrawCanvasText_0205b234(&var7, 0x20, 0x2b, var19, 0xf, 0);
         func_0205b674((Struct_020200c0_2*)&var7, var20 + 0x1b, 0x2b, GetLevel_0202053c(var8), 0xf, 2, 1, 0);
         if (var15 != 0) {
             char var22[7];
             __clear(var22, 7);
             sprintf(var22, data_020ef580, var15);
-            func_0205b234(&var7, 0x13, 0x2b, var22, var18, 0);
+            DrawCanvasText_0205b234(&var7, 0x13, 0x2b, var22, var18, 0);
         }
     }
     if (var11 >= 0) {
@@ -257,7 +257,7 @@ extern "C" ARM void func_020200c0(int arg0, int arg1) {
         __clear(var25, 0x80);
         var4->unknown_0_ = &var23;
         func_02046608(var4, 10, var24, var25, 0x100, 0, 0);
-        func_0205b234(&var7, (short)((0x40 - func_020420e8(var25, 0)) >> 1), 0x2b, var25, var10, 0);
+        DrawCanvasText_0205b234(&var7, (short)((0x40 - func_020420e8(var25, 0)) >> 1), 0x2b, var25, var10, 0);
     }
     WaitForVBlank_020c9820();
     CleanInvalidateCacheRange((const void*)(var5), 0x800);

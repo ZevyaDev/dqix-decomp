@@ -2,7 +2,7 @@
 
 extern "C" void CancelFontLoad_02094ab0(int loader);
 extern "C" void func_ov017_0218b5c0(int arg0, int arg1);
-extern "C" void func_ov017_0218b5f8(int arg0);
+extern "C" void RequestPartyMemberPanelRedraw_ov017_0218b5f8(int memberIndex);
 
 extern "C" int GetFontLoader_02094a00(void);
 extern "C" int GetMessageWindow_020421a0(void);
@@ -37,6 +37,6 @@ extern "C" ARM void ClearTimedMessageQueue_020d7aa0(struct TimedMessageQueue_020
         queue->unknown_150_.isShowing_0_6_ = 0;
     }
     func_ov017_0218b5c0(1, -1);
-    func_ov017_0218b5f8(-1);
+    RequestPartyMemberPanelRedraw_ov017_0218b5f8(-1);
     func_020d7a5c((struct Struct_0214e34c*)queue);
 }

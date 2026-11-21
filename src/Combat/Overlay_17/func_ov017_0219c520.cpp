@@ -2,7 +2,7 @@
 #include "NitroSDK/OverlayId.h"
 #include "Resource/GameResources.h"
 
-struct Struct_0206f81c_2;
+struct MenuTask_0206f81c_2;
 struct Struct_0206f81c_5;
 struct Struct_0206f81c_3;
 struct Struct_0206f81c_4;
@@ -11,8 +11,8 @@ struct QueueNode_0201bdac;
 struct SafeAllocator;
 
 extern "C" void ResetMenuTask_ov017_021b2174(unsigned char* node);
-extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2* arg0, char* arg1);
-extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
+extern "C" void SetMenuTaskFileName_ov017_021b2ba0(MenuTask_0206f81c_2* menuTask, char* fileName);
+extern "C" void SetMenuTaskSetupFunction_ov017_021b2bd0(void* menuTask, int setupFunction, int overlayId);
 extern "C" void func_ov017_021b2bf4(Struct_0206f81c_3* arg0, unsigned int arg1);
 extern "C" void func_ov017_021b2c0c(Struct_0206f81c_4* arg0, unsigned int arg1);
 extern "C" void func_ov017_021b2bdc(Struct_0206f81c_5* arg0, unsigned int arg1);
@@ -32,8 +32,8 @@ extern "C" ARM void func_ov017_0219c520() {
     unsigned char* var2 = *(unsigned char**)((char*)var0 + Enum_ov017_0219c520_15180);
     var1 = *(Queue_0201bdac_2**)((char*)var0 + Enum_ov017_0219c520_14076);
     ResetMenuTask_ov017_021b2174(var2);
-    func_ov017_021b2ba0((Struct_0206f81c_2*)var2, &data_ov017_021d75d0);
-    func_ov017_021b2bd0(var2, (int)func_ov004_021689d8, OVERLAY_ID(4));
+    SetMenuTaskFileName_ov017_021b2ba0((MenuTask_0206f81c_2*)var2, &data_ov017_021d75d0);
+    SetMenuTaskSetupFunction_ov017_021b2bd0(var2, (int)func_ov004_021689d8, OVERLAY_ID(4));
     func_ov017_021b2bf4((Struct_0206f81c_3*)var2, 1);
     func_ov017_021b2c0c((Struct_0206f81c_4*)var2, 1);
     func_ov017_021b2bdc((Struct_0206f81c_5*)var2, 0);

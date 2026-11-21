@@ -19,7 +19,7 @@ extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* curs
 
 struct Struct_0201099c_3;
 
-extern "C" void func_0205cb74(char* arg0, int arg1);
+extern "C" void AddChoiceListEntry_0205cb74(char* choiceList, int text);
 
 #if defined(jpn)
 extern "C" void func_0205cc50(void* arg0);
@@ -30,7 +30,7 @@ extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
 struct Struct_0205c77c;
 extern "C" void func_0205c77c(struct Struct_0205c77c* arg0, int arg1);
 
-extern "C" void func_0205cd28(unsigned char* arg0);
+extern "C" void OpenChoiceList_0205cd28(unsigned char* choiceList);
 extern "C" void func_0205cd94(unsigned char* arg0);
 
 struct SoundEffectManager_02108760;
@@ -55,10 +55,10 @@ extern "C" ARM void func_ov013_02185990(unsigned char* arg0) {
     SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(var0 + LOW_REGION(0x440, 0x70)), 2);
 
     int var1 = ((int)((StringList*)((struct Struct_0201099c_3*)(arg0 + LOW_REGION(0x5ac, 0x620))))->GetString(0xa));
-    func_0205cb74((char*)(var0 + LOW_REGION(0x3d0, 0)), var1);
+    AddChoiceListEntry_0205cb74((char*)(var0 + LOW_REGION(0x3d0, 0)), var1);
 
     int var2 = ((int)((StringList*)((struct Struct_0201099c_3*)(arg0 + LOW_REGION(0x5ac, 0x620))))->GetString(0xb));
-    func_0205cb74((char*)(var0 + LOW_REGION(0x3d0, 0)), var2);
+    AddChoiceListEntry_0205cb74((char*)(var0 + LOW_REGION(0x3d0, 0)), var2);
 
     *(unsigned short*)(var0 + LOW_REGION(0x484, 0xb4)) = 0xc2;
     *(unsigned short*)(var0 + LOW_REGION(0x486, 0xb6)) = 0x92;
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov013_02185990(unsigned char* arg0) {
     *(unsigned char*)(var0 + LOW_REGION(0x594, 0x234)) = 1;
     func_0205c77c((struct Struct_0205c77c*)(var0 + LOW_REGION(0x3d4, 0x4)), 1);
 
-    func_0205cd28(var0 + LOW_REGION(0x3d0, 0));
+    OpenChoiceList_0205cd28(var0 + LOW_REGION(0x3d0, 0));
     func_0205cd94(var0 + LOW_REGION(0x3d0, 0));
 
     PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 5, 0);

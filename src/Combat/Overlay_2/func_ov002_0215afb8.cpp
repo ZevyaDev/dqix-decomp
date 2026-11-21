@@ -2,8 +2,8 @@
 #include "Resource/CharacterCreationUI.h"
 #include "Graphics/OBJSpriteSet.h"
 
-struct Struct_020e28dc;
-extern "C" int func_020e28dc(struct Struct_020e28dc *arg0);
+struct YesNoWindow_020e28dc;
+extern "C" int IsYesNoWindowOpen_020e28dc(struct YesNoWindow_020e28dc *yesNoWindow);
 
 struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0 {
@@ -38,7 +38,7 @@ enum { Enum_ov002_0215afb8_9340 = 0x247c, Enum_ov002_0215afb8_3784 = 0xec8, Enum
 namespace {
 struct Struct_ov002_0215afb8 {
     unsigned char unknown_0_[4];
-    Struct_020e28dc* unknown_4_;
+    YesNoWindow_020e28dc* unknown_4_;
     unsigned char unknown_8_[Enum_ov002_0215afb8_3784 - 8];
     Struct_ov023_021d9c7c unknown_ec8_;
     unsigned char unknown_f84_[Enum_ov002_0215afb8_6760 - Enum_ov002_0215afb8_3784 - sizeof(Struct_ov023_021d9c7c)];
@@ -62,9 +62,9 @@ extern "C" ARM void func_ov002_0215afb8(char *arg0) {
     struct TextWindow_0205d0e0 *var2 = GetCursorTextWindow_0205d8c4(((TextWindowManager_0205d81c*)(&var0->unknown_ec8_)));
     if (var2 == NULL) return;
     if (!IsTextWindowOpen_0204c7e0(((unsigned char*)(var2)))) return;
-    struct Struct_020e28dc *var3 = var0->unknown_4_;
+    struct YesNoWindow_020e28dc *var3 = var0->unknown_4_;
     if (var3 == NULL) return;
-    if (func_020e28dc(var3)) return;
+    if (IsYesNoWindowOpen_020e28dc(var3)) return;
 
     short var4 = (short) (var2->tileX_ac_ * 8);
     short var5 = (short) (var2->tileY_ae_ * 8);

@@ -4,7 +4,7 @@
 struct Struct_0204166c;
 extern "C" void func_020416c0(struct Struct_0204166c* arg0);
 
-extern "C" void func_020439b0(void* arg0, int arg1);
+extern "C" void UpdateMessageWindowGraphics_020439b0(void* window, int arg1);
 
 #if defined(jpn)
 extern int data_0210773c;
@@ -62,5 +62,5 @@ extern "C" ARM void InitMessageGlyphs_020432c4(char* window) {
         }
     }
 #endif
-    func_020439b0(window, 0);
+    UpdateMessageWindowGraphics_020439b0(window, 0);
 }

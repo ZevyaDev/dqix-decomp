@@ -17,7 +17,7 @@ extern "C" void* func_ov023_021f6524(void* arg0, int arg1);
 struct StringList_02072a68_2;
 extern "C" StringList_02072a68_2* func_ov004_02168b08(void* arg0, int arg1);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" int func_ov023_021f9bc8(char* arg0);
+extern "C" int GetMenuGridCursorIndex_ov023_021f9bc8(char* grid);
 extern "C" void func_ov004_0216950c(void* arg0);
 extern "C" void func_ov004_0216920c(void* arg0);
 extern "C" void __clear(void* arg0, int arg1);
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov004_0216a464(void* arg0) {
     void* var0 = func_ov023_021f6524(arg0, 0x64);
     StringList_02072a68_2* var1 = func_ov004_02168b08(arg0, 3);
     int var2 = GetMessageWindow_020421a0();
-    func_ov023_021f9bc8((char*)var0);
+    GetMenuGridCursorIndex_ov023_021f9bc8((char*)var0);
     func_ov004_0216950c(arg0);
 
     GameResources* var3 = GetGameResources();

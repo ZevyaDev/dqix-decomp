@@ -107,7 +107,7 @@ extern "C" char* GetBattleUI_ov000_02160f08(void* battleScene);
 extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void ResetItemContext_0207cbe8(char* itemContext);
 extern "C" void func_ov000_0215fa70(void*, short, short, short);
-extern "C" int AddItemToPartyMember_0207ccf0(void* itemContext, int itemId, int count, int memberIndex, int isBagAllowed, int arg5, int arg6);
+extern "C" int AddItemToPartyMember_0207ccf0(void* itemContext, int itemId, int count, int memberIndex, int isBagAllowed, int isOverflowToHeldItems, int arg6);
 extern "C" int func_020ac020(void* arg0, short* arg1, int* arg2, int arg3);
 extern "C" void func_020abe84(void* arg0, short* arg1, Struct_ov024_021df924_5* arg2, int arg3);
 extern "C" void GetBattleRecords_020ac4c0(void* records);

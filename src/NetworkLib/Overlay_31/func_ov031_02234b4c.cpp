@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int IsBrightnessFadeActive_ov031_0223c054(int);
-extern "C" ARM int func_ov031_02222ddc(void);
+extern "C" ARM int CloseButtonBar_ov031_02222ddc(void);
 extern "C" void StartBrightnessFade_ov031_0223c078(int, int, int, int);
 extern "C" ARM void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_02234bb8(void);
@@ -13,7 +13,7 @@ extern "C" ARM void func_ov031_02234b4c(void) {
     if (IsBrightnessFadeActive_ov031_0223c054(1) != 0) {
         return;
     }
-    func_ov031_02222ddc();
+    CloseButtonBar_ov031_02222ddc();
     unsigned char var0 = data_ov031_02290ce4;
     if ((unsigned char)(var0 + 0xfe) <= 1) {
         StartBrightnessFade_ov031_0223c078(3, 1, 1, 8);

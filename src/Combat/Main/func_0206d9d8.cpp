@@ -32,7 +32,7 @@ extern "C" ARM int func_0206d9d8(void* arg0) {
     int var2;
     int var3;
     int var4 = ((Script::Parameter*)((struct Struct_0201c1c8*)arg0))->ToInt();
-    var0 = (Struct_0206d9d8*)func_0206db20(gNPCPlacementParseState_02108cec.unknown_10_, var4);
+    var0 = (Struct_0206d9d8*)FindNPCPlacement_0206db20(gNPCPlacementParseState_02108cec.unknown_10_, var4);
     if (var0 == 0) {
         return 0;
     }

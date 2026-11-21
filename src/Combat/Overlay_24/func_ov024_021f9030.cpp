@@ -107,7 +107,7 @@ extern "C" void* func_02053c6c(unsigned char* gameObject);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" int func_ov024_021e6798(GameObject* arg0);
-extern "C" Struct_ov024_021f9030_4* func_02053dc0(Struct_02053dc0* arg0);
+extern "C" Struct_ov024_021f9030_4* GetBattleCommand_02053dc0(Struct_02053dc0* partyMember);
 extern "C" Struct_ov024_021f9030_7* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" int func_ov000_02155f9c(Struct_ov024_021f9030_5* arg0, int arg1, int arg2);
 extern "C" void func_ov024_021f7478(Struct_ov024_021f9030_2* arg0);
@@ -115,7 +115,7 @@ extern "C" int func_ov024_021f8874(Struct_ov024_021f9030_2* arg0, Struct_ov024_0
 extern "C" void func_ov024_021fa7ec(Struct_ov024_021f9030_2* arg0, float* arg1, float* arg2, float* arg3,
                                     int* arg4, float arg5, float arg6, int arg7,
                                     GameObject* arg8, int arg9);
-extern "C" float func_ov024_021db358(GameObject* arg0);
+extern "C" float GetHPRatio_ov024_021db358(GameObject* combatant);
 
 extern Struct_ov024_021fefc2 data_ov024_021fefc2;
 
@@ -170,7 +170,7 @@ extern "C" ARM void func_ov024_021f9030(Struct_ov024_021f9030_2* arg0, Struct_ov
         if (var17->unknown_138_->unknown_18_ & 0x800) {
             var8 = 1;
         }
-        Struct_ov024_021f9030_4* var18 = func_02053dc0((Struct_02053dc0*)var17);
+        Struct_ov024_021f9030_4* var18 = GetBattleCommand_02053dc0((Struct_02053dc0*)var17);
         if (var18 == 0) continue;
         unsigned short var19 = var18->unknown_0_;
         if (var19 == 0x201) {
@@ -209,7 +209,7 @@ extern "C" ARM void func_ov024_021f9030(Struct_ov024_021f9030_2* arg0, Struct_ov
             float var24 = arg0->unknown_124_;
             if (arg0->unknown_128_ != arg0->unknown_4_ && arg0->unknown_114_[arg0->unknown_128_] < var24) goto skipRevive;
         }
-        Struct_ov024_021f9030_4* var25 = func_02053dc0((Struct_02053dc0*)var1);
+        Struct_ov024_021f9030_4* var25 = GetBattleCommand_02053dc0((Struct_02053dc0*)var1);
         var25->unknown_0_ = 0x201;
         *arg3 = 0x201;
         var25->unknown_3_ = 0;
@@ -231,7 +231,7 @@ skipRevive:
         var30 = -1;
         func_ov024_021fa7ec(arg0, &var27, &var28, &var29, &var30, 0, 0, 0, var26, 0);
         if (var28 > var26->unknown_138_->unknown_0_) {
-            Struct_ov024_021f9030_4* var31 = func_02053dc0((Struct_02053dc0*)var1);
+            Struct_ov024_021f9030_4* var31 = GetBattleCommand_02053dc0((Struct_02053dc0*)var1);
             var31->unknown_0_ = 0x45;
             *arg3 = 0x45;
             var31->unknown_3_ = var26->unknown_17c_;
@@ -239,12 +239,12 @@ skipRevive:
             return;
         }
     }
-    if (!(func_ov024_021db358(arg0->unknown_8_) > 0.25f) && !var8 && !var9 && var15 && !var11) {
+    if (!(GetHPRatio_ov024_021db358(arg0->unknown_8_) > 0.25f) && !var8 && !var9 && var15 && !var11) {
         int var32 = 3;
         if (var6[5]) {
             var32 = 0x87;
         }
-        Struct_ov024_021f9030_4* var33 = func_02053dc0((Struct_02053dc0*)var1);
+        Struct_ov024_021f9030_4* var33 = GetBattleCommand_02053dc0((Struct_02053dc0*)var1);
         var33->unknown_0_ = (unsigned short)var32;
         *arg3 = (unsigned short)var32;
         var33->unknown_3_ = 0;
@@ -254,7 +254,7 @@ skipRevive:
     if (!var6[7] && !var6[8] && !var6[6]) return;
     if (!var15 || arg0->unknown_130_ == 0) return;
     if (var8 || var9 || var10 || var11) return;
-    if (func_ov024_021db358(var1) < 0.5f) return;
+    if (GetHPRatio_ov024_021db358(var1) < 0.5f) return;
     int var34 = arg0->unknown_4_;
     int var35 = arg0->unknown_128_;
     if (var35 == var34) return;
@@ -272,7 +272,7 @@ skipRevive:
         var36 = 0xb6;
     }
     if (var36 == 0) return;
-    Struct_ov024_021f9030_4* var37 = func_02053dc0((Struct_02053dc0*)var1);
+    Struct_ov024_021f9030_4* var37 = GetBattleCommand_02053dc0((Struct_02053dc0*)var1);
     var37->unknown_0_ = (unsigned short)var36;
     *arg3 = (unsigned short)var36;
     var37->unknown_3_ = 0;

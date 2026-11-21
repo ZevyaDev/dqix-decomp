@@ -85,8 +85,8 @@ extern int data_ov025_021ef988;
 extern int data_ov025_021eef40[];
 
 extern "C" void func_ov025_021eb044(void* arg0, ...);
-extern "C" int func_ov000_0215fd90(void* arg0, unsigned char arg1);
-extern "C" void func_ov000_02162c14(void* arg0, int arg1, struct Struct_ov025_021e3178_3* arg2);
+extern "C" int HasActionResultFlag_ov000_0215fd90(void* result, unsigned char flagIndex);
+extern "C" void GetPartyMemberCommand_ov000_02162c14(void* battleScene, int memberIndex, struct Struct_ov025_021e3178_3* command);
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" struct Struct_ov025_021e3178_2* FindActionData_02079e2c(char*, int);
 struct BattleAction_ov000_0215440c_2;
@@ -195,7 +195,7 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
         } else if (var18->unknown_18_5_ == 0x12) {
             for (struct Struct_ov025_021e3178_8* var21 = arg1->unknown_14_; var21; var21 = var21->unknown_20_) {
                 for (struct Struct_ov025_021e3178_8* var22 = var21->unknown_0_; var22; var22 = var22->unknown_20_) {
-                    if (func_ov000_0215fd90(var22, 3)) {
+                    if (HasActionResultFlag_ov000_0215fd90(var22, 3)) {
                         NOTIFY();
                         return 1;
                     }
@@ -292,17 +292,17 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
                     for (int var46 = 0; var46 < var43->unknown_26_[var44]; var46++) {
                         void* var47 = func_ov000_0215feb4((char*)var43, var46, var44 & 0xff);
                         if (var47) {
-                            if (func_ov000_0215fd90(var47, 0x22) && arg0->unknown_a_ == 0xc) {
+                            if (HasActionResultFlag_ov000_0215fd90(var47, 0x22) && arg0->unknown_a_ == 0xc) {
                                 NOTIFY();
                                 var45 = 1;
                                 break;
                             }
-                            if (func_ov000_0215fd90(var47, 0x25) && arg0->unknown_a_ == 0xe) {
+                            if (HasActionResultFlag_ov000_0215fd90(var47, 0x25) && arg0->unknown_a_ == 0xe) {
                                 NOTIFY();
                                 var45 = 1;
                                 break;
                             }
-                            if (arg0->unknown_a_ == 0x11 && (func_ov000_0215fd90(var47, 0x23) || func_ov000_0215fd90(var47, 7))) {
+                            if (arg0->unknown_a_ == 0x11 && (HasActionResultFlag_ov000_0215fd90(var47, 0x23) || HasActionResultFlag_ov000_0215fd90(var47, 7))) {
                                 NOTIFY();
                                 var45 = 1;
                                 break;
@@ -328,7 +328,7 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
     case 16: {
         for (struct Struct_ov025_021e3178_8* var49 = arg1->unknown_14_; var49; var49 = var49->unknown_20_) {
             for (struct Struct_ov025_021e3178_8* var50 = var49->unknown_0_; var50; var50 = var50->unknown_20_) {
-                if (func_ov000_0215fd90(var50, 7)) {
+                if (HasActionResultFlag_ov000_0215fd90(var50, 7)) {
                     NOTIFY();
                     return 1;
                 }
@@ -343,7 +343,7 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
         void* var53 = GetBattleScene_ov000_02160130();
         if (!var53) break;
         struct Struct_ov025_021e3178_3 var54;
-        func_ov000_02162c14(var53, var52, &var54);
+        GetPartyMemberCommand_ov000_02162c14(var53, var52, &var54);
         if (var54.unknown_6_ == 0x520e) {
             NOTIFY();
             return 1;
@@ -405,7 +405,7 @@ extern "C" ARM int func_ov025_021e3178(struct Struct_ov025_021e3178_6* arg0, str
         if (!var67) return 0;
         if (!var67) return 0;
         for (int* var68 = data_ov025_021eef40; *var68 != -1; var68++) {
-            if (func_ov000_0215fd90(var67, *var68)) {
+            if (HasActionResultFlag_ov000_0215fd90(var67, *var68)) {
                 NOTIFY();
                 return 1;
             }

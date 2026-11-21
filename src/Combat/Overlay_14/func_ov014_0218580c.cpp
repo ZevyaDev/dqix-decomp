@@ -88,7 +88,7 @@ extern char data_ov014_02189692[];
 extern char data_ov014_021896a7[];
 
 extern "C" void func_ov023_021e20c0(void* arg0);
-extern "C" int func_ov023_021e20f0(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
+extern "C" int LoadLayout_ov023_021e20f0(void* layout, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
 extern "C" Struct_ov006_0215b7e8* func_ov014_021842a0(void* arg0, short arg1);
 extern "C" void func_ov023_021e2bdc(void* arg0, int arg1, short* arg2, short* arg3);
 extern "C" void* GetFollowCamera_020100f8(char* gameState);
@@ -130,7 +130,7 @@ extern "C" ARM void func_ov014_0218580c(Struct_ov014_02184dcc* arg0) {
         if (var1 != NULL) {
             SafeAllocator* var3 = arg0->unknown_3c_;
             var3[3].Reset();
-            func_ov023_021e20f0(arg0->unknown_58_, &var3[3], var1, var2);
+            LoadLayout_ov023_021e20f0(arg0->unknown_58_, &var3[3], var1, var2);
             HIDE_ELEMENT(arg0->unknown_58_, 1);
         }
         var0->RemoveTask(arg0->unknown_6c_);

@@ -15,8 +15,8 @@ extern "C" TextWindow_0207fdcc* FindMenuLayoutWindow_02081da8(MenuLayout_0207fdc
 
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 
-struct Struct_020e28dc;
-extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
+struct YesNoWindow_020e28dc;
+extern "C" int IsYesNoWindowOpen_020e28dc(struct YesNoWindow_020e28dc* yesNoWindow);
 
 extern "C" void GetMenuLayoutTextPosition_020809c4(void* menuLayout, int windowId, int textId, short* outX, short* outY);
 
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov003_0215501c(unsigned char* arg0) {
     if (IsTextWindowOpen_0204c7e0((unsigned char*)var0) == 0 || *(void**)(arg0 + 0x1c) == NULL) {
         return;
     }
-    if (func_020e28dc(*(Struct_020e28dc**)(arg0 + 0x1c)) != 0) {
+    if (IsYesNoWindowOpen_020e28dc(*(YesNoWindow_020e28dc**)(arg0 + 0x1c)) != 0) {
         return;
     }
     short var1, var2;

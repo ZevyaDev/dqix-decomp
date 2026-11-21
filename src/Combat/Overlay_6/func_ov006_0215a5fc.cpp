@@ -68,7 +68,7 @@ extern "C" void InitTextWindow_0204c684(void*);
 struct TextWindow_0204c7a8;
 extern "C" void SetTextWindowBuffers_0204c7a8(TextWindow_0204c7a8*, SafeAllocator*, int, unsigned int);
 extern "C" void func_ov023_021e20c0(void*);
-extern "C" void func_ov023_021e20f0(void*, void*, void*, unsigned int);
+extern "C" void LoadLayout_ov023_021e20f0(void*, void*, void*, unsigned int);
 extern "C" void* func_ov006_02157368(void*, int);
 extern "C" void InitNounTable_020e526c(void*);
 extern "C" void func_020e5604(void*, void*, void*, unsigned int);
@@ -319,7 +319,7 @@ extern "C" ARM void func_ov006_0215a5fc(Struct_ov003_02154af4_3* arg0) {
                 void* var16 = arg0->unknown_c_;
                 ((SafeAllocator*)((char*)var16 + 0x78))->Reset();
                 func_ov023_021e20c0((char*)arg0 + REGIONAL_OFFSET(0xf8, 0x100));
-                func_ov023_021e20f0((char*)arg0 + REGIONAL_OFFSET(0xf8, 0x100), (char*)var16 + 0x78, var0.unknown_20_, var0.unknown_1c_);
+                LoadLayout_ov023_021e20f0((char*)arg0 + REGIONAL_OFFSET(0xf8, 0x100), (char*)var16 + 0x78, var0.unknown_20_, var0.unknown_1c_);
                 unsigned char* var17 = (unsigned char*)func_ov006_02157368((char*)arg0 + REGIONAL_OFFSET(0xf8, 0x100), 1);
                 if (var17 != 0) {
                     var17[0x16] = (unsigned char)(var17[0x16] & ~1);

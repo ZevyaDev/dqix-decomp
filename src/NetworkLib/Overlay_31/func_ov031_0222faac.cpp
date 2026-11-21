@@ -19,13 +19,13 @@ struct Struct_ov031_0222faac {
     unsigned char unknown_f6_;
 };
 
-extern "C" Struct_ov031_0222faac* func_ov031_02235c70();
+extern "C" Struct_ov031_0222faac* GetEditedConnectionSettings_ov031_02235c70();
 extern "C" void func_ov031_0222ff34(unsigned char*, int);
 extern "C" void func_ov031_02230088(unsigned char*, int);
 
 // USA: func_ov031_0222faac
 extern "C" ARM void func_ov031_0222faac(int arg0, int arg1) {
-    Struct_ov031_0222faac* var0 = func_ov031_02235c70();
+    Struct_ov031_0222faac* var0 = GetEditedConnectionSettings_ov031_02235c70();
     switch (arg0) {
     case 0:
         func_ov031_0222ff34(var0->unknown_40_, arg1);

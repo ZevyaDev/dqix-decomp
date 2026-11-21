@@ -15,7 +15,7 @@ extern "C" int func_ov024_021f6f10(void* arg0);
 #else
 extern "C" int func_ov024_021f6f10(void* arg0);
 #endif
-extern "C" int func_ov023_021f9bc8(char* arg0);
+extern "C" int GetMenuGridCursorIndex_ov023_021f9bc8(char* grid);
 extern "C" void func_ov023_021fbdcc(void*, int);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov004_02168290(void* arg0) {
         if (func_ov024_021f6f10(var1) != 7) {
             return 0;
         }
-        int var2 = func_ov023_021f9bc8((char*)var1);
+        int var2 = GetMenuGridCursorIndex_ov023_021f9bc8((char*)var1);
         short var3 = *(short*)(&data_ov004_0216fffa + var2 * 4);
         func_ov023_021fbdcc(var0, var3);
     }

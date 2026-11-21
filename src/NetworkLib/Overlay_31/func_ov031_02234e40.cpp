@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov031_02237eb0(void);
+extern "C" int IsDialogOpen_ov031_02237eb0(void);
 extern "C" ARM void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_02234b2c(void);
 extern "C" void func_ov031_02234cac(void);
@@ -13,7 +13,7 @@ extern unsigned char data_ov031_02290ce4;
 
 // USA: func_ov031_02234e40
 extern "C" ARM void func_ov031_02234e40(void) {
-	if (func_ov031_02237eb0() != 0) {
+	if (IsDialogOpen_ov031_02237eb0() != 0) {
 		return;
 	}
 	if (data_ov031_02290ce4 == 1) {

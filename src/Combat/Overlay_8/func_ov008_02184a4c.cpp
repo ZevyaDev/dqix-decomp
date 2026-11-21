@@ -252,7 +252,7 @@ extern "C" void func_020a13e4(void* arg0, void* arg1, int arg2, unsigned short a
 extern "C" int func_ov023_021ed724(void* arg0, short* arg1, int arg2);
 struct AccoladeTable_020a15bc;
 extern "C" Struct_ov008_02184a4c_6* FindAccolade_020a15bc(AccoladeTable_020a15bc*, int);
-extern "C" int func_0201081c(char*);
+extern "C" int GetStoryProgress_0201081c(char*);
 extern "C" int func_020d3018(const char* arg0, const char* arg1);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_ov008_0218712c(Struct_ov008_02184a4c_12* arg0, int arg1);
@@ -592,7 +592,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
                 arg0->unknown_b04_ = NULL;
             }
             if (arg0->unknown_b14_ <= 0) {
-                int var55 = func_0201081c((char*)var0);
+                int var55 = GetStoryProgress_0201081c((char*)var0);
                 if (IsLocalWirelessGuest_0202c540(var3) != 0) {
                     arg0->unknown_b18_ |= 0x100;
                     var55 = 0x3eb;
@@ -631,7 +631,7 @@ extern "C" ARM void func_ov008_02184a4c(Struct_ov008_02184a4c_12* arg0) {
     } else if (var4 == 11) {
         if (arg0->unknown_b04_->unknown_68_ > 0) {
             arg0->unknown_b14_ = arg0->unknown_b04_->unknown_6a_[0];
-            arg0->unknown_b16_ = func_0201081c((char*)var0);
+            arg0->unknown_b16_ = GetStoryProgress_0201081c((char*)var0);
             if (arg0->inline_ov008_02184a4c_12(0x100)) {
                 arg0->unknown_b18_ &= ~0x100;
                 arg0->unknown_b16_ = 0x3ea;

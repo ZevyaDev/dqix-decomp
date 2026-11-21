@@ -11,7 +11,7 @@ extern "C" int func_ov002_02154a6c(void *arg0, int arg1, int arg2);
 extern "C" int func_ov002_02154b94(void *arg0, int arg1);
 extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *gameState, int index);
 extern "C" short func_02084a64(void *arg0, int arg1);
-extern "C" void func_02083e28(void *arg0, int arg1);
+extern "C" void CalculatePartyMemberStats_02083e28(void *memberData, int outStats);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" void func_ov017_021cf078(int arg0, unsigned char arg1, int arg2);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
@@ -69,7 +69,7 @@ extern "C" ARM int func_ov002_021546c8(void *arg0, struct Struct_ov002_021546c8_
         var5->unknown_2_ = func_02084a64(*(void **) ((char *) var7 + Enum_ov002_021546c8_336), arg1->unknown_0_);
         if (var5->unknown_2_ <= 0) continue;
         var5->unknown_0_ = 3;
-        func_02083e28(*(void **) ((char *) var7 + Enum_ov002_021546c8_336), 0);
+        CalculatePartyMemberStats_02083e28(*(void **) ((char *) var7 + Enum_ov002_021546c8_336), 0);
         if (IsLocalWirelessOn_0202b7d8((int *) var1)) {
             func_ov017_021cf078(var6, *(int *) (*(char **) ((char *) var7 + Enum_ov002_021546c8_336) + Enum_ov002_021546c8_2384) & 0xff, 1);
             func_ov017_021c9e00(var6, 0, 0, 1);

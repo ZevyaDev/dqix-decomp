@@ -15,7 +15,7 @@ struct SoundEffectManager_02108760;
 extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId, int arg2);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
-extern "C" void func_02081ea4(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowCursorMark_02081ea4(struct MenuLayout_0207fdcc_2* menuLayout, int windowId, int hasCursorMark);
 extern "C" void ResetKeyRepeat_0208203c(struct KeyRepeat_02081f20_2* keyRepeat);
 extern "C" int func_ov003_021765b4(void* arg0);
 extern "C" int func_ov003_021766e8(void* arg0);
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov003_021786bc(unsigned char* arg0) {
         *(short*)((char*)var1 + RG(0x36, 0x2a)) = var3;
         OpenMenuLayoutWindow_020813ec(var1, *(short*)(arg0 + J(0xf00 + 0xfe)), var3);
         SetMenuLayoutWindowPalette_02080c68(var1, *(short*)(arg0 + J(0xf00 + 0xfe)), 0);
-        func_02081ea4(var1, *(short*)(arg0 + J(0xf00 + 0xfe)), 0);
+        SetMenuLayoutWindowCursorMark_02081ea4(var1, *(short*)(arg0 + J(0xf00 + 0xfe)), 0);
         ResetKeyRepeat_0208203c((struct KeyRepeat_02081f20_2*)(arg0 + J(0x88c)));
         *(void**)(arg0 + J(0xff8)) = 0;
         (*(unsigned char*)(arg0 + J(0x1000 + 0x3f)))++;

@@ -68,7 +68,7 @@ struct Struct_ov017_021c5c5c_6 {
 };
 
 extern "C" Struct_ov017_021c5c5c* func_ov017_021b8478(Struct_ov017_021c5c5c_2* battleManager);
-extern "C" Struct_ov017_021c5c5c_6* func_ov017_021a278c(void* arg0, int arg1);
+extern "C" Struct_ov017_021c5c5c_6* FindFieldMonsterById_ov017_021a278c(void* gameResources, int fieldMonsterId);
 extern "C" unsigned char IsOnLadder_02039d7c(char* object);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" void func_ov017_021ab010(void* arg0, int arg1);
@@ -97,7 +97,7 @@ extern "C" ARM int func_ov017_021c5c5c(int arg0, int arg1) {
         return 0;
     }
 
-    Struct_ov017_021c5c5c_6* var5 = func_ov017_021a278c(var1, arg1);
+    Struct_ov017_021c5c5c_6* var5 = FindFieldMonsterById_ov017_021a278c(var1, arg1);
     if (var5 == NULL) {
         return 0;
     }

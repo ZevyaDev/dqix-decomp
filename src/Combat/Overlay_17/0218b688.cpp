@@ -179,7 +179,7 @@ extern "C" void* func_02099f60();
 extern "C" void func_02099f6c(char*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_02013718(char* arg0, int arg1, int arg2);
-extern "C" void func_0202df68(void* arg0);
+extern "C" void InitCamera_0202df68(void* camera);
 struct Struct_0204a120_2;
 extern "C" void InitKeyControlledCamera_020a2cf0(Struct_0204a120_2*);
 extern "C" void InitFollowCamera_020a2010(void* storage);
@@ -241,7 +241,7 @@ extern "C" void func_02042c68(void* arg0);
 extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" void func_02042b30(void* arg0, void* arg1);
 extern "C" void func_ov017_0219b624(void* arg0);
-extern "C" void func_ov017_0219ba0c(void* arg0, int arg1);
+extern "C" void LoadCommonFieldResources_ov017_0219ba0c(void* gameResources, int isIconsOnly);
 struct TextureVRAMArea_0203d028;
 extern "C" void InitMessageGlyphs_020432c4(void* window);
 extern "C" void func_02020554(void* arg0);
@@ -258,13 +258,13 @@ extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char*, int);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
-struct Struct_0203d028_4;
-extern "C" void func_ov017_021a3498(Struct_0203d028_4*);
+struct Queue_0203d028_4;
+extern "C" void UpdateTaskQueue_ov017_021a3498(Queue_0203d028_4*);
 extern "C" void ResetEventTask_ov017_021baedc(void* node, int isRestart);
 extern "C" void ResetMenuTask_ov017_021b2174(unsigned char*);
-struct Struct_0206f81c_2;
-extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2*, char*);
-extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
+struct MenuTask_0206f81c_2;
+extern "C" void SetMenuTaskFileName_ov017_021b2ba0(MenuTask_0206f81c_2*, char*);
+extern "C" void SetMenuTaskSetupFunction_ov017_021b2bd0(void* menuTask, int setupFunction, int overlayId);
 extern "C" int GetMainBGAssignedVRAMSize();
 extern "C" void func_020ca458(unsigned int value, void* dest, int count);
 extern "C" void WaitForVBlank_020c9820();
@@ -312,7 +312,7 @@ extern "C" void func_ov017_021a4358(int arg0);
 struct OAMManager_0203bdb0;
 extern "C" void UploadOAMBuffers_0203bdb0(OAMManager_0203bdb0*);
 extern "C" int* GetEquipMenu_ov017_021a193c(int*);
-extern "C" void func_020439b0(void* arg0, int arg1);
+extern "C" void UpdateMessageWindowGraphics_020439b0(void* window, int arg1);
 struct Struct_020579ec;
 extern "C" void func_020579ec(Struct_020579ec**);
 extern "C" void func_ov017_021a63d0(void* arg0);
@@ -326,8 +326,8 @@ extern "C" int func_0205eac8(Struct_0205eac8*);
 extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
 struct Struct_02109bf4_3;
 extern "C" void ResetMusic_0209c20c(Struct_02109bf4_3*);
-struct Struct_0205e8ec;
-extern "C" void func_0205e8ec(Struct_0205e8ec*);
+struct SoundEffectManager_0205e8ec;
+extern "C" void ResetSoundEffects_0205e8ec(SoundEffectManager_0205e8ec*);
 extern "C" void func_ov017_021a3ef0(void* arg0);
 struct Struct_0203cfb4;
 extern "C" void func_0203cfb4(Struct_0203cfb4*);
@@ -615,7 +615,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         ((TextureArena*)(arg0->unknown_f0c_))->Initialize(0x10, 0x10);
     }
     func_02013718(var9, (int)arg0->unknown_38_, (int)arg0->unknown_2cc_);
-    func_0202df68(var0);
+    InitCamera_0202df68(var0);
     InitKeyControlledCamera_020a2cf0((Struct_0204a120_2*)var0);
     InitFollowCamera_020a2010(var0);
     SetCamera_020100c4(var5, (int)var0);
@@ -796,7 +796,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     CloseMessageWindow_02043124(var51);
     func_02042b30(var51, arg0->unknown_87c_);
     func_ov017_0219b624(arg0);
-    func_ov017_0219ba0c(arg0, 0);
+    LoadCommonFieldResources_ov017_0219ba0c(arg0, 0);
     ((TextureArena*)((TextureVRAMArea_0203d028*)arg0->unknown_87c_))->Reset();
     ((TextureArena*)((char*)arg0->unknown_87c_))->Restore();
     InitMessageGlyphs_020432c4(var51);
@@ -829,7 +829,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         } else {
             ResetZoneLoadTask_ov017_0219e310((unsigned char*)arg0->unknown_370c_, 0);
             AppendToQueue_020469b4((Queue_0201bdac_2*)arg0->unknown_36fc_, (QueueNode_0201bdac*)arg0->unknown_370c_);
-            func_ov017_021a3498((Struct_0203d028_4*)arg0->unknown_36fc_);
+            UpdateTaskQueue_ov017_021a3498((Queue_0203d028_4*)arg0->unknown_36fc_);
             if (func_0206dfb0((int)var55, (unsigned char*)(var55 + 0x8c), 0x1142) != 0) {
                 ResetEventTask_ov017_021baedc(arg0->unknown_3734_, 1);
                 *(unsigned short*)(arg0->unknown_3734_ + 8) = 0x730a;
@@ -841,11 +841,11 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         void* var56 = arg0->unknown_3b4c_;
         ResetMenuTask_ov017_021b2174((unsigned char*)var56);
         if (GetGameMode_0200fb9c((char*)var5) == 6) {
-            func_ov017_021b2ba0((Struct_0206f81c_2*)var56, (char*)&data_ov017_021d736c);
-            func_ov017_021b2bd0(var56, (int)func_ov004_0216e9cc, OVERLAY_ID(4));
+            SetMenuTaskFileName_ov017_021b2ba0((MenuTask_0206f81c_2*)var56, (char*)&data_ov017_021d736c);
+            SetMenuTaskSetupFunction_ov017_021b2bd0(var56, (int)func_ov004_0216e9cc, OVERLAY_ID(4));
         } else if (GetGameMode_0200fb9c((char*)var5) == 9) {
-            func_ov017_021b2ba0((Struct_0206f81c_2*)var56, (char*)&data_ov017_021d7378);
-            func_ov017_021b2bd0(var56, (int)func_ov004_0216f854, OVERLAY_ID(4));
+            SetMenuTaskFileName_ov017_021b2ba0((MenuTask_0206f81c_2*)var56, (char*)&data_ov017_021d7378);
+            SetMenuTaskSetupFunction_ov017_021b2bd0(var56, (int)func_ov004_0216f854, OVERLAY_ID(4));
         }
         AppendToQueue_020469b4((Queue_0201bdac_2*)arg0->unknown_36fc_, (QueueNode_0201bdac*)var56);
     }
@@ -859,7 +859,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     void* var58 = arg0->unknown_3700_;
     while (GetQueueHeadType_02046b24((QueueNode_02015438**)var58) == 0x13) {
         var8->RemoveAllLocks();
-        func_ov017_021a3498((Struct_0203d028_4*)var58);
+        UpdateTaskQueue_ov017_021a3498((Queue_0203d028_4*)var58);
     }
     func_0206e424(var18, 0);
     if (var32 != 0) {
@@ -979,7 +979,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
                 var66 = 0;
             }
         }
-        func_020439b0(var51, var66);
+        UpdateMessageWindowGraphics_020439b0(var51, var66);
         func_020579ec((Struct_020579ec**)var48);
         func_ov017_021a63d0(arg0);
         func_ov017_0219a18c(arg0);
@@ -1002,7 +1002,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
             LoadSoundEffectSet_0205ea20(&gSoundEffectManager_02108760, 100);
         }
         ResetMusic_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
-        func_0205e8ec((Struct_0205e8ec*)&gSoundEffectManager_02108760);
+        ResetSoundEffects_0205e8ec((SoundEffectManager_0205e8ec*)&gSoundEffectManager_02108760);
         UpdateSound_020bbd9c();
     }
     gMusicManager_02109bf4.unknown_c8_ &= ~4;
@@ -1061,7 +1061,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     func_0200fb84((int*)var5, 0);
     InitFollowCamera_020a2010(var0);
     InitKeyControlledCamera_020a2cf0((Struct_0204a120_2*)var0);
-    func_0202df68(var0);
+    InitCamera_0202df68(var0);
 }
 
 void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)

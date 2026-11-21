@@ -62,7 +62,7 @@ extern "C" void func_0204ecb4(Struct_ov012_0218ab34_2* arg0, int arg1, int arg2,
 extern "C" void func_0204f41c(Struct_ov012_0218ab34_2* arg0, short arg1, short arg2, const char* arg3, int arg4,
                               unsigned char arg5, short* arg6, short* arg7, int arg8);
 extern "C" void func_0204f3bc(Struct_ov012_0218ab34_2* arg0, int arg1);
-extern "C" void func_ov003_0215ec68(int arg0, short* arg1, short* arg2);
+extern "C" void GetButtonSize_ov003_0215ec68(int sizeType, short* width, short* height);
 extern "C" void FillTextWindowRect_0204f914(Struct_ov012_0218ab34_2* textWindow, int colorIndex, short left, short top, short right, short bottom);
 struct TextWindow_0204fbf8_2;
 extern "C" void LoadTextWindowCharacterData_0204fbf8(struct TextWindow_0204fbf8_2* textWindow);
@@ -120,7 +120,7 @@ extern "C" ARM void func_ov012_0218ab34(Struct_ov012_0218ab34_3* arg0, int arg1)
             var18 = var17;
 
         int var19 = func_020420e8(var18, 1);
-        func_ov003_0215ec68(var10->unknown_e_, &var15, &var16);
+        GetButtonSize_ov003_0215ec68(var10->unknown_e_, &var15, &var16);
         short var20 = var10->unknown_0_ - var1;
         short var21 = var10->unknown_2_ - var2;
         FillTextWindowRect_0204f914(var0, 4, var20 + 1, var21 + 1, var15 + var20 - 1, var16 + var21 - 1);

@@ -20,7 +20,7 @@ extern "C" void* func_0205ec34();
 extern "C" void* func_0202ae18();
 extern "C" void* GetZone3D_02012fe4();
 extern "C" void* __clear(void*, int);
-extern "C" void func_0206f81c(void*);
+extern "C" void RunDeferredTriggerActions_0206f81c(void*);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
 extern "C" void func_02010834(Struct_02010834*, int, int*, int*);
 extern "C" int IsQueueEmpty_02046b08(void**);
@@ -107,7 +107,7 @@ extern "C" ARM void func_0208b0f8(void* arg0) {
             Struct_0208b0f8_3 var20;
             var20.unknown_c_ = *(unsigned short*)GetZone3D_02012fe4();
             if (RunTrigger_020649b0(var2, 0x19, &var20)) {
-                func_0206f81c(&var20);
+                RunDeferredTriggerActions_0206f81c(&var20);
             }
         }
     }

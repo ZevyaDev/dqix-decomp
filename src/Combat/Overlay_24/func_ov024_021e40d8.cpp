@@ -3,8 +3,8 @@
 
 GameObject* GetCombatantByID(int unused, int id);
 extern "C" int func_ov024_021eae14(void* arg0, int arg1);
-struct Struct_ov024_021e2bd0;
-extern "C" void* func_ov024_021e8ca0(struct Struct_ov024_021e2bd0* arg0, int arg1);
+struct ActionRunner_ov024_021e2bd0;
+extern "C" void* AddExtraTargetResult_ov024_021e8ca0(struct ActionRunner_ov024_021e2bd0* actionRunner, int messageId);
 extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, void* combatant, int amount, int flags, int isCriticalHit, int arg6);
 
 struct Struct_ov024_021e40d8 { char unknown_0_[0x10]; void* unknown_10_; };
@@ -14,7 +14,7 @@ extern "C" ARM long long func_ov024_021e40d8(struct Struct_ov024_021e40d8* arg0,
 	GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
 	if (!var0) return 0;
 	if (func_ov024_021eae14(arg0, arg2) > 0) {
-		void* var1 = func_ov024_021e8ca0((struct Struct_ov024_021e2bd0*)arg0, 0xcb);
+		void* var1 = AddExtraTargetResult_ov024_021e8ca0((struct ActionRunner_ov024_021e2bd0*)arg0, 0xcb);
 		if (var1) {
 			SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var1, var0, 0, 0, 0, 0);
 		}

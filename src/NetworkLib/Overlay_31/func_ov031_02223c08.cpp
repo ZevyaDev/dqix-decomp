@@ -52,16 +52,16 @@ static inline void inline_ov031_02223c08(Struct_ov031_02222b0c_4* arg0, Enum_ov0
 static inline void inline_ov031_02223c08_2(Struct_ov031_02222b0c_4* arg0, int arg1) {
     arg0->unknown_4_ = (unsigned short)((arg0->unknown_4_ & ~0xc00) | (arg1 << 10));
 }
-struct Struct_ov031_02222ce4;
+struct OAMAllocation_ov031_02222ce4;
 struct Struct_ov031_02222b0c_3;
 struct Struct_ov031_02223c08 { unsigned short unknown_0_, unknown_2_, unknown_4_, unknown_6_; };
 struct Struct_ov031_02223c08_2 {
     Struct_ov031_02222b0c_3* unknown_0_[3][4];
     Struct_ov031_02222b0c_4* unknown_30_[47];
     Struct_ov031_02222b0c_4* unknown_ec_[4];
-    Struct_ov031_02222ce4* unknown_fc_[2];
-    Struct_ov031_02222ce4* unknown_104_[4];
-    Struct_ov031_02222ce4* unknown_114_;
+    OAMAllocation_ov031_02222ce4* unknown_fc_[2];
+    OAMAllocation_ov031_02222ce4* unknown_104_[4];
+    OAMAllocation_ov031_02222ce4* unknown_114_;
     void* unknown_118_;
     unsigned char unknown_11c_;
     unsigned char unknown_11d_;
@@ -80,12 +80,12 @@ extern const unsigned char data_ov031_022489b4[2];
 extern unsigned short* data_ov031_0224b430[3];
 extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int, int);
 extern "C" Struct_ov031_02222b0c_4* func_ov031_0223be44(int, int);
-extern "C" Struct_ov031_02222ce4* func_ov031_0223be70(int, int, int);
-extern "C" void func_ov031_0223bab4(Struct_ov031_02222ce4*, int, int, int);
-extern "C" void func_ov031_0223bcc8(Struct_ov031_02222ce4*, int, int);
+extern "C" OAMAllocation_ov031_02222ce4* func_ov031_0223be70(int, int, int);
+extern "C" void func_ov031_0223bab4(OAMAllocation_ov031_02222ce4*, int, int, int);
+extern "C" void SetSpritePriority_ov031_0223bcc8(OAMAllocation_ov031_02222ce4*, int, int);
 extern "C" Struct_ov031_02222b0c_3* func_ov031_0223c458(int, int, int, int, int*, int);
 extern "C" void func_ov031_0223c980(Struct_ov031_02222b0c_3*, int, int, int, int, int, unsigned long, const unsigned short*);
-extern "C" Struct_ov031_02222ce4* func_ov031_0223b8c4(int, int, int);
+extern "C" OAMAllocation_ov031_02222ce4* func_ov031_0223b8c4(int, int, int);
 extern "C" void* AddTask_ov031_0223e218(void*, void*, void*, int);
 extern "C" void func_ov031_02224ca4(int, int, int);
 extern "C" void func_ov031_02223ff8(void*);
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov031_02223c08() {
     for (var3 = 0; var3 < 2; ++var3) {
         gKeyboard_ov031_02250bfc->unknown_fc_[var3] = func_ov031_0223be70(0, data_ov031_022489b4[var3], 1);
         func_ov031_0223bab4(gKeyboard_ov031_02250bfc->unknown_fc_[var3], -1, 0x200, 0);
-        func_ov031_0223bcc8(gKeyboard_ov031_02250bfc->unknown_fc_[var3], -1, 3);
+        SetSpritePriority_ov031_0223bcc8(gKeyboard_ov031_02250bfc->unknown_fc_[var3], -1, 3);
     }
     var6[1] = 0;
     for (var3 = 0; var3 < 3; ++var3) {
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov031_02223c08() {
     }
     gKeyboard_ov031_02250bfc->unknown_114_ = func_ov031_0223be70(0, 0x40, 1);
     func_ov031_0223bab4(gKeyboard_ov031_02250bfc->unknown_114_, -1, 0x200, 0);
-    func_ov031_0223bcc8(gKeyboard_ov031_02250bfc->unknown_114_, -1, 2);
+    SetSpritePriority_ov031_0223bcc8(gKeyboard_ov031_02250bfc->unknown_114_, -1, 2);
     gKeyboard_ov031_02250bfc->unknown_118_ = AddTask_ov031_0223e218(0, (void*)func_ov031_02223ff8, 0, 0x78);
     func_ov031_02224ca4(gKeyboard_ov031_02250bfc->unknown_11d_, 0, 0xc0);
 }

@@ -50,7 +50,7 @@ extern "C" void* GetEffectManager_02057924(void);
 extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId);
 extern "C" void func_ov017_021a05a8(GameResources* arg0);
 extern "C" void func_ov017_0219b624(GameResources* arg0);
-extern "C" void func_ov017_0219ba0c(GameResources* arg0, int arg1);
+extern "C" void LoadCommonFieldResources_ov017_0219ba0c(GameResources* gameResources, int isIconsOnly);
 extern "C" void* func_0205ec34(void);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
 struct Struct_02095924_2;
@@ -136,7 +136,7 @@ extern "C" ARM void func_ov000_0216873c(struct Struct_ov000_0216873c* arg0) {
     }
     func_ov017_0219b624(var1);
 #if !defined(jpn)
-    func_ov017_0219ba0c(var1, 0);
+    LoadCommonFieldResources_ov017_0219ba0c(var1, 0);
 #endif
     void* var5 = func_0205ec34();
     unsigned short* var6 = GetZone3D_02012fe4();

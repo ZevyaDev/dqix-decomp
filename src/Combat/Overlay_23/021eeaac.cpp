@@ -17,7 +17,7 @@ struct StringList_020727d8;
 struct LocalWireless_0202b2f0;
 struct SkillTable_0200f3a4_8;
 struct Struct_0209a470;
-struct Struct_02086f24_6;
+struct SpellTable_02086f24_6;
 struct Struct_02013fb4;
 struct Struct_ov023_021eeaac_2;
 
@@ -31,7 +31,7 @@ extern "C" int LoadItemTableByIds_020de9a4(void* itemTable, void* allocator, voi
 extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void ResetItemContext_0207cbe8(char* itemContext);
 extern "C" int AddItem_0207d300(void* itemContext, int itemId, int count, int isAliveRequired);
-extern "C" int AddItemToPartyMember_0207ccf0(void* itemContext, int itemId, int count, int memberIndex, int isBagAllowed, int arg5, int arg6);
+extern "C" int AddItemToPartyMember_0207ccf0(void* itemContext, int itemId, int count, int memberIndex, int isBagAllowed, int isOverflowToHeldItems, int arg6);
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" LocalWireless_0202b2f0* func_0202ae18(void);
@@ -39,7 +39,7 @@ extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0* wire
 extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8* table);
 extern "C" void func_0209a470(Struct_0209a470* arg0, SafeAllocator* arg1, Struct_02013fb4* arg2, int arg3);
 extern "C" void ClearSpellTable_0209a804(int* table);
-extern "C" void func_0209a8b4(Struct_02086f24_6* arg0, SafeAllocator* arg1, Struct_02013fb4* arg2, int arg3);
+extern "C" void BuildSpellTable_0209a8b4(SpellTable_02086f24_6* table, SafeAllocator* allocator, Struct_02013fb4* scriptData, int scriptSize);
 extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2* arg0);
 
 extern "C" int* _ZZ21inline_ov023_021f4c04vE1s;
@@ -220,7 +220,7 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
         void* var32;
         var1->GetLoadedFileByID(var2[1], &var32, &var31);
         ClearSpellTable_0209a804(var2 + 0xf0 / 4);
-        func_0209a8b4((Struct_02086f24_6*)(var2 + 0xf0 / 4), var3, (Struct_02013fb4*)var32, var31);
+        BuildSpellTable_0209a8b4((SpellTable_02086f24_6*)(var2 + 0xf0 / 4), var3, (Struct_02013fb4*)var32, var31);
         var1->RemoveTask(var2[1]);
         func_ov023_021eefac((Struct_ov023_021eeaac_2*)var2);
         return 3;

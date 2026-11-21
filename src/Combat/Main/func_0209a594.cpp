@@ -1,33 +1,33 @@
 #include <globaldefs.h>
 
-struct Struct_0209a594_2 {
+struct SkillEntry_0209a594_2 {
     #if defined(jpn)
-    unsigned short unknown_0_0_ : 12;
+    unsigned short id_0_0_ : 12;
     unsigned short unknown_1_4_ : 4;
 #else
-    unsigned short unknown_0_0_ : 11;
+    unsigned short id_0_0_ : 11;
     unsigned short unknown_1_3_ : 5;
 #endif
     char unknown_2_[10];
 };
 
-struct Struct_0209a594 {
-    struct Struct_0209a594_2* unknown_0_;
-    int unknown_4_;
+struct SkillTable_0209a594 {
+    struct SkillEntry_0209a594_2* pEntries_0_;
+    int count_4_;
 };
 
-// USA: func_0209a594
-extern "C" ARM struct Struct_0209a594_2* func_0209a594(struct Struct_0209a594* arg0, int arg1) {
-    int var0;
-    struct Struct_0209a594_2* var1 = arg0->unknown_0_;
-    if (var1 == 0) return 0;
-    if (arg1 >= 0x11f) return 0;
-    if (var1[arg1].unknown_0_0_ == arg1) {
-        return &var1[arg1];
+// USA: FindSkillEntry_0209a594
+extern "C" ARM struct SkillEntry_0209a594_2* FindSkillEntry_0209a594(struct SkillTable_0209a594* table, int skillEntryId) {
+    int i;
+    struct SkillEntry_0209a594_2* entries = table->pEntries_0_;
+    if (entries == 0) return 0;
+    if (skillEntryId >= 0x11f) return 0;
+    if (entries[skillEntryId].id_0_0_ == skillEntryId) {
+        return &entries[skillEntryId];
     }
-    for (var0 = 0; var0 < arg0->unknown_4_; var0++) {
-        if (var1[var0].unknown_0_0_ == arg1) {
-            return &var1[var0];
+    for (i = 0; i < table->count_4_; i++) {
+        if (entries[i].id_0_0_ == skillEntryId) {
+            return &entries[i];
         }
     }
     return 0;

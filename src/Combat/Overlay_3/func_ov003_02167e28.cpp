@@ -20,7 +20,7 @@ extern "C" char* func_02081010(void* arg0, int arg1);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" void func_02080828(void* arg0, int arg1, short* arg2, short* arg3);
 extern "C" void func_02080854(void* arg0, int arg1, int arg2, int arg3);
-extern "C" int func_02080b2c(void* arg0, int arg1);
+extern "C" int HideMenuLayoutText_02080b2c(void* menuLayout, int textId);
 extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
 extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0* menuLayout, int textId, int color);
 
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov003_02167e28(struct Struct_ov003_02167e28* arg0, char
     var2 = 0x40;
     var2 -= var1 >> 1;
     func_02080854(var0, 2, var2, var3);
-    func_02080b2c(var0, 0x2c);
+    HideMenuLayoutText_02080b2c(var0, 0x2c);
     if (arg4 == 0) {
         return;
     }

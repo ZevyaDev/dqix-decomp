@@ -10,7 +10,7 @@ extern "C" int IsParalysed_ov024_021da9b0(struct Struct_ov024_021da670_7* combat
 struct Struct_ov024_021da670_8;
 extern "C" int func_ov024_021da9c8(struct Struct_ov024_021da670_8* arg0);
 struct Struct_020885b4;
-extern "C" int func_020885b4(struct Struct_020885b4* arg0);
+extern "C" int IsPoisoned_020885b4(struct Struct_020885b4* stats);
 struct Struct_02088514;
 extern "C" int IsEnvenomated_02088514(struct Struct_02088514* stats);
 struct Struct_ov024_021df454_2;
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov024_021edcc8(struct Struct_ov024_021edcc8* arg0, int a
 	if (IsConfused_ov024_021de25c((struct Struct_ov024_021de124*)var0)) return 1;
 	if (IsParalysed_ov024_021da9b0((struct Struct_ov024_021da670_7*)var0)) return 1;
 	if (func_ov024_021da9c8((struct Struct_ov024_021da670_8*)var0)) return 1;
-	if (func_020885b4((struct Struct_020885b4*)var0->currentStats_)) return 1;
+	if (IsPoisoned_020885b4((struct Struct_020885b4*)var0->currentStats_)) return 1;
 	if (IsEnvenomated_02088514((struct Struct_02088514*)var0->currentStats_)) return 1;
 	if (func_ov024_021df6ec((struct Struct_ov024_021df454_2*)var0)) return 1;
 	if (func_ov024_021dd010((struct Struct_ov024_021dced0_2*)var0)) return 1;

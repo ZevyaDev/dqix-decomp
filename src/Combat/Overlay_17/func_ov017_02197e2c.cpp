@@ -33,7 +33,7 @@ extern "C" int func_020c3260(int);
 extern "C" float func_0200c700(int);
 extern "C" int func_ov017_021a4754(Vector3fix*, int, Vector3fix*);
 extern "C" Struct_ov017_02197e2c_2* GetTimedMessageQueue_020d7a50();
-extern "C" void func_ov017_0219a674(unsigned char*);
+extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char*);
 extern "C" void func_ov017_0219b33c(GameResources*, Struct_ov017_02197e2c_3*);
 
 static inline int inline_ov017_02197e2c(int arg0, int arg1) { return (int)(((long long)arg0 * arg1 + 0x800) >> 12); }
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov017_02197e2c(GameResources* arg0) {
     if (!var23) return;
     if (var22->unknown_150_0_ > 1) return;
     Struct_ov017_02197e2c_3 var24;
-    func_ov017_0219a674((unsigned char*)&var24);
+    ResetInteractionPrompt_ov017_0219a674((unsigned char*)&var24);
     var24.unknown_0_ = 2;
     var24.unknown_10_ = func_ov017_021a4754(&var2->unknown_0_.position_, (short)var2->unknown_0_.rotation_.y, &var9->unknown_0_);
     var24.unknown_8_ = var9;

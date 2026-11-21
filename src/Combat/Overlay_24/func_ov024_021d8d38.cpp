@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_020885b4;
-extern "C" int func_020885b4(struct Struct_020885b4* arg0);
+extern "C" int IsPoisoned_020885b4(struct Struct_020885b4* stats);
 struct Struct_02088514;
 extern "C" int IsEnvenomated_02088514(struct Struct_02088514* stats);
 
@@ -13,7 +13,7 @@ extern "C" ARM int func_ov024_021d8d38(int arg0, int arg1, int arg2, int arg3, i
     if (var1 == NULL) {
         return arg5;
     }
-    if (func_020885b4((struct Struct_020885b4*)var1->currentStats_) ||
+    if (IsPoisoned_020885b4((struct Struct_020885b4*)var1->currentStats_) ||
         IsEnvenomated_02088514((struct Struct_02088514*)var1->currentStats_) ||
         (*(int*)((char*)var1->currentStats_ + 0x14) & 0x8) != 0) {
         return (int)(arg5 * 1.5f);

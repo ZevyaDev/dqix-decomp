@@ -14,7 +14,7 @@ void InitializeBrightnessState(GameResources*);
 unsigned int EnableSpecificInterrupts(unsigned int mask);
 struct Struct_02054280;
 extern "C" void func_02054280(Struct_02054280*);
-extern "C" void func_ov017_0219a674(unsigned char*);
+extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char*);
 extern "C" void func_02020554(void* arg0);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int length);
 struct BGLayer_02020cb8;
@@ -24,7 +24,7 @@ extern "C" void func_02046958(Struct_02046958*);
 extern "C" void func_ov017_021a124c(void* arg0);
 extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char*, int);
 extern "C" void func_ov017_021b8d1c(void* arg0);
-extern "C" void func_ov017_021b6f18(void* arg0);
+extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
 extern "C" void func_ov017_021a5568(void* arg0);
 extern "C" void func_ov017_021bf410(void* arg0);
 struct Struct_ov017_021b8c70;
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov030_021d9340(GameResources* arg0) {
         *(int*)(var0 + R(0x345c, (0x3000 + 0x66c)) + var9 * 4) = 0;
     }
 
-    func_ov017_0219a674((unsigned char*)(var0 + R(0x34a4, (0x3400 + 0x2b4))));
+    ResetInteractionPrompt_ov017_0219a674((unsigned char*)(var0 + R(0x34a4, (0x3400 + 0x2b4))));
     ((Model3D*)(*(void**)(var0 + R(0x34b8, (0x3000 + 0x6c8)))))->Clear();
     ((Object3D*)(*(void**)(var0 + R(0x34bc, (0x3000 + 0x6cc)))))->Initialize();
     var0[R(0x4111, (0x4000 + 0x331))] = 0;
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov030_021d9340(GameResources* arg0) {
     func_ov017_021a124c(*(void**)(var0 + R(0x34f8, (0x3000 + 0x708))));
     ResetZoneLoadTask_ov017_0219e310((unsigned char*)(*(void**)(var0 + R(0x34fc, (0x3000 + 0x70c)))), 1);
     func_ov017_021b8d1c(*(void**)(var0 + R(0x3500, (0x3000 + 0x710))));
-    func_ov017_021b6f18(*(void**)(var0 + R(0x3508, (0x3000 + 0x718))));
+    ResetBattleTask_ov017_021b6f18(*(void**)(var0 + R(0x3508, (0x3000 + 0x718))));
     func_ov017_021a5568(*(void**)(var0 + R(0x350c, (0x3000 + 0x71c))));
     func_ov017_021bf410(*(void**)(var0 + R(0x3510, (0x3000 + 0x720))));
     func_ov017_021b8c70((Struct_ov017_021b8c70*)(*(void**)(var0 + R(0x3514, (0x3000 + 0x724)))));

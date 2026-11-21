@@ -106,10 +106,10 @@ extern "C" Struct_ov026_021db090_4* func_ov026_021dae60(Struct_ov026_021d8ba0_4*
 
 extern "C" {
 int CollectPartyCombatantIndices_ov000_0215e9fc(Struct_ov000_02161e30*, short*, int, int);
-void func_ov000_02162c14(BattleScene_ov000_02160da0*, int, Struct_ov026_021db090*);
+void GetPartyMemberCommand_ov000_02162c14(BattleScene_ov000_02160da0*, int, Struct_ov026_021db090*);
 void func_020dd0b0(int, char*);
 void GetZone3D_02012fe4();
-void func_ov017_021a23b0(GameResources*, unsigned short);
+void DespawnFieldMonster_ov017_021a23b0(GameResources*, unsigned short);
 #if defined(jpn)
 void StartMessage_0204500c(Struct_ov000_0217964c_3*, char*, int);
 #else
@@ -176,7 +176,7 @@ extern "C" ARM void func_ov026_021db090(BattleScene_ov000_02160da0* arg0) {
             if (var14 == NULL || IsDead_02010088((Struct_02010088*)var14)) {
                 continue;
             }
-            func_ov000_02162c14(arg0, var7[var12], &var6);
+            GetPartyMemberCommand_ov000_02162c14(arg0, var7[var12], &var6);
             if (var6.unknown_1_ != 6) {
                 continue;
             }
@@ -228,7 +228,7 @@ extern "C" ARM void func_ov026_021db090(BattleScene_ov000_02160da0* arg0) {
             GetZone3D_02012fe4();
             unsigned short var21 = arg0->unknown_2a0_->unknown_8_;
             func_ov017_021c9ad4(var21);
-            func_ov017_021a23b0(var20, var21);
+            DespawnFieldMonster_ov017_021a23b0(var20, var21);
         } else if (arg0->unknown_5950_ == 4) {
 #if defined(jpn)
             sprintf(var2, data_ov026_021df423, var5);

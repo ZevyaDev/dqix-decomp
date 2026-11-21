@@ -38,7 +38,7 @@ struct Struct_ov017_021bdc34_3 {
 };
 extern "C" Struct_ov017_021bdc34* func_ov017_021a11b4(Struct_ov017_0218f064_6*);
 extern "C" void func_ov017_021bdb78(int);
-extern "C" void func_ov017_0218fcf8(int, int, int);
+extern "C" void TintPartyMemberPalettes_ov017_0218fcf8(int, int, int);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void*, int, int, int, int);
 #if defined(jpn)
 extern const char data_ov017_021d85ec[], data_ov017_021d8606[], data_ov017_021d861e[];
@@ -147,7 +147,7 @@ extern "C" ARM void func_ov017_021bdc34(Struct_ov017_021bdc34_3* arg0) {
         if (arg0->unknown_11_ == 1) func_ov017_021bdb78(0);
         else {
             var3->obj3D_.unknown_9c_ = 0;
-            func_ov017_0218fcf8((int)var1, 0, 0);
+            TintPartyMemberPalettes_ov017_0218fcf8((int)var1, 0, 0);
         }
         if (var1->unknown_4334_ != 0) {
 #if defined(jpn)

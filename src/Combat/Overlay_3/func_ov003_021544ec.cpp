@@ -5,8 +5,8 @@
 #include "Graphics/BGLayer.h"
 #include "Graphics/OBJSpriteSet.h"
 
-struct Struct_020e2490;
-extern "C" void func_020e2490(struct Struct_020e2490* arg0, int arg1, int arg2, void* arg3, SafeAllocator* arg4, int arg5, unsigned char arg6);
+struct YesNoWindow_020e2490;
+extern "C" void InitYesNoWindow_020e2490(struct YesNoWindow_020e2490* yesNoWindow, int isSubScreen, int displayWindowIndex, void* cursorAnimationList, SafeAllocator* allocator, int maxSpriteCount, unsigned char firstOAMIndex);
 struct BGLayer_02020cb8;
 extern "C" void InitTextWindow_0204c684(void*);
 struct Sprite_02043368_2;
@@ -35,7 +35,7 @@ struct Struct_ov003_021544ec_2 {
     struct BGLayer_02020cb8* unknown_10_;
     char* unknown_14_;
     MenuLayout_0207f7f0* unknown_18_;
-    struct Struct_020e2490* unknown_1c_;
+    struct YesNoWindow_020e2490* unknown_1c_;
     int* unknown_20_;
     struct Sprite_02043368_2* unknown_24_;
     void* unknown_28_;
@@ -63,8 +63,8 @@ extern "C" ARM void func_ov003_021544ec(struct Struct_ov003_021544ec_2* arg0, Sa
         arg0->unknown_20_ = (int*)arg1->Allocate(0x30);
         arg0->unknown_24_ = (struct Sprite_02043368_2*)arg1->Allocate(0x190);
         arg0->unknown_28_ = arg1->Allocate(8);
-        arg0->unknown_1c_ = (struct Struct_020e2490*)arg1->Allocate(0x24);
-        func_020e2490(arg0->unknown_1c_, 0, 1, arg0->unknown_28_, arg1, Enum_ov003_021544ec_4, 0x40);
+        arg0->unknown_1c_ = (struct YesNoWindow_020e2490*)arg1->Allocate(0x24);
+        InitYesNoWindow_020e2490(arg0->unknown_1c_, 0, 1, arg0->unknown_28_, arg1, Enum_ov003_021544ec_4, 0x40);
 
         Struct_ov003_0217f320 var0 = data_ov003_0217f320;
         for (unsigned char var1 = 0; var1 < 8; var1++) {

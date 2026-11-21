@@ -103,7 +103,7 @@ struct Struct_02000c9c_8;
 struct Struct_0204b9b8;
 
 extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8*);
-extern "C" void func_ov003_0215ec68(int arg0, short* arg1, short* arg2);
+extern "C" void GetButtonSize_ov003_0215ec68(int sizeType, short* width, short* height);
 
 extern const unsigned char data_ov023_021fd530[];
 extern unsigned char data_ov023_021fd532[];
@@ -220,7 +220,7 @@ extern "C" ARM void func_ov023_021da274(Struct_ov023_021da274_3* arg0) {
                     short var36 = var34->unknown_2_;
                     short var37;
                     short var38;
-                    func_ov003_0215ec68(var34->unknown_e_, &var38, &var37);
+                    GetButtonSize_ov003_0215ec68(var34->unknown_e_, &var38, &var37);
                     ((BGLayer*)((Struct_0204b9b8*)&arg0->unknown_198_))->SetPaletteInRegion(var35 >> 3, var36 >> 3, var38 >> 3, var37 >> 3, 0);
                 }
             }

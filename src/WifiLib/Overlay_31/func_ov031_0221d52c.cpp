@@ -3,7 +3,7 @@
 extern unsigned char data_ov031_0224eda0[];
 struct Struct_ov031_0224e720;
 extern Struct_ov031_0224e720 data_ov031_0224e720;
-extern unsigned char data_ov031_0224e6e0[];
+extern unsigned char gAOSSSession_ov031_0224e6e0[];
 extern "C" unsigned int func_ov031_0221e610(unsigned int arg0);
 extern "C" void func_ov031_0221d060(int arg0);
 extern "C" void func_ov031_0221e52c(void* arg0, int arg1, unsigned int arg2);
@@ -41,7 +41,7 @@ extern "C" THUMB int func_ov031_0221d52c(int arg0, Struct_ov031_0221d3b0_2* arg1
         ++*arg2;
         return arg0;
     }
-    if (!(*(unsigned int*)(data_ov031_0224e6e0 + 0x30) & *(unsigned int*)(data_ov031_0224e6e0 + 0x2c)))
+    if (!(*(unsigned int*)(gAOSSSession_ov031_0224e6e0 + 0x30) & *(unsigned int*)(gAOSSSession_ov031_0224e6e0 + 0x2c)))
         return arg0;
     *arg2 = 0;
     return 2;

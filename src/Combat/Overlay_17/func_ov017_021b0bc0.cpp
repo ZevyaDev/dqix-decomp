@@ -24,7 +24,7 @@
 struct LocalWireless_0202c1a4;
 struct Struct_02033834;
 struct Struct_02053f7c_3;
-struct Struct_02083508_2 { char unknown_0_[0x20]; };
+struct ItemData_02083508_2 { char unknown_0_[0x20]; };
 
 extern "C" void* func_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
@@ -51,7 +51,7 @@ extern "C" void* GetQuestManager_02094d6c();
 extern "C" void* func_020965f8();
 extern "C" void* InitItemTable_020de824(void*);
 extern "C" void func_020de848(void*);
-extern "C" void func_020de1d4(Struct_02083508_2*);
+extern "C" void InitItemData_020de1d4(ItemData_02083508_2*);
 #if defined(jpn)
 extern "C" void* func_020e08f0(int arg0, unsigned int* arg1);
 #endif
@@ -153,7 +153,7 @@ struct Struct_ov017_021b0bc0_5 {
 // JPN: func_ov017_021b1258
 extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
     char var0[0x18];
-    Struct_02083508_2 var1;
+    ItemData_02083508_2 var1;
     short var3[4];
     unsigned int var4;
 
@@ -262,7 +262,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
 
         InitItemTable_020de824(var0);
         func_020de848(var0);
-        func_020de1d4(&var1);
+        InitItemData_020de1d4(&var1);
         BackgroundLoader::AddLockGlobal();
 #if defined(jpn)
         void* var23 = func_020e08f0(8, &var4);

@@ -26,7 +26,7 @@ extern "C" void func_020805f4(void *arg0, int arg1);
 extern "C" void SetMenuLayoutTextStringId_0208103c(void *menuLayout, int textId, int stringId);
 struct MenuLayout_02080cc0;
 extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0 *menuLayout, int textId, int color);
-extern "C" int func_02080b2c(void *arg0, int arg1);
+extern "C" int HideMenuLayoutText_02080b2c(void *menuLayout, int textId);
 struct Struct_02052df8;
 extern "C" int GetEquippedItem_02052df8(Struct_02052df8 *gameObject, int slot);
 struct MenuLayout_02080fa8;
@@ -95,11 +95,11 @@ extern "C" ARM void func_ov003_02177550(Struct_ov003_02177550_2 *arg0) {
     if (var4 != 0) {
         SetMenuLayoutTextStringId_0208103c(var2, 0x75, 0xb);
         SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0 *) var2, 0x75, 3);
-        func_02080b2c(var2, 0x72);
-        func_02080b2c(var2, 0x73);
-        func_02080b2c(var2, 0x74);
-        func_02080b2c(var2, 0x159);
-        func_02080b2c(var2, 0x15a);
+        HideMenuLayoutText_02080b2c(var2, 0x72);
+        HideMenuLayoutText_02080b2c(var2, 0x73);
+        HideMenuLayoutText_02080b2c(var2, 0x74);
+        HideMenuLayoutText_02080b2c(var2, 0x159);
+        HideMenuLayoutText_02080b2c(var2, 0x15a);
     } else {
         SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0 *) var2, 0x75, 0xf);
 #if defined(jpn)
@@ -113,13 +113,13 @@ extern "C" ARM void func_ov003_02177550(Struct_ov003_02177550_2 *arg0) {
         int var7 = GetEquippedItem_02052df8((Struct_02052df8 *) var1, var6);
         if (var7 == var3->unknown_18_) {
             SetMenuLayoutTextStringId_0208103c(var2, 0x75, 0x22);
-            func_02080b2c(var2, 0x72);
-            func_02080b2c(var2, 0x73);
-            func_02080b2c(var2, 0x74);
-            func_02080b2c(var2, 0x159);
-            func_02080b2c(var2, 0x15a);
+            HideMenuLayoutText_02080b2c(var2, 0x72);
+            HideMenuLayoutText_02080b2c(var2, 0x73);
+            HideMenuLayoutText_02080b2c(var2, 0x74);
+            HideMenuLayoutText_02080b2c(var2, 0x159);
+            HideMenuLayoutText_02080b2c(var2, 0x15a);
         } else {
-            func_02080b2c(var2, 0x75);
+            HideMenuLayoutText_02080b2c(var2, 0x75);
             unsigned short var8;
             unsigned short var9;
             if (func_ov003_021753a0(arg0, arg0->unknown_1043_, &var8, &var9) != 0) {
@@ -132,8 +132,8 @@ extern "C" ARM void func_ov003_02177550(Struct_ov003_02177550_2 *arg0) {
                 }
                 SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0 *) var2, 0x73, var10);
                 SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8 *) var2, 0x73, var9);
-                func_02080b2c(var2, 0x159);
-                func_02080b2c(var2, 0x15a);
+                HideMenuLayoutText_02080b2c(var2, 0x159);
+                HideMenuLayoutText_02080b2c(var2, 0x15a);
             } else {
                 float var11;
                 float var12;
@@ -147,8 +147,8 @@ extern "C" ARM void func_ov003_02177550(Struct_ov003_02177550_2 *arg0) {
                 }
                 SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0 *) var2, 0x15a, var13);
                 func_02080fc4((struct Struct_02080fc4 *) var2, 0x15a, *(int *) &var12);
-                func_02080b2c(var2, 0x72);
-                func_02080b2c(var2, 0x73);
+                HideMenuLayoutText_02080b2c(var2, 0x72);
+                HideMenuLayoutText_02080b2c(var2, 0x73);
             }
         }
     }

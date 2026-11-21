@@ -18,7 +18,7 @@ extern "C" void* FindMonsterBattleData_02070fd0(Struct_02070b6c_3*, int);
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11*);
 
 extern "C" void* __clear(void* arg0, int arg1);
-extern "C" void func_02079a3c(void*);
+extern "C" void InitGPCReadPair_02079a3c(void*);
 extern "C" void _ZN8Object3D10SetField7aEt(Object3D*, unsigned int);
 extern "C" void LoadExtraSoundSet_0205ebc0(void*, int, int);
 
@@ -89,7 +89,7 @@ extern "C" ARM int func_ov015_0218dbec(Struct_ov015_0218dbec_3* arg0, Struct_ov0
     BackgroundLoader::FreeAllocationsGlobal();
 
     GPCReadPair var3;
-    func_02079a3c(&var3);
+    InitGPCReadPair_02079a3c(&var3);
     unsigned int var4;
     if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var3.pGPCFile, &var3.machine, &data_ov015_02194105, g_fileScratchSpace, &var4, 0x30000, false, 0)) {
         unsigned int var5;

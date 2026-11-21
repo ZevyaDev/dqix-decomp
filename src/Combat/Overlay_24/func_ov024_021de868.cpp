@@ -7,7 +7,7 @@ struct Struct_02010088;
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" void func_0208902c(unsigned char* arg0, int arg1);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
-extern "C" float func_ov024_021db358(GameObject* arg0);
+extern "C" float GetHPRatio_ov024_021db358(GameObject* combatant);
 extern "C" short func_ov000_0215a16c(void* arg0, int arg1, int arg2, short* arg3);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
@@ -43,7 +43,7 @@ extern "C" ARM void* func_ov024_021de868(struct Struct_ov024_021de868_2* arg0, i
 				((struct Struct_ov024_021de868_3*)var5->currentStats_)->unknown_3a_ = 1;
 			}
 		}
-	} else if (func_ov024_021db358(var0) < 1.0f) {
+	} else if (GetHPRatio_ov024_021db358(var0) < 1.0f) {
 		func_ov000_0215a16c(arg0->unknown_10_, arg2, var0->currentStats_->primaryStats.maxHP, &var1);
 		SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var2, 0x25);
 		var3 = 0x16;

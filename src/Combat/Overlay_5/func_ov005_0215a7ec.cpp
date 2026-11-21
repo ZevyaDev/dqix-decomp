@@ -19,7 +19,7 @@
 #include "Resource/GameResources.h"
 #include "Graphics/OBJSpriteSet.h"
 
-struct Struct_020e28dc;
+struct YesNoWindow_020e28dc;
 struct Struct_0205c570;
 
 struct Struct_ov005_02158e04 {
@@ -35,7 +35,7 @@ struct Struct_ov005_02158e04 {
 
 struct Struct_ov005_02153954 {
     char unknown_0_[R(0xe60, 0xe64)];
-    Struct_020e28dc* unknown_e64_;
+    YesNoWindow_020e28dc* unknown_e64_;
     void* unknown_e68_;
     char unknown_e6c_[0xee4 - 0xe6c];
     char unknown_ee4_[R(0x3d30 - 0xee0, 0x3db8 - 0xee4)];
@@ -46,7 +46,7 @@ struct Struct_ov005_02153954 {
 
 struct TextWindowManager_0205d81c;
 extern "C" Struct_ov005_02158e04* GetCursorTextWindow_0205d8c4(TextWindowManager_0205d81c*);
-extern "C" int func_020e28dc(Struct_020e28dc* arg0);
+extern "C" int IsYesNoWindowOpen_020e28dc(YesNoWindow_020e28dc* yesNoWindow);
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
 extern "C" void* GetEquipMenu_ov017_021a193c(int* equipMenuTask);
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov005_0215a7ec(Struct_ov005_02153954* arg0) {
     Struct_ov005_02158e04* var0 = GetCursorTextWindow_0205d8c4((TextWindowManager_0205d81c*)arg0->unknown_ee4_);
     if (var0 != NULL) {
         unsigned char var1 = var0->unknown_c4_;
-        if (arg0->unknown_e64_ != NULL && func_020e28dc(arg0->unknown_e64_)) {
+        if (arg0->unknown_e64_ != NULL && IsYesNoWindowOpen_020e28dc(arg0->unknown_e64_)) {
             ((OBJSpriteSet*)(arg0->unknown_e68_))->DrawAll();
         } else if (var1 == 1 && IsTextWindowOpen_0204c7e0((unsigned char*)var0)) {
             short var2 = (short)(var0->unknown_ac_ << 3) + var0->unknown_bc_;

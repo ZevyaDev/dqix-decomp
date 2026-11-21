@@ -11,7 +11,7 @@
 
 struct Struct_ov023_021eeaac_2 { int unknown_0_; };
 struct LocalWireless_0202c1a4;
-struct Struct_02049b54_2;
+struct Combatant_02049b54_2;
 struct Struct_02046574_2;
 struct StringList_02072a68_2 { int unknown_0_[2]; };
 struct Struct_ov000_0217964c_2 : Object3D { char unknown_ac_[0x138 - sizeof(Object3D)]; void* unknown_138_; };
@@ -49,7 +49,7 @@ extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" int IsJinglePlaying_0209ca2c(void*);
 extern "C" void func_ov023_021f00f4(int*, int, int, int);
-extern "C" Vector3fix func_02049b54(Struct_02049b54_2*);
+extern "C" Vector3fix GetCombatantLineupPosition_02049b54(Combatant_02049b54_2*);
 extern "C" void func_02049f28(unsigned char*);
 extern "C" void func_0202ea4c(Struct_0202ea4c*);
 extern "C" void func_ov000_0216d50c(void*);
@@ -63,7 +63,7 @@ extern "C" {
 void* func_0202ae18();
 Struct_ov023_021ef6f4* GetZone3D_02012fe4();
 void __clear(void*, unsigned int);
-void func_020e4ce8(void*, Struct_ov000_0217964c_2*, int);
+void InitEnemyNoun_020e4ce8(void*, Struct_ov000_0217964c_2*, int);
 void StartMessage_0204500c(MessageWindow_020465c0*, const char*, int, int);
 int func_ov023_021f4fc8();
 void ResetBattleCamera_ov000_0216d370(void*, int, int, int);
@@ -100,7 +100,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
         if ((!var4->legacy_.minTurns_ || arg0->unknown_58cc_ < var4->legacy_.minTurns_) && arg0->unknown_58cc_ < 1000) {
             Struct_ov000_0217964c_2* var10 = GetEnemyByIndex_0200fea4(var0, arg0->unknown_6e30_[0]);
             if (var4->legacy_.bossID_ == 9) var10 = GetEnemyByIndex_0200fea4(var0, arg0->unknown_6e30_[1]);
-            func_020e4ce8(var6, var10, 1);
+            InitEnemyNoun_020e4ce8(var6, var10, 1);
             sprintf(var5, FindStringInList_02072a68(&arg0->unknown_5904_, 0x23));
             var2->unknown_20_ = var6;
             SetMessageNumber_020465c0(var2, 0, arg0->unknown_58cc_);
@@ -122,7 +122,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
         func_ov023_021f00f4(&var14.x, 0, 0, 0);
         for (int var15 = 0; var15 < arg0->unknown_6e2e_; ++var15) {
             Struct_ov000_0217964c_2* var16 = GetEnemyByIndex_0200fea4(var0, arg0->unknown_6e30_[var15]);
-            var16->position_ = func_02049b54((Struct_02049b54_2*)var16);
+            var16->position_ = GetCombatantLineupPosition_02049b54((Combatant_02049b54_2*)var16);
             var16->rotation_.x = 0;
             var16->rotation_.y = 0;
             var16->rotation_.z = 0;
@@ -151,7 +151,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
         sprintf(var5, FindStringInList_02072a68(&arg0->unknown_5904_, 0x1b));
         Struct_ov000_0217964c_2* var21 = GetEnemyByIndex_0200fea4(var0, arg0->unknown_6e30_[0]);
         if (var4->legacy_.bossID_ == 9) var21 = GetEnemyByIndex_0200fea4(var0, arg0->unknown_6e30_[1]);
-        func_020e4ce8(var6, var21, 1);
+        InitEnemyNoun_020e4ce8(var6, var21, 1);
         var2->unknown_20_ = var6;
         StartMessage_0204500c(var2, var5, 1, 0xe3);
         var2->unknown_19b2_ = 0;
@@ -163,7 +163,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
                 sprintf(var5, FindStringInList_02072a68(&arg0->unknown_5904_, 0x1d));
                 Struct_ov000_0217964c_2* var22 = GetEnemyByIndex_0200fea4(var0, arg0->unknown_6e30_[0]);
                 if (var4->legacy_.bossID_ == 9) var22 = GetEnemyByIndex_0200fea4(var0, arg0->unknown_6e30_[1]);
-                func_020e4ce8(var6, var22, 1);
+                InitEnemyNoun_020e4ce8(var6, var22, 1);
                 var2->unknown_20_ = var6;
                 StartMessage_0204500c(var2, var5, 1, 0xe3);
                 var2->unknown_19b2_ = 0;
@@ -173,7 +173,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
                 sprintf(var5, FindStringInList_02072a68(&arg0->unknown_5904_, 0x1c), var4->legacy_.bossName_);
                 Struct_ov000_0217964c_2* var23 = GetEnemyByIndex_0200fea4(var0, arg0->unknown_6e30_[0]);
                 if (var4->legacy_.bossID_ == 9) var23 = GetEnemyByIndex_0200fea4(var0, arg0->unknown_6e30_[1]);
-                func_020e4ce8(var6, var23, 1);
+                InitEnemyNoun_020e4ce8(var6, var23, 1);
                 var2->unknown_20_ = var6;
                 StartMessage_0204500c(var2, var5, 1, 0xe3);
                 var2->unknown_19b2_ = 0;
@@ -187,7 +187,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
             sprintf(var5, FindStringInList_02072a68(&arg0->unknown_5904_, 0x1e));
             Struct_ov000_0217964c_2* var24 = GetEnemyByIndex_0200fea4(var0, arg0->unknown_6e30_[0]);
             if (var4->legacy_.bossID_ == 9) var24 = GetEnemyByIndex_0200fea4(var0, arg0->unknown_6e30_[1]);
-            func_020e4ce8(var6, var24, 1);
+            InitEnemyNoun_020e4ce8(var6, var24, 1);
             var2->unknown_20_ = var6;
             SetMessageNumber_020465c0(var2, 0, arg0->unknown_58c0_);
             StartMessage_0204500c(var2, var5, 1, 0xe3);
@@ -205,7 +205,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
             sprintf(var5, FindStringInList_02072a68(&arg0->unknown_5904_, 0x1f));
             Struct_ov000_0217964c_2* var25 = GetEnemyByIndex_0200fea4(var0, arg0->unknown_6e30_[0]);
             if (var4->legacy_.bossID_ == 9) var25 = GetEnemyByIndex_0200fea4(var0, arg0->unknown_6e30_[1]);
-            func_020e4ce8(var6, var25, 1);
+            InitEnemyNoun_020e4ce8(var6, var25, 1);
             var2->unknown_20_ = var6;
             SetMessageNumber_020465c0(var2, 0, var4->legacy_.level_ + 1);
             StartMessage_0204500c(var2, var5, 1, 0xe3);
@@ -232,7 +232,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
                 sprintf(var5, FindStringInList_02072a68(&arg0->unknown_5904_, 0x20));
                 Struct_ov000_0217964c_2* var28 = GetEnemyByIndex_0200fea4(var0, arg0->unknown_6e30_[0]);
                 if (var4->legacy_.bossID_ == 9) var28 = GetEnemyByIndex_0200fea4(var0, arg0->unknown_6e30_[1]);
-                func_020e4ce8(var6, var28, 1);
+                InitEnemyNoun_020e4ce8(var6, var28, 1);
                 var2->unknown_20_ = var6;
                 SetMessageString_02046574((Struct_02046574_2*)var2, 1, var27->unknown_0_);
                 StartMessage_0204500c(var2, var5, 1, 0xe3);

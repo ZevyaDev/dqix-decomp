@@ -29,7 +29,7 @@ extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void func_ov000_0215a8d4(unsigned char*, int);
 extern "C" int HasEnemyTrait_ov000_02156068(void* battle, int combatantIndex, int kind, int traitType);
 struct Struct_ov024_021dd028_5;
-extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
+extern "C" int HasSuperHighTension_ov024_021dd260(Struct_ov024_021dd028_5*);
 
 // USA: func_ov024_021e67c8
 extern "C" ARM int func_ov024_021e67c8(struct Struct_ov024_021e67c8_2* arg0, int arg1, int arg2) {
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov024_021e67c8(struct Struct_ov024_021e67c8_2* arg0, int
     if (HasEnemyTrait_ov000_02156068(arg0->unknown_10_, arg2, 0, 1)) {
         var2 = NextRandomMax((struct Random*)arg0->unknown_10_, 2);
     }
-    if (func_ov024_021dd260((Struct_ov024_021dd028_5*)var3)) {
+    if (HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)var3)) {
         var2 = 0.5f * var2;
     }
     return var2;

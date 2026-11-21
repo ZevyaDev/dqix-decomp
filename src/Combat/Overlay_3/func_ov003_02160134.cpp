@@ -23,16 +23,16 @@ enum { Enum_ov003_02160134_1120 = 0x460 };
 
 struct MenuLayout_0207fcb8;
 extern "C" void ClearMenuLayoutBGScreenData_0207fcb8(struct MenuLayout_0207fcb8* menuLayout);
-struct Struct_0207fd00;
-extern "C" void func_0207fd00(struct Struct_0207fd00* arg0);
+struct MenuLayout_0207fd00;
+extern "C" void DrawMenuLayoutWindows_0207fd00(struct MenuLayout_0207fd00* menuLayout);
 extern "C" void func_0207fe80(void* arg0, int arg1, int arg2, int arg3);
 struct MenuLayout_0207fd44_2;
 extern "C" void FlushMenuLayoutBGScreenData_0207fd44(struct MenuLayout_0207fd44_2* menuLayout);
 extern "C" void func_ov003_02166fc4(void* arg0);
-struct Struct_020e28dc;
-extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
-struct Struct_020e2794_2;
-extern "C" void func_020e2794(struct Struct_020e2794_2* arg0, void* arg1);
+struct YesNoWindow_020e28dc;
+extern "C" int IsYesNoWindowOpen_020e28dc(struct YesNoWindow_020e28dc* yesNoWindow);
+struct YesNoWindow_020e2794_2;
+extern "C" void DrawYesNoWindow_020e2794(struct YesNoWindow_020e2794_2* yesNoWindow, void* spriteSet);
 extern "C" void func_ov003_0216039c(void* arg0);
 struct Struct_ov003_02160134;
 extern "C" void func_ov003_02167548(struct Struct_ov003_02160134* arg0);
@@ -48,14 +48,14 @@ extern "C" ARM void func_ov003_02160134(char* arg0) {
     void* var0 = *(void**)(arg0 + Enum_ov003_02160134_804);
     if (var0 != 0) {
         ClearMenuLayoutBGScreenData_0207fcb8((struct MenuLayout_0207fcb8*)var0);
-        func_0207fd00((struct Struct_0207fd00*)var0);
+        DrawMenuLayoutWindows_0207fd00((struct MenuLayout_0207fd00*)var0);
         func_0207fe80(var0, 1, 2, 1);
         FlushMenuLayoutBGScreenData_0207fd44((struct MenuLayout_0207fd44_2*)var0);
     }
     func_ov003_02166fc4(arg0);
 
-    if (*(void**)(arg0 + Enum_ov003_02160134_912) != 0 && func_020e28dc((struct Struct_020e28dc*)*(void**)(arg0 + Enum_ov003_02160134_912)) != 0) {
-        func_020e2794((struct Struct_020e2794_2*)*(void**)(arg0 + Enum_ov003_02160134_912), arg0 + Enum_ov003_02160134_820);
+    if (*(void**)(arg0 + Enum_ov003_02160134_912) != 0 && IsYesNoWindowOpen_020e28dc((struct YesNoWindow_020e28dc*)*(void**)(arg0 + Enum_ov003_02160134_912)) != 0) {
+        DrawYesNoWindow_020e2794((struct YesNoWindow_020e2794_2*)*(void**)(arg0 + Enum_ov003_02160134_912), arg0 + Enum_ov003_02160134_820);
     }
     func_ov003_0216039c(arg0);
 

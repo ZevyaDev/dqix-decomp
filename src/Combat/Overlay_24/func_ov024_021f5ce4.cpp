@@ -5,7 +5,7 @@
 
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* indices, int maxCount, int filterFlags);
 struct Struct_ov024_021dd028_5;
-extern "C" int func_ov024_021dd260(struct Struct_ov024_021dd028_5* arg0);
+extern "C" int HasSuperHighTension_ov024_021dd260(struct Struct_ov024_021dd028_5* combatant);
 
 struct Struct_ov024_021f5ce4 { int unknown_0_; };
 struct Struct_ov024_021fed9c { short unknown_0_[8]; };
@@ -19,7 +19,7 @@ extern "C" ARM int func_ov024_021f5ce4(struct Struct_ov024_021f5ce4* arg0, int a
     *arg3 = 0;
     for (int var2 = 0; var2 < var1; var2++) {
         GameObject* var3 = GetCombatantByID(arg0->unknown_0_, var0.unknown_0_[var2]);
-        if (var3 && !func_ov024_021dd260((struct Struct_ov024_021dd028_5*)var3)) {
+        if (var3 && !HasSuperHighTension_ov024_021dd260((struct Struct_ov024_021dd028_5*)var3)) {
             (*arg3)++;
         }
     }

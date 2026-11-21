@@ -14,7 +14,7 @@ enum { Enum_ov025_021e7214_24576 = 0x6000, Enum_ov025_021e7214_4053 = 0xfd5 };
 #endif
 
 extern "C" void* GetBattleScene_ov000_02160130(void);
-extern "C" void func_0202e874(unsigned char* arg0, short arg1);
+extern "C" void SetCameraRoll_0202e874(unsigned char* camera, short roll);
 
 struct Struct_ov025_021e7214 { char unknown_0_[8]; short unknown_8_; };
 
@@ -26,6 +26,6 @@ extern "C" ARM int func_ov025_021e7214(struct Struct_ov025_021e7214* arg0) {
     }
     GameState* var1 = GameState::GetInstance();
     unsigned char* var2 = (unsigned char*)func_020100bc(var1);
-    func_0202e874(var2, arg0->unknown_8_);
+    SetCameraRoll_0202e874(var2, arg0->unknown_8_);
     return 1;
 }

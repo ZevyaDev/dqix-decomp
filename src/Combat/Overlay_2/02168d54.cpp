@@ -71,7 +71,7 @@ extern "C" void DestroyAccoladeDisplay_ov023_021eb26c(void* display);
 extern "C" void ColorEffect_ConfigureAlphaBlend(int control, unsigned int pixel1Source, unsigned int pixel2Source, unsigned int pixel1Alpha, unsigned int pixel2Alpha);
 extern "C" void ClearGlobalFlags_020466f4(Struct_ov002_02168d54_9* globalFlags, unsigned int mask);
 extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
-extern "C" void func_020dc2d0(int arg0);
+extern "C" void RestartMapDisplay_020dc2d0(int modeOverride);
 extern "C" void func_ov002_0215a938(char* arg0);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(char* menu);
 extern "C" void SetNextTextWindowBGLayer_0205de24(Struct_ov002_0215624c_11* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
@@ -268,7 +268,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
         PopSubOverlay_020a1f4c(1);
         arg0[REGION_VALUE(0x1afb, 0x1c33)] = 0;
         arg0[REGION_VALUE(0x22bf, 0x248f)] = 0;
-        func_020dc2d0(0);
+        RestartMapDisplay_020dc2d0(0);
         *(int*)(arg0 + REGION_VALUE(0x22ac, 0x247c)) |= 2;
         arg0[REGION_VALUE(0x22aa, 0x247a)] = 0;
         (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)))++;

@@ -5,7 +5,7 @@
 extern "C" int func_ov031_02212598();
 extern "C" int func_ov031_022119b0(int*);
 extern "C" void func_ov031_02211b08(int, int);
-extern "C" int func_020c7170(char*, unsigned long, const char*, ...);
+extern "C" int FormatToSizedBuffer_020c7170(char*, unsigned long, const char*, ...);
 extern "C" void* func_ov031_02212790(void*, int);
 extern "C" void* func_ov031_022127a8(void*);
 extern "C" void func_ov031_022127c0(int, int, int);
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov031_022128fc() {
                 func_ov031_022127c0(0, 8, -1);
                 return;
             }
-            func_020c7170(var0, 256, data_ov031_02249aa0, var3->unknown_50_);
+            FormatToSizedBuffer_020c7170(var0, 256, data_ov031_02249aa0, var3->unknown_50_);
             var3 = data_ov031_0224e5c0;
             int var5 = strlen(var3->unknown_91_);
             if (func_ov031_0221aae4((int)var3->unknown_91_, var5, var1, 400) < 0) {

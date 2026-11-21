@@ -14,7 +14,7 @@ struct Struct_ov023_021eeaac_2 {
     int unknown_0_;
 };
 struct LocalWireless_0202c1a4;
-struct Struct_02049b54_2;
+struct Combatant_02049b54_2;
 struct StringList_02072a68_2 {
     int unknown_0_[2];
 };
@@ -86,7 +86,7 @@ extern "C" Struct_ov000_0217964c_2* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" int IsJinglePlaying_0209ca2c(void*);
 extern "C" void func_ov023_021f00f4(int*, int, int, int);
-extern "C" Vector3fix func_02049b54(Struct_02049b54_2*);
+extern "C" Vector3fix GetCombatantLineupPosition_02049b54(Combatant_02049b54_2*);
 extern "C" void func_02049f28(unsigned char*);
 extern "C" void func_0202ea4c(Struct_0202ea4c*);
 extern "C" void func_ov000_0216d50c(void*);
@@ -156,7 +156,7 @@ extern "C" ARM int func_ov023_021ef524(Struct_ov023_021ef524_3* arg0) {
         func_ov023_021f00f4(&var14.x, 0, 0, 0);
         for (int var15 = 0; var15 < arg0->unknown_701e_; ++var15) {
             Struct_ov000_0217964c_2* var16 = GetEnemyByIndex_0200fea4(var0, arg0->unknown_7020_[var15]);
-            var16->position_ = func_02049b54((Struct_02049b54_2*)var16);
+            var16->position_ = GetCombatantLineupPosition_02049b54((Combatant_02049b54_2*)var16);
             var16->rotation_.x = 0;
             var16->rotation_.y = 0;
             var16->rotation_.z = 0;

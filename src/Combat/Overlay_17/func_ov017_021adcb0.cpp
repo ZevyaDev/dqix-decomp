@@ -39,8 +39,8 @@ struct Struct_02046574_2;
 struct Struct_ov017_021adcb0;
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
-struct Struct_02046a3c_2;
-struct Struct_02046a3c;
+struct Queue_02046a3c_2;
+struct QueueNode_02046a3c;
 struct Struct_02015ef4_3;
 struct ItemTable_0201099c_10;
 
@@ -128,7 +128,7 @@ extern "C" void ResetItemContext_0207cbe8(char*);
 extern "C" int func_0207d538(void*, int, int, char*, int);
 extern "C" void func_ov017_0218d644(GameResources*, Vector3fix*, int);
 extern "C" void UnloadExtraSoundSet_0205eb80(void* manager);
-extern "C" void func_0205eb54(void* arg0, int arg1, int arg2);
+extern "C" void LoadExtraSoundSet_0205eb54(void* manager, int soundSetToLoad, int soundSet);
 extern "C" void PlayExtraSoundEffect_0205eb90(void* manager, int soundEffectIndex, int handle);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
@@ -136,7 +136,7 @@ extern "C" void func_ov017_021cdb00(int, int, int, int);
 extern "C" int func_ov017_0218d75c(void* arg0);
 extern "C" void SetMessageString_02046574(Struct_02046574_2* window, int index, char* text);
 extern "C" void func_ov017_021c2744(Struct_ov017_021adcb0* arg0);
-extern "C" void func_02046a3c(Struct_02046a3c_2* arg0, Struct_02046a3c* arg1);
+extern "C" void InsertAfterQueueHead_02046a3c(Queue_02046a3c_2* queue, QueueNode_02046a3c* node);
 
 extern char data_ov017_021d799c[];
 extern char data_ov017_021d79a2[];
@@ -400,7 +400,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
 #endif
                     if (arg0->unknown_21_) {
                         UnloadExtraSoundSet_0205eb80(&gSoundEffectManager_02108760);
-                        func_0205eb54(&gSoundEffectManager_02108760, 0x15e, 0x15e);
+                        LoadExtraSoundSet_0205eb54(&gSoundEffectManager_02108760, 0x15e, 0x15e);
                         PlayExtraSoundEffect_0205eb90(&gSoundEffectManager_02108760, 0, 0);
                     } else if (var45->lootType != 0 && var45->itemIDOrRank != 0x5617) {
                         PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 0xe, 0);
@@ -469,7 +469,7 @@ extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
             var51->unknown_14_ = var6->obj3D_.unknown_4_;
             var51->unknown_11_ = 1;
             var51->unknown_18_ = arg0->unknown_22_;
-            func_02046a3c((Struct_02046a3c_2*)var8, (Struct_02046a3c*)var51);
+            InsertAfterQueueHead_02046a3c((Queue_02046a3c_2*)var8, (QueueNode_02046a3c*)var51);
         }
         func_ov017_021ae760(arg0);
     }

@@ -13,7 +13,7 @@ struct Struct_ov031_0224f4e0;
 extern Struct_ov031_0224f4c0_3 data_ov031_0224f4c0;
 extern Struct_ov031_0224f4e0 data_ov031_0224f4e0;
 extern "C" int func_ov031_0221f02c(int, int, int, unsigned int);
-extern "C" ARM int func_020c7ea0(Struct_ov031_0224f4e0*, int*, int);
+extern "C" ARM int DequeueValue_020c7ea0(Struct_ov031_0224f4e0*, int*, int);
 extern "C" int func_ov031_0221efe8(Struct_ov031_0221e964_3*, int);
 extern "C" int func_ov031_0221f11c();
 extern "C" void func_ov031_0221e6e8(Struct_ov031_0221e964_3*, Struct_ov031_0221e964*);
@@ -37,7 +37,7 @@ extern "C" THUMB int func_ov031_0221e964(Struct_ov031_0221e964_2** arg0) {
         ZeroInitializeAlarm(&var7);
         SetTimeout(&var7, 0x003fec42ULL, func_ov031_0221e7bc, (ProcessorContext**)19);
         do {
-            func_020c7ea0(&data_ov031_0224f4e0, &var8, 1);
+            DequeueValue_020c7ea0(&data_ov031_0224f4e0, &var8, 1);
             switch (var8) {
             case 19:
                 if (!var2) {
@@ -96,7 +96,7 @@ extern "C" THUMB int func_ov031_0221e964(Struct_ov031_0221e964_2** arg0) {
         }
 cancel:
         CancelAlarm(&var7);
-        while (func_020c7ea0(&data_ov031_0224f4e0, &var8, 0) == 1) {}
+        while (DequeueValue_020c7ea0(&data_ov031_0224f4e0, &var8, 0) == 1) {}
     }
 release:
     data_ov031_0224f4c0.unknown_c_(var6);

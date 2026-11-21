@@ -18,7 +18,7 @@ struct Struct_ov017_021aa59c_5 {
     short unknown_4e_;
 };
 
-extern "C" int func_02080dd4(void* arg0, int arg1, int arg2, int arg3, unsigned char* arg4, unsigned char arg5);
+extern "C" int HighlightTouchedMenuLayoutText_02080dd4(void* layout, int windowId, int x, int y, unsigned char* isTouchedAgain, unsigned char isRedrawn);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
 // USA: func_ov017_021ab0c0
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov017_021ab0c0(struct Struct_ov017_021aa59c_5* arg0) {
         int var2, var3;
         g_touchInput.GetTouchPoint(&var2, &var3);
         arg0->unknown_4e_ = *arg0->unknown_44_;
-        int var4 = func_02080dd4(var1, arg0->unknown1_48_, (short)var2, (short)var3, &var0, 1);
+        int var4 = HighlightTouchedMenuLayoutText_02080dd4(var1, arg0->unknown1_48_, (short)var2, (short)var3, &var0, 1);
         if (var4 < 0) {
             return 0;
         }

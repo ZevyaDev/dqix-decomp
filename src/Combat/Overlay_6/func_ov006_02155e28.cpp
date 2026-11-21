@@ -79,7 +79,7 @@ struct Struct_ov006_02155e28_2 {
     unsigned short unknown_14_;
 };
 extern "C" void func_ov023_021e20c0(void* arg0);
-extern "C" void func_ov023_021e20f0(void* arg0, void* arg1, void* arg2, unsigned int arg3);
+extern "C" void LoadLayout_ov023_021e20f0(void* layout, void* allocator, void* fileData, unsigned int fileSize);
 
 struct Struct_ov003_0217d53c_4 {
     unsigned char unknown_0_[0xb3c];
@@ -292,7 +292,7 @@ extern "C" ARM void func_ov006_02155e28(struct Struct_ov006_02155e28_4* arg0) {
             SafeAllocator* var31 = arg0->unknown_180_;
             var31[1].Reset();
             func_ov023_021e20c0(arg0->unknown_1c8_);
-            func_ov023_021e20f0(arg0->unknown_1c8_, &var31[1], var29, var30);
+            LoadLayout_ov023_021e20f0(arg0->unknown_1c8_, &var31[1], var29, var30);
             struct Struct_ov006_02155e28* var32;
             struct Struct_ov006_02155e28* var33 = arg0->unknown_1c8_->unknown_8_;
             if (var33 == NULL) {

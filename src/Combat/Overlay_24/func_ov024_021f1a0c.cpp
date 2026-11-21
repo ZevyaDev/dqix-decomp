@@ -7,7 +7,7 @@ extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* in
 extern "C" void ChooseEnemyActionTargets_ov024_021ed8c0(void* targetSelector, int actorIndex, int action, int* count, short* targetIndices);
 
 struct Struct_020885b4;
-extern "C" int func_020885b4(struct Struct_020885b4* arg0);
+extern "C" int IsPoisoned_020885b4(struct Struct_020885b4* stats);
 struct Struct_02088514;
 extern "C" int IsEnvenomated_02088514(struct Struct_02088514* stats);
 struct Struct_ov024_021da9b0 { char unknown_0_[0x14]; int statusFlags_14_; };
@@ -37,7 +37,7 @@ extern "C" ARM int func_ov024_021f1a0c(int* arg0, int arg1, int arg2, int* arg3,
 	for (int var6 = 0; var6 < var5; var6++) {
 		GameObject* var7 = GetCombatantByID(*arg0, var0[var6]);
 		if (!var7) continue;
-		if (!func_020885b4((struct Struct_020885b4*)var7->currentStats_) &&
+		if (!IsPoisoned_020885b4((struct Struct_020885b4*)var7->currentStats_) &&
 		    !IsEnvenomated_02088514((struct Struct_02088514*)var7->currentStats_) &&
 		    !IsParalysed_ov024_021da9b0((struct Struct_ov024_021da670_7*)var7)) continue;
 		int var8 = *arg3;

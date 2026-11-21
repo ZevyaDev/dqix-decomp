@@ -36,7 +36,7 @@ struct Struct_ov031_02290ca0 {
 };
 extern Struct_ov031_02290ca0 gConnectionSettingsPage_ov031_02290ca0;
 extern signed char data_ov031_02249034[];
-extern "C" Struct_ov031_0222ea24_3* func_ov031_02235c70();
+extern "C" Struct_ov031_0222ea24_3* GetEditedConnectionSettings_ov031_02235c70();
 extern "C" Struct_ov031_0222ea24_2* AllocateZeroedMemory_ov031_0223cf4c(int, int);
 extern "C" void func_ov031_0222ee34();
 extern "C" void func_ov031_0222ec20();
@@ -57,7 +57,7 @@ extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 
 // USA: func_ov031_0222ea24
 extern "C" ARM void func_ov031_0222ea24() {
-    Struct_ov031_0222ea24_3* var0 = func_ov031_02235c70();
+    Struct_ov031_0222ea24_3* var0 = GetEditedConnectionSettings_ov031_02235c70();
     gConnectionSettingsPage_ov031_02290ca0.unknown_8_ = AllocateZeroedMemory_ov031_0223cf4c(0x48, 4);
     gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_43_ = var0->unknown_f6_;
     gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_42_ = 12;

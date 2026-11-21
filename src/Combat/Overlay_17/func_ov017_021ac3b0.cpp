@@ -90,7 +90,7 @@ extern "C" void func_020ac104(int, Struct_ov017_021ac3b0*, int);
 extern "C" void SetFlag_0206df6c(void*, unsigned char*, int, int);
 extern "C" void EnablePlayerControl_020397c0(void*);
 extern "C" int RunTrigger_020649b0(void*, int, void*);
-extern "C" void func_0206f81c(Struct_ov017_021ac3b0_5*);
+extern "C" void RunDeferredTriggerActions_0206f81c(Struct_ov017_021ac3b0_5*);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 #if defined(jpn)
 extern const char data_ov017_021d7e88[], data_ov017_021d7e96[];
@@ -224,6 +224,6 @@ extern "C" ARM void func_ov017_021ac3b0(Struct_ov017_021ac3b0_2* arg0) {
         Struct_ov017_021ac3b0_4* var26 = func_0205ec34();
         Struct_ov017_021ac3b0_5 var27;
         var27.unknown_c_ = var2->unknown_0_; var27.unknown_24_ = arg0->unknown_8_->unknown_0_;
-        if (RunTrigger_020649b0(var26, 0x18, &var27)) func_0206f81c(&var27);
+        if (RunTrigger_020649b0(var26, 0x18, &var27)) RunDeferredTriggerActions_0206f81c(&var27);
     }
 }

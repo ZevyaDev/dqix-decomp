@@ -16,7 +16,7 @@ struct MenuCursor_0205ba68;
 extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
 struct MenuCursor_0205bacc;
 extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
-extern "C" void func_0205cb74(char* arg0, int arg1);
+extern "C" void AddChoiceListEntry_0205cb74(char* choiceList, int text);
 extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
 #if defined(jpn)
 extern "C" void func_0205dfa8(void*);
@@ -26,7 +26,7 @@ extern char data_ov017_021d8104[];
 #endif
 struct Struct_0205c77c;
 extern "C" void func_0205c77c(struct Struct_0205c77c* arg0, int arg1);
-extern "C" void func_0205cd28(unsigned char* arg0);
+extern "C" void OpenChoiceList_0205cd28(unsigned char* choiceList);
 extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov017_021afb8c(char* arg0, char* arg1) {
         SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(arg0 + 0x68), 1);
         SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(arg0 + 0xb8), 1);
 
-        func_0205cb74(arg0 + 0x48, (int)var3);
+        AddChoiceListEntry_0205cb74(arg0 + 0x48, (int)var3);
 
         *(short*)(arg0 + 0xfc) = 0xc;
         *(short*)(arg0 + 0xfe) = 0x40;
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov017_021afb8c(char* arg0, char* arg1) {
         *(short*)(arg0 + 0xfc) = (0x100 - var4) / 2;
         *(short*)(arg0 + 0xfe) = 0x40;
 
-        func_0205cd28((unsigned char*)(arg0 + 0x48));
+        OpenChoiceList_0205cd28((unsigned char*)(arg0 + 0x48));
         SetGlobalFlags_020466e4((unsigned int*)func_020d6c00(), 0x800000);
     }
 }

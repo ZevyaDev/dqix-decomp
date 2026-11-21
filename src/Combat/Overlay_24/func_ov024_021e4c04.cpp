@@ -82,8 +82,8 @@ extern "C" int func_02085768(unsigned char*);
 extern "C" int func_02085794(unsigned char*);
 extern "C" int func_020857c0(unsigned char*);
 extern "C" int func_020857ec(unsigned char*);
-extern "C" short func_ov024_021da998(Struct_ov024_021da670_6*);
-extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
+extern "C" short HasTension_ov024_021da998(Struct_ov024_021da670_6*);
+extern "C" int HasSuperHighTension_ov024_021dd260(Struct_ov024_021dd028_5*);
 extern "C" int func_ov024_021e47dc(Struct_ov024_021e4604*);
 extern "C" int func_ov024_021dd010(Struct_ov024_021dced0_2*);
 extern "C" void func_02087704(void*);
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
         if (!var10) return;
 
         if (func_020851ac(var10->unknown_150_)
-            && (func_ov024_021da998((Struct_ov024_021da670_6*)var1) || func_ov024_021dd260((Struct_ov024_021dd028_5*)var1))) {
+            && (HasTension_ov024_021da998((Struct_ov024_021da670_6*)var1) || HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)var1))) {
             func_02087704(var1->currentStats_);
             var5 = inline_ov000_0215a908_5(var1)->unknown_24_;
             switch (var5) {
@@ -189,7 +189,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
             && func_0208830c((unsigned char*)var1->currentStats_)
             && (int)inline_ov000_0215a908_5(var1)->unknown_47_ > 0) {
             if ((float)var9 < (arg0->unknown_c_->unknown_1c_7_ ? 100.0f : 20.5f)) {
-                var3 = func_ov024_021da998((Struct_ov024_021da670_6*)var1);
+                var3 = HasTension_ov024_021da998((Struct_ov024_021da670_6*)var1);
                 int var12 = func_ov024_021e929c((Struct_ov024_021dbd84_6*)arg0, arg2, 1);
                 AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var12);
                 var6 = 1;
@@ -249,7 +249,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
             && func_02088418((Struct_02088418*)var1->currentStats_, 5, 0)
             && inline_ov000_0215a908_5(var1)->unknown_4c_ != 0) {
             if ((float)var9 < (arg0->unknown_c_->unknown_1c_7_ ? 100.0f : 12.5f)) {
-                var3 = func_ov024_021da998((Struct_ov024_021da670_6*)var1);
+                var3 = HasTension_ov024_021da998((Struct_ov024_021da670_6*)var1);
                 int var16 = 0x5e;
                 if (inline_ov000_0215a908_5(var1)->unknown_22_2_ == 5) var16 = 0x60;
                 AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var16);
@@ -273,7 +273,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
             && func_0208824c((unsigned char*)var1->currentStats_)
             && inline_ov000_0215a908_5(var1)->unknown_4e_ != 0) {
             if ((float)var9 < (arg0->unknown_c_->unknown_1c_7_ ? 100.0f : 10.0f)) {
-                var3 = func_ov024_021da998((Struct_ov024_021da670_6*)var1);
+                var3 = HasTension_ov024_021da998((Struct_ov024_021da670_6*)var1);
                 int var18 = func_ov024_021e9464((Struct_ov024_021ddc80_4*)arg0, arg2, 1);
                 AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var18);
                 var6 = 1;

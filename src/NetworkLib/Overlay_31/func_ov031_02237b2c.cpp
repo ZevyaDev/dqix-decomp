@@ -3,11 +3,11 @@
 #include <NitroSDK/ColorEffects.h>
 
 struct Struct_ov031_022492e2 { unsigned short unknown_0_; unsigned short unknown_2_; unsigned short unknown_4_; unsigned short unknown_6_; };
-struct Struct_ov031_02222ce4;
+struct OAMAllocation_ov031_02222ce4;
 struct Struct_ov031_02237b2c {
-    Struct_ov031_02222ce4* unknown_0_;
+    OAMAllocation_ov031_02222ce4* unknown_0_;
     void* unknown_4_;
-    Struct_ov031_02222ce4* unknown_8_[2];
+    OAMAllocation_ov031_02222ce4* unknown_8_[2];
     void* unknown_10_;
     void* unknown_14_;
     unsigned char unknown_18_[3];
@@ -32,9 +32,9 @@ extern const unsigned char data_ov031_022492fe[][2];
 extern const Struct_ov031_0224931c data_ov031_0224931c[];
 extern const Struct_ov031_022492e2 data_ov031_022492e2;
 extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int, int);
-extern "C" Struct_ov031_02222ce4* func_ov031_0223be70(int, int, int);
-extern "C" void SetSpritePosition_ov031_0223bbd8(Struct_ov031_02222ce4*, int, int, int);
-extern "C" void func_ov031_0223bcc8(Struct_ov031_02222ce4*, int, int);
+extern "C" OAMAllocation_ov031_02222ce4* func_ov031_0223be70(int, int, int);
+extern "C" void SetSpritePosition_ov031_0223bbd8(OAMAllocation_ov031_02222ce4*, int, int, int);
+extern "C" void SetSpritePriority_ov031_0223bcc8(OAMAllocation_ov031_02222ce4*, int, int);
 extern "C" void* func_ov031_0223c458(int, int, int, int, int*, int);
 extern "C" void* func_ov031_0223b8c4(int, int, int);
 extern "C" int func_ov031_022236d0();
@@ -63,14 +63,14 @@ extern "C" ARM void func_ov031_02237b2c(int arg0, int arg1, unsigned char arg2, 
     ColorEffect_ConfigureBrightnessAdjust(0x04000050, 31, 0);
     data_ov031_02290d10->unknown_0_ = func_ov031_0223be70(0, data_ov031_0224938c[arg1], 0);
     SetSpritePosition_ov031_0223bbd8(data_ov031_02290d10->unknown_0_, -1, 256, 0);
-    func_ov031_0223bcc8(data_ov031_02290d10->unknown_0_, -1, 0);
+    SetSpritePriority_ov031_0223bcc8(data_ov031_02290d10->unknown_0_, -1, 0);
     int var2 = 0;
     if (var2 < data_ov031_02249394[arg1]) {
         const unsigned char* var3 = data_ov031_022492fe[arg1];
         do {
             data_ov031_02290d10->unknown_8_[var2] = func_ov031_0223be70(0, *var3++, 0);
             SetSpritePosition_ov031_0223bbd8(data_ov031_02290d10->unknown_8_[var2], -1, 256, 0);
-            func_ov031_0223bcc8(data_ov031_02290d10->unknown_8_[var2], -1, 0);
+            SetSpritePriority_ov031_0223bcc8(data_ov031_02290d10->unknown_8_[var2], -1, 0);
             var2++;
         } while (var2 < data_ov031_02249394[arg1]);
     }

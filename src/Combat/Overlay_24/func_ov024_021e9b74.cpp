@@ -53,7 +53,7 @@ extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(int battle, short* in
 extern "C" int func_ov000_02155f9c(int arg0, int arg1, int arg2);
 int NextRandomMax(struct Random* random, int maximum);
 extern "C" void func_ov000_0215ff20(void* arg0, short arg1, unsigned char arg2);
-extern "C" float func_ov024_021db358(struct Struct_ov024_021e9b74* arg0);
+extern "C" float GetHPRatio_ov024_021db358(struct Struct_ov024_021e9b74* combatant);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int IsInParty_02086ef0(struct Party_02048150* party, int objectIndex);
 extern "C" void func_ov000_0215a8d4(unsigned char* arg0, int arg1);
@@ -110,7 +110,7 @@ extern "C" ARM int func_ov024_021e9b74(struct Struct_ov024_021e9b74_2* arg0, int
         }
         var1 = 0;
         memset(&var8, -1, sizeof(var8));
-        if (func_ov024_021db358(var4) <= 0.08f) {
+        if (GetHPRatio_ov024_021db358(var4) <= 0.08f) {
             for (var2 = 0; var2 < var7; var2++) {
                 struct Struct_ov024_021e9b74* var10 = GetCombatantByID(arg0->unknown_10_, var5.unknown_0_[var2]);
                 if (var10 && arg2->unknown_0_ != var5.unknown_0_[var2] && !func_ov000_02155f9c(arg0->unknown_10_, var5.unknown_0_[var2], 0) &&

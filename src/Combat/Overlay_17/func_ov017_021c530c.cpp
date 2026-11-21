@@ -16,7 +16,7 @@ struct Struct_02053f7c_3;
 extern "C" void func_02053f7c(Struct_02053f7c_3*, unsigned short, int);
 extern "C" void* func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
-extern "C" void func_ov017_021cdaa0(void);
+extern "C" void SendDayTimer_ov017_021cdaa0(void);
 extern "C" int func_ov017_021c5bf8(int arg0, int arg1);
 extern "C" void func_ov017_021c5e28(int, int);
 extern "C" void func_ov017_021c5a8c(int arg0, int arg1);
@@ -27,17 +27,17 @@ extern "C" int func_0207d7f4(void* arg0, unsigned short arg1, int arg2, int arg3
 extern "C" int func_ov017_021c5c5c(int arg0, int arg1, int arg2);
 extern "C" void func_ov017_021c5b44(unsigned char arg0, int arg1, unsigned int arg2, unsigned char arg3, unsigned char arg4);
 extern "C" void func_0207dcf0(unsigned short arg0);
-extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
+extern "C" GameObject* FindFieldMonsterById_ov017_021a278c(void* gameResources, int fieldMonsterId);
 extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
 struct Struct_ov017_021c530c;
 extern "C" Struct_ov017_021c530c* func_ov017_021b8478(void* battleManager);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 struct Struct_ov017_021c530c_2 { unsigned short unknown_0_; unsigned short unknown_2_; unsigned char unknown_4_; unsigned char unknown_5_; unsigned char unknown_6_; };
 extern "C" void func_ov017_021c5f00(Struct_ov017_021c530c_2* arg0);
-struct Struct_02046b38;
-struct Struct_02046b38_2;
-extern "C" int func_02046b38(struct Struct_02046b38* arg0, struct Struct_02046b38_2* arg1);
-extern "C" void func_ov017_021b6f18(void* arg0);
+struct Queue_02046b38;
+struct QueueNode_02046b38_2;
+extern "C" int IsNodeInQueue_02046b38(struct Queue_02046b38* queue, struct QueueNode_02046b38_2* node);
+extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
 extern "C" void func_ov017_02196c08(unsigned char* arg0);
 extern "C" bool func_ov017_021b6e70(void* arg0, int arg1);
 extern "C" void func_ov017_021b7104(void* arg0, void* arg1);
@@ -199,7 +199,7 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
     }
 
     if (IsNotLocalWirelessGuest_0202c508(arg4)) {
-        func_ov017_021cdaa0();
+        SendDayTimer_ov017_021cdaa0();
         if (!inline_ov017_021c530c(arg1->unknown_4_)) {
             if (arg1->unknown_9_ != 0) {
                 if (func_ov017_021c5bf8(arg0, arg1->unknown_4_) == 0) {
@@ -221,7 +221,7 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
                         func_ov017_021c5b44(arg1->unknown_8_, arg1->unknown_4_, -1, arg1->unknown_c_, arg1->unknown_10_);
                     }
                     func_0207dcf0(arg1->unknown_4_);
-                    var3 = func_ov017_021a278c(arg3, arg1->unknown_4_);
+                    var3 = FindFieldMonsterById_ov017_021a278c(arg3, arg1->unknown_4_);
                     if (var3 != NULL) {
                         SetFieldMonsterState_02076ccc(var3, 9);
                     }
@@ -290,8 +290,8 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
                 var11 = (Struct_ov017_021c530c_7*)GetGameResources();
                 var35 = var11->unknown_36fc_;
                 var36 = var11->unknown_3718_;
-                if (!func_02046b38((Struct_02046b38*)var35, (Struct_02046b38_2*)var36)) {
-                    func_ov017_021b6f18(var36);
+                if (!IsNodeInQueue_02046b38((Queue_02046b38*)var35, (QueueNode_02046b38_2*)var36)) {
+                    ResetBattleTask_ov017_021b6f18(var36);
                     Struct_ov017_021c530c_8 var39;
                     func_ov017_02196c08((unsigned char*)&var39);
                     var39.unknown_0_ = 0;
@@ -339,7 +339,7 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
                 if (var28) {
                     func_ov017_021c5b44(arg1->unknown_8_, arg1->unknown_4_, -1, arg1->unknown_c_, arg1->unknown_10_);
                 } else {
-                    var13 = func_ov017_021a278c(arg3, arg1->unknown_4_);
+                    var13 = FindFieldMonsterById_ov017_021a278c(arg3, arg1->unknown_4_);
                     if (var13 != NULL) {
                         SetFieldMonsterState_02076ccc(var13, 9);
                     }
@@ -394,8 +394,8 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
             } else if (var19->obj3D_.GetField06() == inline_ov004_02163304(var20)) {
                 var9 = var16->unknown_3b14_;
                 void* var42 = var16->unknown_3b90_;
-                var21 = func_02046b38((Struct_02046b38*)var17, (Struct_02046b38_2*)var9);
-                var22 = func_02046b38((Struct_02046b38*)var17, (Struct_02046b38_2*)var42);
+                var21 = IsNodeInQueue_02046b38((Queue_02046b38*)var17, (QueueNode_02046b38_2*)var9);
+                var22 = IsNodeInQueue_02046b38((Queue_02046b38*)var17, (QueueNode_02046b38_2*)var42);
                 if (!(var21 | var22)) {
                     var23 = &var16->unknown_44ae_;
                     var23->unknown_0_ = arg1->unknown_4_;

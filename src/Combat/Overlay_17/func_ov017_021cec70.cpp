@@ -8,7 +8,7 @@ struct EventSyncEntry_020e385c;
 extern "C" void func_020e39d4(struct EventSyncEntry_020e385c* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_020e3a50(struct EventSyncEntry_020e385c* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_020e392c(struct EventSyncEntry_020e385c* arg0, int arg1, int arg2);
-extern "C" void func_020e3994(struct EventSyncEntry_020e385c* arg0, int arg1, int arg2);
+extern "C" void RemoveEventSyncEntry_020e3994(struct EventSyncEntry_020e385c* entry, int type, int eventId);
 
 struct Struct_020e3b44 {
     unsigned int unknown_0_;
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov017_021cec70(int arg0, struct Struct_ov017_021cec70* 
         if (var2 != 3) return;
         signed char var3 = arg1->unknown_5_;
         if (var3 < 0) {
-            func_020e3994(var0, arg1->unknown_8_.unknown_4_, arg1->unknown_8_.unknown_0_);
+            RemoveEventSyncEntry_020e3994(var0, arg1->unknown_8_.unknown_4_, arg1->unknown_8_.unknown_0_);
             return;
         }
         func_020e3b44((struct Struct_020e3b44*)var0, var3, arg1->unknown_8_);

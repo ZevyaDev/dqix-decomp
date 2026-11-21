@@ -41,7 +41,7 @@ extern char gSoundEffectManager_02108760[];
 void SetSubBrightness(GameResources*, int, int);
 extern "C" void func_0208bf28(Struct_02065990_2*, int, unsigned char);
 int IsSubBrightnessTransitionActive(GameResources*);
-extern "C" void func_0205eb54(void*, int, int);
+extern "C" void LoadExtraSoundSet_0205eb54(void*, int, int);
 extern "C" void PlayExtraSoundEffect_0205eb90(void*, int, int);
 extern "C" void UnloadExtraSoundSet_0205eb80(void*);
 
@@ -113,7 +113,7 @@ extern "C" ARM void func_0208cfcc(Struct_02065990_2* arg0) {
         if (arg0->unknown_cc_ < 1.0f) arg0->unknown_cc_ += 0.2f;
         else {
             arg0->unknown_cc_ = 1.0f;
-            func_0205eb54(gSoundEffectManager_02108760, 110, 110);
+            LoadExtraSoundSet_0205eb54(gSoundEffectManager_02108760, 110, 110);
             PlayExtraSoundEffect_0205eb90(gSoundEffectManager_02108760, 0, 0);
             arg0->unknown_d5_++;
             arg0->unknown_d9_ = 30;

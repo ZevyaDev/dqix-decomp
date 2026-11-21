@@ -6,7 +6,7 @@
 #endif
 
 extern "C" int func_02053c6c(unsigned char* gameObject);
-extern "C" void func_02083e28(void* arg0, int arg1);
+extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
 
 struct Struct_ov017_021cf234 {
     unsigned int unknown_0_0_ : 8;
@@ -57,6 +57,6 @@ extern "C" ARM void func_ov017_021cf234(int arg0, struct Struct_ov017_021cf234_3
 
     unsigned int var6 = (arg1->unknown_10_ << 20) >> 31;
     if (var6) {
-        func_02083e28(var2, 0);
+        CalculatePartyMemberStats_02083e28(var2, 0);
     }
 }

@@ -20,7 +20,7 @@
 #endif
 
 
-struct Struct_ov004_02153e20;
+struct MenuGrid_ov004_02153e20;
 
 struct Struct_ov004_02153e20_2 {
     int unknown_0_;
@@ -77,7 +77,7 @@ extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" unsigned char* func_0205ec34(void);
-extern "C" int func_ov023_021f9b30(struct Struct_ov004_02153e20* arg0, unsigned short arg1, unsigned int arg2, unsigned int arg3);
+extern "C" int SetMenuGridCell_ov023_021f9b30(struct MenuGrid_ov004_02153e20* grid, unsigned short objectId, unsigned int row, unsigned int column);
 extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void func_ov023_021f9d14(void* arg0, void* arg1);
 extern "C" void RedrawMenuWindow_ov023_021f809c(void* window, void* menu);
@@ -116,10 +116,10 @@ extern "C" ARM int func_ov004_02153e20(void* arg0) {
             var12->unknown_20_ = 0;
             var12->unknown_c_ &= ~8;
             if (!var6) {
-                func_ov023_021f9b30((Struct_ov004_02153e20*)var3, 0, (unsigned short)(var10 >> 1), (unsigned short)(var10 & 1));
+                SetMenuGridCell_ov023_021f9b30((MenuGrid_ov004_02153e20*)var3, 0, (unsigned short)(var10 >> 1), (unsigned short)(var10 & 1));
                 var12->unknown_c_ |= 8;
             } else {
-                func_ov023_021f9b30((Struct_ov004_02153e20*)var3, (unsigned short)var11, (unsigned short)(var10 >> 1), (unsigned short)(var10 & 1));
+                SetMenuGridCell_ov023_021f9b30((MenuGrid_ov004_02153e20*)var3, (unsigned short)var11, (unsigned short)(var10 >> 1), (unsigned short)(var10 & 1));
                 Struct_ov004_02153e20_2* var13 = var6->unknown_4_;
                 if (var13) {
                     int var14 = (unsigned short)((var13->unknown_c_ << 9) >> 21);

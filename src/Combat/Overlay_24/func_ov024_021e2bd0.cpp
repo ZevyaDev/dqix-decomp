@@ -3,7 +3,7 @@
 #include <Combat/Overlay_0/GetCombatantByID.h>
 #include <Util/Random.h>
 
-struct Struct_ov024_021e2bd0;
+struct ActionRunner_ov024_021e2bd0;
 struct Struct_ov024_021dd028_5;
 struct Struct_ov024_021da670_6;
 struct Struct_ov024_021e2bd0_2;
@@ -36,10 +36,10 @@ extern "C" int func_ov024_021e8fa4(struct Struct_ov024_021e2bd0_2*, int, int);
 extern "C" void SetActionResultFlag_ov000_02159eac(void*, Struct_ov024_021e2bd0_6*, int);
 extern "C" int func_02088418(Struct_02088418*, int, int);
 extern "C" int func_ov024_021eb4b0(int, int, int);
-extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
-extern "C" int func_ov024_021da998(Struct_ov024_021da670_6*);
+extern "C" int HasSuperHighTension_ov024_021dd260(Struct_ov024_021dd028_5*);
+extern "C" int HasTension_ov024_021da998(Struct_ov024_021da670_6*);
 extern "C" void func_02088474(void*, int, int);
-extern "C" void* func_ov024_021e8ca0(Struct_ov024_021e2bd0*, int);
+extern "C" void* AddExtraTargetResult_ov024_021e8ca0(ActionRunner_ov024_021e2bd0*, int);
 extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void*, void*, GameObject*, int, int, int, int);
 extern "C" void func_ov024_021e8cfc(Struct_ov024_021e2bd0_3*, GameObject*, int, int);
 
@@ -73,8 +73,8 @@ extern "C" ARM unsigned long long func_ov024_021e2bd0(Struct_ov024_021e2bd0_3* a
         if (var4 == 0x12 || var4 == 0x15 || var4 == 0x1b || var4 == 0x1c)
             SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var5, 0x2b);
     }
-    int var6 = func_ov024_021dd260((Struct_ov024_021dd028_5*)var0);
-    int var7 = func_ov024_021da998((Struct_ov024_021da670_6*)var0);
+    int var6 = HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)var0);
+    int var7 = HasTension_ov024_021da998((Struct_ov024_021da670_6*)var0);
     func_02088474(var0->currentStats_, (unsigned char)arg3->unknown_32_, (unsigned short)arg3->unknown_4_0_);
     if (arg3->unknown_18_5_ != 10) {
         int var8 = 0;
@@ -82,13 +82,13 @@ extern "C" ARM unsigned long long func_ov024_021e2bd0(Struct_ov024_021e2bd0_3* a
         case 2: var8 = 0x150; break;
         case 5: var8 = 0x5e; break;
         }
-        void* var9 = func_ov024_021e8ca0((Struct_ov024_021e2bd0*)arg0, var8);
+        void* var9 = AddExtraTargetResult_ov024_021e8ca0((ActionRunner_ov024_021e2bd0*)arg0, var8);
         if (var9) SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var9, var0, 0, 0, 0, 0);
     }
     if (var7) {
         func_ov024_021e8cfc(arg0, var0, 0, 0);
     } else if (var6) {
-        if (!func_ov024_021dd260((Struct_ov024_021dd028_5*)var0))
+        if (!HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)var0))
             func_ov024_021e8cfc(arg0, var0, 8, 0);
     }
     return var5.unknown_0_;

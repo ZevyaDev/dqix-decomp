@@ -105,7 +105,7 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern "C" void func_ov011_02184a40(void* arg0, int arg1);
-extern "C" int func_ov023_021f9bc8(void* arg0);
+extern "C" int GetMenuGridCursorIndex_ov023_021f9bc8(void* grid);
 extern "C" Struct_ov023_021f8e1c_3* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" void func_ov023_021f88b8(void* arg0, void* arg1, int arg2);
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
     if (arg0->unknown_c_ & 0x10) {
         return;
     }
-    func_ov023_021f9bc8(arg0);
+    GetMenuGridCursorIndex_ov023_021f9bc8(arg0);
 
     int var0;
     int var1;
@@ -312,7 +312,7 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
     }
     if (var0 != arg0->unknown_28_ || var6 != arg0->unknown_2a_) {
         var17 = 1;
-        Struct_ov023_021f8e1c_3* var23 = FindMenuObjectById_ov023_021f6880(var4, arg0->unknown_20_[func_ov023_021f9bc8(arg0)]);
+        Struct_ov023_021f8e1c_3* var23 = FindMenuObjectById_ov023_021f6880(var4, arg0->unknown_20_[GetMenuGridCursorIndex_ov023_021f9bc8(arg0)]);
         void* var24 = func_ov023_021f9cb8(arg0, arg1, var23);
         if (var24 != 0) {
             func_ov023_021f88b8(var24, arg1, 0x8000);

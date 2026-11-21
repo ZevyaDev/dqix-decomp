@@ -15,9 +15,9 @@ struct MenuLayout_0207fdcc_2;
 struct BGLayer_02020cb8;
 struct BGLayer_02020cb8_5;
 struct Struct_ov006_02155480_2;
-struct Struct_020e28dc;
+struct YesNoWindow_020e28dc;
 struct DisplayWindow_020439b0;
-struct Struct_020e2834;
+struct YesNoWindow_020e2834;
 struct MenuLayout_0207fd88;
 struct Struct_ov006_02154614;
 
@@ -64,9 +64,9 @@ extern "C" Struct_ov006_02158478* FindMenuLayoutWindow_02081da8(MenuLayout_0207f
 extern "C" void func_ov006_02154fe4(Struct_ov006_02154614*);
 extern "C" void func_ov006_02155480(Struct_ov006_02155480_2*);
 extern "C" int func_ov006_021570fc(Struct_ov006_02154614*, int);
-extern "C" int func_020e28dc(Struct_020e28dc*);
+extern "C" int IsYesNoWindowOpen_020e28dc(YesNoWindow_020e28dc*);
 extern "C" void SetDisplayWindowEnabled_020e2cc4(DisplayWindow_020439b0*, int);
-extern "C" void func_020e2834(Struct_020e2834*);
+extern "C" void func_020e2834(YesNoWindow_020e2834*);
 extern "C" void CopyMenuLayoutBGScreenDataToVRAM_0207fd88(MenuLayout_0207fd88*);
 
 struct Struct_ov006_02157a60 {
@@ -197,8 +197,8 @@ extern "C" ARM void func_ov006_02158478(Struct_ov006_02157a60* arg0)
     if (R(*(void**)((char*)arg0+0x10),arg0->unknown_18_) != 0)
     {
         void* var6 = *(void**)((char*)R(*(void**)((char*)arg0+0x10),arg0->unknown_18_) + 0x10);
-        SetDisplayWindowEnabled_020e2cc4((DisplayWindow_020439b0*)((char*)var6 + 0x28), func_020e28dc((Struct_020e28dc*)R(*(void**)((char*)arg0+0x10),arg0->unknown_18_)));
-        func_020e2834((Struct_020e2834*)R(*(void**)((char*)arg0+0x10),arg0->unknown_18_));
+        SetDisplayWindowEnabled_020e2cc4((DisplayWindow_020439b0*)((char*)var6 + 0x28), IsYesNoWindowOpen_020e28dc((YesNoWindow_020e28dc*)R(*(void**)((char*)arg0+0x10),arg0->unknown_18_)));
+        func_020e2834((YesNoWindow_020e2834*)R(*(void**)((char*)arg0+0x10),arg0->unknown_18_));
     }
     if (R(*(void**)((char*)arg0+0xc),arg0->unknown_14_) != 0)
         CopyMenuLayoutBGScreenDataToVRAM_0207fd88((MenuLayout_0207fd88*)R(*(void**)((char*)arg0+0xc),arg0->unknown_14_));

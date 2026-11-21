@@ -59,7 +59,7 @@ struct Struct_ov003_0217ab34_2 {
 
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
-extern "C" void func_02081ea4(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowCursorMark_02081ea4(struct MenuLayout_0207fdcc_2* menuLayout, int windowId, int hasCursorMark);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 extern "C" void ResetKeyRepeat_0208203c(struct KeyRepeat_02081f20_2* keyRepeat);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov003_0217ab34(struct Struct_ov003_0217ab34_2* arg0) {
         arg0->unknown_103a_ = var5->unknown_c_[(short)(arg0->unknown_1014_ * 8 + var4)];
         arg0->unknown_103c_ = 1;
         func_ov003_02177dd4(arg0);
-        func_02081ea4(var1, arg0->unknown_ffe_, 0);
+        SetMenuLayoutWindowCursorMark_02081ea4(var1, arg0->unknown_ffe_, 0);
         SetMenuLayoutWindowPalette_02080c68(var1, arg0->unknown_ffe_, 0);
         ResetKeyRepeat_0208203c((struct KeyRepeat_02081f20_2*)arg0->unknown_88c_);
         arg0->unknown_ff8_ = 0;

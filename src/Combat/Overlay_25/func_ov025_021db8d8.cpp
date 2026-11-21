@@ -93,7 +93,7 @@ extern "C" void func_ov000_02167dd8(unsigned char*);
 extern "C" void func_ov000_02163a7c(struct Struct_ov000_02163a7c*);
 extern "C" int func_ov025_021dfa9c(void* arg0, void* arg1);
 extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void* battleScene, int selector, int isVisible);
-extern "C" int func_ov000_02153e40(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" int CollectCombatantIndices_ov000_02153e40(void* battle, short* indices, int maxCount, int filterFlags);
 extern "C" void func_02048cf0(GameObject* arg0, int arg1);
 extern "C" void func_ov000_0216e678(void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov000_0216d464(void* arg0);
@@ -190,7 +190,7 @@ extern "C" ARM void func_ov025_021db8d8(struct Struct_ov025_021db8d8_6* arg0) {
         if (arg0->unknown_55d8_ != 0) {
             var8 = GameState::GetInstance();
             short var27[12];
-            int var28 = func_ov000_02153e40(var3, var27, 12, 0);
+            int var28 = CollectCombatantIndices_ov000_02153e40(var3, var27, 12, 0);
             int var29;
             for (int var30 = 0; var30 < var28; var30++) {
                 GameObject* var31 = var8->GetCombatantByIndex(var27[var30]);
@@ -223,7 +223,7 @@ extern "C" ARM void func_ov025_021db8d8(struct Struct_ov025_021db8d8_6* arg0) {
                 var10 = func_020493c8((unsigned char*)var34);
             }
             short var36[12];
-            var9 = func_ov000_02153e40(var3, var36, 12, 0);
+            var9 = CollectCombatantIndices_ov000_02153e40(var3, var36, 12, 0);
             for (var32 = 0; var32 < var9; var32++) {
                 GameObject* var37 = var12->GetCombatantByIndex(var36[var32]);
                 if (var37) {
@@ -263,7 +263,7 @@ extern "C" ARM void func_ov025_021db8d8(struct Struct_ov025_021db8d8_6* arg0) {
         int var39;
         GameState* var40 = GameState::GetInstance();
         short var41[12];
-        var39 = func_ov000_02153e40(var3, var41, 12, 0);
+        var39 = CollectCombatantIndices_ov000_02153e40(var3, var41, 12, 0);
         for (var38 = 0; var38 < var39; var38++) {
             GameObject* var42 = var40->GetCombatantByIndex(var41[var38]);
             if (var42) {

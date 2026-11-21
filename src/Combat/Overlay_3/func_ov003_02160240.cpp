@@ -17,12 +17,12 @@ extern "C" void CopyMenuLayoutBGScreenDataToVRAM_0207fd88(struct MenuLayout_0207
 extern "C" void func_ov003_0216720c(char* arg0);
 extern "C" void func_ov003_0216757c(char* arg0);
 extern "C" void SetDisplayWindowInsideLayers_020e2d24(int* displayWindow, int layers, int isEffectEnabled);
-struct Struct_020e28dc;
-extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
+struct YesNoWindow_020e28dc;
+extern "C" int IsYesNoWindowOpen_020e28dc(struct YesNoWindow_020e28dc* yesNoWindow);
 struct DisplayWindow_020439b0;
 extern "C" void SetDisplayWindowEnabled_020e2cc4(struct DisplayWindow_020439b0* displayWindow, int isEnabled);
-struct Struct_020e2834;
-extern "C" void func_020e2834(struct Struct_020e2834* arg0);
+struct YesNoWindow_020e2834;
+extern "C" void func_020e2834(struct YesNoWindow_020e2834* arg0);
 
 // USA: func_ov003_02160240
 extern "C" ARM void func_ov003_02160240(char* arg0) {
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov003_02160240(char* arg0) {
     unsigned char* var0 = *(unsigned char**)((char*)(*(void**)(arg0 + Enum_ov003_02160240_912)) + 0x10);
     int var1;
     SetDisplayWindowInsideLayers_020e2d24((int*)(var0 + 0x28), 0x19, 1);
-    var1 = func_020e28dc((struct Struct_020e28dc*)*(void**)(arg0 + Enum_ov003_02160240_912));
+    var1 = IsYesNoWindowOpen_020e28dc((struct YesNoWindow_020e28dc*)*(void**)(arg0 + Enum_ov003_02160240_912));
     SetDisplayWindowEnabled_020e2cc4((struct DisplayWindow_020439b0*)(var0 + 0x28), var1);
-    func_020e2834((struct Struct_020e2834*)*(void**)(arg0 + Enum_ov003_02160240_912));
+    func_020e2834((struct YesNoWindow_020e2834*)*(void**)(arg0 + Enum_ov003_02160240_912));
 }

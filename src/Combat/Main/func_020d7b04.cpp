@@ -9,7 +9,7 @@ extern "C" void* GetMessageWindow_020421a0();
 struct Queue_02038598_5;
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void func_ov016_0218b5c0(int, int);
-extern "C" void func_ov017_0218b5f8(int);
+extern "C" void RequestPartyMemberPanelRedraw_ov017_0218b5f8(int);
 extern "C" void ClearMessageParams_02046380(void*);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void*, void*, int);
@@ -90,7 +90,7 @@ extern "C" ARM void func_020d7b04(Struct_020d7b04_3* arg0) {
         arg0->unknown_150_0_--;
         if (arg0->unknown_150_0_ == 0) {
             func_ov016_0218b5c0(1, -1);
-            func_ov017_0218b5f8(-1);
+            RequestPartyMemberPanelRedraw_ov017_0218b5f8(-1);
         }
         return;
     }

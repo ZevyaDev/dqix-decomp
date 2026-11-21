@@ -19,28 +19,28 @@ struct Struct_02083cbc_2 {
     Struct_02083cbc unknown_8_[3];
 };
 
-struct Struct_02083cbc_3 {
+struct PartyMemberData_02083cbc_3 {
     unsigned char unknown_0_[IS_JPN ? 0x884 : 0x91c];
-    Struct_02083cbc unknown_91c_[3];
+    Struct_02083cbc levelStats_91c_[3];
     unsigned char unknown_928_[0xc];
     unsigned char unknown_934_[0x16];
 };
 
-// USA: func_02083cbc
-extern "C" ARM void func_02083cbc(void* arg0, void* arg1, void* arg2) {
-    ((Struct_02083cbc_3*)arg0)->unknown_91c_[0].unknown_0_0_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[0].unknown_0_0_;
-    ((Struct_02083cbc_3*)arg0)->unknown_91c_[0].unknown_1_2_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[0].unknown_1_2_;
-    ((Struct_02083cbc_3*)arg0)->unknown_91c_[0].unknown_2_4_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[0].unknown_2_4_;
-    ((Struct_02083cbc_3*)arg0)->unknown_91c_[1].unknown_0_0_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[1].unknown_0_0_;
-    ((Struct_02083cbc_3*)arg0)->unknown_91c_[1].unknown_1_2_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[1].unknown_1_2_;
-    ((Struct_02083cbc_3*)arg0)->unknown_91c_[1].unknown_2_4_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[1].unknown_2_4_;
-    ((Struct_02083cbc_3*)arg0)->unknown_91c_[2].unknown_0_0_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[2].unknown_0_0_;
-    ((Struct_02083cbc_3*)arg0)->unknown_91c_[2].unknown_1_2_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[2].unknown_1_2_;
-    ((Struct_02083cbc_3*)arg0)->unknown_91c_[2].unknown_2_4_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[2].unknown_2_4_;
-    memset(((Struct_02083cbc_3*)arg0)->unknown_934_, 100, 0x16);
+// USA: SetLevelStats_02083cbc
+extern "C" ARM void SetLevelStats_02083cbc(void* memberData, void* arg1, void* arg2) {
+    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[0].unknown_0_0_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[0].unknown_0_0_;
+    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[0].unknown_1_2_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[0].unknown_1_2_;
+    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[0].unknown_2_4_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[0].unknown_2_4_;
+    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[1].unknown_0_0_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[1].unknown_0_0_;
+    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[1].unknown_1_2_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[1].unknown_1_2_;
+    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[1].unknown_2_4_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[1].unknown_2_4_;
+    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[2].unknown_0_0_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[2].unknown_0_0_;
+    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[2].unknown_1_2_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[2].unknown_1_2_;
+    ((PartyMemberData_02083cbc_3*)memberData)->levelStats_91c_[2].unknown_2_4_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[2].unknown_2_4_;
+    memset(((PartyMemberData_02083cbc_3*)memberData)->unknown_934_, 100, 0x16);
     if (arg2 != NULL) {
-        for (int var0 = 0; var0 < 0x16; var0++) {
-            ((Struct_02083cbc_3*)arg0)->unknown_934_[var0] = ((unsigned char*)arg2)[var0];
+        for (int i = 0; i < 0x16; i++) {
+            ((PartyMemberData_02083cbc_3*)memberData)->unknown_934_[i] = ((unsigned char*)arg2)[i];
         }
     }
 }

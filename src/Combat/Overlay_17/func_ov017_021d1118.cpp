@@ -16,7 +16,7 @@ extern "C" void* func_0202ae24();
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 extern "C" void* func_0202ae18(void);
 extern "C" int GetLocalWirelessState_0202ba00(int* wireless);
-extern "C" int AddElapsedPlayTime_020ac4f8(int arg0);
+extern "C" int AddElapsedPlayTime_020ac4f8(int isMultiplayerTimeIncluded);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" int GetAlchemyCount_020ac0b4(void* count);
 extern "C" int GetDefeatedMonsterListCompletion_020a0870(BattleRecords_02061c04* records);

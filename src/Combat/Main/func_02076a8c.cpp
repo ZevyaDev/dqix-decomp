@@ -33,7 +33,7 @@ extern "C" ARM void InitFieldMonster_02076a8c(FieldMonster_02076a8c* monster) {
     monster->unknown_17c_ = 0;
     monster->unknown_180_ = 0;
     monster->unknown_184_ = 0;
-    monster->unknown_16a_ = 0;
+    monster->id_16a_ = 0;
     monster->unknown_17e_ = 0;
     monster->unknown_158_.x = 0;
     monster->unknown_158_.y = 0;

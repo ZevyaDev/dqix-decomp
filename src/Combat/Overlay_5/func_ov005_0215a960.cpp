@@ -15,10 +15,10 @@ extern "C" char data_ov005_0215ce05[];
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" int GetMessageWindow_020421a0();
 #if defined(jpn)
-extern "C" unsigned short func_020469b0(MessageWindow_02021b84* arg0, const char* arg1, unsigned short* arg2, int);
+extern "C" unsigned short ConvertTextToMessageGlyphs_02045d14(MessageWindow_02021b84* arg0, const char* arg1, unsigned short* arg2, int);
 #endif
-extern "C" unsigned short func_02045d14(MessageWindow_02021b84* arg0, const char* arg1, unsigned short* arg2, int arg3);
-extern "C" void func_020439b0(MessageWindow_02021b84* arg0, int arg1);
+extern "C" unsigned short ConvertTextToMessageGlyphs_02045d14(MessageWindow_02021b84* window, const char* text, unsigned short* glyphCodes, int font);
+extern "C" void UpdateMessageWindowGraphics_020439b0(MessageWindow_02021b84* window, int arg1);
 
 // USA: func_ov005_0215a960
 extern "C" ARM void func_ov005_0215a960(Struct_ov005_02153954* arg0) {
@@ -41,15 +41,15 @@ extern "C" ARM void func_ov005_0215a960(Struct_ov005_02153954* arg0) {
         }
         int var4 = var1 % 10;
         var3[1] += var4;
-        func_020469b0(var0, var3, arg0->unknown_3e0c_[var1], 8);
+        ConvertTextToMessageGlyphs_02045d14(var0, var3, arg0->unknown_3e0c_[var1], 8);
 #else
         int var4 = var1 % 10;
         char var5[2];
         sprintf(var5, data_ov005_0215ce05, var4);
-        func_02045d14(var0, var5, arg0->unknown_3e0c_[var1], 0);
+        ConvertTextToMessageGlyphs_02045d14(var0, var5, arg0->unknown_3e0c_[var1], 0);
 #endif
         if (var4 == 9) {
-            func_020439b0(var0, 0);
+            UpdateMessageWindowGraphics_020439b0(var0, 0);
 #if !defined(jpn)
             var0->unknown_195b_ |= 0x80;
 #endif

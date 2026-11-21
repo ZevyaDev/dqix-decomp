@@ -5,7 +5,7 @@ extern "C" void* func_ov004_02168fa4(void*, int);
 extern "C" void RedrawMenuWindow_ov023_021f809c(void*, void*);
 #endif
 
-struct Struct_ov004_02153e20 {
+struct MenuGrid_ov004_02153e20 {
     char unknown_0_[0x20];
     short* unknown_20_;
     unsigned short unknown_24_;
@@ -63,11 +63,11 @@ struct Struct_ov004_0216a610_3 {
     struct Struct_ov004_0216a610_2* unknown_190_;
 };
 
-extern "C" struct Struct_ov004_02153e20* func_ov023_021f6524(void* arg0, int arg1);
+extern "C" struct MenuGrid_ov004_02153e20* func_ov023_021f6524(void* arg0, int arg1);
 extern "C" Struct_ov004_0216a610_4* func_ov004_02168a6c(void* arg0, int arg1);
 extern "C" Struct_ov004_0216a610_4* func_ov004_02168a38(void* arg0, int arg1);
 extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
-extern "C" int func_ov023_021f9b30(struct Struct_ov004_02153e20* arg0, unsigned short arg1, unsigned int arg2, unsigned int arg3);
+extern "C" int SetMenuGridCell_ov023_021f9b30(struct MenuGrid_ov004_02153e20* grid, unsigned short objectId, unsigned int row, unsigned int column);
 extern "C" void func_ov023_021f6630(int arg0, int arg1, short arg2, short arg3);
 
 extern struct Struct_ov004_0216a610_3* data_ov004_02171030;
@@ -78,7 +78,7 @@ extern "C" ARM int func_ov004_0216a610(void* arg0) {
     if (var0 == 0) {
         return 0;
     }
-    struct Struct_ov004_02153e20* var1 = func_ov023_021f6524(arg0, 0x64);
+    struct MenuGrid_ov004_02153e20* var1 = func_ov023_021f6524(arg0, 0x64);
     short var2 = var1->unknown_5c_;
     short var3 = var1->unknown_5e_;
     int var4;
@@ -102,13 +102,13 @@ extern "C" ARM int func_ov004_0216a610(void* arg0) {
             var6->unknown_c_ &= ~8;
             var7->unknown_c_ &= ~8;
             var8->unknown_c_ &= ~8;
-            func_ov023_021f9b30(var1, var4 + 0xc8, (unsigned short)var4, 0);
+            SetMenuGridCell_ov023_021f9b30(var1, var4 + 0xc8, (unsigned short)var4, 0);
         } else {
             var5->unknown_c_ |= 8;
             var6->unknown_c_ |= 8;
             var7->unknown_c_ |= 8;
             var8->unknown_c_ |= 8;
-            func_ov023_021f9b30(var1, 0, (unsigned short)var4, 0);
+            SetMenuGridCell_ov023_021f9b30(var1, 0, (unsigned short)var4, 0);
         }
     }
 #if defined(jpn)

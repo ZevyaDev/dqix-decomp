@@ -286,7 +286,7 @@ struct GameObject;
 extern "C" int func_ov024_021eadfc(GameObject*);
 extern "C" int func_ov000_0215a124(void* arg0, int arg1, int arg2);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
-extern "C" unsigned int func_020dd290(void* arg0, unsigned int arg1);
+extern "C" unsigned int GetSkillAdjustedMPCost_020dd290(void* member, unsigned int arg1);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_ov024_021eb47c(Struct_ov024_021ea4d0*, int);
 extern "C" void GetBattleRecords_020ac4c0(void* records);
@@ -332,9 +332,9 @@ struct Party_02048150;
 extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void func_ov000_0215a8d4(unsigned char*, int);
 struct Struct_ov024_021da670_6;
-extern "C" int func_ov024_021da998(Struct_ov024_021da670_6*);
+extern "C" int HasTension_ov024_021da998(Struct_ov024_021da670_6*);
 struct Struct_ov024_021dd028_5;
-extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
+extern "C" int HasSuperHighTension_ov024_021dd260(Struct_ov024_021dd028_5*);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, unsigned char flagIndex);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
 extern "C" void AppendTargetResult_ov000_0215ffc4(void* target, void* result, int listIndex);
@@ -351,9 +351,9 @@ extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatant
 extern "C" void func_ov000_0215fe84(void* arg0, void* arg1, int arg2);
 extern "C" void func_ov024_021e4c04(struct Struct_ov024_021ea4d0* arg0, int arg1, int arg2, struct Struct_ov024_021eaa50_2* arg3, int arg4);
 extern "C" void func_ov024_021e556c(struct Struct_ov024_021ea4d0* arg0, int arg1, int arg2, struct Struct_ov024_021eaa50_2* arg3, int arg4);
-struct Struct_ov000_0215767c_4;
-struct Struct_ov000_0215767c_5;
-extern "C" void func_ov000_021600cc(Struct_ov000_0215767c_5*, Struct_ov000_0215767c_4*);
+struct ActionTarget_ov000_0215767c_4;
+struct BattleAction_ov000_0215767c_5;
+extern "C" void AppendActionTarget_ov000_021600cc(BattleAction_ov000_0215767c_5*, ActionTarget_ov000_0215767c_4*);
 extern "C" int func_ov024_021eb1ec(void*, int);
 extern "C" int func_ov024_021eb2b4(struct Struct_ov024_021ea4d0* arg0);
 extern "C" int func_ov024_021eb344(struct Struct_ov024_021ea4d0* arg0, int arg1, int arg2);
@@ -383,7 +383,7 @@ extern "C" int func_020ddb38(int arg0, int arg1, void* arg2, void* arg3);
 extern "C" int func_ov000_0215fd24(int, int);
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(unsigned short memberIndex, int requestModelLoad);
 extern "C" void func_ov000_021584e8(void* arg0, void* arg1, void* arg2, void* arg3, int arg4, int arg5);
-extern "C" void func_02083e28(unsigned char* arg0, int arg1);
+extern "C" void CalculatePartyMemberStats_02083e28(unsigned char* memberData, int outStats);
 void ApplyCombatantBuffs(int, int);
 struct GameState;
 extern "C" void* GetParty_02010828(GameState*);
@@ -542,7 +542,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
             } else {
                 if (IN_RANGE_021eb5d0(var18)) {
                     struct Struct_ov024_021eb5d0_12* var30 = (struct Struct_ov024_021eb5d0_12*)(void*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var13, var18);
-                    if (var30 != 0 && HasLearnedSkillEntry_02083b00(var30->unknown_150_, 0x106) != 0) var29 = func_020dd290(var30, var29);
+                    if (var30 != 0 && HasLearnedSkillEntry_02083b00(var30->unknown_150_, 0x106) != 0) var29 = GetSkillAdjustedMPCost_020dd290(var30, var29);
                 }
                 func_ov000_0215a124(arg0->unknown_10_, var18, var29);
             }
@@ -779,10 +779,10 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
             if (arg0->unknown_76_ != 0 && (var46->unknown_10_ & 0x2000) != 0) {
                 struct Struct_ov024_021eb5d0_12* var62 = (struct Struct_ov024_021eb5d0_12*)GetCombatantByID((int)arg0->unknown_10_, var3);
                 if (var62 != 0) {
-                    if (func_ov024_021da998((Struct_ov024_021da670_6*)var62) != 0 ||
-                        func_ov024_021dd260((Struct_ov024_021dd028_5*)var62) != 0) {
+                    if (HasTension_ov024_021da998((Struct_ov024_021da670_6*)var62) != 0 ||
+                        HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)var62) != 0) {
                         arg0->unknown_47_ = 1;
-                        if (func_ov024_021dd260((Struct_ov024_021dd028_5*)var62) != 0) arg0->unknown_47_ = 2;
+                        if (HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)var62) != 0) arg0->unknown_47_ = 2;
                     }
                 }
             }
@@ -893,7 +893,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
         }
         if (var49 == 0 && arg0->unknown_79_ == 0) func_ov024_021e556c(arg0, var18, var4, var15, var42);
         if (arg0->unknown_74_ != 0 && arg0->unknown_6f_ != 0) {
-            func_ov000_021600cc((Struct_ov000_0215767c_5*)arg2, (Struct_ov000_0215767c_4*)arg0->unknown_c_);
+            AppendActionTarget_ov000_021600cc((BattleAction_ov000_0215767c_5*)arg2, (ActionTarget_ov000_0215767c_4*)arg0->unknown_c_);
             arg0->unknown_10_->unknown_8e01_ = arg0->unknown_10_->unknown_8e01_ + 1;
         }
         if (IN_RANGE_021eb5d0(var4)) {
@@ -1058,6 +1058,6 @@ found:
     struct Struct_ov024_021eb5d0_12* var115 = (struct Struct_ov024_021eb5d0_12*)GetCombatantByID((int)arg0->unknown_10_, arg2->unknown_10_->unknown_20_);
     if (var114 == 0 || var115 == 0) return;
     func_ov000_021584e8(arg0->unknown_10_, var114, var115, arg2->unknown_10_, 0x258, 0);
-    func_02083e28(var115->unknown_150_, 0);
+    CalculatePartyMemberStats_02083e28(var115->unknown_150_, 0);
     ApplyCombatantBuffs((int)arg0->unknown_10_, arg2->unknown_10_->unknown_20_);
 }

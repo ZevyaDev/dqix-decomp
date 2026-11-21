@@ -9,7 +9,7 @@ extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* func_ov023_021f6524(void* arg0, int arg1);
 struct StringList_02072a68_2;
 extern "C" StringList_02072a68_2* func_ov004_02168b08(void* arg0, int arg1);
-extern "C" int func_ov023_021f9bc8(char* arg0);
+extern "C" int GetMenuGridCursorIndex_ov023_021f9bc8(char* grid);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void func_02042764(unsigned char* arg0, char* arg1, int arg2);
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov004_02169a28(void* arg0) {
     char* var2 = (char*)func_ov023_021f6524(arg0, 0x64);
     func_ov004_02168b08(arg0, 3);
     short var3 = *(short*)(var2 + 0x5c);
-    int var4 = func_ov023_021f9bc8(var2);
+    int var4 = GetMenuGridCursorIndex_ov023_021f9bc8(var2);
 
 #if !defined(jpn)
     char var5[0x30];

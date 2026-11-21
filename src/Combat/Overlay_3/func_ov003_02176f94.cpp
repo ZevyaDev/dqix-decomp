@@ -57,7 +57,7 @@ struct MenuLayout_02080cc0;
 extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0 *menuLayout, int textId, int color);
 struct MenuLayout_02080fa8;
 extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8 *menuLayout, int textId, int value);
-extern "C" int func_02080b2c(void *arg0, int arg1);
+extern "C" int HideMenuLayoutText_02080b2c(void *menuLayout, int textId);
 extern "C" void HideMenuLayoutWindowTexts_02080b54(void *menuLayout, int windowId);
 extern "C" void func_02080c04(struct MenuLayout_0207fdcc_2 *arg0, int arg1);
 extern "C" short CountItemInBags_02086bf4(char *party, int itemId);
@@ -145,10 +145,10 @@ extern "C" ARM void func_ov003_02176f94(Struct_ov003_02176f94_2* arg0) {
             SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0 *) var0, var4, func_020dcc98(var13));
             SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8 *) var0, var5, var12);
             if (var12 != 0) {
-                func_02080b2c(var0, var7);
+                HideMenuLayoutText_02080b2c(var0, var7);
             } else {
-                func_02080b2c(var0, var5);
-                func_02080b2c(var0, var6);
+                HideMenuLayoutText_02080b2c(var0, var5);
+                HideMenuLayoutText_02080b2c(var0, var6);
             }
             var4++;
             var5++;

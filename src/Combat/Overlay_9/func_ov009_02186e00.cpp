@@ -155,7 +155,7 @@ extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68* cursor, int colu
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc* cursor, int itemCount);
 extern "C" void SetMenuCursorIndex_0205bb04(Struct_ov009_02186e00_2* cursor, int index);
 extern "C" void func_ov003_0215f4e4(Struct_ov003_0215f4e4* arg0, int arg1);
-extern "C" void func_ov003_0215ec68(int arg0, short* arg1, short* arg2);
+extern "C" void GetButtonSize_ov003_0215ec68(int sizeType, short* width, short* height);
 
 extern char data_ov009_0218ad26[];
 extern char data_ov009_0218ad2a[];
@@ -370,7 +370,7 @@ extern "C" ARM void func_ov009_02186e00(Struct_ov009_021842a0_2* arg0)
     {
         short var11;
         short var12;
-        func_ov003_0215ec68(var10->unknown_e_, &var11, &var12);
+        GetButtonSize_ov003_0215ec68(var10->unknown_e_, &var11, &var12);
         arg0->unknown_c4c_ = var10->unknown_0_;
         arg0->unknown_c4e_ = var10->unknown_2_;
         arg0->unknown_c50_ = var11;

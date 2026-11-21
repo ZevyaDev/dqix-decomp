@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" signed char func_ov031_02237e9c(void);
+extern "C" signed char GetDialogChoice_ov031_02237e9c(void);
 extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int);
 extern "C" void func_ov031_02237e58(void);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
@@ -11,7 +11,7 @@ extern Struct_ov031_0222d418* data_ov031_02290c94;
 
 // USA: func_ov031_0222d418
 extern "C" ARM void func_ov031_0222d418(void) {
-    data_ov031_02290c94->unknown_2a_ = (unsigned char)func_ov031_02237e9c();
+    data_ov031_02290c94->unknown_2a_ = (unsigned char)GetDialogChoice_ov031_02237e9c();
     switch (data_ov031_02290c94->unknown_2a_) {
     case 0:
         PlayWifiSetupSoundEffect_ov031_02236878(7);

@@ -13,7 +13,7 @@ struct TextWindowManager_0205da38;
 struct SoundEffectManager_02108760;
 struct TextWindowManager_0205d81c;
 struct MenuCursor_0205bcdc;
-struct Struct_0204c610;
+struct TextWindow_0204c610;
 extern "C" void SetNextTextWindowBGLayer_0205de24(struct TextWindowManager_0205de24_2 *windowManager, unsigned char isSubScreen,
                                                                         unsigned char bgIndex);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
@@ -21,7 +21,7 @@ extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* w
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" char *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
-extern "C" void func_0204c610(struct Struct_0204c610 *arg0, int arg1, short *arg2, short *arg3, short *arg4, short *arg5);
+extern "C" void GetTextWindowEntryRect_0204c610(struct TextWindow_0204c610 *textWindow, int entryIndex, short *outX, short *outY, short *outWidth, short *outHeight);
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc *cursor, int index);
 extern "C" void func_ov002_0215b268(char *arg0);
 extern "C" void SetMenuCursorIndex_0205bb04(void *cursor, int index);
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov002_02169bb0(char *arg0) {
                     for (unsigned char var11 = 1; var11 <= 5; var11++) {
                         short var12 = *(short *) (var8 + 0xac);
                         short var13 = *(short *) (var8 + 0xae);
-                        func_0204c610((struct Struct_0204c610 *) var8, var9++, &var4, &var5, &var6, &var7);
+                        GetTextWindowEntryRect_0204c610((struct TextWindow_0204c610 *) var8, var9++, &var4, &var5, &var6, &var7);
                         var4 += (short) (var12 * 8);
                         var5 += (short) (var13 * 8);
                         if (var2 >= var4 && var4 + var6 > var2 && var3 >= var5 && var5 + var7 > var3) {

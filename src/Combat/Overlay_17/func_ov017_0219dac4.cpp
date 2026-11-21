@@ -39,7 +39,7 @@ extern "C" void func_0203409c(unsigned char* arg0);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void func_ov017_021a01bc(unsigned char* arg0);
-extern "C" void func_ov017_021cdaa0(void);
+extern "C" void SendDayTimer_ov017_021cdaa0(void);
 
 // USA: func_ov017_0219dac4
 extern "C" ARM void func_ov017_0219dac4(unsigned char* arg0, int arg1, int arg2) {
@@ -89,6 +89,6 @@ extern "C" ARM void func_ov017_0219dac4(unsigned char* arg0, int arg1, int arg2)
         func_ov017_021a01bc(arg0);
     }
     if (arg2 == *var2 && IsNotLocalWirelessGuest_0202c508(var1)) {
-        func_ov017_021cdaa0();
+        SendDayTimer_ov017_021cdaa0();
     }
 }

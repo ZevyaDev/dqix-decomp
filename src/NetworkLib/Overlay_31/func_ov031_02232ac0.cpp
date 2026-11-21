@@ -4,8 +4,8 @@ struct Struct_ov031_02232ac0 { unsigned char unknown_0_[0x1d]; unsigned char unk
 struct Struct_ov031_02290cc0_5 { unsigned char unknown_0_; unsigned char unknown_1_[3]; Struct_ov031_02232ac0 *unknown_4_; };
 extern Struct_ov031_02290cc0_5 data_ov031_02290cc0;
 extern "C" int IsBrightnessFadeActive_ov031_0223c054(int);
-extern "C" int func_ov031_02222ddc(void);
-extern "C" char* func_ov031_02235c70(void);
+extern "C" int CloseButtonBar_ov031_02222ddc(void);
+extern "C" char* GetEditedConnectionSettings_ov031_02235c70(void);
 extern "C" void StartBrightnessFade_ov031_0223c078(int, int, int, int);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_02232b44(void);
@@ -16,8 +16,8 @@ extern "C" ARM void func_ov031_02232ac0(void) {
 
 	if (data_ov031_02290cc0.unknown_4_->unknown_1d_ == 1) {
 		if (data_ov031_02290cc0.unknown_0_ == 3 ||
-		    *(unsigned char*)(func_ov031_02235c70() + 0xe7) != 0xff) {
-			func_ov031_02222ddc();
+		    *(unsigned char*)(GetEditedConnectionSettings_ov031_02235c70() + 0xe7) != 0xff) {
+			CloseButtonBar_ov031_02222ddc();
 		}
 	}
 

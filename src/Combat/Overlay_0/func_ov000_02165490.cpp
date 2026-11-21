@@ -183,7 +183,7 @@ extern "C" void func_ov000_0215ed8c(Struct_ov000_02165490_14*);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_ov017_021cdf80(Struct_ov000_02165490_14*, int);
-extern "C" void func_02079a3c(void*);
+extern "C" void InitGPCReadPair_02079a3c(void*);
 extern "C" unsigned int func_ov000_02166008(void*, void*, int);
 extern "C" void func_ov000_02166070(void*, void*, int, int, int, unsigned int);
 
@@ -523,7 +523,7 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
         }
     }
 
-    func_02079a3c(&var0);
+    InitGPCReadPair_02079a3c(&var0);
     unsigned int var78 = func_ov000_02166008(arg0, &var0, 0);
     for (int var79 = 0; var79 < var9; var79++) {
         func_ov000_02166070(arg0, &var0, var79, var5[var79], 0, var78);

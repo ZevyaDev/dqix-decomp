@@ -20,10 +20,10 @@ struct BGControlSave_02074af4 {
     unsigned char unknown_11_;
     char unknown_12_[2];
 };
-struct Struct_02081ee4 {
+struct KeyRepeat_02081ee4 {
     char unknown_0_[0xc];
 };
-struct Struct_02081ee4_2 {
+struct RepeatedKey_02081ee4_2 {
     char unknown_0_[4];
 };
 struct SaveProgress_020a9ea4 {
@@ -31,7 +31,7 @@ struct SaveProgress_020a9ea4 {
 };
 
 extern "C" void SaveMainBGControl_02074af4(struct BGControlSave_02074af4* save);
-extern "C" void func_02081ee4(struct Struct_02081ee4* arg0, struct Struct_02081ee4_2* arg1);
+extern "C" void InitKeyRepeat_02081ee4(struct KeyRepeat_02081ee4* keyRepeat, struct RepeatedKey_02081ee4_2* repeatedKey);
 extern "C" void ResetSaveProgress_020a9ea4(struct SaveProgress_020a9ea4* progress);
 
 struct Struct_ov003_0215f9c0 {
@@ -48,8 +48,8 @@ struct Struct_ov003_0215f9c0 {
     char unknown_2c8_[0x2dc - 0x2c8];
     struct StringTable_0201099c_14 unknown_2dc_;
     struct BGControlSave_02074af4 unknown_2f4_;
-    struct Struct_02081ee4 unknown_308_;
-    struct Struct_02081ee4_2 unknown_314_;
+    struct KeyRepeat_02081ee4 unknown_308_;
+    struct RepeatedKey_02081ee4_2 unknown_314_;
     int unknown_318_;
     int unknown_31c_;
     int unknown_320_;
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov003_0215f9c0(struct Struct_ov003_0215f9c0* arg0, int 
     DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
     ((OBJSpriteSet*)(arg0->unknown_334_))->Reset();
     arg0->unknown_388_ = 0;
-    func_02081ee4(&arg0->unknown_308_, &arg0->unknown_314_);
+    InitKeyRepeat_02081ee4(&arg0->unknown_308_, &arg0->unknown_314_);
     ((StringList*)(&arg0->unknown_2dc_))->Reset();
     arg0->unknown_318_ = 0;
     arg0->unknown_31c_ = 0;

@@ -47,7 +47,7 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 
 extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void* menuLayout, int windowId);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
-extern "C" void func_02081ea4(struct MenuLayout_0207fdcc_2* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowCursorMark_02081ea4(struct MenuLayout_0207fdcc_2* menuLayout, int windowId, int hasCursorMark);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void ResetKeyRepeat_0208203c(struct KeyRepeat_02081f20_2* keyRepeat);
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
@@ -94,7 +94,7 @@ extern "C" int func_ov003_0217839c(int arg0, void* arg1);
 extern "C" void* func_ov003_02179cfc(char* arg0, int arg1, void* arg2);
 extern "C" void* func_0205ec34(void);
 extern "C" int UpdateKeyRepeat_02081f20(void* keyRepeat, int elapsedFrames);
-extern "C" void AddItemToPartyMember_0207ccf0(void* itemContext, int itemId, int count, int memberIndex, int isBagAllowed, int arg5, int arg6);
+extern "C" void AddItemToPartyMember_0207ccf0(void* itemContext, int itemId, int count, int memberIndex, int isBagAllowed, int isOverflowToHeldItems, int arg6);
 
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
@@ -126,7 +126,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
         }
         *(short*)((char*)var2 + Enum_ov003_02178910_54) = *(short*)(arg0 + (0x1000 + 6 - Enum_ov003_02178910_0));
         SetMenuLayoutWindowPalette_02080c68(var2, *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_02178910_0)), 0);
-        func_02081ea4(var2, *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_02178910_0)), 0);
+        SetMenuLayoutWindowCursorMark_02081ea4(var2, *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_02178910_0)), 0);
         func_ov003_02178548(arg0);
         func_ov003_021767ec(arg0);
         func_ov003_021769ec(arg0);
@@ -547,7 +547,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
         short var70 = GetMenuLayoutWindowFirstSelectableTextId_02080468(var2, *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_02178910_0)));
         *(short*)(arg0 + (0x1000 + 0xa - Enum_ov003_02178910_0)) = var70;
         *(short*)((char*)var2 + Enum_ov003_02178910_54) = *(short*)(arg0 + (0x1000 + 0xa - Enum_ov003_02178910_0));
-        func_02081ea4(var2, *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_02178910_0)), 0);
+        SetMenuLayoutWindowCursorMark_02081ea4(var2, *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_02178910_0)), 0);
         SetMenuLayoutWindowPalette_02080c68(var2, *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_02178910_0)), 0);
         func_ov003_02177820((char*)arg0);
         short var71 = GetMenuLayoutWindowFirstSelectableTextId_02080468(var2, *(short*)(arg0 + (0xf00 + 0xfe - Enum_ov003_02178910_0)));

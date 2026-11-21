@@ -3,7 +3,7 @@
 
 extern "C" int func_ov031_0221aae4(unsigned char* arg0, unsigned int arg1, char* arg2, unsigned int arg3);
 extern "C" int func_ov031_0221883c(void* arg0, void* arg1, int arg2);
-extern "C" int func_020c7170(char* arg0, unsigned long arg1, const char* arg2, ...);
+extern "C" int FormatToSizedBuffer_020c7170(char* buffer, unsigned long bufferSize, const char* format, ...);
 
 extern const char data_ov031_02249edc[];
 extern const char data_ov031_02249ee0[];
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov031_02218604(Struct_ov031_02218604_2* arg0, const char
         var7 = var1->unknown_4_;
         var5 = var1->unknown_8_ - var7;
     }
-    var6 = func_020c7170(var7, var5, var2, arg1);
+    var6 = FormatToSizedBuffer_020c7170(var7, var5, var2, arg1);
     var1->unknown_4_ = var1->unknown_4_ + var6;
     if (func_ov031_0221aae4(static_cast<unsigned char*>(arg2), arg3, var1->unknown_4_, var1->unknown_8_ - var1->unknown_4_ - 1) >= 0) {
         var1->unknown_4_ = var1->unknown_4_ + var0;

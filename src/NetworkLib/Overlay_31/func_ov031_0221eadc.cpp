@@ -33,7 +33,7 @@ namespace DuplicatePool {
 }
 extern "C" ARM void func_ov031_0220eadc(void);
 extern "C" int func_ov031_0221f02c(int, unsigned char*, int, unsigned int);
-extern "C" ARM int func_020c7ea0(Struct_ov031_0224f4e0_2*, int*, int);
+extern "C" ARM int DequeueValue_020c7ea0(Struct_ov031_0224f4e0_2*, int*, int);
 extern "C" int func_ov031_0221efe8(Struct_ov031_0224f500*, int);
 extern "C" void func_ov031_0221e774(Struct_ov031_0221eadc*, Struct_ov031_0224f500*);
 extern "C" int func_ov031_0221f1e8(Struct_ov031_0224f500*, Struct_ov031_0224f5c0*, int);
@@ -76,7 +76,7 @@ extern "C" THUMB int func_ov031_0221eadc(Struct_ov031_0221eadc* arg0, void* arg1
     ZeroInitializeAlarm(&var8);
     SetTimeout(&var8, 0x003fec42ULL, func_ov031_0221e7bc, (ProcessorContext**)18);
     while (var0) {
-        func_020c7ea0(&data_ov031_0224f4e0, &var7, 1);
+        DequeueValue_020c7ea0(&data_ov031_0224f4e0, &var7, 1);
         switch (var7) {
         case 18:
             if (!var2) var0 = 0;
@@ -128,7 +128,7 @@ extern "C" THUMB int func_ov031_0221eadc(Struct_ov031_0221eadc* arg0, void* arg1
         }
     }
     CancelAlarm(&var8);
-    while (func_020c7ea0(&data_ov031_0224f4e0, &var7, 0) == 1) {}
+    while (DequeueValue_020c7ea0(&data_ov031_0224f4e0, &var7, 0) == 1) {}
 done:
     func_ov031_0221e798(arg1, &data_ov031_0224f500, var1 == 0);
     return var1;

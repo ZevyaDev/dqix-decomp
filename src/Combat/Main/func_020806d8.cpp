@@ -40,7 +40,7 @@ extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 #if defined(jpn)
 extern "C" int func_020d2ff0(const char*);
 #else
-extern "C" int func_02042190(int);
+extern "C" int GetFontForFontSize_02042190(int);
 extern "C" int func_020420e8(char* arg0, int arg1);
 #endif
 
@@ -59,7 +59,7 @@ extern "C" ARM void func_020806d8(Struct_020806d8_3* arg0, int arg1, int arg2, i
     int var2 = func_020d2ff0(var1) >> 1;
     int var4 = var2 * var0->unknown_13_0_;
 #else
-    int var3 = func_02042190(var0->unknown_13_0_);
+    int var3 = GetFontForFontSize_02042190(var0->unknown_13_0_);
     int var4 = func_020420e8(var1, var3);
 #endif
     Struct_020806d8* var5 = FindMenuLayoutWindowEntry_0207f0ac(&arg0->unknown_c_, arg1);

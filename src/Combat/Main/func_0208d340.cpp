@@ -13,7 +13,7 @@ extern "C" void func_0208ba54(struct Struct_0208ba54*);
 
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
-extern "C" void func_020dc2d0(int);
+extern "C" void RestartMapDisplay_020dc2d0(int);
 
 struct Struct_0208d340 {
     char unknown_0_[0xb8];
@@ -44,7 +44,7 @@ extern "C" ARM void func_0208d340(struct Struct_0208d340* arg0) {
     if (arg0->unknown_d5_ == 2) {
         arg0->unknown_da_ = arg0->unknown_da_ & ~4;
         RestoreSubBGControl_02074bf4((struct BGControlSave_02074bf4*)((char*)arg0 + 0x2c));
-        func_020dc2d0(0);
+        RestartMapDisplay_020dc2d0(0);
         arg0->unknown_d5_ = arg0->unknown_d5_ + 1;
         return;
     }

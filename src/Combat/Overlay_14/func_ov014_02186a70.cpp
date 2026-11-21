@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
 struct StringTable_0201099c_14;
-struct Struct_02081ee4;
-struct Struct_02081ee4_2;
+struct KeyRepeat_02081ee4;
+struct RepeatedKey_02081ee4_2;
 
 extern "C" void func_ov014_021844c4(void* arg0);
 extern "C" void func_020972b0(int* arg0);
-extern "C" void func_02081ee4(Struct_02081ee4* arg0, Struct_02081ee4_2* arg1);
+extern "C" void InitKeyRepeat_02081ee4(KeyRepeat_02081ee4* keyRepeat, RepeatedKey_02081ee4_2* repeatedKey);
 #include "std_library_functions.h"
 #include "Graphics/OBJSpriteSet.h"
 #include "Resource/StringList.h"
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov014_02186a70(char* arg0) {
     *(int*)(arg0 + 0xdc) = 0;
     ((StringList*)((StringTable_0201099c_14*)(arg0 + 0xe0)))->Reset();
     ((OBJSpriteSet*)(arg0 + 0xf8))->Reset();
-    func_02081ee4((Struct_02081ee4*)(arg0 + 0x14c), (Struct_02081ee4_2*)(arg0 + 0x158));
+    InitKeyRepeat_02081ee4((KeyRepeat_02081ee4*)(arg0 + 0x14c), (RepeatedKey_02081ee4_2*)(arg0 + 0x158));
     *(int*)(arg0 + 0x15c) = 0;
     *(int*)(arg0 + 0x160) = 0;
     *(int*)(arg0 + 0x164) = 0;

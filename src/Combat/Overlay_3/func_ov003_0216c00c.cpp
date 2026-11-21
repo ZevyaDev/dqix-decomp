@@ -73,7 +73,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_02011a40(char*);
 extern "C" void* func_02053c6c(unsigned char*);
 struct GameState;
-extern "C" int func_02011804(GameState*);
+extern "C" int GetTreasureMapCount_02011804(GameState*);
 extern "C" void func_020119d8(void*);
 extern "C" void func_ov017_021a9ff0(int arg0);
 extern "C" void func_ov017_021c1798(GameResources* arg0, unsigned char arg1);
@@ -247,7 +247,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         if (*(int*)(var2 + 0x870) != 0) return;
         *(int*)(var2 + 0x868) = 1;
         if (GetMessageChoice_020457e0(var2) == 1) {
-            if (func_02011804((GameState*)var0) != 0) {
+            if (GetTreasureMapCount_02011804((GameState*)var0) != 0) {
                 func_ov003_0216d8d4(arg0, 0x4c);
                 *(short*)(arg0 + 6) = 0x64;
             } else {
@@ -261,7 +261,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
     } else if (var9 == 0x67) {
         if (*(int*)(var2 + 0x870) != 3) return;
         *(int*)(var2 + 0x868) = 1;
-        if (func_02011804((GameState*)var0) != 0) {
+        if (GetTreasureMapCount_02011804((GameState*)var0) != 0) {
             func_ov003_0216d8d4(arg0, 0x4d);
             *(short*)(arg0 + 6) = 0x64;
         } else {
@@ -284,7 +284,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         if (GetMessageChoice_020457e0(var2) == 1) {
             func_ov003_0216d8d4(arg0, 0x32);
             *(short*)(arg0 + 6) = 0x63;
-        } else if (func_02011804((GameState*)var0) != 0) {
+        } else if (GetTreasureMapCount_02011804((GameState*)var0) != 0) {
             func_ov003_0216d8d4(arg0, 0x39);
             *(short*)(arg0 + 6) = 0x65;
         } else {
@@ -593,7 +593,7 @@ phase2:;
         int var50 = (*(struct Struct_ov003_0216c00c_8**)((char*)var49 + 8))->unknown_d_0_;
         PlayMusic_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var50);
         SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
-        if ((unsigned int)func_02011804((GameState*)var0) >= 0x63) {
+        if ((unsigned int)GetTreasureMapCount_02011804((GameState*)var0) >= 0x63) {
             *(short*)(arg0 + 6) = 0x13;
             char* var51 = (char*)GetMessageWindow_020421a0();
             *(int*)(var51 + 0x868) = 1;
@@ -758,7 +758,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         if (*(int*)(var70 + 0x9a0) != 0) return;
         *(int*)(var70 + 0x998) = 1;
         if (GetMessageChoice_020457e0(var70) == 1) {
-            if (func_02011804((GameState*)var68) != 0) {
+            if (GetTreasureMapCount_02011804((GameState*)var68) != 0) {
                 func_ov003_0216d8d4(arg0, 0x4c, -1, -1, -1);
                 *(short*)(arg0 + 6) = 0x64;
             } else {
@@ -772,7 +772,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
     } else if (var76 == 0x67) {
         if (*(int*)(var70 + 0x9a0) != 3) return;
         *(int*)(var70 + 0x998) = 1;
-        if (func_02011804((GameState*)var68) != 0) {
+        if (GetTreasureMapCount_02011804((GameState*)var68) != 0) {
             func_ov003_0216d8d4(arg0, 0x4d, -1, -1, -1);
             *(short*)(arg0 + 6) = 0x64;
         } else {
@@ -795,7 +795,7 @@ extern "C" ARM void func_ov003_0216c00c(char* arg0) {
         if (GetMessageChoice_020457e0(var70) == 1) {
             func_ov003_0216d8d4(arg0, 0x32, -1, -1, -1);
             *(short*)(arg0 + 6) = 0x63;
-        } else if (func_02011804((GameState*)var68) != 0) {
+        } else if (GetTreasureMapCount_02011804((GameState*)var68) != 0) {
             func_ov003_0216d8d4(arg0, 0x39, -1, -1, -1);
             *(short*)(arg0 + 6) = 0x65;
         } else {
@@ -1105,7 +1105,7 @@ phase2:;
         int var120 = (*(struct Struct_ov003_0216c00c_8**)((char*)var119 + 8))->unknown_d_0_;
         PlayMusic_0209c3b4((struct Struct_0209c3b4_2*)&gMusicManager_02109bf4, var120);
         SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
-        if ((unsigned int)func_02011804((GameState*)var68) >= 0x63) {
+        if ((unsigned int)GetTreasureMapCount_02011804((GameState*)var68) >= 0x63) {
             *(short*)(arg0 + 6) = 0x13;
             char* var121 = (char*)GetMessageWindow_020421a0();
             *(int*)(var121 + 0x998) = 1;

@@ -2,7 +2,7 @@
 
 extern "C" void* func_ov031_0223c560(int arg0, int arg1);
 extern "C" void GetMACAddress_020c99ac(void* macAddress);
-extern "C" int func_020c7170(char*, unsigned long, const char*, ...);
+extern "C" int FormatToSizedBuffer_020c7170(char*, unsigned long, const char*, ...);
 extern "C" void func_ov031_0223dd60(void*, const void*, int);
 extern "C" void func_ov031_0223c980(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, void* arg7);
 extern "C" void func_ov031_0221ae00(void* arg0);
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov031_02228c60(void) {
 
     var0 = func_ov031_0223c560(0, 0);
     GetMACAddress_020c99ac(var7);
-    func_020c7170(var6, 20, data_ov031_0224b8ac, var7[0], var7[1], var7[2], var7[3], var7[4], var7[5]);
+    FormatToSizedBuffer_020c7170(var6, 20, data_ov031_0224b8ac, var7[0], var7[1], var7[2], var7[3], var7[4], var7[5]);
     func_ov031_0223dd60(var5, var6, 20);
     func_ov031_0223c980(var0, 8, 0x40, 0xf0, 0x1c, 2, 0x480, var5);
 
@@ -47,10 +47,10 @@ extern "C" ARM void func_ov031_02228c60(void) {
             var2 /= 10000;
             var4++;
         } while (var4 < 3);
-        func_020c7170(var6, 20, data_ov031_0224b8cc, var3[0], var3[1], var3[2], var3[3]);
+        FormatToSizedBuffer_020c7170(var6, 20, data_ov031_0224b8cc, var3[0], var3[1], var3[2], var3[3]);
         func_ov031_0223dd60(var5, var6, 20);
     } else {
-        func_020c7170(var6, 20, data_ov031_0224b8e0);
+        FormatToSizedBuffer_020c7170(var6, 20, data_ov031_0224b8e0);
         func_ov031_0223dd60(var5, var6, 20);
     }
     func_ov031_0223c980(var0, 8, 0x78, 0xf0, 0x1c, 2, 0x480, var5);

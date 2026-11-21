@@ -5,14 +5,14 @@
 
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 struct Struct_02114e20;
-extern "C" unsigned int func_02012dd0(Struct_02114e20* arg0);
+extern "C" unsigned int GetMaxPossibleAllocation_02012dd0(Struct_02114e20* allocator);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern AllocatorUnion gMainHeap_02114e20;
 
 // USA: func_020a36cc
 extern "C" ARM int func_020a36cc(void** arg0, unsigned int arg1) {
     GameResources* var0 = GetGameResources();
-    unsigned int var1 = func_02012dd0((Struct_02114e20*)&gMainHeap_02114e20);
+    unsigned int var1 = GetMaxPossibleAllocation_02012dd0((Struct_02114e20*)&gMainHeap_02114e20);
     if (var1 < arg1) {
         ReleaseFileTablesForSpace_020a0cc4(arg1);
         var0->unknown_4490_[0] = 1;

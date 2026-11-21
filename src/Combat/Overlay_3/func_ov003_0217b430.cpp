@@ -23,7 +23,7 @@ extern "C" short GetMenuLayoutWindowFirstSelectableTextId_02080468(void *menuLay
 extern "C" int func_ov003_02175f20(void *arg0);
 extern "C" void func_ov003_02177dd4(void *arg0);
 extern "C" void func_ov003_021769ec(void *arg0);
-extern "C" void func_02081ea4(struct MenuLayout_0207fdcc_2 *arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowCursorMark_02081ea4(struct MenuLayout_0207fdcc_2 *menuLayout, int windowId, int hasCursorMark);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void *menuLayout, int windowId, int palette);
 extern "C" void ResetKeyRepeat_0208203c(struct KeyRepeat_02081f20_2 *keyRepeat);
 extern "C" void func_ov003_021748c4(unsigned char *arg0);
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *arg0) {
         *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c) = 1;
         func_ov003_02177dd4(arg0);
         func_ov003_021769ec(arg0);
-        func_02081ea4((struct MenuLayout_0207fdcc_2 *) var2, *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 0);
+        SetMenuLayoutWindowCursorMark_02081ea4((struct MenuLayout_0207fdcc_2 *) var2, *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 0);
         SetMenuLayoutWindowPalette_02080c68(var2, *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 0);
         ResetKeyRepeat_0208203c((struct KeyRepeat_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
         *(void **) (arg0 + REGIONAL_OFFSET(0xf74, 0xff8))                 = 0;

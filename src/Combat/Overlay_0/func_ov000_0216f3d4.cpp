@@ -6,7 +6,7 @@ extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" float func_02049fec(char*);
 struct Struct_02049f50;
 extern "C" void func_02049f50(Struct_02049f50*,int,int);
-extern "C" { int func_ov000_02153e40(void*,short*,int,int); int func_02049fc0(void*); }
+extern "C" { int CollectCombatantIndices_ov000_02153e40(void*,short*,int,int); int func_02049fc0(void*); }
 struct Struct_ov000_0215b278 { char unknown_0_[0x20]; unsigned short unknown_20_; char unknown_22_[0xe]; Struct_ov000_0215b278* unknown_30_; };
 struct Struct_ov000_0215440c_6 { char unknown_0_[0xe]; short unknown_e_[4]; unsigned char unknown_16_,unknown_17_; char unknown_18_[8]; Struct_ov000_0215440c_6* unknown_20_; };
 struct Struct_ov000_021537b8 { char unknown_0_[0x10]; Struct_ov000_0215b278* unknown_10_; Struct_ov000_0215440c_6* unknown_14_; };
@@ -16,7 +16,7 @@ inline int inline_ov000_0216f3d4(int arg0) { return (int)(((long long)arg0*arg0+
 extern "C" ARM void func_ov000_0216f3d4(Struct_ov000_0216df00* arg0) {
     if(!arg0->unknown_21c_ || !arg0->unknown_278_) return;
     short var0[12];
-    int var1=func_ov000_02153e40(arg0->unknown_21c_,var0,12,0);
+    int var1=CollectCombatantIndices_ov000_02153e40(arg0->unknown_21c_,var0,12,0);
     GameState* var2=GameState::GetInstance();
     int var3=180;
     if(arg0->unknown_221_) { var3=0; arg0->unknown_221_=0; }

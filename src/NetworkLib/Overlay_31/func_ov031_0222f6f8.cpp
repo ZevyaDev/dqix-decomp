@@ -39,7 +39,7 @@ extern "C" void func_ov031_02235194(void);
 
 extern "C" void LoadToMainObjStandardPalette(int, int, unsigned int);
 extern "C" int func_ov031_0221b158(void* arg0);
-extern "C" char* func_ov031_02235c70(void);
+extern "C" char* GetEditedConnectionSettings_ov031_02235c70(void);
 extern "C" void func_ov031_02236094(int arg0);
 extern "C" void* VectorizedMemset(void* dst, int val, int n);
 extern "C" void func_ov031_0222750c(int, int);
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov031_0222f6f8(void) {
         break;
     }
     case 11: {
-        unsigned char* var7 = (unsigned char*)func_ov031_02235c70();
+        unsigned char* var7 = (unsigned char*)GetEditedConnectionSettings_ov031_02235c70();
         int var8 = func_ov031_0221b158(var7 + 0xf0);
         var7[0xd0] = (unsigned char)var8;
         if (var7[0xf5] != 0) {
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov031_0222f6f8(void) {
             SetStepIndicatorAndButtonBarModes_ov031_022274d0(2, var4);
             SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02232508);
         } else {
-            func_ov031_02236094(((unsigned char*)func_ov031_02235c70())[0xf4]);
+            func_ov031_02236094(((unsigned char*)GetEditedConnectionSettings_ov031_02235c70())[0xf4]);
             var4 = 1;
             SetStepIndicatorAndButtonBarModes_ov031_022274d0(0, var4);
             SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02233248);

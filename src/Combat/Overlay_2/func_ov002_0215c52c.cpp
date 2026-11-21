@@ -13,7 +13,7 @@ extern "C" void func_02042638(char *arg0, int arg1, int arg2);
 struct Struct_0201099c_3;
 
 struct GameState;
-extern "C" unsigned char func_02011804(GameState* arg0);
+extern "C" unsigned char GetTreasureMapCount_02011804(GameState* gameState);
 extern "C" void AppendFrameTag_02041c08(char *buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" void AppendCursorTag_02041ea4(char *buffer, int entryIndex);
 extern "C" void func_02041fac(char *arg0, int arg1, int arg2);
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov002_0215c52c(unsigned char *arg0, char *arg1, int arg
     short var0 = 0x3ea;
     int var1     = 3;
     short var2   = *(short *) (arg0 + RG(0x1be4, 0x1aac));
-    if (func_02011804(GameState::GetInstance()) == 0) var1 = 2;
+    if (GetTreasureMapCount_02011804(GameState::GetInstance()) == 0) var1 = 2;
     if (arg2) AppendFrameTag_02041c08(arg1, var2, 8, 5, 5, 5);
     AppendCursorTag_02041ea4(arg1, var2);
     func_02041fac(

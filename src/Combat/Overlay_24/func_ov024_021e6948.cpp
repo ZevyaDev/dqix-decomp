@@ -31,7 +31,7 @@ extern "C" int HasEnemyTrait_ov000_02156068(struct Struct_02000c9c_76* battle, i
 struct Random;
 int NextRandomMax(Random*, int);
 struct Struct_ov024_021dd028_5;
-extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
+extern "C" int HasSuperHighTension_ov024_021dd260(Struct_ov024_021dd028_5*);
 
 // USA: func_ov024_021e6948
 extern "C" ARM int func_ov024_021e6948(struct Struct_ov024_021e6948_2* arg0, int arg1, int arg2, int arg3) {
@@ -52,7 +52,7 @@ extern "C" ARM int func_ov024_021e6948(struct Struct_ov024_021e6948_2* arg0, int
     if (var0 > 0 && HasEnemyTrait_ov000_02156068(arg0->unknown_10_, arg1, 0, 1)) {
         var0 = NextRandomMax((Random*)arg0->unknown_10_, 2);
     }
-    if (func_ov024_021dd260((Struct_ov024_021dd028_5*)var1)) {
+    if (HasSuperHighTension_ov024_021dd260((Struct_ov024_021dd028_5*)var1)) {
         var0 = 0.5f * var0;
     }
     return var0;

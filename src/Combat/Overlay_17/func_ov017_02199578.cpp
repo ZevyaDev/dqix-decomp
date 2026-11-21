@@ -21,7 +21,7 @@ extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireles
 extern "C" void UpdateLocalWirelessPlayerCount_0202c288(void* wireless);
 extern "C" void* func_0205ec34(void);
 extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
-extern "C" void func_0206f81c(void* arg0);
+extern "C" void RunDeferredTriggerActions_0206f81c(void* triggerResult);
 extern "C" void func_ov017_0218b664(char* arg0);
 
 struct LocalWireless_0202c1a4 {
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov017_02199578(void* arg0, int arg1, int arg2, int arg3
         void* var3 = func_0205ec34();
         Struct_ov017_02199578 var4;
         if (RunTrigger_020649b0(var3, 0x1d, &var4)) {
-            func_0206f81c(&var4);
+            RunDeferredTriggerActions_0206f81c(&var4);
         }
         func_ov017_0218b664((char*)arg0);
         return;
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov017_02199578(void* arg0, int arg1, int arg2, int arg3
     void* var6 = func_0205ec34();
     Struct_ov017_02199578 var7;
     if (RunTrigger_020649b0(var6, 0x1d, &var7)) {
-        func_0206f81c(&var7);
+        RunDeferredTriggerActions_0206f81c(&var7);
     }
     func_ov017_0218b664((char*)arg0);
 }

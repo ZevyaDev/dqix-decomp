@@ -17,7 +17,7 @@ extern "C" void EnableTouchMenuCursor_0205cef8(void *windowManager);
 extern "C" void EnableKeyMenuCursor_0205cf04(void *windowManager);
 extern "C" void DisableTouchMenuCursor_0205cf10(void *windowManager);
 extern "C" void DisableKeyMenuCursor_0205cf1c(struct TextWindowManager_0205cf1c *windowManager);
-extern "C" unsigned char func_02011804(GameState* arg0);
+extern "C" unsigned char GetTreasureMapCount_02011804(GameState* gameState);
 extern "C" int func_ov002_02157108(void *arg0, int arg1);
 extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68 *cursor, int columnCount, int rowCount, int isRowMajor);
 extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc *cursor, int itemCount);
@@ -60,7 +60,7 @@ extern "C" ARM void ConfigureMenuCursors_ov002_02161cf0(char *menu) {
             columnCount   = 1;
             rowCount   = 3;
             cursorIndex = *(short *) (menu + RG(0x1b00 + 0xe4, 0x1a00 + 0xac));
-            if (func_02011804(GameState::GetInstance()) == 0) {
+            if (GetTreasureMapCount_02011804(GameState::GetInstance()) == 0) {
                 itemCount = 2;
                 rowCount  = 2;
             }
