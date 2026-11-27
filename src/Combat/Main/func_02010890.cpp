@@ -3,15 +3,15 @@
 
 extern "C" GameObject* GetGameObjectByIndex_0200ff94(GameState* gameState, int index);
 
-// USA: func_02010890
-extern "C" ARM void func_02010890(GameState* arg0, int* arg1, int* arg2) {
-    int var0 = 0;
-    int var1;
-    for (var1 = 0; var1 < 4; var1++) {
-        if (GetGameObjectByIndex_0200ff94(arg0, var1)) {
-            arg1[var0] = var1;
-            var0++;
+// USA: GetPartyMemberObjectIndices_02010890
+extern "C" ARM void GetPartyMemberObjectIndices_02010890(GameState* gameState, int* outMemberObjectIndices, int* outMemberCount) {
+    int count = 0;
+    int i;
+    for (i = 0; i < 4; i++) {
+        if (GetGameObjectByIndex_0200ff94(gameState, i)) {
+            outMemberObjectIndices[count] = i;
+            count++;
         }
     }
-    *arg2 = var0;
+    *outMemberCount = count;
 }

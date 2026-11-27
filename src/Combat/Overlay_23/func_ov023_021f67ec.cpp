@@ -17,15 +17,15 @@ struct Struct_ov023_021f67ec {
     struct Struct_ov023_021f67ec_2* unknown_0_;
 };
 
-// USA: func_ov023_021f67ec
-extern "C" ARM void func_ov023_021f67ec(struct Struct_ov023_021f67ec* arg0, struct Struct_ov023_021f67ec_2* arg1) {
-    if (!arg1) return;
-    struct Struct_ov023_021f67ec_2* var0 = arg1->unknown_14_;
-    struct Struct_ov023_021f67ec_2* var1 = arg1->unknown_18_;
-    if (var0) var0->unknown_18_ = var1;
-    if (var1) var1->unknown_14_ = var0;
-    if (arg0->unknown_0_ == arg1) arg0->unknown_0_ = var1;
-    arg1->unknown_14_ = 0;
-    arg1->unknown_18_ = 0;
-    arg1->inline_ov023_021f67ec_5(arg0);
+// USA: RemoveMenuObject_ov023_021f67ec
+extern "C" ARM void RemoveMenuObject_ov023_021f67ec(struct Struct_ov023_021f67ec* objectList, struct Struct_ov023_021f67ec_2* object) {
+    if (!object) return;
+    struct Struct_ov023_021f67ec_2* previous = object->unknown_14_;
+    struct Struct_ov023_021f67ec_2* next = object->unknown_18_;
+    if (previous) previous->unknown_18_ = next;
+    if (next) next->unknown_14_ = previous;
+    if (objectList->unknown_0_ == object) objectList->unknown_0_ = next;
+    object->unknown_14_ = 0;
+    object->unknown_18_ = 0;
+    object->inline_ov023_021f67ec_5(objectList);
 }

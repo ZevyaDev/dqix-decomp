@@ -29,7 +29,7 @@ extern "C" void func_020e3004(struct Struct_020e3004* arg0);
 struct Struct_020e358c;
 extern "C" void func_020e358c(struct Struct_020e358c* arg0);
 extern "C" void func_ov017_02195748(unsigned char* arg0);
-extern "C" void func_02010890(GameState* arg0, int* arg1, int* arg2);
+extern "C" void GetPartyMemberObjectIndices_02010890(GameState* gameState, int* outMemberObjectIndices, int* outMemberCount);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int func_020d2ff0(const char* string);
 extern "C" void func_0202c360(void* arg0, char* arg1);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov017_021c36a0(void) {
 
 	int var7[4];
 	int var8;
-	func_02010890(var0, var7, &var8);
+	GetPartyMemberObjectIndices_02010890(var0, var7, &var8);
 
 	char var9[20];
 	__clear(var9, 0x14);
