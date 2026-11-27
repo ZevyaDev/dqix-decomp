@@ -33,7 +33,7 @@ struct Struct_ov002_02153ea4_2 {
 extern "C" void func_ov002_02153e90(Struct_ov002_02153ea4 *arg0);
 extern "C" int func_ov002_02154a6c(void *arg0, int arg1, int arg2);
 extern "C" unsigned short func_ov002_021549c8(void *arg0, int arg1, int arg2, Struct_ov002_02153ea4 *arg3);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 
 // USA: func_ov002_02153ea4
 extern "C" ARM int func_ov002_02153ea4(void *arg0, Struct_ov002_02153ea4_2 *arg1, int arg2, int arg3) {
@@ -68,7 +68,7 @@ extern "C" ARM int func_ov002_02153ea4(void *arg0, Struct_ov002_02153ea4_2 *arg1
         }
         if (var6->unknown_0_ == 0) continue;
         if (IsLocalWirelessOn_0202b7d8(var1) && IsInParty_02086ef0(var0, var7)) {
-            func_ov017_021c9e00(var7, 0, 0, 1);
+            QueuePartyMemberStatusPacket_ov017_021c9e00(var7, 0, 0, 1);
         }
         var2 = 1;
     }

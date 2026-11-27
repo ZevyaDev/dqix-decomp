@@ -84,7 +84,7 @@ extern "C" void QueueWirelessLockRequest_020e3368(unsigned char *, unsigned char
 struct WirelessLockTable_0208ab34;
 extern "C" int GetWirelessLockStatus_020e34bc(WirelessLockTable_0208ab34*, int);
 extern "C" char *GetGameObjectByIndex_0200ff94(GameState *, int);
-extern "C" void func_ov017_021c9e00(int, int, int, int);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int, int, int, int);
 extern "C" void ReleaseWirelessLock_020e3428(void *, int);
 struct WirelessLock_0208ab34_2;
 extern "C" void func_020e3468(WirelessLock_0208ab34_2*, int);
@@ -185,7 +185,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
                     char *var14                                          = GetGameObjectByIndex_0200ff94(var0, arg0->unknown_3c4_[var8]);
                     *(unsigned short *) (*(char **) (var14 + 0x130) + 4) = *(unsigned short *) (*(char **) (var14 + 0x134) + 0x30);
                     *(unsigned short *) (*(char **) (var14 + 0x130) + 6) = *(unsigned short *) (*(char **) (var14 + 0x134) + 0x32);
-                    func_ov017_021c9e00(arg0->unknown_3c4_[var8], 0, 0, 1);
+                    QueuePartyMemberStatusPacket_ov017_021c9e00(arg0->unknown_3c4_[var8], 0, 0, 1);
                 }
             }
             if (IsNotLocalWirelessGuest_0202c508(var3) != 0) {

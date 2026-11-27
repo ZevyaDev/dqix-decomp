@@ -34,7 +34,7 @@ extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215bba8(char *arg0);
 extern "C" void func_ov002_0215a7b4(char *arg0, int arg1, short arg2, int arg3, int arg4);
 extern "C" void RebuildMenuWindowText_ov002_0215b9a4(char *menu, unsigned char windowId, int hasCursorMark);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 extern "C" char gSoundEffectManager_02108760[];
 
 #if defined(jpn)
@@ -146,14 +146,14 @@ extern "C" ARM void func_ov002_02164748(char *arg0) {
                         (struct Struct_ov002_02164748_4 *) func_02053c6c((unsigned char *) var7), 0x570a);
                     if (var16 == 0 || (var16 == 1 && var14)) {
                         *(unsigned char *) (*(char **) ((char *) var7 + 0x130) + 8) = 0;
-                        func_ov017_021c9e00(var7->obj3D_.unknown_4_, 0, 0, 1);
+                        QueuePartyMemberStatusPacket_ov017_021c9e00(var7->obj3D_.unknown_4_, 0, 0, 1);
                     }
                 }
                 if (*(short *) (arg0 + RG(0x1c00 + 0x24, 0x1aec)) == 0x570a) {
                     short var17 = GetHeldItemCount_02083994((struct Struct_ov002_02164748_4 *) var6, 0x570a);
                     if (var17 == 0 || (var17 == 1 && var14)) {
                         *(unsigned char *) (*(char **) ((char *) var5 + 0x130) + 8) = 0;
-                        func_ov017_021c9e00(var5->obj3D_.unknown_4_, 0, 0, 1);
+                        QueuePartyMemberStatusPacket_ov017_021c9e00(var5->obj3D_.unknown_4_, 0, 0, 1);
                     }
                 }
             }

@@ -86,7 +86,7 @@ extern "C" void func_ov017_0218b5c0(int arg0, signed char arg1);
 extern "C" void func_ov017_02191ba0(char*, int, int);
 extern "C" void DisableInputForDuration_020e1154(void* durationMs);
 extern "C" int ClearStatusFlags_02048418(unsigned char* gameObject, unsigned short statusFlags);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 extern "C" void __clear(void* arg0, unsigned int arg1);
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
@@ -263,7 +263,7 @@ extern "C" ARM void func_ov017_021d2d64(void* arg0, Struct_ov017_021d2d64_5* arg
                     }
                 }
                 if (var26) {
-                    func_ov017_021c9e00(var22, 0, 0, 1);
+                    QueuePartyMemberStatusPacket_ov017_021c9e00(var22, 0, 0, 1);
                 }
                 if (var19) {
                     for (int var37 = 0; var37 < 2; var37++) {

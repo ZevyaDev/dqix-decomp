@@ -32,7 +32,7 @@ extern "C" ARM void func_ov017_021ce32c(int arg0);
 extern "C" ARM void SendObjectPosition_ov017_021cee78(int objectIndex, unsigned char isFacingInstant);
 extern "C" void func_ov017_021cff8c(int arg0, int arg1);
 extern "C" ARM void func_ov017_021cfed0(unsigned char arg0, unsigned char arg1);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 
 struct Struct_ov017_021cc4f8 {
     unsigned char unknown_0_[4];
@@ -97,8 +97,8 @@ extern "C" ARM void func_ov017_021cc4f8(signed char arg0, struct Struct_ov017_02
         func_ov017_021cfed0((unsigned char)arg0, (unsigned char)var0);
     }
     if (var2) {
-        func_ov017_021c9e00(var0, 1, 0, 1);
+        QueuePartyMemberStatusPacket_ov017_021c9e00(var0, 1, 0, 1);
     }
     if (!(var3 & 0x1000)) return;
-    func_ov017_021c9e00(var0, 1, 0, 1);
+    QueuePartyMemberStatusPacket_ov017_021c9e00(var0, 1, 0, 1);
 }

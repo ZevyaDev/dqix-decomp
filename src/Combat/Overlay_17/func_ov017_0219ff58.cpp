@@ -46,7 +46,7 @@ extern "C" void func_02039858(unsigned char*, int);
 extern "C" void func_0203986c(unsigned char* arg0, int arg1);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_ov017_021cedf4(int arg0, int arg1, int arg2);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" void InitZoneEntry_02070378(char* zoneEntry);
@@ -78,7 +78,7 @@ extern "C" ARM int func_ov017_0219ff58(unsigned char* arg0, int arg1, int arg2, 
                     EnablePlayerControl_020397c0(var2);
                 }
                 func_ov017_021cedf4(var1, 1, 0);
-                func_ov017_021c9e00(var1, 0, 0, 1);
+                QueuePartyMemberStatusPacket_ov017_021c9e00(var1, 0, 0, 1);
             }
             for (signed char var3 = 0; var3 < 4; var3++) {
                 Struct_ov017_0219ff58_3* var4 = (Struct_ov017_0219ff58_3*)GetCompanionByIndex_0200ff58(var0, var3);
@@ -89,7 +89,7 @@ extern "C" ARM int func_ov017_0219ff58(unsigned char* arg0, int arg1, int arg2, 
                     var4->unknown_18c_ &= ~1;
                     SetMotion_02033b88((struct Struct_02010604*)var4, 0);
                     func_ov017_021cedf4(var3, 1, 0);
-                    func_ov017_021c9e00(var3, 0, 0, 1);
+                    QueuePartyMemberStatusPacket_ov017_021c9e00(var3, 0, 0, 1);
                 }
             }
         }

@@ -21,7 +21,7 @@ extern "C" void* func_0202ae18();
 extern "C" void* GetZone3D_02012fe4();
 extern "C" void* __clear(void*, int);
 extern "C" void RunDeferredTriggerActions_0206f81c(void*);
-extern "C" void func_ov017_021c9e00(int, int, int, int);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int, int, int, int);
 extern "C" void GetOwnPartyMemberObjectIndices_02010834(GameState_02010834*, int, int*, int*);
 extern "C" int IsQueueEmpty_02046b08(void**);
 extern "C" int RunTrigger_020649b0(void*, int, void*);
@@ -133,7 +133,7 @@ extern "C" ARM void func_0208b0f8(void* arg0) {
                     func_02026f08(var5, (unsigned char)var18[var13], 0);
                     if (!(var15->unknown_130_[0] & 1)) func_02048228((Struct_02048228*)var15, var16);
                     var11[var13] = 0x28;
-                    if (IsLocalWirelessOn_0202b7d8(var4)) func_ov017_021c9e00(var18[var13], 1, 0, 0);
+                    if (IsLocalWirelessOn_0202b7d8(var4)) QueuePartyMemberStatusPacket_ov017_021c9e00(var18[var13], 1, 0, 0);
                     var7 = 1;
                 }
             } else var11[var13]--;
@@ -146,7 +146,7 @@ extern "C" ARM void func_0208b0f8(void* arg0) {
                     func_02026f08(var5, (unsigned char)var18[var13], 0);
                     if (!(var15->unknown_130_[0] & 1)) func_02048284((Struct_02048284*)var15, var17);
                     var10[var13] = 0x28;
-                    if (IsLocalWirelessOn_0202b7d8(var4)) func_ov017_021c9e00(var18[var13], 1, 1, 0);
+                    if (IsLocalWirelessOn_0202b7d8(var4)) QueuePartyMemberStatusPacket_ov017_021c9e00(var18[var13], 1, 1, 0);
                     var7 = 1;
                 }
             } else var10[var13]--;

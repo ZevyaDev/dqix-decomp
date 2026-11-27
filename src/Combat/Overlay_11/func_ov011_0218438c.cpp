@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
 
-extern "C" void func_ov011_021842a0(void* arg0);
+extern "C" void InitHeapNode_ov011_021842a0(void* heap);
 extern "C" void SaveMainBGControl_02074af4(void* save);
 
 struct Struct_ov011_0218438c;
@@ -56,7 +56,7 @@ struct Struct_ov011_0218438c_2 {
 
 // USA: func_ov011_0218438c
 extern "C" ARM void func_ov011_0218438c(struct Struct_ov011_0218438c_2* arg0) {
-    func_ov011_021842a0(arg0);
+    InitHeapNode_ov011_021842a0(arg0);
     arg0->unknown_a8_ = 0;
     arg0->unknown_ac_ = 0;
     arg0->unknown_9c_ = 0;

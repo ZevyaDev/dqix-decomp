@@ -106,7 +106,7 @@ struct Struct_02052e2c;
 extern "C" Struct_ov005_02157b74_7* GetAppearance_02052e2c(Struct_02052e2c*);
 extern "C" int func_ov005_0215840c(Struct_ov005_02157b74_2* arg0, int arg1);
 extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 extern "C" void AddEquipmentToBag_0207c378(char* bag, short itemId, int count, int category);
 extern "C" void func_ov005_021551fc(char*, int, int);
 extern "C" void func_ov005_02155544(Struct_ov005_02157b74_2* arg0);
@@ -185,7 +185,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
             }
         }
         CalculatePartyMemberStats_02083e28(var5->unknown_150_, 0);
-        func_ov017_021c9e00(var5->unknown_4_, 0, 0, 1);
+        QueuePartyMemberStatusPacket_ov017_021c9e00(var5->unknown_4_, 0, 0, 1);
         var2->unknown_634_ |= 4;
         if (arg2 == 0) {
             AddEquipmentToBag_0207c378(var0 + 0x1d4, var7, 1, data_ov005_0215cd38[arg0->unknown_3dbc_]);
@@ -280,7 +280,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
         void* var19 = func_02053c6c((unsigned char*)var5);
         SetEquipment_0208358c(var19, var13, -1);
         CalculatePartyMemberStats_02083e28(var19, 0);
-        func_ov017_021c9e00(var5->unknown_4_, 0, 0, 1);
+        QueuePartyMemberStatusPacket_ov017_021c9e00(var5->unknown_4_, 0, 0, 1);
         if (var13->unknown_8_0_ == 7) {
             func_ov005_021583fc((Struct_ov005_02157b74_3*)var5, 1);
         }
@@ -301,7 +301,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
         arg0->unknown_3dd1_ = 0xd;
         arg0->unknown_3dcc_ |= 0x8000;
         func_020483f0((unsigned char*)var5, 4);
-        func_ov017_021c9e00(var4, 0, 0, 1);
+        QueuePartyMemberStatusPacket_ov017_021c9e00(var4, 0, 0, 1);
     }
 
     if (var13->unknown_0_->unknown_3_3_ == 1) {

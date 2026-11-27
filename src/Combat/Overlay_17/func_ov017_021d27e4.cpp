@@ -7,7 +7,7 @@
 extern "C" int func_020dc920(int arg0, int arg1, int arg2, int arg3);
 extern "C" int AddEquipmentToBag_0207c378(void* bag, int itemId, int count, int category);
 extern "C" void SetEquippedItem_02052d7c(void* gameObject, int slot, short itemId);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int memberIndex, int requestModelLoad);
 extern "C" void SendPartyMemberBodyAppearance_ov017_021c4418(int memberIndex, int recipientIndex);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(void* gameResources, int memberIndex, int isForced, int useAlternateAnimationPackage, int isFullReload);
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov017_021d27e4(void* arg0, Struct_ov017_021d27e4_2* arg
                 }
                 if (var13) {
                     ClearStatusFlags_02048418((unsigned char*)var11, 4);
-                    func_ov017_021c9e00(var2, 0, 0, 1);
+                    QueuePartyMemberStatusPacket_ov017_021c9e00(var2, 0, 0, 1);
                     SendPartyMemberEquippedItems_ov017_021c3fb4(var2, 1);
                     SendPartyMemberBodyAppearance_ov017_021c4418(var2, -1);
                     GameResources* var16 = GetGameResources();
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov017_021d27e4(void* arg0, Struct_ov017_021d27e4_2* arg
             GameObject* var18 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var1);
             if (var18 != NULL) {
                 SpendMP_02048350((struct PartyMember_02048350_2*)var18, var17->unknown_8_0_);
-                func_ov017_021c9e00(var1, 0, 0, 1);
+                QueuePartyMemberStatusPacket_ov017_021c9e00(var1, 0, 0, 1);
             }
         }
         ((Type_ov017_021d27e4_2)func_ov017_021a5a68)(arg3->unknown_ptr_array_371c[0], 0xb);

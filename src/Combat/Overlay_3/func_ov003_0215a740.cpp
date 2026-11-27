@@ -66,7 +66,7 @@ extern "C" void UpdateTaskQueue_ov017_021a3498(Queue_0203d028_4*);
 struct QueueNode_02015438;
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void RequestPartyMemberPanelRedraw_ov017_0218b5f8(int);
-extern "C" void func_ov017_021c9e00(int, int, int, int);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int, int, int, int);
 
 extern int gMusicManager_02109bf4;
 extern const signed char data_ov003_0217f39c[12];
@@ -284,7 +284,7 @@ extern "C" ARM void func_ov003_0215a740(void* arg0, int arg1, int arg2) {
         *(unsigned char*)(var0 + 0x59f) = *(unsigned char*)(var0 + 0x59f) & ~0x10;
         *(unsigned char*)(var0 + 0x583) = 1;
         RequestPartyMemberPanelRedraw_ov017_0218b5f8(-1);
-        func_ov017_021c9e00(var14, 1, 0, 1);
+        QueuePartyMemberStatusPacket_ov017_021c9e00(var14, 1, 0, 1);
         func_ov003_02159250(arg0,
             ((void*)((StringList*)((Struct_0201099c_3*)(var0 + 0x64)))->GetString(0x42e)));
         *(signed char*)(var0 + 0x585) = -1;

@@ -204,7 +204,7 @@ extern "C" void RevivePartyMember_02048150(GameObject* gameObject, int hp, int i
 extern "C" int SetMotion_02033b88(Struct_02010604* object, int motion);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov017_021cedf4(int arg0, int arg1, int arg2);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(void* gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_02015438(void* arg0);
@@ -372,7 +372,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
                 }
                 unsigned char var26 = GetProtagonistObjectIndex_020100a8(var0);
                 func_ov017_021cedf4(var26, 1, 0);
-                func_ov017_021c9e00(var26, 0, 0, 1);
+                QueuePartyMemberStatusPacket_ov017_021c9e00(var26, 0, 0, 1);
             }
         }
         RebuildFieldPartyOrder_ov017_02191108(var1, 1, 1, 1, 1);

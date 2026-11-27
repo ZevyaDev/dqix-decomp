@@ -23,7 +23,7 @@ extern "C" void* func_0205ec34(void);
 extern "C" void func_ov017_021d2400(void);
 extern "C" void RevivePartyMember_02048150(void* gameObject, int hp, int isPartyOrderRebuildAllowed);
 extern "C" void func_ov017_021cedf4(int arg0, int arg1, int arg2);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 extern "C" void func_ov017_0219bfb4(int arg0, int arg1);
 
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
@@ -69,7 +69,7 @@ extern "C" ARM void func_02010604(GameState* arg0, int arg1, int arg2, int arg3)
         SetMotion_02033b88((struct Struct_02010604*)var3, 0);
         if (IsLocalWirelessOn_0202b7d8((int*)var0)) {
             func_ov017_021cedf4(var2, 1, 0);
-            func_ov017_021c9e00(var2, 0, 0, 1);
+            QueuePartyMemberStatusPacket_ov017_021c9e00(var2, 0, 0, 1);
         }
     }
 

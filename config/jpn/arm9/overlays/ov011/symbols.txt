@@ -1,4 +1,4 @@
-func_ov011_021842a0 kind:function(arm,size=0x28) addr:0x021853a0
+InitHeapNode_ov011_021842a0 kind:function(arm,size=0x28) addr:0x021853a0
 func_ov011_021842c8 kind:function(arm,size=0x5c) addr:0x021853c8
 func_ov011_02184324 kind:function(arm,size=0x30) addr:0x02185424
 func_ov011_02184354 kind:function(arm,size=0x20) addr:0x02185454

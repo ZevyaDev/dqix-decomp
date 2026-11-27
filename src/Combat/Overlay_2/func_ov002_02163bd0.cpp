@@ -64,7 +64,7 @@ extern "C" void RebuildMenuWindowText_ov002_0215b9a4(char *menu, unsigned char w
 extern "C" void func_ov002_0215a7b4(char *arg0, int arg1, short arg2, int arg3, int arg4);
 extern "C" void func_ov002_0215b2c8(char *arg0);
 extern "C" void func_ov002_0216bfd4(char *arg0, int arg1);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 extern "C" char gSoundEffectManager_02108760[];
 
 #define L(base) ((base) + REGIONAL_OFFSET(0xe20, 0x2c8 + 0xc00))
@@ -182,7 +182,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                                 (struct PartyMemberData_02083994 *) func_02053c6c((unsigned char *) var17), 0x570a) == 0)
                         {
                             *(unsigned char *) (*(char **) (var17 + 0x130) + 8) = 0;
-                            func_ov017_021c9e00(*(short *) (var17 + 4), 0, 0, 1);
+                            QueuePartyMemberStatusPacket_ov017_021c9e00(*(short *) (var17 + 4), 0, 0, 1);
                         }
                     } else {
                         *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xf0, 0x1c00 + 0x28)) = 0x2361;

@@ -126,7 +126,7 @@ extern "C" void RebuildPartyOrders_ov017_02191234(int gameResources);
 extern "C" void ResetEventTask_ov017_021baedc(void* node, int isRestart);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(int gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 extern "C" void SetCombatantAppearanceFlags_ov017_02191aac(int gameResources, int isSet, int combatantIndex, int flags);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 extern "C" void func_ov017_0219bd1c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void* battleScene, int selector, int isVisible);
 
@@ -414,7 +414,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
         GameObject* var39 = GetPartyMemberBaseByIndex_0200ff1c(var9, var14->memberObjectIndices_f78_[var38]);
         if (var39 != NULL) {
             func_02053ec8(var39, 0);
-            func_ov017_021c9e00(var14->memberObjectIndices_f78_[var38], 1, 0, 1);
+            QueuePartyMemberStatusPacket_ov017_021c9e00(var14->memberObjectIndices_f78_[var38], 1, 0, 1);
         }
     }
 

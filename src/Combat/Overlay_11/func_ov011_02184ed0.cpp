@@ -10,7 +10,7 @@ extern "C" int func_ov011_02184c30(struct ScriptValue_ov011_02184c30* arg0);
 extern "C" ARM void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" ARM void* func_ov011_021845f4(void);
 extern "C" ARM void* func_ov011_021842c8(unsigned char* arg0, unsigned int arg1);
-extern "C" ARM void func_ov011_021842a0(void* arg0);
+extern "C" ARM void InitHeapNode_ov011_021842a0(void* heap);
 
 struct Struct_ov011_02184354;
 extern "C" int func_ov011_02184354(Struct_ov011_02184354* arg0, int arg1);
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov011_02184ed0(struct ScriptValue_ov011_02184c30* arg0, 
     if (arg2 == 0)
         return 0;
 
-    func_ov011_021842a0(arg2);
+    InitHeapNode_ov011_021842a0(arg2);
     arg2->unknown_0_ = var1;
     if (arg1 >= 3)
         var0 = func_ov011_02184c30(&arg0[2]);

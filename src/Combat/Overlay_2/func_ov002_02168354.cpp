@@ -24,7 +24,7 @@ extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" unsigned char func_0209a678(char *arg0, void *arg1, unsigned short *arg2);
 extern "C" void *func_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 extern "C" void func_ov017_021ccc34(int arg0);
 extern "C" void func_ov017_021cd0d8(int arg0, unsigned short *arg1, int arg2);
 extern "C" void ResetStringList_020727d8(StringList_020727d8 *stringList);
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov002_02168354(char *arg0) {
                 func_0209a678(arg0 + 0x3c + 0x2400, var2, *(unsigned short **) (arg0 + 0x2450));
             if (IsLocalWirelessOn_0202b7d8((int *) func_0202ae18())) {
                 int var3 = func_ov002_021574d4(arg0, *(short *) (arg0 + 0x1c08));
-                func_ov017_021c9e00(var3, 0, 0, 0);
+                QueuePartyMemberStatusPacket_ov017_021c9e00(var3, 0, 0, 0);
                 func_ov017_021ccc34(var3);
                 func_ov017_021cd0d8(var3, *(unsigned short **) (arg0 + 0x2450), *(unsigned char *) (arg0 + 0x2455));
             }

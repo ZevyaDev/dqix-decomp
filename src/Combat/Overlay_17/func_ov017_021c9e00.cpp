@@ -28,17 +28,17 @@ struct Struct_ov017_021c9e00_2 {
     struct Struct_ov017_021c9e00 unknown_4_;
 };
 
-// USA: func_ov017_021c9e00
-extern "C" ARM void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3) {
+// USA: QueuePartyMemberStatusPacket_ov017_021c9e00
+extern "C" ARM void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels) {
     void* var0 = func_0202ae24();
     GameState* var1 = GameState::GetInstance();
 
-    int var2 = (arg0 >= 0) && (arg0 <= 3);
+    int var2 = (memberIndex >= 0) && (memberIndex <= 3);
     if (!var2) {
         return;
     }
 
-    GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var1, arg0);
+    GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var1, memberIndex);
     if (var3 == NULL) {
         return;
     }
@@ -46,16 +46,16 @@ extern "C" ARM void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3) 
     struct Struct_ov017_021c9e00_2 var4;
     struct Struct_ov017_021c9e00* var5 = &var4.unknown_4_;
     var4.unknown_0_ = 4;
-    var5->unknown_0_0_ = arg0;
+    var5->unknown_0_0_ = memberIndex;
     var5->unknown_2_ = *(unsigned short*)(*(char**)((char*)var3 + 0x130) + 4);
     var5->unknown_6_ = *(unsigned short*)(*(char**)((char*)var3 + 0x130) + 6);
     var5->unknown_4_ = *(unsigned short*)(*(char**)((char*)var3 + 0x134) + 0x30);
     var5->unknown_8_ = *(unsigned short*)(*(char**)((char*)var3 + 0x134) + 0x32);
     var5->unknown_1_ = *(unsigned char*)(*(char**)((char*)var3 + 0x130) + 8);
     var5->unknown_c_ = *(int*)(*(char**)((char*)var3 + 0x130));
-    var5->unknown_0_3_ = arg1;
-    var5->unknown_0_4_ = arg2;
-    var5->unknown_0_5_ = arg3;
+    var5->unknown_0_3_ = updateDeathState;
+    var5->unknown_0_4_ = recalculateStats;
+    var5->unknown_0_5_ = redrawPanels;
 
     QueueOutgoingPacket_0205e330(var0, &var4, 0);
 }

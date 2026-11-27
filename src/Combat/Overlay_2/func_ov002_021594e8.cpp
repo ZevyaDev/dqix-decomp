@@ -26,7 +26,7 @@ extern "C" void func_ov002_02157ce0(char *arg0);
 extern "C" void func_ov002_021536e0(void *arg0);
 extern "C" int func_ov002_021536ec(void *arg0, void *arg1, int arg2);
 extern "C" void func_ov016_0218b5c0(int arg0, int arg1);
-extern "C" void func_ov017_021c9e00(signed char arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(signed char memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 extern "C" int gSoundEffectManager_02108760;
 
 struct Struct_ov002_021594e8_3 {
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov002_021594e8(struct Struct_ov002_021594e8_2 *arg0, sh
     if (var10 != 0) {
         SpendMP_02048350((struct PartyMember_02048350_2 *) var8, var7->unknown_8_0_);
         if (IsLocalWirelessOn_0202b7d8(var9) != 0) {
-            func_ov017_021c9e00(arg2, 0, 0, 1);
+            QueuePartyMemberStatusPacket_ov017_021c9e00(arg2, 0, 0, 1);
         }
     }
 }

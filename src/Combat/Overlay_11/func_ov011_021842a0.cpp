@@ -8,10 +8,10 @@ struct Struct_ov010_021842a0 {
     int unknown_1c_;
 };
 
-// USA: func_ov011_021842a0
-extern "C" ARM void func_ov011_021842a0(Struct_ov010_021842a0* arg0) {
-    arg0->unknown_0_ = 0;
-    arg0->unknown_4_.ResetAllocatorPointer();
-    arg0->unknown_18_ = 0;
-    arg0->unknown_1c_ = 0;
+// USA: InitHeapNode_ov011_021842a0
+extern "C" ARM void InitHeapNode_ov011_021842a0(Struct_ov010_021842a0* heap) {
+    heap->unknown_0_ = 0;
+    heap->unknown_4_.ResetAllocatorPointer();
+    heap->unknown_18_ = 0;
+    heap->unknown_1c_ = 0;
 }
