@@ -56,7 +56,7 @@ extern "C" void* GetActiveZones_02027ca4();
 extern "C" Struct_0206ef40* FindCurrentActiveZone_02027cb0();
 extern "C" void InitFieldMonster_02076a8c(GameObject*);
 extern "C" int IsNodeInQueue_02046b38(Queue_02046b38*, QueueNode_02046b38_2*);
-extern "C" Struct_02072adc* func_ov017_021a2738(void*, int);
+extern "C" Struct_02072adc* FindMonsterModelTemplate_ov017_021a2738(void*, int);
 extern "C" void func_02072adc(Struct_02072adc*, Struct_02072adc*);
 extern "C" int GetGroundHeight_02018fbc(Struct_0208fa8c*, Vector3i*);
 extern "C" Struct_0209be84_2* func_0209be84(Struct_02073ec4_2*, unsigned int, int);
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov017_021d46a4(void*, Struct_ov017_021d46a4_4* arg1) {
     if (!var6) return;
     InitFieldMonster_02076a8c(var6);
     if (!IsNodeInQueue_02046b38(var3, var7)) {
-        Struct_02072adc* var8 = func_ov017_021a2738(var1, arg1->unknown_a_);
+        Struct_02072adc* var8 = FindMonsterModelTemplate_ov017_021a2738(var1, arg1->unknown_a_);
         if (var8) func_02072adc(var8, (Struct_02072adc*)var6);
     }
     Vector3i var9;

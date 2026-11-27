@@ -6,7 +6,7 @@
 
 unsigned int DisableIRQInterrupts(void);
 void SetIRQInterruptState(int state);
-extern "C" unsigned int func_020c9a4c(unsigned int arg0);
+extern "C" unsigned int CountLeadingZeros_020c9a4c(unsigned int value);
 
 extern int data_0211166c;
 extern unsigned short data_02111670[9];
@@ -17,7 +17,7 @@ extern "C" ARM void func_020c9a88(int arg0, int arg1) {
     unsigned int var1 = DisableIRQInterrupts();
     var0 = arg0 & data_0211166c & 0x1ff;
     for (;;) {
-        int var2 = 0x1f - func_020c9a4c(var0);
+        int var2 = 0x1f - CountLeadingZeros_020c9a4c(var0);
         if (var2 < 0) break;
         unsigned int var3 = 1 << var2;
         unsigned short var4 = data_02111670[var2];

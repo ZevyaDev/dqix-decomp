@@ -34,6 +34,6 @@ extern "C" void RequestFontLoad_02094b34(FontLoader_0208cb08* loader, int fontSe
 extern "C" void ClearLoadedFontSet_02094b38(FontLoader_0208cb08* loader, int fontSetId);
 extern "C" void ClearLoadedFontSetForSize_02094b3c(FontLoader_0208cb08* loader, int fontSize);
 extern "C" void ClearLoadedFontSets_02094b40(FontLoader_0208cb08* loader);
-extern "C" void* func_02094b44(FontLoader_0208cb08* arg0, int arg1);
+extern "C" void* GetLoadedFontSetForSize_02094b44(FontLoader_0208cb08* arg0, int fontSize);
 extern "C" int UpdateFontLoad_02094b4c(FontLoader_0208cb08* loader);
 extern "C" int func_02094b54(FontLoader_0208cb08* arg0, int arg1, char* arg2, int arg3);

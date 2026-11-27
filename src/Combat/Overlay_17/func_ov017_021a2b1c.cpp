@@ -7,7 +7,7 @@ struct ActiveZone_020fdd44 {
     unsigned short : 14;
 };
 extern "C" struct ActiveZone_020fdd44* FindCurrentActiveZone_02027cb0(void);
-extern "C" GameObject* func_ov017_021a2738(void* arg0, int arg1);
+extern "C" GameObject* FindMonsterModelTemplate_ov017_021a2738(void* gameResources, int monsterId);
 struct Struct_02072adc;
 extern "C" void func_02072adc(struct Struct_02072adc* arg0, struct Struct_02072adc* arg1);
 struct Struct_02010604;
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov017_021a2b1c(void* arg0) {
         int var4 = var2 + var3;
         GameObject* var5 = var0->GetMaybeFieldMonsterByIndex(var4);
         if (!var5) continue;
-        GameObject* var6 = func_ov017_021a2738(arg0, var5->obj3D_.unknown_2_);
+        GameObject* var6 = FindMonsterModelTemplate_ov017_021a2738(arg0, var5->obj3D_.unknown_2_);
         if (!var6) continue;
         func_02072adc((struct Struct_02072adc*)var6, (struct Struct_02072adc*)var5);
         switch (*(int*)((char*)var5 + 0x130)) {
