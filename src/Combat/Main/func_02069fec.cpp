@@ -9,7 +9,7 @@ extern "C" void* func_0206a3c0(void* arg0, int arg1);
 extern "C" int ParseDecimal_02005a94(char* string);
 
 extern "C" char* func_020424ac(char* arg0);
-extern "C" int func_020d857c(signed char* arg0, signed char* arg1);
+extern "C" int StringStartsWith_020d857c(signed char* string, signed char* prefix);
 extern "C" int func_020d85dc(const char* arg0, const char* arg1);
 extern "C" int func_020d2ff0(const char* string);
 
@@ -96,7 +96,7 @@ extern "C" ARM void func_02069fec(struct Struct_02069fec_2* arg0, int arg1, char
                     struct Struct_020e7e74 var13 = data_020e7e74;
                     char** var14 = var13.unknown_0_;
                     while (*var14 != 0) {
-                        if (func_020d857c((signed char*)var1, (signed char*)*var14)) {
+                        if (StringStartsWith_020d857c((signed char*)var1, (signed char*)*var14)) {
                             while (*var1 != '>') { var1++; }
                             var1++;
                             break;
@@ -105,7 +105,7 @@ extern "C" ARM void func_02069fec(struct Struct_02069fec_2* arg0, int arg1, char
                     }
                 }
 
-                if (func_020d857c((signed char*)var1, (signed char*)data_020f091b)) {
+                if (StringStartsWith_020d857c((signed char*)var1, (signed char*)data_020f091b)) {
                     int var15 = 0xe;
                     int var16 = ParseDecimal_02005a94(var1 + 0xe);
                     while (var1[var15] != '>') {
@@ -120,7 +120,7 @@ extern "C" ARM void func_02069fec(struct Struct_02069fec_2* arg0, int arg1, char
                     var3 = (unsigned short)(var3 + 1) & 3;
                     continue;
                 }
-                if (func_020d857c((signed char*)var1, (signed char*)data_020f092a)) {
+                if (StringStartsWith_020d857c((signed char*)var1, (signed char*)data_020f092a)) {
                     int var18 = 4;
                     int var19 = ParseDecimal_02005a94(var1 + 4);
                     while (var1[var18] != '>') {
@@ -133,7 +133,7 @@ extern "C" ARM void func_02069fec(struct Struct_02069fec_2* arg0, int arg1, char
                     var2 += 2;
                     continue;
                 }
-                if (func_020d857c((signed char*)var1, (signed char*)data_020f092f)) {
+                if (StringStartsWith_020d857c((signed char*)var1, (signed char*)data_020f092f)) {
                     int var21 = 4;
                     int var22 = ParseDecimal_02005a94(var1 + 4);
                     while (var1[var21] != '>') {

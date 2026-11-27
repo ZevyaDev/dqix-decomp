@@ -42,7 +42,7 @@ struct Struct_02069234 {
 };
 
 extern "C" char* func_020424ac(char* arg0);
-extern "C" int func_020d857c(signed char* arg0, signed char* arg1);
+extern "C" int StringStartsWith_020d857c(signed char* string, signed char* prefix);
 extern "C" int func_020d2ff0(const char* string);
 extern "C" int ParseDecimal_02005a94(void* string);
 extern "C" char* func_020e4958(char** arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
@@ -93,7 +93,7 @@ extern "C" ARM void func_02069234(Struct_02069234* arg0, char* arg1, char* arg2,
             char* var4 = arg1 + 1;
             struct Struct_020e7e8c* var5 = data_020e7e8c;
             for (; var5->unknown_0_ != 0; var5++) {
-                if (!func_020d857c((signed char*)var4, (signed char*)var5->unknown_0_)) {
+                if (!StringStartsWith_020d857c((signed char*)var4, (signed char*)var5->unknown_0_)) {
                     continue;
                 }
                 if (var5->unknown_4_ != 0) {

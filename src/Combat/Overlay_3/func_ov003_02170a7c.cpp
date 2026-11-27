@@ -5,7 +5,7 @@
 #endif
 
 extern "C" void __clear(void* arg0, int arg1);
-extern "C" int func_020d857c(signed char* arg0, signed char* arg1);
+extern "C" int StringStartsWith_020d857c(signed char* string, signed char* prefix);
 extern "C" char* strcpy(char* arg0, const char* arg1);
 extern "C" void* memcpy(void* arg0, void* arg1, unsigned int arg2);
 extern "C" int func_020d2ff0(const char* string);
@@ -37,9 +37,9 @@ extern "C" ARM void func_ov003_02170a7c(signed char* arg0, void* arg1) {
         int var4 = var3;
         while (data_ov003_0217f600[var3].unknown_0_ != 0 && var2 != 0) {
             int var5 = 0;
-            if (func_020d857c(arg0, data_ov003_0217f600[var3].unknown_0_) != 0) {
+            if (StringStartsWith_020d857c(arg0, data_ov003_0217f600[var3].unknown_0_) != 0) {
                 var5 = 1;
-            } else if (func_020d857c(arg0, data_ov003_0217f604[var3].unknown_0_) != 0) {
+            } else if (StringStartsWith_020d857c(arg0, data_ov003_0217f604[var3].unknown_0_) != 0) {
                 var5 = 1;
             }
             if (var5 == 0) {
