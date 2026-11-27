@@ -17,7 +17,7 @@ struct Struct_ov001_0215e1cc;
 extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 extern "C" void func_ov025_021e267c(int arg0, int arg1, int arg2, int arg3);
 struct Struct_ov025_021e27c8;
-extern "C" void func_ov025_021eb084(struct Struct_ov025_021e27c8* arg0, int arg1);
+extern "C" void RemoveBACTLoadTask_ov025_021eb084(struct Struct_ov025_021e27c8* player, int taskId);
 
 struct Struct_ov025_021ef988_37 { char unknown_0_[Enum_ov025_021e83c4_12]; void* unknown_c_; };
 extern struct Struct_ov025_021ef988_37 data_ov025_021ef988;
@@ -71,6 +71,6 @@ extern "C" ARM int func_ov025_021e83c4(struct Struct_ov025_021e83c4_2* arg0, str
     }
 
     ((BackgroundLoader*)(var1))->RemoveTask((int)(var11));
-    func_ov025_021eb084((struct Struct_ov025_021e27c8*)data_ov025_021ef988.unknown_c_, var11);
+    RemoveBACTLoadTask_ov025_021eb084((struct Struct_ov025_021e27c8*)data_ov025_021ef988.unknown_c_, var11);
     return 1;
 }
