@@ -14,7 +14,7 @@ struct Struct_02039df4;
 extern "C" void func_ov017_021c2b6c(void* arg0);
 extern "C" void func_ov017_021c2e50(char* arg0);
 extern "C" void func_ov017_021c2ea4(unsigned char* arg0);
-extern "C" int func_02058618(void* arg0);
+extern "C" int CountActiveEffectSlots_02058618(void* arg0);
 unsigned long long GetCurrentTimestamp(void);
 extern "C" unsigned long long _ll_udiv(unsigned long long arg0, unsigned int arg1, unsigned int arg2);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov017_021c2f3c(unsigned char* arg0) {
     if (var3 != 3) return;
 
     if (*(void**)(arg0 + 0x90) != 0) {
-        if (func_02058618(var1) > 0) return;
+        if (CountActiveEffectSlots_02058618(var1) > 0) return;
     }
 
     unsigned long long var4 = GetCurrentTimestamp() - *(unsigned long long*)(arg0 + 0x98);

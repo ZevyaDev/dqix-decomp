@@ -11,17 +11,17 @@ struct Struct_0209a97c {
     struct Struct_0209a97c_2* unknown_0_;
 };
 
-// USA: func_0209a97c
-extern "C" ARM void func_0209a97c(struct Struct_0209a97c* arg0, int arg1, struct Struct_0209a7bc* arg2) {
-    struct Struct_0209a97c_2* var0 = arg0->unknown_0_;
-    int var1;
-    if (var0 == NULL) return;
-    var1 = var0->unknown_51c_[arg1];
-    if (var1 >= 0x14) return;
-    var0->unknown_51c_[arg1]++;
+// USA: AppendSpellTableListEntry_0209a97c
+extern "C" ARM void AppendSpellTableListEntry_0209a97c(struct Struct_0209a97c* table, int listIndex, struct Struct_0209a7bc* entry) {
+    struct Struct_0209a97c_2* block = table->unknown_0_;
+    int count;
+    if (block == NULL) return;
+    count = block->unknown_51c_[listIndex];
+    if (count >= 0x14) return;
+    block->unknown_51c_[listIndex]++;
     {
-        struct Struct_0209a7bc* var2 = &arg0->unknown_0_->unknown_10c_[arg1].unknown_0_[var1];
-        var2->unknown_0_ = arg2->unknown_0_;
-        var2->unknown_2_ = arg2->unknown_2_;
+        struct Struct_0209a7bc* listEntry = &table->unknown_0_->unknown_10c_[listIndex].unknown_0_[count];
+        listEntry->unknown_0_ = entry->unknown_0_;
+        listEntry->unknown_2_ = entry->unknown_2_;
     }
 }
