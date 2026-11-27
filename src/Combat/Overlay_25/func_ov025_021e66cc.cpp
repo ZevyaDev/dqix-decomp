@@ -51,7 +51,7 @@ struct ObjectArchiveLoadInfo_0203d028_11;
 
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" Struct_ov025_021e66cc_3* GetEquippedWeaponItemData_02054000(struct PartyMember_02054000* gameObject);
-extern "C" void func_ov025_021e3158(struct Struct_ov025_021ef9a8* arg0);
+extern "C" void ResetBACTCommandState_ov025_021e3158(struct Struct_ov025_021ef9a8* state);
 extern "C" int func_ov025_021e2628(int arg0, int arg1);
 extern "C" SafeAllocator* func_ov025_021e8a54(char* arg0);
 extern "C" void func_ov025_021e8bac(struct Struct_ov025_021e267c_2* arg0, struct Struct_ov025_021e267c_3* arg1);
@@ -71,12 +71,12 @@ extern "C" ARM int func_ov025_021e66cc(void* arg0, struct Struct_ov025_021e66cc_
     if (data_ov025_021ef988.unknown_20_ == 0) {
         GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg1->unknown_10_->unknown_20_);
         if (var2 == NULL) {
-            func_ov025_021e3158(&data_ov025_021ef9a8);
+            ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
         Struct_ov025_021e66cc_3* var3 = GetEquippedWeaponItemData_02054000((struct PartyMember_02054000*)var2);
         if (var3 == NULL) {
-            func_ov025_021e3158(&data_ov025_021ef9a8);
+            ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
         if (var3->unknown_8_4_ == 4) {
@@ -84,7 +84,7 @@ extern "C" ARM int func_ov025_021e66cc(void* arg0, struct Struct_ov025_021e66cc_
         } else if (var3->unknown_8_4_ == 0xb) {
             data_ov025_021ef988.unknown_28_ = func_ov025_021e2628((int)data_ov025_021ef7be, (int)data_ov025_021ef81e);
         } else {
-            func_ov025_021e3158(&data_ov025_021ef9a8);
+            ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
         data_ov025_021ef988.unknown_20_++;
@@ -98,7 +98,7 @@ extern "C" ARM int func_ov025_021e66cc(void* arg0, struct Struct_ov025_021e66cc_
         }
         if (var1->GetDetailedTaskStatus(var4) != 2) {
             var1->RemoveTask(var4);
-            func_ov025_021e3158(&data_ov025_021ef9a8);
+            ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
 
@@ -109,7 +109,7 @@ extern "C" ARM int func_ov025_021e66cc(void* arg0, struct Struct_ov025_021e66cc_
         GameObject* var7 = var0->GetGameObjectByIndex(200);
         if (var7 == NULL) {
             var1->RemoveTask(var4);
-            func_ov025_021e3158(&data_ov025_021ef9a8);
+            ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
 
@@ -117,7 +117,7 @@ extern "C" ARM int func_ov025_021e66cc(void* arg0, struct Struct_ov025_021e66cc_
         Struct_ov025_021e267c_3* var9 = (Struct_ov025_021e267c_3*)var8->Allocate(sizeof(Struct_ov025_021e267c_3));
         if (var9 == NULL) {
             var1->RemoveTask(var4);
-            func_ov025_021e3158(&data_ov025_021ef9a8);
+            ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
         var9->unknown_0_ = 0;
@@ -133,7 +133,7 @@ extern "C" ARM int func_ov025_021e66cc(void* arg0, struct Struct_ov025_021e66cc_
         var10.allocator = var8;
         var7->obj3D_.LoadFromCCHROrCMOTArchive(&var10, NULL);
         var1->RemoveTask(var4);
-        func_ov025_021e3158(&data_ov025_021ef9a8);
+        ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
         return 1;
     }
 

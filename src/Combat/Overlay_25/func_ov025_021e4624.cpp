@@ -50,7 +50,7 @@ struct Struct_ov025_021e4624 {
 
 extern "C" Struct_ov000_0215440c_4* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 extern "C" Struct_ov000_0215440c_5* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
-extern "C" void func_ov025_021e3158(struct Struct_ov025_021ef9a8* arg0);
+extern "C" void ResetBACTCommandState_ov025_021e3158(struct Struct_ov025_021ef9a8* state);
 extern "C" void InitEffectParams_02078484(struct EffectParams_02078398_2* params);
 extern "C" int PlayEffect_02057fb4(void*, int, void*);
 extern "C" void func_02057db8(void*, int);
@@ -70,7 +70,7 @@ extern "C" ARM int func_ov025_021e4624(struct Struct_ov025_021e4624* arg0, void*
     GameObject* var6 = var0->GetGameObjectByIndex(var4);
     GameObject* var7 = var0->GetGameObjectByIndex(var5);
     if (var6 == NULL || var7 == NULL) {
-        func_ov025_021e3158(&data_ov025_021ef9a8);
+        ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
         return 1;
     }
 
@@ -99,7 +99,7 @@ extern "C" ARM int func_ov025_021e4624(struct Struct_ov025_021e4624* arg0, void*
     if (data_ov025_021ef988.unknown_20_ == 1) {
         GameObject* var12 = var0->GetGameObjectByIndex(data_ov025_021ef988.unknown_24_);
         if (var12 == NULL) {
-            func_ov025_021e3158(&data_ov025_021ef9a8);
+            ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
         Vector3fix var13 = var7->obj3D_.position_;
@@ -113,10 +113,10 @@ extern "C" ARM int func_ov025_021e4624(struct Struct_ov025_021e4624* arg0, void*
             return 0;
         }
         func_02057db8(var1, data_ov025_021ef988.unknown_24_);
-        func_ov025_021e3158(&data_ov025_021ef9a8);
+        ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
         return 1;
     }
 
-    func_ov025_021e3158(&data_ov025_021ef9a8);
+    ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
     return 1;
 }

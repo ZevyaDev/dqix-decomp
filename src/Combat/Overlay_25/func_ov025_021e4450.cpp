@@ -12,21 +12,21 @@ struct Struct_ov025_021e4450_2 {
     unsigned char unknown_9_;
 };
 
-// USA: func_ov025_021e4450
-extern "C" ARM int func_ov025_021e4450(struct Struct_ov025_021e4450_2* arg0) {
+// USA: RunBACTSetObjectsVisibleCommand_ov025_021e4450
+extern "C" ARM int RunBACTSetObjectsVisibleCommand_ov025_021e4450(struct Struct_ov025_021e4450_2* command) {
 #if defined(jpn)
  enum {Enum_ov025_021e4450_12=4};
 #else
  enum {Enum_ov025_021e4450_12=0xc};
 #endif
     void* var0 = GetBattleScene_ov000_02160130();
-    unsigned char var1 = arg0->unknown_8_;
+    unsigned char var1 = command->unknown_8_;
     if (var1 == 5) {
-        int var2 = (arg0->unknown_9_ == 0) ? 1 : 0;
+        int var2 = (command->unknown_9_ == 0) ? 1 : 0;
         SetObjectsVisibleBySelector_ov000_021626a0(var0, 4, var2);
         var1 = 0;
     } else if (var1 == 6) {
-        int var3 = (arg0->unknown_9_ == 0) ? 1 : 0;
+        int var3 = (command->unknown_9_ == 0) ? 1 : 0;
         SetObjectsVisibleBySelector_ov000_021626a0(var0, 4, var3);
         var1 = 1;
     }
@@ -36,6 +36,6 @@ extern "C" ARM int func_ov025_021e4450(struct Struct_ov025_021e4450_2* arg0) {
         var4 = *(void**)((char*)&data_ov025_021ef988 + Enum_ov025_021e4450_12);
         *(int*)((char*)var4 + 0x1c4) &= ~0x40;
     }
-    SetObjectsVisibleBySelector_ov000_021626a0(var0, var1, arg0->unknown_9_);
+    SetObjectsVisibleBySelector_ov000_021626a0(var0, var1, command->unknown_9_);
     return 1;
 }
