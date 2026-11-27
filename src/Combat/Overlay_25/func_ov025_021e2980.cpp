@@ -63,23 +63,23 @@ extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" Struct_ov025_021e2980_4* GetBattleScene_ov000_02160130();
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 
-// USA: func_ov025_021e2980
-extern "C" ARM int func_ov025_021e2980(Struct_ov025_021e2980* arg0, Struct_ov025_021e2980_2* arg1, int arg2, void* arg3) {
+// USA: RunBACTSetAnimationCommand_ov025_021e2980
+extern "C" ARM int RunBACTSetAnimationCommand_ov025_021e2980(Struct_ov025_021e2980* command, Struct_ov025_021e2980_2* action, int arg2, void* arg3) {
     GameState* var0 = GameState::GetInstance();
-    if (arg0->unknown_e_ == 0x19) {
+    if (command->unknown_e_ == 0x19) {
         void* var1 = func_020100bc(var0);
         if (GetCameraClassFlags_0202e09c((int)var1) & 0x10) {
             Object3D* var2 = func_0204a438((Struct_0204a438*)var1);
             if (var2) {
                 SetCameraFieldOfView_0202e9a4((Struct_0202df68*)var1, 0xf000);
-                var2->MaybeSetRegularAnimation(arg0->unknown_8_, arg0->unknown_c_);
+                var2->MaybeSetRegularAnimation(command->unknown_8_, command->unknown_c_);
                 func_0204a170((int)var1);
                 data_ov025_021ef988.unknown_1c_ |= 8;
             }
         }
     } else {
         int var3[8];
-        int var4 = CollectObjectIndicesBySelector_ov000_021820bc(arg3, (int)arg1, arg0->unknown_e_, (int)var3);
+        int var4 = CollectObjectIndicesBySelector_ov000_021820bc(arg3, (int)action, command->unknown_e_, (int)var3);
         if (!var4) return 1;
         for (int var5 = 0; var5 < var4; var5++) {
             Struct_ov025_021e2980_3* var6 = (Struct_ov025_021e2980_3*)var0->GetGameObjectByIndex(var3[var5]);
@@ -93,26 +93,26 @@ extern "C" ARM int func_ov025_021e2980(Struct_ov025_021e2980* arg0, Struct_ov025
             }
             var6->unknown_0_.SetAnimationPlaybackSpeed(0x1000, 0);
             var6->unknown_0_.SkipAnimationTransition();
-            if (!var6->unknown_0_.MaybeSetRegularAnimation(arg0->unknown_8_, arg0->unknown_c_) &&
-                strcmp(arg0->unknown_8_, data_ov025_021ef7d9) == 0) {
-                if (!var6->unknown_0_.MaybeSetRegularAnimation(data_ov025_021ef7df, arg0->unknown_c_))
-                    var6->unknown_0_.MaybeSetRegularAnimation(data_ov025_021ef7e6, arg0->unknown_c_);
+            if (!var6->unknown_0_.MaybeSetRegularAnimation(command->unknown_8_, command->unknown_c_) &&
+                strcmp(command->unknown_8_, data_ov025_021ef7d9) == 0) {
+                if (!var6->unknown_0_.MaybeSetRegularAnimation(data_ov025_021ef7df, command->unknown_c_))
+                    var6->unknown_0_.MaybeSetRegularAnimation(data_ov025_021ef7e6, command->unknown_c_);
             }
         }
         LightingManager* var8 = LightingManager::GetInstance();
-        if (!(arg0->unknown_f_ & 2) && arg1->unknown_0_ != 1 && arg1->unknown_0_ != 2 && arg1->unknown_0_ != 0xdb) {
+        if (!(command->unknown_f_ & 2) && action->unknown_0_ != 1 && action->unknown_0_ != 2 && action->unknown_0_ != 0xdb) {
             Struct_ov025_021e2980_4* var9 = GetBattleScene_ov000_02160130();
             if (!var9->unknown_6fd4_) {
                 var8->BeginFade(0x999, 300);
                 var9->unknown_6fd4_ = 1;
             }
         }
-        const char* var10 = arg0->unknown_8_;
+        const char* var10 = command->unknown_8_;
         if (strcmp(var10, data_ov025_021ef7e6) == 0 ||
             strcmp(var10, data_ov025_021ef7d9) == 0 ||
             strcmp(var10, data_ov025_021ef7df) == 0) {
-            if (!(arg0->unknown_f_ & 1)) {
-                if (arg1->unknown_a_ & 1) PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x66, 0);
+            if (!(command->unknown_f_ & 1)) {
+                if (action->unknown_a_ & 1) PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x66, 0);
                 else PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 0x64, 0);
             }
             var8->BeginFade(0x4cc, 1000);
