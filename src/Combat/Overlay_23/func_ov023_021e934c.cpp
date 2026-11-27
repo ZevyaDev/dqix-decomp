@@ -4,10 +4,10 @@
 extern "C" int GetStoryProgress_0201081c(char* gameState);
 extern "C" void SetScriptRefInt_ov017_021d6134(void* value, int number);
 
-// USA: func_ov023_021e934c
-extern "C" ARM int func_ov023_021e934c(void* arg0) {
-	GameState* var0 = GameState::GetInstance();
-	int var1 = GetStoryProgress_0201081c((char*)var0);
-	SetScriptRefInt_ov017_021d6134(arg0, var1);
+// USA: SetScriptRefToStoryProgress_ov023_021e934c
+extern "C" ARM int SetScriptRefToStoryProgress_ov023_021e934c(void* scriptRef) {
+	GameState* gameState = GameState::GetInstance();
+	int storyProgress = GetStoryProgress_0201081c((char*)gameState);
+	SetScriptRefInt_ov017_021d6134(scriptRef, storyProgress);
 	return 1;
 }
