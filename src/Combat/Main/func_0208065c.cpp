@@ -20,7 +20,7 @@ struct MenuLayout_0208065c {
 };
 
 extern "C" MenuLayoutWindowEntry_0207f0ac_2* FindMenuLayoutWindowEntry_0207f0ac(MenuLayoutWindowEntryList_0207f0ac* windowEntries, int windowId);
-extern "C" void func_0207f7cc(struct MenuLayoutTextEntryList_0207f524* arg0, int arg1, int arg2);
+extern "C" void ClearMenuLayoutTextEntryFlags_0207f7cc(struct MenuLayoutTextEntryList_0207f524* textEntries, int textId, int flags);
 
 // USA: SetMenuLayoutWindowTextsSelectable_0208065c
 extern "C" ARM void SetMenuLayoutWindowTextsSelectable_0208065c(void* layout, int windowId) {
@@ -28,6 +28,6 @@ extern "C" ARM void SetMenuLayoutWindowTextsSelectable_0208065c(void* layout, in
     MenuLayoutWindowEntry_0207f0ac_2* windowEntry = FindMenuLayoutWindowEntry_0207f0ac(&menuLayout->windowEntries_c_, windowId);
     if (windowEntry == NULL) return;
     for (unsigned char i = 0; i < windowEntry->unknown_13_; i++) {
-        func_0207f7cc(&menuLayout->textEntries_4_, windowEntry->unknown_0_[i], 2);
+        ClearMenuLayoutTextEntryFlags_0207f7cc(&menuLayout->textEntries_4_, windowEntry->unknown_0_[i], 2);
     }
 }

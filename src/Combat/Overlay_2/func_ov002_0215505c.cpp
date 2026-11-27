@@ -30,7 +30,7 @@ extern "C" int GetOwnPartyOrder_02011494(char *gameState, void *outOwnPartyOrder
 extern "C" char *func_0205ec34(void);
 extern "C" unsigned short func_0206e384(unsigned char *arg0);
 extern "C" short func_0206e3d4(int arg0, int arg1);
-extern "C" void func_ov002_0215b234(char *arg0);
+extern "C" void CopyVolumeLevelsToMenu_ov002_0215b234(char *menu);
 extern "C" void ResetSaveProgress_020a9ea4(struct SaveProgress_020a9ea4 *progress);
 extern "C" void func_ov016_0218b5c0(int arg0, int arg1);
 extern "C" void func_ov002_0215b814(char *arg0);
@@ -221,7 +221,7 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
     U8(0x2353)  = 0;
     memset(arg0 + 0x2354, 0, 0xc);
     S32(0x2360) = 0;
-    func_ov002_0215b234(arg0);
+    CopyVolumeLevelsToMenu_ov002_0215b234(arg0);
     RESET(0x774);
     RESET(0x78c);
     RESET(0x7a0);
@@ -424,7 +424,7 @@ extern "C" ARM void func_ov002_0215505c(char *arg0) {
     S32(0x2530) = 0;
     S32(0x2534) = 0;
     S32(0x2538) = 0;
-    func_ov002_0215b234(arg0);
+    CopyVolumeLevelsToMenu_ov002_0215b234(arg0);
     RESET(0x810);
     RESET(0x828);
     RESET(0x83c);

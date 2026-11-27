@@ -11,8 +11,8 @@ extern "C" unsigned char GetMusicVolumeLevel_0209ca98(char*);
 #define FIELDS_0215b234 0x1c2c
 #endif
 
-// USA: func_ov002_0215b234
-extern "C" ARM void func_ov002_0215b234(unsigned char* arg0) {
-    arg0[FIELDS_0215b234] = GetMusicVolumeLevel_0209ca98(&gMusicManager_02109bf4);
-    arg0[FIELDS_0215b234 + 1] = GetSoundEffectVolumeLevel_0205ea18(&gSoundEffectManager_02108760);
+// USA: CopyVolumeLevelsToMenu_ov002_0215b234
+extern "C" ARM void CopyVolumeLevelsToMenu_ov002_0215b234(unsigned char* menu) {
+    menu[FIELDS_0215b234] = GetMusicVolumeLevel_0209ca98(&gMusicManager_02109bf4);
+    menu[FIELDS_0215b234 + 1] = GetSoundEffectVolumeLevel_0205ea18(&gSoundEffectManager_02108760);
 }

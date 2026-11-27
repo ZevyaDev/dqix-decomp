@@ -22,17 +22,17 @@ struct Struct_ov020_0218b710 {
     Struct_ov020_0218d7ac unknown_4e8_;
 };
 
-// USA: func_ov020_0218d7ac
-extern "C" ARM void func_ov020_0218d7ac(struct Struct_ov020_0218b710* arg0, int arg1, int arg2) {
-    if (arg2 == 0) {
-        WriteBrightnessRegister_020c39a0((short*)0x400006c, arg1);
-        arg0->unknown_4e8_.unknown_0_ = (float)arg1;
-        arg0->unknown_4e8_.unknown_4_ = arg1;
-        arg0->unknown_4e8_.unknown_8_ = 0;
+// USA: SetSceneMainBrightnessWithDurationMs_ov020_0218d7ac
+extern "C" ARM void SetSceneMainBrightnessWithDurationMs_ov020_0218d7ac(struct Struct_ov020_0218b710* scene, int brightness, int durationMs) {
+    if (durationMs == 0) {
+        WriteBrightnessRegister_020c39a0((short*)0x400006c, brightness);
+        scene->unknown_4e8_.unknown_0_ = (float)brightness;
+        scene->unknown_4e8_.unknown_4_ = brightness;
+        scene->unknown_4e8_.unknown_8_ = 0;
     } else {
-        int var0 = ReadBrightnessRegister_020c39c8((volatile unsigned short*)0x400006c);
-        arg0->unknown_4e8_.unknown_0_ = (float)var0;
-        arg0->unknown_4e8_.unknown_4_ = arg1;
-        arg0->unknown_4e8_.unknown_8_ = arg2;
+        int currentBrightness = ReadBrightnessRegister_020c39c8((volatile unsigned short*)0x400006c);
+        scene->unknown_4e8_.unknown_0_ = (float)currentBrightness;
+        scene->unknown_4e8_.unknown_4_ = brightness;
+        scene->unknown_4e8_.unknown_8_ = durationMs;
     }
 }
