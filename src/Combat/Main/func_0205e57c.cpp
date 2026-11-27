@@ -22,7 +22,7 @@ struct Struct_0205e1e4 {
     struct Struct_0205e1e4_2* unknown_4_;
     int unknown_8_;
 };
-extern "C" struct Struct_0205e1e4_2* func_0205e1e4(struct Struct_0205e1e4* arg0);
+extern "C" struct Struct_0205e1e4_2* PopPacketNode_0205e1e4(struct Struct_0205e1e4* list);
 
 struct Struct_0205e18c_2 {
     char unknown_0_[0x18];
@@ -33,7 +33,7 @@ struct Struct_0205e18c {
     struct Struct_0205e18c_2* unknown_4_;
     int unknown_8_;
 };
-extern "C" void func_0205e18c(struct Struct_0205e18c* arg0, struct Struct_0205e18c_2* arg1);
+extern "C" void AppendPacketNode_0205e18c(struct Struct_0205e18c* list, struct Struct_0205e18c_2* node);
 
 struct Struct_0205e57c_6;
 extern "C" int func_0205e830(struct Struct_0205e57c_6* arg0, int arg1);
@@ -116,10 +116,10 @@ extern "C" ARM void func_0205e57c(struct Struct_0205e57c_5* arg0) {
             }
         }
         if (var5->unknown_16_ & 1) continue;
-        func_0205e1e4((struct Struct_0205e1e4*)&arg0->unknown_150c_);
+        PopPacketNode_0205e1e4((struct Struct_0205e1e4*)&arg0->unknown_150c_);
         func_0205e3ec(&var1->unknown_10_[var3], &var5->unknown_0_);
         var1->unknown_10_[var3].unknown_1_ = ++sSeq;
-        func_0205e18c((struct Struct_0205e18c*)&arg0->unknown_1500_, (struct Struct_0205e18c_2*)var5);
+        AppendPacketNode_0205e18c((struct Struct_0205e18c*)&arg0->unknown_1500_, (struct Struct_0205e18c_2*)var5);
     }
 
     for (int var8 = 0; var8 < 4; var8++) {
@@ -132,11 +132,11 @@ extern "C" ARM void func_0205e57c(struct Struct_0205e57c_5* arg0) {
             GetOwnProtagonistObjectIndex_0202c1a4((struct LocalWireless_0202c1a4*)var0);
             if (var9->unknown_10_[var10].unknown_0_ == 0xff) continue;
             if (!func_0205e830((struct Struct_0205e57c_6*)arg0, var9->unknown_10_[var10].unknown_0_)) continue;
-            struct Struct_0205e57c_3* var11 = (struct Struct_0205e57c_3*)func_0205e1e4((struct Struct_0205e1e4*)&arg0->unknown_1500_);
+            struct Struct_0205e57c_3* var11 = (struct Struct_0205e57c_3*)PopPacketNode_0205e1e4((struct Struct_0205e1e4*)&arg0->unknown_1500_);
             if (var11 == NULL) continue;
             func_0205e3ec(&var11->unknown_0_, &var9->unknown_10_[var10]);
             var11->unknown_14_ = var8;
-            func_0205e18c((struct Struct_0205e18c*)&arg0->unknown_1518_, (struct Struct_0205e18c_2*)var11);
+            AppendPacketNode_0205e18c((struct Struct_0205e18c*)&arg0->unknown_1518_, (struct Struct_0205e18c_2*)var11);
             data_02108750 += 0x10;
         }
     }

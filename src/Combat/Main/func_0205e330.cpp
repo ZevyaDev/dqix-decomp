@@ -26,7 +26,7 @@ struct Struct_0205e1e4 {
     struct Struct_0205e1e4_2* unknown_4_;
     int unknown_8_;
 };
-extern "C" struct Struct_0205e1e4_2* func_0205e1e4(struct Struct_0205e1e4* arg0);
+extern "C" struct Struct_0205e1e4_2* PopPacketNode_0205e1e4(struct Struct_0205e1e4* list);
 
 struct Struct_0205e18c_2 {
     char unknown_0_[0x18];
@@ -37,7 +37,7 @@ struct Struct_0205e18c {
     struct Struct_0205e18c_2* unknown_4_;
     int unknown_8_;
 };
-extern "C" void func_0205e18c(struct Struct_0205e18c* arg0, struct Struct_0205e18c_2* arg1);
+extern "C" void AppendPacketNode_0205e18c(struct Struct_0205e18c* list, struct Struct_0205e18c_2* node);
 
 struct Struct_0205e3ec { unsigned int unknown_0_[4]; };
 struct LocalWirelessPacket_0205e330_3 { unsigned char unknown_0_; unsigned char unknown_1_; unsigned char unknown_2_[2]; struct Struct_0205e3ec unknown_4_; };
@@ -65,11 +65,11 @@ extern "C" ARM void QueueOutgoingPacket_0205e330(unsigned char* packetQueue, str
     func_020d84e4();
 
     if (IsLocalWirelessOn_0202b7d8((int*)func_0202ae18())) {
-        node = func_0205e1e4((struct Struct_0205e1e4*)(packetQueue + 0x1500));
+        node = PopPacketNode_0205e1e4((struct Struct_0205e1e4*)(packetQueue + 0x1500));
         if (node != NULL) {
             func_0205e3ec((struct LocalWirelessPacket_0205e330_3*)node, packet);
             ((struct LocalWirelessPacketNode_0205e330*)node)->flags_16_ = flags;
-            func_0205e18c((struct Struct_0205e18c*)(packetQueue + 0x150c), (struct Struct_0205e18c_2*)node);
+            AppendPacketNode_0205e18c((struct Struct_0205e18c*)(packetQueue + 0x150c), (struct Struct_0205e18c_2*)node);
         } else {
             for (int i = 0; i < ((struct Struct_0205e330_2*)(packetQueue + 0x1000))->freeCount_508_; i++);
 

@@ -8,7 +8,7 @@
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 
 struct Struct_0202c7bc_2;
-extern "C" ARM void func_0205e16c(struct Struct_0202c7bc_2* arg0);
+extern "C" ARM void ResetPacketNodeList_0205e16c(struct Struct_0202c7bc_2* list);
 
 struct Struct_0205e18c_2 {
     char unknown_0_[0x18];
@@ -19,7 +19,7 @@ struct Struct_0205e18c {
     struct Struct_0205e18c_2* unknown_4_;
     int unknown_8_;
 };
-extern "C" void func_0205e18c(struct Struct_0205e18c* arg0, struct Struct_0205e18c_2* arg1);
+extern "C" void AppendPacketNode_0205e18c(struct Struct_0205e18c* list, struct Struct_0205e18c_2* node);
 
 extern "C" void* func_0202ae18(void);
 extern "C" void UpdateLocalWirelessPlayerCount_0202c288(void);
@@ -35,15 +35,15 @@ struct Struct_0205e22c {
 
 // USA: ResetLocalWirelessPacketQueue_0205e22c
 extern "C" ARM void ResetLocalWirelessPacketQueue_0205e22c(void* packetQueue) {
-    func_0205e16c((struct Struct_0202c7bc_2*)((char*)packetQueue + 0x1500));
-    func_0205e16c((struct Struct_0202c7bc_2*)((char*)packetQueue + 0x150c));
-    func_0205e16c((struct Struct_0202c7bc_2*)((char*)packetQueue + 0x1518));
+    ResetPacketNodeList_0205e16c((struct Struct_0202c7bc_2*)((char*)packetQueue + 0x1500));
+    ResetPacketNodeList_0205e16c((struct Struct_0202c7bc_2*)((char*)packetQueue + 0x150c));
+    ResetPacketNodeList_0205e16c((struct Struct_0202c7bc_2*)((char*)packetQueue + 0x1518));
 
     memset(packetQueue, 0, 0x1500);
 
     struct Struct_0205e18c_2* nodes = (struct Struct_0205e18c_2*)packetQueue;
     for (int i = 0; i < 0xc0; i++) {
-        func_0205e18c((struct Struct_0205e18c*)((char*)packetQueue + 0x1500), &nodes[i]);
+        AppendPacketNode_0205e18c((struct Struct_0205e18c*)((char*)packetQueue + 0x1500), &nodes[i]);
     }
 
     void* wireless = func_0202ae18();

@@ -13,14 +13,14 @@ struct Struct_0205e1e4 {
 extern "C" void SaveAndDisableVCounterInterrupt_020d8654(void);
 extern "C" void RestoreVCounterInterrupt_020d8694(void);
 
-// USA: func_0205e1e4
-extern "C" ARM struct Struct_0205e1e4_2* func_0205e1e4(struct Struct_0205e1e4* arg0) {
+// USA: PopPacketNode_0205e1e4
+extern "C" ARM struct Struct_0205e1e4_2* PopPacketNode_0205e1e4(struct Struct_0205e1e4* list) {
     struct Struct_0205e1e4_2* var0;
     SaveAndDisableVCounterInterrupt_020d8654();
-    var0 = arg0->unknown_0_;
+    var0 = list->unknown_0_;
     if (var0 != NULL) {
-        arg0->unknown_0_ = var0->unknown_18_;
-        arg0->unknown_8_--;
+        list->unknown_0_ = var0->unknown_18_;
+        list->unknown_8_--;
     }
     RestoreVCounterInterrupt_020d8694();
     return var0;

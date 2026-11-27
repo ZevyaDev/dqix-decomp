@@ -13,18 +13,18 @@ struct Struct_0205e18c {
 extern "C" void SaveAndDisableVCounterInterrupt_020d8654(void);
 extern "C" void RestoreVCounterInterrupt_020d8694(void);
 
-// USA: func_0205e18c
-extern "C" ARM void func_0205e18c(struct Struct_0205e18c* arg0, struct Struct_0205e18c_2* arg1) {
+// USA: AppendPacketNode_0205e18c
+extern "C" ARM void AppendPacketNode_0205e18c(struct Struct_0205e18c* list, struct Struct_0205e18c_2* node) {
     SaveAndDisableVCounterInterrupt_020d8654();
-    if (arg0->unknown_0_ != NULL) {
-        arg0->unknown_4_->unknown_18_ = arg1;
-        arg0->unknown_4_ = arg1;
+    if (list->unknown_0_ != NULL) {
+        list->unknown_4_->unknown_18_ = node;
+        list->unknown_4_ = node;
     } else {
-        arg0->unknown_0_ = arg1;
-        arg0->unknown_4_ = arg1;
-        arg0->unknown_0_->unknown_18_ = NULL;
+        list->unknown_0_ = node;
+        list->unknown_4_ = node;
+        list->unknown_0_->unknown_18_ = NULL;
     }
-    arg0->unknown_8_++;
-    arg0->unknown_4_->unknown_18_ = NULL;
+    list->unknown_8_++;
+    list->unknown_4_->unknown_18_ = NULL;
     RestoreVCounterInterrupt_020d8694();
 }
