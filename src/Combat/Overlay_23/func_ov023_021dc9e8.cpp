@@ -3,7 +3,7 @@
 
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int func_ov023_021ddbb8(void* arg0, int arg1, int arg2);
-extern "C" void func_ov023_021db2e4(volatile int* arg0);
+extern "C" void RemoveLoadTask_ov023_021db2e4(volatile int* loadTaskId);
 extern "C" int ReleaseItemInfoPanel_ov023_021dc354(void* panel);
 extern "C" void InitItemInfoPanel_ov023_021dc134(void* panel, int itemId, int isEmbedded);
 extern "C" void AllocateItemInfoPanelBuffers_ov023_021dbfd0(void* panel, void* allocator);
@@ -19,9 +19,9 @@ extern "C" ARM void func_ov023_021dc9e8(void* arg0, void* arg1, int arg2, int ar
     GetResources_0200fb8c((int*)GameState::GetInstance());
     func_ov023_021ddbb8(arg0, -16, 1);
 
-    func_ov023_021db2e4((volatile int*)((char*)arg0 + FIELD_OFFSET(0x734)));
+    RemoveLoadTask_ov023_021db2e4((volatile int*)((char*)arg0 + FIELD_OFFSET(0x734)));
     for (int var0 = 0; var0 < 7; var0++) {
-        func_ov023_021db2e4((volatile int*)((char*)arg0 + FIELD_OFFSET(0x738) + var0 * 4));
+        RemoveLoadTask_ov023_021db2e4((volatile int*)((char*)arg0 + FIELD_OFFSET(0x738) + var0 * 4));
     }
 
     ReleaseItemInfoPanel_ov023_021dc354(arg0);

@@ -31,9 +31,9 @@ extern "C" void LoadItemTableByCategories_020dea64(void* itemTable, void* alloca
 extern "C" void __clear(void* arg0, unsigned int arg1);
 extern "C" char* func_ov017_021b8478(void* battleManager);
 struct Struct_02070f98_2;
-extern "C" struct Struct_ov000_021729ac* func_02070f98(Struct_02070f98_2*, int);
+extern "C" struct Struct_ov000_021729ac* GetMonsterBattleDataByIndex_02070f98(Struct_02070f98_2*, int);
 struct Struct_02070fe4;
-extern "C" int func_02070fe4(Struct_02070fe4*);
+extern "C" int GetMonsterBattleDataCount_02070fe4(Struct_02070fe4*);
 extern "C" int LoadItemTableByIds_020de9a4(void* itemTable, void* allocator, void* fileData, unsigned int fileSize, void* itemIds, unsigned short itemIdCount);
 struct Struct_0201099c_3;
 struct Struct_0203c108_3;
@@ -284,11 +284,11 @@ extern "C" ARM int func_ov000_021729ac(Struct_ov000_021729ac_8* arg0) {
 
                 if (var20 != 0) {
                     void* var21 = var20->unknown_684_;
-                    for (int var22 = 0; var22 < func_02070fe4((Struct_02070fe4*)var21); var22++) {
+                    for (int var22 = 0; var22 < GetMonsterBattleDataCount_02070fe4((Struct_02070fe4*)var21); var22++) {
                         if (var19 > sizeof(var0) / sizeof(var0[0])) {
                             break;
                         }
-                        Struct_ov000_021729ac* var23 = func_02070f98((Struct_02070f98_2*)var21, var22);
+                        Struct_ov000_021729ac* var23 = GetMonsterBattleDataByIndex_02070f98((Struct_02070f98_2*)var21, var22);
                         if (var23 != 0) {
                             var0[var19++] = var23->unknown_4_;
                             var0[var19++] = var23->unknown_6_;

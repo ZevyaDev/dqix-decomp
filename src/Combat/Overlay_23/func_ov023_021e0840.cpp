@@ -16,7 +16,7 @@
 struct Struct_020534ac;
 struct StringTable_0201099c_14;
 extern "C" void func_020df83c(void* arg0);
-extern "C" void func_ov023_021db2e4(volatile int* arg0);
+extern "C" void RemoveLoadTask_ov023_021db2e4(volatile int* loadTaskId);
 extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg3, short arg4);
 
 extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
@@ -126,7 +126,7 @@ extern "C" ARM int func_ov023_021e0840(void* arg0) {
         *(int*)(var0 + Enum_ov023_021e0840_1884) = *(int*)(var0 + Enum_ov023_021e0840_1884) + var16;
     }
 
-    func_ov023_021db2e4((volatile int*)(var0 + Enum_ov023_021e0840_1864));
+    RemoveLoadTask_ov023_021db2e4((volatile int*)(var0 + Enum_ov023_021e0840_1864));
     return 0xd;
 
 retB:

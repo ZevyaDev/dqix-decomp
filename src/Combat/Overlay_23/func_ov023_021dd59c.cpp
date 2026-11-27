@@ -24,7 +24,7 @@ struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 
 extern "C" void func_ov023_021dcc58(void* arg0);
-extern "C" ARM void func_ov023_021db2e4(volatile int* arg0);
+extern "C" ARM void RemoveLoadTask_ov023_021db2e4(volatile int* loadTaskId);
 
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern AllocatorUnion gMainHeap_02114e20;
@@ -178,9 +178,9 @@ extern "C" ARM void func_ov023_021dd59c(void* arg0) {
         }
         *(unsigned char*)(var0 + Enum_ov023_021dd59c_1910) = 1;
         *(unsigned char*)(var0 + Enum_ov023_021dd59c_1911) = 0;
-        func_ov023_021db2e4((volatile int*)(var0 + Enum_ov023_021dd59c_1844));
+        RemoveLoadTask_ov023_021db2e4((volatile int*)(var0 + Enum_ov023_021dd59c_1844));
         for (int var13 = 0; var13 < 7; var13++) {
-            func_ov023_021db2e4((volatile int*)(var0 + Enum_ov023_021dd59c_1848 + var13 * 4));
+            RemoveLoadTask_ov023_021db2e4((volatile int*)(var0 + Enum_ov023_021dd59c_1848 + var13 * 4));
         }
         *(int*)(var0 + Enum_ov023_021dd59c_1876) = 0;
         *(unsigned short*)(var0 + Enum_ov023_021dd59c_1908) |= 1;

@@ -73,8 +73,8 @@ struct Struct_ov025_021e7890_2 {
 extern "C" Struct_ov025_021e7890_6* func_ov017_021b8478(void* battleManager);
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" Struct_ov000_0215440c_4* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
-extern "C" int func_02070fe4(Struct_02070fe4* arg0);
-extern "C" Struct_02070f98* func_02070f98(Struct_02070f98_2* arg0, int arg1);
+extern "C" int GetMonsterBattleDataCount_02070fe4(Struct_02070fe4* table);
+extern "C" Struct_02070f98* GetMonsterBattleDataByIndex_02070f98(Struct_02070f98_2* table, int index);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int func_ov025_021e771c(short* arg0, int arg1, int arg2, int arg3);
@@ -127,9 +127,9 @@ extern "C" ARM int func_ov025_021e7890(int arg0, Struct_ov025_021e7890_2* arg1) 
         return 1;
     }
     var2 = &var5->unknown_284_;
-    int var13 = func_02070fe4(&var2->unknown_400_.unknown_0_);
+    int var13 = GetMonsterBattleDataCount_02070fe4(&var2->unknown_400_.unknown_0_);
     for (int var14 = 0; var14 < var13; var14++) {
-        Struct_02070f98* var15 = func_02070f98(&var2->unknown_400_, var14);
+        Struct_02070f98* var15 = GetMonsterBattleDataByIndex_02070f98(&var2->unknown_400_, var14);
         if (var15 == 0) continue;
         int var16 = 1;
         short* var17 = var1;
