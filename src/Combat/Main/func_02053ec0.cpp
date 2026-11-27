@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-// USA: func_02053ec0
-extern "C" ARM void func_02053ec0(unsigned char* arg0, int arg1) {
+// USA: SetWeaponBoneIndex_02053ec0
+extern "C" ARM void SetWeaponBoneIndex_02053ec0(unsigned char* object, int boneIndex) {
 #if defined(jpn)
-    arg0[0x19b] = arg1;
+    object[0x19b] = boneIndex;
 #else
-    arg0[0x1a7] = arg1;
+    object[0x1a7] = boneIndex;
 #endif
 }

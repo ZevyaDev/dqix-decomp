@@ -27,8 +27,8 @@ struct WeaponPlacement_ov017_021917f0 {
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" PartyMemberData_ov017_021917f0_2* func_02053c6c(unsigned char* gameObject);
 extern "C" WeaponPlacement_ov017_021917f0* func_02099f60(void);
-extern "C" int func_02053eb4(void*, int);
-extern "C" void func_02053ec0(unsigned char*, int);
+extern "C" int GetBoneIndexForSlot_02053eb4(void*, int);
+extern "C" void SetWeaponBoneIndex_02053ec0(unsigned char*, int);
 extern "C" void SetObject3DPosition_020407b4(Struct_02040774_2* object, int x, int y, int z);
 extern "C" void SetObject3DRotation_0203db34(unsigned char* object, int x, int y, int z);
 
@@ -48,8 +48,8 @@ extern "C" ARM void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int 
     if (memberData == NULL) return;
     WeaponPlacement_ov017_021917f0* placement = &func_02099f60()[memberData->weaponType_29c_4_];
     if (isHeld == 1) {
-        int heldBoneIndex = func_02053eb4(partyMemberBase, placement->heldBoneSlot_e_);
-        func_02053ec0((unsigned char*)partyMemberBase, heldBoneIndex);
+        int heldBoneIndex = GetBoneIndexForSlot_02053eb4(partyMemberBase, placement->heldBoneSlot_e_);
+        SetWeaponBoneIndex_02053ec0((unsigned char*)partyMemberBase, heldBoneIndex);
         SetObject3DPosition_020407b4((Struct_02040774_2*)weaponObject, placement->heldPosition_10_[0], placement->heldPosition_10_[1], placement->heldPosition_10_[2]);
         SetObject3DRotation_0203db34((unsigned char*)weaponObject, placement->heldRotation_16_[0], placement->heldRotation_16_[1], placement->heldRotation_16_[2]);
         weaponObject->obj3D_.Detach();
@@ -60,8 +60,8 @@ extern "C" ARM void AttachPartyMemberWeapon_ov017_021917f0(int memberIndex, int 
             weaponObject->obj3D_.ClearFlag16();
         }
     } else if (isHeld == 0) {
-        int stowedBoneIndex = func_02053eb4(partyMemberBase, placement->stowedBoneSlot_1_);
-        func_02053ec0((unsigned char*)partyMemberBase, stowedBoneIndex);
+        int stowedBoneIndex = GetBoneIndexForSlot_02053eb4(partyMemberBase, placement->stowedBoneSlot_1_);
+        SetWeaponBoneIndex_02053ec0((unsigned char*)partyMemberBase, stowedBoneIndex);
         SetObject3DPosition_020407b4((Struct_02040774_2*)weaponObject, placement->stowedPosition_2_[0], placement->stowedPosition_2_[1], placement->stowedPosition_2_[2]);
         SetObject3DRotation_0203db34((unsigned char*)weaponObject, placement->stowedRotation_8_[0], placement->stowedRotation_8_[1], placement->stowedRotation_8_[2]);
         weaponObject->obj3D_.Detach();
