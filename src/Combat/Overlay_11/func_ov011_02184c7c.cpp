@@ -11,10 +11,10 @@ struct GameResources;
 void SetBrightness(struct GameResources* resources, int brightness, int duration);
 extern "C" int func_ov011_02184c30(struct ScriptValue_ov011_02184c30* arg0);
 
-// USA: func_ov011_02184c7c
-extern "C" ARM int func_ov011_02184c7c(struct ScriptValue_ov011_02184c30* arg0, int arg1) {
+// USA: SetBrightnessWithDuration_ov011_02184c7c
+extern "C" ARM int SetBrightnessWithDuration_ov011_02184c7c(struct ScriptValue_ov011_02184c30* params, int numParams) {
     struct GameResources* var0 = GetGameResources();
-    int var1 = func_ov011_02184c30(&arg0[0]);
-    SetBrightness(var0, var1, func_ov011_02184c30(&arg0[1]) / 34);
+    int var1 = func_ov011_02184c30(&params[0]);
+    SetBrightness(var0, var1, func_ov011_02184c30(&params[1]) / 34);
     return 1;
 }
