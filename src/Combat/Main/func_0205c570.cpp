@@ -13,14 +13,14 @@ struct Struct_0205c570 {
     unsigned char unknown_95_;
 };
 
-// USA: func_0205c570
-extern "C" ARM int func_0205c570(struct Struct_0205c570* arg0) {
-    int var0 = -1;
-    if (arg0->unknown_94_ != 0 && arg0->unknown_50_ != 0) {
-        var0 = func_0205bd04((struct Struct_0205bd04*)((char*)arg0 + 0x4));
+// USA: GetMenuCursorsIndex_0205c570
+extern "C" ARM int GetMenuCursorsIndex_0205c570(struct Struct_0205c570* cursors) {
+    int cursorIndex = -1;
+    if (cursors->unknown_94_ != 0 && cursors->unknown_50_ != 0) {
+        cursorIndex = func_0205bd04((struct Struct_0205bd04*)((char*)cursors + 0x4));
     }
-    if (arg0->unknown_95_ == 0) {
-        return var0;
+    if (cursors->unknown_95_ == 0) {
+        return cursorIndex;
     }
-    return GetMenuCursorIndex_0205bb84((struct MenuCursor_0205bb84*)((char*)arg0 + 0x54));
+    return GetMenuCursorIndex_0205bb84((struct MenuCursor_0205bb84*)((char*)cursors + 0x54));
 }

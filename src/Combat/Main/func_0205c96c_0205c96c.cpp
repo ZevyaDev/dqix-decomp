@@ -9,7 +9,7 @@
 
 struct Struct_0205c570;
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" int func_0205c570(struct Struct_0205c570* arg0);
+extern "C" int GetMenuCursorsIndex_0205c570(struct Struct_0205c570* cursors);
 extern "C" void func_02042b10(void* arg0, void* arg1);
 extern "C" void func_0202f404(void* arg0, int arg1, int arg2);
 extern "C" void func_02042b1c(unsigned char* arg0);
@@ -57,7 +57,7 @@ extern "C" ARM void DrawChoiceList_0205c96c(unsigned char* choiceList, int arg1)
 
     messageWindow = (unsigned char*)GetMessageWindow_020421a0();
     touchedIndex = *(int*)(choiceList + 0x50);
-    cursorIndex = func_0205c570((struct Struct_0205c570*)(choiceList + 0x1c));
+    cursorIndex = GetMenuCursorsIndex_0205c570((struct Struct_0205c570*)(choiceList + 0x1c));
     textColor = 0x7fff;
     if (choiceList[RG(0x234, 0x1c4)] == 0) {
         textColor = 0x3def;
