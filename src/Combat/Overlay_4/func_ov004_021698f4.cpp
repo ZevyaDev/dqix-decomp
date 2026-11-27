@@ -19,7 +19,7 @@ struct Menu_ov004_02158dcc;
 extern "C" void SetActiveMenuGrid_ov011_021849e0(struct Menu_ov004_02158dcc* menu, unsigned short gridId);
 extern "C" void* func_ov023_021f6524(void* arg0, int arg1);
 struct Struct_ov004_021698f4;
-extern "C" void* func_ov023_021f9c0c(struct Struct_ov004_021698f4* arg0);
+extern "C" void* ClearMenuGridCells_ov023_021f9c0c(struct Struct_ov004_021698f4* grid);
 extern "C" void func_ov023_021fb274(void* arg0, int arg1);
 extern "C" void func_ov004_02169658(void* arg0);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
@@ -61,7 +61,7 @@ extern "C" ARM int func_ov004_021698f4(void* arg0) {
             SetActiveMenuGrid_ov011_021849e0((struct Menu_ov004_02158dcc*)arg0, 0);
             void* var5 = func_ov023_021f6524(arg0, 0x64);
             if (var5) {
-                func_ov023_021f9c0c((struct Struct_ov004_021698f4*)var5);
+                ClearMenuGridCells_ov023_021f9c0c((struct Struct_ov004_021698f4*)var5);
                 var0 = 1;
             }
         }

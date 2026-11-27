@@ -19,12 +19,12 @@ extern "C" ARM int func_ov023_021f6f10(void* arg0);
 struct MenuGrid_ov004_02153e20;
 extern "C" int SetMenuGridCell_ov023_021f9b30(struct MenuGrid_ov004_02153e20* grid, unsigned short objectId, unsigned int row, unsigned int column);
 
-// USA: func_ov011_02185848
-extern "C" ARM int func_ov011_02185848(struct ScriptValue_ov011_02184c30* arg0, int arg1) {
-    int var0 = func_ov011_02184c30(&arg0[0]);
-    int var1 = func_ov011_02184c30(&arg0[1]);
-    int var2 = func_ov011_02184c30(&arg0[2]);
-    int var3 = func_ov011_02184c30(&arg0[3]);
+// USA: SetCurrentMenuGridCell_ov011_02185848
+extern "C" ARM int SetCurrentMenuGridCell_ov011_02185848(struct ScriptValue_ov011_02184c30* params, int numParams) {
+    int var0 = func_ov011_02184c30(&params[0]);
+    int var1 = func_ov011_02184c30(&params[1]);
+    int var2 = func_ov011_02184c30(&params[2]);
+    int var3 = func_ov011_02184c30(&params[3]);
     void* var4 = GetMenuObjectList_ov011_021849c8(GetCurrentMenu_ov017_021b2164());
     void* var5 = FindMenuObjectById_ov023_021f6880(var4, var0);
     void* var6 = FindMenuObjectById_ov023_021f6880(var4, var1);

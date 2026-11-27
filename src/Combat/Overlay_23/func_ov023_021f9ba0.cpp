@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_ov023_021f9ba0
-extern "C" ARM unsigned int func_ov023_021f9ba0(void* arg0) {
-    return *(unsigned short*)((char*)arg0 + 0x24);
+// USA: GetMenuGridRowCount_ov023_021f9ba0
+extern "C" ARM unsigned int GetMenuGridRowCount_ov023_021f9ba0(void* grid) {
+    return *(unsigned short*)((char*)grid + 0x24);
 }
