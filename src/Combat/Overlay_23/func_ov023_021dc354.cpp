@@ -11,7 +11,7 @@ extern "C" int GetFontLoader_02094a00(void);
 extern "C" void CancelFontLoad_02094ab0(void* loader);
 struct Struct_02075cdc;
 extern "C" void func_02075d58(struct Struct_02075cdc* arg0);
-extern "C" void func_ov023_021dcd18(void* arg0);
+extern "C" void RestoreSavedBGControlAndLayers_ov023_021dcd18(void* panel);
 extern "C" void InitItemInfoPanel_ov023_021dc134(void* panel, int itemId, int isEmbedded);
 extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 
@@ -77,7 +77,7 @@ extern "C" ARM void ReleaseItemInfoPanel_ov023_021dc354(struct ItemInfoPanel_ov0
     }
 
     if (panel->isEmbedded_77b_ != 1) {
-        func_ov023_021dcd18(panel);
+        RestoreSavedBGControlAndLayers_ov023_021dcd18(panel);
     }
 
     if (panel->unknown_44_) {

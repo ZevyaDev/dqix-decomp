@@ -32,7 +32,7 @@ extern "C" LocalWireless_0202c1a4* func_0202ae18();
 extern "C" int IsQuestUnlocked_0206e2dc(FlagManager_0205faf4_13*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
-extern "C" int func_02064704(void*, Struct_02064490_3*, void*);
+extern "C" int AreConditionsMet_02064704(void*, Struct_02064490_3*, void*);
 extern "C" int GetQuestState_0206e120(FlagManager_0205faf4_3*, int);
 extern "C" int func_02095ae0(FlagManager_0205faf4_3*, int);
 extern "C" void func_0206e164(FlagManager_0205faf4_3*, int, int);
@@ -51,7 +51,7 @@ extern "C" ARM int func_02095924(Struct_02095924_2* arg0, int arg1) {
         if (var3->unknown_3_2_ && !IsQuestUnlocked_0206e2dc((FlagManager_0205faf4_13*)var0, var3->unknown_2_0_)) continue;
         if (IsLocalWirelessOn_0202b7d8((int*)var1) && GetOwnProtagonistObjectIndex_0202c1a4(var1) && !var3->unknown_3_1_) continue;
         var2.unknown_0_ = arg1;
-        if (func_02064704(var0, var3->unknown_8_, &var2)) {
+        if (AreConditionsMet_02064704(var0, var3->unknown_8_, &var2)) {
             if (inline_02095924(var0, var3->unknown_2_0_, 3)) {
                 if (!var3->unknown_3_1_ || var3->unknown_3_3_) continue;
             }

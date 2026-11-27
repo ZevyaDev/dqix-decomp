@@ -29,7 +29,7 @@ struct Struct_02018300_5 {
     char unknown_2a_[0xa];
 };
 extern "C" void* func_0205ec34();
-extern "C" int func_02064b24(void*, int, unsigned short, void*);
+extern "C" int RunTriggerActionsOfType_02064b24(void*, int, unsigned short, void*);
 #if defined(jpn)
 #define data_020e6e74 data_020e7718
 #endif
@@ -60,8 +60,8 @@ extern "C" ARM void OpenDoor_02018300(Zone3D* zone, Struct_020134e0::Struct_0201
         triggerResult.unknown_1e_ = door->unknown_2c_.unknown1_0_.unknown_1_;
         triggerResult.unknown_1c_ = door->unknown_2c_.unknown1_0_.unknown_0_;
         triggerResult.unknown_c_ = zone->currentZoneID_;
-        func_02064b24(flagManager, 17, 108, &triggerResult);
-        func_02064b24(flagManager, 3, 108, &triggerResult);
+        RunTriggerActionsOfType_02064b24(flagManager, 17, 108, &triggerResult);
+        RunTriggerActionsOfType_02064b24(flagManager, 3, 108, &triggerResult);
         if (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 4) {
             door->unknown_2c_.unknown1_0_.unknown_2_4_ = (unsigned short)(door->unknown_2c_.unknown1_0_.unknown_2_4_ & ~4);
             door->unknown_2c_.unknown1_0_.unknown_2_4_ = (unsigned short)(door->unknown_2c_.unknown1_0_.unknown_2_4_ & ~1);

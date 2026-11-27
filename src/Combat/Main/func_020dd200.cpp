@@ -14,18 +14,18 @@ struct Struct_020ee710 { unsigned short unknown_0_; unsigned short unknown_2_; }
 extern Struct_020ee710 data_020ee712[];
 extern Struct_020ee710 data_020ee710[];
 
-// USA: func_020dd200
-extern "C" ARM int func_020dd200(int arg0, int arg1) {
+// USA: HasPartyMemberLearnedEquipmentTypeSkill_020dd200
+extern "C" ARM int HasPartyMemberLearnedEquipmentTypeSkill_020dd200(int memberIndex, int equipmentType) {
     int var0 = 0;
     GameState* var1 = GameState::GetInstance();
-    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var1, arg0);
+    GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var1, memberIndex);
     if (var2 == 0) {
         return var0;
     }
     unsigned char var3 = 0;
     while (data_020ee710[var3].unknown_0_ != 0xffff) {
         unsigned int var4 = data_020ee712[var3].unknown_0_ & 0xff;
-        if (var4 == arg1) {
+        if (var4 == equipmentType) {
             if (HasLearnedSkillEntry_02083b00(*(unsigned char**)((char*)var2 + Enum_020dd200_336), data_020ee710[var3].unknown_0_) != 0) {
                 var0 = 1;
             }

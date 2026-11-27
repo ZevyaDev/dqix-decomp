@@ -23,22 +23,22 @@ struct Struct_02013fb4;
 struct Struct_0201f040_3;
 
 struct MenuLayoutTextEntryList_0207f524;
-extern "C" void func_0207f72c(struct MenuLayoutTextEntryList_0207f524* arg0);
+extern "C" void ResolveMenuLayoutTextEntryLinks_0207f72c(struct MenuLayoutTextEntryList_0207f524* textEntries);
 
 struct Struct_02108ee0 { void* unknown_0_; void* unknown_4_; };
 extern struct Struct_02108ee0 data_02108ee0;
 extern int data_020f0fb0;
 
-// USA: func_0207f524
-extern "C" ARM void func_0207f524(void* arg0, void* arg1, struct Struct_02013fb4* arg2, int arg3) {
-    if (arg1 != 0 && arg2 != 0 && arg3 != 0) {
+// USA: LoadMenuLayoutTextEntries_0207f524
+extern "C" ARM void LoadMenuLayoutTextEntries_0207f524(void* textEntries, void* allocator, struct Struct_02013fb4* scriptData, int scriptSize) {
+    if (allocator != 0 && scriptData != 0 && scriptSize != 0) {
         struct Struct_0201f040 var0;
-        data_02108ee0.unknown_0_ = arg1;
-        data_02108ee0.unknown_4_ = arg0;
+        data_02108ee0.unknown_0_ = allocator;
+        data_02108ee0.unknown_4_ = textEntries;
         ((Script*)&var0)->Initialize();
         ((Script*)&var0)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f0fb0);
-        ((Script*)((struct Struct_0201f040_2*)&var0))->Load(arg2, arg3);
+        ((Script*)((struct Struct_0201f040_2*)&var0))->Load(scriptData, scriptSize);
         ((Script*)((struct Struct_0201f040_3*)&var0))->Execute();
-        func_0207f72c((struct MenuLayoutTextEntryList_0207f524*)arg0);
+        ResolveMenuLayoutTextEntryLinks_0207f72c((struct MenuLayoutTextEntryList_0207f524*)textEntries);
     }
 }

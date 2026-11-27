@@ -82,12 +82,12 @@ extern "C" int LoadItemTableByCategories_020dea64(void* itemTable, void* allocat
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" void func_0209e3dc(char*, int);
-extern "C" void func_0209fd64(Struct_ov023_021f2e6c_6* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
+extern "C" void LoadQuestBattleScript_0209fd64(Struct_ov023_021f2e6c_6* script, SafeAllocator* allocator, void* scriptData, unsigned int scriptSize);
 extern "C" void func_0209e46c(char*);
 struct Struct_0209fe10;
-extern "C" void func_0209fe10(Struct_0209fe10*, int);
+extern "C" void QueueQuestBattleScriptEntry_0209fe10(Struct_0209fe10*, int);
 struct Struct_0209fe18;
-extern "C" void func_0209fe18(Struct_0209fe18*);
+extern "C" void UpdateQuestBattleScript_0209fe18(Struct_0209fe18*);
 struct Struct_020d794c;
 extern "C" char* func_020d794c(Struct_020d794c*, int);
 struct Struct_ov023_021f2e6c_2;
@@ -369,16 +369,16 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
             var2->RemoveTask(var1[1]);
             var1[1] = -1;
             func_0209e3dc((char*)(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904)), (int)(*(void**)(arg0 + Enum_ov023_021f2e6c_668)));
-            func_0209fd64(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904), *(SafeAllocator**)(arg0 + Enum_ov023_021f2e6c_21952), var46, var44);
+            LoadQuestBattleScript_0209fd64(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904), *(SafeAllocator**)(arg0 + Enum_ov023_021f2e6c_21952), var46, var44);
             func_0209e46c((char*)(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904)));
-            func_0209fe10((Struct_0209fe10*)(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904)), var4[*(short*)(arg0 + Enum_ov023_021f2e6c_21900)].unknown_0_.unknown_0_0_);
+            QueueQuestBattleScriptEntry_0209fe10((Struct_0209fe10*)(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904)), var4[*(short*)(arg0 + Enum_ov023_021f2e6c_21900)].unknown_0_.unknown_0_0_);
             var1[0] = 4;
         }
     } else if (var5 == 4) {
         if (*(short*)(arg0 + Enum_ov023_021f2e6c_21948) == 1) {
             *(short*)(arg0 + Enum_ov023_021f2e6c_21948) = 2;
         } else {
-            func_0209fe18((Struct_0209fe18*)(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904)));
+            UpdateQuestBattleScript_0209fe18((Struct_0209fe18*)(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904)));
         }
         char* var47 = 0;
         int var48 = (*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904))->unknown_6c_;

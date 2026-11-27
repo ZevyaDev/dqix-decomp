@@ -20,28 +20,28 @@ struct Struct_0207f018 {
     short unknown_6_;
 };
 
-// USA: func_0207f018
-extern "C" ARM void func_0207f018(struct Struct_0207f018* arg0, struct Struct_0207ed48* arg1) {
+// USA: AppendMenuLayoutWindowEntry_0207f018
+extern "C" ARM void AppendMenuLayoutWindowEntry_0207f018(struct Struct_0207f018* windowEntries, struct Struct_0207ed48* entry) {
     short var0;
     struct Struct_0207ed48* var1;
-    if (arg1 == NULL) {
+    if (entry == NULL) {
         return;
     }
-    var0 = arg0->unknown_4_;
-    if (arg0->unknown_6_ <= var0) {
+    var0 = windowEntries->unknown_4_;
+    if (windowEntries->unknown_6_ <= var0) {
         return;
     }
-    var1 = &arg0->unknown_0_[var0];
-    var1->unknown_0_ = arg1->unknown_0_;
-    var1->unknown_4_ = arg1->unknown_4_;
-    var1->unknown_8_ = arg1->unknown_8_;
-    var1->unknown_a_ = arg1->unknown_a_;
-    var1->unknown_c_ = arg1->unknown_c_;
-    var1->unknown_e_ = arg1->unknown_e_;
-    var1->unknown_10_ = arg1->unknown_10_;
-    var1->unknown_12_ = arg1->unknown_12_;
-    var1->unknown_13_ = arg1->unknown_13_;
-    var1->unknown_14_ = arg1->unknown_14_;
-    var1->unknown_15_ = arg1->unknown_15_;
-    arg0->unknown_4_ = arg0->unknown_4_ + 1;
+    var1 = &windowEntries->unknown_0_[var0];
+    var1->unknown_0_ = entry->unknown_0_;
+    var1->unknown_4_ = entry->unknown_4_;
+    var1->unknown_8_ = entry->unknown_8_;
+    var1->unknown_a_ = entry->unknown_a_;
+    var1->unknown_c_ = entry->unknown_c_;
+    var1->unknown_e_ = entry->unknown_e_;
+    var1->unknown_10_ = entry->unknown_10_;
+    var1->unknown_12_ = entry->unknown_12_;
+    var1->unknown_13_ = entry->unknown_13_;
+    var1->unknown_14_ = entry->unknown_14_;
+    var1->unknown_15_ = entry->unknown_15_;
+    windowEntries->unknown_4_ = windowEntries->unknown_4_ + 1;
 }

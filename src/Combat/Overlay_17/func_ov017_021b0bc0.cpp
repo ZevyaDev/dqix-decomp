@@ -41,7 +41,7 @@ extern "C" void* func_020120a0(char* arg0, unsigned int arg1);
 extern "C" void func_0201206c(void*, int);
 extern "C" void SetPartyMemberBattleId_02053f7c(PartyMember_02053f7c_3*, unsigned short, int);
 extern "C" void* func_0205ec34(void);
-extern "C" void func_0206dfe8(void*, int, int);
+extern "C" void ClearFlagRange_0206dfe8(void*, int, int);
 extern "C" void func_0206e70c(char*);
 extern "C" void func_0206df14(unsigned char*);
 extern "C" float func_020103e8(GameState*);
@@ -247,8 +247,8 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
         }
 
         void* var21 = func_0205ec34();
-        func_0206dfe8(var21, 0x38e, 0x3e8);
-        func_0206dfe8(var21, 0x79e, 0x2bc);
+        ClearFlagRange_0206dfe8(var21, 0x38e, 0x3e8);
+        ClearFlagRange_0206dfe8(var21, 0x79e, 0x2bc);
         func_0206e70c((char*)var21);
         func_0206df14((unsigned char*)var21);
         var5->SetDayTimer(func_020103e8(var5));

@@ -5,11 +5,11 @@ struct Struct_0205d5b8 {
     unsigned char unknown_c5_;
 };
 
-// USA: func_0205d5b8
-extern "C" ARM void func_0205d5b8(struct Struct_0205d5b8* arg0, int arg1) {
-    if (arg1) {
-        arg0->unknown_c5_ |= 0x20;
+// USA: SetTextWindowHidden_0205d5b8
+extern "C" ARM void SetTextWindowHidden_0205d5b8(struct Struct_0205d5b8* textWindow, int isHidden) {
+    if (isHidden) {
+        textWindow->unknown_c5_ |= 0x20;
     } else {
-        arg0->unknown_c5_ &= ~0x20;
+        textWindow->unknown_c5_ &= ~0x20;
     }
 }

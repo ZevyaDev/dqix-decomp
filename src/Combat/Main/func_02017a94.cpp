@@ -13,7 +13,7 @@ extern "C" void* func_0205ec34(void);
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" int func_0206eaec(unsigned char* arg0, int arg1, int arg2);
 extern "C" void* GetFirstZoneFeatureOfType_0201e838(unsigned char* zoneFeatures, unsigned int type);
-extern "C" int func_02064b24(void* arg0, int arg1, unsigned short arg2, void* arg3);
+extern "C" int RunTriggerActionsOfType_02064b24(void* flagManager, int triggerType, unsigned short actionType, void* triggerResult);
 
 struct Struct_02017a94;
 struct BMDJEntry_0201b600;
@@ -99,8 +99,8 @@ extern "C" ARM void func_02017a94(Zone3D* arg0) {
         }
         struct Struct_02017a94_4 var10;
         var10.unknown_c_ = arg0->currentZoneID_;
-        func_02064b24(var1, 3, 0x6c, &var10);
-        func_02064b24(var1, 0x14, 0x6c, &var10);
+        RunTriggerActionsOfType_02064b24(var1, 3, 0x6c, &var10);
+        RunTriggerActionsOfType_02064b24(var1, 0x14, 0x6c, &var10);
         arg0->unk_276c[0x281d - 0x276c] = 0;
     }
 }

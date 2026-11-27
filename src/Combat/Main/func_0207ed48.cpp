@@ -16,7 +16,7 @@ struct Struct_0207ed48 {
 struct Struct_0207f018;
 struct Struct_02108ed8 { SafeAllocator* unknown_0_; Struct_0207f018* unknown_4_; };
 extern Struct_02108ed8 data_02108ed8;
-extern "C" void func_0207f018(Struct_0207f018*, Struct_0207ed48*);
+extern "C" void AppendMenuLayoutWindowEntry_0207f018(Struct_0207f018*, Struct_0207ed48*);
 // USA: func_0207ed48
 extern "C" ARM int func_0207ed48(Script::Parameter* arg0) {
     Struct_0207ed48 var0;
@@ -43,6 +43,6 @@ extern "C" ARM int func_0207ed48(Script::Parameter* arg0) {
     var0.unknown_14_ = arg0[8].ToInt();
     if (var0.unknown_13_) var0.unknown_0_ = data_02108ed8.unknown_0_->Allocate(var0.unknown_13_ * 4);
     if (var0.unknown_14_) var0.unknown_4_ = data_02108ed8.unknown_0_->Allocate(var0.unknown_14_ * 4);
-    func_0207f018(data_02108ed8.unknown_4_, &var0);
+    AppendMenuLayoutWindowEntry_0207f018(data_02108ed8.unknown_4_, &var0);
     return 1;
 }

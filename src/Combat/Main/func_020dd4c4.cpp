@@ -4,8 +4,8 @@
 struct Struct_02052df8;
 extern "C" int GetEquippedItem_02052df8(Struct_02052df8*, int);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
-extern "C" int func_020dd200(int, int);
-extern "C" int func_020dd154(int, int);
+extern "C" int HasPartyMemberLearnedEquipmentTypeSkill_020dd200(int, int);
+extern "C" int HasPartyMemberVocationSkillForEquipmentType_020dd154(int, int);
 struct EquipData_020dd4c4_2 {
     unsigned int : 7;
     unsigned int unknown_0_7_ : 4;
@@ -70,9 +70,9 @@ extern "C" ARM int GetEquipRestrictions_020dd4c4(int memberIndex, ItemData_020dd
     restrictions |= (item->pEquipData_0_->isHeroOnly_3_5_ && memberIndex != GetProtagonistObjectIndex_020100a8(gameState)) ? 0x100 : 0;
     int skillFlag;
     if (item->unknown_8_0_ != 0 && item->unknown_8_0_ != 1) skillFlag = 0;
-    else if (func_020dd200(memberIndex & 0xff, item->pEquipData_0_->unknown_0_7_ & 0xff)) skillFlag = 0;
+    else if (HasPartyMemberLearnedEquipmentTypeSkill_020dd200(memberIndex & 0xff, item->pEquipData_0_->unknown_0_7_ & 0xff)) skillFlag = 0;
     else {
-        if (func_020dd154(memberIndex, item->pEquipData_0_->unknown_0_7_ & 0xff)) skillFlag = 0;
+        if (HasPartyMemberVocationSkillForEquipmentType_020dd154(memberIndex, item->pEquipData_0_->unknown_0_7_ & 0xff)) skillFlag = 0;
         else skillFlag = 1;
     }
     restrictions |= skillFlag;

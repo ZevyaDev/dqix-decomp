@@ -19,17 +19,17 @@ struct Struct_020813ec_2 {
     unsigned char unknown_39_;
 };
 
-// USA: func_02081de0
-extern "C" ARM struct Struct_02081de0* func_02081de0(struct Struct_020813ec_2 *arg0) {
-    unsigned char var0 = arg0->unknown_39_;
-    struct Struct_02081de0 *var1 = arg0->unknown_30_;
-    unsigned char var2 = 0;
-    while (var2 < var0) {
-        if (var1->unknown_c4_ == 0xff) {
-            return var1;
+// USA: FindFreeMenuLayoutWindow_02081de0
+extern "C" ARM struct Struct_02081de0* FindFreeMenuLayoutWindow_02081de0(struct Struct_020813ec_2 *menuLayout) {
+    unsigned char windowCount = menuLayout->unknown_39_;
+    struct Struct_02081de0 *window = menuLayout->unknown_30_;
+    unsigned char i = 0;
+    while (i < windowCount) {
+        if (window->unknown_c4_ == 0xff) {
+            return window;
         }
-        var1++;
-        var2++;
+        window++;
+        i++;
     }
     return NULL;
 }

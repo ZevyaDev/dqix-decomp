@@ -28,15 +28,15 @@ struct Struct_0201f040_3;
 extern void* data_02108ed8[2];
 extern int data_020f0f88;
 
-// USA: func_0207ef74
-extern "C" ARM void func_0207ef74(struct Struct_0207ed1c* arg0, SafeAllocator* arg1, struct Struct_02013fb4* arg2, int arg3) {
-    if (arg1 != 0 && arg2 != 0 && arg3 != 0) {
+// USA: LoadMenuLayoutWindowEntries_0207ef74
+extern "C" ARM void LoadMenuLayoutWindowEntries_0207ef74(struct Struct_0207ed1c* windowEntries, SafeAllocator* allocator, struct Struct_02013fb4* scriptData, int scriptSize) {
+    if (allocator != 0 && scriptData != 0 && scriptSize != 0) {
         struct Struct_0201f040 var0;
-        data_02108ed8[1] = arg0;
-        data_02108ed8[0] = arg1;
+        data_02108ed8[1] = windowEntries;
+        data_02108ed8[0] = allocator;
         ((Script*)&var0)->Initialize();
         ((Script*)&var0)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f0f88);
-        ((Script*)((struct Struct_0201f040_2*)&var0))->Load(arg2, arg3);
+        ((Script*)((struct Struct_0201f040_2*)&var0))->Load(scriptData, scriptSize);
         ((Script*)((struct Struct_0201f040_3*)&var0))->Execute();
     }
 }

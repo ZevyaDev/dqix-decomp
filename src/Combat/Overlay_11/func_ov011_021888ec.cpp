@@ -12,7 +12,7 @@
 extern "C" void SetScriptNatives_ov017_021d4cc0(void* scriptVM, void* natives, int nativeCount);
 extern int data_ov011_021889a0;
 
-// USA: func_ov011_021888ec
-extern "C" ARM void func_ov011_021888ec(void* arg0) {
-    SetScriptNatives_ov017_021d4cc0(arg0, &data_ov011_021889a0, R(0x6f,0x73));
+// USA: SetMenuScriptNatives_ov011_021888ec
+extern "C" ARM void SetMenuScriptNatives_ov011_021888ec(void* scriptVM) {
+    SetScriptNatives_ov017_021d4cc0(scriptVM, &data_ov011_021889a0, R(0x6f,0x73));
 }

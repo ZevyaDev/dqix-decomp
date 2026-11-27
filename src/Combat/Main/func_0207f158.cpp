@@ -31,7 +31,7 @@ struct Struct_0207f158 {
     unsigned char unknown_2d_;
 };
 struct Struct_0207f158_2;
-extern "C" void func_0207f5d0(Struct_0207f158_2*, Struct_0207f158*);
+extern "C" void AppendMenuLayoutTextEntry_0207f5d0(Struct_0207f158_2*, Struct_0207f158*);
 extern void* data_02108ee0[2];
 
 // USA: func_0207f158
@@ -101,6 +101,6 @@ extern "C" ARM int func_0207f158(Script::Parameter* arg0) {
         var0.unknown_10_ = arg0[8].ToInt();
         break;
     }
-    func_0207f5d0((Struct_0207f158_2*)data_02108ee0[1], &var0);
+    AppendMenuLayoutTextEntry_0207f5d0((Struct_0207f158_2*)data_02108ee0[1], &var0);
     return 1;
 }

@@ -15,17 +15,17 @@ struct BGControlSave_02074bf4;
 extern "C" void RestoreMainBGControl_02074bd0(struct BGControlSave_02074bd0* save);
 extern "C" void RestoreSubBGControl_02074bf4(struct BGControlSave_02074bf4* save);
 
-// USA: func_ov023_021dcd18
+// USA: RestoreSavedBGControlAndLayers_ov023_021dcd18
 #pragma optimize_for_size off
-extern "C" ARM void func_ov023_021dcd18(void* arg0) {
-    signed char var0 = *(signed char*)((char*)arg0 + REGION_FIELD_0);
-    if (var0 == 1) {
-        RestoreSubBGControl_02074bf4((struct BGControlSave_02074bf4*)((char*)arg0 + REGION_FIELD_1));
-        unsigned int* var1 = (unsigned int*)0x4001000;
-        *var1 = (*var1 & ~0x1f00) | (*(unsigned int*)((char*)arg0 + REGION_FIELD_2) << 8);
+extern "C" ARM void RestoreSavedBGControlAndLayers_ov023_021dcd18(void* panel) {
+    signed char screen = *(signed char*)((char*)panel + REGION_FIELD_0);
+    if (screen == 1) {
+        RestoreSubBGControl_02074bf4((struct BGControlSave_02074bf4*)((char*)panel + REGION_FIELD_1));
+        unsigned int* subDisplayControl = (unsigned int*)0x4001000;
+        *subDisplayControl = (*subDisplayControl & ~0x1f00) | (*(unsigned int*)((char*)panel + REGION_FIELD_2) << 8);
     } else {
-        RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)((char*)arg0 + REGION_FIELD_1));
-        unsigned int* var2 = (unsigned int*)0x4000000;
-        *var2 = (*var2 & ~0x1f00) | (*(unsigned int*)((char*)arg0 + REGION_FIELD_2) << 8);
+        RestoreMainBGControl_02074bd0((struct BGControlSave_02074bd0*)((char*)panel + REGION_FIELD_1));
+        unsigned int* mainDisplayControl = (unsigned int*)0x4000000;
+        *mainDisplayControl = (*mainDisplayControl & ~0x1f00) | (*(unsigned int*)((char*)panel + REGION_FIELD_2) << 8);
     }
 }

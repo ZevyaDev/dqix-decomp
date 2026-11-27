@@ -14,7 +14,7 @@ struct Struct_0201c1c8 {
 };
 
 extern "C" void* func_0205ec34(void);
-extern "C" void func_0206dfe8(void* arg0, int arg1, int arg2);
+extern "C" void ClearFlagRange_0206dfe8(void* flagManager, int firstFlag, int flagCount);
 
 extern "C" void func_0206e080(char* arg0, int arg1);
 extern "C" void func_0206e0d0(char* arg0, int arg1);
@@ -70,8 +70,8 @@ extern "C" ARM int func_020716a4(struct Struct_0201c1c8* arg0, int arg1) {
     var5 = func_0205ec34();
     func_0206e080((char*)var5, *(unsigned char*)((char*)var5 + 0x332));
     func_0206e0d0((char*)var5, *(unsigned char*)((char*)var5 + 0x332));
-    func_0206dfe8(var5, 0, 0x200);
-    func_0206dfe8(var5, 0x38e, 0x3e8);
+    ClearFlagRange_0206dfe8(var5, 0, 0x200);
+    ClearFlagRange_0206dfe8(var5, 0x38e, 0x3e8);
 
     for (var6 = 0; var6 < arg1 - 4; var6++) {
         var4 = ((Script::Parameter*)arg0)->ToInt();

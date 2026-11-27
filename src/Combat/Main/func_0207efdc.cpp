@@ -7,11 +7,11 @@ struct Struct_0207ed1c {
     short unknown_6_;     // 0x6
 };
 
-// USA: func_0207efdc
-extern "C" ARM void func_0207efdc(struct Struct_0207ed1c* arg0, SafeAllocator* arg1, int arg2) {
-    if (arg1 == NULL) return;
-    if (arg2 < 0) return;
-    arg0->unknown_4_ = 0;
-    arg0->unknown_6_ = arg2;
-    arg0->unknown_0_ = arg1->Allocate(arg2 * 0x18);
+// USA: AllocateMenuLayoutWindowEntries_0207efdc
+extern "C" ARM void AllocateMenuLayoutWindowEntries_0207efdc(struct Struct_0207ed1c* windowEntries, SafeAllocator* allocator, int capacity) {
+    if (allocator == NULL) return;
+    if (capacity < 0) return;
+    windowEntries->unknown_4_ = 0;
+    windowEntries->unknown_6_ = capacity;
+    windowEntries->unknown_0_ = allocator->Allocate(capacity * 0x18);
 }

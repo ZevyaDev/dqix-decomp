@@ -5,13 +5,13 @@ struct Struct_02064530 {
     struct Struct_02064530* unknown_14_;  // 0x14
 };
 
-extern "C" int func_02061c04(void*, struct Struct_02064530*, void*);
+extern "C" int RunTriggerAction_02061c04(void*, struct Struct_02064530*, void*);
 
-// USA: func_02064530
-extern "C" ARM int func_02064530(void* arg0, struct Struct_02064530* arg1, void* arg2) {
-    while (arg1 != NULL) {
-        if (func_02061c04(arg0, arg1, arg2) == 0) return 0;
-        arg1 = arg1->unknown_14_;
+// USA: RunTriggerActions_02064530
+extern "C" ARM int RunTriggerActions_02064530(void* flagManager, struct Struct_02064530* actions, void* triggerResult) {
+    while (actions != NULL) {
+        if (RunTriggerAction_02061c04(flagManager, actions, triggerResult) == 0) return 0;
+        actions = actions->unknown_14_;
     }
     return 1;
 }
