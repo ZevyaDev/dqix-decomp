@@ -22,21 +22,21 @@ struct Struct_02064490_2 {
     unsigned char unknown_492_;
 };
 
-extern "C" int func_0205faf4(void*, struct Struct_02064490_3*, void*);
+extern "C" int IsConditionMet_0205faf4(void*, struct Struct_02064490_3*, void*);
 
-// USA: func_02064490
-extern "C" ARM struct Struct_02064490* func_02064490(struct Struct_02064490_2* arg0, int arg1, void* arg2) {
+// USA: FindMatchingTrigger_02064490
+extern "C" ARM struct Struct_02064490* FindMatchingTrigger_02064490(struct Struct_02064490_2* flagManager, int triggerType, void* triggerResult) {
     struct Struct_02064490* var0;
-    for (var0 = arg0->unknown_47c_; var0 != NULL; var0 = var0->unknown_14_) {
-        if (var0->unknown_6_ == arg1) break;
+    for (var0 = flagManager->unknown_47c_; var0 != NULL; var0 = var0->unknown_14_) {
+        if (var0->unknown_6_ == triggerType) break;
     }
     if (var0 == NULL) return NULL;
-    arg0->unknown_492_ = 0;
+    flagManager->unknown_492_ = 0;
     int var1 = 1;
     struct Struct_02064490_3* var2;
     for (; var0 != NULL; var0 = var0->unknown_10_) {
         for (var2 = var0->unknown_8_; var2 != NULL; var2 = var2->unknown_c_) {
-            if (func_0205faf4(arg0, var2, arg2) == 0) {
+            if (IsConditionMet_0205faf4(flagManager, var2, triggerResult) == 0) {
                 var1 = 0;
                 break;
             }

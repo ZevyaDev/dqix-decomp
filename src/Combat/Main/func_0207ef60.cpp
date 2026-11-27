@@ -6,9 +6,9 @@ struct Struct_0207ef60 {
     unsigned short unknown_6_;
 };
 
-// USA: func_0207ef60
-extern "C" ARM void func_0207ef60(struct Struct_0207ef60* arg0) {
-    arg0->unknown_0_ = 0;
-    arg0->unknown_6_ = 0;
-    arg0->unknown_4_ = 0;
+// USA: ResetMenuLayoutWindowEntries_0207ef60
+extern "C" ARM void ResetMenuLayoutWindowEntries_0207ef60(struct Struct_0207ef60* windowEntries) {
+    windowEntries->unknown_0_ = 0;
+    windowEntries->unknown_6_ = 0;
+    windowEntries->unknown_4_ = 0;
 }

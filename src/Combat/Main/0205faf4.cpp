@@ -158,9 +158,9 @@ static inline struct Struct_0205faf4_19* inline_0205faf4_5(void* arg0) {
     return (struct Struct_0205faf4_19*)((char*)arg0 + REGION_VALUE(0x1860, 0x1840));
 }
 #define FLAGS1840(p) inline_0205faf4_5(p)
-#define OBJB ((unsigned char*)arg0)
-#define CU16(o) (*(unsigned short*)((char*)arg1 + (o)))
-#define CS16(o) (*(short*)((char*)arg1 + (o)))
+#define OBJB ((unsigned char*)flagManager)
+#define CU16(o) (*(unsigned short*)((char*)condition + (o)))
+#define CS16(o) (*(short*)((char*)condition + (o)))
 #define EW(o) (*(int*)((char*)extra + (o)))
 #define STAT130(c) (*(void**)((char*)(c) + 0x130))
 #define SUB150(c) (*(char**)((char*)(c) + REGION_VALUE(0x144, 0x150)))
@@ -168,29 +168,29 @@ static inline struct Struct_0205faf4_19* inline_0205faf4_5(void* arg0) {
 static inline int inline_0205faf4_6(struct Struct_0203d028_3* arg0) { SDK_NULL_ASSERT(arg0); return *(int*)(SUB150(arg0) + REGION_VALUE(0x8b8, 0x950)); }
 static inline int inline_0205faf4_7(struct Struct_0205faf4_14* extra) { SDK_NULL_ASSERT(extra); return EW(0x24); }
 
-// USA: func_0205faf4
-extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, struct Struct_0205faf4_14* extra) {
-    unsigned short var0 = *(unsigned short*)arg1;
+// USA: IsConditionMet_0205faf4
+extern "C" ARM int IsConditionMet_0205faf4(struct Struct_0203d028_2* flagManager, void* condition, struct Struct_0205faf4_14* extra) {
+    unsigned short var0 = *(unsigned short*)condition;
     switch (var0) {
     case 0:
-        return func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2));
+        return func_0206dfb0((int)flagManager, OBJB + 0x8c, CU16(2));
     case 1:
-        return !func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2));
+        return !func_0206dfb0((int)flagManager, OBJB + 0x8c, CU16(2));
     case 2: {
         unsigned char var1 = *(OBJB + 0x332);
-        return func_0206dfb0((int)arg0, OBJB + var1 * 0x1c + 3, CU16(2));
+        return func_0206dfb0((int)flagManager, OBJB + var1 * 0x1c + 3, CU16(2));
     }
     case 3: {
         unsigned char var2 = *(OBJB + 0x332);
-        return !func_0206dfb0((int)arg0, OBJB + var2 * 0x1c + 3, CU16(2));
+        return !func_0206dfb0((int)flagManager, OBJB + var2 * 0x1c + 3, CU16(2));
     }
     case 4: {
         unsigned char var3 = *(OBJB + 0x332);
-        return func_0206dfb0((int)arg0, OBJB + var3 * 0x1c + 0x10, CU16(2));
+        return func_0206dfb0((int)flagManager, OBJB + var3 * 0x1c + 0x10, CU16(2));
     }
     case 5: {
         unsigned char var4 = *(OBJB + 0x332);
-        return !func_0206dfb0((int)arg0, OBJB + var4 * 0x1c + 0x10, CU16(2));
+        return !func_0206dfb0((int)flagManager, OBJB + var4 * 0x1c + 0x10, CU16(2));
     }
     case 6:
         return CU16(2) == EW(0);
@@ -236,23 +236,23 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return CountOwnedItem_02086aec((struct Party_02053f7c*)GetParty_02010828((GameState*)(void*)GameState::GetInstance()), CS16(2)) <= 0;
     case 20: {
         int var12 = 0;
-        int var13 = GetQuestState_0206e120((struct FlagManager_0205faf4_3*)arg0, CU16(2)) == 2;
+        int var13 = GetQuestState_0206e120((struct FlagManager_0205faf4_3*)flagManager, CU16(2)) == 2;
         if (var13) {
-            if (func_0206e31c((int)arg0, CU16(2))) var12 = 1;
+            if (func_0206e31c((int)flagManager, CU16(2))) var12 = 1;
         }
         return var12;
     }
     case 21: {
-        if (func_0206e260((struct Struct_0205faf4_4*)arg0, CU16(2))) {
-            if (func_0206e31c((int)arg0, CU16(2))) return 1;
+        if (func_0206e260((struct Struct_0205faf4_4*)flagManager, CU16(2))) {
+            if (func_0206e31c((int)flagManager, CU16(2))) return 1;
         }
         return 0;
     }
     case 22: {
         int var14 = 0;
-        int var15 = GetQuestState_0206e120((struct FlagManager_0205faf4_3*)arg0, CU16(2)) == 3;
+        int var15 = GetQuestState_0206e120((struct FlagManager_0205faf4_3*)flagManager, CU16(2)) == 3;
         if (var15) {
-            if (func_0206e31c((int)arg0, CU16(2))) var14 = 1;
+            if (func_0206e31c((int)flagManager, CU16(2))) var14 = 1;
         }
         return var14;
     }
@@ -285,9 +285,9 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     }
     case 25: {
         int var18 = 0;
-        int var19 = GetQuestState_0206e120((struct FlagManager_0205faf4_3*)arg0, CU16(2)) == 1;
+        int var19 = GetQuestState_0206e120((struct FlagManager_0205faf4_3*)flagManager, CU16(2)) == 1;
         if (var19) {
-            if (func_0206e31c((int)arg0, CU16(2))) var18 = 1;
+            if (func_0206e31c((int)flagManager, CU16(2))) var18 = 1;
         }
         return var18;
     }
@@ -297,9 +297,9 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return !func_0206eb98(OBJB, CU16(2));
     case 28: {
         int var20 = 0;
-        int var21 = GetQuestState_0206e120((struct FlagManager_0205faf4_3*)arg0, CU16(2)) == 0;
+        int var21 = GetQuestState_0206e120((struct FlagManager_0205faf4_3*)flagManager, CU16(2)) == 0;
         if (var21) {
-            if (func_0206e31c((int)arg0, CU16(2))) var20 = 1;
+            if (func_0206e31c((int)flagManager, CU16(2))) var20 = 1;
         }
         return var20;
     }
@@ -314,7 +314,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     case 32: {
         int var22;
         for (var22 = 0; var22 < 4; var22++) {
-            signed char var23 = ((signed char*)((int)arg1 + 4))[var22];
+            signed char var23 = ((signed char*)((int)condition + 4))[var22];
             if (var23 != 0 && var23 != ((signed char*)extra + var22)[0x2a]) break;
         }
         return var22 == 4;
@@ -322,7 +322,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     case 33: {
         unsigned char var24[4];
         __clear(var24, 4);
-        signed char* var25 = (signed char*)arg1 + 4;
+        signed char* var25 = (signed char*)condition + 4;
         int var26, var27;
         for (var26 = 0; var26 < 4; var26++) {
             signed char var28 = var25[var26];
@@ -355,20 +355,20 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     }
     case 37: {
         if (func_02096088(GetQuestManager_02094d6c(), CU16(2))) {
-            if (func_0206e31c((int)arg0, CU16(2))) return 1;
+            if (func_0206e31c((int)flagManager, CU16(2))) return 1;
         }
         return 0;
     }
     case 38: {
         if (!func_02096088(GetQuestManager_02094d6c(), CU16(2))) {
-            if (func_0206e31c((int)arg0, CU16(2))) return 1;
+            if (func_0206e31c((int)flagManager, CU16(2))) return 1;
         }
         return 0;
     }
     case 39:
-        return func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x776);
+        return func_0206dfb0((int)flagManager, OBJB + 0x8c, CU16(2) + 0x776);
     case 40:
-        return !func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x776);
+        return !func_0206dfb0((int)flagManager, OBJB + 0x8c, CU16(2) + 0x776);
     case 41: {
         struct Struct_0205faf4_2 { int unknown_0_; int unknown_4_; int unknown_8_; };
         void* var33 = FindNPCById_0203df78(GetNPCManager_0203cf4c(), EW(0));
@@ -529,111 +529,111 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     case 52: {
         struct Struct_0205faf4_20 var74;
         var74.unknown_0_ = 6; var74.unknown_2_ = CU16(2);
-        if (!func_0205faf4(arg0, &var74, extra)) return 0;
+        if (!IsConditionMet_0205faf4(flagManager, &var74, extra)) return 0;
         var74.unknown_0_ = 5; var74.unknown_2_ = CU16(4);
-        if (!func_0205faf4(arg0, &var74, extra)) return 0;
+        if (!IsConditionMet_0205faf4(flagManager, &var74, extra)) return 0;
         var74.unknown_0_ = 0x17; var74.unknown_2_ = CS16(6);
-        return func_0205faf4(arg0, &var74, extra) != 0;
+        return IsConditionMet_0205faf4(flagManager, &var74, extra) != 0;
     }
     case 53: {
         struct Struct_0205faf4_20 var75;
         var75.unknown_0_ = 6; var75.unknown_2_ = CU16(2);
-        if (!func_0205faf4(arg0, &var75, extra)) return 0;
-        if (!func_0206474c(arg0, CU16(4), CS16(6))) return 0;
+        if (!IsConditionMet_0205faf4(flagManager, &var75, extra)) return 0;
+        if (!func_0206474c(flagManager, CU16(4), CS16(6))) return 0;
         var75.unknown_0_ = 0xb; var75.unknown_2_ = CU16(8);
-        if (!func_0205faf4(arg0, &var75, extra)) return 0;
+        if (!IsConditionMet_0205faf4(flagManager, &var75, extra)) return 0;
         var75.unknown_0_ = 0x10; var75.unknown_2_ = CU16(10);
-        return func_0205faf4(arg0, &var75, extra) != 0;
+        return IsConditionMet_0205faf4(flagManager, &var75, extra) != 0;
     }
     case 54: {
         struct Struct_0205faf4_20 var76;
         var76.unknown_0_ = 6; var76.unknown_2_ = CU16(2);
-        if (!func_0205faf4(arg0, &var76, extra)) return 0;
-        if (!func_0206474c(arg0, CU16(4), CS16(6))) return 0;
+        if (!IsConditionMet_0205faf4(flagManager, &var76, extra)) return 0;
+        if (!func_0206474c(flagManager, CU16(4), CS16(6))) return 0;
         var76.unknown_0_ = 0x12; var76.unknown_2_ = CU16(8);
-        return func_0205faf4(arg0, &var76, extra) != 0;
+        return IsConditionMet_0205faf4(flagManager, &var76, extra) != 0;
     }
     case 55: {
         struct Struct_0205faf4_20 var77;
         var77.unknown_0_ = 6; var77.unknown_2_ = CU16(2);
-        if (!func_0205faf4(arg0, &var77, extra)) return 0;
-        return func_0206474c(arg0, CU16(4), CS16(6)) ? 1 : 0;
+        if (!IsConditionMet_0205faf4(flagManager, &var77, extra)) return 0;
+        return func_0206474c(flagManager, CU16(4), CS16(6)) ? 1 : 0;
     }
     case 56: {
         struct Struct_0205faf4_20 var78;
         var78.unknown_0_ = 6; var78.unknown_2_ = CU16(2);
-        if (!func_0205faf4(arg0, &var78, extra)) return 0;
-        if (!func_0206474c(arg0, CU16(4), CS16(6))) return 0;
+        if (!IsConditionMet_0205faf4(flagManager, &var78, extra)) return 0;
+        if (!func_0206474c(flagManager, CU16(4), CS16(6))) return 0;
         var78.unknown_0_ = 0x24; var78.unknown_2_ = CU16(8);
-        return func_0205faf4(arg0, &var78, extra) != 0;
+        return IsConditionMet_0205faf4(flagManager, &var78, extra) != 0;
     }
     case 57: {
         struct Struct_0205faf4_20 var79;
         var79.unknown_0_ = 6; var79.unknown_2_ = CU16(2);
-        if (!func_0205faf4(arg0, &var79, extra)) return 0;
-        if (!func_0206474c(arg0, CU16(4), CS16(6))) return 0;
+        if (!IsConditionMet_0205faf4(flagManager, &var79, extra)) return 0;
+        if (!func_0206474c(flagManager, CU16(4), CS16(6))) return 0;
         if (!func_0206eb98(OBJB, CU16(8))) return 0;
         var79.unknown_0_ = 0x17; var79.unknown_2_ = CU16(10);
-        return func_0205faf4(arg0, &var79, extra) != 0;
+        return IsConditionMet_0205faf4(flagManager, &var79, extra) != 0;
     }
     case 58: {
         struct Struct_0205faf4_20 var80;
         var80.unknown_0_ = 6; var80.unknown_2_ = CU16(2);
-        if (!func_0205faf4(arg0, &var80, extra)) return 0;
-        if (!func_0206474c(arg0, CU16(4), CS16(6))) return 0;
+        if (!IsConditionMet_0205faf4(flagManager, &var80, extra)) return 0;
+        if (!func_0206474c(flagManager, CU16(4), CS16(6))) return 0;
         if (func_0206eb98(OBJB, CU16(8))) return 0;
         var80.unknown_0_ = 0x17; var80.unknown_2_ = CU16(10);
-        return func_0205faf4(arg0, &var80, extra) != 0;
+        return IsConditionMet_0205faf4(flagManager, &var80, extra) != 0;
     }
     case 59: {
         struct Struct_0205faf4_20 var81;
         var81.unknown_0_ = 6; var81.unknown_2_ = CU16(2);
-        if (!func_0205faf4(arg0, &var81, extra)) return 0;
-        if (!func_0206474c(arg0, CU16(4), CS16(6))) return 0;
+        if (!IsConditionMet_0205faf4(flagManager, &var81, extra)) return 0;
+        if (!func_0206474c(flagManager, CU16(4), CS16(6))) return 0;
         return func_0206eb98(OBJB, CU16(8)) ? 1 : 0;
     }
     case 60: {
         struct Struct_0205faf4_20 var82;
         var82.unknown_0_ = 6; var82.unknown_2_ = CU16(2);
-        if (!func_0205faf4(arg0, &var82, extra)) return 0;
-        if (!func_0206474c(arg0, CU16(4), CS16(6))) return 0;
+        if (!IsConditionMet_0205faf4(flagManager, &var82, extra)) return 0;
+        if (!func_0206474c(flagManager, CU16(4), CS16(6))) return 0;
         return func_0206eb98(OBJB, CU16(8)) ? 0 : 1;
     }
     case 61: {
         struct Struct_0205faf4_20 var83;
         var83.unknown_0_ = 6; var83.unknown_2_ = CU16(2);
-        if (!func_0205faf4(arg0, &var83, extra)) return 0;
-        if (!func_0206474c(arg0, CU16(4), CS16(6))) return 0;
+        if (!IsConditionMet_0205faf4(flagManager, &var83, extra)) return 0;
+        if (!func_0206474c(flagManager, CU16(4), CS16(6))) return 0;
         var83.unknown_0_ = 0x17; var83.unknown_2_ = CU16(8);
-        return func_0205faf4(arg0, &var83, extra) != 0;
+        return IsConditionMet_0205faf4(flagManager, &var83, extra) != 0;
     }
     case 62: {
         struct Struct_0205faf4_20 var84;
         var84.unknown_0_ = 6; var84.unknown_2_ = CU16(2);
-        if (!func_0205faf4(arg0, &var84, extra)) return 0;
+        if (!IsConditionMet_0205faf4(flagManager, &var84, extra)) return 0;
         var84.unknown_0_ = 0; var84.unknown_2_ = CU16(4);
-        if (!func_0205faf4(arg0, &var84, extra)) return 0;
+        if (!IsConditionMet_0205faf4(flagManager, &var84, extra)) return 0;
         var84.unknown_0_ = 0x17; var84.unknown_2_ = CS16(6);
-        return func_0205faf4(arg0, &var84, extra) != 0;
+        return IsConditionMet_0205faf4(flagManager, &var84, extra) != 0;
     }
     case 63: {
         struct Struct_0205faf4_20 var85;
         var85.unknown_0_ = 6; var85.unknown_2_ = CU16(2);
-        if (!func_0205faf4(arg0, &var85, extra)) return 0;
+        if (!IsConditionMet_0205faf4(flagManager, &var85, extra)) return 0;
         var85.unknown_0_ = 1; var85.unknown_2_ = CU16(4);
-        if (!func_0205faf4(arg0, &var85, extra)) return 0;
+        if (!IsConditionMet_0205faf4(flagManager, &var85, extra)) return 0;
         var85.unknown_0_ = 0x17; var85.unknown_2_ = CS16(6);
-        return func_0205faf4(arg0, &var85, extra) != 0;
+        return IsConditionMet_0205faf4(flagManager, &var85, extra) != 0;
     }
     case 64: {
         struct Struct_0205faf4_20 var86;
         int var87;
         var86.unknown_0_ = 0;
         for (var87 = 0; var87 < 4; var87++) {
-            short var88 = ((short*)((char*)arg1 + 4))[var87];
+            short var88 = ((short*)((char*)condition + 4))[var87];
             if (var88 < 0) continue;
             var86.unknown_2_ = var88;
-            if (!func_0205faf4(arg0, &var86, extra)) return 0;
+            if (!IsConditionMet_0205faf4(flagManager, &var86, extra)) return 0;
         }
         return 1;
     }
@@ -642,10 +642,10 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         int var90;
         var89.unknown_0_ = 1;
         for (var90 = 0; var90 < 4; var90++) {
-            short var91 = ((short*)((char*)arg1 + 4))[var90];
+            short var91 = ((short*)((char*)condition + 4))[var90];
             if (var91 < 0) continue;
             var89.unknown_2_ = var91;
-            if (!func_0205faf4(arg0, &var89, extra)) return 0;
+            if (!IsConditionMet_0205faf4(flagManager, &var89, extra)) return 0;
         }
         return 1;
     }
@@ -655,11 +655,11 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return var92 == 0;
     }
     case 67:
-        return func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x1136);
+        return func_0206dfb0((int)flagManager, OBJB + 0x8c, CU16(2) + 0x1136);
     case 68:
-        return !func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x1136);
+        return !func_0206dfb0((int)flagManager, OBJB + 0x8c, CU16(2) + 0x1136);
     case 69: {
-        int var93 = func_0206483c(arg0, *(char**)((char*)arg1 + 4));
+        int var93 = func_0206483c(flagManager, *(char**)((char*)condition + 4));
         if (CU16(2) != 0) return var93;
         return var93 == 0;
     }
@@ -697,13 +697,13 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     }
     case 77: {
         int var99 = 0;
-        if (func_0206dfb0((int)arg0, OBJB + 0x8c, 0x364)) {
-            if (func_0206dfb0((int)arg0, OBJB + 0x8c, 0x365)) var99 = 1;
+        if (func_0206dfb0((int)flagManager, OBJB + 0x8c, 0x364)) {
+            if (func_0206dfb0((int)flagManager, OBJB + 0x8c, 0x365)) var99 = 1;
         }
         return var99;
     }
     case 78: {
-        unsigned short* var100 = (unsigned short*)func_02064904(arg0, CU16(2), CU16(4));
+        unsigned short* var100 = (unsigned short*)func_02064904(flagManager, CU16(2), CU16(4));
         if (var100 != NULL) {
             switch (CU16(8)) {
             case 0: return *var100 >= CU16(6);
@@ -715,7 +715,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     }
     case 79: {
         char* var101 = *(char**)((char*)GetGameResources() + REGION_VALUE(0x3500, 0x3710));
-        return *((unsigned char*)arg1 + 4) == *(unsigned char*)(var101 + 0x133) && CU16(2) == *(unsigned short*)(var101 + 0x134);
+        return *((unsigned char*)condition + 4) == *(unsigned char*)(var101 + 0x133) && CU16(2) == *(unsigned short*)(var101 + 0x134);
     }
     case 80: {
         struct Struct_0203d028_2* var102 = (struct Struct_0203d028_2*)(void*)GameState::GetInstance();
@@ -787,8 +787,8 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     }
     case 85: {
         char* var123 = (char*)GetParty_02010828((GameState*)(void*)GameState::GetInstance());
-        if (CU16(2) != 0) return *(unsigned int*)(var123 + 0xf6c) >= *(unsigned int*)((char*)arg1 + 4);
-        return *(unsigned int*)(var123 + 0xf6c) < *(unsigned int*)((char*)arg1 + 4);
+        if (CU16(2) != 0) return *(unsigned int*)(var123 + 0xf6c) >= *(unsigned int*)((char*)condition + 4);
+        return *(unsigned int*)(var123 + 0xf6c) < *(unsigned int*)((char*)condition + 4);
     }
     case 86: {
         struct Struct_0203d028_2* var124 = (struct Struct_0203d028_2*)(void*)GameState::GetInstance();
@@ -810,9 +810,9 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     }
     case 88:
         if (CU16(2) >= 0x49) return 0;
-        return func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x33e);
+        return func_0206dfb0((int)flagManager, OBJB + 0x8c, CU16(2) + 0x33e);
     case 89:
-        if (CU16(2) < 0x49) return !func_0206dfb0((int)arg0, OBJB + 0x8c, CU16(2) + 0x33e);
+        if (CU16(2) < 0x49) return !func_0206dfb0((int)flagManager, OBJB + 0x8c, CU16(2) + 0x33e);
         return 1;
     case 90: {
         struct Struct_0205faf4_15 var128;
@@ -821,7 +821,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     }
     case 91: {
         char* var129 = (char*)GetGameResources();
-        return *((unsigned char*)arg1 + 4) == *(unsigned char*)(var129 + REGION_VALUE(0x4199, 0x4449)) && CU16(2) == *(signed char*)(var129 + REGION_VALUE(0x4196, 0x4446));
+        return *((unsigned char*)condition + 4) == *(unsigned char*)(var129 + REGION_VALUE(0x4199, 0x4449)) && CU16(2) == *(signed char*)(var129 + REGION_VALUE(0x4196, 0x4446));
     }
     case 92: {
         struct Struct_0205faf4_8* var130 = FindAcceptedQuest_02096134((struct QuestManager_0205faf4_7*)GetQuestManager_02094d6c(), CU16(2));
@@ -879,8 +879,8 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     case 502:
         return func_02098ee8((struct Struct_0205faf4_12*)((char*)GetZone3D_02012fe4() + REGION_VALUE(0x860, 0x840)));
     case 503:
-        if (CU16(2) != 0) return func_0206dfb0((int)arg0, OBJB + 0x8c, 0x798);
-        return !func_0206dfb0((int)arg0, OBJB + 0x8c, 0x798);
+        if (CU16(2) != 0) return func_0206dfb0((int)flagManager, OBJB + 0x8c, 0x798);
+        return !func_0206dfb0((int)flagManager, OBJB + 0x8c, 0x798);
     case 504: {
         char* var141 = (char*)(void*)GameState::GetInstance();
         struct Struct_0205faf4_15 var142;
@@ -891,7 +891,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
     case 505:
         return func_02011b50((void*)GameState::GetInstance(), 1);
     case 506:
-        return IsQuestUnlocked_0206e2dc((struct FlagManager_0205faf4_13*)arg0, CU16(2));
+        return IsQuestUnlocked_0206e2dc((struct FlagManager_0205faf4_13*)flagManager, CU16(2));
     case 507:
         return CU16(2) == *(unsigned short*)GetZoneEntry_0200fd0c((GameState*)(void*)GameState::GetInstance());
     }

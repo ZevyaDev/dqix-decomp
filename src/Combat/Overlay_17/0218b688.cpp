@@ -220,7 +220,7 @@ extern "C" short GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void func_020a2770(void* arg0, short arg1);
 extern "C" int rand();
 extern "C" void func_0201206c(void* arg0, int arg1);
-extern "C" void func_0206dfe8(void* arg0, int arg1, int arg2);
+extern "C" void ClearFlagRange_0206dfe8(void* flagManager, int firstFlag, int flagCount);
 extern "C" void* GetEffectManager_02057924();
 struct Struct_02057930;
 extern "C" void func_02057930(Struct_02057930*);
@@ -778,7 +778,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     if (GetRequestedMovie_020115a8((GameState_02000c9c_12*)var5) == 0) {
         func_0201206c(var5, rand());
         if (GetGameMode_0200fb9c((char*)var5) != 5) {
-            func_0206dfe8(var18, 0x79e, 0x2bc);
+            ClearFlagRange_0206dfe8(var18, 0x79e, 0x2bc);
         }
     }
     void* var48 = GetEffectManager_02057924();

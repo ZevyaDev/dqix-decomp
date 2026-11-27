@@ -3,14 +3,14 @@
 
 struct Struct_0207f510;
 struct Struct_0207ef60;
-extern "C" void func_0207f510(Struct_0207f510*);
-extern "C" void func_0207ef60(Struct_0207ef60*);
+extern "C" void ResetMenuLayoutTextEntries_0207f510(Struct_0207f510*);
+extern "C" void ResetMenuLayoutWindowEntries_0207ef60(Struct_0207ef60*);
 
 // USA: ResetMenuLayout_0207f84c
 extern "C" ARM void ResetMenuLayout_0207f84c(MenuLayout_0207f7f0* menuLayout) {
     menuLayout->unknown_0_ = 0;
-    func_0207f510((Struct_0207f510*)menuLayout->unknown_4_);
-    func_0207ef60((Struct_0207ef60*)menuLayout->unknown_c_);
+    ResetMenuLayoutTextEntries_0207f510((Struct_0207f510*)menuLayout->unknown_4_);
+    ResetMenuLayoutWindowEntries_0207ef60((Struct_0207ef60*)menuLayout->unknown_c_);
     menuLayout->unknown_14_ = 0;
     menuLayout->unknown_18_ = 0;
 #if defined(jpn)

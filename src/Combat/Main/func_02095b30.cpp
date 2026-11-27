@@ -37,7 +37,7 @@ extern "C" unsigned short* GetZone3D_02012fe4();
 extern "C" int IsQuestUnlocked_0206e2dc(FlagManager_0205faf4_13*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
-extern "C" int func_02064704(void*, Struct_02064490_3*, void*);
+extern "C" int AreConditionsMet_02064704(void*, Struct_02064490_3*, void*);
 extern "C" int GetQuestState_0206e120(FlagManager_0205faf4_3*, int);
 extern "C" int func_02095ae0(FlagManager_0205faf4_3*, int);
 extern "C" void func_0206dee8(Struct_0206dee8*, unsigned char, unsigned char*, unsigned char*, unsigned char*);
@@ -63,7 +63,7 @@ extern "C" ARM void func_02095b30(Struct_02095924_2* arg0, int arg1) {
             if (var4->unknown_5_0_ * 100 + var4->unknown_5_6_ > (unsigned int)(var2[2] * 100 + var2[1])) continue;
         }
         var3.unknown_c_ = *GetZone3D_02012fe4();
-        if (!func_02064704(var0, var4->unknown_8_, &var3)) continue;
+        if (!AreConditionsMet_02064704(var0, var4->unknown_8_, &var3)) continue;
         if (inline_02095924(var0, var4->unknown_2_0_, 3) && !var4->unknown_3_1_) continue;
         if (!func_02095ae0(var0, var4->unknown_2_0_)) {
             if (!inline_02095924(var0, var4->unknown_2_0_, 3) || !var4->unknown_3_3_) continue;

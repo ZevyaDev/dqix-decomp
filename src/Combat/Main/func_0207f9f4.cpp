@@ -11,9 +11,9 @@ extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" void LoadStringList_020728ac(void* stringList, void* allocator, void* scriptData, int scriptSize, int idFilter, int idFilterCount, int skippedStringCount);
 struct PacEntry_02020aec;
 extern "C" char* GetMessageWindow_020421a0();
-extern "C" void func_0207f524(void* arg0, void* arg1, Struct_02013fb4* arg2, int arg3);
+extern "C" void LoadMenuLayoutTextEntries_0207f524(void* textEntries, void* allocator, Struct_02013fb4* scriptData, int scriptSize);
 struct Struct_0207ed1c;
-extern "C" void func_0207ef74(Struct_0207ed1c*, SafeAllocator*, Struct_02013fb4*, int);
+extern "C" void LoadMenuLayoutWindowEntries_0207ef74(Struct_0207ed1c*, SafeAllocator*, Struct_02013fb4*, int);
 
 struct MenuLayout_0207f9f4 {
     void* pStringList_0_;
@@ -61,11 +61,11 @@ extern "C" ARM int UpdateMenuLayoutLoad_0207f9f4(MenuLayout_0207f9f4* menuLayout
             }
             backgroundLoader->GetLoadedFileByID(taskIds[1], &fileData, &fileSize);
             if (fileData != 0) {
-                func_0207f524(menuLayout->textEntries_4_, menuLayout->pAllocator_14_, (Struct_02013fb4*)fileData, fileSize);
+                LoadMenuLayoutTextEntries_0207f524(menuLayout->textEntries_4_, menuLayout->pAllocator_14_, (Struct_02013fb4*)fileData, fileSize);
             }
             backgroundLoader->GetLoadedFileByID(taskIds[2], &fileData, &fileSize);
             if (fileData != 0) {
-                func_0207ef74((Struct_0207ed1c*)menuLayout->windowEntries_c_, (SafeAllocator*)menuLayout->pAllocator_14_, (Struct_02013fb4*)fileData, fileSize);
+                LoadMenuLayoutWindowEntries_0207ef74((Struct_0207ed1c*)menuLayout->windowEntries_c_, (SafeAllocator*)menuLayout->pAllocator_14_, (Struct_02013fb4*)fileData, fileSize);
             }
 
             for (int i = 0; i < 3; i++) {
@@ -99,8 +99,8 @@ extern "C" ARM int UpdateMenuLayoutLoad_0207f9f4(MenuLayout_0207f9f4* menuLayout
         menuLayout->pStringList_0_ = menuLayout->pAllocator_14_->Allocate(8);
         ResetStringList_020727d8((StringList_020727d8*)menuLayout->pStringList_0_);
         LoadStringList_020728ac(menuLayout->pStringList_0_, menuLayout->pAllocator_14_, innerFiles[0], innerLengths[0], 0, 0, 0);
-        func_0207f524(menuLayout->textEntries_4_, menuLayout->pAllocator_14_, (Struct_02013fb4*)innerFiles[1], innerLengths[1]);
-        func_0207ef74((Struct_0207ed1c*)menuLayout->windowEntries_c_, (SafeAllocator*)menuLayout->pAllocator_14_, (Struct_02013fb4*)innerFiles[2], innerLengths[2]);
+        LoadMenuLayoutTextEntries_0207f524(menuLayout->textEntries_4_, menuLayout->pAllocator_14_, (Struct_02013fb4*)innerFiles[1], innerLengths[1]);
+        LoadMenuLayoutWindowEntries_0207ef74((Struct_0207ed1c*)menuLayout->windowEntries_c_, (SafeAllocator*)menuLayout->pAllocator_14_, (Struct_02013fb4*)innerFiles[2], innerLengths[2]);
         backgroundLoader->RemoveTask(menuLayout->pacLoadTaskId_1c_);
         menuLayout->pacLoadTaskId_1c_ = -1;
 #ifdef jpn
