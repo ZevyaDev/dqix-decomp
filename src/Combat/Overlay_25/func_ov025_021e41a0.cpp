@@ -63,24 +63,24 @@ static inline void inline_ov025_021e41a0(Vector3i* arg0, int arg1) {
     arg0->z *= arg1;
 }
 
-// USA: func_ov025_021e41a0
-extern "C" ARM int func_ov025_021e41a0(Struct_ov025_021e41a0_4* arg0, BattleAction_ov000_0215440c* arg1) {
+// USA: RunBACTPlayEffectCommand_ov025_021e41a0
+extern "C" ARM int RunBACTPlayEffectCommand_ov025_021e41a0(Struct_ov025_021e41a0_4* command, BattleAction_ov000_0215440c* action) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetEffectManager_02057924();
-    Struct_ov025_021e41a0_2* var2 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg1, 0);
+    Struct_ov025_021e41a0_2* var2 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)action, 0);
     if (!var2) return 0;
     int var3 = var2->unknown_20_;
     GameObject* var4 = var0->GetGameObjectByIndex(var3);
     int var5 = var4->obj3D_.normalizedAnimationTime_;
-    if (arg0->unknown_18_ > 0 && var5 < arg0->unknown_18_) return 0;
+    if (command->unknown_18_ > 0 && var5 < command->unknown_18_) return 0;
     EffectParams_02078398_2 var6;
     InitEffectParams_02078484(&var6);
     var6.unknown_11_2_ = 0;
     int var7 = 1;
-    if (arg0->unknown_10_ & 1) {
+    if (command->unknown_10_ & 1) {
         Vector3i var8 = {};
-        for (int var9 = 0; var9 < arg1->targetCount_9_; var9++) {
-            Struct_ov025_021e41a0_3* var10 = GetActionTarget_ov000_021600f8(arg1, var9);
+        for (int var9 = 0; var9 < action->targetCount_9_; var9++) {
+            Struct_ov025_021e41a0_3* var10 = GetActionTarget_ov000_021600f8(action, var9);
             if (var10) {
                 GameObject* var11 = var0->GetGameObjectByIndex(var10->unknown_e_);
                 if (var11) {
@@ -90,12 +90,12 @@ extern "C" ARM int func_ov025_021e41a0(Struct_ov025_021e41a0_4* arg0, BattleActi
                 }
             }
         }
-        if (arg1->targetCount_9_) {
-            int var13 = 4096.0f * (1.0f / (unsigned int)arg1->targetCount_9_);
+        if (action->targetCount_9_) {
+            int var13 = 4096.0f * (1.0f / (unsigned int)action->targetCount_9_);
             Vector3fixMultiplyScalar(&var8, var13, &var8);
         }
-        Struct_ov025_021e41a0_3* var14 = GetActionTarget_ov000_021600f8(arg1, 0);
-        Vector3i var15 = {arg0->unknown_12_, arg0->unknown_14_, arg0->unknown_16_};
+        Struct_ov025_021e41a0_3* var14 = GetActionTarget_ov000_021600f8(action, 0);
+        Vector3i var15 = {command->unknown_12_, command->unknown_14_, command->unknown_16_};
         int var16 = 0;
         int var17 = var14->unknown_e_;
         if (var17 >= 0 && var17 <= 3) var16 = 1;
@@ -109,9 +109,9 @@ extern "C" ARM int func_ov025_021e41a0(Struct_ov025_021e41a0_4* arg0, BattleActi
         var7 = 0;
     }
     if (var7) var6.unknown_14_ = var3;
-    if (arg0->unknown_8_) strcpy(var6.unknown_0_, arg0->unknown_8_);
-    var6.unknown_10_ = arg0->unknown_c_;
-    var6.unknown_11_0_ = arg0->unknown_1a_;
+    if (command->unknown_8_) strcpy(var6.unknown_0_, command->unknown_8_);
+    var6.unknown_10_ = command->unknown_c_;
+    var6.unknown_11_0_ = command->unknown_1a_;
     if (var6.unknown_11_0_) {
         var6.unknown_14_ = -1;
         var6.unknown_44_.x = 0x800;
@@ -119,9 +119,9 @@ extern "C" ARM int func_ov025_021e41a0(Struct_ov025_021e41a0_4* arg0, BattleActi
         var6.unknown_44_.z = 0x800;
     }
     Struct_ov025_021e41a0* var20 = GetBattleScene_ov000_02160130();
-    var20->unknown_6f02_ = arg0->unknown_e_;
-    void* var21 = PlayEffect_02057fb4(var1, arg0->unknown_e_, &var6);
-    void** var22 = func_ov025_021e8cf0(data_ov025_021ef988.unknown_c_, arg0->unknown_d_);
+    var20->unknown_6f02_ = command->unknown_e_;
+    void* var21 = PlayEffect_02057fb4(var1, command->unknown_e_, &var6);
+    void** var22 = func_ov025_021e8cf0(data_ov025_021ef988.unknown_c_, command->unknown_d_);
     if (var22) *var22 = var21;
     return 1;
 }
